@@ -11,15 +11,15 @@ Version 1.0
 
 A **cold fusion reaction**, as this paper uses the term, is a nuclear fusion event in which the approach to nuclear separation is supplied by molecular binding geometry rather than by kinetic energy. The definition is structural rather than thermal: it does not say the reaction is cold in the everyday sense, only that the work of bringing two nuclei within tunnelling range is done by a bound state instead of by a collision. The reaction the definition picks out is muon-catalysed fusion, a laboratory phenomenon since the 1950s, and the paper's first result is that the definition picks out that and nothing else.
 
-Seven conditions are necessary for such an event to occur and to be checkable. Applied to the closed index of charged particles they admit **exactly one** binder — the negative muon — because the conditions place both a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has a single occupant. Of 13 charged particles scanned, 5 outlive the mesomolecular formation time and 2 lie inside the window; one survives the remaining test. The window's lower bound may move by 207 and its upper by 3.54 before that count changes.
+Seven conditions are necessary for such an event to occur and to be checkable. Applied to the closed index of charged particles they admit **exactly one** binder — the negative muon — because the conditions place both a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has a single occupant. Of 13 charged particles scanned, 5 outlive the mesomolecular formation time and 2 lie inside the window; one survives the remaining test. The window's lower bound may move by a factor of 207 and its upper by 3.54 before that count changes.
 
-A second uniqueness result closes the other half of the configuration, and it is stated here as a theorem rather than as the working assumption it has long been. **The fuel is unique as well.** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder by 77.85 against the next candidate — and the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one.
+A second uniqueness result closes the other half of the configuration, and it is stated here as a theorem rather than as the working assumption it has long been. **The fuel is unique as well.** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder by a factor of 77.85 against the next candidate — and the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one.
 
 The reaction is therefore not speculative, and its uniqueness is not assumed. What has never been observed is a configuration of it that returns more energy than it costs to run, and the distance between those two statements is what the rest of the paper measures. An **eighth condition** makes the question answerable: a binder is worth making only if `E_binder < Q_fus · f_work / ω_s`. Every term in it has been measured. Integrating the published pion production cross sections puts production alone at 11.13 GeV per pion, so even a perfect collector would leave the heat form short; sticking is shown to be independent of the binder's mass, so the condition is a specification on the machine rather than a search over the spectrum; and the break-point in sticking lies **below both** published readings rather than between them, so no choice between them repairs the heat form.
 
-Stated at the acceptance the machine actually delivers rather than at an assumed collection, and at the sticking the record supports, **nothing clears unity with the machine as built**. The closest is bred fuel at the demonstrated 150 cycles per binder, at 0.623; with both specified collector alterations it reaches 0.957, short of unity by 1.045 and short by no term other than a loss budget that has never been measured end to end.
+Stated at the acceptance the machine actually delivers rather than at an assumed collection, and at the sticking the record supports, **nothing clears unity at the production cost this paper integrates**. The closest is bred fuel at the demonstrated 150 cycles per binder, at 0.623 as built; with both specified collector alterations it reaches 0.957, short of unity by a factor of 1.045 and short by no term other than a loss budget that has never been measured end to end. One route does cross — bred fuel through a *published* optimisation of the production target, at 1.480 — and it crosses on a figure worth 2.373 that this paper prices and **declines to adopt**, because the gap between that optimisation and the integrated 11.13 GeV is a discrepancy the paper records and does not close.
 
-A final result runs the other way and is reported as a quantity to measure rather than a result to build on. **A deuterium cell does not stay a deuterium cell**: one *d*–*d* branch makes tritium, *dtμ* forms far faster than *ddμ*, and the cell tritiates itself to an equilibrium of 0.6211 percent by atom. Such a cell holds 64.71 less tritium than the specified one and needs no lithium and no breeding blanket, at the cost of a fusion yield 48.38 smaller per binder.
+A final result runs the other way and is reported as a quantity to measure rather than a result to build on. **A deuterium cell does not stay a deuterium cell**: one *d*–*d* branch makes tritium, *dtμ* forms far faster than *ddμ*, and the cell tritiates itself to an equilibrium of 0.6211 percent by atom. Such a cell holds 64.71 less tritium than the specified one and needs no lithium and no breeding blanket, at the cost of a fusion yield a factor of 48.38 smaller per binder.
 
 The paper closes with the reaction specified to the point where another laboratory could build it, the machine that would supply the binders, the procedure that would witness the configuration, and a statement of exactly what is proved and what is not. **The configuration in which the binder is a byproduct of a beam already running for another purpose is not priced here**; it changes the accounting rather than the reaction, and it is the subject of a separate paper.
 
@@ -41,7 +41,7 @@ Seven conditions are necessary for such an event to occur and to be checkable. T
 1. **Reproducibility from a specification.** The configuration must be statable in terms another laboratory can build.
 The second of these is what rules out the ordinary electronic molecule, and it does so by a margin that no arrangement of chemistry repairs. In a muonic *dt* molecule the two nuclei sit 280 fm apart; in the electronic molecule they sit 74100 fm apart. Because the tunnelling rate depends exponentially on that separation, the difference between the two amounts to some ninety-one orders of magnitude in the rate.
 
-It is sometimes suggested that screening in a dense medium might make up the difference. It cannot, and the reason is a conservation argument rather than a measurement. Reaching the required approach by screening alone would call for 88 eV of static screening, where the ceiling available in condensed matter is 30 eV — short by 2.9, which corresponds to 27 orders of magnitude in the rate. For scale, a vibrational quantum in D₂ is 0.365 eV, and that is the order of the energy actually on offer.
+It is sometimes suggested that screening in a dense medium might make up the difference. It cannot, and the reason is a conservation argument rather than a measurement. Reaching the required approach by screening alone would call for 88 eV of static screening, where the ceiling available in condensed matter is 30 eV — short by a factor of 2.9, which corresponds to 27 orders of magnitude in the rate. For scale, a vibrational quantum in D₂ is 0.365 eV, and that is the order of the energy actually on offer.
 
 
 ## 2. The unique realisation
@@ -76,20 +76,22 @@ The candidate set closes the same way §2's did. A mesomolecular fuel is a **pai
 
 so that a *slow* cycle is punished by decay and a *sticky* one by sticking, and a fuel must escape both to be worth anything. Proposition 10 in §14.8 derives it. The free decay rate is 4.5517 × 10^5 s^-1.
 
-| pair | cycles per muon | energy per muon | neutrons per muon |
-|---|---|---|---|
-| **d–t** | **113.08 cycles** | **1989.1 MeV** | **113.08** |
-| t–t | 2.26 cycles | 25.55 MeV | — |
-| d–d | 2.36 cycles | 8.62 MeV | — |
-| p–d, p–t, p–p, and the helium pairs | below unity | below the d–d entry | — |
+| pair | cycles per muon | energy per muon |
+|---|---|---|
+| **d–t** | **113.08 cycles** | **1989.1 MeV** |
+| t–t | 2.26 cycles | 25.55 MeV |
+| d–d | 2.36 cycles | 8.62 MeV |
+| p–d, p–t, p–p, and the helium pairs | below unity | below the d–d entry |
 
-> **Theorem 4 (uniqueness of the fuel).** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder, by 77.85 against the next candidate. Theorem 4 in §14.8 proves it.
+> **Theorem 4 (uniqueness of the fuel).** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder, by a factor of 77.85 against the next candidate. §14.8 proves it.
 
 Two features of that result matter more than the ranking itself.
 
-**The runner-up uses more tritium, not less.** The second-placed pair is *t*–*t*, so nothing is gained on the reaction's principal liability by moving down the list. Against *d*–*d* — the only tritium-free pair with any cycle rate at all — *d*–*t* is 230.76 on energy per binder and 95.77 on neutrons.
+**The runner-up uses more tritium, not less.** The second-placed pair is *t*–*t*, so nothing is gained on the reaction's principal liability by moving down the list. Against *d*–*d* — the only tritium-free pair with any cycle rate at all — *d*–*t* is ahead by factors of 230.76 on energy per binder and 95.77 on neutrons.
 
 **So *d*–*t* is not a preference.** It is the only pair whose cycle is fast enough to outrun the muon and whose sticking is low enough to let it repeat, and every other admissible pair fails one of those two tests by more than an order of magnitude. Taken with §2, the reaction is unique in its binder and unique in its fuel, and neither uniqueness was assumed.
+
+**What the ranking does not settle.** It ranks on energy returned per binder, which is the right objective for a machine that must pay for its binders and the wrong one for a machine judged on what it must hold. A designer weighing tritium inventory rather than yield is asking a different question, the ranking cannot see it, and §8 answers it.
 
 **The model is used for ratios and never for an absolute.** Run on *d*–*t* it returns 113.08 cycles against the 150 cycles measured at Los Alamos, a fidelity of 0.7539. That is close enough to rank fuels against one another and not close enough to price a machine, so every balance in this paper uses the measured count and none uses the model's.
 
@@ -131,7 +133,7 @@ Pion production has been measured double-differentially, so obtaining the yield 
 
 > This settles the first question a reader is likely to ask. 11.13 GeV is what a pion costs before any collector exists at all, so it is a floor on the binder's cost. Set against the heat bound of 7.52 GeV, even a *perfect* collector — one in which every pion produced became a stopped binder, which no machine approaches — would leave the heat form short. **The gap is not in the collector**, and no improvement to it can be the answer.
 
-It is worth noting which hemisphere carries the yield, because a common argument turns on it. The forward hemisphere is the large one, at 15 percent of combined production against the backward sliver's 35 percent of the measured acceptance. Since the machine that has been built captures the forward hemisphere, a suggestion that a reactor might gain a large factor by capturing the other one is a suggestion about the smaller half, and the gain available is correspondingly modest.
+It is worth noting which hemisphere carries the yield, because a common argument turns on it. The machine that has been built captures the **forward** hemisphere, and it is sometimes suggested that a reactor could gain a large factor by capturing the backward one as well. Run through the acceptance model of §6.1 that gain is 1.20 — worth having, and not a factor of several. The two acceptance windows the integration above uses are not hemispheres and should not be read as though they were: the forward window contributes 15 percent of combined production, while the backward sliver is 35 percent of the *measured acceptance*, which is a different denominator.
 
 
 ### 5.2 Three results that move the balance
@@ -183,7 +185,7 @@ The second is that each loss lying between a produced pion and a stopped binder 
 | adiabatic transport | 1.000 [DESIGN] | unity **by design**, conditional on the bore schedule |
 | **product** | **0.7127** |  |
 
-**The delivered acceptance is therefore 31.66 percent** at today's aperture, or 37.62 percent at the wider bore — against the 90 percent [DESIGN] the balances were read at.
+**The delivered acceptance is therefore 31.66 percent** at today's aperture, or 37.62 percent at the wider bore — against the 90 percent [DESIGN] figure at which the preprints at [18] read them, and which §7 restates every one of them away from.
 
 ![Figure 5](papers/figures/fig5-budget.png)
 
@@ -194,7 +196,7 @@ The second is that each loss lying between a produced pion and a stopped binder 
 
 Two corrections stand between the figures the preprints at [18] printed and the ones below, and it is worth taking them in order because the second is the larger.
 
-**The first is the acceptance**, and §6.2 has just made it. The second is the **service life**, and it comes from the preprints' own later sections rather than from anything new here. Every balance printed there was computed at one of two service lives: the **measured** 150 cycles per binder, and a modelled "bound case". Reading the printed table backwards through the balance — Proposition 1 in §14.2 fixes its form, and the table's own columns check it — the bound case is 588.9 cycles. That is the model run at an effective sticking of 0.1487 percent [WITHDRAWN], a value formed by multiplying an excited-state initial sticking by a survival fraction measured on the **ground** state — two different states. Fusion occurs from the ground state, and the record's own measured values are 0.5050 percent and 0.5320 percent; at the favourable one the same density returns 190.1 cycles instead of 588.9. **Every bound-case figure in the record is therefore high by 3.10.**
+**The first is the acceptance**, and §6.2 has just made it. The second is the **service life**, and it comes from the preprints' own later sections rather than from anything new here. Every balance printed there was computed at one of two service lives: the **measured** 150 cycles per binder, and a modelled "bound case". Reading the printed table backwards through the balance — Proposition 1 in §14.2 fixes its form, and the table's own columns check it — the bound case is 588.9 cycles. That is the model run at an effective sticking of 0.1487 percent [WITHDRAWN], a value formed by multiplying an excited-state initial sticking by a survival fraction measured on the **ground** state — two different states. Fusion occurs from the ground state, and the record's own measured values are 0.5050 percent and 0.5320 percent; at the favourable one the same density returns 190.1 cycles instead of 588.9. **Every bound-case figure in the record is therefore high by a factor of 3.10.**
 
 > **The rows computed at the measured cycle count are untouched by that**, because they never used the model at all — and that asymmetry, more than any other single fact in this paper, decides which route survives.
 
@@ -211,10 +213,6 @@ Restating is exact rather than approximate: the balance is linear in collection 
 | bred fuel, the model at 8.5 × liquid | 0.790 | 1.212 |
 
 > **Nothing clears unity with the machine as built**, and the closest is bred fuel at the measured cycle count, at 0.623. **With both collector alterations that route reaches 0.957** — short of unity by 1.045, and short of it by no other term than the loss budget, which is the one quantity in the whole column that has never been measured. The figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that rest on the superseded sticking. Each stands as the conditional it was stated at.
-
-![Figure 5](papers/figures/fig5-budget.png)
-
-**Figure 5.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
 
 
 ### 7.1 What the specified alterations do to every balance
@@ -236,11 +234,11 @@ Restating is exact rather than approximate: the balance is linear in collection 
 
 **Figure 4.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
 
-**Two things fall out of that table, and they point in opposite directions.**
+**Two things fall out of that table, and the second qualifies the first.**
 
-> **No heat form and no work form clears unity anywhere in this paper.** The largest either reaches is **0.513**, and it is reached only by granting, simultaneously, the optimised production target, the wider bore, the wider stopping window *and* a fuel density of 8.5 × liquid that no experiment has held. **A device that returns its energy as heat or as work is not self-sustaining on anything this paper can construct**, and that is a closed statement rather than an open question: Theorem 3 of §14 shows the same thing from the other direction. **Bred fuel at the measured cycle count clears unity, and it asks for the least of anything here.** At 1.480 with the target alone and **2.271** with all three alterations, it uses **no service-life model, no density above the one already reached, and no choice between the two sticking measurements**. Its inputs are the 150 cycles measured at Los Alamos, the sourced blanket of §5.2, the production cost integrated from measured cross sections in §5.1, and the collection the machine of §10 delivers. **That is the configuration this paper offers as self-sustaining and unwitnessed**, and §13 states exactly which of its terms have been measured and which have not.
+> **No heat form and no work form clears unity anywhere in this paper.** The largest either reaches is **0.513**, and it is reached only by granting, simultaneously, the optimised production target, the wider bore, the wider stopping window *and* a fuel density of 8.5 × liquid that no experiment has held. **A device that returns its energy as heat or as work is not self-sustaining on anything this paper can construct**, and that is a closed statement rather than an open question: Theorem 3 of §14 shows the same thing from the other direction. **Bred fuel is the one row that crosses unity, and it crosses only through the optimised target.** At 1.480 with that target alone and **2.271** with all three alterations, the row uses **no service-life model, no density above the one already reached, and no choice between the two sticking measurements** — its inputs are the 150 cycles measured at Los Alamos, the sourced blanket of §5.2 and the collection the machine of §10 delivers. **But it does not cross on this paper's own production cost.** At the 11.13 GeV §5.1 integrates, the same route reaches 0.623 as built and 0.957 with both collector alterations, short of unity by a factor of 1.045; **everything above unity in the table above is bought by the 4.69 GeV optimisation**, which this paper prices and declines to adopt.
 
-**One condition travels with it and is not yet discharged.** 4.69 GeV is a published optimisation of the production target. This paper prices what it is worth without adopting it as a figure of its own, and a normalisation measurement on one target is what would settle it. Without it the same route reaches 0.957 — which is 1.045 short, and short by less than the uncertainty on the one term in it nobody has measured.
+**Which half of that table is this paper's, and it is the first.** 4.69 GeV is a *published* optimisation of the production target, worth a factor of 2.373 on every balance; §5.1 integrates 11.13 GeV from measured cross sections and that is the figure this paper stands behind. The two are a discrepancy §12 records and does not close, and a normalisation measurement on one target — pions per beam particle against pions per interaction, nothing else changed — is what would settle it. **Until it is made, the reading this paper offers is the first column: the best route reaches 0.957 against the unity it must clear, falls short by a factor of 1.045, and falls short by no term other than a loss budget nobody has measured end to end.**
 
 
 ---
@@ -267,7 +265,7 @@ and the tritium concentration that produces that split follows from the two form
 | energy per muon | 29.09 MeV |
 | neutrons per muon | 2.337 neutrons |
 
-> **A cell that makes its own tritium holds 64.71 less of it** than the *d*–*t* cell §9 specifies — a percent rather than half — and it needs no external tritium, no lithium and no breeding blanket to hold that inventory against decay. **What it costs is the reaction's yield, by 48.38 in neutrons per binder.**
+> **A cell that makes its own tritium holds a factor of 64.71 less of it** than the *d*–*t* cell §9 specifies — a percent rather than half — and it needs no external tritium, no lithium and no breeding blanket to hold that inventory against decay. **What it costs is the reaction's yield, by a factor of 48.38 in neutrons per binder.**
 
 **Two things are not claimed here.** The equilibrium above is a first-order balance between two formation rates and two branching ratios, and it is offered as a quantity to measure rather than as a result to build on. And it runs against a known effect this paper does not compute: the other *d*–*d* branch makes ³He, muon transfer to ³He is fast, and ³He is an established poison in deuterium cells. Counting it would lower every entry in the table above by an amount only a measurement can fix.
 
@@ -451,7 +449,7 @@ This section answers the third directive. **Standing conventions**, and they are
 
 ## 12. Limits, and what this paper does not claim
 
-Each item below is a limit on what the foregoing establishes. None of them is resolved by argument in this paper, and where a measurement would settle one, that measurement is named. §14.8 lists the three that bear most directly on the results.
+Each item below is a limit on what the foregoing establishes. None of them is resolved by argument in this paper, and where a measurement would settle one, that measurement is named. §14.9 lists the three that bear most directly on the results.
 
 **The operative sticking is unresolved between two measurements**, though not in a way that changes the heat form's verdict. 0.5050 percent and 0.5320 percent are the two effective values the measured reactivation returns, and both lie above the break-point at 0.1580 percent, so the heat form fails at perfect collection on either. What the disagreement leaves open is the service life, and with it every balance that depends on it. §11's protocol settles it, and nothing here stands in for that.
 
@@ -465,7 +463,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §5.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **A normalisation measurement on one target would settle it: pions per beam particle against pions per interaction, with nothing else changed.**
 
-**And the standalone configuration is closed rather than open.** Theorem 3 of §14 is a theorem, and no measurement in §11 can overturn it. What a measurement can decide is the co-product configuration and the bred-fuel route, which are the two that survive.
+**And the standalone configuration is closed rather than open.** Theorem 3 of §14 is a theorem, and no measurement in §11 can overturn it. What a measurement can decide is the bred-fuel route, which is the one this paper leaves standing, and the production cost that route turns on.
 
 
 ---
@@ -477,15 +475,16 @@ Each of the following is a theorem or a derivation from measured inputs. None of
 
 1. **A cold fusion reaction exists and has been witnessed.** The definition of §1 is structural, and the reaction it picks out has run in laboratories since the 1950s. Its cycle rates, its sticking fractions and its ash have all been measured.
 1. **The binder is unique.** The seven conditions place a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has exactly one occupant in the charged spectrum (Theorem 1, §14.3). Of 13 charged particles scanned, 5 outlive the mesomolecular formation time, 2 lie inside the window, and one survives the hadron test.
-1. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy returned per binder by 77.85 against the next candidate (Theorem 4, §14.8) — and the runner-up uses more tritium rather than less.
-1. **The window is not a near thing.** Its lower bound may move by 207 and its upper by 3.54 before the count of occupants changes.
+1. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy returned per binder by a factor of 77.85 against the next candidate (Theorem 4, §14.8) — and the runner-up uses more tritium rather than less.
+1. **The window is not a near thing.** Its lower bound may move by a factor of 207 and its upper by 3.54 before the count of occupants changes.
 1. **An eighth condition decides whether the reaction is worth running**, and it contains no free parameter (Proposition 1, §14.2). Every term in it has been measured.
 1. **Sticking does not depend on the binder's mass** (Theorem 2, §14.4), so condition 8 is a specification on the machine and not a search over the spectrum. There is in any case no other occupant of the window to search for.
 1. **The production floor is measured rather than modelled.** Integrating the published double-differential cross sections puts production alone at 11.13 GeV per pion, which is a cost no collector can argue away.
 1. **The acceptance model is validated against an independent simulation** of a machine that was built, agreeing to 0.982.
 1. **The standalone configuration is closed** (Theorem 3, §14): at the production floor, no admissible binder pays for itself as heat at any collector. The break-point sits at 0.1580 percent and lies **below both** published sticking readings, so no choice between them repairs it.
-1. **Nothing clears unity with the machine as built.** The closest is bred fuel at the measured 150 cycles, at 0.623; with both collector alterations of §7.1 it reaches 0.957, short of unity by 1.045 and short by no term other than the loss budget, which is the one quantity in the column that has never been measured.
-> **The reaction is proved and it is witnessed. Its binder is unique, its fuel is unique, and its energy account is closed in the sense that every term in it is named and priced. What is not proved is that any device-internal configuration of it returns more than it costs, and §7 states how far short the best one falls.** That is the whole of the claim, and no part of it is larger than the evidence behind it.
+1. **Nothing clears unity at this paper's own production cost.** The closest is bred fuel at the measured 150 cycles, at 0.623 as built; with both collector alterations of §7.1 it reaches 0.957, short of unity by a factor of 1.045 and short by no term other than the loss budget, which is the one quantity in the column that has never been measured.
+1. **One route does cross unity, and it crosses on a figure this paper declines to adopt.** Through a *published* optimisation of the production target at 4.69 GeV — worth a factor of 2.373 on every balance against the 11.13 GeV §5.1 integrates — bred fuel at the measured cycle count reaches 1.480, and 2.271 with all three alterations. **That factor is a discrepancy §12 records and does not close**, so the route is reported and not claimed, and a normalisation measurement on one target is what would settle it.
+> **The reaction is proved and it is witnessed. Its binder is unique, its fuel is unique, and its energy account is closed in the sense that every term in it is named and priced. What is not proved is that any device-internal configuration of it returns more than it costs at a production cost this paper is willing to stand behind** — §7 states how far short the best one falls, and the item immediately above states the one route that crosses and whose figure it crosses on. That is the whole of the claim, and no part of it is larger than the evidence behind it.
 
 **What this paper does not do.** It does not price the configuration in which the binder is a byproduct of a beam already running for another purpose, and it does not price a blanket. Both change the accounting rather than the reaction, both are the subject of a separate paper, and neither is needed for anything claimed above.
 
@@ -663,7 +662,7 @@ cycles in expectation.
 
 *Proof.* The set is finite and closed: two nuclei drawn with repetition from the three hydrogen isotopes give 6 pairs, and the helium pairs are enumerated beside them. For each, $\lambda_c$ and $\omega_s$ are measured quantities and $Q$ is fixed by the masses. Evaluating Proposition 8 on each and multiplying by $Q$ gives the table of §3, whose maximum is $d$–$t$ at 1989.1 MeV against 25.55 MeV for the next entry — a factor of 77.85. The ordering is a finite comparison over measured inputs and contains no free parameter. ∎
 
-**Corollary.** No pair without tritium comes within 230.76 of $d$–$t$ on energy per binder, so the reaction's tritium requirement is not an artefact of the choice of fuel. It follows from the fuel being unique.
+**Corollary.** No pair without tritium comes within a factor of 230.76 of $d$–$t$ on energy per binder, so the reaction's tritium requirement is not an artefact of the choice of fuel. It follows from the fuel being unique.
 
 **Proposition 11 (the self-tritiating equilibrium).** A cell charged with pure deuterium reaches a steady state in which a fraction $f_{dt} = 1/3$ of fusions run on $d$–$t$.
 

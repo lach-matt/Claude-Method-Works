@@ -19,11 +19,11 @@ index of charged particles they admit **exactly one** binder — the negative mu
 conditions place both a floor and a ceiling on the binder's mass, and the window between them,
 [[C13]] to [[C14]], has a single occupant. Of [[C851]] charged particles scanned, [[C858]] outlive the
 mesomolecular formation time and [[C852]] lie inside the window; one survives the remaining test. The
-window's lower bound may move by [[C855]] and its upper by [[C856]] before that count changes.
+window's lower bound may move by a factor of [[C855]] and its upper by [[C856]] before that count changes.
 
 A second uniqueness result closes the other half of the configuration, and it is stated here as a
 theorem rather than as the working assumption it has long been. **The fuel is unique as well.** Over the closed set of light-nucleus pairs a muon can
-bind, *d*–*t* maximises the energy returned per binder by [[C980]] against the next candidate — and
+bind, *d*–*t* maximises the energy returned per binder by a factor of [[C980]] against the next candidate — and
 the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but
 the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a
 slow cycle exactly as it punishes a sticky one.
@@ -39,16 +39,19 @@ machine rather than a search over the spectrum; and the break-point in sticking 
 published readings rather than between them, so no choice between them repairs the heat form.
 
 Stated at the acceptance the machine actually delivers rather than at an assumed collection, and at
-the sticking the record supports, **nothing clears unity with the machine as built**. The closest is
-bred fuel at the demonstrated [[C44]] per binder, at [[C767]]; with both specified collector
-alterations it reaches [[C787]], short of unity by [[C865]] and short by no term other than a loss
-budget that has never been measured end to end.
+the sticking the record supports, **nothing clears unity at the production cost this paper
+integrates**. The closest is bred fuel at the demonstrated [[C44]] per binder, at [[C767]] as built;
+with both specified collector alterations it reaches [[C787]], short of unity by a factor of [[C865]] and short
+by no term other than a loss budget that has never been measured end to end. One route does cross —
+bred fuel through a *published* optimisation of the production target, at [[C771]] — and it crosses
+on a figure worth [[C829]] that this paper prices and **declines to adopt**, because the gap between
+that optimisation and the integrated [[C100]] is a discrepancy the paper records and does not close.
 
 A final result runs the other way and is reported as a quantity to measure rather than a result to
 build on. **A deuterium cell does not stay a deuterium cell**: one *d*–*d* branch makes tritium, *dtμ*
 forms far faster than *ddμ*, and the cell tritiates itself to an equilibrium of [[C986]] by atom. Such
 a cell holds [[C992]] less tritium than the specified one and needs no lithium and no breeding
-blanket, at the cost of a fusion yield [[C993]] smaller per binder.
+blanket, at the cost of a fusion yield a factor of [[C993]] smaller per binder.
 
 The paper closes with the reaction specified to the point where another laboratory could build it, the
 machine that would supply the binders, the procedure that would witness the configuration, and a
@@ -97,7 +100,7 @@ the rate.
 It is sometimes suggested that screening in a dense medium might make up the difference. It cannot,
 and the reason is a conservation argument rather than a measurement. Reaching the required approach by
 screening alone would call for [[C43]] of static screening, where the ceiling available in condensed
-matter is [[C42]] — short by [[C68]], which corresponds to [[C69]] of magnitude in the rate. For
+matter is [[C42]] — short by a factor of [[C68]], which corresponds to [[C69]] of magnitude in the rate. For
 scale, a vibrational quantum in D₂ is [[C51]], and that is the order of the energy actually on
 offer.
 
@@ -155,26 +158,31 @@ and `λ_0` for the free decay rate,
 so that a *slow* cycle is punished by decay and a *sticky* one by sticking, and a fuel must escape both
 to be worth anything. Proposition 10 in §14.8 derives it. The free decay rate is [[C972]].
 
-| pair | cycles per muon | energy per muon | neutrons per muon |
-|---|---|---|---|
-| **d–t** | **[[C974]]** | **[[C977]]** | **[[C974#]]** |
-| t–t | [[C976]] | [[C978]] | — |
-| d–d | [[C975]] | [[C979]] | — |
-| p–d, p–t, p–p, and the helium pairs | below unity | below the d–d entry | — |
+| pair | cycles per muon | energy per muon |
+|---|---|---|
+| **d–t** | **[[C974]]** | **[[C977]]** |
+| t–t | [[C976]] | [[C978]] |
+| d–d | [[C975]] | [[C979]] |
+| p–d, p–t, p–p, and the helium pairs | below unity | below the d–d entry |
 
 > **Theorem 4 (uniqueness of the fuel).** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t*
-> maximises the energy returned per binder, by [[C980]] against the next candidate. Theorem 4 in §14.8 proves it.
+> maximises the energy returned per binder, by a factor of [[C980]] against the next candidate. §14.8 proves it.
 
 Two features of that result matter more than the ranking itself.
 
 **The runner-up uses more tritium, not less.** The second-placed pair is *t*–*t*, so nothing is gained
 on the reaction's principal liability by moving down the list. Against *d*–*d* — the only tritium-free
-pair with any cycle rate at all — *d*–*t* is [[C981]] on energy per binder and [[C982]] on neutrons.
+pair with any cycle rate at all — *d*–*t* is ahead by factors of [[C981]] on energy per binder and [[C982]] on neutrons.
 
 **So *d*–*t* is not a preference.** It is the only pair whose cycle is fast enough to outrun the muon
 and whose sticking is low enough to let it repeat, and every other admissible pair fails one of those
 two tests by more than an order of magnitude. Taken with §2, the reaction is unique in its binder and
 unique in its fuel, and neither uniqueness was assumed.
+
+**What the ranking does not settle.** It ranks on energy returned per binder, which is the right
+objective for a machine that must pay for its binders and the wrong one for a machine judged on what
+it must hold. A designer weighing tritium inventory rather than yield is asking a different question,
+the ranking cannot see it, and §8 answers it.
 
 **The model is used for ratios and never for an absolute.** Run on *d*–*t* it returns [[C974]] against
 the [[C44]] measured at Los Alamos, a fidelity of [[C983]]. That is close enough to rank fuels against
@@ -263,10 +271,12 @@ works out at [[C100]] per pion. Proposition 7 in §14.6 sets out the integral.
 > and no improvement to it can be the answer.
 
 It is worth noting which hemisphere carries the yield, because a common argument turns on it. The
-forward hemisphere is the large one, at [[C101]] of combined production against the backward sliver's
-[[C91]] of the measured acceptance. Since the machine that has been built captures the forward
-hemisphere, a suggestion that a reactor might gain a large factor by capturing the other one is a
-suggestion about the smaller half, and the gain available is correspondingly modest.
+machine that has been built captures the **forward** hemisphere, and it is sometimes suggested that a
+reactor could gain a large factor by capturing the backward one as well. Run through the acceptance
+model of §6.1 that gain is [[C380]] — worth having, and not a factor of several. The two acceptance
+windows the integration above uses are not hemispheres and should not be read as though they were:
+the forward window contributes [[C101]] of combined production, while the backward sliver is [[C91]]
+of the *measured acceptance*, which is a different denominator.
 
 ### 5.2 Three results that move the balance
 
@@ -349,7 +359,8 @@ than assumed. They are as follows.
 | **product** | **[[C742]]** | |
 
 **The delivered acceptance is therefore [[C753]]** at today's aperture, or [[C754]] at the wider bore
-— against the [[C260!]] the balances were read at.
+— against the [[C260!]] figure at which the preprints at [18] read them, and
+which §7 restates every one of them away from.
 
 !!fig:5!!
 
@@ -367,7 +378,7 @@ run at an effective sticking of [[C882!]], a value formed by multiplying an exci
 sticking by a survival fraction measured on the **ground** state — two different states. Fusion occurs
 from the ground state, and the record's own measured values are [[C113]] and [[C114]]; at the
 favourable one the same density returns [[C176#]] cycles instead of [[C861#]].
-**Every bound-case figure in the record is therefore high by
+**Every bound-case figure in the record is therefore high by a factor of
 [[C862]].**
 
 > **The rows computed at the measured cycle count are untouched by that**, because they never used the
@@ -396,8 +407,6 @@ wider bore and the wider stopping window — which together deliver [[C867]].
 > in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that
 > rest on the superseded sticking. Each stands as the conditional it was stated at.
 
-!!fig:5!!
-
 ### 7.1 What the specified alterations do to every balance
 
 §7 states the balances at the production cost §5.1 measures. A third alteration is specified in this
@@ -421,7 +430,7 @@ change the collection at all. It moves `E_binder`, and because a balance has the
 
 !!fig:4!!
 
-**Two things fall out of that table, and they point in opposite directions.**
+**Two things fall out of that table, and the second qualifies the first.**
 
 > **No heat form and no work form clears unity anywhere in this paper.** The largest either reaches is
 > **[[C863]]**, and it is reached only by granting, simultaneously, the optimised production target,
@@ -430,19 +439,23 @@ change the collection at all. It moves `E_binder`, and because a balance has the
 > anything this paper can construct**, and that is a closed statement rather than an open question:
 > Theorem 3 of §14 shows the same thing from the other direction.
 
-> **Bred fuel at the measured cycle count clears unity, and it asks for the least of anything here.**
-> At [[C771]] with the target alone and **[[C864]]** with all three alterations, it uses **no
+> **Bred fuel is the one row that crosses unity, and it crosses only through the optimised target.**
+> At [[C771]] with that target alone and **[[C864]]** with all three alterations, the row uses **no
 > service-life model, no density above the one already reached, and no choice between the two sticking
-> measurements**. Its inputs are the [[C44]] measured at Los Alamos, the sourced blanket of §5.2, the
-> production cost integrated from measured cross sections in §5.1, and the collection the machine of
-> §10 delivers. **That is the configuration this paper offers as self-sustaining and unwitnessed**, and
-> §13 states exactly which of its terms have been measured and which have not.
+> measurements** — its inputs are the [[C44]] measured at Los Alamos, the sourced blanket of §5.2 and
+> the collection the machine of §10 delivers. **But it does not cross on this paper's own production
+> cost.** At the [[C100]] §5.1 integrates, the same route reaches [[C767]] as built and [[C787]] with
+> both collector alterations, short of unity by a factor of [[C865]]; **everything above unity in the table above
+> is bought by the [[C290]] optimisation**, which this paper prices and declines to adopt.
 
-**One condition travels with it and is not yet discharged.** [[C290]] is a published optimisation of
-the production target. This paper prices what it is worth without adopting it as a figure of its own,
-and a normalisation measurement on one target is what would settle it. Without it the same route reaches [[C787]] —
-which is [[C865]] short, and short by less than the uncertainty on the one term in it nobody has
-measured.
+**Which half of that table is this paper's, and it is the first.** [[C290]] is a *published*
+optimisation of the production target, worth a factor of [[C829]] on every balance; §5.1 integrates
+[[C100]] from measured cross sections and that is the figure this paper stands behind. The two are a
+discrepancy §12 records and does not close, and a normalisation measurement on one target — pions per
+beam particle against pions per interaction, nothing else changed — is what would settle it.
+**Until it is made, the reading this paper offers is the first column: the best route reaches
+[[C787#]] against the unity it must clear, falls short by a factor of [[C865#]], and falls short by no
+term other than a loss budget nobody has measured end to end.**
 
 ---
 
@@ -474,9 +487,9 @@ and the tritium concentration that produces that split follows from the two form
 | energy per muon | [[C990]] |
 | neutrons per muon | [[C991]] |
 
-> **A cell that makes its own tritium holds [[C992]] less of it** than the *d*–*t* cell §9 specifies —
+> **A cell that makes its own tritium holds a factor of [[C992]] less of it** than the *d*–*t* cell §9 specifies —
 > a percent rather than half — and it needs no external tritium, no lithium and no breeding blanket to
-> hold that inventory against decay. **What it costs is the reaction's yield, by [[C993]] in neutrons
+> hold that inventory against decay. **What it costs is the reaction's yield, by a factor of [[C993]] in neutrons
 > per binder.**
 
 **Two things are not claimed here.** The equilibrium above is a first-order balance between two
@@ -706,7 +719,7 @@ improves by a stated factor.
 ## 12. Limits, and what this paper does not claim
 
 Each item below is a limit on what the foregoing establishes. None of them is resolved by argument in
-this paper, and where a measurement would settle one, that measurement is named. §14.8 lists the three
+this paper, and where a measurement would settle one, that measurement is named. §14.9 lists the three
 that bear most directly on the results.
 
 **The operative sticking is unresolved between two measurements**, though not in a way that changes
@@ -742,8 +755,8 @@ figure closely and which a deuteron on a long target supplies. **A normalisation
 against pions per interaction, with nothing else changed.**
 
 **And the standalone configuration is closed rather than open.** Theorem 3 of §14 is a theorem, and no measurement
-in §11 can overturn it. What a measurement can decide is the co-product configuration and the bred-fuel route,
-which are the two that survive.
+in §11 can overturn it. What a measurement can decide is the bred-fuel route, which is the one
+this paper leaves standing, and the production cost that route turns on.
 
 ---
 
@@ -760,9 +773,9 @@ measurement this paper proposes, and none can be overturned by one.
    (Theorem 1, §14.3). Of [[C851]] charged particles scanned, [[C858]] outlive the mesomolecular
    formation time, [[C852]] lie inside the window, and one survives the hadron test.
 3. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy
-   returned per binder by [[C980]] against the next candidate (Theorem 4, §14.8) — and the runner-up
+   returned per binder by a factor of [[C980]] against the next candidate (Theorem 4, §14.8) — and the runner-up
    uses more tritium rather than less.
-4. **The window is not a near thing.** Its lower bound may move by [[C855]] and its upper by [[C856]]
+4. **The window is not a near thing.** Its lower bound may move by a factor of [[C855]] and its upper by [[C856]]
    before the count of occupants changes.
 5. **An eighth condition decides whether the reaction is worth running**, and it contains no free
    parameter (Proposition 1, §14.2). Every term in it has been measured.
@@ -777,16 +790,23 @@ measurement this paper proposes, and none can be overturned by one.
 9. **The standalone configuration is closed** (Theorem 3, §14): at the production floor, no admissible
    binder pays for itself as heat at any collector. The break-point sits at [[C115]] and lies **below
    both** published sticking readings, so no choice between them repairs it.
-10. **Nothing clears unity with the machine as built.** The closest is bred fuel at the measured
-    [[C44]], at [[C767]]; with both collector alterations of §7.1 it reaches [[C787]], short of unity
-    by [[C865]] and short by no term other than the loss budget, which is the one quantity in the
-    column that has never been measured.
+10. **Nothing clears unity at this paper's own production cost.** The closest is bred fuel at the
+    measured [[C44]], at [[C767]] as built; with both collector alterations of §7.1 it reaches
+    [[C787]], short of unity by a factor of [[C865]] and short by no term other than the loss budget, which is
+    the one quantity in the column that has never been measured.
+11. **One route does cross unity, and it crosses on a figure this paper declines to adopt.** Through
+    a *published* optimisation of the production target at [[C290]] — worth a factor of [[C829]] on every balance
+    against the [[C100]] §5.1 integrates — bred fuel at the measured cycle count reaches [[C771]], and
+    [[C864]] with all three alterations. **That factor is a discrepancy §12 records and does not
+    close**, so the route is reported and not claimed, and a normalisation measurement on one target
+    is what would settle it.
 
 > **The reaction is proved and it is witnessed. Its binder is unique, its fuel is unique, and its
 > energy account is closed in the sense that every term in it is named and priced. What is not proved
-> is that any device-internal configuration of it returns more than it costs, and §7 states how far
-> short the best one falls.** That is the whole of the claim, and no part of it is larger than the
-> evidence behind it.
+> is that any device-internal configuration of it returns more than it costs at a production cost
+> this paper is willing to stand behind** — §7 states how far short the best one falls, and the item
+> immediately above states the one route that crosses and whose figure it crosses on. That is the whole of the claim,
+> and no part of it is larger than the evidence behind it.
 
 **What this paper does not do.** It does not price the configuration in which the binder is a
 byproduct of a beam already running for another purpose, and it does not price a blanket. Both change
@@ -1097,7 +1117,7 @@ each and multiplying by $Q$ gives the table of §3, whose maximum is $d$–$t$ a
 [[C978]] for the next entry — a factor of [[C980]]. The ordering is a finite comparison over measured
 inputs and contains no free parameter. ∎
 
-**Corollary.** No pair without tritium comes within [[C981]] of $d$–$t$ on energy per binder, so the
+**Corollary.** No pair without tritium comes within a factor of [[C981]] of $d$–$t$ on energy per binder, so the
 reaction's tritium requirement is not an artefact of the choice of fuel. It follows from the fuel
 being unique.
 
