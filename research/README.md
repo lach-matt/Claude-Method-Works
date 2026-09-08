@@ -3903,3 +3903,99 @@ of the Planck length.**
 ### Seated
 - `supply.py` — new, stdlib only, `--selftest`.
 - `index3.py` — **276 findings**, nine new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `scale.py` — following the Planck-crossing instinct, and deflating it
+
+`supply.py` ended by noticing three independent quantities crossing the feasibility line within two
+orders of `ℓ_P`, and called the convergence the interesting thing. **It is inevitable, and proving that
+is worth more than the convergence was.**
+
+### The scale theorem
+
+What the quantum vacuum supplies at scale `L` is `~ℏc/L⁴`. What GR demands is `~c⁴/GL²`. Their ratio
+has exactly one possible form, because those are the only constants in it:
+
+> **`supplied/demanded = κ·(ℓ_P/L)²`**
+
+**The crossing is at `ℓ_P` by dimensional necessity** — `ℓ_P` is *defined* as where ℏ-physics and
+G-physics meet. The three agreeing numbers were confirming that the prefactors are O(1).
+
+### It is not hand-waving — it reproduces a number computed another way
+
+For `gjw.py`'s route the prefactor is closed-form: `κ = π/360`. From that alone:
+
+| | predicted from the theorem | `gjw.py`'s own value |
+|---|---|---|
+| amplification at 1 m | 4.3866e+71 | **4.3866e+71** |
+| unity separation | 1.5098e-36 m | **1.5098e-36 m** |
+
+`gjw.py` computes both from the Casimir formula directly and shares no algebra with this. And
+`achievable.py`'s `κ` is measured **identical to six digits across six decades of length** — the
+theorem's real signature.
+
+### The census, and the outlier reconciles
+
+| route | κ | crossing |
+|---|---|---|
+| `gjw.py` coupling gap | 8.727e-03 | 0.0934 ℓ_P |
+| `corridor.py` Casimir seat | 1.742e-02 | 0.1320 ℓ_P |
+| `supply.py` contraction 1% | 1.370e+01 | 3.7013 ℓ_P |
+| `achievable.py` core density | 4.189e+04 | 204.67 ℓ_P → **4.0933 ℓ_P** |
+
+`achievable.py` measures the **corridor radius**; the others measure the gap that carries the energy.
+Its core sits at `a/b = 0.02`, giving **4.09 ℓ_P** — which that file already prints itself. **On the
+energy-carrying scale all four lie between 0.093 and 4.09 ℓ_P, a factor of 44.**
+
+### The consequence — the project's obstacles unify
+
+> **shortfall = `(1/κ)·(L/ℓ_P)²`**
+
+At 1 m the geometric factor is `3.8281e69`, and every "orders short" figure in this project is that
+number divided by a `κ`:
+
+| | | |
+|---|---|---|
+| `gjw.py` | 4.3866e+71 | = 3.8281e69 / 8.7266e-03 |
+| `achievable.py` | 9.1387e+64 | = 3.8281e69 / 4.1888e+04 |
+| `supply.py` | 2.7943e+68 | = 3.8281e69 / 1.3699e+01 |
+
+**65, 69 and 71 orders are not three findings. They are one obstacle counted three times**, in three
+lengths and three prefactors. The identity is checked, not asserted.
+
+### What a better mechanism could possibly buy
+
+**The exponent is 2 and the base is `ℓ_P`, and no mechanism changes either — only `κ`.** And `κ` is
+dimensionless, so it can be large only if the problem contains a large dimensionless number:
+
+- **N field species** — Casimir scales with the count; the Standard Model gives ~100. **Two orders**,
+  and the largest honest factor on the list.
+- **Resonant / mode-count enhancement** — bounded by the same quantum inequalities, which bound the total.
+- **A lower fundamental Planck scale** (large extra dimensions) — **the only entry that changes the
+  base**. At the collider bound `M_* ≳ 3 TeV`, `ℓ_* = 6.58e-20 m` and the metre-scale shortfall falls
+  from 3.83e69 to 2.31e38. **31.2 orders for free, and still 38 orders short.** Whether the *demand*
+  side rescales the same way in a braneworld is a different calculation in a different theory:
+  **`NOT-RUN`**, named rather than guessed.
+
+### The refusal — the most important line
+
+**At the crossing, five independent approximations fail at once:**
+
+1. **Semiclassical gravity** — `⟨T_μν⟩` as a source needs `L ≫ ℓ_P`.
+2. **Ford–Roman itself** — derived in QFT on a *fixed background*, so it does not survive its own crossing.
+3. **Geometric optics** — every seat here solves the Jacobi equation for *rays*.
+4. **The Casimir formula** — perfect conductors need a gap above the plate material's plasma wavelength; at `ℓ_P` there is no material.
+5. **Weak field** — every `Φ` expansion assumes `|Φ| ≪ 1`.
+
+> **The crossing is not a prediction and not a design target. It is the point at which the theory stops,
+> reported in units of length. "You need a Planck-scale gap" must never be quoted as an engineering
+> requirement.**
+
+The correct closing statement is narrower: **every route this project can evaluate remains short at
+every scale where the evaluation is valid**, and the extrapolation to where it would not be short runs
+off the edge of the map.
+
+### Seated
+- `scale.py` — new, stdlib only, `--selftest`.
+- `index3.py` — **284 findings**, eight new. Still 15 cells, `E(X) = 0`.
