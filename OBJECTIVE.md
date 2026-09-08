@@ -206,131 +206,51 @@ rather than three measurements:
    station of drivers of the largest class ever operated does not close. **No machine of this class
    exists.**
 
-**All three measurements `explore.py` ordered have now been made.** The first (driver standby) turned
-a soft unknown into a hard requirement. The second (wall-plug-to-beam) came back at the *bottom* of
-its band and **closed the escape route the basis had leaned on**. The third was the gate.
+**All three measurements `explore.py` ordered have been attempted, and the third was made on the
+wrong material and withdrawn.** The first (driver standby) turned a soft unknown into a hard
+requirement. The second (wall-plug-to-beam) came back at the *bottom* of its band and closed the escape
+route the basis leaned on. The third was the gate.
 
-**The one-group model has been checked against a benchmark instead of asserted.** Its own
-*"not reliable to better than roughly fifteen percent"* was an assertion, and the design's whole
-margin against non-existence equalled that fifteen percent. There is one published benchmark of a fast
-molten salt with a k computed by **two independent Monte Carlo codes** — the SAMOFAR/EVOL MSFR,
-LiF–ThF₄–UF₄ at 77.5/20.0/2.5 mol %, **k_eff = 1.04364 (OpenMC) and 1.04338 (Serpent 2)**, agreeing to
-26 pcm on ENDF/B-VIII.0. It is a *fluoride* and a *thorium* cycle — neither this design's salt nor its
-fuel — and it is what exists.
+**The attempt and the withdrawal.** The one-group model's *"not reliable to better than roughly fifteen
+percent"* was an assertion, and the design's whole margin against non-existence equalled it. The one
+published benchmark of a fast molten salt with a k from two independent Monte Carlo codes is the
+SAMOFAR/EVOL MSFR — LiF–ThF₄–UF₄, k_eff = 1.04364 (OpenMC) and 1.04338 (Serpent 2) — and run on it the
+model bounds its own error between **+1.22 %** and **−6.88 %**. That result was used for one pass to
+replace the fifteen with a seven, and the design basis was restated on it. **That was wrong, on a rule
+the author stated plainly: do not test on a material you do not intend to use.** The benchmark is a
+*fluoride* salt on a *thorium* cycle with *U-233* fissile; this design is a *chloride* salt on a
+*uranium* cycle with *Pu-239* fissile, sharing neither halide, nor fertile, nor fissile nuclide. A
+model can agree on one material and disagree on another for reasons that have nothing to do with its
+method. **The seven percent is withdrawn; the fifteen stands, asserted, where it was.**
 
-Run on it, the model returns **k_inf = 1.0562** against a benchmark **k_eff = 1.0435**. The comparison
-is between two different quantities and that is the difficulty: a k_inf must exceed the k_eff of a
-system that leaks and breeds, and the paper does not break that budget out. So the error is **bounded
-rather than pinned** — **+1.22 %** if the benchmark system lost nothing, **−6.88 %** if it loses 8 % to
-blanket and leakage. **The model's absolute-k error on a fast molten salt is under 7 %, against the
-fifteen asserted: the assertion was conservative rather than wrong, and it is now bounded by
-evidence.** What the check does *not* cover is the U-238 and Pu-239 rows the design actually runs on;
-what it *does* cover is the part most likely to be wrong, a one-group collapse of a fast spectrum in a
-dilute halide salt. **That is an argument and not a proof.**
+**What replaces it is not another check but the state of knowledge on the actual material, and it is
+worse.** There is **no critical benchmark for a fast chloride salt** — the Molten Chloride Reactor
+Experiment, the first critical fast-spectrum chloride-salt reactor, is being built to make one and has
+not run. Its nuclear-data-induced uncertainty in k_eff is **2,161 pcm (0.0216 in k)**, falling to
+886 pcm after the proposed experiments. **And the data are known to be wrong rather than merely
+uncertain**: recent measurements of the ³⁵Cl(n,p) cross section disagree with the evaluations *outside
+the bounds of their own covariance matrices*, and Los Alamos has been charged with re-measuring it.
 
-**The gate has moved and it has not opened.**
+**One thing runs the design's way and it was chosen for another reason entirely.** The discrepant
+nuclide is **Cl-35**, and this salt is **Cl-37 enriched** — specified to stop parasitic absorption,
+long before anyone here knew Cl-35 carried the material's largest nuclear-data uncertainty. **A
+mitigation this work got for free and takes no credit for.**
 
-| η_acc | k floor | margin at 0.900 | covered against the measured 0.0619? |
-|---:|---:|---:|---|
-| 0.20 — every machine measured | 0.8385 | 0.0615 | **NO — 0.99×** |
-| 0.30 — the design's assumption | 0.7670 | 0.1330 | **YES, by 2.15×** |
-| 0.40 — a better machine | 0.7008 | 0.1992 | YES, by 3.22× |
+**The design basis, restored and on the right material:**
 
-**So the project's remaining uncertainty is one coupled condition and it fits in a sentence: the plant
-closes if its accelerator does better than any accelerator has done.** That is a **machine** question
-and not a physics one — the first time in this work that the last open item has been of a kind an
-engineering phase can attack. **Phase 4 proceeds when that condition is either met or stated as the
-single named condition of the claim.**
+| η_acc | margin at 0.900 | vs the asserted method error (0.1350) | vs nuclear data (0.0216) |
+|---:|---:|---:|---:|
+| 0.20 — every machine measured | 0.0615 | 0.46× | 2.85× |
+| 0.30 — the design's assumption | 0.1330 | **0.99×** | 6.15× |
+| 0.40 — a better machine | 0.1992 | 1.48× | 9.22× |
 
-**And the price is stated rather than hidden: a design basis is not a witness.** It says the
-mathematics closes across the range the constants could take and that these requirements are what make
-it close. It does not say the machine has been seen to. **Every first article is built on exactly
-this, and the honest ones say so** — which is the standing under which the power-source paper is
-written, and the reason the mathematics is held to the standard it is.
+**The nuclear data are not the problem** — the margin covers them 6.2× at the design's own
+accelerator. **The method is, and it is still asserted.**
 
-**Criterion 3 is closed on materials, and it was closed by changing the plant.**
-Two streams arrived at the gate for ever, and both were design choices rather
-than laws:
-
-- **Liquid nitrogen**, 200 t/yr, which the file itself called *"the one utility
-  feed"*. First closed by liquefying it on site — nitrogen is 78 % of the air
-  here — at **8.1 kW**, 0.00071 % of net. **Then deleted outright**: the shields
-  run on the **helium cryoplant at 45 K**, as the reference machine's do, which
-  removes a fluid, a plant and an inventory rather than adding one to feed a
-  line. **A supply line is better removed than fed.** Two things were computed
-  first. The row was **never a cooling duty** — 200 t/yr through nitrogen's
-  latent heat is **1,261 W** against a reference machine's **10.8 kW** shield
-  load, so it was makeup on a loop already closed and **the shield heat had
-  never been in the inventory at all**. And **77 K loses to 45 K**: nitrogen is
-  the cheaper refrigerant per watt, but a hotter shield radiates at the cold
-  mass, radiation goes as T⁴, and a watt at 2 K costs fifty times a watt at
-  45 K — they trade exactly at **0.88 %** of the 2 K load being shield
-  radiation, and a real cryomodule is above that. **A break-even, not a
-  preference.**
-- **Salt-processing reagents**, which had been named but never specified and so
-  never priced. The fission-product removal is now specified **electrical** —
-  helium sparge on the recirculating inventory, noble metals plated out, vacuum
-  distillation for the alkali and alkaline-earth chlorides, electrowinning for
-  the lanthanides, any chemical reductant regenerated electrolytically on site.
-  The cost is **bounded rather than designed**: distilling the *whole* 505 t
-  inventory three times a year — far more than a slipstream cleanup needs —
-  comes to **0.15 MW**, or **0.013 %** of net. A bound is computed because the
-  process is not the instrument's to choose, and a negligible bound means the
-  choice need not be made to proceed.
-
-**One line was deleted and the other became electricity, which the plant makes.**
-What is left is **0.15 MW against 1,141 MW net — 0.013 %** — so nothing else in
-the design moves. And the deletion had a second consequence: the shield heat it
-was carrying is inside the cryoplant, which sent `powersource --standby` back to
-count a circuit it had missed.
-
-**What remains is two rows and both are parts**: the fission-product removal
-system (still the single most demanding unbuilt item here) and the krypton-85
-capture bed. **No material stream arrives at the gate any more** — not fuel, not
-fertile, not tritium, not lithium, not coolant, not reagent, not cryogen.
-
-**And then "fails on parts" was itself corrected, by the author, and the
-correction is right.** A part is **designed to spec and built to meet the
-mathematics** — it is the *output* of the engineering-materials phase, not an
-input the plant needs. The criterion asks whether the thing needs **feeding**,
-and a specification is not a feed. Calling it a failure treated the next phase's
-deliverable as this phase's shortfall.
-
-**What the question survives as is sharper and answerable: a part is made of
-something.** So the test is what the parts stream *consumes*. Nickel alloy,
-graphite, refractory electrodes, vacuum plant, steel cylinders — **ordinary**,
-and no criterion about self-sufficiency was written to exclude the existence of
-industry; the krypton charcoal is regenerated by warming rather than consumed.
-
-**One material is not ordinary, and it hides in the process rather than the
-part.** Fission products live in the salt as chlorides and leave as chlorides,
-and every atom of that chlorine is **Cl-37 enriched**. Bounded by charge
-conservation at **592 kg/yr** — 0.32 % of the inventory a year, **12.9 % over the
-life** — and stated as a *bound*, not a process figure, because the real number
-needs a valence distribution and a process holdup this work does not compute.
-(The inventory it divides by is the row `fuelchoice.py` found understates, so the
-share errs high, which is the direction a bound should err in.)
-
-**And the electrical cleanup already returns it**, which is the second reason to
-have specified it: electrowinning deposits the lanthanide as metal and evolves
-chlorine back into the salt. A **chloride** waste form carries it out of the
-building; an **oxide** or metal form leaves it behind.
-
-> **Requirement 4** — the waste form shall return chlorine to the salt. Unmet, it
-> is a 592 kg/yr Cl-37 line and 13 % of the inventory over the life. Met,
-> criterion 3 closes on materials with nothing left over.
-
-**So criterion 3 is met, conditional on one requirement handed forward.** Read
-literally — no input of *anything* — it still cannot be met by any physical
-object, because a machine that never needs a spare part is not a machine. Read as
-it was plainly meant, it is met. **The criterion was never reworded**: the design
-was changed, and then the residue was computed instead of shrugged at.
-
-**A numbering error was corrected in the same pass.** `materials.py` adjudicated
-"criterion 4" throughout, which is the number it had before 'cold' was dropped
-and everything below it moved up. The table above is authoritative and the file
-now agrees with it. **The verdict never changed — only the label on it** — and
-this is exactly the failure `OBJECTIVE.md` was written to stop.
+**So the project has exactly one uncertainty left and it is precisely named: the one-group method
+error on this composition.** What closes it is a **transport calculation on this salt** — a
+*computation*, not an experiment, and a day's work for anyone with Serpent or MCNP and an evaluated
+library. **Phase 4 proceeds when that calculation is done.**
 
 ## The phases
 

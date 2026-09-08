@@ -212,6 +212,57 @@ MSFR_LOSS_HI = 0.08     # ASSUMED: an upper estimate of what the benchmark's
                         # does not state it, so the error band is opened by it
                         # rather than closed
 
+# ---- AND THE FLUORIDE CHECK IS WITHDRAWN AS A VALIDATION ------------------
+# The run above stands as arithmetic and is kept. WHAT IS WITHDRAWN IS ITS
+# STANDING: it was used, for one pass, to replace this file's asserted
+# fifteen percent with a measured seven, and the design basis was restated on
+# it. That was wrong, on a rule the author stated plainly:
+#
+#     DO NOT TEST ON A MATERIAL YOU DO NOT INTEND TO USE.
+#
+# The benchmark is a FLUORIDE salt on a THORIUM cycle with U-233 fissile. The
+# design is a CHLORIDE salt on a URANIUM cycle with Pu-239 fissile. It shares
+# with the design neither halide, nor fertile, nor fissile nuclide -- only
+# the shape of the problem. A model can agree on one material and disagree on
+# another for reasons that have nothing to do with its method, and a design
+# basis rested on that agreement is resting on a coincidence it cannot check.
+#
+# So the seven percent is withdrawn and the fifteen stands as ASSERTED, which
+# is where it was before. What replaces the check is not another check: it is
+# the STATE OF KNOWLEDGE ON THE ACTUAL MATERIAL, which is worse than the
+# fluoride excursion made it look and is sourced.
+BENCHMARK_WITHDRAWN = (
+    "the SAMOFAR/EVOL benchmark is a fluoride salt on a thorium cycle and "
+    "shares with this design neither halide, nor fertile, nor fissile "
+    "nuclide; a validation on a material the design does not use is not a "
+    "validation of the design")
+
+# ---- WHAT IS KNOWN ABOUT THE MATERIAL THIS DESIGN ACTUALLY USES -----------
+# All SOURCED, and all about a fast CHLORIDE salt.
+MCRE = {
+    "what": "Molten Chloride Reactor Experiment -- the first critical "
+            "fast-spectrum chloride-salt reactor, under construction by "
+            "Southern Company, TerraPower and Idaho National Laboratory",
+    "nd_uncertainty_pcm": 2161.0,      # SOURCED: nuclear-data-induced
+    "nd_after_pcm": 886.0,             # SOURCED: after the proposed
+                                       # criticality experiments
+    "cl35": "recent measurements of the Cl-35 (n,p) cross section disagree "
+            "with the evaluations OUTSIDE the bounds of their own covariance "
+            "matrices; Los Alamos has been charged with re-measuring it and "
+            "issuing a new evaluation",
+}
+
+
+def mcre_nd_uncertainty_k(after=False):
+    """Nuclear-data-induced uncertainty in k for a fast chloride salt.
+
+    A TRANSPORT-CODE figure with a full covariance treatment: it is what
+    remains when the METHOD is exact and only the data are uncertain. This
+    file's model is one-group, so this term sits UNDER its method error and
+    never replaces it."""
+    pcm = MCRE["nd_after_pcm"] if after else MCRE["nd_uncertainty_pcm"]
+    return pcm / 1e5
+
 
 def k_effective(f, fissile, fertile, leak=None, x=None):
     P = _ps()
@@ -318,53 +369,83 @@ def report_benchmark():
     print(f"      if it loses {100 * MSFR_LOSS_HI:.0f} % to blanket and leakage"
           f"    model is {100 * lo:+.2f} %")
     print()
-    print(f"    SO THE MODEL'S ABSOLUTE-k ERROR ON A FAST MOLTEN SALT IS UNDER")
-    print(f"    {100 * max(abs(hi), abs(lo)):.0f} PERCENT, against the FIFTEEN"
-          " this file asserted. The")
-    print("    assertion was CONSERVATIVE rather than wrong, and it is now")
-    print("    bounded by evidence instead.")
+    print("    AND ALL OF THAT IS NOW WITHDRAWN AS A VALIDATION, ON A RULE")
+    print("    THE AUTHOR STATED PLAINLY: DO NOT TEST ON A MATERIAL YOU DO")
+    print("    NOT INTEND TO USE.")
     print()
-    print("    WHAT THE CHECK DOES NOT COVER, AND IT MATTERS. The benchmark")
-    print("    exercises the Th-232 and U-233 rows of the cross-section table")
-    print("    and the METHOD. The design runs on U-238 and Pu-239, and those")
-    print("    two rows are NOT tested by it. What is tested is the part most")
-    print("    likely to be wrong -- a one-group collapse of a fast spectrum")
-    print("    in a dilute halide salt -- and what is untested is the part")
-    print("    least likely to be: two of the best-measured cross sections in")
-    print("    nuclear physics. That is an argument and not a proof, and it is")
-    print("    stated as one.")
+    _wrap(BENCHMARK_WITHDRAWN)
     print()
-    print("    WHAT IT DOES TO THE DESIGN BASIS")
+    print("    The arithmetic above stands and is kept. WHAT IS WITHDRAWN IS")
+    print("    ITS STANDING. For one pass it replaced this file's asserted")
+    print("    fifteen percent with a measured seven and the design basis was")
+    print("    restated on it. A model can agree on one material and disagree")
+    print("    on another for reasons that have nothing to do with its")
+    print("    method, and a design basis rested on that agreement is resting")
+    print("    on a coincidence it cannot check. THE FIFTEEN PERCENT STANDS,")
+    print("    ASSERTED, WHICH IS WHERE IT WAS.")
+    print()
+    print("    WHAT REPLACES THE CHECK IS NOT ANOTHER CHECK. It is the state")
+    print("    of knowledge on the actual material, and it is worse than the")
+    print("    fluoride excursion made it look.")
+    print()
+    print("      THERE IS NO CRITICAL BENCHMARK FOR A FAST CHLORIDE SALT.")
+    _wrap(MCRE["what"])
+    print("      IS BEING BUILT TO MAKE ONE. It has not run.")
+    print()
+    print(f"      nuclear-data uncertainty in k_eff   "
+          f"{MCRE['nd_uncertainty_pcm']:.0f} pcm ="
+          f" {mcre_nd_uncertainty_k():.5f} in k")
+    print(f"      after the proposed experiments      "
+          f"{MCRE['nd_after_pcm']:.0f} pcm ="
+          f" {mcre_nd_uncertainty_k(after=True):.5f}")
+    print()
+    print("      AND THE DATA ARE KNOWN TO BE WRONG, NOT MERELY UNCERTAIN:")
+    _wrap(MCRE["cl35"])
+    print()
+    print("    ONE THING IN THAT RUNS THE DESIGN'S WAY, AND IT WAS CHOSEN FOR")
+    print("    ANOTHER REASON ENTIRELY. The nuclide whose data are discrepant")
+    print("    is Cl-35, and this design's salt is Cl-37 ENRICHED -- specified")
+    print("    that way to stop parasitic absorption, long before anyone here")
+    print("    knew Cl-35 carried the largest nuclear-data uncertainty in the")
+    print("    material. The enrichment removes most of the offending nuclide")
+    print("    and therefore most of that term. THAT IS A MITIGATION THIS")
+    print("    WORK GOT FOR FREE AND SHOULD NOT TAKE CREDIT FOR DESIGNING.")
+    print()
+    print("    SO THE DESIGN BASIS, RESTORED AND STATED ON THE RIGHT")
+    print("    MATERIAL:")
     print()
     sys.path.insert(0, os.path.join(ROOT, "tools"))
     import explore as E
-    unc = max(abs(hi), abs(lo)) * P.K_DESIGN
-    print(f"      the model's uncertainty in k, MEASURED   {unc:.4f}")
-    print(f"      the same, as this file ASSERTED it       "
-          f"{E.K_MODEL_UNCERTAINTY * P.K_DESIGN:.4f}")
+    unc = E.K_MODEL_UNCERTAINTY * P.K_DESIGN
+    nd = mcre_nd_uncertainty_k() * P.K_DESIGN / P.K_DESIGN
+    print(f"      one-group METHOD error, ASSERTED       {unc:.4f} in k")
+    print(f"      nuclear data on a chloride, SOURCED    "
+          f"{mcre_nd_uncertainty_k():.4f} in k")
+    print("      the two are different terms and the second sits UNDER the")
+    print("      first: it is what remains when the method is exact.")
     print()
-    print("      eta_acc   k floor   margin at "
-          f"{P.K_DESIGN:.3f}   covered?")
+    print("      eta_acc   margin at "
+          f"{P.K_DESIGN:.3f}   vs method   vs nuclear data")
     for e, lab in ((0.20, "every machine measured"),
                    (0.30, "the design's assumption"),
                    (0.40, "a better machine")):
-        fl = E.k_floor(e)
-        m = P.K_DESIGN - fl
-        verd = f"YES, by {m / unc:.2f}x" if m >= unc else f"NO, {m / unc:.2f}x"
-        print(f"      {e:6.2f} {fl:9.4f} {m:14.4f}   {verd:<16} {lab}")
+        m = P.K_DESIGN - E.k_floor(e)
+        print(f"      {e:6.2f} {m:14.4f} {m / unc:11.2f}x"
+              f" {m / mcre_nd_uncertainty_k():15.2f}x   {lab}")
     print()
-    print("    THE GATE HAS MOVED AND IT HAS NOT OPENED. At the accelerator")
-    print("    efficiency the design ASSUMES, the margin now covers the")
-    print("    model's measured error twice over and REQUIREMENT 1 is")
-    print("    satisfiable. At the efficiency every machine has actually")
-    print("    RETURNED, it sits exactly on the line.")
+    print("    THE NUCLEAR DATA ARE NOT THE PROBLEM -- the margin covers them")
+    print(f"    {(P.K_DESIGN - E.k_floor(0.30)) / mcre_nd_uncertainty_k():.1f}"
+          " times over at the design's own accelerator, and would still cover")
+    print("    them at the efficiency every machine has actually returned.")
+    print("    THE METHOD IS THE PROBLEM, and it is still asserted.")
     print()
-    print("    SO THE PROJECT'S REMAINING UNCERTAINTY IS ONE COUPLED")
-    print("    CONDITION AND IT CAN BE STATED IN A SENTENCE: the plant closes")
-    print("    if its accelerator does better than any accelerator has done.")
-    print("    That is a MACHINE question and not a physics one, which is the")
-    print("    first time in this work that the last open item has been of a")
-    print("    kind an engineering phase can attack.")
+    print("    SO THE GATE IS EXACTLY WHERE IT WAS BEFORE THIS EXCURSION, AND")
+    print("    IT IS NOW PRECISELY NAMED. What is open is the one-group")
+    print("    method error ON THIS COMPOSITION, and what closes it is a")
+    print("    TRANSPORT CALCULATION ON THIS SALT -- a computation, not an")
+    print("    experiment, and a day's work for anyone with Serpent or MCNP")
+    print("    and an evaluated library. It is the last uncertainty in the")
+    print("    project and it is a concrete, nameable, deliverable ask.")
     print()
 
 
@@ -654,27 +735,56 @@ def selftest():
           abs(_car["F"] - (77.5 + 4 * 22.5) / 22.5) < 1e-9)
     check("the two codes agree to within a hundred pcm",
           abs(MSFR["k_openmc"] - MSFR["k_serpent"]) < 1e-3)
-    # THE MEASUREMENT: the asserted fifteen percent was conservative.
-    _hi, _lo = msfr_error_band()
-    check("the model lands within ten percent of the benchmark either way",
-          max(abs(_hi), abs(_lo)) < 0.10)
-    check("  -- which is better than the fifteen percent this file asserted",
-          max(abs(_hi), abs(_lo)) < 0.15)
-    check("  -- and the band is open on both sides, not a point",
-          _hi > 0.0 > _lo)
-    check("a k_inf must exceed the k_eff of a leaking system",
-          msfr_k_infinity() > msfr_benchmark_k())
-    # AND WHAT IT DOES NOT COVER, asserted so it cannot be dropped.
     import io as _io
     import contextlib as _c
+    import explore as _E
     _buf = _io.StringIO()
     with _c.redirect_stdout(_buf):
         report_benchmark()
     _b = _buf.getvalue()
-    check("the report says the U-Pu rows are NOT tested by it",
-          "are NOT tested by it" in _b)
-    check("  -- and calls that an argument rather than a proof",
-          "an argument and not a proof" in _b)
+    _hi, _lo = msfr_error_band()
+    check("the model lands within ten percent of the benchmark either way",
+          max(abs(_hi), abs(_lo)) < 0.10)
+    check("a k_inf must exceed the k_eff of a leaking system",
+          msfr_k_infinity() > msfr_benchmark_k())
+    # AND THE WITHDRAWAL, which is the point of the section now. The rule is
+    # the author's: do not test on a material you do not intend to use.
+    check("the fluoride result is WITHDRAWN as a validation",
+          "WITHDRAWN AS A VALIDATION" in _b)
+    check("  -- on the stated rule, quoted",
+          "DO NOT TEST ON A MATERIAL YOU DO" in _b)
+    check("  -- and the asserted fifteen percent is restored, not replaced",
+          "THE FIFTEEN PERCENT STANDS" in _b)
+    check("  -- so nothing downstream uses the seven percent",
+          "0.1350" in _b and "0.0688" not in _b)
+    # THE ON-MATERIAL STATE OF KNOWLEDGE, which is what replaces it.
+    check("the nuclear-data uncertainty on a chloride is sourced",
+          0.01 < mcre_nd_uncertainty_k() < 0.05)
+    check("  -- and falls after the experiment that has not run",
+          mcre_nd_uncertainty_k(after=True) < mcre_nd_uncertainty_k())
+    check("the margin covers the nuclear data at the design's accelerator",
+          (_ps().K_DESIGN - _E.k_floor(0.30)) > 4.0 * mcre_nd_uncertainty_k())
+    check("  -- and does NOT cover the asserted method error there",
+          (_ps().K_DESIGN - _E.k_floor(0.30))
+          < _E.K_MODEL_UNCERTAINTY * _ps().K_DESIGN)
+    check("the report says there is no critical benchmark for this material",
+          "NO CRITICAL BENCHMARK FOR A FAST CHLORIDE SALT" in _b)
+    check("  -- and that the Cl-35 data are known WRONG, not just uncertain",
+          "KNOWN TO BE WRONG" in _b)
+    check("  -- and does not take credit for the Cl-37 mitigation",
+          "SHOULD NOT TAKE CREDIT FOR DESIGNING" in _b)
+    check("the remaining ask is named as a computation, not an experiment",
+          "TRANSPORT CALCULATION ON THIS SALT" in _b
+          and "a computation, not an" in _b)
+    # AND WHAT IT DOES NOT COVER, asserted so it cannot be dropped.
+    # THESE TWO USED TO CHECK THAT THE SECTION CAVEATED ITS VALIDATION --
+    # that the U-Pu rows were untested and that the agreement was an argument
+    # rather than a proof. The caveat is now moot: the whole result is
+    # withdrawn, on a stronger rule than the caveat expressed, and what
+    # replaces it is checked above.
+    check("the withdrawal supersedes the caveats it used to carry",
+          "an argument and not a proof" not in _b
+          and "WITHDRAWN AS A VALIDATION" in _b)
     check("  -- and names the benchmark as neither this salt nor this fuel",
           "neither this" in _b and "design's salt nor its fuel" in _b)
     # THE CARRIER OVERRIDE, which is what let the model be run at all.
@@ -694,6 +804,12 @@ def selftest():
     print()
     print(f"selftest: {fail} failures -> {'PASS' if not fail else 'FAIL'}")
     return 1 if fail else 0
+
+
+def _wrap(text, indent="      ", width=66):
+    import textwrap
+    for line in textwrap.wrap(text, width=width):
+        print(f"{indent}{line}")
 
 
 def _raises(fn):

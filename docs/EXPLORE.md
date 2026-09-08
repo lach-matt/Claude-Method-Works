@@ -227,65 +227,73 @@ unknown and the design must not treat them alike.
 could take, and that the requirements above are what make it close. **It does not say the machine has
 been seen to.** Every first article is built on exactly this, and the honest ones say so.
 
-## The third measurement, made: `fuelchoice.py --benchmark`
+## The third measurement: attempted, withdrawn, and replaced
 
-`explore.py` ordered three measurements. **All three have now been made**, and the third was the gate.
+`explore.py` ordered three measurements. The third was the gate, and the first attempt at it was
+made **on the wrong material**.
 
-The one-group model's *"not reliable for an absolute k to better than roughly fifteen percent"* was an
-**assertion**, and it became load-bearing: the design's whole margin against non-existence equals that
-fifteen percent, and `powersource --efficiency` closed the escape route beside it.
+**The attempt.** The one-group model's *"not reliable for an absolute k to better than roughly fifteen
+percent"* was an assertion, and it became load-bearing. There is one published benchmark of a fast
+molten salt with a k computed by two independent Monte Carlo codes — the SAMOFAR/EVOL MSFR,
+LiF–ThF₄–UF₄ at 77.5/20.0/2.5 mol %, **k_eff = 1.04364 (OpenMC) / 1.04338 (Serpent 2)**, agreeing to
+26 pcm. Run on it, the model returns **k_inf = 1.0562** — bounding its error between **+1.22 %** and
+**−6.88 %**, against the fifteen asserted.
 
-**There is one benchmark of a fast molten salt with a k computed by two independent Monte Carlo
-codes** — the SAMOFAR/EVOL MSFR, LiF–ThF₄–UF₄ at 77.5 / 20.0 / 2.5 mol %:
+**The withdrawal, on a rule stated plainly by the author:**
+
+> **Do not test on a material you do not intend to use.**
+
+The benchmark is a **fluoride** salt on a **thorium** cycle with **U-233** fissile. The design is a
+**chloride** salt on a **uranium** cycle with **Pu-239** fissile. It shares with the design neither
+halide, nor fertile, nor fissile nuclide — only the shape of the problem. A model can agree on one
+material and disagree on another for reasons that have nothing to do with its method, and a design
+basis rested on that agreement is resting on a coincidence it cannot check.
+
+**So the seven percent is withdrawn and the fifteen stands, asserted** — which is where it was. The
+arithmetic is kept; what is withdrawn is its standing.
+
+### What replaces it is not another check — it is the state of knowledge on the actual material
+
+**There is no critical benchmark for a fast chloride salt.** The **Molten Chloride Reactor
+Experiment** — the first critical fast-spectrum chloride-salt reactor, under construction by Southern
+Company, TerraPower and Idaho National Laboratory — is being built to make one. **It has not run.**
 
 | | |
 |---|---|
-| OpenMC | **1.04364 ± 0.00039** |
-| Serpent 2 | **1.04338 ± 0.00075** |
-| library | ENDF/B-VIII.0 |
+| nuclear-data-induced uncertainty in k_eff | **2,161 pcm = 0.0216 in k** |
+| after the proposed criticality experiments | 886 pcm = 0.0089 |
 
-Agreeing to **26 pcm**. It is a *fluoride* and a *thorium* cycle — neither this design's salt nor its
-fuel — **and it is what exists.**
+**And the data are known to be wrong, not merely uncertain**: recent measurements of the ³⁵Cl(n,p)
+cross section disagree with the evaluations **outside the bounds of their own covariance matrices**,
+and Los Alamos has been charged with re-measuring it and issuing a new evaluation.
 
-Running the one-group model on it: fissile fraction 11.11 %, 7.444 F and 3.444 Li per heavy-metal
-atom, **k_inf = 1.0562** against a benchmark **k_eff = 1.0435**.
+**One thing runs the design's way, and it was chosen for another reason entirely.** The discrepant
+nuclide is **Cl-35**, and this design's salt is **Cl-37 enriched** — specified that way to stop
+parasitic absorption, long before anyone here knew Cl-35 carried the largest nuclear-data uncertainty
+in the material. The enrichment removes most of the offending nuclide and therefore most of that term.
+**A mitigation this work got for free and should not take credit for designing.**
 
-**The comparison is between two different quantities, and that is the whole difficulty.** The model
-returns the fuel salt's k_inf; the benchmark returns the whole system's k_eff, lower by whatever its
-fertile blanket captures and its boundary leaks — a budget the paper does not break out. So the error
-is **bounded rather than pinned**:
+### The design basis, restored and stated on the right material
 
-| | |
+| | in k |
 |---|---:|
-| if the benchmark system lost nothing | model is **+1.22 %** |
-| if it loses 8 % to blanket and leakage | model is **−6.88 %** |
+| one-group **method** error, ASSERTED | **0.1350** |
+| **nuclear data** on a chloride, SOURCED | **0.0216** |
 
-**So the model's absolute-k error on a fast molten salt is under 7 %, against the fifteen asserted.**
-The assertion was *conservative* rather than wrong, and it is now bounded by evidence.
+Different terms — the second sits *under* the first: it is what remains when the method is exact.
 
-**What the check does not cover, and it matters.** The benchmark exercises the Th-232 and U-233 rows
-and the **method**. The design runs on U-238 and Pu-239, and those rows are **not** tested. What *is*
-tested is the part most likely to be wrong — a one-group collapse of a fast spectrum in a dilute
-halide salt — and what is untested is the part least likely to be. **That is an argument and not a
-proof, and it is stated as one.**
+| η_acc | margin at 0.900 | vs method | vs nuclear data | |
+|---:|---:|---:|---:|---|
+| 0.20 | 0.0615 | 0.46× | 2.85× | every machine measured |
+| 0.30 | 0.1330 | **0.99×** | 6.15× | the design's assumption |
+| 0.40 | 0.1992 | 1.48× | 9.22× | a better machine |
 
-### What it does to the design basis
+**The nuclear data are not the problem** — the margin covers them 6.2× at the design's own
+accelerator. **The method is the problem, and it is still asserted.**
 
-| η_acc | k floor | margin at 0.900 | covered? | |
-|---:|---:|---:|---|---|
-| 0.20 | 0.8385 | 0.0615 | **NO — 0.99×** | every machine measured |
-| 0.30 | 0.7670 | 0.1330 | **YES, by 2.15×** | the design's assumption |
-| 0.40 | 0.7008 | 0.1992 | YES, by 3.22× | a better machine |
+### So the gate is exactly where it was, and it is now precisely named
 
-against a **measured** model uncertainty of **0.0619** in k, where the asserted one was 0.1350.
-
-**The gate has moved and it has not opened.** At the efficiency the design *assumes*, the margin now
-covers the model's measured error twice over and **Requirement 1 is satisfiable**. At the efficiency
-every machine has actually *returned*, it sits exactly on the line.
-
-### The project's remaining uncertainty, in one sentence
-
-**The plant closes if its accelerator does better than any accelerator has done.**
-
-That is a **machine** question and not a physics one — the first time in this work that the last open
-item has been of a kind an engineering phase can attack.
+What is open is the **one-group method error on this composition**, and what closes it is a
+**transport calculation on this salt** — a *computation*, not an experiment, and a day's work for
+anyone with Serpent or MCNP and an evaluated library. It is the last uncertainty in the project, and
+it is a concrete, nameable, deliverable ask.
