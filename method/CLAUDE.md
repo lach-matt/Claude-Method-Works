@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD129 main** (2,141,349 B ·
-  `0f9473f09a8d412c2ad9539432390b6d` · 18,914 lines · 2 members) and **BUILD304 compendia** · 758 members.
-  **760 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
-  **W-309 seated.**
+  `0f9473f09a8d412c2ad9539432390b6d` · 18,914 lines · 2 members) and **BUILD305 compendia** · 762 members.
+  **764 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
+  **W-310 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -298,8 +298,18 @@ no longer on the read path.
 - **TWO INSTRUMENTS ARE HELD AND NEITHER IS RE-BANKED.** `r2-28a4` pins *"the sentence prints 162 works"*;
   `r2-bib2` pins *"the table prints 162 data rows"* and **exits nonzero** on it. **Running one that reports its own
   pinned figure as failed would bank that failure as the record**, which is the hazard the store already names for
-  a traceback. Successors `r2-28a5` and `r2-bib3` are owed, beside `r2-26c3`. **The live set is 83 goldens, and
-  MEASURED at BUILD129/BUILD304: verify OK, census a fixed point, 84 OK / 0 FAIL.**
+  a traceback. **Both successors are now seated at BUILD305 (W-310) and the live set is back to 85.**
+  **`r2-28a5.py` re-takes four figures and accounts for each**: the three extent pins at 156; the Convention AY
+  match at **51**, because the two merged rows were both matches and became one and not one of the five removals
+  was; `r2-ch28a`'s surname bound **16 → 17**, since the merged full-author row yields a surname the two
+  single-name rows did not; rows yielding no surname **123 → 116**, exactly 123 − 5 − 2; and rows whose author is
+  on both lists at another year **18 → 16**, **which is the very class register 1891 removed**. Its `WORDS` table
+  gained `fifty-one`, which the predecessor could not read. **`r2-bib3.py` turns a broken universal into a split
+  that names its exceptions**: where `r2-bib2` asserted *"every one of the 286 lines still carries its handle"*,
+  the successor asserts that **exactly the seven retired ids carry the `RETIRED W-307` mark and all 279 others
+  still point at a line that carries the handle.** `bib-01`, `28a-08` and `28a-09` are untouched: **register 1891
+  removed rows whose (name, year) no object attributes, and did not touch a handle.** Only `r2-26c3` remains owed.
+  **MEASURED at BUILD129/BUILD305: verify OK, census a fixed point, 86 OK / 0 FAIL.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.
