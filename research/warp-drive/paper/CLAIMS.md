@@ -1277,6 +1277,70 @@ negative.
 
 ---
 
+## ★★★ H24 — the currency question closes by **exhaustion**: the conversion table has one free parameter, and it is measured
+
+**H24. Every denomination is tied to mass-energy by a monomial in `G`, `c`, `ℏ`, `k` — or by a bound
+that runs against the trade. The whole conversion table holds exactly two dimensionless numbers: `Λ`,
+determined and O(10), and `κ`, the one genuine lever, already measured at `π/360` against the
+`3.8281e69` needed.**
+
+| denomination | rate | value |
+|---|---|---|
+| geometry | `c⁴/G` | `1.21026e44 N` |
+| length | `G/c⁴` | `8.26272e-45 m/J` |
+| contraction | `c²/(GΛ)` | `1.34895e26 kg/m` |
+| area | `ℏG/c³` | `2.61228e-70 m²` |
+| information | `2π/(ℏc ln2)` | `2.86720e26 bits/(J·m)` |
+| heat | `k ln2` | `9.56993e-24 J/(K·bit)` |
+
+And two bounds that run the wrong way: **Bekenstein** bounds information *by* energy; **Landauer**
+bounds energy *below*, by information.
+
+> **A constant of nature is not a discount.** The closure is not "five denominations failed" — it is that
+> the table has no free parameter but `κ`, and `κ` is measured and short. **A sixth denomination must
+> enter through `κ` or through the base, and the base is door one.**
+
+**And the door count does not move.** `nopath.py`'s dimensional drift is a warped braneworld — door one.
+`spectra.py`'s optimised spectrum is a black hole — inside the DEC branch **H21** exhausted. **Five
+passes, still three doors**, and two of the five were built on M's principles rather than on the device.
+
+**Door three gained a third independent arrival:** `create.py` from the topology theorems, `detect.py`
+from the search side, `nopath.py` from the index picture. **Three starting points, one conclusion** — the
+best-supported result in the project.
+
+**And door one stopped being a category.** `scale.py` had already priced the supply side of exactly the
+mechanism `nopath.py` named:
+
+| | orders |
+|---|---|
+| ordinary shortfall at 1 m | **69.58** |
+| braneworld shortfall | **38.36** |
+| **what extra dimensions buy** | **31.22** |
+
+**The largest single movement any lever in this project has produced.** It does not close the gap, and
+`scale.py`'s `EXTRA_DIMENSIONS` is `NOT-RUN` because the *demand* side in a braneworld is a different
+calculation in a different theory. **The scope decision is now about one named calculation with a
+measured supply side, not about a category.**
+
+**And exactly one door has a cost that is not a mass.**
+
+| door | cost is | note |
+|---|---|---|
+| outside GR | theory-dependent | 31.22 orders measured; demand side `NOT-RUN` |
+| not an energy question | unknown | GJW is an existence proof; nobody has costed a construction |
+| **a relic** | **a search** | 32.13 M☉ at 1193 km, LIGO band, **on existing data** |
+
+> Not a proof that door three is right. **The observation that it is the only one anybody could start on
+> this week.**
+
+| | `rates.py` |
+|---|---|
+| status | **PROVEN** (each rate reconstructed from the constants; the two bound directions) + **MEASURED** (the 31.22-order braneworld gain, from `scale.py`) |
+| new? | the exhaustion argument for the currency question, and door one as a number, yes |
+| **not** claimed | that 31.22 orders is a result — `scale.py`'s demand side is `NOT-RUN` and it cannot be quoted as one; that door three is the correct door — only that it is the only one with a payable cost; that `κ` has been shown impossible — it has been shown insufficient at `π/360` |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1396,3 +1460,7 @@ negative.
   bound counts spectral multiplicity. See **H23**.
 - **That a richer spectrum is a cheaper spectrum.** A spectrum is a logarithm, and the optimal one is a
   black hole.
+- **That the braneworld's 31.22 orders is a result.** `scale.py`'s demand side is `NOT-RUN`; the supply
+  side alone is not a calculation. See **H24**.
+- **That door three is the right door.** It is the only one with a cost you could pay today; that is a
+  different statement.

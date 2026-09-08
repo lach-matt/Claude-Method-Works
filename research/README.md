@@ -5731,3 +5731,100 @@ whole cost.
 - `spectra.py` — new. `obstruct.py` — **42 rows**, new `SPECTRAL-CURRENCY`, **24 closed-negative**, one
   still OPEN (TYPE-IV). `index3.py` — **427 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H23** and two
   additions to the not-claimed list.
+
+---
+
+## `rates.py` — the two passes applied back, and the currency closed by exhaustion
+
+`apply.py` consolidated three passes and found three doors. Two more have run since — the index picture
+and the spectral currency. Same question of them: **what does the project look like now.**
+
+### 1. Neither pass adds a door — five passes, still three
+
+`nopath.py`'s dimensional drift is a warped braneworld → **door one**. `spectra.py`'s optimised spectral
+currency is a black hole → `dichotomy.py`'s RICCI route, inside the DEC branch `apply.py` exhausted.
+
+> Two of the five passes were built on M's principles rather than on the device. **The list is not
+> staying short for want of anybody thinking about it.**
+
+### 2. But door three gained a third independent arrival
+
+| | |
+|---|---|
+| `create.py` | topology change forces causality violations, **kinematically** |
+| `detect.py` | the search target sits in a catalogue that already exists |
+| `nopath.py` | "two points already one" is a mouth pair — nothing contracted, nothing paid |
+
+**Three starting points, one conclusion: find one, do not make one.** The best-supported result in the
+project, and the third arrival came from the index picture rather than from any theorem the tree went
+looking for.
+
+### 3. And door one stopped being a category — it is a number now
+
+`apply.py` could only say *"f(R), noncommutative geometry."* `nopath.py` named a concrete, published,
+calculable mechanism — **bulk shortcuts in a warped braneworld**. And `scale.py` had **already priced the
+supply side of exactly that**, and left it as the only lever that moves the *base* of the scale theorem:
+
+| | orders |
+|---|---|
+| ordinary shortfall at 1 m | 69.58 |
+| braneworld shortfall | 38.36 |
+| **what extra dimensions buy** | **31.22** |
+
+**The largest single movement any lever in this project has produced.** It does not close the gap, and
+`scale.py`'s own status says why it cannot be quoted as a result: `EXTRA_DIMENSIONS` is **`NOT-RUN`**,
+because evaluating the *demand* side in a braneworld is a different calculation in a different theory.
+
+> **The scope decision M has been holding since the wormhole fork is no longer about a category.** It is a
+> decision about **one named calculation** with a measured 31.22-order supply side and an unrun demand
+> side. That is the sharpest the question has ever been.
+
+### 4. The currency question closes by exhaustion, not case by case
+
+`currency.py` closed the cheaper-denomination hope in three stages by *trying* three denominations. Two
+more have closed since. The pattern is now visible, and it is not a coincidence:
+
+| denomination | rate | value |
+|---|---|---|
+| geometry | `c⁴/G` | `1.21026e44 N` |
+| length | `G/c⁴` | `8.26272e-45 m/J` |
+| contraction | `c²/(GΛ)` | `1.34895e26 kg/m` |
+| area | `ℏG/c³` | `2.61228e-70 m²` |
+| information | `2π/(ℏc ln2)` | `2.86720e26 bits/(J·m)` |
+| heat | `k ln2` | `9.56993e-24 J/(K·bit)` |
+
+Plus two bounds running against the trade: **Bekenstein** bounds information *by* energy; **Landauer**
+bounds energy *below*, by information.
+
+> **A constant of nature is not a discount.** You cannot get a better price by denominating in a
+> different one, because the rate between any two is fixed and there is nothing to negotiate.
+
+The table holds **exactly two dimensionless numbers**, and both are accounted:
+
+| | | |
+|---|---|---|
+| `Λ` | `9.982529` | **determined** by the geometry, saturating to nine digits, O(10) — a number that size cannot buy orders whatever it is |
+| `κ` | free | **the one genuine lever**, and `scale.py` owns it: `π/360 = 8.7266e-3` against the `3.8281e69` needed at one metre |
+
+> So the closure is not *"five denominations failed."* It is that **the conversion table has no free
+> parameter but `κ`, and `κ` is measured and short.** A sixth denomination would have to enter through
+> `κ` or through the base — **and the base is door one.**
+
+### 5. And one door has a cost you can actually pay
+
+Priced by what the cost is **denominated in**, which is a different question from how large it is:
+
+| door | cost is | note |
+|---|---|---|
+| **outside GR** | theory-dependent | 31.22 orders on the supply side; demand side `NOT-RUN` |
+| **not an energy question** | unknown | GJW is an existence proof; nobody has costed a construction |
+| **a relic** | **a search** | 32.13 M☉ at 1193 km, LIGO band, **on data already taken** |
+
+> Exactly one of the three has a cost that is not a mass, and it is telescope time on an existing
+> catalogue. **That is not a proof that door three is the right one. It is the observation that it is the
+> only one anybody could start on this week.**
+
+### Seated
+- `rates.py` — new. `obstruct.py` — `CHEAPER-CURRENCY` annotated with the exhaustion argument.
+  `index3.py` — **433 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H24** and two additions to the
+  not-claimed list.

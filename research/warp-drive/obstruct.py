@@ -455,6 +455,11 @@ LEDGER = [
  ("CHEAPER-CURRENCY", "the cost can be paid in a cheaper denomination than "
   "mass-energy -- entropy, entanglement, or shaping rather than supplying",
   "CLOSED-NEGATIVE",
+  "CLOSED BY EXHAUSTION, NOT BY CASE COUNT -- see rates.py: every "
+  "denomination is tied to mass-energy by a MONOMIAL in G, c, hbar and k, or "
+  "by a bound running against the trade, and the whole conversion table holds "
+  "one free dimensionless number (kappa, pi/360 against 3.8281e69 needed). A "
+  "sixth denomination must enter through kappa or through the base. "
   "PURSUED IN THREE STAGES AND CLOSED, AND THE FIRST TWO STAGES SAY THE "
   "INSTINCT WAS RIGHT. (1) Entropy IS a structurally better denomination: "
   "every energy comparison carries hbar G/c^3 exactly once and uncancelled -- "
