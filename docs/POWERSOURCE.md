@@ -585,3 +585,70 @@ what `restart.py` means when it says the plant cannot be walked away from.
 
 None of the three is bounded by anything published, because each is a property of a design rather than
 of a class.
+
+## `--standby` — the measurement `explore.py` ordered first, made
+
+`explore.py` ranked the driver standby the largest unpriced term in the plant and named exactly what
+would settle it: *"the fixed cryogenic and rf load of a superconducting proton linac, stated beside
+that machine's beam power."* It is published — **in the cryogenics literature rather than the
+accelerator literature**, which is why looking for it beside a beam power did not find it.
+
+What is published is the cryoplant's **refrigeration capacity at 2 K**; the specific power that turns
+it into a wall-plug load is a standard figure. Two machines carry both.
+
+| machine | GeV | beam MW | W at 2 K | wall plug MW | MW per MW of beam | status |
+|---|---:|---:|---:|---|---|---|
+| SNS | 1.0 | 1.40 | 2,500 | 1.86 – 2.48 | 1.33 – 1.77 | OPERATED |
+| ESS | 2.0 | 5.00 | 3,000 | 2.23 – 2.98 | 0.45 – 0.60 | BUILDING |
+
+at **745–993 W of wall plug per W removed at 2 K** — Carnot from 300 K is 149 and a real plant reaches
+15–20 % of it.
+
+**The cross-check does more than pass.** ESS states its cryoplant's electrical consumption at about
+**3.0 MW**; the band above spans 2.23–2.98 MW from a capacity and a specific power that share nothing
+with that figure — and the stated value sits at the **top**, so a built plant is at the **plain** end
+of the efficiency band, not the good end. The band is kept and the upper end used.
+
+### One candidate law is refuted outright
+
+| | SNS → ESS | |
+|---|---|---:|
+| beam power | 1.40 → 5.00 MW | **×3.57** |
+| standby | 2.48 → 2.98 MW | **×1.20** |
+
+**The standby does not track beam power.** A 3.6× larger beam carries a 1.2× larger cryoplant. So
+`--linac`'s **SCALED** branch — the one on which dividing the beam into more, smaller drivers was free
+— **is refuted by measurement**, and the FIXED branch is the plant. The cheaper of the two readings was
+the wrong one.
+
+### What it does not settle
+
+A load that is static heat leak goes with cryomodule **length**, and length goes with **energy**. The
+two machines differ by 2 in energy and 1.20 in cryoplant — neither constant nor proportional, implying
+an exponent of **0.26**. **That is not a fitted law and is not used as one**: two points determine a
+one-parameter fit exactly, with no residual and therefore no evidence.
+
+| law | standby per driver | beam MW | drivers | standby MWe |
+|---|---:|---:|---:|---:|
+| constant — a cryoplant is a cryoplant | 2.98 MW | 255.0 | 13 | 129.1 |
+| what the two points imply | 4.29 MW | 270.0 | 14 | 200.3 |
+| linear in energy | 11.92 MW | 380.0 | 19 | 754.9 |
+
+**The exposure is now bounded at 1.49× rather than unbounded**, and the design's assumed 1.0 MW per
+driver is **low** — the measured machines carry 2.5–3.0 MW at a quarter of the energy and a fraction of
+the beam. The assumption is **not replaced here**: replacing it is a design change and this is a
+measurement.
+
+### And it settles the driver size — in the opposite direction to the one `--linac` expected
+
+At the measured standby, **a station of drivers of the largest class ever operated does not close at
+all**, while the assumed 20 MW driver closes at **six percent more beam**. The 20 MW driver is not a
+convenience the design should apologise for — **it is a requirement**, and the plant cannot be built
+out of machines that exist. That is a harder statement than `--linac` was written to make, and it is
+measured rather than assumed.
+
+### It also cuts against route A, which `--current` cut for
+
+A cryoplant load that goes with cryomodule length goes with **energy**, and route A's driver is 8×
+route C's. On current and on beam loss the 8 GeV machine was the forgiving one; on standby it is the
+expensive one. **Neither result cancels the other and this file does not net them.**

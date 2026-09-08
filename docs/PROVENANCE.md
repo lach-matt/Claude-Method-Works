@@ -62,6 +62,11 @@ SOURCED, not ASSUMED, nothing. They were invisible to the ASSUMED inventory *pre
 wrote ASSUMED beside them*, which is the failure mode an inventory of stated assumptions has and
 cannot fix from the inside.
 
+**The sharpest was the driver standby — and it has since been measured** (`powersource --standby`),
+which is what a census is for. The constant itself is unchanged and still unannotated; what changed is
+that there are now two published machines beside it. Replacing the value is a design change and
+belongs to the author, not to the census.
+
 **The sharpest is the driver standby.** `explore.py`'s largest interaction runs through it — 19.25×
 against a product of 1.93 — its band's low end says `SOURCED band`, and the value the whole design
 actually uses says only *"mid-band driver fixed load"*. **A mid-point of a sourced band is not itself

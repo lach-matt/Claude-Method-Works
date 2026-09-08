@@ -72,8 +72,10 @@ DESIGN = "DESIGN"          # a free engineering choice, and the only kind of
                            # axis a REDESIGN can move
 ASSUMED = "ASSUMED"        # a constant carrying that status in its own file
 UNMEASURED = "UNMEASURED"  # a band nothing in this work has measured
+SOURCED = "SOURCED"        # measured, and the measurement is cited
 REDESIGNABLE = (DESIGN,)
-OWED = (ASSUMED, UNMEASURED)
+OWED = (ASSUMED, UNMEASURED)   # SOURCED is deliberately not here: once a
+                               # term is measured it stops being exposure
 
 Axis = collections.namedtuple(
     "Axis", "name key values status owner note")
@@ -91,11 +93,17 @@ AXES = (
          (1.40, 4.00, 5.00, 10.00, 15.00, 20.00), ASSUMED, "powersource.py",
          "LINAC_BEAM_MW is ASSUMED at 20; the low end is the largest ever "
          "OPERATED"),
+    # WAS UNMEASURED, AND THE MEASUREMENT ARRIVED. powersource --standby
+    # takes two machines that publish a cryoplant capacity beside a beam
+    # power, and the values here are now theirs rather than a band for a
+    # machine of unstated size. The design's own REF_STANDBY_KW lies BELOW
+    # both, so the axis no longer contains it: an axis is what the constant
+    # can be, and 1 MW is not one of the things it can be.
     Axis("driver standby", "standby_kw",
-         (P.STANDBY_LO_KW, P.REF_STANDBY_KW, P.STANDBY_HI_KW), UNMEASURED,
-         "powersource.py",
-         "a band for a machine of unstated size, and its SCALING LAW is "
-         "stated nowhere -- see --linac"),
+         (2480.0, 2980.0), SOURCED, "powersource.py",
+         "MEASURED: SNS and ESS cryoplants, 2.48 to 2.98 MW per machine; the "
+         "design's assumed 1.0 MW lies below both, and the SCALED reading is "
+         "refuted -- see --standby"),
     Axis("stopping window", "window",
          (150.0, 265.0, 400.0), DESIGN, "collector.py",
          "NOT a free lever: --stopping prices it in tritium, 1.93x for 1.11x "
@@ -327,18 +335,32 @@ def report():
     print("    NUMBER, IT IS A KIND. Redesigning everything that is open to")
     print(f"    redesign is worth {b0 / ceil_b:.2f}x. Being wrong about the"
           " constants nobody has")
-    print(f"    measured is worth {exp_b / b0:.1f}x --"
-          f" {(exp_b / b0) / (b0 / ceil_b):.0f} times as much, in the other"
-          " direction.")
-    print("    And with the accelerator efficiency at the low end of its own")
-    print("    SOURCED band as well, the plant does not close at all:")
-    print(f"      {_fmt(objective(eta_acc=0.20, **exp_c))}.")
+    print(f"    measured is worth {exp_b / b0:.2f}x, and with the accelerator"
+          " efficiency at")
+    print("    the low end of its own SOURCED band as well the plant does not")
+    print(f"    close at all: {_fmt(objective(eta_acc=0.20, **exp_c))}.")
     print()
-    print("    A design space is not explored by iterating over the first")
-    print("    while the second is open. That is not a counsel of patience --")
-    print("    it is that the iteration would be measuring the assumptions")
-    print("    with a plant, which is the most expensive instrument anyone")
-    print("    has ever proposed for the job.")
+    print("    AND THAT EXPOSURE WAS 19.2x WHEN THIS FILE WAS WRITTEN. One of")
+    print("    the three measurements it named has since been made --")
+    print("    powersource --standby, two published cryoplants -- and the")
+    print("    driver standby moved from UNMEASURED to SOURCED. It is not")
+    print("    counted as exposure any more, because a measured term is not")
+    print("    exposure.")
+    print()
+    print("    BUT THE EXPOSURE DID NOT VANISH. IT CHANGED KIND. Look at the")
+    print("    pair table above: driver power against the MEASURED standby is")
+    print("    now NO CLOSURE. A station built out of drivers of the largest")
+    print("    class ever operated does not work -- not 'is expensive', does")
+    print("    not work -- and that is now a fact about cryoplants rather")
+    print("    than a fear about an assumption. THE SOFT UNKNOWN BECAME A")
+    print("    HARD REQUIREMENT, which is what measuring something does and")
+    print("    is why it is worth doing first.")
+    print()
+    print("    A design space is not explored by iterating while the")
+    print("    constants are open. That is not a counsel of patience -- it is")
+    print("    that the iteration would be measuring the assumptions with a")
+    print("    plant, which is the most expensive instrument anyone has ever")
+    print("    proposed for the job.")
     print()
     print("    THIS FILE THEREFORE REPORTS NO OPTIMUM. An optimum over a")
     print("    space whose largest free swing is an unmeasured constant is a")
@@ -431,8 +453,15 @@ def selftest():
     check("  -- and by less than a factor of two", b0 / ceil_b < 2.0)
     check("the unmeasured axes can cost more than redesign can buy",
           exp_b / b0 > b0 / ceil_b)
-    check("  -- by more than an order of magnitude",
-          (exp_b / b0) / (b0 / ceil_b) > 10.0)
+    # WAS "by more than an order of magnitude", AT 19.2x. One of the three
+    # measurements this file named has since been made and the exposure fell
+    # to under two. The assertion is deliberately NOT relaxed to nothing:
+    # what it now pins is that the exposure still exceeds the redesign gain,
+    # and the pair table below pins where the rest of it went.
+    check("  -- still, after one of the three measurements landed",
+          exp_b / b0 > b0 / ceil_b)
+    check("the standby is no longer among the owed axes",
+          not any(a.key == "standby_kw" and a.status in OWED for a in AXES))
     # AND WITH ONE DESIGN AXIS AT THE LOW END OF ITS OWN SOURCED BAND, the
     # plant stops existing. Pinned because it is the sentence the report
     # makes, and it is only true with that term included.
@@ -449,9 +478,14 @@ def selftest():
           len(pairs) == len(AXES) * (len(AXES) - 1) // 2)
     check("  -- several pairs reach no closure, which one-at-a-time misses",
           len(dead) >= 3)
-    check("  -- every one of them pairs two of the three largest axes",
-          all({t[1].key, t[2].key} <= {"k_eff", "eta_acc", "linac_mw"}
+    # THE MEASUREMENT MOVED THIS TOO, and in the direction that matters: a
+    # small driver at the MEASURED standby is now a no-closure pair, where
+    # before it merely cost 19.25x.
+    check("  -- driver power against the measured standby is one of them",
+          any({t[1].key, t[2].key} == {"linac_mw", "standby_kw"}
               for t in dead))
+    check("  -- so the exposure converted into a REQUIREMENT on driver size",
+          not math.isfinite(objective(linac_mw=1.4, standby_kw=2980.0)))
     check("  -- and the report says the ranking is OPTIMISTIC, not just"
           " incomplete",
           "it is" in out_of(report) and "optimistic" in out_of(report))
@@ -460,8 +494,15 @@ def selftest():
           not any(a.status in REDESIGNABLE for a in AXES
                   if a.status in OWED))
     check("every axis carries a status and an owner",
-          all(a.status in (PHYSICS, DECIDED, DESIGN, ASSUMED, UNMEASURED)
+          all(a.status in (PHYSICS, DECIDED, DESIGN, ASSUMED, UNMEASURED,
+                           SOURCED)
               and a.owner.endswith(".py") for a in AXES))
+    # THE MEASUREMENT LANDING IS THE POINT OF THE WHOLE ORDERING, so it is
+    # asserted rather than left to a reader to notice.
+    check("the driver standby has moved from UNMEASURED to SOURCED",
+          _axis("standby_kw").status == SOURCED)
+    check("  -- and it is no longer counted as exposure",
+          SOURCED not in OWED)
 
     print()
     print("  the refusal")

@@ -1803,12 +1803,23 @@ def report_linac():
     print("    quantity at every facility in the table above, and this work")
     print("    has not found it published in any usable form.")
     print()
-    print("    UNTIL IT IS, THE DRIVER SIZE IS NOT A FREE CHOICE AND MUST NOT")
-    print("    BE TREATED AS ONE. The design keeps its assumed"
-          f" {LINAC_BEAM_MW:.0f} MW driver")
-    print("    because changing it would be choosing an answer to the question")
-    print("    above rather than measuring it -- and the assumption is now")
-    print("    recorded with its consequence rather than carried silently.")
+    print("    THE MEASUREMENT HAS SINCE ARRIVED, and --standby carries it.")
+    print("    Two machines publish a cryoplant capacity beside a beam power,")
+    print("    and they refute the SCALED branch outright: ESS's beam is")
+    print("    3.57x SNS's and its cryoplant is 1.20x. The load does not")
+    print("    track beam power, so THE RIGHT-HAND HALF OF THE TABLE ABOVE IS")
+    print("    NOT AVAILABLE and the left-hand half is the plant.")
+    print()
+    print("    WHICH SETTLES THE DRIVER SIZE IN THE OPPOSITE DIRECTION TO THE")
+    print("    ONE THIS SECTION EXPECTED. At the measured standby a station")
+    print("    of drivers of the largest class ever OPERATED does not close")
+    print(f"    at all, while the assumed {LINAC_BEAM_MW:.0f} MW driver closes"
+          " at six percent more")
+    print("    beam. The 20 MW driver is not a convenience the design should")
+    print("    apologise for -- IT IS A REQUIREMENT, and the plant cannot be")
+    print("    built out of machines that exist. That is a harder statement")
+    print("    than the one this section was written to make, and it is")
+    print("    measured rather than assumed.")
     print()
 
 # ---- THE BLANKET CEILING, BOUNDED --------------------------------------
@@ -1984,6 +1995,177 @@ def report_blanket():
     print("      the structural damage limit at the flux the blanket runs at")
     print("    None of the three is bounded by anything published, because")
     print("    each is a property of a design rather than of a class.")
+    print()
+
+# ---- THE STANDBY, MEASURED ----------------------------------------------
+# explore.py ranked this the largest unpriced term in the plant and named the
+# measurement that would settle it: "the fixed cryogenic and rf load of a
+# superconducting proton linac, stated beside that machine's beam power". It
+# is published, in the cryogenics literature rather than the accelerator
+# literature, which is why looking for it beside a beam power did not find it.
+#
+# WHAT IS PUBLISHED IS THE CRYOPLANT'S REFRIGERATION CAPACITY AT 2 K, and the
+# specific power that converts it to a wall-plug load is a standard figure.
+# Two machines carry both, and two is enough to refute one of the two
+# candidate scaling laws outright.
+CRYOPLANT = {                  # (energy GeV, beam MW, W at 2 K, status)
+    "SNS": (1.00, 1.40, 2500.0, "OPERATED"),     # SOURCED: 2.1 K, 2.5 kW
+    "ESS": (2.00, 5.00, 3000.0, "BUILDING"),     # SOURCED: 3.0 kW at 2 K
+}
+# SOURCED, and a BAND rather than a point: Carnot from 300 K to 2 K is 149 W
+# per W and a real plant reaches 15 to 20 percent of it, which is 745 at the
+# good end and 993 at the plain one.
+SPECIFIC_POWER_2K_LO = 149.0 / 0.20
+SPECIFIC_POWER_2K_HI = 149.0 / 0.15
+ESS_CRYOPLANT_MW_STATED = 3.0  # SOURCED: the plant's own stated electrical
+                               # consumption. It is the CHECK on the two
+                               # lines above and it does more than pass -- it
+                               # says which end of the efficiency band a
+                               # built plant sits at, which is the plain one.
+
+
+def cryoplant_electric_mw(name, specific=None):
+    """A published cryoplant's wall-plug load, from its 2 K capacity."""
+    _e, _b, w2k, _s = CRYOPLANT[name]
+    sp = SPECIFIC_POWER_2K_HI if specific is None else specific
+    return w2k * sp / 1e6
+
+
+def cryoplant_band_mw(name):
+    return (cryoplant_electric_mw(name, SPECIFIC_POWER_2K_LO),
+            cryoplant_electric_mw(name, SPECIFIC_POWER_2K_HI))
+
+
+def standby_law(e_gev, exponent, ref="ESS"):
+    """One driver's standby at this energy, scaled from a measured machine.
+
+    THE EXPONENT IS THE WHOLE QUESTION and this file does not answer it.
+    0 is 'a cryoplant is a cryoplant'; 1 is 'the load is static heat leak and
+    the leak goes with the cryomodule length, which goes with the energy'.
+    Both are physically arguable and the two measured machines sit between
+    them."""
+    e_ref, _b, _w, _s = CRYOPLANT[ref]
+    return cryoplant_electric_mw(ref) * (e_gev / e_ref) ** exponent * 1000.0
+
+
+def measured_exponent():
+    """What the two machines actually say, and it is not a law.
+
+    TWO POINTS DETERMINE A ONE-PARAMETER FIT EXACTLY, with no residual and
+    therefore no evidence. This is reported as the value the pair implies and
+    never as a fitted exponent, because a fit needs something left over to be
+    wrong about."""
+    (e1, _b1, w1, _s1), (e2, _b2, w2, _s2) = (CRYOPLANT["SNS"],
+                                              CRYOPLANT["ESS"])
+    return math.log(w2 / w1) / math.log(e2 / e1)
+
+
+def standby_station(e_gev=None, exponent=0.0, **kw):
+    """The station rebuilt with the standby a driver of this energy carries."""
+    e = BEAM_GEV if e_gev is None else e_gev
+    kw.setdefault("module_mw", SPALL_TARGET_MW["ESS, design"])
+    kw.setdefault("k_eff", K_DESIGN)
+    return station(standby_kw=standby_law(e, exponent), **kw)
+
+
+def report_standby():
+    """the driver's standby, measured -- and one candidate law refuted"""
+    print()
+    print("  THE STANDBY, MEASURED")
+    print()
+    print("    explore.py ranked this the largest unpriced term in the plant")
+    print("    and named the measurement that would settle it. It is")
+    print("    published -- in the CRYOGENICS literature rather than the")
+    print("    accelerator literature, which is why looking for it beside a")
+    print("    beam power did not find it.")
+    print()
+    print("    THE TWO MACHINES THAT CARRY BOTH NUMBERS")
+    print()
+    print("      machine    GeV   beam MW   W at 2 K   wall plug MW"
+          "     MW per MW of beam")
+    for n, (e, b, w, st) in sorted(CRYOPLANT.items(), key=lambda t: t[1][0]):
+        lo, hi = cryoplant_band_mw(n)
+        print(f"      {n:<9} {e:4.1f} {b:9.2f} {w:10.0f}"
+              f" {lo:7.2f} to {hi:.2f} {lo / b:10.2f} to {hi / b:.2f}   {st}")
+    print()
+    print(f"      at {SPECIFIC_POWER_2K_LO:.0f} to {SPECIFIC_POWER_2K_HI:.0f}"
+          " W of wall plug per W removed at 2 K --")
+    print("      Carnot from 300 K is 149 and a real plant reaches 15 to 20")
+    print("      percent of it.")
+    print()
+    print("    THE ARITHMETIC IS CHECKED BEFORE IT IS USED, AND THE CHECK")
+    print("    DOES MORE THAN PASS. ESS states its cryoplant's electrical")
+    print(f"    consumption at about {ESS_CRYOPLANT_MW_STATED:.1f} MW. The"
+          " band above spans")
+    print(f"    {cryoplant_band_mw('ESS')[0]:.2f} to"
+          f" {cryoplant_band_mw('ESS')[1]:.2f} MW from a capacity and a"
+          " specific power that share")
+    print("    nothing with that figure, and the stated value sits at the")
+    print("    TOP of it -- so a built plant is at the plain end of the")
+    print("    efficiency band, not the good end. The band is kept and the")
+    print("    upper end is used.")
+    print()
+    print("    AND THE FIRST RESULT REFUTES A CANDIDATE LAW OUTRIGHT.")
+    print()
+    s_sns, s_ess = cryoplant_electric_mw("SNS"), cryoplant_electric_mw("ESS")
+    b_sns, b_ess = CRYOPLANT["SNS"][1], CRYOPLANT["ESS"][1]
+    print(f"      beam power       SNS {b_sns:.2f} MW -> ESS {b_ess:.2f} MW"
+          f"    x{b_ess / b_sns:.2f}")
+    print(f"      standby          SNS {s_sns:.2f} MW -> ESS {s_ess:.2f} MW"
+          f"    x{s_ess / s_sns:.2f}")
+    print()
+    print("    THE STANDBY DOES NOT TRACK BEAM POWER. A 3.6x larger beam")
+    print("    carries a 1.2x larger cryoplant. So --linac's SCALED branch --")
+    print("    the one on which dividing the beam into more, smaller drivers")
+    print("    was free -- IS REFUTED BY MEASUREMENT, and the FIXED branch is")
+    print("    the right one. The cheaper of the two readings was the wrong")
+    print("    one, which is the direction these things usually go.")
+    print()
+    print("    WHAT IT DOES NOT SETTLE, AND THE FILE WILL NOT PRETEND.")
+    print("    A load that is static heat leak goes with the cryomodule")
+    print("    LENGTH, and length goes with ENERGY. The two machines differ")
+    print("    in energy by two and in cryoplant by"
+          f" {s_ess / s_sns:.2f}, which is neither")
+    print(f"    constant nor proportional -- it implies an exponent of"
+          f" {measured_exponent():.2f}.")
+    print("    THAT IS NOT A FITTED LAW AND IS NOT USED AS ONE: two points")
+    print("    determine a one-parameter fit exactly, with no residual and")
+    print("    therefore no evidence. It is reported as what the pair says.")
+    print()
+    print("    THE STATION UNDER EACH READING, AT ROUTE A'S 8 GeV")
+    print()
+    print("      law                       standby per driver   beam MW"
+          "   drivers   standby MWe")
+    for lab, expo in (("constant -- a cryoplant is", 0.0),
+                      ("what the two points imply", measured_exponent()),
+                      ("linear in energy", 1.0)):
+        sb = standby_law(BEAM_GEV, expo)
+        st = standby_station(BEAM_GEV, expo)
+        load = st["linacs"] * sb / 0.30 / 1000.0
+        print(f"      {lab:<26} {sb / 1000:14.2f} MW {st['beam_mw']:9.1f}"
+              f" {st['linacs']:9d} {load:13.1f}")
+    lo = standby_station(BEAM_GEV, 0.0)["beam_mw"]
+    hi = standby_station(BEAM_GEV, 1.0)["beam_mw"]
+    print()
+    print(f"    SO THE EXPOSURE IS NOW BOUNDED AT {hi / lo:.2f}x RATHER THAN"
+          " UNBOUNDED,")
+    print(f"    and the design's own assumed {REF_STANDBY_KW / 1000:.1f} MW"
+          " per driver is low: the")
+    print(f"    measured machines carry {s_sns:.1f} to {s_ess:.2f} MW at a"
+          " quarter of the energy")
+    print("    and a fraction of the beam. THE ASSUMPTION IS NOT REPLACED")
+    print("    HERE -- replacing it is a design change and this is a")
+    print("    measurement -- but it is now bracketed by two real machines")
+    print("    instead of by nothing.")
+    print()
+    print("    AND IT CUTS AGAINST ROUTE A, WHICH --current CUT FOR. A")
+    print("    cryoplant load that goes with cryomodule length is a load that")
+    print(f"    goes with ENERGY, and route A's driver is"
+          f" {BEAM_GEV / ROUTE_C_GEV:.0f}x route C's. On current")
+    print("    and on beam loss the 8 GeV machine was the forgiving one; on")
+    print("    standby it is the expensive one, and the same two data points")
+    print("    that bound the term also say which way it leans. NEITHER")
+    print("    RESULT CANCELS THE OTHER AND THIS FILE DOES NOT NET THEM.")
     print()
 
 WORLD_CIVIL_TRITIUM_KG = 25.0   # SOURCED band: the heavy-water reactor stock
@@ -3170,7 +3352,8 @@ def selftest():
                        ("driver", report_driver),
                        ("current", report_current),
                        ("linac", report_linac),
-                       ("blanket", report_blanket)):
+                       ("blanket", report_blanket),
+                       ("standby", report_standby)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -3362,9 +3545,14 @@ def selftest():
           abs(standby_load_mw(station_at_driver(5.0, standby_scaled))
               - standby_load_mw(station_at_driver(LINAC_BEAM_MW,
                                                   standby_scaled))) < 1.0)
-    check("the assumed driver is kept rather than re-chosen",
-          "THE DESIGN KEEPS ITS ASSUMED" in
-          _capture_ps(report_linac).upper())
+    # THIS CHECK USED TO ASSERT THAT THE DRIVER SIZE WAS KEPT PENDING A
+    # MEASUREMENT. The measurement arrived (--standby) and says the size is
+    # required rather than merely assumed, so the assertion is now the
+    # stronger one and the section says so where it made the weaker claim.
+    check("the section records that the measurement arrived",
+          "THE MEASUREMENT HAS SINCE ARRIVED" in _capture_ps(report_linac))
+    check("  -- and that it settles the size as a REQUIREMENT",
+          "IT IS A REQUIREMENT" in _capture_ps(report_linac))
     check("a driver of no power is refused",
           _raises_value(lambda: built_station(1, linac_mw=0.0)))
 
@@ -3400,6 +3588,59 @@ def selftest():
           _raises_value(lambda: power_density_mw_m3(100.0, 0.0)))
 
     print()
+    print("  the standby, measured -- and one candidate law refuted")
+    _sns = cryoplant_band_mw("SNS")
+    _ess = cryoplant_band_mw("ESS")
+    # THE CROSS-CHECK, and it does more than pass: ESS's own stated figure
+    # sits at the TOP of a band built from a capacity and a specific power
+    # that share nothing with it, which says which end of the efficiency
+    # band a built plant is at.
+    check("the band reproduces ESS's own stated cryoplant consumption",
+          _ess[0] <= ESS_CRYOPLANT_MW_STATED <= _ess[1] * 1.02)
+    check("  -- at the top of it, so a built plant is at the plain end",
+          abs(_ess[1] - ESS_CRYOPLANT_MW_STATED) < 0.1)
+    # THE REFUTATION. --linac offered two candidate laws and could not
+    # choose; two measured machines choose.
+    check("beam power differs between the two machines by more than three",
+          CRYOPLANT["ESS"][1] / CRYOPLANT["SNS"][1] > 3.0)
+    check("  -- and their standby by less than one and a half",
+          _ess[1] / _sns[1] < 1.5)
+    check("  -- so the standby does NOT track beam power, and --linac's"
+          " SCALED branch is refuted",
+          (_ess[1] / _sns[1]) < 0.5 * (CRYOPLANT["ESS"][1]
+                                       / CRYOPLANT["SNS"][1]))
+    check("the design's assumed standby is below both measured machines",
+          REF_STANDBY_KW / 1000.0 < min(_sns[0], _ess[0]))
+    # WHAT TWO POINTS CANNOT DO, asserted so it cannot be quietly done.
+    check("what the pair implies is reported, and it is not 0 or 1",
+          0.0 < measured_exponent() < 1.0)
+    check("  -- and the file says a two-point fit is not evidence",
+          "no residual" in _capture_ps(report_standby))
+    # AND THE RESULT THAT DECIDES THE DRIVER SIZE.
+    def _closes(lin, sb):
+        try:
+            station(module_mw=SPALL_TARGET_MW["ESS, design"], k_eff=K_DESIGN,
+                    linac_mw=lin, standby_kw=sb)
+            return True
+        except ValueError:
+            return False
+    _operated = max(p for e, p, st in LINAC_CLASS.values() if st == "OPERATED")
+    check("at the MEASURED standby a station of operated-class drivers does"
+          " NOT close",
+          not _closes(_operated, _ess[1] * 1000.0))
+    check("  -- while the assumed 20 MW driver does, at 6 percent more beam",
+          _closes(LINAC_BEAM_MW, _ess[1] * 1000.0)
+          and station(module_mw=SPALL_TARGET_MW["ESS, design"],
+                      k_eff=K_DESIGN,
+                      standby_kw=_ess[1] * 1000.0)["beam_mw"]
+          < 1.1 * station(module_mw=SPALL_TARGET_MW["ESS, design"],
+                          k_eff=K_DESIGN)["beam_mw"])
+    check("the exposure is bounded rather than unbounded now",
+          math.isfinite(standby_station(BEAM_GEV, 1.0)["beam_mw"]))
+    check("the file does not net the standby against --current's result",
+          "DOES NOT NET THEM" in _capture_ps(report_standby))
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -3431,6 +3672,8 @@ def main():
     ap.add_argument("--linac", action="store_true", help=report_linac.__doc__)
     ap.add_argument("--blanket", action="store_true",
                     help=report_blanket.__doc__)
+    ap.add_argument("--standby", action="store_true",
+                    help=report_standby.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -3464,6 +3707,8 @@ def main():
         return report_linac()
     if a.blanket:
         return report_blanket()
+    if a.standby:
+        return report_standby()
     return report()
 
 

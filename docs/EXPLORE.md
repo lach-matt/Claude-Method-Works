@@ -43,7 +43,7 @@ number that hides a trade is worse than two numbers that show it.**
 | driver power | ASSUMED | **1.81×** | 240 → 435 |
 | muon channel | DECIDED | 1.15× | 240 → 275 |
 | stopping window | DESIGN | 1.14× | 210 → 240 |
-| driver standby | UNMEASURED | 1.07× | 230 → 245 |
+| driver standby | ~~UNMEASURED~~ **SOURCED** | 1.02× | 250 → 255 |
 | module power | DESIGN | 1.02× | 236.3 → 240 |
 
 **One axis dominates and it is closed** — not by physics, by a decision on the record. The next two are
@@ -60,7 +60,7 @@ ranking above is not merely incomplete, it is **optimistic**:
 | k × accelerator efficiency | 10.48, 2.00 | **no closure** | unbounded |
 | k × driver power | 10.48, 1.81 | **no closure** | unbounded |
 | accelerator efficiency × driver power | 2.00, 1.81 | **no closure** | unbounded |
-| driver power × driver standby | 1.81, 1.07 | 19.25× | 9.97× |
+| driver power × driver standby | 1.81, 1.02 | **no closure** | unbounded |
 | k × muon channel | 10.48, 1.15 | 27.90× | 2.32× |
 
 **Three pairs take the plant to no closure at all**, each pairing one large axis with another. The
@@ -100,8 +100,19 @@ standby, the dry cooling and a net delivery.
 | | every ASSUMED and UNMEASURED axis at its worst: `linac_mw=1.4, standby_kw=2000` |
 
 Redesigning everything open to redesign is worth **1.45×**. Being wrong about the constants nobody has
-measured is worth **19.2×** — thirteen times as much, in the other direction. And with the accelerator
-efficiency at the low end of its own *sourced* band as well, **the plant does not close at all**.
+measured was worth **19.2×** when this file was written, and with the accelerator efficiency at the low
+end of its own *sourced* band as well, **the plant does not close at all**.
+
+**One of the three measurements has since been made.** `powersource --standby` takes two published
+cryoplants and the driver standby moved from `UNMEASURED` to `SOURCED`; it is no longer counted as
+exposure, because a measured term is not exposure. The one-at-a-time exposure fell from **19.2× to
+1.81×**.
+
+**But it did not vanish — it changed kind.** In the pair table, driver power against the *measured*
+standby is now **no closure**: a station built out of drivers of the largest class ever operated does
+not work — not "is expensive", does not work — and that is now a fact about cryoplants rather than a
+fear about an assumption. **The soft unknown became a hard requirement**, which is what measuring
+something does, and is why it is worth doing first.
 
 **A design space is not explored by iterating over the first while the second is open.** That is not a
 counsel of patience — it is that the iteration would be measuring the assumptions with a plant, which
@@ -113,9 +124,8 @@ is the most expensive instrument anyone has ever proposed for the job.
 constant is a statement about the constant. What it reports is **the order to work in**, and the order
 is not the designer's instinct:
 
-1. **The standby scaling law.** One number from an operating superconducting proton linac — its fixed
-   cryogenic and rf load beside its beam power. Decides whether a station of machines that exist is
-   possible at all.
+1. ~~**The standby scaling law.**~~ **MADE** — see `docs/POWERSOURCE.md` `--standby`. It decided
+   exactly what it was expected to decide: a station of machines that exist is **not** possible.
 2. **The wall-plug-to-beam efficiency** at this power, measured rather than banded. Worth 2.0× on its
    own and the largest genuinely *open* axis in the table.
 3. **The transport calculation** on the fissile fraction, which is what actually places k. The

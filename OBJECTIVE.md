@@ -156,6 +156,24 @@ which is the flattening this file forbids.
 **Precision in the mathematics is worth 1.45×. Provenance in the constants is worth the plant.** They
 are not the same quantity, and no amount of the first supplies the second.
 
+**The first of the three measurements has been made, and it worked exactly as the ordering predicted.**
+The driver standby is published in the *cryogenics* literature — SNS and ESS both state a cryoplant
+capacity beside a beam power — and it gives **1.86 to 2.98 MW per machine**, against the design's
+assumed 1.0 MW. It refutes one candidate scaling law outright (ESS's beam is 3.57× SNS's and its
+cryoplant 1.20×, so the load does not track beam power) and leaves the other bounded rather than
+unbounded. **`explore.py`'s exposure fell from 19.2× to 1.81×.**
+
+**And it did not merely shrink the uncertainty — it converted it into a requirement.** At the measured
+standby, **a station built out of drivers of the largest class ever operated does not close at all**.
+The 20 MW driver is not a convenience to apologise for; it is a requirement, and the plant cannot be
+built from machines that exist. That is a harder statement than the design was making, and it is
+measured rather than assumed.
+
+**A decision is owed here and is the author's.** `REF_STANDBY_KW` still carries 1.0 MW, which the
+measurement puts below both real machines. Raising it is a *design change* and the instruments will
+not make one: the measurement sits beside the constant, and whether the design adopts it, and at which
+end of the band, is recorded here when it is taken.
+
 ## The phases
 
 1. Define the math in full and prove it.

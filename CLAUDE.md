@@ -717,6 +717,28 @@ at every size; what grows is the **duty**, **55.4 MW at 1 h** against a sourced 
 question: the **core volume**, the **coolant velocity and pumping limit**, and the **structural damage
 limit** — each a property of a design rather than of a class.
 
+**`--standby` then makes the measurement `explore.py` ordered first, and it is published in the
+*cryogenics* literature rather than the accelerator one — which is why looking for it beside a beam
+power never found it.** Two machines state a cryoplant capacity beside a beam power: **SNS, 2.5 kW at
+2 K on a 1 GeV / 1.4 MW machine**, and **ESS, 3.0 kW at 2 K on 2 GeV / 5 MW** — **1.86–2.98 MW** of
+wall plug at the sourced 745–993 W per W removed at 2 K. **The cross-check does more than pass**: ESS's
+own stated ~3.0 MW sits at the *top* of a band built from a capacity and a specific power that share
+nothing with it, so a built plant is at the **plain** end of the efficiency band. **And one candidate
+law is refuted outright** — ESS's beam is **3.57×** SNS's and its cryoplant **1.20×**, so the standby
+does **not** track beam power and `--linac`'s SCALED branch, the one on which dividing the beam was
+free, is gone. What two points cannot do is settle the *exponent*: 0.26 is what the pair implies and is
+**not used as a law**, because a two-point fit has no residual and therefore no evidence; the exposure
+is bounded at **1.49×** instead of unbounded. **The result settles the driver size in the opposite
+direction to the one `--linac` expected**: at the measured standby a station of drivers of the largest
+class ever *operated* **does not close at all**, while the assumed 20 MW driver closes at six percent
+more beam — so **the 20 MW driver is a requirement, not a convenience**, and the plant cannot be built
+out of machines that exist. It also **cuts against route A, which `--current` cut for** — a load that
+goes with cryomodule length goes with energy, and route A's driver is 8× route C's. **Neither result
+cancels the other and the file does not net them.** `explore.py`'s exposure accordingly fell from
+**19.2× to 1.81×** and the standby moved `UNMEASURED` → `SOURCED`; **but the exposure did not vanish,
+it changed kind** — driver power against the *measured* standby is now a **no-closure** pair. The soft
+unknown became a hard requirement, which is what measuring something does.
+
 **`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
 and answered with the discipline's own arithmetic rather than with reassurance, because nothing here
 had done any of it. **The uranium is not the hazard**: DU is an alpha emitter at **12.4 MBq/kg** whose
