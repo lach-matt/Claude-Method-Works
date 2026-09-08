@@ -1,6 +1,6 @@
 
 == 0  THE SEATED MEMBER
-   The_Method_1_6___The_Register-2.md  1351612 B  md5 1864bd62ef8e51d82261a6ac6504a409  6997 lines
+   The_Method_1_6___The_Register-2.md  1354019 B  md5 b322666ff024b0e8cffbbc3f232f5417  7000 lines
 
 == 1  THE CLASS
    entries carrying the split                               275                        OK
@@ -17,13 +17,13 @@
    declined entries: ['238', '290', '313', '327', '338', '397', '463', '543', '595', '604', '608', '640', '641', '646', '648', '702', '707', '724', '747', '1394', '1642', '1643', '1648', '1649', '1652', '1653', '1657', '1681', '1722']
 
 == 3  THE REPAIRED MEMBER, MEASURED (NOT WRITTEN)
-   would become 1351972 B  md5 9c741620b5692f43f02937c789e1dc4f  6997 lines
+   would become 1354379 B  md5 35aff01063953e1d9cc2c9c7d35a2574  7000 lines
    delta +360 B, +0 lines
-   line count unchanged                                     6997                       OK
+   line count unchanged                                     7000                       OK
    only the 246 repaired lines differ                       246                        OK
 
 == 4  THE REVERSE GUARD
-   reversing every substitution recovers the seated bytes   '1864bd62ef8e51d82261a6ac6 OK
+   reversing every substitution recovers the seated bytes   'b322666ff024b0e8cffbbc3f2 OK
 
 == 5  WHAT R3 MUST DO BEYOND THIS INSTRUMENT
    1. The 29 declined entries are repaired by hand, with both texts, not by this rule.

@@ -163,7 +163,7 @@
   `|` lines 164; first three: ['| year | work | objects |', '|---|---|---|', '| 1669 | Newton | `B.newton` |']
   DATA rows (split on unescaped `|`, header and separator excluded, carrying a year): 162
   MC bibliography L3376–L3546: 162 work rows; years 1669–2026
-  surnames MC rows 41, unit 163, shared 13: ['Andrew', 'Baker', 'Beek', 'Chenciner', 'Dechter', 'Drake', 'Fleischer', 'Gerratt', 'Griffin', 'Hsiang', 'Lach', 'Marchal', 'Nesterov']
+  surnames MC rows 41, unit 164, shared 13: ['Andrew', 'Baker', 'Beek', 'Chenciner', 'Dechter', 'Drake', 'Fleischer', 'Gerratt', 'Griffin', 'Hsiang', 'Lach', 'Marchal', 'Nesterov']
   MC rows whose surname is in the unit: 16 of 162 (the printed fifty-nine counts WORKS; this is a surname-overlap bound, stated as such)
     Newton    MC rows 2 (years [1669, 1687])
     Leibniz   MC rows 1 (years [1682])
