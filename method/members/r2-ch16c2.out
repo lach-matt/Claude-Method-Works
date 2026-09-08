@@ -55,7 +55,7 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
 ## 3  REGISTER CITATIONS in the unit -- existence FIRST, then the headline
   sites: [(8476, '247')]
   register 247 cited at main L8476
-     exact heading in Register: [984] | grouped heading covering it: []
+     exact heading in Register: [985] | grouped heading covering it: []
      entry headline: **§30.3.3's FOURTH LEMMA, LEFT ON A CITATION AND NOW PROVED IN FULL.** / ### 248
      citing line: reason the qualifier is in the statement. Register 247.
 
@@ -219,8 +219,8 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   extra edge         {'main': [8568]}
   recovered edge     zero sites in six volumes
   nine recovered     {'main': [8568]}
-  constraint graph   {'main': [770, 1906, 1917, 2066, 2078, 2092, 2169, 2227], 'reg': [1902, 1962, 1970, 2010, 2190, 2210, 2402, 5726], 'mc': [380, 896, 898, 900, 936, 950, 956, 998], 'ioi': [15, 2027]}
-  implied            {'main': [2836, 3775, 4752, 4988, 6482, 8568, 9228, 11609], 'reg': [1738, 1750, 1766, 3114, 5542, 6100], 'mc': [6, 17, 131, 1304, 2736, 3200]}
+  constraint graph   {'main': [770, 1906, 1917, 2066, 2078, 2092, 2169, 2227], 'reg': [1903, 1963, 1971, 2011, 2191, 2211, 2403, 5727], 'mc': [380, 896, 898, 900, 936, 950, 956, 998], 'ioi': [15, 2027]}
+  implied            {'main': [2836, 3775, 4752, 4988, 6482, 8568, 9228, 11609], 'reg': [1739, 1751, 1767, 3115, 5543, 6101], 'mc': [6, 17, 131, 1304, 2736, 3200]}
 
 ## 14  FIGURE REFERENCES vs FIGURE MEMBERS (production layer, NOT a text defect)
   main-volume inline figure references: 33 ; in unit: [8498]

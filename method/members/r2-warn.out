@@ -1,52 +1,52 @@
 
 == §0 CONVENTIONS AND FRESH COUNTS
-Register member lines 7001 | main 11904 | MC 3813 | PC 914 | IoI 2094 | SC 1160
-Heading convention A (bare `^#{1,4}\s*N\s*$`): 1725 entries; max 1890
-Heading convention B (grouped `^#{1,4}\s*N, N, …\s*$`): 32 numbers on 7 lines: [1328, 1332, 1336, 1340, 1344, 1348, 1352]
+Register member lines 7006 | main 11905 | MC 3807 | PC 914 | IoI 2094 | SC 1160
+Heading convention A (bare `^#{1,4}\s*N\s*$`): 1726 entries; max 1891
+Heading convention B (grouped `^#{1,4}\s*N, N, …\s*$`): 32 numbers on 7 lines: [1329, 1333, 1337, 1341, 1345, 1349, 1353]
 Absent under A (1..1792): 164 | absent under A and B: 132
 WARNING marker convention: raw case-sensitive `WARNING:` (the colon excludes headline words such as 1463's FISHBURN'S WARNING); raw `WARNING` lines: 41 | `WARNING:` lines: 39 | markers: 40
 
 == §1 EVERY `WARNING:` MARKER, ITS ENTRY, AND THE REGISTER IT NAMES AS CORRECTOR
-L4854 entry 1293 | correctors named [1475, 1582] | Corrected at register 1582. The rule this entry states — that an index mixing object with observer cannot close — was inferred from ONE case and is contradicted by register 1475, which defines the space index THROUGH observability. The evidence here supports o
-L4918 entry 1309 | correctors named [1460] | ν is DEACTIVATED as a law at register 1460 and retained as a FORM — the first form the corridor was applied to. This entry's content stands as a fact about that form; it is not a statement about the periodic table. Held out, the form scores 90 of 106 against a
-L4998 entry 1329 | correctors named [1311, 1460] | Overstated and corrected at register 1460. The node theorem supplies the RADICAND p = n − ℓ − 1 (R 1308); it does not supply the square root around it, which has only the structural closure axiom of R 1460 behind it and no physical derivation (R 1457). And 'no
-L5010 entry 1332 | correctors named [1448] | Qualified at register 1448. The memoryless test set a to each candidate subshell's own crossing value — a criterion fixed from the case it judges, which §4.6 shows cannot fail. The claim stands: the observed subshell is never uniquely determined, so the table 
-L5046 entry 1341 | correctors named [1416] | Superseded at registers 1416, 1457 and 1458. δ = a√p is not merely refuted but IMPOSSIBLE: δ is bounded as n → ∞ while a√(n−ℓ−1) diverges, the held series are flat to five percent where √p would demand a factor of six, and the Tietz potential has no Coulomb ta
-L5082 entry 1350 | correctors named [1460] | 'THE LÖWDIN SOLUTION, FINISHED FORM' is withdrawn at register 1460. The form is not the solution and is retained as a form. 'No parameter is fitted' is qualified by R 1445: the 99 of 106 was FITTED — a was placed using each step's own corridor, which is built 
-L5142 entry 1366 | correctors named [1460] | This entry states the instrument correctly and is the ground of register 1460: THE CORRIDOR TESTS A FORM, NOT A MAGNITUDE. Note the asymmetry it implies and which the work then did not hold to — an empty feasible set REFUTES a form, and a non-empty one does NO
-L5146 entry 1367 | correctors named [1460] | The nuclear corridor here is built on NILSSON's form, not on ν — which is why this result is untouched by ν's deactivation at register 1460, and why it is the instrument's best work rather than the form's.
-L5214 entry 1385 | correctors named - | The row set behind the eighty-five is UNVERIFIED —. No natural exclusion rule yields it and the nearest gives eighty-six, so the exponent 4.55, the σ scan and the +16% above Z ≥ 70 all rest on an unstated selection.
-L5222 entry 1390 | correctors named - | Corrected: the ratio is monotone EXCEPT at palladium alone, where it falls 0.1756 → 0.1753. The endpoints and the never-exceeding-the-limit half both reproduce exactly; only the unqualified monotonicity is wrong.
-L5226 entry 1391 | correctors named - | Corrected: n = 47, not 45. The three region offsets reproduce exactly at 3.798, 4.595 and 5.298, and the quoted spread of 0.108 IS the forty-seven-element figure — dropping any two tightens it to 0.097, so the fit ran over all forty-seven.
-L5242 entry 1395 | correctors named - | The beyond-limit count stated here is superseded by 1426: it is 38, not 47, and the within-limit count is 20, not 11 — but the eleven named exceptions are unchanged.
-L5246 entry 1396 | correctors named - | Corrected: the entry splits the ELEVEN absent cells six-and-five and then scores against the TWELVE donor steps, which are different objects, and its list of nine names only seven — Pr and Tb are omitted. The base rate itself reproduces exactly at 3 of 12 agai
-L5266 entry 1401 | correctors named [1470] | Corrected: the four unforced resets are NOT period openings — thallium 81 is not the first element of a period. All four open a SUBSHELL (Li 2s, K 4s, Tl 6p, Fr 7s), but so do eight of the fourteen forced, so the property is necessary and not sufficient and th
-L5266 entry 1401 | correctors named [1470] | Corrected at register 1470. 'Every one the first element of a new period' is wrong on thallium and wrong in KIND on all four — they share no separating property because they are three distinct mechanisms plus an origin. The fourteen forced moves stated here ar
-L5274 entry 1403 | correctors named - | Qualified: the eight a values are RECONSTRUCTIONS held in HANDOFF.md from earlier sessions' walk work, not measurements. This entry therefore claims agreement with a previously computed trajectory, which is weaker than it reads.
-L5290 entry 1407 | correctors named - | Qualified and superseded at 1435. This entry's margin is never defined; its ninety-nine is the CEILING-BEARING set, not the seventy-three with both bounds finite, and none of its figures reproduce from corridor widths. Measured instead on the RUNNING INTERSECT
-L5298 entry 1409 | correctors named [1411, 1447] | Clarified: the seven block openings count the initial placement at lithium; register 1411's six count RE-placements, which excludes it. Both are self-consistent — nine matched plus six extra is fifteen moves. And per-block ascent cannot be corridor-respecting 
-L5314 entry 1413 | correctors named [1445] | Clarified and measured at 1438. The seven misses are placement-INDEPENDENT; per-block ascent adds B 5 and Sc 21, which are placement-CAUSED — 106 − 9 = 97 and 106 − 7 = 99, so both figures are right and the clause was missing. And the 99 was FITTED: held out p
-L5322 entry 1415 | correctors named - | Corrected: the percentages are exact — ceiling in the entrant's own block 84/99 = 85%, floor in the next block 71/80 = 89% — but the exception counts are undercounts. There are FIFTEEN ceiling exceptions, not eleven: the eleven s-against-s as stated PLUS four 
-L5330 entry 1417 | correctors named - | Corrected: SEVEN of twenty three-axis systems close, not three. The monotone-chain filter was applied as a stated principle rather than a computed test, so combinations may have been excluded on an unrecorded judgement. The landing-axis definitions are indepen
-L5502 entry 1461 | correctors named [1463] | Corrected at register 1463 within the same session. The atomic claim here is too strong: the 106 non-empty corridors are 106 SEPARATE one-dimensional feasibility results, and the table solved as ONE system is INFEASIBLE — the running intersection empties fourt
-L5506 entry 1462 | correctors named [1535] | The κ figures here are flagged at register 1535. A transcription of the source's Table I supplied by an outside model FAILS a hard physical check — it assigns ℓ = 0, 2, 4 to the N = 5 proton shell, which admits only ℓ = 1, 3, 5 — and separates 0.0250 as a NEUT
-L5522 entry 1466 | correctors named [1468] | Corrected at register 1468 within the same session. The shared origin is an ARTEFACT: at lithium the corridor is (0, ∞) and determines nothing, and BOTH trajectories fall back to the same hard-coded initialisation a0 = 1.0. They do not share an origin; they sh
-L5566 entry 1479 | correctors named [1480] | Corrected at register 1480. This entry says the route is unavailable in 4D with interacting matter. That case is SOLVED — Witten and Casini–Teste–Torroba build the horizon-cut algebra as the DOUBLE COMMUTANT of sesquilinear forms, and Faulkner & Speranza concl
-L5598 entry 1487 | correctors named [1485, 1488] | The inference at the end of this entry is WITHDRAWN at register 1488. diff(S) carries NON-VANISHING NOETHER CHARGE — it is PHYSICAL, not a gauge redundancy — so one must not quotient by it, and register 1485's underdetermination stands. Everything else in this
-L5622 entry 1493 | correctors named [1494] | The cancellation reading in this entry is REFUTED at register 1494. Sampled 240,000 rule sets: twenty of the 2,210 with the cell total near exact DO produce opposite-sign NEC errors, so the family is not barred from the region and there is no Farkas certificat
-L5646 entry 1499 | correctors named [1500] | The degeneracy threat raised here is DISSOLVED at register 1500. Faulkner and Speranza address it directly in their §4.1: any vacuum state gives rise to the SAME horizon component of the modular Hamiltonian, by a Connes cocycle argument. The degeneracy is real
-L5698 entry 1512 | correctors named [1513] | Register 1513 applies the sudoku method to this table, as the person then asked, and finds the sample DEGENERATE: every known row has Reeh–Schlieder holding, so no implication can be tested and 'isolates one row' overstates what the table supports. The Rindler
-L5710 entry 1515 | correctors named [1516] | Corrected at register 1516. This entry says Löwdin 'needs ALL ORDERS' by Kraft–Pratt–Seidenberg. That is the general statement for additive representability; for a ONE-DIMENSIONAL unknown Helly's theorem caps the order at TWO, and 183 disjoint corridor pairs c
-L5783 entry 1533 | correctors named - | The Theodosiou row is WRONG and is corrected. The PII I supplied — 0092640X86900158 — is Ivanova, Ivanov & Tsirekidze, ADNDT 35 pp. 419–428, NOT Theodosiou at p. 473. The robots block was real for a DIFFERENT PAPER, and D3's actual target has never been addres
-L5803 entry 1539 | correctors named [1546] | Sharpened at register 1546. The defects computed here are PER-LEVEL δnl, not the ASYMPTOTIC δℓ(0) that Theodosiou tabulates, and comparing them to textbook values was loose. Rydberg–Ritz extrapolation of these same numbers recovers 2.178, 1.711 and 0.269 again
-L5907 entry 1567 | correctors named [1568] | Corrected at register 1568. This entry treats six status notes as outstanding tasks and puts them in the queue. M's reading is right: they are working notes. Only 1296 is a task; 730 is a standing RULE; 433, 534, 630 and 1475 record a STATE of the work at the 
-L5979 entry 1589 | correctors named [1590] | Sharpened at register 1590. This entry calls the 44 species with a measured ionisation energy a capture target. They are more than that: the IE and the defect come from the SAME Rydberg fit, so for those species the defect is a READING NOT TAKEN from data that
-L5991 entry 1592 | correctors named [1596] | Corrected at register 1596. This entry lists four fetches as remaining. THREE WERE ALREADY ON DISK — LADDER-H-Ar-I-III.tsv in the working root and 100+ level files in spectraraw/. I inventoried captures/ only and never listed the rest of the tree.
-L5999 entry 1595 | correctors named [1629] | Corrected at register 1629. This entry attributes the three identical bodies to a CACHE serving one response per host and path. There is no cache: only ONE ie.pl URL had ever appeared in a search result, so only one body was ever available to serve. The observ
-L6027 entry 1602 | correctors named [1605] | Corrected at register 1605. This entry's finding that all eight defect cells are triangle-rule violations is TRUE BUT EMPTY: X was built FROM the triangle rule, so anything outside X violates it by construction. A tautology reported as a discovery.
-L6059 entry 1610 | correctors named [1611] | WITHDRAWN in its headline at register 1611. The six hundred are not unreachable and not unobstructed: RANK IS NOT REACH, and all 600 carry the bound 'derived by symmetry; no measurement required'. The correct count of bound-open cells lacking an upper witness 
-L6120 entry 1628 | correctors named [1629] | Corrected at register 1629. The two blocks described here are ONE mechanism — a permission layer that REFUSES when nothing matches and SERVES THE PERMITTED URL when something does. There is no cache.
-L6136 entry 1633 | correctors named [1635] | Corrected at register 1635. This entry calls spectra=K-Kr the only energy1.pl URL that has ever worked. It had never worked — it was my own untested reconstruction, as the transcript itself records. The rejected parameter is order=0, which belongs to ie.pl.
+L4855 entry 1293 | correctors named [1475, 1582] | Corrected at register 1582. The rule this entry states — that an index mixing object with observer cannot close — was inferred from ONE case and is contradicted by register 1475, which defines the space index THROUGH observability. The evidence here supports o
+L4919 entry 1309 | correctors named [1460] | ν is DEACTIVATED as a law at register 1460 and retained as a FORM — the first form the corridor was applied to. This entry's content stands as a fact about that form; it is not a statement about the periodic table. Held out, the form scores 90 of 106 against a
+L4999 entry 1329 | correctors named [1311, 1460] | Overstated and corrected at register 1460. The node theorem supplies the RADICAND p = n − ℓ − 1 (R 1308); it does not supply the square root around it, which has only the structural closure axiom of R 1460 behind it and no physical derivation (R 1457). And 'no
+L5011 entry 1332 | correctors named [1448] | Qualified at register 1448. The memoryless test set a to each candidate subshell's own crossing value — a criterion fixed from the case it judges, which §4.6 shows cannot fail. The claim stands: the observed subshell is never uniquely determined, so the table 
+L5047 entry 1341 | correctors named [1416] | Superseded at registers 1416, 1457 and 1458. δ = a√p is not merely refuted but IMPOSSIBLE: δ is bounded as n → ∞ while a√(n−ℓ−1) diverges, the held series are flat to five percent where √p would demand a factor of six, and the Tietz potential has no Coulomb ta
+L5083 entry 1350 | correctors named [1460] | 'THE LÖWDIN SOLUTION, FINISHED FORM' is withdrawn at register 1460. The form is not the solution and is retained as a form. 'No parameter is fitted' is qualified by R 1445: the 99 of 106 was FITTED — a was placed using each step's own corridor, which is built 
+L5143 entry 1366 | correctors named [1460] | This entry states the instrument correctly and is the ground of register 1460: THE CORRIDOR TESTS A FORM, NOT A MAGNITUDE. Note the asymmetry it implies and which the work then did not hold to — an empty feasible set REFUTES a form, and a non-empty one does NO
+L5147 entry 1367 | correctors named [1460] | The nuclear corridor here is built on NILSSON's form, not on ν — which is why this result is untouched by ν's deactivation at register 1460, and why it is the instrument's best work rather than the form's.
+L5215 entry 1385 | correctors named - | The row set behind the eighty-five is UNVERIFIED —. No natural exclusion rule yields it and the nearest gives eighty-six, so the exponent 4.55, the σ scan and the +16% above Z ≥ 70 all rest on an unstated selection.
+L5223 entry 1390 | correctors named - | Corrected: the ratio is monotone EXCEPT at palladium alone, where it falls 0.1756 → 0.1753. The endpoints and the never-exceeding-the-limit half both reproduce exactly; only the unqualified monotonicity is wrong.
+L5227 entry 1391 | correctors named - | Corrected: n = 47, not 45. The three region offsets reproduce exactly at 3.798, 4.595 and 5.298, and the quoted spread of 0.108 IS the forty-seven-element figure — dropping any two tightens it to 0.097, so the fit ran over all forty-seven.
+L5243 entry 1395 | correctors named - | The beyond-limit count stated here is superseded by 1426: it is 38, not 47, and the within-limit count is 20, not 11 — but the eleven named exceptions are unchanged.
+L5247 entry 1396 | correctors named - | Corrected: the entry splits the ELEVEN absent cells six-and-five and then scores against the TWELVE donor steps, which are different objects, and its list of nine names only seven — Pr and Tb are omitted. The base rate itself reproduces exactly at 3 of 12 agai
+L5267 entry 1401 | correctors named [1470] | Corrected: the four unforced resets are NOT period openings — thallium 81 is not the first element of a period. All four open a SUBSHELL (Li 2s, K 4s, Tl 6p, Fr 7s), but so do eight of the fourteen forced, so the property is necessary and not sufficient and th
+L5267 entry 1401 | correctors named [1470] | Corrected at register 1470. 'Every one the first element of a new period' is wrong on thallium and wrong in KIND on all four — they share no separating property because they are three distinct mechanisms plus an origin. The fourteen forced moves stated here ar
+L5275 entry 1403 | correctors named - | Qualified: the eight a values are RECONSTRUCTIONS held in HANDOFF.md from earlier sessions' walk work, not measurements. This entry therefore claims agreement with a previously computed trajectory, which is weaker than it reads.
+L5291 entry 1407 | correctors named - | Qualified and superseded at 1435. This entry's margin is never defined; its ninety-nine is the CEILING-BEARING set, not the seventy-three with both bounds finite, and none of its figures reproduce from corridor widths. Measured instead on the RUNNING INTERSECT
+L5299 entry 1409 | correctors named [1411, 1447] | Clarified: the seven block openings count the initial placement at lithium; register 1411's six count RE-placements, which excludes it. Both are self-consistent — nine matched plus six extra is fifteen moves. And per-block ascent cannot be corridor-respecting 
+L5315 entry 1413 | correctors named [1445] | Clarified and measured at 1438. The seven misses are placement-INDEPENDENT; per-block ascent adds B 5 and Sc 21, which are placement-CAUSED — 106 − 9 = 97 and 106 − 7 = 99, so both figures are right and the clause was missing. And the 99 was FITTED: held out p
+L5323 entry 1415 | correctors named - | Corrected: the percentages are exact — ceiling in the entrant's own block 84/99 = 85%, floor in the next block 71/80 = 89% — but the exception counts are undercounts. There are FIFTEEN ceiling exceptions, not eleven: the eleven s-against-s as stated PLUS four 
+L5331 entry 1417 | correctors named - | Corrected: SEVEN of twenty three-axis systems close, not three. The monotone-chain filter was applied as a stated principle rather than a computed test, so combinations may have been excluded on an unrecorded judgement. The landing-axis definitions are indepen
+L5503 entry 1461 | correctors named [1463] | Corrected at register 1463 within the same session. The atomic claim here is too strong: the 106 non-empty corridors are 106 SEPARATE one-dimensional feasibility results, and the table solved as ONE system is INFEASIBLE — the running intersection empties fourt
+L5507 entry 1462 | correctors named [1535] | The κ figures here are flagged at register 1535. A transcription of the source's Table I supplied by an outside model FAILS a hard physical check — it assigns ℓ = 0, 2, 4 to the N = 5 proton shell, which admits only ℓ = 1, 3, 5 — and separates 0.0250 as a NEUT
+L5523 entry 1466 | correctors named [1468] | Corrected at register 1468 within the same session. The shared origin is an ARTEFACT: at lithium the corridor is (0, ∞) and determines nothing, and BOTH trajectories fall back to the same hard-coded initialisation a0 = 1.0. They do not share an origin; they sh
+L5567 entry 1479 | correctors named [1480] | Corrected at register 1480. This entry says the route is unavailable in 4D with interacting matter. That case is SOLVED — Witten and Casini–Teste–Torroba build the horizon-cut algebra as the DOUBLE COMMUTANT of sesquilinear forms, and Faulkner & Speranza concl
+L5599 entry 1487 | correctors named [1485, 1488] | The inference at the end of this entry is WITHDRAWN at register 1488. diff(S) carries NON-VANISHING NOETHER CHARGE — it is PHYSICAL, not a gauge redundancy — so one must not quotient by it, and register 1485's underdetermination stands. Everything else in this
+L5623 entry 1493 | correctors named [1494] | The cancellation reading in this entry is REFUTED at register 1494. Sampled 240,000 rule sets: twenty of the 2,210 with the cell total near exact DO produce opposite-sign NEC errors, so the family is not barred from the region and there is no Farkas certificat
+L5647 entry 1499 | correctors named [1500] | The degeneracy threat raised here is DISSOLVED at register 1500. Faulkner and Speranza address it directly in their §4.1: any vacuum state gives rise to the SAME horizon component of the modular Hamiltonian, by a Connes cocycle argument. The degeneracy is real
+L5699 entry 1512 | correctors named [1513] | Register 1513 applies the sudoku method to this table, as the person then asked, and finds the sample DEGENERATE: every known row has Reeh–Schlieder holding, so no implication can be tested and 'isolates one row' overstates what the table supports. The Rindler
+L5711 entry 1515 | correctors named [1516] | Corrected at register 1516. This entry says Löwdin 'needs ALL ORDERS' by Kraft–Pratt–Seidenberg. That is the general statement for additive representability; for a ONE-DIMENSIONAL unknown Helly's theorem caps the order at TWO, and 183 disjoint corridor pairs c
+L5784 entry 1533 | correctors named - | The Theodosiou row is WRONG and is corrected. The PII I supplied — 0092640X86900158 — is Ivanova, Ivanov & Tsirekidze, ADNDT 35 pp. 419–428, NOT Theodosiou at p. 473. The robots block was real for a DIFFERENT PAPER, and D3's actual target has never been addres
+L5804 entry 1539 | correctors named [1546] | Sharpened at register 1546. The defects computed here are PER-LEVEL δnl, not the ASYMPTOTIC δℓ(0) that Theodosiou tabulates, and comparing them to textbook values was loose. Rydberg–Ritz extrapolation of these same numbers recovers 2.178, 1.711 and 0.269 again
+L5908 entry 1567 | correctors named [1568] | Corrected at register 1568. This entry treats six status notes as outstanding tasks and puts them in the queue. M's reading is right: they are working notes. Only 1296 is a task; 730 is a standing RULE; 433, 534, 630 and 1475 record a STATE of the work at the 
+L5980 entry 1589 | correctors named [1590] | Sharpened at register 1590. This entry calls the 44 species with a measured ionisation energy a capture target. They are more than that: the IE and the defect come from the SAME Rydberg fit, so for those species the defect is a READING NOT TAKEN from data that
+L5992 entry 1592 | correctors named [1596] | Corrected at register 1596. This entry lists four fetches as remaining. THREE WERE ALREADY ON DISK — LADDER-H-Ar-I-III.tsv in the working root and 100+ level files in spectraraw/. I inventoried captures/ only and never listed the rest of the tree.
+L6000 entry 1595 | correctors named [1629] | Corrected at register 1629. This entry attributes the three identical bodies to a CACHE serving one response per host and path. There is no cache: only ONE ie.pl URL had ever appeared in a search result, so only one body was ever available to serve. The observ
+L6028 entry 1602 | correctors named [1605] | Corrected at register 1605. This entry's finding that all eight defect cells are triangle-rule violations is TRUE BUT EMPTY: X was built FROM the triangle rule, so anything outside X violates it by construction. A tautology reported as a discovery.
+L6060 entry 1610 | correctors named [1611] | WITHDRAWN in its headline at register 1611. The six hundred are not unreachable and not unobstructed: RANK IS NOT REACH, and all 600 carry the bound 'derived by symmetry; no measurement required'. The correct count of bound-open cells lacking an upper witness 
+L6121 entry 1628 | correctors named [1629] | Corrected at register 1629. The two blocks described here are ONE mechanism — a permission layer that REFUSES when nothing matches and SERVES THE PERMITTED URL when something does. There is no cache.
+L6137 entry 1633 | correctors named [1635] | Corrected at register 1635. This entry calls spectra=K-Kr the only energy1.pl URL that has ever worked. It had never worked — it was my own untested reconstruction, as the transcript itself records. The rejected parameter is order=0, which belongs to ie.pl.
 WARNING'd entries: 39 [1293, 1309, 1329, 1332, 1341, 1350, 1366, 1367, 1385, 1390, 1391, 1395, 1396, 1401, 1403, 1407, 1409, 1413, 1415, 1417, 1461, 1462, 1466, 1479, 1487, 1493, 1499, 1512, 1515, 1533, 1539, 1567, 1589, 1592, 1595, 1602, 1610, 1628, 1633]
 chat-140 five (1309, 1350, 1401, 1403, 1461) all present: True
 
@@ -54,8 +54,8 @@ chat-140 five (1309, 1350, 1401, 1403, 1461) all present: True
 Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|correct|reconstruct|qualif|sharp/ OR the corrector register named, on the markup-stripped two-line join.…
 
 -- Register 1293 (2 citer line(s); corrector(s) [1475, 1582])
-  reg L4866 SILENT | MARKED FOR THE NEXT PASS: THE BOOK AND ALL FIVE COMPENDIA NEED REPRESENTATION OF THE LÖWDIN WORK. Registers 1249–1295 are recorded and none of it has reached the artefacts. What is owed: the Mathematical Compendium needs the law i
-  reg L5951 CARRIES (wrong +corrector [1475]) | M IS RIGHT: THE OBSERVER RULE WAS INFERRED FROM ONE CASE, MY CONFIRMATION OF IT COULD NOT FAIL, AND THE REGISTER ALREADY CONTRADICTS IT. M: observer facts are what determine an object. Checked, and three things go wrong on my side
+  reg L4867 SILENT | MARKED FOR THE NEXT PASS: THE BOOK AND ALL FIVE COMPENDIA NEED REPRESENTATION OF THE LÖWDIN WORK. Registers 1249–1295 are recorded and none of it has reached the artefacts. What is owed: the Mathematical Compendium needs the law i
+  reg L5952 CARRIES (wrong +corrector [1475]) | M IS RIGHT: THE OBSERVER RULE WAS INFERRED FROM ONE CASE, MY CONFIRMATION OF IT COULD NOT FAIL, AND THE REGISTER ALREADY CONTRADICTS IT. M: observer facts are what determine an object. Checked, and three things go wrong on my side
 
 -- Register 1309 (0 citer line(s); corrector(s) [1460])
   no citer in any volume (witness: PHRASE regex over all six members, ranges ≤ 100 expanded)
@@ -65,26 +65,26 @@ Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|
 
 -- Register 1332 (5 citer line(s); corrector(s) [1448])
   main L9766 CARRIES ( +corrector [1448]) | computable from a single atom's configuration (register 1332; the count itself is not independently reproducible, register 1448). The solution is the operator
-  reg L6643 CARRIES (correct +corrector [1448]) | THE APPENDIX ROWS FOLLOW THE STATUS. Appendix rows for the nineteen surds and the necessity of state carried 'measured' and 'verified'; the first demotes with ν (1460) and the second is stated at 1332 and not independently reprodu
-  reg L6659 CARRIES (qualif +corrector [1448]) | THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE LEAVES ITS NAME. Appendix D carried it as ‘the necessity of state, 104 of 106 steps’ — the only element of the twenty-two whose fibre is theorem to be n
-  reg L6663 CARRIES (WRONG +corrector [1448]) | §34.6 CLAIMED THE WRONG THING, AND THE FIGURE IT CLAIMED IT WITH REPRODUCES UNDER NO CONVENTION. The unit stated ‘104 of 106 steps admit two to four self-consistent subshells’ and concluded that the periodic table is not computabl
-  reg L6667 CARRIES (no longer +corrector [1448]) | THE NECESSITY OF STATE'S VERIFICATION IS EXHAUSTIVE NOW, AND THEOREM · PHYSICS CLOSES; LAW · PHYSICS DOES NOT AND IS LEFT OPEN. Appendix D asserts E = 0 in every fibre. Recomputed from the volume's own element tables under §D.2's 
+  reg L6644 CARRIES (correct +corrector [1448]) | THE APPENDIX ROWS FOLLOW THE STATUS. Appendix rows for the nineteen surds and the necessity of state carried 'measured' and 'verified'; the first demotes with ν (1460) and the second is stated at 1332 and not independently reprodu
+  reg L6660 CARRIES (qualif +corrector [1448]) | THE NECESSITY OF STATE IS A STRUCTURAL THEOREM AND IS NAMED AS ONE; ITS SCORE LEAVES ITS NAME. Appendix D carried it as ‘the necessity of state, 104 of 106 steps’ — the only element of the twenty-two whose fibre is theorem to be n
+  reg L6664 CARRIES (WRONG +corrector [1448]) | §34.6 CLAIMED THE WRONG THING, AND THE FIGURE IT CLAIMED IT WITH REPRODUCES UNDER NO CONVENTION. The unit stated ‘104 of 106 steps admit two to four self-consistent subshells’ and concluded that the periodic table is not computabl
+  reg L6668 CARRIES (no longer +corrector [1448]) | THE NECESSITY OF STATE'S VERIFICATION IS EXHAUSTIVE NOW, AND THEOREM · PHYSICS CLOSES; LAW · PHYSICS DOES NOT AND IS LEFT OPEN. Appendix D asserts E = 0 in every fibre. Recomputed from the volume's own element tables under §D.2's 
 
 -- Register 1341 (6 citer line(s); corrector(s) [1416])
-  reg L5070 SILENT | TWELVE CLOSED INDEXES. Λ · Λlaw · Λconst · Λvar · Λryd · Λcharge · Λcross · Λdescent · Λphys · Λamp · ΛPCA · Λchem. Λspectra alone remains open, and register 1341 now says why: it lacked the principal number, which the merged (Z, 
-  reg L5298 CARRIES (Clarif) | THE UPDATE RULE IS DERIVED: PER-BLOCK MONOTONE ASCENT, ZERO VIOLATIONS IN 106 STEPS. The person asked whether a should simply ascend by size. Globally it cannot: ascent breaks at cerium 58 and stays broken through ytterbium, becau
-  reg L5326 CARRIES (wrong) | DELTA EQUALS A TIMES ROOT P FAILS, AND THE IDENTIFICATION WAS MINE. Register 1341 states that a equals delta over root p, so with a derived the quantum defect should follow — the person's standard for the Löwdin completion. Tested
-  reg L5490 CARRIES ( +corrector [1416]) | AND THE LÖWDIN COMPLETION CRITERION IS INCOMPATIBLE WITH THE LAW: THE TWO ARE DIFFERENT OBJECTS. The handoff states that the challenge completes when the work populates Λspectra with δ per channel. There is no route from ν to δ — 
-  reg L6835 CARRIES (correct) | "PALINDROMIC IF AND ONLY IF SELF-DUAL" IS FALSE IN ONE DIRECTION, AND THE BOOK'S ARGUMENT USES THE OTHER ONE. §11.7's caption to Figure 11.2 and §11.8's opening line both state: "A rank polynomial is palindromic if and only if the
+  reg L5071 SILENT | TWELVE CLOSED INDEXES. Λ · Λlaw · Λconst · Λvar · Λryd · Λcharge · Λcross · Λdescent · Λphys · Λamp · ΛPCA · Λchem. Λspectra alone remains open, and register 1341 now says why: it lacked the principal number, which the merged (Z, 
+  reg L5299 CARRIES (Clarif) | THE UPDATE RULE IS DERIVED: PER-BLOCK MONOTONE ASCENT, ZERO VIOLATIONS IN 106 STEPS. The person asked whether a should simply ascend by size. Globally it cannot: ascent breaks at cerium 58 and stays broken through ytterbium, becau
+  reg L5327 CARRIES (wrong) | DELTA EQUALS A TIMES ROOT P FAILS, AND THE IDENTIFICATION WAS MINE. Register 1341 states that a equals delta over root p, so with a derived the quantum defect should follow — the person's standard for the Löwdin completion. Tested
+  reg L5491 CARRIES ( +corrector [1416]) | AND THE LÖWDIN COMPLETION CRITERION IS INCOMPATIBLE WITH THE LAW: THE TWO ARE DIFFERENT OBJECTS. The handoff states that the challenge completes when the work populates Λspectra with δ per channel. There is no route from ν to δ — 
+  reg L6836 CARRIES (correct) | "PALINDROMIC IF AND ONLY IF SELF-DUAL" IS FALSE IN ONE DIRECTION, AND THE BOOK'S ARGUMENT USES THE OTHER ONE. §11.7's caption to Figure 11.2 and §11.8's opening line both state: "A rank polynomial is palindromic if and only if the
   ioi L1893 SILENT | register 1341 supposed. The index runs to the last available species and stops: 98 cells, E = 58, of which 38 need more electrons than any atom has. The
 
 -- Register 1350 (3 citer line(s); corrector(s) [1460])
-  reg L6639 CARRIES (CORRECT +corrector [1460]) | CHAPTER 34'S STATUS CORRECTED TO THE RECORD'S. The chapter printed ν as the law and its walk as exceptionless on 106 elements; registers 1437, 1438, 1445 and 1460 had measured 99 in sample and 90 held out against Madelung's 96 and
-  reg L6791 CARRIES (QUALIF) | §34.4 SAID "NO PARAMETER IS FITTED" AND §34.8 SAID IT WITH THE QUALIFIER FIVE LINES LATER; THE RULE'S OWN SECTION NOW CARRIES IT TOO. §34.4 closes its derivation with No parameter is fitted unqualified, and §34.8 — the provenance 
-  reg L6933 CARRIES (wrong) | §34.6 SAYS EACH SUBSHELL FILLS AT CONSTANT a AND THREE SUBSHELLS DO NOT; THE DOCKET'S OWN INSTANCE OF THE FAULT IS AT AN ELEMENT WHERE NOTHING MOVES. §34.6 states both halves in one breath: "It never resets mid-subshell, which is 
+  reg L6640 CARRIES (CORRECT +corrector [1460]) | CHAPTER 34'S STATUS CORRECTED TO THE RECORD'S. The chapter printed ν as the law and its walk as exceptionless on 106 elements; registers 1437, 1438, 1445 and 1460 had measured 99 in sample and 90 held out against Madelung's 96 and
+  reg L6792 CARRIES (QUALIF) | §34.4 SAID "NO PARAMETER IS FITTED" AND §34.8 SAID IT WITH THE QUALIFIER FIVE LINES LATER; THE RULE'S OWN SECTION NOW CARRIES IT TOO. §34.4 closes its derivation with No parameter is fitted unqualified, and §34.8 — the provenance 
+  reg L6934 CARRIES (wrong) | §34.6 SAYS EACH SUBSHELL FILLS AT CONSTANT a AND THREE SUBSHELLS DO NOT; THE DOCKET'S OWN INSTANCE OF THE FAULT IS AT AN ELEMENT WHERE NOTHING MOVES. §34.6 states both halves in one breath: "It never resets mid-subshell, which is 
 
 -- Register 1366 (1 citer line(s); corrector(s) [1460])
-  reg L5498 CARRIES (DEACTIVAT) | ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT. The person's reading: the law was created to find the rule, and now that the rule is found the law must be deactivated withou
+  reg L5499 CARRIES (DEACTIVAT) | ν IS DEACTIVATED AS A LAW AND RETAINED AS A FORM; THE CORRIDOR IS THE INSTRUMENT AND IT SURVIVES INTACT. The person's reading: the law was created to find the rule, and now that the rule is found the law must be deactivated withou
 
 -- Register 1367 (0 citer line(s); corrector(s) [1460])
   no citer in any volume (witness: PHRASE regex over all six members, ranges ≤ 100 expanded)
@@ -93,42 +93,42 @@ Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|
   ioi L1861 SILENT | Λxray has integer cells and measured values. Registers 1379, 1380, 1385.
 
 -- Register 1390 (2 citer line(s); corrector(s) none named)
-  reg L5763 CARRIES (WRONG) | B1b RUN AS A DECLARED TEST: THE σ-OFFSET IS NOT A COUNT, AND MY LEAN AND MY NARRATION WERE BOTH WRONG. The prediction was recorded BEFORE the data was fetched, with three distinguishable outcomes: a COUNT would put the 4p offset f
-  reg L6080 SILENT | B1 CLOSED: THE PINNED FIT WAS THE GRID, THE SIGMA DRIFT IS RELATIVISTIC, AND MY FIRST TEST OF THAT COULD NOT FAIL. B1 asked for a Z-dependent screening refit. Register 1532 left it open because four of seven screening values came 
+  reg L5764 CARRIES (WRONG) | B1b RUN AS A DECLARED TEST: THE σ-OFFSET IS NOT A COUNT, AND MY LEAN AND MY NARRATION WERE BOTH WRONG. The prediction was recorded BEFORE the data was fetched, with three distinguishable outcomes: a COUNT would put the 4p offset f
+  reg L6081 SILENT | B1 CLOSED: THE PINNED FIT WAS THE GRID, THE SIGMA DRIFT IS RELATIVISTIC, AND MY FIRST TEST OF THAT COULD NOT FAIL. B1 asked for a Z-dependent screening refit. Register 1532 left it open because four of seven screening values came 
 
 -- Register 1391 (2 citer line(s); corrector(s) none named)
-  reg L5518 SILENT | AND ALL SEVEN OF ITS OWN MISSES ARE AT TRANSITIONS, WHICH NAMES THE CENTRE COLUMN. B 5 is a node-free entrant with no floor at all (R 1414). Sc 21 and Ti 22 are Q.collapse's own threshold, where register 1391's 3p spin–orbit offse
-  reg L5859 SILENT | THE CAPTURES GIVE E2a's SHAPE A SECOND OBSERVABLE, AND THE 2p SCREENING DRIFTS EXACTLY AS 3p AND 4p DO. Asked whether the new material adds to the queue's contents. It does, at E2a. Register 1382 fits the hydrogen-like 1s defect a
+  reg L5519 SILENT | AND ALL SEVEN OF ITS OWN MISSES ARE AT TRANSITIONS, WHICH NAMES THE CENTRE COLUMN. B 5 is a node-free entrant with no floor at all (R 1414). Sc 21 and Ti 22 are Q.collapse's own threshold, where register 1391's 3p spin–orbit offse
+  reg L5860 SILENT | THE CAPTURES GIVE E2a's SHAPE A SECOND OBSERVABLE, AND THE 2p SCREENING DRIFTS EXACTLY AS 3p AND 4p DO. Asked whether the new material adds to the queue's contents. It does, at E2a. Register 1382 fits the hydrogen-like 1s defect a
 
 -- Register 1395 (3 citer line(s); corrector(s) none named)
-  reg L5366 CARRIES (WRONG) | REGISTER 1395'S LIMIT SPLIT IS WRONG, AND THE FAULT IS MY DATA'S EDGE READ AS THE SUBJECT'S. The one hundred and twenty finding prompted a recount of Λspectra's fifty-eight admitted-and-absent cells. The split is not forty-seven b
-  reg L5462 SILENT | AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN. His chain: any central potential carries a dynamical O(4) symmetry, not merely the Coulomb one; frequency degeneracy qωr = pωθ forces th
-  mc L3726 SILENT | Registers 1395–1398.
+  reg L5367 CARRIES (WRONG) | REGISTER 1395'S LIMIT SPLIT IS WRONG, AND THE FAULT IS MY DATA'S EDGE READ AS THE SUBJECT'S. The one hundred and twenty finding prompted a recount of Λspectra's fifty-eight admitted-and-absent cells. The split is not forty-seven b
+  reg L5463 SILENT | AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN. His chain: any central potential carries a dynamical O(4) symmetry, not merely the Coulomb one; frequency degeneracy qωr = pωθ forces th
+  mc L3720 SILENT | Registers 1395–1398.
 
 -- Register 1396 (1 citer line(s); corrector(s) none named)
-  mc L3726 SILENT | Registers 1395–1398.
+  mc L3720 SILENT | Registers 1395–1398.
 
 -- Register 1401 (2 citer line(s); corrector(s) [1470])
-  reg L5398 SILENT | THE CORRIDOR AND THE OBJECT IN IT ARE ONE EQUATION, AND THE PLACEMENT RULE FALLS OUT OF BALANCING THEM. The person's reframing, tested: the corridor L(Z) < a < U(Z) and the value carried through it are not a constraint plus a heur
-  reg L5538 CARRIES (reconstruct) | A4b CLOSED: THE FOUR UNFORCED RESETS ARE THREE MECHANISMS PLUS AN ORIGIN, AND NOT ONE CLASS AT ALL. Queue item A4b, open since 1.6.1. Register 1401 called the four 'every one the first element of a new period'; flagged that thalli
+  reg L5399 SILENT | THE CORRIDOR AND THE OBJECT IN IT ARE ONE EQUATION, AND THE PLACEMENT RULE FALLS OUT OF BALANCING THEM. The person's reframing, tested: the corridor L(Z) < a < U(Z) and the value carried through it are not a constraint plus a heur
+  reg L5539 CARRIES (reconstruct) | A4b CLOSED: THE FOUR UNFORCED RESETS ARE THREE MECHANISMS PLUS AN ORIGIN, AND NOT ONE CLASS AT ALL. Queue item A4b, open since 1.6.1. Register 1401 called the four 'every one the first element of a new period'; flagged that thalli
 
 -- Register 1403 (2 citer line(s); corrector(s) none named)
-  reg L5398 SILENT | THE CORRIDOR AND THE OBJECT IN IT ARE ONE EQUATION, AND THE PLACEMENT RULE FALLS OUT OF BALANCING THEM. The person's reframing, tested: the corridor L(Z) < a < U(Z) and the value carried through it are not a constraint plus a heur
-  reg L5470 SILENT | THE JOIN: BELOKOLOS SUPPLIES THE GROUP, PAULI PRUNES IT, AND A SITS ON THE CROSSING PAULI LEAVES BINDING. Three layers, each doing one job. Belokolos's degeneracy at E = 0 makes every member of a Madelung group indistinguishable —
+  reg L5399 SILENT | THE CORRIDOR AND THE OBJECT IN IT ARE ONE EQUATION, AND THE PLACEMENT RULE FALLS OUT OF BALANCING THEM. The person's reframing, tested: the corridor L(Z) < a < U(Z) and the value carried through it are not a constraint plus a heur
+  reg L5471 SILENT | THE JOIN: BELOKOLOS SUPPLIES THE GROUP, PAULI PRUNES IT, AND A SITS ON THE CROSSING PAULI LEAVES BINDING. Three layers, each doing one job. Belokolos's degeneracy at E = 0 makes every member of a Madelung group indistinguishable —
 
 -- Register 1407 (1 citer line(s); corrector(s) none named)
-  reg L5402 CARRIES (withdraw) | PROXIMITY IS THE TRIGGER, AND THE THRESHOLD IS NOT FITTED — IT IS ZERO. Register 1407 measured the margin PER ELEMENT and demoted proximity to a signal: a best threshold reaching 91% against an 87% do-nothing baseline, with nine r
+  reg L5403 CARRIES (withdraw) | PROXIMITY IS THE TRIGGER, AND THE THRESHOLD IS NOT FITTED — IT IS ZERO. Register 1407 measured the margin PER ELEMENT and demoted proximity to a signal: a best threshold reaching 91% against an 87% do-nothing baseline, with nine r
 
 -- Register 1409 (1 citer line(s); corrector(s) [1411, 1447])
-  reg L5510 CARRIES (correct) | AND FISHBURN'S WARNING BITES ON REGISTER 1461'S OWN ATOMIC CLAIM, TWENTY MINUTES OLD. 1461 states that the observed ATOMIC order is additively representable in ν's family because 106 of 106 corridors are non-empty. Applying that e
+  reg L5511 CARRIES (correct) | AND FISHBURN'S WARNING BITES ON REGISTER 1461'S OWN ATOMIC CLAIM, TWENTY MINUTES OLD. 1461 states that the observed ATOMIC order is additively representable in ν's family because 106 of 106 corridors are non-empty. Applying that e
 
 -- Register 1413 (1 citer line(s); corrector(s) [1445])
-  reg L5414 SILENT | THE SCORER IS REBUILT AND THE 99 IS NOW MEASURED RATHER THAN REPORTED. Rebuilt from register 1413's specification with nothing but the law, the candidate generator, the higher-n tie-break and the exact corridors. The handshake pla
+  reg L5415 SILENT | THE SCORER IS REBUILT AND THE 99 IS NOW MEASURED RATHER THAN REPORTED. Rebuilt from register 1413's specification with nothing but the law, the candidate generator, the higher-n tie-break and the exact corridors. The handshake pla
 
 -- Register 1415 (3 citer line(s); corrector(s) none named)
-  reg L5426 CARRIES (correct) | THE EIGHTH JANET BLOCK IS TRUNCATED, AND THAT IS THE SUBJECT'S EDGE RATHER THAN THE COLLECTION'S. Register 1415 finds the binding floor in the NEXT block 89% of the time — a subshell is bounded above within its block and aimed by 
-  reg L5514 CARRIES (correct) | THE FORM'S DOMAIN IS WHERE MADELUNG STOPS: IT RECOVERS FIVE OF MADELUNG'S TEN EXCEPTIONS WITH NOTHING FITTED. The person's correction: parts of the law worked, and if the scaffolding gave better numbers the path may have been righ
-  reg L5518 SILENT | AND ALL SEVEN OF ITS OWN MISSES ARE AT TRANSITIONS, WHICH NAMES THE CENTRE COLUMN. B 5 is a node-free entrant with no floor at all (R 1414). Sc 21 and Ti 22 are Q.collapse's own threshold, where register 1391's 3p spin–orbit offse
+  reg L5427 CARRIES (correct) | THE EIGHTH JANET BLOCK IS TRUNCATED, AND THAT IS THE SUBJECT'S EDGE RATHER THAN THE COLLECTION'S. Register 1415 finds the binding floor in the NEXT block 89% of the time — a subshell is bounded above within its block and aimed by 
+  reg L5515 CARRIES (correct) | THE FORM'S DOMAIN IS WHERE MADELUNG STOPS: IT RECOVERS FIVE OF MADELUNG'S TEN EXCEPTIONS WITH NOTHING FITTED. The person's correction: parts of the law worked, and if the scaffolding gave better numbers the path may have been righ
+  reg L5519 SILENT | AND ALL SEVEN OF ITS OWN MISSES ARE AT TRANSITIONS, WHICH NAMES THE CENTRE COLUMN. B 5 is a node-free entrant with no floor at all (R 1414). Sc 21 and Ti 22 are Q.collapse's own threshold, where register 1391's 3p spin–orbit offse
 
 -- Register 1417 (0 citer line(s); corrector(s) none named)
   no citer in any volume (witness: PHRASE regex over all six members, ranges ≤ 100 expanded)
@@ -137,43 +137,43 @@ Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|
   no citer in any volume (witness: PHRASE regex over all six members, ranges ≤ 100 expanded)
 
 -- Register 1462 (3 citer line(s); corrector(s) [1535])
-  reg L5622 CARRIES (WRONG) | THE VIOLATION INDEX'S RESIDUAL HAS A CANCELLATION SIGNATURE, AND EIGHT ATTACKS ASKED THE WRONG QUESTION. Returning to the violation index with this session's instrument. First, the state: the account given from memory stopped at r
-  reg L5787 CARRIES (WRONG) | AND I CALLED THE NILSSON CITATION WRONG ON THE STRENGTH OF AN ABSTRACT'S SILENCE. arXiv 1110.6134 was the one fetch that returned content — its abstract. Register 1462 cites its table for κ = 0.0250 at ℓ = 1 within N = 5 against 0
-  reg L5791 CARRIES (WRONG) | THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON. An outside model supplied transcriptions for the five unreachable sources. Checked before absorbing, and the checking was necessary. A NI
+  reg L5623 CARRIES (WRONG) | THE VIOLATION INDEX'S RESIDUAL HAS A CANCELLATION SIGNATURE, AND EIGHT ATTACKS ASKED THE WRONG QUESTION. Returning to the violation index with this session's instrument. First, the state: the account given from memory stopped at r
+  reg L5788 CARRIES (WRONG) | AND I CALLED THE NILSSON CITATION WRONG ON THE STRENGTH OF AN ABSTRACT'S SILENCE. arXiv 1110.6134 was the one fetch that returned content — its abstract. Register 1462 cites its table for κ = 0.0250 at ℓ = 1 within N = 5 against 0
+  reg L5792 CARRIES (WRONG) | THE SUPPLIED NILSSON TABLE FAILS A PARITY CHECK AT EXACTLY THE ROW REGISTER 1462 DEPENDS ON. An outside model supplied transcriptions for the five unreachable sources. Checked before absorbing, and the checking was necessary. A NI
 
 -- Register 1466 (3 citer line(s); corrector(s) [1468])
-  reg L5530 SILENT | THE SHARED ORIGIN AT LITHIUM WAS MY DEFAULT, NOT A FINDING — AND WHAT IS TRUE INSTEAD IS BETTER. The person asked why lithium. Checking rather than answering: at Z = 3 the corridor is L = 0, U = +∞ — the lower bound degenerate and
-  reg L5534 CARRIES (correct) | F2a RUN: THE CONTINGENCY SWEEP OVER 1.7's OWN FINDINGS, AND IT CAUGHT THREE THINGS INCLUDING TWO IN ITSELF. The person noted that the book's protocols require the space stated before the run — register 1383's second question, regi
-  reg L5718 CARRIES (deactivat) | NO — THE INDEX FORECLOSES A FAMILY RATHER THAN SUPPLYING A MECHANISM, AND IT RETURNS THE NUMBER THREE. Asked whether the three-axis index gives the missing algebra for Löwdin and the three-body problem. It does not, and the reason
+  reg L5531 SILENT | THE SHARED ORIGIN AT LITHIUM WAS MY DEFAULT, NOT A FINDING — AND WHAT IS TRUE INSTEAD IS BETTER. The person asked why lithium. Checking rather than answering: at Z = 3 the corridor is L = 0, U = +∞ — the lower bound degenerate and
+  reg L5535 CARRIES (correct) | F2a RUN: THE CONTINGENCY SWEEP OVER 1.7's OWN FINDINGS, AND IT CAUGHT THREE THINGS INCLUDING TWO IN ITSELF. The person noted that the book's protocols require the space stated before the run — register 1383's second question, regi
+  reg L5719 CARRIES (deactivat) | NO — THE INDEX FORECLOSES A FAMILY RATHER THAN SUPPLYING A MECHANISM, AND IT RETURNS THE NUMBER THREE. Asked whether the three-axis index gives the missing algebra for Löwdin and the three-body problem. It does not, and the reason
 
 -- Register 1479 (1 citer line(s); corrector(s) [1480])
-  reg L5570 CARRIES (correct) | THERE IS A FOURTH HALF-SIDED CONDITION, IT IS FOLDED INSIDE THE THIRD, AND IT IS THE ONE ASSUMED. The person: three half-sided conditions cannot balance, there must be a fourth. There is. Borchers' own data is a TRIPLE (M, T, Ω) c
+  reg L5571 CARRIES (correct) | THERE IS A FOURTH HALF-SIDED CONDITION, IT IS FOLDED INSIDE THE THIRD, AND IT IS THE ONE ASSUMED. The person: three half-sided conditions cannot balance, there must be a fourth. There is. Borchers' own data is a TRIPLE (M, T, Ω) c
 
 -- Register 1487 (1 citer line(s); corrector(s) [1485, 1488])
-  reg L5602 CARRIES (withdraw +corrector [1485]) | THE QUOTIENT IS NOT AVAILABLE: diff(S) IS PHYSICAL, NOT GAUGE — SO THE COUPLING ORGANISES THE FREEDOM RATHER THAN REDUCING IT. Register 1487 inferred that if a(y) transforms under Diff(S) its physical content is its diffeomorphism
+  reg L5603 CARRIES (withdraw +corrector [1485]) | THE QUOTIENT IS NOT AVAILABLE: diff(S) IS PHYSICAL, NOT GAUGE — SO THE COUPLING ORGANISES THE FREEDOM RATHER THAN REDUCING IT. Register 1487 inferred that if a(y) transforms under Diff(S) its physical content is its diffeomorphism
 
 -- Register 1493 (1 citer line(s); corrector(s) [1494])
-  reg L5626 CARRIES (wrong) | THE RESIDUAL IS NOT A CANCELLATION — IT IS A CORRELATION OF +0.905, AND THAT EXPLAINS THE EIGHT FAILURES BETTER. Register 1493 read the violation index's stuck +16 on NEC ≥ 2 and −9 on NEC ≥ 3 as a cancellation signature, by analo
+  reg L5627 CARRIES (wrong) | THE RESIDUAL IS NOT A CANCELLATION — IT IS A CORRELATION OF +0.905, AND THAT EXPLAINS THE EIGHT FAILURES BETTER. Register 1493 read the violation index's stuck +16 on NEC ≥ 2 and −9 on NEC ≥ 3 as a cancellation signature, by analo
 
 -- Register 1499 (1 citer line(s); corrector(s) [1500])
-  reg L5650 SILENT | THE DEGENERACY IS REAL AND HARMLESS, AND CYCLICITY IS NOW THE ONLY ASSUMED LINK IN THE CHAIN. Register 1499 named the ANE vacuum's degeneracy as the concrete threat to cyclicity: with a nontrivial algebra at infinity, b|Ω⟩ is a va
+  reg L5651 SILENT | THE DEGENERACY IS REAL AND HARMLESS, AND CYCLICITY IS NOW THE ONLY ASSUMED LINK IN THE CHAIN. Register 1499 named the ANE vacuum's degeneracy as the concrete threat to cyclicity: with a nontrivial algebra at infinity, b|Ω⟩ is a va
 
 -- Register 1512 (1 citer line(s); corrector(s) [1513])
-  reg L5702 CARRIES (overstat +corrector [1513]) | THE SUDOKU METHOD APPLIED TO THAT TABLE RETURNS THAT THE SAMPLE IS DEGENERATE, AND MY NARRATION CONTRADICTED THE COMPUTATION. The person asked for the sudoku method on register 1512's table: treat the groups as cells and the attri
+  reg L5703 CARRIES (overstat +corrector [1513]) | THE SUDOKU METHOD APPLIED TO THAT TABLE RETURNS THAT THE SAMPLE IS DEGENERATE, AND MY NARRATION CONTRADICTED THE COMPUTATION. The person asked for the sudoku method on register 1512's table: treat the groups as cells and the attri
 
 -- Register 1515 (1 citer line(s); corrector(s) [1516])
-  reg L5714 SILENT | THE THREE-AXIS INDEX IN ALGEBRA: THE COMMON QUANTITY IS THE HELLY NUMBER, AND BOTH FAILURES ARE WITNESSED BY A PAIR. Built as the person asked, with algebra as the common language. Each object becomes a SYSTEM OF LINEAR INEQUALITI
+  reg L5715 SILENT | THE THREE-AXIS INDEX IN ALGEBRA: THE COMMON QUANTITY IS THE HELLY NUMBER, AND BOTH FAILURES ARE WITNESSED BY A PAIR. Built as the person asked, with algebra as the common language. Each object becomes a SYSTEM OF LINEAR INEQUALITI
 
 -- Register 1533 (1 citer line(s); corrector(s) none named)
-  reg L5799 CARRIES (wrong) | THE ASD SCHEMA FAULT IS NAMED — SPECTRUM NOT SPECTRA — AND THE SUPPLIED TABLE VERIFIES EIGHTEEN FOR EIGHTEEN. The reason energy1.pl returned an unnamed 'Unknown parameter' is supplied and it is a schema difference the endpoint wou
+  reg L5800 CARRIES (wrong) | THE ASD SCHEMA FAULT IS NAMED — SPECTRUM NOT SPECTRA — AND THE SUPPLIED TABLE VERIFIES EIGHTEEN FOR EIGHTEEN. The reason energy1.pl returned an unnamed 'Unknown parameter' is supplied and it is a schema difference the endpoint wou
 
 -- Register 1539 (3 citer line(s); corrector(s) [1546])
-  reg L5819 CARRIES (CORRECT) | THEODOSIOU IDENTIFIED CORRECTLY AT LAST — MY PII WAS A TWO-DIGIT TRANSPOSITION — AND THREE OF ITS CLAIMS VERIFY AGAINST HELD DATA. The correct identification supplied: 'Quantum Defect Values for Positive Atomic Ions', Theodosiou, 
-  reg L5831 CARRIES (correct) | THE PER-LEVEL DEFECT IS NOT THE ASYMPTOTIC ONE, AND EXTRAPOLATING MY OWN NUMBERS RECOVERS THE TEXTBOOK VALUES EXACTLY. A quantum-defect note supplied, comparing the levels route against the Theodosiou lever. Its own table is inter
+  reg L5820 CARRIES (CORRECT) | THEODOSIOU IDENTIFIED CORRECTLY AT LAST — MY PII WAS A TWO-DIGIT TRANSPOSITION — AND THREE OF ITS CLAIMS VERIFY AGAINST HELD DATA. The correct identification supplied: 'Quantum Defect Values for Positive Atomic Ions', Theodosiou, 
+  reg L5832 CARRIES (correct) | THE PER-LEVEL DEFECT IS NOT THE ASYMPTOTIC ONE, AND EXTRAPOLATING MY OWN NUMBERS RECOVERS THE TEXTBOOK VALUES EXACTLY. A quantum-defect note supplied, comparing the levels route against the Theodosiou lever. Its own table is inter
   sc L1122 SILENT | The two ladders and the neutral table agree where they overlap, and the agreement was tested rather than assumed. Register 1538 puts eighteen first ionisation energies from a supplied table against the K–Kr capture at a maximum di
 
 -- Register 1567 (1 citer line(s); corrector(s) [1568])
-  reg L5911 SILENT | THE SIX ARE NOTES, NOT TASKS, AND PROMOTING THEM TO THE QUEUE WAS A CATEGORY ERROR. M, reading register 1567's list: these literally just seem to be notes. Tested by asking of each whether it describes a STATE of the work or reque
+  reg L5912 SILENT | THE SIX ARE NOTES, NOT TASKS, AND PROMOTING THEM TO THE QUEUE WAS A CATEGORY ERROR. M, reading register 1567's list: these literally just seem to be notes. Tested by asking of each whether it describes a STATE of the work or reque
 
 -- Register 1589 (0 citer line(s); corrector(s) [1590])
   no citer in any volume (witness: PHRASE regex over all six members, ranges ≤ 100 expanded)
@@ -182,85 +182,85 @@ Qualification probe (token, stated as such): stems /withdraw|deactivat|supersed|
   no citer in any volume (witness: PHRASE regex over all six members, ranges ≤ 100 expanded)
 
 -- Register 1595 (3 citer line(s); corrector(s) [1629])
-  reg L6120 CARRIES (wrong +corrector [1629]) | THE SIXTY-ONE PATHS ARE BUILT AND THE FETCHES ARE REFUSED — BY A DIFFERENT MECHANISM FROM REGISTER 1595's, AND THE SAFER ONE. M asked for the paths to be created and each of the sixty-one species fetched. The first is done and the
-  reg L6124 CARRIES (wrong) | THERE IS NO CACHE — ONE PERMISSION LAYER WITH TWO EXITS, AND M PUT THE TWO DESCRIPTIONS SIDE BY SIDE UNTIL IT WAS OBVIOUS. M quoted register 1628's own table back at me: ie.pl succeeding with the wrong body, energy1.pl refused bec
-  reg L6132 CARRIES (CORRECT +corrector [1629]) | THE SEMICOLON LIST IS NOT NIST'S SYNTAX, AND ASKING FOR THE FIX CONFIRMED REGISTER 1629's MECHANISM BY PREDICTION. M pasted the neutral batch and the fetch reached NIST — permission and length both satisfied. NIST answered 'Unknow
+  reg L6121 CARRIES (wrong +corrector [1629]) | THE SIXTY-ONE PATHS ARE BUILT AND THE FETCHES ARE REFUSED — BY A DIFFERENT MECHANISM FROM REGISTER 1595's, AND THE SAFER ONE. M asked for the paths to be created and each of the sixty-one species fetched. The first is done and the
+  reg L6125 CARRIES (wrong) | THERE IS NO CACHE — ONE PERMISSION LAYER WITH TWO EXITS, AND M PUT THE TWO DESCRIPTIONS SIDE BY SIDE UNTIL IT WAS OBVIOUS. M quoted register 1628's own table back at me: ie.pl succeeding with the wrong body, energy1.pl refused bec
+  reg L6133 CARRIES (CORRECT +corrector [1629]) | THE SEMICOLON LIST IS NOT NIST'S SYNTAX, AND ASKING FOR THE FIX CONFIRMED REGISTER 1629's MECHANISM BY PREDICTION. M pasted the neutral batch and the fetch reached NIST — permission and length both satisfied. NIST answered 'Unknow
 
 -- Register 1602 (2 citer line(s); corrector(s) [1605])
-  reg L6039 CARRIES (wrong) | M'S PRINCIPLE IS RIGHT AND MAKES E IDENTICALLY ZERO — MY THREE TESTS OF IT WERE VACUOUS, AND SO WAS REGISTER 1602's FINDING. M: there is no defect if the defect is not observed at observability. The principle is sound. Testing it 
-  reg L6055 SILENT | A.cert NAMES FOUR ADMITTED OPERATIONS AND ADD-A-COORDINATE IS NOT ONE — WHICH IS ONE CAUSE FOR FOUR FAILURES TODAY. M stopped the rebuild and sent me to the laws of a closed index. The governing object is A.cert, the certificate c
+  reg L6040 CARRIES (wrong) | M'S PRINCIPLE IS RIGHT AND MAKES E IDENTICALLY ZERO — MY THREE TESTS OF IT WERE VACUOUS, AND SO WAS REGISTER 1602's FINDING. M: there is no defect if the defect is not observed at observability. The principle is sound. Testing it 
+  reg L6056 SILENT | A.cert NAMES FOUR ADMITTED OPERATIONS AND ADD-A-COORDINATE IS NOT ONE — WHICH IS ONE CAUSE FOR FOUR FAILURES TODAY. M stopped the rebuild and sent me to the laws of a closed index. The governing object is A.cert, the certificate c
 
 -- Register 1610 (1 citer line(s); corrector(s) [1611])
-  reg L6063 CARRIES (WITHDRAW) | THE SIX HUNDRED ARE WITHDRAWN: RANK IS NOT REACH, AND ALL OF THEM WERE THE EXACT CELLS THAT NEED NO MEASUREMENT. M thought register 1610's six hundred unreachable-but-unobstructed cells were what this work has been chasing. It wou
+  reg L6064 CARRIES (WITHDRAW) | THE SIX HUNDRED ARE WITHDRAWN: RANK IS NOT REACH, AND ALL OF THEM WERE THE EXACT CELLS THAT NEED NO MEASUREMENT. M thought register 1610's six hundred unreachable-but-unobstructed cells were what this work has been chasing. It wou
 
 -- Register 1628 (1 citer line(s); corrector(s) [1629])
-  reg L6124 CARRIES (wrong) | THERE IS NO CACHE — ONE PERMISSION LAYER WITH TWO EXITS, AND M PUT THE TWO DESCRIPTIONS SIDE BY SIDE UNTIL IT WAS OBVIOUS. M quoted register 1628's own table back at me: ie.pl succeeding with the wrong body, energy1.pl refused bec
+  reg L6125 CARRIES (wrong) | THERE IS NO CACHE — ONE PERMISSION LAYER WITH TWO EXITS, AND M PUT THE TWO DESCRIPTIONS SIDE BY SIDE UNTIL IT WAS OBVIOUS. M quoted register 1628's own table back at me: ie.pl succeeding with the wrong body, energy1.pl refused bec
 
 -- Register 1633 (1 citer line(s); corrector(s) [1635])
-  reg L6144 CARRIES (RECONSTRUCT) | THE UNKNOWN PARAMETER IS order=0, WHICH BELONGS TO ie.pl — I INVENTED ONE PARAMETER AND DROPPED FOUR. Four rejected URLs in a row, and the cause was one parameter the whole time. Found by differencing my URL against M's ORIGINAL e
+  reg L6145 CARRIES (RECONSTRUCT) | THE UNKNOWN PARAMETER IS order=0, WHICH BELONGS TO ie.pl — I INVENTED ONE PARAMETER AND DROPPED FOUR. Four rejected URLs in a row, and the cause was one parameter the whole time. Found by differencing my URL against M's ORIGINAL e
 
 Tally by volume: {('ioi', 'SILENT'): 2, ('main', 'CARRIES'): 1, ('mc', 'SILENT'): 2, ('reg', 'CARRIES'): 39, ('reg', 'SILENT'): 16, ('sc', 'SILENT'): 1}
-A-CLASS (SILENT citers OUTSIDE the Register — the reader-facing restatements): [(1341, 'ioi', 1893), (1385, 'ioi', 1861), (1395, 'mc', 3726), (1396, 'mc', 3726), (1539, 'sc', 1122)]
+A-CLASS (SILENT citers OUTSIDE the Register — the reader-facing restatements): [(1341, 'ioi', 1893), (1385, 'ioi', 1861), (1395, 'mc', 3720), (1396, 'mc', 3720), (1539, 'sc', 1122)]
   outside-Register citer main L9766 cites (phrase set ∩ WARNING'd): [1332]
   outside-Register citer ioi L1893 cites (phrase set ∩ WARNING'd): [1341]
   outside-Register citer ioi L1861 cites (phrase set ∩ WARNING'd): [1385]
-  outside-Register citer mc L3726 cites (phrase set ∩ WARNING'd): [1395, 1396]
-  outside-Register citer mc L3726 cites (phrase set ∩ WARNING'd): [1395, 1396]
+  outside-Register citer mc L3720 cites (phrase set ∩ WARNING'd): [1395, 1396]
+  outside-Register citer mc L3720 cites (phrase set ∩ WARNING'd): [1395, 1396]
   outside-Register citer sc L1122 cites (phrase set ∩ WARNING'd): [1539]
 
 Tally over all citer lines: {'SILENT': 21, 'CARRIES': 40} | SILENT share 34.4 % (ROUND_HALF_UP, 1 dp)
 Entries with ≥ 1 SILENT citer: [1293, 1341, 1385, 1390, 1391, 1395, 1396, 1401, 1403, 1413, 1415, 1466, 1499, 1515, 1539, 1567, 1602]
 
 == §3 THE UNHEADED-ENTRY CLASS UNDER BOTH CONVENTIONS, AND EVERY ABSENT NUMBER A REGISTER PHRASE CITES
-  219: bare heading ABSENT | grouped heading L1332
-  220: bare heading ABSENT | grouped heading L1332
-  221: bare heading ABSENT | grouped heading L1332
-  305: bare heading ABSENT | grouped heading L1336
-  239: bare heading ABSENT | grouped heading L1344
-  256: bare heading ABSENT | grouped heading L1344
+  219: bare heading ABSENT | grouped heading L1333
+  220: bare heading ABSENT | grouped heading L1333
+  221: bare heading ABSENT | grouped heading L1333
+  305: bare heading ABSENT | grouped heading L1337
+  239: bare heading ABSENT | grouped heading L1345
+  256: bare heading ABSENT | grouped heading L1345
   344: bare heading ABSENT | grouped heading ABSENT
   1710: bare heading ABSENT | grouped heading ABSENT
 Absent-under-both numbers cited in a register phrase somewhere: 5 of 132
   344 ← main:L11656
   571 ← main:L7724 main:L9280
-  1257 ← reg:L4866
-  1710 ← main:L11854 main:L11902 reg:L6687 mc:L3150 pc:L194 pc:L333 ioi:L1900
-  1725 ← reg:L6899
+  1257 ← reg:L4867
+  1710 ← main:L11854 main:L11903 reg:L6688 mc:L3150 pc:L194 pc:L333 ioi:L1900
+  1725 ← reg:L6900
 Absent-under-both never cited in a register phrase: [176, 177, 190, 196, 199, 202, 204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 358, 363, 366, 369, 411, 430, 431, 445, 456, 460, 517, 560, 570, 574, 575, 606, 632, 637, 642, 647, 649, 650, 651, 654, 657, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 682, 683, 687, 688, 902, 995, 996, 998, 999, 1000, 1002, 1013, 1051, 1138, 1149, 1223, 1245, 1248, 1358, 1373, 1386, 1388, 1389, 1443, 1477, 1478, 1537, 1564, 1565, 1569, 1570, 1571, 1572, 1594, 1614, 1615, 1616, 1631, 1640, 1650, 1659, 1667, 1668, 1670, 1676, 1680, 1684, 1685, 1688, 1697, 1698, 1728, 1730, 1731, 1732, 1735, 1737, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1752, 1753, 1754, 1756, 1757, 1759, 1760, 1764, 1766]
-Wide ranges (> 100, extent statements, not expanded): [('main', 10873, 1249, 1357), ('main', 10878, 1249, 1357), ('reg', 6464, 1249, 1357), ('mc', 3150, 1249, 1357), ('mc', 3566, 1249, 1357), ('ioi', 1561, 1249, 1429), ('sc', 1061, 1524, 1677)] … total 7
+Wide ranges (> 100, extent statements, not expanded): [('main', 10873, 1249, 1357), ('main', 10878, 1249, 1357), ('reg', 6465, 1249, 1357), ('mc', 3150, 1249, 1357), ('mc', 3560, 1249, 1357), ('ioi', 1561, 1249, 1429), ('sc', 1061, 1524, 1677)] … total 7
    main L10873 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
    main L10878 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
-   reg L6464 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
+   reg L6465 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
    mc L3150 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
-   mc L3566 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
+   mc L3560 1249–1357 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350] and absent-under-both [1257]
    ioi L1561 1249–1429 spans WARNING'd entries [1293, 1309, 1329, 1332, 1341, 1350, 1366, 1367, 1385, 1390, 1391, 1395, 1396, 1401, 1403, 1407, 1409, 1413, 1415, 1417] and absent-under-both [1257, 1358, 1373, 1386, 1388, 1389]
    sc L1061 1524–1677 spans WARNING'd entries [1533, 1539, 1567, 1589, 1592, 1595, 1602, 1610, 1628, 1633] and absent-under-both [1537, 1564, 1565, 1569, 1570, 1571, 1572, 1594, 1614, 1615, 1616, 1631, 1640, 1650, 1659, 1667, 1668, 1670, 1676]
 Grouped-heading numbers cited in a register phrase (headed under B only): {209: 1, 219: 5, 220: 2, 221: 2, 239: 2, 253: 1, 254: 1, 256: 3, 259: 1, 286: 2, 293: 1, 305: 2, 308: 2, 310: 1, 318: 1}
 
 == §4 THE SIX NAMED ITEMS
 (a) 1,748 vs 1,738 — digit-bounded sites per volume:
-  1,748: {'reg': [3926]}
-  1748: {'main': [11899], 'reg': [4610, 6482], 'mc': [488, 492, 1006, 1008, 1016, 1020, 1028, 1030, 1208, 1210, 1618, 2680, 2682, 2690, 2700, 2702, 3390, 3562]}
-  1,738: {'main': [10231], 'reg': [6528], 'sc': [994]}
-  1738: {'reg': [6470]}
+  1,748: {'reg': [3927]}
+  1748: {'main': [11900], 'reg': [4611, 6483], 'mc': [488, 492, 1006, 1008, 1016, 1020, 1028, 1030, 1208, 1210, 1618, 2680, 2682, 2690, 2700, 2702, 3390, 3556]}
+  1,738: {'main': [10231], 'reg': [6529], 'sc': [994]}
+  1738: {'reg': [6471]}
    main L10231: and 70 species; 3,342 levels, 2,269 interior cells; the bracket at 1,577 of 1,738 cells
-   reg L3926: THE JOINT FIT GAINS AN OBJECTIVE SELECTION RULE: USE THE SERIES WITH THE LOWEST OWN RMS. P III's six series give limits from 242,259 to 244,007 — a spread of 1,748 — but its nh fits itself to an rms o
-   reg L6528: THE SIX CAPTURES RUN UNDER RULING 26 AND THE FORTY-FIVE-ROW ITEM CLOSES: ALL 45 ROWS RECONCILE MEMBER-FOR-MEMBER, 35 CLOSE WITH CELLS — 75 OF 81 PASS, 6 FAIL, 0 REFUSED — AND 10 CLOSE NO-TRIPLE. The s
+   reg L3927: THE JOINT FIT GAINS AN OBJECTIVE SELECTION RULE: USE THE SERIES WITH THE LOWEST OWN RMS. P III's six series give limits from 242,259 to 244,007 — a spread of 1,748 — but its nh fits itself to an rms o
+   reg L6529: THE SIX CAPTURES RUN UNDER RULING 26 AND THE FORTY-FIVE-ROW ITEM CLOSES: ALL 45 ROWS RECONCILE MEMBER-FOR-MEMBER, 35 CLOSE WITH CELLS — 75 OF 81 PASS, 6 FAIL, 0 REFUSED — AND 10 CLOSE NO-TRIPLE. The s
    sc L994: THE METHOD 1.6 — SPECTRA COMPENDIUM, counted from the table above rather than from what once generated it. 596 channel rows — 477 series of three or more members and 119 two-member channels (starred) 
-(b) Register 1779 (heading 6570): **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Compendium sets out* COORDINATES-2.13 *column by column with the alphabet each admits, and two of the ten rows misdescribe what the file holds. The* `so
-   `Z − charge` reg L6067: THE PROXY OF THE PROXY: RANK NEVER TRACKED THE DEFECT AT ALL — IT TRACKS DISTANCE FROM THE BOX'S ORIGIN, AND THE DISAGREEMENT SAYS SO. M: stop looking at proxies and look at the proxy OF the proxy. Ea
-   `Z − charge` reg L6204: THE d120 FAILS ON GEOMETRY AND THE JANET GRADING IS ALREADY INSIDE THE INDEX — AS A FIBRATION, NOT A COORDINATE. M stopped the index write to have the 120-sided uniperiodic material looked at properly
-   `Z − charge` reg L6344: M ASKED WHETHER THE INDEX CLOSES AT Z = 120 WITH 119 AND 120 PRESENT — IT DOES, E = 0, AND THE TWO INSTRUMENTS I FIRST REACHED FOR WERE BOTH WRONG. Measured on COORDINATES.tsv: 104,832 cells; 7,260 (Z
-   `Z − charge` reg L6452: THE COORDINATE INDEX GIVEN A NAME, A SCHEMA AND A CITATION FORM — COORDINATES-2.13, 104,832 CELLS, COORD(Z, charge, ℓ, 2S+1). The Spectra Compendium named the file only as COORDINATES.tsv and printed 
-   `Z − charge` reg L6572: THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET. The Spectra Compendium sets out COORDINATES-2.13 column by column wit
-   `Z − charge` reg L6879: REGISTER 1779 CALLS Z − charge THE ELECTRON COUNT AND THE SPECTRA COMPENDIUM PRINTS THE FORMULA TWO HUNDRED LINES AWAY: Nₑ = Z − charge + 1. Register 1779's strongest result is stated as "the multipli
+(b) Register 1779 (heading 6571): **THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET.** *The Spectra Compendium sets out* COORDINATES-2.13 *column by column with the alphabet each admits, and two of the ten rows misdescribe what the file holds. The* `so
+   `Z − charge` reg L6068: THE PROXY OF THE PROXY: RANK NEVER TRACKED THE DEFECT AT ALL — IT TRACKS DISTANCE FROM THE BOX'S ORIGIN, AND THE DISAGREEMENT SAYS SO. M: stop looking at proxies and look at the proxy OF the proxy. Ea
+   `Z − charge` reg L6205: THE d120 FAILS ON GEOMETRY AND THE JANET GRADING IS ALREADY INSIDE THE INDEX — AS A FIBRATION, NOT A COORDINATE. M stopped the index write to have the 120-sided uniperiodic material looked at properly
+   `Z − charge` reg L6345: M ASKED WHETHER THE INDEX CLOSES AT Z = 120 WITH 119 AND 120 PRESENT — IT DOES, E = 0, AND THE TWO INSTRUMENTS I FIRST REACHED FOR WERE BOTH WRONG. Measured on COORDINATES.tsv: 104,832 cells; 7,260 (Z
+   `Z − charge` reg L6453: THE COORDINATE INDEX GIVEN A NAME, A SCHEMA AND A CITATION FORM — COORDINATES-2.13, 104,832 CELLS, COORD(Z, charge, ℓ, 2S+1). The Spectra Compendium named the file only as COORDINATES.tsv and printed 
+   `Z − charge` reg L6573: THE DATA COMPANION'S OWN DESCRIPTION GAVE THIRTY-TWO SOURCES WHERE THERE ARE SIX, AND GAVE A CONTINUOUS BOUND AN INTEGER ALPHABET. The Spectra Compendium sets out COORDINATES-2.13 column by column wit
+   `Z − charge` reg L6880: REGISTER 1779 CALLS Z − charge THE ELECTRON COUNT AND THE SPECTRA COMPENDIUM PRINTS THE FORMULA TWO HUNDRED LINES AWAY: Nₑ = Z − charge + 1. Register 1779's strongest result is stated as "the multipli
    `Z − charge` sc L90: Nₑ = Z − charge + 1
    `Z − charge` sc L126: | mult | 1 … 9 | 2S+1; the set allowed at a pair is a function of the electron count Z − charge alone, holding on all 7,260 pairs |
-(c) Register 1786 (heading 6597): **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. There was never an F.3.1 or an F.3.2 — F.3 carried a single child and that child was numbered third, a numeral inherited across the rebuild without be
-   `never an F.3.1` reg L6598
-   `never an F.3.1` reg L6883
-(d) Register 1778 (heading 6566): **THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME.** *Register 1770 set the thirty cited sections of* Transitions *v3.0 into Appendix G of the main volume, each with the statement relied on and the objects re
-   `copied unchanged` reg L6568: THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME. Register 1770 set t
+(c) Register 1786 (heading 6598): **APPENDIX F's NUMBERING WAS DEFECTIVE AND IS CORRECTED: F.3.3 BECOMES F.3.1.** *The appendix ran F.1, F.2, F.3, **F.3.3**, F.4, F.4.1, F.4.2, F.4.3. There was never an F.3.1 or an F.3.2 — F.3 carried a single child and that child was numbered third, a numeral inherited across the rebuild without be
+   `never an F.3.1` reg L6599
+   `never an F.3.1` reg L6884
+(d) Register 1778 (heading 6567): **THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME.** *Register 1770 set the thirty cited sections of* Transitions *v3.0 into Appendix G of the main volume, each with the statement relied on and the objects re
+   `copied unchanged` reg L6569: THE COMPLETE TRANSITION TABLE ENTERS THE INDEX OF INDICES, AND THE FORTY-SEVEN SECTIONS THIS WORK DOES NOT USE ARE NAMED FOR THE FIRST TIME. Register 1770 set t
    G row §1.7 main [11425] | IoI row §1.7 [2021]
    main L11425: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | `A.derived` |
    ioi  L2021: | 1.7 | Six blindnesses of the closure. A derived coordinate cannot repair it: the box grows by that coordinate's value count while \|X\| stays fixed. | **rests on it** — Appendix G |
@@ -272,8 +272,8 @@ Grouped-heading numbers cited in a register phrase (headed under B only): {209: 
      qualification on the join: False | names 1403: False
    1403 WARNING text: Qualified: the eight a values are RECONSTRUCTIONS held in HANDOFF.md from earlier sessions' walk work, not measurements. This entry therefore claims agreement with a previously computed trajectory, wh
 (f) 344 and 1710 inside cited ranges (any volume):
-   344: main:L11656 | named as bare token in Register lines: [5566, 6583, 6899, 6974]
-   1710: main:L11854 main:L11902 reg:L6687 mc:L3150 pc:L194 pc:L333 ioi:L1900 | named as bare token in Register lines: [6899]
+   344: main:L11656 | named as bare token in Register lines: [5567, 6584, 6900, 6975]
+   1710: main:L11854 main:L11903 reg:L6688 mc:L3150 pc:L194 pc:L333 ioi:L1900 | named as bare token in Register lines: [6900]
 
 == §5 TALLY
 WARNING'd entries 39 | citer lines 61 | entries with no citer 7 | absent-under-both cited 5 | grouped-only cited 15

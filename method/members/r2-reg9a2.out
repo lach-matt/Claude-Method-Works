@@ -1,7 +1,7 @@
 
 == 0  THE UNIT
-   unit opens at entry 290                                  1100                       OK
-   unit = L1100-L1219, 120 lines, entries 290..326, 30 headings
+   unit opens at entry 290                                  1101                       OK
+   unit = L1101-L1220, 120 lines, entries 290..326, 30 headings
 
 == 1  THE GAPS, CLASSIFIED AGAINST THE WHOLE REGISTER
    gaps [291, 293, 305, 308, 310, 318, 324]
@@ -42,8 +42,8 @@
 
 == 6  CENSUS
    census rows in range: 2
-     1239	C9-OVERGENERALISATION-WORD	reg	1110	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen
-     1240	C9-OVERGENERALISATION-WORD	reg	1214	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume t
+     1239	C9-OVERGENERALISATION-WORD	reg	1111	never	**A TWENTIETH PRIME AUDIT, PROJECTION.** *Register 293's defect was invisible to all nineteen
+     1240	C9-OVERGENERALISATION-WORD	reg	1215	never	**THREE TIERS RESTORED AFTER TWO PROVED TOO FEW.** *And the author's bracket rule — presume t
 
 == SUMMARY
    instrument checks failed : 0 

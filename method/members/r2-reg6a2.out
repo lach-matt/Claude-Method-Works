@@ -1,8 +1,8 @@
 
 == 0  THE UNIT
-   unit opens at entry 246                                  980                          OK
-   entry 290 opens the next unit                            1100                         OK
-   unit = L980-L1099, 120 lines, entries 246..289, 30 headings
+   unit opens at entry 246                                  981                          OK
+   entry 290 opens the next unit                            1101                         OK
+   unit = L981-L1100, 120 lines, entries 246..289, 30 headings
 
 == 1  THE GAPS, CLASSIFIED AGAINST THE WHOLE REGISTER
    gaps 14 ; under a grouped heading 9 [253, 254, 256, 259, 280, 283, 284, 286, 288]

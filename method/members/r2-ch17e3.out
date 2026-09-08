@@ -10,7 +10,7 @@
   §36.5 body_range 9962–9965
   §36.6 body_range 9966–9970
   unit: 9926 to 9970 = 45 lines
-  section_span(M, "36") = (9926, 11905) (runs into the appendices — NOT used; witness for the handoff note)
+  section_span(M, "36") = (9926, 11906) (runs into the appendices — NOT used; witness for the handoff note)
   sub-section ranges tile the unit after the opening italic (L9927–L9929): True
   POST-PP: PP carries no `## 36.` body — chat 129 measured 0 occurrences (r2-ch17c §0); stated once here, the unit is not diffed.
 
@@ -57,7 +57,7 @@
   "a fourth open object outside the book's own five" — the three earlier outside objects are not named in the unit; sites of "open object" + "outside" in main: [9942] (only the unit itself: count word without a witness in the volume — INCIDENTAL, docket 17 single-witness)
   L9948 "§31.1.1 had already named the brackets: zero-velocity surfaces, Hill regions, KAM tori" — in §31.1.1 (L8623–L8655): {'zero-velocity': 0, 'Hill': 3, 'KAM': 0} (Hill = "Hill stability" L8626, "Hill radius" L8628, L8633)
   where the three brackets ARE named together: KAM sites [5161, 9948, 11879] ; zero-velocity sites [5160, 9948] ; those inside §18.4.1 L5004–L5252: [5161, 5160] — L5155–L5156 "Jacobi's zero-velocity surfaces, Hill spheres and KAM tori are all brackets"; L11879 is R.7. DEVIATION: the pointer's target says nothing of two of the three; the claim lives in §18.4.1 (docket 9b)
-  Routh / 0.0385209 / "threshold" in §31.1.1: [0, 1, 1] (L8642–L8644: the threshold IS there, Routh unnamed) ; "0.0385209" sites all volumes: {'main': [8647, 9952], 'reg': [6982], 'pc': [367]}
+  Routh / 0.0385209 / "threshold" in §31.1.1: [0, 1, 1] (L8642–L8644: the threshold IS there, Routh unnamed) ; "0.0385209" sites all volumes: {'main': [8647, 9952], 'reg': [6983], 'pc': [367]}
   §E.5 heading hits: [11190] (body = last); "audit 7": §3 body L1003–L1081 has "seven" audits described (17c B5): 1
 
 ================================================================================================

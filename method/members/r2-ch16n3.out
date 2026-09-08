@@ -150,7 +150,7 @@
         16: in-unit [8975]   out-of-unit 74 sites, first eight [36, 47, 60, 132, 189, 292, 315, 355]
          3: in-unit [8901, 8904, 8905, 8926, 8930, 8934, 8976, 8979]   out-of-unit 383 sites, first eight [12, 116, 212, 252, 279, 291, 418, 486]
        540: in-unit []   out-of-unit 20 sites, first eight [2891, 3496, 8733, 8741, 8743, 8745, 8752, 8766]
-       162: in-unit []   out-of-unit 7 sites, first eight [4172, 8846, 8847, 8850, 11739, 11875, 11896]
+       162: in-unit []   out-of-unit 7 sites, first eight [4172, 8846, 8847, 8850, 11739, 11875, 11897]
   word-form figures (invisible to the digit sweep):
       "fifty-five" in unit at [8983, 8995, 9003, 9028]
       "forty-two" in unit at [8920]
@@ -230,7 +230,7 @@
   L9006: Measured across three states of the book — before the third companion paper's intake, before the
   L9756: The challenge posed in 1969 is closed. The formal statement is a companion paper,
   L9928: *A challenge posed outside this work, answered with the law of Part III and the reach of Part VI. The chapter runs the method on the one object §12.11 named as 
-  L11901: not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
+  L11902: not repeated here (register 1736). The two companion papers carry their own reference lists; §R.7's
   chapter headings 35 and 36: [('35', 9750), ('36', 9926)]
       L9750: ## 35. The Löwdin solution
       L9926: ## 36. Three bodies, and what a complete index is allowed to say

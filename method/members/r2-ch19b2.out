@@ -54,7 +54,7 @@ unit L10088–L10198, 111 lines (own scan: `### A.15` = last hit, `## Appendix B
 ================================================================================================
 §6 DOCKET 36 — NAMES IN THE UNIT AGAINST THE REFERENCES BODY (L11503–L11805) AND R.7 (L11806 on)
 ================================================================================================
-  Birkhoff  unit lines [10126] · References body 1 · R.7 1 · Register lines 10
+  Birkhoff  unit lines [10126] · References body 1 · R.7 1 · Register lines 11
   Dilworth  unit lines [] · References body 2 · R.7 0 · Register lines 4
   Wigner    unit lines [] · References body 0 · R.7 0 · Register lines 1
   Sperner   unit lines [] · References body 1 · R.7 0 · Register lines 4
@@ -164,7 +164,7 @@ unit L10088–L10198, 111 lines (own scan: `### A.15` = last hit, `## Appendix B
     1853: **REGISTER 1848'S DEFECT IS ℛ₄'S AND IT IS PRINTED UNDER THE SYMBOL E, WHICH IS THE CONFUSION §14.5.3 NAMES IN ITS OWN TITLE AND NEVER EXPLAINS; REGISTER 1852 IS SUPERSEDED WITH IT.** *§14.3's claim survives all of this and is sta
     1861: **APPENDIX A.15's REMARK CITES REGISTER 230 FOR A LEDGER CORRECTION THAT 230 DOES NOT CARRY.** *A.15's Remark reads* **"This corrects the ledger, which called C a join-closed sublattice. A sublattice is closed under both operation
   "the ledger" in main (every site with section): [(9956, '36.3'), (10103, 'App A.15'), (10569, 'App D.5.1'), (11192, 'App E.5')]
-  "join-closed" every volume: {'main': [8294, 9944, 10090, 10103, 10107, 10742], 'reg': [6412, 6807, 6891], 'mc': [1254, 1260, 1494, 3278]}
+  "join-closed" every volume: {'main': [8294, 9944, 10090, 10103, 10107, 10742], 'reg': [6413, 6808, 6892], 'mc': [1254, 1260, 1494, 3278]}
 
 ================================================================================================
 §9 PRE-PP POINTER RENUMBERING SEEN IN THE DIFF (record-carried; r2-ch19a §6): "§3" in PP → "§8" / "§8.3" in the volume at three lines; A.19.1's property sentence rewritten after PP

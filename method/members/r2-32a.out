@@ -1,5 +1,5 @@
 r2-32a.py — 26c-02 ruling (c): the origin of §32.1.4's fifty-five, of §32.1.4.1's 48, and of register 375's 47
-members: The_Method_1_6-2.md md5 b8bf1b79 | The_Method_1_6___The_Register-2.md md5 b322666f | PP md5 49900cf4
+members: The_Method_1_6-2.md md5 efdbd4bc | The_Method_1_6___The_Register-2.md md5 8845b276 | PP md5 49900cf4
 
 == §1 §32.1.4 AND ITS TABLE — located by scan; the four E-bearing rows and their sum
    §32.1.4   body L8968–L9001   ### 32.1.4 What this book names before anyone tells it
@@ -47,10 +47,10 @@ members: The_Method_1_6-2.md md5 b8bf1b79 | The_Method_1_6___The_Register-2.md m
    line-wise sweep (WRONG — misses a wrapped pointer): [278, 285, 294, 1813]
    registers cited inside §32.1.4: [278, 285, 294, 332, 1813]
    §32.1.4 cites register 332                                             True                       OK
-   register 332  Register L1240   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A REA
-   register 373  Register L1388   **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls exactly at the boundary
-   register 375  Register L1396   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element count, §32.1.4
-   register 435  Register L1624   **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities rep
+   register 332  Register L1241   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND THE TOTAL IS A REA
+   register 373  Register L1389   **EVERY FIGURE ABOUT Λ HOLDS STILL AND EVERY FIGURE ABOUT THE BOOK MOVES** *, and the line falls exactly at the boundary
+   register 375  Register L1397   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's element count, §32.1.4
+   register 435  Register L1625   **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities rep
    332 states the total is a press readout                                True                       OK
    332 states the current figure                                          '47'                       OK
    332 states the figure it replaced                                      '55'                       OK
@@ -59,18 +59,18 @@ members: The_Method_1_6-2.md md5 b8bf1b79 | The_Method_1_6___The_Register-2.md m
    its only statement of provenance. Register 375 restates it; it does not originate it.
 
 == §4 THE CHRONOLOGY OF THE TOTAL — append-only entry order, so the sequence is the record's own
-   §32.1.4 as first computed (332's own words)     55   Register L1240
-   register 332, a press readout                   47   Register L1240
-   register 373 / §32.1.4.1                        48   Register L1388
-   register 375, discharging §2.21                 47   Register L1396
+   §32.1.4 as first computed (332's own words)     55   Register L1241
+   register 332, a press readout                   47   Register L1241
+   register 373 / §32.1.4.1                        48   Register L1389
+   register 375, discharging §2.21                 47   Register L1397
    entry order 332 < 373 < 375                                            [True, True]               OK
    the total is NOT monotone across the record                            [55, 47, 48, 47]           OK
    The record has the total at 47 BEFORE it has it at 48. 375's 47 is not a further movement from 48;
    it is 332's figure restated after 373 printed a higher one. THAT is why three totals stand at once.
 
 == §5 THE SHAPE SENTENCE — 26c-02 said it appears in no volume. Swept over all six volumes and PP
-   The_Register L1242   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND TH
-   The_Register L1398   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's elemen
+   The_Register L1243   **ASKED WHAT THE BOOK CAN DETERMINE BEFORE AN INPUT IS GIVEN: THE CELLS ARE NAMED AND UNOCCUPIED, AND TH
+   The_Register L1399   **THE THREE FIGURES §32.1.4.1 NAMED AS STILL ASSERTED ARE DISCHARGED UNDER §2.21.** *Appendix D's elemen
    sites of the shape sentence across six volumes and PP                  2                          OK
    the volumes carrying it                                                ['The_Register']           OK
    sites in the main volume's chapters                                    0                          OK
@@ -124,7 +124,7 @@ members: The_Method_1_6-2.md md5 b8bf1b79 | The_Method_1_6___The_Register-2.md m
    scan found (4, 5, 21, 17). The scan was right and the assertion was corrected to the measurement.
 
 == §7 WHOSE READOUT — the instrument that computes the largest component, and whether the build holds it
-   register 435 Register L1624: **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities reproduce exactly and the sixth to a rounding; E(G) now recomputes at build rather 
+   register 435 Register L1625: **densities.py* AND *numbers-index.py* WERE ABSENT AND ARE REBUILT FROM THE PRINTED rules.*** *Five of six densities reproduce exactly and the sixth to a rounding; E(G) now recomputes at build rather 
    435 records the two readout scripts as having been ABSENT              True                       OK
    435 names the numbers-index script                                     True                       OK
    435 names the densities script                                         True                       OK

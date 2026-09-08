@@ -70,10 +70,10 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD128 main** (2,138,652 B ·
-  `a17ab9dbc9971a63f6cc1466ff96db30` · 18,908 lines · 2 members) and **BUILD300 compendia** (16,608,192 B ·
-  `dad1a278ba0d116c4eb2b367f3e3d8dc` · 145,514 lines · 757 members). **759 members in all.** **The Register runs
-  1 to 1890, 1,732 seated** (1,725 numbered + 7 grouped). **W-305 seated.**
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD129 main** (2,141,349 B ·
+  `0f9473f09a8d412c2ad9539432390b6d` · 18,914 lines · 2 members) and **BUILD304 compendia** · 758 members.
+  **760 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
+  **W-309 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -263,6 +263,43 @@ no longer on the read path.
   instrument counts **characters**, `Barták` is six and `Barette` seven, so **+2 is precisely the two main-volume
   sites and nothing else moved in that volume.** The one figure that looked unexplained is the tightest
   confirmation in the set. **MEASURED at BUILD128/BUILD300: verify OK, census a fixed point, 86 OK / 0 FAIL.**
+- **AND THE SIX GENERATED BIBLIOGRAPHY ROWS ARE REMOVED, ON REGISTER 1736's OWN PRECEDENT (W-306 to W-309).**
+  M ruled it after the mechanism was proved **from held material**: the bibliography's generator is at
+  `extracted/archives/restore-point-2-13/compendium.py`, beside the `mathreg.py` register data it reads, and
+  running its own regex verbatim over that data **reproduces all seven rows with exactly the handles the volume
+  prints**. The rule is that **ninety characters** of anything but a period or a semicolon may stand between a
+  name and a parenthesised year, and that `src` and `check` are **concatenated before it runs** — so `src`'s last
+  name pairs with `check`'s first year. Four rows cross that join (`Pauli 1925 … Bohr (1913)`, `Shannon 1938 …
+  Birkhoff (1937)`, `Racah 1942 … Freuder (1982)`, and within one field `Pauli … Seaton polarisation (1958)`);
+  one takes a title word for an author (`Moebius inversion … is Rota (1964)`); two are one work written two ways.
+  **The mechanism explains and does not justify**: the section's own opening is *"Every object of this compendium
+  names a work"*, and register 1736 had already removed **ten** of this generator's rows, restating the count and
+  keeping the prior one beside it. **Those ten are where the NAME is wrong; these six are where the name is a real
+  author and the YEAR is someone else's** — which is why a match by author could not see them.
+- **BUILD129/BUILD301 (`r4-a7.py`, both bundles) SEATS IT.** Five rows removed, Deville and Hentenryck merged into
+  one row carrying the **full author list** and the union of seven handles, the count restated at **156** with both
+  prior counts beside it. The main volume moves with it — *162 works* → *156*, and **Fifty-two → Fifty-one**,
+  because the two merged rows were both matches under Convention AY and none of the five removals was; **that
+  figure was taken from the seated `r2-28a4`, not from a reconstruction, which gave 44 where the record says 52.**
+  **The count is 156 and not the 157 I gave when the ruling was put** — five spurious rows, not four — and the slip
+  is recorded rather than quietly fixed. **The build asserts before any byte moves that no removal orphans a
+  handle**: `L.def` survives on Bohr 1913 and Pauli 1925, **`L.bits` on Birkhoff 1937, the very year the Shannon
+  row took**, `Q.delta` on Pauli 1925 / Fermi 1928 / Seaton 1958, `T.trad` on Freuder 1982, `G.book` on Rota 1964.
+- **AND THE ≥ 7 TABLE GAINED A ROW, WHICH IS WHY SIXTY-SEVEN GOLDENS MOVED.** Entry 1891 cites register 1736,
+  taking it to seven citations, so the front matter's table gained a row **at Register line 59** and every line
+  below shifted by one — the class and the scale the store already records. `shiftcheck2 --shift 59:1:7005`
+  explained 27 outright; **the other 39 residues were each read and each is a declared count.** **Two are
+  independent confirmation of the repair**: `r2-ch27a4`'s handle `T.trad` moves from `{'mc': 2, 'reg': 1}` to
+  `{'mc': 1, 'reg': 2}` — the compendium's second is the Racah row that went, the Register's second is entry 1891
+  — and `r2-ch19b2` puts Birkhoff's Register lines at 10 before and 11 after. **BUILD302 closes the census on M's
+  ruling** — *0 NEW, 7 GONE*, every GONE a `C13-HANDLE-LEAK` row on a removed line, retired with the mark
+  `RETIRED W-307` because **a row is never dropped by a regeneration and retirement is a ruling, not the tool's**;
+  BUILD303 re-banks **sixty-six** by running; BUILD304 seats the instrument.
+- **TWO INSTRUMENTS ARE HELD AND NEITHER IS RE-BANKED.** `r2-28a4` pins *"the sentence prints 162 works"*;
+  `r2-bib2` pins *"the table prints 162 data rows"* and **exits nonzero** on it. **Running one that reports its own
+  pinned figure as failed would bank that failure as the record**, which is the hazard the store already names for
+  a traceback. Successors `r2-28a5` and `r2-bib3` are owed, beside `r2-26c3`. **The live set is 83 goldens, and
+  MEASURED at BUILD129/BUILD304: verify OK, census a fixed point, 84 OK / 0 FAIL.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.

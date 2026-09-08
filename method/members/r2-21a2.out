@@ -2,9 +2,9 @@
 ====================================================================================================
 §0 IDENTITY AND BOUNDARIES
 ====================================================================================================
-  The_Method_1_6-2.md                                  md5 b8bf1b79  11904 lines
-  The_Method_1_6___The_Register-2.md                   md5 b322666f  7001 lines
-  The_Method_1_6___Mathematical_Compendium-2.md        md5 c31a450a  3813 lines
+  The_Method_1_6-2.md                                  md5 efdbd4bc  11905 lines
+  The_Method_1_6___The_Register-2.md                   md5 8845b276  7006 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 af9da920  3807 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 2d257853  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
   The_Method_1_6___Spectra_Compendium-2.md             md5 1f328e0b  1160 lines
@@ -39,10 +39,10 @@
   648,096  main [10337]
   735,091  main [7069, 7071, 10334]
   735,092  main [10335]
-  735,860  main [7023, 7035, 7038, 7050, 7082, 9180, 11105] reg [6914]
-  737,380  main [7038, 7050, 7082, 7086, 7096, 9183, 11105] reg [6914]
+  735,860  main [7023, 7035, 7038, 7050, 7082, 9180, 11105] reg [6915]
+  737,380  main [7038, 7050, 7082, 7086, 7096, 9183, 11105] reg [6915]
   738,547  main [7023, 7035, 7086, 7096, 9181]
-  736,688  main [7050, 7068, 9179] reg [6914]
+  736,688  main [7050, 7068, 9179] reg [6915]
   2,687    main [7023, 7035, 7093, 9182]
   1,520    main [7038, 7094, 9184] sc [531, 532, 533, 534]
   1,398    main [7071]
@@ -51,7 +51,7 @@
   785,209  main [7055]
   784,605  main [7058]
   1,081    main [7055]
-  478      main [7058] reg [1784] ioi [858]
+  478      main [7058] reg [1785] ioi [858]
   1,594    main [7110]
   2,169    main [7111]
   1.0057   main [6119, 7009]
@@ -65,8 +65,8 @@
   13.5615  main [7051, 11106]
   13.5895  main [7051, 11106]
   91.338   main [7051, 11106]
-  0.514    main [10337] reg [174, 178]
-  129      main [7555] reg [596, 3902, 3906, 4382, 6168] mc [2882, 3054] ioi [509]
+  0.514    main [10337] reg [175, 179]
+  129      main [7555] reg [597, 3903, 3907, 4383, 6169] mc [2882, 3054] ioi [509]
   "Sc VI" (also Sc⁵⁺) by volume: {'main': 30, 'reg': 1, 'mc': 0, 'pc': 0, 'ioi': 0, 'sc': 0} | main lines [757, 5360, 6103, 6119, 6919, 6921, 6924, 6997, 7023, 7050, 7080, 7092, 7099, 7102, 7110, 7490, 7555, 9191, 10302, 10321, 10333, 10337, 10993, 10999, 11105, 11140, 11158, 11164, 11508, 11626]
   scandium in the Register (any case): ['957', '1302', '1303', '1411', '1444', '1575', '1591', '1596', '1620', '1627', '1639'] — none is the Sc VI channel (read: 957 spectra list, 1302/1303 Sc I ground, 1411 block openings, 1444, 1575, 1591, 1596, 1620, 1627, 1639 reading lists)
   the Register prints NONE of the family's figures (bounded probe above, reg column empty for all 33) — the family has no Register home; "1,520" hits 1303 only as the substring of 11,520 under an unbounded probe (regex artefact, not a site)

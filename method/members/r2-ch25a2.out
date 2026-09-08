@@ -22,8 +22,8 @@ r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named
    L11130 *Two of the eleven are genuinely unbounded and one is genuinely absent; the other eight are fetching*: 2 / 1 / 8 = True
 §4 Sc VI: 10⁷/737,380 = 13.5615 nm, 10⁷/735,860 = 13.5895 nm (printed 13.5615–13.5895); eV of lower 91.235, upper 91.423, midpoint 91.329 = 736620 cm⁻¹ (printed 91.338)
    91.338 / hc = 736691 cm⁻¹ ; the width 1,520 cm⁻¹ = 0.188 eV
-   sites of 735,860  main [(7023, '25.6.1'), (7035, '25.6.2'), (7038, '25.6.2'), (7050, '25.6.3'), (7082, '25.6.5'), (9180, '32.5.1'), (11105, 'E.3')] ; register [6914]
-   sites of 737,380  main [(7038, '25.6.2'), (7050, '25.6.3'), (7082, '25.6.5'), (7086, '25.6.5'), (7096, '25.6.5'), (9183, '32.5.1'), (11105, 'E.3')] ; register [6914]
+   sites of 735,860  main [(7023, '25.6.1'), (7035, '25.6.2'), (7038, '25.6.2'), (7050, '25.6.3'), (7082, '25.6.5'), (9180, '32.5.1'), (11105, 'E.3')] ; register [6915]
+   sites of 737,380  main [(7038, '25.6.2'), (7050, '25.6.3'), (7082, '25.6.5'), (7086, '25.6.5'), (7096, '25.6.5'), (9183, '32.5.1'), (11105, 'E.3')] ; register [6915]
    sites of 91\.338  main [(7051, '25.6.3'), (11106, 'E.3')] ; register []
    sites of 13\.5615 main [(7051, '25.6.3'), (11106, 'E.3')] ; register []
    sites of 735,091  main [(7069, '25.6.4'), (7071, '25.6.4'), (10334, 'C.3')] ; register []
@@ -32,14 +32,14 @@ r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named
 §5 D: C(208, 2) = 21528 (printed 21,528); 498 + 498 failures; 13 + 13 = 26 (printed 26); 131 + 131 = 262 (printed 262); 128 + 128 = 256
    *208 cells from 13 ≤ h ≤ 128 less twelve exclusions*: 128 − 13 + 1 = 116 values; *112 on the diagonal from (13,13) to (131,131)*: 131 − 13 + 1 = 119 diagonal positions — 131 > 128: the diagonal end exceeds the stated range (a slice defined elsewhere: sites below)
    sites of 13 ≤ h   main [(8738, '31.3.4'), (11117, 'E.3')] ; register []
-   sites of \b208\b  main [(8739, '31.3.4'), (8786, '31.3.4'), (10189, 'A.19.1'), (11117, 'E.3')] ; register [854, 872, 1446, 3734, 3946, 4426]
-   sites of \b131\b  main [(855, '2.18'), (2129, '11.1.1'), (2136, '11.1.1'), (2154, '11.1.1'), (6661, '24.2'), (6751, '24.8'), (8754, '31.3.4'), (11119, 'E.3')] ; register [604, 1042, 1238, 4554, 6132, 6775]
-   sites of \b128\b  main [(7055, '25.6.3'), (7058, '25.6.3'), (8738, '31.3.4'), (8785, '31.3.4'), (11117, 'E.3')] ; register [592, 2874, 3014, 3106, 3114, 3330, 3618, 3906, 4462, 4466, 4570, 5194]
+   sites of \b208\b  main [(8739, '31.3.4'), (8786, '31.3.4'), (10189, 'A.19.1'), (11117, 'E.3')] ; register [855, 873, 1447, 3735, 3947, 4427]
+   sites of \b131\b  main [(855, '2.18'), (2129, '11.1.1'), (2136, '11.1.1'), (2154, '11.1.1'), (6661, '24.2'), (6751, '24.8'), (8754, '31.3.4'), (11119, 'E.3')] ; register [605, 1043, 1239, 4555, 6133, 6776]
+   sites of \b128\b  main [(7055, '25.6.3'), (7058, '25.6.3'), (8738, '31.3.4'), (8785, '31.3.4'), (11117, 'E.3')] ; register [593, 2875, 3015, 3107, 3115, 3331, 3619, 3907, 4463, 4467, 4571, 5195]
    sites of 30,108   main [(8709, '31.3.1'), (8734, '31.3.4'), (11123, 'E.3'), (11845, 'Appendix G')] ; register []
-   sites of \b502\b  main [(3611, '12.11.8'), (3951, '14.5.9'), (8767, '31.3.4'), (11121, 'E.3'), (11555, 'Appendix G')] ; register [1880, 1890, 6985]
-   sites of \b540\b  main [(2891, '12.11.0.8'), (3496, '12.11.6'), (4420, '16.4'), (4906, '17.4'), (6022, '22.1.2'), (7406, '28.2'), (8733, '31.3.4'), (8741, '31.3.4'), (8743, '31.3.4'), (8745, '31.3.4'), (8752, '31.3.4'), (8766, '31.3.4')] ; register [854, 858, 1446, 2028, 3882, 5963]
-   sites of 21,528   main [(8741, '31.3.4'), (11118, 'E.3')] ; register [1446]
-   sites of \b498\b  main [(8741, '31.3.4'), (11118, 'E.3')] ; register [1446, 1864, 1890, 6985]
+   sites of \b502\b  main [(3611, '12.11.8'), (3951, '14.5.9'), (8767, '31.3.4'), (11121, 'E.3'), (11555, 'Appendix G')] ; register [1881, 1891, 6986]
+   sites of \b540\b  main [(2891, '12.11.0.8'), (3496, '12.11.6'), (4420, '16.4'), (4906, '17.4'), (6022, '22.1.2'), (7406, '28.2'), (8733, '31.3.4'), (8741, '31.3.4'), (8743, '31.3.4'), (8745, '31.3.4'), (8752, '31.3.4'), (8766, '31.3.4')] ; register [855, 859, 1447, 2029, 3883, 5964]
+   sites of 21,528   main [(8741, '31.3.4'), (11118, 'E.3')] ; register [1447]
+   sites of \b498\b  main [(8741, '31.3.4'), (11118, 'E.3')] ; register [1447, 1865, 1891, 6986]
 §6 Λ₈: 976 cells (tower-2; printed 976)
    value sets |Aᵢ| = [3, 2, 3, 4, 3, 2, 4, 4] ; Σ(|Aᵢ| − 1) = 17 (printed 17 = height)
    join-irreducibles (exactly one lower cover) |J(Λ₈)| = 17 (printed 17); minimal elements 1
@@ -75,10 +75,10 @@ r2-ch25a — Appendix E part 2 (E.3–E.8), computable claims; conventions named
    E.2 question paragraphs 8 ['Do the perturbation bounds tighten at hi', '**Is there an order maximising the bound', '**Does the cell count change at matched ', '**What is *V* for the convex bracket on ', '**Do all accelerators pay 1/\\|*p*−1\\|?**', '**Does the claim set close, and under wh', '**Why is *F*(−1) = 2?** **Because ℓ and ', '**Does the amplification have a general '] ; E.1.1 lineage rows naming closures: [(10977, 'E.4.1, enumerated and closed              8   the assertion indexed an'), (10979, 'after E, J and L closed                  12   the self-duality count a'), (10984, 'when it stood at eight, and E.2 and E.8 record what closed. Register 3')]
    E.8 *Two items closed during this work* = E (target-spin axis, §12.11.1) and §30.3's characterisation (item F is OPEN in E.1.2: True) — the two are E and the F-adjacent law, not two Q items; E.2 lists 8
 §10 Register entries cited in the unit: [384, 385, 386, 387]
-   384 heading L1432 ; body: **E.3 DETAILED SIX ITEMS WHERE ELEVEN WERE OPEN, AND ONE OF THE SIX WAS ANSWERED.** *It is ; WARNING: []
-   385 heading L1436 ; body: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six res ; WARNING: []
-   386 heading L1440 ; body: **E.4 DESCRIBED A GRID AND NEVER PRINTED IT** *— §2.16's own protocol, read once at eight  ; WARNING: []
-   387 heading L1444 ; body: **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: ev ; WARNING: []
+   384 heading L1433 ; body: **E.3 DETAILED SIX ITEMS WHERE ELEVEN WERE OPEN, AND ONE OF THE SIX WAS ANSWERED.** *It is ; WARNING: []
+   385 heading L1437 ; body: **EVERY APPENDIX AUDITED AGAINST THE CURRENT BOOK, AND ONE ROW WAS MISSING.** *All six res ; WARNING: []
+   386 heading L1441 ; body: **E.4 DESCRIBED A GRID AND NEVER PRINTED IT** *— §2.16's own protocol, read once at eight  ; WARNING: []
+   387 heading L1445 ; body: **ITEMS D AND M ADDRESSED IN FULL, AND ONE OF THEM TURNS OUT TO BE NEARLY CLOSED.** *D: ev ; WARNING: []
    Register lines naming E.3–E.8 / Appendix E: 10, entries: [195, 211, 384, 385, 386, 387, 418, 565, 1707, 1721]
    WARNING lines among them: []
 §11 DEFECT-CENSUS.tsv header: ['id', 'class', 'member', 'line', 'item', 'detail']

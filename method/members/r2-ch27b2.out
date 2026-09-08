@@ -41,10 +41,10 @@
   L11421 (D3): sites outside the span 6 [4454, 4484, 4922, 7442, 9062, 9197] — ['L4454 ### 16.5 D3 — totality catches a missing value', 'L4476 ### 16.5.1 And totality extends beyond the data', 'L4919 ### 17.5 E is derived']
   L11410 "the law of this book": `the law` in §2.21 body_range 2; `law of this book` sites [11457]
   rows 8.2 / 8.4 "Chapter 12": span (2309, 3513); jurisdict* 0, vocabular* 1, functor 0, covariant 0
-  MC W.jur: lines [3502]; Register numbers cited on those lines [] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
-  MC W.rel: lines [3536]; Register numbers cited on those lines [] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
-  MC M.C1: lines [2414, 3533]; Register numbers cited on those lines [1019, 1022, 1035, 1483, 1484] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
-  MC M.C2: lines [2414, 3523, 3524, 3526]; Register numbers cited on those lines [1019, 1022, 1035, 1483, 1484] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC W.jur: lines [3498]; Register numbers cited on those lines [] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC W.rel: lines [3530]; Register numbers cited on those lines [] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC M.C1: lines [2414, 3527]; Register numbers cited on those lines [1019, 1022, 1035, 1483, 1484] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
+  MC M.C2: lines [2414, 3518, 3519, 3521]; Register numbers cited on those lines [1019, 1022, 1035, 1483, 1484] (the G rows cite 1375 / 1519 / 1523 / 1535 / 1551 / 1399 / 1403)
   main sites of `jurisdict*` with their headings: [(4250, 'L4245 ### 14.6.6 Two of t'), (4252, 'L4245 ### 14.6.6 Two of t'), (5204, 'L5004 ### 18.4.1 The law '), (11443, 'L11408 ## Appendix G — Tr')]
   Register entries carrying `jurisdict*`: [543]
   Register entries carrying `presymplectic` / `null surface`: [1511] / [547, 548, 550, 1472, 1479, 1506, 1510]

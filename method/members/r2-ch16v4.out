@@ -3,7 +3,7 @@
 1. EVERY POINTER IN THE UNIT, resolved to the CLAIM and under BOTH resolvers
 ================================================================================================
   §35       cited at [9485]: heading_line=9750  body_range=(9750, 9761)  section_span=(9750, 9926)  DIFFER
-  §36       cited at [9457]: heading_line=9926  body_range=(9926, 9930)  section_span=(9926, 11905)  DIFFER
+  §36       cited at [9457]: heading_line=9926  body_range=(9926, 9930)  section_span=(9926, 11906)  DIFFER
   Chapter 12  cited at [9430]: occurrences [126, 2309] -> BODY 2309, span 2309-3512: ## 12. The shape — a cylinder over the transfer
   Chapter 20  cited at [9412]: occurrences [5556] -> BODY 5556, span 5556-5601: ## 20. The languages, and what each one can close
   Chapter 27  cited at [9455]: occurrences [147, 7208] -> BODY 7208, span 7208-7370: ## 27. Slack
@@ -35,9 +35,9 @@
       inside the References body (L11550+): NONE -- unbibliographed
   and where the Demkov-Ostrovsky claim of L9468 does live:
     main L9474: restated: the Demkov–Ostrovsky slope-½ comparison was an identity, and the closure
-    reg L5458: **THE OUTSIDE LITERATURE, SEARCHED AT LAST, AND OUR COORDINATES ARE FIFTY YEARS OLD.** *A precedent search on the Löwdin challenge itself, owed since 
-    reg L5462: **AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN.** *His chain: any central potential carries a dynamica
-    reg L6092: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, c
+    reg L5459: **THE OUTSIDE LITERATURE, SEARCHED AT LAST, AND OUR COORDINATES ARE FIFTY YEARS OLD.** *A precedent search on the Löwdin challenge itself, owed since 
+    reg L5463: **AND BELOKOLOS ANSWERS THE OBJECTION THAT SANK DEMKOV–OSTROVSKY: THE 2 IS DERIVED, NOT CHOSEN.** *His chain: any central potential carries a dynamica
+    reg L6093: **P2 CLOSED: DEMKOV-OSTROVSKY DERIVE MADELUNG AT E = 0, WHICH IS SEATON'S OWN LIMIT — AND THE CORRIDOR TEST REFUTES THE CONNECTION.** *Board row 11, c
 
 ================================================================================================
 4. RULING 45 (build / editorial-process prose) and RULING 46 (script and file names)

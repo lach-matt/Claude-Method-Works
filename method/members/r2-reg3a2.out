@@ -1,10 +1,10 @@
 
 == 0  THE UNIT, BOUNDED BY ITS OWN SCAN
-   block opens at entry 95                                    460                          OK
-   entry 165 opens the mature record                          740                          OK
+   block opens at entry 95                                    461                          OK
+   entry 165 opens the mature record                          741                          OK
    entries in the block                                       70                           OK
    numbered 95..164 with no gap                               True                         OK
-   unit = L460-L739, 280 lines
+   unit = L461-L740, 280 lines
 
 == 1  UNIFORMITY, MEASURED RATHER THAN SAMPLED
    distinct body lines in seventy entries                     1                            OK
@@ -23,7 +23,7 @@
 
 == 3  THE TARGET ENTRY 313
    register 313 exists                                        True                         OK
-   L1174: **TIME MUST NOT ENTER Λ* WAS A MISSTATEMENT** *, refuted by computation. Λ already carries time — source, transfer, target — and what Λ₈ cannot do is*
+   L1175: **TIME MUST NOT ENTER Λ* WAS A MISSTATEMENT** *, refuted by computation. Λ already carries time — source, transfer, target — and what Λ₈ cannot do is*
    entry 313 parses as headline + italic body                 False                        DEVIATION (reg3-A) - printed True
    asterisks on the line: 11 ; a clean "**head** *body*" carries 4
    the headline reads "TIME MUST NOT ENTER Λ*" -- the emphasis marker stands where the
