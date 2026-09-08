@@ -1177,6 +1177,60 @@ than a construction** (`create.py`'s topology theorems and `detect.py`'s search 
 
 ---
 
+## ⚠ H22 — "no path needed" is the **maximum** of the cost curve, and information is not a second currency
+
+**H22. `Δd = (G/c²)MΛ` is linear in the contraction, so making two points *one* means contracting the
+whole separation: `5.1048×10⁴² kg = 2.5666×10¹² M☉` at four light years. There is no economy of scale.
+The cheap-far-end intuition is inverted by the project's own equation.**
+
+| contraction | mass |
+|---|---|
+| one metre | `1.3489e26 kg` |
+| 1% of 4 ly | `5.1048e40 kg` |
+| **all of 4 ly (coincidence)** | **`5.1048e42 kg` = `2.5666e12 M☉`** |
+
+**But the other reading of the same sentence is not on that curve at all.** Two points *already* one is a
+wormhole mouth pair — nothing is contracted, so nothing is paid for contracting. That is `create.py`'s
+**find one and enlarge it**, reached here from the index picture rather than from the topology theorems.
+**Two independent routes to door three.**
+
+**Information, priced for the first time — and it is not a second currency.** The required configuration
+holds `9.9736e101` bits, and the holographic (`A/4ℓ_P²`) and Bekenstein (`2πRE/ℏc`) routes **agree to six
+digits** because the bound is saturated at the horizon. *That agreement is the finding.*
+
+> Bekenstein bounds `S` **by** `E`: you cannot hold the bits without the energy to hold them in, so
+> `S ≤ 2πRE/(ℏc)` runs the **wrong way** for the trade. **The bits are the mass, in other units**, and
+> the conversion factor is `ℏ`.
+
+Landauer adds that *manipulating* them at the CMB costs `2.6014e79 J` against `Mc² = 4.5880e59 J` —
+**19.75 orders worse**, breaking even only at `4.8068e−20 K`. **Flagged as the weaker half**: Landauer
+prices irreversible operations, and a reversible computation costs nothing in principle. The argument is
+Bekenstein, which is static and survives reversibility entirely.
+
+**"Step walking through dimensions" cannot be the mechanism, by a theorem.** Campbell–Magaard: any
+analytic *n*-manifold embeds locally in an (*n*+1)-dimensional **Ricci-flat** one — always,
+unconditionally. **A thing true of every spacetime distinguishes none of them.** Bulk shortcuts
+(Caldwell–Langlois) *are* real and calculable — but a warped bulk is an extra-dimensional theory, which
+is **H21's door one**, not a fourth door.
+
+**And the diagnosis is the best anyone has made of this project's cost structure.** *"What makes
+transition expensive is the constant movement of the index"* is `reverse.py`'s split — the seat is
+**free**, the movement is all of the cost — and `warpshell.py`'s CM theorem, that momentum changes only
+by radiating. `apply.py` sharpened it one pass earlier: `M_ADM` is free and **the lead is the whole
+cost**.
+
+> The tree's own answer to that diagnosis is the object that does not move: `bothways.py`'s **GATE** —
+> zero offset, both directions, no CTC, and it **amortises**. A gate *is* "a point in the index where no
+> path is needed." **Find one rather than build one; build a gate rather than a vehicle.**
+
+| | `nopath.py` |
+|---|---|
+| status | **MEASURED** (the coincidence cost from `phase1.py`'s own rate; the bit count by two agreeing routes) + **PROVEN** (Campbell–Magaard; the Bekenstein direction) |
+| new? | the information denomination priced, and the linearity argument applied to coincidence, yes |
+| **not** claimed | that Landauer settles it — it prices irreversible operations only and is recorded as the weaker half; that dimensional drift is a new route — it is door one; **that any of this is the method equation.** Register 1206 is a statement about placement on an index and the transition equation is `Δd = (G/c²)MΛ`; a shared *shape* is not a correspondence, and `unified.py`'s rule on *eight* governs — none is asserted |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1286,3 +1340,9 @@ than a construction** (`create.py`'s topology theorems and `detect.py`'s search 
   requirement is local and belongs to the **lead**. See **H21**, which narrows **H19**.
 - **That anything in the last four passes moved the verdict.** `expand.py` still reads `E = 1`,
   dissent in INFORMATION alone. What changed is the *kind* of the refusal, not the refusal.
+- **That reaching "no path needed" is cheaper than a short path.** It is the maximum of the cost curve.
+  See **H22**.
+- **That information is a cheaper denomination than mass-energy.** Bekenstein bounds the information *by*
+  the energy; the bits are the mass in other units.
+- **That the transition is an instance of the method equation.** A shared shape is not a correspondence,
+  and none is asserted.

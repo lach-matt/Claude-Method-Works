@@ -5539,3 +5539,99 @@ only. The modified-gravity scope is still M's decision and still unchosen.
 - `apply.py` — new. `pair.py` and `concentric.py` — narrowed in place on the `M_ADM` reading.
   `index3.py` — **413 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H21** and two additions to the
   not-claimed list.
+
+---
+
+## `nopath.py` — pricing "the point at which no path is needed"
+
+> **M:** *"Spacetime is a closed index. What makes transition expensive is the constant movement of that
+> index. The goal is not to calculate the shortest path, but determine at which point in the index no
+> path is needed. And that involves step walking through dimensions… The currency paid is in
+> information, allowing for dimensional drift to where two separate points are one."*
+
+Four claims. **One is the best diagnosis anyone has made of this project's cost structure.** One is
+exactly inverted. One is priced here for the first time and comes out twenty orders *worse*. One is a
+real physical route that turns out to be a door already on the list.
+
+### 1. "No path needed" is the maximum of the cost curve, not the minimum
+
+`Δd = (G/c²)MΛ` is **linear** in the contraction — no economy of scale, no cheap far end:
+
+| contraction | mass |
+|---|---|
+| one metre | `1.3489e26 kg` |
+| 1% of 4 light years | `5.1048e40 kg` |
+| **all of 4 light years — coincidence** | **`5.1048e42 kg` = `2.5666e12 M☉`** |
+
+> **The cost intuition is inverted, and the project's own equation inverts it.** Shortening is cheap in
+> proportion; coincidence is the most expensive point on the axis.
+
+**But the other reading is not on that curve at all.** Two points *already* one is a **wormhole mouth
+pair** — nothing is contracted, nothing is paid for contracting. That is `create.py`'s **find one and
+enlarge it**, reached from the index picture instead of from the topology theorems. **Two independent
+routes to door three, which is worth more than either.**
+
+### 2. Information is not a second currency
+
+| | bits |
+|---|---|
+| holographic, `A / 4ℓ_P²` | `9.9736e101` |
+| Bekenstein, `2πRE/ℏc` | `9.9736e101` |
+
+They agree to six digits because the bound is saturated at the horizon — **and that agreement is the
+finding.**
+
+> Bekenstein bounds `S` **by** `E`. You cannot hold the bits without the energy to hold them in, so
+> `S ≤ 2πRE/(ℏc)` runs the **wrong way** for the trade. **The bits *are* the mass, in other units**, and
+> the conversion factor is `ℏ`.
+
+Landauer prices *manipulating* them: at the CMB, `2.6014e79 J` against `Mc² = 4.5880e59 J` — **19.75
+orders worse** — breaking even only at `4.8068e−20 K`, a temperature the CMB exceeds by `5.67e19`.
+
+**Caution, recorded as one:** Landauer prices *irreversible* operations, and reversible computation costs
+nothing in principle, so that half is the weaker one. **The argument is Bekenstein**, which is static and
+survives reversibility entirely.
+
+### 3. The embedding is free, and free means it cannot be the mechanism
+
+**Campbell–Magaard:** any analytic *n*-dimensional pseudo-Riemannian manifold embeds locally in an
+(*n*+1)-dimensional **Ricci-flat** one. Every 4D spacetime, ours included, always.
+
+> **A thing true of every spacetime distinguishes none of them.** The existence of the higher dimension
+> carries no information. If there is a mechanism it is in the bulk's *geometry*, not in its existence.
+
+And there the effect is genuine — **bulk shortcuts** (Caldwell–Langlois; Abdalla & Cuadros-Melgar), where
+a bulk geodesic beats the brane geodesic. **But it is not a fourth door.** A warped bulk is an
+extra-dimensional theory — `apply.py`'s **door one** — and its scope decision is the one `wormhole.py`
+has held for M since the wormhole fork.
+
+### 4. And the diagnosis is right — already banked in three instruments
+
+| | |
+|---|---|
+| `reverse.py` | the seat is **FREE**; the lead is the whole cost |
+| `warpshell.py` | the CM theorem: momentum changes only by radiating |
+| `apply.py` | `M_ADM` is free; the lead is the whole cost, measured |
+
+*"What makes transition expensive is the constant movement of the index"* is exactly that split, named
+from outside for the first time.
+
+> And the tree's own answer is the object that **does not move**: `bothways.py`'s **GATE** — zero offset,
+> both directions, no closed timelike curve, and it **amortises**. A gate *is* "a point in the index
+> where no path is needed."
+
+**The idea converges on the project's two standing conclusions rather than adding to them: find one
+rather than build one, and build a gate rather than a vehicle.** The index picture reaches both from the
+front; the theorems reached them from the back.
+
+### On "the method equation at work"
+
+Register 1206 names the architecture — *"the two halves of the method equation meet for the first time on
+this index"* — and it is a statement about **placement on an index**, while the transition equation is
+`Δd = (G/c²)MΛ`. **A shared shape is not a correspondence.** `unified.py`'s rule on *eight* governs: same
+structure, none established, **and none asserted here.**
+
+### Seated
+- `nopath.py` — new. `obstruct.py` — **41 rows**, new `NO-PATH-IS-CHEAPER` and `INFORMATION-CURRENCY`,
+  **23 closed-negative**, one still OPEN (TYPE-IV). `index3.py` — **422 findings**, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H22** and three additions to the not-claimed list.

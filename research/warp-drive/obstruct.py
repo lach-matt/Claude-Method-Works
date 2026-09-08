@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of thirty-nine obstructions, SIX dissolved, FOUR relocated,
-TWENTY-ONE closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of forty-one obstructions, SIX dissolved, FOUR relocated,
+TWENTY-THREE closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -280,6 +280,30 @@ LEDGER = [
   "COMOVING frame, where nothing moves and n a^3 is conserved exactly; that "
   "much is textbook and buys nothing. Unimodular gravity formalises the fixed "
   "volume element and is CLASSICALLY EQUIVALENT to GR", "permute.py"),
+ ("NO-PATH-IS-CHEAPER", "finding the point where NO PATH is needed is "
+  "cheaper than computing a short one", "CLOSED-NEGATIVE",
+  "IT IS THE MAXIMUM OF THE COST CURVE, NOT THE MINIMUM, AND THE PROJECT'S OWN "
+  "EQUATION SAYS SO. Delta-d = (G/c^2) M Lambda is LINEAR in the contraction -- "
+  "no economy of scale -- so making two points ONE means contracting the WHOLE "
+  "separation: 5.1048e42 kg at four light years, 2.5666e12 SOLAR MASSES, "
+  "against 5.1048e40 for a 1% contraction. BUT THE OTHER READING SURVIVES AND "
+  "IS NOT ON THIS CURVE AT ALL: two points ALREADY one is a wormhole mouth "
+  "pair, nothing is contracted and nothing is paid for contracting -- which is "
+  "create.py's FIND ONE AND ENLARGE IT, reached from the index picture instead "
+  "of from the topology theorems", "nopath.py"),
+ ("INFORMATION-CURRENCY", "the bill can be paid in information rather than "
+  "mass-energy", "CLOSED-NEGATIVE",
+  "INFORMATION IS NOT A SECOND CURRENCY. The required configuration holds "
+  "9.9736e101 bits and the holographic and Bekenstein routes agree to six "
+  "digits, saturated at the horizon -- WHICH IS THE FINDING: Bekenstein bounds "
+  "S BY E, so you cannot hold the bits without the energy to hold them in, and "
+  "S <= 2 pi R E / (hbar c) runs the WRONG WAY for the trade. The bits ARE the "
+  "mass in other units, converted by hbar. Landauer adds that manipulating "
+  "them at the CMB costs 19.75 ORDERS MORE than Mc^2, breaking even only at "
+  "4.8068e-20 K -- flagged as the WEAKER half, since Landauer prices "
+  "irreversible operations and the Bekenstein argument is static and survives "
+  "reversibility. Complements CHEAPER-CURRENCY, which never priced this "
+  "denomination", "nopath.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -624,10 +648,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 39)
+    chk("obstructions tracked", len(LEDGER), 41)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 21)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 23)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
