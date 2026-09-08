@@ -49,6 +49,27 @@ never writes to them. Its shape follows the author's own standing ruling (`PROSE
 each paper carries its own abstract and its own references, states its relation to the lattice, and
 takes no part in the main paper's subject matter.
 
+**`Cold_Fusion_Proof_v1.0.src.md` is the proof paper**, and it is what the project originally set out
+to do: a structural definition of cold fusion, **two uniqueness theorems**, the eighth condition, the
+measured production floor, the balance stated at the acceptance the machine actually delivers, and the
+procedure that would witness the configuration. Theorem 1 closes what may *hold* a mesomolecule — of
+**13** charged particles scanned, **5** outlive the mesomolecular formation time, **2** lie inside the
+structural window and one survives the hadron test. **Theorem 4 closes what the mesomolecule holds**,
+which the design had assumed without asking: over the closed set of light-nucleus pairs a muon can
+bind, *d*–*t* maximises the energy returned per binder by **77.85×** against the next candidate, and
+that next candidate is *t*–*t*, which uses **more** tritium rather than less. The figure of merit is
+not Q but `N = 1/(ω_s + λ₀/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one, and
+the model returns **113.08** cycles against the **150** measured — a fidelity of **0.754**, so it
+ranks fuels and never prices a machine. **Proposition 11 then finds what the ranking hid**: a
+deuterium cell tritiates *itself*, because one *d*–*d* branch is `d + d → t + p` and dtμ forms far
+faster than ddμ, reaching `f_dt` = **1/3** at **0.621 %** by atom — **64.7× less tritium** than the
+specified cell holds, at **48.4×** less yield per binder, and stated as a quantity to measure because
+it omits ³He poisoning. The paper prices **no blanket and no co-product** and says so: what it proves
+is that the reaction exists, is witnessed, is unique in binder and in fuel, and that **nothing clears
+unity with the machine as built** — the closest is bred fuel at the measured count, at **0.623**, or
+**0.957** with both collector alterations. **25 audits pass, 0 fail, 2 debts**, and `verify_paper.py`
+passes all three passes including the one that fails on any number the ledger does not carry.
+
 **`Cold_Fusion_Binder_Economy_v1.0.md` is the current paper**, with
 **`Independent_Reconciliation_v1.0.md`** as its companion and
 **`Cold_Fusion_Specification_and_Procedure_v1.0.md`** as the executable half — **three live papers**,

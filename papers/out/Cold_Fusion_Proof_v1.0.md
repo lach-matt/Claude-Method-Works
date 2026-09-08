@@ -13,7 +13,7 @@ A **cold fusion reaction**, as this paper uses the term, is a nuclear fusion eve
 
 Seven conditions are necessary for such an event to occur and to be checkable. Applied to the closed index of charged particles they admit **exactly one** binder — the negative muon — because the conditions place both a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has a single occupant. Of 13 charged particles scanned, 5 outlive the mesomolecular formation time and 2 lie inside the window; one survives the remaining test. The window's lower bound may move by 207 and its upper by 3.54 before that count changes.
 
-A second uniqueness theorem is proved here for the first time, on the other half of the configuration. **The fuel is unique as well.** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder by 77.85 against the next candidate — and the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one.
+A second uniqueness result closes the other half of the configuration, and it is stated here as a theorem rather than as the working assumption it has long been. **The fuel is unique as well.** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder by 77.85 against the next candidate — and the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one.
 
 The reaction is therefore not speculative, and its uniqueness is not assumed. What has never been observed is a configuration of it that returns more energy than it costs to run, and the distance between those two statements is what the rest of the paper measures. An **eighth condition** makes the question answerable: a binder is worth making only if `E_binder < Q_fus · f_work / ω_s`. Every term in it has been measured. Integrating the published pion production cross sections puts production alone at 11.13 GeV per pion, so even a perfect collector would leave the heat form short; sticking is shown to be independent of the binder's mass, so the condition is a specification on the machine rather than a search over the spectrum; and the break-point in sticking lies **below both** published readings rather than between them, so no choice between them repairs the heat form.
 
@@ -66,7 +66,7 @@ The reaction is therefore not hypothetical. The event μ⁻ + (d,t) → (dtμ)�
 
 ## 3. The unique fuel
 
-§2 closes the question of what may *hold* a mesomolecule. It says nothing at all about what the mesomolecule holds, and that second question has been left implicit in this reaction's literature for seventy years: *d*–*t* is used because *d*–*t* works, and the alternatives are rarely priced. They are priced here, because the fuel is where the reaction's largest practical liability sits, and a uniqueness claim that covers only half the configuration is not a uniqueness claim.
+§2 closes the question of what may *hold* a mesomolecule. It says nothing about what the mesomolecule holds, and this paper had assumed *d*–*t* throughout without asking. That *d*–*t* is the best mesomolecular fuel is not news to the field; what is set out here is the closed argument for it, because the fuel is where this reaction's largest practical liability sits, and a uniqueness claim covering only half the configuration is not a uniqueness claim.
 
 The candidate set closes the same way §2's did. A mesomolecular fuel is a **pair** of light nuclei that a muon can bind, and the hydrogen isotopes give exactly 6 such pairs. The helium pairs are listed beside them and excluded by the same arithmetic rather than by assertion.
 
@@ -74,7 +74,7 @@ The candidate set closes the same way §2's did. A mesomolecular fuel is a **pai
 
 > **the cycles a binder completes are** `N = 1 / (ω_s + λ_0/λ_c)`,
 
-so that a *slow* cycle is punished by decay and a *sticky* one by sticking, and a fuel must escape both to be worth anything. Proposition 8 in §14.8 derives it. The free decay rate is 4.5517 × 10^5 s^-1.
+so that a *slow* cycle is punished by decay and a *sticky* one by sticking, and a fuel must escape both to be worth anything. Proposition 10 in §14.8 derives it. The free decay rate is 4.5517 × 10^5 s^-1.
 
 | pair | cycles per muon | energy per muon | neutrons per muon |
 |---|---|---|---|
@@ -83,7 +83,7 @@ so that a *slow* cycle is punished by decay and a *sticky* one by sticking, and 
 | d–d | 2.36 cycles | 8.62 MeV | — |
 | p–d, p–t, p–p, and the helium pairs | below unity | below the d–d entry | — |
 
-> **Theorem 2 (the fuel).** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder, by 77.85 against the next candidate. §14.8 proves it.
+> **Theorem 4 (uniqueness of the fuel).** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t* maximises the energy returned per binder, by 77.85 against the next candidate. Theorem 4 in §14.8 proves it.
 
 Two features of that result matter more than the ranking itself.
 
@@ -256,7 +256,7 @@ The balance is one line. Writing `f_dt` and `f_dd` for the shares of fusions tha
 
 > `½ f_dd = f_dt` with `f_dd + f_dt = 1`, giving **`f_dt` = 0.3333** and `f_dd` = 0.6667,
 
-and the tritium concentration that produces that split follows from the two formation rates. §14.8 carries the derivation. The result is the number this section exists for.
+and the tritium concentration that produces that split follows from the two formation rates. Proposition 11 in §14.8 carries the derivation. The result is the number this section exists for.
 
 | at the equilibrium |  |
 |---|---|
@@ -455,7 +455,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **The operative sticking is unresolved between two measurements**, though not in a way that changes the heat form's verdict. 0.5050 percent and 0.5320 percent are the two effective values the measured reactivation returns, and both lie above the break-point at 0.1580 percent, so the heat form fails at perfect collection on either. What the disagreement leaves open is the service life, and with it every balance that depends on it. §11's protocol settles it, and nothing here stands in for that.
 
-**Every collection figure here is an acceptance rather than a delivered efficiency** until Stage A runs. §6.2 computes the losses between the two and §7 restates every balance through them, but a computed budget is not a measurement, and the margin over the falsification floor is 1.073.
+**Every collection figure here is an acceptance rather than a delivered efficiency** until an end-to-end count of stopped binders per pion produced has been made. §6.2 computes the losses between the two and §7 restates every balance through them, but a computed budget is not a measurement, and the margin over the falsification floor is 1.073.
 
 **Every balance assumes perfectly pure fuel.** At the bound case, 5.49 ppm of high-Z contamination costs as much binder as decay does. The purity series of §11.3 is what measures it.
 
@@ -463,7 +463,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **Every modelled service life here rests on a density no experiment has reached**, and after §7's correction it buys very little. The model itself is in good order — at the density that *has* been reached it returns 152.8 cycles against the 150 cycles measured, a ratio of 1.019 — but the rows that use it assume 8.5 times liquid where 1.2 has been held, and even granted that they return only 190.1 cycles against 150 cycles measured. **The model is worth a factor of about a quarter and an unreached density to obtain it**, which is why every result this paper offers is stated at the measured count, and why §7's surviving route uses the model nowhere.
 
-**The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §5.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **Stage C measures it.**
+**The optimised production target is a discrepancy that cannot be closed by argument.** A published optimisation costs 4.69 GeV per pion against the 11.13 GeV integrated in §5.1. Three candidate mechanisms were examined and bounded; what survives is a **normalisation** — pions per beam particle against pions per interaction — needing 2.389 interacting nucleons, which reproduces the optimised figure closely and which a deuteron on a long target supplies. **A normalisation measurement on one target would settle it: pions per beam particle against pions per interaction, with nothing else changed.**
 
 **And the standalone configuration is closed rather than open.** Theorem 3 of §14 is a theorem, and no measurement in §11 can overturn it. What a measurement can decide is the co-product configuration and the bred-fuel route, which are the two that survive.
 
@@ -477,7 +477,7 @@ Each of the following is a theorem or a derivation from measured inputs. None of
 
 1. **A cold fusion reaction exists and has been witnessed.** The definition of §1 is structural, and the reaction it picks out has run in laboratories since the 1950s. Its cycle rates, its sticking fractions and its ash have all been measured.
 1. **The binder is unique.** The seven conditions place a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has exactly one occupant in the charged spectrum (Theorem 1, §14.3). Of 13 charged particles scanned, 5 outlive the mesomolecular formation time, 2 lie inside the window, and one survives the hadron test.
-1. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy returned per binder by 77.85 against the next candidate (Theorem 2′, §14.8) — and the runner-up uses more tritium rather than less.
+1. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy returned per binder by 77.85 against the next candidate (Theorem 4, §14.8) — and the runner-up uses more tritium rather than less.
 1. **The window is not a near thing.** Its lower bound may move by 207 and its upper by 3.54 before the count of occupants changes.
 1. **An eighth condition decides whether the reaction is worth running**, and it contains no free parameter (Proposition 1, §14.2). Every term in it has been measured.
 1. **Sticking does not depend on the binder's mass** (Theorem 2, §14.4), so condition 8 is a specification on the machine and not a search over the spectrum. There is in any case no other occupant of the window to search for.
@@ -648,7 +648,7 @@ Over the large-angle acceptance this gives 1.0382 barn, or 0.6107 π⁻ per prot
 
 ### 14.8 The catalytic figure of merit, and the two uniqueness theorems
 
-**Proposition 8 (cycles per binder).** A binder in a cycle of rate $\lambda_c$, lost per cycle with probability $\omega_s$ and independently with rate $\lambda_0$, completes
+**Proposition 10 (cycles per binder).** A binder in a cycle of rate $\lambda_c$, lost per cycle with probability $\omega_s$ and independently with rate $\lambda_0$, completes
 
 
 $$N \;=\; \frac{1}{\omega_s \;+\; \lambda_0/\lambda_c}$$
@@ -659,15 +659,15 @@ cycles in expectation.
 
 **Remark.** The two limits are the ones quoted in the literature separately. As $\lambda_c \to \infty$ the expression returns the sticking ceiling $1/\omega_s$; as $\omega_s \to 0$ it returns the decay ceiling $\lambda_c/\lambda_0$. Neither ceiling alone is the operative bound for any real fuel, which is why fuels ranked on sticking alone rank wrongly.
 
-**Theorem 2′ (the fuel).** Over the closed set of pairs drawn from $\{p, d, t\}$ together with the helium pairs, $d$–$t$ maximises $N \cdot Q$.
+**Theorem 4 (uniqueness of the fuel).** Over the closed set of pairs drawn from $\{p, d, t\}$ together with the helium pairs, $d$–$t$ maximises $N \cdot Q$.
 
 *Proof.* The set is finite and closed: two nuclei drawn with repetition from the three hydrogen isotopes give 6 pairs, and the helium pairs are enumerated beside them. For each, $\lambda_c$ and $\omega_s$ are measured quantities and $Q$ is fixed by the masses. Evaluating Proposition 8 on each and multiplying by $Q$ gives the table of §3, whose maximum is $d$–$t$ at 1989.1 MeV against 25.55 MeV for the next entry — a factor of 77.85. The ordering is a finite comparison over measured inputs and contains no free parameter. ∎
 
 **Corollary.** No pair without tritium comes within 230.76 of $d$–$t$ on energy per binder, so the reaction's tritium requirement is not an artefact of the choice of fuel. It follows from the fuel being unique.
 
-**Proposition 9 (the self-tritiating equilibrium).** A cell charged with pure deuterium reaches a steady state in which a fraction $f_{dt} = 1/3$ of fusions run on $d$–$t$.
+**Proposition 11 (the self-tritiating equilibrium).** A cell charged with pure deuterium reaches a steady state in which a fraction $f_{dt} = 1/3$ of fusions run on $d$–$t$.
 
-*Proof.* The branch $d + d \to t + p$ carries a branching ratio of one half, so tritium is produced at $\tfrac12 f_{dd}$ per fusion. Every $d$–$t$ fusion consumes one triton, so tritium is destroyed at $f_{dt}$ per fusion. In steady state the two are equal, and with $f_{dd} + f_{dt} = 1$ this gives $\tfrac12(1 - f_{dt}) = f_{dt}$, hence $f_{dt} = 1/3$. The concentration producing that split follows from $f_{dt}/f_{dd} = \lambda_{dt} c_t / (\lambda_{dd}(1 - c_t))$, which returns 0.6211 percent; the mixed cycle rate and sticking are the branch-weighted means, and Proposition 8 then gives 3.51 cycles. ∎
+*Proof.* The branch $d + d \to t + p$ carries a branching ratio of one half, so tritium is produced at $\tfrac12 f_{dd}$ per fusion. Every $d$–$t$ fusion consumes one triton, so tritium is destroyed at $f_{dt}$ per fusion. In steady state the two are equal, and with $f_{dd} + f_{dt} = 1$ this gives $\tfrac12(1 - f_{dt}) = f_{dt}$, hence $f_{dt} = 1/3$. The concentration producing that split follows from $f_{dt}/f_{dd} = \lambda_{dt} c_t / (\lambda_{dd}(1 - c_t))$, which returns 0.6211 percent; the mixed cycle rate and sticking are the branch-weighted means, and Proposition 10 then gives 3.51 cycles. ∎
 
 **What the proposition does not establish.** It is a two-branch balance and it omits ³He, which the other $d$–$d$ branch produces and to which muon transfer is fast. Including that channel would reduce 3.51 cycles by an amount this paper does not compute, so §8 states the equilibrium as a quantity to measure. The *sign* of the result — that a deuterium cell holds a percent of the tritium a $d$–$t$ cell holds rather than half — does not depend on the omitted term, because ³He poisoning removes binders and does not add tritium.
 
@@ -696,7 +696,7 @@ Three things in this paper are **not** theorems, and are marked as such wherever
 1. Variational three-body calculation of muon-alpha sticking, Phys. Rev. A **34**, 2536.
 1. S. E. Koonin and M. Nauenberg, *Nature* **339**, 690.
 1. M. Kamimura, Y. Kino and T. Yamashita, *Comprehensive study of muon-catalyzed nuclear reaction processes in the dtμ molecule*, Phys. Rev. C **107**, 034607 (2023).
-1. R. Spencer Kelly, L. J. F. Hart and S. J. Rose, *An investigation of efficient muon production for use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003. **The optimised production target §12 declines to adopt and §11 Stage C measures.**
+1. R. Spencer Kelly, L. J. F. Hart and S. J. Rose, *An investigation of efficient muon production for use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003. **The optimised production target §12 declines to adopt, and which a normalisation measurement would settle.**
 1. X. Yin, W. Kou and X. Chen, *Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck Breakthroughs, and an Engineering Pathway*, arXiv:2605.26432 — Table I and §IV.B.
 1. W. Kou and X. Chen, *A Lawson-inspired Cycle-Closure Criterion for Deuterium–Tritium Muon-Catalyzed Fusion*, arXiv:2607.10989 — Eqs. (11)–(13) and Table I. **An independent derivation of §4's eighth condition, reached without reference to this work.**
 1. W. Kou and X. Chen, *External-Field-Assisted Muon Reactivation in Muon-Catalyzed Fusion: A Rate-Network Criterion for Reducing Alpha Sticking*, arXiv:2606.07077.
