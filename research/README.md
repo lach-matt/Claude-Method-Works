@@ -3175,3 +3175,79 @@ and the same line it has been since pass 21.**
 - `index3.py` — 217 findings: `PROPER-IS-THE-QUANTITY`, `LENS-HAS-WRONG-SIGN`, `NO-THROAT`,
   `NO-HORIZON`, `NO-MOMENTUM-FLUX`.
 - `obstruct.py` — 25 rows. New `WRONG-CATEGORY`, **CLOSED-NEGATIVE**.
+
+---
+
+## Pass 25 — `budget.py`: where the math stands, what the device must be, how it is powered
+
+### Where the math stands — five results, one obstruction
+
+| | instrument |
+|---|---|
+| the warp quantity is **proper distance**; `Φ > 0` contracts it, ordinary mass stretches it, a lens has the **wrong sign** | `transition.py` |
+| `Φ > 0` in vacuum needs **negative energy density**; `Q ≤ M` puts every charged positive-potential region inside a horizon | `charge.py` |
+| and no known negative energy is enough — Ford–Roman, **65 orders**, widening with scale | `achievable.py` |
+| the strong-field shortcut is closed too: Sturm-universal seating is inside its own Schwarzschild radius by `2π²/3` | `spec.py` |
+| **but the configuration is sound**: `M_ADM = 0`, ordinary DEC-satisfying shell, radially stable for free, Type I core, no throat, no horizon, no momentum flux | `concentric`, `stability`, `core`, `transition` |
+
+**The mathematics is complete and the obstruction is singular: everything works except that nothing
+supplies `Φ > 0`.**
+
+### What the device must be — derived, not asserted
+
+The contraction has a closed form, validated against the measurement to better than 1.2%:
+
+**`ε = (2m/L)·asinh(L/2b)`** — less the shell's constant `m/R_s`
+
+| `m` | measured | closed form | off by |
+|---|---|---|---|
+| 5×10⁻³ | 1.64994×10⁻⁴ | 1.65127×10⁻⁴ | 0.08% |
+| 2×10⁻² | 6.58474×10⁻⁴ | 6.60506×10⁻⁴ | 0.31% |
+| 8×10⁻² | 2.61024×10⁻³ | 2.64202×10⁻³ | 1.20% |
+
+Inverting: **`|M| = (c²/G)·L·ε / (2·asinh(L/2b))`**, and
+
+**`c²/G = 1.3466×10²⁷ kg per metre` — the whole cost story.**
+
+| path | `ε` | `\|M\|` | `M_☉` |
+|---|---|---|---|
+| 1 light-year | 0.01 | 2.773×10³⁹ kg | 1.39×10⁹ |
+| 1 light-year | 0.50 | 1.387×10⁴¹ kg | 6.97×10¹⁰ |
+| 100 ly | 0.50 | 1.155×10⁴³ kg | 5.81×10¹² |
+
+Strong limit — contraction by `e` needs `Φ ~ 1` along the path, so `|M| ~ (c²/G)·L`: **1.274×10⁴³ kg
+over a light-year, a galaxy's mass, negative.**
+
+**Scaling is `L/ln(L/b)`** — nearly linear, with a **logarithmic economy of scale**: doubling the path
+costs **1.9417×**, not 2×. *(A first draft of this file asserted linearity and was wrong.)*
+
+### How it is powered — it is not
+
+**The configuration is static.** `transition.py` measured `T^{0i} = 0` **exactly** at every radius — no
+momentum flux, no energy flux, **no work done**. A static geometry consumes nothing to persist, the way
+a magnet holding a weight consumes nothing.
+
+**There is no engine, no fuel, no exhaust and no power rating.**
+
+And assembly is not a cost either: `M_ADM = 0` **exactly**, so the total energy of the device is
+**zero**. It is not expensive to build.
+
+> **It is impossible to build, and those are different failures.**
+>
+> **The device is sign-limited, not power-limited.** No amount of power produces a negative energy
+> density, because power is not what is missing.
+
+**One honest qualification:** static holds no power, but **retargeting is not static.** Changing which
+destination the geometry addresses is time-dependent and does require work. That cost is **`NOT-RUN`**.
+
+### What would have to change — one thing
+
+> **A source with negative energy density, at a magnitude of order `(c²/G)·L`, sustained over the path.**
+
+Not a stronger engine, not more energy, not better materials, not a cleverer geometry — **the geometry
+is finished and verified.** A sign.
+
+### Seated
+
+- `index3.py` — 222 findings: `CONTRACTION-LAW`, `COST-IS-ONE-NUMBER`, `SUBLINEAR-SCALING`,
+  `NOT-POWERED`, `SIGN-NOT-POWER`.
