@@ -435,7 +435,7 @@ wider bore and the wider stopping window — which together deliver [[C867]].
 
 > **Nothing clears unity with the machine as built**, and the closest is bred fuel at the measured
 > cycle count, at [[C767]]. **With both collector alterations that route reaches [[C787]]** — short of
-> unity by [[C865]], and short of it by no other term than the loss budget, which is the one quantity
+> unity by a factor of [[C865]], and short of it by no other term than the loss budget, which is the one quantity
 > in the whole column that has never been measured. The figures reported at ninety percent collection
 > in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that
 > rest on the superseded sticking. Each stands as the conditional it was stated at.
@@ -538,7 +538,7 @@ answers a different question that the ranking cannot see.
 
 ## 9. The reaction, specified
 
-This section answers the second directive: **what must be procured, built or assayed.** Every free
+This section states **what must be procured, built or assayed** to run the reaction. Every free
 parameter is fixed from a witnessed measurement, and each row states why it is fixed there rather
 than being asserted.
 
@@ -555,7 +555,7 @@ until the muon decays or is lost to the alpha.
 
 | parameter | value | why it is fixed there |
 |---|---|---|
-| fuel | deuterium–tritium | the *d*+*t* channel has the highest yield per unit sticking of any muonic channel |
+| fuel | deuterium–tritium | Theorem 4 — it maximises the energy returned per binder over the closed candidate set, and by Corollary 4.1 no rival can be made to catch it |
 | ratio | 50/50 by number | not critical; the transfer step auto-optimises the population |
 | **purity** | better than [[C824!]] high-Z | transfer to a contaminant runs at [[C318]]; at the bracketed density [[C319]] costs as much binder as decay does |
 | temperature | [[C76]] | the Vesman resonance transfers the *dtμ* loose state's [[C50]] into a [[C51]] host vibrational quantum |
@@ -614,7 +614,9 @@ target that fails it.
 ### 9.4 What is witnessed here, and what is not
 
 **The reaction is witnessed.** It has run in laboratories since the 1950s; the highest yield on record
-is [[C44]] per binder, and the effective sticking is witnessed in three independent measurements.
+is [[C44]] per binder, and the final sticking has been observed directly in two independent
+experiments — [[C06]] at SIN and [[C07]] at PSI — from which the measured reactivation gives the two
+effective values §4.1 works with.
 
 **What is unwitnessed is this configuration** — that fuel, at that purity, at [[C76]], with **both
 observables running on one target at once.** No experiment has held all of those at the same time.
@@ -646,7 +648,8 @@ geometries that were not used to build it: [[C407]], [[C408]] and [[C409]].
 
 A magnetic mirror will reflect a pion emitted into the backward hemisphere provided its pitch angle
 satisfies `sin θ ≥ √(B_target / B_max)`. The grade required to reach every angle the production data
-covers is therefore fixed by that data's own angular limit, and it comes to **[[C571]]** — no more,
+covers is therefore fixed by that data's own angular limit, and it comes to a field grade of
+**[[C571]]** — no more,
 because that is simply where the measurement ends. Proposition 5 in §14.5 derives the condition from
 the adiabatic invariant.
 
@@ -695,8 +698,8 @@ proportion, so density buys length rather than inventory. Proposition 9 in §14.
 
 ## 11. The laboratory procedure
 
-This section answers the third directive. **Standing conventions**, and they are committed before any
-run: a null is a bound, so every step is written to yield a number even when it fails; a disagreement
+This section is the procedure that would witness the configuration §9 specifies. **Standing
+conventions**, and they are committed before any run: a null is a bound, so every step is written to yield a number even when it fails; a disagreement
 between the two observables is a **refusal, not an average**; and every prediction is committed
 before the measurement, so neither can be adjusted afterwards.
 
@@ -874,7 +877,8 @@ proposition and its inputs are named.** Nothing is called proved that is not.
 | $R_{dt}$ | the internuclear separation in the bound state |
 | $\lambda_f$ | the fusion rate from the bound state |
 | $\lambda_0$ | the binder's free decay rate |
-| $\omega_s$ | the probability, per cycle, that the binder is lost |
+| $\lambda_c$ | the cycle rate: fusions per unit time from one binder |
+| $\omega_s$ | **sticking**: the probability, per cycle, that the binder is lost to a fusion product. It is one of the binder's two loss channels; the other is free decay, carried as $\lambda_0/\lambda_c$ |
 | $N$ | the service life: the number of fusions one binder catalyses |
 | $Q_{fus}$ | the energy released per fusion |
 | $f_{work}$ | the fraction of that release recovered in the form being paid in |
@@ -1091,7 +1095,7 @@ so restating one at a different collection efficiency is exact rather than appro
 the sticking, $V$ of the plant, and $E_\pi$ of the production target; none of them depends on
 $\eta$. Hence $G \propto \eta$ and $G(\eta_2) = G(\eta_1)\,\eta_2/\eta_1$ identically. The tables
 of §7 are computed this way, and the paper's own two-column table at thirty and ninety percent
-provides the check: every row's ratio lies within [[C755]] to [[C756]] of the exact three. ∎
+provides the check: every row's ratio lies between [[C755]] and [[C756]], against an exact three. ∎
 
 **Corollary 6.1.** *An alteration that changes $E_\pi$ alone multiplies every balance by the same
 factor* $E_\pi^{old}/E_\pi^{new}$. This is what §7.1 computes, and the same corollary explains why

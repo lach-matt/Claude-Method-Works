@@ -168,9 +168,9 @@ The second is that each loss lying between a produced pion and a stopped binder 
 
 **The delivered acceptance is therefore 31.66 percent** at today's aperture, or 37.62 percent at the wider bore — against the 90 percent [DESIGN] the balances were read at.
 
-![Figure 5](papers/figures/fig5-budget.png)
+![Figure 1](papers/figures/fig5-budget.png)
 
-**Figure 5.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
+**Figure 1.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
 
 
 ### 5.3 Every balance, at the acceptance delivered and the sticking the record supports
@@ -195,10 +195,6 @@ Restating is exact rather than approximate: the balance is linear in collection 
 
 > **Nothing clears unity with the machine as built**, and the closest is bred fuel at the measured cycle count, at 0.623. **With both collector alterations that route reaches 0.957** — short of unity by 1.045, and short of it by no other term than the loss budget, which is the one quantity in the whole column that has never been measured. The figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that rest on the superseded sticking. Each stands as the conditional it was stated at.
 
-![Figure 5](papers/figures/fig5-budget.png)
-
-**Figure 5.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
-
 
 ### 5.4 What the specified alterations do to every balance
 
@@ -215,9 +211,9 @@ Restating is exact rather than approximate: the balance is linear in collection 
 | **bred fuel, at the measured 150 cycles** | **1.480** | **2.271** |
 | bred fuel, the model at 8.5 × liquid | 1.874 | 2.877 |
 
-![Figure 4](papers/figures/fig4-range.png)
+![Figure 2](papers/figures/fig4-range.png)
 
-**Figure 4.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
+**Figure 2.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
 
 **Two things fall out of that table, and they point in opposite directions.**
 
@@ -239,9 +235,9 @@ This section answers the second directive: **what must be procured, built or ass
 
 The binder is not consumed. It is released and forms the next muonic molecule, and the cycle repeats until the muon decays or is lost to the alpha.
 
-![Figure 1](papers/figures/fig1-cycle.png)
+![Figure 3](papers/figures/fig1-cycle.png)
 
-**Figure 1.** The catalytic cycle, and the two ways it ends. A single binder repeats the loop until it decays or is lost to the alpha; everything the paper prices is a consequence of how many times it goes round.
+**Figure 3.** The catalytic cycle, and the two ways it ends. A single binder repeats the loop until it decays or is lost to the alpha; everything the paper prices is a consequence of how many times it goes round.
 
 
 ### 6.1 Every free parameter, fixed
@@ -267,9 +263,9 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 | neutrons at 14.1 MeV | fusion events, hence cycles per binder |
 | the muonic-helium K-alpha at 8.2 keV | binders stuck to the alpha, hence the sticking directly |
 
-![Figure 7](papers/figures/fig7-measurement.png)
+![Figure 4](papers/figures/fig7-measurement.png)
 
-**Figure 7.** The step the existing experiments do not take. Both observables watch the same fuel at the same time, on one fill, so the cycle count and the loss are measured together rather than inferred from separate runs.
+**Figure 4.** The step the existing experiments do not take. Both observables watch the same fuel at the same time, on one fill, so the cycle count and the loss are measured together rather than inferred from separate runs.
 
 **They share no instrument and no calibration**, which is what makes them two routes rather than one. §8.4 commits in advance to treating a disagreement between them as a **refusal** rather than as an average, and §9.3 applies the same rule to the two routes that read a subcritical `k`.
 
@@ -314,9 +310,9 @@ Column A witnesses the reaction. Column B is the reactor-scale target the balanc
 
 A procedure that would witness the *net-positive* configuration needs a machine capable of supplying binders at the required rate, and no such machine has been built. This section designs it. The design follows from the collection model of §5 rather than being introduced independently, so that the two cannot drift apart.
 
-![Figure 2](papers/figures/fig2-machine.png)
+![Figure 5](papers/figures/fig2-machine.png)
 
-**Figure 2.** The binder source, and the three alterations this paper proposes to it. The machine below the line is the one that has been built and simulated; the three callouts above it are what this paper would change, and each is priced in the text.
+**Figure 5.** The binder source, and the three alterations this paper proposes to it. The machine below the line is the one that has been built and simulated; the three callouts above it are what this paper would change, and each is priced in the text.
 
 
 ### 7.1 What the aperture fixes
@@ -349,9 +345,9 @@ A magnetic mirror will reflect a pion emitted into the backward hemisphere provi
 
 **The beam power the target must survive is 79.8 kW at 1 MW**, which is 7.98 percent of the driver, and it is a sourced figure rather than a reconstruction.
 
-![Figure 3](papers/figures/fig3-target.png)
+![Figure 6](papers/figures/fig3-target.png)
 
-**Figure 3.** Why the production target must be a free liquid-metal jet. The capture field sets the bore, the bore sets the space the target may occupy, and the rotating solid wheel that every megawatt-class facility uses does not fit inside it.
+**Figure 6.** Why the production target must be a free liquid-metal jet. The capture field sets the bore, the bore sets the space the target may occupy, and the rotating solid wheel that every megawatt-class facility uses does not fit inside it.
 
 
 ### 7.4 The fuel cell, and where it can sit
@@ -666,9 +662,9 @@ On that accounting the marginal beam energy attributable to one binder is zero, 
 
 > **The conclusion is untouched and only the magnitude moves, and that asymmetry is the whole point of this configuration.** Every other balance in this paper is a ratio against unity, so a factor of 0.7127 decides it. This one is not a ratio at all: the marginal beam energy per binder is **zero**, so any positive heat is gain and no loss factor can take it below unity. 85.6 kW of fusion heat at zero marginal beam cost is the same result as 176 kW, reached by the same argument and arriving at a smaller number. **It is the one figure here that a collection factor rescales without deciding**, because it was never conditional on an acceptance clearing a threshold.
 
-![Figure 6](papers/figures/fig6-coproduct.png)
+![Figure 7](papers/figures/fig6-coproduct.png)
 
-**Figure 6.** The one configuration that is net-positive on witnessed numbers alone. Because the beam is running for another reason, the marginal energy spent per binder is zero, so any point on this line is gain and no loss factor can push it below it.
+**Figure 7.** The one configuration that is net-positive on witnessed numbers alone. Because the beam is running for another reason, the marginal energy spent per binder is zero, so any point on this line is gain and no loss factor can push it below it.
 
 > **This is a net-positive cold fusion reaction.** No input per event, no input for the binder, and real energy out. It is provable from witnessed quantities and needs no number that has not been measured.
 

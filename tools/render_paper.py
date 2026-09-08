@@ -408,10 +408,32 @@ def figures_index():
     return _FIGS
 
 
+_LABELS = {}
+
+
+def set_figure_order(blocks):
+    """Number the figures by order of first appearance IN THIS PAPER.
+
+    A figure keeps its generator id in the source -- !!fig:7!! always means
+    the measurement figure, whichever paper places it -- but a reader is owed
+    Figure 1, 2, 3 in the order they meet them. The generator's ids are global
+    across the papers that share this ledger, so a paper that places six of
+    the seven would otherwise print a gap where the seventh belongs, and a
+    paper that places them out of generator order would print them out of
+    order. Neither is a fact about the paper; both are artefacts of the id.
+    """
+    _LABELS.clear()
+    for kind, payload in blocks:
+        if kind == "figure" and payload not in _LABELS:
+            _LABELS[payload] = len(_LABELS) + 1
+
+
 def figure_for(num):
     fg = figures_index().get(num)
     if fg is None:
         raise SystemExit(f"render_paper: no figure {num} is defined")
+    if num in _LABELS:
+        fg = dict(fg, num=_LABELS[num])
     return fg
 
 
@@ -907,6 +929,7 @@ def build(src_path, outdir=None, want=("md", "html", "docx", "pdf"), quiet=False
             print("   " + m, file=sys.stderr)
         return None, 1
     front, blocks = parse(text)
+    set_figure_order(blocks)
     base = os.path.splitext(os.path.basename(src_path))[0].replace(".src", "")
     outdir = outdir or os.path.join(ROOT, "papers", "out")
     os.makedirs(outdir, exist_ok=True)
@@ -961,6 +984,23 @@ def selftest():
           resolve("[[C784~]]", claims)[0], "ratio")
     check("the claim text is reachable without the value",
           resolve("[[?C01]]", claims)[0], "d+t fusion energy release")
+
+    # A figure is cited in the source by its GENERATOR id, which is global
+    # across the papers sharing this ledger, and printed with a label that
+    # counts from one in the order this paper places them. A paper that uses
+    # six of the seven must not print a gap where the seventh belongs, and a
+    # paper that places them out of generator order must not print them out
+    # of order. Both were true before this was added.
+    set_figure_order([("figure", 5), ("para", "x"), ("figure", 4),
+                      ("figure", 1), ("figure", 5)])
+    check("the first figure placed is labelled one", figure_for(5)["num"], 1)
+    check("the second is two, whatever its generator id", figure_for(4)["num"], 2)
+    check("the third is three", figure_for(1)["num"], 3)
+    check("a figure placed twice keeps its first label", _LABELS[5], 1)
+    check("no label is skipped", sorted(_LABELS.values()), [1, 2, 3])
+    set_figure_order([])
+    check("and an unplaced figure keeps its generator id",
+          figure_for(1)["num"], 1)
 
     print()
     print("  the failures this exists to make impossible")

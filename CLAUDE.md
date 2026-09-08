@@ -573,7 +573,11 @@ sentence cannot acquire a figure the mathematics does not produce because a sent
 figure. It refuses an unknown id, a malformed citation, and any `WITHDRAWN`, `RECONSTRUCTED`,
 `PROJECTED`, `ASSUMED` or `DESIGN` row cited without its status printed beside it. Markdown, HTML,
 `.docx` and PDF are emitted from that **one** resolved source, which is what makes audit 16 FIDELITY
-hold by construction rather than by care. It also **sets the mathematics**: inline `$…$` is demoted to
+hold by construction rather than by care. **A figure is cited by its generator id and printed with a
+label counted from one in the order the paper places them** — the ids are global across the papers
+sharing the ledger, so a paper placing six of the seven printed a *gap* where the seventh belonged and
+a paper placing them out of id order printed them out of order; both were true before, and the
+selftest now constructs each case. It also **sets the mathematics**: inline `$…$` is demoted to
 Unicode in the one shared inline model so no output prints raw LaTeX at a reader, and a display
 equation is typeset by matplotlib's mathtext and embedded as an image, because an integral with limits
 cannot be built out of Unicode without lying about it), **`tools/audit_paper.py`** (**the twenty-five audits The

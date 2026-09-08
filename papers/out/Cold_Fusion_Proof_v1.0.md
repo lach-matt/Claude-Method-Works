@@ -197,9 +197,9 @@ The second is that each loss lying between a produced pion and a stopped binder 
 
 **The delivered acceptance is therefore 31.66 percent** at today's aperture, or 37.62 percent at the wider bore — against the 90 percent [DESIGN] figure at which the preprints at [18] read them, and which §7 restates every one of them away from.
 
-![Figure 5](papers/figures/fig5-budget.png)
+![Figure 1](papers/figures/fig5-budget.png)
 
-**Figure 5.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
+**Figure 1.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
 
 
 ## 7. Every balance, at the acceptance delivered and the sticking the record supports
@@ -222,7 +222,7 @@ Restating is exact rather than approximate: the balance is linear in collection 
 | **bred fuel, at the measured 150 cycles** | 0.623 | **0.957** |
 | bred fuel, the model at 8.5 × liquid | 0.790 | 1.212 |
 
-> **Nothing clears unity with the machine as built**, and the closest is bred fuel at the measured cycle count, at 0.623. **With both collector alterations that route reaches 0.957** — short of unity by 1.045, and short of it by no other term than the loss budget, which is the one quantity in the whole column that has never been measured. The figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that rest on the superseded sticking. Each stands as the conditional it was stated at.
+> **Nothing clears unity with the machine as built**, and the closest is bred fuel at the measured cycle count, at 0.623. **With both collector alterations that route reaches 0.957** — short of unity by a factor of 1.045, and short of it by no other term than the loss budget, which is the one quantity in the whole column that has never been measured. The figures reported at ninety percent collection in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that rest on the superseded sticking. Each stands as the conditional it was stated at.
 
 
 ### 7.1 What the specified alterations do to every balance
@@ -240,9 +240,9 @@ Restating is exact rather than approximate: the balance is linear in collection 
 | **bred fuel, at the measured 150 cycles** | **1.480** | **2.271** |
 | bred fuel, the model at 8.5 × liquid | 1.874 | 2.877 |
 
-![Figure 4](papers/figures/fig4-range.png)
+![Figure 2](papers/figures/fig4-range.png)
 
-**Figure 4.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
+**Figure 2.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
 
 **Two things fall out of that table, and the second qualifies the first.**
 
@@ -284,7 +284,7 @@ and the tritium concentration that produces that split follows from the two form
 
 ## 9. The reaction, specified
 
-This section answers the second directive: **what must be procured, built or assayed.** Every free parameter is fixed from a witnessed measurement, and each row states why it is fixed there rather than being asserted.
+This section states **what must be procured, built or assayed** to run the reaction. Every free parameter is fixed from a witnessed measurement, and each row states why it is fixed there rather than being asserted.
 
 **The event.**
 
@@ -292,16 +292,16 @@ This section answers the second directive: **what must be procured, built or ass
 
 The binder is not consumed. It is released and forms the next muonic molecule, and the cycle repeats until the muon decays or is lost to the alpha.
 
-![Figure 1](papers/figures/fig1-cycle.png)
+![Figure 3](papers/figures/fig1-cycle.png)
 
-**Figure 1.** The catalytic cycle, and the two ways it ends. A single binder repeats the loop until it decays or is lost to the alpha; everything the paper prices is a consequence of how many times it goes round.
+**Figure 3.** The catalytic cycle, and the two ways it ends. A single binder repeats the loop until it decays or is lost to the alpha; everything the paper prices is a consequence of how many times it goes round.
 
 
 ### 9.1 Every free parameter, fixed
 
 | parameter | value | why it is fixed there |
 |---|---|---|
-| fuel | deuterium–tritium | the *d*+*t* channel has the highest yield per unit sticking of any muonic channel |
+| fuel | deuterium–tritium | Theorem 4 — it maximises the energy returned per binder over the closed candidate set, and by Corollary 4.1 no rival can be made to catch it |
 | ratio | 50/50 by number | not critical; the transfer step auto-optimises the population |
 | **purity** | better than 1 ppm [DESIGN] high-Z | transfer to a contaminant runs at 1.0 × 10^10 s^-1 at 1 LHD of oxygen; at the bracketed density 5.49 ppm costs as much binder as decay does |
 | temperature | 800 K | the Vesman resonance transfers the *dtμ* loose state's 0.66 eV into a 0.365 eV host vibrational quantum |
@@ -320,9 +320,9 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 | neutrons at 14.1 MeV | fusion events, hence cycles per binder |
 | the muonic-helium K-alpha at 8.2 keV | binders stuck to the alpha, hence the sticking directly |
 
-![Figure 7](papers/figures/fig7-measurement.png)
+![Figure 4](papers/figures/fig7-measurement.png)
 
-**Figure 7.** The step the existing experiments do not take. Both observables watch the same fuel at the same time, on one fill, so the cycle count and the loss are measured together rather than inferred from separate runs.
+**Figure 4.** The step the existing experiments do not take. Both observables watch the same fuel at the same time, on one fill, so the cycle count and the loss are measured together rather than inferred from separate runs.
 
 **They share no instrument and no calibration**, which is what makes them two routes rather than one. §11.4 commits in advance to treating a disagreement between them as a **refusal** rather than as an average.
 
@@ -353,7 +353,7 @@ Column A witnesses the reaction. Column B is the reactor-scale target the balanc
 
 ### 9.4 What is witnessed here, and what is not
 
-**The reaction is witnessed.** It has run in laboratories since the 1950s; the highest yield on record is 150 cycles per binder, and the effective sticking is witnessed in three independent measurements.
+**The reaction is witnessed.** It has run in laboratories since the 1950s; the highest yield on record is 150 cycles per binder, and the final sticking has been observed directly in two independent experiments — 0.45 percent at SIN and 0.56 percent at PSI — from which the measured reactivation gives the two effective values §4.1 works with.
 
 **What is unwitnessed is this configuration** — that fuel, at that purity, at 800 K, with **both observables running on one target at once.** No experiment has held all of those at the same time. That is the whole of what §9 to §11 are for.
 
@@ -365,9 +365,9 @@ Column A witnesses the reaction. Column B is the reactor-scale target the balanc
 
 A procedure that would witness the *net-positive* configuration needs a machine capable of supplying binders at the required rate, and no such machine has been built. This section designs it. The design follows from the collection model of §6 rather than being introduced independently, so that the two cannot drift apart.
 
-![Figure 2](papers/figures/fig2-machine.png)
+![Figure 5](papers/figures/fig2-machine.png)
 
-**Figure 2.** The binder source, and the three alterations this paper proposes to it. The machine below the line is the one that has been built and simulated; the three callouts above it are what this paper would change, and each is priced in the text.
+**Figure 5.** The binder source, and the three alterations this paper proposes to it. The machine below the line is the one that has been built and simulated; the three callouts above it are what this paper would change, and each is priced in the text.
 
 
 ### 10.1 What the aperture fixes
@@ -379,7 +379,7 @@ The transverse cap is `p_T = 0.15 · B · R`, so **field and bore trade against 
 
 ### 10.2 The mirror, and why the grade is a specification
 
-A magnetic mirror will reflect a pion emitted into the backward hemisphere provided its pitch angle satisfies `sin θ ≥ √(B_target / B_max)`. The grade required to reach every angle the production data covers is therefore fixed by that data's own angular limit, and it comes to **1.428** — no more, because that is simply where the measurement ends. Proposition 5 in §14.5 derives the condition from the adiabatic invariant.
+A magnetic mirror will reflect a pion emitted into the backward hemisphere provided its pitch angle satisfies `sin θ ≥ √(B_target / B_max)`. The grade required to reach every angle the production data covers is therefore fixed by that data's own angular limit, and it comes to a field grade of **1.428** — no more, because that is simply where the measurement ends. Proposition 5 in §14.5 derives the condition from the adiabatic invariant.
 
 > This has the same shape as §4.1's finding about sticking: a parameter that had looked like a lever turns out on inspection to be a requirement with a number attached to it. One consequence is worth noting — mirroring the backward hemisphere and simply accepting both hemispheres come to the same number, which is why §6.1's acceptances are stated over both.
 
@@ -400,9 +400,9 @@ A magnetic mirror will reflect a pion emitted into the backward hemisphere provi
 
 **The beam power the target must survive is 79.8 kW at 1 MW**, which is 7.98 percent of the driver, and it is a sourced figure rather than a reconstruction.
 
-![Figure 3](papers/figures/fig3-target.png)
+![Figure 6](papers/figures/fig3-target.png)
 
-**Figure 3.** Why the production target must be a free liquid-metal jet. The capture field sets the bore, the bore sets the space the target may occupy, and the rotating solid wheel that every megawatt-class facility uses does not fit inside it.
+**Figure 6.** Why the production target must be a free liquid-metal jet. The capture field sets the bore, the bore sets the space the target may occupy, and the rotating solid wheel that every megawatt-class facility uses does not fit inside it.
 
 
 ### 10.4 The fuel cell, and where it can sit
@@ -417,7 +417,7 @@ One point about that inventory is easily missed and is worth stating plainly: it
 
 ## 11. The laboratory procedure
 
-This section answers the third directive. **Standing conventions**, and they are committed before any run: a null is a bound, so every step is written to yield a number even when it fails; a disagreement between the two observables is a **refusal, not an average**; and every prediction is committed before the measurement, so neither can be adjusted afterwards.
+This section is the procedure that would witness the configuration §9 specifies. **Standing conventions**, and they are committed before any run: a null is a bound, so every step is written to yield a number even when it fails; a disagreement between the two observables is a **refusal, not an average**; and every prediction is committed before the measurement, so neither can be adjusted afterwards.
 
 
 ### 11.1 Assembly
@@ -515,7 +515,8 @@ The body of the paper states results and points at where they come from. This se
 | $R_{dt}$ | the internuclear separation in the bound state |
 | $\lambda_f$ | the fusion rate from the bound state |
 | $\lambda_0$ | the binder's free decay rate |
-| $\omega_s$ | the probability, per cycle, that the binder is lost |
+| $\lambda_c$ | the cycle rate: fusions per unit time from one binder |
+| $\omega_s$ | **sticking**: the probability, per cycle, that the binder is lost to a fusion product. It is one of the binder's two loss channels; the other is free decay, carried as $\lambda_0/\lambda_c$ |
 | $N$ | the service life: the number of fusions one binder catalyses |
 | $Q_{fus}$ | the energy released per fusion |
 | $f_{work}$ | the fraction of that release recovered in the form being paid in |
@@ -629,7 +630,7 @@ $$\omega_s \;=\; \sum_{n\ell} \left| \int \psi^{*}_{n\ell}(\mathbf{r})\, e^{\,i 
 
 **Proposition 6 (linearity in collection).** *Every balance in this paper is proportional to $\eta$, so restating one at a different collection efficiency is exact rather than approximate.*
 
-*Derivation.* Write the balance as $G = N\,V\,\eta/E_\pi$. Here $N$ is a property of the fuel and the sticking, $V$ of the plant, and $E_\pi$ of the production target; none of them depends on $\eta$. Hence $G \propto \eta$ and $G(\eta_2) = G(\eta_1)\,\eta_2/\eta_1$ identically. The tables of §7 are computed this way, and the paper's own two-column table at thirty and ninety percent provides the check: every row's ratio lies within 2.998 to 3.010 of the exact three. ∎
+*Derivation.* Write the balance as $G = N\,V\,\eta/E_\pi$. Here $N$ is a property of the fuel and the sticking, $V$ of the plant, and $E_\pi$ of the production target; none of them depends on $\eta$. Hence $G \propto \eta$ and $G(\eta_2) = G(\eta_1)\,\eta_2/\eta_1$ identically. The tables of §7 are computed this way, and the paper's own two-column table at thirty and ninety percent provides the check: every row's ratio lies between 2.998 and 3.010, against an exact three. ∎
 
 **Corollary 6.1.** *An alteration that changes $E_\pi$ alone multiplies every balance by the same factor* $E_\pi^{old}/E_\pi^{new}$. This is what §7.1 computes, and the same corollary explains why that factor moves the bred-fuel requirement from 50.8 percent to 21.4 percent.
 

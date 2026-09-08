@@ -383,8 +383,6 @@ wider bore and the wider stopping window — which together deliver [[C867]].
 > in the preprints at [18] are withdrawn as end-to-end results, and so are the bound-case figures that
 > rest on the superseded sticking. Each stands as the conditional it was stated at.
 
-!!fig:5!!
-
 ### 5.4 What the specified alterations do to every balance
 
 §5.3 states the balances at the production cost §4.1 measures. A third alteration is specified in this
