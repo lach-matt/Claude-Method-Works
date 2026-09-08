@@ -95,13 +95,30 @@ is the main volume's *"Barták, R."*, which matches Roman Barták, a real and pr
 constraint-programming researcher. So the corpus's one initialled form is the one the external record
 contradicts, and its unintialled form is the one the external record supports.
 
-## The limit on my evidence, stated plainly
+## THE EVIDENCE IS HELD IN THIS REPOSITORY (M: *"search the repo"*)
 
-**I have not read the paper.** ScienceDirect, dblp, the University of Nebraska PDF copy and the IJCAI
-1997 index are all blocked by this container's egress proxy. My external evidence is **two
-independent search summaries**, both giving *Yves Deville, **Olivier Barette**, Pascal Van
-Hentenryck*, one stating explicitly that Barták is not an author of that paper. That is not a read of
-the title page and is not presented as one.
+I said the primary sources were egress-blocked and my evidence was two search summaries. **That was
+premature: the repository already holds the answer**, and it holds it three times over.
+
+`drive/chats/2026-08/764406b9-5552-45a2-9bf6-adb32378bf73.json` — conversation *transitions*,
+777 messages, md5 `3cf127ea816e288eab05a8f78f9960bd`, `INDEX.tsv` row 1 — carries **three
+independently captured reference lists**, each from a different peer-reviewed publication, each
+citing this paper:
+
+| captured source | the line, verbatim |
+|---|---|
+| Kong, Li, Li & Long, *On tree-preserving constraints*, **Ann. Math. AI (2017)**, via Springer | *Deville, Y., **Barette, O.**, Hentenryck, P.V.: Constraint satisfaction over connected row convex constraints. Artif. Intell. **109(1-2), 243–271 (1999)*** |
+| Zhang & Freuder, *Tractable Tree Convex Constraint Networks*, **AAAI-04**, via aaai.org | *Deville, Y.; **Barette, O.**; and Van Hentenryck, P. … (See also Artificial Intelligence …)* |
+| *Exploring Directional Path-Consistency for Solving Constraint Networks*, **arXiv 1708.05522** | *Deville, Y., **Barette, O.**, van Hentenryck, P.: Constraint satisfaction over connected row convex constraints. Artificial Intelligence **109(1-2), 243–271 (1999)*** |
+
+Three independent typesettings — *Hentenryck, P.V.* / *Van Hentenryck, P.* / *van Hentenryck, P.* —
+agreeing on **Barette, O.** and on volume, issue, year and pages.
+
+**And the other side is empty.** Searched over all 352 conversations: **not one captured source
+anywhere in this repository gives Barták for this paper.** Every `Barták` occurrence in the export is
+the corpus's own prose. The asymmetry is total: 3 captured sources to 0.
+
+**The evidence was already held when the six sites were written.** The capture is dated 2026-08-02.
 
 ## What the reading did NOT find
 
