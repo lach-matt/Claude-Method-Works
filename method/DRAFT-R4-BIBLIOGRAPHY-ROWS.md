@@ -60,3 +60,50 @@ at 1964 and 1999 — **they are the same finding read properly, and the merge M 
 1964 is a deletion, not a merge, because "Moebius" is not an author of that work.**
 
 RECORDED, NOT REPAIRED.
+
+
+---
+
+# THE MECHANISM, PROVED FROM HELD MATERIAL
+
+M's instruction on the previous item was *"search the repo"*, and it applies here too. **The generator
+is held**, at `extracted/archives/restore-point-2-13/compendium.py`, beside the register data
+`mathreg.py` it reads. Run its own regex, verbatim, over that data: **it reproduces all seven rows
+with exactly the handles the volume prints.**
+
+| row | the span the generator matched | what happened |
+|---|---|---|
+| `1913 Pauli` `L.def` | `Pauli 1925 PRIOR ART: … the shell-structure rules of Bohr (1913)` | **the match crosses the `src`/`check` field boundary** — the generator joins the two fields with a space, so `src`'s last name pairs with `check`'s first parenthesised year |
+| `1937 Shannon` `L.bits` | `Shannon 1938 PRIOR ART: Birkhoff (1937)` | the same crossing. **This row is not a Shannon year at all — it is Birkhoff's 1937 on Shannon's name** |
+| `1982 Racah` `T.trad` | `Racah 1942 PRIOR ART: … is Freuder (1982)` | the same crossing |
+| `1958 Pauli` `Q.delta` | `Pauli bound (Pauli 1925), the Thomas-Fermi deficit (Fermi 1928) and Seaton polarisation (1958)` | within one field: the regex anchors on the first name and skips up to **90 characters** to a later parenthesised year |
+| `1964 Moebius` `G.book` | `Moebius inversion over a refinement lattice is Rota (1964)` | **"Moebius" is a word in the sentence**, not an author |
+| `1999 Deville` / `1999 Hentenryck` | `Deville, Barette & Van Hentenryck (1999)` under one handle set, and the bare `Hentenryck 1999` under another | **one work written two ways in different objects becomes two rows** |
+
+The pattern is one clause: `([A-Z]\w+…)(?:'s)?[^.;]{0,90}?\((1[6-9]\d\d|20[0-2]\d)\)`. **Ninety
+characters of anything but a period or a semicolon may sit between the name and the year**, and the
+two fields are concatenated before it runs.
+
+## This corrects two things I put to M
+
+1. I called `1937 Shannon` *"a year the volumes never print"*. **It is Birkhoff's year on Shannon's
+   name**, taken across a field boundary — a sharper and different statement.
+2. I called the four *"an author paired with a co-cited author's year"*. Right in effect, but the
+   mechanism is a `src`/`check` join and a 90-character window, which is testable and now tested.
+
+## Does the mechanism make them right?
+
+**No — and that is the test the channel table passed and this fails.** There, Part II's opening
+sentence *"Every captured series, with its fit"* made two rows for one series correct by
+construction. Here the section's own opening is **"Every object of this compendium names a work"**,
+and a (name, year) pair that no object attributes is not a work an object names.
+
+**And register 1736 already ruled this generator's other output.** It removed ten rows *"no reader
+could cite"* — a possessive, callout terms, *"COVER 1972" (the problem, not Karp)*, *"Killing 2024"
+(a field, beside Sorce)*, five status words with dates the generator read as years — and expanded
+`BFMY 1983` to its full author list. **Those ten are the case where the NAME is wrong. These six are
+the case where the name is a real author and the YEAR belongs to someone else**, which is why a
+match by author could not see them, and register 1890 now records that blind spot.
+
+**The precedent's repair form is stated in the volume itself**: the rows are removed, the count is
+restated, and the prior count is kept beside it — *"162 works … the count was 172."*
