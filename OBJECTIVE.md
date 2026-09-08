@@ -126,6 +126,24 @@ times loop transit and the flow is set by the heat, so a bigger station holds
 proportionally more salt and the density does not move. `--blanket` carries the
 correction and the bound; the residue is named there.
 
+**The design space has been searched, and it is narrow.** `tools/explore.py` varies every axis the
+design has and finds that **one dominates and is closed by the safety decision** (multiplication k, at
+10.48×), the next is an engineering choice (accelerator efficiency, 2.00×) and the third is an assumed
+constant (driver power, 1.81×) — **and nothing else moves the answer by more than fifteen percent**.
+Pairs are worse than the singles suggest: **three pairs take the plant to no closure at all**, so the
+design point is near several cliffs and not one. **The dominant axis sits on the sharpest**: the plant
+closes only above **k = 0.777** against a design point of 0.900, at an elasticity of **−16.7**.
+
+**So the plant is not short of redesigns; it is short of measurements, and those are two different
+shortages.** Redesigning everything that is open to redesign is worth **1.45×**. Being wrong about the
+constants nobody has measured is worth **19.2×** in the other direction, and with the accelerator
+efficiency at the low end of its own sourced band as well the plant does not close at all. **No
+optimum is reported**, because an optimum over a space whose largest free swing is an unmeasured
+constant is a statement about the constant. **The order to work in is measurement first**, and the
+three are named: the driver standby's scaling law; the wall-plug-to-beam efficiency at this power; and
+the transport calculation on the fissile fraction, which is what actually places k. Only after those
+three is a redesign a design decision rather than a guess about a measurement.
+
 ## The phases
 
 1. Define the math in full and prove it.

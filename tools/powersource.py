@@ -1160,6 +1160,11 @@ def station_open_loop(households=STATION_HOUSEHOLDS,
     hold than to describe, so the wrong sizing is kept as a function rather
     than as a paragraph."""
     need = station_beam_mw(households, window, k_eff, eta_acc)
+    if not math.isfinite(need):
+        raise ValueError(
+            "no station of any size delivers net electricity in this "
+            f"configuration: at k = {k_eff:.3f} and eta_acc = {eta_acc:.2f} "
+            "the plant's gain does not cover its own recirculation")
     return built_station(math.ceil(need / module_mw), module_mw, window,
                          k_eff, eta_acc)
 

@@ -774,6 +774,30 @@ muon channel and its driver**, so deleting the capture solenoids and their shiel
 route comparison already pointed. **The file's own hypothesis was wrong and the selftest records it**:
 it was written expecting isotope separation to dominate, and separation is 15 %. Separative work is
 exact cascade arithmetic, fixtured against the textbook 4.5 % LEU case at both 0.2 % and 0.3 % tails)
+**`tools/explore.py`** (**the design space, SEARCHED rather than evaluated** — every other instrument
+here takes a configuration and returns its balance, and `powersource.py` inverts that once; **neither
+searches**, so "how many redesigns before it is optimal" had no answer here at all. The objective is
+**beam MW to serve the baseline million households**, because the households are fixed by the project
+and the beam is what every criterion runs through. Each axis carries a **status** and the four are not
+degrees of one thing: `DECIDED` (open in principle, closed by a recorded decision), `DESIGN` (a free
+engineering choice, **the only kind a redesign can move**), `ASSUMED`, `UNMEASURED`. One axis at a
+time: **multiplication k at 10.48×** and DECIDED, **accelerator efficiency at 2.00×** and DESIGN,
+**driver power at 1.81×** and ASSUMED — **and nothing else moves the answer by more than fifteen
+percent.** Then the ranking's own limit: every **pair** is scanned rather than asserted about, and the
+one-at-a-time table is not merely incomplete but **optimistic** — **three pairs take the plant to no
+closure at all**, each pairing one large axis with another, and driver power × driver standby reaches
+**19.25×** against a product of 1.93. **The dominant axis sits on a cliff nothing here had stated**:
+the plant closes only above **k = 0.777**, the design runs at 0.900, so **the whole design lives in
+the last 0.123 of multiplication**, at an elasticity of **−16.7** — a one percent fall in k costs
+seventeen percent more beam. The two summary numbers are of different kinds and that is the file's
+content: the **redesign ceiling** is **165.4 MW against 240, a factor of 1.45**, every DESIGN axis at
+its best at once with the decisions kept; the **measurement exposure** is **4,620 MW, a factor of
+19.2** the other way, and with η_acc at the low end of its own *sourced* band as well **the plant does
+not close at all**. **It reports no optimum**, because an optimum over a space whose largest free
+swing is an unmeasured constant is a statement about the constant. What it reports is the order to
+work in: **the standby scaling law**, **the wall-plug-to-beam efficiency measured rather than banded**,
+and **the transport calculation on the fissile fraction** — only after those three is a redesign a
+design decision rather than a guess about a measurement. See `docs/EXPLORE.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
@@ -786,7 +810,7 @@ sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real c
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
 `docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/MATERIALS.md`,
-`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md` and `docs/DOCFIGURES.md`.
+`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and
