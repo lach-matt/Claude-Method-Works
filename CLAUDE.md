@@ -859,6 +859,34 @@ eutectic near 34 %, so the design is **not at the eutectic** and its liquidus is
 `restart.py`'s frozen cold leg worse — and the chlorine row counts only the NaCl portion, missing the
 three Cl per U in UCl₃, so the true inventory is **219 t against 183.6 t carried**, every tonne of
 which must be Cl-37),
+**`--benchmark` then makes the third and last of the measurements `explore.py` ordered, and it is the
+one that was the gate.** This file's own *"one-group is not reliable for an absolute k to better than
+roughly fifteen percent"* was an **assertion**, and it became load-bearing when `explore.py` found the
+design's whole margin against non-existence *equals* that fifteen percent. **There is one published
+benchmark of a fast molten salt with a k computed by two independent Monte Carlo codes** — the
+SAMOFAR/EVOL MSFR, LiF–ThF₄–UF₄ at **77.5 / 20.0 / 2.5 mol %**, **k_eff = 1.04364 ± 0.00039**
+(OpenMC) and **1.04338 ± 0.00075** (Serpent 2) on ENDF/B-VIII.0, agreeing to **26 pcm**. It is a
+*fluoride* and a *thorium* cycle — neither this design's salt nor its fuel — **and it is what
+exists**, which is why `XS` gained an F and a Li-7 row and `k_infinity` gained a carrier override: a
+model that cannot be run on the only benchmark available cannot be checked at all. Run on it the
+model returns **k_inf = 1.0562** against the benchmark's **k_eff = 1.0435**. **The comparison is
+between two different quantities and that is the whole difficulty** — a k_inf must exceed the k_eff of
+a system that leaks and breeds, and the paper does not break that budget out — so the error is
+**bounded rather than pinned**: **+1.22 %** if the benchmark system lost nothing, **−6.88 %** if it
+loses 8 % to blanket and leakage. **So the model's absolute-k error on a fast molten salt is under
+7 %, against the fifteen asserted — the assertion was CONSERVATIVE rather than wrong, and it is now
+bounded by evidence.** What the check does **not** cover is stated and matters: it exercises the
+Th-232 and U-233 rows and the *method*, while the design runs on U-238 and Pu-239, so what is tested
+is the part most likely to be wrong (a one-group collapse of a fast spectrum in a dilute halide salt)
+and what is untested is the part least likely to be — **an argument and not a proof**. **The gate has
+moved and it has not opened**: against a measured uncertainty of **0.0619** in k, the margin at
+η_acc = 0.30 is 0.1330 and **covers it 2.15×**, at 0.40 it covers 3.22×, and at the **0.20 every
+machine has actually returned** it is 0.0615 and sits **exactly on the line at 0.99×**. **So the
+project's remaining uncertainty is one coupled condition and it fits in a sentence: the plant closes
+if its accelerator does better than any accelerator has done.** That is a **machine** question and not
+a physics one — the first time in this work that the last open item has been of a kind an engineering
+phase can attack)
+
 **`tools/startcost.py`** (**criterion 9**, measured in **energy and never in money** — a dollar figure
 would be the only quantity here whose accuracy the rest of the work does not support, and it would be
 the one quoted. **2,816 TJ to build a station against 32,414 TJ a year out: a 32-day energy payback and

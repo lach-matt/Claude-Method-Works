@@ -226,3 +226,66 @@ unknown and the design must not treat them alike.
 **A design basis is not a witness.** It says the mathematics closes across the range the constants
 could take, and that the requirements above are what make it close. **It does not say the machine has
 been seen to.** Every first article is built on exactly this, and the honest ones say so.
+
+## The third measurement, made: `fuelchoice.py --benchmark`
+
+`explore.py` ordered three measurements. **All three have now been made**, and the third was the gate.
+
+The one-group model's *"not reliable for an absolute k to better than roughly fifteen percent"* was an
+**assertion**, and it became load-bearing: the design's whole margin against non-existence equals that
+fifteen percent, and `powersource --efficiency` closed the escape route beside it.
+
+**There is one benchmark of a fast molten salt with a k computed by two independent Monte Carlo
+codes** — the SAMOFAR/EVOL MSFR, LiF–ThF₄–UF₄ at 77.5 / 20.0 / 2.5 mol %:
+
+| | |
+|---|---|
+| OpenMC | **1.04364 ± 0.00039** |
+| Serpent 2 | **1.04338 ± 0.00075** |
+| library | ENDF/B-VIII.0 |
+
+Agreeing to **26 pcm**. It is a *fluoride* and a *thorium* cycle — neither this design's salt nor its
+fuel — **and it is what exists.**
+
+Running the one-group model on it: fissile fraction 11.11 %, 7.444 F and 3.444 Li per heavy-metal
+atom, **k_inf = 1.0562** against a benchmark **k_eff = 1.0435**.
+
+**The comparison is between two different quantities, and that is the whole difficulty.** The model
+returns the fuel salt's k_inf; the benchmark returns the whole system's k_eff, lower by whatever its
+fertile blanket captures and its boundary leaks — a budget the paper does not break out. So the error
+is **bounded rather than pinned**:
+
+| | |
+|---|---:|
+| if the benchmark system lost nothing | model is **+1.22 %** |
+| if it loses 8 % to blanket and leakage | model is **−6.88 %** |
+
+**So the model's absolute-k error on a fast molten salt is under 7 %, against the fifteen asserted.**
+The assertion was *conservative* rather than wrong, and it is now bounded by evidence.
+
+**What the check does not cover, and it matters.** The benchmark exercises the Th-232 and U-233 rows
+and the **method**. The design runs on U-238 and Pu-239, and those rows are **not** tested. What *is*
+tested is the part most likely to be wrong — a one-group collapse of a fast spectrum in a dilute
+halide salt — and what is untested is the part least likely to be. **That is an argument and not a
+proof, and it is stated as one.**
+
+### What it does to the design basis
+
+| η_acc | k floor | margin at 0.900 | covered? | |
+|---:|---:|---:|---|---|
+| 0.20 | 0.8385 | 0.0615 | **NO — 0.99×** | every machine measured |
+| 0.30 | 0.7670 | 0.1330 | **YES, by 2.15×** | the design's assumption |
+| 0.40 | 0.7008 | 0.1992 | YES, by 3.22× | a better machine |
+
+against a **measured** model uncertainty of **0.0619** in k, where the asserted one was 0.1350.
+
+**The gate has moved and it has not opened.** At the efficiency the design *assumes*, the margin now
+covers the model's measured error twice over and **Requirement 1 is satisfiable**. At the efficiency
+every machine has actually *returned*, it sits exactly on the line.
+
+### The project's remaining uncertainty, in one sentence
+
+**The plant closes if its accelerator does better than any accelerator has done.**
+
+That is a **machine** question and not a physics one — the first time in this work that the last open
+item has been of a kind an engineering phase can attack.

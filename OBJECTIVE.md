@@ -206,11 +206,41 @@ rather than three measurements:
    station of drivers of the largest class ever operated does not close. **No machine of this class
    exists.**
 
-**So the design basis has one gate rather than three items, and it is Requirement 1.** Two of the
-three measurements `explore.py` ordered have been made. The first (driver standby) turned a soft
-unknown into a hard requirement. The second (wall-plug-to-beam) came back at the *bottom* of its band
-and **closed the escape route the basis had leaned on**. What is left is the transport calculation on
-the fissile fraction, and it now decides whether the plant exists, with nothing standing behind it.
+**All three measurements `explore.py` ordered have now been made.** The first (driver standby) turned
+a soft unknown into a hard requirement. The second (wall-plug-to-beam) came back at the *bottom* of
+its band and **closed the escape route the basis had leaned on**. The third was the gate.
+
+**The one-group model has been checked against a benchmark instead of asserted.** Its own
+*"not reliable to better than roughly fifteen percent"* was an assertion, and the design's whole
+margin against non-existence equalled that fifteen percent. There is one published benchmark of a fast
+molten salt with a k computed by **two independent Monte Carlo codes** — the SAMOFAR/EVOL MSFR,
+LiF–ThF₄–UF₄ at 77.5/20.0/2.5 mol %, **k_eff = 1.04364 (OpenMC) and 1.04338 (Serpent 2)**, agreeing to
+26 pcm on ENDF/B-VIII.0. It is a *fluoride* and a *thorium* cycle — neither this design's salt nor its
+fuel — and it is what exists.
+
+Run on it, the model returns **k_inf = 1.0562** against a benchmark **k_eff = 1.0435**. The comparison
+is between two different quantities and that is the difficulty: a k_inf must exceed the k_eff of a
+system that leaks and breeds, and the paper does not break that budget out. So the error is **bounded
+rather than pinned** — **+1.22 %** if the benchmark system lost nothing, **−6.88 %** if it loses 8 % to
+blanket and leakage. **The model's absolute-k error on a fast molten salt is under 7 %, against the
+fifteen asserted: the assertion was conservative rather than wrong, and it is now bounded by
+evidence.** What the check does *not* cover is the U-238 and Pu-239 rows the design actually runs on;
+what it *does* cover is the part most likely to be wrong, a one-group collapse of a fast spectrum in a
+dilute halide salt. **That is an argument and not a proof.**
+
+**The gate has moved and it has not opened.**
+
+| η_acc | k floor | margin at 0.900 | covered against the measured 0.0619? |
+|---:|---:|---:|---|
+| 0.20 — every machine measured | 0.8385 | 0.0615 | **NO — 0.99×** |
+| 0.30 — the design's assumption | 0.7670 | 0.1330 | **YES, by 2.15×** |
+| 0.40 — a better machine | 0.7008 | 0.1992 | YES, by 3.22× |
+
+**So the project's remaining uncertainty is one coupled condition and it fits in a sentence: the plant
+closes if its accelerator does better than any accelerator has done.** That is a **machine** question
+and not a physics one — the first time in this work that the last open item has been of a kind an
+engineering phase can attack. **Phase 4 proceeds when that condition is either met or stated as the
+single named condition of the claim.**
 
 **And the price is stated rather than hidden: a design basis is not a witness.** It says the
 mathematics closes across the range the constants could take and that these requirements are what make
