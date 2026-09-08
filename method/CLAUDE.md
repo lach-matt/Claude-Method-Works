@@ -165,6 +165,40 @@ no longer on the read path.
   rows, with the n-range added.** On (species, series, n-range) the nine fall to **two** — the Si I pairs at
   20–50 and 20–56, which agree in every printed cell but the bracket and δ's fourth decimal. **The volume
   asserts no key**, so the ruling corrected the instrument and not a byte of a volume.
+- **AND THE NARROW RELABEL IS SEATED (W-299, W-300), ON A SET I HAD NAMED WRONGLY.** M chose it over the
+  full-configuration relabel and then ruled **one uniform style**. I had put the option as *"the 66 rows in
+  Ar II and Ba III"* — 44 + 22, **every row of two species, not the ambiguous ones**. A row is ambiguous only
+  where **its species carries two limits and the row names no parent**, and that set is **Ba III 12, Ne II 37,
+  Si I 14, Ne I 3 — sixty-six**. The same count over a different set: **coincidence, recorded as coincidence.**
+  **Ar II is not in it** (44 rows, one limit), and a wide relabel would have made **byte-identical** the four
+  capture-file pairs register 815's withdrawal already records — L326/L369, L327/L368, L328/L367, L331/L366,
+  identical in n-range, levels, interior, n\* range, **δ to four decimals**, fits and limit, differing only in
+  notation, in bracket and in σ(δ), which the later row prints **2.26–2.45× smaller in all four**. Ca II, Li I
+  and Zn I also show two limits with bare rows and are **one limit at two roundings**, a separate item.
+  **BUILD294** is 66 count-asserted substitutions in the dotted full-configuration style — the only one of the
+  volume's five that names both core configuration and term; the 73 rows already naming a parent are **not**
+  restyled, that being the wide pass M declined. **Rows naming a parent move 73 → 139** and all four species
+  have none bare. **Twenty-eight parents rest on the volume's own bytes and 38 on one published fact each**
+  (the Ne II ³P₂ limit 330,388.6 ± 0.3, Persson 1971; the 25,840.7 interval as [Ne III] λ3869; Ne I's
+  390,977.350 as its own 173,929.750 plus the Ne II 2s2p⁶ ²S at 217,047.61), **and the volume corroborates the
+  ¹D from inside** — every row at that limit is a doublet, which a singlet core requires and the ³P limit's
+  quartets disprove. **The relabel reaches no main-volume line and no Register entry**, which is what the
+  narrow option bought.
+- **AND IT MADE TWO HIDDEN PAIRS VISIBLE, WHICH IS WHAT A RELABEL IS FOR.** On the short key the duplicate
+  count moves **9 → 10**: Ba III `nd 2[3/2]* J=2` leaves it, its two rows now naming different parents, and
+  **two new pairs enter**, both Ba III under one parent — `nd 2[3/2]* J=2` at n = 5–7 and 8–22†, `ns 2[3/2]* J=1`
+  at n = 6–8 and 9–23. **Each is one channel fitted in two adjacent n-windows**, δ drifting toward its asymptote
+  across the join, the earlier row bracketed and the later untested — register 815's shape again. **On the key
+  M ruled the count is unchanged at two.** Recorded, not repaired. **`compendia3.py` goes held with a successor
+  owed**, on that count and on its Ba III fixture; the three `bibindex` generations remain held.
+- **BUILD295 RE-BANKS THE SIX GOLDENS THE RELABEL MOVED, BY RUNNING, AFTER THE DIFF CENSUS DECLARED EVERY ONE.**
+  `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-scf` and `r2-bib2` differ in **one line each, the Spectra Compendium's
+  md5** (389c8e05 → 1f328e0b, 1,160 lines unchanged); `r2-ch20a3` in one line, its Ne I row listing. **Not one
+  instrument reports a changed measurement** — including **`r2-ch20a3`'s flagged-by-threshold test, the test
+  that refused the wide relabel** by finding four rows outside its printed five, which under the narrow relabel
+  finds none. **The census needed no close**, W-274's order holding: 1,636 exact, 0 NEW, 0 GONE, md5 equal to
+  the seated member. **MEASURED at BUILD127/BUILD295: verify OK, `gate_live.py --census` OK, the 85 live
+  goldens 86 OK / 0 FAIL, all 60 `docfigures.py` figures hold.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.
