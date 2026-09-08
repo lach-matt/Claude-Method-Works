@@ -904,7 +904,7 @@ scores 99; held out it scores below the rule it was built to improve on.
 
 - **Moore (1910)** — closure operators; the root of ℛ itself.
 - **Baker & Pixley, Math. Z. 143 (1975) 165–174** — binary determination (2,d-interpolation): why pairwise envelopes decide membership, the generation criterion's licence.
-- **Deville, Barták & Van Hentenryck (1999)** — the staircase/(α,β)-monotone constraint class; ℛ is its (≤,≤) corner.
+- **Deville, Barette & Van Hentenryck (1999)** — the staircase/(α,β)-monotone constraint class; ℛ is its (≤,≤) corner.
 - **Karp (1972); Chvátal (1979)** — set cover, and the reduction rule: a set present in every minimum cover is forced by an element it uniquely covers. Carries the forced-set half of the non-uniqueness result.
 - **Shannon, Trans. AIEE 57 (1938) 713–723** — reading structure as binary words; retained for the bit-encoding itself.
 - **Edelman, Alg. Univ. 10 (1980) 290–299; Edelman & Jamison, Geom. Dedicata 19 (1985) 247–270** — anti-exchange closures / convex geometries and the combinatorial Krein–Milman theorem. *The load-bearing new citation:* Λ₈'s empty extreme-point set with seed 7 is a maximal failure of the Krein–Milman property, which is what permits 24,585 minimum generating sets.

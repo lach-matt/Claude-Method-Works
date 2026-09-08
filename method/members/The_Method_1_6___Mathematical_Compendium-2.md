@@ -549,7 +549,7 @@ Computed — M §25.2; Shannon 1948.
 
 *binary*
 
-Cited — Deville, Barták, Van Hentenryck 1999.
+Cited — Deville, Barette, Van Hentenryck 1999.
 
 ### The one-corner characterisation
 
@@ -603,7 +603,7 @@ Proved — M §14.4 / §2.15.2; Baker & Pixley 1975.
 
 Proved — M §14.5.9; EXPANSION-MC54 T1, L1.
 
-> **Prior art: Baker & Pixley, Math. Z. 143 (1975) 165-174 — binary determination: pairwise envelopes decide membership. Deville, Barták & Van Hentenryck (1999) — the staircase constraint class ℛ lives in.**
+> **Prior art: Baker & Pixley, Math. Z. 143 (1975) 165-174 — binary determination: pairwise envelopes decide membership. Deville, Barette & Van Hentenryck (1999) — the staircase constraint class ℛ lives in.**
 
 ### The alphabet law
 
