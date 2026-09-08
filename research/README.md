@@ -3999,3 +3999,82 @@ off the edge of the map.
 ### Seated
 - `scale.py` — new, stdlib only, `--selftest`.
 - `index3.py` — **284 findings**, eight new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `currency.py` — is there a cheaper currency? Partly yes, and structurally
+
+M: *"again you are trying to pay in magnitude. I still believe there is a much cheaper currency more
+readily available."*
+
+**The instinct is right, and the reason is structural rather than rhetorical.**
+
+### 1. In the entropy channel the Planck factor cancels
+
+`scale.py` proved every **energy** comparison has the form `κ(ℓ_P/L)²` — the Planck factor appears
+exactly once, uncancelled, and *that single factor is the whole 65-to-71 orders*.
+
+The **entropy** channel is different:
+
+| | |
+|---|---|
+| QNEC | `S_req = (2π/ℏc)·T_kk·L⁴ = (π²/2)(L/ℓ_P)²` |
+| holographic | `S_hol = A/4ℓ_P² = (¼)(L/ℓ_P)²` |
+
+**Both sides carry `(L/ℓ_P)²` and it cancels exactly.** `S_req/S_hol = 2π² = 19.7392` at every scale —
+measured scale-free across ten decades, while the energy ratio moves ten orders over the same span.
+
+> **Entropy is already denominated in Planck areas.** The holographic bound measures `S` in units of
+> `ℓ_P²`, so stating the requirement as an entropy *automatically divides out* the factor that kills
+> every energy-denominated route. That is why the number is 20 and not 10⁶⁹.
+
+### 2. And it separates two things this project had fused
+
+The `2π²` prices **the seat**. But `phase1.py` defined the transition as a **contraction**:
+
+| ε | `S_contr/S_hol = 8πε/Λ` | |
+|---|---|---|
+| 1.0 | 2.5177 | exceeds |
+| 0.4 | 1.0071 | exceeds — boundary at **ε = 0.397** |
+| 0.1 | 0.2518 | **INSIDE** |
+| 0.01 | 0.0252 | **INSIDE** |
+
+> **The seat is holographically forbidden. The contraction is not.**
+
+This **corrects `entangle.py` in place**: reading `2π²` as *"the best news this project has produced"*
+is too generous — the holographic bound is the most entropy a region can hold **by any means**, so
+exceeding it is *impossible*, not twenty times hard. **The factor measures how badly, not how nearly.**
+What *is* good news is the split: everything this tree has said about collapse and Schwarzschild radii
+attaches to the **seat**, and the transition does not need one.
+
+### 3. But the exchange rate is fixed by a theorem
+
+Bekenstein read backwards, `E ≥ Sℏc/2πR`, converts the seat's entropy requirement into
+
+> `E ≥ (π/4)·L·c⁴/G` = **9.5053×10⁴³ J** at a metre
+
+— which is **exactly `seatindex.py`'s `T_COEFF = πc⁴/4G`**, reached by a route sharing no algebra.
+
+> **The currency buys PERMISSION, not DISCOUNT.** Changing denomination changes what can be *said* about
+> the requirement — forbidden against permitted — and not what must be *paid*.
+
+### 4. Three coincidences turn out to be one statement
+
+`entangle.py`'s `2π² = 19.7392`, `spec.py`'s `2π²/3 = 6.5797`, and *"the seating region is inside its own
+Schwarzschild radius."* They differ by **exactly 3**, which `entangle.py` noticed and did not explain:
+**the 3 is the 3 in `M = (4/3)πR³ρ`** — volume against area. All three say one thing: **a region that
+seats a conjugate point is a black hole.**
+
+### The honest remainder — `NOT-RUN`
+
+Bekenstein bounds the entropy a region can **hold** given its energy. Whether a state can be
+**prepared** whose `S″` is negative where it is wanted, at a cost below that floor, **in a vacuum that
+already carries area-law entanglement**, is a different question. It is not answered here and not
+asserted either way.
+
+> **It is the only place left where a cheaper currency could still be hiding, and it is worth more than
+> another order-of-magnitude estimate.**
+
+### Seated
+- `currency.py` — new. `entangle.py` — the "best news" reading struck in place.
+- `index3.py` — **291 findings**, seven new. Still 15 cells, `E(X) = 0`.

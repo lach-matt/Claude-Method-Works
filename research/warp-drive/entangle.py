@@ -55,9 +55,18 @@ from collapse, landing on the same number.
         AGAINST WHAT PHYSICS PERMITS IN PRINCIPLE   20x        (holographic)
         AGAINST WHAT CAN ACTUALLY BE MADE           1e65       (Ford-Roman)
 
-    THE FIRST NUMBER IS THE MEANINGFUL ONE and it is the best news this project
-    has produced about the obstruction.  The requirement is not absurdly beyond
-    what quantum field theory allows -- it is a factor of twenty beyond it.  It
+    CORRECTED BY currency.py, AND THE CORRECTION MATTERS: reading 20 as good
+    news is too generous.  THE HOLOGRAPHIC BOUND IS THE MOST ENTROPY A REGION
+    CAN HOLD BY ANY MEANS, so exceeding it by 2 pi^2 is IMPOSSIBLE rather than
+    twenty times hard -- the factor measures HOW BADLY, not how nearly.  What
+    IS good news, and what this file could not see because it priced the SEAT,
+    is that phase1's transition is a CONTRACTION, and a contraction costs
+    8 pi eps/Lambda of the bound: PERMITTED below eps = 0.397.  The seat is
+    forbidden; the transition is not.  See currency.py.
+
+    THE FIRST NUMBER IS STILL THE MEANINGFUL ONE, for a different reason: it is
+    scale-free where every energy figure carries (L/l_P)^2, which is why it is
+    20 and not 1e69.  It
     is the ENGINEERING gap that is 65 orders, and engineering gaps have been
     closed before.
 
