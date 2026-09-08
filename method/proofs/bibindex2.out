@@ -1,0 +1,82 @@
+bibindex2 -- the outside search M directed, and its result
+==============================================================================
+
+1  THE 162 ROWS, BY THE FIRST TIER THAT REACHES THEM
+   ATTRIBUTED              127
+   COMPANION                15
+   LEDGER                    2
+   NAMED-NOT-DATED          18
+   NO-ATTRIBUTION-FOUND      0
+   and they sum to 162
+
+   THE MARKER M ASKED FOR APPLIES TO NOTHING.  Every work in the
+   bibliography is named somewhere in this corpus.  `bibindex.py` reported 16
+   NOT-ATTRIBUTED and that class was an artefact of searching one volume.
+
+   -- COMPANION
+      1842  Jacobi                             physics, threebody-paper
+      1878  Hill                               main, physics, threebody-paper
+      1890  Poincaré                           main, threebody-paper
+      1954  Kolmogorov                         main, threebody-paper
+      1963  Arnold                             main, threebody-paper
+      1968  Ireland and Kullback               mathematical, register
+      1968  Alekseev                           threebody-paper
+      1971  Griffin, Andrew & Cowan            main
+      1976  Monaghan                           threebody-paper
+      1982  Marchal & Bozis                    main, physics, threebody-paper
+      1991  Kay-Wald                           mathematical, register
+      1998  Montgomery                         threebody-paper
+      2000  Chenciner & Montgomery             threebody-paper
+      2002  Montgomery                         threebody-paper
+      2021  Kol                                threebody-paper
+
+   -- LEDGER
+      1974  McGehee                            ledger-threebody
+      1975  Marchal & Saari                    ledger-threebody
+
+   -- NAMED-NOT-DATED
+      1913  Pauli                              main, register, mathematical
+      1937  Shannon                            main, register, mathematical
+      1958  Pauli                              main, register, mathematical
+      1964  Moebius                            mathematical
+      1969  Andrew & Cowan                     main, register, mathematical
+      1970  Fano                               register, mathematical, physics
+      1973  Saari                              main, register, mathematical
+      1982  Racah                              main, register, mathematical
+      1983  Maier & Yannakakis                 register, mathematical
+      1986  Inokuti & Manson                   register, mathematical, indices
+      1989  Nouguier & Vilarem                 mathematical
+      1995  Beek & Dechter                     main, register, mathematical
+      2003  Fredenhagen & Verch                main, register, mathematical
+      2006  Hsiang & Straume                   main, mathematical, threebody-paper
+      2019  Fleischer & Knauf                  main, mathematical, threebody-paper
+      2023  Kol                                main, register, mathematical
+      2026  Lach, *The Löwdin Solution*        main, register, mathematical
+      2026  Lach, *The Three-Body Problem for  main, mathematical, threebody-paper
+
+2  THE GENERATOR, RECOVERED, AND WHAT IT CORROBORATES
+   `mathreg.py` is held at extracted/archives/restore-point-2-13/mathreg.py
+   R() entries                                    248
+   which is the Physics Compendium's own 248       True
+   its ids that the compendium still prints       248 of 248
+   handles that postdate it                       17
+   ids whose `named` is still a printed title     232
+   IT IS A WITNESS AND NOT THE RECORD: extracted/, a snapshot, and dated.
+
+2b A FINDING ABOUT THE RULING ITSELF
+   object titles that collide across families     1
+        family L    Three excluded forms
+        family T    The three excluded forms
+   Within a family every title is distinct.  Across families exactly one pair
+   is not, and it is an article apart.  IF A HANDLE IS REPLACED BY A
+   DESCRIPTIVE TITLE, A TITLE MUST IDENTIFY ITS OBJECT -- so these two need
+   their family, or one needs renaming.  That is M's, and it is named here.
+
+3  THE GENERATOR AGAINST AN INDEPENDENT METHOD
+   handlemap.py resolves, order-free              112
+   the generator resolves                         232
+   both                                           95
+   agreeing                                       92
+      M.hsmi       generator Borchers 1992 / Wiesbrock 1993           order-free Half-sided modular inclusion o
+      Q.pol        generator Seaton's term                            order-free The polarisability index
+      W.rel        generator Brunetti–Fredenhagen–Verch 2003          order-free The one-hot partition

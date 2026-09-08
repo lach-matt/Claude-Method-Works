@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD284 compendia** (16,472,247 B ·
-  `2f3f73f618f5d94d62f89ea23470410e` · 143,859 lines · 751 members). **753 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-289 seated.**
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD285 compendia** (16,486,432 B ·
+  `a6b7649d5001f2213176a525c6eab0c8` · 144,218 lines · 752 members). **754 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-290 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -107,6 +107,20 @@ no longer on the read path.
   object entry**, this work's own two companion papers among them.
 - **AND W-281's "FALSE BY 34" IS CORRECTED TO 12 (W-289).** The measurement stands — 34 objects carry no
   handle — but the label was wrong: **twelve objects name no work**, and `bibindex.py` names all twelve.
+- **M THEN RULED THE BIBLIOGRAPHY HAS NOT OVERREACHED, AND THE OUTSIDE SEARCH CONFIRMS IT (W-290).** Where
+  `bibindex.py` searched one volume and reported 16 rows attributed nowhere, `proofs/bibindex2.py` searches the
+  nine seated volumes and the recovered attribution ledgers: **ATTRIBUTED 127, COMPANION 15, LEDGER 2,
+  NAMED-NOT-DATED 18, NO-ATTRIBUTION-FOUND 0.** **Every work in the bibliography is named somewhere in this
+  corpus**, and **fourteen of the seventeen rows reached beyond the compendium are carried by the three-body
+  companion paper or its ledger** — the route M named. `NAMED-NOT-DATED` is not an error class: the ledger
+  records two Jacobi papers (1837, 1842) and four Montgomery items (1998, 2000, 2002, 2014).
+- **AND `mathreg.py` IS HELD AFTER ALL**, at `extracted/archives/restore-point-2-13/mathreg.py` — **248 `R()`
+  entries, exactly the Physics Compendium's printed count**, so that figure is corroborated and E1's "rests on
+  nothing" is corrected. **It is a witness in a generated tree and not the record**: 17 handles postdate it and
+  16 of its names no longer resolve to one printed title. Where it and `handlemap.py`'s order-free method both
+  speak they overlap on 95 and **agree on 92**. **One finding is M's to settle**: family L prints *Three
+  excluded forms* and family T *The three excluded forms*, so a descriptive title alone does not identify
+  those two objects.
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -114,7 +128,7 @@ no longer on the read path.
   15,193,022 B / `4ff7ccaa…`, and W-245's close supersedes it. **The stale figure was caught by the next close
   asserting its predecessor's md5** — which is what the reverse guard is for.
 - **THE GATE IS GREEN ON EVERY STEP THE STORE TREATS AS LIVE.** MEASURED 7 September: `python3 method/verify.py`
-  VERIFY OK (753 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
+  VERIFY OK (754 members, both bundles recovered by splicing); `gate.py run --core` **5 OK**;
   **That figure read 742 for several builds and no instrument pinned it** — `docfigures.py` pins the member
   count against `MEMBER-INDEX.tsv` from CLAUDE.md at the repository root and not from this line, so this one
   drifted silently through three closes. Corrected here rather than quietly.
@@ -125,7 +139,7 @@ no longer on the read path.
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
   `gate.py manifest --main … --comp …` **OK**;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD284 counting the census
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD285 counting the census
   step, registers 1886-1889's **33** moved goldens having been censused and then re-banked by running (W-279).
   **Two builds were seated before one re-bank**, which is the cheaper order when neither moves a line reference:
   BUILD126 and BUILD127 both append only, so of the Register's 6,984 lines exactly eight differ in the common

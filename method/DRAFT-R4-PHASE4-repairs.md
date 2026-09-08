@@ -9,11 +9,15 @@ it was written, and what has since happened is recorded here rather than edited 
 | **C2** Index of Indices L2021, the truncated row restored | **SEATED**, BUILD278, `W-283` — and `r2-ch27a4` had banked this defect as a golden before the census found it; the repair takes it from *29 of 30* to *30 of 30* |
 | **D1** Ruling 46, script names, stamps, the rebuild command | **SEATED**, BUILD279 and BUILD281, `W-284` and `W-286` — thirty substitutions, then one more the pass missed |
 | **D2** Ruling 45, six interface disclosures | **SEATED with D1**; three are refused with their reason, being a verbatim quotation of a stored row and two descriptions of the column it comes from |
-| **D3** the handle vocabulary | **THE MAP IS REBUILT** — M ruled the handle map stale and the map mine to build (`W-289`). `proofs/bibindex.py` derives the objects column from the objects' own attributions: **127 of 162 rows**, each object by its descriptive title, in `method/BIBLIOGRAPHY-OBJECTS.tsv`. 35 rows cannot be derived and get no column. `method/HANDLE-MAP.tsv` is superseded as a proposal and kept as the evidence for the cross-check |
+| **D3** the handle vocabulary | **THE MAP IS REBUILT AND THE SOURCE IS FOUND** — M ruled the handle map stale and the map mine to build (`W-289`). `proofs/bibindex.py` derives the objects column from the objects' own attributions: **127 of 162 rows**, each object by its descriptive title, in `method/BIBLIOGRAPHY-OBJECTS.tsv`. 35 rows cannot be derived and get no column. `method/HANDLE-MAP.tsv` is superseded as a proposal and kept as the evidence for the cross-check |
 | **D4** the 285-of-431 channel sentence | **OPEN** — deliberately untouched by the Ruling 46 pass, which does not license fixing a figure in passing |
 | **D5** seven files named to a reader and held nowhere | **THREE SEATED with D1** (the two `MECHANISMS.md` sites and `LITERATURE.md` repointed at the volume that answers); the rest went with their sentences |
-| **E1** the three register counts | **OPEN**; the generation stamps are gone, the counts are untouched. But the *false universal* beside it is **corrected**: `W-281` said "Every object of this compendium names a work" is false by 34; `W-289` measures **12** — 34 counted objects with no handle, in a column now ruled stale |
+| **E1** the three register counts | **RESOLVED AS A MEASUREMENT** (`W-290`): all three are correct counts of three different things. **299** is the objects the compendium holds, family by family; **265** is the handles its bibliography prints; **248** is the `R()` entries in `mathreg.py`, which is **held** at `extracted/archives/restore-point-2-13/` — so E1's "corroborated by nothing here" is corrected. What is left is not a count but a **labelling** question, and it is M's. The *false universal* beside it is corrected too: `W-281` said false by 34; `W-289` measures **12** |
 | **E2** the bracket-system object | **OPEN**; writing it is an editorial act |
+
+**One finding is owed a ruling and is new**: family L prints *Three excluded forms* and family T *The three
+excluded forms*, so under the handle ruling a descriptive title alone does not identify those two objects.
+They need their family printed with them, or one needs renaming (`W-290`).
 
 **Seventeen Ruling 46 sites remain and are refused, not owed**: they are figure image paths, and removing them
 would remove the figures. `W-286` records that.
