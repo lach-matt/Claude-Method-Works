@@ -4662,3 +4662,88 @@ the file states it and does not choose.
 
 ### Seated
 - `entsym.py` — new. `index3.py` — **341 findings**, six new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `wormhole.py` — THE FORK, TAKEN
+
+> *"if wormhole makes sense for this, then let's run with it. It seems to me that what we are looking at
+> currently is the ability to create and contain a stable wormhole."*
+
+One large win, one reversal of an answer given two passes ago, and one scope decision that isn't mine.
+
+### 1. The win, and it is structural: cost stops scaling with distance
+
+| architecture | cost |
+|---|---|
+| **corridor** | ∝ **distance shortened** — 1.3489e26 kg/m, so 1% off 4 ly = **2.567×10¹⁰ solar masses** |
+| **wormhole** | ∝ **throat radius**, and nothing else — `M ~ r₀c²/8πG` |
+
+| throat r₀ | M_exotic (kg) | Earth masses |
+|---|---|---|
+| 1 µm | 5.358e+19 | 9.0e-06 |
+| **1 m** | **5.358e+25** | **8.97** — *for any separation* |
+| 3 km | 1.607e+29 | 2.7e+04 |
+
+**A one-metre throat costs about nine Earth masses whether the mouths are a metre apart or four light
+years apart.** That's **15.0 orders** against the corridor, and the ratio **grows without limit with
+distance**. phase 1's own complaint — *"a saving that does not scale with the journey is not a faster
+journey"* — is exactly what the throat fixes.
+
+### 2. But it reverses `contain.py`
+
+Kuhfittig (arXiv:2409.16184) eq. (32): `τ(r₀) = c⁴/(8πGr₀²)` — and it **diverges as the throat shrinks**:
+
+| r₀ | τ (Pa) | dyn/cm² |
+|---|---|---|
+| 1 m | 4.8155e+42 | 4.8155e+43 |
+| 10 m | 4.8155e+40 | 4.8155e+41 *(his "~5e41")* |
+| 3 km | 5.3505e+35 | *neutron-star centre* |
+
+Both his figures reproduce. His conclusion — and he argues **for** wormholes — is *"Morris–Thorne
+wormholes could only exist on very large scales."*
+
+> `contain.py` concluded miniature was forced. **That was the corridor's answer.** For a corridor the
+> quantum ceiling lets a smaller core hold more mass; for a throat the tension diverges as it shrinks.
+> **The two architectures want opposite sizes.**
+
+### 3. And the requirement is the one we already had
+
+| | |
+|---|---|
+| `seatindex.py` T_kk coefficient | `πc⁴/4G` = 9.5053e43 |
+| throat tension coefficient | `c⁴/8πG` = 4.8155e42 |
+| **ratio** | **19.739209 = 2π² exactly** |
+
+The same constant as `entangle.py`'s holographic excess and, ×3, `spec.py`'s collapse ratio.
+**The wormhole is not a new physics problem — it is the same requirement in a geometry that spends it
+better.**
+
+### 4. What the throat reopens
+
+- **Entanglement** — two subsystems now exist; `entsym.py`'s obstruction lifts.
+- **GJW** — applies *directly* rather than by analogy; bank-loan and traversal window become live.
+- **MTY — risk reopened.** `anecscope.py` closed it on *"no throat, no two ends to age differentially."*
+  **That closure is gone.** Mitigation is GJW's own coupling fixing the relative time coordinate.
+
+### 5. The scope decision, and it is yours
+
+Kuhfittig, a wormhole **advocate**, on classical GR:
+
+> *"Φ′(r) = 0 is outside this range, so that the resulting wormhole solution **cannot be compatible with
+> quantum field theory**. This also applies to the wormhole solutions in Ref. [3]."* — **and Ref. [3] is
+> Morris & Thorne.**
+
+Every escape in that literature **leaves General Relativity**: `f(R)` modified gravity — on the weak
+ground that the QI's curvature estimates *"come from Einstein's theory, not from the modified theory"*,
+which argues the **derivation** doesn't transfer rather than that the bound is absent — or a
+noncommutative background.
+
+Against a standing constraint of *"true and proven in its math,"* adopting either is a decision to prove
+something in a **different theory**. The file states it and sets `SCOPE_CHOSEN_HERE = None`.
+
+> **Within classical GR the throat buys geometry, not permission.** The distance scaling is fixed —
+> real, large, and the reason to take the fork. The exotic source is exactly as unavailable as it was.
+
+### Seated
+- `wormhole.py` — new. `index3.py` — **347 findings**, six new. Still 15 cells, `E(X) = 0`.
