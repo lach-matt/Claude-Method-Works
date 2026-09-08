@@ -144,7 +144,7 @@ C142	NF front-end capture, both hemispheres	61	percent	DERIVED	captured_fraction
 C143	NF front-end capture, backward only	10.3	percent	DERIVED	captured_fraction(1.50, backward)	fn:cap_nf_back
 C144	aperture product for 90 percent capture	2.60	T.m	DERIVED	solved from the acceptance model	fn:br_90
 C145	bore at 20 T for 90 percent capture	13	cm	DERIVED	C144 / 20 T	fn:bore_90
-C146	aperture increase over the NF front end	1.74	x	DERIVED	C144 / C141	fn:br_ratio
+C146	aperture increase over the NF front end	1.735	x	DERIVED	C144 / C141	fn:br_ratio
 C147	COMET solenoid cap from the model	112	MeV/c	DERIVED	0.3 x 5 T x 0.15 m / 2, against its stated 100	fn:comet_cap
 C148	MuSIC demonstrator beam power	400	W	MEASURED	Cook et al. arXiv:1610.07850, maximum	none
 C149	service-life asymptote, SIN reading	198	cycles	DERIVED	1 / C113	fn:asym_sin
@@ -998,3 +998,4 @@ C1002	cycles per muon, p-p	0.00022	cycles	DERIVED	window.cycles_per_muon on the 
 C1003	energy per muon, p-p	0.00032	MeV	DERIVED	C1002 x Q	fn:q_fuel_energy_p_p
 C1004	the largest competitor ceiling, t-t at infinite cycle rate	80.93	MeV	DERIVED	Q / omega_s, consulting no cycle rate	fn:q_fuel_ceiling_best
 C1005	d-t over that ceiling, the ranking's robustness margin	24.58	x	DERIVED	C977 / C1004	fn:q_fuel_ceiling_margin
+C1006	forward contribution, in the same units as the combined yield	0.1081	pi-/p	DERIVED	C99 - C80	fn:q_harp_fwd_yield

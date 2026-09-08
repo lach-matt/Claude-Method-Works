@@ -48,16 +48,19 @@ It is sometimes suggested that screening in a dense medium might make up the dif
 
 Applied to the closed index of charged particles, the seven conditions admit exactly one realisation, and the argument that gets there is short. Condition 2 sets a lower bound on the binder's mass, because the separation it produces scales inversely with that mass. Conditions 3 and 4 set an upper bound, because a binder heavy enough to be absorbed by a nucleus before the cycle completes catalyses nothing and produces the wrong ash. Together the two bounds define a **structural window** running from 119 electron masses to 918 electron masses. §14.3 derives both bounds in full.
 
-Exactly one particle in the known spectrum sits inside that window: the muon, at 207 electron masses, which is 1.74 above the floor. The other candidates are excluded, and none of the exclusions is a near thing.
+**Two** particles in the known spectrum sit inside that window, not one, and the second is removed by a test that is not about mass at all. The muon lies at 207 electron masses, a factor of 1.74 above the floor; the pion lies at 273 electron masses, inside the window and excluded because it is a hadron, absorbed by a nucleus long before a cycle completes. **One particle survives every test**, and §14.3 runs the scan in the order that constrains — lifetime first, because that is the cut whose set can be closed against the Review of Particle Physics without judgement, and mass only afterwards.
 
-| excluded | grounds |
-|---|---|
-| electron-bound systems | geometry: 74100 fm against 280 fm, some ninety-one orders short |
-| tau and heavier binders | nuclear absorption preempts catalysis; no cell survives condition 3 |
-| hadronic binders | the same, at a shorter timescale still |
-| enhanced ambient screening | conservation, §1 |
-| thermal and inertial fusion | by definition — approach supplied by kinetic energy |
-| chain multiplication of binders | no nuclear event releases enough to fund a second binder |
+| excluded | grounds | consulted at |
+|---|---|---|
+| electron-bound systems | geometry: 74100 fm against 280 fm, some ninety-one orders short — the electron lies below the window | mass |
+| the pion | a hadron: absorbed by a nucleus before the cycle completes, failing conditions 3 and 4 | the hadron test, **inside** the window |
+| the kaon and the antiproton | above the window's ceiling at 966 electron masses and beyond | mass |
+| the tau, the charged hyperons, the charmed and bottom hadrons, every resonance | too short-lived to reach the mesomolecular formation time, so excluded **before** a mass is consulted | lifetime |
+| enhanced ambient screening | conservation, §1 | — |
+| thermal and inertial fusion | by definition — approach supplied by kinetic energy | — |
+| chain multiplication of binders | no nuclear event releases enough to fund a second binder | — |
+
+None of the exclusions is a near thing, and §14.3's Corollary 1.0 prices how far the window's own bounds may move before the surviving set changes: a factor of 207 at the floor and 3.54 at the ceiling.
 
 The sign matters as much as the mass, and it is fixed separately. A positive muon binds an electron into muonium and is repelled by every nucleus in the fuel, so it forms no mesomolecule at any density or temperature. The species question is therefore settled by charge before anything else is considered — a point §9 returns to, because it decides what the production target must be made of.
 
@@ -139,7 +142,7 @@ The figure of merit given above rests on 37.0 GeV per captured μ⁻, which is a
 
 ### 5.1 Production, integrated from measured cross sections
 
-Pion production has been measured double-differentially, so obtaining the yield is a matter of integration rather than of modelling. Over the large-angle acceptance — 0.35 rad to 2.15 rad in angle, momenta up to 0.80 GeV/c, at a beam momentum of 8 GeV/c — the integrated π⁻ cross section on a heavy target is 1.0382 barn, which corresponds to 0.6107 π⁻ per proton. The forward acceptance, 0.025 rad to 0.25 rad, adds a further 0.1838 barn. Taken together the production is 0.7188 π⁻ per proton, and at the beam energy in question that works out at 11.13 GeV per pion. Proposition 7 in §14.6 sets out the integral.
+Pion production has been measured double-differentially, so obtaining the yield is a matter of integration rather than of modelling. Over the large-angle acceptance — 0.35 rad to 2.15 rad in angle, momenta up to 0.80 GeV/c, at a beam momentum of 8 GeV/c — the integrated π⁻ cross section on a heavy target is 1.0382 barn, which corresponds to 0.6107 π⁻ per proton. The forward acceptance, 0.025 rad to 0.25 rad, adds a further 0.1838 barn, which is 0.1081 π⁻ per proton — the two acceptances are quoted in different units in the source tables, so the cross sections do not add to the yield and the conversion is stated rather than left to the reader. Taken together the production is 0.7188 π⁻ per proton, and at the beam energy in question that works out at 11.13 GeV per pion. Proposition 7 in §14.6 sets out the integral.
 
 > This settles the first question a reader is likely to ask. 11.13 GeV is what a pion costs before any collector exists at all, so it is a floor on the binder's cost. Set against the heat bound of 7.52 GeV, even a *perfect* collector — one in which every pion produced became a stopped binder, which no machine approaches — would leave the heat form short. **The gap is not in the collector**, and no improvement to it can be the answer.
 
@@ -169,7 +172,7 @@ The third is a change in how the question is posed. Rather than assuming a colle
 
 ### 6.1 What sets the acceptance
 
-A capture solenoid accepts a pion if its transverse momentum lies below `p_T = 0.15 · B · R`. Because field and bore appear only as a product, the two trade against one another at fixed acceptance, and it is the product `B·R` — not the field on its own — that sets what the magnet can take. Proposition 4 in §14.5 derives this, together with the factor of two that makes the beam envelope twice the gyroradius. The best studied front end runs 20 T on a bore giving an aperture product of 1.50 T.m; the collector specified here would need 2.60 T.m, a factor of 1.74.
+A capture solenoid accepts a pion if its transverse momentum lies below `p_T = 0.15 · B · R`. Because field and bore appear only as a product, the two trade against one another at fixed acceptance, and it is the product `B·R` — not the field on its own — that sets what the magnet can take. Proposition 4 in §14.5 derives this, together with the factor of two that makes the beam envelope twice the gyroradius. The best studied front end runs 20 T on a bore giving an aperture product of 1.50 T.m; the collector specified here would need 2.60 T.m, a factor of 1.735 — and Corollary 9.1 in §14.7 is why that factor is not free: the beam widens with the bore, so the fuel target's tritium inventory rises as its square.
 
 With that in hand the acceptance becomes a calculation rather than an assumption. It is built up in four steps: the production spectrum, the transverse cap above, the two-body pion decay integrated over the pion rest frame, and finally whatever momentum requirement the downstream apparatus imposes. Run over the configuration of the machine that has actually been built, the model returns 29.51 percent against that machine's own published simulation, the two agreeing to 0.982.
 
@@ -630,7 +633,7 @@ $$\omega_s \;=\; \sum_{n\ell} \left| \int \psi^{*}_{n\ell}(\mathbf{r})\, e^{\,i 
 
 **Proposition 6 (linearity in collection).** *Every balance in this paper is proportional to $\eta$, so restating one at a different collection efficiency is exact rather than approximate.*
 
-*Derivation.* Write the balance as $G = N\,V\,\eta/E_\pi$. Here $N$ is a property of the fuel and the sticking, $V$ of the plant, and $E_\pi$ of the production target; none of them depends on $\eta$. Hence $G \propto \eta$ and $G(\eta_2) = G(\eta_1)\,\eta_2/\eta_1$ identically. The tables of §7 are computed this way, and the paper's own two-column table at thirty and ninety percent provides the check: every row's ratio lies between 2.998 and 3.010, against an exact three. ∎
+*Derivation.* Write the balance as $G = N\,V\,\eta/E_\pi$. Here $N$ is a property of the fuel and the sticking, $V$ of the plant, and $E_\pi$ of the production target; none of them depends on $\eta$. Hence $G \propto \eta$ and $G(\eta_2) = G(\eta_1)\,\eta_2/\eta_1$ identically. The tables of §7 are computed this way, and the two-column table the preprints at [18] printed at thirty and ninety percent collection provides the check: every row's ratio lies between 2.998 and 3.010, against an exact three. §7's own two columns are the delivered figures 31.66 percent and 48.61 percent, which are not in that ratio and are not the fixture. ∎
 
 **Corollary 6.1.** *An alteration that changes $E_\pi$ alone multiplies every balance by the same factor* $E_\pi^{old}/E_\pi^{new}$. This is what §7.1 computes, and the same corollary explains why that factor moves the bred-fuel requirement from 50.8 percent to 21.4 percent.
 
@@ -648,7 +651,7 @@ Over the large-angle acceptance this gives 1.0382 barn, or 0.6107 π⁻ per prot
 
 **Proposition 8 (the escape path is the target's radius, not its length).** *A production target may be made long without becoming opaque to the pions this collector accepts.*
 
-*Derivation.* The collector accepts large-angle pions, which is 84.96 percent of production. A pion emitted at a large angle to the beam leaves the target through its **side**, so the path it must survive is of order the target's radius $r$ and not its length $L$. The survival probability is therefore $\exp(-r/\lambda_{abs})$ for that component, with $\lambda_{abs} =$ 15.89 cm in mercury, against $(\lambda_{abs}/L)\,[1 - \exp(-L/\lambda_{abs})]$ for the forward component. Weighting by the large-angle fraction gives 0.8961 for the published geometry. **A narrow target is transparent however long it is**, which is why lengthening it to raise the yield does not defeat itself. ∎
+*Derivation.* The collector accepts large-angle pions, which is 84.96 percent of production. A pion emitted at a large angle to the beam leaves the target through its **side**, so the path it must survive is of order the target's radius $r$ and not its length $L$. The survival probability is therefore $\exp(-r/\lambda_{abs})$ for that component, with $\lambda_{abs} =$ 15.89 cm in mercury — the metal of the published jet this checks against, rather than the lead §9.3's charge-ratio requirement calls for — against $(\lambda_{abs}/L)\,[1 - \exp(-L/\lambda_{abs})]$ for the forward component. Weighting by the large-angle fraction gives 0.8961 for the published geometry. **A narrow target is transparent however long it is**, which is why lengthening it to raise the yield does not defeat itself. ∎
 
 
 ### 14.7 The fuel target

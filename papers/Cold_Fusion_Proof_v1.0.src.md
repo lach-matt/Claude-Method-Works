@@ -117,18 +117,26 @@ bound, because a binder heavy enough to be absorbed by a nucleus before the cycl
 nothing and produces the wrong ash. Together the two bounds define a **structural window** running
 from [[C13]] to [[C14]]. §14.3 derives both bounds in full.
 
-Exactly one particle in the known spectrum sits inside that window: the muon, at [[C15]], which is
-[[C130]] above the floor. The other candidates are excluded, and none of the exclusions is a near
-thing.
+**Two** particles in the known spectrum sit inside that window, not one, and the second is removed by
+a test that is not about mass at all. The muon lies at [[C15]], a factor of [[C130]] above the floor;
+the pion lies at [[C16]], inside the window and excluded because it is a hadron, absorbed by a nucleus
+long before a cycle completes. **One particle survives every test**, and §14.3 runs the scan in the
+order that constrains — lifetime first, because that is the cut whose set can be closed against the
+Review of Particle Physics without judgement, and mass only afterwards.
 
-| excluded | grounds |
-|---|---|
-| electron-bound systems | geometry: [[C47]] against [[C46]], some ninety-one orders short |
-| tau and heavier binders | nuclear absorption preempts catalysis; no cell survives condition 3 |
-| hadronic binders | the same, at a shorter timescale still |
-| enhanced ambient screening | conservation, §1 |
-| thermal and inertial fusion | by definition — approach supplied by kinetic energy |
-| chain multiplication of binders | no nuclear event releases enough to fund a second binder |
+| excluded | grounds | consulted at |
+|---|---|---|
+| electron-bound systems | geometry: [[C47]] against [[C46]], some ninety-one orders short — the electron lies below the window | mass |
+| the pion | a hadron: absorbed by a nucleus before the cycle completes, failing conditions 3 and 4 | the hadron test, **inside** the window |
+| the kaon and the antiproton | above the window's ceiling at [[C126]] and beyond | mass |
+| the tau, the charged hyperons, the charmed and bottom hadrons, every resonance | too short-lived to reach the mesomolecular formation time, so excluded **before** a mass is consulted | lifetime |
+| enhanced ambient screening | conservation, §1 | — |
+| thermal and inertial fusion | by definition — approach supplied by kinetic energy | — |
+| chain multiplication of binders | no nuclear event releases enough to fund a second binder | — |
+
+None of the exclusions is a near thing, and §14.3's Corollary 1.0 prices how far the window's own
+bounds may move before the surviving set changes: a factor of [[C855]] at the floor and [[C856]] at
+the ceiling.
 
 The sign matters as much as the mass, and it is fixed separately. A positive muon binds an electron
 into muonium and is repelled by every nucleus in the fuel, so it forms no mesomolecule at any density
@@ -294,8 +302,10 @@ Pion production has been measured double-differentially, so obtaining the yield 
 integration rather than of modelling. Over the large-angle acceptance — [[C84]] to [[C85]] in angle,
 momenta up to [[C86]], at a beam momentum of [[C87]] — the integrated π⁻ cross section on a heavy
 target is [[C78]], which corresponds to [[C80]]. The forward acceptance, [[C107]] to [[C108]], adds a
-further [[C97]]. Taken together the production is [[C99]], and at the beam energy in question that
-works out at [[C100]] per pion. Proposition 7 in §14.6 sets out the integral.
+further [[C97]], which is [[C1006]] — the two acceptances are quoted in different units in the source
+tables, so the cross sections do not add to the yield and the conversion is stated rather than left to
+the reader. Taken together the production is [[C99]], and at the beam energy in question that works
+out at [[C100]] per pion. Proposition 7 in §14.6 sets out the integral.
 
 > This settles the first question a reader is likely to ask. [[C100]] is what a pion costs before any
 > collector exists at all, so it is a floor on the binder's cost. Set against the heat bound of
@@ -352,7 +362,7 @@ field and bore appear only as a product, the two trade against one another at fi
 is the product `B·R` — not the field on its own — that sets what the magnet can take. Proposition 4 in
 §14.5 derives this, together with the factor of two that makes the beam envelope twice the gyroradius.
 The best studied front end runs [[C70]] on a bore giving an aperture product of [[C141]]; the
-collector specified here would need [[C144]], a factor of [[C146]].
+collector specified here would need [[C144]], a factor of [[C146]] — and Corollary 9.1 in §14.7 is why that factor is not free: the beam widens with the bore, so the fuel target's tritium inventory rises as its square.
 
 With that in hand the acceptance becomes a calculation rather than an assumption. It is built up in
 four steps: the production spectrum, the transverse cap above, the two-body pion decay integrated over
@@ -1094,8 +1104,10 @@ so restating one at a different collection efficiency is exact rather than appro
 *Derivation.* Write the balance as $G = N\,V\,\eta/E_\pi$. Here $N$ is a property of the fuel and
 the sticking, $V$ of the plant, and $E_\pi$ of the production target; none of them depends on
 $\eta$. Hence $G \propto \eta$ and $G(\eta_2) = G(\eta_1)\,\eta_2/\eta_1$ identically. The tables
-of §7 are computed this way, and the paper's own two-column table at thirty and ninety percent
-provides the check: every row's ratio lies between [[C755]] and [[C756]], against an exact three. ∎
+of §7 are computed this way, and the two-column table the preprints at [18] printed at thirty and
+ninety percent collection provides the check: every row's ratio lies between [[C755]] and [[C756]],
+against an exact three. §7's own two columns are the delivered figures [[C753]] and [[C867]], which
+are not in that ratio and are not the fixture. ∎
 
 **Corollary 6.1.** *An alteration that changes $E_\pi$ alone multiplies every balance by the same
 factor* $E_\pi^{old}/E_\pi^{new}$. This is what §7.1 computes, and the same corollary explains why
@@ -1123,7 +1135,9 @@ be made long without becoming opaque to the pions this collector accepts.*
 *Derivation.* The collector accepts large-angle pions, which is [[C727]] of production. A pion emitted
 at a large angle to the beam leaves the target through its **side**, so the path it must survive is
 of order the target's radius $r$ and not its length $L$. The survival probability is therefore
-$\exp(-r/\lambda_{abs})$ for that component, with $\lambda_{abs} =$ [[C725]] in mercury, against
+$\exp(-r/\lambda_{abs})$ for that component, with $\lambda_{abs} =$ [[C725]] in mercury — the metal
+of the published jet this checks against, rather than the lead §9.3's charge-ratio requirement calls
+for — against
 $(\lambda_{abs}/L)\,[1 - \exp(-L/\lambda_{abs})]$ for the forward component. Weighting by the
 large-angle fraction gives [[C730]] for the published geometry. **A narrow target is transparent
 however long it is**, which is why lengthening it to raise the yield does not defeat itself. ∎

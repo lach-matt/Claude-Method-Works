@@ -241,6 +241,16 @@ def harp_comb_yield():
     return collector.harp_combined_yield()
 
 
+def q_harp_fwd_yield():
+    """The forward acceptance's contribution IN YIELD, not in cross section.
+
+    The two HARP acceptances are published in different units, so the barn
+    figures in section 5.1 do not add to the yield beside them. This row is
+    what makes that one arithmetic step checkable on the page.
+    """
+    return collector.harp_combined_yield() - collector.harp_window_yield()
+
+
 def cost_pion():
     return collector.cost_per_pion_produced()
 
