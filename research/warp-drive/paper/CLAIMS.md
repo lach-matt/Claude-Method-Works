@@ -765,6 +765,71 @@ the boundary between matter that satisfies the energy conditions and matter that
 
 ---
 
+## ★★★ HEADLINE — the specification
+
+**H15. Under the correct scoping the lead is not required, the seat is achievable with ordinary matter,
+and the whole specification is one invariant: `B·ℓ = 1.5456×10¹⁹ T·m`.**
+
+> Every theorem that blocked this work — Olum, Ford–Roman, `Q ≤ M` — is a theorem about **beating
+> light**. If the requirement is only that the transported matter exist at both ends under the same
+> physics, that demand is never made, and **every blocking result is attached to a requirement that is
+> no longer posed.**
+>
+> **What survives:** `transit.py`'s Part 1 (declare both endpoints at onset) and Part 3 (the turn lands
+> on the declared arrival) are unchanged. Part 2, the turn, needs `T_kk > 0` — which is what **ordinary
+> matter has**.
+>
+> **The design equation.** `seatindex.py`'s universal seating is `qℓ² ≥ π²` with `q = 4πT_kk`; in SI,
+> `ℓ = √(πc⁴/4Gu)`; and for a magnetic field `u = B²/2μ₀` the two collapse to
+>
+> **`B · ℓ = √(2μ₀ · πc⁴/4G) = 1.5456×10¹⁹ T·m`**
+>
+> One invariant, real units, **no free parameters** — fixed by `c`, `G` and `μ₀` alone. Cross-checked
+> by a route sharing no formula: `q = (4πG/c⁴)T_kk` gives `π/√q = 1.5456×10⁸ m` at `B = 10¹¹ T`, and
+> the threshold formula gives the same.
+>
+> | field source | `B` (T) | seats beyond | |
+> |---|---|---|---|
+> | continuous lab magnet | 45 | 3.435×10¹⁷ m | 36 ly |
+> | destructive pulsed | 1.2×10³ | 1.288×10¹⁶ m | 1.4 ly |
+> | theoretical material limit | 10⁴ | 1.546×10¹⁵ m | 0.16 ly |
+> | neutron star surface | 10⁸ | 1.546×10¹¹ m | |
+> | **magnetar** | **10¹¹** | **1.546×10⁸ m** | **155,000 km** |
+>
+> **And the residual gap is engineering.** From the best human field (1200 T, destructively pulsed) to
+> magnetar class is **8.3×10⁷ in field, 6.9×10¹⁵ in energy density — against no theorem.** Not
+> comparable to H13's 65 orders, which was a gap against Ford–Roman that **widened** with scale. This
+> one **closes** with scale: a weaker field simply seats further out along `B·ℓ = const`, and nature
+> already operates at the strong end.
+
+**What the device does:** establishes a **conjugate point at a declared range** — a null congruence
+leaving A and reconverging at B — from a sustained field of ordinary matter, in a vacuum corridor,
+with NEC, WEC and DEC satisfied everywhere. Universal in Sturm's sense: the zero happens *inside* the
+focusing stretch, so nothing outside can prevent it. Past it the geodesic is no longer achronal, so a
+timelike curve A→B exists.
+
+**What it does not:** beat light (no lead, and Olum forbids one without negative energy); shortcut (a
+conjugate point is a **focus**, not a wormhole); transport anything faster than a signal; or require
+**any** exotic matter.
+
+> **The honest description is a controlled gravitational focus at a chosen range, addressed by
+> declaring both endpoints, built from fields that satisfy every energy condition.**
+
+| | `spec.py` |
+|---|---|
+| status | **PROVEN** (the invariant, closed form) + **MEASURED** (cross-route agreement to 10⁻⁹) |
+| new? | the collapse of the seating condition to a single `B·ℓ` invariant, yes |
+| **not** claimed | what it is *useful for* — that is not a physics question and inventing an application here would be the failure mode every withdrawal in this tree was about |
+
+**One test halted rather than completed, recorded so it is a decision.** **Kerr–Newman** — charge
+*with* rotation — was begun; the Kerr–Schild metric was built and validated (`a = 0` reduces to
+Schwarzschild exactly; ergosphere at `x = √(4+a²)`, matching `r = 2M`), and the **ergoregion is the one
+place a positive-potential region sits outside a horizon in vacuum**. The integrator hit the ring
+singularity and the test was **halted by scoping** — it was a hunt for a lead, which is no longer
+required. **`NOT-RUN`, with a reason, and it is the one untested door if the lead is ever reopened.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

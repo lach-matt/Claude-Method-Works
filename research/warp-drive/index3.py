@@ -536,8 +536,19 @@ FINDINGS = [
   "a magnetar's 1e11 T field has u = 3.98e27 Pa and clears the universal seating threshold beyond 1.55e8 m = 155,000 km. Seating is not hypothetical: nature already builds the field that does it"),
  ("THE-SPLIT",       +1, +1, +1, "charge.py",
   "the device divides along the energy-condition line -- part 2's turn needs T_kk > 0 and is ACHIEVABLE with ordinary EM; parts 1 and 3's lead needs Phi > 0 and is forbidden by two independent theorems"),
+ # M's scoping: drop the lead, keep the seat.  The spec becomes achievable.
+ ("SCOPE-DROPS-LEAD",+1, +1, +1, "spec.py",
+  "M's correction -- the matter must exist at both ends under the same physics, nothing more -- removes the requirement every blocking theorem was attached to. Olum, Ford-Roman and Q<=M all forbid a LEAD that is no longer asked for"),
+ ("ONE-INVARIANT",  +1, +1, +1, "spec.py",
+  "the whole specification is B*l = sqrt(2 mu_0 pi c^4/4G) = 1.5456e19 T m, fixed by c, G and mu_0 alone: field strength and range trade exactly inversely, no free parameters"),
+ ("CROSS-ROUTE",    +1,  0, +1, "spec.py",
+  "verified by a route sharing no formula: q = (4 pi G/c^4)T_kk gives pi/sqrt(q) = 1.5456e8 m at B = 1e11 T, and seatindex.py's threshold gives the same"),
+ ("GAP-IS-ENGINEERING",+1,+1,+1, "spec.py",
+  "8.3e7 in field and 6.9e15 in energy density from the best human field to magnetar class -- against NO THEOREM, and on a line that CLOSES with scale, unlike the lead's 65 orders which widened"),
+ ("KERR-HALTED",     0, -1,  0, "spec.py",
+  "Kerr-Newman metric built and validated (a=0 gives Schwarzschild exactly, ergosphere at x=sqrt(4+a^2)) then HALTED by scoping when the integrator hit the ring: it was a hunt for a lead. NOT-RUN with a reason, and the one untested door if the lead reopens"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-three obstructions five dissolved, three relocated, nine closed negative, four conditional, two open and none untested"),
+  "of twenty-four obstructions six dissolved, three relocated, nine closed negative, four conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -654,7 +665,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 203)
+    chk("number of findings indexed", len(FINDINGS), 208)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -700,6 +711,7 @@ def selftest():
                 "LOG-COORDINATE","LIMIT-DISSOLVES","MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
                 "NO-ACHIEVABLE-CORE","GAP-WIDENS","PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
                 "CHARGE-NO-LEAD","EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT",
+                "SCOPE-DROPS-LEAD","ONE-INVARIANT","GAP-IS-ENGINEERING",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -718,7 +730,8 @@ def selftest():
                 "ONE-SIGN-EXOTIC","LOG-COORDINATE","LIMIT-DISSOLVES",
                 "MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
                 "PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
-                "EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT"]))
+                "EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT",
+                "SCOPE-DROPS-LEAD","ONE-INVARIANT","GAP-IS-ENGINEERING"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

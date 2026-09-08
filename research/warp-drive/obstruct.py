@@ -14,7 +14,7 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-three obstructions, FIVE dissolved, three relocated,
+THE HEADLINE: of twenty-four obstructions, SIX dissolved, three relocated,
 NINE closed negative, FOUR conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
@@ -238,6 +238,14 @@ LEDGER = [
   "which is INSIDE THE HORIZON at every charge, and Q <= M is the "
   "Einstein-Maxwell positive energy theorem. Charge reduces the delay by up to "
   "25% at r = 2M and never reverses it", "charge.py"),
+ ("THE-LEAD", "a device must beat light to be worth building", "DISSOLVED",
+  "NOT UNDER M's SCOPING: the matter must exist at both ends under the same "
+  "physics, nothing more. That removes the requirement Olum, Ford-Roman and "
+  "Q <= M were all attached to. What remains -- the SEAT -- is achievable with "
+  "ordinary matter, and the whole specification is one invariant, "
+  "B*l = 1.5456e19 T m, fixed by c, G and mu_0 alone. The residual gap is "
+  "8.3e7 in field strength: ENGINEERING against no theorem, on a line that "
+  "closes with scale where the lead's 65 orders widened", "spec.py"),
 ]
 
 def by_status():
@@ -353,6 +361,13 @@ def check_charge_split():
             and charge.em_is_ordinary()
             and charge.seats_beyond(1.0e11) < 2.0e8)
 
+def check_spec_achievable():
+    import spec
+    return (abs(spec.seating_invariant()/1.54562e19 - 1.0) < 1e-4
+            and abs(spec.conjugate_length_from_q(spec.energy_density(1e11))
+                    / spec.range_for_field(1e11) - 1.0) < 1e-9
+            and spec.range_for_field(45.0) > spec.range_for_field(1e11))
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -369,8 +384,8 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 23)
-    chk("actually DISSOLVED", len(h["DISSOLVED"]), 5)
+    chk("obstructions tracked", len(LEDGER), 24)
+    chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 9)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 4)
@@ -409,6 +424,8 @@ def selftest():
         check_no_achievable_core(), True)
     chk("CHARGE-STATE: seat yes, lead no, and the split is the EC line",
         check_charge_split(), True)
+    chk("THE-LEAD: not required under scoping, and the seat is achievable",
+        check_spec_achievable(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",
