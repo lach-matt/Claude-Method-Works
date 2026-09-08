@@ -600,6 +600,17 @@ FINDINGS = [
   "and that gain reaches unity at 0.0934 PLANCK LENGTHS -- a fourth independent route to the Planck scale after corridor.py's two and achievable.py's one, about a different geometry again"),
  ("GJW-IS-EXISTENCE-PROOF",+1,+1,+1, "gjw.py",
   "under M's scoping, where the lead is dropped, GJW is an EXISTENCE PROOF: a traversable connection from entanglement plus a coupling, no exotic matter postulated, the negative energy DERIVED. UV-complete and published"),
+ # M's structure: binary -> hierarchy -> binary.  I had not been writing it.
+ ("ANALYSIS-ALL-ALONG", 0, -1, +1, "expand.py",
+  "every headline number this project produced -- 65 orders, 2 pi^2, 4.387e71 D^2 -- is an ANALYSIS answer, a magnitude, and by register 1173 analysis earns NO ROW because logic cannot get a binary back from it"),
+ ("THREE-ROWS-ADMIT",  +1, +1, +1, "expand.py",
+  "expanded properly: ORDER admits (GJW's external causal path), GEOMETRY admits (no throat, no horizon, M_ADM=0), ALGEBRA admits (junction closes, DEC holds, stable at beta^2=0). Three of four"),
+ ("DISSENT-IS-VALUE",  +1, +1, +1, "expand.py",
+  "the single dissent is INFORMATION, and by section 33.2 the identity of the dissenting language names the kind of object: one missing a VALUE, not a STRUCTURE"),
+ ("NOTHING-STRUCTURAL",+1, +1, +1, "expand.py",
+  "so nothing structural stands against faster or cheaper -- speed is an order question and order admits, cost is an algebra question and algebra admits. NOT permission to ignore the magnitude, which is measured and real"),
+ ("ORDER-MOVED",       +1, +1, +1, "expand.py",
+  "and ORDER moved this session from refusal to admission on GJW's external path. Before pass 27 the expansion stood at TWO refusals. It moved the row that governs SPEED -- the only structural change this project has made to that question"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twenty-seven obstructions six dissolved, three relocated, ten closed negative, six conditional, two open and none untested"),
 ]
@@ -718,7 +729,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 232)
+    chk("number of findings indexed", len(FINDINGS), 237)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -752,39 +763,42 @@ def selftest():
                 "CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS",
                 "CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS",
                 "DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
-                "DEVICE-SEATS-LEADS","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT",
-                "ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GAP-WIDENS",
-                "GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER","LENSING-IS-THE-SEAT",
-                "LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE",
-                "MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON",
-                "NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","OBJ-CEILING",
-                "OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE",
-                "ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED",
+                "DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-GAP","EM-IS-ORDINARY",
+                "ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY",
+                "GAP-WIDENS","GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER",
+                "LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK",
+                "LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL",
+                "NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT",
+                "NOT-POWERED","NOTHING-STRUCTURAL","OBJ-CEILING","OBSERVED-ENGINE",
+                "ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE","ORDER-MOVED","ORDINARY-MATTER",
+                "PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED",
                 "PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD",
                 "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER",
                 "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT",
                 "STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE",
-                "THE-WINDOW","THEOREM-IS-FREE","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE",
-                "TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL",
-                "VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TWENTY-NOT-65-ORDERS",
+                "TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT",
+                "VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND",
+                "ZERO-ADM-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff), sorted([
                 "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS",
                 "CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS",
                 "DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
-                "DEVICE-SEATS-LEADS","EC-TAKEN","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT",
-                "ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GJW-IS-EXISTENCE-PROOF",
-                "KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE",
-                "LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-BUCHDAHL","NO-EXOTIC",
-                "NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED",
-                "OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDINARY-MATTER","PLANCK-FOURTH-TIME",
+                "DEVICE-SEATS-LEADS","DISSENT-IS-VALUE","EC-TAKEN","EM-IS-ORDINARY",
+                "ENTANGLEMENT-IS-IT","ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY",
+                "GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES",
+                "LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED",
+                "NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI",
+                "NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","OBSERVED-ENGINE",
+                "ONE-SIGN-EXOTIC","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FOURTH-TIME",
                 "PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE",
                 "PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY",
                 "SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT",
                 "STABLE-FOR-FREE","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR","THE-SPLIT",
-                "THE-WINDOW","THEOREM-IS-FREE","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE",
-                "TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL",
-                "VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
+                "THE-WINDOW","THEOREM-IS-FREE","THREE-ROWS-ADMIT","TWENTY-NOT-65-ORDERS",
+                "TWO-CONSTANTS-AGREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL",
+                "VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

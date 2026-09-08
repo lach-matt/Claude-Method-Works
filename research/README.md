@@ -3394,3 +3394,67 @@ after `corridor.py`'s Unruh and Casimir crossings and `achievable.py`'s core cro
 - `index3.py` — 232 findings: `EXTERNAL-PATH-ESCAPE`, `BANK-LOAN-THEOREM`, `GJW-FLAT-COST`,
   `PLANCK-FOURTH-TIME`, `GJW-IS-EXISTENCE-PROOF`.
 - `obstruct.py` — 27 rows. New `GRAHAM-OLUM-ESCAPE`, **CONDITIONAL**.
+
+---
+
+## Pass 28 — `expand.py`: binary → hierarchy → binary, as M specified
+
+M: *"the code has to be written expansively from binary through the hierarchy to a logic expansion of
+the original binary statement, and then reduced back down to a similar output of the same binary
+structure as the initial input."*
+
+That is register 1173's hierarchy — **binary → language → binary** — and I have not been writing it.
+
+**Every headline number this project has produced is an *analysis* answer.** 65 orders, `2π²`,
+`4.387×10⁷¹ D²` — magnitudes, every one. By 1173 **analysis earns no row**, because logic cannot get a
+binary back from it. I have been answering a binary question in the one language that cannot answer
+it, for twenty-odd passes. `achronal.py` caught me doing exactly this once already, with ANEC.
+
+### The expansion
+
+| language | asks | verdict |
+|---|---|---|
+| **order** | can a non-achronal connection exist? | **ADMITS** — GJW's external causal path |
+| **geometry** | does it embed? | **ADMITS** — no throat, no horizon, `M_ADM = 0` |
+| **algebra** | is it closed under its operation? | **ADMITS** — junction closes, DEC holds, stable at `β² = 0` |
+| **information** | does it need an unavailable coordinate? | **REFUSES** — `Φ > 0` needs `ρ < 0` |
+| statistics | drawn from a distribution? | `NOT-RUN` — no measure declared |
+| analysis | is there a continuous law? | **NO ROW** — returns a magnitude (reg. 1173) |
+
+### The logic expansion and the reduction
+
+Four rows → `C(4,2) = 6` pairs → **3 agree, 3 disagree**. Register 1176: *E = 0 iff the languages
+agree.* They do not. **E = 1. `TRANSITION-POSSIBLE` is not admitted** — the same answer the magnitudes
+gave, and that is the point rather than a disappointment.
+
+**The value is where the dissent sits.** §33.2: *the identity of the dissenting language names the kind
+of object.*
+
+> **Order admits. Geometry admits. Algebra admits. The single dissent is INFORMATION.**
+>
+> The causal structure is fine, the geometry embeds, the junction closes, the shell holds.
+> **What is missing is a VALUE, not a STRUCTURE.**
+
+### What that does and does not license
+
+**DOES:** localise the obstruction exactly — and say that the three things a *faster and cheaper* route
+would have to fight are **not fighting**. Speed is an order question and **order admits**. Cost is an
+algebra question and **algebra admits**. Embedding is a geometry question and **geometry admits**.
+**Nothing structural stands against faster or cheaper.**
+
+**DOES NOT:** make anything faster or cheaper. Information's refusal is **measured**, and `4.387×10⁷¹`
+is a real number about the real world. Register 1173 governs *which language answers a binary*, not
+*which measurements are true*.
+
+### The row that moved
+
+**ORDER admits only because of GJW.** Before pass 27 it refused too, and the expansion stood at **two**
+refusals. GJW's external causal path moved it to one — **and it moved the row that governs speed.**
+
+That is the only structural change this project has made to the speed question, and by this reading it
+is the thing to push on rather than the magnitude.
+
+### Seated
+
+- `index3.py` — 237 findings: `ANALYSIS-ALL-ALONG`, `THREE-ROWS-ADMIT`, `DISSENT-IS-VALUE`,
+  `NOTHING-STRUCTURAL`, `ORDER-MOVED`.
