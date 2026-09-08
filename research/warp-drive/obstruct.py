@@ -14,7 +14,7 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of eighteen obstructions, FOUR dissolved, three relocated, six
+THE HEADLINE: of nineteen obstructions, FIVE dissolved, three relocated, six
 closed negative, three are conditional, two are OPEN, and NONE is untested.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -191,6 +191,16 @@ LEDGER = [
   "Bounded above by the M^2 path-lengthening penalty, below by the focal length "
   "-- a window about a decade wide. Negative mass ASSUMED, field LINEARISED, "
   "focus ASTIGMATIC, no payload", "composite.py"),
+ ("BARE-NEGATIVE-MASS", "the seats-and-leads result needs a bare negative "
+  "mass, which the positive mass theorem forbids", "DISSOLVED",
+  "IT DOES NOT. concentric.py puts a compact negative core inside a positive "
+  "shell of equal magnitude: the monopoles cancel, M_ADM = 0 EXACTLY, and it "
+  "still seats and leads over most of a decade in m. The theorem is nearly "
+  "free -- shell delay/core advance ~ (L/R_s)/(2 ln(L/a)) = 8% -- because the "
+  "core's advance carries a logarithm of its compactness and the shell's delay "
+  "does not. The corridor is vacuum only for b/a >~ 50. Negative LOCAL energy "
+  "density is unchanged, the field is linearised, and NOTHING here shows the "
+  "configuration is stable", "concentric.py"),
 ]
 
 def by_status():
@@ -273,6 +283,12 @@ def check_seat_meets_transport():
     # dissolved means: the thing said impossible was exhibited
     return composite.both(-2.0e-3) and not composite.survey(2.0e-3)["early"]
 
+def check_bare_mass_needed():
+    import concentric
+    # dissolved: the device works with M_ADM = 0, so no bare negative mass
+    return (concentric.works(5.0e-3)
+            and abs(concentric.adm_residual(5.0e-3)) < 1e-10)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -289,8 +305,8 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 18)
-    chk("actually DISSOLVED", len(h["DISSOLVED"]), 4)
+    chk("obstructions tracked", len(LEDGER), 19)
+    chk("actually DISSOLVED", len(h["DISSOLVED"]), 5)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 6)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
@@ -319,6 +335,8 @@ def selftest():
         check_turn_advantage_closed(), True)
     chk("SEAT-MEETS-TRANSPORT: a negative mass seats AND arrives early",
         check_seat_meets_transport(), True)
+    chk("BARE-NEGATIVE-MASS: not needed -- M_ADM = 0 works",
+        check_bare_mass_needed(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

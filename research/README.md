@@ -2525,3 +2525,86 @@ quantum term added.
 
 Seated: `index3.py` 172 findings — `UNRUH-NEEDS-HORIZON`, `CASIMIR-ROUTE`, `TWO-ROUTES-AGREE`,
 `DEVICE-IS-CLASSICAL`. `paper/CLAIMS.md` — **H9′**.
+
+---
+
+## Pass 18 — `concentric.py`: the device, with `M_ADM = 0`
+
+The last structural item. H8 needed a **bare negative mass**, which the positive mass theorem forbids
+— and a result that needs one is not a device.
+
+### The construction
+
+A compact **negative core** inside a **positive shell** of equal magnitude:
+
+`Φ(r) = m/√(r²+a²) − m/max(r, R_s)`
+
+**The monopoles cancel, so `M_ADM = 0` exactly.** Measured: `Φ(1000) = −6.2×10⁻¹³` against
+`Φ(1) = +4.98×10⁻³`. No `1/r` tail, no ADM mass, nothing for the theorem to object to.
+
+**Newton's shell theorem does the division of labour** — a theorem, not an assumption. Inside a
+spherical shell the potential is constant, so the shell contributes to `g_tt` (a real delay for a
+clock inside relative to infinity) and **nothing** to the tidal field. All focusing is the core's Weyl
+term; the shell is pure delay.
+
+### It works
+
+| `m` | `f = b²/4m` | conjugate | `t − \|dx\|` | relative | |
+|---|---|---|---|---|---|
+| 1.0×10⁻³ | 250 | none | −1.92×10⁻² | −6.4×10⁻⁵ | leads, no seat |
+| 3.0×10⁻³ | 83 | none | −5.40×10⁻² | −1.8×10⁻⁴ | leads, no seat |
+| **5.0×10⁻³** | 50 | **228.5** | **−8.42×10⁻²** | −2.8×10⁻⁴ | **SEATS + LEADS** |
+| **1.0×10⁻²** | 25 | **182.2** | **−1.41×10⁻¹** | −4.7×10⁻⁴ | **SEATS + LEADS** |
+| **2.0×10⁻²** | 12.5 | **165.4** | **−1.79×10⁻¹** | **−6.0×10⁻⁴** | **SEATS + LEADS** |
+| 8.0×10⁻² | 3.1 | 154.4 | +1.04 | +3.5×10⁻³ | seats, LATE |
+
+Most of a decade of window, conjugate point converged to **228.45 ± 0.04** over a sixfold refinement.
+
+### And the theorem is nearly free
+
+Best relative lead `−6.0×10⁻⁴` — if anything slightly *better* than the bare mass. Not luck, a rule:
+
+**`shell delay / core advance ≈ (L/R_s) / (2 ln(L/a)) ≈ 8%`**
+
+The core's advance carries a **logarithm of its compactness**; the shell's delay does not.
+**Put the shell far and make the core small.**
+
+### One hard design constraint
+
+The corridor is vacuum **only if the core is compact against the impact parameter**:
+
+| `a` | `b/a` | tidal trace ratio |
+|---|---|---|
+| 0.50 | 2 | 3.99×10⁻¹ — **not vacuum** |
+| 0.10 | 10 | 1.97×10⁻² |
+| 0.02 | 50 | 7.55×10⁻⁴ — used |
+
+Below `b/a ≈ 50` the ray runs inside the core's own negative density, `R_kk` is large and negative,
+and Ricci **defocusing** fights the Weyl term in a corridor advertised as empty.
+
+### Three errors, all kept as tests
+
+1. **The first potential was not zero-ADM at all** — the constant applied *everywhere* is a bare
+   negative monopole plus an offset, `M_ADM = −m`, exactly what the shell was for. Fix: `max(r, R_s)`.
+   The numbers survived (the ray never left `r < 150 < R_s`); the **claim** did not.
+2. **The first corridor was not vacuum** — `a = 0.5`, `b = 1`, trace 40% of the largest component.
+3. **The first window was measured with a broken harness.** The scratch driver's `run()` reset the
+   potential to its own defaults on entry, so every "`a = 0.02`" scratch run silently used `a = 0.5`.
+   It reported a window five times narrower and a lead two orders too small, and a draft of this
+   write-up stated both as findings. **Withdrawn.** The disagreement between harness and instrument is
+   what surfaced it — the argument for running the instrument rather than the sketch.
+
+### Not claimed
+
+Negative mass is **still assumed** (`M_ADM = 0` removes the theorem's objection to the *configuration*,
+not the exoticism of the core's **local** density); **linearised** with `Φ_max ≈ 0.25`, which is not
+small, so the window edges are indicative and this is the weakest point; the focus is **astigmatic**;
+**no payload**; and **no stability analysis** — nobody has shown a negative core inside a positive
+shell holds together, and `wall.py`'s history is a warning about assuming it would.
+
+### Seated
+
+- `index3.py` — 178 findings: `ZERO-ADM-DEVICE`, `DEVICE-SEATS-LEADS`, `THEOREM-IS-FREE`,
+  `SHELL-THEOREM-SPLIT`, `VACUUM-NEEDS-COMPACT`, `HARNESS-NOT-SKETCH`.
+- `obstruct.py` — 19 rows. New `BARE-NEGATIVE-MASS`, **DISSOLVED** — the fifth.
+- `paper/CLAIMS.md` — **H10**, the device.

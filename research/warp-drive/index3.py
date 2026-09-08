@@ -468,8 +468,21 @@ FINDINGS = [
   "Casimir mass-equivalent at l_P is 2.9834e-10 kg against the Unruh crossover 5.3293e-10 kg -- two unrelated quantum estimates within a factor of 1.79, so the Planck-scale verdict is robust to which vacuum you invoke"),
  ("DEVICE-IS-CLASSICAL",+1,+1,+1, "corridor.py",
   "consequence: the two-region concentric device is a purely classical problem at any engineering scale, and composite.py's validated pipeline handles it with no quantum term added"),
+ # The two-region device, built and measured.  The last structural item.
+ ("ZERO-ADM-DEVICE",+1, +1, +1, "concentric.py",
+  "a compact NEGATIVE core inside a POSITIVE shell of equal magnitude: the monopoles cancel so M_ADM = 0 EXACTLY, and the positive mass theorem has no objection to the configuration"),
+ ("DEVICE-SEATS-LEADS",+1,+1,+1, "concentric.py",
+  "MEASURED: it seats and leads over m = 5e-3 to 4e-2, most of a decade, conjugate point 228.45 +- 0.04 over a sixfold refinement, best relative lead -6.0e-4"),
+ ("THEOREM-IS-FREE", +1, +1, +1, "concentric.py",
+  "respecting the positive mass theorem costs almost nothing: shell delay/core advance ~ (L/R_s)/(2 ln(L/a)) = 8%, because the core's advance carries a logarithm of its compactness and the shell's delay does not"),
+ ("SHELL-THEOREM-SPLIT",+1,+1,+1, "concentric.py",
+  "Newton's shell theorem does the division of labour: the shell contributes to g_tt and NOTHING to the tidal field, so all focusing is the core's Weyl term and the shell is pure delay"),
+ ("VACUUM-NEEDS-COMPACT", 0, 0, +1, "concentric.py",
+  "the corridor is vacuum only if the core is compact against the impact parameter: trace ratio 3.99e-1 at b/a = 2 against 7.55e-4 at b/a = 50. A design constraint, not a numerical detail"),
+ ("HARNESS-NOT-SKETCH", 0, -1, +1, "concentric.py",
+  "the first window was measured with a scratch driver that silently reset the potential to its own defaults, reporting a five-times-narrower window and a lead two orders too small. WITHDRAWN. Run the instrument, not the sketch"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of eighteen obstructions four dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
+  "of nineteen obstructions five dissolved, three relocated, six closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -586,7 +599,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 172)
+    chk("number of findings indexed", len(FINDINGS), 178)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -620,6 +633,7 @@ def selftest():
                 "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
                 "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
                 "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
+                "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE","SHELL-THEOREM-SPLIT",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -630,7 +644,9 @@ def selftest():
                 "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
                 "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
                 "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
-                "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL"]))
+                "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
+                "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE",
+                "SHELL-THEOREM-SPLIT"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

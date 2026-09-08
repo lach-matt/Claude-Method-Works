@@ -457,6 +457,73 @@ no mixed quantity is reported.
 
 ---
 
+## ★★ HEADLINE — the device
+
+**H10. The two-region device seats and leads with `M_ADM = 0` exactly, so the positive mass theorem
+has no objection to it — and respecting the theorem is nearly free.**
+
+> H8's result needed a **bare negative mass**, which the positive mass theorem forbids, and a result
+> that needs one is not a device. The construction that fixes it is a compact **negative core inside a
+> positive shell of equal magnitude**:
+>
+> `Φ(r) = m/√(r²+a²) − m/max(r, R_s)`
+>
+> **The monopoles cancel, so `M_ADM = 0` exactly.** Measured: `Φ(1000) = −6.2×10⁻¹³` against
+> `Φ(1) = +4.98×10⁻³`. No `1/r` tail, so no ADM mass, so nothing for the theorem to object to.
+>
+> **Newton's shell theorem does the division of labour**, and it is a theorem rather than an
+> assumption: inside a spherical shell the potential is constant, so the shell contributes to `g_tt`
+> — a real delay for a clock inside relative to infinity — and **nothing** to the tidal field. All the
+> focusing is the core's Weyl term; the shell is pure delay.
+>
+> | `m` | `f = b²/4m` | conjugate | `t − \|dx\|` | relative | |
+> |---|---|---|---|---|---|
+> | 1.0×10⁻³ | 250 | none | −1.92×10⁻² | −6.4×10⁻⁵ | leads, no seat |
+> | 3.0×10⁻³ | 83 | none | −5.40×10⁻² | −1.8×10⁻⁴ | leads, no seat |
+> | **5.0×10⁻³** | 50 | **228.5** | **−8.42×10⁻²** | −2.8×10⁻⁴ | **SEATS + LEADS** |
+> | **1.0×10⁻²** | 25 | **182.2** | **−1.41×10⁻¹** | −4.7×10⁻⁴ | **SEATS + LEADS** |
+> | **2.0×10⁻²** | 12.5 | **165.4** | **−1.79×10⁻¹** | **−6.0×10⁻⁴** | **SEATS + LEADS** |
+> | 8.0×10⁻² | 3.1 | 154.4 | +1.04 | +3.5×10⁻³ | seats, LATE |
+>
+> **A window of most of a decade**, and the conjugate point is converged to `228.45 ± 0.04` over a
+> sixfold refinement in step count.
+>
+> **And it is nearly free.** The best relative lead, `−6.0×10⁻⁴`, is if anything slightly *better* than
+> H8's bare mass. The reason is a design rule, not luck:
+>
+> **`shell delay / core advance ≈ (L/R_s) / (2 ln(L/a)) ≈ 8%`**
+>
+> The core's advance carries a **logarithm of its compactness** and the shell's delay does not. **Put
+> the shell far and make the core small.**
+>
+> **One hard design constraint:** the corridor is vacuum only if the core is compact against the
+> impact parameter. Tidal trace ratio `3.99×10⁻¹` at `b/a = 2` against `7.55×10⁻⁴` at `b/a = 50`. Below
+> `b/a ≈ 50` the ray runs inside the core's own negative density, `R_kk` is large and negative, and
+> Ricci **defocusing** fights the Weyl term in a corridor advertised as empty.
+
+| | `concentric.py` |
+|---|---|
+| status | **MEASURED**, converged over a sixfold refinement, on `composite.py`'s thrice-validated pipeline |
+| new? | the zero-ADM construction and the `(L/R_s)/(2 ln(L/a))` design rule, yes |
+| falsified by | a strong-field treatment that closes the window — `Φ_max ≈ 0.25` at the design point is **not small**, and this is the weakest point in the result |
+| **not** claimed | five things, below |
+
+**Not claimed:** (1) **negative mass is still assumed** — `M_ADM = 0` removes the theorem's objection to
+the *configuration*, not the exoticism of the core's **local** energy density; (2) **linearised weak
+field**, with `Φ_max ≈ 0.25`, so the window's edges are **indicative**; (3) the focus is **astigmatic**
+— a line focus, enough to break achronality, not a point-to-point image; (4) **no payload** —
+null-geodesic optics throughout; (5) **no stability analysis** — a negative core inside a positive
+shell is a configuration nobody has shown holds together, and `wall.py`'s history in this project is a
+warning about assuming it would.
+
+**A process finding worth recording.** The first window measured for this device was wrong: a scratch
+driver silently reset the potential to its own defaults, so every "`a = 0.02`" run used `a = 0.5`. It
+reported a window five times narrower and a lead two orders too small, and a draft of this claim
+stated both. **Withdrawn.** The disagreement between harness and instrument is what surfaced it —
+which is the argument for running the instrument rather than the sketch.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
