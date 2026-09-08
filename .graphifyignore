@@ -1,6 +1,12 @@
 # graphify scope: skip superseded BUILD snapshots, keep only the latest (BUILD174)
 The_Method_1_6_BUILD*
 !The_Method_1_6_BUILD174_*
+# same class, same principle: method/buildNNN/ are per-build snapshots of two
+# members whose current generation method/members/ already holds. 22 files,
+# 23 MB, all prior generations of The_Method_1_6___The_Register-2.md and
+# The_Method_1_6-2.md. A node from build121's Register tells a reader nothing
+# method/members/ does not.
+method/build[0-9]*/
 .claude/
 graphify-out/
 # byte-identical duplicates of an unsuffixed sibling

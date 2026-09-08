@@ -5,11 +5,16 @@ __pycache__/
 graphify-out/.graphify_*
 graphify-out/.chunk*
 graphify-out/.needs_update
-graphify-out/cache/
 graphify-out/2026-*/
+# The ROOT graphify-out/cache/ is TRACKED. It is the extraction cache, and
+# gitignoring it is why a rebuild in a fresh container pays a cold semantic
+# pass: the 2026-09-04 graph replayed 11,583 nodes from a cache that never
+# travelled with the repository. Banked so a rebuild resumes. Nested scratch
+# caches under a scoped run stay ignored.
 # a detect run scoped to a subdirectory writes its own graphify-out/ there;
 # these are unanchored so that scratch never lands in a generated tree
-**/graphify-out/cache/
+*/graphify-out/cache/
+*/*/graphify-out/cache/
 **/graphify-out/.graphify_*
 **/graphify-out/.chunk*
 
