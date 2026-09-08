@@ -117,10 +117,10 @@ for lowercase `register NNN` is no longer owed. Both are bundle members and neit
 
 ## What it reports
 
-Over `--roster with-companion`, 2,152 pointer tokens:
+Over `--roster with-companion`, 2,153 pointer tokens:
 
 ```
-RESOLVED-HERE 438  RESOLVED 1605  AMBIGUOUS 65  PARTIAL 19
+RESOLVED-HERE 438  RESOLVED 1606  AMBIGUOUS 65  PARTIAL 19
 PREFIX-ONLY 3  UNRESOLVED 21  KIND-MISMATCH 1
 44 findings  (APPSEC 2, FIGURE 2, REGISTER 4, REGISTER-RANGE 19, SECTION 8, THEOREM 9)
 ```

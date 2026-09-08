@@ -1,12 +1,12 @@
 
 == 0  THE POPULATION
-   entries (heading lines) = the front matter's printed total 1733                       OK
-   bare / grouped                                             (1726, 7)                  OK
-   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1758                       OK
+   entries (heading lines) = the front matter's printed total 1734                       OK
+   bare / grouped                                             (1727, 7)                  OK
+   distinct numbers = headings + the 25 extra numbers the seven grouped headings carry 1759                       OK
    no entry number printed twice                              []                         OK
 
 == 1  THE ENTRY FORM, OVER EVERY ENTRY
-   entries with a body            : 1733
+   entries with a body            : 1734
    entries whose body is empty    : 0
    every non-empty body opens on a bold headline              []                         OK
    entries whose first line carries an ODD number of asterisks: 22
@@ -37,7 +37,7 @@
    Entry 313 is the one CONFIRMED by reading (reg3-01). The rest are handed to their units.
 
 == 2  REGISTER POINTERS, OVER EVERY VOLUME
-   distinct register numbers cited anywhere : 686
+   distinct register numbers cited anywhere : 687
    cited numbers with no entry, BARE-NUMBER net               [344, 571, 1725]           EXPECTED [344, 571]
    in which volumes: {344: ['main'], 571: ['main'], 1725: ['reg']}
    register_cites.py reports 31 on a RANGE-AWARE net that also expands "registers 344-346"
@@ -46,7 +46,7 @@
 
 == 3  ABSENT NUMBERS, AND WHETHER ANYTHING CITES THEM
    numbers absent in 1..1792 (the predecessor's measurement, unchanged) 132                        OK
-   numbers absent above 1792, in 1..1891: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
+   numbers absent above 1792, in 1..1892: [1797] (staged, not seated — register 1797 is queued in REGISTER-QUEUE-APPEND-cypher-audit.md)
    absent AND cited   : 3 [344, 571, 1725]
    absent and uncited : 130
    L6574 enumerates eleven "in no group at all", scoped between 203 and 354: [204, 206, 210, 260, 264, 269, 272, 287, 324, 341, 344]

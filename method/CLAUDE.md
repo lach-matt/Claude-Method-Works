@@ -70,9 +70,9 @@ no longer on the read path.
   store had replaced. `method/R3-REASSESSED.md` carries the reassessment and the before/after table; what follows
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
-- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD129 main** (2,141,349 B ·
-  `0f9473f09a8d412c2ad9539432390b6d` · 18,914 lines · 2 members) and **BUILD305 compendia** · 762 members.
-  **764 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
+- **Live files, both in `method/` and asserted by `method/verify.py`: BUILD130 main** (2,143,575 B ·
+  `8c82e16f99d2f279cb381b13dc085603` · 18,918 lines · 2 members) and **BUILD308 compendia** · 763 members.
+  **765 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
   **W-310 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
@@ -310,6 +310,32 @@ no longer on the read path.
   still point at a line that carries the handle.** `bib-01`, `28a-08` and `28a-09` are untouched: **register 1891
   removed rows whose (name, year) no object attributes, and did not touch a handle.** Only `r2-26c3` remains owed.
   **MEASURED at BUILD129/BUILD305: verify OK, census a fixed point, 86 OK / 0 FAIL.**
+- **AND REGISTER 1880's OWED EXPANSION WAS NOT OWED: THE OBJECT WAS ALREADY PRINTED (W-311 to W-313).**
+  1880 closes *"the Mathematical Compendium prints no object for the bracket system — an expansion owed
+  there and not written here"*. The compendium prints **`The tower's two ends joined`, family K**, at MC
+  **L2135–L2148**, carrying the gap-free monotone interval over all **199,130** cells, the directed system
+  **χ(Λ₁₃) → … → χ(Λ₈)**, **slack ≤ 2 rank units**, **ranks 3 through 20**, the 1D chain as terminal
+  object, the 14D direction as limit, and the map form **refuted, branching 4, 4, 6, 8, 9** — with a grade
+  line reading *"on the rebuilt tower and its bracket system"*. **`buildtrace` puts it at BUILD77**, present
+  at BUILD150, BUILD179 and in the live bundle, against **1880 seated at main BUILD125 when the compendia
+  stood at BUILD268**. **The clause was untrue when written, not overtaken.**
+- **AND WHY IT SURVIVED IS THE SAME FAULT A THIRD TIME.** `compendia2.py`'s `bracket_system()` confirmed the
+  claim by searching object **headings in families B and T** for `stage-bracket|bracket system|rank value|fibre`.
+  **The object is in family K and is named for its result rather than its mechanism**, so it answered to
+  neither the families nor the words. **The test sought the object by the name it would have borne had it
+  been absent, and a search shaped to find an absence found one.** After `compendia3`'s dotted parent regex
+  (14 where the figure was 73) and register 1736's author-and-year match (blind to a wrong year on a real
+  author), this is the third time M's correction has landed inside an instrument rather than a question.
+- **BUILD130/BUILD306 SEATS REGISTER 1892, WHICH SUPERSEDES THAT CLAUSE ALONE.** **No volume byte moves** —
+  nothing in the volumes is wrong — and **1880 is not withdrawn**: its measurements are the object's own and
+  its refutation of register 334's map form stands. **`r4-a8.py` is the first build instrument with empty
+  substitution sets by construction**, and it **refuses a ≥ 7 table row this build does not need**, asserting
+  the set unchanged where its predecessor had to hand-write one. **Twenty-nine goldens moved, not sixty-seven**,
+  because this append inserts no line: the Register is edited in place at six lines and appended at four, so
+  **no line reference moves and the shift class does not recur.** **`reg8-B` recurs a fifth time and gains
+  rather than loses** — `[1725, 1732, 1744, 1756]` becomes `[570, 664, …]`, where **664** is inside *"the 1,664
+  entry headings"* and **570** inside *"1,570 entries … the mature record"*. **MEASURED at BUILD130/BUILD308:
+  verify OK, census a fixed point (0 NEW, 0 GONE), 86 OK / 0 FAIL.**
 - **`proofs/compendia3.py` DISCHARGES TWO OF THE FIVE HELD INSTRUMENTS.** `compendia.py` pinned 23 script sites
   over 18 distinct scripts and 7 stamps; measured now the four volumes print **zero scripts, zero data-file
   names and one stamp match, which is W-284's recorded refusal**. `compendia2.py` raised rather than reported.
