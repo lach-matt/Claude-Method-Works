@@ -1,0 +1,22 @@
+{
+ "old_md5": "00e66419fc47db393d59db864d6256d2",
+ "subs": {
+  "The_Method_1_6___Mathematical_Compendium-2.md": [
+   [
+    1,
+    "| 1970 | Fano | `P.perturb` |",
+    "| 1970 | Lu & Fano | `P.perturb` |"
+   ],
+   [
+    1,
+    "| 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |",
+    "| 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |"
+   ],
+   [
+    1,
+    "| 2003 | Fredenhagen & Verch | `W.rel` |",
+    "| 2003 | Brunetti, Fredenhagen & Verch | `W.rel` |"
+   ]
+  ]
+ }
+}

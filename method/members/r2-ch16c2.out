@@ -30,7 +30,7 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   Booth        unit [8460, 8464]     | References 1 | R.7 0 | six-volume {'main': 4}
   Lueker       unit [8460, 8464]     | References 1 | R.7 0 | six-volume {'main': 4}
   Rival        unit [8502, 8505]     | References 1 | R.7 0 | six-volume {'main': 17, 'reg': 33, 'mc': 8, 'pc': 1}
-  Chen         unit [8506]           | References 2 | R.7 1 | six-volume {'main': 5, 'reg': 1, 'mc': 1}
+  Chen         unit [8506]           | References 2 | R.7 1 | six-volume {'main': 5, 'reg': 1, 'mc': 2}
   Koh          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 3}
   Tan          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 8, 'reg': 2}
   Dilworth     unit [8522]           | References 2 | R.7 0 | six-volume {'main': 8, 'reg': 7, 'mc': 21, 'pc': 2}

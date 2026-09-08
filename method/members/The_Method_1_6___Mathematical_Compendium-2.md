@@ -171,7 +171,7 @@ for Λ E_W is empty, because a cell of Λ is an arrangement and carries no numbe
 
 *none beyond projection onto coordinate i (§6.1), monotone upper envelope / staircase bound (§6.1)*
 
-Definitional — M §6.1 / T A3; Moore 1910; Deville et al. 1999.
+Definitional — M §6.1 / T A3; Moore 1910; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: R is a closure operator (Moore 1910) whose constraints are monotone staircases (Deville, Barette & Van Hentenryck, Artif. Intell. 109 (1999) 243-271). Neither the operator form nor the constraint class is new; what is new is reading E as a defect.**
 
@@ -249,7 +249,7 @@ Proved — T audit 27; Moore 1910.
 
 *none*
 
-Proved — T A5; Cooper 1989; Janssen et al. 1989.
+Proved — T A5; Cooper 1989; Janssen, Jegou, Nouguier & Vilarem 1989.
 
 > **Prior art: binary path consistency and its relation to global consistency — Cooper, An optimal k-consistency algorithm, Artif. Intell. 41 (1989) 89-95; Janssen, Jegou, Nouguier & Vilarem, A filtering process for general constraint-satisfaction problems, IEEE (1989), which gives a polynomial algorithm for pairwise consistency.**
 
@@ -327,7 +327,7 @@ Computed — M §25.3; Shannon 1948; Rissanen 1978.
 
 *i ≠ j*
 
-Definitional — M §6.1 / T A2; Deville et al. 1999.
+Definitional — M §6.1 / T A2; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the monotone upper envelope of a relation is its staircase bound — the connected row-convex class of Deville, Barette & Van Hentenryck (1999) and the row-convex networks of van Beek & Dechter, J. ACM 42 (1995) 543-561.**
 
@@ -463,7 +463,7 @@ Computed — M §18.4.1; Birkhoff 1940.
 
 *ℛ₄ defined*
 
-Computed — M §14.5.5; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999.
+Computed — M §14.5.5; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the cost of choosing one orientation over the full class. The class is Devilles; the cost is measured here.**
 
@@ -497,7 +497,7 @@ Proved — T D10; classical; Euler 1748.
 
 *idempotent, hence a closure operator*
 
-Computed — M §14.5.5; Deville et al. 1999.
+Computed — M §14.5.5; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the four orientations of a staircase constraint are the (alpha, beta)-monotone class of Deville, Barette & Van Hentenryck (1999); R uses one corner and R_4 the closure over all four.**
 
@@ -517,7 +517,7 @@ Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
 
 *the index is a sublattice of a product of chains*
 
-Computed — T 1.8 (App. G) / M §14.4; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.
+Computed — T 1.8 (App. G) / M §14.4; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.
 
 > **Prior art: a tightening preserves closure iff it stays inside the monotone staircase class.**
 
@@ -1811,7 +1811,7 @@ NOT CHECKABLE and the book says why: the looseness convention is named and not p
 
 *van Beek & Dechter's measure*
 
-Computed — M §14.5.9; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999.
+Computed — M §14.5.9; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the tight pairs of a staircase constraint are its envelope steps — Deville, Barette & Van Hentenryck, Artif. Intell. 109 (1999) 243-271.**
 
@@ -3229,7 +3229,7 @@ Measured — M §35; register 1706.
 
 *the coordinates in which three bodies become one point*
 
-Proved — Montgomery 2014, Thm 1; Hopf 1931.
+Proved — Montgomery 2014, Thm 1; Montgomery 1998; Hsiang & Straume 2006; Hopf 1931.
 
 ### The shape metric
 
@@ -3237,7 +3237,7 @@ Proved — Montgomery 2014, Thm 1; Hopf 1931.
 
 *as shape space and the shape sphere*
 
-Proved — Montgomery 2014, Thm 3.
+Proved — Montgomery 2014, Thm 3; Montgomery 2002.
 
 ### The Jacobi–Maupertuis metric
 
@@ -3271,7 +3271,7 @@ Proved — Lagrange 1770; register 1719, 1720.
 
 *seed of the family index in §14.5's sense*
 
-Proved — Euler 1767; Lagrange 1772; register 1717; main §D.5.9.
+Proved — Euler 1767; Lagrange 1772; Chenciner & Montgomery 2000; register 1717; main §D.5.9.
 
 ### The triangle form on K₃
 
@@ -3303,7 +3303,7 @@ Proved — M §21.5.1; Freuder 1982.
 
 *cited theorems assembled; the assembly is this work's. The maximal forbidden case of Chapter 18 is the solved case, because what is forbidden is exactly what Poincaré excludes — register 1724*
 
-Proved — M §36; register 1713, 1714, 1724; Chazy 1922; Saari 1971; Brudno 1983.
+Proved — M §36; register 1713, 1714, 1724; Chazy 1922; Saari 1971; Saari 1973; Alekseev 1968; McGehee 1974; Marchal & Saari 1975; Monaghan 1976; Brudno 1983; Fleischer & Knauf 2019; Kol 2021; Kol 2023.
 
 # V · THE CHAINS
 
@@ -3482,7 +3482,7 @@ The longest derivation paths in the register — what rests on what.
 | 1969 | Griffin, Andrew & Cowan | `LS.coll` |
 | 1969 | Pulay | `LS.chord` |
 | 1970 | Codd | `A.alph` |
-| 1970 | Fano | `P.perturb` |
+| 1970 | Lu & Fano | `P.perturb` |
 | 1970 | Takesaki | `M.tt` |
 | 1971 | Lane | `K.cat` `K.comp` `K.deadend` `K.jump` `K.twocol` |
 | 1971 | Griffin, Andrew & Cowan | `LS.coll` |
@@ -3511,12 +3511,12 @@ The longest derivation paths in the register — what rests on what.
 | 1982 | Marchal & Bozis | `3B.index` |
 | 1983 | Beeri, Fagin, Maier & Yannakakis | `A.intext` `C.compare` `K.three` |
 | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
-| 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+| 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
 | 1986 | Stanley | `C.Aq` `C.Bq` `L.F` `L.F1` `L.Fm1` `L.chains` `L.pal` `L.rankpoly` |
 | 1988 | Pearl | `G.trip` `K.decay` `K.markov` |
 | 1989 | Cooper | `A.bpc` |
 | 1989 | Dechter & Pearl | `G.cons` `G.shape` `K.coupling` |
-| 1989 | Nouguier & Vilarem | `A.bpc` |
+| 1989 | Janssen, Jegou, Nouguier & Vilarem | `A.bpc` |
 | 1991 | Chinneck & Dravnieks | `W.core15` `W.core9` `W.scale` `W.supp` |
 | 1991 | Cover & Thomas | `K.decay` |
 | 1991 | Drake & Swainson | `A.seaton` |
@@ -3525,7 +3525,7 @@ The longest derivation paths in the register — what rests on what.
 | 1992 | Dechter | `A.dechter` `A.gc` |
 | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
 | 1994 | Nesterov & Nemirovskii | `B.newton` `B.selfconc` |
-| 1995 | Beek & Dechter | `A.rule` `A.staircls` |
+| 1995 | van Beek & Dechter | `A.rule` `A.staircls` |
 | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 | 1998 | Montgomery | `3B.shape` |
 | 1999 | Deville | `A.env` `A.orient` `A.r4` `T.tight` |
@@ -3533,7 +3533,7 @@ The longest derivation paths in the register — what rests on what.
 | 2000 | Wald & Zoupas | `M.C1` |
 | 2000 | Chenciner & Montgomery | `3B.five` |
 | 2002 | Montgomery | `3B.metric` |
-| 2003 | Fredenhagen & Verch | `W.rel` |
+| 2003 | Brunetti, Fredenhagen & Verch | `W.rel` |
 | 2006 | Hsiang & Straume | `3B.shape` |
 | 2014 | Montgomery | `3B.shape` `3B.metric` `3B.pot` |
 | 2017 | Diestel | `G.graph` |

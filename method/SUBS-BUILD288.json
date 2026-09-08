@@ -1,0 +1,72 @@
+{
+ "old_md5": "1e2debc6cb61c733c80966851aefd497",
+ "subs": {
+  "The_Method_1_6___Mathematical_Compendium-2.md": [
+   [
+    1,
+    "| 1989 | Nouguier & Vilarem | `A.bpc` |",
+    "| 1989 | Janssen, Jegou, Nouguier & Vilarem | `A.bpc` |"
+   ],
+   [
+    1,
+    "| 1995 | Beek & Dechter | `A.rule` `A.staircls` |",
+    "| 1995 | van Beek & Dechter | `A.rule` `A.staircls` |"
+   ],
+   [
+    1,
+    "Proved — T A5; Cooper 1989; Janssen et al. 1989.",
+    "Proved — T A5; Cooper 1989; Janssen, Jegou, Nouguier & Vilarem 1989."
+   ],
+   [
+    1,
+    "Definitional — M §6.1 / T A3; Moore 1910; Deville et al. 1999.",
+    "Definitional — M §6.1 / T A3; Moore 1910; Deville, Barette & Van Hentenryck 1999."
+   ],
+   [
+    1,
+    "Definitional — M §6.1 / T A2; Deville et al. 1999.",
+    "Definitional — M §6.1 / T A2; Deville, Barette & Van Hentenryck 1999."
+   ],
+   [
+    1,
+    "Computed — M §14.5.5; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999.",
+    "Computed — M §14.5.5; Deville, Barette & Van Hentenryck 1999."
+   ],
+   [
+    1,
+    "Computed — M §14.5.5; Deville et al. 1999.\n",
+    "Computed — M §14.5.5; Deville, Barette & Van Hentenryck 1999.\n"
+   ],
+   [
+    1,
+    "Computed — T 1.8 (App. G) / M §14.4; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.",
+    "Computed — T 1.8 (App. G) / M §14.4; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995."
+   ],
+   [
+    1,
+    "Computed — M §14.5.9; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999.",
+    "Computed — M §14.5.9; Deville, Barette & Van Hentenryck 1999."
+   ],
+   [
+    1,
+    "Proved — M §36; register 1713, 1714, 1724; Chazy 1922; Saari 1971; Brudno 1983.",
+    "Proved — M §36; register 1713, 1714, 1724; Chazy 1922; Saari 1971; Saari 1973; Alekseev 1968; McGehee 1974; Marchal & Saari 1975; Monaghan 1976; Brudno 1983; Fleischer & Knauf 2019; Kol 2021; Kol 2023."
+   ],
+   [
+    1,
+    "Proved — Montgomery 2014, Thm 1; Hopf 1931.",
+    "Proved — Montgomery 2014, Thm 1; Montgomery 1998; Hsiang & Straume 2006; Hopf 1931."
+   ],
+   [
+    1,
+    "Proved — Montgomery 2014, Thm 3.",
+    "Proved — Montgomery 2014, Thm 3; Montgomery 2002."
+   ],
+   [
+    1,
+    "Proved — Euler 1767; Lagrange 1772; register 1717; main §D.5.9.",
+    "Proved — Euler 1767; Lagrange 1772; Chenciner & Montgomery 2000; register 1717; main §D.5.9."
+   ]
+  ]
+ }
+}

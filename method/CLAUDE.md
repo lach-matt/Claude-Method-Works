@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD286 compendia** (16,497,738 B ·
-  `00e66419fc47db393d59db864d6256d2` · 144,500 lines · 753 members). **755 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-291 seated.**
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD290 compendia** (16,528,506 B ·
+  `256b999b53ebb530dd0d760b9a275e87` · 144,542 lines · 753 members). **755 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-295 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -129,8 +129,25 @@ no longer on the read path.
   **CITED-FULLER is not a missing work** — the row abbreviates a longer author list (*Maier & Yannakakis
   1983* is **Beeri, Fagin, Maier & Yannakakis 1983**). **Thirteen of the 21 owed are three-body literature**,
   nine of them pinned to their own year in the three-body paper or its ledger, so those imports are a move and
-  not an invention. **Nothing is imported yet**: putting an object into a reader-facing compendium is
-  authoring, and the text is M's.
+  not an invention.
+- **AND THE IMPORTS ARE SEATED (W-292 to W-295).** M ruled **"prior-art for what exists, author that which
+  doesn't"** and **"full author list, always"**. Measured, **the first clause covers everything**: the
+  bibliography's own row names by handle which object each work contributed to, and every one of those handles
+  names an object the compendium already prints, so **not one owed work needed a new object**. **Twelve prior-art
+  additions over four objects** — *The index Λ₃* gains Alekseev 1968, Saari 1973, McGehee 1974, Marchal & Saari
+  1975, Monaghan 1976, Fleischer & Knauf 2019 and Kol 2021/2023; *Shape space* gains Montgomery 1998 and Hsiang
+  & Straume 2006; *The shape metric* Montgomery 2002; *The five fixed points* Chenciner & Montgomery 2000 —
+  every one written in the three-body paper or its ledger at the year the bibliography prints. **The derivation
+  moves 127 → 143 and IMPORT-OWED 21 → 8.** Five bibliography rows take the full author list and **seven `et al.`
+  sites are expanded**, three of which sat on a line already carrying the full form and so cited one work twice.
+  **`Kimura et al. 2024` is left**: no full form is held here.
+- **AND THE EXPANSION UNCOVERED FOUR DUPLICATE BIBLIOGRAPHY ROWS, WHICH ARE M'S.** At 1964 *Moebius* and *Rota*,
+  at 1969 *Andrew & Cowan* and *Griffin, Andrew & Cowan*, at 1983 *Maier & Yannakakis* and *Beeri, Fagin, Maier
+  & Yannakakis*, at 1999 *Deville* and *Hentenryck* — each pair one work at one year, sharing objects. **The
+  repair is a merge, which removes a row and moves the printed *162 works*.**
+- **FIVE SEATED INSTRUMENTS ARE HELD WITH SUCCESSORS OWED**, each for a recorded reason: `compendia.py` and
+  `compendia2.py` since BUILD279, whose fixtures measure the Ruling 46 material that pass removed; `bibindex.py`,
+  `bibindex2.py` and `bibindex3.py` since BUILD288, whose derivation figure the imports moved.
 - **A figure in this section was wrong for one commit and is corrected here rather than quietly.** It named
   BUILD238 at 15,193,016 B / `7d9d0af1…`, which is a bundle that was **discarded before it was ever seated**:
   the first `close_rebank` run carried a W text saying sixty-six goldens where the count is sixty-seven, so it
@@ -149,7 +166,7 @@ no longer on the read path.
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
   `gate.py manifest --main … --comp …` **OK**;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD286 counting the census
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD290 counting the census
   step, registers 1886-1889's **33** moved goldens having been censused and then re-banked by running (W-279).
   **Two builds were seated before one re-bank**, which is the cheaper order when neither moves a line reference:
   BUILD126 and BUILD127 both append only, so of the Register's 6,984 lines exactly eight differ in the common

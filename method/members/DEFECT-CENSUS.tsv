@@ -39,7 +39,7 @@ id	class	member	line	item	detail
 38	C6a-ENTRY-NO-SOURCE-POINTER	mc	236	The defect bounds	no § or Register pointer in entry
 39	C10-PROVED-WITHOUT-REGISTER	mc	236	The defect bounds	Proved — T audit 27; Moore 1910.
 40	C6a-ENTRY-NO-SOURCE-POINTER	mc	246	Binary path consistency / 2-decomposability (Kimura et al. 2024)	no § or Register pointer in entry
-41	C10-PROVED-WITHOUT-REGISTER	mc	246	Binary path consistency / 2-decomposability (Kimura et al. 2024)	Proved — T A5; Cooper 1989; Janssen et al. 1989.
+41	C10-PROVED-WITHOUT-REGISTER	mc	246	Binary path consistency / 2-decomposability (Kimura et al. 2024)	Proved — T A5; Cooper 1989; Janssen, Jegou, Nouguier & Vilarem 1989.
 42	C6-NUMBERS-NOT-IN-SOURCE	mc	256	The certificate condition	2 of 3: 285 309 | sources §18.4.1 R
 43	C10-PROVED-WITHOUT-REGISTER	mc	256	The certificate condition	Proved — M §18.4.1, promoted; Tarski 1955.
 44	C6-NUMBERS-NOT-IN-SOURCE	mc	266	Closure operator (Moore family)	3 of 4: 1.3 191 196 | sources §14.2 R
@@ -52,7 +52,7 @@ id	class	member	line	item	detail
 51	C10-PROVED-WITHOUT-REGISTER	mc	304	Adjunction never repairs (M Thm 10.1)	Proved — T 1.7 (App. G) / M §17.2 Thm 10.1; Birkhoff 1940.
 52	C6-NUMBERS-NOT-IN-SOURCE	mc	314	Description length	2 of 3: 465 471 | sources §25.3 R
 53	C6-NUMBERS-NOT-IN-SOURCE	mc	324	Monotone upper envelope / staircase bound	2 of 3: 543 561 | sources §6.1 R
-54	C11-R-FORM-INCOMPLETE	mc	324	Monotone upper envelope / staircase bound	missing: grade | first lines: **φ̂_ij(v) = max{ x_i : x ∈ X, x_j ≤ v } / *i ≠ j* / Definitional — M §6.1 / T A2; Deville et
+54	C11-R-FORM-INCOMPLETE	mc	324	Monotone upper envelope / staircase bound	missing: grade | first lines: **φ̂_ij(v) = max{ x_i : x ∈ X, x_j ≤ v } / *i ≠ j* / Definitional — M §6.1 / T A2; Deville, B
 55	C6-NUMBERS-NOT-IN-SOURCE	mc	334	E is coordinate-relative	2 of 3: 600 610 | sources §21.6 R
 56	C10-PROVED-WITHOUT-REGISTER	mc	334	E is coordinate-relative	Proved — M §21.6; Birkhoff 1940; Birkhoff 1937; Dushnik & Miller 1941.
 57	C10-PROVED-WITHOUT-REGISTER	mc	346	The expression always exists	Proved — M §15.2 corollary / §2.23; Moore 1910.
@@ -369,17 +369,17 @@ id	class	member	line	item	detail
 368	C6-NUMBERS-NOT-IN-SOURCE	mc	3204	The defect closed: chord = rot + perp	7 of 7: 1.7 197 6.1 1707, 1709, 0.999992 1.000103 | sources §35 R1707
 369	C11-R-FORM-INCOMPLETE	mc	3214	The twin operator, c → ∞	missing: prior-art | first lines: **The identical entrant operator with th / *the relativistic clause of the ordering / Measured — M §35; register 1706.
 370	C6a-ENTRY-NO-SOURCE-POINTER	mc	3226	Shape space and the shape sphere	no § or Register pointer in entry
-371	C11-R-FORM-INCOMPLETE	mc	3226	Shape space and the shape sphere	missing: prior-art | first lines: **ℝ³ = ℂ³ / (translations × rotations);  / *the coordinates in which three bodies b / Proved — Montgomery 2014, Thm 1; Hopf 19
-372	C10-PROVED-WITHOUT-REGISTER	mc	3226	Shape space and the shape sphere	Proved — Montgomery 2014, Thm 1; Hopf 1931.
+371	C11-R-FORM-INCOMPLETE	mc	3226	Shape space and the shape sphere	missing: prior-art | first lines: **ℝ³ = ℂ³ / (translations × rotations);  / *the coordinates in which three bodies b / Proved — Montgomery 2014, Thm 1; Montgom
+372	C10-PROVED-WITHOUT-REGISTER	mc	3226	Shape space and the shape sphere	Proved — Montgomery 2014, Thm 1; Montgomery 1998; Hsiang & Straume 2006; Hopf 1931.
 373	C6a-ENTRY-NO-SOURCE-POINTER	mc	3234	The shape metric	no § or Register pointer in entry
-374	C11-R-FORM-INCOMPLETE	mc	3234	The shape metric	missing: prior-art | first lines: **ds² = |dw|²/(2√‖w‖); every plane throu / *as shape space and the shape sphere* / Proved — Montgomery 2014, Thm 3.
-375	C10-PROVED-WITHOUT-REGISTER	mc	3234	The shape metric	Proved — Montgomery 2014, Thm 3.
+374	C11-R-FORM-INCOMPLETE	mc	3234	The shape metric	missing: prior-art | first lines: **ds² = |dw|²/(2√‖w‖); every plane throu / *as shape space and the shape sphere* / Proved — Montgomery 2014, Thm 3; Montgom
+375	C10-PROVED-WITHOUT-REGISTER	mc	3234	The shape metric	Proved — Montgomery 2014, Thm 3; Montgomery 2002.
 376	C11-R-FORM-INCOMPLETE	mc	3242	The Jacobi–Maupertuis metric	missing: prior-art | first lines: **g_E = (E+U)·ds²; trajectories at energ / *licence in the index: §12.11.1.3, §12.1 / Proved — Maupertuis 1744; Jacobi 1837.
 377	C10-PROVED-WITHOUT-REGISTER	mc	3242	The Jacobi–Maupertuis metric	Proved — Maupertuis 1744; Jacobi 1837.
 378	C6-NUMBERS-NOT-IN-SOURCE	mc	3250	The potential on shape space	2 of 2: 650 1718, | sources §11 R1718
 379	C11-R-FORM-INCOMPLETE	mc	3250	The potential on shape space	missing: prior-art | first lines: **U(w) = Σ c_ij/d_ij, c_ij = (m_i m_j)^{ / *650 triangles, 13 mass cases, error < 1 / Proved — Montgomery 2014 §11; register 1
 380	C6-NUMBERS-NOT-IN-SOURCE	mc	3258	The algebraic variety	1 of 1: 1719, | sources § R1719
-381	C11-R-FORM-INCOMPLETE	mc	3268	The five fixed points	missing: prior-art | first lines: **Three Euler roots (one positive root o / *seed of the family index in §14.5's sen / Proved — Euler 1767; Lagrange 1772; regi
+381	C11-R-FORM-INCOMPLETE	mc	3268	The five fixed points	missing: prior-art | first lines: **Three Euler roots (one positive root o / *seed of the family index in §14.5's sen / Proved — Euler 1767; Lagrange 1772; Chen
 382	C11-R-FORM-INCOMPLETE	mc	3276	The triangle form on K₃	missing: prior-art | first lines: **{|a−b| ≤ c ≤ a+b}: join-closed, meet-b / *confirms §12.11.2 on a grid the book ne / ![Closure defect against cap](figures/fi
 383	C11-R-FORM-INCOMPLETE	mc	3288	The deficit	missing: prior-art | first lines: **K₃ has treewidth 2; strong 3-consisten / *the separation hypothesis of §7.1 broke / ![K₂ against K₃](figures/fig5_constraint
 384	C10-PROVED-WITHOUT-REGISTER	mc	3288	The deficit	Proved — M §21.5.1; Freuder 1982.
@@ -615,9 +615,9 @@ id	class	member	line	item	detail
 614	C13-HANDLE-LEAK	mc	3513	A.relax	back matter: | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
 615	C13-HANDLE-LEAK	mc	3513	K.three	back matter: | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
 616	C13-HANDLE-LEAK	mc	3513	K.window	back matter: | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
-617	C13-HANDLE-LEAK	mc	3514	Q.anchor	back matter: | 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
-618	C13-HANDLE-LEAK	mc	3514	Q.region	back matter: | 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
-619	C13-HANDLE-LEAK	mc	3514	S.status	back matter: | 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+617	C13-HANDLE-LEAK	mc	3514	Q.anchor	back matter: | 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+618	C13-HANDLE-LEAK	mc	3514	Q.region	back matter: | 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+619	C13-HANDLE-LEAK	mc	3514	S.status	back matter: | 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
 620	C13-HANDLE-LEAK	mc	3515	L.chains	back matter: | 1986 | Stanley | `C.Aq` `C.Bq` `L.F` `L.F1` `L.Fm1` `L.chains` `L.pal` `L.rankpoly` |
 621	C13-HANDLE-LEAK	mc	3515	L.pal	back matter: | 1986 | Stanley | `C.Aq` `C.Bq` `L.F` `L.F1` `L.Fm1` `L.chains` `L.pal` `L.rankpoly` |
 622	C13-HANDLE-LEAK	mc	3516	G.trip	back matter: | 1988 | Pearl | `G.trip` `K.decay` `K.markov` |
@@ -626,7 +626,7 @@ id	class	member	line	item	detail
 625	C13-HANDLE-LEAK	mc	3517	A.bpc	back matter: | 1989 | Cooper | `A.bpc` |
 626	C13-HANDLE-LEAK	mc	3518	G.cons	back matter: | 1989 | Dechter & Pearl | `G.cons` `G.shape` `K.coupling` |
 627	C13-HANDLE-LEAK	mc	3518	G.shape	back matter: | 1989 | Dechter & Pearl | `G.cons` `G.shape` `K.coupling` |
-628	C13-HANDLE-LEAK	mc	3519	A.bpc	back matter: | 1989 | Nouguier & Vilarem | `A.bpc` |
+628	C13-HANDLE-LEAK	mc	3519	A.bpc	back matter: | 1989 | Janssen, Jegou, Nouguier & Vilarem | `A.bpc` |
 629	C13-HANDLE-LEAK	mc	3520	W.scale	back matter: | 1991 | Chinneck & Dravnieks | `W.core15` `W.core9` `W.scale` `W.supp` |
 630	C13-HANDLE-LEAK	mc	3520	W.supp	back matter: | 1991 | Chinneck & Dravnieks | `W.core15` `W.core9` `W.scale` `W.supp` |
 631	C13-HANDLE-LEAK	mc	3521	K.decay	back matter: | 1991 | Cover & Thomas | `K.decay` |
@@ -636,7 +636,7 @@ id	class	member	line	item	detail
 635	C13-HANDLE-LEAK	mc	3526	M.hsmi	back matter: | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
 636	C13-HANDLE-LEAK	mc	3526	M.ledger	back matter: | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
 637	C13-HANDLE-LEAK	mc	3527	B.newton	back matter: | 1994 | Nesterov & Nemirovskii | `B.newton` `B.selfconc` |
-638	C13-HANDLE-LEAK	mc	3528	A.rule	back matter: | 1995 | Beek & Dechter | `A.rule` `A.staircls` |
+638	C13-HANDLE-LEAK	mc	3528	A.rule	back matter: | 1995 | van Beek & Dechter | `A.rule` `A.staircls` |
 639	C13-HANDLE-LEAK	mc	3529	K.decay	back matter: | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 640	C13-HANDLE-LEAK	mc	3529	K.markov	back matter: | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 641	C13-HANDLE-LEAK	mc	3529	L.box	back matter: | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
@@ -650,7 +650,7 @@ id	class	member	line	item	detail
 649	C13-HANDLE-LEAK	mc	3532	T.tight	back matter: | 1999 | Hentenryck | `A.orient` `A.rule` `A.stair` `A.staircls` `T.tight` |
 650	C13-HANDLE-LEAK	mc	3534	3B.five	back matter: | 2000 | Chenciner & Montgomery | `3B.five` |
 651	C13-HANDLE-LEAK	mc	3535	3B.metric	back matter: | 2002 | Montgomery | `3B.metric` |
-652	C13-HANDLE-LEAK	mc	3536	W.rel	back matter: | 2003 | Fredenhagen & Verch | `W.rel` |
+652	C13-HANDLE-LEAK	mc	3536	W.rel	back matter: | 2003 | Brunetti, Fredenhagen & Verch | `W.rel` |
 653	C13-HANDLE-LEAK	mc	3537	3B.shape	back matter: | 2006 | Hsiang & Straume | `3B.shape` |
 654	C13-HANDLE-LEAK	mc	3538	3B.shape	back matter: | 2014 | Montgomery | `3B.shape` `3B.metric` `3B.pot` |
 655	C13-HANDLE-LEAK	mc	3538	3B.metric	back matter: | 2014 | Montgomery | `3B.shape` `3B.metric` `3B.pot` |

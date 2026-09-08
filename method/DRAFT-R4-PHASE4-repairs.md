@@ -15,7 +15,15 @@ it was written, and what has since happened is recorded here rather than edited 
 | **E1** the three register counts | **RESOLVED AS A MEASUREMENT** (`W-290`): all three are correct counts of three different things. **299** is the objects the compendium holds, family by family; **265** is the handles its bibliography prints; **248** is the `R()` entries in `mathreg.py`, which is **held** at `extracted/archives/restore-point-2-13/` — so E1's "corroborated by nothing here" is corrected. What is left is not a count but a **labelling** question, and it is M's. The *false universal* beside it is corrected too: `W-281` said false by 34; `W-289` measures **12** |
 | **E2** the bracket-system object | **OPEN**; writing it is an editorial act |
 
-**AND THE SCOPE CORRECTION OPENS A NEW ITEM, D6 (`W-291`).** Only the six volumes are published, so a
+**D6 IS NOW LARGELY EXECUTED (`W-292` to `W-295`).** M ruled *prior-art for what exists, author that which
+doesn't* and *full author list, always*. **Not one owed work needed a new object**: the bibliography's own row
+names by handle which object each work contributed to. **Twelve prior-art additions over four objects** are
+seated, **five bibliography rows take the full author list**, and **seven `et al.` sites are expanded**. The
+derivation moves **OBJECT 127 → 143, IMPORT-OWED 21 → 8**. What remains of D6 is four duplicate rows needing a
+merge (1964, 1969, 1983, 1999), two year questions (Shannon 1937/1938, Racah 1982/1942), `Kimura et al. 2024`
+whose full form is held nowhere, and the two 2026 companion-paper rows.
+
+**AND THE SCOPE CORRECTION OPENED IT, D6 (`W-291`).** Only the six volumes are published, so a
 bibliography reference whose only correspondent is *Transitions*, *The Löwdin Solution* or *The Three-Body
 Problem for Unknown Masses* must have its work **imported into the appropriate compendium**. Measured:
 **OBJECT 127, CITED 9, CITED-FULLER 5, IMPORT-OWED 21** (`method/BIBLIOGRAPHY-IMPORTS.tsv`). Nine of the 21

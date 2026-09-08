@@ -4667,7 +4667,7 @@ for Λ E_W is empty, because a cell of Λ is an arrangement and carries no numbe
 
 *none beyond projection onto coordinate i (§6.1), monotone upper envelope / staircase bound (§6.1)*
 
-Definitional — M §6.1 / T A3; Moore 1910; Deville et al. 1999.
+Definitional — M §6.1 / T A3; Moore 1910; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: R is a closure operator (Moore 1910) whose constraints are monotone staircases (Deville, Barette & Van Hentenryck, Artif. Intell. 109 (1999) 243-271). Neither the operator form nor the constraint class is new; what is new is reading E as a defect.**
 
@@ -4745,7 +4745,7 @@ Proved — T audit 27; Moore 1910.
 
 *none*
 
-Proved — T A5; Cooper 1989; Janssen et al. 1989.
+Proved — T A5; Cooper 1989; Janssen, Jegou, Nouguier & Vilarem 1989.
 
 > **Prior art: binary path consistency and its relation to global consistency — Cooper, An optimal k-consistency algorithm, Artif. Intell. 41 (1989) 89-95; Janssen, Jegou, Nouguier & Vilarem, A filtering process for general constraint-satisfaction problems, IEEE (1989), which gives a polynomial algorithm for pairwise consistency.**
 
@@ -4823,7 +4823,7 @@ Computed — M §25.3; Shannon 1948; Rissanen 1978.
 
 *i ≠ j*
 
-Definitional — M §6.1 / T A2; Deville et al. 1999.
+Definitional — M §6.1 / T A2; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the monotone upper envelope of a relation is its staircase bound — the connected row-convex class of Deville, Barette & Van Hentenryck (1999) and the row-convex networks of van Beek & Dechter, J. ACM 42 (1995) 543-561.**
 
@@ -4959,7 +4959,7 @@ Computed — M §18.4.1; Birkhoff 1940.
 
 *ℛ₄ defined*
 
-Computed — M §14.5.5; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999.
+Computed — M §14.5.5; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the cost of choosing one orientation over the full class. The class is Devilles; the cost is measured here.**
 
@@ -4993,7 +4993,7 @@ Proved — T D10; classical; Euler 1748.
 
 *idempotent, hence a closure operator*
 
-Computed — M §14.5.5; Deville et al. 1999.
+Computed — M §14.5.5; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the four orientations of a staircase constraint are the (alpha, beta)-monotone class of Deville, Barette & Van Hentenryck (1999); R uses one corner and R_4 the closure over all four.**
 
@@ -5013,7 +5013,7 @@ Proved — M §14.5.4; Beeri, Fagin, Maier & Yannakakis 1983.
 
 *the index is a sublattice of a product of chains*
 
-Computed — T 1.8 (App. G) / M §14.4; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.
+Computed — T 1.8 (App. G) / M §14.4; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.
 
 > **Prior art: a tightening preserves closure iff it stays inside the monotone staircase class.**
 
@@ -6307,7 +6307,7 @@ NOT CHECKABLE and the book says why: the looseness convention is named and not p
 
 *van Beek & Dechter's measure*
 
-Computed — M §14.5.9; Deville et al. 1999; Deville, Barette & Van Hentenryck 1999.
+Computed — M §14.5.9; Deville, Barette & Van Hentenryck 1999.
 
 > **Prior art: the tight pairs of a staircase constraint are its envelope steps — Deville, Barette & Van Hentenryck, Artif. Intell. 109 (1999) 243-271.**
 
@@ -7725,7 +7725,7 @@ Measured — M §35; register 1706.
 
 *the coordinates in which three bodies become one point*
 
-Proved — Montgomery 2014, Thm 1; Hopf 1931.
+Proved — Montgomery 2014, Thm 1; Montgomery 1998; Hsiang & Straume 2006; Hopf 1931.
 
 ### The shape metric
 
@@ -7733,7 +7733,7 @@ Proved — Montgomery 2014, Thm 1; Hopf 1931.
 
 *as shape space and the shape sphere*
 
-Proved — Montgomery 2014, Thm 3.
+Proved — Montgomery 2014, Thm 3; Montgomery 2002.
 
 ### The Jacobi–Maupertuis metric
 
@@ -7767,7 +7767,7 @@ Proved — Lagrange 1770; register 1719, 1720.
 
 *seed of the family index in §14.5's sense*
 
-Proved — Euler 1767; Lagrange 1772; register 1717; main §D.5.9.
+Proved — Euler 1767; Lagrange 1772; Chenciner & Montgomery 2000; register 1717; main §D.5.9.
 
 ### The triangle form on K₃
 
@@ -7799,7 +7799,7 @@ Proved — M §21.5.1; Freuder 1982.
 
 *cited theorems assembled; the assembly is this work's. The maximal forbidden case of Chapter 18 is the solved case, because what is forbidden is exactly what Poincaré excludes — register 1724*
 
-Proved — M §36; register 1713, 1714, 1724; Chazy 1922; Saari 1971; Brudno 1983.
+Proved — M §36; register 1713, 1714, 1724; Chazy 1922; Saari 1971; Saari 1973; Alekseev 1968; McGehee 1974; Marchal & Saari 1975; Monaghan 1976; Brudno 1983; Fleischer & Knauf 2019; Kol 2021; Kol 2023.
 
 # V · THE CHAINS
 
@@ -7978,7 +7978,7 @@ The longest derivation paths in the register — what rests on what.
 | 1969 | Griffin, Andrew & Cowan | `LS.coll` |
 | 1969 | Pulay | `LS.chord` |
 | 1970 | Codd | `A.alph` |
-| 1970 | Fano | `P.perturb` |
+| 1970 | Lu & Fano | `P.perturb` |
 | 1970 | Takesaki | `M.tt` |
 | 1971 | Lane | `K.cat` `K.comp` `K.deadend` `K.jump` `K.twocol` |
 | 1971 | Griffin, Andrew & Cowan | `LS.coll` |
@@ -8007,12 +8007,12 @@ The longest derivation paths in the register — what rests on what.
 | 1982 | Marchal & Bozis | `3B.index` |
 | 1983 | Beeri, Fagin, Maier & Yannakakis | `A.intext` `C.compare` `K.three` |
 | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
-| 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+| 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
 | 1986 | Stanley | `C.Aq` `C.Bq` `L.F` `L.F1` `L.Fm1` `L.chains` `L.pal` `L.rankpoly` |
 | 1988 | Pearl | `G.trip` `K.decay` `K.markov` |
 | 1989 | Cooper | `A.bpc` |
 | 1989 | Dechter & Pearl | `G.cons` `G.shape` `K.coupling` |
-| 1989 | Nouguier & Vilarem | `A.bpc` |
+| 1989 | Janssen, Jegou, Nouguier & Vilarem | `A.bpc` |
 | 1991 | Chinneck & Dravnieks | `W.core15` `W.core9` `W.scale` `W.supp` |
 | 1991 | Cover & Thomas | `K.decay` |
 | 1991 | Drake & Swainson | `A.seaton` |
@@ -8021,7 +8021,7 @@ The longest derivation paths in the register — what rests on what.
 | 1992 | Dechter | `A.dechter` `A.gc` |
 | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
 | 1994 | Nesterov & Nemirovskii | `B.newton` `B.selfconc` |
-| 1995 | Beek & Dechter | `A.rule` `A.staircls` |
+| 1995 | van Beek & Dechter | `A.rule` `A.staircls` |
 | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 | 1998 | Montgomery | `3B.shape` |
 | 1999 | Deville | `A.env` `A.orient` `A.r4` `T.tight` |
@@ -8029,7 +8029,7 @@ The longest derivation paths in the register — what rests on what.
 | 2000 | Wald & Zoupas | `M.C1` |
 | 2000 | Chenciner & Montgomery | `3B.five` |
 | 2002 | Montgomery | `3B.metric` |
-| 2003 | Fredenhagen & Verch | `W.rel` |
+| 2003 | Brunetti, Fredenhagen & Verch | `W.rel` |
 | 2006 | Hsiang & Straume | `3B.shape` |
 | 2014 | Montgomery | `3B.shape` `3B.metric` `3B.pot` |
 | 2017 | Diestel | `G.graph` |
@@ -23920,6 +23920,48 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **AND FOUR OF THE TWELVE ARE ALMOST CERTAINLY THE SAME ABBREVIATION FAULT AS CITED-FULLER, ONE STEP FURTHER OUT.** The recovered generator writes *Rota 1964* for the Möbius-function paper the row calls **Moebius 1964**; *Janssen, Jegou, Nouguier & Vilarem 1989*; *van Beek & Dechter 1995*. **The row names the subject or a subset of the authors.** Not asserted here — named, because settling it is a reading.
 - **NOTHING IS IMPORTED BY THIS BUILD.** Putting an object into a reader-facing compendium is **authoring**, and the text is M's to approve. This sizes the class, sources every row, and proposes the target volume from where the contribution is held. **`method/BIBLIOGRAPHY-IMPORTS.tsv` is the 162 rows with all of it.**
 
+### W-292 — the full author list, always; and two rows that are not abbreviations at all
+
+- **M RULED ON 8 SEPTEMBER: *"full author list, always."*** `bibindex3.py` measured five bibliography rows whose author list the six volumes print longer. **Three are corrected here and two are not abbreviations — they are duplicates, and that is a different act.**
+- **THE THREE, CORRECTED.** *Fano 1970* → **Lu & Fano**; *Inokuti & Manson 1986* → **Theodosiou, Inokuti & Manson**; *Fredenhagen & Verch 2003* → **Brunetti, Fredenhagen & Verch**. Each is the form the volumes themselves use, and the recovered generator carries the citation in full for the 1986 row — *At. Data Nucl. Data Tables* 35 (1986) 473–486. **No row moves**: the bibliography orders by year and, within a year, not alphabetically — 1971 runs Lane, Griffin/Andrew/Cowan, Saari — so a longer name displaces nothing.
+- **THE OTHER TWO ARE A FACT M DID NOT HAVE WHEN THE RULING WAS GIVEN, AND THEY ARE PUT BACK RATHER THAN EXECUTED.** **The full-author row already exists, at the same year, with overlapping objects.**
+  - **1969** carries both *Andrew & Cowan* → `P.dcollapse Q.collapse Q.final` **and** *Griffin, Andrew & Cowan* → `LS.coll`. The six use *Griffin, Andrew & Cowan* for 1969 nine times and *Andrew & Cowan* never.
+  - **1983** carries both *Beeri, Fagin, Maier & Yannakakis* → `A.intext C.compare K.three` **and** *Maier & Yannakakis* → `A.intext A.relax C.compare K.langclose K.three K.window`. **Three objects — `A.intext`, `C.compare`, `K.three` — are listed under BOTH rows**, which is a duplicated entry as well as a duplicated work.
+- **APPLYING THE RULING TO THOSE TWO WOULD PRODUCE TWO ROWS WITH THE SAME YEAR AND THE SAME WORK**, which is the duplicated-key defect this phase measured in the Spectra Compendium. **The repair there is a MERGE — one row carrying the union of the objects, and one row removed** — and a removal moves the bibliography's own printed count from **162 works** and breaks the fixture four seated instruments pin. That is a decision with a cost, and it is M's.
+- **A SECOND FINDING, RECORDED AND NOT REPAIRED.** The 1986 work is printed in the volumes in **three different author orders** — *Theodosiou, Inokuti & Manson* five times, *Theodosiou, Manson & Inokuti* twice, *Theodosiou, Manson and Inokuti* twice. The published order is the first, and the bibliography now prints it. **The two variant forms are in Spectra Compendium prose and are left**: correcting prose is the prose pass, not a bibliography repair.
+- **AND ONE MORE THE RULING TOUCHES BUT DOES NOT REACH.** *Griffin, Andrew & Cowan* is seated at **both 1969 and 1971**, on the same object `LS.coll`, and the Löwdin companion paper dates the orbital-collapse computation **1969**. Whether 1971 is a second paper or a wrong year is a reading, and it joins the `NAMED-NOT-DATED` class rather than being decided here.
+
+### W-293 — the imports: prior art for what exists, and the three that are merges
+
+- **M RULED ON 8 SEPTEMBER: *"prior-art for what exists, author that which doesn't"*, and *"full author list, always."*** Measured against the volume, **the first clause covers everything: not one owed work needs a new object.** The bibliography's own row already names, by handle, **which object each work contributed to** — `Chenciner & Montgomery 2000` against `3B.five`, `Fleischer & Knauf 2019` against `3B.index` — and every one of those handles names an object the compendium already prints. **The import is a prior-art addition to an existing object, in all twenty-one cases.**
+- **AND THE HANDLES THAT POSTDATE THE RECOVERED GENERATOR ARE EXACTLY FAMILIES 3B AND LS — NINE AND EIGHT, SEVENTEEN.** That is M's account of the route, measured: the three-body and Löwdin work was absorbed after the generator's snapshot, which is why its attributions are in the companion papers and not in the register the front matter was built from.
+- **TWELVE PRIOR-ART ADDITIONS, OVER FOUR OBJECTS, EVERY ONE A MOVE AND NOT AN INVENTION.** *The index Λ₃* gains **Alekseev 1968, Saari 1973, McGehee 1974, Marchal & Saari 1975, Monaghan 1976, Fleischer & Knauf 2019, Kol 2021 and Kol 2023**; *Shape space and the shape sphere* gains **Montgomery 1998 and Hsiang & Straume 2006**; *The shape metric* gains **Montgomery 2002**; *The five fixed points* gains **Chenciner & Montgomery 2000**. Each is written in the three-body companion paper or `recovered/Attribution_Ledger_Three_Body.md`, at the year the bibliography prints, and **each is a work the bibliography already claimed that object carried.** The object now says so.
+- **`Saari 1971` AND `Saari 1973` ARE TWO PAPERS AND BOTH NOW STAND.** A first pass of this treated a shared surname as a match and would have dropped 1973 as already cited; the ledger names both — *Trans. AMS* 162 (1971) and 181 (1973) — and `Marchal & Saari 1975` is a third, on Hill regions. **A surname is not a work.**
+- **TWO BIBLIOGRAPHY ROWS TAKE THE FULL AUTHOR LIST, AND THE VOLUME ITSELF SUPPLIED BOTH.** *Nouguier & Vilarem 1989* → **Janssen, Jegou, Nouguier & Vilarem**, which the object's own prior-art quote prints in full; *Beek & Dechter 1995* → **van Beek & Dechter**, which every object citing it already uses. **Neither was in `bibindex3.py`'s CITED-FULLER class**, because that test compares surname sets and `van beek` is not `beek`, and `Janssen et al.` names none of the other three. Recorded, because a class that misses two of its own members is a fault in the test and not in the volume.
+- **AND THE RULING REACHES THE OBJECTS, NOT ONLY THE BIBLIOGRAPHY: SEVEN `et al.` SITES ARE EXPANDED.** `Janssen et al. 1989` and six `Deville et al. 1999` become the forms the compendium itself prints elsewhere. **Three of those six sat on a line that ALREADY carried the full form**, so the line cited one work twice — *"Deville et al. 1999; Deville, Barette & Van Hentenryck 1999"* — and expanding would have printed it twice over. **Those three drop the elided form instead.** `Kimura et al. 2024` is left: **no full form is held anywhere in this repository**, and it needs the outside search before it can be expanded.
+- **FOUR ROWS ARE NOT ABBREVIATIONS AND ARE NOT EXECUTED — THEY ARE DUPLICATES, AND A MERGE IS M'S.** At **1964**, *Moebius* and *Rota* both carry `G.book`, and Rota 1964 **is** the Möbius-functions paper — the row names the subject where the column takes an author. At **1969**, *Andrew & Cowan* and *Griffin, Andrew & Cowan*. At **1983**, *Beeri, Fagin, Maier & Yannakakis* and *Maier & Yannakakis*, **sharing three objects**. At **1999**, *Deville* and *Hentenryck*, **sharing `A.orient` and `T.tight`** — one work, Deville, Barette & Van Hentenryck, split across two rows by author. In each case the full-author row already exists at the same year, so applying the ruling would print the same work twice. **The repair is one row carrying the union and one row removed**, which moves the printed *162 works*. That cost is real and the decision is M's.
+- **THE FOURTH OF THOSE WAS EXPOSED BY THIS BUILD'S OWN EXPANSION, AND THAT IS WORTH THE LINE.** Before it, every object citing the work wrote *Deville et al. 1999* and the bibliography's *Deville* row matched it. **Expanding the objects to the full author list left the short row corresponding to nothing** — which is not a regression the expansion caused but a duplicate it uncovered: the row was only ever matching an elision. **Three of the four pairs were masked the same way.** The row correspondence is restored by the merge, not by retreating from the ruling.
+- **AND FIVE SEATED INSTRUMENTS NOW PIN A STATE THE VOLUME HAS MOVED PAST, EACH FOR A RECORDED REASON.** `compendia.py` asserts **eighteen script names printed to a reader** and measures **zero** — its fixture measured the defect the Ruling 46 pass repaired at BUILD279. `compendia2.py` parses the generation stamp that pass removed and now raises rather than reports. `bibindex.py`, `bibindex2.py` and `bibindex3.py` pin the derivation at **127** where the imports of this build make it **143**. **None is edited**: a seated member never is. **All five are HELD, with successors owed**, which is `r2-26c2`'s shape at W-260. **The first two have been held since BUILD279 and W-284 did not say so** — that is my omission and it is corrected here rather than left.
+- **TWO YEAR QUESTIONS ARE HELD.** *Shannon 1937* against the object's *Shannon 1938* — the thesis and its publication, very likely one work. *Racah 1982* against *Racah 1942*. Neither is decided here; a second year under one author is a reading, and the ledger has already shown that most such pairs are two real papers.
+- **AND THE TWO 2026 ROWS REMAIN THEIR OWN CLASS.** *The Löwdin Solution* and *The Three-Body Problem for Unknown Masses* are two of the three unpublished papers. Adding them as prior art to twelve objects would cite a reader toward a document they cannot open. **What those papers contributed is Chapter 35 and the three-body chapters, already in the main volume**, and how the bibliography should name that is M's.
+
+### W-294 — the census closed against the imports
+
+- **THIRTEEN ROWS MOVE AND ALL THIRTEEN ARE THIS LEG'S OWN SUBSTITUTION SITES.** `close_census2.py` regenerates 1,636 rows against 1,639 seated: **1,623 exact, 13 by item, 0 by text, 0 by run, 0 NEW, 0 GONE.** Every one is matched **by item**, so **every id survives** — which is what the `CENSUS-CLOSURES-*.tsv` that cite them need.
+- **THEY FALL IN THREE GROUPS, EACH THE FOOTPRINT OF A CHANGE M RULED.** Four `C11-R-FORM-INCOMPLETE` and three `C10-PROVED-WITHOUT-REGISTER` rows quote the grade lines of *Binary path consistency*, *Monotone upper envelope*, *Shape space and the shape sphere*, *The shape metric* and *The five fixed points* — the objects that gained prior art. Six `C13-HANDLE-LEAK` rows quote the bibliography rows renamed to their full author lists.
+- **AND `C13-HANDLE-LEAK` IS THE STORE'S OWN NAME FOR THE CLASS M RULED ON.** The census has been carrying handle leakage into reader-facing text as a defect class all along, at `Q.anchor`, `Q.region`, `S.status`, `A.bpc`, `A.rule` and `W.rel` among others. **It moved here only because the rows around those handles changed**; the handles themselves are untouched, and the class is exactly what `handlemap.py` and the ruling address.
+- **NOTHING IS RETIRED.** A row whose defect no longer measures is carried only under a typed `--retire`, which is a ruling; none is passed and none was needed.
+
+### W-295 — ten goldens re-banked, and what each of them was counting
+
+- **THE ORDER IS W-274'S AND IT WAS KEPT**: the census closed at BUILD289 and is a fixed point; only then are the goldens re-banked, each **by RUNNING its instrument**.
+- **TEN MOVED AND EVERY ONE MOVED ON A CITATION THIS LEG ADDED OR EXPANDED.** Six print the md5 of the Mathematical Compendium — `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-27a3`, `r2-28a4`, `r2-bib2`, `r2-scf`. The other three count names.
+- **`r2-ch28b3` IS THE ONE THAT SHOWS THE IMPORTS LANDING.** Its per-surname census over the six volumes moves exactly where prior art was added: **Alekseev 1→2, Chenciner 1→2, Fleischer 1→2, Hsiang 1→2, Knauf 1→2, Straume 1→2, Monaghan 1→2, Marchal 2→3, Saari 5→7, Kol 2→4, Montgomery 10→13** in the Mathematical Compendium. **Deville falls 23→20 and Hentenryck rises 14→17**, which is the `et al.` expansion doing precisely what it should: three lines that carried the work twice now carry it once, under its full author list.
+- **AND IT CHECKS A CLAIM THE IMPORTS BEAR ON.** Main L11820 states *"every structural object of Chapter 36 is his or older"* of Montgomery, and the instrument lists his sites in the compendium; the list gains **L3274**, the five-fixed-points object that now cites Chenciner & Montgomery 2000. **The claim is unaffected — 2000 is Montgomery's and 1767 and 1772 are older — and the golden records the new site rather than hiding it.**
+- **`r2-ch28a4` COUNTS BIBLIOGRAPHY SURNAME ROWS 37 → 41**, the four new names the additions bring into the compendium's own author census.
+- **`r2-ch16c2` MOVES ON A SUBSTRING AND NOT ON A CITATION.** Its `Chen` row rises from 1 to 2 in the compendium because **`Chenciner` contains `Chen`**. That is the instrument's own surname convention, not a new citation of Chen, and it is re-banked as measured with the reason recorded rather than treated as a finding.
+- **NOTHING WAS RE-BANKED THAT DID NOT MOVE, AND NO INSTRUMENT WAS EDITED TO MAKE A DIFFERENCE GO AWAY.** The reverse guard restores all ten goldens, the manifest and the W text and reproduces the old bundle's own md5 before a byte is written.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -28421,7 +28463,7 @@ id	class	member	line	item	detail
 38	C6a-ENTRY-NO-SOURCE-POINTER	mc	236	The defect bounds	no § or Register pointer in entry
 39	C10-PROVED-WITHOUT-REGISTER	mc	236	The defect bounds	Proved — T audit 27; Moore 1910.
 40	C6a-ENTRY-NO-SOURCE-POINTER	mc	246	Binary path consistency / 2-decomposability (Kimura et al. 2024)	no § or Register pointer in entry
-41	C10-PROVED-WITHOUT-REGISTER	mc	246	Binary path consistency / 2-decomposability (Kimura et al. 2024)	Proved — T A5; Cooper 1989; Janssen et al. 1989.
+41	C10-PROVED-WITHOUT-REGISTER	mc	246	Binary path consistency / 2-decomposability (Kimura et al. 2024)	Proved — T A5; Cooper 1989; Janssen, Jegou, Nouguier & Vilarem 1989.
 42	C6-NUMBERS-NOT-IN-SOURCE	mc	256	The certificate condition	2 of 3: 285 309 | sources §18.4.1 R
 43	C10-PROVED-WITHOUT-REGISTER	mc	256	The certificate condition	Proved — M §18.4.1, promoted; Tarski 1955.
 44	C6-NUMBERS-NOT-IN-SOURCE	mc	266	Closure operator (Moore family)	3 of 4: 1.3 191 196 | sources §14.2 R
@@ -28434,7 +28476,7 @@ id	class	member	line	item	detail
 51	C10-PROVED-WITHOUT-REGISTER	mc	304	Adjunction never repairs (M Thm 10.1)	Proved — T 1.7 (App. G) / M §17.2 Thm 10.1; Birkhoff 1940.
 52	C6-NUMBERS-NOT-IN-SOURCE	mc	314	Description length	2 of 3: 465 471 | sources §25.3 R
 53	C6-NUMBERS-NOT-IN-SOURCE	mc	324	Monotone upper envelope / staircase bound	2 of 3: 543 561 | sources §6.1 R
-54	C11-R-FORM-INCOMPLETE	mc	324	Monotone upper envelope / staircase bound	missing: grade | first lines: **φ̂_ij(v) = max{ x_i : x ∈ X, x_j ≤ v } / *i ≠ j* / Definitional — M §6.1 / T A2; Deville et
+54	C11-R-FORM-INCOMPLETE	mc	324	Monotone upper envelope / staircase bound	missing: grade | first lines: **φ̂_ij(v) = max{ x_i : x ∈ X, x_j ≤ v } / *i ≠ j* / Definitional — M §6.1 / T A2; Deville, B
 55	C6-NUMBERS-NOT-IN-SOURCE	mc	334	E is coordinate-relative	2 of 3: 600 610 | sources §21.6 R
 56	C10-PROVED-WITHOUT-REGISTER	mc	334	E is coordinate-relative	Proved — M §21.6; Birkhoff 1940; Birkhoff 1937; Dushnik & Miller 1941.
 57	C10-PROVED-WITHOUT-REGISTER	mc	346	The expression always exists	Proved — M §15.2 corollary / §2.23; Moore 1910.
@@ -28751,17 +28793,17 @@ id	class	member	line	item	detail
 368	C6-NUMBERS-NOT-IN-SOURCE	mc	3204	The defect closed: chord = rot + perp	7 of 7: 1.7 197 6.1 1707, 1709, 0.999992 1.000103 | sources §35 R1707
 369	C11-R-FORM-INCOMPLETE	mc	3214	The twin operator, c → ∞	missing: prior-art | first lines: **The identical entrant operator with th / *the relativistic clause of the ordering / Measured — M §35; register 1706.
 370	C6a-ENTRY-NO-SOURCE-POINTER	mc	3226	Shape space and the shape sphere	no § or Register pointer in entry
-371	C11-R-FORM-INCOMPLETE	mc	3226	Shape space and the shape sphere	missing: prior-art | first lines: **ℝ³ = ℂ³ / (translations × rotations);  / *the coordinates in which three bodies b / Proved — Montgomery 2014, Thm 1; Hopf 19
-372	C10-PROVED-WITHOUT-REGISTER	mc	3226	Shape space and the shape sphere	Proved — Montgomery 2014, Thm 1; Hopf 1931.
+371	C11-R-FORM-INCOMPLETE	mc	3226	Shape space and the shape sphere	missing: prior-art | first lines: **ℝ³ = ℂ³ / (translations × rotations);  / *the coordinates in which three bodies b / Proved — Montgomery 2014, Thm 1; Montgom
+372	C10-PROVED-WITHOUT-REGISTER	mc	3226	Shape space and the shape sphere	Proved — Montgomery 2014, Thm 1; Montgomery 1998; Hsiang & Straume 2006; Hopf 1931.
 373	C6a-ENTRY-NO-SOURCE-POINTER	mc	3234	The shape metric	no § or Register pointer in entry
-374	C11-R-FORM-INCOMPLETE	mc	3234	The shape metric	missing: prior-art | first lines: **ds² = |dw|²/(2√‖w‖); every plane throu / *as shape space and the shape sphere* / Proved — Montgomery 2014, Thm 3.
-375	C10-PROVED-WITHOUT-REGISTER	mc	3234	The shape metric	Proved — Montgomery 2014, Thm 3.
+374	C11-R-FORM-INCOMPLETE	mc	3234	The shape metric	missing: prior-art | first lines: **ds² = |dw|²/(2√‖w‖); every plane throu / *as shape space and the shape sphere* / Proved — Montgomery 2014, Thm 3; Montgom
+375	C10-PROVED-WITHOUT-REGISTER	mc	3234	The shape metric	Proved — Montgomery 2014, Thm 3; Montgomery 2002.
 376	C11-R-FORM-INCOMPLETE	mc	3242	The Jacobi–Maupertuis metric	missing: prior-art | first lines: **g_E = (E+U)·ds²; trajectories at energ / *licence in the index: §12.11.1.3, §12.1 / Proved — Maupertuis 1744; Jacobi 1837.
 377	C10-PROVED-WITHOUT-REGISTER	mc	3242	The Jacobi–Maupertuis metric	Proved — Maupertuis 1744; Jacobi 1837.
 378	C6-NUMBERS-NOT-IN-SOURCE	mc	3250	The potential on shape space	2 of 2: 650 1718, | sources §11 R1718
 379	C11-R-FORM-INCOMPLETE	mc	3250	The potential on shape space	missing: prior-art | first lines: **U(w) = Σ c_ij/d_ij, c_ij = (m_i m_j)^{ / *650 triangles, 13 mass cases, error < 1 / Proved — Montgomery 2014 §11; register 1
 380	C6-NUMBERS-NOT-IN-SOURCE	mc	3258	The algebraic variety	1 of 1: 1719, | sources § R1719
-381	C11-R-FORM-INCOMPLETE	mc	3268	The five fixed points	missing: prior-art | first lines: **Three Euler roots (one positive root o / *seed of the family index in §14.5's sen / Proved — Euler 1767; Lagrange 1772; regi
+381	C11-R-FORM-INCOMPLETE	mc	3268	The five fixed points	missing: prior-art | first lines: **Three Euler roots (one positive root o / *seed of the family index in §14.5's sen / Proved — Euler 1767; Lagrange 1772; Chen
 382	C11-R-FORM-INCOMPLETE	mc	3276	The triangle form on K₃	missing: prior-art | first lines: **{|a−b| ≤ c ≤ a+b}: join-closed, meet-b / *confirms §12.11.2 on a grid the book ne / ![Closure defect against cap](figures/fi
 383	C11-R-FORM-INCOMPLETE	mc	3288	The deficit	missing: prior-art | first lines: **K₃ has treewidth 2; strong 3-consisten / *the separation hypothesis of §7.1 broke / ![K₂ against K₃](figures/fig5_constraint
 384	C10-PROVED-WITHOUT-REGISTER	mc	3288	The deficit	Proved — M §21.5.1; Freuder 1982.
@@ -28997,9 +29039,9 @@ id	class	member	line	item	detail
 614	C13-HANDLE-LEAK	mc	3513	A.relax	back matter: | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
 615	C13-HANDLE-LEAK	mc	3513	K.three	back matter: | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
 616	C13-HANDLE-LEAK	mc	3513	K.window	back matter: | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
-617	C13-HANDLE-LEAK	mc	3514	Q.anchor	back matter: | 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
-618	C13-HANDLE-LEAK	mc	3514	Q.region	back matter: | 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
-619	C13-HANDLE-LEAK	mc	3514	S.status	back matter: | 1986 | Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+617	C13-HANDLE-LEAK	mc	3514	Q.anchor	back matter: | 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+618	C13-HANDLE-LEAK	mc	3514	Q.region	back matter: | 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
+619	C13-HANDLE-LEAK	mc	3514	S.status	back matter: | 1986 | Theodosiou, Inokuti & Manson | `Q.anchor` `Q.region` `S.status` |
 620	C13-HANDLE-LEAK	mc	3515	L.chains	back matter: | 1986 | Stanley | `C.Aq` `C.Bq` `L.F` `L.F1` `L.Fm1` `L.chains` `L.pal` `L.rankpoly` |
 621	C13-HANDLE-LEAK	mc	3515	L.pal	back matter: | 1986 | Stanley | `C.Aq` `C.Bq` `L.F` `L.F1` `L.Fm1` `L.chains` `L.pal` `L.rankpoly` |
 622	C13-HANDLE-LEAK	mc	3516	G.trip	back matter: | 1988 | Pearl | `G.trip` `K.decay` `K.markov` |
@@ -29008,7 +29050,7 @@ id	class	member	line	item	detail
 625	C13-HANDLE-LEAK	mc	3517	A.bpc	back matter: | 1989 | Cooper | `A.bpc` |
 626	C13-HANDLE-LEAK	mc	3518	G.cons	back matter: | 1989 | Dechter & Pearl | `G.cons` `G.shape` `K.coupling` |
 627	C13-HANDLE-LEAK	mc	3518	G.shape	back matter: | 1989 | Dechter & Pearl | `G.cons` `G.shape` `K.coupling` |
-628	C13-HANDLE-LEAK	mc	3519	A.bpc	back matter: | 1989 | Nouguier & Vilarem | `A.bpc` |
+628	C13-HANDLE-LEAK	mc	3519	A.bpc	back matter: | 1989 | Janssen, Jegou, Nouguier & Vilarem | `A.bpc` |
 629	C13-HANDLE-LEAK	mc	3520	W.scale	back matter: | 1991 | Chinneck & Dravnieks | `W.core15` `W.core9` `W.scale` `W.supp` |
 630	C13-HANDLE-LEAK	mc	3520	W.supp	back matter: | 1991 | Chinneck & Dravnieks | `W.core15` `W.core9` `W.scale` `W.supp` |
 631	C13-HANDLE-LEAK	mc	3521	K.decay	back matter: | 1991 | Cover & Thomas | `K.decay` |
@@ -29018,7 +29060,7 @@ id	class	member	line	item	detail
 635	C13-HANDLE-LEAK	mc	3526	M.hsmi	back matter: | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
 636	C13-HANDLE-LEAK	mc	3526	M.ledger	back matter: | 1993 | Wiesbrock | `M.C2` `M.hsmi` `M.ledger` |
 637	C13-HANDLE-LEAK	mc	3527	B.newton	back matter: | 1994 | Nesterov & Nemirovskii | `B.newton` `B.selfconc` |
-638	C13-HANDLE-LEAK	mc	3528	A.rule	back matter: | 1995 | Beek & Dechter | `A.rule` `A.staircls` |
+638	C13-HANDLE-LEAK	mc	3528	A.rule	back matter: | 1995 | van Beek & Dechter | `A.rule` `A.staircls` |
 639	C13-HANDLE-LEAK	mc	3529	K.decay	back matter: | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 640	C13-HANDLE-LEAK	mc	3529	K.markov	back matter: | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 641	C13-HANDLE-LEAK	mc	3529	L.box	back matter: | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
@@ -29032,7 +29074,7 @@ id	class	member	line	item	detail
 649	C13-HANDLE-LEAK	mc	3532	T.tight	back matter: | 1999 | Hentenryck | `A.orient` `A.rule` `A.stair` `A.staircls` `T.tight` |
 650	C13-HANDLE-LEAK	mc	3534	3B.five	back matter: | 2000 | Chenciner & Montgomery | `3B.five` |
 651	C13-HANDLE-LEAK	mc	3535	3B.metric	back matter: | 2002 | Montgomery | `3B.metric` |
-652	C13-HANDLE-LEAK	mc	3536	W.rel	back matter: | 2003 | Fredenhagen & Verch | `W.rel` |
+652	C13-HANDLE-LEAK	mc	3536	W.rel	back matter: | 2003 | Brunetti, Fredenhagen & Verch | `W.rel` |
 653	C13-HANDLE-LEAK	mc	3537	3B.shape	back matter: | 2006 | Hsiang & Straume | `3B.shape` |
 654	C13-HANDLE-LEAK	mc	3538	3B.shape	back matter: | 2014 | Montgomery | `3B.shape` `3B.metric` `3B.pot` |
 655	C13-HANDLE-LEAK	mc	3538	3B.metric	back matter: | 2014 | Montgomery | `3B.shape` `3B.metric` `3B.pot` |
@@ -36480,7 +36522,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	253221	574ac029bb52b5be4104054aa836a2b3	1640
+compendia	DEFECT-CENSUS.tsv	253372	fc7891b7b139afa93e17650bf76fa131	1640
 compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -36645,14 +36687,14 @@ compendia	TB1-n8_check.py	1719	ab823f22180baa476b623e0f55ae8c06	24
 compendia	TB1-routh_check.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	1
 compendia	TB1-routh_check.py	366	23842800b311327175ecdd0ef311473b	5
 compendia	THE-LOWDIN-SOLUTION-2.md	38046	cce968defbb021e4fd6e05172fc1bb79	260
-compendia	The_Method_1_6___Mathematical_Compendium-2.md	310321	0976507ba0f7b22e1dd99edfb8d332fa	3812
+compendia	The_Method_1_6___Mathematical_Compendium-2.md	310590	ecc158ba2ccaa0b5a2b32cde903e3c6f	3812
 compendia	The_Method_1_6___Spectra_Compendium-2.md	100730	389c8e05b846b018768dd10a0ccd060b	1159
 compendia	The_Method_1_6___The_Index_of_Indices-2.md	118405	d19416dd0fa82c68ec7b9da834e004c4	2093
 compendia	The_Method_1_6___The_Physics_Compendium-2.md	63248	2f9d3a2b20ae79d7c3914f8cc1c2d3b2	913
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1298504	d475a1ce011a0ca66d6cf28b442b5571	8927
+compendia	WORKING-REGISTER.md	1311244	cfe890f2f912d095e44515e7a2b573bc	8969
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	agreement.py	10752	f6e1601813de956af99ee93f44364827	254
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
@@ -36748,13 +36790,13 @@ compendia	proveanchor.py	5401	84275f94ea87f8218178fd1415d21bb0	116
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	5edba63b729984297869173c17b88f47	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
-compendia	r2-21a2.out	25255	f0af046c9ad8599332fa340106f5ba28	281
+compendia	r2-21a2.out	25255	5eb2ce3df7eb5791e2068f9a0e14e8f8	281
 compendia	r2-21a2.py	24527	aecdb52c18a98462020266d70479b41f	196
 compendia	r2-23a.out	37448	028f44ed38c23683ad9f6fbf7134bf3d	268
 compendia	r2-23a.py	20065	85bd124a1e6cd5dcd5e6198e15259782	222
-compendia	r2-23a2.out	45807	d6e379dec538a462a044afdeb6b22c32	269
+compendia	r2-23a2.out	45807	67c7671950f0393d71b243ded8994939	269
 compendia	r2-23a2.py	21230	9ec2bf76d5eaa6b7626a67aab0db5357	235
-compendia	r2-24a.out	24274	092566cf80c92ffc5da6cf5f419e2ae2	227
+compendia	r2-24a.out	24274	1db3d1da940a30b035c7aa2cf9287eb9	227
 compendia	r2-24a.py	28685	b905b44fd84c599626c8ef3118c701d5	286
 compendia	r2-25b.out	16449	7c86b6a75bdc62e867b2314c13886f6e	169
 compendia	r2-25b.py	21612	2387c3a5291d209a0bbf048913568cac	293
@@ -36768,13 +36810,13 @@ compendia	r2-27a.out	10142	1c050f9a69f02d213fecfc53d779d72f	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
 compendia	r2-27a2.out	10142	000939f9c8009ae8f41601378b7e6238	125
 compendia	r2-27a2.py	16080	f789a55122470886ac112e6e07314972	227
-compendia	r2-27a3.out	14116	f4d78b7259357c3be8d5b700b202b1d1	164
+compendia	r2-27a3.out	14116	cbf0943c3cb6f73589d90334cfe6afc1	164
 compendia	r2-27a3.py	18218	534753c50df14a47ed546c3fa825dc6f	224
 compendia	r2-28a2.out	12319	7e58b2bf026973b3e0523d7ed623c083	184
 compendia	r2-28a2.py	16676	c7eafbaf76e9ddc908a3cc8af1423a32	223
 compendia	r2-28a3.out	12319	f96b01bd298a69644ffc37b2301c192a	184
 compendia	r2-28a3.py	17716	02fe220d752f043b3dc001792999d709	234
-compendia	r2-28a4.out	11369	3ebe5ebf63c790646b02491b4259f809	173
+compendia	r2-28a4.out	11373	6bbd49a636b04d4d4a17b2348198a2ad	173
 compendia	r2-28a4.py	17331	e08007a8f225b8729169d3962c259b0f	229
 compendia	r2-28b2.out	14026	0bd7f8b2946821179e351053382fe1c3	165
 compendia	r2-28b2.py	17057	ccb9fc499e8d20e953936f472dab34b2	229
@@ -36784,7 +36826,7 @@ compendia	r2-32a.out	16599	45d39ed3d26fe560bafa3aa3b7164351	179
 compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
 compendia	r2-bib.out	7712	6505f5280dd4f6928f6a62f0b52f0823	67
 compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
-compendia	r2-bib2.out	7715	d4c43ddd8173dd7cdcedffaed7f4671d	67
+compendia	r2-bib2.out	7715	45aa06e851e5044f3cd40253337610f7	67
 compendia	r2-bib2.py	12497	1ee17f0becc1497a4b43160c729482e9	152
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
@@ -36799,7 +36841,7 @@ compendia	r2-ch16b2.out	11968	49120f0fe7ce83f790b02cd7b0f3e995	173
 compendia	r2-ch16b2.py	22983	17acdcee44d774a003b86dacb6cf4325	421
 compendia	r2-ch16c.out	16427	435b5d92d15dd444b688b995c417d7b6	248
 compendia	r2-ch16c.py	18745	5b92aa61b147d3d9327242cf3d4e2e45	354
-compendia	r2-ch16c2.out	16437	e76e55a34bcadab98c568c819d85e952	248
+compendia	r2-ch16c2.out	16437	8bb7ab2a9a718a6b96add6746da3ac81	248
 compendia	r2-ch16c2.py	21859	3d0e973282bbeaad84a17b7d7855f8da	369
 compendia	r2-ch16e.out	9894	d816d8ea67e3786404b612d488e4fb36	145
 compendia	r2-ch16e.py	18228	dd5b6fe7d9f56f7cc5a4e19f68d9daa2	338
@@ -36998,13 +37040,13 @@ compendia	r2-ch27b2.out	11976	8aee567426e26ab728be34311346d9ad	95
 compendia	r2-ch27b2.py	14599	93103ab69bae8ac2e75feaf7c3d0e5b0	124
 compendia	r2-ch28a.out	27613	e9b25d8f62d770970570c8dbf315190b	222
 compendia	r2-ch28a.py	20471	010ea4c627fc75e8a04eed8a74cad459	182
-compendia	r2-ch28a4.out	27943	5f2703edc4acfbb2499ae5cdc574384e	224
+compendia	r2-ch28a4.out	27943	f649dd40a2bcfd75c78d2d00d50d73ab	224
 compendia	r2-ch28a4.py	21589	e5d7fc4612acefd0aff29a70b39bca2e	197
 compendia	r2-ch28b.out	25818	02d9c05899ca67e0d6ba0231973a1dee	170
 compendia	r2-ch28b.py	18874	2e8d1a1a5e556f423989e4141b6fac9d	139
 compendia	r2-ch28b2.out	25969	ec66910365ebfba3bfaa9a7c2b19ed9d	170
 compendia	r2-ch28b2.py	20155	8ebe3662ea4e02920f37f5a7411f4fbb	154
-compendia	r2-ch28b3.out	25994	fec1cefa3d5538f9a425f4da425869d1	170
+compendia	r2-ch28b3.out	25994	aecca4b68b9c977fcc0a15651e968507	170
 compendia	r2-ch28b3.py	20603	b436961aec6503b63a2e59772d214ee7	159
 compendia	r2-ch3.py	8140	3557dc8e0d79a6448c35ea1cf144b202	125
 compendia	r2-ch34re.out	20928	e7698bfbcd8bbe169ec9df23657ed9a1	250
@@ -37071,7 +37113,7 @@ compendia	r2-regsweep.out	4641	d23a87ed1143ef3442ff0d60e7c1b858	85
 compendia	r2-regsweep.py	10087	c8f400118dbe57bcf8914d37e9522fe6	163
 compendia	r2-regsweep2.out	4978	0d84ccfc7d1f15c015f903f39755da3f	87
 compendia	r2-regsweep2.py	11409	7bf329ed357a77811bdc4e4ae71bbf2b	174
-compendia	r2-scf.out	30503	cd269e08080909906331093aa4b80ef0	337
+compendia	r2-scf.out	30503	6bc88cb61664e504b0482aa665233b8d	337
 compendia	r2-scf.py	19583	70292ea5151a9fe086aab6639529a3d7	220
 compendia	r2-tb1.out	10827	7f79293d9c4f790eae0da949ee9c493a	120
 compendia	r2-tb1.py	14072	a97e9548c5aa4adf885682ed76fc299d	145
@@ -64158,7 +64200,7 @@ for tag, name, sp_, ep_ in (('MC', MC, r'^## LS\. ', r'^## 3B\. '), ('PC', PC, r
 ====================================================================================================
   The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
   The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-  The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
@@ -65887,7 +65929,7 @@ print('\nEND r2-24a')
 ====================================================================================================
    main The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
    reg  The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
    sc   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
@@ -81870,7 +81912,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-27a3.out>>>
 r2-27a3.py — 27a-02 under ruling (a): the Register pointers of Appendix G rows 8.2, 8.4, 10.4c re-taken under CONVENTION DEP
-members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md 0976507b
+members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | Transitions.md e2237090 | The_Method_1_6___Mathematical_Compendium-2.md ecc158ba
 
 == §1 THE ROWS, located by scan — pointers are read OUT of the rows, never carried in
    Appendix G body L11408–L11453 (46 lines)
@@ -84146,7 +84188,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-28a4.out>>>
 r2-28a4.py — 28a-06 after ruling (a): does the author-and-year match on the 162 rows give the figure the sentence prints?
-members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | The_Method_1_6___Mathematical_Compendium-2.md 0976507b
+members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864bd62 | The_Method_1_6___Mathematical_Compendium-2.md ecc158ba
 
 == §1 THE TWO LISTS, located by scan this chat — the claim paragraph is EXCLUDED from the list it is about
    main `References` heading hits (the unit is the LAST, as r2-ch28a §0 takes it) [173, 11550]             OK
@@ -84238,7 +84280,7 @@ members: The_Method_1_6-2.md f4d01315 | The_Method_1_6___The_Register-2.md 1864b
    MATCH  1982  Marchal & Bozis
    MATCH  1992  Dechter
    MATCH  1994  Nesterov & Nemirovskii
-   MATCH  1995  Beek & Dechter
+   MATCH  1995  van Beek & Dechter
    MATCH  1998  Montgomery
    MATCH  1999  Deville
    MATCH  1999  Hentenryck
@@ -84998,7 +85040,7 @@ except Exception as ex: print('   census read:', ex)
 ====================================================================================================
    main The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
    reg  The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+   mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
    pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
    sc   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
@@ -85496,7 +85538,7 @@ print('  the family\'s Register home: NONE (§1) — every figure of §25.6 / §
 ====================================================================================================
   The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
   The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
-  The_Method_1_6___Mathematical_Compendium-2.md        md5 0976507b  3813 lines
+  The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
@@ -87325,7 +87367,7 @@ r2-ch16c  PROSE  chat 117  main L8456-L8579  (§30.3.3 - §30.3.9)
   Booth        unit [8460, 8464]     | References 1 | R.7 0 | six-volume {'main': 4}
   Lueker       unit [8460, 8464]     | References 1 | R.7 0 | six-volume {'main': 4}
   Rival        unit [8502, 8505]     | References 1 | R.7 0 | six-volume {'main': 17, 'reg': 33, 'mc': 8, 'pc': 1}
-  Chen         unit [8506]           | References 2 | R.7 1 | six-volume {'main': 5, 'reg': 1, 'mc': 1}
+  Chen         unit [8506]           | References 2 | R.7 1 | six-volume {'main': 5, 'reg': 1, 'mc': 2}
   Koh          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 3}
   Tan          unit [8506]           | References 1 | R.7 0 | six-volume {'main': 8, 'reg': 2}
   Dilworth     unit [8522]           | References 2 | R.7 0 | six-volume {'main': 8, 'reg': 7, 'mc': 21, 'pc': 2}
@@ -103188,7 +103230,7 @@ print('  docket 27: unit lines ≥ 40 chars %d; duplicated outside the unit %d %
   `|` lines 164; first three: ['| year | work | objects |', '|---|---|---|', '| 1669 | Newton | `B.newton` |']
   DATA rows (split on unescaped `|`, header and separator excluded, carrying a year): 162
   MC bibliography L3376–L3546: 162 work rows; years 1669–2026
-  surnames MC rows 37, unit 163, shared 13: ['Andrew', 'Baker', 'Beek', 'Chenciner', 'Dechter', 'Drake', 'Fleischer', 'Gerratt', 'Griffin', 'Hsiang', 'Lach', 'Marchal', 'Nesterov']
+  surnames MC rows 41, unit 163, shared 13: ['Andrew', 'Baker', 'Beek', 'Chenciner', 'Dechter', 'Drake', 'Fleischer', 'Gerratt', 'Griffin', 'Hsiang', 'Lach', 'Marchal', 'Nesterov']
   MC rows whose surname is in the unit: 16 of 162 (the printed fifty-nine counts WORKS; this is a surname-overlap bound, stated as such)
     Newton    MC rows 2 (years [1669, 1687])
     Leibniz   MC rows 1 (years [1682])
@@ -108627,7 +108669,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-bib2.out>>>
 r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
-members: The_Method_1_6___Mathematical_Compendium-2.md 0976507b | main f4d01315 | reg 1864bd62 | pc 2f9d3a2b | sc 389c8e05 | ioi d19416dd | census 574ac029
+members: The_Method_1_6___Mathematical_Compendium-2.md ecc158ba | main f4d01315 | reg 1864bd62 | pc 2f9d3a2b | sc 389c8e05 | ioi d19416dd | census fc7891b7
 
 == §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
    exactly one bibliography table header                                  1                        OK
@@ -113875,7 +113917,7 @@ print('  L11592 / L11604 / L11816 / L11840 companion papers: cited with `Lach, M
     Hoffman     outside the unit: {'main': 2, 'reg': 3}
     Kandula     outside the unit: {'main': 1, 'reg': 1}
     Drake       outside the unit: {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}
-  the rest, cited somewhere: {'Aarseth': {'main': 1}, 'Adams': {'main': 3, 'reg': 1}, 'Aitken': {'main': 10, 'mc': 5}, 'Alekseev': {'reg': 2, 'mc': 1}, 'Andrew': {'main': 2, 'reg': 4, 'mc': 15, 'pc': 2, 'ioi': 1}, 'Anstee': {'main': 2, 'reg': 3}, 'Archives': {'main': 2, 'reg': 1}, 'Arnold': {'mc': 1}, 'Atomic': {'main': 1, 'reg': 10, 'mc': 13, 'sc': 1}, 'August': {'ioi': 1}, 'Baker': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Batyrev': {'main': 1, 'ioi': 1}, 'Beek': {'reg': 2, 'mc': 7}, 'Bergman': {'main': 3, 'reg': 2, 'mc': 7}, 'Birkhoff': {'main': 12, 'reg': 13, 'mc': 94}, 'Boole': {'main': 1, 'mc': 3}, 'Booth': {'main': 3}, 'Bozis': {'reg': 2, 'mc': 1, 'pc': 1}, 'Brudno': {'main': 2, 'reg': 3, 'mc': 3, 'ioi': 1}, 'Brylawski': {'main': 2, 'reg': 1}, 'Candelas': {'main': 2}, 'Caspard': {'main': 2, 'reg': 3}, 'Chandrasekaran': {'main': 2, 'reg': 11, 'mc': 5}, 'Chazy': {'mc': 3, 'ioi': 1}, 'Chen': {'main': 2}, 'Chenciner': {'main': 1, 'reg': 1, 'mc': 1}, 'Colomb': {'main': 2, 'reg': 3}, 'Corliss': {'main': 1, 'reg': 2, 'sc': 1}, 'Cowan': {'main': 2, 'reg': 4, 'mc': 17, 'pc': 2, 'ioi': 1}, 'Dechter': {'main': 3, 'reg': 5, 'mc': 21}, 'Deville': {'main': 1, 'reg': 3, 'mc': 23, 'pc': 1}, 'Dilworth': {'main': 6, 'reg': 6, 'mc': 21, 'pc': 2}, 'Drake': {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}, 'Dunz': {'main': 10, 'reg': 1}, 'Dwinger': {'main': 3, 'reg': 1}, 'Edlén': {'main': 25, 'reg': 13, 'ioi': 1}, 'Euler': {'main': 4, 'reg': 3, 'mc': 26, 'pc': 1, 'ioi': 1}, 'Farber': {'main': 1, 'reg': 1}, 'Flanagan': {'main': 2, 'reg': 11, 'mc': 5}, 'Fleischer': {'mc': 1}, 'Freuder': {'main': 10, 'reg': 9, 'mc': 56, 'ioi': 2}, 'Fulkerson': {'main': 1}, 'Gauss': {'reg': 2, 'mc': 9}, 'Gerratt': {'reg': 1, 'mc': 3}, 'Griffin': {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1}, 'Gross': {'main': 1}, 'Gödel': {'main': 4}, 'Götze': {'main': 11, 'reg': 3}, 'Harmon': {'reg': 1, 'mc': 1, 'pc': 2}, 'Hentenryck': {'main': 1, 'reg': 2, 'mc': 14, 'pc': 1}, 'Hill': {'main': 8, 'reg': 1, 'mc': 1, 'pc': 3}, 'Hoffman': {'main': 2, 'reg': 3}, 'Hori': {'main': 2, 'reg': 1, 'sc': 1}, 'Hsiang': {'mc': 1}, 'Irlande': {'main': 1, 'reg': 1}, 'Isacker': {'main': 2, 'reg': 2}, 'Jacobi': {'main': 5, 'reg': 2, 'mc': 4, 'pc': 5, 'ioi': 1}, 'Janet': {'main': 15, 'reg': 83, 'mc': 21, 'pc': 8, 'ioi': 15, 'sc': 9}, 'Kandula': {'main': 1, 'reg': 1}, 'Kaufman': {'main': 4, 'sc': 1}, 'Kimura': {'main': 1, 'reg': 2, 'mc': 1}, 'Knauf': {'mc': 1}, 'Koelling': {'reg': 1, 'mc': 1, 'pc': 2}, 'Koh': {'main': 2}, 'Kol': {'reg': 3, 'mc': 2}, 'Kolen': {'main': 1, 'reg': 1}, 'Kolmogorov': {'mc': 4}, 'Korobov': {'main': 2, 'reg': 1, 'sc': 1}, 'Kramida': {'main': 3, 'sc': 1}, 'Kreuzer': {'main': 12, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Kuznetsov': {'main': 3, 'reg': 4}, 'Körner': {'main': 1}, 'Lach': {'main': 8, 'reg': 5, 'mc': 2}, 'Lagrange': {'main': 5, 'reg': 2, 'mc': 9, 'pc': 1}, 'Larson': {'main': 6, 'reg': 1}, 'Leibniz': {'reg': 1, 'mc': 3}, 'Leigh': {'reg': 4}, 'Lubiw': {'main': 2, 'reg': 4}, 'Lueker': {'main': 3}, 'Löwdin': {'main': 21, 'reg': 61, 'mc': 9, 'pc': 5, 'ioi': 2, 'sc': 2}, 'Madelung': {'main': 6, 'reg': 54, 'mc': 7, 'pc': 2, 'ioi': 4}, 'Makino': {'main': 1, 'reg': 1}, 'Manski': {'main': 5}, 'Marchal': {'reg': 2, 'mc': 2, 'pc': 1}, 'Mardling': {'main': 1}, 'Martin': {'main': 7, 'sc': 2}, 'Maupertuis': {'main': 2, 'reg': 1, 'mc': 3, 'pc': 4, 'ioi': 1}, 'Mills': {'reg': 1, 'mc': 3}, 'Molecular': {'main': 1, 'ioi': 1}, 'Monaghan': {'reg': 2, 'mc': 1}, 'Monjardet': {'main': 1, 'reg': 1, 'mc': 7}, 'Montanari': {'main': 2, 'reg': 2, 'mc': 4, 'ioi': 1}, 'Montgomery': {'main': 3, 'reg': 6, 'mc': 10, 'pc': 1}, 'Moore': {'main': 12, 'reg': 6, 'mc': 38, 'pc': 1, 'ioi': 2}, 'Moser': {'reg': 3}, 'Musgrove': {'main': 2, 'reg': 1, 'sc': 1}, 'Nemirovskii': {'main': 3, 'mc': 6}, 'Nesterov': {'main': 4, 'mc': 6}, 'Newton': {'main': 10, 'reg': 3, 'mc': 12, 'pc': 1}, 'Nuclear': {'reg': 5}, 'Nörlund': {'main': 1}, 'Obiedkov': {'main': 1, 'reg': 1}, 'Orlitsky': {'main': 1}, 'Ossa': {'main': 1}, 'P-completeness': {'main': 1, 'reg': 1}, 'Painlevé': {'main': 1, 'reg': 1, 'mc': 1, 'pc': 1, 'ioi': 1}, 'Paschen': {'main': 11, 'reg': 4}, 'Pixley': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Poincaré': {'main': 4, 'reg': 2, 'mc': 2, 'ioi': 3}, 'Pulay': {'main': 4, 'reg': 1, 'mc': 4}, 'Racah': {'main': 5, 'reg': 18, 'mc': 46, 'ioi': 3}, 'Raynaud': {'main': 2, 'reg': 1}, 'Reader': {'reg': 1}, 'Richardson': {'main': 2}, 'Ritz': {'main': 29, 'reg': 25, 'mc': 14, 'pc': 2, 'ioi': 1}, 'Rival': {'main': 9}, 'Rota': {'main': 1, 'reg': 1, 'mc': 20}, 'Runge': {'main': 1}, 'Rydberg': {'main': 50, 'reg': 82, 'mc': 48, 'pc': 22, 'ioi': 13, 'sc': 6}, 'Ryter': {'main': 2}, 'Saari': {'main': 1, 'reg': 1, 'mc': 5, 'ioi': 1}, 'Sakarovitch': {'main': 1, 'reg': 1}, 'Sansonetti': {'main': 4, 'reg': 2, 'sc': 2}, 'Schaefer': {'main': 4}, 'Schmid': {'main': 5, 'reg': 1}, 'Shanks': {'main': 1}, 'Shannon': {'main': 5, 'reg': 1, 'mc': 38, 'pc': 1}, 'Sharp': {'main': 1}, 'Siggers': {'main': 7, 'reg': 1}, 'Singer': {'main': 3, 'reg': 1, 'sc': 1}, 'Skarke': {'main': 11, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Sommerfeld': {'reg': 2, 'mc': 3, 'pc': 1}, 'Sperner': {'main': 8, 'reg': 6, 'mc': 10}, 'Stahl': {'main': 3}, 'Stanojevic': {'main': 1, 'sc': 1}, 'Steffensen': {'main': 1}, 'Stephen': {'main': 1}, 'Stone': {'reg': 3, 'mc': 1}, 'Straume': {'mc': 1}, 'Structure': {'main': 2}, 'Sugar': {'main': 3, 'reg': 3, 'sc': 2}, 'Tan': {'main': 2}, 'Taylor': {'reg': 1, 'mc': 6}, 'Tucker': {'main': 5}, 'Weidemüller': {'main': 1, 'sc': 1}, 'Wille': {'main': 3}, 'Yamada': {'main': 1, 'reg': 1}, 'Yannakakis': {'main': 2, 'reg': 1, 'mc': 8}, 'Yoshizumi': {'main': 1, 'reg': 1}}
+  the rest, cited somewhere: {'Aarseth': {'main': 1}, 'Adams': {'main': 3, 'reg': 1}, 'Aitken': {'main': 10, 'mc': 5}, 'Alekseev': {'reg': 2, 'mc': 2}, 'Andrew': {'main': 2, 'reg': 4, 'mc': 15, 'pc': 2, 'ioi': 1}, 'Anstee': {'main': 2, 'reg': 3}, 'Archives': {'main': 2, 'reg': 1}, 'Arnold': {'mc': 1}, 'Atomic': {'main': 1, 'reg': 10, 'mc': 13, 'sc': 1}, 'August': {'ioi': 1}, 'Baker': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Batyrev': {'main': 1, 'ioi': 1}, 'Beek': {'reg': 2, 'mc': 7}, 'Bergman': {'main': 3, 'reg': 2, 'mc': 7}, 'Birkhoff': {'main': 12, 'reg': 13, 'mc': 94}, 'Boole': {'main': 1, 'mc': 3}, 'Booth': {'main': 3}, 'Bozis': {'reg': 2, 'mc': 1, 'pc': 1}, 'Brudno': {'main': 2, 'reg': 3, 'mc': 3, 'ioi': 1}, 'Brylawski': {'main': 2, 'reg': 1}, 'Candelas': {'main': 2}, 'Caspard': {'main': 2, 'reg': 3}, 'Chandrasekaran': {'main': 2, 'reg': 11, 'mc': 5}, 'Chazy': {'mc': 3, 'ioi': 1}, 'Chen': {'main': 2}, 'Chenciner': {'main': 1, 'reg': 1, 'mc': 2}, 'Colomb': {'main': 2, 'reg': 3}, 'Corliss': {'main': 1, 'reg': 2, 'sc': 1}, 'Cowan': {'main': 2, 'reg': 4, 'mc': 17, 'pc': 2, 'ioi': 1}, 'Dechter': {'main': 3, 'reg': 5, 'mc': 21}, 'Deville': {'main': 1, 'reg': 3, 'mc': 20, 'pc': 1}, 'Dilworth': {'main': 6, 'reg': 6, 'mc': 21, 'pc': 2}, 'Drake': {'main': 1, 'reg': 1, 'mc': 2, 'pc': 1, 'sc': 1}, 'Dunz': {'main': 10, 'reg': 1}, 'Dwinger': {'main': 3, 'reg': 1}, 'Edlén': {'main': 25, 'reg': 13, 'ioi': 1}, 'Euler': {'main': 4, 'reg': 3, 'mc': 26, 'pc': 1, 'ioi': 1}, 'Farber': {'main': 1, 'reg': 1}, 'Flanagan': {'main': 2, 'reg': 11, 'mc': 5}, 'Fleischer': {'mc': 2}, 'Freuder': {'main': 10, 'reg': 9, 'mc': 56, 'ioi': 2}, 'Fulkerson': {'main': 1}, 'Gauss': {'reg': 2, 'mc': 9}, 'Gerratt': {'reg': 1, 'mc': 3}, 'Griffin': {'main': 1, 'reg': 3, 'mc': 9, 'pc': 2, 'ioi': 1}, 'Gross': {'main': 1}, 'Gödel': {'main': 4}, 'Götze': {'main': 11, 'reg': 3}, 'Harmon': {'reg': 1, 'mc': 1, 'pc': 2}, 'Hentenryck': {'main': 1, 'reg': 2, 'mc': 17, 'pc': 1}, 'Hill': {'main': 8, 'reg': 1, 'mc': 1, 'pc': 3}, 'Hoffman': {'main': 2, 'reg': 3}, 'Hori': {'main': 2, 'reg': 1, 'sc': 1}, 'Hsiang': {'mc': 2}, 'Irlande': {'main': 1, 'reg': 1}, 'Isacker': {'main': 2, 'reg': 2}, 'Jacobi': {'main': 5, 'reg': 2, 'mc': 4, 'pc': 5, 'ioi': 1}, 'Janet': {'main': 15, 'reg': 83, 'mc': 21, 'pc': 8, 'ioi': 15, 'sc': 9}, 'Kandula': {'main': 1, 'reg': 1}, 'Kaufman': {'main': 4, 'sc': 1}, 'Kimura': {'main': 1, 'reg': 2, 'mc': 1}, 'Knauf': {'mc': 2}, 'Koelling': {'reg': 1, 'mc': 1, 'pc': 2}, 'Koh': {'main': 2}, 'Kol': {'reg': 3, 'mc': 4}, 'Kolen': {'main': 1, 'reg': 1}, 'Kolmogorov': {'mc': 4}, 'Korobov': {'main': 2, 'reg': 1, 'sc': 1}, 'Kramida': {'main': 3, 'sc': 1}, 'Kreuzer': {'main': 12, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Kuznetsov': {'main': 3, 'reg': 4}, 'Körner': {'main': 1}, 'Lach': {'main': 8, 'reg': 5, 'mc': 2}, 'Lagrange': {'main': 5, 'reg': 2, 'mc': 9, 'pc': 1}, 'Larson': {'main': 6, 'reg': 1}, 'Leibniz': {'reg': 1, 'mc': 3}, 'Leigh': {'reg': 4}, 'Lubiw': {'main': 2, 'reg': 4}, 'Lueker': {'main': 3}, 'Löwdin': {'main': 21, 'reg': 61, 'mc': 9, 'pc': 5, 'ioi': 2, 'sc': 2}, 'Madelung': {'main': 6, 'reg': 54, 'mc': 7, 'pc': 2, 'ioi': 4}, 'Makino': {'main': 1, 'reg': 1}, 'Manski': {'main': 5}, 'Marchal': {'reg': 2, 'mc': 3, 'pc': 1}, 'Mardling': {'main': 1}, 'Martin': {'main': 7, 'sc': 2}, 'Maupertuis': {'main': 2, 'reg': 1, 'mc': 3, 'pc': 4, 'ioi': 1}, 'Mills': {'reg': 1, 'mc': 3}, 'Molecular': {'main': 1, 'ioi': 1}, 'Monaghan': {'reg': 2, 'mc': 2}, 'Monjardet': {'main': 1, 'reg': 1, 'mc': 7}, 'Montanari': {'main': 2, 'reg': 2, 'mc': 4, 'ioi': 1}, 'Montgomery': {'main': 3, 'reg': 6, 'mc': 13, 'pc': 1}, 'Moore': {'main': 12, 'reg': 6, 'mc': 38, 'pc': 1, 'ioi': 2}, 'Moser': {'reg': 3}, 'Musgrove': {'main': 2, 'reg': 1, 'sc': 1}, 'Nemirovskii': {'main': 3, 'mc': 6}, 'Nesterov': {'main': 4, 'mc': 6}, 'Newton': {'main': 10, 'reg': 3, 'mc': 12, 'pc': 1}, 'Nuclear': {'reg': 5}, 'Nörlund': {'main': 1}, 'Obiedkov': {'main': 1, 'reg': 1}, 'Orlitsky': {'main': 1}, 'Ossa': {'main': 1}, 'P-completeness': {'main': 1, 'reg': 1}, 'Painlevé': {'main': 1, 'reg': 1, 'mc': 1, 'pc': 1, 'ioi': 1}, 'Paschen': {'main': 11, 'reg': 4}, 'Pixley': {'main': 5, 'reg': 3, 'mc': 15, 'pc': 1}, 'Poincaré': {'main': 4, 'reg': 2, 'mc': 2, 'ioi': 3}, 'Pulay': {'main': 4, 'reg': 1, 'mc': 4}, 'Racah': {'main': 5, 'reg': 18, 'mc': 46, 'ioi': 3}, 'Raynaud': {'main': 2, 'reg': 1}, 'Reader': {'reg': 1}, 'Richardson': {'main': 2}, 'Ritz': {'main': 29, 'reg': 25, 'mc': 14, 'pc': 2, 'ioi': 1}, 'Rival': {'main': 9}, 'Rota': {'main': 1, 'reg': 1, 'mc': 20}, 'Runge': {'main': 1}, 'Rydberg': {'main': 50, 'reg': 82, 'mc': 48, 'pc': 22, 'ioi': 13, 'sc': 6}, 'Ryter': {'main': 2}, 'Saari': {'main': 1, 'reg': 1, 'mc': 7, 'ioi': 1}, 'Sakarovitch': {'main': 1, 'reg': 1}, 'Sansonetti': {'main': 4, 'reg': 2, 'sc': 2}, 'Schaefer': {'main': 4}, 'Schmid': {'main': 5, 'reg': 1}, 'Shanks': {'main': 1}, 'Shannon': {'main': 5, 'reg': 1, 'mc': 38, 'pc': 1}, 'Sharp': {'main': 1}, 'Siggers': {'main': 7, 'reg': 1}, 'Singer': {'main': 3, 'reg': 1, 'sc': 1}, 'Skarke': {'main': 11, 'reg': 2, 'mc': 1, 'ioi': 1}, 'Sommerfeld': {'reg': 2, 'mc': 3, 'pc': 1}, 'Sperner': {'main': 8, 'reg': 6, 'mc': 10}, 'Stahl': {'main': 3}, 'Stanojevic': {'main': 1, 'sc': 1}, 'Steffensen': {'main': 1}, 'Stephen': {'main': 1}, 'Stone': {'reg': 3, 'mc': 1}, 'Straume': {'mc': 2}, 'Structure': {'main': 2}, 'Sugar': {'main': 3, 'reg': 3, 'sc': 2}, 'Tan': {'main': 2}, 'Taylor': {'reg': 1, 'mc': 6}, 'Tucker': {'main': 5}, 'Weidemüller': {'main': 1, 'sc': 1}, 'Wille': {'main': 3}, 'Yamada': {'main': 1, 'reg': 1}, 'Yannakakis': {'main': 2, 'reg': 1, 'mc': 8}, 'Yoshizumi': {'main': 1, 'reg': 1}}
 
 == §3 L11818 "Hill 1878, Poincaré 1890, Freuder 1982 and Mardling & Aarseth 2001 are cited above and reused"; R.7 Löwdin block vs the chapter; R.7 three-body names vs Chapter 36 and Register 1713–1724
   Hill      1878: above L11818 at [11837]
@@ -113920,7 +113962,7 @@ print('  L11592 / L11604 / L11816 / L11840 companion papers: cited with `Lach, M
   three-body block Jacobi      Chapter 36 (9926, 9971) 2; Register 1713–1724 entries [1715, 1721]
   three-body block Euler       Chapter 36 (9926, 9971) 1; Register 1713–1724 entries []
   three-body block Lagrange    Chapter 36 (9926, 9971) 2; Register 1713–1724 entries [1720]
-  L11820 "every structural object of Chapter 36 is his or older": `Montgomery` sites in main outside the unit [9942, 9964, 10867]; in MC [34, 72, 3224, 3232, 3240, 3256, 3530, 3534]
+  L11820 "every structural object of Chapter 36 is his or older": `Montgomery` sites in main outside the unit [9942, 9964, 10867]; in MC [34, 72, 3224, 3232, 3240, 3256, 3274, 3530]
 
 == §4 Ruling 45 / 46 / narrated-past-state / first-person probes on the unit
   \w+\.py\b                                    script name (R46) → []
