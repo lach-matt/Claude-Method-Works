@@ -4219,3 +4219,79 @@ look like a door, and it closes whenever ANEC does.**
   integration window coarsened the grid until the answer flipped sign; short window, fine grid,
   convergence now asserted against the closed form).
 - `obstruct.py` — **35 rows**, new `SNEC-LOOPHOLE`, CLOSED-NEGATIVE.
+
+---
+
+## `anecscope.py` — the ANEC row, and a lemma in this tree that was inverted
+
+`smearing.py` named self-consistent ANEC the obvious next step. Attacking it turned up something closer
+to home first.
+
+### The inverted claim
+
+`achronal.py` closed the achronality escape against us, with shear dropped, on this stated ground
+(its line 53):
+
+> *"DROPPING SHEAR IS CONSERVATIVE: σ² ≥ 0 only ever helps focusing, so a ray this file calls achronal
+> would still be achronal with shear restored."*
+
+**The first half is right and the conclusion is backwards.** σ² does only ever help focusing. More
+focusing means a conjugate point *sooner, or where there was none* — and a conjugate point is exactly
+what makes a ray **non**-achronal, as `achronal.py` says four lines earlier. So dropping shear
+understates focusing and therefore **overstates achronality**.
+
+**Demonstrated, not argued**, in the cleanest case — vacuum, where `R_kk = 0` exactly,
+`lemma_applies()` fires, and the scalar equation gives `u = λ` with no zero ever:
+
+| source | Ricci-only conjugate | **full matrix** |
+|---|---|---|
+| M = −2.0e-3 | NONE | **56.50** |
+| M = −4.0e-3 | NONE | **47.17** |
+
+Weyl is traceless: it focuses one eigendirection whatever the sign of the source. `composite.py` named
+this three passes later — WEYL-IS-SIGNBLIND, *"fatal for a search"* — and nobody came back here.
+
+### With that corrected: no ray is both ANEC-violating and achronal
+
+| b | `I = ∫T_kk dl` | ANEC | conjugate point |
+|---|---|---|---|
+| 0.05 | −3.028e-01 | VIOLATED | 400.2 |
+| 1.00 | −2.465e-06 | VIOLATED | 414.4 |
+| 2.00 | −7.954e-08 | VIOLATED | 461.0 |
+| **2.3783** | −1.554e-19 | boundary | 1578.0 |
+| 2.4021 | +3.105e-09 | ok | 1579.8 |
+
+**ANEC violation ceases at `b = 2.378288`; conjugate points persist well past it.** The ANEC-violating
+set is **strictly contained** in the non-achronal set, nowhere marginally.
+
+And the containment is structural, not lucky: **the same negative core that makes the integral negative
+is the thing that focuses**, because Weyl is sign-blind. **One object produces both — the seat and the
+escape cannot come apart.** Where GJW make their geodesics non-achronal with an *external* causal path,
+the corridor does it with an *internal* conjugate point it already needed.
+
+### What this is not — stated at length, four times, in the file
+
+- **Not a refutation.** Self-consistent achronal ANEC stands exactly where it stood, unproven for
+  nineteen years. Being outside a conjecture's scope is not defeating it.
+- **Not a route to a buildable device.** `c⁴/G` untouched, 1.349e26 kg/m untouched, `ρ < 0` still
+  required. **Not one order of magnitude moved.**
+- **Does not re-run `achronal.py`'s own 25 rays.** The method is shown wrong; whether those particular
+  rays flip is `NOT-RUN`.
+- One ray family, one source strength. `"None within the run"` is a run-length statement — which is why
+  the load-bearing direction is the other one: every ANEC-violating ray **exhibits** a conjugate point,
+  and an exhibited zero is positive data.
+
+### The ledger changes, not the physics
+
+`obstruct.py`'s ANEC row has been **OPEN** throughout. It does not close — violation is still required.
+It **RELOCATES**: no longer answerable by a prohibition, so it becomes a magnitude question.
+
+> **The obstacle still has one name. It is no longer ANEC. It is `c⁴/G`.**
+
+### Seated
+- `anecscope.py` — new. `achronal.py` — line 53 struck in place.
+- `obstruct.py` — ANEC **OPEN → RELOCATED**; now 6 dissolved, **4 relocated**, 17 closed-negative,
+  7 conditional, **1 open** (TYPE-IV), none untested.
+- `index3.py` — **310 findings**, plus an `OVERWRITE-CAUGHT` support row: this file was first written
+  as `selfconsistent.py`, silently clobbering a tracked 251-line instrument of that name. `obstruct.py`'s
+  import of its `SCOPE` dict failed and exposed it; restored byte-exact from git and renamed.

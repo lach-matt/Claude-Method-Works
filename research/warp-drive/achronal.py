@@ -50,8 +50,37 @@ collapses to a Sturm-Liouville problem with no theta^2 in it:
         u'' = -(R_kk/2) u = -4 pi T_kk u,   u(0) = 0, u'(0) = 1,
 
 a conjugate point being the next zero of u.  R_kk = 8 pi T_kk because k is null.
-DROPPING SHEAR IS CONSERVATIVE: sigma^2 >= 0 only ever helps focusing, so a ray
-this file calls achronal would still be achronal with shear restored.
+
+    *** THE NEXT SENTENCE WAS WRONG AND IS STRUCK.  READ anecscope.py. ***
+
+    ~~DROPPING SHEAR IS CONSERVATIVE: sigma^2 >= 0 only ever helps focusing, so
+    a ray this file calls achronal would still be achronal with shear
+    restored.~~
+
+    THE DIRECTION IS INVERTED.  sigma^2 >= 0 does only ever HELP FOCUSING --
+    that half is right -- and more focusing means a conjugate point SOONER or
+    where there was none.  A conjugate point makes a ray NON-achronal.  So
+    dropping shear UNDERSTATES focusing, UNDERSTATES conjugate points, and
+    therefore OVERSTATES achronality.  A ray this file calls achronal may stop
+    being achronal once shear is restored, which is the opposite of
+    conservative for the claim this file makes.
+
+    DEMONSTRATED, NOT ARGUED, and in the cleanest possible case -- VACUUM,
+    where R_kk = 0 exactly, lemma_applies() fires, and the scalar equation
+    gives u = lambda with no zero ever:
+
+        composite.py, M = -2.0e-3, vacuum:  Ricci-only conjugate point NONE,
+                                            FULL MATRIX conjugate point 56.50
+        composite.py, M = -4.0e-3, vacuum:  Ricci-only NONE, full matrix 47.17
+
+    The lemma below is therefore valid ONLY in the shear-free scalar reduction.
+    Weyl is traceless, so it focuses one eigendirection while defocusing the
+    other whatever the sign of the source, and T_kk <= 0 does not prevent
+    det A = 0.  composite.py named this three passes later -- WEYL-IS-SIGNBLIND
+    -- and nobody came back here.  This file's headline, ZERO NON-ACHRONAL over
+    25 rays, is NOT ROBUST to restoring shear and is not re-run here; the
+    architecture phase1.py keeps is the static corridor, and anecscope.py
+    measures that one properly.
 
 T_kk is the same field anec.py integrates, from the same doubly-validated
 pipeline in typefour.py -- but along TRUE null geodesics of the metric, RK4 with
@@ -102,7 +131,9 @@ available, and it locates the obstruction precisely:
 That is a sharpening, not an escape, and this file does not dress it as one.
 
 Two further limits, stated rather than buried:
-  * shear is dropped (conservative, see above) and the congruence is taken
+  * shear is dropped -- and see the STRUCK paragraph above: that is
+    ANTI-conservative for an achronality claim, not conservative --
+    and the congruence is taken
     hypersurface-orthogonal, so vorticity is zero;
   * the scan is over impact parameter of rays launched along +x from x = -5.
     It is not a proof over ALL null geodesics.  A ray family this scan does not

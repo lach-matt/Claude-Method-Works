@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of thirty-five obstructions, SIX dissolved, three relocated,
-SEVENTEEN closed negative, SEVEN conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of thirty-five obstructions, SIX dissolved, FOUR relocated,
+SEVENTEEN closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -157,14 +157,28 @@ LEDGER = [
   "saturating only at resonance. Cost of the error: beta capped at c/4 when the "
   "real ceiling is the analogue horizon -- 0.825 c at 0.95% ferrite loss",
   "dispersive.py"),
- ("ANEC", "the averaged null energy condition", "OPEN",
-  "VIOLATED on every ray of the Alcubierre bubble, INT T_kk dx from -0.081 to "
-  "-0.344, and QNEC -- a THEOREM, not a conjecture -- integrates to it. "
-  "D-independent, so freeing the wall thickness buys nothing. WITHDRAWS this "
-  "session's headline: nullbound.py evaluated SNEC at one sampling width, the "
-  "loosest, and SNEC fails above w ~ 0.93 bubble radii. HARDENED, not softened, "
-  "by ACHRONALITY below: the one escape is closed and what remains is a single "
-  "unproven condition", "anec.py"),
+ ("ANEC", "the averaged null energy condition", "RELOCATED",
+  "RELOCATED, NOT DISSOLVED, AND NOT CLOSED. Three statements wear this name "
+  "and only one bites. ANEC in flat space is PROVEN (Faulkner-Leigh-Parrikar-"
+  "Wang; Hartman-Kundu-Tajdini) and says nothing about a curved corridor. ANEC "
+  "in curved spacetime is FALSE in general -- the Casimir vacuum is the "
+  "standard counterexample -- so violating it was never by itself a "
+  "disqualification. ACHRONAL ANEC is the one with teeth, and achronal.py "
+  "closed the achronality escape against us with SHEAR DROPPED, on the stated "
+  "ground that dropping shear is conservative. THAT CLAIM IS INVERTED: shear "
+  "helps focusing, focusing makes conjugate points, and a conjugate point is "
+  "what REMOVES achronality. Demonstrated in vacuum where R_kk = 0 exactly -- "
+  "the scalar equation gives u = lambda with no zero ever while the full "
+  "matrix finds a conjugate point at 56.50. Corrected, and scanning impact "
+  "parameter, ANEC violation ceases at b = 2.378288 while conjugate points "
+  "persist well past it: the ANEC-violating set is STRICTLY INSIDE the "
+  "non-achronal set, so NO RAY OF THIS CORRIDOR IS BOTH ANEC-VIOLATING AND "
+  "ACHRONAL. The corridor is OUTSIDE achronal ANEC's scope. That is a scope "
+  "finding and NOT a refutation -- self-consistent achronal ANEC stands where "
+  "it stood, unproven for nineteen years -- and it moves NOT ONE ORDER OF "
+  "MAGNITUDE. The requirement is simply no longer answerable by a prohibition, "
+  "so it relocates into the magnitude, where the rest of this project already "
+  "sits", "anecscope.py"),
  ("ACHRONALITY", "the ANEC-violating rays might be non-achronal, putting the "
   "bubble outside Graham-Olum", "CLOSED-NEGATIVE",
   "THEY ARE ACHRONAL. 25 ANEC-violating rays over v_s = 0.3/0.5/0.8 c, ZERO "
@@ -557,7 +571,7 @@ def selftest():
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
     chk("obstructions tracked", len(LEDGER), 35)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
-    chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
+    chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 17)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
