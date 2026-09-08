@@ -8,9 +8,11 @@ before drafting anything. It exists because four criteria were referenced *by nu
 instruments and **no file stated them** — `materials.py` adjudicated "criterion 4", `powersource.py`
 called stability "the project's third criterion" — which is how a paper comes to be graded against
 criteria nobody can read. **Two of the nine are computed by nothing**: restart after shutdown, and
-cost. Criterion 3 — no input beyond the initial ignition — is the one the objective turns on, and
-`materials.py --supply` says outright that it **holds on fuel and fails on consumables and parts**,
-"and it is not what was asked for". That verdict stands; no paper may quote its first half alone.
+cost. Criterion 3 — no input beyond the initial ignition — is the one the objective turns on. `materials.py
+--supply` said it **held on fuel and failed on consumables and parts**; **the consumables half has
+since been closed by changing the design rather than the sentence** (`--criterion3`), and what stands
+now is that it **holds on every material stream and fails on parts alone**. No paper may quote the
+first half of *that* alone either.
 
 
 Two things, and they are not the same kind of thing.
@@ -485,10 +487,32 @@ k falls to **zero**, not to 0.710, and the gain to **1.0** — the beam back and
 **The unbred plant does not degrade, it stops**, and that is why `f_b` is a requirement rather than an
 optimisation. Criterion 4 then
 resolves: tritium is bred, **⁶Li is consumed** at about two percent of its holding over the life,
-and what arrives at the gate for ever is nitrogen and the
-salt-processing reagents — **the beryllium window left the design with the mercury**, and the
-summary prose that still listed it was corrected against the row it reads from. **The criterion holds on fuel and fails on consumables and parts**, and
-that is stated rather than flattened. **`--uranium` then corrects an error this file's own earlier
+and **nothing arrives at the gate** — **the beryllium window left the design with the mercury**, and
+the summary prose that still listed it was corrected against the row it reads from. **`--criterion3`
+is the pass that closed it, and it closed it by changing the plant.** Two streams had arrived for
+ever and both were design choices rather than laws. **Liquid nitrogen**, 200 t/yr, which the file
+itself called *"the one utility feed"* — nitrogen is 78 % of the air at the site, so the plant
+**liquefies its own** and runs the shield circuit closed, at a sourced 0.357 kWh/kg and **8.1 kW**,
+**0.00071 %** of net output (0.0051 % at the pessimistic end of the band); the feedstock is the
+atmosphere, which is not a delivery. And **the salt-processing reagents**, named but never specified
+and so never priced, are replaced by an **electrical** cleanup — helium sparge on the recirculating
+inventory, noble metals plated out, vacuum distillation for the alkali and alkaline-earth chlorides,
+electrowinning for the lanthanides, any chemical reductant regenerated electrolytically on site —
+whose cost is **bounded rather than designed**: distilling the *whole* 505 t inventory three times a
+year, far more than a slipstream cleanup needs, comes to **0.15 MW**, **0.013 %** of net. A bound is
+computed because the process is not the instrument's to choose, and a negligible bound means the
+choice need not be made to proceed. **A chemical line became an electricity line and the plant makes
+electricity** — 0.16 MW against 1,141 MW net, **0.0137 %**, so nothing else in the design moves.
+**What remains is two rows and both are parts**: the fission-product removal system and the
+krypton-85 capture bed. **The criterion now holds on every material stream and fails on parts
+alone** — and the pass is **not claimed complete**: the consumables were a design choice and were
+designed out, the parts are not, and read literally the criterion cannot be met by any physical
+object because parts wear. Read as it was plainly meant — no fuel, no feedstock, no consumable — it
+is met. **Which reading governs is the author's**, and rewording a criterion so a design passes it is
+the one move this project forbids, so the design was changed and the criterion was not. **A numbering
+error was corrected in the same pass**: the file adjudicated *"criterion 4"* throughout, which is the
+number it carried before 'cold' was dropped and everything below moved up — `OBJECTIVE.md`'s table is
+authoritative and the file now agrees with it. **The verdict never changed, only the label on it.** **`--uranium` then corrects an error this file's own earlier
 pass made**: the heavy metal was filed as `BRED`, *"breeds the same back, a holding not a feed"*,
 and that is wrong — breeding converts U-238 to Pu-239 and the Pu-239 **fissions**, so every fission
 destroys a heavy atom permanently. **Breeding holds the fissile fraction, which is what holds k;

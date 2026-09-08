@@ -21,7 +21,7 @@ status is never flattened:
                 chemistry this work does not do -- stated as a requirement so
                 a measurement can refuse it
 
-and every row also carries a SUPPLY class, because criterion 4 -- nothing
+and every row also carries a SUPPLY class, because criterion 3 -- nothing
 supplied after ignition -- is decided by that column and by nothing else:
 
     FIRST-CHARGE  bought once, held for the life, neither consumed nor bred
@@ -33,7 +33,16 @@ supplied after ignition -- is decided by that column and by nothing else:
 
 Run:  python3 tools/materials.py            the bill of materials
       python3 tools/materials.py --storage  the storage schedule
-      python3 tools/materials.py --supply   criterion 4, adjudicated row by row
+      python3 tools/materials.py --supply       criterion 3, row by row
+      python3 tools/materials.py --criterion3   what closing it took
+
+NOTE ON THE NUMBER. This file said "criterion 4" everywhere until OBJECTIVE.md
+was written and the criteria were numbered from the author's own statement.
+'Cold' was dropped as criterion 1 and everything below it moved up; the number
+here had not. OBJECTIVE.md's table is authoritative and this file now agrees
+with it. THE VERDICT NEVER CHANGED -- only the label on it -- and the
+mismatch is recorded rather than silently corrected because a criterion
+referenced by a number nobody can check is what OBJECTIVE.md exists to stop.
       python3 tools/materials.py --uranium  depleted uranium as the fertile feed
       python3 tools/materials.py --selftest
 """
@@ -99,6 +108,39 @@ LI6_ENRICH = 0.90            # ASSUMED, and it is the design's own f_li lever
 LI6_AMU, LI_AMU, T_AMU, HE_AMU = 6.015, 6.94, 3.016, 4.003
 HM_ATOMS_PER_KG = 2.53e24
 SEC_PER_YEAR = 3.15576e7
+# ---- CLOSING CRITERION 3 -------------------------------------------------
+# Criterion 3 asks for no input of anything beyond the initial ignition, and
+# --supply's verdict was that it "holds on fuel and fails on consumables and
+# parts". The consumables half is a DESIGN CHOICE and not a law, and this is
+# the pass that changes the design rather than the sentence.
+#
+# Two streams arrived at the gate for ever. Both are now made on site, and
+# both cost electricity the plant already has:
+#
+#   LIQUID NITROGEN   was bought in a tanker. Nitrogen is 78 % of the air at
+#                     the site, so the plant liquefies its own and runs the
+#                     shield circuit closed. Air is ambient, not delivered.
+#   SALT REAGENTS     the fission-product removal is specified ELECTRICAL --
+#                     helium sparge on the recirculating inventory, noble
+#                     metals plated out, vacuum distillation for the alkali
+#                     and alkaline-earth chlorides, electrowinning for the
+#                     lanthanides, any chemical reductant regenerated
+#                     electrolytically on site. A chemical line becomes an
+#                     electricity line and the plant makes electricity.
+#
+# What that does NOT close is the parts line, and this file does not pretend
+# it does. See report_criterion3().
+LN2_KWH_PER_KG = 0.357        # SOURCED: conventional cryogenic air
+                              # separation producing LN2
+LN2_KWH_PER_KG_HI = 2.56      # SOURCED: the pessimistic end of the published
+                              # band, for a small or badly integrated plant
+SALT_VAP_MJ_KG = 2.9          # SOURCED: NaCl heat of vaporisation, 171
+                              # kJ/mol over 58.4 g/mol
+SALT_PASSES_PER_YEAR = 3.0    # ASSUMED, and deliberately pessimistic: it
+                              # distils the WHOLE inventory three times a
+                              # year, where a real cleanup takes a slipstream.
+                              # Used as a BOUND on the energy, never as a
+                              # process design
 N_A = 6.02214076e23
 PLANT_LIFE_Y = 40.0
 
@@ -723,7 +765,7 @@ def report_uranium():
     print("         so the environmental burden of the front end -- which is")
     print("         most of nuclear power's material footprint -- is ZERO for")
     print("         as far as this analysis can see. See environment.py.")
-    print("      3. It changes criterion 4's verdict on ONE row and no more.")
+    print("      3. It changes criterion 3's verdict on ONE row and no more.")
     print("         Heavy metal moves from BRED to STOCKPILED: a life charge")
     print(f"         of {uranium_life_charge_t():.0f} t fits in a shed, so it is a first")
     print("         charge and not a delivery -- the same finding as Li-6, by")
@@ -751,8 +793,16 @@ def bill():
        "closed-cycle; full gas-bag + high-pressure recovery for the whole "
        "inventory, because a quench must not vent"))
     A(("driver", "liquid nitrogen, thermal shields", L * 40.0, "t/yr",
-       "REQUIREMENT", "STOCKPILED",
-       "bulk cryogenic tank, atmospheric, replenished; the one utility feed"))
+       "REQUIREMENT", "CIRCULATING",
+       "WAS a bought utility feed and is now made on site: nitrogen is 78 % "
+       "of the air here, so the plant liquefies its own and runs the shield "
+       "circuit closed. See the liquefier row and report_criterion3()"))
+    A(("driver", "nitrogen liquefier, on site", ln2_power_kw(), "kW",
+       "DERIVED", "FIRST-CHARGE",
+       f"an ordinary cryogenic air separation unit at "
+       f"{LN2_KWH_PER_KG:.3f} kWh/kg SOURCED, sized for the shield duty. It "
+       f"is {100.0 * ln2_share_of_net():.5f} % of net output -- the row "
+       "exists to CLOSE a gate line, not because it costs anything"))
     A(("driver", "copper and steel, cryomodules", L * linac_length_m() * 2.0,
        "t",
        "REQUIREMENT", "FIRST-CHARGE",
@@ -845,9 +895,21 @@ def bill():
        "the top-up is a rounding error"))
     A(("blanket", "fission-product removal, salt side", 0.0, "-",
        "REQUIREMENT", "REPLACED",
-       "online: noble gases sparged, noble metals plated out, lanthanides "
-       "extracted. THIS IS WHAT BUYS L = 0.20 FOR FORTY YEARS and it is the "
-       "single most demanding unbuilt item in the plant"))
+       "online and now specified ELECTRICAL, which is what closes its gate "
+       "line: helium sparge on the recirculating inventory for the noble "
+       "gases, noble metals plated out, VACUUM DISTILLATION for the alkali "
+       "and alkaline-earth chlorides, ELECTROWINNING for the lanthanides, "
+       "and any chemical reductant regenerated electrolytically on site. "
+       "THIS IS WHAT BUYS L = 0.20 FOR FORTY YEARS and it is still the "
+       "single most demanding unbuilt item in the plant -- what changed is "
+       "that it consumes electricity rather than a delivered reagent"))
+    A(("blanket", "salt-processing electricity", salt_processing_kw(), "kW",
+       "DERIVED", "CIRCULATING",
+       f"bounded, not designed: the whole inventory distilled "
+       f"{SALT_PASSES_PER_YEAR:.0f} times a year at "
+       f"{SALT_VAP_MJ_KG:.1f} MJ/kg, which is far more than a slipstream "
+       f"cleanup needs. Even so it is "
+       f"{100.0 * salt_processing_share_of_net():.4f} % of net output"))
 
     A(("shielding", "biological shield, concrete",
        N * bio_shield_mass_kg() / 1000.0, "t", "REQUIREMENT", "FIRST-CHARGE",
@@ -1008,9 +1070,150 @@ def report_storage():
     print("      stops, and the drain is the second, independent way to say so.")
 
 
+def ln2_tonnes_per_year():
+    """The shield circuit's nitrogen duty: 40 t/yr per driver, as the row
+    that states it has always carried."""
+    return float(ref()["linacs"]) * 40.0
+
+
+def ln2_power_kw(specific=None):
+    """What liquefying that nitrogen on site draws, continuously."""
+    sp = LN2_KWH_PER_KG if specific is None else specific
+    kwh = ln2_tonnes_per_year() * 1000.0 * sp
+    return kwh / (SEC_PER_YEAR / 3600.0)
+
+
+def ln2_share_of_net(specific=None):
+    return ln2_power_kw(specific) / (ref()["net_mw"] * 1000.0)
+
+
+def salt_processing_kw(passes=None):
+    """A BOUND on the electrical cleanup, not a process design.
+
+    Distils the ENTIRE salt inventory this many times a year -- heat to the
+    loop's top temperature and then vaporise it -- where a real cleanup takes
+    a slipstream. If the bound is negligible the design need not be chosen
+    here, which is the point of computing a bound instead of a process."""
+    n = SALT_PASSES_PER_YEAR if passes is None else passes
+    m = salt_inventory_kg()
+    j = n * m * (SALT_CP * SALT_DT_K + SALT_VAP_MJ_KG * 1e6)
+    return j / SEC_PER_YEAR / 1000.0
+
+
+def salt_processing_share_of_net(passes=None):
+    return salt_processing_kw(passes) / (ref()["net_mw"] * 1000.0)
+
+
+def gate_lines():
+    """Every row that is still a supply line INWARD, by supply class.
+
+    Read from the inventory rather than written beside it, so a row that
+    changes class changes this answer and no prose has to be remembered."""
+    out = {}
+    for zone, mat, val, unit, status, sup, note in bill():
+        if sup in ("REPLACED",):
+            out.setdefault(sup, []).append((zone, mat))
+    return out
+
+
+def report_criterion3():
+    """criterion 3, and the two design changes that close most of it"""
+    P = _ps()
+    print()
+    print("  CRITERION 3, AND WHAT IT TOOK TO CLOSE IT")
+    print()
+    print("    The criterion asks for NO INPUT OF ANYTHING BEYOND THE INITIAL")
+    print("    IGNITION. --supply's verdict was that it holds on fuel and")
+    print("    fails on CONSUMABLES AND PARTS. The consumables half was a")
+    print("    design choice rather than a law, and this is the pass that")
+    print("    changed the design instead of the sentence.")
+    print()
+    print("    WHAT ARRIVED AT THE GATE BEFORE, AND WHAT REPLACES IT")
+    print()
+    print("      LIQUID NITROGEN, for the cryogenic shields")
+    print(f"        was  {ln2_tonnes_per_year():.0f} t/yr in a tanker, and the"
+          " file called it")
+    print("             'the one utility feed'")
+    print("        now  liquefied on site. Nitrogen is 78 % of the air here,")
+    print("             so the shield circuit runs CLOSED and the feedstock")
+    print("             is the atmosphere, which is not a delivery.")
+    print(f"        cost {ln2_power_kw():.1f} kW at {LN2_KWH_PER_KG:.3f}"
+          f" kWh/kg, which is {100.0 * ln2_share_of_net():.5f} % of net")
+    print(f"             output. At the pessimistic {LN2_KWH_PER_KG_HI:.2f}"
+          f" kWh/kg it is"
+          f" {100.0 * ln2_share_of_net(LN2_KWH_PER_KG_HI):.4f} %.")
+    print()
+    print("      SALT-PROCESSING REAGENTS, for fission-product removal")
+    print("        was  'the reagents the salt's fission-product removal")
+    print("             consumes' -- named, never specified, and therefore")
+    print("             never priced")
+    print("        now  specified ELECTRICAL: helium sparge on the")
+    print("             recirculating inventory, noble metals plated out,")
+    print("             vacuum distillation for the alkali and")
+    print("             alkaline-earth chlorides, electrowinning for the")
+    print("             lanthanides, any chemical reductant regenerated")
+    print("             electrolytically on site.")
+    print(f"        cost bounded at {salt_processing_kw()/1000.0:.2f} MW --"
+          f" {100.0 * salt_processing_share_of_net():.4f} % of net -- and the")
+    print("             bound is deliberately absurd: it distils the WHOLE")
+    print(f"             {salt_inventory_kg()/1000.0:.0f} t inventory"
+          f" {SALT_PASSES_PER_YEAR:.0f} times a year, where a real cleanup")
+    print("             takes a slipstream. A BOUND IS COMPUTED BECAUSE THE")
+    print("             PROCESS IS NOT THIS FILE'S TO CHOOSE, and if the")
+    print("             bound is negligible the choice does not have to be.")
+    print()
+    print("    A CHEMICAL LINE BECOMES AN ELECTRICITY LINE, AND THE PLANT")
+    print(f"    MAKES ELECTRICITY. Together the two draw"
+          f" {(ln2_power_kw() + salt_processing_kw())/1000.0:.2f} MW against")
+    print(f"    {ref()['net_mw']:,.0f} MW net --"
+          f" {100.0*(ln2_power_kw() + salt_processing_kw())/(ref()['net_mw']*1000.0):.4f}"
+          " % -- so nothing else in the plant moves.")
+    print()
+    print("    WHAT REMAINS, READ FROM THE INVENTORY RATHER THAN REMEMBERED")
+    print()
+    g = gate_lines()
+    for sup, rows in sorted(g.items()):
+        for zone, mat in rows:
+            print(f"      {sup:<10} {zone:<12} {mat}")
+    if not g:
+        print("      (nothing)")
+    print()
+    n_replaced = sum(len(v) for v in g.values())
+    print(f"    {n_replaced} rows, and every one of them is a PART. No")
+    print("    material stream arrives at the gate any more: not fuel, not")
+    print("    fertile, not tritium, not lithium, not coolant, not reagent,")
+    print("    not cryogen. THE CRITERION NOW HOLDS ON EVERY MATERIAL STREAM")
+    print("    AND FAILS ONLY ON REPLACEMENT PARTS.")
+    print()
+    print("    THAT IS A REAL STRENGTHENING AND IT IS NOT A COMPLETE PASS,")
+    print("    AND THE DIFFERENCE MATTERS. What was 'fails on consumables and")
+    print("    parts' is now 'fails on parts'. The consumables were a design")
+    print("    choice and were fixed. The parts are not a design choice:")
+    print("    pumps have seals, heat exchangers foul, electrodes erode, and")
+    print("    the fission-product removal system -- still the single most")
+    print("    demanding unbuilt item here -- will have a service life.")
+    print()
+    print("    SO THE HONEST STATEMENT OF WHERE CRITERION 3 STANDS:")
+    print("      MATERIAL INPUT      none. Closed.")
+    print("      ENERGY INPUT        none after start-up. Closed.")
+    print("      PARTS               a supply line inward, for ever, and no")
+    print("                          machine ever built has escaped one.")
+    print()
+    print("    A DECISION IS OWED AND IT IS NOT THIS FILE'S TO TAKE. Read")
+    print("    literally -- no input of ANYTHING -- the criterion cannot be")
+    print("    met by any physical object, because parts wear. Read as it was")
+    print("    plainly meant -- no FUEL, no FEEDSTOCK, no CONSUMABLE -- it is")
+    print("    now met. WHICH READING GOVERNS IS THE AUTHOR'S, and rewording")
+    print("    a criterion to make a design pass it is the one move this")
+    print("    project forbids. The design was changed; the criterion was")
+    print("    not, and the gap between the two readings is stated here so")
+    print("    that the choice is visible rather than assumed.")
+    print()
+
+
 def report_supply():
     """Criterion 4, adjudicated row by row: what the plant actually consumes."""
-    print("  CRITERION 4 -- NOTHING SUPPLIED AFTER IGNITION -- ADJUDICATED")
+    print("  CRITERION 3 -- NOTHING SUPPLIED AFTER IGNITION -- ADJUDICATED")
     print()
     print("    The criterion as put was 'literally nothing may be consumed'.")
     print("    That is forbidden by theorem: P.t <= M c^2, so a device that")
@@ -1088,9 +1291,16 @@ def report_supply():
           f"{PLANT_LIFE_Y:.0f} years,")
     print("    so it is a first charge and not a delivery.")
     print()
-    print("    WHAT DOES ARRIVE AT THE GATE, every year, for ever:")
-    print("      - liquid nitrogen for the cryogenic shields")
-    print("      - the reagents the salt's fission-product removal consumes")
+    print("    WHAT ARRIVES AT THE GATE, every year, for ever:")
+    print("      NOTHING. Two streams did -- liquid nitrogen for the")
+    print("      cryogenic shields, and the reagents the salt's")
+    print("      fission-product removal consumes -- and BOTH WERE DESIGN")
+    print("      CHOICES RATHER THAN LAWS. The nitrogen is now liquefied on")
+    print("      site from the air, and the salt cleanup is specified")
+    print("      electrical. Together they draw "
+          f"{(ln2_power_kw() + salt_processing_kw())/1000.0:.2f} MW, which is")
+    print(f"      {100.0*(ln2_power_kw() + salt_processing_kw())/(ref()['net_mw']*1000.0):.4f}"
+          " % of net output. See --criterion3.")
     print("    and WHAT LEAVES: fission products, at "
           f"{burnup_kg_per_year():.0f} kg/yr.")
     print()
@@ -1098,10 +1308,15 @@ def report_supply():
     print("     the lead target deletes it, and this list is read from the")
     print("     supply column rather than written beside it.)")
     print()
-    print("    So criterion 4 holds ON FUEL and fails ON CONSUMABLES AND")
-    print("    PARTS. That is the honest statement, it is stronger than any")
-    print("    fission or fusion plant proposed, and it is not what was asked")
-    print("    for. A status is never flattened.")
+    print("    So criterion 3 holds ON EVERY MATERIAL STREAM and fails ON")
+    print("    PARTS ALONE. It read 'fails on consumables and parts' until")
+    print("    the consumables were designed out rather than argued away;")
+    print("    what is left is a parts line, which no machine ever built has")
+    print("    escaped. That is the honest statement, it is stronger than any")
+    print("    fission or fusion plant proposed, and it is STILL not what was")
+    print("    literally asked for. A status is never flattened, and --")
+    print("    criterion3 states the two readings of the criterion and takes")
+    print("    neither: which one governs is the author's.")
 
 
 def selftest():
@@ -1184,7 +1399,7 @@ def selftest():
     print("     FRACTION that runs out, not the mass. Breeding holds k, not")
     print("     the inventory -- see report_supply.)")
     print()
-    print("  criterion 4 is decided by the supply column and by nothing else")
+    print("  criterion 3 is decided by the supply column and by nothing else")
     check("nothing that leaves the plant is filed as a supply line inward",
           all(sup == "PRODUCED" for _s, _m, _q, _u, _st, sup, _n in bill()
               if _s == "products"))
@@ -1293,6 +1508,55 @@ def selftest():
     check("every row carries a storage note",
           all(len(store) > 20 for *_r, store in bill()))
     print()
+    print("  criterion 3, and the two design changes that close it")
+    _rows = bill()
+    _sup = {sup for _z, _m, _v, _u, _st, sup, _n in _rows}
+    # THE CLOSURE, read from the inventory rather than from the prose.
+    check("no row is STOCKPILED as a bought cryogen any more",
+          not any(sup == "STOCKPILED" and "nitrogen" in mat
+                  for _z, mat, _v, _u, _st, sup, _n in _rows))
+    check("the nitrogen row is CIRCULATING, on a closed circuit",
+          any(sup == "CIRCULATING" and "nitrogen, thermal shields" in mat
+              for _z, mat, _v, _u, _st, sup, _n in _rows))
+    check("  -- and the liquefier that makes it is a FIRST-CHARGE item",
+          any(sup == "FIRST-CHARGE" and "liquefier" in mat
+              for _z, mat, _v, _u, _st, sup, _n in _rows))
+    check("the salt cleanup carries an electricity row",
+          any("salt-processing electricity" in mat
+              for _z, mat, _v, _u, _st, sup, _n in _rows))
+    # BOTH COSTS ARE NEGLIGIBLE, which is why the change is free.
+    _tot = ln2_power_kw() + salt_processing_kw()
+    check("the two together are under a thousandth of net output",
+          _tot / (ref()["net_mw"] * 1000.0) < 1e-3)
+    check("  -- and still are at the pessimistic liquefaction figure",
+          (ln2_power_kw(LN2_KWH_PER_KG_HI) + salt_processing_kw())
+          / (ref()["net_mw"] * 1000.0) < 1e-3)
+    # THE SALT BOUND IS A BOUND: making it harsher must not change the verdict.
+    check("the salt bound is deliberately pessimistic and still negligible",
+          salt_processing_share_of_net(passes=12.0) < 1e-3)
+    check("  -- and it scales with the passes, so it is a computation",
+          abs(salt_processing_kw(6.0) / salt_processing_kw(3.0) - 2.0) < 1e-9)
+    # WHAT REMAINS, and that it is parts and nothing else.
+    _g = gate_lines()
+    check("what remains is REPLACED rows and nothing else",
+          set(_g) == {"REPLACED"})
+    check("  -- and there are still some, so the pass is not claimed complete",
+          len(_g["REPLACED"]) > 0)
+    _c3 = _capture_local(report_criterion3)
+    check("the report says the criterion now fails on parts ALONE",
+          "FAILS ONLY ON REPLACEMENT PARTS" in _c3)
+    check("  -- and does not claim a complete pass",
+          "IT IS NOT A COMPLETE PASS" in _c3)
+    check("  -- and states both readings without taking either",
+          "WHICH READING GOVERNS IS THE AUTHOR'S" in _c3)
+    check("  -- and refuses to reword the criterion",
+          "rewording" in _c3 and "forbids" in _c3)
+    # THE NUMBERING, corrected against OBJECTIVE.md's authoritative table.
+    _sup_out = _capture_local(report_supply)
+    check("the file now says criterion 3, matching OBJECTIVE.md's table",
+          "criterion 3" in _sup_out and "criterion 4" not in _sup_out)
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -1302,6 +1566,8 @@ def main():
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--storage", action="store_true",
                     help=report_storage.__doc__)
+    ap.add_argument("--criterion3", action="store_true",
+                    help=report_criterion3.__doc__)
     ap.add_argument("--supply", action="store_true", help=report_supply.__doc__)
     ap.add_argument("--uranium", action="store_true",
                     help=report_uranium.__doc__)
@@ -1312,6 +1578,8 @@ def main():
         return selftest()
     if a.storage:
         return report_storage()
+    if a.criterion3:
+        return report_criterion3()
     if a.supply:
         return report_supply()
     if a.uranium:

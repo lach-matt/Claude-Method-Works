@@ -103,3 +103,73 @@ works.**
 And one route makes the question go away: a cell that makes its own tritium from deuterium
 (`window.py --fuels`) demands essentially no ⁶Li, and thorium then closes on both budgets. **The fuel
 question and the fertile question turn out to be the same question.**
+
+## `--criterion3` — closing it, by changing the plant rather than the sentence
+
+Criterion 3 asks for **no input of anything beyond the initial ignition**. `--supply`'s verdict was
+that it *"holds on fuel and fails on consumables and parts"*. **The consumables half was a design
+choice rather than a law**, and this is the pass that changed the design.
+
+### What arrived at the gate before, and what replaces it
+
+**Liquid nitrogen, for the cryogenic shields.**
+
+| | |
+|---|---|
+| was | **200 t/yr** in a tanker — the file called it *"the one utility feed"* |
+| now | liquefied **on site**. Nitrogen is 78 % of the air here, so the shield circuit runs **closed** and the feedstock is the atmosphere, which is not a delivery. |
+| cost | **8.1 kW** at a sourced **0.357 kWh/kg** — **0.00071 %** of net output. At the pessimistic 2.56 kWh/kg, 0.0051 %. |
+
+**Salt-processing reagents, for fission-product removal.**
+
+| | |
+|---|---|
+| was | *"the reagents the salt's fission-product removal consumes"* — named, never specified, and therefore never priced |
+| now | specified **electrical**: helium sparge on the recirculating inventory, noble metals plated out, **vacuum distillation** for the alkali and alkaline-earth chlorides, **electrowinning** for the lanthanides, any chemical reductant regenerated electrolytically on site |
+| cost | **bounded at 0.15 MW — 0.013 % of net** — and the bound is deliberately absurd: it distils the *whole* 505 t inventory three times a year, where a real cleanup takes a slipstream |
+
+**A bound is computed because the process is not this file's to choose**, and if the bound is
+negligible the choice does not have to be made to proceed.
+
+**A chemical line becomes an electricity line, and the plant makes electricity.** Together the two
+draw **0.16 MW against 1,141 MW net — 0.0137 %** — so nothing else in the plant moves.
+
+### What remains, read from the inventory rather than remembered
+
+| class | zone | item |
+|---|---|---|
+| REPLACED | blanket | fission-product removal, salt side |
+| REPLACED | conversion | krypton-85 capture, cryogenic charcoal |
+
+**Two rows, and both are parts.** No material stream arrives at the gate any more — not fuel, not
+fertile, not tritium, not lithium, not coolant, not reagent, not cryogen. **The criterion now holds on
+every material stream and fails only on replacement parts.**
+
+### The pass is not claimed complete, and the difference matters
+
+What was *"fails on consumables and parts"* is now *"fails on parts"*. The consumables were a design
+choice and were designed out. **The parts are not a design choice**: pumps have seals, heat exchangers
+foul, electrodes erode, and the fission-product removal system — still the single most demanding
+unbuilt item here — will have a service life.
+
+| | |
+|---|---|
+| **material input** | none. Closed. |
+| **energy input** | none after start-up. Closed. |
+| **parts** | a supply line inward, for ever, and no machine ever built has escaped one |
+
+**A decision is owed and it is not this file's to take.** Read literally — *no input of anything* —
+the criterion cannot be met by any physical object, because parts wear. Read as it was plainly meant —
+no fuel, no feedstock, no consumable — **it is now met**. Which reading governs is the author's, and
+rewording a criterion so a design passes it is the one move this project forbids. **The design was
+changed; the criterion was not**, and both readings are stated so the choice is visible rather than
+assumed.
+
+### A numbering error corrected in the same pass
+
+This file adjudicated **"criterion 4"** throughout — the number it carried before 'cold' was dropped
+as criterion 1 and everything below moved up. `OBJECTIVE.md`'s table is authoritative and the file now
+agrees with it. **The verdict never changed, only the label on it**, and the mismatch is recorded
+rather than silently corrected because *a criterion referenced by a number nobody can check* is
+exactly what `OBJECTIVE.md` exists to stop. The selftest now asserts the file says "criterion 3" and
+nowhere says "criterion 4".

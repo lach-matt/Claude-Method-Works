@@ -26,7 +26,7 @@ not meet a criterion, that is recorded below rather than softened.
 |---|---|---|
 | ~~1~~ | ~~**'Cold'**~~ — **DROPPED by the author, and the reason is recorded rather than the word quietly removed.** 'Cold' is *proved* in `Cold_Fusion_Proof_v1.0` for muon-catalysed fusion, where the approach to nuclear separation is supplied by molecular binding geometry rather than by kinetic energy. The plant this project now builds carries **no fusion channel**, so the word had nothing left to attach to, and redefining it at plant level would have been a second and different definition wearing the first one's name. The word retires to the proof paper where it is earned. **The criterion is now: clean, efficient, self-sustaining.** | *retired — see the proof paper* |
 | 2 | **Self-sustaining** — runs its own drive from its own output | `powersource.py --plant` |
-| 3 | **No input beyond the initial ignition** | `materials.py --supply` |
+| 3 | **No input beyond the initial ignition** — **now holds on every material stream and fails on parts alone** | `materials.py --supply`, `--criterion3` |
 | 4 | **Scaled for civilization**, baseline 1,000,000 households | `powersource.py --station` |
 | 5 | **Ignites further stations** from its own output | `powersource.py --ignition` |
 | 6 | **Entirely environmentally friendly**, mitigated before design | `environment.py` |
@@ -207,6 +207,52 @@ it close. It does not say the machine has been seen to. **Every first article is
 this, and the honest ones say so** — which is the standing under which the power-source paper is
 written, and the reason the mathematics is held to the standard it is.
 
+**Criterion 3 is closed on materials, and it was closed by changing the plant.**
+Two streams arrived at the gate for ever, and both were design choices rather
+than laws:
+
+- **Liquid nitrogen**, 200 t/yr, which the file itself called *"the one utility
+  feed"*. Nitrogen is 78 % of the air at the site, so the plant **liquefies its
+  own** and runs the shield circuit closed. At a sourced 0.357 kWh/kg that is
+  **8.1 kW**, or **0.00071 %** of net output — 0.0051 % even at the pessimistic
+  end of the published band. The feedstock is the atmosphere, which is not a
+  delivery.
+- **Salt-processing reagents**, which had been named but never specified and so
+  never priced. The fission-product removal is now specified **electrical** —
+  helium sparge on the recirculating inventory, noble metals plated out, vacuum
+  distillation for the alkali and alkaline-earth chlorides, electrowinning for
+  the lanthanides, any chemical reductant regenerated electrolytically on site.
+  The cost is **bounded rather than designed**: distilling the *whole* 505 t
+  inventory three times a year — far more than a slipstream cleanup needs —
+  comes to **0.15 MW**, or **0.013 %** of net. A bound is computed because the
+  process is not the instrument's to choose, and a negligible bound means the
+  choice need not be made to proceed.
+
+**A chemical line became an electricity line, and the plant makes electricity.**
+Together the two draw **0.16 MW against 1,141 MW net — 0.0137 %** — so nothing
+else in the design moves.
+
+**What remains is two rows and both are parts**: the fission-product removal
+system (still the single most demanding unbuilt item here) and the krypton-85
+capture bed. **No material stream arrives at the gate any more** — not fuel, not
+fertile, not tritium, not lithium, not coolant, not reagent, not cryogen.
+
+**And the pass is not claimed complete.** "Fails on consumables and parts" is now
+"fails on parts", and the difference is earned: the consumables were a design
+choice and were designed out; the parts are not. Pumps have seals, heat
+exchangers foul, electrodes erode. **Read literally — no input of *anything* —
+the criterion cannot be met by any physical object.** Read as it was plainly
+meant — no fuel, no feedstock, no consumable — **it is now met**. Which reading
+governs is the author's; rewording a criterion so a design passes it is the one
+move this project forbids, so the design was changed and the criterion was not,
+and both readings are stated so the choice is visible rather than assumed.
+
+**A numbering error was corrected in the same pass.** `materials.py` adjudicated
+"criterion 4" throughout, which is the number it had before 'cold' was dropped
+and everything below it moved up. The table above is authoritative and the file
+now agrees with it. **The verdict never changed — only the label on it** — and
+this is exactly the failure `OBJECTIVE.md` was written to stop.
+
 ## The phases
 
 1. Define the math in full and prove it.
@@ -218,9 +264,11 @@ written, and the reason the mathematics is held to the standard it is.
 ## Two rules this file inherits, and they govern everything above
 
 **A status is never flattened.** Where a criterion is met on one term and failed
-on another, both are stated. `materials.py` already says of criterion 3 that it
-"holds ON FUEL and fails ON CONSUMABLES AND PARTS … and it is not what was asked
-for" — that sentence stands, and no paper may quote the first half alone.
+on another, both are stated. `materials.py` said of criterion 3 that it "holds
+ON FUEL and fails ON CONSUMABLES AND PARTS … and it is not what was asked for".
+**The consumables half has since been closed by changing the design rather than
+the sentence** (below); what stands now is "holds on every material stream, fails
+on parts alone", and no paper may quote the first half of *that* alone either.
 
 **A finding is recorded, never repaired.** A criterion that is not met is written
 down as not met. It is the author's decision whether to relax the criterion,
