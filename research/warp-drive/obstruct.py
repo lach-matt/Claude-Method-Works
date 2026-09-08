@@ -14,8 +14,9 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-one obstructions, FIVE dissolved, three relocated,
-EIGHT closed negative, three are conditional, two are OPEN, NONE is untested.  A
+THE HEADLINE: of twenty-two obstructions, FIVE dissolved, three relocated,
+NINE closed negative, three are conditional, two are OPEN, NONE is untested.
+The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
 The counts here are asserted by the selftest against the ledger, so a row that
@@ -218,6 +219,16 @@ LEDGER = [
   "1+2|M|r^2/R^3 > 1 everywhere, finite at 2|M|/R = 8378 -- and p(0)/|rho| "
   "rises to 1/3 FROM BELOW. Every energy condition fails and all fail for one "
   "reason: rho < 0. Flip that and DEC holds", "core.py"),
+ ("ACHIEVABLE-CORE", "a core that can actually be made", "CLOSED-NEGATIVE",
+  "THERE IS NONE. Every known negative energy density -- Casimir, squeezed "
+  "vacuum, dynamical Casimir, Hawking flux, vacuum polarisation -- obeys "
+  "Ford-Roman |rho| <~ hbar c/L^4, and the core needs 65 ORDERS more at metre "
+  "scale. The gap WIDENS with size (required 1/b^2 against available 1/b^4), "
+  "closing the 'go bigger' escape used twice before, and the curves cross at "
+  "4.09 PLANCK LENGTHS -- a third independent route to that scale. Dark energy "
+  "and BEC effective negative mass are not exceptions. THE DEVICE IS NOT "
+  "RETRACTED; the core is not buildable, and that is a theorem not a budget",
+  "achievable.py"),
 ]
 
 def by_status():
@@ -321,6 +332,12 @@ def check_core_type_i():
             and core.only_sign_is_exotic(-1.0)
             and core.central_ratio(-10000.0) < 1.0 / 3.0)
 
+def check_no_achievable_core():
+    import achievable
+    return (achievable.ratio(1.0) < 1e-60
+            and achievable.gap_widens_with_size()
+            and achievable.crossing_radius()*achievable.A_OVER_B/achievable.L_PLANCK < 10.0)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -337,10 +354,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 21)
+    chk("obstructions tracked", len(LEDGER), 22)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 5)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 8)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 9)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
@@ -373,6 +390,8 @@ def selftest():
         check_device_shell_ordinary(), True)
     chk("CORE-TYPE-IV: the core is Type I, unbounded in compactness, one-sign exotic",
         check_core_type_i(), True)
+    chk("ACHIEVABLE-CORE: none exists, and the gap widens with size",
+        check_no_achievable_core(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

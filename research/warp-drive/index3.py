@@ -514,8 +514,19 @@ FINDINGS = [
   "and no phase change reaches it: rho c^2 is dominated by rest mass, positive in every solid, liquid, plasma and degenerate state. Mercury and lead fall 13 orders short AND have the wrong sign"),
  ("VACUUM-NOT-MATERIAL",+1,+1,+1, "core.py",
   "negative energy density occurs relative to a VACUUM ground state -- Casimir, squeezed vacuum, Hawking flux -- so the identification phase is a vacuum-state problem wearing a materials name"),
+ # M demanded an achievable core.  There is none, and the gap is a theorem.
+ ("NO-ACHIEVABLE-CORE",+1,-1,-1, "achievable.py",
+  "every known negative energy density obeys Ford-Roman |rho| <~ hbar c/L^4, and the core needs 65 ORDERS more at metre scale: available/required = 1.09e-65"),
+ ("GAP-WIDENS",     +1, -1, -1, "achievable.py",
+  "required falls as 1/b^2 and available as 1/b^4, so GOING BIGGER LOSES BY TWO POWERS -- closing the escape seatindex.py's 1/l saving and concentric.py's far shell both used"),
+ ("PLANCK-THIRD-TIME",+1,+1, +1, "achievable.py",
+  "the curves cross at a core size of 4.09 PLANCK LENGTHS -- a third independent route to the Planck scale after corridor.py's Unruh and Casimir crossings, about a different object"),
+ ("NOT-EXCEPTIONS",  0,  0, +1, "achievable.py",
+  "dark energy has negative PRESSURE and positive energy density; effective negative mass in BECs and metamaterials is a dispersion curvature, not T_00, and does not gravitate. Named so they are not reached for later"),
+ ("DEVICE-NOT-RETRACTED",+1,+1,+1, "achievable.py",
+  "the device stands: seats and leads, M_ADM = 0, ordinary stable shell, Type I core. What is settled is that the CORE is not buildable with known physics, and that this is a theorem and not a budget"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-one obstructions five dissolved, three relocated, eight closed negative, three conditional, two open and none untested"),
+  "of twenty-two obstructions five dissolved, three relocated, nine closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -632,7 +643,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 193)
+    chk("number of findings indexed", len(FINDINGS), 198)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -640,9 +651,15 @@ def selftest():
     # TYPE-IV opened (+1,-1,-1) and ANEC-VIOLATED joined it.  Both surviving
     # objections share a coordinate, and it is the right one: warp energy is
     # identified, and what identifies it is what forbids the build and the spec.
-    chk("the cell TYPE-IV opened now holds both surviving objections",
+    # The cell has kept filling, and what fills it is the point: every hard
+    # objection this project has met sits at (+1,-1,-1) -- warp energy
+    # IDENTIFIED, and what identifies it is what forbids the build and the spec.
+    # The two newest are about the core, not about ANEC, and they landed here
+    # anyway.
+    chk("the cell TYPE-IV opened holds every hard objection, old and new",
         sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
-        ["ACHRONAL", "ANEC-VIOLATED", "TYPE-IV"])
+        ["ACHRONAL", "ANEC-VIOLATED", "GAP-WIDENS", "NO-ACHIEVABLE-CORE",
+         "TYPE-IV"])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -670,6 +687,7 @@ def selftest():
                 "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
                 "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED","ONE-SIGN-EXOTIC",
                 "LOG-COORDINATE","LIMIT-DISSOLVES","MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
+                "NO-ACHIEVABLE-CORE","GAP-WIDENS","PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -686,7 +704,8 @@ def selftest():
                 "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
                 "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED",
                 "ONE-SIGN-EXOTIC","LOG-COORDINATE","LIMIT-DISSOLVES",
-                "MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL"]))
+                "MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
+                "PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

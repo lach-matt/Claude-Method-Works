@@ -654,6 +654,57 @@ fluid* — its own internal modes — is untouched.
 
 ---
 
+## ⚠ THE HARD RESULT — and it belongs in the abstract
+
+**H13. There is no achievable core. Every known source of negative energy density obeys
+`|ρ| ≲ ℏc/L⁴`, and the core needs 65 orders of magnitude more.**
+
+> **The census of real negative energy density** — Casimir (measured), squeezed vacuum (measured,
+> LIGO uses it), dynamical Casimir (measured, Wilson 2011), Hawking/Unruh flux (analogue-measured),
+> vacuum polarisation (measured via the Lamb shift). **All of them obey one bound**: Ford & Roman's
+> quantum inequality caps negative energy sustained over a scale `L` at `|ρ| ≲ ℏc/L⁴`. Casimir *is*
+> that bound saturated, not an exception to it. This is a theorem about quantum field theory, **not a
+> limit of apparatus**.
+>
+> | `b` | required (Pa) | available (Pa) | avail/req |
+> |---|---|---|---|
+> | 1 m | 1.806×10⁴⁶ | 1.976×10⁻¹⁹ | **1.09×10⁻⁶⁵** |
+> | 100 km | 1.806×10³⁶ | 1.976×10⁻³⁹ | 1.09×10⁻⁷⁵ |
+> | solar system | 1.806×10²² | 1.976×10⁻⁶⁷ | 1.09×10⁻⁸⁹ |
+> | 1 light-year | 1.806×10¹⁴ | 1.976×10⁻⁸³ | 1.09×10⁻⁹⁷ |
+>
+> **And the gap widens with size, which is the part that matters.** Required falls as `1/b²`;
+> available falls as `1/b⁴`. **Going bigger loses by two powers.** That closes an escape this project
+> used twice — `seatindex.py`'s `1/ℓ` saving and `concentric.py`'s far shell were both "go bigger".
+> Here there is no large-scale corner to retreat to.
+>
+> The curves cross only at a core size of **4.09 Planck lengths** — a **third independent route to the
+> Planck scale**, after `corridor.py`'s Unruh crossover and its Casimir crossover, and about a
+> different object. When three unrelated calculations land there, that is where the physics is.
+>
+> **Two things that look like exceptions and are not**, named so they are not reached for later:
+> **dark energy** has negative *pressure* and *positive* energy density — the wrong sign of the wrong
+> quantity; **"effective negative mass"** in BECs and metamaterials is a curvature of a *dispersion
+> relation*, not `T₀₀`, and does not gravitate.
+
+**What this does not retract.** `concentric.py`'s device remains a valid solution: `M_ADM = 0`, a
+vacuum corridor, seats and leads over most of a decade, a shell of ordinary matter that is radially
+stable for free, a Type I core whose exoticism is exactly one sign. **Every one of those stands.** What
+is settled is that the core is **not buildable with known physics**, and that the shortfall is a
+**theorem rather than a budget**.
+
+**The honest statement of this work, in one sentence:**
+
+> A complete, self-consistent, stability-checked warp architecture whose single unmet requirement is a
+> matter type no known physics provides — with the shortfall quantified at **65 orders of magnitude**
+> and shown to **widen with scale**.
+
+**Not settled:** whether physics beyond the standard framework supplies it. That is a question this
+project cannot ask, and pretending otherwise would be the failure mode every withdrawal in this tree
+was about.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

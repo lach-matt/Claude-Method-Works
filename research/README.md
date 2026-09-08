@@ -2811,3 +2811,82 @@ and that is the most useful thing this census says.
 
 Seated: `index3.py` 193 findings — `LOG-COORDINATE`, `LIMIT-DISSOLVES`, `MAGNITUDE-REACHED`,
 `SIGN-NOT-PHASE`, `VACUUM-NOT-MATERIAL`.
+
+---
+
+## Pass 21 — `achievable.py`: there is no achievable core
+
+M: *"we have to determine our core, and it must be something achievable, not something hypothetical."*
+That is the right demand. The answer is **no**, by 65 orders of magnitude, and it is bounded by a
+theorem rather than by engineering.
+
+### The census of real negative energy density
+
+| source | status |
+|---|---|
+| Casimir between boundaries | **measured** |
+| squeezed vacuum | **measured** — LIGO uses it |
+| dynamical Casimir | **measured** — Wilson 2011, superconducting circuit |
+| Hawking / Unruh flux | analogue-measured |
+| vacuum polarisation | **measured** via the Lamb shift |
+
+**All of them obey one bound.** Ford & Roman cap negative energy sustained over a scale `L` at
+`|ρ| ≲ ℏc/L⁴`, and **Casimir is that bound saturated, not an exception to it.**
+
+### The price
+
+| `b` | required (Pa) | available (Pa) | avail/req |
+|---|---|---|---|
+| 1 m | 1.806×10⁴⁶ | 1.976×10⁻¹⁹ | **1.09×10⁻⁶⁵** |
+| 100 km | 1.806×10³⁶ | 1.976×10⁻³⁹ | 1.09×10⁻⁷⁵ |
+| solar system | 1.806×10²² | 1.976×10⁻⁶⁷ | 1.09×10⁻⁸⁹ |
+| 1 light-year | 1.806×10¹⁴ | 1.976×10⁻⁸³ | 1.09×10⁻⁹⁷ |
+
+### And the gap widens with size
+
+Required falls as `1/b²`; available falls as `1/b⁴`. **Going bigger loses by two powers.**
+
+**That closes an escape this project used twice.** `seatindex.py` found universal seating gets cheaper
+as `1/ℓ` — long and weak beats short and strong. `concentric.py` found the shell's delay gets cheap
+when the shell is far. Both were "go bigger". **Here going bigger loses**, and there is no large-scale
+corner left.
+
+The curves cross at a core size of **4.09 Planck lengths** — a **third independent route to the Planck
+scale**, after `corridor.py`'s Unruh crossover (5.33×10⁻¹⁰ kg) and its Casimir crossover (0.132 `ℓ_P`),
+about a different object. Three unrelated calculations landing there is where the physics is.
+
+Even taking the *bound* as though it were an apparatus: a 0.1 nm Casimir gap — the atomic floor —
+would need a corridor of **0.8 light-years**, with a core 160 AU across of continuous
+atomic-separation vacuum apparatus, for the *weakest* configuration in the window.
+
+### Two things that look like exceptions and are not
+
+- **Dark energy** — negative *pressure*, *positive* energy density. Wrong sign of the wrong quantity.
+- **"Effective negative mass"** in BECs and metamaterials — a curvature of a *dispersion relation*,
+  not `T₀₀`. It does not gravitate and will not source a metric. Same for negative-index metamaterials,
+  which are about the refractive index.
+
+Named so they are not reached for later.
+
+### What this does not retract
+
+The device stands: `M_ADM = 0`, vacuum corridor, seats and leads over most of a decade, ordinary shell
+that is radially stable for free, Type I core with a one-sign exoticism. **Every one of those.** What
+is settled is that the core is **not buildable with known physics**, and that the shortfall is a
+**theorem, not a budget**.
+
+> **A complete, self-consistent, stability-checked warp architecture whose single unmet requirement is
+> a matter type no known physics provides — shortfall quantified at 65 orders of magnitude, and shown
+> to widen with scale.**
+
+**Not settled:** whether physics beyond the standard framework supplies it. This project cannot ask
+that, and pretending otherwise would be the failure mode every withdrawal in this tree was about.
+
+### Seated
+
+- `index3.py` — 198 findings: `NO-ACHIEVABLE-CORE`, `GAP-WIDENS`, `PLANCK-THIRD-TIME`,
+  `NOT-EXCEPTIONS`, `DEVICE-NOT-RETRACTED`. The cell `TYPE-IV` opened, (+1,−1,−1), now holds **every**
+  hard objection this project has met — and the two newest are about the core, not ANEC, and landed
+  there anyway.
+- `obstruct.py` — 22 rows. New `ACHIEVABLE-CORE`, **CLOSED-NEGATIVE**, and it is the hardest one.
+- `paper/CLAIMS.md` — **H13**.
