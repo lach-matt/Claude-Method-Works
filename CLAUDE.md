@@ -631,6 +631,29 @@ stated, and this file prices the choice rather than making it. It also **records
 question forced**: `materials.py` runs the fuel loop 700 → 900 K, a cold leg of 427 °C, against a
 NaCl–UCl₃ liquidus band of 500–550 °C — **the fuel salt freezes in the cold leg in normal
 operation**. Recorded, not repaired; the selftest asserts the failure so it cannot be lost),
+**`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
+and answered with the discipline's own arithmetic rather than with reassurance, because nothing here
+had done any of it. **The uranium is not the hazard**: DU is an alpha emitter at **12.4 MBq/kg** whose
+character is heavy-metal toxicity of lead's kind, and its `k_inf` of **0.31** means no quantity in any
+shape can be critical — the fertile feed is not a criticality question, full stop. **The fissile is**,
+and one-group diffusion gives the geometry: at the 8.9 % operating fraction a critical sphere is
+**1.63 m**, an infinite cylinder **1.25 m** — metres, because the salt is dilute, against the 5 cm
+everyone knows for plutonium metal. **The core is deliberately above those dimensions**: subcriticality
+is held by *composition*, not by size, which is the whole architecture and which makes the drain tank a
+**favourable-geometry requirement** `restart.py` had assumed without stating. **And then the result
+that changes the question, found by a selftest failing**: below **7.93 % fissile** `k_inf` drops under
+one, and an assembly under one cannot be made critical by any amount in any shape. That fraction is
+**inside the operating window** — the loop closes from 5.5 % — so there is a real band, **5.5 % to
+7.93 %**, in which the plant runs *and no dry geometry of its own fuel can ever be critical*. The price
+is a factor of **2.05** in gain, and the remaining 19.5 still clears the loop requirement by 2.63×.
+**The hazard class stops existing rather than being managed**, and the property is intrinsic rather
+than procedural. **On moderation the file refuses**: a wet fast assembly is the accident that has
+actually killed people, moderation is a spectrum effect, the model is one-group and has no spectrum, so
+a moderated `k` would look like an answer and would not be one. What replaces it is an absolute
+requirement — no water or hydrogenous material in any space the salt can reach, a chloride-plus-water
+chemistry that makes the nuclear and chemical requirements coincide, and a transport analysis named as
+**owed before any licence**. It states plainly that "never a safety question" is not a promise any file
+can make),
 **`tools/fuelchoice.py`** (**what fissile fraction, what fertile fuel, and what each costs in
 mitigation** — three questions that are one, because the fraction sets `k`, `k` sets the breeding a
 fuel must sustain, and which fuel can sustain it decides what the plant holds. It exists because the
