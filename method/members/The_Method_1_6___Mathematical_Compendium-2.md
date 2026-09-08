@@ -3377,7 +3377,7 @@ The longest derivation paths in the register — what rests on what.
 
 **Every object of this compendium names a work.** What follows is those works, ordered by year, with the objects each carries. *The book claims nothing new where an earlier result will do; where a measurement is this work's, the object says so.*
 
-**162 works, 1669–2026.** *Ten rows the generator had read out of callout text — status words, a possessive, a method name — were removed on 2026-08-24 (register 1736); the count was 172.*
+**156 works, 1669–2026.** *Ten rows the generator had read out of callout text — status words, a possessive, a method name — were removed on 2026-08-24 (register 1736); the count was 172. Five more, each a real author carried to a neighbouring citation’s year, and one work printed as two rows, were removed on 2026-09-08 (register 1891); the count was 162.*
 
 | year | work | objects |
 |---|---|---|
@@ -3410,7 +3410,6 @@ The longest derivation paths in the register — what rests on what.
 | 1910 | Moore | `A.E` `A.R` `A.bound` `A.clos` `A.expr` `A.ext` `A.fix` `F.exact` `F.moore` `L.E0` `S.bounds` `S.open` `S.seed` |
 | 1911 | Caratheodory | `S.car` |
 | 1913 | Bohr | `B.coll` `L.c1` `L.c4` `L.def` |
-| 1913 | Pauli | `L.def` |
 | 1916 | Sommerfeld | `P.jsplit` |
 | 1918 | Noether | `EM.quotient` |
 | 1922 | Chazy | `3B.index` |
@@ -3439,7 +3438,6 @@ The longest derivation paths in the register — what rests on what.
 | 1936 | Tarski | `A.logic` `C.compare` |
 | 1936 | Murray & von Neumann | `M.semi` |
 | 1937 | Birkhoff | `A.define` `A.erel` `I.convex` `K.arrow` `K.produce` `L.alpha` `L.arith` `L.birk` `L.bits` `L.dist` `L.omega` `L.pushback` `L.step` `S.box` `S.seed` |
-| 1937 | Shannon | `L.bits` |
 | 1938 | Shannon | `L.circuit` `S.bits` `W.onehot` |
 | 1939 | Inglis & Teller | `P.trunc` |
 | 1940 | Birkhoff | `A.derived` `A.erel` `A.morph` `A.prod` `I.convex` `I.interval` `I.shape` `L.arith` `L.closed` `L.total` |
@@ -3460,7 +3458,6 @@ The longest derivation paths in the register — what rests on what.
 | 1954 | Kolmogorov | `3B.index` |
 | 1955 | Tarski | `A.cert` `F.open` |
 | 1957 | Bethe & Salpeter | `B.coll` |
-| 1958 | Pauli | `Q.delta` |
 | 1958 | Seaton | `A.seaton` `P.coreblind` `P.lcollapse` `P.polar` `P.qdt` `Q.delta` `Q.final` `Q.pol` |
 | 1959 | Dijkstra | `A.EW` `A.W` `A.intext` `A.three` |
 | 1960 | Erdos & Renyi | `A.dens` |
@@ -3469,7 +3466,6 @@ The longest derivation paths in the register — what rests on what.
 | 1962 | Berge | `G.near` `G.tower` `K.girth` `K.peak` |
 | 1963 | Arnold | `3B.index` |
 | 1964 | Edlen | `A.S` `K.zcross` `P.buildlimit` `P.charge` `P.iso` `Q.final` |
-| 1964 | Moebius | `G.book` |
 | 1964 | Rota | `C.local` `G.book` `L.amp` `L.box` `L.mobius` `L.void` `L.voidfrac` |
 | 1965 | Kolmogorov | `F.unstatable` |
 | 1965 | Penrose | `W.core9` |
@@ -3507,7 +3503,6 @@ The longest derivation paths in the register — what rests on what.
 | 1980 | Stanley | `L.sperner` |
 | 1981 | Monjardet | `I.shape` `L.metric` `L.occ` |
 | 1982 | Freuder | `A.freuder` `C.cut` `G.cons` `G.ref` `G.shape` `L.E0` `L.box` `L.tree` `T.trad` `3B.def` |
-| 1982 | Racah | `T.trad` |
 | 1982 | Marchal & Bozis | `3B.index` |
 | 1983 | Beeri, Fagin, Maier & Yannakakis | `A.intext` `C.compare` `K.three` |
 | 1983 | Maier & Yannakakis | `A.intext` `A.relax` `C.compare` `K.langclose` `K.three` `K.window` |
@@ -3528,8 +3523,7 @@ The longest derivation paths in the register — what rests on what.
 | 1995 | van Beek & Dechter | `A.rule` `A.staircls` |
 | 1996 | Lauritzen | `K.decay` `K.markov` `L.box` `L.voidfrac` |
 | 1998 | Montgomery | `3B.shape` |
-| 1999 | Deville | `A.env` `A.orient` `A.r4` `T.tight` |
-| 1999 | Hentenryck | `A.orient` `A.rule` `A.stair` `A.staircls` `T.tight` |
+| 1999 | Deville, Barette & Van Hentenryck | `A.env` `A.orient` `A.r4` `A.rule` `A.stair` `A.staircls` `T.tight` |
 | 2000 | Wald & Zoupas | `M.C1` |
 | 2000 | Chenciner & Montgomery | `3B.five` |
 | 2002 | Montgomery | `3B.metric` |

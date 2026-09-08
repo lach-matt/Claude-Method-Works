@@ -32,6 +32,7 @@ HELD = {  # name: the record that holds it (a golden with a seated successor nee
     'r2-ch18b': 'DEF-153B: a reading, not a re-bank', 'r2-ch23b': 'DEF-153B: a reading', 'r2-26b': 'DEF-153B: UNRUNNABLE, successor r2-26b2 owed',
     'r2-26c2': 'W-260: the record outgrew its pinned list \u2014 register 1868 names the method ratio and so joins 296 in it; successor r2-26c3 owed, carrying 26b-02, 26b-03, 26c-02 and 26c-03 unchanged',
     'r3-wl': 'chat 153: re-taken by r3-wl2', 'r2-ch23a': 'DEF-153B: a reading', 'r2-ch28a': 'DEF-153B: a reading',
+    'r2-28a4': 'W-306: three check() calls pin "162 works" and the 162 data rows, which register 1891 restates at 156; the checks RECORD rather than raise, so a re-bank would bank its own EXPECTED 162 lines as the golden — successor r2-28a5 owed',
 }
 def goldens():
     return sorted(f[:-4] for f in os.listdir(H) if f.endswith('.out'))
