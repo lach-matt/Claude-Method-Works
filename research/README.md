@@ -2678,3 +2678,79 @@ wherever it sits. Neither stable nor unstable, and recorded as neither.
   `CORE-NEUTRAL`, `L2-IS-THE-RISK`.
 - `obstruct.py` — 20 rows. New `DEVICE-SHELL`, **CLOSED-NEGATIVE**.
 - `paper/CLAIMS.md` — **H11**.
+
+---
+
+## Pass 20 — `core.py`: what the core has to be
+
+M: *"the core is part of the exotic matter identification phase that happens in tandem with the build
+design phase"*, then *"we need to identify the core material to accurately measure stability."*
+
+The second is right for a specific reason: **the `ℓ ≥ 2` analysis needs a boundary condition at the
+inner edge of the vacuum region, and that boundary condition *is* the core's response to a
+non-spherical perturbation.** Running `ℓ ≥ 2` against an unspecified core would be fitting a free
+function. So the core comes first.
+
+### 1. The core is Type I — measured
+
+| `r` | `‖T‖` | `max\|Im eig\|` | ratio | |
+|---|---|---|---|---|
+| 0.005 | 7.501×10² | 7.879×10⁻⁵ | 1.05×10⁻⁷ | **TYPE I** |
+| 0.020 | 1.347×10³ | 1.452×10⁻⁵ | 1.08×10⁻⁸ | **TYPE I** |
+| 0.050 | 4.435×10² | 8.705×10⁻⁶ | 1.96×10⁻⁸ | **TYPE I** |
+
+MMV force Type I for static configurations, and the direct computation confirms it.
+**The Type IV problem — which dominated `typefour.py`, `universal.py` and `selfconsistent.py` — does
+not transfer to this architecture.**
+
+### 2. But `concentric.py`'s metric cannot describe its own core
+
+`Φ_max = m/a` runs **0.25 to 1.0** across the window, and at `Φ = 1` the linearised spatial metric
+`(1−2Φ)` has flipped sign. The corridor is fine (`Φ ≈ 0.02` where the geodesics live); the core is not
+— a density read off it misses the analytic Plummer by **667×** at `r = 2a`.
+
+**This is a real tension, not a choice of method.** The vacuum corridor wants `a ≲ 0.02`; the window
+wants `m ≳ 5×10⁻³`; so `Φ_max ≥ 0.25` everywhere in the window. **The core is intrinsically a
+strong-field object** and no weak-field description of it will do. Hence the exact solution.
+
+### 3. The exact core, and only one thing about it is exotic
+
+Interior Schwarzschild (constant density), with `ρ < 0`.
+
+**No Buchdahl limit.** For positive density the central pressure diverges at `R = 9M/4`. Here
+`1 − 2Mr²/R³ = 1 + 2|M|r²/R³ > 1` for every `r` — every root real, denominator never zero. Finite at
+compactness **8378**. Negative mass has no compactness bound, which is exactly what `b/a ≳ 50` needs.
+
+**Pressure positive, capped at `|ρ|/3`:**
+
+| `2\|M\|/R` | `p(0)/\|ρ\|` |
+|---|---|
+| 0.084 | 0.0193 |
+| 8.378 | 0.2519 |
+| 83.78 | 0.3083 |
+| 8378 | 0.3309 → **1/3** |
+
+Monotone, approaching the radiation value **from below**, never exceeding it.
+
+**All four energy conditions fail — and all fail for the same single reason, `ρ < 0`. Flip that sign
+and the material satisfies DEC.** The pressures are entirely ordinary.
+
+### The identification target
+
+> **A static, spherically symmetric, *isotropic* Hawking–Ellis Type I fluid with negative energy
+> density and positive pressure not exceeding `|ρ|/3`.** No rest-frame pathology, no anisotropy, no
+> pressure beyond radiation's, no compactness bound. **One sign, and nothing else.**
+
+### Not settled
+
+Constant density is **incompressible** — sound speed formally infinite, the known pathology of the
+constant-density star either sign. **A bounding model, not an EOS.** No candidate material is
+proposed. The `ℓ ≥ 2` boundary condition is now **posable but not posed**. And whether a
+negative-density fluid is stable *as a fluid* is untouched.
+
+### Seated
+
+- `index3.py` — 188 findings: `CORE-IS-TYPE-I`, `NO-BUCHDAHL`, `PRESSURE-CAPPED`, `ONE-SIGN-EXOTIC`,
+  `CORE-IS-STRONG-FIELD`.
+- `obstruct.py` — 21 rows. New `CORE-TYPE-IV`, **CLOSED-NEGATIVE**.
+- `paper/CLAIMS.md` — **H12**, the core specification.

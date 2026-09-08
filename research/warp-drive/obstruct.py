@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty obstructions, FIVE dissolved, three relocated, SEVEN
-closed negative, three are conditional, two are OPEN, and NONE is untested.  A
+THE HEADLINE: of twenty-one obstructions, FIVE dissolved, three relocated,
+EIGHT closed negative, three are conditional, two are OPEN, NONE is untested.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
 The counts here are asserted by the selftest against the ledger, so a row that
@@ -210,6 +210,14 @@ LEDGER = [
   "shell on the same machinery is unstable. The core's position is neutral by "
   "the shell theorem. l >= 2 IS NOT RUN and is the top remaining risk",
   "stability.py"),
+ ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
+  "CLOSED-NEGATIVE",
+  "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
+  "symmetric forces Type I, as MMV require. The core has a rest frame, an "
+  "energy density and isotropic pressures. It has NO Buchdahl limit either -- "
+  "1+2|M|r^2/R^3 > 1 everywhere, finite at 2|M|/R = 8378 -- and p(0)/|rho| "
+  "rises to 1/3 FROM BELOW. Every energy condition fails and all fail for one "
+  "reason: rho < 0. Flip that and DEC holds", "core.py"),
 ]
 
 def by_status():
@@ -306,6 +314,13 @@ def check_device_shell_ordinary():
                     for m in (0.01, 0.1, 0.5))
             and stability.V_second(*stability.ordinary(0.1), beta2=0.0) < 0)
 
+def check_core_type_i():
+    import core
+    return (core.classify_core(2.0e-2, 0.02, 0.02)[0] == core.TYPE_I
+            and core.buchdahl_safe(-1000.0)
+            and core.only_sign_is_exotic(-1.0)
+            and core.central_ratio(-10000.0) < 1.0 / 3.0)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -322,10 +337,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 20)
+    chk("obstructions tracked", len(LEDGER), 21)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 5)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 7)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 8)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 3)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
@@ -356,6 +371,8 @@ def selftest():
         check_bare_mass_needed(), True)
     chk("DEVICE-SHELL: ordinary matter, stable free, and the control is unstable",
         check_device_shell_ordinary(), True)
+    chk("CORE-TYPE-IV: the core is Type I, unbounded in compactness, one-sign exotic",
+        check_core_type_i(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

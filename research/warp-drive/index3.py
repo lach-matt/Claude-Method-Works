@@ -492,8 +492,19 @@ FINDINGS = [
   "Newton's shell theorem makes the field vanish at EVERY interior point, so the core feels no force wherever it sits: its position is neutrally stable, recorded as neither stable nor unstable"),
  ("L2-IS-THE-RISK",   0, -1,  0, "stability.py",
   "l >= 2 is NOT RUN and it is what killed the warpshell. PSP's shells have M_in >= 0 and M_out > 0 where ours has M_in < 0 and M_out = 0, and the radial mode already flipped under that exchange -- a reason to expect, never to assume"),
+ # The core, specified.  M's identification phase gets a target.
+ ("CORE-IS-TYPE-I", +1, +1, +1, "core.py",
+  "MEASURED: |Im|/||T|| of 1e-7 to 1e-8 at every radius. Static and spherically symmetric forces Type I as MMV require, so THE TYPE IV PROBLEM DOES NOT TRANSFER to this architecture"),
+ ("NO-BUCHDAHL",    +1, +1, +1, "core.py",
+  "negative mass has no compactness bound: 1-2M r^2/R^3 = 1+2|M|r^2/R^3 > 1 everywhere, so the central pressure never diverges -- finite at 2|M|/R = 8378, which is what a core needing b/a >~ 50 requires"),
+ ("PRESSURE-CAPPED",+1, +1, +1, "core.py",
+  "p > 0 throughout, zero at the surface, and p(0)/|rho| rises monotonically to 1/3 FROM BELOW -- the radiation value, approached and never exceeded"),
+ ("ONE-SIGN-EXOTIC",+1, +1, +1, "core.py",
+  "all four energy conditions fail and all fail for the SAME reason: rho < 0. Flip that sign and DEC holds. Isotropic, Type I, pressures ordinary -- the identification target is one sign and nothing else"),
+ ("CORE-IS-STRONG-FIELD", 0, -1, +1, "core.py",
+  "concentric.py's metric CANNOT describe its own core: Phi_max = m/a is 0.25 to 1.0 across the window and the linearised spatial metric flips sign at 1. The corridor is fine; the core needed an exact solution"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty obstructions five dissolved, three relocated, seven closed negative, three conditional, two open and none untested"),
+  "of twenty-one obstructions five dissolved, three relocated, eight closed negative, three conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -610,7 +621,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 183)
+    chk("number of findings indexed", len(FINDINGS), 188)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -646,6 +657,7 @@ def selftest():
                 "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
                 "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE","SHELL-THEOREM-SPLIT",
                 "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
+                "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED","ONE-SIGN-EXOTIC",
                 "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three", sorted(aff),
@@ -659,7 +671,9 @@ def selftest():
                 "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
                 "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE",
                 "SHELL-THEOREM-SPLIT",
-                "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3"]))
+                "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
+                "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED",
+                "ONE-SIGN-EXOTIC"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
