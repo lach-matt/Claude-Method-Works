@@ -631,6 +631,29 @@ stated, and this file prices the choice rather than making it. It also **records
 question forced**: `materials.py` runs the fuel loop 700 → 900 K, a cold leg of 427 °C, against a
 NaCl–UCl₃ liquidus band of 500–550 °C — **the fuel salt freezes in the cold leg in normal
 operation**. Recorded, not repaired; the selftest asserts the failure so it cannot be lost),
+**`tools/fuelchoice.py`** (**what fissile fraction, what fertile fuel, and what each costs in
+mitigation** — three questions that are one, because the fraction sets `k`, `k` sets the breeding a
+fuel must sustain, and which fuel can sustain it decides what the plant holds. It exists because the
+repository asserted **both ends** of the first question and connected them by nothing: `K_SAFE = 0.95`
+and `FISSILE_FRACTION = (0.12, 0.20)` are not independent, and no file computed the relation. A
+**one-group fast-spectrum model** supplies it — reliable for ordering and the sign of a comparison,
+worth about fifteen percent on an absolute `k`, and stated as such. **The assumed band does not
+pass**: the U–Pu cycle reaches k = 0.95 at **8.9–11.5 %** across the leakage band, below the assumed
+floor of 12 %, at which the model gives **k = 1.089** — critical. Recorded as a finding that the band
+was **never derived**, not as a claim that 8.9 % is right; a transport calculation settles it.
+**There is no interior optimum**: the workable window is **5.5 % to 8.9 %** — below it the loop stops
+closing, above it the margin is gone — so the criterion picks the boundary and the answer is *the
+largest fraction that keeps the margin*. **Thorium is worse on both counts, which this file expected
+it not to be**: U-233 is the better *nuclide* (9.8 fissions per capture against Pu-239's 3.3) and the
+thorium *cycle* still needs **more** fissile, 9.7 % against 8.9 %, because Th-232 captures 1.24× as
+much as U-238 and ν is 2.50 against 2.90 — the system beats the nuclide. On mitigation **uranium wins
+and not for neutronic reasons**: it consumes an existing guarded waste and opens no new mine, where
+thorium closes one environmental row and opens two. Two findings came out of building it, both
+**recorded and not repaired**: the salt's 40 % uranium by mass is **18.9 mol % UCl₃** against a
+eutectic near 34 %, so the design is **not at the eutectic** and its liquidus is higher — which makes
+`restart.py`'s frozen cold leg worse — and the chlorine row counts only the NaCl portion, missing the
+three Cl per U in UCl₃, so the true inventory is **219 t against 183.6 t carried**, every tonne of
+which must be Cl-37),
 **`tools/startcost.py`** (**criterion 9**, measured in **energy and never in money** — a dollar figure
 would be the only quantity here whose accuracy the rest of the work does not support, and it would be
 the one quoted. **2,816 TJ to build a station against 32,414 TJ a year out: a 32-day energy payback and
