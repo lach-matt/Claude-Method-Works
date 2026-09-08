@@ -244,8 +244,12 @@ LEDGER = [
   "Q <= M were all attached to. What remains -- the SEAT -- is achievable with "
   "ordinary matter, and the whole specification is one invariant, "
   "B*l = 1.5456e19 T m, fixed by c, G and mu_0 alone. The residual gap is "
-  "8.3e7 in field strength: ENGINEERING against no theorem, on a line that "
-  "closes with scale where the lead's 65 orders widened", "spec.py"),
+  "8.3e7 in field strength. BUT THE SPECIFICATION IS WITHDRAWN TWICE OVER: any "
+  "Sturm-seating region is inside its own Schwarzschild radius by 2 pi^2/3 at "
+  "every scale, and the magnetar figure compared a dipole's peak against a "
+  "length it does not sustain. What actually seats is CUMULATIVE WEAK-FIELD "
+  "LENSING, f = b^2 c^2/(4 G M), validated against the solar focus at 547.6 AU "
+  "-- which is gravitational lensing, ordinary and known since 1919", "spec.py"),
 ]
 
 def by_status():

@@ -3034,3 +3034,68 @@ untested door if the lead is ever reopened.
   `GAP-IS-ENGINEERING`, `KERR-HALTED`.
 - `obstruct.py` — 24 rows. New `THE-LEAD`, **DISSOLVED** — the sixth.
 - `paper/CLAIMS.md` — **H15**, the specification.
+
+---
+
+## Pass 23b — RETRACTION: the specification was wrong twice
+
+M's response to pass 23's summary was enthusiasm, and I checked the numbers before letting them stand.
+**Both are wrong.**
+
+### Withdrawn 1 — any Sturm-seating region is inside its own Schwarzschild radius
+
+Seating needs `u ≥ πc⁴/(4Gℓ²)`. Avoiding collapse needs `u < 3c⁴/(8πGℓ²)`. Their ratio:
+
+**`u_seat / u_collapse = 2π²/3 = 6.579`** — **constant at every scale**, measured identical at
+`ℓ =` 1 m, 10⁵, 10⁸ and 10¹¹ m.
+
+**The universal (Sturm) route does not describe a device. It describes a black hole, by 6.58×, always.**
+That is itself a real result and it is kept as one.
+
+### Withdrawn 2 — the magnetar figure compared a peak to a sustained requirement
+
+Sturm needs `q ≥ m` over a **contiguous** stretch. A dipole falls as `r⁻³`, so a magnetar's `10¹¹ T`
+surface field is `2.7×10⁻² T` at `1.55×10⁸ m` — `u = 2.9×10² Pa` against a requirement of
+`4.0×10²⁷ Pa`. **Short by twenty-five orders. A magnetar does not seat.**
+
+`charge.py` carries the same error and is struck there too. Both files stay executable with the
+retraction asserted, so it is checkable rather than merely stated.
+
+### What actually seats — and it is ordinary lensing
+
+`composite.py` never used the Sturm route. It measured **cumulative weak-field Weyl focusing** — a
+lens — with `f = b²c²/(4GM)`. Validated against a number this project did not produce:
+
+**The Sun, `b = R_☉`: `f = 8.1923×10¹³ m = 547.6 AU`. Published solar gravitational lens focus: ~550 AU.**
+
+| lens | focal |
+|---|---|
+| Sun | 548 AU |
+| Jupiter | 6061 AU |
+| Earth | 15295 AU |
+| 10 km asteroid | 1580 ly |
+
+**So the "controlled gravitational focus" is gravitational lensing.** Ordinary, observed since 1919,
+the Sun already does it, and there are active mission concepts for the solar focus. Calling it a device
+this project designed would be false.
+
+### What is actually new, stated without inflation
+
+Not the seat. What this project established that was not already known:
+
+- **Weyl focusing is sign-blind** and Ricci focusing is not — the term that let a negative source focus while leading.
+- **The seat/lead split falls exactly on the energy-condition line.**
+- **Reversal invariance** of the conjugate pair, proved and measured to 10⁻¹⁴ — M's own prediction.
+- **ANEC violation protects achronality**, so the obvious escape from Graham–Olum is structurally unavailable.
+- **The lead is 65 orders short** against Ford–Roman, **and the gap widens with scale.**
+- **Sturm-universal seating implies collapse**, at `2π²/3` exactly, at every scale.
+
+**None of it is a warp drive.** It is a real inventory and it should be published as one.
+
+### Seated
+
+- `index3.py` — 212 findings. `ONE-INVARIANT`, `GAP-IS-ENGINEERING` and `MAGNETAR-SEATS` **re-scored**
+  from (+1,+1,+1) to (0,−1,+1) to match their withdrawal; new `STURM-IMPLIES-COLLAPSE`,
+  `PEAK-NOT-SUSTAINED`, `LENSING-IS-THE-SEAT`, `SEAT-IS-NOT-NEW`. The all-three and affirmative
+  fixtures are now **generated from the data** — the hand-maintained lists had broken three times.
+- `obstruct.py` — `THE-LEAD` and `CHARGE-STATE` amended with the withdrawal.

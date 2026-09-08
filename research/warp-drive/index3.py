@@ -532,21 +532,30 @@ FINDINGS = [
   "what charge does buy is a REDUCTION of the delay, never a reversal: 25% at r=2M, 10% at 5M, 5% at 10M, 0.5% at 100M, with Phi negative throughout"),
  ("EM-IS-ORDINARY",  +1, +1, +1, "charge.py",
   "electromagnetic stress-energy has rho = E^2/8pi > 0, p_r = -rho, p_t = +rho, so NEC WEC and DEC all hold and T_kk >= 0 gives RICCI focusing with positive energy"),
- ("MAGNETAR-SEATS",  +1, +1, +1, "charge.py",
-  "a magnetar's 1e11 T field has u = 3.98e27 Pa and clears the universal seating threshold beyond 1.55e8 m = 155,000 km. Seating is not hypothetical: nature already builds the field that does it"),
+ ("MAGNETAR-SEATS",   0, -1, +1, "charge.py",
+  "WITHDRAWN by spec.py: a dipole falls as r^-3, so the field is not at that range. The SIGN argument survives -- EM is ordinary, T_kk >= 0, Ricci focusing with positive energy"),
  ("THE-SPLIT",       +1, +1, +1, "charge.py",
   "the device divides along the energy-condition line -- part 2's turn needs T_kk > 0 and is ACHIEVABLE with ordinary EM; parts 1 and 3's lead needs Phi > 0 and is forbidden by two independent theorems"),
  # M's scoping: drop the lead, keep the seat.  The spec becomes achievable.
  ("SCOPE-DROPS-LEAD",+1, +1, +1, "spec.py",
   "M's correction -- the matter must exist at both ends under the same physics, nothing more -- removes the requirement every blocking theorem was attached to. Olum, Ford-Roman and Q<=M all forbid a LEAD that is no longer asked for"),
- ("ONE-INVARIANT",  +1, +1, +1, "spec.py",
-  "the whole specification is B*l = sqrt(2 mu_0 pi c^4/4G) = 1.5456e19 T m, fixed by c, G and mu_0 alone: field strength and range trade exactly inversely, no free parameters"),
+ ("ONE-INVARIANT",   0, -1, +1, "spec.py",
+  "WITHDRAWN AS A SPECIFICATION: B*l = 1.5456e19 T m is arithmetically right and describes a region inside its own Schwarzschild radius by 2 pi^2/3. Kept executable so the retraction is checkable"),
  ("CROSS-ROUTE",    +1,  0, +1, "spec.py",
   "verified by a route sharing no formula: q = (4 pi G/c^4)T_kk gives pi/sqrt(q) = 1.5456e8 m at B = 1e11 T, and seatindex.py's threshold gives the same"),
- ("GAP-IS-ENGINEERING",+1,+1,+1, "spec.py",
-  "8.3e7 in field and 6.9e15 in energy density from the best human field to magnetar class -- against NO THEOREM, and on a line that CLOSES with scale, unlike the lead's 65 orders which widened"),
+ ("GAP-IS-ENGINEERING", 0,-1,+1, "spec.py",
+  "WITHDRAWN: the magnetar comparison used a dipole's PEAK against a length it does not sustain -- 2.9e2 Pa against 4.0e27 Pa at 1.55e8 m, short by 25 orders. A magnetar does not seat"),
  ("KERR-HALTED",     0, -1,  0, "spec.py",
   "Kerr-Newman metric built and validated (a=0 gives Schwarzschild exactly, ergosphere at x=sqrt(4+a^2)) then HALTED by scoping when the integrator hit the ring: it was a hunt for a lead. NOT-RUN with a reason, and the one untested door if the lead reopens"),
+ # The retraction, and the theorem it turned up.
+ ("STURM-IMPLIES-COLLAPSE",+1,-1,+1, "spec.py",
+  "any region satisfying the universal seating condition is inside its own Schwarzschild radius by exactly 2 pi^2/3 = 6.579, CONSTANT at every scale from 1 m to 1e11 m: the Sturm route describes a black hole, not a device"),
+ ("PEAK-NOT-SUSTAINED", 0, -1, +1, "spec.py",
+  "the magnetar claim compared a dipole's PEAK energy density against the threshold for a length it does not sustain -- r^-3 falloff gives 2.9e2 Pa where 4.0e27 Pa was needed. WITHDRAWN in spec.py and charge.py"),
+ ("LENSING-IS-THE-SEAT",+1,+1,+1, "spec.py",
+  "what composite.py actually measured is CUMULATIVE weak-field lensing, f = b^2 c^2/(4 G M), validated against the solar gravitational lens at 547.6 AU where the published focus is ~550"),
+ ("SEAT-IS-NOT-NEW",   0, -1, +1, "spec.py",
+  "so the seat is gravitational lensing, ordinary and known since 1919, and the Sun already does it. What is new is the sign structure, the split, reversal invariance, the achronality anti-correlation and the 65-order gap -- none of it a warp drive"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
   "of twenty-four obstructions six dissolved, three relocated, nine closed negative, four conditional, two open and none untested"),
 ]
@@ -665,7 +674,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 208)
+    chk("number of findings indexed", len(FINDINGS), 212)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -680,8 +689,7 @@ def selftest():
     # anyway.
     chk("the cell TYPE-IV opened holds every hard objection, old and new",
         sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
-        ["ACHRONAL", "ANEC-VIOLATED", "CHARGE-NO-LEAD", "GAP-WIDENS",
-         "NO-ACHIEVABLE-CORE", "TYPE-IV"])
+        ['ACHRONAL', 'ANEC-VIOLATED', 'CHARGE-NO-LEAD', 'GAP-WIDENS', 'NO-ACHIEVABLE-CORE', 'TYPE-IV'])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -695,43 +703,36 @@ def selftest():
     triple = [f[0] for f in FINDINGS if on_all_three(f)]
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
-    chk("cells sitting on all three axes", sorted(triple),
-        sorted(["EM-GAP","FLYBY","SLINGSHOT","LAUNCHER","OPEN-GATE","OBJ-CEILING","KERR-FLYBY",
-                "OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE","THE-DOOR","EC-TAKEN",
-                "NO-EXOTIC","ONE-AXIS-FLAT","STIFF-WALL","LOOP-OBSERVABLE",
-                "AREA-OVER-THICK","NO-NULL-QI","D-CANCELS",
-                "DESIGN-EQUATION","CHANGE-OF-KIND","TYPE-IV","THE-TRADE","ANEC-VIOLATED","ACHRONAL",
-                "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
-                "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
-                "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
-                "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
-                "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE","SHELL-THEOREM-SPLIT",
-                "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
-                "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED","ONE-SIGN-EXOTIC",
-                "LOG-COORDINATE","LIMIT-DISSOLVES","MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
-                "NO-ACHIEVABLE-CORE","GAP-WIDENS","PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
-                "CHARGE-NO-LEAD","EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT",
-                "SCOPE-DROPS-LEAD","ONE-INVARIANT","GAP-IS-ENGINEERING",
-                "STATE-NOT-ELEMENT","ESCAPES-TYPE-I"]))
+    chk("cells sitting on all three axes", sorted(triple), sorted([
+                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BUILT-SOURCE","CASIMIR-ROUTE",
+                "CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS","CORE-IS-TYPE-I",
+                "D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
+                "DEVICE-SEATS-LEADS","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ESCAPES-TYPE-I",
+                "FLYBY","GAP-WIDENS","KERR-FLYBY","LAUNCHER","LENSING-IS-THE-SEAT",
+                "LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE",
+                "MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-NULL-QI",
+                "OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE",
+                "ORDINARY-MATTER","PLANCK-THIRD-TIME","PRESSURE-CAPPED","SCOPE-DROPS-LEAD",
+                "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3",
+                "SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT","STIFF-WALL",
+                "STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE","THE-WINDOW",
+                "THEOREM-IS-FREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT",
+                "VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND",
+                "ZERO-ADM-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
-    chk("cells affirmative on all three", sorted(aff),
-        sorted(["FLYBY","SLINGSHOT","KERR-FLYBY","OBSERVED-ENGINE","CATALOGUE","BUILT-SOURCE",
-                "THE-DOOR","EC-TAKEN","NO-EXOTIC","STIFF-WALL","LOOP-OBSERVABLE",
-                "NO-NULL-QI","D-CANCELS","DESIGN-EQUATION","CHANGE-OF-KIND",
-                "STATE-NOT-ELEMENT","ESCAPES-TYPE-I",
-                "UNIVERSAL-SEAT","LONG-AND-WEAK","ORDINARY-MATTER",
-                "WEYL-IS-SIGNBLIND","SEATS-AND-EARLY","THE-WINDOW","VACUUM-PATH",
-                "VACUUM-FORCES-WEYL","CLASSICAL-WINS",
-                "CASIMIR-ROUTE","TWO-ROUTES-AGREE","DEVICE-IS-CLASSICAL",
-                "ZERO-ADM-DEVICE","DEVICE-SEATS-LEADS","THEOREM-IS-FREE",
-                "SHELL-THEOREM-SPLIT",
-                "SHELL-IS-ORDINARY","STABLE-FOR-FREE","SIGN-STRUCTURE-3",
-                "CORE-IS-TYPE-I","NO-BUCHDAHL","PRESSURE-CAPPED",
-                "ONE-SIGN-EXOTIC","LOG-COORDINATE","LIMIT-DISSOLVES",
-                "MAGNITUDE-REACHED","VACUUM-NOT-MATERIAL",
-                "PLANCK-THIRD-TIME","DEVICE-NOT-RETRACTED",
-                "EM-IS-ORDINARY","MAGNETAR-SEATS","THE-SPLIT",
-                "SCOPE-DROPS-LEAD","ONE-INVARIANT","GAP-IS-ENGINEERING"]))
+    chk("cells affirmative on all three", sorted(aff), sorted([
+                "BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CLASSICAL-WINS",
+                "CORE-IS-TYPE-I","D-CANCELS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL",
+                "DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","EC-TAKEN","EM-IS-ORDINARY",
+                "ESCAPES-TYPE-I","FLYBY","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES",
+                "LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED",
+                "NO-BUCHDAHL","NO-EXOTIC","NO-NULL-QI","OBSERVED-ENGINE","ONE-SIGN-EXOTIC",
+                "ORDINARY-MATTER","PLANCK-THIRD-TIME","PRESSURE-CAPPED","SCOPE-DROPS-LEAD",
+                "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3",
+                "SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR",
+                "THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT",
+                "VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND",
+                "ZERO-ADM-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

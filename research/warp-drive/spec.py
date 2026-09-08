@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-spec.py -- the device that is actually achievable, specified.
+spec.py -- the achievable device.  ITS FIRST SPECIFICATION IS WITHDRAWN.
 
 M's scoping, and it is a correction to how I had been posing the problem:
 
@@ -30,41 +30,68 @@ From transit.py's three parts, with the lead no longer required:
 
 and every blocked item was attached to a requirement that is no longer made.
 
--- THE DESIGN EQUATION, AND IT IS ONE INVARIANT -------------------------------
-seatindex.py's universal seating condition is q l^2 >= pi^2 with q = 4 pi T_kk,
-so in SI a sustained field of energy density u seats at
+-- WITHDRAWN: THE B*l INVARIANT DESCRIBES A BLACK HOLE, AND THE MAGNETAR
+-- FIGURE COMPARED A PEAK AGAINST A LENGTH IT DOES NOT SUSTAIN ----------------
+The first version of this file specified the device as a sustained field with
+B * l = 1.5456e19 T m, and quoted a magnetar as clearing it beyond 155,000 km.
+BOTH ARE WRONG, in two independent ways, and both are struck.
 
-        l = sqrt( pi c^4 / (4 G u) )
+ 1. ANY STURM-SEATING REGION IS INSIDE ITS OWN SCHWARZSCHILD RADIUS.  Seating
+    needs u >= pi c^4/(4 G l^2); avoiding collapse needs u < 3 c^4/(8 pi G l^2)
+    for M = u (4/3) pi l^3 / c^2.  Their ratio is
 
-and for a magnetic field, u = B^2/2 mu_0, the two collapse into one number:
+            u_seat / u_collapse  =  2 pi^2 / 3  =  6.579
 
-        B * l  =  sqrt( 2 mu_0 * pi c^4 / (4 G) )  =  1.5456e19  T m
+    CONSTANT AT EVERY SCALE -- measured identical at l = 1 m, 1e5, 1e8 and
+    1e11 m.  So the universal (Sturm) route does not describe a device; it
+    describes a black hole, by a factor of 6.58, always.  That is a real result
+    and it is kept as one, below.
 
-    THAT IS THE SPECIFICATION.  One invariant, real units, no free parameters.
-    Field strength and range trade exactly inversely, and the product is fixed
-    by c, G and mu_0 alone.
+ 2. THE MAGNETAR FIGURE COMPARED A PEAK TO A SUSTAINED VALUE.  Sturm needs
+    q >= m over a CONTIGUOUS length.  A dipole falls as r^-3, so a magnetar's
+    1e11 T surface field is 2.7e-2 T at 1.55e8 m -- u = 2.9e2 Pa against a
+    requirement of 4.0e27 Pa, short by twenty-five orders.  It does not seat.
+    charge.py carries the same error and is struck there too.
 
-Cross-checked two ways that do not share a formula: q = (4 pi G/c^4) T_kk gives
-pi/sqrt(q) = 1.5456e8 m at B = 1e11 T, and seatindex.py's threshold gives
-1.5456e8 m.  Same number, different route.
+-- WHAT ACTUALLY SEATS, AND IT IS ORDINARY LENSING ----------------------------
+composite.py never used the Sturm route.  It measured CUMULATIVE Weyl focusing
+along a long path -- a lens -- with focal length
 
-        field source                 B (T)      seats beyond
-        continuous lab magnet        45         3.435e17 m   (36 ly)
-        destructive pulsed           1.2e3      1.288e16 m   (1.4 ly)
-        theoretical material limit   1e4        1.546e15 m   (0.16 ly)
-        neutron star surface         1e8        1.546e11 m
-        MAGNETAR                     1e11       1.546e08 m   (155,000 km)
-        magnetar interior (est.)     1e12       1.546e07 m   (15,500 km)
+        f  =  b^2 / (4 M_geo)  =  b^2 c^2 / (4 G M)
 
--- WHAT THE GAP IS NOW, AND IT IS A DIFFERENT KIND OF THING -------------------
-Against the strongest field humans have made -- 1200 T, destructively pulsed --
-reaching magnetar class is 8.3e7 in field and 6.9e15 in energy density.
+which is weak-field, subject to neither error above.  Validated against a number
+this project did not produce:
 
-    THAT IS AN ENGINEERING GAP AGAINST NO THEOREM.  Nothing forbids it.  It is
-    not comparable to achievable.py's 65 orders, which was a gap against
-    Ford-Roman and widened with scale.  This one CLOSES with scale: a weaker
-    field simply seats further out, on the B l = const line, and nature already
-    operates at the strong end of it.
+        THE SUN, b = R_sun:   f = 8.1923e13 m = 547.6 AU
+        published solar gravitational lens focus:  ~550 AU
+
+        lens              M (kg)      b (m)        focal
+        Sun               1.989e30    6.957e8      548 AU
+        Jupiter           1.898e27    7.150e7      6061 AU
+        Earth             5.972e24    6.371e6      15295 AU
+        10 km asteroid    2.250e15    1.000e4      1580 ly
+
+    SO THE "SEAT" THIS PROJECT HAS BEEN SPECIFYING IS GRAVITATIONAL LENSING,
+    AND THE SUN ALREADY DOES IT.  It is real, ordinary, observed since 1919, and
+    there are active mission concepts for the solar focus.  Calling it a device
+    this project designed would be false.
+
+-- SO WHAT IS ACTUALLY NEW HERE, STATED WITHOUT INFLATION ---------------------
+Not the seat.  What this project established that was not already known:
+
+  * WEYL FOCUSING IS SIGN-BLIND and Ricci focusing is not (composite.py) -- the
+    term that made a negative source focus while leading.
+  * THE SEAT/LEAD SPLIT falls exactly on the energy-condition line (charge.py).
+  * REVERSAL INVARIANCE of the conjugate pair, proved and measured to 1e-14
+    (transit.py) -- M's own prediction.
+  * ANEC VIOLATION PROTECTS ACHRONALITY (achronal.py), so the obvious escape
+    from Graham-Olum is structurally unavailable.
+  * THE LEAD IS SHORT BY 65 ORDERS against Ford-Roman and THE GAP WIDENS WITH
+    SCALE (achievable.py).
+  * AND NOW: STURM-UNIVERSAL SEATING IMPLIES COLLAPSE, at 2 pi^2/3 exactly, at
+    every scale.
+
+That is a real inventory and none of it is a warp drive.
 
 -- WHAT THIS DEVICE DOES, AND WHAT IT DOES NOT --------------------------------
 DOES: establish a CONJUGATE POINT at a declared range -- a whole null congruence
@@ -120,7 +147,9 @@ LIGHT_YEAR = 9.4607e15
 
 
 def seating_invariant():
-    """B * l = sqrt(2 mu_0 pi c^4 / 4G).  The whole specification, one number."""
+    """B * l = sqrt(2 mu_0 pi c^4/4G).  ARITHMETICALLY CORRECT AND WITHDRAWN AS
+    A SPECIFICATION: the region it describes is inside its own Schwarzschild
+    radius by 2 pi^2/3.  Kept executable so the retraction is checkable."""
     import seatindex
     return math.sqrt(2.0 * MU0 * seatindex.T_COEFF)
 
@@ -154,13 +183,16 @@ def engineering_gap(B_target=1.0e11, B_have=BEST_HUMAN_FIELD):
 
 
 DOES = (
-    "establish a conjugate point at a declared range",
-    "using a sustained field of ordinary matter",
-    "in a vacuum corridor, NEC/WEC/DEC satisfied everywhere",
-    "universal in Sturm's sense: nothing outside the stretch can prevent it",
-    "past it the geodesic is not achronal, so a timelike curve A->B exists",
+    "establish a conjugate point at a declared range, by CUMULATIVE weak-field "
+    "lensing -- f = b^2 c^2/(4 G M), not the Sturm condition, which is withdrawn",
+    "using ordinary positive mass, NEC/WEC/DEC satisfied everywhere",
+    "with both endpoints declared at onset, per transit.py's gating",
+    "past the conjugate point the geodesic is not achronal, so a timelike "
+    "curve A->B exists",
+    "and the Sun already does exactly this, focusing at 548 AU",
 )
 DOES_NOT = (
+    "constitute a new device -- this IS gravitational lensing, known since 1919",
     "beat light -- there is no lead, and Olum forbids one without negative energy",
     "shortcut -- a conjugate point is a FOCUS, not a wormhole",
     "transport a payload faster than a signal",
@@ -172,6 +204,35 @@ HALTED = {
         "HALTED by scoping because it was a hunt for a LEAD, which is no "
         "longer required. The one untested door if the lead is reopened.",
 }
+
+
+MU0_ = MU0
+
+
+def collapse_bound(l):
+    """u below which a region of size l is not inside its Schwarzschild radius."""
+    return 3.0 * C_SI ** 4 / (8.0 * math.pi * G_SI * l * l)
+
+
+def seat_over_collapse(l):
+    """u_seat / u_collapse.  Constant 2 pi^2/3 = 6.579 at every scale."""
+    import seatindex
+    return seatindex.tkk_required(l) / collapse_bound(l)
+
+
+def dipole_field(B_surface, R, r):
+    """A dipole falls as r^-3.  This is what the magnetar claim ignored."""
+    return B_surface * (R / r) ** 3
+
+
+def focal_length(M_kg, b):
+    """f = b^2 c^2/(4 G M).  The WEAK-FIELD route, and the one that is real."""
+    return b * b * C_SI ** 2 / (4.0 * G_SI * M_kg)
+
+
+LENSES = (("Sun", 1.989e30, 6.957e8), ("Jupiter", 1.898e27, 7.15e7),
+          ("Earth", 5.972e24, 6.371e6), ("10 km asteroid", 2.25e15, 1.0e4))
+AU = 1.495979e11
 
 
 def selftest():
@@ -189,36 +250,39 @@ def selftest():
         ok &= good
         print("  %-56s %18.6g %18.6g  %s" % (label, got, want, "ok" if good else "FAIL"))
 
-    print("THE DESIGN EQUATION -- one invariant, real units")
-    inv = seating_invariant()
-    near("B * l  (T m)", inv, 1.54562e19, 1e-5)
-    print("       B l = sqrt(2 mu_0 pi c^4 / 4G).  Fixed by c, G and mu_0 alone.")
+    print("WITHDRAWN 1 -- Sturm seating always describes a BLACK HOLE")
+    print("     %10s %16s %16s %10s" % ("l (m)", "u seat", "u collapse", "ratio"))
+    for l in (1.0, 1.0e5, 1.0e8, 1.0e11):
+        import seatindex
+        print("     %10.0e %16.4e %16.4e %10.3f"
+              % (l, seatindex.tkk_required(l), collapse_bound(l), seat_over_collapse(l)))
+    near("the ratio is 2 pi^2/3", seat_over_collapse(1.0), 2.0 * math.pi ** 2 / 3.0, 1e-9)
+    chk("and it is the SAME at every scale",
+        all(abs(seat_over_collapse(l) / seat_over_collapse(1.0) - 1.0) < 1e-12
+            for l in (1e5, 1e8, 1e11)), True)
+    chk("so every Sturm-seating region is inside its Schwarzschild radius",
+        seat_over_collapse(1.0) > 1.0, True)
 
-    print("\n   Cross-checked by a route that shares no formula")
-    for B in (1.0e8, 1.0e11, 1.0e12):
-        near("B=%.0e T: pi/sqrt(q) vs invariant/B" % B,
-             conjugate_length_from_q(energy_density(B)), range_for_field(B), 1e-9)
+    print("\nWITHDRAWN 2 -- the magnetar figure was a PEAK against a SUSTAINED need")
+    import seatindex
+    B_far = dipole_field(1.0e11, 1.0e4, 1.5456e8)
+    u_far = B_far ** 2 / (2.0 * MU0)
+    print("     dipole 1e11 T at R=1e4 m gives %.3e T at 1.55e8 m" % B_far)
+    print("     u = %.3e Pa against a requirement of %.3e Pa"
+          % (u_far, seatindex.tkk_required(1.5456e8)))
+    chk("short by more than twenty orders",
+        u_far / seatindex.tkk_required(1.5456e8) < 1e-20, True)
 
-    print("\nTHE TRADE CURVE -- field and range trade exactly inversely")
-    print("     %28s %10s %16s %12s" % ("source", "B (T)", "seats beyond (m)", "ly"))
-    for tag, B in FIELDS:
-        l = range_for_field(B)
-        print("     %28s %10.3g %16.4e %12.3e" % (tag, B, l, l / LIGHT_YEAR))
-    chk("the product is constant across eleven orders in B",
-        all(abs(B * range_for_field(B) / inv - 1.0) < 1e-12 for _t, B in FIELDS), True)
-    near("a magnetar seats at 155,000 km", range_for_field(1.0e11), 1.5456e8, 1e-4)
-
-    print("\nTHE GAP IS ENGINEERING, AGAINST NO THEOREM")
-    gb, gu = engineering_gap()
-    near("field ratio to magnetar class", gb, 8.333e7, 1e-3)
-    near("energy-density ratio", gu, 6.944e15, 1e-3)
-    import achievable
-    chk("and it is NOT comparable to the lead's 65 orders",
-        achievable.ratio(1.0) < 1e-60, True)
-    chk("that one WIDENED with scale", achievable.gap_widens_with_size(), True)
-    chk("this one CLOSES with scale -- weaker field, longer range",
-        range_for_field(45.0) > range_for_field(1.0e11), True)
-    print("       B l = const is a line you can walk in either direction.")
+    print("\nWHAT ACTUALLY SEATS -- ordinary lensing, f = b^2 c^2/(4 G M)")
+    near("the SOLAR lens focus, in AU", focal_length(1.989e30, 6.957e8) / AU,
+         547.6, 1e-3)
+    print("     published solar gravitational lens focus is ~550 AU.")
+    print("     %18s %14s %14s" % ("lens", "focal (m)", "AU"))
+    for tag, M, b in LENSES:
+        f = focal_length(M, b)
+        print("     %18s %14.4e %14.4g" % (tag, f, f / AU))
+    chk("the invariant is kept executable so the retraction is checkable",
+        abs(seating_invariant() / 1.54562e19 - 1.0) < 1e-4, True)
 
     print("\nWHAT IT DOES")
     for d in DOES:
@@ -227,7 +291,7 @@ def selftest():
     for d in DOES_NOT:
         print("     - %s" % d)
     chk("five things it does", len(DOES), 5)
-    chk("four it does not", len(DOES_NOT), 4)
+    chk("five it does not", len(DOES_NOT), 5)
 
     print("\nCONSISTENCY with the instruments this inherits from")
     import seatindex, charge, transit
@@ -262,16 +326,21 @@ def report():
     print("    %.3e in field, %.3e in energy density -- against NO THEOREM." % (gb, gu))
     print("\n" + "=" * 79)
     print("VERDICT")
-    print("  Under M's scoping -- the matter must exist at both ends under the")
-    print("  same physics, nothing more -- the lead is not required and the seat")
-    print("  is achievable.  The whole specification is one invariant,")
-    print("  B l = 1.5456e19 T m, fixed by c, G and mu_0 alone, and field")
-    print("  strength trades exactly inversely against range.")
-    print("\n  It establishes a controlled gravitational focus at a chosen range,")
-    print("  from matter satisfying every energy condition, in a vacuum corridor.")
-    print("  It does not beat light, does not shortcut, and needs nothing exotic.")
-    print("\n  The remaining gap is 8.3e7 in field strength -- engineering against")
-    print("  no theorem, on a line that closes as you walk out in range.")
+    print("  THE FIRST SPECIFICATION IN THIS FILE IS WITHDRAWN, twice over: the")
+    print("  Sturm-seating region is inside its own Schwarzschild radius by")
+    print("  2 pi^2/3 = 6.579 at EVERY scale, and the magnetar figure compared a")
+    print("  dipole's peak against a length it does not sustain, missing by")
+    print("  twenty-five orders.")
+    print("\n  WHAT ACTUALLY SEATS IS CUMULATIVE WEAK-FIELD LENSING,")
+    print("  f = b^2 c^2/(4 G M), validated against the solar focus at 547.6 AU")
+    print("  where the published value is ~550.  That is gravitational lensing,")
+    print("  it is ordinary, it has been known since 1919, and the Sun does it.")
+    print("  Calling it a device this project designed would be false.")
+    print("\n  WHAT IS ACTUALLY NEW is in the header's inventory: Weyl focusing")
+    print("  is sign-blind, the seat/lead split is the energy-condition line,")
+    print("  reversal invariance holds to 1e-14, ANEC violation protects")
+    print("  achronality, the lead is 65 orders short and widening, and")
+    print("  Sturm-universal seating implies collapse.  None of it is a warp drive.")
     return 0
 
 

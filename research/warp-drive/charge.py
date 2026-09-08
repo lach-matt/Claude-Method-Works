@@ -59,9 +59,20 @@ and by the magnetic route, using fields that EXIST:
         pulsar 1e8 T                3.979e+21     1.55e+11 m
         MAGNETAR 1e11 T             3.979e+27     1.55e+08 m  = 155,000 km
 
-    A MAGNETAR'S FIELD EXCEEDS THE UNIVERSAL SEATING THRESHOLD BEYOND ABOUT
-    155,000 KILOMETRES, and magnetars are observed objects.  Seating is not a
-    hypothetical capability: nature already builds the field that does it.
+    THAT CONCLUSION IS WITHDRAWN.  spec.py found the error: the table compares
+    a field's PEAK energy density against the threshold FOR A LENGTH IT DOES
+    NOT SUSTAIN.  Sturm needs q >= m over a CONTIGUOUS stretch, and a dipole
+    falls as r^-3 -- a magnetar's 1e11 T surface field is 2.7e-2 T at 1.55e8 m,
+    u = 2.9e2 Pa against a requirement of 4.0e27 Pa.  Short by twenty-five
+    orders.  A MAGNETAR DOES NOT SEAT.
+
+    Worse, the Sturm route cannot work for anything: any region satisfying it
+    is inside its own Schwarzschild radius by 2 pi^2/3 = 6.579, at every scale.
+
+    WHAT SURVIVES from this file is the SIGN argument, which is untouched: EM
+    stress-energy is ordinary, T_kk >= 0, so a field contributes RICCI focusing
+    with positive energy, and the seat/lead split falls on the energy-condition
+    line.  What actually seats is cumulative weak-field lensing -- see spec.py.
 
 -- THE SPLIT, AND IT IS M'S OWN STRUCTURE -------------------------------------
 transit.py's three parts divide exactly along the energy-condition boundary:
@@ -215,10 +226,16 @@ def selftest():
     for tag, B in FIELDS:
         print("     %26s %14.4e %18.4e"
               % (tag, magnetic_energy_density(B), seats_beyond(B)))
-    near("a magnetar seats beyond this many metres", seats_beyond(1.0e11),
-         1.5456e8, 1e-3)
-    chk("which is under 200,000 km", seats_beyond(1.0e11) < 2.0e8, True)
-    chk("and magnetars are observed objects, not hypothetical", True, True)
+    near("the arithmetic is right", seats_beyond(1.0e11), 1.5456e8, 1e-3)
+    # WITHDRAWN: this compares a PEAK to a SUSTAINED requirement.  A dipole
+    # falls as r^-3, so the field is not there at that range.  spec.py carries
+    # the correction; the numbers stay executable so the retraction is checkable.
+    B_far = 1.0e11 * (1.0e4 / 1.5456e8) ** 3
+    import seatindex
+    chk("but the SUSTAINED field at that range fails by >20 orders",
+        (B_far ** 2 / (2.0 * MU0)) / seatindex.tkk_required(1.5456e8) < 1e-20, True)
+    print("       WITHDRAWN.  A magnetar does not seat.  The sign argument above")
+    print("       is untouched; what seats is weak-field lensing (spec.py).")
 
     print("\nTHE SPLIT -- M's own three parts, along the energy-condition line")
     print("     PART 2, the turn        needs T_kk > 0    ACHIEVABLE (ordinary EM)")
