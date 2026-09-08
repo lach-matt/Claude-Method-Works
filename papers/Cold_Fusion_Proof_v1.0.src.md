@@ -15,11 +15,12 @@ laboratory phenomenon since the 1950s, and the paper's first result is that the 
 that and nothing else.
 
 Seven conditions are necessary for such an event to occur and to be checkable. Applied to the closed
-index of charged particles they admit **exactly one** binder — the negative muon — because the
-conditions place both a floor and a ceiling on the binder's mass, and the window between them,
-[[C13]] to [[C14]], has a single occupant. Of [[C851]] charged particles scanned, [[C858]] outlive the
-mesomolecular formation time and [[C852]] lie inside the window; one survives the remaining test. The
-window's lower bound may move by a factor of [[C855]] and its upper by [[C856]] before that count changes.
+index of charged particles they admit **exactly one** binder — the negative muon. The conditions place
+both a floor and a ceiling on the binder's mass, but the window between them, [[C13]] to [[C14]], is
+not what does the excluding on its own: of [[C851]] charged particles scanned, [[C858]] outlive the
+mesomolecular formation time, [[C852]] lie inside the window, and the second of those two is a hadron,
+absorbed before a cycle completes. **One survives every test.** The window's lower bound may move by a
+factor of [[C855]] and its upper by [[C856]] before that count changes.
 
 A second uniqueness result closes the other half of the configuration. **The fuel is unique as well.**
 That *d*–*t* is the best mesomolecular fuel is not news to the field; what is set out here is the
@@ -247,8 +248,8 @@ point and carried in both of its conventions rather than chosen. Proposition 1 i
 including the two distinct reasons the cycle bound is never attained.
 
 There are two conventions in use for `f_work`, and this paper carries both rather than choosing.
-Counted as heat delivered, the bound is [[C25]]; counted as electrical work recoverable from that
-heat, it is [[C26]]. A figure quoted without saying which convention produced it cannot be checked, so
+Each produces its own ceiling on what a binder may cost: counted as heat delivered, condition 8
+allows `E_binder` up to [[C25]]; counted as electrical work recoverable from that heat, [[C26]]. A figure quoted without saying which convention produced it cannot be checked, so
 every balance below is labelled with its own.
 
 **Against a sourced production-and-capture cost of [[C18]] per captured μ⁻**, the figure of merit is
@@ -456,7 +457,7 @@ wider bore and the wider stopping window — which together deliver [[C867]].
 paper — an **optimised production target** — and unlike the two collector alterations it does not
 change the collection at all. It moves `E_binder`, and because a balance has the form
 `N · V · η / E_binder` it therefore multiplies **every** balance by the same factor: from [[C100]] to
-[[C290]], which is worth [[C829]]. Corollary 6.1 in §14.5 makes this explicit.
+[[C290]], a factor of [[C829]]. Corollary 6.1 in §14.5 makes this explicit.
 
 > **The factor checks against the requirement it moves.** §5.2 puts bred fuel at the measured cycle
 > count at [[C257]] collection; through the optimised target that requirement is [[C392]], and
@@ -567,7 +568,7 @@ until the muon decays or is lost to the alpha.
 |---|---|---|
 | fuel | deuterium–tritium | Theorem 4 — it maximises the energy returned per binder over the closed candidate set, and by Corollary 4.1 no rival can be made to catch it |
 | ratio | 50/50 by number | not critical; the transfer step auto-optimises the population |
-| **purity** | better than [[C824!]] high-Z | transfer to a contaminant runs at [[C318]]; at the bracketed density [[C319]] costs as much binder as decay does |
+| **purity** | better than [[C824!]] high-Z | transfer to a contaminant runs at [[C318]]; at the bound-case density of §7 a contamination of [[C319]] costs as much binder as decay does |
 | temperature | [[C76]] | the Vesman resonance transfers the *dtμ* loose state's [[C50]] into a [[C51]] host vibrational quantum |
 | **cycle-rate ceiling** | [[C03]] | the cycle is a harmonic sum, so driving the resonance moves the bottleneck to transfer, capped at [[C04]] |
 | density | as high as the cell reaches | the cycle rate scales with it; the service life does not, being capped by sticking |
@@ -647,9 +648,10 @@ cannot drift apart.
 
 The transverse cap is `p_T = 0.15 · B · R`, so **field and bore trade against each other at fixed
 capture**. Holding the built front end's aperture of [[C141]] and taking the peak field to [[C70]] at
-an upstream plug, the target field is [[C580]] and the warm bore is [[C581]] — against a delivered
-beam envelope at the target of [[C582]], which is what a particle born on axis reaches at twice its
-gyroradius.
+an upstream plug, the target field is [[C580]] and the warm bore is [[C581]]. The delivered beam
+envelope at the target — twice the gyroradius, which is what a particle born on axis reaches — is
+[[C582]]. **Those are the same quantity reached from two directions, and they agree to the
+rounding**: the bore is not specified with margin over the beam, it is specified *by* it.
 
 **The bore is derived rather than chosen**, and the same derivation reproduces three published
 geometries that were not used to build it: [[C407]], [[C408]] and [[C409]].
@@ -665,8 +667,8 @@ the adiabatic invariant.
 
 > This has the same shape as §4.1's finding about sticking: a parameter that had looked like a lever
 > turns out on inspection to be a requirement with a number attached to it. One consequence is worth
-> noting — mirroring the backward hemisphere and simply accepting both hemispheres come to the same
-> number, which is why §6.1's acceptances are stated over both.
+> noting — mirroring the backward hemisphere, and simply accepting both hemispheres outright, come to
+> the same number, which is why §6.1's acceptances are stated over both.
 
 ### 10.3 The circuit, the cold mass, and the constraint that decides the target
 
@@ -776,7 +778,8 @@ depends on it. §11's protocol settles it, and nothing here stands in for that.
 
 **Every collection figure here is an acceptance rather than a delivered efficiency** until an
 end-to-end count of stopped binders per pion produced has been made. §6.2 computes the losses between the two and §7 restates every balance through them, but a
-computed budget is not a measurement, and the margin over the falsification floor is [[C750]].
+computed budget is not a measurement, and the margin over the falsification floor is a factor of
+[[C750]].
 
 **The fuel scan's cycle rates and stickings are literature bands, not one measurement each.** They are
 measured for *d*–*t*, *d*–*d* and *t*–*t* and order-of-magnitude for the pairs that catalyse almost
@@ -823,9 +826,9 @@ measurement this paper proposes, and none can be overturned by one.
    the reaction it picks out has run in laboratories since the 1950s. Its cycle rates, its sticking
    fractions and its ash have all been measured.
 2. **The binder is unique.** The seven conditions place a floor and a ceiling on the binder's mass,
-   and the window between them, [[C13]] to [[C14]], has exactly one occupant in the charged spectrum
-   (Theorem 1, §14.3). Of [[C851]] charged particles scanned, [[C858]] outlive the mesomolecular
-   formation time, [[C852]] lie inside the window, and one survives the hadron test.
+   and exactly one particle in the charged spectrum passes every test (Theorem 1, §14.3). Of [[C851]]
+   scanned, [[C858]] outlive the mesomolecular formation time, [[C852]] lie inside the window
+   [[C13]] to [[C14]], and one of those two survives the hadron test.
 3. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy
    returned per binder by a factor of [[C980]] against the next candidate (Theorem 4, §14.8) — and the runner-up
    uses more tritium rather than less. **That ranking is not a near thing either**: it survives every
@@ -981,8 +984,8 @@ fails conditions 3 and 4 together.
 >
 > Of those [[C858#]], **[[C852#]] lie inside the window**: the muon at [[C15]] and the pion at
 > [[C16]]. The electron lies below it; the kaon at [[C126]] and the antiproton lie above it. Of the
-> two inside, the pion is a hadron and is absorbed before the cycle completes. **[[C853]] therefore
-> survives all four tests.**
+> two inside, the pion is a hadron and is absorbed before the cycle completes, leaving **[[C853]]
+> particle through all four tests: the negative muon.**
 >
 > The sign is fixed separately and not by mass. A $\mu^+$ binds an electron into muonium and is
 > repelled by every nucleus in the fuel; it forms no mesomolecule at any density or temperature. Hence

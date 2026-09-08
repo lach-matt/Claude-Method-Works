@@ -131,7 +131,8 @@ class Paper:
         return out
 
     def paragraphs(self):
-        return [p for k, p in self.blocks if k in ("p", "quote", "li", "oli")]
+        return [block_text(k, p) for k, p in self.blocks
+                if k in ("p", "quote", "li", "oli")]
 
     def tables(self):
         return [p for k, p in self.blocks if k == "table"]
@@ -140,9 +141,13 @@ class Paper:
 def block_text(kind, payload):
     """One block's readable text, whatever kind of block it is.
 
-    A table's payload is rows, and a figure's is a number -- so an audit that
-    assumes every payload is a string dies on the first figure. This is the one
-    place that knows the difference."""
+    A table's payload is rows, a figure's is a number, and an ordered-list
+    item's is (source number, text) -- so an audit that assumes every payload
+    is a string dies on the first figure, and one that forgets the list item
+    reads section 13 as empty. This is the one place that knows the
+    difference."""
+    if kind == "oli":
+        return RP.block_text(kind, payload)
     if kind == "table":
         return " ".join(" ".join(r) for r in payload if r != "SEP")
     if kind == "figure":
@@ -721,7 +726,7 @@ def a15_enumeration(P):
     """A stated count against what it counts."""
     bad, ran = [], []
     # "Seven conditions are necessary" -- count the numbered list that follows
-    ol = [p for k, p in P.blocks if k == "oli"]
+    ol = [block_text(k, p) for k, p in P.blocks if k == "oli"]
     conds = 0
     for kind, payload in P.blocks:
         if kind.startswith("h") and payload.strip().startswith("1."):
@@ -732,7 +737,7 @@ def a15_enumeration(P):
     for kind, payload in P.blocks:
         if kind == "oli":
             started = True
-            first_run.append(payload)
+            first_run.append(block_text(kind, payload))
         elif started:
             break
     conds = len(first_run)
@@ -907,7 +912,7 @@ def a22_census(P):
     if re.search(r"\bthree directives\b", P.prose, re.I):
         ran.append("'three directives'")
     # the paper's own count of what it claims
-    claims_list = [p for k, p in P.blocks if k == "oli"]
+    claims_list = [block_text(k, p) for k, p in P.blocks if k == "oli"]
     v = "FAIL" if bad else "PASS"
     return Result(22, "CENSUS", v,
                   f"{len(ran)} spelled self-claims counted against what they count",
@@ -1005,6 +1010,7 @@ def a24_unbacked(P):
     for kind, payload in P.blocks:
         if kind not in ("p", "quote", "li", "oli"):
             continue
+        payload = block_text(kind, payload)
         stripped = payload
         for pat in NUMERAL_EXEMPT:
             stripped = re.sub(pat, " ", stripped)
@@ -1025,6 +1031,8 @@ def a24_unbacked(P):
             payload = " ".join(" ".join(r) for r in payload if r != "SEP")
         elif kind not in ("p", "quote", "li", "oli"):
             continue
+        else:
+            payload = block_text(kind, payload)
         stripped = RP.CITE.sub(" ", payload)
         for pat in NUMERAL_EXEMPT:
             stripped = re.sub(pat, " ", stripped)

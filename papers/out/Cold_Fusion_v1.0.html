@@ -65,13 +65,13 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <p><strong>Two things the term is not being used to mean.</strong> It is not being used for the electrochemical claims of the late nineteen-eighties, which asserted an unexplained nuclear yield from a metal lattice and which nothing here bears on, supports or revisits. And it is not a new name for a new effect: the reaction the definition picks out is muon-catalysed fusion, a laboratory phenomenon since the nineteen-fifties, and §2 shows that the definition picks out that and nothing else. The word is used because the definition is a structural one and the reaction satisfies it — the approach really is done by binding rather than by heat — and a reader who prefers the field&#x27;s own name for it will lose nothing by substituting it throughout.</p>
 <p>Seven conditions are necessary for such an event to occur and to be checkable. They are stated here in the order in which they constrain the problem, and each is used later.</p>
 <ol>
-<li><strong>Approach by binding.</strong> The internuclear separation must be set by the geometry of a bound state.</li>
-<li><strong>Sufficient proximity.</strong> That separation must be small enough for the tunnelling rate to exceed the decay rate of the state that produced it.</li>
-<li><strong>A catalytic cycle.</strong> The binder must survive the event and be available to repeat it, or the accounting is a single-shot reaction and not a catalysis.</li>
-<li><strong>Commensurate ash.</strong> The event must produce the heavy products its energy release implies, in the branching ratios the nuclear physics fixes.</li>
-<li><strong>An independent observable.</strong> At least one signature must be measurable that is not the heat.</li>
-<li><strong>A closed energy account.</strong> Every input must be nameable and priced.</li>
-<li><strong>Reproducibility from a specification.</strong> The configuration must be statable in terms another laboratory can build.</li>
+<li value="1"><strong>Approach by binding.</strong> The internuclear separation must be set by the geometry of a bound state.</li>
+<li value="2"><strong>Sufficient proximity.</strong> That separation must be small enough for the tunnelling rate to exceed the decay rate of the state that produced it.</li>
+<li value="3"><strong>A catalytic cycle.</strong> The binder must survive the event and be available to repeat it, or the accounting is a single-shot reaction and not a catalysis.</li>
+<li value="4"><strong>Commensurate ash.</strong> The event must produce the heavy products its energy release implies, in the branching ratios the nuclear physics fixes.</li>
+<li value="5"><strong>An independent observable.</strong> At least one signature must be measurable that is not the heat.</li>
+<li value="6"><strong>A closed energy account.</strong> Every input must be nameable and priced.</li>
+<li value="7"><strong>Reproducibility from a specification.</strong> The configuration must be statable in terms another laboratory can build.</li>
 </ol>
 <p>The second of these is what rules out the ordinary electronic molecule, and it does so by a margin that no arrangement of chemistry repairs. In a muonic <em>dt</em> molecule the two nuclei sit 280 fm apart; in the electronic molecule they sit 74100 fm apart. Because the tunnelling rate depends exponentially on that separation, the difference between the two amounts to some ninety-one orders of magnitude in the rate.</p>
 <p>It is sometimes suggested that screening in a dense medium might make up the difference. It cannot, and the reason is a conservation argument rather than a measurement. Reaching the required approach by screening alone would call for 88 eV of static screening, where the ceiling available in condensed matter is 30 eV — short by 2.9, which corresponds to 27 orders of magnitude in the rate. For scale, a vibrational quantum in D₂ is 0.365 eV, and that is the order of the energy actually on offer.</p>
@@ -121,7 +121,7 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <blockquote><p>What this produces is a separation rather than a margin, and the difference matters. Electricity is not a robust product here: it would need 299.6 percent collection <em>and</em> the bound-case density <em>and</em> the favourable sticking branch, all three at once, and losing any one of them loses the result. <strong>Bred fuel at the demonstrated 150 cycles</strong>, by contrast, asks nothing of the density axis, nothing of the sticking measurement and nothing of reactivation. It is a specification on the collector alone.</p></blockquote>
 <h2>5. The collector, and the number that decides it</h2>
 <h3>5.1 What sets the acceptance</h3>
-<p>A capture solenoid accepts a pion if its transverse momentum lies below <code>p_T = 0.15 · B · R</code>. Because field and bore appear only as a product, the two trade against one another at fixed acceptance, and it is the product <code>B·R</code> — not the field on its own — that sets what the magnet can take. Proposition 4 in §13.5 derives this, together with the factor of two that makes the beam envelope twice the gyroradius. The best studied front end runs 20 T on a bore giving an aperture product of 1.50 T.m; the collector specified here would need 2.60 T.m, a factor of 1.74.</p>
+<p>A capture solenoid accepts a pion if its transverse momentum lies below <code>p_T = 0.15 · B · R</code>. Because field and bore appear only as a product, the two trade against one another at fixed acceptance, and it is the product <code>B·R</code> — not the field on its own — that sets what the magnet can take. Proposition 4 in §13.5 derives this, together with the factor of two that makes the beam envelope twice the gyroradius. The best studied front end runs 20 T on a bore giving an aperture product of 1.50 T.m; the collector specified here would need 2.60 T.m, a factor of 1.735.</p>
 <p>With that in hand the acceptance becomes a calculation rather than an assumption. It is built up in four steps: the production spectrum, the transverse cap above, the two-body pion decay integrated over the pion rest frame, and finally whatever momentum requirement the downstream apparatus imposes. Run over the configuration of the machine that has actually been built, the model returns 29.51 percent against that machine&#x27;s own published simulation, the two agreeing to 0.982.</p>
 <blockquote><p><strong>The acceptance model is therefore validated against an independent simulation of a machine that was built</strong>, rather than against the assumptions that produced it, and that is what licenses the acceptance figures below.</p></blockquote>
 <p>Run over a reactor&#x27;s configuration, at today&#x27;s aperture and accepting both hemispheres, the model gives 60.92 percent with no momentum requirement and 44.43 percent through a stopping window of 265 MeV/c.</p>
@@ -257,24 +257,24 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <p>This section answers the third directive. <strong>Standing conventions</strong>, and they are committed before any run: a null is a bound, so every step is written to yield a number even when it fails; a disagreement between the two observables is a <strong>refusal, not an average</strong>; and every prediction is committed before the measurement, so neither can be adjusted afterwards.</p>
 <h3>8.1 Assembly</h3>
 <ol>
-<li>Build the target cell to hold 19.2 mm3 at up to 933 MPa and up to 500 K. Braze diamond to metal; use no polymers anywhere the fuel touches, and construct everything past the permeator from tritium-compatible material.</li>
-<li>Enclose the gas system in a helium glovebox at negative pressure, with continuous cleanup and secondary containment on every uranium bed.</li>
-<li>Mount the cell on a stage that translates it into and out of the beam axis without breaking containment.</li>
-<li>Site the neutron array and the X-ray detector so that <strong>both view the same sample volume at the same time.</strong> This is the step the existing experiments do not take, and it is the point of the procedure.</li>
+<li value="1">Build the target cell to hold 19.2 mm3 at up to 933 MPa and up to 500 K. Braze diamond to metal; use no polymers anywhere the fuel touches, and construct everything past the permeator from tritium-compatible material.</li>
+<li value="2">Enclose the gas system in a helium glovebox at negative pressure, with continuous cleanup and secondary containment on every uranium bed.</li>
+<li value="3">Mount the cell on a stage that translates it into and out of the beam axis without breaking containment.</li>
+<li value="4">Site the neutron array and the X-ray detector so that <strong>both view the same sample volume at the same time.</strong> This is the step the existing experiments do not take, and it is the point of the procedure.</li>
 </ol>
 <h3>8.2 Loading</h3>
 <ol>
-<li>Bake the system, then flush twice with ultra-pure deuterium.</li>
-<li>Desorb D–T from a uranium bed, assay it in a calibrated ionisation chamber, and condense it through the permeator into the cell. Expect about 4 mg of fuel and 23.2 Ci of tritium at 50/50.</li>
-<li>Confirm the fill optically through the anvils and verify composition by in-situ Raman before any beam. <strong>Purity is a variable of this experiment, not a precondition</strong> — record it, do not assume it.</li>
-<li>Close the cell, take it to pressure, and bring it to the setpoint temperature.</li>
+<li value="5">Bake the system, then flush twice with ultra-pure deuterium.</li>
+<li value="6">Desorb D–T from a uranium bed, assay it in a calibrated ionisation chamber, and condense it through the permeator into the cell. Expect about 4 mg of fuel and 23.2 Ci of tritium at 50/50.</li>
+<li value="7">Confirm the fill optically through the anvils and verify composition by in-situ Raman before any beam. <strong>Purity is a variable of this experiment, not a precondition</strong> — record it, do not assume it.</li>
+<li value="8">Close the cell, take it to pressure, and bring it to the setpoint temperature.</li>
 </ol>
 <h3>8.3 The measurement</h3>
 <ol>
-<li>Admit the muon beam, tuned to stop in the fuel rather than in the anvils.</li>
-<li>Acquire neutrons at 14.1 MeV and the 8.2 keV K-alpha <strong>simultaneously, on one fill.</strong></li>
-<li>Repeat across a <strong>purity series</strong> at fixed density and temperature. The existing record confounds purity with density and temperature — its cleanest data are also its coldest and densest — and this series is what separates them.</li>
-<li>Repeat across a <strong>density series</strong> at fixed purity, and a <strong>temperature series</strong> toward the 800 K operating point.</li>
+<li value="9">Admit the muon beam, tuned to stop in the fuel rather than in the anvils.</li>
+<li value="10">Acquire neutrons at 14.1 MeV and the 8.2 keV K-alpha <strong>simultaneously, on one fill.</strong></li>
+<li value="11">Repeat across a <strong>purity series</strong> at fixed density and temperature. The existing record confounds purity with density and temperature — its cleanest data are also its coldest and densest — and this series is what separates them.</li>
+<li value="12">Repeat across a <strong>density series</strong> at fixed purity, and a <strong>temperature series</strong> toward the 800 K operating point.</li>
 </ol>
 <h3>8.4 What each outcome settles, committed in advance</h3>
 <div class="tw"><table>
@@ -324,9 +324,9 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <h3>9.3 How the specification is measured</h3>
 <p><strong>The quantity the specification names is `k`, and `k` is measured rather than computed.</strong> It is one of the oldest measurements in reactor physics and it is made on subcritical assemblies as a matter of routine, by at least three methods that share no instrument:</p>
 <ol>
-<li><strong>Pulsed-neutron, by the Sjöstrand area method.</strong> Pulse the assembly and separate the prompt decay from the delayed background in the detector&#x27;s time spectrum; their area ratio gives reactivity in dollars directly, with no calibration of detector efficiency.</li>
-<li><strong>Source jerk.</strong> Withdraw the source from a steady subcritical state and read the prompt drop against the delayed-neutron plateau.</li>
-<li><strong>Noise, by Rossi-α or Feynman-α.</strong> Read the prompt decay constant from the correlation in the detector counts alone, with no perturbation of the assembly at all.</li>
+<li value="1"><strong>Pulsed-neutron, by the Sjöstrand area method.</strong> Pulse the assembly and separate the prompt decay from the delayed background in the detector&#x27;s time spectrum; their area ratio gives reactivity in dollars directly, with no calibration of detector efficiency.</li>
+<li value="2"><strong>Source jerk.</strong> Withdraw the source from a steady subcritical state and read the prompt drop against the delayed-neutron plateau.</li>
+<li value="3"><strong>Noise, by Rossi-α or Feynman-α.</strong> Read the prompt decay constant from the correlation in the detector counts alone, with no perturbation of the assembly at all.</li>
 </ol>
 <p><strong>Two of those must agree.</strong> The rule §8.4 applies to sticking applies here for the same reason: a disagreement between two methods that share no calibration is a refusal, not an average.</p>
 <p><strong>The prediction is committed in advance.</strong> For a blanket built to the specification above, the measured <code>k</code> must lie between 0.469 and 0.770 according to which alterations the machine carries, and the energy multiplication read from the assembly&#x27;s own heat balance must agree with <code>F = k/(ν(1 − k))</code> at the <code>ν</code> of its fuel. <strong>A measured `k` below 0.469 falsifies the power-source configuration</strong> and leaves the bred-fuel route of §5.4 standing, which needs no fission at all.</p>
@@ -483,13 +483,13 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <h3>12.1 Proved, with no free parameter</h3>
 <p>Each of these is a theorem or a derivation from measured inputs, and no measurement in §10 can overturn any of them.</p>
 <ol>
-<li><strong>A cold fusion reaction exists and has been witnessed.</strong> The definition of §1 is structural, its seven conditions admit exactly one binder (Theorem 1), and the cycle it names has been measured in laboratories since the 1950s.</li>
-<li><strong>An eighth condition decides whether it is worth running</strong>, and it contains no free parameter (Proposition 1). Every term in it has been measured.</li>
-<li><strong>Sticking does not depend on the binder&#x27;s mass</strong> (Theorem 2), so condition 8 is a specification on the machine and not a search over the spectrum.</li>
-<li><strong>The standalone configuration is closed</strong> (Theorem 3): no admissible binder pays for itself as a power source, at any collector.</li>
-<li><strong>Where the binder is a byproduct of a beam already running, the configuration returns net energy</strong> (Theorem 4), and no loss factor can take it below unity, because it was never a ratio against one.</li>
-<li><strong>No heat form and no work form is self-sustaining on a non-fissioning blanket</strong>, in any configuration this paper can construct. The largest either reaches is 0.513, granting the optimised production target, the wider bore, the wider stopping window and an unreached fuel density all at once.</li>
-<li><strong>Two of the balance&#x27;s four terms are closed above by physics rather than by engineering</strong> — the service life at 198 cycles by the sticking, and the collection at unity because it is a fraction — so a self-sustaining power source is a statement about what a fusion is worth, and about nothing else. §9.2 solves it.</li>
+<li value="1"><strong>A cold fusion reaction exists and has been witnessed.</strong> The definition of §1 is structural, its seven conditions admit exactly one binder (Theorem 1), and the cycle it names has been measured in laboratories since the 1950s.</li>
+<li value="2"><strong>An eighth condition decides whether it is worth running</strong>, and it contains no free parameter (Proposition 1). Every term in it has been measured.</li>
+<li value="3"><strong>Sticking does not depend on the binder&#x27;s mass</strong> (Theorem 2), so condition 8 is a specification on the machine and not a search over the spectrum.</li>
+<li value="4"><strong>The standalone configuration is closed</strong> (Theorem 3): no admissible binder pays for itself as a power source, at any collector.</li>
+<li value="5"><strong>Where the binder is a byproduct of a beam already running, the configuration returns net energy</strong> (Theorem 4), and no loss factor can take it below unity, because it was never a ratio against one.</li>
+<li value="6"><strong>No heat form and no work form is self-sustaining on a non-fissioning blanket</strong>, in any configuration this paper can construct. The largest either reaches is 0.513, granting the optimised production target, the wider bore, the wider stopping window and an unreached fuel density all at once.</li>
+<li value="7"><strong>Two of the balance&#x27;s four terms are closed above by physics rather than by engineering</strong> — the service life at 198 cycles by the sticking, and the collection at unity because it is a fraction — so a self-sustaining power source is a statement about what a fusion is worth, and about nothing else. §9.2 solves it.</li>
 </ol>
 <h3>12.2 Proved above unity, and unwitnessed</h3>
 <p><strong>Two configurations return more energy than they cost. The first is a power source and the second is a breeder, and they are not the same claim.</strong></p>
@@ -514,10 +514,10 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <blockquote><p><strong>The residual, if both unmeasured terms were to go the wrong way, is small.</strong> Set the production target aside entirely — take the measured production cost of §4.1 and nothing better — and the same route reaches 0.957, short of unity by 1.045. The whole of that shortfall lies inside the loss budget, which is the one term in the column that has never been measured at all.</p></blockquote>
 <h3>12.3 Specified, and buildable now</h3>
 <ol>
-<li><strong>The materials are fixed to the last free parameter</strong> — fuel, density, temperature, purity, geometry, binder species — as a bill of materials rather than a sketch (§6).</li>
-<li><strong>The machine that supplies the binders is designed as a build package</strong>, to a circuit, a cold mass, a conductor grading, a target and a failure analysis (§7).</li>
-<li><strong>The procedure that would witness the unwitnessed configuration is stated</strong> (§8), with its predictions committed in advance and a rule that a disagreement between two routes is a refusal rather than an average.</li>
-<li><strong>The programme that would close the two unmeasured terms is four staged measurements on apparatus that already exists</strong> (§10), the acceptance first, because it multiplies every balance identically and so bounds all of them at once.</li>
+<li value="7"><strong>The materials are fixed to the last free parameter</strong> — fuel, density, temperature, purity, geometry, binder species — as a bill of materials rather than a sketch (§6).</li>
+<li value="8"><strong>The machine that supplies the binders is designed as a build package</strong>, to a circuit, a cold mass, a conductor grading, a target and a failure analysis (§7).</li>
+<li value="9"><strong>The procedure that would witness the unwitnessed configuration is stated</strong> (§8), with its predictions committed in advance and a rule that a disagreement between two routes is a refusal rather than an average.</li>
+<li value="10"><strong>The programme that would close the two unmeasured terms is four staged measurements on apparatus that already exists</strong> (§10), the acceptance first, because it multiplies every balance identically and so bounds all of them at once.</li>
 </ol>
 <h3>12.4 Not claimed</h3>
 <p><strong>That the assembly has been modelled by neutron transport.</strong> §9.4&#x27;s retention is a geometric estimate and §13.9&#x27;s blanket relation is point kinetics. Both are used as requirements rather than as predictions, both are stated as such where they appear, and §10 Stage D measures what they estimate.</p>
@@ -633,24 +633,24 @@ figcaption{margin-top:.55rem;font-size:.86rem;line-height:1.5;color:var(--mut)}
 <p><strong>The operative sticking is unresolved between two published measurements.</strong> 0.5050 percent and 0.5320 percent are the two effective values in the record, and no argument here chooses between them; both lie above the break-point at 0.1580 percent, so the choice moves the service life rather than the heat form&#x27;s verdict. §8&#x27;s protocol chooses, and §8.4 commits in advance to reporting a bound rather than an average if the two routes disagree.</p>
 <h2>14. References</h2>
 <ol>
-<li>M. G. Catanesi <em>et al.</em> (HARP Collaboration), Phys. Rev. C <strong>77</strong>, 055207; A. Bolshakova <em>et al.</em>, <em>Large-angle production of charged pions by 3 GeV/c–12.9 GeV/c protons on beryllium, aluminium and lead targets</em>, Eur. Phys. J. C <strong>63</strong>, 549 — Tables 5–8, both charges; and M. Apollonio <em>et al.</em>, <em>Forward production of charged pions with incident protons on nuclear targets at the CERN PS</em>, Phys. Rev. C <strong>80</strong>, 035208 — Tables XXII, XXIII and XXXII, both charges. <strong>The production integration of §4.1 is taken from these tables and from nothing else.</strong></li>
-<li>J. Strait, N. V. Mokhov and S. I. Striganov, <em>Towards the optimal energy of the proton driver for a neutrino factory and muon collider</em>, Phys. Rev. ST Accel. Beams <strong>13</strong>, 111001 — Table II and §V. <strong>The front-end simulation the acceptance model of §5.1 is validated against.</strong></li>
-<li>S. Cook <em>et al.</em>, <em>MuSIC: delivering the world&#x27;s most intense muon beam</em>, arXiv:1610.07850; Phys. Rev. Accel. Beams <strong>20</strong>, 030101.</li>
-<li>Mu2e Collaboration, <em>Mu2e Conceptual Design Report</em>, FERMILAB-TM-2545, arXiv:1211.7019.</li>
-<li>COMET Collaboration, <em>COMET Phase-I Technical Design Report</em>, arXiv:1812.09018.</li>
-<li>K. Oishi <em>et al.</em>, <em>Development of the Range Counter for the COMET Phase-α Experiment</em>, arXiv:2505.07464 — §1, which states the backward-emission capture and the thin production target.</li>
-<li>J. J. Back, <em>Energy deposition studies for the Neutrino Factory target station</em>, JINST, arXiv:1104.2742 — FLUKA and MARS over a 4 MW, 8 GeV proton beam on a free mercury jet in a 20 T solenoid. <strong>The sourced deposition, coil heating and radiation-lifetime figures of §7.3.</strong></li>
-<li>K. T. McDonald <em>et al.</em>, <em>The MERIT high-power target experiment at the CERN PS</em>, IPAC 2010, p. 3527 — the free mercury jet run in a 15 T solenoid.</li>
-<li>Variational three-body calculation of muon-alpha sticking, Phys. Rev. A <strong>34</strong>, 2536.</li>
-<li>S. E. Koonin and M. Nauenberg, <em>Nature</em> <strong>339</strong>, 690.</li>
-<li>M. Kamimura, Y. Kino and T. Yamashita, <em>Comprehensive study of muon-catalyzed nuclear reaction processes in the dtμ molecule</em>, Phys. Rev. C <strong>107</strong>, 034607 (2023).</li>
-<li>R. Spencer Kelly, L. J. F. Hart and S. J. Rose, <em>An investigation of efficient muon production for use in muon catalyzed fusion</em>, J. Phys. Energy <strong>3</strong>, 035003. <strong>The optimised production target §11 declines to adopt and §10 Stage C measures.</strong></li>
-<li>X. Yin, W. Kou and X. Chen, <em>Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck Breakthroughs, and an Engineering Pathway</em>, arXiv:2605.26432 — Table I and §IV.B.</li>
-<li>W. Kou and X. Chen, <em>A Lawson-inspired Cycle-Closure Criterion for Deuterium–Tritium Muon-Catalyzed Fusion</em>, arXiv:2607.10989 — Eqs. (11)–(13) and Table I. <strong>An independent derivation of §3&#x27;s eighth condition, reached without reference to this work.</strong></li>
-<li>W. Kou and X. Chen, <em>External-Field-Assisted Muon Reactivation in Muon-Catalyzed Fusion: A Rate-Network Criterion for Reducing Alpha Sticking</em>, arXiv:2606.07077.</li>
-<li>E. Koukina <em>et al.</em> (MuFusE Collaboration), <em>Design and Commissioning of a Deuterium-Tritium Gas Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell</em>, arXiv:2606.19304; and J. D. Kalow <em>et al.</em>, arXiv:2606.05333. <strong>The diamond-anvil cell and gas system of §6.3 column A.</strong></li>
-<li>M. Lach, <em>The Method</em> v1.2–8 — <em>The Lach Cylinder: an index of transitions</em>.</li>
-<li>M. Lach, <em>Cold Fusion and the Binder Economy</em>, v1.0; <em>The Binder Economy Against the Recent Literature</em>, v1.0; <em>Cold Fusion: Specification and Procedure</em>, v1.0. <strong>Superseded by this paper wherever the two differ.</strong></li>
+<li value="1">M. G. Catanesi <em>et al.</em> (HARP Collaboration), Phys. Rev. C <strong>77</strong>, 055207; A. Bolshakova <em>et al.</em>, <em>Large-angle production of charged pions by 3 GeV/c–12.9 GeV/c protons on beryllium, aluminium and lead targets</em>, Eur. Phys. J. C <strong>63</strong>, 549 — Tables 5–8, both charges; and M. Apollonio <em>et al.</em>, <em>Forward production of charged pions with incident protons on nuclear targets at the CERN PS</em>, Phys. Rev. C <strong>80</strong>, 035208 — Tables XXII, XXIII and XXXII, both charges. <strong>The production integration of §4.1 is taken from these tables and from nothing else.</strong></li>
+<li value="2">J. Strait, N. V. Mokhov and S. I. Striganov, <em>Towards the optimal energy of the proton driver for a neutrino factory and muon collider</em>, Phys. Rev. ST Accel. Beams <strong>13</strong>, 111001 — Table II and §V. <strong>The front-end simulation the acceptance model of §5.1 is validated against.</strong></li>
+<li value="3">S. Cook <em>et al.</em>, <em>MuSIC: delivering the world&#x27;s most intense muon beam</em>, arXiv:1610.07850; Phys. Rev. Accel. Beams <strong>20</strong>, 030101.</li>
+<li value="4">Mu2e Collaboration, <em>Mu2e Conceptual Design Report</em>, FERMILAB-TM-2545, arXiv:1211.7019.</li>
+<li value="5">COMET Collaboration, <em>COMET Phase-I Technical Design Report</em>, arXiv:1812.09018.</li>
+<li value="6">K. Oishi <em>et al.</em>, <em>Development of the Range Counter for the COMET Phase-α Experiment</em>, arXiv:2505.07464 — §1, which states the backward-emission capture and the thin production target.</li>
+<li value="7">J. J. Back, <em>Energy deposition studies for the Neutrino Factory target station</em>, JINST, arXiv:1104.2742 — FLUKA and MARS over a 4 MW, 8 GeV proton beam on a free mercury jet in a 20 T solenoid. <strong>The sourced deposition, coil heating and radiation-lifetime figures of §7.3.</strong></li>
+<li value="8">K. T. McDonald <em>et al.</em>, <em>The MERIT high-power target experiment at the CERN PS</em>, IPAC 2010, p. 3527 — the free mercury jet run in a 15 T solenoid.</li>
+<li value="9">Variational three-body calculation of muon-alpha sticking, Phys. Rev. A <strong>34</strong>, 2536.</li>
+<li value="10">S. E. Koonin and M. Nauenberg, <em>Nature</em> <strong>339</strong>, 690.</li>
+<li value="11">M. Kamimura, Y. Kino and T. Yamashita, <em>Comprehensive study of muon-catalyzed nuclear reaction processes in the dtμ molecule</em>, Phys. Rev. C <strong>107</strong>, 034607 (2023).</li>
+<li value="12">R. Spencer Kelly, L. J. F. Hart and S. J. Rose, <em>An investigation of efficient muon production for use in muon catalyzed fusion</em>, J. Phys. Energy <strong>3</strong>, 035003. <strong>The optimised production target §11 declines to adopt and §10 Stage C measures.</strong></li>
+<li value="13">X. Yin, W. Kou and X. Chen, <em>Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck Breakthroughs, and an Engineering Pathway</em>, arXiv:2605.26432 — Table I and §IV.B.</li>
+<li value="14">W. Kou and X. Chen, <em>A Lawson-inspired Cycle-Closure Criterion for Deuterium–Tritium Muon-Catalyzed Fusion</em>, arXiv:2607.10989 — Eqs. (11)–(13) and Table I. <strong>An independent derivation of §3&#x27;s eighth condition, reached without reference to this work.</strong></li>
+<li value="15">W. Kou and X. Chen, <em>External-Field-Assisted Muon Reactivation in Muon-Catalyzed Fusion: A Rate-Network Criterion for Reducing Alpha Sticking</em>, arXiv:2606.07077.</li>
+<li value="16">E. Koukina <em>et al.</em> (MuFusE Collaboration), <em>Design and Commissioning of a Deuterium-Tritium Gas Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell</em>, arXiv:2606.19304; and J. D. Kalow <em>et al.</em>, arXiv:2606.05333. <strong>The diamond-anvil cell and gas system of §6.3 column A.</strong></li>
+<li value="17">M. Lach, <em>The Method</em> v1.2–8 — <em>The Lach Cylinder: an index of transitions</em>.</li>
+<li value="18">M. Lach, <em>Cold Fusion and the Binder Economy</em>, v1.0; <em>The Binder Economy Against the Recent Literature</em>, v1.0; <em>Cold Fusion: Specification and Procedure</em>, v1.0. <strong>Superseded by this paper wherever the two differ.</strong></li>
 </ol>
 <hr>
 </div>

@@ -325,7 +325,7 @@ def parse(src):
         m = re.match(r"^(\d+)\.\s+(.*)$", s)
         if m:
             flush_para()
-            blocks.append(("oli", m.group(2).strip()))
+            blocks.append(("oli", (int(m.group(1)), m.group(2).strip())))
             last_list = len(blocks) - 1
             continue
         # an indented line straight after a list item is that item wrapping, not
@@ -334,7 +334,10 @@ def parse(src):
         if (not para and last_list is not None and last_list == len(blocks) - 1
                 and ln[:1] in (" ", "\t")):
             k, v = blocks[last_list]
-            blocks[last_list] = (k, v + " " + s.strip())
+            if k == "oli":            # payload is (source number, text)
+                blocks[last_list] = (k, (v[0], v[1] + " " + s.strip()))
+            else:
+                blocks[last_list] = (k, v + " " + s.strip())
             continue
         para.append(s.strip())
     flush_para()
@@ -408,6 +411,19 @@ def figures_index():
     return _FIGS
 
 
+def block_text(kind, payload):
+    """The text of a block, whatever shape its payload has.
+
+    An ordered-list item carries (source number, text) so that every output can
+    print the number the source wrote rather than one recomputed per list. Any
+    consumer that wants the words -- the audits, the word count -- goes through
+    here rather than assuming the payload is a string.
+    """
+    if kind == "oli":
+        return payload[1]
+    return payload
+
+
 _LABELS = {}
 
 
@@ -437,8 +453,16 @@ def figure_for(num):
     return fg
 
 
-def emit_md(front, blocks):
+def emit_md(front, blocks, outdir_md=None):
     out = []
+    outdir_md = outdir_md or os.path.join(ROOT, "papers", "out")
+
+    def _close_list():
+        """A list must be followed by a blank line or the next paragraph is
+        absorbed into its last item."""
+        if out and re.match(r"^(?:- |\d+\. )", out[-1]):
+            out.append("")
+
     if front.get("TITLE"):
         out += [f"# {front['TITLE']}", ""]
     if front.get("SUBTITLE"):
@@ -449,24 +473,44 @@ def emit_md(front, blocks):
         out += [front["DATE"], ""]
     for kind, payload in blocks:
         if kind.startswith("h"):
+            _close_list()
             out += ["", "#" * int(kind[1]) + " " + payload, ""]
         elif kind == "p":
+            _close_list()
             out += [payload, ""]
         elif kind == "quote":
+            _close_list()
             out += ["> " + payload, ""]
         elif kind == "li":
+            if out and out[-1] and not out[-1].startswith("- "):
+                out.append("")
             out.append("- " + payload)
         elif kind == "oli":
-            out.append("1. " + payload)
+            # The SOURCE's number, not one recomputed here. The procedure of
+            # section 11 numbers its steps 1 to 12 across three subsections and
+            # the prose refers to them by number, so a renderer that restarts
+            # at 1 in each subsection renames every step past the fourth.
+            n, text = payload
+            if not (out and re.match(r"^\d+\. ", out[-1])) and out and out[-1]:
+                out.append("")
+            out.append(f"{n}. " + text)
         elif kind == "rule":
+            _close_list()
             out += ["", "---", ""]
         elif kind == "figure":
+            _close_list()
             fg = figure_for(payload)
-            out += [f"![Figure {fg['num']}]({fg['file']})", "",
+            # The .md sits in papers/out/ and the figures in papers/figures/,
+            # so a path relative to the repo root does not resolve from the
+            # document. Every other output embeds the bytes; this one links.
+            rel = os.path.relpath(os.path.join(ROOT, fg["file"]), outdir_md)
+            out += [f"![Figure {fg['num']}]({rel})", "",
                     f"**Figure {fg['num']}.** {fg['caption']}", ""]
         elif kind == "equation":
+            _close_list()
             out += ["", "$$" + payload + "$$", ""]
         elif kind == "table":
+            _close_list()
             for row in payload:
                 if row == "SEP":
                     ncol = max((len(r) for r in payload if r != "SEP"), default=1)
@@ -570,6 +614,10 @@ def emit_html(front, blocks):
                 close()
                 o.append(f"<{want}>")
                 mode = want
+            if kind == "oli":
+                n, payload = payload
+                o.append(f'<li value="{n}">{_h_inline(payload)}</li>')
+                continue
             o.append(f"<li>{_h_inline(payload)}</li>")
         elif kind == "figure":
             fg = figure_for(payload)
@@ -670,9 +718,14 @@ def emit_docx(front, blocks, path):
             p.paragraph_format.space_before = Pt(8)
             p.paragraph_format.space_after = Pt(10)
             runs(p, payload)
-        elif kind in ("li", "oli"):
-            style = "List Bullet" if kind == "li" else "List Number"
-            runs(doc.add_paragraph(style=style), payload)
+        elif kind == "li":
+            runs(doc.add_paragraph(style="List Bullet"), payload)
+        elif kind == "oli":
+            # NOT the "List Number" style: Word restarts that at 1 for each
+            # list, which renumbers section 11's steps. The source's number is
+            # written into the text instead, where nothing can renumber it.
+            n, text = payload
+            runs(doc.add_paragraph(style="List Bullet"), f"{n}. {text}")
         elif kind == "figure":
             fg = figure_for(payload)
             doc.add_picture(os.path.join(ROOT, fg["file"]), width=Inches(6.0))
@@ -857,7 +910,8 @@ def emit_pdf(front, blocks, path):
         elif kind == "li":
             flow.append(Paragraph(rl(payload), S["li"], bulletText="•"))
         elif kind == "oli":
-            flow.append(Paragraph(rl(payload), S["li"], bulletText="–"))
+            n, text = payload
+            flow.append(Paragraph(rl(text), S["li"], bulletText=f"{n}."))
         elif kind == "figure":
             from reportlab.lib.utils import ImageReader
             from reportlab.platypus import Image as RLImage
@@ -937,7 +991,7 @@ def build(src_path, outdir=None, want=("md", "html", "docx", "pdf"), quiet=False
     if "md" in want:
         p = os.path.join(outdir, base + ".md")
         with open(p, "w", encoding="utf-8") as fh:
-            fh.write(emit_md(front, blocks))
+            fh.write(emit_md(front, blocks, outdir))
         made.append(p)
     if "html" in want:
         p = os.path.join(outdir, base + ".html")
@@ -949,7 +1003,8 @@ def build(src_path, outdir=None, want=("md", "html", "docx", "pdf"), quiet=False
     if "pdf" in want:
         made.append(emit_pdf(front, blocks, os.path.join(outdir, base + ".pdf")))
     if not quiet:
-        n_words = sum(len(p.split()) for k, p in blocks if k in ("p", "quote", "li", "oli"))
+        n_words = sum(len((p[1] if k == "oli" else p).split())
+                  for k, p in blocks if k in ("p", "quote", "li", "oli"))
         print(f"  source     {os.path.relpath(src_path, ROOT)}")
         print(f"  citations  {sum(seen.values())} sites over {len(seen)} distinct claims")
         print(f"  blocks     {len(blocks)}   words {n_words}")
@@ -1001,6 +1056,31 @@ def selftest():
     set_figure_order([])
     check("and an unplaced figure keeps its generator id",
           figure_for(1)["num"], 1)
+
+    # An ordered list must carry the SOURCE's numbers into every output. The
+    # procedure of section 11 numbers its steps 1 to 12 across three
+    # subsections and refers to them by number; a renderer that restarts at 1
+    # per subsection renames eight of them, and one that emits a bullet
+    # deletes all twelve. Both were true before this was added.
+    _f, blks = parse("## H\n\n1. alpha\n2. beta\n\n### H2\n\n3. gamma\n\ntail\n")
+    check("the parser keeps each item's own number",
+          [p for k, p in blks if k == "oli"], [(1, "alpha"), (2, "beta"), (3, "gamma")])
+    md = emit_md({}, blks)
+    check("markdown numbers continue across a heading", "3. gamma" in md, True)
+    check("  -- and do not restart at one", "1. gamma" not in md, True)
+    check("a paragraph after a list is not absorbed into it",
+          "\n\ntail" in md, True)
+    check("html gives each item its explicit value",
+          '<li value="3">gamma</li>' in emit_html({}, blks), True)
+    # and the markdown's figure links must resolve FROM THE DOCUMENT, which
+    # sits in papers/out/ while the figures sit in papers/figures/.
+    set_figure_order([("figure", 1)])
+    md2 = emit_md({}, [("figure", 1)], os.path.join(ROOT, "papers", "out"))
+    link = re.search(r"!\[Figure 1\]\(([^)]*)\)", md2).group(1)
+    check("the figure link is relative to the .md, not to the repo root",
+          os.path.exists(os.path.normpath(
+              os.path.join(ROOT, "papers", "out", link))), True)
+    set_figure_order([])
 
     print()
     print("  the failures this exists to make impossible")

@@ -577,7 +577,12 @@ hold by construction rather than by care. **A figure is cited by its generator i
 label counted from one in the order the paper places them** — the ids are global across the papers
 sharing the ledger, so a paper placing six of the seven printed a *gap* where the seventh belonged and
 a paper placing them out of id order printed them out of order; both were true before, and the
-selftest now constructs each case. It also **sets the mathematics**: inline `$…$` is demoted to
+selftest now constructs each case. **An ordered list carries the source's own numbers into all four
+outputs** — §11's procedure numbers its steps 1 to 12 across three subsections and its prose refers to
+them by number, and before this the markdown printed every item as `1.`, HTML and `.docx` restarted at
+1 in each subsection, and **the PDF printed an en dash and no number at all**; the `.md`'s figure links
+also pointed at the repo root rather than at the document, so none of them resolved. It also **sets the
+mathematics**: inline `$…$` is demoted to
 Unicode in the one shared inline model so no output prints raw LaTeX at a reader, and a display
 equation is typeset by matplotlib's mathtext and embedded as an image, because an integral with limits
 cannot be built out of Unicode without lying about it), **`tools/audit_paper.py`** (**the twenty-five audits The

@@ -11,7 +11,7 @@ Version 1.0
 
 A **cold fusion reaction**, as this paper uses the term, is a nuclear fusion event in which the approach to nuclear separation is supplied by molecular binding geometry rather than by kinetic energy. The definition is structural rather than thermal: it does not say the reaction is cold in the everyday sense, only that the work of bringing two nuclei within tunnelling range is done by a bound state instead of by a collision. The reaction the definition picks out is muon-catalysed fusion, a laboratory phenomenon since the 1950s, and the paper's first result is that the definition picks out that and nothing else.
 
-Seven conditions are necessary for such an event to occur and to be checkable. Applied to the closed index of charged particles they admit **exactly one** binder — the negative muon — because the conditions place both a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has a single occupant. Of 13 charged particles scanned, 5 outlive the mesomolecular formation time and 2 lie inside the window; one survives the remaining test. The window's lower bound may move by a factor of 207 and its upper by 3.54 before that count changes.
+Seven conditions are necessary for such an event to occur and to be checkable. Applied to the closed index of charged particles they admit **exactly one** binder — the negative muon. The conditions place both a floor and a ceiling on the binder's mass, but the window between them, 119 electron masses to 918 electron masses, is not what does the excluding on its own: of 13 charged particles scanned, 5 outlive the mesomolecular formation time, 2 lie inside the window, and the second of those two is a hadron, absorbed before a cycle completes. **One survives every test.** The window's lower bound may move by a factor of 207 and its upper by 3.54 before that count changes.
 
 A second uniqueness result closes the other half of the configuration. **The fuel is unique as well.** That *d*–*t* is the best mesomolecular fuel is not news to the field; what is set out here is the closed argument for it, over the whole candidate set at once. *d*–*t* maximises the energy returned per binder by a factor of 77.85 against the next candidate — and the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one. The ordering survives every competitor's cycle rate being sent to infinity, leaving *d*–*t* ahead by a factor of 24.58, so it rests on the stickings alone.
 
@@ -33,12 +33,13 @@ We take a cold fusion reaction to be **a nuclear fusion event in which the appro
 Seven conditions are necessary for such an event to occur and to be checkable. They are stated here in the order in which they constrain the problem, and each is used later.
 
 1. **Approach by binding.** The internuclear separation must be set by the geometry of a bound state.
-1. **Sufficient proximity.** That separation must be small enough for the tunnelling rate to exceed the decay rate of the state that produced it.
-1. **A catalytic cycle.** The binder must survive the event and be available to repeat it, or the accounting is a single-shot reaction and not a catalysis.
-1. **Commensurate ash.** The event must produce the heavy products its energy release implies, in the branching ratios the nuclear physics fixes.
-1. **An independent observable.** At least one signature must be measurable that is not the heat.
-1. **A closed energy account.** Every input must be nameable and priced.
-1. **Reproducibility from a specification.** The configuration must be statable in terms another laboratory can build.
+2. **Sufficient proximity.** That separation must be small enough for the tunnelling rate to exceed the decay rate of the state that produced it.
+3. **A catalytic cycle.** The binder must survive the event and be available to repeat it, or the accounting is a single-shot reaction and not a catalysis.
+4. **Commensurate ash.** The event must produce the heavy products its energy release implies, in the branching ratios the nuclear physics fixes.
+5. **An independent observable.** At least one signature must be measurable that is not the heat.
+6. **A closed energy account.** Every input must be nameable and priced.
+7. **Reproducibility from a specification.** The configuration must be statable in terms another laboratory can build.
+
 The second of these is what rules out the ordinary electronic molecule, and it does so by a margin that no arrangement of chemistry repairs. In a muonic *dt* molecule the two nuclei sit 280 fm apart; in the electronic molecule they sit 74100 fm apart. Because the tunnelling rate depends exponentially on that separation, the difference between the two amounts to some ninety-one orders of magnitude in the rate.
 
 It is sometimes suggested that screening in a dense medium might make up the difference. It cannot, and the reason is a conservation argument rather than a measurement. Reaching the required approach by screening alone would call for 88 eV of static screening, where the ceiling available in condensed matter is 30 eV — short by a factor of 2.9, which corresponds to 27 orders of magnitude in the rate. For scale, a vibrational quantum in D₂ is 0.365 eV, and that is the order of the energy actually on offer.
@@ -117,7 +118,7 @@ The seven conditions settle whether the reaction occurs. None of them settles wh
 
 Condition 8 is therefore not an efficiency target that might be approached with better engineering but an accounting identity, and it contains no fitted quantity: `Q_fus` and `ω_s` are measured, `E_binder` is integrated in §5.1 from measured cross sections, and `f_work` is computed from a stated operating point and carried in both of its conventions rather than chosen. Proposition 1 in §14.2 derives it, including the two distinct reasons the cycle bound is never attained.
 
-There are two conventions in use for `f_work`, and this paper carries both rather than choosing. Counted as heat delivered, the bound is 7.52 GeV; counted as electrical work recoverable from that heat, it is 3.77 GeV. A figure quoted without saying which convention produced it cannot be checked, so every balance below is labelled with its own.
+There are two conventions in use for `f_work`, and this paper carries both rather than choosing. Each produces its own ceiling on what a binder may cost: counted as heat delivered, condition 8 allows `E_binder` up to 7.52 GeV; counted as electrical work recoverable from that heat, 3.77 GeV. A figure quoted without saying which convention produced it cannot be checked, so every balance below is labelled with its own.
 
 **Against a sourced production-and-capture cost of 37.0 GeV per captured μ⁻**, the figure of merit is 0.203 as heat and 0.102 as work. That is the state of the question as the literature leaves it.
 
@@ -200,7 +201,7 @@ The second is that each loss lying between a produced pion and a stopped binder 
 
 **The delivered acceptance is therefore 31.66 percent** at today's aperture, or 37.62 percent at the wider bore — against the 90 percent [DESIGN] figure at which the preprints at [18] read them, and which §7 restates every one of them away from.
 
-![Figure 1](papers/figures/fig5-budget.png)
+![Figure 1](../figures/fig5-budget.png)
 
 **Figure 1.** What becomes of a hundred pions made in the target. Each step is a loss that can be computed rather than assumed, and the product of them is the difference between what the magnet accepts and what the fuel actually stops.
 
@@ -230,7 +231,7 @@ Restating is exact rather than approximate: the balance is linear in collection 
 
 ### 7.1 What the specified alterations do to every balance
 
-§7 states the balances at the production cost §5.1 measures. A third alteration is specified in this paper — an **optimised production target** — and unlike the two collector alterations it does not change the collection at all. It moves `E_binder`, and because a balance has the form `N · V · η / E_binder` it therefore multiplies **every** balance by the same factor: from 11.13 GeV to 4.69 GeV, which is worth 2.373. Corollary 6.1 in §14.5 makes this explicit.
+§7 states the balances at the production cost §5.1 measures. A third alteration is specified in this paper — an **optimised production target** — and unlike the two collector alterations it does not change the collection at all. It moves `E_binder`, and because a balance has the form `N · V · η / E_binder` it therefore multiplies **every** balance by the same factor: from 11.13 GeV to 4.69 GeV, a factor of 2.373. Corollary 6.1 in §14.5 makes this explicit.
 
 > **The factor checks against the requirement it moves.** §5.2 puts bred fuel at the measured cycle count at 50.8 percent collection; through the optimised target that requirement is 21.4 percent, and 50.8 ÷ 2.373 returns it.
 
@@ -243,7 +244,7 @@ Restating is exact rather than approximate: the balance is linear in collection 
 | **bred fuel, at the measured 150 cycles** | **1.480** | **2.271** |
 | bred fuel, the model at 8.5 × liquid | 1.874 | 2.877 |
 
-![Figure 2](papers/figures/fig4-range.png)
+![Figure 2](../figures/fig4-range.png)
 
 **Figure 2.** The range the reaction is expected to fall in. Each row is one way of pricing the same reaction; the bar runs from what the machine as built delivers to what it delivers with all three alterations. Anything reaching the line at unity pays for itself. Only bred fuel does, and the rows at the measured cycle count use no service-life model at all.
 
@@ -295,7 +296,7 @@ This section states **what must be procured, built or assayed** to run the react
 
 The binder is not consumed. It is released and forms the next muonic molecule, and the cycle repeats until the muon decays or is lost to the alpha.
 
-![Figure 3](papers/figures/fig1-cycle.png)
+![Figure 3](../figures/fig1-cycle.png)
 
 **Figure 3.** The catalytic cycle, and the two ways it ends. A single binder repeats the loop until it decays or is lost to the alpha; everything the paper prices is a consequence of how many times it goes round.
 
@@ -306,7 +307,7 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 |---|---|---|
 | fuel | deuterium–tritium | Theorem 4 — it maximises the energy returned per binder over the closed candidate set, and by Corollary 4.1 no rival can be made to catch it |
 | ratio | 50/50 by number | not critical; the transfer step auto-optimises the population |
-| **purity** | better than 1 ppm [DESIGN] high-Z | transfer to a contaminant runs at 1.0 × 10^10 s^-1 at 1 LHD of oxygen; at the bracketed density 5.49 ppm costs as much binder as decay does |
+| **purity** | better than 1 ppm [DESIGN] high-Z | transfer to a contaminant runs at 1.0 × 10^10 s^-1 at 1 LHD of oxygen; at the bound-case density of §7 a contamination of 5.49 ppm costs as much binder as decay does |
 | temperature | 800 K | the Vesman resonance transfers the *dtμ* loose state's 0.66 eV into a 0.365 eV host vibrational quantum |
 | **cycle-rate ceiling** | 2.6 × 10^8 s^-1 | the cycle is a harmonic sum, so driving the resonance moves the bottleneck to transfer, capped at 2.7 × 10^8 s^-1 |
 | density | as high as the cell reaches | the cycle rate scales with it; the service life does not, being capped by sticking |
@@ -323,7 +324,7 @@ The binder is not consumed. It is released and forms the next muonic molecule, a
 | neutrons at 14.1 MeV | fusion events, hence cycles per binder |
 | the muonic-helium K-alpha at 8.2 keV | binders stuck to the alpha, hence the sticking directly |
 
-![Figure 4](papers/figures/fig7-measurement.png)
+![Figure 4](../figures/fig7-measurement.png)
 
 **Figure 4.** The step the existing experiments do not take. Both observables watch the same fuel at the same time, on one fill, so the cycle count and the loss are measured together rather than inferred from separate runs.
 
@@ -368,14 +369,14 @@ Column A witnesses the reaction. Column B is the reactor-scale target the balanc
 
 A procedure that would witness the *net-positive* configuration needs a machine capable of supplying binders at the required rate, and no such machine has been built. This section designs it. The design follows from the collection model of §6 rather than being introduced independently, so that the two cannot drift apart.
 
-![Figure 5](papers/figures/fig2-machine.png)
+![Figure 5](../figures/fig2-machine.png)
 
 **Figure 5.** The binder source, and the three alterations this paper proposes to it. The machine below the line is the one that has been built and simulated; the three callouts above it are what this paper would change, and each is priced in the text.
 
 
 ### 10.1 What the aperture fixes
 
-The transverse cap is `p_T = 0.15 · B · R`, so **field and bore trade against each other at fixed capture**. Holding the built front end's aperture of 1.50 T.m and taking the peak field to 20 T at an upstream plug, the target field is 14.01 T and the warm bore is 10.7 cm — against a delivered beam envelope at the target of 10.71 cm, which is what a particle born on axis reaches at twice its gyroradius.
+The transverse cap is `p_T = 0.15 · B · R`, so **field and bore trade against each other at fixed capture**. Holding the built front end's aperture of 1.50 T.m and taking the peak field to 20 T at an upstream plug, the target field is 14.01 T and the warm bore is 10.7 cm. The delivered beam envelope at the target — twice the gyroradius, which is what a particle born on axis reaches — is 10.71 cm. **Those are the same quantity reached from two directions, and they agree to the rounding**: the bore is not specified with margin over the beam, it is specified *by* it.
 
 **The bore is derived rather than chosen**, and the same derivation reproduces three published geometries that were not used to build it: 7.50 cm, 30.0 cm and 13.0 cm.
 
@@ -384,7 +385,7 @@ The transverse cap is `p_T = 0.15 · B · R`, so **field and bore trade against 
 
 A magnetic mirror will reflect a pion emitted into the backward hemisphere provided its pitch angle satisfies `sin θ ≥ √(B_target / B_max)`. The grade required to reach every angle the production data covers is therefore fixed by that data's own angular limit, and it comes to a field grade of **1.428** — no more, because that is simply where the measurement ends. Proposition 5 in §14.5 derives the condition from the adiabatic invariant.
 
-> This has the same shape as §4.1's finding about sticking: a parameter that had looked like a lever turns out on inspection to be a requirement with a number attached to it. One consequence is worth noting — mirroring the backward hemisphere and simply accepting both hemispheres come to the same number, which is why §6.1's acceptances are stated over both.
+> This has the same shape as §4.1's finding about sticking: a parameter that had looked like a lever turns out on inspection to be a requirement with a number attached to it. One consequence is worth noting — mirroring the backward hemisphere, and simply accepting both hemispheres outright, come to the same number, which is why §6.1's acceptances are stated over both.
 
 
 ### 10.3 The circuit, the cold mass, and the constraint that decides the target
@@ -403,7 +404,7 @@ A magnetic mirror will reflect a pion emitted into the backward hemisphere provi
 
 **The beam power the target must survive is 79.8 kW at 1 MW**, which is 7.98 percent of the driver, and it is a sourced figure rather than a reconstruction.
 
-![Figure 6](papers/figures/fig3-target.png)
+![Figure 6](../figures/fig3-target.png)
 
 **Figure 6.** Why the production target must be a free liquid-metal jet. The capture field sets the bore, the bore sets the space the target may occupy, and the rotating solid wheel that every megawatt-class facility uses does not fit inside it.
 
@@ -426,23 +427,26 @@ This section is the procedure that would witness the configuration §9 specifies
 ### 11.1 Assembly
 
 1. Build the target cell to hold 19.2 mm3 at up to 933 MPa and up to 500 K. Braze diamond to metal; use no polymers anywhere the fuel touches, and construct everything past the permeator from tritium-compatible material.
-1. Enclose the gas system in a helium glovebox at negative pressure, with continuous cleanup and secondary containment on every uranium bed.
-1. Mount the cell on a stage that translates it into and out of the beam axis without breaking containment.
-1. Site the neutron array and the X-ray detector so that **both view the same sample volume at the same time.** This is the step the existing experiments do not take, and it is the point of the procedure.
+2. Enclose the gas system in a helium glovebox at negative pressure, with continuous cleanup and secondary containment on every uranium bed.
+3. Mount the cell on a stage that translates it into and out of the beam axis without breaking containment.
+4. Site the neutron array and the X-ray detector so that **both view the same sample volume at the same time.** This is the step the existing experiments do not take, and it is the point of the procedure.
+
 
 ### 11.2 Loading
 
-1. Bake the system, then flush twice with ultra-pure deuterium.
-1. Desorb D–T from a uranium bed, assay it in a calibrated ionisation chamber, and condense it through the permeator into the cell. Expect about 4 mg of fuel and 23.2 Ci of tritium at 50/50.
-1. Confirm the fill optically through the anvils and verify composition by in-situ Raman before any beam. **Purity is a variable of this experiment, not a precondition** — record it, do not assume it.
-1. Close the cell, take it to pressure, and bring it to the setpoint temperature.
+5. Bake the system, then flush twice with ultra-pure deuterium.
+6. Desorb D–T from a uranium bed, assay it in a calibrated ionisation chamber, and condense it through the permeator into the cell. Expect about 4 mg of fuel and 23.2 Ci of tritium at 50/50.
+7. Confirm the fill optically through the anvils and verify composition by in-situ Raman before any beam. **Purity is a variable of this experiment, not a precondition** — record it, do not assume it.
+8. Close the cell, take it to pressure, and bring it to the setpoint temperature.
+
 
 ### 11.3 The measurement
 
-1. Admit the muon beam, tuned to stop in the fuel rather than in the anvils.
-1. Acquire neutrons at 14.1 MeV and the 8.2 keV K-alpha **simultaneously, on one fill.**
-1. Repeat across a **purity series** at fixed density and temperature. The existing record confounds purity with density and temperature — its cleanest data are also its coldest and densest — and this series is what separates them.
-1. Repeat across a **density series** at fixed purity, and a **temperature series** toward the 800 K operating point.
+9. Admit the muon beam, tuned to stop in the fuel rather than in the anvils.
+10. Acquire neutrons at 14.1 MeV and the 8.2 keV K-alpha **simultaneously, on one fill.**
+11. Repeat across a **purity series** at fixed density and temperature. The existing record confounds purity with density and temperature — its cleanest data are also its coldest and densest — and this series is what separates them.
+12. Repeat across a **density series** at fixed purity, and a **temperature series** toward the 800 K operating point.
+
 
 ### 11.4 What each outcome settles, committed in advance
 
@@ -466,7 +470,7 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 
 **The operative sticking is unresolved between two measurements**, though not in a way that changes the heat form's verdict. 0.5050 percent and 0.5320 percent are the two effective values the measured reactivation returns, and both lie above the break-point at 0.1580 percent, so the heat form fails at perfect collection on either. What the disagreement leaves open is the service life, and with it every balance that depends on it. §11's protocol settles it, and nothing here stands in for that.
 
-**Every collection figure here is an acceptance rather than a delivered efficiency** until an end-to-end count of stopped binders per pion produced has been made. §6.2 computes the losses between the two and §7 restates every balance through them, but a computed budget is not a measurement, and the margin over the falsification floor is 1.073.
+**Every collection figure here is an acceptance rather than a delivered efficiency** until an end-to-end count of stopped binders per pion produced has been made. §6.2 computes the losses between the two and §7 restates every balance through them, but a computed budget is not a measurement, and the margin over the falsification floor is a factor of 1.073.
 
 **The fuel scan's cycle rates and stickings are literature bands, not one measurement each.** They are measured for *d*–*t*, *d*–*d* and *t*–*t* and order-of-magnitude for the pairs that catalyse almost nothing, and §3's table prints them as they stand. Corollary 4.1 bounds what that costs: the ranking survives every competitor's cycle rate being sent to infinity, so only the stickings are load-bearing, and a competitor would have to be a factor of 24.58 less sticky than the record says before the ordering could move. What the bands do reach is the *size* of the margins quoted in §3, not the order of the table.
 
@@ -489,16 +493,17 @@ Each item below is a limit on what the foregoing establishes. None of them is re
 Each of the following is a theorem or a derivation from measured inputs. None of them depends on a measurement this paper proposes, and none can be overturned by one.
 
 1. **A cold fusion reaction exists and has been witnessed.** The definition of §1 is structural, and the reaction it picks out has run in laboratories since the 1950s. Its cycle rates, its sticking fractions and its ash have all been measured.
-1. **The binder is unique.** The seven conditions place a floor and a ceiling on the binder's mass, and the window between them, 119 electron masses to 918 electron masses, has exactly one occupant in the charged spectrum (Theorem 1, §14.3). Of 13 charged particles scanned, 5 outlive the mesomolecular formation time, 2 lie inside the window, and one survives the hadron test.
-1. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy returned per binder by a factor of 77.85 against the next candidate (Theorem 4, §14.8) — and the runner-up uses more tritium rather than less. **That ranking is not a near thing either**: it survives every competitor's cycle rate being sent to infinity, leaving *d*–*t* ahead by a factor of 24.58 (Corollary 4.1).
-1. **The window is not a near thing.** Its lower bound may move by a factor of 207 and its upper by 3.54 before the count of occupants changes.
-1. **An eighth condition decides whether the reaction is worth running**, and it contains no free parameter and no fitted one (Proposition 1, §14.2). Two of its terms are measured, one is integrated from measured cross sections, and the fourth is a conversion fraction computed at a stated operating point and carried in both of its conventions.
-1. **Sticking does not depend on the binder's mass** (Theorem 2, §14.4), so condition 8 is a specification on the machine and not a search over the spectrum. There is in any case no other occupant of the window to search for.
-1. **The production floor is measured rather than modelled.** Integrating the published double-differential cross sections puts production alone at 11.13 GeV per pion, which is a cost no collector can argue away.
-1. **The acceptance model is validated against an independent simulation** of a machine that was built, agreeing to 0.982.
-1. **The standalone configuration is closed** (Theorem 3, §14.4): at the production floor, no admissible binder pays for itself as heat at any collector. The break-point sits at 0.1580 percent and lies **below both** published sticking readings, so no choice between them repairs it.
-1. **Nothing clears unity at this paper's own production cost.** The closest is bred fuel at the measured 150 cycles, at 0.623 as built; with both collector alterations of §7.1 it reaches 0.957, short of unity by a factor of 1.045 and short by no term other than the loss budget, which is the one quantity in the column that has never been measured.
-1. **One route does cross unity, and it crosses on a figure this paper declines to adopt.** Through a *published* optimisation of the production target at 4.69 GeV — worth a factor of 2.373 on every balance against the 11.13 GeV §5.1 integrates — bred fuel at the measured cycle count reaches 1.480, and 2.271 with all three alterations. **That factor is a discrepancy §12 records and does not close**, so the route is reported and not claimed, and a normalisation measurement on one target is what would settle it.
+2. **The binder is unique.** The seven conditions place a floor and a ceiling on the binder's mass, and exactly one particle in the charged spectrum passes every test (Theorem 1, §14.3). Of 13 scanned, 5 outlive the mesomolecular formation time, 2 lie inside the window 119 electron masses to 918 electron masses, and one of those two survives the hadron test.
+3. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy returned per binder by a factor of 77.85 against the next candidate (Theorem 4, §14.8) — and the runner-up uses more tritium rather than less. **That ranking is not a near thing either**: it survives every competitor's cycle rate being sent to infinity, leaving *d*–*t* ahead by a factor of 24.58 (Corollary 4.1).
+4. **The window is not a near thing.** Its lower bound may move by a factor of 207 and its upper by 3.54 before the count of occupants changes.
+5. **An eighth condition decides whether the reaction is worth running**, and it contains no free parameter and no fitted one (Proposition 1, §14.2). Two of its terms are measured, one is integrated from measured cross sections, and the fourth is a conversion fraction computed at a stated operating point and carried in both of its conventions.
+6. **Sticking does not depend on the binder's mass** (Theorem 2, §14.4), so condition 8 is a specification on the machine and not a search over the spectrum. There is in any case no other occupant of the window to search for.
+7. **The production floor is measured rather than modelled.** Integrating the published double-differential cross sections puts production alone at 11.13 GeV per pion, which is a cost no collector can argue away.
+8. **The acceptance model is validated against an independent simulation** of a machine that was built, agreeing to 0.982.
+9. **The standalone configuration is closed** (Theorem 3, §14.4): at the production floor, no admissible binder pays for itself as heat at any collector. The break-point sits at 0.1580 percent and lies **below both** published sticking readings, so no choice between them repairs it.
+10. **Nothing clears unity at this paper's own production cost.** The closest is bred fuel at the measured 150 cycles, at 0.623 as built; with both collector alterations of §7.1 it reaches 0.957, short of unity by a factor of 1.045 and short by no term other than the loss budget, which is the one quantity in the column that has never been measured.
+11. **One route does cross unity, and it crosses on a figure this paper declines to adopt.** Through a *published* optimisation of the production target at 4.69 GeV — worth a factor of 2.373 on every balance against the 11.13 GeV §5.1 integrates — bred fuel at the measured cycle count reaches 1.480, and 2.271 with all three alterations. **That factor is a discrepancy §12 records and does not close**, so the route is reported and not claimed, and a normalisation measurement on one target is what would settle it.
+
 > **The reaction is proved and it is witnessed. Its binder is unique, its fuel is unique, and its energy account is closed in the sense that every term in it is named and priced. What is not proved is that any device-internal configuration of it returns more than it costs at a production cost this paper is willing to stand behind** — §7 states how far short the best one falls, and the item immediately above states the one route that crosses and whose figure it crosses on. That is the whole of the claim, and no part of it is larger than the evidence behind it.
 
 **What this paper does not do.** It does not price the configuration in which the binder is a byproduct of a beam already running for another purpose, and it does not price a blanket. Both change the accounting rather than the reaction, both are the subject of a separate paper, and neither is needed for anything claimed above.
@@ -568,7 +573,7 @@ That is the first of two reasons $N < 1/\omega_s$, and the smaller one. The seco
 
 >
 
-> Of those 5, **2 lie inside the window**: the muon at 207 electron masses and the pion at 273 electron masses. The electron lies below it; the kaon at 966 electron masses and the antiproton lie above it. Of the two inside, the pion is a hadron and is absorbed before the cycle completes. **1 therefore survives all four tests.**
+> Of those 5, **2 lie inside the window**: the muon at 207 electron masses and the pion at 273 electron masses. The electron lies below it; the kaon at 966 electron masses and the antiproton lie above it. Of the two inside, the pion is a hadron and is absorbed before the cycle completes, leaving **1 particle through all four tests: the negative muon.**
 
 >
 
@@ -713,23 +718,24 @@ Three things in this paper are **not** theorems, and are marked as such wherever
 ## 15. References
 
 1. M. G. Catanesi *et al.* (HARP Collaboration), Phys. Rev. C **77**, 055207; A. Bolshakova *et al.*, *Large-angle production of charged pions by 3 GeV/c–12.9 GeV/c protons on beryllium, aluminium and lead targets*, Eur. Phys. J. C **63**, 549 — Tables 5–8, both charges; and M. Apollonio *et al.*, *Forward production of charged pions with incident protons on nuclear targets at the CERN PS*, Phys. Rev. C **80**, 035208 — Tables XXII, XXIII and XXXII, both charges. **The production integration of §5.1 is taken from these tables and from nothing else.**
-1. J. Strait, N. V. Mokhov and S. I. Striganov, *Towards the optimal energy of the proton driver for a neutrino factory and muon collider*, Phys. Rev. ST Accel. Beams **13**, 111001 — Table II and §V. **The front-end simulation the acceptance model of §6.1 is validated against.**
-1. S. Cook *et al.*, *MuSIC: delivering the world's most intense muon beam*, arXiv:1610.07850; Phys. Rev. Accel. Beams **20**, 030101.
-1. Mu2e Collaboration, *Mu2e Conceptual Design Report*, FERMILAB-TM-2545, arXiv:1211.7019.
-1. COMET Collaboration, *COMET Phase-I Technical Design Report*, arXiv:1812.09018.
-1. K. Oishi *et al.*, *Development of the Range Counter for the COMET Phase-α Experiment*, arXiv:2505.07464 — §1, which states the backward-emission capture and the thin production target.
-1. J. J. Back, *Energy deposition studies for the Neutrino Factory target station*, JINST, arXiv:1104.2742 — FLUKA and MARS over a 4 MW, 8 GeV proton beam on a free mercury jet in a 20 T solenoid. **The sourced deposition, coil heating and radiation-lifetime figures of §10.3.**
-1. K. T. McDonald *et al.*, *The MERIT high-power target experiment at the CERN PS*, IPAC 2010, p. 3527 — the free mercury jet run in a 15 T solenoid.
-1. Variational three-body calculation of muon-alpha sticking, Phys. Rev. A **34**, 2536.
-1. S. E. Koonin and M. Nauenberg, *Nature* **339**, 690.
-1. M. Kamimura, Y. Kino and T. Yamashita, *Comprehensive study of muon-catalyzed nuclear reaction processes in the dtμ molecule*, Phys. Rev. C **107**, 034607 (2023).
-1. R. Spencer Kelly, L. J. F. Hart and S. J. Rose, *An investigation of efficient muon production for use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003. **The optimised production target §12 declines to adopt, and which a normalisation measurement would settle.**
-1. X. Yin, W. Kou and X. Chen, *Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck Breakthroughs, and an Engineering Pathway*, arXiv:2605.26432 — Table I and §IV.B.
-1. W. Kou and X. Chen, *A Lawson-inspired Cycle-Closure Criterion for Deuterium–Tritium Muon-Catalyzed Fusion*, arXiv:2607.10989 — Eqs. (11)–(13) and Table I. **An independent derivation of §4's eighth condition, reached without reference to this work.**
-1. W. Kou and X. Chen, *External-Field-Assisted Muon Reactivation in Muon-Catalyzed Fusion: A Rate-Network Criterion for Reducing Alpha Sticking*, arXiv:2606.07077.
-1. E. Koukina *et al.* (MuFusE Collaboration), *Design and Commissioning of a Deuterium-Tritium Gas Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell*, arXiv:2606.19304; and J. D. Kalow *et al.*, arXiv:2606.05333. **The diamond-anvil cell and gas system of §9.3 column A.**
-1. M. Lach, *The Method* v1.2–8 — *The Lach Cylinder: an index of transitions*.
-1. M. Lach, *Cold Fusion and the Binder Economy*, v1.0; *The Binder Economy Against the Recent Literature*, v1.0; *Cold Fusion: Specification and Procedure*, v1.0. **Superseded by this paper wherever the two differ.**
+2. J. Strait, N. V. Mokhov and S. I. Striganov, *Towards the optimal energy of the proton driver for a neutrino factory and muon collider*, Phys. Rev. ST Accel. Beams **13**, 111001 — Table II and §V. **The front-end simulation the acceptance model of §6.1 is validated against.**
+3. S. Cook *et al.*, *MuSIC: delivering the world's most intense muon beam*, arXiv:1610.07850; Phys. Rev. Accel. Beams **20**, 030101.
+4. Mu2e Collaboration, *Mu2e Conceptual Design Report*, FERMILAB-TM-2545, arXiv:1211.7019.
+5. COMET Collaboration, *COMET Phase-I Technical Design Report*, arXiv:1812.09018.
+6. K. Oishi *et al.*, *Development of the Range Counter for the COMET Phase-α Experiment*, arXiv:2505.07464 — §1, which states the backward-emission capture and the thin production target.
+7. J. J. Back, *Energy deposition studies for the Neutrino Factory target station*, JINST, arXiv:1104.2742 — FLUKA and MARS over a 4 MW, 8 GeV proton beam on a free mercury jet in a 20 T solenoid. **The sourced deposition, coil heating and radiation-lifetime figures of §10.3.**
+8. K. T. McDonald *et al.*, *The MERIT high-power target experiment at the CERN PS*, IPAC 2010, p. 3527 — the free mercury jet run in a 15 T solenoid.
+9. Variational three-body calculation of muon-alpha sticking, Phys. Rev. A **34**, 2536.
+10. S. E. Koonin and M. Nauenberg, *Nature* **339**, 690.
+11. M. Kamimura, Y. Kino and T. Yamashita, *Comprehensive study of muon-catalyzed nuclear reaction processes in the dtμ molecule*, Phys. Rev. C **107**, 034607 (2023).
+12. R. Spencer Kelly, L. J. F. Hart and S. J. Rose, *An investigation of efficient muon production for use in muon catalyzed fusion*, J. Phys. Energy **3**, 035003. **The optimised production target §12 declines to adopt, and which a normalisation measurement would settle.**
+13. X. Yin, W. Kou and X. Chen, *Muon-Catalyzed Nuclear Fusion: Physical Mechanism, Bottleneck Breakthroughs, and an Engineering Pathway*, arXiv:2605.26432 — Table I and §IV.B.
+14. W. Kou and X. Chen, *A Lawson-inspired Cycle-Closure Criterion for Deuterium–Tritium Muon-Catalyzed Fusion*, arXiv:2607.10989 — Eqs. (11)–(13) and Table I. **An independent derivation of §4's eighth condition, reached without reference to this work.**
+15. W. Kou and X. Chen, *External-Field-Assisted Muon Reactivation in Muon-Catalyzed Fusion: A Rate-Network Criterion for Reducing Alpha Sticking*, arXiv:2606.07077.
+16. E. Koukina *et al.* (MuFusE Collaboration), *Design and Commissioning of a Deuterium-Tritium Gas Delivery System for Muon Catalyzed Fusion in a Diamond Anvil Cell*, arXiv:2606.19304; and J. D. Kalow *et al.*, arXiv:2606.05333. **The diamond-anvil cell and gas system of §9.3 column A.**
+17. M. Lach, *The Method* v1.2–8 — *The Lach Cylinder: an index of transitions*.
+18. M. Lach, *Cold Fusion and the Binder Economy*, v1.0; *The Binder Economy Against the Recent Literature*, v1.0; *Cold Fusion: Specification and Procedure*, v1.0. **Superseded by this paper wherever the two differ.**
+
 
 ---
 
