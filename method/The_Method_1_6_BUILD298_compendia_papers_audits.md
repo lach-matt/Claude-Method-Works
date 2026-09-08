@@ -24034,6 +24034,15 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **THE CLASS IS REGISTER 1736's, ONE STEP FURTHER OUT.** That entry removed ten bibliography rows the generator had read out of callout text — *"COVER 1972" (the problem, not Karp)*, *"Killing 2024" (a field, beside Sorce)* — by matching the compendium's works against the main volume's References **by author and year**. **A match by author cannot see a wrong year on a real author, and it cannot see a wrong author on a real paper.** Six bibliography rows of the first kind are measured by `proofs/bibindex4.py` and remain **recorded and unrepaired**; this is the first of the second kind.
 - **AND THE CENSUS CAUGHT A FAULT OF MINE BEFORE THE BUILD WAS CONFIRMED, WHICH IS WHAT IT IS FOR.** The first BUILD128/BUILD297 was **discarded**. Its entry 1890 narrated *why nothing caught the error* — which passes checked what — and in doing so cited **`W-117`** and **`READ-ch13g`** inside The Register. **Both are internal references and Ruling 46 forbids them in a reader-facing volume**, and the passage itself is editorial process, which Ruling 45 forbids and which the two-registers rule sends here instead. `close_census2.py --dry` reported it as `C13-HANDLE-LEAK reg 'W-117'`, beside two `C9-OVERGENERALISATION-WORD` rows and a `C8-NAMED-STATEMENT` row my own prose had created. **The entry was rewritten to subject matter alone** — the paper, the two forms, the three published reference lists, the five sites and the supersession of 401 — and the build re-made. **The account of why nothing caught it belongs in this file and is above.**
 
+### W-303 — the census closed on the co-author correction, three rows moved and every one declared
+
+- **THE CENSUS CLOSES BEFORE THE GOLDEN RE-BANK**, which is W-274's order and the one W-273 got wrong at a cost of a cycle.
+- **1,636 regenerated, 1,633 exact, 0 NEW, 0 GONE**, three matched by item, and the three are the build's own consequences:
+  - **id 84** `C11-R-FORM-INCOMPLETE` at the Mathematical Compendium's *Staircase / connected row-convex* — its quoted first lines carry the corrected citation. The row itself is unchanged in kind: that object still prints no grade and no prior art, which is a standing finding and not this build's.
+  - **id 677** `C7-WITHDRAWAL-LINE-NUMBER-SURVIVES` at main L858, token `216` — Register sites **9 → 8**, because the kinds table's *a correction* row moved **216 → 217** when this build seated one. A count that fell because the number counted is itself a count.
+  - **id 693** `C7-WITHDRAWAL-LINE-NUMBER-SURVIVES` at main L3705, token `400` — Register sites **8 → 9**, because register 1890 cites register 400. Both are regex artefacts of the standing class (precedents 678, 680–687, 1067, 1069).
+- **THE FIRST BUILD128/BUILD297 WAS DISCARDED AND THIS CENSUS IS WHY.** Against that build the census read **4 NEW** rows, and one was a fault: `C13-HANDLE-LEAK reg 'W-117'`. W-302 records what was wrong with that entry and what replaced it. **A census run before a re-bank is the step that makes a discard cheap**, and this is its second instance in this leg.
+
 <<<END FILE: WORKING-REGISTER.md>>>
 
 <<<FILE: amd2_write.py>>>
@@ -28578,7 +28587,7 @@ id	class	member	line	item	detail
 81	C6a-ENTRY-NO-SOURCE-POINTER	mc	526	The polarisation formula	no § or Register pointer in entry
 82	C11-R-FORM-INCOMPLETE	mc	526	The polarisation formula	missing: grade, prior-art | first lines: **delta(n) = (alpha/K(l))(3 - l(l+1)/n^2 / *a Rydberg electron that does not enter  / Cited — Seaton 1958; Drake & Swainson 19
 83	C6a-ENTRY-NO-SOURCE-POINTER	mc	546	Staircase / connected row-convex	no § or Register pointer in entry
-84	C11-R-FORM-INCOMPLETE	mc	546	Staircase / connected row-convex	missing: grade, prior-art | first lines: **phi-hat recovers a STAIRCASE constrain / *binary* / Cited — Deville, Barták, Van Hentenryck 
+84	C11-R-FORM-INCOMPLETE	mc	546	Staircase / connected row-convex	missing: grade, prior-art | first lines: **phi-hat recovers a STAIRCASE constrain / *binary* / Cited — Deville, Barette, Van Hentenryck
 85	C6-NUMBERS-NOT-IN-SOURCE	mc	554	The one-corner characterisation	6 of 7: 109 243 271 543 561 750 | sources §14.5.4 R
 86	C10-PROVED-WITHOUT-REGISTER	mc	554	The one-corner characterisation	Proved — M §14.5.4; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.
 87	C6-NUMBERS-NOT-IN-SOURCE	mc	564	The statistics operator	2 of 3: 976 1174 | sources § R1174
@@ -29171,7 +29180,7 @@ id	class	member	line	item	detail
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
 675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=32 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=8 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
-677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=9 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	2.21	other sites: main=3 reg=9 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	374	other sites: main=3 reg=2 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=13 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
@@ -29187,7 +29196,7 @@ id	class	member	line	item	detail
 690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
+693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=9 ioi=2 | mis-citation is corrected here and recorded at register 400.
 694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=34 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=33 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=5 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
@@ -36521,8 +36530,8 @@ extent from Register L6: 1 to 1889
 
 <<<FILE: MANIFEST.tsv>>>
 bundle	name	bytes	md5	lines
-main	The_Method_1_6-2.md	784466	f4d01315d7e7a7651415f098225f96ac	11903
-main	The_Method_1_6___The_Register-2.md	1351612	1864bd62ef8e51d82261a6ac6504a409	6997
+main	The_Method_1_6-2.md	784466	b8bf1b79ff4a760d2c8851a32d627f0e	11903
+main	The_Method_1_6___The_Register-2.md	1354019	b322666ff024b0e8cffbbc3f232f5417	7000
 compendia	AUDIT-LAMBDA.md	5905	b3dd34002f390af9281d539122124e43	98
 compendia	BiIII_asd.tsv	2370	4904ad97ce81c8412a4d46d7e7461b90	69
 compendia	CENSUS-CLOSURES-21a.tsv	18	2deb87a95756d48874feff7dd5098af1	1
@@ -36594,7 +36603,7 @@ compendia	CI_full.tsv	591	96c93a93b45edd77622bca0770a873ef	25
 compendia	CYPHER.md	21608	e0aadc4845db10e8e00f8255d63d5952	319
 compendia	CdII_full.tsv	931	3b88793e5320646d375eb809da11fe05	41
 compendia	D59_DRAFT.md	5855	500859137cdaf031f82231cf37513302	40
-compendia	DEFECT-CENSUS.tsv	253372	fc7891b7b139afa93e17650bf76fa131	1640
+compendia	DEFECT-CENSUS.tsv	253371	2bf7ce0f6534105e53f6844930d263a0	1640
 compendia	DEFERRED.md	445264	2b46ec0747c8c1923ecfbdf3bb06936f	3556
 compendia	DOCKET.md	82784	123594d2918d8c02727b8a6d065c0c0d	488
 compendia	EXCISE-LIST.json	3823	9d6b08df7c8c07ff8f3f148498bdf9aa	434
@@ -36759,14 +36768,14 @@ compendia	TB1-n8_check.py	1719	ab823f22180baa476b623e0f55ae8c06	24
 compendia	TB1-routh_check.log	90	3fa04ee0f0b05e8246bd9eb119d8dd1d	1
 compendia	TB1-routh_check.py	366	23842800b311327175ecdd0ef311473b	5
 compendia	THE-LOWDIN-SOLUTION-2.md	38046	cce968defbb021e4fd6e05172fc1bb79	260
-compendia	The_Method_1_6___Mathematical_Compendium-2.md	310590	ecc158ba2ccaa0b5a2b32cde903e3c6f	3812
+compendia	The_Method_1_6___Mathematical_Compendium-2.md	310590	c31a450a873347db83c2a550dae70257	3812
 compendia	The_Method_1_6___Spectra_Compendium-2.md	101693	1f328e0b8bba42089a86ec527027dcaa	1159
 compendia	The_Method_1_6___The_Index_of_Indices-2.md	118405	d19416dd0fa82c68ec7b9da834e004c4	2093
-compendia	The_Method_1_6___The_Physics_Compendium-2.md	63246	f8a7d726e19eee33bab5cd1703ecb4dd	913
+compendia	The_Method_1_6___The_Physics_Compendium-2.md	63246	2d257853fe55a3feabf5fc2c11bc8ead	913
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1330611	0395cd14fc1f0218874f728add736404	9028
+compendia	WORKING-REGISTER.md	1337720	718b1a1913055ae4c55585092037f93a	9050
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	agreement.py	10752	f6e1601813de956af99ee93f44364827	254
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98

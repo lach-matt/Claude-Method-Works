@@ -82,7 +82,7 @@ id	class	member	line	item	detail
 81	C6a-ENTRY-NO-SOURCE-POINTER	mc	526	The polarisation formula	no § or Register pointer in entry
 82	C11-R-FORM-INCOMPLETE	mc	526	The polarisation formula	missing: grade, prior-art | first lines: **delta(n) = (alpha/K(l))(3 - l(l+1)/n^2 / *a Rydberg electron that does not enter  / Cited — Seaton 1958; Drake & Swainson 19
 83	C6a-ENTRY-NO-SOURCE-POINTER	mc	546	Staircase / connected row-convex	no § or Register pointer in entry
-84	C11-R-FORM-INCOMPLETE	mc	546	Staircase / connected row-convex	missing: grade, prior-art | first lines: **phi-hat recovers a STAIRCASE constrain / *binary* / Cited — Deville, Barták, Van Hentenryck 
+84	C11-R-FORM-INCOMPLETE	mc	546	Staircase / connected row-convex	missing: grade, prior-art | first lines: **phi-hat recovers a STAIRCASE constrain / *binary* / Cited — Deville, Barette, Van Hentenryck
 85	C6-NUMBERS-NOT-IN-SOURCE	mc	554	The one-corner characterisation	6 of 7: 109 243 271 543 561 750 | sources §14.5.4 R
 86	C10-PROVED-WITHOUT-REGISTER	mc	554	The one-corner characterisation	Proved — M §14.5.4; Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995.
 87	C6-NUMBERS-NOT-IN-SOURCE	mc	564	The statistics operator	2 of 3: 976 1174 | sources § R1174
@@ -675,7 +675,7 @@ id	class	member	line	item	detail
 674	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	333	16.6	other sites: main=7 reg=3 mc=1 | ungrounded in the sense §16.6's ⅅ_gro names. The corrected form carries no N: *following the bounds
 675	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	11,	other sites: main=6 reg=32 mc=7 ioi=5 sc=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 676	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	150	other sites: main=13 reg=8 mc=8 pc=1 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
-677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=9 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
+677	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	858	216	other sites: main=9 reg=8 ioi=1 | 11, 0 and 19; dim(audit hierarchy) = 2; E(G), recomputed at build; E(Q); the tripwire's 150 of 216; the fifty-
 678	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	2.21	other sites: main=3 reg=9 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 679	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1505	374	other sites: main=3 reg=2 ioi=2 sc=5 | §2.21 a withdrawn figure's data       a number deleted rather than replaced          reg. 374
 680	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	1686	6.2	other sites: main=13 reg=13 mc=3 pc=1 ioi=2 sc=4 | ### 6.2.1 The nuclide chart's defect, recomputed under variation
@@ -691,7 +691,7 @@ id	class	member	line	item	detail
 690	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	21.4	other sites: main=1 reg=1 mc=2 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 691	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	22.8	other sites: reg=3 mc=1 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
 692	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3482	45,450	other sites: reg=1 mc=3 | 45,450 at Λ₁₃**, 21.4% and 22.8% of the product — recomputed; the 2,475 previously
-693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=8 ioi=2 | mis-citation is corrected here and recorded at register 400.
+693	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3705	400	other sites: main=13 reg=9 ioi=2 | mis-citation is corrected here and recorded at register 400.
 694	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	14.5	other sites: main=47 reg=34 mc=37 ioi=1 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 695	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3882	7,	other sites: main=16 reg=33 mc=3 ioi=6 | *Those figures are prune-greedy's and §14.5.9 withdraws them; under set cover the tower gives 7, 9
 696	C7-WITHDRAWAL-LINE-NUMBER-SURVIVES	main	3883	497	other sites: main=3 reg=5 ioi=1 | and 9, and the counting/coupling split they were read as showing is withdrawn with register 497.*
