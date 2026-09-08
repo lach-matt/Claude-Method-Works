@@ -3815,3 +3815,91 @@ The mathematics is finished — the contraction is proportional to mass with a c
 ### Seated
 - `phase1.py` — new, stdlib only, `--selftest`.
 - `index3.py` — **267 findings**, ten new, `PHASE-1-CLOSES` among them. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `supply.py` — converting the cost into something suppliable
+
+The question: phase 1 prices the transition in **kilograms**. What must be applied to the mathematics
+to pay in **electricity, or charge manipulation**, instead?
+
+### S0 — the conversion is already inside the equation
+
+> **`Δd = Λ·(G/c⁴)·E`**, and **`G/c⁴ = (G/c²)/c²`**
+
+**`E = mc²` is not something you apply to the transition equation — it is already there.** Paying in
+joules rather than kilograms is the same bill in another currency at a rate that has already been
+applied.
+
+| | |
+|---|---|
+| `c⁴/G` | **1.21026×10⁴⁴ N** — the Planck force |
+| `G/c⁴` | 8.26272×10⁻⁴⁵ m/J |
+| per metre contracted | 1.2124×10⁴³ J = **22.6 Earth mass-energies** |
+
+The whole cost of this project is one sentence: **spacetime is stiff to the tune of 1.2×10⁴⁴ newtons**,
+and `c⁴/G` is the only constant in it. So the supply form changes the *logistics* and not the
+*magnitude* — `G_μν = 8πT_μν` does not ask where `T` came from.
+
+**The only thing worth asking a supply route is whether it supplies the SIGN.**
+
+### S2 — charge manipulation is actively harmful, and this is the sharp result
+
+Classical EM stress-energy is **positive-definite**: `u = ε₀E²/2 + B²/2μ₀ ≥ 0` at every field strength.
+The only negative EM energy is the quantum vacuum, and **it depends on the gap, not on power**:
+`u_C = −π²ℏc/720d⁴` — no applied field appears in it.
+
+So the two terms don't compete on equal footing. Setting them equal gives the field that **cancels** the
+only negative energy in the apparatus:
+
+| gap | `u_Casimir` (J/m³) | cancelling field (V/m) |
+|---|---|---|
+| 1 nm | −4.3338e+08 | 9.894e+09 |
+| **10 nm** | −4.3338e+04 | **9.894e+07** |
+| 100 nm | −4.3338e+00 | 9.894e+05 |
+
+**At a 10 nm gap the cancelling field is 9.9×10⁷ V/m — below the dielectric breakdown of a solid
+(~10⁸), and 10⁶ times below a focused laser.** Applying charge destroys the only negative energy
+present *before the apparatus even breaks down*. Not a magnitude complaint — the wrong sign, applied
+enthusiastically.
+
+### S3/S4 — four routes, one sign
+
+| route | supplies the sign? | bounded by |
+|---|---|---|
+| classical `E`, `B` fields | **no** | positive-definite at every field |
+| charge / Reissner–Nordström | **no** | `Q ≤ M` (Gibbons–Hull, Witten); `Φ>0` region hidden at every `Q` |
+| binding energy | **no** | 1e-9 chemical, 1e-2 nuclear, 0.42 Kerr — always a *fraction* of positive rest mass |
+| **quantum vacuum** (Casimir, squeezed) | **YES** | `ℏ`, not the positive mass theorem |
+
+**Three of the four are bounded by the same theorem** — the positive mass theorem *is* the statement
+that no assembly gives net negative mass. The fourth is bounded by `ℏ`. There is no fifth.
+
+Charge is on the **right side of the seat and the wrong side of the sign**.
+
+### S5 — efficiency cannot rescue it
+
+Write the honest chain, `Δd = Λ(G/c⁴)·η·E_supplied`, and solve for `η`. Against the world's annual
+energy production, **`η > 7.6×10³⁶`** — more negative energy out than energy in. And at a perfect
+`η = 1` the requirement is still **4.59×10⁵⁷ J, the mass-energy of 2.6×10¹⁰ suns.**
+
+> **Efficiency is not the problem. `c⁴/G` is, and no conversion touches it.**
+
+### S6 — so the lever is geometry, and three routes agree where
+
+The requirement for a fractional contraction falls as `1/b²`; the Casimir density rises as `1/b⁴`. The
+ratio closes:
+
+> `|u_C|/u_req = π²Λℓ_P²/(720εb²)` — **3.57e-69** at a metre, **unity at b = 5.98e-35 m = 3.70 ℓ_P**
+
+And that agrees with two measurements already in the tree: `corridor.py`'s Casimir **seat** crossing at
+**0.132 ℓ_P**, `gjw.py`'s unity **coupling** separation at **0.0934 ℓ_P**. **A contraction, a seat and a
+coupling — three different quantities, three routes sharing no formula, all crossing within two orders
+of the Planck length.**
+
+> **That is the answer. Not a bigger supply and not a better conversion: the only free variable is the
+> gap, and it has to reach a scale where this theory does not apply and nobody's does.**
+
+### Seated
+- `supply.py` — new, stdlib only, `--selftest`.
+- `index3.py` — **276 findings**, nine new. Still 15 cells, `E(X) = 0`.
