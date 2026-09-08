@@ -311,3 +311,89 @@ Neither is near the edge, so route A's extra gain buys margin that was already t
 On the criterion as stated — cleaner and more efficient — **route C wins and it is not close**. What
 argues for route A is not efficiency and never was: it is that the fusion is the project's subject.
 **The instrument does not decide that**, and its selftest asserts that it says so.
+
+## `--driver` — the driver already bought, and the ceiling that is not computed
+
+`--rescale` left the module count free and said nothing about the **drivers**, which come in whole
+machines of `LINAC_BEAM_MW` = 20 MW. Asking what the drivers are doing turns up a **fault in the
+sizing**, not an optimisation.
+
+**The fault.** `station_beam_mw()` solves
+
+```
+net = P(G·η_th(1−dry) − 1/η_acc) − n·S/η_acc
+```
+
+for `P`, and it must be told `n` — how many drivers the answer will need — *before* it has the
+answer. It was passed the default, **one**. At the ADS convention that is nearly harmless: five
+drivers, four unbilled standbys, and the whole-module round-up covers them. At the adopted operating
+point the beam is 2.86× larger, the station carries **twelve** drivers, and eleven unbilled standbys
+are **36.7 MW electric** — more than the round-up returns.
+
+So every re-scaled station landed **below the million households it was sized for**:
+
+| target | modules | beam MW | drivers | installed | stranded | households |
+|---|---:|---:|---:|---:|---:|---:|
+| MEGAPIE, operated 2006 | 293 | 228.5 | 12 | 240 | 11.5 | 969,130 |
+| SNS, operating | 164 | 229.6 | 12 | 240 | 10.4 | 973,788 |
+| ESS, design | 46 | 230.0 | 12 | 240 | 10.0 | 975,546 |
+| high-power study | 23 | 230.0 | 12 | 240 | 10.0 | 975,546 |
+
+`station()` is now sized by **closing the loop** — walking up from the open-loop figure, which is a
+floor and never an over-estimate, charging the drivers it builds. At the ADS convention it returns
+the base station unchanged, which is why the fault went unseen. **The open-loop sizing is kept as
+`station_open_loop()` rather than as a paragraph**: a finding is easier to hold than to describe, and
+the selftest pins that every one of those rows was short.
+
+**What closes the shortfall was already bought.** No target row needs a new driver — the beam is
+already installed and already paid for; what it needs is **targets**, the cheap half of a module.
+
+| target | modules | beam MW | drivers | households | new drivers |
+|---|---:|---:|---:|---:|---:|
+| MEGAPIE, operated 2006 | 303 | 236.3 | 12 | 1,003,404 | 0 |
+| SNS, operating | 169 | 236.6 | 12 | 1,004,547 | 0 |
+| ESS, design | 48 | 240.0 | 12 | 1,019,486 | 0 |
+| high-power study | 24 | 240.0 | 12 | 1,019,486 | 0 |
+
+At the ESS row **the station that meets the baseline and the station that strands no capacity are the
+same station**.
+
+**Why the stranded beam is the cheapest beam in the plant.** The standby is fixed per driver, so a
+module inside installed capacity pays none of it and a module that crosses a driver boundary pays a
+whole one:
+
+| | net MW per beam MW |
+|---|---:|
+| average over the whole station | 4.843 |
+| the module inside capacity | 5.009 |
+| the module that buys a driver | 4.343 |
+
+A factor of **1.154** between the last two. **And it is bounded**: worth exactly the 10 MW that was
+stranded, and not one MW more.
+
+**What it does not cost.** Adding source neutrons does not change `k` — `k` is composition and the
+fuel salt is unchanged — so the subcritical margin stays 10,000 pcm and the always-subcritical
+property is untouched. It is the one lever in this work that buys output and **spends no safety**.
+
+## The ceiling is not computed here, and that is the finding
+
+Net is **exactly linear** in beam at a fixed driver count — the selftest asserts the second difference
+is zero — so this model will hand back more output for more beam without limit. **That is a property
+of the model and not of the plant.**
+
+The blanket is **not split** (splitting is refused separately, at 2.71× the leakage for twenty ways),
+so beam is power density in **one** blanket:
+
+| | thermal |
+|---|---:|
+| the station the inventories are computed at | 3,364 MW |
+| the station that meets the baseline at k = 0.900 | 4,684 MW (1.39×) |
+
+`materials.py` takes the station whole from `station()` and derives the salt flow, the salt inventory,
+the heavy-metal inventory and the drain tank **from its thermal power**; `restart.py` takes the decay
+heat from the same figure. Every one of those is therefore computed at the pre-decision station.
+
+Nothing in this repository computes a **maximum** blanket power density, a core volume or a
+coolant-flow limit, so nothing here can say where adding beam stops paying. **Recorded as owed, in
+the same shape as `criticality.py`'s refusal to compute a moderated `k`** — and owed before phase 4
+states a station size as achievable.

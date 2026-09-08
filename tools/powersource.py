@@ -1088,20 +1088,36 @@ def station_beam_mw(households=STATION_HOUSEHOLDS,
     return ((want_kw + n_linac * REF_STANDBY_KW / eta_acc) / denom) / 1000.0
 
 
-def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
-            module_mw=MODULE_BEAM_MW, k_eff=K_SAFE, eta_acc=0.30):
-    """The station as built: whole modules, and what they actually deliver."""
+def net_electric_kw_at(beam_mw, n_linac, window=STATION_WINDOW_MEV,
+                       k_eff=K_SAFE, eta_acc=0.30):
+    """Net electricity from a beam and the drivers that carry it.
+
+    THE one statement of the plant's net. station() reads it and so does the
+    driver section, because a formula written twice is a formula that will
+    disagree with itself once."""
+    y_s = 0.5 * sum(spallation_yield())
+    g = plant_gain(k_eff, y_s, fusions_per_proton(window))
+    gross_kw = beam_mw * 1000.0 * g * eta_thermal()
+    return (beam_mw * 1000.0 * (g * eta_thermal() - 1.0 / eta_acc)
+            - n_linac * REF_STANDBY_KW / eta_acc
+            - DRY_COOLING_PENALTY * gross_kw)
+
+
+def built_station(n_mod, module_mw=MODULE_BEAM_MW, window=STATION_WINDOW_MEV,
+                  k_eff=K_SAFE, eta_acc=0.30):
+    """The plant that this many modules of this size actually is.
+
+    Separated from station() so the driver section can ask what one more
+    module would deliver without restating a line of the plant."""
+    if n_mod < 1:
+        raise ValueError(f"a station has at least one module, got {n_mod}")
     y_s = 0.5 * sum(spallation_yield())
     y_f = fusions_per_proton(window)
     g = plant_gain(k_eff, y_s, y_f)
-    need = station_beam_mw(households, window, k_eff, eta_acc)
-    n_mod = math.ceil(need / module_mw)
     beam = n_mod * module_mw
     n_lin = math.ceil(beam / LINAC_BEAM_MW)
     gross_kw = beam * 1000.0 * g * eta_thermal()
-    net_kw = (beam * 1000.0 * (g * eta_thermal() - 1.0 / eta_acc)
-              - n_lin * REF_STANDBY_KW / eta_acc
-              - DRY_COOLING_PENALTY * gross_kw)
+    net_kw = net_electric_kw_at(beam, n_lin, window, k_eff, eta_acc)
     return {
         "window": window, "module_mw": module_mw, "modules": n_mod,
         "beam_mw": beam, "linacs": n_lin, "gain": g, "y_fus": y_f,
@@ -1114,7 +1130,48 @@ def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
         "tritium_total_kg": n_mod * tritium_inventory_kg(window, None),
         "tritium_ratio": tritium_balance(window, module_mw, f_li=F_LI_DESIGN),
         "doubling_y": tritium_doubling_years(module_mw, window),
+        "driver_installed_mw": n_lin * LINAC_BEAM_MW,
+        "driver_stranded_mw": n_lin * LINAC_BEAM_MW - beam,
     }
+
+
+def station_open_loop(households=STATION_HOUSEHOLDS,
+                      window=STATION_WINDOW_MEV, module_mw=MODULE_BEAM_MW,
+                      k_eff=K_SAFE, eta_acc=0.30):
+    """The station sized the way it was sized before the driver section.
+
+    KEPT, and not because anything should call it: station_beam_mw() must be
+    told how many drivers the answer will need BEFORE it has the answer, and
+    this passes the default, ONE. A station that ends up with twelve is sized
+    against a load it does not have and lands BELOW the households it was
+    sized for. That is what report_driver() prices, and a finding is easier to
+    hold than to describe, so the wrong sizing is kept as a function rather
+    than as a paragraph."""
+    need = station_beam_mw(households, window, k_eff, eta_acc)
+    return built_station(math.ceil(need / module_mw), module_mw, window,
+                         k_eff, eta_acc)
+
+
+def station(households=STATION_HOUSEHOLDS, window=STATION_WINDOW_MEV,
+            module_mw=MODULE_BEAM_MW, k_eff=K_SAFE, eta_acc=0.30,
+            max_modules=100000):
+    """The station as built: whole modules, and what they actually deliver.
+
+    Sized by closing the loop -- charging the drivers the answer needs rather
+    than the one the sizing formula had to assume. It walks up from the
+    open-loop figure, which is a floor and never an over-estimate.
+
+    At the ADS convention this returns exactly what the open-loop sizing did,
+    which is why the fault went unseen until the beam was 2.76x larger."""
+    n = max(1, station_open_loop(households, window, module_mw, k_eff,
+                                 eta_acc)["modules"])
+    while n <= max_modules:
+        st = built_station(n, module_mw, window, k_eff, eta_acc)
+        if st["households"] >= households:
+            return st
+        n += 1
+    raise ValueError(f"no station under {max_modules} modules meets "
+                     f"{households:,.0f} households")
 
 
 # ---- RE-SCALING THE STATION FOR THE ADOPTED OPERATING POINT ----------------
@@ -1233,6 +1290,168 @@ def blanket_leakage_penalty(n_split):
     split, which needs only the sign and the order."""
     return n_split ** (1.0 / 3.0)
 
+
+# ---- THE DRIVER ALREADY BOUGHT --------------------------------------------
+# The re-scale left the module count free and said nothing about the DRIVERS,
+# which come in whole machines too. Asking what the drivers are doing turns up
+# a fault in the sizing rather than an optimisation.
+#
+#   station_beam_mw() solves net = P(G eta_th - 1/eta_acc) - n S/eta_acc for P,
+#   and it must be told n -- how many drivers the answer will need -- before it
+#   has the answer. station() passes the default, ONE. At the base station that
+#   is nearly harmless: five drivers, four unbilled standbys, and the whole-
+#   module round-up covers it. At the adopted operating point the beam is 2.76x
+#   larger, the station carries TWELVE drivers, and eleven unbilled standbys is
+#   36.7 MW electric -- more than the round-up returns.
+#
+# So the station as re-scaled lands BELOW the million households it was sized
+# for. That is a finding about the sizing, not about the plant, and the plant
+# is where it is answered: the drivers are bought in units of LINAC_BEAM_MW and
+# the beam does not fill them, so there is installed, paid-for driver capacity
+# standing idle. Filling it closes the shortfall and needs no new driver.
+
+
+def driver_capacity(st):
+    """Installed driver power, beam used, and what is stranded between them."""
+    return (st["driver_installed_mw"], st["beam_mw"], st["driver_stranded_mw"])
+
+
+def station_open_loop_rescaled(target_mw, k_eff=None, **kw):
+    """The re-scaled station as the open-loop sizing had it. See
+    station_open_loop() -- kept to price the fault, not to be built."""
+    k = K_DESIGN if k_eff is None else k_eff
+    return station_open_loop(module_mw=target_mw, k_eff=k, **kw)
+
+
+def marginal_net_mw(n_mod, module_mw=MODULE_BEAM_MW,
+                    window=STATION_WINDOW_MEV, k_eff=K_SAFE, eta_acc=0.30):
+    """What the n-th module is worth, in net MW per MW of beam it adds.
+
+    Returns (net MW per beam MW, whether it forces a new driver). The two
+    differ because a module inside installed driver capacity pays no new
+    standby and a module that crosses a driver boundary pays a whole one."""
+    if n_mod < 2:
+        raise ValueError(f"a marginal module is the second or later, got {n_mod}")
+    lo = built_station(n_mod - 1, module_mw, window, k_eff, eta_acc)
+    hi = built_station(n_mod, module_mw, window, k_eff, eta_acc)
+    return ((hi["net_mw"] - lo["net_mw"]) / module_mw,
+            hi["linacs"] > lo["linacs"])
+
+
+def report_driver():
+    """the drivers the station already owns, and what filling them is worth"""
+    print()
+    print("  THE DRIVER ALREADY BOUGHT")
+    print()
+    print("    Drivers come in whole machines of"
+          f" {LINAC_BEAM_MW:.0f} MW, and the beam does not")
+    print("    fill them. What is between the two is installed capacity doing")
+    print("    nothing.")
+    print()
+    print("    THE RE-SCALED STATION AS THE OPEN-LOOP SIZING HAD IT")
+    print()
+    print("      target                   modules   beam MW   drivers"
+          "   installed   stranded   households")
+    for label, mw in sorted(SPALL_TARGET_MW.items(), key=lambda t: t[1]):
+        st = station_open_loop_rescaled(mw)
+        inst, beam, stray = driver_capacity(st)
+        short = "" if st["households"] >= STATION_HOUSEHOLDS else "   SHORT"
+        print(f"      {label:<24} {st['modules']:7d} {beam:9.1f}"
+              f" {st['linacs']:9d} {inst:11.0f} {stray:10.1f}"
+              f" {st['households']:12,.0f}{short}")
+    print()
+    print("    EVERY ROW WAS SHORT OF THE BASELINE IT WAS SIZED FOR, and the")
+    print("    cause is in the sizing rather than in the plant. The beam is")
+    print("    solved for before the driver count is known, so ONE driver's")
+    print("    standby is charged where the answer needs twelve. Eleven")
+    print(f"    unbilled standbys are"
+          f" {11 * REF_STANDBY_KW / 0.30 / 1000.0:.1f} MW electric, which is more"
+          " than the")
+    print("    whole-module round-up returns.")
+    print()
+    print("    THE STATION THAT ACTUALLY MEETS THE BASELINE -- and station()")
+    print("    is now sized this way, by closing the loop on the drivers it")
+    print("    builds. At the ADS convention it returns exactly what the")
+    print("    open-loop sizing did, which is why the fault went unseen until")
+    print("    the beam was 2.76x larger.")
+    print()
+    print("      target                   modules   beam MW   drivers"
+          "   households   new drivers")
+    for label, mw in sorted(SPALL_TARGET_MW.items(), key=lambda t: t[1]):
+        was = station_open_loop_rescaled(mw)
+        st = rescaled_station(mw)
+        extra = st["linacs"] - was["linacs"]
+        print(f"      {label:<24} {st['modules']:7d} {st['beam_mw']:9.1f}"
+              f" {st['linacs']:9d} {st['households']:12,.0f} {extra:13d}")
+    print()
+    print("    NO ROW NEEDS A NEW DRIVER. The beam that closes the shortfall")
+    print("    is already installed and already paid for; what it needs is")
+    print("    TARGETS, which are the cheap half of the module. At the")
+    print("    ESS-class row the station that meets the baseline and the")
+    print("    station that strands no capacity are the SAME station --")
+    est = rescaled_station(SPALL_TARGET_MW["ESS, design"])
+    was = station_open_loop_rescaled(SPALL_TARGET_MW["ESS, design"])
+    print(f"    {est['modules']} modules, {est['beam_mw']:.0f} MW, twelve"
+          f" drivers, {est['driver_stranded_mw']:.0f} MW stranded,")
+    print(f"    {est['households']:,.0f} households against"
+          f" {was['households']:,.0f}.")
+    print()
+    print("    WHY THE STRANDED BEAM IS THE CHEAPEST BEAM IN THE PLANT")
+    print()
+    inside, _ = marginal_net_mw(est["modules"], SPALL_TARGET_MW["ESS, design"],
+                                k_eff=K_DESIGN)
+    n_cross = est["modules"] + 1
+    while not marginal_net_mw(n_cross, SPALL_TARGET_MW["ESS, design"],
+                              k_eff=K_DESIGN)[1]:
+        n_cross += 1
+    across, _ = marginal_net_mw(n_cross, SPALL_TARGET_MW["ESS, design"],
+                                k_eff=K_DESIGN)
+    avg = est["net_mw"] / est["beam_mw"]
+    print(f"      average over the whole station   {avg:6.3f} net MW per beam MW")
+    print(f"      the module inside capacity       {inside:6.3f}")
+    print(f"      the module that buys a driver    {across:6.3f}")
+    print()
+    print("    The marginal module beats the average because the standby is")
+    print("    already paid, and the module inside installed capacity beats")
+    print(f"    the one that buys a driver by {inside / across:.3f}x.")
+    print()
+    print("    That is the whole of the opportunity, and it is BOUNDED: it is")
+    print(f"    worth exactly the {was['driver_stranded_mw']:.0f} MW that is"
+          " stranded, and not one MW more.")
+    print()
+    print("    AND WHAT IT DOES NOT COST. Adding source neutrons does not")
+    print("    change k -- k is composition, and the fuel salt is unchanged --")
+    print(f"    so the subcritical margin stays"
+          f" {subcritical_margin(K_DESIGN)[1]:,.0f} pcm and the always-")
+    print("    subcritical property is untouched. This is the one lever in")
+    print("    this work that buys output and spends no safety.")
+    print()
+    print("    THE CEILING IS NOT COMPUTED HERE, AND THAT IS THE FINDING.")
+    print("    Net is EXACTLY linear in beam at a fixed driver count, so this")
+    print("    model will hand back more output for more beam without limit.")
+    print("    That is a property of the model and not of the plant. The")
+    print("    blanket is NOT split -- one blanket, and splitting it is")
+    print(f"    refused separately at {blanket_leakage_penalty(20):.2f}x the"
+          " leakage -- so beam is")
+    print("    power density in ONE blanket. In thermal terms:")
+    print()
+    base = station(k_eff=K_SAFE)
+    print(f"      the station the inventories are computed at "
+          f"      {base['thermal_mw']:8,.0f} MW")
+    print(f"      the station that meets the baseline at k = {K_DESIGN:.3f}"
+          f" {est['thermal_mw']:8,.0f} MW"
+          f"   ({est['thermal_mw'] / base['thermal_mw']:.2f}x)")
+    print()
+    print("    materials.py takes the station whole from station() and derives")
+    print("    the salt flow, the salt inventory, the heavy-metal inventory")
+    print("    and the drain tank FROM ITS THERMAL POWER -- and restart.py")
+    print("    takes the decay heat from the same figure. Every one of those")
+    print("    is therefore computed at the pre-decision station. Nothing in")
+    print("    this repository computes a MAXIMUM blanket power density, a")
+    print("    core volume or a coolant flow limit, so nothing here can say")
+    print("    where adding beam stops paying. Recorded as owed, and it is")
+    print("    owed before phase 4 states a station size as achievable.")
+    print()
 
 WORLD_CIVIL_TRITIUM_KG = 25.0   # SOURCED band: the heavy-water reactor stock
 
@@ -2409,7 +2628,9 @@ def selftest():
                        ("scale", report_scale), ("tritium", report_tritium),
                        ("station", report_station),
                        ("ignition", report_ignition),
-                       ("routes", report_routes)):
+                       ("routes", report_routes),
+                       ("rescale", report_rescale),
+                       ("driver", report_driver)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -2443,6 +2664,72 @@ def selftest():
               if mw <= TARGET_DEMONSTRATED_MW) == 2)
 
     print()
+    print("  the driver already bought, and the ceiling that is NOT computed")
+    _ess = SPALL_TARGET_MW["ESS, design"]
+    # NET IS EXACTLY LINEAR IN BEAM at a fixed driver count. Pinned because the
+    # whole marginal argument rests on it, and because it is what makes the
+    # model hand back output without limit -- which is a fault of the model.
+    _n = [net_electric_kw_at(b, 12, k_eff=K_DESIGN) for b in (200.0, 220.0,
+                                                              240.0)]
+    check("net is exactly linear in beam at a fixed driver count",
+          abs((_n[2] - _n[1]) - (_n[1] - _n[0])) < 1e-6)
+    _base = station(k_eff=K_SAFE)
+    _built = station_open_loop_rescaled(_ess)
+    _meets = rescaled_station(_ess)
+    # THE FINDING: the sizing charges one driver's standby and the answer needs
+    # twelve, so the station lands below the baseline it was sized for.
+    check("EVERY open-loop-sized station was SHORT of its own baseline",
+          all(station_open_loop_rescaled(mw)["households"]
+              < STATION_HOUSEHOLDS for mw in SPALL_TARGET_MW.values()))
+    check("  -- and the base station at the ADS convention was not, which is"
+          " why it was not caught there",
+          station_open_loop()["households"] >= STATION_HOUSEHOLDS)
+    check("  -- indeed the closed loop returns that station unchanged",
+          station()["modules"] == station_open_loop()["modules"])
+    check("closing the loop meets the baseline",
+          _meets["households"] >= STATION_HOUSEHOLDS)
+    check("  -- and needs NO new driver, at every target power",
+          all(rescaled_station(mw)["linacs"]
+              <= station_open_loop_rescaled(mw)["linacs"]
+              for mw in SPALL_TARGET_MW.values()))
+    check("at the ESS row the baseline-meeting station strands nothing",
+          _meets["driver_stranded_mw"] == 0.0)
+    check("  -- so the beam that closes the shortfall was already installed",
+          _meets["beam_mw"] <= _built["driver_installed_mw"])
+    _inside, _cross_a = marginal_net_mw(_meets["modules"], _ess,
+                                        k_eff=K_DESIGN)
+    _nx = _meets["modules"] + 1
+    while not marginal_net_mw(_nx, _ess, k_eff=K_DESIGN)[1]:
+        _nx += 1
+    _across, _cross_b = marginal_net_mw(_nx, _ess, k_eff=K_DESIGN)
+    check("the boundary module is identified as the one that buys a driver",
+          _cross_b and not _cross_a)
+    check("the marginal module beats the average -- the standby is fixed",
+          _inside > _meets["net_mw"] / _meets["beam_mw"])
+    check("  -- and a module inside capacity beats one that buys a driver",
+          _inside > _across)
+    # AND WHAT IT DOES NOT SPEND. k is composition; source strength is not.
+    check("adding modules does not move k",
+          built_station(_meets["modules"] + 4, _ess, k_eff=K_DESIGN)["k"]
+          == _meets["k"])
+    check("  -- so the subcritical margin is unchanged by it",
+          subcritical_margin(built_station(_meets["modules"] + 4, _ess,
+                                           k_eff=K_DESIGN)["k"])
+          == subcritical_margin(_meets["k"]))
+    # THE CEILING IS OWED. The blanket is not split, so this is 1.39x the
+    # power density in the SAME blanket, and every downstream inventory is
+    # still computed at the station on the left of that comparison.
+    check("the baseline-meeting station runs hotter than the station the"
+          " inventories are computed at",
+          _meets["thermal_mw"] > 1.3 * _base["thermal_mw"])
+    check("  -- and the report says the ceiling is not computed here",
+          "THE CEILING IS NOT COMPUTED HERE" in _capture_ps(report_driver))
+    check("a station of no modules is refused",
+          _raises_value(lambda: built_station(0)))
+    check("a first module has no marginal figure",
+          _raises_value(lambda: marginal_net_mw(1)))
+
+    print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")
     return 1 if fail else 0
 
@@ -2468,6 +2755,7 @@ def main():
                     help=report_routes.__doc__)
     ap.add_argument("--rescale", action="store_true",
                     help="the station rebuilt at the adopted operating point")
+    ap.add_argument("--driver", action="store_true", help=report_driver.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -2493,6 +2781,8 @@ def main():
         return report_routes()
     if a.rescale:
         return report_rescale()
+    if a.driver:
+        return report_driver()
     return report()
 
 

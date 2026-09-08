@@ -423,8 +423,8 @@ beam to hold its own inventory. And self-sufficient is not self-replicating: **8
 to breed a successor's first charge inside a forty-year life, against a **71.8 year** doubling at
 7 MW. **`--station` then scales it to a million households, and the scale-up decides what one
 module left open.** A module is not a plant: the cell's geometry does not scale and the production
-target has a *sourced* power its own study designed it at, so a station is **20 modules of 4 MW**,
-four linacs, **80 MW** of 8 GeV beam, **3,203 MW thermal**, **1,162 MW net electric**, **1,018,884
+target has a *sourced* power its own study designed it at, so a station is **21 modules of 4 MW**,
+five linacs, **84 MW** of 8 GeV beam, **3,364 MW thermal**, **1,141 MW net electric**, **1,001,103
 households**, after a **5 % dry-cooling penalty that is adopted in the design rather than offered
 beside it** — zero water consumed, and the module count absorbs the cost. At that sourced 4 MW target
 the **265 MeV/c window returns 0.733 and does not close**; the **150 MeV/c window holds 1.605 kg**
@@ -636,11 +636,32 @@ operation**. Recorded, not repaired; the selftest asserts the failure so it cann
 asserts the two agree, because the value is *derived* there and stated here only to avoid an import
 cycle. **`powersource.py --rescale`** rebuilds the station at it: of the four constraints that set the
 4 MW module, three vanish with the muon channel and only the **spallation target's power** survives, so
-the module count runs **58 → 46** at an ESS-class 5 MW target and **23** at a 10 MW one. **The re-scale
-does not recover what the safety decision cost** — the beam is **230 MW at every row**, because it is
+the module count runs **59 → 48** at an ESS-class 5 MW target and **24** at a 10 MW one. **The re-scale
+does not recover what the safety decision cost** — the beam is **240 MW at every row**, because it is
 set by the multiplication and the module size only decides how it is divided. Re-scaling buys
 buildability, not energy, and the selftest pins that so the hope cannot be re-asserted. Only **1.4 MW**
 has ever been operated, so every larger row is a design study.
+**`--driver` then asks what the *drivers* are doing, and finds a fault rather than an optimisation.**
+Drivers are bought in whole 20 MW machines, so a beam that does not fill them leaves installed
+capacity idle — and the sizing that set the beam had to be told how many drivers the answer would
+need *before* it had the answer, so it charged **one** standby where the station builds **twelve**.
+Eleven unbilled standbys are **36.7 MW** electric, more than the whole-module round-up returns, so
+**every re-scaled station landed below the million households it was sized for** — 975,546 at the
+ESS row. At the ADS convention the same sizing was right, which is why it went unseen until the beam
+was 2.86× larger. `station()` is now sized by **closing the loop** and returns the base station
+unchanged. What closes the shortfall needs **no new driver**: at the ESS row the station that meets
+the baseline and the station that strands no capacity are the **same station** — 48 modules, 240 MW,
+twelve drivers, **1,019,486 households**. The stranded beam is the cheapest in the plant, at
+**5.009** net MW per beam MW against **4.343** for the module that buys a driver and 4.843 on
+average, and it **spends no safety**: k is composition, so more source neutrons leave the 10,000 pcm
+margin and the always-subcritical property untouched. **The ceiling is not computed here, and that
+is the finding**: net is *exactly* linear in beam at a fixed driver count, so the model returns more
+output for more beam without limit, which is a property of the model and not of the plant. The
+blanket is not split, so this is **1.39×** the power density in the same blanket — and every
+downstream inventory (`materials.py`'s salt flow, salt and heavy-metal inventories and drain tank,
+`restart.py`'s decay heat) is derived from the **pre-decision** station's 3,364 MW. Nothing here
+computes a maximum blanket power density, a core volume or a coolant-flow limit, so nothing here can
+say where adding beam stops paying. **Owed before phase 4 states a station size as achievable.**
 
 **`tools/criticality.py`** (**can handling or storing this fuel cause an accident** — asked directly,
 and answered with the discipline's own arithmetic rather than with reassurance, because nothing here

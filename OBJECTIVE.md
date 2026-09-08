@@ -53,11 +53,12 @@ property is a fact about the material rather than about the operator. The
 subcritical margin doubles to 10,000 pcm. There is no intermediate: `k_eff` is
 capped at 0.900 by the property itself.
 
-**The price is 2.76× the driver** — 84 MW to 230 MW for the same million
+**The price is 2.86× the driver** — 84 MW to 240 MW for the same million
 households — because at lower multiplication more of the plant's own electricity
 recirculates into its accelerators. It was quoted at 2.05× when the decision was
 put, **corrected to 2.76× before implementation**, and re-confirmed at the true
-figure. The reason given for paying it: *"it's what sells a new plant to a
+figure; it is 2.86× once the sizing charges the drivers the station actually
+builds — see the driver decision below. The reason given for paying it: *"it's what sells a new plant to a
 community, in an age when plants and data centers are being rejected."*
 
 **Re-scaling the station does not recover that cost, and the re-scale was
@@ -65,9 +66,44 @@ undertaken to test whether it could.** The module size was set by a *pion*
 production target, which route C does not have; of the four constraints that
 fixed it at 4 MW, three vanish with the muon channel and only the **spallation
 target's power** survives. Re-scaling to an ESS-class 5 MW target takes the
-module count from 58 to 46, and to 23 at a 10 MW target — but **the beam is
-230 MW at every row**, because it is set by the multiplication and the module
+module count from 59 to 48, and to 24 at a 10 MW target — but **the beam is
+240 MW at every row**, because it is set by the multiplication and the module
 size only decides how it is divided. Re-scaling buys buildability, not energy.
+
+**The station is now sized by closing the loop on its own drivers, and the
+open-loop sizing is kept as a function rather than as a paragraph.** The beam
+must be solved for before the number of drivers is known, so the sizing charged
+**one** driver's standby where the re-scaled station builds **twelve**. Eleven
+unbilled standbys are 36.7 MW electric — more than the whole-module round-up
+returns — so **every re-scaled station landed below the million households it
+was sized for**, 975,546 at the ESS row. At the ADS convention the same sizing
+was right, which is why the fault went unseen until the beam was 2.86× larger.
+`station()` now walks up from the open-loop figure, which is a floor and never
+an over-estimate, and returns the base station unchanged.
+
+**What closes the shortfall was already bought.** Drivers come in whole 20 MW
+machines and the beam did not fill them, so 10 MW of installed driver capacity
+stood idle. At the ESS row **the station that meets the baseline and the station
+that strands no capacity are the same station** — 48 modules, 240 MW, twelve
+drivers, 1,019,486 households — and no target row needs a new driver. The
+stranded beam is the cheapest in the plant (**5.009** net MW per beam MW against
+**4.343** for the module that buys a driver), because the standby is already
+paid. It is also the **only lever in this work that buys output and spends no
+safety**: k is composition, so more source neutrons leave the 10,000 pcm margin
+and the always-subcritical property untouched. And it is **bounded** — worth
+exactly the 10 MW that was stranded and not one MW more.
+
+**The ceiling on adding beam is owed, not computed, and that is recorded rather
+than filled.** Net is *exactly* linear in beam at a fixed driver count, so the
+model will return more output for more beam without limit; that is a property of
+the model and not of the plant. The blanket is not split, so beam is power
+density in **one** blanket, and the baseline-meeting station runs at **1.39×**
+the thermal power at which every downstream inventory is computed — `materials.py`
+derives the salt flow, the salt and heavy-metal inventories and the drain tank
+from `station()`'s thermal figure, and `restart.py` takes the decay heat from the
+same one. Nothing in this repository computes a maximum blanket power density, a
+core volume or a coolant-flow limit. **Owed before phase 4 states a station size
+as achievable.**
 
 ## The phases
 
