@@ -34,6 +34,21 @@ of metrics g_s on a FIXED manifold, s in [0,1], satisfying five conditions:
         AND B are both given.  (transit.py's gate, which refuses to initialise
         part 2 without a declared arrival.)
 
+    *** SCOPE, ADDED BY create.py: D1-D5 WAS WRITTEN FOR THE CORRIDOR. ***
+
+    D1 fixes the MANIFOLD and D2 asks for a compactly supported metric change
+    on it.  A WORMHOLE GATE FAILS D2 -- not by a little, and not on size: R^3
+    is simply connected and a wormhole is not, and no continuous deformation of
+    a metric on a fixed manifold bridges that at any support.  The candidate
+    ranking below has no throat architecture in it either.
+
+    So "PHASE 1 IS FINISHED AS MATHEMATICS" is finished ABOUT THE CORRIDOR.
+    The definition is not wrong; it is narrower than the architecture this
+    project has since adopted, and create.py records what that costs -- chiefly
+    that CREATING a throat is a TOPOLOGY problem with its own theorem, harsher
+    in kind than the source problem, while ENLARGING one is a metric problem
+    that every instrument here already covers.
+
     A CONSTRUCTION SATISFYING D1-D5 IS A TRANSITION.  ONE VIOLATING D4 IS
     PROPULSION AND IS NOT IN SCOPE.  Alcubierre's shift vector violates D4 by
     construction; that is the whole reason it is a different object.

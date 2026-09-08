@@ -4887,3 +4887,75 @@ the far mouth must still be carried there at sublight first. **This adds capabil
 
 ### Seated
 - `bothways.py` — new. `index3.py` — **359 findings**, six new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `create.py` — sweeping phase 1's dependents, and CREATE is not CONTAIN
+
+`reversal.py`'s lesson was that **dependents never get swept**. The wormhole pivot was bigger than any
+correction, and it hadn't been swept. Doing it found two things.
+
+### 1. The wormhole fails phase 1's own definition
+
+| | | gate |
+|---|---|---|
+| D1 | endpoints are labels | YES |
+| **D2** | **compact support** | **NO** |
+| D3 | proper distance falls | YES |
+| D4 | no momentum | YES |
+| D5 | both endpoints declared | YES |
+
+**R³ is simply connected and a wormhole is not.** No continuous deformation of a metric on a *fixed
+manifold* bridges that, at any support. **D2 fails on topology, not size** — and a throat was never in
+phase 1's candidate ranking either. *"Phase 1 is finished as mathematics"* was finished about an
+architecture we have left. Scoped in place there.
+
+### 2. Which separates two problems the phrase runs together
+
+| | | kind | status |
+|---|---|---|---|
+| **CONTAIN** | hold an existing throat open | **metric** | thirty passes of work |
+| **CREATE** | bring a throat into existence | **topology** | never once looked at |
+
+### 3. And creation has its own theorem — harsher *in kind*
+
+Geroch, Tipler, **Borde (gr-qc/9406053)**: topology change is *kinematically* possible, but
+
+> *"Neither Geroch's original theorem, nor its mild generalization... assume anything about the
+> energy-momentum tensor, or indeed about a field equation."*
+
+**So exotic matter cannot help.** Every other wall in this project was about *sourcing* something.
+**This one does not care what the source is.**
+
+And the escape I expected fails:
+
+> *"causality violations have to occur when the topology changes, **even if incomplete geodesics are
+> admitted**."*
+
+Dynamically worse: *"in dimensions ≥ 3 causally compact topology-changing spacetimes cannot satisfy
+Einstein's equation (with a reasonable source)."*
+
+### 4. Borde's three escapes — all leave Lorentzian GR
+
+drop causal compactness → Tipler's singularity **or a point at infinity** (*"highly undesirable"*);
+weaken the curvature constraints → an alteration of Einstein's equation that *"would have to be fairly
+severe"*; Euclidean path integral → abandons the Lorentzian framework.
+
+His own caution, kept verbatim: the theorems' *"true value is not so much that they actually rule out
+topology change, but rather that they allow us to pinpoint what modifications we have to make."*
+
+### 5. The clean escape is architectural
+
+Every theorem above is about topology **change**. If the topology is *already* nontrivial, **growing a
+throat from r₀ to r₁ is a metric change and none of it applies** — and that is exactly the problem this
+tree has been solving all along.
+
+> **Not "manufacture a wormhole." "Find one and enlarge it."**
+
+**Honest cost: nobody has ever observed one.** It converts a construction problem into an **astronomy**
+problem — a real conversion, not a small one — but a *different* problem, and nothing in the topology
+theorems closes it. Live constructive literature (arXiv:2505.02210, nucleation via Morse theory and
+0-surgery) is named, not leaned on: `NOT-RUN`.
+
+### Seated
+- `create.py` — new. `phase1.py` — scoped in place. `index3.py` — **366 findings**, seven new.
