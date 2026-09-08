@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of thirty-six obstructions, SIX dissolved, FOUR relocated,
-EIGHTEEN closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of thirty-eight obstructions, SIX dissolved, FOUR relocated,
+TWENTY closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -210,7 +210,9 @@ LEDGER = [
   "mass, which the positive mass theorem forbids", "DISSOLVED",
   "IT DOES NOT. concentric.py puts a compact negative core inside a positive "
   "shell of equal magnitude: the monopoles cancel, M_ADM = 0 EXACTLY, and it "
-  "still seats and leads over most of a decade in m. The theorem is nearly "
+  "still seats and leads over most of a decade in m. (pair.py: only the "
+  "theorem's INEQUALITY is dissolved this way. Its RIGIDITY clause then "
+  "DERIVES the negative local energy this row calls assumed.) The theorem is nearly "
   "free -- shell delay/core advance ~ (L/R_s)/(2 ln(L/a)) = 8% -- because the "
   "core's advance carries a logarithm of its compactness and the shell's delay "
   "does not. The corridor is vacuum only for b/a >~ 50. Negative LOCAL energy "
@@ -240,6 +242,31 @@ LEDGER = [
   "and drift to contact is not a defect to engineer out. A restoring force must "
   "come from OUTSIDE Newtonian statics: GR, time dependence, or a "
   "non-gravitational channel. The GR version is NOT-RUN", "chain.py"),
+ ("ER-BRIDGE", "the original wormhole is a vacuum solution and needs no "
+  "exotic matter", "CLOSED-NEGATIVE",
+  "TRUE AND USELESS. The maximally extended Schwarzschild spacetime IS a "
+  "tunnel joining two asymptotic regions, in vacuum -- with a WHITE hole at "
+  "the far end, since a horizon is one-way and nothing exits through a black "
+  "hole. IT IS PROVABLY IMPASSABLE: the X=0 throat falls from r=2M at Kruskal "
+  "T=0 to zero at T=1, and every leftward radial null ray T = c - X meets the "
+  "singularity at X_s=(c^2-1)/2c, T_s=(c^2+1)/2c with |X_s| < T_s, because "
+  "|1-c^2| < 1+c^2 for EVERY c>0 -- exact, no approximation, scanned over "
+  "200,000 starting points with a strictly negative margin at each. Fuller & "
+  "Wheeler 1962. Holding it open is the same exotic-matter bill, which is why "
+  "Morris-Thorne added it", "pair.py"),
+ ("BALANCE-EVADES-PMT", "a wormhole of -E paired with a black hole of +E "
+  "balances the ledger and evades the positive mass theorem", "CLOSED-NEGATIVE",
+  "IT DOES THE OPPOSITE, AND THAT IS THE FINDING. The theorem is a ONE-SIDED "
+  "bound, not a symmetric ledger: the negative member cannot exist at all "
+  "under the DEC, so balance licenses nothing. Pushed through honestly, "
+  "balance in one asymptotic region gives not (+E,-E) but M_ADM = 0 -- which "
+  "IS concentric.py -- and then the RIGIDITY clause fires: M_ADM = 0 under the "
+  "DEC implies MINKOWSKI. The device is not Minkowski, so its matter CANNOT "
+  "satisfy the DEC. THE ONLY BALANCED NON-TRIVIAL CONFIGURATION IS ONE THAT "
+  "VIOLATES THE DOMINANT ENERGY CONDITION -- balance does not remove the "
+  "exotic-matter bill, it PROVES the bill unavoidable. Charge is the quantity "
+  "that does pair (Wheeler), because it is sign-symmetric and mass is not",
+  "pair.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -584,10 +611,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 36)
+    chk("obstructions tracked", len(LEDGER), 38)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 18)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 20)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

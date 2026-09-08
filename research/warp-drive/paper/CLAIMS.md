@@ -1004,6 +1004,60 @@ hands the device exactly that.
 
 ---
 
+## ★★★ H19 — the rigidity clause: the exotic matter is **derived**, not assumed
+
+**H19. The positive mass theorem's second half — `M_ADM = 0` ⟺ Minkowski — applied to a device that
+has `M_ADM = 0` and is not Minkowski, proves its matter cannot satisfy the dominant energy condition.
+Negative energy in this design is a theorem, not an assumption, and no magnitude enters the argument.**
+
+Every use of the positive mass theorem in this tree read only the inequality. The rigidity clause is
+the half that pays.
+
+| | |
+|---|---|
+| the theorem | `M_ADM ≥ 0`, **and `M_ADM = 0` iff the spacetime is Minkowski** — under asymptotic flatness, nonsingularity, and the **DEC** |
+| the device | `M_ADM = 0`, measured `−4.000e−15` (`concentric.py`), and **not** Minkowski — it seats a conjugate point and has structure at every radius |
+| therefore | **its matter cannot satisfy the DEC** |
+
+`concentric.py`'s caution 1 read *"negative mass is still assumed."* **It is not an assumption any
+more** — superseded in place, along with every "the positive mass theorem has nothing to object to"
+in the tree. The device satisfies the theorem's **conclusion** while necessarily violating its
+**hypothesis**, and the rigidity clause is what makes the violation forced.
+
+**Which inverts what a balance principle looks like it buys.** Balance, pushed through the theorem,
+does not give a `(+E, −E)` pair — the negative member cannot exist under the DEC, because the theorem
+is a **one-sided bound, not a symmetric ledger**. It gives `M_ADM = 0`, and then rigidity charges for
+it:
+
+> **The only balanced, non-trivial configuration is one that violates the dominant energy condition.
+> Balance does not remove the exotic-matter bill. It is the proof that the bill is unavoidable.**
+
+**And the pairing intuition is a real theorem about the wrong quantity.** Wheeler's *charge without
+charge*: thread a wormhole with field lines and the two mouths read `+Q` and `−Q` with no charged
+matter anywhere — the ledger closes exactly. But the mass that goes with a charge goes as `Q²`, so it
+is **sign-blind**: the two mouths carry opposite charge and the **same positive** mass. The mass ledger
+does not cancel; **it doubles**.
+
+> **A quantity pairs `±` if and only if it is sign-symmetric.** Charge is. Energy is not, because the
+> positive mass theorem commits its sign. That is `dichotomy.py`'s Weyl-against-Ricci split reached
+> from a completely different direction — **two independent routes to the same discriminator.**
+
+**Two supporting corrections.** The **emitter is the black hole** (Hawking, `1.92e−9 K` at
+`detect.py`'s 32.13 M☉ target); a horizonless wormhole has no surface gravity and does not emit — the
+real contrast is `detect.py`'s absorb-versus-**transmit**. And *"a tunnel with a black hole at the far
+end"* is the **Einstein–Rosen bridge**, a vacuum solution needing no exotic matter, with a **white**
+hole at the far end — **measured impassable**: the throat falls from `2M` to `0` between Kruskal
+`T = 0` and `T = 1`, and every leftward null ray hits the singularity first because
+`|1 − c²| < 1 + c²` for every `c > 0`.
+
+| | `pair.py` |
+|---|---|
+| status | **PROVEN** (rigidity ⇒ DEC failure; ER non-traversability, exact; charge sign-blindness) + **MEASURED** (Hawking temperatures; 200,000-ray scan) |
+| new? | the rigidity clause applied to this device — **yes, and it upgrades an assumption to a derivation** |
+| **not** claimed | that the balance principle licenses a `±E` pair — it forbids one; that a closed universe's total energy is **zero** — ADM mass is a surface integral at spatial infinity, and a closed universe has none, so the quantity is **undefined**, not zero (a definitional refusal, filed as one); that the ER bridge is a route to anything — it is the solution that does *not* work; that any magnitude in the exotic-matter bill has moved — none has |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1099,3 +1153,9 @@ hands the device exactly that.
 - **That Earnshaw makes the device unstable.** It does the opposite: it shows the device holds the one
   seat Earnshaw leaves, and that neutral is the Newtonian optimum rather than an oversight. What it
   refuses is any *Newtonian* fix.
+- **That balance across a pair evades the exotic-matter requirement.** It proves the requirement. The
+  positive mass theorem is a one-sided bound, and its rigidity clause forces the DEC violation. See **H19**.
+- **That the total energy of a closed universe is zero.** It is **undefined** — there is no spatial
+  infinity for the surface integral. True and empty, not true and useful.
+- **That a wormhole emits anything.** No horizon, no surface gravity, no Hawking temperature. The
+  emitter is the black hole.

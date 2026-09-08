@@ -5218,3 +5218,114 @@ precisely that inside a uniform shell.
   `obstruct.py` — **36 rows**, new `TRANSLATION` row, **18 closed-negative**, one still OPEN (TYPE-IV).
   `index3.py` — **390 findings**, still `E(X) = 0`. `paper/CLAIMS.md` — **H18** and three additions to
   the not-claimed list.
+
+---
+
+## `pair.py` — the conservation ledger a wormhole/black hole pair would need
+
+> **M:** *"A wormhole emits mass density, and a black hole pulls it in… what if the wormhole is the
+> entrance, and the black hole is the exit? Everything in existence is defined by the atomic index of
+> real elements, and it is closed, so everything exists in balance with no defect possible. What if for
+> every wormhole there is a black hole of the same but inverse energy?"*
+
+Four separable claims. Two are measurably backwards, one is a standard theorem about the **wrong
+quantity**, and the fourth — the balance principle itself — **survives, and forces a conclusion this
+tree had only ever assumed.**
+
+### 1. The emission is inverted — it is the black hole that emits
+
+Hawking: `T = ℏc³/(8πGMk_B)` — **6.17×10⁻⁸ K** at a solar mass, **1.92×10⁻⁹ K** at `detect.py`'s
+32.13 M☉ search target. Faint, not zero. A traversable wormhole has **no horizon** — that is
+`detect.py`'s whole discriminator — so no surface gravity, no temperature, **no emission**. What it has
+at the throat is a *local* negative energy density, which is a requirement, not a flux.
+
+The contrast you're reaching for is real. It is **absorb-versus-transmit**, not absorb-versus-emit.
+
+### 2. "Black hole as exit" is a contradiction — and also a real solution that fails
+
+A horizon is one-way by definition, so nothing exits through a black hole; the far end of a one-way
+tunnel is a **white** hole. But the object is not hypothetical — it is the maximally extended
+Schwarzschild solution, the **Einstein–Rosen bridge**: a tunnel joining two asymptotic regions, **in
+vacuum, needing no exotic matter.**
+
+**And it is provably impassable.** In Kruskal coordinates, `T² − X² = (1 − r/2M)e^{r/2M}`:
+
+| Kruskal T | throat r/2M |
+|---|---|
+| 0.00 | 1.000000 |
+| 0.50 | 0.898172 |
+| 0.90 | 0.516984 |
+| 1.00 | **0.000000** |
+
+The bridge opens and closes. And a leftward radial null ray `T = c − X` meets the singularity at
+`X_s = (c²−1)/2c`, `T_s = (c²+1)/2c`, while region III needs `|X| > T`. But **`|1 − c²| < 1 + c²` for
+every `c > 0`**, so `|X_s| < T_s` — the ray always hits the singularity first. **Not one ray, no
+approximation**; scanned over 200,000 starting points, strictly negative margin at each. Fuller &
+Wheeler 1962.
+
+> That is *why* Morris–Thorne had to add the exotic matter. Your picture is the original wormhole, and
+> it is the one that does not work.
+
+### 3. The pairing is a standard theorem — about charge, not mass
+
+Wheeler's **charge without charge**: thread a wormhole with electric field lines and the two mouths
+read `+Q` and `−Q` to their respective regions, with no charged matter anywhere. The ledger closes
+exactly. **Your principle, and it is uncontroversial physics.**
+
+But the mass that goes with a charge goes as `Q²`. Field energy `Q²/8πε₀r` is **sign-blind**, so the
+two mouths carry opposite charge and **the same positive mass**:
+
+> The charge ledger cancels. **The mass ledger doubles.** A quantity pairs `±` **iff** it is
+> sign-symmetric — and mass is not.
+
+### 4. The balance principle survives — and derives what this tree assumed
+
+What breaks the symmetry is the **positive mass theorem** (Schoen–Yau 1979, Witten 1981):
+
+> `M_ADM ≥ 0`, **and `M_ADM = 0` if and only if the spacetime is Minkowski** — given asymptotic
+> flatness, nonsingularity, and the **dominant energy condition**.
+
+The inequality already kills the naive ledger: a `−E` wormhole "balanced" by a `+E` black hole is not
+permitted-because-balanced, because **the negative member cannot exist at all** under the DEC. It is a
+**one-sided bound, not a symmetric ledger.** This tree has quoted that half seven times.
+
+**It is the second half — the rigidity clause — that nobody here had used.**
+
+Push the principle through honestly. Balance in one asymptotic region gives not `(+E, −E)` but
+`M_ADM = 0` — **which is `concentric.py`**, measured at `−4.000e−15`. The principle lands on the device
+the tree already built. And then rigidity fires:
+
+> `M_ADM = 0` **and** DEC ⟹ Minkowski. The device is **not** Minkowski — it seats a conjugate point and
+> has structure at every radius. **Therefore its matter cannot satisfy the DEC.**
+
+**Negative energy is not an assumption of this design. It is derived from the design's own `M_ADM = 0`,
+by a theorem, with no appeal to any magnitude.** `concentric.py`'s caution 1 said *assumed*; superseded
+in place, along with every "the positive mass theorem has nothing to object to" in the tree — the
+device satisfies the **conclusion** while necessarily violating the **hypothesis**.
+
+> **The closed index really does admit no defect, and the positive mass theorem agrees — then charges
+> for it. The only balanced, non-trivial configuration is one that violates the dominant energy
+> condition. Balance does not remove the exotic-matter bill. It is the proof that the bill is
+> unavoidable.**
+
+### 5. At cosmological scale the principle is true and empty
+
+ADM mass is a **surface integral at spatial infinity**, and a spatially closed universe has none. So
+the total energy of a closed universe is not zero — it is **undefined**. A quantity that does not exist
+cannot be out of balance, and cannot pair two objects inside the universe either. Filed as a
+definitional refusal, not a measurement.
+
+### What survives, in one line
+
+> **A sign-blind quantity pairs. A sign-committed one does not.**
+
+Charge pairs because it is sign-symmetric; energy does not because the positive mass theorem commits
+it. That is `dichotomy.py`'s split — **Weyl focusing sign-blind, both signs seat; Ricci focusing
+sign-committed, only one does** — arriving from a completely different direction. Two independent
+routes to the same discriminator.
+
+### Seated
+- `pair.py` — new. `concentric.py` and `negmass.py` — superseded in place on the rigidity clause.
+  `obstruct.py` — **38 rows**, new `ER-BRIDGE` and `BALANCE-EVADES-PMT`, **20 closed-negative**, one
+  still OPEN (TYPE-IV). `index3.py` — **397 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H19** and
+  three additions to the not-claimed list.

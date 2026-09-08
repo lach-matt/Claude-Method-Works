@@ -46,8 +46,11 @@ A compact NEGATIVE core inside a POSITIVE shell of the same magnitude:
   first term    a Plummer-smoothed core of mass -m  (Phi > 0: it advances)
   second term   a thin shell of mass +m at R_s      (Phi < 0: it delays)
 
-    THE MONOPOLES CANCEL, SO M_ADM = 0 EXACTLY and the positive mass theorem is
-    satisfied.  Measured: Phi(1000) = -6.2e-13, against Phi(1) = +4.4e-3.
+    THE MONOPOLES CANCEL, SO M_ADM = 0 EXACTLY and the positive mass theorem's
+    INEQUALITY is satisfied.  Measured: Phi(1000) = -6.2e-13, against
+    Phi(1) = +4.4e-3.  (Its RIGIDITY clause is not, and cannot be -- see
+    pair.py: M_ADM = 0 with the DEC would force Minkowski, so the DEC fails
+    here of necessity.)
 
 And the division of labour is Newton's, not an assumption:
 
@@ -119,6 +122,15 @@ At b = 1, a = 0.02, R_s = 200, a run of 300 from x = -150 (n = 2500):
  1. NEGATIVE MASS IS STILL ASSUMED.  M_ADM = 0 removes the positive-mass-
     theorem objection to the CONFIGURATION; it does not make the core's matter
     less exotic.  Its local energy density is negative and that is unchanged.
+
+    *** SUPERSEDED BY pair.py: IT IS NOT ASSUMED, IT IS DERIVED. ***
+    The positive mass theorem has a second half this file read only the first
+    of.  RIGIDITY: M_ADM = 0 under the dominant energy condition implies the
+    spacetime IS MINKOWSKI.  This one is not -- it seats a conjugate point and
+    has structure at every radius -- so its matter CANNOT satisfy the DEC.  The
+    negative energy density is forced by the design's own M_ADM = 0, by a
+    theorem, with no appeal to any magnitude.  What follows below stands
+    unchanged; only the word ASSUMED does not.
  2. LINEARISED WEAK FIELD, as composite.py.  Phi_max ~ m/a = 0.25 at the
     design point, which is NOT small.  The window's edges are INDICATIVE and a
     strong-field treatment could move them.  This is the weakest point here.
@@ -253,7 +265,9 @@ def selftest():
         abs(adm_residual(5e-3)) < 1e-10, True)
     print("       Phi(1000) = %+.4e.  No 1/r tail, so no ADM mass, so the"
           % adm_residual(5e-3))
-    print("       positive mass theorem has nothing to object to.")
+    print("       positive mass theorem's INEQUALITY has nothing to object to.")
+    print("       Its RIGIDITY clause does, and productively: M_ADM = 0 under")
+    print("       the DEC forces Minkowski, so the DEC must fail here.  pair.py")
     # error 1, kept as a test: the constant applied EVERYWHERE is a bare monopole
     bad = lambda r: 5e-3 / math.sqrt(r * r + A_CORE ** 2) - 5e-3 / R_SHELL
     chk("the FIRST potential I wrote had a bare negative monopole",
@@ -331,7 +345,9 @@ def report():
     print("\n" + "=" * 79)
     print("VERDICT")
     print("  The two-region device seats and leads with M_ADM = 0 EXACTLY, so")
-    print("  the positive mass theorem has no objection to the configuration.")
+    print("  the positive mass theorem's INEQUALITY has no objection to the")
+    print("  configuration -- and its RIGIDITY clause then DERIVES the exotic")
+    print("  matter this file had only assumed.  See pair.py.")
     print("  The corridor is genuinely vacuum -- traceless to 7.5e-4 -- which")
     print("  needs the core compact against the impact parameter, b/a >~ 50.")
     print("  The shell delays without focusing, by Newton's shell theorem, so")

@@ -116,7 +116,10 @@ FIND us.
     because there is no mass to see.
 
         THE PROPERTY THAT MAKES THE DESIGN SAFE -- M_ADM = 0, satisfying the
-        positive mass theorem -- IS THE PROPERTY THAT MAKES IT UNFINDABLE.
+        positive mass theorem's INEQUALITY -- IS THE PROPERTY THAT MAKES IT
+        UNFINDABLE.  (pair.py, later: it satisfies that inequality while
+        necessarily VIOLATING the theorem's hypothesis, and the rigidity clause
+        is what proves the violation is forced rather than assumed.)
 
     And it separates two objects the project has been treating as one:
 
