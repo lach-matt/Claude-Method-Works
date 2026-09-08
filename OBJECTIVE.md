@@ -31,8 +31,8 @@ not meet a criterion, that is recorded below rather than softened.
 | 5 | **Ignites further stations** from its own output | `powersource.py --ignition` |
 | 6 | **Entirely environmentally friendly**, mitigated before design | `environment.py` |
 | 7 | **Built-in fail-safes** | `powersource.py --stability` |
-| 8 | **Restartable quickly after shutdown** | `restart.py` — **being built** |
-| 9 | **Cheap to start**, and a tremendous output making it long-term sustainable | `startcost.py` — **being built** |
+| 8 | **Restartable quickly after shutdown** | `restart.py` — **minutes held molten, 6 h drained**; the clock is thermal, not neutronic |
+| 9 | **Cheap to start**, and a tremendous output making it long-term sustainable | `startcost.py` — **32-day energy payback, EROI 460:1**; measured in energy, not money |
 
 **Two decisions taken by the author, recorded here so that neither is re-argued and neither is
 forgotten:** 'cold' is dropped from the objective (above), and **criteria 8 and 9 are adjudicated by
