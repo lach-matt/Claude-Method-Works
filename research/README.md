@@ -4587,3 +4587,78 @@ that would sharpen every matrix result here, not just this one.
 ### Seated
 - `reversal.py` — new. `seatindex.py` — Lyapunov claim struck. `transit.py` — scope added in place.
 - `index3.py` — **335 findings**, six new. Still 15 cells, `E(X) = 0`.
+
+---
+
+## `entsym.py` — "the symmetric relation is precisely what entanglement provides"
+
+The instinct finds a **real** meeting point, and it is a theorem rather than an analogy. But the
+correspondence **does not transfer**, and the reason is one this tree has now hit three times in three
+vocabularies.
+
+### 1. Two symmetries, and they are not the same theorem
+
+| | why symmetric | **relates** |
+|---|---|---|
+| **conjugacy** | `T` is symmetric → the Jacobi operator is self-adjoint | **two points on one geodesic** |
+| **entanglement** | a global pure state → `S_A = S_B`; modular flow self-adjoint | **two subsystems** |
+
+**Same word; different objects on each side of the relation.** That both are "symmetric" is true and is
+not yet an argument.
+
+### 2. But they do meet — at QNEC
+
+> `⟨T_kk⟩ ≥ (ℏc/2π)S″`
+
+The left side is exactly what drives the Jacobi equation; the right is entanglement curvature along the
+ray. Not a resemblance — an inequality, already in this tree.
+
+### 3. And what the meeting says: **QNEC has no Weyl term**
+
+It bounds `T_kk`, the Ricci-sourced part, and nothing else. **In vacuum `T_kk = 0` identically**, so
+QNEC reads `S″ ≤ 0` and **is satisfied** — and `composite.py` seats a conjugate point at **56.50** in
+that same vacuum. Pure Weyl, with the entanglement bound indifferent to it.
+
+> **The entanglement bound is silent about the channel that seats.**
+
+### 4. So it lands on the half that was never the problem
+
+| half | cost | QNEC |
+|---|---|---|
+| the seat | free | **SILENT** (no Weyl term) |
+| the contraction | all of it | **BINDING** (`entangle.py`'s `2π²`) |
+
+**Entanglement's symmetric relation is absent from the half that costs and superfluous on the half that
+is free** — `reverse.py`'s split, reached from the entanglement side. Worth something as a cross-check,
+nothing as a route.
+
+### 5. And GJW shows what the relation needs: two systems
+
+Their coupling is explicitly bipartite — `∫dt d^{d-1}x h(t,x) O_R(t,x) O_L(−t,x)`, two boundaries,
+thermofield-double entangled — and that symmetry does real work **because there are two systems for it
+to be symmetric between.**
+
+**The corridor has no throat.** The areal radius is monotone at every radius; A and B are two points in
+one connected region, and the natural entanglement cut (corridor vs exterior) puts them on the **same
+side** of it.
+
+| route | needs | |
+|---|---|---|
+| MTY | two ends to age differentially | no throat |
+| GJW | two boundaries to couple | no throat |
+| **entanglement** | two subsystems to be symmetric between | no throat |
+
+> **Three routes, one missing structure.**
+
+### And the fork this puts to you — stated, not chosen
+
+*"Don't associate my theory of warp transition with worm holes"* is what makes the corridor throatless
+— and throatlessness is exactly what denies entanglement its bipartition.
+
+> **A throat would supply the two systems entanglement needs, and would make the object a wormhole.**
+
+That's a choice about architecture, not a fact about physics. The scoping was yours and so is the trade;
+the file states it and does not choose.
+
+### Seated
+- `entsym.py` — new. `index3.py` — **341 findings**, six new. Still 15 cells, `E(X) = 0`.
