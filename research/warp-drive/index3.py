@@ -589,8 +589,19 @@ FINDINGS = [
   "so there are two gaps: 20x against what physics PERMITS, 1e65 against what can be MADE. The first is the meaningful one and it is far smaller than this project thought"),
  ("NO-CHARGE-LOOPHOLE", 0, -1, +1, "entangle.py",
   "but QNEC is STATE-INDEPENDENT -- it holds for every state, entangled or not, charged or not, and charge appears nowhere in it. And Gao-Jafferis-Wall's traversable wormhole, which does use entanglement, is SLOWER than the outside route"),
+ # GJW read properly.  Their escape mechanism is one achronal.py could not find.
+ ("EXTERNAL-PATH-ESCAPE",+1,+1,+1, "gjw.py",
+  "GJW break achronality by ADDING AN EXTERNAL CAUSAL PATH -- coupling the boundaries changes the chronology relation itself. achronal.py proved you cannot break it through the MATTER; this is not a matter-side escape at all, and it is the only known way past Graham-Olum"),
+ ("BANK-LOAN-THEOREM", +1, -1, -1, "gjw.py",
+  "and the same move forbids faster: traversability requires non-achronality, non-achronality requires an existing outside causal path, so you could have gone that way. GJW's own words -- a loan you can only get if you are rich enough not to need it"),
+ ("GJW-FLAT-COST",    +1,  0, +1, "gjw.py",
+  "their flat-space version is left as a remark; quantified it needs amplification 4.387e71 * D^2, RISING as D^2 exactly over six decades, so bigger separation is HARDER"),
+ ("PLANCK-FOURTH-TIME",+1,+1,+1, "gjw.py",
+  "and that gain reaches unity at 0.0934 PLANCK LENGTHS -- a fourth independent route to the Planck scale after corridor.py's two and achievable.py's one, about a different geometry again"),
+ ("GJW-IS-EXISTENCE-PROOF",+1,+1,+1, "gjw.py",
+  "under M's scoping, where the lead is dropped, GJW is an EXISTENCE PROOF: a traversable connection from entanglement plus a coupling, no exotic matter postulated, the negative energy DERIVED. UV-complete and published"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-six obstructions six dissolved, three relocated, ten closed negative, five conditional, two open and none untested"),
+  "of twenty-seven obstructions six dissolved, three relocated, ten closed negative, six conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -707,7 +718,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 227)
+    chk("number of findings indexed", len(FINDINGS), 232)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -722,7 +733,7 @@ def selftest():
     # anyway.
     chk("the cell TYPE-IV opened holds every hard objection, old and new",
         sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
-        ['ACHRONAL', 'ANEC-VIOLATED', 'CHARGE-NO-LEAD', 'GAP-WIDENS', 'NO-ACHIEVABLE-CORE', 'TYPE-IV'])
+        ['ACHRONAL', 'ANEC-VIOLATED', 'BANK-LOAN-THEOREM', 'CHARGE-NO-LEAD', 'GAP-WIDENS', 'NO-ACHIEVABLE-CORE', 'TYPE-IV'])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
@@ -737,17 +748,18 @@ def selftest():
     # Only cells with NO zero.  T2-ADM and SWIMMER are (0,-1,-1) -- they carry a
     # zero on X and so do NOT sit on all three, which my first hand list got wrong.
     chk("cells sitting on all three axes", sorted(triple), sorted([
-                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BUILT-SOURCE","CASIMIR-ROUTE",
-                "CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS",
+                "ACHRONAL","ANEC-VIOLATED","AREA-OVER-THICK","BANK-LOAN-THEOREM","BUILT-SOURCE",
+                "CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CLASSICAL-WINS",
                 "CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS",
                 "DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
                 "DEVICE-SEATS-LEADS","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT",
-                "ESCAPES-TYPE-I","FLYBY","GAP-WIDENS","KERR-FLYBY","LAUNCHER",
-                "LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK",
-                "LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL",
-                "NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT",
-                "NOT-POWERED","OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC",
-                "OPEN-GATE","ORDINARY-MATTER","PLANCK-THIRD-TIME","PRESSURE-CAPPED",
+                "ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GAP-WIDENS",
+                "GJW-IS-EXISTENCE-PROOF","KERR-FLYBY","LAUNCHER","LENSING-IS-THE-SEAT",
+                "LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE",
+                "MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON",
+                "NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED","OBJ-CEILING",
+                "OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE",
+                "ORDINARY-MATTER","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED",
                 "PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD",
                 "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-NOT-POWER",
                 "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT",
@@ -761,10 +773,11 @@ def selftest():
                 "CONTRACTION-LAW","CORE-IS-TYPE-I","COST-IS-ONE-NUMBER","D-CANCELS",
                 "DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED",
                 "DEVICE-SEATS-LEADS","EC-TAKEN","EM-IS-ORDINARY","ENTANGLEMENT-IS-IT",
-                "ESCAPES-TYPE-I","FLYBY","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES",
-                "LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED",
-                "NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI",
-                "NO-THROAT","NOT-POWERED","OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDINARY-MATTER",
+                "ESCAPES-TYPE-I","EXTERNAL-PATH-ESCAPE","FLYBY","GJW-IS-EXISTENCE-PROOF",
+                "KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES","LOG-COORDINATE",
+                "LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","NO-BUCHDAHL","NO-EXOTIC",
+                "NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","NOT-POWERED",
+                "OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDINARY-MATTER","PLANCK-FOURTH-TIME",
                 "PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE",
                 "PROPER-IS-THE-QUANTITY","SCOPE-DROPS-LEAD","SEATS-AND-EARLY",
                 "SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3","SLINGSHOT",

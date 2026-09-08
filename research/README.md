@@ -3325,3 +3325,72 @@ much.
 - `index3.py` — 227 findings: `ENTANGLEMENT-IS-IT`, `TWENTY-NOT-65-ORDERS`, `TWO-CONSTANTS-AGREE`,
   `PRINCIPLED-VS-BUILDABLE`, `NO-CHARGE-LOOPHOLE`.
 - `obstruct.py` — 26 rows. New `ENTANGLEMENT-ROUTE`, **CONDITIONAL**.
+
+---
+
+## Pass 27 — `gjw.py`: Gao–Jafferis–Wall read properly, and the one thing they leave open
+
+M: *"I want to draw from their work to do it better, and you and I can do it better, considering the
+200+ findings since the project began."* Read (arXiv:1608.05687v3), not recalled. Two things in it are
+directly ours.
+
+### Their escape from Graham–Olum is one `achronal.py` could not have found
+
+> *"signals from early times on the horizon can intersect it again at late times, by passing through
+> the directly coupled boundaries... **making them no longer achronal**. Hence the above impossibility
+> results do not apply."*
+
+`achronal.py` measured that **ANEC violation protects achronality** — 25 rays, 0 escapes — so you
+cannot break it by making the **matter** more exotic. **GJW break it by adding an external causal
+path.** Coupling the boundaries changes the chronology relation itself. That is not a matter-side
+escape at all, which is why our scan could never have found it, and **it is the only known way past
+that theorem.**
+
+### But the same move is why it cannot be faster — a closed loop
+
+> *"such wormholes do not enable one to travel faster than light over long distances through space.
+> Hence traversable wormholes are like getting a bank loan: **you can only get one if you are rich
+> enough not to need it.**"*
+
+Traversability **requires** non-achronality; non-achronality **requires** an existing outside causal
+path; an existing outside path means you could have gone that way. **No cleverness moves that.**
+
+**Under M's scoping that is not fatal.** With the lead dropped, **GJW is an existence proof** — a
+traversable connection from entanglement plus a coupling, **no exotic matter postulated**, the negative
+energy *derived*. That is exactly what M asked for, and it is UV-complete and published.
+
+### The calculation they leave open, closed
+
+> *"the negative ANE could be understood as coming from the **Casimir effect associated to the cycle in
+> space**... the effect would be **enhanced if the signals sent between the black holes were directed
+> and amplified**."*
+
+They name the enhancement and never quantify it. Quantified:
+
+| `D` | Casimir `\|ρ\|` | needed (Pa) | **amplification** |
+|---|---|---|---|
+| 1 m | 2.167×10⁻²⁸ | 9.505×10⁴³ | **4.387×10⁷¹** |
+| 1 km | 2.167×10⁻⁴⁰ | 9.505×10³⁷ | 4.387×10⁷⁷ |
+| 1 AU | 4.326×10⁻⁷³ | 4.247×10²¹ | 9.817×10⁹³ |
+| 1 light-year | 2.705×10⁻⁹² | 1.062×10¹² | 3.927×10¹⁰³ |
+
+**gain = 4.387×10⁷¹ · D², rising as `D^{2.000}` over six decades — bigger separation is *harder*.**
+*(My first reading of this table called it falling. It rises.)*
+
+It reaches unity only at **0.0934 Planck lengths** — a **fourth independent route to the Planck scale**,
+after `corridor.py`'s Unruh and Casimir crossings and `achievable.py`'s core crossing.
+
+### What "better" can and cannot mean
+
+| | |
+|---|---|
+| faster | **CANNOT** — the bank-loan theorem is closed and structural |
+| cheaper | **CANNOT** — the flat-space gain rises as `D²` and hits unity sub-Planck |
+| **stated exactly** | **CAN** — their flat-space cost was a remark; it is `4.387×10⁷¹ D²`, now a number |
+| **the mechanism** | **CAN** — non-achronality by external coupling, a route `achronal.py` proved unreachable through matter |
+
+### Seated
+
+- `index3.py` — 232 findings: `EXTERNAL-PATH-ESCAPE`, `BANK-LOAN-THEOREM`, `GJW-FLAT-COST`,
+  `PLANCK-FOURTH-TIME`, `GJW-IS-EXISTENCE-PROOF`.
+- `obstruct.py` — 27 rows. New `GRAHAM-OLUM-ESCAPE`, **CONDITIONAL**.
