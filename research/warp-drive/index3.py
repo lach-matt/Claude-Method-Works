@@ -556,8 +556,19 @@ FINDINGS = [
   "what composite.py actually measured is CUMULATIVE weak-field lensing, f = b^2 c^2/(4 G M), validated against the solar gravitational lens at 547.6 AU where the published focus is ~550"),
  ("SEAT-IS-NOT-NEW",   0, -1, +1, "spec.py",
   "so the seat is gravitational lensing, ordinary and known since 1919, and the Sun already does it. What is new is the sign structure, the split, reversal invariance, the achronality anti-correlation and the 65-order gap -- none of it a warp drive"),
+ # M's reframing: measured in the right quantity, and three negatives verified.
+ ("PROPER-IS-THE-QUANTITY",+1,+1,+1, "transition.py",
+  "the warp quantity is PROPER DISTANCE, INT e^{-Phi} dl, not arrival time INT e^{-2Phi} dl. Not a faster trip, a SHORTER one -- and only the second was ever measured before"),
+ ("LENS-HAS-WRONG-SIGN", 0, -1, +1, "transition.py",
+  "a gravitational lens STRETCHES proper distance -- 1.000763 against a negative source's 0.999342 -- so it focuses AND lengthens. It is not a weak version of this concept but the opposite one"),
+ ("NO-THROAT",         +1, +1, +1, "transition.py",
+  "the areal radius R = r e^{-Phi} is MONOTONE at every radius (dR/dr from 0.482 to 1.0001), so there is no throat, no second asymptotic region, and the topology is R^3"),
+ ("NO-HORIZON",        +1, +1, +1, "transition.py",
+  "g_tt = -e^{2Phi} < 0 everywhere with Phi bounded by m/a = 1.0 and POSITIVE -- the opposite sign from the deep negative potential a horizon needs. Not a black hole, at any radius"),
+ ("NO-MOMENTUM-FLUX",  +1, +1, +1, "transition.py",
+  "T^0i = 0 EXACTLY from the Einstein tensor at every radius: no thrust, no exhaust, no reaction mass. warpshell.py's CM theorem and Doppler-cubed budget belong to a different architecture"),
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of twenty-four obstructions six dissolved, three relocated, nine closed negative, four conditional, two open and none untested"),
+  "of twenty-five obstructions six dissolved, three relocated, ten closed negative, four conditional, two open and none untested"),
 ]
 
 # Support points: they correct or enable other cells but answer no directive.
@@ -674,7 +685,7 @@ def selftest():
     print("\nCoordinates are well formed")
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 212)
+    chk("number of findings indexed", len(FINDINGS), 217)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 15)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -710,13 +721,14 @@ def selftest():
                 "DEVICE-SEATS-LEADS","EC-TAKEN","EM-GAP","EM-IS-ORDINARY","ESCAPES-TYPE-I",
                 "FLYBY","GAP-WIDENS","KERR-FLYBY","LAUNCHER","LENSING-IS-THE-SEAT",
                 "LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE",
-                "MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-NULL-QI",
-                "OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE",
-                "ORDINARY-MATTER","PLANCK-THIRD-TIME","PRESSURE-CAPPED","SCOPE-DROPS-LEAD",
-                "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3",
-                "SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT","STIFF-WALL",
-                "STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE","THE-WINDOW",
-                "THEOREM-IS-FREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT",
+                "MAGNITUDE-REACHED","NO-ACHIEVABLE-CORE","NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON",
+                "NO-MOMENTUM-FLUX","NO-NULL-QI","NO-THROAT","OBJ-CEILING","OBSERVED-ENGINE",
+                "ONE-AXIS-FLAT","ONE-SIGN-EXOTIC","OPEN-GATE","ORDINARY-MATTER",
+                "PLANCK-THIRD-TIME","PRESSURE-CAPPED","PROPER-IS-THE-QUANTITY",
+                "SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT",
+                "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT",
+                "STIFF-WALL","STURM-IMPLIES-COLLAPSE","THE-DOOR","THE-SPLIT","THE-TRADE",
+                "THE-WINDOW","THEOREM-IS-FREE","TWO-ROUTES-AGREE","TYPE-IV","UNIVERSAL-SEAT",
                 "VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND",
                 "ZERO-ADM-DEVICE"]))
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
@@ -726,13 +738,14 @@ def selftest():
                 "DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","EC-TAKEN","EM-IS-ORDINARY",
                 "ESCAPES-TYPE-I","FLYBY","KERR-FLYBY","LENSING-IS-THE-SEAT","LIMIT-DISSOLVES",
                 "LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED",
-                "NO-BUCHDAHL","NO-EXOTIC","NO-NULL-QI","OBSERVED-ENGINE","ONE-SIGN-EXOTIC",
-                "ORDINARY-MATTER","PLANCK-THIRD-TIME","PRESSURE-CAPPED","SCOPE-DROPS-LEAD",
-                "SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SIGN-STRUCTURE-3",
-                "SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT","STIFF-WALL","THE-DOOR",
-                "THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","TWO-ROUTES-AGREE","UNIVERSAL-SEAT",
-                "VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","WEYL-IS-SIGNBLIND",
-                "ZERO-ADM-DEVICE"]))
+                "NO-BUCHDAHL","NO-EXOTIC","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI",
+                "NO-THROAT","OBSERVED-ENGINE","ONE-SIGN-EXOTIC","ORDINARY-MATTER",
+                "PLANCK-THIRD-TIME","PRESSURE-CAPPED","PROPER-IS-THE-QUANTITY",
+                "SCOPE-DROPS-LEAD","SEATS-AND-EARLY","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT",
+                "SIGN-STRUCTURE-3","SLINGSHOT","STABLE-FOR-FREE","STATE-NOT-ELEMENT",
+                "STIFF-WALL","THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE",
+                "TWO-ROUTES-AGREE","UNIVERSAL-SEAT","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL",
+                "VACUUM-PATH","WEYL-IS-SIGNBLIND","ZERO-ADM-DEVICE"]))
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})

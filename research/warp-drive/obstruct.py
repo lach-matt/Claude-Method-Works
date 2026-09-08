@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of twenty-four obstructions, SIX dissolved, three relocated,
-NINE closed negative, FOUR conditional, two are OPEN, NONE is untested.
+THE HEADLINE: of twenty-five obstructions, SIX dissolved, three relocated,
+TEN closed negative, FOUR conditional, two are OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -229,6 +229,16 @@ LEDGER = [
   "and BEC effective negative mass are not exceptions. THE DEVICE IS NOT "
   "RETRACTED; the core is not buildable, and that is a theorem not a budget",
   "achievable.py"),
+ ("WRONG-CATEGORY", "the object is a wormhole, a black hole, or a propulsion "
+  "system", "CLOSED-NEGATIVE",
+  "IT IS NONE OF THE THREE, verified rather than asserted. The areal radius "
+  "R = r e^{-Phi} is MONOTONE at every radius, so no throat and the topology "
+  "is R^3. g_tt = -e^{2Phi} < 0 everywhere with Phi POSITIVE and bounded, so "
+  "no horizon. T^0i = 0 EXACTLY from the Einstein tensor, so no thrust, no "
+  "exhaust, no reaction mass -- warpshell.py's CM theorem and Doppler-cubed "
+  "budget belong to a different architecture. And the warp quantity is PROPER "
+  "DISTANCE, which a negative source contracts and ORDINARY MASS STRETCHES: a "
+  "lens has the wrong sign for this concept entirely", "transition.py"),
  ("CHARGE-STATE", "a charge state can supply what the core supplies",
   "CONDITIONAL",
   "IT SUPPLIES THE SEAT AND NOT THE LEAD, and the boundary is the "
@@ -372,6 +382,15 @@ def check_spec_achievable():
                     / spec.range_for_field(1e11) - 1.0) < 1e-9
             and spec.range_for_field(45.0) > spec.range_for_field(1e11))
 
+def check_three_negatives():
+    import transition, concentric
+    ph = concentric.potential(2e-2)
+    radii = (0.01, 0.05, 0.5, 5.0, 50.0, 150.0)
+    return (not transition.has_throat(ph, radii)
+            and not transition.has_horizon(ph, radii)
+            and transition.momentum_flux(ph, (2.0, 0.3, 0.0), 2e-2)[0] == 0.0
+            and transition.proper_ratio(ph, -150.0, 150.0, 1.0)[0] < 1.0)
+
 def check_shift_costs():
     import pathmetric
     return all(pathmetric.excess_density(v) > 0.0 for v in (0.1, 0.5, 0.9))
@@ -388,10 +407,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 24)
+    chk("obstructions tracked", len(LEDGER), 25)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 3)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 9)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 10)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 4)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
@@ -430,6 +449,8 @@ def selftest():
         check_charge_split(), True)
     chk("THE-LEAD: not required under scoping, and the seat is achievable",
         check_spec_achievable(), True)
+    chk("WRONG-CATEGORY: no throat, no horizon, no momentum flux",
+        check_three_negatives(), True)
 
     print("\nThe question this file exists to answer")
     chk("rows that must be tested or accepted before a build",

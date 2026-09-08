@@ -3099,3 +3099,79 @@ Not the seat. What this project established that was not already known:
   `PEAK-NOT-SUSTAINED`, `LENSING-IS-THE-SEAT`, `SEAT-IS-NOT-NEW`. The all-three and affirmative
   fixtures are now **generated from the data** — the hand-maintained lists had broken three times.
 - `obstruct.py` — `THE-LEAD` and `CHARGE-STATE` amended with the withdrawal.
+
+---
+
+## Pass 24 — `transition.py`: the right quantity, and three negatives verified
+
+M, twice, and both are corrections to my framing rather than to the physics:
+
+> *"don't associate my theory of warp transition with worm holes or black holes. It is called warp
+> transition because the concept appears to only be possible by warping spacetime. It is based in a
+> misguided concept that this kind of travel is propulsion based"*
+>
+> *"we can give it a new and accurate name once the transition is proven possible"*
+
+I had been scoring this against **propulsion** benchmarks — *"does it arrive before light?"* — and
+importing **wormholes** and **black holes** as reference objects. All three are my imports, not the
+concept's.
+
+### The warp quantity is proper distance, not arrival time
+
+For `ds² = −e^{2Φ}dt² + e^{−2Φ}dx²`:
+
+| | |
+|---|---|
+| **proper distance** `∫e^{−Φ}dl` | **the warp quantity** — is the space between A and B *shorter*? |
+| light time `∫e^{−2Φ}dl` | the propulsion quantity — does a signal arrive *early*? |
+
+**Only the second was ever measured here.** The first is what the concept is about: **not a faster
+trip, a shorter one.**
+
+| configuration | `Φ` at `b` | proper/flat | light/flat |
+|---|---|---|---|
+| concentric m=5e-3 | +4.974×10⁻³ | 0.999835006 | 0.999670263 |
+| concentric m=2e-2 | +1.990×10⁻² | 0.999341526 | 0.998687029 |
+| **ordinary mass M=5e-3** | −5.000×10⁻³ | **1.000190257** | 1.000380775 |
+| **ordinary mass M=2e-2** | −2.000×10⁻² | **1.000762600** | 1.001529425 |
+
+**A negative source contracts proper distance. Ordinary mass stretches it.**
+
+### And that sharpens pass 23b's retraction
+
+`spec.py` concluded the focusing is gravitational lensing. True, and **worse than merely unoriginal:
+a lens STRETCHES proper distance.** It focuses *and* lengthens. In the warp quantity a lens has the
+**wrong sign** — it is not a weak version of this concept, it is the opposite one. **Only `Φ > 0`
+warps at all.**
+
+### The three negatives — verified, not asserted
+
+**Not a wormhole.** A throat is a *minimum* of the areal radius `R(r) = r·e^{−Φ}`. Measured:
+`dR/dr` = 0.482 at `r`=0.01, 0.911 at 0.05, 0.999 at 0.5, 1.0001 outward. **Monotone everywhere** — no
+throat, no second asymptotic region, topology `R³`.
+
+**Not a black hole.** `g_tt = −e^{2Φ}` at `r`=0.001, 1, 100: −7.369, −1.041, −1.0002. **`g_tt < 0`
+everywhere**, `Φ` bounded by `m/a` and **positive** — the opposite sign from the deep negative
+potential a horizon needs.
+
+**Not propulsion.** `T^{0i} = G^{0i}/8π` at `r` = 0.5, 2, 10: **exactly 0.000e+00** at every radius.
+No thrust, no exhaust, no reaction mass, no Tsiolkovsky. `warpshell.py`'s CM theorem and Doppler-cubed
+budget belong to a **different architecture** and do not apply here.
+
+### Naming
+
+Deferred by instruction. `transition.py` proposes none. "Warp" is retained as a placeholder because
+the mechanism is a warping of spacetime; **"drive", "engine", "propulsion", "thrust" and "exhaust" are
+dropped from that file's vocabulary** because the measurement says they are wrong.
+
+### The wall is unmoved
+
+The contraction is real and needs `Φ > 0`, which needs a negative source. Nothing here revises the 65
+orders or `Q ≤ M`. **What is missing is a `Φ > 0` source — that is the whole of the remaining problem,
+and the same line it has been since pass 21.**
+
+### Seated
+
+- `index3.py` — 217 findings: `PROPER-IS-THE-QUANTITY`, `LENS-HAS-WRONG-SIGN`, `NO-THROAT`,
+  `NO-HORIZON`, `NO-MOMENTUM-FLUX`.
+- `obstruct.py` — 25 rows. New `WRONG-CATEGORY`, **CLOSED-NEGATIVE**.
