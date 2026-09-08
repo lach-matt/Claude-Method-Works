@@ -1002,6 +1002,32 @@ link. **What the flag is worth is its direction, not its number**: it says the t
 is not a formality but decides whether the design as it stands is internally consistent. The decks are
 **not run here** — no transport code, no evaluated library, and OpenMC is not installable from this
 package index — and the studies that would settle it are named. See `docs/DECK.md`)
+**`tools/fuelform.py`** (**is there a material other than salt** — asked because `deck.py
+--provenance` found the chloride is the one material in the design with no critical benchmark behind
+it, and `materials.py` calls the chemistry **FORCED** in three links: fast spectrum, therefore liquid
+fuel for forty years of fission-product removal, therefore a salt, therefore a chloride. **Two of the
+three links are weaker than stated.** **Link 3 breaks outright**: the always-subcritical property is
+**not bought by the salt**, because `k_inf` is a *ratio* of macroscopic cross sections and every one
+scales with number density, **so density cancels** — what sets the threshold is the fissile fraction
+and what the carrier absorbs, and the selftest asserts that *structurally* (`k_infinity` takes no
+density argument, because a ratio cannot depend on one). Across eight candidate forms the crossing
+runs **7.21 % (bare MOX) to 9.71 % (fluoride salt), a spread of only 1.35** — every fast fuel form has
+an always-subcritical threshold and they are all in the same place. **The design's own salt is the
+second worst at 8.35 %**, needing **1.16×** more fissile than bare oxide for the same property, and
+**MOX in lead-bismuth crosses lower at 8.08 %**. **Link 2 is weaker than it looks**: *"the fuel must be
+liquid"* is really *"fission products must come out"*, and **EBR-II closed its own fuel cycle on site
+for thirty years** with solid metal fuel and batch pyroprocessing — batch is not online and the
+difference is real, but it is not a forcing, and this work has never priced it. **Link 1 stands** —
+nothing challenges the fast spectrum. **And then the column that decides it**: the design's chloride
+is the **only row with NONE in both operating history and criticality benchmarks**, while the two
+accelerator-driven systems actually being built — **MYRRHA and CiADS** — chose **MOX in lead-bismuth**,
+which carries Phénix, Superphénix, BN-600/800, Joyo and FFTF behind it. **So the salt uniquely buys
+ONE thing, online fission-product removal, and uniquely costs provenance** — and if `--provenance`'s
+flag holds, the design is paying its entire provenance budget for a safety property it does not get,
+which is available at a lower fissile fraction in a material with sixty years of operating history.
+**The file does not take the decision**: it is a change of material, it costs the online removal loop,
+and what that loop is worth has never been computed here. What it does is **remove the word "forced"
+from a choice that was never forced**. See `docs/FUELFORM.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
@@ -1014,7 +1040,7 @@ sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real c
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
 `docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/MATERIALS.md`,
-`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md`, `docs/PROVENANCE.md`, `docs/DECK.md` and `docs/DOCFIGURES.md`.
+`docs/BUILDPACKAGE.md`, `docs/ENVIRONMENT.md`, `docs/EXPLORE.md`, `docs/PROVENANCE.md`, `docs/DECK.md`, `docs/FUELFORM.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and

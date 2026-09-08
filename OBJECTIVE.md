@@ -276,6 +276,35 @@ threshold by the U-235 conservatism assumes the model errs by the same multiple 
 **What it is worth is its direction**: the transport calculation is not a formality. It decides whether
 the design as it stands is internally consistent, and **phase 4 proceeds when it is done.**
 
+**And the material itself is now an open decision rather than a forced one.** `materials.py` called
+the chemistry **forced** in three links — fast spectrum, therefore liquid fuel, therefore a salt,
+therefore a chloride. `tools/fuelform.py` tests each. **Two are weaker than stated.**
+
+**Link 3 breaks.** The always-subcritical property is **not bought by the salt**: `k_inf` is a ratio
+of macroscopic cross sections and every one scales with density, **so density cancels**. What sets the
+threshold is the fissile fraction and what the carrier absorbs. Across eight candidate fuel forms the
+crossing runs **7.21 % to 9.71 % — a spread of 1.35** — and the design's own salt is the **second
+worst** at 8.35 %, needing 1.16× more fissile than bare oxide for the same property. **MOX in
+lead-bismuth crosses lower, at 8.08 %.**
+
+**Link 2 is weaker than it looks.** *"The fuel must be liquid"* is really *"fission products must come
+out"*, and **EBR-II closed its own fuel cycle on site for thirty years** with solid metal fuel and
+batch pyroprocessing. Batch is not online and the difference is real — a lower equilibrium
+fission-product inventory — but it is not a forcing, and **this work has never priced it.**
+
+**Link 1 stands.** Nothing challenges the fast spectrum.
+
+**And the column that decides it is provenance.** The design's chloride is the **only candidate with
+NONE in both operating history and criticality benchmarks**. The two accelerator-driven systems
+actually being built — **MYRRHA and CiADS** — chose **MOX in lead-bismuth**, behind which stand
+Phénix, Superphénix, BN-600, BN-800, Joyo and FFTF.
+
+**So the salt uniquely buys one thing — online fission-product removal — and uniquely costs
+provenance.** If `deck.py --provenance`'s flag holds, the design is paying its entire provenance budget
+for a safety property it does not get, which is available at a lower fissile fraction in a material
+with sixty years of operating history. **The decision is the author's, and it is now a decision rather
+than an inheritance.**
+
 ## The phases
 
 1. Define the math in full and prove it.
