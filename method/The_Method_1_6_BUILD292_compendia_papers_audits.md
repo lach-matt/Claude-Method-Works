@@ -11752,7 +11752,7 @@ and **caesium's nF series is measured with δ₂ = −0.2014(16) — negative �
 
 **Uncertainties.** Five of 49 species files carry a quoted uncertainty column. The monotonicity law is testable only where a step can be distinguished from its own error, and **44 of 49 species do not supply what that needs** (register 807).
 
-**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the build supplies neither. **285 of 431 channels are unverified on the compendium's central claim**, and the column says so rather than asserting a verification that never ran (register 782).
+**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the build supplies neither. **126 of 596 channels are untested on the compendium's central claim**, and the column says so rather than asserting a verification that never ran (register 782).
 
 **Appendix B's inputs.** 133 channels were lifted with their values and without their levels. `spectra_raw/` holds no He I file, so when register 868 corrected the Rydberg constant those channels **could not be recomputed**. *A result kept without its inputs cannot be corrected when its method is* (register 871).
 
@@ -23961,6 +23961,22 @@ of the close ≈ 55 % (INFERRED); the close began with more than eight tool call
 - **`r2-ch28a4` COUNTS BIBLIOGRAPHY SURNAME ROWS 37 → 41**, the four new names the additions bring into the compendium's own author census.
 - **`r2-ch16c2` MOVES ON A SUBSTRING AND NOT ON A CITATION.** Its `Chen` row rises from 1 to 2 in the compendium because **`Chenciner` contains `Chen`**. That is the instrument's own surname convention, not a new citation of Chen, and it is re-banked as measured with the reason recorded rather than treated as a finding.
 - **NOTHING WAS RE-BANKED THAT DID NOT MOVE, AND NO INSTRUMENT WAS EDITED TO MAKE A DIFFERENCE GO AWAY.** The reverse guard restores all ten goldens, the manifest and the W text and reproduces the old bundle's own md5 before a byte is written.
+
+### W-296 — the channel sentence repaired, after asking whether the 126 could simply be tested
+
+- **M RULED: replace the figure, and the word is *untested* — "unless they can be tested, in which case we should, and then the sentence dissolves."** That makes the repair conditional on a measurement, and the measurement was taken before a byte moved.
+- **THEY CANNOT BE TESTED FROM ANYTHING HELD HERE, AND THE NUMBERS SAY SO EXACTLY.** All 126 rows have **at least one interior cell**, so none is untestable for want of something to bracket. What the bracket needs is **measured levels**: register 796's test is strict interval membership with the quotation floor — half a unit in the last quoted decimal of the measured level — as its only ε. **The repository holds raw NIST retrievals for seven species: Bi III, C I, Cd II, He II, Hg II, N I, Sc III.** The 126 fall in eight others — **Ne II 37, Ar II 34, Si I 26, Ba III 11, Ca I 7, Ca II 6, Ne I 3, Zn I 2** — and **the two sets do not intersect. Zero of the 126 are reachable.**
+- **THE COORDINATE FILE IS THE WRONG SHAPE FOR IT, WHICH IS WORTH SAYING RATHER THAN ASSUMING.** `COORDINATES-2_13.csv` holds **104,832 rows of (Z, charge, ℓ, mult, δ, grade, source, B, witness, bound)** — one δ per CELL of Λ_spectra, which is the index and not the levels. The measurements store extracted from `spectra_levels_store.zip` is per CHANNEL, 555 rows. **Neither carries a term energy.** The only files that do are the seven `spectra_raw/` retrievals, and they cover none of the eight species.
+- **SO THE VOLUME'S OWN REASON IS CORROBORATED AND THE SENTENCE STANDS, WITH TRUE NUMBERS.** Physics Compendium L186 read *"285 of 431 channels are unverified on the compendium's central claim"* and now reads **"126 of 596 channels are untested on the compendium's central claim."** The Spectra Compendium's *"126 rows remain `untested`, and the reason is data, not definition"* is the same count in the same words.
+- **THE WORD MATTERS AND IT WAS CHECKED.** M's first wording was *unwitnessed*. In this volume family **`unwitnessed` is a value of the `witness` field over CELLS, counted at 104,474 against 358 witnessed**, with its own section and its own class — a different column, a different unit and a different count. **Printing 126 under that word would have replaced a false figure with a false term.** `untested` is the bracket column's own value and is what M ruled.
+- **AND THE 126 REMAIN PUBLISHED AS OPEN.** They are already the corpus's standing open item — *"the Spectra Compendium's 126 untested channels for want of data"* — and nothing here closes them. **What would close them is seven species of raw levels this repository does not hold**, and that is now written down where a future pass can act on it.
+
+### W-297 — six goldens re-banked after the channel sentence
+
+- **SIX MOVED AND EVERY ONE MOVED ON THE ONE SUBSTITUTION.** Five print the md5 of the Physics Compendium — `r2-21a2`, `r2-23a2`, `r2-24a`, `r2-bib2`, `r2-scf`. The sixth is the one that reads the change.
+- **`r2-ch16q2` IS THE GOLDEN THAT SEES IT.** It censuses the numeral **596** across all six volumes and now records **`pc: [30, 186]`** where it recorded `pc: [30]` — the Physics Compendium's L186 has joined the sites carrying the Spectra Compendium's own channel-row count. **That is the repair measured from outside itself**: the sentence that printed 431 now prints the number the table holds, and an instrument that had no part in the change reports the two volumes agreeing.
+- **The census was a fixed point before the goldens were touched**, so W-274's order held with nothing to close.
+- **Nothing was re-banked that did not move, and no instrument was edited.** The reverse guard restores all six goldens, the manifest and the W text and reproduces the old bundle's own md5.
 
 <<<END FILE: WORKING-REGISTER.md>>>
 
@@ -36690,11 +36706,11 @@ compendia	THE-LOWDIN-SOLUTION-2.md	38046	cce968defbb021e4fd6e05172fc1bb79	260
 compendia	The_Method_1_6___Mathematical_Compendium-2.md	310590	ecc158ba2ccaa0b5a2b32cde903e3c6f	3812
 compendia	The_Method_1_6___Spectra_Compendium-2.md	100730	389c8e05b846b018768dd10a0ccd060b	1159
 compendia	The_Method_1_6___The_Index_of_Indices-2.md	118405	d19416dd0fa82c68ec7b9da834e004c4	2093
-compendia	The_Method_1_6___The_Physics_Compendium-2.md	63248	2f9d3a2b20ae79d7c3914f8cc1c2d3b2	913
+compendia	The_Method_1_6___The_Physics_Compendium-2.md	63246	f8a7d726e19eee33bab5cd1703ecb4dd	913
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1311244	cfe890f2f912d095e44515e7a2b573bc	8969
+compendia	WORKING-REGISTER.md	1315093	b90659b04dafc3f69c51dcd2d00b8102	8985
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	agreement.py	10752	f6e1601813de956af99ee93f44364827	254
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
@@ -36790,13 +36806,13 @@ compendia	proveanchor.py	5401	84275f94ea87f8218178fd1415d21bb0	116
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	5edba63b729984297869173c17b88f47	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
-compendia	r2-21a2.out	25255	5eb2ce3df7eb5791e2068f9a0e14e8f8	281
+compendia	r2-21a2.out	25255	b4b717bfc6eae65baa14251880695b22	281
 compendia	r2-21a2.py	24527	aecdb52c18a98462020266d70479b41f	196
 compendia	r2-23a.out	37448	028f44ed38c23683ad9f6fbf7134bf3d	268
 compendia	r2-23a.py	20065	85bd124a1e6cd5dcd5e6198e15259782	222
-compendia	r2-23a2.out	45807	67c7671950f0393d71b243ded8994939	269
+compendia	r2-23a2.out	45807	7624087230774d0d32c053a3ab70d27f	269
 compendia	r2-23a2.py	21230	9ec2bf76d5eaa6b7626a67aab0db5357	235
-compendia	r2-24a.out	24274	1db3d1da940a30b035c7aa2cf9287eb9	227
+compendia	r2-24a.out	24274	b76442342717cecde8a29589f72e2a3e	227
 compendia	r2-24a.py	28685	b905b44fd84c599626c8ef3118c701d5	286
 compendia	r2-25b.out	16449	7c86b6a75bdc62e867b2314c13886f6e	169
 compendia	r2-25b.py	21612	2387c3a5291d209a0bbf048913568cac	293
@@ -36826,7 +36842,7 @@ compendia	r2-32a.out	16599	45d39ed3d26fe560bafa3aa3b7164351	179
 compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
 compendia	r2-bib.out	7712	6505f5280dd4f6928f6a62f0b52f0823	67
 compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
-compendia	r2-bib2.out	7715	45aa06e851e5044f3cd40253337610f7	67
+compendia	r2-bib2.out	7715	89bb48311f29a19e82fec9272e1d1889	67
 compendia	r2-bib2.py	12497	1ee17f0becc1497a4b43160c729482e9	152
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
@@ -36891,7 +36907,7 @@ compendia	r2-ch16p3.out	31551	aff7dbc8d44bf4db728f41701c934d30	407
 compendia	r2-ch16p3.py	23145	c167cac8be8ca0fe5ff1ec4278b57bf7	407
 compendia	r2-ch16q.out	14494	55dd818446a0e902ca80af5b63e6d249	185
 compendia	r2-ch16q.py	19180	9802e46cb07a2540ae20ee67a1b685fd	319
-compendia	r2-ch16q2.out	14842	11981d97d187c65943667476482fa73f	187
+compendia	r2-ch16q2.out	14847	aa27bf8ead753028dc66359752e575c3	187
 compendia	r2-ch16q2.py	20629	67de823ab5dc0aac0089d567683ec9ec	334
 compendia	r2-ch16r.out	39054	98059f5a0b4ba8167a8dc51440e07d4f	547
 compendia	r2-ch16r.py	13585	6d2d618560d4b2603f986b9ce82126ce	240
@@ -37113,7 +37129,7 @@ compendia	r2-regsweep.out	4641	d23a87ed1143ef3442ff0d60e7c1b858	85
 compendia	r2-regsweep.py	10087	c8f400118dbe57bcf8914d37e9522fe6	163
 compendia	r2-regsweep2.out	4978	0d84ccfc7d1f15c015f903f39755da3f	87
 compendia	r2-regsweep2.py	11409	7bf329ed357a77811bdc4e4ae71bbf2b	174
-compendia	r2-scf.out	30503	6bc88cb61664e504b0482aa665233b8d	337
+compendia	r2-scf.out	30503	a72b51789b3402c7f6959f00096b5e5e	337
 compendia	r2-scf.py	19583	70292ea5151a9fe086aab6639529a3d7	220
 compendia	r2-tb1.out	10827	7f79293d9c4f790eae0da949ee9c493a	120
 compendia	r2-tb1.py	14072	a97e9548c5aa4adf885682ed76fc299d	145
@@ -64201,7 +64217,7 @@ for tag, name, sp_, ep_ in (('MC', MC, r'^## LS\. ', r'^## 3B\. '), ('PC', PC, r
   The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
   The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
   The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
-  The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 f8a7d726  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
   LW1-ground.py                                        md5 236975ac  130 lines
@@ -65930,7 +65946,7 @@ print('\nEND r2-24a')
    main The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
    reg  The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
-   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 f8a7d726  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
    sc   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
    E.1    hits [10955]  body L10955–L10967 (13 lines)  ### E.1 The coordinates
@@ -85041,7 +85057,7 @@ except Exception as ex: print('   census read:', ex)
    main The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
    reg  The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
    mc   The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
-   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+   pc   The_Method_1_6___The_Physics_Compendium-2.md         md5 f8a7d726  914 lines
    ioi  The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
    sc   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
    D.2    hits [10376]  body L10376–L10385 (10 lines)  ### D.2 The structure
@@ -85539,7 +85555,7 @@ print('  the family\'s Register home: NONE (§1) — every figure of §25.6 / §
   The_Method_1_6-2.md                                  md5 f4d01315  11904 lines
   The_Method_1_6___The_Register-2.md                   md5 1864bd62  6998 lines
   The_Method_1_6___Mathematical_Compendium-2.md        md5 ecc158ba  3813 lines
-  The_Method_1_6___The_Physics_Compendium-2.md         md5 2f9d3a2b  914 lines
+  The_Method_1_6___The_Physics_Compendium-2.md         md5 f8a7d726  914 lines
   The_Method_1_6___The_Index_of_Indices-2.md           md5 d19416dd  2094 lines
   The_Method_1_6___Spectra_Compendium-2.md             md5 389c8e05  1160 lines
   r2lib.py                                             md5 580d2ea2  454 lines
@@ -92997,7 +93013,7 @@ Appendix B span: (10199, 10264) '## Appendix B — Data and provenance'
   the channel table ARBITER (spectra member, section II L293-L934), totals line L900:
     **596 channel rows across 28 elements · 2,269 interior cells parsed.**
   numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [692, 2366, 4698, 6719, 6731, 6735, 6739, 6743, 6747, 6751, 6755, 6759, 6763, 6767, 6771, 6775, 6779, 6783, 6787], 'ioi': [533], 'sc': [995]}
-  numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2232, 2250, 3986, 3990, 4214, 4298, 6224, 6587, 6783], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
+  numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2232, 2250, 3986, 3990, 4214, 4298, 6224, 6587, 6783], 'pc': [30, 186], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
 
 ================================================================================================
 4.  32.5.2 -- "Every bracket in this book is recomputable from this book. All 1,061."
@@ -108669,7 +108685,7 @@ sys.exit(1 if FAIL else 0)
 
 <<<FILE: r2-bib2.out>>>
 r2-bib.py — census mc 387–672 (the bibliography's `objects` column) and mc 293 (the modular ledger's numerals)
-members: The_Method_1_6___Mathematical_Compendium-2.md ecc158ba | main f4d01315 | reg 1864bd62 | pc 2f9d3a2b | sc 389c8e05 | ioi d19416dd | census fc7891b7
+members: The_Method_1_6___Mathematical_Compendium-2.md ecc158ba | main f4d01315 | reg 1864bd62 | pc f8a7d726 | sc 389c8e05 | ioi d19416dd | census fc7891b7
 
 == §1 THE TABLE, located by scan — the census rows point into it and every one of them is a handle
    exactly one bibliography table header                                  1                        OK

@@ -41,7 +41,7 @@ Appendix B span: (10199, 10264) '## Appendix B — Data and provenance'
   the channel table ARBITER (spectra member, section II L293-L934), totals line L900:
     **596 channel rows across 28 elements · 2,269 interior cells parsed.**
   numeral   153 sites, all six volumes: {'main': [641, 1485, 2526, 3411, 8194, 9170, 10203, 10239, 10311, 11739], 'reg': [692, 2366, 4698, 6719, 6731, 6735, 6739, 6743, 6747, 6751, 6755, 6759, 6763, 6767, 6771, 6775, 6779, 6783, 6787], 'ioi': [533], 'sc': [995]}
-  numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2232, 2250, 3986, 3990, 4214, 4298, 6224, 6587, 6783], 'pc': [30], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
+  numeral   596 sites, all six volumes: {'main': [4013, 10229], 'reg': [2232, 2250, 3986, 3990, 4214, 4298, 6224, 6587, 6783], 'pc': [30, 186], 'ioi': [278, 316, 976], 'sc': [900, 994, 995]}
 
 ================================================================================================
 4.  32.5.2 -- "Every bracket in this book is recomputable from this book. All 1,061."

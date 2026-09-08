@@ -240,11 +240,11 @@ compendia	THE-LOWDIN-SOLUTION-2.md	38046	cce968defbb021e4fd6e05172fc1bb79	260
 compendia	The_Method_1_6___Mathematical_Compendium-2.md	310590	ecc158ba2ccaa0b5a2b32cde903e3c6f	3812
 compendia	The_Method_1_6___Spectra_Compendium-2.md	100730	389c8e05b846b018768dd10a0ccd060b	1159
 compendia	The_Method_1_6___The_Index_of_Indices-2.md	118405	d19416dd0fa82c68ec7b9da834e004c4	2093
-compendia	The_Method_1_6___The_Physics_Compendium-2.md	63248	2f9d3a2b20ae79d7c3914f8cc1c2d3b2	913
+compendia	The_Method_1_6___The_Physics_Compendium-2.md	63246	f8a7d726e19eee33bab5cd1703ecb4dd	913
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1311244	cfe890f2f912d095e44515e7a2b573bc	8969
+compendia	WORKING-REGISTER.md	1315093	b90659b04dafc3f69c51dcd2d00b8102	8985
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	agreement.py	10752	f6e1601813de956af99ee93f44364827	254
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
@@ -340,13 +340,13 @@ compendia	proveanchor.py	5401	84275f94ea87f8218178fd1415d21bb0	116
 compendia	qgraph.py	828	5aac43b570de45fe5215e2ca17ef5244	17
 compendia	r2-21a.out	25222	5edba63b729984297869173c17b88f47	281
 compendia	r2-21a.py	21177	b98f2c83d3005ff6bff41d3b361ff2de	181
-compendia	r2-21a2.out	25255	5eb2ce3df7eb5791e2068f9a0e14e8f8	281
+compendia	r2-21a2.out	25255	b4b717bfc6eae65baa14251880695b22	281
 compendia	r2-21a2.py	24527	aecdb52c18a98462020266d70479b41f	196
 compendia	r2-23a.out	37448	028f44ed38c23683ad9f6fbf7134bf3d	268
 compendia	r2-23a.py	20065	85bd124a1e6cd5dcd5e6198e15259782	222
-compendia	r2-23a2.out	45807	67c7671950f0393d71b243ded8994939	269
+compendia	r2-23a2.out	45807	7624087230774d0d32c053a3ab70d27f	269
 compendia	r2-23a2.py	21230	9ec2bf76d5eaa6b7626a67aab0db5357	235
-compendia	r2-24a.out	24274	1db3d1da940a30b035c7aa2cf9287eb9	227
+compendia	r2-24a.out	24274	b76442342717cecde8a29589f72e2a3e	227
 compendia	r2-24a.py	28685	b905b44fd84c599626c8ef3118c701d5	286
 compendia	r2-25b.out	16449	7c86b6a75bdc62e867b2314c13886f6e	169
 compendia	r2-25b.py	21612	2387c3a5291d209a0bbf048913568cac	293
@@ -376,7 +376,7 @@ compendia	r2-32a.out	16599	45d39ed3d26fe560bafa3aa3b7164351	179
 compendia	r2-32a.py	22360	15a9047af4a637eb7bdb05d0ea982878	306
 compendia	r2-bib.out	7712	6505f5280dd4f6928f6a62f0b52f0823	67
 compendia	r2-bib.py	11246	8d53e12dd6d84b00e6fbb145ae9cfd5a	141
-compendia	r2-bib2.out	7715	45aa06e851e5044f3cd40253337610f7	67
+compendia	r2-bib2.out	7715	89bb48311f29a19e82fec9272e1d1889	67
 compendia	r2-bib2.py	12497	1ee17f0becc1497a4b43160c729482e9	152
 compendia	r2-ch1.py	2940	172fb73dacbf30d5d85eb04f4463c064	48
 compendia	r2-ch10.py	5035	f1603d3f2310ed33583d01f67eb7020c	61
@@ -441,7 +441,7 @@ compendia	r2-ch16p3.out	31551	aff7dbc8d44bf4db728f41701c934d30	407
 compendia	r2-ch16p3.py	23145	c167cac8be8ca0fe5ff1ec4278b57bf7	407
 compendia	r2-ch16q.out	14494	55dd818446a0e902ca80af5b63e6d249	185
 compendia	r2-ch16q.py	19180	9802e46cb07a2540ae20ee67a1b685fd	319
-compendia	r2-ch16q2.out	14842	11981d97d187c65943667476482fa73f	187
+compendia	r2-ch16q2.out	14847	aa27bf8ead753028dc66359752e575c3	187
 compendia	r2-ch16q2.py	20629	67de823ab5dc0aac0089d567683ec9ec	334
 compendia	r2-ch16r.out	39054	98059f5a0b4ba8167a8dc51440e07d4f	547
 compendia	r2-ch16r.py	13585	6d2d618560d4b2603f986b9ce82126ce	240
@@ -663,7 +663,7 @@ compendia	r2-regsweep.out	4641	d23a87ed1143ef3442ff0d60e7c1b858	85
 compendia	r2-regsweep.py	10087	c8f400118dbe57bcf8914d37e9522fe6	163
 compendia	r2-regsweep2.out	4978	0d84ccfc7d1f15c015f903f39755da3f	87
 compendia	r2-regsweep2.py	11409	7bf329ed357a77811bdc4e4ae71bbf2b	174
-compendia	r2-scf.out	30503	6bc88cb61664e504b0482aa665233b8d	337
+compendia	r2-scf.out	30503	a72b51789b3402c7f6959f00096b5e5e	337
 compendia	r2-scf.py	19583	70292ea5151a9fe086aab6639529a3d7	220
 compendia	r2-tb1.out	10827	7f79293d9c4f790eae0da949ee9c493a	120
 compendia	r2-tb1.py	14072	a97e9548c5aa4adf885682ed76fc299d	145

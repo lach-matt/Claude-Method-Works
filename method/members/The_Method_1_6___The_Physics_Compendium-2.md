@@ -183,7 +183,7 @@ and **caesium's nF series is measured with δ₂ = −0.2014(16) — negative �
 
 **Uncertainties.** Five of 49 species files carry a quoted uncertainty column. The monotonicity law is testable only where a step can be distinguished from its own error, and **44 of 49 species do not supply what that needs** (register 807).
 
-**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the build supplies neither. **285 of 431 channels are unverified on the compendium's central claim**, and the column says so rather than asserting a verification that never ran (register 782).
+**The bracket's own inputs.** The channel table is built with its bracket column set to *untested* throughout, because running the bracketing method needs measured neighbours and a tolerance and the build supplies neither. **126 of 596 channels are untested on the compendium's central claim**, and the column says so rather than asserting a verification that never ran (register 782).
 
 **Appendix B's inputs.** 133 channels were lifted with their values and without their levels. `spectra_raw/` holds no He I file, so when register 868 corrected the Rydberg constant those channels **could not be recomputed**. *A result kept without its inputs cannot be corrected when its method is* (register 871).
 

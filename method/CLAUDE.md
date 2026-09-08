@@ -71,9 +71,9 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD127 main** (2,136,245 B ·
-  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD290 compendia** (16,528,506 B ·
-  `256b999b53ebb530dd0d760b9a275e87` · 144,542 lines · 753 members). **755 members in all.** **The Register runs
-  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-295 seated.**
+  `dad1af971146d2979314fe622e1f7c9f` · 18,905 lines · 2 members) and **BUILD292 compendia** (16,532,358 B ·
+  `35536ed8d5b8222715f1bed64c7469c8` · 144,558 lines · 753 members). **755 members in all.** **The Register runs
+  1 to 1889, 1,731 seated** (1,724 numbered + 7 grouped). **W-297 seated.**
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
@@ -145,6 +145,15 @@ no longer on the read path.
   at 1969 *Andrew & Cowan* and *Griffin, Andrew & Cowan*, at 1983 *Maier & Yannakakis* and *Beeri, Fagin, Maier
   & Yannakakis*, at 1999 *Deville* and *Hentenryck* — each pair one work at one year, sharing objects. **The
   repair is a merge, which removes a row and moves the printed *162 works*.**
+- **AND THE CHANNEL SENTENCE IS REPAIRED (W-296, W-297).** Physics Compendium L186 read *"285 of 431 channels
+  are unverified"* and now reads **"126 of 596 channels are untested"**, which is the Spectra Compendium's own
+  count in its own word. M's ruling was conditional — *untested, unless they can be tested* — and the condition
+  was measured before a byte moved: **all 126 have interior cells, so none lacks something to bracket, but the
+  repository holds raw NIST levels for seven species and the 126 fall in eight others, intersecting in none.**
+  `COORDINATES-2_13.csv` is the CELL table, 104,832 rows, and carries no term energy. **The word was checked
+  too**: `unwitnessed` is a `witness` value over cells counted at 104,474, so printing 126 under it would have
+  replaced a false figure with a false term. `r2-ch16q2` reports the repair from outside it — the numeral 596
+  now sits at `pc: [30, 186]`.
 - **FIVE SEATED INSTRUMENTS ARE HELD WITH SUCCESSORS OWED**, each for a recorded reason: `compendia.py` and
   `compendia2.py` since BUILD279, whose fixtures measure the Ruling 46 material that pass removed; `bibindex.py`,
   `bibindex2.py` and `bibindex3.py` since BUILD288, whose derivation figure the imports moved.
@@ -166,7 +175,7 @@ no longer on the read path.
   names the method ratio and so joins 296 in that instrument's pinned list — a record outgrowing a pin, which is
   `r2-26b`'s shape and takes a successor rather than an edit (W-260).
   `gate.py manifest --main … --comp …` **OK**;
-  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD290 counting the census
+  `tools/gate_live.py` over the 85 live goldens **86 OK, 0 FAIL** at BUILD127/BUILD292 counting the census
   step, registers 1886-1889's **33** moved goldens having been censused and then re-banked by running (W-279).
   **Two builds were seated before one re-bank**, which is the cheaper order when neither moves a line reference:
   BUILD126 and BUILD127 both append only, so of the Register's 6,984 lines exactly eight differ in the common
