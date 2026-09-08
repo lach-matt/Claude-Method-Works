@@ -479,8 +479,9 @@ fast salt is a chloride — giving NaCl–UCl₃ with a Pb–15.7Li breeding and
 **on mass**, so breeding looks optional, but what depletes is **reactivity** — k falls from 0.950
 to 0.710 and the gain from 42.70 to 6.4. **Breeding holds k, not the inventory.** Criterion 4 then
 resolves: tritium is bred, **⁶Li is consumed** at about two percent of its holding over the life,
-and what arrives at the gate for ever is nitrogen, one beryllium window per module and the
-salt-processing reagents. **The criterion holds on fuel and fails on consumables and parts**, and
+and what arrives at the gate for ever is nitrogen and the
+salt-processing reagents — **the beryllium window left the design with the mercury**, and the
+summary prose that still listed it was corrected against the row it reads from. **The criterion holds on fuel and fails on consumables and parts**, and
 that is stated rather than flattened. **`--uranium` then corrects an error this file's own earlier
 pass made**: the heavy metal was filed as `BRED`, *"breeds the same back, a holding not a feed"*,
 and that is wrong — breeding converts U-238 to Pu-239 and the Pu-239 **fissions**, so every fission
@@ -611,6 +612,30 @@ the paper. That check is beside the suite and not inside it for the same reason 
 Method's volumes are *about* their own construction, so no audit of theirs separates workshop from
 subject — in that object there is nothing to separate. See `docs/AUDIT-PAPER.md` and
 `docs/PAPER-WORKSHOP.md`)
+**`tools/restart.py`** (**criterion 8**, which nothing computed before: restartable quickly after a
+shutdown. The usual answer does not apply twice over — Xe-135 absorbs at 2.6e6 barns thermal and about
+5 fast, so a **fast** core does not see the xenon that stops a thermal reactor restarting for a day,
+and the assembly is **subcritical and source-driven**, so there is no criticality to re-establish.
+**The clock is not neutronic; it is thermal.** At 3,364 MW the station makes 39.8 MW an hour after the
+trip, 182 GJ cumulative, **361 K of adiabatic rise in 505 t of salt** — so decay-heat removal is
+mandatory and the plant cannot be walked away from. Restart is then a choice between two modes three
+orders apart: **held molten restarts in minutes; drained needs 59.8 MWh and six hours** to re-melt the
+inventory. **Fast restart and passive shutdown are in tension**, which the build package had not
+stated, and this file prices the choice rather than making it. It also **records a failing check the
+question forced**: `materials.py` runs the fuel loop 700 → 900 K, a cold leg of 427 °C, against a
+NaCl–UCl₃ liquidus band of 500–550 °C — **the fuel salt freezes in the cold leg in normal
+operation**. Recorded, not repaired; the selftest asserts the failure so it cannot be lost),
+**`tools/startcost.py`** (**criterion 9**, measured in **energy and never in money** — a dollar figure
+would be the only quantity here whose accuracy the rest of the work does not support, and it would be
+the one quoted. **2,816 TJ to build a station against 32,414 TJ a year out: a 32-day energy payback and
+an EROI of 460:1.** Two findings outrank the payback. **Mass is not the guide to cost** — the
+41,425 t biological shield is the heaviest item and **1.5 %** of the build energy, while the tungsten
+coil shield is thirteen times lighter and **44 %**. And **the two dominant items both belong to the
+muon channel and its driver**, so deleting the capture solenoids and their shield takes the build from
+2,816 TJ to about **1,470** and the payback from 32 days to **17** — criterion 9 pointing where the
+route comparison already pointed. **The file's own hypothesis was wrong and the selftest records it**:
+it was written expecting isotope separation to dominate, and separation is 15 %. Separative work is
+exact cascade arithmetic, fixtured against the textbook 4.5 % LEU case at both 0.2 % and 0.3 % tails)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
 **Run it after any pass that changes a count** — 68 pinned figures, ~5 s, exits 1 on drift. Fourteen
