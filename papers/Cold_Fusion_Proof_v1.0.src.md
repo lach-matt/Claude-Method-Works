@@ -21,18 +21,22 @@ conditions place both a floor and a ceiling on the binder's mass, and the window
 mesomolecular formation time and [[C852]] lie inside the window; one survives the remaining test. The
 window's lower bound may move by a factor of [[C855]] and its upper by [[C856]] before that count changes.
 
-A second uniqueness result closes the other half of the configuration, and it is stated here as a
-theorem rather than as the working assumption it has long been. **The fuel is unique as well.** Over the closed set of light-nucleus pairs a muon can
-bind, *d*–*t* maximises the energy returned per binder by a factor of [[C980]] against the next candidate — and
-the runner-up uses *more* tritium rather than less. The figure of merit is not the energy release but
-the cycles a binder completes before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a
-slow cycle exactly as it punishes a sticky one.
+A second uniqueness result closes the other half of the configuration. **The fuel is unique as well.**
+That *d*–*t* is the best mesomolecular fuel is not news to the field; what is set out here is the
+closed argument for it, over the whole candidate set at once. *d*–*t* maximises the energy returned
+per binder by a factor of [[C980]] against the next candidate — and the runner-up uses *more* tritium
+rather than less. The figure of merit is not the energy release but the cycles a binder completes
+before it decays or sticks, `N = 1/(ω_s + λ_0/λ_c)`, which punishes a slow cycle exactly as it
+punishes a sticky one. The ordering survives every competitor's cycle rate being sent to infinity,
+leaving *d*–*t* ahead by a factor of [[C1005]], so it rests on the stickings alone.
 
 The reaction is therefore not speculative, and its uniqueness is not assumed. What has never been
 observed is a configuration of it that returns more energy than it costs to run, and the distance
 between those two statements is what the rest of the paper measures. An **eighth condition** makes
-the question answerable: a binder is worth making only if `E_binder < Q_fus · f_work / ω_s`. Every
-term in it has been measured. Integrating the published pion production cross sections puts
+the question answerable: a binder is worth making only if `E_binder < Q_fus · f_work / ω_s`. It
+contains no fitted term: two are measured, one is integrated from measured cross sections, and the
+fourth is a conversion fraction computed at a stated operating point and carried in both of its
+conventions. Integrating the published pion production cross sections puts
 production alone at [[C100]] per pion, so even a perfect collector would leave the heat form short;
 sticking is shown to be independent of the binder's mass, so the condition is a specification on the
 machine rather than a search over the spectrum; and the break-point in sticking lies **below both**
@@ -44,13 +48,13 @@ integrates**. The closest is bred fuel at the demonstrated [[C44]] per binder, a
 with both specified collector alterations it reaches [[C787]], short of unity by a factor of [[C865]] and short
 by no term other than a loss budget that has never been measured end to end. One route does cross —
 bred fuel through a *published* optimisation of the production target, at [[C771]] — and it crosses
-on a figure worth [[C829]] that this paper prices and **declines to adopt**, because the gap between
+on an optimisation worth a factor of [[C829]] that this paper prices and **declines to adopt**, because the gap between
 that optimisation and the integrated [[C100]] is a discrepancy the paper records and does not close.
 
 A final result runs the other way and is reported as a quantity to measure rather than a result to
 build on. **A deuterium cell does not stay a deuterium cell**: one *d*–*d* branch makes tritium, *dtμ*
 forms far faster than *ddμ*, and the cell tritiates itself to an equilibrium of [[C986]] by atom. Such
-a cell holds [[C992]] less tritium than the specified one and needs no lithium and no breeding
+a cell holds less tritium than the specified one by a factor of [[C992]] and needs no lithium and no breeding
 blanket, at the cost of a fusion yield a factor of [[C993]] smaller per binder.
 
 The paper closes with the reaction specified to the point where another laboratory could build it, the
@@ -162,11 +166,31 @@ to be worth anything. Proposition 10 in §14.8 derives it. The free decay rate i
 |---|---|---|
 | **d–t** | **[[C974]]** | **[[C977]]** |
 | t–t | [[C976]] | [[C978]] |
+| p–t | [[C994]] | [[C995]] |
 | d–d | [[C975]] | [[C979]] |
-| p–d, p–t, p–p, and the helium pairs | below unity | below the d–d entry |
+| p–d | [[C996]] | [[C997]] |
+| d–³He | [[C998]] | [[C999]] |
+| p–³He | [[C1000]] | [[C1001]] |
+| p–p | [[C1002]] | [[C1003]] |
+
+The whole set is shown rather than summarised, because a uniqueness claim over a closed set is only
+checkable if the set is on the page. Two entries repay reading, and both are visible in the table
+itself. *p*–*t* completes **fewer** cycles than *d*–*d* and returns **more** energy per binder than it,
+its larger release per fusion outweighing its shorter catalytic life — which is what it means for the
+figure of merit to be neither column alone. And *p*–*d* completes just over one cycle, so the entries
+below *d*–*d* are behind rather than sterile.
 
 > **Theorem 4 (uniqueness of the fuel).** Over the closed set of light-nucleus pairs a muon can bind, *d*–*t*
 > maximises the energy returned per binder, by a factor of [[C980]] against the next candidate. §14.8 proves it.
+
+**And the ranking does not rest on the cycle rates.** They are literature bands rather than a single
+measurement for every pair, so a reader is entitled to ask what the ordering would survive. The answer
+is: all of it. Since a binder completes at most `1/ω_s` cycles whatever the cycle rate, no pair can
+return more than `Q/ω_s` per binder however fast it is made to run, and that ceiling consults no rate
+at all. The largest ceiling any competitor has is *t*–*t*'s, at [[C1004]] — so *d*–*t*'s own value
+still leads by a factor of [[C1005]] with **every other pair's cycle rate sent to infinity**.
+Corollary 4.1 in §14.8 states it. Only the stickings are load-bearing after that, and the margin one
+of them would have to close is the same factor of [[C1005]].
 
 Two features of that result matter more than the ranking itself.
 
@@ -198,13 +222,21 @@ is what makes it answerable.
 > **Condition 8.** A binder is worth making only if `E_binder < Q_fus · f_work / ω_s`, where
 > `E_binder` is the energy cost of producing and capturing one binder, `Q_fus` the energy released per
 > fusion, `f_work` the fraction of that release convertible to the form being paid in, and `ω_s` the
-> probability per cycle that the binder is lost.
+> **sticking** probability per cycle.
 
-The right-hand side is simply the total a single binder can return before it is lost. Its service life
-in cycles is at most `1/ω_s`, and each cycle yields `Q_fus · f_work`. Condition 8 is therefore not an
-efficiency target that might be approached with better engineering, but an accounting identity — and
-every quantity appearing in it has been measured. Proposition 1 in §14.2 derives it, including the
-sense in which the cycle bound is asymptotic and never quite reached.
+`ω_s` is the sticking probability throughout this paper, and it is one of the binder's two loss
+channels rather than both of them: the other is free decay, which §3's figure of merit carries
+explicitly as `λ_0/λ_c`. Condition 8 omits it deliberately. A binder that also decays completes
+*fewer* cycles than `1/ω_s`, so the right-hand side is a ceiling on what one binder can return and the
+condition is **necessary** rather than sufficient — which is the direction that matters here, because
+every verdict this paper reaches on condition 8 is negative, and a negative verdict against a generous
+bound is stronger than one against a tight bound.
+
+Condition 8 is therefore not an efficiency target that might be approached with better engineering but
+an accounting identity, and it contains no fitted quantity: `Q_fus` and `ω_s` are measured, `E_binder`
+is integrated in §5.1 from measured cross sections, and `f_work` is computed from a stated operating
+point and carried in both of its conventions rather than chosen. Proposition 1 in §14.2 derives it,
+including the two distinct reasons the cycle bound is never attained.
 
 There are two conventions in use for `f_work`, and this paper carries both rather than choosing.
 Counted as heat delivered, the bound is [[C25]]; counted as electrical work recoverable from that
@@ -216,9 +248,10 @@ every balance below is labelled with its own.
 
 ### 4.1 Sticking is binder-mass independent, so condition 8 is a specification
 
-The loss term `ω_s` is dominated by **sticking**: the probability that the muon leaves the fusion bound
-to the alpha particle and is lost from the cycle. It is the term that most attempts at improvement
-have aimed at.
+Sticking is the probability that the muon leaves the fusion bound to the alpha particle and is lost
+from the cycle. Of the binder's two loss channels it is the larger at the cycle rates this reaction
+runs at, and it is the one most attempts at improvement have aimed at — the other, free decay, is a
+property of the muon and cannot be aimed at at all.
 
 It cannot, however, be improved by changing the binder, and the reason is that the binder's mass
 cancels out of the overlap integral that defines sticking. A heavier binder sits in a tighter orbit,
@@ -437,7 +470,7 @@ change the collection at all. It moves `E_binder`, and because a balance has the
 > the wider bore, the wider stopping window *and* a fuel density of [[C169#]] × liquid that no
 > experiment has held. **A device that returns its energy as heat or as work is not self-sustaining on
 > anything this paper can construct**, and that is a closed statement rather than an open question:
-> Theorem 3 of §14 shows the same thing from the other direction.
+> Theorem 3 in §14.4 shows the same thing from the other direction.
 
 > **Bred fuel is the one row that crosses unity, and it crosses only through the optimised target.**
 > At [[C771]] with that target alone and **[[C864]]** with all three alterations, the row uses **no
@@ -732,6 +765,14 @@ depends on it. §11's protocol settles it, and nothing here stands in for that.
 end-to-end count of stopped binders per pion produced has been made. §6.2 computes the losses between the two and §7 restates every balance through them, but a
 computed budget is not a measurement, and the margin over the falsification floor is [[C750]].
 
+**The fuel scan's cycle rates and stickings are literature bands, not one measurement each.** They are
+measured for *d*–*t*, *d*–*d* and *t*–*t* and order-of-magnitude for the pairs that catalyse almost
+nothing, and §3's table prints them as they stand. Corollary 4.1 bounds what that costs: the ranking
+survives every competitor's cycle rate being sent to infinity, so only the stickings are load-bearing,
+and a competitor would have to be a factor of [[C1005]] less sticky than the record says before the
+ordering could move. What the bands do reach is the *size* of the margins quoted in §3, not the order
+of the table.
+
 **Every balance assumes perfectly pure fuel.** At the bound case, [[C319]] of high-Z contamination
 costs as much binder as decay does. The purity series of §11.3 is what measures it.
 
@@ -754,7 +795,7 @@ against pions per interaction — needing [[C538]] interacting nucleons, which r
 figure closely and which a deuteron on a long target supplies. **A normalisation measurement on one target would settle it: pions per beam particle
 against pions per interaction, with nothing else changed.**
 
-**And the standalone configuration is closed rather than open.** Theorem 3 of §14 is a theorem, and no measurement
+**And the standalone configuration is closed rather than open.** Theorem 3 in §14.4 is a theorem, and no measurement
 in §11 can overturn it. What a measurement can decide is the bred-fuel route, which is the one
 this paper leaves standing, and the production cost that route turns on.
 
@@ -774,11 +815,15 @@ measurement this paper proposes, and none can be overturned by one.
    formation time, [[C852]] lie inside the window, and one survives the hadron test.
 3. **The fuel is unique.** Over the closed set of pairs a muon can bind, *d*–*t* maximises the energy
    returned per binder by a factor of [[C980]] against the next candidate (Theorem 4, §14.8) — and the runner-up
-   uses more tritium rather than less.
+   uses more tritium rather than less. **That ranking is not a near thing either**: it survives every
+   competitor's cycle rate being sent to infinity, leaving *d*–*t* ahead by a factor of [[C1005]]
+   (Corollary 4.1).
 4. **The window is not a near thing.** Its lower bound may move by a factor of [[C855]] and its upper by [[C856]]
    before the count of occupants changes.
 5. **An eighth condition decides whether the reaction is worth running**, and it contains no free
-   parameter (Proposition 1, §14.2). Every term in it has been measured.
+   parameter and no fitted one (Proposition 1, §14.2). Two of its terms are measured, one is
+   integrated from measured cross sections, and the fourth is a conversion fraction computed at a
+   stated operating point and carried in both of its conventions.
 6. **Sticking does not depend on the binder's mass** (Theorem 2, §14.4), so condition 8 is a
    specification on the machine and not a search over the spectrum. There is in any case no other
    occupant of the window to search for.
@@ -787,7 +832,7 @@ measurement this paper proposes, and none can be overturned by one.
    collector can argue away.
 8. **The acceptance model is validated against an independent simulation** of a machine that was
    built, agreeing to [[C374]].
-9. **The standalone configuration is closed** (Theorem 3, §14): at the production floor, no admissible
+9. **The standalone configuration is closed** (Theorem 3, §14.4): at the production floor, no admissible
    binder pays for itself as heat at any collector. The break-point sits at [[C115]] and lies **below
    both** published sticking readings, so no choice between them repairs it.
 10. **Nothing clears unity at this paper's own production cost.** The closest is bred fuel at the
@@ -851,13 +896,22 @@ state. The only input is therefore the binder itself, at a cost $E_b$. A binder 
 fusions returns $N\,Q_{fus}\,f_{work}$, so the account closes exactly when the return exceeds the
 cost.
 
-For the bound: let $p$ be the probability that the binder survives one complete cycle, so
-$\omega_s = 1 - p$. The number of cycles is geometrically distributed and its expectation is
-$N = p/(1-p) \le 1/\omega_s$, with equality approached as $p \to 1$. **The cap is asymptotic and is
-never attained**, which is why §7 distinguishes the demonstrated cycle count from the bound. ∎
+For the bound: let $p$ be the probability that the binder survives one complete cycle against sticking,
+so $\omega_s = 1 - p$. The number of cycles is geometrically distributed and its expectation is
+$N = p/(1-p)$, which is exactly one cycle short of $1/\omega_s$ — so the cap is attained neither at any
+$\omega_s$ nor in the limit, and it is tight to a relative error of $\omega_s$ rather than absolutely.
+
+That is the first of two reasons $N < 1/\omega_s$, and the smaller one. The second is that sticking is
+not the binder's only loss channel: it also decays, at a rate that does not care whether a cycle is in
+progress, and Proposition 10 in §14.8 carries both losses together as
+$N = 1/(\omega_s + \lambda_0/\lambda_c)$. Both effects run the same way, so $1/\omega_s$ remains an
+upper bound and condition 8 remains **necessary**. **The cap is never attained**, which is why §7
+distinguishes the demonstrated cycle count from the bound. ∎
 
 **Remark.** The inequality is an accounting identity rather than an efficiency target: it contains no
-free parameter. Every term has been measured, and §4 gives the measured values.
+free parameter and no fitted one. Two of its terms are measured, one is integrated from measured cross
+sections in §5.1, and the fourth is a conversion fraction computed at a stated operating point and
+carried in both conventions; §4 gives the values.
 
 ### 14.3 The structural window on the binder mass
 
@@ -985,7 +1039,9 @@ better particle.** It is a constraint on the machine.
 >
 > *Proof.* By Theorem 1 the structural window has exactly one admissible occupant, so $\omega_s$ is the
 > muonic value and $N \le 1/\omega_s$ is the bound it sets. $Q_{fus}$ and $f_{work}$ are properties of
-> the fuel and the plant, not of the binder, so the right-hand side of Proposition 1 is fixed. The
+> the fuel and the plant, not of the binder — and the fuel is not a free choice either, since by
+> Theorem 4 no other admissible pair returns as much per binder, and by Corollary 4.1 none can be made
+> to. The right-hand side of Proposition 1 is therefore fixed on both axes rather than on one. The
 > left-hand side, $E_b$, is bounded **below** by the cost of producing the parent particle, which
 > §14.6 puts at [[C100]] per pion and which no collector can reduce. Taking the most favourable
 > admissible values of every term simultaneously, the best balance available is [[C467]] — less than
@@ -1104,20 +1160,42 @@ sticky one is. ∎
 
 **Remark.** The two limits are the ones quoted in the literature separately. As $\lambda_c \to \infty$
 the expression returns the sticking ceiling $1/\omega_s$; as $\omega_s \to 0$ it returns the decay
-ceiling $\lambda_c/\lambda_0$. Neither ceiling alone is the operative bound for any real fuel, which
+ceiling $\lambda_c/\lambda_0$. The first of those is the point at which this proposition and
+Proposition 1 must be read together: Proposition 1's exact mean is one cycle below $1/\omega_s$ and
+this one reaches it, because this expression is first-order in the two loss terms and discards exactly
+that offset. They agree to first order, the difference is one cycle in the ceiling [[C438]] itself, and every figure in
+this paper is quoted from the measured count rather than from either. Neither ceiling alone is the operative bound for any real fuel, which
 is why fuels ranked on sticking alone rank wrongly.
 
 **Theorem 4 (uniqueness of the fuel).** Over the closed set of pairs drawn from $\{p, d, t\}$ together with the
 helium pairs, $d$–$t$ maximises $N \cdot Q$.
 
 *Proof.* The set is finite and closed: two nuclei drawn with repetition from the three hydrogen
-isotopes give [[C973]] pairs, and the helium pairs are enumerated beside them. For each, $\lambda_c$
-and $\omega_s$ are measured quantities and $Q$ is fixed by the masses. Evaluating Proposition 8 on
+isotopes give [[C973]] pairs, and the helium pairs are enumerated beside them. $Q$ is fixed by the
+masses. For $\lambda_c$ and $\omega_s$ the inputs are the muon-catalysis literature's own bands —
+measured for $d$–$t$, $d$–$d$ and $t$–$t$, and order-of-magnitude for the pairs that catalyse almost
+nothing — and the paper states them as bands rather than as measurements. Evaluating Proposition 10 on
 each and multiplying by $Q$ gives the table of §3, whose maximum is $d$–$t$ at [[C977]] against
-[[C978]] for the next entry — a factor of [[C980]]. The ordering is a finite comparison over measured
-inputs and contains no free parameter. ∎
+[[C978]] for the next entry — a factor of [[C980]]. The ordering is a finite comparison over the
+tabulated inputs and contains no free parameter. ∎
 
-**Corollary.** No pair without tritium comes within a factor of [[C981]] of $d$–$t$ on energy per binder, so the
+The bands are the weakest input in that proof, so the next result removes half of them from it.
+
+> **Corollary 4.1 (the ranking does not consult the cycle rates).** *Every competitor's cycle rate may
+> be sent to infinity without changing the maximum.*
+>
+> *Proof.* By Proposition 10, $N \le 1/\omega_s$ for any $\lambda_c$, with equality in the limit
+> $\lambda_c \to \infty$. Hence $N\,Q \le Q/\omega_s$, a ceiling in which no cycle rate appears. The
+> largest such ceiling over the competitors is $t$–$t$'s, at [[C1004]], and $d$–$t$'s own tabulated
+> value [[C977]] exceeds it by a factor of [[C1005]]. The maximum is therefore unchanged under any
+> upward revision of any competitor's cycle rate whatsoever. ∎
+
+**What that leaves load-bearing.** Only the stickings, and only through the ceiling $Q/\omega_s$. A
+competitor would have to be shown [[C1005]] times less sticky than the band records before the
+ordering could move — not faster, less sticky — and Theorem 2 has already shown that sticking is a
+property of the fusion kinematics rather than something a design may choose.
+
+**Corollary 4.2.** No pair without tritium comes within a factor of [[C981]] of $d$–$t$ on energy per binder, so the
 reaction's tritium requirement is not an artefact of the choice of fuel. It follows from the fuel
 being unique.
 

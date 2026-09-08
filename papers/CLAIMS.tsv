@@ -986,3 +986,15 @@ C990	energy per muon at the deuterium equilibrium	29.09	MeV	DERIVED	C988 x C989	
 C991	neutrons per muon at the deuterium equilibrium	2.337	neutrons	DERIVED	C988 x the branch-weighted neutron yield	fn:q_selftrit_neutrons_per_muon
 C992	tritium holding of a deuterium cell against a d-t cell	64.71	x	DERIVED	0.600 / C987	fn:q_selftrit_holding_factor
 C993	fusion channel of a deuterium cell against a d-t cell	48.38	x	DERIVED	d-t neutrons per muon / C991	fn:q_selftrit_channel_factor
+C994	cycles per muon, p-t	0.7117	cycles	DERIVED	window.cycles_per_muon on the sourced band	fn:q_fuel_cycles_p_t
+C995	energy per muon, p-t	14.098	MeV	DERIVED	C994 x Q	fn:q_fuel_energy_p_t
+C996	cycles per muon, p-d	1.0191	cycles	DERIVED	window.cycles_per_muon on the sourced band	fn:q_fuel_cycles_p_d
+C997	energy per muon, p-d	5.595	MeV	DERIVED	C996 x Q	fn:q_fuel_energy_p_d
+C998	cycles per muon, d-He3	0.1805	cycles	DERIVED	window.cycles_per_muon on the sourced band	fn:q_fuel_cycles_d_he3
+C999	energy per muon, d-He3	3.311	MeV	DERIVED	C998 x Q	fn:q_fuel_energy_d_he3
+C1000	cycles per muon, p-He3	0.0215	cycles	DERIVED	window.cycles_per_muon on the sourced band	fn:q_fuel_cycles_p_he3
+C1001	energy per muon, p-He3	0.0400	MeV	DERIVED	C1000 x Q	fn:q_fuel_energy_p_he3
+C1002	cycles per muon, p-p	0.00022	cycles	DERIVED	window.cycles_per_muon on the sourced band	fn:q_fuel_cycles_p_p
+C1003	energy per muon, p-p	0.00032	MeV	DERIVED	C1002 x Q	fn:q_fuel_energy_p_p
+C1004	the largest competitor ceiling, t-t at infinite cycle rate	80.93	MeV	DERIVED	Q / omega_s, consulting no cycle rate	fn:q_fuel_ceiling_best
+C1005	d-t over that ceiling, the ranking's robustness margin	24.58	x	DERIVED	C977 / C1004	fn:q_fuel_ceiling_margin

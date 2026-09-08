@@ -3619,6 +3619,31 @@ def q_selftrit_q_per_fusion():
     f_dt, f_dd = window.selftritiation()[0], window.selftritiation()[1]
     return f_dt * 17.59 + f_dd * 3.65
 
+# ---- the rest of the closed fuel set, and the ranking's robustness ---------
+# The table in section 3 states every pair rather than lumping five of them
+# into a summary row, because a uniqueness theorem over a closed set is only
+# checkable if the set is shown.
+def q_fuel_cycles_p_t():    return _fuel("p-t")[5]
+def q_fuel_energy_p_t():    return _fuel("p-t")[6]
+def q_fuel_cycles_p_d():    return _fuel("p-d")[5]
+def q_fuel_energy_p_d():    return _fuel("p-d")[6]
+def q_fuel_cycles_d_he3():  return _fuel("d-He3")[5]
+def q_fuel_energy_d_he3():  return _fuel("d-He3")[6]
+def q_fuel_cycles_p_he3():  return _fuel("p-He3")[5]
+def q_fuel_energy_p_he3():  return _fuel("p-He3")[6]
+def q_fuel_cycles_p_p():    return _fuel("p-p")[5]
+def q_fuel_energy_p_p():    return _fuel("p-p")[6]
+
+
+def q_fuel_ceiling_best():
+    """Q/omega_s for the largest competitor -- it consults no cycle rate."""
+    return window.ranking_ceilings()[2]
+
+
+def q_fuel_ceiling_margin():
+    return window.ranking_ceilings()[3]
+
+
 
 FNS = {k: v for k, v in list(globals().items()) if callable(v) and not k.startswith("_")}
 

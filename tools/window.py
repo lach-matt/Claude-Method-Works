@@ -193,6 +193,26 @@ def fuel_table():
     return out
 
 
+def ranking_ceilings():
+    """The ceiling on every competitor, needing only its sticking.
+
+    N <= 1/omega_s whatever the cycle rate, so a pair cannot return more than
+    Q/omega_s per binder however fast its cycle is made. That is the one bound
+    in this table that does NOT use lambda_c, and it is what makes Theorem 4
+    robust: the cycle rates carry literature-band uncertainty and the ceiling
+    does not consult them at all.
+
+    Returns (rows, best_name, best_ceiling, margin) where margin is d-t's own
+    value over the largest competitor CEILING -- the ranking survives every
+    other pair's cycle rate going to infinity.
+    """
+    rows = [(name, q / ws) for name, lc, ws, q, n in FUELS]
+    dt = [r for r in fuel_table() if r[0] == "d-t"][0]
+    comp = [r for r in rows if r[0] != "d-t"]
+    best_name, best_ceiling = max(comp, key=lambda t: t[1])
+    return rows, best_name, best_ceiling, dt[6] / best_ceiling
+
+
 def model_fidelity():
     """The model against its one measured point. It is used for RATIOS between
     fuels and never for an absolute N -- the plant uses the measured 150."""
@@ -265,6 +285,18 @@ def report_fuels():
     print(f"    a fidelity of {model_fidelity():.3f}. It is therefore used for")
     print("    RATIOS between fuels and never for an absolute N -- every")
     print("    balance in this work uses the MEASURED 150.")
+    print()
+    print("    AND THE RANKING DOES NOT REST ON THE CYCLE RATES. Since")
+    print("    N <= 1/omega_s whatever the cycle rate, no pair can return")
+    print("    more than Q/omega_s per binder however fast it is made to")
+    print("    run. That ceiling consults no lambda_c at all:")
+    ceil, bn, bc, margin = ranking_ceilings()
+    for name, c in sorted(ceil, key=lambda t: -t[1]):
+        print(f"      {name:7s} ceiling {c:10.2f} MeV per binder")
+    print(f"    The largest competitor ceiling is {bn} at {bc:.2f} MeV, so")
+    print(f"    d-t leads by {margin:.2f}x with every other pair's cycle")
+    print("    rate sent to infinity. The rates carry literature-band")
+    print("    uncertainty; the ranking does not depend on them.")
     print()
     print("    SO YES: d-t IS THE ONLY FUEL, and it is not a preference. It")
     print("    is the only pair whose cycle is fast enough to outrun the muon")
@@ -435,6 +467,25 @@ def selftest():
     check("a large Q does not rescue a slow, sticky cycle",
           [r for r in tab if r[0] == "p-t"][0][6]
           < [r for r in tab if r[0] == "d-t"][0][6])
+
+    # AND THE RANKING MUST NOT REST ON THE CYCLE RATES, which are literature
+    # bands. Q/omega_s is the ceiling a pair cannot pass however fast it runs,
+    # and it consults no lambda_c -- so if d-t's own value clears every
+    # competitor's CEILING, the ordering survives the bands entirely.
+    ceil, best_name, best_ceiling, margin = ranking_ceilings()
+    check("every pair's own value lies under its own sticking ceiling",
+          all(r[6] <= dict(ceil)[r[0]] + 1e-9 for r in tab))
+    check("d-t clears the largest competitor ceiling outright", margin > 1.0)
+    check("  -- and clears it by more than an order of magnitude", margin > 10.0)
+    check("the binding competitor ceiling is t-t, the runner-up itself",
+          best_name == "t-t")
+    check("the ceiling is computed from sticking alone, not from any rate",
+          abs(best_ceiling
+              - [f[3] / f[2] for f in FUELS if f[0] == "t-t"][0]) < 1e-9)
+    # and the ceiling must be a real constraint rather than a vacuous one:
+    # a pair given an infinite cycle rate must actually reach it.
+    check("an infinitely fast cycle reaches the ceiling and does not pass it",
+          abs(cycles_per_muon(1e30, 0.14) * 11.33 - best_ceiling) < 1e-6)
     print()
     print("  a deuterium cell tritiates itself, and the selftest pins it")
     f_dt, f_dd, c_t, n_cyc, _e, n, m_t = selftritiation()

@@ -60,7 +60,12 @@ bind, *d*–*t* maximises the energy returned per binder by **77.85×** against 
 that next candidate is *t*–*t*, which uses **more** tritium rather than less. The figure of merit is
 not Q but `N = 1/(ω_s + λ₀/λ_c)`, which punishes a slow cycle exactly as it punishes a sticky one, and
 the model returns **113.08** cycles against the **150** measured — a fidelity of **0.754**, so it
-ranks fuels and never prices a machine. **Proposition 11 then finds what the ranking hid**: a
+ranks fuels and never prices a machine. **Corollary 4.1 then takes the cycle rates out of the ranking
+altogether**: since `N ≤ 1/ω_s` whatever the rate, no pair can return more than `Q/ω_s` per binder, the
+largest such ceiling any competitor has is *t*–*t*'s at **80.93 MeV**, and *d*–*t*'s own value clears it
+by **24.58×** — so the ordering survives every other pair's cycle rate being sent to infinity, and only
+the stickings remain load-bearing. The §3 table prints **all eight** pairs rather than lumping five
+into a summary row, which is what a uniqueness claim over a closed set costs. **Proposition 11 then finds what the ranking hid**: a
 deuterium cell tritiates *itself*, because one *d*–*d* branch is `d + d → t + p` and dtμ forms far
 faster than ddμ, reaching `f_dt` = **1/3** at **0.621 %** by atom — **64.7× less tritium** than the
 specified cell holds, at **48.4×** less yield per binder, and stated as a quantity to measure because
