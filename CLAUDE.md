@@ -411,7 +411,27 @@ years** against 15 on tritium. **A fleet does not grow on its own fissile.** It 
 and there is one: **separated civil plutonium**, ~560 t, which nobody has a use for and everybody is
 paying to guard — enough for **15 to 24** stations, and the ~4,000 t in spent fuel for **104 to 173**.
 Starting at a smaller charge and breeding up is real (the loop still closes to **k = 0.756**) and
-declined: a fifth off the charge costs 5.4× in output. See `docs/POWERSOURCE.md`),
+declined: a fifth off the charge costs 5.4× in output. **`--routes` then records two decisions and
+corrects a comparison one of its own neighbours made.** The decisions: **fertile is uranium**, with
+seawater uranium as the replacement and thorium refused; and **fusion is no longer mandatory**, the
+criterion being cleaner and more efficient. The correction: `environment.py --tradeoff` priced the
+three routes on *beam power* and found the deuterium and no-channel routes within 0.001 of each
+other, which is true and is not the whole cost — **the machine is not the beam power.** For a pure
+spallation plant the gain is **exactly invariant in beam energy**, because yield per GeV *deposited*
+is a flat material property: `G = 1 + n_per_GeV·E_k/1000`, and the scan returns **37.03 at 0.6 GeV and
+at 12 GeV alike**. **So the 8 GeV is bought by pion production and by nothing else** — HARP's own
+columns make 3 GeV/c 1.63× dearer per pion — and deleting the muon channel drops the driver to about
+**1 GeV** (SNS and MYRRHA class, machines that exist) and takes 21 capture solenoids, 42 km of REBCO
+and every fuel cell with it. Priced on the machine rather than the beam, **route B pays route A's
+machine for route C's output**: its channel is **0.13 %** of the source and worth 0.13 % of the plant,
+and needs the whole 8 GeV driver to deliver it — a route that makes sense to *demonstrate* the fusion
+and never for the fusion to *contribute*. Route C gains twice more: with no tritium to breed the whole
+⁶Li share returns to fertile capture, taking the breeding ratio from **1.233 to 1.442** and the
+fissile doubling from 82–136 to **43–72 years**, easing the fleet's worst constraint by nearly half.
+And **the 8 % is not needed** — the loop requirement is 7.41 and A clears it by 5.41× against C's
+5.00×. On the stated criterion **route C wins and it is not close**; what argues for A is that the
+fusion is the project's subject, and the instrument says outright that the choice is not its to make.
+See `docs/POWERSOURCE.md`),
 **`tools/materials.py`** (**phase 2: the bill of materials**, and the column that decides criterion
 4. Every quantity is imported from the instrument that owns it or derived from those; each row
 carries a status and a **supply class**, and the selftest fails a row carrying neither. The
@@ -448,8 +468,10 @@ allowance against a tritium demand of 1.373. **Thorium closes at L = 0.10 with 1
 fails at L = 0.20 by 0.573**, so the fallback is *conditional* on the one term this work has never
 measured: on uranium the leakage band decides nothing, **on thorium it decides whether the fuel
 works**. And a self-tritiating deuterium cell demands essentially no ⁶Li, at which point thorium
-closes on both — **the fuel question and the fertile question are the same question**. See
-`docs/MATERIALS.md`)
+closes on both — **the fuel question and the fertile question are the same question**. **The
+decision is now recorded in the report itself: uranium, with seawater as the replacement, thorium
+refused** — kept beside its analysis, because a refused option with its reason is a decision and one
+without is a gap. See `docs/MATERIALS.md`)
 and **`tools/buildpackage.py`** (**phase 3: everything but the drawings** — specification,
 sequence, commissioning, interfaces, envelope, acceptance and gaps. It computes almost nothing of
 its own and its selftest asserts the refusal: **no drawing library may be imported and the file may

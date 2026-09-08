@@ -586,6 +586,17 @@ def report_tradeoff():
        f"{g_with/g_dd:.3f}x in beam -- which is what route 3 costs too.",
        indent=4)
     print()
+    _w("A LATER PASS CORRECTED THIS COMPARISON AND THE CORRECTION IS NOT "
+       "SMALL. Everything above prices the routes on BEAM POWER, on which "
+       "route 2 and route 3 are within 0.001 of each other. The machine is "
+       "not the beam power: a pure spallation plant's gain is EXACTLY "
+       "invariant in beam energy, so the 8 GeV is bought by pion production "
+       "alone and route 3 drops the driver to about 1 GeV and deletes every "
+       "capture solenoid, while route 2 keeps both to deliver a fusion "
+       "channel worth a tenth of a percent. ROUTE 2 PAYS ROUTE 1'S MACHINE "
+       "FOR ROUTE 3'S OUTPUT. See powersource.py --routes, which is where "
+       "that decision now lives.", indent=4)
+    print()
     _w("SO THE TRADE IS THIS. Removing the fusion channel entirely costs "
        f"{100*(g_with/g_without-1):.1f} % more beam and about "
        f"{P.subcritical_margin(kw)[1]-P.subcritical_margin(kwo)[1]:,.0f} pcm "

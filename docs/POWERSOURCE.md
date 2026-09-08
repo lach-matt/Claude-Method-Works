@@ -261,3 +261,53 @@ Whether d-t is the only mesomolecular fuel is `window.py --fuels`, not this file
 *shape* of argument as Theorem 1's binder scan (a closed candidate set, tested in the order that
 constrains) and it belongs beside it. Whether the fertile feed has a successor is
 `materials.py --fertile`. Both bear on figures this file computes, and neither is restated here.
+
+## `--routes` — the route decision, and the correction it forced
+
+Two decisions are recorded rather than argued: **fertile is uranium**, with seawater uranium as the
+replacement and thorium refused; and **fusion is no longer mandatory**, the criterion being cleaner
+and more efficient.
+
+**The correction comes first, because it reverses a comparison this file's own neighbour made.**
+`environment.py --tradeoff` priced the three routes on *beam power* and found the deuterium route and
+the no-channel route within 0.001 of each other. That is true and it is not the whole cost — **the
+machine is not the beam power.**
+
+For a pure spallation plant the gain is **exactly invariant in beam energy**. Yield per GeV
+*deposited* is a flat material property, so `y_s = n_per_GeV·E` and
+
+```
+G = (1000E + y_s·E_k)/(1000E) = 1 + n_per_GeV·E_k/1000
+```
+
+with `E` cancelling. The scan returns **37.03 at 0.6 GeV and at 12 GeV alike**, and the selftest
+asserts that numerically rather than trusting the algebra.
+
+**So the 8 GeV is bought by pion production and by nothing else.** HARP's own columns make 3 GeV/c
+1.63× dearer per pion than 8. Delete the muon channel and the driver drops to about **1 GeV** — SNS
+and MYRRHA class, machines that exist — and 21 capture solenoids, 42 km of REBCO and every fuel cell
+go with it.
+
+| route | y_fus | share of source | G | over C | station T |
+|---|---:|---:|---:|---:|---:|
+| A  d–t | 18.12 | 7.610 % | 40.04 | 8.12 % | 33.71 kg |
+| B  d–d self-tritiating | 0.28 | 0.128 % | 37.08 | 0.13 % | 0.52 kg |
+| C  no muon channel | 0.00 | 0 % | 37.03 | — | 0 kg |
+
+Driver for A and B: 8 GeV, 21 solenoids. Driver for C: ~1 GeV, none.
+
+**Route B pays route A's machine for route C's output.** Its channel is a tenth of a percent of the
+plant and needs the whole 8 GeV driver to deliver it. It is a route that makes sense only to
+*demonstrate* the fusion, never for the fusion to *contribute*.
+
+**Route C gains twice more, and neither gain is the driver.** With no tritium to breed, the whole ⁶Li
+share of the neutron budget returns to fertile capture: the breeding ratio rises from 1.233 to 1.442
+and the fissile doubling falls from 82–136 to **43–72 years** — easing the fleet's worst constraint by
+nearly half.
+
+**And the 8 % is not needed.** The loop requirement is 7.41; A clears it by 5.41× and C by 5.00×.
+Neither is near the edge, so route A's extra gain buys margin that was already there.
+
+On the criterion as stated — cleaner and more efficient — **route C wins and it is not close**. What
+argues for route A is not efficiency and never was: it is that the fusion is the project's subject.
+**The instrument does not decide that**, and its selftest asserts that it says so.

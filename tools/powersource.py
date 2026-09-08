@@ -1476,6 +1476,186 @@ def report_ignition():
     print("      lever. The charge is what it is.")
 
 
+# ---- THE ROUTE DECISION, AND ONE CORRECTION IT FORCES ---------------------
+# Two decisions have been taken and are recorded here rather than argued:
+#
+#   FERTILE: uranium, with seawater uranium as the replacement when the tails
+#            and the spent fuel are gone. Thorium is REFUSED -- see
+#            materials.py --fertile for why it was a live option and what
+#            refusing it costs, which is nothing.
+#   FUSION:  no longer mandatory. The criterion is now "cleaner and more
+#            efficient", and the muon channel must earn its place against it
+#            like anything else.
+#
+# THE CORRECTION FIRST, BECAUSE IT REVERSES A COMPARISON THIS FILE'S OWN
+# NEIGHBOUR MADE. environment.py --tradeoff priced the three routes on BEAM
+# POWER and found the deuterium route and the no-channel route within 0.001 of
+# each other -- 1.080x against 1.081x. That is true and it is not the whole
+# cost, because THE MACHINE IS NOT THE BEAM POWER. Below is the term that was
+# missing, and it changes which route is preferable.
+#
+# For a pure spallation plant the gain is EXACTLY INVARIANT IN BEAM ENERGY:
+#
+#     y_s = n_per_GeV . E        (yield per GeV DEPOSITED is a flat material
+#                                 property -- see --target)
+#     G   = (1000 E + y_s . E_k) / (1000 E)
+#         = 1 + n_per_GeV . E_k / 1000                    -- E cancels
+#
+# so a 0.6 GeV driver and a 12 GeV driver give the same G. THE 8 GeV IS BOUGHT
+# BY PION PRODUCTION AND BY NOTHING ELSE: HARP's own columns make 3 GeV/c
+# 1.63x dearer per pion than 8. Delete the muon channel and the driver drops to
+# about 1 GeV -- SNS and MYRRHA class, machines that exist -- and 21 capture
+# solenoids, 42 km of REBCO and every fuel cell go with it.
+ROUTES = ("A d-t", "B d-d self-tritiating", "C no muon channel")
+
+
+def gain_invariant_in_energy(e_gev, n_per_gev=None, k_eff=K_SAFE):
+    """Pure-spallation plant gain at a stated beam energy. Constant in e_gev,
+    and the selftest asserts that rather than trusting the algebra."""
+    npg = (0.5 * sum(spallation_yield()) / BEAM_GEV if n_per_gev is None
+           else n_per_gev)
+    y_s = npg * e_gev
+    e_mev = 1000.0 * e_gev
+    return (e_mev + y_s * energy_per_source_neutron(k_eff)) / e_mev
+
+
+def route_table(**kw):
+    """(name, y_fus, source share, G, gain over route C, station tritium kg)."""
+    sys.path.insert(0, HERE)
+    import materials as X
+    import window as W
+    st = station(**kw)
+    m = _mach()
+    _f1, _f2, _ct, _nc, _e, n_per_mu, m_t = W.selftritiation()
+    y_dd = (PI_PER_PROTON * m.delivered_eta_window(1.50, st["window"])
+            * n_per_mu)
+    g_c = plant_gain(K_SAFE, st["y_spall"], 0.0)
+    rows = []
+    for name, y_f, trit in (
+            (ROUTES[0], st["y_fus"], st["tritium_total_kg"]),
+            (ROUTES[1], y_dd, st["tritium_total_kg"] * m_t / 0.600),
+            (ROUTES[2], 0.0, 0.0)):
+        g = plant_gain(K_SAFE, st["y_spall"], y_f)
+        rows.append((name, y_f, y_f / (st["y_spall"] + y_f), g, g / g_c - 1.0,
+                     trit))
+    return rows
+
+
+def breeding_without_tritium(leak=LEAK_PARASITIC_HI, **kw):
+    """Route C frees the whole Li-6 share back to fertile capture."""
+    f = fissions_per_source(K_SAFE)
+    return (f + free_neutrons_per_source(K_SAFE, leak)) / f
+
+
+def _capture_ps(fn):
+    import contextlib as _c
+    import io as _io
+    b = _io.StringIO()
+    with _c.redirect_stdout(b):
+        fn()
+    return b.getvalue()
+
+
+def report_routes():
+    """The route decision: what the muon channel costs and what it buys."""
+    sys.path.insert(0, HERE)
+    import materials as X
+    st = station()
+    hm_t = X.heavy_metal_inventory_kg() / 1000.0
+    burn = X.burnup_kg_per_year()
+    print("  THE ROUTE DECISION")
+    print()
+    print("    TWO DECISIONS ARE RECORDED HERE RATHER THAN ARGUED.")
+    print("      FERTILE  uranium, with seawater uranium as the replacement")
+    print("               when tails and spent fuel are gone. Thorium refused.")
+    print("      FUSION   no longer mandatory. The criterion is cleaner and")
+    print("               more efficient, and the muon channel must earn its")
+    print("               place against it like anything else.")
+    print()
+    print("    A CORRECTION FIRST, AND IT REVERSES A COMPARISON MADE ONE PASS")
+    print("    AGO. --tradeoff priced the routes on BEAM POWER and found the")
+    print("    deuterium route and the no-channel route within 0.001 of each")
+    print("    other. That is true and it is not the whole cost: THE MACHINE")
+    print("    IS NOT THE BEAM POWER, and the missing term is the driver's")
+    print("    ENERGY.")
+    print()
+    print("    FOR A PURE SPALLATION PLANT THE GAIN IS EXACTLY INVARIANT IN")
+    print("    BEAM ENERGY. Yield per GeV DEPOSITED is a flat material")
+    print("    property, so y_s = n_per_GeV . E and")
+    print("      G = (1000E + y_s.E_k)/(1000E) = 1 + n_per_GeV.E_k/1000")
+    print("    with E cancelling. The scan says the same thing:")
+    print()
+    print("        beam GeV    y_spall        G")
+    for e in (0.6, 1.0, 2.0, 3.0, 8.0, 12.0):
+        npg = 0.5 * sum(spallation_yield()) / BEAM_GEV
+        print(f"        {e:8.1f} {npg*e:10.1f} {gain_invariant_in_energy(e):8.2f}")
+    print()
+    print("    SO THE 8 GeV IS BOUGHT BY PION PRODUCTION AND BY NOTHING ELSE.")
+    print("    HARP's own columns make 3 GeV/c 1.63x dearer per pion than 8.")
+    print("    Delete the muon channel and the driver drops to about 1 GeV --")
+    print("    SNS and MYRRHA class, machines that exist -- and with it go")
+    print(f"    {st['modules']:.0f} capture solenoids,"
+          f" {st['modules']*1990.986/1000:.0f} km of REBCO and every fuel cell.")
+    print()
+    print("    THE THREE ROUTES, PRICED ON THE MACHINE AND NOT ON THE BEAM")
+    print()
+    print("      route                     y_fus   share      G    over C"
+          "   station T")
+    for name, y_f, share, g, over, trit in route_table():
+        print(f"      {name:24s} {y_f:7.2f} {100*share:6.3f} % {g:7.2f}"
+              f" {100*over:6.2f} % {trit:9.2f} kg")
+    print()
+    print("      driver, route A and B     8 GeV        capture solenoids: "
+          f"{st['modules']:.0f}")
+    print("      driver, route C          ~1 GeV        capture solenoids: 0")
+    print()
+    print("    AND THAT IS WHAT THE CORRECTION CHANGES. ROUTE B PAYS ROUTE A'S")
+    print("    MACHINE FOR ROUTE C'S OUTPUT. Its fusion channel is"
+          f" {100*route_table()[1][2]:.2f} % of")
+    print("    the source and worth"
+          f" {100*route_table()[1][4]:.2f} % of the plant, and it needs the 8 GeV")
+    print("    driver and every solenoid to deliver that. It is a route that")
+    print("    makes sense only if the object is to DEMONSTRATE the fusion,")
+    print("    never if the object is for the fusion to CONTRIBUTE.")
+    print()
+    print("    ROUTE C GAINS TWICE MORE, AND NEITHER GAIN IS THE DRIVER.")
+    print("    With no tritium to breed, the whole Li-6 share of the neutron")
+    print("    budget returns to fertile capture:")
+    print()
+    print("        leak    breeding ratio   fissile surplus   doubling")
+    for L in (LEAK_PARASITIC_LO, LEAK_PARASITIC_HI):
+        for lab, t in (("with tritium", tritium_per_source_neutron()),
+                       ("no tritium  ", 0.0)):
+            f = fissions_per_source(K_SAFE)
+            br = (f + free_neutrons_per_source(K_SAFE, L) - t) / f
+            sur = (br - 1.0) * burn
+            print(f"        {L:.2f}  {lab} {br:12.3f} {sur:15.0f} kg/yr"
+                  f" {hm_t*FISSILE_FRACTION[0]*1000/sur:6.1f} -"
+                  f"{hm_t*FISSILE_FRACTION[1]*1000/sur:6.1f} yr")
+    print()
+    print("      -- the fleet's binding constraint eases by nearly a factor of")
+    print("      two, and it was the worst constraint in the design.")
+    print()
+    print("    AND THE 8 PERCENT IS NOT NEEDED. The loop requirement is"
+          f" {loop_requirement(0.30):.2f}")
+    print(f"    and every route clears it: A by"
+          f" {route_table()[0][3]/loop_requirement(0.30):.2f}x, C by"
+          f" {route_table()[2][3]/loop_requirement(0.30):.2f}x. Neither is near")
+    print("    the edge, so route A's extra gain buys margin that was already")
+    print("    there rather than margin the plant lacks.")
+    print()
+    print("    WHAT THIS FILE WILL AND WILL NOT SAY. On the criterion as")
+    print("    stated -- cleaner and more efficient -- ROUTE C WINS AND IT IS")
+    print("    NOT CLOSE: it deletes the tritium, the lithium, the breeder")
+    print("    zone, the cells, the solenoids, the REBCO, and seven eighths of")
+    print("    the driver's energy, for 7.5 percent of the gain. What argues")
+    print("    for route A is not efficiency and never was -- it is that the")
+    print("    fusion is the project's subject, and whether a demonstrated")
+    print("    cold-fusion channel is worth an 8 GeV driver is a question")
+    print("    about what is being built and not about which is better.")
+    print("    THIS FILE DOES NOT DECIDE THAT.")
+
+
 def report_tritium():
     """Tritium: the consumable geometry will not shrink, and whether it closes."""
     print("  TRITIUM, THE ONE CONSUMABLE THE GEOMETRY WILL NOT SHRINK")
@@ -2051,6 +2231,36 @@ def selftest():
           abs(_beam_for_halflife(123.2) * 10.0
               / beam_mw_for_tritium(265.0) - 1.0) < 0.05)
     print()
+    print("  the route decision, and the correction it forced")
+    # the invariance is ASSERTED numerically, not trusted from the algebra
+    gains = [round(gain_invariant_in_energy(e), 9)
+             for e in (0.6, 1.0, 2.0, 3.0, 8.0, 12.0, 30.0)]
+    check("the pure-spallation gain is invariant in beam energy",
+          len(set(gains)) == 1)
+    check("  -- so the 8 GeV is bought by pion production and nothing else",
+          abs(gains[0] - plant_gain(K_SAFE, 0.5 * sum(spallation_yield()),
+                                    0.0)) < 1e-9)
+    rt = route_table()
+    check("three routes, and route C is the one with no channel",
+          len(rt) == 3 and rt[2][1] == 0.0)
+    check("route B's fusion channel is under one percent of the source",
+          rt[1][2] < 0.01)
+    check("  -- so B pays A's machine for C's output, which is the finding",
+          rt[1][4] < 0.01 and rt[1][3] < rt[0][3])
+    check("route A's channel IS worth several percent, unlike B's",
+          rt[0][4] > 0.05)
+    check("every route clears the loop requirement with margin",
+          all(r[3] / loop_requirement(0.30) > 2.0 for r in rt))
+    check("  -- so the channel's gain is not margin the plant lacks",
+          rt[2][3] / loop_requirement(0.30) > 2.0)
+    check("dropping tritium raises the breeding ratio",
+          breeding_without_tritium() > breeding_ratio_available())
+    check("  -- and so nearly halves the fissile doubling time",
+          (breeding_without_tritium() - 1.0)
+          / (breeding_ratio_available() - 1.0) > 1.5)
+    check("the file states the decision is not its to make",
+          "DOES NOT DECIDE THAT" in _capture_ps(report_routes))
+    print()
     print("  every section renders -- which is how a stale call is caught")
     import contextlib as _c, io as _io
     for _name, _fn in (("report", report), ("spallation", report_spallation),
@@ -2058,7 +2268,8 @@ def selftest():
                        ("stability", report_stability), ("fuel", report_fuel),
                        ("scale", report_scale), ("tritium", report_tritium),
                        ("station", report_station),
-                       ("ignition", report_ignition)):
+                       ("ignition", report_ignition),
+                       ("routes", report_routes)):
         try:
             _b = _io.StringIO()
             with _c.redirect_stdout(_b):
@@ -2090,6 +2301,8 @@ def main():
                     help=report_station.__doc__)
     ap.add_argument("--ignition", action="store_true",
                     help=report_ignition.__doc__)
+    ap.add_argument("--routes", action="store_true",
+                    help=report_routes.__doc__)
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -2111,6 +2324,8 @@ def main():
         return report_station()
     if a.ignition:
         return report_ignition()
+    if a.routes:
+        return report_routes()
     return report()
 
 
