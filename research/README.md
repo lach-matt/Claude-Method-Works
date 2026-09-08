@@ -5828,3 +5828,110 @@ Priced by what the cost is **denominated in**, which is a different question fro
 - `rates.py` — new. `obstruct.py` — `CHEAPER-CURRENCY` annotated with the exhaustion argument.
   `index3.py` — **433 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H24** and two additions to the
   not-claimed list.
+
+---
+
+## `doors.py` — each door investigated, then all three reduced on one index
+
+> **M:** *"we need to fully investigate each door and compare the results on an index so the results are
+> meaningful to my principles."*
+
+The index is the corpus's own: **register 1173** (binary → language → binary), **register 1176**
+(`E(X) = 0` iff the languages agree) and **section 33.2** (a language that falls silent is the finding,
+and the identity of the silent language names the kind of object). `expand.py` ran that once on
+TRANSITION-POSSIBLE. This runs it three times, once per door.
+
+**The comparison is the result, and it is not what I expected.** The three doors are not three degrees of
+hopelessness.
+
+### Door one — outside GR
+
+**It is not a hope.** Traversable wormholes needing **no exotic matter** are published solutions in at
+least two modified theories:
+
+- **Kanti, Kleihaus & Kunz** (arXiv:1108.3003) — 4D Einstein-dilaton-Gauss-Bonnet, the Gauss-Bonnet term
+  supplying the negative energy. Solutions exist wherever `α/r₀² ≲ 0.13`.
+- **f(R)** (arXiv:0909.5539; review arXiv:2405.05476) — require the *matter* to satisfy NEC, WEC and DEC
+  and delegate the violation to the higher-order curvature terms. Godani & Samanta satisfy all three for
+  `r > 1.8 r₀`; they checked the same redshift function in GR and found **no solution without exotic
+  matter at any r**.
+
+> **The violation is moved, not removed** — `T^eff` still violates the NEC. But it is moved *off the
+> matter*, and that is not nothing.
+
+**Then the stability turns it.** Cuyubamba, Konoplya & Zhidenko (arXiv:1804.11170): the KKK wormhole is
+**unstable for any value of its parameters**, by a purely imaginary mode **non-perturbative in `α`** — it
+does not vanish as `α → 0`, it *diverges*. And the direction is the worst available:
+
+> Smaller `α/r₀²` grows **faster**, so at fixed coupling **a bigger throat comes apart sooner.** Every
+> step toward a usable size is a step toward a faster failure.
+
+Coupling bounded observationally: `√|α| < 0.87 km` (GW200115 with merger-ringdown), `0.27 km` (GW190814
+as a BHB), `1.9 km` electromagnetic.
+
+#### And the reason the original paper saw stability is this tree's own fault
+
+| | |
+|---|---|
+| Kanti et al. | fixed the **throat size** (`δr = 0`) — critics call it nonphysical, "effectively disconnected the two regions" |
+| `stability.py` | measured the radial mode with **the core's position fixed**; `negmass.py` released it and found ℓ=1 had never been posed |
+
+> **Two stability claims, two literatures, one fault: a coordinate was frozen and the mode that uses it
+> was never asked.** Neither was found by looking for it. It is the most transferable thing in the pass.
+
+### Door two — not an energy question
+
+`apply.py` called this the survivor. Investigated, **it is the one actually refused.** GJW is real and is
+the only known way past Graham–Olum — non-achronality by an *external* causal path, which `achronal.py`
+proved unreachable through matter. But the same move **forbids speed**: non-achronality needs an
+*existing* outside path, so the wormhole never beats it.
+
+> State the binary carefully — *"a non-achronal connection **that is also a shortcut**"* — and ORDER
+> refuses it, structurally, by the bank-loan theorem.
+
+### Door three — a relic
+
+Order admits, geometry admits, information admits — **no unavailable value is wanted, because what is
+wanted is an observation.** And then:
+
+> **STATISTICS — "are the configurations drawn from a distribution?" — is the row that decides this door,
+> and it has never been run.** What is the expected number density of relic wormholes, and does the
+> existing catalogue cover enough volume to have seen one?
+
+### The index
+
+| | ORDER | GEOMETRY | ALGEBRA | INFORMATION | STATISTICS | E |
+|---|---|---|---|---|---|---|
+| **DOOR 1** | ADMITS | ADMITS | **CONTESTED** | ADMITS | NOT-RUN | **UNDEFINED** |
+| **DOOR 2** | **REFUSES** | ADMITS | NOT-RUN | ADMITS | NOT-RUN | 1 |
+| **DOOR 3** | ADMITS | ADMITS | NOT-RUN | ADMITS | **NOT-RUN** | 0 |
+
+**A fifth status was needed, and its existence is the first finding.** Door one's algebra row is neither
+admission nor refusal — EdGB says unstable for every `α`, f(R) claims stable non-exotic solutions, and
+the dispute is live. **`CONTESTED` is not `NOT-RUN`: it has been run, twice, with opposite answers.** And
+by register 1173 a contested row returns no binary, so it earns no row —
+
+> **Door one cannot be reduced at all. Its `E` is UNDEFINED, not 1. It is not refused; it is
+> undecidable on the present literature.**
+
+| door | verdict | decided by | kind (§33.2) | next measurement |
+|---|---|---|---|---|
+| **1** | **UNDECIDABLE** | algebra, contested | a **stability** object | a stability calculation — not a magnitude |
+| **2** | **REFUSED** | order, refuses | a **causal-structure** object | nothing; closed by a theorem |
+| **3** | **UNASKED** | statistics, silent | a **search** object | **a number density**, never estimated here |
+
+> **No two doors are decided by the same language, and only one is actually refused.** That is register
+> 1176 across the doors: they do not agree, `E` is not zero, **and the disagreement is the map.**
+
+**And door three's `E = 0` is not an admission.** Its four held rows agree — more than either other door
+manages — but `index3.py`'s standing caution governs exactly here: `E(X) = 0` over an **incomplete** X
+measures the bookkeeping, not the knowledge, and the row that *decides* this door is the silent one.
+Door three is not admitted. It is **unasked**, which is a different and better thing to be.
+
+> **So the answer to "which door" is not the cheapest. It is the one whose deciding language is merely
+> silent rather than contested or refused — and the measurement it wants is a number density.**
+
+### Seated
+- `doors.py` — new, with the literature rows marked **CITED** rather than measured. `obstruct.py` —
+  **44 rows**, new `MODIFIED-GRAVITY-DOOR` (conditional) and `FROZEN-COORDINATE`, **25 closed-negative**,
+  8 conditional, one still OPEN. `index3.py` — **441 findings**, `E(X) = 0`.

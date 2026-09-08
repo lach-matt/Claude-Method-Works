@@ -1341,6 +1341,55 @@ measured supply side, not about a category.**
 
 ---
 
+## ★★★ H25 — the three doors are decided by three different languages, and only one is refused
+
+**H25. Run on the corpus's own index — register 1173 (binary → language → binary), register 1176
+(`E = 0` iff the languages agree), section 33.2 (the silent language names the kind) — no two doors are
+decided by the same language. Door one is UNDECIDABLE (algebra contested), door two is REFUSED (order),
+door three is UNASKED (statistics silent).**
+
+| | ORDER | GEOMETRY | ALGEBRA | INFORMATION | STATISTICS | E |
+|---|---|---|---|---|---|---|
+| **DOOR 1** | ADMITS | ADMITS | **CONTESTED** | ADMITS | NOT-RUN | **UNDEFINED** |
+| **DOOR 2** | **REFUSES** | ADMITS | NOT-RUN | ADMITS | NOT-RUN | 1 |
+| **DOOR 3** | ADMITS | ADMITS | NOT-RUN | ADMITS | **NOT-RUN** | 0 |
+
+**Door one is not a hope.** Traversable wormholes needing **no exotic matter** are published solutions:
+Kanti–Kleihaus–Kunz in 4D Einstein-dilaton-Gauss-Bonnet (arXiv:1108.3003), existing wherever
+`α/r₀² ≲ 0.13`; and f(R) constructions (arXiv:0909.5539, review arXiv:2405.05476) where the *matter*
+satisfies NEC, WEC and DEC and the higher-order curvature terms carry the violation. **Moved, not
+removed — but moved off the matter.**
+
+**Then stability turns it.** Cuyubamba–Konoplya–Zhidenko (arXiv:1804.11170): unstable **for any value of
+`α`**, by a purely imaginary mode **non-perturbative in `α`** — it diverges rather than vanishes as
+`α → 0`. And smaller `α/r₀²` grows *faster*, so **a bigger throat comes apart sooner**. Coupling bounded
+at `√|α| < 0.87 km` (GW200115).
+
+> **And the reason the original paper saw stability is this tree's own fault.** Kanti et al. fixed the
+> **throat size** (`δr = 0`); `stability.py` fixed **the core's position**. Two stability claims, two
+> literatures, **one fault: a coordinate was frozen and the mode that uses it was never asked.**
+
+**A fifth status was needed and its existence is a finding.** `CONTESTED` is not `NOT-RUN` — it has been
+run twice with opposite answers. By register 1173 a contested row returns no binary, so it earns no row:
+**door one cannot be reduced at all.** Its `E` is UNDEFINED, not 1 — **not refused, undecidable.**
+
+| door | verdict | decided by | kind (§33.2) | next measurement |
+|---|---|---|---|---|
+| 1 | UNDECIDABLE | algebra, contested | a **stability** object | a stability calculation — not a magnitude |
+| 2 | REFUSED | order | a **causal-structure** object | nothing; closed by a theorem |
+| 3 | UNASKED | statistics, silent | a **search** object | **a number density**, never estimated here |
+
+> **The disagreement is the map.** Not three degrees of hopelessness: one refused, one undecidable, one
+> merely unasked.
+
+| | `doors.py` |
+|---|---|
+| status | **CITED** (every modified-gravity row carries its arXiv number and is marked cited, not measured) + **MEASURED** (the reduction, the deciders, the frozen-coordinate correspondence) |
+| new? | the per-door reduction, the `CONTESTED` status, and the frozen-coordinate fault met in two literatures, yes |
+| **not** claimed | that door three is **admitted** — its `E = 0` is over an incomplete set and the deciding row is the silent one; `index3.py`'s caution governs; that door one is refused — it is undecidable, which is weaker and different; that any modified-gravity solution has been verified here — those rows are **CITED** |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1464,3 +1513,9 @@ measured supply side, not about a category.**
   side alone is not a calculation. See **H24**.
 - **That door three is the right door.** It is the only one with a cost you could pay today; that is a
   different statement.
+- **That door three is admitted.** Its `E = 0` is over an incomplete set, and the row that decides it is
+  the silent one. It is **unasked**. See **H25**.
+- **That door one is refused.** It is **undecidable** on the present literature — a contested row returns
+  no binary. Weaker, and different.
+- **That any modified-gravity wormhole solution has been verified here.** Those rows are **CITED**, with
+  arXiv numbers, not measured.

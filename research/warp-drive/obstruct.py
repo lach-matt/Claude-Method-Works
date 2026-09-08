@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of forty-two obstructions, SIX dissolved, FOUR relocated,
-TWENTY-FOUR closed negative, SEVEN conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of forty-four obstructions, SIX dissolved, FOUR relocated,
+TWENTY-FIVE closed negative, EIGHT conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -320,6 +320,36 @@ LEDGER = [
   "hydrogen: black-hole bits go as M^2 and saturate the bound, so an OPTIMISED "
   "spectral currency IS A BLACK HOLE -- dichotomy.py's RICCI route, closed by "
   "COLLAPSE. Leaves H14 standing: a multiplicity has no sign", "spectra.py"),
+ ("MODIFIED-GRAVITY-DOOR", "outside general relativity a traversable "
+  "wormhole needs no exotic matter", "CONDITIONAL",
+  "TRUE AND THE STABILITY IS CONTESTED, WHICH IS A FIFTH STATUS THIS LEDGER "
+  "HAS NOT USED. Kanti, Kleihaus & Kunz (arXiv:1108.3003) build 4D traversable "
+  "wormholes in Einstein-dilaton-Gauss-Bonnet with NO exotic matter, the "
+  "Gauss-Bonnet term supplying the negative energy, existing wherever "
+  "alpha/r_0^2 <~ 0.13; f(R) constructions (arXiv:0909.5539, review "
+  "arXiv:2405.05476) have the MATTER satisfy NEC, WEC and DEC and delegate the "
+  "violation to the curvature terms -- MOVED, NOT REMOVED, but moved off the "
+  "matter. THEN Cuyubamba, Konoplya & Zhidenko (arXiv:1804.11170) find the "
+  "EdGB wormhole UNSTABLE FOR ANY alpha, by a purely imaginary mode "
+  "NONPERTURBATIVE in alpha, with smaller alpha/r_0^2 growing FASTER -- so a "
+  "BIGGER THROAT COMES APART SOONER. f(R) claims stable non-exotic solutions "
+  "under a vanishing sound speed. THE DISPUTE IS LIVE, so the row is neither "
+  "ADMITS nor REFUSES: doors.py records it CONTESTED and notes that by "
+  "register 1173 a contested row returns no binary, so door one is UNDECIDABLE "
+  "rather than refused. Coupling bounded at sqrt|alpha| < 0.87 km (GW200115)",
+  "doors.py"),
+ ("FROZEN-COORDINATE", "a stability result that fixes a coordinate is a "
+  "stability result", "CLOSED-NEGATIVE",
+  "IT IS NOT, AND THE FAULT HAS NOW BEEN MET TWICE INDEPENDENTLY. Kanti et al. "
+  "imposed a boundary condition FIXING THE THROAT SIZE (delta-r = 0), which "
+  "Cuyubamba et al. call nonphysical and say 'effectively disconnected the two "
+  "regions'; release it and the wormhole is unstable at whatever small alpha. "
+  "stability.py measured the RADIAL mode with THE CORE'S POSITION HELD FIXED "
+  "and flagged l >= 2 as the top risk; negmass.py released it and found l = 1, "
+  "the translation mode, had never been posed. A COORDINATE WAS FROZEN AND THE "
+  "MODE THAT USES IT WAS NEVER ASKED -- in two literatures, neither found by "
+  "looking for it. Any stability claim here must now name which coordinates it "
+  "held fixed", "doors.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -669,11 +699,11 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 42)
+    chk("obstructions tracked", len(LEDGER), 44)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 24)
-    chk("CONDITIONAL", len(h["CONDITIONAL"]), 7)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 25)
+    chk("CONDITIONAL", len(h["CONDITIONAL"]), 8)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
