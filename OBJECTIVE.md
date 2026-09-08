@@ -24,15 +24,20 @@ not meet a criterion, that is recorded below rather than softened.
 
 | # | criterion | where it is adjudicated |
 |---|---|---|
-| 1 | **'Cold'** — the approach to reaction is not supplied by kinetic energy | `window.py`, and §1 of the proof paper |
+| ~~1~~ | ~~**'Cold'**~~ — **DROPPED by the author, and the reason is recorded rather than the word quietly removed.** 'Cold' is *proved* in `Cold_Fusion_Proof_v1.0` for muon-catalysed fusion, where the approach to nuclear separation is supplied by molecular binding geometry rather than by kinetic energy. The plant this project now builds carries **no fusion channel**, so the word had nothing left to attach to, and redefining it at plant level would have been a second and different definition wearing the first one's name. The word retires to the proof paper where it is earned. **The criterion is now: clean, efficient, self-sustaining.** | *retired — see the proof paper* |
 | 2 | **Self-sustaining** — runs its own drive from its own output | `powersource.py --plant` |
 | 3 | **No input beyond the initial ignition** | `materials.py --supply` |
 | 4 | **Scaled for civilization**, baseline 1,000,000 households | `powersource.py --station` |
 | 5 | **Ignites further stations** from its own output | `powersource.py --ignition` |
 | 6 | **Entirely environmentally friendly**, mitigated before design | `environment.py` |
 | 7 | **Built-in fail-safes** | `powersource.py --stability` |
-| 8 | **Restartable quickly after shutdown** | *nothing computes this* |
-| 9 | **Cheap to start**, and a tremendous output making it long-term sustainable | *nothing computes cost* |
+| 8 | **Restartable quickly after shutdown** | `restart.py` — **being built** |
+| 9 | **Cheap to start**, and a tremendous output making it long-term sustainable | `startcost.py` — **being built** |
+
+**Two decisions taken by the author, recorded here so that neither is re-argued and neither is
+forgotten:** 'cold' is dropped from the objective (above), and **criteria 8 and 9 are adjudicated by
+new instruments before phase 4 is drafted** rather than carried into the paper as open items. A paper
+that states a criterion it cannot support is the failure mode this whole harness exists to prevent.
 
 ## The phases
 
