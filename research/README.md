@@ -3251,3 +3251,77 @@ is finished and verified.** A sign.
 
 - `index3.py` — 222 findings: `CONTRACTION-LAW`, `COST-IS-ONE-NUMBER`, `SUBLINEAR-SCALING`,
   `NOT-POWERED`, `SIGN-NOT-POWER`.
+
+---
+
+## Pass 26 — `entangle.py`: M's entanglement instinct, and it moves the number 64 orders
+
+M: *"what we need doesn't involve exotic matter... the truest form of manipulation is at the charge
+level. Charge level quantum entanglement is what we should look at next."*
+
+**The instinct is correct at the deepest level, and testing it changed the gap by sixty-four orders of
+magnitude.**
+
+### Why entanglement is the right language
+
+The quantum null energy condition is a theorem:
+
+**`⟨T_kk⟩ ≥ (ℏc/2π)·S″`**
+
+So **negative energy density exists exactly where the entanglement entropy is concave along the ray.**
+`S″ < 0` **is** the requirement, restated — not a substitute for it, the same thing in M's variable.
+Every real negative-energy source is this: Casimir is the vacuum's entanglement across a boundary,
+squeezed vacuum is two-mode entanglement, Hawking flux is entanglement across a horizon. *"Naturally
+occurring fields submitting under manipulation"* is an accurate description of all three.
+
+### And the number changes enormously
+
+| `L` (m) | S required | S holographic | ratio |
+|---|---|---|---|
+| 1 | 1.8891×10⁷⁰ | 9.5702×10⁶⁸ | **19.7392** |
+| 10⁵ | 1.8891×10⁸⁰ | 9.5702×10⁷⁸ | **19.7392** |
+| 10¹⁰ | 1.8891×10⁹⁰ | 9.5702×10⁸⁸ | **19.7392** |
+| 10²⁰ | 1.8891×10¹¹⁰ | 9.5702×10¹⁰⁸ | **19.7392** |
+
+**Constant at every scale, and the closed form is exactly `2π² = 19.7392`.**
+
+**Cross-checked against an unrelated derivation:** `spec.py` found by gravitational collapse that a
+seating region exceeds its Schwarzschild bound by `2π²/3 = 6.5797`. **The two differ by exactly 3.**
+One from entropy, one from collapse, same number.
+
+### Two gaps, and they mean different things
+
+| against what physics **permits** | **20×** | holographic |
+| against what can be **made** | **10⁶⁵×** | Ford–Roman |
+
+They differ by **63.7 orders**. **The first is the meaningful one, and it is the best news this project
+has produced about the obstruction** — the requirement is twenty times beyond what quantum field theory
+allows, not 10⁶⁵ times. It is the *engineering* gap that is 65 orders.
+
+**But twenty times the holographic bound is still impossible, and not in an engineering way.** That
+bound is the maximum information any region can hold; exceeding it means holding more than a black hole
+of the same size. It is a limit on what **can be**, not on what we can build.
+
+### What entanglement does not buy
+
+- **No charge loophole.** QNEC is **state-independent** — it holds for every state, entangled or not,
+  charged or not, and **charge appears nowhere in it.**
+- **No signalling.** Correlation is not communication and it is not transport.
+- **No shortcut.** Gao, Jafferis & Wall (2017) *do* make a wormhole traversable by coupling two
+  entangled boundaries, via a **negative-energy shockwave** — and the traversal is **slower** than the
+  outside route, by their own result.
+
+### What this changes about the project's statement
+
+> **OLD:** "needs exotic matter, and we are 65 orders short"
+> **NEW:** "needs entanglement entropy concave along the ray, at `2π²` times the holographic bound"
+
+The second is a better statement of the same fact: it names the right variable, it is scale-free, it
+cross-checks against an unrelated derivation, and it says precisely which limit is exceeded and by how
+much.
+
+### Seated
+
+- `index3.py` — 227 findings: `ENTANGLEMENT-IS-IT`, `TWENTY-NOT-65-ORDERS`, `TWO-CONSTANTS-AGREE`,
+  `PRINCIPLED-VS-BUILDABLE`, `NO-CHARGE-LOOPHOLE`.
+- `obstruct.py` — 26 rows. New `ENTANGLEMENT-ROUTE`, **CONDITIONAL**.
