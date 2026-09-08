@@ -94,6 +94,22 @@ and worth stating as neither.
 
 stdlib only.  wall.py supplies the Poisson-Visser machinery this file
 generalises to a negative interior; concentric.py supplies the device.
+
+
+    *** A MODE THIS FILE NEVER NAMED, ADDED BY negmass.py ***
+
+    What is measured below is the RADIAL breathing mode, and l >= 2 is flagged
+    as the top NOT-RUN risk.  l = 1 -- THE TRANSLATION MODE -- is not mentioned
+    anywhere, and Trivedi & Loeb (arXiv:2605.10976) analyse exactly our M = 0
+    configuration and call it a RUNAWAY.
+
+    It is not one: their case is a BINARY (a dipole) and ours is CONCENTRIC, so
+    Newton's shell theorem gives zero force on the core at any displacement and
+    the Bondi runaway has no dipole to work with.  BUT ZERO FORCE IS NEUTRAL,
+    NOT RESTORING.  The failure mode is DRIFT TO CONTACT rather than
+    exponential runaway -- slower than the literature's, and still a failure.
+    The GR version, with the junction conditions rather than Newton, is
+    NOT-RUN.  See negmass.py.
 """
 import math, sys
 

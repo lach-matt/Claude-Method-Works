@@ -5040,3 +5040,78 @@ model-dependent in `b(r)`, `Φ(r)`. Echo searches exist and are **contested**; n
 
 ### Seated
 - `detect.py` — new. `index3.py` — **375 findings**, nine new.
+
+---
+
+## `negmass.py` — what the searches found, and Trivedi & Loeb's M = 0 case
+
+### 1. The echo searches: a status, not a result
+
+| | | |
+|---|---|---|
+| Abedi, Dykaar & Afshordi | 1612.00266 | tentative evidence, ~2.9σ |
+| **Westerweck et al. (AEI)** | 1712.09966 | **"low significance of evidence"** |
+| Abedi et al., reply | 1803.08565 | disputing the reanalysis |
+| Lo et al. | 2010.07663 | GWTC-1 and O3 |
+| Uchikata et al. | 2309.01894 | O3, LVK |
+| model-agnostic LVK | 2512.24730 | 2025, waveform-independent |
+
+**No confirmed detection; the dispute is live.** That settles `detect.py`'s `NOT-RUN` as *"run
+repeatedly, not converged"* — a status, not an answer either way.
+
+### 2. Negative mass is already constrained — more tightly than I expected
+
+Trivedi & Loeb (arXiv:2605.10976): dipole radiation bounds `B ≲ 10⁻⁷`. Opposite gravitational charge
+(`Δα = 2`) gives **B = 0.2083 — 6.32 orders over. Ruled out.**
+
+> **Negative mass survives only with *universal* coupling** — `α₋ ≈ α₊` across orbital dynamics,
+> lensing and cosmology alike.
+
+### 3. And they analyse our exact configuration
+
+| case | | signal |
+|---|---|---|
+| M > 0, μ < 0 | positive energy; radiating **expands** the orbit | **anti-chirp** |
+| M < 0 | repulsive, no bound orbit | disperses |
+| **M = 0** | *"both accelerate indefinitely in the same direction"* | **RUNAWAY** |
+
+**`concentric.py` is M_ADM = 0, measured −4.000e-15. The third case is literally our device.**
+
+### 4. It does not run away — and the reason is geometry
+
+Their M = 0 case is a **binary** (a dipole). Ours is **concentric**. Newton's shell theorem gives zero
+force on an interior point at *any* displacement, whatever the signs — integrated here rather than
+quoted, with the residual shown to fall with resolution.
+
+> **The Bondi runaway needs a dipole and ours has none.** An argument *for* the two-region design that
+> this tree had never made.
+
+### 5. But zero force is neutral, not restoring — and ℓ = 1 was never named
+
+`stability.py` measured the **radial** breathing mode and flagged **ℓ ≥ 2** as the top risk. **ℓ = 1 —
+the translation mode — is not mentioned anywhere in it.**
+
+Neutrally stable means the failure is **drift to contact**, not exponential runaway: the core wanders
+until it reaches the shell, where the theorem stops applying. **Slower than the literature's failure,
+and still a failure.** Annotated in place; the GR version is `NOT-RUN`.
+
+### 6. And the design creates its own detection problem
+
+`M_ADM = 0` means **gravitationally invisible at range** — no lensing, no microlensing, no orbital
+perturbation, no dipole radiation. The anti-chirp channel is silent on us too (it belongs to M>0, μ<0).
+
+> **The property that makes the design safe — `M_ADM = 0`, satisfying the positive mass theorem — is the
+> property that makes it unfindable.**
+
+Which separates two objects the project had been treating as one:
+
+| | |
+|---|---|
+| `detect.py`'s **search target** | 1193 km throat, **32.13 solar masses**, LIGO band |
+| `concentric.py`'s **design** | **M_ADM = 0**, invisible |
+
+> **The one we could find is not the one we designed.** If the route is *"find one and enlarge it,"* the
+> thing to look for **has a mass, and the mass is the signal.**
+
+### Seated
+- `negmass.py` — new. `stability.py` — annotated with the unnamed ℓ=1 mode. `index3.py` — **382 findings**.
