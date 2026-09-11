@@ -2784,6 +2784,123 @@ older, more basic split between a potential and a length.*
 
 ---
 
+## ★★★ H43 — the math that controls magnitude. **`R·Δd ≤ k ℓ_P²` — an area law, and `Λ` is the exchange rate between the two denominations.**
+
+> M: *"Two planes of travel, two denominations of currency… We now need to identify the math that controls magnitude in all this, so price/size of transition state corridor can scale under control."*
+
+**The math is an exponent, and the control law is a hyperbola.**
+
+### H43a — both denominations priced, and `Λ` is the rate between them
+
+| denomination | bought by | paid | price | `R`-dependence |
+|---|---|---|---|---|
+| **distance** | `g_rr` | along the corridor | `c⁴/(GΛ)` = **1.212374e43 J/m** of `Δd` | **none** |
+| **time** | `g_tt` | at the endpoints | `c⁴/G` = **1.210256e44 J** per unit `ΔΦ` per metre of `R` | **linear** |
+
+> **The ratio of the two prices is `Λ` — exactly, to fourteen digits.** For the same amount measured in
+> metres, **time costs `Λ` times more than distance.** `Λ` is not only the coefficient of the corridor
+> integral (**H42c**); **it is the exchange rate between the two currencies** — the job its name always
+> implied, and which no pass before this one measured.
+
+Distance is `R`-independent because `Λ` is scale-free in the geometry (**H42d**). So **the two denominations
+scale oppositely** and no single corridor size optimises both. A trade, not a free lunch.
+
+**And one denomination is not obstructed at all.** A potential *well* redshifts clocks and is made of
+**ordinary positive mass** — every gravitating body in the universe buys time-currency and none violates an
+energy condition. Only the opposite sign, a potential *hill*, needs what distance needs.
+
+> **The exotic requirement lives entirely in one denomination.** And the honest other half: **time dilation
+> changes elapsed proper time, not position.** "Both planes travelled simultaneously" is exact as a
+> statement about *inputs* — the two metric coefficients are independent and both may be driven at once —
+> and is **not** a statement about arriving anywhere sooner.
+
+### H43b — the scaling census: what controls magnitude is an exponent
+
+| | **A**: hold `Δd` fixed | **B**: hold `Δd/R` fixed |
+|---|---|---|
+| mass `M`, energy `E` | `R⁰` | `R¹` |
+| `ρ` **required** | `R⁻³` | `R⁻²` ← **H37**'s seated gate |
+| `ρ` **permitted** (`R⁻⁴` bounds) | `R⁻⁴` | `R⁻⁴` |
+| **shortfall** | **`R¹`** | **`R²`** |
+| `Λ` | `R⁰` | `R⁰` |
+
+**Both exponents positive** ⟹ small is the only direction in both regimes, and **A is strictly better than
+B**. A zero exponent would be the prize — it would mean size does not matter. Nothing here has one except
+**H43d**.
+
+### H43c — the area law, and it validates itself
+
+Set required = permitted in regime A:
+
+> **`R · Δd ≤ k ℓ_P²`**  — corridor length times distance bought, bounded by a **Planck area**.
+>
+> `k_FR = 3Λ/(32π²) = 0.094823` · `k_Cas = π²Λ/720 = 0.136838` — **two unrelated bounds, same Planck area to
+> within 44 %.**
+
+**The validation, and it is the reason to believe this.** Put `Δd = R` — the diagonal, contracting a
+corridor by its own length — and the law becomes `R² ≤ kℓ_P²`:
+
+| | `√k` | **H37**'s seated crossover |
+|---|---|---|
+| Ford–Roman | **0.307933 ℓ_P** | **0.307933 ℓ_P** |
+| Casimir | **0.369917 ℓ_P** | **0.369917 ℓ_P** |
+
+Six decimals, both. **They were two points; this is the curve they sit on.** A strict generalisation of a
+result already in the tree, not a new claim on new assumptions — and the one place a chain of scalings is
+pinned to a number computed another way.
+
+| `Δd` | `R ≤` |
+|---|---|
+| `ℓ_P` | `0.094823 ℓ_P` |
+| 1 fm | 2.4770e−56 m |
+| 1 m | **2.4770e−71 m** |
+| 1 ly | 2.6182e−87 m |
+
+> **Scaling is controlled, and the control law is exact — which is what M asked for. The whole controlled
+> region sits under a Planck area.**
+
+*No novelty claimed.* A Planck-area bound on a product is the shape of **H40a**'s Pfenning–Ford; the
+resemblance to a Bekenstein-type area bound is **noted and not asserted** — nothing here derives it from
+entropy.
+
+### H43d — candidate D inverts the law, and the exponent goes to zero
+
+Every bound above falls as `R⁻⁴`. Fliss et al. fall as `R⁻²` — the one exponent matching the requirement's.
+Redo the same calculation:
+
+> **`R ≥ Δd · (ℓ_UV/ℓ_P)²/Λ`** — **the inequality has reversed.** A *minimum* on `R`, and **`ℓ_P²` has
+> cancelled out entirely.**
+
+The controlling quantity is the pure number `(ℓ_UV/ℓ_P)²/Λ` — **exactly the shortfall of H41c**, now
+carrying a meaning it did not have:
+
+> **The shortfall *is* the minimum ratio of corridor length to distance bought.**
+
+| `ℓ_UV` | bound | |
+|---|---|---|
+| `ℓ_P` | `R ≥ 0.100175 Δd` | already **vacuous** |
+| **`√Λ ℓ_P`** | **`R ≥ 1.000000 Δd`** | **exactly the kinematic bound** |
+| `10 ℓ_P` | `R ≥ 10.017501 Δd` | real but mild |
+
+At the closing value the quantum constraint **coincides with the constraint geometry already imposes** —
+**H41a** proved `Δd` saturates at `r₂−r₁`, i.e. `R ≥ Δd` for free. **It becomes vacuous and size stops
+mattering.**
+
+> **This is not a second derivation of `√Λ ℓ_P` and must not be read as one.** The same dimensionless group
+> appears in both places because it is the same calculation seen from two sides. What is gained is an
+> *interpretation*, not corroboration.
+
+And it rests entirely on `ℓ_UV` — one of the exactly two coefficients **H42a** found that nothing here
+fixes. **Third independent arrival at the same L4.**
+
+| | `magnitude.py` |
+|---|---|
+| status | **DERIVED** (the area law, from cited bounds + a scaling step) + **VALIDATED** (diagonal vs two seated crossovers, 6 dp) + **IDENTITY** (`Λ` as the denomination rate) + **INTERPRETATION** (the shortfall as a length ratio) |
+| new? | the area law as a curve; `Λ` as the exchange rate between denominations; the sign flip under `R⁻²` |
+| **not** claimed | novelty for a Planck-area bound; that it is a Bekenstein bound; a second derivation of `√Λ ℓ_P`; any value for `ℓ_UV` |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

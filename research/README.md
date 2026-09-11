@@ -7022,6 +7022,50 @@ cannot be moved.
 
 ---
 
+## `magnitude.py` — the math that controls magnitude. An area law.
+
+> M: *"Two planes of travel, two denominations of currency… We now need to identify the math that controls
+> magnitude in all this, so price/size of transition state corridor can scale under control."*
+
+**Both denominations priced, and the ratio is `Λ`.** Distance, bought by changing `g_rr` and paid along the
+corridor, costs `c⁴/(GΛ)` = **1.212374e43 J/m** and is **independent of `R`**. Time, bought by changing
+`g_tt` and paid at the endpoints, costs `c⁴/G` = **1.210256e44 J** per unit `ΔΦ` per metre of `R` and is
+**linear in `R`**. Their ratio is **9.982529174194637** — to fourteen digits.
+
+> **`Λ` is the exchange rate between the two currencies.** Not only the coefficient of the corridor
+> integral — the rate between the denominations, which is the job its name always implied.
+
+They scale **oppositely**, so no single corridor size optimises both. And **one denomination is not
+obstructed at all**: a potential well is ordinary positive mass, so time-currency needs no exotic matter —
+and it also **does not transport**, since it moves clocks, not positions.
+
+**What controls magnitude is an exponent.** Hold `Δd` fixed and scale `R`: energy is *constant*, required
+`ρ` falls as `R⁻³`, permitted as `R⁻⁴`, **shortfall `R¹`**. Hold `Δd/R` fixed: **shortfall `R²`** — the
+seated gate. Both positive; small is the only direction.
+
+> **The boundary is a hyperbola: `R · Δd ≤ k ℓ_P²`.** Corridor length times distance bought, bounded by a
+> **Planck area**. `k_FR = 3Λ/32π² = 0.094823`, `k_Cas = π²Λ/720 = 0.136838` — two unrelated bounds, same
+> area to within 44 %.
+
+**And it validates itself.** Its diagonal `Δd = R` gives `√k` = **0.307933** and **0.369917 ℓ_P** — exactly
+`candidates.py`'s two seated crossovers, to six decimals. *They were two points; this is the curve they sit
+on.* At `Δd = 1 m`, `R ≤ 2.4770e−71 m`. Scaling is controlled and the control law is exact — and the whole
+controlled region sits under a Planck area. *No novelty claimed; the Bekenstein resemblance is noted, not
+asserted.*
+
+**Candidate D inverts it.** The `R⁻²` bound reverses the inequality to `R ≥ Δd·(ℓ_UV/ℓ_P)²/Λ` — a *minimum*,
+with `ℓ_P²` cancelled out. The controlling number is exactly `overturn.py`'s shortfall, now carrying a
+meaning: **the shortfall *is* the minimum ratio of corridor length to distance bought.** At
+`ℓ_UV = √Λ ℓ_P` it is `R ≥ 1.000000 Δd` — the kinematic bound `overturn.py` already proved for free. **The
+constraint goes vacuous and size stops mattering.** Not a second derivation of `√Λ ℓ_P`; the same group seen
+from the other side. Third independent arrival at the same L4, on the same undefined `ℓ_UV`.
+
+### Seated
+- `magnitude.py` — new. `index3.py` — **528 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H43**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
