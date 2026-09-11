@@ -7971,6 +7971,58 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `currency.py` — the bill in the chosen scope. The currency changed and the number got worse by Λ.
+
+> M: *"Continue — the bill is the target."* With `SCOPE_CHOSEN_HERE = "modified gravity counts"`.
+
+**THE TREE'S ENTIRE COST APPARATUS WAS BUILT FOR A CURRENCY THE DECISION RETIRED, AND NOBODY HAD NOTICED.**
+The exchange rate, the QEI, the shortfall and `candidates.py`'s three gates all price a **matter source
+inside GR**. In a modified-gravity vacuum wormhole **there is no source to price**.
+
+**THE LITERATURE IS REAL AND WAS READ** — a **vacuum** wormhole in Einsteinian cubic gravity
+(arXiv:2410.13996), Einstein-scalar-Gauss-Bonnet without exotic matter (1904.13091), `f(R)` wormholes whose
+matter *satisfies* the energy conditions (0909.5539). **The NEC violation sits in the action, not the
+matter.**
+
+**SO THE BILL IS IN A LENGTH.** A higher-curvature term competes with the Einstein term only when its
+coupling matches the curvature, so **the throat radius *is* the coupling scale** — `r₀ ~ √α` for
+Gauss–Bonnet, `r₀ ~ λ^(1/4)` for cubic. A one-metre throat needs `α = 1 m²`.
+
+**AND IT IS WORSE BY EXACTLY Λ.** EFT naturalness puts `α ~ ℓ_P²`, so the required enhancement is
+`(R/ℓ_P)²` against GR's `(R/ℓ_P)²/Λ`:
+
+> **MG / GR = 9.982529 at 1 nm, 1 m, 1 km and an Earth radius alike.**
+>
+> The scope decision moved the bill by **one factor of Λ, in the wrong direction**. GR asks for energy you
+> cannot buy; MG asks for a coupling you cannot justify, and the coupling is ten times harder.
+
+**AND IT BREAKS A GATE IT WAS NOT ASKED ABOUT.** Re-running the three gates: **KIND now passes vacuously**
+— with no source, nothing has to supply `ρ < 0`, so the gate isn't cleared, it stops being asked. And
+**DEADLINE fails structurally for the pure-curvature branch**:
+
+> **A coupling constant does not switch off.** `α` is a parameter of the Lagrangian, not a knob. A
+> curvature-held wormhole is **permanent by construction**, and `closure.py` prices that. `teardown.py`
+> made closability a requirement and `membrane.py` made it tension running out — **here there is nothing
+> to run out.**
+>
+> **The scalar–Gauss–Bonnet branch escapes it**, because a scalar *profile* can vary where a constant
+> cannot. A real discriminator between the two halves of the new scope, invisible until it was chosen.
+
+**AND THE ESCAPE IS THE SAME ESCAPE.** `α ~ ℓ_P²` is an EFT expectation, not a theorem, and it fails
+exactly for a UV-complete theory — **which is `unidentified.py`'s `ℓ_UV ≤ 3.159514 ℓ_P` from the other
+side.** Two routes, one requirement: *the theory must have no scale above `ℓ_P` doing any work.*
+
+The constraint literature (GW170608, GW230529, binary pulsars, QPOs, **causality** bounds on scalar-GB) is
+**named and not read** — three faults this session had exactly that shape. **Reading it is the next
+computation, named rather than done.**
+
+### Seated
+- `currency.py` — new. `index3.py` — **622 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H71**. `candidates.py`, `closure.py`, `unidentified.py` — **read here, files
+  unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## `oneobject.py` — Λ *is* the collapse, and what is left is a curve of width 1.5.
 
 > M: *"If we solve for all coefficients in the chain, we identify the complete chain as one object instead

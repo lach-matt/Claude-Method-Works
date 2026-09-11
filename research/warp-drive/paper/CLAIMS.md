@@ -5289,6 +5289,94 @@ stuck and one that knows what it is waiting for.
 
 ---
 
+## ★★★ H71 — the bill in the new scope. **The currency changed and the number got worse by Λ.**
+
+> M: *"Continue — the bill is the target."* With **H66**: `SCOPE_CHOSEN_HERE = "modified gravity counts"`.
+
+**The tree's entire cost apparatus was built for a currency the decision retired, and nobody had noticed.**
+The exchange rate, the QEI, the shortfall, and `candidates.py`'s three gates all price a **matter source
+inside general relativity**. In a modified-gravity vacuum wormhole **there is no source to price.**
+
+### H71a — the literature is real, and it was read
+
+| | |
+|---|---|
+| **arXiv:2410.13996** | a **vacuum** wormhole in Einsteinian cubic gravity — no matter at all |
+| **arXiv:1904.13091** | Einstein-scalar-Gauss-Bonnet wormholes that *"do not demand any exotic matter"* |
+| **arXiv:0909.5539** | `f(R)` wormholes whose matter **satisfies** the energy conditions |
+| **arXiv:2405.05476** | the `f(R)` family, reviewed |
+
+**The NEC violation is carried by the higher-curvature terms of the action rather than by matter.**
+
+### H71b — so the bill is not in joules. It is in a length.
+
+A higher-curvature term competes with the Einstein term only when its coupling matches the curvature
+scale, so **the throat radius *is* the coupling scale**:
+
+> Gauss–Bonnet `[α] = L²` → `r₀ ~ √α` · cubic `[λ] = L⁴` → `r₀ ~ λ^(1/4)`
+
+| throat | 1 nm | 1 m | 1 km | Earth radius |
+|---|---|---|---|---|
+| `α` needed (m²) | 1.0×10⁻¹⁸ | 1.0×10⁰ | 1.0×10⁶ | 4.1×10¹³ |
+
+### H71c — and it is worse by exactly Λ
+
+EFT naturalness puts the coefficient at the cutoff, `α ~ ℓ_P²`. So the enhancement required over natural
+is `(R/ℓ_P)²` — against GR's energy shortfall `(R/ℓ_P)²/Λ`:
+
+| R | MG coupling ratio | GR energy shortfall | **MG / GR** |
+|---|---|---|---|
+| 1 nm | 3.828073×10⁵¹ | 3.834773×10⁵⁰ | **9.982529** |
+| 1 m | 3.828073×10⁶⁹ | 3.834773×10⁶⁸ | **9.982529** |
+| 1 km | 3.828073×10⁷⁵ | 3.834773×10⁷⁴ | **9.982529** |
+
+> **The scope decision did not move the bill by orders. It moved it by one factor of Λ — in the wrong
+> direction.** Same exponent, same Planck-square. **GR asks for energy you cannot buy; MG asks for a
+> coupling you cannot justify, and the coupling is ten times harder.**
+
+That is the honest answer to *"the bill is the target"*, one pass after the target was set, and it is not
+the answer anyone wanted.
+
+### H71d — and it breaks a gate it was not asked about
+
+| branch | KIND | DEADLINE | MAGNITUDE |
+|---|---|---|---|
+| pure higher-curvature (vacuum) | **True — but vacuously** | **False** | False |
+| scalar–Gauss–Bonnet | True | **OPEN** | False |
+
+**KIND passes vacuously, and that is not a win** — with no source, nothing has to supply `ρ < 0`. *The
+gate is not cleared; it stops being asked.*
+
+**DEADLINE fails structurally for the pure-curvature branch, and no pass had seen this:**
+
+> **A coupling constant does not switch off.** `α` is a parameter of the Lagrangian, not a knob on a
+> device. A vacuum wormhole held open by curvature terms is **permanent by construction** — and `closure.py`
+> prices an un-closable corridor. **H36c** made closability a requirement; **H55d** made it a consequence
+> of tension running out. **Here there is nothing to run out.**
+
+**The scalar–Gauss–Bonnet branch escapes it**, because a scalar *profile* can vary where a constant
+cannot. **A real discriminator between the two halves of the scope**, invisible until the scope was chosen.
+*The decision that solved KIND broke DEADLINE — and only for one of its two branches.*
+
+### H71e — and the escape is the same escape
+
+`α ~ ℓ_P²` is an **EFT expectation, not a theorem**. It fails exactly for a **UV-complete** theory with no
+cutoff to suppress anything — which is **H69a**'s specification from the other side.
+
+> **H69a:** `ℓ_UV ≤ √Λ ℓ_P = 3.159514 ℓ_P` — valid essentially *at* the Planck scale.
+> **Here:** *naturalness must not apply.*
+>
+> **Two routes, one requirement, and not a coincidence: the theory must have no scale above `ℓ_P` doing
+> any work.** The identity is exact — `(√Λ)²/Λ = 1.000000000000`.
+
+**The constraint literature is named and not read:** GW170608 EFT bounds (arXiv:2407.08929), GW230529 on
+EdGB (2405.13279), massive scalar-GB binary dynamics (2607.28448), cubic curvature from QPOs (2506.22548),
+and **causality** constraints on scalar-GB (2205.08551). **The number lives there, and it is not quoted
+and not recalled** — this session produced three faults of exactly that shape. **Reading them is the next
+computation, named rather than done.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
