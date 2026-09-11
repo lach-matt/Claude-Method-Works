@@ -195,6 +195,15 @@ critical the Mojave leads on the seismic margin; on the coast the Oxnard plain l
 Beach carries its 2022 denial as a FAIL. The adopted route's 15–17 modules against eight sites is a
 finding. A ranked list of site studies, not a choice.
 
+**The studies and surveys as the first line (`tools/predev.py`, `docs/PREDEV.md`, 2026-09-11).** The
+author's instruction: every study and survey is its own upfront line item, first in priority. Priced
+at mid and critical from the class of study (ASSUMED bands): Title I **$213 / $463 M** — resource, site,
+environmental, permit, interconnection and reservoir studies that gate the field, and the technology
+studies on the ladder — carried in the capital ahead of every plant line; Title II **$4.3 / $17.8 M per
+module**. The schedule opens with tranche zero (2027 to the field start), the field waits on the longest
+gating study, and at critical the whole ladder slides two years. Register price $126 / $205, water
+$3,044 / $4,830 per acre-foot.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release

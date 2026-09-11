@@ -64,6 +64,7 @@ def render(g):
     a("| | mid | critical |")
     a("|---|---|---|")
     a(f"| overnight, $M | {m['mid']['overnight_m']:,.0f} | {m['critical']['overnight_m']:,.0f} |")
+    a(f"| of which site studies and surveys per module, $M (`predev.py`, first in priority) | {m['mid']['studies_m']:,.1f} | {m['critical']['studies_m']:,.1f} |")
     a(f"| financed (contingency, EPC, IDC), $M | {m['mid']['financed_m']:,.0f} | {m['critical']['financed_m']:,.0f} |")
     a(f"| against v0.1's $250–320 M | {m['mid']['financed_m'] / 285:.1f}× | {m['critical']['financed_m'] / 285:.1f}× |")
     a(f"| electricity, kWh/m³, at Title I's price | {m['mid']['kwh_m3']:.1f} at ${m['mid']['energy_price']:.0f}/MWh | {m['critical']['kwh_m3']:.1f} at ${m['critical']['energy_price']:.0f}/MWh |")

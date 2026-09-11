@@ -35,6 +35,7 @@ import aquacost as AQ                                           # noqa: E402
 import titleone as T1                                           # noqa: E402
 import minors as MN                                             # noqa: E402
 import both as B                                                # noqa: E402
+import predev as PD                                             # noqa: E402
 
 OUT = os.path.join(HERE, "..", "proposals", "Title_I_Helios-3_v0.2.md")
 CASES = ("mid", "critical")
@@ -77,6 +78,7 @@ def gather():
     g["seismic"] = {c: MN.seismic(c) for c in CASES}
     g["cycle"] = MN.cycle_label()
     g["both"] = {c: B.scan(c)["best"] for c in CASES}
+    g["predev"] = {c: PD.title1(c) for c in CASES}
     return g
 
 
@@ -238,7 +240,25 @@ def render(g):
     a("")
     a("After: " + ", ".join(f"{v} {k}" for k, v in b1.items() if v) + ". R-08 is managed without moving and says so.")
     a("")
-    a("## 7. Provenance, the ladder and the cost of delay")
+    a("## 7. Studies and surveys first, then the ladder, and the cost of delay")
+    a("")
+    pd = g["predev"]
+    a("**The studies and surveys are the first line (F-24, the author's instruction of 2026-09-11).** Every")
+    a("resource, site, environmental, permit, interconnection and reservoir study that gates construction,")
+    a("and every technology study on the ladder, is priced (`predev.py`) and carried in the capital ahead of")
+    a("the plant, with contingency and without EPC margin:")
+    a("")
+    a("| | mid | critical |")
+    a("|---|---|---|")
+    a(f"| gating studies and surveys, $M | {pd['mid']['gate_m']:.0f} | {pd['critical']['gate_m']:.0f} |")
+    a(f"| technology studies on the ladder, $M (the pilot aperture is its own tranche) | {pd['mid']['ladder_m']:.0f} | {pd['critical']['ladder_m']:.0f} |")
+    a(f"| owner's engineer on the study phase, $M | {pd['mid']['owners_engineer_m']:.0f} | {pd['critical']['owners_engineer_m']:.0f} |")
+    a(f"| **total, first in the capital, $M** | **{pd['mid']['total_m']:.0f}** | **{pd['critical']['total_m']:.0f}** |")
+    a(f"| longest gating study, years | {pd['mid']['gate_years']:.1f} | {pd['critical']['gate_years']:.1f} |")
+    a(f"| studies start / field rung starts | {PD.START_YEAR:.0f} / {pd['mid']['field_start']:.0f} | {PD.START_YEAR:.0f} / {pd['critical']['field_start']:.0f} |")
+    a("")
+    a("The costs are bands from the class of study, not quotes, and say so. What gates is the permit work")
+    a("and the reservoir siting; the technology studies run on the ladder against the build.")
     a("")
     a(f"`studies.py` lists {g['n_studies']} studies over the {g['n_tech']} technologies in the system, each with a status and a")
     a("source, complete over technologies and a floor over studies, reviewed against the web where the")
@@ -363,6 +383,7 @@ def selftest():
           all(t in text for t in ("F-34", "F-38", "F-33", "F-39", "F-37", "F-32")))
     check("the CO2 figure printed is the instrument's", f"| avoided as sized, MMT/yr | **{g['co2']['mid']['as_sized_mmt']:.2f}**" in text)
     check("the adopted route appears in the routes table and both price tables", text.count("both (adopted)") == 3)
+    check("the studies and surveys are the first line and the first tranche", "first in the capital" in text and "studies and surveys (gating)" in text)
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
     return fails == 0
 

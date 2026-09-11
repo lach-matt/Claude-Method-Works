@@ -20,7 +20,7 @@ price, mid or critical, for the bond term of 30 years:
 
 | | mid | critical |
 |---|---|---|
-| contract price, $/MWh (Title I with its register) | 125 | 202 |
+| contract price, $/MWh (Title I with its register) | 126 | 205 |
 | volume per module, GWh/yr at 3.0–3.6 kWh/m³ | 185 | 222 |
 | energy's share of the water's cost | 15% | 19% |
 
@@ -40,12 +40,12 @@ so the plant is served by two things that fail differently (`both.py`).
 | | mirrors, mid | mirrors, critical | water, mid | water, critical | **both, mid** | **both, critical** |
 |---|---|---|---|---|---|---|
 | Title I additional capital, $B | 5.7 | 9.5 | no feasible point | no feasible point | **6.4** | **10.3** |
-| Title I price, $/MWh | 159 | 258 | — | — | **163** | **263** |
+| Title I price, $/MWh | 160 | 261 | — | — | **164** | **266** |
 | block, field, store | ×1.25, ×1.5, 2 d | ×1.25, ×1.5, 2 d | field and store at design | field and store at design | ×1.50, ×1.25, 1.0 d | ×1.50, ×1.25, 1.0 d |
 | Title II modules | 0 | 0 | — | — | 15 | 17 |
 | Title II capital, financed, $B | 0 | 0 | — | — | 28 | 48 |
 | water, million acre-feet a year | 0 | 0 | — | — | 0.75 | 0.83 |
-| water price with the lift, $/acre-foot | — | — | — | — | 3,268 | 5,030 |
+| water price with the lift, $/acre-foot | — | — | — | — | 3,280 | 5,072 |
 | left to the grid | 0.8% | 1.0% | — | — | 0.6% | 0.7% |
 | with the water withheld | — | — | — | — | 3.6% | 4.0% |
 | with the field at design | — | — | — | — | 1.3% | 1.4% |
@@ -71,14 +71,14 @@ half the shortfall's scale, and firm water California does not otherwise have.
 
 | | mid | critical |
 |---|---|---|
-| Title I capital with its register, $B | 32.3 | 54.6 |
+| Title I capital with its register, $B | 32.7 | 55.4 |
 | Title I closing the load, mirrors / both, $B | 5.7 / 6.4 | 9.5 / 10.3 |
 | Title II modules at the adopted route, $B | 28 | 48 |
-| **program at the adopted route (both), $B** | **67** | **113** |
-| Title I debt service, $M/yr | 1,836 | 3,100 |
-| Title I debt-service reserve, $M | 1,836 | 3,100 |
+| **program at the adopted route (both), $B** | **67** | **114** |
+| Title I debt service, $M/yr | 1,855 | 3,148 |
+| Title I debt-service reserve, $M | 1,855 | 3,148 |
 | contingency carried | 15% | 30% |
-| Title I price at 1.25× coverage, $/MWh | 151 | 245 |
+| Title I price at 1.25× coverage, $/MWh | 152 | 248 |
 
 The security behind both projects' bonds is contracted offtake at the required price — electricity
 to load-serving entities, water to districts — with a state general-obligation backstop for the

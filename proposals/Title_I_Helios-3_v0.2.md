@@ -90,31 +90,31 @@ electricity bought from Title I at the register price:
 
 | Title II | mid | critical |
 |---|---|---|
-| one 50,000 AFY RO module, financed, $M (Title II said 250–320) | 1,883 | 2,886 |
-| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | 3,034 | 4,790 |
-| the water route's modules, financed, $B | 28.3 | 47.9 |
-| that water with the lift on its bill, $/acre-foot | 3,268 | 5,030 |
-| per household per year at 0.28 AF | 915 | 1,408 |
+| one 50,000 AFY RO module, financed, $M (Title II said 250–320) | 1,889 | 2,910 |
+| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | 3,044 | 4,830 |
+| the water route's modules, financed, $B | 28.4 | 48.3 |
+| that water with the lift on its bill, $/acre-foot | 3,280 | 5,072 |
+| per household per year at 0.28 AF | 918 | 1,420 |
 
 ## 5. Price and the household
 
 | $/MWh | mid | critical |
 |---|---|---|
 | Helios-3 as chained | 117 | 187 |
-| with the mitigation register (§6) | 125 | 202 |
-| serving the whole load, mirrors route | 159 | 258 |
-| **serving the whole load, both (adopted)** | **163** | **263** |
+| with the mitigation register (§6) | 126 | 205 |
+| serving the whole load, mirrors route | 160 | 261 |
+| **serving the whole load, both (adopted)** | **164** | **266** |
 
 | $ per household per year (today 1,177) | mid | critical |
 |---|---|---|
-| with the mitigation register | 756 | 1,218 |
-| serving the whole load, mirrors route | 960 | 1,558 |
-| **serving the whole load, both (adopted)** | **984** | **1,587** |
+| with the mitigation register | 763 | 1,234 |
+| serving the whole load, mirrors route | 967 | 1,574 |
+| **serving the whole load, both (adopted)** | **991** | **1,603** |
 
-**The criterion, stated exactly.** At mid, Helios-3 with its register needs $125/MWh, $5
-above the top of the contract band, and a household pays $756 against $1,177 today. Serving
-the whole load from the plant alone costs $159, at which a household pays about what it pays now. At
-critical the register price is $202 and the whole load $258: **above today's bill**. The plant pays
+**The criterion, stated exactly.** At mid, Helios-3 with its register needs $126/MWh, $6
+above the top of the contract band, and a household pays $763 against $1,177 today. Serving
+the whole load from the plant alone costs $160, at which a household pays about what it pays now. At
+critical the register price is $205 and the whole load $261: **above today's bill**. The plant pays
 for itself after the bonds only at a price above the band, and the critical case is the threshold
 the design is held to. A plant designed to mid has no margin; this document does not offer one.
 
@@ -124,9 +124,9 @@ for the first-of-kind rungs. Priced to each security, with the register:
 
 | security | rate | mid, $/MWh ($/household) | critical, $/MWh ($/household) |
 |---|---|---|---|
-| GO-backed, state general obligation | 3.85 % | 125 (756) | 202 (1,218) |
-| revenue bond, contracted in-state offtake | 5.00 % | 140 (846) | 227 (1,369) |
-| unrated first-of-kind | 6.50 % | 161 (970) | 262 (1,579) |
+| GO-backed, state general obligation | 3.85 % | 126 (763) | 205 (1,234) |
+| revenue bond, contracted in-state offtake | 5.00 % | 141 (853) | 230 (1,387) |
+| unrated first-of-kind | 6.50 % | 162 (979) | 265 (1,600) |
 
 **The mechanism behind the tariff (F-10).** The $0.00/kWh of v0.1 is replaced by the household bill
 above, an output of the balance: the Authority registered as a load-serving entity in the community-choice form (PUC section 366.2), IOU delivery, generation sold at cost recovery. A free tariff is a subsidy paid by someone, and this
@@ -159,7 +159,24 @@ row with the author on 2026-09-11.
 
 After: 4 BENEFIT, 1 NEGLIGIBLE, 5 MINOR, 4 MODERATE, 2 MAJOR. R-08 is managed without moving and says so.
 
-## 7. Provenance, the ladder and the cost of delay
+## 7. Studies and surveys first, then the ladder, and the cost of delay
+
+**The studies and surveys are the first line (F-24, the author's instruction of 2026-09-11).** Every
+resource, site, environmental, permit, interconnection and reservoir study that gates construction,
+and every technology study on the ladder, is priced (`predev.py`) and carried in the capital ahead of
+the plant, with contingency and without EPC margin:
+
+| | mid | critical |
+|---|---|---|
+| gating studies and surveys, $M | 106 | 228 |
+| technology studies on the ladder, $M (the pilot aperture is its own tranche) | 88 | 175 |
+| owner's engineer on the study phase, $M | 19 | 60 |
+| **total, first in the capital, $M** | **213** | **463** |
+| longest gating study, years | 2.0 | 4.0 |
+| studies start / field rung starts | 2027 / 2029 | 2027 / 2031 |
+
+The costs are bands from the class of study, not quotes, and say so. What gates is the permit work
+and the reservoir siting; the technology studies run on the ladder against the build.
 
 `studies.py` lists 49 studies over the 12 technologies in the system, each with a status and a
 source, complete over technologies and a floor over studies, reviewed against the web where the
@@ -177,7 +194,7 @@ it. Delay escalates the whole plant at 3 % a year before a dollar is spent:
 
 | per year of delay | mid | critical |
 |---|---|---|
-| capex, $B | 0.97 | 1.64 |
+| capex, $B | 0.98 | 1.66 |
 | price, $/MWh | 3.8 | 6.1 |
 | household, $/yr | 23 | 37 |
 
@@ -187,10 +204,11 @@ run in parallel. Direct cost by rung:
 
 | rung | years | mid, $B | critical, $B |
 |---|---|---|---|
+| studies and surveys (gating) | 2027–2029 | 0.13 | 0.29 |
 | field, towers and PV at the first node | 2029–2031 | 3.02 | 4.68 |
-| pilot aperture on one tower | 2031–2033 | 0.07 | 0.07 |
-| first 100 MWe module | 2033–2036 | 0.63 | 0.94 |
-| fleet, by tower group | 2036–2041 | 12.68 | 18.86 |
+| pilot aperture on one tower | 2031–2033 | 0.16 | 0.25 |
+| first 100 MWe module | 2033–2036 | 0.63 | 0.95 |
+| fleet, by tower group | 2036–2041 | 12.67 | 18.84 |
 
 **Transmission (F-09).** The export is negative (F-01), so no firm export right is needed. The in-state
 gen-tie per node at the closed sizing peaks at 1,197 MW (mid) / 1,197 MW (critical) from the

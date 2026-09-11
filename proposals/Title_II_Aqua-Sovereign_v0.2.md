@@ -18,9 +18,10 @@ $5,000–6,400 v0.1 submitted.
 | | mid | critical |
 |---|---|---|
 | overnight, $M | 1,391 | 1,881 |
-| financed (contingency, EPC, IDC), $M | 1,883 | 2,886 |
-| against v0.1's $250–320 M | 6.6× | 10.1× |
-| electricity, kWh/m³, at Title I's price | 3.0 at $125/MWh | 3.6 at $202/MWh |
+| of which site studies and surveys per module, $M (`predev.py`, first in priority) | 4.3 | 17.8 |
+| financed (contingency, EPC, IDC), $M | 1,889 | 2,910 |
+| against v0.1's $250–320 M | 6.6× | 10.2× |
+| electricity, kWh/m³, at Title I's price | 3.0 at $126/MWh | 3.6 at $205/MWh |
 
 ## 2. The water
 
@@ -28,10 +29,10 @@ At cost recovery — debt service and operations, **no mineral revenue** — the
 
 | | mid | critical |
 |---|---|---|
-| $ per acre-foot | **3,034** | **4,790** |
-| $ per m³ | 2.46 | 3.88 |
+| $ per acre-foot | **3,044** | **4,830** |
+| $ per m³ | 2.47 | 3.92 |
 | of which energy | 15% | 19% |
-| per household per year at 0.28 AF | 850 | 1,341 |
+| per household per year at 0.28 AF | 852 | 1,352 |
 
 v0.1 said $400. Carlsbad delivers at $2,700–2,900 and a district pays about $1,300 wholesale
 today. Desalinated water is firm water and is priced as such; capital dominates, not energy.
@@ -77,8 +78,8 @@ delivery returns through pump-turbines (`joinder.py`). Title II's side of that:
 | modules at 500 m of head | 15.0 | 16.6 |
 | water, million acre-feet a year | 0.75 | 0.83 |
 | modules' capital, financed, $B | **28** | **48** |
-| water with the lift on its bill, $/acre-foot | 3,268 | 5,030 |
-| per household per year | 915 | 1,408 |
+| water with the lift on its bill, $/acre-foot | 3,280 | 5,072 |
+| per household per year | 918 | 1,420 |
 
 On the power side the water route costs about twice the mirrors, since it returns nothing to the
 summer evening; what the water route adds is a

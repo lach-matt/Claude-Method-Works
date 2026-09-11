@@ -1,5 +1,9 @@
 # `tools/majors.py` — the remaining majors, settled; `tools/rebase3.py` — Title III, the joinder
 
+> **Studies line, 2026-09-11.** `tools/predev.py` now carries every study and survey as the first line of the
+> capital (`docs/PREDEV.md`); the register price is $126 / $205 per MWh, water $3,044 / $4,830 per acre-foot,
+> and any figure below computed before that line is superseded by the instrument's current output.
+
 > **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
 > are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
 > authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.

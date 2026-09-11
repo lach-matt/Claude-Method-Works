@@ -77,12 +77,17 @@ def tranches(case):
     d = C.design("helios3", case)
     L = d["lines"]
     total = sum(L.values())
+    import predev as PD
+    pd = PD.title1(case)
     rows, used = [], set()
-    year = sum(HC.GROUNDBREAK) / 2.0
+    # tranche zero: the studies and surveys, first, from the first study year to the field start
+    rows.append(("studies and surveys (gating)", PD.START_YEAR, pd["field_start"], pd["gate_m"] + pd["owners_engineer_m"]))
+    total += pd["total_m"]
+    year = pd["field_start"]
     for name, years, lines in RUNG_YEARS:
         if name.startswith("pilot"):
-            # one tower and one aperture of one receiver
-            amount = L["towers"] / d["towers"] + L["receivers"] / d["towers"] * (30.0 / 794.0)
+            # one tower and one aperture of one receiver, plus the ladder's technology studies
+            amount = L["towers"] / d["towers"] + L["receivers"] / d["towers"] * (30.0 / 794.0) + pd["ladder_m"]
         elif name.startswith("first"):
             # the module's share of the whole plant, block and field alike
             amount = total * H3.FIRST_MODULE_MWE / d["turb_mw"]
@@ -180,8 +185,9 @@ def selftest():
         rows, total = tranches(case)
         check(f"{case}: tranches sum to the direct cost exactly", abs(sum(r[3] for r in rows) - total) < 1e-6)
         check(f"{case}: every tranche is positive", all(r[3] > 0 for r in rows))
-        check(f"{case}: the fleet is the largest tranche and the pilot the smallest",
-              max(rows, key=lambda r: r[3])[0].startswith("fleet") and min(rows, key=lambda r: r[3])[0].startswith("pilot"))
+        check(f"{case}: the fleet is the largest tranche", max(rows, key=lambda r: r[3])[0].startswith("fleet"))
+        check(f"{case}: the first tranche is the studies and surveys and it precedes the field",
+              rows[0][0].startswith("studies") and rows[0][2] <= rows[1][1] and rows[0][1] < rows[1][1])
         check(f"{case}: the schedule ends a decade or more after groundbreaking", rows[-1][2] - rows[0][1] >= 10.0)
     gm, gc = gentie("mid"), gentie("critical")
     check("peak injection is below block x1.5 plus PV (they are anti-coincident)",

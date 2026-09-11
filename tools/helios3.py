@@ -274,6 +274,11 @@ def priced(case="mid"):
     ci = 2 if crit else 1
     over = direct * (1.0 + HC.CONTINGENCY[ci] + HC.EPC_OWNER[ci]
                      + HC.SALES_TAX * HC.SALES_TAX_BASE)
+    # the studies and surveys: the author's first line (2026-09-11). Priced by predev.py,
+    # carried with contingency but no EPC margin and no sales tax, ahead of every plant line.
+    import predev as PD                                        # lazy: predev imports helios only
+    studies = PD.title1(case)["total_m"]
+    over += studies * (1.0 + HC.CONTINGENCY[ci])
     # first module: its share of the thermal block at a FOAK premium
     share = FIRST_MODULE_MWE / d["turb_mw"]
     thermal = sum(v for n, v in lines.items()
@@ -290,7 +295,7 @@ def priced(case="mid"):
     price = FP.required_price(net, om, d["e_twh"])
     return dict(base=d, adders=adders, mit_total=mit_total, foak=foak,
                 capex_net=net, om=om, price=price, share=share, credit=credit,
-                lines=lines)
+                lines=lines, studies_m=studies)
 
 
 def grade_counts(after=False):

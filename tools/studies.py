@@ -228,8 +228,8 @@ RECOMMEND = [
      "heater efficiency and control on particles rather than salt; winter dispatch is measured by helios.py's hourly run", 0.5, "pilot"),
     ("cooling", "Compressor-inlet performance at 45 C on the first module's dry cooler",
      "the cycle's 0.45-0.50 critical band; whether a CO2 blend is needed (R-03 note)", 1.0, "module"),
-    ("architecture", "RUN (hourly3.py, 2026-09-11): Helios-3 hour by hour at both cases -- as sized it serves 84 % of the load; closing it takes block x1.5, store 2 days, field x2 (+$60/MWh mid, +$100 critical). Next: replace the reconstructed load and PV shapes with a CAISO residential profile and an NSRDB hourly file",
-     "winter under-supply (F-06) and the evening peak; the heater was never the lever, the field and the store are", 0.5, "now"),
+    ("architecture", "RUN (hourly3.py, 2026-09-11, corrected load shape): Helios-3 hour by hour at both cases -- as sized it serves 87 % of the load, year-round and evening-led; mirrors close at block x1.25, field x1.5, store 2 d (+$34/MWh mid, +$56 critical); the adopted route is both.py's",
+     "the evening peak in every month (F-06); the heater was never the lever, the block, the field and the water are", 0.5, "now"),
 ]
 
 RUNGS = ("now", "field", "pilot", "module", "fleet")

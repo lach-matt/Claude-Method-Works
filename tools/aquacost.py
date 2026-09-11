@@ -101,6 +101,9 @@ def module(case, lift_kwh_m3=0.0):
     overnight = unit_capex_per_afy(case) * MODULE_AFY / 1e6                     # $M
     overnight *= (1.0 + BRINE_OUTFALL_SHARE)
     over = overnight * (1.0 + CONTINGENCY[ci + 1] + EPC_OWNER[ci + 1])
+    import predev as PD                                                              # lazy: predev imports helios only
+    studies = PD.title2_per_site(case)["per_module_m"]                               # the author's first line, per module
+    over += studies * (1.0 + CONTINGENCY[ci + 1])
     financed = over * (1.0 + BOND_RATE * BUILD_YEARS / 2.0)                         # simple IDC; the dollars are already 2028-30
     debt = H.debt_service_m(financed / 1e3, BOND_RATE, BOND_TERM)                    # $M/yr
     kwh = (RO_KWH_M3[ci] + lift_kwh_m3) * MODULE_M3_YR                               # kWh/yr
@@ -108,7 +111,7 @@ def module(case, lift_kwh_m3=0.0):
     om_m = OM_NONENERGY_PER_M3[ci] * MODULE_M3_YR / 1e6
     total_m = debt + energy_m + om_m
     per_af = total_m * 1e6 / MODULE_AFY
-    return dict(case=case, overnight_m=overnight, financed_m=financed, debt_m=debt, energy_m=energy_m,
+    return dict(case=case, overnight_m=overnight, studies_m=studies, financed_m=financed, debt_m=debt, energy_m=energy_m,
                 om_m=om_m, total_m=total_m, per_af=per_af, per_m3=per_af / M3_PER_AF,
                 energy_price=energy_price(case), kwh_m3=RO_KWH_M3[ci] + lift_kwh_m3,
                 household=per_af * HOUSEHOLD_AF_YR)

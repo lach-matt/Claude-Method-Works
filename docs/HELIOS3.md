@@ -1,5 +1,9 @@
 # helios3.py — Helios-3's risks, mitigated upfront where design can, and named where only hours can
 
+> **Studies line, 2026-09-11.** `tools/predev.py` now carries every study and survey as the first line of the
+> capital (`docs/PREDEV.md`); the register price is $126 / $205 per MWh, water $3,044 / $4,830 per acre-foot,
+> and any figure below computed before that line is superseded by the instrument's current output.
+
 `tools/helios3.py` tests the author's claim on the chosen path — *"Helios-3 is
 actually better, and I think each cost can be fully mitigated upfront"* — by
 the objective's own rule that mitigations are addressed before design, and
