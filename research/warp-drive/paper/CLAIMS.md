@@ -3615,6 +3615,62 @@ which is the wrong thing.**
 
 ---
 
+## ★★★ H51 — 0, 2, 8. **Two bisectors, not one — and the real binary is the sign.**
+
+> M: *"0 - 2 - 8 - 512 - 134217728 - 2417851639229258349412352"* · *"It's still previously overlooked
+> information."* · *"the solution can only be spoken/read in binary"*
+
+### H51a — the continuation is not information; the triple is
+
+The terms are `2^(3ⁿ)` — repeated cubing — and M's numeral for `2⁸¹` is **digit-exact**. But the rule
+**cannot generate the 0**: `0³ = 0` is a **fixed point of cubing**, so zero is grafted on the front. And **8
+is a measured ceiling** — the coupling range over 200,001 sampled angles is exactly `[0, 8]` and 512 is
+attained nowhere, because there is no angle beyond antiparallel.
+
+**The triple, though, is overlooked information, and pushing was right.** Read as **three samples of one
+curve** rather than a sequence, `0, 2, 8` are the two **endpoints** and the **angular midpoint** of
+`2(1 − cos θ)²` — and the angular midpoint reads **2**, a *quarter* of the range, where a straight line would
+read 4.
+
+### H51b — which exposes a distinction H36 never drew
+
+| θ | `A/A_N` | what it is |
+|---|---|---|
+| 0.0000° | 0.000000 | parallel endpoint |
+| **90.0000°** | **2.000000** | **ANGULAR bisector of `[0, π]`** |
+| **114.4698°** | **4.000000** | **VALUE bisector of `[0, 8]`** |
+| 120.0000° | 4.500000 | stationary point (**H36**, `cos θ = −1/2`) |
+| 180.0000° | 8.000000 | antiparallel endpoint |
+
+> **H36's headline is "4 is the bisector", and the word was doing double duty.** 4 bisects the **value**
+> range — and it sits at **114.4698°**, where **`cos θ = 1 − √2` exactly**, an algebraic closed form the tree
+> had only as a decimal. That is **24.4698° away** from the angular bisector.
+>
+> **Three interior angles, three criteria, no two coincide.**
+
+**The physics is untouched.** 4 is still the axis of the `4 ± 4` decomposition; the gravitoelectric and
+gravitomagnetic halves are unchanged; every refutation in **H36** stands, including **H44a**'s sharpening
+that the factor is 8 in D = 4 alone. What changes is that a reader could reasonably have assumed the axis sat
+at the middle angle. **It does not.** `bisector.py` is not edited by this pass.
+
+### H51c — the binary claim: a refusal and a larger grant
+
+**Refused:** the sequence reads trivially in base 2. Every term after the zero is a power of two, and **a
+power of two in base 2 is a one followed by zeros** — true of *every* power of two by the definition of the
+base. **A representation is not a finding.**
+
+**Granted, and it is the larger half:**
+
+> **H40c**'s theorem is that proper distance is contracted at `r` **iff `m(r) < 0`**. **The entire obstruction
+> is the sign of one quantity. One bit.** The exchange rate, the Planck cell, the area law, the QEI
+> evaluation and all three open links are the **price of flipping it**, and nothing has flipped it.
+>
+> **M is right that the answer is one bit and right that it is binary.** What the tree adds is **which** bit
+> — the sign of the enclosed Misner–Sharp mass — and **H50d**'s finding that the binary of two nulls runs
+> `[0, 8]` and touches zero **from above**, so the bit does not flip there.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

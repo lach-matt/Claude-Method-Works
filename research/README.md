@@ -7367,6 +7367,39 @@ parallel → orthogonal → antiparallel: **range exactly `[0, 8]`**, zero at th
 
 ---
 
+## `midpoints.py` — 0, 2, 8. Two bisectors, not one.
+
+> M: *"0 - 2 - 8 - 512 - 134217728 - 2⁸¹"* · *"It's still previously overlooked information."*
+
+**The continuation isn't** — `0³ = 0` is a fixed point of cubing so the rule can't produce the 2, and 8 is a
+**measured ceiling** with no angle beyond it. **But the triple is, and pushing was right.**
+
+Read as **three samples of one curve**, `0, 2, 8` are the two endpoints and the **angular midpoint** of
+`2(1−cos θ)²` — and the angular midpoint reads **2**, a *quarter* of the range where a straight line would
+read 4. That exposes a distinction `bisector.py` never drew:
+
+| θ | `A/A_N` | |
+|---|---|---|
+| **90.0000°** | **2** | angular bisector of `[0, π]` |
+| **114.4698°** | **4** | **value** bisector of `[0, 8]` — `cos θ = 1 − √2` exactly |
+| 120.0000° | 4.5 | stationary point (already seated) |
+
+> **"4 is the bisector" is true of the VALUE range and false of the configuration range** — the two are
+> **24.4698° apart**. Three interior angles, three criteria, **no two coincide**. The physics is untouched:
+> 4 is still the axis of `4 ± 4`, and every refutation in that file stands.
+
+**On "the solution can only be read in binary":** the sequence reads trivially in base 2 — every power of two
+is a one followed by zeros, which is the definition of the base, not a finding. **But the tree's real binary
+is the sign of `m(r)`.** `certify.py` needs `m(r) < 0`: **the whole obstruction is one bit**, and everything
+in this project is the price of flipping it. **M is right that the answer is binary — the tree adds which
+bit**, and that `zeno.py`'s `[0, 8]` touches zero *from above*, so it doesn't flip there.
+
+### Seated
+- `midpoints.py` — new. `index3.py` — **556 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H51**. `bisector.py` — **sharpened, not edited**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
