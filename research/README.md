@@ -7254,9 +7254,55 @@ codimension three by its own scale-freedom.** A superhighway built as a *line* l
 four dimensions and keeps it only at D = 5 — which `dimension.py` already priced at **5.32× worse per unit
 mass**. Both doors, neither free.
 
+**Dimensions 5–8 and 9–14.** M: *"5–8 are used for local travel, 9–14 are superpositions as dimensions for
+travel to/in other universes."* **The first half is closed twice over.** Theoretically, `dimension.py`
+already had it — contraction still needs `m(r) < 0` in every D, and the rate is 5.32× / 10.60× / 15.90× /
+21.19× worse at D = 5/6/7/8. **And experimentally**, which the tree lacked: Kapner et al., **PRL 98, 021101
+(2007)** verify the inverse-square law to **56 μm** and bound an extra dimension at **≤ 44 μm** —
+**smaller than a human hair, with a total traversable circumference of 276 μm, and zero displacement gained
+in the three large dimensions.** *There is nowhere to travel.*
+
+> **The second half is a category error rather than a disagreement.** Superposition is a property of *states
+> in a Hilbert space*; dimension is a property of a *manifold*. Many-worlds uses superposition and has **no**
+> extra dimensions; string theory uses extra dimensions and treats none as superpositions, its counts
+> *derived* (26, 10, 11) rather than assigned to a range. **"Other universes" has no observable in
+> principle**, so this project holds it in neither direction. Where the intuition *does* live is the
+> **Einstein–Rosen bridge** — a wormhole's far mouth opening into another asymptotic region — which is
+> already `wormhole.py`'s and `gjw.py`'s object. **Topology, not dimension. Same price.**
+
 ### Seated
-- `codimension.py` — new. `index3.py` — **546 findings**, 16 occupied cells, `E(X) = 0`.
-  `paper/CLAIMS.md` — **H47**. `dimension.py` — **generalised, not withdrawn**. `obstruct.py` — **unchanged**.
+- `codimension.py` — new. `dimension.py` — **§3b added, the Kapner bound**. `index3.py` — **548 findings**,
+  16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H47** (incl. **H47d**). `obstruct.py` — **unchanged**.
+
+---
+
+## `collapse.py` — "the farther you travel, the shorter the distance". Real, exact, logarithmic.
+
+> M: *"Because transition is a collapse … The mechanism is a paradox."*
+
+**Premise granted:** with `m < 0`, `f > 1` and proper length is genuinely less than coordinate length.
+**Literal claim false, in one line:** `dL/dr₂ = 1/√f > 0` always, so proper distance strictly increases —
+7.45, 95.27, 992.98, 9990.68, 99988.38 across the decades.
+
+**But the paradox is real and exact.** Read the same numbers as contraction and the increments run
+2.178675, 2.289207, 2.301236, 2.302450, **2.302572** against `ln 10 = 2.302585`:
+
+> **Every decade of journey adds exactly the same contraction, `|m| ln 10`.** And inverting, the price of one
+> unit of shortening is `1/ln(r₂/r₁)`: **0.434294** over a journey of nine, **0.036191** over 10¹² — **it
+> halves every time the journey squares.** A fixed shortening genuinely gets cheaper the farther you go.
+> **What inverts is the price, not the distance.**
+
+**Why it never becomes a shortcut:** journey grows linearly, contraction logarithmically, so the fraction
+shortened collapses — 0.172, 0.0377, 0.00602, 0.000832, **0.000106**. *One part in ten thousand at a hundred
+thousand units.* **The mechanism rewards distance and never enough.**
+
+**And the logarithm is already banked:** `codimension.py`'s codimension-three source has a `1/r` Green's
+function. **M's paradox exists because the source is codimension three** — `Λ` is that logarithm's value over
+the corridor, the per-decade constant its derivative.
+
+### Seated
+- `collapse.py` — new. `index3.py` — **550 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H48**. `obstruct.py` — **unchanged**.
 
 ---
 

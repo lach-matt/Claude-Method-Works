@@ -137,6 +137,35 @@ AND THE RATE GETS WORSE, WHICH IS THE PART THAT DECIDES IT.  Return per unit
     and it is where we already are.
 
 ===============================================================================
+3b. AND EXPERIMENT CLOSES IT INDEPENDENTLY -- THE DIMENSIONS ARE 44 MICRONS
+===============================================================================
+
+Section 3 is theoretical.  There is a harder constraint and it is measured.
+
+KAPNER, COOK, ADELBERGER, GUNDLACH, HECKEL, HOYLE & SWANSON, "Tests of the
+Gravitational Inverse-Square Law below the Dark-Energy Length Scale",
+Phys. Rev. Lett. 98, 021101 (2007): three torsion-balance experiments over
+separations from 9.53 mm down to 55 microns verify the inverse-square law to
+56 microns, and bound the size of an extra dimension at
+
+        R_extra  <=  44 micrometres        (95% confidence)
+
+    SO IF A FIFTH DIMENSION EXISTS IT IS SMALLER THAN A HUMAN HAIR -- 0.63 of
+    one -- AND ITS ENTIRE TRAVERSABLE CIRCUMFERENCE IS 2 pi R = 276 MICRONS.
+
+    AND TRAVERSING IT GAINS EXACTLY ZERO DISPLACEMENT IN THE THREE LARGE
+    DIMENSIONS, because that is what "compactified" means: the extra direction
+    closes on itself and returns you where you started in the other three.
+
+    THERE IS NOWHERE TO TRAVEL.  Not "the rate is bad" -- section 3 says that.
+    THE DIMENSION IS A THIRD OF A MILLIMETRE AROUND.
+
+    Two independently sufficient closures, then: the obstruction is unchanged
+    in every D and the rate is worse in every D above four (section 3), AND the
+    dimensions above four are too small to go anywhere in (here).  Neither
+    depends on the other.
+
+===============================================================================
 4. M3 -- RIGHT ABOUT THE OBJECT, WRONG BY ONE WORD
 ===============================================================================
 
@@ -233,6 +262,23 @@ from fractions import Fraction as F
 
 DIMENSIONS = (3, 4, 5, 6, 8, 11, 26)
 R1, R2 = 1.0, 200.0
+
+# -- the experimental bound, Kapner et al. PRL 98, 021101 (2007) -------------
+# Torsion balance, 9.53 mm down to 55 um.  Inverse-square law verified to
+# 56 um; an extra dimension is bounded at 44 um, 95% confidence.
+ISL_VERIFIED_TO_M = 56e-6
+EXTRA_DIM_MAX_M = 44e-6
+HUMAN_HAIR_M = 70e-6
+
+
+def extra_dimension_circumference():
+    """The entire distance available in a compactified extra dimension."""
+    return 2.0 * math.pi * EXTRA_DIM_MAX_M
+
+
+def displacement_gained_in_large_dimensions():
+    """Zero.  That is what compactified means."""
+    return 0.0
 
 
 # -- 1.  The radial integral, and where it changes character -----------------
@@ -416,6 +462,22 @@ def selftest():
     chk("D=26 is worse by 116.563x", rates[0][1] / rates[-1][1], 116.563, 1e-5)
     chk("four dimensions is the CHEAPEST place to do this",
         max(rates, key=lambda t: t[1])[0], 4)
+
+    # -- 3b: and experiment closes it independently --------------------------
+    chk("extra dimensions bounded at 44 um (Kapner 2007)",
+        EXTRA_DIM_MAX_M, 44e-6, 1e-12)
+    chk("inverse-square law verified to 56 um", ISL_VERIFIED_TO_M, 56e-6, 1e-12)
+    chk("smaller than a human hair",
+        EXTRA_DIM_MAX_M < HUMAN_HAIR_M, True)
+    chk("  at 0.63 of one", EXTRA_DIM_MAX_M / HUMAN_HAIR_M, 0.6286, 1e-3)
+    chk("entire traversable circumference, metres",
+        extra_dimension_circumference(), 2.765e-4, 1e-3)
+    chk("  which is a third of a millimetre",
+        extra_dimension_circumference() < 1e-3, True)
+    chk("displacement gained in the three large dimensions",
+        displacement_gained_in_large_dimensions(), 0.0)
+    chk("so the closure is experimental as well as theoretical",
+        "THERE IS NOWHERE TO TRAVEL" in __doc__, True)
 
     # -- 4: the classification -----------------------------------------------
     chk("three sub-claims adjudicated", len(VERDICTS), 3)

@@ -3379,11 +3379,114 @@ this tree that survives rescaling would stop surviving it. **The other door is D
 scale-free again — and **H46a** already priced D = 5 at **5.32× worse per unit mass**. **Both doors, neither
 free.**
 
+### H47d — dimensions 5–8 and 9–14: one half measured, one half not a measurable claim
+
+> M: *"Dimensions 5–8 are used for local travel (within the universe), 9–14 are superpositions as dimensions for travel to/in other universes."*
+
+**5–8 is closed twice over, independently.** **H46a** had the theory: contraction still requires `m(r) < 0`
+exactly in every D, and the return falls monotonically — **5.32× worse at D = 5, 10.60× at 6, 15.90× at 7,
+21.19× at 8.** Extra dimensions don't open a route; they charge more for the same one.
+
+**And experiment closes it separately** — a constraint this tree did not have. Kapner, Cook, Adelberger,
+Gundlach, Heckel, Hoyle & Swanson, **PRL 98, 021101 (2007)**: torsion balances from 9.53 mm down to 55 μm
+verify the inverse-square law to **56 μm** and bound an extra dimension at **≤ 44 μm, 95 % CL**.
+
+> **An extra dimension, if one exists, is smaller than a human hair** — 0.63× one — and its **entire
+> traversable circumference is 276 μm.** Traversing it gains **exactly zero** displacement in the three large
+> dimensions, because that is what compactified means. **There is nowhere to travel.**
+
+**9–14 as superpositions is a different kind of claim, and it is recorded as such rather than tested.**
+Superposition is a property of **states in a Hilbert space**; dimension is a property of a **manifold**. "A
+dimension that is a superposition" is not a claim this tree can find false — it does not parse into anything
+carrying a truth value. **A category error, not a disagreement**, and naming it that way is the discipline
+working in both directions.
+
+The two frameworks that use each are separate, deliberately: **many-worlds** uses superposition and has **no
+extra spacetime dimensions** (branches live in the *same* spacetime); **string theory** uses extra dimensions
+and treats none as superpositions, its counts **derived** from anomaly cancellation — 26, 10, 11 — rather than
+assigned to a range. **"Other universes" has no observable from inside this framework** — none in principle,
+not merely none yet — so the project can hold it in neither direction.
+
+> **Where the intuition does have a real home is where H46a already put it:** a wormhole's far mouth can open
+> into a **different asymptotic region** — the **Einstein–Rosen bridge** — which is as close to another
+> universe as GR gets, and `wormhole.py` / `gjw.py` already point at it. **Still topology, not dimension, and
+> still the same energy-condition price.**
+
+**Nothing is seated for or against the 9–14 claim, because there is nothing to measure.**
+
 | | `codimension.py` |
 |---|---|
 | status | **DERIVED** (the family `D = p + 4`) + **MEASURED** (the line source's scaling) + **EXPLANATION** (why the seated source forces D = 4) |
 | new? | the codimension formulation; the D = 4 point-source lock |
 | **not** claimed | real p-brane solutions (this is Green's-function counting in the Newtonian limit); the area law for `p > 0` (**H43c** assumed `ρ ~ M/R³`); any depth for codimension three — it is four elementary steps from the scale-freedom it explains. **H46a is generalised, not withdrawn.** |
+
+---
+
+## ★★★ H48 — "the farther you travel, the shorter the distance". **The paradox is real, exact, and logarithmic.**
+
+> M: *"Because transition is a collapse … The mechanism is a paradox. The farther you need to travel, the shorter the distance."*
+
+**The premise is granted.** With `m < 0`, `f = 1 + 2|m|/r > 1`, so proper length `dl = dr/√f` is genuinely
+*less* than coordinate length. That is **H40c**'s theorem and the whole mechanism — "collapse" is a fair word.
+
+### H48a — the literal claim is false, in one line
+
+`L(r₂) = ∫dr/√f` ⟹ **`dL/dr₂ = 1/√f(r₂) > 0`** for every `f > 0`. Proper distance is **strictly increasing**
+in the journey, always. Measured at `|m| = 1`: **7.450388, 95.271713, 992.982506, 9990.681270,
+99988.378727** across the decades. No mass and no profile reverses it.
+
+### H48b — and yet the paradox is real, with an exact form
+
+Read the same numbers as *contraction* rather than distance:
+
+| r₂ | `Δd` | added |
+|---|---|---|
+| 10 | 1.549612 | |
+| 10² | 3.728287 | +2.178675 |
+| 10³ | 6.017494 | +2.289207 |
+| 10⁴ | 8.318730 | +2.301236 |
+| 10⁵ | 10.621181 | +2.302450 |
+| 10⁶ | 12.923752 | **+2.302572** |
+
+> **`ln 10 = 2.302585`. Every decade of journey adds exactly the same contraction, `|m| ln 10`.**
+> The mechanism sees distance on a **logarithmic scale** — one equal step per decade, like a decibel.
+
+Inverting `Δd = |m| ln(r₂/r₁)` gives the price of **one unit of shortening**:
+
+| journey | `\|m\|` |
+|---|---|
+| 9 | 0.434294 |
+| 999 | 0.144765 |
+| 10⁶ | 0.072382 |
+| 10¹² | 0.036191 |
+
+> **A fixed amount of shortening gets cheaper the farther you need to go — and it halves every time the
+> journey squares.** Without limit. **That is M's paradox, exact, and it is TRUE.** What it inverts is the
+> **price of a metre of shortening**, not the distance.
+
+### H48c — why it never becomes a shortcut
+
+The journey grows **linearly**, the contraction **logarithmically**. The fraction shortened collapses:
+**0.172179, 0.037659, 0.006024, 0.000832, 0.000106** — *one part in ten thousand at a hundred thousand
+units.*
+
+> Both are true and not in tension: a fixed **absolute** shortening gets cheaper without limit, and the
+> **fraction** goes to zero, because the paradox buys a constant per decade in a journey growing tenfold per
+> decade. **The mechanism rewards distance and never enough.**
+
+### H48d — and the logarithm is already banked
+
+**H47a**: a **codimension-three** source has a `1/r` Green's function, and `∫dr/r` is a logarithm. So
+**M's paradox exists *because* the source is codimension three.** Three passes close on the same object —
+**H46a** (a log only in D = 4), **H47a** (why), **H48** (what it buys). `Λ` is that logarithm's **value** over
+the seated corridor; the per-decade constant is its **derivative** in disguise.
+
+*Scope:* the closed form is the weak-field limit, and **H41a** showed the strong field returns strictly
+**less** — so these are the **best** case, as they were there.
+
+*Method note:* the increments were first computed on a **uniform** `r`-grid and 10⁶ came out at 2.401125,
+breaking a converging sequence. `h = 5` across 10⁶ cannot resolve the integrand near `r = 1`. **A logarithmic
+integrand wants a logarithmic grid** — fifth precision fault caught in this tree's own work.
 
 ---
 
