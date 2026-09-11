@@ -98,6 +98,16 @@ PARTICLE_TES_PER_KWHTH = (10.0, 15.0, 22.0)    # bins + bauxite at $2/kg; DOE ta
 PARTICLE_SYSTEM_PER_KWE = 5900.0               # 2025 TEA, particle CSP + sCO2 system
                                                # specific cost, design point   SOURCED
 GEN3_STATUS = "PILOT: G3P3 >1 MW_t at Sandia; STEP 10 MWe sCO2 at 715 C -- not a 2030 plant"
+# The author's standing rule (2026-09-11): simulate critical, not optimal. A
+# CRITICAL case takes every cost band at its top, every performance band at
+# its adverse end, and the receiver at receiver.py's critical open figure
+# rather than the chain's own 'best'. Held beside mid, never in place of it.
+CRITICAL_LINKS = {
+    "opt": 0.58,        # bottom of the sourced 58-64 % surround-field band     SOURCED band
+    "cycle": 0.45,      # sCO2 RCBC at 700 C, dry-cooled at hot ambient         ASSUMED band 0.45-0.50
+    "par": 0.90,        # parasitic share at the hot-ambient dry cooler          ASSUMED band
+    "avail": 0.92,      # soiling, tracking, outage at the adverse end           SOURCED band
+}                       # rec comes from receiver.py (critical, open aperture); tes/dispatch claim no gain either way
 DEWA_STATUS = "BUILT: Noor Energy 1 (700 MW CSP + 250 MW PV); Midelt adds PV-fed heaters"
 
 
@@ -163,6 +173,11 @@ def design(kind="helios2", case="mid", e_twh=FP.E_REQ_TWH):
         links["rec"] = best["rec"]
         links["cycle"] = best["cycle"]
         links["par"] = best["par"]
+    if case == "critical":
+        links.update(CRITICAL_LINKS)
+        if kind == "helios3":
+            import receiver as RX                       # lazy: receiver imports this file
+            links["rec"] = RX.efficiency("critical", True)
     f = DIRECT_SHARE[1]
     e_direct = e_twh * f
     e_night = e_twh * (1.0 - f)
@@ -172,7 +187,8 @@ def design(kind="helios2", case="mid", e_twh=FP.E_REQ_TWH):
     tes_mwh = turb_mw / links["cycle"] * NIGHT_HOURS
     towers = aperture / (H.APERTURE_M2 / HC.TOWERS)   # Noor III-class fields
     heater_mw = tes_mwh / 6.0 * WINTER_HEATER_FRACTION
-    pv_mw = (e_direct * 1e6 / (8760.0 * _p(PV_CF, case))) * (1.0 + WINTER_PV_OVERBUILD)
+    pv_cf = PV_CF[0] if case == "critical" else _p(PV_CF, case)   # adverse end is the LOW CF
+    pv_mw = (e_direct * 1e6 / (8760.0 * pv_cf)) * (1.0 + WINTER_PV_OVERBUILD)
     # cost lines, heliocost's own where the part is the same
     k = HC.calibration()
     lines = {}
@@ -210,7 +226,9 @@ def design(kind="helios2", case="mid", e_twh=FP.E_REQ_TWH):
 
 
 def _p(band, case):
-    return band[{"low": 0, "mid": 1, "high": 2}[case]]
+    """Cost bands: critical is the top. (Performance bands are handled where
+    they are used, because their adverse end is the bottom.)"""
+    return band[{"low": 0, "mid": 1, "high": 2, "critical": 2}[case]]
 
 
 def baseline_row():

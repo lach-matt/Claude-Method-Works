@@ -44,7 +44,10 @@ is margin. The point is a *front-end threshold band on critical events upstream*
 instrument hands its critical figure to the one above it (`receiver.py` → `cspchain.py`'s
 receiver link) rather than the hoped-for one. A number quoted without its case is misquoted.
 `tools/receiver.py` is the first instrument built under it; the selftest asserts critical ≤
-nominal on every result.
+nominal on every result. **The chain and the register now carry it too**: `cspchain.py`'s
+`design(..., "critical")` and `helios3.py`'s `priced("critical")` — Helios-3 mitigated is
+**$125/MWh at mid and $191 at critical** ($756 / $1,153 per household against $1,177 today),
+the mirror 1.48× larger, driven by the receiver's 0.795 and the field's 0.58 before any adder.
 
 ## Resolved so far
 

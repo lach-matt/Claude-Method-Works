@@ -91,6 +91,27 @@ block is the fallback, not the plan.
 | **$/MWh** | 117 | **125** | 141 |
 | $/household/yr (today 1,177) | 706 | **756** | 849 |
 
+**At critical (the author's standing rule, 2026-09-11: simulate critical, not optimal).** Every
+band at its adverse end — optics 0.58, cycle 0.45, parasitics 0.90, availability 0.92, PV at its
+low capacity factor, every cost band at its top, contingency and EPC at their tops, a 2.0
+first-of-a-kind premium, 2 %/yr makeup — and the receiver at `receiver.py`'s critical open
+figure of **0.795** rather than the chain's 0.90:
+
+| | mid | critical | factor |
+|---|---|---|---|
+| mirror aperture, M m² | 18.1 | 26.8 | 1.48 |
+| towers | 14.3 | 21.2 | 1.48 |
+| capex net, $B | 32.3 | 51.4 | 1.59 |
+| $/MWh | 125 | **191** | 1.52 |
+| $/household/yr (today 1,177) | 756 | **1,153** | 1.52 |
+
+**At critical Helios-3 needs $191/MWh, $71 above the band's top, and a household pays $1,153
+against $1,177 today.** That is the front-end threshold: a plant designed to it carries the mid
+figure as margin, and a plant designed to mid has none. What moves it is the chain, not the
+mitigation — the receiver's 0.795 and the field's 0.58 grow the mirror by 1.48 before any adder
+is applied. The critical case is printed beside mid and never in its place; `priced()` defaults
+to mid and the selftest asserts that.
+
 **Mitigated, Helios-3 needs $125/MWh — still under Helios-2's $141, and $5
 above the top of the $80–120 band.** The chained figure was inside the band;
 the mitigated one is not, by the price of the mitigation itself. That is the

@@ -236,31 +236,39 @@ FIRST_MODULE_MWE = 100.0                 # the module that buys the hours   DESI
 FIRST_MODULE_PREMIUM = 1.5               # first-of-a-kind multiplier on its share  ASSUMED band 1.3-2.0
 
 
-def priced():
+FIRST_MODULE_PREMIUM_CRITICAL = 2.0      # top of the ASSUMED band
+PARTICLE_MAKEUP_CRITICAL = 0.02          # top of the ASSUMED band
+
+
+def priced(case="mid"):
     """Helios-3 from cspchain, with every DESIGN mitigation added to the line
     that carries it, the makeup and rejuvenation in O&M, and the first module
-    at its first-of-a-kind premium."""
-    d = CC.design("helios3")
+    at its first-of-a-kind premium. case='critical' runs the author's rule:
+    every band at its adverse end, the receiver at receiver.py's critical
+    figure -- held beside mid, never in place of it."""
+    crit = case == "critical"
+    d = CC.design("helios3", case)
     lines = dict(d["lines"])
     adders = {}
     for rid, (line, frac) in MIT_COST.items():
         adders[rid] = lines[line] * frac
     mit_total = sum(adders.values())
     direct = sum(lines.values()) + mit_total
-    over = direct * (1.0 + HC.CONTINGENCY[1] + HC.EPC_OWNER[1]
+    ci = 2 if crit else 1
+    over = direct * (1.0 + HC.CONTINGENCY[ci] + HC.EPC_OWNER[ci]
                      + HC.SALES_TAX * HC.SALES_TAX_BASE)
     # first module: its share of the thermal block at a FOAK premium
     share = FIRST_MODULE_MWE / d["turb_mw"]
     thermal = sum(v for n, v in lines.items()
                   if n.startswith(("thermal", "power block", "receivers", "towers")))
-    foak = thermal * share * (FIRST_MODULE_PREMIUM - 1.0)
+    foak = thermal * share * ((FIRST_MODULE_PREMIUM_CRITICAL if crit else FIRST_MODULE_PREMIUM) - 1.0)
     over += foak
     gross = FP.financed(over, HC.BUILD_YEARS)
     credit = FP.CREDIT_ELIGIBLE * (lines["thermal storage (particles)"]
                                    + adders["R-01"] + adders["R-07"] + adders["R-10"]
                                    + lines["electric heaters"]) * FP.ESC
     net = gross - credit
-    makeup = PARTICLE_MAKEUP_PER_YEAR * lines["thermal storage (particles)"] * 0.5  # medium ~half the line
+    makeup = (PARTICLE_MAKEUP_CRITICAL if crit else PARTICLE_MAKEUP_PER_YEAR) * lines["thermal storage (particles)"] * 0.5  # medium ~half the line
     om = d["om"] + makeup + REJUVENATION_OM_M
     price = FP.required_price(net, om, d["e_twh"])
     return dict(base=d, adders=adders, mit_total=mit_total, foak=foak,
@@ -352,6 +360,34 @@ def report():
     print("    hour, not the plant; what remains is not a cost but a clock, and")
     print("    the staging plan is how the clock is run.")
     print()
+    c = priced("critical")
+    dc = c["base"]
+    print("    AT CRITICAL (the author's standing rule: simulate critical, not")
+    print("    optimal -- every band at its adverse end, the receiver at")
+    print("    receiver.py's critical open figure). Held beside mid, not in its place.")
+    print(f"      {'':<30} {'mid':>12} {'critical':>12} {'factor':>8}")
+    for label, m, cc in (("receiver efficiency", d["links"]["rec"], dc["links"]["rec"]),
+                         ("optics / cycle / par / avail", None, None),
+                         ("mirror aperture, M m2", d["aperture"] / 1e6, dc["aperture"] / 1e6),
+                         ("towers", d["towers"], dc["towers"]),
+                         ("capex net, $B", p["capex_net"] / 1e3, c["capex_net"] / 1e3),
+                         ("$/MWh needed", p["price"], c["price"]),
+                         ("$/household/yr", H.per_household(p["price"]), H.per_household(c["price"]))):
+        if m is None:
+            print(f"      {label:<30} {d['links']['opt']:.2f}/{d['links']['cycle']:.2f}/{d['links']['par']:.2f}/{d['links']['avail']:.2f}"
+                  f"  {dc['links']['opt']:.2f}/{dc['links']['cycle']:.2f}/{dc['links']['par']:.2f}/{dc['links']['avail']:.2f}")
+        else:
+            fmt = "12.3f" if m < 1.0 else "12,.1f"
+            print(f"      {label:<30} {m:{fmt}} {cc:{fmt}} {cc / m:8.2f}")
+    over_c = c["price"] - H.FIRM_CLEAN_PPA[1]
+    print(f"    At critical Helios-3 needs ${c['price']:.0f}/MWh, ${over_c:.0f} above the band's top,")
+    print(f"    and a household pays ${H.per_household(c['price']):,.0f} against ${H.per_household(H.GEN_RATE_NOW * 1e3):,.0f} today. That is")
+    print("    the front-end threshold: the plant designed to it carries the mid")
+    print("    figure as margin; a plant designed to mid has none. What moves it")
+    print("    most is the chain, not the mitigation -- the receiver's 0.795 and")
+    print("    the field's 0.58 grow the mirror by the factor above before any")
+    print("    adder is applied.")
+    print()
     print("    WHAT THIS FILE DOES NOT DO. The adders are ASSUMED bands and say")
     print("    so; a receiver vendor prices a quartz cover, not this file. It")
     print("    does not model the first module's schedule. And it does not")
@@ -415,6 +451,14 @@ def selftest():
           abs(p["credit"] - exp) < 1e-6)
     check("the mitigated price is within 10 % of the band's top",
           p["price"] <= 1.10 * H.FIRM_CLEAN_PPA[1])
+    c = priced("critical")
+    check("critical: every link is at or below mid", all(c["base"]["links"][k] <= d["links"][k] for k in d["links"]))
+    check("critical: the receiver link is receiver.py's critical open figure",
+          abs(c["base"]["links"]["rec"] - __import__("receiver").efficiency("critical", True)) < 1e-12)
+    check("critical: mirror, capex and price all exceed mid",
+          c["base"]["aperture"] > d["aperture"] and c["capex_net"] > p["capex_net"] and c["price"] > p["price"])
+    check("critical: price is above the band's top (it is stated, not cleared)", c["price"] > H.FIRM_CLEAN_PPA[1])
+    check("critical: mid is not replaced -- priced() defaults to mid", priced()["price"] == p["price"])
 
     print()
     print("  and what the file refuses")
@@ -432,6 +476,7 @@ def selftest():
           or "not flatten HOURS" in out.replace("\n    ", " "))
     check("it names the salt block as the fallback, not the plan", "fallback, not the plan" in out)
     check("it says the adders are ASSUMED", "ASSUMED bands" in out)
+    check("it prints the critical case beside mid, not in its place", "AT CRITICAL" in out and "Held beside mid" in out)
 
     print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")

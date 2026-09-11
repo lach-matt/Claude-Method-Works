@@ -107,3 +107,14 @@ the pilot as the build.
 It does not run Helios-2 hour by hour — that is `helios.py`'s job and the
 next step, so the dispatch link is the literature's rather than the model's.
 It does not choose between 2 and 3; it says 2 is buildable and 3 is better.
+
+## The critical case (added 2026-09-11)
+
+`design(kind, case="critical")` runs the author's standing rule — simulate critical, not
+optimal. `CRITICAL_LINKS` takes optics to the bottom of the sourced surround-field band (0.58),
+the sCO₂ cycle to 0.45 (dry-cooled at hot ambient, ASSUMED band 0.45–0.50), parasitics to 0.90
+and availability to 0.92; PV to its low capacity factor; every cost band to its top; and for
+Helios-3 the receiver link to `receiver.py`'s critical open-aperture figure (0.795) by a lazy
+import, because `receiver.py` imports this file. Storage and dispatch claim no gain either way.
+Helios-3 at critical: 26.8 M m² against 18.1, and `helios3.py` prices it at $191/MWh against
+$125. Mid is unchanged and remains the default.
