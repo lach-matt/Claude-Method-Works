@@ -33,6 +33,7 @@ import joinder as J                                             # noqa: E402
 import studies as ST                                            # noqa: E402
 import aquacost as AQ                                           # noqa: E402
 import titleone as T1                                           # noqa: E402
+import minors as MN                                             # noqa: E402
 
 OUT = os.path.join(HERE, "..", "proposals", "Title_I_Helios-3_v0.2.md")
 CASES = ("mid", "critical")
@@ -70,6 +71,10 @@ def gather():
     g["n_studies"] = len(ST.STUDIES)
     g["n_tech"] = len(ST.TECHNOLOGIES)
     g["grades"] = (H3.grade_counts(False), H3.grade_counts(True))
+    g["co2"] = {c: MN.co2(c) for c in CASES}
+    g["jobs"] = {c: MN.jobs(c) for c in CASES}
+    g["seismic"] = {c: MN.seismic(c) for c in CASES}
+    g["cycle"] = MN.cycle_label()
     return g
 
 
@@ -106,7 +111,8 @@ def render(g):
     a("falling-particle receiver behind the author's compound quartz aperture; sintered-bauxite particles")
     a("as medium and store in cold-shell silos; a moving packed-bed exchanger into a 715 °C sCO₂")
     a("recompression block, dry-cooled; PV serving the daytime load directly and feeding particle heaters")
-    a("in winter. The energy chain, link by link:")
+    a(f"in winter. The cycle is {g['cycle']['helios3']} at {g['cycle']['helios3_eta']:.2f} gross; the nitrate-salt fallback is")
+    a(f"{g['cycle']['fallback']} at {g['cycle']['fallback_eta']:.2f} — v0.1's *supercritical Rankine* is withdrawn (F-32). The energy chain, link by link:")
     a("")
     a("| link | mid | critical |")
     a("|---|---|---|")
@@ -257,7 +263,53 @@ def render(g):
     a(f"hour-by-hour, {g['gentie']['mid']['circuits']:.2f} / {g['gentie']['critical']['circuits']:.2f} of one 500 kV circuit, priced in the switchyard line at")
     a(f"${g['gentie']['mid']['switchyard_m']:,.0f} / ${g['gentie']['critical']['switchyard_m']:,.0f} M. The interconnection study is the Authority's to file and no authority shortens it.")
     a("")
-    a("## 8. What v0.2 does not settle")
+    a("## 8. Emissions, employment, siting and procurement")
+    a("")
+    a("The minor rows, computed rather than asserted (`minors.py`).")
+    a("")
+    a(f"**CO₂ avoided (F-34).** From the hour-by-hour at a CAISO marginal factor of {g['co2']['mid']['factor']:.2f} / {g['co2']['critical']['factor']:.2f} t/MWh")
+    a("(the critical case credits less, because a cleaner grid displaces less):")
+    a("")
+    a("| | mid | critical |")
+    a("|---|---|---|")
+    a(f"| served as sized, TWh | {g['co2']['mid']['as_sized_twh']:.2f} | {g['co2']['critical']['as_sized_twh']:.2f} |")
+    a(f"| avoided as sized, MMT/yr | **{g['co2']['mid']['as_sized_mmt']:.2f}** | **{g['co2']['critical']['as_sized_mmt']:.2f}** |")
+    a(f"| avoided with the load closed, MMT/yr | {g['co2']['mid']['closed_mmt']:.2f} | {g['co2']['critical']['closed_mmt']:.2f} |")
+    a("")
+    a(f"v0.1 said {MN.CLAIMED_MMT} MMT.")
+    a("")
+    a(f"**Employment (F-38).** From built plants per MW — Crescent Dunes and Ivanpah for the permanent staff,")
+    a(f"Ivanpah's peak for construction — at the closed block of {g['jobs']['mid']['block_mw']:,.0f} MWe:")
+    a("")
+    a("| | mid | critical |")
+    a("|---|---|---|")
+    a(f"| permanent, Title I | **{g['jobs']['mid']['permanent']:,.0f}** | **{g['jobs']['critical']['permanent']:,.0f}** |")
+    a(f"| construction peak, Title I | {g['jobs']['mid']['construction_peak']:,.0f} | {g['jobs']['critical']['construction_peak']:,.0f} |")
+    a("")
+    a(f"v0.1 said {MN.CLAIMED_JOBS[0]:,} construction and {MN.CLAIMED_JOBS[1]:,} permanent; the multiplier it quoted is unsourced and is not carried.")
+    a("")
+    a(f"**Seismic (F-33).** Seismic zones left the code in 2001; the basis is ASCE 7, site class and mapped MCE_R.")
+    a(f"The {MN.DESIGN_PGA_G:.2f} g target is kept and clears the mapped PGA at every node:")
+    a("")
+    a("| node | mapped PGA, g (mid / critical) | target over mapped |")
+    a("|---|---|---|")
+    for n in MN.MCE_PGA_G:
+        (pm, fm), (pc, fc) = g["seismic"]["mid"][n], g["seismic"]["critical"][n]
+        a(f"| {n} | {pm:.2f} / {pc:.2f} | {fm:.2f}× / {fc:.2f}× |")
+    a("")
+    a("The mapped values are assumed from the hazard record and the site study fixes them.")
+    a("")
+    a("**Procurement (F-39).** One EPC per node under an owner's engineer across the program; the pilot")
+    a("aperture and the first module let as separate contracts. No contractor has delivered more than one")
+    a("commercial tower at a time in the US, and the ladder (§7) buys the hours before the fleet.")
+    a("")
+    a("**The Authority (F-37).** A statutory public entity created by the Act on the pattern of the")
+    a("California Consumer Power and Conservation Financing Authority (SB 6X, 2001; defunded by 2004 — a")
+    a("history the Act acknowledges), registered as the load-serving entity of §5. Gov. Code §8571 is")
+    a("cited only for what it does: suspend regulatory statutes in a declared emergency. It issues no")
+    a("coastal permit and shortens no federal review.")
+    a("")
+    a("## 9. What v0.2 does not settle")
     a("")
     a("- The route for the season — mirrors or water — is Title III's decision, and the water side has")
     a("  its own flaw register to survive (F-16 on module capital, F-14 on the price of water).")
@@ -265,9 +317,8 @@ def render(g):
     a("  move that factor either way.")
     a("- The receiver's critical figure and the dome's verdict are what the pilot aperture measures;")
     a("  until it has run, the critical column is the design basis.")
-    a("- The remaining open rows of `FLAWS.tsv` are Title II's process items (F-13, F-15, F-26 to F-28,")
-    a("  F-35, F-36), the joinder itself (F-31), and the minor rows; transmission, the tariff, the bond")
-    a("  rate and the schedule are settled above as positions with a price, not as witnesses.")
+    a("- Every row of `FLAWS.tsv` is resolved; transmission, the tariff, the bond rate, the schedule and")
+    a("  the minors are settled above as positions with a price, not as witnesses.")
     a("")
     a("*Rendered by `tools/rebase.py`; do not edit by hand. Re-render after any change to the instruments.*")
     return "\n".join(L) + "\n"
@@ -299,6 +350,9 @@ def selftest():
           f"| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | {g['aqua']['mid']['per_af']:,.0f} |" in text)
     check("the receiver's field factor is against the chain's own link, not against itself",
           1.2 < g["rx"]["critical"]["field"] < 1.4)
+    check("the minors appear: CO2, jobs, seismic, procurement, the Authority, the cycle label",
+          all(t in text for t in ("F-34", "F-38", "F-33", "F-39", "F-37", "F-32")))
+    check("the CO2 figure printed is the instrument's", f"| avoided as sized, MMT/yr | **{g['co2']['mid']['as_sized_mmt']:.2f}**" in text)
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
     return fails == 0
 

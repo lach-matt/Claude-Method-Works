@@ -70,6 +70,8 @@ and copies nothing.
 
 Seven rows move to RESOLVED. **Forty of forty are resolved.** The three v0.2 documents
 (`proposals/Title_I_Helios-3_v0.2.md`, `Title_II_Aqua-Sovereign_v0.2.md`,
-`Title_III_Joinder_v0.2.md`) are the program as it stands; the minors' figures live in the
-register and in this instrument, and are folded into a document only when a re-base reads them.
+`Title_III_Joinder_v0.2.md`) are the program as it stands; the minors' figures are folded
+into the documents by `rebase.py` (Title I §2 for the cycle label and a new §8 for CO₂, employment,
+seismic, procurement and the Authority) and `rebase2.py` (Title II §3 for noise, employment and the
+Authority), read from this instrument at render time.
 Nothing in `FLAWS.tsv` is deleted, and the resolution column names the instrument and the date.

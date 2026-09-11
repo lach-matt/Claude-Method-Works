@@ -52,6 +52,13 @@ today. Desalinated water is firm water and is priced as such; capital dominates,
   controls, so the plant rides through an outage without fouling; full-load islanding is not claimed.
 - **Energy at the contract price, full-time.** Title I's surplus is 7% of hours, not half; a
   membrane plant runs steadily. The surplus is the water route's lift, an upside the price does not count.
+- **40 dBA at the boundary is bought, not assumed (F-40).** High-pressure pumps at 90–100 dBA at 1 m reach
+  40 dBA at 316–1,000 m in the open; a full enclosure of 28–22 dB brings the boundary to 13–79 m,
+  inside the brownfield, at $19–58 M a module (mid–critical), carried in the module's band.
+- **Employment (F-38).** At Carlsbad's staffing per plant, the water route's modules employ 1,313–1,410 permanently.
+- **The Authority (F-37).** The same statutory entity as Title I's, a public body created by the Act
+  and registered as a load-serving entity; *sovereign drought-emergency authority* is Gov. Code §8571,
+  which suspends regulatory statutes in a declared emergency and issues no coastal permit.
 
 ## 4. The schedule
 

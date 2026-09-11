@@ -23,7 +23,8 @@ Helios-3: a Noor III-class surround heliostat field sized for the night; a multi
 falling-particle receiver behind the author's compound quartz aperture; sintered-bauxite particles
 as medium and store in cold-shell silos; a moving packed-bed exchanger into a 715 °C sCO₂
 recompression block, dry-cooled; PV serving the daytime load directly and feeding particle heaters
-in winter. The energy chain, link by link:
+in winter. The cycle is sCO₂ recompression Brayton, 715 °C at 0.50 gross; the nitrate-salt fallback is
+subcritical reheat steam at ~540 °C live steam from 565 °C salt at 0.43 — v0.1's *supercritical Rankine* is withdrawn (F-32). The energy chain, link by link:
 
 | link | mid | critical |
 |---|---|---|
@@ -190,7 +191,53 @@ gen-tie per node at the closed sizing peaks at 1,196 MW (mid) / 1,179 MW (critic
 hour-by-hour, 0.60 / 0.79 of one 500 kV circuit, priced in the switchyard line at
 $600 / $900 M. The interconnection study is the Authority's to file and no authority shortens it.
 
-## 8. What v0.2 does not settle
+## 8. Emissions, employment, siting and procurement
+
+The minor rows, computed rather than asserted (`minors.py`).
+
+**CO₂ avoided (F-34).** From the hour-by-hour at a CAISO marginal factor of 0.40 / 0.35 t/MWh
+(the critical case credits less, because a cleaner grid displaces less):
+
+| | mid | critical |
+|---|---|---|
+| served as sized, TWh | 15.19 | 15.12 |
+| avoided as sized, MMT/yr | **6.08** | **5.29** |
+| avoided with the load closed, MMT/yr | 7.24 | 6.34 |
+
+v0.1 said 11.8 MMT.
+
+**Employment (F-38).** From built plants per MW — Crescent Dunes and Ivanpah for the permanent staff,
+Ivanpah's peak for construction — at the closed block of 3,930 MWe:
+
+| | mid | critical |
+|---|---|---|
+| permanent, Title I | **1,901** | **1,214** |
+| construction peak, Title I | 21,054 | 21,054 |
+
+v0.1 said 22,500 construction and 1,350 permanent; the multiplier it quoted is unsourced and is not carried.
+
+**Seismic (F-33).** Seismic zones left the code in 2001; the basis is ASCE 7, site class and mapped MCE_R.
+The 0.75 g target is kept and clears the mapped PGA at every node:
+
+| node | mapped PGA, g (mid / critical) | target over mapped |
+|---|---|---|
+| Mojave (Kramer Junction) | 0.45 / 0.50 | 1.67× / 1.50× |
+| Imperial (Desert Center) | 0.35 / 0.45 | 2.14× / 1.67× |
+| Central Valley (Westside) | 0.40 / 0.55 | 1.88× / 1.36× |
+
+The mapped values are assumed from the hazard record and the site study fixes them.
+
+**Procurement (F-39).** One EPC per node under an owner's engineer across the program; the pilot
+aperture and the first module let as separate contracts. No contractor has delivered more than one
+commercial tower at a time in the US, and the ladder (§7) buys the hours before the fleet.
+
+**The Authority (F-37).** A statutory public entity created by the Act on the pattern of the
+California Consumer Power and Conservation Financing Authority (SB 6X, 2001; defunded by 2004 — a
+history the Act acknowledges), registered as the load-serving entity of §5. Gov. Code §8571 is
+cited only for what it does: suspend regulatory statutes in a declared emergency. It issues no
+coastal permit and shortens no federal review.
+
+## 9. What v0.2 does not settle
 
 - The route for the season — mirrors or water — is Title III's decision, and the water side has
   its own flaw register to survive (F-16 on module capital, F-14 on the price of water).
@@ -198,8 +245,7 @@ $600 / $900 M. The interconnection study is the Authority's to file and no autho
   move that factor either way.
 - The receiver's critical figure and the dome's verdict are what the pilot aperture measures;
   until it has run, the critical column is the design basis.
-- The remaining open rows of `FLAWS.tsv` are Title II's process items (F-13, F-15, F-26 to F-28,
-  F-35, F-36), the joinder itself (F-31), and the minor rows; transmission, the tariff, the bond
-  rate and the schedule are settled above as positions with a price, not as witnesses.
+- Every row of `FLAWS.tsv` is resolved; transmission, the tariff, the bond rate, the schedule and
+  the minors are settled above as positions with a price, not as witnesses.
 
 *Rendered by `tools/rebase.py`; do not edit by hand. Re-render after any change to the instruments.*

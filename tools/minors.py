@@ -63,8 +63,8 @@ ENCLOSURE_SHARE = (0.01, 0.02)            # of module capital                   
 
 
 def cycle_label():
-    return dict(helios3="sCO2 recompression Brayton, 715 C", helios3_eta=C.design("helios3", "mid")["links"]["cycle"],
-                fallback="subcritical reheat steam at ~540 C live steam from 565 C salt", fallback_eta=H.ETA_CYCLE)
+    return dict(helios3="sCO₂ recompression Brayton, 715 °C", helios3_eta=C.design("helios3", "mid")["links"]["cycle"],
+                fallback="subcritical reheat steam at ~540 °C live steam from 565 °C salt", fallback_eta=H.ETA_CYCLE)
 
 
 def seismic(case):

@@ -7,8 +7,10 @@ priced — the diff had grown past what a register can hold, and Title I needed 
 document again. This file renders **`proposals/Title_I_Helios-3_v0.2.md`** from the instruments
 that computed it: `helios.py` (the requirement), `cspchain.py` (the plant), `helios3.py` (the
 register and the price), `receiver.py` (the receiver threshold), `hourly3.py` (what it serves
-and what closes it), `joinder.py` (the water route) and `studies.py` (provenance, the ladder,
-the cost of delay).
+and what closes it), `joinder.py` (the water route), `studies.py` (provenance, the ladder,
+the cost of delay), `aquacost.py` and `titleone.py` (Title II's price beside the water route; the
+rate table, the schedule and the gen-tie), and `minors.py` (the cycle label in §2, and §8 —
+emissions, employment, seismic, procurement and the Authority).
 
 **Run it.** `python3 tools/rebase.py` renders (several minutes: it runs `hourly3.py` and
 `joinder.py`); `--selftest` checks. Stdlib only.
@@ -41,6 +43,8 @@ to, and the document does not offer a mid-only design.
 
 The route for the season (mirrors or water) is Title III's decision; the evening block factor
 waits on a measured load profile; the receiver's critical figure waits on the pilot aperture;
-and transmission, the tariff, the bond rate and the schedule (F-09, F-10, F-19, F-24) are open
-in `FLAWS.tsv` and unchanged. F-06 — the solar multiple that did not match the aperture — is
+and transmission, the tariff, the bond rate and the schedule (F-09, F-10, F-19, F-24) were open
+in `FLAWS.tsv` at this pass and have since been settled by `titleone.py` and rendered here as
+positions with a price. With the minors folded in (`minors.py`, `docs/MINORS.md`) every row of
+`FLAWS.tsv` is resolved. F-06 — the solar multiple that did not match the aperture — is
 **resolved** by this pass: the winter guarantee is not a label on the field but a route.

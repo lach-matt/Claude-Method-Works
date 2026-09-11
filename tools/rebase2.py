@@ -18,6 +18,7 @@ import helios as H                                              # noqa: E402
 import aquacost as AQ                                           # noqa: E402
 import titletwo as T2                                           # noqa: E402
 import joinder as J                                             # noqa: E402
+import minors as MN                                             # noqa: E402
 
 OUT = os.path.join(HERE, "..", "proposals", "Title_II_Aqua-Sovereign_v0.2.md")
 CASES = ("mid", "critical")
@@ -34,6 +35,8 @@ def gather():
     g["surplus"] = {c: T2.surplus_hours(c) for c in CASES}
     g["onsite"] = {c: T2.onsite(c) for c in CASES}
     g["today_hh"] = H.per_household(H.GEN_RATE_NOW * 1e3)
+    g["noise"] = {c: MN.noise(c) for c in CASES}
+    g["jobs"] = {c: MN.jobs(c) for c in CASES}
     return g
 
 
@@ -95,6 +98,14 @@ def render(g):
     a("  controls, so the plant rides through an outage without fouling; full-load islanding is not claimed.")
     a(f"- **Energy at the contract price, full-time.** Title I's surplus is {g['surplus']['mid']['share']:.0%} of hours, not half; a")
     a("  membrane plant runs steadily. The surplus is the water route's lift, an upside the price does not count.")
+    n = g["noise"]
+    a(f"- **{MN.BOUNDARY_DBA:.0f} dBA at the boundary is bought, not assumed (F-40).** High-pressure pumps at {n['mid']['source']:.0f}–{n['critical']['source']:.0f} dBA at 1 m reach")
+    a(f"  {MN.BOUNDARY_DBA:.0f} dBA at {n['mid']['d_open_m']:,.0f}–{n['critical']['d_open_m']:,.0f} m in the open; a full enclosure of {n['mid']['enclosure']:.0f}–{n['critical']['enclosure']:.0f} dB brings the boundary to {n['mid']['d_enclosed_m']:.0f}–{n['critical']['d_enclosed_m']:.0f} m,")
+    a(f"  inside the brownfield, at ${n['mid']['cost_m']:.0f}–{n['critical']['cost_m']:.0f} M a module (mid–critical), carried in the module's band.")
+    a(f"- **Employment (F-38).** At Carlsbad's staffing per plant, the water route's modules employ {g['jobs']['mid']['title2_permanent']:,.0f}–{g['jobs']['critical']['title2_permanent']:,.0f} permanently.")
+    a("- **The Authority (F-37).** The same statutory entity as Title I's, a public body created by the Act")
+    a("  and registered as a load-serving entity; *sovereign drought-emergency authority* is Gov. Code §8571,")
+    a("  which suspends regulatory statutes in a declared emergency and issues no coastal permit.")
     a("")
     a("## 4. The schedule")
     a("")
@@ -149,6 +160,8 @@ def selftest():
     check("the water price at mid appears", f"| $ per acre-foot | **{g['module']['mid']['per_af']:,.0f}**" in text)
     check("no mineral revenue is stated", "no mineral revenue" in text)
     check("full-load islanding is not claimed", "full-load islanding is not claimed" in text)
+    check("noise, Title II employment and the Authority appear", all(t in text for t in ("F-40", "F-38", "F-37")))
+    check("the enclosed boundary distance printed is the instrument's", f"to {g['noise']['mid']['d_enclosed_m']:.0f}–{g['noise']['critical']['d_enclosed_m']:.0f} m" in text)
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
     return fails == 0
 
