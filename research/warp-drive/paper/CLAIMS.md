@@ -2980,6 +2980,13 @@ inequality. What kind of object *can* it be? Fewster–Osterbrink settles it:
 
 And `ξ = 1/6` is in that regime *by construction*, so this is not avoidable by choosing differently.
 
+> ⚠️ **CORRECTED BY H45, AND THE CORRECTION IS SUBSTANTIAL.** The clause *"a relation that is not
+> state-independent is not a bound"* is **withdrawn**. Fewster–Osterbrink's Theorem 4.2 **does** derive a
+> QEI for non-minimal coupling — state-dependent, proved non-trivial by their Theorem 5.1, valid for
+> `0 < ξ ≤ 1/4`, which **contains the `1/6` H44b chose**. A state-dependent bound *is* a bound. **L4 is a
+> computation, not an impossibility.** What survives unchanged: no *state-independent* QEI exists for
+> `ξ > 0`, and they show it by an explicit Hadamard state rather than by failing to find one. See H45.
+
 ### H44d — `Λ` cannot close; its **sign** closes exactly
 
 `Λ` is the value of an integral **along the corridor** (**H42c**), which needs the whole path and therefore a
@@ -3016,6 +3023,114 @@ logarithm. **Shape and sign: THEOREM. Value: MODEL.**
 | status | **THEOREM-CITED** (the propagator) + **DERIVED** (`Λ`'s sign threshold, exact) + **PRINCIPLED CHOICE** (`ξ`, `ℓ_UV`) + **CORRECTION** (H36's dimension claim) |
 | new? | the sign threshold `X > e`; the status/value split at the terminus. *Not* the propagator — textbook |
 | **not** claimed | novelty for the propagator; that `ξ` and `ℓ_UV` are *derived* rather than chosen on principle; that L4 is closed — its numbers are, its status is not |
+
+---
+
+## ★★★ H45 — the Millennium problems, surveyed. **One bears and it is the solved one — and the survey corrected H44.**
+
+> M: *"Some famously unsolved math that may hold the keys to what we are hoping to achieve — the millennium problems by The Clay Mathematics Institute."*
+
+### H45a — the correction, first, because it goes against the last pass
+
+Doing the survey properly meant **reading Fewster–Osterbrink rather than citing it**, and the paper
+contradicts what **H44c** was built on.
+
+> ❌ **WITHDRAWN:** *"a relation that is not state-independent is not a bound, and what is not a bound can be
+> neither satisfied nor violated, only estimated."*
+>
+> ✅ **Their abstract:** *"Nonetheless, we derive a generalised QEI for the non-minimally coupled scalar
+> field, in which the lower bound is permitted to be state-dependent. This result applies to general
+> globally hyperbolic curved spacetimes for coupling constants in the range `0 < ξ ≤ 1/4`."*
+
+**A state-dependent bound is a bound.** Their Theorem 4.2 proves it; their Theorem 5.1 proves it
+**non-trivial**. And the range was built to contain the special values — the paper names conformal coupling
+`(n−2)/(4n−4)` and supersymmetric coupling `1/4` — so **it contains the `1/6` H44b chose.**
+
+> **L4 is a COMPUTATION, not an impossibility.** Not *"is there a bound"* — there is one, proved, covering
+> our coupling. The open question is what it says for a specified state, which nobody here has evaluated.
+> Fewster's own conclusion points the same way: *"in general, then, the aim should be to establish
+> non-trivial state-dependent bounds."*
+
+**What survives H44c unchanged:** no *state-independent* QEI exists for `ξ > 0` — and they show it by an
+**explicit Hadamard state** (energy density `−ξ(2κ)⁴/(3π²)` at the origin, extended to `j` particles to beat
+any `−ρ₀` over any ball), not by failing to find one.
+
+### H45b — and the corrected reading is **worse** for us
+
+Three results in that paper reproduce this project's obstruction **from the QFT side**, independently:
+
+| their result | ours |
+|---|---|
+| *"the product of `κ′` and `τ′` is constant… large regions of negative energy density **albeit with low magnitude**"* | **H43c**'s area law `R·Δd ≤ kℓ_P²` — size × magnitude fixed |
+| lower bound holds for `p > 2`, energy density unbounded above for `q < 3` — **an exponent gap ≥ 1 in powers of `H`** | **H37**'s magnitude gate *is* an exponent gap |
+| **AWEC holds** for `ξ ∈ [0, 1/4]` | **H41b**: the averaged condition is satisfied; the obstruction is elsewhere |
+
+> *"Negative energy effects with large magnitude, while possible over large regions, **require more energy to
+> achieve** than positive energy densities of the same magnitude, and the 'energy budget' for these two
+> effects will **grow with a different power**."*
+
+**The shapes recur. They are not the same statements and nothing here claims they are.**
+
+One number the paper gives that nothing here had: **their total energy goes as `1/ξ`**, so within the
+theorem's range the *cheapest* coupling is the *largest*. **Symmetry picks `1/6`; cost picks `1/4`; `1/6`
+costs `3/2` of `1/4`.** Recorded, not resolved.
+
+### H45c — the seven
+
+| problem | | verdict | link |
+|---|---|---|---|
+| **Poincaré** | **SOLVED** | **BEARS** | **L1** |
+| Yang–Mills existence & mass gap | open | adjacent, independent | L4 |
+| Navier–Stokes existence & smoothness | open | real link, no bearing | — |
+| P vs NP | open | real link, no bearing | — |
+| Riemann hypothesis | open | **no bearing** | — |
+| Hodge conjecture | open | **no bearing** | — |
+| Birch–Swinnerton-Dyer | open | **no bearing** | — |
+
+**Poincaré bears.** Perelman closed it with **Ricci flow and monotone functionals**, and monotonicity along a
+geometric flow is precisely what **H41c**'s L1 needs. The paradigm is *already inside GR*: Geroch, Jang and
+Jang–Wald found Hawking-mass monotonicity under **inverse mean curvature flow** with `R ≥ 0`, and
+Huisken–Ilmanen (2001) built the **weak** IMCF theory that carries it through singularities — which is how
+the **Riemannian Penrose inequality** was proved. Still live (Hirsch, arXiv:2210.12237, extends it to initial
+data sets).
+
+**Yang–Mills is adjacent and independent.** Rigorous QEIs exist exactly where constructive QFT has succeeded
+— free fields, and interacting ones **only in 2D** (CFTs with a stress tensor, integrable models with
+factorising S-matrices). The missing 4D interacting case **is** the Yang–Mills problem. **But L4's field is
+free** and already rigorously constructed; the obstruction is the `ξ`-term, not construction. **Solving
+Yang–Mills would not touch L4.**
+
+**Navier–Stokes has an exact dual and no bearing.** Bredberg–Keeler–Lysov–Strominger construct, for *every*
+incompressible NS solution in `p+1` dimensions, a **uniquely associated solution of the vacuum Einstein
+equations in `p+2`**. A Millennium problem literally embedded in the Einstein equations — and irrelevant here
+for two independently sufficient reasons: **the dual is `T_μν = 0`** while every question here is `T_μν < 0`,
+and `p+1 → p+2` does not pair 3+1 with 3+1.
+
+**P vs NP runs the wrong way.** Aaronson–Watrous proved `P^CTC = BQP^CTC = PSPACE` under **Deutsch's**
+consistency condition — the one **H34**'s `closure.py` used. So this project's refusal of definite closure is
+**evidence on the physics side of a complexity question**, not a tool on ours.
+
+**Riemann, Hodge, BSD have no bearing**, and the Riemann refusal is placed on the record deliberately: no
+zeta, no spectral counting, no prime distribution anywhere in this tree. **A claimed connection would be
+numerology.**
+
+### H45d — the answer
+
+> **No Millennium problem holds the key, and the one that helps is already solved.**
+>
+> L1 does not need a new prize-grade theorem; it needs the **Perelman/Huisken–Ilmanen paradigm** pushed in a
+> direction nobody has pushed it. That is an open problem in **geometric analysis** — a far better place to
+> stand, because those get solved. L4 does not need Yang–Mills; it needs a **state-dependent QEI evaluated**,
+> and the theorem that does the evaluating already exists and already covers `ξ = 1/6`.
+>
+> **The survey's real yield is H45a.** Looking for a key in famous mathematics found no key and found an
+> error in our own last pass — which is what reading primary sources is for.
+
+| | `millennium.py` |
+|---|---|
+| status | **CORRECTION** (H44c, substantial) + **SURVEY** (7 rows, 3 refusals) + **CITED** (Fewster–Osterbrink Thms 4.2/5.1; Huisken–Ilmanen; Bredberg et al.; Aaronson–Watrous) |
+| new? | the correction; the three shape-recurrences; the `1/ξ` cost ordering |
+| **not** claimed | that the recurring shapes are the same statements; any bearing for Riemann/Hodge/BSD; that L4 is closed — it is now a computation, and it has not been done |
 
 ---
 

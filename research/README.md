@@ -7114,6 +7114,50 @@ form this tree had never stated. Shape and sign: theorem. Value: model.
 
 ---
 
+## `millennium.py` — the Clay problems, surveyed. One bears, and it is the solved one.
+
+> M: *"Some famously unsolved math that may hold the keys… the millennium problems by The Clay Mathematics
+> Institute."*
+
+**The correction first, because it goes against the last pass.** Doing the survey meant *reading*
+Fewster–Osterbrink rather than citing it, and the paper contradicts `solve.py`/H44c. Withdrawn: *"a relation
+that is not state-independent is not a bound."* Their Theorem 4.2 **does** derive a QEI for non-minimal
+coupling — **state-dependent**, proved non-trivial by Theorem 5.1, valid for **`0 < ξ ≤ 1/4`**, a range built
+to contain conformal `(n−2)/(4n−4)` and supersymmetric `1/4` — **so it contains the `1/6` `solve.py` chose.**
+
+> **A state-dependent bound is a bound. L4 is a computation, not an impossibility.** What survives: no
+> *state-independent* QEI exists for `ξ > 0`, shown by an explicit Hadamard state, not by failure to find one.
+
+**And the corrected reading is worse for us.** Three of their results reproduce this project's obstruction
+from the QFT side: *"the product of `κ′` and `τ′` is constant… large regions of negative energy density
+**albeit with low magnitude**"* (the shape of `magnitude.py`'s area law); a lower bound holding for `p > 2`
+against a density unbounded above for `q < 3` — **an exponent gap**, which is what `candidates.py`'s
+magnitude gate is; and **AWEC holds** for `ξ ∈ [0,1/4]`, which is `overturn.py`'s ball-vs-chord finding from
+the other direction. *The shapes recur; they are not the same statements.* One new number: their energy goes
+as `1/ξ`, so **symmetry picks `1/6` and cost picks `1/4`** — `1/6` costs `3/2` of `1/4`.
+
+**The seven:** Poincaré **BEARS** (L1) — Perelman's Ricci flow with monotone functionals is the paradigm L1
+needs, already imported into GR as Geroch's Hawking-mass monotonicity under IMCF and Huisken–Ilmanen's weak
+IMCF proof of the Riemannian Penrose inequality. Yang–Mills is **adjacent, independent** — QEIs track
+constructive success (free fields; interacting only in 2D), so the missing 4D interacting case *is* that
+problem, **but L4's field is free**, so solving it would not touch us. Navier–Stokes has an **exact vacuum
+Einstein dual** (`p+1 → p+2`) and **no bearing** — the dual is `T_μν = 0` and the dimensions don't match.
+P vs NP has a real link **running the wrong way** — Aaronson–Watrous's `P^CTC = BQP^CTC = PSPACE` uses
+Deutsch consistency, which `closure.py` used, so our result is evidence on their side. **Riemann, Hodge and
+Birch–Swinnerton-Dyer: no bearing**, and the Riemann refusal is on the record deliberately — a claimed
+connection would be numerology.
+
+> **No Millennium problem holds the key, and the one that helps is solved.** L1 needs the
+> Perelman/Huisken–Ilmanen paradigm pushed somewhere nobody has pushed it — an open problem in *geometric
+> analysis*, not a prize problem, and those get solved. **The survey's real yield is the correction.**
+
+### Seated
+- `millennium.py` — new. `index3.py` — **535 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H45**, and **H44c annotated as corrected, not deleted**.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
