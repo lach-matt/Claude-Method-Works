@@ -59,7 +59,7 @@ mid carries the chain's 0.90 and critical already carries 0.690, and priced thro
 | 0.75 | PASS-DESIGN | 1.20 | 7 | 0.92 | −5 |
 | 0.70 | UNDECIDED | 1.29 | 10 | 0.99 | −1 |
 | 0.65 | FAIL | 1.38 | 13 | 1.06 | 4 |
-| 0.60 | FAIL | 1.50 | 17 | 1.15 | 10 |
+| 0.60 | FAIL | 1.50 | 17 | 1.15 | 9 |
 
 A pass at the design basis costs the critical design nothing, and anything above it is a saving the
 design was held pessimistic against. That is what holding the design to critical buys: the pilot can
