@@ -265,8 +265,14 @@ sourced NREL ATB 2024 anchor ($7,912/kWe) and the split is RECONSTRUCTED from SA
 (NREL is unreachable here), corroborated at 0.778 raw; the ownership form is priced as named lines
 (no developer margin, bond-rate IDC, storage credit with the public energy-community bonus, CalPERS
 on-cost, property tax out and a PILOT in) and nearly halves the required price against a private
-owner. **The lever is the size, not a unit rate.** See `docs/HELIOS.md`, `docs/HELIOCOST.md` and
-`proposals/README.md`.
+owner. **And the size is not a lever either — the author restated it as a requirement** (3 M households a
+*minimum*, growing with population), so `helios.py`'s F-17 block sizes it at EIA's **6,036 kWh/yr**:
+3 M households need **18.1 TWh** and the plant makes **19.2** — **the size was right and the export was
+wrong** — growing to **1.3–1.7×** over the term. Per household at the required price, **$613/yr** at
+Title I's capex against **$1,177** today, but **$1,033 / 1,244 / 1,528** at the built cases: **at the
+built cost the sovereign plant charges a household more than the IOU does today.** No size answers
+that; only the equipment does, and that is the second pass's first question. See `docs/HELIOS.md`,
+`docs/HELIOCOST.md` and `proposals/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename

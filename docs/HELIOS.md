@@ -148,3 +148,40 @@ where WEIM cannot. **At F-05 and F-19's realistic cost it needs $285/MWh,
 which nothing pays.** The criterion does not fail on the physics or on the
 market; it turns on the capital cost, and F-05 is the flaw that decides
 whether the program exists.
+
+## F-17: the size is a requirement, not a lever
+
+The author restated the requirement: **3 million households is a minimum and
+must grow with population; one facility or a hundred, the equipment is the
+same.** So the plant is sized by the requirement, and the requirement has to
+be stated at California's actual consumption rather than the three figures
+Title I implies (12,000 kWh/yr in the bill example, 8,760 implied by 3,000 MW
+at 100 % CF, and the truth):
+
+| | kWh/yr per household | 3 M households | plant as specified |
+|---|---|---|---|
+| EIA 2024, California actual (SOURCED, 503 kWh/month) | 6,036 | **18.1 TWh** | **19.2 TWh → 3.19 M households, zero export** |
+| growth 1 %/yr over the 30-year term | | 24.4 TWh | 1.27× the plant |
+| growth 2 %/yr | | 32.8 TWh | 1.70× the plant |
+
+**The plant as specified serves the minimum today with nothing to spare.** The
+size was never wrong; the export promised on top of it was. And because the
+three largest cost lines scale with the plant, growing it does not change the
+price per MWh — which is why the size cannot be the lever.
+
+What a household would actually pay for generation, at the required price:
+
+| case | $/MWh | $/household/yr | vs today |
+|---|---|---|---|
+| today, IOU generation charge (Title I's own $0.195/kWh) | 195 | 1,177 | — |
+| Title I as written ($27.2 B) | 102 | 613 | −48 % |
+| heliocost.py low | 171 | 1,033 | −12 % |
+| heliocost.py mid | 206 | 1,244 | **+6 %** |
+| heliocost.py high | 253 | 1,528 | +30 % |
+
+**At the built cost, the sovereign plant charges a household more for
+generation than the IOU does today.** No size answers that. Only the
+equipment does — what makes a firm megawatt-hour, and what that equipment
+costs per megawatt-hour it makes — and that is the second pass's first
+question. The built prices are computed by importing `heliocost.py`, not
+quoted, and the selftest asserts it.

@@ -85,6 +85,16 @@ OM_M = 410.0                  # Title I §4.1, $M/yr
 CAPEX_BAND_B = (42.0, 63.0)   # F-05: built tower-CSP at $8-12/W
 RATE_BAND = (0.055, 0.070)    # F-19: uncontracted first-of-kind revenue bonds
 COVERAGE_REQ = 1.25           # debt-service coverage a revenue bond needs  SOURCED band 1.2-1.3
+# ---- F-17: the household requirement, as the author restated it ------------
+HOUSEHOLDS_MIN = 3_000_000       # author 2026-09-11: a MINIMUM, growing with population
+HH_KWH_YR = 503.0 * 12           # SOURCED: EIA 2024, California 503 kWh/month,
+                                 # 14,217,180 residential customers
+HH_KWH_YR_CLAIMED = 1000.0 * 12  # Title I §5's bill example
+CA_RES_CUSTOMERS = 14_217_180    # SOURCED: EIA 2024
+GROWTH_BAND = (0.010, 0.020)     # per year, residential load incl. electrification;
+                                 # CEC IEPR: CAISO peak 48.3 -> 68 GW 2024-2040 is
+                                 # 2.2 %/yr system-wide, residential slower  SOURCED band
+GEN_RATE_NOW = 0.195             # $/kWh, Title I §5's own IOU generation charge
 FIRM_CLEAN_PPA = (80.0, 120.0)   # $/MWh California LSEs pay for firm clean
                                  # energy (geothermal, long-duration)  SOURCED band
 
@@ -439,6 +449,45 @@ def closure_table(net_mwh):
 
 
 # =============================================================================
+# F-17: SIZE IS A REQUIREMENT, NOT A LEVER
+# =============================================================================
+def hh_demand_twh(households=HOUSEHOLDS_MIN, kwh=HH_KWH_YR, years=0, growth=0.0):
+    return households * kwh * (1.0 + growth) ** years / 1e9
+
+
+def households_served(net_mwh, kwh=HH_KWH_YR):
+    return net_mwh * 1e3 / kwh
+
+
+def size_for(households=HOUSEHOLDS_MIN, years=BOND_TERM_Y, growth=GROWTH_BAND[1],
+             net_mwh=None):
+    """Multiple of the plant as specified needed to serve `households` at the
+    end of `years` of `growth`, with zero export."""
+    net = run_network()["net"] if net_mwh is None else net_mwh
+    return hh_demand_twh(households, HH_KWH_YR, years, growth) * 1e6 / net
+
+
+def built_prices(net_mwh):
+    """heliocost.py's three built cases, computed rather than quoted.
+
+    Imported lazily: heliocost imports this module at its top, so the import
+    is made inside the function, after this module exists."""
+    import heliocost as HC
+    out = []
+    for case in ("low", "mid", "high"):
+        b = HC.build(case)
+        o = HC.om_m(case, "state", b["net_capex"])
+        out.append((f"heliocost.py {case} case",
+                    required_price(net_mwh, b["net_capex"] / 1e3, BOND_RATE, o["total"])))
+    return out
+
+
+def per_household(price_mwh, kwh=HH_KWH_YR):
+    """Annual generation charge per household at a realised price."""
+    return price_mwh * kwh / 1e3
+
+
+# =============================================================================
 # REPORT
 # =============================================================================
 def report():
@@ -612,6 +661,51 @@ def report():
     print("    or on the market; it turns on the capital cost, and F-05 is")
     print("    the flaw that decides whether this program exists.")
     print()
+    print("    F-17: THE SIZE IS A REQUIREMENT, NOT A LEVER. The author restated")
+    print(f"    it: {HOUSEHOLDS_MIN / 1e6:.0f} million households is a MINIMUM and must grow with")
+    print("    population; one facility or a hundred, the equipment is the")
+    print("    same. So the plant is sized by the requirement, and the")
+    print("    requirement has to be stated at California's actual consumption")
+    print("    rather than the three figures Title I implies:")
+    print()
+    print(f"      Title I §5 bill example          {HH_KWH_YR_CLAIMED:6.0f} kWh/yr per household")
+    print(f"      3,000 MW at 100 % CF / 3 M       {3000 * 8760e3 / HOUSEHOLDS_MIN:6.0f} kWh/yr")
+    print(f"      EIA 2024, California actual      {HH_KWH_YR:6.0f} kWh/yr   (503 kWh/month, SOURCED)")
+    print()
+    d0 = hh_demand_twh()
+    print(f"      {HOUSEHOLDS_MIN / 1e6:.0f} M households today            {d0:6.2f} TWh/yr")
+    print(f"      the plant as specified makes   {pf['net'] / 1e6:6.2f} TWh/yr  ->"
+          f" {households_served(pf['net']) / 1e6:.2f} M households, zero export")
+    for g in GROWTH_BAND:
+        print(f"      at {100 * g:.0f} %/yr for {BOND_TERM_Y} years          "
+              f"{hh_demand_twh(years=BOND_TERM_Y, growth=g):6.2f} TWh/yr  ->"
+              f" {size_for(growth=g):.2f}x the plant")
+    print()
+    print("    THE PLANT AS SPECIFIED SERVES THE MINIMUM TODAY WITH NOTHING TO")
+    print(f"    SPARE, and must grow to {size_for(growth=GROWTH_BAND[0]):.1f}-"
+          f"{size_for(growth=GROWTH_BAND[1]):.1f}x over the bond term. The size")
+    print("    was never wrong; what was wrong was the export it promised on")
+    print("    top. And because the three largest cost lines scale with the")
+    print("    plant, growing it does not change the price per MWh -- which")
+    print("    is why the size cannot be the lever. WHAT EACH HOUSEHOLD WOULD")
+    print("    ACTUALLY PAY for generation, at the required price:")
+    print()
+    print(f"      {'case':<30} {'$/MWh':>7} {'$/household/yr':>15}   vs today")
+    now = per_household(GEN_RATE_NOW * 1e3)
+    print(f"      {'today, IOU generation charge':<30} {GEN_RATE_NOW * 1e3:7.0f} {now:15,.0f}")
+    for lab, cb, rt in (("Title I as written", CAPEX_B, BOND_RATE),):
+        p = required_price(pf["net"], cb, rt)
+        print(f"      {lab:<30} {p:7.0f} {per_household(p):15,.0f}   {per_household(p) / now - 1:+.0%}")
+    for lab, p in built_prices(pf["net"]):
+        print(f"      {lab:<30} {p:7.0f} {per_household(p):15,.0f}   {per_household(p) / now - 1:+.0%}")
+    print()
+    print("    AT THE BUILT COST, THE SOVEREIGN PLANT CHARGES A HOUSEHOLD MORE")
+    print("    FOR GENERATION THAN THE IOU DOES TODAY. That is the number the")
+    print("    proposal has to answer, and no size answers it. Only the")
+    print("    equipment does: what makes a firm megawatt-hour, and what that")
+    print("    equipment costs per megawatt-hour it makes. That is a redesign,")
+    print("    and it is the second pass's first question.")
+    print()
     print("    WHAT THIS PASS DOES NOT DO. It does not enlarge the field to")
     print("    meet the promise, add electric charging from curtailed solar,")
     print("    re-site the Central Valley node, or price the in-state energy")
@@ -770,6 +864,29 @@ def selftest():
           r24 / (pf["net"] / 1e6) < p1)
 
     print()
+    print("  F-17: the size is a requirement, not a lever")
+    check("the plant as specified serves about the 3 M minimum at EIA consumption",
+          0.95 < households_served(pf["net"]) / HOUSEHOLDS_MIN < 1.15)
+    check("  -- so the size was right and the export was the error",
+          hh_demand_twh() * 1e6 < pf["net"] < hh_demand_twh() * 1e6 + CLAIMED_EXPORT_MWH)
+    check("Title I's bill example is about twice the EIA consumption",
+          1.8 < HH_KWH_YR_CLAIMED / HH_KWH_YR < 2.2)
+    check("growth over the term needs more than the plant and under twice it",
+          1.2 < size_for(growth=GROWTH_BAND[0]) < size_for(growth=GROWTH_BAND[1]) < 2.0)
+    check("3 M households is about a fifth of the state's residential customers",
+          0.18 < HOUSEHOLDS_MIN / CA_RES_CUSTOMERS < 0.24)
+    now = per_household(GEN_RATE_NOW * 1e3)
+    check("at Title I's own capex a household pays LESS than today",
+          per_household(required_price(pf["net"])) < now)
+    bp = dict(built_prices(pf["net"]))
+    check("  -- and at heliocost's mid case it pays MORE than today",
+          per_household(bp["heliocost.py mid case"]) > now)
+    check("  -- the built prices are computed, not quoted",
+          all(v > 0 for v in bp.values()) and len(bp) == 3)
+    check("per-household charge is exactly price x consumption",
+          abs(per_household(100.0) - 100.0 * HH_KWH_YR / 1e3) < 1e-9)
+
+    print()
     print("  and what the instrument refuses")
     import contextlib
     import io
@@ -786,6 +903,10 @@ def selftest():
           "PAYS")
     check("  -- and that the free tariff is an output, not an input",
           "OUTPUT of the" in out)
+    check("it says the size is a requirement and not a lever",
+          "SIZE IS A REQUIREMENT, NOT A LEVER" in out)
+    check("  -- and that only the equipment answers the household charge",
+          "Only the" in out and "equipment does" in out)
     check("  -- and that F-05 decides whether the program exists",
           "F-05 is" in out and "decides whether this program exists" in out)
 
