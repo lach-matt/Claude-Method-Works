@@ -67,11 +67,32 @@ def pv_cf(case):
     return FP.PV_CF[0] if case == "critical" else FP.PV_CF[1]
 
 
+MIRRORS_ROUTE = (1.25, 1.5, 2.0)          # (block, field, store days): close() at the 1 % target, both cases  DERIVED (2026-09-11, corrected load shape)
+
+
+def mirrors_run(case, design=None):
+    b, f, s = MIRRORS_ROUTE
+    return run(case, 1.0, 1.0, b, f, s, design=design)
+
+
+def mirrors_cost_m(d):
+    b, f, s = MIRRORS_ROUTE
+    return closure_cost_m(d, 1.0, 1.0, b, f, s)
+
+
+MEASURED = {"load": None, "dni": {}}      # profiles.py attaches measured shapes here; status MEASURED when set
+
+
 def load_series(e_twh):
-    """8,760 hourly MW whose sum is exactly e_twh. Shape RECONSTRUCTED."""
+    """8,760 hourly MW whose sum is exactly e_twh. Shape RECONSTRUCTED, or MEASURED
+    when profiles.py has attached one (the pin to e_twh is the same either way)."""
+    if MEASURED["load"] is not None:
+        raw = list(MEASURED["load"])
+        k = e_twh * 1e6 / sum(raw)
+        return [v * k for v in raw]
     raw = []
     for doy in range(1, 366):
-        season = 0.5 * (LOAD_SUMMER + LOAD_WINTER) - 0.5 * (LOAD_SUMMER - LOAD_WINTER) * math.cos(
+        season = 0.5 * (LOAD_SUMMER + LOAD_WINTER) + 0.5 * (LOAD_SUMMER - LOAD_WINTER) * math.cos(
             2.0 * math.pi * (doy - 200) / 365.0)          # peaks late July
         for hr in range(24):
             d = min(abs(hr + 0.5 - LOAD_PEAK_HOUR), 24 - abs(hr + 0.5 - LOAD_PEAK_HOUR))
@@ -84,7 +105,12 @@ def load_series(e_twh):
 def node_series(node, case):
     """Per node: DNI, elevation and a single-axis PV shape (unscaled)."""
     name, lat, lon, _ap, _g, _s, annual_dni, _st = node
-    dni = H.dni_series(lat, lon, annual_dni)
+    if name in MEASURED["dni"]:
+        m = MEASURED["dni"][name]
+        k = annual_dni * 1e3 / sum(m)          # pinned to the sourced annual, as the reconstruction is
+        dni = [v * k for v in m]
+    else:
+        dni = H.dni_series(lat, lon, annual_dni)
     off = (lon + 120.0) / 15.0
     elev, pv = [], []
     for i in range(8760):
@@ -307,7 +333,7 @@ def siting(case="mid"):
         H.NODES = (orig[0], orig[1], DESERT_NODE)
         _SERIES.clear()
         base = run(case, design=d)
-        closed = run(case, 1.0, 1.0, 1.5, 2.0, 2.0, design=d)
+        closed = mirrors_run(case, design=d)
     finally:
         H.NODES = orig
         _SERIES.clear()
@@ -438,8 +464,11 @@ def selftest():
     rc = run("critical")
     check("critical serves no more of the load than mid", rc["served_frac"] <= r["served_frac"])
     check("critical unserved >= mid unserved", rc["unserved"] >= r["unserved"])
-    check("unserved energy is concentrated in winter (Nov-Feb > May-Aug) at both cases",
-          all(sum(x["month_unserved"][m] for m in (11, 12, 1, 2)) >= sum(x["month_unserved"][m] for m in (5, 6, 7, 8)) for x in (r, rc)))
+    check("December is the worst month by share and no month is under 5 % unserved (the shortfall is year-round, evening-led)",
+          all(max(range(1, 13), key=lambda m: x["month_unserved"][m] / x["month_load"][m]) == 12
+              and min(x["month_unserved"][m] / x["month_load"][m] for m in range(1, 13)) > 0.05 for x in (r, rc)))
+    check("the load shape peaks in summer, not winter (the 2026-09-11 sign correction)",
+          sum(load_series(1.0)[(181 + 31) * 24:(243) * 24]) > sum(load_series(1.0)[:31 * 24]))
     check("PV direct share is within 0.10 of cspchain's static 0.35 at mid",
           abs(r["direct_share"] - C.DIRECT_SHARE[1]) < 0.10)
     check("a larger PV overbuild never increases unserved energy",
@@ -449,6 +478,10 @@ def selftest():
     check("more store days never increase unserved energy",
           run("critical", 1.0, 1.0, 1.0, 1.0, 2.0)["unserved"] <= rc["unserved"])
     check("closure cost is zero at the design point", closure_cost_m(d) == 0.0)
+    check("the mirrors route closes to 1 % at both cases", all(1.0 - mirrors_run(c)["served_frac"] <= 0.01 for c in ("mid", "critical")))
+    dm, cm = close("mid", 0.01)
+    check("the mirrors route is the cheapest closing point of the mid scan (block, field, store)",
+          cm is not None and (cm[3], cm[4], cm[5]) == MIRRORS_ROUTE and cm[1] == 1.0 and cm[2] == 1.0)
     ratios = {n[0]: december_ratio(n) for n in H.NODES}
     check("the model gives every desert node at least 0.70 of its annual-mean DNI in December (not harsher than the record)",
           all(v >= 0.70 for k, v in ratios.items() if "Central" not in k))
@@ -458,8 +491,8 @@ def selftest():
     check("moving the Central Valley node to the desert improves service by under five points",
           0.0 < sb["served_frac"] - r["served_frac"] < 0.05)
     check("all-desert siting does not close December on its own",
-          sb["month_unserved"][12] / sb["month_load"][12] > 0.2)
-    check("the closing sizing still closes at all-desert siting", 1.0 - sc["served_frac"] < 0.001)
+          sb["month_unserved"][12] / sb["month_load"][12] > 0.05)
+    check("the closing sizing still closes at all-desert siting", 1.0 - sc["served_frac"] <= 0.01)
     check("siting restores the nodes it changed", H.NODES[2][0].startswith("Central Valley"))
     check("closure cost is linear in each factor",
           abs(closure_cost_m(d, 2.0) - 2 * closure_cost_m(d, 1.5)) < 1e-6)

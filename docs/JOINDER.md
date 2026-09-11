@@ -1,5 +1,9 @@
 # `tools/joinder.py` — Title III: can Title II return Title I's winter?
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** `hourly3.py` found that a sun-following plant sized on the annual energy
 serves 84 % of the load: a third of December goes unserved while a quarter of June's field is
 defocused, and sixteen hours of store cannot move June into December. The author (2026-09-11):

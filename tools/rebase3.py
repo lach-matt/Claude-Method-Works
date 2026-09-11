@@ -42,8 +42,8 @@ def gather():
     g["mirrors"] = {}
     for c in CASES:
         d = C.design("helios3", c)
-        r = HR.run(c, 1.0, 1.0, 1.5, 2.0, 2.0, design=d)
-        cost = HR.closure_cost_m(d, 1.0, 1.0, 1.5, 2.0, 2.0)
+        r = HR.mirrors_run(c, design=d)
+        cost = HR.mirrors_cost_m(d)
         g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost))
     g["both"] = {c: B.scan(c)["best"] for c in CASES}
     g["module"] = {c: AQ.module(c) for c in CASES}
@@ -93,8 +93,8 @@ def render(g):
     a("")
     a("## 2. The decision")
     a("")
-    a("Hour by hour, Title I as sized serves 84 % of its load. Two routes close it, both with the block")
-    a("at ×1.5. On the power side they are at parity; what separates them is water. **The author chose")
+    a(f"Hour by hour, Title I as sized serves {100 * HR.run('mid')['served_frac']:.0f} % of its load, the shortfall year-round and evening-led.")
+    a("Two routes close it; what separates them is water and the size of the block. **The author chose")
     a("both** (2026-09-11): the water returns half the season and the field and store carry the other half,")
     a("so the plant is served by two things that fail differently (`both.py`).")
     a("")
@@ -104,7 +104,8 @@ def render(g):
     bm, bc = b["mid"], b["critical"]
     a(f"| Title I additional capital, $B | {m['mid']['cost_b']:.1f} | {m['critical']['cost_b']:.1f} | {wm['total_b']:.1f} | {wc['total_b']:.1f} | **{bm['title1_b']:.1f}** | **{bc['title1_b']:.1f}** |")
     a(f"| Title I price, $/MWh | {p['mid']['price'] + m['mid']['dprice']:.0f} | {p['critical']['price'] + m['critical']['dprice']:.0f} | {p['mid']['price'] + J.price_delta('mid', wm['total_b']):.0f} | {p['critical']['price'] + J.price_delta('critical', wc['total_b']):.0f} | **{p['mid']['price'] + bm['dprice']:.0f}** | **{p['critical']['price'] + bc['dprice']:.0f}** |")
-    a(f"| field, store | ×2, 2 d | ×2, 2 d | ×1, 1 d | ×1, 1 d | ×{bm['field']:.2f}, {bm['store']:.1f} d | ×{bc['field']:.2f}, {bc['store']:.1f} d |")
+    mb, mf, ms = HR.MIRRORS_ROUTE
+    a(f"| block, field, store | ×{mb:.2f}, ×{mf:.1f}, {ms:.0f} d | ×{mb:.2f}, ×{mf:.1f}, {ms:.0f} d | ×{wm['tf']:.2f}, ×1, 1 d | ×{wc['tf']:.2f}, ×1, 1 d | ×{bm['block']:.2f}, ×{bm['field']:.2f}, {bm['store']:.1f} d | ×{bc['block']:.2f}, ×{bc['field']:.2f}, {bc['store']:.1f} d |")
     a(f"| Title II modules | 0 | 0 | {r['mid']['modules']:.0f} | {r['critical']['modules']:.0f} | {bm['modules']:.0f} | {bc['modules']:.0f} |")
     a(f"| Title II capital, financed, $B | 0 | 0 | {r['mid']['capex_b']:.0f} | {r['critical']['capex_b']:.0f} | {bm['title2_b']:.0f} | {bc['title2_b']:.0f} |")
     a(f"| water, million acre-feet a year | 0 | 0 | {r['mid']['maf']:.2f} | {r['critical']['maf']:.2f} | {bm['maf']:.2f} | {bc['maf']:.2f} |")

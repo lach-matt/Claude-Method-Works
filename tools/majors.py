@@ -61,8 +61,8 @@ WESTLANDS_RETIRED_ACRES = (100_000.0, 60_000.0)   # fallowed / drainage-impaired
 NEPA_YEARS = (2.0, 4.0)                   # EIS to record of decision, nominal / critical  SOURCED band (federal EIS median ~3.5 y)
 # --- F-30 -----------------------------------------------------------------------
 DSRF_YEARS = 1.0                          # debt-service reserve, years of debt service    SOURCED (municipal revenue-bond practice)
-MIRRORS_FIELD_X = 2.0                     # hourly3's mirrors-route field factor           DERIVED (hourly3.py)
-MIRRORS_BLOCK_X = 1.5                     # both routes' block factor                      DERIVED (hourly3.py)
+MIRRORS_FIELD_X = HR.MIRRORS_ROUTE[1]     # hourly3's mirrors-route field factor           DERIVED (hourly3.py)
+MIRRORS_BLOCK_X = HR.MIRRORS_ROUTE[0]     # the mirrors route's block factor                DERIVED (hourly3.py)
 
 
 def ra(case):
@@ -130,7 +130,7 @@ def report():
     print("          Authority as the load-serving entity (F-10), a requirement met and")
     print("          not a revenue line:")
     for c in CASES:
-        print(f"            {c:<9} block net at x{MIRRORS_BLOCK_X:.1f}: {ra(c)['block_net_mw']:,.0f} MW; export RA: {ra(c)['export_mw']:.0f} MW")
+        print(f"            {c:<9} block net at x{MIRRORS_BLOCK_X:.2f}: {ra(c)['block_net_mw']:,.0f} MW; export RA: {ra(c)['export_mw']:.0f} MW")
     print()
     print("    F-20  MIRROR WASHING. Ivanpah, dry-cooled, washes 2.6 M m2 with ~100 AFY.")
     print("          Scaled per m2 to Helios-3's field:")
@@ -213,7 +213,7 @@ def selftest():
         fails += 0 if ok else 1
 
     check("export RA is zero at both cases", all(ra(c)["export_mw"] == 0.0 for c in CASES))
-    check("in-state RA is the closed block net of parasitics", abs(ra("mid")["block_net_mw"] - C.design("helios3", "mid")["turb_mw"] * 1.5 * C.design("helios3", "mid")["links"]["par"]) < 1e-9)
+    check("in-state RA is the closed block net of parasitics", abs(ra("mid")["block_net_mw"] - C.design("helios3", "mid")["turb_mw"] * MIRRORS_BLOCK_X * C.design("helios3", "mid")["links"]["par"]) < 1e-9)
     check("washing scales exactly per m2 from Ivanpah", abs(washing("mid", "water")["afy"] - C.design("helios3", "mid")["aperture"] / IVANPAH_M2 * IVANPAH_WASH_AFY) < 1e-9)
     check("washing is under one module-year (50,000 AFY) at every case and route",
           all(washing(c, r)["afy"] < 50_000 for c in CASES for r in ("mirrors", "water")))
@@ -222,7 +222,7 @@ def selftest():
     cv = central_valley()
     check("the Central Valley node's DNI is 0.7-0.85 of the Mojave's", 0.7 < cv["dni_ratio"] < 0.85)
     check("all-desert siting improves service by under five points and does not close December",
-          0.0 < cv["served_all_desert"] - cv["served_as_sited"] < 0.05 and cv["dec_all_desert"] > 0.2)
+          0.0 < cv["served_all_desert"] - cv["served_as_sited"] < 0.05 and cv["dec_all_desert"] > 0.05)
     check("NEPA costs more at critical", nepa("critical")["delay_m"] > nepa("mid")["delay_m"])
     check("the coverage price exceeds the cost-recovery price at both cases", all(downside(c)["price_at_coverage"] > downside(c)["price"] for c in CASES))
     check("critical carries the 30 % contingency the flaw asks for", reserve("critical")["contingency"] >= 0.25)

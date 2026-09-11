@@ -54,11 +54,11 @@ serves:
 
 | | mid | critical |
 |---|---|---|
-| share of the load served | 0.839 | 0.835 |
-| unserved, TWh | 2.92 | 2.99 |
-| unserved in July, share of month | 0.053 | 0.058 |
-| unserved in December, share of month | 0.357 | 0.358 |
-| field defocused in summer, TWh_th | 5.99 | 6.86 |
+| share of the load served | 0.874 | 0.869 |
+| unserved, TWh | 2.27 | 2.37 |
+| unserved in July, share of month | 0.142 | 0.147 |
+| unserved in December, share of month | 0.196 | 0.200 |
+| field defocused in summer, TWh_th | 4.82 | 5.59 |
 
 Two shortfalls the annual chain could not see. The block is sized to the average night and a
 residential load peaks after sunset, so the block cannot carry the evening in any month. And
@@ -68,23 +68,25 @@ to sourced levels; a measured CAISO profile and an NSRDB hourly file replace the
 
 ## 4. Closing the load: two routes, and the one adopted
 
-Both keep the block at **×1.5**, because nothing but the block serves a July evening. They differ
-in how the October-to-April season is closed. **The author chose both** (2026-09-11, `both.py`):
-the water returns half the season and the field and store carry the other half.
+The shortfall is year-round and evening-led, worst in December. The mirrors route grows the block to ×1.25,
+the field to ×1.5 and the store to 2 days, the cheapest point of `hourly3.py`'s scan that closes to 1 %; the
+water route returns only from October to April and so carries the summer evening on a larger block alone.
+**The author chose both** (2026-09-11, `both.py`): the water returns half the season and the plant the rest.
 
 | route | what grows | mid, $B | + $/MWh | critical, $B | + $/MWh | leaves to the grid |
 |---|---|---|---|---|---|---|
-| mirrors | field ×2, store 2 days | 10.2 | 60 | 16.9 | 100 | 0.0% / 0.0% |
-| water (Title III) | 33 / 35 desalination modules, a 2.0 / 2.2 km³ reservoir at 500 m, 2,500 MW of pump-turbines | 11.3 | 67 | 18.2 | 108 | 0.6% / 0.6% |
-| **both (adopted)** | field ×1.25, store 1.5 d; 16 / 18 modules, 2,500 MW of pump-turbines | **11.2** | **66** | **18.0** | **107** | 0.4% / 0.4% |
+| mirrors | block ×1.25, field ×1.5, store 2 days | 5.7 | 34 | 9.5 | 56 | 0.8% / 1.0% |
+| water (Title III) | block ×2.00; 16 / 17 desalination modules, a 1.0 / 1.1 km³ reservoir at 500 m, 2,500 MW of pump-turbines | 11.2 | 66 | 17.0 | 101 | 0.7% / 0.7% |
+| **both (adopted)** | block ×1.25, field ×1.25, store 2.0 d; 8 / 9 modules, 1,500 MW of pump-turbines | **7.7** | **46** | **12.7** | **75** | 0.8% / 1.0% |
 
 The adopted route costs more than mirrors alone, because the pump-turbines are bought whole whatever
-share they return; with the water withheld it leaves 7% to the grid and with the field at design
+share they return; with the water withheld it leaves 1% to the grid and with the field at design
 6%, against 13% with neither. Two levers that fail differently, neither at its full extent.
 
-On the power side the two are at parity. The water route makes **1.64 to 1.76 million
+On the power side the water route costs about 2.0× the mirrors, because it returns nothing to the
+summer evening and the block must carry it alone. The water route makes **0.79 to 0.87 million
 acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer
-surplus lifts 0.95 of the season and the rest is the plant's own output. Which route is a decision about
+surplus lifts 1.49 of the season and the rest is the plant's own output. Which route is a decision about
 water, and it is Title III's. Title II's side of it, priced by `aquacost.py` with the water's
 electricity bought from Title I at the register price:
 
@@ -92,7 +94,7 @@ electricity bought from Title I at the register price:
 |---|---|---|
 | one 50,000 AFY RO module, financed, $M (Title II said 250–320) | 1,883 | 2,886 |
 | water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | 3,034 | 4,790 |
-| the water route's modules, financed, $B | 61.8 | 101.7 |
+| the water route's modules, financed, $B | 29.8 | 50.4 |
 | that water with the lift on its bill, $/acre-foot | 3,268 | 5,030 |
 | per household per year at 0.28 AF | 915 | 1,408 |
 
@@ -102,21 +104,21 @@ electricity bought from Title I at the register price:
 |---|---|---|
 | Helios-3 as chained | 117 | 187 |
 | with the mitigation register (§6) | 125 | 202 |
-| serving the whole load, mirrors route | 185 | 302 |
-| serving the whole load, water route | 192 | 310 |
-| **serving the whole load, both (adopted)** | **191** | **309** |
+| serving the whole load, mirrors route | 159 | 258 |
+| serving the whole load, water route | 192 | 303 |
+| **serving the whole load, both (adopted)** | **171** | **277** |
 
 | $ per household per year (today 1,177) | mid | critical |
 |---|---|---|
 | with the mitigation register | 756 | 1,218 |
-| serving the whole load, mirrors route | 1,119 | 1,824 |
-| serving the whole load, water route | 1,161 | 1,868 |
-| **serving the whole load, both (adopted)** | **1,155** | **1,863** |
+| serving the whole load, mirrors route | 960 | 1,558 |
+| serving the whole load, water route | 1,156 | 1,827 |
+| **serving the whole load, both (adopted)** | **1,033** | **1,674** |
 
 **The criterion, stated exactly.** At mid, Helios-3 with its register needs $125/MWh, $5
 above the top of the contract band, and a household pays $756 against $1,177 today. Serving
-the whole load from the plant alone costs $185, at which a household pays about what it pays now. At
-critical the register price is $202 and the whole load $302: **above today's bill**. The plant pays
+the whole load from the plant alone costs $159, at which a household pays about what it pays now. At
+critical the register price is $202 and the whole load $258: **above today's bill**. The plant pays
 for itself after the bonds only at a price above the band, and the critical case is the threshold
 the design is held to. A plant designed to mid has no margin; this document does not offer one.
 
@@ -195,7 +197,7 @@ run in parallel. Direct cost by rung:
 | fleet, by tower group | 2036–2041 | 12.68 | 18.86 |
 
 **Transmission (F-09).** The export is negative (F-01), so no firm export right is needed. The in-state
-gen-tie per node at the closed sizing peaks at 1,196 MW (mid) / 1,179 MW (critical) from the
+gen-tie per node at the closed sizing peaks at 1,194 MW (mid) / 1,190 MW (critical) from the
 hour-by-hour, 0.60 / 0.79 of one 500 kV circuit, priced in the switchyard line at
 $600 / $900 M. The interconnection study is the Authority's to file and no authority shortens it.
 
@@ -208,19 +210,19 @@ The minor rows, computed rather than asserted (`minors.py`).
 
 | | mid | critical |
 |---|---|---|
-| served as sized, TWh | 15.19 | 15.12 |
-| avoided as sized, MMT/yr | **6.08** | **5.29** |
+| served as sized, TWh | 15.83 | 15.74 |
+| avoided as sized, MMT/yr | **6.33** | **5.51** |
 | avoided with the load closed, MMT/yr | 7.24 | 6.34 |
 
 v0.1 said 11.8 MMT.
 
 **Employment (F-38).** From built plants per MW — Crescent Dunes and Ivanpah for the permanent staff,
-Ivanpah's peak for construction — at the closed block of 3,930 MWe:
+Ivanpah's peak for construction — at the closed block of 3,275 MWe:
 
 | | mid | critical |
 |---|---|---|
-| permanent, Title I | **1,901** | **1,214** |
-| construction peak, Title I | 21,054 | 21,054 |
+| permanent, Title I | **1,632** | **1,063** |
+| construction peak, Title I | 17,545 | 17,545 |
 
 v0.1 said 22,500 construction and 1,350 permanent; the multiplier it quoted is unsourced and is not carried.
 
@@ -249,7 +251,7 @@ coastal permit and shortens no federal review.
 
 - The split of the season between the two routes: adopted even, movable on `both.py`'s ladder;
   the water side carries Title II's own register (F-14, F-16), resolved at its price.
-- The evening peak is closed by a block ×1.5 and by nothing else; a measured load profile may
+- The evening peak is closed by the block and by nothing else; a measured load profile may
   move that factor either way.
 - The receiver's critical figure and the dome's verdict are what the pilot aperture measures;
   until it has run, the critical column is the design basis.

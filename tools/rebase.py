@@ -56,8 +56,8 @@ def gather():
     g["mirrors"] = {}
     for c in CASES:
         d = g["design"][c]
-        r = HR.run(c, 1.0, 1.0, 1.5, 2.0, 2.0, design=d)
-        cost = HR.closure_cost_m(d, 1.0, 1.0, 1.5, 2.0, 2.0)
+        r = HR.mirrors_run(c, design=d)
+        cost = HR.mirrors_cost_m(d)
         g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost))
     g["winter"] = {c: J.winter(c) for c in CASES}
     g["water"] = {c: J.evening_with_water(c, 500.0, g["winter"][c]) for c in CASES}
@@ -66,7 +66,7 @@ def gather():
     g["aqua_route"] = {c: AQ.water_route(c) for c in CASES}
     g["rates"] = {c: T1.rate_table(c) for c in CASES}
     g["tranches"] = {c: T1.tranches(c) for c in CASES}
-    g["gentie"] = {c: T1.gentie(c) for c in CASES}
+    g["gentie"] = {c: T1.gentie(c, B.scan(c)["best"]["block"]) for c in CASES}
     g["ladder"] = RX.ladder(g["design"]["mid"])
     g["path_years"] = ST.critical_path_years()
     g["n_studies"] = len(ST.STUDIES)
@@ -156,24 +156,27 @@ def render(g):
     a("")
     a("## 4. Closing the load: two routes, and the one adopted")
     a("")
-    a("Both keep the block at **×1.5**, because nothing but the block serves a July evening. They differ")
-    a("in how the October-to-April season is closed. **The author chose both** (2026-09-11, `both.py`):")
-    a("the water returns half the season and the field and store carry the other half.")
+    mb, mf, ms = HR.MIRRORS_ROUTE
+    a(f"The shortfall is year-round and evening-led, worst in December. The mirrors route grows the block to ×{mb:.2f},")
+    a(f"the field to ×{mf:.1f} and the store to {ms:.0f} days, the cheapest point of `hourly3.py`'s scan that closes to 1 %; the")
+    a("water route returns only from October to April and so carries the summer evening on a larger block alone.")
+    a("**The author chose both** (2026-09-11, `both.py`): the water returns half the season and the plant the rest.")
     a("")
     a("| route | what grows | mid, $B | + $/MWh | critical, $B | + $/MWh | leaves to the grid |")
     a("|---|---|---|---|---|---|---|")
     m = g["mirrors"]
-    a(f"| mirrors | field ×2, store 2 days | {m['mid']['cost_b']:.1f} | {m['mid']['dprice']:.0f} | {m['critical']['cost_b']:.1f} | {m['critical']['dprice']:.0f} | {m['mid']['unserved']:.1%} / {m['critical']['unserved']:.1%} |")
+    a(f"| mirrors | block ×{mb:.2f}, field ×{mf:.1f}, store {ms:.0f} days | {m['mid']['cost_b']:.1f} | {m['mid']['dprice']:.0f} | {m['critical']['cost_b']:.1f} | {m['critical']['dprice']:.0f} | {m['mid']['unserved']:.1%} / {m['critical']['unserved']:.1%} |")
     wm, wc = w["mid"]["closing"], w["critical"]["closing"]
-    a(f"| water (Title III) | {wm['water']['modules']:.0f} / {wc['water']['modules']:.0f} desalination modules, a {wm['water']['km3']:.1f} / {wc['water']['km3']:.1f} km³ reservoir at 500 m, {wm['mw']:,.0f} MW of pump-turbines | {wm['total_b']:.1f} | {J.price_delta('mid', wm['total_b']):.0f} | {wc['total_b']:.1f} | {J.price_delta('critical', wc['total_b']):.0f} | {wm['unserved']:.1%} / {wc['unserved']:.1%} |")
+    a(f"| water (Title III) | block ×{wm['tf']:.2f}; {wm['water']['modules']:.0f} / {wc['water']['modules']:.0f} desalination modules, a {wm['water']['km3']:.1f} / {wc['water']['km3']:.1f} km³ reservoir at 500 m, {wm['mw']:,.0f} MW of pump-turbines | {wm['total_b']:.1f} | {J.price_delta('mid', wm['total_b']):.0f} | {wc['total_b']:.1f} | {J.price_delta('critical', wc['total_b']):.0f} | {wm['unserved']:.1%} / {wc['unserved']:.1%} |")
     bm, bc = g["both"]["mid"], g["both"]["critical"]
-    a(f"| **both (adopted)** | field ×{bm['field']:.2f}, store {bm['store']:.1f} d; {bm['modules']:.0f} / {bc['modules']:.0f} modules, {bm['mw']:,.0f} MW of pump-turbines | **{bm['title1_b']:.1f}** | **{bm['dprice']:.0f}** | **{bc['title1_b']:.1f}** | **{bc['dprice']:.0f}** | {bm['unserved']:.1%} / {bc['unserved']:.1%} |")
+    a(f"| **both (adopted)** | block ×{bm['block']:.2f}, field ×{bm['field']:.2f}, store {bm['store']:.1f} d; {bm['modules']:.0f} / {bc['modules']:.0f} modules, {bm['mw']:,.0f} MW of pump-turbines | **{bm['title1_b']:.1f}** | **{bm['dprice']:.0f}** | **{bc['title1_b']:.1f}** | **{bc['dprice']:.0f}** | {bm['unserved']:.1%} / {bc['unserved']:.1%} |")
     a("")
     a(f"The adopted route costs more than mirrors alone, because the pump-turbines are bought whole whatever")
     a(f"share they return; with the water withheld it leaves {bm['no_water']['unserved']:.0%} to the grid and with the field at design")
     a(f"{bm['no_field']['unserved']:.0%}, against {B.scan('mid')['as_sized']['unserved']:.0%} with neither. Two levers that fail differently, neither at its full extent.")
     a("")
-    a(f"On the power side the two are at parity. The water route makes **{wm['water']['maf']:.2f} to {wc['water']['maf']:.2f} million")
+    a(f"On the power side the water route costs about {wm['total_b'] / m['mid']['cost_b']:.1f}× the mirrors, because it returns nothing to the")
+    a(f"summer evening and the block must carry it alone. The water route makes **{wm['water']['maf']:.2f} to {wc['water']['maf']:.2f} million")
     a("acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer")
     a(f"surplus lifts {J.modules_to_close('critical', 500.0, g['winter']['critical'])['surplus_twh'] / J.modules_to_close('critical', 500.0, g['winter']['critical'])['lift_twh']:.2f} of the season and the rest is the plant's own output. Which route is a decision about")
     a("water, and it is Title III's. Title II's side of it, priced by `aquacost.py` with the water's")
@@ -324,7 +327,7 @@ def render(g):
     a("")
     a("- The split of the season between the two routes: adopted even, movable on `both.py`'s ladder;")
     a("  the water side carries Title II's own register (F-14, F-16), resolved at its price.")
-    a("- The evening peak is closed by a block ×1.5 and by nothing else; a measured load profile may")
+    a("- The evening peak is closed by the block and by nothing else; a measured load profile may")
     a("  move that factor either way.")
     a("- The receiver's critical figure and the dome's verdict are what the pilot aperture measures;")
     a("  until it has run, the critical column is the design basis.")

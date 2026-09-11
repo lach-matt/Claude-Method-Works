@@ -1,5 +1,9 @@
 # `tools/hourly3.py` — Helios-3 hour by hour, at mid and at critical
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** `cspchain.py` sized Helios-3 on three static assumptions — a direct-PV share of
 0.35 of the annual energy, winter heaters at 0.25 of the night block's thermal input, and a
 dispatch link near unity — and named running the plant hour by hour as its next step.

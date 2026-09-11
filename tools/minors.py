@@ -84,7 +84,7 @@ def co2(case):
 def jobs(case):
     ci = CASES.index(case)
     d = C.design("helios3", case)
-    block = d["turb_mw"] * 1.5
+    block = d["turb_mw"] * HR.MIRRORS_ROUTE[0]
     perm = block * PERMANENT_PER_MW[ci] + d["pv_mw"] * PV_OM_PER_MW
     constr = block * CONSTRUCTION_PEAK_PER_MW
     modules = J.modules_to_close(case, 500.0, J.winter(case))["modules"]

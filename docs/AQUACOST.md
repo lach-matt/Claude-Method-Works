@@ -1,5 +1,9 @@
 # `tools/aquacost.py` — Title II priced: the module and its water, at mid and at critical
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** F-16 says Title II's capital is understated three- to four-fold and names no
 source for it; F-14 says $400 per acre-foot rests on a mineral offset that F-03, F-11 and F-12
 dissolved. Both name what settles them: a bottom-up cost build per module with the energy at the

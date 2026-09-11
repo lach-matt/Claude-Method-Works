@@ -1,5 +1,9 @@
 # `tools/sites.py` — the site terms, scored
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** What survives the register is site-specific: reservoir head, seismic basis,
 outfall and intake, permitting. None can be computed without a site. This file does the thing
 that can be done without one: it states the term each Title needs of a site, grades the three

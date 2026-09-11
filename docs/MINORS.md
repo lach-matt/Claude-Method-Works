@@ -1,5 +1,9 @@
 # `tools/minors.py` — the seven minors, settled
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** After the majors pass, seven rows of `proposals/FLAWS.tsv` remained, all
 `MINOR` — wording, citation, and figures that descend from a figure already corrected. A minor is
 not closed by agreeing it is minor: each is settled the way the register asks, computed where it

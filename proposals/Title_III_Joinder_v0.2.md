@@ -32,31 +32,31 @@ at nothing because it was worth nothing.
 
 ## 2. The decision
 
-Hour by hour, Title I as sized serves 84 % of its load. Two routes close it, both with the block
-at ×1.5. On the power side they are at parity; what separates them is water. **The author chose
+Hour by hour, Title I as sized serves 87 % of its load, the shortfall year-round and evening-led.
+Two routes close it; what separates them is water and the size of the block. **The author chose
 both** (2026-09-11): the water returns half the season and the field and store carry the other half,
 so the plant is served by two things that fail differently (`both.py`).
 
 | | mirrors, mid | mirrors, critical | water, mid | water, critical | **both, mid** | **both, critical** |
 |---|---|---|---|---|---|---|
-| Title I additional capital, $B | 10.2 | 16.9 | 11.3 | 18.2 | **11.2** | **18.0** |
-| Title I price, $/MWh | 185 | 302 | 192 | 310 | **191** | **309** |
-| field, store | ×2, 2 d | ×2, 2 d | ×1, 1 d | ×1, 1 d | ×1.25, 1.5 d | ×1.25, 1.5 d |
-| Title II modules | 0 | 0 | 33 | 35 | 16 | 18 |
-| Title II capital, financed, $B | 0 | 0 | 62 | 102 | 31 | 51 |
-| water, million acre-feet a year | 0 | 0 | 1.64 | 1.76 | 0.82 | 0.88 |
+| Title I additional capital, $B | 5.7 | 9.5 | 11.2 | 17.0 | **7.7** | **12.7** |
+| Title I price, $/MWh | 159 | 258 | 192 | 303 | **171** | **277** |
+| block, field, store | ×1.25, ×1.5, 2 d | ×1.25, ×1.5, 2 d | ×2.00, ×1, 1 d | ×2.00, ×1, 1 d | ×1.25, ×1.25, 2.0 d | ×1.25, ×1.25, 2.0 d |
+| Title II modules | 0 | 0 | 16 | 17 | 8 | 9 |
+| Title II capital, financed, $B | 0 | 0 | 30 | 50 | 15 | 25 |
+| water, million acre-feet a year | 0 | 0 | 0.79 | 0.87 | 0.40 | 0.44 |
 | water price with the lift, $/acre-foot | — | — | 3,268 | 5,030 | 3,268 | 5,030 |
-| left to the grid | 0.0% | 0.0% | 0.6% | 0.6% | 0.4% | 0.4% |
-| with the water withheld | — | — | — | — | 7.0% | 7.0% |
-| with the field at design | — | — | — | — | 5.9% | 5.9% |
+| left to the grid | 0.8% | 1.0% | 0.7% | 0.7% | 0.8% | 1.0% |
+| with the water withheld | — | — | — | — | 1.5% | 1.7% |
+| with the field at design | — | — | — | — | 5.6% | 5.9% |
 
 Both costs more than mirrors alone on Title I's account, because the pump-turbine plant is bought
-whole whatever share it returns. What it buys: with either route out, 6%–7% of the load
-is left to the grid against 13% with neither, and 0.82–0.88 million acre-feet a year of
+whole whatever share it returns. What it buys: with either route out, 1%–6% of the load
+is left to the grid against 13% with neither, and 0.40–0.44 million acre-feet a year of
 water. The even split is the author's word read literally; the ladder over the water's share is in
 `both.py` and the split can be moved.
 
-**The takers.** The adopted route delivers 0.8–0.9 million acre-feet a year from October to
+**The takers.** The adopted route delivers 0.4–0.4 million acre-feet a year from October to
 April. The San Joaquin Valley's groundwater overdraft under SGMA is about 1.8–2.5 million
 acre-feet a year, and winter is when recharge basins take water. That is the match of supply to
 demand the joinder rests on, and it is a contract question: recharge districts under contract for
@@ -70,10 +70,10 @@ half the season's scale, and firm winter water California does not otherwise hav
 | | mid | critical |
 |---|---|---|
 | Title I capital with its register, $B | 32.3 | 54.6 |
-| Title I closing the season, mirrors / water, $B | 10.2 / 11.3 | 16.9 / 18.2 |
-| Title II modules at the water route, $B | 62 | 102 |
-| program at the water route, $B | 105 | 175 |
-| **program at the adopted route (both), $B** | **74** | **123** |
+| Title I closing the season, mirrors / water, $B | 5.7 / 11.2 | 9.5 / 17.0 |
+| Title II modules at the water route, $B | 30 | 50 |
+| program at the water route, $B | 73 | 122 |
+| **program at the adopted route (both), $B** | **55** | **93** |
 | Title I debt service, $M/yr | 1,836 | 3,100 |
 | Title I debt-service reserve, $M | 1,836 | 3,100 |
 | contingency carried | 15% | 30% |

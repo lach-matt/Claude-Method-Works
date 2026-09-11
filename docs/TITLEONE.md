@@ -1,5 +1,9 @@
 # `tools/titleone.py` — the four Title I flaws no instrument had touched
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** After the second pass, four rows of `FLAWS.tsv` on Title I had been touched by
 nothing numerical: the bond rate (F-19), the schedule (F-24), transmission (F-09) and the tariff
 (F-10). Each names what settles it, and each is settled here the way the register asks — as a

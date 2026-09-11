@@ -95,9 +95,9 @@ def tranches(case):
     return rows, total
 
 
-def gentie(case):
+def gentie(case, block=None):
     d = C.design("helios3", case)
-    r = HR.run(case, 1.0, 1.0, 1.5, 1.0, 1.0, design=d)
+    r = HR.run(case, 1.0, 1.0, HR.MIRRORS_ROUTE[0] if block is None else block, 1.0, 1.0, design=d)
     peak = r["peak_injection_mw"]
     per_node = peak / NODES
     circ = CIRCUIT_500KV_MW[CASES.index(case)]
@@ -185,7 +185,7 @@ def selftest():
         check(f"{case}: the schedule ends a decade or more after groundbreaking", rows[-1][2] - rows[0][1] >= 10.0)
     gm, gc = gentie("mid"), gentie("critical")
     check("peak injection is below block x1.5 plus PV (they are anti-coincident)",
-          gm["peak"] < 1.5 * C.design("helios3", "mid")["turb_mw"] + C.design("helios3", "mid")["pv_mw"])
+          gm["peak"] < HR.MIRRORS_ROUTE[0] * C.design("helios3", "mid")["turb_mw"] + C.design("helios3", "mid")["pv_mw"])
     check("one 500 kV circuit per node suffices at both cases", gm["circuits"] <= 1.0 and gc["circuits"] <= 1.0)
     check("the gen-tie cost is heliocost's line, not restated", gm["switchyard_m"] == HC.SWITCHYARD_PER_NODE_M[1] * NODES)
     import io

@@ -1,5 +1,9 @@
 # `tools/majors.py` — the remaining majors, settled; `tools/rebase3.py` — Title III, the joinder
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why they exist.** After Title I and Title II were re-based, nine rows of `FLAWS.tsv` remained
 that were neither minor nor touched: six Title I majors (F-18, F-20, F-21, F-22, F-23, F-25), the
 two program-wide rows (F-29 sensitivity, F-30 contingency), and the joinder itself (F-31).

@@ -1,5 +1,9 @@
 # `tools/both.py` — the season closed by both routes (the author's decision)
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** Title III put two routes to the author for closing Title I's October-to-April
 season: mirrors (block ×1.5, a second day of store, field ×2) or water (block ×1.5 and Title II's
 product lifted on the summer surplus, returned through pump-turbines), at parity on the power side.

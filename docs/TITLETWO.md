@@ -1,5 +1,9 @@
 # `tools/titletwo.py` — Title II's process rows, settled; `tools/rebase2.py` — Title II re-based
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why they exist.** After `aquacost.py` priced the module and its water, eleven rows of `FLAWS.tsv`
 on Title II were process questions — minerals, brine, the desalination process, the schedule, the
 energy price, on-site power, the intake, and two internal contradictions. `titletwo.py` settles

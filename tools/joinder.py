@@ -160,7 +160,7 @@ def modules_to_close(case, head=None, w=None):
                 reservoir_b=reservoir_b, pumpgen_b=pumpgen_b, capex_b=reservoir_b + pumpgen_b)
 
 
-BLOCK_SCAN = (1.0, 1.25, 1.5, 1.75, 2.0)
+BLOCK_SCAN = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5)
 
 
 def evening_with_water(case, head=500.0, w=None, target=0.01):
@@ -187,7 +187,7 @@ def evening_with_water(case, head=500.0, w=None, target=0.01):
 def field_closure_b(case):
     """hourly3's closing overbuild, direct $B, for comparison."""
     d = C.design("helios3", case)
-    return HR.closure_cost_m(d, 1.0, 1.0, 1.5, 2.0, 2.0) / 1e3
+    return HR.mirrors_cost_m(d) / 1e3
 
 
 def price_delta(case, capex_b):
@@ -319,7 +319,8 @@ def report():
             print(f"      {c:<10}{p['tf']:8.2f}{p['mw']:9,.0f}{p['unserved']:10.4f}{p['hydro_twh']:11.2f}{p['water']['km3']:10.2f}{p['water']['modules']:8.1f}{p['block_b']:9.2f}{p['water_b']:9.2f}{p['total_b']:9.2f}{price_delta(c, p['total_b']):8.1f}{mark}")
     print(f"      {'hourly3 mirrors-only closure, for comparison':<27}" + "".join(f"  {c}: ${field_closure_b(c):.1f} B, +{price_delta(c, field_closure_b(c)):.0f} $/MWh" for c in CASES))
     print("       Sized honestly -- seven months, a plant for the evening -- the water")
-    print("       route costs about what the mirrors cost on the power side. What it")
+    print("       route costs about twice what the mirrors cost on the power side, because")
+    print("       it returns nothing to the summer evening and the block must carry it. What it")
     print("       adds is the water: over a million acre-feet a year the mirrors do not")
     print("       make. The field and the store stay at design, as the author asked;")
     print("       the block does not, because nothing but the block serves a July evening.")
@@ -376,18 +377,18 @@ def selftest():
         check(f"{c}: the lift energy is independent of head (returned energy over the round trip)",
               max(lifts.values()) - min(lifts.values()) < 1e-9)
     check("mid: the lift fits inside the surplus", modules_to_close("mid", 500.0, ws["mid"])["lift_within_surplus"])
-    check("critical: the lift does NOT fit inside the surplus (pinned as a finding, not repaired)",
-          not modules_to_close("critical", 500.0, ws["critical"])["lift_within_surplus"])
+    check("critical: the lift fits inside the surplus on the corrected load shape (the earlier NOT-fit was the inverted shape's)",
+          modules_to_close("critical", 500.0, ws["critical"])["lift_within_surplus"])
     check("doubling the head halves the water at fixed winter (mid, 300 -> 600 m)",
           abs(modules_to_close("mid", 300.0, ws["mid"])["m3"] / modules_to_close("mid", 600.0, ws["mid"])["m3"] - 2.0) < 1e-9)
-    check("at 500 m the modules that close mid are within the surplus and under the field oversizing",
-          modules_to_close("mid", 500.0, ws["mid"])["capex_b"] < field_closure_b("mid"))
+    check("at 500 m the water side that closes mid costs MORE than the mirrors route (the corrected shape withdrew parity)",
+          modules_to_close("mid", 500.0, ws["mid"])["capex_b"] > field_closure_b("mid"))
     for c in CASES:
         ev = evening_with_water(c, 500.0, ws[c])
         check(f"{c}: block + water closes the load to under 1 % at some point on the scan", ev["closing"] is not None)
         if ev["closing"]:
-            check(f"{c}: block + water is within 1.3x of the mirrors-only closure (parity, not a bargain)",
-                  ev["closing"]["total_b"] < 1.3 * field_closure_b(c))
+            check(f"{c}: block + water costs 1.5-2.5x the mirrors-only closure on the power side (no longer parity)",
+                  1.5 < ev["closing"]["total_b"] / field_closure_b(c) < 2.5)
             check(f"{c}: the hydraulic return dispatched is at most the season it was sized for",
                   ev["closing"]["hydro_twh"] <= ws[c]["unserved_twh"] + 1e-9)
             check(f"{c}: the closing block is larger than design (nothing but the block serves a July evening)",

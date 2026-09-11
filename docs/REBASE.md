@@ -1,5 +1,9 @@
 # `tools/rebase.py` — Title I re-based on Helios-3, rendered from the instruments
 
+> **Corrected 2026-09-11.** Figures in this file computed before the load-shape correction (`docs/LOADSHAPE.md`)
+> are superseded: the reconstructed load had its seasonal term inverted. The instrument's current output is
+> authoritative; the corrected headline figures are in `docs/LOADSHAPE.md` and `CLAUDE.md`.
+
 **Why it exists.** `proposals/California_Sovereign_Infrastructure_v0.1.md` is the as-submitted
 merge and is never edited; every repair is a diff against it. After the second pass — Helios-3
 chosen, the mitigation register adopted row by row, the plant run hour by hour, the water route
