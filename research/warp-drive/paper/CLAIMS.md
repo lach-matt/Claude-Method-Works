@@ -1912,7 +1912,106 @@ The energies move by orders; the contraction does not move at all. And the `0 �
 |---|---|
 | status | **PROVEN** (Doppler onto-ness; `k·k'` invariance; linearity of `Δd` in E) + **MEASURED** (31.3 orders of denomination; exact coin-change DP over 4000 targets) + **FAILED PREDICTION**, recorded |
 | new? | the onto-ness of the spectra × direction index, and its consequence that denomination is not a property of a photon |
-| **not** claimed | that the Planck cap is a theorem — it is a heuristic, and frame-dependent; that this moves any obstruction; that the hole at `2² = 4` (**H32**) is explained — it is **open** |
+| **not** claimed | that the Planck cap is a theorem — it is a heuristic, and frame-dependent; that this moves any obstruction; that the `2² = 4` question was left open — it is **closed** in **H34**, and the "hole" claim is **withdrawn** |
+
+---
+
+## ★★★ H34 — **4 is the bisector**, and H32's "hole" is withdrawn
+
+**This section corrects a claim this project made.** H32 reported a *hole* at `2² = 4` — "nothing in
+the table returns 4 as a total" — and H33 carried it as an open lead. **It was wrong.** I had sampled
+**five named configurations** and reported a property of the *continuum* from a property of my sample.
+
+Two independent things were missed, and three pushes found both.
+
+### H34a — the continuum is dense in [0, 8], and 4 is reached
+
+For two null directions separated by `θ`, `p² = 0` drops the trace term, leaving
+`A/A_N = 2(1 − cos θ)²` — monotonic from 0 to 8, so **the range is exactly the closed interval [0, 8]
+and every value is reached exactly once**. With `c = 2sin(θ/2)` the chord on the unit sphere of
+directions, `c² = 2(1 − cos θ)`, so
+
+**`A/A_N = c⁴/2`,  `c ∈ [0, 2]`  —  and 8 is `2⁴/2`, the diameter to the fourth, halved.**
+
+| n | 0 | 1 | 2 | 3 | **4** | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|---|
+| **θ°** | 0 | 72.97 | 90.00 | 102.99 | **114.47** | 125.53 | 137.06 | 150.56 | 180 |
+| **cₙ** | 0 | 1.189207 | 1.414214 | 1.565085 | 1.681793 | 1.778279 | 1.861210 | 1.934336 | 2 |
+
+`cₙ = (2n)^{1/4}`, matching the angle-derived chord to machine precision. **No two edges are the same
+length, and the law is a fourth root.**
+
+### H34b — and 4 is never a *total* for a reason that is not absence
+
+Faraoni & Dumse's own arithmetic, their units: Newtonian reference `2 I/r`; **gravitoelectric half
+`8 I/r`; gravitomagnetic half `8 I/r`** — so in Newtonians **each half is exactly 4**, and the
+observable is
+
+**`4 ± 4`  →  antiparallel `8`, parallel `0`**
+
+> **4 is the axis they swing about, and a bisector is not a value the curve takes.** That is why
+> nothing ever returned it. It is a midline, not a gap.
+
+**And this makes H32's adjudication exact rather than merely correct.** H32 said the published `4` and
+the published `8` "count different things" — true, and vague. The exact statement:
+
+> **Faraoni & Dumse's 4 is the AXIS; Barker–Bhatia–Gupta's 8 is the EXTREME** — the centre and the
+> endpoint of one interval.
+
+*Tested, not assumed:* 4 bisects the **amplitude range and nothing else here**. The turning 0–180° is
+bisected at 90°, which is `n = 2`; the chord range [0, 2] at `n = 0.5`; the linear coordinate
+`√(A/2) = 1 − cos θ` at `n = 2`.
+
+### H34c — as a string it cannot close, and it has one stationary point
+
+**Total turning is exactly `180.0000000000°`** against the `360°` a closed polygon requires, so the
+structure is **intrinsically a string, not "better read as" one**. Both walks confirm: gaps-as-turns
+ends `6.813214` from the origin, headings-with-chords ends `11.487572`. No polygon appears.
+
+**And "half a revolution" is the wrong gloss on a right number.** Calling 180° "half the turning a loop
+needs" implies there is further range to travel and the string stopped short. There is not. The relative
+orientation of two directions lives in **[0, π] — an interval with two distinct endpoints, not a circle**
+— because `θ` and `2π − θ` are *the same pair*: measured, `A(φ) = A(2π − φ)` identically at 30, 60, 90,
+120 and 150°, so a circle coordinate is a genuine **2-to-1** map onto the physical states. **180° is not
+half the range; it is the range, exhausted.**
+
+The coupling is a strict **bijection [0, π] → [0, 8]** — strictly increasing over 200,000 samples, one
+angle to one value. So closing the interval means gluing `θ = 0` to `θ = π`, and at that glue point
+`A(0) = 0` and `A(π) = 8` would have to be **the same value**.
+
+> **One configuration would carry both the parallel and the antiparallel coupling at once. Closure is not
+> merely unreached — it is contradictory.**
+
+*Reading this as a statement about a transition state is an interpretation laid on top of the geometry —
+consistent with it, not derived from it. What is derived: the endpoints cannot be identified without
+making the coupling two-valued.*
+
+And one stationary point, **derived rather than read off**: with `s = √(n/2)`,
+`dθ/dn = 1/(4s^{3/2}√(2−s))`, minimal when `s³(2−s)` is maximal, i.e. `2s²(3 − 2s) = 0`, i.e.
+**`s = 3/2` exactly** — giving `n = 9/2` and `cos θ = −1/2`:
+
+**`θ = 120°` exactly, with 4 and 5 straddling it.**
+
+So **4 is also the last integer rung before the structure's turning point** — a second, independent
+sense in which it sits at a centre.
+
+### H34d — what stays refuted
+
+**Not 8 dimensions.** Evaluated in `D = 3, 4, 5, 8, 10, 11, 26`: exactly **8** in every one, parallel
+exactly **0** in every one. `k·k' = −2` for antiparallel nulls in *any* dimension, and `D` never
+appears in `2(p·p')² − p²p'²`.
+
+**Not a regular frame.** Regular spacing would be 22.5°; the gaps run 72.97, 17.03, 12.99, 11.48,
+11.06, 11.53, 13.50, 29.44 — a **6.597** ratio. A smooth curve read at integer heights, not a polygon.
+
+**And not a route to `ρ < 0`.** The knob runs zero to positive about an axis of 4; the parallel end is
+still **H30**'s equality case. **The lead is a sign, and a bisector is not a sign.**
+
+| | `bisector.py` |
+|---|---|
+| status | **CORRECTION** (H32's hole, withdrawn) + **PROVEN** (`c⁴/2`; the 180° non-closure; `s = 3/2` from `2s²(3−2s) = 0`) + **RECOMPUTED** (the GE/GM halves from Faraoni & Dumse's equations) |
+| new? | the bisector reading, the `c⁴/2` closed form, the exact 120° stationary point — and the exact form of H32's adjudication |
+| **not** claimed | 8 dimensions; a regular frame; any `ρ < 0`; that 4 bisects anything but the amplitude range |
 
 ---
 
@@ -2081,3 +2180,7 @@ The energies move by orders; the contraction does not move at all. And the `0 �
   greedy-blind), and exact change is never required, so the claim is empty. See **H33b**.
 - **That a photon has a denomination.** It has one only relative to a direction of travel; the index is
   onto and rank one. See **H33c**.
+- **That there is a hole at 4.** *Withdrawn.* 4 is reached at 114.47° and is never a total because it is
+  the **bisector** — `GE = GM = 4`, observable `4 ± 4`. See **H34**.
+- **That the 0→8 structure is eight-dimensional or an eight-sided frame.** Dimension-independent in
+  D = 3…26, and the angular gaps span a factor of 6.597. See **H34d**.

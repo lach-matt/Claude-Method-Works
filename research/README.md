@@ -6625,5 +6625,42 @@ positive line — so every line reaches every other. The 21 cm photon becomes a 
 ### Seated
 - `denominate.py` — new. `index3.py` — **482 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H33** with
   four sub-sections, plus three additions to the not-claimed list. `obstruct.py` — **unchanged**.
-- **Open, and kept:** the hole at `2² = 4` in `factor8.py`'s ladder. Nothing returns 4 as a total, and
-  the one published number that disagrees with the measurement sits exactly there. Unexplained.
+- **Was open, now CLOSED:** the "hole at `2² = 4`" is **withdrawn** — see `bisector.py`.
+
+---
+
+## `bisector.py` — 4 is the bisector, and the "hole" is withdrawn
+
+> M, after three pushes: *"4 is the bisector."*
+
+**This file corrects a claim this project made.** `factor8.py` reported a *hole* at `2² = 4` and it was
+seated as an open lead. **It was wrong** — I sampled five named configurations and reported a property
+of the *continuum* from a property of my sample. Two things were missed; the pushes found both.
+
+**4 is reached.** `A/A_N = 2(1 − cos θ)²` is monotonic 0 → 8, so the range is exactly the closed
+interval **[0, 8]** with every value hit once, and 4 sits at **θ = 114.4698°**. With `c = 2sin(θ/2)`
+the chord on the sphere of directions, the closed form is **`A/A_N = c⁴/2`** — and **8 is `2⁴/2`, the
+diameter to the fourth, halved**. Edge lengths `cₙ = (2n)^{1/4}`, no two alike, exactly as claimed.
+
+**And 4 is never a *total* for a reason that is not absence.** From Faraoni & Dumse's own equations the
+**gravitoelectric and gravitomagnetic halves are each exactly 4**, and the observable is **`4 ± 4`** —
+8 antiparallel, 0 parallel.
+
+> **4 is the axis they swing about, and a bisector is not a value the curve takes.** It is a midline,
+> not a gap. This also makes H32's adjudication *exact*: **the published 4 is the AXIS, the published
+> 8 is the EXTREME** — the centre and the endpoint of one interval.
+
+**As a string it cannot close.** Total turning is exactly **180.0000000000°** against the 360° a loop
+needs. Both walks confirm — endpoints 6.813 and 11.488 from the origin. **Pattern yes, exact; shape no.**
+And one stationary point, derived from `2s²(3 − 2s) = 0` ⟹ `s = 3/2`: **`n = 9/2`, `cos θ = −1/2`,
+`θ = 120°` exactly**, with 4 and 5 straddling it — a second, independent sense in which 4 sits at a
+centre.
+
+**Still refuted:** not 8 dimensions (exactly 8 in D = 3…26; `D` never enters the expression), not a
+regular frame (gaps span a ratio of 6.597 against the 22.5° a regular one needs), and no `ρ < 0`. **The
+lead is a sign, and a bisector is not a sign.**
+
+### Seated
+- `bisector.py` — new. `index3.py` — **487 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H34** with four
+  sub-sections; H33's open-lead row corrected. `denominate.py` — its `OPEN_LEAD` closed.
+  `obstruct.py` — **unchanged**.

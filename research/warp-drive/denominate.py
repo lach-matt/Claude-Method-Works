@@ -201,9 +201,11 @@ WHAT THIS PASS ESTABLISHES
     NEW     The spectra x direction index is ONTO and therefore rank one.  The
             direction IS the denomination.  The invariant is k.k', not E.
 
-    OPEN    The hole at 2^2 = 4 in factor8.py's ladder -- nothing returns 4 as
-            a total, and the one published number that disagrees with the
-            measurement sits exactly there.  Unexplained, and kept open.
+    CLOSED  The "hole at 2^2 = 4" is WITHDRAWN -- see bisector.py.  There is
+            no hole: 4 is reached at theta = 114.4698 deg, and it is never a
+            TOTAL because it is the BISECTOR, the gravitoelectric and
+            gravitomagnetic halves each being exactly 4 with the observable
+            4 +/- 4.  An axis of symmetry is not a point on the curve.
 """
 
 import math
@@ -447,7 +449,7 @@ def knob_is_invariant(betas=(0.0, 0.6, 0.95), tol=1e-9):
 
 
 CURRENCY_VERDICT = "a bulk commodity priced by the joule, not a structured currency"
-OPEN_LEAD = "the hole at 2^2 = 4 in factor8.py's ladder"
+OPEN_LEAD = "CLOSED by bisector.py: 4 is the BISECTOR, not a hole"
 
 
 def selftest():
@@ -565,7 +567,7 @@ def selftest():
     print("                        0 -> 8 coupling that rides on it.")
     chk("the currency verdict", CURRENCY_VERDICT,
         "a bulk commodity priced by the joule, not a structured currency")
-    print("     OPEN: %s" % OPEN_LEAD)
+    print("     WAS OPEN, NOW: %s" % OPEN_LEAD)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return ok
