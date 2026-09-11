@@ -2378,6 +2378,72 @@ fault.**
 
 ---
 
+## ★★★ H39 — the **epistemic audit**: the headline is a *model*, and the refusals are theorems
+
+> M: *"let's take a moment to review all the research. If anything we have used from outside literature,
+> such as assertions, conjecture, heuristics, perhaps we can define the theorems, proofs, laws, etc."*
+
+Sorted by logical status, the project splits cleanly and uncomfortably. **This belongs in any paper, stated
+up front, rather than discovered by a referee.**
+
+### H39a — the transition equation is a MODEL, not a theorem
+
+`Δd = (G/c²)MΛ` comes from a **chosen potential** in a **chosen metric form** — isotropic,
+`g_tt = −e^{2Φ}`, `g_ij = e^{−2Φ}`, with `Φ` a Plummer core minus a shell. `Λ = 2[ln(2R_s/√(b²+a²)) − 1]`
+is a closed form derived from *that potential* and validated against *its own integral* to 0.08%.
+
+> **That validation is internal.** It shows the closed form matches the ansatz — not that the ansatz
+> solves `G_μν = 8πT_μν` for any specified matter model. `NOT-CERTIFIED` has recorded this since the Le
+> pass, and `core.py` puts it more sharply: `Φ_max = m/a` runs 0.25 to 1.0 across the seated window, and
+> at `Φ = 1` the linearised spatial metric **has flipped sign**.
+
+**So the headline — `c⁴/(GΛ) = 1.2123737e43 J/m` — is MODEL.** The seventy orders, the Planck cell, the
+196 MJ, the tiling neutrality and the scale-invariance **all inherit it**, because all of them are Λ
+wearing different clothes.
+
+### H39b — and the asymmetry is the real result
+
+**10 obstructions, 5 constructions**, and the split is clean:
+
+> **Every obstruction this project trusts is a THEOREM. Every positive construction it offers is a MODEL.**
+
+Proved *here*: the Maxwell NEC theorem, the null-dust identity, the `[0,π]` orientation topology, the
+complete Deutsch fixed-point set, the classical grandfather condition. Cited *from proofs*: PMT rigidity
+(Schoen–Yau, Witten), Ford–Roman, Fewster–Osterbrink.
+
+**That is exactly the shape a negative result should have, and exactly the wrong shape for a positive one.**
+
+### H39c — three headline "confirmations" are one definition
+
+The collapse identity `2/Λ`, the Planck form `E_P/Λ`, and the granularity gap `Λ` are **identities**. Both
+sides of each are `(c⁴/G)` × a length by construction; `ℓ_P c⁴/G` **is** `E_Planck`; `ħc/ℓ_P` **is**
+`E_Planck`. They cannot be otherwise.
+
+> **They are true and they are not evidence.** The recurrence of Λ across them is the recurrence of *one
+> definition*, not three independent confirmations. A paper presenting them as corroboration would be
+> presenting the same fact three times.
+
+What they *do* establish: internal consistency at the Planck scale, with the margin untuned. Worth stating,
+and worth no more than that.
+
+### H39d — the rest is cleaner
+
+- **No load-bearing conjecture.** The hoop conjecture decorates a metaphor; Hawking chronology protection is
+  `NOT-RUN` *by design*, and **H35** deliberately reaches its result without it.
+- **Rival prescriptions handled correctly.** D-CTCs and P-CTCs disagree elsewhere, so the conclusion was
+  built to survive **both** plus the classical case.
+- **One structure asserted:** the spin-2 amplitude `A = 2(p·p')² − p²p'²`, taken as the standard
+  one-graviton numerator. It reproduces four known cases — **evidence, not derivation**.
+- **One citation second-hand:** Barker–Bhatia–Gupta, flagged where it lives.
+
+| | `provenance.py` |
+|---|---|
+| status | **AUDIT** — 27 load-bearing claims classified across 9 statuses |
+| new? | that the headline is MODEL and the refusals are THEOREM; that three quotable identities are one definition |
+| **not** claimed | completeness — it covers what the project headlines, not all 513 index findings |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

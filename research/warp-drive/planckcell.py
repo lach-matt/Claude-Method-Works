@@ -174,6 +174,73 @@ WHAT THIS PASS ESTABLISHES
         A specification that satisfies constraints is not a demonstration that
         the constraints were the binding ones -- and section 5 is precisely the
         finding that they were not.
+===============================================================================
+7. THE POWER-PLANT QUESTION, ANSWERED BEFORE IT IS ASKED
+===============================================================================
+
+M, reading the figure: "54.43 kWh is relatively low.  So with a decent power
+source, like a power plant, perhaps this is plausible."
+
+    THE INSTINCT IS CORRECT FOR ALMOST ALL ENGINEERING AND FAILS HERE FOR ONE
+    SPECIFIC REASON: 196 MJ IS NOT THE PRICE OF THE DEVICE.  IT IS THE PRICE OF
+    ONE PLANCK LENGTH.
+
+        source                    contraction rate
+        1 GW power plant          8.2483e-35 m/s
+        all human power           1.5672e-30 m/s
+        the entire Sun            3.1574e-17 m/s
+        the Milky Way             6.2687e-07 m/s
+
+    A GIGAWATT PLANT NEEDS 1.2124e34 s FOR ONE METRE -- 2.787e16 times the age
+    of the universe.  Run it for a century and it buys 2.6032e-25 m, which is
+    3.099e-10 PROTON RADII.  One metre per second would take 1.2124e43 W:
+    3.17e16 Suns, or 1.6 million Milky Ways.
+
+    AND YOU COULD NOT CONFIRM A CELL HAD FIRED.  One cell contracts 1.616e-35 m;
+    LIGO resolves about 1e-19 m.  That is 15.8 ORDERS below the most sensitive
+    instrument ever built.
+
+    The reason is section 4: THE EXCHANGE RATE IS SCALE-INVARIANT.  The Planck
+    cell did not make transport cheap, it made the UNIT SMALL -- 6.19e34 of them
+    per metre, and the bill per metre unchanged.  It is the grain-of-sand-to-a-
+    beach argument with a ratio of 1e34 rather than 1e10.
+
+===============================================================================
+8. AND THE RING LASER, RE-TESTED HERE -- IT FAILS A NEW WAY
+===============================================================================
+
+M: "and the laser ring still doesn't fit?"  Re-tested at THIS scale rather than
+restated, because the old refutation was about Mallett's MACROSCOPIC claim.
+
+    GATE 1 IS UNCHANGED AND SCALE-FREE.  lattice.py's theorem has no length in
+    it -- T_munu k^mu k^nu = V.V >= 0 for every classical EM field, measured
+    identical in D = 3..26.  A ring laser is a classical EM field and shrinking
+    it changes nothing.
+
+    AND HERE IS SOMETHING NEW, WHICH ONLY APPEARS AT THIS SCALE.  A photon
+    localised in the cell needs reduced wavelength lambdabar <= l_P, so its
+    energy is at least hbar c / l_P -- which IS E_Planck, by definition.  The
+    cell's entire budget is E_Planck/Lambda.
+
+        ONE PHOTON THAT FITS OVERSHOOTS THE WHOLE CELL BY EXACTLY Lambda.
+
+    Run it the other way: the photon the cell can AFFORD has
+    lambdabar = Lambda l_P = 1.613e-34 m, TEN TIMES THE CELL.  It is not in the
+    cell at all.
+
+        A PHOTON THAT FITS COSTS Lambda TIMES THE BUDGET; A PHOTON YOU CAN
+        AFFORD IS Lambda TIMES TOO BIG TO FIT.  LIGHT IS TOO COARSE TO PAY FOR
+        A PLANCK CELL -- not too weak, too GRANULAR.
+
+    And the hardware: a ring of radius 1.6e-35 m against atoms at 1e-10 m is
+    25 ORDERS too small for mirrors, cavity or gain medium.
+
+    ONE OBSTRUCTION DOES LIFT, AND IT IS RECORDED BECAUSE IT IS TRUE.  The 2024
+    kugelblitz/Schwinger block runs 1e-29 m <~ R <~ 1e8 m and l_P sits BELOW
+    that band -- its lower edge is set by there being no room to separate a pair
+    below the Compton wavelength.  THAT BLOCK DOES NOT APPLY HERE.  It rescues
+    nothing, because gates 1 and 3 are each decisive alone, but the ledger
+    records that it lifted rather than pretending it still bites.
 """
 
 import math
@@ -337,6 +404,87 @@ CONSTANTS_IN_THE_RATE = 3          # c, G -- and Lambda is the fourth symbol
 OBSTRUCTIONS_ARE_ABOUT = "the mechanism"
 THE_BILL_IS = "the exchange rate"
 
+GW = 1.0e9
+WORLD_POWER_W = 1.9e13
+SUN_W = 3.828e26
+MILKY_WAY_W = 7.6e36
+LIGO_STRAIN_M = 1.0e-19
+PROTON_RADIUS_M = 0.84e-15
+AGE_OF_UNIVERSE_S = 4.35e17
+YEAR_S = 3.156e7
+
+
+def contraction_rate(watts):
+    """cells per second times l_P."""
+    return (watts / cell_energy()) * cell_radius()
+
+
+def seconds_for(d_m, watts):
+    return closed_form_energy(d_m) / watts
+
+
+def buys_in(watts, seconds):
+    return watts * seconds / exchange_rate_j_per_m()
+
+
+def watts_for_one_metre_per_second():
+    return exchange_rate_j_per_m()
+
+
+def cell_is_visible_to_ligo():
+    return cell_radius() >= LIGO_STRAIN_M
+
+
+def orders_below_ligo():
+    return math.log10(LIGO_STRAIN_M / cell_radius())
+
+
+# ---------------------------------------------- 8: the ring laser, re-tested
+
+def photon_energy_for(lambdabar_m):
+    """E = hbar c / lambdabar."""
+    return HBAR * C / lambdabar_m
+
+
+def smallest_photon_that_fits():
+    """lambdabar = l_P gives exactly E_Planck."""
+    return photon_energy_for(cell_radius())
+
+
+def photon_the_cell_can_afford_lambdabar():
+    return HBAR * C / cell_energy()
+
+
+def granularity_gap():
+    """How far one fitting photon overshoots the budget.  Exactly Lambda."""
+    return smallest_photon_that_fits() / cell_energy()
+
+
+def affordable_photon_in_cells():
+    """And how far the affordable photon overshoots the cell.  Also Lambda."""
+    return photon_the_cell_can_afford_lambdabar() / cell_radius()
+
+
+def light_can_pay_for_a_cell():
+    return granularity_gap() <= 1.0
+
+
+KUGELBLITZ_BAND_M = (1.0e-29, 1.0e8)
+
+
+def kugelblitz_block_applies_here():
+    lo, hi = KUGELBLITZ_BAND_M
+    return lo <= cell_radius() <= hi
+
+
+RING_FAILS_KIND_BECAUSE = "lattice.py's theorem has no length in it"
+ATOM_M = 1.0e-10
+
+
+def ring_hardware_orders_short():
+    return math.log10(ATOM_M / cell_radius())
+
+
 IS_TRANSPORT = False
 IS_BUILDABLE = None                # needs quantum gravity to evaluate
 MOVES_AN_OBSTRUCTION = False
@@ -421,6 +569,41 @@ def selftest():
     for tgt in (20.0, 50.0, 100.0):
         print("       Lambda = %5.1f needs R_s/b = %.4e" % (tgt, geometry_for_lambda(tgt)))
     chk("IS THE LEVER SHUT", lever_is_shut(), True)
+
+    print("\n7. THE POWER-PLANT QUESTION")
+    print("     %-24s %16s" % ("source", "contraction m/s"))
+    for w, nm in ((GW, "1 GW power plant"), (WORLD_POWER_W, "all human power"),
+                  (SUN_W, "the entire Sun"), (MILKY_WAY_W, "the Milky Way")):
+        print("     %-24s %16.4e" % (nm, contraction_rate(w)))
+    near("1 GW contraction rate (m/s)", contraction_rate(GW), 8.2483e-35)
+    near("seconds for 1 m at 1 GW", seconds_for(1.0, GW), 1.212374e34)
+    near("  in ages of the universe", seconds_for(1.0, GW) / AGE_OF_UNIVERSE_S, 2.787e16, 1e-3)
+    near("1 GW for a century buys (m)", buys_in(GW, 100 * YEAR_S), 2.6032e-25)
+    near("  in proton radii", buys_in(GW, 100 * YEAR_S) / PROTON_RADIUS_M, 3.099e-10, 1e-3)
+    near("watts for 1 m/s", watts_for_one_metre_per_second(), 1.212374e43)
+    near("  in Suns", watts_for_one_metre_per_second() / SUN_W, 3.167e16, 1e-3)
+    chk("can LIGO see one cell fire", cell_is_visible_to_ligo(), False)
+    near("  orders below LIGO", orders_below_ligo(), 15.8, 1e-2)
+    print("       196 MJ IS NOT THE PRICE OF THE DEVICE.  IT IS THE PRICE OF")
+    print("       ONE PLANCK LENGTH.  The rate is scale-invariant.")
+
+    print("\n8. THE RING LASER, RE-TESTED AT THIS SCALE")
+    chk("why it fails KIND", RING_FAILS_KIND_BECAUSE,
+        "lattice.py's theorem has no length in it")
+    near("smallest photon that fits (J)", smallest_photon_that_fits(), planck_energy())
+    near("  the cell's whole budget (J)", cell_energy(), 1.959505e8)
+    near("  so one fitting photon overshoots by", granularity_gap(), lambda_value())
+    near("affordable photon lambdabar (m)", photon_the_cell_can_afford_lambdabar(),
+         1.613431e-34)
+    near("  which is this many cells across", affordable_photon_in_cells(), lambda_value())
+    chk("CAN LIGHT PAY FOR A CELL", light_can_pay_for_a_cell(), False)
+    print("       A photon that FITS costs Lambda x the budget; a photon you")
+    print("       can AFFORD is Lambda x too big to fit.  LIGHT IS TOO COARSE.")
+    near("ring hardware, orders short", ring_hardware_orders_short(), 25.0, 1e-2)
+    chk("does the 2024 kugelblitz block apply at l_P",
+        kugelblitz_block_applies_here(), False)
+    print("       it does NOT -- l_P is below its 1e-29 m floor.  Recorded")
+    print("       because it is true; gates 1 and 3 are decisive without it.")
 
     print("\n  WHAT IS NOT CLAIMED")
     chk("is this transport", IS_TRANSPORT, False)

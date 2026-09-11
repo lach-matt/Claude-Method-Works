@@ -6840,7 +6840,60 @@ is buildable (every gate is stated in a theory that *fails* at this scale — th
 framework says, not what a laboratory would pay); that any obstruction moved (`obstruct.py` unchanged at
 53, deliberately).
 
+### The power-plant question, and the ring laser re-tested
+
+> M: *"54.43 kWh is relatively low… perhaps this is plausible."*
+
+**196 MJ is not the price of the device. It is the price of one Planck length.** A 1 GW plant contracts
+space at `8.25e-35 m/s`; it needs `1.21e34 s` for one metre — **2.79e16 times the age of the universe** —
+and a century of it buys `2.60e-25 m`, about **three ten-billionths of a proton radius**. One metre per
+second takes `1.212374e43 W`: 3.2e16 Suns, or 1.6 million Milky Ways. And no cell could be *seen* to fire:
+`1.6e-35 m` against LIGO's `1e-19 m` is **15.8 orders** below the most sensitive instrument built.
+
+> M: *"and the laser ring still doesn't fit?"* — re-tested at this scale, and it **fails a new way**.
+> Gate 1 is unchanged and scale-free (the NEC theorem has no length in it). But a photon localised in the
+> cell needs `ƛ ≤ ℓ_P`, so it carries at least `ħc/ℓ_P` — which **is** `E_Planck` — while the cell's whole
+> budget is `E_Planck/Λ`. **One photon that fits overshoots the cell by exactly Λ.** The photon the cell
+> can afford has `ƛ = Λℓ_P`, ten times the cell. **Light is too coarse to pay for a Planck cell — not too
+> weak, too granular.** *One obstruction lifts, recorded because it is true:* the 2024 kugelblitz block
+> runs `1e-29 m` to `1e8 m`, and `ℓ_P` sits below its floor.
+
+---
+
+## `provenance.py` — the epistemic audit
+
+> M: *"if anything we have used from outside literature, such as assertions, conjecture, heuristics,
+> perhaps we can define the theorems, proofs, laws, etc."*
+
+27 load-bearing claims across 9 statuses. **It returns one uncomfortable answer.**
+
+**The transition equation is a MODEL, not a theorem.** `Δd = (G/c²)MΛ` comes from a *chosen potential* in a
+*chosen metric form*, and Λ's 0.08% agreement validates the closed form **against that ansatz** — not the
+ansatz against the field equations. `NOT-CERTIFIED` has said so since the Le pass; `core.py` says it more
+sharply (`Φ_max` reaches 1, where the linearised spatial metric flips sign). **So the headline,
+`c⁴/(GΛ) = 1.21e43 J/m`, is MODEL — and every downstream number inherits it.**
+
+> **And the asymmetry is the real result: every obstruction this project trusts is a THEOREM; every
+> positive construction it offers is a MODEL.** 10 against 5. The NO is better supported than the YES ever
+> was — the right shape for a negative result, the wrong one for a positive. **That belongs in the paper,
+> not in a referee's report.**
+
+**Three headline "confirmations" are one definition.** The collapse identity, the Planck form and the
+granularity gap are **identities** in Λ — true, and not evidence. Presenting them as corroboration would be
+presenting the same fact three times.
+
+**The rest is cleaner:** nothing load-bearing rests on a conjecture (hoop decorates a metaphor; chronology
+protection is `NOT-RUN` by design); the rival CTC prescriptions were handled by building a conclusion that
+survives both; **one structure is asserted** (the spin-2 amplitude — four known cases is evidence, not
+derivation); **one citation is second-hand** and flagged.
+
 ### Seated
+- `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
+
+---
+
+### Seated (planckcell.py)
 - `planckcell.py` — new. `index3.py` — **508 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H38** with five
   sub-sections and its own not-claimed list. `obstruct.py` — **unchanged**.
 
