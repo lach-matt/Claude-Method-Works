@@ -7432,6 +7432,44 @@ is direction-free, and **there is no cubic NEC to write down**.
 
 ---
 
+## `invariance.py` — first principles. The constants set the scale; the geometry sets the shape.
+
+> M: *"Physics only applies because it makes a geometric shape observable. Thus physics are the
+> interchangeable coefficient."*
+
+**Two claims.** The first is foundational, has no observable, and is **recorded UNTESTABLE**. The second is
+testable against the tree's own census — **and it lands.**
+
+Recompute fourteen headline quantities under `G×2`, `c/2`, `ħ×10`: **ten invariant, four move, and the line
+falls exactly on dimensionlessness.** Untouched: `Λ`, `2/Λ`, both area-law constants, the amplitude ratio 8,
+the bisector 4, `cos = 1−√2`, the shortfall, the QEI coefficient. Moved: `ℓ_P`, the exchange rate, the Planck
+cell, the area bound in m².
+
+**Change the geometry instead** and `Λ` itself moves — 7.21 at `X = 100`, 11.82 at `X = 1000` — carrying
+everything built on it. `coefficients.py` listed `G, c, ħ` as EMPIRICAL and never said what that category
+*does*. **It converts.**
+
+> **The correction that sharpens the claim:** interchangeable in that **no dimensionless conclusion depends on
+> them**; *not* interchangeable in that **they fix where the wall is**. **The constants set the SCALE. The
+> geometry sets the SHAPE.**
+
+**And the obstruction is in the shape half.** `m(r) < 0` is **a sign — dimensionless** — so no constant can
+touch it, which explains four earlier failures in one line each: `dimension.py` (exact in every D),
+`codimension.py` (moves the rate, not the sign), `qei.py` (moves a floor, not the shortfall), `solve.py`
+(moves a number, not the status). **Every one changed a coefficient and left the shape alone.** *Buckingham π;
+no novelty. It narrows and opens nothing.*
+
+*Seventh fault, and the first that is a **test** rather than a measurement:* the tolerance had an **absolute
+floor**, `max(1.0,|v|)`, which at `1.6e−35` and `2.5e−71` swamps every possible difference — `ℓ_P` was
+reported invariant **no matter what it did**. **A bad measurement reports a wrong number; a bad test reports a
+wrong verdict.**
+
+### Seated
+- `invariance.py` — new. `index3.py` — **560 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H53**. `coefficients.py` — **EMPIRICAL row now explained**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

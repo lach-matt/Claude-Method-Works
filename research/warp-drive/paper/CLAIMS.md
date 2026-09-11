@@ -3736,6 +3736,75 @@ is claimed for the identity.*
 
 ---
 
+## ★★★ H53 — first principles. **The constants set the scale; the geometry sets the shape.**
+
+> M: *"Physics only applies because it makes a geometric shape observable. Thus physics are the interchangeable coefficient."*
+
+**Two claims, two answers.** The first is foundational — no observable, forbids no measurement — **recorded
+UNTESTABLE**, same register as **H47d** and **H49**. The second is testable against this tree's own census.
+
+### H53a — the audit: ten invariant, four move, split exactly on dimensionlessness
+
+Recompute fourteen headline quantities under `G×2`, `c/2`, `ħ×10`:
+
+| quantity | value | G×2 | c/2 | ħ×10 | |
+|---|---|---|---|---|---|
+| `Λ` | 9.98252917 | no | no | no | dimensionless |
+| `2/Λ` | 0.200350028 | no | no | no | dimensionless |
+| `k_FR` | 0.0948226567 | no | no | no | dimensionless |
+| `k_Cas` | 0.136838353 | no | no | no | dimensionless |
+| `√k_FR` | 0.307932877 | no | no | no | dimensionless |
+| amplitude ratio | 8 | no | no | no | dimensionless |
+| bisector | 4 | no | no | no | dimensionless |
+| `cos`(value bisector) | −0.414213562 | no | no | no | dimensionless |
+| shortfall at `ℓ_UV = ℓ_P` | 0.100175014 | no | no | no | dimensionless |
+| `Q_A` coeff (`ξ=1/6`) | 0.00369400149 | no | no | no | dimensionless |
+| **`ℓ_P` [m]** | 1.61625502e−35 | **YES** | **YES** | **YES** | dimensionful |
+| **exchange rate [J/m]** | 1.21237368e+43 | **YES** | **YES** | no | dimensionful |
+| **Planck cell E [J]** | 195950505 | **YES** | **YES** | **YES** | dimensionful |
+| **area-law bound [m²]** | 2.47703358e−71 | **YES** | **YES** | **YES** | dimensionful |
+
+> **Ten and four, and the line falls exactly on dimensionlessness.** *(The exchange rate not moving under `ħ`
+> is correct, not an exception — `c⁴/(GΛ)` contains no `ħ`.)*
+
+### H53b — and the geometry does the opposite
+
+| `X` | `Λ` | `k_FR` |
+|---|---|---|
+| 100 | 7.210340372 | 0.068490021 |
+| 399.920024 | 9.982529174 | 0.094822657 |
+| 1000 | 11.815510558 | 0.112233892 |
+
+**`Λ` moves, and everything built on it moves with it.** **H42a** listed `G, c, ħ` as EMPIRICAL and never said
+what that category *does*. **It converts.**
+
+> **THE CORRECTION THAT SHARPENS THE CLAIM:** they are interchangeable in that **no dimensionless conclusion
+> depends on them**, and *not* interchangeable in that **they fix where the wall is** — `R·Δd ≤ kℓ_P²` has `k`
+> invariant and `ℓ_P²` carrying every constant. **The constants set the SCALE. The geometry sets the SHAPE.**
+
+### H53c — and the obstruction is in the shape half
+
+`m(r) < 0` is **a sign — dimensionless.** No change to any constant can touch it. Which explains four earlier
+failures in one line each:
+
+| | |
+|---|---|
+| **H46a** | changing D leaves the biconditional **exact in every D** |
+| **H47** | changing codimension moves the **rate**, not the **sign** |
+| **H46b** | changing `ξ` moves a floor by 22 %; the shortfall stays |
+| **H44b** | fixing `ℓ_UV` moves a **number**; the **status** does not follow |
+
+**Every one changed a coefficient and left the shape alone.** *No novelty — this is Buckingham π. What is new
+is that the tree had never checked it. It narrows and opens nothing.*
+
+*Seventh fault, and the first that is a **test** rather than a measurement:* the first audit used
+`|a−b| > 1e−12·max(1.0,|v|)` — an **absolute floor** that, for `ℓ_P` at 1.6e−35 and the area bound at 2.5e−71,
+swamps every possible difference. Both were reported **invariant no matter what they did**, inflating the
+count from ten to twelve. Both forms are kept in the file. **A bad measurement reports a wrong number; a bad
+test reports a wrong verdict.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
