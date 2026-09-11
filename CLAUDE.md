@@ -290,7 +290,15 @@ touch the mirrors and the field is sized for the night. **Helios-2** — nitrate
 day, night-sized field, PV-fed winter heaters, every part built (DEWA, Midelt) — is **1.9× smaller in
 mirror** for the same 18.1 TWh, at **$141/MWh, $849 per household** against $1,239 as proposed and
 $1,177 today. **Helios-3** on Gen3 particles and sCO₂ reaches **$117**, inside the band, and is a
-pilot (G3P3, STEP), priced and not offered as the build. See `docs/CSPCHAIN.md`. See `docs/HELIOS.md`, `docs/HELIOCOST.md`, `docs/FIRMPOWER.md` and
+pilot (G3P3, STEP), priced and not offered as the build. See `docs/CSPCHAIN.md`. **The author then chose
+Helios-3 and claimed each cost could be mitigated upfront; `tools/helios3.py` tests it** the way
+`environment.py` tested the fission plant — sixteen rows graded before and after, each carried by a named
+part of the build, each marked DESIGN, HOURS or BENEFIT. **Six rows retire by specification; six can be
+retired only by operating hours** (receiver, exchanger, turbine, chemistry, scale, provenance) and the
+file refuses to flatten them — *a specification cannot make a machine have run*. Priced, the mitigations
+take Helios-3 from **$117 to $125/MWh**, $756 per household, still under Helios-2's $141 and **$5 above
+the band's top**; the plan that buys the hours is a common field with one 100 MWe module built first and
+the salt block as fallback. See `docs/HELIOS3.md`. See `docs/HELIOS.md`, `docs/HELIOCOST.md`, `docs/FIRMPOWER.md` and
 `proposals/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**

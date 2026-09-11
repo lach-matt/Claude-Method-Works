@@ -82,6 +82,19 @@ PV-fed heaters in winter (Midelt) — 1.9× smaller in mirror, same energy, ever
 part built. Helios-3 is the same on Gen3 particles and sCO₂ — the right CSP,
 and a pilot.
 
+### The author's decision: Helios-3, each cost mitigated upfront (`tools/helios3.py`, `docs/HELIOS3.md`)
+
+Sixteen rows graded before and after mitigation, each carried by a named part
+of the build, each marked **DESIGN** (retired by specification), **HOURS**
+(retired only by operating time) or **BENEFIT**. Before: 7 MODERATE / 3 MAJOR
+/ 2 DOMINANT; after: 6 MINOR / 4 MODERATE / 2 MAJOR / 0 DOMINANT. Six rows
+retire by design; six can only be retired by hours — the receiver, the
+exchanger, the turbine, the chemistry, the scale, the provenance — and the
+file refuses to flatten them. Priced, the mitigations take Helios-3 from
+**$117 to $125/MWh** ($756 per household), still under Helios-2's $141 and $5
+above the band's top. The plan that buys the hours: common field, towers and
+PV; one 100 MWe Helios-3 module first; salt block as fallback.
+
 ## How the flaws are worked
 
 One at a time, in register order, each resolved by an instrument where the
