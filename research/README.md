@@ -6887,7 +6887,48 @@ protection is `NOT-RUN` by design); the rival CTC prescriptions were handled by 
 survives both; **one structure is asserted** (the spin-2 amplitude — four known cases is evidence, not
 derivation); **one citation is second-hand** and flagged.
 
+---
+
+## `certify.py` — the certification, done. The obstruction stops being a model.
+
+> M: *"if we close the gaps, we may get a different conclusion entirely."*
+
+**The gap was real, and closing it changed the conclusion — not the verdict, the *status*.**
+
+**Prior art first, because it goes against us.** Pfenning & Ford (gr-qc/9702026, **1997**) applied
+Ford–Roman to Alcubierre and got `Δ ≤ 10² v_b L_Planck` then `E ~ −3e20 M_galaxy`. **That is H37's
+conclusion, 28 years earlier**, and H37 needed the row. One number of theirs survives as a contrast: an
+Alcubierre bubble at one electron Compton wavelength costs `−400 M_sun`; a Planck cell here costs 196 MJ.
+
+**The ansatz, certified.** A stdlib reimplementation of Warp Factory's test — validated to **exactly zero**
+on Minkowski and `4e-12` on Schwarzschild vacuum — finds the seated conformastatic metric violating
+**NEC, WEC, SEC and DEC at every radius from 0.005 to 100**, six orders above the floor.
+
+> **The seat/lead split does not survive.** The exotic requirement is not localised in a lead — it sits
+> wherever `Φ` varies. The mechanism is the ansatz: the density is dominated by `−|∇Φ|²`, **a square
+> carrying a minus sign**.
+
+**And then the result, with no ansatz at all.** In areal radius with the Misner–Sharp mass,
+`dm/dr = 4πr²ρ` exactly, and `dl = dr/√(1−2m/r)`:
+
+> **THEOREM. In any static spherically symmetric spacetime, proper distance is contracted at `r` if and
+> only if the enclosed Misner–Sharp mass — the volume integral of `ρ` — is negative.**
+
+That **removes the MODEL status from the central requirement**, which is what H39a asked for. It bounds a
+*different quantity* than the quantum inequalities do — a ball integral, not a worldline average — which is
+why it survives all of H37 untouched. It does **not** need negative *total* mass, so the concentric
+architecture was never silly.
+
+**No novelty claimed** — two lines from a standard definition. Scope: **static, spherically symmetric
+only**. **The construction is still a MODEL**; this proves the requirement, not the design.
+
 ### Seated
+- `certify.py` — new. `provenance.py` — its own H39a row closed. `index3.py` — **517 findings**,
+  `E(X) = 0`. `paper/CLAIMS.md` — **H40**. `obstruct.py` — **unchanged**.
+
+---
+
+### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
 

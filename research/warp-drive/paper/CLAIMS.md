@@ -2444,6 +2444,90 @@ and worth no more than that.
 
 ---
 
+## ★★★ H40 — the certification, done. **The obstruction stops being a model.**
+
+> M: *"if we close the gaps, we may get a different conclusion entirely."*
+
+**The gap was real and closing it did change the conclusion — not the verdict, the *status*.**
+
+### H40a — prior art, first, because it goes against us
+
+**Pfenning & Ford, gr-qc/9702026 (1997).** Ford–Roman applied to Alcubierre with sampling below the
+curvature radius gives `Δ ≤ 10² v_b L_Planck` — *"the wall thickness cannot be much above the Planck
+scale"* — then `E ~ −3×10²⁰ M_galaxy·v_b`, *"ten orders of magnitude greater than the total mass of the
+entire visible universe."*
+
+**That is H37's conclusion, twenty-eight years earlier.** H37 needed this row and did not have it.
+
+One number of theirs is worth keeping: an Alcubierre bubble the size of **one electron Compton
+wavelength** costs `−400 M_sun`. A Planck cell here costs **196 MJ**. Same verdict, architectures ~10⁴⁷
+apart. And their own gap is in their own paper — they apply the *flat-space* inequality to a curved metric
+because the exact treatment *"would be exceptionally difficult."*
+
+### H40b — the ansatz, certified, and it refutes our own architecture story
+
+A stdlib reimplementation of Warp Factory's test (arXiv:2404.03095), **validated first**: Minkowski
+`max|T| = 0.000e+00` exactly; Schwarzschild isotropic vacuum `4.08e-10` at `r=5`, `3.99e-12` at `r=50`.
+That is the noise floor.
+
+| r | T₀₀ | NEC min | WEC min | SEC min | DEC |
+|---|---|---|---|---|---|
+| 0.05 | −3.089e2 | −3.934e2 | −2.182e3 | −1.985e3 | **VIOL** |
+| 1 | −4.656e-4 | −8.735e-4 | −4.625e-3 | −4.184e-3 | **VIOL** |
+| 10 | −4.074e-8 | −8.004e-8 | −4.219e-7 | −3.814e-7 | **VIOL** |
+
+**Every condition, every radius**, six orders above the floor (converged: `6.4e-9` change between
+`h = 1e-3` and `1e-4`).
+
+> **The seat/lead split does not survive.** `reverse.py` and `apply.py` say the seat is free and only the
+> lead needs `ρ < 0`. The metric says the exotic requirement sits **wherever `Φ` varies**. The mechanism is
+> the ansatz itself: in conformastatic form the density is dominated by `−|∇Φ|²` — measured `−4.8455e-4`
+> against `−3.9952e-4`, ratio 1.21. **A square carrying a minus sign.**
+
+*Correction, recorded not dropped:* a first run of mine concluded "both signs of `m` give `T₀₀ < 0`". At
+`r = 0.05` with `m < 0` it is **+30.92**. The far field is gradient-dominated and sign-blind; the near core
+is not.
+
+### H40c — and then the ansatz-free version, which is the result
+
+Drop `Φ` entirely. Any static spherically symmetric spacetime, in areal radius with the Misner–Sharp mass:
+
+`ds² = −e^{2Φ}dt² + dr²/(1 − 2m(r)/r) + r²dΩ²`,  with `dm/dr = 4πr²ρ` **exactly**.
+
+Proper radial distance is `dl = dr/√(1 − 2m/r)`, so it is shorter than flat exactly when `m(r) < 0`.
+
+> **THEOREM. In any static spherically symmetric spacetime, proper distance is contracted at `r` if and
+> only if the enclosed Misner–Sharp mass — the volume integral of `ρ` — is negative.**
+>
+> No ansatz. No `Φ`. A definition and one integral.
+
+**This removes the MODEL status from the central requirement**, which is precisely what **H39a** asked for.
+It constrains a **different quantity** from the one the quantum inequalities bound: Ford–Roman bounds a
+*sampled density along a worldline*; this bounds the *volume integral over a ball*. Averaging along a
+geodesic is not integrating over a ball — which is why this obstruction survives all of **H37** untouched.
+
+And it does **not** require negative *total* mass. `m(r) < 0` locally is compatible with `M_ADM ≥ 0`; the
+concentric shell is exactly the device that arranges it, and the positive mass theorem was never in danger.
+
+### H40d — status, stated before anyone asks
+
+**No novelty is claimed.** Two lines from a standard definition; the flare-out condition is a near
+neighbour. Its value is that it is **ansatz-free**. Scope: **static and spherically symmetric only** — the
+Alcubierre drive is neither, and D1–D5 place *this* construction inside the theorem's reach. The
+certification is finite-difference, quoted against a *measured* floor.
+
+> **The construction is still a MODEL. This proves the requirement, not the design.** H39b's asymmetry is
+> unchanged and **sharpened**: the obstruction was the last piece of the NO resting on an ansatz, and now
+> it does not.
+
+| | `certify.py` |
+|---|---|
+| status | **THEOREM-HERE** (the Misner–Sharp result) + **MEASURED** (validated pipeline; four radii, three conditions) + **PRIOR-ART** (Pfenning–Ford) + **CORRECTION** (seat/lead split; my own over-broad sign claim) |
+| new? | not the theorem — the *certification*, and the demotion of the seat/lead split |
+| **not** claimed | novelty for the theorem; scope beyond static spherical symmetry; that the construction is certified — it is refuted |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

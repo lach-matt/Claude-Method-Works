@@ -249,6 +249,9 @@ LEDGER = (
      "THE HEADLINE.  Inherits MODEL from Lambda"),
     ("no frame-independent Hawking-Ellis certification", MODEL, "index3.py", True,
      "NOT-CERTIFIED, seated since the Le pass: metric-first may have no well-posed matter model"),
+    ("contraction iff enclosed Misner-Sharp mass < 0", THEOREM_HERE, "certify.py", True,
+     "ANSATZ-FREE, static spherically symmetric.  This is the piece of the NO that "
+     "used to be MODEL and no longer is -- see certify.py section 3"),
     ("the core is intrinsically strong-field", MODEL, "core.py", True,
      "Phi_max = m/a runs 0.25 to 1.0; at Phi = 1 the linearised spatial metric flips sign"),
 
@@ -397,6 +400,13 @@ def selftest():
     print("       it shows the closed form matches the ansatz, not that the")
     print("       ansatz solves the field equations for any matter model.")
 
+    print("\n1b. AND certify.py HAS SINCE CLOSED PART OF THIS")
+    print("     the REQUIREMENT is now ansatz-free: contraction at r happens iff")
+    print("     the enclosed Misner-Sharp mass is negative, in ANY static")
+    print("     spherically symmetric spacetime.  THE OBSTRUCTION IS NO LONGER")
+    print("     A MODEL.  The CONSTRUCTION still is, and the asymmetry below is")
+    print("     sharpened rather than softened by that.")
+
     print("\n2. AND THE ASYMMETRY IS THE REAL RESULT")
     o, c = the_asymmetry()
     print("     obstructions trusted: %d    constructions offered: %d" % (o, c))
@@ -409,7 +419,7 @@ def selftest():
     for claim, _st, owner, _lb, note in by_status(THEOREM_HERE):
         print("     %-46s %s" % (claim[:46], owner))
         print("        %s" % note[:72])
-    chk("theorems proved here", len(by_status(THEOREM_HERE)), 6)
+    chk("theorems proved here", len(by_status(THEOREM_HERE)), 7)
 
     print("\n4. WHAT IS AN IDENTITY -- true, and NOT evidence")
     for claim, _st, owner, _lb, _n in by_status(IDENTITY):
@@ -452,8 +462,8 @@ def selftest():
         n = len(by_status(st))
         if n:
             print("     %-22s %d" % (st, n))
-    chk("claims audited", len(LEDGER), 27)
-    chk("  of which load-bearing", len(load_bearing()), 23)
+    chk("claims audited", len(LEDGER), 28)
+    chk("  of which load-bearing", len(load_bearing()), 24)
     chk("is the audit complete", AUDIT_IS_COMPLETE, False)
     print("     it covers %s" % AUDIT_COVERS)
 
