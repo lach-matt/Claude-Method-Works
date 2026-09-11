@@ -111,6 +111,20 @@ critical the register price is $202 and the whole load $302: **above today's bil
 for itself after the bonds only at a price above the band, and the critical case is the threshold
 the design is held to. A plant designed to mid has no margin; this document does not offer one.
 
+**The security behind the rate (F-19).** The 3.85 % is a general-obligation or contracted-revenue
+rate; the security is contracted in-state offtake at the required price with a state GO backstop
+for the first-of-kind rungs. Priced to each security, with the register:
+
+| security | rate | mid, $/MWh ($/household) | critical, $/MWh ($/household) |
+|---|---|---|---|
+| GO-backed, state general obligation | 3.85 % | 125 (756) | 202 (1,218) |
+| revenue bond, contracted in-state offtake | 5.00 % | 140 (846) | 227 (1,369) |
+| unrated first-of-kind | 6.50 % | 161 (970) | 262 (1,579) |
+
+**The mechanism behind the tariff (F-10).** The $0.00/kWh of v0.1 is replaced by the household bill
+above, an output of the balance: the Authority registered as a load-serving entity in the community-choice form (PUC section 366.2), IOU delivery, generation sold at cost recovery. A free tariff is a subsidy paid by someone, and this
+program names no one to pay it.
+
 ## 6. The risks and their mitigation
 
 Sixteen rows, graded before and after, each carried by a named part of the build, each DESIGN
@@ -160,6 +174,22 @@ it. Delay escalates the whole plant at 3 % a year before a dollar is spent:
 | price, $/MWh | 3.8 | 6.1 |
 | household, $/yr | 23 | 37 |
 
+**The schedule (F-24).** The ladder dated from the 2028–2030 groundbreaking, each bond tranche
+following a rung that has been passed at its critical figure; the pilot and the first node's field
+run in parallel. Direct cost by rung:
+
+| rung | years | mid, $B | critical, $B |
+|---|---|---|---|
+| field, towers and PV at the first node | 2029–2031 | 3.02 | 4.68 |
+| pilot aperture on one tower | 2031–2033 | 0.07 | 0.07 |
+| first 100 MWe module | 2033–2036 | 0.63 | 0.94 |
+| fleet, by tower group | 2036–2041 | 12.68 | 18.86 |
+
+**Transmission (F-09).** The export is negative (F-01), so no firm export right is needed. The in-state
+gen-tie per node at the closed sizing peaks at 1,196 MW (mid) / 1,179 MW (critical) from the
+hour-by-hour, 0.60 / 0.79 of one 500 kV circuit, priced in the switchyard line at
+$600 / $900 M. The interconnection study is the Authority's to file and no authority shortens it.
+
 ## 8. What v0.2 does not settle
 
 - The route for the season — mirrors or water — is Title III's decision, and the water side has
@@ -168,7 +198,8 @@ it. Delay escalates the whole plant at 3 % a year before a dollar is spent:
   move that factor either way.
 - The receiver's critical figure and the dome's verdict are what the pilot aperture measures;
   until it has run, the critical column is the design basis.
-- Transmission, the tariff, the bond rate and the schedule (F-09, F-10, F-19, F-24) are open in
-  `FLAWS.tsv` and are not changed by anything above.
+- The remaining open rows of `FLAWS.tsv` are Title II's process items (F-13, F-15, F-26 to F-28,
+  F-35, F-36), the joinder itself (F-31), and the minor rows; transmission, the tariff, the bond
+  rate and the schedule are settled above as positions with a price, not as witnesses.
 
 *Rendered by `tools/rebase.py`; do not edit by hand. Re-render after any change to the instruments.*

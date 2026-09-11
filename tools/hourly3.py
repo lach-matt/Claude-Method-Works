@@ -145,6 +145,7 @@ def run(case, pv_overbuild=1.0, heater_factor=1.0, turbine_factor=1.0, aperture_
     min_th = rated_th * H.MIN_LOAD
     hydro_mw, hydro_budget = (hydro[0], hydro[1] * 1e6) if hydro else (0.0, 0.0)
     out["hydro"] = 0.0
+    out["peak_injection_mw"] = 0.0          # max over hours of PV + block net + hydro, fleet-wide (F-09)
     for i in range(8760):
         doy, hr = i // 24 + 1, i % 24
         m = H.month_of(doy)
@@ -215,6 +216,7 @@ def run(case, pv_overbuild=1.0, heater_factor=1.0, turbine_factor=1.0, aperture_
             hydro_budget -= hy
             served += hy
             out["hydro"] += hy
+        out["peak_injection_mw"] = max(out["peak_injection_mw"], min(pv, L) + net + (served - direct - net if hydro else 0.0))
         if served < L - 1e-9:
             out["unserved"] += L - served
             out["month_unserved"][m] += L - served

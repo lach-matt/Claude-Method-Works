@@ -32,6 +32,7 @@ import hourly3 as HR                                            # noqa: E402
 import joinder as J                                             # noqa: E402
 import studies as ST                                            # noqa: E402
 import aquacost as AQ                                           # noqa: E402
+import titleone as T1                                           # noqa: E402
 
 OUT = os.path.join(HERE, "..", "proposals", "Title_I_Helios-3_v0.2.md")
 CASES = ("mid", "critical")
@@ -61,6 +62,9 @@ def gather():
     g["delay"] = {c: ST.delay_cost_per_year(c) for c in CASES}
     g["aqua"] = {c: AQ.module(c) for c in CASES}
     g["aqua_route"] = {c: AQ.water_route(c) for c in CASES}
+    g["rates"] = {c: T1.rate_table(c) for c in CASES}
+    g["tranches"] = {c: T1.tranches(c) for c in CASES}
+    g["gentie"] = {c: T1.gentie(c) for c in CASES}
     g["ladder"] = RX.ladder(g["design"]["mid"])
     g["path_years"] = ST.critical_path_years()
     g["n_studies"] = len(ST.STUDIES)
@@ -192,6 +196,19 @@ def render(g):
     a("for itself after the bonds only at a price above the band, and the critical case is the threshold")
     a("the design is held to. A plant designed to mid has no margin; this document does not offer one.")
     a("")
+    a("**The security behind the rate (F-19).** The 3.85 % is a general-obligation or contracted-revenue")
+    a("rate; the security is contracted in-state offtake at the required price with a state GO backstop")
+    a("for the first-of-kind rungs. Priced to each security, with the register:")
+    a("")
+    a("| security | rate | mid, $/MWh ($/household) | critical, $/MWh ($/household) |")
+    a("|---|---|---|---|")
+    for (name, r, pm, hm), (_n, _r, pc, hc) in zip(g["rates"]["mid"], g["rates"]["critical"]):
+        a(f"| {name} | {100 * r:.2f} % | {pm:.0f} ({hm:,.0f}) | {pc:.0f} ({hc:,.0f}) |")
+    a("")
+    a("**The mechanism behind the tariff (F-10).** The $0.00/kWh of v0.1 is replaced by the household bill")
+    a(f"above, an output of the balance: {T1.MECHANISM}. A free tariff is a subsidy paid by someone, and this")
+    a("program names no one to pay it.")
+    a("")
     a("## 6. The risks and their mitigation")
     a("")
     a("Sixteen rows, graded before and after, each carried by a named part of the build, each DESIGN")
@@ -226,6 +243,20 @@ def render(g):
     a(f"| price, $/MWh | {g['delay']['mid']['delta_price']:.1f} | {g['delay']['critical']['delta_price']:.1f} |")
     a(f"| household, $/yr | {g['delay']['mid']['delta_hh']:.0f} | {g['delay']['critical']['delta_hh']:.0f} |")
     a("")
+    a("**The schedule (F-24).** The ladder dated from the 2028–2030 groundbreaking, each bond tranche")
+    a("following a rung that has been passed at its critical figure; the pilot and the first node's field")
+    a("run in parallel. Direct cost by rung:")
+    a("")
+    a("| rung | years | mid, $B | critical, $B |")
+    a("|---|---|---|---|")
+    for (name, y0, y1, am), (_n, _y0, _y1, ac) in zip(g["tranches"]["mid"][0], g["tranches"]["critical"][0]):
+        a(f"| {name} | {y0:.0f}–{y1:.0f} | {am / 1e3:.2f} | {ac / 1e3:.2f} |")
+    a("")
+    a("**Transmission (F-09).** The export is negative (F-01), so no firm export right is needed. The in-state")
+    a(f"gen-tie per node at the closed sizing peaks at {g['gentie']['mid']['per_node']:,.0f} MW (mid) / {g['gentie']['critical']['per_node']:,.0f} MW (critical) from the")
+    a(f"hour-by-hour, {g['gentie']['mid']['circuits']:.2f} / {g['gentie']['critical']['circuits']:.2f} of one 500 kV circuit, priced in the switchyard line at")
+    a(f"${g['gentie']['mid']['switchyard_m']:,.0f} / ${g['gentie']['critical']['switchyard_m']:,.0f} M. The interconnection study is the Authority's to file and no authority shortens it.")
+    a("")
     a("## 8. What v0.2 does not settle")
     a("")
     a("- The route for the season — mirrors or water — is Title III's decision, and the water side has")
@@ -234,8 +265,9 @@ def render(g):
     a("  move that factor either way.")
     a("- The receiver's critical figure and the dome's verdict are what the pilot aperture measures;")
     a("  until it has run, the critical column is the design basis.")
-    a("- Transmission, the tariff, the bond rate and the schedule (F-09, F-10, F-19, F-24) are open in")
-    a("  `FLAWS.tsv` and are not changed by anything above.")
+    a("- The remaining open rows of `FLAWS.tsv` are Title II's process items (F-13, F-15, F-26 to F-28,")
+    a("  F-35, F-36), the joinder itself (F-31), and the minor rows; transmission, the tariff, the bond")
+    a("  rate and the schedule are settled above as positions with a price, not as witnesses.")
     a("")
     a("*Rendered by `tools/rebase.py`; do not edit by hand. Re-render after any change to the instruments.*")
     return "\n".join(L) + "\n"
@@ -262,6 +294,7 @@ def selftest():
     check("the document says it carries no number the instruments did not compute", "carries no number they did not compute" in text)
     check("the document does not offer a mid-only design", "does not offer one" in text)
     check("every register row is printed", all(r[0] in text for r in H3.REGISTER))
+    check("the rate table, the schedule and the gen-tie appear", "F-19" in text and "F-24" in text and "F-09" in text)
     check("Title II's module and water price appear beside the water route",
           f"| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | {g['aqua']['mid']['per_af']:,.0f} |" in text)
     check("the receiver's field factor is against the chain's own link, not against itself",
