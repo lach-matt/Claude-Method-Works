@@ -6804,7 +6804,49 @@ field values."* A **scaling estimate**, not a derivation — `N_n` is schematic.
 > running out within one order of the Planck length, with `Λ` in all three closed forms. **The obstruction
 > is not any one mechanism's limitation — the magnitude gate and the Planck scale are the same gate.**
 
+---
+
+## `planckcell.py` — the framework, asked to specify itself, answers
+
+> M: *"the solution is to not find another framework, but instead build it from what this current
+> framework says it needs to be."*
+
+`candidates.py` found three unrelated mechanisms all running out within one order of the Planck length and
+read it as an **obstruction**. **Read as a specification it is an instruction.** Every gate is a statement
+about one length; every previous pass *picked* an `R` and watched the gates fail. Solve for `R`:
+
+**`R = ℓ_P`  ·  `τ = ℓ_P/c` (one Planck time)  ·  `E = E_Planck/Λ = 195.95 MJ`**
+
+54.43 kWh. 46.8 kg of TNT. *After seventy orders of shortfall, a purchase-order number.*
+
+**And it passes all three gates — the first thing in this project that has.** Magnitude clears by a factor
+of `Λ = 9.98`; the deadline clears so completely that no CTC can form at any separation; and it sits at
+exactly `2/Λ = 0.200350028` of a Planck black hole with the margin intact — **untuned**, the same collapse
+identity evaluated at the length the gates chose.
+
+**Then it turns.** It buys **one Planck length**. The energy is small because the output is small. And
+cells tile exactly — 1 m is `6.1871e34` cells totalling `1.212374e43 J`, which is precisely the closed
+form, because **the exchange rate is scale-invariant**. Tiling passes every gate cell by cell and moves
+the bill by nothing.
+
+> **Which is the result.** All 53 recorded obstructions are about the **mechanism**. The framework's own
+> specification dissolves them and leaves the bill where it was. **The seventy orders were never a
+> mechanism problem** — they are `c⁴/(GΛ) = 1.21e43 J/m`, three of whose four symbols are constants of
+> nature. The fourth, Λ, is logarithmic in the geometry: one metre at world-annual-energy needs
+> `Λ = 2.02e23` and `R_s/b > 1e300`. **The only lever is shut, and it was never the mechanism's fault.**
+
+**Not claimed:** that this is transport (a gate-passing configuration is not a drive); that a Planck cell
+is buildable (every gate is stated in a theory that *fails* at this scale — the 196 MJ is what the
+framework says, not what a laboratory would pay); that any obstruction moved (`obstruct.py` unchanged at
+53, deliberately).
+
 ### Seated
+- `planckcell.py` — new. `index3.py` — **508 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H38** with five
+  sub-sections and its own not-claimed list. `obstruct.py` — **unchanged**.
+
+---
+
+### Seated (candidates.py)
 - `candidates.py` — extended to **four candidates**. `index3.py` — **503 findings**, `E(X) = 0`; the two full-list roster fixtures
   replaced by **count + md5 digest** (same strength — any add, drop or swap moves the digest — with a
   one-line failure instead of a thousand-name diff — and it earned itself immediately, catching the

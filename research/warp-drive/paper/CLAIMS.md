@@ -2290,6 +2290,94 @@ should not be expected to behave differently.
 
 ---
 
+## ★★★ H38 — the framework, asked to specify itself, answers. **Every gate closes.**
+
+> M: *"the solution is to not find another framework, but instead build it from what this current
+> framework says it needs to be."*
+
+**H37g** found three unrelated mechanisms all running out within one order of the Planck length and read
+it as an *obstruction*. **Read as a specification it is an instruction.**
+
+### H38a — solve the gates for R instead of assuming it
+
+Every gate is a statement about **one length**. Every previous pass *picked* an `R` — a nanometre, a
+metre — and watched the gates fail. Solving for `R`:
+
+| | |
+|---|---|
+| `R` | `ℓ_P` = **1.616255e-35 m** |
+| `τ` | `ℓ_P/c` = **5.391246e-44 s** — one Planck time |
+| `E` | `E_Planck/Λ` = **1.959505e8 J** |
+
+**That energy is 195.95 megajoules.** 54.43 kWh. The chemical energy of 46.8 kg of TNT. The rest mass of
+2.18 nanograms. *After seventy orders of shortfall, a purchase-order number.*
+
+### H38b — and it passes. All three.
+
+- **MAGNITUDE**: shortfall at `R = ℓ_UV = ℓ_P` is `1/Λ = 0.100175` — **passes with a factor of Λ in hand**.
+- **DEADLINE**: `τ` = one Planck time against a CTC loop of `2R/c = 1.078e-43 s`. **H35**'s state-splitting
+  never arises — the array cannot host a closed timelike curve at any separation.
+- **KIND**: supplied by **H37f**, the one candidate whose shortfall was a pure number — and at this `R`
+  that number is below one.
+
+And it sits exactly where **H31** says it should: `E_t/E_kugelblitz = 0.200350028 = 2/Λ`, margin
+`Λ/2 = 4.9913` intact. **Nothing was tuned** — the same identity, at the length the gates chose.
+
+### H38c — what it buys, and where it turns
+
+**`Δd = 1.616255e-35 m`.** One Planck length. *The energy is small because the output is small.* There is
+no discount hiding in the Planck scale, only a very small purchase.
+
+### H38d — tiling is exactly neutral
+
+`Δd` is linear in `M`, so cells tile:
+
+| target | cells | tiled | closed form |
+|---|---|---|---|
+| 1 fm | `6.1871e19` | `1.2124e28 J` | `1.2124e28 J` |
+| 1 m | `6.1871e34` | `1.212374e43 J` | `1.212374e43 J` |
+
+> **The exchange rate is scale-invariant. Tiling passes every gate cell by cell and moves the bill not at
+> all.**
+
+### H38e — which relocates the project
+
+Every one of `obstruct.py`'s **53** recorded obstructions is about the **mechanism**. The framework's own
+specification dissolves all of them and leaves the bill exactly where it was.
+
+> **The seventy orders were never a mechanism problem.** They are `c⁴/(GΛ) = 1.2123737e43 J/m`, and three
+> of its four symbols are constants of nature.
+
+And the fourth is shut. `Λ = 2[ln(2R_s/b) − 1]` is **logarithmic** in the geometry:
+
+| to make 1 m cost | needs Λ | needs `R_s/b` |
+|---|---|---|
+| world annual energy | `2.0171e23` | `> 1e300` |
+| a one-megaton bomb | `1.2103e29` | `> 1e300` |
+| one kilowatt-hour | `3.3618e37` | `> 1e300` |
+
+Even `Λ = 100` needs `R_s/b = 7.05e21` — and the shell must exceed the corridor by that factor, while the
+corridor is what you are trying to travel down. **The only lever is shut, and it was never the mechanism's
+fault.**
+
+### What is **not** claimed — and this matters more than any of the above
+
+- **This is not transport.** One Planck length for 196 MJ is a gate-passing *configuration*, not a drive.
+  Nothing here moves anything anywhere.
+- **A Planck cell is not shown to be buildable.** Every gate is stated in a theory **H37** showed *fails*
+  at this scale. The 196 MJ is **what the framework says, not what a laboratory would pay**.
+- **No obstruction moves.** `obstruct.py` is unchanged at 53, deliberately. A specification that satisfies
+  constraints is not a demonstration that those constraints were binding — and **H38e** is precisely the
+  finding that they were not.
+
+| | `planckcell.py` |
+|---|---|
+| status | **DERIVED** (the gates solved for `R`; tiling neutrality; the Λ lever) + **MEASURED** (196 MJ; the collapse ratio untuned at `d = ℓ_P`; scale-invariance over 21 decades) |
+| new? | the first configuration in this project to pass **every** gate — and the finding that passing them costs nothing and changes nothing |
+| **not** claimed | transport; buildability; that any obstruction moved |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
