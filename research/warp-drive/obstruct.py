@@ -14,9 +14,9 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of fifty-two obstructions, SIX dissolved, FOUR relocated,
-THIRTY-TWO closed negative, NINE conditional, ONE is OPEN, NONE is untested.
-The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
+THE HEADLINE: of fifty-three obstructions, SIX dissolved, FOUR relocated,
+THIRTY-THREE closed negative, NINE conditional, ONE is OPEN, NONE is untested.
+The newest is LIGHT-AS-THE-SUPPLY, closed NEGATIVE at both ends at once.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
 The counts here are asserted by the selftest against the ledger, so a row that
@@ -647,6 +647,27 @@ LEDGER = [
   "length it does not sustain. What actually seats is CUMULATIVE WEAK-FIELD "
   "LENSING, f = b^2 c^2/(4 G M), validated against the solar focus at 547.6 AU "
   "-- which is gravitational lensing, ordinary and known since 1919", "spec.py"),
+
+ ("LIGHT-AS-THE-SUPPLY", "supply the transition's energy as confined light",
+  "CLOSED-NEGATIVE",
+  "and it closes at BOTH ends, which is why the Lambda/2 margin does not "
+  "rescue it. The transition's own energy is E_t(d) = d c^4/(G Lambda), and "
+  "E_t/E_kugelblitz = 2/Lambda = 0.2003500 EXACTLY at every d (residual "
+  "2.776e-17 over 31 decades), so contracting d costs 20.035 % of the energy "
+  "that makes a horizon of radius d and the design margin is Lambda/2 = 4.99. "
+  "BUT THE CONFINING FIELD GOES AS THE SQUARE ROOT OF THE ENERGY: u = eps0 "
+  "|E|^2 gives E_field(transition)/E_field(kugelblitz) = sqrt(2/Lambda) = "
+  "0.4476048 at every radius, so 4.99 in energy is 2.234 in field. Each "
+  "crosses the Schwinger limit 1.323e18 V/m once -- kugelblitz at 9.6528e8 m, "
+  "transition at 4.3206e8 m, ratio exactly sqrt(Lambda/2). SMALL END: "
+  "arXiv:2405.02389 closes light-to-horizon by Schwinger dissipation over "
+  "1e-29 m to 1e8 m, and 1e8 < 4.32e8, so the whole of that band is inside "
+  "the transition's block too; the lab shortfall is >50 orders. LARGE END: at "
+  "4.32e8 m the field is finally sub-Schwinger and the energy is 5.238e51 J = "
+  "29,303 SOLAR MASSES, at 3.635e51 W over one light-crossing = 3.6e10 "
+  "brightest-quasars. NO WINDOW BETWEEN THEM. Distinct from "
+  "EVERY-EM-FIELD-OBEYS-NEC, which closes light as the LEAD by a theorem: "
+  "this row closes light as the SUPPLY, by a number", "lightbuild.py"),
 ]
 
 def by_status():
@@ -814,10 +835,15 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 52)
+    chk("obstructions tracked", len(LEDGER), 53)
+    # A new row was first written under a name the ledger already held
+    # (LIGHT-AS-THE-SOURCE, light.py).  The counts all passed and the report
+    # printed the name twice.  Nothing else in this file keyed on the id, so
+    # the collision was silent.  Asserted from here on.
+    chk("every row id is unique", len({r[0] for r in LEDGER}), len(LEDGER))
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 32)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 33)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 9)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",

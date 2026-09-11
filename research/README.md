@@ -6401,3 +6401,113 @@ light:
   `obstruct.py` — **52 rows**, new `LIGHT-LATTICE` and `INFINITE-CYLINDER-EXISTS`, **32 closed-negative**.
   `index3.py` — **470 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H30** and two additions to the
   not-claimed list.
+
+---
+
+## `lightbuild.py` — the transition equation rebuilt in light: the collapse identity, and what a factor of five buys
+
+> *"now that we have this, let's go back to the math and figure out how my warp transition theory can be
+> built to work with light."*
+
+The constructive pass. `light.py` and `lattice.py` were both refusals; this one takes the refusals as
+given and builds what is left. Three results, and the middle one is **new mathematics about the
+transition equation** rather than a literature reading.
+
+### 1. The seat/lead split answers the light question, and answers it unevenly
+
+| half | what it does | light | why |
+|---|---|---|---|
+| **seat** | holds the corridor open — **free** | **passes** | positive energy, focuses the right way, every energy condition met; `M_ADM` a free parameter |
+| **lead** | does the contracting — **the whole cost** | **fails, as a theorem** | needs `ρ < 0`; `lattice.py`: `T_μν k^μ k^ν = V·V ≥ 0` for every classical `F` |
+
+**And more power makes it worse.** Scaling `F` by `s` scales `T_μν k^μ k^ν` by `s²`, *upward* — measured
+(1.93 → 94.57 at `s = 7`). **Light is an excellent seat and a forbidden lead: every joule spent on it
+goes to the side of the ledger that was never the problem.**
+
+### 2. The collapse identity — exact, at every scale
+
+Read `Δd = (G/c²)MΛ` as an energy and compare it with the energy that makes a horizon of the same size:
+
+```
+E_transition(d) = d c⁴/(G Λ)        E_kugelblitz(d) = d c⁴/(2G)
+
+        E_transition(d) / E_kugelblitz(d)  =  2/Λ  =  0.20035002804400565
+```
+
+**Independent of `d`.** Measured over thirty-one decades, `1e−15 m` to `1e15 m`: worst residual
+`2.776e−17`, one unit in the last place. And at the Planck length it collapses further —
+`E_transition(ℓ_P) = E_Planck/Λ`, exactly.
+
+> **Contracting a distance `d` costs 20.035 % of the energy that makes a black hole of radius `d`, at
+> every scale at once.** That is why `COLLAPSE` keeps binding across `obstruct.py` — it is structural,
+> not a feature of some design point.
+
+**The design margin is the inverse, `Λ/2 = 4.9912645871`** — the whole headroom before a corridor is a
+horizon, and every inefficiency, fill factor and duty cycle spends out of that one number.
+
+| contract by | `E_transition` | equivalent mass | world-years |
+|---|---|---|---|
+| 1 fm | `1.2124e28 J` | `1.3489e11 kg` | `2.02e7` |
+| 1 nm | `1.2124e34 J` | `1.3489e17 kg` | `2.02e13` |
+| 1 mm | `1.2124e40 J` | `1.3489e23 kg` | `2.02e19` |
+| 1 m | `1.2124e43 J` | `1.3489e26 kg` | `2.02e22` |
+
+### 3. A factor of 4.99 in energy is a factor of 2.23 in radius
+
+Álvarez-Domínguez, Garay, Martín-Martínez & Polo-Gómez (arXiv:2405.02389, *No black holes from light*)
+close light-to-horizon by Schwinger dissipation over `1e−29 m ≲ R ≲ 1e8 m`. Their numbers re-derived
+here: Schwinger field `1.323e18 V/m`, `φ = 1.806e27 V`, threshold `fR = 5.211e82 W/m`, `6.549e83 W` at
+`R = 1 m`, pair length `/R = 2.829e−22` — against a best laboratory field of `1e15 V/m` and the brightest
+quasar at `1e41 W`.
+
+The transfer is lossy in the wrong direction, because `u = ε₀|E|²`:
+
+```
+        |E|_transition / |E|_kugelblitz  =  sqrt(2/Λ)  =  0.4476047677
+```
+
+at every radius (measured at six, `1e−15 m` to `1e8 m`).
+
+| | Schwinger crossing |
+|---|---|
+| kugelblitz | `9.6528e8 m` |
+| transition | `4.3206e8 m` |
+| ratio | `2.234114` = **exactly** `√(Λ/2)` |
+
+**Both ends close on each other.** Small enough for the field to be reachable is impossible — the whole
+blocked band is inside the transition's block too, since `1e8 < 4.32e8`. Large enough to be sub-Schwinger
+is impossible — at `4.3206e8 m` the energy is `5.238e51 J` = **29,303 solar masses**, delivered over one
+light-crossing at `3.635e51 W` = `3.6e10` brightest-quasars.
+
+> **The margin bought a factor of two and changed neither end.**
+
+### 4. The one freedom light has that mass does not
+
+**Parallel null congruences do not focus each other — exactly zero, not weakly** (Tolman–Ehrenfest–
+Podolsky 1931; Wheeler; arXiv:1009.3849). Derived here rather than cited: the field of a null source is
+an impulsive pp-wave supported on `u = t − z = const`, and a parallel ray keeps `u` **constant**, so it
+never crosses the wavefront. Measured: 0 crossings parallel, 1 antiparallel; `T_μν k^μ k^ν = 0` against a
+co-moving ray and `4.0` against a counter-moving one — **the zero is the geometry, not a vanishing
+field**.
+
+Two masses always attract. Two beams attract or do not according to their **relative propagation
+direction** — a sign-and-magnitude knob with no matter analogue. But its range is **zero to positive**:
+the parallel case *is* `lattice.py`'s equality case, the theorem's boundary and not a breach.
+
+> **The knob turns the seat off and cannot turn the lead on.** Still worth having: a seat you can switch
+> off *geometrically*, by reorienting a beam rather than by removing energy.
+
+### A fault caught this pass
+The new obstruction row was first written as `LIGHT-AS-THE-SOURCE` — a name `obstruct.py` already held
+for `light.py`'s row. **Every count assertion passed** and the report printed the name twice, because
+nothing in the file keyed on the id. Renamed `LIGHT-AS-THE-SUPPLY` (`light.py` closes light as the
+**lead**, by a theorem; `lightbuild.py` closes it as the **supply**, by a number) and a uniqueness assert
+added. Seated as `DUP-ID-CAUGHT`.
+
+### Seated
+- `lightbuild.py` — new. `obstruct.py` — **53 rows**, new `LIGHT-AS-THE-SUPPLY`, **33 closed-negative**,
+  plus a row-id uniqueness assert. `index3.py` — **474 findings**, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H31** with three sub-sections, and three additions to the not-claimed list.
+- **Open, and named:** whether a **non-classical** light field changes §1. The theorem is about the
+  *classical* Maxwell stress tensor; squeezed vacuum is held by `neclab.py`. This pass does not extend
+  to it and does not claim to.

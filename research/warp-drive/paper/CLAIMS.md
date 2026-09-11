@@ -1654,6 +1654,98 @@ strings and the CTC never forms.
 
 ---
 
+## ★★★ H31 — the **collapse identity**: `E_transition(d)/E_kugelblitz(d) = 2/Λ`, exactly, at every `d`
+
+**H31. Read `Δd = (G/c²)MΛ` as an energy, `E_transition(d) = dc⁴/(GΛ)`, and compare it with the energy
+that makes a Schwarzschild horizon of radius `d`, `E_kugelblitz(d) = dc⁴/(2G)`. Both are `(c⁴/G)` times a
+length, so their ratio is a pure number:**
+
+$$\frac{E_{\text{transition}}(d)}{E_{\text{kugelblitz}}(d)} \;=\; \frac{2}{\Lambda} \;=\; 0.200350028044\ldots \qquad\text{independent of } d$$
+
+Measured over thirty-one decades, `1e−15 m` to `1e15 m`: worst residual `2.776e−17` — **one unit in the
+last place**. The `d` cancels algebraically; the measurement only confirms there is no hidden scale.
+
+**Contracting a distance `d` costs 20.035 % of the energy that makes a black hole of radius `d`, at every
+scale at once.** This is why `COLLAPSE` keeps binding across `obstruct.py`: it is not a coincidence of
+some particular design point but a structural feature of the equation.
+
+**And at the Planck length it collapses further:** `E_transition(ℓ_P) = E_Planck/Λ`, exactly. `Λ` is not
+merely a coefficient in the contraction law — it is the factor relating the transition's natural quantum
+of energy to the Planck energy.
+
+**The design margin is the inverse, `Λ/2 = 4.9912645871`** — the entire headroom before the same region
+of space holds enough to be a horizon rather than a corridor. Every inefficiency, fill factor, duty cycle
+and confinement loss spends out of that one number. *A factor of five is a tighter budget than any
+machine humans have built runs on.*
+
+### H31a — light is an excellent **seat** and a forbidden **lead**
+
+The device splits (`reverse.py`, `apply.py`) into a **seat** — holds the corridor open, ordinary matter,
+every energy condition satisfied, `M_ADM` a free parameter, **costs nothing exotic** — and a **lead**,
+which does the contracting, **is the whole cost**, and requires `ρ < 0` (derived by PMT rigidity, not
+assumed). Light against each half:
+
+| half | light | why |
+|---|---|---|
+| **seat** | **passes** | positive energy density, focuses a null congruence the right way, carries momentum flux |
+| **lead** | **fails, as a theorem** | **H30**: `T_μν k^μ k^ν = V·V ≥ 0` for *every* classical EM field |
+
+**And more power makes it worse, not better** — scaling `F` by `s` scales `T_μν k^μ k^ν` by `s²`,
+*upward*; measured. **Every joule spent on light goes to the side of the ledger that was never the
+problem.**
+
+### H31b — the margin degrades by a **square root**, and the kugelblitz block survives it
+
+Álvarez-Domínguez, Garay, Martín-Martínez & Polo-Gómez (arXiv:2405.02389) close light-to-horizon by
+Schwinger dissipation over `1e−29 m ≲ R ≲ 1e8 m`. Their figures, re-derived here rather than quoted:
+Schwinger field `1.323e18 V/m`; `φ = √(3c⁴/4πε₀G) = 1.806e27 V`; threshold `fR = 5.211e82 W/m`;
+`6.549e83 W` at `R = 1 m`; pair-formation length `/R = 2.829e−22`. Against a best laboratory field of
+`1e15 V/m` and the brightest quasar at `1e41 W`.
+
+**The transfer onto the transition is lossy in the wrong direction, because `u = ε₀|E|²`:**
+
+$$\frac{|E|_{\text{transition}}}{|E|_{\text{kugelblitz}}} \;=\; \sqrt{2/\Lambda} \;=\; 0.4476047677 \qquad\text{at every radius}$$
+
+**A factor of 4.99 in energy is a factor of 2.234 in field.** Each crosses the Schwinger limit once:
+
+| | Schwinger crossing radius |
+|---|---|
+| kugelblitz | `9.6528e8 m` |
+| transition | `4.3206e8 m` |
+| ratio | `2.234114` = **exactly** `√(Λ/2)` |
+
+**Both ends close on each other.** *Small* enough for the field to be reachable is impossible — the whole
+of the paper's blocked band lies inside the transition's block too, since `1e8 < 4.32e8`. *Large* enough
+to be sub-Schwinger is impossible — at `4.3206e8 m` the energy is `5.238e51 J` = **29,303 solar masses**,
+delivered over one light-crossing at `3.635e51 W` = `3.6e10` brightest-quasars. **The margin bought a
+factor of two and changed neither end.**
+
+### H31c — the one freedom light has that mass does not
+
+**Parallel null congruences do not focus each other — exactly zero, not weakly** (Tolman–Ehrenfest–
+Podolsky 1931; Wheeler; arXiv:1009.3849). The mechanism is derived here, not cited: the field of a null
+source is an impulsive pp-wave supported on `u = t − z = const`, and a parallel ray keeps `u` **constant**
+along its worldline, so it never crosses the wavefront. Measured: 0 wavefront crossings parallel, 1
+antiparallel; `T_μν k^μ k^ν = 0` for a null plane wave against a co-moving ray and `4.0` against a
+counter-moving one — so **the zero is the geometry, not a vanishing field**.
+
+Two masses always attract. **Two beams attract or do not according to their relative propagation
+direction** — a sign-and-magnitude knob with no matter analogue. But its range is **zero to positive**:
+the parallel case *is* **H30**'s equality case (`V` parallel to `k`), the theorem's boundary and not a
+breach of it.
+
+> **The knob turns the seat off and cannot turn the lead on.** That is still worth having — a seat you
+> can switch off *geometrically*, by reorienting a beam rather than by removing energy, is control
+> authority the matter architecture does not offer.
+
+| | `lightbuild.py` |
+|---|---|
+| status | **PROVEN** (the collapse identity; `E_t(ℓ_P) = E_P/Λ`; the field square-root; the pp-wave crossing argument) + **MEASURED** (31 decades in `d`; six radii; `s²` scaling; Schwinger figures re-derived) + **CITED** (arXiv:2405.02389; arXiv:1009.3849) |
+| new? | the collapse identity and its Planck form are **new here** — statements about M's own equation that this project did not hold before this pass |
+| **not** claimed | that light is the wrong material — it is the right material for the half that was already free; that a **non-classical** light field is covered — **H30** is about the *classical* Maxwell stress tensor, and squeezed vacuum is held open by `neclab.py`; that the 2024 bound is re-derived in full — its five approximations are taken as stated, all of which its authors argue *underestimate* the dissipation |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1803,3 +1895,9 @@ strings and the CTC never forms.
   that destroys it — one soft photon suffices, and space is full of them. See **H30**.
 - **That having an infinite cylinder answers the finiteness objection.** The axis requires an infinite
   *naked line singularity*, and anything near one dies in proper time ≈1.3R.
+- **That the `Λ/2 = 4.99` margin escapes the kugelblitz block.** The confining field goes as `√E`, so
+  4.99 in energy is 2.234 in radius. The blocked band is unescaped. See **H31b**.
+- **That light can supply the transition's energy as a confined configuration.** It closes at both ends —
+  super-Schwinger below `4.32e8 m`, 29,303 solar masses above it. See **H31b**.
+- **That parallel beams not focusing is a route to `ρ < 0`.** The knob runs from zero to positive; zero is
+  the theorem's equality case. See **H31c**.
