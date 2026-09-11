@@ -7774,6 +7774,62 @@ region rather than a chosen destination.
 
 ---
 
+## `emtension.py` — EM *is* a tension, exactly, and the exactness is forced.
+
+> M: *"The tension which opens the throat as a permeable membrane is the separation of energy by way of
+> EM … the act of splitting a singularity into a black hole and its entangled wormhole."* · *"The EM
+> itself is a tension applied to a singularity."*
+
+**Four clauses. Three land.**
+
+**THE FIELD IS A TENSION, AND IT IS NOT AN ANALOGY.** Build `T` from `F` in **flat space** — no metric,
+no charge, no Einstein equation — and `T^μ_ν = ρ·diag(−1,−1,+1,+1)` at every field strength (E = 0.1, 1,
+3.7, 100, 10⁶): **radial tension of magnitude exactly `ρ`**, tangential pressure exactly `ρ`, traceless,
+**`w = −p_r/ρ = 1.0000000000` every time**. And it is **forced by a symmetry**: a static radial field has
+`F_tr` alone, so `F` is the **volume form of the `t–r` plane**, `T` is boost-invariant there, `T^t_t =
+T^r_r`, `w = 1`. That is `cubic.py`'s `T² ∝ I` seen as an equation of state instead of an algebra.
+
+**THREE ROUTES, ONE NUMBER.** `membrane.py`'s domain-wall DEC threshold is `w = 1`. The Simpson–Visser
+throat's own equation of state — computed here, formula validated against exact Schwarzschild vacuum and
+Reissner–Nordström's `ρ = Q²/8πr⁴` to fourteen digits — saturates at **`w = 1.000000000` exactly at
+`a = 2M`**, which `orient.py` showed is **exactly where the horizon vanishes and the throat turns
+traversable** (`w` = 0.1429, 0.3333, 0.6000, 0.9048 below it, NEC satisfied and throat hidden; 1.1053,
+3.0000 above it, NEC violated and horizon gone). **`membrane.py` asked what "the right tension" is. The
+answer is the horizon — and also, exactly, electromagnetism.**
+
+**CHARGE SPLITS THE HORIZON — BUT NOT INTO A THROAT.** Reissner–Nordström: **one** horizon at `Q = 0`,
+**two** for `0 < Q < M` (0.046/1.954, 0.200/1.800, 0.564/1.436), **merged** at `Q = M`, **none** above.
+The splitting is real and EM drives it. But `R_c = r`, so **`dR_c/dr = 1` identically at every charge**
+and `definitions.py`'s spine never returns THROAT. **EM splits horizon → two horizons → naked; not
+horizon → throat.** The mechanism does what M says to the horizon and produces the wrong second object.
+
+**AND THE OBSTRUCTION IS THE FIRST RESULT TURNED AROUND.** Opening a throat needs `w > 1`. Linear
+minimally-coupled EM delivers **exactly 1, always**, pinned by the field's own symmetry.
+
+> **The field sits precisely on the line it would have to cross.**
+
+`switch.py` measured `|T(F) − T(−F)| = 0` and said the switch does nothing. **This says why**: not that
+the field is short of the boundary but that it is **on** it, held there by the same invariance that makes
+it electromagnetism. The one published route past is **non-minimal coupling** (arXiv:2608.08208) — `ξ ≠ 0`,
+outside GR, **`wormhole.py`'s `SCOPE_CHOSEN_HERE = None`**, the **third assertion in a row** to land on
+that flag. The entanglement clause the tree already holds: **ER = EPR's bridge is not traversable**, and
+`gjw.py` prices the boundary coupling that opens one.
+
+**A FOURTEENTH FAULT, IN THE TEST RATHER THAN THE MEASUREMENT.** The first validation fed `f = 1 − b₀/r`
+with `R = r` and called it Morris–Thorne — but **that metric is Schwarzschild** with `M = b₀/2`. The code
+returned zero because the input *was* vacuum; the error was in the expected value. **Had I trusted the
+failing test I would have broken working code** — a wrong measurement gives a wrong answer, *a wrong test
+corrupts a right one*. Replaced with Reissner–Nordström, and **the replacement handed the pass its main
+result**, because the available validation metric *is* the electromagnetic one. The fix produced the finding.
+
+### Seated
+- `emtension.py` — new. `index3.py` — **588 findings**, 16 occupied cells, `E(X) = 0`; both positive
+  findings coded `(+1,0,+1)` **up front — the triple-cell bias caught in advance rather than walked back**.
+  `paper/CLAIMS.md` — **H61**. `switch.py` and `membrane.py` — **sharpened here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

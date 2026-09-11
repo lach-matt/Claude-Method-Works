@@ -4437,6 +4437,110 @@ while the file itself carried the negative verdict on directive 2. **That is a b
 
 ---
 
+## ★★★ H61 — the tension. **EM *is* a tension, exactly, and the exactness is forced.**
+
+> M: *"The tension which opens the throat as a permeable membrane is the separation of energy by way of
+> EM, which is the act of splitting a singularity into a black hole and its entangled wormhole."* ·
+> *"The EM itself is a tension applied to a singularity."*
+
+**Four clauses. Three land.**
+
+### H61a — the field is a tension, and it is not an analogy
+
+Build `T` from `F` in **flat space** — no metric, no charge, no Einstein equation:
+
+| `E` | 0.1 | 1.0 | 3.7 | 100 |
+|---|---|---|---|---|
+| `ρ` | 0.005000 | 0.500000 | 6.845000 | 5000.000000 |
+| `p_r` | −0.005000 | −0.500000 | −6.845000 | −5000.000000 |
+| `p_t` | +0.005000 | +0.500000 | +6.845000 | +5000.000000 |
+| **`w = −p_r/ρ`** | **1.0000000000** | **1.0000000000** | **1.0000000000** | **1.0000000000** |
+
+> **`T^μ_ν = ρ·diag(−1, −1, +1, +1)`** — energy density `ρ`, **radial tension of magnitude exactly `ρ`**,
+> tangential pressure exactly `ρ`, traceless.
+
+**And it is forced by a symmetry.** A static radial field has `F_tr` as its only component, so `F` is
+proportional to the **volume form of the `t–r` plane** — making `T` boost-invariant there, forcing
+`T^t_t = T^r_r`, i.e. `p_r = −ρ`, i.e. **`w = 1`**. Tracelessness then fixes `p_t = +ρ`. No freedom left.
+
+This is **H53**'s `T² = (Tr T²/4)·I` from the other side — the same rigidity, as an equation of state
+rather than an algebra.
+
+### H61b — three routes, one number
+
+| route | | |
+|---|---|---|
+| **H55c** — a domain wall's DEC threshold | `w = 1` | *"the right tension"* |
+| the extremal Simpson-Visser throat | `w = 1` | at **`a = 2M`**, where **H60c**'s horizon vanishes |
+| the electromagnetic field, always | `w = 1` | forced by symmetry |
+
+The throat's own equation of state, computed here (formula validated first: Schwarzschild returns exact
+vacuum; Reissner–Nordström reproduces `ρ = Q²/8πr⁴` to fourteen digits):
+
+| `a/M` | 0.5 | 1.0 | 1.5 | 1.9 | **2.0** | 2.1 | 3.0 |
+|---|---|---|---|---|---|---|---|
+| `w` | 0.142857 | 0.333333 | 0.600000 | 0.904762 | **1.000000000** | 1.105263 | 3.000000 |
+| NEC | satisfied | satisfied | satisfied | satisfied | **SATURATED** | violated | violated |
+
+> **`membrane.py` asked what "the right tension" is. The answer is the horizon** — `w = 1` is the exact
+> locus where a horizon becomes a traversable throat. **And it is also, exactly, electromagnetism.**
+>
+> Three files, three questions, none looking for the other two.
+
+### H61c — charge splits the horizon, but not into a throat
+
+| `Q/M` | 0 | 0.3 | 0.6 | 0.9 | 1.0 | > 1 |
+|---|---|---|---|---|---|---|
+| horizons | **one** (2.000000) | 0.046061 / 1.953939 | 0.200000 / 1.800000 | 0.564110 / 1.435890 | **merged** | **none — naked** |
+
+**The splitting is real and EM drives it.** Charge takes one horizon, makes it two, then destroys both.
+
+> **But `R_c = r` in Reissner–Nordström, so `dR_c/dr = 1` identically at every charge** — **H59b**'s spine
+> never returns THROAT for it, at any `Q`.
+>
+> **EM splits horizon → two horizons → naked. It does not split horizon → throat.**
+
+The mechanism exists, does what M says to the horizon, and **produces the wrong second object.**
+
+### H61d — and the obstruction is H61a turned around
+
+Opening a throat needs **`w > 1`** — measured in H61b. Linear minimally-coupled electrodynamics delivers
+**exactly 1, always**, pinned there by a symmetry of the field rather than by any bound imposed on it.
+
+> **The field sits precisely on the line it would have to cross.**
+
+That is **H54** sharpened past recognition. That claim measured `|T(F) − T(−F)| = 0` and concluded the
+switch does nothing. **This says why** — not that the field is far from the boundary, but that **it is
+on it**, held there by the same `t–r` boost invariance that makes it electromagnetism. *A mechanism
+cannot be nudged past a threshold it saturates identically.*
+
+**The one published route past is non-minimal coupling** — arXiv:2608.08208, a black bounce sourced by
+**non-minimally coupled** linear electrodynamics and a canonical scalar. Non-minimal is `ξ ≠ 0`, coupling
+to curvature, **outside GR** — `wormhole.py`'s `SCOPE_CHOSEN_HERE = None`, **H57b**'s single DECISION-grade
+gap. **Third assertion in a row to land there**, this time arriving from the equation of state.
+
+**The entanglement clause the tree already holds:** ER = EPR's bridge **is not traversable** — entanglement
+alone opens nothing — and `gjw.py` holds the version that is, via a **direct boundary coupling**, an
+external causal path, already priced there.
+
+### H61e — a fourteenth fault, in the test rather than the measurement
+
+The first validation fed `f = 1 − b₀/r` with `R = r` and **called it Morris–Thorne**. That metric *is
+Schwarzschild* with `M = b₀/2`; zero-tidal-force MT has `g_tt = −1` and `g_rr = 1/(1−b₀/r)` — two
+different functions, outside the class the formula covers. **The code returned zero because the input was
+vacuum**, and the mismatch was in the expected value.
+
+> **Had I trusted the failing test I would have broken working code.** That is the characteristic danger
+> of a bad test against a bad measurement: a wrong measurement gives a wrong answer; **a wrong test
+> corrupts a right one.**
+
+Replaced with Reissner–Nordström — inside the class, non-vacuum, exact. **And the replacement handed
+H61a its result**, because the available validation metric *is* the electromagnetic one: `ρ + p_r = 0`
+identically, which is `w = 1` before the flat-space derivation was run. **The fix for the fault produced
+the finding.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
