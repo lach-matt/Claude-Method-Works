@@ -1746,6 +1746,101 @@ breach of it.
 
 ---
 
+## ★★★ H32 — a **pre-registered prediction**, and the first in this project that lands
+
+**H31c** stated the parallel light–light factor as exactly zero and **deliberately withheld the
+antiparallel one**, having not derived it. M then named it — **eight** — before any measurement of it
+existed in this tree. It is eight.
+
+**H32. The gravitational attraction between antiparallel (counter-propagating) light beams is exactly
+`8×` the Newtonian attraction between two equivalent masses; the parallel case is exactly `0`.**
+
+### Why this is a prediction and not a fit
+
+`shape.py` set this bar **against this project**, before the prediction was made: *"the four hits are the
+sample it was fitted to, and its only test is a prediction that lands"* (`NO-EVIDENCE`), and
+`SHAPE-WRONG` records that **the first tested prediction failed**. Four conditions, all met:
+
+| condition | status |
+|---|---|
+| the number was stated **first** | `lightbuild.py` §5 was written, selftested and committed carrying the parallel zero and no antiparallel factor |
+| it was **not available to be fitted** | verified **against git** at `e95959e` — **94 `.py` files, none carries it** |
+| it is **falsifiable and sharp** | an integer; `4`, `6` or `16` would each have refuted it outright |
+| it was **adjudicated against sources** | and the first literature summary that came back said **four** |
+
+> **The pre-registration is tested against git history, not the working tree.** An earlier draft of that
+> check scanned the working tree and began **failing** the moment `lightbuild.py` was annotated with the
+> result. That is the check catching its own error; it is recorded rather than quietly rewritten, and
+> `UNVERIFIED` never counts as a pass.
+
+### Three independent routes, agreeing exactly
+
+**Route one — the spin-2 exchange amplitude, derived here.** `A(p,p') = 2(p·p')² − p²p'²`, normalised on
+two static masses:
+
+| source | test | `p·p'` | `A/A_Newton` | known value |
+|---|---|---|---|---|
+| mass | mass | `−mm'` | **1** | Newton |
+| mass | photon | `−mE` | **2** | light bending is 2× |
+| photon | mass | `−Em` | **2** | TEP: a beam pulls a mass 2× |
+| photon | photon ∥ | `0` | **0** | TEP/Wheeler: exactly zero |
+| photon | photon anti | `−2EE'` | **8** | **the prediction** |
+
+`p² = 0` for a photon drops the second term, so the amplitude is a **square** — which is why the answer is
+8 and not 4. And `k·k' = 0` parallel, `−2` antiparallel: **the zero and the eight are the same algebra
+read at the two ends of one dot product.** Cross-checked non-circularly — the same expression for a test
+particle of speed `β` near a static mass returns the textbook `(1+β²)` to `2.2e-16`, which was not put in.
+
+**Route two — the published QED calculation.** Barker, Bhatia & Gupta, *Phys. Rev.* **158**, 1498 (1967),
+photon–photon via a virtual graviton in the CoM system: *"the interaction have **eight times** the
+'Newtonian' value plus a polarization dependent repulsive contact interaction."* Held as a **secondary
+citation** through arXiv:1009.3849v5 — the 1967 paper is not reachable from here — and their contact term
+is **not** claimed.
+
+**Route three — and the apparent refutation dissolves.** Faraoni & Dumse (arXiv:gr-qc/9811052) state in
+their **abstract**: *"the light-to-light attraction is twice the matter-to-light attraction and **four
+times** the matter-to-matter attraction."* Read alone, that refutes H32 — and a one-line search returns
+exactly that sentence. Recomputed from **their own equations** (`Φ_g = 2I ln(r/α)` so `|dΦ/dr| = 2I/r`,
+Eq 4.4; `B_g = 2I/r`; force laws Eqs 2.11, 3.8, 2.15, 3.11):
+
+| case | acceleration | ratio |
+|---|---|---|
+| matter → matter | `2 I/r` | **1** |
+| light → matter | `4 I/r` | **2** |
+| matter → light | `4 I/r` | **2** |
+| light → light **parallel** | `0` | **0** |
+| light → light **antiparallel** | `16 I/r` | **8** |
+
+Their gravitoelectric part is `8 I/r` (Eq 4.5) and their gravitomagnetic part is `8 I/r` (Eq 4.2), and
+their own §4 sentence: it *"cancels the gravitomagnetic part when the beam and the null ray are parallel,
+and it **doubles** it when they are antiparallel."* `8 + 8 = 16` against a Newtonian `2`.
+
+> **The abstract's four is the gravitoelectric *coefficient* — the `1 : 2 : 4` chain of the force laws —
+> not the antiparallel *total*, which adds the gravitomagnetic half that the parallel case subtracts to
+> zero. Both numbers are correct and they count different things**, and the abstract does not say which it
+> counts. A number quoted out of the question it answers is exactly the failure mode the index exists to
+> catch.
+
+### What it is worth, and what it is not
+
+> **The prediction landed on the seat, not on the lead.** It moves **no obstruction**. It is a coefficient
+> on an attraction `lightbuild.py` already measured as negligible; it does not touch the NEC; it supplies
+> no `ρ < 0`. The knob still runs from **zero to positive**, and the parallel case remains **H30**'s
+> equality case.
+
+What it genuinely adds: the knob is now measured at **both** ends, and `antiparallel/parallel = 8/0` —
+not large, **undefined**. That makes it the sharpest control authority in the design space, over the half
+that was never the problem. **A method that produces one correct unprompted integer has earned a second
+look, and that is the entire claim.**
+
+| | `factor8.py` |
+|---|---|
+| status | **PROVEN** (the spin-2 amplitude, and the `(1+β²)` cross-check) + **RECOMPUTED** (Faraoni & Dumse's chain from their own equations) + **CITED, SECONDARY** (Barker–Bhatia–Gupta via arXiv:1009.3849v5) + **PRE-REGISTERED** (verified against git at `e95959e`) |
+| new? | the **adjudication** is new — that the published `4` and the published `8` answer different questions, and which is which. The factor itself is 1967 physics |
+| **not** claimed | that the factor moves any obstruction, supplies `ρ < 0`, or reopens the lead; that the Barker–Bhatia–Gupta polarization-dependent contact term is included; that a primary reading of the 1967 paper was made |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1901,3 +1996,7 @@ breach of it.
   super-Schwinger below `4.32e8 m`, 29,303 solar masses above it. See **H31b**.
 - **That parallel beams not focusing is a route to `ρ < 0`.** The knob runs from zero to positive; zero is
   the theorem's equality case. See **H31c**.
+- **That a landed prediction moves an obstruction.** H32 lands on the *seat*. It supplies no `ρ < 0` and
+  reopens nothing. See **H32**.
+- **That the antiparallel factor is new physics.** It is 1967 physics; what is new is the *adjudication*
+  of the published `4` against the published `8`. See **H32**.

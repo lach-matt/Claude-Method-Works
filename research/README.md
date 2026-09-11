@@ -6511,3 +6511,71 @@ added. Seated as `DUP-ID-CAUGHT`.
 - **Open, and named:** whether a **non-classical** light field changes §1. The theorem is about the
   *classical* Maxwell stress tensor; squeezed vacuum is held by `neclab.py`. This pass does not extend
   to it and does not claim to.
+
+---
+
+## `factor8.py` — a prediction, stated before the measurement, and it lands
+
+> M, immediately after reading `lightbuild.py` §5: *"to make a prediction, the factor is 8."*
+
+`lightbuild.py` §5 gave the **parallel** light–light factor as exactly zero and **deliberately withheld
+the antiparallel one**, having not derived it and refusing to quote a factor it had not checked. M then
+named that number, unprompted, before any measurement of it existed here.
+
+**It is eight.**
+
+### Why it counts as a prediction
+
+`shape.py` set this bar **against this project**, before the prediction was made — `NO-EVIDENCE`: *"its
+only test is a prediction that lands"*; `SHAPE-WRONG`: the first tested prediction **failed**. Four
+conditions, all met:
+
+| condition | status |
+|---|---|
+| stated **first** | `lightbuild.py` §5 committed with the parallel zero and no antiparallel factor |
+| **not available to be fitted** | verified **against git** at `e95959e` — **94 `.py` files, none carries it** |
+| **falsifiable and sharp** | an integer; `4`, `6` or `16` would each have refuted it |
+| **adjudicated against sources** | and the first literature summary that came back said **four** |
+
+> **The pre-registration is tested against git history, not the working tree.** An earlier draft of that
+> check scanned the working tree and began **failing** the moment `lightbuild.py` was annotated with the
+> result — the check catching its own error. Recorded, not quietly rewritten. `UNVERIFIED` never passes.
+
+### Three routes, agreeing exactly
+
+**Route one — derived here.** The spin-2 exchange amplitude `A = 2(p·p')² − p²p'²`, normalised on two
+static masses, returns **1** (Newton), **2** (light bending), **2** (a beam pulling a mass), **0**
+(co-propagating photons) and **8** (counter-propagating). `p² = 0` drops the second term, so the amplitude
+is a **square** — which is why it is 8 and not 4; and `k·k' = 0` parallel against `−2` antiparallel means
+**the zero and the eight are the same algebra read at the two ends of one dot product**. Cross-checked
+non-circularly: the same expression returns the textbook `(1+β²)` to `2.2e-16`, unprompted.
+
+**Route two — cited, secondary.** Barker, Bhatia & Gupta, *Phys. Rev.* **158**, 1498 (1967): photon–photon
+via a virtual graviton, *"eight times the 'Newtonian' value"*. Held through arXiv:1009.3849v5 — the 1967
+paper is not reachable here — and their contact term is **not** claimed.
+
+**Route three — the apparent refutation dissolves.** Faraoni & Dumse (arXiv:gr-qc/9811052) say **four** in
+their abstract, and a one-line search returns exactly that. Recomputed from their own equations: their
+gravitoelectric and gravitomagnetic parts are each `8 I/r` against a Newtonian `2 I/r`, and their own §4
+says these *cancel* for parallel beams and **double** for antiparallel. `8 + 8 = 16` against `2` is **8**.
+
+> **The abstract's four is the gravitoelectric *coefficient* (the `1 : 2 : 4` force-law chain), not the
+> antiparallel *total*. Both numbers are correct and they count different things** — and the abstract does
+> not say which it counts. A number quoted out of the question it answers is the failure mode the index
+> exists to catch.
+
+### What it is worth, and what it is not
+
+> **The prediction landed on the seat, not on the lead.** It moves **no obstruction** — `obstruct.py` is
+> unchanged at 53 rows, deliberately. It is a coefficient on an attraction already measured as negligible,
+> it does not touch the NEC, and it supplies no `ρ < 0`. The knob still runs **zero to positive**.
+
+What it adds: the knob is measured at **both** ends, and `antiparallel/parallel = 8/0` — not large,
+**undefined**. The sharpest control authority in the design space, over the half that was never the
+problem. **A method that produces one correct unprompted integer has earned a second look. That is the
+entire claim.**
+
+### Seated
+- `factor8.py` — new. `lightbuild.py` — §5 annotated, the withheld number now pointed at its measurement.
+  `index3.py` — **478 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H32**, plus two additions to the
+  not-claimed list. `obstruct.py` — **unchanged**, and that is the finding.

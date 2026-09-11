@@ -268,6 +268,14 @@ geometry rather than an engineering hope.
     delivers is a function of its internal geometry, not only of its energy.
     No arrangement of dust has that.
 
+    THE ANTIPARALLEL END IS NOW MEASURED, AND IT WAS PREDICTED FIRST.  This
+    file originally stated the parallel zero and WITHHELD the antiparallel
+    factor, having not derived it.  M then named it -- eight -- before any
+    measurement of it existed here.  It is eight, by three independent routes,
+    and factor8.py carries the derivation, the 1967 QED citation, and the
+    resolution of a published abstract that appears to say four.  THE KNOB IS
+    NOW MEASURED AT BOTH ENDS: 0 parallel, 8x Newtonian antiparallel.
+
     WHAT IT IS NOT: A WAY PAST SECTION 1.  The knob runs between ZERO and
     POSITIVE.  It never reaches negative -- that is exactly what lattice.py's
     theorem forbids, and the parallel case is the theorem's equality case
@@ -330,6 +338,8 @@ KUGELBLITZ_PAPER = "arXiv:2405.02389 -- No black holes from light (2024)"
 OBSTRUCTION_ROW = "LIGHT-AS-THE-SUPPLY"   # obstruct.py; distinct from LIGHT-AS-THE-SOURCE
 KUGELBLITZ_BLOCKED_BAND_M = (1.0e-29, 1.0e8)
 PARALLEL_BEAM_PAPER = "arXiv:1009.3849 -- The gravity of light"
+ANTIPARALLEL_FACTOR = 8          # predicted by M, measured in factor8.py
+ANTIPARALLEL_FACTOR_HELD_BY = "factor8.py"
 
 
 # ---------------------------------------------- 1: the seat and the lead
@@ -743,6 +753,12 @@ def selftest():
     chk("  the knob's range", KNOB_RANGE, ("zero", "positive"))
     chk("does the knob turn the seat off", knob_turns_the_seat_off(), True)
     chk("does the knob turn the lead on", knob_turns_the_lead_on(), False)
+    import factor8
+    chk("  the antiparallel end, withheld here and PREDICTED by M",
+        ANTIPARALLEL_FACTOR, 8)
+    chk("  and measured in %s" % ANTIPARALLEL_FACTOR_HELD_BY,
+        factor8.prediction_lands(), True)
+    near("    all three of its routes return", factor8.route_one(), 8.0, 1e-12)
     print("       THE PARALLEL CASE IS THE THEOREM'S EQUALITY CASE, not a")
     print("       breach of it.  Control authority, not a route to rho < 0.")
 
