@@ -39,7 +39,11 @@ Three results, all stated at the critical case.
 
 The R-02 dome is priced beside the open aperture in both columns: it costs
 transmission going in and saves convection and part of the radiation coming
-out, and pays only above a break-even open-aperture loss.
+out, and pays only above a break-even open-aperture loss. The review of the
+record (2026-09-11) split that verdict: against the best measured receiver
+(G3P3-USA, 80-90 %) the dome LOSES at nominal; against the worst (the 1 MW_th
+free-fall curtain, 50 %) at critical flux it PAYS. Which record the fleet
+receiver resembles is what the pilot aperture measures.
 
 The material is the one the design intends to use -- sintered bauxite in a
 falling curtain -- and the one fixture is Sandia's 1 MW_t receiver on that
@@ -62,15 +66,19 @@ CASES = ("nominal", "critical")
 # Banded constants: (nominal, critical). Critical is the ADVERSE end of the
 # band -- the author's rule -- and the selftest asserts that on every row.
 T_AMB_C = (25.0, 45.0)                    # ambient; desert summer afternoon         ASSUMED band
-DEMO_MW = 1.0                             # MW_th, Sandia falling-particle receiver  SOURCED
-DEMO_APERTURE_M2 = 1.0                    # 1 m x 1 m aperture                       SOURCED
-DEMO_MASSFLOW_KG_S = (1.0, 7.0)           # kg/s through the 1 m curtain, tested     SOURCED band
-DEMO_ETA_MEASURED = (0.80, 0.50)          # thermal efficiency measured: best, worst SOURCED band
+DEMO_MW = 1.0                             # MW_th, Sandia falling-particle receiver (the fixture)   SOURCED
+DEMO_APERTURE_M2 = 1.0                    # ~1 m2 square aperture                    SOURCED (Ho et al. 2016)
+DEMO_MASSFLOW_KG_S = (1.0, 7.0)           # kg/s per m of curtain width, tested      SOURCED band (Ho 2016-2017)
+DEMO_DT_PER_M = (50.0, 200.0)             # C per metre of illuminated drop, measured  SOURCED band (Ho 2016-2017)
+DEMO_FLUX_MW_M2 = (0.3, 0.7)              # average irradiance at which the above was measured  SOURCED band
+DEMO_ETA_MEASURED = (0.90, 0.50)          # thermal efficiency measured: best (G3P3-USA 2 MW_th, 80-90 %), worst (1 MW_th free-fall)  SOURCED band
+LARGEST_FALLING_MW = 2.0                  # G3P3-USA receiver, >250 h on-sun/ground, 2024   SOURCED (Sandia LabNews 2024-08)
+LARGEST_PARTICLE_MW = 2.5                 # DLR CentRec centrifugal prototype, 965 C, 2018  SOURCED (a different receiver type)
 CP_J_KGK = (1200.0, 1000.0)               # sintered bauxite 600-800 C; low end      SOURCED band 1.0-1.3 kJ/kg K
 T_IN_C, T_OUT_C = 600.0, 800.0            # cold silo -> hot silo                     DESIGN (helios3 / G3P3)
-FLUX_MW_M2 = 1.0                          # peak absorbed flux on the curtain        SOURCED (demo ran ~1 MW/m2)
+FLUX_MW_M2 = (1.0, 0.5)                   # aperture-average absorbed flux: Gen3 design point; critical BELOW the demonstrated 0.3-0.7 average band's upper half  SOURCED design / ASSUMED critical
 DROP_M = (3.0, 1.0)                       # curtain height per stage: mesh-slowed, free  ASSUMED band (demo ~1 m)
-ALPHA_EFF = (0.95, 0.90)                  # cavity-effective absorptance; aged/soiled  SOURCED 0.946 new; ASSUMED aged
+ALPHA_EFF = (0.95, 0.90)                  # cavity-effective absorptance; aged  SOURCED 0.946 after ~200 h on-sun = unused; >0.90 after 500 h in air at 700 C
 EPS_EFF = (0.80, 0.90)                    # cavity-effective emittance at aperture   ASSUMED band
 H_CONV_W_M2K = (10.0, 30.0)               # aperture convection: calm, windy         ASSUMED band
 T_RAD_C = (800.0, 850.0)                  # radiating temperature seen at aperture   ASSUMED band (outlet; hot back wall)
@@ -96,12 +104,18 @@ def planck_fraction_beyond(lambda_um, t_k):
     return 1.0 - 15.0 / math.pi ** 4 * s
 
 
-def curtain_power_per_width_mw(case, flux=FLUX_MW_M2):
-    return flux * pick(DROP_M, case)
+def curtain_power_per_width_mw(case, flux=None):
+    return (pick(FLUX_MW_M2, case) if flux is None else flux) * pick(DROP_M, case)
 
 
-def massflow_per_width(case, flux=FLUX_MW_M2, dt=T_OUT_C - T_IN_C):
+def massflow_per_width(case, flux=None, dt=T_OUT_C - T_IN_C):
     return curtain_power_per_width_mw(case, flux) * 1e6 / (pick(CP_J_KGK, case) * dt)
+
+
+def dt_per_metre_of_drop(flux_mw_m2, massflow_per_width_kg_s_m, cp=CP_J_KGK[0]):
+    """The per-metre law inverted: temperature rise per metre of illuminated
+    drop at a flux and a curtain mass flow per metre of width."""
+    return flux_mw_m2 * 1e6 / (massflow_per_width_kg_s_m * cp)
 
 
 def aperture_losses_kw_m2(case, open_aperture=True):
@@ -113,12 +127,12 @@ def aperture_losses_kw_m2(case, open_aperture=True):
         return rad, pick(H_CONV_W_M2K, case) * (t_rad - t_amb) / 1e3, 0.0, 0.0
     beyond = planck_fraction_beyond(LAMBDA_CUT_UM, t_rad)
     rad_d = rad * (1.0 - beyond * pick(DOME_IR_RETURN, case))
-    return rad_d, 0.0, pick(ROD_LEAK_KW_M2, case), (1.0 - pick(DOME_TRANSMISSION, case)) * FLUX_MW_M2 * 1e3
+    return rad_d, 0.0, pick(ROD_LEAK_KW_M2, case), (1.0 - pick(DOME_TRANSMISSION, case)) * pick(FLUX_MW_M2, case) * 1e3
 
 
-def efficiency(case, open_aperture=True, flux=FLUX_MW_M2):
+def efficiency(case, open_aperture=True):
     rad, conv, rod, trans = aperture_losses_kw_m2(case, open_aperture)
-    q_in = flux * 1e3
+    q_in = pick(FLUX_MW_M2, case) * 1e3
     tr = 1.0 if open_aperture else pick(DOME_TRANSMISSION, case)
     return (q_in * tr * pick(ALPHA_EFF, case) - rad - conv - rod) / q_in
 
@@ -151,7 +165,7 @@ def first_module_duty_mwth(design, module_mwe):
 
 
 def ladder(design, module_mwe=100.0, pilot_mwth=30.0):
-    rungs = [("Sandia 1 MW_t (has run)", DEMO_MW),
+    rungs = [("G3P3-USA 2 MW_th falling receiver (has run)", LARGEST_FALLING_MW),
              (f"pilot aperture, {pilot_mwth:.0f} MW_th (proposed)", pilot_mwth),
              (f"first module, {module_mwe:.0f} MWe", first_module_duty_mwth(design, module_mwe)),
              ("fleet tower", tower_duty_mwth(design))]
@@ -181,13 +195,14 @@ def report():
     print("    1. THE CURTAIN IS A PER-METRE MACHINE. Power per metre of width is")
     print("       flux x drop; mass flow per metre is that over cp x dT.")
     print(f"         {'':<34}{'nominal':>10}{'critical':>10}")
+    print(f"         {'aperture-average flux, MW/m2':<34}{pick(FLUX_MW_M2,'nominal'):10.1f}{pick(FLUX_MW_M2,'critical'):10.1f}")
     print(f"         {'drop, m':<34}{pick(DROP_M,'nominal'):10.1f}{pick(DROP_M,'critical'):10.1f}")
     print(f"         {'MW per metre of width':<34}{curtain_power_per_width_mw('nominal'):10.1f}{curtain_power_per_width_mw('critical'):10.1f}")
     print(f"         {'kg/s per metre (600 -> 800 C)':<34}{massflow_per_width('nominal'):10.1f}{massflow_per_width('critical'):10.1f}")
     lo, hi = DEMO_MASSFLOW_KG_S
-    print(f"       Check on the demonstrated unit: 1 MW_t through a 1 m curtain at a 1 m")
-    print(f"       drop needs {massflow_per_width('critical'):.1f} kg/s (critical cp); Sandia ran {lo:.0f}-{hi:.0f}. The")
-    print("       law reproduces the machine at both cases.")
+    print(f"       Check on the demonstrated unit: Sandia measured {DEMO_DT_PER_M[0]:.0f}-{DEMO_DT_PER_M[1]:.0f} C per metre of")
+    print(f"       drop at {lo:.0f}-{hi:.0f} kg/s per m and average irradiance up to {DEMO_FLUX_MW_M2[1]:.1f} MW/m2; the law")
+    print(f"       returns {dt_per_metre_of_drop(DEMO_FLUX_MW_M2[0], hi):.0f}-{dt_per_metre_of_drop(DEMO_FLUX_MW_M2[1], 3.3):.0f} C/m over that range. The law reproduces the machine.")
     print()
     print("    2. LOSS FRACTION DOES NOT CHANGE WITH SIZE at fixed flux. Per m2 of")
     print("       aperture at the hot end, kW/m2:")
@@ -199,7 +214,7 @@ def report():
     for case in CASES:
         be = dome_breakeven_kw_m2(case)
         conv = aperture_losses_kw_m2(case, True)[1]
-        meas = (1 - pick(DEMO_ETA_MEASURED, case)) * FLUX_MW_M2 * 1e3
+        meas = (1 - pick(DEMO_ETA_MEASURED, case)) * pick(FLUX_MW_M2, case) * 1e3
         rad = aperture_losses_kw_m2(case, True)[0]
         verdict = "pays" if be < meas - rad else "loses"
         print(f"       {case:<9} dome break-even {be:5.0f} kW/m2 of open loss beyond radiation; modelled")
@@ -217,17 +232,20 @@ def report():
     print("       The first module is not a step; it is the fleet receiver at 0.55.")
     print("       A pilot aperture at fleet-aperture size goes between.")
     print()
-    print("    4. WHAT ONE FLEET APERTURE IS, at 1 MW/m2 peak absorbed flux. The")
-    print("       CRITICAL column is the design threshold: shallow drop, low cp.")
+    print("    4. WHAT ONE FLEET APERTURE IS, at each case's aperture-average flux.")
+    print("       The CRITICAL column is the design threshold: half flux, shallow drop, low cp.")
     print(f"         {'aperture MW_th':>15}  {'width m':>8}{'area m2':>8}{'kg/s':>7}{'per tower':>10}   {'width m':>8}{'area m2':>8}{'kg/s':>7}{'per tower':>10}")
     print(f"         {'':>15}  {'-- nominal --':^33}   {'-- critical --':^33}")
     for mw in (10.0, 30.0, 60.0):
         wn, an, mn = aperture_unit(mw, "nominal")
         wc, ac, mc = aperture_unit(mw, "critical")
         print(f"         {mw:15.0f}  {wn:8.1f}{an:8.1f}{mn:7.0f}{tw / mw:10.0f}   {wc:8.1f}{ac:8.1f}{mc:7.0f}{tw / mw:10.0f}")
-    print("       At critical a 30 MW_th aperture is a 30 m wide, 1 m tall slot carrying")
-    print("       150 kg/s; the tower is designed to that, and the nominal 10 m x 3 m is")
+    wc, ac, mc = aperture_unit(30.0, "critical")
+    print(f"       At critical a 30 MW_th aperture is a {wc:.0f} m wide, 1 m tall slot carrying")
+    print(f"       {mc:.0f} kg/s; the tower is designed to that, and the nominal 10 m x 3 m is")
     print("       margin, not a plan.")
+    print(f"       The largest particle receiver of any type that has run is {LARGEST_PARTICLE_MW:.1f} MW_th")
+    print(f"       (CentRec, centrifugal); the largest falling curtain is {LARGEST_FALLING_MW:.0f} MW_th (G3P3-USA).")
     print()
     print("    5. THE THRESHOLD HANDED UPSTREAM. cspchain carries one receiver")
     print(f"       efficiency, rec = {d['links']['rec']:.2f}. If the receiver returns this file's")
@@ -268,12 +286,20 @@ def selftest():
           all(c >= n for c, n in zip(aperture_losses_kw_m2("critical", True), aperture_losses_kw_m2("nominal", True))))
     check("every loss term at critical >= nominal (domed)",
           all(c >= n for c, n in zip(aperture_losses_kw_m2("critical", False), aperture_losses_kw_m2("nominal", False))))
-    check("a scalar constant is the same at both cases", pick(FLUX_MW_M2, "nominal") == pick(FLUX_MW_M2, "critical"))
+    check("a scalar constant is the same at both cases", pick(T_OUT_C, "nominal") == pick(T_OUT_C, "critical"))
     # --- physics fixtures --------------------------------------------------
     lo, hi = DEMO_MASSFLOW_KG_S
-    check("per-metre law reproduces Sandia's 1 MW_t curtain mass flow at both cases",
-          lo <= massflow_per_width("critical") / pick(DROP_M, "critical") <= hi
-          and lo <= massflow_per_width("nominal") / pick(DROP_M, "nominal") <= hi)
+    check("per-metre law: Sandia's 1 MW_t at its 1 m2 aperture and ~0.7 MW/m2 needs a flow inside the tested 1-7 kg/s per m",
+          lo <= massflow_per_width("nominal", flux=DEMO_FLUX_MW_M2[1]) / pick(DROP_M, "nominal") <= hi)
+    span = (dt_per_metre_of_drop(DEMO_FLUX_MW_M2[0], hi), dt_per_metre_of_drop(DEMO_FLUX_MW_M2[1], 3.3))
+    check("per-metre law spans the measured 50-200 C per metre of drop at demonstrated flux and flow",
+          span[0] <= DEMO_DT_PER_M[0] * 1.2 and span[1] >= DEMO_DT_PER_M[1] * 0.8)
+    check("critical flux is below anything demonstrated as an aperture average's upper half",
+          pick(FLUX_MW_M2, "critical") <= DEMO_FLUX_MW_M2[1])
+    check("nominal flux is the Gen3 design point, above the demonstrated average band",
+          pick(FLUX_MW_M2, "nominal") >= DEMO_FLUX_MW_M2[1])
+    check("the ladder starts at the largest falling receiver that has run, not the fixture",
+          ladder(d)[0][1] == LARGEST_FALLING_MW and LARGEST_FALLING_MW >= DEMO_MW)
     check("loss fraction is independent of aperture area (no area argument exists)",
           "area" not in efficiency.__code__.co_varnames)
     rad = 0.8 * SIGMA * ((800 + 273.15) ** 4 - (25 + 273.15) ** 4) / 1e3
@@ -285,10 +311,17 @@ def selftest():
     for case in CASES:
         be = dome_breakeven_kw_m2(case)
         conv = aperture_losses_kw_m2(case, True)[1]
-        meas = (1 - pick(DEMO_ETA_MEASURED, case)) * FLUX_MW_M2 * 1e3
+        meas = (1 - pick(DEMO_ETA_MEASURED, case)) * pick(FLUX_MW_M2, case) * 1e3
         rad_o = aperture_losses_kw_m2(case, True)[0]
         check(f"{case}: on the model alone the dome loses", be > conv)
-        check(f"{case}: on the measured record the dome pays", be < meas - rad_o)
+    # The review of the record (2026-09-11) changed this verdict: G3P3-USA
+    # measured 80-90 %, and against THAT the dome loses at nominal; against the
+    # 1 MW_th free-fall record (50 %) at critical flux it pays. Both are pinned.
+    be_n, be_c = dome_breakeven_kw_m2("nominal"), dome_breakeven_kw_m2("critical")
+    meas_n = (1 - pick(DEMO_ETA_MEASURED, "nominal")) * pick(FLUX_MW_M2, "nominal") * 1e3 - aperture_losses_kw_m2("nominal", True)[0]
+    meas_c = (1 - pick(DEMO_ETA_MEASURED, "critical")) * pick(FLUX_MW_M2, "critical") * 1e3 - aperture_losses_kw_m2("critical", True)[0]
+    check("nominal: against the BEST measured record (G3P3-USA 80-90 %) the dome LOSES", be_n > meas_n)
+    check("critical: against the WORST measured record (1 MW_th free-fall 50 %) the dome PAYS", be_c < meas_c)
     rungs = ladder(d)
     prod = 1.0
     for _, _, f in rungs[1:]:
@@ -298,8 +331,8 @@ def selftest():
           0.4 < rungs[2][1] / rungs[3][1] < 0.7)
     check("tower duty is imported from cspchain, not restated",
           abs(tower_duty_mwth(d) - d["aperture"] * HC.DESIGN_DNI * H.ETA_OPT_PEAK / 1e6 / d["towers"]) < 1e-9)
-    check("a 30 MW_th aperture is 10 m wide nominal and 30 m wide critical",
-          abs(aperture_unit(30.0, "nominal")[0] - 10.0) < 1e-9 and abs(aperture_unit(30.0, "critical")[0] - 30.0) < 1e-9)
+    check("a 30 MW_th aperture is 10 m wide nominal and 60 m wide critical (half flux, 1 m drop)",
+          abs(aperture_unit(30.0, "nominal")[0] - 10.0) < 1e-9 and abs(aperture_unit(30.0, "critical")[0] - 60.0) < 1e-9)
     head = open(__file__).read().split("def pick")[0].splitlines()
     consts = [l for l in head if l[:1].isupper() and "=" in l and not l.startswith(("HERE", "CASES"))]
     check("every constant line carries a status",

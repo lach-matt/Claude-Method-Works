@@ -33,7 +33,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | R-08 | bauxite chemistry in air over decades | MODERATE | MODERATE | HOURS | rejuvenation; silo atmosphere (adopted as it stands 2026-09-11; UNMOVED by agreement, the rate over decades is measured by decades) |
 | R-09 | particle lift erosion and temperature | MODERATE | MINOR | DESIGN | lift cold, fall hot (G3P3's arrangement) (adopted as it stands 2026-09-11) |
 | R-10 | dust as PM₁₀ in non-attainment counties | MODERATE | MINOR | DESIGN | enclosed negative-pressure handling (adopted as it stands 2026-09-11; R-01 geometry is the first layer) |
-| R-11 | receiver scale: nothing above ~1 MW_t has run | DOMINANT | MAJOR | HOURS | multi-aperture; more towers; first module; FLAGGED FOR SIMULATION 2026-09-11, first in `tools/receiver.py` (per-metre curtain law, loss fraction size-invariant, pilot aperture at ~30 MW_th before the module) |
+| R-11 | receiver scale: nothing above ~2.5 MW_t has run | DOMINANT | MAJOR | HOURS | multi-aperture; more towers; first module; FLAGGED FOR SIMULATION 2026-09-11, first in `tools/receiver.py` (per-metre curtain law, loss fraction size-invariant, pilot aperture at ~30 MW_th before the module); largest run: G3P3-USA 2 MW_th falling, CentRec 2.5 MW_th centrifugal |
 | R-12 | provenance: no plant of this kind exists | DOMINANT | MAJOR | HOURS | programme staging; ladder with a ~30 MW_th pilot aperture before the module, each rung passed at critical; provenance listed in `tools/studies.py` (adopted 2026-09-11) |
 | R-13–16 | no freezing; no decomposition ceiling; no oxidiser or toxic medium; dry cooling at ⅙ the airflow | BENEFIT | | | |
 
@@ -95,20 +95,21 @@ block is the fallback, not the plan.
 band at its adverse end — optics 0.58, cycle 0.45, parasitics 0.90, availability 0.92, PV at its
 low capacity factor, every cost band at its top, contingency and EPC at their tops, a 2.0
 first-of-a-kind premium, 2 %/yr makeup — and the receiver at `receiver.py`'s critical open
-figure of **0.795** rather than the chain's 0.90:
+figure of **0.690** rather than the chain's 0.90 (it was 0.795 before the 2026-09-11 review of
+the record halved the critical flux):
 
 | | mid | critical | factor |
 |---|---|---|---|
-| mirror aperture, M m² | 18.1 | 26.8 | 1.48 |
-| towers | 14.3 | 21.2 | 1.48 |
-| capex net, $B | 32.3 | 51.4 | 1.59 |
-| $/MWh | 125 | **191** | 1.52 |
-| $/household/yr (today 1,177) | 756 | **1,153** | 1.52 |
+| mirror aperture, M m² | 18.1 | 30.9 | 1.70 |
+| towers | 14.3 | 24.4 | 1.70 |
+| capex net, $B | 32.3 | 54.6 | 1.69 |
+| $/MWh | 125 | **202** | 1.61 |
+| $/household/yr (today 1,177) | 756 | **1,218** | 1.61 |
 
-**At critical Helios-3 needs $191/MWh, $71 above the band's top, and a household pays $1,153
-against $1,177 today.** That is the front-end threshold: a plant designed to it carries the mid
+**At critical Helios-3 needs $202/MWh, $82 above the band's top, and a household pays $1,218
+against $1,177 today — $41 more than the utility charges now.** That is the front-end threshold: a plant designed to it carries the mid
 figure as margin, and a plant designed to mid has none. What moves it is the chain, not the
-mitigation — the receiver's 0.795 and the field's 0.58 grow the mirror by 1.48 before any adder
+mitigation — the receiver's 0.690 and the field's 0.58 grow the mirror by 1.70 before any adder
 is applied. The critical case is printed beside mid and never in its place; `priced()` defaults
 to mid and the selftest asserts that.
 

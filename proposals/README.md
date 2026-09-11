@@ -46,15 +46,28 @@ receiver link) rather than the hoped-for one. A number quoted without its case i
 `tools/receiver.py` is the first instrument built under it; the selftest asserts critical ≤
 nominal on every result. **The chain and the register now carry it too**: `cspchain.py`'s
 `design(..., "critical")` and `helios3.py`'s `priced("critical")` — Helios-3 mitigated is
-**$125/MWh at mid and $191 at critical** ($756 / $1,153 per household against $1,177 today),
-the mirror 1.48× larger, driven by the receiver's 0.795 and the field's 0.58 before any adder.
+**$125/MWh at mid and $202 at critical** ($756 / $1,218 per household against $1,177 today),
+the mirror 1.70× larger, driven by the receiver's 0.690 and the field's 0.58 before any adder.
+(The critical receiver was 0.795 until the 2026-09-11 review of the record halved the critical
+flux to 0.5 MW/m², below the 0.3–0.7 Sandia measured its curtain at.)
 
 **R-12 provenance is listed rather than asserted (`tools/studies.py`, `docs/STUDIES.md`).** Twelve
-technologies, 48 study rows each with a status (OPERATED / TESTED / DESIGNED / AUTHOR) and a source —
-complete over technologies, a floor over studies, not queried live — one recommendation per
-technology placed on the ladder's rungs (7.5 years of study on the critical path, run against the
-build), and the cost of delay: **$0.97 B per year at mid, $1.54 B at critical**, the price drifting
-3.8 / 5.7 $/MWh a year at the 3 % construction escalation.
+technologies, 49 study rows each with a status (OPERATED / TESTED / DESIGNED / AUTHOR) and a source —
+complete over technologies, a floor over studies, **reviewed against the web on 2026-09-11 where
+the proxy reached and corrected in place** — one recommendation per technology placed on the
+ladder's rungs (7.5 years of study on the critical path, run against the build), and the cost of
+delay: **$0.97 B per year at mid, $1.64 B at critical**, the price drifting 3.8 / 6.1 $/MWh a year
+at the 3 % construction escalation. The review also found that two of the three largest salt towers
+built (Crescent Dunes, Noor III) have each lost more than a year to a hot-salt tank leak, which is
+R-13's BENEFIT row and the salt-block fallback's failure mode.
+
+**The hour-by-hour (`tools/hourly3.py`, `docs/HOURLY3.md`) is the first study on that list and it is
+run.** As sized by the static chain, Helios-3 serves **84 %** of the load — the sCO₂ block cannot carry
+the evening peak after sunset in any month, and December loses a third of its load while June defocuses
+a quarter of its field. Closing it takes **block ×1.5 with its store, a second day of store, and field
+×2**; the heater and PV overbuild were never the lever. **+$60/MWh at mid, +$100 at critical — about
+$185 and $302/MWh** to serve the whole load from the plant alone. Re-basing Title I on that sizing, or
+serving December from something other than December's sun, is the author's decision.
 
 ## Resolved so far
 

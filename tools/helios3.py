@@ -175,7 +175,7 @@ REGISTER = [
      "conveyance; air permit",
      "Kern, Imperial, San Bernardino are PM10 non-attainment; enclosed bulk "
      "handling is ordinary practice"),
-    ("R-11", "Receiver scale: no particle receiver has run above ~1 MW_t",
+    ("R-11", "Receiver scale: no particle receiver has run above ~2.5 MW_t",
      "DOMINANT",
      "Multi-aperture receivers; more, smaller towers; a first module built and "
      "run before the fleet. FLAGGED FOR SIMULATION (author, 2026-09-11): "
@@ -188,8 +188,10 @@ REGISTER = [
      "MAJOR", "HOURS",
      "tower count; programme staging (pilot aperture before the module); "
      "receiver.py",
-     "SOURCED: G3P3 is >1 MW_t; Helios-3 needs ~700 MW_th per tower. Design "
-     "can split the receiver; only hours can prove it"),
+     "SOURCED: G3P3-USA falling receiver 2 MW_th (>250 h, 80-90 % measured, "
+     "2024); DLR CentRec centrifugal 2.5 MW_th (965 C, 2018); Helios-3 needs "
+     "~800 MW_th per tower. Design can split the receiver; only hours can "
+     "prove it"),
     ("R-12", "Provenance: no plant of this kind exists at any commercial scale",
      "DOMINANT",
      "Stage: build the common field, towers and PV for Helios-2 OR Helios-3; "
@@ -209,8 +211,14 @@ REGISTER = [
      "PLAN that buys the hours, and the LIST of what has and has not run"),
     ("R-13", "No freezing point: no heat tracing, no drain-down, no hot-tank failure",
      "BENEFIT", "-", "BENEFIT", "BENEFIT", "-",
-     "Crescent Dunes lost eight months to a hot-tank leak; a silo of sand at "
-     "ambient is a silo of sand"),
+     "SOURCED (reviewed 2026-09-11): Crescent Dunes has had FOUR hot-salt "
+     "tank leaks (2016, 2022, 2023 ...), its hot tank is now derated from "
+     "~565 C to 455-480 C and its output constrained to ~55 MW, half of "
+     "design; Noor III's hot tank leaked in March 2024, the plant was offline "
+     "14 months, and it leaked again on return. Two of the three largest salt "
+     "towers built have lost more than a year each to the hot tank. A silo of "
+     "sand at ambient is a silo of sand -- and the salt-block FALLBACK "
+     "carries this failure mode"),
     ("R-14", "No decomposition ceiling: stable past 1000 C",
      "BENEFIT", "-", "BENEFIT", "BENEFIT", "-",
      "nitrate decomposes above ~600 C; this is the link that buys the cycle"),
