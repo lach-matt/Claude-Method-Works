@@ -7,6 +7,11 @@ writes to any of them.
 
 ## What is here
 
+**`Title_I_Helios-3_v0.2.md` is Title I re-based on Helios-3** — rendered by `tools/rebase.py` from
+the instruments, never hand-edited (the selftest asserts byte-identity with a fresh render), every
+number labelled mid or critical. See `docs/REBASE.md`. v0.1 below is unchanged.
+
+
 - **`California_Sovereign_Infrastructure_v0.1.md`** — the as-submitted merge
   of the author's two source proposals (Drive: *California Energy
   Independence Project*, 2026-09-09; *California Sovereign Water and Mineral

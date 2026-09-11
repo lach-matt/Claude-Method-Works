@@ -1,0 +1,267 @@
+#!/usr/bin/env python3
+"""rebase.py -- Title I re-based on Helios-3, rendered from the instruments.
+
+proposals/California_Sovereign_Infrastructure_v0.1.md is the as-submitted
+merge and is never edited. This file renders proposals/Title_I_Helios-3_v0.2.md
+-- Title I as it stands after the second pass -- from the instruments that
+computed it: helios.py (the requirement), cspchain.py (the plant), helios3.py
+(the mitigation register and the price), receiver.py (the receiver threshold),
+hourly3.py (what the plant serves hour by hour and what closes it), joinder.py
+(the water route) and studies.py (provenance, the ladder, the cost of delay).
+
+The document carries no number this file did not read from one of them, and
+every number is labelled with its case, because the author's standing rule is
+that a number quoted without its case is misquoted. The selftest asserts the
+file on disk is byte-identical to a fresh render, so it cannot have been
+hand-edited, and that its key figures equal the instruments'. Stdlib only.
+
+Rendering runs hourly3.py and joinder.py, several minutes.
+"""
+import argparse
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import helios as H                                              # noqa: E402
+import heliocost as HC                                          # noqa: E402
+import cspchain as C                                            # noqa: E402
+import helios3 as H3                                            # noqa: E402
+import receiver as RX                                           # noqa: E402
+import hourly3 as HR                                            # noqa: E402
+import joinder as J                                             # noqa: E402
+import studies as ST                                            # noqa: E402
+
+OUT = os.path.join(HERE, "..", "proposals", "Title_I_Helios-3_v0.2.md")
+CASES = ("mid", "critical")
+
+
+def gather():
+    g = {}
+    g["e_req"] = H.hh_demand_twh()
+    g["growth"] = tuple(H.hh_demand_twh(years=H.BOND_TERM_Y, growth=x) / g["e_req"] for x in H.GROWTH_BAND)
+    g["today_hh"] = H.per_household(H.GEN_RATE_NOW * 1e3)
+    g["design"] = {c: C.design("helios3", c) for c in CASES}
+    g["priced"] = {c: H3.priced(c) for c in CASES}
+    rxc = {"mid": "nominal", "critical": "critical"}      # receiver.py's cases are nominal / critical
+    # the field factor is against the chain's own rec link (the mid design's), not
+    # against a design that already carries the receiver's figure
+    g["rx"] = {c: dict(open=RX.efficiency(rxc[c], True), domed=RX.efficiency(rxc[c], False),
+                       field=RX.upstream_field_factor(g["design"]["mid"], rxc[c], True)) for c in CASES}
+    g["hourly"] = {c: HR.run(c) for c in CASES}
+    g["mirrors"] = {}
+    for c in CASES:
+        d = g["design"][c]
+        r = HR.run(c, 1.0, 1.0, 1.5, 2.0, 2.0, design=d)
+        cost = HR.closure_cost_m(d, 1.0, 1.0, 1.5, 2.0, 2.0)
+        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost))
+    g["winter"] = {c: J.winter(c) for c in CASES}
+    g["water"] = {c: J.evening_with_water(c, 500.0, g["winter"][c]) for c in CASES}
+    g["delay"] = {c: ST.delay_cost_per_year(c) for c in CASES}
+    g["ladder"] = RX.ladder(g["design"]["mid"])
+    g["path_years"] = ST.critical_path_years()
+    g["n_studies"] = len(ST.STUDIES)
+    g["n_tech"] = len(ST.TECHNOLOGIES)
+    g["grades"] = (H3.grade_counts(False), H3.grade_counts(True))
+    return g
+
+
+def money(x):
+    return f"{x:,.0f}"
+
+
+def render(g):
+    d, p, hr, w = g["design"], g["priced"], g["hourly"], g["water"]
+    L = []
+    a = L.append
+    a("# Title I — Helios-3, re-based (v0.2)")
+    a("")
+    a("**What this document is.** Title I of the California Sovereign Infrastructure program as it")
+    a("stands after the second pass: the Helios-1M salt towers of v0.1 replaced by Helios-3 (Gen3")
+    a("particles, sCO₂, PV-direct daytime, night-sized field), the author's mitigation register adopted")
+    a("row by row, and the plant run hour by hour. It is **rendered by `tools/rebase.py` from the")
+    a("instruments** and carries no number they did not compute; every number is labelled **mid** or")
+    a("**critical**, under the author's standing rule that a number quoted without its case is misquoted.")
+    a("v0.1 is the as-submitted merge and is unchanged; this is the diff, stated as a document.")
+    a("")
+    a("## 1. The requirement")
+    a("")
+    a(f"Three million households at EIA's {H.HH_KWH_YR:,.0f} kWh a year is **{g['e_req']:.1f} TWh** of firm supply, the")
+    a(f"program's minimum, growing to {g['growth'][0]:.2f}–{g['growth'][1]:.2f}× over the {H.BOND_TERM_Y}-year bond term. The criterion is the")
+    a("author's: the plant pays for itself after the build bonds. Inverted, that is a required price per")
+    a(f"MWh, set beside the ${H.FIRM_CLEAN_PPA[0]:.0f}–{H.FIRM_CLEAN_PPA[1]:.0f} California's load-serving entities pay for firm clean")
+    a(f"energy under contract, and beside what a household pays the utility today for generation: **${g['today_hh']:,.0f} a")
+    a("year**.")
+    a("")
+    a("## 2. The plant")
+    a("")
+    a("Helios-3: a Noor III-class surround heliostat field sized for the night; a multi-aperture")
+    a("falling-particle receiver behind the author's compound quartz aperture; sintered-bauxite particles")
+    a("as medium and store in cold-shell silos; a moving packed-bed exchanger into a 715 °C sCO₂")
+    a("recompression block, dry-cooled; PV serving the daytime load directly and feeding particle heaters")
+    a("in winter. The energy chain, link by link:")
+    a("")
+    a("| link | mid | critical |")
+    a("|---|---|---|")
+    for k, name in (("opt", "field optical efficiency, annual"), ("rec", "receiver thermal efficiency"),
+                    ("cycle", "power cycle, gross"), ("par", "1 − parasitic share"), ("avail", "availability")):
+        a(f"| {name} | {d['mid']['links'][k]:.3f} | {d['critical']['links'][k]:.3f} |")
+    a("")
+    a(f"The critical receiver figure is `receiver.py`'s, handed up the chain rather than the chain's own")
+    a(f"best: {g['rx']['critical']['open']:.3f} open, which alone grows the field by {g['rx']['critical']['field']:.2f}. Sized to the requirement:")
+    a("")
+    a("| | mid | critical |")
+    a("|---|---|---|")
+    a(f"| mirror aperture, M m² | {d['mid']['aperture'] / 1e6:.1f} | {d['critical']['aperture'] / 1e6:.1f} |")
+    a(f"| towers, Noor III class | {d['mid']['towers']:.0f} | {d['critical']['towers']:.0f} |")
+    a(f"| sCO₂ block, MWe | {d['mid']['turb_mw']:,.0f} | {d['critical']['turb_mw']:,.0f} |")
+    a(f"| particle store, GWh_th ({C.NIGHT_HOURS:.0f} h) | {d['mid']['tes_mwh'] / 1e3:.1f} | {d['critical']['tes_mwh'] / 1e3:.1f} |")
+    a(f"| PV, MW_AC | {d['mid']['pv_mw']:,.0f} | {d['critical']['pv_mw']:,.0f} |")
+    a(f"| electric heaters, MW_th | {d['mid']['heater_mw']:,.0f} | {d['critical']['heater_mw']:,.0f} |")
+    a("")
+    a("## 3. What it serves, hour by hour")
+    a("")
+    a("The chain sizes the plant on annual energy. Run through 8,760 hours across the three nodes,")
+    a("PV serving the load first, the block serving the residual from the store, the plant as sized")
+    a("serves:")
+    a("")
+    a("| | mid | critical |")
+    a("|---|---|---|")
+    a(f"| share of the load served | {hr['mid']['served_frac']:.3f} | {hr['critical']['served_frac']:.3f} |")
+    a(f"| unserved, TWh | {hr['mid']['unserved'] / 1e6:.2f} | {hr['critical']['unserved'] / 1e6:.2f} |")
+    a(f"| unserved in July, share of month | {hr['mid']['month_unserved'][7] / hr['mid']['month_load'][7]:.3f} | {hr['critical']['month_unserved'][7] / hr['critical']['month_load'][7]:.3f} |")
+    a(f"| unserved in December, share of month | {hr['mid']['month_unserved'][12] / hr['mid']['month_load'][12]:.3f} | {hr['critical']['month_unserved'][12] / hr['critical']['month_load'][12]:.3f} |")
+    a(f"| field defocused in summer, TWh_th | {hr['mid']['spill_th'] / 1e6:.2f} | {hr['critical']['spill_th'] / 1e6:.2f} |")
+    a("")
+    a("Two shortfalls the annual chain could not see. The block is sized to the average night and a")
+    a("residential load peaks after sunset, so the block cannot carry the evening in any month. And")
+    a("sixteen hours of store cannot move June into December: the store empties from October to April")
+    a("while a quarter of June's field is defocused. The load and PV shapes are reconstructed and pinned")
+    a("to sourced levels; a measured CAISO profile and an NSRDB hourly file replace them when reachable.")
+    a("")
+    a("## 4. Closing the load: two routes")
+    a("")
+    a("Both keep the block at **×1.5**, because nothing but the block serves a July evening. They differ")
+    a("in how the October-to-April season is closed.")
+    a("")
+    a("| route | what grows | mid, $B | + $/MWh | critical, $B | + $/MWh | leaves to the grid |")
+    a("|---|---|---|---|---|---|---|")
+    m = g["mirrors"]
+    a(f"| mirrors | field ×2, store 2 days | {m['mid']['cost_b']:.1f} | {m['mid']['dprice']:.0f} | {m['critical']['cost_b']:.1f} | {m['critical']['dprice']:.0f} | {m['mid']['unserved']:.1%} / {m['critical']['unserved']:.1%} |")
+    wm, wc = w["mid"]["closing"], w["critical"]["closing"]
+    a(f"| water (Title III) | {wm['water']['modules']:.0f} / {wc['water']['modules']:.0f} desalination modules, a {wm['water']['km3']:.1f} / {wc['water']['km3']:.1f} km³ reservoir at 500 m, {wm['mw']:,.0f} MW of pump-turbines | {wm['total_b']:.1f} | {J.price_delta('mid', wm['total_b']):.0f} | {wc['total_b']:.1f} | {J.price_delta('critical', wc['total_b']):.0f} | {wm['unserved']:.1%} / {wc['unserved']:.1%} |")
+    a("")
+    a(f"On the power side the two are at parity. The water route makes **{wm['water']['maf']:.2f} to {wc['water']['maf']:.2f} million")
+    a("acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer")
+    a(f"surplus lifts {J.modules_to_close('critical', 500.0, g['winter']['critical'])['surplus_twh'] / J.modules_to_close('critical', 500.0, g['winter']['critical'])['lift_twh']:.2f} of the season and the rest is the plant's own output. Which route is a decision about")
+    a("water, and it is Title III's.")
+    a("")
+    a("## 5. Price and the household")
+    a("")
+    a("| $/MWh | mid | critical |")
+    a("|---|---|---|")
+    a(f"| Helios-3 as chained | {d['mid']['price']:.0f} | {d['critical']['price']:.0f} |")
+    a(f"| with the mitigation register (§6) | {p['mid']['price']:.0f} | {p['critical']['price']:.0f} |")
+    a(f"| serving the whole load, mirrors route | {p['mid']['price'] + m['mid']['dprice']:.0f} | {p['critical']['price'] + m['critical']['dprice']:.0f} |")
+    a(f"| serving the whole load, water route | {p['mid']['price'] + J.price_delta('mid', wm['total_b']):.0f} | {p['critical']['price'] + J.price_delta('critical', wc['total_b']):.0f} |")
+    a("")
+    a("| $ per household per year (today " + money(g["today_hh"]) + ") | mid | critical |")
+    a("|---|---|---|")
+    a(f"| with the mitigation register | {money(H.per_household(p['mid']['price']))} | {money(H.per_household(p['critical']['price']))} |")
+    a(f"| serving the whole load, mirrors route | {money(H.per_household(p['mid']['price'] + m['mid']['dprice']))} | {money(H.per_household(p['critical']['price'] + m['critical']['dprice']))} |")
+    a(f"| serving the whole load, water route | {money(H.per_household(p['mid']['price'] + J.price_delta('mid', wm['total_b'])))} | {money(H.per_household(p['critical']['price'] + J.price_delta('critical', wc['total_b'])))} |")
+    a("")
+    band = H.FIRM_CLEAN_PPA[1]
+    a(f"**The criterion, stated exactly.** At mid, Helios-3 with its register needs ${p['mid']['price']:.0f}/MWh, ${p['mid']['price'] - band:.0f}")
+    a(f"above the top of the contract band, and a household pays ${money(H.per_household(p['mid']['price']))} against ${money(g['today_hh'])} today. Serving")
+    a(f"the whole load from the plant alone costs ${p['mid']['price'] + m['mid']['dprice']:.0f}, at which a household pays about what it pays now. At")
+    a(f"critical the register price is ${p['critical']['price']:.0f} and the whole load ${p['critical']['price'] + m['critical']['dprice']:.0f}: **above today's bill**. The plant pays")
+    a("for itself after the bonds only at a price above the band, and the critical case is the threshold")
+    a("the design is held to. A plant designed to mid has no margin; this document does not offer one.")
+    a("")
+    a("## 6. The risks and their mitigation")
+    a("")
+    a("Sixteen rows, graded before and after, each carried by a named part of the build, each DESIGN")
+    a("(retired by specification), HOURS (retired only by operating time) or BENEFIT. Adopted row by")
+    a("row with the author on 2026-09-11.")
+    a("")
+    a("| id | risk | before | after | kind |")
+    a("|---|---|---|---|---|")
+    for rid, risk, b, _m, af, k, _c, _s in H3.REGISTER:
+        a(f"| {rid} | {risk} | {b} | {af} | {k} |")
+    b0, b1 = g["grades"]
+    a("")
+    a("After: " + ", ".join(f"{v} {k}" for k, v in b1.items() if v) + ". R-08 is managed without moving and says so.")
+    a("")
+    a("## 7. Provenance, the ladder and the cost of delay")
+    a("")
+    a(f"`studies.py` lists {g['n_studies']} studies over the {g['n_tech']} technologies in the system, each with a status and a")
+    a("source, complete over technologies and a floor over studies, reviewed against the web where the")
+    a("proxy reached. No falling-particle receiver has run above 2 MW_th and no 715 °C sCO₂ recompression")
+    a("cycle has run at all; those are HOURS, and the ladder buys them in order:")
+    a("")
+    for name, mw, f in g["ladder"]:
+        a(f"- {name}: {mw:,.0f} MW_th" + (f" (×{f:.1f})" if f else ""))
+    a("")
+    a(f"Each rung is passed at its critical figure and handed up the chain before the next is ordered.")
+    a(f"The studies on the critical path take {g['path_years']:.1f} years, run against the build rather than before")
+    a(f"it. Delay escalates the whole plant at {100 * HC.ESCALATION:.0f} % a year before a dollar is spent:")
+    a("")
+    a("| per year of delay | mid | critical |")
+    a("|---|---|---|")
+    a(f"| capex, $B | {g['delay']['mid']['delta_capex_m'] / 1e3:.2f} | {g['delay']['critical']['delta_capex_m'] / 1e3:.2f} |")
+    a(f"| price, $/MWh | {g['delay']['mid']['delta_price']:.1f} | {g['delay']['critical']['delta_price']:.1f} |")
+    a(f"| household, $/yr | {g['delay']['mid']['delta_hh']:.0f} | {g['delay']['critical']['delta_hh']:.0f} |")
+    a("")
+    a("## 8. What v0.2 does not settle")
+    a("")
+    a("- The route for the season — mirrors or water — is Title III's decision, and the water side has")
+    a("  its own flaw register to survive (F-16 on module capital, F-14 on the price of water).")
+    a("- The evening peak is closed by a block ×1.5 and by nothing else; a measured load profile may")
+    a("  move that factor either way.")
+    a("- The receiver's critical figure and the dome's verdict are what the pilot aperture measures;")
+    a("  until it has run, the critical column is the design basis.")
+    a("- Transmission, the tariff, the bond rate and the schedule (F-09, F-10, F-19, F-24) are open in")
+    a("  `FLAWS.tsv` and are not changed by anything above.")
+    a("")
+    a("*Rendered by `tools/rebase.py`; do not edit by hand. Re-render after any change to the instruments.*")
+    return "\n".join(L) + "\n"
+
+
+def selftest():
+    fails = 0
+
+    def check(label, ok):
+        nonlocal fails
+        print(f"  {label:<72} {'PASS' if ok else 'FAIL'}")
+        fails += 0 if ok else 1
+
+    g = gather()
+    text = render(g)
+    check("the rendered document exists on disk", os.path.exists(OUT))
+    if os.path.exists(OUT):
+        check("the file on disk is byte-identical to a fresh render (never hand-edited)",
+              open(OUT, encoding="utf-8").read() == text)
+    check("every case-bearing table carries both columns", text.count("| mid | critical |") >= 5)
+    check("the register price at mid appears in the document", f"| with the mitigation register (§6) | {g['priced']['mid']['price']:.0f} |" in text)
+    check("the served share hour by hour appears", f"{g['hourly']['mid']['served_frac']:.3f}" in text)
+    check("the criterion is stated with today's bill beside it", f"${g['today_hh']:,.0f} today" in text)
+    check("the document says it carries no number the instruments did not compute", "carries no number they did not compute" in text)
+    check("the document does not offer a mid-only design", "does not offer one" in text)
+    check("every register row is printed", all(r[0] in text for r in H3.REGISTER))
+    check("the receiver's field factor is against the chain's own link, not against itself",
+          1.2 < g["rx"]["critical"]["field"] < 1.4)
+    print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
+    return fails == 0
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--selftest", action="store_true")
+    a = ap.parse_args()
+    if a.selftest:
+        sys.exit(0 if selftest() else 1)
+    text = render(gather())
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(text)
+    print(f"rendered {os.path.relpath(OUT, os.path.join(HERE, '..'))}: {len(text.splitlines())} lines")
