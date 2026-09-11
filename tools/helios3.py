@@ -101,9 +101,15 @@ REGISTER = [
     ("R-04", "sCO2 turbomachinery at 715 C and 250 bar",
      "MAJOR",
      "Inconel 740H for the hot path; many small units (10-50 MWe) rather than "
-     "few large, so a unit is a spare; STEP's recompression configuration",
+     "few large, so a unit is a spare; STEP's recompression configuration. "
+     "Materials margin (author, 2026-09-11): pressure boundary 740H (rated "
+     "825 C, operating 715, margin 110 C), Haynes 282 alternate; rotor in "
+     "single-crystal aero superalloy running ~300 C below its design point; "
+     "no ceramic or refractory metal in the CO2 path. Residual is "
+     "carburisation at 100,000 h, which temperature margin does not buy",
      "MODERATE", "HOURS",
-     "power block specification; unit sizing",
+     "power block specification; unit sizing; materials specification (boundary "
+     "and rotor)",
      "SOURCED: 740H is ASME-qualified 650-825 C, the only age-hardened superalloy "
      "approved for welded creep-limited pressure parts; STEP's RCBC at 715 C / "
      "250 bar is its next phase, 16 MW turbine under 100 kg -- residual is HOURS"),
