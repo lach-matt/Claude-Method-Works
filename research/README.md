@@ -7233,6 +7233,33 @@ noticed:
 
 ---
 
+## `codimension.py` — M's reason for the D = 4 scale-freedom, tested
+
+> M: *"because the object in transition is a 4D object."*
+
+A proposed reason, and `coincidence.py`'s rule says those get **tested**. **The structure is right and the
+invariant is not four.** A p-brane source in D spacetime dimensions has `n = D − 1 − p` transverse spatial
+dimensions and a potential `r^{−(n−2)}`, so `∫Φ dr` is a scale-free log of a ratio **exactly when `n = 3`** —
+**`D = p + 4`**: four for a point, five for a string, six for a membrane. **One condition that moves with the
+source.**
+
+> **M is right that the object sets it. The quantity is CODIMENSION, not dimension** — and the object that
+> sets it is the **source**, not the payload, which does not enter `Λ` at all. `phase1.py`'s Plummer core is
+> point-like, so `p = 0` and **D = 4 is forced** — the seated scale-freedom becomes an *explanation* rather
+> than an observation. (`B_RAY` is the ray's **impact parameter**, a property of the path, not a line source.)
+
+**And a constraint falls out.** In D = 4 only `p = 0` is scale-free: a **line** source gives `Φ ~ log r` and a
+deficit of `r log r − r` that grows by **15.32 for a factor of 10 in scale**. **The architecture is locked to
+codimension three by its own scale-freedom.** A superhighway built as a *line* loses the scale-free rate in
+four dimensions and keeps it only at D = 5 — which `dimension.py` already priced at **5.32× worse per unit
+mass**. Both doors, neither free.
+
+### Seated
+- `codimension.py` — new. `index3.py` — **546 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H47**. `dimension.py` — **generalised, not withdrawn**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

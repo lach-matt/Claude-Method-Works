@@ -3319,6 +3319,74 @@ dismissal of an identity but the observation that none was exhibited.
 
 ---
 
+## ★★★ H47 — M's reason for the D = 4 scale-freedom, tested. **The invariant is codimension three.**
+
+> M, on **H46a**: *"because the object in transition is a 4D object."*
+
+A **proposed reason**, and **H46d**'s rule says a proposed reason for an exact fact is **tested**, not accepted
+and not dismissed.
+
+### H47a — the structure is right; the invariant is not four
+
+A **p-brane source** in D spacetime dimensions has `n = D − 1 − p` **transverse spatial** dimensions, and the
+Laplacian's Green's function there is `r^{−(n−2)}` (n > 2), `log r` (n = 2), `r` (n = 1). The contraction
+integral `∫Φ dr` is a **scale-free log of a ratio** exactly when `n − 2 = 1`:
+
+| p | | D | n | `Φ` | `∫Φ dr` | scale-free |
+|---|---|---|---|---|---|---|
+| 0 | point | **4** | **3** | `r⁻¹` | **LOGARITHM** | **YES** |
+| 0 | point | 5 | 4 | `r⁻²` | convergent power | no |
+| 1 | string | 4 | 2 | `log r` | log-potential | no |
+| 1 | string | **5** | **3** | `r⁻¹` | **LOGARITHM** | **YES** |
+| 2 | membrane | **6** | **3** | `r⁻¹` | **LOGARITHM** | **YES** |
+
+> **One condition, `n = 3`, and it moves with the source: `D = p + 4`.**
+>
+> **M is right that the object sets it.** **H46a** reported "four dimensions" as though four were the
+> invariant. It is not — **four is what codimension three becomes for a point.**
+
+### H47b — which object, and it is not the payload
+
+| | |
+|---|---|
+| **the source** | `phase1.py`'s `Φ` is a **Plummer core** minus a shell — **point-like**, so `p = 0`, `n = 3`, and **D = 4 is forced.** The seated scale-freedom stops being an observation and becomes an explanation. |
+| **the path** | `B_RAY = 1.0` is the ray's **impact parameter** — a property of the trajectory, **not the extent of a line source**. Worth saying, because "ray" invites the other reading. |
+| **the payload** | **does not enter `Λ` at all.** `Λ = 2[ln(2R_s/√(b²+a²)) − 1]` contains no property of a transported body. |
+
+> **Corrected sentence: *"because the object **sourcing** the transition is **codimension three**"*** — which,
+> for a point, is D = 4.
+
+### H47c — and a constraint falls out that the tree did not have
+
+Run the family at **D = 4**, where we are:
+
+| p | | n | `Φ` | |
+|---|---|---|---|---|
+| 0 | point | 3 | `r⁻¹` | **SCALE-FREE** |
+| 1 | line | 2 | `log r` | not scale-free |
+| 2 | sheet | 1 | `r` | not scale-free |
+
+For the line, `∫Φ dr = r log r − r`: **860.663473** at `k = 1`, **13188.779068** at `k = 10` — **a factor of
+15.32 for a factor of 10 in scale**, and not even a clean power.
+
+> **In four dimensions only a point-like source gives a scale-free exchange rate. The architecture is locked
+> to codimension three by its own scale-freedom, and did not know it.**
+
+**And it cuts against the superhighway picture, mildly and honestly.** A "superhighway" invites a **line**
+source — a corridor built along its own length. In D = 4 that loses scale-freedom: not impossible, but
+**scale-dependent**, so the price of a metre would depend on how long the corridor is, and every figure in
+this tree that survives rescaling would stop surviving it. **The other door is D = 5**, where a line *is*
+scale-free again — and **H46a** already priced D = 5 at **5.32× worse per unit mass**. **Both doors, neither
+free.**
+
+| | `codimension.py` |
+|---|---|
+| status | **DERIVED** (the family `D = p + 4`) + **MEASURED** (the line source's scaling) + **EXPLANATION** (why the seated source forces D = 4) |
+| new? | the codimension formulation; the D = 4 point-source lock |
+| **not** claimed | real p-brane solutions (this is Green's-function counting in the Newtonian limit); the area law for `p > 0` (**H43c** assumed `ρ ~ M/R³`); any depth for codimension three — it is four elementary steps from the scale-freedom it explains. **H46a is generalised, not withdrawn.** |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
