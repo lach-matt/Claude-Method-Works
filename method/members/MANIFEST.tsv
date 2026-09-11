@@ -244,7 +244,7 @@ compendia	The_Method_1_6___The_Physics_Compendium-2.md	63246	2d257853fe55a3feabf
 compendia	The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md	23058	07487abe7350880412c0cb0dfcade421	215
 compendia	Transitions.md	121782	e2237090e5e1f55fead3198a6061dd6a	2289
 compendia	WITHDRAWN-RECOVERED.md	126788	361bd6503fe841a9dd5dadbb85a2cf10	573
-compendia	WORKING-REGISTER.md	1365343	5e5370b4eb3ad4940d498a3fee96620c	9154
+compendia	WORKING-REGISTER.md	1369566	dc7dd0a5cd55eb90d678ac0c6ea28c6e	9164
 compendia	a2_canonical.py	1309	e92cd9d3903023958f53cbfa4749f2eb	21
 compendia	agreement.py	10752	f6e1601813de956af99ee93f44364827	254
 compendia	amd2_write.py	3704	023efa1fb575c8e0127e5b1ffc0fa52a	98
@@ -359,6 +359,8 @@ compendia	r2-26c.out	13613	f7f2ccafe97d5cc16a42a9e296e9b92c	156
 compendia	r2-26c.py	16897	6f1062f07b0108ee6d2dd395bd232ef0	231
 compendia	r2-26c2.out	13738	151734b388126954690477c015b43c13	157
 compendia	r2-26c2.py	17671	407da30d6045e80995b9f4429f448618	239
+compendia	r2-26c3.out	14750	804d406145e5a188b015a60649c0ca54	168
+compendia	r2-26c3.py	21910	17f88c07b7f095ec310ae409b56e8345	296
 compendia	r2-27a.out	10142	1c050f9a69f02d213fecfc53d779d72f	125
 compendia	r2-27a.py	15219	103078f4bf922ce6b9e9d5cad1b30224	218
 compendia	r2-27a2.out	10142	000939f9c8009ae8f41601378b7e6238	125

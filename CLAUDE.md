@@ -4,7 +4,7 @@
 
 Two things, and they are not the same kind of thing.
 
-**`method/` is the store of record for The Method 1.6.** Both live bundles, all **765 members**
+**`method/` is the store of record for The Method 1.6.** Both live bundles, all **767 members**
 extracted from them byte-exact, `MEMBER-INDEX.tsv`, and the §0 gate in `method/CLAUDE.md`. Every
 chat opens by reading this tree — `python3 method/verify.py` asserts every member md5 and recovers
 both bundles. Start here. See `method/README.md`. **The live pair is named in `method/CLAUDE.md` §3
@@ -219,14 +219,18 @@ before any pass that spans more than one file.
 
 **Thirty-one `tools/` programs are also seated members, and the two copies are NOT in lockstep.** The
 member is the **snapshot at its seating build**; the `tools/` copy is what a chat actually runs, so a
-pass that improves an instrument moves the working copy and leaves the member where it was. **Five are
+pass that improves an instrument moves the working copy and leaves the member where it was. **Four are
 ahead of their member right now** — `docfigures.py`, `drive_sync.py` (304 diff lines), `shiftcheck.py`
-(70), `slopeaxis.py` (80) and `gate_live.py`, whose `HELD` gained `r2-26c2` — and until 2026-09-07 **nothing in the store reported it**: `verify.py`
+(70) and `slopeaxis.py` (80) — and until 2026-09-07 **nothing in the store reported it**: `verify.py`
 checks members against the bundles and never against `tools/`, and none of the four is in the live
 golden set, so `gate_live.py` does not run the seated copy either. A seated instrument could answer
 with logic a leg out of date and no step would say so. `tools/docfigures.py` now carries the row that
 measures it. **A nonzero count is not a fault** — it is the list of instruments whose next seating is
-owed; the pin is what is known about, and a new name trips the row.
+owed; the pin is what is known about, and a new name trips the row. **`gate_live.py` left the list at
+BUILD311 and the row is what noticed.** It was ahead for exactly one reason, the `HELD` entry W-260
+added for `r2-26c2`; seating the successor `r2-26c3` removed that entry, and the working copy is now
+byte-identical to its member. **A debt discharged as arithmetic rather than by a seating** — W-316
+records the cause, the removal, and not this consequence, which was measured after the build.
 
 **Twelve more `tools/` programs are the R2–R4 build machinery, and this file did not name one of them
 until 2026-09-07** — which broke its own "nothing in the tree is unaccounted for", since three of the
@@ -276,7 +280,10 @@ because an undirected `Graph` collapses parallel endpoint pairs and drops the da
 because `graphify-out/cache/` was gitignored and never travelled with the repository. It is tracked
 now, so the next rebuild resumes rather than starting cold. **77 files in scope contribute no node,
 and all 77 are `.json`**: they are classified as code, an AST pass finds no symbols in JSON, and they
-never reach the semantic pass — a limit, not a fault. Still a snapshot: do not
+never reach the semantic pass — a limit, not a fault. **BUILD311 post-dates the rebuild**, so the
+tree already holds three files the graph does not: `r2-26c3.py`, `r2-26c3.out` and `W-316.md`. The
+rows `tools/docfigures.py` pins measure `graph.json`, not the tree, so they hold — a snapshot going
+out of date is not drift in the figures that describe it. Still a snapshot: do not
 treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`, `extracted/LEDGER.tsv`,
 `recovered/LEDGER.tsv` or `HANDOFF-GAP.tsv` instead.
 

@@ -146,7 +146,7 @@ def checks():
     gaps = [n for n in range(min(R), max(R) + 1) if n not in R]
 
     return [
-        ("CLAUDE.md", "members extracted from the bundles", 765,
+        ("CLAUDE.md", "members extracted from the bundles", 767,
          len(_rows("method/MEMBER-INDEX.tsv"))),
         ("CLAUDE.md", "drive/ MANIFEST rows", 819, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,
@@ -227,7 +227,7 @@ def checks():
          _members_needing_312()),
         ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
          _unparseable_anywhere()),
-        ("CLAUDE.md", "tools/ instruments ahead of their seated member", 5,
+        ("CLAUDE.md", "tools/ instruments ahead of their seated member", 4,
          len(_tools_ahead_of_their_members())),
         # graphify-out/. Nothing pinned the graph's own figures until 2026-09-11,
         # which is how CLAUDE.md came to describe a 26,364-node snapshot after a

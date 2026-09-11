@@ -71,9 +71,12 @@ no longer on the read path.
   is what the gate reports on the live pair. **`method/README.md` carries the operative gate procedure** and is
   kept current with the store; where it and §6 below differ, README governs.
 - **Live files, both in `method/` and asserted by `method/verify.py`: BUILD130 main** (2,143,575 B ·
-  `8c82e16f99d2f279cb381b13dc085603` · 18,918 lines · 2 members) and **BUILD310 compendia** · 763 members.
-  **765 members in all.** **The Register runs 1 to 1891, 1,733 seated** (1,726 numbered + 7 grouped).
-  **W-310 seated.**
+  `8c82e16f99d2f279cb381b13dc085603` · 18,918 lines · 2 members) and **BUILD311 compendia**
+  (16,760,818 B · `b3d5e0905894cc86e06f663720aa91da` · 147,227 lines) · 765 members.
+  **767 members in all.** **The Register runs 1 to 1892, 1,734 headings seated** (1,727 bare `### N`
+  plus 7 grouped headings carrying 32 numbers between them). **W-316 seated**, and the live golden
+  set is **86**. BUILD311 seats `r2-26c3`, the last successor this leg owed (W-316); `r2-26b2` is
+  still owed and that debt predates the leg.
 - **BUILD277 TO BUILD283 ARE THE FIRST REPAIRS TO A READER-FACING VOLUME SINCE THE CHAT-67 HOLD**, on M's three
   rulings of 7 September, and **none of them could have been made when the leg began**: `close.py` refuses any
   change to a seated member, `close_main.py` writes only the Register, `close_rebank.py` only a golden and
