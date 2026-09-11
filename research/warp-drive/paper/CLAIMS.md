@@ -3671,6 +3671,71 @@ base. **A representation is not a finding.**
 
 ---
 
+## ★★★ H52 — a zero-sum from a cube. **Yes, three times — and that is why it does not help.**
+
+> M: *"Maybe this is a simple question, but maybe not… Can we derive a zero-sum from a cube?"*
+
+**It is the best-aimed question of the session.** **H50d** closed on *"a square does not go negative"* — and a
+**cube does**. Cubing is **odd** and carries sign where squaring destroys it, so asking for an odd-order
+object is exactly the right shape of escape from `lattice.py`'s `V·V ≥ 0`.
+
+### H52a — yes, geometrically
+
+A cube's **eight** vertices `(±1,±1,±1)` sum to **(0, 0, 0) exactly**. The same 8 this session has circled
+from three directions. **And trivially** — they are four **antipodal pairs**, so the zero is a *symmetry*, not
+a cancellation of substance. Nothing was subtracted; the sum was zero before it was taken.
+
+### H52b — yes, structurally, and this half is simply right
+
+| `a` | `a²` | `a³` |
+|---|---|---|
+| −3.0 | **+9.000** | **−27.000** |
+| +3.0 | +9.000 | +27.000 |
+
+**Squaring is even and destroys sign. Cubing is odd and carries it.** That asymmetry is precisely what the
+obstruction rests on: `lattice.py`'s bound is unbeatable **because** it is quadratic. **The instinct is
+correct and unqualified.**
+
+### H52c — yes, algebraically, and the zero is *identical*
+
+`Tr(T³)` for five random electromagnetic fields:
+
+| `Tr(T)` | `Tr(T²)` | `Tr(T³)` | `\|T² − (Tr T²/4)I\|` |
+|---|---|---|---|
+| −5.551e−17 | +1.001331e+00 | **+4.163e−15** | 1.277e−15 |
+| +1.110e−16 | +4.794583e+01 | **+4.885e−15** | 3.553e−15 |
+| +0.000e+00 | +4.845028e+01 | **+3.197e−14** | 3.553e−15 |
+
+**`Tr(T²)` is large and varies. `Tr(T³)` is machine zero every time — and not as a floor.** The mechanism was
+measured alongside: **`T² = (Tr(T²)/4)·I`**, so with `T` traceless,
+
+> **`Tr(T³) = Tr(T·T²) = (Tr(T²)/4)·Tr(T) = 0` — identically.**
+>
+> **A zero-sum from a cube, exactly as asked, with nothing in it to be negative. The door the cube opens
+> leads to an empty room.**
+
+### H52d — and the room is empty for a reason specific to light
+
+A **general** traceless `T` has a freely signed cube-sum: eigenvalues `(2,−1,−1,0)` → **+6**, `(−2,1,1,0)` →
+**−6**, `(−3,2,1,0)` → **−18**. **So the vanishing is a property of electromagnetism in four dimensions, not
+of cubes.**
+
+> **And that explains something the tree had only observed.** `T² ∝ I` is *why* `lattice.py`'s theorem has
+> felt so rigid — scale-free, dimension-free, holding in D = 3…26 over 200,000 random fields. **The EM stress
+> tensor has almost no algebraic freedom: its trace vanishes and its cube vanishes, so it has exactly ONE
+> non-trivial invariant — and it is the one that cannot go negative.**
+
+**Even granting a negative cubic invariant it would not reach the obstruction**, and conflating them is the
+fault **H39** exists to catch. The NEC is `T_μν k^μ k^ν < 0` for **null `k`** — a contraction **with a
+direction**, asking what an observer on a null ray measures. `Tr(T³)` is direction-free. **There is no cubic
+NEC to write down**: `T_μν` is already quadratic in the field, and contracting it with two null vectors is
+what *makes* it an energy density.
+
+*Whether some other matter model has a usefully negative cubic invariant is **not computed here**. No novelty
+is claimed for the identity.*
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

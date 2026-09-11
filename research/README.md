@@ -7400,6 +7400,38 @@ bit**, and that `zeno.py`'s `[0, 8]` touches zero *from above*, so it doesn't fl
 
 ---
 
+## `cubic.py` — a zero-sum from a cube. Yes, three times, and that is why it doesn't help.
+
+> M: *"Can we derive a zero-sum from a cube?"*
+
+**The best-aimed question of the session.** `zeno.py` closed on *"a square does not go negative"* — and a cube
+does. **Cubing is odd and carries sign where squaring destroys it**, so an odd-order object is exactly the
+right shape of escape from `lattice.py`'s `V·V ≥ 0`.
+
+- **Geometrically — yes.** Eight vertices sum to `(0,0,0)` exactly. *And trivially*: four antipodal pairs, so
+  the zero is a **symmetry**, not a cancellation.
+- **Structurally — yes, and this half is simply right.** `a² ≥ 0` always; `a³` carries the sign of `a`.
+- **Algebraically — yes, and the zero is *identical*.** `Tr(T³)` is machine zero for every random EM field —
+  because **`T² = (Tr(T²)/4)·I`** (measured to 3.6e−15) and `T` is traceless, so
+  `Tr(T³) = Tr(T·T²) = 0` **identically**.
+
+> **A zero-sum from a cube, exactly as asked, with nothing in it to be negative. The door the cube opens leads
+> to an empty room.**
+
+**And the room is empty for a reason specific to light.** A general traceless `T` is freely signed (+6, −6,
+−18 by eigenvalues) — so the vanishing belongs to **electromagnetism in 4D**, not to cubes. **Which explains
+what the tree had only observed:** `T² ∝ I` is *why* `lattice.py`'s theorem is so rigid. **The EM stress
+tensor has exactly one non-trivial invariant, and it is the one that cannot go negative.**
+
+*And it wouldn't reach the obstruction anyway* — the NEC is a **null contraction with a direction**, `Tr(T³)`
+is direction-free, and **there is no cubic NEC to write down**.
+
+### Seated
+- `cubic.py` — new. `index3.py` — **558 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H52**. `lattice.py` — **unchanged, now explained**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
