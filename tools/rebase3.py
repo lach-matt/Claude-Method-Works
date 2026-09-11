@@ -21,7 +21,8 @@ sys.path.insert(0, HERE)
 import helios as H                                              # noqa: E402
 import helios3 as H3                                            # noqa: E402
 import hourly3 as HR                                            # noqa: E402
-import joinder as J                                             # noqa: E402
+import joinder as J
+import both as B                                             # noqa: E402
 import aquacost as AQ                                           # noqa: E402
 import titleone as T1                                           # noqa: E402
 import majors as MJ                                             # noqa: E402
@@ -44,6 +45,7 @@ def gather():
         r = HR.run(c, 1.0, 1.0, 1.5, 2.0, 2.0, design=d)
         cost = HR.closure_cost_m(d, 1.0, 1.0, 1.5, 2.0, 2.0)
         g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost))
+    g["both"] = {c: B.scan(c)["best"] for c in CASES}
     g["module"] = {c: AQ.module(c) for c in CASES}
     g["route"] = {c: AQ.water_route(c) for c in CASES}
     g["rates"] = {c: T1.rate_table(c) for c in CASES}
@@ -54,7 +56,7 @@ def gather():
 
 
 def render(g):
-    p, w, m, r, mod = g["priced"], g["water"], g["mirrors"], g["route"], g["module"]
+    p, w, m, r, mod, b = g["priced"], g["water"], g["mirrors"], g["route"], g["module"], g["both"]
     L = []
     a = L.append
     a("# Title III — The Joinder (v0.2)")
@@ -92,28 +94,39 @@ def render(g):
     a("## 2. The decision")
     a("")
     a("Hour by hour, Title I as sized serves 84 % of its load. Two routes close it, both with the block")
-    a("at ×1.5. On the power side they are at parity; what separates them is water.")
+    a("at ×1.5. On the power side they are at parity; what separates them is water. **The author chose")
+    a("both** (2026-09-11): the water returns half the season and the field and store carry the other half,")
+    a("so the plant is served by two things that fail differently (`both.py`).")
     a("")
-    a("| | mirrors, mid | mirrors, critical | water, mid | water, critical |")
-    a("|---|---|---|---|---|")
+    a("| | mirrors, mid | mirrors, critical | water, mid | water, critical | **both, mid** | **both, critical** |")
+    a("|---|---|---|---|---|---|---|")
     wm, wc = w["mid"]["closing"], w["critical"]["closing"]
-    a(f"| Title I additional capital, $B | {m['mid']['cost_b']:.1f} | {m['critical']['cost_b']:.1f} | {wm['total_b']:.1f} | {wc['total_b']:.1f} |")
-    a(f"| Title I price, $/MWh | {p['mid']['price'] + m['mid']['dprice']:.0f} | {p['critical']['price'] + m['critical']['dprice']:.0f} | {p['mid']['price'] + J.price_delta('mid', wm['total_b']):.0f} | {p['critical']['price'] + J.price_delta('critical', wc['total_b']):.0f} |")
-    a(f"| Title II modules | 0 | 0 | {r['mid']['modules']:.0f} | {r['critical']['modules']:.0f} |")
-    a(f"| Title II capital, financed, $B | 0 | 0 | {r['mid']['capex_b']:.0f} | {r['critical']['capex_b']:.0f} |")
-    a(f"| water, million acre-feet a year | 0 | 0 | {r['mid']['maf']:.2f} | {r['critical']['maf']:.2f} |")
-    a(f"| water price with the lift, $/acre-foot | — | — | {r['mid']['per_af']:,.0f} | {r['critical']['per_af']:,.0f} |")
-    a(f"| left to the grid | {m['mid']['unserved']:.1%} | {m['critical']['unserved']:.1%} | {wm['unserved']:.1%} | {wc['unserved']:.1%} |")
+    bm, bc = b["mid"], b["critical"]
+    a(f"| Title I additional capital, $B | {m['mid']['cost_b']:.1f} | {m['critical']['cost_b']:.1f} | {wm['total_b']:.1f} | {wc['total_b']:.1f} | **{bm['title1_b']:.1f}** | **{bc['title1_b']:.1f}** |")
+    a(f"| Title I price, $/MWh | {p['mid']['price'] + m['mid']['dprice']:.0f} | {p['critical']['price'] + m['critical']['dprice']:.0f} | {p['mid']['price'] + J.price_delta('mid', wm['total_b']):.0f} | {p['critical']['price'] + J.price_delta('critical', wc['total_b']):.0f} | **{p['mid']['price'] + bm['dprice']:.0f}** | **{p['critical']['price'] + bc['dprice']:.0f}** |")
+    a(f"| field, store | ×2, 2 d | ×2, 2 d | ×1, 1 d | ×1, 1 d | ×{bm['field']:.2f}, {bm['store']:.1f} d | ×{bc['field']:.2f}, {bc['store']:.1f} d |")
+    a(f"| Title II modules | 0 | 0 | {r['mid']['modules']:.0f} | {r['critical']['modules']:.0f} | {bm['modules']:.0f} | {bc['modules']:.0f} |")
+    a(f"| Title II capital, financed, $B | 0 | 0 | {r['mid']['capex_b']:.0f} | {r['critical']['capex_b']:.0f} | {bm['title2_b']:.0f} | {bc['title2_b']:.0f} |")
+    a(f"| water, million acre-feet a year | 0 | 0 | {r['mid']['maf']:.2f} | {r['critical']['maf']:.2f} | {bm['maf']:.2f} | {bc['maf']:.2f} |")
+    a(f"| water price with the lift, $/acre-foot | — | — | {r['mid']['per_af']:,.0f} | {r['critical']['per_af']:,.0f} | {r['mid']['per_af']:,.0f} | {r['critical']['per_af']:,.0f} |")
+    a(f"| left to the grid | {m['mid']['unserved']:.1%} | {m['critical']['unserved']:.1%} | {wm['unserved']:.1%} | {wc['unserved']:.1%} | {bm['unserved']:.1%} | {bc['unserved']:.1%} |")
+    a(f"| with the water withheld | — | — | — | — | {bm['no_water']['unserved']:.1%} | {bc['no_water']['unserved']:.1%} |")
+    a(f"| with the field at design | — | — | — | — | {bm['no_field']['unserved']:.1%} | {bc['no_field']['unserved']:.1%} |")
     a("")
-    a(f"**The takers.** The water route delivers {r['mid']['maf']:.1f}–{r['critical']['maf']:.1f} million acre-feet a year from October to")
+    a("Both costs more than mirrors alone on Title I's account, because the pump-turbine plant is bought")
+    a(f"whole whatever share it returns. What it buys: with either route out, {bm['no_water']['unserved']:.0%}–{bm['no_field']['unserved']:.0%} of the load")
+    a(f"is left to the grid against {B.scan('mid')['as_sized']['unserved']:.0%} with neither, and {bm['maf']:.2f}–{bc['maf']:.2f} million acre-feet a year of")
+    a("water. The even split is the author's word read literally; the ladder over the water's share is in")
+    a("`both.py` and the split can be moved.")
+    a("")
+    a(f"**The takers.** The adopted route delivers {bm['maf']:.1f}–{bc['maf']:.1f} million acre-feet a year from October to")
     a(f"April. The San Joaquin Valley's groundwater overdraft under SGMA is about {SGMA_RECHARGE_GAP_MAF[0]:.1f}–{SGMA_RECHARGE_GAP_MAF[1]:.1f} million")
     a("acre-feet a year, and winter is when recharge basins take water. That is the match of supply to")
     a("demand the joinder rests on, and it is a contract question: recharge districts under contract for")
     a("firm winter water at three to five thousand dollars an acre-foot, which is what firm water costs.")
     a("")
-    a("**The decision is the author's**: the mirrors route is Title I alone at its whole-load price; the")
-    a("water route is Title I at the same price plus Title II at the scale of the season, and a million")
-    a("acre-feet of firm water California does not otherwise have.")
+    a("**The decision is the author's, and it is made**: both. Title I at the combined price, Title II at")
+    a("half the season's scale, and firm winter water California does not otherwise have.")
     a("")
     a("## 3. The single financial statement")
     a("")
@@ -123,6 +136,7 @@ def render(g):
     a(f"| Title I closing the season, mirrors / water, $B | {m['mid']['cost_b']:.1f} / {wm['total_b']:.1f} | {m['critical']['cost_b']:.1f} / {wc['total_b']:.1f} |")
     a(f"| Title II modules at the water route, $B | {r['mid']['capex_b']:.0f} | {r['critical']['capex_b']:.0f} |")
     a(f"| program at the water route, $B | {p['mid']['capex_net'] / 1e3 + wm['total_b'] + r['mid']['capex_b']:.0f} | {p['critical']['capex_net'] / 1e3 + wc['total_b'] + r['critical']['capex_b']:.0f} |")
+    a(f"| **program at the adopted route (both), $B** | **{p['mid']['capex_net'] / 1e3 + bm['title1_b'] + bm['title2_b']:.0f}** | **{p['critical']['capex_net'] / 1e3 + bc['title1_b'] + bc['title2_b']:.0f}** |")
     a(f"| Title I debt service, $M/yr | {g['reserve']['mid']['debt_service_m']:,.0f} | {g['reserve']['critical']['debt_service_m']:,.0f} |")
     a(f"| Title I debt-service reserve, $M | {g['reserve']['mid']['dsrf_m']:,.0f} | {g['reserve']['critical']['dsrf_m']:,.0f} |")
     a(f"| contingency carried | {g['reserve']['mid']['contingency']:.0%} | {g['reserve']['critical']['contingency']:.0%} |")
@@ -136,8 +150,8 @@ def render(g):
     a("")
     a("## 4. Severability")
     a("")
-    a("- **Title I without Title II** stands: the mirrors route closes the season at the price in §2, and")
-    a("  no water is made.")
+    a("- **Title I without Title II** stands: the field and store grow to the mirrors route's sizing, the")
+    a("  season closes at that price in §2, and no water is made.")
     a("- **Title II without Title I** stands: a module buys its electricity from the grid instead of the")
     a("  Authority, at the grid's price rather than the contract's, and makes the same water; the water")
     a("  route's reservoir and pump-turbines are not built, and the water is delivered by the aqueduct.")
@@ -149,7 +163,7 @@ def render(g):
     a("- The site of the reservoir, and so the head: 500 m is assumed and each doubling halves the modules.")
     a("- The recharge contracts: a million acre-feet a year of winter takers at firm-water prices.")
     a("- The brine as a carbonate sink for the power block's maintenance vents: noted, not priced.")
-    a("- The seven minor rows of `FLAWS.tsv`, which are wording and citation, and are worked last.")
+    a("- The split of the season between the two routes: adopted even, movable on `both.py`'s ladder.")
     a("")
     a("*Rendered by `tools/rebase3.py`; do not edit by hand. Re-render after any change to the instruments.*")
     return "\n".join(L) + "\n"
@@ -170,9 +184,10 @@ def selftest():
         check("the file on disk is byte-identical to a fresh render (never hand-edited)",
               open(OUT, encoding="utf-8").read() == text)
     check("the contract price is Title I's register price", f"| contract price, $/MWh (Title I with its register) | {g['priced']['mid']['price']:.0f} |" in text)
-    check("both routes and both cases appear in the decision table", "| mirrors, mid | mirrors, critical | water, mid | water, critical |" in text)
+    check("all three routes and both cases appear in the decision table", "| mirrors, mid | mirrors, critical | water, mid | water, critical | **both, mid** | **both, critical** |" in text)
     check("severability is stated both ways", "Title I without Title II" in text and "Title II without Title I" in text)
-    check("the decision is left to the author", "The decision is the author's" in text)
+    check("the decision is recorded as made: both", "The decision is the author's, and it is made**: both" in text)
+    check("the adopted route's Title I capital is both.py's", f"| **{g['both']['mid']['title1_b']:.1f}** |" in text)
     check("the takers are named as a contract question", "recharge districts under contract" in text)
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
     return fails == 0

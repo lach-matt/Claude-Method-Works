@@ -33,27 +33,37 @@ at nothing because it was worth nothing.
 ## 2. The decision
 
 Hour by hour, Title I as sized serves 84 % of its load. Two routes close it, both with the block
-at ×1.5. On the power side they are at parity; what separates them is water.
+at ×1.5. On the power side they are at parity; what separates them is water. **The author chose
+both** (2026-09-11): the water returns half the season and the field and store carry the other half,
+so the plant is served by two things that fail differently (`both.py`).
 
-| | mirrors, mid | mirrors, critical | water, mid | water, critical |
-|---|---|---|---|---|
-| Title I additional capital, $B | 10.2 | 16.9 | 11.3 | 18.2 |
-| Title I price, $/MWh | 185 | 302 | 192 | 310 |
-| Title II modules | 0 | 0 | 33 | 35 |
-| Title II capital, financed, $B | 0 | 0 | 62 | 102 |
-| water, million acre-feet a year | 0 | 0 | 1.64 | 1.76 |
-| water price with the lift, $/acre-foot | — | — | 3,268 | 5,030 |
-| left to the grid | 0.0% | 0.0% | 0.6% | 0.6% |
+| | mirrors, mid | mirrors, critical | water, mid | water, critical | **both, mid** | **both, critical** |
+|---|---|---|---|---|---|---|
+| Title I additional capital, $B | 10.2 | 16.9 | 11.3 | 18.2 | **11.2** | **18.0** |
+| Title I price, $/MWh | 185 | 302 | 192 | 310 | **191** | **309** |
+| field, store | ×2, 2 d | ×2, 2 d | ×1, 1 d | ×1, 1 d | ×1.25, 1.5 d | ×1.25, 1.5 d |
+| Title II modules | 0 | 0 | 33 | 35 | 16 | 18 |
+| Title II capital, financed, $B | 0 | 0 | 62 | 102 | 31 | 51 |
+| water, million acre-feet a year | 0 | 0 | 1.64 | 1.76 | 0.82 | 0.88 |
+| water price with the lift, $/acre-foot | — | — | 3,268 | 5,030 | 3,268 | 5,030 |
+| left to the grid | 0.0% | 0.0% | 0.6% | 0.6% | 0.4% | 0.4% |
+| with the water withheld | — | — | — | — | 7.0% | 7.0% |
+| with the field at design | — | — | — | — | 5.9% | 5.9% |
 
-**The takers.** The water route delivers 1.6–1.8 million acre-feet a year from October to
+Both costs more than mirrors alone on Title I's account, because the pump-turbine plant is bought
+whole whatever share it returns. What it buys: with either route out, 7%–6% of the load
+is left to the grid against 13% with neither, and 0.82–0.88 million acre-feet a year of
+water. The even split is the author's word read literally; the ladder over the water's share is in
+`both.py` and the split can be moved.
+
+**The takers.** The adopted route delivers 0.8–0.9 million acre-feet a year from October to
 April. The San Joaquin Valley's groundwater overdraft under SGMA is about 1.8–2.5 million
 acre-feet a year, and winter is when recharge basins take water. That is the match of supply to
 demand the joinder rests on, and it is a contract question: recharge districts under contract for
 firm winter water at three to five thousand dollars an acre-foot, which is what firm water costs.
 
-**The decision is the author's**: the mirrors route is Title I alone at its whole-load price; the
-water route is Title I at the same price plus Title II at the scale of the season, and a million
-acre-feet of firm water California does not otherwise have.
+**The decision is the author's, and it is made**: both. Title I at the combined price, Title II at
+half the season's scale, and firm winter water California does not otherwise have.
 
 ## 3. The single financial statement
 
@@ -63,6 +73,7 @@ acre-feet of firm water California does not otherwise have.
 | Title I closing the season, mirrors / water, $B | 10.2 / 11.3 | 16.9 / 18.2 |
 | Title II modules at the water route, $B | 62 | 102 |
 | program at the water route, $B | 105 | 175 |
+| **program at the adopted route (both), $B** | **74** | **123** |
 | Title I debt service, $M/yr | 1,836 | 3,100 |
 | Title I debt-service reserve, $M | 1,836 | 3,100 |
 | contingency carried | 15% | 30% |
@@ -76,8 +87,8 @@ standing rule; a revenue bond's coverage is stated above it.
 
 ## 4. Severability
 
-- **Title I without Title II** stands: the mirrors route closes the season at the price in §2, and
-  no water is made.
+- **Title I without Title II** stands: the field and store grow to the mirrors route's sizing, the
+  season closes at that price in §2, and no water is made.
 - **Title II without Title I** stands: a module buys its electricity from the grid instead of the
   Authority, at the grid's price rather than the contract's, and makes the same water; the water
   route's reservoir and pump-turbines are not built, and the water is delivered by the aqueduct.
@@ -89,6 +100,6 @@ standing rule; a revenue bond's coverage is stated above it.
 - The site of the reservoir, and so the head: 500 m is assumed and each doubling halves the modules.
 - The recharge contracts: a million acre-feet a year of winter takers at firm-water prices.
 - The brine as a carbonate sink for the power block's maintenance vents: noted, not priced.
-- The seven minor rows of `FLAWS.tsv`, which are wording and citation, and are worked last.
+- The split of the season between the two routes: adopted even, movable on `both.py`'s ladder.
 
 *Rendered by `tools/rebase3.py`; do not edit by hand. Re-render after any change to the instruments.*

@@ -66,15 +66,21 @@ sixteen hours of store cannot move June into December: the store empties from Oc
 while a quarter of June's field is defocused. The load and PV shapes are reconstructed and pinned
 to sourced levels; a measured CAISO profile and an NSRDB hourly file replace them when reachable.
 
-## 4. Closing the load: two routes
+## 4. Closing the load: two routes, and the one adopted
 
 Both keep the block at **×1.5**, because nothing but the block serves a July evening. They differ
-in how the October-to-April season is closed.
+in how the October-to-April season is closed. **The author chose both** (2026-09-11, `both.py`):
+the water returns half the season and the field and store carry the other half.
 
 | route | what grows | mid, $B | + $/MWh | critical, $B | + $/MWh | leaves to the grid |
 |---|---|---|---|---|---|---|
 | mirrors | field ×2, store 2 days | 10.2 | 60 | 16.9 | 100 | 0.0% / 0.0% |
 | water (Title III) | 33 / 35 desalination modules, a 2.0 / 2.2 km³ reservoir at 500 m, 2,500 MW of pump-turbines | 11.3 | 67 | 18.2 | 108 | 0.6% / 0.6% |
+| **both (adopted)** | field ×1.25, store 1.5 d; 16 / 18 modules, 2,500 MW of pump-turbines | **11.2** | **66** | **18.0** | **107** | 0.4% / 0.4% |
+
+The adopted route costs more than mirrors alone, because the pump-turbines are bought whole whatever
+share they return; with the water withheld it leaves 7% to the grid and with the field at design
+6%, against 13% with neither. Two levers that fail differently, neither at its full extent.
 
 On the power side the two are at parity. The water route makes **1.64 to 1.76 million
 acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer
@@ -98,12 +104,14 @@ electricity bought from Title I at the register price:
 | with the mitigation register (§6) | 125 | 202 |
 | serving the whole load, mirrors route | 185 | 302 |
 | serving the whole load, water route | 192 | 310 |
+| **serving the whole load, both (adopted)** | **191** | **309** |
 
 | $ per household per year (today 1,177) | mid | critical |
 |---|---|---|
 | with the mitigation register | 756 | 1,218 |
 | serving the whole load, mirrors route | 1,119 | 1,824 |
 | serving the whole load, water route | 1,161 | 1,868 |
+| **serving the whole load, both (adopted)** | **1,155** | **1,863** |
 
 **The criterion, stated exactly.** At mid, Helios-3 with its register needs $125/MWh, $5
 above the top of the contract band, and a household pays $756 against $1,177 today. Serving
@@ -239,8 +247,8 @@ coastal permit and shortens no federal review.
 
 ## 9. What v0.2 does not settle
 
-- The route for the season — mirrors or water — is Title III's decision, and the water side has
-  its own flaw register to survive (F-16 on module capital, F-14 on the price of water).
+- The split of the season between the two routes: adopted even, movable on `both.py`'s ladder;
+  the water side carries Title II's own register (F-14, F-16), resolved at its price.
 - The evening peak is closed by a block ×1.5 and by nothing else; a measured load profile may
   move that factor either way.
 - The receiver's critical figure and the dome's verdict are what the pilot aperture measures;

@@ -169,6 +169,14 @@ modules and the same block close critical for $18.2 B** — against $10.2 / $16.
 on head and at critical the surplus lifts only 0.94 of the season, pinned as a finding. The field and
 the store stay at design; the block does not, because nothing but the block serves a July evening.
 
+**The decision: both (`tools/both.py`, `docs/BOTH.md`, 2026-09-11).** Asked which route closes the
+season, the author answered *both*. Read literally as the even split — the water returns half the
+season, the field and store carry the other half — the adopted sizing is field ×1.25, store 1.5 d,
+2,500 MW of pump-turbines and 16–18 modules (0.82–0.88 MAF/yr): **$11.2 / $18.0 B on Title I's
+account, +$66 / +$107 per MWh**, more than mirrors alone ($8.7 / $14.3 B) because the pump-turbines
+are bought whole, and buying a plant that with either route out still leaves only 6–7 % to the grid
+against 13 % with neither. The ladder over the water's share is printed so the split can be moved.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release
