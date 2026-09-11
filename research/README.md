@@ -6119,3 +6119,94 @@ there, and does the existing catalogue cover enough volume to have seen one?
 - `bits.py` — new. `obstruct.py` — **47 rows**, new `ENTROPY-AS-STABILITY`, **28 closed-negative**.
   `index3.py` — **453 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H27** and two additions to the
   not-claimed list.
+
+---
+
+## `choice.py` — statistics is the only language with a dial, and the dial is half a choice
+
+> **M:** *"door 3 — statistics — is the right door. Its values are all possible probabilities which gives
+> us seating as a choice."*
+
+**The observation is right, and it names an asymmetry nothing in this project had noticed.**
+
+### 1. What each operator actually returns
+
+| language | returns | |
+|---|---|---|
+| order | a closure | set, structural |
+| algebra | a span | set, structural |
+| geometry | an integer hull | set, structural |
+| information | a set | set, structural |
+| **statistics** | **max-entropy on the order-k marginals — a *distribution*, whose SUPPORT is the binary** | **continuum** |
+
+From `tools/cypher.py`: "IPF sends a cell to zero exactly when one of its k-projections is unobserved"
+(register 1174).
+
+> **Statistics is the only operator-bearing language whose binary is *manufactured* by a threshold rather
+> than read off a structure — so door three is the only door with a dial on its verdict.**
+
+Door one's algebra row is **contested** (two calculations, opposite answers, no knob). Door two's order
+row is a **theorem with no free parameter**. Only door three has something a person can turn — and that is
+a reason to prefer it, not a technicality.
+
+### 2. One refinement, from the corpus's own code
+
+In the cypher the threshold is **zero** — the support, the one distinguished point of a distribution.
+**Not a choice**, which is why statistics earns its row at all. In a detection the threshold is `α`, and
+**nothing in nature sets five sigma**.
+
+> The choice appears **exactly at the move from the support question to a detection question** — and that
+> move *is* door three. The dial is real, and it is new at that step.
+
+### 3. But the dial moves what you announce, not what is there
+
+`P_D = Φ(ρ − z_α)` — you choose a **point** on the ROC; the signal sets the **curve**.
+
+| α | ρ=0 | 1 | 3 | 5 | 8 |
+|---|---|---|---|---|---|
+| 1e−1 | **0.1000** | 0.3891 | 0.9571 | 0.9999 | 1.0000 |
+| 1e−3 | **0.0010** | 0.0183 | 0.4641 | 0.9719 | 1.0000 |
+| 5.73e−7 | **0.0000** | 0.0001 | 0.0311 | 0.5538 | 0.9991 |
+
+> **The zero-signal column is the whole argument.** At `ρ = 0` the detection rate **equals α exactly**, at
+> every threshold — ratio 1.000000 in all three rows. Lower the threshold and you get more detections at
+> precisely the rate you asked for, **all of them false.**
+
+**Seating is a choice in the sense that the announcement is a choice. The occupancy is not.**
+
+### 4. And the missing half is the silent row
+
+Odds compose: `posterior = prior × 2^bits`. You choose the threshold. **You do not choose the prior** —
+and for door three the prior odds **is the number density**.
+
+| prior odds | posterior after 5σ | |
+|---|---|---|
+| 1e−2 | 1.744e4 | DISCOVERY |
+| 1e−4 | 174.4 | DISCOVERY |
+| **1e−6** | **1.744** | **not a discovery** |
+| 1e−9 | 0.001744 | you would still bet against |
+
+> **A five-sigma detection at a prior of one in a million is posterior odds of 1.7 to 1.** No choice of
+> threshold repairs it — the threshold is already inside the Bayes factor of `1.7443e6`.
+
+Read the other way, bits needed for 100:1 posterior odds: **13.3** at 1e−2, **26.6** at 1e−6, **36.5** at
+1e−9, **46.5** at 1e−12.
+
+> **So the number density is not merely the missing answer. It is the factor that sets how many bits any
+> detection must carry.** `doors.py` called it door three's next measurement; this makes it the measurement
+> that decides whether any detection could ever **count**.
+
+### The score
+
+| | |
+|---|---|
+| the values | **RIGHT** — statistics is the only thresholded language |
+| the door | **RIGHT** — a dial beats a contested row and beats a theorem |
+| the choice | **HALF** — the threshold is yours, the prior is not, and they multiply |
+
+> **Seating is a choice conditioned on a number nobody has measured.**
+
+### Seated
+- `choice.py` — new. `obstruct.py` — **48 rows**, new `SEATING-BY-THRESHOLD` (conditional), 9 conditional.
+  `index3.py` — **458 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H28** and two additions to the
+  not-claimed list.

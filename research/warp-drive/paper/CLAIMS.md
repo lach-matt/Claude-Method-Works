@@ -1491,6 +1491,62 @@ model size of `1.12e12` bits).
 
 ---
 
+## ★★ H28 — statistics is the only language with a dial, and the dial is exactly half a choice
+
+**H28. In `tools/cypher.py` order returns a closure, algebra a span, geometry an integer hull,
+information a set — all structural. Statistics alone returns a *distribution* whose **support** is the
+binary. It is the only operator-bearing language whose binary is manufactured by a threshold rather than
+read, so **door three is the only door with a dial on its verdict.**"**
+
+Door one's algebra row is **contested** — two calculations, opposite answers, no knob. Door two's order
+row is a **theorem with no free parameter**. Only door three has something a person can turn, and that is
+a reason to prefer it.
+
+**One refinement, from the corpus's own code.** In the cypher the threshold is **zero** — the support, the
+one distinguished point of a distribution, *not* a choice; that is why statistics earns its row at all.
+In a detection the threshold is `α`, and **nothing in nature sets five sigma**. So the choice appears
+exactly at the move from the support question to a detection question — **and that move is door three.**
+
+**But the dial moves what you announce, not what is there.** `P_D = Φ(ρ − z_α)`: you choose a *point* on
+the ROC, the signal sets the *curve*.
+
+| α | ρ=0 | 1 | 3 | 5 | 8 |
+|---|---|---|---|---|---|
+| 1e−1 | **0.1000** | 0.3891 | 0.9571 | 0.9999 | 1.0000 |
+| 1e−3 | **0.0010** | 0.0183 | 0.4641 | 0.9719 | 1.0000 |
+| 5.73e−7 | **0.0000** | 0.0001 | 0.0311 | 0.5538 | 0.9991 |
+
+> The zero-signal column is the whole argument: **at `ρ = 0` the detection rate equals `α` exactly, at
+> every threshold** (ratio 1.000000). Lower the threshold and you get more detections at precisely the
+> rate you asked for, **all of them false.** Seating is a choice in the sense that the *announcement* is a
+> choice. The occupancy is not.
+
+**And the missing half is the silent row — which is why the two findings interlock.** Odds compose:
+`posterior = prior × 2^bits`. You choose the threshold; **you do not choose the prior**, and for door
+three the prior odds *is* the number density.
+
+| prior odds | posterior after 5σ (`B = 1.7443e6`) | |
+|---|---|---|
+| 1e−2 | 1.744e4 | DISCOVERY |
+| 1e−4 | 174.4 | DISCOVERY |
+| **1e−6** | **1.744** | **not a discovery** |
+| 1e−9 | 0.001744 | you would still bet against |
+
+Read the other way — bits needed for 100:1 posterior odds: **13.3** at 1e−2, **26.6** at 1e−6, **36.5** at
+1e−9, **46.5** at 1e−12.
+
+> **So the number density is not merely the missing answer. It is the factor that sets how many bits any
+> detection must carry.** **H25** called it door three's next measurement; this makes it the measurement
+> that decides whether any detection could ever *count*.
+
+| | `choice.py` |
+|---|---|
+| status | **PROVEN** (the roster asymmetry, read from `tools/cypher.py`) + **MEASURED** (the ROC table; the posterior arithmetic) |
+| new? | that statistics is the only thresholded language, and that the prior sets the bit requirement, yes |
+| **not** claimed | that seating is a choice — it is **half** a choice: the threshold is yours, the prior is not, and they multiply; that a lower threshold finds anything — at zero signal it returns exactly its own false-alarm rate; that the cypher's threshold is arbitrary — zero is canonical, and the arbitrariness enters only at the detection step |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1628,3 +1684,7 @@ model size of `1.12e12` bits).
   many there are. The silent row is still silent. See **H27**.
 - **That an entropy argument can substitute for a dynamical stability calculation.** Measured on a
   wormhole: entropy stability does not imply dynamical stability.
+- **That seating at door three is a choice.** It is half a choice. The threshold is yours; the prior — the
+  number density — is not, and they multiply. See **H28**.
+- **That a five-sigma detection settles door three.** At prior odds of one in a million it is posterior
+  odds of 1.744. Not a discovery.

@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of forty-seven obstructions, SIX dissolved, FOUR relocated,
-TWENTY-EIGHT closed negative, EIGHT conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of forty-eight obstructions, SIX dissolved, FOUR relocated,
+TWENTY-EIGHT closed negative, NINE conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -390,6 +390,22 @@ LEDGER = [
   "Their entropy function is an ANSATZ carrying free parameters the dynamical "
   "side lacks, which is the slack. Not a shortcut past doors.py's named "
   "stability calculation", "bits.py"),
+ ("SEATING-BY-THRESHOLD", "because statistics returns probabilities, seating "
+  "at door three is a choice", "CONDITIONAL",
+  "HALF TRUE, AND THE TRUE HALF IS A REAL FINDING. tools/cypher.py: order "
+  "returns a closure, algebra a span, geometry an integer hull, information a "
+  "set -- all structural. STATISTICS ALONE returns a DISTRIBUTION whose "
+  "SUPPORT is the binary, so it is the only operator-bearing language whose "
+  "binary is MANUFACTURED by a threshold, and DOOR THREE IS THE ONLY DOOR WITH "
+  "A DIAL. But the cypher's threshold is ZERO (canonical) while a detection's "
+  "is alpha (chosen), so the dial is new at the detection step; and by "
+  "Neyman-Pearson you choose a POINT on the ROC while the signal sets the "
+  "CURVE -- at rho = 0 the detection rate EQUALS alpha at every threshold, "
+  "ratio 1.000000. THE ANNOUNCEMENT IS A CHOICE; THE OCCUPANCY IS NOT. And "
+  "posterior = prior x 2^bits with the prior being the NUMBER DENSITY: a "
+  "five-sigma detection is posterior odds 1.744 at a prior of 1e-6, NOT A "
+  "DISCOVERY. CONDITIONAL on that density, which is the silent row",
+  "choice.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -739,11 +755,11 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 47)
+    chk("obstructions tracked", len(LEDGER), 48)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
     chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 28)
-    chk("CONDITIONAL", len(h["CONDITIONAL"]), 8)
+    chk("CONDITIONAL", len(h["CONDITIONAL"]), 9)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
