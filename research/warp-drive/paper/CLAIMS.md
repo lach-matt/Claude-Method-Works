@@ -1841,6 +1841,81 @@ look, and that is the entire claim.**
 
 ---
 
+## ★★☆ H33 — the currency thread closes: **the direction *is* the denomination**
+
+Four exchanges' worth of the currency idea, tested. The ladder is real; everything built on top of
+it is not. **H33 carries a prediction that *failed*, and it is recorded in full, because H32's landed
+prediction is only worth something if this section exists.**
+
+### H33a — denominations move the count, never the sum
+
+Contracting 1 fm costs `1.2124e28 J`. Paid in CMB photons that is `1.15e50`; in optical `3.78e46`; in
+1 MeV gamma `7.57e40`; in Planck-energy coins `6.20e18`. **The denomination spans 31.3 orders and the
+sum does not move.** There is a largest coin — a photon's Schwarzschild radius crosses its wavelength
+at the Planck energy — and it is the one place the metaphor returns a real number:
+`E_t(ℓ_P) = E_Planck/Λ = 0.100175014`, the collapse identity's own `1/Λ` in currency language.
+
+> **Caution, stated rather than buried:** a photon's energy is *frame-dependent*, so "largest coin" is
+> not an invariant statement, and the Planck cap is a hoop-conjecture heuristic, not a theorem.
+
+### H33b — a prediction that FAILED: "larger denominations are paid first"
+
+That is the **greedy algorithm**, optimal exactly when a coin system is **canonical** — decidable, and
+decided. It fails three independent ways.
+
+**Not canonical.** Hydrogen's `n ≤ 6` transitions are *exact integers* in units of `R/3600`
+(`E(n→m) = 3600(1/m² − 1/n²)`), so this is exact combinatorics with no rounding: coins
+`{3500, 3456, 3375, 3200, 2700, 800, 756, 675, 500, 300, 256, 175, 125, 81, 44}`. Over targets 1–4000,
+3385 are representable and **greedy finds no representation at all for 3275 of them — 96.7%**. First
+failure at 88: greedy takes 81 and cannot make 7, while `44 + 44` sits there. Greedy is additionally
+suboptimal at 2 more targets, first at 2025 — four coins where three suffice.
+
+**Exact change is never required, so the claim is *empty* rather than merely false.** `Δd = (G/c²)MΛ`
+is linear in M, so paying `E` buys `Δd = (G/c⁴)EΛ` continuously — there is no target to make change
+for. With overshoot permitted, largest-first is trivially optimal for *any* coin set whatever.
+
+**And the scale removes the premise.** The natural quantum is `1.9595e8 J`; the largest coin in the
+ladder, a Co-60 gamma, is `2.1341e-13 J`. Ratio **`9.182e20` — 21.0 orders.** `9.18e20` gamma photons
+buy one Planck length. There is no large denomination to pay first.
+
+### H33c — the index is ONTO, and that inverts the question
+
+Indexing all spectra against all directions of spacetime travel: the directions are the future
+timelike and null tangent directions, and a photon's energy under a change of direction is
+`D = 1/(γ(1 − β cos θ))`, which runs to `+∞` head-on and to `0` receding. **D sweeps the whole positive
+real line**, so the table is completely populated — the 21 cm hyperfine photon becomes a 1.33 MeV
+Co-60 gamma at `γ = 1.134e11`, a large boost and a legal direction.
+
+> **The answer is not "no" — it is stronger than no. The direction *is* the denomination.** There is no
+> independent fact about which denomination a photon is: a radio photon and a gamma are **the same
+> object** seen from two states of motion. The table has **rank one**, so the spectrum column carries
+> nothing the direction column does not already carry.
+
+### H33d — what survives is the angle, not the energy
+
+| β | E | E′ | `k·k'` |
+|---|---|---|---|
+| 0 | 1.0000 | 1.0000 | **−2.000000** |
+| 0.6 | 0.5000 | 2.0000 | **−2.000000** |
+| 0.95 | 0.1601 | 6.2450 | **−2.000000** |
+| 0.999 | 0.0224 | 44.7102 | **−2.000000** |
+
+The energies move by orders; the contraction does not move at all. And the `0 → 8` knob riding on it is
+`8.000000` and `0.000000` in **every** frame.
+
+> **Light is not a currency in the structured sense.** A currency has denominations because it must
+> settle *exactly*; this settles continuously and its denominations are frame-dependent. **It is a bulk
+> commodity priced by the joule** — and that is why no choice of spectrum has ever moved a number here.
+> Every currency attempt has tried to build an invariant out of a frame-dependent quantity.
+
+| | `denominate.py` |
+|---|---|
+| status | **PROVEN** (Doppler onto-ness; `k·k'` invariance; linearity of `Δd` in E) + **MEASURED** (31.3 orders of denomination; exact coin-change DP over 4000 targets) + **FAILED PREDICTION**, recorded |
+| new? | the onto-ness of the spectra × direction index, and its consequence that denomination is not a property of a photon |
+| **not** claimed | that the Planck cap is a theorem — it is a heuristic, and frame-dependent; that this moves any obstruction; that the hole at `2² = 4` (**H32**) is explained — it is **open** |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -2000,3 +2075,9 @@ look, and that is the entire claim.**
   reopens nothing. See **H32**.
 - **That the antiparallel factor is new physics.** It is 1967 physics; what is new is the *adjudication*
   of the published `4` against the published `8`. See **H32**.
+- **That a spectrum can be chosen to make a transition cheaper.** Denominations move the count over 31.3
+  orders and leave the sum invariant. See **H33a**.
+- **That larger denominations are paid first.** A *failed* prediction: the set is not canonical (96.7%
+  greedy-blind), and exact change is never required, so the claim is empty. See **H33b**.
+- **That a photon has a denomination.** It has one only relative to a direction of travel; the index is
+  onto and rank one. See **H33c**.

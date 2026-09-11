@@ -6579,3 +6579,51 @@ entire claim.**
 - `factor8.py` — new. `lightbuild.py` — §5 annotated, the withheld number now pointed at its measurement.
   `index3.py` — **478 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H32**, plus two additions to the
   not-claimed list. `obstruct.py` — **unchanged**, and that is the finding.
+
+---
+
+## `denominate.py` — the currency thread, closed: the direction *is* the denomination
+
+> M: *"index all spectra types against all possible directions of spacetime travel and see if the
+> directions tell us which denomination they use."*
+
+A well-posed computation, run. **It inverts.** And this file carries a prediction that **failed** —
+recorded in full, because `factor8.py`'s landed prediction is only worth something if this one exists.
+
+**The ladder is real:** 13 atomic and nuclear radiations spanning **11.4 orders**, Co-60 gamma
+(1.332 MeV) down to the H 21 cm line (5.874 µeV).
+
+**Denominations move the count, never the sum.** Contracting 1 fm costs `1.2124e28 J` — `1.15e50` CMB
+photons, `7.57e40` gamma, `6.20e18` Planck-energy coins. **31.3 orders of denomination, invariant sum.**
+The one real number the metaphor returns: `E_t(ℓ_P) = E_Planck/Λ = 0.100175014`, the collapse identity's
+own `1/Λ`. *(Caution: a photon's energy is frame-dependent, so the Planck cap is a heuristic.)*
+
+**The failed prediction.** "Larger denominations are paid first" is the **greedy algorithm**, optimal iff
+the coin system is **canonical**. Hydrogen's `n ≤ 6` transitions are *exact integers* in units of `R/3600`,
+so the test has no rounding: over targets 1–4000, 3385 are representable and **greedy finds no
+representation at all for 3275 — 96.7%**. First failure at 88: greedy takes 81, cannot make 7, while
+`44+44` sits there. And **exact change is never required** — `Δd` is linear in E — which makes
+largest-first trivially optimal for any coin set and therefore *empty* rather than false. And the largest
+coin is **21.0 orders** below one quantum of contraction: `9.18e20` gamma photons per Planck length.
+
+**The index is onto.** `D = 1/(γ(1−β cos θ))` runs to `+∞` head-on and `0` receding, sweeping the whole
+positive line — so every line reaches every other. The 21 cm photon becomes a Co-60 gamma at
+`γ = 1.134e11`.
+
+> **The answer is stronger than no: the direction *is* the denomination.** A radio photon and a gamma
+> are the same object seen from two states of motion. The table is **rank one**.
+
+**What survives:** not the energy. At β = 0, 0.6, 0.95, 0.999 the two energies read 1.0000/1.0000,
+0.5000/2.0000, 0.1601/6.2450, 0.0224/44.7102 — and `k·k' = −2.000000` at every one. The `0 → 8` knob is
+`8.000000` and `0.000000` in every frame.
+
+> **Light is a bulk commodity priced by the joule, not a structured currency.** A currency has
+> denominations because it must settle exactly; this settles continuously and its denominations are
+> frame-dependent. Every currency attempt in this project has tried to build an invariant out of a
+> frame-dependent quantity.
+
+### Seated
+- `denominate.py` — new. `index3.py` — **482 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H33** with
+  four sub-sections, plus three additions to the not-claimed list. `obstruct.py` — **unchanged**.
+- **Open, and kept:** the hole at `2² = 4` in `factor8.py`'s ladder. Nothing returns 4 as a total, and
+  the one published number that disagrees with the measurement sits exactly there. Unexplained.
