@@ -49,6 +49,13 @@ nominal on every result. **The chain and the register now carry it too**: `cspch
 **$125/MWh at mid and $191 at critical** ($756 / $1,153 per household against $1,177 today),
 the mirror 1.48× larger, driven by the receiver's 0.795 and the field's 0.58 before any adder.
 
+**R-12 provenance is listed rather than asserted (`tools/studies.py`, `docs/STUDIES.md`).** Twelve
+technologies, 48 study rows each with a status (OPERATED / TESTED / DESIGNED / AUTHOR) and a source —
+complete over technologies, a floor over studies, not queried live — one recommendation per
+technology placed on the ladder's rungs (7.5 years of study on the critical path, run against the
+build), and the cost of delay: **$0.97 B per year at mid, $1.54 B at critical**, the price drifting
+3.8 / 5.7 $/MWh a year at the 3 % construction escalation.
+
 ## Resolved so far
 
 | flaw | instrument | finding |

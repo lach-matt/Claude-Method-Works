@@ -193,11 +193,20 @@ REGISTER = [
     ("R-12", "Provenance: no plant of this kind exists at any commercial scale",
      "DOMINANT",
      "Stage: build the common field, towers and PV for Helios-2 OR Helios-3; "
-     "build one Helios-3 module first; convert modules as hours accumulate",
+     "build one Helios-3 module first; convert modules as hours accumulate. "
+     "Ladder (author, 2026-09-11): common field, towers and PV; a ~30 MW_th "
+     "pilot aperture on one tower (receiver.py); the 100 MWe module as copies "
+     "of the pilot; the fleet as copies of the module; each rung passed at "
+     "its critical figure and handed up the chain before the next is ordered. "
+     "Provenance is LISTED rather than asserted: studies.py holds every "
+     "technology in the system, every study covering it (a floor, sourced), "
+     "the further study recommended per rung, and the cost of delay at the "
+     "construction escalation rate. Salt block as fallback",
      "MAJOR", "HOURS",
-     "programme staging",
+     "programme staging (ladder); studies.py (provenance register, "
+     "recommendations, delay cost)",
      "This row cannot be mitigated by a specification. What is upfront is the "
-     "PLAN that buys the hours"),
+     "PLAN that buys the hours, and the LIST of what has and has not run"),
     ("R-13", "No freezing point: no heat tracing, no drain-down, no hot-tank failure",
      "BENEFIT", "-", "BENEFIT", "BENEFIT", "-",
      "Crescent Dunes lost eight months to a hot-tank leak; a silo of sand at "

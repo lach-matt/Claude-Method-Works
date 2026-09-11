@@ -34,7 +34,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | R-09 | particle lift erosion and temperature | MODERATE | MINOR | DESIGN | lift cold, fall hot (G3P3's arrangement) (adopted as it stands 2026-09-11) |
 | R-10 | dust as PM₁₀ in non-attainment counties | MODERATE | MINOR | DESIGN | enclosed negative-pressure handling (adopted as it stands 2026-09-11; R-01 geometry is the first layer) |
 | R-11 | receiver scale: nothing above ~1 MW_t has run | DOMINANT | MAJOR | HOURS | multi-aperture; more towers; first module; FLAGGED FOR SIMULATION 2026-09-11, first in `tools/receiver.py` (per-metre curtain law, loss fraction size-invariant, pilot aperture at ~30 MW_th before the module) |
-| R-12 | provenance: no plant of this kind exists | DOMINANT | MAJOR | HOURS | programme staging |
+| R-12 | provenance: no plant of this kind exists | DOMINANT | MAJOR | HOURS | programme staging; ladder with a ~30 MW_th pilot aperture before the module, each rung passed at critical; provenance listed in `tools/studies.py` (adopted 2026-09-11) |
 | R-13–16 | no freezing; no decomposition ceiling; no oxidiser or toxic medium; dry cooling at ⅙ the airflow | BENEFIT | | | |
 
 **Before: 4 BENEFIT / 7 MODERATE / 3 MAJOR / 2 DOMINANT. After: 4 BENEFIT /
