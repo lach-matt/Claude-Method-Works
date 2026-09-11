@@ -6743,3 +6743,46 @@ shape is **monodromy**, which is generic. Recurrence is what monodromy is for.
 - `teardown.py` — new. `index3.py` — **494 findings**, `E(X) = 0`, plus a **structural guard** on finding
   shape. `paper/CLAIMS.md` — **H36** with four sub-sections and three additions to the not-claimed list.
   `obstruct.py` — **unchanged**.
+
+---
+
+## `candidates.py` — the three proposed leads, run. All fail, each at a different gate.
+
+> M: *"we'll have to run all three candidates."*
+
+**The spec has three halves now** — **KIND** (`ρ < 0`), **DEADLINE** (`~R/c`), **MAGNITUDE** (enough of it,
+`|ρ| ~ c⁴/(GΛR²)`). The third is new, and it decides all three.
+
+**Negative effective mass fails at the first gate.** `m* = ħ²/(d²E/dk²)` is the **curvature of a band**,
+not `T₀₀`. A negative-mass polariton carries *positive* energy, violates no energy condition, and **would
+not bend spacetime the wrong way**. Real, measured, switchable — and the wrong quantity. *"Negative mass"
+is one phrase for two things and only one is exotic.*
+
+**Casimir passes KIND and fails the DEADLINE** — switching means moving plates: mechanical, slower than
+`c`, anchored to positive mass.
+
+**Squeezed vacuum passes both qualitative gates** — the only one that does, and the same candidate
+`lightbuild.py` had already left `OPEN`. **Two independent routes select it.**
+
+**Then the third gate, and it is structural:**
+
+| | scaling |
+|---|---|
+| allowed (Ford–Roman, Casimir) | `L⁻⁴` |
+| needed | `R⁻²` |
+
+The shortfall goes as `R²`, so **shrinking always helps** — "small and contained" is quantitatively right
+and the only thing that helps. Still **52.6 orders short at a nanometre**, 70.6 at a metre. And the
+crossover has a closed form: **`0.307933 ℓ_P`** (Ford–Roman), **`0.369917 ℓ_P`** (Casimir).
+
+> **The bound meets the requirement only below the Planck length. The framework fails before the bound
+> does.** Not "very hard" — outside the domain of the theory stating it. **Λ sits in both closed forms.**
+
+**One consolation:** the quantum inequality is most generous exactly where the deadline wants to live, so
+switchability is **free** and will not be what stops a lead that ever does supply the magnitude.
+
+### Seated
+- `candidates.py` — new. `index3.py` — **499 findings**, `E(X) = 0`; the two full-list roster fixtures
+  replaced by **count + md5 digest** (same strength — any add, drop or swap moves the digest — with a
+  one-line failure instead of a thousand-name diff). `paper/CLAIMS.md` — **H37** with five sub-sections and
+  three additions to the not-claimed list. `obstruct.py` — **unchanged**.

@@ -2158,6 +2158,80 @@ but that does *not* fix the power at four, since `c²` is even too. **The four c
 
 ---
 
+## ★★★ H37 — the three candidate leads, run. All fail, each at a **different gate**.
+
+> M: *"I honestly cannot remember. I read it in passing. We'll have to run all three candidates."*
+
+**The spec now has three halves**, and the third is new here. **KIND**: supplies `ρ < 0` — genuinely, not
+"negative mass" in some effective sense. **DEADLINE** (**H36**): switches off in `~R/c`. **MAGNITUDE**:
+enough of it — the lead is the whole cost, so `|ρ_needed| ~ c⁴/(GΛR²)`. Previous passes asked for the
+sign, and since **H36** the deadline. *Neither asked the quantum sources how much they can supply*, and
+that is what decides all three.
+
+### H37a — negative effective mass fails at the **first** gate
+
+Negative-mass exciton polaritons are real, measured and switchable — dissipative light–matter coupling
+inverts the lower polariton branch and propagation runs opposite to momentum (arXiv:2204.04041; also
+spin-orbit-coupled BECs, arXiv:1801.04779).
+
+> **And it is the wrong quantity, which no engineering fixes.** `m* = ħ²/(d²E/dk²)` is the **curvature of
+> a band**, not `T₀₀`. A quasiparticle with `m* < 0` still carries *positive* energy; what is inverted is
+> how its group velocity responds to momentum. It violates **no energy condition at all** — **H30** does
+> not even engage with it, because the gravitational source is the full stress-energy of cavity, excitons
+> and field, and that is positive. **A negative-mass polariton would not bend spacetime the wrong way.**
+
+"Negative mass" is one phrase for two different things and only one of them is exotic.
+
+### H37b — Casimir passes KIND, fails the DEADLINE
+
+`ρ = −π²ħc/(720 d⁴)` — a genuine negative energy density, `4.334e4 J/m³` at 10 nm, `4.334e8` at 1 nm,
+measured in the laboratory. Switching it off means **moving the plates**: mechanical, slower than `c`, and
+the negative region is anchored to plates whose own mass-energy is hugely positive and goes nowhere.
+
+### H37c — squeezed vacuum passes both qualitative gates, and **two routes select it**
+
+`lightbuild.py`'s `OPEN` row already said **H30** covers only the *classical* Maxwell stress tensor and
+squeezed vacuum is precisely the exception. **H36**'s deadline independently demands a lead that clears at
+`c` — which killing the pump does. **Two independent routes, one candidate.** That convergence is why the
+pass did not stop at H37a.
+
+### H37d — and the third gate is **structural**
+
+Ford–Roman (massless scalar, 4D) bounds `|ρ| ≤ 3ħc/(32π²L⁴)`; the Casimir law has the same shape. Now
+notice the exponents:
+
+| | scaling |
+|---|---|
+| what is **allowed** | `L⁻⁴` |
+| what is **needed** | `R⁻²` |
+
+**So the shortfall goes as `R²` and shrinking always helps** — "small and contained" is quantitatively the
+right direction, and the only one that helps at all. It is still **52.6 orders short at a nanometre** and
+**70.6 at a metre** (Casimir `2.798e52` / `2.798e70`) — the same order as the kugelblitz block in **H31b**,
+reached from a completely different direction.
+
+**And the crossover has a closed form, which is the result:**
+
+**`R = ℓ_P √(3Λ/32π²) = 0.307933 ℓ_P`**  (Ford–Roman)  ·  **`R = ℓ_P π√(Λ/720) = 0.369917 ℓ_P`**  (Casimir)
+
+> **The bound meets the requirement only *below the Planck length*. The framework fails before the bound
+> does** — this is not "very hard", it is outside the domain of the theory stating it. And **Λ sits in both
+> closed forms.**
+
+### H37e — one constraint that did not fight
+
+The quantum inequality says a deeper negative energy must be **briefer**; the deadline says the lead must
+be brief. **They point the same way.** `teardown.py`'s requirement is **free** against the inequality —
+and if anything ever does supply the magnitude, switchability will not be what stops it.
+
+| | `candidates.py` |
+|---|---|
+| status | **DERIVED** (the `L⁻⁴` vs `R⁻²` structure; both closed-form crossovers) + **MEASURED** (shortfalls across four scales; Casimir densities) + **CITED** (arXiv:2204.04041; arXiv:1801.04779) |
+| new? | the magnitude gate itself; that all three bounds meet the requirement only sub-Planckially, with Λ in the closed forms; that the deadline is free |
+| **not** claimed | that the list is exhaustive — three were named and three were run; a fourth may exist and this file does not speak to it |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -2335,3 +2409,6 @@ but that does *not* fix the power at four, since `c²` is even too. **The four c
   `τ_corridor = max(τ_seat, τ_lead)`, and the lead is not light. See **H36c**.
 - **That a third instance of the closure shape is evidence of unity.** It is monodromy — generic, and not
   independent of the first. See **H36d**.
+- **That a negative-mass quasiparticle is exotic matter.** `m*` is band curvature, not `T₀₀`; it violates no
+  energy condition. See **H37a**.
+- **That the candidate list is exhaustive.** Three were named and three were run. See **H37**.
