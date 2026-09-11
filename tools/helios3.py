@@ -124,10 +124,17 @@ REGISTER = [
      "CCUS pipeline; standard pressure-plant practice"),
     ("R-06", "High-pressure, high-temperature containment (250 bar / 715 C)",
      "MODERATE",
-     "740H piping and headers under ASME Section I/VIII; design by code, not novelty",
+     "740H piping and headers under ASME Section I/VIII; design by code, not "
+     "novelty. Alloy ladder (author, 2026-09-11): 740H primary; Haynes 282 "
+     "second source; Inconel 617 fallback for the hottest headers under its "
+     "Section III Division 5 case to 950 C at about twice the wall. "
+     "Single-crystal and ODS alloys excluded from pressure parts: neither can "
+     "be made as welded pipe",
      "MINOR", "DESIGN",
-     "pressure-part specification",
-     "SOURCED: 740H is the code-approved material for exactly this duty"),
+     "pressure-part specification; alloy ladder",
+     "SOURCED: 740H is the code-approved material for exactly this duty; 617 "
+     "carries the Division 5 case to 950 C at roughly half 740H's allowable "
+     "stress at 715 C"),
     ("R-07", "Silo heat loss and thermal ratcheting at 800 C over forty years",
      "MODERATE",
      "Refractory-lined silos with expansion allowance; large silos, because loss "
