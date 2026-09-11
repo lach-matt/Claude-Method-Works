@@ -6928,6 +6928,56 @@ only**. **The construction is still a MODEL**; this proves the requirement, not 
 
 ---
 
+## `overturn.py` — what mathematics would reverse the verdict
+
+> M: *"What math is needed to reverse the verdict?"*
+
+A verdict is never one claim. It is a **chain**, reversed by breaking exactly one link:
+
+| | link | status |
+|---|---|---|
+| **L1** | **SCOPE** — the theorem needs an areal radius, so outside spherical symmetry `m(r)` has no definition | **OPEN** |
+| **L2** | **SOURCE** — `m(r)` is the *geometry's* mass; identifying it with matter energy is `G = 8πT` and nothing else | **OPEN** — M's decision |
+| **L3** | **RATE** — `Δd = \|m\| ln(r₂/r₁)`, derived in the weak field | **CLOSED**, against us |
+| **L4** | **MAGNITUDE** — `R⁻²` required against `L⁻⁴` permitted | **OPEN** — the only link that touches the bill |
+
+**L3 was the link most likely to give, and it gave the wrong way.** Integrating the proper-length deficit
+`∫(1 − 1/√(1−2m/r))dr` **directly** — not by differencing two lengths ≈199 apart, which loses every digit
+and reported a spurious **63×** gain — the weak field returns the logarithm to **1.000000** at `|m| = 1e−8`
+and `1e−6`. The strong field returns **0.8331** of it at `|m| = 1`, **0.0035** at `1e4`, monotonically,
+because `Δd` **saturates** at the coordinate gap.
+
+> **The weak-field logarithm is not a limitation of the derivation. It is the best case.** `c⁴/(GΛ)` is a
+> floor on the cost, not an artefact of an expansion.
+
+**Against that, a door.** The requirement is on a **ball** integral; every averaged energy condition bounds
+a **worldline** integral. A two-zone profile (`ρ = −b` inside `r₀`, `+a` in the shell) has
+`m(r₀) = −4.188790` **negative**, `m(R) = +39.793507` **positive**, and an ANEC-analogue holding on every
+chord — the deepest, straight through the core, integrates to `+1.000000`. Hold `a = 1.5b` and raise `b`:
+`m(r₀) → −∞` while every chord integral → `+∞`, both exactly linear. **The chord integral does not bound the
+ball integral below at all.** *Flat-space kinematics, no solution claimed, pointwise WEC still fails in the
+core — as it must.*
+
+> **Neither the positive mass theorem nor ANEC is doing the work.** The whole weight is on the local sampled
+> bound — Ford–Roman, H37's magnitude gate, Pfenning–Ford.
+
+**Three links stay open and none of them is engineering.** L1 wants a quasi-local mass reducing to
+Misner–Sharp on round spheres and controlling proper distance (Hawking / Geroch–IMCF / Bartnik) — open in
+the *literature*, not attempted here. L2 is `wormhole.py`'s `SCOPE_CHOSEN_HERE = None`, unchanged for the
+whole project because it is M's scope decision. L4 wants a state-independent QEI for non-minimal coupling
+with `R⁻²` scaling — Fewster–Osterbrink show none exists for `ξ > 0`, Fliss et al. give the matching
+exponent, and the shortfall then closes at **`√Λ ℓ_P = 3.159514 ℓ_P`**: a factor of three in the UV cutoff,
+not twenty orders.
+
+> **No measurement reverses this. No power source reverses this.** One of three theorems does — and the
+> cheapest is a decision M has been holding, not a discovery anyone has to make.
+
+### Seated
+- `overturn.py` — new. `index3.py` — **520 findings**, **16** occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H41**. `obstruct.py` — **unchanged**. `wormhole.py` — **flag untouched**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

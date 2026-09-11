@@ -2528,6 +2528,138 @@ certification is finite-difference, quoted against a *measured* floor.
 
 ---
 
+## ★★★ H41 — what mathematics would reverse the verdict. **One link closed, against us; two of the three famous no-gos do not apply.**
+
+> M: *"What math is needed to reverse the verdict?"*
+
+Not *is it right* — **H40** answered that. What **mathematics**, named and specific, would have to be true
+for it to be wrong. A verdict is never one claim: it is a **chain**, and a chain is reversed by breaking
+exactly one link.
+
+| | link | breaking it would mean | status |
+|---|---|---|---|
+| **L1** | **SCOPE** | the theorem does not reach non-spherical geometry | **OPEN** |
+| **L2** | **SOURCE** | negative `m(r)` no longer needs negative matter energy | **OPEN** — M's decision |
+| **L3** | **RATE** | the same `\|m\|` buys more distance | **CLOSED** — here, against us |
+| **L4** | **MAGNITUDE** | the requirement becomes sourceable | **OPEN** — the only one that touches the bill |
+
+### H41a — L3, the rate: closed in this pass, and closed against us
+
+`Δd = |m| ln(r₂/r₁)` was derived in the weak field, where `1/√(1−2m/r) ≈ 1 + m/r`. The obvious hope: the
+weak field *understates* the return. Measured ansatz-free by integrating the proper-length deficit
+**directly** —
+
+`Δd(m) = ∫_{r₁}^{r₂} [1 − 1/√(1 − 2m/r)] dr`,  `r₁ = 1`, `r₂ = 200`
+
+| `\|m\|` | ratio to `\|m\| ln(r₂/r₁)` | `Δd/(r₂−r₁)` |
+|---|---|---|
+| 1e−8 | **1.000000** | — |
+| 1e−6 | **1.000000** | — |
+| 1e−4 | 0.999972 | — |
+| 1e−2 | 0.997206 | — |
+| 1 | 0.833100 | 0.0222 |
+| 10 | 0.504993 | 0.1345 |
+| 100 | 0.174544 | 0.4647 |
+| 1e3 | 0.029831 | 0.7942 |
+| 1e4 | **0.003505** | 0.9332 |
+
+The weak field returns the logarithm **exactly**, ansatz-free. The strong field returns strictly less, and
+monotonically, because the integrand is bounded above by 1 — **`Δd` saturates at the coordinate gap**
+(93.3 % of it already at `|m| = 1e4`).
+
+> **The weak-field logarithm is not a limitation of the derivation. It is the best case.** Every extra unit
+> of `|m|` buys strictly less than the one before it, so the exchange rate `c⁴/(GΛ)` is a **floor** on the
+> cost, not an artefact of an expansion.
+
+*Method note, recorded:* the first measurement differenced two proper lengths ≈ 199 apart, lost every digit
+in the weak field, and reported a spurious **63×** gain at `|m| = 1e−6`. Integrating the deficit directly
+gives 1.000000.
+
+### H41b — a door: which no-go is actually doing the work
+
+**H40c** put the requirement on a **ball** integral, `∫_ball ρ dV < 0`. Every averaged energy condition
+bounds a **worldline** integral, `∫_line ρ dl`. Two different functionals of the same `ρ` — and whether one
+constrains the other is answerable by arithmetic. **It does not.**
+
+Two-zone profile: `ρ = −b` for `r < r₀`, `+a` for `r₀ < r < R`, `0` outside; `r₀ = 1, R = 2, b = 1, a = 1.5`.
+
+| quantity | closed form | value |
+|---|---|---|
+| `m(r₀)` | `−(4/3)πb r₀³` | **−4.188790** — contraction at `r₀` |
+| `m(R)` | `+(4/3)π(9.5)` | **+39.793507** — ADM-safe |
+| deepest chord, `p = 0` | `2[a(R−r₀) − b r₀]` | **+1.000000** |
+| min over all `p` | grazing chord, misses the body | `0` |
+
+And the margin does not shrink: hold `a = 1.5b` and raise `b` —
+
+| `b` | `m(r₀)` | chord(0) |
+|---|---|---|
+| 1 | −4.1888e0 | +1.0000e0 |
+| 10 | −4.1888e1 | +1.0000e1 |
+| 100 | −4.1888e2 | +1.0000e2 |
+| 1000 | −4.1888e3 | +1.0000e3 |
+
+Both exactly linear in `b`: **`m(r₀) → −∞` while every chord integral → `+∞` simultaneously.**
+
+> **Scope, tightly, because this is easy to over-read.** Flat-space kinematics — a statement about two
+> integrals as functionals of a density, **not** a solution of the field equations; the chords are straight,
+> not geodesics; and `ρ < 0` in the core means the **pointwise** WEC fails there, as it must, since that is
+> what is being asked for.
+
+What it establishes anyway:
+
+- **The positive mass theorem does not forbid this** — total mass is positive.
+- **ANEC does not forbid this** — it is satisfied, and it is not even the right *shape* of constraint.
+- **The whole weight is on the local, sampled bound**: Ford–Roman and its descendants — **H37**'s magnitude
+  gate, **H40a**'s Pfenning–Ford. This pass's contribution is to show it is load-bearing *alone*.
+
+### H41c — the three links that stay open, and none of them is engineering
+
+**L1 — SCOPE.** `certify.py` states its own hypothesis: the proof needs an **areal radius**, and outside
+spherical symmetry there is no such coordinate, so `m(r)` has no definition and the biconditional has no
+statement. *Not false — unstated.* What would break it: a **quasi-local mass** for a closed 2-surface that
+(a) reduces to Misner–Sharp on round spheres and (b) controls proper distance the same way. **Hawking mass**
+gives (a) by construction. **Geroch monotonicity / Huisken–Ilmanen** — `m_H` non-decreasing under inverse
+mean curvature flow when `R ≥ 0`, the machinery of the Riemannian Penrose inequality — is the closest
+existing thing to (b). **Bartnik mass** is the right variational object and is notoriously incomputable. The
+direction that would help is the one Geroch does *not* give. **Open in the literature, not merely here.
+Not attempted here** — attempting it is a differential-geometry programme, and claiming otherwise is the
+exact fault **H39** was built to catch.
+
+**L2 — SOURCE.** `m(r)` is the *geometry's* mass; identifying it with the *matter's* energy is
+`G_μν = 8πT_μν` and nothing else. In `f(R)`, scalar–tensor or Einstein–Gauss–Bonnet the equations rearrange
+to `G_μν = 8πT^matter_μν + T^eff_μν`, and an effective term can be negative where the matter term is not.
+**This is `wormhole.py`'s `SCOPE_CHOSEN_HERE = None`** — a flag asserted `None` in its own selftest so that
+nobody, including me, can quietly decide it, and it has stood unchanged for the whole project. It is a scope
+decision about what counts as proven against M's standing constraint *"true and proven in its math"*.
+**M's call. This pass does not change the flag.**
+
+**L4 — MAGNITUDE.** Requirement `|ρ| ~ c⁴/(GΛR²)` goes as `R⁻²`; Ford–Roman `3ħc/(32π²L⁴)` and Casimir
+`π²ħc/(720d⁴)` go as `L⁻⁴`. Different exponents, so the shortfall **grows as `R²`** and the crossovers sit
+at `0.307933 ℓ_P` and `0.369917 ℓ_P`. The one candidate whose exponent matches is **candidate D**,
+non-minimal coupling: **Fewster & Osterbrink (arXiv:0708.2450)** — for `ξ > 0` there is *no*
+state-independent QEI, so the bound that forbids us does not exist in that theory; **Fliss, Freivogel,
+Kontou et al. (arXiv:2309.10848)** — EFT bound `|ρ| ~ ħc/(ℓ_UV²δ²)`, **`δ⁻²`, the same exponent**. The
+shortfall then collapses from a growing function to the pure number `(ℓ_UV/ℓ_P)²/Λ`, closing at
+**`√Λ ℓ_P = 3.159514 ℓ_P`** — a factor of three in the UV cutoff, not twenty orders. What is needed: a QEI
+for non-minimally coupled fields in curved spacetime, state-independent enough to be a bound and `R⁻²`
+enough to be the right shape, **derived rather than scaling-argued**. Active literature; the sign of the
+answer is not known.
+
+### H41d — the answer, short
+
+> **No measurement reverses this. No power source reverses this.** What reverses it is **one of three
+> theorems**, none of which is known to be false — and the cheapest of the three is a **decision M has been
+> holding since `wormhole.py`**, not a discovery anyone has to make.
+
+| | `overturn.py` |
+|---|---|
+| status | **MEASURED** (L3, ansatz-free, closed-form-validated) + **THEOREM-CITED** (Hawking/Geroch/Huisken–Ilmanen/Bartnik; Fewster–Osterbrink; Fliss et al.) + **ARITHMETIC** (ball vs chord independence) + **OPEN** (L1, L2, L4) |
+| new? | the L3 saturation result and the ball-vs-chord independence; *not* the no-gos, *not* the quasi-local mass programme |
+| **not** claimed | that the two-zone profile is a solution; that ANEC-compatibility makes the requirement attainable; any resolution of L1, L2 or L4 |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
