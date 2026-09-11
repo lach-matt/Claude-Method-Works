@@ -279,7 +279,18 @@ $62/MWh** ($103 without the federal credit, which §48E keeps for geothermal and
 household pays **$375/yr against $1,177 today**. Enhanced geothermal prices at $57 and SCE already holds
 320 MW of it. PV-charged salt (Helios's tanks and turbines, no heliostats) reaches $193; CSP as
 proposed $205; SMR $102 and **barred** by PRC §25524.2. The hypersaline capex band is ASSUMED and the
-file says so; it does not choose. See `docs/HELIOS.md`, `docs/HELIOCOST.md`, `docs/FIRMPOWER.md` and
+file says so; it does not choose. **The author chose CSP** — *"learn enough about how it works to do
+it better: scale down in size while increasing output"* — and **`tools/cspchain.py`** is that: the
+seven-link energy chain `E = A·DNI·opt·rec·tes·dispatch·cycle·(1−par)·avail`, each link as Helios
+carries it, at the best achieved and at its bound. Helios's product is **0.168** sun-to-socket; the
+best chain is **0.252, ×1.50** — the cycle (43 % steam at 565 °C against 50 % sCO₂ at 715 °C), the
+optics (0.536 against Noor III-class 0.64), and the one thing no link fixes: **a thermal plant
+serves daytime load at 43 % where a panel serves it at 100 %**, so the daytime third should never
+touch the mirrors and the field is sized for the night. **Helios-2** — nitrate salt, steam, PV-direct
+day, night-sized field, PV-fed winter heaters, every part built (DEWA, Midelt) — is **1.9× smaller in
+mirror** for the same 18.1 TWh, at **$141/MWh, $849 per household** against $1,239 as proposed and
+$1,177 today. **Helios-3** on Gen3 particles and sCO₂ reaches **$117**, inside the band, and is a
+pilot (G3P3, STEP), priced and not offered as the build. See `docs/CSPCHAIN.md`. See `docs/HELIOS.md`, `docs/HELIOCOST.md`, `docs/FIRMPOWER.md` and
 `proposals/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**

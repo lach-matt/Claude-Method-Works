@@ -64,6 +64,24 @@ Geothermal is *smaller and produces more* literally: 2.15× less nameplate,
 46× less land, CF 0.90 against 0.49, firm through night and winter. The file
 does not choose; the decision is the author's.
 
+### The author's decision: CSP, made better (`tools/cspchain.py`, `docs/CSPCHAIN.md`)
+
+*"CSP is the best path; we just have to learn enough about how it works to do
+it better — scale down in size while simultaneously increasing output."* The
+energy chain, link by link, and two plants on the same 18.1 TWh:
+
+| | as proposed | **Helios-2 (built parts)** | Helios-3 (pilot) |
+|---|---|---|---|
+| mirror, M m² | 42.9 | **22.5** | 18.1 |
+| $/MWh | 205 | **141** | 117 |
+| $/household/yr vs $1,177 | 1,239 | **849** | 706 |
+
+Helios-2 keeps the nitrate salt and steam block, sizes the heliostat field
+for the night, serves the daytime third from PV directly (DEWA), and fires
+PV-fed heaters in winter (Midelt) — 1.9× smaller in mirror, same energy, every
+part built. Helios-3 is the same on Gen3 particles and sCO₂ — the right CSP,
+and a pilot.
+
 ## How the flaws are worked
 
 One at a time, in register order, each resolved by an instrument where the
