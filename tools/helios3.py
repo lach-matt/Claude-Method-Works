@@ -86,9 +86,15 @@ REGISTER = [
     ("R-03", "Particle-to-sCO2 heat exchanger: 800 C particles against 250 bar CO2",
      "MAJOR",
      "Moving packed-bed exchanger (Sandia / Solex / VPE lineage), low particle "
-     "velocity for erosion, modular N+1 units so one can be out",
+     "velocity for erosion, modular N+1 units so one can be out. Fluid "
+     "decision (author, 2026-09-11): CO2 stays -- every efficient cycle at "
+     "this temperature is a high-pressure cycle (steam 170-300 bar, CO2 250), "
+     "and the low-pressure gases (helium, air) need a hotter source than a "
+     "particle receiver makes; the fill may be a CO2 blend (SCARABEUS class) "
+     "for the hot-ambient dry-cooling case, same machinery and pressure, "
+     "decided later",
      "MODERATE", "HOURS",
-     "power block; spares policy",
+     "power block; spares policy; working-fluid fill",
      "SOURCED: prototype 4-6x any known particle/sCO2 exchanger, tested to 500 C "
      "at 17 MPa, U ~300-400 W/m2K; design point is 800 C / 25 MPa -- the gap is "
      "HOURS at the design point"),
