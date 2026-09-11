@@ -4816,6 +4816,116 @@ still a bound.**
 
 ---
 
+## ★★★ H65 — the round trip. **Everything free is one-way; everything fixed is a round trip.**
+
+> M: *"Closing time travel using a self corrective theory… If I travel back in time and kill my
+> grandfather, that doesn't change my timeline, it creates another. Time travel and space travel involved
+> a roundtrip. Speed is relative to a one-way or round trip transit."*
+
+**Three clauses. The third is the deepest thing said in this thread, and the tree did not hold it.**
+
+### H65a — branching removes the paradox, not the cost
+
+The tree already holds both neighbours. **H35**/`closure.py`: Deutsch's D-CTC fixed point **always exists**
+and for grandfather dynamics is **exactly 50/50**. But —
+
+> **Deutsch's fixed point is a MIXED STATE, not a branch.** The formalism returns one density matrix;
+> *"branching" is a reading of that object, not an output of it.* Deutsch argued the Everett reading; the
+> mathematics does not contain it.
+
+`chronology.py` carries `EVERETT_ROUTE_OPEN = True` separately. **M's version is coherent and it is an
+interpretation, not a mechanism.** Novikov self-consistency and Everett branching **both** remove the
+paradox and **neither removes the cost of building the loop.** An interpretive move can dissolve an
+objection; it cannot pay for anything.
+
+### H65b — one hop is not a paradox; two are — and the threshold is the first one doubled
+
+**One** FTL hop arrives *after* it left in the sending frame — `t₁ = D/v > 0` at every superluminal `v`.
+A boost past `u = 1/v` makes observers **disagree about order**, which relativity already permits for
+spacelike pairs. Nothing has been sent to anyone's past.
+
+**Two** hops close a loop. Derived here — transform the emission event, intercept the sender's worldline:
+
+> **`t_return = D[2 − u/v − uv]/(v − u)`**, negative when **`u > 2v/(v²+1)`**
+
+| `v` | 1.01 | 1.5 | 2.0 | 5.0 | 20.0 | 1000 |
+|---|---|---|---|---|---|---|
+| one hop `1/v` | 0.990099 | 0.666667 | 0.500000 | 0.200000 | 0.050000 | 0.001000 |
+| **loop `2v/(v²+1)`** | 0.999950 | 0.923077 | 0.800000 | 0.384615 | 0.099751 | 0.002000 |
+| **`(1/v) ⊕ (1/v)`** | 0.999950 | 0.923077 | 0.800000 | 0.384615 | 0.099751 | 0.002000 |
+
+> **The round-trip threshold is the one-hop threshold composed with itself** — matching to 10⁻¹⁴ at six
+> speeds. **Two legs, two thresholds, added the only way velocities can be added. M's claim is an equation.**
+
+As `v → ∞`, `u_crit → 2/v`: an arbitrarily small boost suffices. As `v → c`, `u_crit → 1`: **at `v = c` no
+boost works at all** — the causal structure defending itself at exactly **H63b**'s fixed line.
+
+**And the tree had this without naming it:** `chronology.py` flags `EVERETT_ROUTE_OPEN` for *"two devices
+plus a boost"*. **Two devices is the round trip. The boost is `u`.**
+
+### H65c — the one-way speed of light is a convention
+
+Measuring a one-way speed needs synchronised clocks; synchronising them needs a one-way assumption.
+**The measurement presupposes its own answer.**
+
+Reichenbach: light takes `εT` out and `(1−ε)T` back, `T = 2D/c` measurable on **one clock**.
+
+| `ε` | 0.001 | 0.1 | 0.25 | **0.5** | 0.75 | 0.9 | 0.999 |
+|---|---|---|---|---|---|---|---|
+| `c_forward` | **500.000000** | 5.000000 | 2.000000 | 1.000000 | 0.666667 | 0.555556 | 0.500501 |
+| **round trip** | **2.000000000** | **2.000000000** | **2.000000000** | **2.000000000** | **2.000000000** | **2.000000000** | **2.000000000** |
+
+> **Einstein's `ε = 1/2` is a choice, not a measurement.** At `ε → 0` light is *instantaneous* outbound
+> and `c/2` back, and no experiment distinguishes it from isotropic `c`.
+
+**This corrects H63 in one word without overturning it:** that claim measured `c` invariant across boosts
+and called it *the axis*. It is — **the two-way `c` is.** The one-way speed is a coordinate choice, and it
+is the freest thing in the entire structure.
+
+### H65d — and the freedom buys nothing, for M's own reason
+
+| Proxima, `ε` | out | back | **confirmed delivery** |
+|---|---|---|---|
+| 0.500 | 4.2460 yr | 4.2460 yr | **8.4920 yr** |
+| 0.100 | 0.8492 yr | 7.6428 yr | **8.4920 yr** |
+| 0.001 | 0.0085 yr | 8.4835 yr | **8.4920 yr** |
+
+**Confirmation is a round trip.** And that is the structure under every result in this thread — which no
+one of the three files found alone:
+
+| | free (one-way) | fixed (round trip) |
+|---|---|---|
+| **H62** | the teleported state | **the two classical bits** |
+| **H64** | the traveller's collapsed distance | **the endpoint frame** |
+| **H65** | the labelled leg | **the confirmed delivery** |
+
+> **Everything that is free is one-way. Everything that is fixed is a round trip.**
+>
+> Three routes, one structure, visible only because M asked whether speed is relative to which *kind* of
+> transit — and invisible across three passes that each held a third of it.
+
+**And it closes the time-travel branch by the same stroke.** The paradox needs **two** legs; the freedom
+lives entirely in **one**.
+
+> **You cannot build the paradox out of the freedom, because the freedom is exactly the part that does not
+> survive being doubled.**
+
+Better than a self-corrective theory needs to be: not *"the paradox resolves itself"* but **"the only free
+parameter cancels in the one quantity a paradox requires."**
+
+### H65e — a seventeenth fault, refuted by its own table
+
+The threshold was **first asserted as `u·v = 1`, from memory, with the refuting data three rows below it in
+the same output**: `v = 5`, `u = 0.3` gives `u·v = 1.5` and a return of **+0.093617**, comfortably causal.
+The correct threshold was then *derived*.
+
+**Same shape as the `ASSERTED-WITHOUT-ACCESS` fault earlier this session** — a claim from memory sitting
+beside a computation that contradicts it. Caught by **reading my own table**, the cheapest detector in the
+set and the one most easily skipped precisely when a number looks familiar. **The fault rate is not falling
+and the detectors are getting cheaper**, and both are worth recording.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7971,6 +7971,57 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `roundtrip.py` — everything free is one-way; everything fixed is a round trip.
+
+> M: *"Closing time travel using a self corrective theory… Time travel and space travel involved a
+> roundtrip. Speed is relative to a one-way or round trip transit."*
+
+**Three clauses. The third is the deepest thing said in this thread and the tree did not hold it.**
+
+**BRANCHING REMOVES THE PARADOX, NOT THE COST.** `closure.py` holds Deutsch's D-CTC — a fixed point always
+exists, **exactly 50/50** for grandfather dynamics — but **that fixed point is a MIXED STATE, not a
+branch**: the formalism returns one density matrix and "branching" is a *reading* of it. `chronology.py`
+holds `EVERETT_ROUTE_OPEN = True` separately. Novikov self-consistency and Everett branching **both**
+remove the paradox and **neither removes the cost**.
+
+**ONE HOP IS NOT A PARADOX; TWO ARE.** One FTL hop arrives after it left (`t₁ = D/v > 0`, always); a boost
+past `u = 1/v` only makes observers *disagree about order*. Two hops close a loop:
+**`t_return = D[2 − u/v − uv]/(v − u)`**, negative for **`u > 2v/(v²+1)`** — and
+
+> **that threshold is the one-hop threshold composed with itself: `2v/(v²+1) = (1/v) ⊕ (1/v)`**, matching
+> to 10⁻¹⁴ at six speeds. Two legs, two thresholds, added the only way velocities can be.
+
+As `v → ∞` an arbitrarily small boost suffices; **at `v = c` no boost works at all**. And `chronology.py`'s
+`EVERETT_ROUTE_OPEN`, flagged for *"two devices plus a boost"*, **has been this condition all along**.
+
+**THE ONE-WAY SPEED OF LIGHT IS A CONVENTION.** Measuring it needs synchronised clocks; synchronising them
+needs a one-way assumption — **the measurement presupposes its own answer**. Reichenbach's `ε` runs
+`c_forward` from **500.000000 to 0.500501** while **the round trip is 2.000000000 in every row**.
+Einstein's `ε = ½` is a *choice*. **This corrects `axis.py` in one word without overturning it:** `c` is
+the axis — **the two-way `c` is**.
+
+**AND THE FREEDOM BUYS NOTHING.** Relabel Proxima as 4.2460+4.2460 or 0.0085+8.4835 — **confirmed delivery
+is 8.4920 years every time**, because confirmation *is* a round trip. Which is the structure under every
+result in this thread: `transit.py`'s two classical bits, `perception.py`'s endpoint frame, and here the
+confirmed delivery.
+
+> **Everything that is free is one-way. Everything that is fixed is a round trip.**
+>
+> And it closes the time-travel branch by the same stroke — the paradox needs **two** legs and the freedom
+> lives in **one**. **You cannot build the paradox out of the freedom.**
+
+**A SEVENTEENTH FAULT:** the threshold was first asserted as `u·v = 1` **from memory, with the refuting row
+three lines below it** (`v=5, u=0.3` → `u·v = 1.5`, return **+0.093617**, causal). Same shape as this
+session's `ASSERTED-WITHOUT-ACCESS`. Caught by reading my own table — the cheapest detector, and the one
+most easily skipped when a number looks familiar.
+
+### Seated
+- `roundtrip.py` — new. `index3.py` — **604 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H65**. `closure.py`, `chronology.py` and `axis.py` — **extended here, files
+  unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated
 - `perception.py` — new. `index3.py` — **599 findings**, 16 occupied cells, `E(X) = 0`; the cheap-route
   finding was coded `(+1,+1,+1)` and **recoded to `(0,−1,0)` — third instance of the triple-cell bias in
