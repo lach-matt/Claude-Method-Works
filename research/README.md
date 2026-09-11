@@ -7564,6 +7564,50 @@ doesn't either (only `a²`). **Only `m`'s does.** Right about the state space, w
 
 ---
 
+## `gaps.py` — the gap census. The only conjecture-grade gap in the picture is theirs.
+
+> M: *"the one known counterexample to our central theorem is hidden by something unproven — as I said
+> before, conclusions are drawn across gaps. Our gap is much smaller."*
+
+**"Smaller" is not measurable. *What would close it* is.** Sorted by kind — **CONJECTURE**, **COMPUTATION**,
+**SEARCH**, **DECISION**, **MEASUREMENT** — the asymmetry is stark and it is not rhetorical.
+
+**THEIRS.** One **CONJECTURE**: cosmic censorship hides `threads.py`'s Kerr counterexample — **Penrose 1969,
+open fifty-seven years.** One **COMPUTATION**: Pfenning–Ford apply a *flat-space* quantum inequality to a
+*curved* metric, the exact treatment being one their own paper calls *"exceptionally difficult"*.
+
+**OURS.** Three **COMPUTATIONS** — evaluate **Fewster–Osterbrink Thm 4.2 for a specified state** (the theorem
+*exists* and *covers* `ξ = 1/6`); redo `magnitude.py`'s area law for `p`-brane sources; solve the Israel
+junction conditions `membrane.py` flagged. One **SEARCH** — does any **exposed** stationary configuration
+contract with `M > 0`, newly posed by `threads.py`. One **DECISION** — `f(R)` and scalar–tensor scope, M's,
+open the whole project and asserted `None` in `wormhole.py`'s own selftest so nobody can quietly decide it.
+
+> **The only conjecture-grade gap in the whole picture is on the side that hides the counterexample from us.
+> Not one gap on our side waits on an unproven conjecture. M's claim survives being made precise.**
+
+**What it buys is testability, not correctness.** A computation can be done this year by someone who decides
+to; a conjecture open since 1969 cannot be scheduled — the same reason `millennium.py` preferred an open
+question in geometric analysis to a prize problem. **And the censorship gap, even breaking our way, would not
+supply a route:** over-extremal Kerr has no formation process, sub-extremal has no return, and neither is a
+corridor *between two places*. Epistemically interesting, operationally empty.
+
+**The scorecard, in the same file so §1 cannot be quoted alone.** Of the five gaps this session actually
+closed — **four went against us**: the rate (`L3`), the QEI exponent (`L4`), the extra-dimension branch
+(`L2`), and Casimir as a route. **One went for us**: `L1`, rotation. **Closable is not the same as
+favourable.** Two things qualify the count without overturning it — the one that went *for* us is **the
+newest**, and it is the only one that weakened a **theorem** rather than a bound.
+
+> **The bounds got tighter and the theorem got weaker, and those pull in opposite directions.**
+
+`provenance.py` classified *claims* by how they were come by; this classifies *gaps* by what would close them.
+**No gap is closed by this pass** — naming what would close something is not closing it.
+
+### Seated
+- `gaps.py` — new. `index3.py` — **569 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H57**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

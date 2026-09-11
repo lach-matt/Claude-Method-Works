@@ -4023,6 +4023,75 @@ whether any stationary configuration contracts with positive mass in an **expose
 
 ---
 
+## ★★★ H57 — the gap census. **The only conjecture-grade gap in the picture is theirs.**
+
+> M: *"the one known counterexample to our central theorem is hidden by something unproven — as I said
+> before, conclusions are drawn across gaps. Our gap is much smaller."*
+
+### H57a — "smaller" is not measurable; *what would close it* is
+
+Gaps do not have sizes. They have **kinds**, and the kind is checkable:
+
+| kind | what closes it |
+|---|---|
+| **CONJECTURE** | a proof of a named open problem |
+| **COMPUTATION** | arithmetic nobody has done |
+| **SEARCH** | an example found, or none proved to exist |
+| **DECISION** | a scope choice from M |
+| **MEASUREMENT** | an experiment |
+
+### H57b — the census
+
+| side | kind | gap | what would close it |
+|---|---|---|---|
+| **THEIRS** | **CONJECTURE** | cosmic censorship hides the Kerr counterexample (**H56c**) | prove or disprove Penrose's conjecture — **open since 1969, fifty-seven years** |
+| **THEIRS** | COMPUTATION | Pfenning–Ford apply a **flat-space** QI to a **curved** metric | the curved-spacetime treatment their own paper calls *"exceptionally difficult"* |
+| **OURS** | COMPUTATION | L4: is the `R⁻²` relation a *bound* here? | evaluate **Fewster–Osterbrink Thm 4.2 for a specified state** — the theorem **exists** and **covers `ξ = 1/6`** (**H45a**) |
+| **OURS** | COMPUTATION | the area law for `p`-brane sources | redo **H51** with `ρ ~ M/R^(D−1)` — flagged not-computed |
+| **OURS** | COMPUTATION | the Israel junction analysis for the tension membrane | solve the junction conditions (**H55b** flagged it) |
+| **OURS** | SEARCH | L1: any **exposed** stationary config contracting with `M > 0` | find one, or prove none exists — newly posed by **H56b** |
+| **OURS** | DECISION | L2: `f(R)` and scalar–tensor scope | **M chooses** — open the whole project; `wormhole.py` asserts `None` in its own selftest |
+
+> **One conjecture, and it is theirs. Three computations, a search and a decision, and they are ours.
+> Not one gap on our side waits on an unproven conjecture.**
+>
+> **M's claim survives being made precise.**
+
+### H57c — what the asymmetry buys, and what it does not
+
+**It buys testability.** A computation can be done this year by someone who decides to; a conjecture open
+since 1969 cannot be scheduled. That is the same reason **H44** preferred *"an open question in geometric
+analysis"* to *"a prize problem"*.
+
+**It does not buy being right.** A gap you can close is a gap that can close **against** you.
+
+**And the censorship gap, even breaking our way, would not supply a route.** Over-extremal Kerr has no known
+formation process; sub-extremal puts the region behind a horizon you do not return from; **neither is a
+corridor between two places** (**H56c**). *Epistemically interesting, operationally empty.*
+
+### H57d — the scorecard: four of five closures went against us
+
+| gap closed this session | direction | |
+|---|---|---|
+| **L3**, the rate | **AGAINST** | the logarithm is the **best** case; the strong field returns strictly less |
+| **L4**, `Q_A`'s exponent | **AGAINST** | the **proved** bound carries `τ⁻⁴`, not `R⁻²` |
+| **L2**, extra-dimension branch | **AGAINST** | biconditional exact in every `D`, rate worse in every `D > 4` |
+| Casimir as a route | **AGAINST** | already priced; same sub-Planckian wall |
+| **L1**, rotation | **FOR** | **the biconditional fails outside static** — Kerr contracts with `M > 0` |
+
+> **Four against, one for. Closable is not the same as favourable.**
+>
+> Two things qualify the count without overturning it: the one that went **for** us is **the newest**, and it
+> is the only one that weakened a **theorem** rather than a bound.
+>
+> **The bounds got tighter and the theorem got weaker, and those pull in opposite directions.**
+
+**This file is `provenance.py`'s sequel** — that one classified *claims* by how they were come by; this one
+classifies *gaps* by what would close them. **No gap is closed by this pass.** Naming what would close
+something is not closing it, and a census is not a result.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
