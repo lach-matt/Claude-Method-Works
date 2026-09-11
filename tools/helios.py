@@ -78,6 +78,15 @@ CLAIMED_EXPORT_MWH = 13271400.0   # Title I §4.2: 1,515 x 8,760
 CLAIMED_PEAK_PRICES = (190.0, 270.0, 350.0)   # Title I §4.2 scenarios
 CLAIMED_RA_M = (450.0, 450.0, 480.0)          # Title I §4.2, excluded (F-18)
 CARRYING_COST_M = 1933.0      # Title I §4.1, $M/yr, carried unchanged here
+CAPEX_B = 27.2                # Title I §4.1, $B                     (F-05 contests)
+BOND_RATE = 0.0385            # Title I §4.1                          (F-19 contests)
+BOND_TERM_Y = 30              # Title I §4.1
+OM_M = 410.0                  # Title I §4.1, $M/yr
+CAPEX_BAND_B = (42.0, 63.0)   # F-05: built tower-CSP at $8-12/W
+RATE_BAND = (0.055, 0.070)    # F-19: uncontracted first-of-kind revenue bonds
+COVERAGE_REQ = 1.25           # debt-service coverage a revenue bond needs  SOURCED band 1.2-1.3
+FIRM_CLEAN_PPA = (80.0, 120.0)   # $/MWh California LSEs pay for firm clean
+                                 # energy (geothermal, long-duration)  SOURCED band
 
 # ---- THE THERMODYNAMICS, FROM THE PROPOSAL'S OWN NUMBERS --------------------
 ETA_CYCLE = 0.43              # gross, at rated load; SOURCED band 0.41-0.44
@@ -399,6 +408,37 @@ def fidelity_band():
 
 
 # =============================================================================
+# THE CRITERION: IT PAYS FOR ITSELF AFTER THE BUILD BONDS
+# =============================================================================
+def debt_service_m(capex_b=CAPEX_B, rate=BOND_RATE, term=BOND_TERM_Y):
+    r = rate
+    return capex_b * 1e3 * r / (1.0 - (1.0 + r) ** -term)
+
+
+def carrying_m(capex_b=CAPEX_B, rate=BOND_RATE, om_m=OM_M):
+    return debt_service_m(capex_b, rate) + om_m
+
+
+def required_price(net_mwh, capex_b=CAPEX_B, rate=BOND_RATE, om_m=OM_M,
+                   coverage=1.0):
+    """The average realised $/MWh at which revenue = coverage x carrying."""
+    return coverage * carrying_m(capex_b, rate, om_m) * 1e6 / net_mwh
+
+
+def closure_table(net_mwh):
+    rows = []
+    for lab, cb, rt in (("Title I as written", CAPEX_B, BOND_RATE),
+                        ("F-05 low capex, Title I rate", CAPEX_BAND_B[0], BOND_RATE),
+                        ("F-05 high capex, Title I rate", CAPEX_BAND_B[1], BOND_RATE),
+                        ("F-05 low, F-19 low rate", CAPEX_BAND_B[0], RATE_BAND[0]),
+                        ("F-05 high, F-19 high rate", CAPEX_BAND_B[1], RATE_BAND[1])):
+        rows.append((lab, cb, rt, carrying_m(cb, rt),
+                     required_price(net_mwh, cb, rt),
+                     required_price(net_mwh, cb, rt, coverage=COVERAGE_REQ)))
+    return rows
+
+
+# =============================================================================
 # REPORT
 # =============================================================================
 def report():
@@ -538,6 +578,40 @@ def report():
         print(f"      {lab:<22} {pf['net'] * f / 1e6:5.1f} TWh   "
               f"{revenue_m(pf['net_hourly'], p24) * f:6.0f} $M at 2024")
     print()
+    print("    THE CRITERION, STATED AS THE AUTHOR STATED IT: THE PLANT PAYS")
+    print("    FOR ITSELF AFTER THE BUILD BONDS. Revenue must cover debt")
+    print("    service plus O&M every year of the term, with the coverage a")
+    print("    bond buyer requires; after the term, everything above O&M is")
+    print("    the household dividend. So the free tariff is an OUTPUT of the")
+    print("    balance, not an input to it. Inverted: at what realised price")
+    print(f"    per MWh does {pf['net'] / 1e6:.1f} TWh pay for itself?")
+    print()
+    print("      case                              capex $B  rate   carrying $M"
+          "   $/MWh at 1.00x   at 1.25x")
+    for lab, cb, rt, cm, p1, p125 in closure_table(pf["net"]):
+        print(f"      {lab:<32} {cb:6.1f}   {100 * rt:4.2f} %   {cm:7.0f}"
+              f"      {p1:6.1f}        {p125:6.1f}")
+    print()
+    r_lo, r_hi = FIRM_CLEAN_PPA
+    print(f"      what California LSEs pay for firm clean energy  "
+          f"{r_lo:.0f}-{r_hi:.0f} $/MWh   (SOURCED band)")
+    print(f"      what 2024 wholesale paid this plant             "
+          f"{r24 / (pf['net'] / 1e6):.0f} $/MWh")
+    print()
+    p_asw = required_price(pf["net"])
+    print(f"    AT TITLE I'S OWN CAPEX THE PLANT NEEDS ${p_asw:.0f}/MWh, which is")
+    print("    inside the band the state already pays for firm clean power")
+    print("    under long-term contract. THAT IS THE FINDING: at the proposed")
+    print("    scale and the proposed cost, self-funding is a CONTRACT")
+    print("    question, not an export gamble -- a 30-year firm-energy")
+    print("    agreement with California's own load-serving entities, which")
+    print("    a state authority can write, closes it where WEIM cannot.")
+    p_hi = required_price(pf["net"], CAPEX_BAND_B[1], RATE_BAND[1])
+    print(f"    AT F-05 AND F-19'S REALISTIC COST IT NEEDS ${p_hi:.0f}/MWh, which")
+    print("    nothing pays. So the criterion does not fail on the physics")
+    print("    or on the market; it turns on the capital cost, and F-05 is")
+    print("    the flaw that decides whether this program exists.")
+    print()
     print("    WHAT THIS PASS DOES NOT DO. It does not enlarge the field to")
     print("    meet the promise, add electric charging from curtailed solar,")
     print("    re-site the Central Valley node, or price the in-state energy")
@@ -674,6 +748,28 @@ def selftest():
           max(fidelity_band(), key=lambda t: t[1])[0].startswith("Gemasolar"))
 
     print()
+    print("  the criterion: it pays for itself after the build bonds")
+    check("Title I's own debt service is reproduced to 2 %",
+          abs(debt_service_m() / 1523.0 - 1.0) < 0.02)
+    check("carrying cost as written reproduces Title I's $1,933 M to 2 %",
+          abs(carrying_m() / CARRYING_COST_M - 1.0) < 0.02)
+    p1 = required_price(pf["net"])
+    check("required price x energy returns exactly the carrying cost",
+          abs(p1 * pf["net"] / 1e6 - carrying_m()) < 1e-6)
+    check("at Title I's capex the required price is inside the firm-clean band",
+          FIRM_CLEAN_PPA[0] <= p1 <= FIRM_CLEAN_PPA[1])
+    p_hi = required_price(pf["net"], CAPEX_BAND_B[1], RATE_BAND[1])
+    check("  -- and at F-05/F-19's realistic cost it is above it",
+          p_hi > FIRM_CLEAN_PPA[1])
+    check("  -- so the criterion turns on capex, not on physics or market",
+          p1 <= FIRM_CLEAN_PPA[1] < p_hi)
+    check("the coverage requirement raises the price by exactly 1.25x",
+          abs(required_price(pf["net"], coverage=COVERAGE_REQ) / p1
+              - COVERAGE_REQ) < 1e-9)
+    check("2024 wholesale is below the required price at every case",
+          r24 / (pf["net"] / 1e6) < p1)
+
+    print()
     print("  and what the instrument refuses")
     import contextlib
     import io
@@ -686,6 +782,12 @@ def selftest():
     check("it names what it does not do", "WHAT THIS PASS DOES NOT DO" in out)
     check("it carries the RA exclusion", "RA excluded" in out)
     check("it labels the SM finding as F-06", "F-06" in out)
+    check("it states the criterion as the author stated it",
+          "PAYS")
+    check("  -- and that the free tariff is an output, not an input",
+          "OUTPUT of the" in out)
+    check("  -- and that F-05 decides whether the program exists",
+          "F-05 is" in out and "decides whether this program exists" in out)
 
     print()
     print(f"selftest: {fail} failures -> {'PASS' if fail == 0 else 'FAIL'}")

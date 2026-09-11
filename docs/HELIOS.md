@@ -117,3 +117,34 @@ alone; the price shape hits its anchors; the $190 case is under carrying
 cost and only the $350 case clears it; no built plant reached design; and the
 report says "has no export", names what it does not do, and carries the RA
 exclusion.
+
+## The criterion, as the author stated it
+
+*The plant pays for itself after the build bonds.* Revenue must cover debt
+service plus O&M every year of the term, at the coverage a bond buyer
+requires (~1.25×); after the term, everything above O&M is the household
+dividend. **The free tariff is therefore an output of the balance, not an
+input to it** — the proposal put it first and the export second.
+
+Inverted, the question is *at what realised $/MWh does 19.2 TWh pay for
+itself?*
+
+| case | capex $B | rate | carrying $M | $/MWh at 1.00× | at 1.25× |
+|---|---|---|---|---|---|
+| Title I as written | 27.2 | 3.85 % | 1,954 | **101.6** | 127.0 |
+| F-05 low capex | 42.0 | 3.85 % | 2,795 | 145.3 | 181.6 |
+| F-05 high capex | 63.0 | 3.85 % | 3,987 | 207.2 | 259.0 |
+| F-05 low, F-19 low rate | 42.0 | 5.50 % | 3,300 | 171.5 | 214.4 |
+| F-05 high, F-19 high rate | 63.0 | 7.00 % | 5,487 | 285.2 | 356.5 |
+
+California's load-serving entities pay **$80–120/MWh** for firm clean energy
+under long-term contract; 2024 wholesale paid this plant $35.
+
+**At Title I's own capex the plant needs $102/MWh — inside the band the
+state already pays.** At the proposed scale and cost, self-funding is a
+contract question, not an export gamble: a 30-year firm-energy agreement
+with California's own LSEs, which a state authority can write, closes it
+where WEIM cannot. **At F-05 and F-19's realistic cost it needs $285/MWh,
+which nothing pays.** The criterion does not fail on the physics or on the
+market; it turns on the capital cost, and F-05 is the flaw that decides
+whether the program exists.
