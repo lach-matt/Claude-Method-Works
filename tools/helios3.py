@@ -62,13 +62,20 @@ REGISTER = [
      "not decades; residual is HOURS"),
     ("R-02", "Receiver wind and convective loss: a falling curtain is open to the air",
      "MAJOR",
-     "Quartz aperture cover or aerowindow on a cavity receiver; multi-aperture "
-     "receivers on smaller towers",
+     "Compound quartz aperture (author, 2026-09-11): a dome lattice of long "
+     "hexagonal-section low-OH fused-quartz rod lenses, each a two-surface "
+     "thick lens placing its focus in the receiver, the dome acting as "
+     "secondary concentrator and flux homogeniser aimed jointly with the "
+     "field; hot face at cavity temperature, cold end in a cooled frame; "
+     "single-element replacement. Multi-aperture receivers on smaller towers",
      "MODERATE", "HOURS",
-     "receiver specification; tower count",
+     "receiver specification; aperture element specification; tower count",
      "SOURCED: windowed receiver +11.9 % efficiency over aerowindow; quartz "
-     "half-shell transmissivity 0.97 / 0.94; no windowed receiver has run at "
-     "commercial scale -- residual is HOURS"),
+     "half-shell transmissivity 0.97 / 0.94; fused silica k 1.38 W/m K, CTE "
+     "0.55 ppm/K, devitrification above ~1,100 C. Rod length is cheap in "
+     "light (low-OH quartz ~1.3 % from 1 to 30 cm) and buys a gentler "
+     "gradient; what it cannot move is the hot-face temperature. No windowed "
+     "receiver has run at commercial scale -- residual is HOURS"),
     ("R-03", "Particle-to-sCO2 heat exchanger: 800 C particles against 250 bar CO2",
      "MAJOR",
      "Moving packed-bed exchanger (Sandia / Solex / VPE lineage), low particle "
