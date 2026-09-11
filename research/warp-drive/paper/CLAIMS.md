@@ -2079,6 +2079,85 @@ unparadoxical loop alone and a T gate has `|Tr| = 1.8478` and survives, while `T
 
 ---
 
+## ★★★ H36 — **closability** is a design property, and it puts a new requirement on the lead
+
+> M: *"if it opens, it closes. The mass density energy approach would have forced a corridor open that
+> couldn't close. The reason we are identifying other cheaper currency is for the ability to close what
+> we open. Small and contained."*
+
+**Every instrument in this project asks what a corridor costs to OPEN. None asked what it costs to
+SHUT.** That is a real gap. The quantity is `τ` — the corridor's lifetime after you stop paying.
+
+### H36a — the asymmetry is a difference in kind
+
+**Light.** The field is null. Stop the source and the region clears at `c`; there is nothing to remove,
+because the carrier leaves on its own at the only speed it has. `τ_light = R/c` — 3.34 ns at a metre.
+
+**Matter.** A static configuration persists. Nothing clears it but **work**, bounded below by how fast
+mass can be moved, which is slower than `c`. For the seated architecture it is worse: `core.py`'s core is
+a strong-field object carrying `negmass.py`'s and `stability.py`'s instability findings.
+
+> **Light's teardown is free and at `c`; matter's is work and slower.** *Stated because it is true:*
+> matter **can** be made transient — you may throw it away. The asymmetry is that light's termination is
+> *automatic and c-limited*, not that matter's is impossible.
+
+### H36b — and that is what decides the CTC
+
+`chronology.py` leaves `EVERETT_ROUTE_OPEN = True`; **H35** derived that a closed curve admits no
+definite state. **So an un-closable corridor is the standing precondition for exactly that failure.**
+
+A closed causal loop must traverse device 1, propagate to device 2, traverse it and return — at least
+`2D/c`, with *both* corridors still open. So a CTC needs `τ ≥ 2D/c`. A light corridor has `τ = R/c`,
+which would require `R ≥ 2D`; but separate devices do not overlap, so `D ≥ R` and `2D ≥ 2R > R`:
+
+**`τ/loop = R/(2D) ≤ 1/2` for every non-overlapping pair.**
+
+Measured at `R = D` = 1 µm, 1 mm, 1 m, 1 km, 1 Mm — **no** at every one, and the ratio depends only on
+`R/D`. A self-terminating light corridor **cannot host the Everett CTC at any separation**, while an
+unbounded matter corridor satisfies the condition at **every** separation. "Small and contained" is
+`R < 2D`, which is free.
+
+> *This is a **causal-window scaling argument, not a theorem**. The factor of 2 is geometry-dependent.
+> What is robust is that `τ ~ R`, the loop `~ D`, and `D ≥ R` — so no choice of coefficient rescues the
+> light case into a CTC.*
+
+### H36c — the qualification, which turns the result into a specification
+
+A corridor is held open by the seat **and** the lead, so its lifetime is the **longer**:
+
+**`τ_corridor = max(τ_seat, τ_lead)`**
+
+Light can seat (`τ = R/c`). Light **cannot** lead — **H30** is untouched. So if the lead is a persistent
+matter configuration, `τ_lead` is unbounded and `τ_corridor` is unbounded with it, and the CTC argument
+above **evaporates**.
+
+> **The teardown advantage is real and it is conditional: it belongs to the corridor only if the LEAD is
+> transient too. That is not a defeat but a specification, and nothing here had written it down —
+> THE LEAD MUST BE SWITCHABLE.** Every previous pass asked the lead for a *sign*; this one asks it for a
+> *deadline*.
+
+### H36d — the index move scores differently
+
+*"Two axes of information that share a value, this means there is another."* **A third instance exists:**
+`c(t + 2π) = −c(t)` to `8.88e-16` — the chord is **antiperiodic, spinorial**, needing 4π to return — and
+the observable is restored by the even power, `A(t + 2π) = +A(t)` to `6.66e-15`.
+
+But it is **not independent** (same angular variable as **H34**'s — a sub-structure, not a new axis), and
+**the shape is monodromy**, which is not a discovery but the definition of a multivalued function
+continued around a non-trivial loop: branch points, double covers, holonomy, Berry phase, a spinor's 4π
+period. **Finding it a third time is expected, not informative.**
+
+One small thing it settles: the observable must be an **even** power of the chord to be single-valued —
+but that does *not* fix the power at four, since `c²` is even too. **The four comes from spin-2 squaring.**
+
+| | `teardown.py` |
+|---|---|
+| status | **DERIVED** (the window argument, as a *scaling*) + **MEASURED** (`τ` across five scales; the chord antiperiod) + **SPECIFICATION** (the lead must be switchable) |
+| new? | closability as a tracked property; the CTC window; the switchability requirement on the lead |
+| **not** claimed | that it rescues the lead — **H30** stands; that the window argument is a theorem; that the third monodromy instance is independent or informative |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -2252,3 +2331,7 @@ unparadoxical loop alone and a T gate has `|Tr| = 1.8478` and survives, while `T
   systems. A recurring shape is a finding, not an identification. See **H35**.
 - **That a transition state cannot close at all.** It cannot close on a **definite** state. Under Deutsch
   it closes at exactly 50/50. See **H35**.
+- **That light's teardown advantage belongs to the corridor.** It belongs to the *seat*.
+  `τ_corridor = max(τ_seat, τ_lead)`, and the lead is not light. See **H36c**.
+- **That a third instance of the closure shape is evidence of unity.** It is monodromy — generic, and not
+  independent of the first. See **H36d**.

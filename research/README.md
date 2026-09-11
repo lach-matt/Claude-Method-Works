@@ -6706,3 +6706,40 @@ grandfather dynamics is the only dynamics; any `ρ < 0`. **It constrains closure
 - `closure.py` — new. `index3.py` — **490 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H35**, plus two
   additions to the not-claimed list. `bisector.py` — its interpretation marker now points at the
   derivation. `obstruct.py` — **unchanged**.
+
+---
+
+## `teardown.py` — closability as a design property, and a new requirement on the lead
+
+> M: *"if it opens, it closes. The mass density energy approach would have forced a corridor open that
+> couldn't close… small and contained."*
+
+**Every instrument here asks what a corridor costs to OPEN. None asked what it costs to SHUT.** The
+quantity is `τ`, the lifetime after you stop paying, and the asymmetry is a difference in kind: a null
+field clears its own extent at `c` (`τ_light = R/c` — 3.34 ns at a metre) while a matter configuration
+persists and must be actively removed, slower than `c`. *Matter can be made transient; the point is that
+light's termination is **automatic and c-limited**.*
+
+**And that decides the CTC.** `chronology.py` leaves the two-device Everett route open, and `closure.py`
+derived that a closed curve admits no definite state — so an un-closable corridor is the standing
+precondition for exactly that failure. A closed loop needs `2D/c` of transit with both corridors open, so
+a CTC requires `τ ≥ 2D/c`; a light corridor gives **`τ/loop = R/(2D) ≤ 1/2` for every non-overlapping
+pair** and cannot host one at any separation, while an unbounded matter corridor satisfies the condition
+at every separation. *A causal-window **scaling** argument, not a theorem.*
+
+**The qualification, which is the honest size of it:** `τ_corridor = max(τ_seat, τ_lead)` — the **longer**.
+Light can seat; light cannot lead. A persistent matter lead makes `τ_corridor` unbounded and the argument
+evaporates.
+
+> **The teardown advantage is real and conditional. That is not a defeat but a specification, and nothing
+> here had written it down: THE LEAD MUST BE SWITCHABLE.** Every previous pass asked the lead for a
+> *sign*; this one asks it for a *deadline*.
+
+**The index move scores differently.** A third instance of the shape exists — the chord is antiperiodic,
+`c(t+2π) = −c(t)` to `8.88e-16`, spinorial — but it is **not independent** (same angular variable) and the
+shape is **monodromy**, which is generic. Recurrence is what monodromy is for.
+
+### Seated
+- `teardown.py` — new. `index3.py` — **494 findings**, `E(X) = 0`, plus a **structural guard** on finding
+  shape. `paper/CLAIMS.md` — **H36** with four sub-sections and three additions to the not-claimed list.
+  `obstruct.py` — **unchanged**.
