@@ -4328,6 +4328,115 @@ is strictly better; the epsilon version is deleted, not loosened.
 
 ---
 
+## ★★★ H60 — the orientation. **`pair.py` refuted the sign, not the pairing.**
+
+> M: *"do you remember when I first suggested the corridor is composed by a wormhole and black hole
+> relation with wormhole in and black hole out, but it was refuted? This says why, the path is the
+> opposite direction. Black holes are the entrance to the corridor and wormholes are the exit."*
+
+### H60a — the memory is accurate, and the refutation reverses
+
+**`pair.py` §2**, verbatim:
+
+> *"A horizon is a one-way null surface. Matter cannot cross it outward, by the definition of the
+> object, so nothing exits through a black hole."*
+
+**That argument run backwards is an argument *for* the new orientation.** A surface admitting only
+inward crossing is the one thing that **can only be an entrance**.
+
+> **The refutation did not kill the pairing. It fixed its sign — and nobody turned it around at the
+> time.** A correction was filed as a closure and sat that way until M reread it.
+
+### H60b — Kerr cannot hold both, exactly at extremality
+
+**H59c** put the equatorial `dR_c/dr = 0` locus at `r³ = Ma²` and **called it a throat**. A throat is a
+minimum of area on a **spacelike** slice; between the horizons `Δ < 0` and `r` is **timelike**. With
+`u = (a/M)^(2/3)`:
+
+> **`Δ(r_t) = u² − 2u + u³ = u(u+2)(u−1)·M²`** — and since `u > 0`, `u+2 > 0` always, this is
+> **positive iff `a > M`.**
+
+| `a/M` | 0.3 | 0.9 | 0.99 | **1.0** | 1.01 | 1.5 | 3.0 |
+|---|---|---|---|---|---|---|---|
+| `Δ(r_t)` | −0.605451 | −0.185399 | −0.019855 | **0.000000** | +0.020144 | +1.346330 | +9.166581 |
+
+- `a < M` — a **horizon**, and **no spatial throat**
+- `a = M` — `Δ(r_t) = 0` exactly; neither
+- `a > M` — a **spatial throat**, and **no horizon at all**
+
+> **A horizon and a throat are mutually exclusive in Kerr, exactly, at `a = M`.**
+
+**And that is a fault in H59c, one day old and mine.** It verified the throat at `a` = 0.3, 0.99, 3.0 —
+**two of three in the timelike-`r` region** where the word does not apply. **Thirteenth fault.** What
+survives: `(Ma²)^(1/3)` is still the scale at which `2Ma²/r` balances `r²`, and `κ` is still the fraction
+of it at which contraction stops — but *throat radius* is correct only for `a > M`, the naked case.
+
+### H60c — but the object is published, and the spine reads it unchanged
+
+**Simpson–Visser black-bounce:** send `r² → r² + a²` in Schwarzschild. Then `R_c = √(r²+a²)`, so
+**`dR_c/dr = 0` at `r = 0` for any `a > 0`**, and the horizon sits at `r = ±√(4M² − a²)`, **real iff
+`a < 2M`**.
+
+| `a/M` | horizon | character |
+|---|---|---|
+| 0 | 2.000000 | Schwarzschild — horizon only |
+| 0.5 / 1.0 / 1.9 | 1.936492 / 1.732051 / 0.624500 | **throat inside the horizon** |
+| 2.0 | none | extremal null throat |
+| 2.5 | none | traversable wormhole, no horizon |
+
+**H59b's discriminant applied with no modification**, `a = 1`, horizon at `√3`:
+
+| `r` | 5.0 | 3.0 | 2.5 | → `√3` | 0.0 |
+|---|---|---|---|---|---|
+| `\|g_tt\|·C²` | 1.040000 | 1.111111 | 1.160000 | **1.333333 (finite) → HORIZON** | **∞ → THROAT** |
+
+> **Both objects. One metric. In M's order.** The discriminant was written yesterday for a different
+> question and needed **not one change** to read this one.
+
+**Verified against the paper database this session, not asserted:** arXiv:2502.00502 — this class
+*"presents a **wormhole throat inside an event horizon**"*; arXiv:2506.19818 — black bounces are
+*"compact objects with a wormhole structure **hidden behind an event horizon**"*.
+
+### H60d — and it lands on the one open decision
+
+- **In GR the source is exotic matter.** arXiv:2506.19818: *"obtained through general relativity by
+  considering the presence of **exotic matter**."* No surprise — a throat's flare-out **is** a NEC
+  violation.
+- **Outside GR it need not be.** arXiv:2608.02771 derives black bounces and traversable wormholes
+  *"from **pure gravity** … as **vacuum solutions** of metric gravitational theories in four and higher
+  dimensions."*
+
+> **That is `wormhole.py`'s `SCOPE_CHOSEN_HERE = None`** — asserted `None` in its own selftest so nobody
+> could quietly decide it, and **H57b**'s single **DECISION**-grade gap, the one that is M's.
+>
+> **M's assertion has walked the project onto its own open decision from the other side** — arriving by
+> reasoning about direction at the fork the census reached by sorting gaps. **It is not resolved here.**
+
+Beside it: arXiv:2608.08208 sources a black bounce with **non-minimally coupled linear electrodynamics
+and a canonical scalar** — the `ξ` **H43** found UNDEFINED and **H45** priced, and the electrodynamics
+**H54** measured, appearing together as the source of exactly this object.
+
+### H60e — and it is one-way, which is the whole shape of it
+
+The throat is **inside** the horizon, and the interior is where `r` is **timelike** — measured,
+`g_tt` = +0.109400, +0.414214, +0.915653 at `r` = 1.5, 1.0, 0.3, **positive throughout**.
+
+> **A timelike `r` means the throat is crossed at a MOMENT, not at a PLACE.** No hovering. No return.
+> Nothing sent back. And the far side is another asymptotic region, not a destination anyone chose.
+
+**A one-way exit to elsewhere is not a corridor between two places** — the same objection that closed
+Kerr in **H58c** and the Einstein–Rosen bridge in `pair.py`.
+
+> **The orientation is right, the object is real and published, the spine reads it unchanged — and it
+> still does not go where you choose.** Three correct things and one missing, and the missing one is the
+> same as always: **destination.**
+
+**Index note:** the published-object finding was first coded `(+1,+1,+1)` and **recoded to `(+1,0,+1)`**
+— the second consecutive pass in which a result that *felt* large was reflexively put in the triple cell
+while the file itself carried the negative verdict on directive 2. **That is a bias, not two slips.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7721,6 +7721,59 @@ recurring in a new file with a new symptom. Deleted, not loosened.
 
 ---
 
+## `orient.py` — the orientation. `pair.py` refuted the sign, not the pairing.
+
+> M: *"do you remember when I first suggested the corridor is composed by a wormhole and black hole
+> relation with wormhole in and black hole out, but it was refuted? … Black holes are the entrance to
+> the corridor and wormholes are the exit."*
+
+**The memory is accurate and so is the inference**, and the record was checked rather than recalled.
+`pair.py` §2 refuted the original orientation **on directional grounds**: *"A horizon is a one-way null
+surface. Matter cannot cross it outward … so nothing exits through a black hole."* **That argument run
+backwards is an argument *for* the new orientation** — a surface admitting only inward crossing is the
+one thing that can only be an **entrance**. The refutation did not kill the pairing; **it fixed its
+sign**, and nobody turned it around at the time.
+
+**KERR CANNOT DO IT, EXACTLY.** `definitions.py` put the equatorial `dR_c/dr = 0` locus at `r³ = Ma²` and
+called it a throat — but a throat is a minimum of area on a **spacelike** slice, and between the horizons
+`r` is **timelike**. With `u = (a/M)^(2/3)`: **`Δ(r_t) = u(u+2)(u−1)·M²`, positive iff `a > M`.** So
+`a < M` gives a horizon and **no throat**; `a = M` gives `Δ(r_t) = 0` exactly; `a > M` gives a throat and
+**no horizon**. **Mutually exclusive at exactly `a = M`.** And that is a **thirteenth fault**, one day
+old and mine: `definitions.py` checked its throat at `a` = 0.3, 0.99, 3.0 — **two of three in the
+timelike-`r` region**. `(Ma²)^(1/3)` survives as a geometric scale; *throat radius* is right only for
+`a > M`.
+
+**BUT THE OBJECT IS PUBLISHED.** The **Simpson–Visser black-bounce** sends `r² → r²+a²`, putting
+`dR_c/dr = 0` at `r = 0` for any `a > 0` with a horizon at `√(4M²−a²)`, real iff `a < 2M`. So for
+**`0 < a < 2M` there is a wormhole throat inside an event horizon** — enter through the black hole, leave
+through the throat. **And `definitions.py`'s discriminant reads it with no modification**: `|g_tt|·C²` →
+**1.333333, finite, at the horizon**; **divergent at `r = 0`**. Verified in the literature, not asserted
+— arXiv:2502.00502 (*"a wormhole throat inside an event horizon"*), arXiv:2506.19818 (*"hidden behind an
+event horizon"*).
+
+**THE PRICE IS THE SAME WALL WITH ONE DOOR, AND IT IS ALREADY M'S.** In GR the source is **exotic matter**
+(arXiv:2506.19818). Outside GR the same geometry is a **vacuum solution** (arXiv:2608.02771, *"from pure
+gravity"*) — **which is `wormhole.py`'s `SCOPE_CHOSEN_HERE = None`**, the single **DECISION**-grade gap in
+`gaps.py`'s census. **The assertion walked the project onto its own open decision from the other side.**
+Not resolved here. Beside it, arXiv:2608.08208 sources one with **non-minimally coupled electrodynamics
+and a scalar** — `qei.py`'s `ξ` and `switch.py`'s electrodynamics, together, as the source of this object.
+
+**AND IT IS ONE-WAY.** The throat is inside the horizon where `r` is timelike — `g_tt` = +0.1094, +0.4142,
++0.9157 at `r` = 1.5, 1.0, 0.3, **positive throughout**. **A timelike `r` means the throat is crossed at a
+MOMENT, not a PLACE**: no hovering, no return, nothing sent back, and the far side is another asymptotic
+region rather than a chosen destination.
+
+> **The orientation is right, the object is real and published, the spine reads it unchanged — and it
+> still does not go where you choose.** The missing thing is the same as always: **destination**.
+
+### Seated
+- `orient.py` — new. `index3.py` — **583 findings**, 16 occupied cells, `E(X) = 0`; the published-object
+  finding was coded `(+1,+1,+1)` and **recoded to `(+1,0,+1)` — the second consecutive pass with that
+  bias, recorded as a bias rather than as two slips**. `paper/CLAIMS.md` — **H60**.
+  `definitions.py` and `pair.py` — **corrected here, files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
