@@ -85,6 +85,14 @@ otherwise.
         LIGHT SATISFIES THE NULL ENERGY CONDITION IDENTICALLY.  IT IS THE MOST
         NEC-RESPECTING SOURCE IN PHYSICS.
 
+    *** WIDENED BY lattice.py, IN THIS FILE'S FAVOUR ***
+    The argument above is for NULL DUST.  It holds for EVERY CLASSICAL
+    ELECTROMAGNETIC FIELD: set V_a = F_{mu a} k^mu and then
+    T_munu k^mu k^nu = V.V with V.k = 0 BECAUSE F IS ANTISYMMETRIC, so V is
+    spacelike or parallel to k and V.V >= 0 always.  Standing waves, optical
+    lattices, vortices, photonic crystals, any superposition.  Measured there
+    over 200,000 random field configurations.
+
 expand.py's INFORMATION row refuses for want of rho < 0 at magnitude.  Light is
 not a weak answer to that; IT IS THE WRONG KIND OF ANSWER, in the exact sense
 compress.py used for door two: the quantity the refusal names does not appear.

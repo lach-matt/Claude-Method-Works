@@ -6310,3 +6310,94 @@ energy is energy.** Denominating the same bill in photons changes neither the bo
 - `light.py` — new. `obstruct.py` — **50 rows**, new `LIGHT-AS-THE-SOURCE` and `MALLETT-RING-LASER-CTC`,
   **30 closed-negative**. `index3.py` — **465 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H29** and two
   additions to the not-claimed list.
+
+---
+
+## `lattice.py` — a wave structure in light, and the infinite cylinder we do not have
+
+> **M:** *"we have an infinite cylinder already. And the lattice need only be a wave structure
+> constructed in light."*
+
+**Both claims are aimed correctly. Both are answered — and the second one inverts.**
+
+### 1. The lattice, answered twice — and the second answer is general
+
+**The lattice is unnecessary**, which `light.py` already held. Olum & Everett: Mallett's circulating
+paths `ρ = const`, `dφ/dt = 1/α` **are null geodesics** of the background — *"the light does not require
+any external apparatus to keep it in circulation; the photonic crystals would not be necessary."* **The
+light orbits the singularity.** Swapping the crystal for an optical lattice changes nothing.
+
+**And no structure built from light escapes the NEC.** For the Maxwell stress tensor and any null `k`,
+set `V_a = F_{μa}k^μ`:
+
+> **`T_μν k^μ k^ν = V·V`, and `V·k = 0` because `F` is antisymmetric.** A vector orthogonal to a null
+> vector is spacelike or parallel to it, so **`V·V ≥ 0` always.**
+
+Measured over 200,000 random antisymmetric `F` and random null `k`: minimum `+2.04e−05`, `|V·k| = 1.2e−15`.
+
+**This widens `light.py`** from null dust to **every classical electromagnetic field** — standing waves,
+optical lattices, vortices, photonic crystals, any superposition. Which is exactly the general case a
+*wave structure in light* needs.
+
+### 2. The cylinder was never the problem
+
+Finiteness was my **second** objection, not the first. What Mallett's axis requires is not an infinite
+cylinder of anything ordinary — it is an **infinite naked line singularity**, `R_αβγδR^αβγδ = 3/(4αρ³)`,
+present at `ε = 0` and independent of the light.
+
+**And the static background is its own non-detection:**
+
+| particle at rest, proper distance | destroyed after |
+|---|---|
+| 1 AU | **649 seconds** |
+| 1 light-year | **1.3 years** |
+| 1 parsec | 4.24 years |
+
+…with the singularity filling the entire sky but an infinitesimally thin strip. **We are here, so it is
+not.**
+
+### 3. The real infinite cylinder physics has is a cosmic string — closed four times
+
+A **straight** string's exterior is a **conical deficit** — locally flat. No tidal field, no frame
+dragging, no CTCs. Observational bound `Gμ ≲ 6e−7`.
+
+Gott needs **two**, passing with `γδ₀ > 2` where `δ₀ = 8πGμ` — at the bound, `γ > 1.33e5`. Then:
+
+| | |
+|---|---|
+| **Deser, Jackiw & 't Hooft** | the pair's holonomy is **boost-like** — it matches a **tachyon's**, spacelike total momentum |
+| **Carroll, Farhi, Guth & Olum** | in 2+1 it takes **infinite energy**, and **cannot evolve from strings at rest** |
+| **'t Hooft** | a closed universe shrinks to zero volume first |
+| **Shlaer & Tye** | in 3+1 it *is* reachable — and destroyed by **one particle** |
+
+### 4. And the inversion, which is the finding
+
+Shlaer & Tye (hep-th/0502242) asked what happens to Gott space in a universe that actually contains
+light:
+
+- a photon or graviton near the CTC region is **attracted** to it — the curve is an **attractor**, and
+  *"approximately half of all initial particle trajectories will end up in a CTC"*;
+- it traverses the curve infinitely many times **in zero time** and is **infinitely blue-shifted** — a
+  purely *kinematic* divergence, "nothing to do with particle number";
+- back-reaction bends and slows the strings, and **the CTC never forms**.
+
+> *"A single graviton or photon in the vicinity, **no matter how soft**, is sufficient to bend the strings
+> and prevent the formation of closed time-like curves."*
+>
+> *"**Since there is a cosmic microwave background radiation in our universe, these photons preclude the
+> existence of CTCs.**"*
+
+| | |
+|---|---|
+| CMB photons in one cubic metre of empty space | **4.11×10⁸** |
+| photons needed to destroy the construction | **1** |
+
+> **Building the lattice out of light does not supply the medium — it floods the region with the precise
+> thing that destroys the construction.** Not an objection to the engineering. **The mechanism running
+> backwards:** the more light in the lattice, the faster it closes.
+
+### Seated
+- `lattice.py` — new. `light.py` — **widened in its own favour**, null dust → the whole Maxwell field.
+  `obstruct.py` — **52 rows**, new `LIGHT-LATTICE` and `INFINITE-CYLINDER-EXISTS`, **32 closed-negative**.
+  `index3.py` — **470 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H30** and two additions to the
+  not-claimed list.

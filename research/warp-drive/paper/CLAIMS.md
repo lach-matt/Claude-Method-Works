@@ -1599,6 +1599,61 @@ and 33 against a ring laser's own damage threshold.
 
 ---
 
+## ★★★ H30 — **every** classical EM field satisfies the NEC; and light is what *breaks* the Gott construction
+
+**H30. For the Maxwell stress tensor and any null `k`, set `V_a = F_{μa}k^μ`. Then
+`T_μν k^μ k^ν = V·V` with `V·k = 0` **because F is antisymmetric** — so `V` is orthogonal to a null
+vector, hence spacelike or parallel to it, hence `V·V ≥ 0` always. This widens **H29** from null dust to
+*every* classical electromagnetic field: standing waves, optical lattices, vortices, photonic crystals,
+any superposition.**
+
+Measured over 200,000 random antisymmetric `F` and random null `k`: minimum `+2.04e−05`, with `|V·k|` at
+`1.2e−15` — machine zero, as the antisymmetry requires.
+
+**And the lattice was never needed anyway.** Olum & Everett: Mallett's circulating paths **are null
+geodesics** of the background — "the light does not require any external apparatus to keep it in
+circulation." The light orbits the singularity; the crystal did nothing.
+
+**The cylinder was never the problem either.** Finiteness was the *second* objection. What the axis
+requires is an **infinite naked line singularity** (`R_αβγδR^αβγδ = 3/4αρ³`, present at `ε = 0`), not a
+cylinder of anything ordinary. And the static background is **its own non-detection**:
+
+| at proper distance | destroyed in |
+|---|---|
+| 1 AU | **649 seconds** |
+| 1 light-year | **1.3 years** |
+| 1 parsec | 4.24 years |
+
+**We are here, so it is not.**
+
+**If nature is to supply the cylinder, the candidate is a cosmic string — closed four times.** A straight
+string's exterior is a locally flat **conical deficit**: no dragging, no CTCs. Gott needs two passing
+with `γδ₀ > 2`, i.e. `γ > 1.33e5` at the bound `Gμ ≲ 6e−7`. Then: **Deser–Jackiw–'t Hooft** (holonomy is
+boost-like, matching a **tachyon**); **Carroll–Farhi–Guth–Olum** (infinite energy in 2+1; *cannot evolve
+from strings at rest*); **'t Hooft** (closed universe collapses first); **Shlaer–Tye** (3+1: reachable,
+and destroyed by one particle).
+
+**And that last one inverts the proposal.** A photon near the CTC region is **attracted** to it — the
+curve is an attractor, and *approximately half* of generic trajectories end in one — then traverses it
+infinitely many times **in zero time** and is **infinitely blue-shifted**. Back-reaction bends the
+strings and the CTC never forms.
+
+> "A single graviton or photon in the vicinity, **no matter how soft**, is sufficient." And: "**Since
+> there is a cosmic microwave background radiation in our universe, these photons preclude the existence
+> of CTCs.**"
+
+> **A cubic metre of empty space already holds `4.11e8` CMB photons. The mechanism needs one. Building
+> the lattice out of light does not supply the medium — it floods the region with the precise thing that
+> destroys the construction.** Not an objection to the engineering: the mechanism running backwards.
+
+| | `lattice.py` |
+|---|---|
+| status | **PROVEN** (the general Maxwell NEC identity) + **MEASURED** (200,000-field scan; lifetimes; Gott threshold; CMB count) + **CITED** (gr-qc/0410078; arXiv:1003.3828; hep-th/0502242; arXiv:2101.08592) |
+| new? | the NEC identity widened from null dust to the whole classical Maxwell field, yes |
+| **not** claimed | that the questions were unreasonable — the lattice is the right question to ask of Mallett's construction, and the infinite cylinder is exactly the objection I raised; that cosmic strings are ruled out — only that the **Gott CTC route through them** is; that this touches modified-gravity light couplings, which are door one |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1744,3 +1799,7 @@ and 33 against a ring laser's own damage threshold.
   is the most NEC-respecting source in physics. See **H29**.
 - **That a ring laser can produce closed timelike curves.** Refuted on three independent grounds, and any
   finite version is closed by Tipler–Hawking.
+- **That a lattice built of light could hold a Mallett configuration open.** Light is the specific thing
+  that destroys it — one soft photon suffices, and space is full of them. See **H30**.
+- **That having an infinite cylinder answers the finiteness objection.** The axis requires an infinite
+  *naked line singularity*, and anything near one dies in proper time ≈1.3R.

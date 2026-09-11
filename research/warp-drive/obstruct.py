@@ -14,8 +14,8 @@ and a test, and the statuses are not flattened:
     CONDITIONAL      dissolved in one regime and not in another, with the boundary
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
-THE HEADLINE: of fifty obstructions, SIX dissolved, FOUR relocated,
-THIRTY closed negative, NINE conditional, ONE is OPEN, NONE is untested.
+THE HEADLINE: of fifty-two obstructions, SIX dissolved, FOUR relocated,
+THIRTY-TWO closed negative, NINE conditional, ONE is OPEN, NONE is untested.
 The newest is the hardest: ACHIEVABLE-CORE is closed NEGATIVE.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -435,6 +435,36 @@ LEDGER = [
   "Tipler-Hawking escape needs an INFINITE cylinder -- those theorems rule out "
   "ANY FINITE-SIZE approximation. Mallett conceded the singularity himself",
   "light.py"),
+ ("LIGHT-LATTICE", "the confining lattice can be a wave structure built in "
+  "light", "CLOSED-NEGATIVE",
+  "ANSWERED TWICE, AND THE SECOND ANSWER INVERTS IT. (1) THE LATTICE IS "
+  "UNNECESSARY: Olum & Everett showed Mallett's circulating paths ARE NULL "
+  "GEODESICS of the background, so the light orbits the singularity and the "
+  "photonic crystal was never doing anything. (2) NO STRUCTURE BUILT FROM "
+  "LIGHT ESCAPES THE NEC: for the Maxwell stress tensor and any null k, "
+  "V_a = F_{mu a}k^mu gives T_munu k^mu k^nu = V.V with V.k = 0 BY "
+  "ANTISYMMETRY, so V is spacelike or parallel to k and V.V >= 0 always -- "
+  "measured over 200,000 random field configurations, covering standing waves, "
+  "optical lattices, vortices and any superposition. This WIDENS light.py's "
+  "null-dust result to the whole classical Maxwell field. (3) AND SHLAER & TYE "
+  "invert it: a single photon, NO MATTER HOW SOFT, is attracted to the CTC, "
+  "infinitely blue-shifted, and destroys it -- so a lattice OF LIGHT floods "
+  "the region with the one thing that breaks the construction", "lattice.py"),
+ ("INFINITE-CYLINDER-EXISTS", "an infinite cylinder is already available, so "
+  "the finiteness objection does not bite", "CLOSED-NEGATIVE",
+  "THE CYLINDER WAS NEVER THE PROBLEM -- finiteness was the SECOND objection. "
+  "Mallett's axis requires an INFINITE NAKED LINE SINGULARITY with "
+  "R_abcd R^abcd = 3/(4 alpha rho^3) present at eps = 0, not a cylinder of "
+  "anything ordinary. And the static background is ITS OWN NON-DETECTION: "
+  "Olum's proper time ~1.3 R gives 649 s at 1 AU, 1.3 yr at a light-year, 4.24 "
+  "yr at a parsec, with the singularity filling the whole sky but a thin "
+  "strip. WE ARE HERE, SO IT IS NOT. The real candidate for a natural infinite "
+  "cylinder is a COSMIC STRING, whose straight exterior is a locally flat "
+  "CONICAL DEFICIT giving no CTCs; Gott's two-string route needs gamma > "
+  "1.33e5 at G mu <~ 6e-7 and is closed by Deser-Jackiw-'t Hooft (tachyonic "
+  "holonomy), Carroll-Farhi-Guth-Olum (infinite energy; cannot evolve from "
+  "rest), 't Hooft (closed universe collapses first) and Shlaer-Tye (one "
+  "photon destroys it)", "lattice.py"),
  ("CORE-TYPE-IV", "the core inherits the Alcubierre wall's Type IV problem",
   "CLOSED-NEGATIVE",
   "IT DOES NOT. Measured |Im|/||T|| of 1e-7 to 1e-8: static and spherically "
@@ -784,10 +814,10 @@ def selftest():
     h = by_status()
     for s in STATUSES:
         print("    %-16s %d   %s" % (s, len(h[s]), ", ".join(r[0] for r in h[s])))
-    chk("obstructions tracked", len(LEDGER), 50)
+    chk("obstructions tracked", len(LEDGER), 52)
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 30)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 32)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 9)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
