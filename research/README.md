@@ -7928,6 +7928,59 @@ independently.
 
 ---
 
+## `perception.py` — the extra dimension value exists, it is rapidity, and it is cheap.
+
+> M: *"Distance is measurable by the speed(s) of light, but it is still a perception… us viewing c or c
+> viewing the corridor. Or the corridor viewing c, which could be us viewing c with an extra dimension
+> value."*
+
+**Three claims, all three land**, and the third opens a route this project never priced.
+
+**"c VIEWING THE CORRIDOR": NO FRAME, BUT THE LIMIT IS EXACTLY ZERO.** A photon's rapidity diverges, but
+perceived distance to Proxima falls **3.677473 → 1.850954 → 0.599026 → 0.060051 → 0.006005 ly**, and along
+a null geodesic proper length is **exactly zero**. **The corridor, viewed from `c`, has no length at all.**
+
+**"AN EXTRA DIMENSION VALUE": IT EXISTS AND IT IS NAMED.** **Rapidity** — velocity is the bounded
+*perception*, rapidity the unbounded *coordinate*. `v/c` saturates at **1.000000000000000 by η = 20** while
+**η = 50 gives γ = 2.59×10²¹** and is ordinary. And rapidities **add linearly** (3 ⊕ 4 = 7.000000000005)
+where velocities do not. **In rapidity there is no speed limit — the limit is a projection artifact,
+exactly as the method theory predicts.** `axis.py` carried the column one pass earlier and didn't read it.
+
+**AND IT IS NOT A WORD GAME.** Unbounded rapidity buys unbounded proper-distance collapse — ordinary
+relativistic travel, no new physics. For a 1000 kg payload against the corridor's bill for the same
+distance: **Proxima in 1 ship-year 1.6×10³⁹ cheaper; galactic centre in 20 yr 2.6×10⁴⁰; Milky Way crossing
+in 30 yr 3.8×10⁴⁰; Andromeda in 50 yr 6.4×10⁴⁰.** Between **10³⁸ and 10⁴⁰ times cheaper, every row** — and
+Proxima in one ship-year is about **0.50 years of world energy output**, in nothing but kinetic energy.
+
+**AND THE ENDPOINT FRAME IS NOT A PERCEPTION.** At 4, 2, 1, 0.5, 0.1 ship-years the ship perceives 2.9115,
+1.8093, 0.9734, 0.4966, 0.1000 ly while Earth's clock reads 5.8334, 4.6934, 4.3622, 4.2753, 4.2472 yr
+against light's 4.2460 — **the "vs light" column is negative in every row**, shrinking toward zero and
+never crossing.
+
+> **The traveller's distance is a perception and it collapses. The frame holding both endpoints is not,
+> and it does not.** A round trip at one ship-year each way returns you to an Earth **8.724 years older
+> having aged two** — real travel, and exactly the perception being spent.
+>
+> **The corridor still buys strictly more** — everyone, permanently, any mass, against one payload once.
+> But for **get a payload there**, the cheap route was in the same equations the whole time.
+
+**TWO FAULTS, NEITHER CAUGHT BY A FIXTURE.** **Fifteenth:** a units error in a print — Earth's clock as
+**1307741293.956 yr** for a 4.2 ly trip, `D/v` with `v` dimensionless. Caught only because it is **absurd
+on its face** — a *sanity check on the order*, the only detector that works there. **Sixteenth:** composing
+`η = 10` with `η = 10` rounds `v_comp` to exactly 1.0 and `atanh(1.0)` raises — **the same saturation
+`membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
+`η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
+
+### Seated
+- `perception.py` — new. `index3.py` — **599 findings**, 16 occupied cells, `E(X) = 0`; the cheap-route
+  finding was coded `(+1,+1,+1)` and **recoded to `(0,−1,0)` — third instance of the triple-cell bias in
+  three passes, and the first that was a CATEGORY ERROR rather than enthusiasm**: the directives ask about
+  *warp*, and relativistic travel is affirmative about *travel*. What it answers is directive 2,
+  negatively — **an opportunity-cost bound**. `paper/CLAIMS.md` — **H64**. `axis.py` — **extended here**.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

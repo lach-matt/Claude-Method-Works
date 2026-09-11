@@ -4715,6 +4715,107 @@ simply less corridor to cross.**
 
 ---
 
+## ★★★ H64 — the extra dimension value. **It exists, it is rapidity, and it is cheap.**
+
+> M: *"Distance is measurable by the speed(s) of light, but it is still a perception… us viewing c or c
+> viewing the corridor. Or the corridor viewing c, which could be us viewing c with an extra dimension
+> value."*
+
+**Three claims. All three land, and the third opens a route this project never priced.**
+
+### H64a — "c viewing the corridor": no frame, but the limit is exactly zero
+
+A photon's rapidity diverges — there is no such frame. But the limit is exact:
+
+| `v/c` | 0.5 | 0.9 | 0.99 | 0.9999 | 0.999999 |
+|---|---|---|---|---|---|
+| perceived distance to Proxima | 3.677473 ly | 1.850954 ly | 0.599026 ly | 0.060051 ly | 0.006005 ly |
+
+Along a null geodesic proper time and proper length are **exactly zero**.
+
+> **The corridor, viewed from `c`, has no length at all.** Not shortened — none. M is right that distance
+> is a perception, and the light cone is where that perception goes to nothing.
+
+### H64b — "an extra dimension value": it exists and it is named
+
+> **Rapidity, `η = arctanh(v/c)`. Velocity is the bounded *perception*; rapidity is the unbounded
+> *coordinate*.**
+
+| `η` | 1 | 2 | 5 | 10 | 20 | 50 |
+|---|---|---|---|---|---|---|
+| `v/c` | 0.761594 | 0.964028 | 0.999909 | 0.99999999588 | **1.000000000000000** | **1.000000000000000** |
+| `γ` | 1.54 | 3.76 | 74.2 | 1.10×10⁴ | 2.43×10⁸ | **2.59×10²¹** |
+
+**And rapidities add linearly where velocities do not:** `η` 3 ⊕ 4 = **7.000000000005**, while
+`v` = 0.995054754 ⊕ 0.999329300 = 0.999998337, not their sum.
+
+> **In rapidity there is no speed limit.** `η = 50` is ordinary. **The limit is a projection artifact, in
+> exactly the sense the method theory predicts** — and **H63a**'s own boost table carried the rapidity
+> column one pass earlier and did not read it.
+
+### H64c — and it is not a word game: the perception is exploitable, and cheap
+
+Unbounded rapidity buys unbounded proper-distance collapse. That is **ordinary relativistic travel** —
+no exotic matter, no negative mass, no conjecture, no scope decision. Payload 1000 kg:
+
+| target | ship time | `γ` | go fast | corridor | **ratio** |
+|---|---|---|---|---|---|
+| Proxima | 1 yr | 4.3622 | 3.02×10²⁰ J | 4.87×10⁵⁹ J | **1.6×10³⁹** |
+| Proxima | 0.1 yr | 42.47 | 3.73×10²¹ J | 4.87×10⁵⁹ J | **1.3×10³⁸** |
+| Galactic centre | 20 yr | 1300 | 1.17×10²³ J | 2.98×10⁶³ J | **2.6×10⁴⁰** |
+| Milky Way crossing | 30 yr | 3333 | 2.99×10²³ J | 1.15×10⁶⁴ J | **3.8×10⁴⁰** |
+| Andromeda | 50 yr | 5×10⁴ | 4.49×10²⁴ J | 2.87×10⁶⁵ J | **6.4×10⁴⁰** |
+
+> **The corridor is 10³⁸–10⁴⁰ times more expensive, every row.** Proxima in one ship-year is about **0.50
+> years of total world energy output** — large, **finite**, and made of nothing but ordinary kinetic energy.
+
+### H64d — and the endpoint frame is not a perception
+
+| ship time | 4 yr | 2 yr | 1 yr | 0.5 yr | 0.1 yr |
+|---|---|---|---|---|---|
+| ship perceives | 2.9115 ly | 1.8093 ly | 0.9734 ly | 0.4966 ly | 0.1000 ly |
+| Earth's clock | 5.8334 yr | 4.6934 yr | 4.3622 yr | 4.2753 yr | 4.2472 yr |
+| **vs light (4.2460 yr)** | **−1.5874** | **−0.4475** | **−0.1162** | **−0.0293** | **−0.0012** |
+
+**Negative in every row**, shrinking toward zero and never crossing.
+
+> **The traveller's distance is a perception and it collapses. The frame holding both endpoints is not a
+> perception and it does not.** Both true at once, and the pair is the whole answer.
+
+A round trip at one ship-year each way returns you to an Earth **8.724 years older having aged two**.
+That is real travel and it is exactly the perception being spent — and no message, cargo or consequence
+outruns a photon sent at departure.
+
+**And the corridor still buys strictly more**, which is recorded rather than dropped for tidiness: it
+shortens distance **for everyone, permanently, for any mass**, where a fast ship shortens it for one
+payload once. That difference is real. But for the stated goal — **get a payload there** — the cheap
+route was in the same equations the whole time.
+
+### H64e — two faults, and neither was caught by a fixture
+
+**Fifteenth — a units error inside a print statement.** Earth's clock printed as **1307741293.956 yr** for
+a 4.2 light-year trip: the term was `D/v/YR` with `v` held as a *dimensionless* `v/c`. **No fixture would
+have caught it.** It was caught because 1.3 billion years for a four-light-year crossing is **absurd on
+its face** — a *sanity check on the order*, a different detector from the fourteen before it, and the
+only one that works on a units error inside a print.
+
+**Sixteenth — a repeat, and its shape is exact.** Composing `η = 10` with `η = 10` forms
+`(v₁+v₂)/(1+v₁v₂)`, which **rounds to exactly 1.0** in float, and `atanh(1.0)` raises. That is the **same
+`atanh` domain saturation `membrane.py` hit earlier this session** with `atanh(e→1)`. Both forms kept in
+the file. The stable route never forms the saturating quantity — `(1±v_comp)` each carry `1/(1+v₁v₂)`, so
+the ratio **factorises** and `η_comp = ½ln[(1+v₁)(1+v₂)/((1−v₁)(1−v₂))] = η₁+η₂`, **making the additivity
+manifest rather than merely numerical**, and composing 40 ⊕ 40 = 80.000000 where float has no resolution
+left at all.
+
+**Index note:** the cheap-route finding was coded `(+1,+1,+1)` and **recoded to `(0,−1,0)`** — third
+instance of the triple-cell bias in three passes, and the first of *this* flavour: **a category error, not
+enthusiasm.** The directives ask about **warp**. Relativistic travel identifies *ordinary kinetic energy*,
+says you don't *need* a warp drive, and specs a rocket. What it actually answers is directive 2,
+negatively, in the strongest available way — **an opportunity-cost bound, and an opportunity-cost bound is
+still a bound.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
