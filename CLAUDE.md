@@ -252,8 +252,21 @@ case clears it, by selling every MWh at 2.4× the highest 2024 monthly hour-endi
 shape is **reconstructed** from exact solar geometry and pinned to sourced annual DNI and sourced price
 anchors, because NREL, CAISO and CPUC are blocked at this environment's egress proxy; the selftest asserts
 the annual energy moves under 5 % when the shape is changed. No commercial salt tower has delivered its
-design output (Gemasolar 0.73, Crescent Dunes 0.39), and the model still flatters that record. See
-`docs/HELIOS.md` and `proposals/README.md`.
+design output (Gemasolar 0.73, Crescent Dunes 0.39), and the model still flatters that record. **The criterion the author then stated — *the plant pays for itself after the build bonds* — is in
+`helios.py` inverted**: at Title I's own $27.2 B the plant needs **$102/MWh**, inside the **$80–120**
+California's LSEs pay for firm clean energy under contract, so at the stated cost self-funding is a
+*contract* question and the free tariff is an output of the balance, not an input; **F-05 decides it.**
+**`tools/heliocost.py` then builds F-05 line by line** at the class the author decided (Noor III units,
+36 towers), state-owned, groundbreaking 2028–2030: **$46.1 / 57.0 / 71.5 B** net of the federal storage
+credit — **$10.85/W at the mid, inside the built record** (Crescent Dunes 8.86, Cerro Dominador 10.45)
+— against **$27.2 B stated, 1.70× below the low case**. Required price **$171 / 206 / 253 per MWh**:
+**the criterion does not close at the scale proposed in any case.** The level is calibrated to the
+sourced NREL ATB 2024 anchor ($7,912/kWe) and the split is RECONSTRUCTED from SAM/Turchi 2019
+(NREL is unreachable here), corroborated at 0.778 raw; the ownership form is priced as named lines
+(no developer margin, bond-rate IDC, storage credit with the public energy-community bonus, CalPERS
+on-cost, property tax out and a PILOT in) and nearly halves the required price against a private
+owner. **The lever is the size, not a unit rate.** See `docs/HELIOS.md`, `docs/HELIOCOST.md` and
+`proposals/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename

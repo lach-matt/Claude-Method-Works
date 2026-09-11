@@ -37,6 +37,13 @@ writes to any of them.
    slipstream; return brine through the retired plant's existing permitted
    outfall at Ocean Plan concentration.
 
+## Resolved so far
+
+| flaw | instrument | finding |
+|---|---|---|
+| F-01, F-02 | `tools/helios.py` | 19.2 TWh net at the scale proposed, not 39.6 sold; the export is negative; $693 M at 2024 prices against $1,933 M carrying. Inverted: $102/MWh needed at Title I's own capex — inside the firm-clean band — so F-05 decides. |
+| F-05, F-07, F-08 | `tools/heliocost.py` | $46–71 B net of the storage credit ($57 B mid, $10.85/W) against $27.2 B stated; needs $171–253/MWh against a band of $80–120. **The criterion does not close at the scale proposed in any case.** |
+
 ## How the flaws are worked
 
 One at a time, in register order, each resolved by an instrument where the
