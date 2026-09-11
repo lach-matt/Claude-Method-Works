@@ -3805,6 +3805,81 @@ test reports a wrong verdict.**
 
 ---
 
+## ★★★ H54 — the switch. **EM has two, gravity is blind to both — and "take, don't give" is Casimir.**
+
+> M: *"EM provides the switch action."* · *"What if it was never about giving energy but instead taking it. Pull the energy away from the singularity using EM to switch the gravitational field. This creates a larger surface space by reducing the geometry by an axis."*
+
+**Four claims. Two land, two are measured against.**
+
+### H54a — EM does provide the switch, and gravity cannot see it
+
+| switch | | |
+|---|---|---|
+| **charge conjugation** | `F → −F` | `\|F − (−F)\| = 3.5396` — every component reversed |
+| **duality rotation** | `E → E cos α + B sin α`, `B → −E sin α + B cos α` | at `α = π` reaches `−F`, **never passing through zero** |
+
+| α | `\|F_α\|` | `\|T(F_α) − T(F)\|` | `F_α = −F`? |
+|---|---|---|---|
+| 0 | 1.769801 | 0.000e+00 | |
+| π/4 | 2.029449 | 1.776e−15 | |
+| π/2 | 1.769801 | 8.882e−16 | |
+| 3π/4 | 2.029449 | 8.882e−16 | |
+| **π** | 1.769801 | **4.441e−16** | **YES** |
+
+And `|T(F) − T(−F)| = **0.000e+00**` — **exactly zero, not machine zero.**
+
+> **The field travels all the way from `F` to `−F` and `T` never moves.** The reason is one line: gravity
+> couples to `T_μν`, **`T_μν` is quadratic in `F`**, and squaring doesn't merely destroy the sign the switch
+> flips — **it doesn't notice it.** **H52b** said a square does not go negative; this is the same fact from
+> the other side.
+>
+> **EM cannot switch the gravitational field.** Not "it's hard" — the switch is exact and the response is
+> exactly nothing. **This is H53's scale/shape split arriving as a direct measurement:** the switch acts on a
+> **coefficient**; the obstruction lives in the **shape**.
+
+**And the state between 1 and 0, by both routes:** the **fade** passes through the **vacuum** (`ρ = 0.000000`
+exactly at `t = ½`); **duality** gives a rotated field of **identical** energy. **Neither is negative.**
+
+*Sign convention, checked and named because misreading it is the easiest error here:* `T⁰₀` mixed is `−ρ` in
+signature `(−,+,+,+)`, so the measured `−4.739016` is an energy density of `+4.739016`, confirmed against
+`(E²+B²)/2`.
+
+### H54b — "take, don't give" lands, and it is the Casimir effect
+
+**Removing ordinary energy has a floor.** `m(r) = 4π∫ρr²dr`, so with `ρ ≥ 0` in the region:
+
+| removed | `ρ` | |
+|---|---|---|
+| 0 % | 1.000 ρ₀ | `m(r) ≥ 0` |
+| 50 % | 0.500 ρ₀ | `m(r) ≥ 0` |
+| 100 % | 0.000 ρ₀ | `m(r) ≥ 0` |
+
+**You cannot take away more than is there** — **H50**'s finding in a new place: cancellation *and* removal
+both terminate at zero, and the requirement is on the far side.
+
+**Unless you remove from the vacuum.** `ρ = −π²ħc/(720d⁴)`: **−4.3338e−04**, **−4.3338e+00**, **−4.3338e+04**
+J/m³ at `d` = 1 µm, 100 nm, 10 nm.
+
+> **M reached, by reasoning, the one mechanism known to produce `ρ < 0` in a laboratory.** That should be said
+> plainly.
+>
+> **And the tree already holds it, already priced.** **H37** ran Casimir against the three gates; **H43c**
+> gave it `k_Cas = π²Λ/720 = 0.136838353`, crossover **0.369917 ℓ_P**. **Same wall.** Casimir is not a new
+> door — it's the door the tree measured, and it's sub-Planckian like the others.
+
+### H54c — and "reducing by an axis" goes the wrong way twice
+
+**Surface-to-volume falls, not rises:** for a D-ball it is `D/r` — 3/r, 2/r, 1/r. Removing an axis **reduces**
+surface per unit volume. **And the gravity goes with it:** `2 − 2/(D−2)` is **exactly zero at D = 3**
+(**H44a**), the known 2+1 fact **H46a** also measured from the metric side.
+
+> **Removing an axis deletes the field rather than concentrating it.**
+
+**The reframe converged on a door the tree had already opened and measured — which is what a correct instinct
+does when the wall is real.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7470,6 +7470,36 @@ wrong verdict.**
 
 ---
 
+## `switch.py` — EM has two switches. Gravity is blind to both.
+
+> M: *"EM provides the switch action."* · *"What if it was never about giving energy but instead taking it."*
+
+**The switch is real — two of them.** `F → −F` reverses every component; **duality rotation** carries the
+field continuously to `−F` at `α = π` **without ever passing through zero** (`|F_α|` stays 1.77–2.03).
+
+> **And `|T(F) − T(−F)| = 0.000e+00` — exactly zero, not machine zero.** `T` is invariant along the entire
+> duality path to 4.4e−16. **The field travels all the way to `−F` and `T` never moves**, because `T_μν` is
+> **quadratic in `F`**: squaring doesn't destroy the sign the switch flips, **it doesn't notice it.** This is
+> `invariance.py`'s scale/shape split as a direct measurement — the switch acts on a **coefficient**, the
+> obstruction lives in the **shape**.
+
+**The between-state**, both routes: the fade passes through the **vacuum** (`ρ = 0` exactly); duality gives a
+rotated field of **identical** energy. **Neither is negative.**
+
+**"Take rather than give" lands.** Removing ordinary energy **floors at zero** — you cannot take away more
+than is there. **Removing vacuum modes goes negative, and that is the Casimir effect**: −4.33e−04, −4.33e+00,
+−4.33e+04 J/m³ at 1 µm, 100 nm, 10 nm. **M reached the one mechanism known to make `ρ < 0` in a lab by
+reasoning.** And the tree already holds it — `k_Cas = 0.136838353`, crossover **0.369917 ℓ_P**. **Same wall.**
+
+**Only the last step fails, twice:** `S/V = D/r` **falls** as dimension falls, and 2+1 gravity has **no
+Newtonian attraction at all**. *Removing an axis deletes the field rather than concentrating it.*
+
+### Seated
+- `switch.py` — new. `index3.py` — **562 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H54**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
