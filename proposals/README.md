@@ -141,7 +141,19 @@ the instruments exist: every figure in the proposal is computed, carries a
 status, and fails a harness if the prose states a number the model does not
 produce.
 
-## Title III joinder items (noted, not yet worked)
+## Title III joinder items
+
+**Can Title II return Title I's winter? (`tools/joinder.py`, `docs/JOINDER.md`, 2026-09-11.)** The
+author: desalinate on the summer surplus, hold the water, and return the offset from the
+desalination plants' turbines. Two turbines that can mean. **Steam-topping turbines** (Title II's own
+architecture) return electricity they were given as heat, less what the water took — the water costs
+6.4× reverse osmosis in electricity and the turbine returns in winter only what heat is there in
+winter, which F-13/F-27 found is none: it does not return a winter. **Hydraulic turbines on the water
+itself** do: summer surplus desalinates and lifts the product to an elevated reservoir, winter
+delivery comes back through pump-turbines. Bounded by the surplus (3.2 TWh_e thrown away), the scheme
+makes **0.7 km³ of water a year** and returns **46 % of the winter at mid, 27 % at critical**, for
+**$2.2 / $3.3 B** — per TWh of winter, cheaper than the field oversizing at both cases — conditional
+on head and a reservoir sited where the water is wanted below it.
 
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
