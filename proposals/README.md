@@ -7,7 +7,7 @@ writes to any of them.
 
 ## What is here
 
-**`Title_I_Helios-3_v0.2.md` is Title I re-based on Helios-3** — rendered by `tools/rebase.py` from
+**`Title_II_Aqua-Sovereign_v0.2.md` is Title II re-based** (`tools/rebase2.py`, same discipline). **`Title_I_Helios-3_v0.2.md` is Title I re-based on Helios-3** — rendered by `tools/rebase.py` from
 the instruments, never hand-edited (the selftest asserts byte-identity with a fresh render), every
 number labelled mid or critical. See `docs/REBASE.md`. v0.1 below is unchanged.
 
@@ -85,6 +85,7 @@ is worth two points of service and does not change the closing sizing.
 | F-01, F-02 | `tools/helios.py` | 19.2 TWh net at the scale proposed, not 39.6 sold; the export is negative; $693 M at 2024 prices against $1,933 M carrying. Inverted: $102/MWh needed at Title I's own capex — inside the firm-clean band — so F-05 decides. |
 | F-17 | `tools/helios.py` | 3 M households at EIA's 6,036 kWh/yr is 18.1 TWh; the plant makes 19.2 — the size was right, the export was wrong, and growth needs 1.3–1.7× by 2060. At the built cost a household pays **more** for generation than today ($1,244 vs $1,177). No size answers it; the equipment does. |
 | F-06 | `tools/hourly3.py`, `tools/joinder.py` | The solar multiple was a label; run hour by hour Helios-3 as chained serves 84 % of the load, the block cannot carry the evening and the store empties Oct–Apr. Closed by block ×1.5 with field ×2 + store 2 days (mirrors, +$60/MWh mid, +$100 critical) or 33–35 desalination modules lifting to a 2 km³ reservoir at 500 m (water, at parity, +1.6–1.8 MAF/yr). The route is the author's decision (Title III). |
+| F-03, F-04, F-11, F-12, F-13, F-15, F-26, F-27, F-28, F-35, F-36 | `tools/titletwo.py`, `tools/rebase2.py` | Title II's process rows: no mineral revenue (one module's Mg(OH)₂ is 0.76–1.27 of the US market); brine through the outfall at a 17:1 diffuser dilution; RO the default; first water 2034–2037 from the record, not 24 months; energy at the contract price with Title I's surplus at 7% of hours; on-site PV 13%–6% of the draw, islanding for critical loads; screened open intake as default. `Title_II_Aqua-Sovereign_v0.2.md` rendered from the instruments. |
 | F-09, F-10, F-19, F-24 | `tools/titleone.py` | Export negative so no export right; one 500 kV circuit per node (1,196 / 1,179 MW). Tariff is the household bill at cost recovery ($756 / $1,218 vs $1,177), CCA-form LSE. Bonds priced to the security: GO $125/202, revenue $140/227, unrated $161/262 per MWh. Schedule is the ladder 2029–2041 with tranches by rung. |
 | F-14, F-16 | `tools/aquacost.py` | A module is **$1,883 M / $2,886 M** financed against $250–320 M submitted, from the record (Carlsbad, Huntington Beach) escalated; water at cost recovery with the energy at Title I's price is **$3,034 / $4,790 per acre-foot** against $400 claimed and Carlsbad's $2,700–2,900. The water route's modules are $62 / $102 B of Title II capital. |
 | F-05, F-07, F-08 | `tools/heliocost.py` | $46–71 B net of the storage credit ($57 B mid, $10.85/W) against $27.2 B stated; needs $171–253/MWh against a band of $80–120. **The criterion does not close at the scale proposed in any case.** |
