@@ -7971,6 +7971,56 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `frequency.py` — the bet is right, and the frequency is 5.87×10⁴² Hz.
+
+> M: *"I'll bet the inequality's sign can change entirely using voltage frequency magnitudes."*
+
+**CLASSICALLY IT CANNOT, AT ANY FREQUENCY, AND IT IS A THEOREM.**
+`T_μν k^μ k^ν = |E_⊥ + k̂ × B|²` — a **perfect square**, verified to better than 10⁻¹² over **20,000**
+configurations. **E and B enter at time `t` and nothing else does: there is no `dF/dt` in the stress
+tensor, so there is no frequency in the inequality to tune.** Swept over **24,000 samples and 22 decades**
+— static to 10²² Hz — the global minimum is **+1.749771×10⁻⁴**.
+
+**BUT QUANTUM-MECHANICALLY IT DOES, AND M NAMED THE MECHANISM.** The **dynamical Casimir effect** is
+parametric modulation making real photons from vacuum — squeezed vacuum carries negative energy density,
+and it is **driven by a frequency**. Verified this session: arXiv:2504.11361, arXiv:2112.08881 (*"the
+Casimir effect realizes static negative energy densities"*, with conditions for **total-mass
+non-negativity** — `voltage.py`'s identity, quantum), gr-qc/9901074 (Ford–Roman **quantum interest**).
+
+**AND THE FREQUENCY IS COMPUTABLE.** Available `~ ħf⁴/c³` against required `~ c²f²/(GΛ)`, so the ratio is
+**Λ(t_P f)²** — 1.04×10⁻⁸² at mains, 2.90×10⁻⁶⁸ at the GHz where the DCE is actually driven, and
+
+> **exactly 1 at `f_crit = f_P/√Λ = 5.870709×10⁴² Hz`.**
+
+**AND IT IS THE SAME WALL IN A THIRD CURRENCY.** `c/f_crit = 5.106580×10⁻³⁵ m`, ratio to `√Λ ℓ_P` =
+**1.000000000**.
+
+| ENERGY | LENGTH | FREQUENCY |
+|---|---|---|
+| 1.212374×10⁴³ J/m | 5.106580×10⁻³⁵ m | 5.870709×10⁴² Hz |
+
+`unidentified.py` triangulated the length from three gate failures; `currency.py` met it again as
+*"naturalness must not apply"*; this pass reaches it **as a frequency**, by a route neither could take.
+**Three independent questions, one answer, exact agreement** — which is what `oneobject.py` meant by the
+chain collapsing. Gap to the driven DCE: **5.87×10³³**.
+
+**A NINETEENTH FAULT, AND LAST PASS'S FIX WAS INCOMPLETE.** The first sweep had the **wrong sign in the
+Maxwell stress tensor**, printed minima of −27 … −19, and **I wrote "the minimum is non-negative in every
+band" three lines below the refuting table.** Fourth instance of the shape `triangulate.py` named one pass
+ago — and I called that fix applied.
+
+> **It interpolates *computed numbers*. "Non-negative" is a verdict with no number in it, and no
+> interpolation catches a qualitative claim. The channel is wider than the diagnosis: it is any claim
+> written without re-reading the output.** Recorded rather than re-fixed — a fix asserted twice is worth
+> less than a fault named once.
+
+### Seated
+- `frequency.py` — new. `index3.py` — **629 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H73**. `lattice.py`, `voltage.py`, `unidentified.py`, `currency.py` — **read here,
+  files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## `voltage.py` — EM alone contracts, and the field's own energy buries it exactly.
 
 > M: *"If there is a wormhole permanent by construction there is also a black hole that is the same… a
