@@ -162,11 +162,14 @@ in two separate states simultaneously."
     parallel and the antiparallel coupling AT ONCE.  Closure is not merely
     unreached here -- it is contradictory.
 
-        READING IT AS A TRANSITION STATE IS M'S, AND IS MARKED AS SUCH: the
-        geometry establishes that the endpoints cannot be identified without
-        making the coupling two-valued.  That a TRANSITION therefore cannot
-        close is an interpretation laid on top of that, consistent with it and
-        not derived from it.
+        READING IT AS A TRANSITION STATE WAS MARKED HERE AS INTERPRETATION.
+        IT HAS SINCE BEEN DERIVED -- closure.py, three independent ways, and
+        deliberately NOT from this geometry: a statement about closed timelike
+        curves does not follow from one about the space of relative
+        orientations.  What this file establishes stays what it was: the
+        endpoints cannot be identified without making the coupling two-valued.
+        The two results share a SHAPE across different systems, which is a
+        finding and not an identification.
 
 -- 3c.  AND THERE IS EXACTLY ONE STATIONARY POINT, AT 120 DEGREES ------------
 The rung spacing narrows, reaches a minimum and widens again.  Derived rather
@@ -427,7 +430,7 @@ def closure_is_contradictory(tol=1e-12):
 
 
 ORIENTATION_SPACE = "[0, pi] -- an interval with two distinct endpoints, not a circle"
-TRANSITION_READING_IS = "M's interpretation, consistent with the geometry, not derived from it"
+TRANSITION_READING_IS = "DERIVED in closure.py -- three ways, and not from this geometry"
 
 
 def chords_all_differ(tol=1e-9):

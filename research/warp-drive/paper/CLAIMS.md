@@ -2015,6 +2015,70 @@ still **H30**'s equality case. **The lead is a sign, and a bisector is not a sig
 
 ---
 
+## ★★★ H35 — a transition state cannot close on a **definite** state, derived three ways
+
+**H34** could only mark this as interpretation: *"reading this as a statement about a transition state
+is laid on top of the geometry — consistent with it, not derived from it."* **H35 derives it — and
+deliberately not from the geometry.** A statement about closed timelike curves does not follow from one
+about the space of relative orientations; deriving it that way would be the exact over-reach H34
+declined. The derivation runs instead from the consistency condition closure itself imposes.
+
+### Why it is not vacuous here
+
+`chronology.py` already holds `EVERETT_ROUTE_OPEN = True` — two devices plus a boost, needing no
+identification — so **closure is reachable for this architecture**. `MTY_ROUTE_OPEN = False`, and
+`HAWKING = NOT-RUN`. The constraint is live, and it is reached **without** touching the Cauchy-horizon
+question.
+
+### The three routes
+
+**Classical.** The grandfather condition is `b = b ⊕ 1` over `{0,1}`. Enumerated over the whole domain
+— both of it — **there is no solution**. Definite closure is not unreached; it is *unsatisfiable*.
+
+**Deutsch** (*Phys. Rev. D* **44**, 3197). A fixed point of `ρ = Tr_CR[U(ρ_CR ⊗ ρ)U†]` **always** exists
+— density matrices are compact and convex, the map continuous — so closure is never simply forbidden.
+But solving `ρ = XρX` in full gives `[[d,c],[b,a]] = [[a,b],[c,d]]`, forcing `a = d = 1/2` with only the
+real off-diagonal free:
+
+> **Every fixed point has `ρ₀₀ = ρ₁₁ = 1/2` exactly.** 81 found on a Bloch scan at 1/40 resolution, all
+> on the **x-axis** (`r_y = r_z = 0` — conjugation by X keeps `r_x` and flips the others; *not* the
+> equator), worst `|ρ₀₀ − 1/2|` exactly **0**. And the two **pure** solutions — the X-eigenstates — are
+> still fifty-fifty in the computational basis the paradox is stated in.
+
+**Postselected CTCs** (Lloyd, Maccone *et al.*). The effective map is `Tr_CTC[U] ρ Tr_CTC[U]†`, and
+`Tr[X] = 0`, so the amplitude is **exactly zero** — strictly forbidden, not mixed. The suppression is
+*selective*, which is what makes it an argument rather than a degeneracy: `Tr[I] = 2` leaves an
+unparadoxical loop alone and a T gate has `|Tr| = 1.8478` and survives, while `Tr[Z] = Tr[H] = 0`.
+
+| model | condition | result | reading |
+|---|---|---|---|
+| classical | `b = b ⊕ 1` | no solution | unsatisfiable |
+| Deutsch D-CTC | `ρ = XρX` | `ρ₀₀ = ρ₁₁ = 1/2` | only at 50/50 |
+| postselected P-CTC | `Tr_CTC[X] = 0` | amplitude 0 | forbidden |
+
+> **They disagree about what happens instead — D-CTCs against P-CTCs is a live dispute across nearly
+> every question put to them — and agree that no definite single-state closure exists.** A conclusion
+> that survives two prescriptions which contradict each other elsewhere is stronger than one needing
+> either.
+
+### What is *not* claimed
+
+- **That this and H34's geometry are the same fact.** They are one *shape* in two different systems —
+  closure forcing a single object to carry two values. A shape recurring across unrelated systems is a
+  finding, **not** an identification.
+- **That the device's corridor actually closes.** The route is open, not taken.
+- **That Hawking is resolved.** `NOT-RUN` stands, untouched.
+- **That grandfather dynamics is the only dynamics.** An unparadoxical loop is not suppressed at all.
+- **Any `ρ < 0`.** It constrains closure, not the lead.
+
+| | `closure.py` |
+|---|---|
+| status | **DERIVED** (three independent routes) + **MEASURED** (Bloch-ball fixed-point scan; the P-CTC traces) + **CITED** (Deutsch 1991; Lloyd–Maccone P-CTCs) |
+| new? | the derivation, and the observation that two mutually contradictory CTC prescriptions agree on exactly this one point |
+| **not** claimed | identity with the geometry; that the corridor closes; Hawking; universality over all loop dynamics; any `ρ < 0` |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -2184,3 +2248,7 @@ still **H30**'s equality case. **The lead is a sign, and a bisector is not a sig
   the **bisector** — `GE = GM = 4`, observable `4 ± 4`. See **H34**.
 - **That the 0→8 structure is eight-dimensional or an eight-sided frame.** Dimension-independent in
   D = 3…26, and the angular gaps span a factor of 6.597. See **H34d**.
+- **That the closure geometry and the closed-timelike-curve result are one fact.** One *shape*, two
+  systems. A recurring shape is a finding, not an identification. See **H35**.
+- **That a transition state cannot close at all.** It cannot close on a **definite** state. Under Deutsch
+  it closes at exactly 50/50. See **H35**.

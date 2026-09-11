@@ -6664,3 +6664,45 @@ lead is a sign, and a bisector is not a sign.**
 - `bisector.py` — new. `index3.py` — **487 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H34** with four
   sub-sections; H33's open-lead row corrected. `denominate.py` — its `OPEN_LEAD` closed.
   `obstruct.py` — **unchanged**.
+
+---
+
+## `closure.py` — deriving what `bisector.py` could only mark as interpretation
+
+> M: *"now that we have an idea of what we are looking for, let's derive it."*
+
+`bisector.py` marked the transition reading as interpretation — *consistent with the geometry, not
+derived from it*. **This derives it, and deliberately not from the geometry:** a statement about closed
+timelike curves does not follow from one about the space of relative orientations, and deriving it that
+way would be the exact over-reach that file declined. The derivation runs instead from the consistency
+condition closure itself imposes.
+
+**Not vacuous here:** `chronology.py` holds `EVERETT_ROUTE_OPEN = True`, so closure *is* reachable for
+this architecture — and the argument is reached without touching `HAWKING = NOT-RUN`.
+
+| model | condition | result | reading |
+|---|---|---|---|
+| classical | `b = b ⊕ 1` | **no solution** | unsatisfiable |
+| Deutsch D-CTC | `ρ = XρX` | **`ρ₀₀ = ρ₁₁ = 1/2`** | only at 50/50 |
+| postselected P-CTC | `Tr_CTC[X] = 0` | **amplitude 0** | forbidden |
+
+**Classically** the condition has no solution over either element of its domain. **Under Deutsch** a
+fixed point always exists (compact convex set, continuous map), but solving `ρ = XρX` in full forces
+`a = d = 1/2` — 81 fixed points on a Bloch scan, all on the **x-axis** (`r_y = r_z = 0`, not the
+equator), worst departure from one half exactly **0** — and even the two *pure* solutions, the
+X-eigenstates, are fifty-fifty in the basis the paradox is stated in. **Under postselection** `Tr[X] = 0`
+makes the amplitude exactly zero; the suppression is *selective* (`Tr[I] = 2`, T gate `|Tr| = 1.8478`
+survive), so the zero belongs to the paradoxical dynamics, not the formalism.
+
+> **The three disagree about what happens instead and agree that no definite single-state closure
+> exists.** A conclusion surviving two prescriptions that contradict each other elsewhere is stronger
+> than one needing either.
+
+**Not claimed:** that this and the geometry are one fact — they are one **shape** in two systems, a
+finding and not an identification; that the corridor actually closes; that Hawking is resolved; that
+grandfather dynamics is the only dynamics; any `ρ < 0`. **It constrains closure, not the lead.**
+
+### Seated
+- `closure.py` — new. `index3.py` — **490 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H35**, plus two
+  additions to the not-claimed list. `bisector.py` — its interpretation marker now points at the
+  derivation. `obstruct.py` — **unchanged**.
