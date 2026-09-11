@@ -5213,6 +5213,82 @@ while the corpus cites by bare number. **The record is right and the lookup is b
 
 ---
 
+## ★★★ H70 — one object. **Λ *is* the collapse, and what is left is a curve of width 1.5.**
+
+> M: *"This is why I maintain if we solve for all coefficients in the chain, we identify the complete
+> chain as one object instead of pieces."*
+
+### H70a — the claim is Buckingham Pi, and Pi is a theorem
+
+`n` variables spanning `k` independent dimensions reduce to `n − k` **dimensionless groups**, and the
+relation among them is **one function**. Solving a coefficient **pins a group**.
+
+Computed exactly over the rationals — Δd, G, c, M, b, R_s, ħ, ℓ_UV:
+
+> **8 quantities, dimensional matrix of rank 3 → 5 Pi groups**, plus `ξ` and `Λ` already dimensionless:
+> **seven in all.**
+
+**The form of the claim is right, not aspirational.**
+
+### H70b — and the collapse has already happened once. Λ is it.
+
+> **`Δd / (GM/c²) = Λ = F(R_s/b)`** — two groups, one function.
+
+The entire corridor geometry — source mass, impact parameter, outer radius, and the whole chord integral
+**H59d** matched to seven digits — **is the one number 9.982529174194637.**
+
+Round-tripped at M = 1 kg, a solar mass, an Earth mass and 10⁻⁹ kg — **thirty-nine orders — recovering Λ
+to twelve places every time.**
+
+> **M's claim was cashed before he restated it, and Λ is the evidence.** Nobody in this tree has carried
+> the geometry as pieces since.
+
+### H70c — what is left is a one-parameter family, and it is narrow
+
+25 coefficients, **23 pinned**, 2 undefined — and **H69c** separated those two: `ℓ_UV` a **gap** closing
+at `√Λ ℓ_P`, `ξ` a **free parameter** no chain can close.
+
+| `ξ` | 0 | 1/12 | 1/6 | 0.2 | 0.25 |
+|---|---|---|---|---|---|
+| `3 − 4ξ` | 3.000000 | 2.666667 | 2.333333 | 2.200000 | 2.000000 |
+
+> **Widest ratio across the entire allowed range of the only free parameter: exactly 1.500000.**
+> Not orders — **fifty percent.** And `ξ` does not enter the magnitude shortfall at all.
+
+**One object to within 1.5 on the QEI side. Exactly one object on the magnitude side.** M is right in
+form; the chain delivers a **curve** rather than a point, by exactly one dimension, and that dimension is
+narrower than most numbers this project has had to quote.
+
+### H70d — but the collapse does not move the price
+
+Λ collapsed the entire geometry into one number and the exchange rate is **still `c⁴/(GΛ) = 1.212374×10⁴³`
+J per metre.** That is **H56'**'s split one more time — *the constants set the scale, the geometry sets the
+shape* — and every route here has closed on the shape. **Rewriting the pieces as one object rewrites the
+pieces.**
+
+### H70e — and what it buys is why the programme was right
+
+> **One object means one question.**
+
+The tree holds the evidence in its own record:
+
+| the magnitude gate | |
+|---|---|
+| **as pieces** | *"squeezed vacuum, 52.6 orders short"* |
+| **collapsed** | *"`ℓ_UV ≤ 3.159514 ℓ_P`"* |
+
+**Both are true and they are the same statement.** What changed is that one of them **can be worked** and
+the other cannot: 52.6 orders is a wall you describe; a factor of 3.16 in a length is a number you go and
+find out about.
+
+> **The collapse does not make it cheaper. It makes the remaining obstruction nameable — and only a named
+> obstruction has a next step.**
+
+That is the whole return on the coefficient programme, and it is the difference between a project that is
+stuck and one that knows what it is waiting for.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

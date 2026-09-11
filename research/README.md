@@ -7971,6 +7971,46 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `oneobject.py` — Λ *is* the collapse, and what is left is a curve of width 1.5.
+
+> M: *"If we solve for all coefficients in the chain, we identify the complete chain as one object instead
+> of pieces."*
+
+**THE CLAIM IS BUCKINGHAM PI AND PI IS A THEOREM.** `n` variables over `k` dimensions give `n − k`
+dimensionless groups and one function; solving a coefficient **pins a group**. Computed exactly over the
+rationals: **8 dimensionful quantities, rank 3 → 5 Pi groups**, plus `ξ` and `Λ` — **seven**.
+
+**AND THE COLLAPSE HAS ALREADY HAPPENED ONCE. Λ IS IT.** `Δd/(GM/c²) = Λ = F(R_s/b)` — two groups, one
+function — and the whole corridor geometry is **the one number 9.982529174194637**, round-tripped across
+**thirty-nine orders of mass** and recovered to twelve places every time. **M's claim was cashed before he
+restated it.**
+
+**WHAT IS LEFT IS A ONE-PARAMETER FAMILY, AND IT IS NARROW.** 23 of 25 coefficients pinned; `ℓ_UV` a gap
+closing at `√Λ ℓ_P`; `ξ` a free parameter no chain can close. `Q_A`'s `3 − 4ξ` runs **3.000000 → 2.000000**
+across the entire allowed range:
+
+> **The only free parameter in the chain moves the answer by exactly 1.5.** Not orders — fifty percent.
+> And it does not enter the magnitude shortfall at all. **One object to within 1.5 on the QEI side;
+> exactly one object on the magnitude side.**
+
+**BUT THE COLLAPSE DOES NOT MOVE THE PRICE.** The exchange rate is still **1.212374×10⁴³ J per metre** —
+`invariance.py`'s split again: the collapse changes the *description*, and every route has closed on the
+*shape*.
+
+**WHAT IT BUYS IS WHY THE PROGRAMME WAS RIGHT: one object means one question.** The magnitude gate as
+pieces was *"squeezed vacuum, 52.6 orders short."* Collapsed, it is *"`ℓ_UV ≤ 3.159514 ℓ_P`."*
+
+> Both are true and they are the same statement. **52.6 orders is a wall you describe; a factor of 3.16 in
+> a length is a number you go and find out about.** The collapse does not make it cheaper — **it makes the
+> remaining obstruction nameable, and only a named obstruction has a next step.**
+
+### Seated
+- `oneobject.py` — new. `index3.py` — **618 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H70**. `coefficients.py`, `unidentified.py`, `invariance.py` — **read here, files
+  unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## `unidentified.py` — the missing candidate is specified, not found. And the number was already seated.
 
 > M: *"Three clause failures means an unidentified candidate."* · *"A gap in a complete math chain can be
