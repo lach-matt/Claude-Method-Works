@@ -67,9 +67,16 @@ REGISTER = [
      "thick lens placing its focus in the receiver, the dome acting as "
      "secondary concentrator and flux homogeniser aimed jointly with the "
      "field; hot face at cavity temperature, cold end in a cooled frame; "
-     "single-element replacement. Multi-aperture receivers on smaller towers",
+     "single-element replacement. Aperture cooling loop (author, 2026-09-11): "
+     "hollow hex webs carry a closed water or oil loop (latitude rings as "
+     "headers, meridian webs as tubes); mushroom-head rods so entry faces "
+     "tile 100 % and the webs run beneath, unshadowed; the loop touches the "
+     "rods at the cold ends only and returns the rod leak and absorbed light "
+     "to the sCO2 cycle after the main compressor, or to the winter heaters. "
+     "Multi-aperture receivers on smaller towers",
      "MODERATE", "HOURS",
-     "receiver specification; aperture element specification; tower count",
+     "receiver specification; aperture element specification; aperture "
+     "cooling loop (frame manifold, preheat tie-in); tower count",
      "SOURCED: windowed receiver +11.9 % efficiency over aerowindow; quartz "
      "half-shell transmissivity 0.97 / 0.94; fused silica k 1.38 W/m K, CTE "
      "0.55 ppm/K, devitrification above ~1,100 C. Rod length is cheap in "

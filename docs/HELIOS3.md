@@ -24,7 +24,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | id | risk | before | after | kind | carrier |
 |---|---|---|---|---|---|
 | R-01 | particle attrition, dust, medium loss | MODERATE → NEGLIGIBLE | DESIGN | particle geometry (spherical, tight cut) + system geometry (short drops, few transfer points, particle-on-particle landing, mass-flow hoppers, one cold lift); enclosed conveyance; O&M makeup. Adopted by the author 2026-09-11; fixed-bed/air fallback noted |
-| R-02 | receiver wind and convective loss | MAJOR | MODERATE | HOURS | receiver spec; aperture element spec (compound quartz aperture: hex low-OH rod-lens dome, adopted 2026-09-11); tower count |
+| R-02 | receiver wind and convective loss | MAJOR | MODERATE | HOURS | receiver spec; aperture element spec (compound quartz aperture: hex low-OH rod-lens dome, adopted 2026-09-11); aperture cooling loop (hollow-web frame manifold at the cold ends, preheat tie-in); tower count |
 | R-03 | particle-to-sCO₂ heat exchanger, 800 °C / 250 bar | MAJOR | MODERATE | HOURS | power block; N+1 spares |
 | R-04 | sCO₂ turbomachinery at 715 °C | MAJOR | MODERATE | HOURS | 740H hot path; many small units |
 | R-05 | CO₂ inventory release | MODERATE | MINOR | DESIGN | site layout; sensors, dump tanks, per-module inventory |
