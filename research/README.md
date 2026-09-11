@@ -6781,8 +6781,32 @@ crossover has a closed form: **`0.307933 ℓ_P`** (Ford–Roman), **`0.369917 �
 **One consolation:** the quantum inequality is most generous exactly where the deadline wants to live, so
 switchability is **free** and will not be what stops a lead that ever does supply the magnitude.
 
+### The fourth candidate — non-minimal coupling, and it fails *differently*
+
+`δL = ξRφ²` violates the NEC **classically**, and Fewster & Osterbrink (arXiv:0708.2450) prove there is
+**no state-independent QEI at all** for `ξ > 0` — they *construct* Hadamard states with energy density
+below any `−ρ₀` on any bounded region. The Ford–Roman gate does not apply because there is no such bound.
+The cost does not vanish, it **moves**: large local negative energy needs large *global* positive energy,
+growing with a different power.
+
+Fliss, Freivogel, Kontou & Pardo Santos (arXiv:2309.10848) make it computable via an EFT cutoff on field
+values: `|ρ| ~ ħc/(ℓ_UV²δ²)`. Against a requirement of `c⁴/(GΛR²)` — **the exponents match and the
+`R`-dependence cancels.** Measured at `R = 1e-9`, `1`, `1e6` m: shortfall **10.017501 at all three**.
+
+**`shortfall = (ℓ_UV/ℓ_P)²/Λ`** — a pure number, closing at **`√Λ ℓ_P = 3.159514 ℓ_P`**.
+
+**It still fails**, for the authors' own reasons: the cutoff that would work is the one the EFT excludes.
+*"It seems that it is impossible to construct traversable wormholes in the Jordan frame without unphysical
+field values."* A **scaling estimate**, not a derivation — `N_n` is schematic.
+
+> **And the three crossovers sit on top of each other**: Ford–Roman `0.307933 ℓ_P`, Casimir
+> `0.369917 ℓ_P`, non-minimal coupling `3.159514 ℓ_P`. Three mechanisms with nothing in common, all
+> running out within one order of the Planck length, with `Λ` in all three closed forms. **The obstruction
+> is not any one mechanism's limitation — the magnitude gate and the Planck scale are the same gate.**
+
 ### Seated
-- `candidates.py` — new. `index3.py` — **499 findings**, `E(X) = 0`; the two full-list roster fixtures
+- `candidates.py` — extended to **four candidates**. `index3.py` — **503 findings**, `E(X) = 0`; the two full-list roster fixtures
   replaced by **count + md5 digest** (same strength — any add, drop or swap moves the digest — with a
-  one-line failure instead of a thousand-name diff). `paper/CLAIMS.md` — **H37** with five sub-sections and
-  three additions to the not-claimed list. `obstruct.py` — **unchanged**.
+  one-line failure instead of a thousand-name diff — and it earned itself immediately, catching the
+  roster change from this pass in one line). `paper/CLAIMS.md` — **H37** with seven sub-sections and five
+  additions to the not-claimed list. `obstruct.py` — **unchanged**.

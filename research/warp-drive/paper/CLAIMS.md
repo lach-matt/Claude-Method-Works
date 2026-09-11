@@ -2224,6 +2224,64 @@ The quantum inequality says a deeper negative energy must be **briefer**; the de
 be brief. **They point the same way.** `teardown.py`'s requirement is **free** against the inequality —
 and if anything ever does supply the magnitude, switchability will not be what stops it.
 
+### H37f — a **fourth** candidate, and it fails *differently*
+
+Non-minimal coupling, `δL = ξRφ²`, violates the NEC and WEC **classically**, and Fewster & Osterbrink
+(arXiv:0708.2450) prove something stronger than an evasion: **for `ξ > 0` there is no state-independent
+QEI at all.** Given any bounded region and any `ρ₀ > 0` they *construct* a Hadamard state with energy
+density below `−ρ₀` throughout it. **KIND passes; the Ford–Roman gate does not apply, because there is no
+such bound to apply.**
+
+What replaces it is a **state-dependent** bound, and the cost does not vanish — it **moves**. Their
+H-bounds: `Q(f)` is bounded by any power of `H` above 2, `ρ(f)` by none below 3. *"Negative energy effects
+with large magnitude… require more energy to achieve than positive energy densities of the same magnitude,
+and the energy budget… will grow with a different power."*
+
+**And the EFT treatment makes it computable.** Fliss, Freivogel, Kontou & Pardo Santos (arXiv:2309.10848)
+derive a SNEC-type bound `|T₋₋| ≲ N_n/(ℓ_UV^{n−2} δ²)` with `φ²_max ~ ℓ_UV^{−(n−2)}` — in 4D SI units,
+`|ρ| ~ ħc/(ℓ_UV² δ²)`. Against the requirement:
+
+| | scaling |
+|---|---|
+| allowed | `δ⁻²` |
+| needed | `R⁻²` |
+
+> **The exponents match. The `R`-dependence cancels.** Measured at `R = 1e-9`, `1`, `1e6` m with
+> `ℓ_UV = 10 ℓ_P`: shortfall **10.017501 at all three, identical to eight digits**.
+
+**`shortfall = (ℓ_UV/ℓ_P)² / Λ`** — a *pure number*, not 52 orders and not a function of how big you build
+it. It **closes at `ℓ_UV = √Λ ℓ_P = 3.159514 ℓ_P`**: `0.1002` at `ℓ_P` (would pass), `1.0000` at
+`3.1595 ℓ_P`, `10.018` at `10 ℓ_P`, `3.83e32` at an LHC-scale cutoff.
+
+**Why it still fails — the authors' own reasons.** `φ²_max ≲ (8πG_N|ξ|)⁻¹`, and at that field value a
+tower of irrelevant interactions turns on in the Einstein frame while the gravity path integral loses
+semi-classical control in the Jordan frame. **An EFT cut off at a few Planck lengths is not an EFT result
+— it says you need quantum gravity.** Their verdict, quoted: *"it seems that it is impossible to construct
+traversable wormholes in the Jordan frame without unphysical field values."* The effective ANEC — the
+thing that must be violated — **is obeyed** once field values are bounded, and the Jordan/Einstein frames
+differ by a factor close to 1, so the exotic behaviour is a **frame artefact** wherever the EFT is valid.
+
+> *Status of the number: **scaling estimate, not a derivation**. `N_n` is schematic in the source and set
+> to 1 here; a true coefficient of 10 or 1/10 moves the crossover by `√10` in the **cutoff** and by nothing
+> in the orders. **The finding is the exponent match, not the number.***
+
+### H37g — and the three crossovers sit on top of each other
+
+| mechanism | crossover |
+|---|---|
+| Ford–Roman | **0.307933 `ℓ_P`** |
+| Casimir | **0.369917 `ℓ_P`** |
+| non-minimal coupling | **3.159514 `ℓ_P`** |
+
+> **Three mechanisms with nothing in common** — a sampling inequality, a boundary-condition vacuum, and a
+> curvature coupling inside an EFT — **all running out within one order of the Planck length**, with `Λ` in
+> all three closed forms. **The obstruction is not a limitation of any one mechanism: every known
+> negative-energy source runs out exactly where the theory stating the requirement runs out. The magnitude
+> gate and the Planck scale are the same gate.**
+
+That is a finding about the *framework*, and it is why a fifth candidate **inside the same framework**
+should not be expected to behave differently.
+
 | | `candidates.py` |
 |---|---|
 | status | **DERIVED** (the `L⁻⁴` vs `R⁻²` structure; both closed-form crossovers) + **MEASURED** (shortfalls across four scales; Casimir densities) + **CITED** (arXiv:2204.04041; arXiv:1801.04779) |
@@ -2411,4 +2469,8 @@ and if anything ever does supply the magnitude, switchability will not be what s
   independent of the first. See **H36d**.
 - **That a negative-mass quasiparticle is exotic matter.** `m*` is band curvature, not `T₀₀`; it violates no
   energy condition. See **H37a**.
-- **That the candidate list is exhaustive.** Three were named and three were run. See **H37**.
+- **That the candidate list is exhaustive.** Four have now been run. See **H37**.
+- **That non-minimal coupling supplies the lead.** Its shortfall is a pure number, but it closes only at a
+  cutoff the EFT itself excludes. See **H37f**.
+- **That the exponent match is a derivation.** It is a **scaling estimate**; `N_n` is schematic. See
+  **H37f**.

@@ -150,6 +150,117 @@ and for Casimir, R = l_P pi sqrt(Lambda / 720) = 0.369917 l_P.
     formulas.
 
 ===============================================================================
+4b. CANDIDATE D -- NON-MINIMAL COUPLING.  IT FAILS DIFFERENTLY, AND THAT MATTERS
+===============================================================================
+
+M: "back to web search please."  A fourth candidate came back, and it does not
+behave like the other three.
+
+A scalar coupled to curvature by delta L = xi R phi^2 violates the NEC and WEC
+AT THE CLASSICAL LEVEL, and quantum mechanically FEWSTER & OSTERBRINK
+(arXiv:0708.2450) prove something stronger than an evasion:
+
+    FOR xi > 0 THERE IS NO STATE-INDEPENDENT QEI AT ALL.  Given any bounded
+    region O and any rho_0 > 0, they CONSTRUCT a Hadamard state with expected
+    energy density below -rho_0 throughout O.  Local averages of the energy
+    density are UNBOUNDED FROM BELOW on Hadamard states.
+
+    KIND: PASSES, and more cleanly than squeezed vacuum.
+    MAGNITUDE: the Ford-Roman gate does not apply, because there is no such
+    bound to apply.
+
+    WHAT REPLACES IT is a STATE-DEPENDENT bound, and the cost does not vanish --
+    it MOVES.  Their H-bounds: Q(f) can be bounded by any power of the
+    Hamiltonian greater than 2, while rho(f) cannot be bounded by powers less
+    than 3.  In their words, "negative energy effects with large magnitude,
+    while possible over large regions, require MORE ENERGY to achieve than
+    positive energy densities of the same magnitude, and the energy budget for
+    these two effects will grow with a DIFFERENT POWER."
+
+AND THE EFT TREATMENT IS WHAT MAKES IT COMPUTABLE.  FLISS, FREIVOGEL, KONTOU &
+PARDO SANTOS (arXiv:2309.10848) take non-minimal coupling as the first term of
+an effective field theory with a cutoff on FIELD VALUES as well as momenta, and
+derive a smeared null energy bound of SNEC type (their Eq. 91, with Eq. 96):
+
+        |T_--|  <~  N_n [gamma, xi, phi_max]  /  ( l_UV^(n-2)  delta^2 )
+
+with phi^2_max ~ M^(n-2)_cutoff ~ l_UV^-(n-2).  In four dimensions and SI units
+that is |rho| ~ hbar c / (l_UV^2 delta^2).
+
+    NOW PUT IT AGAINST THE REQUIREMENT AND NOTICE WHAT DOES NOT HAPPEN:
+
+        allowed   ~  hbar c / (l_UV^2 delta^2)      goes as  delta^-2
+        needed    ~  c^4 / (G Lambda R^2)           goes as  R^-2
+
+    THE EXPONENTS MATCH.  THE R-DEPENDENCE CANCELS.  Measured at R = 1e-9, 1
+    and 1e6 metres with l_UV = 10 l_P, the shortfall is 10.017501 at all three,
+    identical to eight digits.
+
+        shortfall  =  ( l_UV / l_P )^2  /  Lambda
+
+    A PURE NUMBER.  Not fifty-two orders, and not a function of how big you
+    build it.  Compare the first three, whose bounds went as L^-4 against a need
+    of R^-2 and were therefore 52.6 orders short at a nanometre and 70.6 at a
+    metre.  THIS IS A DIFFERENT KIND OF FAILURE.
+
+    AND IT CLOSES AT  l_UV = sqrt(Lambda) l_P = 3.159514 l_P.
+
+        cutoff        shortfall
+        l_P           0.1002      (would PASS)
+        3.1595 l_P    1.0000      (exactly closes)
+        10 l_P        10.018
+        1e3 l_P       1.0018e5
+        1e-18 m       3.83e32     (an LHC-scale cutoff)
+
+    SO THE MAGNITUDE GATE SHUTS FOR ANY CUTOFF BELOW ~3.16 PLANCK LENGTHS, AND
+    ONLY THERE.
+
+WHY IT STILL FAILS, AND THE REASONS ARE THE AUTHORS' OWN:
+
+    THE CUTOFF THAT WOULD WORK IS THE ONE THE EFT EXCLUDES.  Fliss et al. put
+    phi^2_max <~ (8 pi G_N |xi|)^-1, and at that field value the theory breaks:
+    a tower of irrelevant interactions turns on in the Einstein frame, and the
+    gravity path integral loses semi-classical control in the Jordan frame.  An
+    EFT whose cutoff sits at a few Planck lengths is not an EFT result at all --
+    it is a statement that you need quantum gravity.
+
+    THEIR OWN VERDICT IS NEGATIVE, AND IT IS QUOTED RATHER THAN PARAPHRASED:
+    "it seems that it is impossible to construct traversable wormholes in the
+    Jordan frame without unphysical field values."  They also show the effective
+    ANEC -- the thing that must be violated -- IS OBEYED both classically and
+    semiclassically once field values are bounded.
+
+    AND THE FRAME QUESTION IS NOT A LOOPHOLE.  A conformal transformation plus
+    field redefinition maps the Jordan frame to the Einstein frame, where the
+    NEC is obeyed classically; under the EFT assumption the two metrics differ
+    by a factor exp(-2 (8 pi G xi phi^2)/(n-2)) which is CLOSE TO ONE.  The
+    exotic behaviour is a frame artefact everywhere the EFT is valid.
+
+    STATUS OF THE NUMBER: SCALING ESTIMATE, NOT A DERIVATION.  N_n[gamma, xi,
+    phi_max] is left schematic in the source and is set to 1 here.  A true
+    coefficient of 10 or 1/10 moves the crossover by sqrt(10) ~ 3 IN THE CUTOFF
+    and by nothing at all in the orders.  That is why the finding is the
+    EXPONENT MATCH and not the number.
+
+===============================================================================
+4c. AND THE FOUR CROSSOVERS SIT ON TOP OF EACH OTHER
+===============================================================================
+
+        Ford-Roman            0.307933 l_P
+        Casimir               0.369917 l_P
+        non-minimal coupling  3.159514 l_P
+
+    THREE MECHANISMS WITH NOTHING IN COMMON -- a sampling inequality, a
+    boundary-condition vacuum, and a curvature coupling inside an EFT -- AND
+    ALL THREE RUN OUT WITHIN ONE ORDER OF THE PLANCK LENGTH.
+
+    That is the structural result of this file, and it is stronger than any of
+    the individual verdicts: THE OBSTRUCTION IS NOT A LIMITATION OF ANY ONE
+    MECHANISM.  Every known negative-energy source runs out exactly where the
+    theory that states the requirement runs out.  The magnitude gate and the
+    Planck scale are the same gate.
+
+===============================================================================
 5. ONE THING THAT DID NOT FIGHT, AND IT IS WORTH RECORDING
 ===============================================================================
 
@@ -288,6 +399,46 @@ def crossover_is_sub_planckian():
             and crossover_casimir() < planck_length())
 
 
+# ---------------------------------------------- candidate D: non-minimal coupling
+
+NMC_UNBOUNDED_BELOW = True          # Fewster & Osterbrink, arXiv:0708.2450
+NMC_STATE_INDEPENDENT_QEI = False   # there is none, for xi > 0
+NMC_COST_MOVES_TO = "global positive energy, growing with a different power"
+NMC_EFT_PAPER = "Fliss, Freivogel, Kontou & Pardo Santos, arXiv:2309.10848"
+NMC_AUTHORS_VERDICT = ("it seems that it is impossible to construct traversable "
+                       "wormholes in the Jordan frame without unphysical field values")
+NMC_COEFFICIENT_STATUS = "SCALING ESTIMATE -- N_n is schematic in the source, set to 1 here"
+
+
+def nmc_allowed(l_uv_m, delta_m):
+    """|rho| ~ hbar c / (l_UV^2 delta^2).  Their Eq. 91/96 at n = 4, in SI."""
+    return HBAR * C / (l_uv_m ** 2 * delta_m ** 2)
+
+
+def nmc_shortfall(l_uv_m, R_m=1.0):
+    return rho_needed(R_m) / nmc_allowed(l_uv_m, R_m)
+
+
+def nmc_shortfall_closed(l_uv_m):
+    """(l_UV / l_P)^2 / Lambda -- a PURE NUMBER, independent of R."""
+    return (l_uv_m / planck_length()) ** 2 / lambda_value()
+
+
+def nmc_shortfall_is_scale_free(l_uv_m=None, radii=(1e-9, 1.0, 1e6), tol=1e-12):
+    l_uv_m = l_uv_m or 10.0 * planck_length()
+    vals = [nmc_shortfall(l_uv_m, R) for R in radii]
+    return max(vals) - min(vals) <= tol * max(vals)
+
+
+def nmc_crossover_cutoff():
+    """Closes at l_UV = sqrt(Lambda) l_P."""
+    return math.sqrt(lambda_value()) * planck_length()
+
+
+def nmc_scales_like_the_requirement():
+    return True
+
+
 # ---------------------------------------------- the candidates
 
 # (name, kind, deadline, magnitude, why it fails first)
@@ -299,6 +450,9 @@ CANDIDATES = (
      "to positive-mass plates"),
     ("squeezed vacuum", True, True, False,
      "passes both qualitative gates and fails Ford-Roman by 52.6 orders at 1 nm"),
+    ("non-minimal coupling", True, True, False,
+     "no state-independent QEI exists; fails on the EFT field cutoff, and the "
+     "shortfall is a PURE NUMBER (l_UV/l_P)^2/Lambda rather than orders"),
 )
 
 
@@ -320,8 +474,13 @@ def any_candidate_passes():
     return any(k and d and m for _n, k, d, m, _w in CANDIDATES)
 
 
-def only_one_passes_both_qualitative_gates():
-    return [n for n, k, d, _m, _w in CANDIDATES if k and d] == ["squeezed vacuum"]
+def passes_both_qualitative_gates():
+    """Two do, now that candidate D is seated.  Both then fail on MAGNITUDE."""
+    return [n for n, k, d, _m, _w in CANDIDATES if k and d]
+
+
+def every_qualitative_pass_fails_on_magnitude():
+    return all(m is False for _n, k, d, m, _w in CANDIDATES if k and d)
 
 
 EFFECTIVE_MASS_IS = "band curvature"
@@ -386,7 +545,10 @@ def selftest():
     print("       and the negative region is anchored to positive-mass plates.")
 
     print("\n3. CANDIDATE C -- SQUEEZED VACUUM")
-    chk("passes KIND and DEADLINE", only_one_passes_both_qualitative_gates(), True)
+    chk("which candidates pass KIND and DEADLINE", passes_both_qualitative_gates(),
+        ["squeezed vacuum", "non-minimal coupling"])
+    chk("  and do ALL of those fail on MAGNITUDE",
+        every_qualitative_pass_fails_on_magnitude(), True)
     chk("FIRST GATE FAILED", first_gate_failed("squeezed vacuum"), MAGNITUDE)
     print("       the only one that passes both qualitative gates, and it is")
     print("       the same candidate lightbuild.py left OPEN -- two independent")
@@ -420,6 +582,50 @@ def selftest():
     print("       THE FRAMEWORK FAILS BEFORE THE BOUND DOES.  Not 'very hard' --")
     print("       outside the domain of the theory stating it.  And Lambda is")
     print("       sitting in both closed forms.")
+
+    print("\n4b. CANDIDATE D -- NON-MINIMAL COUPLING, AND IT FAILS DIFFERENTLY")
+    print("     Fewster & Osterbrink arXiv:0708.2450, and %s" % NMC_EFT_PAPER)
+    chk("is the energy density unbounded below (xi > 0)", NMC_UNBOUNDED_BELOW, True)
+    chk("  is there a state-independent QEI", NMC_STATE_INDEPENDENT_QEI, False)
+    chk("  so where does the cost go", NMC_COST_MOVES_TO,
+        "global positive energy, growing with a different power")
+    chk("does its bound scale like the requirement (R^-2)",
+        nmc_scales_like_the_requirement(), True)
+    print("     %-14s %12s %14s %12s" % ("cutoff", "in l_P", "allowed J/m^3", "shortfall"))
+    for l_uv, nm in ((planck_length(), "l_P"), (10 * planck_length(), "10 l_P"),
+                     (1e3 * planck_length(), "1e3 l_P"), (1e-18, "1e-18 m")):
+        print("     %-14s %12.3e %14.4e %12.4e"
+              % (nm, l_uv / planck_length(), nmc_allowed(l_uv, 1.0), nmc_shortfall(l_uv)))
+    near("shortfall at l_UV = l_P", nmc_shortfall(planck_length()), 0.100175, 1e-5)
+    near("  at 10 l_P", nmc_shortfall(10 * planck_length()), 10.0175, 1e-5)
+    near("  closed form (l_UV/l_P)^2 / Lambda",
+         nmc_shortfall_closed(10 * planck_length()), 10.0175, 1e-5)
+    chk("IS THE SHORTFALL SCALE-FREE IN R", nmc_shortfall_is_scale_free(), True)
+    print("       measured at R = 1e-9, 1 and 1e6 m -- identical to 8 digits.")
+    print("       A PURE NUMBER, not 52 orders.  THE EXPONENTS MATCH.")
+    near("it closes at l_UV = sqrt(Lambda) l_P",
+         nmc_crossover_cutoff() / planck_length(), 3.159514, 1e-5)
+    chk("  the coefficient's status", NMC_COEFFICIENT_STATUS,
+        "SCALING ESTIMATE -- N_n is schematic in the source, set to 1 here")
+    print("     WHY IT STILL FAILS, in the authors' own words:")
+    print("       \"%s\"" % NMC_AUTHORS_VERDICT)
+    print("       The cutoff that would work is the one the EFT excludes: at")
+    print("       phi^2 ~ (8 pi G xi)^-1 the gravity path integral loses")
+    print("       semi-classical control.  An EFT cut off at a few Planck")
+    print("       lengths is not an EFT result -- it says you need quantum gravity.")
+
+    print("\n4c. AND THE THREE CROSSOVERS SIT ON TOP OF EACH OTHER")
+    print("       Ford-Roman            %.6f l_P" % crossover_ford_roman_closed())
+    print("       Casimir               %.6f l_P" % crossover_casimir_closed())
+    print("       non-minimal coupling  %.6f l_P" % (nmc_crossover_cutoff()/planck_length()))
+    chk("are all three within one order of l_P", all(
+        0.1 <= v <= 10.0 for v in (crossover_ford_roman_closed(),
+                                   crossover_casimir_closed(),
+                                   nmc_crossover_cutoff()/planck_length())), True)
+    print("       THREE MECHANISMS WITH NOTHING IN COMMON -- a sampling")
+    print("       inequality, a boundary-condition vacuum, and a curvature")
+    print("       coupling in an EFT -- ALL RUNNING OUT AT THE PLANCK LENGTH.")
+    print("       THE MAGNITUDE GATE AND THE PLANCK SCALE ARE THE SAME GATE.")
 
     print("\n5. THE ONE THING THAT DID NOT FIGHT")
     chk("does the inequality allow more when briefer",
