@@ -7530,6 +7530,40 @@ raises. Fixed with `atanh(e) → ln(2a/c)`; both forms kept.
 
 ---
 
+## `threads.py` — the third thread. Rotation breaks the biconditional.
+
+> M: *"the inner corridor produces 3 threads, time, space, and one where they intersect."*
+
+**The third thread is `g_tφ`, the cross term — and "static" means exactly `g_tφ = 0`.** `certify.py` carries
+`THEOREM_SCOPE = "static and spherically symmetric only"`. **M identified L1's scope condition by reasoning,
+without being told it.**
+
+**And turning it on breaks the biconditional.** Kerr at the equator contracts radial proper distance whenever
+`a² > 2Mr` — **a condition with no negative mass in it.** At M = **+1**, a = 0.99: `g_rr` = **0.012657**,
+**0.191449**, **0.999584** at r = 0.1, 0.3, 0.49. **All contracted. All with positive mass.**
+
+> `certify.py` says contraction requires `m(r) < 0`. **Kerr is a counterexample, and the tree had never tested
+> it.**
+
+**A horizon stands in front of it — held there by a conjecture.** For every sub-extremal spin the region is
+inside `r₊`; it is exposed only for `a > M`, a **naked singularity**, forbidden by **cosmic censorship, which
+is a conjecture and not a theorem.** *The one known counterexample is hidden by an unproven conjecture rather
+than by a proof.* Still not a route — no formation process, no return, and no corridor *between two places*.
+
+**And the eight collapses to two.** M's `1+1+2+2+2` selects 8 of 27 trit-states; the cube's is `2³`. The
+physical test: **eight sign states, two distinct `g_rr` values.** `Φ`'s sign doesn't enter `g_rr`; `a`'s
+doesn't either (only `a²`). **Only `m`'s does.** Right about the state space, wrong about the control space.
+
+> **L1 is sharper: not "does it generalise past static" — it demonstrably does not — but whether any
+> stationary configuration contracts with positive mass in an EXPOSED region.**
+
+### Seated
+- `threads.py` — new. `index3.py` — **567 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H56**. `certify.py` — **scope now tested from outside, file unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

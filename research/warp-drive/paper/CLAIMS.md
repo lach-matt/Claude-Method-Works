@@ -3950,6 +3950,79 @@ close what we open.
 
 ---
 
+## ★★★ H56 — the third thread. **Rotation breaks the biconditional, and a conjecture hides it.**
+
+> M: *"the inner corridor produces 3 threads, time, space, and one where they intersect"* · *"8 knob settings… 1+1+2+2+2=8"*
+
+### H56a — the third thread is certify.py's own scope condition
+
+| thread | | how it enters | |
+|---|---|---|---|
+| **TIME** | `g_tt` | an **endpoint ratio** | `1 + z = e^{ΔΦ}` |
+| **SPACE** | `g_rr` | a **line integral** | `∫dr/√f` |
+| **INTERSECTION** | **`g_tφ`** | **the cross term** | frame dragging |
+
+**H42** separated the first two and never named the third. And **"static" means exactly `g_tφ = 0`.**
+**H40d** carries `THEOREM_SCOPE = "static and spherically symmetric only"`.
+
+> **The third thread is precisely the assumption the theorem makes. M identified L1's scope condition by
+> reasoning about threads, without being told it.**
+
+### H56b — turn it on and the biconditional fails
+
+Kerr, Boyer–Lindquist: `g_rr = ρ²/Δ`, `Δ = r² − 2Mr + a²`. Contraction is `Δ > ρ²`, and at the equator:
+
+> **`a² > 2Mr`** — **a condition with no negative mass in it.**
+
+| `r` | `g_rr` (M = **+1**, a = 0.99) | |
+|---|---|---|
+| 0.10 | **+0.012657** | **CONTRACTED** |
+| 0.30 | **+0.191449** | **CONTRACTED** |
+| 0.49 | **+0.999584** | **CONTRACTED** |
+| 0.60 | +2.569593 | |
+| 1.50 | +9.778357 | |
+
+**H40c** says contraction requires `m(r) < 0`. **Kerr at r = 0.3 with M = +1 is contracted.** **The
+biconditional is static-only, and this is why — the tree stated the scope and never tested outside it.**
+
+### H56c — a horizon in front of it, held there by a conjecture
+
+| a/M | contracted `r <` | `r₊` | exposed? |
+|---|---|---|---|
+| 0.50 | 0.1250 | 1.8660 | no |
+| 0.99 | 0.4900 | 1.1411 | no |
+| 1.00 | 0.5000 | 1.0000 | no |
+| **1.10** | 0.6050 | **NONE** | **YES — naked** |
+| **2.00** | 2.0000 | **NONE** | **YES — naked** |
+
+> For every **sub-extremal** spin the region is inside `r₊`. It is exposed only for `a > M` — a **naked
+> singularity** — and what forbids that is **cosmic censorship, a CONJECTURE and not a theorem.** That must be
+> said plainly, because this tree's discipline is distinguishing the two: **the one known counterexample to
+> the biconditional is hidden by an unproven conjecture rather than by a proof.**
+
+**Still not a route**, for reasons independent of censorship: over-extremal Kerr has no known formation
+process, sub-extremal puts the region behind a horizon you cannot return from, and neither supplies a
+corridor **between two places**. **Recorded as a gap in the theorem, not as a door.**
+
+### H56d — and the eight collapses to two
+
+M's `1+1+2+2+2` is arithmetically right and selects **8 of the 27 trit-states**; the tree's eight is `2³` —
+**the cube's vertices** (**H52a**). *Different eights.* The physical test settles which matters:
+
+**Eight sign states. Two distinct values of `g_rr`** — 0.191449 for all four `m > 0`, 0.053889 for all four
+`m < 0`.
+
+> **`Φ`'s sign does not enter `g_rr` at all** (H42's time/space split again). **`a`'s sign does not either** —
+> only `a²` appears, so **the intersection thread is sign-blind**, contributing a magnitude, not a direction.
+> **Only `m`'s sign changes anything.**
+>
+> **The eight-knob picture is right about the state space and wrong about the control space.**
+
+**L1 is now sharper:** not *"does the theorem generalise past static"* — **it demonstrably does not** — but
+whether any stationary configuration contracts with positive mass in an **exposed** region.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
