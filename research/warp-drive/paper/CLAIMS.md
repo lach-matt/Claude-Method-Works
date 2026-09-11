@@ -5377,6 +5377,82 @@ computation, named rather than done.**
 
 ---
 
+## ★★★ H72 — voltage. **EM alone contracts — and the field's own energy buries it, exactly.**
+
+> M: *"If there is a wormhole that is permanent by construction there is also a black hole that is the
+> same. If so, a corridor can be constructed from a singularity in a vacuum created entirely by EM. The
+> greater the voltage the higher the tension pulling the singularity apart."*
+
+**Three clauses. The first two are right, the third is right about the tension — and the whole thing
+closes on an exact identity rather than a magnitude, which this project has not produced before.**
+
+### H72a — a permanent throat implies a permanent horizon
+
+**H59b**: a horizon and a throat are **the same condition on the spatial metric** — both `C → ∞` — split
+only by whether `g_tt` vanishes. **H71d**: a coupling constant does not switch off.
+
+> **Whatever holds one permanently holds the other permanently.** The inference is sound, and the tree
+> already held the premise.
+
+### H72b — and an EM-only singularity does contract
+
+**Reissner–Nordström *is* a vacuum solution of Einstein–Maxwell** — no matter anywhere, only the field. Its
+Misner–Sharp mass `m(r) = M − Q²/(2r)` is **negative for `r < Q²/(2M)`**, which is **H40d**'s condition
+exactly. Confirmed with **H59b**'s invariant (`R_c = r`, so `C = 1/√f`):
+
+| `Q/M` | 0.3 | 0.6 | 0.9 | 1.0 | 1.5 | 3.0 |
+|---|---|---|---|---|---|---|
+| `C` at `r_c/2` | 0.105474 | 0.207514 | 0.303218 | 0.333333 | 0.468521 | 0.727607 |
+
+> **EM supplies contraction with positive ADM mass** — in exactly Kerr's structure with `Q` for `a`
+> (`r < a²/2M` there, `r < Q²/2M` here). **M reached it from voltage rather than rotation** — a second
+> independent route to the same shape.
+
+### H72c — and the exposure condition is an identity nobody had written down
+
+> `r_c = r_Q²/(2r_M) = Q²/(8πε₀Mc²)` — both forms agreeing to 10⁻⁹.
+>
+> `r_c > R` ⟺ **`M < Q²/(8πε₀Rc²)`** — **and that is the electrostatic self-energy in mass units, `U/c²`.**
+>
+> **The exposure condition is `M < U/c²`: the total mass must be less than the field's own energy.**
+
+Set `M` to the field energy alone — the lightest a charged object can be:
+
+| `Q` (C) | 1414 | 14.14 | 0.1414 | 10⁶ | 1.0 |
+|---|---|---|---|---|---|
+| `R` (m) | 0.1 | 0.01 | 10⁻³ | 1.0 | 10⁻⁶ |
+| **`r_c/R`** | **1.0000000** | **1.0000000** | **1.0000000** | **1.0000000** | **1.0000000** |
+
+**Seven orders in charge, six in radius. The contracted region reaches the surface and stops there.**
+
+Not close, not a coincidence: the massless-shell limit **saturates the condition identically**. A shell is
+the *minimum* self-energy for given `Q` and `R` — a solid sphere carries 6/5 of it — so **this is the most
+favourable case physics allows, and it comes out exactly marginal.** Any real object carries mass besides
+its field, so `M > U/c²` strictly and `r_c < R` strictly.
+
+### H72d — the tension pulls, and its own energy pulls back exactly as hard
+
+**H61a** measured the field's radial tension as `ρ = Q²/(8πr⁴)` — **it does grow as `Q²`, exactly as M
+says.** And the mass it adds grows as `Q²` too, at precisely the rate that keeps the region buried. **Both
+sides scale identically. The ratio is one.**
+
+> It is not a bound imposed from outside. **It is the field's own energy doing it** — the thing that
+> creates the contraction is the thing that hides it, at the same order in `Q`.
+>
+> **A no-go by identity rather than by magnitude.**
+
+Every other closure here has been a *number* — 43 orders, 52.6 orders, a factor of 15.8, a factor of 3.16.
+**This one is an equality, and an equality is much harder to argue with than an exponent.**
+
+**And it never reaches the Schwinger field.** The marginal case sits at **1.270840×10¹⁵ V/m at every scale
+tested**, against `E_S = 1.3233×10¹⁸` — **a factor of 1041 below.** (The identical field at every scale was
+the signature that gave the identity away.)
+
+> **The vacuum-breakdown wall is not what stops this. Conservation is** — which matters practically,
+> because **no advance in field engineering moves the answer.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

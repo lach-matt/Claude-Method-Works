@@ -7971,6 +7971,55 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `voltage.py` — EM alone contracts, and the field's own energy buries it exactly.
+
+> M: *"If there is a wormhole permanent by construction there is also a black hole that is the same… a
+> corridor can be constructed from a singularity in a vacuum created entirely by EM. The greater the
+> voltage the higher the tension pulling the singularity apart."*
+
+**Three clauses. The first two are right, the third is right about the tension — and the whole thing closes
+on an exact identity rather than a magnitude.**
+
+**A PERMANENT THROAT IMPLIES A PERMANENT HORIZON.** `definitions.py`: both are `C → ∞`, split only by
+whether `g_tt` vanishes. `currency.py`: a coupling constant does not switch off. **The inference is sound
+and the tree already held the premise.**
+
+**AND AN EM-ONLY SINGULARITY DOES CONTRACT.** Reissner–Nordström *is* a vacuum solution of
+Einstein–Maxwell — no matter, only the field. `m(r) = M − Q²/(2r)` is **negative for `r < Q²/(2M)`**, and
+`definitions.py`'s invariant confirms it: `C` = 0.105474, 0.207514, 0.303218, 0.333333, 0.468521, 0.727607
+at `Q/M` = 0.3 → 3.
+
+> **EM supplies contraction with positive ADM mass**, in exactly Kerr's structure with `Q` for `a` —
+> reached from **voltage** rather than rotation, a second independent route to the same shape.
+
+**AND THE EXPOSURE CONDITION IS AN IDENTITY NOBODY HAD WRITTEN DOWN.** `r_c = Q²/(8πε₀Mc²)`, so `r_c > R`
+requires **`M < U/c²`** — *the total mass must be less than the field's own energy.* Setting `M` to the
+field energy alone gives
+
+> **`r_c / R = 1.0000000` exactly — across seven orders in charge and six in radius.**
+>
+> The contracted region reaches the surface and **stops there**. A shell is the *minimum* self-energy, so
+> this is the most favourable case physics allows, and it is **exactly marginal**.
+
+**THE TENSION PULLS AND ITS OWN ENERGY PULLS BACK EXACTLY AS HARD.** `emtension.py` measured
+`ρ = Q²/(8πr⁴)` — the tension grows as `Q²`, as M says — and the mass it adds grows as `Q²` too, at
+precisely the rate that keeps the region buried. **Ratio one.**
+
+> **A no-go by identity rather than by magnitude.** Every other closure here has been a number — 43
+> orders, 52.6 orders, 15.8×, 3.16×. **This one is an equality**, and an equality is much harder to argue
+> with than an exponent.
+>
+> **And it never reaches the Schwinger field** — 1.270840×10¹⁵ V/m at *every* scale, **1041× below**
+> `E_S`. The identical field at every scale was the signature that gave the identity away. **Vacuum
+> breakdown is not the wall. Conservation is — so no advance in field engineering moves the answer.**
+
+### Seated
+- `voltage.py` — new. `index3.py` — **625 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H72**. `definitions.py`, `certify.py`, `emtension.py`, `currency.py` — **read
+  here, files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## `currency.py` — the bill in the chosen scope. The currency changed and the number got worse by Λ.
 
 > M: *"Continue — the bill is the target."* With `SCOPE_CHOSEN_HERE = "modified gravity counts"`.
