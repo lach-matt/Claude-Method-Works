@@ -3880,6 +3880,76 @@ does when the wall is real.**
 
 ---
 
+## ★★★ H55 — the membrane. **Flattening does grow the surface — and a tension membrane sits exactly on the NEC.**
+
+> M: *"only half the picture… a sphere stretching into a flat cylinder. Under the right tension it becomes a permeable membrane."* · *"The corridor is only open as long as tension lasts. When it breaks the corridor closes."*
+
+### H55a — the correction, and it is mine
+
+**H54c** answered *"does reducing by an axis give larger surface space"* with `S/V = D/r`, which falls as D
+falls. **That answered the wrong question** — `D/r` compares a 3-ball to a 2-disc across *integer* dimensions.
+M described a **continuous flattening within three dimensions**, and there the answer is the opposite.
+
+| `c` | semi-axis `a` | surface `A` | `A/A_sphere` |
+|---|---|---|---|
+| 1 | 1.0000 | 12.5664 | 1.0000 |
+| 0.1 | 3.1623 | 63.0925 | **5.0207** |
+| 1e−2 | 10.0000 | 628.3233 | **50.0004** |
+| 1e−4 | 100.0000 | 62831.8531 | **5000.0000** |
+
+> **A sphere is the minimum-surface shape at fixed volume** — the isoperimetric inequality. Flattening grows
+> the surface as `1/c`, **without bound**, approaching the flat-disc limit `A → 3V/(2c)`. **M is right and my
+> earlier answer was a category error.** `switch.py` is corrected here and not edited.
+
+*Eighth precision fault, in the new code:* the textbook area uses `atanh(e)` with `e = √(1 − c²/a²)`, and as
+the spheroid flattens `e → 1` — at `c = 1e−6`, `1 − e ≈ 5e−19`, **below the double epsilon**, so `e` rounds to
+exactly 1.0 and `atanh(1.0)` raises. Fixed with the closed form of the limit, `atanh(e) → ln(2a/c)`, **both
+versions kept in the file.**
+
+### H55b — the tension membrane saturates the NEC exactly
+
+A domain wall: `T^μ_ν = σ δ(z) diag(−1,−1,−1,0)` — energy density `σ`, **tension `−σ` along the wall**.
+
+| null ray | `ρ + p` | |
+|---|---|---|
+| along the **normal** | +1.000000 | satisfied |
+| **in the wall** (x) | **0.000000** | **SATURATED** |
+| **in the wall** (y) | **0.000000** | **SATURATED** |
+
+> **Not an approximation.** **H49b**'s parallel-null zero is approached *quartically* and attained only at
+> exact parallelism; **this one is attained identically**, for every null direction in the plane, because the
+> tension exactly cancels the energy density.
+>
+> **The membrane under tension is the configuration that touches zero** — precisely as far as **H50** said
+> anything gets.
+
+### H55c — "the right tension" has a number, and it is the causal boundary
+
+| `w` (in `p = −wσ`) | `ρ + p` | NEC | DEC |
+|---|---|---|---|
+| 0.50 | +0.5000 | satisfied | holds |
+| **1.00** | **0.0000** | **SATURATED** | holds (equality) |
+| 1.50 | −0.5000 | **VIOLATED** | **VIOLATED** |
+| 2.00 | −1.0000 | **VIOLATED** | **VIOLATED** |
+
+> **The threshold is exactly `w = 1`, and a domain wall sits on it.** Past it the **dominant** energy
+> condition breaks, and DEC's content is that **energy must not flow faster than light**. *Not* a sound-speed
+> claim — `p = −wρ` gives `c_s² = −w`, imaginary, an **instability** rather than a signal. The causal
+> statement is the DEC one and only that one.
+
+### H55d — and closability is built in
+
+*"The corridor is open only as long as tension lasts"* is **H35**'s `teardown.py` closability, **reached
+independently** — and it is a **good** property: a corridor with its off-switch **in the mechanism** rather
+than bolted on, which is what M asked for when he said the point of a cheaper currency was the ability to
+close what we open.
+
+> **The picture is coherent and it reaches the same boundary as every other route — more elegantly, sitting
+> exactly *on* the line rather than short of it by orders of magnitude. A real difference in kind, and not a
+> difference in outcome.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7500,6 +7500,36 @@ Newtonian attraction at all**. *Removing an axis deletes the field rather than c
 
 ---
 
+## `membrane.py` — flattening does grow the surface, and tension sits exactly on the NEC
+
+> M: *"a sphere stretching into a flat cylinder. Under the right tension it becomes a permeable membrane."*
+
+**The correction is mine.** `switch.py` answered with `S/V = D/r`, which compares a 3-ball to a 2-disc —
+**the wrong question**. For a **continuous flattening within 3D**, a sphere is the **minimum**-surface shape
+at fixed volume, so flattening grows it **without bound**: **5×** at aspect 0.1, **50×** at 0.01, **5000×** at
+1e−4, approaching `A → 3V/(2c)`. **M is right.**
+
+**And the tension half lands on something exact.** A domain wall carries tangential tension equal to its
+energy density, and a null ray **in the wall** sees `ρ + p = **exactly 0**` — saturated identically, unlike
+`nonzero.py`'s quartic zero. **The membrane under tension is the configuration that touches zero.**
+
+> **"The right tension" resolves to `w = 1`** — where the wall sits. Past it the **dominant** energy condition
+> breaks, whose content is **energy must not flow faster than light**. *(Not sound speed: `c_s² = −w` is
+> imaginary, an instability.)*
+
+**And "the corridor closes when tension breaks" is `teardown.py`'s closability, reached independently** — a
+corridor with its off-switch *in the mechanism*. **The picture reaches the same boundary as every other route,
+more elegantly — sitting exactly on the line rather than short of it. A difference in kind, not in outcome.**
+
+*Eighth precision fault, in the new code:* `atanh(e)` with `e → 1` rounds to exactly 1.0 at `c = 1e−6` and
+raises. Fixed with `atanh(e) → ln(2a/c)`; both forms kept.
+
+### Seated
+- `membrane.py` — new. `index3.py` — **564 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H55**. `switch.py` — **corrected here, not edited**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
