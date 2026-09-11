@@ -45,6 +45,25 @@ writes to any of them.
 | F-17 | `tools/helios.py` | 3 M households at EIA's 6,036 kWh/yr is 18.1 TWh; the plant makes 19.2 — the size was right, the export was wrong, and growth needs 1.3–1.7× by 2060. At the built cost a household pays **more** for generation than today ($1,244 vs $1,177). No size answers it; the equipment does. |
 | F-05, F-07, F-08 | `tools/heliocost.py` | $46–71 B net of the storage credit ($57 B mid, $10.85/W) against $27.2 B stated; needs $171–253/MWh against a band of $80–120. **The criterion does not close at the scale proposed in any case.** |
 
+## The second pass: the equipment (`tools/firmpower.py`, `docs/FIRMPOWER.md`)
+
+The author's instruction after the first pass: *3 million households is a
+minimum, growing with population — make the system smaller, and make it
+produce more.* Every candidate that can make a firm MWh in California, sized
+to the same 18.1 TWh, priced the same way, state-owned:
+
+| | MW | $/MWh | $/household/yr vs $1,177 today |
+|---|---|---|---|
+| Salton Sea geothermal (in the proposal's own Imperial node; 2,250 MW developable, 0.98 of the requirement) | 2,297 | **62** ($103 without the federal credit) | 375 (−68 %) |
+| Enhanced geothermal (Fervo class; SCE holds 320 MW) | 2,297 | 57 | 343 |
+| PV-charged nitrate salt (Helios tanks + turbines, no heliostats) | 13,040 PV | 193 | 1,168 |
+| Salt-tower CSP as proposed | 4,941 | 205 | 1,239 (+5 %) |
+| SMR — **barred** by PRC §25524.2 | 2,247 | 102 | 617 |
+
+Geothermal is *smaller and produces more* literally: 2.15× less nameplate,
+46× less land, CF 0.90 against 0.49, firm through night and winter. The file
+does not choose; the decision is the author's.
+
 ## How the flaws are worked
 
 One at a time, in register order, each resolved by an instrument where the

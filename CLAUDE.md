@@ -271,8 +271,16 @@ owner. **And the size is not a lever either — the author restated it as a requ
 wrong** — growing to **1.3–1.7×** over the term. Per household at the required price, **$613/yr** at
 Title I's capex against **$1,177** today, but **$1,033 / 1,244 / 1,528** at the built cases: **at the
 built cost the sovereign plant charges a household more than the IOU does today.** No size answers
-that; only the equipment does, and that is the second pass's first question. See `docs/HELIOS.md`,
-`docs/HELIOCOST.md` and `proposals/README.md`.
+that; only the equipment does. **`tools/firmpower.py` is the second pass**: every candidate that can
+make a firm MWh in California, sized to the same 18.1 TWh, state-owned, one criterion. **Salton Sea
+geothermal — in the proposal's own Imperial node, 2,250 MW developable, 0.98 of the requirement —
+delivers it from 2,297 MW instead of 4,941, on 46× less land, at CF 0.90 against 0.49, for
+$62/MWh** ($103 without the federal credit, which §48E keeps for geothermal and not for solar) — a
+household pays **$375/yr against $1,177 today**. Enhanced geothermal prices at $57 and SCE already holds
+320 MW of it. PV-charged salt (Helios's tanks and turbines, no heliostats) reaches $193; CSP as
+proposed $205; SMR $102 and **barred** by PRC §25524.2. The hypersaline capex band is ASSUMED and the
+file says so; it does not choose. See `docs/HELIOS.md`, `docs/HELIOCOST.md`, `docs/FIRMPOWER.md` and
+`proposals/README.md`.
 
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
