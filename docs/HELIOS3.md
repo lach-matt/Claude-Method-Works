@@ -30,7 +30,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | R-05 | CO₂ inventory release | MODERATE | MINOR | DESIGN | site layout; sensors, dump tanks, per-module inventory (adopted as it stands 2026-09-11; the desalination brine is a carbonate sink for maintenance vents only, tonnes a year against a release of tonnes a minute, and is noted for Title III, not here) |
 | R-06 | 250 bar / 715 °C containment | MODERATE | MINOR | DESIGN | 740H under ASME code; alloy ladder 740H / Haynes 282 / Inconel 617 fallback to 950 °C, no single-crystal or ODS in pressure parts (adopted 2026-09-11) |
 | R-07 | silo heat loss, ratcheting at 800 °C | MODERATE | MINOR | DESIGN | refractory-lined large silos; cold-shell lining, replaceable inner liner, berm and cold-silo pit; hot silos not buried (adopted 2026-09-11) |
-| R-08 | bauxite chemistry in air over decades | MODERATE | MODERATE | HOURS | rejuvenation; silo atmosphere |
+| R-08 | bauxite chemistry in air over decades | MODERATE | MODERATE | HOURS | rejuvenation; silo atmosphere (adopted as it stands 2026-09-11; UNMOVED by agreement, the rate over decades is measured by decades) |
 | R-09 | particle lift erosion and temperature | MODERATE | MINOR | DESIGN | lift cold, fall hot (G3P3's arrangement) |
 | R-10 | dust as PM₁₀ in non-attainment counties | MODERATE | MINOR | DESIGN | enclosed negative-pressure handling |
 | R-11 | receiver scale: nothing above ~1 MW_t has run | DOMINANT | MAJOR | HOURS | multi-aperture; more towers; first module |
