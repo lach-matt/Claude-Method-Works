@@ -138,11 +138,20 @@ REGISTER = [
     ("R-07", "Silo heat loss and thermal ratcheting at 800 C over forty years",
      "MODERATE",
      "Refractory-lined silos with expansion allowance; large silos, because loss "
-     "goes as surface over volume",
+     "goes as surface over volume. Cold-shell design (author, 2026-09-11): "
+     "lining thick enough that the steel shell stays below ~100 C, unbonded "
+     "lining with expansion joints so it walks without cracking, replaceable "
+     "inner liner so liner life is a maintenance item and not a forty-year "
+     "bet; earth berm and a cold-silo pit at the tower base for seismic and "
+     "wind. Hot silos are NOT buried: earth conducts ten times worse than the "
+     "lining, burial breaks the gravity chain of R-01, and 800 C against "
+     "wet ground is a steam event",
      "MINOR", "DESIGN",
-     "storage specification",
+     "storage specification; liner replacement in O&M; site civil (berm, pit)",
      "SOURCED: rock, sand and bauxite operate to >1000 C; loss falls with silo "
-     "size; forty-year refractory life is HOURS"),
+     "size; hot-blast stoves and cement preheaters run refractory linings for "
+     "decades of daily cycling. Forty-year life of ONE liner would be HOURS; "
+     "a replaceable liner makes it O&M, which is why the row stays DESIGN"),
     ("R-08", "Particle chemistry: bauxite oxides transform in air at 700-1000 C",
      "MODERATE",
      "Periodic reduction to rejuvenate absorptance; makeup; inert or lean "
