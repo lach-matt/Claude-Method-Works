@@ -177,6 +177,13 @@ account, +$66 / +$107 per MWh**, more than mirrors alone ($8.7 / $14.3 B) becaus
 are bought whole, and buying a plant that with either route out still leaves only 6–7 % to the grid
 against 13 % with neither. The ladder over the water's share is printed so the split can be moved.
 
+**The pilot aperture as an acceptance protocol (`tools/pilot.py`, `docs/PILOT.md`, 2026-09-11).** The
+receiver's real efficiency is the one open item no instrument can close, so the test is fixed before it
+is built: one 30 MW_th aperture (60 m × 1 m at critical), five measurements, and a pass mark from
+`receiver.py`'s own figures with a 3.3 % calorimetric uncertainty — PASS-DESIGN at **0.713**, UNDECIDED
+between 0.667 and 0.713, FAIL below (the salt-block fallback, and no first module). 1,000 on-sun hours,
+2031–2033, $71 M.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release

@@ -208,8 +208,8 @@ STUDIES = [
 RECOMMEND = [
     ("field", "Field commissioning at the first node with measured annual optical efficiency against the 0.58-0.64 band",
      "the largest chain link after the receiver; sets the mirror count at critical", 1.0, "field"),
-    ("receiver", "A ~30 MW_th pilot aperture on one fleet tower: curtain fed uniformly across 30 m (critical) / 10 m (nominal); efficiency, edge loss vs aperture size, wind",
-     "receiver.py's threshold: 0.795 critical open; whether the edge losses fall as perimeter/area", 2.0, "pilot"),
+    ("receiver", "A ~30 MW_th pilot aperture on one fleet tower: curtain fed uniformly across 60 m (critical) / 10 m (nominal); efficiency, edge loss vs aperture size, wind",
+     "receiver.py's threshold: 0.690 critical open (pilot.py's pass mark); whether the edge losses fall as perimeter/area", 2.0, "pilot"),
     ("aperture", "The compound quartz aperture on the pilot: one dome, open aperture beside it, both measured on one tower",
      "whether the dome pays on the measured record as receiver.py says, or loses as the model says", 1.0, "pilot"),
     ("particles", "Long-duration particle ageing on the pilot: absorptance, attrition and oxide state sampled quarterly",
