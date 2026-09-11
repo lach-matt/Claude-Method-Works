@@ -5123,6 +5123,96 @@ may be argued going forward, and nothing else.*
 
 ---
 
+## ★★★ H69 — the unidentified candidate. **Specified, not found — and the number was already seated.**
+
+> M: *"Not about our method. About the work. Three clause failures means an unidentified candidate."* ·
+> *"A gap in a complete math chain can be triangulated and answered by any three other identified data
+> points in the chain."*
+
+### H69a — the configuration is real and was already in the tree
+
+`candidates.py` opens: *"All three fail, they fail at **different places**, and the way they fail is more
+informative than the verdict."* Four candidates, three gates, **and the failures hit all three**:
+
+| candidate | fails at | |
+|---|---|---|
+| negative effective mass | **KIND** | `m*` is band curvature, not `T₀₀` |
+| Casimir | **DEADLINE**, MAGNITUDE | switching means *moving plates* — mechanical, slower than c |
+| squeezed vacuum | **MAGNITUDE** | by 52.6 orders at 1 nm |
+| non-minimal coupling | **MAGNITUDE** | **by a pure number, not by orders** |
+
+**Triangulated, the missing candidate is specified:**
+
+> a **genuine `T₀₀ < 0`** (from KIND) · **field-theoretic switching** (from DEADLINE) ·
+> **`ℓ_UV ≤ √Λ ℓ_P = 3.159514 ℓ_P`** (from MAGNITUDE)
+
+The shortfall is `(ℓ_UV/ℓ_P)²/Λ` and closes at exactly 1 there. **The live obstruction is not 52.6 orders
+— it is a factor of 3.16 in a length.**
+
+**What this does not do is name a candidate.** A cutoff at ~3 `ℓ_P` demands a theory valid essentially
+*at* the Planck scale, which is where EFT stops being the right description. Whether any programme sits
+there is **not resolved here** — `ANYTHING_KNOWN_MEETS_IT = None`, asserted in the selftest so it cannot
+be filled in quietly.
+
+### H69b — "any three" is the one word that does not survive
+
+**Determined chain** `d = ab + c`: hide any term, the other three recover it — 22.000000, 7.000000,
+5.000000, 3.000000. *M's claim exactly.*
+
+**Degenerate chain**, two quantities entering only as a product: six different `(a,b)` at the same product
+give **one** distinct `d`. **No three points separate them, at any precision, ever.**
+
+> The claim is true when the chain has no unidentifiable combination, and **false exactly where it has
+> one.**
+
+### H69c — and the corridor's chain has one of each
+
+`coefficients.py` found **exactly two UNDEFINED** — `ξ` and `ℓ_UV`, both in L4 — **and they are undefined
+in different senses.**
+
+**`ℓ_UV` is a GAP.** It enters the magnitude gate *alone* — `ξ` is absent from the shortfall entirely —
+and the chain closes it at `√Λ ℓ_P`.
+
+**`ξ` is a FREE PARAMETER, and a theorem says so.** Fewster–Osterbrink: **no state-independent QEI exists
+for `ξ > 0`**, so the bound is state-dependent and *the state is not in the chain*. `Q_A`'s numerator
+`3 − 4ξ` runs 3.000000 / 2.333333 / 2.000000 at minimal, conformal, and the FO limit — **every `ξ` in
+(0, ¼] is consistent with everything the corridor says.**
+
+> **One is a gap and the chain closes it. One is a degeneracy and no chain can.**
+>
+> A census calling both *"UNDEFINED"* is right, and hides the distinction that decides whether more work
+> would help.
+
+### H69d — third rediscovery in three passes, and they triangulate
+
+`coefficients.py` records verbatim: *"the shortfall is then the pure number `(ℓ_UV/ℓ_P)²/Λ`. **It closes at
+`ℓ_UV = √Λ ℓ_P = 3.159514 ℓ_P`** and nothing here says whether that [is reachable]."*
+
+I reached it from the **failure matrix**; that file reached it from the **coefficient census**. **These are
+not two independent confirmations** — one derivation walked from two ends, both resting on the same
+shortfall formula. Calling it corroboration would be this session's memory-assertion fault in a new
+costume, and it is refused here rather than after the fact.
+
+| already held | re-derived in |
+|---|---|
+| `invariance.py` — Duff's theorem | **H67c** |
+| `index3.py` — register 2.17.3 | **H68c** |
+| `coefficients.py` — `√Λ ℓ_P` | here |
+
+> **Three instances. By M's own claim they triangulate:**
+>
+> **The tree indexes by PROVENANCE, not by APPLICABILITY.**
+
+Each was computed correctly, recorded correctly, and **filed under the question that produced it rather
+than the question it answers** — `invariance.py`'s under *"do the constants matter"* when it is a bound on
+varying-`c` models; 2.17.3 under *"how is this index built"* when it is the triangulation law; `√Λ ℓ_P`
+under *"which coefficients are undefined"* when it is the specification of the missing candidate.
+
+**Nothing was wrong. It is a missing index** — the same shape as `HANDOFF-GAP.tsv` resolving by filename
+while the corpus cites by bare number. **The record is right and the lookup is by the wrong key.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7971,6 +7971,64 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `unidentified.py` — the missing candidate is specified, not found. And the number was already seated.
+
+> M: *"Three clause failures means an unidentified candidate."* · *"A gap in a complete math chain can be
+> triangulated and answered by any three other identified data points in the chain."*
+
+**THE CONFIGURATION WAS ALREADY IN THE TREE.** `candidates.py` opens: *"All three fail, they fail at
+**different places**, and the way they fail is more informative than the verdict."* Four candidates hit
+all three gates — negative effective mass fails **KIND**, Casimir fails **DEADLINE** (switching means
+*moving plates*), squeezed vacuum fails **MAGNITUDE** by 52.6 orders, non-minimal coupling fails MAGNITUDE
+**by a pure number, not by orders**.
+
+**Triangulated, the missing candidate is specified:** a genuine `T₀₀ < 0`, **field-theoretic** switching,
+and **`ℓ_UV ≤ √Λ ℓ_P = 3.159514 ℓ_P`**.
+
+> **The live obstruction is not 52.6 orders. It is a factor of 3.16 in a length.**
+>
+> But **a specification is not a candidate.** A cutoff at ~3 `ℓ_P` demands a theory valid essentially *at*
+> the Planck scale, which is where EFT stops being the right description. Whether anything sits there is
+> **not resolved here** — `ANYTHING_KNOWN_MEETS_IT = None`, asserted in the selftest so it cannot be filled
+> in quietly.
+
+**"ANY THREE" IS THE ONE WORD THAT DOES NOT SURVIVE.** A determined chain `d = ab + c` gives up any hidden
+term to the other three (22.000000, 7.000000, 5.000000, 3.000000). A **degenerate** chain, where two
+quantities enter only as a product, gives **one** `d` for six different `(a,b)` — no three points separate
+them at any precision, ever.
+
+**AND THE CORRIDOR'S CHAIN HAS ONE OF EACH, WHICH NO PASS HAD SEPARATED.** `coefficients.py` found exactly
+two UNDEFINED, `ξ` and `ℓ_UV`. **`ℓ_UV` is a GAP** — it enters the magnitude gate alone, `ξ` absent from
+the shortfall entirely, and the chain closes it. **`ξ` is a FREE PARAMETER and a theorem says so** —
+Fewster–Osterbrink prove no state-independent QEI exists for `ξ > 0`, so the bound is state-dependent and
+*the state is not in the chain*; every `ξ` in (0, ¼] is consistent with everything the corridor says.
+
+> **One is a gap and the chain closes it. One is a degeneracy and no chain can.** A census calling both
+> "UNDEFINED" is right, and hides the distinction that decides whether more work would help.
+
+**AND THE NUMBER WAS ALREADY SEATED — THIRD REDISCOVERY IN THREE PASSES.** `coefficients.py` records
+verbatim that the shortfall *"closes at `ℓ_UV = √Λ ℓ_P = 3.159514 ℓ_P`."* I reached it from the failure
+matrix, that file from the coefficient census — **not two confirmations, one derivation walked from two
+ends**, and saying otherwise would be this session's memory-assertion fault in a new costume.
+
+| already held | re-derived in |
+|---|---|
+| `invariance.py` — Duff's theorem | `manyc.py` |
+| `index3.py` — register 2.17.3 | `triangulate.py` |
+| `coefficients.py` — `√Λ ℓ_P` | here |
+
+> **Three instances. They triangulate: THE TREE INDEXES BY PROVENANCE, NOT BY APPLICABILITY.** Each was
+> filed under the question that *produced* it rather than the question it *answers*. **Nothing was wrong.
+> It is a missing index** — the same shape as `HANDOFF-GAP.tsv` resolving by filename while the corpus
+> cites by bare number. **The record is right and the lookup is by the wrong key.**
+
+### Seated
+- `unidentified.py` — new. `index3.py` — **615 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H69**. `candidates.py`, `coefficients.py`, `qei.py` — **read here, files
+  unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## `triangulate.py` — three negations measure a boundary a definition can only assert.
 
 > M: *"Three wrong data points can triangulate a correct one."*
