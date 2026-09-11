@@ -171,6 +171,10 @@ MIT_COST = {
     "R-07": ("thermal storage (particles)", 0.08),    # refractory, expansion
     "R-10": ("thermal storage (particles)", 0.03),    # negative pressure, baghouse
 }
+# A row whose mitigation MANAGES the risk without reducing its grade. The
+# fission register's rule was that a mitigation which does not move the grade
+# is not a mitigation; here it is recorded as such rather than promoted.
+UNMOVED = ("R-08",)
 PARTICLE_MAKEUP_PER_YEAR = 0.01          # of inventory                     ASSUMED band 0.5-2 %
 REJUVENATION_OM_M = 15.0                 # $M/yr, whole plant               ASSUMED
 FIRST_MODULE_MWE = 100.0                 # the module that buys the hours   DESIGN
@@ -254,7 +258,9 @@ def report():
     print("    HOURS: the receiver in the wind, the receiver at scale, the")
     print("    exchanger at its design point, the turbine at 715 C, the particle")
     print("    chemistry over decades, and the plant's provenance. Each has a")
-    print("    design mitigation and")
+    print("    design mitigation, and all but one move a grade -- the chemistry")
+    print("    row (R-08) does not: rejuvenation MANAGES it and does not reduce")
+    print("    it, and it is recorded as UNMOVED rather than promoted. Each")
     print("    every one moves a grade -- and none reaches MINOR, because a")
     print("    specification cannot make a machine have run. What IS upfront")
     print("    for those five is the PLAN: the field, towers and PV are common")
@@ -318,8 +324,11 @@ def selftest():
     check("every row carries a grade both sides, a kind and a carrier",
           all(r[2] in GRADES and r[4] in GRADES and r[5] in ("DESIGN", "HOURS", "BENEFIT")
               and r[6] for r in REGISTER))
-    check("every non-benefit mitigation moves its grade",
-          all(GRADES.index(r[4]) < GRADES.index(r[2]) for r in rk))
+    check("every mitigation moves its grade, except the rows recorded as UNMOVED",
+          all(GRADES.index(r[4]) < GRADES.index(r[2]) for r in rk
+              if r[0] not in UNMOVED))
+    check("  -- every UNMOVED row is HOURS and keeps its grade exactly",
+          all(r[5] == "HOURS" and r[4] == r[2] for r in REGISTER if r[0] in UNMOVED))
     check("every DESIGN row reaches MINOR or better",
           all(GRADES.index(r[4]) <= GRADES.index("MINOR") for r in by_kind("DESIGN")))
     check("no HOURS row reaches MINOR -- a specification cannot make a machine have run",
@@ -361,6 +370,7 @@ def selftest():
         report()
     out = buf.getvalue()
     check("it says what design cannot retire", "WHAT DESIGN CANNOT RETIRE" in out)
+    check("it names the unmoved row rather than promoting it", "recorded as UNMOVED" in out)
     check("it states the band position exactly rather than claiming to clear",
           "above the top of" in out or "inside the top of" in out)
     check("it does not flatten HOURS into DESIGN", "does not\n    flatten HOURS" in out

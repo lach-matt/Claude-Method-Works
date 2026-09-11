@@ -59,7 +59,10 @@ of 800 °C / 25 MPa; 4–6× any known particle/sCO₂ exchanger), the turbine a
 715 °C (STEP's recompression phase, next), the particle chemistry over decades
 (XRD shows transformations after heating in air; absorptance is restorable
 by reduction; the rate over forty years is unknown), and provenance. **Each
-has a design mitigation and each moves a grade — and none reaches MINOR,
+has a design mitigation and all but one move a grade — R-08, the chemistry over
+decades, is recorded as UNMOVED: rejuvenation manages it and does not reduce it,
+and the fission register's rule that an unmoving mitigation is not a mitigation
+is honoured by saying so rather than by promoting the row — and none reaches MINOR,
 because a specification cannot make a machine have run.** What *is* upfront
 for these is the plan: the field, towers and PV are common to Helios-2 and
 Helios-3 and are built once; one Helios-3 module of 100 MWe is built first at
