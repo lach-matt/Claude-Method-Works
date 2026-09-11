@@ -33,7 +33,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | R-08 | bauxite chemistry in air over decades | MODERATE | MODERATE | HOURS | rejuvenation; silo atmosphere (adopted as it stands 2026-09-11; UNMOVED by agreement, the rate over decades is measured by decades) |
 | R-09 | particle lift erosion and temperature | MODERATE | MINOR | DESIGN | lift cold, fall hot (G3P3's arrangement) (adopted as it stands 2026-09-11) |
 | R-10 | dust as PM₁₀ in non-attainment counties | MODERATE | MINOR | DESIGN | enclosed negative-pressure handling (adopted as it stands 2026-09-11; R-01 geometry is the first layer) |
-| R-11 | receiver scale: nothing above ~1 MW_t has run | DOMINANT | MAJOR | HOURS | multi-aperture; more towers; first module |
+| R-11 | receiver scale: nothing above ~1 MW_t has run | DOMINANT | MAJOR | HOURS | multi-aperture; more towers; first module; FLAGGED FOR SIMULATION 2026-09-11, first in `tools/receiver.py` (per-metre curtain law, loss fraction size-invariant, pilot aperture at ~30 MW_th before the module) |
 | R-12 | provenance: no plant of this kind exists | DOMINANT | MAJOR | HOURS | programme staging |
 | R-13–16 | no freezing; no decomposition ceiling; no oxidiser or toxic medium; dry cooling at ⅙ the airflow | BENEFIT | | | |
 

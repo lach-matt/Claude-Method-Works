@@ -178,9 +178,16 @@ REGISTER = [
     ("R-11", "Receiver scale: no particle receiver has run above ~1 MW_t",
      "DOMINANT",
      "Multi-aperture receivers; more, smaller towers; a first module built and "
-     "run before the fleet",
+     "run before the fleet. FLAGGED FOR SIMULATION (author, 2026-09-11): "
+     "receiver.py is the first -- the curtain is a per-metre machine, so "
+     "scale is bought in width and aperture count; the loss fraction at fixed "
+     "flux does not change with size and the edge losses shrink as "
+     "perimeter/area; and the 100 MWe module is already 0.55 of a fleet "
+     "tower, so a pilot aperture at fleet-aperture size (~30 MW_th, a 10 m "
+     "curtain) goes between, and every fleet aperture is a copy of it",
      "MAJOR", "HOURS",
-     "tower count; programme staging",
+     "tower count; programme staging (pilot aperture before the module); "
+     "receiver.py",
      "SOURCED: G3P3 is >1 MW_t; Helios-3 needs ~700 MW_th per tower. Design "
      "can split the receiver; only hours can prove it"),
     ("R-12", "Provenance: no plant of this kind exists at any commercial scale",
