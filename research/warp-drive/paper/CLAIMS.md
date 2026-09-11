@@ -4207,6 +4207,127 @@ here, not edited.** Nothing is repaired.
 
 ---
 
+## ★★★ H59 — the complete picture. **One function; the objects are its regimes.**
+
+> M: *"It's not that anyone is wrong, it is that nobody has the complete picture."* · *"The definitions
+> that make up the complete picture explains everything warp, from black holes, and wormholes, to
+> transition."*
+
+**Two claims. Both testable, both land** — and the second is bigger than the first.
+
+### H59a — nobody is wrong: censused, and it does not flatter us
+
+A disagreement is **FACTUAL** when some party's arithmetic or logic fails, **DEFINITIONAL** when every
+party is correct under their own definition, **SCOPE** when a correct theorem is read past its declared
+domain. All 16 disagreements this project has recorded:
+
+| the word | the two meanings |
+|---|---|
+| **quantum inequality** | Ford–Roman's state-**in**dependent bound; Fewster–Osterbrink's state-**dependent** one. Both theorems correct |
+| **exotic matter** | negative `T₀₀` in GR; negative band curvature `m*` in solid state. Neither field misuses it |
+| **energy-condition violation** | quantified over an *observer class* — Le quantifies over a different one. That is the 15–28% |
+| **quasi-local mass** | Misner–Sharp / ADM / Hawking / Brown–York — four inequivalent objects |
+| **warp energy** | Eulerian density / ADM mass / the twist `−Ω²/8πG` |
+| **superluminal** | coordinate, proper, or signal speed |
+| **warp analogue** | exact for the metamaterials — the metric they emulate is *Minkowski* |
+| **black hole vs wormhole** | **H59b** |
+| *scope* — Pfenning–Ford | a flat-space QI on a curved metric, **and they say so** |
+| *scope* — cosmic censorship | truth value is **dimension-dependent**; the question has no answer until `D` is named |
+| the light–light **4** | a **secondary summary**. The published QED calculation is **8** |
+
+> **Of 11 disagreements with outside art, ZERO are factual. And 11 faults are ours.**
+>
+> M is right, and the reason is not that the art is careful: **a published result carries its definition
+> with it, and we kept dropping ours.**
+
+### H59b — a black hole and a wormhole are the same condition
+
+> **`C = √g_rr ⁄ (d√g_φφ/dr)`** — proper radial distance per unit **circumferential** radius (**H58a**).
+
+| regime | object | |
+|---|---|---|
+| `C < 1` | **CONTRACTION** — the corridor | static: `m < 0` |
+| `C = 1` | flat | |
+| `1 < C < ∞` | ordinary gravity | static: `m > 0` |
+| `C → ∞`, `g_tt → 0` | **HORIZON — black hole** | |
+| `C → ∞`, `g_tt ≠ 0` | **THROAT — wormhole** | |
+| `dR_c/dr < 0` | the **far side**, through a throat | |
+
+Schwarzschild at `r → 2M` and a zero-tidal-force Morris–Thorne throat at `r → b₀` **diverge identically
+in the spatial metric** — `C` = 44.73 and 100.01 at the sampled points. The entire difference is
+`g_tt` = −0.000500 versus **−1 exactly**.
+
+**And the split needs no tolerance**, which is what makes it a definition rather than a heuristic. The
+discriminant is `|g_tt|·C²`:
+
+> **Exactly `1.000000000000` for Schwarzschild at every radius** — measured at `r` = 2.0001, 2.5, 4, 100,
+> 10⁶ — and **divergent** for the throat. *A horizon is where `g_tt` vanishes at the rate `C²` diverges.*
+
+Morris–Thorne state the separation as a **list** — no horizon, flare-out, traversability. It is **one
+condition split by one function.**
+
+### H59c — and yesterday's `ILL-POSED` flag was naming a wormhole
+
+Kerr's equatorial `R_c = √(r²+a²+2Ma²/r)` has **`dR_c/dr = 0` exactly at `r³ = Ma²`** — confirmed at
+`a` = 0.3, 0.99, 3.0 to better than 10⁻¹², and a *minimum*. **That is a throat.**
+
+So **H58c**'s `r_max = κ(Ma²)^(1/3)` is the *same radius scaled by κ*: **κ = 0.523666425 is not a scaling
+constant, it is the fraction of the throat radius at which contraction stops** — the same fraction at
+every spin. **The contracted region lies inside the wormhole throat.**
+
+> And **H58**'s `ILL-POSED (dR_c/dr < 0)` — raised one day earlier because a ratio had no meaning where
+> the circles shrink outward, and used there to *disqualify* **H56b**'s points — **was naming the throat's
+> far side.** A flag raised for want of a definition was identifying an object.
+
+κ is reported **MEASURED**: a closed form was searched against ten candidates and **not found**, and is
+left `None` rather than fitted to something nearby.
+
+### H59d — Λ is the chord integral of the same quantity
+
+`Δd = (G/c²)MΛ`, `Λ = 2[ln(2R_s/√(b²+a²)) − 1]`. **This is not a model of the excess path length. It is
+the chord integral of it.** Along a chord, `ds/dx = 1 + Mx²/r³`, integrating to
+`M[asinh(x/b) − x/√(x²+b²)]` → `2M[ln(2x₀/b) − 1]`.
+
+| `b` | `R_s` | measured | seated form | ratio |
+|---|---|---|---|---|
+| 1.0 | 10³ | 13.201800 | 13.201805 | 0.9999996 |
+| 1.0 | 10⁴ | 17.806920 | 17.806975 | 0.9999969 |
+| 0.1 | 10³ | 17.806970 | 17.806975 | 0.9999997 |
+
+**A tenth fault was caught doing it, and it is mine.** The first pass integrated the *radial* ratio `C`
+along a *chord* — not the proper element there — and came out high by **exactly 2.000 at every `b` and
+every `R_s`**.
+
+> **A wrong answer that misses by a constant is a definitional slip; one that misses by a varying amount
+> is arithmetic.** The constant said which, and it was the transverse term `−x/√(x²+b²) → −1`, doubled.
+
+**`C` is the radial definition; `Λ` is the chord definition. Neither is wrong** — they differ by *the
+direction of travel*, which is exactly what **H42** separated as the second denomination. **The census
+caught its own author**, in the pass whose thesis is that disagreements are definitional.
+
+### H59e — what the complete picture does not do
+
+**It unifies descriptions, not mechanisms.** Every regime is a statement about **one metric's radial
+structure**; a corridor is between **two places**. `C` classifies what a geometry *is*; it does not say
+how to make one. And `C < 1` still reduces to `m < 0` in the static case — **the spine does not soften
+`certify.py`'s theorem, it *is* that theorem**, restated so the wormhole and the horizon are visible in
+one expression. **H58c** just closed the one search that might have found a positive-mass instance.
+
+**A twelfth fault, and the session's first repeat offence:** the first version of the horizon/throat
+split tested `|g_tt| < 1e−9` and **classified Schwarzschild as a throat** — near a horizon `g_tt` is
+small but not below any fixed epsilon. That is the **absolute-floor fault**, already caught once in
+`invariance.py`, recurring in a different file with a different symptom. The tolerance-free discriminant
+is strictly better; the epsilon version is deleted, not loosened.
+
+> **M is right twice, and the second is bigger. Nobody is wrong — verified, and the faults are ours. And
+> the definitions do explain black holes, wormholes and transition, in one function with a second
+> function splitting two of its regimes.**
+>
+> **What they explain is why the three objects are related. What they do not explain is how to build the
+> third.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

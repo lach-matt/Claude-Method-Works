@@ -7658,6 +7658,69 @@ while `codimension.py` picked out exactly `D = 4`.
 
 ---
 
+## `definitions.py` — the complete picture. One function; the objects are its regimes.
+
+> M: *"It's not that anyone is wrong, it is that nobody has the complete picture."* · *"The definitions
+> that make up the complete picture explains everything warp, from black holes, and wormholes, to
+> transition."*
+
+**Two claims, both testable, both land** — and the second is bigger.
+
+**NOBODY IS WRONG, CENSUSED.** A disagreement is FACTUAL when a party's arithmetic fails, DEFINITIONAL
+when each is right under their own definition, SCOPE when a correct theorem is read past its domain. Of
+**16** disagreements this project has recorded, **11 are with outside art and ZERO of those are
+factual**. *Quantum inequality* names two objects (Ford–Roman state-independent, Fewster–Osterbrink
+state-dependent — both theorems correct). *Exotic matter* is negative `T₀₀` in GR and negative band
+curvature in solid state. *Energy-condition violation* is quantified over an observer class and Le
+quantifies over a different one. *Quasi-local mass* is four inequivalent objects. Pfenning–Ford apply a
+flat-space QI to a curved metric **and say so**. Cosmic censorship's truth value is **dimension-dependent**.
+The light–light `4` was a **secondary summary**; the published QED calculation is `8`. **And 11 faults are
+ours.** M is right, and not because the art is careful: **a published result carries its definition with
+it and we kept dropping ours.**
+
+**THE SPINE.** `C = √g_rr ⁄ (d√g_φφ/dr)` — proper radial distance per unit *circumferential* radius.
+`C < 1` **contraction** (static: `m < 0`); `1 < C < ∞` **ordinary gravity**; `dR_c/dr < 0` the **far
+side**. And `C → ∞` is *both remaining objects*: **a black hole if `g_tt` vanishes there, a wormhole if
+it does not.** Schwarzschild at `r→2M` and a zero-tidal-force Morris–Thorne throat **diverge identically
+in the spatial metric** — `C` = 44.73 and 100.01 — and the whole difference is `g_tt` = −0.000500 versus
+**−1 exactly**.
+
+**And the split needs no tolerance.** The discriminant `|g_tt|·C²` is **exactly 1.000000000000 for
+Schwarzschild at every radius** (r = 2.0001, 2.5, 4, 100, 10⁶) and divergent for a throat. *A horizon is
+where `g_tt` vanishes at the rate `C²` diverges.* Morris–Thorne state this as a **list**; it is **one
+condition split by one function**.
+
+**AND YESTERDAY'S FLAG WAS A WORMHOLE.** Kerr's equatorial `dR_c/dr = 0` exactly at `r³ = Ma²` — a
+*minimum*, verified to 10⁻¹². So `expose.py`'s `r_max = κ(Ma²)^(1/3)` is the same radius scaled:
+**κ = 0.5237 is the fraction of the throat radius at which contraction stops**, at every spin. The
+contracted region **lies inside the throat** — and `expose.py`'s `ILL-POSED (dR_c/dr < 0)`, raised a day
+earlier for want of a definition, **was naming the throat's far side**. κ is **measured**; ten closed-form
+candidates were checked and none matched, so it is left `None` rather than fitted.
+
+**AND IT REACHES THE CENTRAL EQUATION.** `Λ` is not a model of the excess path length — **it is the chord
+integral of it**, matched to seven digits (13.201800 vs 13.201805; 17.806920 vs 17.806975). **A tenth
+fault caught doing it**: the first pass integrated the *radial* ratio along a *chord* and missed by
+**exactly 2.000** at every `b` and `R_s`. *A constant miss is a definitional slip; a varying one is
+arithmetic.* The constant was the transverse term `−x/√(x²+b²) → −1`, doubled. **`C` is the radial
+definition, `Λ` the chord definition, neither is wrong** — they differ by the direction of travel.
+
+**AND A TWELFTH FAULT, the session's first repeat offence:** the first horizon/throat split tested
+`|g_tt| < 1e−9` and **called Schwarzschild a throat** — the **absolute-floor fault** from `invariance.py`,
+recurring in a new file with a new symptom. Deleted, not loosened.
+
+> **It unifies descriptions, not mechanisms.** Every regime is one metric's radial structure; a corridor
+> is between two **places**. `C < 1` still reduces to `m < 0` — the spine *is* `certify.py`'s theorem,
+> restated so the wormhole and the horizon are visible in one expression.
+>
+> **What the definitions explain is why the three objects are related. What they do not explain is how to
+> build the third.**
+
+### Seated
+- `definitions.py` — new. `index3.py` — **578 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H59**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
