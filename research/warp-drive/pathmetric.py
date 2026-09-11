@@ -262,10 +262,14 @@ def selftest():
     printed = sum(1 for x, y, z in trip if in_interval(y, x, z) != saturates(x, y, z))
     correct = sum(1 for x, y, z in trip if is_vertex(y, x, z) != saturates(x, y, z))
     # NOTE: this count tracks index3's live cells, which grew 14 -> 15 when
-    # TYPE-IV opened (+1,-1,-1).  14^3 = 2,744 triples became 15^3 = 3,375, and
-    # the mismatches went 204 -> 252.  The fixture moves with the index by
-    # design: it is measuring the corpus's condition over THIS project's cells.
-    chk("printed condition mismatches on index3's cells", printed, 252)
+    # TYPE-IV opened (+1,-1,-1), and 15 -> 16 when overturn.py's
+    # BALL-AND-CHORD-INDEPENDENT opened (0,+1,0).  14^3 = 2,744 triples became
+    # 15^3 = 3,375 and then 16^3 = 4,096; the mismatches went 204 -> 252 -> 310.
+    # The fixture moves with the index by design: it is measuring the corpus's
+    # condition over THIS project's cells.  It is also the ONLY fixture outside
+    # index3.py that does, which is why a seating pass must run the whole sweep
+    # and not just the files it edited -- this one was caught that way.
+    chk("printed condition mismatches on index3's cells", printed, 310)
     chk("VERTEX condition mismatches", correct, 0)
     pr = sum(1 for x, y, z in rnd if in_interval(y, x, z) != saturates(x, y, z))
     cr = sum(1 for x, y, z in rnd if is_vertex(y, x, z) != saturates(x, y, z))

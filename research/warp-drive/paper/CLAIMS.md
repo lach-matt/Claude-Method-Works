@@ -2660,6 +2660,130 @@ answer is not known.
 
 ---
 
+## ★★★ H42 — the coefficient census. **Two undefined numbers, both in L4 — and `Λ` exists because M's endpoint rule fails.**
+
+> M: *"The clues lay in the undefined/underived coefficients… Knowing what a coefficient **is** allows us to know the inputs, what is interchangeable. I predict that coefficients are what changes in a transition state. And the difference between two locations in spacetime is the difference in the coefficients of each endpoint of the corridor."*
+
+Five claims, separated before they are tested.
+
+| | claim | verdict |
+|---|---|---|
+| **C1** | the clue is in the undefined coefficients | **LANDS** |
+| **C2** | derive coefficients up to theorem, better to law | **PARTIAL** |
+| **C3** | knowing a coefficient tells you what is interchangeable | **LANDS — and it does not help** |
+| **C4** | a transition state is a change of coefficients | **TRUE BUT THIN** |
+| **C5** | location difference = endpoint coefficient difference | **EXACTLY HALF** |
+
+### H42a — the census: `provenance.py` for numbers rather than claims
+
+**H39** sorted the project's *claims* by how they were come by. It never sorted the *numbers* — and a
+number is where an unearned assumption hides best, because a number does not look like an assertion.
+**Twenty-five coefficients carry this framework.**
+
+| status | n | what |
+|---|---|---|
+| LAW | 1 | `8π`, fixed by the Newtonian limit |
+| GEOMETRIC | 1 | `4π`, the solid angle in `dm/dr = 4πr²ρ` |
+| THEOREM | 7 | `8`, `4`, `120°`, the `1/2` CTC window, Ford–Roman, Casimir, `√Λ` |
+| IDENTITY | 3 | `2/Λ`, `Λ/2`, `E_P/Λ` |
+| MEASURED | 2 | the two sub-Planckian crossovers |
+| EMPIRICAL | 3 | `G`, `c`, `ħ` |
+| MODEL-PARAM | 4 | `a`, `R_s`, `b`, `m` — the ansatz's free inputs |
+| **MODEL** | **1** | **`Λ` itself**, and the exchange rate inherits it |
+| ASSERTED | 1 | the `2` in `A = 2(p·p′)² − p²p′²`, still flagged from **H39** |
+| **UNDEFINED** | **2** | **`ξ` and `ℓ_UV`** |
+
+> **And both undefined coefficients sit in L4** — the only link of **H41**'s chain that touches the bill.
+> `ξ` is the non-minimal coupling the framework needs positive (Fewster–Osterbrink: no state-independent
+> QEI there — candidate D's entire hope), and nothing here fixes a value. `ℓ_UV` is the EFT cutoff in
+> Fliss et al., the one bound whose exponent matches, closing at `√Λ ℓ_P`.
+
+**C1 lands**, and not mystically: an undefined coefficient *is* a free parameter, and a free parameter is
+exactly where a no-go can fail to bind.
+
+### H42b — C5, measured on both metric coefficients
+
+`ds² = −e^{2Φ(r)}dt² + dr²/(1 − 2m(r)/r) + r²dΩ²`. A static spacetime has two independent coefficients, and
+M's rule is true of one and false of the other.
+
+**TIME — C5 holds, exactly.** `1 + z = √(g_tt(r₂)/g_tt(r₁)) = e^{Φ(r₂)−Φ(r₁)}` — a **difference of the
+potential at the two endpoints**, independent of everything between. Three `Φ` profiles agreeing only at
+their ends give identical redshift **to machine precision**. M is right about time, and right for his own
+reason: `g_tt` enters the observable as an **endpoint ratio**.
+
+**SPACE — C5 fails.** `Δd = ∫[1 − 1/√(1 − 2m(r)/r)]dr` is a **line integral**, and the map
+(endpoint coefficients) → `Δd` is not even well defined:
+
+| profile | `m(r₁)` | `m(r₂)` | `Δd` |
+|---|---|---|---|
+| `m_A = m₀` | −1 | −1 | **4.414026389** |
+| `m_B = m₀ + ε sin²(π(r−r₁)/(r₂−r₁))` | −1 | −1 | **5.540580582** |
+
+**Every** metric coefficient at **every** endpoint identical. **25.5 % different distance.** *Kinematic — a
+statement about metrics, not a claim that either profile solves the field equations with a sensible matter
+model.*
+
+### H42c — and that is **why there is a `Λ`**
+
+This is the part worth having, because it *explains* a coefficient rather than classifying it.
+
+> A quantity that **is** an endpoint difference has no coefficient of its own — it is read off the ends and
+> there is nothing to integrate. A quantity that is a **line integral must carry one**: the number saying
+> how much the path contributed. **`Λ` is that number** — not a fudge factor, not a fitted constant — and
+> its form is a **logarithm** because the integrand goes as `1/r`. **`Λ` exists precisely because C5 fails.**
+
+Three things follow that were already in the tree without the reason:
+
+- **H39a's verdict that the headline is MODEL was never about carelessness. It was structural.** A path
+  integral cannot be ansatz-free the way an endpoint ratio can — it needs the whole path, so it needs a `Φ`.
+- **H40c** is a *ball* integral and **H41b** is that a ball integral is not a line integral. **Both are
+  integrals.** Nothing in the obstruction is an endpoint quantity, which is exactly why no endpoint
+  bookkeeping escapes it.
+- **H41a**'s saturation — the logarithm is the best case — *is* the saturation of that same integral. **A
+  difference cannot saturate. An integral with a bounded integrand must.**
+
+### H42d — C3: what is interchangeable, and why it does not help
+
+`Λ = 2[ln(2R_s/√(b²+a²)) − 1]` takes **three** inputs through **one** combination:
+
+`X = 2R_s/√(b²+a²) = 399.920024` as seated.
+
+Any change preserving `X` leaves `Λ` **bit-for-bit identical** — scaling all three together returns
+`9.982529174194637` to all fifteen digits at `k` = 1, 7, 1000. **`Λ` is scale-free in the geometry**, so the
+answer to "what is interchangeable" is the whole surface `X = const`.
+
+And the leverage is logarithmic, which is to say there is none:
+
+| | needs |
+|---|---|
+| `Λ × 2` | `X × 1.4712e2` |
+| `Λ × 10` | `X × 3.2293e19` |
+| `Λ × 100` | `X × 3.9828e214` |
+
+> **A factor of ten in the exchange rate costs a factor of 3×10¹⁹ in the geometry.** There is no geometric
+> engineering out of this: the one coefficient that sets the bill is the one input that cannot be moved, and
+> the four MODEL-PARAMs are free to choose and inert to change.
+
+### H42e — C4, and scope
+
+**C4 is true and nearly tautological** in GR — a change of gravitational state *is* a change of metric
+coefficients. It earns content only in the sharpened form the two measurements give it:
+
+> A transition changes **both** coefficients, and they buy different things. Changing `g_tt` buys **time**
+> and is paid **at the endpoints**. Changing `g_rr` buys **distance** and is paid **along the whole
+> corridor.**
+
+*That is **not** the seat/lead split — **H40b** killed that — and must not be read as reviving it. It is the
+older, more basic split between a potential and a length.*
+
+| | `coefficients.py` |
+|---|---|
+| status | **CENSUS** (25 coefficients, 10 statuses) + **MEASURED** (C5 both halves, kinematic) + **EXPLANATION** (why `Λ` is an integral and therefore MODEL) |
+| new? | the census; the C5 half-refutation; the structural reading of **H39a** |
+| **not** claimed | that either C5 profile solves the field equations; completeness of the census beyond this framework; any repair — C5 is recorded half-refuted, not corrected |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

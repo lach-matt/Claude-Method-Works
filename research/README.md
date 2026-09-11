@@ -6978,6 +6978,50 @@ not twenty orders.
 
 ---
 
+## `coefficients.py` — the coefficient census. Two undefined numbers, both in L4.
+
+> M: *"The clues lay in the undefined/underived coefficients… Knowing what a coefficient **is** allows us to
+> know the inputs, what is interchangeable… the difference between two locations in spacetime is the
+> difference in the coefficients of each endpoint of the corridor."*
+
+`provenance.py` sorted the project's **claims**. It never sorted the **numbers** — and a number is where an
+unearned assumption hides best, because a number does not look like an assertion. **Twenty-five
+coefficients** carry the framework: 1 LAW, 1 GEOMETRIC, 7 THEOREM, 3 IDENTITY, 2 MEASURED, 3 EMPIRICAL,
+4 MODEL-PARAM, **1 MODEL** (`Λ` itself), 1 ASSERTED — and **exactly 2 UNDEFINED**.
+
+> **`ξ` and `ℓ_UV`, and both sit in L4** — the only link of the reversal chain that touches the bill. An
+> undefined coefficient *is* a free parameter, and a free parameter is exactly where a no-go can fail to
+> bind. **M's first claim lands.**
+
+**And his endpoint rule is exactly half true.** A static spacetime has two independent metric coefficients:
+
+- **TIME — it holds.** `1 + z = e^{Φ(r₂)−Φ(r₁)}`, a difference of the potential **at the endpoints**. Three
+  `Φ` profiles agreeing only at their ends give identical redshift **to machine precision**.
+- **SPACE — it fails.** Two mass profiles with *every* metric coefficient identical at *both* endpoints give
+  `Δd` = **4.414026** and **5.540580** — a **25.5 %** difference. The map from endpoint coefficients to
+  distance is not even well defined.
+
+> **And that is why there is a `Λ` at all.** An endpoint difference needs no coefficient; a line integral
+> must carry one, and `Λ` is the value of that integral — a **logarithm** because the integrand goes as
+> `1/r`. Which makes `provenance.py`'s MODEL verdict **structural, not careless**: a path integral cannot be
+> ansatz-free the way an endpoint ratio can. `certify.py`'s ball integral and `overturn.py`'s door are both
+> integrals too — **nothing in the obstruction is an endpoint quantity**, which is why no endpoint
+> bookkeeping escapes it. And `overturn.py`'s L3 saturation *is* this integral saturating: a difference
+> cannot saturate; an integral with a bounded integrand must.
+
+**On interchangeability M is right, and it does not help.** `(a, R_s, b)` enter only through
+`X = 2R_s/√(b²+a²)`, so the surface `X = const` is exactly interchangeable — `Λ` returns
+`9.982529174194637` to all fifteen digits under scaling. But the leverage is logarithmic: `Λ × 2` needs
+`X × 1.47e2`, **`Λ × 10` needs `X × 3.23e19`**. The one coefficient that sets the bill is the one input that
+cannot be moved.
+
+### Seated
+- `coefficients.py` — new. `index3.py` — **524 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H42**. `pathmetric.py` — fixture 252 → **310**, caught by the full sweep.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
