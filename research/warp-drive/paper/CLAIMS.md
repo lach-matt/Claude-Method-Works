@@ -4635,6 +4635,86 @@ must already be there — and that had to travel.
 
 ---
 
+## ★★★ H63 — the axis. **The method theory is right about the shape, and the shape settles `c`.**
+
+> M: *"Only as fast as c, the speed of light, which is also an observational perception by another object
+> viewing it. And my method theory says that all perceptions are a definition of a singular whole
+> definition viewed from a different axis or plane or dimension position."*
+
+### H63a — change the axis; every perception moves and `c` does not
+
+A Lorentz boost **is** a different axis position — a rotation in the `t–x` plane, by rapidity instead of
+angle.
+
+| `v/c` | rapidity | LENGTH | DURATION | ENERGY | FREQUENCY | **`c` measured** |
+|---|---|---|---|---|---|---|
+| 0 | 0.0000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | **1.000000000000000** |
+| 0.9 | 1.4722 | 0.435890 | 2.294157 | 2.294157 | 0.229416 | **1.000000000000000** |
+| 0.999999 | 7.2543 | **0.001414** | **707.106958** | **707.106958** | **0.000707** | **1.000000000000000** |
+
+**Factors of 707 and 1400 across the table. `c` does not move, to the last digit.**
+
+### H63b — because the light cone *is* the axis they rotate about
+
+The boost matrix is `[[cosh η, −sinh η], [−sinh η, cosh η]]`. Its **eigenvectors are the two null
+directions** `(1, +1)` and `(1, −1)`, eigenvalues `e^−η` and `e^+η` — verified at η = 0.25, 0.5, 1.0, 2.5,
+5.0 to 10⁻¹².
+
+> **The light cone is the fixed line of the rotation.** A boost *rescales* it and cannot *turn* it,
+> because the light cone **is** the axis.
+>
+> **The theory is right about the shape, and the shape settles the question by its own machinery.** All
+> perceptions *are* one whole viewed from different axis positions — that half is not a metaphor, it is
+> the definition of Minkowski geometry. **`c` is not one of the perceptions.**
+
+**And the singular whole has a name and a value:** `s² = −c²t² + x²`, measured at **−5.000000000000**
+across six frames while `t` and `x` themselves range over 70×.
+
+### H63c — but there are two speeds of light, and one of them *is* a perception
+
+| `r/M` | 2.0001 | 2.5 | 3.0 | 6.0 | 20.0 | 10⁴ |
+|---|---|---|---|---|---|---|
+| **coordinate** `dr/dt` | 0.000050 | 0.200000 | 0.333333 | 0.666667 | 0.900000 | 0.999800 |
+| **local proper** | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 | 1.000000 |
+
+The coordinate speed **falls to zero at the horizon**; the local speed never budges.
+
+> **M is right that one of these is an observational perception** — it is the coordinate one, and it is a
+> perception **of the chart** rather than of a viewer. Sharper than the claim, and true.
+
+Eleventh entry in **H59a**'s census, reached independently: *"the speed of light"* names two quantities,
+the literature uses both correctly, and **which one you mean decides whether the question has an answer.**
+
+### H63d — and the corridor never closed on `c`
+
+`Δd = (G/c²)MΛ` **was never a plan to change `c`.** Light crosses the corridor at exactly `c` — **there is
+simply less corridor to cross.**
+
+| shorten by | energy | solar rest masses |
+|---|---|---|
+| 1 m | 1.2124×10⁴³ J | 6.782×10⁻⁵ |
+| Earth–Moon | 4.6604×10⁵¹ J | 2.607×10⁴ |
+| Earth–Proxima | 4.8707×10⁵⁹ J | 2.725×10¹² |
+
+> **The two closures are different in kind, and that is this claim's result:**
+>
+> **H62** — teleportation **closes ON `c`.** Provable, exact, advantage 0.000 at every distance.
+>
+> **The corridor does not close on `c` at all.** It closes on **magnitude** — `1.212374×10⁴³` J per metre
+> — and on needing `m < 0`, which **H40d** proved necessary and **H58c** failed to find outside a horizon
+> over 3.5 million points.
+
+*"Only as fast as c" is precisely right about teleportation and precisely wrong about the corridor.*
+
+> **Nothing in this project has ever needed `c` to be a perception. It needed distance to be one, and
+> distance is.**
+>
+> That is not a consolation and not a reopening. It is why the two dead ends are not the same dead end:
+> **one is closed by a theorem and the other by a bill** — and only one of those is the kind of thing
+> that can ever be paid.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
