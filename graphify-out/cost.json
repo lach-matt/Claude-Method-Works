@@ -19,6 +19,14 @@
       "output_tokens": 0,
       "files": 4090,
       "note": "input_tokens is the COMBINED subagent total (22 chunks); the harness reports one subagent_tokens figure, not an input/output split, so output_tokens is 0 rather than a fabricated share."
+    },
+    {
+      "date": "2026-09-11T07:56:12.729163+00:00",
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "combined_subagent_tokens": 18802603,
+      "combined_subagent_tokens_note": "Chunks were banked to the extraction cache rather than having usage written back into chunk JSON, so no input/output split exists for this run. combined_subagent_tokens is the sum of reported subagent usage over 131 chunk runs (125 chunks plus 6 re-runs after a weekly-limit interruption); the six agents killed by that limit reported no usage, so this figure is a floor. input_tokens/output_tokens are 0 because the split is unknown, not because the run was free.",
+      "files": 4662
     }
   ],
   "total_input_tokens": 6049959,
