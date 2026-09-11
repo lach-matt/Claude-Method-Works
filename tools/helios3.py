@@ -47,10 +47,16 @@ GRADES = ["BENEFIT", "NEGLIGIBLE", "MINOR", "MODERATE", "MAJOR", "DOMINANT"]
 REGISTER = [
     ("R-01", "Particle attrition: grains break, make dust, and the medium is lost",
      "MODERATE",
-     "Specify sintered bauxite proppant (CARBO HSP class); fully enclosed "
-     "conveyance; makeup allowance in O&M; dust to baghouse",
-     "MINOR", "DESIGN",
-     "particle specification; conveyance; O&M makeup line",
+     "Particle geometry: spherical sintered bauxite (roundness ~0.9), tight size "
+     "cut. SYSTEM geometry (author, 2026-09-11): short drops, few transfer "
+     "points, particles land on particles (rock-box liners, dead beds), "
+     "mass-flow hoppers, gravity flow everywhere but the one cold lift. "
+     "Enclosed conveyance; makeup in O&M; dust to baghouse. Fallback noted: "
+     "a fixed ceramic bed with air as the moving fluid (Julich class) wears "
+     "nothing and is a different plant",
+     "NEGLIGIBLE", "DESIGN",
+     "particle specification; plant arrangement (drops, transfer points, "
+     "liners, hopper flow); conveyance; O&M makeup line",
      "SOURCED: after ~200 h on-sun in Sandia's 1 MW_t receiver, used-particle "
      "absorptance 0.946 vs 0.945 unused -- durability shown at hours scale, "
      "not decades; residual is HOURS"),
