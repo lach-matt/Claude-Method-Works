@@ -23,7 +23,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 
 | id | risk | before | after | kind | carrier |
 |---|---|---|---|---|---|
-| R-01 | particle attrition, dust, medium loss | MODERATE | MINOR | DESIGN | particle spec; enclosed conveyance; O&M makeup |
+| R-01 | particle attrition, dust, medium loss | MODERATE → NEGLIGIBLE | DESIGN | particle geometry (spherical, tight cut) + system geometry (short drops, few transfer points, particle-on-particle landing, mass-flow hoppers, one cold lift); enclosed conveyance; O&M makeup. Adopted by the author 2026-09-11; fixed-bed/air fallback noted |
 | R-02 | receiver wind and convective loss | MAJOR | MODERATE | HOURS | receiver spec (quartz cover / aerowindow); tower count |
 | R-03 | particle-to-sCO₂ heat exchanger, 800 °C / 250 bar | MAJOR | MODERATE | HOURS | power block; N+1 spares |
 | R-04 | sCO₂ turbomachinery at 715 °C | MAJOR | MODERATE | HOURS | 740H hot path; many small units |
@@ -38,7 +38,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | R-13–16 | no freezing; no decomposition ceiling; no oxidiser or toxic medium; dry cooling at ⅙ the airflow | BENEFIT | | | |
 
 **Before: 4 BENEFIT / 7 MODERATE / 3 MAJOR / 2 DOMINANT. After: 4 BENEFIT /
-6 MINOR / 4 MODERATE / 2 MAJOR / 0 DOMINANT.**
+1 NEGLIGIBLE / 5 MINOR / 4 MODERATE / 2 MAJOR / 0 DOMINANT.**
 
 ## What design retires
 
