@@ -51,7 +51,7 @@ so the plant is served by two things that fail differently (`both.py`).
 | with the field at design | — | — | — | — | 5.9% | 5.9% |
 
 Both costs more than mirrors alone on Title I's account, because the pump-turbine plant is bought
-whole whatever share it returns. What it buys: with either route out, 7%–6% of the load
+whole whatever share it returns. What it buys: with either route out, 6%–7% of the load
 is left to the grid against 13% with neither, and 0.82–0.88 million acre-feet a year of
 water. The even split is the author's word read literally; the ladder over the water's share is in
 `both.py` and the split can be moved.
