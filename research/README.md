@@ -7066,6 +7066,54 @@ from the other side. Third independent arrival at the same L4, on the same undef
 
 ---
 
+## `solve.py` — every coefficient solved. One question left, and it is not a number.
+
+> M: *"Solve for ALL coefficients and we have a math chain with no questions left to ask. All answers
+> contained, with only constants, determinant variables, and actionable math mechanisms."*
+
+**The ASSERTED coefficient is derived.** One-graviton exchange with the de Donder numerator gives
+`A = 2(p·p′)² − (2/(D−2))p²p′²`: the **2** is the propagator's symmetrisation, the **−1** is the trace term at
+**D = 4**, where `2/(D−2) = 1` exactly. `factor8.py`'s pre-registered 8 now stands on a derivation.
+
+**And deriving it corrects a seated claim.** `bisector.py` reports the factor as 8 in D = 3…26 *because D
+does not appear in the formula* — and D does not appear because the D = 4 propagator was used in every D.
+Corrected, the ratio to Newton runs **8, 6, 24/5, 32/7, 9/2, 96/23**, and is **undefined at D = 3** where the
+static amplitude vanishes: the known fact that 2+1 gravity has no Newtonian attraction, produced by the
+corrected propagator on its own. The antiparallel 8 and parallel 0 survive untouched — nulls kill the trace
+term. **8 occurs in D = 4 alone,** which *strengthens* the refutation of the "8 dimensions" reading.
+*Recorded here; `bisector.py` is not edited.*
+
+**Both UNDEFINED coefficients take principled values.** `ξ_c = (D−2)/(4(D−1)) = **1/6**` exactly, by conformal
+invariance — and `1/6 > 0`, inside Fewster–Osterbrink's regime, which it did not have to be. `ℓ_UV = ℓ_P`,
+the gravitational EFT cutoff. There the shortfall is `1/Λ = **0.100175**`, **less than one**:
+
+> **L4's numbers close, with a factor of ten to spare** — and the constraint `R ≥ 0.100175 Δd` is *weaker*
+> than the kinematic `R ≥ Δd` that `overturn.py` proved for free. **Vacuous.**
+
+**And the status does not close.** `|ρ| ~ ħc/(ℓ_UV²δ²)` is an EFT scaling estimate, not a derived inequality —
+and Fewster–Osterbrink says **for `ξ > 0` no state-independent QEI exists.**
+
+> That theorem is the entire reason candidate D is allowed, and the entire reason nothing in that theory can
+> be *proved* allowed. **The same theorem that removes the obstruction removes the proof that it is removed.**
+
+**`Λ` cannot close** — a path integral needs the whole path — **but its sign does, exactly:** `Λ = 0` at
+`X = e`, so there is a contraction at all **iff `R_s/√(b²+a²) > e/2 = 1.3591409`.** A threshold in closed
+form this tree had never stated. Shape and sign: theorem. Value: model.
+
+**The chain:** constants `G, c, ħ, 8π, 4π` · solved here `2`, `ξ`, `ℓ_UV` · not solvable `Λ`'s value · dials
+`X, m, R, Δd` · constraints `X > e`, `Φ(0) ≤ 1`, `Δd ≤ R`, `R·Δd ≤ kℓ_P²`.
+
+> **Solving every coefficient leaves exactly one question, no further coefficient work touches it, and it is
+> not a number** — it asks what kind of object an estimate is. A value can be argued; a status cannot.
+> Fourth arrival at L4, from the only direction that could exhaust it.
+
+### Seated
+- `solve.py` — new. `index3.py` — **532 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H44**. `bisector.py` — **corrected in the ledger, not edited**.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

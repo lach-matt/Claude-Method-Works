@@ -2901,6 +2901,124 @@ fixes. **Third independent arrival at the same L4.**
 
 ---
 
+## ★★★ H44 — every coefficient solved. **Three debts close, one cannot, and what is left is one question that is not a number.**
+
+> M: *"Solve for ALL coefficients and we have a math chain with no questions left to ask. All answers contained, with only constants, determinant variables, and actionable math mechanisms."*
+
+**H42** censused twenty-five coefficients and left four kinds of debt: one ASSERTED structure, two UNDEFINED
+numbers, one MODEL, four MODEL-PARAMs. This pays what can be paid.
+
+### H44a — the ASSERTED coefficient, derived — and it corrects a seated claim
+
+One-graviton exchange is `T^{μν}(1) P_{μναβ} T^{αβ}(2)` with the de Donder numerator
+`P = ½(η_{μα}η_{νβ} + η_{μβ}η_{να}) − (1/(D−2))η_{μν}η_{αβ}`. For `T^{μν} = p^μp^ν`:
+
+> **`A = 2(p·p′)² − (2/(D−2)) p²p′²`.** The **2** is the propagator's **symmetrisation** — the two terms of
+> `½(ηη + ηη)` each contribute `(p·p′)²`. The **−1** is the trace term at **D = 4**, where `2/(D−2) = 1`
+> exactly. **ASSERTED → THEOREM-CITED.** **H38**'s pre-registered 8 now stands on a derivation, not a sample.
+
+**And the derivation breaks something**, which is why it was worth doing. **H36** seats *"the factor is 8 in
+D = 3 through 26… D does not appear in `2(p·p′)² − p²p′²` anywhere."* The reason given is correct and it is
+the problem — **D does not appear because the D = 4 propagator was used in every D.**
+
+| D | trace `2/(D−2)` | static norm | antiparallel | parallel | **ratio to Newton** |
+|---|---|---|---|---|---|
+| 3 | 2 | **0** | 8 | 0 | **UNDEFINED** |
+| **4** | **1** | 1 | 8 | 0 | **8** |
+| 5 | 2/3 | 4/3 | 8 | 0 | 6 |
+| 8 | 1/3 | 5/3 | 8 | 0 | 24/5 |
+| 10 | 1/4 | 7/4 | 8 | 0 | 32/7 |
+| 11 | 2/9 | 16/9 | 8 | 0 | 9/2 |
+| 26 | 1/12 | 23/12 | 8 | 0 | 96/23 |
+
+**The antiparallel 8 and the parallel 0 are genuinely dimension-independent and survive untouched** — nulls
+have `p² = 0`, so the trace term drops out in every `D`. **What fails is the *ratio*,** because the Newtonian
+normalisation is `D`-dependent.
+
+> **`D = 3` is the check that this is right rather than an algebra slip:** the static amplitude **vanishes**
+> there — the known fact that 2+1 gravity has no Newtonian attraction, a result nothing here put in, produced
+> by the corrected propagator on its own.
+
+**And it cuts the way the tree already cut.** **H36** used dimension-independence to *refute* the "8 is 8
+dimensions" reading. The refutation **strengthens**: a factor occurring in exactly one dimension is even less
+a statement about dimension than one occurring in all of them. *(The `9/2` at D = 11 matching **H36**'s
+stationary point is a coincidence of small integers, flagged so it is not mistaken for a finding.)*
+
+### H44b — both UNDEFINED coefficients take principled values, and L4's **numbers** close
+
+**`ξ`** is not a free dial. One value is picked out by a symmetry: `ξ_c = (D−2)/(4(D−1)) = **1/6**` exactly in
+D = 4, where the massless scalar action is conformally invariant. And `1/6 > 0`, so **the value a symmetry
+picks sits inside Fewster–Osterbrink's regime** — which it did not have to.
+
+**`ℓ_UV`** is the cutoff of an EFT *of gravity*. Its natural value is the scale at which that theory fails:
+**`ℓ_P`**.
+
+**H43** showed all of L4 is controlled by one group, `(ℓ_UV/ℓ_P)²/Λ`:
+
+| `ℓ_UV` | shortfall | |
+|---|---|---|
+| **`ℓ_P`** (natural) | **0.100175** | **< 1 — the requirement is met** |
+| `√Λ ℓ_P` | 1.000000 | exactly the kinematic bound |
+| `10 ℓ_P` | 10.017501 | a real constraint |
+
+At the natural cutoff the inverted area law reads `R ≥ 0.100175 Δd` — **weaker than `R ≥ Δd`, which H41a
+proved for free from geometry.** The quantum constraint on corridor size is not merely satisfiable; **it is
+vacuous.** Factor of ten to spare.
+
+### H44c — and the **status** does not close. This is the finding.
+
+`|ρ| ~ ħc/(ℓ_UV²δ²)` is an **EFT scaling estimate** with an unfixed O(1) coefficient, not a derived
+inequality. What kind of object *can* it be? Fewster–Osterbrink settles it:
+
+> **For a scalar with `ξ > 0` there is no state-independent quantum energy inequality.**
+>
+> That theorem is the entire reason candidate D is allowed. **It is also the entire reason nothing in that
+> theory can be *proved* allowed** — a relation that is not state-independent is not a bound, and what is not
+> a bound can be neither satisfied nor violated, only estimated.
+>
+> **THE SAME THEOREM THAT REMOVES THE OBSTRUCTION REMOVES THE PROOF THAT IT IS REMOVED.**
+
+And `ξ = 1/6` is in that regime *by construction*, so this is not avoidable by choosing differently.
+
+### H44d — `Λ` cannot close; its **sign** closes exactly
+
+`Λ` is the value of an integral **along the corridor** (**H42c**), which needs the whole path and therefore a
+`Φ`; and **H40b** shows the seated `Φ` is not the one that solves anything. **`Λ` is a functional of an
+unknown and stays MODEL until someone solves the field equations.** No coefficient work reaches it.
+
+What does close, and this tree had never stated it:
+
+> **`Λ = 2[ln X − 1] = 0` at `X = e` exactly.** There is a contraction rather than a dilation **iff**
+> `X = 2R_s/√(b²+a²) > e`, i.e. **`R_s/√(b²+a²) > e/2 = 1.3591409142295225`.** A threshold in the design
+> space, in closed form. Seated at `X = 399.920024`, far above.
+
+And the **form** is derivable where the value is not: any potential falling as `1/r` integrates to a
+logarithm. **Shape and sign: THEOREM. Value: MODEL.**
+
+### H44e — the chain M asked for
+
+| | |
+|---|---|
+| **CONSTANTS** | `G`, `c`, `ħ`, `8π`, `4π` |
+| **SOLVED HERE** | the `2` (propagator) · `ξ = 1/6` (conformal) · `ℓ_UV = ℓ_P` (EFT cutoff) |
+| **NOT SOLVABLE** | `Λ`'s value — structurally |
+| **DETERMINANT VARIABLES** | `X`, `m`, `R`, `Δd` |
+| **CONSTRAINTS** | `X > e` · `m/a = Φ(0) ≤ 1` · `Δd ≤ R` · `R·Δd ≤ kℓ_P²` (under `R⁻⁴` bounds only) |
+| **QUESTIONS LEFT** | **one**, and **it is not a number** |
+
+> **Solving every coefficient does not leave zero questions. It leaves exactly one, no further coefficient
+> work touches it, and it asks what kind of object an estimate is.** That is a better place to stand than an
+> open value — **a value can be argued and a status cannot.** Fourth arrival at L4, from the only direction
+> that could exhaust it.
+
+| | `solve.py` |
+|---|---|
+| status | **THEOREM-CITED** (the propagator) + **DERIVED** (`Λ`'s sign threshold, exact) + **PRINCIPLED CHOICE** (`ξ`, `ℓ_UV`) + **CORRECTION** (H36's dimension claim) |
+| new? | the sign threshold `X > e`; the status/value split at the terminus. *Not* the propagator — textbook |
+| **not** claimed | novelty for the propagator; that `ξ` and `ℓ_UV` are *derived* rather than chosen on principle; that L4 is closed — its numbers are, its status is not |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
