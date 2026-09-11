@@ -7181,6 +7181,58 @@ Institute still lists the problem unsolved; the rules require peer review **plus
 
 ---
 
+## `dimension.py` · `qei.py` · `quasilocal.py` · `coincidence.py` — the four items, and an assertion
+
+> M: *"warp travel is exactly dimensional travel… a superhighway through dimensions to reach a corresponding
+> position in another connected system in the same dimension as origination."* · *"There is no such thing as
+> a coincidence in mathematics."*
+
+**`Λ` is a logarithm in four dimensions only.** `f(r) = 1 − μ/r^{D−3}`, so the deficit integrates
+`r^{−(D−3)}`: at D = 3 there is no `r` at all (a conical deficit, no force); at **D = 4 it is a logarithm,
+divergent at both ends — which is why the construction needs two cutoffs, which is where `Λ` comes from**;
+at D ≥ 5 it is a convergent power with no `Λ`-shaped object. And `coefficients.py`'s fifteen-digit
+scale-freedom is the D = 4 signature — a log *of a ratio* is scale-free, `1/k` at D = 5, `1/k²` at D = 6.
+**M's mechanism claim lands.**
+
+**His travel claim fails.** `f − 1 = −2m(r)/r^{D−3}` with `r^{D−3} > 0`, so **contraction ⟺ `m(r) < 0`
+exactly in every D** — exact rational arithmetic, D = 4…26, no counterexamples. And the return falls
+monotonically: **D = 5 is 5.32× worse, D = 26 is 116.56× worse.** *Four dimensions is the cheapest place to
+do this and we are already in it.* This **closes the extra-dimension branch of L2 without the scope
+decision** — same answer under either scope; `wormhole.py`'s flag untouched.
+
+**And his destination is a wormhole.** *"Another connected system in the same dimension as origination"* is a
+**handle on a four-manifold** — **topology, not dimension**. One word, and it points at `wormhole.py` and
+`gjw.py`, at the same energy-condition price. *`bisector.py` is amended in the file: with the true propagator
+the factor is 8 in **D = 4 alone**, which strengthens the refutation of the "8 dimensions" reading.*
+
+**L4 evaluated.** Fewster–Osterbrink's state-independent piece reduces in closed form to
+**`Q_A = (3 − 4ξ)/(64π²τ⁴)`** — validated against quadrature, reducing at `ξ = 0` to Ford–Roman up to the
+Gaussian/Lorentzian factor of 2. **It scales as `τ⁻⁴`** — so the `R⁻²` that would invert the area law is in
+the *EFT estimate*, not in what is proved. At the Planck cell the requirement exceeds this floor by
+**21.09× / 27.12× / 31.64×** at `ξ = 0, 1/6, 1/4` — and a larger `ξ` makes it *worse*. `⟨:Φ²:⟩` still needs a
+specified state, which this project has never had.
+
+**L1 narrowed by deleting a branch.** Requirement (a) **holds exactly** — `m_H = (r/2)(1−f) = m` to twelve
+decimals. Requirement (b) **is false for a single surface**: identical boundary `m_H`, interior lengths
+**4.414026 vs 5.540581**. *Every quasi-local mass is a surface integral; proper distance is a path integral* —
+the same failure that killed the endpoint rule. **So L1 can only be solved by a mass together with a FLOW**,
+which is exactly Geroch/IMCF.
+
+**And "no coincidences", adopted as a criterion.** Exact → never dismiss; approximate → explain or set down;
+either way count the rate (measured: **1.25 expected, 2 observed, one of them the same quantity twice**). It
+downgraded the `9/2` from *coincidence* to **UNEXPLAINED** — and turned up an exact identity nobody had
+noticed:
+
+> **The bisector equals the spacetime dimension.** `2(D−2)/(D−3) = D` ⟺ `(D−1)(D−4) = 0` — **D = 1, vacuous,
+> and D = 4, ours, and nowhere else.** Recorded **UNEXPLAINED**; no interpretation offered.
+
+### Seated
+- `dimension.py`, `qei.py`, `quasilocal.py`, `coincidence.py` — new. `bisector.py` — **amended in the file**.
+  `index3.py` — **544 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H46**.
+  `wormhole.py` — **flag untouched**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

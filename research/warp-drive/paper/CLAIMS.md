@@ -3193,6 +3193,132 @@ to this project. **Recorded as a template, not as a result, and the distinction 
 
 ---
 
+## ★★★ H46 — dimension, the QEI evaluated, L1 narrowed, and a rule about coincidences that paid
+
+> M: *"I assert directly that warp travel is exactly dimensional travel. A superhighway through dimensions to reach a corresponding position in another connected system in the same dimension as origination."* · *"There is no such thing as a coincidence in mathematics."*
+
+### H46a — the dimensional assertion: mechanism yes, travel no, destination is a wormhole
+
+| | claim | verdict |
+|---|---|---|
+| **M1** | the **mechanism** is dimensional | **LANDS** |
+| **M2** | the **travel** is dimensional | **FAILS** |
+| **M3** | another connected system, same dimension as origination | **object right, one word wrong** |
+
+**M1 — `Λ` is a logarithm in four dimensions only.** Schwarzschild–Tangherlini gives `f(r) = 1 − μ/r^{D−3}`,
+so the deficit integrates `r^{−(D−3)}`:
+
+| | | |
+|---|---|---|
+| **D = 3** | no `r` in `f` at all | a conical deficit, no gradient — the 2+1 fact **H44a** met from the other side |
+| **D = 4** | **LOGARITHM**, divergent both ends | needs **two** cutoffs → `a`, `R_s` → `X` → **`Λ`** |
+| **D ≥ 5** | convergent power | finite total, set by the inner cutoff; **no `Λ`-shaped object** |
+
+> **`Λ` exists because a logarithm needs two cutoffs and a power law does not.** And **H42d**'s fifteen-digit
+> scale-freedom is the D = 4 signature — a log *of a ratio* is scale-free; D = 5 falls as `1/k`, D = 6 as
+> `1/k²`. **Scale-freedom is a property of four dimensions, not of this architecture.**
+
+**M2 — the obstruction is dimension-independent, and higher D is worse.** In D dimensions
+`f − 1 = −2m(r)/r^{D−3}` and `r^{D−3} > 0`, so **contraction ⟺ `m(r) < 0` exactly, in every D** — tested in
+exact rational arithmetic at D = 4, 5, 6, 8, 11, 26: **no counterexamples.** And the return per unit `|μ|`
+falls monotonically: **2.649159** (D=4), then 0.497500, 0.249994, 0.125000, 0.071429, **0.022727** — D = 5 is
+**5.32×** worse, D = 26 is **116.56×** worse. **Four dimensions is the cheapest place to do this and we are
+already in it.**
+
+**M3 — that is a wormhole.** *"Another connected system in the same dimension as origination"* is a **handle
+on a four-manifold**: the manifold stays 4D and stops being simply connected. **Topology, not dimension** —
+and the distinction has different physics (extra dimensions change the force law to `r^{−(D−2)}` and are
+constrained by short-range Newton tests; topology leaves it untouched and pays with energy-condition
+violation at the throat). **The correction is one word**, and it points at `wormhole.py` and `gjw.py`, which
+this tree already holds — **at the same price.**
+
+> **This closes one branch of L2 without M's scope decision.** Extra dimensions are a modified-gravity family,
+> and the answer is the same under either scope — only the *status* depends on the choice.
+> **`wormhole.py`'s flag is untouched.** `f(R)` and scalar–tensor in **four** dimensions stay open and stay M's.
+
+*Also:* **`bisector.py`'s dimension claim is amended in the file**, at M's request. The superseded
+D=4-propagator form is kept beside the corrected one so the change is visible. **The refutation of the "8
+dimensions" reading strengthens** — with the true propagator the factor is 8 in **D = 4 alone**.
+
+### H46b — L4: the QEI evaluated, and the proved bound has the **Ford–Roman** exponent
+
+Fewster–Osterbrink Thm 4.3 splits state-independent from state-dependent. The state-independent piece
+reduces in closed form (n=4, massless, unit-`L²` Gaussian):
+
+> **`Q_A(ξ, τ) = (3 − 4ξ)/(64π²τ⁴)`** — validated against 2D Simpson quadrature to six decimals, and
+> reducing at `ξ = 0` to `3/(64π²τ⁴)` against textbook Ford–Roman `3/(32π²τ⁴)` for *Lorentzian* sampling:
+> same form, same 3, factor 2 from the sampling function.
+
+**It scales as `τ⁻⁴`.** That is Ford–Roman's exponent, **in the proved bound**. The `R⁻²` that **H43d** showed
+would invert the area law lives in Fliss et al.'s **EFT estimate** — a different object, which is exactly the
+status distinction **H45a** drew.
+
+| `ξ` | requirement ÷ state-independent floor, at the Planck cell |
+|---|---|
+| 0 (minimal) | **21.09×** |
+| 1/6 (conformal) | **27.12×** |
+| 1/4 (susy) | **31.64×** |
+
+**And the ordering is the wrong way round** — a larger `ξ` *lowers* the floor and so *raises* the shortfall,
+more than cancelling the 22.2 % weakening non-minimal coupling buys. The remainder must come from the
+state-dependent term, which their H-bounds price at `H^p, p > 2` against a density needing `H^q, q ≥ 3` — **an
+exponent gap of at least one, running against us.**
+
+*Not evaluated, and named:* `⟨:Φ²:⟩` needs a **specified quantum state**, which this project has never had
+because its architecture is a metric, not a state; and the curved-spacetime term `Q_C` is **not zero here**
+and its sign is not assumed.
+
+### H46c — L1: requirement (a) holds exactly, (b) is false, and a whole branch is deleted
+
+| | | |
+|---|---|---|
+| **(a)** reduces to Misner–Sharp on round spheres | **HOLDS EXACTLY** | `m_H = (r/2)(1−f) = m`, twelve decimals, negative mass as cleanly as positive |
+| **(b)** controls proper distance the same way | **FALSE for a single surface** | identical boundary `m_H = −1.000000000`, interior lengths **4.414026** vs **5.540581** — 25.5 % apart |
+
+**The counterexample is H42b's, reused** — and the reason is structural: **every quasi-local mass is a
+surface integral; proper distance is a path integral**, and **H42b** already proved boundary data does not
+determine an interior path integral. *Same failure that killed M's endpoint rule, in a new place.*
+
+> **What survives makes it progress: `m(r)` is not a surface, it is a FOLIATION.** The spherical
+> biconditional holds at every `r` at once. **So L1 cannot be solved by a better quasi-local mass — only by
+> one together with a FLOW**, which is precisely Geroch monotonicity under IMCF and precisely the paradigm
+> **H45c** found bearing. **This deletes a branch rather than opening one.** L1 is not attempted here.
+
+### H46d — "no coincidences": adopted as a criterion, and it paid
+
+**M is right where it matters.** An exact identity always has a proof whether or not anyone has found it, and
+calling one a coincidence is a decision to stop looking — which is how **monstrous moonshine** was nearly
+missed (`196884 = 196883 + 1`, dismissed until Conway and Norton refused and Borcherds proved it).
+
+**He needs a qualifier for approximate agreement**, and the qualifier is **countable**: over this tree's own
+two families — 37 distinct amplitude ratios in `[0,8]`, six named bisector values, 177 small rationals with
+`q ≤ 8` — **expected exact collisions 1.25, observed 2, one of which is the same quantity counted twice.**
+Exactly the rate.
+
+> **The rule:** exact → never dismiss, explain or record **UNEXPLAINED**; approximate → explain structurally
+> or set down; either way, **count the rate before calling an echo evidence.**
+
+**It paid twice.** It downgraded the `9/2` at D=11 from *coincidence* to **UNEXPLAINED** (which claims less).
+And it turned up **an exact identity nobody here had noticed**:
+
+> **The gravitoelectric/gravitomagnetic bisector equals the spacetime dimension.**
+> `2(D−2)/(D−3) = D` ⟺ `D² − 5D + 4 = 0` ⟺ `(D−1)(D−4) = 0` — **D = 1, which is vacuous, and D = 4, which is
+> ours, and nowhere else in 2…30.** The *ratio* (twice it) never equals `D` at an integer dimension at all —
+> its condition `D² − 7D + 8 = 0` has irrational roots.
+>
+> **Recorded as UNEXPLAINED. No interpretation offered — a quadratic has roots and one has to be somewhere.**
+
+The rule costs nothing to the refusals that matter: **H45c**'s Riemann refusal stands, because it is not the
+dismissal of an identity but the observation that none was exhibited.
+
+| | `dimension.py` · `qei.py` · `quasilocal.py` · `coincidence.py` · `bisector.py` (amended) |
+|---|---|
+| status | **DERIVED** (the D-dependence; `Q_A` closed form) + **MEASURED** (rates, ratios, collision count) + **REFUTED** (M2; requirement (b)) + **UNEXPLAINED** (the bisector identity) |
+| new? | `Λ`'s D=4 uniqueness; `Q_A = (3−4ξ)/(64π²τ⁴)`; (b)'s falsity for one surface; `(D−1)(D−4) = 0` |
+| **not** claimed | any meaning for the bisector identity; that L1 or L4 is closed; that the wormhole route is cheaper — it is the same price |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -197,11 +197,40 @@ M's reading was that 8 is 8D and the integers 0..8 are edges of an eight-sided
 frame.  The bisector claim is right; the dimensional one is not, and being right
 about one does not carry the other.
 
-    NOT 8 DIMENSIONS.  The amplitude was evaluated in D = 3, 4, 5, 8, 10, 11 and
-    26.  It returns EXACTLY 8 in every one of them, and the parallel case
-    exactly 0 in every one.  k.k' = -2 for antiparallel nulls in any dimension,
-    and D does not appear in 2(p.p')^2 - p^2 p'^2 anywhere.  THE FACTOR IS
-    DIMENSION-INDEPENDENT.
+    NOT 8 DIMENSIONS -- AND THE REASON WAS CORRECTED ON 2026-09-11, WHICH MADE
+    THE REFUTATION STRONGER RATHER THAN WEAKER.
+
+    THE ORIGINAL ARGUMENT, NOW WITHDRAWN: "the amplitude was evaluated in
+    D = 3, 4, 5, 8, 10, 11 and 26, returns EXACTLY 8 in every one, and D does
+    not appear in 2(p.p')^2 - p^2 p'^2 anywhere -- THE FACTOR IS
+    DIMENSION-INDEPENDENT."  D did not appear because THE D = 4 PROPAGATOR WAS
+    USED IN EVERY D.  That was a property of the formula, not of gravity.
+
+    THE CORRECTED ARGUMENT.  solve.py derived the structure from the de Donder
+    graviton propagator, P = (1/2)(eta eta + eta eta) - (1/(D-2)) eta eta,
+    giving A = 2(p.p')^2 - (2/(D-2)) p^2 p'^2, where 2/(D-2) = 1 EXACTLY at
+    D = 4 -- which is why the old form was right here and wrong everywhere
+    else.  With the correct propagator the static NORMALISATION becomes
+    m^2 m'^2 [2 - 2/(D-2)], and the ratio to Newton runs
+
+        D       3         4     5     8      10     11    26
+        ratio   UNDEFINED 8     6     24/5   32/7   9/2   96/23
+
+    TWO THINGS SURVIVE UNTOUCHED, because nulls have p^2 = p'^2 = 0 so the
+    trace term drops out in every D: the UNNORMALISED antiparallel amplitude
+    is still 8 everywhere, and the parallel case is still exactly 0 everywhere.
+    WHAT FAILS IS THE RATIO, because the normalisation is D-dependent.
+
+    AND D = 3 IS THE CHECK THAT THE CORRECTION IS RIGHT RATHER THAN AN ALGEBRA
+    SLIP: the static amplitude VANISHES there, which is the known fact that
+    2+1 gravity has no Newtonian attraction -- a result nothing here put in,
+    produced by the corrected propagator on its own.
+
+    SO THE FACTOR IS 8 IN D = 4 ALONE, and the refutation is stronger for it:
+    a number occurring in exactly ONE dimension is even less a statement about
+    dimension than a number occurring in all of them.  dimension.py carries the
+    rest of the dimensional question, including that Lambda is a logarithm only
+    in D = 4 and that the obstruction is dimension-INDEPENDENT.
 
     NOT AN EIGHT-SIDED REGULAR FRAME.  A regular frame would put the nine
     angles 22.5 deg apart.  The gaps are 72.97, 17.03, 12.99, 11.48, 11.06,
@@ -477,7 +506,23 @@ def tightest_rung():
 
 # ---------------------------------------------- 4: what stays refuted
 
-def amplitude_in_dimension(D, antiparallel=True):
+# CORRECTED.  The original form below used the D = 4 propagator in every D,
+# so "D does not appear anywhere" was true of the FORMULA rather than of the
+# physics.  solve.py derived the D-dimensional de Donder numerator,
+#
+#     P = (1/2)(eta eta + eta eta) - (1/(D-2)) eta eta
+#     =>  A = 2 (p.p')^2 - (2/(D-2)) p^2 p'^2
+#
+# and 2/(D-2) = 1 EXACTLY at D = 4, which is why the old form was right here
+# and wrong everywhere else.  Both are kept: the superseded one so the
+# correction is visible, the corrected one because it is what is true.
+
+def amplitude_in_dimension_D4PROP(D, antiparallel=True):
+    """SUPERSEDED.  The D = 4 propagator evaluated in D dimensions.
+
+    Returns 8 in every D, which is a property of the formula, not of gravity.
+    Kept so the correction can be seen rather than only described.
+    """
     d = lambda a, b: -a[0] * b[0] + sum(a[i] * b[i] for i in range(1, D))
     rest = [1.0] + [0.0] * (D - 1)
     up = [1.0] + [0.0] * (D - 2) + [1.0]
@@ -486,12 +531,52 @@ def amplitude_in_dimension(D, antiparallel=True):
     return (2 * d(up, other) ** 2 - d(up, up) * d(other, other)) / n
 
 
+def amplitude_in_dimension(D, antiparallel=True):
+    """The D-dimensional de Donder propagator.  None where Newton vanishes."""
+    d = lambda a, b: -a[0] * b[0] + sum(a[i] * b[i] for i in range(1, D))
+    tr = 2.0 / (D - 2)
+    rest = [1.0] + [0.0] * (D - 1)
+    up = [1.0] + [0.0] * (D - 2) + [1.0]
+    other = [1.0] + [0.0] * (D - 2) + [-1.0 if antiparallel else 1.0]
+    n = 2 * d(rest, rest) ** 2 - tr * d(rest, rest) * d(rest, rest)
+    if abs(n) < 1e-15:
+        return None                 # D = 3: no Newtonian force to normalise on
+    return (2 * d(up, other) ** 2 - tr * d(up, up) * d(other, other)) / n
+
+
 DIMENSIONS_TESTED = (3, 4, 5, 8, 10, 11, 26)
+
+# The dimensional claim, corrected 2026-09-11.  See solve.py and dimension.py.
+DIMENSION_CLAIM_CORRECTED = True
+
+
+def raw_antiparallel_is_dimension_independent(tol=1e-12):
+    """TRUE, and it survives the correction: nulls have p^2 = 0, so the trace
+    term drops out in every D and the UNNORMALISED antiparallel amplitude is 8
+    everywhere.  It is the RATIO to Newton that is not."""
+    d = lambda a, b, Dm: -a[0] * b[0] + sum(a[i] * b[i] for i in range(1, Dm))
+    vals = []
+    for D in DIMENSIONS_TESTED:
+        up = [1.0] + [0.0] * (D - 2) + [1.0]
+        other = [1.0] + [0.0] * (D - 2) + [-1.0]
+        vals.append(2 * d(up, other, D) ** 2 -
+                    (2.0 / (D - 2)) * d(up, up, D) * d(other, other, D))
+    return max(vals) - min(vals) <= tol, vals[0]
 
 
 def factor_is_dimension_independent(tol=1e-12):
+    """FALSE once the propagator is right.  The ratio to Newton runs
+    8, 6, 24/5, 32/7, 9/2, 96/23 and is undefined at D = 3."""
     vals = [amplitude_in_dimension(D) for D in DIMENSIONS_TESTED]
-    return max(vals) - min(vals) <= tol, vals[0]
+    live = [v for v in vals if v is not None]
+    return (max(live) - min(live) <= tol), vals
+
+
+def eight_occurs_in_dimensions(tol=1e-9):
+    """The corrected refutation: D = 4 and nothing else."""
+    return [D for D in DIMENSIONS_TESTED
+            if amplitude_in_dimension(D) is not None
+            and abs(amplitude_in_dimension(D) - 8.0) <= tol]
 
 
 def is_a_regular_frame(tol=1e-6):
@@ -621,13 +706,32 @@ def selftest():
     print("       a SECOND, independent sense in which it sits at a centre.")
 
     print("\n4. WHAT STAYS REFUTED")
-    same, val = factor_is_dimension_independent()
     print("     D tested: %s" % (DIMENSIONS_TESTED,))
-    chk("  is the factor the same in every dimension", same, True)
-    near("    and its value", val, 8.0)
+    chk("  the dimensional claim has been corrected",
+        DIMENSION_CLAIM_CORRECTED, True)
+    # what the SUPERSEDED form said, kept so the correction is visible
+    old_same = (max(amplitude_in_dimension_D4PROP(D) for D in DIMENSIONS_TESTED)
+                - min(amplitude_in_dimension_D4PROP(D) for D in DIMENSIONS_TESTED)
+                <= 1e-12)
+    chk("  the D=4-propagator form DID look dimension-independent", old_same, True)
+    near("    at value", amplitude_in_dimension_D4PROP(26), 8.0)
+    # and what the corrected one says
+    same, vals = factor_is_dimension_independent()
+    chk("  with the true propagator it is NOT", same, False)
+    near("    D = 4", amplitude_in_dimension(4), 8.0)
+    near("    D = 5", amplitude_in_dimension(5), 6.0)
+    near("    D = 26", amplitude_in_dimension(26), 96.0 / 23.0)
+    chk("    D = 3 is undefined (2+1 gravity has no Newtonian force)",
+        amplitude_in_dimension(3), None)
+    chk("  8 occurs in D = 4 ALONE", eight_occurs_in_dimensions(), [4])
+    raw_same, raw_val = raw_antiparallel_is_dimension_independent()
+    chk("  the UNNORMALISED antiparallel amplitude still is, in every D",
+        raw_same, True)
+    near("    at value", raw_val, 8.0)
     near("  parallel in D = 26", amplitude_in_dimension(26, antiparallel=False), 0.0)
-    chk("IS IT 8 DIMENSIONS", same and False, False)
-    print("       D does not appear in 2(p.p')^2 - p^2 p'^2 anywhere.")
+    chk("IS IT 8 DIMENSIONS", False, False)
+    print("       the factor is 8 in D = 4 alone -- a number occurring in one")
+    print("       dimension is even less a statement about dimension.")
     near("  a regular 8-sided frame needs every gap", regular_gap_would_be(), 22.5)
     near("    largest gap", max(gaps_deg()), 72.9688, 1e-5)
     near("    smallest gap", min(gaps_deg()), 11.0609, 1e-4)
@@ -664,7 +768,9 @@ def report():
   the 360 a loop would need -- so it cannot close, and no polygon appears
   in the plane -- and exactly one stationary point, at n = 9/2 and t = 120
   degrees, derived from 2s^2(3-2s) = 0.  Four straddles that point with
-  five.  Still not eight dimensions: the factor is 8 in D = 3 through 26.
+  five.  Still not eight dimensions, and MORE firmly since the 2026-09-11
+  correction: with the true D-dimensional propagator the factor is 8 in
+  D = 4 ALONE (6 at D=5, 96/23 at D=26, undefined at D=3).
   Still not a regular frame: the gaps range over a factor of 6.6.  And
   still no rho < 0 -- the lead is a sign, and a bisector is not a sign.
   ------------------------------------------------------------------------""")
