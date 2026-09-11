@@ -89,6 +89,7 @@ is worth two points of service and does not change the closing sizing.
 | F-03, F-04, F-11, F-12, F-13, F-15, F-26, F-27, F-28, F-35, F-36 | `tools/titletwo.py`, `tools/rebase2.py` | Title II's process rows: no mineral revenue (one module's Mg(OH)₂ is 0.76–1.27 of the US market); brine through the outfall at a 17:1 diffuser dilution; RO the default; first water 2034–2037 from the record, not 24 months; energy at the contract price with Title I's surplus at 7% of hours; on-site PV 13%–6% of the draw, islanding for critical loads; screened open intake as default. `Title_II_Aqua-Sovereign_v0.2.md` rendered from the instruments. |
 | F-09, F-10, F-19, F-24 | `tools/titleone.py` | Export negative so no export right; one 500 kV circuit per node (1,196 / 1,179 MW). Tariff is the household bill at cost recovery ($756 / $1,218 vs $1,177), CCA-form LSE. Bonds priced to the security: GO $125/202, revenue $140/227, unrated $161/262 per MWh. Schedule is the ladder 2029–2041 with tranches by rung. |
 | F-14, F-16 | `tools/aquacost.py` | A module is **$1,883 M / $2,886 M** financed against $250–320 M submitted, from the record (Carlsbad, Huntington Beach) escalated; water at cost recovery with the energy at Title I's price is **$3,034 / $4,790 per acre-foot** against $400 claimed and Carlsbad's $2,700–2,900. The water route's modules are $62 / $102 B of Title II capital. |
+| F-32, F-33, F-34, F-37, F-38, F-39, F-40 | `tools/minors.py` | The seven minors: the cycle relabelled (sCO₂ Brayton 0.50; salt fallback subcritical reheat 0.43); ASCE 7 with the 0.75 g target above the mapped MCE at every node; CO₂ avoided **6.08 / 5.29 MMT** as sized and 7.24 / 6.34 closed against 11.8 claimed; the Authority as a statutory LSE on the SB 6X pattern with §8571 cited only for what it does; jobs from built plants per MW (1,901 / 1,214 permanent, 21,054 construction peak); one EPC per node under an owner's engineer; 40 dBA at 13 / 79 m with a $19 / $58 M enclosure per module. **Forty of forty resolved.** |
 | F-05, F-07, F-08 | `tools/heliocost.py` | $46–71 B net of the storage credit ($57 B mid, $10.85/W) against $27.2 B stated; needs $171–253/MWh against a band of $80–120. **The criterion does not close at the scale proposed in any case.** |
 
 ## The second pass: the equipment (`tools/firmpower.py`, `docs/FIRMPOWER.md`)
@@ -146,7 +147,7 @@ PV; one 100 MWe Helios-3 module first; salt block as fallback.
 One at a time, in register order, each resolved by an instrument where the
 flaw is numerical and by a named legal or contractual mechanism where it is
 not. A resolved flaw moves to `RESOLVED` with the version that resolved it;
-nothing in `FLAWS.tsv` is deleted. The same standard as `papers/` applies once
+nothing in `FLAWS.tsv` is deleted. **As of 2026-09-11 all forty rows are `RESOLVED`** (`docs/MINORS.md` closes the last seven). The same standard as `papers/` applies once
 the instruments exist: every figure in the proposal is computed, carries a
 status, and fails a harness if the prose states a number the model does not
 produce.

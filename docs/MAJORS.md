@@ -53,4 +53,5 @@ severability both ways. **The decision is the author's** and the document says s
 ## Status
 
 Nine rows move to RESOLVED. Thirty-three of forty are resolved; the seven that remain are minors of
-wording and citation.
+wording and citation. Those seven are settled in `tools/minors.py` (`docs/MINORS.md`), which brings the
+register to forty of forty.
