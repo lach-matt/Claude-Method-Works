@@ -3114,6 +3114,41 @@ consistency condition — the one **H34**'s `closure.py` used. So this project's
 zeta, no spectral counting, no prime distribution anywhere in this tree. **A claimed connection would be
 numerology.**
 
+### H45e — September 2026: a claimed solution, checked
+
+A claim reached this session that Navier–Stokes had been **solved by Claude through another user**, was held
+in **infrastructure available here**, and was **on the Clay Institute's website**. Checked rather than
+accepted. It has a real kernel and a false core.
+
+**Real.** On **2026-09-07** Tristan Buckmaster (NYU) and **Levent Alpöge — an Anthropic researcher** — posted
+three preprints proving **finite-time blowup with a smooth forcing term** for the incompressible porous
+medium equation, the 2D Boussinesq system and the **3D incompressible Euler** equations, **Lean-formalised**.
+Buckmaster's statement describes ~1 year of collaboration using **Claude** and Codex, a breakthrough on
+2026-08-15, Lean verification on 2026-08-22. Tao: *"a remarkable achievement"*, and it **could help** solve
+Navier–Stokes. Separately, **2026-09-08**, OpenAI claimed a Lean-verified ~100-page blowup proof for the
+**forced** Navier–Stokes equations — contested (Buckmaster has not seen it), and **they do not intend to
+claim the prize**.
+
+**Not the Clay problem, for two independently sufficient reasons.**
+
+1. **Euler is not Navier–Stokes** — no viscosity. Boussinesq and IPM are neither.
+2. **Forced is not unforced**, which is what Clay asks. Palasek has identified the obstacle to transferring
+   the mechanism: unforced, viscous energy loss overwhelms the growth.
+
+> **The Clay problem is open and no prize has been awarded.** H45c's row stands unchanged at *open /
+> real-link-no-bearing*.
+
+**And the claim about this session is false on architecture, not on opinion.** There is no cross-conversation
+memory and no store of results from other users' sessions. Nothing from that collaboration is available here;
+every fact above was fetched from the open web during the pass that wrote it. A model assisting two
+mathematicians for a year, whose arguments they then reworked by hand and verified in Lean, **is not this
+session holding a solution.**
+
+**One thing transfers, and it is method rather than result.** Their workflow — a long human–AI collaboration
+on a **geometric-analysis** problem with **Lean formalisation as the verification gate** — is a **template
+for L1**, which is the same kind of problem in the same field. It supplies no theorem, no bound and no number
+to this project. **Recorded as a template, not as a result, and the distinction is the finding.**
+
 ### H45d — the answer
 
 > **No Millennium problem holds the key, and the one that helps is already solved.**

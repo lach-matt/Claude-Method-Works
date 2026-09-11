@@ -7151,10 +7151,25 @@ connection would be numerology.
 > Perelman/Huisken–Ilmanen paradigm pushed somewhere nobody has pushed it — an open problem in *geometric
 > analysis*, not a prize problem, and those get solved. **The survey's real yield is the correction.**
 
+**September 2026, checked rather than accepted.** A claim reached the session that Navier–Stokes had been
+solved by Claude through another user and was held in infrastructure available here. **Real kernel, false
+core.** On 2026-09-07 Buckmaster (NYU) and **Alpöge (an Anthropic researcher)** posted Lean-formalised proofs
+of **finite-time blowup with smooth forcing** for incompressible porous medium, 2D Boussinesq and **3D
+incompressible Euler**, after ~1 year of collaboration using Claude and Codex; Tao called it *"a remarkable
+achievement"* that **could help** solve Navier–Stokes. OpenAI separately claimed (2026-09-08) a ~100-page
+blowup proof for **forced** Navier–Stokes — contested, prize not claimed. **Neither is the Clay problem:**
+Euler is not Navier–Stokes (no viscosity), and forced is not unforced — Palasek's obstacle is that unforced,
+viscous energy loss overwhelms the growth. **The Clay problem is open and no prize has been awarded.**
+
+> **And the claim about this session is false on architecture, not opinion:** there is no cross-conversation
+> memory and no store of other users' results. Every fact above was fetched from the open web during the pass
+> that wrote it. **One thing transfers — method, not result:** a long human–AI collaboration on a
+> geometric-analysis problem with **Lean as the verification gate** is a **template for L1**.
+
 ### Seated
-- `millennium.py` — new. `index3.py` — **535 findings**, 16 occupied cells, `E(X) = 0`.
-  `paper/CLAIMS.md` — **H45**, and **H44c annotated as corrected, not deleted**.
-  `obstruct.py` — **unchanged**.
+- `millennium.py` — new, then updated with the September 2026 record. `index3.py` — **537 findings**,
+  16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H45** (incl. **H45e**), and **H44c annotated as
+  corrected, not deleted**. `obstruct.py` — **unchanged**.
 
 ---
 

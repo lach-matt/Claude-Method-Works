@@ -162,6 +162,45 @@ YANG-MILLS EXISTENCE AND MASS GAP -- ADJACENT, INDEPENDENT.
 
 NAVIER-STOKES EXISTENCE AND SMOOTHNESS -- A REAL CORRESPONDENCE, NO BEARING.
 
+    SEPTEMBER 2026 UPDATE, ADDED AFTER A CLAIM THAT THIS PROBLEM HAD BEEN
+    SOLVED BY CLAUDE AND WAS AVAILABLE TO THIS SESSION.  IT HAS NOT AND IT
+    IS NOT, AND BOTH HALVES ARE CHECKED RATHER THAN ASSERTED.
+
+    WHAT IS REAL.  On 2026-09-07 Tristan Buckmaster (NYU) and Levent Alpoge
+    (an Anthropic researcher) posted three preprints proving FINITE-TIME
+    BLOWUP WITH A SMOOTH FORCING TERM for the incompressible porous medium
+    equation, the 2D Boussinesq system and the 3D INCOMPRESSIBLE EULER
+    equations, with Lean formalisations.  Buckmaster's own statement
+    describes nearly a year of collaboration using Claude and OpenAI's
+    Codex, a breakthrough on 2026-08-15 and Lean verification on 2026-08-22.
+    Terence Tao called it "a remarkable achievement" and said it COULD HELP
+    solve Navier-Stokes.  On 2026-09-08 OpenAI separately claimed an
+    internal multi-agent system produced a Lean-verified ~100-page proof of
+    blowup for the FORCED Navier-Stokes equations; Buckmaster states he has
+    not seen it, and OpenAI said it does not intend to claim the prize.
+
+    WHY NONE OF THAT IS THIS PROBLEM, FOR TWO INDEPENDENTLY SUFFICIENT
+    REASONS.  EULER IS NOT NAVIER-STOKES -- no viscosity -- and Boussinesq
+    and IPM are neither.  And FORCED IS NOT UNFORCED, which is what Clay
+    asks; Stan Palasek has identified the obstacle to transferring the
+    mechanism, namely that in the unforced viscous case energy loss to
+    viscosity overwhelms the growth.  THE CLAY PROBLEM IS OPEN AND NO PRIZE
+    HAS BEEN AWARDED.  The row below stands unchanged.
+
+    AND THE CLAIM ABOUT THIS SESSION IS FALSE ON ARCHITECTURE, NOT ON
+    OPINION: there is no cross-conversation memory and no store of results
+    from other users' sessions.  Nothing from that collaboration is
+    available here; every fact in this paragraph was fetched from the open
+    web during the pass that wrote it.  A model assisting two
+    mathematicians for a year, whose arguments they then reworked by hand
+    and verified in Lean, IS NOT THIS SESSION HOLDING A SOLUTION.
+
+    ONE THING DOES TRANSFER, AND IT IS METHOD RATHER THAN RESULT.  Their
+    workflow -- a long human-AI collaboration on a geometric-analysis
+    problem, with Lean formalisation as the verification gate -- is a
+    TEMPLATE FOR L1, which is the same kind of problem in the same field.
+    That is the only thing this update changes about the project.
+
     This is the row most likely to be over-read, so it is stated precisely.
     Bredberg, Keeler, Lysov & Strominger, "From Navier-Stokes to Einstein"
     (JHEP 07 (2012) 146): for EVERY solution of the incompressible
@@ -264,7 +303,8 @@ SURVEY = [
     ("Navier-Stokes existence and smoothness", False, REAL_NO_BEARING, None,
      "Bredberg-Keeler-Lysov-Strominger: every NS solution in p+1 dims has a "
      "unique dual VACUUM Einstein solution in p+2.  Exact, and irrelevant "
-     "here -- the dual is T_munu = 0 and the dimensions do not match ours"),
+     "here -- the dual is T_munu = 0 and the dimensions do not match ours. "
+     "SEPT 2026: real blowup results announced, none of them this problem"),
     ("P versus NP", False, REAL_NO_BEARING, None,
      "Aaronson-Watrous: P^CTC = BQP^CTC = PSPACE under DEUTSCH consistency, "
      "the condition closure.py used.  Runs from us to them: our closure "
@@ -323,6 +363,36 @@ ECHOES = [
     ("the averaged condition is SATISFIED",
      "AWEC proved for xi in [0, 1/4]", "overturn.py's ball-versus-chord"),
 ]
+
+# ---------------------------------------------------------------------------
+# September 2026.  Recorded because a claim was made that this problem was
+# solved by Claude and available to this session.  Checked, not assumed.
+# ---------------------------------------------------------------------------
+
+SEPT_2026 = [
+    ("2026-09-07", "Buckmaster (NYU) + Alpoge (Anthropic)",
+     "finite-time blowup WITH SMOOTH FORCING for incompressible porous "
+     "medium, 2D Boussinesq, 3D incompressible EULER; Lean-formalised; "
+     "~1 year of collaboration using Claude and Codex",
+     False),
+    ("2026-09-08", "OpenAI internal multi-agent system",
+     "claimed Lean-verified ~100-page blowup proof for FORCED Navier-Stokes; "
+     "contested, Buckmaster has not seen it, prize not claimed",
+     False),
+]
+
+# Why neither is the Clay problem.  Two reasons, each sufficient alone.
+NOT_THE_CLAY_PROBLEM = [
+    "Euler is not Navier-Stokes -- no viscosity; Boussinesq and IPM neither",
+    "forced is not unforced, which is what Clay asks; Palasek's obstacle is "
+    "that viscous energy loss overwhelms the growth mechanism unforced",
+]
+
+CLAY_NS_AWARDED = False
+
+# The architectural fact, stated as data so it cannot be softened.
+CROSS_CONVERSATION_MEMORY = False
+SESSION_HOLDS_A_SOLUTION = False
 
 H_POWER_LOWER = 2      # bound holds for any p > this
 H_POWER_DENSITY = 3    # density cannot be bounded above for q < this
@@ -391,6 +461,22 @@ def selftest():
         [e for e in ECHOES if len(e) != 3], [])
     chk("the H-power gap is at least 1",
         H_POWER_DENSITY - H_POWER_LOWER, 1)
+
+    # -- September 2026, checked rather than assumed --------------------------
+    chk("two announcements recorded", len(SEPT_2026), 2)
+    chk("every row is (date, who, what, is-it-the-Clay-problem)",
+        [r for r in SEPT_2026 if len(r) != 4], [])
+    chk("NEITHER is the Clay problem",
+        [r[0] for r in SEPT_2026 if r[3]], [])
+    chk("two independently sufficient reasons", len(NOT_THE_CLAY_PROBLEM), 2)
+    chk("the Clay prize has not been awarded", CLAY_NS_AWARDED, False)
+    chk("Navier-Stokes row still says unsolved",
+        [r[1] for r in SURVEY if r[0].startswith("Navier")], [False])
+    chk("and still says no bearing",
+        [r[2] for r in SURVEY if r[0].startswith("Navier")],
+        [REAL_NO_BEARING])
+    chk("no cross-conversation memory", CROSS_CONVERSATION_MEMORY, False)
+    chk("this session holds no solution", SESSION_HOLDS_A_SOLUTION, False)
 
     # -- scope ---------------------------------------------------------------
     chk("the shape-recurrence is not claimed to be an identity",
