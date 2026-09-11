@@ -4,100 +4,99 @@
 serves 84 % of the load: a third of December goes unserved while a quarter of June's field is
 defocused, and sixteen hours of store cannot move June into December. The author (2026-09-11):
 water stores across seasons and electricity does not — desalinate on the summer surplus, hold
-the water, *"and the offset is returned from the desalination plants from their turbines."*
-There are two turbines that sentence can mean. This file prices both, at mid and at critical,
-against the winter `hourly3.py` measured, and says which one returns a winter.
+the water, *"and the offset is returned from the desalination plants from their turbines"*; then,
+*not more storage on the power side* — more hydro at the plants, or more modules? This file
+prices all of it, at mid and at critical, against the shortfall `hourly3.py` measured, and says
+what closes and what it costs.
 
-**Run it.** `python3 tools/joinder.py` (it runs `hourly3.py`'s base year at both cases, about
-a minute), `--selftest` for the checks. Stdlib only; imports the winter and the surplus from
+**Run it.** `python3 tools/joinder.py` (it runs `hourly3.py` some dozens of times, several
+minutes), `--selftest` for the checks. Stdlib only; imports the shortfall and the surplus from
 `hourly3.py`, the cycle and cost lines from `cspchain.py` and `firmpower.py`, and restates none.
 
-## The winter and the surplus, from the hour-by-hour
+## The season and the surplus, from the hour-by-hour
+
+The shortfall is not a winter: hour by hour it runs **October to April**, seven months, and
+the evening in every month.
 
 | | mid | critical |
 |---|---|---|
-| winter (Nov–Feb) unserved, TWh_e | 1.88 | 1.89 |
+| season (Oct–Apr) unserved, TWh_e | 2.48 | 2.52 |
 | summer surplus thrown away, TWh_e (defocused field at the cycle efficiency + curtailed PV) | 3.20 | 3.29 |
 
 ## A. Steam-topping turbines at the desalination plant
 
 Title II's own architecture: solar-thermal skids, steam through a back-pressure turbine, the
-exhaust heat into LT-MED. Per m³ of water the turbine must take in 105 kWh_th to leave the
-70 kWh_th LT-MED needs, and returns 34.5 kWh_e (mid) — but the same heat in a condensing cycle
-makes 52.2 kWh_e with no water, so **the water costs 19.3 kWh_e per m³, 6.4× reverse osmosis**
-(18.0 and 5.0× at critical). The topping turbine returns electricity it was given as heat, less
-what the water took. And in winter it returns only what heat is there in winter, and F-13 and
-F-27 found a coastal brownfield has no heat source at a module's scale. **This turbine does not
-return a winter; it makes water dear in summer.**
+exhaust heat into LT-MED. Per m³ the turbine takes in 105 kWh_th to leave the 70 kWh_th LT-MED
+needs and returns 34.5 kWh_e (mid) — but the same heat condensing makes 52.2 kWh_e with no
+water, so **the water costs 19.3 kWh_e per m³, 6.4× reverse osmosis** (18.0 and 5.0× at
+critical). The topping turbine returns electricity it was given as heat, less what the water
+took, and in winter only what heat is there in winter — which F-13 and F-27 found is none at a
+module's scale on a coastal brownfield. **This turbine does not return a winter; it makes water
+dear in summer.**
 
 ## B. Hydraulic turbines on the water itself
 
-Summer surplus electricity desalinates *and* lifts the product water to an elevated off-stream
-reservoir; in winter the water is delivered downhill through pump-turbines to the aqueduct and
-to groundwater recharge, and the head comes back as electricity. Pumped storage whose working
-fluid is the state's own water supply, on the pattern of San Luis and Gianelli, seasonal because
-the reservoir is. Energy per m³ is ρ·g·H·η: at 500 m and 0.90 turbine efficiency, 1.23 kWh_e
-returned per m³ against 1.51 to lift it (round trip 0.81); at critical, 300 m and 0.85, 0.69
-against 0.96 (0.72).
+Summer surplus desalinates *and* lifts the product water to an elevated off-stream reservoir;
+in the short season it is delivered downhill through pump-turbines to the aqueduct and to
+groundwater recharge, and the head comes back. Pumped storage whose working fluid is the state's
+own water supply, on the pattern of San Luis and Gianelli. Energy per m³ is ρ·g·H·η: at 500 m
+and 0.90, 1.23 kWh_e returned per m³ against 1.51 to lift it (round trip 0.81); at critical,
+300 m and 0.85, 0.69 against 0.96 (0.72).
 
-**The requirement** — to return the whole winter — is 1.5 km³ of water at mid (25 Title II
-module-years) and 2.7 at critical, needing 6.9 / 12.4 TWh_e of summer electricity to desalinate
-and lift, against a surplus of 3.2 / 3.3. The surplus cannot make that much water. So the honest
-figure is the other bound:
-
-| surplus-bounded | mid | critical |
-|---|---|---|
-| water made and lifted, km³ (M acre-feet) | 0.71 (0.58) | 0.72 (0.59) |
-| = Title II modules' annual output | 11.5 | 11.7 |
-| winter returned, TWh_e | **0.87** | **0.50** |
-| = share of the winter unserved | **0.46** | **0.27** |
-| pump-generation plant, MW | 302 | 174 |
-| reservoir + pump-generation, $B | 1.77 + 0.45 = **2.23** | 2.89 + 0.44 = **3.32** |
-| + $/MWh on Title I | 13.2 | 19.7 |
-| $B per TWh of winter returned | 2.56 | 6.62 |
-| `hourly3` field oversizing, whole winter: $B / $B per TWh | 10.15 / 5.39 | 16.95 / 8.95 |
-
-**Per TWh of winter returned the water is cheaper than the mirrors at both cases**, by 2.1× at
-mid and 1.35× at critical, and it is bounded by the surplus: the scheme returns about half the
-winter at mid and a quarter at critical, and makes 0.7 km³ of water a year as its product. The
-water is not consumed by the return; it is delivered, to the aqueduct and to SGMA winter
-recharge, which is where winter water goes in California anyway. What it needs is **head** and
-a **reservoir where the water is wanted below it** — a siting question, and the reason San Luis
-exists. The rest of the winter still needs the field, or the grid.
+If the surplus must both desalinate and lift, it makes **0.7 km³ a year** (11.5 modules' output)
+and returns **35 % of the season at mid, 20 % at critical**, for $2.0 / $3.1 B. Bounded by the
+surplus, cheaper per TWh than the mirrors, and not a closure.
 
 ## C. More modules, not more storage
 
-The author (2026-09-11): not more storage on the power side — can hydro output at the
-desalination plants be raised, or should more modules make more water? Two things settle it.
 Hydro output at a plant is volume × head, and a coastal plant is at sea level: **the head is
-where the water comes down**, a property of the reservoir site, not of the plant. So the levers
-are exactly the author's two, volume (modules) and head (site), and head is worth more: each
-doubling halves the water. And if the water is on **Title II's own account** — its cost model
-already carries its energy line — then Title I's surplus is spent on the *lift alone*, and the
-winter closes when enough water comes down:
+where the water comes down**, a property of the reservoir site, not of the plant. So the
+levers are the author's two, volume (modules) and head (site), and head is worth more: each
+doubling halves the water. Put the water on **Title II's own account** — its cost model already
+carries its energy line — and Title I's surplus is spent on the *lift alone*:
 
-| | head, m | modules | M acre-feet/yr | km³ | lift, TWh_e (surplus 3.2 / 3.3) | capex, $B | + $/MWh |
-|---|---|---|---|---|---|---|---|
-| mid | 300 | 41.5 | 2.08 | 2.56 | 2.33 | 7.38 | 43.7 |
-| mid | 500 | **24.9** | **1.25** | 1.54 | 2.33 | **4.82** | **28.6** |
-| mid | 800 | 15.6 | 0.78 | 0.96 | 2.33 | 3.38 | 20.0 |
-| critical | 300 | 44.2 | 2.21 | 2.73 | 2.62 | 12.54 | 74.3 |
-| critical | 500 | **26.5** | **1.33** | 1.64 | 2.62 | **8.18** | **48.5** |
-| critical | 800 | 16.6 | 0.83 | 1.02 | 2.62 | 5.73 | 33.9 |
-| field oversizing, whole winter | | | | | | 10.15 / 16.95 | 60 / 100 |
+| | head, m | modules | M acre-feet/yr | km³ | lift, TWh_e | surplus, TWh_e |
+|---|---|---|---|---|---|---|
+| mid | 300 | 54.7 | 2.73 | 3.37 | 3.06 | 3.20 fits |
+| mid | 500 | **32.8** | **1.64** | 2.02 | 3.06 | 3.20 fits |
+| mid | 800 | 20.5 | 1.03 | 1.26 | 3.06 | 3.20 fits |
+| critical | 300 | 58.8 | 2.94 | 3.62 | 3.49 | 3.29 **does not fit** |
+| critical | 500 | **35.3** | **1.76** | 2.17 | 3.49 | 3.29 does not fit |
+| critical | 800 | 22.0 | 1.10 | 1.36 | 3.49 | 3.29 does not fit |
 
-The lift fits inside the surplus at every head at both cases; the selftest asserts it. At 500 m
-the whole winter closes for **$4.8 B at mid and $8.2 B at critical**, against $10.2 / $16.9 B
-for the mirrors, and it makes **1.25 to 1.33 million acre-feet a year** of water doing it — 25
-to 27 modules, roughly half of Carlsbad's output each. What the modules cost is Title II's to
-price (F-16 says their capex is understated three- to four-fold), and what they need is
-**takers for a million acre-feet or more a year, delivered in winter** — which is what SGMA
-groundwater recharge in the San Joaquin is short of by about that much.
+Two things the table shows. **The lift does not depend on head** — it is the returned energy
+over the round trip — so whether the surplus can lift the season is a fixed fact per case: at
+mid it fits; **at critical it does not**, the surplus returning 0.94 of the season, and the
+selftest pins that as a finding rather than repairing it. And the water is a lot: 1.6 to 1.8
+million acre-feet a year at 500 m, 33 to 35 modules of 50,000 acre-feet, delivered October to
+April — which is what SGMA groundwater recharge in the San Joaquin is short of by about that
+much. What the modules cost is Title II's to price (F-16 says their capex is understated three-
+to four-fold); what this file prices is the reservoir and the pump-generation.
+
+## D. The evening, with the season closed by water
+
+The hydro plant must be sized to the **evening** shortfall, not the season's average, and the
+block must still carry a July evening, which no water can. At 500 m of head, block and hydro
+plant scanned, field and store at design, cheapest point under 1 % unserved (the residue is the
+grid's):
+
+| | block × | hydro plant, MW | unserved | water, km³ | modules | block, $B | water, $B | total, $B | + $/MWh |
+|---|---|---|---|---|---|---|---|---|---|
+| mid | **1.5** | 2,500 | 0.006 | 2.02 | 32.8 | 2.49 | 8.81 | **11.30** | **67** |
+| critical | **1.5** | 2,500 | 0.006 | 2.17 | 35.3 | 3.23 | 14.95 | **18.18** | **108** |
+| mirrors-only closure (`hourly3.py`) | 1.5 | — | 0.000 | — | — | | | 10.15 / 16.95 | 60 / 100 |
+
+**Sized honestly, the water route costs about what the mirrors cost on the power side** — 1.11×
+at mid, 1.07× at critical — and it leaves 0.6 % to the grid where the mirrors leave nothing.
+What it adds is the water: **1.6 to 1.8 million acre-feet a year the mirrors do not make**,
+against a reservoir of 2.0 to 2.2 km³ (San Luis is 2.5). The field and the store stay at their
+design size, as the author asked; the block does not, because nothing but the block serves a
+July evening.
 
 ## What it does not do
 
-It does not find the reservoir; head (500 / 300 m) and the reservoir and pump-turbine costs are
-ASSUMED bands and say so. It does not net the evening peak, which `hourly3.py` closes with the
-block, not the winter. It says which turbine the author's sentence can mean and returns a winter:
-the hydraulic one, at a capex per TWh under the field oversizing at both cases, conditional on
-head, and bounded by the summer the plant throws away.
+It does not find the reservoir; head (500 / 300 m), the reservoir cost and the pump-turbine cost
+are ASSUMED bands and say so. It does not price the modules, which are Title II's. It does not
+choose between the water route and the mirrors: on the power side they are at parity, and the
+choice is whether California wants the water — which is the joinder's whole question, now with
+a number on it.

@@ -144,20 +144,19 @@ produce.
 ## Title III joinder items
 
 **Can Title II return Title I's winter? (`tools/joinder.py`, `docs/JOINDER.md`, 2026-09-11.)** The
-author: desalinate on the summer surplus, hold the water, and return the offset from the
-desalination plants' turbines. Two turbines that can mean. **Steam-topping turbines** (Title II's own
-architecture) return electricity they were given as heat, less what the water took — the water costs
-6.4× reverse osmosis in electricity and the turbine returns in winter only what heat is there in
-winter, which F-13/F-27 found is none: it does not return a winter. **Hydraulic turbines on the water
-itself** do: summer surplus desalinates and lifts the product to an elevated reservoir, winter
-delivery comes back through pump-turbines. Bounded by the surplus (3.2 TWh_e thrown away), the scheme
-makes **0.7 km³ of water a year** and returns **46 % of the winter at mid, 27 % at critical**, for
-**$2.2 / $3.3 B** — per TWh of winter, cheaper than the field oversizing at both cases — conditional
-on head and a reservoir sited where the water is wanted below it. **And the author's follow-up — more modules rather than
-more storage — closes the whole winter**: with the water on Title II's own account and the surplus
-spent on the lift alone, **25 modules at 500 m of head (1.25 MAF/yr) close mid for $4.8 B and 27
-close critical for $8.2 B**, against $10.2 / $16.9 B of mirrors; head halves the water for each
-doubling and is the lever worth more, and the water needs winter takers, which SGMA recharge is.
+author: desalinate on the summer surplus, hold the water, return the offset from the desalination
+plants' turbines; then, not more storage on the power side — more modules. Two turbines that can
+mean. **Steam-topping turbines** (Title II's own architecture) return electricity they were given as
+heat, less what the water took — the water costs 6.4× reverse osmosis — and have no winter heat to
+return (F-13/F-27): they do not return a winter. **Hydraulic turbines on the water itself** do: summer
+surplus lifts the product to an elevated reservoir, delivery October to April comes back through
+pump-turbines. Hour by hour the shortfall is a seven-month season plus the evening, not a winter, and
+the hydro plant must be sized to the evening. With the water on Title II's own account and the surplus
+on the lift alone, **33 modules at 500 m (1.6 MAF/yr) and a block ×1.5 close mid for $11.3 B; 35
+modules and the same block close critical for $18.2 B** — against $10.2 / $16.9 B of mirrors alone.
+**Parity on the power side, plus over a million acre-feet a year of water.** The lift does not depend
+on head and at critical the surplus lifts only 0.94 of the season, pinned as a finding. The field and
+the store stay at design; the block does not, because nothing but the block serves a July evening.
 
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance

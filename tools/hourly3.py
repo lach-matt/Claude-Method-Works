@@ -106,8 +106,14 @@ def optical_scale(dni, elev, target_annual):
 _SERIES = {}
 
 
+WINTER_MONTHS = (10, 11, 12, 1, 2, 3, 4)   # the months the base run leaves short; joinder.py's season
+
+
 def run(case, pv_overbuild=1.0, heater_factor=1.0, turbine_factor=1.0, aperture_factor=1.0,
-        tes_factor=1.0, design=None):
+        tes_factor=1.0, design=None, hydro=None):
+    """hydro=(mw, twh): a winter-only hydraulic return (joinder.py) that serves
+    what the block leaves unserved in Nov-Feb, up to its plant size and its
+    season's energy."""
     d = C.design("helios3", case) if design is None else design
     links = d["links"]
     e_twh = d["e_twh"]
@@ -137,6 +143,8 @@ def run(case, pv_overbuild=1.0, heater_factor=1.0, turbine_factor=1.0, aperture_
                month_pv_direct=[0.0] * 13, month_heater=[0.0] * 13, peak_heater_mw=0.0)
     rated_th = turb / links["cycle"]
     min_th = rated_th * H.MIN_LOAD
+    hydro_mw, hydro_budget = (hydro[0], hydro[1] * 1e6) if hydro else (0.0, 0.0)
+    out["hydro"] = 0.0
     for i in range(8760):
         doy, hr = i // 24 + 1, i % 24
         m = H.month_of(doy)
@@ -202,6 +210,11 @@ def run(case, pv_overbuild=1.0, heater_factor=1.0, turbine_factor=1.0, aperture_
         out["net"] += net
         out["month_net"][m] += net
         served = direct + net
+        if hydro and m in WINTER_MONTHS and served < L - 1e-9 and hydro_budget > 0.0:
+            hy = min(L - served, hydro_mw, hydro_budget)
+            hydro_budget -= hy
+            served += hy
+            out["hydro"] += hy
         if served < L - 1e-9:
             out["unserved"] += L - served
             out["month_unserved"][m] += L - served
