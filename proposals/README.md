@@ -37,6 +37,15 @@ writes to any of them.
    slipstream; return brine through the retired plant's existing permitted
    outfall at Ocean Plan concentration.
 
+**Standing rule (author, 2026-09-11): simulate critical, not optimal.** Every banded constant
+carries a NOMINAL and a CRITICAL value, the critical being the adverse end of its band; every
+result prints in both columns; the design is held to the critical column and the nominal column
+is margin. The point is a *front-end threshold band on critical events upstream*: a downstream
+instrument hands its critical figure to the one above it (`receiver.py` → `cspchain.py`'s
+receiver link) rather than the hoped-for one. A number quoted without its case is misquoted.
+`tools/receiver.py` is the first instrument built under it; the selftest asserts critical ≤
+nominal on every result.
+
 ## Resolved so far
 
 | flaw | instrument | finding |
