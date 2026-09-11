@@ -7971,6 +7971,51 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `triangulate.py` — three negations measure a boundary a definition can only assert.
+
+> M: *"Three wrong data points can triangulate a correct one."*
+
+**True, with a condition — and the condition is the claim.**
+
+**IT IS A THEOREM, AND BOTH CASES WERE RUN.** *Trilateration*: each radius alone is an infinity of wrong
+answers, and three intersect at one point — recovered to **8.88×10⁻¹⁶, 0.00, 0.00** — with the routine
+**refusing rather than guessing** on collinear stations. *Hamming(7,4)*: three parity checks that can only
+ever say "something is wrong" **name the corrupted bit in 112 of 112 cases**.
+
+**BUT THREE ARBITRARY WRONG POINTS TRIANGULATE CONFIDENTLY.** Mean recovery error **0.0000, 0.0105,
+0.1033, 1.0187** as the radii are corrupted — the answer stays precise and stops being about anything.
+**The structure does the work, not the count.**
+
+**AND THIS CORPUS ALREADY STATES IT AS A LAW.** `index3.py`'s header cites **2.17.3 — "three bounds on one
+object are a coordinate"** — written long before this conversation, with **612 findings** now indexed on
+it, **289 cells on all three axes** and **4 at `(−1,−1,−1)`**. The index *closes* on it, `E(X) = 0`.
+**Second time in two passes the tree held the answer before the question was asked** (the first was
+`invariance.py` and Duff) — a finding about the corpus rather than about either question.
+
+**AND THE FAULTS TRIANGULATE.** Eighteen, classified by **root**: **14 DOMAIN**, 2 MEMORY, 1 BOOKKEEPING,
+1 CATEGORY — `atanh` at its edge twice, a coordinate ratio read as an invariant, a chord integrated with a
+radial factor, "throat" on a timelike slice, a dimensionless `v/c` divided into a length.
+
+> **They intersect at one point: using a familiar object where its familiarity no longer holds.** One
+> fault is an accident; a census is a diagnosis.
+
+**AND THE EIGHTEENTH WAS COMMITTED IN THIS FILE, ON THIS SUBJECT** — "eleven of seventeen" written with
+**13 printed three lines above**. Third instance of asserting a number beside its own refutation, after
+`ASSERTED-WITHOUT-ACCESS` and `u·v = 1`. By the file's own subject those three triangulate:
+**the prose channel and the computed channel are not cross-checked.** *One instance is carelessness, two
+is a coincidence, three is a channel.* **The fix is mechanical and already applied** — the section
+interpolates the computed value rather than typing a digit, so the prose *is* the table.
+
+> **A definition asserts a boundary. Three negations measure one.** Which is why `wormhole.py`'s scope
+> decision carries three flags rather than a sentence.
+
+### Seated
+- `triangulate.py` — new. `index3.py` — **612 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H68**. `index3.py`'s 2.17.3 header and `wormhole.py`'s three flags — **read here,
+  files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## THE SCOPE DECISION — **modified gravity counts. 2026-09-11.**
 
 `wormhole.py`'s `SCOPE_CHOSEN_HERE` was `None` from the day it was written and **asserted `None` in its

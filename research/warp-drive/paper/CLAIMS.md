@@ -5026,6 +5026,103 @@ held the answer.**
 
 ---
 
+## ★★★ H68 — triangulation. **Three negations measure a boundary a definition can only assert.**
+
+> M: *"Three wrong data points can triangulate a correct one."*
+
+**True, with a condition — and the condition is the claim.**
+
+### H68a — it is a theorem, and both cases were run
+
+**Trilateration.** Each radius alone says only *"somewhere on this circle"* — an infinity of wrong
+answers. Three intersect at one point: recovered to **8.88×10⁻¹⁶, 0.00, 0.00** at three targets. And the
+routine **refuses rather than guesses** when the stations are collinear.
+
+**Hamming(7,4).** Three parity checks, each of which can only ever report *"something is wrong."* Their
+three answers together **name the corrupted bit**:
+
+> **16 codewords × 7 single-bit errors = 112 cases. Located in 112.**
+
+### H68b — but three arbitrary wrong points triangulate *confidently*
+
+| noise on each radius | 0 | 0.01 | 0.1 | 1.0 |
+|---|---|---|---|---|
+| mean recovery error | **0.0000** | 0.0105 | 0.1033 | 1.0187 |
+
+The answer stays precise and stops being about anything.
+
+> **The structure does the work, not the count.** The three must be **independent** with **known error**.
+> Three guesses give a precise answer to no question.
+
+### H68c — and this corpus already states it as a law
+
+`index3.py`'s header, written long before this conversation, cites **P8** (*"any true answer, good or
+bad, is a bound"*) and **2.17.3 — "three bounds on one object are a coordinate"**, adding that a cell with
+no zero *"sits on all three axes and is therefore a coordinate in the exact sense the corpus gives the
+word."*
+
+> **That is M's assertion verbatim, and the index has been running on it for the whole project:**
+> **612 findings**, **289 cells on all three axes**, and **4 at `(−1,−1,−1)`** — three bounds, one object
+> — held by `EM-GAP`, `ONE-AXIS-FLAT`, `LAMBDA-IS-LOGARITHMICALLY-STIFF`, `D4-ALLOWS-ONLY-A-POINT-SOURCE`.
+
+The law is not decorative: the index **closes** on it, `E(X) = 0`, and the join closes while the meet
+fails exactly as Chapter 36 Law 3 predicted before either was tested. **Second time in two passes that
+the tree held the answer before the question was asked** — **H67c** was the first, with `invariance.py`
+and Duff. *That is a finding about the corpus rather than about either question.*
+
+### H68d — and the faults triangulate
+
+Eighteen recorded faults, classified by **root** rather than by symptom:
+
+| class | n | |
+|---|---|---|
+| **DOMAIN** | **14** | a quantity used outside the range where it means what it usually means |
+| MEMORY | 2 | a value recalled instead of derived, with the deriving tool right there |
+| BOOKKEEPING | 1 | a fixture tracking a live count |
+| CATEGORY | 1 | affirmative about one thing, coded as affirmative about another |
+
+`atanh` at its edge *twice*; a Boyer–Lindquist ratio read as an invariant; a chord integrated with a
+radial factor; *"throat"* on a timelike slice; a dimensionless `v/c` divided into a length.
+
+> **They intersect at one point: using a familiar object where its familiarity no longer holds.**
+>
+> No single fault would have shown that. **One fault is an accident; a census is a diagnosis.**
+
+### H68e — and the eighteenth was committed in this file, on this subject
+
+The first draft of the census wrote **"eleven of seventeen"** with the computed table **printing 13 three
+lines above it.**
+
+**Third instance of asserting a number beside the computation that refutes it** — after
+`ASSERTED-WITHOUT-ACCESS` (**H44c**) and `u·v = 1` (**H65e**). And by this claim's own subject, three
+instances triangulate:
+
+> **A number written in prose while the computed value sat adjacent and unconsulted. The prose channel
+> and the computed channel are not cross-checked.**
+>
+> One instance is carelessness. Two is a coincidence. **Three is a channel.**
+
+**The fix is mechanical and already applied:** the file's section 4 interpolates `c['domain']` into its own
+sentence rather than typing a digit — **the prose cannot disagree with the table because the prose *is* the
+table.**
+
+*The claim under test caught its own author using the claim, and then supplied the repair.*
+
+### H68f — and this is why the scope flags were written as negations
+
+| **H66** flag | what it denies |
+|---|---|
+| results under it are CONDITIONAL | it is not a proof |
+| a scope choice is a DECLARATION | it is not evidence |
+| it LICENSES NOTHING already seated | it is not retroactive |
+
+Three statements of what the decision *is not*, intersecting at exactly what it **is**: *a change in what
+may be argued going forward, and nothing else.*
+
+> **A definition asserts a boundary. Three negations measure one.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
