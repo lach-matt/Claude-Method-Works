@@ -184,6 +184,14 @@ is built: one 30 MW_th aperture (60 m × 1 m at critical), five measurements, an
 between 0.667 and 0.713, FAIL below (the salt-block fallback, and no first module). 1,000 on-sun hours,
 2031–2033, $71 M.
 
+**The sites, scored (`tools/sites.py`, `docs/SITES.md`, 2026-09-11).** The site-specific terms that
+survive the register cannot be computed without a site, so the three Title I nodes and eight coastal
+brownfields are graded MET / CONDITIONAL / OPEN / FAIL on the terms each Title needs and ranked, each
+with the study that would settle its worst term. At mid the Westside ties the Mojave for first and at
+critical the Mojave leads on the seismic margin; on the coast the Oxnard plain leads and Huntington
+Beach carries its 2022 denial as a FAIL. The adopted route's 16–18 modules against eight sites is a
+finding. A ranked list of site studies, not a choice.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release
