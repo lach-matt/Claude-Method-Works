@@ -78,7 +78,16 @@ in how the October-to-April season is closed.
 On the power side the two are at parity. The water route makes **1.64 to 1.76 million
 acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer
 surplus lifts 0.95 of the season and the rest is the plant's own output. Which route is a decision about
-water, and it is Title III's.
+water, and it is Title III's. Title II's side of it, priced by `aquacost.py` with the water's
+electricity bought from Title I at the register price:
+
+| Title II | mid | critical |
+|---|---|---|
+| one 50,000 AFY RO module, financed, $M (Title II said 250–320) | 1,883 | 2,886 |
+| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | 3,034 | 4,790 |
+| the water route's modules, financed, $B | 61.8 | 101.7 |
+| that water with the lift on its bill, $/acre-foot | 3,268 | 5,030 |
+| per household per year at 0.28 AF | 915 | 1,408 |
 
 ## 5. Price and the household
 

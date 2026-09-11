@@ -31,6 +31,7 @@ import receiver as RX                                           # noqa: E402
 import hourly3 as HR                                            # noqa: E402
 import joinder as J                                             # noqa: E402
 import studies as ST                                            # noqa: E402
+import aquacost as AQ                                           # noqa: E402
 
 OUT = os.path.join(HERE, "..", "proposals", "Title_I_Helios-3_v0.2.md")
 CASES = ("mid", "critical")
@@ -58,6 +59,8 @@ def gather():
     g["winter"] = {c: J.winter(c) for c in CASES}
     g["water"] = {c: J.evening_with_water(c, 500.0, g["winter"][c]) for c in CASES}
     g["delay"] = {c: ST.delay_cost_per_year(c) for c in CASES}
+    g["aqua"] = {c: AQ.module(c) for c in CASES}
+    g["aqua_route"] = {c: AQ.water_route(c) for c in CASES}
     g["ladder"] = RX.ladder(g["design"]["mid"])
     g["path_years"] = ST.critical_path_years()
     g["n_studies"] = len(ST.STUDIES)
@@ -154,7 +157,17 @@ def render(g):
     a(f"On the power side the two are at parity. The water route makes **{wm['water']['maf']:.2f} to {wc['water']['maf']:.2f} million")
     a("acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer")
     a(f"surplus lifts {J.modules_to_close('critical', 500.0, g['winter']['critical'])['surplus_twh'] / J.modules_to_close('critical', 500.0, g['winter']['critical'])['lift_twh']:.2f} of the season and the rest is the plant's own output. Which route is a decision about")
-    a("water, and it is Title III's.")
+    a("water, and it is Title III's. Title II's side of it, priced by `aquacost.py` with the water's")
+    a("electricity bought from Title I at the register price:")
+    a("")
+    a("| Title II | mid | critical |")
+    a("|---|---|---|")
+    aq, ar = g["aqua"], g["aqua_route"]
+    a(f"| one 50,000 AFY RO module, financed, $M (Title II said 250–320) | {aq['mid']['financed_m']:,.0f} | {aq['critical']['financed_m']:,.0f} |")
+    a(f"| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | {aq['mid']['per_af']:,.0f} | {aq['critical']['per_af']:,.0f} |")
+    a(f"| the water route's modules, financed, $B | {ar['mid']['capex_b']:.1f} | {ar['critical']['capex_b']:.1f} |")
+    a(f"| that water with the lift on its bill, $/acre-foot | {ar['mid']['per_af']:,.0f} | {ar['critical']['per_af']:,.0f} |")
+    a(f"| per household per year at 0.28 AF | {ar['mid']['household']:,.0f} | {ar['critical']['household']:,.0f} |")
     a("")
     a("## 5. Price and the household")
     a("")
@@ -249,6 +262,8 @@ def selftest():
     check("the document says it carries no number the instruments did not compute", "carries no number they did not compute" in text)
     check("the document does not offer a mid-only design", "does not offer one" in text)
     check("every register row is printed", all(r[0] in text for r in H3.REGISTER))
+    check("Title II's module and water price appear beside the water route",
+          f"| water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | {g['aqua']['mid']['per_af']:,.0f} |" in text)
     check("the receiver's field factor is against the chain's own link, not against itself",
           1.2 < g["rx"]["critical"]["field"] < 1.4)
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
