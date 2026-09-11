@@ -4092,6 +4092,121 @@ something is not closing it, and a census is not a result.
 
 ---
 
+## ★★★ H58 — proceeding on the conjecture. **It cost a headline on the first day.**
+
+> M: *"Every breakthrough starts with a conjecture. Let's proceed."*
+
+Proceeding meant working the one gap that needs nobody's conjecture — **H57b**'s single **SEARCH**. The
+first thing it found was a fault in work one day old, and **the fault is mine**.
+
+### H58a — `g_rr < 1` in Boyer–Lindquist holds in flat empty space
+
+**H56b** read contraction off `√g_rr < 1`. **Kerr at `M = 0` *is* Minkowski**, written in oblate
+spheroidal coordinates, and its equatorial `g_rr = r²/(r²+a²)` is below one at *every* radius:
+
+| `r` (a = 1, **M = 0**) | 0.5 | 1 | 2 | 5 |
+|---|---|---|---|---|
+| `g_rr` | 0.200000 | 0.500000 | 0.800000 | 0.961538 |
+
+**A criterion satisfied by the vacuum is not measuring the source.**
+
+**The invariant replacement** is the ratio this project always meant — proper radial distance **per unit
+circumferential radius**:
+
+> **`C = √g_rr ⁄ (d√g_φφ/dr)`** — the corridor question stated without a coordinate.
+
+`C = 1.000000000` exactly at all four flat-space points. And on a static spherically symmetric metric
+`C = 1/√(1−2m/r)`, so:
+
+> **`C < 1` ⟺ `m < 0` — which is `certify.py`'s theorem verbatim (H40d).** The theorem was always a
+> statement about `C`. **H56b** compared the wrong quantity to 1.
+
+*Control:* Schwarzschild `M = +1` → `C` = 1.732051, 1.118034 (expanded); `M = −1` → 0.774597, 0.912871
+(**contracted**). The measure fires when contraction is there.
+
+And **H56b**'s three cited points are not merely wrong — **the question is not well posed at them.** At
+`r` = 0.1, 0.3, 0.49 with `a` = 0.99, `dR_c/dr` = **−21.5763, −3.8404, −1.5721**: the circumferential
+radius is *decreasing* outward, so there are no two growing circles between which a distance could have
+been contracted.
+
+**Ninth measurement fault of the session, and the first to invert a headline rather than move a digit.**
+
+### H58b — but the headline stands, and only its evidence falls
+
+Swept **3.5 million points** — `a/M ∈ [0.01, 50]`, `r ∈ [0.001, 1000]`, 15 polar slices, `Δ > 0`,
+`dR_c/dr > 0`. **`C < 1` is found with `M > 0`.**
+
+| where the hits are | count |
+|---|---|
+| sub-extremal (`a < M`), **outside** the horizon | **0** |
+| sub-extremal, inside the horizon | 11,408 |
+| over-extremal (`a > M`, **no horizon at all**) | 340,612 |
+
+> **Kerr does contract with positive mass. The biconditional does fail outside static. H56's headline
+> stands.** But the contraction is **never equatorial**, sits **off-axis near the ring**, and at
+> sub-extremal spin is **never outside a horizon**.
+>
+> **The claim survives and only its evidence falls.**
+
+That is `docs/R3-REPAIR-PLAN.md`'s **A8 category** — the item that file called *the most easily
+over-repaired* — **reached from inside our own work** rather than found in the corpus.
+
+### H58c — no material body exposes it, and censorship is not needed to say so
+
+The region's outer reach obeys a scaling law measured here:
+
+> **`r_max = κ (M a²)^(1/3)`, `κ = 0.5226`** — confirmed at `a/M` = 10²…10⁶ (κ = 0.51228, 0.52892,
+> 0.53210, 0.53210, 0.52262).
+
+*Sub-extremal:* `r_max` = 0.12127, 0.26272, 0.29027, 0.29318 against `r₊` = 1.8660, 1.4359, 1.1411,
+1.0000 — **a factor of 3.41 inside even at extremality.**
+
+*Now put matter in the middle*, so nothing is naked. A body's `a = kRv` with `k = I/MR² ≤ 1` and rim
+speed `v ≤ c`, so exposure needs the body to fit inside the region:
+
+> `R < κ(M k²R²v²)^(1/3)` ⟺ **`R < κ³ M k² v² ≤ 0.14274 M`**, against Buchdahl's **`R ≥ 2.25 M`**.
+>
+> **Short by 15.8× at the theoretical extreme** — a rigid ring of all its mass at the rim, spinning at
+> the speed of light. Earth **2.97×10⁷**; PSR J1748-2446ad at 716 Hz the closest, at two orders.
+
+The shortfall is a **radius** bound, not a spin bound: `a` is *linear* in `R`, so the required region
+grows only as `R^(2/3)`.
+
+> **L1's search is answered: no. And answered without cosmic censorship for every material source** — a
+> strictly stronger closure than a conjecture-dependent one. **The exposed branch is now exactly the
+> naked-singularity branch.** The dependence went from partial to total.
+
+### H58d — and the conjecture fails where the currency is worse
+
+The conjecture is **weak** cosmic censorship — no singularity visible from infinity — **not strong**
+censorship, which is about determinism past a Cauchy horizon and has a different status.
+
+- **D = 4: open, 57 years.** Proved in spherical symmetry for a scalar field; test-body overspinning
+  succeeds and then fails under backreaction. No counterexample, no proof.
+- **D ≥ 5: known false.** Four citations **verified against the paper database in this session** —
+  arXiv:2210.13501 (reproduces and extends Lehner–Pretorius, D=5 black strings), arXiv:2411.14998 (thin
+  strings *"eventually pinch, forming a naked singularity on the horizon"*), arXiv:2011.03049
+  (violations in **D = 6 and 7 black-hole collisions**, over an **open set** of initial conditions —
+  not fine-tuned), arXiv:0907.2248 (ultraspinning instability). Five further citations are flagged
+  **memory-only**, since this session already produced one `ASSERTED-WITHOUT-ACCESS` fault.
+
+> **`solve.py` measured the static exchange amplitude to be worse in every `D > 4`, and
+> `codimension.py` showed scale-freedom picks out exactly `D = 4`.**
+>
+> **The one dimension where the conjecture is known to fail is the dimension where the currency is
+> worse.**
+
+M is right that every breakthrough starts with a conjecture, and **the true half is not the operative
+half: a conjecture is where you place a bet, not where you draw a conclusion.** We placed it, in one
+day, and it cost a headline — which is the only thing a schedulable gap was ever going to be able to
+tell us. **A project that cannot lose a result it published yesterday cannot be trusted with one it
+publishes today.**
+
+**Scorecard, updated from H57d:** five AGAINST, one STANDING, one WITHDRAWN. `threads.py` is **corrected
+here, not edited.** Nothing is repaired.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7608,6 +7608,56 @@ newest**, and it is the only one that weakened a **theorem** rather than a bound
 
 ---
 
+## `expose.py` — proceeding on the conjecture. It cost a headline on the first day.
+
+> M: *"Every breakthrough starts with a conjecture. Let's proceed."*
+
+Proceeding meant working the one gap that needs nobody's conjecture — `gaps.py`'s single **SEARCH**. The
+first thing it found was **a fault in work one day old, and the fault is mine.**
+
+**`√g_rr < 1` in Boyer–Lindquist holds in flat empty space.** Kerr at `M = 0` *is* Minkowski in oblate
+spheroidal coordinates: `g_rr = r²/(r²+a²)` = 0.200000, 0.500000, 0.800000, 0.961538 at r = 0.5, 1, 2, 5
+with **no source anywhere**. A criterion satisfied by the vacuum is not measuring the source.
+
+**The invariant measure** is proper radial distance per unit *circumferential* radius,
+`C = √g_rr ⁄ (d√g_φφ/dr)` — **1.000000000 exactly** at all four flat points, and on a static spherically
+symmetric metric `C = 1/√(1−2m/r)`, so **`C < 1` ⟺ `m < 0`, which is `certify.py`'s theorem verbatim.**
+The theorem was always a statement about `C`; `threads.py` compared the wrong quantity to 1. Its three
+cited points aren't merely wrong — `dR_c/dr` = −21.58, −3.84, −1.57 there, so **the question isn't well
+posed**: the circles are shrinking outward.
+
+**The headline survives.** 3.5 million points swept; `C < 1` **is** found with `M > 0`, so the
+biconditional does fail outside static. But: sub-extremal **outside** a horizon — **0 hits**;
+sub-extremal inside — 11,408; over-extremal, no horizon — 340,612. Never equatorial, always off-axis
+near the ring. **The claim survives and only its evidence falls** — `R3-REPAIR-PLAN`'s **A8** category,
+reached from inside our own work.
+
+**And the search closes, negative.** Measured scaling law **`r_max = κ(M a²)^(1/3)`, κ = 0.5226**.
+Sub-extremal it is **3.41× inside the horizon even at extremality**. Put *matter* in the middle — `a = kRv`,
+`k = I/MR² ≤ 1`, `v ≤ c` — and exposure needs **`R < κ³Mk²v² ≤ 0.14274 M`** against Buchdahl's
+**`R ≥ 2.25 M`**: **short by 15.8×** for a light-speed ring of pure rim mass, **2.97×10⁷** for Earth, two
+orders for the fastest known pulsar. **No material source exposes it, and that is established without
+censorship** — so the exposed branch is now *exactly* the naked-singularity branch.
+
+**The twist, and it is not in our favour.** The conjecture is **weak** cosmic censorship (not strong —
+different statement, different status). **D = 4: open, 57 years.** **D ≥ 5: known false** — four
+citations verified against the paper database this session (arXiv:2210.13501, 2411.14998, 2011.03049,
+0907.2248; five more flagged memory-only). And `solve.py` measured the rate **worse in every `D > 4`**
+while `codimension.py` picked out exactly `D = 4`.
+
+> **The one dimension where the conjecture is known to fail is the dimension where the currency is worse.**
+>
+> A conjecture is where you place a **bet**, not where you draw a **conclusion**. We placed it, in one
+> day, and it cost a headline. A project that cannot lose a result it published yesterday cannot be
+> trusted with one it publishes today.
+
+### Seated
+- `expose.py` — new. `index3.py` — **573 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H58**. `threads.py` — **corrected here, file unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
