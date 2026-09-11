@@ -250,7 +250,48 @@ def any_escape_stays_in_gr():
 
 
 THROAT_BUYS = "geometry, not permission"
-SCOPE_CHOSEN_HERE = None                  # M's constraint, M's decision
+
+# ---------------------------------------------------------------------------
+# THE SCOPE DECISION, MADE.  2026-09-11.
+#
+# This flag was None from the day this file was written, and asserted None in
+# its own selftest so that nobody -- me included -- could resolve it quietly by
+# letting an instrument drift into modified gravity and calling the result
+# proven.  gaps.py classified it as the SINGLE DECISION-grade gap in the whole
+# census: the one gap that was not a computation, a search or a conjecture, and
+# the only one that was M's rather than anyone's to calculate.
+#
+# THREE ASSERTIONS IN A ROW LANDED ON IT before it was made:
+#   orient.py     black bounces as VACUUM solutions of metric theories in four
+#                 and higher dimensions (arXiv:2608.02771) -- a throat inside a
+#                 horizon with NO exotic matter, but not in GR
+#   emtension.py  a black bounce sourced by NON-MINIMALLY COUPLED linear
+#                 electrodynamics (arXiv:2608.08208) -- xi =/= 0 is the one
+#                 published route past w = 1, and non-minimal is outside GR
+#   emtension.py  and the reason: linear minimally-coupled EM is PINNED at
+#                 w = 1 by a symmetry, so nothing inside GR can cross it
+#
+# M CHOSE.  MODIFIED GRAVITY COUNTS.
+#
+# WHAT THAT DOES AND DOES NOT DO, because a decision is not a result:
+#   IT DOES     turn the corridor from a PROHIBITION into a BILL.  Inside GR
+#               certify.py's m < 0 is a theorem and expose.py found no exposed
+#               positive-mass instance in 3.5e6 sampled points; outside GR the
+#               same geometry is a vacuum solution and there is no exotic
+#               matter to buy.  The question becomes what CONSTRUCTION costs,
+#               and nobody has computed that.
+#   IT DOES NOT make anything proven.  Every result derived under this scope
+#               is CONDITIONAL ON IT and must say so.  A scope choice is a
+#               declaration about what will be argued, not evidence.
+#   IT DOES NOT retroactively license anything already recorded.  Findings
+#               seated before this date were derived in GR and stay GR.
+# ---------------------------------------------------------------------------
+SCOPE_CHOSEN_HERE   = "modified gravity counts"   # M's constraint, M's decision
+SCOPE_CHOSEN_BY     = "M"
+SCOPE_CHOSEN_ON     = "2026-09-11"
+SCOPE_IS_A_RESULT   = False    # a declaration about what will be argued
+RESULTS_UNDER_SCOPE_ARE_CONDITIONAL = True
+SCOPE_LICENSES_EARLIER_FINDINGS     = False
 
 
 # ------------------------------------------------------------------ selftest
@@ -315,7 +356,12 @@ def selftest():
     for n, in_gr, why in ESCAPES:
         print("      %-24s in GR: %-5s %s" % (n, in_gr, why[:34]))
     chk("any escape stays inside GR", any_escape_stays_in_gr(), False)
-    chk("this file chooses the scope", SCOPE_CHOSEN_HERE, None)
+    chk("the scope is now CHOSEN", SCOPE_CHOSEN_HERE, "modified gravity counts")
+    chk("  by whom", SCOPE_CHOSEN_BY, "M")
+    chk("  and when", SCOPE_CHOSEN_ON, "2026-09-11")
+    chk("  a choice is not a result", SCOPE_IS_A_RESULT, False)
+    chk("  results under it are CONDITIONAL", RESULTS_UNDER_SCOPE_ARE_CONDITIONAL, True)
+    chk("  and it licenses nothing already seated", SCOPE_LICENSES_EARLIER_FINDINGS, False)
     chk("within classical GR the throat buys", THROAT_BUYS, "geometry, not permission")
 
     print("\n  SELFTEST " + ("OK" if ok else "FAILED"))

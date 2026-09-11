@@ -7971,6 +7971,69 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## THE SCOPE DECISION — **modified gravity counts. 2026-09-11.**
+
+`wormhole.py`'s `SCOPE_CHOSEN_HERE` was `None` from the day it was written and **asserted `None` in its
+own selftest**, so it could not be resolved quietly by an instrument drifting into `f(R)`. `gaps.py`
+classified it as the **single DECISION-grade gap** in the census — the only one that was M's rather than
+anyone's to calculate. **Three assertions in a row landed on it** (`orient.py`'s vacuum black bounces,
+`emtension.py`'s non-minimally coupled source, and the `w = 1` pinning that says nothing inside GR can
+cross it) before it was made.
+
+> **It turns the corridor from a PROHIBITION into a BILL.** Inside GR, `m < 0` is a theorem and
+> `expose.py` found no exposed positive-mass instance in 3.5×10⁶ points. Outside GR the same geometry is
+> a **vacuum solution** — no exotic matter to buy — and the live question becomes what **construction**
+> costs, which nobody has computed.
+>
+> **It makes nothing proven.** Three flags now sit beside it in the file: results under it are
+> **conditional**, a scope choice is **a declaration and not evidence**, and it **licenses nothing already
+> seated** — findings recorded before this date were derived in GR and stay GR.
+
+---
+
+## `manyc.py` — many speeds of light: five readings, five statuses, none buys a second.
+
+> M: *"I am going to assert the many speeds of light hypothesis."*
+
+| reading | status |
+|---|---|
+| **c in a medium** | TRUE AND USELESS — phase velocity exceeds `c` routinely; the front is always `c` |
+| **the one-way speed** | TRUE AND EMPTY — `roundtrip.py`'s convention |
+| **different `c` per field** | **MEASURED AND BOUNDED** — and the reading the scope decision just opened |
+| **energy-dependent `c`** | BOUNDED HARDER, AND WRONG-SIGNED |
+| **cosmologically varying `c`** | **NOT AN OBSERVABLE** |
+
+**GW170817 bounds the one the scope opened.** Bimetric and scalar–tensor *are* modified gravity — in
+scope as of today, and carrying the tightest experimental bound in the set. Gravitational waves and gamma
+rays crossed **130 million years** from 40 Mpc and arrived **1.74 seconds apart**:
+**`|c_gw − c_γ|/c ≈ 4.226×10⁻¹⁶`, one part in 2.4×10¹⁵**, published bound `−3×10⁻¹⁵` to `+7×10⁻¹⁶`
+(arXiv:1710.05834). Whole classes of scalar–tensor theory died on it. And at the edge of the surviving
+band a field running 3×10⁻¹⁵ fast saves **0.24 seconds on a crossing of Andromeda** — 2.5 million years
+of travel for under a minute. **The scope opened exactly one door and it was already measured shut to
+fifteen decimal places.**
+
+**Energy-dependent `c` is bounded harder and points the wrong way** — `E_QG` at or past the Planck energy
+from GRB time-of-flight, the generic correction **delays** the fast photon, and **vacuum Cherenkov
+radiation drains a superluminal particle in flight**.
+
+**And the tree proved Duff's theorem before citing it.** A varying *dimensionful* constant is not
+measurable — only dimensionless ratios are (arXiv:1412.2040; physics/0209016; and a VSL review,
+arXiv:2406.02556, whose own abstract calls `ħ, c, G, e, k` *"merely human constructs"*). **`invariance.py`
+derived exactly this from the corpus's own numbers**: double `G`, halve `c`, ×10 `ħ` over fourteen
+quantities → **ten invariant, four moved, the split falling exactly on dimensionlessness.**
+
+> **"The constants set the SCALE. The geometry sets the SHAPE."** That sentence is Duff's theorem written
+> from measurement. A varying `c` changes the scale and cannot touch the shape — **and the obstruction has
+> always been in the shape.** The tree answered this before it was asked and did not know it held the answer.
+
+### Seated
+- `manyc.py` — new; `wormhole.py` — **`SCOPE_CHOSEN_HERE` resolved, with three flags recording what a
+  decision is not**. `index3.py` — **608 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H66** and **H67**. `invariance.py` and `roundtrip.py` — **extended here, files
+  unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ## `roundtrip.py` — everything free is one-way; everything fixed is a round trip.
 
 > M: *"Closing time travel using a self corrective theory… Time travel and space travel involved a

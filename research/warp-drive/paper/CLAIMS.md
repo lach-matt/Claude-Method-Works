@@ -4926,6 +4926,106 @@ and the detectors are getting cheaper**, and both are worth recording.
 
 ---
 
+## ★★★ H66 — the scope decision. **Modified gravity counts. 2026-09-11.**
+
+`wormhole.py`'s `SCOPE_CHOSEN_HERE` was `None` from the day the file was written, and **asserted `None`
+in its own selftest** so nobody — me included — could resolve it quietly by letting an instrument drift
+into `f(R)` and calling the result proven. **H57b** classified it as the single **DECISION**-grade gap in
+the census: not a computation, not a search, not a conjecture, and the only one that was M's.
+
+**Three assertions in a row landed on it before it was made:**
+
+| | |
+|---|---|
+| **H60d** | black bounces as **vacuum** solutions of metric theories (arXiv:2608.02771) — a throat inside a horizon with no exotic matter, but not in GR |
+| **H61d** | one sourced by **non-minimally coupled** linear electrodynamics (arXiv:2608.08208) |
+| **H61d** | and the reason — linear minimally-coupled EM is **pinned at `w = 1` by a symmetry**, so nothing inside GR can cross it |
+
+> **M chose. Modified gravity counts.**
+
+**What it does:** turns the corridor from a **prohibition** into a **bill**. Inside GR, `m < 0` is a
+theorem (**H40d**) and **H58c** found no exposed positive-mass instance in 3.5×10⁶ points. Outside GR the
+same geometry is a *vacuum solution* — no exotic matter to buy — and the question becomes what
+**construction** costs, which nobody has computed.
+
+**What it does not do**, recorded as three explicit flags in the file: it makes **nothing proven** — every
+result under it is **conditional on it** and must say so; **a scope choice is a declaration about what
+will be argued, not evidence**; and it **licenses nothing already seated** — findings recorded before this
+date were derived in GR and stay GR.
+
+---
+
+## ★★★ H67 — many speeds of light. **Five readings, five statuses, and none of them buys a second.**
+
+> M: *"I am going to assert the many speeds of light hypothesis."*
+
+| # | reading | status |
+|---|---|---|
+| 1 | **c in a medium** | **TRUE AND USELESS** — phase velocity exceeds `c` routinely; neither phase nor group velocity signals, and the front is always `c` |
+| 2 | **the one-way speed** | **TRUE AND EMPTY** — **H65c**, a convention settable anywhere in (0, ∞), round trip invariant regardless |
+| 3 | **different `c` per field** | **MEASURED AND BOUNDED** — and **the reading H66 just put in scope** |
+| 4 | **energy-dependent `c`** | **BOUNDED HARDER, AND WRONG-SIGNED** |
+| 5 | **cosmologically varying `c`** | **NOT AN OBSERVABLE** |
+
+**The verdict was never the interesting part. The five reasons differing is.**
+
+### H67a — GW170817 bounds the one reading the scope opened
+
+Bimetric and scalar–tensor theories with `c_gw ≠ c_γ` **are** modified gravity. Yesterday out of scope;
+today in it — **and they carry the tightest experimental bound in the whole set.**
+
+> Binary neutron star merger, 40 Mpc. Gravitational waves and gamma rays crossed **130 million years**
+> and arrived **1.74 seconds apart**.
+>
+> **`|c_gw − c_γ|/c ≈ 4.226×10⁻¹⁶` — agreeing to one part in 2.4×10¹⁵.**
+> Published two-sided bound: `−3×10⁻¹⁵ ≤ (v_gw − c)/c ≤ +7×10⁻¹⁶` (arXiv:1710.05834, verified this session).
+
+**Whole classes of scalar–tensor theory died on that one measurement.** And at the very edge of the
+surviving band:
+
+| target | light time | time saved at 3×10⁻¹⁵ |
+|---|---|---|
+| Proxima | 4.2460 yr | 4.02×10⁻⁷ s |
+| Galactic centre | 26000 yr | 2.46×10⁻³ s |
+| **Andromeda** | **2.5×10⁶ yr** | **0.24 s** |
+
+> **Two and a half million years of travel to save under a minute** — and that is the *entire budget* the
+> tightest surviving reading has. **The scope decision opened exactly one door, and the door was already
+> measured shut to fifteen decimal places.**
+
+### H67b — energy-dependent `c` is bounded harder and points the wrong way
+
+Linear LIV pushes `E_QG` to or past `E_Planck = 1.22×10¹⁹` GeV via GRB time-of-flight (arXiv:2402.06009,
+LHAASO on GRB 221009A). **And the generic sign is a delay, not an advance** — subluminal is the ordinary
+correction. Superluminal ones carry an extra penalty: **vacuum Cherenkov radiation drains a superluminal
+particle in flight**, so the property that would make it useful is the property that stops it arriving.
+
+### H67c — and the tree proved Duff's theorem before citing it
+
+A varying **dimensionful** constant is not a measurable quantity. `c`, `G`, `ħ` are unit conventions; only
+dimensionless ratios can be observed to change. Verified this session: **arXiv:1412.2040** (Duff — *"the
+laws of physics should be independent of one's choice of units… framed in terms of dimensionless numbers
+such as the fine structure constant"*), **arXiv:physics/0209016** (*"only dimensionless fundamental
+constants"* have experimental consequences), and **arXiv:2406.02556** — a *varying-speed-of-light review*
+whose own abstract concedes that `ħ, c, G, e, k` are *"merely human constructs whose values and units vary
+depending on the chosen system of measurement."*
+
+**And H56'/`invariance.py` derived it from the corpus's own numbers before anyone here had read Duff.**
+Double `G`, halve `c`, multiply `ħ` by ten, over **fourteen** quantities:
+
+> **Ten invariant. Four moved. The split falls exactly on dimensionlessness** — every dimensionless row
+> untouched, every dimensionful row moved, no exceptions.
+>
+> **"The constants set the SCALE. The geometry sets the SHAPE."**
+
+**That sentence is Duff's theorem, written from measurement rather than citation.** A varying `c` changes
+the scale and cannot touch the shape — **and the obstruction has always been in the shape.** `invariance.py`
+said exactly that in its own conclusion, and nobody read it as a bound on varying-`c` models, because
+nobody had asserted one yet. **The tree answered this question before it was asked and did not know it
+held the answer.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
