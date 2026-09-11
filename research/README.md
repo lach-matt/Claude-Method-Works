@@ -7337,6 +7337,36 @@ stated.**
 
 ---
 
+## `zeno.py` — the paradox solved. The gap closes; the bill does not.
+
+> M: *"This is the Zeno paradox… the answer we have been chasing is solving for 0."* · *"the only place where
+> zero can be present… Binary."*
+
+**The gap genuinely closes.** `L√m` is constant at **1332.86** across four decades, so `L ~ m^{−1/2}` and each
+hundredfold in mass **halves** the remaining distance. A residual `ε` costs `m ~ 1/ε²`.
+
+> **And Zeno's resolution does not transfer.** His cost series **converges** — `Σ2⁻ⁿ = 1`, infinite steps with
+> a finite total, so he arrives. Ours **diverges**: 10², 10⁴, 10⁶, 10⁸ … every decade a hundred times the
+> last. **Infinite steps with finite cost, versus infinite steps with infinite cost.** The paradox is not the
+> obstacle — **the divergence is.**
+
+**And the zero does live in the binary, exactly as claimed.** `2(1−cos θ)²` runs **0 → 2 → 8** over
+parallel → orthogonal → antiparallel: **range exactly `[0, 8]`**, zero at the parallel end of a binary.
+
+> **But it is the floor of that range, not a gate through it.** `V·V ≥ 0` is a **sum of squares** — the curve
+> touches zero and turns back. And this project needs `m(r) < 0`, the **far side**. **Solving FOR zero is
+> achievable; solving THROUGH zero is what is required, and a square does not go negative.**
+>
+> The right object, in the right place — **and the object is a boundary rather than a door.** The tree
+> already holds the configuration (`ZERO-SEPARATION-IS-ONE-FACT`) and already knows what its zero buys: no
+> dipole, so no runaway and nothing to see. **Real, and the wrong thing.**
+
+### Seated
+- `zeno.py` — new. `index3.py` — **554 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H50**. `lattice.py`, `bisector.py` — **unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

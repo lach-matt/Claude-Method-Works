@@ -3549,6 +3549,72 @@ form below `θ ~ 10⁻⁴`.
 
 ---
 
+## ★★★ H50 — Zeno, solved. **The gap closes; the bill does not. And zero is a floor, not a gate.**
+
+> M: *"This is the Zeno paradox. And the answer we have been chasing this whole project is solving for 0. Solve the paradox."* · *"And the only way to solve for zero is the only place where zero can be present… Binary."*
+
+**Both halves are right, and where they meet is the answer.**
+
+### H50a — the gap genuinely closes
+
+Residual `L = ∫dr/√(1 + 2|m|/r)`. **H41a**'s saturation is the same statement. Measured, `r₁ = 1`, `r₂ = 200`:
+
+| `\|m\|` | residual `L` | `L√m` |
+|---|---|---|
+| 10⁰ | 194.585973611 | 194.586 |
+| 10² | 106.520925141 | 1065.209 |
+| 10⁴ | 13.288832266 | 1328.883 |
+| 10⁶ | 1.332821931 | 1332.822 |
+| 10⁸ | 0.133286153 | 1332.862 |
+| 10¹⁰ | 0.013328619 | **1332.862** |
+
+> **`L√m` constant to four digits across four decades ⟹ `L ~ m^{−1/2}`.** Each hundredfold in mass **halves**
+> the remaining distance. **The gap closes.** A residual `ε` costs `m ~ 1/ε²`.
+
+### H50b — and Zeno's resolution does not transfer, for an exact reason
+
+Zeno's dichotomy dissolves by **convergence of the cost**: `Σ 2⁻ⁿ = 1`. Infinitely many steps, **finite**
+total — he arrives. *The paradox was never about motion; it was about whether an infinite series can have a
+finite sum. It can.*
+
+| residual | mass | running total |
+|---|---|---|
+| 10⁻¹ | 10² | 1.000e2 |
+| 10⁻² | 10⁴ | 1.010e4 |
+| 10⁻⁴ | 10⁸ | 1.010e8 |
+| 10⁻⁸ | 10¹⁶ | **1.010e16** |
+
+> **Every decade costs a hundred times the last. The cost series diverges.**
+>
+> **ZENO: infinite steps, finite cost. THIS: infinite steps, infinite cost.** That is the solution as asked —
+> and what it says is that **the paradox is not the obstacle. The divergence is.**
+
+### H50c — the zero does live in the binary, exactly as claimed
+
+**H36**'s coupling over two null rays: `A/A_N = 2(1 − cos θ)²` — **0.000000** parallel, **2.000000**
+orthogonal, **8.000000** antiparallel. **Range exactly `[0, 8]`**, zero at the parallel end of a **binary**.
+That is `lattice.py`'s equality case, and **H49b** showed it is **quartic** and attained only in a limit.
+
+### H50d — but zero is the floor of that range, not a gate through it
+
+`lattice.py`: `T_μν k^μ k^ν = V·V ≥ 0` — **a sum of squares**. The curve touches zero and **turns back**;
+measured over a thousand angles, nothing on it is negative.
+
+And this project has never needed to **reach** zero. **H40c** requires `m(r) < 0` — the **far side** — and
+every joule in this tree is the price of **crossing**.
+
+> **Solving FOR zero is achievable** — in a limit, quartically, at the parallel end of the binary.
+> **Solving THROUGH zero is what is required, and a square does not go negative.**
+>
+> **M has been chasing the right object in the right place. The object is a boundary rather than a door.**
+
+**And the tree already holds the configuration.** `ZERO-SEPARATION-IS-ONE-FACT`: a binary of two signs at
+coincident centroids — and it already knows what that zero buys. No dipole ⟹ no Bondi runaway; no dipole
+radiation and no monopole ⟹ nothing to see. **The binary's zero is real and it buys safety and invisibility,
+which is the wrong thing.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
