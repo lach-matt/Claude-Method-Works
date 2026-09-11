@@ -27,7 +27,7 @@ design, imported) so the $117/MWh is tested rather than kept.
 | R-02 | receiver wind and convective loss | MAJOR | MODERATE | HOURS | receiver spec; aperture element spec (compound quartz aperture: hex low-OH rod-lens dome, adopted 2026-09-11); aperture cooling loop (hollow-web frame manifold at the cold ends, preheat tie-in); tower count |
 | R-03 | particle-to-sCO₂ heat exchanger, 800 °C / 250 bar | MAJOR | MODERATE | HOURS | power block; N+1 spares; working-fluid fill (CO₂ stays, blend optional for hot-ambient dry cooling; adopted 2026-09-11) |
 | R-04 | sCO₂ turbomachinery at 715 °C | MAJOR | MODERATE | HOURS | 740H hot path; many small units; materials spec: 740H boundary at 110 °C margin, single-crystal rotor, no ceramic in the CO₂ path (adopted 2026-09-11) |
-| R-05 | CO₂ inventory release | MODERATE | MINOR | DESIGN | site layout; sensors, dump tanks, per-module inventory |
+| R-05 | CO₂ inventory release | MODERATE | MINOR | DESIGN | site layout; sensors, dump tanks, per-module inventory (adopted as it stands 2026-09-11; the desalination brine is a carbonate sink for maintenance vents only, tonnes a year against a release of tonnes a minute, and is noted for Title III, not here) |
 | R-06 | 250 bar / 715 °C containment | MODERATE | MINOR | DESIGN | 740H under ASME code |
 | R-07 | silo heat loss, ratcheting at 800 °C | MODERATE | MINOR | DESIGN | refractory-lined large silos |
 | R-08 | bauxite chemistry in air over decades | MODERATE | MODERATE | HOURS | rejuvenation; silo atmosphere |

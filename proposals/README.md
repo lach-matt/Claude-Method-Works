@@ -104,3 +104,11 @@ nothing in `FLAWS.tsv` is deleted. The same standard as `papers/` applies once
 the instruments exist: every figure in the proposal is computed, carries a
 status, and fails a harness if the prose states a number the model does not
 produce.
+
+## Title III joinder items (noted, not yet worked)
+
+- **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
+  precipitates carbonates permanently. A disposal route for the power block's maintenance
+  vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release
+  mitigation (`helios3.py` R-05): a loop empties in a minute and CO₂ dissolves at ~1.5 g/L,
+  and the coastal modules are far from the inland nodes. Noted 2026-09-11.
