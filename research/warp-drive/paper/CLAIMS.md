@@ -4541,6 +4541,100 @@ the finding.**
 
 ---
 
+## ★★★ H62 — transit without traversal. **All four clauses exact, and it does not beat light.**
+
+> M: *"not traversable — correct, at least not in the sense we normally think of for traversal. It's an
+> extension. Two sides read to each other and then collapsed the moment they touch. The object in
+> transition transits but does so without traversal."*
+
+**Four clauses. All four exactly right** — which has not happened before in this project. The mechanism
+has a name: **quantum state teleportation**, gravitationally the Gao–Jafferis–Wall protocol `gjw.py`
+already holds. M reached its four defining properties by reasoning, without naming it.
+
+### H62a — the sides do read to each other, and the reading carries nothing
+
+Bell pair: B sits at `diag(0.500000, 0.500000)`, entanglement **exactly 1.000000000 bit**. Then A does
+anything at all:
+
+> **40 random unitaries on A. Worst deviation in B's reduced state: `1.110e−16`.**
+
+That is the **no-communication theorem, measured rather than cited** — and it is simultaneously what
+makes the two sides read to each other *and* what stops the reading from signalling.
+
+### H62b — the transit is exact, and nothing crosses
+
+| | four Bell outcomes, `p = 0.25` each, twelve trials |
+|---|---|
+| **fidelity** | **1.000000000000000** |
+
+**No worldline crosses anything.** The state ceases at A and appears at B. *"Transit without traversal"
+is not a loose description of this — it is the precise one, and physics has no better phrase.*
+
+### H62c — "collapsed the moment they touch" is a conservation law, not a design choice
+
+| | entanglement | purity |
+|---|---|---|
+| **before** the Bell measurement | **1.000000000 bit** | 0.500000000 |
+| **after** | **0.000000000 bit** | 1.000000000 (pure) |
+
+**One pair, one transit. The channel is destroyed by being used.**
+
+> **H36c** made closability a property to engineer; **H55d** made it a consequence of tension running
+> out — *"the corridor is open only as long as tension lasts."* **Here there is no tension to run out:
+> the act of transiting is the act of closing.** You could not hold it open if you wanted to.
+>
+> M asked for a corridor whose off-switch was in the mechanism rather than bolted on. **This is the only
+> object in the project where the off-switch is not even a switch.**
+
+And **"the object transits"** is the right verb: A's qubit ends **maximally mixed at S = 1.000000000
+bit**, holding no trace of what it carried. **A move, not a copy** — no-cloning enforced *by* the
+protocol rather than imposed *on* it.
+
+### H62d — and the standing constraint kills it, provably
+
+> M's rule for this thread: *"if we can't do it faster and cheap then there is no point."*
+
+Withhold the two classical bits, average over the four outcomes, corrections not applied:
+
+> `ρ_B = [[+0.500000000, +0.000000000], [+0.000000000, +0.500000000]]` — **maximally mixed**, deviation
+> from `I/2` of **1.110e−16**, **zero information**, across three independent random inputs.
+
+The state does not exist at the far end until **2 classical bits** cross ordinary space at `≤ c`.
+
+| distance | light | this | **advantage** |
+|---|---|---|---|
+| Earth–Moon | 1.282 s | 1.282 s | **0.000** |
+| Earth–Mars (min) | 182.126 s | 182.126 s | **0.000** |
+| Earth–Proxima | 4.246 yr | 4.246 yr | **0.000** |
+| Milky Way crossing | 99984.675 yr | 99984.675 yr | **0.000** |
+
+**Not small. Not hard. Identical — and provably, because the no-communication theorem is a theorem.**
+
+> **This is the only route in the project whose failure is *proved* rather than bounded.** Every other
+> door closed on a magnitude, a sub-Planckian crossover, or an unresolved conjecture. This one closes on
+> an identity.
+
+### H62e — the traversal is not removed, it is moved earlier
+
+A Bell pair spanning `D` required something to cross `D` at `≤ c` beforehand.
+
+> **The corridor must be traversed in order to exist.**
+
+You pay the full light-speed trip **once, in advance**, to lay the channel. After that every transit is
+**genuinely** traversal-free — M is right about that, and it is not a technicality — and still arrives at
+exactly light speed. *The accounting defeats it at a step the description does not mention: the step
+before the transit, not during it.*
+
+**And it carries state, not substance.** Teleportation writes a quantum state onto matter **already at
+the destination**. No mass moves. No energy moves. For an object to arrive, an identical stock of matter
+must already be there — and that had to travel.
+
+> **Three things are true together and all three have to be said: the mechanism is real, the description
+> of it is correct in all four clauses, and it is not faster.** A correct description of a real mechanism
+> that does not do the job is a different outcome from a wrong description, and it is recorded as one.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

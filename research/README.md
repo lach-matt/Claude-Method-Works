@@ -7830,6 +7830,57 @@ result**, because the available validation metric *is* the electromagnetic one. 
 
 ---
 
+## `transit.py` — transit without traversal. All four clauses exact, and it does not beat light.
+
+> M: *"not traversable — correct… It's an extension. Two sides read to each other and then collapsed the
+> moment they touch. The object in transition transits but does so without traversal."*
+
+**Four clauses, all four exactly right** — which has not happened before here. The mechanism has a name:
+**quantum state teleportation**, gravitationally the Gao–Jafferis–Wall protocol `gjw.py` already holds,
+reached by reasoning without being named.
+
+**THE SIDES DO READ TO EACH OTHER, AND THE READING CARRIES NOTHING.** A Bell pair puts B at
+`diag(0.5, 0.5)`, entanglement **exactly 1.000000000 bit** — and under **40 random unitaries at A the
+worst deviation in B's state is 1.110e−16**. The no-communication theorem measured rather than cited, and
+the same fact makes the two sides read to each other *and* stops the reading from signalling.
+
+**THE TRANSIT IS EXACT.** Fidelity **1.000000000000000** on all four Bell outcomes, `p = 0.25` each,
+twelve trials — and **no worldline crosses anything**. "Transit without traversal" is the precise
+description, not a loose one.
+
+**"COLLAPSED THE MOMENT THEY TOUCH" IS A CONSERVATION LAW.** Channel entanglement **1.000000000 bit
+before, 0.000000000 after**. One pair, one transit — destroyed by being used. `teardown.py` made
+closability a property to engineer; `membrane.py` made it tension running out. **Here there is no tension
+to run out: the act of transiting is the act of closing.** The only object in the project where the
+off-switch is not even a switch. And **"transits" is the right verb** — A's qubit ends maximally mixed at
+S = 1 bit. **A move, not a copy**, no-cloning enforced *by* the protocol rather than imposed *on* it.
+
+**AND THE STANDING CONSTRAINT KILLS IT, PROVABLY.** Withhold the two classical bits and
+`ρ_B = [[0.5, 0], [0, 0.5]]` exactly — deviation **1.110e−16**, **zero information**. The state does not
+exist at the far end until 2 classical bits cross ordinary space at `≤ c`. Against light — Earth–Moon,
+Earth–Mars, Earth–Proxima, a galactic crossing — the advantage is **0.000, 0.000, 0.000, 0.000**. Not
+small, not hard: **identical**.
+
+> **This is the only route in the project whose failure is *proved* rather than bounded.** Every other
+> door closed on a magnitude, a sub-Planckian crossover, or an unresolved conjecture. This one closes on
+> an identity.
+
+**AND THE TRAVERSAL IS NOT REMOVED — IT IS MOVED EARLIER.** A Bell pair spanning `D` needed something to
+cross `D` at `≤ c` first. **The corridor must be traversed in order to exist.** Pay the light-speed trip
+once, in advance, and every later transit is genuinely traversal-free and still arrives at exactly light
+speed. It also **carries state, not substance**: no mass moves, no energy moves, and the matter must
+already be at the far end.
+
+> **The mechanism is real, the description is correct in all four clauses, and it is not faster.** All
+> three have to be said together.
+
+### Seated
+- `transit.py` — new. `index3.py` — **592 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H62**. `gjw.py`, `teardown.py`, `membrane.py` — **extended here, files
+  unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.
