@@ -234,6 +234,27 @@ papers carry the closure beside the finding rather than in place of it, and what
 condition on the bound case is the **density**. **Docket C-8 stays open**: it closes only by seating a member, which would write to
 `method/`. See `papers/README.md`.
 
+**`proposals/` holds the California policy proposals, and is the one tree here that is neither physics
+paper, mirror nor generated.** `California_Sovereign_Infrastructure_v0.1.md` is the **as-submitted merge**
+of the author's two Drive documents — Title I energy (Program Helios-1M, 5,250 MWe of salt-tower CSP
+across three desert nodes), Title II water (Aqua-Sovereign, 50,000 AFY brownfield desalination modules),
+Title III joinder reserved — with **no figure altered**, so every repair is a diff against it.
+`FLAWS.tsv` is the adversarial review: **40 flaws** graded FATAL / CRITICAL / MAJOR / MINOR, each with the
+claim as written, why it fails, what settles it, a status and a resolution. Four decisions are recorded
+in its README (one program, two projects, severable; nitrate salt stays and chloride chemistry is
+excluded everywhere; Noor III-class heliostats on 36 towers; ZLD dropped and brine returned through the
+existing outfall). The flaws are worked **one at a time, in register order**, each by an instrument where
+numerical. **`tools/helios.py`** resolved the first two: the plant **exactly as specified** makes
+**19.2 TWh net a year (CF 0.486)** against **39.6 TWh sold** — after the 3,000 MW in-state promise it is
+**7.0 TWh short, so the export that funds the program is not overstated, it is negative** — and all of it
+sold at the 2024 CAISO shape earns **$693 M against a $1,933 M carrying cost**; only the $350/MWh peak
+case clears it, by selling every MWh at 2.4× the highest 2024 monthly hour-ending-20 price. The hourly
+shape is **reconstructed** from exact solar geometry and pinned to sourced annual DNI and sourced price
+anchors, because NREL, CAISO and CPUC are blocked at this environment's egress proxy; the selftest asserts
+the annual energy moves under 5 % when the shape is changed. No commercial salt tower has delivered its
+design output (Gemasolar 0.73, Crescent Dunes 0.39), and the model still flatters that record. See
+`docs/HELIOS.md` and `proposals/README.md`.
+
 **`tools/coverage.py` measures the other direction — what the corpus names but the repo lacks.**
 1,005 artefact names in the two live bundles: **813 held**, 15 held only under a figure's pre-rename
 source name, 162 reachable in the chat export, 11 with a body there, and **4 absent** — and those
