@@ -67,7 +67,11 @@ the evening peak after sunset in any month, and December loses a third of its lo
 a quarter of its field. Closing it takes **block ×1.5 with its store, a second day of store, and field
 ×2**; the heater and PV overbuild were never the lever. **+$60/MWh at mid, +$100 at critical — about
 $185 and $302/MWh** to serve the whole load from the plant alone. Re-basing Title I on that sizing, or
-serving December from something other than December's sun, is the author's decision.
+serving December from something other than December's sun, is the author's decision. The author's
+objection — California's deserts keep their winter sun — was checked: the model already gives the
+desert nodes 0.77–0.79 of their annual-mean DNI in December, above the ~0.65 of the desert record;
+December is short on hours and angle, not clouds, and moving the Central Valley node to the desert
+is worth two points of service and does not change the closing sizing.
 
 ## Resolved so far
 

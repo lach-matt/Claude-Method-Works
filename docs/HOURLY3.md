@@ -66,6 +66,20 @@ price, Helios-3 serving its whole load hour by hour is about **$185/MWh at mid a
 critical** ($1,117 and $1,822 per household against $1,177 today). The scan is coarse (steps
 of 0.5 on the block and field); a finer one would shave the figure and not change its kind.
 
+## Is the model's winter too harsh for California?
+
+The author asked (2026-09-11): California's winters still get dominant sunlight in half the
+state. Checked: the model's December DNI per day is **0.77–0.79 of the annual mean at the two
+desert nodes** (5.9 kWh/m²/day) and 0.76 at the Central Valley node. The desert record is
+about 0.65 (Daggett's TMY3 has roughly 5 kWh/m²/day in December on a 7.67 annual — recalled,
+to be verified when NREL is reachable), so the model gives the deserts *more* December sun
+than measured, not less. What December lacks is not clouds but hours and angle: 10 h of day
+against 14, a low sun, and 14 h of night to serve from the store, against a load that is 92 %
+of its annual mean. The one place the model is too kind is the Central Valley node, whose
+tule fog is not in the series. Moving that node to a desert site (`siting()`) lifts service
+from 0.839 to 0.856 and December's shortfall from 0.357 to 0.319, and the closing sizing is
+unchanged. **Siting is worth two points; it is not the winter.**
+
 ## What it does not do
 
 The load and PV shapes are reconstructed; a measured CAISO residential profile and an NSRDB

@@ -267,6 +267,37 @@ def close(case, target, scanned=None):
 
 MONTHS = ("", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
+# --- the author's question (2026-09-11): "this is California -- our winters
+# still get dominant sunlight depending on where in the state we are." So:
+# how much December sun does the model give each node, and what does moving
+# the one non-desert node to the desert do?
+DESERT_NODE = ("Mojave-2 (Blythe / Ivanpah class)", 34.6, -114.6, 15.2e6, 1750.0, 65728.0,
+               2750.0, "ASSUMED: desert class, NSRDB 7.3-7.8 kWh/m2/day")
+DAY_LENGTH_H = {"Dec": 10, "Jun": 14}      # Mojave, from helios.py's geometry     exact
+
+
+def december_ratio(node):
+    """Model December DNI per day / annual mean per day, at a node."""
+    _n, lat, lon, _a, _g, _s, annual, _st = node
+    dni = H.dni_series(lat, lon, annual)
+    dec = sum(dni[i] for i in range(8760) if H.month_of(i // 24 + 1) == 12) / 31.0
+    return dec / (sum(dni) / 365.0)
+
+
+def siting(case="mid"):
+    """The plant with the Central Valley node moved to a desert site."""
+    d = C.design("helios3", case)
+    orig = H.NODES
+    try:
+        H.NODES = (orig[0], orig[1], DESERT_NODE)
+        _SERIES.clear()
+        base = run(case, design=d)
+        closed = run(case, 1.0, 1.0, 1.5, 2.0, 2.0, design=d)
+    finally:
+        H.NODES = orig
+        _SERIES.clear()
+    return base, closed
+
 
 def report(do_close=True):
     print()
@@ -308,6 +339,23 @@ def report(do_close=True):
     print()
     jul = runs["mid"]["month_unserved"][7] / runs["mid"]["month_load"][7]
     ptm = max(load_series(runs["mid"]["design"]["e_twh"])) / (runs["mid"]["load"] / 8760.0)
+    print()
+    print("    IS THE MODEL'S WINTER TOO HARSH FOR CALIFORNIA? December DNI per day as a")
+    print("    share of the annual mean, by node (helios.py's reconstructed series):")
+    for node in H.NODES:
+        print(f"      {node[0]:<32} {december_ratio(node):.2f}")
+    print(f"    The desert record is about 0.65 (Daggett TMY3: ~5 kWh/m2/day in December on")
+    print(f"    7.67 annual -- RECALLED, to be verified). The model gives the deserts MORE")
+    print(f"    December sun than that, not less. What December lacks is not clouds but")
+    print(f"    hours and angle: {DAY_LENGTH_H['Dec']} h of day against {DAY_LENGTH_H['Jun']}, a low sun, and {24 - DAY_LENGTH_H['Dec']} h of")
+    print("    night to serve from the store. The Central Valley node is the one place")
+    print("    the model is too kind (tule fog is not in the series).")
+    sb, sc = siting("mid")
+    print(f"    Moving that node to a desert site: served {runs['mid']['served_frac']:.3f} -> {sb['served_frac']:.3f},")
+    print(f"    December unserved {runs['mid']['month_unserved'][12] / runs['mid']['month_load'][12]:.3f} -> {sb['month_unserved'][12] / sb['month_load'][12]:.3f}; the closing sizing is unchanged")
+    print(f"    (block x1.5, store 2 d, field x2 -> unserved {1 - sc['served_frac']:.4f}). Siting is worth two")
+    print("    points; it is not the winter.")
+    print()
     print("    WHY. The block is sized to the average night x 1.3 (cspchain's NIGHT_PEAK);")
     print(f"    the residential evening peak is {ptm:.2f}x the mean and falls after sunset, so")
     print(f"    the block cannot carry it in any month -- unserved is {100 * jul:.0f} % even in July.")
@@ -386,6 +434,18 @@ def selftest():
     check("more store days never increase unserved energy",
           run("critical", 1.0, 1.0, 1.0, 1.0, 2.0)["unserved"] <= rc["unserved"])
     check("closure cost is zero at the design point", closure_cost_m(d) == 0.0)
+    ratios = {n[0]: december_ratio(n) for n in H.NODES}
+    check("the model gives every desert node at least 0.70 of its annual-mean DNI in December (not harsher than the record)",
+          all(v >= 0.70 for k, v in ratios.items() if "Central" not in k))
+    check("December is still below the annual mean at every node (geometry is in the series)",
+          all(v < 1.0 for v in ratios.values()))
+    sb, sc = siting("mid")
+    check("moving the Central Valley node to the desert improves service by under five points",
+          0.0 < sb["served_frac"] - r["served_frac"] < 0.05)
+    check("all-desert siting does not close December on its own",
+          sb["month_unserved"][12] / sb["month_load"][12] > 0.2)
+    check("the closing sizing still closes at all-desert siting", 1.0 - sc["served_frac"] < 0.001)
+    check("siting restores the nodes it changed", H.NODES[2][0].startswith("Central Valley"))
     check("closure cost is linear in each factor",
           abs(closure_cost_m(d, 2.0) - 2 * closure_cost_m(d, 1.5)) < 1e-6)
     check("the evening peak is the binding constraint: unserved in July is above 3 % as sized",
