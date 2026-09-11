@@ -1547,6 +1547,58 @@ Read the other way — bits needed for 100:1 posterior odds: **13.3** at 1e−2,
 
 ---
 
+## ★★★ H29 — light gravitates and drags frames, and it cannot supply the transition: **null dust satisfies the NEC identically**
+
+**H29. For null dust `T_μν = ε η_μ η_ν` with `η` null, contracting with any null `k` gives
+`T_μν k^μ k^ν = ε(η·k)² ≥ 0` — a non-negative times a square. Light satisfies the null energy condition
+identically. The transition's refusal names `ρ < 0`, so light is not a weak answer to it; it is the
+wrong *kind* of answer.**
+
+**The physics underneath is real, and the ring-laser paper is not the contested one.** Tolman, Ehrenfest
+& Podolsky (1931) showed thin pencils of light gravitate; Scully (1979) computed beam–beam coupling;
+**Mallett's *Weak gravitational field of the electromagnetic radiation in a ring laser*** (Phys. Lett. A
+269, 214, 2000) computed frame dragging in linearised GR — **ordinary gravitomagnetism, and correct** —
+independently recomputed for optical vortices by Strohaber (arXiv:1112.3414).
+
+**But the coupling does not ask what form the energy took.** Against this project's own rate of
+`1.21237e43 J` per metre contracted:
+
+| a 1 kW ring laser | |
+|---|---|
+| to contract **one metre** | `3.84e32` years = **2.78e22 ages of the universe** |
+| run for a full year, buys | `2.60e−33` m = **161 Planck lengths** |
+| one metre per second | **3.17e16 solar luminosities** |
+
+**And Mallett's 2003 CTC solution is refuted on three independent grounds** — Olum & Everett
+(gr-qc/0410078; Found. Phys. Lett. 18, 379, 2005):
+
+| | |
+|---|---|
+| **magnitude** | `λ ≈ 1e−46` for a 1 kW laser (recomputed: `4.33e−47`), so CTCs begin at `ρ > 10^(1.0e46) ρ₀` — and the dependence is **logarithmic**, so `1/λ` sits in the **exponent**. Power cannot buy past it |
+| **the singularity** | `R_αβγδR^αβγδ = 3/(4αρ³)` diverges on the axis, is no coordinate artifact, and is **independent of λ** — it persists at `ε = 0`. **Not Minkowski plus a light cylinder** |
+| **the apparatus** | `ρ = const`, `dφ/dt = 1/α` are **null geodesics**: the light orbits the singularity and needs no optics. The ring laser is not doing the work |
+
+Olum's follow-up (arXiv:1003.3828): in the static spacetime **every timelike geodesic terminates at the
+singularity**, and a particle at rest at proper distance `R` is destroyed in proper time `≈1.3R`. And the
+Tipler–Hawking escape needs an **infinite** cylinder — those theorems "would rule out the creation of
+CTC's in any finite-size approximation." *In fairness, Mallett conceded the singularity himself.*
+
+**The constructive number:** Strohaber puts a **1 Hz** spin precession — a frame drag you could merely
+*measure* — at `~1e45 W/cm²`, against `~2e22` for the most intense laser built. **22.70 orders short**,
+and 33 against a ring laser's own damage threshold.
+
+> **Routed through the index it lands on two rows and fails on both, for different reasons.** As a source
+> it is an INFORMATION claim and fails on **kind**. As a CTC mechanism it is an ORDER claim, lands on door
+> two, and fails twice — refuted specifically *and* refused by the bank-loan theorem.
+
+| | `light.py` |
+|---|---|
+| status | **PROVEN** (the null-dust NEC identity) + **MEASURED** (exchange-rate arithmetic; `λ` reproduced to order) + **CITED** (Phys. Lett. A 269, 214; Found. Phys. 33, 1307; gr-qc/0410078; arXiv:1003.3828; arXiv:1112.3414) |
+| new? | the NEC identity applied to the light proposal, and the pricing against this project's own rate, yes |
+| **not** claimed | that light does not gravitate — it does, and Mallett's 2000 frame-dragging result is correct; that Mallett was dishonest — he conceded the singularity, and the dispute is about what the solution shows; that this closes modified-gravity light couplings, which are door one |
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
@@ -1688,3 +1740,7 @@ Read the other way — bits needed for 100:1 posterior odds: **13.3** at 1e−2,
   number density — is not, and they multiply. See **H28**.
 - **That a five-sigma detection settles door three.** At prior odds of one in a million it is posterior
   odds of 1.744. Not a discovery.
+- **That light energy can supply what mass energy cannot.** Null dust satisfies the NEC identically — it
+  is the most NEC-respecting source in physics. See **H29**.
+- **That a ring laser can produce closed timelike curves.** Refuted on three independent grounds, and any
+  finite version is closed by Tipler–Hawking.

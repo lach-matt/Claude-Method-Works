@@ -6210,3 +6210,103 @@ Read the other way, bits needed for 100:1 posterior odds: **13.3** at 1e−2, **
 - `choice.py` — new. `obstruct.py` — **48 rows**, new `SEATING-BY-THRESHOLD` (conditional), 9 conditional.
   `index3.py` — **458 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H28** and two additions to the
   not-claimed list.
+
+---
+
+## `light.py` — light gravitates, drags frames, and is not a cheaper currency
+
+> **M:** *"we don't need mass or density energy, we can use light energy… please read and research the
+> Ronald Mallett papers on ring lasers."*
+
+Read. **The papers are real and so is the physics they rest on.** What fails is three separable things,
+for three different reasons — and the decisive one is not a magnitude at all.
+
+### 1. The real physics, and the 2000 paper is not the contested one
+
+| | | |
+|---|---|---|
+| Tolman, Ehrenfest & Podolsky 1931 | Phys. Rev. 37, 602 | thin pencils of light gravitate |
+| Scully 1979 | Phys. Rev. D 19, 3582 | gravitational coupling between laser beams |
+| **Mallett 2000** | Phys. Lett. A 269, 214 | **ring-laser frame dragging — ordinary gravitomagnetism, and right** |
+| Mallett 2003 | Found. Phys. 33, 1307 | the exact solution and the CTC claim — *the contested one* |
+| Strohaber 2011 | arXiv:1112.3414 | optical vortices, independent confirmation |
+
+**Light is a gravitational source. This tree never denied it and doesn't now.**
+
+### 2. But the coupling doesn't ask what form the energy took
+
+Against this project's own exchange rate — `1.21237e43` **joules** per metre contracted:
+
+| a 1 kW ring laser | |
+|---|---|
+| to contract **one metre** | `3.84e32` yr = **2.78e22 ages of the universe** |
+| run a full year, buys | **161 Planck lengths** |
+| one metre per second | **3.17e16 solar luminosities** |
+
+`supply.py` said it first — `E = mc²` is already inside `G/c⁴` — and `rates.py` generalised it: **a
+constant of nature is not a discount.**
+
+### 3. And the decisive objection is an identity, not a magnitude
+
+For null dust, contracting with **any** null `k`:
+
+> **`T_μν k^μ k^ν = ε(η·k)² ≥ 0`** — a non-negative times a **square**.
+
+Measured over 200,000 random `(η, k, ε)` triples: minimum found `+1.75e−11`, and it *cannot* be negative
+— that's the form of the expression, not a bound.
+
+> **Light satisfies the null energy condition identically. It is the most NEC-respecting source in
+> physics.** The transition's refusal names `ρ < 0`. Light isn't a weak answer to that — it is the
+> **wrong kind** of answer, exactly as a density argument was for door two.
+
+### 4. And Mallett's CTC solution is refuted, three ways
+
+Olum & Everett, *Can a circulating light beam produce a time machine?* (gr-qc/0410078; Found. Phys. Lett.
+18, 379, 2005):
+
+| | |
+|---|---|
+| **magnitude** | `λ ≈ 1e−46` for a 1 kW laser (recomputed here: `4.33e−47`) → CTCs at `ρ > 10^(1.0e46) ρ₀`. **The dependence is logarithmic, so `1/λ` sits in the exponent** — power cannot buy past it |
+| **the singularity** | `R^t_rtr = 1/8ρ²`, `R_αβγδR^αβγδ = 3/4αρ³` — divergent, not coordinate artifacts, and **independent of λ**, so they persist at zero light intensity. **Not Minkowski plus a light cylinder** |
+| **the apparatus** | `ρ = const`, `dφ/dt = 1/α` are **null geodesics** — "the light does not require any external apparatus to keep it in circulation." **It is orbiting the singularity** |
+
+Olum's follow-up (arXiv:1003.3828): **every timelike geodesic terminates at the singularity**; a particle
+at rest at proper distance `R` is destroyed in proper time `≈1.3R`; "the singularity fills the entire sky
+except for an infinitesimally thin strip."
+
+And the Tipler–Hawking escape needs an **infinite** cylinder: those theorems "would rule out the creation
+of CTC's in **any finite-size approximation**." **Every buildable version is closed by the theorems the
+idealisation dodges.**
+
+*In fairness to Mallett:* he conceded the singularity himself — he introduced it to confine the light rays
+and simplify the calculation. **The dispute is about what the solution shows, not about anyone's honesty.**
+
+### 5. What circulating light actually buys
+
+Strohaber's optical-vortex calculation, the constructive counterpart:
+
+| for a **1 Hz** spin precession — a frame drag you could merely *measure* | |
+|---|---|
+| required | `~1e45 W/cm²` |
+| Hercules, the most intense laser system built | `~2e22 W/cm²` |
+| | **22.70 orders short** |
+
+A ring laser is worse — capped by the **optical damage threshold** of its own material, `~1e12 W/cm²`:
+**33 orders**.
+
+### 6. Routed through the index
+
+| claim | row | verdict |
+|---|---|---|
+| "use light as the source" | information | **fails on KIND** — the refusal names `ρ < 0`, which null dust cannot supply by an identity |
+| "circulating light makes CTCs" | order | **fails twice** — refuted specifically, and door two is refused anyway by the bank-loan theorem |
+
+**Neither row is the one the proposal addresses** — the index doing the same job it did in `compress.py`.
+
+And it does not rescue the information currency: **Bekenstein bounds information by the energy, and light
+energy is energy.** Denominating the same bill in photons changes neither the bound nor the rate.
+
+### Seated
+- `light.py` — new. `obstruct.py` — **50 rows**, new `LIGHT-AS-THE-SOURCE` and `MALLETT-RING-LASER-CTC`,
+  **30 closed-negative**. `index3.py` — **465 findings**, `E(X) = 0`. `paper/CLAIMS.md` — **H29** and two
+  additions to the not-claimed list.
