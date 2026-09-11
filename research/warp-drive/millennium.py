@@ -184,8 +184,34 @@ NAVIER-STOKES EXISTENCE AND SMOOTHNESS -- A REAL CORRESPONDENCE, NO BEARING.
     and IPM are neither.  And FORCED IS NOT UNFORCED, which is what Clay
     asks; Stan Palasek has identified the obstacle to transferring the
     mechanism, namely that in the unforced viscous case energy loss to
-    viscosity overwhelms the growth.  THE CLAY PROBLEM IS OPEN AND NO PRIZE
-    HAS BEEN AWARDED.  The row below stands unchanged.
+    viscosity overwhelms the growth.  The row below stands unchanged.
+
+    AND A CORRECTION TO THE FIRST VERSION OF THIS FILE, WRITTEN AN HOUR
+    EARLIER.  It said the result "is not on their site as solved".  THAT WAS
+    WRONG AND IT WAS ASSERTED WITHOUT ACCESS: claymath.org is egress-blocked
+    from this session, the assertion rested on secondary summaries, and the
+    right answer was "I cannot check this".  CMI POSTED A NEWS ITEM ON
+    2026-09-11 and its wording is the finding:
+
+        "we contemplate the announcement that the Navier-Stokes problem has
+         APPARENTLY been settled ... as the innovations behind this work are
+         ANALYSED AND INTERROGATED ... The rules governing the prizes
+         describe the process for evaluating what has been achieved and for
+         ASSIGNING CREDIT.  The process is DELIBERATELY UNHURRIED."
+
+    That is CMI acknowledging an announcement and DECLINING TO CERTIFY IT --
+    "apparently", evaluation pending, credit unassigned, and "assigning
+    credit" pointed at the OpenAI / Buckmaster-Alpoge priority dispute.
+    President Martin Bridson called it exciting and the evaluation
+    "deliberately unhurried" and "absolutely rigorous"; the Institute still
+    lists the problem as unsolved; and CMI's rules require publication in a
+    peer-reviewed journal plus TWO YEARS of community validation before any
+    prize.  (The page's "C. Fukushima and J. Westerweel, Technical
+    University of Delft" is the IMAGE CREDIT for the turbulence photograph
+    illustrating the post -- the announcement names no author.)
+
+    SO: CMI HAS OPENED AN EVALUATION, WHICH IS A REAL CHANGE.  NO PRIZE IS
+    AWARDED, NO CREDIT IS ASSIGNED, AND NOTHING IS VERIFIED.
 
     AND THE CLAIM ABOUT THIS SESSION IS FALSE ON ARCHITECTURE, NOT ON
     OPINION: there is no cross-conversation memory and no store of results
@@ -379,7 +405,21 @@ SEPT_2026 = [
      "claimed Lean-verified ~100-page blowup proof for FORCED Navier-Stokes; "
      "contested, Buckmaster has not seen it, prize not claimed",
      False),
+    ("2026-09-11", "Clay Mathematics Institute",
+     "news item: the problem has APPARENTLY been settled; innovations to be "
+     "'analysed and interrogated'; process for 'assigning credit' is "
+     "'deliberately unhurried'.  An evaluation opened, NOT a certification; "
+     "rules require peer review plus two years of community validation",
+     False),
 ]
+
+# A correction to this file's own first version, an hour earlier.
+SELF_CORRECTION = (
+    "the first version said the result 'is not on their site as solved'.  "
+    "WRONG, and asserted without access -- claymath.org is egress-blocked "
+    "here and the right answer was 'I cannot check this'.  CMI posted on "
+    "2026-09-11.  What survives: no prize, no credit assigned, nothing "
+    "verified, and none of it is this session holding a solution")
 
 # Why neither is the Clay problem.  Two reasons, each sufficient alone.
 NOT_THE_CLAY_PROBLEM = [
@@ -463,7 +503,14 @@ def selftest():
         H_POWER_DENSITY - H_POWER_LOWER, 1)
 
     # -- September 2026, checked rather than assumed --------------------------
-    chk("two announcements recorded", len(SEPT_2026), 2)
+    chk("three events recorded", len(SEPT_2026), 3)
+    chk("CMI's own statement is one of them",
+        [r[1] for r in SEPT_2026 if r[1].startswith("Clay")],
+        ["Clay Mathematics Institute"])
+    chk("the file corrects its own first version",
+        "asserted without access" in SELF_CORRECTION, True)
+    chk("  and names what survives the correction",
+        "no prize" in SELF_CORRECTION, True)
     chk("every row is (date, who, what, is-it-the-Clay-problem)",
         [r for r in SEPT_2026 if len(r) != 4], [])
     chk("NEITHER is the Clay problem",

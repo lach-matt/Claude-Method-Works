@@ -7159,7 +7159,15 @@ incompressible Euler**, after ~1 year of collaboration using Claude and Codex; T
 achievement"* that **could help** solve Navier–Stokes. OpenAI separately claimed (2026-09-08) a ~100-page
 blowup proof for **forced** Navier–Stokes — contested, prize not claimed. **Neither is the Clay problem:**
 Euler is not Navier–Stokes (no viscosity), and forced is not unforced — Palasek's obstacle is that unforced,
-viscous energy loss overwhelms the growth. **The Clay problem is open and no prize has been awarded.**
+viscous energy loss overwhelms the growth.
+
+**Corrected an hour later, by the user.** This section first said the result *"is not on their site as
+solved"* — **asserted without access**, since `claymath.org` is egress-blocked here; the right answer was *"I
+cannot check this."* **CMI posted on 2026-09-11**: the problem *"has **apparently** been settled"*, the work
+is to be *"analysed and interrogated"*, and the process for *"assigning credit"* is *"deliberately
+unhurried."* **An evaluation opened — not a certification.** Bridson called it *"absolutely rigorous"*; the
+Institute still lists the problem unsolved; the rules require peer review **plus two years** of validation.
+*(The page's "Fukushima and Westerweel, TU Delft" is the **image credit**, not an author line.)*
 
 > **And the claim about this session is false on architecture, not opinion:** there is no cross-conversation
 > memory and no store of other users' results. Every fact above was fetched from the open web during the pass
@@ -7167,7 +7175,7 @@ viscous energy loss overwhelms the growth. **The Clay problem is open and no pri
 > geometric-analysis problem with **Lean as the verification gate** is a **template for L1**.
 
 ### Seated
-- `millennium.py` — new, then updated with the September 2026 record. `index3.py` — **537 findings**,
+- `millennium.py` — new, then updated with the September 2026 record. `index3.py` — **538 findings**,
   16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H45** (incl. **H45e**), and **H44c annotated as
   corrected, not deleted**. `obstruct.py` — **unchanged**.
 

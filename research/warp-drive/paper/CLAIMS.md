@@ -3135,8 +3135,32 @@ claim the prize**.
 2. **Forced is not unforced**, which is what Clay asks. Palasek has identified the obstacle to transferring
    the mechanism: unforced, viscous energy loss overwhelms the growth.
 
-> **The Clay problem is open and no prize has been awarded.** H45c's row stands unchanged at *open /
-> real-link-no-bearing*.
+> H45c's row stands unchanged at *open / real-link-no-bearing*.
+
+**⚠️ Corrected an hour after first seating, and by the user, not by an instrument.** This section originally
+said the result *"is not on their site as solved."* **That was asserted without access** — `claymath.org` is
+egress-blocked from this session, the claim rested on secondary summaries, and the right answer was *"I
+cannot check this."* **CMI posted a news item on 2026-09-11**, and its wording is the finding:
+
+> *"we contemplate the announcement that the Navier-Stokes problem has **apparently** been settled … as the
+> innovations behind this work are **analysed and interrogated** … The rules governing the prizes describe
+> the process for evaluating what has been achieved and for **assigning credit**. The process is
+> **deliberately unhurried**."*
+
+That is CMI **acknowledging an announcement and declining to certify it** — *apparently*, evaluation pending,
+credit unassigned, and *"assigning credit"* aimed at the OpenAI / Buckmaster–Alpöge priority dispute.
+President **Martin Bridson** called the evaluation *"deliberately unhurried"* and *"absolutely rigorous"*; the
+Institute **still lists the problem as unsolved**; and CMI's rules require peer-reviewed publication **plus
+two years of community validation** before any prize. *(The page's "C. Fukushima and J. Westerweel, Technical
+University of Delft" is the **image credit** for the turbulence photograph — the announcement names no
+author.)*
+
+> **CMI has opened an evaluation. That is a real change.** What survives unchanged: no prize, no credit
+> assigned, nothing independently verified, Euler is still not Navier–Stokes — and none of it is this session
+> holding a solution.
+
+**The fault is the one H45a was written about** — summarising a source instead of reading it — **committed
+twice in one day**, once against Fewster–Osterbrink and once against CMI.
 
 **And the claim about this session is false on architecture, not on opinion.** There is no cross-conversation
 memory and no store of results from other users' sessions. Nothing from that collaboration is available here;
