@@ -115,6 +115,32 @@ def price(case, title1_b):
     return J.price_delta(case, title1_b)
 
 
+DAYS_SCAN = (14.0, 30.0, 60.0, 90.0)      # reservoir holding, days of delivery, for the sensitivity   scan
+
+
+def sensitivity(case):
+    """The two site assumptions the adopted point rests on -- the head and the reservoir's
+    days of holding -- re-priced with the hourly run held fixed. At fixed share the water's
+    RETURNED energy is what the run dispatched, so the volume goes as 1/head, the modules and
+    Title II capital with it, the lift is invariant in head (returned energy over the round
+    trip), and the reservoir goes as days x volume. Nothing here re-runs the hours."""
+    b = scan(case)["best"]
+    ci = CASES.index(case)
+    w = scan(case)["winter"]
+    rows = []
+    for head in J.HEAD_SCAN:
+        m = J.modules_to_close(case, head, w, b["share"])
+        lift_fits = m["lift_twh"] <= b["surplus_twh"]
+        for days in DAYS_SCAN:
+            reservoir_b = m["m3"] * days / 365.0 / 1e9 * J.RESERVOIR_B_PER_KM3[ci]
+            water_b = reservoir_b + b["mw"] * 1e3 * J.PUMPGEN_PER_KW[ci] / 1e9
+            title1 = b["plant_b"] + water_b
+            title2 = AQ.module(case, lift_kwh_m3=J.hydraulic_per_m3(case)["lift_kwh_m3"])["financed_m"] * m["modules"] / 1e3
+            rows.append(dict(head=head, days=days, modules=m["modules"], maf=m["maf"], lift_twh=m["lift_twh"], lift_fits=lift_fits,
+                             reservoir_b=reservoir_b, title1_b=title1, dprice=price(case, title1), title2_b=title2))
+    return rows
+
+
 def report():
     print()
     print("  THE SEASON: BOTH ROUTES (the author's decision, 2026-09-11)")
@@ -156,6 +182,14 @@ def report():
     print("      What the combination buys is a plant served by two things that fail differently:")
     print("      with either route out it is still mostly served.")
     print()
+    print("    THE TWO SITE ASSUMPTIONS, AS A BAND (hourly run held; head moves the volume, days move the reservoir):")
+    for c in CASES:
+        print(f"      {c}:  {'head m':>7}{'days':>6}{'modules':>9}{'MAF/yr':>8}{'lift TWh':>10}{'fits':>6}{'reservoir $B':>14}{'Title I $B':>12}{'+$/MWh':>8}{'Title II $B':>13}")
+        for r in sensitivity(c):
+            print(f"           {r['head']:>7.0f}{r['days']:>6.0f}{r['modules']:>9.1f}{r['maf']:>8.2f}{r['lift_twh']:>10.2f}{'yes' if r['lift_fits'] else 'NO':>6}{r['reservoir_b']:>14.2f}{r['title1_b']:>12.1f}{r['dprice']:>8.0f}{r['title2_b']:>13.0f}")
+    print("      The lift does not move with head; the modules halve when the head doubles; the reservoir is")
+    print("      the only term the days touch. The head is the site question that sizes Title II.")
+    print()
     print("    Both in full (block x2, field x2, store 2 d, the whole water route) -- the margin case:")
     for c in CASES:
         f = S[c]["full"]
@@ -192,6 +226,15 @@ def selftest():
         check(f"[{c}] both in full closes and costs more than the adopted rung",
               S[c]["full"]["unserved"] <= TARGET and S[c]["full"]["title1_b"] > b["title1_b"])
     check("critical needs no less than mid on Title I's account", S["critical"]["best"]["title1_b"] >= S["mid"]["best"]["title1_b"])
+    for c in CASES:
+        sv = sensitivity(c)
+        at = lambda h, d: next(r for r in sv if r["head"] == h and r["days"] == d)
+        check(f"[{c}] the lift is invariant in head", abs(at(300.0, 30.0)["lift_twh"] - at(800.0, 30.0)["lift_twh"]) < 1e-9)
+        check(f"[{c}] the modules scale as 1/head (300 -> 800 m is 8/3)", abs(at(300.0, 30.0)["modules"] / at(800.0, 30.0)["modules"] - 800.0 / 300.0) < 1e-9)
+        check(f"[{c}] Title I cost rises with days of holding at fixed head", at(500.0, 90.0)["title1_b"] > at(500.0, 14.0)["title1_b"])
+        check(f"[{c}] the adopted point is reproduced at 500 m and the design's days",
+              abs(at(500.0, J.pick(J.RESERVOIR_DAYS, c))["title1_b"] - S[c]["best"]["title1_b"]) < 1e-9)
+        check(f"[{c}] the lift fits at every head (the feasibility does not depend on the site)", all(r["lift_fits"] for r in sv))
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")
     return fails == 0
 

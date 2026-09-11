@@ -62,3 +62,23 @@ one-route-out rows; §3 adds the program total at the adopted route; §4's sever
 Title I without Title II reverts to the mirrors sizing. Title I §4 carries the adopted route beside
 the two it combines, and §5 prices the household at it. The Title II side is the water route at half
 scale: 16–18 modules, $31 / $51 B, on Title II's own account.
+
+## The two site assumptions, as a band (2026-09-11)
+
+The adopted point rests on two site assumptions: 500 m of head and a reservoir holding 30 / 60 days of
+delivery. Neither can be settled without a site, so `both.py`'s `sensitivity()` prices the adopted
+point across them with the hourly run held fixed. At fixed share the returned energy is what the run
+dispatched, so the water volume goes as 1/head, the modules and Title II capital with it, the lift is
+invariant in head, and the reservoir is the only term the days touch.
+
+| head, m | modules (mid / critical) | MAF/yr | Title II $B | Title I $B at 14 → 90 days |
+|---|---|---|---|---|
+| 300 | 25.1 / 27.7 | 1.25 / 1.38 | 47 / 80 | 6.3–7.1 / 9.9–11.3 |
+| 500 | 15.0 / 16.6 | 0.75 / 0.83 | 28 / 48 | 6.3–6.8 / 9.8–10.7 |
+| 800 | 9.4 / 10.4 | 0.47 / 0.52 | 18 / 30 | 6.2–6.5 / 9.7–10.3 |
+
+The lift fits inside the surplus at every head, so the route's feasibility does not depend on the
+site. **The head is the site question that sizes Title II** — a factor of 2.7 in modules and capital
+across the band — and the days of holding move Title I by under a billion dollars. The selftest pins
+the lift's invariance, the 1/head scaling, the monotone cost in days, and that 500 m at the design's
+days reproduces the adopted point exactly.
