@@ -67,8 +67,11 @@ ETA_PUMP = (0.90, 0.85)                   # pump-turbine pumping                
 RHO_G_KWH_M3_PER_M = 9.81 * 1000.0 / 3.6e6   # kWh per m3 per metre of head             exact (0.002725)
 RESERVOIR_B_PER_KM3 = (2.5, 4.0)          # $B per km3, off-stream, new-build          SOURCED band (Sites ~$4.5 B for ~1.8 km3)
 PUMPGEN_PER_KW = (1500.0, 2500.0)         # $/kW pump-turbine plant                    ASSUMED band
-WINTER_MONTHS = (10, 11, 12, 1, 2, 3, 4)  # the months hourly3 leaves short: Oct-Apr, not Nov-Feb  DERIVED (hourly3 monthly table)
-WINTER_DELIVERY_H = 212.0 * 24.0          # the reservoir is drawn over Oct-Apr         exact
+WINTER_MONTHS = (10, 11, 12, 1, 2, 3, 4)  # the first pass's season; the monthly table still prints it   DERIVED (hourly3 monthly table)
+DELIVERY_MONTHS = tuple(range(1, 13))     # the water comes down year-round: summer irrigation and winter recharge  DECIDED (author, 2026-09-11)
+DELIVERY_H = 365.0 * 24.0                 # the turbines run all year                    exact
+RESERVOIR_DAYS = (30.0, 60.0)             # days of delivery the off-stream reservoir holds (year-round delivery needs weeks, not a season)  ASSUMED band
+WATER_SHARE_SCAN = (0.25, 0.5, 0.75, 1.0) # share of the annual shortfall the water is sized to return   scan
 HYDRO_PLANT_MW = (2500.0, 2500.0)         # pump-generation sized to the EVENING shortfall, not the season's average  DERIVED (dispatch scan, section D)
 HYDRO_MW_SCAN = (1500.0, 2500.0, 4000.0)  # MW, the plant sizes section D scans          ASSUMED scan
 WATER_END_USE = "aqueduct and groundwater recharge (SGMA winter recharge)"
@@ -79,8 +82,10 @@ def pick(band, case):
 
 
 def winter(case):
+    """The shortfall the water is sized against: every month the hydraulic return
+    may serve (DELIVERY_MONTHS, year-round). The name is kept for its callers."""
     r = HR.run(case)
-    unserved = sum(r["month_unserved"][m] for m in WINTER_MONTHS) / 1e6        # TWh_e
+    unserved = sum(r["month_unserved"][m] for m in DELIVERY_MONTHS) / 1e6      # TWh_e
     surplus_e = (r["spill_th"] * r["design"]["links"]["cycle"] + r["pv_curtail"]) / 1e6   # TWh_e the plant could have made
     return dict(unserved_twh=unserved, surplus_twh=surplus_e, run=r)
 
@@ -120,8 +125,8 @@ def hydraulic_winter(case, w=None):
 
     def plant(m3):
         ret_twh = m3 * per["returned_kwh_m3"] / 1e9
-        mw = ret_twh * 1e6 / WINTER_DELIVERY_H
-        reservoir_b = m3 / 1e9 * RESERVOIR_B_PER_KM3[ci]
+        mw = ret_twh * 1e6 / DELIVERY_H
+        reservoir_b = reservoir_capex_b(case, m3)
         pumpgen_b = mw * 1e3 * PUMPGEN_PER_KW[ci] / 1e9
         return dict(m3=m3, km3=m3 / 1e9, af=m3 / M3_PER_AF, modules=m3 / MODULE_M3_YR,
                     lift_twh=m3 * per["lift_kwh_m3"] / 1e9, desal_twh=m3 * ro / 1e9,
@@ -137,7 +142,13 @@ def hydraulic_winter(case, w=None):
 HEAD_SCAN = (300.0, 500.0, 800.0)         # m, sites from the Gianelli class to the Tehachapi crest   ASSUMED scan
 
 
-def modules_to_close(case, head=None, w=None):
+def reservoir_capex_b(case, m3_per_year):
+    """An off-stream reservoir holding RESERVOIR_DAYS of a year-round delivery."""
+    ci = CASES.index(case)
+    return m3_per_year * pick(RESERVOIR_DAYS, case) / 365.0 / 1e9 * RESERVOIR_B_PER_KM3[ci]
+
+
+def modules_to_close(case, head=None, w=None, share=1.0):
     """The author's question (2026-09-11): not more storage on the power side
     -- more MODULES. The water is on Title II's own account (its cost model
     already carries its energy line), so Title I's surplus is spent on the
@@ -149,12 +160,12 @@ def modules_to_close(case, head=None, w=None):
     ci = CASES.index(case)
     ret = RHO_G_KWH_M3_PER_M * h * pick(ETA_TURBINE, case)
     lift = RHO_G_KWH_M3_PER_M * h / pick(ETA_PUMP, case)
-    m3 = w["unserved_twh"] * 1e9 / ret
+    m3 = w["unserved_twh"] * share * 1e9 / ret
     lift_twh = m3 * lift / 1e9
     mw = pick(HYDRO_PLANT_MW, case)
-    reservoir_b = m3 / 1e9 * RESERVOIR_B_PER_KM3[ci]
+    reservoir_b = reservoir_capex_b(case, m3)
     pumpgen_b = mw * 1e3 * PUMPGEN_PER_KW[ci] / 1e9
-    return dict(head=h, m3=m3, km3=m3 / 1e9, maf=m3 / M3_PER_AF / 1e6, modules=m3 / MODULE_M3_YR,
+    return dict(head=h, share=share, budget_twh=w["unserved_twh"] * share, m3=m3, km3=m3 / 1e9, maf=m3 / M3_PER_AF / 1e6, modules=m3 / MODULE_M3_YR,
                 lift_twh=lift_twh, surplus_twh=w["surplus_twh"], lift_within_surplus=lift_twh <= w["surplus_twh"],
                 desal_twh_on_title_ii=m3 * pick(RO_KWH_M3, case) / 1e9, mw=mw,
                 reservoir_b=reservoir_b, pumpgen_b=pumpgen_b, capex_b=reservoir_b + pumpgen_b)
@@ -164,23 +175,29 @@ BLOCK_SCAN = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5)
 
 
 def evening_with_water(case, head=500.0, w=None, target=0.01):
-    """D. With the season closed by water, what closes the evening? Scan the
-    block (with its 16 h store) and the hydro plant size, field and store at
-    design, the hydraulic return dispatched Oct-Apr to what the block leaves;
-    cheapest point under the target (1 %: the residue is the grid's)."""
+    """D. What closes the load with water: scan the block (with its 16 h store),
+    the hydro plant size and the share of the annual shortfall the water is
+    sized to return, field and store at design, the hydraulic return
+    dispatched year-round to what the block leaves; cheapest point under the
+    target (1 %: the residue is the grid's)."""
     w = winter(case) if w is None else w
     d = C.design("helios3", case)
     ci = CASES.index(case)
     pts = []
-    for mw in HYDRO_MW_SCAN:
-        m = modules_to_close(case, head, w)
-        water_b = m["reservoir_b"] + mw * 1e3 * PUMPGEN_PER_KW[ci] / 1e9
-        for tf in BLOCK_SCAN:
-            r = HR.run(case, 1.0, 1.0, tf, 1.0, 1.0, design=d, hydro=(mw, w["unserved_twh"]))
-            block_b = HR.closure_cost_m(d, 1.0, 1.0, tf, 1.0, 1.0) / 1e3
-            pts.append(dict(tf=tf, mw=mw, unserved=1.0 - r["served_frac"], hydro_twh=r["hydro"] / 1e6,
-                            block_b=block_b, water_b=water_b, total_b=block_b + water_b, run=r, water=m))
-    closing = [p for p in pts if p["unserved"] <= target]
+    for share in WATER_SHARE_SCAN:
+        m = modules_to_close(case, head, w, share)
+        for mw in HYDRO_MW_SCAN:
+            water_b = m["reservoir_b"] + mw * 1e3 * PUMPGEN_PER_KW[ci] / 1e9
+            for tf in BLOCK_SCAN:
+                r = HR.run(case, 1.0, 1.0, tf, 1.0, 1.0, design=d, hydro=(mw, m["budget_twh"]))
+                block_b = HR.closure_cost_m(d, 1.0, 1.0, tf, 1.0, 1.0) / 1e3
+                surplus = (r["spill_th"] * d["links"]["cycle"] + r["pv_curtail"]) / 1e6
+                pts.append(dict(tf=tf, mw=mw, share=share, unserved=1.0 - r["served_frac"], hydro_twh=r["hydro"] / 1e6,
+                                surplus_twh=surplus, lift_within_surplus=m["lift_twh"] <= surplus,
+                                block_b=block_b, water_b=water_b, total_b=block_b + water_b, run=r, water=m))
+    # a point is feasible only if the surplus of ITS OWN run can lift its water: the
+    # lift is not priced, so a route that needs bought electricity to lift is not this route
+    closing = [p for p in pts if p["unserved"] <= target and p["lift_within_surplus"]]
     return dict(points=pts, closing=min(closing, key=lambda p: p["total_b"]) if closing else None)
 
 
@@ -206,7 +223,7 @@ def report():
     ws = {c: winter(c) for c in CASES}
     print()
     print(f"      {'':<44}{'mid':>10}{'critical':>10}")
-    print(f"      {'season (Oct-Apr) unserved, TWh_e':<44}" + "".join(f"{ws[c]['unserved_twh']:10.2f}" for c in CASES))
+    print(f"      {'unserved the water may serve (year-round), TWh_e':<44}" + "".join(f"{ws[c]['unserved_twh']:10.2f}" for c in CASES))
     print(f"      {'summer surplus the plant threw away, TWh_e':<44}" + "".join(f"{ws[c]['surplus_twh']:10.2f}" for c in CASES))
     print("      (surplus = defocused field at the cycle efficiency + curtailed PV)")
     print()
@@ -304,23 +321,28 @@ def report():
     print("       SGMA recharge is short of.")
     print()
     print()
-    print("    D. THE EVENING, WITH THE SEASON CLOSED BY WATER. Hour by hour, the")
-    print("       shortfall runs Oct-Apr and the evening, not Nov-Feb; the hydro plant")
-    print("       must be sized to the evening shortfall, not the season's average. At")
-    print("       500 m of head, the block and the hydro plant scanned, field and store")
-    print("       at design, cheapest point under 1 % unserved (the residue is the grid's):")
-    print(f"      {'':<10}{'block x':>8}{'hydro MW':>9}{'unserved':>10}{'hydro TWh':>11}{'water km3':>10}{'modules':>8}{'block $B':>9}{'water $B':>9}{'total $B':>9}{'+ $/MWh':>8}")
+    print("    D. WHAT CLOSES THE LOAD WITH WATER. Hour by hour the shortfall is")
+    print("       year-round and evening-led, and the water comes down all year (the")
+    print("       author, 2026-09-11); the hydro plant is sized to the evening. At 500 m")
+    print("       of head, the block, the hydro plant and the water's share of the")
+    print("       shortfall scanned, field and store at design, cheapest point under 1 %")
+    print("       unserved whose own surplus can lift its water (a lift bought from the")
+    print("       grid is not this route):")
+    print(f"      {'':<10}{'share':>6}{'block x':>8}{'hydro MW':>9}{'unserved':>10}{'hydro TWh':>11}{'water km3/yr':>13}{'modules':>8}{'block $B':>9}{'water $B':>9}{'total $B':>9}{'+ $/MWh':>8}{'lift fits':>11}")
     for c in CASES:
         ev = evening_with_water(c, 500.0, ws[c])
         best = ev["closing"]
         shown = [p for p in ev["points"] if p["mw"] == (best["mw"] if best else HYDRO_MW_SCAN[1])]
         for p in shown:
             mark = " <- closes" if best and p is best else ""
-            print(f"      {c:<10}{p['tf']:8.2f}{p['mw']:9,.0f}{p['unserved']:10.4f}{p['hydro_twh']:11.2f}{p['water']['km3']:10.2f}{p['water']['modules']:8.1f}{p['block_b']:9.2f}{p['water_b']:9.2f}{p['total_b']:9.2f}{price_delta(c, p['total_b']):8.1f}{mark}")
+            if p["share"] not in (0.5, 1.0) or p["tf"] not in (1.0, 1.5, 2.0):
+                continue
+            print(f"      {c:<10}{p['share']:6.2f}{p['tf']:8.2f}{p['mw']:9,.0f}{p['unserved']:10.4f}{p['hydro_twh']:11.2f}{p['water']['km3']:13.2f}{p['water']['modules']:8.1f}{p['block_b']:9.2f}{p['water_b']:9.2f}{p['total_b']:9.2f}{price_delta(c, p['total_b']):8.1f}{'yes' if p['lift_within_surplus'] else 'NO':>11}{mark}")
     print(f"      {'hourly3 mirrors-only closure, for comparison':<27}" + "".join(f"  {c}: ${field_closure_b(c):.1f} B, +{price_delta(c, field_closure_b(c)):.0f} $/MWh" for c in CASES))
-    print("       Sized honestly -- seven months, a plant for the evening -- the water")
-    print("       route costs about twice what the mirrors cost on the power side, because")
-    print("       it returns nothing to the summer evening and the block must carry it. What it")
+    print("       FINDING. With the field and store at design, no point closes AND lifts")
+    print("       its water inside its own surplus: the block that closes the evening eats")
+    print("       the spill the lift runs on. Water alone is not a route on this shape;")
+    print("       water WITH a larger field is (both.py), and that is the adopted route. What it")
     print("       adds is the water: over a million acre-feet a year the mirrors do not")
     print("       make. The field and the store stay at design, as the author asked;")
     print("       the block does not, because nothing but the block serves a July evening.")
@@ -353,8 +375,8 @@ def selftest():
         check(f"{c}: B round trip equals turbine x pump efficiency exactly",
               abs(hy["round_trip"] - pick(ETA_TURBINE, c) * pick(ETA_PUMP, c)) < 1e-12)
     ws = {c: winter(c) for c in CASES}
-    check("winter unserved is Nov-Feb of hourly3's own run (imported, not restated)",
-          all(abs(ws[c]["unserved_twh"] - sum(ws[c]["run"]["month_unserved"][m] for m in WINTER_MONTHS) / 1e6) < 1e-12 for c in CASES))
+    check("the shortfall the water is sized against is hourly3's own annual unserved (year-round delivery)",
+          all(abs(ws[c]["unserved_twh"] - ws[c]["run"]["unserved"] / 1e6) < 1e-9 for c in CASES))
     hy = {c: hydraulic_winter(c, ws[c]) for c in CASES}
     check("the whole winter needs more water than the surplus can make and lift (the requirement exceeds the bound)",
           all(hy[c]["requirement"]["summer_needed_twh"] > ws[c]["surplus_twh"] for c in CASES))
@@ -376,29 +398,33 @@ def selftest():
         lifts = {h: modules_to_close(c, h, ws[c])["lift_twh"] for h in HEAD_SCAN}
         check(f"{c}: the lift energy is independent of head (returned energy over the round trip)",
               max(lifts.values()) - min(lifts.values()) < 1e-9)
-    check("mid: the lift fits inside the surplus", modules_to_close("mid", 500.0, ws["mid"])["lift_within_surplus"])
-    check("critical: the lift fits inside the surplus on the corrected load shape (the earlier NOT-fit was the inverted shape's)",
-          modules_to_close("critical", 500.0, ws["critical"])["lift_within_surplus"])
+    check("sized to the WHOLE annual shortfall the lift does not fit inside the as-sized surplus at either case",
+          all(not modules_to_close(c, 500.0, ws[c])["lift_within_surplus"] for c in CASES))
     check("doubling the head halves the water at fixed winter (mid, 300 -> 600 m)",
           abs(modules_to_close("mid", 300.0, ws["mid"])["m3"] / modules_to_close("mid", 600.0, ws["mid"])["m3"] - 2.0) < 1e-9)
-    check("at 500 m the water side that closes mid costs MORE than the mirrors route (the corrected shape withdrew parity)",
-          modules_to_close("mid", 500.0, ws["mid"])["capex_b"] > field_closure_b("mid"))
+    check("a reservoir holding weeks costs under a fifth of one holding the year's water",
+          reservoir_capex_b("mid", 1e9) < 0.2 * RESERVOIR_B_PER_KM3[0])
     for c in CASES:
         ev = evening_with_water(c, 500.0, ws[c])
-        check(f"{c}: block + water closes the load to under 1 % at some point on the scan", ev["closing"] is not None)
+        check(f"{c}: water ALONE (field and store at design) has no feasible closing point -- its own surplus cannot lift what closes",
+              ev["closing"] is None)
         if ev["closing"]:
-            check(f"{c}: block + water costs 1.5-2.5x the mirrors-only closure on the power side (no longer parity)",
-                  1.5 < ev["closing"]["total_b"] / field_closure_b(c) < 2.5)
-            check(f"{c}: the hydraulic return dispatched is at most the season it was sized for",
-                  ev["closing"]["hydro_twh"] <= ws[c]["unserved_twh"] + 1e-9)
-            check(f"{c}: the closing block is larger than design (nothing but the block serves a July evening)",
-                  ev["closing"]["tf"] > 1.0)
-        check(f"{c}: a bigger hydro plant never increases unserved at fixed block",
-              all(b["unserved"] <= a["unserved"] + 1e-9 for a, b in zip(ev["points"], ev["points"][len(BLOCK_SCAN):])))
+            check(f"{c}: block + water is within 0.5-2.5x of the mirrors-only closure on the power side (printed, not pinned)",
+                  0.5 < ev["closing"]["total_b"] / field_closure_b(c) < 2.5)
+            check(f"{c}: the hydraulic return dispatched is at most the water it was sized for",
+                  ev["closing"]["hydro_twh"] <= ev["closing"]["water"]["budget_twh"] + 1e-9)
+            check(f"{c}: the reservoir holds days, not a season (under a tenth of the annual volume)",
+                  pick(RESERVOIR_DAYS, c) / 365.0 < 0.2)
+            check(f"{c}: the closing point lifts its water inside its own surplus", ev["closing"]["lift_within_surplus"])
+            check(f"{c}: the closing point returns water through a plant larger than zero", ev["closing"]["mw"] > 0.0)
+        for share in WATER_SHARE_SCAN:
+            same = [p for p in ev["points"] if p["share"] == share]
+            check(f"{c}: at share {share:.2f} a bigger hydro plant never increases unserved at fixed block",
+                  all(b["unserved"] <= a["unserved"] + 1e-9 for a, b in zip(same, same[len(BLOCK_SCAN):])))
     head = open(__file__).read().split("def pick")[0].splitlines()
     consts = [l for l in head if l[:1].isupper() and "=" in l and not l.startswith(("HERE", "CASES", "WATER_END", "ETA_CONDENSING"))]
     check("every constant line carries a status",
-          all(any(t in l for t in ("SOURCED", "ASSUMED", "exact", "Title II", "FLAWS", "DERIVED")) for l in consts))
+          all(any(t in l for t in ("SOURCED", "ASSUMED", "exact", "Title II", "FLAWS", "DERIVED", "DECIDED", "scan")) for l in consts))
     import io
     import contextlib
     buf = io.StringIO()

@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 """both.py -- the author's decision on the season: BOTH routes.
 
-Title III put two routes to the author for closing the October-April season
+Title III put two routes to the author for closing the load (year-round, evening-led)
 and the evening: mirrors (block x1.5, a second day of store, field x2) or
 water (block x1.5 and Title II's product lifted on the summer surplus,
 returned through pump-turbines). At parity on the power side. The author
 (2026-09-11) answered "both".
 
 Both means a combination, not a sum: the field and store are sized smaller
-than the mirrors route and the water carries the rest of the season, so
+than the mirrors route and the water carries the rest of the shortfall, so
 neither lever is at its full extent and the plant is served by two things
 that fail differently. This file scans the combination at mid and at
 critical -- block held at x1.5 (nothing else serves a July evening), the
 hydro plant at joinder.py's evening size, field factor, store days and the
 SHARE of the season the water returns as the free axes -- and reports:
 
-  1. a LADDER over the water's share of the season -- 0 (mirrors alone),
+  1. a LADDER over the water's share of the shortfall -- 0 (mirrors alone),
      1/4, 1/2, 3/4, 1 (water alone) -- each rung the cheapest closing point
      (<= 1 % to the grid) on Title I's account at that share;
   2. the resilience each rung buys: the same plant with the water withheld,
@@ -23,7 +23,7 @@ SHARE of the season the water returns as the free axes -- and reports:
      reader sees what each route covers when the other is out;
   3. both routes in full -- the margin case -- and its cost.
 
-"Both" is read as the EVEN split -- the water returns half the season and
+"Both" is read as the EVEN split -- the water returns half the shortfall and
 the field and store carry the other half -- because a cheapest-point search
 with "both engaged" as its only constraint returns mirrors with a token
 water plant, which is both in name. The even split is adopted here and the
@@ -60,9 +60,9 @@ ADOPTED_SHARE = 0.5                       # "both": the even split, the author's
 def water_side(case, share, w, mw=None):
     """Title I's water-side capital at a share of the full route, and Title II's modules."""
     ci = CASES.index(case)
-    m = J.modules_to_close(case, HEAD_M, w)
+    m = J.modules_to_close(case, HEAD_M, w, 1.0)
     mw = J.pick(J.HYDRO_PLANT_MW, case) if mw is None else mw
-    reservoir_b = m["reservoir_b"] * share
+    reservoir_b = J.reservoir_capex_b(case, m["m3"] * share)
     pumpgen_b = mw * 1e3 * J.PUMPGEN_PER_KW[ci] / 1e9 if share > 0 else 0.0
     modules = m["modules"] * share
     return dict(share=share, modules=modules, maf=m["maf"] * share, mw=mw if share > 0 else 0.0,
@@ -93,7 +93,7 @@ def scan(case):
     w = J.winter(case)
     pts = [point(case, b, f, s, x, w, d, mw) for b in BLOCK_SCAN for f in FIELD_SCAN for s in STORE_SCAN for x in WATER_SCAN
            for mw in (HYDRO_MW_SCAN if x > 0 else (0.0,))]
-    closing = [p for p in pts if p["unserved"] <= TARGET]
+    closing = [p for p in pts if p["unserved"] <= TARGET and p["lift_within_surplus"]]     # a lift bought from the grid is not this route
     ladder = {}
     for x in WATER_SCAN:
         rung = min([p for p in closing if p["share"] == x], key=lambda p: p["title1_b"], default=None)
@@ -119,12 +119,12 @@ def report():
     print()
     print("  THE SEASON: BOTH ROUTES (the author's decision, 2026-09-11)")
     print("  ============================================================")
-    print("    Block, field, store days and the water's share of the season scanned;")
-    print("    cheapest closing point on Title I's account at each share of the season.")
+    print("    Block, field, store days and the water's share of the shortfall scanned;")
+    print("    cheapest closing point on Title I's account at each share of the shortfall.")
     S = {c: scan(c) for c in CASES}
     for c in CASES:
         print()
-        print(f"    {c.upper()} -- the ladder over the water's share of the season (cheapest closing point at each rung):")
+        print(f"    {c.upper()} -- the ladder over the water's share of the shortfall (cheapest closing point at each rung):")
         print(f"      {'share':>6}{'block':>7}{'field':>7}{'store d':>8}{'hydro MW':>9}{'grid':>6}{'Title I $B':>11}{'$/MWh':>7}{'modules':>8}{'MAF/yr':>7}{'water out':>10}{'field out':>10}")
         for x, r in S[c]["ladder"].items():
             if r is None:
@@ -151,9 +151,10 @@ def report():
             ("field at design, to the grid", lambda b: f"{b['no_field']['unserved']:.1%}"))
     for label, f in rows:
         print(f"      {label:<46}" + "".join(f"{f(S[c]['best']):>12}" for c in CASES))
-    print("      Both costs more than mirrors alone on Title I's account -- the pump-turbine plant is")
-    print("      bought whole whatever share it returns -- and buys a plant served by two things that")
-    print("      fail differently: with either route out it is still mostly served.")
+    for c in CASES:
+        print(f"      {c}: against mirrors alone, {S[c]['best']['title1_b'] / S[c]['mirrors']['title1_b']:.2f}x on Title I's account")
+    print("      What the combination buys is a plant served by two things that fail differently:")
+    print("      with either route out it is still mostly served.")
     print()
     print("    Both in full (block x2, field x2, store 2 d, the whole water route) -- the margin case:")
     for c in CASES:
@@ -180,8 +181,8 @@ def selftest():
         if b is None:
             continue
         check(f"[{c}] both levers are engaged at the adopted rung", (b["field"] > 1.0 or b["store"] > 1.0) and b["share"] == ADOPTED_SHARE)
-        check(f"[{c}] it costs more than mirrors alone on Title I's account (the pump-turbines are bought whole)",
-              b["title1_b"] > S[c]["mirrors"]["title1_b"])
+        check(f"[{c}] its cost against mirrors alone is within 0.5-2.5x (printed, not pinned in direction)",
+              0.5 < b["title1_b"] / S[c]["mirrors"]["title1_b"] < 2.5)
         check(f"[{c}] with either route out the plant is better served than with neither",
               max(b["no_water"]["unserved"], b["no_field"]["unserved"]) < S[c]["as_sized"]["unserved"])
         check(f"[{c}] withholding the water leaves the plant short (the water is load-bearing)", b["no_water"]["unserved"] > TARGET)

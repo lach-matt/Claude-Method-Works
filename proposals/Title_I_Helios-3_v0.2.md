@@ -62,7 +62,7 @@ serves:
 
 Two shortfalls the annual chain could not see. The block is sized to the average night and a
 residential load peaks after sunset, so the block cannot carry the evening in any month. And
-sixteen hours of store cannot move June into December: the store empties from October to April
+sixteen hours of store cannot move June into December: the store empties on winter nights
 while a quarter of June's field is defocused. The load and PV shapes are reconstructed and pinned
 to sourced levels; a measured CAISO profile and an NSRDB hourly file replace them when reachable.
 
@@ -70,31 +70,29 @@ to sourced levels; a measured CAISO profile and an NSRDB hourly file replace the
 
 The shortfall is year-round and evening-led, worst in December. The mirrors route grows the block to ×1.25,
 the field to ×1.5 and the store to 2 days, the cheapest point of `hourly3.py`'s scan that closes to 1 %; the
-water route returns only from October to April and so carries the summer evening on a larger block alone.
-**The author chose both** (2026-09-11, `both.py`): the water returns half the season and the plant the rest.
+water route returns year-round through pump-turbines (the author's decision, 2026-09-11), the reservoir holding
+weeks rather than a season. **The author chose both** (`both.py`): the water returns half the shortfall, the plant the rest.
 
 | route | what grows | mid, $B | + $/MWh | critical, $B | + $/MWh | leaves to the grid |
 |---|---|---|---|---|---|---|
 | mirrors | block ×1.25, field ×1.5, store 2 days | 5.7 | 34 | 9.5 | 56 | 0.8% / 1.0% |
-| water (Title III) | block ×2.00; 16 / 17 desalination modules, a 1.0 / 1.1 km³ reservoir at 500 m, 2,500 MW of pump-turbines | 11.2 | 66 | 17.0 | 101 | 0.7% / 0.7% |
-| **both (adopted)** | block ×1.25, field ×1.25, store 2.0 d; 8 / 9 modules, 1,500 MW of pump-turbines | **7.7** | **46** | **12.7** | **75** | 0.8% / 1.0% |
+| water alone (Title III) | field and store at design; pump-turbines on the water | no feasible point | — | no feasible point | — | — |
+| **both (adopted)** | block ×1.50, field ×1.25, store 1.0 d; 15 / 17 modules, 1,500 MW of pump-turbines | **6.4** | **38** | **10.3** | **61** | 0.6% / 0.7% |
 
-The adopted route costs more than mirrors alone, because the pump-turbines are bought whole whatever
-share they return; with the water withheld it leaves 1% to the grid and with the field at design
-6%, against 13% with neither. Two levers that fail differently, neither at its full extent.
-
-On the power side the water route costs about 2.0× the mirrors, because it returns nothing to the
-summer evening and the block must carry it alone. The water route makes **0.79 to 0.87 million
-acre-feet a year** of water the mirrors do not, delivered October to April; at critical the summer
-surplus lifts 1.49 of the season and the rest is the plant's own output. Which route is a decision about
-water, and it is Title III's. Title II's side of it, priced by `aquacost.py` with the water's
+Water alone is not a route on this load: with the field and store at design, no point both closes
+and lifts its water inside the plant's own surplus, because the block that closes the evening eats the
+spill the lift runs on. Water with a larger field is, and that is the adopted route: it costs
+1.12× / 1.09× the mirrors on Title I's account, and with the water withheld it leaves 4% to the
+grid and with the field at design 1%, against 13% with neither — two levers that fail differently.
+It makes **0.75 to 0.83 million acre-feet a year** of water the mirrors do not, delivered year-round.
+Title II's side of it, priced by `aquacost.py` with the water's
 electricity bought from Title I at the register price:
 
 | Title II | mid | critical |
 |---|---|---|
 | one 50,000 AFY RO module, financed, $M (Title II said 250–320) | 1,883 | 2,886 |
 | water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | 3,034 | 4,790 |
-| the water route's modules, financed, $B | 29.8 | 50.4 |
+| the water route's modules, financed, $B | 28.3 | 47.9 |
 | that water with the lift on its bill, $/acre-foot | 3,268 | 5,030 |
 | per household per year at 0.28 AF | 915 | 1,408 |
 
@@ -105,15 +103,13 @@ electricity bought from Title I at the register price:
 | Helios-3 as chained | 117 | 187 |
 | with the mitigation register (§6) | 125 | 202 |
 | serving the whole load, mirrors route | 159 | 258 |
-| serving the whole load, water route | 192 | 303 |
-| **serving the whole load, both (adopted)** | **171** | **277** |
+| **serving the whole load, both (adopted)** | **163** | **263** |
 
 | $ per household per year (today 1,177) | mid | critical |
 |---|---|---|
 | with the mitigation register | 756 | 1,218 |
 | serving the whole load, mirrors route | 960 | 1,558 |
-| serving the whole load, water route | 1,156 | 1,827 |
-| **serving the whole load, both (adopted)** | **1,033** | **1,674** |
+| **serving the whole load, both (adopted)** | **984** | **1,587** |
 
 **The criterion, stated exactly.** At mid, Helios-3 with its register needs $125/MWh, $5
 above the top of the contract band, and a household pays $756 against $1,177 today. Serving
@@ -197,8 +193,8 @@ run in parallel. Direct cost by rung:
 | fleet, by tower group | 2036–2041 | 12.68 | 18.86 |
 
 **Transmission (F-09).** The export is negative (F-01), so no firm export right is needed. The in-state
-gen-tie per node at the closed sizing peaks at 1,194 MW (mid) / 1,190 MW (critical) from the
-hour-by-hour, 0.60 / 0.79 of one 500 kV circuit, priced in the switchyard line at
+gen-tie per node at the closed sizing peaks at 1,197 MW (mid) / 1,197 MW (critical) from the
+hour-by-hour, 0.60 / 0.80 of one 500 kV circuit, priced in the switchyard line at
 $600 / $900 M. The interconnection study is the Authority's to file and no authority shortens it.
 
 ## 8. Emissions, employment, siting and procurement
@@ -249,7 +245,7 @@ coastal permit and shortens no federal review.
 
 ## 9. What v0.2 does not settle
 
-- The split of the season between the two routes: adopted even, movable on `both.py`'s ladder;
+- The split of the shortfall between the two routes: adopted even, movable on `both.py`'s ladder;
   the water side carries Title II's own register (F-14, F-16), resolved at its price.
 - The evening peak is closed by the block and by nothing else; a measured load profile may
   move that factor either way.

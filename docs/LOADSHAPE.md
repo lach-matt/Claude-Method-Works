@@ -62,3 +62,26 @@ The water route still returns a winter and still makes water the mirrors do not;
 route on the power side and the size of everything downstream of the season. Documents rendered from
 the instruments carry the corrected figures; the docs listed with a correction banner carry the
 superseded ones in their prose and this file is the record of both.
+
+## Year-round delivery (the author's decision, 2026-09-11)
+
+Put to the author after the correction: the water route had returned only October to April, and on the
+corrected shape the shortfall is year-round. **Decided: the water comes down year-round** (summer
+irrigation and winter recharge), the even split kept. `hourly3.HYDRO_MONTHS` is all twelve, the
+reservoir holds **30 / 60 days** of delivery (ASSUMED) rather than a season, and every closing point
+must **lift its water inside its own run's surplus** — a lift bought from the grid is not this route.
+
+| | Oct–Apr delivery | year-round delivery |
+|---|---|---|
+| water alone (field and store at design) | block ×2.0, $11.2 / $17.0 B | **no feasible point**: the block that closes the evening eats the spill the lift runs on |
+| both (adopted, even split) | block ×1.25, field ×1.25, store 2 d, 8–9 modules, $7.7 / $12.7 B (+$46 / +$75) | **block ×1.5, field ×1.25, store 1 d, 1,500 MW, 15 / 17 modules, $6.4 / $10.3 B (+$38 / +$61)** |
+| both against mirrors alone | 1.35× / 1.34× | **1.12× / 1.15×** |
+| with the water withheld / field at design | 1.5–1.7 % / 5.6–5.9 % | **3.6–4.0 % / 1.3–1.4 %** |
+| water, MAF/yr | 0.40 / 0.44 | **0.75 / 0.83** |
+| Title II capital, $B | 15 / 25 | **28 / 48** |
+| whole-load price on the adopted route, $/MWh | 171 / 277 | **163 / 263** |
+| program at the adopted route, $B | 55 / 93 | **67 / 113** |
+
+Year-round delivery makes the water a real lever again — each route carries a share the other cannot —
+and the adopted route lands within fifteen percent of the mirrors on Title I's account while making
+three quarters of a million acre-feet a year. `aquacost.py`'s water route is now the adopted route's water.

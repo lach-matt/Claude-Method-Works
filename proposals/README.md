@@ -85,11 +85,11 @@ is worth two points of service and does not change the closing sizing.
 |---|---|---|
 | F-01, F-02 | `tools/helios.py` | 19.2 TWh net at the scale proposed, not 39.6 sold; the export is negative; $693 M at 2024 prices against $1,933 M carrying. Inverted: $102/MWh needed at Title I's own capex — inside the firm-clean band — so F-05 decides. |
 | F-17 | `tools/helios.py` | 3 M households at EIA's 6,036 kWh/yr is 18.1 TWh; the plant makes 19.2 — the size was right, the export was wrong, and growth needs 1.3–1.7× by 2060. At the built cost a household pays **more** for generation than today ($1,244 vs $1,177). No size answers it; the equipment does. |
-| F-06 | `tools/hourly3.py`, `tools/joinder.py` | The solar multiple was a label; run hour by hour Helios-3 as chained serves 87 % of the load, the block cannot carry the evening in any month. Closed by block ×1.25, field ×1.5 + store 2 days (mirrors, +$34/MWh mid, +$56 critical) or 16–17 desalination modules lifting to a 1 km³ reservoir at 500 m with a block ×2 (water, about twice the mirrors on the power side, +0.79–0.87 MAF/yr). The author chose both (`both.py`). |
+| F-06 | `tools/hourly3.py`, `tools/joinder.py` | The solar multiple was a label; run hour by hour Helios-3 as chained serves 87 % of the load, the block cannot carry the evening in any month. Closed by block ×1.25, field ×1.5 + store 2 days (mirrors, +$34/MWh mid, +$56 critical); water alone has no feasible point on this load (its surplus cannot lift what closes). The author chose both, delivered year-round (`both.py`): block ×1.5, field ×1.25, 1,500 MW, 15–17 modules, +$38 / +$61, 0.75–0.83 MAF/yr. |
 | F-18, F-20, F-21, F-22, F-23, F-25, F-29, F-30, F-31 | `tools/majors.py`, `tools/rebase3.py` | No export RA; washing 1,394–2,378 AFY from the program's own water; land 62,160–94,980 acres with Westside fallowed land claimed; the Central Valley node kept at a larger share; no nitrate in Helios-3; NEPA budgeted on the Mojave node; the downside case is critical ($151/245 at 1.25× coverage); contingency 15/30 %, DSRF one year. `Title_III_Joinder_v0.2.md` written: the agreement, the shared asset, the decision table, the takers, the statement, severability. |
 | F-03, F-04, F-11, F-12, F-13, F-15, F-26, F-27, F-28, F-35, F-36 | `tools/titletwo.py`, `tools/rebase2.py` | Title II's process rows: no mineral revenue (one module's Mg(OH)₂ is 0.76–1.27 of the US market); brine through the outfall at a 17:1 diffuser dilution; RO the default; first water 2034–2037 from the record, not 24 months; energy at the contract price with Title I's surplus at 7% of hours; on-site PV 13%–6% of the draw, islanding for critical loads; screened open intake as default. `Title_II_Aqua-Sovereign_v0.2.md` rendered from the instruments. |
 | F-09, F-10, F-19, F-24 | `tools/titleone.py` | Export negative so no export right; one 500 kV circuit per node (1,196 / 1,179 MW). Tariff is the household bill at cost recovery ($756 / $1,218 vs $1,177), CCA-form LSE. Bonds priced to the security: GO $125/202, revenue $140/227, unrated $161/262 per MWh. Schedule is the ladder 2029–2041 with tranches by rung. |
-| F-14, F-16 | `tools/aquacost.py` | A module is **$1,883 M / $2,886 M** financed against $250–320 M submitted, from the record (Carlsbad, Huntington Beach) escalated; water at cost recovery with the energy at Title I's price is **$3,034 / $4,790 per acre-foot** against $400 claimed and Carlsbad's $2,700–2,900. The water route's modules are $30 / $50 B of Title II capital, the adopted route's $15 / $25 B. |
+| F-14, F-16 | `tools/aquacost.py` | A module is **$1,883 M / $2,886 M** financed against $250–320 M submitted, from the record (Carlsbad, Huntington Beach) escalated; water at cost recovery with the energy at Title I's price is **$3,034 / $4,790 per acre-foot** against $400 claimed and Carlsbad's $2,700–2,900. The adopted route's modules are $28 / $48 B of Title II capital. |
 | F-32, F-33, F-34, F-37, F-38, F-39, F-40 | `tools/minors.py` | The seven minors: the cycle relabelled (sCO₂ Brayton 0.50; salt fallback subcritical reheat 0.43); ASCE 7 with the 0.75 g target above the mapped MCE at every node; CO₂ avoided **6.33 / 5.51 MMT** as sized and 7.24 / 6.34 closed against 11.8 claimed; the Authority as a statutory LSE on the SB 6X pattern with §8571 cited only for what it does; jobs from built plants per MW (1,632 / 1,063 permanent, 17,545 construction peak); one EPC per node under an owner's engineer; 40 dBA at 13 / 79 m with a $19 / $58 M enclosure per module. **Forty of forty resolved.** |
 | F-05, F-07, F-08 | `tools/heliocost.py` | $46–71 B net of the storage credit ($57 B mid, $10.85/W) against $27.2 B stated; needs $171–253/MWh against a band of $80–120. **The criterion does not close at the scale proposed in any case.** |
 
@@ -164,21 +164,21 @@ return (F-13/F-27): they do not return a winter. **Hydraulic turbines on the wat
 surplus lifts the product to an elevated reservoir, delivery October to April comes back through
 pump-turbines. Hour by hour the shortfall is a seven-month season plus the evening, not a winter, and
 the hydro plant must be sized to the evening. With the water on Title II's own account and the surplus
-on the lift alone, **16 / 17 modules at 500 m (0.79 / 0.87 MAF/yr) and a block ×2.0 close mid for $11.2 B and critical
-for $17.0 B** — against $5.7 / $9.5 B of mirrors alone. **On the corrected load shape (`docs/LOADSHAPE.md`)
-the water route costs about twice the mirrors on the power side**, because it returns only October to
-April and the block must carry the summer evening alone; the parity the inverted shape had shown is
-withdrawn, and what the route adds is the water. The lift does not depend on head and fits inside the
-surplus at both cases. The field and the store stay at design; the block does not.
+on the lift alone, **the author then decided the water comes down year-round** (summer irrigation, winter recharge), the
+reservoir holding weeks rather than a season. On the corrected load shape (`docs/LOADSHAPE.md`) **water
+alone is not a route**: with the field and store at design no point both closes and lifts its water inside
+the plant's own surplus, because the block that closes the evening eats the spill the lift runs on, and a
+lift bought from the grid is not this route. Water with a larger field is, and that is the adopted route
+(`both.py`). The lift does not depend on head.
 
 **The decision: both (`tools/both.py`, `docs/BOTH.md`, 2026-09-11).** Asked which route closes the
 season, the author answered *both*. Read literally as the even split — the water returns half the
-season, the field and store carry the other half — the adopted sizing is block ×1.25, field ×1.25, store 2 d,
-1,500 MW of pump-turbines and 8–9 modules (0.40–0.44 MAF/yr): **$7.7 / $12.7 B on Title I's
-account, +$46 / +$75 per MWh**, more than mirrors alone ($5.7 / $9.5 B) because the pump-turbines
-are bought whole, and buying a plant that with the water withheld leaves 1.5–1.7 % to the grid and
-with the field at design 5.6–5.9 %, against 13 % with neither. Figures on the corrected load shape
-(`docs/LOADSHAPE.md`). The ladder over the water's share is printed so the split can be moved.
+season, the field and store carry the other half — the adopted sizing is block ×1.5, field ×1.25, store 1 d,
+1,500 MW of pump-turbines and 15–17 modules (0.75–0.83 MAF/yr), every point required to lift its
+water inside its own surplus: **$6.4 / $10.3 B on Title I's account, +$38 / +$61 per MWh**, 1.12× /
+1.15× mirrors alone ($5.7 / $9.5 B), and a plant that with the water withheld leaves 3.6–4.0 % to the
+grid and with the field at design 1.3–1.4 %, against 13 % with neither. Figures on the corrected load
+shape with year-round delivery (`docs/LOADSHAPE.md`). The ladder over the water's share is printed so the split can be moved.
 
 **The pilot aperture as an acceptance protocol (`tools/pilot.py`, `docs/PILOT.md`, 2026-09-11).** The
 receiver's real efficiency is the one open item no instrument can close, so the test is fixed before it
@@ -192,7 +192,7 @@ survive the register cannot be computed without a site, so the three Title I nod
 brownfields are graded MET / CONDITIONAL / OPEN / FAIL on the terms each Title needs and ranked, each
 with the study that would settle its worst term. At mid the Westside ties the Mojave for first and at
 critical the Mojave leads on the seismic margin; on the coast the Oxnard plain leads and Huntington
-Beach carries its 2022 denial as a FAIL. The water route's 16–17 modules (the adopted route's 8–9) against eight sites is a
+Beach carries its 2022 denial as a FAIL. The adopted route's 15–17 modules against eight sites is a
 finding. A ranked list of site studies, not a choice.
 
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it

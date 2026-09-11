@@ -115,9 +115,12 @@ def module(case, lift_kwh_m3=0.0):
 
 
 def water_route(case):
-    """The modules the joinder's water route lifts, and their water priced with the lift."""
-    w = J.winter(case)
-    m = J.modules_to_close(case, 500.0, w)
+    """The modules the ADOPTED route (both.py: water at half the shortfall, delivered
+    year-round) lifts, and their water priced with the lift. Water alone at design
+    field and store has no feasible closing point on the corrected load shape -- its
+    own surplus cannot lift what closes -- so the route priced here is the adopted one."""
+    import both as B                                           # lazy: both imports this module
+    m = B.scan(case)["best"]
     lift = J.hydraulic_per_m3(case)["lift_kwh_m3"]
     mod = module(case, lift_kwh_m3=lift)
     return dict(modules=m["modules"], maf=m["maf"], capex_b=mod["financed_m"] * m["modules"] / 1e3,
@@ -225,8 +228,11 @@ def selftest():
     wr = {c: water_route(c) for c in CASES}
     check("the lift adds to the water's price and never subtracts",
           all(wr[c]["per_af"] > mods[c]["per_af"] for c in CASES))
-    check("the water route's module count is joinder.py's (imported)",
-          all(abs(wr[c]["modules"] - J.modules_to_close(c, 500.0, J.winter(c))["modules"]) < 1e-9 for c in CASES))
+    import both as B
+    check("the route's module count is both.py's adopted point (imported)",
+          all(abs(wr[c]["modules"] - B.scan(c)["best"]["modules"]) < 1e-9 for c in CASES))
+    check("water alone at design field and store has no feasible closing point (its surplus cannot lift what closes)",
+          all(J.evening_with_water(c, 500.0, J.winter(c))["closing"] is None for c in CASES))
     head = open(__file__).read().split("def pick")[0].splitlines()
     consts = [l for l in head if l[:1].isupper() and "=" in l and not l.startswith(("HERE", "CASES", "BOND_", "CONTINGENCY", "EPC_OWNER"))]
     check("every constant line carries a status",
