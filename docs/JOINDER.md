@@ -65,6 +65,35 @@ recharge, which is where winter water goes in California anyway. What it needs i
 a **reservoir where the water is wanted below it** — a siting question, and the reason San Luis
 exists. The rest of the winter still needs the field, or the grid.
 
+## C. More modules, not more storage
+
+The author (2026-09-11): not more storage on the power side — can hydro output at the
+desalination plants be raised, or should more modules make more water? Two things settle it.
+Hydro output at a plant is volume × head, and a coastal plant is at sea level: **the head is
+where the water comes down**, a property of the reservoir site, not of the plant. So the levers
+are exactly the author's two, volume (modules) and head (site), and head is worth more: each
+doubling halves the water. And if the water is on **Title II's own account** — its cost model
+already carries its energy line — then Title I's surplus is spent on the *lift alone*, and the
+winter closes when enough water comes down:
+
+| | head, m | modules | M acre-feet/yr | km³ | lift, TWh_e (surplus 3.2 / 3.3) | capex, $B | + $/MWh |
+|---|---|---|---|---|---|---|---|
+| mid | 300 | 41.5 | 2.08 | 2.56 | 2.33 | 7.38 | 43.7 |
+| mid | 500 | **24.9** | **1.25** | 1.54 | 2.33 | **4.82** | **28.6** |
+| mid | 800 | 15.6 | 0.78 | 0.96 | 2.33 | 3.38 | 20.0 |
+| critical | 300 | 44.2 | 2.21 | 2.73 | 2.62 | 12.54 | 74.3 |
+| critical | 500 | **26.5** | **1.33** | 1.64 | 2.62 | **8.18** | **48.5** |
+| critical | 800 | 16.6 | 0.83 | 1.02 | 2.62 | 5.73 | 33.9 |
+| field oversizing, whole winter | | | | | | 10.15 / 16.95 | 60 / 100 |
+
+The lift fits inside the surplus at every head at both cases; the selftest asserts it. At 500 m
+the whole winter closes for **$4.8 B at mid and $8.2 B at critical**, against $10.2 / $16.9 B
+for the mirrors, and it makes **1.25 to 1.33 million acre-feet a year** of water doing it — 25
+to 27 modules, roughly half of Carlsbad's output each. What the modules cost is Title II's to
+price (F-16 says their capex is understated three- to four-fold), and what they need is
+**takers for a million acre-feet or more a year, delivered in winter** — which is what SGMA
+groundwater recharge in the San Joaquin is short of by about that much.
+
 ## What it does not do
 
 It does not find the reservoir; head (500 / 300 m) and the reservoir and pump-turbine costs are

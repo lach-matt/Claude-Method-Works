@@ -132,6 +132,32 @@ def hydraulic_winter(case, w=None):
     return dict(per=per, winter=w, requirement=req, bounded=bounded)
 
 
+HEAD_SCAN = (300.0, 500.0, 800.0)         # m, sites from the Gianelli class to the Tehachapi crest   ASSUMED scan
+
+
+def modules_to_close(case, head=None, w=None):
+    """The author's question (2026-09-11): not more storage on the power side
+    -- more MODULES. The water is on Title II's own account (its cost model
+    already carries its energy line), so Title I's surplus is spent on the
+    LIFT alone, and the winter closes when enough water comes down. Returns
+    the modules, the lift energy against the surplus, the reservoir and the
+    plant, at a head."""
+    w = winter(case) if w is None else w
+    h = pick(HEAD_M, case) if head is None else head
+    ci = CASES.index(case)
+    ret = RHO_G_KWH_M3_PER_M * h * pick(ETA_TURBINE, case)
+    lift = RHO_G_KWH_M3_PER_M * h / pick(ETA_PUMP, case)
+    m3 = w["unserved_twh"] * 1e9 / ret
+    lift_twh = m3 * lift / 1e9
+    mw = w["unserved_twh"] * 1e6 / WINTER_DELIVERY_H
+    reservoir_b = m3 / 1e9 * RESERVOIR_B_PER_KM3[ci]
+    pumpgen_b = mw * 1e3 * PUMPGEN_PER_KW[ci] / 1e9
+    return dict(head=h, m3=m3, km3=m3 / 1e9, maf=m3 / M3_PER_AF / 1e6, modules=m3 / MODULE_M3_YR,
+                lift_twh=lift_twh, surplus_twh=w["surplus_twh"], lift_within_surplus=lift_twh <= w["surplus_twh"],
+                desal_twh_on_title_ii=m3 * pick(RO_KWH_M3, case) / 1e9, mw=mw,
+                reservoir_b=reservoir_b, pumpgen_b=pumpgen_b, capex_b=reservoir_b + pumpgen_b)
+
+
 def field_closure_b(case):
     """hourly3's closing overbuild, direct $B, for comparison."""
     d = C.design("helios3", case)
@@ -220,6 +246,29 @@ def report():
     print("       where the water is wanted below it -- a siting question, and the")
     print("       reason San Luis exists.")
     print()
+    print()
+    print("    C. MORE MODULES, NOT MORE STORAGE (the author, 2026-09-11). Put the water")
+    print("       on Title II's own account -- its cost model already carries its energy")
+    print("       line -- and spend Title I's surplus on the LIFT alone. Then the winter")
+    print("       closes when enough water comes down, and the question is how many")
+    print("       modules and how much head:")
+    print(f"      {'':<10}{'head m':>7}{'modules':>9}{'MAF/yr':>8}{'km3':>7}{'lift TWh':>10}{'surplus':>9}{'fits':>6}{'desal TWh (II)':>15}{'MW':>7}{'capex $B':>10}{'+ $/MWh':>9}")
+    for c in CASES:
+        for h in HEAD_SCAN:
+            m = modules_to_close(c, h, ws[c])
+            print(f"      {c:<10}{m['head']:7.0f}{m['modules']:9.1f}{m['maf']:8.2f}{m['km3']:7.2f}{m['lift_twh']:10.2f}{m['surplus_twh']:9.2f}"
+                  f"{'yes' if m['lift_within_surplus'] else 'NO':>6}{m['desal_twh_on_title_ii']:15.2f}{m['mw']:7,.0f}{m['capex_b']:10.2f}{price_delta(c, m['capex_b']):9.1f}")
+    print(f"      {'field oversizing, for comparison':<27}" + "".join(f"  {c}: ${field_closure_b(c):.1f} B, +{price_delta(c, field_closure_b(c)):.0f} $/MWh" for c in CASES))
+    print("       Hydro output at a desalination plant is volume x head, and the plant")
+    print("       is at sea level: the head is where the water comes DOWN, a property of")
+    print("       the reservoir site, not of the plant. So the two levers are exactly")
+    print("       the author's two -- more modules (volume) and a higher site (head) --")
+    print("       and head is worth more: it halves the water for each doubling. The")
+    print("       lift fits inside the surplus at every head at both cases; what the")
+    print("       modules cost is Title II's, and what they need is TAKERS for a")
+    print("       million acre-feet or more a year, delivered in winter -- which is what")
+    print("       SGMA recharge is short of.")
+    print()
     print("    WHAT THIS DOES NOT DO. It does not find the reservoir; head and site are")
     print("    ASSUMED bands. It does not net the evening peak, which hourly3 closes with")
     print("    the block, not the winter. It says which turbine the author's sentence")
@@ -263,6 +312,16 @@ def selftest():
           all(0.1 < hy[c]["bounded"]["km3"] < 3.0 for c in CASES))
     check("energy returned = m3 x kWh/m3 exactly (no hidden term)",
           all(abs(hy[c]["requirement"]["m3"] * hy[c]["per"]["returned_kwh_m3"] / 1e9 - ws[c]["unserved_twh"]) < 1e-9 for c in CASES))
+    for c in CASES:
+        for h in HEAD_SCAN:
+            m = modules_to_close(c, h, ws[c])
+            check(f"{c} @ {h:.0f} m: the lift fits inside the surplus", m["lift_within_surplus"])
+            check(f"{c} @ {h:.0f} m: returned energy = m3 x kWh/m3 exactly",
+                  abs(m["m3"] * RHO_G_KWH_M3_PER_M * h * pick(ETA_TURBINE, c) / 1e9 - ws[c]["unserved_twh"]) < 1e-9)
+    check("doubling the head halves the water at fixed winter (mid, 300 -> 600 m)",
+          abs(modules_to_close("mid", 300.0, ws["mid"])["m3"] / modules_to_close("mid", 600.0, ws["mid"])["m3"] - 2.0) < 1e-9)
+    check("at 500 m the modules that close mid are within the surplus and under the field oversizing",
+          modules_to_close("mid", 500.0, ws["mid"])["capex_b"] < field_closure_b("mid"))
     head = open(__file__).read().split("def pick")[0].splitlines()
     consts = [l for l in head if l[:1].isupper() and "=" in l and not l.startswith(("HERE", "CASES", "WATER_END", "ETA_CONDENSING"))]
     check("every constant line carries a status",

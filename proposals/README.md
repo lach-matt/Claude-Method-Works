@@ -153,7 +153,11 @@ itself** do: summer surplus desalinates and lifts the product to an elevated res
 delivery comes back through pump-turbines. Bounded by the surplus (3.2 TWh_e thrown away), the scheme
 makes **0.7 km³ of water a year** and returns **46 % of the winter at mid, 27 % at critical**, for
 **$2.2 / $3.3 B** — per TWh of winter, cheaper than the field oversizing at both cases — conditional
-on head and a reservoir sited where the water is wanted below it.
+on head and a reservoir sited where the water is wanted below it. **And the author's follow-up — more modules rather than
+more storage — closes the whole winter**: with the water on Title II's own account and the surplus
+spent on the lift alone, **25 modules at 500 m of head (1.25 MAF/yr) close mid for $4.8 B and 27
+close critical for $8.2 B**, against $10.2 / $16.9 B of mirrors; head halves the water for each
+doubling and is the lever worth more, and the water needs winter takers, which SGMA recharge is.
 
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
