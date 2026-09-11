@@ -7306,6 +7306,37 @@ the corridor, the per-decade constant its derivative.
 
 ---
 
+## `nonzero.py` — "zero cannot exist". Untestable as stated; its shadow is an audit.
+
+> M: *"Non-zero value. Zero cannot exist as it is an absolute void."*
+
+**As metaphysics: recorded UNTESTABLE** — no observable, so the tree holds it in neither direction. **But the
+discipline it implies is testable**, and had never been run: for every exact zero this tree reports, is it a
+theorem, a validation, or a floor mistaken for a zero?
+
+**Eight zeros. Five theorems** (parallel nulls, the D = 3 static amplitude, `Λ` at `X = e`, `P_ADM`, `Tr[H]`),
+**one validation that genuinely is zero** (Minkowski), **one bookkeeping count**, and **one FLOOR that was
+never called a zero** — `certify.py`'s Schwarzschild vacuum at `4e-12`, quoted as a *measured* floor with the
+finding six orders above it. **None is ASSERTED. The tree was already obeying the principle before it was
+stated.**
+
+> **And one zero is genuinely unattainable, exactly as claimed.** `A/A_N = 2(1−cos θ)² ≈ θ⁴/2` — **a quartic
+> zero**, reached only at exact parallelism. A microradian laser sits at **5.0e−25**, not at nothing. So
+> `lattice.py`'s **NEC equality is attained only on a measure-zero set.**
+>
+> **And it changes nothing:** the project needs the null energy to go *negative* — to cross, not touch — so
+> `5e−25` is added to a gap that was already decisive. **True here and inert here**, and both halves are the
+> finding.
+
+*A file auditing whether zeros are real produced a fake one on its first run:* `θ = 10⁻⁹` returns exactly
+`0.0` because `cos(10⁻⁹) = 1 − 5e−19` underflows. True value `5e−37`. Sixth precision fault.
+
+### Seated
+- `nonzero.py` — new. `index3.py` — **552 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H49**. `lattice.py` — **unchanged, read more sharply**. `obstruct.py` — **unchanged**.
+
+---
+
 ### Seated (provenance.py)
 - `provenance.py` — new. `planckcell.py` — sections 7 and 8. `index3.py` — **513 findings**, `E(X) = 0`.
   `paper/CLAIMS.md` — **H39**. `obstruct.py` — **unchanged**.

@@ -3490,6 +3490,65 @@ integrand wants a logarithmic grid** — fifth precision fault caught in this tr
 
 ---
 
+## ★★★ H49 — "zero cannot exist". **Untestable as stated; its shadow is an audit, and the audit is clean.**
+
+> M: *"Now let me give you the why… Non-zero value. Zero cannot exist as it is an absolute void."*
+
+**As metaphysics, recorded UNTESTABLE** — no observable, forbids no measurement, so the tree holds it in
+neither direction, same register as **H47d** and for the same reason.
+
+**But it has a testable shadow this project had never run:** for every exact zero the tree reports, is it a
+**theorem**, a **validation**, or a **floor mistaken for a zero**?
+
+### H49a — the census: eight zeros, and the audit is clean
+
+| zero | kind | |
+|---|---|---|
+| parallel-null amplitude | **THEOREM** | `p·p′ = 0` for parallel nulls — and **measure-zero**, see H49b |
+| static amplitude at D = 3 | **THEOREM** | `2 − 2/(D−2) = 0`; 2+1 gravity has no Newtonian attraction |
+| `Λ` at `X = e` | **THEOREM** | a threshold, not a vanishing |
+| `P_ADM` | **THEOREM** | a *bound* wearing a zero — the structure cannot translate |
+| `Tr[H]` | **THEOREM** | exact, after a first pass mis-stated it |
+| Minkowski `max\|T\|` | **VALIDATION** | `0.000e+00` — flat space, and it *is* zero |
+| Schwarzschild vacuum `max\|T\|` | **FLOOR** | `4.08e-10`, `3.99e-12` — true value zero, pipeline finite-difference, **quoted as a measured floor** |
+| `E(X)` | bookkeeping | a count of unpredicted cells |
+
+> **None of the eight is ASSERTED.** And in the one place where a zero is physically exact and numerically
+> is not, **H40b** quoted against a **measured floor** with its finding six orders above it. **The tree was
+> already obeying M's principle before he stated it.**
+
+### H49b — one zero is genuinely unattainable, exactly as claimed
+
+**H36**'s coupling curve is `A/A_N = 2(1 − cos θ)²`, zero at parallel. Can that zero be *occupied*?
+
+`1 − cos θ ≈ θ²/2` ⟹ **`A/A_N ≈ θ⁴/2` — a quartic zero**, attained only at exactly `θ = 0`.
+
+| `θ` | `A/A_N` |
+|---|---|
+| 10⁻⁶ (good laser) | **5.000889e−25** |
+| 10⁻³ | 4.999999e−13 |
+| 10⁻² | 4.999917e−09 |
+| 10⁻¹ | 4.991673e−05 |
+
+> **No real beam is exactly parallel.** This sharpens **H36**'s reading of `lattice.py`'s NEC equality case:
+> **the equality is attained only on a measure-zero set**, and every real configuration sits strictly above
+> it by `θ⁴/2`. **M is right about this one, and for his reason.**
+
+### H49c — and it changes nothing, which is the other half
+
+This project needs `T_μν k^μ k^ν` to go **negative** — **to cross, not to touch**. Learning that zero cannot
+be reached *from above* adds `5e−25` to a gap that was already decisive.
+
+> **M's principle is TRUE here and INERT here.** Reporting only the first half would be the overclaim
+> **H39** exists to catch. `lattice.py`'s theorem is unchanged and only read more sharply.
+
+*Method note:* evaluating the curve at `θ = 10⁻⁹` returns **exactly 0.0** — `cos(10⁻⁹) = 1 − 5e−19` and
+`5e−19` is below the double epsilon, so the subtraction underflows. True value **5e−37**. **A file auditing
+whether zeros are real produced a fake one on its first run.** Sixth precision fault; use the small-angle
+form below `θ ~ 10⁻⁴`.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
