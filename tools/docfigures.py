@@ -24,6 +24,12 @@ cannot be made exactly is not made.
 It also refuses to measure anything requiring the 393 MB chat export, so it stays
 fast enough to run at the top of a session. `coverage.py --chats` owns that.
 
+Seven rows pin the generated graph in `graphify-out/`, added 2026-09-11. Nothing
+measured it before, which is exactly how CLAUDE.md came to describe a 26,364-node
+snapshot after a 30,892-node rebuild -- the same failure this instrument was built
+for, in the one place it was not looking. They read `graph.json` itself and never a
+figure the same run wrote beside it.
+
 The last fourteen rows come from `pointers.py --json` and `arith.py --json`. Their
 own selftests pin individual SITES -- 53 and 42 fixtures -- so a change in a
 corpus-wide TOTAL passes them without a word. These rows are that missing check.
@@ -223,7 +229,108 @@ def checks():
          _unparseable_anywhere()),
         ("CLAUDE.md", "tools/ instruments ahead of their seated member", 5,
          len(_tools_ahead_of_their_members())),
+        # graphify-out/. Nothing pinned the graph's own figures until 2026-09-11,
+        # which is how CLAUDE.md came to describe a 26,364-node snapshot after a
+        # 30,892-node rebuild. Measured from graph.json, never from a sidecar the
+        # same run wrote: a figure pinned against itself is not a check.
+        ("CLAUDE.md", "graph nodes", 30892, len(_graph()["nodes"])),
+        ("CLAUDE.md", "graph edges", 42459, len(_graph()["links"])),
+        ("CLAUDE.md", "graph communities", 3240, len(_graph_communities())),
+        ("CLAUDE.md", "hand-written community labels (floor)", 40,
+         _graph_handwritten_labels()),
+        ("CLAUDE.md", "files in scope contributing no node", 77,
+         _graph_files_without_a_node()),
+        ("docs/GRAPH-FINDINGS.md", "image AMBIGUOUS edges", 29,
+         _graph_image_ambiguous()[0]),
+        ("docs/GRAPH-FINDINGS.md", "image AMBIGUOUS edges crossing a file", 9,
+         _graph_image_ambiguous()[1]),
     ] + _instrument_rows()
+
+
+_GRAPH = None
+
+
+def _graph():
+    """graphify-out/graph.json, parsed once. ~0.2 s at 30 MB, so it stays inside
+    the budget this instrument keeps; the 393 MB chat export does not."""
+    global _GRAPH
+    if _GRAPH is None:
+        with open(ROOT / "graphify-out" / "graph.json", encoding="utf-8") as fh:
+            _GRAPH = json.load(fh)
+    return _GRAPH
+
+
+def _graph_communities():
+    """{community id: [node, ...]} from the nodes' own community field."""
+    out = {}
+    for n in _graph()["nodes"]:
+        out.setdefault(n.get("community"), []).append(n)
+    return out
+
+
+def _graph_handwritten_labels():
+    """Community labels that are NOT the community's dominant source basename.
+
+    Step 5 of the graphify run labels a community by hand or else derives it
+    mechanically from the file most of its nodes come from. Recomputing the
+    derivation tells the two apart, so the hand/derived split is measured rather
+    than asserted. A hand label that happens to equal the basename would read as
+    derived -- the count is a floor.
+    """
+    hand = 0
+    for nodes in _graph_communities().values():
+        counts = {}
+        for n in nodes:
+            src = str(n.get("source_file") or "")
+            if src:
+                base = os.path.basename(src)
+                counts[base] = counts.get(base, 0) + 1
+        if not counts:
+            continue
+        # Communities whose top basename TIES have no single dominant file, and the
+        # run's tie-break is not recoverable from graph.json. Accept any of the
+        # tied leaders as derived: picking one arbitrarily here counted 8 derived
+        # labels as hand-written, which is a fact about the tie-break and not about
+        # the labelling.
+        top = max(counts.values())
+        dominant = {b for b, c in counts.items() if c == top}
+        label = str(nodes[0].get("community_name") or "")
+        if label and label not in dominant:
+            hand += 1
+    return hand
+
+
+_IMG_EXT = (".png", ".jpg", ".jpeg", ".gif", ".webp")
+
+
+def _graph_image_ambiguous():
+    """(image AMBIGUOUS edges, how many of those cross a file).
+
+    GRAPH-FINDINGS 12a: the vision pass doubts far oftener than the text pass,
+    and on the 2026-09-04 build no such edge left its own figure. The second
+    number is what stopped being true.
+    """
+    g = _graph()
+    src_of = {n["id"]: str(n.get("source_file") or "") for n in g["nodes"]}
+    total = cross = 0
+    for e in g["links"]:
+        sf = str(e.get("source_file") or "")
+        if not sf.lower().endswith(_IMG_EXT):
+            continue
+        if str(e.get("confidence", "")).upper() != "AMBIGUOUS":
+            continue
+        total += 1
+        if src_of.get(e["source"]) != src_of.get(e["target"]):
+            cross += 1
+    return total, cross
+
+
+def _graph_files_without_a_node():
+    """Files the index scanned that contributed no node at all."""
+    with open(ROOT / "graphify-out" / "manifest.json", encoding="utf-8") as fh:
+        scanned = set(json.load(fh))
+    seen = {str(n.get("source_file") or "") for n in _graph()["nodes"]}
+    return len(scanned - seen)
 
 
 def _newest_python():

@@ -406,6 +406,18 @@ extractor graded them honestly. **These are not candidates for tracing**: the fi
 evidence, and a reader looking at it has everything the edge has. They are a measurement of the
 vision pass, not of the corpus.
 
+**Re-measured on the 2026-09-11 rebuild, which read all 80 figures: the rate holds and the
+containment does not.** 29 of 644 image edges are `AMBIGUOUS` — **4.50 %**, against 4.6 % — so the
+vision pass doubts at the same rate on a fresh reading, which is the part of this section that
+replicates. The text rate is **0.237 % of 41,815**, about twice the 0.12 % recorded here, so the 38×
+ratio is now nearer 19×; the ratio was never the finding, the disparity was. What does not replicate
+is the containment claim: **9 of the 29 cross a file**, where the 2026-09-04 build had none. All nine
+are figure-to-figure — `fig-constraints.png` to `fig-sections.png`, `fig13.png` to `fig11.png`,
+`fig09.png` to `fig07.png` and six more — so the narrower statement still holds, that **no image
+`AMBIGUOUS` edge reaches out of the figure set into a text document**. The blanket "nothing to trace"
+needs that qualification: for those nine the evidence is two figures rather than one, and a reader
+wanting to judge the edge has to hold both. Recorded, not repaired.
+
 ### 12b. The five handoff-supersession edges: the handoff number space is used twice
 
 The graph drew five `AMBIGUOUS` edges between consecutively numbered handoffs —
@@ -620,15 +632,28 @@ So the trade the merge offers is **121 collapsed provenance distinctions across 
 seat 148 nodes about six documents.** That is why it was refused. A corpus with one source tree and
 no provenance semantics would take this merge happily; this one cannot.
 
-### The standing decision
+### The standing decision, and its discharge on 2026-09-11
 
-**Leave the graph at 26,364 and let those six documents describe an earlier state of themselves.**
-The staleness is now exactly known and bounded — five documents, plus `docs/R3-REPAIR-PLAN.md`, which
-is in no node at all. The correct route to currency is a **full rebuild** (`/graphify .`), which
-builds through `build_from_json` and never runs this merge-time dedup; that is the ~3.45M-token pass,
-so it is worth spending after a pass that moves the corpus, not after six documents. **Do not
-`--force` past the shrink guard**: forcing writes the 121 collapses, which is the thing being
-avoided.
+The decision taken on 2026-09-04 was: **leave the graph at 26,364 and let those six documents describe
+an earlier state of themselves.** The staleness was exactly known and bounded — five documents, plus
+`docs/R3-REPAIR-PLAN.md`, which was in no node at all. The correct route to currency was a **full
+rebuild** (`/graphify .`), which builds through `build_from_json` and never runs this merge-time dedup,
+worth spending after a pass that moves the corpus rather than after six documents.
+
+**That deferral is discharged.** The R4 leg moved the corpus, and on 2026-09-11 the full rebuild was
+spent: **30,892 nodes, 42,459 edges, 3,240 communities** over 4,662 files. `docs/R3-REPAIR-PLAN.md`
+now carries **8 nodes**, and the six documents describe their current state. The rebuild cost
+**18.8M combined subagent tokens over 131 chunk runs** — far above the ~3.45M this section estimated,
+and the estimate was not wrong so much as conditional: the 2026-09-04 figure was a *mostly-cached*
+run, replaying 11,583 of its 15,345 semantic nodes from `graphify-out/cache/`, which was gitignored
+and so never travelled with the repository. A rebuild in a fresh clone pays the whole semantic pass.
+The cache is tracked from 2026-09-11, so the next rebuild resumes instead of starting cold; **that is
+the defect this section's estimate concealed, and it is repaired rather than recorded** because it was
+a gitignore rule and not a finding about the corpus.
+
+**The prohibition itself is unchanged.** `--update` is still not usable here, for exactly the reason
+given above, and **`--force` past the shrink guard is still forbidden**: forcing writes the 121
+collapses, which is the thing being avoided. A discharged deferral is not a lifted rule.
 
 Nothing here is a defect in graphify. It is a mismatch between a general-purpose dedup and a corpus
 whose whole point is that the same text in two trees means two different things.

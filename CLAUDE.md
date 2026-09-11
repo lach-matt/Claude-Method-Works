@@ -264,12 +264,19 @@ about a file is answered from `drive/MANIFEST.tsv` and a targeted `grep`, never 
 over 508 MB.
 
 The generated graph lives in `graphify-out/`; regenerate it rather than hand-editing it. It is a
-snapshot, not an index of the current tree — **rebuilt 2026-09-04 over 4,090 files after the
-`RECOVERED-BY-WRITE` pass, so it now covers `recovered/` in full**; `drive/chats/` stays excluded by
-`.graphifyignore` because its artefacts are already extracted into `recovered/`. **26,364 nodes and
-36,150 edges in 2,929 communities**, from an AST pass over 2,374 code files (11,019 nodes) plus a
-semantic pass over 1,716 documents (15,345 nodes, of which 11,583 replayed from cache and 3,762 were
-newly extracted by 22 subagents). Cost: **3.45M combined subagent tokens**. Still a snapshot: do not
+snapshot, not an index of the current tree — **rebuilt 2026-09-11 over 4,662 files**, which covers
+`recovered/` in full and the R4 leg's members, W texts and findings; `drive/chats/` stays excluded by
+`.graphifyignore` because its artefacts are already extracted into `recovered/`. **30,892 nodes and
+42,459 edges in 3,240 communities**, from an AST pass over 2,716 code files (15,199 nodes, 30,860
+edges) plus a semantic pass over all 1,946 documents, papers and figures (15,766 nodes, 21,928 edges,
+366 hyperedges). The merge carried 30,963 nodes and 52,788 edges; the build lands fewer of both
+because an undirected `Graph` collapses parallel endpoint pairs and drops the dangling ones. Cost:
+**18.8M combined subagent tokens over 131 chunk runs**, against 3.45M with 22 subagents in the
+2026-09-04 rebuild — **that run replayed 11,583 of its nodes from a cache this one could not use**,
+because `graphify-out/cache/` was gitignored and never travelled with the repository. It is tracked
+now, so the next rebuild resumes rather than starting cold. **77 files in scope contribute no node,
+and all 77 are `.json`**: they are classified as code, an AST pass finds no symbols in JSON, and they
+never reach the semantic pass — a limit, not a fault. Still a snapshot: do not
 treat a miss in the graph as evidence a file is absent; ask `COVERAGE.tsv`, `extracted/LEDGER.tsv`,
 `recovered/LEDGER.tsv` or `HANDOFF-GAP.tsv` instead.
 
@@ -282,19 +289,24 @@ sourced from files that had not changed**, 121 of them folding one tree into ano
 finding about it, and **RECOVERED is not mirrored**. The merged graph is also *smaller* than the one
 it merges into, so graphify's own guard refuses the write. **Currency costs a full rebuild**
 (`/graphify .`, which never runs that dedup) — worth spending after a pass that moves the corpus, not
-after six documents. Six documents therefore describe an earlier state of themselves in the current
-graph, `docs/R3-REPAIR-PLAN.md` is in no node at all, and that is **deferred by decision**. See
-`docs/GRAPH-FINDINGS.md` §13.
+after six documents. **That deferral is now discharged**: the 2026-09-11 full rebuild was spent, and
+the six documents that described an earlier state of themselves now describe their current one, while
+`docs/R3-REPAIR-PLAN.md` — which was in no node at all — carries 8. The prohibition is unchanged and
+is not softened by the rebuild: `--update`'s dedup would still fold one tree into another, so the only
+route to currency is still a full rebuild. See `docs/GRAPH-FINDINGS.md` §13.
 
 Three limits are recorded rather than repaired. `graph.html` is the **aggregated community view** —
-26,364 nodes is far above the node-level render limit of 5,000, so it draws 2,929 community nodes and
-2,211 cross-community edges, not individual files. The health check reports **8,908 dangling-endpoint
-edges**, and the split is the point: **8,881 are AST `imports`/`imports_from` to modules that are not
-files here** (`numpy`, `itertools`, `sys`, `collections`, `math`), which is expected of a corpus whose
-`.py` files import a stdlib; **27 come from the semantic layer**, and those are cross-chunk id
-coordination — an agent citing `claude_chat_67_full_hold` or `claude_manifest_tree_bijection` that the
-chunk owning `CLAUDE.md` did not declare under that exact id. Real concepts, dangling references.
-**Only 44 of the 2,929 community labels are hand-written**; the other 2,885 are derived
+30,892 nodes is far above the node-level render limit of 5,000, so it draws 3,240 community nodes and
+2,973 cross-community edges, not individual files. The health check reports **10,784 dangling-endpoint
+edges**, and the split is the point: **all 10,784 are AST `imports`/`imports_from` to modules that are
+not files here** (`sys` 1,028, `itertools` 948, `numpy` 938, `os` 788, `collections` 772), which is
+expected of a corpus whose `.py` files import a stdlib; **none come from the semantic layer**. The
+2026-09-04 build had **27** semantic dangles — cross-chunk id coordination, an agent citing
+`claude_chat_67_full_hold` or `claude_manifest_tree_bijection` that the chunk owning `CLAUDE.md` did
+not declare under that exact id — and the 2026-09-11 rebuild has zero. Real concepts, dangling
+references, and that class is now empty rather than repaired: it was never edited away. No missing
+endpoints and no self-loops in either build.
+**Only 40 of the 3,240 community labels are hand-written**; the other 3,200 are derived
 mechanically from each community's dominant source file, which is a naming convenience and not a
 reading of the community.
 
@@ -386,10 +398,15 @@ absent before the recovery, and the three that still are). Read it before re-der
 carries a command to re-verify.
 
 
-`.graphifyignore` scopes a re-index to **4,090 files, 13.3M words** — the 2026-09-04 rebuild's own
-detect figure, up from 3,976 files as `recovered/` grew. Every exclusion answers "would a node here tell a reader something", not "is this file
+`.graphifyignore` scopes a re-index to **4,662 files, 15.93M words** — the 2026-09-11 rebuild's own
+detect figure, up from 4,090 as the R4 leg seated members, W texts and findings. It also now excludes
+`method/build[0-9]*/` on the file's own stated principle: those eleven directories are per-build
+snapshots of two members whose current generation `method/members/` already holds, 22 files and 23 MB,
+and dropping them took detect from 4,684 files and 19.75M words to these figures. Every exclusion answers "would a node here tell a reader something", not "is this file
 big": `drive/chats/` is a transcript store whose artefacts are already extracted into `recovered/`;
 the mirror's `.zip`/`.gz`/`.pdf` are containers whose contents `extracted/LEDGER.tsv` already
 accounts for; the `.partNN` pieces are superseded by the assembled file beside them. `extracted/`
-and `recovered/` are deliberately **included** — 1,913 `.py` and 1,096 `.md` between them, the
-largest body of real code in the repository.
+and `recovered/` are deliberately **included** — 1,972 `.py` and 1,257 `.md` between them, the
+largest body of real code in the repository. **Those two figures read 1,913 and 1,096 until
+2026-09-11**, when the graph rebuild measured them; nothing pinned them, which is the same way the
+artefact counts went stale before `tools/docfigures.py` existed.
