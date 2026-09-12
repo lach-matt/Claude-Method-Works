@@ -109,6 +109,9 @@ SOURCES = [
      "equatorial photon and ISCO radii of Kerr", NAMED),
     ("mt88", "M. S. Morris and K. S. Thorne, Am. J. Phys. 56 (1988) 395",
      "the traversable wormhole conditions", NAMED),
+    ("gibbons02", "G. W. Gibbons, Found. Phys. 32 (2002) 1891, "
+     "arXiv:hep-th/0210109",
+     "the Maximum Tension Principle, F_g = c^4/(4G) at his eq. (1)", VERIFIED),
 ]
 
 # (claim, verdict, source, note)
@@ -179,6 +182,18 @@ ATTRIB = [
     ("H79e  sgn(a_+) sgn(a_-) = -1 is the invariant", COMBO, "volkov26",
      "follows from his antisymmetry; saying that the PRODUCT is the only "
      "chart-independent chirality fact is the framing"),
+    ("H91a  tau_0 = c^4/(8 pi G r0^2) at the throat", PRIOR, "mt88",
+     "Morris-Thorne 1988 give the throat stresses directly; restating them "
+     "in pascals is a unit choice, not a result"),
+    ("H91b  flare-out b\'(r0) < 1 IS the radial NEC violation", FOLK, "mt88",
+     "one line from their own equations; standard in the wormhole "
+     "literature and claimed as neither new nor ours"),
+    ("H91c  tau_0 x 4 pi r0^2 = c^4/(2G), r0-independent", FOLK, "gibbons02",
+     "a one-line integral of a known stress, and c^4/G is Gibbons\' own "
+     "combination.  ELEMENTARY, not ours -- what is recorded is that the "
+     "product is EXACTLY TWICE his proposed maximum force c^4/(4G), and "
+     "that is logged as an ANALOGY: he bounds a force between two bodies, "
+     "this is a stress integrated over a 2-sphere"),
     ("H79 note  the rotating black bounce", PRIOR, "mfl21",
      "a testbed, cited, NAMED-NOT-READ -- so it is used for its functional "
      "form only and no numerical claim of theirs is quoted"),
@@ -273,14 +288,14 @@ def selftest():
 
     print("provenance.py --selftest")
     print()
-    chk("sources", len(SOURCES), 17)
-    chk("read from source this session", sum(1 for s in SOURCES if s[3] == VERIFIED), 12)
+    chk("sources", len(SOURCES), 18)
+    chk("read from source this session", sum(1 for s in SOURCES if s[3] == VERIFIED), 13)
     chk("named but not read", sum(1 for s in SOURCES if s[3] == NAMED), 5)
-    chk("attribution rows", len(ATTRIB), 22)
-    chk("prior art", sum(1 for a in ATTRIB if a[1] == PRIOR), 7)
+    chk("attribution rows", len(ATTRIB), 25)
+    chk("prior art", sum(1 for a in ATTRIB if a[1] == PRIOR), 8)
     chk("ours as a connection", sum(1 for a in ATTRIB if a[1] == COMBO), 8)
     chk("ours outright", sum(1 for a in ATTRIB if a[1] == OURS), 1)
-    chk("elementary", sum(1 for a in ATTRIB if a[1] == FOLK), 6)
+    chk("elementary", sum(1 for a in ATTRIB if a[1] == FOLK), 8)
     # the invariant a typed tally cannot give: the verdicts PARTITION the rows,
     # and every verdict is one of the four declared.  This catches a real error
     # (a mistyped or invented verdict); a count only catches transcription, and
@@ -306,6 +321,8 @@ def selftest():
         all(s == "-" or status_of(s) is not None for _, _, s, _ in ATTRIB), True)
     chk("Volkov was read from source", status_of("volkov26"), VERIFIED)
     chk("Adamo-Newman was read from source", status_of("an14"), VERIFIED)
+    chk("Gibbons was read from source", status_of("gibbons02"), VERIFIED)
+    chk("Morris-Thorne was NOT read", status_of("mt88"), NAMED)
     chk("Simpson-Visser was NOT read", status_of("sv19"), NAMED)
     chk("Mazza-Franzin-Liberati was NOT read", status_of("mfl21"), NAMED)
     chk("no source is both read and unread",

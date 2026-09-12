@@ -7064,6 +7064,93 @@ restoring it multiplies the requirement by `1.0528e+02` and costs two more order
 
 ---
 
+### H91a — the requirement *is* a pressure, and it is exactly stateable
+
+> M: *"This is all atmospheric pressure density that must be applied to the singularity to cause the
+> singularity to open its mouth?"*
+
+**The dimensional reading is right, and it is worth more than `H90`'s own framing.** `1 J/m³` is `1 Pa`,
+exactly — so every number that pass produced reads as a pressure with no conversion, and reading it that
+way produces an exact result the density framing hid.
+
+Morris–Thorne's throat carries radial tension
+
+        τ₀ = c⁴ / (8π G r₀²)
+
+**the whole requirement, in pascals, with nothing else in it** — not the mass, not Λ, not the shape
+function. At `r₀ = 1.524 m`:
+
+| | |
+|---|---|
+| **τ₀** | **`2.073325e+42 Pa`** |
+| in atmospheres | `2.046212e+37` |
+| × a neutron-star core | `4.1466e+07` |
+| × the best static laboratory pressure | `2.0733e+30` |
+| `H90`'s `ρ_uniform` | `6.219974e+42 J/m³` |
+| **ratio** | **`3.000000000000` — exactly three** |
+
+The 3 is arithmetic, **not a physical identity** — a filled ball and a throat wall are different objects —
+but both are `c⁴/(8πGr²)` times a pure number. **So the pressure reading is not a rescaling of the
+problem. It is the same wall in its own units.**
+
+### H91b — half the Planck force, at every size
+
+Integrate the tension over the mouth it acts on:
+
+> **τ₀ × 4π r₀² = c⁴/(2G) = `6.051278e+43 N`, and r₀ cancels.**
+
+Verified `r₀`-free to `1e-12` across sixty orders, `1e-30 m` to `1e30 m`. It is **half the Planck force**
+`c⁴/G = 1.210256e+44 N`, to `0.500000000000` — the exact sibling of `H86`'s assembly power `c⁵/(2G)`, half the
+Planck power.
+
+> **Half the Planck power to assemble it; half the Planck force to hold it open.** Both mass-independent,
+> and neither found by looking for the other.
+
+Against **Gibbons' Maximum Tension Principle** *(hep-th/0210109, **read from source**)*, eq. (1)
+`F_g = c⁴/(4G) = 3.025639e+43 N`, our figure is **exactly twice it**, to `2.000000000000`.
+
+**Recorded as an ANALOGY, not a derived violation**, graded down for three reasons stated rather than
+buried: *(i)* Gibbons bounds a force between two **bodies**; ours is a stress integrated over a
+**2-sphere**. *(ii)* He writes in his own paper that *"the number 4 seems to be correct … but it may be
+subject to revision."* *(iii)* It is a **principle, not a theorem.**
+
+**And one thing was found in the source, recorded not repaired.** His eq. (1) gives `c⁴/(4G)`; his eq. (2)
+prints `3.250000e+43 N`; the formula evaluates to `3.025639e+43 N`. **The paper's own number disagrees with
+the paper's own formula by 7.4153%.** The extraction was OCR'd, so a digit artefact cannot be excluded,
+and that caveat travels with the finding. We use the formula.
+
+### H91c — wrong sign, wrong place, and squeezing is quadratically self-defeating
+
+**(1) The sign.** `τ = −p_r`: the wall must be **pulled outward**, not pushed inward. And squeezing is not
+merely useless — a static source gravitates as the Tolman/Komar combination `ρ + 3p`, **so applied pressure
+gravitates.** Raising `p` raises the effective mass, which raises `r_s`, and `H90` proved the shortfall goes
+as `R²`:
+
+> **GAP → GAP × (1 + 3p/ρc²)²**
+
+Radiation stiffness costs **4×**; the causal limit `p = ρc²` costs **16×**. **Compression is
+the operation that makes a black hole** — the opposite of the one being asked for.
+
+**(2) There is no singularity to apply it to.** Morris–Thorne require `Φ` finite everywhere (no horizon) and
+`b(r₀) = r₀` at finite curvature (no singularity). **A traversable throat is defined by the absence of the
+thing the question would squeeze.** A Schwarzschild object of the same mass has its singularity at `r = 0`
+and its horizon *at* `r₀`; converting the second into a throat is exactly the step that costs the exotic
+material. **You are not opening a singularity — you are building a wall where a horizon would be, out of a
+material that does not exist.**
+
+And the exotic condition is **one inequality, not two**: `ρ₀c² = b′(r₀)τ₀`, so
+`ρ₀c² + p_r = (b′(r₀) − 1)τ₀ < 0` for every `b′(r₀) < 1` — **which is the flare-out condition itself**,
+verified as an iff with `b′ > 1` as a negative control.
+
+**(3) No atmosphere — and the magnitude is not what fails.** At `b′(r₀) = −1` the required tension equals
+the magnitude of the wall's own energy density **exactly**, to `1e-15`, so the demand sits *on* the causal
+boundary `|p| ≤ ρc²` and not past it.
+
+> **The sign of ρ is what is exotic, not the size of p.** Yes as a pressure; no as compression, no as a
+> singularity, and no as any atmosphere.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

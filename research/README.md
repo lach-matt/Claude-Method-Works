@@ -7971,6 +7971,53 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `pressure.py` — yes as a pressure. No as compression, and there is nothing there to squeeze.
+
+> M: *"This is all atmospheric pressure density that must be applied to the singularity to cause the
+> singularity to open its mouth?"*
+
+**The dimensional reading is right and it is worth more than `persist.py`'s own framing.** `1 J/m³` is
+`1 Pa` exactly, so every number that pass produced reads as a pressure with no conversion — and reading it
+that way produces an exact result the density framing hid.
+
+Morris–Thorne's throat tension is `τ₀ = c⁴/(8πG r₀²)` — **the whole requirement in pascals, with nothing
+else in it.** At `r₀ = 1.524 m`: **`2.073325e+42 Pa`**, `2.046212e+37` atmospheres, `4.1466e+07` × a neutron-star
+core. And it is **exactly one third** of `persist.py`'s `6.219974e+42 J/m³` — ratio `3.000000000000`. The 3 is
+arithmetic, not a physical identity, but **the pressure reading is not a rescaling of the problem.**
+
+**AND THE PRESSURE READING FINDS WHAT THE DENSITY READING COULD NOT.** Integrate over the mouth:
+
+> **τ₀ × 4πr₀² = c⁴/(2G) = `6.051278e+43 N`, and r₀ cancels** — verified `r₀`-free to `1e-12` across sixty
+> orders. **Half the Planck force**, to `0.500000000000`; the exact sibling of `kugelblitz.py`'s `c⁵/(2G)`,
+> half the Planck power. **Half the Planck power to assemble it; half the Planck force to hold it open.**
+
+Against **Gibbons hep-th/0210109** *(read from source)*, eq. (1) `F_g = c⁴/(4G) = 3.025639e+43 N`, ours is
+**exactly twice it**. **Logged as an analogy, not a derived violation** — he bounds a force between two
+*bodies*, ours is a stress over a *2-sphere*; he himself writes *"the number 4 … may be subject to
+revision"*; and it is a principle, not a theorem. **Recorded from the source, not repaired:** his eq. (2)
+prints `3.250000e+43 N` where his eq. (1) evaluates to `3.025639e+43 N` — **the paper disagrees with itself by
+7.4153%** (OCR'd extraction; the caveat travels with the finding).
+
+**Three things in the sentence are wrong and each correction is sharper than the error.**
+
+- **The sign.** `τ = −p_r` — the wall is *pulled*. And squeezing is **quadratically self-defeating**: a
+  static source gravitates as `ρ + 3p`, so pressure raises the effective mass, which raises `r_s`, and the
+  gap goes as `R²`. **GAP → GAP × (1 + 3p/ρc²)²** — 4× at radiation stiffness, 16× at the
+  causal limit. **Compression is the operation that makes a black hole.**
+- **There is nothing there to squeeze.** A traversable throat has *no horizon and no singularity* by
+  construction. You are building a wall where a horizon would be, out of a material that does not exist.
+  And flare-out `b′(r₀) < 1` **is** the radial NEC violation — one inequality, not two, verified as an iff.
+- **The magnitude is not what fails.** At `b′(r₀) = −1` the required tension equals `|ρc²|` exactly, so the
+  demand sits **on** the causal boundary `|p| ≤ ρc²`, not past it. **The sign of ρ is what is exotic.**
+
+### Seated
+- `pressure.py` — new. `index3.py` — **683 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H91**. `provenance.py` — **18 sources, 25 attributions**; Gibbons added as
+  **VERIFIED**, Morris–Thorne stays `NAMED-NOT-READ`. `persist.py` — **read here, unchanged**.
+
+---
+
+
 ## `persist.py` — the bound forbids the duration, not the density.
 
 > M: *"Continue."*
