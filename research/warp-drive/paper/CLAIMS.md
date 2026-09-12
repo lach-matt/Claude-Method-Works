@@ -8675,7 +8675,8 @@ thread has made that the observations *dictate* rather than merely accept.
 
 ### H109b — `order` and `algebra` are the same operator, on every index anyone has run
 
-> **⚠ PROVENANCE CORRECTED BY H110a.** This was recorded as a possibly novel identity. A 2008
+> **⚠ PROVENANCE SETTLED BY H111b.** Prior art, now READ: Queyranne & Tardella 2008, Theorem 11.
+> The original note follows. A 2008
 > *Discrete Mathematics* paper (Queyranne & Tardella) asks the same question in the same setting;
 > it could not be opened. The status is **PRIOR-ART-PROBABLE, UNREAD**, not novel. `H110c` also
 > corrects the necessity claim carried here.
@@ -8872,6 +8873,94 @@ the Baker–Pixley step. Three statuses are kept apart throughout — **PROVED-H
 stated frontier), **CITED-UNREAD** — and none of them is MACHINE-CHECKED.
 
 *Instrument: `decomposable.py` — `python3 decomposable.py --selftest`, and `--provenance` for the ledger.*
+
+### H111a — the hierarchy law, stated and proved: it is the structure, not the order
+
+> M: *"Novelty is not my pursuit. My goal is the hierarchy law proven so we can continue the warp
+> theory work."*
+
+**Then the prior art is a gift.** Queyranne & Tardella prove the hard half in print, which is worth
+more than novelty for a claim that has to be true: the theorem rests on a refereed publication instead
+of on us.
+
+**THE LAW.** For finite non-empty `X`, `d ≥ 2`, each `A_i = π_i(X)` a finite chain, `Box(X) = ∏ A_i`:
+
+| | clause | status |
+|---|---|---|
+| **A** | every admitted language is a closure operator — extensive, monotone, idempotent | PROVED |
+| **B** | `op_order(X) = op_algebra(X) = ⟨X⟩`, the sublattice hull | **PRIOR ART, READ** |
+| **C** | `op_information` is the join-closure, hence `information ⊆ algebra` | OURS, PROVED |
+| **D** | a language is 2-determined **iff** it is pair-definable; four are, `information` is not | OURS, PROVED |
+| **E** | **the ranking of the five is not part of the law** | OURS, REFUTATION |
+
+**(A)–(D) are theorems. (E) is the refutation of what this thread spent a day calling the hierarchy.**
+
+---
+
+### H111b — clause B is Queyranne–Tardella, and they handled by construction what we handled by hypothesis
+
+The paper is now reconstructed at `refs/QUEYRANNE-TARDELLA-2008.md` (partial — Sections 1–3 and the
+start of 4, from screenshot OCR; see its header for the fidelity warning).
+
+| their result | our step |
+|---|---|
+| **Proposition 1** — projections and sublattice hulls commute, `π_J LQ = L π_J Q` | `L4` |
+| **Theorem 9(ii)** — for factors that are **chains**, the 2-D sublattice hull equals the proper boundary epigraph ∩ its transpose | `L3` |
+| **Theorem 11** — `LQ = ⋂ Cyl_ij E_ij Q` | `T1` |
+| **Example 10** — equality **fails** off the chains, on `{0,a,b,c,1}` with `a∧b = 0`, `a∨b = c < 1` | `N2` |
+
+Their `δ^Q_ij(h) = ⋁{x_i : x ∈ Q, x_j ≤ h}` **is** our `φ_ij`. And their *proper* boundary epigraph —
+`k ≥ δ` where the value is attained, `k > δ` where it is not — **is exactly the attainment case our
+observed-alphabet hypothesis was invented to avoid.** They handled by construction what we handled by
+hypothesis, which is why their theorem needs no such hypothesis and ours did. `H110c`'s order-convexity
+was a weaker patch on a problem their formulation does not have.
+
+Behind them: **Topkis [16, Thm 1]** for sublattices of finite products, **Veinott [18, Cor 11]** for
+products of chains. **Three deep.**
+
+---
+
+### H111c — what is ours, and the one clause that is false
+
+**C.** Every `x ∈ X` is a join of join-irreducibles, by induction on `|{y ∈ X : y < x}|` — if `x` is
+join-irreducible it is its own seed, else it is the join of the elements strictly below it, each a
+join of seeds. So `op_information(X) = J(X)`, and a sublattice is join-closed, so `J(X) ⊆ ⟨X⟩`.
+**`information ⊆ algebra` is a theorem, not a tendency.** Verified 200/200.
+
+**D.** If `L(X) = {x ∈ Box : (x_i,x_j) ∈ C_ij ∀i<j}` then `π_ij(L(X)) ⊆ C_ij`, so the rebuild from its
+own projections sits inside `L(X)`; the reverse is free. **Two lines.** `op_order`, `op_geometry`,
+`op_statistics` are each defined in that shape, so their 2-determinacy is free — **this thread's
+measurement of it was measuring nothing.** `op_algebra` is *not* pair-defined, and its 2-determinacy is
+exactly Theorem 11. `op_information` is neither, and fails on
+
+> `X = {(0,0,0), (0,1,1), (1,0,1)}` — `J(X)` adds `(1,1,1)` and stops at 4; the pairwise rebuild
+> **invents `(0,0,1)`**. All four others are 2-determined on the same `X`.
+
+The reason is structural: **a join-semilattice has no majority term**, so nothing in the Baker–Pixley
+family reaches it.
+
+**E — the ladder is the one clause that is false.** `induce.py`: 14 distinct orderings over 400 random
+worlds; the energy-condition index's ordering is fourth most common at 42/400; `statistics` is the
+**maximum** in 128 and the minimum in 106. And two indexes the corpus itself seats already disagree —
+the NEC index puts geometry inside information, periodic-3-D the reverse. **The ladder was a property
+of one index.**
+
+---
+
+### H111d — and what the law does not do, since it was asked
+
+> *"so we can continue the warp theory work."*
+
+**It does not advance the corridor, and no version of it can**, because it is a statement about closure
+operators on a finite index while the obstruction is two measured physical numbers: `D2.1`'s **69.03
+orders of magnitude** and `H88`'s **ξ ≥ 9.782907×10³¹**. Neither moved and neither is touched.
+
+What the law *does* give is a licence the thread did not have this morning: **the cypher's verdicts on
+an index are now backed by a published theorem** rather than by agreement across five operators, two of
+which turned out to be one operator. **That makes the cypher citable. It does not make the corridor
+closer.**
+
+*Instrument: `law.py` — `python3 law.py --selftest`, and `--law` for the clause table.*
 
 ---
 

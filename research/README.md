@@ -7971,6 +7971,62 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `law.py` — the hierarchy law, proved. It is the structure, not the order.
+
+> M: *"Novelty is not my pursuit. My goal is the hierarchy law proven so we can continue the warp
+> theory work."*
+
+**Then the prior art is a gift, not a loss.** Queyranne & Tardella prove the hard half in print — worth
+more than novelty for a claim that has to be true, because the theorem now rests on a refereed
+publication instead of on us.
+
+**THE LAW.** For finite non-empty `X`, `d ≥ 2`, each `A_i = π_i(X)` a finite chain:
+
+| | clause | status |
+|---|---|---|
+| **A** | every admitted language is a closure operator — extensive, monotone, idempotent | PROVED |
+| **B** | `op_order(X) = op_algebra(X) = ⟨X⟩`, the sublattice hull | **PRIOR ART, READ** |
+| **C** | `op_information` is the join-closure, so `information ⊆ algebra` | OURS, PROVED |
+| **D** | 2-determined **iff** pair-definable — four are, `information` is not | OURS, PROVED |
+| **E** | the **ranking** of the five is not part of the law | OURS, **REFUTATION** |
+
+**Clause B is theirs, and they solved by construction what we patched by hypothesis.** Their
+**Proposition 1** (`π_J LQ = L π_J Q`) is our `L4`; **Theorem 9(ii)** (chains) is our `L3`; **Theorem
+11** is our `T1`; **Example 10** is our `N2`. Their `δ^Q_ij(h) = ⋁{x_i : x ∈ Q, x_j ≤ h}` *is* `φ_ij`
+— and their *proper* boundary epigraph (`k ≥ δ` where attained, `k > δ` where not) **is exactly the
+attainment case our observed-alphabet hypothesis existed to avoid.** `H110c`'s order-convexity was a
+weaker patch on a problem their formulation doesn't have. Behind them: **Topkis**, then **Veinott**.
+Three deep. Text at `refs/QUEYRANNE-TARDELLA-2008.md` (partial, OCR — read its header before quoting a
+formula).
+
+**Clause C**, by induction on `|{y ∈ X : y < x}|`: every `x` is a join of join-irreducibles, so
+`op_information = J(X)`, and a sublattice is join-closed, so `J(X) ⊆ ⟨X⟩`. **200/200.**
+
+**Clause D in two lines.** A pair-defined `L` satisfies `π_ij(L(X)) ⊆ C_ij`, so the rebuild from its
+own projections sits inside `L(X)`; the reverse is free. `order`, `geometry`, `statistics` are defined
+that way — **their 2-determinacy was never in doubt and measuring it measured nothing.** `algebra` is
+not pair-defined; its 2-determinacy *is* Theorem 11. `information` is neither, and fails on
+`X = {(0,0,0),(0,1,1),(1,0,1)}` — the pairwise rebuild **invents `(0,0,1)`** — because a
+join-semilattice has **no majority term**.
+
+**Clause E is the one that is false.** 14 orderings over 400 worlds; ours fourth at 42/400;
+`statistics` the **maximum** in 128 against minimum in 106; and the NEC and periodic-3-D indexes
+already disagree. **The ladder was a property of one index.**
+
+**And what it does not do.** It does not advance the corridor and no version of it can — the
+obstruction is `persist.py`'s **69.03 orders** and `higgs.py`'s **ξ ≥ 9.78×10³¹**, and neither is
+touched. What it gives is a licence the thread lacked this morning: **the cypher's verdicts are backed
+by a published theorem** rather than by agreement across five operators, two of which are one operator.
+**That makes the cypher citable. It does not make the corridor closer.**
+
+### Seated
+- `law.py` — new, with `--law`. `refs/QUEYRANNE-TARDELLA-2008.md` — new, third-party, partial OCR
+  reconstruction, marked as such. `index3.py` — **746 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H111**, with `H109b`'s provenance marker settled.
+
+---
+
+
 ## `decomposable.py` — our own formalization, and a provenance ledger whose headline is that the theorem is not ours.
 
 > M: *"The formalization will be entirely our own then, because the proof we are currently working could
