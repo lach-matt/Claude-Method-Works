@@ -7971,6 +7971,76 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `ladder.py` — invert the bill. 22.6 Earth masses per metre; Proxima costs two Milky Ways.
+
+`amps.py` priced one metre. **The inverse is the more useful question — and it is M's own test**: *"if we
+can't do it faster and cheap then there is no point to this thread."*
+
+**A FIFTH DENOMINATION, AND THE MOST LEGIBLE YET.** `Δd = (G/c²)MΛ` inverts to `M/Δd = c²/(GΛ)`:
+
+> **1.348948×10²⁶ kg per metre — 22.59 Earth masses per metre of shortcut.**
+
+No engineering model is used; it is the transition equation read backwards, and it is **linear**. Five
+denominations now stand for one wall — ENERGY 1.212374×10⁴³ J/m, **MASS 1.348948×10²⁶ kg/m**, LENGTH
+5.106580×10⁻³⁵ m, FREQUENCY 5.870709×10⁴² Hz, and CURRENT ~10²⁴ A, the only one that is not linear.
+
+**THE LADDER IS THE FINDING.**
+
+| source *(RECALLED)* | Δd (m) | in ℓ_P |
+|---|---|---|
+| a NIF laser shot | 1.690898×10⁻³⁷ | 0.0105 |
+| **the Z machine, stored** | **1.649656×10⁻³⁶** | **0.1021** |
+| both LHC beams | 5.971756×10⁻³⁵ | 3.69 |
+| Tsar Bomba (50 Mt) | 1.723891×10⁻²⁶ | 1.07×10⁹ |
+| world annual primary energy | 5.113935×10⁻²³ | 3.16×10¹² |
+| the Sun's output for a year | 9.964130×10⁻¹⁰ | 6.16×10²⁵ |
+| **the Sun, entire rest mass** | **1.474090×10⁴ — 14.74 km** | 9.12×10³⁸ |
+| **the Milky Way, entire rest mass** | **2.211135×10¹⁶ — 2.337 ly** | 1.37×10⁵¹ |
+
+> **Every energy this civilisation can point at anything is sub-Planckian or barely above.**
+
+**AND THE TICKET PRICE.** Proxima Centauri: **5.4194×10⁴² kg = 2.7254×10¹² solar masses — about 1.8 Milky
+Ways.** Earth to the Moon, 2.61×10⁴ solar masses; Earth to Mars, 3.70×10⁶; the galactic centre, 1.71×10¹⁶.
+**And one metre costs 22.59 Earth masses**, which is the whole bill in one sentence a person can check.
+
+**THE TRADE IS `Δd ∝ I²R`, WHICH IS `amps.py` FROM THE OTHER END.** Doubling the current *quadruples* the
+purchase; doubling the size only *doubles* it — **so current is the strongest lever there is**, and it is
+the **same quadratic** that made the gap look half as bad as it is.
+
+> **One fact, two readings, each misleading without the other: the exponent that flatters the gap is the
+> exponent that rewards the lever.**
+
+The loop model is crude and used **only for the exponent**; every rung above uses a measured stored
+energy.
+
+**ONE COINCIDENCE, MEASURED AND REFUSED.** The Z machine's purchase is 0.032 of `√Λ ℓ_P` — tempting and
+**not a relation**, since `Δd = EGΛ/c⁴` carries no ħ while the quantum does. The ratio is proportional to
+the machine's energy (1.17 at the LHC): a fact about Sandia, not about physics.
+
+**AND M'S CRITERION, ANSWERED.**
+
+> **The corridor is infrastructure priced in galaxies** — not expensive, but *the wrong order of object
+> to be costing at all.* **Relativistic travel is a ticket priced in payload**, and `perception.py` found
+> it in the same equations: a round trip at one ship-year each way returns you to an Earth **8.724 years
+> older having aged two.**
+
+**For getting a payload there, the corridor loses and it is not close.** What it buys that a ticket cannot
+is *everyone, permanently, any mass, both ways* — a different purchase, priced here for the first time in
+a denomination anyone can check.
+
+**TWENTY-SIXTH FAULT, AND THE FIRST FIX THAT HAS HELD.** Four fixtures carried hand-arithmetic digits, all
+caught, none affecting a verdict — fourth instance of the tally channel. The response was not to retype
+them but to **generate** them: replaced by values computed from the module and written in by a script.
+**A digit I do not type is a digit I cannot get wrong.**
+
+### Seated
+- `ladder.py` — new. `index3.py` — **656 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H82**. `amps.py`, `perception.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `amps.py` — the bill in current. A square-root denomination; the wall did not move.
 
 > M: *"Now that we have the math we can go back to the bill. And my first guess is going to be amps of EM."*

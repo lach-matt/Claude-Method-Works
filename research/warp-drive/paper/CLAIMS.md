@@ -6323,6 +6323,99 @@ mismatch. **The round number was wrong and the correction is sharper than the cl
 
 ---
 
+## ★★★ H82 — the ladder. **22.6 Earth masses per metre. Proxima costs two Milky Ways.**
+
+`H81` priced one metre. **The inverse is the more useful question, and it is M's own test:** *"if we
+can't do it faster and cheap then there is no point to this thread."*
+
+### H82a — a fifth denomination, and the most legible yet
+
+`Δd = (G/c²)MΛ` inverts to `M/Δd = c²/(GΛ)`:
+
+> **1.348948×10²⁶ kg per metre — 22.59 Earth masses per metre of shortcut.**
+
+**No engineering model is used** — it is the transition equation read backwards — and it is **linear**,
+unlike amps.
+
+| denomination | value | |
+|---|---|---|
+| ENERGY | 1.212374×10⁴³ J/m | linear |
+| **MASS** | **1.348948×10²⁶ kg/m** | **linear — new** |
+| LENGTH | 5.106580×10⁻³⁵ m | the quantum |
+| FREQUENCY | 5.870709×10⁴² Hz | linear |
+| CURRENT | ~10²⁴ A at a metre | **quadratic** |
+
+### H82b — the ladder
+
+| source *(RECALLED)* | energy (J) | Δd (m) | in ℓ_P |
+|---|---|---|---|
+| a NIF laser shot | 2.05×10⁶ | 1.690898×10⁻³⁷ | 0.0105 |
+| **the Z machine, stored** | 2.00×10⁷ | **1.649656×10⁻³⁶** | **0.1021** |
+| both LHC beams | 7.24×10⁸ | 5.971756×10⁻³⁵ | 3.69 |
+| Tsar Bomba (50 Mt) | 2.09×10¹⁷ | 1.723891×10⁻²⁶ | 1.07×10⁹ |
+| world annual primary energy | 6.2×10²⁰ | 5.113935×10⁻²³ | 3.16×10¹² |
+| the Sun's output for a year | 1.21×10³⁴ | 9.964130×10⁻¹⁰ | 6.16×10²⁵ |
+| **the Sun, entire rest mass** | 1.79×10⁴⁷ | **1.474090×10⁴ (14.74 km)** | 9.12×10³⁸ |
+| **the Milky Way, entire rest mass** | 2.68×10⁵⁹ | **2.211135×10¹⁶ (2.337 ly)** | 1.37×10⁵¹ |
+
+> **Every energy this civilisation can point at anything is sub-Planckian or barely above.** The Z
+> machine's entire stored energy buys **0.1021 of a Planck length.**
+
+### H82c — the ticket price
+
+| destination | mass (kg) | solar masses |
+|---|---|---|
+| one metre | 1.3489×10²⁶ | 6.78×10⁻⁵ |
+| Earth to Moon | 5.1854×10³⁴ | 2.61×10⁴ |
+| Earth to Mars, closest | 7.3653×10³⁶ | 3.70×10⁶ |
+| **Proxima Centauri, 4.2 ly** | **5.4194×10⁴²** | **2.7254×10¹²** |
+| the galactic centre | 3.4036×10⁴⁶ | 1.71×10¹⁶ |
+
+**Proxima costs about 1.8 Milky Ways** *(galaxy mass RECALLED and uncertain by a factor of a few, which
+changes the count and not the verdict)*.
+
+### H82d — the trade, and H81 from the other end
+
+`Δd ∝ I²R`. **Doubling the current quadruples the purchase; doubling the size only doubles it — so
+current is the strongest lever there is.** And it is **the same quadratic** that made `H81c`'s gap look
+half as bad as it is.
+
+> **One fact, two readings, each misleading without the other: the exponent that flatters the gap is
+> the exponent that rewards the lever.**
+
+The loop model behind that scaling is **crude and used only for the exponent**; every rung of H82b uses
+a measured stored energy, so no number there depends on it.
+
+### H82e — one coincidence, measured and refused
+
+The Z machine's purchase is 0.032 of `√Λ ℓ_P`. **Tempting, and not a relation:** `Δd = EGΛ/c⁴` carries
+**no ħ** while the length quantum does, so the ratio is proportional to the machine's energy — a fact
+about Sandia, not about physics. At the LHC it is 1.17. **Refused**, in the shape `RETRACTION-AUDIT.tsv`
+found 187 times.
+
+### H82f — M's criterion, answered
+
+> **The corridor is infrastructure priced in galaxies.** It is not expensive; **it is the wrong order of
+> object to be costing at all.**
+>
+> **Relativistic travel is a ticket priced in payload** — `H64` found it in the same equations: a round
+> trip at one ship-year each way returns you to an Earth **8.724 years older having aged two.**
+
+**For getting a payload there, the corridor loses and it is not close.** What it buys that a ticket
+cannot is *everyone, permanently, any mass, both ways* — a different purchase, priced here for the first
+time in a denomination anyone can check.
+
+### H82g — twenty-sixth fault, and the first fix that has held
+
+Four fixtures carried hand-arithmetic digits (1.349222×10²⁶ vs 1.348948×10²⁶; 22.5921 vs 22.5871; 2.338
+vs 2.337; 2.7261×10¹² vs 2.7254×10¹²). All caught, all in last digits, none affecting a verdict. **Fourth
+instance of the tally channel.**
+
+> The response was not to retype them but to **generate** them: the four were replaced by values computed
+> from the module and written in by a script. **A digit I do not type is a digit I cannot get wrong.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
