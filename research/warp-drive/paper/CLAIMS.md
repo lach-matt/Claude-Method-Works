@@ -6044,6 +6044,105 @@ whether a throat opens. `H72c`'s `M < U/c²` and the three currencies stand exac
 
 ---
 
+## ★★★ H79 — corridor. **The parity theorem *is* the relation between the two mouths.**
+
+> M: *"The parity theorem is the iff inversion state relation between both end points of the corridor."*
+
+### H79a — a general theorem, needing no field equation
+
+Let a stationary axisymmetric metric have **every component even in `r`** — which is what makes a geometry
+**two-sided**, one mouth at `r > 0` and one at `r < 0`. Then
+
+> **`P : (r, φ) → (−r, −φ)`** — *stand at the other mouth and use a right-handed frame* —
+> **fixes `g_tt`, `g_rr`, `g_θθ`, `g_φφ` and sends `g_tφ → −g_tφ`.**
+
+(`g_φφ` carries two `φ` indices and picks up `(−1)² = +1`; `g_tφ` carries one.) **Verified on twenty randomly
+generated even-component metrics at three points each — even components invariant to 0.0×10⁰, `g_tφ` negated
+to 0.0×10⁰.** The components were random, so **this is about functional form and depends on no field
+equation.**
+
+### H79b — so P acts on the metric exactly as `a → −a`
+
+| a | ℓ | r | other mouth `g_tφ` | same mouth, `−a` | diff |
+|---|---|---|---|---|---|
+| 0.70 | 3.00 | 2.00 | 0.234835034528 | 0.234835034528 | 0.0×10⁰ |
+| −0.70 | 3.00 | 2.00 | −0.234835034528 | −0.234835034528 | 0.0×10⁰ |
+| 0.99 | 4.00 | 0.50 | 0.294523135841 | 0.294523135841 | 0.0×10⁰ |
+| 2.50 | 6.00 | 3.00 | 0.434056894132 | 0.434056894132 | 0.0×10⁰ |
+
+Every even component agrees to 0.0×10⁰, and **P composed with itself returns the original to 0.0×10⁰** — a
+two-element group, and only two elements exist. The horizonless condition is *checked*, not assumed:
+`ℓ > M + √(M²−a²)` gives two open mouths at (1, 0.7, 3) and at over-extremal spin; a horizon sits between
+them at (1, 0.7, 1), (1, 0.99, 1.05), (1, 0.3, 1.9).
+
+### H79c — therefore H77's two sheets are the two mouths
+
+`H77e` found a rank-2 map with a two-point fibre and called it **a covering, not a degeneracy** — and never
+said what the sheets were.
+
+> **The deck group is ℤ₂ and the deck transformation is the mouth exchange.**
+
+**One missing bit. Two ends.** The cardinalities match and it is not a coincidence: P *generates* the fibre,
+because `a` and `−a` **are** the readings at the two mouths. `H74e`'s missing bit, `H75b`'s parity, `H76b`'s
+sign of `arg z` and `H77e`'s second sheet **are all the same object — the label saying which end you are
+standing at.**
+
+### H79d — and that makes the bit relative, a limit H78 did not state
+
+Under P the electromagnetic channel flips too (`A_φ` carries one `φ` index). Running `H78e`'s inversion **at
+each mouth in that mouth's own right-handed chart**:
+
+| a | Q | a at mouth + | a at mouth − | product |
+|---|---|---|---|---|
+| 0.70 | 0.40 | 0.700000000 | −0.700000000 | **−1** |
+| −0.70 | 0.40 | −0.700000000 | 0.700000000 | **−1** |
+| 0.99 | 0.90 | 0.990000000 | −0.990000000 | **−1** |
+| 2.50 | 0.50 | 2.500000000 | −2.500000000 | **−1** |
+
+**Opposite at every row, magnitudes identical to 10⁻¹².** **EM does not hand you an absolute handedness —
+there is no such thing to hand.** `H78f` stands exactly as stated, because injectivity there is injectivity
+**in a fixed chart**; what it did not say is that the chart carries an orientation and **the two mouths'
+natural charts disagree.** Recorded as an omitted scope limit, not a contradiction.
+
+### H79e — the invariant is the relation
+
+> **`sgn(a₊)·sgn(a₋) = −1`** at every parameter tested. Each factor is chart-dependent; **the product is
+> not.**
+
+**The corridor has exactly one absolute chirality fact: the two mouths are opposite, always.** A relation,
+not a value. The parity theorem does not *resemble* an endpoint relation — **it is** the inversion state
+relation between the endpoints, and M named that before it was measured.
+
+### H79f — and it changes what a builder is doing
+
+`H78h` said the current's handedness is a design input that **supplies** the missing bit. That is right, and
+**it is not setting a free parameter** — there is no absolute handedness to set, and the relation is already
+fixed at −1 by the geometry.
+
+> **What the current's handedness chooses is which mouth is which.**
+
+A labelling — and a labelling is exactly what M's earlier framing needed: **black hole in, wormhole out**
+requires an entrance and an exit, which is one bit, **and it is this bit.** `H59` had already shown a horizon
+and a throat are *the same condition* on the spatial metric, split only by whether `g_tt` vanishes — so the
+two ends were never two objects, and what distinguishes them was never going to be a property either one
+carries alone.
+
+### H79g — what it does not do, and a twenty-second fault
+
+- **The parity theorem is reinterpreted, not overturned.** `H75b` stands verbatim.
+- **The energy bill does not move.** The three currencies stand; knowing which end is the entrance prices
+  nothing.
+- **The rotating black bounce is a testbed, not a result** — a known metric used as one instance, its charged
+  version the same substitution carried into the potential with **no claim that it solves Einstein–Maxwell.**
+  H79a needs no field equation, which is why the instance's status does not weaken it.
+
+> **Twenty-second fault, and the second of the H61 shape:** the involution check applied P *once at the
+> mirror point* and called that a composition, so **the test failed while the claim held.** Composing
+> properly gives 0.0×10⁰. Trusting the failing test would have broken a correct theorem — and what saved it
+> was diagnosing *why* it failed rather than *whether* it did.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

@@ -7971,6 +7971,83 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `corridor.py` — the parity theorem *is* the relation between the two mouths.
+
+> M: *"The parity theorem is the iff inversion state relation between both end points of the corridor."*
+
+**IT IS, EXACTLY — AND IT IS A THEOREM RATHER THAN A CASE STUDY.** Let a stationary axisymmetric metric have
+**every component even in `r`** — what makes a geometry **two-sided**, one mouth at `r > 0` and one at
+`r < 0`. Then
+
+> **`P : (r, φ) → (−r, −φ)`** — *stand at the other mouth and use a right-handed frame* — **fixes `g_tt`,
+> `g_rr`, `g_θθ`, `g_φφ` and sends `g_tφ → −g_tφ`.**
+
+`g_φφ` carries two `φ` indices and picks up `(−1)²`; `g_tφ` carries one. **Verified on twenty randomly
+generated even-component metrics at three points each — even parts invariant to 0.0×10⁰, `g_tφ` negated to
+0.0×10⁰.** The components were random, so **the result is about functional form and depends on no field
+equation.**
+
+**SO P ACTS ON THE METRIC EXACTLY AS `a → −a` DOES.** On the rotating black bounce, the other mouth's `g_tφ`
+equals the same mouth's with the spin reversed **to 0.0×10⁰** across `a` −0.7 to 2.5 and bounce length 3 to 6.
+**And P is an involution** — composed with itself it returns the original to 0.0×10⁰. The horizonless
+condition is checked, not assumed: `ℓ > M + √(M²−a²)` gives two open mouths at (1, 0.7, 3) and at
+over-extremal spin; a horizon sits between them at (1, 0.7, 1) and (1, 0.99, 1.05).
+
+**THEREFORE `modulus.py`'S TWO SHEETS ARE THE TWO MOUTHS.** That file found a rank-2 map with a two-point
+fibre and called it *a covering, not a degeneracy* — and never said what the sheets were.
+
+> **The deck group is ℤ₂ and the deck transformation is the mouth exchange.**
+
+One missing bit, two ends — the cardinalities match and it is not a coincidence, since P *generates* the
+fibre precisely because `a` and `−a` **are** the readings at the two mouths. **`weave.py`'s missing bit,
+`cube.py`'s parity, `phase.py`'s sign of `arg z` and `modulus.py`'s second sheet are all the same object, and
+the object is the label saying which end you are standing at.**
+
+**AND THAT MAKES THE BIT RELATIVE — A SCOPE LIMIT `iff.py` DID NOT STATE.** Under P the EM channel flips too
+(`A_φ` carries one `φ` index), so running that file's inversion **at each mouth in its own right-handed
+chart** returns +0.700000000 and −0.700000000, and likewise at `a` = −0.7, 0.99, 0.3, 2.5: **opposite at
+every row, magnitudes identical to 10⁻¹².** **EM does not hand you an absolute handedness — there is no such
+thing to hand.** `iff.py`'s theorem stands as stated (injectivity **in a fixed chart**); what it omitted is
+that the chart carries an orientation and **the two mouths' natural charts disagree.**
+
+**AND THE INVARIANT IS THE RELATION.**
+
+> **`sgn(a₊)·sgn(a₋) = −1`** at every parameter tested. Each factor is chart-dependent; the product is not.
+
+**The corridor's one absolute chirality fact is: the two mouths are opposite, always.** A relation, not a
+value — M's sentence word for word.
+
+**AND IT CHANGES WHAT A BUILDER IS DOING.** `iff.py` said the current's handedness supplies the bit. Right —
+**and it is not setting a free parameter**, because there is no absolute handedness to set and the relation
+is fixed at −1 by the geometry.
+
+> **What the current's handedness chooses is which mouth is which.**
+
+A labelling — exactly what M's earlier framing needed: **black hole in, wormhole out** requires an entrance
+and an exit, which is one bit, and it is this bit. `definitions.py` had already shown a horizon and a throat
+are *the same condition*, split only by whether `g_tt` vanishes — so the two ends were never two objects, and
+what distinguishes them was never going to be a property either one carries alone.
+
+**WHAT IT DOES NOT DO.** The parity theorem is **reinterpreted, not overturned** — `cube.py` stands verbatim.
+**The energy bill does not move**; knowing which end is the entrance prices nothing. And the rotating black
+bounce is a **testbed, not a result** — a known metric, its charged version the same substitution carried
+into the potential **with no claim that it solves Einstein–Maxwell**; the theorem needs no field equation,
+which is why the instance's status does not weaken it.
+
+> **Twenty-second fault, and the second of the `emtension.py` shape:** the involution check applied P *once
+> at the mirror point* and called that a composition — **the test failed while the claim held.** Composing
+> properly gives 0.0×10⁰. Trusting it would have broken a correct theorem; diagnosing *why* it failed rather
+> than *whether* it did is what saved it.
+
+### Seated
+- `corridor.py` — new. `index3.py` — **647 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H79**. `iff.py` — **scope limit recorded here, file unchanged**.
+  `modulus.py`, `cube.py`, `phase.py`, `weave.py`, `definitions.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `iff.py` — the inversion theorem holds, and EM is what makes it hold.
 
 > M: *"It is an iff inversion theorem … possible because EM carries both +/− and the shape of its current

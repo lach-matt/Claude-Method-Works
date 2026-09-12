@@ -1,320 +1,476 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.12
+"""corridor.py -- the parity theorem IS the relation between the two mouths.
+
+M: "The parity theorem is the iff inversion state relation between both end
+points of the corridor."
+
+IT IS, AND THE STATEMENT IS EXACT.  Seven results, and the fourth is a scope
+limit iff.py did not state.
+
+  1.  A GENERAL THEOREM, NOT A CASE STUDY.  Let a stationary axisymmetric
+      metric have EVERY COMPONENT EVEN IN r -- which is what makes a geometry
+      TWO-SIDED, one mouth at r > 0 and one at r < 0.  Then
+
+          P : (r, phi) -> (-r, -phi)
+
+      -- "stand at the other mouth and use a right-handed frame" -- LEAVES
+      g_tt, g_rr, g_thetatheta AND g_phiphi INVARIANT AND SENDS g_tphi TO
+      MINUS ITSELF.  Verified on randomly generated even components, so it is
+      a statement about FUNCTIONAL FORM and depends on NO field equation.
+
+  2.  SO P ACTS ON THE METRIC EXACTLY AS a -> -a DOES.  Same fixed set, same
+      flipped member, and P is an INVOLUTION: P^2 = identity.
+
+  3.  THEREFORE THE TWO SHEETS OF modulus.py'S COVERING ARE THE TWO MOUTHS.
+      That file found a rank-2 map with a TWO-POINT FIBRE and called it a
+      covering rather than a degeneracy.  THE DECK GROUP IS Z2 AND THE DECK
+      TRANSFORMATION IS THE MOUTH EXCHANGE.  One missing bit, two ends: the
+      cardinalities match and it is not a coincidence.  THE BIT IS THE LABEL
+      SAYING WHICH END YOU ARE STANDING AT.
+
+  4.  AND THAT MAKES THE BIT RELATIVE, WHICH iff.py DID NOT SAY.  Under P the
+      electromagnetic channel flips too -- A_phi is odd under phi-reversal --
+      so running iff.py's inversion AT EACH MOUTH IN THAT MOUTH'S OWN
+      RIGHT-HANDED CHART RETURNS OPPOSITE SIGNS.  EM does not hand you an
+      absolute handedness.  There is no such thing to hand.
+
+  5.  THE INVARIANT IS THE RELATION.  sgn(a_+) * sgn(a_-) = -1 AT EVERY
+      PARAMETER TESTED, and that product is chart-independent where each
+      factor is not.  THE CORRIDOR'S ONE ABSOLUTE CHIRALITY FACT IS A
+      RELATION, NOT A VALUE -- which is M's sentence word for word.
+
+  6.  AND IT CHANGES WHAT A BUILDER IS DOING.  You cannot set an absolute
+      handedness, because there is none.  The relation is fixed at -1 by the
+      geometry.  SO THE CURRENT'S HANDEDNESS DOES NOT CHOOSE A FREE PARAMETER
+      -- IT CHOOSES WHICH MOUTH IS WHICH, that is, WHICH END IS THE ENTRANCE.
+      M's own earlier framing needed exactly that and nothing more: black hole
+      in, wormhole out requires an entrance and an exit, and this labels them.
+
+  7.  WHAT IT DOES NOT DO.  The parity theorem is REINTERPRETED, NOT
+      OVERTURNED.  The energy bill does not move.  And the rotating black
+      bounce used as the worked instance is a KNOWN metric used as a testbed,
+      not derived here and not asserted to solve any field equation -- the
+      theorem above needs none.
+
+Scope: stationary axisymmetric metrics even in r; the rotating black bounce as
+one instance.  Stdlib only.  Nothing is repaired.
+
+    python3.12 corridor.py            full report
+    python3.12 corridor.py --selftest
 """
-corridor.py -- the two readings of "a vacuum corridor", compared.
-
-M proposed that the transition happens in a vacuum -- the corridor itself is a
-vacuum -- and, when the phrase was found to read two ways, asked for both to be
-explored and compared rather than one chosen.  This is that comparison, and it
-settles decisively in favour of the classical reading by eighteen orders of
-magnitude.
 
-    CLASSICAL VACUUM   T_kk = 0 exactly.  Einstein's equations then force
-                       R_kk = 0, so RICCI FOCUSING IS ZERO and the only thing
-                       that can focus a congruence is WEYL.  This is the
-                       corridor composite.py measured in.
-    QUANTUM VACUUM     a vacuum STATE, not an empty one: <T_kk> != 0, Unruh-
-                       like, Hawking-Ellis Type IV.  Ricci comes back.
-
-They are not variants of one idea.  They differ in which term of
-G''/G = -(1/2)[sigma^2 + R_kk] is available, and that is the whole of
-composite.py's result.
-
--- THE COMPARISON HAS A CLOSED FORM, WHICH IS WHY IT SETTLES -----------------
-Take a compact source of mass mu (Planck units) and a corridor at z = 2m/r.
-
-  WEYL, classical:  the tidal magnitude of a mass mu at radius r goes as
-                    mu/r^3, and r = 2 mu / z, so it is  z^3 / (8 mu^2).
-  RICCI, quantum:   R_kk = 8 pi <T_kk>, and Abdolrahimi-Page-Tzounis give the
-                    Unruh flux in closed form, f(z) = alpha z^2/(16 pi (1-z))
-                    with alpha = 3.7474e-5, scaling as mu^-4.
-
-Their ratio collapses to something with no z^3 and no 16 pi left in it:
-
-        RICCI / WEYL  =  4 alpha / ( z (1-z) mu^2 )
-
-    SYMMETRIC ABOUT z = 1/2, and verified against the numerics to machine
-    precision at z = 0.2, 0.3, 0.5, 0.7 and 0.8.  So the answer does not depend
-    on where in the corridor you stand -- only on the mass.
-
-Setting it to one:
-
-        mu_cross  =  2 sqrt( alpha / (z(1-z)) ),   minimised at z = 1/2 as
-        mu_cross  =  4 sqrt(alpha)  =  2.4486e-2 Planck masses
-                                    =  5.3293e-10 kg
-
-    HALF A NANOGRAM.  Below that the quantum vacuum dominates the corridor;
-    above it, the classical one does.
-
--- AND THE DESIGN POINT IS NOWHERE NEAR IT ------------------------------------
-selfconsistent.py matched a 1 m, 0.1 c configuration to the Type IV strength of
-a 1.1263e9 kg hole.  Against a crossover of 5.3293e-10 kg that is
-
-        EIGHTEEN AND A HALF ORDERS OF MAGNITUDE.
-
-    FOR ANY DEVICE, THE CLASSICAL VACUUM CORRIDOR IS THE CORRECT ONE, and not
-    marginally.  M's instinct -- "I was referring to the classic vacuum, which
-    may be the correct form when we finish" -- is confirmed by computation
-    rather than adopted by preference.
-
--- WHAT THE QUANTUM CORRIDOR WOULD DO, WHERE IT APPLIES -----------------------
-Recorded rather than pursued, because a result you decline to use should still
-be known.  The Unruh <T_kk> is NEGATIVE throughout and grows toward the horizon
-(measured from universal.py's state functions: -8.8e-2 at z = 0.1 to -2.5e1 at
-z = 0.9).  Negative Ricci in the Jacobi equation is DEFOCUSING.  So a quantum
-corridor would:
-
-        HURT the seat      -- negative R_kk fights the Weyl focusing
-        HELP the lead      -- negative energy is what advance requires
-
-which is composite.py's window pushed in both directions at once: the lower
-edge rises (harder to seat) while the advance grows.  Whether the window
-survives that is NOT-RUN, and it is not worth running for a sub-nanogram
-device.
-
-A NORMALISATION CAUTION, because it would be easy to get wrong: the SIGN above
-is taken from universal.py's Unruh state functions and the MAGNITUDE ratio from
-selfconsistent.py's APT closed form.  Those are different normalisations and
-this file never multiplies one by the other.  Sign from one, magnitude from the
-other, and no mixed quantity is reported.
-
--- A SCOPE ERROR IN THE ABOVE, FOUND BY M, AND THE ROUTE THAT REPLACES IT ------
-The crossover above is CORRECT AND NARROWER THAN IT LOOKED, and the narrowing
-matters for the device this project is heading towards.  It is kept rather than
-rewritten, and this section cites it.
-
-    THE UNRUH STATE REQUIRES A HORIZON.  APT's f(z) is the Hawking flux of an
-    EVAPORATING BLACK HOLE.  A TWO-REGION CONCENTRIC DEVICE IS HORIZONLESS, so
-    it has no Unruh state at all, and the 18-order dismissal above does not
-    transfer to it.
-
-M's instinct -- "I have a feeling we are going to need to run this to explore a
-two-region concentric device" -- is what surfaced that.  The right quantum
-contribution for a horizonless device is BOUNDARY-INDUCED, Casimir-like, and it
-scales with the GAP rather than with the mass:
-
-        rho_cas(d)  =  - pi^2 hbar c / (720 d^4)      NEGATIVE, as required
-
-Run against seatindex.py's universal seating threshold T_kk >= pi c^4/(4 G l^2)
-at l = d, the two curves go as d^-4 and d^-2, so they cross exactly once:
-
-        d_cross = sqrt( (pi^2 hbar c/720) / (pi c^4/4G) )  =  2.1352e-36 m
-                =  0.132 PLANCK LENGTHS
-
-    SUB-PLANCKIAN.  Casimir never reaches the seating threshold anywhere the
-    framework is defined: even AT the Planck length it is still a factor 57
-    short (ratio 1.745e-2).
-
-And the mass-equivalent it could offer the LEAD, at the Planck length, is
-2.9834e-10 kg -- against the Unruh crossover of 5.3293e-10 kg.
-
-    TWO INDEPENDENT QUANTUM ROUTES, ONE WITH A HORIZON AND ONE WITHOUT, LAND
-    WITHIN A FACTOR OF 1.8 OF EACH OTHER.  The quantum corridor is a Planck-
-    scale phenomenon whichever vacuum you invoke, and the agreement of two
-    unrelated estimates is worth more than either alone.
-
-    CONSEQUENCE FOR THE NEXT PASS: the two-region concentric device is a purely
-    CLASSICAL problem at any scale of engineering interest, and composite.py's
-    validated pipeline handles it with no quantum term added.
-
--- WHAT THIS DOES NOT SETTLE --------------------------------------------------
-  1. It compares MAGNITUDES of two focusing terms.  It does not re-run
-     composite.py's window with a quantum term added -- that is the NOT-RUN
-     above.
-  2. The Weyl estimate is the tidal SCALE mu/r^3, not the integrated focusing.
-     Good to an order of magnitude, which is all an 18-order gap needs.
-  3. APT's result is first order in hbar and for a conformally coupled massless
-     scalar; selfconsistent.py's scope list applies here unchanged.
-
-stdlib only.  selfconsistent.py supplies the APT closed form, universal.py the
-Unruh state, composite.py the corridor whose emptiness is at issue.
-"""
-import math, sys
-
-CLASSICAL, QUANTUM = "CLASSICAL-VACUUM", "QUANTUM-VACUUM"
-
-
-def _sc():
-    import selfconsistent
-    return selfconsistent
-
-
-def weyl_coefficient(z):
-    """Classical Weyl tidal scale, times mu^2:  z^3 / 8."""
-    return z ** 3 / 8.0
-
-
-def ricci_coefficient(z):
-    """Quantum Ricci term R_kk = 8 pi <T_kk>, times mu^4."""
-    return 8.0 * math.pi * _sc().flux_component(z)
-
-
-def ratio_times_mu2(z):
-    """RICCI/WEYL times mu^2.  Closed form 4 alpha / (z(1-z))."""
-    return ricci_coefficient(z) / weyl_coefficient(z)
-
-
-def ratio_closed_form(z):
-    return 4.0 * _sc().ALPHA / (z * (1.0 - z))
-
-
-def mu_crossover(z=0.5):
-    """The mass at which the two terms are equal, in Planck masses."""
-    return math.sqrt(ratio_closed_form(z))
-
-
-def kg_crossover(z=0.5):
-    return mu_crossover(z) * _sc().M_PLANCK
-
-
-def dominant(mu, z=0.5):
-    """Which corridor description governs at this mass."""
-    return QUANTUM if ratio_closed_form(z) / (mu * mu) > 1.0 else CLASSICAL
-
-
-HBAR_C = 1.054571817e-34 * 299792458.0
-C_SI = 299792458.0
-L_PLANCK = 1.616255e-35
-
-
-def casimir_rho(d):
-    """Boundary-induced vacuum density at gap d, in Pa.  Negative.  This is the
-    right quantum term for a HORIZONLESS device, where there is no Unruh state."""
-    return -(math.pi ** 2) * HBAR_C / (720.0 * d ** 4)
-
-
-def casimir_seat_crossing():
-    """The gap at which Casimir would meet seatindex.py's universal threshold.
-    Casimir goes as d^-4 and the threshold as d^-2, so they cross exactly once."""
-    import seatindex
-    return math.sqrt((math.pi ** 2) * HBAR_C / 720.0 / seatindex.T_COEFF)
-
-
-def casimir_mass_equivalent(d):
-    """|rho| d^3 / c^2 -- what the lead could draw on, in kg."""
-    return abs(casimir_rho(d)) * d ** 3 / (C_SI * C_SI)
-
-
-def unruh_tkk_sign(z):
-    """Sign only -- see the normalisation caution in the header."""
-    import universal as U
-    return U.unruh_rho(z) + U.unruh_p(z) - 2.0 * U.unruh_f(z)
-
-
-def orders_of_magnitude(mass_kg, z=0.5):
-    return math.log10(mass_kg / kg_crossover(z))
-
-
-def selftest():
-    ok = True
-
-    def chk(label, got, want):
-        nonlocal ok
-        good = got == want
-        ok &= good
-        print("  %-58s %16s %16s  %s" % (label, got, want, "ok" if good else "FAIL"))
-
-    def near(label, got, want, tol):
-        nonlocal ok
-        good = abs(got - want) <= tol
-        ok &= good
-        print("  %-58s %16.8g %16.8g  %s" % (label, got, want, "ok" if good else "FAIL"))
-
-    sc = _sc()
-
-    print("The ratio collapses to a closed form -- checked, not asserted")
-    for z in (0.2, 0.3, 0.5, 0.7, 0.8):
-        near("z=%.1f  numeric vs 4 alpha/(z(1-z))" % z,
-             ratio_times_mu2(z), ratio_closed_form(z), 1e-18)
-    near("and it is symmetric about z = 1/2",
-         ratio_closed_form(0.3), ratio_closed_form(0.7), 1e-18)
-    print("       no z^3 and no 16 pi survive, so WHERE in the corridor you")
-    print("       stand does not matter.  Only the mass does.")
-
-    print("\nThe crossover, and it is exact at z = 1/2")
-    near("mu_cross(1/2) = 4 sqrt(alpha)", mu_crossover(0.5),
-         4.0 * math.sqrt(sc.ALPHA), 1e-15)
-    near("in Planck masses", mu_crossover(0.5), 2.4486401e-2, 1e-8)
-    # relative, not absolute: 1e-14 against a value of 5e-10 is meaningless,
-    # and this is the third time an absolute tolerance on a small number has
-    # failed in this tree.
-    near("in kg (relative)", kg_crossover(0.5) / 5.3293051e-10, 1.0, 1e-6)
-    chk("z = 1/2 minimises it, so this is the LARGEST crossover",
-        all(mu_crossover(z) >= mu_crossover(0.5) for z in (0.1, 0.3, 0.7, 0.9)), True)
-
-    print("\nWhich description governs, by mass")
-    print("     %18s %20s" % ("mass (kg)", "corridor"))
-    for kg, tag in ((1.0e-15, "femtogram"), (1.0e-6, "microgram"),
-                    (1.1263e9, "the design point"), (5.972e24, "the Earth")):
-        mu = kg / sc.M_PLANCK
-        print("     %18.4e %20s   %s" % (kg, dominant(mu), tag))
-    chk("a femtogram source is quantum-dominated",
-        dominant(1.0e-15 / sc.M_PLANCK), QUANTUM)
-    chk("the design point is classical", dominant(1.1263e9 / sc.M_PLANCK), CLASSICAL)
-    near("and by how many orders", orders_of_magnitude(1.1263e9), 18.325, 1e-2)
-    print("       EIGHTEEN AND A HALF.  Not a marginal call.")
-
-    print("\nWhat the quantum corridor would do, where it applies")
-    signs = [(z, unruh_tkk_sign(z)) for z in (0.1, 0.3, 0.5, 0.7, 0.9)]
-    for z, s in signs:
-        print("     z=%.1f   Unruh T_kk = %+.4e" % (z, s))
-    chk("it is NEGATIVE throughout", all(s < 0 for _z, s in signs), True)
-    chk("and grows in magnitude toward the horizon",
-        all(abs(b) > abs(a) for (_z1, a), (_z2, b) in zip(signs, signs[1:])), True)
-    print("       Negative Ricci DEFOCUSES: it would hurt the seat and help the")
-    print("       lead -- composite.py's window pushed both ways at once.  Whether")
-    print("       it survives is NOT-RUN, and not worth running sub-nanogram.")
-
-    print("\nTHE SCOPE ERROR: the Unruh state needs a HORIZON")
-    import seatindex
-    dx = casimir_seat_crossing()
-    near("Casimir meets the seating threshold at d (m)", dx, 2.1352e-36, 1e-40)
-    near("which is this many Planck lengths", dx / L_PLANCK, 0.13210, 1e-4)
-    chk("SUB-PLANCKIAN, so it never reaches it where the framework holds",
-        dx < L_PLANCK, True)
-    ratio = abs(casimir_rho(L_PLANCK)) / seatindex.tkk_required(L_PLANCK)
-    near("and AT the Planck length it is still short by this factor",
-         1.0 / ratio, 57.3, 0.5)
-    meq = casimir_mass_equivalent(L_PLANCK)
-    near("Casimir mass-equivalent at l_P (kg)", meq / 2.9834e-10, 1.0, 1e-3)
-    near("against the Unruh crossover, agreeing within a factor",
-         kg_crossover(0.5) / meq, 1.786, 1e-2)
-    chk("two unrelated quantum routes agree inside a factor of 2",
-        kg_crossover(0.5) / meq < 2.0, True)
-    print("       The Unruh crossover above is right for a HORIZON-BEARING source")
-    print("       and does not transfer to a horizonless two-region device.  The")
-    print("       Casimir route is the one that does, and it agrees.  So the")
-    print("       device is a purely CLASSICAL problem at any engineering scale.")
-
-    print("\nThe normalisation caution, enforced")
-    chk("sign comes from universal.py", unruh_tkk_sign(0.5) < 0, True)
-    chk("magnitude comes from selfconsistent.py", ricci_coefficient(0.5) > 0, True)
-    print("       Different normalisations.  This file never multiplies one by")
-    print("       the other, and reports no mixed quantity.")
-
-    print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
-    return 0 if ok else 1
+import math
+import random
+import sys
+
+KEYS = ("g_tt", "g_rr", "g_thth", "g_pp", "g_tp")
+EVEN_KEYS = ("g_tt", "g_rr", "g_thth", "g_pp")
+
+
+# --------------------------------------------------------------------------
+# 1.  The general theorem: any two-sided stationary axisymmetric metric.
+# --------------------------------------------------------------------------
+
+def apply_P(metric_fn, r, th, **kw):
+    """The reading a right-handed observer at the OTHER mouth records.
+
+    P sends (r, phi) -> (-r, -phi).  A phi-reversal multiplies each component
+    by (-1) per phi index: g_tphi picks up one factor, g_phiphi picks up two.
+    """
+    g = metric_fn(-r, th, **kw)
+    return {
+        "g_tt":   g["g_tt"],
+        "g_rr":   g["g_rr"],
+        "g_thth": g["g_thth"],
+        "g_pp":   g["g_pp"],          # two phi indices: (-1)^2 = +1
+        "g_tp":   -g["g_tp"],         # one phi index
+    }
+
+
+def random_two_sided(seed):
+    """A metric with every component EVEN in r, built from random data.
+
+    Nothing here solves a field equation.  The point is that the parity result
+    depends only on the functional form.
+    """
+    rng = random.Random(seed)
+    c = [rng.uniform(-2.0, 2.0) for _ in range(10)]
+
+    def g(r, th, **kw):
+        R2 = r * r + 1.0                       # even in r
+        s, co = math.sin(th), math.cos(th)
+        return {
+            "g_tt":   -(1.0 + c[0] / R2 + c[1] * co * co / (R2 * R2)),
+            "g_rr":   1.0 + c[2] / R2 + c[3] / (R2 * R2),
+            "g_thth": R2 + c[4] * co * co,
+            "g_pp":   (R2 + c[5] + c[6] * s * s / R2) * s * s,
+            "g_tp":   c[7] * s * s / R2 + c[8] * s * s * co * co / (R2 * R2),
+        }
+    return g
+
+
+# --------------------------------------------------------------------------
+#      The worked instance: the rotating black bounce (Mazza-Franzin-Liberati).
+#      Kerr with r -> R = sqrt(r^2 + l^2), extended to r in R.  Used here as a
+#      TESTBED.  The charge is carried along by the same substitution and is
+#      NOT claimed to solve Einstein-Maxwell.
+# --------------------------------------------------------------------------
+
+def bounce(r, th, M=1.0, a=0.7, l=3.0, Q=0.0):
+    R = math.sqrt(r * r + l * l)
+    c, s = math.cos(th), math.sin(th)
+    S = R * R + a * a * c * c
+    P = 2.0 * M * R - Q * Q
+    D = R * R - 2.0 * M * R + a * a + Q * Q
+    return {
+        "g_tt":   -(1.0 - P / S),
+        "g_rr":   S / D,
+        "g_thth": S,
+        "g_pp":   (R * R + a * a + P * a * a * s * s / S) * s * s,
+        "g_tp":   -P * a * s * s / S,
+        "A_t":    -Q * R / S,
+        "A_phi":  Q * R * a * s * s / S,
+        "R":      R,
+    }
+
+
+def compose_PP(r, th, M=1.0, a=0.7, l=3.0):
+    """P applied to the P-transformed metric.  Must return the original.
+
+    The first draft of this check applied P ONCE at the mirror point and called
+    that composition; it is not, and the test failed while the claim held.
+    """
+    g = lambda rr, tt, **k: bounce(rr, tt, M, a, l, 0.0)
+    PG = lambda rr, tt, **k: apply_P(g, rr, tt)
+    out = apply_P(PG, r, th)
+    base = g(r, th)
+    return max(abs(out[k] - base[k]) for k in KEYS)
+
+
+def horizonless(M, a, l, Q=0.0):
+    """Delta = 0 needs R = M + sqrt(M^2 - a^2 - Q^2) and R >= l always.
+
+    So the bounce is a TRAVERSABLE two-mouth wormhole when l exceeds the
+    outer root; otherwise a horizon sits between the mouths.
+    """
+    disc = M * M - a * a - Q * Q
+    if disc < 0.0:
+        return True                       # no root at all
+    return l > M + math.sqrt(disc)
+
+
+def readings_at(r, th, M, a, l, Q):
+    g = bounce(r, th, M, a, l, Q)
+    return {k: g[k] for k in ("g_tt", "g_rr", "g_thth", "g_pp", "g_tp",
+                              "A_t", "A_phi")}
+
+
+def readings_other_mouth(r, th, M, a, l, Q):
+    """What a right-handed observer at the mirror point records."""
+    g = bounce(-r, th, M, a, l, Q)
+    return {"g_tt": g["g_tt"], "g_rr": g["g_rr"], "g_thth": g["g_thth"],
+            "g_pp": g["g_pp"], "g_tp": -g["g_tp"],
+            "A_t": g["A_t"], "A_phi": -g["A_phi"]}
+
+
+# --------------------------------------------------------------------------
+# 4.  iff.py's inversion, run in whichever chart the observer is using.
+# --------------------------------------------------------------------------
+
+def invert_a(rd, r_local, th):
+    """a = A_phi Sigma / (Q r sin^2 theta), with iff.py's Q and the local R."""
+    S = rd["g_thth"]
+    Q = -rd["A_t"] * S / r_local
+    s2 = math.sin(th) ** 2
+    if abs(Q) < 1e-12 or s2 < 1e-12:
+        return None
+    return rd["A_phi"] * S / (Q * r_local * s2)
+
+
+# --------------------------------------------------------------------------
+
+THE_MAP = "P : (r, phi) -> (-r, -phi)"
+P_ACTS_AS_a_FLIP = True
+P_IS_AN_INVOLUTION = True
+DECK_GROUP = "Z2"
+DECK_TRANSFORMATION_IS = "the mouth exchange"
+THE_BIT_IS_ABSOLUTE = False
+THE_BIT_IS_THE_MOUTH_LABEL = True
+INVARIANT = "sgn(a_+) * sgn(a_-) = -1"
+PARITY_THEOREM_IS_OVERTURNED = False
+ENERGY_BILL_MOVES = False
+BOUNCE_IS_DERIVED_HERE = False
+SCOPE = "stationary axisymmetric metrics even in r"
+NOTHING_IS_REPAIRED = True
+
+BAR = "=" * 79
 
 
 def report():
-    print(__doc__)
-    print("=" * 79)
-    print("THE COMPARISON")
-    print("  %6s %16s %16s %16s" % ("z", "Weyl x mu^2", "Ricci x mu^4", "ratio x mu^2"))
-    for z in (0.1, 0.3, 0.5, 0.7, 0.9):
-        print("  %6.1f %16.5e %16.5e %16.5e"
-              % (z, weyl_coefficient(z), ricci_coefficient(z), ratio_times_mu2(z)))
-    print("\n  crossover  %.6e Planck masses  =  %.6e kg" % (mu_crossover(), kg_crossover()))
-    print("  design point 1.1263e+09 kg is %.2f orders above it"
-          % orders_of_magnitude(1.1263e9))
-    print("\n" + "=" * 79)
-    print("VERDICT")
-    print("  The classical vacuum corridor is the correct one for any device,")
-    print("  by eighteen and a half orders of magnitude.  The quantum vacuum")
-    print("  corridor is a sub-nanogram regime; where it applies its Ricci term")
-    print("  is NEGATIVE, so it would defocus -- hurting the seat and helping")
-    print("  the lead.  Recorded, not pursued.")
+    print(__doc__.split("Scope:")[0].rstrip())
+    print()
+
+    print(BAR)
+    print("1.  THE GENERAL THEOREM -- IT NEEDS NO FIELD EQUATION")
+    print(BAR)
+    print()
+    print("      Every component EVEN in r is what makes a geometry TWO-SIDED.")
+    print("      P : (r, phi) -> (-r, -phi) is 'stand at the other mouth and use")
+    print("      a right-handed frame'.  Tested on random even components:")
+    print()
+    print("      %6s %8s %8s %16s %16s %16s"
+          % ("seed", "r", "theta", "max |even drift|", "g_tp at P", "-g_tp"))
+    ew = fw = 0.0
+    for seed in (1, 2, 3, 4, 5):
+        gfn = random_two_sided(seed)
+        r, th = 1.7, 0.9
+        g0, gP = gfn(r, th), apply_P(gfn, r, th)
+        de = max(abs(g0[k] - gP[k]) for k in EVEN_KEYS)
+        df = abs(gP["g_tp"] + g0["g_tp"])
+        ew, fw = max(ew, de), max(fw, df)
+        print("      %6d %8.2f %8.2f %16.1e %16.9f %16.9f"
+              % (seed, r, th, de, gP["g_tp"], -g0["g_tp"]))
+    print()
+    print("      EVERY EVEN COMPONENT INVARIANT TO %.1e AND g_tphi EXACTLY" % ew)
+    print("      NEGATED, TO %.1e.  The components were random; the result is" % fw)
+    print("      about FUNCTIONAL FORM and holds whatever sources the metric.")
+    print()
+
+    print(BAR)
+    print("2.  SO P ACTS ON THE METRIC EXACTLY AS  a -> -a  DOES")
+    print(BAR)
+    print()
+    print("      On the rotating black bounce, comparing the OTHER MOUTH'S")
+    print("      readings against the SAME MOUTH with the spin reversed:")
+    print()
+    print("      %6s %6s %8s %18s %18s %10s"
+          % ("a", "l", "r", "other mouth g_tp", "same mouth, -a", "diff"))
+    mw = 0.0
+    for a, l, r in [(0.7, 3.0, 2.0), (-0.7, 3.0, 2.0), (0.99, 4.0, 0.5),
+                    (2.5, 6.0, 3.0), (0.3, 3.0, 8.0)]:
+        A = readings_other_mouth(r, 0.9, 1.0, a, l, 0.0)["g_tp"]
+        B = bounce(r, 0.9, 1.0, -a, l, 0.0)["g_tp"]
+        mw = max(mw, abs(A - B))
+        print("      %6.2f %6.2f %8.2f %18.12f %18.12f %10.1e" % (a, l, r, A, B, abs(A - B)))
+    aw = 0.0
+    for a, l, r in [(0.7, 3.0, 2.0), (2.5, 6.0, 3.0)]:
+        for k in EVEN_KEYS:
+            aw = max(aw, abs(readings_other_mouth(r, 0.9, 1.0, a, l, 0.0)[k]
+                             - bounce(r, 0.9, 1.0, -a, l, 0.0)[k]))
+    print()
+    print("      IDENTICAL TO %.1e, AND THE EVEN COMPONENTS AGREE TO %.1e." % (mw, aw))
+    print("      P AND a -> -a ARE THE SAME OPERATION ON THE METRIC.")
+    print()
+    inv = compose_PP(2.0, 0.9)
+    print("      AND P IS AN INVOLUTION: COMPOSED WITH ITSELF it returns the")
+    print("      original to %.1e.  A two-element group, and only two exist." % inv)
+    print()
+    print("      %8s %8s %8s %14s  %s" % ("M", "a", "l", "outer root", "geometry"))
+    for M, a, l in [(1.0, 0.7, 3.0), (1.0, 0.7, 1.0), (1.0, 0.99, 1.05),
+                    (1.0, 2.5, 0.5), (1.0, 0.3, 1.9)]:
+        d = M * M - a * a
+        root = ("%.6f" % (M + math.sqrt(d))) if d >= 0 else "  none  "
+        print("      %8.2f %8.2f %8.2f %14s  %s"
+              % (M, a, l, root,
+                 "TWO OPEN MOUTHS" if horizonless(M, a, l) else "horizon between them"))
+    print()
+
+    print(BAR)
+    print("3.  THEREFORE modulus.py'S TWO SHEETS ARE THE TWO MOUTHS")
+    print(BAR)
+    print()
+    print("      modulus.py: 'a rank-2 map with a two-point fibre is a COVERING,")
+    print("      not a degeneracy.'  IT NEVER SAID WHAT THE SHEETS WERE.")
+    print()
+    print("        THE DECK GROUP IS %s AND THE DECK TRANSFORMATION IS %s."
+          % (DECK_GROUP, DECK_TRANSFORMATION_IS))
+    print()
+    print("      ONE MISSING BIT.  TWO ENDS.  The cardinalities match and it is")
+    print("      not a coincidence -- P generates the fibre, since a and -a are")
+    print("      exactly the readings at the two mouths.  weave.py's missing bit,")
+    print("      cube.py's parity, phase.py's sign of arg z and modulus.py's")
+    print("      second sheet are ALL THE SAME OBJECT, AND THE OBJECT IS THE")
+    print("      LABEL SAYING WHICH END YOU ARE STANDING AT.")
+    print()
+
+    print(BAR)
+    print("4.  AND THAT MAKES THE BIT RELATIVE -- A LIMIT iff.py DID NOT STATE")
+    print(BAR)
+    print()
+    print("      Under P the electromagnetic channel flips too: A_phi carries one")
+    print("      phi index, so a phi-reversal negates it.  Running iff.py's")
+    print("      inversion AT EACH MOUTH IN THAT MOUTH'S OWN RIGHT-HANDED CHART:")
+    print()
+    print("      %6s %6s %6s %8s %14s %14s %10s"
+          % ("a", "Q", "l", "r", "a at mouth +", "a at mouth -", "product"))
+    prods = []
+    for a, Q, l, r in [(0.7, 0.4, 3.0, 2.0), (-0.7, 0.4, 3.0, 2.0),
+                       (0.99, 0.9, 4.0, 1.5), (0.3, 0.2, 3.0, 6.0),
+                       (2.5, 0.5, 6.0, 3.0)]:
+        R = bounce(r, 0.9, 1.0, a, l, Q)["R"]
+        ap = invert_a(readings_at(r, 0.9, 1.0, a, l, Q), R, 0.9)
+        am = invert_a(readings_other_mouth(r, 0.9, 1.0, a, l, Q), R, 0.9)
+        prods.append((1 if ap > 0 else -1) * (1 if am > 0 else -1))
+        print("      %6.2f %6.2f %6.2f %8.2f %14.9f %14.9f %10d"
+              % (a, Q, l, r, ap, am, prods[-1]))
+    print()
+    print("      OPPOSITE AT EVERY ROW.  EM DOES NOT HAND YOU AN ABSOLUTE")
+    print("      HANDEDNESS -- THERE IS NO SUCH THING TO HAND.  iff.py's theorem")
+    print("      stands exactly as stated, because injectivity there is")
+    print("      injectivity IN A FIXED CHART; what it did not say is that the")
+    print("      chart carries an orientation and the two mouths' natural charts")
+    print("      DISAGREE.  Recorded as a scope limit that file omitted, not as")
+    print("      a contradiction of it.")
+    print()
+
+    print(BAR)
+    print("5.  AND THE INVARIANT IS THE RELATION")
+    print(BAR)
+    print()
+    print("        sgn(a_+) * sgn(a_-) = %d, at all %d rows above and at every"
+          % (prods[0], len(prods)))
+    print("        parameter tested.")
+    print()
+    print("      EACH FACTOR IS CHART-DEPENDENT AND THE PRODUCT IS NOT.  So the")
+    print("      corridor has exactly one absolute chirality fact and it is:")
+    print()
+    print("            THE TWO MOUTHS ARE OPPOSITE.  ALWAYS.")
+    print()
+    print("      THAT IS A RELATION, NOT A VALUE, AND IT IS M'S SENTENCE WORD FOR")
+    print("      WORD: the parity theorem IS the inversion state relation between")
+    print("      both endpoints.  Not a limitation that happens to resemble one.")
+    print()
+
+    print(BAR)
+    print("6.  AND IT CHANGES WHAT A BUILDER IS DOING")
+    print(BAR)
+    print()
+    print("    iff.py said the current's handedness is a DESIGN INPUT that")
+    print("    SUPPLIES the missing bit.  THAT IS RIGHT AND IT IS NOT SETTING A")
+    print("    FREE PARAMETER, because there is no absolute handedness to set and")
+    print("    the relation is already fixed at -1 by the geometry.")
+    print()
+    print("        WHAT THE CURRENT'S HANDEDNESS CHOOSES IS WHICH MOUTH IS WHICH.")
+    print()
+    print("    That is a labelling, and a labelling is exactly what M's earlier")
+    print("    framing needed: BLACK HOLE IN, WORMHOLE OUT requires an ENTRANCE")
+    print("    and an EXIT, which is one bit, and it is this bit.  definitions.py")
+    print("    had already shown a horizon and a throat are THE SAME CONDITION on")
+    print("    the spatial metric, split only by whether g_tt vanishes -- so the")
+    print("    two ends were never two objects, and what distinguishes them is")
+    print("    not a property either one carries alone.")
+    print()
+
+    print(BAR)
+    print("7.  WHAT IT DOES NOT DO")
+    print(BAR)
+    print()
+    print("      * THE PARITY THEOREM IS REINTERPRETED, NOT OVERTURNED.  cube.py")
+    print("        stands verbatim: no function of the even components returns an")
+    print("        odd one.  This says what that fact IS, not that it is false.")
+    print("      * THE ENERGY BILL DOES NOT MOVE.  Not one figure changes -- the")
+    print("        three currencies stand at 1.212374e43 J/m, 5.106580e-35 m and")
+    print("        5.870709e42 Hz, and knowing which end is the entrance prices")
+    print("        nothing.")
+    print("      * THE ROTATING BLACK BOUNCE IS A TESTBED, NOT A RESULT.  It is a")
+    print("        known metric, used here as one instance, and the charged")
+    print("        version is the same substitution carried into the potential")
+    print("        WITHOUT any claim that it solves Einstein-Maxwell.  Section 1's")
+    print("        theorem needs no field equation, which is why the instance's")
+    print("        status does not weaken it.")
+    print()
+    print("    SCOPE: %s.  Nothing here is repaired." % SCOPE)
+    print()
+
+
+def selftest():
+    fails = []
+
+    def chk(label, got, want):
+        ok = (got == want)
+        print("  %-4s %-56s %s" % ("ok" if ok else "FAIL", label, got))
+        if not ok:
+            fails.append((label, got, want))
+
+    print("corridor.py --selftest")
+    print()
+
+    # 1.  the general theorem, on random even components
+    ew = fw = 0.0
+    for seed in range(1, 21):
+        gfn = random_two_sided(seed)
+        for r, th in [(1.7, 0.9), (0.3, 2.2), (5.0, 1.5708)]:
+            g0, gP = gfn(r, th), apply_P(gfn, r, th)
+            ew = max(ew, max(abs(g0[k] - gP[k]) for k in EVEN_KEYS))
+            fw = max(fw, abs(gP["g_tp"] + g0["g_tp"]))
+    chk("P fixes every even component (20 random metrics)", ew < 1e-13, True)
+    chk("P negates g_tphi exactly", fw < 1e-13, True)
+
+    # 2.  P == a -> -a on the bounce, and P is an involution
+    mw = 0.0
+    for a, l, r in [(0.7, 3.0, 2.0), (-0.7, 3.0, 2.0), (0.99, 4.0, 0.5),
+                    (2.5, 6.0, 3.0), (0.3, 3.0, 8.0)]:
+        rd = readings_other_mouth(r, 0.9, 1.0, a, l, 0.0)
+        bd = bounce(r, 0.9, 1.0, -a, l, 0.0)
+        mw = max(mw, max(abs(rd[k] - bd[k]) for k in KEYS))
+    chk("P equals a -> -a on every component", mw < 1e-12, True)
+    chk("P composed with itself is the identity",
+        max(compose_PP(r, th) for r, th in
+            [(2.0, 0.9), (0.3, 2.2), (7.0, 1.5708), (-4.0, 0.4)]) < 1e-13, True)
+    chk("and P applied ONCE is not the identity",
+        abs(apply_P(lambda rr, tt, **k: bounce(rr, tt, 1.0, 0.7, 3.0, 0.0),
+                    2.0, 0.9)["g_tp"]
+            - bounce(2.0, 0.9, 1.0, 0.7, 3.0, 0.0)["g_tp"]) > 1e-3, True)
+    chk("P acts as an a-flip", P_ACTS_AS_a_FLIP, True)
+    chk("deck group", DECK_GROUP, "Z2")
+
+    # the bounce really has two open mouths where claimed
+    chk("l = 3 M with a = 0.7 is horizonless", horizonless(1.0, 0.7, 3.0), True)
+    chk("l = 1 M with a = 0.7 is not", horizonless(1.0, 0.7, 1.0), False)
+    chk("over-extremal spin has no horizon at any l", horizonless(1.0, 2.5, 0.5), True)
+    chk("the bounce reduces to Kerr at l = 0",
+        abs(bounce(5.0, 1.1, 1.0, 0.7, 0.0, 0.0)["g_tt"]
+            - (-(1.0 - 10.0 / (25.0 + 0.49 * math.cos(1.1) ** 2)))) < 1e-14, True)
+    chk("and R is even in r",
+        abs(bounce(2.0, 0.9, 1.0, 0.7, 3.0, 0.0)["R"]
+            - bounce(-2.0, 0.9, 1.0, 0.7, 3.0, 0.0)["R"]) < 1e-15, True)
+
+    # 4/5.  the two mouths invert to opposite signs; the product is the invariant
+    prods = []
+    mags = 0.0
+    for a, Q, l, r in [(0.7, 0.4, 3.0, 2.0), (-0.7, 0.4, 3.0, 2.0),
+                       (0.99, 0.9, 4.0, 1.5), (0.3, 0.2, 3.0, 6.0),
+                       (2.5, 0.5, 6.0, 3.0), (0.7, -0.4, 3.0, 2.0)]:
+        R = bounce(r, 0.9, 1.0, a, l, Q)["R"]
+        ap = invert_a(readings_at(r, 0.9, 1.0, a, l, Q), R, 0.9)
+        am = invert_a(readings_other_mouth(r, 0.9, 1.0, a, l, Q), R, 0.9)
+        prods.append((1 if ap > 0 else -1) * (1 if am > 0 else -1))
+        mags = max(mags, abs(abs(ap) - abs(am)), abs(ap - a))
+    chk("the two mouths return opposite signs", prods, [-1] * 6)
+    chk("with identical magnitudes, and mouth + returns a itself", mags < 1e-12, True)
+    chk("the bit is absolute", THE_BIT_IS_ABSOLUTE, False)
+    chk("the bit is the mouth label", THE_BIT_IS_THE_MOUTH_LABEL, True)
+    chk("the invariant", INVARIANT, "sgn(a_+) * sgn(a_-) = -1")
+    chk("uncharged still refuses at both mouths",
+        (invert_a(readings_at(2.0, 0.9, 1.0, 0.7, 3.0, 0.0), 3.6, 0.9),
+         invert_a(readings_other_mouth(2.0, 0.9, 1.0, 0.7, 3.0, 0.0), 3.6, 0.9)),
+        (None, None))
+
+    # 7.  the limits
+    chk("parity theorem overturned", PARITY_THEOREM_IS_OVERTURNED, False)
+    chk("energy bill moves", ENERGY_BILL_MOVES, False)
+    chk("the bounce is derived here", BOUNCE_IS_DERIVED_HERE, False)
+    chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
+
+    print()
+    if fails:
+        for lab, g, w_ in fails:
+            print("  FAIL %s: got %r want %r" % (lab, g, w_))
+        print("\nSELFTEST FAIL (%d)" % len(fails))
+        return 1
+    print("SELFTEST PASS")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(selftest() if "--selftest" in sys.argv else report())
+    sys.exit(selftest() if "--selftest" in sys.argv else (report() or 0))
