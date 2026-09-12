@@ -256,6 +256,51 @@ confirmed for `information`.
 
 ---
 
+## §6b · Clause F — the order language is a precondition, and one language escapes it
+
+> **F.** Four of the five operators are **not invariant** under a relabelling of values that preserves
+> their identity and destroys their order. `statistics` is invariant. **The order language is a
+> precondition for `order`, `algebra`, `information` and `geometry`, and is not one for `statistics`.**
+
+This clause exists because of a reading made in review: *"language is order. If order is necessary for
+algebra, then so is the language."* That is right, and it reassigns the emphasis of §8 — see N1/N2
+below.
+
+**The test.** Take `X` in its box. Apply a bijection `σ_i` to each coordinate's observed values — pure
+relabelling, so every value keeps its identity and every membership fact is preserved, while the order
+`≤` is scrambled. Compute the operator on `σX`, map back by `σ⁻¹`, compare with the operator on `X`.
+
+| operator | invariant | verdict |
+|---|---|---|
+| `order` | 58 / 400 | **requires the order** |
+| `algebra` | 58 / 400 | **requires the order** |
+| `information` | 59 / 400 | **requires the order** |
+| `geometry` | 102 / 400 | **requires the order** |
+| `statistics` | **400 / 400** | **ORDER-FREE** |
+
+*(The survivors are the draws where the shuffle happened to preserve the order, or the structure was
+degenerate. `geometry` survives more often because a 2-D convex hull also survives order-reversal.)*
+
+**`statistics`' invariance is a theorem, not luck.** D8 reads only the membership
+`π_ij(x) ∈ π_ij(X)`, and every bijective relabelling preserves membership. Two lines. **PROVED.**
+
+**The other four are order-dependent by construction**: `φ` (D4), `∧`/`∨` (D3, D6) and `conv` (D7) are
+each defined from `≤`.
+
+**And an independent corroboration of Clause B falls out.** If `order` and `algebra` are one operator
+they must break on *exactly the same instances*, not merely as often. Measured: **400 / 400 agreement
+on which instances break.** Neither operator was designed with relabelling in mind, so this is Clause B
+confirmed by a transformation from outside its own derivation.
+
+**What the clause does and does not support.** The claim under review was that *every rung above the
+first requires the language below it*. For `algebra`, `information` and `geometry` that is measured and
+true. For `statistics` it is **false** — and `statistics` is the rung the ladder placed at the top.
+Necessity of language is a condition of order for four of the five; the fifth needs only identity.
+
+**Status: PROVED** (`statistics`), **EXHAUSTIVE** (the other four, 400 draws).
+
+---
+
 ## §7 · Clause E — the ranking is not part of the law
 
 > **E.** The order in which the five languages nest is a property of the index, not a law.
@@ -285,7 +330,14 @@ along and was not looked at.
 
 ## §8 · Necessity — each hypothesis dropped until it breaks
 
-**N1 · `A_i = π_i(X)` (observed alphabet) — SUFFICIENT, NOT NECESSARY.**
+> **The two hypotheses are not peers, and review corrected this.** N2 is the *order language* being
+> present and total. N1 is a bookkeeping condition about attainment. The reading offered was: *"language
+> is order; if order is necessary for algebra, so is the language."* Clause F measures exactly that —
+> scramble the order and `algebra` changes in 342 of 400 draws. **So the necessary hypothesis of Clause
+> B is the language (N2), and N1 is not necessary at all.** They are listed in that order below and the
+> emphasis has been moved accordingly.
+
+**N1 · `A_i = π_i(X)` (observed alphabet) — SUFFICIENT, NOT NECESSARY. A BOOKKEEPING CONDITION.**
 Recorded earlier in this work as *necessary*; that was wrong. Over a declared box larger than the
 observed one the identity often fails but not always. A weaker sufficient condition is
 **order-convexity**: no value of `A_i` strictly between `min π_i(X)` and `max π_i(X)` may go
@@ -296,7 +348,7 @@ staircase 3 cells, sublattice 2.
 *Queyranne–Tardella need no such hypothesis at all: their proper boundary epigraph handles
 non-attainment by strict inequality.*
 
-**N2 · each `A_i` a chain — NECESSARY, and the failure is one-directional.**
+**N2 · each `A_i` a chain — NECESSARY. THIS IS THE LANGUAGE CONDITION, and the failure is one-directional.**
 Off the chains the staircase **never over-generates**; it **under**-generates. `R(X) ⊆ ⟨X⟩` survives
 arbitrary finite lattice factors — it is Lemma 4, which needs `φ` isotone and hence a total order,
 that dies. Measured over non-chain factors:
@@ -310,6 +362,27 @@ that dies. Measured over non-chain factors:
 | N5 × N5 | 1144 / 2600 | **0** | 1456 |
 
 Queyranne–Tardella's **Example 10** is the same phenomenon on `{0,a,b,c,1}` with `a∧b=0`, `a∨b=c<1`.
+
+**N2a · the proper-epigraph formulation does NOT rescue the non-chain case — tested, and it is a
+proof rather than a measurement.**
+Queyranne–Tardella's *proper* boundary epigraph distinguishes attained from unattained boundary values,
+admitting `k ≥ δ` in the first case and requiring `k > δ` in the second. The obvious hope was that this
+strictness is what chains were standing in for. **It is not.** Implemented over non-chain factors and
+run against the naive staircase:
+
+| factors | cases | naive: eq / under / over | proper: eq / under / over |
+|---|---|---|---|
+| chain × chain | 120 | 120 / 0 / 0 | 120 / 0 / 0 |
+| M3 × chain | 560 | 290 / 270 / 0 | **290 / 270 / 0** |
+| M3 × M3 | 2600 | 700 / 1900 / 0 | **700 / 1900 / 0** |
+| N5 × chain | 560 | 371 / 189 / 0 | **371 / 189 / 0** |
+| N5 × N5 | 2600 | 1144 / 1456 / 0 | **1144 / 1456 / 0** |
+
+**Identical to the case.** And the reason is a one-line proof, not a coincidence: strictness can only
+*remove* admitted cells, so `proper(X) ⊆ naive(X)` always. Off the chains the failure is
+**under**-generation — `naive(X) ⊊ ⟨X⟩` — so no operator contained in the naive one can reach `⟨X⟩`.
+**Attainment-strictness cannot repair under-generation.** The chain hypothesis is doing independent
+work: it is what makes Lemma 4 (`⟨X⟩ ⊆ R(X)`) true, and Lemma 4 is the inclusion that dies.
 
 **N3 · `d ≥ 2` — a convention.** `op_order` returns SILENT at `d = 1`; both sides would be `X`.
 
@@ -362,6 +435,8 @@ formulas are marked uncertain. Do not quote a formula from it without checking t
 | Clause B overall | cited + ✓ | **36,252 cases, 0 failures** | ✗ |
 | Clause C | ✓ | 200/200; 600 worlds | ✗ |
 | Clause D | ✓ | 150/150 + explicit witness | ✗ |
+| Clause F | ✓ (`statistics`) | 400 draws; B corroborated 400/400 | ✗ |
+| N2a (proper epigraph) | ✓ | 6,440 non-chain instances | ✗ |
 | Clause E | refutation | 400 worlds, 14 orderings | ✗ |
 | N1 | ✓ | 1,853 convex / 2,275 gapped | ✗ |
 | N2 | — | 6,440 non-chain instances | ✗ |
@@ -379,8 +454,8 @@ kernel has seen either.
    results were not read.
 2. Is order-convexity the **weakest** sufficient condition in the fixed-box regime, or merely weaker
    than D1? The 632 gapped-but-holding worlds say a sharper condition exists.
-3. Can Lemma 5 be extended to non-chain factors by adopting the proper-epigraph formulation, recovering
-   equality where the naive staircase under-generates?
+3. ~~Can the proper-epigraph formulation recover equality off the chains?~~ **ANSWERED: NO.** See
+   §8, N2a.
 4. Is `information` provably **never** k-determined for any `k`, via the absence of a near-unanimity
    term in join-semilattices? Measured failure at `k=2` and `k=3`; not proved.
 5. Machine-check Lemma 5 and Clause B.
