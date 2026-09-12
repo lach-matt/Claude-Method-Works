@@ -7971,6 +7971,71 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `phase.py` — the one odd value exists, it is a phase, and M predicted it was complex.
+
+> M: *"We still need that one odd value that unlocks it all. Pi/3? Cube root? Whatever it is, I would be
+> surprised if it wasn't a complex number or even a real value that has to be derived from i."*
+
+**CORRECT ON EVERY COUNT HE NAMED** — and π/3 and cube root turn out to be **one guess rather than two**.
+
+**KERR IS SCHWARZSCHILD AT A COMPLEX RADIUS.** `z = r − ia cos θ` (Newman–Janis), verified at the level of
+the invariants rather than quoted: the complex scalar `48M²/z⁶` **equals `K − (i/2)·*RR` to 7.8×10⁻¹⁸** at
+five configurations spanning `a` −0.5 to 4.9 and `θ` 0.4 to π/2, and reduces to Schwarzschild's `48M²/r⁶` at
+`a = 0`. **The Kretschmann and the Chern–Pontryagin scalar are not two invariants — they are the real and
+imaginary parts of one number, and that number is a function of a complex radius.**
+
+**SO THERE IS EXACTLY ONE ODD VALUE AND IT IS A PHASE.** `|z|` is **even** (identical to 0.0×10⁰) and
+`|z|² = Σ = r² + a²cos²θ` is precisely what appears in every even component — **the two threads see the
+modulus.** `arg z` is **odd** (sums to 0.0×10⁰ under `a → −a`) and is **3.1×10⁻¹⁷ at θ = π/2 for every spin**.
+
+> **That is one sentence for the whole of `cube.py`.** The equatorial Kretschmann equalling Schwarzschild's,
+> the chirality invariant vanishing there, and the four-even-one-odd census **are the same fact: `z` is real
+> on the equator.** Nine measurements over two passes collapse to one statement about one complex number.
+
+**AND THE PHASE IS MEASURABLE, WHICH IS M'S THIRD CLAUSE LANDING LITERALLY.**
+`arg z = −arg(K − (i/2)·*RR)/6`, to **5.6×10⁻¹⁷**, returning `sgn(a)` correctly on all five on-branch cases —
+**a real procedure returning a real number whose only route is through `i`**, since `*RR` has no definition
+except as an imaginary part. *With a real limit, reported rather than hidden:* the sixth power **aliases**
+at `|arg z| ≥ π/6`, i.e. `|a cos θ|/r ≥ 1/√3 = 0.577350269`, and off branch the instrument **returns no bit
+rather than a wrong one.**
+
+**π/3 AND CUBE ROOT WERE THE SAME GUESS.** The equatorial photon orbit solves the **cubic** `u³ − 3u = ∓2a/M`
+in `u = √(r/M)`, whose three roots sit at gaps **2.094395102393 and 2.094395102393** against
+`2π/3 = 2.094395102393` — cube-root spacing, all three satisfying the cubic to 6.7×10⁻¹⁶. The physical branch
+is `r_ph = 2M(1 + cos ψ)` with
+
+> **`ψ = π/3 ∓ (2/3)·arcsin(a/M)`**
+
+agreeing with the textbook form to **0.0×10⁰**, with `ψ₊ + ψ₋ = 2π/3` **at every spin** and `ψ` spanning
+**exactly [0, 2π/3]**. **π/3 is the achiral centre of exactly one cube-root sector** — the angle at `a = 0`,
+giving `r_ph = 3.000000000 M` — **and the chirality is the displacement from it.**
+
+**AND WHAT IT DOES NOT UNLOCK, SAID AS PLAINLY.** The parity theorem is **untouched** — a phase is not a
+function of a modulus, and naming the missing datum is not producing it. It **supplies no orientation**:
+`arg z` is set by the source's angular momentum, a reading and not a dial. And it **moves the energy bill by
+nothing at all** — the three currencies stand at 1.212374×10⁴³ J/m, 5.106580×10⁻³⁵ m and 5.870709×10⁴² Hz.
+
+**ONE TEMPTING COINCIDENCE, MEASURED AND REFUSED.** `√Λ = 3.159514072` against `π = 3.141592654` is a
+**0.5705 % miss**, not an identity — `RETRACTION-AUDIT.tsv` found 187 digit coincidences by exactly that
+shape of fingerprinting.
+
+**TWO FAULTS, AND FOR THE FIRST TIME THIS SESSION THE INSTRUMENT CAUGHT THEM.** The extraction first used a
+single-argument arctangent on the ratio `*RR/2K`, which wraps at π/12 instead of π/6 and returned a
+confidently wrong phase; **the failing test was right**, the opposite of the Morris–Thorne case where
+trusting one would have broken working code. And the `√Λ/π` fixture was **typed rather than computed**, wrong
+in the seventh digit.
+
+> Both were caught by fixtures that are **computed numbers** — the narrow answer to the channel
+> `frequency.py` named, which no interpolation reaches.
+
+### Seated
+- `phase.py` — new. `index3.py` — **638 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H76**. `cube.py`, `weave.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `cube.py` — the cube is the square to the 3/2, and the obstruction is a parity.
 
 > M: *"We need to evaluate g_tφ cubed."*

@@ -5740,6 +5740,98 @@ datum is invisible at `θ = π/2` and visible at `θ ≠ π/2`. **The plane posi
 
 ---
 
+## ★★★ H76 — phase. **The one odd value exists, it is `arg(r − ia cos θ)`, and M predicted it was complex.**
+
+> M: *"We still need that one odd value that unlocks it all. Pi/3? Cube root? Whatever it is, I would be
+> surprised if it wasn't a complex number or even a real value that has to be derived from i."*
+
+**Correct on every count he named — and π/3 and cube root turn out to be one guess rather than two.**
+
+### H76a — Kerr is Schwarzschild at a complex radius
+
+> **`z = r − i a cos θ`** (Newman–Janis). Verified at the level of the invariants, not quoted:
+
+| a | θ | `48M²/z⁶` | `K − (i/2)·*RR` | diff |
+|---|---|---|---|---|
+| 0.70 | 1.1000 | 0.002818046+0.001127230j | 0.002818046+0.001127230j | 8.7×10⁻¹⁹ |
+| 0.99 | 0.4000 | −0.010018374+0.049507477j | −0.010018374+0.049507477j | 7.8×10⁻¹⁸ |
+| −0.50 | 2.0000 | 0.000180515+0.000028395j | 0.000180515+0.000028395j | 2.7×10⁻²⁰ |
+| 4.90 | 0.9000 | 0.000001057+0.000013287j | 0.000001057+0.000013287j | 1.7×10⁻²¹ |
+
+**Identical to 7.8×10⁻¹⁸**, and reducing to Schwarzschild's `48M²/r⁶` at `a = 0`. **The Kretschmann and the
+Chern–Pontryagin scalar are not two invariants — they are the real and imaginary parts of one number, and
+that number is a function of a complex radius.**
+
+### H76b — so there is exactly one odd value, and it is a phase
+
+| a | θ | \|z\| (a>0) | \|z\| (a<0) | arg z (a>0) | arg z (a<0) |
+|---|---|---|---|---|---|
+| 0.70 | 1.1000 | 5.010071579 | 5.010071579 | −0.063418300 | +0.063418300 |
+| 0.70 | π/2 | 5.000000000 | 5.000000000 | −0.000000000 | +0.000000000 |
+| 2.50 | 0.8000 | 4.362768787 | 4.362768787 | −0.410681509 | +0.410681509 |
+
+**Modulus even to 0.0×10⁰. Phase odd to 0.0×10⁰.** And `|z|² = Σ = r² + a²cos²θ` — precisely what appears in
+every even component. **The two threads see the modulus. The missing bit is the phase.** On the equator
+`arg z = 3.1×10⁻¹⁷`, i.e. zero, at every spin.
+
+> **That is one sentence for the whole of H75.** The equatorial Kretschmann equalling Schwarzschild's, the
+> chirality invariant vanishing there, and the four-even-one-odd census **are the same fact: `z` is real on
+> the equator.** Nine measurements over two passes collapse to one statement about one complex number.
+
+### H76c — and the phase is measurable, which is M's third clause literally
+
+> **`arg z = −arg(K − (i/2)·*RR)/6`** — to 5.6×10⁻¹⁷, returning `sgn(a)` correctly on all five on-branch
+> configurations. **A real procedure returning a real number whose only route is through `i`**, since `*RR`
+> has no definition except as an imaginary part.
+
+**With a real limit, reported rather than hidden:** the sixth power **aliases** once `|arg z| ≥ π/6 =
+0.523598776`, i.e. `|a cos θ|/r ≥ 1/√3 = 0.577350269`. Off branch the instrument **returns no bit rather
+than a wrong one.**
+
+### H76d — π/3 and cube root were the same guess, and both land
+
+The equatorial photon orbit solves the **cubic** `u³ − 3u = ∓2a/M` in `u = √(r/M)`. Its three roots sit at
+angular gaps **2.094395102393 and 2.094395102393** against `2π/3 = 2.094395102393` — **cube-root spacing**,
+all three satisfying the cubic to 6.7×10⁻¹⁶. The physical branch is `r_ph = 2M(1 + cos ψ)` with
+
+> **`ψ = π/3 ∓ (2/3)·arcsin(a/M)`**
+
+agreeing with the textbook `(2/3)arccos(∓a/M)` to **0.0×10⁰**, and `ψ₊ + ψ₋ = 2π/3` **at every spin** to
+4.4×10⁻¹⁶. `ψ` spans **exactly [0, 2π/3]** and nothing wider.
+
+> **π/3 is the achiral centre of exactly one cube-root sector** — the angle at `a = 0`, giving
+> `r_ph = 3.000000000 M` — **and the chirality is the displacement from it.**
+
+### H76e — and what it does not unlock, said as plainly
+
+- **The parity theorem is untouched.** **H75b** proved no function of the even components returns an odd
+  one, and **a phase is not a function of a modulus.** Naming the missing datum, unifying nine measurements
+  into one, and giving a procedure that reads it off two curvature scalars are three real advances, and
+  **none of them produces the datum.**
+- **It supplies no orientation.** `arg z` is set by the *source's* angular momentum. **A reading, not a
+  dial** — a construction must still put the rotation there.
+- **It moves the energy bill by nothing at all.** Not one figure in `currency.py`, `magnitude.py` or
+  `frequency.py` changes; the three currencies stand at 1.212374×10⁴³ J/m, 5.106580×10⁻³⁵ m and
+  5.870709×10⁴² Hz.
+
+**One tempting coincidence, measured and refused:** `√Λ = 3.159514072` against `π = 3.141592654` is a
+**0.5705 % miss**, not an identity. `RETRACTION-AUDIT.tsv` found 187 digit coincidences in this corpus by
+exactly that shape of fingerprinting.
+
+### H76f — two faults, and for the first time this session the instrument caught them
+
+The extraction first used a **single-argument arctangent on the ratio `*RR/2K`**, which wraps at π/12 rather
+than π/6 and returned a confidently wrong phase at `a = −2.5, θ = 2.6`. **The failing test was right** —
+the opposite of the Morris–Thorne case (**H61**) where trusting a failing test would have broken working
+code, and the discriminator was reading *why* it failed rather than whether it did. And the `√Λ/π` fixture
+was **typed rather than computed** and wrong in the seventh digit.
+
+> Both were caught by fixtures that are **computed numbers**. That is the first time this session the
+> instrument rather than the arithmetic did the catching — and it is the narrow answer to **H73e**'s
+> channel, which no interpolation reaches.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
