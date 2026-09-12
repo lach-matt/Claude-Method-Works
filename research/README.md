@@ -7971,6 +7971,45 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `canonical.py` — the canonical decomposition exists, and the two irreducibles have names.
+
+> M: *"The canonical decomposition is a transition itself."* · *"It is a transition to a position that
+> cannot accept it."* · *"Acceptance is determined by … which satisfied NECs can replace the ones that are
+> not satisfied."*
+
+**All three hold, and the first overturns `decompose.py`.** That pass reported *"not unique — 6, 7 or 8"* —
+**a greedy search.** Removability is **downward closed** (geometry is monotone), so no removable set can
+contain a cell that isn't removable alone: the search is `2¹⁰` and exhaustible. Run exhaustively:
+
+> **440 faces · 6 facets (6, 6, 7, 7, 7, 8) · maximum 8 · exactly ONE set achieves it · leaving 9.**
+> **The canonical decomposition exists.** "Not unique" reported the search's dead ends, not the structure's.
+> **Fourth time this session a property of the method was read as a property of the object.**
+
+**And the dead ends are exactly what was named.** Five facets are maximal but not maximum — two strand 2
+short, three strand 1. Over **200 random walks: 70 reach the maximum, 130 strand.** **Only 35% arrive.**
+*"A transition to a position that cannot accept it"* is a description, not a metaphor.
+
+**Acceptance is covering — Carathéodory, exactly.** A cell is removable **iff it is not extreme**, i.e. its
+position in every shadow is a convex combination of the others. **6 ordered conflicts of 90**, forming
+**three mutually exclusive pairs**: SNEC ↔ QEI · semiclassical-WEC ↔ QEI · BV-effective-NEC ↔
+BV-effective-ANEC. **Two cells that cover each other cannot both go.** The maximum is the complement of a
+**minimum vertex cover of size 2** — QEI in two pairs, BV-effective-ANEC in one, none covering all three.
+
+> **The two the maximum must leave behind: the QEI (Ford–Roman / Fewster–Osterbrink) and
+> BV-effective-ANEC** — `persist.py`'s wall and `higgs.py`'s ξ escape, the **one door** `necindex.py` found.
+> **The two conditions the index cannot do without are the two this thread has run on, and nothing was
+> looking for them.** A convergence, not a theorem.
+
+**And the equation holds with both sides named:** `|Object − state| = object`, state = the unique maximum
+removable set (8), object = the 9 survivors. **True exactly**, no longer one cell at a time.
+
+### Seated
+- `canonical.py` — new. `index3.py` — **729 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H106**, with H105c withdrawn in place. `decompose.py`, `necindex.py` — **read here, unchanged**.
+
+---
+
+
 ## `decompose.py` — object and conditions, and the equation that holds per cell and fails as a set.
 
 > M: *"The first half describes the object. The second half describes the environment/conditions."* And:

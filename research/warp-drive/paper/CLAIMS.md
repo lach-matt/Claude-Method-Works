@@ -8345,6 +8345,10 @@ to those ten and not to removal in general.)*
 
 ### H105c — and fails as a set, which is the finding
 
+> **⚠ WITHDRAWN BY H106.** The conclusion below — *"the decomposition is not unique"* — reported a
+> **greedy** search. Exhaustively there are 440 removable subsets, 6 facets, and a **unique maximum of 8**.
+> The 6/7/8 spread is greedy stranding, not structure. The section is kept as published.
+
 **Remove all ten at once and geometry changes.** The invariance is not additive, and the reason is in the
 mechanism: a hull is fixed by its extreme points, so removing a non-extreme point costs nothing — **but once
 enough are gone, points that were interior become extreme.**
@@ -8362,6 +8366,91 @@ canonical decomposition** — a real and stateable requirement, and geometry's h
 **One hollow test was caught building this** — a check reading `geom(X) == geom(X)`, a call against itself,
 true of anything. Replaced with a comparison of the survivors against the original. Same channel as `H87`'s
 three.
+
+---
+
+### H106a — the canonical decomposition exists; `H105c` is withdrawn
+
+> M: *"The canonical decomposition is a transition itself."*
+
+`H105c` reported *"the decomposition is NOT unique — 6, 7 or 8 depending on the order."* **That was a greedy
+search.** Removability is **downward closed** — geometry is monotone, so if removing `S` preserves the hulls
+then so does removing any subset of `S`. No removable set can contain a cell that isn't removable alone, so
+**the search is over subsets of ten cells, `2¹⁰`, exhaustible in a second.**
+
+| | |
+|---|---|
+| removable subsets (faces) | **440** — a simplicial complex |
+| maximal ones (facets) | **6** — sizes 6, 6, 7, 7, 7, 8 |
+| **maximum size** | **8** |
+| **sets achieving it** | **1** |
+| cells surviving | **9** |
+
+> **The canonical decomposition exists: a unique maximum removal of 8, leaving 9.** *"Not unique"* was
+> reporting the search's dead ends, not the structure's.
+
+**Fourth time this session a property of the method was read as a property of the object** — `H97`'s
+coordinate re-ranking, `H100`'s algebra budget, `H102`'s Index-supplied value order, and now greedy
+stranding. Each time the scaffolding was invisible until it produced a number that looked like a finding.
+
+### H106b — and the dead ends are exactly what was named
+
+> M: *"It is a transition to a position that cannot accept it."*
+
+**Five of the six facets are maximal but not maximum** — two strand two cells short, three strand one short.
+Positions reachable by valid removals from which no further removal is possible, and which are not the
+answer.
+
+| 200 random greedy walks | |
+|---|---|
+| reach the maximum | **70** |
+| strand at 7 | 98 |
+| strand at 6 | 32 |
+
+> **Only 35% of walks reach the canonical decomposition.** Sixty-five per cent arrive at a position that
+> cannot accept the next step. **The phrase is not a metaphor for this; it is a description of it.**
+
+### H106c — acceptance is covering, and the two irreducibles have names
+
+> M: *"Acceptance is determined by which NECs are satisfied, and which satisfied NECs can replace the ones
+> that are not satisfied."*
+
+**In hull terms this is exact, and it is Carathéodory:** a cell is removable **iff it is not extreme** — iff
+its position in every 2-D shadow is a convex combination of the others. **It is removable because others
+cover it.** Measured pairwise: **6 ordered conflicts of 90**, forming **three mutually exclusive pairs**:
+
+| | |
+|---|---|
+| **SNEC** | ↔ **QEI** (Ford–Roman / Fewster–Osterbrink) |
+| **semiclassical-WEC** | ↔ **QEI** |
+| **BV-effective-NEC** | ↔ **BV-effective-ANEC** |
+
+**Two cells that cover each other cannot both go — one must stay to cover the other.** So the maximum
+removal is the complement of a **minimum vertex cover**, and the cover has size 2: QEI sits in two of the
+three pairs, BV-effective-ANEC in one, and no single cell covers all three. **Ten removable, two must stay,
+maximum eight.** The arithmetic of the canonical decomposition is a vertex cover.
+
+**And the two the maximum must leave behind:**
+
+> ### QEI — Ford–Roman / Fewster–Osterbrink
+> ### BV-effective-ANEC
+
+The quantum energy inequality is `H90`'s wall — the bound permitting the corridor's density for
+`2.8×10⁻²⁶ s` against a required `5.1×10⁻⁹`. Barceló–Visser's effective averaged NEC is `H92`'s `ξ` escape
+and `H93`'s **one door**, the only slot any throat-opening route has ever moved.
+
+> **The two conditions the index cannot do without are the two this whole thread has turned on, and nothing
+> in the computation was looking for them.** It fell out of a vertex cover on a hull-conflict graph.
+
+**Recorded as a convergence, not a theorem:** a property of an 18-cell family under geometry's hull
+operator, not a statement about gravity.
+
+**And the equation holds with both sides named:** `|Object − state| = object`, with **state = the unique
+maximum removable set (8)** and **object = the 9 that survive**. True exactly, and no longer only one cell
+at a time. `H105` could not say this because it never found the maximum.
+
+**One garbled test was caught** — a minimality check written as an expression that happened to evaluate
+False. Rewritten to state the claim: no single cell covers all three pairs.
 
 ---
 
