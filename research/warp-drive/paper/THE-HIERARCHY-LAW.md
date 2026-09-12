@@ -301,9 +301,109 @@ Necessity of language is a condition of order for four of the five; the fifth ne
 
 ---
 
+## §6c · Clause G — `statistics` is the hypothetical language, and that settles N1
+
+> **G.** `statistics` is the only operator whose data is *cells* rather than *relations between cells*.
+> Its admission condition is a membership test, so it is order-free; it lies inside `geometry` always;
+> and its hypothetical extension preserves the geometry that generated it.
+
+This clause exists because of a reading offered in review: *"Statistics remains without order because it
+is the only language that speaks in hypotheticals. Each other language requires order. Statistics only
+needs a singularity."* Each part is measurable and each part holds.
+
+**G.1 — "it only needs a singularity."** `St(X)`'s constraint set is `π_ij(X) = ⋃_{y∈X} {π_ij(y)}` — a
+**union of single-cell contributions**. No relation between two cells is ever consulted.
+
+| | union of single-cell facts |
+|---|---|
+| `statistics` | **500 / 500** |
+| `algebra` *(control)* | **98 / 500** |
+
+The control matters: the property is not generic. `algebra` needs `∧` and `∨`, which are relations
+*between* cells; `statistics` needs only the cells themselves. **PROVED** (immediate from D8) and
+EXHAUSTIVE.
+
+**G.2 — the hypothetical character and the order-freedom are the same fact.** A membership test asks
+*"has this pair been seen?"* — an `if`, evaluated against observation. Membership is preserved by every
+bijection, so Clause F's `400/400` order-freedom is not a second property; **it is G.1 restated**. The
+other four read `≤` directly (`φ`, `∧`, `∨`, `conv`) and cannot be evaluated without it.
+
+**G.3 — `statistics ⊆ geometry`, always.** **500 / 500**, and it is a one-line proof:
+`π_ij(X) ⊆ conv(π_ij X)`, so any cell whose pair-projections are *observed* has them in the *hull*.
+**PROVED.** This is the second lawful containment after Clause C.
+
+**G.4 — the hypotheticals never leave the geometry that generated them.**
+
+> `geometry(statistics(X)) = geometry(X)` — **500 / 500.**
+
+`X ⊆ St(X) ⊆ G(X)` by G.3, and `conv` of any set between `S` and `conv(S)` is `conv(S)`, so the hulls
+are unchanged. **PROVED.** This is the measurable part of the review's third sentence — *"logic verifies
+the if and then against the original geometry being statisticized."* **The verification step holds.**
+
+**G.5 — and this settles N1.** N1 and N2 are stated in different *registers*, and the register decides
+which one can be necessary:
+
+| hypothesis | invariant under an order-destroying relabelling | register |
+|---|---|---|
+| **N1** every ambient value observed | **500 / 500** | **membership** |
+| **N2** the order relation itself | **84 / 500** | **order** |
+
+Clause B is an order-theoretic theorem. **A condition stated in the membership register cannot be
+necessary for it.** N1's entire role was to *imply* an order fact as a side effect — attainment of the
+maxima in Lemma 1 — which it does without stating it. That is exactly why N1 is sufficient-and-not-
+necessary while N2 is necessary. **The category explains the necessity**, and no counterexample was
+needed to see it. The counterexamples in §8 confirm what the register already forces.
+
+**G.6 — what is NOT testable here, stated so it is not smuggled in.** The review's chain runs
+*statistics gives the `if` → analysis gives the `then` → logic verifies both against the original
+geometry.* The first and third steps are measured above and hold. **The middle step cannot be
+measured**: `analysis` has **no operator** in the cypher — it is declared-only — and which languages
+exist is open docket 20x-04/20x-09. **No operator for `analysis` was invented for this clause**, and
+none should be until that docket is ruled on.
+
+---
+
+## §6d · Clause H — the lawful skeleton: which part of the ranking *is* a law
+
+Clause E refutes the *total* ranking. It does not follow that no ordering is lawful, and review
+pressure made that worth measuring. Over 600 worlds, exactly **seven** containments hold without
+exception:
+
+| holds always | |
+|---|---|
+| `order ⊆ algebra` and `algebra ⊆ order` | **= Clause B, recovered from outside its own derivation** |
+| `information ⊆ algebra`, `information ⊆ order` | Clause C |
+| `statistics ⊆ algebra`, `statistics ⊆ order` | |
+| `statistics ⊆ geometry` | G.3 |
+
+Everything else varies — `geometry ⊆ order` 585/600, `statistics ⊆ information` 422/600,
+`information ⊆ geometry` 301/600, and so on down to 139/600.
+
+**The lawful skeleton, with `O := order = algebra`:**
+
+```
+        O = order = algebra              geometry
+         /                \             /
+   information          statistics ────
+```
+
+- `O` and `geometry` are **incomparable** — neither contains the other in general.
+- `information` and `statistics` are **incomparable** with each other.
+- `statistics` is the only language below **two** maxima, and the only one below `geometry`.
+- `information` and `statistics` are the **minimal** elements; `O` and `geometry` the **maximal**.
+
+**This is the precise sense in which the ladder was right and wrong.** It was wrong as a total order
+(Clause E). It was right that there is a hierarchy: **a genuine partial order with four lawful
+relations**, in which `statistics` sits at a minimum — the most restrictive position, which in the
+ladder's own idiom is the *top* rung. **Status: EXHAUSTIVE** (600 worlds); the four relations are each
+individually **PROVED** (Clause B, C, G.3).
+
+---
+
 ## §7 · Clause E — the ranking is not part of the law
 
-> **E.** The order in which the five languages nest is a property of the index, not a law.
+> **E.** The **total** order in which the five languages nest is a property of the index, not a
+> law. (Clause H gives the part that *is* lawful — read them together.)
 
 Measured in `induce.py` over **400 random worlds**:
 
@@ -436,6 +536,8 @@ formulas are marked uncertain. Do not quote a formula from it without checking t
 | Clause C | ✓ | 200/200; 600 worlds | ✗ |
 | Clause D | ✓ | 150/150 + explicit witness | ✗ |
 | Clause F | ✓ (`statistics`) | 400 draws; B corroborated 400/400 | ✗ |
+| Clause G | ✓ (G.1, G.3, G.4) | 500 worlds each; control 98/500 | ✗ |
+| Clause H | ✓ (the four relations) | 600 worlds, 7 always-containments | ✗ |
 | N2a (proper epigraph) | ✓ | 6,440 non-chain instances | ✗ |
 | Clause E | refutation | 400 worlds, 14 orderings | ✗ |
 | N1 | ✓ | 1,853 convex / 2,275 gapped | ✗ |
