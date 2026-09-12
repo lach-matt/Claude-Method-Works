@@ -208,7 +208,7 @@ $3,044 / $4,830 per acre-foot.
 for the whole proposal in one document, every item expanded, each location addressed in full, figures, tables and
 cited studies, with a two-to-three page bullet pitch beside it. `California_Sovereign_Infrastructure_v0.2.md`
 (twenty-one sections, twelve figures under `figures/`) and `Pitch_v0.2.md` are rendered from the instruments, both
-emitted as `.docx` too, and the selftest holds that the pitch carries no number the proposal does not. The three
+emitted as `.docx` and `.pdf` too, and the selftest holds that the pitch carries no number the proposal does not. The three
 Titles stay as the diff against v0.1; the proposal is the whole.
 
 **Reviewed adversarially (2026-09-12, `docs/PROPOSAL-REVIEW.md`).** Twenty-five flags; six were faults in the

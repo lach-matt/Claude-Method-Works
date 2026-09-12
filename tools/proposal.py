@@ -1624,7 +1624,11 @@ def emit_docx(md_text, path, base_dir):
             continue
         elif ln.startswith("- "):
             flush()
-            _runs(doc.add_paragraph(style="List Bullet"), ln[2:])
+            item = [ln[2:]]
+            while i + 1 < len(lines) and lines[i + 1].startswith("  ") and lines[i + 1].strip():
+                i += 1
+                item.append(lines[i].strip())
+            _runs(doc.add_paragraph(style="List Bullet"), " ".join(item))
         elif ln.strip() == "":
             flush()
         else:
@@ -1632,6 +1636,146 @@ def emit_docx(md_text, path, base_dir):
         i += 1
     flush()
     doc.save(path)
+
+
+# =============================================================================
+# PDF -- both documents from the same rendered text, via reportlab (LibreOffice
+# cannot load a document in this environment, so the PDF is set directly)
+# =============================================================================
+FONT_DIR = "/usr/share/fonts/truetype/freefont"       # FreeSans: four faces, full Unicode (subscripts, ×, ≥, °)
+MONO_DIR = "/usr/share/fonts/truetype/dejavu"
+
+
+def _pdf_markup(text):
+    """Markdown inline -> reportlab paragraph markup: escape, then bold, italic, code."""
+    out = []
+    for tok in _INLINE.split(text):
+        if not tok:
+            continue
+        if tok.startswith("**"):
+            out.append("<b>" + _esc(tok[2:-2]) + "</b>")
+        elif tok.startswith("*"):
+            out.append("<i>" + _esc(tok[1:-1]) + "</i>")
+        elif tok.startswith("`"):
+            out.append('<font face="DejaVuSansMono" size="7.5">' + _esc(tok[1:-1]) + "</font>")
+        else:
+            out.append(_esc(tok))
+    return "".join(out)
+
+
+def _esc(t):
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def emit_pdf(md_text, path, base_dir, title):
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import mm
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    from reportlab.platypus import (BaseDocTemplate, Frame, Image, KeepTogether, PageBreak, PageTemplate,
+                                    Paragraph, Spacer, Table, TableStyle)
+    from reportlab.pdfbase.pdfmetrics import registerFontFamily
+    for name, d, fn in (("Sans", FONT_DIR, "FreeSans.ttf"), ("Sans-Bold", FONT_DIR, "FreeSansBold.ttf"),
+                        ("Sans-Italic", FONT_DIR, "FreeSansOblique.ttf"), ("Sans-BoldItalic", FONT_DIR, "FreeSansBoldOblique.ttf"),
+                        ("DejaVuSansMono", MONO_DIR, "DejaVuSansMono.ttf")):
+        if name not in pdfmetrics.getRegisteredFontNames():
+            pdfmetrics.registerFont(TTFont(name, os.path.join(d, fn)))
+    registerFontFamily("Sans", normal="Sans", bold="Sans-Bold", italic="Sans-Italic", boldItalic="Sans-BoldItalic")
+    W, Hh = A4
+    margin = 17 * mm
+    avail = W - 2 * margin
+    ink, muted, grid = colors.HexColor("#0b0b0b"), colors.HexColor("#52514e"), colors.HexColor("#d9d8d3")
+    body = ParagraphStyle("body", fontName="Sans", fontSize=8.8, leading=12.2, textColor=ink, spaceAfter=5)
+    bullet = ParagraphStyle("bullet", parent=body, leftIndent=11, bulletIndent=2, spaceAfter=2.5)
+    cap = ParagraphStyle("cap", parent=body, fontSize=8, leading=10.5, textColor=muted, spaceAfter=9)
+    cell = ParagraphStyle("cell", parent=body, fontSize=6.9, leading=8.6, spaceAfter=0)
+    cellh = ParagraphStyle("cellh", parent=cell, fontName="Sans-Bold")
+    h = {1: ParagraphStyle("h1", parent=body, fontName="Sans-Bold", fontSize=17, leading=21, spaceBefore=6, spaceAfter=10),
+         2: ParagraphStyle("h2", parent=body, fontName="Sans-Bold", fontSize=12.5, leading=16, spaceBefore=12, spaceAfter=6),
+         3: ParagraphStyle("h3", parent=body, fontName="Sans-Bold", fontSize=10.5, leading=14, spaceBefore=9, spaceAfter=4),
+         4: ParagraphStyle("h4", parent=body, fontName="Sans-Bold", fontSize=9.4, leading=12.5, spaceBefore=7, spaceAfter=3)}
+    story, lines, i, para = [], md_text.split("\n"), 0, []
+
+    def flush():
+        if para:
+            story.append(Paragraph(_pdf_markup(" ".join(para)), body))
+            para.clear()
+
+    def table(rows):
+        ncol = max(len(r) for r in rows)
+        rows = [r + [""] * (ncol - len(r)) for r in rows]
+        weights = [max(8.0, sum(len(r[c]) for r in rows) / len(rows)) ** 0.6 for c in range(ncol)]
+        tot = sum(weights)
+        widths = [avail * w / tot for w in weights]
+        data = [[Paragraph(_pdf_markup(c), cellh if r_i == 0 else cell) for c in r] for r_i, r in enumerate(rows)]
+        t = Table(data, colWidths=widths, repeatRows=1, splitByRow=1)
+        t.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"), ("LINEBELOW", (0, 0), (-1, 0), 0.7, muted),
+                               ("LINEBELOW", (0, 1), (-1, -1), 0.3, grid), ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f0efec")),
+                               ("LEFTPADDING", (0, 0), (-1, -1), 3), ("RIGHTPADDING", (0, 0), (-1, -1), 3),
+                               ("TOPPADDING", (0, 0), (-1, -1), 2), ("BOTTOMPADDING", (0, 0), (-1, -1), 2)]))
+        return t
+
+    while i < len(lines):
+        ln = lines[i]
+        if ln.startswith("#"):
+            flush()
+            level = min(len(ln) - len(ln.lstrip("#")), 4)
+            if level == 2 and story:
+                story.append(Spacer(1, 4))
+            story.append(Paragraph(_pdf_markup(ln.lstrip("#").strip()), h[level]))
+        elif ln.startswith("![") and "](" in ln:
+            flush()
+            fp = os.path.join(base_dir, ln.split("](", 1)[1].rstrip(")"))
+            if os.path.exists(fp):
+                img = Image(fp)
+                scale = min(1.0, avail / img.imageWidth, (Hh * 0.45) / img.imageHeight)
+                img.drawWidth, img.drawHeight = img.imageWidth * scale, img.imageHeight * scale
+                nxt = lines[i + 2] if i + 2 < len(lines) else ""
+                if nxt.startswith("*Figure"):
+                    story.append(KeepTogether([img, Spacer(1, 3), Paragraph(_pdf_markup(nxt), cap)]))
+                    i += 3
+                    continue
+                story.append(img)
+        elif ln.startswith("|"):
+            flush()
+            rows = []
+            while i < len(lines) and lines[i].startswith("|"):
+                cells = [c.strip() for c in lines[i].strip().strip("|").split("|")]
+                if not all(set(c) <= set("-: ") for c in cells):
+                    rows.append(cells)
+                i += 1
+            if rows:
+                story.append(table(rows))
+                story.append(Spacer(1, 7))
+            continue
+        elif ln.startswith("- "):
+            flush()
+            item = [ln[2:]]
+            while i + 1 < len(lines) and lines[i + 1].startswith("  ") and lines[i + 1].strip():
+                i += 1
+                item.append(lines[i].strip())
+            story.append(Paragraph(_pdf_markup(" ".join(item)), bullet, bulletText="•"))
+        elif ln.strip() == "":
+            flush()
+        else:
+            para.append(ln.strip())
+        i += 1
+    flush()
+
+    def on_page(canv, doc_):
+        canv.saveState()
+        canv.setFont("Sans", 7.5)
+        canv.setFillColor(muted)
+        canv.drawString(margin, Hh - 11 * mm, title)
+        canv.drawRightString(W - margin, 10 * mm, str(doc_.page))
+        canv.restoreState()
+
+    doc = BaseDocTemplate(path, pagesize=A4, leftMargin=margin, rightMargin=margin, topMargin=margin + 4 * mm,
+                          bottomMargin=margin, title=title, author="rendered by tools/proposal.py")
+    doc.addPageTemplates([PageTemplate(id="p", frames=[Frame(margin, margin, avail, Hh - 2 * margin - 4 * mm, id="f")], onPage=on_page)])
+    doc.build(story)
 
 
 # =============================================================================
@@ -1682,20 +1826,29 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--docx", action="store_true", help="also emit both documents as .docx")
+    ap.add_argument("--pdf", action="store_true", help="also emit both documents as .pdf (reportlab)")
     ap.add_argument("--no-figures", action="store_true", help="render the text only")
+    ap.add_argument("--export-only", action="store_true", help="skip the render; emit .docx / .pdf from the files on disk")
     a = ap.parse_args()
     if a.selftest:
         sys.exit(0 if selftest() else 1)
-    g = gather()
-    if not a.no_figures:
-        for f in figures(g):
-            print(f"drew proposals/figures/{f}")
-    text, pitch = render(g), render_pitch(g)
-    for path, t in ((OUT, text), (PITCH, pitch)):
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(t)
-        print(f"rendered {os.path.relpath(path, ROOT)}: {len(t.splitlines())} lines, {len(t.split()):,} words")
-    if a.docx:
+    if a.export_only:
+        text, pitch = open(OUT, encoding="utf-8").read(), open(PITCH, encoding="utf-8").read()
+    else:
+        g = gather()
+        if not a.no_figures:
+            for f in figures(g):
+                print(f"drew proposals/figures/{f}")
+        text, pitch = render(g), render_pitch(g)
         for path, t in ((OUT, text), (PITCH, pitch)):
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(t)
+            print(f"rendered {os.path.relpath(path, ROOT)}: {len(t.splitlines())} lines, {len(t.split()):,} words")
+    titles = {OUT: "California Sovereign Infrastructure — the complete proposal (v0.2)", PITCH: "California Sovereign Infrastructure — the pitch (v0.2)"}
+    for path, t in ((OUT, text), (PITCH, pitch)):
+        if a.docx:
             emit_docx(t, path[:-3] + ".docx", os.path.dirname(path))
             print(f"emitted {os.path.relpath(path[:-3] + '.docx', ROOT)}")
+        if a.pdf:
+            emit_pdf(t, path[:-3] + ".pdf", os.path.dirname(path), titles[path])
+            print(f"emitted {os.path.relpath(path[:-3] + '.pdf', ROOT)}")

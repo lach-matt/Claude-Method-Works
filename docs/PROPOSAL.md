@@ -15,7 +15,8 @@ the short document cannot say what the long one does not.
 
 **Run it.** `python3 tools/proposal.py` renders `proposals/California_Sovereign_Infrastructure_v0.2.md`
 (the proposal), `proposals/Pitch_v0.2.md` (the pitch) and the twelve figures under
-`proposals/figures/`; `--docx` also emits both as `.docx` from the same rendered text; `--no-figures`
+`proposals/figures/`; `--docx` and `--pdf` also emit both as `.docx` and `.pdf` from the same rendered text
+(`--export-only` does that from the files on disk without re-running the instruments); `--no-figures`
 renders the text only; `--selftest` asserts the invariants below. Rendering runs `hourly3.py` and
 `both.py` at both cases and takes about ten minutes; the selftest re-gathers and takes as long again.
 The figures need matplotlib; the text needs the stdlib only.
@@ -63,5 +64,6 @@ categorical slots: mid blue, critical orange, ink for today.
 
 It computes nothing of its own beyond sums, ratios and the post-bond price. `firmpower.py`'s bands
 are low / mid / high rather than mid / critical, so its high column stands where critical stands
-elsewhere and the table says so. The `.docx` is a plain rendering of the markdown (headings, tables,
-bullets, pictures, bold and italic) and carries no layout beyond that.
+elsewhere and the table says so. The `.docx` and the `.pdf` are plain renderings of the markdown (headings,
+tables, bullets, pictures, bold and italic); the PDF is set by reportlab in FreeSans because LibreOffice
+cannot load a document in this environment, and carries no layout beyond that.
