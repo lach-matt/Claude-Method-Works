@@ -6584,6 +6584,84 @@ so the ratio is 10⁻⁴, not 10⁴.
 
 ---
 
+## ★★★ H85 — the mouth. **Ten feet buys seven metres. A buildable mouth buys a useless corridor.**
+
+> M: *"let's assume the size of the mouth only needs to be 10 feet in diameter."*
+
+**Now decidable, because H84c fixed the aspect ratio exactly** — and it decides against, but the *way* it
+fails is the finding.
+
+### H85a — fixing the mouth fixes the reach
+
+`r = 2Δd/Λ` inverts to `Δd = Λr/2`:
+
+> mouth radius 1.524 m → **Δd = 7.606687 m.** Not four light years. **Seven and a half metres.**
+
+**You cannot choose the mouth and the reach independently.** Λ ties them at 4.991265, scale-invariant to
+10⁻¹⁵ over sixteen orders.
+
+### H85b — and it still costs 172 Earth masses
+
+| | |
+|---|---|
+| `M = rc²/2G` | **1.026102×10²⁷ kg** |
+| | **171.81 Earth masses** |
+| | **0.5406 Jupiter masses** |
+| `E = Mc²` | 9.222147×10⁴³ J |
+
+Cross-checked against the 22.59 Earth-masses-per-metre rate by an independent route, **agreeing to
+0.0×10⁰**.
+
+> **Half a Jupiter to move something seven metres.** The price did not come down when the mouth did —
+> **only the product came down.** Verified directly: halving the mouth halves *both* the reach and the
+> mass, to 10⁻¹⁵, leaving the rate per metre unchanged.
+
+### H85c — the density says what the object is
+
+**6.920654×10²⁵ kg/m³ — 3.0090×10⁸ times nuclear.** Not a separate objection: it *is* what
+`2GM/c² = 1.524 m` describes. **A half-Jupiter mass with a metre-and-a-half gravitational radius is a small
+black hole, and the ten-foot mouth is its horizon.**
+
+### H85d — so the question inverts
+
+| reach | mouth diameter | Earth masses |
+|---|---|---|
+| **7.6 m (ten-foot mouth)** | **3.048 m** | 1.7181×10² |
+| one kilometre | 400.7 m | 2.2587×10⁴ |
+| Earth to Moon | 1.540291×10⁸ m | 8.6825×10⁹ |
+| Proxima, 4.2 ly | **1.702 light years** | 9.0744×10¹⁷ |
+
+Keeping the ten-foot mouth while reaching Proxima needs that mass packed **5.2815×10¹⁵ times inside its own
+gravitational radius** — not compressed, **inside its horizon**, which is where a throat stops being
+reachable from outside.
+
+> **Ten feet is not viable, and it fails for a reason not available before H84c: not cost, which scales
+> down honestly with the mouth, but *reach*, which scales down with it too. A buildable mouth buys a
+> useless corridor.**
+
+**Every earlier wall in this thread was a magnitude. This one is a proportion** — so it does not yield to
+any amount of engineering.
+
+### H85e — the one escape, and it is the same wall
+
+**The bound `r ≥ 2G|M|/c²` is a theorem only for positive mass**, where that radius is a horizon. **For
+negative mass there is no horizon and the bound is not a theorem** — and `certify.py`'s contraction
+condition is exactly `m < 0`.
+
+> **So the escape from the aspect ratio is the negative mass this project has never been able to source.**
+> Which says the aspect ratio and the exotic-matter requirement **are the same constraint, not two.**
+
+### H85f — and one thing is recorded open rather than papered over
+
+This tree prices the transition with a **positive M** (22.59 Earth masses per metre, a cost) while
+`certify.py` requires a **negative m**. Whether those are the same M with a sign convention between them,
+or two different masses, **is not resolved here and is not assumed either way.**
+
+The magnitudes above survive the question. **H85e's escape depends entirely on its answer** — which makes
+the sign bookkeeping **the single most load-bearing open item this thread now holds.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

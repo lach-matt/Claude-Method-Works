@@ -7971,6 +7971,65 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `mouth.py` — ten feet buys seven metres. A buildable mouth buys a useless corridor.
+
+> M: *"let's assume the size of the mouth only needs to be 10 feet in diameter."*
+
+**Now decidable, because `closeout.py` fixed the aspect ratio exactly** — and it decides against, but the
+*way* it fails is the finding.
+
+**FIXING THE MOUTH FIXES THE REACH.** `r = 2Δd/Λ` inverts to `Δd = Λr/2`, so a 1.524 m radius gives
+
+> **Δd = 7.606687 m.** Not four light years. **Seven and a half metres.**
+
+**AND IT STILL COSTS 171.81 EARTH MASSES** — `M = rc²/2G = 1.026102×10²⁷ kg`, **0.5406 Jupiter masses**,
+9.222147×10⁴³ J — cross-checked against the 22.59 Earth-masses-per-metre rate by an independent route,
+**agreeing to 0.0×10⁰**.
+
+> **Half a Jupiter to move something seven metres.** The price did not come down when the mouth did —
+> **only the product came down.** Halving the mouth halves *both* the reach and the mass, to 10⁻¹⁵.
+
+**THE DENSITY SAYS WHAT THE OBJECT IS**: 6.920654×10²⁵ kg/m³, **3.0090×10⁸ times nuclear** — which is what
+`2GM/c² = 1.524 m` describes. **A half-Jupiter mass with a metre-and-a-half gravitational radius is a small
+black hole, and the ten-foot mouth is its horizon.**
+
+**SO THE QUESTION INVERTS.**
+
+| reach | mouth diameter | Earth masses |
+|---|---|---|
+| **7.6 m (ten-foot mouth)** | **3.048 m** | 1.7181×10² |
+| one kilometre | **400.7 m** | 2.2587×10⁴ |
+| Earth to Moon | 1.540291×10⁸ m | 8.6825×10⁹ |
+| Proxima, 4.2 ly | **1.702 light years** | 9.0744×10¹⁷ |
+
+Keeping ten feet while reaching Proxima needs the mass packed **5.2815×10¹⁵ times inside its own
+gravitational radius** — not compressed, **inside its horizon.**
+
+> **Ten feet is not viable, and it fails for a reason not available before: not cost, which scales down
+> honestly with the mouth, but *reach*, which scales down with it too.** Every earlier wall here was a
+> **magnitude**; this one is a **proportion**, so it does not yield to engineering.
+
+**THE ONE ESCAPE, AND IT IS THE SAME WALL.** The bound `r ≥ 2G|M|/c²` is a theorem **only for positive
+mass**, where that radius is a horizon. For **negative** mass there is none — and `certify.py`'s contraction
+condition is exactly `m < 0`.
+
+> **The escape from the aspect ratio is the negative mass this project has never been able to source** —
+> which says the aspect ratio and the exotic-matter requirement **are the same constraint, not two.**
+
+**AND ONE THING IS RECORDED OPEN.** This tree prices the transition with a **positive M** while
+`certify.py` requires a **negative m**. Whether those are one M with a sign convention between them or two
+different masses **is not resolved here and not assumed.** The magnitudes survive the question; **the
+escape depends entirely on its answer** — making the sign bookkeeping **the most load-bearing open item
+this thread holds.**
+
+### Seated
+- `mouth.py` — new. `index3.py` — **665 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H85**. `closeout.py`, `ladder.py`, `certify.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `closeout.py` — the two open rows. Hawking is moot here by 103 orders; N was never load-bearing.
 
 > M: *"let's handle these and then we can look at the viability of a build."*
