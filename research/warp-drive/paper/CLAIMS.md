@@ -6510,6 +6510,80 @@ cases pass.
 
 ---
 
+## ★★★ H84 — the two open rows. **Hawking is moot here by 103 orders; N was never load-bearing.**
+
+> M: *"let's handle these and then we can look at the viability of a build."*
+
+### H84a — Hawking: not resolved, but shown not to matter
+
+`chronology.py` records the Cauchy-horizon divergence as NOT-RUN because **the literature dispute is
+unresolved** — Kim–Thorne say quantum gravity cuts it off at the Planck scale, Hawking says it does not.
+**That dispute is not resolved here and cannot be.** What was never asked is whether it is *load-bearing*.
+
+A field on a CTC spacetime sees infinitely many images of itself, each contributing to `⟨T⟩` as `1/ℓ⁴` —
+**forced by dimensions, not recalled**: `⟨T⟩` is an energy density and the geodesic length is the only
+scale, so `ħc/ℓ⁴` is the unique combination. The image sum is `2ζ(4) = π⁴/45 = 2.164646467422`, converging
+to twelve places by 2×10⁶ terms for a fixed loop and **diverging as the loop closes**: 6.84×10⁻², 6.84×10³⁴,
+6.84×10⁷⁴ at ℓ = 10⁻⁶, 10⁻¹⁵, 10⁻²⁵ m.
+
+**Now grant Kim–Thorne everything** — their cutoff is the most favourable assumption a time machine can be
+given. The pileup stops at **1.002869×10¹¹⁴ J/m³** (`ρ_P = c⁷/ħG² = 4.632947×10¹¹³`, times the image factor).
+
+| shortcut | throat r_s (m) | corridor ρ (J/m³) | pileup / ρ |
+|---|---|---|---|
+| one metre | 2.0035×10⁻¹ | 3.598982×10⁴⁴ | 2.79×10⁶⁹ |
+| one light year | 1.895458×10¹⁵ | 4.020965×10¹² | 2.49×10¹⁰¹ |
+| **Proxima, 4.2 ly** | 8.049061×10¹⁵ | 2.229811×10¹¹ | **4.4976×10¹⁰²** |
+
+> **The pileup exceeds the corridor by 103 orders, on the assumption most favourable to the time machine.**
+> It does not matter whether the divergence is cut off, because **the cut-off value alone is a hundred
+> orders past anything this geometry holds.**
+
+The row moves **NOT-RUN → MOOT-FOR-THIS-OBJECT** — weaker than resolving it, stronger than declining it.
+**`chronology.py` is left unchanged at NOT-RUN**, because the dispute it names really is open.
+
+*Limits:* `1/ℓ⁴` is dimensional analysis, not a computed renormalised stress tensor; both positions are
+**RECALLED and not read**; and **a hundred-order margin is what makes a dimensional argument sufficient**
+where a factor-of-ten question would not be.
+
+### H84b — N: a fault of mine, not a finding
+
+**H83f** said `OBJECTS_PER_EVENT` "is the one number that could still move the crossover verdict." **It
+cannot.** The crossover compares **total** mass transported against **total** mass spent, and slicing the
+payload changes neither side — verified, not asserted: k pieces of m/k cost exactly what one piece of m
+costs, to 10⁻¹², at k = 1, 2, 7, 1000, 10⁹.
+
+N sets cost **per traveller** — an economic question. **The physics crossover is invariant under it.**
+
+### H84c — but the question produced an exact result the tree did not have
+
+`r_s = 2GM/c²` with `M = Δd c²/(GΛ)` gives
+
+> **`r_s = 2Δd/Λ`** — **G and c cancel completely.** So `Δd/r_s = Λ/2 = 4.991265`.
+
+Identical to 10⁻¹⁵ at one metre, one kilometre, Earth–Moon, one light year and Proxima. **Scale-invariant.**
+
+> **A corridor is never much longer than it is wide.** A shortcut to Proxima has a throat **0.8508 light
+> years in radius** — an object **1.702 ly across** lying between here and there, against a 4.2465 ly
+> journey. **It is not a tunnel. It is very nearly a bridge as wide as it is long, and Λ forces it.**
+
+That also supplied H84a's density: the corridor now has its **own** natural volume rather than an assumed
+one, with `ρ = 3Λ²c⁴/(32πGΔd²)` agreeing with the direct quotient to 10⁻¹² and falling as `Δd⁻²`. And N
+finally has a geometric bound — **8.1414×10³² objects of one square metre** for Proxima. **A bound,
+recorded, and it moves nothing.**
+
+### H84d — four test-construction faults, in one file
+
+A hollow check comparing one call to itself (**third** instance, after **H79g** and **H83g**); an
+**absolute** tolerance of 10⁻⁶ against a ratio of order 10⁴, which no float can satisfy; **one that passed
+by luck** with the same flaw; and an **inverted expected value** — the pileup *grows* as the loop shrinks,
+so the ratio is 10⁻⁴, not 10⁴.
+
+> **The test was right and my assertion was wrong** — the opposite of **H61**, and the reason both have to
+> be diagnosed rather than trusted or distrusted by reflex.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

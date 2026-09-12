@@ -7971,6 +7971,66 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `closeout.py` — the two open rows. Hawking is moot here by 103 orders; N was never load-bearing.
+
+> M: *"let's handle these and then we can look at the viability of a build."*
+
+**HAWKING: NOT RESOLVED, BUT SHOWN NOT TO MATTER.** `chronology.py` marks the Cauchy-horizon divergence
+NOT-RUN because **the literature dispute is unresolved** — Kim–Thorne say quantum gravity cuts it off at
+the Planck scale, Hawking says it does not. **That is not resolved here and cannot be.** What was never
+asked is whether it is *load-bearing*.
+
+A field on a CTC spacetime sees infinitely many images of itself, each contributing to `⟨T⟩` as `1/ℓ⁴` —
+**forced by dimensions, not recalled.** The image sum is `2ζ(4) = π⁴/45 = 2.164646467422`, converging to
+twelve places by 2×10⁶ terms and **diverging as the loop closes**.
+
+**Now grant Kim–Thorne everything.** The pileup stops at **1.002869×10¹¹⁴ J/m³**, against the corridor's
+own operating density at its own throat scale:
+
+| shortcut | corridor ρ (J/m³) | pileup / ρ |
+|---|---|---|
+| one metre | 3.598982×10⁴⁴ | 2.79×10⁶⁹ |
+| **Proxima, 4.2 ly** | 2.229811×10¹¹ | **4.4976×10¹⁰²** |
+
+> **103 orders, on the assumption most favourable to the time machine.** It does not matter whether the
+> divergence is cut off, because **the cut-off value alone is a hundred orders past anything this geometry
+> holds.**
+
+Row moves **NOT-RUN → MOOT-FOR-THIS-OBJECT**. `chronology.py` is left **unchanged**, because the dispute it
+names really is open. *Limits:* dimensional analysis, not a computed stress tensor; both positions
+**RECALLED and not read**; and a hundred-order margin is what makes a dimensional argument sufficient.
+
+**N: A FAULT OF MINE, NOT A FINDING.** I said `OBJECTS_PER_EVENT` "could still move the crossover verdict."
+**It cannot** — the crossover compares **total** against **total**, and slicing the payload changes neither
+side (verified: k pieces of m/k cost what one piece of m costs, to 10⁻¹², at k up to 10⁹). N sets cost *per
+traveller*, an economic question.
+
+**BUT THE QUESTION PRODUCED AN EXACT RESULT THE TREE DID NOT HAVE.**
+
+> `r_s = 2GM/c²` with `M = Δd c²/(GΛ)` gives **`r_s = 2Δd/Λ`** — **G and c cancel completely** — so
+> **`Δd/r_s = Λ/2 = 4.991265`**, identical to 10⁻¹⁵ at every scale from one metre to Proxima.
+
+**A corridor is never much longer than it is wide.** A shortcut to Proxima has a throat **0.8508 ly in
+radius** — an object **1.702 ly across** lying between here and there, against a 4.2465 ly journey. **It is
+not a tunnel. It is very nearly a bridge as wide as it is long, and Λ forces it.**
+
+That also supplied the density above — the corridor now has its **own** natural volume rather than an
+assumed one (`ρ = 3Λ²c⁴/32πGΔd²`, agreeing to 10⁻¹²). And N finally has a geometric bound: **8.1414×10³²**
+objects of one square metre. **A bound, recorded, and it moves nothing.**
+
+**FOUR TEST-CONSTRUCTION FAULTS IN ONE FILE** — a hollow check comparing one call to itself (**third**
+instance); an **absolute** tolerance against a ratio of order 10⁴; one that **passed by luck** with the same
+flaw; and an **inverted expected value**. **The test was right and my assertion was wrong** — the opposite
+of the Morris–Thorne case, and the reason both must be diagnosed rather than trusted by reflex.
+
+### Seated
+- `closeout.py` — new. `index3.py` — **662 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H84**. `oneway.py` — **corrected here, file unchanged**.
+  `chronology.py` — **read here, deliberately unchanged at NOT-RUN**. `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `oneway.py` — the transition is one-way, and that is where the paradox lives.
 
 > M: *"We don't need a price both ways. The transition is only 1 way. The return is a separate trip
