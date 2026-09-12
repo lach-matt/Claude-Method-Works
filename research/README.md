@@ -7971,6 +7971,76 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `iff.py` — the inversion theorem holds, and EM is what makes it hold.
+
+> M: *"It is an iff inversion theorem … possible because EM carries both +/− and the shape of its current
+> determines the sign."*
+
+**IT IS — AND STATING IT PROPERLY FINDS THAT `modulus.py` RAN TWO IFFs TOGETHER.** (A) recovering `z` from
+`|z|` and `Re z` inverts **iff `a cos θ = 0`**; (B) recovering `(M, a)` from the even metric sector inverts
+**iff `a = 0`**. They disagree in **2 of 6 tested rows**, and the disagreement is the equator with spin:
+there (A) holds and (B) fails, because **`a²` survives in `g_rr` through `Δ` even where it has left `Σ`**.
+`modulus.py`'s `fibre()` divided by `cos²θ` and cannot be asked this at `θ = π/2` — nothing it printed was
+wrong, nothing it printed was equatorial, and it is **corrected here rather than edited**, as `threads.py`
+was. The general inversion is
+
+> **`a² = Σ/g_rr − r² + Σ(1 + g_tt)`** — exact to **2.1×10⁻¹⁵** at every θ, equator included.
+
+**SO THE GRAVITATIONAL IFF IS: THE EVEN SECTOR INVERTS IFF `a = 0`** — fibre size 1 at `a` = 0 and 10⁻⁹,
+size 2 at 0.3, 0.7, 2.5, −0.99. **The map is invertible exactly where there is no chirality to lose**, which
+makes the iff empty on its own. **The content is entirely in what breaks it.**
+
+**AND EM CARRIES BOTH SIGNS, TWICE OVER.**
+
+| | under `a → −a` | under `Q → −Q` |
+|---|---|---|
+| `g_tt`, `g_rr`, `g_θθ`, `g_φφ` | EVEN | **EVEN** — the metric sees only `Q²` |
+| `g_tφ` | **ODD** | EVEN |
+| `A_t` | EVEN | **ODD** |
+| `A_φ` | **ODD** | **ODD** |
+
+> **EM carries a sign the metric cannot see, for both signs the metric hides.** A census, not an
+> interpretation.
+
+**AND THE SHAPE OF THE CURRENT DETERMINES THE SIGN, EXACTLY AND LINEARLY: `μ = Q a`** — to **5.4×10⁻¹⁵**
+across both signs of `a` and both of `Q`, a **gyromagnetic ratio of exactly 2**, the Dirac value, to
+2.2×10⁻¹⁴. Carter 1968, **measured here from the potential's asymptotics rather than recalled** — *verified,
+not derived.* So **`a = μ/Q`, with its sign.** The constructive half is flat and elementary: `μ = IA` by the
+right-hand rule, so reversing the current reverses `μ`.
+
+**THE FULL LOCAL INVERSION, FROM FIVE READINGS AT ONE POINT** — `Σ = g_θθ`, `Q = −A_t Σ/r`,
+`M = (Σ(1+g_tt) + Q²)/2r`, **`a = A_φ Σ/(Q r sin²θ)`** — returns **every signed parameter to 1.1×10⁻¹⁶** at
+`(M,a,Q)` = (1, ±0.7, ±0.4) and (2, 1.5, 0.9), and **refuses rather than guesses** when uncharged or on axis.
+
+> **`Φ: (M, a, Q) → (even sector, A_t, A_φ)` is injective iff `Q ≠ 0` or `a = 0`** — prediction matching
+> measurement on **7 of 7 rows**. **It fails exactly on the uncharged spinning case, and on nothing else.**
+
+**AND THE TWO ODD CHANNELS COVER THE SPHERE WITH NO GAP.** `cube.py`'s `*RR ∝ a cos θ` dies on the
+**equator**; this pass's `A_φ ∝ sin²θ` dies on the **axis**. Live at all 65 angles of a π/64 sweep, because
+cos and sin never vanish together. **Two odd channels, blind loci disjoint — the bit is readable everywhere.**
+
+**REPORT AGAINST SUPPLY, WHICH IS THE WHOLE VALUE OF THE SECOND CLAUSE.** In an existing Kerr–Newman object
+`μ = Qa` is a **lock**, not an independent input — the same rotation makes both, so EM **reports** the bit.
+In a corridor **driven** by EM (`voltage.py`'s route), **the current's handedness is a design input and EM
+supplies it.**
+
+> `weave.py` said a construction must **supply** the orientation and named nothing that could. **This names
+> it — the first time in this project that the missing datum is something a builder *sets* rather than
+> something a measurement *returns*.**
+
+**AND THE LIMITS ARE NOT SMALL.** The **parity theorem is untouched** — `cube.py` is about the
+*gravitational* even sector, and adding a sector with its own odd member asks a different map rather than
+inverting that one. **The energy bill does not move at all**: `μ = Qa` says which way the frame drags and
+nothing about whether a throat opens. `voltage.py`'s `M < U/c²` and the three currencies stand.
+
+### Seated
+- `iff.py` — new. `index3.py` — **644 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H78**. `modulus.py` — **corrected here, not edited**. `cube.py`, `weave.py`,
+  `voltage.py` — **read here, files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `modulus.py` — it is `g_θθ`, it works by pairing the two chiralities, and it is being asked to undo its own act.
 
 > M: *"What does a modulus actually do? How does it perform its functions? What inputs does it require, and

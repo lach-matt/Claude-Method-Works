@@ -5942,6 +5942,108 @@ twenty-first faults, the same channel as **H73e**.
 
 ---
 
+## ★★★ H78 — iff. **The inversion theorem holds, and EM is what makes it hold.**
+
+> M: *"It is an iff inversion theorem … possible because EM carries both +/− and the shape of its current
+> determines the sign."*
+
+### H78a — it is, and stating it properly finds that H77 ran two iffs together
+
+| | condition | on the equator with spin |
+|---|---|---|
+| **(A)** recover `z` from `\|z\|` and `Re z` | inverts **iff `a cos θ = 0`** | **holds** |
+| **(B)** recover `(M, a)` from the even metric sector | inverts **iff `a = 0`** | **fails** |
+
+**They disagree in 2 of 6 tested rows**, and the disagreement is exactly the equator: `a²` **survives in
+`g_rr` through `Δ` even where it has left `Σ`.** `H77`'s `fibre()` read `a²` out of `g_θθ` and divided by
+`cos²θ`, so it cannot be asked this at `θ = π/2`. **Nothing it printed was wrong — nothing it printed was
+equatorial** — and it is **corrected here rather than edited**, as `threads.py` was.
+
+> **`a² = Σ/g_rr − r² + Σ(1 + g_tt)`** — exact to **2.1×10⁻¹⁵** at every θ *including* the equator, with
+> `M = (Σ(1+g_tt) + Q²)/2r` recovered to 10⁻¹¹ beside it.
+
+### H78b — so the gravitational iff is empty on its own
+
+| a | 0.00 | 1×10⁻⁹ | 0.30 | 0.70 | 2.50 | −0.99 |
+|---|---|---|---|---|---|---|
+| fibre | **1** | **1** | 2 | 2 | 2 | 2 |
+
+> **The even sector inverts iff `a = 0`. The map is invertible exactly where there is no chirality to lose.**
+
+Which makes the iff empty by itself — the gravitational sector solves only the case nobody needed solved.
+**The content is entirely in what breaks it, and M named that in the same breath.**
+
+### H78c — EM carries both signs, twice over
+
+| | under `a → −a` | under `Q → −Q` |
+|---|---|---|
+| `g_tt`, `g_rr`, `g_θθ`, `g_φφ` | EVEN | **EVEN** |
+| `g_tφ` | **ODD** | EVEN |
+| `A_t` | EVEN | **ODD** |
+| `A_φ` | **ODD** | **ODD** |
+
+**The metric sees only `Q²`.** Two quantities are odd in `a` and two in `Q`, and **the electromagnetic
+sector supplies one of each.**
+
+> **EM carries a sign the metric cannot see, for both signs the metric hides.** M's first clause, as a
+> census rather than an interpretation.
+
+### H78d — and the shape of the current determines the sign, exactly and linearly
+
+> **`μ = Q a`** — to **5.4×10⁻¹⁵** at five configurations spanning both signs of `a` and both of `Q` — a
+> **gyromagnetic ratio of exactly 2**, the Dirac value, to 2.2×10⁻¹⁴.
+
+That is Carter's 1968 result, **measured here from the potential's asymptotics rather than recalled.**
+*Verified, not derived*: the theorem is Carter's, only the verification is this pass's. So **`a = μ/Q`, with
+its sign.** And the constructive half is elementary and flat: a loop of current `I` over area `A` has
+`μ = IA` by the right-hand rule — reverse the current, reverse `μ` (+6.000 against −6.000).
+
+### H78e — the full local inversion, from five readings at one point
+
+`Σ = g_θθ` · `Q = −A_t Σ/r` · `M = (Σ(1+g_tt) + Q²)/2r` · **`a = A_φ Σ/(Q r sin²θ)`**
+
+| M | a | Q | M rec | a rec | Q rec | status |
+|---|---|---|---|---|---|---|
+| 1.00 | 0.70 | 0.40 | 1.000000 | **0.700000** | 0.400000 | INVERTED |
+| 1.00 | −0.70 | 0.40 | 1.000000 | **−0.700000** | 0.400000 | INVERTED |
+| 1.00 | 0.70 | −0.40 | 1.000000 | **0.700000** | −0.400000 | INVERTED |
+| 2.00 | 1.50 | 0.90 | 2.000000 | **1.500000** | 0.900000 | INVERTED |
+| 1.00 | 0.70 | 0.00 | 1.000000 | — | 0.000000 | UNCHARGED — refuses |
+| 1.00 | 0.70 | 0.40 | 1.000000 | — | 0.400000 | ON AXIS — refuses |
+
+**Every signed parameter recovered to 1.1×10⁻¹⁶**, and the two failure modes **refuse rather than guess.**
+
+### H78f — the theorem
+
+> **`Φ: (M, a, Q) → (g_tt, g_rr, g_θθ, g_φφ, A_t, A_φ)` is injective iff `Q ≠ 0` or `a = 0`.**
+
+Prediction matched measurement on **7 of 7 rows**. **It fails exactly on the uncharged spinning case, and on
+nothing else.** M's assertion *is* the content of that iff.
+
+### H78g — and the two odd channels cover the sphere with no gap
+
+`*RR ∝ a cos θ` **dies on the equator**; `A_φ ∝ sin²θ` **dies on the axis**. Live at every one of θ = 0, 0.3,
+1.0, π/2, 2.4, π — and at all 65 angles of a π/64 sweep, because **cos and sin never vanish together.**
+
+> **Two odd channels, each blind on one locus, their blind loci disjoint. The bit is readable everywhere.**
+
+### H78h — report against supply, and what it still does not do
+
+**In an existing Kerr–Newman object `μ = Qa` is a lock, not an independent input** — the same rotation makes
+both, so EM **reports** the bit, and reading is not choosing. **In a corridor driven by EM** — `H72`'s route,
+a geometry made entirely by field — **the current's handedness is a design input and EM supplies the bit.**
+
+> `H74e` said a construction must **supply** the orientation and named nothing that could. **This names it,
+> and it is the first time in this project that the missing datum is something a builder *sets* rather than
+> something a measurement *returns*.**
+
+**And the limits are not small.** The **parity theorem is untouched** — `H75b` is about the *gravitational*
+even sector, and adding a sector with its own odd member is asking a different map, not inverting that one.
+**The energy bill does not move at all**: `μ = Qa` says which way the frame drags and nothing whatever about
+whether a throat opens. `H72c`'s `M < U/c²` and the three currencies stand exactly as they stood.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
