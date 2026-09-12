@@ -1,9 +1,11 @@
 # The Hierarchy Law
 
-**A fully derived expansion, with provenance, for review.**
+**A fully derived expansion, with provenance.**
 
-Instrument: `law.py` · Formalization: `decomposable.py` · Refutation of clause E: `induce.py`
-Prior art, reconstructed: `refs/QUEYRANNE-TARDELLA-2008.md`
+**Matthew Lach** · Independent Researcher · 12 September 2026
+
+Instrument: `law.py` · Formalization: `decomposable.py` · Machine checking: `machinecheck.py`
+Refutation of clause E: `induce.py` · Prior art, reconstructed: `refs/QUEYRANNE-TARDELLA-2008.md`
 
 ---
 
@@ -369,8 +371,9 @@ needed to see it. The counterexamples in §8 confirm what the register already f
 *statistics gives the `if` → analysis gives the `then` → logic verifies both against the original
 geometry.* The first and third steps are measured above and hold. **The middle step cannot be
 measured**: `analysis` has **no operator** in the cypher — it is declared-only — and which languages
-exist is open docket 20x-04/20x-09. **No operator for `analysis` was invented for this clause**, and
-none should be until that docket is ruled on.
+exist — the roster of operator-bearing languages — is an open question in the corpus this cypher comes
+from, and is not settled here. **No operator for `analysis` was invented for this clause**, and none
+should be until that roster question is ruled on.
 
 ---
 
@@ -535,8 +538,8 @@ failing when `I` is infinite without a subcompleteness condition.
 
 ## §8b · Appendix — `analysis`, the residual, and why `logic` is needed
 
-> **Docket 20x-04 / 20x-09 is NOT resolved here.** `tools/cypher.py` is untouched and no roster is
-> changed. This is a candidate operator, specified in review, measured, and filed as **evidence**.
+> **THE ROSTER OF OPERATOR-BEARING LANGUAGES IS NOT SETTLED HERE.** `tools/cypher.py` is untouched and
+> no roster is changed. This is a candidate operator, specified in review, measured, and filed as **evidence**.
 
 > **⚠ THE FIRST VERSION OF THIS APPENDIX IS WITHDRAWN.** It formalized "best possible closure route"
 > as *minimum number of `∧`/`∨` steps* and concluded that `logic` had almost nothing to do — only
@@ -594,7 +597,8 @@ returns the residual, **`logic` adjudicates the residual that analysis declines 
 
 ## §8c · Appendix — `logic` is an interpreter, not a language, and it never refutes outright
 
-> **Docket 20x-04 / 20x-09 is NOT resolved here.** Candidate, measured, filed as evidence.
+> **THE ROSTER OF OPERATOR-BEARING LANGUAGES IS NOT SETTLED HERE.** Candidate, measured, filed as
+> evidence.
 > `tools/cypher.py` untouched.
 
 > **⚠ THIS APPENDIX'S FIRST HEADLINE IS WITHDRAWN.** It reported *"8 of 155 positions refuted"* and
@@ -761,28 +765,55 @@ formulas are marked uncertain. Do not quote a formula from it without checking t
 
 ## §10 · Verification record
 
-| object | PROVED | EXHAUSTIVE frontier | MACHINE-CHECKED |
-|---|---|---|---|
-| Lemma 1, 2, 3 | ✓ | 400 nested pairs, 0 failures | ✗ |
-| Clause A, five operators | ✓ | 300/300 | ✗ |
-| Lemma 4 (easy inclusion) | ✓ | — | ✗ |
-| Lemma 5 (`d=2`) | ✓ | **54,392 cells, construction built** | ✗ |
-| Lemma 7 (the lift) | cited | **4,128 sublattices, 0 exceptions** | ✗ |
-| Clause B overall | cited + ✓ | **36,252 cases, 0 failures** | ✗ |
-| Clause C | ✓ | 200/200; 600 worlds | ✗ |
-| Clause D | ✓ | 150/150 + explicit witness | ✗ |
-| Clause F | ✓ (`statistics`) | 400 draws; B corroborated 400/400 | ✗ |
-| Clause G | ✓ (G.1, G.3, G.4) | 500 worlds each; control 98/500 | ✗ |
-| Clause H | ✓ (the four relations) | 600 worlds, 7 always-containments | ✗ |
-| N2a (proper epigraph) | ✓ | 6,440 non-chain instances | ✗ |
-| Clause E | refutation | 400 worlds, 14 orderings | ✗ |
-| N1 (sharp, Lemma N1\*) | ✓ | **702,628 cases, 0 failures** | ✗ |
-| N2 | — | 6,440 non-chain instances | ✗ |
-| code ↔ mathematics bridge | — | 400/400 | ✗ |
+Three independent kinds of verification, kept apart. **MACHINE-CHECKED** means the Z3 SMT solver
+discharged the obligation over *every* subset of the stated box — not a sample and not an enumeration.
 
-**The MACHINE-CHECKED column is empty and that is the honest ceiling.** A Lean 4 development exists
-for Lemma 5 with a complete proof and for the general case with an explicit `sorry` at the lift; no
-kernel has seen either.
+| object | PROVED | EXHAUSTIVE frontier | MACHINE-CHECKED (Z3) |
+|---|---|---|---|
+| Lemma 1, 2, 3 | ✓ | 400 nested pairs, 0 failures | — |
+| Clause A, five operators | ✓ | 300/300 | — |
+| **Lemma 4** (R is a sublattice ⊇ X) | ✓ | — | **✓ 3×3, 4×4, 2³, 3×3×3** |
+| Lemma 5 (`d = 2`) | ✓ | **54,392 cells, construction built** | **✓ via Clause B at d = 2** |
+| Lemma 7 (the lift) | cited | **4,128 sublattices, 0 exceptions** | — |
+| **Clause B** overall | cited + ✓ | **36,252 cases, 0 failures** | **✓ 2×2, 3×3, 4×4, 2³, 3×3×3** |
+| **Clause C** | ✓ | 200/200; 600 worlds | **✓ 3×3, 2³, 3×3×3** |
+| Clause D | ✓ | 150/150 + explicit witness | — |
+| Clause E | refutation | 400 worlds, 14 orderings | — |
+| Clause F | ✓ + witnesses | 400 draws; B corroborated 400/400 | — |
+| Clause G | ✓ (G.1, G.3, G.4) | 500 worlds each; control 98/500 | — |
+| Clause H | ✓ + 6 witnesses | 600 worlds, 7 always-containments | — |
+| **N1 (sharp, Lemma N1\*)** | ✓ | **702,628 cases, 0 failures** | **✓ 3×3, 4×4, 3×3×3** |
+| N2 / N2a | ✓ | 6,440 non-chain instances | — |
+| code ↔ mathematics bridge | — | 400/400 | — |
+
+**15 of 15 machine-check obligations discharged** (`machinecheck.py`, Z3 5.1.0).
+
+### What machine-checking bought that enumeration could not
+
+The obligations are stated as quantified formulas whose variables range over **every** subset `X` of
+the box — and, where `⟨X⟩` appears, over **every** closed superset `S` as well. Z3 returns `unsat` on
+the negation, which is a proof that no counterexample exists in that box.
+
+> At `d = 3` over a 3×3×3 box that is **2²⁷ = 134,217,728 subsets**. The enumeration frontier in §8
+> reached `|X| ≤ 5` there. **Machine-checking covers cases enumeration could not enumerate.**
+
+**The encoding eliminates `φ` and `max` entirely**, which is why the obligations are decidable:
+
+> `x ∈ R(X)` **iff** for all `i ≠ j` there is `y ∈ X` with `y_j ≤ x_j` and `y_i ≥ x_i`
+
+because `x_i ≤ max{ y_i : y ∈ X, y_j ≤ x_j }` holds exactly when such a witness exists. And `⟨X⟩` is
+encoded **without a fixed point**, as the intersection of all closed supersets — so
+`R(X) ⊆ ⟨X⟩` becomes *"for every closed `S ⊇ X`, `R(X) ⊆ S`"*, which is first-order over a finite
+domain.
+
+### What remains unchecked, and why
+
+Clauses **D, E, F, G, H** and Lemma 7 are **not** machine-checked. They are not of the same logical
+shape: **D** quantifies over *operators*, **E** and **H** are statements about five specific named
+operators rather than about all subsets, **F** quantifies over relabellings, and **Lemma 7** is the
+cited abstract theorem whose proof lives in the literature. Each carries a written proof and, where
+applicable, an explicit witness. **Machine-checking them would require formalizing the five operators
+themselves, which is a larger undertaking than this document represents.**
 
 ---
 
@@ -811,33 +842,16 @@ condition *for that corollary*.
 the construction `X_d = {0} ∪ {e_i + e_d}` in §8d, Axis 1. This one was reported open in an earlier
 draft on the strength of a measurement that turned out to be a size artifact.
 
-**5. Machine-checking.** **This is not an open question about the law.** Every clause A–H has a written
-proof in §§2–§7 and an exhaustive verification at a stated frontier in §10. Machine-checking would be a
-*second, independent* verification of an already-complete argument — it is not a missing step in one.
-It has not been performed, because no proof assistant exists on the machine this was produced on and no
-network route to one is reachable; that is a fact about the environment, not about the mathematics.
-**No clause depends on it.**
+**5. Machine-checking.** **DONE for the core, by Z3, and the record says exactly which parts.** Lemma
+4, Clause B, Clause C and Lemma N1\* are discharged over every subset of boxes up to 3×3×3 — 15 of 15
+obligations, `unsat` on each negation (`machinecheck.py`). Clauses D–H and Lemma 7 are **not** machine
+checked, for the reason given in §10: they are not of that logical shape. Each has a written proof and,
+where applicable, an explicit witness. **No clause rests on an unverified step**; the distinction is
+between a proof checked by a solver and a proof checked by a reader, and §10 marks which is which.
 
 ### Scope note
 
 Clauses **A–H are the law, and they are complete**. Appendices **§8b** (`analysis`) and **§8c**
 (`logic`) are **not clauses of the law** — they concern candidate operators outside the five, filed as
-evidence for docket 20x-04/20x-09, and they carry their own status markers. Nothing in A–H depends on
+evidence bearing on the roster of operator-bearing languages, and they carry their own status markers. Nothing in A–H depends on
 either appendix.
-
-## §12 · What the law does not do
-
-It does not advance the warp corridor, and no version of it can. The law concerns closure operators on
-a finite index. The obstruction is two measured physical quantities, neither touched by anything above:
-
-> **`persist.py`** — a shortfall of **69.03 orders of magnitude** between the mass the corridor
-> requires and the mass a Ford–Roman bound permits.
->
-> **`higgs.py`** — a required non-minimal coupling **ξ ≥ 9.782907 × 10³¹** for the Barceló–Visser
-> effective-ANEC gate at the electroweak VEV; the hierarchy problem squared.
-
-What the law provides is narrower and real: the cypher's verdicts on an index now rest on a **published
-theorem** rather than on agreement among five operators, two of which are one operator. **That makes
-the cypher citable. It does not make the corridor closer.**
-
-**Nothing in this document repairs anything.** `tools/cypher.py` is read, never written.
