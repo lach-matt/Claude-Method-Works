@@ -7986,6 +7986,11 @@ first `d` coordinates:
 
 ### H101b — the ladder counts coordinates, and algebra comes first
 
+> **⚠ INFERENCE WITHDRAWN BY H102.** The dimension numbers below stand. The conclusion drawn from
+> them — *"algebra is available strictly earlier, not downstream of order"* — does **not** follow: the Index
+> supplies a value order to every coordinate before any language runs, and algebra is measurably
+> order-dependent on 23 of 23 permutations. Availability is not dependency. The section is kept as published.
+
 **Tested directly**, holding `d = 5` and varying the cell count:
 
 | cells | 1 | 2 | 3 | 4 | 6 | 10 | 17 |
@@ -8042,6 +8047,85 @@ intermediate regime: it cannot speak, and then it is exact.**
 
 **Three and three, against nought and three last round. The refinement found something real that the
 previous measurement did not ask for.**
+
+---
+
+### H102a — order is the substrate, and `H101b`'s inference is withdrawn
+
+> M: *"Order is the organization, algebra needs an order to exist."*
+
+**Correct, and it breaks an inference I drew one pass ago.** `H101b` measured that `op_algebra` carries no
+dimension precondition while `op_order` requires two coordinates, and concluded **"algebra is available
+strictly earlier, not downstream of order."** *That does not follow.* A dimension precondition says how many
+coordinates a language needs; it says nothing about what must already exist for the language to mean
+anything.
+
+**`tools/cypher.py`, in `Index.__init__`, verbatim and in a comment:**
+
+> *"R is order-dependent (§20.3: the notation was the coordinate that made the rule expressible), so **every
+> coordinate needs a declared or inferable value order**."*
+
+And with none declared it does not proceed order-free — it falls back and **warns**: *"no declared value
+order, fell back to lexicographic. **R depends on this order** — declare it (§20.3)."* Handed
+`[('p','q'), ('r','s')]`, the index holds `[(0,0), (1,1)]` — **`ix.cells` are ranks in that order, not the
+values passed.**
+
+> **An index cannot exist without a value order.** Algebra never runs order-free, because nothing does. Join
+> and meet are **lattice** operations, and a lattice is a partially ordered set — there is no join without
+> an order, and the cypher enforces it structurally rather than leaving it to the operator.
+
+### H102b — measured, not merely definitional
+
+If algebra depends on the order, **changing the order must change its answer.** Tested: the same eighteen
+cells, only the declared value order permuted within each coordinate, admitted sets decoded back to
+original values so the runs are comparable. Over **23 non-identity permutations**:
+
+| language | differs on | verdict |
+|---|---|---|
+| order | 23 of 23 | ORDER-DEPENDENT |
+| **algebra** | **23 of 23** | **ORDER-DEPENDENT** |
+| geometry | 23 of 23 | ORDER-DEPENDENT |
+| information | 23 of 23 | ORDER-DEPENDENT |
+| **statistics** | **0 of 23** | **ORDER-INVARIANT** |
+
+**M's claim is not a definition restated. It is a measurement, and it comes back total.** *(Negative
+control: the identity permutation changes nothing, so the comparison detects order-dependence and not
+noise.)*
+
+**What is withdrawn:** `H101b`'s inference. **The availability ladder cannot speak to dependency at all**,
+because every language receives the order for free from the Index before it runs. Both algebra and order
+stand on an ordering neither of them built.
+
+> **Third time this session a property of the harness was read as a property of the object.** `H97` was the
+> coordinate re-ranking; `H100`'s budget was the second; this is the third — **the scaffolding is invisible
+> until something fails or someone names it.**
+
+**What stands:** every number `H101` measured. `op_algebra` and `op_information` still carry no dimension
+precondition; `op_order` and `op_geometry` still require two; `op_statistics` still requires three and is
+exact from there up. **Those are facts about dimensions and they are unchanged.** What is withdrawn is
+reading them as a dependency order.
+
+### H102c — and one language does not stand on the substrate
+
+> **Statistics is the only order-invariant language on the roster.**
+
+It reads *which tuples occur*, not how their values rank — so permuting the order leaves its answer
+identical, 23 times out of 23, while the other four change every time.
+
+**And that is the fourth independent measurement to single out the same language:**
+
+| | |
+|---|---|
+| `H93` | statistics is the **one** language that closes the family — `E = 0` against 12 to 175 |
+| `H96` | statistics is admitted for **returning a binary**, while roster 1173 does not even declare it operator-bearing |
+| `H101` | statistics is **last** on the availability ladder — silent below `d = 3`, exact from 3 up |
+| **here** | statistics is the **only** language independent of the order |
+
+> **If order is the substrate, the one language that does not stand on it is the one that closes the
+> index.** Four routes, one language, and none of the four was looking for it.
+
+**Recorded as a convergence, not a mechanism.** No claim is made that the independence *causes* the
+closure; what is measured is that the same language answers to all four descriptions.
 
 ---
 

@@ -7971,6 +7971,48 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `substrate.py` — order is the substrate, and one language does not stand on it.
+
+> M: *"Order is the organization, algebra needs an order to exist."*
+
+**Correct, and it breaks an inference from one pass ago.** `staircase.py` concluded from `op_algebra`
+having no dimension precondition that **algebra is available strictly earlier, not downstream of order.**
+*That does not follow.* `tools/cypher.py`, in a comment in `Index.__init__`: *"R is order-dependent … so
+**every coordinate needs a declared or inferable value order**"* — and with none declared it falls back and
+**warns**. Handed `[('p','q'),('r','s')]`, the index holds `[(0,0),(1,1)]`: **`ix.cells` are ranks.**
+
+> **An index cannot exist without a value order.** Algebra never runs order-free because nothing does — join
+> and meet are lattice operations, and a lattice is a poset.
+
+**Measured, not merely definitional.** Same cells, only the declared order permuted, decoded back for
+comparison, 23 non-identity permutations:
+
+| order | algebra | geometry | information | **statistics** |
+|---|---|---|---|---|
+| 23/23 | **23/23** | 23/23 | 23/23 | **0/23** |
+
+**Withdrawn:** `H101b`'s inference — the availability ladder **cannot speak to dependency**, because every
+language gets the order free from the Index. **Third time this session a property of the harness was read as
+a property of the object** (`H97`'s re-ranking, `H100`'s budget, now this). **Stands:** every dimension
+number `staircase.py` measured, unchanged.
+
+**And statistics is the only order-invariant language** — it reads which tuples occur, not how they rank.
+**The fourth independent measurement to single out the same one:** it alone closes the family at `E = 0`
+(`necindex.py`); it is admitted for returning a binary while undeclared (`alpha.py`); it is last on the
+ladder and exact from `d = 3` up (`staircase.py`); and now, it alone is independent of the order.
+
+> **If order is the substrate, the one language that does not stand on it is the one that closes the
+> index.** Four routes, one language, none of them looking for it. **Recorded as a convergence, not a
+> mechanism.**
+
+### Seated
+- `substrate.py` — new. `index3.py` — **717 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H102**, with H101b's inference marked withdrawn in place. `tools/cypher.py`, `staircase.py`,
+  `licensed.py` — **read here, unchanged**.
+
+---
+
+
 ## `staircase.py` — the ladder is real. It counts coordinates, and algebra comes first.
 
 **A different claim from the last one, and it finds what the last measurement missed.** `selfindex.py`
