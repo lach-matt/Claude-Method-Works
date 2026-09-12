@@ -190,6 +190,28 @@ cypher = _load_cypher()
 
 COORDS = ("T", "V", "M", "Q", "B")
 
+# THE CODING MUST BE PINNED, AND THIS IS NOT HOUSEKEEPING.
+#
+# cypher.Index RE-RANKS each coordinate's observed values to dense ordinals.  On
+# the full family that is the identity, because the eighteen named conditions
+# happen to use every value of every slot.  On ANY SUBSET THAT DOES NOT, it is
+# not: a seed whose V values are {1, 2} gets them re-coded to {0, 1}, and the
+# operator's output is then in a DIFFERENT COORDINATE SYSTEM FROM ITS INPUT.
+#
+# Nothing errors.  The numbers come back plausible and they are measuring
+# something else.  It cost this tree two published results before it was found --
+# see docs/CLAIMS.md H97 and the corrections to H94b and H96b.
+#
+# Declaring value_order pins code[i][v] = v, so every instrument downstream reads
+# and writes the same coordinates.  USE pinned_index(), NEVER cypher.Index DIRECT.
+VALUE_ORDER = {"T": [0, 1, 2, 3], "V": [0, 1, 2], "M": [0, 1, 2, 3],
+               "Q": [0, 1], "B": [0, 1, 2]}
+
+
+def pinned_index(cells, name="the energy-condition family"):
+    """cypher.Index with the coding pinned.  The only constructor to use here."""
+    return cypher.Index(name, COORDS, sorted(set(cells)), value_order=VALUE_ORDER)
+
 # (name, T, V, M, Q, B, where it is named)
 FAMILY = [
     ("NEC",                 0, 0, 0, 0, 0, "classical; BV call it the weakest"),
@@ -234,7 +256,7 @@ def cells():
 
 
 def index():
-    return cypher.Index("the energy-condition family", COORDS, cells())
+    return pinned_index(cells())
 
 
 # ------------------------------------------------- the interchangeability identity

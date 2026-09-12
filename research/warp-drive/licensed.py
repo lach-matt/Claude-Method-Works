@@ -148,7 +148,7 @@ def joint_closure(seed):
     """
     X = set(seed)
     for _ in range(64):
-        ix = cypher.Index("x", COORDS, sorted(X))
+        ix = necindex.pinned_index(X)
         new = set(X)
         for name in necindex.OPERATORS:
             new |= set(cypher.ADMISSION[name][0](ix, OPTS)[0])
@@ -159,7 +159,7 @@ def joint_closure(seed):
 
 
 def per_language(cs):
-    ix = cypher.Index("x", COORDS, sorted(cs))
+    ix = necindex.pinned_index(cs)
     return {n: len(set(cypher.ADMISSION[n][0](ix, OPTS)[0]) - set(cs))
             for n in necindex.OPERATORS}
 
@@ -288,9 +288,14 @@ def selftest():
 
     # ------------------------------------- THE CONTROL: the operators do work
     ones = {r[0]: len(joint_closure([tuple(r[1:6])])) for r in necindex.FAMILY}
-    chk("no single condition closes past 4 cells", max(ones.values()), 4)
-    chk("and the NEC closes to itself alone", ones["NEC"], 1)
-    chk("uniquely", sorted(k for k, v in ones.items() if v == 1), ["NEC"])
+    # CORRECTED at H97.  Measured on a re-coordinated index these read 1 to 4
+    # cells with the NEC alone at 1; pinned, EVERY named condition closes to
+    # itself.  The corrected result is the stronger one: closure is entirely an
+    # interaction effect, and no condition demands anything on its own.
+    chk("every single condition is a closed family by itself",
+        sorted(set(ones.values())), [1])
+    chk("all eighteen of them", len(ones), 18)
+    chk("including the NEC", ones["NEC"], 1)
     # NEGATIVE CONTROL: closing the whole box is trivial, so 192 being a proper
     # subset is what makes the result non-vacuous.
     chk("the box is a fixed point too, trivially",
@@ -301,9 +306,9 @@ def selftest():
     # ------------------------------------------------------- superadditivity
     a = len(joint_closure([tuple(r[1:6]) for r in necindex.FAMILY if r[4] == 0]))
     b = len(joint_closure([tuple(r[1:6]) for r in necindex.FAMILY if r[4] == 1]))
-    chk("classical rows alone", a, 48)
-    chk("semiclassical rows alone", b, 48)
-    chk("the coexistence alone demands", len(F) - a - b, 96)
+    chk("classical rows alone", a, 36)
+    chk("semiclassical rows alone", b, 24)
+    chk("the coexistence alone demands", len(F) - a - b, 132)
     chk("so the closure is superadditive", len(F) > a + b, True)
 
     # ------------------------------------------------------ the free slots
@@ -318,7 +323,7 @@ def selftest():
     chk("cells are citations, not truths", CELLS_ARE_CITATIONS_NOT_TRUTHS, True)
     chk("analysis stays NOT-RUN", ANALYSIS_STAYS_NOT_RUN, True)
     chk("documentary stays SILENT", DOCUMENTARY_STAYS_SILENT, True)
-    res = cypher.run(cypher.Index("licensed", COORDS, sorted(F)), "1173", OPTS)
+    res = cypher.run(necindex.pinned_index(F, "licensed"), "1173", OPTS)
     chk("and the cypher agrees on both",
         sorted(v.language for v in res["_verdicts"]
                if v.state in (cypher.SILENT, cypher.NOT_RUN)),

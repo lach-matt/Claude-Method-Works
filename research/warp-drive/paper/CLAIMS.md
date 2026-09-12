@@ -7384,6 +7384,11 @@ all 96 carry a non-zero bound, and nothing else is excluded.
 
 ### H94b — the NEC is the unique singleton, and the closure is superadditive
 
+> **⚠ SUPERSEDED IN PART BY H97.** The single-condition and superadditivity figures
+> below were measured on a re-coordinated index. Corrected: *every* named condition closes to itself,
+> not the NEC alone; the split is 36 + 24, and the coexistence demands 132. The section is kept as
+> published.
+
 The whole box is a fixed point of any extensive operator, so a vacuous answer would look identical. **The
 control is sharp:** closed one at a time, no single named condition generates more than **4**
 cells.
@@ -7562,6 +7567,10 @@ all five: no operator changes the type of its argument.
 
 ### H96b — each language collapses; the ladder of them does not
 
+> **⚠ SUPERSEDED IN PART BY H97.** The joint-closure figures below were measured on a
+> re-coordinated index. Corrected: **max 2 expansions, 38 of 40 seeds in one — the ladder collapses too,
+> and M's clause was right.** The section is kept as published.
+
 **That sharpens the list against itself.** It has binary as the **first rung** and also as **the alpha that
 starts and ends.** Those cannot both hold: a rung is something you pass through, a type is something
 everything is. Measured, binary is the second — **not in the list, but what the list is made of.**
@@ -7613,6 +7622,59 @@ operator for (`binary`, `NECs/proofs`, `logic`) and **drops three** roster 1173 
 **A prose-fixture mismatch was caught building this:** a check labelled *"it names two the tree has no
 operator for"* returned three, **and passed** — the fixture was right and the *label* was wrong. The
 typed-digit channel in its smallest form yet: a number in a sentence beside a number in a list.
+
+---
+
+### H97 — an instrument was silently re-coordinating its input, and it cost two published results
+
+**`cypher.Index` re-ranks each coordinate's observed values to dense ordinals.** On the full family that is
+the identity, because the eighteen named conditions happen to use every value of every slot. **On any
+subset that does not, it is not** — a seed whose `V` values are `{1,2}` gets them re-coded to `{0,1}`, and
+the operator's output comes back in a **different coordinate system from its input.**
+
+Nothing errors. The numbers come back plausible. **They are measuring something else.**
+
+The fault is a new kind for this tree: not a typed digit, not a hollow test, not a bad tolerance. **A test
+that ran correctly, on an object the harness had quietly replaced.** It was found only because a
+commutation check reported all five operators failing *extensivity* — which is impossible for a closure
+operator, and impossible in the same way for all five at once.
+
+**What is sound, and why.** Every result taken on the full named family used a spanning seed and was never
+affected: `H93`'s cypher run and statistics closure; `H94a`'s **192 cells, `B ≤ 2Q`, all five languages at
+E = 0, 96 excluded cells all classical with a non-zero bound, `T`/`V`/`M` free**; `H95` entire; `H96a`
+entire; `H96b`'s idempotence.
+
+**What was wrong, corrected:**
+
+| claim | published | corrected |
+|---|---|---|
+| `H94b` single conditions | *"no single condition closes past **4** cells"* | **every one closes to itself — 1 cell, all 18** |
+| `H94b` uniqueness | *"the NEC closes to itself — the **only** condition that is a closed family by itself"* | **false. All eighteen are.** |
+| `H94b` superadditivity | 48 + 48 → 192, coexistence demands **96** | **36 + 24 → 192, coexistence demands 132** |
+| `H96b` joint closure | *"up to **four** expansions … the hierarchy does climb"* | **max 2; 38 of 40 seeds in one; it collapses** |
+
+**Two of those corrections make the result stronger, and one reverses a verdict given to M.**
+
+**Stronger:** *every* named condition is a closed family by itself. Not the NEC alone — all of them. So
+closure is **entirely an interaction effect**: no condition demands anything on its own, and every one of
+the 175 unnamed licensed cells exists only because two or more conditions share an index. The superadditive
+gap widens from 96 to **132 of 192**.
+
+**Reversed:** `H96b` told M the collapse clause was half false, on a measurement of up to four expansions.
+**Pinned, 38 of 40 seeds settle in a single expansion and none exceeds two. The clause was right.** What
+does not hold is only *"collapse to one place"* — 34 distinct terminals from 40 seeds, 2 cells to 288.
+**Fast, and not convergent.**
+
+**And one new result, which survives the correction unchanged.** Nine of the ten operator pairs **commute**
+— `op_A(op_B(X)) = op_B(op_A(X))` on every seed. **One does not: `information` and `statistics` disagree on
+9 of 16 seeds.** So the order of application is free everywhere except across that single pair — **the
+loop's one directed edge**, and the only place in the hierarchy where "which language first" changes the
+answer.
+
+**The fix is structural, not local.** `necindex.pinned_index()` declares the full value order for every
+coordinate, making the coding the identity; `licensed.py` and `alpha.py` now construct every index through
+it, and `cypher.Index` is not called directly anywhere in this tree. The comment at the definition says
+what it cost.
 
 ---
 

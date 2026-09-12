@@ -7971,6 +7971,53 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `necindex.pinned_index` — an instrument was silently re-coordinating its input.
+
+**`cypher.Index` re-ranks each coordinate's observed values to dense ordinals.** On the full family that is
+the identity — the eighteen named conditions happen to use every value of every slot. **On any subset that
+does not, the operator's output comes back in a different coordinate system from its input.** Nothing
+errors; the numbers come back plausible; they measure something else.
+
+A new fault kind here: not a typed digit, not a hollow test, not a bad tolerance — **a test that ran
+correctly on an object the harness had quietly replaced.** Found only because a commutation check reported
+all five operators failing *extensivity*, which is impossible for a closure operator and impossible in the
+same way for all five at once.
+
+**Sound, and why:** every result taken on the full named family used a spanning seed. `necindex.py` entire;
+`licensed.py`'s **192 cells, `B ≤ 2Q`, five languages at E = 0, 96 excluded, `T`/`V`/`M` free**;
+`hierarchy.py` entire; `alpha.py`'s admission criterion, endomorphism types and idempotence.
+
+**Wrong, corrected:**
+
+| | published | corrected |
+|---|---|---|
+| single conditions | *"none closes past 4 cells"* | **every one closes to itself — all 18** |
+| uniqueness | *"the NEC alone is a closed family"* | **false — all eighteen are** |
+| superadditivity | 48 + 48, coexistence demands 96 | **36 + 24, coexistence demands 132** |
+| joint closure | *"up to four expansions — it climbs"* | **max 2; 38 of 40 in one — it collapses** |
+
+> **Two corrections make the result stronger and one reverses a verdict.** Closure is **entirely an
+> interaction effect** — no condition demands anything alone, and the coexistence gap widens from 96 to
+> **132 of 192**. And `alpha.py` had told M the collapse clause was half false; **pinned, it holds.** What
+> fails is only *"collapse to one place"*: 34 distinct terminals from 40 seeds. **Fast, and not
+> convergent.**
+
+**One new result, unaffected by the correction.** Nine of ten operator pairs **commute**; **`information`
+and `statistics` do not**, disagreeing on 9 of 16 seeds — **the loop's one directed edge**, and the only
+place where "which language first" changes the answer.
+
+**The fix is structural.** `necindex.pinned_index()` declares the full value order per coordinate, making
+the coding the identity. `licensed.py` and `alpha.py` construct every index through it, and
+`cypher.Index` is called directly nowhere in this tree.
+
+### Seated
+- `necindex.py` — `pinned_index()` added. `licensed.py`, `alpha.py` — rerouted, fixtures corrected.
+  `index3.py` — **701 findings**. `paper/CLAIMS.md` — **H97**, with H94b and H96b marked superseded in
+  place. `tools/cypher.py` — **read here, unchanged**.
+
+---
+
+
 ## `alpha.py` — binary is the admission criterion, not the first rung.
 
 > M: *"Binary is the alpha language, top of the hierarchy because it both starts and ends the hierarchy."*

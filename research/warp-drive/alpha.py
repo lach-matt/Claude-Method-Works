@@ -65,27 +65,31 @@ TRUE, PER LANGUAGE.  Every one of the five is IDEMPOTENT -- op(op(X)) = op(X),
 verified on the energy-condition family for all five.  One application and you
 have landed.  YOU CANNOT CLIMB A LADDER OF IDEMPOTENTS.
 
-FALSE, JOINTLY, AND THAT IS A REAL RESULT RATHER THAN A QUIBBLE.  The languages
-are not independent: what one admits becomes another's input, and the joint
-closure ITERATES.  Over 40 random seeds of 1 to 24 cells:
+AND JOINTLY TOO, WHICH IS A CORRECTION.  The first version of this file
+reported the joint closure taking up to FOUR expansions and concluded that the
+ladder climbs.  IT WAS MEASURING A RE-COORDINATED INDEX -- see H97 -- and the
+extra rounds were the coordinate system moving, not the closure.  Pinned, over
+the same 40 random seeds of 1 to 24 cells:
 
-        one expansion    26 seeds
-        two              7
-        three            6
-        FOUR             1
+        zero expansions   1 seed  (already closed)
+        ONE              38 seeds
+        two               1 seed
 
-    SO THE HIERARCHY DOES CLIMB, JUST NOT FAR.  licensed.py's named family
-    happened to settle in one expansion, which is the MODE and not a
-    distinction -- and reading "collapse" off that one run would have been
-    reading the typical case as a law.
+    THE HIERARCHY COLLAPSES.  Thirty-eight of forty in a single expansion, none
+    past two.  M'S CLAUSE WAS RIGHT AND THE FIRST MEASUREMENT SAID OTHERWISE.
 
-AND IT DOES NOT COLLAPSE TO ONE PLACE EITHER.  Those 40 seeds reached 34
-DISTINCT fixed points, from 12 cells to the full 288.  There is a rich lattice
-of closed families, not an attractor.  "Collapse" in the sense of everything
-falling to a single terminus is measured FALSE.
+WHAT DOES NOT HOLD IS "COLLAPSE TO ONE PLACE".  Those 40 seeds reached 34
+DISTINCT fixed points, from 2 cells to the full 288.  There is a rich lattice of
+closed families, not an attractor.
 
-    THE HONEST FORM OF M'S CLAIM: EACH LANGUAGE COLLAPSES.  THE LADDER OF THEM
-    DOES NOT, AND WHERE IT LANDS DEPENDS ON WHERE IT STARTED.
+    THE HONEST FORM: IT COLLAPSES IN ONE STEP, AND WHERE IT LANDS DEPENDS
+    ENTIRELY ON WHERE IT STARTED.  Fast, and not convergent.
+
+AND THE LOOP HAS EXACTLY ONE DIRECTED EDGE.  Nine of the ten operator pairs
+COMMUTE -- op_A(op_B(X)) = op_B(op_A(X)) on every seed tested.  ONE DOES NOT:
+information and statistics disagree on 9 of 16 seeds.  So the order of
+application is free everywhere except across that single pair, which is the only
+place in the hierarchy where "which language first" changes the answer.
 
 ===============================================================================
 4. LOGIC, AND A TERMINOLOGY HAZARD WORTH NAMING
@@ -138,7 +142,7 @@ ROSTER_NOT_RULED = True
 BINARY_IS_THE_ADMISSION_CRITERION = True
 BINARY_IS_A_TYPE_NOT_A_RUNG = True
 EACH_LANGUAGE_COLLAPSES = True
-THE_LADDER_DOES_NOT = True            # the half that fails
+THE_LADDER_DOES_NOT = False           # CORRECTED at H97: it collapses too
 CITATION_IS_ALREADY_TAKEN = True
 NOTHING_IS_REPAIRED = True
 
@@ -163,7 +167,7 @@ def why_admitted():
 
 def types_of(cs):
     """(input type, output type, element type) for each operator."""
-    ix = cypher.Index("x", necindex.COORDS, sorted(cs))
+    ix = necindex.pinned_index(cs)
     out = {}
     for n in necindex.OPERATORS:
         adm, _ = cypher.ADMISSION[n][0](ix, OPTS)
@@ -176,9 +180,27 @@ def types_of(cs):
 
 def is_idempotent(name, cs):
     fn = cypher.ADMISSION[name][0]
-    a, _ = fn(cypher.Index("x", necindex.COORDS, sorted(cs)), OPTS)
-    b, _ = fn(cypher.Index("x", necindex.COORDS, sorted(a)), OPTS)
+    a, _ = fn(necindex.pinned_index(cs), OPTS)
+    b, _ = fn(necindex.pinned_index(a), OPTS)
     return set(a) == set(b), len(a)
+
+
+def commutes(a, b, seeds):
+    """Does op_a . op_b agree with op_b . op_a on every seed?"""
+    fa = cypher.ADMISSION[a][0]
+    fb = cypher.ADMISSION[b][0]
+
+    def ap(f, X):
+        return set(f(necindex.pinned_index(X), OPTS)[0])
+
+    return sum(1 for X in seeds if ap(fa, ap(fb, X)) != ap(fb, ap(fa, X)))
+
+
+def commutation_seeds(n=15, seed=20260912):
+    rnd = random.Random(seed)
+    B = box()
+    return [set(necindex.cells())] + [set(rnd.sample(B, rnd.randrange(2, 20)))
+                                      for _ in range(n)]
 
 
 def joint_rounds(seed):
@@ -186,7 +208,7 @@ def joint_rounds(seed):
     X = set(seed)
     n = 0
     while True:
-        ix = cypher.Index("x", necindex.COORDS, sorted(X))
+        ix = necindex.pinned_index(X)
         new = set(X)
         for name in necindex.OPERATORS:
             new |= set(cypher.ADMISSION[name][0](ix, OPTS)[0])
@@ -228,7 +250,7 @@ def report():
         ok, k = is_idempotent(n, necindex.cells())
         print("      %-13s op(X) = %4d   op(op(X)) = op(X): %s" % (n, k, ok))
     print()
-    print("  but the ladder of them does not")
+    print("  and so does the ladder of them (CORRECTED at H97)")
     rounds, fixed = sweep()
     from collections import Counter
     c = Counter(rounds)
@@ -240,7 +262,14 @@ def report():
     print("      %-40s %8s" % ("their range", (min(fixed), max(fixed))))
     nr, nk = joint_rounds(necindex.cells())
     print("      %-40s %8d" % ("the named family needs", nr))
-    print("      which is the MODE, not a distinction")
+    print("      which is what all but two seeds need")
+    print()
+    print("  and the loop has exactly one directed edge")
+    cs = commutation_seeds()
+    for a, b in itertools.combinations(necindex.OPERATORS, 2):
+        d = commutes(a, b, cs)
+        print("      %-13s %-13s %s" % (a, b, "commute" if not d
+                                        else "DIFFER on %d of %d" % (d, len(cs))))
     print()
     print("  M's proposed roster, recorded and NOT seated")
     print("      %s" % " - ".join(CANDIDATE_ROSTER_M))
@@ -252,9 +281,12 @@ def report():
     print()
     print("  Binary is the admission criterion, not the first rung -- it is what")
     print("  the list is made of.  Every language is a self-map on it, so there")
-    print("  is nowhere to climb to.  Each language collapses in one step.  The")
-    print("  ladder of them does not: up to four expansions, and 34 distinct")
-    print("  terminals from 40 seeds.  Two clauses hold; the collapse is half.")
+    print("  is nowhere to climb to.  Each language collapses, AND SO DOES THE")
+    print("  LADDER: 38 of 40 seeds in a single expansion, none past two.  All")
+    print("  three clauses hold.  What does not is 'collapse to one place': 34")
+    print("  distinct terminals from 40 seeds.  Fast, and not convergent.")
+    print("  Nine of ten operator pairs commute; information and statistics")
+    print("  do not -- the loop's one directed edge.")
     print()
 
 
@@ -305,14 +337,17 @@ def selftest():
 
     # ------------------------------------------- 3b. THE LADDER DOES NOT
     rounds, fixed = sweep()
-    chk("random seeds needing more than one expansion",
-        sum(1 for r in rounds if r > 1), 14)
-    chk("the most any seed needed", max(rounds), 4)
-    chk("so the joint closure is NOT one-step", max(rounds) > 1, True)
-    chk("recorded as the clause that fails", THE_LADDER_DOES_NOT, True)
+    # CORRECTED at H97: the first measurement ran on a re-coordinated index
+    # and reported up to four expansions.  Pinned, the ladder collapses too.
+    chk("seeds settling in one expansion or none",
+        sum(1 for r in rounds if r <= 1), 39)
+    chk("the most any seed needed", max(rounds), 2)
+    chk("so the ladder collapses as well", max(rounds) <= 2, True)
+    chk("recorded, superseding the first reading", THE_LADDER_DOES_NOT, False)
     # and it does not collapse to a single terminus either
     chk("distinct fixed points from 40 seeds", len(set(fixed)), 34)
     chk("ranging up to the whole box", max(fixed), 288)
+    chk("and down to two cells", min(fixed), 2)
     chk("so there is no single attractor", len(set(fixed)) > 1, True)
     # the named family is typical, not special -- the honest control
     nr, _ = joint_rounds(necindex.cells())
@@ -340,6 +375,20 @@ def selftest():
                if l not in CANDIDATE_ROSTER_M),
         ["analysis", "documentary", "information"])
     chk("left to the docket", ROSTER_NOT_RULED, True)
+    # ------------------------------- the loop has exactly one directed edge
+    cs = commutation_seeds()
+    pairs = list(itertools.combinations(necindex.OPERATORS, 2))
+    nc = {p: commutes(p[0], p[1], cs) for p in pairs}
+    chk("operator pairs in all", len(pairs), 10)
+    chk("pairs that commute on every seed",
+        sum(1 for v in nc.values() if v == 0), 9)
+    chk("and the one that does not",
+        sorted(k for k, v in nc.items() if v), [("information", "statistics")])
+    chk("it disagrees on 9 of 16 seeds", nc[("information", "statistics")], 9)
+    # NEGATIVE CONTROL: commutation is a real test, not vacuously true -- one
+    # pair genuinely fails it.
+    chk("so commutation is not vacuous", max(nc.values()) > 0, True)
+
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
 
     print()
