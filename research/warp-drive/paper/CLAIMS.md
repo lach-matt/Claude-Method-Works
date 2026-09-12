@@ -7348,6 +7348,96 @@ One door, found five times in this tree under five names, and every one of them 
 
 ---
 
+### H94a — the licensed energy conditions, derived rather than posited
+
+> M: *"We need to theorize/define a new family of energy conditions — the family of ECs that solves the
+> cypher, closing all its languages to E = 0 for the entire transition state."*
+
+**It was not necessary to invent one.** `H93`'s five slots and seventeen named cells already determine it:
+the five operator-bearing languages are extensive and monotone, so iterating all five jointly from the
+named family converges to **the least family containing them that every language closes.** It converges in
+**one step**, to **192 cells of a 288-cell box**, and the cypher's own criterion fires unprompted —
+*"K.langclose holds: languages agree and E = 0"* — where the named family scored `175, 175, 12,
+139, 0`.
+
+> ### THE LICENSED ENERGY CONDITIONS
+>
+> For any tensor `Θ ∈ {T, T_eff, G, R}`, any direction set `∈ {null, timelike, causal}`, any measure
+> `∈ {pointwise, smeared, averaged, achronal-averaged}`:
+>
+>     CLASSICAL       Θ_μν u^μ u^ν    ≥  0
+>     SEMICLASSICAL   ⟨Θ_μν⟩ u^μ u^ν  ≥  𝔅       𝔅 ∈ {0, a negative state-independent
+>                                                     bound, an entropy variation}
+>
+> **192 members. Seventeen have names.**
+
+In the coordinates it is exactly `B ≤ 2Q`; the `2` is an artefact of the coding, and the coding-free
+statement is
+
+> **A bound below zero is permitted exactly when the regime is quantum.**
+
+**The operators derived that.** It was never imposed, and it is not a convention: a classical theory has no
+`ħ` to set the scale of a negative bound and no entanglement entropy to vary, so `≥ 0` is the only
+right-hand side it can write. **Five closure operators, run on seventeen historically-accumulated
+conditions, reconstructed that constraint and nothing else** — all 96 excluded cells are classical,
+all 96 carry a non-zero bound, and nothing else is excluded.
+
+### H94b — the NEC is the unique singleton, and the closure is superadditive
+
+The whole box is a fixed point of any extensive operator, so a vacuous answer would look identical. **The
+control is sharp:** closed one at a time, no single named condition generates more than **4**
+cells.
+
+> **And the NEC closes to itself** — one cell, every language, a fixed point alone, and the **only**
+> condition in the family that is a closed family by itself.
+
+That is a structural reading of Barceló–Visser's *"it is the weakest one"* this tree did not have: the NEC
+is not merely implied by the others; **it is the unique singleton the languages cannot grow.**
+
+**And the closure is superadditive** — the finding under the finding:
+
+| | |
+|---|---|
+| classical rows alone close to | **48** |
+| semiclassical rows alone close to | **48** |
+| the two together | **192** |
+| **cells the coexistence alone demands** | **96** |
+
+Neither half demands them; **the coexistence does.** A family of purely classical conditions and one of
+purely quantum conditions are each small and each closed. **Putting them in one index is what generates the
+other half of the family** — and no reading of either half alone could have found it.
+
+### H94c — and the closure is blind to the only door
+
+The closure constrains the `(Q, B)` pair and nothing else. **`['T', 'V', 'M']` are completely free** — every
+tensor, every direction set and every measure appears at every licensed `(Q, B)`.
+
+**And `T` is the slot every opener moves.** `H93` measured four of four throat-opening escapes moving `T`,
+none moving `V`, none relaxing `≥`.
+
+> **So the closure is blind to the only door.** Closing every language costs nothing in the tensor slot,
+> because no language on this roster can see the difference between a condition on matter and the same
+> condition on curvature.
+
+That is the same blindness `H93` found as a quotient, arriving here by a completely different route.
+
+**Four limits, each load-bearing.**
+
+- **(a) A cell is a citation, not a truth.** The index demanded the semiclassical WEC, which is false. So
+  the **175 unnamed licensed cells are 175 candidates for a name**, and this pass claims for none of
+  them that it is true, useful, or even meaningful.
+- **(b) "All its languages" means five of seven, and the other two cannot be closed by anything.**
+  `analysis` is NOT-RUN — no witness is declared, and register 1172 is why NOT-RUN is a distinct state here
+  rather than a silent pass. `documentary` is SILENT by construction: it returns a citation, not a binary,
+  so it has no closure mechanism to satisfy. The cypher was asked and agreed on both.
+- **(c) 192 is the least such family, not the only one.** The full 288-cell box closes trivially.
+  What is derived is the *smallest* family containing the named conditions that closes every measurable
+  language.
+- **(d) The slots are ours.** A different decomposition of what an energy condition *is* gives a different
+  box and a different closure. This measures `H93`'s five coordinates and nothing more universal.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

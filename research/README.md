@@ -7971,6 +7971,53 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `licensed.py` — the family that closes every language, and it was derived, not invented.
+
+> M: *"We need to theorize/define a new family of energy conditions — the family of ECs that solves the
+> cypher, closing all its languages to E = 0."*
+
+**It was not necessary to invent one.** `necindex.py`'s five slots and seventeen named cells already
+determine it: the five operator-bearing languages are extensive and monotone, so iterating all five jointly
+from the named family converges to the **least family containing them that every language closes.** One
+step, **192 cells of 288**, and the cypher's own criterion fires: *"K.langclose holds: languages agree
+and E = 0"* — against the named family's `175, 175, 12, 139, 0`.
+
+> ### THE LICENSED ENERGY CONDITIONS
+> For any `Θ ∈ {T, T_eff, G, R}`, any direction set, any measure:
+> **classical** `Θ_μν u^μu^ν ≥ 0`; **semiclassical** `⟨Θ_μν⟩u^μu^ν ≥ 𝔅`, with `𝔅` zero, a negative
+> state-independent bound, or an entropy variation. **192 members, seventeen named.**
+
+The one-line definition, coding-free: **a bound below zero is permitted exactly when the regime is
+quantum.** Nobody put that in. A classical theory has no `ħ` to scale a negative bound and no entanglement
+entropy to vary, so `≥ 0` is the only right-hand side it can write — and five closure operators run on
+seventeen historically-accumulated conditions **reconstructed that and nothing else**: all 96
+excluded cells are classical, all carry a non-zero bound, nothing else is excluded.
+
+**The operators do real work** — the box is a fixed point of anything extensive, so this had to be shown.
+No single named condition closes past **4** cells, and **the NEC closes to itself**: one cell,
+every language, the *only* condition that is a closed family alone. A structural reading of
+Barceló–Visser's *"it is the weakest one"* the tree did not have.
+
+**And the closure is superadditive:** classical rows alone → **48**, semiclassical rows alone →
+**48**, together → **192**. **96 cells exist only because both regimes sit in one index.**
+
+**The constraint lands entirely on `(Q, B)`. `['T', 'V', 'M']` are free** — and `T` is the slot every opener moves,
+four of four. **So the closure is blind to the only door:** no language on this roster can see the
+difference between a condition on matter and the same condition on curvature.
+
+Four limits: a cell is a **citation, not a truth**, so the **175 unnamed cells are candidates for a
+name** and nothing more; **"all languages" is five of seven** — `analysis` stays NOT-RUN (no witness
+declared, register 1172) and `documentary` SILENT by construction, and neither can be closed by anything;
+**192 is the *least* such family**, the box closes trivially; and **the slots are ours.**
+
+### Seated
+- `licensed.py` — new, imports `necindex.py` and through it `tools/cypher.py`. `index3.py` — **692
+  findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H94**. `necindex.py` — **read here,
+  unchanged**.
+
+---
+
+
 ## `necindex.py` — the family is an index, statistics closes it, and every opener moves one slot.
 
 > M: *"NECs are derived from statistically probable positions … This changes the question from satisfying
