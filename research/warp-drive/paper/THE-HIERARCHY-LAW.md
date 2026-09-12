@@ -492,6 +492,72 @@ failing when `I` is infinite without a subcompleteness condition.
 
 ---
 
+## §8b · Appendix — the `analysis` candidate, filed as docket evidence
+
+> **Docket 20x-04 / 20x-09 is NOT resolved here.** `tools/cypher.py` is untouched, no roster is
+> changed, and nothing below is a ruling on which languages exist. This is a candidate operator,
+> specified in review, implemented in the research tree, measured, and filed as **evidence**.
+
+**The specification, as given.** *"Analysis is a closure operator. It provides the best possible
+closure route for each statistical position of a geometric object… Analysis only takes into account
+the geometry and the 'if'; it does not care if the closure is admitted."*
+
+**The formalization, which is a reading and may be corrected.** `depth_X(x)` := the fewest `∧`/`∨`
+steps producing `x` from `X`; `∞` if unreachable. `A_k(X) := {x : depth_X(x) ≤ k}`. The magnitude is
+the route length; admission is not consulted, which is what makes `logic` a separate step.
+
+**What holds.**
+
+| | |
+|---|---|
+| every **statistical** position has a finite route | **300 / 300** |
+| maximum closure depth observed | **3** |
+| depth histogram (cells) | `0:1418 · 1:1450 · 2:571 · 3:14` |
+
+The first is a **theorem, not a measurement**: Clause H gives `statistics ⊆ algebra`, so every
+hypothetical is in the sublattice hull and therefore has a finite route. **The `if` is always
+closable**, and closable in at most three steps. The chain *statistics proposes → analysis routes* is
+real and total.
+
+**What does not hold — and it is the closure claim.**
+
+| | |
+|---|---|
+| `A_k` idempotent at `k = 1` | **191 / 300** ✗ |
+| `A_k` idempotent at `k = 2` | **292 / 300** ✗ |
+| `A_k` idempotent at `k = ∞` | **300 / 300** ✓ |
+| …and at `k = ∞` it **equals `algebra`** | **300 / 300** |
+
+`A_k` is extensive and monotone at every `k`, but **not idempotent at any finite depth** — it is a
+*pre-closure*. It becomes a closure operator only in the limit, where it **is `algebra`** and therefore
+`order`. So under this reading:
+
+> **`analysis` does not add a sixth language.** At finite depth it fails the closure axiom; at infinite
+> depth it collapses into a language already counted.
+
+**The same conclusion under the other reading.** Taken as a magnitude-valued function rather than a set
+operator, `analysis` returns a route length, not a cell decision — which fails the admission criterion
+directly. **Both readings converge**, and both corroborate the corpus's own recorded reason for
+excluding `analysis` (*"has a mechanism but returns a magnitude rather than a cell decision"*) while
+sharpening it: the magnitude's sublevel sets are pre-closures and its limit is `algebra`.
+
+**And what is left for `logic` is very little.** Run over the *geometric* object, where unreachable
+positions can exist:
+
+| | |
+|---|---|
+| geometric positions | 2,448 |
+| with **no** finite closure route | **7 (0.3 %)**, in 4 of 300 worlds |
+| **statistical** positions with no route | **0**, always |
+
+So the verification step is real but nearly vacuous here: **99.7 % of geometric positions are already
+closable**, and every statistical one is. `logic` rejects almost nothing.
+
+**Status: EXHAUSTIVE, CANDIDATE, NOT A RULING.** If the formalization misreads the specification, the
+measurement is void and should be re-run, not reinterpreted.
+
+---
+
 ## §9 · Provenance ledger
 
 | item | status | source |
