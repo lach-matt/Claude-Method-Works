@@ -539,7 +539,7 @@ machine have run.* Walked row by row with the author on 2026-09-11; the author's
 
 - *Mitigation:* -
 - *Carried by:* -
-- *Source:* SOURCED (reviewed 2026-09-11): Crescent Dunes has had FOUR hot-salt tank leaks (2016, 2022, 2023 ...), its hot tank is now derated from ~565 C to 455-480 C and its output constrained to ~55 MW, half of design; Noor III's hot tank leaked in March 2024, the plant was offline 14 months, and it leaked again on return. Two of the three largest salt towers built have lost more than a year each to the hot tank. A silo of sand at ambient is a silo of sand -- and the salt-block FALLBACK carries this failure mode
+- *Source:* SOURCED (reviewed 2026-09-11): Crescent Dunes has had FOUR hot-salt tank leaks (October 2016, March 2019, February 2022, February 2023), its hot tank is now derated from ~565 C to 455-480 C and its output constrained to ~55 MW, half of design, on the operator's own 2026 court record; Noor III's hot tank leaked in March 2024, the plant was offline 14 months, and it leaked again on return. Two of the three largest salt towers built have lost more than a year each to the hot tank. A silo of sand at ambient is a silo of sand -- and the salt-block FALLBACK carries this failure mode
 
 **R-14. No decomposition ceiling: stable past 1000 C** — BENEFIT → **BENEFIT**, BENEFIT.
 
@@ -591,7 +591,7 @@ over studies; it was reviewed against the web on 2026-09-11 where the proxy reac
 | study or plant | scale | year | status | what it settled | source |
 |---|---|---|---|---|---|
 | Gemasolar (Torresol), Fuentes de Andalucia | 19.9 MWe, 15 h salt storage | 2011 | OPERATED | first commercial salt tower; 24 h operation demonstrated; CF ~0.73 of design | Torresol Energy; Burgaleta et al., SolarPACES 2011 |
-| Crescent Dunes (SolarReserve; Cobra 2021; Vinci 2023), Nevada | 110 MWe, 10 h salt, 1.2 M m2 | 2015 | OPERATED | US utility-scale salt tower; four hot-salt tank leaks (2016, 2022, 2023, ...); hot tank derated to 455-480 C after a 2023 root-cause analysis, output constrained to ~55 MW (half of design); CF ~0.39 of design over its first years; night-only contract since 2023 | SolarPACES 'What happened with Crescent Dunes'; Wikipedia project page (reviewed 2026-09-11); DOE Loan Programs Office |
+| Crescent Dunes (SolarReserve to 2020; ACS/Cobra from 2020; sold in Chapter 11, 2026), Nevada | 110 MWe, 10 h salt, 1.2 M m2 | 2015 | OPERATED | US utility-scale salt tower; four hot-salt tank leaks (October 2016, March 2019, February 2022, February 2023); after a 2023 root-cause analysis the hot tank runs at 455-480 C (850-900 F) instead of ~565 C and output is constrained to ~55 MW, half of design; 196 GWh in 2018, its best full year, 0.39 of the 500 GWh design; NV Energy's 25-year PPA at ~$135/MWh terminated October 2019; short-term and month-to-month offtake since late 2020; a second Chapter 11 filed January 2026 and the plant sold for $7 M in March 2026 | In re Tonopah Solar Energy, LLC, No. 26-10060 (Bankr. D. Del., filed 2026-01-21), first-day declaration and sale order; EIA Form 923, plant 57275; DOE Loan Programs Office; SolarPACES 'What happened with Crescent Dunes' |
 | Noor III (ACWA/SENER), Ouarzazate | 150 MWe, 7.5 h salt, 1.3 M m2, 178 m2 heliostats | 2018 | OPERATED | the heliostat class the design carries; HOT-SALT TANK leak March 2024, offline 14 months (~$47 M loss), leaked again after the April 2025 restart | ACWA Power Tadawul statement 2024-03; pv magazine 2024-03-25; Hespress 2025 (reviewed 2026-09-11) |
 | Cerro Dominador (EIG), Atacama | 110 MWe tower + 100 MWe PV, 17.5 h salt | 2021 | OPERATED | CSP + PV hybrid at one site; $10.45/W built cost | Cerro Dominador; SolarPACES project database |
 | DEWA Phase IV (ACWA/Shanghai Electric), Dubai | 100 MWe tower + 600 MWe trough + 250 MWe PV | 2023 | OPERATED | night-sized thermal block beside daytime PV -- the Helios-2/3 architecture | DEWA; ACWA Power; SolarPACES project database |
@@ -1675,9 +1675,10 @@ its own citation beside the finding it supports.
 
 - Torresol Energy
 - Burgaleta et al., SolarPACES 2011
-- SolarPACES 'What happened with Crescent Dunes'
-- Wikipedia project page (reviewed 2026-09-11)
+- In re Tonopah Solar Energy, LLC, No. 26-10060 (Bankr. D. Del., filed 2026-01-21), first-day declaration and sale order
+- EIA Form 923, plant 57275
 - DOE Loan Programs Office
+- SolarPACES 'What happened with Crescent Dunes'
 - ACWA Power Tadawul statement 2024-03
 - pv magazine 2024-03-25
 - Hespress 2025 (reviewed 2026-09-11)

@@ -96,8 +96,15 @@ is a limit rather than a fault is stated in the document rather than removed.
   the closing plant's O&M ratio are ASSUMED and marked.
 - The head is one number (500 m) at both cases; the sensitivity runs 300–800 m and the modules go as
   one over head.
-- "Wikipedia project page" and "plant records" appear in the source list because the study register
-  cites them; the register marks what was reviewed and the sources note says what such entries carry.
+- "Plant records" appears in the source list because the study register cites it; the register marks
+  what was reviewed and the sources note says what such entries carry. The Crescent Dunes row cited a
+  Wikipedia project page until 2026-09-12, when the author asked for the plant's own record: it now
+  cites the operator's Chapter 11 filing (In re Tonopah Solar Energy, LLC, No. 26-10060, Bankr. D. Del.,
+  filed 2026-01-21), EIA Form 923 for plant 57275, the DOE Loan Programs Office and SolarPACES. The court
+  record corrected the row: the four leaks are October 2016, March 2019, February 2022 and February 2023
+  (the row had 2016, 2022, 2023); the offtake since late 2020 is short-term and month-to-month, not a
+  night-only contract with NV Energy, whose 2009 PPA was terminated in October 2019; and the operator
+  stayed ACS (Cobra Industrial Services, renamed ACS Industrial Activities), not Vinci.
 
 ## What did not change
 

@@ -93,9 +93,9 @@ pilot receiver has passed its test.
 ## 2. The requirement
 
 **Households.** Three million households is the program's minimum, growing with population. At the state average of
-6,036 kWh a year per residential customer [74] that is **18.1 TWh** of firm supply, growing to **1.35–1.81×** over the
+6,036 kWh a year per residential customer [75] that is **18.1 TWh** of firm supply, growing to **1.35–1.81×** over the
 30-year bond term at 1–2 % a year of residential growth including electrification. California has
-14,217,180 residential customers [74], so three million is a fifth of them, and a program that serves them at the
+14,217,180 residential customers [75], so three million is a fifth of them, and a program that serves them at the
 state average serves the households that consume least, which is the fairer half of any tariff question.
 
 **The criterion.** The plant must pay for itself after the build bonds: revenue must cover debt service and O&M in
@@ -119,29 +119,29 @@ what it actually costs, because both are commonly overstated and the program's d
 
 **What a salt-tower plant of the size first considered makes.** A plant of 5,250 MWe gross across three desert nodes,
 with 45.6 million m² of heliostats and 197 GWh_th of salt storage, run hour by hour on exact solar geometry at
-each node's annual direct-normal irradiance [76], with the salt tank, the turbine's part-load curve and the parasitic
+each node's annual direct-normal irradiance [77], with the salt tank, the turbine's part-load curve and the parasitic
 loads modelled explicitly:
 
 | | figure |
 |---|---|
 | net output, TWh/yr | 19.2 |
 | net capacity factor | 0.486 |
-| revenue selling everything at the 2024 CAISO price shape [77], $M/yr | 677 |
+| revenue selling everything at the 2024 CAISO price shape [78], $M/yr | 677 |
 | revenue with $350/MWh on the four peak hours of every day, the rest at the 2024 shape, $M/yr | 2,451 |
 | carrying cost at $27.2 B of capital, 3.85 % and 30 years, plus $410 M of O&M, $M/yr | 1,954 |
 | required price at $27.2 B, $/MWh | 102 |
 
 Two things follow. Such a plant makes 19.2 TWh, about what three million households consume, and no more: a firm
 export on top of the in-state supply does not exist. And evening-peak pricing exists for about 1,500–2,000 hours a
-year while 1,180 hours in 2024 cleared negative [77], so a plant that sells at the market shape earns a third
+year while 1,180 hours in 2024 cleared negative [78], so a plant that sells at the market shape earns a third
 of its carrying cost. At $27.2 B of capital the required price would be $102/MWh, inside the contract band; the
 question is whether the plant can be built for that.
 
 **What it costs to build.** Line by line at the class that exists (Noor III-class heliostats of 178 m² on 36 towers of
 250 m), state-owned, groundbreaking 2028–2030: no developer margin, bond-rate interest during construction, the
 federal storage credit with the public direct-pay and energy-community bonuses, public-pension on-cost, property tax
-out and a payment in lieu in. The level is calibrated to NREL's 2024 technology baseline at $7,912/kWe [75] and
-the split is reconstructed from the System Advisor Model's published cost structure [78].
+out and a payment in lieu in. The level is calibrated to NREL's 2024 technology baseline at $7,912/kWe [76] and
+the split is reconstructed from the System Advisor Model's published cost structure [79].
 
 | case | net capital, $B | $/W gross | required price, $/MWh | $ per household |
 |---|---|---|---|---|
@@ -171,7 +171,7 @@ And what those plants delivered against their design:
 | Crescent Dunes, USA, 2015 | 0.39 | 2018, best full year before the 2019 shutdown |
 | Cerro Dominador, Chile, 2021 | 0.12 | 2023; hot-tank damage, plant largely stopped |
 
-No commercial salt tower has delivered its design output [89], and an hourly model still flatters that record.
+No commercial salt tower has delivered its design output [90], and an hourly model still flatters that record.
 That is why every figure in this document is printed at a critical case, and why the design is held to it.
 
 ![Figure 2](figures/fig-01-built-record.png)
@@ -196,8 +196,8 @@ where the critical case stands elsewhere.
 | Floating offshore wind (Morro Bay / Humboldt) | — | — | — | — | two of three Morro Bay leases terminated; not firm; SOURCED LCOE+LCOT $95-121 (2035) |
 
 Two results stand out. Salton Sea geothermal, in the program's own Imperial node, has 2,250 MW developable, 0.98 of
-the requirement, and prices at $62/MWh at mid [87]; its hypersaline capital band is assumed, and it cannot grow with
-the requirement. The small modular reactor is barred by statute [86, 88]. Concentrating solar is chosen on a different ground:
+the requirement, and prices at $62/MWh at mid [88]; its hypersaline capital band is assumed, and it cannot grow with
+the requirement. The small modular reactor is barred by statute [87, 89]. Concentrating solar is chosen on a different ground:
 it is the one firm-solar form whose output can be raised by engineering within the program's control, and the rest of
 this document is the engineering. The comparison is kept beside the choice so that the choice is priced.
 
@@ -289,7 +289,7 @@ chain rather than taken from the chain's own best: a downstream calculation hand
 
 **Direct cost by line, $M, before contingency, EPC, tax, escalation and interest.** The field, tower, receiver and
 balance-of-plant lines use the same calibrated rates as the salt tower of Section 3; the particle and sCO₂ lines
-come from the Gen3 and STEP programme records [31, 55].
+come from the Gen3 and STEP programme records [32, 56].
 
 | line | mid | critical |
 |---|---|---|
@@ -310,7 +310,7 @@ come from the Gen3 and STEP programme records [31, 55].
 A falling curtain is a per-metre machine: its power goes with its width, so scale is bought in width and in aperture
 count, the loss fraction at fixed flux does not change with size, and the edge losses shrink as perimeter over area.
 The receiver model runs with every banded constant at nominal and at critical; the critical flux is halved to
-0.5 MW/m², below the 0.3–0.7 MW/m² at which the largest curtain was measured [17].
+0.5 MW/m², below the 0.3–0.7 MW/m² at which the largest curtain was measured [18].
 
 | | nominal (mid) | critical |
 |---|---|---|
@@ -433,7 +433,7 @@ uses is the one fixed route above ($5.7 / 9.5 B); the ladder's own scan, which l
 case, finds a cheaper mirrors-only point at critical ($9.0 B). Both are printed.
 
 **The hydraulics.** The adopted route is priced at one head, 500 m (assumed; the Edmonston lift is 587 m and the Gianelli
-head about 100 [91]), at both cases. There a cubic metre returns 1.226 / 1.158 kWh and costs
+head about 100 [92]), at both cases. There a cubic metre returns 1.226 / 1.158 kWh and costs
 1.514 / 1.603 kWh to lift, a round trip of 0.81 / 0.72; reverse osmosis itself takes 3.0–3.6 kWh/m³ on
 Title II's own account. The lift is invariant in head, being the returned energy over the round trip, so feasibility
 does not depend on the site; the volume, and so the modules and Title II's capital, go as one over head. The
@@ -570,7 +570,7 @@ marked are what the pilot of Section 11 and the ladder of Section 10 exist to re
 
 - *Mitigation:* -
 - *Carried by:* -
-- *Evidence:* SOURCED (reviewed 2026): Crescent Dunes has had FOUR hot-salt tank leaks (2016, 2022, 2023...), its hot tank is now derated from ~565 C to 455-480 C and its output constrained to ~55 MW, half of design; Noor III's hot tank leaked in March 2024, the plant was offline 14 months, and it leaked again on return. Two of the three largest salt towers built have lost more than a year each to the hot tank. A silo of sand at ambient is a silo of sand -- and the salt-block FALLBACK carries this failure mode
+- *Evidence:* SOURCED (reviewed 2026): Crescent Dunes has had FOUR hot-salt tank leaks (October 2016, March 2019, February 2022, February 2023), its hot tank is now derated from ~565 C to 455-480 C and its output constrained to ~55 MW, half of design, on the operator's own 2026 court record; Noor III's hot tank leaked in March 2024, the plant was offline 14 months, and it leaked again on return. Two of the three largest salt towers built have lost more than a year each to the hot tank. A silo of sand at ambient is a silo of sand -- and the salt-block FALLBACK carries this failure mode
 
 **R-14. No decomposition ceiling: stable past 1000 C** — BENEFIT → **BENEFIT**, BENEFIT.
 
@@ -625,13 +625,13 @@ have more studies than are listed, never fewer.
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
 | Gemasolar (Torresol), Fuentes de Andalucia | 19.9 MWe, 15 h salt storage | 2011 | OPERATED | first commercial salt tower; 24 h operation demonstrated; CF ~0.73 of design | [1], [2] |
-| Crescent Dunes (SolarReserve; Cobra 2021; Vinci 2023), Nevada | 110 MWe, 10 h salt, 1.2 M m2 | 2015 | OPERATED | US utility-scale salt tower; four hot-salt tank leaks (2016, 2022, 2023,...); hot tank derated to 455-480 C after a 2023 root-cause analysis, output constrained to ~55 MW (half of design); CF ~0.39 of design over its first years; night-only contract since 2023 | [3], [4], [5] |
-| Noor III (ACWA/SENER), Ouarzazate | 150 MWe, 7.5 h salt, 1.3 M m2, 178 m2 heliostats | 2018 | OPERATED | the heliostat class the design carries; HOT-SALT TANK leak March 2024, offline 14 months (~$47 M loss), leaked again after the April 2025 restart | [6], [7], [8] |
-| Cerro Dominador (EIG), Atacama | 110 MWe tower + 100 MWe PV, 17.5 h salt | 2021 | OPERATED | CSP + PV hybrid at one site; $10.45/W built cost | [9], [10] |
-| DEWA Phase IV (ACWA/Shanghai Electric), Dubai | 100 MWe tower + 600 MWe trough + 250 MWe PV | 2023 | OPERATED | night-sized thermal block beside daytime PV -- the Helios-2/3 architecture | [10], [11], [12] |
-| Chinese tower fleet: Shouhang Dunhuang 100 MWe, Supcon Delingha 50 MWe, Luneng Haixi 50 MWe | 50-100 MWe each | 2018 | OPERATED | salt towers at 100 MWe with small heliostats; multiple operators | [10], [13] |
-| NREL HelioCon heliostat consortium | cost and performance roadmap | 2022 | DESIGNED | heliostat cost targets and failure modes; the $80-120/m2 band | [14] |
-| Ivanpah (BrightSource), California | 392 MWe direct steam, 3 towers | 2014 | OPERATED | California desert siting, permitting, avian and dust record; no storage; contracts ending | [15], [16] |
+| Crescent Dunes (SolarReserve to 2020; ACS/Cobra from 2020; sold in Chapter 11, 2026), Nevada | 110 MWe, 10 h salt, 1.2 M m2 | 2015 | OPERATED | US utility-scale salt tower; four hot-salt tank leaks (October 2016, March 2019, February 2022, February 2023); after a 2023 root-cause analysis the hot tank runs at 455-480 C (850-900 F) instead of ~565 C and output is constrained to ~55 MW, half of design; 196 GWh in 2018, its best full year, 0.39 of the 500 GWh design; NV Energy's 25-year PPA at ~$135/MWh terminated October 2019; short-term and month-to-month offtake since late 2020; a second Chapter 11 filed January 2026 and the plant sold for $7 M in March 2026 | [3], [4], [5], [6] |
+| Noor III (ACWA/SENER), Ouarzazate | 150 MWe, 7.5 h salt, 1.3 M m2, 178 m2 heliostats | 2018 | OPERATED | the heliostat class the design carries; HOT-SALT TANK leak March 2024, offline 14 months (~$47 M loss), leaked again after the April 2025 restart | [7], [8], [9] |
+| Cerro Dominador (EIG), Atacama | 110 MWe tower + 100 MWe PV, 17.5 h salt | 2021 | OPERATED | CSP + PV hybrid at one site; $10.45/W built cost | [10], [11] |
+| DEWA Phase IV (ACWA/Shanghai Electric), Dubai | 100 MWe tower + 600 MWe trough + 250 MWe PV | 2023 | OPERATED | night-sized thermal block beside daytime PV -- the Helios-2/3 architecture | [11], [12], [13] |
+| Chinese tower fleet: Shouhang Dunhuang 100 MWe, Supcon Delingha 50 MWe, Luneng Haixi 50 MWe | 50-100 MWe each | 2018 | OPERATED | salt towers at 100 MWe with small heliostats; multiple operators | [11], [14] |
+| NREL HelioCon heliostat consortium | cost and performance roadmap | 2022 | DESIGNED | heliostat cost targets and failure modes; the $80-120/m2 band | [15] |
+| Ivanpah (BrightSource), California | 392 MWe direct steam, 3 towers | 2014 | OPERATED | California desert siting, permitting, avian and dust record; no storage; contracts ending | [16], [17] |
 
 *Further study recommended, on the field rung (1.0 years):* Field commissioning at the first node with measured annual optical efficiency against the 0.58-0.64 band. *It settles:* the largest chain link after the receiver; sets the mirror count at critical.
 
@@ -641,13 +641,13 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| Sandia NSTTF 1 MW_th falling-particle receiver | 1 MW_th, ~1 m2 aperture, chevron mesh option | 2015 | TESTED | outlet >700 C; efficiency 50-80 % (60-70 % free-fall, ~80 % obstructed); 50-200 C per metre of drop at 1-7 kg/s per m and average irradiance to ~0.7 MW/m2; the fixture in the receiver model | [17], [18], [19] |
-| G3P3-USA receiver, Sandia NSTTF | 2 MW_th, >250 h on-sun and ground | 2024 | TESTED | double the 1 MW_th unit; multistage release, reduced-volume cavity, automated flow control; 80-90 % efficiency in test campaigns -- the largest falling curtain that has run | [20], [21] |
-| G3P3 Gen3 Particle Pilot Plant, integrated system, Sandia | 1 MW_th receiver + HX, 6 h storage, >700 C working fluid | 2025 | TESTED | receiver + silos + lift + heat exchanger as one system; particle loop assembled Dec 2024, commissioning from Jan 2025, on-sun from summer 2025; goal >2,000 h combined with G3P3-Saudi -- hours as published | [22], [23], [24] |
-| DLR CentRec centrifugal particle receiver, Julich | 2.5 MW_th prototype | 2018 | TESTED | rotating-drum alternative to a falling curtain; 965 C average outlet on sun; commercialised by HelioHeat -- the largest particle receiver of any type that has run | [25], [26], [27] |
-| CSIRO / ASTRI falling-particle receiver, Newcastle | ~1 MW-class system, 400-mirror field | 2023 | TESTED | second falling-particle receiver on sun, independent of Sandia; 803 C reached; spun off as FPR Energy | [28], [29] |
-| King Saud University / Sandia multi-stage receiver, Riyadh | sub-MW | 2018 | TESTED | multi-stage (staggered) curtain to raise residence time | [30] |
-| Sandia Gen3 100 MWe particle plant design study | 100 MWe, multi-aperture | 2019 | DESIGNED | the multi-aperture layout and the $/kWe the design carries | [31] |
+| Sandia NSTTF 1 MW_th falling-particle receiver | 1 MW_th, ~1 m2 aperture, chevron mesh option | 2015 | TESTED | outlet >700 C; efficiency 50-80 % (60-70 % free-fall, ~80 % obstructed); 50-200 C per metre of drop at 1-7 kg/s per m and average irradiance to ~0.7 MW/m2; the fixture in the receiver model | [18], [19], [20] |
+| G3P3-USA receiver, Sandia NSTTF | 2 MW_th, >250 h on-sun and ground | 2024 | TESTED | double the 1 MW_th unit; multistage release, reduced-volume cavity, automated flow control; 80-90 % efficiency in test campaigns -- the largest falling curtain that has run | [21], [22] |
+| G3P3 Gen3 Particle Pilot Plant, integrated system, Sandia | 1 MW_th receiver + HX, 6 h storage, >700 C working fluid | 2025 | TESTED | receiver + silos + lift + heat exchanger as one system; particle loop assembled Dec 2024, commissioning from Jan 2025, on-sun from summer 2025; goal >2,000 h combined with G3P3-Saudi -- hours as published | [23], [24], [25] |
+| DLR CentRec centrifugal particle receiver, Julich | 2.5 MW_th prototype | 2018 | TESTED | rotating-drum alternative to a falling curtain; 965 C average outlet on sun; commercialised by HelioHeat -- the largest particle receiver of any type that has run | [26], [27], [28] |
+| CSIRO / ASTRI falling-particle receiver, Newcastle | ~1 MW-class system, 400-mirror field | 2023 | TESTED | second falling-particle receiver on sun, independent of Sandia; 803 C reached; spun off as FPR Energy | [29], [30] |
+| King Saud University / Sandia multi-stage receiver, Riyadh | sub-MW | 2018 | TESTED | multi-stage (staggered) curtain to raise residence time | [31] |
+| Sandia Gen3 100 MWe particle plant design study | 100 MWe, multi-aperture | 2019 | DESIGNED | the multi-aperture layout and the $/kWe the design carries | [32] |
 | the receiver model (this work) | scaling law, critical case | 2026 | THIS WORK | curtain as a per-metre machine; loss fraction size-invariant; pilot aperture rung | this work |
 
 *Further study recommended, on the pilot rung (2.0 years):* A ~30 MW_th pilot aperture on one fleet tower: curtain fed uniformly across 60 m (critical) / 10 m (nominal); efficiency, edge loss vs aperture size, wind. *It settles:* the receiver model's threshold: 0.690 critical open; whether the edge losses fall as perimeter/area.
@@ -658,8 +658,8 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| DLR REFOS / SOLGATE pressurised volumetric receivers, PSA | 250-400 kW_th, quartz window | 2003 | TESTED | domed quartz windows on cavity receivers at 800-1000 C air; window cooling and failure modes | [32], [33] |
-| Sandia windowed falling-particle receiver study | modelled, 1 MW_th class | 2016 | DESIGNED | +11.9 % efficiency over an aerowindow; quartz half-shell transmissivity 0.97/0.94 | [34] |
+| DLR REFOS / SOLGATE pressurised volumetric receivers, PSA | 250-400 kW_th, quartz window | 2003 | TESTED | domed quartz windows on cavity receivers at 800-1000 C air; window cooling and failure modes | [33], [34] |
+| Sandia windowed falling-particle receiver study | modelled, 1 MW_th class | 2016 | DESIGNED | +11.9 % efficiency over an aerowindow; quartz half-shell transmissivity 0.97/0.94 | [35] |
 | This work's compound quartz aperture | hex rod-lens dome, cooled lattice | 2026 | THIS WORK | no study exists; the receiver model prices it against the open aperture | this work |
 
 *Further study recommended, on the pilot rung (1.0 years):* The compound quartz aperture on the pilot: one dome, open aperture beside it, both measured on one tower. *It settles:* whether the dome pays on the measured record as the receiver model says, or loses as the model says.
@@ -670,8 +670,8 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| Sandia particle durability and optical studies (CARBO Accucast ID50, ~280 um) | lab + 1 MW_th on-sun | 2014 | TESTED | packed-bed absorptance 0.946 after ~200 h on-sun, statistically the same as 0.945 unused; 11 of 140 formulations held >0.90 after 500 h in air at 700 C; sintered bauxite chosen for absorptance, abrasion and sintering resistance and reducibility; oxide transformations on heating in air (R-08) | [35], [36], [37] |
-| CARBO Ceramics proppant production | industrial, Mt/yr | 2000 | OPERATED | the medium is a commodity with a supply chain | [38] |
+| Sandia particle durability and optical studies (CARBO Accucast ID50, ~280 um) | lab + 1 MW_th on-sun | 2014 | TESTED | packed-bed absorptance 0.946 after ~200 h on-sun, statistically the same as 0.945 unused; 11 of 140 formulations held >0.90 after 500 h in air at 700 C; sintered bauxite chosen for absorptance, abrasion and sintering resistance and reducibility; oxide transformations on heating in air (R-08) | [36], [37], [38] |
+| CARBO Ceramics proppant production | industrial, Mt/yr | 2000 | OPERATED | the medium is a commodity with a supply chain | [39] |
 
 *Further study recommended, on the pilot rung (3.0 years):* Long-duration particle ageing on the pilot: absorptance, attrition and oxide state sampled quarterly. *It settles:* R-08's rate over decades, the UNMOVED row; R-01's makeup rate.
 
@@ -681,10 +681,10 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| G3P3 hot and cold particle bins | 6 h at ~1 MW_th, refractory-lined | 2024 | TESTED | 800 C particle storage in a lined steel bin | [39] |
-| Sandia / Bridgers & Paxton commercial-scale particle silo design | 100 MWe-class, 6-12 h | 2020 | DESIGNED | cold-shell lined silo design and cost; thermal ratcheting analysis | [40] |
-| Siemens Gamesa ETES rock-bed thermal store, Hamburg | 130 MWh_th, 750 C, electrically charged | 2019 | OPERATED | a hot solid store at scale, charged by resistance heaters -- the winter heater path | [41] |
-| Hot-blast stoves and cement preheaters (industrial precedent) | decades, daily cycling, >1,000 C | 1900 | OPERATED | refractory linings cycling daily for decades; replaceable liners as O&M | [42] |
+| G3P3 hot and cold particle bins | 6 h at ~1 MW_th, refractory-lined | 2024 | TESTED | 800 C particle storage in a lined steel bin | [40] |
+| Sandia / Bridgers & Paxton commercial-scale particle silo design | 100 MWe-class, 6-12 h | 2020 | DESIGNED | cold-shell lined silo design and cost; thermal ratcheting analysis | [41] |
+| Siemens Gamesa ETES rock-bed thermal store, Hamburg | 130 MWh_th, 750 C, electrically charged | 2019 | OPERATED | a hot solid store at scale, charged by resistance heaters -- the winter heater path | [42] |
+| Hot-blast stoves and cement preheaters (industrial precedent) | decades, daily cycling, >1,000 C | 1900 | OPERATED | refractory linings cycling daily for decades; replaceable liners as O&M | [43] |
 
 *Further study recommended, on the pilot rung (3.0 years):* One full-size cold-shell silo on the pilot, cycled daily, liner inspected annually. *It settles:* thermal ratcheting and liner life as O&M.
 
@@ -694,8 +694,8 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| G3P3 skip hoist / bucket elevator | ~1 MW_th class, cold side | 2024 | TESTED | cold particle lift to receiver top | [39] |
-| Mining skip hoists and bulk-solids bucket elevators | thousands of t/h, ambient | 1950 | OPERATED | cold abrasive bulk lift is an industry, not a development | [43] |
+| G3P3 skip hoist / bucket elevator | ~1 MW_th class, cold side | 2024 | TESTED | cold particle lift to receiver top | [40] |
+| Mining skip hoists and bulk-solids bucket elevators | thousands of t/h, ambient | 1950 | OPERATED | cold abrasive bulk lift is an industry, not a development | [44] |
 
 *Further study recommended, on the pilot rung (0.0 years):* None beyond the pilot's own lift: cold abrasive lift is an industry. *It settles:* nothing open.
 
@@ -705,9 +705,9 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| Sandia / Solex / VPE moving packed-bed particle-to-sCO2 exchanger | 100 kW_th shell-and-plate prototype | 2020 | TESTED | ground tests with a 150 kW electric particle preheater to 500 C; overall U approaching 400 W/m2 K; 4-6x any other known particle/sCO2 exchanger; design point 800 C / 25 MPa untested | [44], [45] |
-| G3P3 integrated particle-to-sCO2 exchanger | ~1 MW_th | 2024 | TESTED | exchanger in the loop with receiver and storage | [39] |
-| NREL fluidised-bed particle heat exchanger (Ma et al.) | lab / design | 2017 | DESIGNED | the fluidised-bed alternative; particle-side heat transfer coefficients | [46] |
+| Sandia / Solex / VPE moving packed-bed particle-to-sCO2 exchanger | 100 kW_th shell-and-plate prototype | 2020 | TESTED | ground tests with a 150 kW electric particle preheater to 500 C; overall U approaching 400 W/m2 K; 4-6x any other known particle/sCO2 exchanger; design point 800 C / 25 MPa untested | [45], [46] |
+| G3P3 integrated particle-to-sCO2 exchanger | ~1 MW_th | 2024 | TESTED | exchanger in the loop with receiver and storage | [40] |
+| NREL fluidised-bed particle heat exchanger (Ma et al.) | lab / design | 2017 | DESIGNED | the fluidised-bed alternative; particle-side heat transfer coefficients | [47] |
 
 *Further study recommended, on the pilot rung (2.0 years):* A particle-to-sCO2 exchanger module at its design point, 800 C / 25 MPa, on the pilot. *It settles:* R-03: the 4-6x scale-up and the design-point pressure-temperature pair.
 
@@ -717,12 +717,12 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| STEP Demo (GTI / SwRI / GE), San Antonio | 10 MWe plant; 4 MWe grid-synchronised in simple recuperated cycle | 2024 | TESTED | first electricity May 2024; maximum simple-cycle power 4 MWe Sept 2024 at ~500 C (Phase 1 complete); Phase 2 reconfigures to recompression at 715 C from 2025 -- the 50 % RCBC has NOT yet run | [47], [48], [49] |
-| Sandia sCO2 recompression Brayton test loop | ~1 MWe class | 2012 | TESTED | recompression cycle operated; compressor near the critical point | [50] |
-| Echogen EPS100 | 8 MWe sCO2 waste-heat | 2014 | TESTED | a commercial sCO2 turbine-generator at MW scale (simple recuperated, ~300 C) | [51] |
-| China Huaneng / XTPRI 5 MWe sCO2 unit, Xi'an | 5 MWe, fossil-fired | 2021 | TESTED | put into service Dec 2021 after a 72 h trial; a 50 MWe demonstration planned -- second MW-class sCO2 unit, independent of the US programme | [52], [53] |
-| SCARABEUS CO2-blend cycle project (EU) | lab loops + design | 2019 | DESIGNED | CO2 + dopant blends to raise the critical point for hot-ambient dry cooling (R-03 note) | [54] |
-| NETL / SunShot sCO2 CSP system studies | design + TEA | 2015 | DESIGNED | sCO2 RCBC at ~50 % for 700 C CSP; the cycle value the chain carries | [55], [56] |
+| STEP Demo (GTI / SwRI / GE), San Antonio | 10 MWe plant; 4 MWe grid-synchronised in simple recuperated cycle | 2024 | TESTED | first electricity May 2024; maximum simple-cycle power 4 MWe Sept 2024 at ~500 C (Phase 1 complete); Phase 2 reconfigures to recompression at 715 C from 2025 -- the 50 % RCBC has NOT yet run | [48], [49], [50] |
+| Sandia sCO2 recompression Brayton test loop | ~1 MWe class | 2012 | TESTED | recompression cycle operated; compressor near the critical point | [51] |
+| Echogen EPS100 | 8 MWe sCO2 waste-heat | 2014 | TESTED | a commercial sCO2 turbine-generator at MW scale (simple recuperated, ~300 C) | [52] |
+| China Huaneng / XTPRI 5 MWe sCO2 unit, Xi'an | 5 MWe, fossil-fired | 2021 | TESTED | put into service Dec 2021 after a 72 h trial; a 50 MWe demonstration planned -- second MW-class sCO2 unit, independent of the US programme | [53], [54] |
+| SCARABEUS CO2-blend cycle project (EU) | lab loops + design | 2019 | DESIGNED | CO2 + dopant blends to raise the critical point for hot-ambient dry cooling (R-03 note) | [55] |
+| NETL / SunShot sCO2 CSP system studies | design + TEA | 2015 | DESIGNED | sCO2 RCBC at ~50 % for 700 C CSP; the cycle value the chain carries | [56], [57] |
 
 *Further study recommended, on the module rung (3.0 years):* STEP's 715 C recompression phase, then one 10-50 MWe unit on the first module. *It settles:* R-04: turbine, seals and bearings at 715 C; carburisation on the real loop.
 
@@ -732,11 +732,11 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| ASME Code Case 2702, Inconel 740H | 650-825 C pressure parts | 2011 | DESIGNED | the only age-hardened superalloy approved for welded creep-limited pressure parts | [57] |
-| US DOE / EPRI A-USC ComTest programme | 700 C steam components, full scale | 2015 | TESTED | 740H headers, piping and valves fabricated and tested for 760 C steam | [58], [59] |
-| ASME Code Case 3024, Haynes 282 | pressure parts, same class | 2021 | DESIGNED | the second source; base, cross-weld and all-weld qualification for superheaters, reheaters and steam pipe | [60], [61] |
-| ASME Section III Division 5, Inconel 617 | to 950 C, nuclear high-temperature | 2019 | DESIGNED | the fallback with the deepest temperature margin | [62] |
-| sCO2 corrosion / carburisation testing of Ni alloys | coupons, 700-750 C, 20-25 MPa, to ~10,000 h | 2016 | TESTED | carburisation slow but present; 100,000 h is extrapolated -- the residual in R-04 | [63] |
+| ASME Code Case 2702, Inconel 740H | 650-825 C pressure parts | 2011 | DESIGNED | the only age-hardened superalloy approved for welded creep-limited pressure parts | [58] |
+| US DOE / EPRI A-USC ComTest programme | 700 C steam components, full scale | 2015 | TESTED | 740H headers, piping and valves fabricated and tested for 760 C steam | [59], [60] |
+| ASME Code Case 3024, Haynes 282 | pressure parts, same class | 2021 | DESIGNED | the second source; base, cross-weld and all-weld qualification for superheaters, reheaters and steam pipe | [61], [62] |
+| ASME Section III Division 5, Inconel 617 | to 950 C, nuclear high-temperature | 2019 | DESIGNED | the fallback with the deepest temperature margin | [63] |
+| sCO2 corrosion / carburisation testing of Ni alloys | coupons, 700-750 C, 20-25 MPa, to ~10,000 h | 2016 | TESTED | carburisation slow but present; 100,000 h is extrapolated -- the residual in R-04 | [64] |
 
 *Further study recommended, on the pilot rung (3.0 years):* Coupon and component exposure in the pilot's CO2 loop to the longest hours the schedule allows. *It settles:* R-04/R-06 residual: carburisation at 100,000 h, by extrapolation from the longest real exposure.
 
@@ -746,9 +746,9 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| Noor Midelt I (EDF/Masdar/Green of Africa), Morocco | 800 MW CSP + PV hybrid, PV-charged salt storage via electric heaters | 2019 | DESIGNED | the first plant designed to heat thermal storage from PV -- PPA 2019, construction NOT started as of 2025; Midelt II and III re-awarded in 2024 as PV + batteries | [64], [65], [66] |
-| California utility PV fleet | >20 GW installed, Mojave single-axis | 2020 | OPERATED | the PV capacity factor band the chain carries | [67] |
-| Electric resistance heaters for high-temperature stores | MW-class, 750 C (ETES); salt heaters commercial | 2019 | OPERATED | resistance heating of a hot solid store at MW scale | [68], [69], [70] |
+| Noor Midelt I (EDF/Masdar/Green of Africa), Morocco | 800 MW CSP + PV hybrid, PV-charged salt storage via electric heaters | 2019 | DESIGNED | the first plant designed to heat thermal storage from PV -- PPA 2019, construction NOT started as of 2025; Midelt II and III re-awarded in 2024 as PV + batteries | [65], [66], [67] |
+| California utility PV fleet | >20 GW installed, Mojave single-axis | 2020 | OPERATED | the PV capacity factor band the chain carries | [68] |
+| Electric resistance heaters for high-temperature stores | MW-class, 750 C (ETES); salt heaters commercial | 2019 | OPERATED | resistance heating of a hot solid store at MW scale | [69], [70], [71] |
 
 *Further study recommended, on the pilot rung (0.5 years):* A PV-fed electric particle heater at MW scale on the pilot's cold-to-hot path (Midelt I, the only plant designed for PV-to-storage, has not been built). *It settles:* heater efficiency and control on particles rather than salt; winter dispatch is measured by the hourly model's hourly run.
 
@@ -758,8 +758,8 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| Air-cooled condensers at CSP plants (Ivanpah, Cerro Dominador, Noor III) | 100-400 MWe | 2014 | OPERATED | dry cooling in desert CSP is standard | [71] |
-| sCO2 dry-cooling studies (Sandia / NREL) | design | 2016 | DESIGNED | sCO2 needs ~1/6 the cooling airflow of steam; hot-ambient compressor-inlet penalty | [72] |
+| Air-cooled condensers at CSP plants (Ivanpah, Cerro Dominador, Noor III) | 100-400 MWe | 2014 | OPERATED | dry cooling in desert CSP is standard | [72] |
+| sCO2 dry-cooling studies (Sandia / NREL) | design | 2016 | DESIGNED | sCO2 needs ~1/6 the cooling airflow of steam; hot-ambient compressor-inlet penalty | [73] |
 
 *Further study recommended, on the module rung (1.0 years):* Compressor-inlet performance at 45 C on the first module's dry cooler. *It settles:* the cycle's 0.45-0.50 critical band; whether a CO2 blend is needed (R-03 note).
 
@@ -769,8 +769,8 @@ have more studies than are listed, never fewer.
 
 | study or plant | scale | year | status | what it settled | sources |
 |---|---|---|---|---|---|
-| DEWA Phase IV hybrid | CSP night + PV day, one site | 2023 | OPERATED | the architecture at 950 MW total | [73] |
-| Cerro Dominador hybrid | 110 MWe tower + 100 MWe PV | 2021 | OPERATED | CSP + PV hybrid dispatch record | [9] |
+| DEWA Phase IV hybrid | CSP night + PV day, one site | 2023 | OPERATED | the architecture at 950 MW total | [74] |
+| Cerro Dominador hybrid | 110 MWe tower + 100 MWe PV | 2021 | OPERATED | CSP + PV hybrid dispatch record | [10] |
 | the chain model / the hourly model (this work) | hourly model, mid and critical | 2026 | THIS WORK | night-sized field; PV direct; winter heaters; the critical case | this work |
 
 *Further study, on the first rung:* the plant run hour by hour at both cases (Section 7), which found the shortfall year-round
@@ -936,7 +936,7 @@ to each security, with the register:
 | revenue bond, contracted in-state offtake | 5.00 % | 141 (853) | 230 (1,387) |
 | unrated first-of-kind | 6.50 % | 162 (979) | 265 (1,600) |
 
-**The mechanism behind the tariff.** The household pays the bill above, an output of the balance, through the Authority registered as a load-serving entity in the community-choice form (PUC section 366.2), IOU delivery, generation sold at cost recovery [85].
+**The mechanism behind the tariff.** The household pays the bill above, an output of the balance, through the Authority registered as a load-serving entity in the community-choice form (PUC section 366.2), IOU delivery, generation sold at cost recovery [86].
 A free tariff is a subsidy paid by someone, and this program names no one to pay it.
 
 **Contingency, reserve and the downside.**
@@ -995,8 +995,8 @@ authority shortens it.
 
 **The module.** A 50,000 acre-foot-a-year seawater reverse-osmosis module on a retired coastal power-plant brownfield,
 reusing its intake channel and permitted outfall, state-owned on Title I's form. The unit capital is the built record
-escalated to the groundbreaking dollar: Carlsbad at $27,011 per AFY (mid) [80] and Huntington Beach as designed at
-$36,534 (critical) [81].
+escalated to the groundbreaking dollar: Carlsbad at $27,011 per AFY (mid) [81] and Huntington Beach as designed at
+$36,534 (critical) [82].
 
 | | mid | critical |
 |---|---|---|
@@ -1015,7 +1015,7 @@ $36,534 (critical) [81].
 | of which energy | 15% | 19% |
 | per household per year at 0.28 AF | 852 | 1,352 |
 
-Carlsbad delivers at $2,700–2,900 an acre-foot [80] and a district pays about $1,300 wholesale today.
+Carlsbad delivers at $2,700–2,900 an acre-foot [81] and a district pays about $1,300 wholesale today.
 Desalinated water is firm water and is priced as such; capital dominates the price, not energy.
 
 **The process decisions.**
@@ -1028,10 +1028,10 @@ Desalinated water is firm water and is priced as such; capital dominates the pri
   382 kt a year, 0.76 of the US magnesium-compounds market (1.27 at critical) from one module. Crystallising
   the brine costs 20–30 kWh per m³ of brine. Neither mineral is a revenue and neither is in the price. Chloride
   chemistry is excluded from every system on hazard grounds, which rules out magnesium metal.
-- **Brine through the outfall at Ocean Plan concentration** [79]. At 50% recovery the brine is 67 ppt, 33.5
+- **Brine through the outfall at Ocean Plan concentration** [80]. At 50% recovery the brine is 67 ppt, 33.5
   above ambient, against a limit of 2 ppt at the 100 m edge — a diffuser dilution of 17 : 1, which a retired plant's
   outfall must achieve without cooling water.
-- **Intake.** A screened open intake through the retired plant's channel, 1 mm wedge-wire at <= 0.5 ft/s (the Ocean Plan's alternative to subsurface intake), slant wells where per-site hydrogeology permits. Slant wells are site-specific and were the failure at Huntington Beach [81]; entrainment is
+- **Intake.** A screened open intake through the retired plant's channel, 1 mm wedge-wire at <= 0.5 ft/s (the Ocean Plan's alternative to subsurface intake), slant wells where per-site hydrogeology permits. Slant wells are site-specific and were the failure at Huntington Beach [82]; entrainment is
   non-zero and mitigated under the Ocean Plan, not eliminated.
 - **On-site power covers a tenth, not all.** A module draws 21–25 MW on average; the 80 / 50 acre site's PV makes
   2.8–1.5 MW, 13%–6% of it. Islanding is a battery for the intake, pretreatment and controls (3.2 MW), so the plant
@@ -1041,10 +1041,10 @@ Desalinated water is firm water and is priced as such; capital dominates the pri
 - **40 dBA at the boundary is bought, not assumed.** High-pressure pumps at 90–100 dBA at 1 m reach 40 dBA at
   316–1,000 m in the open; a full enclosure of 28–22 dB brings the boundary to 13–79 m, inside the brownfield, at
   $19–58 M a module, carried in the module's band.
-- **Employment.** At Carlsbad's staffing per plant [90], the adopted route's modules employ 601–664 permanently.
+- **Employment.** At Carlsbad's staffing per plant [91], the adopted route's modules employ 601–664 permanently.
 
-**The schedule.** Carlsbad was proposed in 1998, permitted in 2006 and delivered water in 2015, 17 years [80];
-Huntington Beach ran from 1998 to a 2022 denial [81]. Stated honestly, permitting of 5 years (mid) to 8 (critical,
+**The schedule.** Carlsbad was proposed in 1998, permitted in 2006 and delivered water in 2015, 17 years [81];
+Huntington Beach ran from 1998 to a 2022 denial [82]. Stated honestly, permitting of 5 years (mid) to 8 (critical,
 assumed from the record) and a 3-year build put first water at **2034–2037** from a 2026 start. Each year of delay
 escalates a module by $57–87 M.
 
@@ -1093,7 +1093,7 @@ the surplus, priced at nothing because it was worth nothing.
 
 **The takers.** The adopted route delivers 0.75–0.83 million acre-feet a year, year-round: summer irrigation on the Westside
 and winter recharge, where the San Joaquin Valley's groundwater overdraft is about 1.8–2.5 million acre-feet a year
-[82]. That is the match of supply to demand the joinder rests on, and it is a contract question: irrigation and
+[83]. That is the match of supply to demand the joinder rests on, and it is a contract question: irrigation and
 recharge districts under contract for firm water at three to five thousand dollars an acre-foot, which is what firm
 water costs.
 
@@ -1144,11 +1144,11 @@ The terms a node must meet:
 
 #### Mojave (Kramer Junction)
 
-35.01° N, 117.56° W. Annual direct-normal irradiance **2,799 kWh/m²/yr** (SOURCED: NREL TMY3 Daggett 7.67 kWh/m2/day [76]; band 2,700–2,900). One third
+35.01° N, 117.56° W. Annual direct-normal irradiance **2,799 kWh/m²/yr** (SOURCED: NREL TMY3 Daggett 7.67 kWh/m2/day [77]; band 2,700–2,900). One third
 of the fleet: 6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 6 / 10 towers,
 965 / 1,034 MW_AC of PV; land 15,120 / 22,113 acres on the adopted route; mirror washing 291 / 495 acre-feet a
 year from the program's own water; one 500 kV circuit at 1,197 / 1,197 MW peak injection. Seismic: the 0.75 g design target over a
-mapped MCE_R PGA of 0.45 / 0.50 g [83, 84] is 1.67× / 1.50× (a site study must confirm 1.5×).
+mapped MCE_R PGA of 0.45 / 0.50 g [84, 85] is 1.67× / 1.50× (a site study must confirm 1.5×).
 
 | term | mid | critical | note |
 |---|---|---|---|
@@ -1163,11 +1163,11 @@ Score 5.0 (mid) / 5.0 (critical). *First study:* land — title search and a fal
 
 #### Imperial (Desert Center)
 
-33.71° N, 115.40° W. Annual direct-normal irradiance **2,740 kWh/m²/yr** (ASSUMED: NSRDB map class 7.3-7.8 kWh/m2/day, mid 7.5 [76]; band 2,660–2,850). One third
+33.71° N, 115.40° W. Annual direct-normal irradiance **2,740 kWh/m²/yr** (ASSUMED: NSRDB map class 7.3-7.8 kWh/m2/day, mid 7.5 [77]; band 2,660–2,850). One third
 of the fleet: 6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 6 / 10 towers,
 965 / 1,034 MW_AC of PV; land 15,120 / 22,113 acres on the adopted route; mirror washing 291 / 495 acre-feet a
 year from the program's own water; one 500 kV circuit at 1,197 / 1,197 MW peak injection. Seismic: the 0.75 g design target over a
-mapped MCE_R PGA of 0.35 / 0.45 g [83, 84] is 2.14× / 1.67× (a site study must confirm 1.5×).
+mapped MCE_R PGA of 0.35 / 0.45 g [84, 85] is 2.14× / 1.67× (a site study must confirm 1.5×).
 
 | term | mid | critical | note |
 |---|---|---|---|
@@ -1182,11 +1182,11 @@ Score 4.5 (mid) / 4.5 (critical). *First study:* land — title search and a fal
 
 #### Central Valley (Westside)
 
-36.01° N, 119.96° W. Annual direct-normal irradiance **2,190 kWh/m²/yr** (SOURCED band: Westlands 5.5-6.5 kWh/m2/day, mid 6.0 [76]; band 2,010–2,370). One third
+36.01° N, 119.96° W. Annual direct-normal irradiance **2,190 kWh/m²/yr** (SOURCED band: Westlands 5.5-6.5 kWh/m2/day, mid 6.0 [77]; band 2,010–2,370). One third
 of the fleet: 6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 6 / 10 towers,
 965 / 1,034 MW_AC of PV; land 15,120 / 22,113 acres on the adopted route; mirror washing 291 / 495 acre-feet a
 year from the program's own water; one 500 kV circuit at 1,197 / 1,197 MW peak injection. Seismic: the 0.75 g design target over a
-mapped MCE_R PGA of 0.40 / 0.55 g [83, 84] is 1.88× / 1.36× (a site study must confirm 1.5×).
+mapped MCE_R PGA of 0.40 / 0.55 g [84, 85] is 1.88× / 1.36× (a site study must confirm 1.5×).
 
 | term | mid | critical | note |
 |---|---|---|---|
@@ -1357,7 +1357,7 @@ less, because a cleaner grid displaces less):
 | avoided as sized, million t/yr | 6.33 | 5.51 |
 | avoided with the load closed, million t/yr | 7.24 | 6.34 |
 
-**Employment.** From built plants per MW [90] — Crescent Dunes and Ivanpah for the permanent staff, Ivanpah's peak for
+**Employment.** From built plants per MW [91] — Crescent Dunes and Ivanpah for the permanent staff, Ivanpah's peak for
 construction — at the adopted route's block of 3,930 MWe and its 15 / 17 water modules:
 
 | | mid | critical |
@@ -1372,7 +1372,7 @@ block's net capacity on the adopted route, 3,616 / 3,537 MW, self-supplied by th
 **Water for the mirrors.** At Ivanpah's dry-cooled record (100 acre-feet a year on 2.6 million m²) the program's field on
 the adopted route needs 872 / 1,486 acre-feet a year, from Title II desalinated water.
 
-**Seismic.** The basis is ASCE 7 [83], site class and mapped MCE_R. The 0.75 g target clears the mapped PGA at every node
+**Seismic.** The basis is ASCE 7 [84], site class and mapped MCE_R. The 0.75 g target clears the mapped PGA at every node
 (Section 16.1); the mapped values are taken from the hazard record and the site study fixes them.
 
 **Nitrate.** No nitrate salt anywhere in Helios-3: the medium is sintered bauxite, with no freezing point, no
@@ -1385,7 +1385,7 @@ first module let as separate contracts. No contractor has delivered more than on
 United States, and the ladder buys the hours before the fleet.
 
 **The Authority.** A statutory public entity created by the Act on the pattern of the California Consumer Power and
-Conservation Financing Authority of 2001 [85], whose defunding by 2004 the Act acknowledges, registered as the
+Conservation Financing Authority of 2001 [86], whose defunding by 2004 the Act acknowledges, registered as the
 load-serving entity of Section 13 in the community-choice form. Emergency powers under the Government Code are cited
 only for what they do, which is to suspend regulatory statutes in a declared emergency; they issue no coastal permit
 and shorten no federal review.
@@ -1428,93 +1428,94 @@ are the assumptions that most move the result, and each is marked where it is us
 
 1. Torresol Energy
 2. Burgaleta et al., SolarPACES 2011
-3. SolarPACES 'What happened with Crescent Dunes'
-4. Wikipedia project page (reviewed 2026)
+3. In re Tonopah Solar Energy, LLC, No. 26-10060 (Bankr. D. Del., filed 2026-01-21), first-day declaration and sale order
+4. EIA Form 923, plant 57275
 5. DOE Loan Programs Office
-6. ACWA Power Tadawul statement 2024-03
-7. pv magazine 2024-03-25
-8. Hespress 2025 (reviewed 2026)
-9. Cerro Dominador
-10. SolarPACES project database
-11. DEWA
-12. ACWA Power
-13. CSPPLAZA
-14. NREL HelioCon (2022-)
-15. NRG/BrightSource
-16. CEC docket 07-AFC-5
-17. Ho et al., AIP Conf. Proc. 1734 (2016)
-18. J. Sol. Energy Eng. 141 (2019)
-19. OSTI 1364838, 1431441 (reviewed 2026)
-20. Sandia LabNews 2024-08-22
-21. Ho & Schroeder, AIP Conf. Proc. 2445 (2022) (reviewed 2026)
-22. Sandia LabNews 2025-02-06
-23. OSTI 2999325 (cold commissioning)
-24. DOE Gen3 Phase 3 (reviewed 2026)
-25. DLR Institute of Solar Research
-26. Ebert et al., ASME ES2018
-27. SolarPACES/HelioHeat (reviewed 2026)
-28. CSIRO 2023-10
-29. SolarPACES (FPR Energy) (reviewed 2026)
-30. KSU / Sandia collaboration
-31. Sandia Gen3 Roadmap / TEA (Ho et al. 2019-2021)
-32. Buck et al., J. Solar Energy Eng. 2002
-33. SOLGATE final report 2005
-34. Ho / Yellowhair, Sandia SAND (Gen3 windowed receiver)
-35. Siegel et al., J. Sol. Energy Eng. 137 (2015)
-36. Ho et al., OSTI 1431441
-37. Sandia 2016 review (reviewed 2026)
-38. CARBO Ceramics product data
-39. Sandia G3P3
-40. Sandia Gen3 storage design reports
-41. Siemens Gamesa ETES pilot (2019-2022)
-42. steel and cement industry practice
-43. bulk-solids handling practice
-44. Albrecht & Ho, Sandia (AIP Conf. Proc. 2020; Sandia 2022 performance evaluation)
-45. Sandia LabNews 2021-06 (reviewed 2026)
-46. Ma et al., NREL (2014-2020)
-47. GTI Energy STEP Demo Phase 1 milestone
-48. POWER magazine
-49. ASME GT2025 simple-cycle testing paper (reviewed 2026)
-50. Sandia SAND2012-9546 (Wright et al.)
-51. Echogen Power Systems
-52. SASAC 2021-12-23
-53. Energy (2023) startup study (reviewed 2026)
-54. EU H2020 SCARABEUS (2019-2023)
-55. DOE SunShot sCO2 (2012-2018)
-56. NETL
-57. ASME BPVC Code Case 2702 (2011)
-58. DOE/OCDO A-USC (2001-2021)
-59. EPRI
-60. ASME BPVC Code Cases Supplement 2 (2021)
-61. ORNL Pub140621 (reviewed 2026)
-62. ASME BPVC III-5 (2019 edition, Alloy 617)
-63. ORNL, NETL, Sandia coupon programmes
-64. SolarPACES (Midelt PV-to-storage)
-65. REN21 GSR 2025
-66. NS Energy (reviewed 2026)
-67. CEC / EIA installed capacity data
-68. Siemens Gamesa ETES
-69. Kraftblock
-70. Malta (design)
-71. plant records
-72. Sandia / NREL sCO2 CSP studies
-73. DEWA / ACWA Power
-74. U.S. Energy Information Administration. Electric Sales, Revenue, and Average Price, 2024 data: California residential consumption per customer and residential customer count.
-75. National Renewable Energy Laboratory. Annual Technology Baseline 2024: concentrating solar power, tower with 10 h storage, solar multiple 2.4 (the capital calibration anchor).
-76. National Renewable Energy Laboratory. National Solar Radiation Database and TMY3 station data (Daggett), and the NSRDB direct-normal irradiance classes for the Imperial and Westside nodes.
-77. California Independent System Operator, Department of Market Monitoring. 2024 Annual Report on Market Issues and Performance: average prices, evening-peak prices and negative-price hours.
-78. Turchi, C. S., et al. CSP Systems Analysis: Final Project Report, NREL/TP-5500-72716 (2019), and the System Advisor Model cost defaults from which the capital split is reconstructed.
-79. California State Water Resources Control Board. Water Quality Control Plan for Ocean Waters of California, 2015 desalination amendment: brine salinity at the mixing-zone edge and intake requirements.
-80. San Diego County Water Authority and Poseidon Water. Claude 'Bud' Lewis Carlsbad Desalination Plant: capital, delivered water price and permitting chronology (1998–2015).
-81. California Coastal Commission. Decision on the Poseidon Huntington Beach desalination project, May 2022, and the project's 2020 capital estimate.
-82. Public Policy Institute of California. Water and the Future of the San Joaquin Valley: groundwater overdraft under the Sustainable Groundwater Management Act.
-83. American Society of Civil Engineers. ASCE 7-22, Minimum Design Loads and Associated Criteria for Buildings and Other Structures: mapped risk-targeted maximum considered earthquake ground motion.
-84. California Geological Survey. Seismic hazard and tsunami inundation maps for the coastal and desert sites named.
-85. California Senate Bill 6X (2001), establishing the California Consumer Power and Conservation Financing Authority; Public Utilities Code section 366.2 (community choice aggregation); Government Code section 8571 (emergency suspension of regulatory statutes).
-86. California Public Resources Code section 25524.2: the moratorium on new nuclear fission plants.
-87. National Renewable Energy Laboratory, Annual Technology Baseline 2024 (geothermal); Fervo Energy, Cape Station development record; Southern California Edison and Google geothermal power purchase agreements.
-88. Tennessee Valley Authority, Clinch River small modular reactor cost estimates; Ontario Power Generation, Darlington New Nuclear Project cost disclosure.
-89. U.S. Department of Energy Loan Programs Office, Crescent Dunes project record; SolarPACES, 'What happened with Crescent Dunes' (2020).
-90. Operating staff and construction peak of Ivanpah and Crescent Dunes, from the plants' public records; Carlsbad plant staffing.
-91. California Department of Water Resources. Sites Reservoir cost and capacity; the Edmonston Pumping Plant lift and the San Luis (Gianelli) pumped-storage head.
+6. SolarPACES 'What happened with Crescent Dunes'
+7. ACWA Power Tadawul statement 2024-03
+8. pv magazine 2024-03-25
+9. Hespress 2025 (reviewed 2026)
+10. Cerro Dominador
+11. SolarPACES project database
+12. DEWA
+13. ACWA Power
+14. CSPPLAZA
+15. NREL HelioCon (2022-)
+16. NRG/BrightSource
+17. CEC docket 07-AFC-5
+18. Ho et al., AIP Conf. Proc. 1734 (2016)
+19. J. Sol. Energy Eng. 141 (2019)
+20. OSTI 1364838, 1431441 (reviewed 2026)
+21. Sandia LabNews 2024-08-22
+22. Ho & Schroeder, AIP Conf. Proc. 2445 (2022) (reviewed 2026)
+23. Sandia LabNews 2025-02-06
+24. OSTI 2999325 (cold commissioning)
+25. DOE Gen3 Phase 3 (reviewed 2026)
+26. DLR Institute of Solar Research
+27. Ebert et al., ASME ES2018
+28. SolarPACES/HelioHeat (reviewed 2026)
+29. CSIRO 2023-10
+30. SolarPACES (FPR Energy) (reviewed 2026)
+31. KSU / Sandia collaboration
+32. Sandia Gen3 Roadmap / TEA (Ho et al. 2019-2021)
+33. Buck et al., J. Solar Energy Eng. 2002
+34. SOLGATE final report 2005
+35. Ho / Yellowhair, Sandia SAND (Gen3 windowed receiver)
+36. Siegel et al., J. Sol. Energy Eng. 137 (2015)
+37. Ho et al., OSTI 1431441
+38. Sandia 2016 review (reviewed 2026)
+39. CARBO Ceramics product data
+40. Sandia G3P3
+41. Sandia Gen3 storage design reports
+42. Siemens Gamesa ETES pilot (2019-2022)
+43. steel and cement industry practice
+44. bulk-solids handling practice
+45. Albrecht & Ho, Sandia (AIP Conf. Proc. 2020; Sandia 2022 performance evaluation)
+46. Sandia LabNews 2021-06 (reviewed 2026)
+47. Ma et al., NREL (2014-2020)
+48. GTI Energy STEP Demo Phase 1 milestone
+49. POWER magazine
+50. ASME GT2025 simple-cycle testing paper (reviewed 2026)
+51. Sandia SAND2012-9546 (Wright et al.)
+52. Echogen Power Systems
+53. SASAC 2021-12-23
+54. Energy (2023) startup study (reviewed 2026)
+55. EU H2020 SCARABEUS (2019-2023)
+56. DOE SunShot sCO2 (2012-2018)
+57. NETL
+58. ASME BPVC Code Case 2702 (2011)
+59. DOE/OCDO A-USC (2001-2021)
+60. EPRI
+61. ASME BPVC Code Cases Supplement 2 (2021)
+62. ORNL Pub140621 (reviewed 2026)
+63. ASME BPVC III-5 (2019 edition, Alloy 617)
+64. ORNL, NETL, Sandia coupon programmes
+65. SolarPACES (Midelt PV-to-storage)
+66. REN21 GSR 2025
+67. NS Energy (reviewed 2026)
+68. CEC / EIA installed capacity data
+69. Siemens Gamesa ETES
+70. Kraftblock
+71. Malta (design)
+72. plant records
+73. Sandia / NREL sCO2 CSP studies
+74. DEWA / ACWA Power
+75. U.S. Energy Information Administration. Electric Sales, Revenue, and Average Price, 2024 data: California residential consumption per customer and residential customer count.
+76. National Renewable Energy Laboratory. Annual Technology Baseline 2024: concentrating solar power, tower with 10 h storage, solar multiple 2.4 (the capital calibration anchor).
+77. National Renewable Energy Laboratory. National Solar Radiation Database and TMY3 station data (Daggett), and the NSRDB direct-normal irradiance classes for the Imperial and Westside nodes.
+78. California Independent System Operator, Department of Market Monitoring. 2024 Annual Report on Market Issues and Performance: average prices, evening-peak prices and negative-price hours.
+79. Turchi, C. S., et al. CSP Systems Analysis: Final Project Report, NREL/TP-5500-72716 (2019), and the System Advisor Model cost defaults from which the capital split is reconstructed.
+80. California State Water Resources Control Board. Water Quality Control Plan for Ocean Waters of California, 2015 desalination amendment: brine salinity at the mixing-zone edge and intake requirements.
+81. San Diego County Water Authority and Poseidon Water. Claude 'Bud' Lewis Carlsbad Desalination Plant: capital, delivered water price and permitting chronology (1998–2015).
+82. California Coastal Commission. Decision on the Poseidon Huntington Beach desalination project, May 2022, and the project's 2020 capital estimate.
+83. Public Policy Institute of California. Water and the Future of the San Joaquin Valley: groundwater overdraft under the Sustainable Groundwater Management Act.
+84. American Society of Civil Engineers. ASCE 7-22, Minimum Design Loads and Associated Criteria for Buildings and Other Structures: mapped risk-targeted maximum considered earthquake ground motion.
+85. California Geological Survey. Seismic hazard and tsunami inundation maps for the coastal and desert sites named.
+86. California Senate Bill 6X (2001), establishing the California Consumer Power and Conservation Financing Authority; Public Utilities Code section 366.2 (community choice aggregation); Government Code section 8571 (emergency suspension of regulatory statutes).
+87. California Public Resources Code section 25524.2: the moratorium on new nuclear fission plants.
+88. National Renewable Energy Laboratory, Annual Technology Baseline 2024 (geothermal); Fervo Energy, Cape Station development record; Southern California Edison and Google geothermal power purchase agreements.
+89. Tennessee Valley Authority, Clinch River small modular reactor cost estimates; Ontario Power Generation, Darlington New Nuclear Project cost disclosure.
+90. U.S. Department of Energy Loan Programs Office, Crescent Dunes project record; SolarPACES, 'What happened with Crescent Dunes' (2020).
+91. Operating staff and construction peak of Ivanpah and Crescent Dunes, from the plants' public records; Carlsbad plant staffing.
+92. California Department of Water Resources. Sites Reservoir cost and capacity; the Edmonston Pumping Plant lift and the San Luis (Gianelli) pumped-storage head.
 

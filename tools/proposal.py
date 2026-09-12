@@ -1675,8 +1675,8 @@ def emit_pdf(md_text, path, base_dir, title, author="rendered by tools/proposal.
     from reportlab.lib.units import mm
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
-    from reportlab.platypus import (BaseDocTemplate, Frame, Image, KeepTogether, PageBreak, PageTemplate,
-                                    Paragraph, Spacer, Table, TableStyle)
+    from reportlab.platypus import (BaseDocTemplate, CondPageBreak, Frame, Image, KeepTogether, PageBreak,
+                                    PageTemplate, Paragraph, Spacer, Table, TableStyle)
     from reportlab.pdfbase.pdfmetrics import registerFontFamily
     for name, d, fn in (("Sans", FONT_DIR, "FreeSans.ttf"), ("Sans-Bold", FONT_DIR, "FreeSansBold.ttf"),
                         ("Sans-Italic", FONT_DIR, "FreeSansOblique.ttf"), ("Sans-BoldItalic", FONT_DIR, "FreeSansBoldOblique.ttf"),
@@ -1700,9 +1700,12 @@ def emit_pdf(md_text, path, base_dir, title, author="rendered by tools/proposal.
          4: ParagraphStyle("h4", parent=body, fontName="Sans-Bold", fontSize=9.4, leading=12.5, spaceBefore=7, spaceAfter=3, keepWithNext=1)}
     story, lines, i, para = [], md_text.split("\n"), 0, []
 
+    lead = ParagraphStyle("lead", parent=body, keepWithNext=1)     # a lead-in ending ":" stays with its table or list
+
     def flush():
         if para:
-            story.append(Paragraph(_pdf_markup(" ".join(para)), body))
+            text = " ".join(para)
+            story.append(Paragraph(_pdf_markup(text), lead if text.rstrip("*").endswith(":") else body))
             para.clear()
 
     def table(rows):
@@ -1726,6 +1729,7 @@ def emit_pdf(md_text, path, base_dir, title, author="rendered by tools/proposal.
             level = min(len(ln) - len(ln.lstrip("#")), 4)
             if level == 2 and story:
                 story.append(Spacer(1, 4))
+            story.append(CondPageBreak(45 * mm))          # a heading needs room beneath it or it moves to the next page
             story.append(Paragraph(_pdf_markup(ln.lstrip("#").strip()), h[level]))
         elif ln.startswith("![") and "](" in ln:
             flush()

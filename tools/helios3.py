@@ -212,9 +212,10 @@ REGISTER = [
     ("R-13", "No freezing point: no heat tracing, no drain-down, no hot-tank failure",
      "BENEFIT", "-", "BENEFIT", "BENEFIT", "-",
      "SOURCED (reviewed 2026-09-11): Crescent Dunes has had FOUR hot-salt "
-     "tank leaks (2016, 2022, 2023 ...), its hot tank is now derated from "
-     "~565 C to 455-480 C and its output constrained to ~55 MW, half of "
-     "design; Noor III's hot tank leaked in March 2024, the plant was offline "
+     "tank leaks (October 2016, March 2019, February 2022, February 2023), its "
+     "hot tank is now derated from ~565 C to 455-480 C and its output "
+     "constrained to ~55 MW, half of design, on the operator's own 2026 court "
+     "record; Noor III's hot tank leaked in March 2024, the plant was offline "
      "14 months, and it leaked again on return. Two of the three largest salt "
      "towers built have lost more than a year each to the hot tank. A silo of "
      "sand at ambient is a silo of sand -- and the salt-block FALLBACK "

@@ -27,7 +27,14 @@ CentRec is 2.5 MW_th, not 0.5; G3P3-USA's 2 MW_th receiver measured 80–90 %; S
 was measured at 0.3–0.7 MW/m² average with 50–200 °C per metre of drop; the particles' absorptance
 after 200 h is statistically unchanged, not 0.93; Haynes 282's code case is 3024 of 2021; and
 Midelt I, the only plant designed to heat storage from PV, has not started construction. Rows
-not so marked stand as compiled. Every row names its source so it can be checked, and a technology may have more
+not so marked stand as compiled. **The Crescent Dunes row was re-sourced on 2026-09-12** at the
+author's request, from a Wikipedia project page to the plant's own record — the operator's second
+Chapter 11 filing (In re Tonopah Solar Energy, LLC, No. 26-10060, Bankr. D. Del., filed 2026-01-21),
+EIA Form 923 for plant 57275, the DOE Loan Programs Office and SolarPACES — and the record corrected
+it: four leaks in October 2016, March 2019, February 2022 and February 2023; the hot tank at
+455–480 °C and ~55 MW since the 2023 root-cause analysis; 196 GWh in 2018 against a 500 GWh design;
+NV Energy's PPA terminated in October 2019 and month-to-month offtake since late 2020, not a
+night-only contract; the operator ACS throughout, not Vinci; the plant sold for $7 M in March 2026. Every row names its source so it can be checked, and a technology may have more
 studies than are listed, never fewer. A row found wrong is corrected in place with its source.
 
 Every row carries a status from a closed set: **OPERATED** (a plant that has run at the stated
