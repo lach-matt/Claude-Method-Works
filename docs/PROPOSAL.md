@@ -13,6 +13,11 @@ v0.2 Titles are the diff against v0.1, stated as documents; nothing rendered the
 one document, drew its figures from the instruments, or set the pitch beside it under a check that
 the short document cannot say what the long one does not.
 
+**Two editions.** This program renders the *working* edition, which names the instruments, the flaw register
+and the drafting history because it is the record of how the numbers were made. `tools/final.py`
+(`docs/FINAL.md`) renders the *final* edition for a reader — no version numbers, an author line, numbered
+sections, an abstract, a contents list, a bibliography, subject matter only — from the same gathered numbers.
+
 **Run it.** `python3 tools/proposal.py` renders `proposals/California_Sovereign_Infrastructure_v0.2.md`
 (the proposal), `proposals/Pitch_v0.2.md` (the pitch) and the twelve figures under
 `proposals/figures/`; `--docx` and `--pdf` also emit both as `.docx` and `.pdf` from the same rendered text
@@ -66,4 +71,4 @@ It computes nothing of its own beyond sums, ratios and the post-bond price. `fir
 are low / mid / high rather than mid / critical, so its high column stands where critical stands
 elsewhere and the table says so. The `.docx` and the `.pdf` are plain renderings of the markdown (headings,
 tables, bullets, pictures, bold and italic); the PDF is set by reportlab in FreeSans because LibreOffice
-cannot load a document in this environment, and carries no layout beyond that.
+cannot load a document in this environment, and carries no layout beyond that: no running header, a page number at the foot, every heading kept with what follows it and every figure with its caption (2026-09-12, on the author's note).

@@ -218,6 +218,16 @@ RA, washing, land and jobs are now at the adopted route (3,616 / 3,537 MW; 872 /
 1,901 / 1,214 and 601 / 664 permanent); the water with its lift is $3,280 / $5,234 an acre-foot at one head. The
 capital, the register price, the studies line, the schedule and the site rankings did not move.
 
+**The final edition (`tools/final.py`, `docs/FINAL.md`, 2026-09-12).** The author's notes for a final draft: no
+version numbers, the author line *Matthew Lach, Independent Researcher, 2026* with no render date, numbered
+sections, an abstract on the energy and fresh-water problem ahead of the summary, a contents list, a full
+bibliography, and prose that is subject matter only — no workshop matter. `California_Sovereign_Infrastructure.md`
+and `California_Sovereign_Infrastructure_Pitch.md` (with `.docx` and `.pdf`) are rendered from the same gathered
+numbers as the working edition, every data string scrubbed of model names, flaw references and dated attributions,
+every source numbered in a bibliography; the selftest holds that no workshop token survives, every citation resolves,
+every entry is cited, and the pitch carries no number the proposal does not. The v0.2 working edition stays beside
+it as the record of how the numbers were made.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release

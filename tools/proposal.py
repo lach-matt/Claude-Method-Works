@@ -232,7 +232,7 @@ def figures(g):
         ax.text(v + 0.1, i, f"{v:.2f}", va="center", fontsize=8, color=INK)
     ax.invert_yaxis()
     ax.xaxis.grid(True, color=GRID); ax.yaxis.grid(False)
-    _style(ax, "Salt-tower CSP as built, dollars per watt gross, against Title I's own capital (F-05)")
+    _style(ax, "Salt-tower CSP as built, dollars per watt gross, against the capital first specified")
     ax.set_xlabel("\\$/W gross", color=INK, fontsize=9)
     save(fig, "fig-01-built-record.png")
 
@@ -251,7 +251,7 @@ def figures(g):
     ax.set_yticks(list(y)); ax.set_yticklabels(labels, fontsize=8)
     ax.invert_yaxis(); ax.legend(frameon=False, fontsize=8, loc="lower right")
     ax.xaxis.grid(True, color=GRID); ax.yaxis.grid(False)
-    _style(ax, f"Every firm candidate sized to {g['e_req']:.1f} TWh, state-owned: required price (firmpower.py)")
+    _style(ax, f"Every firm candidate sized to {g['e_req']:.1f} TWh, state-owned: required price")
     ax.set_xlabel("\\$/MWh; the shaded band is the \\$80–120 firm-clean contract band; critical = the band's top", color=INK, fontsize=9)
     save(fig, "fig-02-candidates.png")
 
@@ -265,7 +265,7 @@ def figures(g):
     ax.bar([i + w for i in x], [g["design"]["critical"]["links"][k] for k in keys], w, color=CRIT, label="Helios-3 critical")
     ax.set_xticks(list(x)); ax.set_xticklabels(names, fontsize=9); ax.set_ylim(0, 1.22)
     ax.legend(frameon=False, fontsize=8, ncol=3, loc="upper left")
-    _style(ax, "The energy chain, link by link (cspchain.py; the critical receiver is receiver.py's)")
+    _style(ax, "The energy chain, link by link (the critical receiver is the receiver model's)")
     save(fig, "fig-03-chain.png")
 
     # 4. monthly: load, served, unserved at both cases
@@ -281,7 +281,7 @@ def figures(g):
         ax.set_xticks(list(m)); ax.set_xticklabels([HR.MONTHS[i][0] for i in m], fontsize=8)
         _style(ax, f"{c}: {r['served_frac']:.0%} served", "TWh")
         ax.legend(frameon=False, fontsize=8, loc="upper left")
-    fig.suptitle("The load by month and what the plant as sized serves (hourly3.py)", x=0.01, ha="left", fontsize=11)
+    fig.suptitle("The load by month and what the plant as sized serves", x=0.01, ha="left", fontsize=11)
     save(fig, "fig-04-monthly.png")
 
     # 5. the day: July and December load shape
@@ -306,7 +306,7 @@ def figures(g):
     ax.text(B.ADOPTED_SHARE + 0.01, ax.get_ylim()[1] * 0.92, "adopted: the even split", fontsize=8, color=INK)
     ax.set_xlabel("share of the shortfall the water is sized to return (0 = mirrors alone; 1 = all of it, with the larger field)", color=INK, fontsize=9)
     ax.legend(frameon=False, fontsize=8)
-    _style(ax, "Closing the load: the ladder over the water's share (both.py)", "\\$B on Title I's account")
+    _style(ax, "Closing the load: the ladder over the water's share", "\\$B on Title I's account")
     save(fig, "fig-06-ladder.png")
 
     # 7. the head sizes Title II
@@ -316,7 +316,7 @@ def figures(g):
         ax.plot([r["head"] for r in rows], [r["modules"] for r in rows], marker="o", color=col, linewidth=2, markersize=6, label=f"{c}, {J.pick(J.RESERVOIR_DAYS, c):.0f} days of holding")
     ax.set_xticks(list(J.HEAD_SCAN)); ax.set_xlabel("reservoir head, m", color=INK, fontsize=9)
     ax.legend(frameon=False, fontsize=8)
-    _style(ax, "Title II modules the adopted route needs, against the reservoir head (both.py sensitivity)", "50,000 AFY modules")
+    _style(ax, "Title II modules the adopted route needs, against the reservoir head", "50,000 AFY modules")
     save(fig, "fig-07-head.png")
 
     # 8. the price, step by step
@@ -381,7 +381,7 @@ def figures(g):
     ax.set_xticks(list(range(int(PD.START_YEAR), int(max(r[2] for r in g["tranches"]["critical"][0])) + 3, 2)))
     ax.xaxis.grid(True, color=GRID); ax.yaxis.grid(False)
     ax.legend(frameon=False, fontsize=8, loc="upper right")
-    _style(ax, "The schedule by tranche, mid and critical (titleone.py, predev.py)")
+    _style(ax, "The schedule by tranche, mid and critical")
     save(fig, "fig-11-schedule.png")
 
     # 12. the sites, scored
@@ -399,7 +399,7 @@ def figures(g):
     ax.barh([n.split(" (")[0] for n, _ in ranked], [r["score"] for _, r in ranked], color=[VIOLET if r["score"] > 0 else CRIT for _, r in ranked], height=0.55)
     ax.invert_yaxis(); ax.tick_params(axis="y", labelsize=8); ax.xaxis.grid(True, color=GRID); ax.yaxis.grid(False)
     _style(ax, "Title II coastal brownfields, seven terms")
-    fig.suptitle("The sites, scored: MET 1, CONDITIONAL 0.5, OPEN 0, FAIL −1 (sites.py)", x=0.01, ha="left", fontsize=11)
+    fig.suptitle("The sites, scored: MET 1, CONDITIONAL 0.5, OPEN 0, FAIL −1", x=0.01, ha="left", fontsize=11)
     save(fig, "fig-12-sites.png")
     return files
 
@@ -1600,6 +1600,7 @@ def emit_docx(md_text, path, base_dir):
             fp = os.path.join(base_dir, rel)
             if os.path.exists(fp):
                 doc.add_picture(fp, width=Inches(6.3))
+                doc.paragraphs[-1].paragraph_format.keep_with_next = True      # the picture stays with its caption
         elif ln.startswith("|"):
             flush()
             rows = []
@@ -1667,7 +1668,7 @@ def _esc(t):
     return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def emit_pdf(md_text, path, base_dir, title):
+def emit_pdf(md_text, path, base_dir, title, author="rendered by tools/proposal.py"):
     from reportlab.lib import colors
     from reportlab.lib.pagesizes import A4
     from reportlab.lib.styles import ParagraphStyle
@@ -1692,10 +1693,11 @@ def emit_pdf(md_text, path, base_dir, title):
     cap = ParagraphStyle("cap", parent=body, fontSize=8, leading=10.5, textColor=muted, spaceAfter=9)
     cell = ParagraphStyle("cell", parent=body, fontSize=6.9, leading=8.6, spaceAfter=0)
     cellh = ParagraphStyle("cellh", parent=cell, fontName="Sans-Bold")
-    h = {1: ParagraphStyle("h1", parent=body, fontName="Sans-Bold", fontSize=17, leading=21, spaceBefore=6, spaceAfter=10),
-         2: ParagraphStyle("h2", parent=body, fontName="Sans-Bold", fontSize=12.5, leading=16, spaceBefore=12, spaceAfter=6),
-         3: ParagraphStyle("h3", parent=body, fontName="Sans-Bold", fontSize=10.5, leading=14, spaceBefore=9, spaceAfter=4),
-         4: ParagraphStyle("h4", parent=body, fontName="Sans-Bold", fontSize=9.4, leading=12.5, spaceBefore=7, spaceAfter=3)}
+    # keepWithNext: a heading is never the last thing on a page -- platypus groups it with what follows
+    h = {1: ParagraphStyle("h1", parent=body, fontName="Sans-Bold", fontSize=17, leading=21, spaceBefore=6, spaceAfter=10, keepWithNext=1),
+         2: ParagraphStyle("h2", parent=body, fontName="Sans-Bold", fontSize=12.5, leading=16, spaceBefore=14, spaceAfter=6, keepWithNext=1),
+         3: ParagraphStyle("h3", parent=body, fontName="Sans-Bold", fontSize=10.5, leading=14, spaceBefore=9, spaceAfter=4, keepWithNext=1),
+         4: ParagraphStyle("h4", parent=body, fontName="Sans-Bold", fontSize=9.4, leading=12.5, spaceBefore=7, spaceAfter=3, keepWithNext=1)}
     story, lines, i, para = [], md_text.split("\n"), 0, []
 
     def flush():
@@ -1764,17 +1766,16 @@ def emit_pdf(md_text, path, base_dir, title):
         i += 1
     flush()
 
-    def on_page(canv, doc_):
+    def on_page(canv, doc_):                      # a page number at the foot and no running header
         canv.saveState()
         canv.setFont("Sans", 7.5)
         canv.setFillColor(muted)
-        canv.drawString(margin, Hh - 11 * mm, title)
         canv.drawRightString(W - margin, 10 * mm, str(doc_.page))
         canv.restoreState()
 
-    doc = BaseDocTemplate(path, pagesize=A4, leftMargin=margin, rightMargin=margin, topMargin=margin + 4 * mm,
-                          bottomMargin=margin, title=title, author="rendered by tools/proposal.py")
-    doc.addPageTemplates([PageTemplate(id="p", frames=[Frame(margin, margin, avail, Hh - 2 * margin - 4 * mm, id="f")], onPage=on_page)])
+    doc = BaseDocTemplate(path, pagesize=A4, leftMargin=margin, rightMargin=margin, topMargin=margin,
+                          bottomMargin=margin, title=title, author=author)
+    doc.addPageTemplates([PageTemplate(id="p", frames=[Frame(margin, margin, avail, Hh - 2 * margin, id="f")], onPage=on_page)])
     doc.build(story)
 
 
