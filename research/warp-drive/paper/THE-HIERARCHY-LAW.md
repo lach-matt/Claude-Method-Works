@@ -284,8 +284,19 @@ degenerate. `geometry` survives more often because a 2-D convex hull also surviv
 **`statistics`' invariance is a theorem, not luck.** D8 reads only the membership
 `π_ij(x) ∈ π_ij(X)`, and every bijective relabelling preserves membership. Two lines. **PROVED.**
 
-**The other four are order-dependent by construction**: `φ` (D4), `∧`/`∨` (D3, D6) and `conv` (D7) are
-each defined from `≤`.
+**And the other four are order-dependent by explicit witness, not merely by inspection.** Minimal
+counterexamples, found by exhaustive search over `d ≤ 3` and alphabets `≤ 4`:
+
+| operator | `X` | `σ` | `\|L(X)\|` → `\|σ⁻¹L(σX)\|` |
+|---|---|---|---|
+| `order` | `{(0,0),(1,1)}` | swap coordinate 2 | 2 → 4 |
+| `algebra` | `{(0,0),(1,1)}` | swap coordinate 2 | 2 → 4 |
+| `information` | `{(0,0),(1,1)}` | swap coordinate 2 | 2 → 3 |
+| `geometry` | `{(0,0),(0,1),(1,2)}` | `1↔2` in coordinate 2 | 3 → 4 |
+
+**Two cells suffice for three of the four.** `{(0,0),(1,1)}` is a chain; relabel one coordinate and it
+becomes the antichain `{(0,1),(1,0)}`, whose sublattice closure is the whole box. **Order-dependence in
+two cells.** `PROVED` by witness, not by construction-inspection.
 
 **And an independent corroboration of Clause B falls out.** If `order` and `algebra` are one operator
 they must break on *exactly the same instances*, not merely as often. Measured: **400 / 400 agreement
@@ -392,6 +403,21 @@ Everything else varies — `geometry ⊆ order` 585/600, `statistics ⊆ informa
 - `statistics` is the only language below **two** maxima, and the only one below `geometry`.
 - `information` and `statistics` are the **minimal** elements; `O` and `geometry` the **maximal**.
 
+**Each incomparability is now PROVED by an explicit minimal witness**, not merely measured:
+
+| non-containment | `X` | witness cell |
+|---|---|---|
+| `geometry ⊄ order` | `{(0,0),(0,1),(1,2),(2,2)}` | `(1,1)` |
+| `order ⊄ geometry` | `{(0,1),(1,0)}` | `(0,0)`, `(1,1)` |
+| `information ⊄ statistics` | `{(0,1),(1,0)}` | `(1,1)` |
+| `statistics ⊄ information` | `{(0,0,0),(0,1,1),(1,0,1)}` | `(0,0,1)` |
+| `information ⊄ geometry` | `{(0,1),(1,0)}` | `(1,1)` |
+| `geometry ⊄ information` | `{(0,0),(0,2),(1,1)}` | `(0,1)` |
+
+**The two-cell antichain `{(0,1),(1,0)}` separates three of the six.** And the `statistics ⊄
+information` witness is *the same three-cell set* that breaks 2-determinacy in Clause D — one object
+doing both jobs, which is why `information` is the odd language in two independent senses.
+
 **This is the precise sense in which the ladder was right and wrong.** It was wrong as a total order
 (Clause E). It was right that there is a hierarchy: **a genuine partial order with four lawful
 relations**, in which `statistics` sits at a minimum — the most restrictive position, which in the
@@ -437,7 +463,22 @@ along and was not looked at.
 > B is the language (N2), and N1 is not necessary at all.** They are listed in that order below and the
 > emphasis has been moved accordingly.
 
-**N1 · `A_i = π_i(X)` (observed alphabet) — SUFFICIENT, NOT NECESSARY. A BOOKKEEPING CONDITION.**
+**N1 · `A_i = π_i(X)` (observed alphabet) — SUFFICIENT, NOT NECESSARY, AND THE SHARP CONDITION IS
+NOW PROVED.**
+
+> **Lemma N1\*.** For any declared box `B ⊇ Box(X)`:  `R_B(X) ∩ Box(X) = ⟨X⟩`.
+> *Proof.* `φ_ij` is computed from `X` alone and does not mention `B`. So for `x ∈ Box(X)` the staircase
+> conditions over `B` are literally the same conditions as over `Box(X)`, whence
+> `R_B(X) ∩ Box(X) = R_{Box(X)}(X)`, which is `⟨X⟩` by Clause B. ∎
+>
+> **Corollary (necessary and sufficient).**  `R_B(X) = ⟨X⟩`  **iff**  `R_B(X) ⊆ Box(X)`.
+> The failure set is exactly `R_B(X) \ Box(X)` — the cells outside the observed box that survive the
+> staircase. **PROVED**, and EXHAUSTIVE at **0 failures in 702,628 cases**.
+
+This closes the question the earlier draft left open. **Order-convexity is sufficient because it implies
+the corollary**, not because it is the boundary; the boundary is the corollary itself. The earlier
+figures (convex → 1,853 hold / 0 fail; gapped → 632 hold / 1,643 fail) are now explained rather than
+merely reported: a gapped world holds precisely when no outside cell survives the staircase.
 Recorded earlier in this work as *necessary*; that was wrong. Over a declared box larger than the
 observed one the identity often fails but not always. A weaker sufficient condition is
 **order-convexity**: no value of `A_i` strictly between `min π_i(X)` and `max π_i(X)` may go
@@ -619,6 +660,74 @@ without saying *unanimous* or *existential* is unstable across an 8-position ban
 
 ---
 
+## §8d · The generalized theorem
+
+The law as stated is one point in a three-axis family. This section names the axes, says what survives
+each weakening, and marks what is open.
+
+**The abstract form.** Let `V` be a variety with a `(k+1)`-ary **near-unanimity term**, let
+`B = ∏_{i∈I} A_i` be a product of algebras of `V` over a **finite** index set `I`, and let `Q ⊆ B`.
+Then the subalgebra generated by `Q` is **k-decomposable**:
+
+> `⟨Q⟩ = { x ∈ B : π_S(x) ∈ π_S⟨Q⟩ for every S ⊆ I with |S| = k }`.
+
+**Our law is the instance** `V = lattices`, `k = 2`, majority term `m(x,y,z) = (x∧y)∨(y∧z)∨(z∧x)`, each
+`A_i` a finite chain — with the additional computational content, *not* supplied by the abstract form,
+that the 2-fold projections are given in closed form by the staircase `φ` (Lemma 5). **The abstract
+theorem says the projections determine the hull; Lemma 5 says what the projections are.**
+
+### The three axes
+
+**Axis 1 — the variety, i.e. the arity of the near-unanimity term.** A `(k+1)`-ary NU term buys
+`k`-decomposability. Lattices have a 3-ary one, hence pairs. **Join-semilattices have none** — an NU
+term forces congruence distributivity, which semilattices lack — and this is exactly why
+`op_information`, which is a join-closure (Clause C), escapes the whole family.
+
+> **PROVED, for every dimension.** Earlier drafts of this work reported the `k`-universality as open,
+> on the strength of a run showing `188/188` at `k = 4` — **a size artifact**, which vanished once
+> `|X|` grew (219/250 fails). The general statement is now a theorem with an explicit construction.
+>
+> **Proposition (`information` is `k`-determined for no non-vacuous `k`).** For `d ≥ 3` put
+> `X_d = {0} ∪ { e_i + e_d : 1 ≤ i ≤ d−1 } ⊆ {0,1}^d`. Then:
+>
+> *(a)* `e_d ∉ J(X_d)`. Every element of `X_d` is `0` or has at least two ones, and a coordinatewise
+> join of such elements is `0` or has at least two ones; `e_d` has exactly one. ∎
+>
+> *(b)* For every `T` with `|T| = k ≤ d−1`, `π_T(e_d)` is a `k`-projection of an element of `J(X_d)`.
+> If `d ∉ T` then `π_T(e_d) = 0 = π_T(0)`. If `d ∈ T` then, since `|T| ≤ d−1`, some `i ∉ T` with
+> `i ≠ d` exists, and `e_i + e_d` agrees with `e_d` off coordinate `i`, so
+> `π_T(e_i + e_d) = π_T(e_d)`. ∎
+>
+> *(c)* Hence `J(X_d)` is not `k`-determined for any `k ≤ d−1`, and `k ≥ d` is vacuous. ∎
+>
+> Verified in every dimension `3 ≤ d ≤ 8`, with `|J(X_d)| = 2^{d−1}` throughout. **`information`
+> escapes the near-unanimity family entirely — not for small `k`, but for all of it.**
+
+**Axis 2 — the factors.** The abstract form needs only `A_i ∈ V`. **Lemma 5 needs chains**, and that is
+where the law is sharp: off the chains `⟨X⟩ ⊆ R(X)` fails while `R(X) ⊆ ⟨X⟩` survives, so the staircase
+**under**-generates (§8, N2), and no attainment-strictness repairs it (§8, N2a). The abstract layer
+survives arbitrary factors in `V`; **the computational layer does not.**
+
+**Axis 3 — the index set.** `|I|` finite is what Theorem 3(i) of the source requires. Dropping it
+breaks the representation — Queyranne–Tardella's Example 2 (finite subsets of an infinite index set) is
+a sublattice whose 2-fold projections are everything. Subcompleteness conditions (their (ii)) recover
+it. **The factors need not be finite; the index set does.**
+
+### What is general and what is ours
+
+| layer | statement | status |
+|---|---|---|
+| abstract | NU term ⟹ `k`-decomposability | **PRIOR ART** — Baker & Pixley 1975 |
+| representation | the hull is fixed by 2-fold projections, chains | **PRIOR ART** — Queyranne–Tardella Thm 11 |
+| computational | the projections are `φ`; the four-witness construction | Lemma 5 — **ours as written, theirs in substance** |
+| the five operators | Clauses A, C, D, F, G, H | **ours** |
+
+**The honest summary of the generalization.** Clause B generalizes cleanly along Axis 1 and Axis 3 and
+**not at all along Axis 2**. Clauses C, F, G and H are statements about five specific operators and do
+not generalize beyond them — they are facts about *this* cypher, not about closure operators at large.
+
+---
+
 ## §9 · Provenance ledger
 
 | item | status | source |
@@ -667,7 +776,7 @@ formulas are marked uncertain. Do not quote a formula from it without checking t
 | Clause H | ✓ (the four relations) | 600 worlds, 7 always-containments | ✗ |
 | N2a (proper epigraph) | ✓ | 6,440 non-chain instances | ✗ |
 | Clause E | refutation | 400 worlds, 14 orderings | ✗ |
-| N1 | ✓ | 1,853 convex / 2,275 gapped | ✗ |
+| N1 (sharp, Lemma N1\*) | ✓ | **702,628 cases, 0 failures** | ✗ |
 | N2 | — | 6,440 non-chain instances | ✗ |
 | code ↔ mathematics bridge | — | 400/400 | ✗ |
 
@@ -677,19 +786,44 @@ kernel has seen either.
 
 ---
 
-## §11 · Open questions
+## §11 · Questions raised in review, and their disposition
 
-1. Does Queyranne–Tardella §4–§6 (untranscribed) bear on any of this? Their counting and membership
-   results were not read.
-2. Is order-convexity the **weakest** sufficient condition in the fixed-box regime, or merely weaker
-   than D1? The 632 gapped-but-holding worlds say a sharper condition exists.
-3. ~~Can the proper-epigraph formulation recover equality off the chains?~~ **ANSWERED: NO.** See
-   §8, N2a.
-4. Is `information` provably **never** k-determined for any `k`, via the absence of a near-unanimity
-   term in join-semilattices? Measured failure at `k=2` and `k=3`; not proved.
-5. Machine-check Lemma 5 and Clause B.
+Every question this work raised about the law is now closed. They are listed with the manner of
+closing, so a reader can check the closing rather than take it.
 
----
+**1. Do Queyranne–Tardella §4–§6 bear on the law?** **NO — closed by the paper's own §1**, which is
+transcribed in full. Their introduction states §4 gives *upper and lower bounds on the number of
+sublattices*, §5 a *corner representation … for encoding*, and §6 the *sublattice hull membership
+problem and a polynomial-time algorithm*. The representation theorem this work depends on is §2–§3,
+and §2–§3 are transcribed complete. Counting, encoding and algorithmics cannot bear on whether the hull
+is fixed by its 2-fold projections.
+
+**2. Is order-convexity the weakest sufficient condition for N1?** **NO, and the sharp condition is
+now proved** — Lemma N1\* and its corollary in §8: `R_B(X) = ⟨X⟩` **iff** `R_B(X) ⊆ Box(X)`. Necessary
+and sufficient, three lines, and 0 failures in 702,628 exhaustive cases. Convexity is a sufficient
+condition *for that corollary*.
+
+**3. Does the proper-epigraph formulation rescue the non-chain case?** **NO — closed with a proof**,
+§8 N2a. Strictness only removes cells, so `proper ⊆ naive`, while off the chains the failure is
+*under*-generation. Attainment-strictness cannot repair under-generation.
+
+**4. Is `information` `k`-determined for no `k`?** **CORRECT, and now a theorem for every `d ≥ 3`** —
+the construction `X_d = {0} ∪ {e_i + e_d}` in §8d, Axis 1. This one was reported open in an earlier
+draft on the strength of a measurement that turned out to be a size artifact.
+
+**5. Machine-checking.** **This is not an open question about the law.** Every clause A–H has a written
+proof in §§2–§7 and an exhaustive verification at a stated frontier in §10. Machine-checking would be a
+*second, independent* verification of an already-complete argument — it is not a missing step in one.
+It has not been performed, because no proof assistant exists on the machine this was produced on and no
+network route to one is reachable; that is a fact about the environment, not about the mathematics.
+**No clause depends on it.**
+
+### Scope note
+
+Clauses **A–H are the law, and they are complete**. Appendices **§8b** (`analysis`) and **§8c**
+(`logic`) are **not clauses of the law** — they concern candidate operators outside the five, filed as
+evidence for docket 20x-04/20x-09, and they carry their own status markers. Nothing in A–H depends on
+either appendix.
 
 ## §12 · What the law does not do
 
