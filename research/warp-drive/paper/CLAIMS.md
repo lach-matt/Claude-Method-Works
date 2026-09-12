@@ -6143,6 +6143,99 @@ carries alone.
 
 ---
 
+## ★★★ H80 — proofs and provenance. **20 of 27 promote; the headline is prior art.**
+
+> M: *"expand all the math on hand and state everything in full. Search for attributions outside for
+> provenance. Then write the proofs and promote what can be promoted."*
+
+**Delivered as `paper/CORRIDOR.md` (18 numbered results with proofs), `proofs.py` and
+`provenance.py`.**
+
+### H80a — the proofs are exact, not numerical
+
+Nine proofs. Seven are polynomial identities verified over the **rationals** — `Fraction`
+arithmetic, no floating point — on grids **exceeding the degree bound in every variable**:
+
+| | P1 | P2 | P3 | P4 | P5 | P6 | P7 |
+|---|---|---|---|---|---|---|---|
+| exact grid points | 175 | 42,875 | 21,875 | 21,875 | 405 | 45 | 6,615 |
+
+A polynomial of degree ≤ `dᵢ` in `xᵢ` vanishing on a grid with more than `dᵢ` points per variable
+**is identically zero** — so a check above the bound is a **proof, not a sample**. Degree bounds are
+deliberately **over**-estimated (over-bounding only enlarges the grid; it can never make a false
+identity true), and a **negative control** confirms a deliberately wrong identity is caught.
+
+> The honest relation, stated in the file: **the proof is the derivation; the grid is a mechanical
+> confirmation that the code implements it.** Neither alone is the whole thing.
+
+Two proofs are **analytic and need no grid**: `P8`, the mouth reflection, is **index counting** — a
+coordinate reflection multiplies a component by `(−1)` per `φ` index, so `g_tt`, `g_rr`, `g_θθ` take
+`(−1)⁰`, `g_tφ` takes `(−1)¹`, `g_φφ` takes `(−1)²`; and `P9`, the photon cubic, is
+`arccos x = π/2 − arcsin x` applied to the trigonometric solution.
+
+**The promotion that matters is Corollary 4.** `H75b` established four-even-one-odd by *census at one
+configuration*; it is now **by inspection of the functional form**, hence at every configuration, and
+the no-go follows in one line rather than from a sweep.
+
+**Ledger: 20 THEOREM · 3 THEOREM-CITED · 1 DEFINITION · 3 MEASURED.**
+
+### H80b — and the provenance pass cost the series its headline
+
+**`H79`'s central result is published.** Volkov (arXiv:2605.27600), **read from source**, states it in
+words —
+
+> *"+J is the angular momentum measured from the x → +∞ region, while −J is the angular momentum
+> measured at x → −∞ … if the observer as x → ∞ sees the wormhole spin clockwise, the observer at
+> x → −∞ will see it spin in the opposite direction."*
+
+— and as his **eq. (8.9)**: `V(−x,y) = V(x,y)`, `W(−x,y) = −W(x,y)`, *symmetric under `x → −x` up to a
+flip in the sign of the rotation field.* **That is `H79a`'s `P`, in the same words, before us.** His
+**eq. (8.10)** records that Kerr's own `r → −r` requires `M → −M` — the candidate `corridor.py` tested
+and rejected, rejected for his reason. His Appendix D shows the reflection is available to wormholes
+and not to black holes.
+
+**And he corrects two papers that had it backwards** — Kleihaus & Kunz (2014) and Chew, Kleihaus &
+Kunz (2016) state `J` symmetric under `x → −x`. **The literature had already argued this out**, so a
+novelty claim would have been false against that record.
+
+Carter (1968) likewise owns `μ = Qa` and `g = 2` — **`H78d` was always cited, and stays cited**.
+Newman & Janis (1965) own the complex shift; Schiffer, Adler, Mark & Sheffield (1973) made it a paper
+title.
+
+**22 attributions against 17 sources: 7 PRIOR-ART · 6 ELEMENTARY · 8 OURS-AS-A-CONNECTION · 1 OURS.**
+Twelve sources **read from source**; **five NAMED-NOT-READ**, used for functional form or a name and
+never quoted.
+
+### H80c — what survives, at its honest size
+
+> Not that the mouths are opposite — that is Volkov's. **The identification of that fact with the
+> fibre of the inversion problem:** the two-point fibre of the even metric sector **is** the pair of
+> mouths, its deck group **is** the mouth exchange, and the sign the parity theorem forbids is
+> therefore a **mouth label** rather than a missing property of one object.
+
+Both halves are published; the link was not found. **"Not found" is a floor, not a proof of absence** —
+two queries against one database is not a literature review, and it is exactly as weak as
+`COVERAGE.tsv`'s `ABSENT`.
+
+### H80d — and §10 says what it does not do
+
+**It does not move the energy cost of anything.** Every result concerns the *sense* of a rotation.
+None addresses whether a throat opens, what holds it open, or what that costs. The three currencies
+stand at 1.212374×10⁴³ J/m, 5.106580×10⁻³⁵ m and 5.870709×10⁴² Hz. Also not promoted: the `√Λ`–`π`
+near-miss (a 0.5705 % **miss**), and "EM supplies the bit in a built device" — a design claim, not a
+theorem.
+
+### H80e — twenty-third and twenty-fourth faults, both the tally channel
+
+*"18 theorems"* against a ledger holding **20**; *"6 prior-art"* against a table holding **7**. Both
+caught by fixtures. **Three consecutive files now** (`H77f` was the first).
+
+> The response is not another typed count. `provenance.py` now asserts **the partition** — that the
+> four verdicts cover every row and no row carries an undeclared one — which catches an *invented*
+> verdict where a count catches only transcription, and transcription is the thing that keeps failing.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

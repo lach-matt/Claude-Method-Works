@@ -7971,6 +7971,72 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `proofs.py`, `provenance.py`, `paper/CORRIDOR.md` — 20 of 27 promote, and the headline is prior art.
+
+> M: *"expand all the math on hand and state everything in full. Search for attributions outside for
+> provenance. Then write the proofs and promote what can be promoted."*
+
+**THE PROOFS ARE EXACT, NOT NUMERICAL.** Nine proofs; seven are polynomial identities verified over the
+**rationals** — `Fraction` arithmetic, no floating point — on grids **exceeding the degree bound in
+every variable**: 175, 42,875, 21,875, 21,875, 405, 45 and 6,615 points. A polynomial of degree ≤ `dᵢ`
+in `xᵢ` vanishing on a grid with more than `dᵢ` points per variable **is identically zero**, so a check
+above the bound is **a proof and not a sample**. Bounds are deliberately **over**-estimated, and a
+**negative control** confirms a wrong identity is caught.
+
+> The honest relation, stated in the file: **the proof is the derivation; the grid is a mechanical
+> confirmation that the code implements it.**
+
+Two proofs are analytic and need no grid — the mouth reflection is **index counting** (`(−1)` per `φ`
+index), and the photon cubic is `arccos x = π/2 − arcsin x`. **The promotion that matters:** `cube.py`
+established four-even-one-odd by *census at one configuration*; it is now **by inspection of the
+functional form**, hence everywhere, with the no-go in one line.
+
+**Ledger: 20 THEOREM · 3 THEOREM-CITED · 1 DEFINITION · 3 MEASURED.**
+
+**AND THE PROVENANCE PASS COST THE SERIES ITS HEADLINE**, which is what such a pass is for.
+`corridor.py`'s central result **is published**. Volkov (arXiv:2605.27600), **read from source**:
+
+> *"+J is the angular momentum measured from the x → +∞ region, while −J is the angular momentum
+> measured at x → −∞ … if the observer as x → ∞ sees the wormhole spin clockwise, the observer at
+> x → −∞ will see it spin in the opposite direction."*
+
+and his **eq. (8.9)** `V(−x,y) = V(x,y)`, `W(−x,y) = −W(x,y)` — **`corridor.py`'s `P`, in the same
+words, before us.** His **(8.10)** records that Kerr's `r → −r` needs `M → −M`: the candidate this
+project tested and rejected, rejected for his reason. **And he corrects two papers that had it
+backwards** (Kleihaus & Kunz 2014; Chew, Kleihaus & Kunz 2016). **The literature had already argued it
+out.**
+
+Carter (1968) owns `μ = Qa` and `g = 2` — always cited here, and stays cited. Newman & Janis (1965) own
+the complex shift.
+
+**22 attributions, 17 sources: 7 PRIOR-ART · 6 ELEMENTARY · 8 OURS-AS-A-CONNECTION · 1 OURS.** Twelve
+read from source; **five NAMED-NOT-READ**, used for functional form or a name and never quoted.
+
+**WHAT SURVIVES, AT ITS HONEST SIZE:**
+
+> Not that the mouths are opposite — that is Volkov's. **The identification of that fact with the fibre
+> of the inversion problem**: the two-point fibre of the even sector **is** the pair of mouths, its deck
+> group **is** the mouth exchange, and the forbidden sign is a **mouth label**.
+
+Both halves published; the link not found — and **"not found" is a floor, not a proof of absence.**
+
+**`paper/CORRIDOR.md` states all of it in full** — 18 numbered results with proofs, and a §10 that says
+what it does *not* do rather than leaving it inferred: **it does not move the energy cost of anything.**
+The three currencies stand at 1.212374×10⁴³ J/m, 5.106580×10⁻³⁵ m and 5.870709×10⁴² Hz.
+
+**TWENTY-THIRD AND TWENTY-FOURTH FAULTS, BOTH THE TALLY CHANNEL, BOTH CAUGHT BY FIXTURES** — "18
+theorems" against 20, "6 prior-art" against 7. **Three consecutive files.** The response is not another
+typed count: `provenance.py` now asserts **the partition**, which catches an *invented* verdict where a
+count catches only transcription.
+
+### Seated
+- `proofs.py`, `provenance.py`, `paper/CORRIDOR.md` — new. `index3.py` — **650 findings**, 16 occupied
+  cells, `E(X) = 0`. `paper/CLAIMS.md` — **H80**. `corridor.py` — **demoted here, file unchanged**.
+  `modulus.py` — **corrected here, file unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `corridor.py` — the parity theorem *is* the relation between the two mouths.
 
 > M: *"The parity theorem is the iff inversion state relation between both end points of the corridor."*
