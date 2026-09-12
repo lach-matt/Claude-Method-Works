@@ -204,6 +204,13 @@ module**. The schedule opens with tranche zero (2027 to the field start), the fi
 gating study, and at critical the whole ladder slides two years. Register price $126 / $205, water
 $3,044 / $4,830 per acre-foot.
 
+**The complete proposal and the pitch (`tools/proposal.py`, `docs/PROPOSAL.md`, 2026-09-12).** The author asked
+for the whole proposal in one document, every item expanded, each location addressed in full, figures, tables and
+cited studies, with a two-to-three page bullet pitch beside it. `California_Sovereign_Infrastructure_v0.2.md`
+(twenty-one sections, twelve figures under `figures/`) and `Pitch_v0.2.md` are rendered from the instruments, both
+emitted as `.docx` too, and the selftest holds that the pitch carries no number the proposal does not. The three
+Titles stay as the diff against v0.1; the proposal is the whole.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release
