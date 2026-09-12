@@ -7971,6 +7971,49 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `selfindex.py` — the chain, the budget, and the cypher run on itself.
+
+**Three measurable claims, three negatives. The fourth is declined on a measurement.**
+
+**The chain has no direction.** For `order → algebra → geometry → statistics` to mean anything, the order of
+application must matter. **All three of its own links COMMUTE on every seed.** The hierarchy does have
+exactly one directed pair — `information` vs `statistics`, 9 of 16 seeds — **but it is not in the chain, and
+`information` is not in the chain at all.** *The one place the hierarchy has a direction is the one place
+the chain does not go.* A ladder whose every rung commutes is a set. (Negative control: the directed pair
+exists, so commuting is not vacuous.)
+
+**Encodability is not decidability, and the cypher shows it itself.** Any *finite string* encodes to binary
+— that is not being *determined by* an operator on binary. `op_algebra` carries a budget and **returns
+`None`**: measured, the same index that closes at budget 200000 and 200 **goes SILENT at 10.** And every
+operator enumerates a finite `ambient()` — 288 cells, and 48 for the language box. **A law that holds
+because its domain is finite is not a law about mathematics.**
+
+**Run on itself, the hierarchy fails its own test.** An index whose cells are the seven roster-1173
+languages, described by the corpus's own admission properties:
+
+> **Seven languages, five cells** — `algebra`, `geometry` and `information` collapse onto `(1,1,1,1,1)`,
+> indistinguishable under the criteria that admit them. And **it does not close in any language that
+> speaks**: `order 5 · algebra 5 · geometry 2 · information 1 · statistics 1`, over a 48-cell box holding 5.
+> *"K.langclose holds: languages disagree and E > 0."*
+
+Negative control: the same operators close the energy-condition family at `E = 0`, so the failure is this
+index's, not the tools'. The coordinates are a choice and it is carried.
+
+**The multiverse claim is declined — on a measurement, not a preference.** `adjudicate.py` ran the closure
+against the field equations and **it certified a family excluding a published condition**, at `E = 0` in all
+five languages. **A criterion that certified a false family is not a candidate for a cosmic constant.**
+
+What survives: every language here is a closure operator and membership is granted iff it returns a binary
+— **true, proved, and true by the admission criterion.** A theorem about a construction of ours. **The
+distance from that to a multiverse constant is the whole of the claim.**
+
+### Seated
+- `selfindex.py` — new. `index3.py` — **711 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H100**. `alpha.py`, `adjudicate.py`, `revoke.py`, `licensed.py` — **read here, unchanged**.
+
+---
+
+
 ## `adjudicate.py` — the cypher against the field equations. M's protocol, run.
 
 > M: *"The proof is provided by verifying answers given by the cypher against the outputs of the applied

@@ -7849,6 +7849,107 @@ declined and still decline. **But the first is real, it is proved, and M was rig
 
 ---
 
+### H100a — every link in the chain commutes, so it is a set and not a ladder
+
+> M: *"…which is determined by its statistical position, which is determined by the geometry, which is the
+> shape of the algebra, which is the expression of the order, which is the organization of binary."*
+
+For `order → algebra → geometry → statistics` to mean anything, applying one language then another must
+differ from applying them the other way round. **Measured:**
+
+| link | result |
+|---|---|
+| order → algebra | **COMMUTES** on every seed |
+| algebra → geometry | **COMMUTES** on every seed |
+| geometry → statistics | **COMMUTES** on every seed |
+
+**All three of the chain's own links are order-independent.** The hierarchy *does* contain exactly one
+directed pair — `information` against `statistics`, disagreeing on 9 of 16 seeds — **but it is not a link
+in the chain, and `information` does not appear in the chain at all.**
+
+> **The one place the hierarchy has a direction is the one place the chain does not go.** A ladder whose
+> every rung commutes is not a ladder; it is a set.
+
+**Negative control:** the directed pair exists, so commuting is not vacuously true and the chain's links
+failing it is a finding, not an empty pass.
+
+### H100b — encodability is not decidability, and the law has a budget
+
+*"Anything stated in a mathematical language can be translated to binary"* is nearly a theorem — any
+**finite string** over a finite alphabet encodes to binary — and it does not carry the weight placed on it.
+**Being written in binary is not being determined by an operator on binary.**
+
+**The cypher exhibits the gap in its own source.** `op_algebra`:
+
+```python
+budget = opts.get("algebra_budget", 20000)
+if len(S) > budget:
+    return None, f"sublattice closure exceeded {budget} cells; ..."
+```
+
+**It returns `None`. It goes SILENT.** Measured: the same index that closes at budget 200000 *and* at
+budget 200 **goes silent at budget 10.**
+
+> **The closure law is not universal even inside the cypher** — it is bounded by a parameter, and past it
+> the language stops answering.
+
+And every operator enumerates `ix.ambient()` exhaustively, a **finite** product: 288 cells for the
+energy-condition box, 48 for the language box. **The law holds on these indices because they are finite,
+and a law that holds because its domain is finite is not a law about mathematics.**
+
+### H100c — run on itself, the hierarchy fails its own test
+
+> M: *"If the index has order, the progression through it is an algebraic expression, which means the index
+> has a geometric shape, which means it has statistical positions…"*
+
+**Testable, and tested.** An index was built whose **cells are the seven languages of roster 1173**,
+described by the properties the corpus itself uses to admit them — has an operator, returns a binary,
+PINNED/ADOPTED/DECLARED, declared operator-bearing, speaks on the energy-condition index — and handed to
+the cypher.
+
+**Two results.**
+
+**Seven languages give five distinct cells.** `algebra`, `geometry` and `information` land on the same cell
+`(1,1,1,1,1)` — **three of the seven are indistinguishable under the corpus's own admission criteria.**
+
+**And the self-index does not close, in any language that can speak:**
+
+| order | algebra | geometry | information | statistics |
+|---|---|---|---|---|
+| E = 5 | E = 5 | E = 2 | E = 1 | E = 1 |
+
+over a 48-cell box holding 5 cells. The cypher's own line: *"K.langclose holds: **languages disagree and
+E > 0**."* **Not one language closes it**, and the two PINNED languages are the worst.
+
+> **Run on itself, the hierarchy fails its own test.**
+
+**Negative control:** the same five operators close the energy-condition family at `E = 0`, so the failure
+is a property of *this* index, not of the tools. **The coordinates are a choice, carried not hidden** — a
+different description might close; what is measured is that under the description the corpus uses to decide
+membership, it does not.
+
+### H100d — the multiverse claim, declined on a measurement
+
+> M: *"…this suggests the hierarchy law of mathematical languages is the only multiverse constant."*
+
+**Declined — and not on unfalsifiability.** It is declined on something nearer to hand, measured three
+commits earlier: `H99` ran the closure against the field equations and **the closure certified a family
+that excludes a published energy condition** — the 192, at `E = 0`, in all five languages, wrongly, with
+Kontou–Sanders eq. (86) sitting outside it.
+
+> **A criterion that certified a false family is not a candidate for a cosmic constant.** That is not a
+> philosophical objection. It is the tree's own most recent measurement, and it points the other way.
+
+**What survives is what already survived, and it is not small:** every language in this hierarchy is a
+closure operator, and membership is granted iff the language returns a binary — **true, proved, and true by
+the admission criterion**, which makes it a theorem about a construction of ours. **The distance from that
+to a multiverse constant is the whole of the claim.**
+
+Four measurable clauses have now been put to this hierarchy across `H96`, `H99` and here. **Three came back
+negative, and the one that came back positive was true by construction.**
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
