@@ -5538,6 +5538,93 @@ rate across this session is not falling.**
 
 ---
 
+## ★★★ H74 — weave. **The cross term is a closed form in the other two, and the one bit it loses is the direction of travel.**
+
+> M: *"The time thread only measures and places in time, the spatial index is not introduced, but a
+> coordinate requires dimension so geometry is what moves through time. The spatial thread does not
+> consider time so it must carry the time in the form of light. The thread that carries both requires
+> only those two."*
+
+**Four clauses. All four land, one is sharper than stated, and the fourth is an exact closed form this
+tree did not have.**
+
+### H74a — clause two is a dimensional fact, not an interpretation
+
+| thread | component | enters as | dimension |
+|---|---|---|---|
+| TIME | `g_tt` | an endpoint ratio, `1 + z = e^{ΔΦ}` | **dimensionless** — a ratio of clock rates, never a length |
+| SPACE | `g_rr` | a line integral, `∫dr/√f` | **dimensionless** — needs `dr` to become a length |
+| INTERSECTION | `g_tφ` | the cross term, frame dragging | **dimensionless** |
+
+**Every metric component is dimensionless. The dimension lives in the coordinate**, and `c` is the only
+dimensionful bridge in the structure. So the time thread cannot place anything in space and the space
+thread cannot place anything in time. *"A coordinate requires dimension, so geometry is what moves through
+it"* is how the object is built.
+
+### H74b — clause four is exact
+
+> `M = r(1 + g_tt)/2` · `a² = r²[1/g_rr + g_tt]` · **`g_tφ² = r²(1 + g_tt)²(1/g_rr + g_tt)`**
+
+| M | a | r | closed form | direct | diff |
+|---|---|---|---|---|---|
+| 1.00 | 0.50 | 4.00 | 0.062500000 | 0.062500000 | 0.0×10⁰ |
+| 1.00 | 0.99 | 3.00 | 0.435600000 | 0.435600000 | −5.6×10⁻¹⁷ |
+| 2.00 | 1.50 | 10.00 | 0.360000000 | 0.360000000 | 1.3×10⁻¹⁵ |
+| 0.30 | 0.20 | 1.50 | 0.006400000 | 0.006400000 | −4.3×10⁻¹⁷ |
+| 1.00 | −0.70 | 5.00 | 0.078400000 | 0.078400000 | 2.8×10⁻¹⁶ |
+| 5.00 | 4.90 | 12.00 | 16.673611111 | 16.673611111 | 1.4×10⁻¹⁴ |
+
+**Exact to 1.4×10⁻¹⁴** across `M` 0.3–5, `a` −0.7–4.9, `r` 1.5–12. **The thread that carries both requires
+only those two.**
+
+### H74c — clause three is right and sharper than stated
+
+`ds² = 0` gives `−g_tt dt² + g_rr dr² = 0`, so **`dr/dt = √(−g_tt/g_rr)`** — reproducing `axis.py`'s
+coordinate speed `1 − 2M/r` to twelve places at `r/M` = 2.5, 3, 6, 20, 10⁴.
+
+> **Light is not carried *by* the space thread. Light *is* the ratio of the two threads.**
+
+A correction to the clause, not a refutation: M is right that light is what puts time into a spatial
+description, and wrong that one thread does it alone. **It takes both to make one.**
+
+### H74d — so the threads combine two ways, and each way is one of the clauses
+
+> **Their ratio is light** — `dr/dt = √(−g_tt/g_rr)` — **no `r` in it.**
+> **Their product is the intersection** — `g_tφ² = r²(…)` — **an explicit `r²`.**
+
+**The coordinate appears in the second and not the first**, which is clause two landing exactly where M put
+it: light needs no dimension and the intersection does, so **the thread that carries both is the one that
+needs the coordinate.** Two clauses that read as separate assertions are the two ways one pair of objects
+can be combined.
+
+### H74e — and the closed form returns a square. One bit is gone, and it is the one that matters.
+
+| | `g_tt` | `g_rr` | `g_tφ` |
+|---|---|---|---|
+| `a = +0.70` | −0.600000000000 | 1.613944480310 | **−0.280000000000** |
+| `a = −0.70` | −0.600000000000 | 1.613944480310 | **+0.280000000000** |
+
+**Byte-identical inputs, opposite outputs.** The sign of `a` — the *direction* of frame dragging — is not
+recoverable from the other two threads at any precision, because only `a²` enters them. `threads.py`
+measured this from the physics side as sign-blindness; here it is a **determinacy** statement from the
+algebra side, and the two agree.
+
+> **And that bit is the one thing a corridor would need. A direction of travel is a sign.**
+>
+> Everything about the intersection thread is derivable from the time and space threads **except the only
+> thing that says which way you go** — which is one more thing a construction has to *supply* rather than
+> read off.
+
+### H74f — scope, stated rather than assumed
+
+The recovery holds **within the Kerr family only**, where two parameters fix every component. **For a
+general stationary axisymmetric metric `g_tφ` is an independent function and none of H74b follows.** M's
+clause is true of the object this project actually studies and is *not* a theorem about stationary metrics
+in general — claiming otherwise would be the scope slip this session has already made twice, in
+`certify.py`'s biconditional and in the Morris–Thorne validation.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
