@@ -6758,6 +6758,87 @@ throat at all — which is **H85f**'s unresolved sign question.
 
 ---
 
+## ★★★ H87 — the field equations. **No source pays a mass bill, and one of our own walls doesn't exist.**
+
+> M: *"I think their math is right, but their conjecture is wrong. We have to use field equations as well
+> to run our numbers … Can we hook this thing up to a nuclear and utilize the reactor's entire output?"*
+
+### H87a — the reactor is closed by a theorem, not a number
+
+> **Every energy source converts mass at efficiency ≤ 1, and the bill is stated as a mass.**
+
+A reactor does not *make* energy, it *converts mass*, so `E = mc²` makes the fuel requirement **at best
+equal to the bill itself**. Asking what produces the power cannot help — the answer would have to exceed
+unit efficiency. Verified as an identity: perfect-conversion fuel equals `H85`'s mass to 10⁻¹², and `H82`'s
+rate to 10⁻¹².
+
+| source *(RECALLED)* | seconds | **universe ages** |
+|---|---|---|
+| one large reactor, 3 GW thermal | 3.0740×10³⁴ | **7.0587×10¹⁶** |
+| every reactor on Earth, 1.2 TW | 7.6851×10³¹ | 1.7647×10¹⁴ |
+| world primary energy | 4.6940×10³⁰ | 1.0779×10¹³ |
+
+**A 3 GW reactor running every second since the Big Bang would have delivered 1.3065×10²⁷ J. The bill is
+9.2221×10⁴³ J.**
+
+| conversion | fuel | Earth masses |
+|---|---|---|
+| perfect, matter–antimatter | 1.0261×10²⁷ kg | **171.81** |
+| U-235 fission, 0.0914 % | 1.1231×10³⁰ kg | 1.8805×10⁵ |
+| D-T fusion, ~0.4 % | 2.5653×10²⁹ kg | 4.2953×10⁴ |
+
+> **A bill in mass cannot be paid by finding a better converter of mass.** Permanently closed, and not by a
+> magnitude.
+
+### H87b — and the field equations find a fault in *our* work, not the literature's
+
+The Schwinger rate depends on the **invariant** electric field, built from `S = E² − c²B²` and `P = E·(cB)`
+(Page eq. 22) — **not on |B|**.
+
+| configuration | S | P | invariant E | rate |
+|---|---|---|---|---|
+| pure electric, at `E_S` | 1.75×10³⁶ | 0 | 1.323285×10¹⁸ | 4.32×10⁻² |
+| **pure magnetic, at `B_QED`** | −1.75×10³⁶ | 0 | **0.000000** | **0** |
+| **pure magnetic, ×10⁹ `B_QED`** | −1.75×10⁵⁴ | 0 | **0.000000** | **0** |
+| plane wave, `E = cB` | 0 | 0 | 0 | 0 |
+| counter-prop (Page) | −1.73×10³⁶ | 0 | 0 | 0 |
+| parallel E and B | 0 | 1.75×10³⁶ | 1.323285×10¹⁸ | 4.32×10⁻² |
+
+**A magnetic field does no work on a charge, and there is no frame in which it is electric.** And
+**magnetars prove it rather than the algebra alone: ~10¹¹ T against `B_QED = 4.414005×10⁹ T` — 22.7× the
+critical field, persisting for thousands of years.**
+
+> **So `H81e` is wrong** where it says the magnetic route is *"stopped by BOTH… BREAKDOWN FIRST, below ~720
+> km, where B exceeds B_QED."* **Exceeding `B_QED` is not breakdown** — it marks where Landau spacing
+> reaches the electron rest mass, a quantum-regime marker, not a threshold for the vacuum to give way.
+> **One of the two walls that pass reported does not exist.** Corrected, not edited.
+
+### H87c — which is why Page's escape works, and it generalises
+
+His `E² − c²B² < 0`, `E·B = 0` **is the same statement as invariant E = 0**. A pure magnetic field is the
+**simplest member of that family**; a plane wave sits exactly on its boundary.
+
+> **M's reading is right in a specific way.** agmp24's *arithmetic* is not in question — `H86b` confirmed
+> one of their constants against ours to `0.0×10⁰`. What their *conclusion* assumes is a configuration with
+> a **nonzero invariant electric field**, and the field equations say that is a **choice, not a necessity.**
+
+For our object the magnetic route needs **B = 3.953796×10¹⁸ T** — 8.96×10⁸ × `B_QED`, 3.95×10⁷ × a
+magnetar. **Eight orders above the strongest field in nature, with no breakdown mechanism in the way.**
+
+### H87d — the honest net: one wall removed, the binding one stands
+
+- **REMOVED:** the vacuum-breakdown wall on the magnetic branch. **It was ours, and it was wrong.**
+- **STANDS, UNTOUCHED:** `H81`'s current bill — **4.292537×10²⁴ A** at a metre, falling only as `R^{-1/2}`.
+  No argument about invariants affects it, **because it is a statement about how much energy the field
+  carries, not about what the vacuum does in response.** That was always the binding wall.
+
+> **What would actually move this is neither a bigger power source nor a cleverer field configuration, but
+> `H85f`'s open sign question** — whether the mass the transition equation prices is the *positive* one this
+> tree has been costing or the *negative* one `certify.py` requires. **Everything else has now been
+> measured, and every measurement has come back the same way.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

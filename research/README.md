@@ -7971,6 +7971,68 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `field.py` — no source pays a mass bill, and one of our own walls doesn't exist.
+
+> M: *"their math is right, but their conjecture is wrong. We have to use field equations as well … Can we
+> hook this thing up to a nuclear and utilize the reactor's entire output?"*
+
+**THE REACTOR IS CLOSED BY A THEOREM, NOT A NUMBER.**
+
+> **Every energy source converts mass at efficiency ≤ 1, and the bill is stated as a mass.**
+
+A reactor doesn't *make* energy, it *converts mass* — so `E = mc²` makes the fuel requirement **at best
+equal to the bill itself.** Verified as an identity (10⁻¹² against both `mouth.py` and `ladder.py`).
+
+| | universe ages to accumulate |
+|---|---|
+| one 3 GW reactor | **7.0587×10¹⁶** |
+| every reactor on Earth | 1.7647×10¹⁴ |
+| world primary energy | 1.0779×10¹³ |
+
+**A 3 GW reactor running every second since the Big Bang delivers 1.3065×10²⁷ J against a bill of
+9.2221×10⁴³ J.** Fuel: **171.81 Earth masses at perfect matter–antimatter conversion**, 1.88×10⁵ by fission,
+4.30×10⁴ by fusion. **A bill in mass cannot be paid by finding a better converter of mass.**
+
+**AND THE FIELD EQUATIONS FIND A FAULT IN OUR OWN WORK.** The Schwinger rate depends on the **invariant**
+electric field from `S = E² − c²B²` and `P = E·(cB)` — **not on |B|**:
+
+| configuration | invariant E | rate |
+|---|---|---|
+| pure electric at `E_S` | 1.323285×10¹⁸ | 4.32×10⁻² |
+| **pure magnetic at `B_QED`** | **0.000000** | **0** |
+| **pure magnetic, ×10⁹ `B_QED`** | **0.000000** | **0** |
+| counter-prop (Page) | 0 | 0 |
+
+**Magnetars prove it: ~10¹¹ T against `B_QED = 4.414×10⁹ T` — 22.7× critical, persisting for thousands of
+years.**
+
+> **`amps.py` is wrong** where it says the magnetic route is *"stopped by BOTH… BREAKDOWN FIRST, below ~720
+> km."* **Exceeding `B_QED` is not breakdown.** **One of the two walls that pass reported does not exist.**
+> Corrected, not edited.
+
+**WHICH IS WHY PAGE'S ESCAPE WORKS, AND IT GENERALISES.** `E² − c²B² < 0` with `E·B = 0` **is** invariant
+E = 0; a pure magnetic field is the simplest member of that family. **M's reading is right in a specific
+way:** agmp24's arithmetic isn't in question — we confirmed one of their constants to `0.0×10⁰` — but their
+*conclusion* assumes a nonzero invariant E, and the field equations make that **a choice, not a necessity.**
+The magnetic route needs **B = 3.953796×10¹⁸ T**, eight orders above the strongest field in nature, **with
+no breakdown mechanism in the way.**
+
+**THE HONEST NET: ONE WALL REMOVED, THE BINDING ONE STANDS.** Removed: the breakdown wall — ours, and wrong.
+Stands: the **4.292537×10²⁴ A** current bill, untouched, **because it is about how much energy the field
+carries, not about what the vacuum does in response.**
+
+> **What would actually move this is neither a bigger power source nor a cleverer field configuration, but
+> `mouth.py`'s open sign question.** Everything else has now been measured, and every measurement has come
+> back the same way.
+
+### Seated
+- `field.py` — new. `index3.py` — **671 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H87**. `amps.py` — **corrected here, file unchanged**.
+  `kugelblitz.py`, `mouth.py`, `ladder.py` — **read here, files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `kugelblitz.py` — the proposal has a name and a live fight, and high voltage is the wrong end of it.
 
 > M: *"the next step is figuring out how to produce miniature black hole in a vacuum, entirely with EM
