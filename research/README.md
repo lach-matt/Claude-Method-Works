@@ -7971,6 +7971,73 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `oneway.py` — the transition is one-way, and that is where the paradox lives.
+
+> M: *"We don't need a price both ways. The transition is only 1 way. The return is a separate trip
+> reinitiated at the time of return."*
+
+**THE CORRECTION IS MINE.** `ladder.py` closed by saying the corridor buys *"everyone, permanently, any
+mass, both ways."* **"Both ways" was never measured** — a grep finds it in three files in unrelated senses
+and in no instrument — so **nothing computed changes**; corrected here rather than edited. **And
+"permanently" goes with it:** a transition that must be *reinitiated* is an **event**, not a standing
+structure, and an event cannot be amortised.
+
+**WHAT SURVIVES IS STRUCTURAL AND REAL.** In `Δd = (G/c²)MΛ` the **M is the geometry, not the payload** —
+the corridor column is **constant at 4.871×10⁵⁹ J** across payloads from 10² to 10⁴² kg while the ticket
+column runs over forty orders. **Cost is per metre of shortcut, not per kilogram**, and that means **a
+crossover mass exists** rather than the comparison being hopeless at every scale. M's narrowing exposed it.
+
+**AND THE CROSSOVER IS NEVER REACHED, AT ANY SPEED**, against a deliberately generous ticket — the **ideal
+floor** `2(γ−1)mc²`, an external beam with no propellant carried.
+
+| γ | 1.05 | 2 | 10 | 100 | 10⁶ |
+|---|---|---|---|---|---|
+| crossover (M☉) | 2.725×10¹³ | **1.363×10¹²** | 1.514×10¹¹ | 1.376×10¹⁰ | 1.363×10⁶ |
+
+**A hundred tonnes would need γ = 2.7097×10³⁷ — not a speed, a misprint.**
+
+**ONE WAY TO AN UNEQUIPPED DESTINATION IS ONE WAY PERMANENTLY.** If the return is reinitiated at the far
+end, the far end must already hold the same capability — **2.7254×10¹² solar masses, assembled there.**
+
+> **The corridor is not transport. It is emigration.** A change of category rather than of price, and a
+> two-way ledger hid it because a round trip silently assumes the far end is equipped.
+
+**AND THE PARADOX MOVES TO THE RETURN — the real finding.** `transit.py`: a single transition carries no
+signalling advantage. `roundtrip.py`: two hops can close a loop. **M's correction makes the return an
+independently initiated second hop — the antitelephone configuration exactly.**
+
+**And the frame velocity is not something anyone arranges.** Proxima's own radial motion (~22.2 km/s,
+RECALLED) is `u = 7.405123×10⁻⁵`, and inverting `roundtrip.py`'s own threshold gives
+
+> **v = 27008.329513 c. Any transition faster than that, between the Sun and Proxima, closes the loop.**
+
+Measured against the instrument's `t_return`: **+1.99×10⁻²** at 100c, **+2.00×10⁻⁹** at the threshold, and
+**−5.41×10⁻⁵** and **−7.40×10⁻⁵** at 10⁵c and 10⁹c. A corridor whose whole purpose is to *arrive without
+traversing* is past that by many orders.
+
+> **The one-way trip is the safe one. The return is the paradox.** And **the stars supply the boost** —
+> `chronology.py`'s route needed "two devices plus a boost"; **this needs only two stars.**
+
+*Limits held:* nothing shows a corridor **can** be built, so this constrains a hypothetical; and
+`chronology.py`'s `HAWKING` row is **still NOT-RUN**, so chronology protection is **OPEN**.
+
+**AND ONE PARAMETER IS RECORDED OPEN RATHER THAN GUESSED.** How many objects pass per transition event is
+established **nowhere** — `OBJECTS_PER_EVENT = None`, not 1, not unbounded. **It is the one number that
+could still move the crossover verdict.**
+
+**TWENTY-SEVENTH FAULT, SECOND OF THE HOLLOW-TEST SHAPE** (after `corridor.py`'s involution): a check
+labelled "a comoving far end does not close the loop" evaluated a condition that was always true and
+**tested nothing.** It now tests what it says.
+
+### Seated
+- `oneway.py` — new. `index3.py` — **659 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H83**. `ladder.py` — **corrected here, file unchanged**.
+  `roundtrip.py`, `transit.py`, `chronology.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `ladder.py` — invert the bill. 22.6 Earth masses per metre; Proxima costs two Milky Ways.
 
 `amps.py` priced one metre. **The inverse is the more useful question — and it is M's own test**: *"if we

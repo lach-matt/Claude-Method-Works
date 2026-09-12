@@ -6416,6 +6416,100 @@ instance of the tally channel.**
 
 ---
 
+## ★★★ H83 — one way. **The transition is one-way, and that is where the paradox lives.**
+
+> M: *"We don't need a price both ways. The transition is only 1 way. The return is a separate trip
+> reinitiated at the time of return."*
+
+### H83a — the correction, and it is mine
+
+**H82f** closed by saying the corridor buys *"everyone, permanently, any mass, both ways."* **"Both ways"
+was never measured** — a grep finds it in `dichotomy.py`, `negmass.py` and `reverse.py` in unrelated
+senses only, and in no instrument. **Nothing computed changes**; corrected here rather than edited, as
+`threads.py` and `modulus.py` were.
+
+**"Permanently" goes with it.** A transition that must be *reinitiated* is an **event**, not a standing
+structure, and an event cannot be amortised over later users.
+
+### H83b — what survives, and it is structural
+
+In `Δd = (G/c²)MΛ` the **M is the geometry, not the payload.**
+
+| payload (kg) | corridor (J) | ideal ticket (J) |
+|---|---|---|
+| 10² | 4.871×10⁵⁹ | 1.80×10¹⁹ |
+| 10²⁰ | 4.871×10⁵⁹ | 1.80×10³⁷ |
+| 10⁴² | 4.871×10⁵⁹ | 1.80×10⁵⁹ |
+
+**The corridor column is constant.** Cost is **per metre of shortcut, not per kilogram** — a ticket is
+priced the other way round. **So a crossover mass exists**, which is more than the tree had, and M's
+narrowing is what exposed it.
+
+### H83c — and the crossover is never reached, at any speed
+
+Against the **ideal floor** `2(γ−1)mc²` — external beam, no propellant carried, a bound no real ship can
+approach:
+
+| γ | 1.05 | 2 | 10 | 100 | 10⁶ |
+|---|---|---|---|---|---|
+| crossover (M☉) | 2.725×10¹³ | **1.363×10¹²** | 1.514×10¹¹ | 1.376×10¹⁰ | 1.363×10⁶ |
+
+**To bring the crossover down to a hundred tonnes needs γ = 2.7097×10³⁷ — not a speed, a misprint.**
+Both inversions round-trip against each other (10⁻⁹ and 10⁻¹²).
+
+### H83d — one way to an unequipped destination is one way permanently
+
+If the return is reinitiated **at the far end**, the far end must already hold the same capability —
+**2.7254×10¹² solar masses, assembled there.** A destination that cannot build one **cannot send anything
+back, ever.**
+
+> **The corridor is not transport. It is emigration.**
+
+A change of category rather than of price — and a two-way ledger hid it, because a round trip silently
+assumes the far end is equipped.
+
+### H83e — and the paradox moves to the return
+
+**H62**: a *single* transition carries no signalling advantage. **H65**: *two* hops can close a loop, at
+`loop_threshold(v) = 2v/(v²+1)` in the frame velocity `u`.
+
+> **M's correction makes the return an independently initiated second hop. That is the antitelephone
+> configuration exactly.**
+
+**And the frame velocity is not something anyone arranges.** Proxima's own radial motion, ~22.2 km/s
+*(RECALLED)*, is `u = 7.405123×10⁻⁵`:
+
+| v (c) | 100 | 10⁴ | **27007.6** | 10⁵ | 10⁹ |
+|---|---|---|---|---|---|
+| `t_return` | +1.99×10⁻² | +1.26×10⁻⁴ | +2.00×10⁻⁹ | **−5.41×10⁻⁵** | **−7.40×10⁻⁵** |
+| closes? | no | no | no | **yes** | **yes** |
+
+**Threshold: v = 27008.329513 c.** A corridor whose whole purpose is to *arrive without traversing* is
+faster than that by many orders.
+
+> **The one-way trip is the safe one. The return is the paradox.**
+
+**And the stars supply the boost.** `chronology.py`'s route needed *"two devices plus a boost"*; **this
+needs only two stars** — relative motion is the generic case, and exactly comoving ends are measure zero.
+
+**Stated with its limits:** nothing here shows a corridor *can* be built, so this constrains a
+hypothetical rather than predicting anything; and `chronology.py`'s `HAWKING` row is **still NOT-RUN**, so
+whether chronology protection forbids the second hop is **OPEN**.
+
+### H83f — one parameter recorded as open rather than guessed
+
+**How many objects pass per transition event is established nowhere in this project.** `OBJECTS_PER_EVENT`
+is `None` — not 1, not unbounded. **It is the one number that could still move H83c's verdict**, and it is
+exactly the one nobody has measured.
+
+### H83g — twenty-seventh fault, second of the hollow-test shape
+
+A check labelled *"a comoving far end does not close the loop"* evaluated a condition that was always true
+and **tested nothing** — the same shape as **H79g**'s involution. It now tests what it says, and both
+cases pass.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
