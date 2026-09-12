@@ -7971,6 +7971,45 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `throat.py` — statistics is an order after all, and it is the index's extremum, not its centre.
+
+> M: *"Statistics is the center of the corridor where the sign needs to change … Statistics is still an
+> order, it's an order of all possible positions of the witnessed geometric shape."*
+
+**The second clause is right and it corrects `substrate.py`.** Two orders are in play and only one leaves
+statistics alone: **value order — invariant, 0 of 23 permutations. Marginal order `k` — dependent**, and
+`op_statistics`'s own option is literally named `statistics_order`:
+
+| k = 1 | k = 2 | k = 3 | k = 4 |
+|---|---|---|---|
+| admits **288**, E = **271** | 17, **E = 0** | 17, 0 | 17, 0 |
+
+**At order one it says nothing; at order two it is exact.** And M's description is `op_statistics` line by
+line: *"all possible positions"* = `ix.ambient()`; *"the witnessed geometric shape"* = the observed
+k-marginals, the **shadows**; *"an order of"* = **k**. `op_geometry` takes the **hull** of those same
+shadows where statistics takes their **support** — same shadows, two readings.
+
+**The transition is real.** E against dimension: order and algebra diverge to **175**, information to 139,
+geometry to 12 — **statistics is SILENT, SILENT, then 0, 0, 0.** Four diverge strictly; one is flat. **The
+closest thing in this index to a throat, and unique.**
+
+**But "centre" is not measured** — statistics is an endpoint or extremum on all five distinctions, never a
+midpoint. **And the sign change is impossible**: `E = |op(X) \ X|` with every operator extensive, so
+**E ≥ 0 by construction.** There is no negative side to cross to — only a floor.
+
+> **The analogy is better than its wording.** A Morris–Thorne throat is *also* not a midpoint — it is the
+> **minimum** of the radius, where `b(r₀) = r₀` and flare-out holds. **So statistics being an extremum makes
+> it more throat-like, not less.** What does not carry is the sign: in the corridor `ρ₀c² + p_r =
+> (b′−1)τ₀ < 0` is measured and real; in the index the only quantity on offer is bounded below by zero.
+> **The corridor has an extremum and a sign change. The index has the extremum and cannot have the sign.**
+
+### Seated
+- `throat.py` — new. `index3.py` — **720 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H103**. `substrate.py`, `staircase.py`, `pressure.py` — **read here, unchanged**.
+
+---
+
+
 ## `substrate.py` — order is the substrate, and one language does not stand on it.
 
 > M: *"Order is the organization, algebra needs an order to exist."*

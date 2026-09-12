@@ -8129,6 +8129,89 @@ closure; what is measured is that the same language answers to all four descript
 
 ---
 
+### H103a — statistics is an order after all, and it corrects `H102`'s wording
+
+> M: *"Statistics is still an order, it's an order of all possible positions of the witnessed geometric
+> shape."*
+
+**Right, and `H102`'s "order-invariant" was under-specified.** There are two orders in play and only one of
+them leaves statistics alone:
+
+| | |
+|---|---|
+| **the value order** — how values rank within a coordinate | **INVARIANT**: 0 of 23 permutations |
+| **the marginal order `k`** — how many coordinates project at a time | **DEPENDENT** |
+
+`op_statistics`'s own option is literally named **`statistics_order`**:
+
+| k | admits | E |
+|---|---|---|
+| **1** | **288 of 288** | **271** — the whole box |
+| **2** | 17 | **0** — exact |
+| 3 | 17 | 0 |
+| 4 | 17 | 0 |
+
+**At order one it says nothing; at order two it is exact.** Statistics is not order-free — it stands on a
+*different* order from the other four, and the difference is *which* order.
+
+**And M's description is exact, not analogical** — it is `op_statistics` line by line:
+
+- *"all possible positions"* → `ix.ambient()`, the full product
+- *"the witnessed geometric shape"* → the observed k-marginals, the **shadows**
+- *"an order of"* → **k**, the order at which they are taken
+
+And the shadows are not private to it: **`op_geometry` takes the convex hull of the same 2-D projections
+that `op_statistics` takes the support of.** Same shadows, two readings — geometry asks what shape they
+make, statistics asks which positions were witnessed.
+
+### H103b — the transition is real; the centre and the sign change are not
+
+**What is measured.** There is a qualitative transition in this index, at exactly one language:
+
+| language | E at d = 1, 2, 3, 4, 5 |
+|---|---|
+| order | SILENT · 5 · 36 · 80 · **175** |
+| algebra | 0 · 5 · 36 · 80 · **175** |
+| geometry | SILENT · 2 · 6 · 8 · **12** |
+| information | 0 · 5 · 36 · 68 · **139** |
+| **statistics** | SILENT · SILENT · **0 · 0 · 0** |
+
+**Four languages diverge strictly with dimension. One is flat at zero.** Statistics cannot speak below
+`d = 3` and is exact at and above — no intermediate regime, while every other language degrades smoothly
+and without limit. **That is the closest thing in this index to a throat, and it is unique.**
+
+**What is not measured: "centre".** On every measure taken this session statistics is an **endpoint or an
+extremum**, never a midpoint — last on the availability ladder, the minimum of E, one end of the only
+directed pair, the only value-order-invariant language, and the only flat one. **Five distinctions, none of
+them central.**
+
+**What is impossible: "the sign needs to change".** `E = |op(X) \ X|`, and every operator is **extensive** —
+`op(X) ⊇ X`, measured for all five. So
+
+> **E ≥ 0 always, by construction. E cannot change sign.**
+
+The analogy asks the quantity to do something its definition forbids. **There is no negative side of E to
+cross to — only a floor, and statistics is the only language that reaches it.**
+
+### H103c — the analogy is better than its wording
+
+**A throat is not a midpoint either.** `H91` established what a Morris–Thorne throat is: the **minimum** of
+the radius function, the surface where `b(r₀) = r₀`, the place flare-out `b′(r₀) < 1` holds. **An extremum,
+and the boundary between the two branches** — not a point halfway along anything.
+
+> **So statistics being an extremum makes it *more* throat-like, not less.** The word that fails is
+> "centre", and the structure it was reaching for survives the correction intact.
+
+**What does not carry across is the sign.** In the corridor the sign change is real and measured —
+`ρ₀c² + p_r = (b′(r₀) − 1)τ₀ < 0` for every `b′(r₀) < 1`, which *is* flare-out, verified here at
+`b′ = 0.5` against `b′ = 2.0`. In the index there is no such quantity, because the only one on offer is
+bounded below by zero.
+
+> **The corridor has an extremum and a sign change. The index has the extremum and cannot have the sign
+> change.** The analogy carries one and not the other, and which one it carries is measurable.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
