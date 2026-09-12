@@ -7438,6 +7438,100 @@ That is the same blindness `H93` found as a quotient, arriving here by a complet
 
 ---
 
+### H95a — a hierarchy of languages is not a hierarchy of scales
+
+> M: *"This hierarchy problem is directly solvable using a hierarchy tool … the language cypher."*
+
+**No — and the corpus says why in its own source, in a comment written long before the question was
+asked.**
+
+The cypher *is* a hierarchy tool. It is a hierarchy **of languages** — register 1173's, where logic is the
+mechanism and not a language. The hierarchy problem is a hierarchy **of scales**.
+
+> **A hierarchy of languages and a hierarchy of scales are not the same object, and no operator on the
+> first touches the second.**
+
+The **fifth** time this thread has found one word holding two things: `H89` separated a sign in the
+*interaction* from a sign in the *source*; `H88` found `Δd` hiding *excess* inside *shortcut*; `H85` found
+the aspect ratio and the exotic-matter requirement to be one constraint and not two; `H91` separated a
+*dimension* from a *tensor component*.
+
+**And the type argument is checkable, not rhetorical.** Every operator the cypher can run returns a **set
+of cells** — measured, all five return a `set` of `tuple`s, sizes 192, 192, 156, 29, 17, each a subset of
+the 288-cell box. **None returns a magnitude**, and no composition of maps into a finite set of tuples
+produces `1.0110e-16`.
+
+### H95b — the witness *is* the law, so the cypher is downstream of the answer
+
+`tools/cypher.py`, immediately after the ADMISSION table, verbatim:
+
+> *"analysis is not an admission operator: it asks whether a continuous law exists, which is answered by a
+> fit or by the absence of a derivative, and must be declared with a witness."*
+>
+> `DECLARED_ONLY = {"analysis": "`**is there a continuous law here?**` declare with a witness (an R^2, or a
+> reason none exists — e.g. a finite set of surds has no derivative)"}`
+
+**That question is the hierarchy problem stated exactly** — and it belongs to the one language roster 1173
+names as *operator-bearing* for which the tree supplies **no operator at all.** Measured: analysis is absent
+from ADMISSION's 6 entries, present in `DECLARED_ONLY`, and declared operator-bearing — while the
+other four declared languages all have operators and **statistics runs without being declared.**
+
+**That swap is already in the corpus, measured on a different index.** `CLAUDE.md` records from Λ that
+*"statistics returns a binary and is in; analysis does not and is out."* `H93` then found, on the
+energy-condition index, that statistics is the language that closes it and analysis the one that cannot
+run. **Same swap, second index, independently — and it was not sought.**
+
+**And the decisive point is what a witness is.** The corpus says: an `R²` — a continuous law the data sits
+on — or a reason none exists.
+
+> **The witness for analysis is the continuous law itself.** You cannot obtain one by running the cypher,
+> because you must supply one to run it. **The cypher is downstream of the answer, not upstream of it.**
+
+Third time this thread has caught its own instruments being **recorders rather than producers**: `H93`'s
+index enumerates citations and not truths; `H94`'s closure hands back candidates and not objects; and here
+a cypher registers a law and does not derive one. Not an accident of three files — **a closure operator is
+by construction a map from what you have to what you are committed to, and being committed to something is
+not the same as having found it.**
+
+### H95c — the fit was run so that it could be refused with a number
+
+**412608** expressions of the form `b₁^e₁ b₂^e₂ b₃^e₃` over `{Λ, π, e, 2, 3, 5, 7}` with exponents in
+`[−8, 8]`, against `v/M_reduced = 1.0110346504e-16`:
+
+| | |
+|---|---|
+| within 1% | **1** |
+| within 0.1% | **0** |
+| best fit | `(10Λ)⁻⁸ = 1.0140871864e-16` |
+| relative error | `3.019e-03` |
+| **measurement widths off** | **268** |
+
+**And it is refuted by the data's own precision.** `v` is known from the Fermi constant to under a part per
+million; `M_reduced ∝ G^(−1/2)` and **G is the worst-measured constant in physics** at `2.247e-05`
+relative — so the target is known to `1.125e-05`. The best fit in four hundred thousand is **268
+times worse than the measurement it would have to explain.**
+
+> **`(10Λ)⁻⁸` is named here so that it is on record as refused.** It is exactly the shape of thing that gets
+> written up as a discovery: a single clean expression, the only near-miss in a large family, in the
+> corpus's own constant. It has no derivation behind it and misses by 268 widths. **Naming a trap is
+> worth more than the fit would have been.**
+
+The sweep is shown able to find a planted target exactly, so the empty result is a **measurement and not a
+broken search**; and the absence is over one declared finite family, recorded as a **weak** negative
+witness, not as absence everywhere.
+
+**What would be needed is named and left open.** Someone must declare a witness for analysis — a continuous
+law landing `1.0110e-16`, or a reason no derivative exists. Which languages there are is **docket
+20x-04/20x-09**, open and unruled, and `CLAUDE.md` is explicit that it not be resolved in code. **What is
+discharged is the target:** `1.0110e-16`, and squared, the `ξ ≥ 9.7829e+31` that Barceló–Visser's gate demands
+at the electroweak vacuum.
+
+**A units slip was caught building this** — the typed-digit channel in a new disguise. G's uncertainty was
+entered as `1.5e-4` against a value of `6.6743e-11`, giving a *relative* uncertainty of `2.2e6` — above one,
+nonsense on its face — and **the fixture caught it where the prose did not.**
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

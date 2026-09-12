@@ -7971,6 +7971,58 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `hierarchy.py` — a hierarchy of languages is not a hierarchy of scales.
+
+> M: *"This hierarchy problem is directly solvable using a hierarchy tool … the language cypher."*
+
+**No — and the corpus says why in its own source.** The cypher *is* a hierarchy tool: a hierarchy **of
+languages**. The hierarchy problem is a hierarchy **of scales**. **The fifth time this thread has found one
+word holding two things** (after `antigravity.py`, `sign.py`, `mouth.py`, `pressure.py`).
+
+**The type argument is checkable.** All five runnable operators return a `set` of `tuple`s — 192, 192, 156,
+29, 17, each a subset of the 288-cell box. **None returns a magnitude**, and no composition of maps into a
+finite set of tuples produces `1.0110e-16`.
+
+**And the one language that would answer it has no operator.** `tools/cypher.py`, verbatim:
+
+> *"analysis is not an admission operator: it asks whether a continuous law exists … must be declared with
+> a witness"* — `"`**is there a continuous law here?**` declare with a witness (an R^2, or a reason none
+> exists)"`
+
+**That question is the hierarchy problem stated exactly**, and it is the one language roster 1173 calls
+operator-bearing for which the tree supplies no operator. Measured: absent from ADMISSION's 6
+entries, present in `DECLARED_ONLY`, declared operator-bearing — while **statistics runs without being
+declared.** `CLAUDE.md` already recorded that swap from Λ; `necindex.py` found it again on the
+energy-condition index. **Same swap, second index, unsought.**
+
+> **The witness for analysis IS the continuous law.** You must supply one to run the cypher, so you cannot
+> obtain one by running it. **The cypher is downstream of the answer.** Third instance of this thread's
+> instruments being recorders rather than producers — `necindex.py` enumerates citations not truths,
+> `licensed.py` hands back candidates not objects.
+
+**The fit was run so it could be refused with a number.** 412608 expressions over `{Λ, π, e, 2, 3, 5, 7}`:
+**1** within 1%, **0** within 0.1%. The sole near-miss is `(10Λ)⁻⁸ = 1.0140871864e-16`, relative
+error `3.019e-03` — against a target known to `1.125e-05` (G dominates at `2.247e-05`). **It misses by
+268 measurement widths.**
+
+> **`(10Λ)⁻⁸` is named so it is on record as REFUSED** — the exact shape that gets written up as a
+> discovery, with no derivation and 268 widths of error. **Naming a trap is worth more than the fit.**
+
+The sweep finds a planted target exactly, so the empty result is a measurement not a broken search; the
+absence is over one finite family and is recorded as a **weak** negative witness. **The docket
+(20x-04/20x-09) is named and left open** per `CLAUDE.md`; what is discharged is the target itself.
+
+**A units slip was caught** — G's uncertainty entered as `1.5e-4` against `6.6743e-11`, a relative
+uncertainty above one. The fixture caught it, the prose did not.
+
+### Seated
+- `hierarchy.py` — new, imports `necindex.py`/`tools/cypher.py` and `higgs.py`. `index3.py` — **695
+  findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H95**. `tools/cypher.py` — **read here,
+  unchanged**; docket 20x-04/20x-09 left open.
+
+---
+
+
 ## `licensed.py` — the family that closes every language, and it was derived, not invented.
 
 > M: *"We need to theorize/define a new family of energy conditions — the family of ECs that solves the
