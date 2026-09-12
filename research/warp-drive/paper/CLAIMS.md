@@ -7151,6 +7151,115 @@ boundary `|p| ≤ ρc²` and not past it.
 
 ---
 
+### H92a — a minimally coupled scalar satisfies the NEC identically, and a VEV saturates it
+
+> M: *"The Higgs boson. We need to build a Higgs field."*
+
+**The instinct lands on the right object.** For `L = −½(∂φ)² − V(φ)`, contract with a null `k`:
+
+        T_μν k^μ k^ν = (k^μ ∂_μ φ)²  ≥  0
+
+**The entire potential term drops out**, because it multiplies `g_μν k^μ k^ν`, which is zero by
+definition of null. **The Mexican hat is irrelevant** — its depth, its sign, its shape. Barceló–Visser's
+eq. (2.6), *read from source*: *"This condition is clearly satisfied by minimally coupled scalars."*
+
+**Verified over exact rationals** (`proofs.py`'s house method): 4,000 random rational gradients × random
+potentials to `1e15` × twelve exactly-null directions from Pythagorean quadruples — `T_kk == (k·∂φ)²`
+with **zero mismatches, zero negatives**, and `V` from `−1e30` to `+1e30` changing the answer **not at
+all**, rather than to twelve places.
+
+**And a constant field saturates it at exactly zero — a VEV *is* a constant field:**
+
+| ρ | p | w | ρ + p |
+|---|---|---|---|
+| `V` | `−V` | **`−1` exactly** | **`0` exactly** |
+
+`w = −1` is a **genuine isotropic tension**, and it is exactly what the proposal is reaching for. It beats
+electromagnetism's `w = +1` in every way except the only one that counts.
+
+> **The field sits precisely on the line it would have to cross.**
+
+That is `H84`'s sentence, and this is the **second field to land on it** — by two different mechanisms for
+one structural reason: EM saturates because a radial field is boost-invariant in the `t–r` plane; the
+scalar because a VEV has no gradient. **And every knob turns the wrong way:** give the field a gradient and
+`T_kk` becomes *strictly* positive — further from the line, not nearer.
+
+### H92b — the first overshoot in the thread, and it cannot be localised
+
+| | |
+|---|---|
+| `v`, from `G_F` | `246.219640 GeV` |
+| `m_h` (PDG) | `125.20 GeV` |
+| `λ = m_h²/2v²` | `0.129280576` |
+| `V_min = −m_h²v²/8` | `-1.187857e+08 GeV⁴` |
+| **`\|V_min\|` in SI** | **`2.476937e+45 J/m³`** |
+| `H91`'s required `τ₀` | `2.073325e+42 Pa` |
+| **surplus** | **`1.194669e+03` — about 1195×** |
+
+**Every other candidate fell short** — `H81` by seventeen orders, `H86` by fifty-six, `H90` by sixty-nine,
+`H89` by a category. **This one overshoots.** And the sign of `ρ` is right too: the electroweak vacuum sits
+*below* the symmetric point, so it carries genuinely negative potential energy density.
+
+**Two caveats, neither small.**
+
+- **(a) The absolute normalisation of `V` is not measured.** In flat-space QFT only *differences* of `V`
+  are observable; the additive constant is free. The figure above is the electroweak contribution to the
+  cosmological constant under `V(0) = 0`, and it exceeds the observed vacuum energy by **54.62 orders
+  — which is the cosmological constant problem.** Real as a contribution; cancelled, by something nobody
+  has identified, down to a number we do measure.
+- **(b) It is uniform.** The same inside the throat as outside. It does not localise, cannot be switched on
+  in one place, and is already inside whatever `Λ` is. **A resource you cannot put somewhere is not a
+  resource.**
+
+### H92c — the escape is ξ, and the gate on ξ is the hierarchy problem
+
+`ξφ²R` is a dimension-four operator forbidden by no symmetry and generated radiatively in curved space even
+if set to zero — which is why it is standard to carry it, and why Higgs inflation exists at all. *(Recorded
+ELEMENTARY; no source read for it here.)*
+
+**Barceló–Visser (gr-qc/0003025, read from source) settle what it buys, and draw the distinction that gets
+flattened:**
+
+- **Pointwise NEC violation is cheap.** For `ξ > 0` and small `|φ|`, any local maximum of `φ²` violates it.
+- **A wormhole needs ANEC** (topological censorship), **and ANEC is not cheap.** Their case 2: for `ξ > 0`
+  with `φ² < κ/ξ` everywhere, *"the integrand appearing above is again positive and ANEC is satisfied."*
+  Only case 3, `φ² > κ/ξ` *somewhere*, admits violation.
+- They find *"an entire branch of traversable wormholes for every ξ > 0"*, gated by exactly that, and state
+  the gate themselves: *"the scalar field has to reach absolute values above ~ m_p/√ξ … either the scalar
+  field acquires trans-Planckian values or the curvature coupling constant ξ must become disturbingly
+  large."*
+
+**Put the Higgs VEV into it.**
+
+| | |
+|---|---|
+| reduced Planck mass | `2.435323e+18 GeV` |
+| gate at Higgs-inflation `ξ ≈ 1.7e+04` | `1.867808e+16 GeV` |
+| **ξ required at `v`** | **`9.782907e+31`** |
+| orders above Higgs inflation | **27.76** |
+| `v / M_reduced` | `1.011035e-16` |
+
+**And the reason is not an accident of this calculation.** Barceló–Visser's threshold *is* the Planck
+scale, and `v/M_red = 1.011e-16` — sixteen orders — *is* the hierarchy problem. Squared, because `ξ`
+couples `φ²`: sixteen orders of hierarchy become thirty-two orders of `ξ`. Verified as an **exact
+identity**, `ξ_required = (v/M_red)⁻²` to `1e-12`, not a resemblance.
+
+> **The single most famous fine-tuning in particle physics is exactly the quantity standing between the
+> Higgs and a traversable throat.**
+
+**What does violate the NEC** is a **phantom** — wrong-sign kinetic term, `T_kk = −(k·∂φ)² ≤ 0` at every
+gradient. Exhibited as a negative control so the test can be seen to detect one. It is not the Higgs, whose
+kinetic sign is measured every time the particle propagates.
+
+**Three faults, caught, and two were one kind.** Sin-and-cos null vectors are null only to `1e-16`, so a
+potential of `1e12` turned rounding into a `1e-4` residual that *looked* like `V`-dependence — and the float
+report **printed VIOLATED for a constant field.** That is `H88`'s catastrophic-cancellation channel, in a
+test rather than an integrand. Exact nulls plus exact rationals removed both. **And the exactness caught a
+third:** the contraction used `k_μ` where `T_μν k^μ k^ν` needs `k^μ`. Both are perfect squares, so the
+physics survived the slip and only the exact identity found it.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

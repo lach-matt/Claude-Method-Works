@@ -112,6 +112,11 @@ SOURCES = [
     ("gibbons02", "G. W. Gibbons, Found. Phys. 32 (2002) 1891, "
      "arXiv:hep-th/0210109",
      "the Maximum Tension Principle, F_g = c^4/(4G) at his eq. (1)", VERIFIED),
+    ("bv00", "C. Barcelo and M. Visser, Class. Quantum Grav. 17 (2000) 3843, "
+     "arXiv:gr-qc/0003025",
+     "scalar fields and the energy conditions: minimally coupled scalars "
+     "satisfy the NEC (their eq. 2.6), and a traversable wormhole branch "
+     "exists for every xi > 0, gated at |phi| ~ m_p/sqrt(xi)", VERIFIED),
 ]
 
 # (claim, verdict, source, note)
@@ -182,6 +187,22 @@ ATTRIB = [
     ("H79e  sgn(a_+) sgn(a_-) = -1 is the invariant", COMBO, "volkov26",
      "follows from his antisymmetry; saying that the PRODUCT is the only "
      "chart-independent chirality fact is the framing"),
+    ("H92a  a minimally coupled scalar satisfies the NEC identically",
+     PRIOR, "bv00",
+     "their eq. (2.6) in one clause.  The one-line null contraction is "
+     "ELEMENTARY; what is cited is that they state it and build on it"),
+    ("H92a  a constant field saturates the NEC at exactly zero", FOLK, "-",
+     "immediate once the gradient vanishes.  Claimed as an OBSERVATION, and "
+     "the content is the COINCIDENCE with emtension.py\'s EM result, not the "
+     "line of algebra"),
+    ("H92c  a traversable branch for every xi > 0, gated at m_p/sqrt(xi)",
+     PRIOR, "bv00",
+     "entirely theirs, including the gate and their own warning that it "
+     "forces trans-Planckian phi or disturbingly large xi"),
+    ("H92c  the gate at the Higgs VEV IS the hierarchy problem", COMBO, "bv00",
+     "their gate is published and the hierarchy is textbook; SUBSTITUTING "
+     "ONE INTO THE OTHER, and finding xi_required = (v/M_red)^-2 exactly, is "
+     "the step.  No source found joins them"),
     ("H91a  tau_0 = c^4/(8 pi G r0^2) at the throat", PRIOR, "mt88",
      "Morris-Thorne 1988 give the throat stresses directly; restating them "
      "in pascals is a unit choice, not a result"),
@@ -288,14 +309,14 @@ def selftest():
 
     print("provenance.py --selftest")
     print()
-    chk("sources", len(SOURCES), 18)
-    chk("read from source this session", sum(1 for s in SOURCES if s[3] == VERIFIED), 13)
+    chk("sources", len(SOURCES), 19)
+    chk("read from source this session", sum(1 for s in SOURCES if s[3] == VERIFIED), 14)
     chk("named but not read", sum(1 for s in SOURCES if s[3] == NAMED), 5)
-    chk("attribution rows", len(ATTRIB), 25)
-    chk("prior art", sum(1 for a in ATTRIB if a[1] == PRIOR), 8)
-    chk("ours as a connection", sum(1 for a in ATTRIB if a[1] == COMBO), 8)
+    chk("attribution rows", len(ATTRIB), 29)
+    chk("prior art", sum(1 for a in ATTRIB if a[1] == PRIOR), 10)
+    chk("ours as a connection", sum(1 for a in ATTRIB if a[1] == COMBO), 9)
     chk("ours outright", sum(1 for a in ATTRIB if a[1] == OURS), 1)
-    chk("elementary", sum(1 for a in ATTRIB if a[1] == FOLK), 8)
+    chk("elementary", sum(1 for a in ATTRIB if a[1] == FOLK), 9)
     # the invariant a typed tally cannot give: the verdicts PARTITION the rows,
     # and every verdict is one of the four declared.  This catches a real error
     # (a mistyped or invented verdict); a count only catches transcription, and
@@ -322,6 +343,7 @@ def selftest():
     chk("Volkov was read from source", status_of("volkov26"), VERIFIED)
     chk("Adamo-Newman was read from source", status_of("an14"), VERIFIED)
     chk("Gibbons was read from source", status_of("gibbons02"), VERIFIED)
+    chk("Barcelo-Visser was read from source", status_of("bv00"), VERIFIED)
     chk("Morris-Thorne was NOT read", status_of("mt88"), NAMED)
     chk("Simpson-Visser was NOT read", status_of("sv19"), NAMED)
     chk("Mazza-Franzin-Liberati was NOT read", status_of("mfl21"), NAMED)

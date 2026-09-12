@@ -7971,6 +7971,64 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `higgs.py` — right object, right magnitude, wrong side of a line the field cannot leave.
+
+> M: *"The Higgs boson. We need to build a Higgs field."*
+
+**A minimally coupled scalar satisfies the NEC identically, and the potential does not enter.** Contracting
+`T_μν = ∂_μφ ∂_νφ − g_μν[½(∂φ)² + V]` with a null `k` kills the whole bracket — `g_μν k^μ k^ν` is zero by
+definition — leaving `T_kk = (k^μ∂_μφ)² ≥ 0`. **The Mexican hat is irrelevant.** Barceló–Visser eq. (2.6),
+*read from source*: *"This condition is clearly satisfied by minimally coupled scalars."*
+
+**Verified over exact rationals**, `proofs.py`'s house method: 4,000 rational gradients × random potentials
+to `1e15` × twelve exactly-null Pythagorean-quadruple directions — **zero mismatches, zero negatives**, and
+`V` from `−1e30` to `+1e30` changing the answer **not at all**.
+
+**And a VEV is a constant field, so it saturates:** `ρ = V`, `p = −V`, **`w = −1` exactly, `ρ + p = 0`
+exactly.** A genuine isotropic tension — exactly what the proposal reaches for, and it beats EM's `w = +1`
+in every way except the only one that counts.
+
+> **The field sits precisely on the line it would have to cross** — `emtension.py`'s sentence, and the
+> **second field to land on it**, for one structural reason by two mechanisms. And every knob turns the
+> wrong way: a gradient makes `T_kk` *strictly* positive.
+
+**BUT THE MAGNITUDE IS THERE, AND IT IS THE FIRST OVERSHOOT IN THE THREAD.** `V_min = −m_h²v²/8 =
+-1.187857e+08 GeV⁴` = **`2.476937e+45 J/m³`** against `pressure.py`'s `2.073325e+42 Pa` — **1195× more than the
+throat needs**, with the sign of `ρ` right as well. `amps.py` fell short by seventeen orders,
+`kugelblitz.py` by fifty-six, `persist.py` by sixty-nine. **This one overshoots.**
+
+Two caveats, neither small: the **absolute normalisation of `V` is not measured** — the figure is the
+electroweak contribution to `Λ` under `V(0)=0`, exceeding the observed vacuum energy by **54.62 orders,
+which is the cosmological constant problem**; and **it is uniform**, so it does not localise. **A resource
+you cannot put somewhere is not a resource.**
+
+**THE ESCAPE IS ξ, AND THE GATE ON IT IS THE HIERARCHY PROBLEM.** Barceló–Visser find *"an entire branch of
+traversable wormholes for every ξ > 0"* — but pointwise NEC violation is cheap and **ANEC is not**: their
+case 2 has ANEC satisfied whenever `φ² < κ/ξ` everywhere. Their gate, in their words: *"the scalar field
+has to reach absolute values above ~ m_p/√ξ."* At the Higgs VEV that needs
+
+        ξ > (M_red/v)² = 9.782907e+31        against Higgs inflation's ~1.7e+04 — 27.76 orders short
+
+and `v/M_red = 1.011e-16`. **Barceló–Visser's threshold is the Planck scale, and the hierarchy problem is
+the statement that `v` sits sixteen orders below it** — squared to thirty-two by `ξ` coupling `φ²`, an
+**exact identity** to `1e-12`, not a resemblance.
+
+> **The single most famous fine-tuning in particle physics is exactly the quantity standing between the
+> Higgs and a traversable throat.**
+
+What *does* violate the NEC is a **phantom** (`T_kk = −(k·∂φ)² ≤ 0`), exhibited as a negative control — and
+it is not the Higgs. **Three faults caught:** two were `sign.py`'s cancellation channel appearing in a
+*test* (float nulls + a large `V` printed a false `VIOLATED`), fixed by exact nulls and exact rationals;
+the third was `k_μ` where `T_μν k^μ k^ν` needs `k^μ` — both perfect squares, so only the exactness found it.
+
+### Seated
+- `higgs.py` — new. `index3.py` — **686 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H92**. `provenance.py` — Barceló–Visser added as **VERIFIED**.
+  `emtension.py`, `pressure.py`, `persist.py` — **read here, unchanged**.
+
+---
+
+
 ## `pressure.py` — yes as a pressure. No as compression, and there is nothing there to squeeze.
 
 > M: *"This is all atmospheric pressure density that must be applied to the singularity to cause the
