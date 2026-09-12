@@ -7971,6 +7971,68 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `kugelblitz.py` — the proposal has a name and a live fight, and high voltage is the wrong end of it.
+
+> M: *"the next step is figuring out how to produce miniature black hole in a vacuum, entirely with EM
+> manipulation, with extremely high voltage."*
+
+**FOUR SOURCES READ FROM SOURCE.** Álvarez-Domínguez, Garay, Martín-Martínez & Polo-Gómez, *"No black holes
+from light"*, **Phys. Rev. Lett. 133, 041401 (2024)** (arXiv:2405.02389) — Schwinger dissipation prevents
+kugelblitze for `10⁻²⁹ ≤ R ≤ 10⁸ m`. **Don Page**, arXiv:2505.16202 — rebuttal, possible in principle to
+near the Planck mass. Plus Loeb's comment (2408.06714) with reply (2408.11097), and Blas–Cardoso–Ezquiaga
+(PRD 111, 044049).
+
+**The dispute is not adjudicated here.** This pass puts *our* object inside it — and **our 1.524 m mouth is
+squarely inside the no-go's range.**
+
+**AND OUR OWN FIELD NUMBER IS CONFIRMED INDEPENDENTLY, TO THE LAST DIGIT.**
+
+| route | value |
+|---|---|
+| ours, from an energy density | `E = 1.185318×10²⁷ V/m` → **`E·R = 1.806425×10²⁷ V`** |
+| theirs, eq. (8): `φ = √(3c⁴/4πε₀G)` | **`1.806425×10²⁷ V`** |
+
+> **Agreeing to `0.0×10⁰`** by two unrelated derivations. **The best independent check this project has had
+> on a number of its own.**
+
+**"EXTREMELY HIGH VOLTAGE" HAS A NUMBER: 1.8064×10²⁷ volts across the mouth** — 8.96×10⁸ × Schwinger,
+1.2×10⁸ × a magnetar (the strongest field in nature), and **1.2×10¹² × the best field ever made.**
+
+**THE BARE ASSEMBLY POWER IS `c⁵/2G`** — `P = Mc³/r` with `r = 2GM/c²` gives **1.814127×10⁵² W exactly, M
+cancels**, verified mass-independent over fifteen orders and equal to **0.500000000000** of the Planck
+power. **Recorded as ELEMENTARY, not claimed** — agmp24's eq. (13) carries the same combination.
+
+**AND SCHWINGER ADDS THIRTY-TWO MORE ORDERS**: 1.524×10⁸⁴ W against the bare 1.814×10⁵² W; in intensity
+10⁸³ W/m² against a laser record of 10²⁷ — **fifty-six orders.** *The naive light-crossing estimate is not
+the wall; the vacuum's response is.*
+
+**AND THE ONE KNOWN ESCAPE IS THE EXACT OPPOSITE OF HIGH VOLTAGE.** Page uses counter-propagating
+**antiparallel-polarised** pulses with `E² − B² < 0` and `E·B = 0` everywhere — **no frame has a purely
+electric field**, so the LCFA gives **zero** pair production.
+
+> **High voltage is precisely the configuration that maximises pair production.** The one known way through
+> works by arranging the invariants so that **voltage does not exist in any frame.**
+
+It sits beside `voltage.py` without overlapping: that found the electric route stopped by **conservation**
+(marginal field 1041 *below* Schwinger); this finds it stopped by **breakdown**. Two independent objections
+to one clause, three passes apart.
+
+**PAGE'S OWN SCOPE, QUOTED**: *"probably never actually occurring in our universe either naturally or by
+human intervention."* **His paper is about principle, not engineering** — he reaches near the Planck mass,
+**34 orders below** what `mouth.py` needs.
+
+**What this settles:** a named, live research question rather than a novel idea; our field figure right to
+the last digit against a PRL; and **the high-voltage clause specifically is the wrong end of it.** **Not
+settled:** the dispute, and whether such a hole opens a throat at all.
+
+### Seated
+- `kugelblitz.py` — new. `index3.py` — **668 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H86**. `mouth.py`, `voltage.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `mouth.py` — ten feet buys seven metres. A buildable mouth buys a useless corridor.
 
 > M: *"let's assume the size of the mouth only needs to be 10 feet in diameter."*

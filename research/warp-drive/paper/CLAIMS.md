@@ -6662,6 +6662,102 @@ the sign bookkeeping **the single most load-bearing open item this thread now ho
 
 ---
 
+## ★★★ H86 — kugelblitz. **The proposal has a name and a live fight, and high voltage is the wrong end of it.**
+
+> M: *"the next step is figuring out how to produce miniature black hole in a vacuum, entirely with EM
+> manipulation, with extremely high voltage."*
+
+**Four sources read from source this session:**
+
+- **[agmp24]** Álvarez-Domínguez, Garay, Martín-Martínez, Polo-Gómez, *"No black holes from light"*,
+  **Phys. Rev. Lett. 133, 041401 (2024)**, arXiv:2405.02389 — Schwinger dissipation prevents kugelblitze
+  for `10⁻²⁹ m ≤ R ≤ 10⁸ m`.
+- **[page25]** D. N. Page, *"Light Black Holes from Light"*, arXiv:2505.16202 — rebuttal: possible in
+  principle down to near the Planck mass.
+- **[loeb24]** Loeb comment arXiv:2408.06714, authors' reply arXiv:2408.11097.
+- **[bce25]** Blas, Cardoso, Ezquiaga, Phys. Rev. D 111, 044049 (2025).
+
+**The dispute is not adjudicated here.** What this pass does is put *our* object inside it.
+
+### H86a — our mouth is squarely inside the no-go's range
+
+`1.524 m` — seven orders below the top, twenty-nine above the bottom.
+
+### H86b — and our own field number is confirmed independently, to the last digit
+
+| route | value |
+|---|---|
+| **ours**, from an energy density filling the sphere | `E = 1.185318×10²⁷ V/m`, **`E·R = 1.806425×10²⁷ V`** |
+| **theirs**, agmp24 eq. (8): `E_bh = φ/R`, `φ = √(3c⁴/4πε₀G)` | **`φ = 1.806425×10²⁷ V`** |
+
+> **Agreeing to `0.0×10⁰` relative** — ours from `H85`'s mass, theirs from the field equations. **The best
+> independent check this project has had on a number of its own**, and it shows `E·R` is scale-free.
+
+### H86c — "extremely high voltage" has a number
+
+> **1.8064×10²⁷ volts across the mouth.**
+
+| | field (V/m) | ratio |
+|---|---|---|
+| required | 1.1853×10²⁷ | 1 |
+| Schwinger limit | 1.3233×10¹⁸ | 8.957×10⁸ |
+| **magnetar** — strongest in nature | 1×10¹⁹ | 1.185×10⁸ |
+| **laboratory record** | 1×10¹⁵ | **1.185×10¹²** |
+
+**Twelve orders above the best field ever made; eight above a magnetar.**
+
+### H86d — the bare assembly power is `c⁵/2G`, and it is not ours
+
+`P = Mc³/r` with `r = 2GM/c²` gives **`P = c⁵/(2G) = 1.814127×10⁵² W` exactly — M cancels.** Verified
+mass-independent to 10⁻¹² across fifteen orders, and equal to **0.500000000000** of the Planck power.
+
+> Elegant, and **recorded as ELEMENTARY rather than claimed**: agmp24's own eq. (13) carries the same
+> combination as their 10⁵² W scale, and the Planck power is a standard bound.
+
+### H86e — and Schwinger adds thirty-two more orders
+
+agmp24 eq. (10): `4πR²f ≳ R × 10⁸⁴ W/m` → **1.524×10⁸⁴ W** at our radius, against the bare 1.814×10⁵² W.
+In intensity, **10⁸³ W/m² against a laser record of 10²⁷ — fifty-six orders.**
+
+> **The naive light-crossing estimate is not the wall. The vacuum's response is, and it is thirty-two
+> orders worse.**
+
+### H86f — and the one known escape is the exact opposite of high voltage
+
+Page uses two counter-propagating **antiparallel-polarised** plane-wave pulses, arranged so that
+everywhere
+
+> **`E² − B² < 0` and `E·B = 0`**
+
+There is then **no frame in which the field is purely electric** — at every event a frame exists where it
+is pure *magnetic* — so the locally-constant-field approximation gives **exactly zero pair production**.
+His conservative bound puts escaping pair energy at `2α/π^{3/2} = 0.002621` of the photon number.
+
+> **High voltage is precisely the configuration that maximises pair production** — a large `E` in some
+> frame *is* `E² − B² > 0`, which is what Page is at pains to avoid. **The one known way through the wall
+> works by arranging the invariants so that voltage does not exist.**
+
+**And it sits beside H72 without overlapping it.** That file found the electric route stopped by
+**conservation**, its marginal field 1041 *below* Schwinger; this one finds it stopped by **breakdown**.
+Two independent objections to the same clause, three passes apart — one about what the field's energy does
+to the mass budget, the other about what the field does to the vacuum.
+
+### H86g — Page's own scope, quoted rather than characterised
+
+> *"highly implausible that black holes will form mainly from light in our actual universe, either
+> naturally or by any foreseeable human activity"* · *"probably never actually occurring in our universe
+> either naturally or by human intervention"*
+
+**His paper is about principle, not engineering**, and quoting it as support for a build would misuse it.
+He reaches near the Planck mass, 2.1764×10⁻⁸ kg, against `H85`'s 1.0261×10²⁷ kg — **34 orders heavier**.
+
+**What this settles:** the proposal is a *named, live research question* rather than a novel idea; our field
+figure is right to the last digit against a PRL; and **the high-voltage clause specifically is the wrong
+end of it.** **What it does not settle:** the dispute itself, and whether a hole so made would open a
+throat at all — which is **H85f**'s unresolved sign question.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
