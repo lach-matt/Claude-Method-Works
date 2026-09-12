@@ -7971,6 +7971,61 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `induce.py` — let the observations dictate it. Two things survive; the ladder is not one of them.
+
+> M: *"I suspect all my hierarchy law assertions are true. We are trying to dictate it based on our
+> observations, but let's let our observations dictate it instead."*
+
+**So the method changed.** Every cypher measurement in this thread was made inside **one** index — 17 energy
+conditions in a 288-cell box, five coordinates we chose. A law read off one object is a description of that
+object. This pass runs the same five operators over **four other indexes the corpus itself seats** and over
+**hundreds of random worlds**, and keeps only what survives.
+
+**SURVIVES — the closure theorem, and it is no longer index-local.** Over **300 random worlds** (random
+dimension, random alphabets, random cell sets, value order pinned so the `Index`'s re-ranking is the
+identity): **extensive 300/300 · idempotent 300/300 · monotone 300/300, all five.** The law holds in 300
+indexes that have nothing to do with energy conditions.
+
+**SURVIVES, AND IT IS NEW — `order` and `algebra` are the same operator.** Not "agree on `E`" — **identical
+as sets**: NEC 192=192 · Janet 22=22 · periodic 2-D 126=126 · periodic 3-D 190=190 · Λ 976=976, plus
+**400/400** random worlds, **1,379** in the selftest's sweep and **1,188** in a wider one. **No
+counterexample anywhere.**
+
+> **The cypher has four distinct closures on these objects, not five.** Candidate explanation, **not
+> verified**: Baker–Pixley — a majority term (lattices have the median) makes subalgebras of a product
+> determined by their two-fold projections, and the staircase condition is exactly that. **A lead, filed as
+> one.** Docket 20x-04/20x-09 is **not** resolved and `tools/cypher.py` is **not** touched.
+
+**DOES NOT SURVIVE — the ladder.** **14 distinct orderings** in 400 worlds; ours
+(`statistics < geometry < information < algebra < order`) is the **fourth most common, 42 of 400**. And the
+corpus's own indexes already disagreed:
+
+> **NEC index:** statistics < **geometry** < **information** < algebra = order
+> **periodic 3-D:** statistics < **information** < **geometry** < algebra = order
+
+**Geometry and information swap between two seated indexes** — available the whole time, never looked at.
+`statistics` is the **minimum in 106** of 400 and the **MAXIMUM in 128**: more often the largest than the
+smallest. *"The top rung, the most restrictive, the centre of the corridor"* is a property of the
+energy-condition family, not of the language.
+
+**"Order is the substrate" survives as 398 of 400** — a strong tendency, not a law. Both exceptions are
+geometry, and both are *incomparability*: world 286 has order at 32 and geometry at 22, **smaller and still
+not inside it**.
+
+**And the fifth instance of the harness channel, caught inside this pass.** The first run reported
+**extensivity failing 26 of 200** — a refutation of the whole theorem. **It was the harness:** `Index`
+re-ranks observed values to dense ordinals, so raw tuples were compared against recoded ones. Pinned, every
+count is 300/300. `H97` · `H100` · `H102` · `H106` · **and now this** — and **this time the number looked
+like a refutation**, which is the harder direction to doubt.
+
+### Seated
+- `induce.py` — new, with `--wide`. `index3.py` — **739 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H109**, with **H107a narrowed in place**. `tools/cypher.py`, `hierarchylaw.py`,
+  `necindex.py` — **read here, unchanged**.
+
+---
+
+
 ## `singularity.py` — truncate at geometry and *this* transition vanishes. But "singularity" is `box = |X|`, not `E = 0`.
 
 > M: *"Without the hierarchy, transition in spacetime would not exist. All math would stop at geometry

@@ -8456,6 +8456,11 @@ False. Rewritten to state the claim: no single cell covers all three pairs.
 
 ### H107a — the hierarchy law is derivable, and it is a closure theorem
 
+> **⚠ NARROWED AND STRENGTHENED BY H109.** The closure axioms below were measured inside the NEC
+> family alone; `H109a` re-measures them over 300 unrelated random worlds and they hold there too.
+> But `H109b` finds that **`order` and `algebra` return identical sets on every index tested**, so
+> "five" below counts named languages, not distinct closures — there are four.
+
 > M: *"Can we now derive the hierarchy law?"*
 
 **Yes, and it is smaller than the name.** A law here can only be a property every admitted language has,
@@ -8640,6 +8645,122 @@ transition is physically possible. **The clause "transition in spacetime would n
 cannot be tested by this instrument.** `D2.1`'s 69.03 orders and `H88`'s ξ gate are unmoved.
 
 *Instrument: `singularity.py` — `python3 singularity.py --selftest`*
+
+### H109a — the closure theorem survives being asked outside its own index
+
+> M: *"I suspect all my hierarchy law assertions are true. We are trying to dictate it based on our
+> observations, but let's let our observations dictate it instead."*
+
+**So the method changed.** Every cypher measurement in this thread was made inside **one** index — 17 energy
+conditions, five coordinates we chose. A law read off one object is a description of that object. This pass
+runs the same five operators over **four other indexes the corpus itself seats** and over **hundreds of
+random worlds**, and keeps only what survives.
+
+**Two things survive. The ladder is not one of them.**
+
+`H107a` measured the closure axioms inside the NEC family alone. Re-run over **300 random worlds** — random
+dimension, random alphabets, random cell sets, value order pinned so the `Index`'s re-ranking is the
+identity:
+
+| axiom | result |
+|---|---|
+| extensive | **300 / 300**, all five |
+| idempotent | **300 / 300**, all five |
+| monotone | **300 / 300**, all five |
+
+**The law holds in 300 indexes that have nothing to do with energy conditions.** It is the one claim this
+thread has made that the observations *dictate* rather than merely accept.
+
+---
+
+### H109b — `order` and `algebra` are the same operator, on every index anyone has run
+
+Not "agree on `E`". **Identical as sets:**
+
+| index | `\|order\|` | `\|algebra\|` |
+|---|---|---|
+| NEC index | 192 | 192 |
+| Janet | 22 | 22 |
+| periodic 2-D | 126 | 126 |
+| periodic 3-D | 190 | 190 |
+| Λ | 976 | 976 |
+
+Plus **400 of 400** random worlds, **1,379** in the sweep the selftest runs, and **1,188** in a wider one
+(dimension to 6, alphabets to 5, boxes to 4,000; `--wide`, ~6 min). **No counterexample anywhere.**
+
+> **The cypher has four distinct closures on these objects, not five.** The staircase closure and the
+> sublattice closure return the same set.
+
+**Candidate explanation, NOT VERIFIED — Baker–Pixley.** A variety with a majority term (lattices have the
+median) has its subalgebras of a product determined by their **two-fold projections**, and `op_order`'s
+staircase condition is exactly a two-fold projection condition. That would make the identity a theorem
+rather than a coincidence. **It is a lead and is filed as one** — the proof is not here and no paper was
+read for it.
+
+**Filed for docket 20x-04 / 20x-09 and not resolving it.** Which languages there are is an open docket, the
+rosters stay data, and a measurement that two operators coincide is evidence for that docket, not a ruling
+on it. **`tools/cypher.py` is not touched.**
+
+---
+
+### H109c — the ladder does not survive
+
+Over 400 random worlds, ranking the five by closure size: **14 distinct orderings.**
+
+| ordering | count |
+|---|---|
+| information < algebra < geometry < order < statistics | 88 |
+| information < statistics < algebra < geometry < order | 45 |
+| information < statistics < geometry < algebra < order | 44 |
+| **statistics < geometry < information < algebra < order** — *ours* | **42** |
+| statistics < information < geometry < algebra < order | 41 |
+
+**The NEC index's ordering is the fourth most common and occurs in one world in ten.** Not a law; this
+family's shape.
+
+**And the corpus's own indexes already disagreed with each other:**
+
+> NEC index: statistics < **geometry** < **information** < algebra = order
+> periodic 3-D: statistics < **information** < **geometry** < algebra = order
+
+**Geometry and information swap between two seated indexes.** Nothing needed to be generated to find that;
+it was available the whole time and was not looked at.
+
+The rung claims fare no better. **`statistics` is the minimum in 106 of 400 and the MAXIMUM in 128** — more
+often the largest than the smallest. *"The top rung, the most restrictive, the centre of the corridor"* is a
+property of the energy-condition family, not of the language. Geometry vs information across the worlds:
+`info < geom` **183** · incomparable **144** · equal **57** · `geom < info` **16**.
+
+---
+
+### H109d — "order is the substrate" survives as a tendency
+
+Is every other closure a subset of `order`'s? **398 of 400.** Both exceptions are `geometry`, and both are
+*incomparability* rather than order being beaten — world 121 (d = 5, 5 cells) has order at 8 and geometry at
+10; world 286 has order at 32 and geometry at 22, **smaller and still not inside it**.
+
+**A strong tendency and not a law.**
+
+---
+
+### H109e — and the fifth instance of the harness channel, caught inside this pass
+
+The first run of `H109a` reported **extensivity failing 26 times in 200** — a refutation of the whole
+closure theorem, which is exactly the result this pass was set up to be willing to find. **It was the
+harness.** `cypher.Index` re-ranks each coordinate's observed values to dense ordinals, so a world whose
+cells used values `{0, 2}` had them recoded to `{0, 1}`, and raw tuples were being compared against recoded
+ones. Pinning the value order to the full densified range makes every count 300 of 300. *(Reproduced as a
+two-cell fixture in the selftest.)*
+
+> `H97` (coordinate re-ranking) · `H100` (algebra budget) · `H102` (Index-supplied value order) · `H106`
+> (greedy stranding) · **and now this. Fifth time.** The channel is not carelessness about the object; the
+> scaffolding is invisible until it produces a number that looks like a finding — and **this time the number
+> looked like a refutation**, which is the harder direction to doubt.
+
+**What it does not do:** nothing here is about spacetime, and nothing moves `D2.1`'s 69.03 orders or `H88`'s
+ξ gate. Two of this thread's cypher readings are narrowed by it and neither is a physics result.
+
+*Instrument: `induce.py` — `python3 induce.py --selftest`*
 
 ---
 
