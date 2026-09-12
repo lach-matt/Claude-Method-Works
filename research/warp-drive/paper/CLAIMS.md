@@ -7350,6 +7350,11 @@ One door, found five times in this tree under five names, and every one of them 
 
 ### H94a — the licensed energy conditions, derived rather than posited
 
+> **⚠ REVOKED BY H98.** The law below — *a bound below zero is permitted exactly when the
+> regime is quantum* — is half prior art (Tipler 1978; Kontou–Sanders Prop. 2.1) and half **false**: its
+> converse is refuted by Kontou–Sanders eq. (86), a classical smeared inequality with a negative bound,
+> which the 192 excludes. The corrected family is **240 cells**. The section is kept as published.
+
 > M: *"We need to theorize/define a new family of energy conditions — the family of ECs that solves the
 > cypher, closing all its languages to E = 0 for the entire transition state."*
 
@@ -7675,6 +7680,95 @@ answer.
 coordinate, making the coding the identity; `licensed.py` and `alpha.py` now construct every index through
 it, and `cypher.Index` is not called directly anywhere in this tree. The comment at the definition says
 what it cost.
+
+---
+
+### H98 — the provenance answer: prior art in full, and it revokes `H94a`'s law
+
+> M: *"Are these already predefined energy conditions? As in not novel? — yes is preferred because it comes
+> with its own provenance. If not, we need to spend the next step proving the new family."*
+
+**Yes. Prior art, essentially in full. There is nothing to prove.** Fifteen agents read ten sources; four
+skeptics were instructed to **refute** novelty — the bias set deliberately against us. **All four claims
+refuted at HIGH confidence.**
+
+| axis | verdict | establishing citation |
+|---|---|---|
+| **T** which tensor | PRIOR-ART | Capozziello–Lobo–Mimoso 1407.7293, a subsection *titled* "The classification of energy conditions", attributing it to Hawking & Ellis 1973 |
+| **T_eff** specifically | PRIOR-ART | Visser–Barceló gr-qc/0001099 (2000) — *"it is the energy conditions defined in terms of this effective stress-energy tensor that are the physically interesting ones"* |
+| **V** direction set | PRIOR-ART | Kontou–Sanders 2003.01815 Table 4; Maeda–Martínez 1810.02487 §2 |
+| **M** measure | PRIOR-ART | Kontou–Sanders §2→§3→§4.1 with achronal as its own row; Curiel's pointilliste/impressionist |
+| **Q** regime | PRIOR-ART, near ELEMENTARY | the *title* of Martín-Moruno & Visser 1702.05915, and of Kontou–Sanders §4 |
+| **B** right-hand side | PRIOR-ART | Kontou–Sanders §3.1 classifies QEIs by the bound: trivial/non-trivial, **state-independent/state-dependent**, absolute/difference |
+
+**Four of five are organising dimensions inside one paper.** The only unclaimed thing is that nobody has
+printed the five-way crossed table — the novelty of a spreadsheet.
+
+**And the sweep found more than provenance.**
+
+**`H94a`'s law — *"a bound below zero is permitted exactly when the regime is quantum"* — is half prior art
+and half false.** Kontou–Sanders 2003.01815, **read from source by this thread, not only by a subagent:**
+
+> p. 4: *"This also provides one possible explanation why the lower bound in classical energy conditions is
+> zero and not negative (for an earlier, entirely classical explanation see [19])"* — **[19] = Tipler, Phys.
+> Rev. D 17 (1978) 2521.**
+>
+> p. 11, **Proposition 2.1**: *"Let S_ab be any rank 2 tensor and Γ a set of pairs of vectors **that is
+> invariant under positive rescaling**. If S_ab η^a ξ^b is bounded from below … then the greatest lower
+> bound is zero."*
+>
+> and immediately after: *"For the WEC, SEC and DEC one can restrict attention to normalized time-like
+> vectors, **which removes the scale invariance used in the proof of Proposition 2.1. In this case the
+> existence of a lower bound does not imply that the lower bound is non-negative.**"*
+
+> **The mechanism is scale invariance of the quantifier set. It is not the regime.**
+
+**And the converse is refuted by a printed counterexample** — their eq. (86), p. 29, for the **classical**
+non-minimally coupled scalar smeared over a causal geodesic: *"Although the lower bound may be
+negative…"* **Classical. Smeared. Negative RHS. No ħ.** As a cell that is `(matter, causal, smeared,
+CLASSICAL, negative)` — **and the 192-cell family excludes it.**
+
+> **The family that closed every language excludes a published energy condition.**
+
+### H98b — the corrected family, and it still closes
+
+Add that one cell to the 192 and the closure **detonates**: `E` goes from `(0,0,0,0,0)` to
+`(47, 47, 47, 23, 47)`. Close it again and it settles at **240** — with a one-line definition of its own:
+
+> **The 240 is exactly NOT (classical AND state-dependent bound).**
+
+All 48 excluded cells have `Q=0, B=2` and nothing else is excluded. In words, and modest where the old law
+was striking: **a state-dependent bound requires a quantum state** — nearly a tautology, since an entropy
+variation is an entanglement entropy's second variation and a classical configuration has none. **A
+negative state-independent bound requires nothing of the kind, and eq. (86) is the proof.**
+
+The 240 closes all five languages at `E = 0`, contains all eighteen named conditions, and contains eq. (86).
+**It is the family `H94a` should have found.** The 192 is a subset of it; the 48 it wrongly excluded are
+back.
+
+### H98c — closure is not a correctness criterion
+
+**Both families close at `E = 0` in all five languages. One is wrong.**
+
+The eighteen named conditions **cannot distinguish the two rules** — measured: all four named conditions
+with a negative bound are *both* quantum *and* scale-broken-or-state-dependent, so the two rules classify
+every named cell identically, while disagreeing on **96 cells of the ambient box.**
+
+> **A family can close every language and exclude published physics.** What separated the two was not any
+> operator. **It was reading a paper.**
+
+Fourth instance of this thread's instruments being recorders rather than adjudicators: `H93`'s index
+enumerates citations not truths, `H94`'s closure hands back candidates not objects, `H95`'s cypher records
+a law rather than finding one — and here **a closure certifies a family it cannot check.**
+
+### H98d — the proof burden
+
+**Nothing needs proving from the field equations.** Every axis, every named member, the regime split and
+the forward half of the payload are published and citable. The converse needed no proof either — it needed
+refuting, and the literature had already done it. The corrected law is a near-tautology.
+
+> **The next step is cancelled, in the good direction: there is no new family to prove, because there is no
+> new family.**
 
 ---
 

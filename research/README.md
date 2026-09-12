@@ -7971,6 +7971,70 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `revoke.py` — prior art in full, nothing to prove, and it revokes `licensed.py`'s law.
+
+> M: *"Are these already predefined energy conditions? … yes is preferred because it comes with its own
+> provenance."*
+
+**Yes.** Fifteen agents, ten sources, four skeptics instructed to **refute** novelty — the bias set against
+us on purpose. **All four claims refuted at HIGH confidence.** Every axis is prior art: the tensor axis is
+Capozziello–Lobo–Mimoso's *"The classification of energy conditions"* (attributed to Hawking–Ellis 1973);
+`T_eff` is Visser–Barceló 2000; `V`, `M`, `Q` and `B` are all explicit organising dimensions inside
+**Kontou–Sanders 2020** alone. The only unclaimed thing is the five-way crossed table — **the novelty of a
+spreadsheet.**
+
+**And the sweep found more than provenance.** `licensed.py`'s law is **half prior art and half false.**
+Kontou–Sanders 2003.01815, **read from source by this thread:**
+
+> **Proposition 2.1** (p. 11): *"Let S_ab be any rank 2 tensor and Γ a set of pairs of vectors **that is
+> invariant under positive rescaling**. If S_ab η^a ξ^b is bounded from below … then the greatest lower
+> bound is zero."* — and immediately after: *"restrict attention to normalized time-like vectors, **which
+> removes the scale invariance … In this case the existence of a lower bound does not imply that the lower
+> bound is non-negative.**"*
+
+**The mechanism is scale invariance of the quantifier set, not the regime** — the forward half is Tipler
+1978, generalised at Prop. 2.1. **And the converse is refuted by their eq. (86):** a **classical**, smeared
+inequality with a negative RHS for the non-minimally coupled scalar. *"Although the lower bound may be
+negative…"* No ħ.
+
+> **The 192-cell family excludes it. The family that closed every language excludes a published energy
+> condition.**
+
+**Add that one cell and the closure detonates** — `E` from `(0,0,0,0,0)` to `(47,47,47,23,47)`. Close it
+again: **240 cells**, and a one-line definition of its own —
+
+> **NOT (classical AND state-dependent bound).** All 48 excluded cells are `Q=0, B=2`, nothing else. In
+> words: **a state-dependent bound requires a quantum state** — nearly a tautology, since an entropy
+> variation is an entanglement entropy's second variation. **A negative state-independent bound requires
+> nothing of the kind.**
+
+The 240 closes all five at `E = 0`, contains all eighteen named conditions **and** eq. (86), and has the
+192 as a subset. **It is the family `licensed.py` should have found.**
+
+**And the meta-finding is the one that matters.** Both close at `E = 0` in all five languages; one is
+wrong. Measured: all four named conditions with a negative bound are *both* quantum *and*
+scale-broken-or-state-dependent, so the two rules agree on **every named cell** while disagreeing on **96
+cells of the box.**
+
+> **A family can close every language and exclude published physics.** What separated them was not any
+> operator. **It was reading a paper.**
+
+Fourth instance of these instruments being recorders rather than adjudicators — after `necindex.py`,
+`licensed.py` and `hierarchy.py`.
+
+**The proof burden: nothing.** Every axis, every member, the regime split and the forward half are
+published and citable; the converse needed refuting, not proving, and the literature had done it. **There
+is no new family to prove, because there is no new family.**
+
+### Seated
+- `revoke.py` — new. `index3.py` — **704 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H98**, with H94a marked **revoked** in place. `provenance.py` — **26 sources, 33 attributions**;
+  Kontou–Sanders **VERIFIED**, Tipler **NAMED-NOT-READ** (paywalled), and a new status **READ-BY-SWEEP** for
+  the four a subagent read with page-level quotes but this thread did not.
+
+---
+
+
 ## `necindex.pinned_index` — an instrument was silently re-coordinating its input.
 
 **`cypher.Index` re-ranks each coordinate's observed values to dense ordinals.** On the full family that is
