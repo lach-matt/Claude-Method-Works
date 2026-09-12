@@ -7971,6 +7971,83 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `modulus.py` — it is `g_θθ`, it works by pairing the two chiralities, and it is being asked to undo its own act.
+
+> M: *"What does a modulus actually do? How does it perform its functions? What inputs does it require, and
+> which of those do we have and not have on an index of need and don't need?"*
+
+**IT IS NOT AN ABSTRACTION OVER THE METRIC — IT IS ONE OF ITS COMPONENTS.** `|z|² = Σ = g_θθ` exactly, to
+**3.6×10⁻¹⁵** across `a` 0.7–4.9 and `θ` 0.3–π/2. The modulus is the **polar thread**, read off with no
+derivation. **And that names a thread `weave.py` never had** — time, space and intersection, and no fourth.
+On the equator `g_θθ = 25.000000000 = r²` for every spin.
+
+> **The thread that carries the modulus is trivial on the plane where the bit vanishes.** M's decomposition
+> was not incomplete by oversight; the fourth thread carries nothing where he was looking.
+
+**HOW IT PERFORMS ITS FUNCTION IS THE LOSS ITSELF.** `|z|² = z·z̄`, and **`z̄(r,θ,a) = z(r,θ,−a)` to 0.0×10⁰** —
+the conjugate *is* the opposite-chirality metric's own complex radius. So
+
+> **the modulus is the product of the two chiralities**, verified real and equal to `|z|²` to 3.6×10⁻¹⁵.
+
+It does not *fail* to distinguish them — **it is built by pairing them**, with identical weight, and a
+product is symmetric in its factors. `cube.py` proved the bit unrecoverable; this is the mechanism. **The
+operation that makes a modulus is the operation that destroys the sign — one act, not a cause and an
+effect.**
+
+**AND THE OTHER COMBINATION OF THE SAME PAIR IS THE PHASE.** `z(+a)/z(−a)` has unit modulus to 2.2×10⁻¹⁶ and
+half its argument **is** `arg z`. *Their product is the magnitude; their ratio is the direction.* `weave.py`
+found that shape in the other two threads — **recorded as a recurring form and refused as an identity.**
+
+**AND THE WHOLE THING HAS A PICTURE THAT NEEDS NO ALGEBRA.** `|z| = ρ` is a **circle**; the radial coordinate
+fixes `Re z = r`, a **line**. They meet in **two points, and the two points are conjugates** — Im z =
+±0.317517 at `a = 0.7, θ = 1.1, r = 5`; ±2.388341 at `a = 2.5, θ = 0.3, r = 4`. They collapse to one exactly
+when the line is **tangent**, `ρ = r`, i.e. `a cos θ = 0` — the equator, or no spin. And `ρ ≥ r` always, so
+the line can never miss: **always either a two-fold ambiguity or no spin to be ambiguous about, never a
+third case.**
+
+> **The entire missing bit of the last three passes is that a circle meets a line twice.**
+
+**THE INDEX OF NEED — 3 HELD, 1 PARTIAL, 2 NOT HELD.**
+
+| job | requires | status |
+|---|---|---|
+| set the curvature magnitude `\|ψ₂\| = M/\|z\|³` | M, `\|z\|` | **HELD** — M from `g_tt`, `\|z\| = √g_θθ` |
+| normalise every metric component (Σ) | `\|z\|²` | **HELD** — it *is* `g_θθ` |
+| locate the ergosphere `2Mr = Σ` | M, r, `\|z\|` | **HELD** |
+| locate the horizon `Δ = 0` | M, r, `a²` | **PARTIAL** — `\|z\|` gives `a²cos²θ`; needs θ, or `g_rr` |
+| separate spin from polar angle | a second relation | **NOT-HELD-FROM-z** — z carries only the product |
+| give the chirality `sgn(a)` | `arg z` | **NOT-HELD** — parity theorem |
+
+> **Both unclean rows are separations. A modulus is a merging operation, and it is being asked to undo its
+> own act.**
+
+**AND THE FIRST OF THOSE IS NOT A BIT BUT A WHOLE PARAMETER.** Geometries with `a₁cos θ₁ = a₂cos θ₂` have
+identical `z` and identical `ψ₂` to **0.0×10⁰** — hence identical polynomial curvature invariants at that
+point — with `g_rr` differing by **0.050935, 0.122504 and 0.555951** at three solved pairs. **The complex
+radius is a complete description of the local curvature and an incomplete description of the geometry.**
+
+**AND THE OBSTRUCTION IS GLOBAL, NOT INFINITESIMAL** — stronger than `cube.py`'s parity theorem. The even
+sector's Jacobian in `(M, a)` has **rank 2** at `a` = 0.7, 2.5, −0.99 and even 0.001, so `|a|` is *locally
+determined and perfectly so*, while the fibre still has **two points**. **A rank-2 map with a two-point
+fibre is a covering, not a degeneracy, and no derivative can see a deck transformation** — the whole class
+of local methods is the wrong class. Rank drops to 1 at exactly `a = 0`: **the map is singular exactly where
+the question is empty.**
+
+**TWO FAULTS, AND THE SECOND FILE RUNNING WHERE THE FIXTURES CAUGHT THEM** — a sign error on
+`arg z = ±arg(ratio)/2`, and **a tally written without counting** ("four held" against a table holding
+three). A third typed constant was replaced by *solving* for it.
+
+> The trend is what to record: **two consecutive files where computed fixtures rather than arithmetic did
+> the catching.**
+
+### Seated
+- `modulus.py` — new. `index3.py` — **641 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H77**. `phase.py`, `cube.py`, `weave.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `phase.py` — the one odd value exists, it is a phase, and M predicted it was complex.
 
 > M: *"We still need that one odd value that unlocks it all. Pi/3? Cube root? Whatever it is, I would be

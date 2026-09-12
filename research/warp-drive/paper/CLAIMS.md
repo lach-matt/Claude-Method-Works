@@ -5832,6 +5832,116 @@ was **typed rather than computed** and wrong in the seventh digit.
 
 ---
 
+## ★★★ H77 — modulus. **It is `g_θθ`, it works by pairing the two chiralities, and it is being asked to undo its own act.**
+
+> M: *"What does a modulus actually do? How does it perform its functions? What inputs does it require, and
+> which of those do we have and not have on an index of need and don't need?"*
+
+### H77a — it is not an abstraction over the metric; it is one of its components
+
+> **`|z|² = Σ = g_θθ`**, to **3.6×10⁻¹⁵** across `a` 0.7–4.9 and `θ` 0.3–π/2.
+
+The modulus is the **polar thread**, read off the metric with no derivation at all. **And that names a
+thread `weave.py` never had** — it decomposed the corridor into time, space and intersection and never
+mentioned a fourth. On the equator `g_θθ = 25.000000000 = r²` **for every spin**.
+
+> **The thread that carries the modulus is trivial on the plane where the bit vanishes.** M's three-thread
+> decomposition was not incomplete by oversight — the fourth thread carries nothing where he was looking.
+
+### H77b — how it performs its function, and the mechanism *is* the loss
+
+> `|z|² = z·z̄`, and **`z̄(r,θ,a) = z(r,θ,−a)` to 0.0×10⁰.** The conjugate **is** the opposite-chirality
+> metric's own complex radius.
+
+| a | θ | `\|conj − z(−a)\|` | `z(+a)·z(−a)` | `\|z\|²` |
+|---|---|---|---|---|
+| 0.70 | 1.1000 | 0.0×10⁰ | 25.100817226272 + 0.0j | 25.100817226272 |
+| 2.50 | 0.3000 | 0.0×10⁰ | 21.704173796593 + 0.0j | 21.704173796593 |
+| −0.99 | 2.4000 | 0.0×10⁰ | 36.532928876835 + 0.0j | 36.532928876835 |
+
+> **So the modulus is the product of the two chiralities.**
+
+It does not *fail* to distinguish them — **it is built by pairing them**, with identical weight, and a
+product is symmetric in its factors. **H75** proved the bit unrecoverable; this is the mechanism. **The
+operation that makes a modulus is the operation that destroys the sign. They are one act.**
+
+### H77c — the other combination of the same pair is the phase, and the picture needs no algebra
+
+`z(+a)/z(−a) = z/z̄` has **unit modulus to 2.2×10⁻¹⁶** and **half its argument is `arg z` to 0.0×10⁰**.
+
+> **Their product is the magnitude. Their ratio is the direction.**
+
+`weave.py` found that shape in the *other* two threads. **Recorded as a recurring form and refused as an
+identity** — one pair is `g_tt` against `g_rr`, the other a chirality against its mirror.
+
+**And the geometry is a circle meeting a line.** `|z| = ρ` is a circle; the radial coordinate fixes
+`Re z = r`, a line.
+
+| a | θ | ρ | r | hits | Im z |
+|---|---|---|---|---|---|
+| 0.70 | 1.1000 | 5.010072 | 5.000000 | **2** | +0.317517, −0.317517 |
+| 2.50 | 0.3000 | 4.658774 | 4.000000 | **2** | +2.388341, −2.388341 |
+| 0.70 | π/2 | 5.000000 | 5.000000 | **1** | +0.000000 |
+| 0.00 | 0.4000 | 5.000000 | 5.000000 | **1** | +0.000000 |
+
+They collapse to one **exactly when the line is tangent** — `ρ = r`, i.e. `a cos θ = 0`, **the equator or no
+spin.** And `ρ ≥ r` always, so the line can never miss: always either a two-fold ambiguity or no spin to be
+ambiguous about, **never a third case.**
+
+> **The entire missing bit of the last three passes is the statement that a circle meets a line twice.**
+
+### H77d — the index of need
+
+| job | requires | status | from |
+|---|---|---|---|
+| set the curvature magnitude `\|ψ₂\| = M/\|z\|³` | M, `\|z\|` | **HELD** | M from `g_tt`; `\|z\| = √g_θθ` directly |
+| normalise every metric component (Σ) | `\|z\|²` | **HELD** | it *is* `g_θθ` |
+| locate the ergosphere `2Mr = Σ` | M, r, `\|z\|` | **HELD** | all three above |
+| locate the horizon `Δ = 0` | M, r, `a²` | **PARTIAL** | `\|z\|` gives `a²cos²θ`, not `a²`; needs θ, or `g_rr` |
+| separate the spin from the polar angle | a second relation | **NOT-HELD-FROM-z** | z carries only the *product* `a cos θ` |
+| give the chirality `sgn(a)` | `arg z` | **NOT-HELD** | parity theorem; off-plane `*RR` or circulation |
+
+**3 held, 1 partial, 2 not held.** Everything asked of it *about magnitude* it does, with inputs this tree
+already holds and mostly without deriving anything.
+
+> **Both unclean rows are separations** — splitting `a` from `θ`, and splitting `+a` from `−a`. **A modulus
+> is a merging operation, and it is being asked to undo its own act.**
+
+**And the first of those is new, and is not a bit but a whole parameter.** Geometries with
+`a₁cos θ₁ = a₂cos θ₂` have identical `z` and identical `ψ₂` to **0.0×10⁰** — hence identical polynomial
+curvature invariants at that point — with `g_rr` differing by **0.050935, 0.122504 and 0.555951** at three
+solved pairs. **The complex radius is a complete description of the local curvature and an incomplete
+description of the geometry.** (Pointwise; the neighbourhoods differ, since `Δ` carries `a²` and `z` does
+not.)
+
+### H77e — and the obstruction is global, not infinitesimal
+
+| a | θ | rank | fibre |
+|---|---|---|---|
+| 0.700 | 1.1000 | **2** | **2** |
+| 2.500 | 0.3000 | **2** | **2** |
+| −0.990 | 2.4000 | **2** | **2** |
+| 0.001 | 1.1000 | **2** | **2** |
+| 0.000 | 1.1000 | 1 | 1 |
+
+**A rank-2 map with a two-point fibre is a covering, not a degeneracy.** The even sector determines `|a|`
+locally and perfectly, and still cannot choose between the two sheets. **No derivative can see a deck
+transformation** — so it is not that the closed forms fail, it is that **the whole class of local methods is
+the wrong class.** That is stronger than **H75b**'s parity theorem. And the rank drops to 1 at exactly
+`a = 0`, where the fibre collapses: **the map is singular exactly where the question is empty.**
+
+### H77f — two faults, and the second file running where the fixtures caught them
+
+A sign error asserting `arg z = −arg(ratio)/2` when it is `+`; and **a tally written without counting** —
+*"four held, one partial, one not held"* against a table holding three, one and two. Twentieth and
+twenty-first faults, the same channel as **H73e**.
+
+> **The trend is what to record: two consecutive files where computed fixtures rather than arithmetic did
+> the catching.** A third typed constant — a hand-picked partner spin in H77d — was replaced by solving
+> `a₂ = a₁cos θ₁/cos θ₂` rather than typing it.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
