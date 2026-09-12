@@ -8292,6 +8292,79 @@ elimination of why.** Both halves measured; neither assumed.
 
 ---
 
+### H105a — object and conditions is real between two languages; the other three don't sit on either side
+
+> M: *"It is two tiers. The first half describes the object. The second half describes the
+> environment/conditions for that object to exist in its current state."*
+
+Two perturbations, each adding one cell: an **interior** cell (already inside every 2-D hull) and a
+**hull-extending** one. Who notices?
+
+| language | interior | hull-extending | signature |
+|---|---|---|---|
+| order | 0 of 12 | 0 of 40 | (0, 0) |
+| algebra | 0 of 12 | 0 of 40 | (0, 0) |
+| **geometry** | **0 of 12** | **40 of 40** | **(0, 1)** |
+| information | 10 of 12 | 5 of 40 | (.83, .13) |
+| **statistics** | **12 of 12** | **40 of 40** | **(1, 1)** |
+
+> **Geometry sees extent and nothing else. Statistics sees every cell.** That pair *is* object and
+> conditions, and it is measured.
+
+**But the other three don't sit on either side.** Order and algebra **don't move at all** on either
+perturbation — they are not describing the object, they are **coarse**, their closure so large no single
+cell reaches it. And information is the only language whose profile is **inverted**: more sensitive to an
+interior cell than to a hull-extending one, 83% against 13%.
+
+> **Third anomaly to land on information.** `H96`: the only non-commuting pair. `H104`: the only
+> incomparable pair. Here: the only inverted sensitivity. **Statistics is distinguished by being exact and
+> invariant; information by being the exception every time.**
+
+And this explains `H104`'s geometry/information incomparability without needing geometry to be constant:
+**geometry is boundary-determined, information is content-determined** — two different reductions of one
+cell set, and neither refines the other.
+
+### H105b — `|Object − state| = object` holds one cell at a time
+
+> M: *"|Object − state − transition| = object"*
+
+Read as *the object is unchanged by removing its state*, the equation names state as **whatever the object
+is invariant to** — which makes it measurable rather than definitional. Removing each cell in turn:
+
+| language | moved by | invariant to |
+|---|---|---|
+| order | 5 of 17 | 12 |
+| algebra | 5 of 17 | 12 |
+| **geometry** | **7 of 17** | **10** |
+| information | 11 of 17 | 6 |
+| statistics | 12 of 17 | 5 |
+
+**Ten of seventeen cells can be removed and geometry does not notice.** Seven are its extreme points. **So
+the equation holds, one cell at a time.** *(Negative control: 7 are not removable, so the invariance belongs
+to those ten and not to removal in general.)*
+
+### H105c — and fails as a set, which is the finding
+
+**Remove all ten at once and geometry changes.** The invariance is not additive, and the reason is in the
+mechanism: a hull is fixed by its extreme points, so removing a non-extreme point costs nothing — **but once
+enough are gone, points that were interior become extreme.**
+
+> **And the decomposition is not unique, which is worse than it failing.** Stripping greedily while geometry
+> holds removes **8**, leaving 9. Over six random removal orders the strip size is **6, 7 or 8**.
+
+> **There is no canonical state to subtract.** Different orders leave different objects of different sizes,
+> and nothing in the operator picks one.
+
+The equation presumes a clean split of a cell set into object and state. **This operator does not admit
+one:** removability is *context-dependent*, not an independence structure. **What would be needed is a
+canonical decomposition** — a real and stateable requirement, and geometry's hull does not supply it.
+
+**One hollow test was caught building this** — a check reading `geom(X) == geom(X)`, a call against itself,
+true of anything. Replaced with a comparison of the survivors against the original. Same channel as `H87`'s
+three.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

@@ -7971,6 +7971,46 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `decompose.py` — object and conditions, and the equation that holds per cell and fails as a set.
+
+> M: *"The first half describes the object. The second half describes the environment/conditions."* And:
+> *"|Object − state − transition| = object."*
+
+**Two perturbations — adding an interior cell, adding a hull-extending one:**
+
+| | interior | extending | |
+|---|---|---|---|
+| order, algebra | 0/12 | 0/40 | **coarse — notice neither** |
+| **geometry** | **0/12** | **40/40** | **extent only** |
+| information | 10/12 | 5/40 | **inverted** |
+| **statistics** | **12/12** | **40/40** | **every cell** |
+
+> **Geometry sees extent, statistics sees every cell — that pair IS object and conditions, measured.** But
+> order and algebra don't move at all, and information is the only **inverted** profile. **Third anomaly on
+> information** (after the only non-commuting pair and the only incomparable pair). And it explains
+> `regress.py`'s incomparability without geometry being constant: **boundary-determined vs
+> content-determined**, two reductions of one set, neither refining the other.
+
+**The equation, measured.** Removing each cell in turn, geometry is moved by 7 of 17 — so **10 cells are
+individually removable and it does not notice.** *The equation holds, one cell at a time.*
+
+**And fails as a set.** Remove all ten and geometry **changes** — a hull is fixed by its extreme points, so
+removing one non-extreme point is free, **but once enough are gone, interior points become extreme.**
+
+> **And the decomposition is not unique, which is worse than failing.** Greedy strips **8**, leaving 9; over
+> six random orders the strip is **6, 7 or 8**. **There is no canonical state to subtract** — different
+> orders leave different objects, and nothing in the operator picks one. **What would be needed is a
+> canonical decomposition**, and geometry's hull does not supply one.
+
+**One hollow test caught:** a check reading `geom(X) == geom(X)` — a call against itself. Replaced.
+
+### Seated
+- `decompose.py` — new. `index3.py` — **726 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H105**. `regress.py`, `alpha.py`, `throat.py` — **read here, unchanged**.
+
+---
+
+
 ## `regress.py` — does the ladder eliminate *why*? A partial ladder, a terminus, and no self-account.
 
 > M: *"A hierarchy law works because it eliminates all why questions at any given position, and instead
