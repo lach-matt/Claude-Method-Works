@@ -7971,6 +7971,65 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `amps.py` — the bill in current. A square-root denomination; the wall did not move.
+
+> M: *"Now that we have the math we can go back to the bill. And my first guess is going to be amps of EM."*
+
+**THE RIGHT QUANTITY TO HAVE ASKED FOR**, and the answer is negative in a way this project had not seen.
+
+**THE UNIT BRIDGE IS EXACT AND IT IS CARTER'S.** In SI the Kerr–Newman moment is `μ = Qac = QJ/M` (that
+is `g = 2`), and a loop has `μ = IA`, so **`I = Qac/A`** exactly — a dimensionally clean bridge from two
+GR parameters to amperes, the two forms agreeing to 0.0×10⁰.
+
+**THE GEOMETRY BILL.** Putting the exchange rate 1.212374×10⁴³ J into a magnetic field filling a sphere
+of radius R gives **2.697080×10¹⁸ T and 4.292537×10²⁴ A at one metre.** Against the largest current ever
+produced (~2.6×10⁷ A, RECALLED) that is a gap of **1.6510×10¹⁷ — seventeen orders — against thirty-five
+in energy.**
+
+> **The ratio of the two dex figures is 2.0782**, because energy is quadratic in current. **The wall did
+> not move. The exponent halved.** Seventeen orders reads as enormously better than thirty-five and is
+> the same obstacle in a denomination whose square is the thing actually needed.
+
+The excess over 2 is fully accounted for: `dex(E)/dex(I) = 2 + log₁₀(L_req/L_dev)/log₁₀(I_req/I_dev)`.
+The devices imply 1.3159×10⁻⁶ H and 5.9172×10⁻⁸ H; predicted 2.0782 against measured 2.0782, **to
+0.0×10⁰**. **This is the fourth currency for one wall — and the first that is not linear in it.**
+
+**THE FIELD WALL YIELDS TO SCALE; THE CURRENT WALL DOES NOT.** `B ∝ R^{-3/2}`, `I ∝ R^{-1/2}`, both exact
+to 10⁻¹² over fifteen orders. At **R = 720.068846 km** the required field equals `B_QED = 4.414005×10⁹ T`
+exactly — but the current there is still **5.058803×10²¹ A**. **Six orders of growth in size buys three
+in current, and no more.**
+
+> **That check is run because this project has been rescued by it before** — a 10³¹ gap once turned out
+> to be a 20 m artefact for the single reason that size had never been varied. Size is varied here, over
+> fifteen orders, and it barely moves the answer. **The check that once dissolved a wall confirms one.**
+
+**AND WHICH WALL BINDS INVERTS THE ELECTRIC CASE.** `voltage.py` found the electric route stopped by
+**conservation** and not breakdown, its marginal field 1041 *below* Schwinger. **The magnetic route is
+stopped by both, in order:** breakdown below 720 km, and the current itself at every scale.
+
+**BUT THE BILL SPLITS, AND THE SPLIT IS THE FINDING.** Matching a `(Q, a) = (1 C, 1 m)` moment with a
+one-metre loop needs **9.542690×10⁷ A — 3.7× a machine that exists.** Not seventeen orders; a factor of
+four.
+
+> **The orientation is cheap and the geometry is not**, and `corridor.py` already showed why those are
+> different purchases: the handedness is a **labelling**, and a labelling is all this current buys.
+> *Nothing here shows that imposing that moment organises anything* — it is the matching condition and
+> no more, and the gap between a matching condition and a source that makes a geometry is the whole
+> unbuilt part.
+
+**TWENTY-FIFTH FAULT, AND WORTH THE CATCH.** The headline was written as "the ratio is two"; it is
+**2.0782**. The fixture failed, **the claim was checked before the test was touched**, and the excess
+resolved exactly to the inductance mismatch. **The round number was wrong and the correction is sharper
+than the claim it replaced.**
+
+### Seated
+- `amps.py` — new. `index3.py` — **653 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H81**. `iff.py`, `corridor.py`, `voltage.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `proofs.py`, `provenance.py`, `paper/CORRIDOR.md` — 20 of 27 promote, and the headline is prior art.
 
 > M: *"expand all the math on hand and state everything in full. Search for attributions outside for

@@ -6236,6 +6236,93 @@ caught by fixtures. **Three consecutive files now** (`H77f` was the first).
 
 ---
 
+## ★★★ H81 — amps. **A square-root denomination. The wall did not move; the exponent halved.**
+
+> M: *"Now that we have the math we can go back to the bill. And my first guess is going to be amps of
+> EM."*
+
+**The right quantity to have asked for, and the answer is negative in a way this project had not seen.**
+
+### H81a — the unit bridge is exact, and it is Carter's
+
+In SI the Kerr–Newman moment is `μ = Q a c = QJ/M` (that is `g = 2`, **H78d**), and a laboratory loop
+has `μ = IA`. So
+
+> **`I = Q a c / A`** — exactly, in amperes.
+
+A dimensionally clean bridge from two GR parameters to a current; the two forms agree to 0.0×10⁰.
+
+### H81b — the geometry bill
+
+Put the exchange rate 1.212374×10⁴³ J into a magnetic field filling a sphere of radius R:
+
+| R (m) | B (T) | I (A) | B / B_QED |
+|---|---|---|---|
+| 10⁻³ | 8.528917×10²² | 1.357419×10²⁶ | 1.932×10¹³ |
+| **1** | **2.697080×10¹⁸** | **4.292537×10²⁴** | **6.110×10⁸** |
+| 10³ | 8.528917×10¹³ | 1.357419×10²³ | 1.932×10⁴ |
+| 7.2×10⁵ | 4.414638×10⁹ | 5.058803×10²¹ | **1.000** |
+| 1.5×10¹¹ | 4.642554×10¹ | 1.108328×10¹⁹ | 1.052×10⁻⁸ |
+
+### H81c — and the exponent is the trap
+
+| | ratio | dex |
+|---|---|---|
+| energy gap (vs Z machine store) | 6.0619×10³⁵ | 35.78 |
+| current gap (vs Z machine peak) | 1.6510×10¹⁷ | 17.22 |
+| **ratio of the two** | | **2.0782** |
+
+**Energy is quadratic in current, so any gap appears as half itself in amperes.**
+
+> **The wall did not move. The exponent halved.** Seventeen orders reads as enormously better than
+> thirty-five and is **the same obstacle in a denomination whose square is the thing actually needed.**
+
+The excess over 2 is fully accounted for: `dex(E)/dex(I) = 2 + log₁₀(L_req/L_dev)/log₁₀(I_req/I_dev)`.
+The two devices imply **1.3159×10⁻⁶ H** and **5.9172×10⁻⁸ H**, a factor of 22.2 — predicted ratio
+2.0782 against measured 2.0782, **to 0.0×10⁰**. So the halving is *exact within one device* (doubling
+the energy raises the current by exactly √2) and approximate across two by a **computed** term.
+
+**This is the fourth currency for one wall** — after energy, length and frequency — **and the first
+that is not linear in it.**
+
+### H81d — the field wall yields to scale; the current wall does not
+
+`B ∝ R^{-3/2}` and `I ∝ R^{-1/2}`, both exact to 10⁻¹² over fifteen orders. So the magnetic wall **is**
+escapable: at **R = 720.068846 km** the required field equals `B_QED = 4.414005×10⁹ T` exactly. But the
+current there is still **5.058803×10²¹ A**, 1.9×10¹⁴ times the best machine.
+
+> **Six orders of growth in size buys three orders in current, and no more.**
+
+**That check is run because this project has been rescued by it before** — a 10³¹ gap once turned out to
+be a 20 m artefact for the single reason that size had never been varied. *Size is varied here, over
+fifteen orders, and it barely moves the answer.* **The check that once dissolved a wall confirms one.**
+
+### H81e — which wall binds, and it inverts the electric case
+
+**H72** found the electric route stopped by **conservation** and not breakdown — its marginal field 1041
+*below* Schwinger, a no-go by identity rather than magnitude. **The magnetic route is stopped by both,
+in order:** breakdown below 720 km, and the current itself at every scale.
+
+### H81f — but the bill splits, and the split is the finding
+
+Matching a `(Q, a) = (1 C, 1 m)` moment with a one-metre loop needs **9.542690×10⁷ A** — **3.7× a
+machine that exists.** Not seventeen orders; a factor of four.
+
+> **The orientation is cheap and the geometry is not**, and **H79** already showed why those are
+> different purchases: the handedness is a *labelling*, and a labelling is all this current buys.
+
+**Stated with its limit:** nothing here shows that imposing that moment *organises* anything. It is the
+matching condition and no more, and the gap between a matching condition and a source that makes a
+geometry is the whole unbuilt part.
+
+### H81g — twenty-fifth fault, and worth the catch
+
+The headline was written as *"the ratio is two"*; the measured ratio is **2.0782**. The fixture failed,
+**the claim was checked before the test was touched**, and the excess resolved exactly to the inductance
+mismatch. **The round number was wrong and the correction is sharper than the claim it replaced.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
