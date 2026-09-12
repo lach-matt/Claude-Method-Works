@@ -6839,6 +6839,76 @@ magnetar. **Eight orders above the strongest field in nature, with no breakdown 
 
 ---
 
+## ★★★ H88 — the sign. **Δd is the excess. Positive mass buys a detour.**
+
+> M: *"give me a simple concise example of what this is precisely within our model."*
+
+### H88a — the example, as small as it goes
+
+Walk from `r₁ = 10⁹ m` to `r₂ = 2×10⁹ m` and measure the **proper** distance,
+`∫dr/√(1 − 2GM/rc²)`:
+
+| mass | excess Δd (m) | |
+|---|---|---|
+| **+1 Earth** | **+3.074143×10⁻³** | **LONGER** |
+| 0 | 0 | flat |
+| **−1 Earth** | **−3.074143×10⁻³** | **SHORTER** |
+
+> **Positive mass makes the walk longer. Negative mass makes it shorter.** That is the whole question,
+> settled by an integral anyone can do.
+
+`dichotomy.py` recorded this already (`BH-IS-WRONG-SIGN`): *"positive mass STRETCHES proper distance …
+ordinary +M gives LONGER, negative −M gives SHORTER."* **The pricing passes did not carry it through.**
+
+### H88b — so the prices are the right size and the wrong way round
+
+**Δd is the excess, so a shortcut requires Δd < 0, hence M < 0.** Every magnitude stands — 22.59 Earth
+masses per metre, 171.81 for a ten-foot mouth, 2.7254×10¹² M☉ for Proxima are all correct as magnitudes of
+*proper-length change*. **At positive mass they buy a detour of that length.** To *save* a metre you need
+**negative 22.59 Earth masses.**
+
+### H88c — and the weak field makes Λ concrete
+
+Expanding gives `Δd = (GM/c²)·ln(r₂/r₁)` — verified against the exact integral to **1.1×10⁻¹⁰** at masses
+from 10¹⁰ to 10²⁴ kg and both signs.
+
+> **Λ sits exactly where `ln(r₂/r₁)` sits. Λ = 9.982529 corresponds to a radius ratio of 21645.0.**
+
+The exchange rate is **per e-fold of radius** — which is why it is logarithmically stiff: **doubling the
+span adds only `ln 2 = 0.693147`.**
+
+### H88d — which collapses H85's escape into one condition
+
+`H85e`'s aspect-ratio bound `r ≥ 2G|M|/c²` **is a horizon, and horizons exist only at M > 0** — the
+*detour* sign. Verified directly: a negative mass has **no radius** where `1 − 2GM/rc²` vanishes, at 10⁻³,
+1, 10³, 10⁹, 10²⁰ m, **because the term adds rather than subtracts.**
+
+> **The escape and the requirement are the same condition** — which `H85f` suspected and could not say.
+
+### H88e — the ledger gets shorter, not worse
+
+**It was never two masses with a convention between them. It is one mass.**
+
+- **Improves:** the aspect ratio is **not** a wall for a real corridor, because a real corridor is not at
+  positive mass. **A ten-foot mouth is not forbidden by that argument** — the proportion that looked like
+  the hardest wall of the thread applies only to the configuration that does not work anyway.
+- **Does not:** the requirement is now **unambiguously exotic matter**, at 22.59 Earth masses per metre,
+  with all of `obstruct.py` behind it being unsourced.
+
+**This pass did not find a new obstacle. It found that two things we were counting separately are one
+thing.**
+
+### H88f — three faults, all caught, and a kind not seen before
+
+**Not a wrong claim and not a wrong test but a numerically unstable implementation.** Computing the excess
+as *proper minus coordinate* is 10⁹ − 10⁹ to get 10⁻³ — three good digits of sixteen — and it disagreed with
+the weak-field form by **58 %** at a field strength of 10⁻¹² where they must agree to twelve places. Moving
+the subtraction inside the integrand fixed Earth-mass but not 10²⁰ kg, because `1/√f − 1` *itself* cancels
+at `f = 1 − 10⁻¹⁵`. The identity `x/(√(1−x)(1+√(1−x)))` removes both. And `exp(Λ)` was typed as 21681
+against a computed **21645.0** — the typed-digit channel a fifth time.
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

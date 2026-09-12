@@ -7971,6 +7971,53 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `sign.py` — Δd is the excess. Positive mass buys a detour.
+
+> M: *"give me a simple concise example of what this is precisely within our model."*
+
+**THE EXAMPLE, AS SMALL AS IT GOES.** Walk from 10⁹ m to 2×10⁹ m and measure the **proper** distance,
+`∫dr/√(1 − 2GM/rc²)`:
+
+| mass | excess Δd | |
+|---|---|---|
+| **+1 Earth** | **+3.074143×10⁻³ m** | **LONGER** |
+| **−1 Earth** | **−3.074143×10⁻³ m** | **SHORTER** |
+
+> **Positive mass makes the walk longer; negative mass makes it shorter.** `dichotomy.py` recorded this
+> already as `BH-IS-WRONG-SIGN`. **The pricing passes did not carry it through.**
+
+**SO THE PRICES ARE THE RIGHT SIZE AND THE WRONG WAY ROUND.** A shortcut needs `Δd < 0`, hence `M < 0`.
+22.59 Earth masses per metre, 171.81 for a ten-foot mouth, 2.7254×10¹² M☉ for Proxima — **all correct as
+magnitudes of proper-length change, all quoted as buying a shortcut. At positive mass they buy a detour.**
+
+**AND THE WEAK FIELD MAKES Λ CONCRETE.** `Δd = (GM/c²)·ln(r₂/r₁)`, verified against the exact integral to
+**1.1×10⁻¹⁰** across fifteen orders of mass and both signs. **Λ sits where `ln(r₂/r₁)` sits: Λ = 9.982529 is
+a radius ratio of 21645.0.** The rate is per e-fold — which is why it is logarithmically stiff, doubling the
+span adding only `ln 2`.
+
+**WHICH COLLAPSES `mouth.py`'S ESCAPE INTO ONE CONDITION.** Its aspect-ratio bound **is a horizon**, and
+horizons exist **only at M > 0** — the detour sign. A negative mass has no radius where `1 − 2GM/rc²`
+vanishes, **because the term adds rather than subtracts.**
+
+> **The escape and the requirement are the same condition.**
+
+**THE LEDGER GETS SHORTER, NOT WORSE.** It was never two masses. **Improves:** the aspect ratio is not a
+wall for a real corridor — **a ten-foot mouth is not forbidden by that argument**. **Does not:** the
+requirement is now unambiguously **exotic matter**, 22.59 Earth masses per metre.
+
+**THREE FAULTS, ALL CAUGHT, AND A KIND NOT SEEN BEFORE** — not a wrong claim, not a wrong test, but a
+**numerically unstable implementation**: 10⁹ − 10⁹ to get 10⁻³ left three good digits and disagreed with the
+weak field by **58 %**; the fix cancelled again at `f = 1 − 10⁻¹⁵`; the identity
+`x/(√(1−x)(1+√(1−x)))` removed both. And `exp(Λ)` was typed 21681 against a computed **21645.0**.
+
+### Seated
+- `sign.py` — new. `index3.py` — **674 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H88**. `mouth.py`, `ladder.py` — **corrected here, files unchanged**.
+  `dichotomy.py` — **read here, unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `field.py` — no source pays a mass bill, and one of our own walls doesn't exist.
 
 > M: *"their math is right, but their conjecture is wrong. We have to use field equations as well … Can we
