@@ -7971,6 +7971,63 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `persist.py` — the bound forbids the duration, not the density.
+
+> M: *"Continue."*
+
+`antigravity.py` closed on *"the corridor needs the integral negative, not the integrand"*; `qei.py` had
+found the proved bound's **state-independent** piece scaling as `τ⁻⁴`. **Neither asked the question the two
+of them together make obvious**, and it had been unasked in this tree from the start.
+
+> A quantum energy inequality does not bound negative energy. **It bounds negative energy by how long it
+> lasts.** And a corridor needs its negative mass to *last* — at least the light-crossing time of its own
+> mouth. **Those are the same quantity, and they had never been compared.**
+
+At `mouth.py`'s ten-foot doorway, `R = 1.524 m`, mass `1.026102e+27 kg` (171.81 Earth masses),
+energy density `6.219974e+42 J/m³`:
+
+| | |
+|---|---|
+| must hold for `R/c` | `5.083517e-09 s` |
+| Ford–Roman permits | `2.816478e-26 s` (`5.2242e+17` Planck times) |
+| **too short by** | **`1.804920e+17`** |
+| permitted mass at one light crossing | `9.668500e-43 kg` |
+| required | `1.026102e+27 kg` |
+| **deficit** | **`1.061284e+69` — 69.03 orders** |
+
+**AND THE TWO DEFICITS ARE ONE DEFICIT, EXACTLY.** Both masses occupy the same volume, so their ratio is
+the ratio of the densities, and `ρ_allowed ∝ T⁻⁴`. Hence `GAP_MASS = GAP_DURATION⁴` as an **identity** —
+`1.061284e+69` against `1.061284e+69`, relative disagreement `1.8e-16`, holding at every decade of `R` from
+`1e-10` to `1e5`. That fixes both exponents at once:
+
+        GAP_DURATION ∝ R^(1/2)      GAP_MASS = 3R²/(8π ℓ_P²) = 4.569426e+68 per m²
+
+**THE FIRST WALL IN THIS THREAD THAT PUNISHES SIZE OUTRIGHT.** `closeout.py`'s `Λ/2` is scale-invariant to
+`1e-15` over sixteen orders; `kugelblitz.py`'s `E×R` is scale-free; `mouth.py`'s shrink bought a smaller
+price only by buying a shorter reach. **Here a bigger installation is quadratically further away.**
+
+The crossover is `R = √(8π/3) ℓ_P = 2.894405 ℓ_P = 4.678097e-35 m` — **the fourth crossover in this thread that
+exists and is never reached.** **And Λ is not in it**: `M = Δd c²/(GΛ)` with `Δd = ΛR/2` gives `M = Rc²/(2G)`
+and **Λ cancels** — verified through the ladder at `Λ = 1e-6, 1, 9.9825, 1e6`, giving `1.026102e+27 kg` each time.
+
+**Scope, kept narrow because the number is large.** *(a)* This is the Ford–Roman **scaling** form, not
+`qei.py`'s proved Theorem 4.3, and it carries no `ξ` — **this pass does not close the state-dependent
+escape**; it prices the hole that escape must fill, at `1.0613e+69`. *(b)* Treating a static shell's
+volume-integrated mass as a geodesic sample is a **heuristic** — the wormhole literature's own, and still a
+heuristic. *(c)* `qei.py`'s `QC[f]` term is again absent and again does not vanish. **Against that, the
+deficit is a floor**: the coefficient `3/(32π²) = 9.4989e-03` was dropped *in the corridor's favour*, and
+restoring it costs `1.0528e+02` more.
+
+> **The one open escape is unchanged, and is now priced.**
+
+### Seated
+- `persist.py` — new. `index3.py` — **680 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H90**. `qei.py`, `antigravity.py`, `mouth.py`, `closeout.py` — **read here, files
+  unchanged**.
+
+---
+
+
 ## `antigravity.py` — a sign in the interaction, not a sign in the source.
 
 > M: *"We need to harness antigravity."*

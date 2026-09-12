@@ -6984,6 +6984,86 @@ priced — `k_Cas = π²Λ/720 = 0.136838353`, crossover at 0.369917 ℓ_P, **su
 
 > **The corridor needs the integral negative, not the integrand.**
 
+### H90a — a quantum energy inequality bounds negative energy *by how long it lasts*
+
+`H89` closed on *"the corridor needs the integral negative, not the integrand"*. `qei.py` had already
+evaluated Fewster–Osterbrink Theorem 4.3 and found its **state-independent** piece scaling as `τ⁻⁴`.
+**Neither asked the question the two of them together make obvious, and it had been unasked in this
+tree from the start.**
+
+A QEI does not bound negative energy. It bounds negative energy **by how long it lasts.** And a
+corridor needs its negative mass to *last* — for at least the light-crossing time of its own mouth,
+since nothing traverses the throat faster than that. **Those are the same quantity, and they had
+never been compared.**
+
+At `H85`'s ten-foot doorway, `R = 1.524 m`:
+
+| quantity | value |
+|---|---|
+| mass required | `1.026102e+27 kg` (171.81 Earth masses) |
+| energy density required | `6.219974e+42 J/m³` |
+| the corridor must hold it for `R/c` | `5.083517e-09 s` |
+| the bound permits that density for | `2.816478e-26 s` |
+| ratio | `1.804920e+17` too short |
+
+> **The bound does not forbid the density. It forbids the duration.**
+
+The density *is* allowed — for `5.2242e+17` Planck times. Quoted as masses at one light crossing
+instead: `9.668500e-43 kg` permitted against `1.026102e+27 kg` required, a deficit of **`1.061284e+69`,
+69.03 orders of magnitude.**
+
+### H90b — the two deficits are one deficit, exactly
+
+Both masses occupy the same volume, so their ratio *is* the ratio of the densities, and `ρ_allowed`
+goes as `T⁻⁴`. Hence
+
+> **`GAP_MASS = GAP_DURATION⁴`**
+
+as an **identity, not a coincidence** — `1.061284e+69` against `1.061284e+69`, relative disagreement
+`1.8e-16`, holding to `1e-9` at every decade of `R` from `1e-10` to `1e5`.
+
+It fixes both exponents at once: `GAP_DURATION ∝ R^(1/2)`, therefore
+
+        GAP_MASS(R) = 3R² / (8π ℓ_P²)   =   4.569426e+68 per square metre
+
+constant across sixteen decades.
+
+### H90c — the first wall in this thread that punishes size
+
+`H87`'s aspect ratio `Λ/2` is scale-invariant to `1e-15` over sixteen orders; `H86`'s `E×R` is
+scale-free; `H85`'s shrink bought a smaller price only by buying a shorter reach. **Here a bigger
+installation is quadratically further away.** No engineering choice about scale can be neutral again.
+
+The crossover where the deficit closes:
+
+        R_cross = √(8π/3) ℓ_P = 2.894405 ℓ_P = 4.678097e-35 m
+
+**the fourth crossover in this thread that exists and is never reached.** And **Λ is not in it** —
+worth saying because the ladder is full of Λ. `M = Δd c²/(GΛ)` with `Δd = ΛR/2` gives `M = Rc²/(2G)`
+and **Λ cancels**; verified by recomputing through the ladder at `Λ = 1e-6, 1, 9.9825, 1e6` and
+getting `1.026102e+27 kg` every time.
+
+### H90d — what this does not close, and why the deficit is still a floor
+
+**Three things are not done here, recorded rather than hidden.**
+
+- **(a)** This is the Ford–Roman *scaling* form, **not** `qei.py`'s proved Theorem 4.3, and it carries
+  no `ξ`. **This pass does not close the state-dependent escape.** It measures the hole that escape
+  must fill, and the hole is `1.0613e+69`.
+- **(b)** A QEI bounds a *sampled* energy density along a timelike geodesic. Treating a static shell's
+  volume-integrated mass as such a sample is a **heuristic** — the same one the Ford–Roman wormhole
+  literature uses, and it is a heuristic.
+- **(c)** `qei.py`'s curved-space `QC[f]` term is again absent, and again does not vanish here, since
+  the corridor carries matter.
+
+**Against that, the deficit quoted is a floor**, because the bound's own coefficient was dropped *in
+the corridor's favour*: Lorentzian minimally-coupled sampling carries `3/(32π²) = 9.4989e-03`, so
+restoring it multiplies the requirement by `1.0528e+02` and costs two more orders.
+
+> **The one open escape is unchanged, and is now priced.**
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
