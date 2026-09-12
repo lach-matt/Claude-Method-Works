@@ -6909,6 +6909,83 @@ against a computed **21645.0** — the typed-digit channel a fifth time.
 
 ---
 
+## ★★★ H89 — antigravity. **A sign in the interaction, not a sign in the source.**
+
+> M: *"We need to harness antigravity."*
+
+`H88` made the requirement unambiguous — **negative mass, 22.59 Earth masses per metre.** So this asks the
+obvious next question, and the answer is a **category statement, not a magnitude.**
+
+### H89a — antimatter falls down, and the tree did not hold the result
+
+> **ALPHA-g:** `a(antihydrogen) = (0.75 ± 0.13 (stat+syst) ± 0.16 (sim)) g` — **downward**, and consistent
+> with full `g` within two sigma. *(Anderson et al., Nature 621, 2023; read from source via Menary
+> arXiv:2401.10954.)*
+
+**A grep finds no mention of ALPHA-g or antihydrogen anywhere in this tree** — the single most direct
+experiment on the question was absent from a project that has been asking about negative mass for weeks.
+The selftest now asserts this file is the only one carrying it.
+
+### H89b — and full antigravity would not make it fall up either
+
+Binding energy acts gravitationally as **matter** (MICROSCOPE bounds the Eötvös parameter at 1.5×10⁻¹⁵),
+and **about two-thirds of an antinucleon's mass is gluonic binding energy.** So an antiatom is *mostly
+matter, gravitationally.* Menary's relation `a = (1 − 2f̄)g`:
+
+| | f̄ | a/g | |
+|---|---|---|---|
+| pure antimatter (naive) | 1.00 | −1.00 | UP |
+| **antihydrogen** | **0.33** | **+0.34** | **DOWN** |
+| positronium | 0.50 | 0.00 | hovers |
+| muonium | 0.995 | −0.99 | UP |
+
+**Even under antigravity, antihydrogen falls down.** It is *muonium* that would fall up and *positronium*
+that would hover — and positronium lasts 142 ns. Antinucleon–antinucleon force would be **1/9** of
+matter–matter, nucleon–antinucleon **1/3**: reduced attraction and weak repulsion, **never strong
+repulsion.**
+
+**The measurement disfavours antigravity at a gap of 0.4100 ± 0.2610 g — 1.57 σ — and does not close it.**
+Recorded as what the numbers say.
+
+### H89c — and here is why none of it helps
+
+Villata's antigravity gets repulsion out of GR with no new physics, by applying CPT to the geodesic
+equation. **In his own words:**
+
+> *"all masses are and remain **positive definite** … the minus sign comes from the PT-oddness of either
+> `dx^μ` or `Γ`"*
+
+> **Antigravity is a sign in the interaction. The corridor needs a sign in the source.**
+
+`certify.py`'s condition is on the **Misner–Sharp mass**, `m(r) = 4π∫ρr²dr` — **a sign in the geodesic
+equation does not enter it.** Even at the theoretical maximum (`f̄ = 1`, `a = −g`, an object that genuinely
+falls up), **the ρ in that integral is still positive.**
+
+| | |
+|---|---|
+| what antigravity supplies, at its maximum | **0.0 kg** |
+| what one metre of corridor requires | **−22.59 Earth masses** |
+
+### H89d — a category error is the most useful kind of no
+
+**The answer is not that antigravity is too weak. It is that antigravity is the wrong quantity.**
+
+`H81` was wrong by seventeen orders, `H86` by fifty-six, `H82` by galaxies, `H85` by a proportion — **all
+magnitudes to be chased. This one is not on the same axis at all.** A magnitude invites another attempt; a
+category error ends a search.
+
+**And "antigravity" turns out to have been hiding two things inside one word — the third time this thread
+has found that shape:** `H88` found `Δd` hiding *excess* inside *shortcut*; `H85` found the aspect ratio and
+the exotic-matter requirement to be one constraint rather than two; and here **negative energy density and
+negative mass** are separated at last.
+
+What *does* produce negative energy density is still the Casimir effect, and the tree already holds it
+priced — `k_Cas = π²Λ/720 = 0.136838353`, crossover at 0.369917 ℓ_P, **sub-Planckian, where it always was.**
+
+> **The corridor needs the integral negative, not the integrand.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |

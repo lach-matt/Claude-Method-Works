@@ -7971,6 +7971,59 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `antigravity.py` — a sign in the interaction, not a sign in the source.
+
+> M: *"We need to harness antigravity."*
+
+`sign.py` made the requirement unambiguous — **negative mass, 22.59 Earth masses per metre.** The answer to
+this is a **category statement, not a magnitude.**
+
+**ANTIMATTER FALLS DOWN, AND THE TREE DID NOT HOLD THE RESULT.** ALPHA-g:
+`a(antihydrogen) = (0.75 ± 0.13 ± 0.16) g` — **downward**, consistent with full `g` within two sigma
+*(Anderson et al., Nature 621, 2023, read from source)*. **A grep finds no mention of ALPHA-g or
+antihydrogen anywhere in this tree** — the most direct experiment on the question was simply absent.
+
+**AND FULL ANTIGRAVITY WOULD NOT MAKE IT FALL UP EITHER.** Binding energy acts gravitationally as *matter*
+(MICROSCOPE: η < 1.5×10⁻¹⁵), and **two-thirds of an antinucleon's mass is gluonic binding energy.**
+
+| | f̄ | a/g |
+|---|---|---|
+| pure antimatter (naive) | 1.00 | −1.00 (UP) |
+| **antihydrogen** | **0.33** | **+0.34 (DOWN)** |
+| positronium | 0.50 | hovers |
+| muonium | 0.995 | −0.99 (UP) |
+
+**Even under antigravity, antihydrogen falls down.** Antinucleon–antinucleon force would be **1/9** of
+matter–matter — reduced attraction, never strong repulsion. The measurement **disfavours antigravity at
+1.57 σ and does not close it.**
+
+**AND HERE IS WHY NONE OF IT HELPS.** Villata's antigravity, in his own words: *"all masses are and remain
+**positive definite** … the minus sign comes from the PT-oddness of either `dx^μ` or `Γ`."*
+
+> **Antigravity is a sign in the interaction. The corridor needs a sign in the source.**
+
+`certify.py`'s condition is on the **Misner–Sharp mass**, `m(r) = 4π∫ρr²dr`, and a sign in the geodesic
+equation does not enter it. **At the theoretical maximum — an object that genuinely falls up at −g — the ρ
+in that integral is still positive.** Antigravity supplies **0.0 kg** against a requirement of **−22.59
+Earth masses per metre.**
+
+**SO IT IS NOT "TOO WEAK". IT IS THE WRONG QUANTITY.** `amps.py` was wrong by seventeen orders,
+`kugelblitz.py` by fifty-six, `ladder.py` by galaxies, `mouth.py` by a proportion — **all magnitudes to be
+chased. This one is not on the same axis at all.** A magnitude invites another attempt; **a category error
+ends a search.**
+
+> And "antigravity" was hiding two things inside one word — **the third time this thread has found that
+> shape.** What produces negative energy *density* is still Casimir, already priced and sub-Planckian.
+> **The corridor needs the integral negative, not the integrand.**
+
+### Seated
+- `antigravity.py` — new. `index3.py` — **677 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H89**. `sign.py`, `certify.py`, `candidates.py`, `magnitude.py` — **read here,
+  files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `sign.py` — Δd is the excess. Positive mass buys a detour.
 
 > M: *"give me a simple concise example of what this is precisely within our model."*
