@@ -551,77 +551,71 @@ returns the residual, **`logic` adjudicates the residual that analysis declines 
 
 ---
 
-## §8c · Appendix — `logic`, the calculator, and why it is not redundant
+## §8c · Appendix — `logic` is an interpreter, not a language, and it never refutes outright
 
-> **Docket 20x-04 / 20x-09 is NOT resolved here.** Candidate operator, specified in review, measured,
-> filed as evidence. `tools/cypher.py` untouched.
+> **Docket 20x-04 / 20x-09 is NOT resolved here.** Candidate, measured, filed as evidence.
+> `tools/cypher.py` untouched.
 
-**The specification.** *"Logic is a calculator operator. It reads what is given and states it back. It
-is given a question — 'based on the given geometry, can this statistical analysis be true?' — and then
-it computes and states the answer."* Read-only, binary, consults the **original** geometry.
+> **⚠ THIS APPENDIX'S FIRST HEADLINE IS WITHDRAWN.** It reported *"8 of 155 positions refuted"* and
+> concluded that **the residual does not determine the verdict**, calling that the argument for `logic`
+> being a distinct step. **All 8 refutations were tie-break artifacts.** When several languages tie at
+> the minimum residual, "the best closure route" does not name a unique closure, and my code broke the
+> tie by iteration order — two runs of the same worlds gave 147 and 152. The claim rested entirely on
+> those 8 and does not survive. Corrected below.
 
-**Two readings, and the obvious one is empty.**
+**The specification, refined in review.** *"Logic is not exactly a language. It is an interpreter. It
+interprets the statistical analysis into a binary verdict. So logic is multilingual."* That dissolves
+rather than settles the earlier tension: the previous version applied **language criteria** (Clause A's
+closure axioms) to something that is **not a language**, and unsurprisingly found a contradiction.
 
-| reading | result |
+**The obvious reading is empty.** Asking whether the *position* lies in `G(X)` is **155 / 155** — that
+is just Clause G.3. Logic must read the closure `analysis` produced.
+
+**The verdict, bracketed — because the tie-break is not part of the specification:**
+
+| rule | admitted |
 |---|---|
-| **1.** is the position itself in `G(X)`? | **155 / 155 — VACUOUS.** It *is* Clause G.3. |
-| **2.** does the best closure of `X ∪ {x}` stay inside the **original** `G(X)`? | **147 admitted, 8 refuted** |
+| **unanimous** — every minimizing language admits | **147 / 155 (94.8 %)** |
+| **existential** — some minimizing language admits | **155 / 155 (100 %)** |
+| **the gap** — verdict depends on which tied language is read | **8 (5.2 %)** |
 
-Reading 1 asks nothing: `statistics ⊆ geometry` already guarantees a yes. **Logic must consult the
-closure `analysis` produced, not the position `statistics` proposed** — which is precisely "can this
-statistical *analysis* be true", not "can this position exist".
+The gap sits at residuals `{2: 2, 4: 3, 5: 3}`. Languages tie at the minimum in **35 of 155** positions
+(2-way 16, 3-way 13, 5-way 6); only **120** have a unique best route.
 
-**The refutations, against the residual `analysis` reported:**
+> **`LOGIC` NEVER REFUTES A POSITION OUTRIGHT.** Every statistical position is admitted by *at least
+> one* minimizing language. There is no language-independent rejection anywhere in 155 positions.
 
-| residual | refuted / total |
+**And that is what makes it an interpreter.** Its output is **not a language-independent fact about the
+position** — it is a verdict *relative to a language*, and where languages tie it must arbitrate
+between them. A closure operator returns a set; a language returns a binary about a cell; **an
+interpreter returns a binary about a claim made in some language, and must say which language it read.**
+The 8 gap positions are the multilingualism made visible: same position, same residual, different
+language, different answer.
+
+**Which language does `analysis` route through?**
+
+| best route | positions |
 |---|---|
-| **0** | **0 / 45** |
-| 1 | 0 / 36 |
-| 2 | 2 / 26 |
-| 3 | 0 / 3 |
-| 4 | 3 / 11 |
-| 5 | 3 / 26 |
-| 7 | 0 / 8 |
+| `statistics` alone | 107 |
+| `information` alone | 13 |
+| `geometry` = `information` = `statistics` | 13 |
+| `geometry` = `statistics` | 11 |
+| all five tied | 6 |
+| `information` = `statistics` | 5 |
 
-**Two facts, and the second is the important one.**
+`statistics` is in the winning set for **142 of 155**, consistent with Clause G — but it is not alone in
+**35**, and that is where an interpreter is required.
 
-**A zero residual is never refuted — 45 / 45.** If `analysis` closes a position perfectly, `logic`
-always says yes. So refutation lives entirely inside the 71 % that cannot close.
+**Forced monolingual, the verdict swings wildly:** `order` 19/155 · `algebra` 19/155 · `information`
+67/155 · `geometry` 155/155 · `statistics` 155/155. **A single language cannot stand in for the
+interpreter** — reading only `order` would reject 88 % of what reading only `geometry` accepts.
 
-> **AND THE RESIDUAL DOES NOT DETERMINE THE VERDICT.** Residuals **2, 4 and 5 each carry both
-> verdicts** — same magnitude, different answers. Nor is refutation monotone in the residual: residual
-> 7 is never refuted while residual 4 is refuted 3 times in 11.
+**What this settles about Clause A.** Nothing. `logic` is not a language, so the closure axioms were
+never the right test, and the earlier "passes the binary criterion, fails Clause A" tension was an
+artifact of the wrong frame. **Clause A stands unchallenged**; `logic` is simply outside its scope.
 
-**That is the argument for `logic` being a distinct step, and it is a strong one.** If the verdict were
-recoverable from the magnitude `analysis` returns, `logic` would be a lookup table and the chain would
-have two rungs, not three. **It is not recoverable.** `logic` computes something `analysis` does not
-carry.
-
-**Is `logic` a language?** It splits the two criteria, which is itself the finding:
-
-| criterion | verdict |
-|---|---|
-| returns a **binary** (the corpus's admission criterion) | **YES**, by construction |
-| idempotent | **120 / 120** |
-| extensive — `X ⊆ Log(X)` | **115 / 120** ✗ |
-| monotone | **116 / 120** ✗ |
-
-> **`logic` passes the admission criterion and fails Clause A.** It is idempotent but neither extensive
-> nor monotone, so it is **not a closure operator** — unlike all five admitted languages. Extensivity
-> fails where the best closure of `X` itself escapes `G(X)`, which is possible because `geometry` and
-> `algebra` are incomparable (Clause H).
-
-**So the two criteria disagree on `logic`, and that disagreement is the evidence.** Either the binary
-criterion is insufficient to identify a language, or Clause A is too strong. **This appendix does not
-choose** — that is the docket's to rule on.
-
-**Caution on the frame.** The specification describes a **predicate on positions**, and a predicate is
-not a closure operator on subsets. The set-operator reading above is *mine*; the extensivity failure in
-particular comes from applying the test to cells already in `X`, which the specification may not
-intend. If the frame is wrong the axiom results are void — the refutation counts and the
-non-determination result are not, since those are computed per position.
-
-**Status: EXHAUSTIVE, CANDIDATE, NOT A RULING.**
+**Status: EXHAUSTIVE, CANDIDATE, NOT A RULING.** The tie-break remains unspecified; any figure quoted
+without saying *unanimous* or *existential* is unstable across an 8-position band.
 
 ---
 
