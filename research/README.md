@@ -7971,6 +7971,33 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## Machine checking — `prover.py`, `machinecheck.py`, and how to get a proof assistant here
+
+**There is a proof assistant available and finding it was the hard part.** Lean and Coq cannot be
+installed — `elan` and `opam` both need github, which the egress proxy refuses with a 403 — but
+**pypi is on the allowlist**, so `pip install z3-solver` works. See **`PROOF-ASSISTANT.md`** for the
+whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever stops working.
+
+- **`prover.py`** — the reusable harness. Start here for a new claim.
+- **`machinecheck.py`** — the 15 obligations behind `paper/THE-HIERARCHY-LAW.md`, all discharged.
+- **`lawfigures.py`** — not a prover: recomputes every *number* the paper states, and exits 1 on drift.
+
+**A machine-check here is not enumeration.** Each claim is a formula whose variables range over
+**every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
+**2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
+
+Two encodings make it decidable — `max`/`φ` eliminated in favour of a witness, and `⟨X⟩` encoded as the
+intersection of all closed supersets rather than as a least fixed point. **And two guards must run
+first**: a hypothesis that is unsatisfiable makes the implication vacuously true, and an encoding that
+is not the operator you meant proves something else. `machinecheck.py` runs both and refuses to report
+if either fails. **Do not skip them** — a green run with an unchecked encoding looks like evidence and
+is not.
+
+**Z3 is not vendored** (~53 MB installed); this is a document corpus and the install is one command.
+
+---
+
+
 ## `law.py` — the hierarchy law, proved. It is the structure, not the order.
 
 > M: *"Novelty is not my pursuit. My goal is the hierarchy law proven so we can continue the warp

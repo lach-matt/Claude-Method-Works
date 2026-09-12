@@ -20,78 +20,28 @@ exists.  Everything else is first-order over a finite domain.
     supersets:  R(X) subset <X>  iff  for every S with X subset S and S closed
     under meet and join, R(X) subset S.
 
+The reusable harness is prover.py -- see PROOF-ASSISTANT.md for how to obtain
+Z3 in this environment and how to state a new obligation.
+
 Requires z3-solver (pip install z3-solver).  Run: python3 machinecheck.py
 """
 
 import itertools
 import sys
 
-try:
-    import z3
-except ImportError:
-    print("z3-solver not installed:  pip install z3-solver")
-    sys.exit(2)
+import prover
+from prover import (cells_of, meet, join, observed, in_R, closed, subset_vars,
+                    require_z3, HAVE_Z3)
 
+if not HAVE_Z3:
+    require_z3()
 
-def cells_of(shape):
-    return list(itertools.product(*[range(n) for n in shape]))
-
-
-def meet(a, b):
-    return tuple(map(min, a, b))
-
-
-def join(a, b):
-    return tuple(map(max, a, b))
-
-
-def observed(X, cells, shape):
-    """D1: every value of every coordinate is realised by some cell of X."""
-    cs = []
-    for i, n in enumerate(shape):
-        for v in range(n):
-            cs.append(z3.Or([X[c] for c in cells if c[i] == v]))
-    return z3.And(cs)
-
-
-def in_R(X, x, cells, d):
-    """x in R(X): for all i != j, some y in X with y_j <= x_j and y_i >= x_i."""
-    cs = []
-    for i in range(d):
-        for j in range(d):
-            if i == j:
-                continue
-            cs.append(z3.Or([X[y] for y in cells
-                             if y[j] <= x[j] and y[i] >= x[i]]))
-    return z3.And(cs)
-
-
-def closed(S, cells):
-    cs = []
-    for a in cells:
-        for b in cells:
-            cs.append(z3.Implies(z3.And(S[a], S[b]), S[meet(a, b)]))
-            cs.append(z3.Implies(z3.And(S[a], S[b]), S[join(a, b)]))
-    return z3.And(cs)
+import z3
 
 
 def check(name, shape, build):
-    """build(X, S, cells, d) -> the claim.  Asserts its negation."""
-    cells = cells_of(shape)
-    d = len(shape)
-    X = {c: z3.Bool("x_%s" % (c,)) for c in cells}
-    S = {c: z3.Bool("s_%s" % (c,)) for c in cells}
-    s = z3.Solver()
-    s.add(z3.Not(build(X, S, cells, d, shape)))
-    r = s.check()
-    ok = (r == z3.unsat)
-    print("  [%s] %-56s %s   (2^%d subsets)" %
-          ("PROVED" if ok else "  XX  ", name, r, len(cells)))
-    if not ok and r == z3.sat:
-        m = s.model()
-        print("        counterexample X = %s" %
-              sorted(c for c in cells if z3.is_true(m.eval(X[c], True))))
-    return ok
+    """One obligation, discharged by prover.prove over every subset of the box."""
+    return prover.prove(name, shape, build)
 
 
 # ------------------------------------------------------------------ theorems
@@ -143,7 +93,8 @@ def clauseC(X, S, cells, d, shape):
 
 def soundness_guards():
     """A machine-check is worthless if the encoding is wrong or the hypotheses
-    are unsatisfiable.  Both are checked here BEFORE any obligation is reported."""
+    are unsatisfiable.  Both are checked here BEFORE any obligation is reported.
+    The reusable forms live in prover.py."""
     import random
     import decomposable as D
     ok = True

@@ -156,6 +156,28 @@ membership: `statistics` returns a binary and is in; `analysis` does not and is 
 `documentary` as a special row. The two are special differently — documentary has no mechanism at
 all, analysis has one but returns a magnitude rather than a cell decision.
 
+## `research/` is original work produced **from** the corpus, never **into** it
+
+`research/warp-drive/` holds ~200 stdlib-only instruments and `paper/`, a formal research tree that
+reads the corpus and never writes to it. It is **not** part of the corpus and none of the rules above
+about mirrored content apply to it. Its own `research/README.md` is the index.
+
+**There is a proof assistant available in this environment, and finding it was not obvious.** Lean and
+Coq cannot be installed — `elan` and `opam` both need github, which the egress proxy refuses with a 403
+— but **pypi is on the proxy allowlist**, so:
+
+```
+pip install z3-solver
+```
+
+`research/warp-drive/prover.py` is a reusable harness for machine-checking finite claims about
+lattices, orders and closure operators; `machinecheck.py` is a worked set of 15 discharged
+obligations; `PROOF-ASSISTANT.md` documents the route, the two encodings that make such claims
+decidable, and the two guards (vacuity, encoding drift) that must run before any result is believed.
+**Z3 is not vendored** — ~53 MB installed, and this is a document corpus. A machine-check there
+quantifies over *every* subset of a finite box, which is stronger than enumeration but still a
+statement about that box.
+
 ## Files under `drive/` are mirrored content
 
 Treat everything under `drive/` as source-of-truth records:
