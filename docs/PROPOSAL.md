@@ -1,5 +1,11 @@
 # `tools/proposal.py` — the complete proposal and the pitch, rendered from the instruments
 
+> **Reviewed 2026-09-12** (`docs/PROPOSAL-REVIEW.md`): the closing plant now carries its O&M, the environmental and
+> employment rows are at the adopted route, and the water's lift is priced at the route's one head. Whole-load price
+> $172 / $279 per MWh, RA 3,616 / 3,537 MW, washing 872 / 1,486 AFY, land 45,361 / 66,339 acres, Title I jobs
+> 1,901 / 1,214, Title II jobs 601 / 664, water with the lift $3,280 / $5,234 per acre-foot; a figure below computed
+> before that pass is superseded by the instrument's current output.
+
 **Why it exists.** The author (2026-09-12): *build the complete proposal, with every item fully
 expanded, each location addressed in full, figures, tables, graphs, cited studies — as complete as
 conceivably possible — and then a two- or three-page bullet-point pitch accompaniment.* The three
@@ -51,7 +57,7 @@ categorical slots: mid blue, critical orange, ink for today.
   occurs in the long one, so a figure cannot appear in the pitch without a section, a case and a
   source behind it.
 - Mid never exceeds critical on the whole-load price or the program total; the post-bond price is
-  O&M over the energy and nothing else.
+  the adopted route's O&M (register plant and closing plant) over the energy and nothing else.
 
 ## What it does not do
 

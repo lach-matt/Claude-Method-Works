@@ -40,12 +40,12 @@ so the plant is served by two things that fail differently (`both.py`).
 | | mirrors, mid | mirrors, critical | water, mid | water, critical | **both, mid** | **both, critical** |
 |---|---|---|---|---|---|---|
 | Title I additional capital, $B | 5.7 | 9.5 | no feasible point | no feasible point | **6.4** | **10.3** |
-| Title I price, $/MWh | 160 | 261 | — | — | **164** | **266** |
+| Title I price, $/MWh | 168 | 272 | — | — | **172** | **279** |
 | block, field, store | ×1.25, ×1.5, 2 d | ×1.25, ×1.5, 2 d | field and store at design | field and store at design | ×1.50, ×1.25, 1.0 d | ×1.50, ×1.25, 1.0 d |
 | Title II modules | 0 | 0 | — | — | 15 | 17 |
 | Title II capital, financed, $B | 0 | 0 | — | — | 28 | 48 |
 | water, million acre-feet a year | 0 | 0 | — | — | 0.75 | 0.83 |
-| water price with the lift, $/acre-foot | — | — | — | — | 3,280 | 5,072 |
+| water price with the lift, $/acre-foot | — | — | — | — | 3,280 | 5,234 |
 | left to the grid | 0.8% | 1.0% | — | — | 0.6% | 0.7% |
 | with the water withheld | — | — | — | — | 3.6% | 4.0% |
 | with the field at design | — | — | — | — | 1.3% | 1.4% |

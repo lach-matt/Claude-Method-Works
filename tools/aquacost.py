@@ -124,7 +124,7 @@ def water_route(case):
     own surplus cannot lift what closes -- so the route priced here is the adopted one."""
     import both as B                                           # lazy: both imports this module
     m = B.scan(case)["best"]
-    lift = J.hydraulic_per_m3(case)["lift_kwh_m3"]
+    lift = J.hydraulic_per_m3(case, B.HEAD_M)["lift_kwh_m3"]      # the one head both.py prices the route at
     mod = module(case, lift_kwh_m3=lift)
     return dict(modules=m["modules"], maf=m["maf"], capex_b=mod["financed_m"] * m["modules"] / 1e3,
                 per_af=mod["per_af"], household=mod["household"], lift=lift, mod=mod)

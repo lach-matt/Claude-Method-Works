@@ -44,7 +44,7 @@ def gather():
         d = C.design("helios3", c)
         r = HR.mirrors_run(c, design=d)
         cost = HR.mirrors_cost_m(d)
-        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost))
+        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.mirrors_price_delta(d))
     g["both"] = {c: B.scan(c)["best"] for c in CASES}
     g["module"] = {c: AQ.module(c) for c in CASES}
     g["route"] = {c: AQ.water_route(c) for c in CASES}

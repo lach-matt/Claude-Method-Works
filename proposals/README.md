@@ -211,6 +211,13 @@ cited studies, with a two-to-three page bullet pitch beside it. `California_Sove
 emitted as `.docx` too, and the selftest holds that the pitch carries no number the proposal does not. The three
 Titles stay as the diff against v0.1; the proposal is the whole.
 
+**Reviewed adversarially (2026-09-12, `docs/PROPOSAL-REVIEW.md`).** Twenty-five flags; six were faults in the
+instruments and are corrected there, the rest in the renderer. The largest: the closing plant carried no O&M, so
+the whole-load price is now $172 / $279 per MWh ($1,036 / $1,682 per household during the bonds, $190 / $263 after);
+RA, washing, land and jobs are now at the adopted route (3,616 / 3,537 MW; 872 / 1,486 AFY; 45,361 / 66,339 acres;
+1,901 / 1,214 and 601 / 664 permanent); the water with its lift is $3,280 / $5,234 an acre-foot at one head. The
+capital, the register price, the studies line, the schedule and the site rankings did not move.
+
 - **Brine carbonate sink.** Desalination brine is rich in Mg and Ca; CO₂ bubbled through it
   precipitates carbonates permanently. A disposal route for the power block's maintenance
   vents, tonnes a year, and a BENEFIT row if the numbers hold. It is **not** a release

@@ -65,24 +65,37 @@ MIRRORS_FIELD_X = HR.MIRRORS_ROUTE[1]     # hourly3's mirrors-route field factor
 MIRRORS_BLOCK_X = HR.MIRRORS_ROUTE[0]     # the mirrors route's block factor                DERIVED (hourly3.py)
 
 
+def adopted(case):
+    """The adopted route's (block, field) factors -- both.py's, lazily, because both
+    imports this file's neighbours. Before 2026-09-12 every row below was computed at
+    the mirrors route, which the author did not adopt."""
+    import both as B                                            # lazy: no cycle, but heavy
+    b = B.scan(case)["best"]
+    return b["block"], b["field"]
+
+
+def _field_x(case, route):
+    return {"adopted": adopted(case)[1], "mirrors": MIRRORS_FIELD_X}.get(route, 1.0)
+
+
 def ra(case):
     """In-state RA: the closed block's net capacity, self-supplied by the Authority as LSE."""
     d = C.design("helios3", case)
-    net = d["turb_mw"] * MIRRORS_BLOCK_X * d["links"]["par"]
+    net = d["turb_mw"] * adopted(case)[0] * d["links"]["par"]
     return dict(block_net_mw=net, export_mw=0.0)
 
 
-def washing(case, route="mirrors"):
+def washing(case, route="adopted"):
     d = C.design("helios3", case)
-    field = d["aperture"] * (MIRRORS_FIELD_X if route == "mirrors" else 1.0)
+    field = d["aperture"] * _field_x(case, route)
     afy = field / IVANPAH_M2 * IVANPAH_WASH_AFY
     return dict(field_m2=field, afy=afy, afy_per_node=afy / NODES,
-                source="Title II desalinated water" if route == "mirrors" else "aqueduct / recharge water of the water route")
+                source="Title II desalinated water" if route != "water" else "aqueduct / recharge water of the water route")
 
 
-def land(case, route="mirrors"):
+def land(case, route="adopted"):
     d = C.design("helios3", case)
-    field = d["aperture"] * (MIRRORS_FIELD_X if route == "mirrors" else 1.0)
+    field = d["aperture"] * _field_x(case, route)
     acres = field / 0.20 / 4046.86 + d["pv_mw"] * C.FP.PV_ACRES_PER_MW
     ci = CASES.index(case)
     return dict(acres=acres, per_node=acres / NODES, km2=acres * 4046.86 / 1e6,
@@ -130,12 +143,12 @@ def report():
     print("          Authority as the load-serving entity (F-10), a requirement met and")
     print("          not a revenue line:")
     for c in CASES:
-        print(f"            {c:<9} block net at x{MIRRORS_BLOCK_X:.2f}: {ra(c)['block_net_mw']:,.0f} MW; export RA: {ra(c)['export_mw']:.0f} MW")
+        print(f"            {c:<9} block net at x{adopted(c)[0]:.2f} (adopted route): {ra(c)['block_net_mw']:,.0f} MW; export RA: {ra(c)['export_mw']:.0f} MW")
     print()
     print("    F-20  MIRROR WASHING. Ivanpah, dry-cooled, washes 2.6 M m2 with ~100 AFY.")
     print("          Scaled per m2 to Helios-3's field:")
     print(f"      {'':<36}{'mid':>12}{'critical':>12}")
-    for route in ("mirrors", "water"):
+    for route in ("adopted", "mirrors", "water"):
         w = {c: washing(c, route) for c in CASES}
         print(f"      {route + ' route: field, M m2':<36}" + "".join(f"{w[c]['field_m2'] / 1e6:12.1f}" for c in CASES))
         print(f"      {'  washing, AFY (all nodes)':<36}" + "".join(f"{w[c]['afy']:12,.0f}" for c in CASES))
@@ -145,7 +158,7 @@ def report():
     print()
     print("    F-21  LAND. cspchain's own acreage (field at 20 % ground cover + PV):")
     print(f"      {'':<36}{'mid':>12}{'critical':>12}")
-    for route in ("mirrors", "water"):
+    for route in ("adopted", "mirrors", "water"):
         l = {c: land(c, route) for c in CASES}
         print(f"      {route + ' route: acres, all nodes':<36}" + "".join(f"{l[c]['acres']:12,.0f}" for c in CASES))
         print(f"      {'  per node, acres':<36}" + "".join(f"{l[c]['per_node']:12,.0f}" for c in CASES))
@@ -213,7 +226,7 @@ def selftest():
         fails += 0 if ok else 1
 
     check("export RA is zero at both cases", all(ra(c)["export_mw"] == 0.0 for c in CASES))
-    check("in-state RA is the closed block net of parasitics", abs(ra("mid")["block_net_mw"] - C.design("helios3", "mid")["turb_mw"] * MIRRORS_BLOCK_X * C.design("helios3", "mid")["links"]["par"]) < 1e-9)
+    check("in-state RA is the closed block net of parasitics", abs(ra("mid")["block_net_mw"] - C.design("helios3", "mid")["turb_mw"] * adopted("mid")[0] * C.design("helios3", "mid")["links"]["par"]) < 1e-9)
     check("washing scales exactly per m2 from Ivanpah", abs(washing("mid", "water")["afy"] - C.design("helios3", "mid")["aperture"] / IVANPAH_M2 * IVANPAH_WASH_AFY) < 1e-9)
     check("washing is under one module-year (50,000 AFY) at every case and route",
           all(washing(c, r)["afy"] < 50_000 for c in CASES for r in ("mirrors", "water")))

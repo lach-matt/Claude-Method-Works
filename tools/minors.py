@@ -84,10 +84,12 @@ def co2(case):
 def jobs(case):
     ci = CASES.index(case)
     d = C.design("helios3", case)
-    block = d["turb_mw"] * HR.MIRRORS_ROUTE[0]
+    import both as B                                            # lazy: the adopted route's block and modules
+    b = B.scan(case)["best"]
+    block = d["turb_mw"] * b["block"]
     perm = block * PERMANENT_PER_MW[ci] + d["pv_mw"] * PV_OM_PER_MW
     constr = block * CONSTRUCTION_PEAK_PER_MW
-    modules = J.modules_to_close(case, 500.0, J.winter(case))["modules"]
+    modules = b["modules"]                                      # the adopted route's modules, not the full water route's
     return dict(block_mw=block, permanent=perm, construction_peak=constr, title2_permanent=modules * CARLSBAD_PERMANENT)
 
 

@@ -1,5 +1,11 @@
 # `tools/predev.py` — the studies and surveys, priced as the first line
 
+> **Reviewed 2026-09-12** (`docs/PROPOSAL-REVIEW.md`): the closing plant now carries its O&M, the environmental and
+> employment rows are at the adopted route, and the water's lift is priced at the route's one head. Whole-load price
+> $172 / $279 per MWh, RA 3,616 / 3,537 MW, washing 872 / 1,486 AFY, land 45,361 / 66,339 acres, Title I jobs
+> 1,901 / 1,214, Title II jobs 601 / 664, water with the lift $3,280 / $5,234 per acre-foot; a figure below computed
+> before that pass is superseded by the instrument's current output.
+
 **Why it exists.** The author's instruction of 2026-09-11: *all studies and surveys are built into
 the upfront cost as their own line item, preceding most of the others by first priority.* Before
 this the program carried them as a ladder of HOURS (`studies.py`), a pilot tranche (`titleone.py`)

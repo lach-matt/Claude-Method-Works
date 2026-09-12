@@ -65,10 +65,12 @@ def water_side(case, share, w, mw=None):
     reservoir_b = J.reservoir_capex_b(case, m["m3"] * share)
     pumpgen_b = mw * 1e3 * J.PUMPGEN_PER_KW[ci] / 1e9 if share > 0 else 0.0
     modules = m["modules"] * share
+    water_b = reservoir_b + pumpgen_b
     return dict(share=share, modules=modules, maf=m["maf"] * share, mw=mw if share > 0 else 0.0,
                 budget_twh=w["unserved_twh"] * share, lift_twh=m["lift_twh"] * share,
-                reservoir_b=reservoir_b, pumpgen_b=pumpgen_b, title1_b=reservoir_b + pumpgen_b,
-                title2_b=AQ.module(case, lift_kwh_m3=J.hydraulic_per_m3(case)["lift_kwh_m3"])["financed_m"] * modules / 1e3)
+                reservoir_b=reservoir_b, pumpgen_b=pumpgen_b, title1_b=water_b,
+                om_m=water_b * 1e3 * J.HYDRO_OM_SHARE[ci],
+                title2_b=AQ.module(case, lift_kwh_m3=J.hydraulic_per_m3(case, HEAD_M)["lift_kwh_m3"])["financed_m"] * modules / 1e3)
 
 
 def point(case, block, field, store, share, w, d, mw=None):
@@ -76,10 +78,13 @@ def point(case, block, field, store, share, w, d, mw=None):
     hydro = (ws["mw"], ws["budget_twh"]) if share > 0 else None
     r = HR.run(case, 1.0, 1.0, block, field, store, design=d, hydro=hydro)
     plant_b = HR.closure_cost_m(d, 1.0, 1.0, block, field, store) / 1e3
+    plant_om = HR.closure_om_m(d, plant_b * 1e3)
     surplus = (r["spill_th"] * d["links"]["cycle"] + r["pv_curtail"]) / 1e6
     return dict(block=block, field=field, store=store, share=share, mw=ws["mw"], unserved=1.0 - r["served_frac"],
-                hydro_twh=r["hydro"] / 1e6, surplus_twh=surplus, lift_within_surplus=ws["lift_twh"] <= surplus,
+                hydro_twh=r["hydro"] / 1e6, budget_twh=ws["budget_twh"], lift_twh=ws["lift_twh"],
+                surplus_twh=surplus, lift_within_surplus=ws["lift_twh"] <= surplus,
                 plant_b=plant_b, water_b=ws["title1_b"], title1_b=plant_b + ws["title1_b"],
+                plant_om_m=plant_om, water_om_m=ws["om_m"], extra_om_m=plant_om + ws["om_m"],
                 title2_b=ws["title2_b"], modules=ws["modules"], maf=ws["maf"], run=r)
 
 
@@ -98,7 +103,7 @@ def scan(case):
     for x in WATER_SCAN:
         rung = min([p for p in closing if p["share"] == x], key=lambda p: p["title1_b"], default=None)
         if rung:
-            rung["dprice"] = price(case, rung["title1_b"])
+            rung["dprice"] = price(case, rung["title1_b"], rung["extra_om_m"])
             rung["no_water"] = point(case, rung["block"], rung["field"], rung["store"], 0.0, w, d)
             rung["no_field"] = point(case, rung["block"], 1.0, 1.0, x, w, d, rung["mw"])
         ladder[x] = rung
@@ -111,8 +116,8 @@ def scan(case):
     return _SCAN[case]
 
 
-def price(case, title1_b):
-    return J.price_delta(case, title1_b)
+def price(case, title1_b, om_m=0.0):
+    return J.price_delta(case, title1_b, om_m)
 
 
 DAYS_SCAN = (14.0, 30.0, 60.0, 90.0)      # reservoir holding, days of delivery, for the sensitivity   scan
@@ -135,9 +140,10 @@ def sensitivity(case):
             reservoir_b = m["m3"] * days / 365.0 / 1e9 * J.RESERVOIR_B_PER_KM3[ci]
             water_b = reservoir_b + b["mw"] * 1e3 * J.PUMPGEN_PER_KW[ci] / 1e9
             title1 = b["plant_b"] + water_b
-            title2 = AQ.module(case, lift_kwh_m3=J.hydraulic_per_m3(case)["lift_kwh_m3"])["financed_m"] * m["modules"] / 1e3
+            om = b["plant_om_m"] + water_b * 1e3 * J.HYDRO_OM_SHARE[ci]
+            title2 = AQ.module(case, lift_kwh_m3=J.hydraulic_per_m3(case, head)["lift_kwh_m3"])["financed_m"] * m["modules"] / 1e3
             rows.append(dict(head=head, days=days, modules=m["modules"], maf=m["maf"], lift_twh=m["lift_twh"], lift_fits=lift_fits,
-                             reservoir_b=reservoir_b, title1_b=title1, dprice=price(case, title1), title2_b=title2))
+                             reservoir_b=reservoir_b, title1_b=title1, dprice=price(case, title1, om), title2_b=title2))
     return rows
 
 

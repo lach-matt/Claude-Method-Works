@@ -1,5 +1,11 @@
 # `tools/majors.py` — the remaining majors, settled; `tools/rebase3.py` — Title III, the joinder
 
+> **Reviewed 2026-09-12** (`docs/PROPOSAL-REVIEW.md`): the closing plant now carries its O&M, the environmental and
+> employment rows are at the adopted route, and the water's lift is priced at the route's one head. Whole-load price
+> $172 / $279 per MWh, RA 3,616 / 3,537 MW, washing 872 / 1,486 AFY, land 45,361 / 66,339 acres, Title I jobs
+> 1,901 / 1,214, Title II jobs 601 / 664, water with the lift $3,280 / $5,234 per acre-foot; a figure below computed
+> before that pass is superseded by the instrument's current output.
+
 > **Studies line, 2026-09-11.** `tools/predev.py` now carries every study and survey as the first line of the
 > capital (`docs/PREDEV.md`); the register price is $126 / $205 per MWh, water $3,044 / $4,830 per acre-foot,
 > and any figure below computed before that line is superseded by the instrument's current output.

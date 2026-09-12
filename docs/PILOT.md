@@ -1,5 +1,11 @@
 # `tools/pilot.py` — the pilot aperture as an acceptance protocol
 
+> **Reviewed 2026-09-12** (`docs/PROPOSAL-REVIEW.md`): the closing plant now carries its O&M, the environmental and
+> employment rows are at the adopted route, and the water's lift is priced at the route's one head. Whole-load price
+> $172 / $279 per MWh, RA 3,616 / 3,537 MW, washing 872 / 1,486 AFY, land 45,361 / 66,339 acres, Title I jobs
+> 1,901 / 1,214, Title II jobs 601 / 664, water with the lift $3,280 / $5,234 per acre-foot; a figure below computed
+> before that pass is superseded by the instrument's current output.
+
 **Why it exists.** Of the items left open after the register closed, the receiver's real efficiency
 is the one no instrument can compute: `receiver.py` holds the design to a critical open-aperture
 figure of 0.690 (nominal 0.882) and hands the chain a field factor of 1.30, and no falling-particle

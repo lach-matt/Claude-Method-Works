@@ -67,6 +67,7 @@ ETA_PUMP = (0.90, 0.85)                   # pump-turbine pumping                
 RHO_G_KWH_M3_PER_M = 9.81 * 1000.0 / 3.6e6   # kWh per m3 per metre of head             exact (0.002725)
 RESERVOIR_B_PER_KM3 = (2.5, 4.0)          # $B per km3, off-stream, new-build          SOURCED band (Sites ~$4.5 B for ~1.8 km3)
 PUMPGEN_PER_KW = (1500.0, 2500.0)         # $/kW pump-turbine plant                    ASSUMED band
+HYDRO_OM_SHARE = (0.015, 0.025)           # pump-turbine plant and reservoir O&M, share of capex a year  ASSUMED band (pumped storage 1-3 %)
 WINTER_MONTHS = (10, 11, 12, 1, 2, 3, 4)  # the first pass's season; the monthly table still prints it   DERIVED (hourly3 monthly table)
 DELIVERY_MONTHS = tuple(range(1, 13))     # the water comes down year-round: summer irrigation and winter recharge  DECIDED (author, 2026-09-11)
 DELIVERY_H = 365.0 * 24.0                 # the turbines run all year                    exact
@@ -106,8 +107,9 @@ def topping_per_m3(case):
 
 
 # ---- B ---------------------------------------------------------------------
-def hydraulic_per_m3(case):
-    h = pick(HEAD_M, case)
+def hydraulic_per_m3(case, head=None):
+    """head=None takes the case's own band; the adopted route passes both.py's one head."""
+    h = pick(HEAD_M, case) if head is None else head
     ret = RHO_G_KWH_M3_PER_M * h * pick(ETA_TURBINE, case)
     lift = RHO_G_KWH_M3_PER_M * h / pick(ETA_PUMP, case)
     return dict(head=h, returned_kwh_m3=ret, lift_kwh_m3=lift, round_trip=ret / lift)
@@ -207,9 +209,9 @@ def field_closure_b(case):
     return HR.mirrors_cost_m(d) / 1e3
 
 
-def price_delta(case, capex_b):
+def price_delta(case, capex_b, om_m=0.0):
     d = C.design("helios3", case)
-    return HR.price_delta(d, capex_b * 1e3)
+    return HR.price_delta(d, capex_b * 1e3, om_m)
 
 
 def report():

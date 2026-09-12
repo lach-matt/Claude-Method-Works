@@ -107,7 +107,7 @@ def gentie(case, block=None):
     per_node = peak / NODES
     circ = CIRCUIT_500KV_MW[CASES.index(case)]
     return dict(peak=peak, per_node=per_node, circuits=per_node / circ, circuit_mw=circ,
-                switchyard_m=HC.SWITCHYARD_PER_NODE_M[CASES.index(case) + 1] * NODES)
+                switchyard_m=d["lines"]["500 kV switchyards + gen-tie"])   # the design's own line, calibrated as cspchain carries it
 
 
 def report():
@@ -193,7 +193,7 @@ def selftest():
     check("peak injection is below block x1.5 plus PV (they are anti-coincident)",
           gm["peak"] < HR.MIRRORS_ROUTE[0] * C.design("helios3", "mid")["turb_mw"] + C.design("helios3", "mid")["pv_mw"])
     check("one 500 kV circuit per node suffices at both cases", gm["circuits"] <= 1.0 and gc["circuits"] <= 1.0)
-    check("the gen-tie cost is heliocost's line, not restated", gm["switchyard_m"] == HC.SWITCHYARD_PER_NODE_M[1] * NODES)
+    check("the gen-tie cost is the design's own switchyard line, not restated", gm["switchyard_m"] == C.design("helios3", "mid")["lines"]["500 kV switchyards + gen-tie"])
     import io
     import contextlib
     buf = io.StringIO()

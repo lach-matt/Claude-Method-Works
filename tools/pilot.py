@@ -68,7 +68,8 @@ def consequence(eta_measured):
         d = C.design("helios3", c)
         f = d["links"]["rec"] / eta_measured
         out[c + "_factor"] = f
-        out[c] = HR.price_delta(d, HR.closure_cost_m(d, 1.0, 1.0, 1.0, f, 1.0))
+        cost = HR.closure_cost_m(d, 1.0, 1.0, 1.0, f, 1.0)
+        out[c] = HR.price_delta(d, cost, HR.closure_om_m(d, cost))
     return out
 
 

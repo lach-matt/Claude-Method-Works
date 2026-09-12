@@ -78,7 +78,7 @@ def gather():
     g["carrying_m"] = H.carrying_m()
     g["req_price_asbuilt"] = H.required_price(pf["net"])
     g["closure"] = H.closure_table(pf["net"])
-    g["fidelity"] = H.fidelity_band()
+    g["fidelity"] = [(n, dlv / dsg, note) for n, _m, dsg, dlv, note in H.BUILT if dlv is not None]
     g["hc"] = {c: HC.build(c) for c in ("low", "mid", "high")}
     g["hc_price"] = H.built_prices(pf["net"])
     g["hc_perw"] = {c: HC.per_watt(g["hc"][c]) for c in ("low", "mid", "high")}
@@ -109,7 +109,7 @@ def gather():
         d = g["design"][c]
         r = HR.mirrors_run(c, design=d)
         cost = HR.mirrors_cost_m(d)
-        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost), run=r)
+        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.mirrors_price_delta(d), om_m=HR.closure_om_m(d, cost), run=r)
     ls = HR.load_series(g["e_req"])
     mean = sum(ls) / len(ls)
     g["day_jul"] = [v / mean for v in ls[199 * 24:200 * 24]]
@@ -120,7 +120,8 @@ def gather():
     g["both"] = {c: g["scan"][c]["best"] for c in CASES}
     g["sens"] = {c: B.sensitivity(c) for c in CASES}
     g["winter"] = {c: J.winter(c) for c in CASES}
-    g["hyd"] = {c: J.hydraulic_per_m3(c) for c in CASES}
+    g["hyd"] = {c: J.hydraulic_per_m3(c, B.HEAD_M) for c in CASES}       # at the one head the adopted route is priced at
+    g["topping"] = {c: J.topping_per_m3(c) for c in CASES}
     g["m2c"] = {c: J.modules_to_close(c, 500.0, g["winter"][c]) for c in CASES}
     # the register and the price
     g["priced"] = {c: H3.priced(c) for c in CASES}
@@ -146,7 +147,7 @@ def gather():
     g["ra"] = {c: MJ.ra(c) for c in CASES}
     g["wash"] = {c: MJ.washing(c) for c in CASES}
     g["land"] = {c: MJ.land(c) for c in CASES}
-    g["postbond"] = {c: g["priced"][c]["om"] / g["design"][c]["e_twh"] for c in CASES}
+    g["postbond"] = {c: (g["priced"][c]["om"] + g["both"][c]["extra_om_m"]) / g["design"][c]["e_twh"] for c in CASES}   # the adopted route's O&M, register plant and closing plant
     # the water
     g["aqua"] = {c: AQ.module(c) for c in CASES}
     g["aqua_route"] = {c: AQ.water_route(c) for c in CASES}
@@ -517,8 +518,8 @@ def render(g):
     a("")
     a(f"- **Title I, Program Helios-1M.** {H.GROSS_MWE:,.0f} MWe gross of nitrate-salt tower CSP across three desert nodes, {H.APERTURE_M2 / 1e6:.1f} million m²")
     a(f"  of heliostats, {H.STORAGE_MWH_TH / 1e3:,.0f} GWh_th of salt storage ({H.SALT_T / 1e6:.2f} million tonnes of salt), a claimed solar multiple of {H.CLAIMED_SM:.1f},")
-    a(f"  {H.CLAIMED_INSTATE_MWE:,.0f} MW promised in-state and {H.CLAIMED_EXPORT_MWE:,.0f} MW exported at {H.CLAIMED_EXPORT_MWH / 1e6:.2f} TWh a year, sold at $")
-    a(f"  {H.CLAIMED_PEAK_PRICES[0]:.0f}–{H.CLAIMED_PEAK_PRICES[2]:.0f}/MWh; capital ${H.CAPEX_B:.1f} B at a {100 * H.BOND_RATE:.2f} % bond rate, ${H.OM_M:.0f} M a year of O&M, a carrying")
+    a(f"  {H.CLAIMED_INSTATE_MWE:,.0f} MW promised in-state and {H.CLAIMED_EXPORT_MWE:,.0f} MW exported at {H.CLAIMED_EXPORT_MWH / 1e6:.2f} TWh a year, sold at")
+    a(f"  ${H.CLAIMED_PEAK_PRICES[0]:.0f}–{H.CLAIMED_PEAK_PRICES[2]:.0f}/MWh; capital ${H.CAPEX_B:.1f} B at a {100 * H.BOND_RATE:.2f} % bond rate, ${H.OM_M:.0f} M a year of O&M, a carrying")
     a(f"  cost of ${H.CARRYING_COST_M:,.0f} M a year; a $0.00/kWh household tariff.")
     a("- **Title II, Aqua-Sovereign.** 50,000 acre-foot-a-year desalination modules on coastal brownfields by low-temperature")
     a("  multi-effect distillation with zero liquid discharge, minerals (lithium, magnesium) sold to offset the cost, water at")
@@ -535,7 +536,7 @@ def render(g):
     a(f"| v0.1 sold, TWh/yr (in-state promise plus export at 100 % capacity factor) | {(H.CLAIMED_INSTATE_MWE * 8760 + H.CLAIMED_EXPORT_MWH) / 1e6:.1f} |")
     a(f"| shortfall against the in-state promise alone, TWh/yr | {(H.CLAIMED_INSTATE_MWE * 8760 / 1e6) - g['pf']['net_twh']:.1f} |")
     a(f"| revenue selling everything at the 2024 CAISO shape, $M/yr | {g['revenue_2024_m']:,.0f} |")
-    a(f"| revenue at v0.1's $350/MWh on every peak hour, $M/yr | {g['revenue_peak_m']:,.0f} |")
+    a(f"| revenue with v0.1's ${H.CLAIMED_PEAK_PRICES[2]:.0f}/MWh on the four peak hours of every day, the rest at the 2024 shape, $M/yr | {g['revenue_peak_m']:,.0f} |")
     a(f"| carrying cost, debt service at Title I's own rate and term plus its O&M, $M/yr (Title I stated {H.CARRYING_COST_M:,.0f}) | {g['carrying_m']:,.0f} |")
     a(f"| required price at Title I's own ${H.CAPEX_B:.1f} B, $/MWh | {g['req_price_asbuilt']:.0f} |")
     a("")
@@ -565,10 +566,10 @@ def render(g):
     a("")
     a("And what those plants delivered against their design, the fidelity band `helios.py` carries:")
     a("")
-    a("| plant | delivered / designed |")
-    a("|---|---|")
-    for n, f in g["fidelity"]:
-        a(f"| {n} | {f:.2f} |")
+    a("| plant | delivered / designed | the year, and why |")
+    a("|---|---|---|")
+    for n, f, note in g["fidelity"]:
+        a(f"| {n} | {f:.2f} | {note} |")
     a("")
     a("No commercial salt tower has delivered its design output, and the hourly model still flatters that record. That is")
     a("why the critical column exists.")
@@ -586,7 +587,8 @@ def render(g):
     for k in ("salton_flash", "egs", "pv_salt", "csp_proposed", "pv_ironair", "smr"):
         fm, fc = g["fp"]["mid"][k], g["fp"]["critical"][k]
         cap = " (capped: exceeds the developable resource)" if fm.get("capped") else ""
-        a(f"| {FP.TECH[k]['name']} | {fm['mw']:,.0f} | {fm['capex_net'] / 1e3:.1f} / {fm['price']:.0f} / {money(H.per_household(fm['price']))} | {fc['capex_net'] / 1e3:.1f} / {fc['price']:.0f} | {fm['acres']:,.0f} | {FP.TECH[k]['legal']}{cap} |")
+        top = "mid only: heliocost's mid case, scaled" if k == "csp_proposed" else f"{fc['capex_net'] / 1e3:.1f} / {fc['price']:.0f}"
+        a(f"| {FP.TECH[k]['name']} | {fm['mw']:,.0f} | {fm['capex_net'] / 1e3:.1f} / {fm['price']:.0f} / {money(H.per_household(fm['price']))} | {top} | {fm['acres']:,.0f} | {FP.TECH[k]['legal']}{cap} |")
     a(f"| {FP.TECH['offshore_wind']['name']} | — | — | — | — | {FP.TECH['offshore_wind']['legal']}; {FP.TECH['offshore_wind']['status']} |")
     a("")
     port = g["fp_port"]
@@ -614,7 +616,7 @@ def render(g):
     a(f"{g['best_links']['opt']:.2f}), and the one thing no link fixes: **a thermal plant serves daytime load at {H.ETA_CYCLE:.0%} where a panel serves it at")
     a("100 %.** So the daytime third never touches the mirrors, and the field is sized for the night. Two plants on that architecture:")
     a("")
-    a("| | Helios as proposed | Helios-2 (nitrate salt, steam) | Helios-3 (particles, sCO₂), mid |")
+    a(f"| | Helios as proposed, scaled to {g['e_req']:.1f} TWh | Helios-2 (nitrate salt, steam) | Helios-3 (particles, sCO₂), mid |")
     a("|---|---|---|---|")
     br, h2, h3 = g["baseline_row"], g["h2"], d["mid"]
     a(f"| mirror aperture, M m² | {br['aperture'] / 1e6:.1f} | {h2['aperture'] / 1e6:.1f} | {h3['aperture'] / 1e6:.1f} |")
@@ -664,6 +666,10 @@ def render(g):
     both_row("electric heaters, MW_th", d["mid"]["heater_mw"], d["critical"]["heater_mw"])
     both_row("energy served by PV directly / by the block, TWh", f"{d['mid']['e_direct']:.1f} / {d['mid']['e_night']:.1f}", f"{d['critical']['e_direct']:.1f} / {d['critical']['e_night']:.1f}", "{}")
     both_row("land at design sizing, acres", d["mid"]["acres"], d["critical"]["acres"])
+    both_row(f"**on the adopted route (§H)**: mirror aperture, M m²", d["mid"]["aperture"] * bm["field"] / 1e6, d["critical"]["aperture"] * bc["field"] / 1e6, "{:.1f}")
+    both_row("on the adopted route: towers", d["mid"]["towers"] * bm["field"], d["critical"]["towers"] * bc["field"])
+    both_row("on the adopted route: sCO₂ block, MWe", d["mid"]["turb_mw"] * bm["block"], d["critical"]["turb_mw"] * bc["block"])
+    both_row("on the adopted route: land, acres", g["land"]["mid"]["acres"], g["land"]["critical"]["acres"])
     a("")
     a("**Direct cost by line, $M, before contingency, EPC, tax, escalation and interest** (`cspchain.py`, the same rates")
     a("as `heliocost.py` where the part is the same, particle and sCO₂ lines from the Gen3 and STEP record):")
@@ -774,15 +780,27 @@ def render(g):
     both_row("with the water withheld", bm["no_water"]["unserved"], bc["no_water"]["unserved"], "{:.1%}")
     both_row("with the field at design", bm["no_field"]["unserved"], bc["no_field"]["unserved"], "{:.1%}")
     both_row("with neither (as sized)", g["scan"]["mid"]["as_sized"]["unserved"], g["scan"]["critical"]["as_sized"]["unserved"], "{:.1%}")
-    both_row("energy the water returns / lift it needs / surplus available, TWh", f"{bm['hydro_twh']:.2f} / {g['m2c']['mid']['lift_twh'] * bm['share']:.2f} / {bm['surplus_twh']:.2f}", f"{bc['hydro_twh']:.2f} / {g['m2c']['critical']['lift_twh'] * bc['share']:.2f} / {bc['surplus_twh']:.2f}", "{}")
+    both_row("water sized to return / dispatched in the run / lift for the sized water / surplus available, TWh", f"{bm['budget_twh']:.2f} / {bm['hydro_twh']:.2f} / {bm['lift_twh']:.2f} / {bm['surplus_twh']:.2f}", f"{bc['budget_twh']:.2f} / {bc['hydro_twh']:.2f} / {bc['lift_twh']:.2f} / {bc['surplus_twh']:.2f}", "{}")
+    both_row("O&M the closing plant adds, plant / water side, $M/yr", f"{bm['plant_om_m']:.0f} / {bm['water_om_m']:.0f}", f"{bc['plant_om_m']:.0f} / {bc['water_om_m']:.0f}", "{}")
     a("")
     a("Two levers that fail differently, each carrying a real share. A cheapest-point search returns mirrors with a token")
     a("water plant, so the even split is adopted as the author's word and marked DECIDED, movable on the ladder.")
     a("")
-    a(f"**The hydraulics.** At {g['hyd']['mid']['head']:.0f} m of head (mid; {g['hyd']['critical']['head']:.0f} m critical) a cubic metre returns {g['hyd']['mid']['returned_kwh_m3']:.3f} kWh and costs")
-    a(f"{g['hyd']['mid']['lift_kwh_m3']:.3f} kWh to lift, a round trip of {g['hyd']['mid']['round_trip']:.2f} ({g['hyd']['critical']['round_trip']:.2f} critical); reverse osmosis itself takes {AQ.RO_KWH_M3[0]:.1f}–{AQ.RO_KWH_M3[1]:.1f} kWh/m³")
-    a("on Title II's own account. The lift is invariant in head (returned energy over the round trip), so feasibility does not")
-    a("depend on the site; the volume, and so the modules and Title II's capital, go as one over head.")
+    a(f"**Two things a reader should see in that table.** The water is *sized* to return half the shortfall as sized ({bm['budget_twh']:.2f} TWh at")
+    a(f"mid) and the run *dispatches* {bm['hydro_twh']:.2f}, because the larger block serves the evening first and the pump-turbines take what")
+    a("it leaves; the modules are sized on the shortfall, not on what is dispatched, so the water plant runs at about half its")
+    a("evening sizing and all of its water is delivered as irrigation and recharge regardless. That is the conservative side")
+    a(f"for Title II and the expensive side for Title I, and it is stated rather than hidden. And the mirrors-alone figure the")
+    a(f"comparison uses is `hourly3.py`'s one fixed route (block ×{mb:.2f}, field ×{mf:.1f}, store {msd:.0f} days at both cases, ${m['mid']['cost_b']:.1f} / {m['critical']['cost_b']:.1f} B), which")
+    a(f"is what Title III prints; the ladder's own scan, which lets the block and field vary per case, finds a cheaper")
+    a(f"mirrors-only point at critical (${g['scan']['critical']['ladder'][0.0]['title1_b']:.1f} B). Both are the instruments' and neither is hidden.")
+    a("")
+    a(f"**The hydraulics.** The adopted route is priced at one head, {B.HEAD_M:.0f} m (ASSUMED; the Edmonston lift is 587 m, Gianelli about 100), at both cases.")
+    a(f"There a cubic metre returns {g['hyd']['mid']['returned_kwh_m3']:.3f} / {g['hyd']['critical']['returned_kwh_m3']:.3f} kWh and costs {g['hyd']['mid']['lift_kwh_m3']:.3f} / {g['hyd']['critical']['lift_kwh_m3']:.3f} kWh to lift, a round trip of")
+    a(f"{g['hyd']['mid']['round_trip']:.2f} / {g['hyd']['critical']['round_trip']:.2f} (turbine and pump at {J.ETA_TURBINE[0]:.2f} / {J.ETA_TURBINE[1]:.2f} each); reverse osmosis itself takes {AQ.RO_KWH_M3[0]:.1f}–{AQ.RO_KWH_M3[1]:.1f} kWh/m³ on Title II's own account. The")
+    a("lift is invariant in head (returned energy over the round trip), so feasibility does not depend on the site; the")
+    a("volume, and so the modules and Title II's capital, go as one over head, and the sensitivity below runs the head band")
+    a(f"from {J.HEAD_SCAN[0]:.0f} to {J.HEAD_SCAN[-1]:.0f} m. The pump-turbine plant and reservoir carry O&M at {100 * J.HYDRO_OM_SHARE[0]:.1f} / {100 * J.HYDRO_OM_SHARE[1]:.1f} % of their capital a year (ASSUMED band).")
     a("")
     a("**Sensitivity to the two site assumptions**, the hourly run held fixed:")
     a("")
@@ -794,7 +812,7 @@ def render(g):
     a("")
     a("The head is the site question that sizes Title II; the days of holding move Title I by under a billion.")
     a("")
-    fig("fig-06-ladder.png", "The ladder over the water's share: Title I's capital to close the load at each share, both cases; water alone (share 1.0) has no feasible point.")
+    fig("fig-06-ladder.png", "The ladder over the water's share: Title I's capital to close the load at each share, both cases, every point carrying the larger field; water alone with the field and store at design has no feasible point and is not on the ladder.")
     fig("fig-07-head.png", "Title II modules the adopted route needs against the reservoir head, at each case's days of holding.")
     # ---------------------------------------------------------------- I
     a("## I. The risk register, mitigated upfront")
@@ -820,9 +838,23 @@ def render(g):
     a("")
     a("| priced, $M | mid | critical |")
     a("|---|---|---|")
+    stack = {}
+    for c, pp in (("mid", pm), ("critical", pc)):
+        ci = 1 if c == "mid" else 2
+        direct = sum(pp["lines"].values())
+        overhead = (direct + pp["mit_total"]) * (HC.CONTINGENCY[ci] + HC.EPC_OWNER[ci] + HC.SALES_TAX * HC.SALES_TAX_BASE)
+        studies = pp["studies_m"] * (1 + HC.CONTINGENCY[ci])
+        over = direct + pp["mit_total"] + overhead + studies + pp["foak"]
+        gross = pp["capex_net"] + pp["credit"]
+        stack[c] = dict(direct=direct, overhead=overhead, studies=studies, over=over, escidc=gross - over, gross=gross)
+    both_row("direct plant lines (§F)", stack["mid"]["direct"], stack["critical"]["direct"])
     both_row("mitigation adders, direct", pm["mit_total"], pc["mit_total"])
+    both_row(f"contingency ({100 * HC.CONTINGENCY[1]:.0f} / {100 * HC.CONTINGENCY[2]:.0f} %), EPC and owner's cost ({100 * HC.EPC_OWNER[1]:.0f} / {100 * HC.EPC_OWNER[2]:.0f} %), sales tax on those", stack["mid"]["overhead"], stack["critical"]["overhead"])
+    both_row("studies and surveys (§L), with contingency", stack["mid"]["studies"], stack["critical"]["studies"])
     both_row(f"first-module premium ({H3.FIRST_MODULE_PREMIUM:.1f}× / {H3.FIRST_MODULE_PREMIUM_CRITICAL:.1f}× on its share of the thermal block)", pm["foak"], pc["foak"])
-    both_row("studies and surveys (§L), with contingency", pm["studies_m"] * (1 + HC.CONTINGENCY[1]), pc["studies_m"] * (1 + HC.CONTINGENCY[2]))
+    both_row("overnight, groundbreaking dollars", stack["mid"]["over"], stack["critical"]["over"])
+    both_row(f"escalation to the build and interest during construction ({HC.BUILD_YEARS:.0f} years at the bond rate)", stack["mid"]["escidc"], stack["critical"]["escidc"])
+    both_row("gross capital", stack["mid"]["gross"], stack["critical"]["gross"])
     both_row("federal storage credit, direct pay", -pm["credit"], -pc["credit"])
     both_row("**net capital with the register, $M**", pm["capex_net"], pc["capex_net"], "{:,.0f}", True)
     both_row(f"O&M with particle makeup ({100 * H3.PARTICLE_MAKEUP_PER_YEAR:.0f} / {100 * H3.PARTICLE_MAKEUP_CRITICAL:.0f} %/yr) and rejuvenation, $M/yr", pm["om"], pc["om"])
@@ -915,7 +947,7 @@ def render(g):
     for rm, rc in zip(g["predev"]["mid"]["rows"], g["predev"]["critical"]["rows"]):
         a(f"| {rm['id']} | {rm['name']} | {rm['settles']} | {rm['scope']}, {'GATE' if rm['gate'] else 'ladder'} | {rm['unit_m']:.1f} × {rm['n']} = {rm['cost_m']:.1f}, {rm['years']:.1f} | {rc['unit_m']:.1f} × {rc['n']} = {rc['cost_m']:.1f}, {rc['years']:.1f} |")
     a("")
-    a(f"{PD.PILOT_NOTE.capitalize()}.")
+    a(f"{PD.PILOT_NOTE[0].upper() + PD.PILOT_NOTE[1:]}.")
     a("")
     a("| Title I | mid | critical |")
     a("|---|---|---|")
@@ -949,7 +981,7 @@ def render(g):
     both_row("with the mitigation register (§I) and the studies (§L)", pm["price"], pc["price"])
     both_row("serving the whole load, mirrors route", pm["price"] + m["mid"]["dprice"], pc["price"] + m["critical"]["dprice"])
     both_row("**serving the whole load, both (adopted)**", whole_price(g, "mid"), whole_price(g, "critical"), "{:,.0f}", True)
-    both_row("after the bonds retire: O&M only", g["postbond"]["mid"], g["postbond"]["critical"])
+    both_row("after the bonds retire: O&M only, register plant and closing plant", g["postbond"]["mid"], g["postbond"]["critical"])
     a("")
     a(f"| $ per household per year (today {money(g['today_hh'])}) | mid | critical |")
     a("|---|---|---|")
@@ -973,8 +1005,9 @@ def render(g):
     a("| per year, Title I | mid | critical |")
     a("|---|---|---|")
     both_row(f"debt service, {H.BOND_TERM_Y}-year bonds at {100 * H.BOND_RATE:.2f} %, $M", g["reserve"]["mid"]["debt_service_m"], g["reserve"]["critical"]["debt_service_m"])
-    both_row("O&M, $M", pm["om"], pc["om"])
-    both_row("share of the bill that is the bonds", g["reserve"]["mid"]["debt_service_m"] / (g["reserve"]["mid"]["debt_service_m"] + pm["om"]), g["reserve"]["critical"]["debt_service_m"] / (g["reserve"]["critical"]["debt_service_m"] + pc["om"]), "{:.0%}")
+    both_row("O&M, register plant, $M", pm["om"], pc["om"])
+    both_row("O&M the closing plant adds on the adopted route (§H), $M", bm["extra_om_m"], bc["extra_om_m"])
+    both_row("share of the register plant's bill that is the bonds", g["reserve"]["mid"]["debt_service_m"] / (g["reserve"]["mid"]["debt_service_m"] + pm["om"]), g["reserve"]["critical"]["debt_service_m"] / (g["reserve"]["critical"]["debt_service_m"] + pc["om"]), "{:.0%}")
     a("")
     a(f"**The security behind the rate (F-19).** The {100 * H.BOND_RATE:.2f} % is a general-obligation or contracted-revenue rate; the security is")
     a("contracted in-state offtake at the required price with a state GO backstop for the first-of-kind rungs. Priced to each")
@@ -1020,8 +1053,9 @@ def render(g):
     a("impact statement on the Mojave node, which is why the studies go first.")
     a("")
     a(f"**Transmission (F-09).** The export is negative, so no firm export right is needed. The in-state gen-tie per node at the")
-    a(f"adopted sizing peaks at {g['gentie']['mid']['per_node']:,.0f} MW (mid) / {g['gentie']['critical']['per_node']:,.0f} MW (critical) from the hour-by-hour, {g['gentie']['mid']['circuits']:.2f} / {g['gentie']['critical']['circuits']:.2f} of one 500 kV")
-    a(f"circuit, priced in the switchyard line at ${g['gentie']['mid']['switchyard_m']:,.0f} / {g['gentie']['critical']['switchyard_m']:,.0f} M. The interconnection study is the Authority's to file and no")
+    a(f"adopted sizing peaks at {g['gentie']['mid']['per_node']:,.0f} MW (mid) / {g['gentie']['critical']['per_node']:,.0f} MW (critical) from the hour-by-hour — the same at both cases because the block is the")
+    a(f"same size at both and sets the peak — {g['gentie']['mid']['circuits']:.2f} / {g['gentie']['critical']['circuits']:.2f} of one 500 kV circuit (rated {T1.CIRCUIT_500KV_MW[0]:,.0f} / {T1.CIRCUIT_500KV_MW[1]:,.0f} MW), priced in the design's")
+    a(f"switchyard line at ${g['gentie']['mid']['switchyard_m']:,.0f} / {g['gentie']['critical']['switchyard_m']:,.0f} M (§F). The interconnection study is the Authority's to file and no")
     a("authority shortens it.")
     a("")
     fig("fig-08-price.png", "Title I's required price step by step, both cases, against the contract band and today's generation charge.")
@@ -1060,7 +1094,8 @@ def render(g):
     a("**The process decisions (`titletwo.py`).**")
     a("")
     a("- **Reverse osmosis, not LT-MED (F-13).** A coastal brownfield has no heat source of the 500 MW_th a thermal module")
-    a(f"  needs, and none is named; the water would cost {J.LTMED_KWH_TH_M3 / AQ.RO_KWH_M3[1] * 0.33:.1f}× reverse osmosis in primary energy. RO at {AQ.RO_KWH_M3[0]:.1f}–{AQ.RO_KWH_M3[1]:.1f} kWh/m³ is what is priced.")
+    a(f"  needs, and none is named; against a condensing cycle on the same heat the water would cost {g['topping']['mid']['cost_kwh_e_m3']:.1f} / {g['topping']['critical']['cost_kwh_e_m3']:.1f} kWh/m³ of")
+    a(f"  electricity forgone, {g['topping']['mid']['cost_kwh_e_m3'] / g['topping']['mid']['ro_kwh_e_m3']:.1f}× / {g['topping']['critical']['cost_kwh_e_m3'] / g['topping']['critical']['ro_kwh_e_m3']:.1f}× reverse osmosis (`joinder.py`). RO at {AQ.RO_KWH_M3[0]:.1f}–{AQ.RO_KWH_M3[1]:.1f} kWh/m³ is what is priced.")
     a(f"- **No zero-liquid-discharge, no mineral train (F-03, F-04, F-11, F-12).** Seawater holds {T2.LI_SEAWATER_MG_L} mg/L of lithium: one module's")
     a(f"  feed contains {g['minerals']['mid']['li_t']:.1f} tonnes a year, three orders below v0.1's revenue. Its magnesium as hydroxide would be {g['minerals']['mid']['mgoh2_kt']:.0f} kt a")
     a(f"  year, {g['minerals']['mid']['share_of_market']:.2f} of the US magnesium-compounds market ({g['minerals']['critical']['share_of_market']:.2f} at critical) from one module. Crystallising the brine")
@@ -1071,7 +1106,7 @@ def render(g):
     a("  standing decision), which rules out magnesium metal.")
     a(f"- **Intake (F-28).** {T2.INTAKE}. Slant wells are site-specific and were Huntington Beach's failure; entrainment is")
     a("  non-zero and mitigated under the Ocean Plan, not eliminated.")
-    a(f"- **On-site power covers a tenth, not all (F-27).** A module draws {g['onsite']['mid']['need_mw']:.0f}–{g['onsite']['critical']['need_mw']:.0f} MW on average; the {T2.BROWNFIELD_ACRES[0]:.0f}–{T2.BROWNFIELD_ACRES[1]:.0f} acre site's PV makes")
+    a(f"- **On-site power covers a tenth, not all (F-27).** A module draws {g['onsite']['mid']['need_mw']:.0f}–{g['onsite']['critical']['need_mw']:.0f} MW on average; the {T2.BROWNFIELD_ACRES[0]:.0f} / {T2.BROWNFIELD_ACRES[1]:.0f} acre site's PV makes")
     a(f"  {g['onsite']['mid']['pv_avg_mw']:.1f}–{g['onsite']['critical']['pv_avg_mw']:.1f} MW, {g['onsite']['mid']['share']:.0%}–{g['onsite']['critical']['share']:.0%} of it. Islanding is a battery for the intake, pretreatment and controls ({g['onsite']['mid']['islanding_mw']:.1f} MW), so the plant")
     a("  rides through an outage without fouling; full-load islanding is not claimed.")
     a(f"- **Energy at the contract price, full-time (F-26).** Title I's surplus is {g['surplus']['mid']['share']:.0%} of hours, not half; a membrane plant runs")
@@ -1092,7 +1127,7 @@ def render(g):
     a("")
     a("| | mid | critical |")
     a("|---|---|---|")
-    both_row(f"modules at {B.HEAD_M:.0f} m of head", ar["mid"]["modules"], ar["critical"]["modules"], "{:.1f}")
+    both_row(f"modules at {B.HEAD_M:.0f} m of head (built as whole modules: {ar['mid']['modules']:.0f} / {ar['critical']['modules'] + 0.5:.0f})", ar["mid"]["modules"], ar["critical"]["modules"], "{:.1f}")
     both_row("water, million acre-feet a year", ar["mid"]["maf"], ar["critical"]["maf"], "{:.2f}")
     both_row("modules' capital, financed, $B", ar["mid"]["capex_b"], ar["critical"]["capex_b"], "{:.1f}")
     both_row(f"lift on the water's bill, kWh/m³", ar["mid"]["lift"], ar["critical"]["lift"], "{:.2f}")
@@ -1187,8 +1222,8 @@ def render(g):
         a(f"#### {name}")
         a("")
         a(f"{lat:.2f}° N, {abs(lon):.2f}° W. Annual DNI **{dni:,.0f} kWh/m²/yr** ({status}; band {H.DNI_BAND[name][0]:,.0f}–{H.DNI_BAND[name][1]:,.0f}). One third of the fleet:")
-        a(f"{d['mid']['aperture'] / 3e6:.1f} / {d['critical']['aperture'] / 3e6:.1f} million m² of mirror at design and {d['mid']['aperture'] * bm['field'] / 3e6:.1f} / {d['critical']['aperture'] * bc['field'] / 3e6:.1f} on the adopted route, {d['mid']['towers'] / 3:.0f} / {d['critical']['towers'] / 3:.0f} towers,")
-        a(f"{d['mid']['pv_mw'] / 3:,.0f} / {d['critical']['pv_mw'] / 3:,.0f} MW_AC of PV; land {g['land']['mid']['per_node']:,.0f} / {g['land']['critical']['per_node']:,.0f} acres at the mirrors sizing; mirror washing {g['wash']['mid']['afy_per_node']:,.0f} / {g['wash']['critical']['afy_per_node']:,.0f} acre-feet a year")
+        a(f"{d['mid']['aperture'] / 3e6:.1f} / {d['critical']['aperture'] / 3e6:.1f} million m² of mirror at design and {d['mid']['aperture'] * bm['field'] / 3e6:.1f} / {d['critical']['aperture'] * bc['field'] / 3e6:.1f} on the adopted route, {d['mid']['towers'] * bm['field'] / 3:.0f} / {d['critical']['towers'] * bc['field'] / 3:.0f} towers on the adopted route,")
+        a(f"{d['mid']['pv_mw'] / 3:,.0f} / {d['critical']['pv_mw'] / 3:,.0f} MW_AC of PV; land {g['land']['mid']['per_node']:,.0f} / {g['land']['critical']['per_node']:,.0f} acres on the adopted route; mirror washing {g['wash']['mid']['afy_per_node']:,.0f} / {g['wash']['critical']['afy_per_node']:,.0f} acre-feet a year")
         a(f"from the program's own water; one 500 kV circuit at {g['gentie']['mid']['per_node']:,.0f} / {g['gentie']['critical']['per_node']:,.0f} MW peak injection. Seismic: the {MN.DESIGN_PGA_G:.2f} g design target over a mapped")
         a(f"MCE_R PGA of {pgm:.2f} / {pgc:.2f} g is {fm:.2f}× / {fc:.2f}× (a site study must confirm {SI.SEISMIC_MARGIN:.1f}×).")
         a("")
@@ -1209,7 +1244,7 @@ def render(g):
     a("so the node the record doubted for its sun has the fewest open terms. At critical the Mojave leads alone, because the")
     a(f"Westside's seismic margin falls under the {SI.SEISMIC_MARGIN:.1f}× a site study must confirm. The Central Valley node's land is the")
     a(f"reason it is kept (F-22): {g['land']['mid']['westlands']:,.0f} / {g['land']['critical']['westlands']:,.0f} acres of fallowed, drainage-impaired Westside farmland cover a node {g['land']['mid']['westlands_covers']:.1f}× / {g['land']['critical']['westlands_covers']:.1f}× over.")
-    a(f"Land across the program at the mirrors sizing is {g['land']['mid']['acres']:,.0f} / {g['land']['critical']['acres']:,.0f} acres ({g['land']['mid']['km2']:.0f} / {g['land']['critical']['km2']:.0f} km²), which v0.1 never stated (F-21).")
+    a(f"Land across the program on the adopted route is {g['land']['mid']['acres']:,.0f} / {g['land']['critical']['acres']:,.0f} acres ({g['land']['mid']['km2']:.0f} / {g['land']['critical']['km2']:.0f} km²), which v0.1 never stated (F-21).")
     a(f"NEPA on the Mojave node's federal nexus (F-25) is budgeted as {MJ.NEPA_YEARS[0]:.0f} / {MJ.NEPA_YEARS[1]:.0f} years of escalation on that node, ${g['nepa']['mid']['delay_m']:,.0f} / {g['nepa']['critical']['delay_m']:,.0f} M.")
     a("")
     a("### P.2. Title II: the coastal brownfields")
@@ -1258,7 +1293,7 @@ def render(g):
     a(f"v0.1 said {MN.CLAIMED_MMT} million tonnes, descended from the inflated energy.")
     a("")
     a(f"**Employment (F-38).** From built plants per MW — Crescent Dunes and Ivanpah for the permanent staff, Ivanpah's peak for")
-    a(f"construction — at the closed block of {g['jobs']['mid']['block_mw']:,.0f} MWe:")
+    a(f"construction — at the adopted route's block of {g['jobs']['mid']['block_mw']:,.0f} MWe and its {bm['modules']:.0f} / {bc['modules']:.0f} water modules:")
     a("")
     a("| | mid | critical |")
     a("|---|---|---|")
@@ -1269,10 +1304,10 @@ def render(g):
     a(f"v0.1 said {MN.CLAIMED_JOBS[0]:,} construction and {MN.CLAIMED_JOBS[1]:,} permanent; the multiplier it quoted is unsourced and is not carried.")
     a("")
     a(f"**Resource adequacy (F-18).** No RA is earned on exported energy and the export is negative; the in-state RA is the closed")
-    a(f"block's net capacity, {g['ra']['mid']['block_net_mw']:,.0f} / {g['ra']['critical']['block_net_mw']:,.0f} MW, self-supplied by the Authority as load-serving entity. v0.1 counted ${H.CLAIMED_RA_M[0]:.0f}–{H.CLAIMED_RA_M[2]:.0f} M a year of it.")
+    a(f"block's net capacity on the adopted route, {g['ra']['mid']['block_net_mw']:,.0f} / {g['ra']['critical']['block_net_mw']:,.0f} MW, self-supplied by the Authority as load-serving entity. v0.1 counted ${H.CLAIMED_RA_M[0]:.0f}–{H.CLAIMED_RA_M[2]:.0f} M a year of it.")
     a("")
     a(f"**Water for the mirrors (F-20).** At Ivanpah's dry-cooled record ({MJ.IVANPAH_WASH_AFY:.0f} acre-feet a year on {MJ.IVANPAH_M2 / 1e6:.1f} million m²) the program's")
-    a(f"field needs {g['wash']['mid']['afy']:,.0f} / {g['wash']['critical']['afy']:,.0f} acre-feet a year, from {g['wash']['mid']['source']}.")
+    a(f"field on the adopted route needs {g['wash']['mid']['afy']:,.0f} / {g['wash']['critical']['afy']:,.0f} acre-feet a year, from {g['wash']['mid']['source']}.")
     a("")
     a(f"**Seismic (F-33).** Seismic zones left the code in 2001; the basis is ASCE 7, site class and mapped MCE_R. The {MN.DESIGN_PGA_G:.2f} g target")
     a("is kept and clears the mapped PGA at every node (§P.1); the mapped values are assumed from the hazard record and the")
@@ -1319,7 +1354,10 @@ def render(g):
     a("## S. The flaws register: forty found, forty resolved")
     a("")
     a("`FLAWS.tsv` is the adversarial review of v0.1, graded FATAL, CRITICAL, MAJOR, MINOR, worked one at a time in register")
-    a("order, each by an instrument where numerical. Every row, with its resolution:")
+    a("order, each by an instrument where numerical. Every row, with its resolution **as recorded when it was closed**: a")
+    a("resolution quotes the figure the instrument gave that day, and where a later pass moved a figure (the load-shape")
+    a("correction, the studies line, the adopted route, the O&M on the closing plant) the current figure is the one in")
+    a("§A–Q and the move is recorded in `docs/`. A status is never flattened, so the record stands beside the result.")
     a("")
     for f in g["flaws"]:
         a(f"**{f['id']} ({f['tier']}, {f['section']}). {f['title']}.**")
@@ -1337,12 +1375,17 @@ def render(g):
     a("")
     seen = []
     for _k, _s, _sc, _y, _st, _w, source in ST.STUDIES:
-        for part in source.split(";"):
+        for part in re.split(r";\s*(?![^()]*\))", source):
             part = part.strip()
             if part and part not in seen and not part.startswith("tools/"):
                 seen.append(part)
     for s in seen:
         a(f"- {s}")
+    a("")
+    a("An entry marked *reviewed 2026-09-11* was checked against the web where this environment's proxy reached; an")
+    a("encyclopaedia entry in the list is a pointer to a plant's public record and to the primary items beside it, not the")
+    a("source of a figure. Entries such as *plant records* and *industry practice* name a class of evidence, not a")
+    a("document, and the row that cites them claims only what such a class can carry.")
     a("")
     a("Further sources carried by the instruments as constants, each marked SOURCED beside its value: EIA 2024 (California")
     a("residential consumption and customers); NREL ATB 2024 (tower CSP, the calibration anchor); NREL TMY3 Daggett and the")
@@ -1358,7 +1401,8 @@ def render(g):
     a("## U. The instruments")
     a("")
     a("Every number in this document is computed by one of these, each with a `--selftest` fixtured on the record, each")
-    a("stdlib-only, each importing what it needs from its neighbours and restating nothing:")
+    a("stdlib-only (the renderer alone needs matplotlib for the figures and python-docx for the Word files), each importing")
+    a("what it needs from its neighbours and restating nothing:")
     a("")
     for name, what in (("helios.py", "the plant as submitted, run hour by hour; the criterion inverted; F-17's requirement"),
                        ("heliocost.py", "the capital line by line at the built record, state-owned"),
@@ -1420,8 +1464,9 @@ def render_pitch(g):
     a(f"  (sun to socket {C.chain_product(g['base_links'].values()):.3f} as proposed, {C.chain_product(d['mid']['links'].values()):.3f} at mid).")
     a("- Daytime load goes straight from photovoltaics without touching a mirror; the mirror field is sized for the night;")
     a("  the particle store carries the evening peak.")
-    a(f"- At mid: {d['mid']['aperture'] / 1e6:.1f} million m² of mirror on {d['mid']['towers']:.0f} towers, a {d['mid']['turb_mw']:,.0f} MWe block, {d['mid']['pv_mw']:,.0f} MW of PV. At critical: {d['critical']['aperture'] / 1e6:.1f} million m²,")
-    a(f"  {d['critical']['towers']:.0f} towers, {d['critical']['turb_mw']:,.0f} MWe, {d['critical']['pv_mw']:,.0f} MW.")
+    a(f"- As sized at mid: {d['mid']['aperture'] / 1e6:.1f} million m² of mirror on {d['mid']['towers']:.0f} towers, a {d['mid']['turb_mw']:,.0f} MWe block, {d['mid']['pv_mw']:,.0f} MW of PV. At critical: {d['critical']['aperture'] / 1e6:.1f} million m²,")
+    a(f"  {d['critical']['towers']:.0f} towers, {d['critical']['turb_mw']:,.0f} MWe, {d['critical']['pv_mw']:,.0f} MW. The adopted route then grows the field by a quarter and the block by half to")
+    a("  close the evening.")
     a("- **Aqua-Sovereign.** Seawater reverse osmosis on retired coastal power plants, brine back through the permitted")
     a("  outfall at Ocean Plan concentration, no minerals sold, no zero-liquid-discharge.")
     a("- **The joinder.** Title I's summer surplus lifts the water to an elevated reservoir; every evening of the year it")
@@ -1450,7 +1495,7 @@ def render_pitch(g):
     a(f"  (${whole_price(g, 'mid'):.0f} / {whole_price(g, 'critical'):.0f} per MWh).")
     a(f"- After the bonds retire: **${money(H.per_household(g['postbond']['mid']))} / {money(H.per_household(g['postbond']['critical']))}** a year, the running cost alone, for as long as the plant stands.")
     ds = g["reserve"]
-    a(f"- {ds['mid']['debt_service_m'] / (ds['mid']['debt_service_m'] + pm['om']):.0%} / {ds['critical']['debt_service_m'] / (ds['critical']['debt_service_m'] + pc['om']):.0%} of the bill is the build. Once built, the state owns a supply whose running cost is a fifth of today's bill.")
+    a(f"- {ds['mid']['debt_service_m'] / (ds['mid']['debt_service_m'] + pm['om']):.0%} / {ds['critical']['debt_service_m'] / (ds['critical']['debt_service_m'] + pc['om']):.0%} of the plant's bill is the build. Once built, the state owns a supply whose running cost is a fraction of today's bill.")
     a(f"- Water: **${g['aqua']['mid']['per_af']:,.0f} / {g['aqua']['critical']['per_af']:,.0f}** an acre-foot at cost recovery, in the band Carlsbad delivers (${AQ.CARLSBAD_PRICE_AF[0]:,.0f}–{AQ.CARLSBAD_PRICE_AF[1]:,.0f}), on its own rate and account.")
     a("- No further public money after the build: the bill carries debt service and O&M, the treasury carries nothing.")
     a("")
@@ -1625,7 +1670,8 @@ def selftest():
     check("the pitch carries no number the proposal does not", numbers(pitch) <= numbers(text))
     check("the pitch is two to three pages of bullets", 900 < len(pitch.split()) < 2000 and pitch.count("\n- ") >= 30)
     check("mid never exceeds critical on the price and the program", whole_price(g, "mid") < whole_price(g, "critical") and program_b(g, "mid") < program_b(g, "critical"))
-    check("the post-bond price is O&M over the energy", abs(g["postbond"]["mid"] - g["priced"]["mid"]["om"] / g["design"]["mid"]["e_twh"]) < 1e-9)
+    check("the post-bond price is the adopted route's O&M over the energy, register plant and closing plant",
+          abs(g["postbond"]["mid"] - (g["priced"]["mid"]["om"] + g["both"]["mid"]["extra_om_m"]) / g["design"]["mid"]["e_twh"]) < 1e-9)
     check("the document says it carries no number an instrument did not compute", "no number an instrument" in text)
     check("water alone is stated as having no feasible point, never a price", text.count("no feasible point") >= 3)
     print(f"\nselftest: {fails} failures -> {'PASS' if fails == 0 else 'FAIL'}")

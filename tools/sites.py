@@ -31,7 +31,7 @@ import joinder as J                                             # noqa: E402
 GRADES = ("MET", "CONDITIONAL", "OPEN", "FAIL")
 WEIGHT = {"MET": 1.0, "CONDITIONAL": 0.5, "OPEN": 0.0, "FAIL": -1.0}
 DNI_FLOOR = 2500.0                        # kWh/m2/yr, below which the node's field grows past the desert's  DERIVED (helios NODES: desert 2,740-2,799; Westside 2,190)
-HEAD_NEED_M = J.HEAD_M[1]                 # the critical head the water route is priced at            joinder.py
+HEAD_NEED_M = J.HEAD_M[0]                 # the head both.py prices the adopted route at (500 m, both cases); 300 m is the band's bottom and buys 5/3 the modules  joinder.py / both.py
 SEISMIC_MARGIN = 1.5                      # design PGA over mapped, the margin a site study must confirm  ASSUMED
 
 # --- Title I: the terms a node must meet ------------------------------------------

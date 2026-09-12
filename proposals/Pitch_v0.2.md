@@ -20,8 +20,9 @@ the proposal's, labelled mid / critical; the proposal carries its source and its
   (sun to socket 0.168 as proposed, 0.252 at mid).
 - Daytime load goes straight from photovoltaics without touching a mirror; the mirror field is sized for the night;
   the particle store carries the evening peak.
-- At mid: 18.1 million m² of mirror on 14 towers, a 2,620 MWe block, 2,894 MW of PV. At critical: 30.9 million m²,
-  24 towers, 2,620 MWe, 3,101 MW.
+- As sized at mid: 18.1 million m² of mirror on 14 towers, a 2,620 MWe block, 2,894 MW of PV. At critical: 30.9 million m²,
+  24 towers, 2,620 MWe, 3,101 MW. The adopted route then grows the field by a quarter and the block by half to
+  close the evening.
 - **Aqua-Sovereign.** Seawater reverse osmosis on retired coastal power plants, brine back through the permitted
   outfall at Ocean Plan concentration, no minerals sold, no zero-liquid-discharge.
 - **The joinder.** Title I's summer surplus lifts the water to an elevated reservoir; every evening of the year it
@@ -46,10 +47,10 @@ the proposal's, labelled mid / critical; the proposal carries its source and its
 ## What a household pays
 
 - Today: **$1,177** a year to the utility for generation.
-- On this program while the bonds are paid: **$991** at mid, **$1,603** at critical
-  ($164 / 266 per MWh).
-- After the bonds retire: **$145 / 185** a year, the running cost alone, for as long as the plant stands.
-- 81% / 85% of the bill is the build. Once built, the state owns a supply whose running cost is a fifth of today's bill.
+- On this program while the bonds are paid: **$1,036** at mid, **$1,682** at critical
+  ($172 / 279 per MWh).
+- After the bonds retire: **$190 / 263** a year, the running cost alone, for as long as the plant stands.
+- 81% / 85% of the plant's bill is the build. Once built, the state owns a supply whose running cost is a fraction of today's bill.
 - Water: **$3,044 / 4,830** an acre-foot at cost recovery, in the band Carlsbad delivers ($2,700–2,900), on its own rate and account.
 - No further public money after the build: the bill carries debt service and O&M, the treasury carries nothing.
 
@@ -80,12 +81,12 @@ the proposal's, labelled mid / critical; the proposal carries its source and its
 - Every technology in it is on a register of 49 published studies and plants, each with a status and a source, and
   a recommended further study on a dated ladder.
 - It mines nothing new, consumes no cooling water, and avoids 7.24 / 6.34 million tonnes of CO₂ a year with the load closed.
-- About 17,545 construction jobs at peak and 1,632 / 1,063 permanent on the nodes, plus 1,203 / 1,327 at the water modules.
+- About 21,054 construction jobs at peak and 1,901 / 1,214 permanent on the nodes, plus 601 / 664 at the water modules.
 
 ## Where
 
 - Title I: the Mojave (Kramer Junction), Imperial (Desert Center) and the Westside — at mid the Westside ties the
-  Mojave for first on land, nexus and grid; at critical the Mojave leads on seismic margin. Land 50,961 / 75,886 acres, with
+  Mojave for first on land, nexus and grid; at critical the Mojave leads on seismic margin. Land 45,361 / 66,339 acres, with
   fallowed Westside farmland covering a whole node.
 - Title II: eight retired or retiring coastal plants screened on seven terms; the Oxnard plain (Ormond Beach, Mandalay)
   and Moss Landing lead; Huntington Beach carries its 2022 denial as a FAIL; no site is met on every term, so a site

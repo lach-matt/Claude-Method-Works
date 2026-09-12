@@ -280,11 +280,24 @@ def closure_cost_m(d, pv_overbuild=1.0, heater_factor=1.0, turbine_factor=1.0, a
             + L["thermal storage (particles)"] * (turbine_factor * tes_factor - 1.0))
 
 
-def price_delta(d, extra_direct_m):
+def closure_om_m(d, extra_direct_m):
+    """The O&M the closing plant brings with it, $M/yr: taken as proportional to
+    direct capital at the design's own O&M-to-capital ratio. ASSUMED (the chain
+    carries no per-line O&M); before 2026-09-12 the closing price carried no O&M
+    at all, which understated it."""
+    return d["om"] * extra_direct_m / sum(d["lines"].values())
+
+
+def price_delta(d, extra_direct_m, extra_om_m=0.0):
     """What extra direct cost does to the required price, through cspchain's
-    own overheads and firmpower's financing: $/MWh."""
+    own overheads and firmpower's financing, with the O&M it brings: $/MWh."""
     over = extra_direct_m * (1.0 + C.HC.CONTINGENCY[1] + C.HC.EPC_OWNER[1] + C.HC.SALES_TAX * C.HC.SALES_TAX_BASE)
-    return FP.required_price(FP.financed(over, C.HC.BUILD_YEARS), 0.0, d["e_twh"])
+    return FP.required_price(FP.financed(over, C.HC.BUILD_YEARS), extra_om_m, d["e_twh"])
+
+
+def mirrors_price_delta(d):
+    cost = mirrors_cost_m(d)
+    return price_delta(d, cost, closure_om_m(d, cost))
 
 
 def scan(case):
@@ -421,7 +434,7 @@ def report(do_close=True):
                 cost, pvo, hf, tf, af, sf, r = b
                 if tag:
                     print(f"      {c:<10}{t:7.3f}   {tag}")
-                print(f"      {c:<10}{t:7.3f}{tf:8.2f}{sf:8.1f}{af:8.2f}{pvo:6.1f}{hf:9.1f}{cost:10,.0f}{price_delta(d, cost):9.1f}"
+                print(f"      {c:<10}{t:7.3f}{tf:8.2f}{sf:8.1f}{af:8.2f}{pvo:6.1f}{hf:9.1f}{cost:10,.0f}{price_delta(d, cost, closure_om_m(d, cost)):9.1f}"
                       f"{1 - r['served_frac']:10.4f}{r['month_unserved'][12] / r['month_load'][12]:7.3f}{r['spill_th'] / 1e6:10.2f}")
         print("    The block is what closes the evening; the field and PV are what close")
         print("    the winter. Both are size, and size is the thing cspchain's static")

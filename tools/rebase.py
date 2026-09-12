@@ -59,7 +59,7 @@ def gather():
         d = g["design"][c]
         r = HR.mirrors_run(c, design=d)
         cost = HR.mirrors_cost_m(d)
-        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.price_delta(d, cost))
+        g["mirrors"][c] = dict(unserved=1 - r["served_frac"], cost_b=cost / 1e3, dprice=HR.mirrors_price_delta(d))
     g["winter"] = {c: J.winter(c) for c in CASES}
     g["water"] = {c: J.evening_with_water(c, 500.0, g["winter"][c]) for c in CASES}
     g["delay"] = {c: ST.delay_cost_per_year(c) for c in CASES}

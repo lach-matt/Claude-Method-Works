@@ -40,13 +40,16 @@ sys.path.insert(0, HERE)
 import heliocost as HC                                          # noqa: E402
 import helios as H                                              # noqa: E402
 import helios3 as H3                                            # noqa: E402
+import cspchain as C                                            # noqa: E402
+
+_D = {c: C.design("helios3", c) for c in ("mid", "critical")}   # the design the register serves, never retyped
 
 STATUSES = ("OPERATED", "TESTED", "DESIGNED", "AUTHOR")
 
 # (key, technology as the design uses it, what the design needs)
 TECHNOLOGIES = [
     ("field", "Heliostat field, Noor III class, surround, night-sized",
-     "~27 M m2 critical / 18 M m2 mid across 3 nodes; 14-21 towers"),
+     f"~{_D['critical']['aperture'] / 1e6:.0f} M m2 critical / {_D['mid']['aperture'] / 1e6:.0f} M m2 mid across 3 nodes at design; {_D['mid']['towers']:.0f}-{_D['critical']['towers']:.0f} towers"),
     ("receiver", "Falling-particle cavity receiver, multi-aperture",
      "~800 MW_th per tower; 30 MW_th per aperture, 26 apertures"),
     ("aperture", "Compound quartz aperture: hex rod-lens dome with cooled lattice frame",
@@ -228,7 +231,7 @@ RECOMMEND = [
      "heater efficiency and control on particles rather than salt; winter dispatch is measured by helios.py's hourly run", 0.5, "pilot"),
     ("cooling", "Compressor-inlet performance at 45 C on the first module's dry cooler",
      "the cycle's 0.45-0.50 critical band; whether a CO2 blend is needed (R-03 note)", 1.0, "module"),
-    ("architecture", "RUN (hourly3.py, 2026-09-11, corrected load shape): Helios-3 hour by hour at both cases -- as sized it serves 87 % of the load, year-round and evening-led; mirrors close at block x1.25, field x1.5, store 2 d (+$34/MWh mid, +$56 critical); the adopted route is both.py's",
+    ("architecture", "RUN (hourly3.py, 2026-09-11, corrected load shape): Helios-3 hour by hour at both cases -- as sized it serves 87 % of the load, year-round and evening-led; the mirrors route closes at block x1.25, field x1.5, store 2 d at the price hourly3.mirrors_price_delta computes; the adopted route is both.py's",
      "the evening peak in every month (F-06); the heater was never the lever, the block, the field and the water are", 0.5, "now"),
 ]
 

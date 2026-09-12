@@ -40,14 +40,14 @@ severability that join them.
 | Title II modules at the adopted route, $B | 28 | 48 |
 | **program, $B** | **67** | **114** |
 | of which studies and surveys, first in the capital, $M | 213 | 463 |
-| Title I price serving the whole load, $/MWh | 164 | 266 |
-| household generation charge during the bonds, $/yr (today 1,177) | 991 | 1,603 |
-| household generation charge after the bonds retire, $/yr | 145 | 185 |
+| Title I price serving the whole load, $/MWh | 172 | 279 |
+| household generation charge during the bonds, $/yr (today 1,177) | 1,036 | 1,682 |
+| household generation charge after the bonds retire, $/yr | 190 | 263 |
 | water at cost recovery, $/acre-foot | 3,044 | 4,830 |
 | share of the load left to the grid | 0.6% | 0.7% |
 | studies begin / first electricity (PV) / first CSP module / fleet complete | 2027 / 2031 / 2036 / 2041 | 2027 / 2033 / 2038 / 2043 |
 | CO₂ avoided with the load closed, million t/yr | 7.24 | 6.34 |
-| permanent jobs, Title I / construction peak | 1,632 / 17,545 | 1,063 / 17,545 |
+| permanent jobs, Title I / construction peak | 1,901 / 21,054 | 1,214 / 21,054 |
 
 **The decision the document asks for.** Fund the studies and surveys now, at
 $213 to 463 million, and know within 2 to 4 years whether the rest is worth
@@ -86,8 +86,8 @@ altered, so every repair is a diff against it. What it proposed:
 
 - **Title I, Program Helios-1M.** 5,250 MWe gross of nitrate-salt tower CSP across three desert nodes, 45.6 million m²
   of heliostats, 197 GWh_th of salt storage (1.67 million tonnes of salt), a claimed solar multiple of 5.0,
-  3,000 MW promised in-state and 1,515 MW exported at 13.27 TWh a year, sold at $
-  190–350/MWh; capital $27.2 B at a 3.85 % bond rate, $410 M a year of O&M, a carrying
+  3,000 MW promised in-state and 1,515 MW exported at 13.27 TWh a year, sold at
+  $190–350/MWh; capital $27.2 B at a 3.85 % bond rate, $410 M a year of O&M, a carrying
   cost of $1,933 M a year; a $0.00/kWh household tariff.
 - **Title II, Aqua-Sovereign.** 50,000 acre-foot-a-year desalination modules on coastal brownfields by low-temperature
   multi-effect distillation with zero liquid discharge, minerals (lithium, magnesium) sold to offset the cost, water at
@@ -104,7 +104,7 @@ each node's sourced annual DNI, with the salt tank, the turbine's part-load curv
 | v0.1 sold, TWh/yr (in-state promise plus export at 100 % capacity factor) | 39.6 |
 | shortfall against the in-state promise alone, TWh/yr | 7.0 |
 | revenue selling everything at the 2024 CAISO shape, $M/yr | 677 |
-| revenue at v0.1's $350/MWh on every peak hour, $M/yr | 2,451 |
+| revenue with v0.1's $350/MWh on the four peak hours of every day, the rest at the 2024 shape, $M/yr | 2,451 |
 | carrying cost, debt service at Title I's own rate and term plus its O&M, $M/yr (Title I stated 1,933) | 1,954 |
 | required price at Title I's own $27.2 B, $/MWh | 102 |
 
@@ -139,11 +139,11 @@ Title I's $27.2 B is 1.70× below the low case. **The criterion does not close a
 
 And what those plants delivered against their design, the fidelity band `helios.py` carries:
 
-| plant | delivered / designed |
-|---|---|
-| Gemasolar, Spain, 2011 | 0.73 |
-| Crescent Dunes, USA, 2015 | 0.39 |
-| Cerro Dominador, Chile, 2021 | 0.12 |
+| plant | delivered / designed | the year, and why |
+|---|---|---|
+| Gemasolar, Spain, 2011 | 0.73 | mature; the best sustained record of any salt tower |
+| Crescent Dunes, USA, 2015 | 0.39 | 2018, best full year before the 2019 shutdown |
+| Cerro Dominador, Chile, 2021 | 0.12 | 2023; hot-tank damage, plant largely stopped |
 
 No commercial salt tower has delivered its design output, and the hourly model still flatters that record. That is
 why the critical column exists.
@@ -163,7 +163,7 @@ instrument's bands are low / mid / high, so its high column stands where critica
 | Salton Sea geothermal, flash (conventional) | 2,297 | 11.9 / 62 / 375 | 14.3 / 70 | 4,594 | permitted class; CEQA + Imperial County; FAST-41 covered (capped: exceeds the developable resource) |
 | Enhanced geothermal (Fervo class) | 2,297 | 11.1 / 57 / 343 | 14.3 / 68 | 3,445 | permitted class; SCE holds 320 MW / 15 yr, Google 396 MW |
 | PV-charged nitrate salt (heaters into Helios tanks + turbines) | 13,040 | 49.9 / 193 / 1,168 | 55.2 / 210 | 78,240 | permitted class; PV on disturbed land; salt block as heliocost |
-| Salt-tower CSP as proposed (heliocost mid) | 4,941 | 53.6 / 205 / 1,239 | 53.6 / 205 | 212,453 | permitted class; F-09, F-21, F-25 open |
+| Salt-tower CSP as proposed (heliocost mid) | 4,941 | 53.6 / 205 / 1,239 | mid only: heliocost's mid case, scaled | 212,453 | permitted class; F-09, F-21, F-25 open |
 | PV + 100-hour iron-air storage | 13,609 | 52.8 / 199 / 1,203 | 56.3 / 209 | 81,651 | permitted class; first 15 MW units 2026 |
 | Small modular reactor | 2,247 | 24.5 / 102 / 617 | 29.3 / 119 | 1,123 | BARRED: Cal. Pub. Res. Code §25524.2 moratorium on new nuclear |
 | Floating offshore wind (Morro Bay / Humboldt) | — | — | — | — | two of three Morro Bay leases terminated; not firm; SOURCED LCOE+LCOT $95-121 (2035) |
@@ -197,7 +197,7 @@ the cycle (0.43 steam at 565 °C against 0.50 sCO₂ at 715 °C), the optics (0.
 0.64), and the one thing no link fixes: **a thermal plant serves daytime load at 43% where a panel serves it at
 100 %.** So the daytime third never touches the mirrors, and the field is sized for the night. Two plants on that architecture:
 
-| | Helios as proposed | Helios-2 (nitrate salt, steam) | Helios-3 (particles, sCO₂), mid |
+| | Helios as proposed, scaled to 18.1 TWh | Helios-2 (nitrate salt, steam) | Helios-3 (particles, sCO₂), mid |
 |---|---|---|---|
 | mirror aperture, M m² | 42.9 | 22.5 | 18.1 |
 | towers, Noor III class | 34 | 18 | 14 |
@@ -252,6 +252,10 @@ chain's own best (the standing rule: a downstream instrument hands its critical 
 | electric heaters, MW_th | 3,493 | 3,882 |
 | energy served by PV directly / by the block, TWh | 6.3 / 11.8 | 6.3 / 11.8 |
 | land at design sizing, acres | 39,762 | 56,792 |
+| **on the adopted route (§H)**: mirror aperture, M m² | 22.7 | 38.6 |
+| on the adopted route: towers | 18 | 31 |
+| on the adopted route: sCO₂ block, MWe | 3,930 | 3,930 |
+| on the adopted route: land, acres | 45,361 | 66,339 |
 
 **Direct cost by line, $M, before contingency, EPC, tax, escalation and interest** (`cspchain.py`, the same rates
 as `heliocost.py` where the part is the same, particle and sCO₂ lines from the Gen3 and STEP record):
@@ -361,11 +365,11 @@ shortfall, the plant the other half, each point on a ladder over the water's sha
 
 | share of the shortfall returned by water | mid: block, field, store, MW; Title I $B; +$/MWh; left to grid | critical: the same |
 |---|---|---|
-| 0.00 (mirrors alone, on this scan's grid) | ×1.25, ×1.50, 2 d, 0 MW; 5.7; +34; 0.8% | ×1.50, ×1.25, 2 d, 0 MW; 9.0; +53; 0.8% |
-| 0.25 | ×1.50, ×1.25, 1 d, 1,500 MW; 6.3; +37; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 10.0; +59; 0.7% |
-| 0.50 **(adopted)** | ×1.50, ×1.25, 1 d, 1,500 MW; 6.4; +38; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 10.3; +61; 0.7% |
-| 0.75 | ×1.50, ×1.25, 1 d, 1,500 MW; 6.5; +38; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 10.7; +63; 0.7% |
-| 1.00 | ×1.50, ×1.25, 1 d, 1,500 MW; 6.6; +39; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 11.0; +65; 0.7% |
+| 0.00 (mirrors alone, on this scan's grid) | ×1.25, ×1.50, 2 d, 0 MW; 5.7; +42; 0.8% | ×1.50, ×1.25, 2 d, 0 MW; 9.0; +64; 0.8% |
+| 0.25 | ×1.50, ×1.25, 1 d, 1,500 MW; 6.3; +45; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 10.0; +72; 0.7% |
+| 0.50 **(adopted)** | ×1.50, ×1.25, 1 d, 1,500 MW; 6.4; +45; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 10.3; +74; 0.7% |
+| 0.75 | ×1.50, ×1.25, 1 d, 1,500 MW; 6.5; +46; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 10.7; +77; 0.7% |
+| 1.00 | ×1.50, ×1.25, 1 d, 1,500 MW; 6.6; +47; 0.6% | ×1.50, ×1.25, 1 d, 1,500 MW; 11.0; +79; 0.7% |
 
 **The adopted point:**
 
@@ -377,55 +381,67 @@ shortfall, the plant the other half, each point on a ladder over the water's sha
 | Title I capital: plant growth / water side (reservoir and pump-turbines) / total, $B | 3.9 / 2.4 / 6.4 | 5.9 / 4.4 / 10.3 |
 | mirrors alone, for comparison, $B | 5.7 | 9.5 |
 | both over mirrors | 1.12× | 1.09× |
-| added to the price, $/MWh | +38 | +61 |
+| added to the price, $/MWh | +45 | +74 |
 | left to the grid | 0.6% | 0.7% |
 | with the water withheld | 3.6% | 4.0% |
 | with the field at design | 1.3% | 1.4% |
 | with neither (as sized) | 12.6% | 13.1% |
-| energy the water returns / lift it needs / surplus available, TWh | 0.54 / 1.40 / 3.37 | 0.58 / 1.64 / 3.47 |
+| water sized to return / dispatched in the run / lift for the sized water / surplus available, TWh | 1.14 / 0.54 / 1.40 / 3.37 | 1.19 / 0.58 / 1.64 / 3.47 |
+| O&M the closing plant adds, plant / water side, $M/yr | 99 / 37 | 125 / 111 |
 
 Two levers that fail differently, each carrying a real share. A cheapest-point search returns mirrors with a token
 water plant, so the even split is adopted as the author's word and marked DECIDED, movable on the ladder.
 
-**The hydraulics.** At 500 m of head (mid; 300 m critical) a cubic metre returns 1.226 kWh and costs
-1.514 kWh to lift, a round trip of 0.81 (0.72 critical); reverse osmosis itself takes 3.0–3.6 kWh/m³
-on Title II's own account. The lift is invariant in head (returned energy over the round trip), so feasibility does not
-depend on the site; the volume, and so the modules and Title II's capital, go as one over head.
+**Two things a reader should see in that table.** The water is *sized* to return half the shortfall as sized (1.14 TWh at
+mid) and the run *dispatches* 0.54, because the larger block serves the evening first and the pump-turbines take what
+it leaves; the modules are sized on the shortfall, not on what is dispatched, so the water plant runs at about half its
+evening sizing and all of its water is delivered as irrigation and recharge regardless. That is the conservative side
+for Title II and the expensive side for Title I, and it is stated rather than hidden. And the mirrors-alone figure the
+comparison uses is `hourly3.py`'s one fixed route (block ×1.25, field ×1.5, store 2 days at both cases, $5.7 / 9.5 B), which
+is what Title III prints; the ladder's own scan, which lets the block and field vary per case, finds a cheaper
+mirrors-only point at critical ($9.0 B). Both are the instruments' and neither is hidden.
+
+**The hydraulics.** The adopted route is priced at one head, 500 m (ASSUMED; the Edmonston lift is 587 m, Gianelli about 100), at both cases.
+There a cubic metre returns 1.226 / 1.158 kWh and costs 1.514 / 1.603 kWh to lift, a round trip of
+0.81 / 0.72 (turbine and pump at 0.90 / 0.85 each); reverse osmosis itself takes 3.0–3.6 kWh/m³ on Title II's own account. The
+lift is invariant in head (returned energy over the round trip), so feasibility does not depend on the site; the
+volume, and so the modules and Title II's capital, go as one over head, and the sensitivity below runs the head band
+from 300 to 800 m. The pump-turbine plant and reservoir carry O&M at 1.5 / 2.5 % of their capital a year (ASSUMED band).
 
 **Sensitivity to the two site assumptions**, the hourly run held fixed:
 
 | case | head, m | days held | modules | MAF/yr | reservoir, $B | Title I, $B | +$/MWh | Title II, $B |
 |---|---|---|---|---|---|---|---|---|
-| mid | 300 | 14 | 25.1 | 1.25 | 0.15 | 6.3 | +38 | 47 |
-| mid | 300 | 30 | 25.1 | 1.25 | 0.32 | 6.5 | +39 | 47 |
-| mid | 300 | 60 | 25.1 | 1.25 | 0.64 | 6.8 | +40 | 47 |
-| mid | 300 | 90 | 25.1 | 1.25 | 0.95 | 7.1 | +42 | 47 |
-| mid | 500 | 14 | 15.0 | 0.75 | 0.09 | 6.3 | +37 | 28 |
-| mid | 500 | 30 | 15.0 | 0.75 | 0.19 | 6.4 | +38 | 28 |
-| mid | 500 | 60 | 15.0 | 0.75 | 0.38 | 6.6 | +39 | 28 |
-| mid | 500 | 90 | 15.0 | 0.75 | 0.57 | 6.8 | +40 | 28 |
-| mid | 800 | 14 | 9.4 | 0.47 | 0.06 | 6.2 | +37 | 18 |
-| mid | 800 | 30 | 9.4 | 0.47 | 0.12 | 6.3 | +37 | 18 |
-| mid | 800 | 60 | 9.4 | 0.47 | 0.24 | 6.4 | +38 | 18 |
-| mid | 800 | 90 | 9.4 | 0.47 | 0.36 | 6.5 | +39 | 18 |
-| critical | 300 | 14 | 27.7 | 1.38 | 0.26 | 9.9 | +59 | 80 |
-| critical | 300 | 30 | 27.7 | 1.38 | 0.56 | 10.2 | +60 | 80 |
-| critical | 300 | 60 | 27.7 | 1.38 | 1.12 | 10.8 | +64 | 80 |
-| critical | 300 | 90 | 27.7 | 1.38 | 1.68 | 11.3 | +67 | 80 |
-| critical | 500 | 14 | 16.6 | 0.83 | 0.16 | 9.8 | +58 | 48 |
-| critical | 500 | 30 | 16.6 | 0.83 | 0.34 | 10.0 | +59 | 48 |
-| critical | 500 | 60 | 16.6 | 0.83 | 0.67 | 10.3 | +61 | 48 |
-| critical | 500 | 90 | 16.6 | 0.83 | 1.01 | 10.7 | +63 | 48 |
-| critical | 800 | 14 | 10.4 | 0.52 | 0.10 | 9.7 | +58 | 30 |
-| critical | 800 | 30 | 10.4 | 0.52 | 0.21 | 9.9 | +58 | 30 |
-| critical | 800 | 60 | 10.4 | 0.52 | 0.42 | 10.1 | +60 | 30 |
-| critical | 800 | 90 | 10.4 | 0.52 | 0.63 | 10.3 | +61 | 30 |
+| mid | 300 | 14 | 25.1 | 1.25 | 0.15 | 6.3 | +45 | 47 |
+| mid | 300 | 30 | 25.1 | 1.25 | 0.32 | 6.5 | +46 | 47 |
+| mid | 300 | 60 | 25.1 | 1.25 | 0.64 | 6.8 | +48 | 47 |
+| mid | 300 | 90 | 25.1 | 1.25 | 0.95 | 7.1 | +50 | 47 |
+| mid | 500 | 14 | 15.0 | 0.75 | 0.09 | 6.3 | +45 | 28 |
+| mid | 500 | 30 | 15.0 | 0.75 | 0.19 | 6.4 | +45 | 28 |
+| mid | 500 | 60 | 15.0 | 0.75 | 0.38 | 6.6 | +47 | 28 |
+| mid | 500 | 90 | 15.0 | 0.75 | 0.57 | 6.8 | +48 | 28 |
+| mid | 800 | 14 | 9.4 | 0.47 | 0.06 | 6.2 | +44 | 18 |
+| mid | 800 | 30 | 9.4 | 0.47 | 0.12 | 6.3 | +45 | 18 |
+| mid | 800 | 60 | 9.4 | 0.47 | 0.24 | 6.4 | +46 | 18 |
+| mid | 800 | 90 | 9.4 | 0.47 | 0.36 | 6.5 | +46 | 18 |
+| critical | 300 | 14 | 27.7 | 1.38 | 0.26 | 9.9 | +71 | 80 |
+| critical | 300 | 30 | 27.7 | 1.38 | 0.56 | 10.2 | +73 | 80 |
+| critical | 300 | 60 | 27.7 | 1.38 | 1.12 | 10.8 | +77 | 80 |
+| critical | 300 | 90 | 27.7 | 1.38 | 1.68 | 11.3 | +81 | 80 |
+| critical | 500 | 14 | 16.6 | 0.83 | 0.16 | 9.8 | +70 | 48 |
+| critical | 500 | 30 | 16.6 | 0.83 | 0.34 | 10.0 | +72 | 48 |
+| critical | 500 | 60 | 16.6 | 0.83 | 0.67 | 10.3 | +74 | 48 |
+| critical | 500 | 90 | 16.6 | 0.83 | 1.01 | 10.7 | +77 | 48 |
+| critical | 800 | 14 | 10.4 | 0.52 | 0.10 | 9.7 | +70 | 30 |
+| critical | 800 | 30 | 10.4 | 0.52 | 0.21 | 9.9 | +71 | 30 |
+| critical | 800 | 60 | 10.4 | 0.52 | 0.42 | 10.1 | +72 | 30 |
+| critical | 800 | 90 | 10.4 | 0.52 | 0.63 | 10.3 | +74 | 30 |
 
 The head is the site question that sizes Title II; the days of holding move Title I by under a billion.
 
 ![Figure 7](figures/fig-06-ladder.png)
 
-*Figure 7. The ladder over the water's share: Title I's capital to close the load at each share, both cases; water alone (share 1.0) has no feasible point.*
+*Figure 7. The ladder over the water's share: Title I's capital to close the load at each share, both cases, every point carrying the larger field; water alone with the field and store at design has no feasible point and is not on the ladder.*
 
 ![Figure 8](figures/fig-07-head.png)
 
@@ -547,9 +563,14 @@ Before: 4 BENEFIT, 7 MODERATE, 3 MAJOR, 2 DOMINANT. After: 4 BENEFIT, 1 NEGLIGIB
 
 | priced, $M | mid | critical |
 |---|---|---|
+| direct plant lines (§F) | 16,399 | 24,544 |
 | mitigation adders, direct | 1,218 | 1,731 |
-| first-module premium (1.5× / 2.0× on its share of the thermal block) | 135 | 403 |
+| contingency (15 / 30 %), EPC and owner's cost (13 / 15 %), sales tax on those | 6,060 | 13,505 |
 | studies and surveys (§L), with contingency | 245 | 602 |
+| first-module premium (1.5× / 2.0× on its share of the thermal block) | 135 | 403 |
+| overnight, groundbreaking dollars | 24,057 | 40,786 |
+| escalation to the build and interest during construction (4 years at the bond rate) | 9,749 | 16,528 |
+| gross capital | 33,806 | 57,314 |
 | federal storage credit, direct pay | -1,130 | -1,871 |
 | **net capital with the register, $M** | **32,677** | **55,443** |
 | O&M with particle makeup (1 / 2 %/yr) and rejuvenation, $M/yr | 434 | 555 |
@@ -565,7 +586,7 @@ over studies; it was reviewed against the web on 2026-09-11 where the proxy reac
 
 ### J.1. Heliostat field, Noor III class, surround, night-sized
 
-*What the design needs:* ~27 M m2 critical / 18 M m2 mid across 3 nodes; 14-21 towers.
+*What the design needs:* ~31 M m2 critical / 18 M m2 mid across 3 nodes at design; 14-24 towers.
 
 | study or plant | scale | year | status | what it settled | source |
 |---|---|---|---|---|---|
@@ -718,7 +739,7 @@ over studies; it was reviewed against the web on 2026-09-11 where the proxy reac
 | Cerro Dominador hybrid | 110 MWe tower + 100 MWe PV | 2021 | OPERATED | CSP + PV hybrid dispatch record | Cerro Dominador |
 | cspchain.py / helios.py (this repository) | hourly model, mid and critical | 2026 | AUTHOR | night-sized field; PV direct; winter heaters; the critical case | tools/cspchain.py; tools/helios.py |
 
-*Further study recommended, on the now rung (0.5 years):* RUN (hourly3.py, 2026-09-11, corrected load shape): Helios-3 hour by hour at both cases -- as sized it serves 87 % of the load, year-round and evening-led; mirrors close at block x1.25, field x1.5, store 2 d (+$34/MWh mid, +$56 critical); the adopted route is both.py's. *It settles:* the evening peak in every month (F-06); the heater was never the lever, the block, the field and the water are.
+*Further study recommended, on the now rung (0.5 years):* RUN (hourly3.py, 2026-09-11, corrected load shape): Helios-3 hour by hour at both cases -- as sized it serves 87 % of the load, year-round and evening-led; the mirrors route closes at block x1.25, field x1.5, store 2 d at the price hourly3.mirrors_price_delta computes; the adopted route is both.py's. *It settles:* the evening peak in every month (F-06); the heater was never the lever, the block, the field and the water are.
 
 **The critical path of study is 7.5 years**, run against the build rather than before it, the studies within a rung
 in parallel. **Delay** escalates the whole plant at 3 % a year (ASSUMED band 2–4 %) before a dollar is spent:
@@ -765,13 +786,13 @@ costs the critical design nothing:
 
 | measured | grade | field factor, mid / critical | price, mid / critical, $/MWh |
 |---|---|---|---|
-| 0.600 | FAIL | 1.50 / 1.15 | +17 / +9 |
-| 0.667 | FAIL | 1.35 / 1.03 | +12 / +2 |
-| 0.690 | UNDECIDED | 1.30 / 1.00 | +10 / +0 |
-| 0.713 | UNDECIDED | 1.26 / 0.97 | +9 / -2 |
-| 0.800 | PASS-DESIGN | 1.12 / 0.86 | +4 / -9 |
-| 0.900 | PASS-DESIGN | 1.00 / 0.77 | +0 / -15 |
-| 0.930 | PASS-CHAIN | 0.97 / 0.74 | -1 / -16 |
+| 0.600 | FAIL | 1.50 / 1.15 | +21 / +11 |
+| 0.667 | FAIL | 1.35 / 1.03 | +15 / +3 |
+| 0.690 | UNDECIDED | 1.30 / 1.00 | +13 / +0 |
+| 0.713 | UNDECIDED | 1.26 / 0.97 | +11 / -2 |
+| 0.800 | PASS-DESIGN | 1.12 / 0.86 | +5 / -10 |
+| 0.900 | PASS-DESIGN | 1.00 / 0.77 | +0 / -18 |
+| 0.930 | PASS-CHAIN | 0.97 / 0.74 | -1 / -19 |
 
 Scheduled 2031–2033 (mid) / 2033–2035 (critical) at $159 / 246 M including the ladder's technology
 studies. The protocol constants are ASSUMED and say so; the pass mark is not.
@@ -805,7 +826,7 @@ in the capital ahead of every plant line, with contingency and without EPC margi
 | heater | PV-fed electric particle heater at MW scale on the pilot | studies.py: heater efficiency on particles | program, ladder | 8.0 × 1 = 8.0, 0.5 | 15.0 × 1 = 15.0, 0.5 |
 | cooler | compressor-inlet performance at 45 C on the first module's dry cooler | studies.py: the cycle's critical band | program, ladder | 2.0 × 1 = 2.0, 1.0 | 4.0 × 1 = 4.0, 1.0 |
 
-The 30 mw_th pilot aperture is priced by titleone.py as its own tranche from cspchain's lines and is not repeated here.
+The 30 MW_th pilot aperture is priced by titleone.py as its own tranche from cspchain's lines and is not repeated here.
 
 | Title I | mid | critical |
 |---|---|---|
@@ -840,21 +861,21 @@ The 30 mw_th pilot aperture is priced by titleone.py as its own tranche from csp
 |---|---|---|
 | Helios-3 as chained | 117 | 187 |
 | with the mitigation register (§I) and the studies (§L) | 126 | 205 |
-| serving the whole load, mirrors route | 160 | 261 |
-| **serving the whole load, both (adopted)** | **164** | **266** |
-| after the bonds retire: O&M only | 24 | 31 |
+| serving the whole load, mirrors route | 168 | 272 |
+| **serving the whole load, both (adopted)** | **172** | **279** |
+| after the bonds retire: O&M only, register plant and closing plant | 31 | 44 |
 
 | $ per household per year (today 1,177) | mid | critical |
 |---|---|---|
 | with the register | 763 | 1,234 |
-| serving the whole load, mirrors route | 967 | 1,574 |
-| **serving the whole load, both (adopted)** | **991** | **1,603** |
-| after the bonds retire | 145 | 185 |
+| serving the whole load, mirrors route | 1,015 | 1,641 |
+| **serving the whole load, both (adopted)** | **1,036** | **1,682** |
+| after the bonds retire | 190 | 263 |
 
 **The criterion, stated exactly.** At mid, Helios-3 with its register needs $126/MWh, $6 above the top of the
 contract band, and a household pays $763 against $1,177 today; serving the whole load on the adopted route
-costs $164, at which a household pays $991. At critical the register price is $205 and the whole load
-$266: **$1,603 a household, above today's bill**. The plant pays for itself after the bonds at a price
+costs $172, at which a household pays $1,036. At critical the register price is $205 and the whole load
+$279: **$1,682 a household, above today's bill**. The plant pays for itself after the bonds at a price
 above the band, and the critical case is the threshold the design is held to. A plant designed to mid has no margin;
 this document does not offer one.
 
@@ -865,8 +886,9 @@ once the plant runs at capacity. That holds if the plant delivers its modelled o
 | per year, Title I | mid | critical |
 |---|---|---|
 | debt service, 30-year bonds at 3.85 %, $M | 1,855 | 3,148 |
-| O&M, $M | 434 | 555 |
-| share of the bill that is the bonds | 81% | 85% |
+| O&M, register plant, $M | 434 | 555 |
+| O&M the closing plant adds on the adopted route (§H), $M | 136 | 235 |
+| share of the register plant's bill that is the bonds | 81% | 85% |
 
 **The security behind the rate (F-19).** The 3.85 % is a general-obligation or contracted-revenue rate; the security is
 contracted in-state offtake at the required price with a state GO backstop for the first-of-kind rungs. Priced to each
@@ -916,8 +938,9 @@ The realistic column is the critical one. The two-year slide comes from one item
 impact statement on the Mojave node, which is why the studies go first.
 
 **Transmission (F-09).** The export is negative, so no firm export right is needed. The in-state gen-tie per node at the
-adopted sizing peaks at 1,197 MW (mid) / 1,197 MW (critical) from the hour-by-hour, 0.60 / 0.80 of one 500 kV
-circuit, priced in the switchyard line at $600 / 900 M. The interconnection study is the Authority's to file and no
+adopted sizing peaks at 1,197 MW (mid) / 1,197 MW (critical) from the hour-by-hour — the same at both cases because the block is the
+same size at both and sets the peak — 0.60 / 0.80 of one 500 kV circuit (rated 2,000 / 1,500 MW), priced in the design's
+switchyard line at $771 / 1,157 M (§F). The interconnection study is the Authority's to file and no
 authority shortens it.
 
 ![Figure 9](figures/fig-08-price.png)
@@ -963,7 +986,8 @@ Desalinated water is firm water and is priced as such; capital dominates, not en
 **The process decisions (`titletwo.py`).**
 
 - **Reverse osmosis, not LT-MED (F-13).** A coastal brownfield has no heat source of the 500 MW_th a thermal module
-  needs, and none is named; the water would cost 6.4× reverse osmosis in primary energy. RO at 3.0–3.6 kWh/m³ is what is priced.
+  needs, and none is named; against a condensing cycle on the same heat the water would cost 19.3 / 18.0 kWh/m³ of
+  electricity forgone, 6.4× / 5.0× reverse osmosis (`joinder.py`). RO at 3.0–3.6 kWh/m³ is what is priced.
 - **No zero-liquid-discharge, no mineral train (F-03, F-04, F-11, F-12).** Seawater holds 0.18 mg/L of lithium: one module's
   feed contains 22.2 tonnes a year, three orders below v0.1's revenue. Its magnesium as hydroxide would be 382 kt a
   year, 0.76 of the US magnesium-compounds market (1.27 at critical) from one module. Crystallising the brine
@@ -974,7 +998,7 @@ Desalinated water is firm water and is priced as such; capital dominates, not en
   standing decision), which rules out magnesium metal.
 - **Intake (F-28).** screened open intake through the retired plant's channel, 1 mm wedge-wire at <= 0.5 ft/s (the Ocean Plan's alternative to subsurface intake), slant wells where per-site hydrogeology permits. Slant wells are site-specific and were Huntington Beach's failure; entrainment is
   non-zero and mitigated under the Ocean Plan, not eliminated.
-- **On-site power covers a tenth, not all (F-27).** A module draws 21–25 MW on average; the 80–50 acre site's PV makes
+- **On-site power covers a tenth, not all (F-27).** A module draws 21–25 MW on average; the 80 / 50 acre site's PV makes
   2.8–1.5 MW, 13%–6% of it. Islanding is a battery for the intake, pretreatment and controls (3.2 MW), so the plant
   rides through an outage without fouling; full-load islanding is not claimed.
 - **Energy at the contract price, full-time (F-26).** Title I's surplus is 5% of hours, not half; a membrane plant runs
@@ -982,7 +1006,7 @@ Desalinated water is firm water and is priced as such; capital dominates, not en
 - **40 dBA at the boundary is bought, not assumed (F-40).** High-pressure pumps at 90–100 dBA at 1 m reach 40 dBA at
   316–1,000 m in the open; a full enclosure of 28–22 dB brings the boundary to 13–79 m, inside the brownfield, at
   $19–58 M a module, carried in the module's band.
-- **Employment (F-38).** At Carlsbad's staffing per plant, the adopted route's modules employ 1,203–1,327 permanently.
+- **Employment (F-38).** At Carlsbad's staffing per plant, the adopted route's modules employ 601–664 permanently.
 
 **The schedule (F-15).** Carlsbad: proposed 1998, coastal permit 2006, water 2015 — 17 years. Huntington Beach:
 1998 to a 2022 denial. Stated honestly, permitting 5 years (mid) to 8 (critical, assumed from the record) and a
@@ -993,12 +1017,12 @@ $57–87 M.
 
 | | mid | critical |
 |---|---|---|
-| modules at 500 m of head | 15.0 | 16.6 |
+| modules at 500 m of head (built as whole modules: 15 / 17) | 15.0 | 16.6 |
 | water, million acre-feet a year | 0.75 | 0.83 |
 | modules' capital, financed, $B | 28.4 | 48.3 |
-| lift on the water's bill, kWh/m³ | 1.51 | 0.96 |
-| water with the lift on its bill, $/acre-foot | 3,280 | 5,072 |
-| per household per year | 918 | 1,420 |
+| lift on the water's bill, kWh/m³ | 1.51 | 1.60 |
+| water with the lift on its bill, $/acre-foot | 3,280 | 5,234 |
+| per household per year | 918 | 1,466 |
 
 ## O. Title III: the joinder
 
@@ -1027,7 +1051,7 @@ nothing because it was worth nothing.
 | | mirrors, mid | mirrors, critical | water alone, mid | water alone, critical | **both, mid** | **both, critical** |
 |---|---|---|---|---|---|---|
 | Title I additional capital, $B | 5.7 | 9.5 | no feasible point | no feasible point | **6.4** | **10.3** |
-| Title I price, $/MWh | 160 | 261 | — | — | **164** | **266** |
+| Title I price, $/MWh | 168 | 272 | — | — | **172** | **279** |
 | Title II modules / capital, $B | 0 / 0 | 0 / 0 | — | — | 15 / 28 | 17 / 48 |
 | water, million acre-feet a year | 0 | 0 | — | — | 0.75 | 0.83 |
 | left to the grid | 0.8% | 1.0% | — | — | 0.6% | 0.7% |
@@ -1081,13 +1105,13 @@ The terms a node must meet:
 | nexus | no federal land or federal action, else NEPA on the node | BLM / USACE jurisdiction determination |
 | seismic | design PGA over mapped MCE by 1.5x or the tower is re-based | ASCE 7 site-specific hazard study |
 | grid | a 500 kV substation within one gen-tie of the node | CAISO interconnection study |
-| head | an off-stream reservoir site with 300 m of head within reach | reservoir siting and geotechnical study |
+| head | an off-stream reservoir site with 500 m of head within reach | reservoir siting and geotechnical study |
 
 #### Mojave (Kramer Junction)
 
 35.01° N, 117.56° W. Annual DNI **2,799 kWh/m²/yr** (SOURCED: NREL TMY3 Daggett 7.67 kWh/m2/day; band 2,700–2,900). One third of the fleet:
-6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 5 / 8 towers,
-965 / 1,034 MW_AC of PV; land 16,987 / 25,295 acres at the mirrors sizing; mirror washing 349 / 594 acre-feet a year
+6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 6 / 10 towers on the adopted route,
+965 / 1,034 MW_AC of PV; land 15,120 / 22,113 acres on the adopted route; mirror washing 291 / 495 acre-feet a year
 from the program's own water; one 500 kV circuit at 1,197 / 1,197 MW peak injection. Seismic: the 0.75 g design target over a mapped
 MCE_R PGA of 0.45 / 0.50 g is 1.67× / 1.50× (a site study must confirm 1.5×).
 
@@ -1105,8 +1129,8 @@ Score 5.0 (mid) / 5.0 (critical). *First study:* land — title search and a fal
 #### Imperial (Desert Center)
 
 33.71° N, 115.40° W. Annual DNI **2,740 kWh/m²/yr** (ASSUMED: NSRDB map class 7.3-7.8 kWh/m2/day, mid 7.5; band 2,660–2,850). One third of the fleet:
-6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 5 / 8 towers,
-965 / 1,034 MW_AC of PV; land 16,987 / 25,295 acres at the mirrors sizing; mirror washing 349 / 594 acre-feet a year
+6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 6 / 10 towers on the adopted route,
+965 / 1,034 MW_AC of PV; land 15,120 / 22,113 acres on the adopted route; mirror washing 291 / 495 acre-feet a year
 from the program's own water; one 500 kV circuit at 1,197 / 1,197 MW peak injection. Seismic: the 0.75 g design target over a mapped
 MCE_R PGA of 0.35 / 0.45 g is 2.14× / 1.67× (a site study must confirm 1.5×).
 
@@ -1124,8 +1148,8 @@ Score 4.5 (mid) / 4.5 (critical). *First study:* land — title search and a fal
 #### Central Valley (Westside)
 
 36.01° N, 119.96° W. Annual DNI **2,190 kWh/m²/yr** (SOURCED band: Westlands 5.5-6.5 kWh/m2/day, mid 6.0; band 2,010–2,370). One third of the fleet:
-6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 5 / 8 towers,
-965 / 1,034 MW_AC of PV; land 16,987 / 25,295 acres at the mirrors sizing; mirror washing 349 / 594 acre-feet a year
+6.0 / 10.3 million m² of mirror at design and 7.6 / 12.9 on the adopted route, 6 / 10 towers on the adopted route,
+965 / 1,034 MW_AC of PV; land 15,120 / 22,113 acres on the adopted route; mirror washing 291 / 495 acre-feet a year
 from the program's own water; one 500 kV circuit at 1,197 / 1,197 MW peak injection. Seismic: the 0.75 g design target over a mapped
 MCE_R PGA of 0.40 / 0.55 g is 1.88× / 1.36× (a site study must confirm 1.5×).
 
@@ -1144,8 +1168,8 @@ Score 5.0 (mid) / 4.5 (critical). *First study:* DNI — one year of on-site DNI
 At mid the Westside ties the Mojave for first: it meets land, nexus and grid outright and is conditional on DNI and head,
 so the node the record doubted for its sun has the fewest open terms. At critical the Mojave leads alone, because the
 Westside's seismic margin falls under the 1.5× a site study must confirm. The Central Valley node's land is the
-reason it is kept (F-22): 100,000 / 60,000 acres of fallowed, drainage-impaired Westside farmland cover a node 5.9× / 2.4× over.
-Land across the program at the mirrors sizing is 50,961 / 75,886 acres (206 / 307 km²), which v0.1 never stated (F-21).
+reason it is kept (F-22): 100,000 / 60,000 acres of fallowed, drainage-impaired Westside farmland cover a node 6.6× / 2.7× over.
+Land across the program on the adopted route is 45,361 / 66,339 acres (184 / 268 km²), which v0.1 never stated (F-21).
 NEPA on the Mojave node's federal nexus (F-25) is budgeted as 2 / 4 years of escalation on that node, $654 / 2,218 M.
 
 ### P.2. Title II: the coastal brownfields
@@ -1158,7 +1182,7 @@ The terms a coastal site must meet:
 | intake | an intake channel a screened open intake can reuse | entrainment study under the Ocean Plan |
 | acreage | 50-80 acres of brownfield for a module and its enclosure | site survey and remediation scope |
 | takers | an overdrafted basin or an aqueduct within reach for the winter delivery | recharge district contract |
-| head | an elevated reservoir site with 300 m of head within reach | reservoir siting study |
+| head | an elevated reservoir site with 500 m of head within reach | reservoir siting study |
 | permit | a Coastal Commission record that does not foreclose the site | Coastal Development Permit pre-application |
 | hazard | outside the tsunami inundation zone or hardened; seismic basis stated | ASCE 7 and CGS tsunami mapping |
 
@@ -1300,21 +1324,21 @@ credits less, because a cleaner grid displaces less):
 v0.1 said 11.8 million tonnes, descended from the inflated energy.
 
 **Employment (F-38).** From built plants per MW — Crescent Dunes and Ivanpah for the permanent staff, Ivanpah's peak for
-construction — at the closed block of 3,275 MWe:
+construction — at the adopted route's block of 3,930 MWe and its 15 / 17 water modules:
 
 | | mid | critical |
 |---|---|---|
-| permanent, Title I | 1,632 | 1,063 |
-| construction peak, Title I | 17,545 | 17,545 |
-| permanent, Title II's modules | 1,203 | 1,327 |
+| permanent, Title I | 1,901 | 1,214 |
+| construction peak, Title I | 21,054 | 21,054 |
+| permanent, Title II's modules | 601 | 664 |
 
 v0.1 said 22,500 construction and 1,350 permanent; the multiplier it quoted is unsourced and is not carried.
 
 **Resource adequacy (F-18).** No RA is earned on exported energy and the export is negative; the in-state RA is the closed
-block's net capacity, 3,013 / 2,948 MW, self-supplied by the Authority as load-serving entity. v0.1 counted $450–480 M a year of it.
+block's net capacity on the adopted route, 3,616 / 3,537 MW, self-supplied by the Authority as load-serving entity. v0.1 counted $450–480 M a year of it.
 
 **Water for the mirrors (F-20).** At Ivanpah's dry-cooled record (100 acre-feet a year on 2.6 million m²) the program's
-field needs 1,046 / 1,783 acre-feet a year, from Title II desalinated water.
+field on the adopted route needs 872 / 1,486 acre-feet a year, from Title II desalinated water.
 
 **Seismic (F-33).** Seismic zones left the code in 2001; the basis is ASCE 7, site class and mapped MCE_R. The 0.75 g target
 is kept and clears the mapped PGA at every node (§P.1); the mapped values are assumed from the hazard record and the
@@ -1359,7 +1383,10 @@ compressor-inlet penalty at 45 °C the critical cycle band carries.
 ## S. The flaws register: forty found, forty resolved
 
 `FLAWS.tsv` is the adversarial review of v0.1, graded FATAL, CRITICAL, MAJOR, MINOR, worked one at a time in register
-order, each by an instrument where numerical. Every row, with its resolution:
+order, each by an instrument where numerical. Every row, with its resolution **as recorded when it was closed**: a
+resolution quotes the figure the instrument gave that day, and where a later pass moved a figure (the load-shape
+correction, the studies line, the adopted route, the O&M on the closing plant) the current figure is the one in
+§A–Q and the move is recorded in `docs/`. A status is never flattened, so the record stands beside the result.
 
 **F-01 (FATAL, I §4.2). Export sold at a 100 % capacity factor.**
 
@@ -1689,8 +1716,7 @@ its own citation beside the finding it supports.
 - Siemens Gamesa ETES pilot (2019-2022)
 - steel and cement industry practice
 - bulk-solids handling practice
-- Albrecht & Ho, Sandia (AIP Conf. Proc. 2020
-- Sandia 2022 performance evaluation)
+- Albrecht & Ho, Sandia (AIP Conf. Proc. 2020; Sandia 2022 performance evaluation)
 - Sandia LabNews 2021-06 (reviewed 2026-09-11)
 - Ma et al., NREL (2014-2020)
 - GTI Energy STEP Demo Phase 1 milestone
@@ -1721,6 +1747,11 @@ its own citation beside the finding it supports.
 - Sandia / NREL sCO2 CSP studies
 - DEWA / ACWA Power
 
+An entry marked *reviewed 2026-09-11* was checked against the web where this environment's proxy reached; an
+encyclopaedia entry in the list is a pointer to a plant's public record and to the primary items beside it, not the
+source of a figure. Entries such as *plant records* and *industry practice* name a class of evidence, not a
+document, and the row that cites them claims only what such a class can carry.
+
 Further sources carried by the instruments as constants, each marked SOURCED beside its value: EIA 2024 (California
 residential consumption and customers); NREL ATB 2024 (tower CSP, the calibration anchor); NREL TMY3 Daggett and the
 NSRDB DNI classes; CAISO Department of Market Monitoring 2024 (prices, negative hours); Palo Verde on-peak strip 2024;
@@ -1734,7 +1765,8 @@ record and the Edmonston and Gianelli lifts.
 ## U. The instruments
 
 Every number in this document is computed by one of these, each with a `--selftest` fixtured on the record, each
-stdlib-only, each importing what it needs from its neighbours and restating nothing:
+stdlib-only (the renderer alone needs matplotlib for the figures and python-docx for the Word files), each importing
+what it needs from its neighbours and restating nothing:
 
 - `tools/helios.py` — the plant as submitted, run hour by hour; the criterion inverted; F-17's requirement.
 - `tools/heliocost.py` — the capital line by line at the built record, state-owned.

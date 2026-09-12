@@ -75,9 +75,9 @@ weeks rather than a season. **The author chose both** (`both.py`): the water ret
 
 | route | what grows | mid, $B | + $/MWh | critical, $B | + $/MWh | leaves to the grid |
 |---|---|---|---|---|---|---|
-| mirrors | block ×1.25, field ×1.5, store 2 days | 5.7 | 34 | 9.5 | 56 | 0.8% / 1.0% |
+| mirrors | block ×1.25, field ×1.5, store 2 days | 5.7 | 42 | 9.5 | 67 | 0.8% / 1.0% |
 | water alone (Title III) | field and store at design; pump-turbines on the water | no feasible point | — | no feasible point | — | — |
-| **both (adopted)** | block ×1.50, field ×1.25, store 1.0 d; 15 / 17 modules, 1,500 MW of pump-turbines | **6.4** | **38** | **10.3** | **61** | 0.6% / 0.7% |
+| **both (adopted)** | block ×1.50, field ×1.25, store 1.0 d; 15 / 17 modules, 1,500 MW of pump-turbines | **6.4** | **45** | **10.3** | **74** | 0.6% / 0.7% |
 
 Water alone is not a route on this load: with the field and store at design, no point both closes
 and lifts its water inside the plant's own surplus, because the block that closes the evening eats the
@@ -93,8 +93,8 @@ electricity bought from Title I at the register price:
 | one 50,000 AFY RO module, financed, $M (Title II said 250–320) | 1,889 | 2,910 |
 | water at cost recovery, $/acre-foot (Title II said 400; Carlsbad delivers 2,700–2,900) | 3,044 | 4,830 |
 | the water route's modules, financed, $B | 28.4 | 48.3 |
-| that water with the lift on its bill, $/acre-foot | 3,280 | 5,072 |
-| per household per year at 0.28 AF | 918 | 1,420 |
+| that water with the lift on its bill, $/acre-foot | 3,280 | 5,234 |
+| per household per year at 0.28 AF | 918 | 1,466 |
 
 ## 5. Price and the household
 
@@ -102,19 +102,19 @@ electricity bought from Title I at the register price:
 |---|---|---|
 | Helios-3 as chained | 117 | 187 |
 | with the mitigation register (§6) | 126 | 205 |
-| serving the whole load, mirrors route | 160 | 261 |
-| **serving the whole load, both (adopted)** | **164** | **266** |
+| serving the whole load, mirrors route | 168 | 272 |
+| **serving the whole load, both (adopted)** | **172** | **279** |
 
 | $ per household per year (today 1,177) | mid | critical |
 |---|---|---|
 | with the mitigation register | 763 | 1,234 |
-| serving the whole load, mirrors route | 967 | 1,574 |
-| **serving the whole load, both (adopted)** | **991** | **1,603** |
+| serving the whole load, mirrors route | 1,015 | 1,641 |
+| **serving the whole load, both (adopted)** | **1,036** | **1,682** |
 
 **The criterion, stated exactly.** At mid, Helios-3 with its register needs $126/MWh, $6
 above the top of the contract band, and a household pays $763 against $1,177 today. Serving
-the whole load from the plant alone costs $160, at which a household pays about what it pays now. At
-critical the register price is $205 and the whole load $261: **above today's bill**. The plant pays
+the whole load from the plant alone costs $168, at which a household pays about what it pays now. At
+critical the register price is $205 and the whole load $272: **above today's bill**. The plant pays
 for itself after the bonds only at a price above the band, and the critical case is the threshold
 the design is held to. A plant designed to mid has no margin; this document does not offer one.
 
@@ -213,7 +213,7 @@ run in parallel. Direct cost by rung:
 **Transmission (F-09).** The export is negative (F-01), so no firm export right is needed. The in-state
 gen-tie per node at the closed sizing peaks at 1,197 MW (mid) / 1,197 MW (critical) from the
 hour-by-hour, 0.60 / 0.80 of one 500 kV circuit, priced in the switchyard line at
-$600 / $900 M. The interconnection study is the Authority's to file and no authority shortens it.
+$771 / $1,157 M. The interconnection study is the Authority's to file and no authority shortens it.
 
 ## 8. Emissions, employment, siting and procurement
 
@@ -231,12 +231,12 @@ The minor rows, computed rather than asserted (`minors.py`).
 v0.1 said 11.8 MMT.
 
 **Employment (F-38).** From built plants per MW — Crescent Dunes and Ivanpah for the permanent staff,
-Ivanpah's peak for construction — at the closed block of 3,275 MWe:
+Ivanpah's peak for construction — at the closed block of 3,930 MWe:
 
 | | mid | critical |
 |---|---|---|
-| permanent, Title I | **1,632** | **1,063** |
-| construction peak, Title I | 17,545 | 17,545 |
+| permanent, Title I | **1,901** | **1,214** |
+| construction peak, Title I | 21,054 | 21,054 |
 
 v0.1 said 22,500 construction and 1,350 permanent; the multiplier it quoted is unsourced and is not carried.
 
