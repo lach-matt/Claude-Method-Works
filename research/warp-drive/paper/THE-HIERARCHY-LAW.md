@@ -551,6 +551,80 @@ returns the residual, **`logic` adjudicates the residual that analysis declines 
 
 ---
 
+## §8c · Appendix — `logic`, the calculator, and why it is not redundant
+
+> **Docket 20x-04 / 20x-09 is NOT resolved here.** Candidate operator, specified in review, measured,
+> filed as evidence. `tools/cypher.py` untouched.
+
+**The specification.** *"Logic is a calculator operator. It reads what is given and states it back. It
+is given a question — 'based on the given geometry, can this statistical analysis be true?' — and then
+it computes and states the answer."* Read-only, binary, consults the **original** geometry.
+
+**Two readings, and the obvious one is empty.**
+
+| reading | result |
+|---|---|
+| **1.** is the position itself in `G(X)`? | **155 / 155 — VACUOUS.** It *is* Clause G.3. |
+| **2.** does the best closure of `X ∪ {x}` stay inside the **original** `G(X)`? | **147 admitted, 8 refuted** |
+
+Reading 1 asks nothing: `statistics ⊆ geometry` already guarantees a yes. **Logic must consult the
+closure `analysis` produced, not the position `statistics` proposed** — which is precisely "can this
+statistical *analysis* be true", not "can this position exist".
+
+**The refutations, against the residual `analysis` reported:**
+
+| residual | refuted / total |
+|---|---|
+| **0** | **0 / 45** |
+| 1 | 0 / 36 |
+| 2 | 2 / 26 |
+| 3 | 0 / 3 |
+| 4 | 3 / 11 |
+| 5 | 3 / 26 |
+| 7 | 0 / 8 |
+
+**Two facts, and the second is the important one.**
+
+**A zero residual is never refuted — 45 / 45.** If `analysis` closes a position perfectly, `logic`
+always says yes. So refutation lives entirely inside the 71 % that cannot close.
+
+> **AND THE RESIDUAL DOES NOT DETERMINE THE VERDICT.** Residuals **2, 4 and 5 each carry both
+> verdicts** — same magnitude, different answers. Nor is refutation monotone in the residual: residual
+> 7 is never refuted while residual 4 is refuted 3 times in 11.
+
+**That is the argument for `logic` being a distinct step, and it is a strong one.** If the verdict were
+recoverable from the magnitude `analysis` returns, `logic` would be a lookup table and the chain would
+have two rungs, not three. **It is not recoverable.** `logic` computes something `analysis` does not
+carry.
+
+**Is `logic` a language?** It splits the two criteria, which is itself the finding:
+
+| criterion | verdict |
+|---|---|
+| returns a **binary** (the corpus's admission criterion) | **YES**, by construction |
+| idempotent | **120 / 120** |
+| extensive — `X ⊆ Log(X)` | **115 / 120** ✗ |
+| monotone | **116 / 120** ✗ |
+
+> **`logic` passes the admission criterion and fails Clause A.** It is idempotent but neither extensive
+> nor monotone, so it is **not a closure operator** — unlike all five admitted languages. Extensivity
+> fails where the best closure of `X` itself escapes `G(X)`, which is possible because `geometry` and
+> `algebra` are incomparable (Clause H).
+
+**So the two criteria disagree on `logic`, and that disagreement is the evidence.** Either the binary
+criterion is insufficient to identify a language, or Clause A is too strong. **This appendix does not
+choose** — that is the docket's to rule on.
+
+**Caution on the frame.** The specification describes a **predicate on positions**, and a predicate is
+not a closure operator on subsets. The set-operator reading above is *mine*; the extensivity failure in
+particular comes from applying the test to cells already in `X`, which the specification may not
+intend. If the frame is wrong the axiom results are void — the refutation counts and the
+non-determination result are not, since those are computed per position.
+
+**Status: EXHAUSTIVE, CANDIDATE, NOT A RULING.**
+
+---
+
 ## §9 · Provenance ledger
 
 | item | status | source |
