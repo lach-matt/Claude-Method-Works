@@ -7971,6 +7971,120 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `singularity.py` — truncate at geometry and *this* transition vanishes. But "singularity" is `box = |X|`, not `E = 0`.
+
+> M: *"Without the hierarchy, transition in spacetime would not exist. All math would stop at geometry
+> because there would be only one statistical position for all existence. The hierarchy would no longer be
+> the mechanism of transition, but instead a complete exact definition of singularity."*
+
+**Four clauses, and they do not all land the same way.**
+
+**The first is exactly right for the transition this thread is about.** `hierarchylaw.py` measured it and
+did not read it this way: **order, algebra and geometry give identical answers at both ends.** A hierarchy
+that stops at geometry **cannot tell the two positions apart** — without the rungs above geometry, the
+canonical transition does not exist as an event.
+
+**But 88% of transitions survive the truncation.** 300 random nested pairs:
+
+> **263 distinguished at or below geometry** · 37 invisible below it · **36 of those visible only above** ·
+> 1 invisible to all five. **Twelve per cent.** The upper hierarchy makes *some* transitions visible; it
+> does not make transition exist.
+
+**"Only one statistical position" is false as a count.** Distinct closures over 260 subsets — how many
+positions each language tells apart: `order 159` · `algebra 159` · `geometry 195` · `information 223` ·
+`statistics 233`. **Resolution rises monotonically up the ladder**, which is the claim's direction and is
+worth having. But **geometry alone resolves 195 of 260**, not one. Coarser, not blind.
+
+**And the singularity clause is true, provable, and about a different object.** A complete exact definition
+is not `E = 0` — it is **`box = |X|`**. When the ambient box equals the object, every operator is the
+identity: each is extensive, and returns a subset of the ambient, so `X ⊆ L(X) ⊆ box = X` forces
+`L(X) = X`. **`E = 0` in all five, in one line, with nothing measured — and nowhere to go**, because the
+licensed set *is* the object.
+
+> **57 such positions up to size five:** 17 of 17 singletons (box 1) · 26 of 136 pairs · 7 of 680 triples ·
+> 7 of 2,380 quadruples · **0 of 6,188 quintuples**.
+
+**The converse fails, which is why the two must not be conflated.** Of the **41** pairs closing exactly in
+every language, only **26** have box 2; **11 have box 4, 3 have box 8, 1 has box 16.** **Fifteen positions
+are completely and exactly defined and are not singularities.** The hierarchy closing on a position says the
+position is *licensed*, not that it is *alone*.
+
+**And the word not tested is "spacetime".** Every count is over subsets of a 17-cell index inside a 288-cell
+box. **The clause "transition in spacetime would not exist" is NOT TESTED and cannot be tested here.**
+`persist.py`'s **69.03 orders** and `higgs.py`'s **ξ ≥ 9.782907×10³¹** are unmoved.
+
+### Seated
+- `singularity.py` — new. `index3.py` — **735 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H108**. `hierarchylaw.py`, `canonical.py`, `necindex.py` — **read here, unchanged**.
+
+---
+
+
+## `hierarchylaw.py` — the law is derivable and it is a closure theorem. Backward fails at exactly one rung.
+
+> M: *"Can we now derive the hierarchy law? … Transition can be defined iff the language is present in both
+> positions. Forward the geometry is constant … backwards the hierarchy law is constant."*
+
+**Derivable: yes, and smaller than the name.** A law here can only be a property every admitted language
+has, and there is one — each of the five is a **Moore closure operator** on the index:
+
+| axiom | result |
+|---|---|
+| extensive `X ⊆ L(X)` | 37/37 subsets |
+| idempotent `L(L(X)) = L(X)` | 37/37 subsets |
+| monotone `X ⊆ Y ⟹ L(X) ⊆ L(Y)` | 936/936 chain pairs **and** 3,000/3,000 random nested pairs |
+
+**No counterexample in 3,936 nested pairs, all five.** The law: *the admitted languages are extensive,
+monotone, idempotent closure operators, and the hierarchy is the partial order of their closures under
+inclusion.* Admission is the binary criterion; `documentary` is SILENT and `analysis` has **no operator at
+all**, both checked as negative controls.
+
+**A measurement, not a proof** — `op_information` extracts a join-irreducible seed and re-closes it, and
+seed extraction is not obviously monotone. **And not multiversal:** every quantity lives inside a 288-cell
+box built from five coordinates we chose.
+
+**The *iff* is true and it bites.** At `d = 5` all five speak. Project onto `(T, V)` and **statistics goes
+SILENT at both ends** — max-entropy on the order-`k` marginals needs `d > k`. The other four still speak,
+so the silence is statistics' precondition, not the projection.
+
+**Forward is a tautology.** Geometry constant across the canonical transition **is the rule `canonical.py`
+selected the state by**. The finding is the thing next to it:
+
+| | at object+state | at object | |
+|---|---|---|---|
+| order | 192 | 192 | **IDENTICAL** |
+| algebra | 192 | 192 | **IDENTICAL** |
+| geometry | 29 | 29 | IDENTICAL *(by construction)* |
+| information | 156 | 85 | differs |
+| statistics | 17 | 13 | differs |
+
+**Three languages are blind to the transition and two see it** — `decompose.py`'s object/conditions split
+from a second direction.
+
+**Backward is half true, and the failing half is the interesting one.** The nesting **order** is identical
+at both ends; the **structure** is not — strict inclusions **8 → 7** (the one lost: `statistics ⊂
+information`), incomparable pairs **1 → 2** (the new one: `information ↔ statistics`).
+
+> **The ladder detaches at the bottom rung, and the bottom rung is statistics** — `throat.py`'s extremum,
+> the rung named as the centre of the corridor.
+
+**And statistics does not only detach — it regrows the conditions.** `E(statistics)` **0 → 4**, and all four
+re-admitted cells are **in the removed state**, all pointwise (`M = 0`) with the zero bound (`B = 0`):
+**NEC · semiclassical-NEC · WEC · semiclassical-WEC.**
+
+> **Four of the eight removed cells come back by themselves.** `E = 0` is a property of
+> **object-plus-conditions**; the object alone cannot hold it.
+
+**What it does not do:** no theorem about closure operators on a 17-cell index moves **69.03 orders** or
+**ξ ≥ 9.782907×10³¹**, and none of these measurements was computed from a field equation.
+
+### Seated
+- `hierarchylaw.py` — new. `index3.py` — **735 findings**. `paper/CLAIMS.md` — **H107**.
+  `canonical.py`, `necindex.py`, `tools/cypher.py` — **read here, unchanged**.
+
+---
+
+
 ## `canonical.py` — the canonical decomposition exists, and the two irreducibles have names.
 
 > M: *"The canonical decomposition is a transition itself."* · *"It is a transition to a position that

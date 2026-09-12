@@ -8454,6 +8454,193 @@ False. Rewritten to state the claim: no single cell covers all three pairs.
 
 ---
 
+### H107a — the hierarchy law is derivable, and it is a closure theorem
+
+> M: *"Can we now derive the hierarchy law?"*
+
+**Yes, and it is smaller than the name.** A law here can only be a property every admitted language has,
+and there is one: each of the five is a **Moore closure operator** on the index. Measured, not assumed:
+
+| axiom | result |
+|---|---|
+| extensive — `X ⊆ L(X)` | 37 of 37 subsets, all five |
+| idempotent — `L(L(X)) = L(X)` | 37 of 37 subsets, all five |
+| monotone — `X ⊆ Y ⟹ L(X) ⊆ L(Y)` | 936 of 936 nested chain pairs **and** 3,000 of 3,000 random nested pairs, all five |
+
+**No counterexample in 3,936 nested pairs.** The law, stated: *the admitted languages are extensive,
+monotone, idempotent closure operators on the index, and the hierarchy is the partial order of their
+closures under inclusion.* Admission is `H98`'s criterion — it returns a binary. `documentary` is SILENT;
+`analysis` has no operator in the cypher at all, and both are checked here as negative controls.
+
+**It is a measurement and not a proof, and one of the five is why that is said out loud.**
+`op_information` extracts the join-irreducible seed and re-closes it; seed extraction is not obviously
+monotone, and monotonicity here is an observation over one 17-cell index, not a theorem about Birkhoff
+seeds.
+
+**And it is not multiversal.** Every quantity was computed inside a 288-cell box built from five
+coordinates we chose. A statement about five closure operators on one finite index is not a statement
+about the multiverse.
+
+---
+
+### H107b — the *iff* is true and it is not vacuous
+
+> M: *"Transition (accepted and not) can be defined iff the language is present in both positions."*
+
+At `d = 5` all five speak at both ends, so the clause looks free. Project the index onto two coordinates
+`(T, V)` and it bites: **statistics goes SILENT at both ends** — it is max-entropy on the order-`k`
+marginals and needs `d > k`. The other four still speak there, so silence is a property of statistics'
+precondition and not of the projection. **There are positions at which the one language that measures the
+transition cannot speak.**
+
+---
+
+### H107c — forward is a tautology; the real forward finding is next to it
+
+> M: *"forward the geometry is constant and the hierarchy law builds the conditions for the constant to exist."*
+
+Geometry is constant across the canonical transition. **It is also the definition of that transition** —
+`H106a` selected the state by requiring `geom(X − S) = geom(X)`. Confirming it confirms nothing.
+
+What was **not** asked for, and is not a tautology:
+
+| language | at object+state | at object | |
+|---|---|---|---|
+| order | admits 192 | admits 192 | **IDENTICAL** |
+| algebra | admits 192 | admits 192 | **IDENTICAL** |
+| geometry | admits 29 | admits 29 | IDENTICAL *(by construction)* |
+| information | admits 156 | admits 85 | differs |
+| statistics | admits 17 | admits 13 | differs |
+
+**Three languages are blind to the transition and two see it** — `H105a`'s object/conditions split
+arriving from a second direction.
+
+---
+
+### H107d — backward: the ordering survives, the ladder does not
+
+> M: *"Backwards the hierarchy law is constant."*
+
+**Half true, and the half that fails is the interesting one.**
+
+| | before | after |
+|---|---|---|
+| nesting order | statistics ⊂ geometry ⊂ information ⊂ algebra = order | **identical** |
+| strict inclusions | 8 | **7** |
+| the one lost | — | `statistics ⊂ information` |
+| incomparable pairs | 1 | **2** |
+| the new one | — | `information ↔ statistics` |
+
+**The hierarchy is constant as an ordering and not as a structure.** The rung that detaches is the bottom
+one, and the bottom one is **statistics** — `H103`'s extremum, the rung named as the centre of the
+corridor. The backward reading is where it breaks, not where it holds.
+
+---
+
+### H107e — and statistics does not only detach, it regrows the conditions
+
+`E(statistics)` goes **0 → 4** across the transition: the family solves the cypher, the object alone does
+not. The four cells it re-admits are all **in the removed state**, and all four are pointwise (`M = 0`)
+with the zero bound (`B = 0`):
+
+`NEC` · `semiclassical-NEC` · `WEC` · `semiclassical-WEC`
+
+**Four of the eight removed cells come back by themselves.** The object, read statistically, reconstructs
+half its own conditions. That is the two-tier claim measured rather than asserted: **`E = 0` is a property
+of object-plus-conditions, and the object alone cannot hold it.**
+
+**What it does not do:** no theorem about closure operators on a 17-cell index moves `D2.1`'s **69.03
+orders of magnitude** or `H88`'s **ξ ≥ 9.782907×10³¹**, and none of the measurements above was computed
+from a field equation.
+
+*Instrument: `hierarchylaw.py` — `python3 hierarchylaw.py --selftest`*
+
+---
+
+### H108a — truncate at geometry and the canonical transition vanishes
+
+> M: *"Without the hierarchy, transition in spacetime would not exist. All math would stop at geometry
+> because there would be only one statistical position for all existence. The hierarchy would no longer be
+> the mechanism of transition, but instead a complete exact definition of singularity."*
+
+**Four clauses; they do not all land the same way.**
+
+The first is exactly right for the transition this thread is about. `H107c` measured it and did not read it
+this way: order, algebra and geometry give **identical** answers at both ends. **A hierarchy that stops at
+geometry cannot tell the two positions apart** — without the rungs above geometry, the canonical transition
+does not exist as an event.
+
+---
+
+### H108b — but 88 per cent of transitions survive the truncation
+
+300 random nested pairs, each a removal from a random position:
+
+| | count |
+|---|---|
+| distinguished at or below geometry | **263** |
+| invisible below geometry | 37 |
+| — of those, visible only above | 36 |
+| — invisible to all five | 1 |
+
+**Twelve per cent.** "Transition would not exist" is true of the canonical one and of twelve per cent of the
+rest. The upper hierarchy makes *some* transitions visible; it does not make transition exist.
+
+---
+
+### H108c — "only one statistical position" is false as a count
+
+Distinct closures over 260 random subsets — how many positions each language tells apart:
+
+`order 159` · `algebra 159` · `geometry 195` · `information 223` · `statistics 233`
+
+**Resolution rises monotonically up the ladder**, which is the claim's direction and is worth having. But
+geometry alone resolves **195 of 260** positions, not one. A hierarchy stopping at geometry is coarser, not
+blind.
+
+---
+
+### H108d — the singularity clause is true, provable, and about a different object
+
+**A complete exact definition is not `E = 0`. It is `box = |X|`.**
+
+When the ambient box equals the object, every operator is the identity: each is extensive (`H107a`) and
+returns a subset of the ambient, so `X ⊆ L(X) ⊆ box = X` forces `L(X) = X`. **`E = 0` in all five, in one
+line, with nothing measured — and there is nowhere to go**, because the licensed set *is* the object. That
+is a singularity in this index, and it is exactly the sentence.
+
+| size | positions with `box = |X|` |
+|---|---|
+| 1 | 17 of 17 — every singleton, box 1 |
+| 2 | 26 of 136 |
+| 3 | 7 of 680 |
+| 4 | 7 of 2,380 |
+| 5 | 0 of 6,188 |
+| **total** | **57** |
+
+---
+
+### H108e — and the converse fails, which is why the two must not be conflated
+
+Of the **41** pairs that close exactly in every language, only 26 have `box = 2`:
+
+| box | pairs | |
+|---|---|---|
+| 2 | 26 | nowhere to go — singular |
+| 4 | 11 | exactly closed, and room to move |
+| 8 | 3 | |
+| 16 | 1 | |
+
+**Fifteen positions are completely and exactly defined and are not singularities.** The hierarchy closing on
+a position says the position is licensed; it does not say the position is alone.
+
+**And the word not tested:** every count above is over subsets of a 17-cell index inside a 288-cell box.
+Nothing here is a statement about spacetime, about singularities in general relativity, or about whether
+transition is physically possible. **The clause "transition in spacetime would not exist" is NOT TESTED and
+cannot be tested by this instrument.** `D2.1`'s 69.03 orders and `H88`'s ξ gate are unmoved.
+
+*Instrument: `singularity.py` — `python3 singularity.py --selftest`*
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
