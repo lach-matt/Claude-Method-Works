@@ -5625,6 +5625,121 @@ in general — claiming otherwise would be the scope slip this session has alrea
 
 ---
 
+## ★★★ H75 — cube. **The cube is the square to the 3/2, and the obstruction is a parity.**
+
+> M: *"We need to evaluate g_tφ cubed."*
+
+**The instinct is exactly right — an odd power is the only object that could carry the sign `H74e` lost.
+The cube is evaluated here, and it does not carry it.**
+
+### H75a — the cube in closed form
+
+`g_tφ = −(1 + g_tt)a` exactly, so `g_tφ³ = −(1 + g_tt)³a³`, and against **H74b**'s square:
+
+> **`g_tφ³ = sgn · (g_tφ²)^{3/2}`** — ratio **1.000000 to 1.0×10⁻¹⁴** at six configurations
+> (`M` 0.3–5, `a` −0.7–4.9, `r` 1.5–12).
+
+| M | a | r | `g_tφ` | `g_tφ³` | `sgn·(sq)^{1.5}` |
+|---|---|---|---|---|---|
+| 1.00 | 0.50 | 4.00 | −0.250000000 | −0.015625000 | −0.015625000 |
+| 1.00 | 0.99 | 3.00 | −0.660000000 | −0.287496000 | −0.287496000 |
+| 1.00 | −0.70 | 5.00 | +0.280000000 | +0.021952000 | +0.021952000 |
+| 5.00 | 4.90 | 12.00 | −4.083333333 | −68.083912037 | −68.083912037 |
+
+The cube carries the square's content **plus the one bit and nothing else** — and the sign is exactly the
+input the two threads cannot supply. Worse: `g_tφ³/g_tφ² = g_tφ`. **Knowing the cube *is* knowing the third
+thread. The cube is not a derivation of the intersection from the other two; it *is* the intersection.**
+
+### H75b — and the obstruction is a theorem, not a search failure
+
+Census of every nonzero Boyer–Lindquist component under `a → −a` (M=1, a=0.7, r=5, θ=1.1, off the plane):
+
+| | `a = +0.7` | `a = −0.7` | parity |
+|---|---|---|---|
+| `g_tt` | −0.601606596715 | −0.601606596715 | **EVEN** |
+| `g_rr` | 1.620453016544 | 1.620453016544 | **EVEN** |
+| `g_θθ` | 25.100817226272 | 25.100817226272 | **EVEN** |
+| `g_φφ` | 20.368593580678 | 20.368593580678 | **EVEN** |
+| `g_tφ` | −0.221496928179 | **+0.221496928179** | **ODD** |
+
+**Four even, exactly one odd.** Any function whatever of even quantities is even; any odd power of `g_tφ` is
+odd. **No closed form of any kind in the other four returns any odd power of `g_tφ`** — not the cube, not
+the first power, not at any precision.
+
+> **A parity is not defeated by a higher power.** `H74e`'s missing bit is upgraded from a measurement limit
+> to a **symmetry**.
+
+### H75c — the circularity, and a disanalogy that must not be glossed
+
+> To evaluate `g_tφ³` you need `sgn(a)`. `sgn(a)` is what `g_tφ³` would tell you.
+
+That is **H65**'s shape exactly — *the measurement presupposes its own answer.* **The physics status is
+opposite and is recorded rather than glossed:** Reichenbach's ε is a **convention** and no experiment
+distinguishes 0.1 from 0.5; `sgn(a)` is a **fact**, and two experiments in **H75e** return it. **A shape
+shared is not a status shared.**
+
+### H75d — Kerr's own curvature already states cube-from-square
+
+For a type D vacuum the Weyl invariants are `I = 3ψ₂²` (a **square**) and `J = −ψ₂³` (a **cube**), and the
+type D condition is **`I³ = 27J²`** — verified to **3.5×10⁻¹⁶** at five configurations. So
+`J = ±√(I³/27)`: **the same one bit.** M's question is not an analogy to Kerr's algebraic type; **it is
+Kerr's algebraic type.**
+
+**And the strongest result goes the other way.** `ψ₂ = −M/(r − ia cos θ)³` reduces at `θ = π/2` to `−M/r³`,
+**with no `a` in it at all**:
+
+| a | 0.00 | 0.30 | 0.70 | 0.99 | 2.50 | −0.70 |
+|---|---|---|---|---|---|---|
+| Kretschmann at r=5 | 0.003072000000 | 0.003072000000 | 0.003072000000 | 0.003072000000 | 0.003072000000 | 0.003072000000 |
+| Chern–Pontryagin | −0.0×10⁰ | −1.4×10⁻¹⁹ | −3.2×10⁻¹⁹ | −4.5×10⁻¹⁹ | −1.1×10⁻¹⁸ | +3.2×10⁻¹⁹ |
+
+> **Equal to Schwarzschild's to 0.0×10⁰ exactly, and the chirality invariant vanishes.** On the equatorial
+> plane the spin is absent from local curvature **entirely, not merely its sign.**
+
+`a²` lives in the metric **components** and in **no polynomial curvature invariant on that slice** —
+**H74b**'s recovery is a statement about coordinate components, not about local curvature. **Scope held
+narrow on purpose:** zeroth-order invariants only. Differential invariants are not functions of `ψ₂` alone
+and **H75e** exhibits one that does see `a`; *"the curvature cannot see the spin"* without that qualifier
+would be false.
+
+### H75e — two recoveries, and both leave where the two threads are
+
+**Locally — leave the plane.** `*RR ∝ a cos θ`:
+
+| θ | 0.30 | 0.80 | π/2 | 2.40 | 2.90 |
+|---|---|---|---|---|---|
+| `*RR` (a=+0.7) | −4.169978×10⁻³ | −3.289664×10⁻³ | −3.2×10⁻¹⁹ | +3.444673×10⁻³ | +4.214730×10⁻³ |
+
+exactly reversing under `a → −a`. **And the normal derivative at the equator is not zero:**
+`d(*RR)/dθ = +0.005160960` at `a = +0.7` and `−0.005160960` at `a = −0.7`, numeric and closed form agreeing.
+**The sign is a local fact one derivative off the plane, though it is not one on it.**
+
+**Non-locally — stay on the plane and go around.** Sagnac, `Δt = −4π g_tφ/g_tt`, **linear** in `g_tφ`:
+
+| a | r | prograde | retrograde | difference |
+|---|---|---|---|---|
+| +0.70 | 5 | 38.282754108 | 44.147060394 | **−5.864306287** |
+| −0.70 | 5 | 44.147060394 | 38.282754108 | **+5.864306287** |
+| 0.00 | 5 | 40.557786760 | 40.557786760 | **0.000000000** |
+
+Explicit-root and closed-form routes agree to 5.3×10⁻¹⁵. Photon spheres split the same way —
+2.630025978 / 3.328854540 at `a = 0.3`, and **1.000000 / 4.000000 at extremal, a factor of 4.0.**
+
+> **A prograde and a retrograde loop are different loops; an out-and-back along one radius is not. The
+> discriminator is circulation, not reciprocation.**
+
+### H75f — what it means for the corridor
+
+**A direction of travel is a chirality, and a chirality is not a local scalar on the plane it lives in.** To
+install one you must **leave the plane** or **go around the ring** — a source that rotates, or a path that
+circulates. Neither is read off a point, and both are things a construction must **supply**.
+
+And this is M's own method claim landing **literally** rather than by analogy: **H63** recorded that all
+perceptions are one whole viewed from *a different axis or plane or dimension position*. Here the missing
+datum is invisible at `θ = π/2` and visible at `θ ≠ π/2`. **The plane position is the polar angle.**
+
+---
+
 ## Directive 1 — identify warp energy: **MET**
 
 | id | claim | status | instrument |
