@@ -7971,6 +7971,52 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `staircase.py` — the ladder is real. It counts coordinates, and algebra comes first.
+
+**A different claim from the last one, and it finds what the last measurement missed.** `selfindex.py`
+tested directedness **by composition** — nine of ten pairs commute. This claims directedness **by
+availability**. Untested, and **the answer is yes.**
+
+**The ladder is in the cypher's own preconditions**, verbatim: `op_order` *"R needs at least two
+coordinates"*; `op_geometry` the same; `op_statistics` *"needs more than {k} coordinates at order {k} (reg
+1175)"*. `op_algebra` and `op_information` have **no dimension precondition at all.**
+
+| d = 1 | d = 2 | d = 3 |
+|---|---|---|
+| algebra, information (E = 0) | + order, geometry | + statistics |
+
+> **Three rungs — and the two answers are compatible.** Languages **commute once available** and **become
+> available at different dimensions**: a set of commuting operators that switch on at different dimensions.
+> **A step function**, not a chain and not a flat set.
+
+**But it counts coordinates, not objects.** At `d = 5`, all five speak at **1 cell** — and at 2, 3, 4, 6, 10
+and 17. **No object-count threshold anywhere.** The ladder counts how many things can be said *about* an
+object. *(Negative control: the dimension threshold is real in the same harness.)*
+
+**And the first step inverts.** First availability: **algebra 1 · information 1 · geometry 2 · order 2 ·
+statistics 3.** **Algebra needs nothing; order needs two** — algebra is strictly earlier, not downstream.
+And **order and geometry switch on together.** Algebra at `d = 1` is not vacuous: it admits exactly its four
+cells, **E = 0**.
+
+**The triangle is exact, and one language over.** `_hull2`'s own docstring: *"returns 1, 2 or ≥3 points"* —
+verified: point, segment, **TRIANGLE**. Caratheodory at `d = 2`, cited in the source. **A threshold *of*
+geometry, not a demand *for* it.**
+
+**Statistics last, more sharply than claimed:** silent below `d = 3`, then **E = 0 at 3, 4 and 5**, while
+every other language gets *worse* with dimension (order and algebra at E = 175 by `d = 5`). **No
+intermediate regime.**
+
+> **Scorecard: three confirmed, three refuted** — the ladder exists, the triangle is right, statistics is
+> last; it is not indexed by objects, algebra is not after order, and order/geometry are not sequential.
+> **Three and three, against nought and three last round.**
+
+### Seated
+- `staircase.py` — new. `index3.py` — **714 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H101**. `tools/cypher.py`, `selfindex.py`, `alpha.py` — **read here, unchanged**.
+
+---
+
+
 ## `selfindex.py` — the chain, the budget, and the cypher run on itself.
 
 **Three measurable claims, three negatives. The fourth is declined on a measurement.**

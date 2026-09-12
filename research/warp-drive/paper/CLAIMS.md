@@ -7950,6 +7950,101 @@ negative, and the one that came back positive was true by construction.**
 
 ---
 
+### H101a — directedness by availability is real, and it had not been tested
+
+> M: *"Directability is given by the order. Every additional object … creates an order. Two values is a
+> set. 3 requires algebra … which asks further geometry, which asks for probable positions in spacetime…"*
+
+**This is a different claim from the last one, and it finds something the last measurement missed.** `H100`
+measured **directedness by composition** — does applying A then B differ from B then A — and found nine of
+ten pairs commute. **This claims directedness by *availability*: a language cannot be reached until enough
+exists.** Different question, untested, **and the answer is yes.**
+
+**The ladder is in the cypher's own preconditions** — read from source, three refusals verbatim:
+
+```
+op_order       "R needs at least two coordinates"
+op_geometry    "needs at least two coordinates"
+op_statistics  "needs more than {k} coordinates at order {k} (reg 1175)"
+```
+
+`op_algebra` and `op_information` carry **no dimension precondition at all.** Projecting the family onto its
+first `d` coordinates:
+
+| d | languages that speak |
+|---|---|
+| **1** | algebra, information — **both at E = 0** |
+| **2** | + order, geometry |
+| **3** | + statistics |
+| 4, 5 | no further change |
+
+**Three rungs. M is right that the hierarchy has a direction, and it is here.**
+
+> **And the two answers are compatible.** The languages **commute** once available and **become available**
+> at different dimensions. Together: **a set of commuting operators that switch on at different
+> dimensions.** Not a chain, not a flat set — **a step function.**
+
+### H101b — the ladder counts coordinates, and algebra comes first
+
+**Tested directly**, holding `d = 5` and varying the cell count:
+
+| cells | 1 | 2 | 3 | 4 | 6 | 10 | 17 |
+|---|---|---|---|---|---|---|---|
+| all five speak | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+> **There is no object-count threshold anywhere.** One object in five coordinates already reaches every
+> language.
+
+The ladder counts **how many things can be said *about* an object**, not how many objects there are — a
+sharper statement than the one proposed, and the one the source supports. *(Negative control: the dimension
+threshold is real in the same harness, so the absence is a finding, not a broken test.)*
+
+**And measured first availability runs the other way at the first step:**
+
+| algebra | information | geometry | order | statistics |
+|---|---|---|---|---|
+| d = 1 | d = 1 | d = 2 | d = 2 | d = 3 |
+
+**Algebra needs nothing. Order needs two.** So algebra is not downstream of order — **it is strictly
+earlier**, and the chain has them the wrong way round. **And order and geometry are not sequential**: they
+switch on together, and no measurement here separates them. Nor is algebra's `d = 1` appearance vacuous —
+on the four `T` values it admits exactly those four, **E = 0**. It speaks and it closes.
+
+### H101c — the triangle is exact, and it sits inside geometry
+
+*"3 requires algebra to show their relationship in the form of a triangle."* **The number is right and the
+place is one language over.** `tools/cypher.py`'s hull routine, docstring verbatim: *"Monotone-chain hull of
+a 2-D integer point set; **returns 1, 2 or ≥3 points**."*
+
+| 1 point | 2 points | **3 points** |
+|---|---|---|
+| a point | a segment | **a TRIANGLE** |
+
+**Three is precisely where geometry's hull stops being degenerate**, and `op_geometry` cites Caratheodory's
+bound at `d = 2` for it. The intuition lands on a real threshold in the code — **a threshold *of* geometry,
+not a demand *for* it.**
+
+**And statistics last is confirmed more sharply than claimed.** Silent at `d = 1` and `d = 2`; from `d = 3`
+upward it closes the family **exactly, E = 0 at d = 3, 4 and 5** — while every other language
+over-generates and gets *worse* with dimension (order and algebra reach E = 175 at `d = 5`). **There is no
+intermediate regime: it cannot speak, and then it is exact.**
+
+### The scorecard
+
+| | |
+|---|---|
+| **CONFIRMED** | a cardinality ladder exists and gives the hierarchy a direction |
+| **CONFIRMED** | three points is the triangle threshold, in geometry's own hull |
+| **CONFIRMED** | statistics comes after geometry |
+| **REFUTED** | indexed by objects — no object-count threshold exists |
+| **REFUTED** | order precedes algebra — algebra is available strictly earlier |
+| **REFUTED** | order and geometry are sequential — they are simultaneous |
+
+**Three and three, against nought and three last round. The refinement found something real that the
+previous measurement did not ask for.**
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
