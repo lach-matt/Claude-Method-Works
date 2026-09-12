@@ -7532,6 +7532,90 @@ nonsense on its face — and **the fixture caught it where the prose did not.**
 
 ---
 
+### H96a — binary is the admission criterion, not the first rung
+
+> M: *"The hierarchy exists, but it runs the opposite direction from what is expected … Binary is the alpha
+> language, top of the hierarchy because it both starts and ends the hierarchy."*
+
+**The first clause is the corpus's own admission criterion, reached independently.** Why is a language in
+the hierarchy at all? The corpus answers in two places, the same way both times:
+
+| language | reason, verbatim | state |
+|---|---|---|
+| documentary | *"register 1173 — **returns a citation, not a binary**"* | SILENT |
+| analysis | *"analysis has one but **returns a magnitude rather than a cell decision**"* | NOT-RUN |
+| statistics | *"**statistics returns a binary and is in**"* | IN |
+
+> **Membership in the hierarchy if and only if the language returns a binary.**
+
+And statistics is in **despite roster 1173 not declaring it operator-bearing** — measured here. So the
+instinct lands harder than it was stated: **binary is not the first step of the ladder. It is the test for
+being on the ladder at all.**
+
+**The second clause is measured and holds.** Each operator takes a set of cells and returns a set of cells,
+and a set of cells *is* a binary — one membership bit per cell of the ambient box. Verified by type across
+all five: no operator changes the type of its argument.
+
+> **Domain = codomain = the binary.** The ladder is not a sequence of typed levels; it is a family of
+> **self-maps on one object.** *"It both starts and ends the hierarchy"* is exactly that — **there is
+> nowhere to climb to.**
+
+### H96b — each language collapses; the ladder of them does not
+
+**That sharpens the list against itself.** It has binary as the **first rung** and also as **the alpha that
+starts and ends.** Those cannot both hold: a rung is something you pass through, a type is something
+everything is. Measured, binary is the second — **not in the list, but what the list is made of.**
+
+**And the third clause is half true. The failing half:**
+
+**TRUE, per language.** All five are **idempotent** — `op(op(X)) = op(X)`, verified. One application and
+you have landed. **You cannot climb a ladder of idempotents.**
+
+**FALSE, jointly** — and it is a result, not a quibble. The languages are not independent: what one admits
+becomes another's input, and the joint closure **iterates.** Over 40 random seeds of 1–24 cells:
+
+| expansions | seeds |
+|---|---|
+| one | 26 |
+| two | 7 |
+| three | 6 |
+| **four** | **1** |
+
+> **So the hierarchy does climb, just not far.**
+
+`H94`'s named family settled in one expansion — and reading "collapse" off that single run would have been
+**reading the modal case as a law**: 14 of 40 seeds needed more.
+
+**And it does not collapse to one place either.** Those 40 seeds reached **34 distinct fixed
+points**, from 12 cells to the full 288. A rich lattice of closed families, not an attractor.
+
+> **The honest form: each language collapses. The ladder of them does not, and where it lands depends on
+> where it started.**
+
+### H96c — a terminology hazard, and the roster left to the docket
+
+**The hazard.** Register 1173: *"logic is not a language. It is the mechanism by which any language
+answers."* An answer here is a cell decision — a binary — so logic's *output* is the binary, and *"logic is
+a citation of binary"* points at something real. **But "citation" is already taken, and taken for the
+opposite thing:** documentary is the row that *"returns a citation, not a binary"* — measured, that phrase
+is in `cypher.py`'s own ADMISSION note. Recorded as a hazard, not corrected: the intended sense is clear
+and the word is occupied.
+
+**The roster.** M's ordering — *binary · order · algebra · geometry · statistics · NECs/proofs · logic* — is
+a **proposed roster with an ordering.** Measured against the tree: it names **three** the tree has no
+operator for (`binary`, `NECs/proofs`, `logic`) and **drops three** roster 1173 carries (`analysis`,
+`documentary`, `information`). Which languages there are is **docket 20x-04/20x-09**, open and unruled, and
+`CLAUDE.md` is explicit that the rosters stay data.
+
+> **Recorded as a candidate and not seated** — and nothing above depends on it. Every measurement here is
+> **roster-independent**, taken on the five operators the tree actually supplies.
+
+**A prose-fixture mismatch was caught building this:** a check labelled *"it names two the tree has no
+operator for"* returned three, **and passed** — the fixture was right and the *label* was wrong. The
+typed-digit channel in its smallest form yet: a number in a sentence beside a number in a list.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

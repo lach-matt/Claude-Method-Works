@@ -7971,6 +7971,52 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `alpha.py` — binary is the admission criterion, not the first rung.
+
+> M: *"Binary is the alpha language, top of the hierarchy because it both starts and ends the hierarchy."*
+
+**The first clause is the corpus's own admission criterion, reached independently.** documentary *"returns
+a citation, **not a binary**"* → SILENT. analysis *"returns a magnitude rather than a **cell decision**"* →
+NOT-RUN. statistics *"**returns a binary** and is in"* — and it is in *despite* roster 1173 not declaring it
+operator-bearing.
+
+> **Membership in the hierarchy iff the language returns a binary.** Binary is not the first step of the
+> ladder — **it is the test for being on the ladder at all.**
+
+**And every language is a self-map on it**, verified by type: input a collection of tuples, output a set of
+tuples, **no operator changing the type of its argument.** Domain = codomain = the binary. **There is
+nowhere to climb to.**
+
+**Which sharpens the list against itself:** it has binary as the first rung *and* as the alpha that starts
+and ends. Those cannot both hold. Measured, binary is **not in the list — it is what the list is made of.**
+
+**The collapse is half true, and the failing half is the point.** All five operators are **idempotent** —
+one application and you have landed; you cannot climb a ladder of idempotents. **But jointly the closure
+iterates.** Over 40 random seeds: 26 needed one expansion, 7 two, 6 three, **1 four.**
+
+> **The hierarchy does climb, just not far.** `licensed.py`'s named family settled in one — and reading
+> "collapse" off that would have been **reading the modal case as a law**, since 14 of 40 seeds
+> needed more. **Nor is there one terminus:** 34 distinct fixed points from 40 seeds, 12 cells
+> to 288. **Each language collapses; the ladder of them does not.**
+
+**Two things recorded, not ruled.** *"Logic is not a language — it is the mechanism by which any language
+answers"*, and its output is a binary, so *"logic is a citation of binary"* points at something real — **but
+"citation" is already the corpus's word for the one row that is NOT a binary.** A hazard, named. And the
+proposed roster names **three** the tree has no operator for and drops **three** roster 1173 carries:
+**docket 20x-04/20x-09, recorded as a candidate and not seated.** Every measurement here is
+roster-independent.
+
+**A prose-fixture mismatch was caught:** a check labelled *"names two"* returned three **and passed** — the
+fixture right, the label wrong.
+
+### Seated
+- `alpha.py` — new, imports `necindex.py`/`tools/cypher.py`. `index3.py` — **698 findings**, 16 occupied
+  cells, `E(X) = 0`. `paper/CLAIMS.md` — **H96**. `tools/cypher.py`, `necladder.py`, `licensed.py` — **read
+  here, unchanged**; docket 20x-04/20x-09 left open.
+
+---
+
+
 ## `hierarchy.py` — a hierarchy of languages is not a hierarchy of scales.
 
 > M: *"This hierarchy problem is directly solvable using a hierarchy tool … the language cypher."*
