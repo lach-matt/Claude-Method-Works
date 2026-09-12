@@ -8675,6 +8675,11 @@ thread has made that the observations *dictate* rather than merely accept.
 
 ### H109b — `order` and `algebra` are the same operator, on every index anyone has run
 
+> **⚠ PROVENANCE CORRECTED BY H110a.** This was recorded as a possibly novel identity. A 2008
+> *Discrete Mathematics* paper (Queyranne & Tardella) asks the same question in the same setting;
+> it could not be opened. The status is **PRIOR-ART-PROBABLE, UNREAD**, not novel. `H110c` also
+> corrects the necessity claim carried here.
+
 Not "agree on `E`". **Identical as sets:**
 
 | index | `\|order\|` | `\|algebra\|` |
@@ -8761,6 +8766,112 @@ two-cell fixture in the selftest.)*
 ξ gate. Two of this thread's cypher readings are narrowed by it and neither is a physics result.
 
 *Instrument: `induce.py` — `python3 induce.py --selftest`*
+
+### H110a — the provenance finding, which comes before the mathematics
+
+> M: *"The formalization will be entirely our own then, because the proof we are currently working could
+> indeed be novel. The formalization will be supported by the provenance of the pieces within that are
+> attributed to other art."*
+
+**The formalization is ours. The theorem probably is not.** A search for prior art returned, as the stated
+central subject of a published paper:
+
+> Maurice Queyranne and Fabio Tardella, **"Sublattices of product spaces: Hulls, representations and
+> counting"**, *Discrete Mathematics* **308**(9) (2008), 1508–1523 — *"sufficient conditions on the dimension
+> of the product space and/or on the sublattice hull of a subset Q, for it to be entirely defined by the
+> sublattice hulls of the two-dimensional projections of Q"*, treating *"the case of a finite product of
+> finite chains"* in detail.
+
+That is `H109b`'s question, in its setting, **including the fact that it needs hypotheses.** The paper was
+**not read** — ScienceDirect, HAL and Semantic Scholar are all egress-blocked here and it is not on arXiv
+(a title lookup resolved to an unrelated paper on permutation polytopes). The description is a search-engine
+summary of a page nobody opened.
+
+**STATUS: PRIOR-ART-PROBABLE, UNREAD. Not "novel."** Claiming novelty against a paper one could not read is
+the error this corpus exists to refuse.
+
+Likewise **Baker–Pixley is cited unread**: Baker & Pixley, *Polynomial interpolation and the Chinese
+Remainder Theorem for algebraic systems*, *Math. Z.* **143** (1975), 165–174, DOI 10.1007/BF01187059. Two
+naming corrections: the property is **k-decomposability**, *not* "near-unanimity" (that names the term) and
+*not* "skew-free" (Fraser–Horn, a different property in the same textbook section); and the **factors need
+not be finite** — it is the *number of factors* that must be.
+
+---
+
+### H110b — the theorem, its proof, and what the lift costs
+
+**T1.** For finite non-empty `X` with `d ≥ 2`, `R(X) = ⟨X⟩` — the staircase equals the generated sublattice.
+
+`L1` φ is total and monotone. `L2` `R(X)` is a sublattice containing `X`, so `⟨X⟩ ⊆ R(X)` — one inclusion
+needs nothing else. `L3` at `d = 2`, four witnesses give `α = y ∨ u = (a, ≥b)` and `γ = z ∨ v = (≥a, b)`,
+whence `α ∧ γ = (a,b)`. `L4` projection commutes with generation. `L5` the lift, by Baker–Pixley.
+
+**`L5` is where the prior art does real work.** `L1`–`L4` leave `R(X)` a sublattice with the right pairwise
+projections, which without 2-determinacy does not close. **At `d = 2` the lift is not needed at all** — `L3`
+is the whole proof.
+
+**`L6` monotonicity is a corollary, not new work.** A referee was right that it had never been proved and
+that the ambient was left ambiguous. `T ⊆ S ⟹ ⟨T⟩ ⊆ ⟨S⟩`, and `R = ⟨·⟩`, so `R` inherits it. The earlier
+*measurement* of monotonicity in `H109a` was measuring the wrong thing.
+
+**`L7`** `op_information(X)` is the plain join-closure, hence `information ⊆ algebra` **is a theorem**.
+
+**The frontier, every number pinned by the selftest:** T1 exhaustive over observed boxes **36,252 cases, 0
+failures**; `L3`'s construction **built** on **54,392 cells, 0 failures**; `L5` checked directly on **4,128**
+generated sublattices, **0** not-2-determined, **0** majority-term failures; the bridge on **400** indexes.
+
+---
+
+### H110c — the necessity table, and it corrects this thread twice
+
+| hypothesis | status |
+|---|---|
+| `A_i = π_i(X)`, the observed alphabet | **SUFFICIENT, NOT NECESSARY** |
+| each `A_i` a chain | **NECESSARY, and the failure is one-directional** |
+| `d ≥ 2` | a convention — `op_order` returns SILENT at `d = 1` |
+| finiteness | it is the **number of factors** that `L5` needs |
+
+**`H109`'s claim that the observed alphabet is *necessary* was wrong.** The weaker sufficient condition is
+**order-convexity**: it is enough that no value of `A_i` strictly between `min π_i(X)` and `max π_i(X)` go
+unobserved. Values above the max or below the min are harmless. Measured over declared boxes: **convex →
+1,853 hold, 0 fail**. And convexity is **itself not necessary** — **632 gapped worlds still hold** against
+1,643 that fail. So the claim was wrong twice over.
+
+**Chains are necessary, and the failure has a direction.** Off the chains the staircase never *over*-generates
+— `staircase > sublattice` is **0** across M3×M3, N5×N5, M3×chain and N5×chain — it **under**-generates
+(1,900 of 2,600 for M3×M3). `R(X) ⊆ ⟨X⟩` survives arbitrary finite lattice factors; it is `L2`, which needs
+φ monotone and hence totality, that dies.
+
+---
+
+### H110d — the 2-determinacy partition is three-quarters trivial, and the bridge is now checked
+
+`H109`'s measurement — order, algebra, geometry, statistics 2-determined; information not — **over-credited
+itself.** If `L(X) = {x ∈ Box : (x_i,x_j) ∈ C_ij ∀i<j}` for *any* pair conditions, then
+`π_ij(L(X)) ⊆ C_ij`, so the rebuild from `L(X)`'s own projections is inside `L(X)` and the reverse is free.
+**Two lines.** `op_order`, `op_geometry` and `op_statistics` are each *defined* that way.
+
+**The content is in the other two.** `op_algebra` is defined by closure under operations, not pair
+conditions, so its 2-determinacy is `L5` — real work. `op_information` is not 2-determined, and the minimal
+witness is three cells in three dimensions:
+
+> `X = {(0,0,0), (0,1,1), (1,0,1)}` → `J(X)` adds `(1,1,1)` and stops at 4; the pairwise rebuild **invents
+> `(0,0,1)`**. On that same `X` all four other operators are 2-determined.
+
+**One three-element set separates `information` from the rest of the hierarchy**, and the reason is
+structural: join-semilattices have no majority term.
+
+**And the bridge is no longer a reading.** A referee objected that identifying `op_order` with the staircase
+and `op_algebra` with `⟨X⟩` was a reading of the source rather than a check. `decomposable.py` implements
+every definition **from the mathematics, importing nothing from `cypher.py`**, then compares: **400 indexes,
+400 agree on order and algebra, 400 agree on `information = join-closure`.**
+
+**Nothing here is machine-checked.** There is no Lean toolchain on this machine and no network route to one;
+the `d = 2` lemma was written in Lean 4 with a complete proof and general-`d` carries an explicit `sorry` at
+the Baker–Pixley step. Three statuses are kept apart throughout — **PROVED-HERE**, **EXHAUSTIVE** (to a
+stated frontier), **CITED-UNREAD** — and none of them is MACHINE-CHECKED.
+
+*Instrument: `decomposable.py` — `python3 decomposable.py --selftest`, and `--provenance` for the ledger.*
 
 ---
 

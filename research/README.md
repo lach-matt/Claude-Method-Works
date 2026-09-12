@@ -7971,6 +7971,64 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `decomposable.py` — our own formalization, and a provenance ledger whose headline is that the theorem is not ours.
+
+> M: *"The formalization will be entirely our own then, because the proof we are currently working could
+> indeed be novel. The formalization will be supported by the provenance of the pieces within that are
+> attributed to other art."*
+
+**The formalization is ours. The theorem probably is not, and that is the first thing the ledger has to
+say.** A prior-art search returned, as the *stated central subject* of a published paper:
+
+> Maurice Queyranne and Fabio Tardella, **"Sublattices of product spaces: Hulls, representations and
+> counting"**, *Discrete Mathematics* **308**(9) (2008), 1508–1523 — *"sufficient conditions … for [the
+> sublattice hull of Q] to be entirely defined by the sublattice hulls of the two-dimensional projections of
+> Q"*, treating *"the case of a finite product of finite chains"* in detail.
+
+Same question, same setting, **including the fact that it needs hypotheses**. **The paper was not read** —
+ScienceDirect, HAL and Semantic Scholar are all egress-blocked here and it is not on arXiv. **STATUS:
+PRIOR-ART-PROBABLE, UNREAD — not novel.** Baker–Pixley is likewise **CITED-UNREAD**; two naming corrections
+came with it: the property is **k-decomposability**, not "near-unanimity" (that names the *term*) and not
+"skew-free" (Fraser–Horn, same textbook section); and the **factors need not be finite** — the *number of
+factors* must be.
+
+**The theorem.** `R(X) = ⟨X⟩` for finite non-empty `X`, `d ≥ 2`. `L1` φ total and monotone · `L2` `R(X)` a
+sublattice containing `X`, so `⟨X⟩ ⊆ R(X)` free · `L3` at `d = 2`, four witnesses give `α ∧ γ = (a,b)` ·
+`L4` projection commutes with generation · `L5` the lift, Baker–Pixley. **`L5` is where the prior art does
+the work; at `d = 2` it isn't needed at all.** `L6` monotonicity is a **corollary** — a referee was right
+that it was never proved, and `H109a`'s measurement of it was measuring the wrong thing. `L7`
+`op_information` is the plain join-closure, so **`information ⊆ algebra` is a theorem**.
+
+**The necessity table corrects this thread twice.** `H109`'s claim that the observed alphabet is *necessary*
+was wrong. The weaker sufficient condition is **order-convexity** — no *interior* gap; values above the max
+or below the min are harmless. Over declared boxes: **convex → 1,853 hold, 0 fail.** And convexity is itself
+**not necessary** — **632 gapped worlds still hold**. **Chains are necessary and the failure is
+one-directional:** off the chains the staircase never over-generates (`staircase > sublattice` is **0** across
+M3×M3, N5×N5, M3×chain, N5×chain) — it *under*-generates, 1,900 of 2,600 for M3×M3.
+
+**The 2-determinacy partition is three-quarters trivial, and `H109` over-credited it.** Any `L` defined by
+pair conditions is 2-determined in two lines, and `op_order`, `op_geometry`, `op_statistics` are each defined
+that way. The content is `op_algebra` (that *is* `L5`) and `op_information`'s failure — minimal witness
+`X = {(0,0,0),(0,1,1),(1,0,1)}`, where the pairwise rebuild **invents `(0,0,1)`** and all four other
+operators are 2-determined on the same `X`.
+
+**And the bridge is no longer a reading.** Every definition is implemented **from the mathematics, importing
+nothing from `cypher.py`**, then compared against the running operators: **400 indexes, 400 agree.**
+
+> **Frontier, all pinned by the selftest:** T1 exhaustive **36,252 cases, 0 failures** · `L3`'s construction
+> **built** on **54,392 cells, 0 failures** · `L5` direct on **4,128** sublattices, **0** exceptions ·
+> bridge **400/400**. **Nothing is machine-checked** — no Lean toolchain, no route to one; the `d = 2` lemma
+> is written in Lean 4 and general-`d` carries a `sorry` at Baker–Pixley. **PROVED-HERE**, **EXHAUSTIVE**
+> and **CITED-UNREAD** are kept apart, and none of them is MACHINE-CHECKED.
+
+### Seated
+- `decomposable.py` — new, with `--provenance`. `index3.py` — **743 findings**, 16 occupied cells,
+  `E(X) = 0`. `paper/CLAIMS.md` — **H110**, with **H109b corrected in place**. `tools/cypher.py` — **read
+  here, not touched.**
+
+---
+
+
 ## `induce.py` — let the observations dictate it. Two things survive; the ladder is not one of them.
 
 > M: *"I suspect all my hierarchy law assertions are true. We are trying to dictate it based on our
