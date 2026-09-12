@@ -8212,6 +8212,86 @@ bounded below by zero.
 
 ---
 
+### H104a — the refinement ladder is real, partial, and breaks at one pair
+
+> M: *"The reason a hierarchy law works is because it eliminates all why questions at any given position,
+> and instead always supplies the how on the next rung."*
+
+**A claim about the structure of explanation, with three checkable consequences.** If each rung supplies the
+next, it should show as a ladder of *refinement* — each admitted set inside the next:
+
+| | admits | nests into the next? |
+|---|---|---|
+| statistics | 17 | ✓ into geometry |
+| geometry | 29 | **✗ not into information** |
+| information | 156 | ✓ into order |
+| order | 192 | ✓ into algebra |
+| algebra | 192 | — |
+
+**Eight of twenty ordered pairs are strict inclusions, and the chain breaks at exactly one place.** Geometry
+holds 10 cells information lacks; information holds 137 geometry lacks; they share 19.
+
+> **A chain with one break** — not the total order the claim needs, and not the flat set `H100`'s
+> commutation result might have suggested.
+
+**And the break lands on the same language twice.** `H96` found exactly one **non-commuting** pair,
+`information` ↔ `statistics`. This finds exactly one **incomparable** pair, `information` ↔ `geometry`.
+
+> **Information is the endpoint of both structural anomalies in this hierarchy** — the mirror of statistics:
+> statistics distinguished by being *exact and invariant*, information by being *the exception in both
+> tests*.
+
+### H104b — it terminates, which refutes the earlier closed-loop proposal
+
+*"Always supplies the how on the next rung"* needs a next rung. Three possibilities — the old trilemma:
+**terminus, loop, or infinite regress.**
+
+**Measured: it terminates.** `H101`'s availability ladder stops at `d = 3` with statistics, and nothing this
+session found above it on any measure — not availability, not E, not invariance.
+
+> **So the top rung's why has no rung above to supply its how. The claim's own mechanism cannot cover its
+> own terminus.**
+
+**And this settles an earlier question against its earlier answer.** `H96`'s proposal was that the hierarchy
+is a **closed loop**, binary starting and ending it. The mechanism proposed now implies terminus, loop or
+regress — and the measurement picks **terminus**. **The two proposals are not both available.**
+
+**But the strongest version of the claim survives at the terminus, and it is measured.** At the last rung
+statistics is **exact, E = 0**.
+
+> **The ladder does not end in an unanswered question. It ends in a fixed point.** The last rung needs no
+> how from above because it does not move — the question stops being askable rather than going unanswered.
+
+### H104c — but the hierarchy does not account for itself
+
+If every why became a how one rung up **with nothing left over**, the hierarchy would explain its own
+membership — the index whose cells *are* the languages would close. `H100` built exactly that index:
+
+| order | algebra | geometry | information | statistics |
+|---|---|---|---|---|
+| E = 5 | E = 5 | E = 2 | E = 1 | E = 1 |
+
+**Not one language closes it.** The hierarchy cannot say why its own members are its members, in any of its
+own languages. *(Negative control: the same operators close the object index at `E = 0`, so the failure is
+the self-index's, not the tools'.)*
+
+> **What is eliminated is the why AT a position inside the index. What is not eliminated is the why OF the
+> index.**
+
+### The scorecard
+
+| | |
+|---|---|
+| **PARTIAL** | the refinement ladder is real — 8 of 20 strict inclusions — and breaks at one pair |
+| **SETTLED** | terminus, not loop and not regress — refuting the earlier closed-loop proposal by the same measurement |
+| **SURVIVES** | the terminus is a **fixed point**, `E = 0`, so the last rung needs no rung above it |
+| **FAILS** | the hierarchy does not account for itself, in any language |
+
+**The claim is a good description of how explanation moves *inside* the index, and it is not a complete
+elimination of why.** Both halves measured; neither assumed.
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**

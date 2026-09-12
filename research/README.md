@@ -7971,6 +7971,49 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `regress.py` — does the ladder eliminate *why*? A partial ladder, a terminus, and no self-account.
+
+> M: *"A hierarchy law works because it eliminates all why questions at any given position, and instead
+> always supplies the how on the next rung."*
+
+**Three checkable consequences.**
+
+**The refinement ladder is real and partial.** statistics (17) ⊆ geometry (29); geometry **⊄** information
+(156); information ⊆ order (192) = algebra. **Eight of twenty ordered pairs are strict inclusions, breaking
+at exactly one place** — geometry holds 10 information lacks, information holds 137 geometry lacks, sharing
+19. **A chain with one break** — not a total order, not a flat set.
+
+> **And the break lands on the same language twice.** `alpha.py`: the only **non-commuting** pair is
+> information ↔ statistics. Here: the only **incomparable** pair is information ↔ geometry. **Information is
+> the endpoint of both structural anomalies** — the mirror of statistics, which is distinguished by being
+> exact and invariant.
+
+**It terminates.** *"The next rung"* needs a next rung — terminus, loop, or regress. **Measured: terminus.**
+The ladder stops at `d = 3` with statistics and nothing sits above it on any measure. **So the top rung's
+why has no rung above to supply its how.** And that **refutes the earlier closed-loop proposal by the same
+measurement** — the two are not both available.
+
+> **But the strongest form survives:** at the terminus statistics is **exact, E = 0**. **The ladder does not
+> end in an unanswered question — it ends in a fixed point.** The last rung needs no how from above because
+> it does not move.
+
+**And it does not account for itself.** The index whose cells *are* the languages: `order 5 · algebra 5 ·
+geometry 2 · information 1 · statistics 1`. **Not one closes it.** *(The same operators close the object
+index at 0 — the failure is the self-index's.)*
+
+> **What is eliminated is the why AT a position inside the index. What is not eliminated is the why OF the
+> index.**
+
+**Scorecard: PARTIAL** (the ladder, with one break) · **SETTLED** (terminus, not loop) · **SURVIVES** (the
+terminus is a fixed point) · **FAILS** (no self-account).
+
+### Seated
+- `regress.py` — new. `index3.py` — **723 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H104**. `alpha.py`, `staircase.py`, `selfindex.py` — **read here, unchanged**.
+
+---
+
+
 ## `throat.py` — statistics is an order after all, and it is the index's extremum, not its centre.
 
 > M: *"Statistics is the center of the corridor where the sign needs to change … Statistics is still an
