@@ -7971,6 +7971,51 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## `adjudicate.py` — the cypher against the field equations. M's protocol, run.
+
+> M: *"The proof is provided by verifying answers given by the cypher against the outputs of the applied
+> field equations."*
+
+**Well posed, and my refusal was too broad.** It needed a **bridge**: the cypher answers *which cells a
+language admits*, the field equations answer *what `T_μν` is and whether the condition holds*. One
+comparison is well defined — **the field equations name a condition; does the certified family contain its
+cell?** Binary, checkable, falsifying.
+
+**And it had already run once.** `revoke.py`'s cypher certified the 192 at `E = 0` in all five languages;
+eq. (86) is classical, smeared, negative-bounded, and **the 192 excludes it.** One example, certification
+gone.
+
+**The decisive case, computed here rather than quoted.** In flat space along a null geodesic two of eq.
+(86)'s three terms vanish identically, leaving `∫ T_kk f² ≥ −2ξ ∫ (f′)² φ²`. For constant `φ₀` and a
+normalised Gaussian of width `σ`:
+
+> **BOUND = −ξ φ₀²/σ²** — checked against Simpson quadrature to `1e-6`; exactly `−1/6` at conformal
+> coupling, unit field, unit width. **Negative for every ξ > 0, classical, no ħ**, and going as `1/σ²`:
+> halving the width quadruples it, exactly. **The smearing width IS the broken scale.** Negative control:
+> at `ξ = 0` the bound is **exactly zero**, so the negativity is the non-minimal coupling.
+
+**The score.** Nine conditions this tree *computes* — `higgs.py`'s scalar NEC, `emtension.py`'s Maxwell NEC
+built from `F`, `pressure.py`'s throat tension, `persist.py`'s Ford–Roman, `qei.py`'s Fewster–Osterbrink
+`QA`, `anec.py`'s QNEC, `nullbound.py`'s SNEC, the Barceló–Visser effective NEC, and eq. (86):
+
+> **240: nine of nine. 192: eight of nine** — missing the only computed condition that is classical with a
+> bound below zero, which is the only one that could ever have discriminated.
+
+**What it proves: refutation.** One disagreement ends a family; agreements only leave it standing. **The 192
+is refuted; the 240 is not yet.** **What it cannot prove:** the universal — no tally reaches a
+quantification over an unbounded domain. That would need the structure of the languages, not a case count.
+
+**And the narrow universal IS proved:** every language in the hierarchy is a closure operator, and
+membership is granted iff it returns a binary. **"Everything in the hierarchy obeys the closure law" — true,
+by the admission criterion.** A theorem about the construction, not about mathematics.
+
+### Seated
+- `adjudicate.py` — new. `index3.py` — **707 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H99**. `revoke.py`, `licensed.py`, `alpha.py` — **read here, unchanged**.
+
+---
+
+
 ## `revoke.py` — prior art in full, nothing to prove, and it revokes `licensed.py`'s law.
 
 > M: *"Are these already predefined energy conditions? … yes is preferred because it comes with its own

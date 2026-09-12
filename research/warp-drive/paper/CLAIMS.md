@@ -7772,6 +7772,83 @@ refuting, and the literature had already done it. The corrected law is a near-ta
 
 ---
 
+### H99a — the protocol is well posed, and my refusal was too broad
+
+> M: *"'Governed by this law' I can't verify and won't claim — we can both verify and prove this. The proof
+> is provided by verifying answers given by the cypher against the outputs of the applied field
+> equations."*
+
+**It needed one thing supplied — a bridge — and then it works.** The cypher answers *which cells a language
+admits*; the field equations answer *what `T_μν` is, what the bound is, whether the condition holds*. Not
+the same type. **One comparison is well defined:**
+
+> **The field equations name a condition. Does the family the cypher certified contain its cell?**
+
+Binary, checkable, falsifying. **And it has already run once, without setting out to.** `H98`'s cypher
+certified the 192-cell family at `E = 0` **in all five languages**; Kontou–Sanders eq. (86) is a condition
+the field equations produce — classical, smeared, negative bound — **and the 192 does not contain it.** One
+example, and the certification fell. **Its first run refuted a family the cypher had passed; its second
+passed the one the cypher had missed.**
+
+### H99b — eq. (86), computed rather than quoted
+
+Three terms. In flat space `R_ab = 0`, `R = 0`, and along a **null** geodesic `γ̇^a γ̇_a = 0`, so two vanish
+identically:
+
+        ∫ dλ T_ab k^a k^b f²  ≥  −2ξ ∫ dλ (f′)² φ²
+
+For constant `φ₀` and a Gaussian `f` of width `σ` normalised to `∫f² = 1`: `f′ = −(λ/σ²)f`, `f²` is a
+Gaussian of variance `σ²/2`, `∫(f′)² = 1/(2σ²)`, hence
+
+> **BOUND = −ξ φ₀² / σ²**
+
+Verified against Simpson quadrature at four `(ξ, φ₀, σ)` to `1e-6`, with `∫f² = 1` checked to `1e-9` at two
+widths. At conformal coupling with unit field and unit width the bound is exactly **−1/6**.
+
+**Negative for every ξ > 0. Classical. No ħ anywhere in it** — the closed form is a function of `ξ`, `φ₀`
+and `σ` and nothing else. **And it scales as `1/σ²`**: halving the width quadruples the bound, exactly.
+
+> **The smearing width is the scale whose presence breaks the rescaling invariance Proposition 2.1
+> requires** — visible in the formula, not asserted.
+
+**Negative control:** at `ξ = 0`, minimal coupling, the bound is **exactly zero** — so the negativity is the
+non-minimal coupling, not an artefact of smearing. Freivogel–Krommydas' geometric bound has the same shape,
+`−#/τ²`, and they say of it: *"this form of the bound does not have any factors of ℏ, so it makes sense
+purely classically."*
+
+### H99c — it falsifies, and it does not prove a universal
+
+Nine conditions this tree **computes** from a Lagrangian or field equation — not merely names — located as
+cells and put to both families:
+
+| | 192 | 240 |
+|---|---|---|
+| **contains** | **8 of 9** | **9 of 9** |
+
+The one the 192 misses is eq. (86) — **measured, the only computed condition that is classical with a bound
+below zero, and therefore the only one that could ever have discriminated.**
+
+**What the protocol proves: refutation.** Each agreement leaves a family standing; **one disagreement ends
+it.** That asymmetry is the whole value — it is why the first run was worth more than a thousand agreements.
+
+> **Established: the 192 is REFUTED; the 240 is NOT YET REFUTED.**
+
+**What it cannot establish:** *"anything that can be described in any mathematical language is governed by
+this law."* A universal quantification over an unbounded domain, which no finite number of agreements
+reaches — **not because the corpus is short of material, but because enumeration never terminates.** A proof
+of the universal would have to come from **the structure of the languages**, not from a tally of cases.
+
+**And a narrower universal is already proved, worth having in place of the broad one.** `H96` measured that
+every language in the hierarchy is a closure operator — extensive, monotone, idempotent — and that
+membership is granted for exactly one reason: **the language returns a binary.**
+
+> **"Everything in the hierarchy obeys the closure law" is true, and true by the admission criterion.**
+
+A theorem about the construction, not a discovery about mathematics. Stating it as the second is what I
+declined and still decline. **But the first is real, it is proved, and M was right that it is verifiable.**
+
+---
+
 ---
 
 ## Directive 1 — identify warp energy: **MET**
