@@ -367,8 +367,8 @@ def selftest():
     print("hierarchylaw.py --selftest")
     print()
     X, obj, state = positions()
-    chk("the family", len(X), 17)
-    chk("the object", len(obj), 9)
+    chk("the family", len(X), 18)
+    chk("the object", len(obj), 10)
     chk("the state", len(state), 8)
 
     # --------------------------------------- 1. the closure axioms
@@ -421,10 +421,10 @@ def selftest():
         ["algebra", "geometry", "order"])
     chk("see it", sorted(L for L in LANGS if ad1[L] != ad2[L]),
         ["information", "statistics"])
-    chk("order admits the same 192 at both ends",
-        (len(ad1["order"]), len(ad2["order"])), (192, 192))
+    chk("order admits the same 256 at both ends",
+        (len(ad1["order"]), len(ad2["order"])), (256, 256))
     chk("information falls", (len(ad1["information"]), len(ad2["information"])),
-        (156, 85))
+        (208, 122))
 
     # ------------------------------- 5. backward, and where it fails
     chk("nesting ordering before", o1,

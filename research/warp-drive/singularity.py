@@ -18,13 +18,17 @@ AND THE LAST IS TRUE AND PROVABLE -- BUT NOT OF THE OBJECT M NAMED.
 ===============================================================================
 
 hierarchylaw.py measured it and did not read it this way.  Across the canonical
-transition (17 cells -> 9, the state being the unique maximum removal):
+transition (18 cells -> 10, the state being the unique maximum removal):
 
-        order          192 -> 192      IDENTICAL
-        algebra        192 -> 192      IDENTICAL
-        geometry        29 ->  29      IDENTICAL
-        information    156 ->  85      differs
-        statistics      17 ->  13      differs
+        order          256 -> 256      IDENTICAL
+        algebra        256 -> 256      IDENTICAL
+        geometry        30 ->  30      IDENTICAL
+        information    208 -> 122      differs
+        statistics      18 ->  14      differs
+
+    (Re-measured at six coordinates, after the arity axis was seated. Every
+    number moved and THE SHAPE DID NOT: the same three languages cannot tell
+    the two positions apart and the same two can.)
 
     A HIERARCHY THAT STOPS AT GEOMETRY CANNOT TELL THE TWO POSITIONS APART.
     Before and after are the same object to all three lower languages.  For
@@ -38,15 +42,25 @@ transition (17 cells -> 9, the state being the unique maximum removal):
 
 300 random nested pairs, each a removal from a random position:
 
-        distinguished at or below geometry      263
-        invisible below geometry                 37
-            of those, visible only above         36
-            invisible to all five                 1
+        distinguished at or below geometry      265
+        invisible below geometry                 35
+            of those, visible only above         35
+            invisible to all five                 0
 
     TWELVE PER CENT.  "Transition would not exist" is true of the canonical one
-    and of twelve per cent of the rest; it is false of the other 263.  The
+    and of twelve per cent of the rest; it is false of the other 265.  The
     upper hierarchy is what makes SOME transitions visible, not what makes
     transition exist.
+
+    AND ONE ROW WENT TO ZERO, WHICH IS A RETRACTION.  On the five-coordinate
+    box exactly ONE of the 300 pairs was invisible to all five languages, and
+    that single case was the file's only witness that a transition can be
+    invisible to the whole hierarchy at once.  At six coordinates there is
+    none: every pair sampled is seen by something.  A count of one was never
+    strong evidence and it is now zero, so THE CLAIM THAT SOME TRANSITION IS
+    INVISIBLE TO ALL FIVE IS WITHDRAWN on this sample.  Withdrawn, not
+    reversed -- 300 pairs cannot establish that no such position exists, only
+    that none was drawn.
 
 ===============================================================================
 3. "ONLY ONE STATISTICAL POSITION" IS FALSE AS A COUNT
@@ -55,14 +69,14 @@ transition (17 cells -> 9, the state being the unique maximum removal):
 Distinct closures over 260 random subsets -- how many positions each language
 can tell apart:
 
-        order           159
-        algebra         159
-        geometry        195
-        information     223
-        statistics      233
+        order           185
+        algebra         185
+        geometry        217
+        information     248
+        statistics      248
 
 RESOLUTION RISES MONOTONICALLY UP THE LADDER, which is the claim's direction and
-is worth having.  But geometry alone resolves 195 of 260 positions, not one.  A
+is worth having.  But geometry alone resolves 217 of 260 positions, not one.  A
 hierarchy stopping at geometry is coarser, not blind.
 
 ===============================================================================
@@ -81,21 +95,21 @@ hierarchy stopping at geometry is coarser, not blind.
 
 Counted over subsets of the family up to size five:
 
-        size 1      17 of 17        every singleton, box 1
-        size 2      26 of 136
-        size 3       7 of 680
-        size 4       7 of 2380
-        size 5       0 of 6188
-                    57 in all
+        size 1      18 of 18        every singleton, box 1
+        size 2      27 of 153
+        size 3       7 of 816
+        size 4       7 of 3060
+        size 5       0 of 8568
+                    59 in all
 
 ===============================================================================
 5. THE CONVERSE FAILS, AND THAT IS WHY THE TWO MUST NOT BE CONFLATED
 ===============================================================================
 
-E = 0 in all five does NOT mean nowhere to go.  Of the 41 pairs that close
-exactly in every language, only 26 have box = 2:
+E = 0 in all five does NOT mean nowhere to go.  Of the 44 pairs that close
+exactly in every language, only 27 have box = 2:
 
-        box  2      26      nowhere to go -- singular
+        box  2      27      nowhere to go -- singular
         box  4      11      exactly closed, and room to move
         box  8       3
         box 16       1
@@ -108,8 +122,8 @@ exactly in every language, only 26 have box = 2:
 6. WHAT IS NOT MEASURED HERE, AND IT IS THE WORD "SPACETIME"
 ===============================================================================
 
-Every count above is over subsets of a 17-cell index of energy conditions
-inside a 288-cell box.  Nothing in this file is a statement about spacetime,
+Every count above is over subsets of an 18-cell index of energy conditions
+inside a 576-cell box.  Nothing in this file is a statement about spacetime,
 about singularities in general relativity, or about whether transition is
 physically possible.  The clause "transition in spacetime would not exist" is
 NOT TESTED and cannot be tested by this instrument.
@@ -259,7 +273,7 @@ def report():
     print()
     from collections import Counter
     cp = Counter(closed_pairs())
-    print("  5. the 41 pairs that close exactly in every language")
+    print("  5. the 44 pairs that close exactly in every language")
     for b in sorted(cp):
         print("      box %-38s %d  %s" % (b, cp[b],
                                           "singular" if b == 2 else "room to move"))
@@ -276,10 +290,10 @@ def report():
     print("  three lower languages give identical answers at both ends.  But")
     print("  263 of 300 random transitions survive the truncation, so the upper")
     print("  hierarchy makes some transitions visible rather than making")
-    print("  transition exist.  Geometry resolves 195 positions, not one.  And")
+    print("  transition exist.  Geometry resolves 217 positions, not one.  And")
     print("  the singularity clause is true of box = |X|, not of E = 0: when the")
     print("  box equals the object every extensive operator is the identity, in")
-    print("  one line and with nothing measured -- 57 such positions up to size")
+    print("  one line and with nothing measured -- 59 such positions up to size")
     print("  five.  The converse fails at 15 of 41 closed pairs.")
     print()
     print("  The word 'spacetime' is not tested here and cannot be.")
@@ -317,21 +331,21 @@ def selftest():
     # --------------------------------- 2. and most transitions do not
     lo, blind, only, none = truncation_census()
     chk("nested pairs tested", lo + blind, 300)
-    chk("distinguished at or below geometry", lo, 263)
-    chk("invisible below geometry", blind, 37)
-    chk("of those, visible only above", only, 36)
-    chk("invisible to all five", none, 1)
+    chk("distinguished at or below geometry", lo, 265)
+    chk("invisible below geometry", blind, 35)
+    chk("of those, visible only above", only, 35)
+    chk("invisible to all five -- WITHDRAWN, was 1 at five coordinates", none, 0)
     chk("so the truncation loses a minority", blind < lo, True)
     chk("recorded", BUT_MOST_TRANSITIONS_SURVIVE, True)
 
     # ------------------------------ 3. resolution, and the false count
     res, n = resolution()
     chk("subsets sampled", n, 260)
-    chk("order resolves", res["order"], 159)
-    chk("algebra resolves", res["algebra"], 159)
-    chk("geometry resolves", res["geometry"], 195)
-    chk("information resolves", res["information"], 223)
-    chk("statistics resolves", res["statistics"], 233)
+    chk("order resolves", res["order"], 185)
+    chk("algebra resolves", res["algebra"], 185)
+    chk("geometry resolves", res["geometry"], 217)
+    chk("information resolves", res["information"], 248)
+    chk("statistics resolves", res["statistics"], 248)
     chk("resolution rises up the ladder",
         res["order"] <= res["geometry"] <= res["information"] <= res["statistics"],
         True)
@@ -340,13 +354,13 @@ def selftest():
 
     # ---------------------------- 4. box = |X| forces the identity
     sb = singular_by_size()
-    chk("size 1", sb[1], (17, 17))
-    chk("size 2", sb[2], (26, 136))
-    chk("size 3", sb[3], (7, 680))
-    chk("size 4", sb[4], (7, 2380))
-    chk("size 5", sb[5], (0, 6188))
+    chk("size 1", sb[1], (18, 18))
+    chk("size 2", sb[2], (27, 153))
+    chk("size 3", sb[3], (7, 816))
+    chk("size 4", sb[4], (7, 3060))
+    chk("size 5", sb[5], (0, 8568))
     chk("singular positions up to size five",
-        sum(h for h, _ in sb.values()), 57)
+        sum(h for h, _ in sb.values()), 59)
     # the theorem, checked rather than asserted: box == |S| => E = 0 everywhere
     Xs = sorted(X)
     rect = [frozenset(S) for k in (1, 2, 3, 4)
@@ -354,18 +368,18 @@ def selftest():
     chk("and every one of them closes to itself in all five",
         all(len(op(L, S)) == len(S) for S in rect for L in LANGS), True)
     chk("the singleton box", box([Xs[0]]), 1)
-    chk("the family box", box(Xs), 288)
+    chk("the family box", box(Xs), 576)
     chk("recorded", SINGULARITY_IS_BOX_EQUALS_OBJECT, True)
 
     # ------------------------------------------- 5. and the converse
     from collections import Counter
     cp = Counter(closed_pairs())
-    chk("pairs closing exactly in every language", sum(cp.values()), 41)
-    chk("of which box 2 -- singular", cp[2], 26)
-    chk("box 4", cp[4], 11)
+    chk("pairs closing exactly in every language", sum(cp.values()), 44)
+    chk("of which box 2 -- singular", cp[2], 27)
+    chk("box 4", cp[4], 13)
     chk("box 8", cp[8], 3)
     chk("box 16", cp[16], 1)
-    chk("exactly closed and NOT singular", sum(cp.values()) - cp[2], 15)
+    chk("exactly closed and NOT singular", sum(cp.values()) - cp[2], 17)
     chk("so E = 0 everywhere does not imply nowhere to go",
         sum(cp.values()) - cp[2] > 0, True)
     chk("recorded", CONVERSE_FAILS, True)

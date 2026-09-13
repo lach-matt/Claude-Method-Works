@@ -236,7 +236,13 @@ def selftest():
     chk("eight parameters", len(PARAMETERS), 8)
     chk("two of them are the endpoints transit.py gates on",
         sum(1 for _s, _w, who in PARAMETERS if "transit" in who), 2)
-    import transit
+    # turnseat.py, NOT transit.py. The travel>turn>seat instrument was written
+    # as transit.py and then OVERWRITTEN by an unrelated file of the same name
+    # (transit without traversal, the teleportation bound), which dropped its
+    # whole API without sweeping the dependents -- so this call crashed with
+    # "module 'transit' has no attribute". The original is recovered verbatim
+    # from git as turnseat.py and this points at it.
+    import turnseat as transit
     chk("and part 2 will not initialise without both",
         transit.part2(transit.Conditions(1.0, arrival_length=None))[0], transit.BLOCKED)
     print("       CAUTION: eight is the COUNT, and that is all it is.  Lambda_8's")

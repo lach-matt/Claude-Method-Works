@@ -160,16 +160,20 @@ def f_norm_check(sigma, n=200001, span=12.0):
 
 # ------------------------------- the conditions this tree COMPUTES, as cells
 # (label, cell, which instrument computes it from a field equation / Lagrangian)
+# A = 0 on every row: all nine are QUADRATIC conditions, Theta_mn v^m v^n over a
+# single direction. The one bilinear member of the family is DEC, and none of
+# these is it. The coordinate was appended when the arity axis was seated; the
+# cells are otherwise untouched.
 COMPUTED = [
-    ("NEC on a scalar, from L", (0, 0, 0, 0, 0), "higgs.py"),
-    ("NEC on Maxwell, T built from F", (0, 0, 0, 0, 0), "emtension.py"),
-    ("throat tension, Morris-Thorne", (0, 0, 0, 0, 0), "pressure.py"),
-    ("Ford-Roman, hbar/(c^3 T^4)", (0, 1, 1, 1, 1), "persist.py"),
-    ("Fewster-Osterbrink Thm 4.3, QA", (0, 1, 1, 1, 1), "qei.py"),
-    ("QNEC, entropy variation", (0, 0, 0, 1, 2), "anec.py"),
-    ("SNEC, smeared null", (0, 0, 1, 1, 1), "nullbound.py"),
-    ("Barcelo-Visser effective NEC", (1, 0, 0, 0, 0), "higgs.py"),
-    ("eq. (86), CLASSICAL smeared", (0, 0, 1, 0, 1), "adjudicate.py (here)"),
+    ("NEC on a scalar, from L", (0, 0, 0, 0, 0, 0), "higgs.py"),
+    ("NEC on Maxwell, T built from F", (0, 0, 0, 0, 0, 0), "emtension.py"),
+    ("throat tension, Morris-Thorne", (0, 0, 0, 0, 0, 0), "pressure.py"),
+    ("Ford-Roman, hbar/(c^3 T^4)", (0, 1, 1, 1, 1, 0), "persist.py"),
+    ("Fewster-Osterbrink Thm 4.3, QA", (0, 1, 1, 1, 1, 0), "qei.py"),
+    ("QNEC, entropy variation", (0, 0, 0, 1, 2, 0), "anec.py"),
+    ("SNEC, smeared null", (0, 0, 1, 1, 1, 0), "nullbound.py"),
+    ("Barcelo-Visser effective NEC", (1, 0, 0, 0, 0, 0), "higgs.py"),
+    ("eq. (86), CLASSICAL smeared", (0, 0, 1, 0, 1, 0), "adjudicate.py (here)"),
 ]
 
 

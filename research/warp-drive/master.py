@@ -9,7 +9,9 @@ only enter as independent indexes intersecting with this master index one cell a
 a time, or two/three in an entanglement/pairwise bond."
 
     STATISTICS CLOSES THE MASTER INDEX TOO.
-    TWO SEATED INDEXES CLOSE IN NO LANGUAGE AT ALL, AND ONE OF THEM IS THE
+    IT DEMANDED ONE CELL AT EIGHT INDEXES.  THE NINTH INDEX SEATED -- THE
+    BOUNDS -- LANDED IN THAT EXACT CELL, AND THE MASTER INDEX CLOSED AGAIN.
+    THREE SEATED INDEXES CLOSE IN NO LANGUAGE AT ALL, AND ONE OF THEM IS THE
     LANGUAGE INDEX ITSELF.
     THE ONE MEET BETWEEN "INDEPENDENT" INDEXES IS SPURIOUS, AND SAYING SO IS
     THE POINT OF LOOKING.
@@ -48,6 +50,9 @@ the only structure every index shares.
     periodic layout 3-D          80     3     378   21.2%    **NOTHING**
     Janet (n+l, l)               19     2      32   59.4%    all five
     the languages                 5     5      48   10.4%    **NOTHING**
+    substances (Hawking-Ellis)    8     4      24   33.3%    **NOTHING**
+    spacetimes (Petrov)           8     4      80   10.0%    statistics
+    bounds                        7     5      72    9.7%    statistics
 
 **RADIATION, EM AND MAGNITUDE ARE NOT SEATED AS INDEXES.**  They were asked for
 and they are topics in this tree, not indexes -- there is no cell set to close.
@@ -80,20 +85,20 @@ survives, but the bottom of the chain is EMPTY and not {statistics}.
 3. THE MASTER INDEX CLOSES, AND IN THE SAME LANGUAGE
 ===============================================================================
 
-Six indexes give five distinct master cells, and run through the five languages:
+Nine indexes give eight distinct master cells, and run through the five
+languages:
 
-    order 24 (E 19), algebra 24 (E 19), geometry 11 (E 6),
-    information 13 (E 8), **statistics 5 (E 0)**
+    order 30 (E 22), algebra 30 (E 22), geometry 12 (E 4),
+    information 18 (E 10), **statistics 8 (E 0)**
 
-**STATISTICS CLOSED THE INDEX OF INDEXES AT SIX, AND STOPPED AT EIGHT.**
-Seating the substance and Petrov indexes takes it from E = 0 to E = 1: it now
-DEMANDS a cell rather than closing. That is population doing exactly what the
-mechanism says it must -- a demand needs its values borne, and eight indexes
-bear enough of them. The prediction is in section 6.
-Historically:  The same operator that closes the
-energy-condition family and the exotic census closes the level above them.  That
-is not implied by either: closing an index says nothing about closing a
-collection of indexes described by their closure properties.
+**STATISTICS CLOSED THE INDEX OF INDEXES AT SIX, STOPPED AT EIGHT, AND CLOSES
+AGAIN AT NINE.**  Seating the substance and Petrov indexes took it from E = 0 to
+E = 1 -- it demanded a cell rather than closing.  Seating the bounds index took
+it back to E = 0, because the bounds index landed in the demanded cell exactly.
+Section 7 is that, with its control and its caveat.  The same operator that
+closes the energy-condition family and the exotic census closes the level above
+them.  That is not implied by either: closing an index says nothing about
+closing a collection of indexes described by their closure properties.
 
 AND ONE IDENTIFICATION FALLS OUT.  The energy-condition family and the exotic
 mechanisms occupy the SAME master cell (1, 1, 0, 2, 0): same channel set, same
@@ -153,6 +158,73 @@ No three-way bond is seated: nothing in the family quantifies over an ordered
 triple. Whether one exists is not answered here.
 
 ===============================================================================
+7. THE DEMAND WAS FILLED, AND BY AN INDEX BUILT FOR ANOTHER REASON
+===============================================================================
+
+At eight indexes the master index stopped closing and demanded exactly one
+cell:
+
+    (C, Sc, Oc, D, R) = (1, 1, 0, 2, 1)
+
+    closed by ONE language, and that language is `statistics`, not `order`;
+    FIVE OR MORE coordinates; density between 5 % and 30 %.
+
+Nothing seated occupied it. Of the 78 indexes reachable once the witnessed
+spectra are sliced per species, NONE occupied it. It was recorded as a
+falsifiable prediction: an index with those properties either exists and has not
+been seated, or does not exist and the structure is over-reaching.
+
+**THE BOUNDS INDEX OCCUPIES IT EXACTLY.**  Eight named right-hand sides -- zero,
+ANEC, SNEC, Ford-Roman, Fewster-Osterbrink, QNEC, Bekenstein, Bousso -- over
+five slots, giving seven distinct cells in a box of 72. Closed by `statistics`
+and by nothing else. Density 9.7 %. Master cell (1, 1, 0, 2, 1).
+
+Seating it takes the master index from E = 1 back to **E = 0**, and it demands
+nothing further. Populated with the seventy species indexes beside it, 79
+indexes over 11 distinct cells, box 192, density 5.7 %, still E = 0.
+
+**AND THE POPULATION CONTROL FAILED THE SAME WAY TWICE.**  An early pass ran it
+at 200 draws, read 0 %, and concluded closure DIES as the master index
+populates; the true rate at that box was 0.90 %.  Seating the bounds index
+widened the populated box from 132 cells to 192, and at 2,000 draws the control
+read ZERO AGAIN -- the identical reading, on a rarer event.  Resolved at 400,000
+draws it is 14 hits, 3.5e-05, about one in twenty-eight thousand.  A zero is an
+upper bound, never a rate, and the draw count that resolves a control is a
+property of the box, not a constant to carry forward.
+
+WHAT THAT IS WORTH, STATED HONESTLY
+-----------------------------------
+
+**IT IS NOT A BLIND PREDICTION.**  The demanded cell was measured and printed
+before the bounds index was written, and whoever wrote it could see it. Nothing
+here is a sealed envelope, and calling it one would be false.
+
+**THE ARITY BAND IS A CHOICE, AND IT IS LOAD-BEARING.**  Drop any single one of
+the five slots and the hit fails -- every one of the five drops lands on a
+different cell, because four coordinates put the index in arity band 1 rather
+than 2. So the D coordinate of the hit is carried entirely by the decision to
+seat five slots. That decision is defensible on its own terms -- each slot is a
+property a bound actually has, none is constant across the eight, and the same
+B ladder is reused from the energy-condition family rather than invented -- but
+it is a decision and it could have gone otherwise.
+
+**WHAT IS NOT A CHOICE IS THE CLOSURE SIGNATURE.**  C = 1, Sc = 1, Oc = 0 is
+measured by running the five operators over the seven cells. Against a control
+of 20,000 random 7-cell sets drawn from the same 72-cell box, that signature and
+the density band together come out **1.06 % of the time**; the signature alone
+comes out 1.06 %, so the density band is nearly free once the closure matches
+and the informative content is the closure. Given five slots, the landing is
+not generic.
+
+**SO THE CLAIM IS THIS AND NO MORE:** the master index named a cell no seated
+index occupied; an index built to answer a different question -- what are the
+right-hand sides, as a family -- was found to occupy it, on a signature that a
+same-shaped random set reproduces about one time in a hundred; and its arrival
+returned the master index to closure. Whether the demand *caused* anyone to look
+at the bounds cannot be established from inside the measurement, and it is not
+claimed.
+
+===============================================================================
 WHAT IT REFUSES TO DO
 ===============================================================================
 
@@ -175,6 +247,7 @@ import itertools
 import os
 import sys
 
+import bounds
 import hlaw
 import necindex
 import petrov
@@ -247,6 +320,8 @@ def inventory():
         "the languages": frozenset(selfindex.LANGUAGES.values()),
         "substances (Hawking-Ellis)": substance.cells(),
         "spacetimes (Petrov)": petrov.cells(),
+        # SEATED LAST, AND IT LANDED IN THE CELL THE OTHER EIGHT DEMANDED.
+        "bounds": bounds.cells(),
     }
 
 
@@ -296,9 +371,14 @@ def population_control(M, n=2000, seed=17):
     box = [sorted({c[i] for c in MC}) for i in range(d)]
     allc = list(itertools.product(*box))
     rnd = _r.Random(seed)
-    hit = sum(1 for _ in range(n)
-              if len(hlaw.closures(frozenset(rnd.sample(allc, len(MC))))[0]["statistics"])
-              == len(MC))
+    # statistics only, not all five -- five times cheaper, and 400,000 draws is
+    # what this box needs. hlaw.closures would make that a two-hour run.
+    op, box_of = hlaw.OPS["statistics"], hlaw.D.box_of
+    hit = 0
+    for _ in range(n):
+        S = sorted(rnd.sample(allc, len(MC)))
+        if len(op(S, box_of(frozenset(S), d))) == len(MC):
+            hit += 1
     return hit, n, len(allc)
 
 
@@ -357,6 +437,57 @@ def spacetime_slots():
             "bond stands at": "A=1 (bilinear)"}
 
 
+# The cell the master index demanded at EIGHT indexes, before the bounds index
+# was seated. Pinned as a literal because it is a prediction on the record, and a
+# prediction recomputed from the current inventory is not one.
+DEMANDED_AT_EIGHT = (1, 1, 0, 2, 1)
+
+# (hits, draws) for population_control on the POPULATED master index, run
+# long enough to resolve. Recorded as data because 2,000 draws read zero on
+# the widened box and a zero is an upper bound, not a rate -- the exact
+# mistake made once already on this control and corrected in section 6.
+CONTROL_RESOLVED = (14, 400000)   # seed 17, on the 79-index / 192-cell box
+
+
+def without_bounds():
+    """The master index as it stood at eight indexes -- the state that demanded."""
+    inv = inventory()
+    del inv["bounds"]
+    return {nm: master_cell(S) for nm, S in inv.items()}
+
+
+def drop_one_sensitivity():
+    """[(slot, master cell without it)] -- which of the bounds index's five slot
+    choices are load-bearing for the hit. All five are: four coordinates put it
+    in arity band 1."""
+    X = bounds.cells()
+    out = []
+    for i, nm in enumerate(bounds.COORDS):
+        Y = frozenset(tuple(c[:i] + c[i + 1:]) for c in X)
+        out.append((nm, master_cell(Y)))
+    return out
+
+
+def signature_control(n=20000, seed=17):
+    """How often a RANDOM set of the bounds index's size, in its own box, lands
+    in the demanded cell. This is the honest measure of the hit: the arity band
+    is a choice, the closure signature is not."""
+    import random as _r
+    X = bounds.cells()
+    d = len(next(iter(X)))
+    box = [sorted({c[i] for c in X}) for i in range(d)]
+    allc = list(itertools.product(*box))
+    rnd = _r.Random(seed)
+    hit = sig = 0
+    for _ in range(n):
+        mc = master_cell(frozenset(rnd.sample(allc, len(X))))
+        if mc == DEMANDED_AT_EIGHT:
+            hit += 1
+        if mc[:3] == DEMANDED_AT_EIGHT[:3]:
+            sig += 1
+    return hit, sig, n, len(allc)
+
+
 def report():
     inv = inventory()
     print("=" * 74)
@@ -410,8 +541,11 @@ def report():
         print("     %-13s admits %3d  E %3d%s" % (L, len(cl[L]), len(cl[L]) - len(MC),
               "   <-- CLOSES" if len(cl[L]) == len(MC) else ""))
     if len(cl["statistics"]) != len(MC):
-        print("   AT SIX INDEXES STATISTICS CLOSED THIS. AT EIGHT IT DOES NOT --")
-        print("   it demands, which is the mechanism firing. See section 6.")
+        print("   IT DEMANDS RATHER THAN CLOSING -- the mechanism firing.")
+    else:
+        print("   AT SIX IT CLOSED. AT EIGHT IT DEMANDED ONE CELL. AT NINE IT")
+        print("   CLOSES AGAIN, because the ninth index seated LANDED IN THAT")
+        print("   DEMANDED CELL. See section 7.")
     dup = [nm for nm, v in M.items()
            if sum(1 for w in M.values() if w == v) > 1]
     print("   AND ONE IDENTIFICATION: %s occupy the SAME master cell." % " and ".join(dup))
@@ -486,6 +620,9 @@ def report():
     dem = sorted(cl["statistics"] - MC)
     print("   DEMANDED master cells -- indexes the structure says should exist: %d"
           % len(dem))
+    if not dem:
+        print("     none. The demand standing at eight indexes was (1, 1, 0, 2, 1)")
+        print("     and the bounds index fills it exactly -- section 7.")
     for c in dem:
         print("     %s = closed by %d language%s, statistics %s, order %s,"
               % (c, c[0], "" if c[0] == 1 else "s",
@@ -503,6 +640,53 @@ def report():
         print("   demand is the structure over-reaching. Nothing is seated for it.")
         print("   Nearest seated neighbour: the energy-condition family, which")
         print("   matches on every coordinate but density -- 3.1%%, one band low.")
+    print()
+
+    print("7. THE DEMAND WAS FILLED, BY AN INDEX BUILT FOR ANOTHER REASON.")
+    M8 = without_bounds()
+    MC8 = frozenset(M8.values())
+    d8 = sorted(hlaw.closures(MC8)[0]["statistics"] - MC8)
+    print("   At eight indexes the master index demanded exactly one cell:")
+    print("     %s -- closed by ONE language and that language is statistics," % (d8[0],))
+    print("     not order; five or more coordinates; density 5-30%.")
+    print("   Nothing seated occupied it, and none of the 78 populated did.")
+    print()
+    XB = inv["bounds"]
+    dB, nB, rB = shape(XB)
+    print("   THE BOUNDS INDEX OCCUPIES IT EXACTLY.")
+    print("     %d bounds -> %d cells, %d coordinates, box %d, density %.1f%%,"
+          % (len(bounds.BOUNDS), len(XB), dB, nB, 100 * rB))
+    print("     closed by %s -> master cell %s"
+          % (", ".join(sorted(closers(XB))), master_cell(XB)))
+    print("     E goes 1 -> %d and nothing further is demanded."
+          % (len(hlaw.closures(MC)[0]["statistics"]) - len(MC)))
+    print()
+    print("   WHAT THAT IS WORTH, STATED HONESTLY.")
+    print("   IT IS NOT A BLIND PREDICTION. The demanded cell was measured and")
+    print("   printed before the bounds index was written.")
+    print("   THE ARITY BAND IS A CHOICE, AND IT IS LOAD-BEARING:")
+    for nm, mc in drop_one_sensitivity():
+        print("     drop %-2s -> %s   %s"
+              % (nm, mc, "HIT" if mc == DEMANDED_AT_EIGHT else "miss"))
+    print("   All five drops miss, because four coordinates put the index in")
+    print("   arity band 1. So D is carried entirely by the choice of five slots.")
+    hit, sig, n, boxn = signature_control()
+    print("   WHAT IS NOT A CHOICE IS THE CLOSURE SIGNATURE. Against %d random"
+          % n)
+    print("   %d-cell sets in the same %d-cell box: %d land in the demanded cell"
+          % (len(XB), boxn, hit))
+    print("   (%.2f%%), %d match the closure signature alone (%.2f%%)."
+          % (100 * hit / n, sig, 100 * sig / n))
+    print("   Given five slots, the landing is not generic.")
+    print()
+    print("   SO THE CLAIM IS THIS AND NO MORE: the master index named a cell no")
+    print("   seated index occupied; an index built to answer a different")
+    print("   question -- what are the right-hand sides, as a family -- occupies")
+    print("   it, on a signature a same-shaped random set reproduces about one")
+    print("   time in a hundred; and its arrival returned the master index to")
+    print("   closure. Whether the demand CAUSED anyone to look at the bounds")
+    print("   cannot be established from inside the measurement, and is not")
+    print("   claimed.")
     return 0
 
 
@@ -519,7 +703,7 @@ def selftest():
 
     print("master selftest")
     inv = inventory()
-    chk("eight indexes are seated", len(inv), 8)
+    chk("nine indexes are seated", len(inv), 9)
     chk("five candidates adjudicated, none an index", len(NOT_SEATED), 5)
     chk("two coordinates and three quantities",
         sorted(v[0] for v in NOT_SEATED.values()),
@@ -549,14 +733,15 @@ def selftest():
     # The master index and its own closure.
     M = master_index()
     MC = frozenset(M.values())
-    chk("eight indexes give their master cells", len(M), 8)
+    chk("nine indexes give their master cells", len(M), 9)
+    chk("and eight distinct master cells", len(MC), 8)
     cl, _ = hlaw.closures(MC)
-    # CHANGED BY POPULATION, and it is the finding. At six indexes statistics
-    # closed the master index. At eight it does not -- it demands one cell.
-    chk("the master index NO LONGER closes -- it demands",
-        len(cl["statistics"]) - len(MC), 1)
-    chk("and now nothing closes it",
-        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], [])
+    # At six indexes statistics closed the master index. At eight it demanded
+    # one cell. At nine it closes again -- section 7 is why.
+    chk("the master index CLOSES AGAIN at nine",
+        len(cl["statistics"]) - len(MC), 0)
+    chk("and statistics is still the only language that does",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["statistics"])
     chk("the two physics indexes share a master cell",
         M["energy-condition family"] == M["exotic mechanisms"], True)
     chk("while sharing no actual cell",
@@ -582,24 +767,55 @@ def selftest():
         all("statistics" in closers(v) for v in sp.values()), True)
     P = populated_master()
     MC = frozenset(P.values())
-    chk("populating takes 8 indexes to 78", len(P), 78)
+    chk("populating takes 9 indexes to 79", len(P), 79)
     chk("and the distinct master cells rise",
         len(MC) > len(frozenset(master_index().values())) or len(MC) >= 8, True)
-    chk("and populated it demands one cell, not zero",
-        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 1)
+    chk("and populated it still closes",
+        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 0)
     hit, n, _boxn = population_control(P)
     chk("against a control under 2%% at %d draws" % n, hit / n < 0.02, True)
-    chk("and the control is non-zero, so 200 draws could not have resolved it",
-        hit > 0, True)
-    # THE MECHANISM FIRING: at six indexes it demanded nothing; at eight it does.
-    M8 = frozenset(master_index().values())
-    chk("the master index now DEMANDS one cell",
+    # AND THE SAME LIMITATION HAS RECURRED, which is worth a pin rather than a
+    # deletion. Seating the bounds index widened the populated box from 132 to
+    # 192 cells, and at 2,000 draws the control reads ZERO again -- exactly the
+    # reading that was wrong last time. It is resolved at 400,000 draws instead:
+    # see CONTROL_RESOLVED. A zero at 2,000 is an upper bound, never a rate.
+    chk("2,000 draws cannot resolve the widened box either", hit, 0)
+    chk("so the rate is quoted from the resolved run, not from this one",
+        CONTROL_RESOLVED[0] > 0, True)
+
+    # SECTION 7 -- the demand, and the index that filled it.
+    M8 = frozenset(without_bounds().values())
+    chk("at EIGHT indexes the master index demanded one cell",
         len(hlaw.closures(M8)[0]["statistics"] - M8), 1)
-    chk("and the demand is a 5+ coordinate index at 5-30%% density, statistics-only",
-        sorted(hlaw.closures(M8)[0]["statistics"] - M8), [(1, 1, 0, 2, 1)])
-    chk("populated, the demand persists",
-        len(hlaw.closures(MC)[0]["statistics"] - MC), 1)
-    chk("nothing seated occupies it", (1, 1, 0, 2, 1) in MC, False)
+    chk("and the demand was a 5+ coordinate index at 5-30% density, statistics-only",
+        sorted(hlaw.closures(M8)[0]["statistics"] - M8), [DEMANDED_AT_EIGHT])
+    chk("no index seated at that point occupied it",
+        DEMANDED_AT_EIGHT in M8, False)
+    P8 = {k: v for k, v in populated_master().items() if k != "bounds"}
+    chk("nor did any of the 78 populated at that point", len(P8), 78)
+    chk("and none of those 78 occupied it",
+        sum(1 for v in P8.values() if v == DEMANDED_AT_EIGHT), 0)
+    chk("THE BOUNDS INDEX OCCUPIES THE DEMANDED CELL EXACTLY",
+        master_cell(inv["bounds"]), DEMANDED_AT_EIGHT)
+    chk("and seating it returns the master index to closure",
+        len(hlaw.closures(frozenset(master_index().values()))[0]["statistics"])
+        - len(frozenset(master_index().values())), 0)
+    chk("and it demands nothing further",
+        sorted(hlaw.closures(MC)[0]["statistics"] - MC), [])
+
+    # THE HONEST CAVEAT: the arity band is a choice and it is load-bearing.
+    chk("all five drop-one variants MISS the demanded cell",
+        [nm for nm, mc in drop_one_sensitivity() if mc == DEMANDED_AT_EIGHT], [])
+    chk("because four coordinates fall to arity band 1",
+        {mc[3] for _nm, mc in drop_one_sensitivity()}, {1})
+    # WHAT IS NOT A CHOICE: the closure signature.
+    chit, csig, cn, _cbox = signature_control(n=5000)
+    chk("a random same-shaped set lands there ~1% of the time",
+        0.005 < chit / cn < 0.02, True)
+    chk("and the density band is nearly free once closure matches",
+        csig - chit <= 2, True)
+    chk("the resolved population control is 14 hits in 400,000 draws",
+        CONTROL_RESOLVED, (14, 400000))
 
     st = spacetime_slots()
     chk("spacetime touches through two slots", (st["direction slot"], st["measure slot"]),

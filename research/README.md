@@ -8484,14 +8484,17 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   enters as `C`, `Sc`, `Oc`** — the only structure every index shares, which is why it is vital rather
   than an appendage.
 
-  | index | cells | arity | box | density | closes |
-  |---|---|---|---|---|---|
-  | energy-condition family | 18 | 6 | 576 | 3.1 % | statistics |
-  | exotic mechanisms | 8 | 6 | 540 | 1.5 % | statistics |
-  | periodic layout 2-D | 90 | 2 | 126 | 71.4 % | information, statistics |
-  | periodic layout 3-D | 80 | 3 | 378 | 21.2 % | **nothing** |
-  | Janet `(n+ℓ, ℓ)` | 19 | 2 | 32 | 59.4 % | all five |
-  | the languages | 5 | 5 | 48 | 10.4 % | **nothing** |
+  | index | cells | arity | box | density | closes | master cell |
+  |---|---|---|---|---|---|---|
+  | energy-condition family | 18 | 6 | 576 | 3.1 % | statistics | (1,1,0,2,0) |
+  | exotic mechanisms | 8 | 6 | 540 | 1.5 % | statistics | (1,1,0,2,0) |
+  | periodic layout 2-D | 90 | 2 | 126 | 71.4 % | information, statistics | (2,1,0,0,3) |
+  | periodic layout 3-D | 80 | 3 | 378 | 21.2 % | **nothing** | (0,0,0,1,1) |
+  | Janet `(n+ℓ, ℓ)` | 19 | 2 | 32 | 59.4 % | all five | (5,1,1,0,2) |
+  | the languages | 5 | 5 | 48 | 10.4 % | **nothing** | (0,0,0,2,1) |
+  | substances (Hawking–Ellis) | 8 | 4 | 24 | 33.3 % | **nothing** | (0,0,0,1,2) |
+  | spacetimes (Petrov) | 8 | 4 | 80 | 10.0 % | statistics | (1,1,0,1,1) |
+  | **bounds** | **7** | **5** | **72** | **9.7 %** | **statistics** | **(1,1,0,2,1)** |
 
   **Five candidates were adjudicated against `necindex`'s bar — a family of named members sharing one
   declared form over ordinal slots — and none is an index.** Two are coordinates, three are quantities,
@@ -8520,6 +8523,12 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   and the exotic mechanisms occupy the same master cell** — same channel set, arity band and density
   band. *At this level they are one object, while sharing no cell at all.*
 
+  **It closed at six, demanded at eight, and closes again at nine.** Seating the substance and Petrov
+  indexes took it from E = 0 to **E = 1** — it stopped closing and began *demanding*, which is the
+  mechanism firing: a demand needs its values borne first, so a sparse master index cannot demand at
+  all. Seating the bounds index took it back to **E = 0**. Nine indexes, eight distinct master cells,
+  nothing further demanded. See *the demand and the index that filled it*, below.
+
   **The one meet between "independent" indexes is spurious, and finding that is the point.** Of the
   equal-arity pairs, `periodic layout 2-D` and `Janet` share **nine tuples** — but `(period, group)` and
   `(n+ℓ, ℓ)` are different coordinate systems that happen to be pairs of small integers. The true
@@ -8541,14 +8550,161 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   **70 species with ≥2 witnessed channels, and their channel sets vary** (all five: 60; `{geometry,
   statistics}`: 4; `{information, statistics}`: 4; `{statistics}` alone: 2).
 
-  Seating them takes the master index from **6 indexes / 5 distinct cells to 76 / 8**, density 2.6 % →
-  4.2 % — **and it still closes under `statistics`**, against a control where random 8-cell sets in the
-  same box close **0.90 %** of the time over 2,000 draws (p < 0.009). **A correction goes with it:** an
-  earlier pass ran that control at 200 draws, read 0 %, and concluded closure *dies* as the master
-  index populates. The true rate is under one per cent, which 200 draws cannot resolve — **the control
-  was wrong, not just the conclusion.** Population is not destroying closure. **Demanded master cells:
-  0 so far** — and a demand needs its values *borne* first, so a sparse master index cannot demand at
-  all. That is the mechanism, and it is why population is what would unlock a prediction.
+  Seating them takes the master index to **79 indexes over 11 distinct cells**, box 192, density 5.7 %
+  — **and it still closes under `statistics`** with nothing demanded.
+
+  **And the same control failed the same way twice, which is worth more than the number it produced.**
+  An early pass ran it at **200 draws**, read 0 %, and concluded closure *dies* as the master index
+  populates: the true rate at that box was 0.90 %, and **the control was wrong, not just the conclusion
+  drawn from it.** Seating the bounds index widened the populated box from 132 cells to 192, and at
+  **2,000 draws the control read zero again** — the identical reading, now on a rarer event. Resolved
+  at 400,000 draws it is **14 hits, 3.5 × 10⁻⁵** — about one in twenty-eight thousand. *A zero is an upper bound,
+  never a rate*, and the draw count that resolves a control is a property of the box, not a constant
+  you can carry forward.
+
+- **`bounds.py`** — **the bounds index: the right-hand sides, as a family.** Every member of the
+  energy-condition family has a right-hand side, and the `B` slot orders those by how much negativity
+  each licenses. That slot is a **coordinate** of that index. The bounds themselves are a **family**,
+  with their own members and their own slots, and this is it — **eight named bounds over five slots,
+  giving seven distinct cells in a box of 72**: what is bounded (`W`: pointwise density / smeared or
+  averaged / entropy), the bound's value (`B`: zero / a negative constant / a state functional),
+  whether the RHS is state-dependent (`S`), whether gravity enters (`G`), and whether it is known
+  saturated (`K`). `B` deliberately **reuses the energy-condition family's own bound ladder** rather
+  than inventing a coding, so the two indexes agree where they overlap.
+
+  | bound | W | B | S | G | K | |
+  |---|---|---|---|---|---|---|
+  | zero (the NEC's RHS) | 0 | 0 | 0 | 0 | 0 | saturated by the vacuum and by EM |
+  | ANEC | 1 | 0 | 0 | 0 | 0 | averaged, RHS zero |
+  | SNEC | 1 | 1 | 0 | 0 | 1 | smeared null |
+  | Ford–Roman QI | 1 | 1 | 0 | 0 | 0 | **Casimir saturates it** |
+  | Fewster–Osterbrink QEI | 1 | 1 | 0 | 0 | 1 | state-independent; shares SNEC's cell |
+  | QNEC | 0 | 2 | 1 | 0 | 1 | entropy variation on the RHS |
+  | Bekenstein | 2 | 1 | 0 | 1 | 0 | saturated by black holes |
+  | Bousso covariant | 2 | 1 | 0 | 1 | 1 | lightsheets |
+
+  Two things it makes visible that the `B` slot alone cannot. **The gravity split:** two of the eight
+  have gravity in them and six do not — the six are statements about quantum field theory on a fixed
+  background, the two about spacetime, and that division is invisible from inside the energy-condition
+  family where every bound is just a value of `B`. The two gravitational bounds are **exactly** the two
+  entropy bounds. **And saturation is a property of the bound, not of the condition:** four of the
+  eight are known saturated — zero by the vacuum and by the electromagnetic field, ANEC by the vacuum
+  along a complete null geodesic, **Ford–Roman by Casimir**, Bekenstein by black holes. That is which
+  walls have already been reached, and it is the difference between a bound that is a *limit* and one
+  that is an *estimate*. It is also the sharpest statement of why the negative-energy census comes out
+  as it does: **Casimir is the Ford–Roman bound saturated, not an exception to it**, which is why no
+  material choice crosses it. *(The count was written as three on the first pass, omitting ANEC; the
+  table was right and the sentence was wrong, and the selftest is what caught it.)*
+
+  One collision: **SNEC and Fewster–Osterbrink occupy the same cell.** `statistics` closes the index
+  (E = 0) and is the only language that does.
+
+### The demand, and the index that filled it
+
+**At eight indexes the master index stopped closing and named exactly one missing cell. The ninth index
+seated occupies it exactly, and the master index closed again.**
+
+The demand was `(C, Sc, Oc, D, R) = (1, 1, 0, 2, 1)` — *closed by one language and that language
+`statistics`, not `order`; five or more coordinates; density between 5 % and 30 %.* Nothing seated
+occupied it, and **none of the 78 indexes reachable once the witnessed spectra are sliced per species
+occupied it either.** It was recorded as falsifiable: an index with those properties either exists and
+has not been seated, or does not exist and the structure is over-reaching.
+
+**The bounds index occupies it exactly** — seven cells, five coordinates, box 72, density 9.7 %, closed
+by `statistics` and nothing else. Seating it takes the master index from **E = 1 back to E = 0**, and
+it demands nothing further. Populated, 79 indexes over 11 distinct cells, still E = 0.
+
+**What that is worth, stated at its true strength and no higher:**
+
+- **It is not a blind prediction.** The demanded cell was measured and printed before the bounds index
+  was written, and whoever wrote it could see it. Nothing here is a sealed envelope, and calling it one
+  would be false.
+- **The arity band is a choice, and it is load-bearing.** Drop any single one of the five slots and the
+  hit fails — all five drop-one variants land elsewhere, because four coordinates put the index in
+  arity band 1 rather than 2. The `D` coordinate of the hit is carried entirely by the decision to seat
+  five slots. That decision is defensible on its own terms — each slot is a property a bound actually
+  has, none is constant across the eight, and the `B` ladder is reused rather than invented — but it is
+  a decision and it could have gone otherwise.
+- **What is not a choice is the closure signature.** `C = 1, Sc = 1, Oc = 0` is measured by running the
+  five operators over the seven cells. Against **20,000 random 7-cell sets drawn from the same 72-cell
+  box, that signature comes out 1.06 % of the time** — and 211 of the 212 that match it also match the
+  density band, so the density band is nearly free once the closure matches and the informative content
+  is the closure. **Given five slots, the landing is not generic.**
+
+**So the claim is this and no more:** the master index named a cell no seated index occupied; an index
+built to answer a different question — *what are the right-hand sides, as a family* — was found to
+occupy it, on a signature a same-shaped random set reproduces about one time in a hundred; and its
+arrival returned the master index to closure. Whether the demand *caused* anyone to look at the bounds
+cannot be established from inside the measurement, and it is not claimed.
+
+### The arity repair's blast radius, closed
+
+**Seating the arity coordinate took the energy-condition family from five coordinates to six and
+from 17 cells to 18. Sixteen instruments were measuring against the old shape and were not swept at
+the time.** Four crashed outright; twelve reported five-coordinate figures against a six-coordinate
+index. Every one is now re-measured, and the sweep runs clean. Recorded here because a stale pin that
+still passes is worse than one that fails, and three of these did not fail — they were caught only by
+running everything.
+
+**The mechanism, and it is one fault repeated.** Four files carried the box as a hardcoded literal
+`(4, 3, 4, 2, 3)` and so did not follow the index when it grew; nine sliced a family row as `r[1:6]`
+and silently dropped the new coordinate. Both are now **derived from the index rather than copied** —
+`SIZES = tuple(len(necindex.VALUE_ORDER[c]) for c in necindex.COORDS)` — which is the tree's own rule
+that *an instrument imports a seated member and never copies one*, applied where it had not been.
+
+**Three findings retract, and none of them quietly.**
+
+- **The licensed family's one-line definition is two lines.** The derived closure was *a bound below
+  zero is permitted exactly when the regime is quantum* — 192 cells of 288. At six coordinates that
+  clause alone over-generates: the closure is **256 of 576**, and it is that rule **and** *a bilinear
+  condition is permitted exactly over an ordered causal pair*. **The second clause is the arity/causal
+  coupling the DEC repair established from the other end, reached here by five closure operators that
+  were told nothing about causal cones.** Two independent derivations of one coupling, neither built
+  from the other. The same missing conjunct made the *corrected* family (with the published eq. (86)
+  seated) stop equalling its own closure — 480 posited against 320 derived — and restoring it makes
+  them coincide exactly again.
+- **The NEC is no longer singular.** The licensed pass reported that each named condition generates
+  one to four cells alone and that **the NEC alone** closes to itself, read as a structural version of
+  Barceló–Visser's *it is the weakest one*. At six coordinates **all nineteen** close to themselves.
+  One more coordinate leaves every single cell too little to interpolate from; the distinction was a
+  property of the box. **Withdrawn.**
+- **No sampled transition is invisible to all five languages.** Exactly one of 300 nested pairs was,
+  and that lone case was the only witness that a transition can be invisible to the whole hierarchy at
+  once. Now none is. **Withdrawn on this sample** — 300 pairs cannot show no such position exists,
+  only that none was drawn.
+
+**And one is the file's own thesis firing live.** The algebra closure budget of 200 was enough at 192
+cells and is not at 256, so `algebra` now goes **SILENT** where it used to speak — the same
+mathematics, a parameter that became inadequate because the box grew. That is precisely what that
+instrument exists to say.
+
+**Everything else moved and nothing else changed shape.** Across the canonical transition, order,
+algebra and geometry still give *identical* answers at both ends and information and statistics still
+differ; the closure is still superadditive, and more so (48 + 24 against 256, so **184 cells are owed
+to the coexistence** rather than 96); the ladder still collapses in one expansion, there is still no
+attractor, and exactly one operator pair still fails to commute.
+
+### Two filename collisions, and two instruments recovered
+
+**Found while closing the sweep, and unrelated to the arity work: two files were overwritten by
+unrelated files of the same name, and their dependents were never swept.** Four instruments crashed
+on APIs that no longer existed.
+
+- **`transit.py`** held *travel > turn > seat* — the three-part gated structure with both endpoints
+  declared at onset. It was replaced by an unrelated file of the same name (*transit without
+  traversal*, the teleportation bound), which dropped `Conditions` and `part2`. Three instruments
+  called them. Recovered verbatim from git as **`turnseat.py`**; it runs and its selftest passes.
+- **`corridor.py`** held *the two readings of a vacuum corridor*, compared. It was replaced by *the
+  parity theorem is the relation between the two mouths*, dropping `casimir_seat_crossing`. Recovered
+  as **`vacuumcorridor.py`**.
+
+A third instance of the same fault needed no recovery: `currency.py` defined `ONE_STATEMENT` and a
+later rewrite of that file's whole subject dropped it, leaving three files citing a constant that was
+gone. The statement's home is where it was corrected, and the pin now checks it there.
+
+**The fault is one thing in three places: a file's whole subject was replaced under its own name, and
+nothing swept its dependents.** The tree already names it — *a file's DEPENDENTS are not swept* — and
+committed it on its own example.
 
 ### Deferred proposal — transport in nine gates
 

@@ -226,8 +226,8 @@ def selftest():
 
     # -------------------------------------------- 1. the ladder is partial
     chk("smallest is statistics", names[0], "statistics")
-    chk("and it admits 17", len(a["statistics"]), 17)
-    chk("largest admit 192", sorted({len(a[n]) for n in names})[-1], 192)
+    chk("and it admits 18", len(a["statistics"]), 18)
+    chk("largest admit 256", sorted({len(a[n]) for n in names})[-1], 256)
     ch = inclusion_chain()
     chk("three of four consecutive links nest",
         sum(1 for _, _, ok in ch if ok), 3)
@@ -241,8 +241,8 @@ def selftest():
         [("geometry", "information")])
     chk("geometry holds 10 information lacks",
         len(a["geometry"] - a["information"]), 10)
-    chk("information holds 137 geometry lacks",
-        len(a["information"] - a["geometry"]), 137)
+    chk("information holds 188 geometry lacks",
+        len(a["information"] - a["geometry"]), 188)
     chk("recorded as partial", LADDER_IS_PARTIAL, True)
     # NEGATIVE CONTROL: it is not a flat antichain either -- most pairs DO nest
     chk("so it is neither a total order nor an antichain",

@@ -71,23 +71,38 @@ ladder climbs.  IT WAS MEASURING A RE-COORDINATED INDEX -- see H97 -- and the
 extra rounds were the coordinate system moving, not the closure.  Pinned, over
 the same 40 random seeds of 1 to 24 cells:
 
-        zero expansions   1 seed  (already closed)
-        ONE              38 seeds
-        two               1 seed
+        zero expansions   3 seeds  (already closed)
+        ONE              35 seeds
+        two               2 seeds
 
-    THE HIERARCHY COLLAPSES.  Thirty-eight of forty in a single expansion, none
-    past two.  M'S CLAUSE WAS RIGHT AND THE FIRST MEASUREMENT SAID OTHERWISE.
+    THE HIERARCHY COLLAPSES.  Thirty-eight of forty in a single expansion or
+    none, NONE PAST TWO.  M'S CLAUSE WAS RIGHT AND THE FIRST MEASUREMENT SAID
+    OTHERWISE.
 
-WHAT DOES NOT HOLD IS "COLLAPSE TO ONE PLACE".  Those 40 seeds reached 34
-DISTINCT fixed points, from 2 cells to the full 288.  There is a rich lattice of
-closed families, not an attractor.
+WHAT DOES NOT HOLD IS "COLLAPSE TO ONE PLACE".  Those 40 seeds reached 35
+DISTINCT fixed points, from a SINGLE CELL to the full 576.  There is a rich
+lattice of closed families, not an attractor.  (A one-cell family closed under
+all five is a fixed point the five-coordinate box did not have: a single cell
+has nothing to be non-constant against.)
+
+    THESE SIX FIGURES MOVED WHEN THE ARITY COORDINATE WAS SEATED, AND NONE OF
+    THEM MOVED A CONCLUSION.  This module's box was written as the literal
+    (4, 3, 4, 2, 3) and did not follow the energy-condition family from five
+    coordinates to six -- so every seed drawn from it was a 5-tuple against a
+    6-coordinate index, and selfindex.py died outright with "cell (0, 2, 2, 0, 1)
+    has 5 values, expected 6".  The box is now DERIVED from necindex rather than
+    copied.  Re-measured on the corrected 576-cell box: 39 -> 38 settle in one
+    expansion or none, 34 -> 35 distinct fixed points, the smallest 2 -> 1, the
+    largest 288 -> 576, and the one non-commuting pair disagrees on 8 of 16
+    seeds rather than 9.  The ladder still collapses, there is still no
+    attractor, and exactly one pair still fails to commute.
 
     THE HONEST FORM: IT COLLAPSES IN ONE STEP, AND WHERE IT LANDS DEPENDS
     ENTIRELY ON WHERE IT STARTED.  Fast, and not convergent.
 
 AND THE LOOP HAS EXACTLY ONE DIRECTED EDGE.  Nine of the ten operator pairs
 COMMUTE -- op_A(op_B(X)) = op_B(op_A(X)) on every seed tested.  ONE DOES NOT:
-information and statistics disagree on 9 of 16 seeds.  So the order of
+information and statistics disagree on 8 of 16 seeds.  So the order of
 application is free everywhere except across that single pair, which is the only
 place in the hierarchy where "which language first" changes the answer.
 
@@ -132,7 +147,12 @@ import necindex
 
 cypher = necindex.cypher
 OPTS = {"statistics_order": 2, "algebra_budget": 200000}
-SIZES = (4, 3, 4, 2, 3)
+# DERIVED, NEVER COPIED. This read (4, 3, 4, 2, 3) as a literal and went stale
+# the moment the arity coordinate A was seated on the energy-condition family:
+# every seed drawn from box() was then a 5-tuple against a 6-coordinate index,
+# and selfindex.py died with "cell (0, 2, 2, 0, 1) has 5 values, expected 6".
+# A copied figure is a figure that can drift; an imported one cannot.
+SIZES = tuple(len(necindex.VALUE_ORDER[c]) for c in necindex.COORDS)
 
 # M's proposed roster, recorded as data and NOT seated.  Docket 20x-04/20x-09.
 CANDIDATE_ROSTER_M = ["binary", "order", "algebra", "geometry", "statistics",
@@ -282,8 +302,8 @@ def report():
     print("  Binary is the admission criterion, not the first rung -- it is what")
     print("  the list is made of.  Every language is a self-map on it, so there")
     print("  is nowhere to climb to.  Each language collapses, AND SO DOES THE")
-    print("  LADDER: 38 of 40 seeds in a single expansion, none past two.  All")
-    print("  three clauses hold.  What does not is 'collapse to one place': 34")
+    print("  LADDER: 38 of 40 seeds in one expansion or none, none past two. All")
+    print("  three clauses hold.  What does not is 'collapse to one place': 35")
     print("  distinct terminals from 40 seeds.  Fast, and not convergent.")
     print("  Nine of ten operator pairs commute; information and statistics")
     print("  do not -- the loop's one directed edge.")
@@ -340,14 +360,14 @@ def selftest():
     # CORRECTED at H97: the first measurement ran on a re-coordinated index
     # and reported up to four expansions.  Pinned, the ladder collapses too.
     chk("seeds settling in one expansion or none",
-        sum(1 for r in rounds if r <= 1), 39)
+        sum(1 for r in rounds if r <= 1), 38)
     chk("the most any seed needed", max(rounds), 2)
     chk("so the ladder collapses as well", max(rounds) <= 2, True)
     chk("recorded, superseding the first reading", THE_LADDER_DOES_NOT, False)
     # and it does not collapse to a single terminus either
-    chk("distinct fixed points from 40 seeds", len(set(fixed)), 34)
-    chk("ranging up to the whole box", max(fixed), 288)
-    chk("and down to two cells", min(fixed), 2)
+    chk("distinct fixed points from 40 seeds", len(set(fixed)), 35)
+    chk("ranging up to the whole box", max(fixed), 576)
+    chk("and down to a single cell", min(fixed), 1)
     chk("so there is no single attractor", len(set(fixed)) > 1, True)
     # the named family is typical, not special -- the honest control
     nr, _ = joint_rounds(necindex.cells())
@@ -384,7 +404,7 @@ def selftest():
         sum(1 for v in nc.values() if v == 0), 9)
     chk("and the one that does not",
         sorted(k for k, v in nc.items() if v), [("information", "statistics")])
-    chk("it disagrees on 9 of 16 seeds", nc[("information", "statistics")], 9)
+    chk("it disagrees on 8 of 16 seeds", nc[("information", "statistics")], 8)
     # NEGATIVE CONTROL: commutation is a real test, not vacuously true -- one
     # pair genuinely fails it.
     chk("so commutation is not vacuous", max(nc.values()) > 0, True)

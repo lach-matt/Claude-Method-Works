@@ -54,14 +54,20 @@ state as WHATEVER THE OBJECT IS INVARIANT TO -- which makes it measurable rather
 than definitional.  Removing each cell in turn and asking whether geometry
 notices:
 
-        order          moved by  5 of 17    invariant to 12
-        algebra        moved by  5 of 17    invariant to 12
-        GEOMETRY       moved by  7 of 17    INVARIANT TO 10
-        information    moved by 11 of 17    invariant to  6
-        statistics     moved by 12 of 17    invariant to  5
+        order          moved by  6 of 18    invariant to 12
+        algebra        moved by  6 of 18    invariant to 12
+        GEOMETRY       moved by  8 of 18    INVARIANT TO 10
+        information    moved by 12 of 18    invariant to  6
+        statistics     moved by 13 of 18    invariant to  5
 
-TEN OF SEVENTEEN CELLS CAN BE REMOVED AND GEOMETRY DOES NOT NOTICE.  Seven are
+TEN OF EIGHTEEN CELLS CAN BE REMOVED AND GEOMETRY DOES NOT NOTICE.  Eight are
 its extreme points.  SO THE EQUATION HOLDS, ONE CELL AT A TIME.
+
+    (Re-measured after the arity coordinate was seated, which split the cell
+    that had carried both DEC and the causal-quadratic condition: the family
+    went from 17 cells to 18.  Every language's invariant count is unchanged
+    and every moved count rose by exactly one, so the profile is the same
+    shape one cell wider -- the new cell is an extreme point of the hull.)
 
 ===============================================================================
 3. AND FAILS AS A SET, WHICH IS THE FINDING
@@ -74,8 +80,8 @@ BUT ONCE ENOUGH ARE GONE, POINTS THAT WERE INTERIOR BECOME EXTREME.  The set of
 removable cells is not simultaneously removable.
 
     AND THE DECOMPOSITION IS NOT UNIQUE, WHICH IS WORSE THAN IT FAILING.
-    Stripping greedily while geometry holds removes 8 cells and leaves 9.  Over
-    six random removal orders the strip size is 6, 7 OR 8.
+    Stripping greedily while geometry holds removes 8 cells and leaves 10.
+    Over six random removal orders the strip size is 7 OR 8.
 
         THERE IS NO CANONICAL STATE TO SUBTRACT.  Different orders of removal
         leave different objects of different sizes, and nothing in the operator
@@ -268,14 +274,14 @@ def selftest():
 
     # ------------------------------------------- 2. the equation, per cell
     moved, tot = removal_sensitivity()
-    chk("cells in the family", tot, 17)
-    chk("geometry is moved by 7 removals", moved["geometry"], 7)
+    chk("cells in the family", tot, 18)
+    chk("geometry is moved by 8 removals", moved["geometry"], 8)
     rem = individually_removable()
     chk("so 10 are individually removable", len(rem), 10)
     chk("recorded", EQUATION_HOLDS_PER_CELL, True)
     # NEGATIVE CONTROL: not every cell is removable, so the invariance is a
     # property of those ten and not of removal in general.
-    chk("and 7 are not", tot - len(rem), 7)
+    chk("and 8 are not", tot - len(rem), 8)
 
     # ------------------------------------------- 3. and fails as a set
     X = set(necindex.cells())
@@ -284,14 +290,14 @@ def selftest():
     chk("recorded", EQUATION_FAILS_AS_A_SET, True)
     s, k, kept = strip()
     chk("greedy strips 8", s, 8)
-    chk("leaving 9", k, 9)
+    chk("leaving 10", k, 10)
     # the first draft of this line compared geom(X) to geom(X) -- a call against
     # itself, which is true of anything.  It must compare AFTER the strip to
     # BEFORE, on genuinely different cell sets.
     chk("the strip really removed cells", len(kept) < len(X), True)
     chk("and geometry is unchanged on the SURVIVORS", geom(kept), geom(X))
     sizes = strip_sizes()
-    chk("strip sizes over six random orders", sizes, [6, 7, 8])
+    chk("strip sizes over six random orders", sizes, [7, 8])
     chk("so the decomposition is NOT unique", len(sizes) > 1, True)
     chk("recorded", DECOMPOSITION_IS_NOT_UNIQUE, True)
 

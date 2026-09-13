@@ -26,8 +26,13 @@ EXHAUSTIBLE IN A SECOND.  Run exhaustively:
         MAXIMUM SIZE 8, AND EXACTLY ONE SET ACHIEVES IT
 
     THE CANONICAL DECOMPOSITION EXISTS: a unique maximum removal of 8 cells,
-    leaving 9.  "Not unique" was reporting the search's dead ends, not the
+    leaving 10.  "Not unique" was reporting the search's dead ends, not the
     structure's.
+
+    (Re-measured after the arity coordinate was seated, which split the cell
+    that had carried both DEC and the causal-quadratic condition and took the
+    family from 17 cells to 18.  The maximum removal is still 8 and still
+    unique; what moved is the remainder, 9 -> 10, and the walk statistics.)
 
 FOURTH TIME THIS SESSION A PROPERTY OF THE METHOD WAS READ AS A PROPERTY OF THE
 OBJECT.  H97 was the coordinate re-ranking, H100 the algebra budget, H102 the
@@ -43,11 +48,11 @@ facets are maximal but NOT maximum -- two strand two cells short, three strand
 one short.  They are positions reachable by valid removals from which no further
 removal is possible, and which are not the answer.
 
-        200 random greedy walks:   70 reach the maximum
-                                   98 strand at 7
-                                   32 strand at 6
+        200 random greedy walks:   83 reach the maximum
+                                   83 strand at 7
+                                   34 strand at 6
 
-    ONLY 35 PER CENT OF WALKS REACH THE CANONICAL DECOMPOSITION.  Sixty-five per
+    ONLY 42 PER CENT OF WALKS REACH THE CANONICAL DECOMPOSITION.  Fifty-eight per
     cent arrive at a position that cannot accept the next step.  M's phrase is
     not a metaphor for this; it is a description of it.
 
@@ -192,7 +197,7 @@ def walk(seed):
 
 def named(cell):
     for r in necindex.FAMILY:
-        if tuple(r[1:6]) == cell:
+        if tuple(r[1:7]) == cell:
             yield r[0]
 
 
@@ -247,7 +252,7 @@ def report():
     print("=" * 79)
     print()
     print("  The canonical decomposition exists -- a unique maximum of 8,")
-    print("  leaving 9.  decompose.py's 'not unique' was greedy stranding, and")
+    print("  leaving 10. decompose.py's 'not unique' was greedy stranding, and")
     print("  only 35%% of walks reach the answer.  Acceptance is covering:")
     print("  three mutually exclusive pairs, a vertex cover of size two.  And")
     print("  the two irreducible conditions are the QEI and BV-effective-ANEC")
@@ -283,7 +288,7 @@ def selftest():
     m, top = maximum()
     chk("maximum removable size", m, 8)
     chk("and EXACTLY ONE set achieves it", len(top), 1)
-    chk("leaving this many cells", len(X) - m, 9)
+    chk("leaving this many cells", len(X) - m, 10)
     chk("recorded: the decomposition is canonical",
         DECOMPOSITION_IS_CANONICAL, True)
     chk("so H105c is withdrawn", H105C_WITHDRAWN, True)
@@ -295,8 +300,8 @@ def selftest():
     chk("facets short of the maximum", sum(1 for s in fac if len(s) < m), 5)
     from collections import Counter
     c = Counter(walk(s) for s in range(200))
-    chk("walks reaching the maximum", c[m], 70)
-    chk("walks stranded", 200 - c[m], 130)
+    chk("walks reaching the maximum", c[m], 83)
+    chk("walks stranded", 200 - c[m], 117)
     chk("so most walks do NOT reach it", c[m] < 100, True)
     chk("recorded", DEAD_ENDS_ARE_REAL, True)
     # NEGATIVE CONTROL: some walks DO reach it, so stranding is a property of

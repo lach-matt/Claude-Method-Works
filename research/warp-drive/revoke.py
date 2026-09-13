@@ -84,8 +84,8 @@ coupled scalar over a causal geodesic with a smearing function f:
 
 and their own comment on it: "ALTHOUGH THE LOWER BOUND MAY BE NEGATIVE ...".
 CLASSICAL.  SMEARED.  NEGATIVE RIGHT-HAND SIDE.  NO h-bar.  As a cell that is
-(matter T, causal, smeared, CLASSICAL, negative bound) -- AND THE 192-CELL
-LICENSED FAMILY EXCLUDES IT.
+(matter T, causal, smeared, CLASSICAL, negative bound, quadratic) -- AND THE
+256-CELL LICENSED FAMILY EXCLUDES IT.
 
     THE FAMILY THAT CLOSED EVERY LANGUAGE EXCLUDES A PUBLISHED ENERGY CONDITION.
 
@@ -93,14 +93,26 @@ LICENSED FAMILY EXCLUDES IT.
 3. THE CORRECTED FAMILY, AND IT STILL CLOSES
 ===============================================================================
 
-Add that one published cell to the 192 and the closure DETONATES: E goes from
-(0, 0, 0, 0, 0) to (47, 47, 47, 23, 47) in one cell.  Close it again and it
-settles at 240 -- and the 240 has a one-line definition too:
+Add that one published cell to the 256 and the closure DETONATES: E goes from
+(0, 0, 0, 0, 0) to (63, 63, 63, 35, 63) in one cell.  Close it again and it
+settles at 320 -- and the 320 has a definition too, in the same two-clause shape
+the licensed family turned out to have:
 
-    THE 240 IS EXACTLY  NOT (CLASSICAL AND STATE-DEPENDENT BOUND).
+    THE 320 IS EXACTLY  NOT (CLASSICAL AND STATE-DEPENDENT BOUND),
+                        AND (QUADRATIC OR OVER A CAUSAL PAIR).
 
-Every one of the 48 cells it excludes has Q = 0 and B = 2, and nothing else is
-excluded.  In words, and it is modest where the old law was striking:
+    RE-MEASURED AT SIX COORDINATES, AND THE SECOND CONJUNCT IS NEW.  This file
+    was written on the five-coordinate box, where the first clause alone was the
+    whole correction: 240 cells, 48 excluded, all of them Q = 0 with B = 2.  At
+    six coordinates that rule alone posits 480 cells while the closure reaches
+    320, and A CORRECTION THAT DOES NOT EQUAL ITS OWN CLOSURE IS NOT A
+    CORRECTION.  Restoring the arity clause makes them coincide exactly, as they
+    did before.  The first clause is untouched; what changed is that it was
+    never the whole rule, and the five-coordinate box could not show that.
+
+Of the 256 cells excluded, 96 are classical with a state-dependent bound, 192
+are bilinear off the causal cone, 32 are both, and nothing else is excluded.
+In words, and it is modest where the old law was striking:
 
     A STATE-DEPENDENT BOUND REQUIRES A QUANTUM STATE.
 
@@ -108,7 +120,7 @@ Which is nearly a tautology -- an entropy variation is an entanglement entropy's
 second variation, and a classical field configuration has none.  A NEGATIVE
 STATE-INDEPENDENT BOUND REQUIRES NOTHING OF THE KIND, and eq. (86) is the proof.
 
-The 240 closes all five operator-bearing languages at E = 0, contains all
+The 320 closes all five operator-bearing languages at E = 0, contains all
 eighteen named conditions, and contains eq. (86).  IT IS THE FAMILY licensed.py
 SHOULD HAVE FOUND.
 
@@ -116,8 +128,8 @@ SHOULD HAVE FOUND.
 4. AND THE META-FINDING IS THE ONE THAT MATTERS
 ===============================================================================
 
-Both families close.  The 192 closes at E = 0 in all five languages, and it is
-WRONG.  The 240 closes at E = 0 in all five languages, and it is right.  THE
+Both families close.  The 256 closes at E = 0 in all five languages, and it is
+WRONG.  The 320 closes at E = 0 in all five languages, and it is right.  THE
 CYPHER CERTIFIED THE WRONG ONE EXACTLY AS CLEANLY AS IT CERTIFIES THE RIGHT ONE,
 because the eighteen named conditions do not distinguish the two rules: every
 named condition with a negative bound happens to be BOTH quantum AND
@@ -157,11 +169,13 @@ import necindex
 
 cypher = necindex.cypher
 OPTS = {"statistics_order": 2, "algebra_budget": 200000}
-SIZES = (4, 3, 4, 2, 3)
+# DERIVED, NEVER COPIED -- see the same note in alpha.py and licensed.py.
+SIZES = tuple(len(necindex.VALUE_ORDER[c]) for c in necindex.COORDS)
 
 # Kontou & Sanders eq. (86): the classical, smeared, negative-bound condition.
 # (matter T, causal vector, smeared, CLASSICAL, negative state-independent bound)
-EQ86 = (0, 1, 1, 0, 1)
+# A = 0: eq. (86) is a quadratic condition, T_mn v^m v^n, not a bilinear one.
+EQ86 = (0, 1, 1, 0, 1, 0)
 
 FOUR_CLAIMS_REFUTED = 4
 ALL_REFUTED_AT_HIGH_CONFIDENCE = True
@@ -177,8 +191,17 @@ def box():
 
 
 def corrected():
-    """NOT (classical AND state-dependent bound)."""
-    return {c for c in box() if not (c[3] == 0 and c[4] == 2)}
+    """NOT (classical AND state-dependent bound), AND the arity clause.
+
+    The second conjunct -- a bilinear condition only over an ordered causal
+    pair -- was not here when this file was written on the five-coordinate box,
+    because there was no arity coordinate to carry it. Without it the rule
+    posits 480 cells while the closure of the 256 plus eq. (86) reaches 320,
+    and a correction that does not equal its own closure is not a correction.
+    With it the two coincide again, exactly, as they did at five coordinates.
+    """
+    return {c for c in box()
+            if not (c[3] == 0 and c[4] == 2) and (c[5] == 0 or c[1] == 2)}
 
 
 def E_per_language(cs):
@@ -231,7 +254,7 @@ def report():
                               len(C - L)))
     print()
     print("  why the index could not tell the two rules apart")
-    named = [tuple(r[1:6]) for r in necindex.FAMILY]
+    named = [tuple(r[1:7]) for r in necindex.FAMILY]
     both = [c for c in named if c[4] > 0]
     print("      %-46s %d" % ("named conditions with a negative bound",
                               len(both)))
@@ -284,14 +307,20 @@ def selftest():
     e1 = E_per_language(L | {EQ86})
     chk("adding one published cell breaks every language",
         all(v > 0 for v in e1.values()), True)
-    chk("order goes to 47", e1["order"], 47)
-    chk("information to 23", e1["information"], 23)
-    chk("and closing it lands at 240", len(joint_closure(L | {EQ86})), 240)
+    chk("order goes to 63", e1["order"], 63)
+    chk("information to 35", e1["information"], 35)
+    chk("and closing it lands at 320", len(joint_closure(L | {EQ86})), 320)
 
     # ------------------------------------------------- the corrected family
-    chk("the corrected family", len(C), 240)
-    chk("it is exactly NOT(classical AND state-dependent)",
-        C == {c for c in box() if not (c[3] == 0 and c[4] == 2)}, True)
+    chk("the corrected family", len(C), 320)
+    # AT SIX COORDINATES THAT RULE ALONE IS NOT THE CORRECTION. It posits 480
+    # cells while the closure reaches 320, and a correction that does not equal
+    # its own closure is not one. The arity clause is the missing conjunct.
+    chk("NOT(classical AND state-dependent) alone over-generates",
+        len({c for c in box() if not (c[3] == 0 and c[4] == 2)}), 480)
+    chk("it is that rule AND the arity clause",
+        C == {c for c in box()
+              if not (c[3] == 0 and c[4] == 2) and (c[5] == 0 or c[1] == 2)}, True)
     chk("and equals the closure of 192 + eq. (86)",
         C == joint_closure(L | {EQ86}), True)
     chk("it closes every language at zero",
@@ -299,14 +328,24 @@ def selftest():
     chk("contains all eighteen named conditions",
         set(necindex.cells()) <= C, True)
     chk("contains eq. (86)", EQ86 in C, True)
-    chk("excluded cells", len(box() - C), 48)
-    chk("every one classical with a state-dependent bound",
-        all(c[3] == 0 and c[4] == 2 for c in box() - C), True)
-    chk("published cells the 192 wrongly excluded", len(C - L), 48)
-    chk("and the 192 is a subset of the correction", len(L - C), 0)
+    chk("excluded cells", len(box() - C), 256)
+    # TWO exclusion reasons now, one per conjunct, overlapping in 32 cells.
+    _m = box() - C
+    chk("classical with a state-dependent bound",
+        len({c for c in _m if c[3] == 0 and c[4] == 2}), 96)
+    chk("bilinear off the causal cone",
+        len({c for c in _m if not (c[5] == 0 or c[1] == 2)}), 192)
+    chk("excluded for both at once",
+        len({c for c in _m if c[3] == 0 and c[4] == 2
+             and not (c[5] == 0 or c[1] == 2)}), 32)
+    chk("and nothing else is excluded",
+        ({c for c in _m if c[3] == 0 and c[4] == 2}
+         | {c for c in _m if not (c[5] == 0 or c[1] == 2)}) == _m, True)
+    chk("published cells the 256 wrongly excluded", len(C - L), 64)
+    chk("and the 256 is a subset of the correction", len(L - C), 0)
 
     # ---------------------------------- why the index could not tell them apart
-    named = [tuple(r[1:6]) for r in necindex.FAMILY]
+    named = [tuple(r[1:7]) for r in necindex.FAMILY]
     neg = [c for c in named if c[4] > 0]
     chk("named conditions carrying a negative bound", len(neg), 4)
     chk("every one of them is quantum", all(c[3] == 1 for c in neg), True)
@@ -324,7 +363,7 @@ def selftest():
         all(old(c) == new(c) for c in named), True)
     # NEGATIVE CONTROL: they DISagree on the box, so they are genuinely different
     chk("but disagree on the ambient box",
-        sum(1 for c in box() if old(c) != new(c)), 96)
+        sum(1 for c in box() if old(c) != new(c)), 192)
     chk("recorded", CLOSURE_IS_NOT_A_CORRECTNESS_CRITERION, True)
 
     # ------------------------------------------------------- the provenance

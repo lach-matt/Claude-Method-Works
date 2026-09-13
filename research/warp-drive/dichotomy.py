@@ -276,9 +276,21 @@ def selftest():
         old_statement_has_a_counterexample(), True)
     print("      was: %s" % ONE_STATEMENT_WAS)
     print("      is:  %s" % ONE_STATEMENT_IS)
+    # THE CITATION WAS TO A CONSTANT THAT NO LONGER EXISTS, and this pin crashed
+    # on it. currency.py DID define ONE_STATEMENT at the entropy-denomination
+    # version (35091ce); the modified-gravity rewrite (59c77c9) replaced that
+    # file's whole subject and dropped the constant WITHOUT SWEEPING THE THREE
+    # FILES THAT CITE IT -- which is exactly the fault reversal.py names, "a
+    # file's DEPENDENTS are not swept", committed on reversal.py's own example.
+    # Re-seating an unrelated constant in currency.py to make a pin pass would
+    # be the wrong repair; the statement's home is HERE. Pinned where it lives.
     import currency
-    chk("and currency.py now carries the hypothesis",
-        "RICCI" in currency.ONE_STATEMENT.upper(), True)
+    chk("currency.py no longer carries it -- its subject changed",
+        hasattr(currency, "ONE_STATEMENT"), False)
+    chk("and the corrected hypothesis is Ricci-narrowed where it lives",
+        "RICCI" in ONE_STATEMENT_IS.upper(), True)
+    chk("while the retired wording was not",
+        "RICCI" in ONE_STATEMENT_WAS.upper(), False)
 
     print("\n  SELFTEST " + ("OK" if ok else "FAILED"))
     return ok

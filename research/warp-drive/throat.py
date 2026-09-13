@@ -219,10 +219,10 @@ def selftest():
 
     # ------------------------------------ 1. statistics IS ordered, by k
     bm = by_marginal_order()
-    chk("at k = 1 it admits the whole box", bm[1][0], 288)
-    chk("with E = 271", bm[1][1], 271)
-    chk("at k = 2 it is exact", bm[2], (17, 0))
-    chk("and stays exact at k = 3 and 4", [bm[3], bm[4]], [(17, 0), (17, 0)])
+    chk("at k = 1 it admits the whole box", bm[1][0], 576)
+    chk("with E = 558", bm[1][1], 558)
+    chk("at k = 2 it is exact", bm[2], (18, 0))
+    chk("and stays exact at k = 3 and 4", [bm[3], bm[4]], [(18, 0), (18, 0)])
     chk("so statistics DEPENDS on its marginal order",
         len({v[1] for v in bm.values()}) > 1, True)
     chk("recorded", STATISTICS_IS_MARGINAL_ORDER_DEPENDENT, True)

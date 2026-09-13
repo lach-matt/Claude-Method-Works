@@ -491,10 +491,10 @@ def selftest():
     chk("T stays faithful off the null slice", t_coordinate_is_faithful(), [])
     # and the seated instance of that is SEC, which is T=3 at V=1 with no
     # T=2 partner -- it is NOT the same condition as WEC.
-    chk("SEC sits at T=3, V=1", [tuple(r[1:6]) for r in FAMILY
-                                 if r[0] == "SEC"], [(3, 1, 0, 0, 0)])
+    chk("SEC sits at T=3, V=1", [tuple(r[1:7]) for r in FAMILY
+                                 if r[0] == "SEC"], [(3, 1, 0, 0, 0, 0)])
     chk("and WEC at T=0, V=1 -- a different tensor, a different condition",
-        [tuple(r[1:6]) for r in FAMILY if r[0] == "WEC"], [(0, 1, 0, 0, 0)])
+        [tuple(r[1:7]) for r in FAMILY if r[0] == "WEC"], [(0, 1, 0, 0, 0, 0)])
 
     # ------------------------------------------- THE IDENTITY, OVER EXACT RATIONALS
     import random

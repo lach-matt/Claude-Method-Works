@@ -221,13 +221,13 @@ def selftest():
     chk("recorded", INDEX_SUPPLIES_THE_ORDER, True)
     # every coordinate gets a code map, so no language ever sees raw values
     ix = necindex.pinned_index(necindex.cells())
-    chk("every coordinate carries a coding", len(ix.code), 5)
+    chk("every coordinate carries a coding", len(ix.code), 6)
     chk("and under the pinned order it is the identity",
         all(m[v] == v for m in ix.code for v in m), True)
 
     # ------------------------------------ 2. measured, not merely definitional
     counts, used = permutation_sweep()
-    chk("non-identity permutations tested", used, 23)
+    chk("non-identity permutations tested", used, 24)
     chk("algebra differs on every one", counts["algebra"], used)
     chk("recorded", ALGEBRA_IS_ORDER_DEPENDENT, True)
     for n in ("order", "geometry", "information"):

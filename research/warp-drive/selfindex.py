@@ -279,13 +279,20 @@ def selftest():
 
     # -------------------------------------- 2. the law is bounded by a parameter
     bb = budget_behaviour()
-    chk("at a large budget algebra speaks", bb[200000][0], 192)
-    chk("at 200 it still speaks", bb[200][0], 192)
+    chk("at a large budget algebra speaks", bb[200000][0], 256)
+    # AND THE THRESHOLD MOVED, WHICH IS THIS SECTION'S OWN POINT FIRING LIVE.
+    # At five coordinates the algebra closure was 192 cells and a budget of 200
+    # was enough -- barely. Seating the arity coordinate took the closure to 256
+    # and the SAME budget now goes silent. Nothing about the mathematics changed;
+    # a parameter that was adequate became inadequate because the box grew.
+    chk("at 200 it now goes SILENT, where at five coordinates it spoke",
+        bb[200][0], None)
+    chk("and says so", "exceeded 200 cells" in bb[200][1], True)
     chk("at 10 it goes SILENT", bb[10][0], None)
     chk("and says so", "exceeded 10 cells" in bb[10][1], True)
     chk("recorded", ENCODABILITY_IS_NOT_DECIDABILITY, True)
     ix_ec = necindex.pinned_index(necindex.cells())
-    chk("the energy-condition box is finite", ix_ec.box, 288)
+    chk("the energy-condition box is finite", ix_ec.box, 576)
 
     # ----------------------------------------- 3. the self-application, run
     chk("roster 1173 languages", len(LANGUAGES), 7)
