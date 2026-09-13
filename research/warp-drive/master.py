@@ -180,7 +180,39 @@ _POP = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 # Asked for, and not seated as indexes anywhere in this tree. Named so the
 # absence is a record rather than an omission.
-NOT_SEATED = ("radiation", "electromagnetic", "magnitude")
+# ADJUDICATED, not merely absent. Five candidates were put to necindex.py's bar
+# -- a family of named members sharing one declared form over ordinal slots --
+# and NONE is an index. Each is recorded at its correct level, with where it
+# already lives, which is more useful than an absence.
+#   name            level        where it already lives
+NOT_SEATED = {
+    "velocity":        ("QUANTITY", "the ARGUMENT the energy-condition family is "
+                        "evaluated at, and the scalar it returns; twelve named "
+                        "velocities over six physical dimensions. The V slot is "
+                        "CAUSAL CHARACTER, not velocity: the form is homogeneous "
+                        "of degree 2 and so blind to |v|, 0 sign changes in 6,000 "
+                        "exact-rational draws against a direction control that "
+                        "flips 633 of 2,000."),
+    "electromagnetic": ("COORDINATE", "the algebraic classification of F_mn by its "
+                        "two invariants -- a well-formed ordinal axis with nothing "
+                        "beside it"),
+    "radiation":       ("COORDINATE", "Hawking-Ellis TYPE II -- one value on the "
+                        "algebraic-type axis of T^mu_nu, already held in the tree"),
+    "magnitude":       ("QUANTITY", "enters the seated indexes in four places, "
+                        "never as a member, always as a bound and always after "
+                        "being ordinalized"),
+    "amplitude":       ("QUANTITY", "already a row in a seated table of dimensionless "
+                        "quantities, at 8.0"),
+}
+
+# SURFACED WHILE RULING RADIATION OUT, and recorded rather than built: the
+# HAWKING-ELLIS ALGEBRAIC TYPE of T^mu_nu (I diagonalisable with a rest frame,
+# II defective null, III, IV complex pair and no rest frame for any observer) is
+# a real named family with a real ordering. By the same bar it is ONE ORDINAL
+# AXIS with nothing beside it -- a coordinate, not an index -- and its natural
+# home would be a further axis on the energy-condition family rather than a new
+# cell of this one. Not built here.
+HAWKING_ELLIS_CANDIDATE = "algebraic type of T^mu_nu (I, II, III, IV)"
 
 _COORDS_CSV = "/home/user/Claude-Method-Works/drive/**/COORDINATES-2_13.csv"
 
@@ -338,9 +370,13 @@ def report():
         print("   %-26s %5d %5d %6d %6.1f%%  %s"
               % (nm, len(S), d, n, 100 * r, ", ".join(sorted(c)) or "**NOTHING**"))
     print()
-    print("   NOT SEATED AS INDEXES, though asked for: %s." % ", ".join(NOT_SEATED))
-    print("   Topics in this tree, not indexes -- there is no cell set to close.")
-    print("   Recorded absent rather than invented.")
+    print("   ADJUDICATED AND NOT SEATED -- five candidates, none an index:")
+    for nm, (lvl, where) in NOT_SEATED.items():
+        print("     %-16s %-10s %s" % (nm, lvl, where[:44]))
+    print("   Two coordinates and three quantities. Each is already present at")
+    print("   its correct level; none is a missing index, so the master index")
+    print("   does not grow. A candidate surfaced while ruling radiation out --")
+    print("   %s -- also a coordinate, not built." % HAWKING_ELLIS_CANDIDATE)
     print()
 
     print("2. TWO INDEXES CLOSE IN NOTHING, AND ONE IS THE LANGUAGES.")
@@ -457,7 +493,12 @@ def selftest():
     print("master selftest")
     inv = inventory()
     chk("six indexes are seated", len(inv), 6)
-    chk("and three named ones are not", len(NOT_SEATED), 3)
+    chk("five candidates adjudicated, none an index", len(NOT_SEATED), 5)
+    chk("two coordinates and three quantities",
+        sorted(v[0] for v in NOT_SEATED.values()),
+        ["COORDINATE", "COORDINATE", "QUANTITY", "QUANTITY", "QUANTITY"])
+    chk("every one names where it already lives",
+        all(v[1] for v in NOT_SEATED.values()), True)
 
     # The two that close in nothing -- the finding of section 2.
     empty = sorted(nm for nm, S in inv.items() if not closers(S))

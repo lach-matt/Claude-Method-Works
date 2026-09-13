@@ -8493,8 +8493,20 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   | Janet `(n+ℓ, ℓ)` | 19 | 2 | 32 | 59.4 % | all five |
   | the languages | 5 | 5 | 48 | 10.4 % | **nothing** |
 
-  **Radiation, EM and magnitude are not seated as indexes** — asked for, and topics in this tree rather
-  than indexes, with no cell set to close. Recorded absent rather than invented.
+  **Five candidates were adjudicated against `necindex`'s bar — a family of named members sharing one
+  declared form over ordinal slots — and none is an index.** Two are coordinates, three are quantities,
+  and each names where it *already lives*, which is more useful than an absence:
+  **velocity** (quantity — the *argument* the energy-condition family is evaluated at; twelve named
+  velocities over six physical dimensions, and the `V` slot is **causal character, not velocity**: the
+  form is homogeneous of degree 2 and blind to `|v|`, 0 sign changes in 6,000 exact-rational draws
+  against a direction control flipping 633/2,000), **electromagnetic** (coordinate — the algebraic
+  classification of `F_μν` by its two invariants), **radiation** (coordinate — Hawking–Ellis **Type
+  II**, one value on the algebraic-type axis of `T^μ_ν`), **magnitude** and **amplitude** (quantities,
+  entering seated indexes only as bounds and dimensionless rows). **So the master index does not grow.**
+  One candidate surfaced while ruling radiation out — the **Hawking–Ellis algebraic type** (I, II, III,
+  IV) is a real named family, but by the same bar it is one ordinal axis with nothing beside it, whose
+  natural home is a further axis on the energy-condition family rather than a new index. Recorded, not
+  built.
 
   **Two indexes close in nothing, and `statistics` therefore does not always close** — refuting the
   open question directly. In two coordinates the periodic layout closes in two languages; **add the
