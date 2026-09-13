@@ -105,7 +105,7 @@ test of this shape.
 WHAT WOULD CHANGE IT, stated so the negative is useful.  A second genuine
 contact.  The nearest candidate is already identified and already priced:
 Casimir-Polder touches electronic structure through the static polarisability
-and clears the defect axis's resolution at ten nanometres -- but it is zero on a
+and clears the defect axis's resolution at six nanometres -- but it is zero on a
 FREE ion, and every banked species is free.  **A bound system held near a
 surface would populate a second point of contact, and two points admit a
 direction.**  That is a capture, not a calculation, and nothing here does it.
@@ -266,7 +266,7 @@ def report():
     print()
     print("   WHAT WOULD CHANGE IT: a second genuine contact. Casimir-Polder")
     print("   touches electronic structure through the static polarisability and")
-    print("   clears the defect resolution at ten nanometres -- but it is zero on a")
+    print("   clears the defect resolution at six nanometres -- but it is zero on a")
     print("   FREE ion, and every banked species is free. A BOUND SYSTEM HELD NEAR")
     print("   A SURFACE would populate a second point, and two points admit a")
     print("   direction. That is a capture, not a calculation.")

@@ -57,7 +57,8 @@ of 1e-05.  That step is the yardstick, and every mechanism gets a place on it:
 
     mechanism                     shift on the defect axis    vs 1e-05
     vacuum polarisation           ~1e-04 at high Z            ABOVE
-    Casimir-Polder (neighbour)    2.2e-05  (K, z = 10 nm)     ABOVE
+    Casimir-Polder (neighbour)    2.5e-06  (K, z = 10 nm)     below
+                                  1.0e-05  (K, z = 6.3 nm)    ABOVE
     static Casimir                exactly 0 (free atom)       off-index
     squeezed vacuum               no axis                     off-index
     dynamical Casimir             no axis                     off-index
@@ -65,12 +66,38 @@ of 1e-05.  That step is the yardstick, and every mechanism gets a place on it:
     non-minimal scalar            ~1e-29                      24 orders below
     minimal scalar VEV            ~1e-69 relative             64 orders below
 
+**A CORRECTION TO THE ROW ABOVE, FOUND BY AN INDEPENDENT DERIVATION AND
+VERIFIED HERE.**  This file first carried Casimir-Polder at 2.2e-05 for K at ten
+nanometres, above the resolution.  That number reproduces ONLY by using the
+principal quantum number n = 4 where the quantum defect requires the EFFECTIVE
+n* = 1.77.  The defect-shift rule is
+
+        |d delta| = (n*)^3 |dE| / (2R)
+
+and this file previously stated its INVERSE, which is also dimensionally wrong.
+Correctly: K at ten nanometres shifts the defect by 2.54e-06, BELOW resolution,
+and clears 1e-05 at 6.33 nm instead.  **The contact is still real; it is real at
+six nanometres, not ten.**
+
+A SECOND CORRECTION, to the mechanism rather than the number.  C3 does not
+contain the static polarisability.  It contains S(-1), the zeroth moment of the
+polarisability along the imaginary axis; alpha(0) = S(-2) is a different moment
+and enters the RETARDED coefficient C4 instead.  So the non-retarded and
+retarded regimes touch electronic structure through TWO DIFFERENT quantities,
+and the periodic index carries NEITHER -- a second contact would need a 27th
+axis exactly as the first needed the 26th.
+
+**AND THE DEPENDENCE IS GENUINELY INDEPENDENT, WHICH WAS THE WHOLE POINT.**
+Contact one goes as Z^4.  Contact two's coefficient rises only from 1.52 to 4.27
+across Li to Cs while Z rises 3 to 55 -- an effective exponent of **0.36**.  Two
+contacts that are not collinear, which is what a direction needs.
+
 **THE BOUNDARY OF THE INDEX RUNS BETWEEN THE TWO CASIMIR MECHANISMS**, and that
 is the most useful single line here.  Static Casimir is a property of boundaries
 and survives removing every electron between them, so it is off-index.
 Casimir-Polder's coefficient contains the static polarisability -- an
-electronic-structure quantity -- so it is ON the index, and at ten nanometres it
-clears the resolution.  The same word names two mechanisms that fall on opposite
+electronic-structure quantity -- so it is ON the index, and it clears the
+resolution at six nanometres (see the correction above).  The same word names two mechanisms that fall on opposite
 sides of the index's reach.
 
 ===============================================================================
@@ -246,7 +273,7 @@ DEFECT_RESOLUTION = 1e-05    # finest recorded step in the measured-defect colum
 # the mechanism has no value on any axis at all rather than a small one.
 LADDER = [
     ("vacuum polarisation",      1e-04,  "ABOVE"),
-    ("Casimir-Polder",           2.2e-05, "ABOVE"),
+    ("Casimir-Polder",           2.5e-06, "below at 10 nm; ABOVE at 6.3 nm"),
     ("static Casimir",           0.0,     "off-index (exactly zero, free atom)"),
     ("squeezed vacuum",          None,    "off-index"),
     ("dynamical Casimir",        None,    "off-index"),
@@ -339,7 +366,7 @@ def report():
     print("   THE INDEX BOUNDARY RUNS BETWEEN THE TWO CASIMIR MECHANISMS. Static")
     print("   Casimir survives removing every electron, so it is off-index.")
     print("   Casimir-Polder's coefficient contains the static polarisability, so")
-    print("   it is ON the index and clears the resolution at ten nanometres.")
+    print("   it is ON the index and clears the resolution at SIX nanometres.")
     print()
 
     print("3. THE MISSING AXIS. The corpus already ruled where QED sits, and it is")
@@ -450,8 +477,9 @@ def selftest():
     chk("the Z^4 scaling itself", vac_pol(5) / vac_pol(3), (5 / 3) ** 4, 1e-9)
 
     chk("the ladder places eight mechanisms", len(LADDER), 8)
-    chk("two clear the defect resolution",
-        sum(1 for _, v, w in LADDER if w == "ABOVE"), 2)
+    chk("one clears outright; Casimir-Polder clears only at shorter range",
+        (sum(1 for _, v, w in LADDER if w == "ABOVE"),
+         sum(1 for _, v, w in LADDER if "ABOVE at" in w)), (1, 1))
     chk("the static Casimir null is exactly zero, not small",
         [v for n, v, _ in LADDER if n == "static Casimir"][0], 0.0)
     chk("two mechanisms have no axis at all -- the third off-index case is",

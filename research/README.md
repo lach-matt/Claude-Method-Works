@@ -8271,12 +8271,12 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
 
   **The ladder is the exact comparison that was asked for**, run through the one axis with a published
   resolution — the measured quantum defect, finest recorded step `1e-05`: vacuum polarisation `~1e-04`
-  at high Z (**above**), Casimir–Polder `2.2e-05` (**above**), static Casimir **exactly 0**, squeezed
+  at high Z (**above**), Casimir–Polder `2.5e-06` at 10 nm (**below**; above at 6.3 nm), static Casimir **exactly 0**, squeezed
   vacuum and dynamical Casimir **no axis at all**, Hawking/Unruh at 1 g `~1e-24`, non-minimal scalar
   `~1e-29`, minimal scalar VEV `~1e-69` relative. **The index boundary runs between the two Casimir
   mechanisms** — static Casimir survives removing every electron, so it is off-index; Casimir–Polder's
-  coefficient contains the static polarisability, so it is *on* the index and clears the resolution at
-  ten nanometres.
+  coefficient contains an electronic-structure moment, so it is *on* the index and clears the resolution
+  at **six** nanometres — see the correction below.
 
   **The missing axis.** The one measurably present mechanism is vacuum polarisation — and it is not on
   the defect axis, because the corpus already ruled where QED sits. Register 3253, quoted from the
@@ -8362,7 +8362,7 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   to define a direction with, so there is nothing for an oscillation to run along, and the zero is what
   a single point of contact *must* look like under any test of this shape. **What would change it:** a
   second genuine contact. Casimir–Polder touches electronic structure through the static polarisability
-  and clears the defect resolution at ten nanometres — but it is zero on a *free* ion, and every banked
+  and clears the defect resolution at six nanometres — but it is zero on a *free* ion, and every banked
   species is free. **A bound system held near a surface would populate a second point, and two points
   admit a direction.** That is a capture, not a calculation.
 
@@ -8561,6 +8561,31 @@ It has two existing homes in this tree, and they say different things about it:
 receipt is **8**, and after the arity fix the forged receipt is **9**. The proposal's own count is
 eight-plus-one. Nothing connects these yet and the resemblance may be nothing; it is written down so
 that if a connection is found later it is not mistaken for a prediction made in advance.
+
+### Correction — the Casimir–Polder figure, and the second contact confirmed
+
+An independent derivation of the second contact, verified here, **found an error in a figure this tree
+had seated.** `limitaxis.py` carried Casimir–Polder at `2.2e-05` for potassium at ten nanometres,
+above the defect resolution. **That number reproduces only by using the principal quantum number
+`n = 4` where the quantum defect requires the effective `n* = 1.77`.** The rule is
+
+> `|Δδ| = (n*)³ |ΔE| / (2R)`
+
+and the seated text stated its **inverse**, which is also dimensionally wrong (energy²). Correctly, K
+at ten nanometres shifts the defect by **2.54e-06 — below resolution** — and clears `1e-05` at
+**6.33 nm** instead. **The contact is still real; it is real at six nanometres, not ten.**
+
+**A second correction, to the mechanism rather than the number.** `C₃` does *not* contain the static
+polarisability. It contains `S(−1)`, the zeroth moment of the polarisability along the imaginary axis;
+`α(0) = S(−2)` is a different moment and enters the **retarded** `C₄`. The non-retarded and retarded
+regimes touch electronic structure through *two different quantities* — and the periodic index carries
+**neither**, so a second contact needs a **27th axis** exactly as the first needed the 26th.
+
+**And the second contact is confirmed as genuinely independent, which was the whole requirement.**
+Contact one goes as `Z⁴`. Contact two's coefficient rises only from 1.52 to 4.27 across Li → Cs while
+`Z` rises 3 → 55 — **an effective exponent of 0.36.** Two contacts that are not collinear, which is
+what a direction needs. Nothing in the run survived both hostile lenses, so no seating is claimed from
+it; the corrections above are what it produced and they are verified here independently.
 
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
