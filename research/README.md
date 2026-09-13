@@ -541,11 +541,17 @@ reviews `drive/The Method Materials/warp drive theory.pdf` — the design delive
 mirror by `drive_sync.py --adopt` at status `ok-adopted` — against the same physics, and computes
 every claim in it that is computable.
 
-`pdftext.py` beside them is not an audit instrument and takes no selftest: it is a PDF text extractor
-written because this container has neither poppler nor `pypdf`, and because the producer of that file
-puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte hex through
-`/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
-heuristically.
+`pdftext.py` beside them is not an audit instrument, but it now **does** take a `--selftest`: it is a
+PDF text extractor written because this container has neither poppler nor `pypdf`, and because the
+producer of that file puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
+hex through `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never
+inserts a space heuristically. **It acquired a selftest on 2026-09-13 because it was under-reporting
+in silence** — it took the first `/Pages` object it found and treated that node's kids as the pages,
+which is right only for a flat page tree. Chromium nests the tree past about eight pages, so on the
+22-page hierarchy-law PDF it printed **8 pages and no warning**. It now walks from the catalog's root
+to the leaves, and names any page it could not extract instead of dropping it. The selftest's fixture
+is a synthetic nested tree — catalog → root → two intermediates → five leaves — on which the old walk
+would have found two.
 
 The fourteen papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
@@ -10559,3 +10565,32 @@ most easily skipped when a number looks familiar.
   one-line failure instead of a thousand-name diff — and it earned itself immediately, catching the
   roster change from this pass in one line). `paper/CLAIMS.md` — **H37** with seven sub-sections and five
   additions to the not-claimed list. `obstruct.py` — **unchanged**.
+
+
+---
+
+### The render pipeline, and why it now has a guard
+
+`render_pdf.py` turns `paper/THE-HIERARCHY-LAW.md` into the print HTML that Chromium prints; there is
+no pandoc and no LaTeX here, so this is the only route to the PDF. It is stdlib-only and its docstring
+carries the two commands.
+
+**It has now shipped four silent corruptions of the deliverable**, every one of them caught by reading
+the output rather than by any check:
+
+| what it did | the case that exposed it |
+|---|---|
+| split table rows on `\|` inside a cell, inventing a column | a cell containing a literal pipe |
+| ended bold at an escaped asterisk | `**Lemma N1\* holds**` |
+| let an escaped asterisk **open** an emphasis span | `Lemma N1\*` then the next real `*italic*` — the span ran between them, swallowing a sentence and leaving a stray `*` in the PDF |
+| refuse bold that contains italic, leaking literal `**` | `**N4 · finiteness — it is the *number of factors* that Lemma 7 needs**` |
+
+The last two were found on 2026-09-13 by scanning the rendered text for asterisks that survived. **A
+renderer with no guard is the worst place for one to be missing** — it is the last step before the
+thing a reader actually sees, and its failures are invisible in the source. `python3 render_pdf.py
+--selftest` now runs 12 cases: the four bugs above as fixtures, plus the ordinary forms, so a future
+fix cannot trade one for another. Each of the four was confirmed to *fail* against the pre-fix code
+before being seated.
+
+Six asterisks remain in the rendered text of the paper and all six are correct: `Lemma N1*` is the
+lemma's name, written `N1\*` in the source so it is not read as markup.

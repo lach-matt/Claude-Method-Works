@@ -128,9 +128,14 @@ def h_witnesses():
 
 
 # ------------------------------- §8b/§8c: the residual and the interpreter
-def residual_and_logic():
-    """(positions, close_at_zero, unanimous, existential, gap, ties)."""
-    rnd = random.Random(53)
+def residual_and_logic(seed=53):
+    """(positions, close_at_zero, unanimous, existential, gap, ties).
+
+    Seeded, because the paper's §8c reports one seed's numbers AND the
+    counterexample that withdraws their universal reading: seed 53 gives
+    155/155 existential (no outright refusal), seed 77 gives 21 refusals in
+    177.  Both are pinned -- a withdrawal has to be reproducible too."""
+    rnd = random.Random(seed)
     pos = zero = una = exi = gap = ties = 0
     for _ in range(300):
         d = rnd.randint(2, 4)
@@ -159,13 +164,131 @@ def residual_and_logic():
     return pos, zero, una, exi, gap, ties
 
 
+
+# ------------------------------------------- §6b F: the relabelling sweep
+def f_sweep(n=400, seed=7):
+    """Clause F. Generator: d in 2..3, alphabets 3..4, |X| in 3..8, seed 7.
+    Returns {op: invariant_count} and the order/algebra agreement count."""
+    rnd = random.Random(seed)
+    inv = {L: 0 for L in LANGS}
+    tot = 0
+    agree = 0
+    for _ in range(n):
+        d = rnd.randint(2, 3)
+        alpha = [rnd.randint(3, 4) for _ in range(d)]
+        allc = list(itertools.product(*[range(a) for a in alpha]))
+        X = frozenset(rnd.sample(allc, rnd.randint(3, min(len(allc), 8))))
+        box = D.box_of(X, d)
+        perms = []
+        for i in range(d):
+            v = box[i]; sh = v[:]; rnd.shuffle(sh); perms.append(dict(zip(v, sh)))
+        ip = [{v: k for k, v in p.items()} for p in perms]
+        Xp = frozenset(tuple(perms[i][x[i]] for i in range(d)) for x in X)
+        bp = D.box_of(Xp, d)
+        tot += 1
+        res = {}
+        for L in LANGS:
+            back = frozenset(tuple(ip[i][y[i]] for i in range(d))
+                             for y in OPS[L](sorted(Xp), bp))
+            res[L] = back == OPS[L](sorted(X), box)
+            inv[L] += res[L]
+        agree += res["order"] == res["algebra"]
+    return inv, agree, tot
+
+
+# ------------------------------------- §6c G: the hypothetical-language sweep
+def g_sweep(n=500, seed=11):
+    """Clause G. Generator: d 2..4, alphabets 2..4, |X| 2..10, seed 11."""
+    rnd = random.Random(seed)
+    r = {"st_in_geom": 0, "geom_preserved": 0, "st_union": 0, "alg_union": 0, "n": 0}
+    for _ in range(n):
+        d = rnd.randint(2, 4)
+        alpha = [rnd.randint(2, 4) for _ in range(d)]
+        allc = list(itertools.product(*[range(a) for a in alpha]))
+        X = frozenset(rnd.sample(allc, rnd.randint(2, min(len(allc), 10))))
+        box = D.box_of(X, d)
+        S = stat(X, box); G = geom(X, box)
+        r["n"] += 1
+        r["st_in_geom"] += S <= G
+        r["geom_preserved"] += geom(S, D.box_of(S, d)) == G
+        seen = {T: set() for T in itertools.combinations(range(d), 2)}
+        for y in X:
+            for T in seen:
+                seen[T].add(tuple(y[i] for i in T))
+        S2 = frozenset(x for x in itertools.product(*box)
+                       if all(tuple(x[i] for i in T) in seen[T] for T in seen))
+        r["st_union"] += S2 == S
+        A = D.gen(X)
+        r["alg_union"] += frozenset().union(*[D.gen({y}) for y in X]) == A
+    return r
+
+
+def g5_registers(n=500, seed=3):
+    """G.5. N1 is membership-register (invariant), N2 is order-register."""
+    rnd = random.Random(seed)
+    n1 = n2 = tot = 0
+    for _ in range(n):
+        d = rnd.randint(2, 3)
+        alpha = [rnd.randint(2, 4) for _ in range(d)]
+        allc = list(itertools.product(*[range(a) for a in alpha]))
+        X = frozenset(rnd.sample(allc, rnd.randint(2, min(len(allc), 8))))
+        box = D.box_of(X, d)
+        perms = []
+        for i in range(d):
+            v = box[i]; sh = v[:]; rnd.shuffle(sh); perms.append(dict(zip(v, sh)))
+        Xp = frozenset(tuple(perms[i][x[i]] for i in range(d)) for x in X)
+        bp = D.box_of(Xp, d)
+        holds = lambda Y, b: all(set(b[i]) == {y[i] for y in Y} for i in range(d))
+        tot += 1
+        n1 += holds(X, box) == holds(Xp, bp)
+        ok = True
+        for x, y in itertools.combinations(sorted(X), 2):
+            if all(x[i] <= y[i] for i in range(d)) != \
+               all(perms[i][x[i]] <= perms[i][y[i]] for i in range(d)):
+                ok = False; break
+        n2 += ok
+    return n1, n2, tot
+
+
+# ------------------------------------------- §6d H: the containment census
+def h_sweep(n=600, seed=19):
+    """Clause H. Generator: d 2..4, alphabets 2..4, |X| 2..10, seed 19."""
+    rnd = random.Random(seed)
+    cnt = {(a, b): [0, 0] for a in LANGS for b in LANGS if a != b}
+    for _ in range(n):
+        d = rnd.randint(2, 4)
+        alpha = [rnd.randint(2, 4) for _ in range(d)]
+        allc = list(itertools.product(*[range(a) for a in alpha]))
+        X = frozenset(rnd.sample(allc, rnd.randint(2, min(len(allc), 10))))
+        box = D.box_of(X, d)
+        v = {L: OPS[L](sorted(X), box) for L in LANGS}
+        for a in LANGS:
+            for b in LANGS:
+                if a == b:
+                    continue
+                cnt[(a, b)][1] += 1
+                cnt[(a, b)][0] += v[a] <= v[b]
+    always = sorted(k for k, (o, t) in cnt.items() if o == t)
+    return always, cnt
+
+
 PINS = {
     "n1_cases": 702628, "n1_fails": 0,
     "info_k": [(3, 4), (4, 8), (5, 16), (6, 32), (7, 64), (8, 128)],
     "f": {"order": (2, 4), "algebra": (2, 4), "information": (2, 3),
           "geometry": (3, 4)},
     "positions": 155, "zero": 45, "unanimous": 147, "existential": 155,
-    "gap": 8, "ties": 35,
+    "gap": 8, "ties": 35, "seed77": (177, 21),
+    "f_inv": {"order": 58, "algebra": 58, "geometry": 102, "information": 59,
+              "statistics": 400},
+    "f_agree": 400,
+    "g": {"st_in_geom": 500, "geom_preserved": 500, "st_union": 500,
+          "alg_union": 98, "n": 500},
+    "g5": (500, 84, 500),
+    "h_always": [("algebra", "order"), ("information", "algebra"),
+                 ("information", "order"), ("order", "algebra"),
+                 ("statistics", "algebra"), ("statistics", "geometry"),
+                 ("statistics", "order")],
 }
 
 
@@ -207,6 +330,28 @@ def run(emit=False):
         chk("%s NOT subset of %s" % (a, b), holds, True)
     chk("witnesses that are non-empty", all(len(e) > 0 for _, _, _, e in hw), True)
 
+    print("\n §6b F -- the relabelling sweep (seed 7, d 2-3, alphabets 3-4)")
+    inv, agree, ftot = f_sweep()
+    chk("invariant counts of %d" % ftot, inv, PINS["f_inv"])
+    chk("statistics is ORDER-FREE", inv["statistics"] == ftot, True)
+    chk("order and algebra agree on which instances break", agree, PINS["f_agree"])
+
+    print("\n §6c G -- the hypothetical language (seed 11) and the registers (seed 3)")
+    g = g_sweep()
+    chk("statistics subset geometry, always", (g["st_in_geom"], g["n"]), (500, 500))
+    chk("geometry(statistics(X)) == geometry(X)", (g["geom_preserved"], g["n"]), (500, 500))
+    chk("statistics IS a union of single-cell facts", (g["st_union"], g["n"]), (500, 500))
+    chk("control: algebra is NOT", g["alg_union"], PINS["g"]["alg_union"])
+    n1i, n2i, gt = g5_registers()
+    chk("N1 invariant -- membership register", (n1i, gt), (500, 500))
+    chk("N2 invariant -- order register", n2i, PINS["g5"][1])
+
+    print("\n §6d H -- the lawful skeleton (seed 19)")
+    always, cnt = h_sweep()
+    chk("containments holding in every world", always, PINS["h_always"])
+    chk("and there are exactly seven", len(always), 7)
+    chk("geometry vs order is NOT always", ("geometry", "order") in always, False)
+
     print("\n §8b / §8c -- the residual and the interpreter")
     pos, zero, una, exi, gap, ties = residual_and_logic()
     chk("statistical positions", pos, PINS["positions"])
@@ -216,7 +361,10 @@ def run(emit=False):
     chk("logic: the tie-break gap", gap, PINS["gap"])
     chk("positions with tied languages", ties, PINS["ties"])
     chk("cannot close at E = 0", pos - zero, 110)
-    chk("logic never refutes outright", exi == pos, True)
+    chk("logic never refutes outright AT SEED 53", exi == pos, True)
+    p77, _, _, e77, _, _ = residual_and_logic(seed=77)
+    chk("...and DOES at seed 77 -- the withdrawal", (p77, p77 - e77),
+        PINS["seed77"])
 
     if emit:
         return 0

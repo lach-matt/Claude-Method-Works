@@ -34,7 +34,9 @@ blocked by this session's egress proxy, and the paper is not on arXiv -- a
 lookup by title resolved to an unrelated paper on permutation polytopes.  The
 description above is a search-engine summary of a page nobody opened.
 
-    STATUS: PRIOR-ART-PROBABLE, UNREAD.  NOT "NOVEL".
+    STATUS: PRIOR ART, READ IN PART.  NOT "NOVEL".  The paper was later
+    reconstructed from screenshots (refs/QUEYRANNE-TARDELLA-2008.md) and its
+    Theorem 9(ii) and Theorem 11 are this theorem.
 
 Claiming novelty against a paper one could not read is the error this corpus
 exists to refuse.  What is ours is the FORMALIZATION -- the definitions written
@@ -214,10 +216,12 @@ a run that is not reproduced here.
   - The Queyranne-Tardella paper is unread.  Does it contain T1?  Does its
     sufficient condition coincide with order-convexity?
   - Baker-Pixley is unread.  Only the statement, as paraphrased by citing work.
-  - NOTHING HERE IS MACHINE-CHECKED.  There is no Lean toolchain on this machine
-    and no network route to one.  Three statuses are kept apart throughout:
-    PROVED-HERE (paper proof), EXHAUSTIVE (decision procedure, stated frontier),
-    CITED-UNREAD.  None of them is MACHINE-CHECKED.
+  - THE CORE IS NOW MACHINE-CHECKED.  z3-solver installs from pypi, which the
+    egress proxy allows (github, and so Lean and Coq, it does not) -- see
+    PROOF-ASSISTANT.md.  machinecheck.py discharges 21 obligations over EVERY
+    subset of boxes up to 3x3x3.  Statuses kept apart: PROVED-HERE, MACHINE-
+    CHECKED, EXHAUSTIVE (a stated finite family), SAMPLED (a seeded sweep),
+    CITED.  Clauses D-H are NOT machine-checked; §10 of the paper says why.
   - Whether the identity survives infinite chains.
   - Whether order-convexity is the weakest sufficient condition, or only a
     weaker one than N1.
@@ -232,9 +236,11 @@ import sys
 # ------------------------------------------------------------------ provenance
 
 PROVENANCE = [
-    ("T1  R(X) = <X>", "PRIOR-ART-PROBABLE, UNREAD",
-     "Queyranne & Tardella, Discrete Math. 308(9) (2008) 1508-1523 -- same "
-     "question, same setting, hypotheses required.  Egress-blocked; not on arXiv."),
+    ("T1  R(X) = <X>", "PRIOR ART, READ (partial reconstruction)",
+     "Queyranne & Tardella, Discrete Math. 308(9) (2008) 1508-1523, Thm 9(ii) and "
+     "Thm 11.  Sections 1-3 reconstructed from screenshots at "
+     "refs/QUEYRANNE-TARDELLA-2008.md; notation restored by hand, so the prose is "
+     "close to verbatim and the formulas are a reading."),
     ("L5  2-decomposability", "PRIOR ART, CITED-UNREAD",
      "Baker & Pixley, Math. Z. 143 (1975) 165-174, DOI 10.1007/BF01187059."),
     ("the majority term", "PRIOR ART, STANDARD",
@@ -254,12 +260,13 @@ PROVENANCE = [
     ("the 2-determinacy partition", "OURS, PARTLY TRIVIAL",
      "three of the four are two lines; the content is op_algebra (= L5) and "
      "op_information's failure."),
-    ("the bridge, section 6", "OURS, EXHAUSTIVE",
-     "closes a referee's objection that the code-to-mathematics identification "
-     "was a reading."),
+    ("the bridge, section 6", "OURS, SAMPLED (3 of 5 operators)",
+     "closes a referee's objection that the identification was a reading -- but it "
+     "calls op_order, op_algebra and op_information only, never op_geometry or "
+     "op_statistics, and it is a seeded sample rather than a decision procedure."),
 ]
 
-NOT_MACHINE_CHECKED = True
+MACHINE_CHECKED_CORE = True   # machinecheck.py, 21 of 21 by Z3; see PROOF-ASSISTANT.md
 NOVELTY_NOT_CLAIMED = True
 CYPHER_NOT_TOUCHED = True
 NOTHING_IS_REPAIRED = True
@@ -564,13 +571,13 @@ def selftest(emit=False):
     chk("information witness: algebra IS", kdet(gen(X), b, 2), True)
     chk("L7: J(X) subset <X>", J <= gen(X), True)
 
-    chk("nothing here is machine-checked", NOT_MACHINE_CHECKED, True)
+    chk("the core IS machine-checked (machinecheck.py, Z3)", MACHINE_CHECKED_CORE, True)
     chk("no novelty is claimed", NOVELTY_NOT_CLAIMED, True)
     chk("cypher.py is not touched", CYPHER_NOT_TOUCHED, True)
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
     chk("provenance rows", len(PROVENANCE), 10)
-    chk("and the first one says PRIOR-ART-PROBABLE",
-        PROVENANCE[0][1].startswith("PRIOR-ART-PROBABLE"), True)
+    chk("and the first one says PRIOR ART, READ -- the paper was obtained",
+        PROVENANCE[0][1].startswith("PRIOR ART, READ"), True)
 
     if emit:
         return 0

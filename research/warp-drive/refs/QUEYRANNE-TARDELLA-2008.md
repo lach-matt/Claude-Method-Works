@@ -11,10 +11,15 @@
 > publisher's site is unreachable from this environment (egress policy 403; Elsevier
 > `tdm-reservation` set), so no authoritative text was available.
 >
-> **Coverage: Sections 1, 2, 3 and the first part of Section 4 (through Lemma 21).** Sections 4
-> (remainder), 5 (corner representation) and 6 (membership algorithm) are **NOT transcribed** — they
-> concern counting bounds, encoding and algorithms, none of which bear on the question this repository
-> needed the paper for. Ask if they are wanted.
+> **Coverage: Sections 1, 2, 3, the first part of Section 4 (through Lemma 21), and — added
+> 2026-09-13 — the Acknowledgements, the full References list [1]–[18] and the endnote attributing
+> Theorem 9.** Sections 4 (remainder), 5 (corner representation) and 6 (membership algorithm) are
+> **NOT transcribed** — they concern counting bounds, encoding and algorithms, none of which bear on
+> the question this repository needed the paper for. Ask if they are wanted.
+>
+> **The References were in the screenshot set from the start and the first pass simply stopped early.**
+> That is why §9 of `paper/THE-HIERARCHY-LAW.md` carried `[16]` and `[18]` as `UNRESOLVED` for a day:
+> the gap was in the transcription, not in the source.
 >
 > **Fidelity warning.** The OCR reliably recovers prose and reliably mangles mathematical notation.
 > Symbols have been restored by hand from context and are a *reading*, not a transcription. Two
@@ -533,3 +538,62 @@ all odd integers in I = {1, ..., d} and K(P) = I \ J(P). Then
 
 *(Transcription ends at Lemma 21, page ~1517 of the printed article. Sections 4 (remainder), 5 and 6
 are not transcribed — see the header.)*
+
+---
+
+## Acknowledgements
+
+> We thank the anonymous referees for many useful comments that considerably improved this paper.
+
+---
+
+## References
+
+**Transcribed 2026-09-13 from the same 50-screenshot set** (captures `132447`, `132452`, `132458`,
+`132504`, `132511`), which reach the end of the article. The first reconstruction pass stopped at
+Lemma 21 and did not transcribe this page, which is why `[16]` and `[18]` were carried as
+`UNRESOLVED` in `paper/THE-HIERARCHY-LAW.md` §9. **They are now read, not inferred.**
+
+1. G. Birkhoff, Rings of sets, *Duke Math. J.* **3** (1937), 443–454.
+2. G. Birkhoff, *Lattice Theory*, American Mathematical Society Colloquium Publications, third ed.,
+   vol. 25, American Mathematical Society, Providence, RI, 1967 (first ed. 1940).
+3. G. Birkhoff, Lattices and their applications, in: K.A. Baker, R. Wille (Eds.), *Lattice Theory and
+   its Applications*, Darmstadt, 1991, Research and Exposition in Mathematics, vol. 23, Heldermann,
+   Lemgo, 1995, pp. 7–25.
+4. B.A. Davey, H.A. Priestley, *Introduction to Lattices and Order*, Cambridge University Press,
+   Cambridge, UK, 1990.
+5. K. Elbassioni, An algorithm for dualization in products of lattices and its applications, in:
+   *Algorithms — ESA 2002: 10th Annual European Symposium*, Rome, Italy, September 17–21, 2002,
+   Proceedings, Lecture Notes in Computer Science, vol. 2461, Springer, Berlin, 2002, pp. 424–435.
+6. A. Frank, Submodular functions in graph theory, *Discrete Math.* **111** (1993), 231–243.
+7. S. Fujishige, Submodular functions and optimization, *Ann. Discrete Math.* **47** (1991).
+8. M. Grötschel, L. Lovász, A. Schrijver, *Geometric algorithms and combinatorial optimization*,
+   Springer, Berlin, 1988.
+9. G.H. Hardy, J.E. Littlewood, G. Pólya, *Inequalities*, second ed., Cambridge University Press,
+   Cambridge, England, 1952 (reprinted 1997).
+10. D.J. Kleitman, B.L. Rothschild, Asymptotic enumeration of partial orders on a finite set,
+    *Trans. Amer. Math. Soc.* **205** (1975), 205–220.
+11. W.A.J. Luxemburg, A.C. Zaanen, *Riesz Spaces*, vol. I, North-Holland, Amsterdam, 1971.
+12. P. Milgrom, C. Shannon, Monotone comparative statics, *Econometrica* **62**(1) (1994), 157–180.
+13. H. Narayanan, *Submodular Functions and Electrical Networks*, Ann. Discrete Math. **54** (1997).
+14. A. Recski, *Matroid theory and its applications*, Springer, Berlin, 1989.
+15. A. Schrijver, *Combinatorial Optimization: Polyhedra and Efficiency*, Springer, Berlin, 2003.
+16. **D.M. Topkis, The structure of sublattices of the product of n lattices, *Pacific J. Math.*
+    **65** (1976), 525–532.**
+17. D.M. Topkis, *Supermodularity and Complementarity*, Princeton University Press, Princeton, NJ,
+    1998.
+18. **A.F. Veinott Jr., Representation of general and polyhedral subsemilattices and sublattices of
+    product spaces, *Linear Algebra Appl.* **114/115** (1989), 681–704.**
+
+### Endnote on the attribution of Theorem 9
+
+Transcribed from capture `132511`. It is the authors' own statement of which parts of Theorem 9 are
+theirs and which are Topkis's and Veinott's, and it is the primary source for §9's provenance table:
+
+> We note that the implication (i) ⟹ (2) follows from Theorem 1 in [16] and Proposition 1 above. It
+> also follows directly from Corollary 11 in [18] when all Tᵢ are chains. A slightly stronger form of
+> condition (ii), namely, that the sublattice be both meet and join subcomplete, is mentioned in
+> footnote 12 in [18]. The fact that this slightly stronger condition implies (2) when all the Tᵢ's
+> are chains follows from results in [18] and Proposition 1. **Condition (ii) and Example 2 and its
+> extensions discussed below are, to our knowledge, new.** The present statement of condition (ii)
+> was suggested by a referee, unifying two separate conditions in an earlier version of this paper.

@@ -4,8 +4,10 @@
 
 **Matthew Lach** · Independent Researcher · 12 September 2026
 
-Instrument: `law.py` · Formalization: `decomposable.py` · Machine checking: `machinecheck.py`
-Refutation of clause E: `induce.py` · Prior art, reconstructed: `refs/QUEYRANNE-TARDELLA-2008.md`
+All paths relative to `research/warp-drive/`. Law: `law.py` · Formalization: `decomposable.py` ·
+Machine checking: `machinecheck.py`, harness `prover.py`, route `PROOF-ASSISTANT.md` · Figures:
+`lawfigures.py` · Evidence for clause E: `induce.py` · Prior art, reconstructed:
+`refs/QUEYRANNE-TARDELLA-2008.md`
 
 ---
 
@@ -13,18 +15,27 @@ Refutation of clause E: `induce.py` · Prior art, reconstructed: `refs/QUEYRANNE
 
 This derives a law about **five closure operators on a finite index**. It is a statement in lattice
 theory. It is **not** a statement about spacetime, about energy conditions as physics, or about
-whether a warp corridor is buildable. §12 says so again with the numbers.
+whether a warp corridor is buildable. Nothing here bears on the physical obstruction measured
+elsewhere in this research tree — `persist.py`'s shortfall of 69.03 orders of magnitude and
+`higgs.py`'s required coupling ξ ≥ 9.782907 × 10³¹ — and no clause below moves either.
 
-Three verification statuses are kept apart throughout and never merged:
+Five status words are used and never merged. **The distinction between the third and fourth is the
+one most easily lost, and this document has lost it before.**
 
 | status | meaning |
 |---|---|
 | **PROVED** | a proof is written out below and every step is justified |
-| **EXHAUSTIVE** | a decision procedure checked every case in a stated finite family |
+| **MACHINE-CHECKED** | Z3 returned `unsat` on the negation of an obligation whose variables range over *every* subset of a named finite box. §10 says which objects carry it, over which boxes, and which fragment of each was encoded |
+| **EXHAUSTIVE** | a decision procedure visited *every* case in a stated finite family |
+| **SAMPLED** | a seeded pseudorandom sweep of a stated size. **Not exhaustive.** A figure like "300/300" is a sample result, and §10 marks these separately |
 | **CITED** | taken from the literature; marked READ or UNREAD |
 
-**Nothing in this document is MACHINE-CHECKED.** There is no proof assistant on the machine this was
-produced on and no network route to one.
+Two further words appear as markers rather than statuses: **REFUTATION** (§7, a claim disproved) and
+**CANDIDATE** (§8b, §8c, operators outside the five, filed as evidence).
+
+**The ceiling that is real:** no Lean or Coq is available in this environment, so nothing above `d = 3`
+and nothing over an unbounded box is machine-checked. What is machine-checked is named in §10 and
+nowhere else.
 
 ---
 
@@ -77,7 +88,9 @@ Clause A is proved in **both**. Clause B holds in the **own-box** regime and can
 (D1), so `{y ∈ X : y_j ≤ a} ≠ ∅` and `φ_ij(a)` is defined. If `a ≤ a'` the candidate set for `a'`
 contains that for `a`, so `φ_ij(a) ≤ φ_ij(a')`. ∎ **PROVED.**
 
-> *Totality is the only place D1 is used in the whole derivation.* Everything else survives without it.
+> **D1 is used in exactly two places, and this note previously claimed one.** Here, to make `φ`
+> total; and in Lemma 5, where two of the four witnesses are produced by it (`a ∈ A_1 = π_1(X)`).
+> Nowhere else.
 
 **Lemma 2 (φ is monotone in `X`).** For `X ⊆ Y` in a fixed box and any `i ≠ j`, `a`:
 `{y_i : y ∈ X, y_j ≤ a} ⊆ {y_i : y ∈ Y, y_j ≤ a}`, so `φ^X_ij(a) ≤ φ^Y_ij(a)` whenever the left side
@@ -113,7 +126,7 @@ derived. Each is now derived.
 - `statistics`: `π_ij X ⊆ π_ij Y`. ∎
 
 In the **own-box** regime, `order` and `algebra` inherit monotonicity from `⟨·⟩` via Clause B instead
-— EXHAUSTIVE at 4,000/4,000.
+— **SAMPLED** at 4,000 nested pairs, 0 failures (own-box regime).
 
 **A.3 Idempotent.**
 - `order`: by Lemma 3 the boundary functions of `R(X)` equal those of `X`, so `R(R(X)) = R(X)`. ∎
@@ -198,9 +211,12 @@ valid on every one.
 | Example 10, failure off the chains | §8, N2 |
 | **proper** boundary epigraph: `k ≥ δ` where attained, `k > δ` where not | **§8, N1 — the hypothesis we needed and they did not** |
 
-The last row is the instructive one. Their *proper* epigraph handles non-attainment by strictness. We
-handled it by requiring every ambient value to be observed (D1) — a hypothesis their formulation makes
-unnecessary. **They solved by construction what we patched by hypothesis.**
+The last row is the instructive one, and an earlier draft overstated it. Their Remark 6 says that when
+each `T_i` is a chain **and `Q` is finite**, `P^Q_ij` is everything and the proper epigraph collapses to
+the plain one — so in *our* setting their strictness device is inactive too, and both formulations rely
+on the same finiteness-and-chains footing. What is true is narrower: **their formulation states the
+attainment condition explicitly and ours smuggled it into D1**, which is why our necessity analysis took
+two attempts and theirs needed none.
 
 ---
 
@@ -300,17 +316,20 @@ counterexamples, found by exhaustive search over `d ≤ 3` and alphabets `≤ 4`
 becomes the antichain `{(0,1),(1,0)}`, whose sublattice closure is the whole box. **Order-dependence in
 two cells.** `PROVED` by witness, not by construction-inspection.
 
-**And an independent corroboration of Clause B falls out.** If `order` and `algebra` are one operator
-they must break on *exactly the same instances*, not merely as often. Measured: **400 / 400 agreement
-on which instances break.** Neither operator was designed with relabelling in mind, so this is Clause B
-confirmed by a transformation from outside its own derivation.
+**And they break on exactly the same instances — 400 / 400.** An earlier draft called this an
+*independent* corroboration of Clause B. **It is not independent: it is entailed by it.** "`order`
+breaks on `X`" is `σ⁻¹R(σX) ≠ R(X)` and "`algebra` breaks on `X`" is `σ⁻¹⟨σX⟩ ≠ ⟨X⟩`; Clause B says
+`R(Y) = ⟨Y⟩` for every `Y`, so with both `X` and `σX` in range the two conditions are literally the same
+condition. **The 400/400 is a consistency check on the implementation, not evidence for the theorem.**
 
 **What the clause does and does not support.** The claim under review was that *every rung above the
 first requires the language below it*. For `algebra`, `information` and `geometry` that is measured and
 true. For `statistics` it is **false** — and `statistics` is the rung the ladder placed at the top.
 Necessity of language is a condition of order for four of the five; the fifth needs only identity.
 
-**Status: PROVED** (`statistics`), **EXHAUSTIVE** (the other four, 400 draws).
+**Status: PROVED** — `statistics` from D8 in two lines, and the other four by the explicit witnesses
+above. The 400-draw sweep is **SAMPLED** corroboration, not the proof; an earlier draft filed the four
+as EXHAUSTIVE, which they were not.
 
 ---
 
@@ -361,11 +380,16 @@ which one can be necessary:
 | **N1** every ambient value observed | **500 / 500** | **membership** |
 | **N2** the order relation itself | **84 / 500** | **order** |
 
-Clause B is an order-theoretic theorem. **A condition stated in the membership register cannot be
-necessary for it.** N1's entire role was to *imply* an order fact as a side effect — attainment of the
-maxima in Lemma 1 — which it does without stating it. That is exactly why N1 is sufficient-and-not-
-necessary while N2 is necessary. **The category explains the necessity**, and no counterexample was
-needed to see it. The counterexamples in §8 confirm what the register already forces.
+**And the tempting inference from this is invalid, so it is not made.** An earlier draft argued *"a
+condition stated in the membership register cannot be necessary for an order-theoretic theorem"* — that
+does not follow. Invariance mismatch blocks *equivalence*; it does not block one-way implication, and an
+order-invariant condition can perfectly well imply an order-dependent one. Indeed N1 does exactly that:
+it implies attainment (Lemma 1) without stating it.
+
+**What the register table does establish** is weaker and still useful: N1 and N2 are conditions of
+different kinds, so the fact that one is necessary and the other is not is **not a coincidence of
+counterexamples but a difference in what they can express.** The necessity itself is settled by
+Lemma N1\* and its corollary in §8, not by this table.
 
 **G.6 — what is NOT testable here, stated so it is not smuggled in.** The review's chain runs
 *statistics gives the `if` → analysis gives the `then` → logic verifies both against the original
@@ -387,7 +411,7 @@ exception:
 |---|---|
 | `order ⊆ algebra` and `algebra ⊆ order` | **= Clause B, recovered from outside its own derivation** |
 | `information ⊆ algebra`, `information ⊆ order` | Clause C |
-| `statistics ⊆ algebra`, `statistics ⊆ order` | |
+| `statistics ⊆ algebra`, `statistics ⊆ order` | **proved below** — the fourth relation, which an earlier draft left with a blank cell |
 | `statistics ⊆ geometry` | G.3 |
 
 Everything else varies — `geometry ⊆ order` 585/600, `statistics ⊆ information` 422/600,
@@ -406,7 +430,14 @@ Everything else varies — `geometry ⊆ order` 585/600, `statistics ⊆ informa
 - `statistics` is the only language below **two** maxima, and the only one below `geometry`.
 - `information` and `statistics` are the **minimal** elements; `O` and `geometry` the **maximal**.
 
-**Each incomparability is now PROVED by an explicit minimal witness**, not merely measured:
+**The fourth lawful relation, `statistics ⊆ order = algebra`, has a three-line proof** and an earlier
+draft cited three clauses for four relations, leaving this one unjustified:
+
+> Let `x ∈ St(X)`. For each pair `i ≠ j` there is, by D8, some `y ∈ X` with `(y_i, y_j) = (x_i, x_j)`.
+> That `y` satisfies `y_j ≤ x_j` and `y_i ≥ x_i` — with equality — so it is exactly the witness Clause
+> B's form of `R(X)` requires. Hence `x ∈ R(X) = ⟨X⟩`. ∎
+
+**Each incomparability is PROVED by an explicit minimal witness**, not merely measured:
 
 | non-containment | `X` | witness cell |
 |---|---|---|
@@ -440,18 +471,31 @@ Measured in `induce.py` over **400 random worlds**:
 |---|---|
 | distinct size-orderings of the five | **14** |
 | frequency of the energy-condition index's ordering | **42 / 400** (fourth most common) |
-| `statistics` is the **minimum** | 106 / 400 |
+| `statistics` is the **minimum** *(below **all four** others, including `information`)* | 106 / 400 |
 | `statistics` is the **maximum** | **128 / 400** |
 | `geometry` vs `information` | `info < geom` 183 · incomparable 144 · equal 57 · `geom < info` 16 |
 | `order` is the maximum | 398 / 400 (both exceptions `geometry`, both incomparability) |
 
-And **two indexes the corpus itself seats already disagree**:
+**These two figures measure different things and an earlier draft let them sit fifty lines apart
+unreconciled.** "`statistics` is the minimum" here means below *all four* other languages — which fails
+whenever `information` is incomparable with it. Clause H's `statistics ⊆ order`, `⊆ algebra`, `⊆
+geometry` hold **always**; it is only `statistics` vs `information` that varies. **106/400 is the
+four-way count; the three lawful containments are 600/600.**
 
-> NEC index: `statistics < geometry < information < algebra = order`
-> periodic 3-D: `statistics < information < geometry < algebra = order`
+And **two indexes the corpus itself seats already disagree** — but on *size*, not on containment, and
+an earlier draft conflated the two:
 
-`geometry` and `information` **swap**. Nothing had to be generated to find this; it was available all
-along and was not looked at.
+| index | `\|geometry\|` | `\|information\|` | set relation |
+|---|---|---|---|
+| NEC index | 29 | 156 | **INCOMPARABLE** |
+| periodic 3-D | 173 | 114 | **INCOMPARABLE** |
+
+> **⚠ THE "SWAP" IS A CARDINALITY ARTEFACT.** `geometry` and `information` are set-theoretically
+> **incomparable on both** seated indexes — neither contains the other — so nothing nests one way on one
+> index and the other way on the other. What differs is only which set is *larger*. The earlier draft
+> presented the size order as a nesting order and called the reversal a swap; **that reading is
+> withdrawn.** The clause survives on the sampled evidence above, and on the fact that a size ranking is
+> not an order relation at all — which is itself the point.
 
 **Status: REFUTATION, EXHAUSTIVE.** The ladder this work ran on was a property of one 17-cell index.
 
@@ -478,32 +522,49 @@ NOW PROVED.**
 > The failure set is exactly `R_B(X) \ Box(X)` — the cells outside the observed box that survive the
 > staircase. **PROVED**, and EXHAUSTIVE at **0 failures in 702,628 cases**.
 
-This closes the question the earlier draft left open. **Order-convexity is sufficient because it implies
-the corollary**, not because it is the boundary; the boundary is the corollary itself. The earlier
-figures (convex → 1,853 hold / 0 fail; gapped → 632 hold / 1,643 fail) are now explained rather than
-merely reported: a gapped world holds precisely when no outside cell survives the staircase.
-Recorded earlier in this work as *necessary*; that was wrong. Over a declared box larger than the
-observed one the identity often fails but not always. A weaker sufficient condition is
-**order-convexity**: no value of `A_i` strictly between `min π_i(X)` and `max π_i(X)` may go
-unobserved; values above the max or below the min are harmless. Measured: **convex → 1,853 hold, 0
-fail**; **gapped → 632 hold, 1,643 fail**. So convexity is *also* sufficient and not necessary.
-Minimal counterexample: `d = 2`, box of 3 cells, `X = {(0,0),(2,0)}` with value 1 unobserved —
-staircase 3 cells, sublattice 2.
-*Queyranne–Tardella need no such hypothesis at all: their proper boundary epigraph handles
-non-attainment by strict inequality.*
+**An earlier draft recorded N1 as *necessary*. That was wrong**, and the correction has two stages, both
+kept because the second supersedes the first rather than erasing it.
+
+*First correction.* Over a declared box larger than the observed one the identity often fails but **not
+always**, so N1 is sufficient and not necessary. A weaker sufficient condition is **order-convexity** —
+no value of `A_i` strictly between `min π_i(X)` and `max π_i(X)` may go unobserved, while values above
+the max or below the min are harmless. Measured over declared boxes: **convex → 1,853 hold, 0 fail;
+gapped → 632 hold, 1,643 fail.** The 632 show convexity is *also* not necessary. Minimal
+counterexample: `d = 2`, box of 3 cells, `X = {(0,0),(2,0)}` with value 1 unobserved — staircase 3
+cells, sublattice 2.
+
+*Second correction, which supersedes it.* **Convexity is not the boundary; the corollary is.** A gapped
+world holds precisely when no outside cell survives the staircase, and convexity is sufficient exactly
+because it forces that. The 632 are not an anomaly to be explained away — they are the corollary being
+weaker than convexity, as it should be.
+
+*And Queyranne–Tardella need no such hypothesis, though not for the reason first given here:* their
+Remark 6 has the proper epigraph collapse to the plain one when the factors are chains and `Q` is
+finite, so the strictness device is inactive in our setting too. What their formulation does is **state
+the attainment condition explicitly** where ours buried it in D1.
 
 **N2 · each `A_i` a chain — NECESSARY. THIS IS THE LANGUAGE CONDITION, and the failure is one-directional.**
 Off the chains the staircase **never over-generates**; it **under**-generates. `R(X) ⊆ ⟨X⟩` survives
 arbitrary finite lattice factors — it is Lemma 4, which needs `φ` isotone and hence a total order,
 that dies. Measured over non-chain factors:
 
-| factors | equal | staircase ⊃ sublattice | staircase ⊂ sublattice |
-|---|---|---|---|
-| chain × chain | 120 / 120 | 0 | 0 |
-| M3 × chain | 290 / 560 | **0** | 270 |
-| M3 × M3 | 700 / 2600 | **0** | 1900 |
-| N5 × chain | 371 / 560 | **0** | 189 |
-| N5 × N5 | 1144 / 2600 | **0** | 1456 |
+**The ambient must be stated, because off the chains it is load-bearing and the counts move with it.**
+A subset of a non-chain factor need not be a sublattice of it, so D2's justification fails and there are
+two defensible ambients: the **observed** product `∏ π_i(X)`, and the **closed** product in which each
+factor's observed values are closed under that factor's own meet and join.
+
+| factors | observed ambient — eq / under / **over** | closed ambient — eq / under / **over** |
+|---|---|---|
+| chain × chain | 120 / 0 / **0** | 120 / 0 / **0** |
+| M3 × chain | 290 / 270 / **0** | 356 / 204 / **0** |
+| M3 × M3 | 700 / 1900 / **0** | 1066 / 1534 / **0** |
+| N5 × chain | 371 / 189 / **0** | 415 / 145 / **0** |
+| N5 × N5 | 1144 / 1456 / **0** | 1428 / 1172 / **0** |
+
+> **Every equality and under-generation count changes with the ambient. The over-generation column does
+> not: it is 0 under both.** So the conclusion this section draws — that the staircase *under*-generates
+> off the chains and never over-generates — is ambient-independent, while the individual counts are not.
+> An earlier draft printed one ambient's numbers without naming the convention.
 
 Queyranne–Tardella's **Example 10** is the same phenomenon on `{0,a,b,c,1}` with `a∧b=0`, `a∨b=c<1`.
 
@@ -581,8 +642,13 @@ Distribution of the best achievable residual: `{0:45, 1:36, 2:26, 3:3, 4:11, 5:2
 | **`statistics`** | **29.0 %** |
 
 The best-over-all-languages figure is **also 29.0 %** — identical to `statistics` alone. **Whenever any
-language can close a position, `statistics` can**; no other language ever beats it. Consistent with
-Clause G: the hypothetical language is the one that speaks about positions.
+language can close a position, `statistics` can.** But it is **not** true that no other language ever
+beats it, and §8c's own routing table shows why: **`information` alone is the best route on 13
+positions**, where it reaches a strictly smaller residual than `statistics` does. The correct statement
+is the one about reaching zero, not about the residual in general.
+
+> **`statistics` is optimal for E = 0 and not optimal in general.** An earlier draft asserted the
+> stronger claim and the paper refuted it sixty lines later without noticing.
 
 **What this settles about `analysis`.** It returns a **residual magnitude**, not a cell decision, and
 the magnitude is nonzero for 71 % of its domain. That is precisely the corpus's recorded reason for
@@ -595,7 +661,7 @@ returns the residual, **`logic` adjudicates the residual that analysis declines 
 
 ---
 
-## §8c · Appendix — `logic` is an interpreter, not a language, and it never refutes outright
+## §8c · Appendix — `logic` is an interpreter, not a language, and its refusals are seed-dependent
 
 > **THE ROSTER OF OPERATOR-BEARING LANGUAGES IS NOT SETTLED HERE.** Candidate, measured, filed as
 > evidence.
@@ -627,8 +693,14 @@ is just Clause G.3. Logic must read the closure `analysis` produced.
 The gap sits at residuals `{2: 2, 4: 3, 5: 3}`. Languages tie at the minimum in **35 of 155** positions
 (2-way 16, 3-way 13, 5-way 6); only **120** have a unique best route.
 
-> **`LOGIC` NEVER REFUTES A POSITION OUTRIGHT.** Every statistical position is admitted by *at least
-> one* minimizing language. There is no language-independent rejection anywhere in 155 positions.
+> **AT THIS SEED, `logic` never refutes a position outright** — every one of the 155 is admitted by at
+> least one minimizing language.
+>
+> **⚠ AND THAT DOES NOT GENERALISE.** At seed 77 the same sweep gives **21 refusals in 177 positions**.
+> The universal reading — "there is no language-independent rejection" — was asserted in an earlier
+> draft on the strength of one seed and is **WITHDRAWN**. What survives is the weaker and still
+> interesting fact that outright refutation is *rare* and *seed-dependent*, which is itself evidence
+> that the verdict is not a property of the position alone.
 
 **And that is what makes it an interpreter.** Its output is **not a language-independent fact about the
 position** — it is a verdict *relative to a language*, and where languages tie it must arbitrate
@@ -738,13 +810,13 @@ not generalize beyond them — they are facts about *this* cypher, not about clo
 |---|---|---|
 | **B**, `R(X) = ⟨X⟩` | **PRIOR ART, READ** | Queyranne & Tardella, *Discrete Math.* **308**(9) (2008) 1508–1523 — Prop 1, Thm 9(ii), Thm 11 |
 | the lift, abstractly | **PRIOR ART, CITED-UNREAD** | Baker & Pixley, *Math. Z.* **143** (1975) 165–174, DOI 10.1007/BF01187059 |
-| sublattices of finite products | **PRIOR ART, CITED via Q–T** | Topkis [16, Thm 1] |
-| products of chains | **PRIOR ART, CITED via Q–T** | Veinott [18, Cor 11] |
+| sublattices of finite products | **PRIOR ART, CITED via Q–T, RESOLVED** | Topkis [16, Thm 1] = D.M. Topkis, *The structure of sublattices of the product of n lattices*, **Pacific J. Math. 65 (1976) 525–532**. Bracket number read off Queyranne–Tardella's own bibliography, now transcribed in `refs/QUEYRANNE-TARDELLA-2008.md` §References. **Not read in the original**; the theorem's content is taken from Q–T's statement of it |
+| products of chains | **PRIOR ART, CITED via Q–T, RESOLVED** | Veinott [18, Cor 11] = A.F. Veinott Jr., *Representation of general and polyhedral subsemilattices and sublattices of product spaces*, **Linear Algebra Appl. 114/115 (1989) 681–704**. Stated there for *certain* sublattices of an arbitrary product of chains — the restriction is in Q–T's text and must not be dropped. **Not read in the original**, as above |
 | `⟨X⟩` as sublattice closure | **PRIOR ART** | Birkhoff, *Lattice Theory* — already `op_algebra`'s citation |
 | the majority term | **PRIOR ART, STANDARD** | `m(x,y,z) = (x∧y)∨(y∧z)∨(z∧x)` |
 | Lemmas 1–3, Clause **A** | **OURS, PROVED** | §2–§3 |
-| Lemma 5, the four-witness construction | **OURS, PROVED** | §4.2 — no source known; **no novelty claimed** |
-| **N1** order-convexity | **OURS, PROVED + EXHAUSTIVE** | supersedes this work's mistaken necessity claim |
+| Lemma 5, the four-witness construction | **OURS AS WRITTEN, THEIRS IN SUBSTANCE** | §4.2. Queyranne–Tardella Theorem 9(ii) is the same statement; the four-witness proof is written here, the result is not new. §4.4 maps them |
+| **N1 sharp (Lemma N1\*)** | **OURS, PROVED + MACHINE-CHECKED** | the necessary-and-sufficient corollary in §8; order-convexity is demoted to *sufficient for that corollary* |
 | **N2** one-directional failure off chains | **OURS, EXHAUSTIVE** | §8 |
 | Clause **C** | **OURS, PROVED** | §5 |
 | Clause **D** | **OURS, PROVED** | §6 — three of four cases trivial, and said so |
@@ -756,64 +828,84 @@ It is *not* "near-unanimity" — that names the *term*, and a `(k+1)`-ary near-u
 *equivalent* to k-decomposability. It is *not* "skew-free" — that is the Fraser–Horn property about
 congruences of a product, a different statement that sits in the same textbook section.
 
-**On the reconstruction.** `refs/QUEYRANNE-TARDELLA-2008.md` covers Sections 1–3 and the start of 4,
-transcribed from screenshot OCR because every publisher route is blocked from this environment. Prose
-is close to verbatim; **mathematical notation was restored by hand and is a reading**. Two displayed
-formulas are marked uncertain. Do not quote a formula from it without checking the paper.
+**On the reconstruction.** `refs/QUEYRANNE-TARDELLA-2008.md` covers Sections 1–3, the start of 4, and
+the Acknowledgements, References and the Theorem 9 attribution endnote, transcribed from screenshot
+OCR because every publisher route is blocked from this environment. Prose is close to verbatim;
+**mathematical notation was restored by hand and is a reading**. Two displayed formulas are marked
+uncertain. Do not quote a formula from it without checking the paper.
+
+**The two rows above read `RESOLVED` only as of the final pass.** They stood at `UNRESOLVED` because
+the first transcription stopped at Lemma 21 and never reached the reference list — which was in the
+screenshot set the whole time. The lesson is filed rather than hidden: **an `UNRESOLVED` provenance
+row is a claim about this repository's reading, never about the source.** The endnote recovered with
+the bibliography is also the authors' own division of credit for Theorem 9, and it is quoted in full
+there: condition (i) ⟹ (2) is Topkis's Theorem 1 with their Proposition 1, or Veinott's Corollary 11
+when every factor is a chain, and **condition (ii) they claim as new**. That is the clause this paper
+imports, and Queyranne–Tardella are its authors.
 
 ---
 
 ## §10 · Verification record
 
-Three independent kinds of verification, kept apart. **MACHINE-CHECKED** means the Z3 SMT solver
-discharged the obligation over *every* subset of the stated box — not a sample and not an enumeration.
+**EXHAUSTIVE and SAMPLED are different words here.** A figure like "300/300" is a *seeded pseudorandom
+sweep*, not a decision procedure over a finite family, and an earlier draft filed both under
+EXHAUSTIVE. They are separated below. Every SAMPLED figure is reproduced by `lawfigures.py` with its
+generator and seed; every EXHAUSTIVE figure names the family it exhausted.
 
-| object | PROVED | EXHAUSTIVE frontier | MACHINE-CHECKED (Z3) |
-|---|---|---|---|
-| Lemma 1, 2, 3 | ✓ | 400 nested pairs, 0 failures | — |
-| Clause A, five operators | ✓ | 300/300 | — |
-| **Lemma 4** (R is a sublattice ⊇ X) | ✓ | — | **✓ 3×3, 4×4, 2³, 3×3×3** |
-| Lemma 5 (`d = 2`) | ✓ | **54,392 cells, construction built** | **✓ via Clause B at d = 2** |
-| Lemma 7 (the lift) | cited | **4,128 sublattices, 0 exceptions** | — |
-| **Clause B** overall | cited + ✓ | **36,252 cases, 0 failures** | **✓ 2×2, 3×3, 4×4, 2³, 3×3×3** |
-| **Clause C** | ✓ | 200/200; 600 worlds | **✓ 3×3, 2³, 3×3×3** |
-| Clause D | ✓ | 150/150 + explicit witness | — |
-| Clause E | refutation | 400 worlds, 14 orderings | — |
-| Clause F | ✓ + witnesses | 400 draws; B corroborated 400/400 | — |
-| Clause G | ✓ (G.1, G.3, G.4) | 500 worlds each; control 98/500 | — |
-| Clause H | ✓ + 6 witnesses | 600 worlds, 7 always-containments | — |
-| **N1 (sharp, Lemma N1\*)** | ✓ | **702,628 cases, 0 failures** | **✓ 3×3, 4×4, 3×3×3** |
-| N2 / N2a | ✓ | 6,440 non-chain instances | — |
-| code ↔ mathematics bridge | — | 400/400 | — |
+| object | PROVED | EXHAUSTIVE | SAMPLED (seeded) | MACHINE-CHECKED (Z3) |
+|---|---|---|---|---|
+| Lemmas 1, 2, 3 | ✓ | — | 400 nested pairs | — |
+| Clause A, five operators | ✓ | — | 300 worlds | — |
+| **Lemma 4** | ✓ | — | — | **✓ 3×3, 4×4, 2³, 3×3×3** |
+| Lemma 5 (`d = 2`) | ✓ | **54,392 cells, construction built** | — | **✓ via Clause B at d = 2** |
+| Lemma 7 (the lift) | **cited** | 4,128 sublattices | — | — |
+| **Clause B** | cited + ✓ | **36,252 cases** | — | **✓ 2×2, 3×3, 4×4, 2³, 3×3×3** |
+| **Clause C** (engine, Lemma 8) | ✓ | — | 600 worlds | **✓ 3×3, 2³, 3×3×3** |
+| **Clause C** (⊆ algebra) | ✓ | — | 200 positions | **✓ 3×3, 2³, 3×3×3** |
+| Clause D | ✓ | — | 150 worlds + explicit witness | — |
+| Clause E | refutation | — | 400 worlds | — |
+| Clause F | ✓ + 4 witnesses | — | 400 draws | — |
+| Clause G | ✓ (G.1, G.3, G.4) | — | 500 worlds; control 98/500 | — |
+| Clause H | ✓ + 6 witnesses + the §6d proof | — | 600 worlds | — |
+| **N1 (sharp, Lemma N1\*)** | ✓ | **702,628 cases** | — | **✓ both directions, 3×3, 4×4, 3×3×3** |
+| N2 / N2a (non-chain) | ✓ (direction) | 6,440 instances × 2 ambients | — | — |
+| §8d, `information` at every `k` | ✓ (construction) | `d = 3…8` | — | — |
+| code ↔ mathematics bridge | — | — | 400 indexes, 3 of 5 operators | — |
 
-**15 of 15 machine-check obligations discharged** (`machinecheck.py`, Z3 5.1.0).
+**21 of 21 machine-check obligations discharged** (`machinecheck.py`, Z3 5.1.0), behind two soundness
+guards that must pass first.
 
 ### What machine-checking bought that enumeration could not
 
-The obligations are stated as quantified formulas whose variables range over **every** subset `X` of
-the box — and, where `⟨X⟩` appears, over **every** closed superset `S` as well. Z3 returns `unsat` on
-the negation, which is a proof that no counterexample exists in that box.
+Obligations are quantified formulas whose variables range over **every** subset `X` of the box — and,
+where `⟨X⟩` appears, over **every** closed superset `S`. Z3 returns `unsat` on the negation.
 
-> At `d = 3` over a 3×3×3 box that is **2²⁷ = 134,217,728 subsets**. The enumeration frontier in §8
-> reached `|X| ≤ 5` there. **Machine-checking covers cases enumeration could not enumerate.**
+> At `d = 3` over a 3×3×3 box that is **2²⁷ = 134,217,728 subsets**. The enumeration frontier there
+> (`decomposable.py`) is `|X| ≤ 4`. **Machine-checking covers cases enumeration cannot enumerate.**
 
-**The encoding eliminates `φ` and `max` entirely**, which is why the obligations are decidable:
+**Two encodings make it decidable.** `φ` and `max` are eliminated — `x ∈ R(X)` iff for all `i ≠ j` there
+is `y ∈ X` with `y_j ≤ x_j` and `y_i ≥ x_i`, since a maximum is attained exactly when a witness exists.
+And `⟨X⟩` is encoded **without a fixed point**, as the intersection of all closed supersets.
 
-> `x ∈ R(X)` **iff** for all `i ≠ j` there is `y ∈ X` with `y_j ≤ x_j` and `y_i ≥ x_i`
+**Two guards run first, and an earlier draft's version of the second was blind.** *Non-vacuity*: an
+unsatisfiable hypothesis makes the implication vacuously true, so `unsat` would prove nothing — checked
+satisfiable, and satisfiable with `S` strictly inside the box. *Encoding fidelity*: the guard now
+**evaluates `prover.in_R` itself**, with `X` pinned to concrete booleans, against the staircase the
+repository computes — the earlier version re-typed the witness formula as a Python literal, which tested
+the typist rather than the encoding. It carries a **negative control** that fails on a deliberately
+wrong reference.
 
-because `x_i ≤ max{ y_i : y ∈ X, y_j ≤ x_j }` holds exactly when such a witness exists. And `⟨X⟩` is
-encoded **without a fixed point**, as the intersection of all closed supersets — so
-`R(X) ⊆ ⟨X⟩` becomes *"for every closed `S ⊇ X`, `R(X) ⊆ S`"*, which is first-order over a finite
-domain.
+**Scope of each obligation, stated rather than implied.** `lemma4` and `clauseB` carry the `observed`
+hypothesis, so they range over every subset **satisfying D1**, not every subset simpliciter. `lemmaN1`
+and its reverse carry no such hypothesis. Clause C is discharged in two parts: the **engine** (Lemma 8 —
+the join-irreducibles regrow `X`) and the **containment** in `algebra`.
 
 ### What remains unchecked, and why
 
-Clauses **D, E, F, G, H** and Lemma 7 are **not** machine-checked. They are not of the same logical
-shape: **D** quantifies over *operators*, **E** and **H** are statements about five specific named
-operators rather than about all subsets, **F** quantifies over relabellings, and **Lemma 7** is the
-cited abstract theorem whose proof lives in the literature. Each carries a written proof and, where
-applicable, an explicit witness. **Machine-checking them would require formalizing the five operators
-themselves, which is a larger undertaking than this document represents.**
+Clauses **D, E, F, G, H** and Lemma 7 are **not** machine-checked. They are not of that shape: **D**
+quantifies over *operators*, **E** and **H** are about five specific named operators, **F** over
+relabellings, and **Lemma 7** is the cited abstract theorem. Machine-checking them would mean
+formalizing the five operators themselves, which is a larger undertaking than this document represents.
 
 ---
 
@@ -843,11 +935,15 @@ the construction `X_d = {0} ∪ {e_i + e_d}` in §8d, Axis 1. This one was repor
 draft on the strength of a measurement that turned out to be a size artifact.
 
 **5. Machine-checking.** **DONE for the core, by Z3, and the record says exactly which parts.** Lemma
-4, Clause B, Clause C and Lemma N1\* are discharged over every subset of boxes up to 3×3×3 — 15 of 15
-obligations, `unsat` on each negation (`machinecheck.py`). Clauses D–H and Lemma 7 are **not** machine
+4, Clause B, both parts of Clause C and **both directions of** Lemma N1\* are discharged over every
+subset of the cubic boxes named in §10 — **21 of 21** obligations, `unsat` on each negation
+(`machinecheck.py`), behind two soundness guards. Clauses D–H and Lemma 7 are **not** machine
 checked, for the reason given in §10: they are not of that logical shape. Each has a written proof and,
-where applicable, an explicit witness. **No clause rests on an unverified step**; the distinction is
-between a proof checked by a solver and a proof checked by a reader, and §10 marks which is which.
+where applicable, an explicit witness. **The dichotomy is three-way, not two**: a step is checked by a
+solver, checked by a reader, or **taken from the literature** — and §10's PROVED column reads "cited"
+for Lemma 7 and "cited + ✓" for Clause B precisely because the lift is imported rather than reproved
+here. No clause rests on a step that is *unaccounted for*; one clause rests on a step accounted for by
+citation, and §9 says which citation.
 
 ### Scope note
 

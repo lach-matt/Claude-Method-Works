@@ -13,11 +13,37 @@ No pandoc or LaTeX exists in this environment; Chromium is the only renderer
 available, which is why the pipeline goes through HTML.
 """
 import html, re, sys
+def split_row(L):
+    """Split a table row on UNESCAPED pipes only -- `\\|` is a literal pipe in a
+    cell and must not create a column."""
+    out=[]; cur=''; k=0; body=L.strip()
+    if body.startswith('|'): body=body[1:]
+    if body.endswith('|'): body=body[:-1]
+    while k < len(body):
+        if body[k]=='\\' and k+1 < len(body) and body[k+1]=='|':
+            cur+='|'; k+=2; continue
+        if body[k]=='|':
+            out.append(cur); cur=''; k+=1; continue
+        cur+=body[k]; k+=1
+    out.append(cur)
+    return out
+
+
 def inline(t):
     t = html.escape(t)
     t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
-    t = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', t)
-    t = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', t)
+    # An opening delimiter must not be a BACKSLASH-ESCAPED asterisk.  `Lemma
+    # N1\*` appears throughout the paper, and without the `\\` in these
+    # lookbehinds its `*` opened an emphasis span that ran to the next real
+    # `*` -- swallowing a sentence and leaving the true closer as a stray
+    # asterisk in the PDF.
+    # Bold may CONTAIN italic.  `[^*]` alone cannot express that: on
+    # `**N4 -- it is the *number of factors* that Lemma 7 needs**` the content
+    # class rejected the nested `*` and the whole bold failed, leaking literal
+    # `**` into the PDF.  A single `*` not followed by another is allowed
+    # through here and picked up by the emphasis pass below.
+    t = re.sub(r'(?<!\\)\*\*((?:\\\*|\*(?!\*)|[^*])+?)\*\*', r'<strong>\1</strong>', t)
+    t = re.sub(r'(?<![*\\])\*((?:\\\*|[^*])+?)\*(?!\*)', r'<em>\1</em>', t)
     t = re.sub(r'~~([^~]+)~~', r'<del>\1</del>', t)
     t = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', t)
     t = t.replace('\\*','*').replace('\\|','|')
@@ -32,10 +58,10 @@ def conv(md):
                 buf.append(html.escape(lines[i])); i+=1
             i+=1; out.append('<pre>'+'\n'.join(buf)+'</pre>'); continue
         if re.match(r'^\|.*\|\s*$', L) and i+1<len(lines) and re.match(r'^\|[\s:|-]+\|\s*$', lines[i+1]):
-            hdr=[c.strip() for c in L.strip().strip('|').split('|')]
+            hdr=[c.strip() for c in split_row(L)]
             i+=2; rows=[]
             while i<len(lines) and re.match(r'^\|.*\|\s*$', lines[i]):
-                rows.append([c.strip() for c in lines[i].strip().strip('|').split('|')]); i+=1
+                rows.append([c.strip() for c in split_row(lines[i])]); i+=1
             t='<table><thead><tr>'+''.join('<th>%s</th>'%inline(c) for c in hdr)+'</tr></thead><tbody>'
             for r in rows:
                 t+='<tr>'+''.join('<td>%s</td>'%inline(c) for c in r)+'</tr>'
@@ -64,6 +90,59 @@ def conv(md):
             buf.append(lines[i]); i+=1
         if buf: out.append('<p>%s</p>'%inline(' '.join(buf)))
     return '\n'.join(out)
+
+def selftest():
+    """Fixtures are the FOUR real corruptions this renderer shipped, each of
+    which reached a committed PDF and was caught only by reading the output.
+    A renderer that silently mangles the deliverable is the last place to have
+    no guard, so every bug found becomes a case here."""
+    ok = True
+
+    def eq(name, got, want):
+        nonlocal ok
+        good = got == want
+        ok &= good
+        print("  [%s] %s" % ("ok" if good else "XX", name))
+        if not good:
+            print("        got  %r\n        want %r" % (got, want))
+
+    # 1. A backslash-escaped pipe is a literal, not a column break.
+    eq("escaped pipe stays in its cell",
+       split_row(r"| a \| b | c |"), [" a | b ", " c "])
+    eq("plain row still splits", split_row("| a | b |"), [" a ", " b "])
+
+    # 2. Bold whose content contains an escaped asterisk.
+    eq("bold over an escaped asterisk",
+       inline(r"**Lemma N1\* holds**"), "<strong>Lemma N1* holds</strong>")
+
+    # 3. An escaped asterisk must NOT open an emphasis span.  This one ran from
+    #    `N1\*` to the next real `*`, swallowing a sentence and leaving a stray.
+    eq("escaped asterisk is not a delimiter",
+       inline(r"Lemma N1\* and then *real italic* here"),
+       "Lemma N1* and then <em>real italic</em> here")
+
+    # 4. Bold may CONTAIN italic; the old content class rejected the nested
+    #    `*` and leaked literal `**` into the PDF.
+    eq("italic nested inside bold",
+       inline("**N4 is the *number of factors* needed**"),
+       "<strong>N4 is the <em>number of factors</em> needed</strong>")
+
+    # Regressions on the ordinary cases, so a fix cannot trade one for another.
+    eq("plain bold", inline("**a**"), "<strong>a</strong>")
+    eq("plain italic", inline("*a*"), "<em>a</em>")
+    eq("bold then italic", inline("**a** *b*"),
+       "<strong>a</strong> <em>b</em>")
+    eq("code is escaped", inline("`x<y`"), "<code>x&lt;y</code>")
+    eq("strikethrough", inline("~~a~~"), "<del>a</del>")
+    eq("link", inline("[t](u)"), '<a href="u">t</a>')
+    eq("no emphasis without a pair", inline("2 * 3 = 6"), "2 * 3 = 6")
+
+    print("render_pdf selftest: %s" % ("PASS" if ok else "FAIL"))
+    return 0 if ok else 1
+
+
+if len(sys.argv) > 1 and sys.argv[1] == "--selftest":
+    sys.exit(selftest())
 
 md=open(sys.argv[1]).read()
 CSS = """

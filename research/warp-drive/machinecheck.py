@@ -80,15 +80,62 @@ def lemmaN1(X, S, cells, d, shape):
                                    for c in cells]))
 
 
-def clauseC(X, S, cells, d, shape):
-    """Clause C: the join-closure lies in every closed superset (info subset alg)."""
-    inJ = {}
-    for c in cells:
-        inJ[c] = z3.Or([z3.And(X[a], X[b]) for a in cells for b in cells
-                        if join(a, b) == c] + [X[c]])
+def is_seed(X, y, cells, d):
+    """y is a join-irreducible ("seed") of X: y in X, and y is NOT the join of
+    the elements of X strictly below it.  y is that join exactly when every
+    coordinate is attained below it, so y is a seed iff SOME coordinate is
+    attained by no z in X with z < y."""
+    below = lambda z: (all(z[t] <= y[t] for t in range(d)) and z != y)
+    return z3.And(X[y],
+                  z3.Or([z3.Not(z3.Or([X[z] for z in cells
+                                       if below(z) and z[i] == y[i]]))
+                         for i in range(d)]))
+
+
+def joinclosed(T, cells):
+    return z3.And([z3.Implies(z3.And(T[a], T[b]), T[join(a, b)])
+                   for a in cells for b in cells])
+
+
+def clauseC_engine(X, T, cells, d, shape):
+    """CLAUSE C's ENGINE (Lemma 8): the join-irreducibles REGROW X.  For every
+    join-closed T containing every seed of X, X subset T -- so X lies in the
+    join-closure of its own seeds, which is exactly what makes
+    op_information(X) = J(X).
+
+    This is the obligation the first draft's clauseC did NOT discharge: that one
+    expanded X by a single join and never mentioned seeds at all."""
+    hyp = z3.And(joinclosed(T, cells),
+                 z3.And([z3.Implies(is_seed(X, y, cells, d), T[y])
+                         for y in cells]))
+    return z3.Implies(hyp, z3.And([z3.Implies(X[c], T[c]) for c in cells]))
+
+
+def clauseC_subset(X, S, cells, d, shape):
+    """information subset algebra: a meet-and-join-closed S containing X is in
+    particular join-closed, so it contains every join of elements of X."""
     hyp = z3.And(z3.And([z3.Implies(X[c], S[c]) for c in cells]),
                  closed(S, cells))
-    return z3.Implies(hyp, z3.And([z3.Implies(inJ[c], S[c]) for c in cells]))
+    return z3.Implies(hyp, z3.And([z3.Implies(z3.Or([z3.And(X[a], X[b])
+                                                     for a in cells for b in cells
+                                                     if join(a, b) == c] + [X[c]]),
+                                              S[c]) for c in cells]))
+
+
+def lemmaN1_reverse(X, S, cells, d, shape):
+    """The OTHER direction of Lemma N1*: R_B(X) cap Box(X) contains X and is
+    closed, hence contains <X>, the least such.  With lemmaN1 this makes the
+    machine-checked statement an EQUALITY rather than one inclusion."""
+    realised = lambda c: z3.And([z3.Or([X[y] for y in cells if y[i] == c[i]])
+                                 for i in range(d)])
+    mem = lambda c: z3.And(in_R(X, c, cells, d), realised(c))
+    contains_X = z3.And([z3.Implies(X[c], mem(c)) for c in cells])
+    is_closed = z3.And([z3.Implies(z3.And(mem(a), mem(b)), mem(meet(a, b)))
+                        for a in cells for b in cells] +
+                       [z3.Implies(z3.And(mem(a), mem(b)), mem(join(a, b)))
+                        for a in cells for b in cells])
+    return z3.And(contains_X, is_closed)
+
 
 
 def soundness_guards():
@@ -116,23 +163,21 @@ def soundness_guards():
         print("  [%s] hypotheses satisfiable, non-trivially, box %s"
               % ("ok" if good else "XX", "x".join(map(str, shape))))
 
-    # (b) THE ENCODING IS THE OPERATOR.  Z3's witness form of in_R against the
-    #     staircase the repository actually computes.
-    rnd = random.Random(5); bad = tot = 0
-    for _ in range(200):
-        shape = rnd.choice([(3, 3), (4, 4), (3, 3, 3), (2, 2, 2, 2)])
-        d = len(shape)
-        Xs = frozenset(rnd.sample(cells_of(shape),
-                                  rnd.randint(2, min(len(cells_of(shape)), 8))))
-        box = D.box_of(Xs, d); R = D.stair(Xs, box)
-        for x in itertools.product(*box):
-            tot += 1
-            enc = all(any(y[j] <= x[j] and y[i] >= x[i] for y in Xs)
-                      for i in range(d) for j in range(d) if i != j)
-            bad += enc != (x in R)
+    # (b) THE ENCODING IS THE OPERATOR.  Delegated to prover.encoding_matches,
+    #     which builds the real in_R expression with X pinned to concrete
+    #     booleans and simplifies it.  Re-typing the formula inline would test
+    #     the typist, not the encoding, and could not catch a bug in in_R.
+    tot, bad = prover.encoding_matches(lambda Xs, box, dd: D.stair(Xs, box),
+                                       [(3, 3), (4, 4), (3, 3, 3), (2, 2, 2, 2)],
+                                       trials=120)
     ok &= bad == 0
-    print("  [%s] in_R encoding == the staircase: %d cells, %d disagreements"
+    print("  [%s] prover.in_R EVALUATED == the staircase: %d cells, %d disagreements"
           % ("ok" if bad == 0 else "XX", tot, bad))
+    _, nbad = prover.encoding_matches(lambda Xs, box, dd: frozenset(Xs),
+                                      [(3, 3)], trials=20)
+    ok &= nbad > 0
+    print("  [%s] negative control -- the guard detects a wrong reference (%d)"
+          % ("ok" if nbad > 0 else "XX", nbad))
 
     # (c) THE HULL ENCODING.  'in every closed superset' == 'in <X>', brute forced.
     rnd = random.Random(9); bad = tot = 0
@@ -183,10 +228,20 @@ def main():
         results.append(check("d=%d, box %s" % (len(shape), "x".join(map(str, shape))),
                              shape, lemmaN1))
     print()
+    print("Lemma N1* -- the REVERSE inclusion, making it an equality")
+    for shape in ((3, 3), (4, 4), (3, 3, 3)):
+        results.append(check("d=%d, box %s" % (len(shape), "x".join(map(str, shape))),
+                             shape, lemmaN1_reverse))
+    print()
+    print("Clause C ENGINE (Lemma 8) -- the seeds regrow X")
+    for shape in ((3, 3), (2, 2, 2), (3, 3, 3)):
+        results.append(check("d=%d, box %s" % (len(shape), "x".join(map(str, shape))),
+                             shape, clauseC_engine))
+    print()
     print("Clause C -- join-closure subset every closed superset")
     for shape in ((3, 3), (2, 2, 2), (3, 3, 3)):
         results.append(check("d=%d, box %s" % (len(shape), "x".join(map(str, shape))),
-                             shape, clauseC))
+                             shape, clauseC_subset))
     print()
     print("=" * 79)
     n = len(results)
