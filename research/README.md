@@ -8476,6 +8476,52 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   `φ² > κ/ξ`, a throat set by a second scale the single-field ansatz lacks, or a way to *localise* a
   high-scale VEV — is in each case a different model, not a number.
 
+- **`master.py`** — **the index whose cells are indexes.** A wide table laying every index's own axes
+  side by side cannot be built honestly: indexes with no shared coordinate cannot be intersected, and a
+  forced embedding manufactures its answer. So this is built one level up — **cells are the indexes**,
+  coordinates are properties every index has: how many of the five languages close it (`C`), whether
+  `statistics` does (`Sc`), whether `order` does (`Oc`), arity band, density band. **The language index
+  enters as `C`, `Sc`, `Oc`** — the only structure every index shares, which is why it is vital rather
+  than an appendage.
+
+  | index | cells | arity | box | density | closes |
+  |---|---|---|---|---|---|
+  | energy-condition family | 18 | 6 | 576 | 3.1 % | statistics |
+  | exotic mechanisms | 8 | 6 | 540 | 1.5 % | statistics |
+  | periodic layout 2-D | 90 | 2 | 126 | 71.4 % | information, statistics |
+  | periodic layout 3-D | 80 | 3 | 378 | 21.2 % | **nothing** |
+  | Janet `(n+ℓ, ℓ)` | 19 | 2 | 32 | 59.4 % | all five |
+  | the languages | 5 | 5 | 48 | 10.4 % | **nothing** |
+
+  **Radiation, EM and magnitude are not seated as indexes** — asked for, and topics in this tree rather
+  than indexes, with no cell set to close. Recorded absent rather than invented.
+
+  **Two indexes close in nothing, and `statistics` therefore does not always close** — refuting the
+  open question directly. In two coordinates the periodic layout closes in two languages; **add the
+  block coordinate and every language over-generates.** And **the language index closes in no
+  language**: not one of the five operators returns it exactly. *The languages cannot exactly describe
+  themselves.* The channel sets are still totally ordered here — `{}` ⊂ `{statistics}` ⊂
+  `{statistics, information}` ⊂ all five — but the bottom of the chain is **empty**, not `{statistics}`.
+
+  **`statistics` closes the master index too** (E = 0, and it is the only one that does) — which is not
+  implied by closing any index below it. And one identification falls out: the **energy-condition family
+  and the exotic mechanisms occupy the same master cell** — same channel set, arity band and density
+  band. *At this level they are one object, while sharing no cell at all.*
+
+  **The one meet between "independent" indexes is spurious, and finding that is the point.** Of the
+  equal-arity pairs, `periodic layout 2-D` and `Janet` share **nine tuples** — but `(period, group)` and
+  `(n+ℓ, ℓ)` are different coordinate systems that happen to be pairs of small integers. The true
+  relation is a **reindexing**, a bijection on the same elements, not an overlap of cells. Looking for
+  meets found one and inspecting it found the exact failure mode the construction exists to avoid.
+
+  **Space and time enter one cell at a time, with one pairwise bond.** Spacetime is not a cell here — it
+  is already inside one indexed index, as `V` (which directions are quantified over) and `M` (the
+  measure along a geodesic), and nowhere else. `V = 0` null and `V = 1` timelike are single cells;
+  **`V = 2` causal is both — a pairwise bond.** And the bond is **arity-dependent**: at `A = 0`
+  (quadratic) it *collapses*, since over a continuous tensor the timelike condition already gives the
+  causal one; at `A = 1` (bilinear) it *stands*, DEC over an ordered causal pair being strictly
+  stronger. No three-way bond is seated — nothing quantifies over an ordered triple.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.

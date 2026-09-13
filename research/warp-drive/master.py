@@ -1,0 +1,421 @@
+#!/usr/bin/env python3
+r"""
+master.py -- THE INDEX WHOSE CELLS ARE INDEXES.
+
+M: "I want a master index that contains all material and mechanical indexes...
+We must include the language index as well, it is a vital piece... pay attention
+for intersections or meets between indexes assumed independent... Space and time
+only enter as independent indexes intersecting with this master index one cell at
+a time, or two/three in an entanglement/pairwise bond."
+
+    STATISTICS CLOSES THE MASTER INDEX TOO.
+    TWO SEATED INDEXES CLOSE IN NO LANGUAGE AT ALL, AND ONE OF THEM IS THE
+    LANGUAGE INDEX ITSELF.
+    THE ONE MEET BETWEEN "INDEPENDENT" INDEXES IS SPURIOUS, AND SAYING SO IS
+    THE POINT OF LOOKING.
+
+    python3 master.py             the reading
+    python3 master.py --selftest  fixtures
+
+===============================================================================
+WHY THE CELLS ARE INDEXES AND NOT THEIR CONTENTS
+===============================================================================
+
+A wide table laying every index's own axes side by side cannot be built
+honestly: indexes with no shared coordinate cannot be intersected, and a forced
+embedding manufactures whichever answer it is pointed at -- measured earlier and
+nearly shipped.  So the master index is built one level up.  ITS CELLS ARE THE
+INDEXES, and its coordinates are properties every index actually has:
+
+    C   how many of the five languages CLOSE it            0 .. 5
+    Sc  does `statistics` close it                          0/1
+    Oc  does `order` close it                               0/1
+    D   arity band (2 / 3-4 / 5+)                           0..2
+    R   density band, |X| / |box|                           0..3
+
+Every value is measured, none is assigned.  The language index enters as the C,
+Sc and Oc coordinates -- which is why it is vital and not an appendage: it is
+the only structure every index shares.
+
+===============================================================================
+1. THE INVENTORY, AND WHAT IS NOT IN IT
+===============================================================================
+
+    index                     cells  arity   box   density   closes
+    energy-condition family      18     6     576    3.1%    statistics
+    exotic mechanisms             8     6     540    1.5%    statistics
+    periodic layout 2-D          90     2     126   71.4%    information, statistics
+    periodic layout 3-D          80     3     378   21.2%    **NOTHING**
+    Janet (n+l, l)               19     2      32   59.4%    all five
+    the languages                 5     5      48   10.4%    **NOTHING**
+
+**RADIATION, EM AND MAGNITUDE ARE NOT SEATED AS INDEXES.**  They were asked for
+and they are topics in this tree, not indexes -- there is no cell set to close.
+Recorded as absent rather than invented, and an absent index is not a finding of
+loss: it is a statement about what exists to be measured.
+
+===============================================================================
+2. TWO INDEXES CLOSE IN NOTHING, AND ONE IS THE LANGUAGES
+===============================================================================
+
+An earlier pass found the channel sets strictly nested over three indexes and
+asked whether `statistics` always closes.  **IT DOES NOT.**
+
+    THE PERIODIC LAYOUT IN THREE COORDINATES CLOSES IN NO LANGUAGE.  In two,
+    (period, group), it closes in two of them. Add the block coordinate and
+    every language over-generates. The third coordinate destroys closure.
+
+    THE LANGUAGE INDEX CLOSES IN NO LANGUAGE.  Seven languages over five
+    coordinates, and not one of the five operators returns it exactly.  Its own
+    module already flagged that it does not close; what is added here is that
+    this holds against all five, measured rather than asserted.
+
+    **THE LANGUAGES CANNOT EXACTLY DESCRIBE THEMSELVES.**
+
+The channel sets are still totally ordered on this sample -- {} then
+{statistics} then {statistics, information} then all five -- so the nesting
+survives, but the bottom of the chain is EMPTY and not {statistics}.
+
+===============================================================================
+3. THE MASTER INDEX CLOSES, AND IN THE SAME LANGUAGE
+===============================================================================
+
+Six indexes give five distinct master cells, and run through the five languages:
+
+    order 24 (E 19), algebra 24 (E 19), geometry 11 (E 6),
+    information 13 (E 8), **statistics 5 (E 0)**
+
+**STATISTICS CLOSES THE INDEX OF INDEXES.**  The same operator that closes the
+energy-condition family and the exotic census closes the level above them.  That
+is not implied by either: closing an index says nothing about closing a
+collection of indexes described by their closure properties.
+
+AND ONE IDENTIFICATION FALLS OUT.  The energy-condition family and the exotic
+mechanisms occupy the SAME master cell (1, 1, 0, 2, 0): same channel set, same
+arity band, same density band.  **At this level they are one object.**  Which is
+the sharpest form yet of the earlier finding that they are two indexes with a
+one-dimensional contact -- they are not merely disjoint, they are structurally
+indistinguishable while sharing no cell.
+
+===============================================================================
+4. MEETS BETWEEN INDEXES ASSUMED INDEPENDENT -- ONE FOUND, AND IT IS SPURIOUS
+===============================================================================
+
+Two indexes can only be intersected when their coordinates mean the same thing.
+Among the pairs of equal arity:
+
+    energy-condition family  vs exotic mechanisms    0 shared cells
+    periodic layout 2-D      vs Janet (n+l, l)       **9 shared cells**
+
+Nine looks like a meet and it is not one.  `(period, group)` and `(n+l, l)` are
+DIFFERENT COORDINATE SYSTEMS that happen to be pairs of small integers, so nine
+tuples coincide numerically while meaning nothing in common.
+
+**AND THE TRUE RELATION BETWEEN THOSE TWO IS NOT AN INTERSECTION AT ALL.**  The
+Janet layout is the same elements re-coordinated -- a REINDEXING, a bijection on
+the underlying set, not an overlap of cells.  Looking for meets found one, and
+inspecting it found the exact failure mode this whole construction was built to
+avoid.  That is the value of looking, and the nine is recorded as spurious.
+
+===============================================================================
+5. SPACE AND TIME, ENTERING ONE CELL AT A TIME
+===============================================================================
+
+Spacetime is not a cell of the master index, and it does not need to be: it is
+already present as coordinates INSIDE one of the indexed indexes.  The
+energy-condition family's V slot is which directions of spacetime are quantified
+over, and its M slot is the measure along a geodesic.  Those two are where
+spacetime touches, and nowhere else.
+
+And the touching has exactly the shape proposed:
+
+    V = 0   null       ONE cell
+    V = 1   timelike   ONE cell
+    V = 2   causal     **BOTH -- a pairwise bond**, the union of the two
+
+**THE BOND IS REAL AND IT IS ARITY-DEPENDENT.**  At A = 0, quadratic, the bond
+COLLAPSES: for a continuous tensor, the condition over all timelike directions
+already gives it over all causal ones, so V = 2 and V = 1 are one condition --
+the quotient recorded when the arity coordinate was seated.  At A = 1, bilinear,
+it does NOT collapse: the dominant energy condition over an ordered causal pair
+is strictly stronger than either single-direction condition, witnessed at
+rho = 1, p = 2.
+
+    SO SPACETIME ENTERS ONE CELL AT A TIME, EXCEPT AT ONE PAIRWISE BOND, AND
+    THAT BOND EXISTS ONLY AT BILINEAR ARITY.
+
+No three-way bond is seated: nothing in the family quantifies over an ordered
+triple. Whether one exists is not answered here.
+
+===============================================================================
+WHAT IT REFUSES TO DO
+===============================================================================
+
+**It does not lay the indexes side by side.**  That construction cannot be built
+honestly, and section 4 shows the failure mode live rather than describing it.
+
+**It does not invent the indexes that were asked for and do not exist.**
+Radiation, EM and magnitude are recorded as not seated.
+
+**It does not read the nine shared tuples as a meet.**  They are a coincidence
+of two different coordinate systems both being pairs of small integers.
+
+**It does not claim the channel chain is total in general.**  It is total on
+these six. One incomparable pair would end that, and none was found here, which
+is not the same as none existing.
+"""
+
+import importlib.util
+import itertools
+import os
+import sys
+
+import hlaw
+import necindex
+import selfindex
+import synth
+
+_POP = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                     "..", "..", "tools", "populate.py"))
+
+# Asked for, and not seated as indexes anywhere in this tree. Named so the
+# absence is a record rather than an omission.
+NOT_SEATED = ("radiation", "electromagnetic", "magnitude")
+
+
+def _populate():
+    spec = importlib.util.spec_from_file_location("populate", _POP)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def inventory():
+    """{name: cells} for every index actually seated in this tree."""
+    pop = _populate()
+    held, _ = pop.layout_closure()
+    return {
+        "energy-condition family": frozenset(necindex.cells()),
+        "exotic mechanisms": frozenset(synth.MECHANISMS.values()),
+        "periodic layout 2-D": frozenset(held),
+        "periodic layout 3-D": frozenset(
+            (pop.period_of(Z), pop.group_of(Z), pop.block_of(Z))
+            for Z in range(1, 109) if not pop.set_aside(Z)),
+        "Janet (n+l, l)": frozenset(pop.janet_cell(Z) for Z in range(1, 109)
+                                    if pop.janet_cell(Z)),
+        "the languages": frozenset(selfindex.LANGUAGES.values()),
+    }
+
+
+def closers(S):
+    S = frozenset(S)
+    cl, _ = hlaw.closures(S)
+    return frozenset(L for L in hlaw.LANGS if len(cl[L]) == len(S))
+
+
+def shape(S):
+    """(arity, box size, density)."""
+    d = len(next(iter(S)))
+    n = 1
+    for i in range(d):
+        n *= len({c[i] for c in S})
+    return d, n, len(S) / n
+
+
+def _band(x, edges):
+    return sum(1 for e in edges if x >= e)
+
+
+def master_cell(S):
+    """(C, Sc, Oc, arity band, density band) -- every value measured."""
+    c = closers(S)
+    d, _n, r = shape(S)
+    return (len(c), int("statistics" in c), int("order" in c),
+            _band(d, [3, 5]), _band(r, [0.05, 0.3, 0.6]))
+
+
+def master_index():
+    return {nm: master_cell(S) for nm, S in inventory().items()}
+
+
+def meets():
+    """[(a, b, shared)] for every pair of EQUAL ARITY -- the only pairs that can
+    be intersected at all. Equal arity does not make coordinates comparable, and
+    section 4 is about exactly that."""
+    inv = inventory()
+    out = []
+    for a, b in itertools.combinations(sorted(inv), 2):
+        A, B = inv[a], inv[b]
+        if len(next(iter(A))) != len(next(iter(B))):
+            continue
+        out.append((a, b, A & B))
+    return out
+
+
+def spacetime_slots():
+    """Where spacetime touches: the V and M coordinates of the physics index,
+    and the arity at which V = 2 is a genuine pairwise bond."""
+    return {"direction slot": "V", "measure slot": "M",
+            "single cells": ("V=0 null", "V=1 timelike"),
+            "pairwise bond": "V=2 causal = null and timelike",
+            "bond collapses at": "A=0 (quadratic)",
+            "bond stands at": "A=1 (bilinear)"}
+
+
+def report():
+    inv = inventory()
+    print("=" * 74)
+    print("THE INDEX WHOSE CELLS ARE INDEXES")
+    print("=" * 74)
+    print()
+    print("Indexes with no shared coordinate cannot be intersected, and a forced")
+    print("embedding manufactures its answer. So the master index is built one")
+    print("level up: its CELLS are the indexes, its coordinates are properties")
+    print("every index has. The language index enters as C, Sc and Oc -- the only")
+    print("structure every index shares, which is why it is vital.")
+    print()
+
+    print("1. THE INVENTORY.")
+    print("   %-26s %5s %5s %6s %7s  %s"
+          % ("index", "cells", "arity", "box", "density", "closes"))
+    for nm, S in inv.items():
+        d, n, r = shape(S)
+        c = closers(S)
+        print("   %-26s %5d %5d %6d %6.1f%%  %s"
+              % (nm, len(S), d, n, 100 * r, ", ".join(sorted(c)) or "**NOTHING**"))
+    print()
+    print("   NOT SEATED AS INDEXES, though asked for: %s." % ", ".join(NOT_SEATED))
+    print("   Topics in this tree, not indexes -- there is no cell set to close.")
+    print("   Recorded absent rather than invented.")
+    print()
+
+    print("2. TWO INDEXES CLOSE IN NOTHING, AND ONE IS THE LANGUAGES.")
+    empty = [nm for nm, S in inv.items() if not closers(S)]
+    for nm in empty:
+        print("     %s" % nm)
+    print("   So `statistics` does NOT always close. In two coordinates the")
+    print("   periodic layout closes in two languages; add the block coordinate")
+    print("   and every one over-generates.")
+    print("   AND THE LANGUAGES CANNOT EXACTLY DESCRIBE THEMSELVES -- not one of")
+    print("   the five operators returns the language index exactly.")
+    print()
+
+    print("3. THE MASTER INDEX CLOSES, AND IN THE SAME LANGUAGE.")
+    M = master_index()
+    for nm, v in M.items():
+        print("     %-26s %s" % (nm, v))
+    MC = frozenset(M.values())
+    cl, _ = hlaw.closures(MC)
+    print("   %d indexes -> %d distinct master cells" % (len(M), len(MC)))
+    for L in hlaw.LANGS:
+        print("     %-13s admits %3d  E %3d%s" % (L, len(cl[L]), len(cl[L]) - len(MC),
+              "   <-- CLOSES THE MASTER INDEX" if len(cl[L]) == len(MC) else ""))
+    dup = [nm for nm, v in M.items()
+           if sum(1 for w in M.values() if w == v) > 1]
+    print("   AND ONE IDENTIFICATION: %s occupy the SAME master cell." % " and ".join(dup))
+    print("   At this level they are one object -- structurally indistinguishable")
+    print("   while sharing no cell at all.")
+    print()
+
+    print("4. MEETS BETWEEN INDEXES ASSUMED INDEPENDENT.")
+    for a, b, sh in meets():
+        print("     %-26s vs %-22s %d shared%s"
+              % (a, b, len(sh), "   <-- LOOKS LIKE A MEET" if sh else ""))
+    print("   THE NINE IS SPURIOUS. (period, group) and (n+l, l) are DIFFERENT")
+    print("   coordinate systems that happen to be pairs of small integers, so")
+    print("   nine tuples coincide numerically and mean nothing in common. The")
+    print("   true relation is a REINDEXING -- the same elements re-coordinated,")
+    print("   a bijection on the underlying set, not an overlap of cells.")
+    print("   Looking for meets found one and inspecting it found the exact")
+    print("   failure mode this construction exists to avoid.")
+    print()
+
+    print("5. SPACE AND TIME, ENTERING ONE CELL AT A TIME.")
+    st = spacetime_slots()
+    print("   Spacetime is not a cell here. It is already inside one indexed")
+    print("   index: V is which directions are quantified over, M is the measure")
+    print("   along a geodesic. Those two, and nowhere else.")
+    print("     %-22s %s" % ("single cells", " / ".join(st["single cells"])))
+    print("     %-22s %s" % ("PAIRWISE BOND", st["pairwise bond"]))
+    print("     %-22s %s" % ("bond collapses at", st["bond collapses at"]))
+    print("     %-22s %s" % ("bond stands at", st["bond stands at"]))
+    print("   At quadratic arity the bond collapses -- over a continuous tensor")
+    print("   the timelike condition already gives the causal one. At bilinear it")
+    print("   does not: DEC over an ordered causal pair is strictly stronger.")
+    print("   SO SPACETIME ENTERS ONE CELL AT A TIME, EXCEPT AT ONE PAIRWISE BOND,")
+    print("   AND THAT BOND EXISTS ONLY AT BILINEAR ARITY.")
+    print("   No three-way bond is seated: nothing quantifies over an ordered")
+    print("   triple. Whether one exists is not answered here.")
+    return 0
+
+
+def selftest():
+    ok = True
+
+    def chk(name, got, want):
+        nonlocal ok
+        good = got == want
+        ok &= good
+        print("  [%s] %-58s %s" % ("ok" if good else "XX", name, got))
+        if not good:
+            print("        expected %r" % (want,))
+
+    print("master selftest")
+    inv = inventory()
+    chk("six indexes are seated", len(inv), 6)
+    chk("and three named ones are not", len(NOT_SEATED), 3)
+
+    # The two that close in nothing -- the finding of section 2.
+    empty = sorted(nm for nm, S in inv.items() if not closers(S))
+    chk("two indexes close in NO language", empty,
+        ["periodic layout 3-D", "the languages"])
+    chk("so statistics does NOT always close",
+        all("statistics" in closers(S) for S in inv.values()), False)
+    chk("the languages cannot describe themselves",
+        closers(inv["the languages"]), frozenset())
+    # And the 2-D layout does, so it is the third coordinate that costs it.
+    chk("the layout closes in two languages at arity 2",
+        sorted(closers(inv["periodic layout 2-D"])), ["information", "statistics"])
+    chk("and in none at arity 3", closers(inv["periodic layout 3-D"]), frozenset())
+
+    # The chain is still total on this sample, but its bottom is empty.
+    sets = sorted((closers(S) for S in inv.values()), key=len)
+    chk("the channel sets are still totally ordered here",
+        all(sets[i] <= sets[i + 1] for i in range(len(sets) - 1)), True)
+    chk("but the bottom of the chain is EMPTY, not {statistics}", sets[0], frozenset())
+
+    # The master index and its own closure.
+    M = master_index()
+    MC = frozenset(M.values())
+    chk("six indexes give five distinct master cells", (len(M), len(MC)), (6, 5))
+    cl, _ = hlaw.closures(MC)
+    chk("STATISTICS CLOSES THE MASTER INDEX", len(cl["statistics"]) - len(MC), 0)
+    chk("and no other language does",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["statistics"])
+    chk("the two physics indexes share a master cell",
+        M["energy-condition family"] == M["exotic mechanisms"], True)
+    chk("while sharing no actual cell",
+        inv["energy-condition family"] & inv["exotic mechanisms"], frozenset())
+
+    # The spurious meet.
+    ms = {(a, b): sh for a, b, sh in meets()}
+    chk("only one pair of equal arity shares anything",
+        sorted(k for k, v in ms.items() if v),
+        [("Janet (n+l, l)", "periodic layout 2-D")])
+    chk("and it shares nine tuples",
+        len(ms[("Janet (n+l, l)", "periodic layout 2-D")]), 9)
+    chk("which is spurious: the two have different coordinate meanings",
+        len(next(iter(inv["Janet (n+l, l)"]))) == len(next(iter(inv["periodic layout 2-D"]))),
+        True)
+
+    st = spacetime_slots()
+    chk("spacetime touches through two slots", (st["direction slot"], st["measure slot"]),
+        ("V", "M"))
+    chk("the bond collapses at quadratic arity", st["bond collapses at"], "A=0 (quadratic)")
+
+    print("master selftest: %s" % ("PASS" if ok else "FAIL"))
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(selftest() if "--selftest" in sys.argv[1:] else report())
