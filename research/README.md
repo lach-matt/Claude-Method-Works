@@ -7999,6 +7999,18 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   energy-condition index's `|geometry| = 29` against `|information| = 156`, incomparable. See
   `HLAW.md`.
 
+- **`postselect.py`** — prices the Janus door. Kawamoto–Maeda–Nakamura–Takayanagi
+  (arXiv:2502.03531) build a traversable AdS₃ wormhole with **no coupling between the two CFTs**,
+  which is how it evades the past-horizon obstruction that made Gao–Jafferis–Wall decline a standing
+  coupling — but it is a **post-selection**, and they do not quantify the success probability. Both
+  states are Gaussian, so the overlap is a determinant and the probability is exact. **The answer
+  inverts the expectation: there is no exp(−S) penalty.** Normalizability caps the deformation at
+  `δ ≈ 0.81/S` (the *softest* mode binds, at `δ < βE/4`), and at any fixed fraction of that cap the
+  success probability is **flat in S at ≈ 0.884**. What collapses is the causal opening, which goes
+  like `δ²` — so `≈ 0.39/S²`, or `3.5 × 10⁻¹⁵⁵` for a solar mass. **The cost is geometric, not
+  probabilistic.** Past the cap the instrument returns `None`, never a number: the norm goes
+  imaginary there, which means the target is not a state, not that it is unlikely.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
