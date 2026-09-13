@@ -8630,6 +8630,19 @@ it demands nothing further. Populated, 79 indexes over 11 distinct cells, still 
   box, that signature comes out 1.06 % of the time** — and 211 of the 212 that match it also match the
   density band, so the density band is nearly free once the closure matches and the informative content
   is the closure. **Given five slots, the landing is not generic.**
+- **And the banding carries more of it than the first statement admitted.** That first statement said
+  the arity band is a choice and is load-bearing; true, and not the whole caveat. `C`, `Sc` and `Oc` are
+  measured and cannot move, but `D` and `R` are **banded** and the edges are assigned. Swept over
+  4 arity × 10 density bandings: the eight-index master index **demands something in 23 of 40** (58 %),
+  the bounds index **fills that demand in only 10 of 40** (25 %), and the nine-index master index
+  **closes in 21 of 40** (52 %). **At arity band `[3, 6]` — five and six coordinates in one band rather
+  than split — the demand vanishes entirely, in all ten density choices.** The demand exists at all
+  because `[3, 5]` separates the 5-coordinate indexes from the 6-coordinate ones. *So the demand, and
+  the bounds index filling it, are properties of the declared banding and not banding-invariant facts.*
+  What defends the seated banding is not that it is uniquely right but that it is **older than the
+  result** — `[3, 5]` and `[.05, .3, .6]` were fixed before the substance, Petrov and bounds indexes
+  existed, and they encode the plain tripartitions *2 / 3-4 / 5+* and *<5 % / 5-30 % / 30-60 % / >60 %*.
+  Not tuned. Not invariant either, and a reader who prefers *2 / 3-5 / 6+* gets no demand at all.
 
 **So the claim is this and no more:** the master index named a cell no seated index occupied; an index
 built to answer a different question — *what are the right-hand sides, as a family* — was found to

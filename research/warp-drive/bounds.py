@@ -86,8 +86,16 @@ Stated at its true strength and no higher: the demanded cell was on the record
 before this file was written, so it is not a blind prediction; and the arity
 band is carried entirely by the choice to seat five slots -- drop any one and
 the hit fails.  What is not a choice is the closure signature, which a random
-seven-cell set in this same box reproduces about one time in a hundred.  The
-master index's own module holds the control and the caveat.
+seven-cell set in this same box reproduces about one time in a hundred.
+
+AND THE DEMAND ITSELF IS BANDING-DEPENDENT, which is a caveat the first statement
+did not carry.  The master index's D and R coordinates are BANDED and the edges
+are assigned; swept over forty bandings, the eight-index master index demands
+anything in 23 and this index fills that demand in 10.  At arity band [3, 6] --
+five and six coordinates together rather than split -- there is no demand at all.
+So the hit is a property of the declared banding, defended only by that banding
+being older than the result.  master.py's banding_sensitivity() holds the sweep
+and section 7 holds the caveat in full.
 """
 
 import sys

@@ -224,6 +224,37 @@ returned the master index to closure. Whether the demand *caused* anyone to look
 at the bounds cannot be established from inside the measurement, and it is not
 claimed.
 
+AND THE BANDING CARRIES MORE OF IT THAN WAS FIRST SAID
+------------------------------------------------------
+
+The first statement of this section said the arity band is a choice and is
+load-bearing.  That was true and it was not the whole caveat.  C, Sc and Oc are
+measured and cannot move; D and R are BANDED, and the band edges are assigned.
+Swept over 4 arity bandings x 10 density bandings, `banding_sensitivity()`:
+
+    the EIGHT-index master index demands something   23 of 40   (58 %)
+    and the bounds index FILLS that demand           10 of 40   (25 %)
+    the NINE-index master index closes               21 of 40   (52 %)
+
+**AND ONE ARITY BANDING KILLS THE DEMAND OUTRIGHT.**  At D = [3, 6] -- five and
+six coordinates in one band rather than split -- the eight-index master index
+demands NOTHING, in all ten density choices.  The demand exists at all because
+[3, 5] separates the 5-coordinate indexes from the 6-coordinate ones.
+
+    SO THE DEMAND, AND THE BOUNDS INDEX FILLING IT, ARE PROPERTIES OF THE
+    DECLARED BANDING AND NOT BANDING-INVARIANT FACTS.
+
+What defends the seated banding is not that it is uniquely right but that it is
+OLDER THAN THE RESULT: [3, 5] and [.05, .3, .6] were fixed when this file was
+written, before the substance, Petrov and bounds indexes existed, and they
+encode the plain tripartitions "2 / 3-4 / 5+" and "<5 % / 5-30 % / 30-60 % /
+>60 %".  They were not tuned to produce this.  But a reader who prefers
+"2 / 3-5 / 6+" gets no demand at all, and is entitled to.
+
+The closure signature is untouched by any of this -- C, Sc and Oc are measured
+from the operators -- so the 1.06 % control above stands as stated.  It is the
+D and R coordinates, and therefore the demand itself, that move.
+
 ===============================================================================
 WHAT IT REFUSES TO DO
 ===============================================================================
@@ -488,6 +519,63 @@ def signature_control(n=20000, seed=17):
     return hit, sig, n, len(allc)
 
 
+# The band edges master_cell() uses. Named rather than inlined because the
+# banding is the one part of a master cell that is ASSIGNED rather than measured,
+# and section 7's sensitivity sweep varies exactly these.
+ARITY_BANDS = [3, 5]
+DENSITY_BANDS = [0.05, 0.3, 0.6]
+
+ALT_ARITY = ([3, 5], [3, 6], [4, 5], [4, 6])
+ALT_DENSITY = ([0.05, 0.3, 0.6], [0.1, 0.3, 0.6], [0.05, 0.25, 0.6],
+               [0.05, 0.3, 0.5], [0.02, 0.2, 0.5], [0.1, 0.35, 0.7],
+               [0.05, 0.2, 0.4], [0.15, 0.4, 0.7], [0.03, 0.28, 0.55],
+               [0.07, 0.32, 0.65])
+
+
+def cell_under(S, arity_bands, density_bands):
+    """master_cell with the band edges supplied rather than assumed."""
+    c = closers(S)
+    d, _n, r = shape(S)
+    return (len(c), int("statistics" in c), int("order" in c),
+            _band(d, arity_bands), _band(r, density_bands))
+
+
+def banding_sensitivity():
+    """How much of section 7 survives a different banding?
+
+    (bandings, eight-index demand non-empty, bounds fills it, nine closes,
+     per-arity-banding {edges: (demands, fills)})
+
+    THE HONEST CONTROL ON THIS FILE'S OWN HEADLINE. C, Sc and Oc are measured
+    and cannot move. D and R are BANDED, and the band edges are assigned. So the
+    demand at eight indexes, and the bounds index landing in it, are properties
+    of the declared banding rather than banding-invariant facts -- and this
+    measures by how much.
+    """
+    inv = inventory()
+    tot = dem = fills = closes = 0
+    per = {}
+    for de in ALT_ARITY:
+        a = f = 0
+        for re_ in ALT_DENSITY:
+            tot += 1
+            eight = frozenset(cell_under(S, de, re_)
+                              for nm, S in inv.items() if nm != "bounds")
+            d8 = hlaw.closures(eight)[0]["statistics"] - eight
+            bc = cell_under(inv["bounds"], de, re_)
+            nine = eight | {bc}
+            if d8:
+                dem += 1
+                a += 1
+            if bc in d8:
+                fills += 1
+                f += 1
+            if len(hlaw.closures(nine)[0]["statistics"]) == len(nine):
+                closes += 1
+        per[tuple(de)] = (a, f)
+    return tot, dem, fills, closes, per
+
+
 def report():
     inv = inventory()
     print("=" * 74)
@@ -679,6 +767,26 @@ def report():
           % (100 * hit / n, sig, 100 * sig / n))
     print("   Given five slots, the landing is not generic.")
     print()
+    tot, dem, fl, cl9, per = banding_sensitivity()
+    print("   AND THE BANDING CARRIES MORE OF IT THAN WAS FIRST SAID.")
+    print("   C, Sc and Oc are measured; D and R are BANDED and the edges are")
+    print("   assigned. Over %d bandings (4 arity x 10 density):" % tot)
+    print("     the EIGHT-index master index demands something  %2d of %d (%.0f%%)"
+          % (dem, tot, 100 * dem / tot))
+    print("     and the bounds index FILLS that demand          %2d of %d (%.0f%%)"
+          % (fl, tot, 100 * fl / tot))
+    print("     the NINE-index master index closes              %2d of %d (%.0f%%)"
+          % (cl9, tot, 100 * cl9 / tot))
+    for k, (a, f) in per.items():
+        print("       arity band %-8s demands %2d/10   fills %2d/10"
+              % (str(list(k)), a, f))
+    print("   AT D = [3, 6] THE DEMAND VANISHES ENTIRELY. It exists because")
+    print("   [3, 5] separates 5-coordinate indexes from 6-coordinate ones. So")
+    print("   the demand and its filling are properties of the DECLARED banding.")
+    print("   What defends that banding is only that it is OLDER than the result:")
+    print("   fixed when this file was written, before the substance, Petrov and")
+    print("   bounds indexes existed. Not tuned -- but not invariant either.")
+    print()
     print("   SO THE CLAIM IS THIS AND NO MORE: the master index named a cell no")
     print("   seated index occupied; an index built to answer a different")
     print("   question -- what are the right-hand sides, as a family -- occupies")
@@ -814,6 +922,18 @@ def selftest():
         0.005 < chit / cn < 0.02, True)
     chk("and the density band is nearly free once closure matches",
         csig - chit <= 2, True)
+
+    # AND THE BANDING CARRIES MORE THAN THE FIRST STATEMENT ADMITTED. Pinned so
+    # the caveat cannot quietly fall out of the file.
+    btot, bdem, bfill, bclose, bper = banding_sensitivity()
+    chk("bandings swept", btot, 40)
+    chk("the eight-index master index demands something in 23 of them", bdem, 23)
+    chk("the bounds index fills that demand in only 10", bfill, 10)
+    chk("the nine-index master index closes in 21", bclose, 21)
+    chk("AND AT ARITY BAND [3, 6] THERE IS NO DEMAND AT ALL",
+        bper[(3, 6)], (0, 0))
+    chk("so the demand is a property of the declared banding, not invariant",
+        bfill < btot, True)
     chk("the resolved population control is 14 hits in 400,000 draws",
         CONTROL_RESOLVED, (14, 400000))
 
