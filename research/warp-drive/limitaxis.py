@@ -111,7 +111,7 @@ the past tense rather than deleted, because what the index was missing is the
 finding and a repaired index does not show it.
 
 ===============================================================================
-4. THE NUMBER THAT WAS SUPPOSED TO CLINCH IT, WITHDRAWN
+4. THE NUMBER THAT WAS SUPPOSED TO CLINCH IT, AND THE WITHDRAWAL OF IT
 ===============================================================================
 
 The seating pass reported the 26.45 decomposed into four terms with no free
@@ -134,24 +134,78 @@ Sign and magnitude both differ on the two QED terms, and the independent sum
 misses the banked deficit by 84 %.  The agreement that made the finding
 quantitative therefore **does not replicate, and is withdrawn.**
 
-**AND THE CORPUS HAD THE ANSWER ALREADY, WHICH IS WHY BOTH ATTEMPTS WERE WRONG:
-THE BASELINE WAS.**  Register 3357 records that the reduced mass is needed
-TWICE -- once in the defect formula and once in the baseline a limit is measured
-against -- and that a baseline missing it implies a spurious Z^6.4 against a
-leading Dirac Z^4.  Both decompositions above were built against Z^2 R_inf, so
-both were pricing reduced mass as a TERM in a sum whose baseline had already
-omitted it.  Against Z^2 R_M the deficits are 103.94, 329.80 and 816.68 at
-Z = 3, 4, 5, and register 3353 identifies them outright:
+**THE WITHDRAWAL IS ITSELF WITHDRAWN.  THE FOUR-TERM DECOMPOSITION WAS RIGHT AND
+THE CHECK THAT BROKE IT WAS WRONG.**
 
-    THE DEFICIT IS THE SOMMERFELD-DIRAC RELATIVISTIC TERM LESS THE 1s LAMB
-    SHIFT, AT A RATIO OF 0.8849 +/- 0.0069, CONSTANT TO UNDER ONE PER CENT.
+The recomputation used the prefactors 4/(3 pi) for the self-energy and 4/(15 pi)
+for the vacuum polarisation.  Both are a factor of two too small: with
+mc^2 = 2 R_inf / alpha^2, the term (alpha/pi)(Z alpha)^4 mc^2 is
+(2/pi) alpha^3 Z^4 R_inf, so the correct prefactors are **8/(3 pi)** and
+**8/(15 pi)**.  Corrected, the two disputed terms land exactly where they were
+reported:
 
-Independently recomputed here, the Dirac terms reproduce to the digit (118.32,
-373.97, 913.03) and the deficits to better than 0.2 %.  **It is a TWO-term form,
-not a four-term one**, and the four-term attempt was mis-specified rather than
-mis-arithmetised.  So the status moves from UNRESOLVED to RESOLVED -- and it was
-resolved in the corpus before either attempt was made, which is the lesson worth
-keeping.
+    term                     corrected     as reported     agrees?
+    reduced mass (7Li)          -77.22        -77.27          yes
+    Dirac 1s                   +118.32       +118.33          yes
+    self-energy 1s              -15.52        -15.52          YES
+    vacuum polarisation 1s       +0.59         +0.59          YES
+    SUM                         +26.18        +26.13          yes
+                                              corpus +26.45   1.0 %
+
+AND IT IS ANCHORED OUTSIDE THIS TREE, which is what settles it rather than
+another internal recomputation: the same expression gives the hydrogen 1s
+vacuum-polarisation shift as **-217.0 MHz against a literature -217 MHz**.  A
+factor of two would have shown up there immediately and does not.
+
+The two forms are also the same statement.  Register 3353's two-term form is
+against the reduced-mass baseline: Lamb = 15.52 - 0.59 = 14.93, and
+Dirac - Lamb = 103.39 against register 3357's 103.94, a ratio of 0.8738 against
+the banked 0.8849 -- the 1.3 % being higher-order Lamb terms this leading form
+omits.  The four-term form against Z^2 R_inf and the two-term form against
+Z^2 R_M agree; neither was mis-specified.
+
+**WHAT THIS FILE GOT WRONG, RECORDED AND NOT SMOOTHED.**  A correct result was
+withdrawn on the strength of a broken check, and the withdrawal was published.
+That is worse than the original error would have been: the seating pass was
+right, the audit was wrong, and the audit won because it was the later voice.
+The status is **RESOLVED**, the decomposition stands as first reported, and the
+selftest now pins the corrected prefactors against the external anchor rather
+than pinning a disagreement.
+
+===============================================================================
+5. THE MECHANISMS POPULATED AGAINST THE LIMIT AXIS
+===============================================================================
+
+With the axis seated the question becomes exact: what does each mechanism
+contribute to the ionisation limit of the species the corpus has banked?  Every
+banked species is a FREE ion, which decides seven of the eight immediately.
+
+    mechanism              contribution to a free ion's limit
+    vacuum polarisation    +0.5864 cm^-1 at Li III, going as Z^4
+    static Casimir         0 exactly -- needs boundaries; a free ion has none
+    Casimir-Polder         0 exactly -- needs a surface within nanometres
+    squeezed vacuum        0 exactly -- needs a prepared field state
+    dynamical Casimir      0 exactly -- needs boundaries in motion
+    Hawking/Unruh          0 exactly -- needs proper acceleration
+    static radial EM       0 exactly -- saturates, no level shift
+    minimal scalar VEV     0 exactly -- saturates, no level shift
+    non-minimal scalar     0 exactly -- gravitational, ~1e-29 on the defect
+
+**ONE OF THE EIGHT IS NON-ZERO, AND IT IS ABOVE THE FIT'S OWN ERROR BAR.**
+Measured against the uncertainty each limit was fitted with:
+
+        Li III   VP = 0.5864   sigma = 0.36   ->  1.63 sigma
+        B V      VP = 4.5246   sigma = 1.95   ->  2.32 sigma
+
+**AND THE SIGNIFICANCE GROWS WITH Z**, because the shift goes as Z^4 while the
+fit uncertainty does not.  Dropping vacuum polarisation moves the predicted
+limit by more than the error bar on the measurement, at both banked species,
+more so at the heavier one.
+
+That is the exact comparison the extension was for.  Exotic matter is present in
+the periodic index at exactly one place, in one mechanism, at a stated
+significance -- and it is present in the LIMIT, which is why it was invisible for
+as long as the limit was not an axis.
 
 ===============================================================================
 WHAT IT REFUSES TO DO
@@ -212,15 +266,49 @@ def li3_terms():
     reduced = BARE_LIMIT * (mu - 1.0)
     dirac = RINF * 3 ** 4 * ALPHA ** 2 / 4.0
     lnk0 = 2.984128128                       # Bethe logarithm, 1s
-    se = ((4.0 / 3.0) * (ALPHA ** 3 / math.pi) * 3 ** 4
-          * (math.log(1.0 / (3 * ALPHA) ** 2) - lnk0 + 19.0 / 30.0) * RINF)
-    vp = -(4.0 / 15.0) * (ALPHA ** 3 / math.pi) * 3 ** 4 * RINF
+    # mc^2 = 2 R_inf / alpha^2, so (alpha/pi)(Z alpha)^4 mc^2 = (2/pi) alpha^3 Z^4 R.
+    # An earlier pass here used 4/(3pi) and 4/(15pi) -- both a factor of two low --
+    # and withdrew a correct decomposition on the strength of it.
+    se = -(8.0 / (3 * math.pi)) * ALPHA ** 3 * 3 ** 4 * RINF * (
+        math.log(1.0 / (3 * ALPHA) ** 2) - lnk0 + 19.0 / 30.0)
+    vp = +(8.0 / (15 * math.pi)) * ALPHA ** 3 * 3 ** 4 * RINF
     return {"reduced mass": reduced, "Dirac 1s": dirac,
             "self-energy 1s": se, "vacuum polarisation 1s": vp}
 
 
+def vac_pol(Z, n=1):
+    """Vacuum polarisation's contribution to a hydrogenic ionisation limit.
+
+    Positive into the limit: the Uehling term lowers the level, so it binds
+    harder. Anchored OUTSIDE this tree -- at Z = 1 it gives -217.0 MHz as a
+    level shift against a literature -217 MHz, which is what makes it a check
+    rather than another internal recomputation.
+    """
+    return (8.0 / (15 * math.pi)) * ALPHA ** 3 * Z ** 4 * RINF / n ** 3
+
+
+# What each mechanism contributes to the limit of a FREE ion, which is what
+# every banked species is. (name, value, why)
+ON_LIMIT = [
+    ("vacuum polarisation", None, "goes as Z^4; see vac_pol"),
+    ("static Casimir",      0.0,  "needs boundaries; a free ion has none"),
+    ("Casimir-Polder",      0.0,  "needs a surface within nanometres"),
+    ("squeezed vacuum",     0.0,  "needs a prepared field state"),
+    ("dynamical Casimir",   0.0,  "needs boundaries in motion"),
+    ("Hawking/Unruh",       0.0,  "needs proper acceleration"),
+    ("static radial EM",    0.0,  "saturates; no level shift"),
+    ("minimal scalar VEV",  0.0,  "saturates; no level shift"),
+    ("non-minimal scalar",  0.0,  "gravitational, ~1e-29 on the defect"),
+]
+
+# The banked limits and the uncertainty each was fitted with, READ from the
+# registers via the seated axis.
+BANKED = [("Li III", 3, 987662.29, 0.36), ("B V", 5, 2744111.38, 1.95)]
+
+
 REPORTED = {"reduced mass": -77.27, "Dirac 1s": 118.33,
             "self-energy 1s": -15.52, "vacuum polarisation 1s": 0.59}
+VP_H1S_MHZ = -217.0        # literature anchor for the corrected prefactor
 
 
 def report():
@@ -271,7 +359,7 @@ def report():
     print("   uncertainty. That is a PROPOSAL. Nothing here adds it.")
     print()
 
-    print("4. THE NUMBER THAT WAS TO CLINCH IT, WITHDRAWN.")
+    print("4. THE NUMBER THAT WAS TO CLINCH IT -- AND THE WITHDRAWAL OF IT.")
     t = li3_terms()
     print("   %-26s %12s %12s %s" % ("term", "independent", "as reported", "agrees?"))
     for k in ("reduced mass", "Dirac 1s", "self-energy 1s", "vacuum polarisation 1s"):
@@ -279,27 +367,44 @@ def report():
         print("   %-26s %+12.2f %+12.2f %s"
               % (k, a, b, "yes" if abs(a - b) < 0.1 else "NO"))
     s_ind, s_rep = sum(t.values()), sum(REPORTED.values())
-    print("   %-26s %+12.2f %+12.2f %s" % ("SUM", s_ind, s_rep, "NO"))
+    print("   %-26s %+12.2f %+12.2f %s"
+          % ("SUM", s_ind, s_rep, "yes" if abs(s_ind - s_rep) < 0.1 else "NO"))
     print("   corpus deficit %.2f; the independent sum misses it by %.0f%%."
           % (DEFICIT, 100 * abs(s_ind - DEFICIT) / DEFICIT))
     print()
-    print("   The 1.2%% agreement that made the finding quantitative DOES NOT")
-    print("   REPLICATE and is withdrawn.")
+    print("   THE WITHDRAWAL IS ITSELF WITHDRAWN. The check was wrong, not the")
+    print("   decomposition: the prefactors 4/(3pi) and 4/(15pi) are a factor of")
+    print("   two low -- with mc^2 = 2R/alpha^2 they are 8/(3pi) and 8/(15pi).")
+    print("   Corrected, every term lands where it was reported, and the sum is")
+    print("   %+.2f against the corpus's %.2f (%.1f%%)."
+          % (s_ind, DEFICIT, 100 * abs(s_ind - DEFICIT) / DEFICIT))
+    print("   ANCHORED OUTSIDE THIS TREE: the same expression gives the hydrogen")
+    print("   1s vacuum polarisation as %.1f MHz against a literature %.0f."
+          % (-vac_pol(1) * 29979.2458, VP_H1S_MHZ))
+    print("   A correct result was withdrawn on a broken check and the withdrawal")
+    print("   was published. Recorded, not smoothed. Status RESOLVED.")
     print()
-    print("   AND THE CORPUS HAD THE ANSWER: THE BASELINE WAS WRONG IN BOTH.")
-    print("   Register 3357 -- the reduced mass is needed TWICE, once in the defect")
-    print("   and once in the BASELINE, and omitting it implies a spurious Z^6.4.")
-    print("   Both attempts priced reduced mass as a term in a sum whose baseline")
-    print("   had already dropped it. Against Z^2 R_M, register 3353 states it:")
-    print("     THE DEFICIT IS THE SOMMERFELD-DIRAC TERM LESS THE 1s LAMB SHIFT,")
-    print("     ratio 0.8849 +/- 0.0069, constant to under one per cent.")
-    print("   Recomputed here the Dirac terms reproduce to the digit and the")
-    print("   deficits to better than 0.2%%. A TWO-term form, not a four-term one.")
-    print("   Status UNRESOLVED -> RESOLVED, and it was resolved in the corpus")
-    print("   before either attempt was made.")
+
+    print("5. THE MECHANISMS POPULATED AGAINST THE LIMIT AXIS.")
+    print("   Every banked species is a FREE ion, which decides seven of eight.")
+    for name, val, why in ON_LIMIT:
+        v = "Z^4, see below" if val is None else "0 exactly"
+        print("     %-22s %-16s %s" % (name, v, why))
     print()
-    print("   THE AXIS HAS SINCE BEEN SEATED: the series limit is now the 26th,")
-    print("   READ or FITTED, never computed, None where unbanked.")
+    print("   ONE IS NON-ZERO, AND IT IS ABOVE THE FIT'S OWN ERROR BAR:")
+    print("     %-8s %3s %12s %8s %10s" % ("species", "Z", "VP cm^-1", "sigma", "VP/sigma"))
+    for nm, Z, lim, sig in BANKED:
+        print("     %-8s %3d %12.4f %8.2f %10.2f" % (nm, Z, vac_pol(Z), sig, vac_pol(Z) / sig))
+    print()
+    print("   AND THE SIGNIFICANCE GROWS WITH Z, because the shift goes as Z^4")
+    print("   while the fit uncertainty does not. Dropping vacuum polarisation")
+    print("   moves the predicted limit by more than the error bar on the")
+    print("   measurement, at both banked species and more so at the heavier.")
+    print()
+    print("   Exotic matter is present in the periodic index at exactly one place,")
+    print("   in one mechanism, at a stated significance -- and it is present in")
+    print("   the LIMIT, which is why it was invisible while the limit was not an")
+    print("   axis.")
     return 0
 
 
@@ -324,14 +429,25 @@ def selftest():
     t = li3_terms()
     chk("reduced mass reproduces the reported term", t["reduced mass"], -77.27, 0.1)
     chk("Dirac 1s reproduces it exactly", t["Dirac 1s"], 118.33, 0.01)
-    # The two that do NOT reproduce -- pinned as disagreements so the withdrawal
-    # cannot quietly heal itself in a later pass.
-    chk("self-energy does NOT reproduce",
-        abs(t["self-energy 1s"] - REPORTED["self-energy 1s"]) > 1.0, True)
-    chk("vacuum polarisation does NOT reproduce",
-        abs(t["vacuum polarisation 1s"] - REPORTED["vacuum polarisation 1s"]) > 0.1, True)
-    chk("and the independent sum misses the banked deficit badly",
-        abs(sum(t.values()) - DEFICIT) / DEFICIT > 0.5, True)
+    # Corrected prefactors: every term now reproduces, and the anchor is
+    # OUTSIDE this tree so the check cannot be wrong in the same way twice.
+    chk("self-energy reproduces", t["self-energy 1s"], -15.52, 0.05)
+    chk("vacuum polarisation reproduces", t["vacuum polarisation 1s"], 0.59, 0.01)
+    chk("and the sum lands within 1.5% of the banked deficit",
+        abs(sum(t.values()) - DEFICIT) / DEFICIT < 0.015, True)
+    chk("THE EXTERNAL ANCHOR: H 1s vacuum polarisation in MHz",
+        -vac_pol(1) * 29979.2458, VP_H1S_MHZ, 1.0)
+    chk("the prefactor is 8/(15pi), not the 4/(15pi) that broke it",
+        abs(vac_pol(1) / ((4.0 / (15 * math.pi)) * ALPHA ** 3 * RINF) - 2.0) < 1e-12, True)
+
+    # Section 5: the population against the limit axis.
+    chk("nine rows, eight of them exactly zero on a free ion",
+        (len(ON_LIMIT), sum(1 for _, v, _ in ON_LIMIT if v == 0.0)), (9, 8))
+    chk("vacuum polarisation clears Li III's fitted sigma",
+        vac_pol(3) / 0.36 > 1.5, True)
+    chk("and clears B V's by more, because it goes as Z^4",
+        vac_pol(5) / 1.95 > vac_pol(3) / 0.36, True)
+    chk("the Z^4 scaling itself", vac_pol(5) / vac_pol(3), (5 / 3) ** 4, 1e-9)
 
     chk("the ladder places eight mechanisms", len(LADDER), 8)
     chk("two clear the defect resolution",

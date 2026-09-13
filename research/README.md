@@ -8296,16 +8296,35 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   it**: reduced mass (−77.22 vs −77.27) and Dirac 1s (+118.33, exact) replicate, but self-energy
   (+7.76 vs −15.52) and vacuum polarisation (−0.29 vs +0.59) differ in **both sign and magnitude**,
   and the independent sum of +48.58 misses the banked deficit by 84 %. Neither decomposition is
-  banked — **and the corpus had the answer, which is why both were wrong: the baseline was.** Register
-  3357 records that the reduced mass is needed *twice*, once in the defect and once in the baseline a
-  limit is measured against, and that omitting it implies a spurious `Z^6.4` against a leading Dirac
-  `Z⁴`. Both attempts priced reduced mass as a *term* in a sum whose baseline had already dropped it.
-  Against `Z²R_M` the deficits are 103.94, 329.80, 816.68 at Z = 3, 4, 5, and register 3353 states
-  what they are: **the Sommerfeld–Dirac relativistic term less the 1s Lamb shift, ratio
-  0.8849 ± 0.0069, constant to under one per cent.** Recomputed independently, the Dirac terms
-  reproduce to the digit (118.32, 373.97, 913.03) and the deficits to better than 0.2 %. **A two-term
-  form, not a four-term one** — the four-term attempt was mis-specified, not mis-arithmetised. Status
-  **UNRESOLVED → RESOLVED**, and it was resolved in the corpus before either attempt was made. The structural finding does not depend on it — the ruling is quoted
+  banked — **and then the withdrawal was itself withdrawn, because the check was wrong and the
+  decomposition was right.** The recomputation used prefactors `4/(3π)` and `4/(15π)`; with
+  `mc² = 2R∞/α²` the correct ones are **`8/(3π)` and `8/(15π)`** — a factor of two. Corrected, every
+  term lands where it was first reported (self-energy −15.52, vacuum polarisation +0.59, sum +26.19
+  against the corpus's 26.45, **1.0 %**), and it is **anchored outside the tree**: the same expression
+  gives the hydrogen 1s vacuum-polarisation shift as **−217.0 MHz against a literature −217 MHz**,
+  where a factor of two would have shown up at once. It is also consistent with register 3353's
+  two-term form against the reduced-mass baseline — Lamb = 14.93, Dirac − Lamb = 103.39 against the
+  banked 103.94, ratio 0.8738 against 0.8849, the 1.3 % being higher-order Lamb terms. **A correct
+  result was withdrawn on a broken check and the withdrawal was published**; that is recorded rather
+  than smoothed, and the selftest now pins the corrected prefactors against the external anchor.
+  Status **RESOLVED**.
+
+  **The mechanisms populated against the new axis.** Every banked species is a *free ion*, which
+  decides seven of eight immediately — static Casimir needs boundaries, Casimir–Polder a surface,
+  squeezed vacuum a prepared state, dynamical Casimir boundaries in motion, Hawking/Unruh proper
+  acceleration, and the EM and scalar cases saturate with no level shift. **All exactly zero.** One is
+  not:
+
+  | species | Z | VP (cm⁻¹) | fitted σ | VP/σ |
+  |---|---|---|---|---|
+  | Li III | 3 | 0.5864 | 0.36 | **1.63** |
+  | B V | 5 | 4.5246 | 1.95 | **2.32** |
+
+  **And the significance grows with Z**, because the shift goes as `Z⁴` while the fit uncertainty does
+  not. Dropping vacuum polarisation moves the predicted limit by more than the error bar on the
+  measurement, at both banked species and more so at the heavier. **Exotic matter is present in the
+  periodic index at exactly one place, in one mechanism, at a stated significance — and it is present
+  in the limit, which is why it was invisible while the limit was not an axis.** The structural finding does not depend on it — the ruling is quoted
   from the member, the deficit is the corpus's own banked number, and the absence of the limit from
   the axes is a fact about the instrument.
 
