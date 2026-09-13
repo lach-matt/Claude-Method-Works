@@ -8,9 +8,18 @@ the paper does not quantify the success probability.  This does.
 
     The success probability is O(1) and does NOT fall with the entropy.  There
     is no exp(-S) post-selection penalty.  What is catastrophic is the size of
-    the deformation you are ALLOWED: normalizability caps it at delta ~ 0.82/S,
+    the deformation you are ALLOWED: normalizability caps it at delta ~ 0.81/S,
     and the causal opening it buys goes like delta^2.  So the throat you may
     open shrinks like 1/S^2 while the odds of getting it stay near nine in ten.
+
+    THAT CAP IS FOR THE JANUS LINE ONLY, WHICH IS ONE LINE THROUGH A TWO-
+    PARAMETER SPACE.  The Janus deformation puts its two columns 90 degrees
+    apart, which is the worst case: the phase penalty is the splitting of the
+    two singular values, and 90 degrees maximises it.  Bring the columns INTO
+    PHASE and the penalty vanishes, leaving only the ordinary squeezing bound,
+    and the cap relaxes from 1/S to 1/sqrt(S) -- so the opening goes like 1/S
+    rather than 1/S^2, which is 77 orders of magnitude at a solar mass.  That
+    branch is derived in reslice.py; this file prices the Janus line.
 
     python3 postselect.py                 the reading
     python3 postselect.py --selftest      fixtures, including the closed forms
@@ -95,9 +104,31 @@ def dets(lam, d):
     return d_cross, d_00, d_dd
 
 
+def admissible(lam, d, u=None, v=None):
+    """THE EXACT CRITERION, corrected.  Normalizability of exp[1/2 c! M c!]|0>
+    with M = [[2v,u],[u,-2v]] is that every SINGULAR VALUE of lam*M is below 1:
+
+        lam^2 ( |u|^2 + 4|v|^2 + 4|Im(conj(v)u)| )  <  1
+
+    An earlier version of this file tested the DETERMINANT instead.  That is
+    necessary and NOT sufficient -- the determinant is the product of the two
+    singular values, so both can exceed 1 while it stays positive.  A
+    Fock-truncation convergence check caught it: the entropy wandered with the
+    truncation on a state the determinant had passed.  See reslice.py, which
+    derives the singular values in closed form and cross-checks them against a
+    numerical SVD."""
+    if u is None:
+        u, v = math.cosh(d) + 0j, 1j * math.sinh(d)      # the Janus line
+    P = abs(u) ** 2 + 4 * abs(v) ** 2
+    I = abs((v.conjugate() * u).imag)
+    return lam * lam * (P + 4 * I) < 1.0
+
+
 def p_mode(lam, d):
     """Post-selection probability for one mode, or None if the target is not
     a normalizable state.  The None is the point -- see the docstring."""
+    if not admissible(lam, d):
+        return None
     d_cross, d_00, d_dd = dets(lam, d)
     if d_dd <= 0 or d_00 <= 0:
         return None

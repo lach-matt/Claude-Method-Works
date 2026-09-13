@@ -8011,6 +8011,24 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   probabilistic.** Past the cap the instrument returns `None`, never a number: the norm goes
   imaginary there, which means the target is not a state, not that it is unlikely.
 
+- **`reslice.py`** — the bridge, and how much of it is derived. **Half one is a theorem**: the
+  deformation matrix `M = [[2v,u],[u,−2v]]` has `M†M = [[P, 4iI],[−4iI, P]]` with `P = |u|²+4|v|²`
+  and `I = Im(v̄u)`, so its singular values² are `P ± 4|I|` and the exact admissibility criterion is
+  `λ²(|u|² + 4|v|² + 4|Im(v̄u)|) < 1`. **The splitting between the two singular values is `8|Im(v̄u)|`**
+  — the relative phase of the two columns is not one obstruction among several, it *is* the
+  anisotropy, and in-phase means the singular values are **degenerate**. This corrects an earlier
+  determinant test that was necessary and not sufficient (a determinant is the *product*, so both
+  values can exceed 1 and leave it positive); a Fock-truncation convergence check caught it.
+  **Half two is measured**: on the index the step path `φ_ij` is flat where no direction is singled
+  out and jumps where one is. Of eight candidate re-slicings, six leave it flat; **inverse M** gives
+  two jumps (null→timelike→causal) and the diagonal `V+M` gives one. The arrow between the halves is
+  **assumed, not proved**, and the file says what dictionary would make it a theorem and why this
+  tree has none. Also verifies Clause F against a re-slicing it did not know about — `statistics`
+  unmoved, `order` and `information` moved, and `geometry` unmoved *because a reversal is a
+  reflection and the convex hull is reflection-invariant*, which is a refinement of the clause, not
+  a violation of it. The forgery is invariant under the re-slicing: still 12 cells, still zero at the
+  space/time intersection.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
