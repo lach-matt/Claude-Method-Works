@@ -8538,6 +8538,30 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   0 so far** — and a demand needs its values *borne* first, so a sparse master index cannot demand at
   all. That is the mechanism, and it is why population is what would unlock a prediction.
 
+### Deferred proposal — transport in nine gates
+
+**Recorded for the return to the warp-transport work, and nothing in it has been done.** The proposal:
+pay for transport in **installments rather than in one expensive gate** — **eight gates measuring the
+base and computing destination bounds, and a ninth that does the seating** on the calculation the
+first eight have already performed.
+
+It has two existing homes in this tree, and they say different things about it:
+
+- **The installment structure is already measured, and it works — for one of the two costs.**
+  Crossing the deformation in `N` steps rather than one is exactly installment payment, and at 99 % of
+  the cap a single jump succeeds **15.5 %** of the time against **99.7 %** for 4,096 increments. But
+  the cap itself **does not move**: at 1.001, 1.05, 1.5 and 3.0 times `δ_max` the path is refused at
+  every `N`. **Installments buy probability, not budget.** So if the expense being split is the
+  *geometric* cost, this is already answered and the answer is no.
+- **The compute-then-seat split is exactly the entailment receipt.** Establishing the `⟹`-maximal
+  cells and letting entailment discharge the rest *is* "the gates that do the work, and then the
+  seating for free" — and the receipt is necessary and sufficient, not searched.
+
+**Two numerical coincidences, flagged as coincidences and not findings.** The truth-priced entailment
+receipt is **8**, and after the arity fix the forged receipt is **9**. The proposal's own count is
+eight-plus-one. Nothing connects these yet and the resemblance may be nothing; it is written down so
+that if a connection is found later it is not mistaken for a prediction made in advance.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
