@@ -105,6 +105,53 @@ and assumes almost nothing.  Cheaper in cells is dearer in assumptions, and
 neither table dominates the other.
 
 ===============================================================================
+3b. AND THE LARGEST BANKNOTE IN THAT RECEIPT IS COUNTERFEIT
+===============================================================================
+
+The six are not six equal notes.  Ranked by what each discharges:
+
+        matter T, timelike,  pointwise, semiclassical, >= 0       5 others
+        matter T, causal,    pointwise, classical,     >= 0       4
+        Ricci R,  timelike,  pointwise, classical,     >= 0       1
+        effective T_eff, null, pointwise, classical,   >= 0       1
+        Einstein G, null,    pointwise, classical,     >= 0       0
+        matter T, null,      pointwise, semiclassical, >= entropy 0
+
+**THE ONE THAT DISCHARGES THE MOST IS FALSE.**  The semiclassical WEC is
+refuted -- the Casimir vacuum has measured negative energy density in a timelike
+frame -- and the index seats it anyway, because an index enumerates CITATIONS
+AND NOT TRUTHS.  That is the index behaving correctly and the RECEIPT behaving
+incorrectly, because **entailment from a false premise is vacuous**: a refuted
+cell discharges nothing, and the five it appeared to cover are not covered.
+
+Priced against truth rather than against citation, the receipt is
+
+        6 of 17   accepting every seated citation
+        8 of 17   withholding discharge from the refuted one
+
+**AND EIGHT IS EXACTLY WHAT THE FORGERY COSTS.**  The entailment route's whole
+apparent advantage over forging was one refuted condition doing the work.  Two
+routes that looked differently priced turn out to cost the same, and the file
+prints both numbers rather than the flattering one.
+
+===============================================================================
+3c. WHAT IS ACTUALLY MAN-MADE HERE, AND IT IS THE COUNTERFEIT
+===============================================================================
+
+The refutation is not a technicality.  **The Casimir effect is man-made, it is
+measured, and it is the failure of the strongest condition in the receipt.**  So
+the family's one contact with a laboratory is not a note you can spend -- it is
+the note that turned out to be forged, by nature, before anyone tried.
+
+That cuts both ways and the second way is the honest limit.  A false condition
+is a resource: its negation holds, and the negation is a real negative energy
+density.  But the size of that resource is not free either -- it is bounded by
+quantum energy inequalities, which in this index is the **B slot**, and the B
+slot is what fixes the bound the opening inherits.  **The laboratory violation
+is real and it is quantitatively capped by the same structure that makes the
+opening small.**  Nothing here escapes that, and this file does not claim to.
+
+===============================================================================
 4. WHAT THE CORRECT ENCODING DOES TO THE LANGUAGES
 ===============================================================================
 
@@ -173,6 +220,13 @@ LEVELS = (
 )
 
 
+# The index enumerates CITATIONS, not truths, and one seated citation is refuted:
+# (matter T, timelike, pointwise, semiclassical, >= 0) -- the semiclassical WEC.
+# The Casimir vacuum has measured negative energy density in a timelike frame.
+# ENTAILMENT FROM A FALSE PREMISE IS VACUOUS, so a refuted cell discharges nothing.
+REFUTED = frozenset({(0, 1, 0, 1, 0)})
+
+
 def entails(a, b, vs=V_SET | V_CONT, ms=M_LADDER, bs=B_BOUND):
     """`a` entails `b`, by logic alone.
 
@@ -192,16 +246,25 @@ def order_on(cells, vs=V_SET | V_CONT, ms=M_LADDER, bs=B_BOUND):
     return [(a, b) for a in cells for b in cells if entails(a, b, vs, ms, bs)]
 
 
-def receipt(cells, vs=V_SET | V_CONT, ms=M_LADDER, bs=B_BOUND):
-    """(the =>-maximal cells, how many of `cells` they reach).
+def receipt(cells, vs=V_SET | V_CONT, ms=M_LADDER, bs=B_BOUND, honest=False):
+    """(the cells that must be established, how many of `cells` they reach).
 
     Exact, not searched: nothing entails a maximal cell, so each must be
     established on its own; and if they reach everything the set is sufficient.
+
+    `honest=True` withholds the power to discharge from every REFUTED cell.
+    That is not a stricter convention, it is the correct one -- a false premise
+    entails nothing -- and it moves the answer, which is why both are offered
+    and the report prints them side by side.
     """
-    mx = [a for a in cells if not any(entails(b, a, vs, ms, bs) for b in cells)]
+    def pays(a, b):
+        if honest and a in REFUTED:
+            return False
+        return entails(a, b, vs, ms, bs)
+    mx = [a for a in cells if not any(pays(b, a) for b in cells)]
     reach = set(mx)
     for a in mx:
-        reach |= {b for b in cells if entails(a, b, vs, ms, bs)}
+        reach |= {b for b in cells if pays(a, b)}
     return mx, len(reach)
 
 
@@ -288,6 +351,31 @@ def report():
     print("   Cheaper in cells is dearer in assumptions. Neither dominates.")
     print()
 
+    print("3b. AND THE LARGEST BANKNOTE IN THAT RECEIPT IS COUNTERFEIT.")
+    ranked = sorted(mx, key=lambda c: -sum(1 for b in X if entails(c, b)))
+    for c in ranked:
+        n = sum(1 for b in X if entails(c, b))
+        print("      %-18s discharges %d%s" % (str(c), n,
+              "   <- REFUTED (the semiclassical WEC)" if c in REFUTED else ""))
+    print("   The one that discharges the most is FALSE: the Casimir vacuum has")
+    print("   measured negative energy density in a timelike frame. The index")
+    print("   seats it because an index enumerates CITATIONS, not truths.")
+    print("   ENTAILMENT FROM A FALSE PREMISE IS VACUOUS, so it discharges nothing.")
+    hm, hr = receipt(X, honest=True)
+    print()
+    print("      %-42s %d of %d" % ("accepting every seated citation", len(mx), len(X)))
+    print("      %-42s %d of %d" % ("withholding it from the refuted one", len(hm), len(X)))
+    print("   AND %d IS EXACTLY WHAT THE FORGERY COSTS. The entailment route's" % len(hm))
+    print("   whole advantage was one refuted condition doing the work.")
+    print()
+    print("3c. WHAT IS MAN-MADE HERE IS THE COUNTERFEIT. The Casimir effect is")
+    print("   man-made, measured, and it IS the failure of the receipt's largest")
+    print("   note. The family's one contact with a laboratory is not a note you")
+    print("   can spend -- it is the note nature had already forged. And its size")
+    print("   is capped by quantum energy inequalities, which in this index is the")
+    print("   B slot, the same structure that makes the opening small.")
+    print()
+
     print("4. WHAT THE CORRECT ENCODING DOES TO THE LANGUAGES.")
     print("   Flipping M and B is a MIXED reversal, and Clause F.2 says who")
     print("   survives one. The prediction was available before the measurement.")
@@ -359,6 +447,18 @@ def selftest():
         True)
     chk("with both physics steps it is BETTER",
         len(mx) < barter.minimum_receipt(X, "order")[0], True)
+
+    # The truth layer: the biggest note in the receipt is a refuted citation.
+    chk("the refuted cell is one of the maximal six", REFUTED <= set(mx), True)
+    chk("and it is the one that discharges the most",
+        max(mx, key=lambda c: sum(1 for b in X if entails(c, b))), (0, 1, 0, 1, 0))
+    chk("it appeared to discharge five",
+        sum(1 for b in X if entails((0, 1, 0, 1, 0), b)), 5)
+    hm, hr = receipt(X, honest=True)
+    chk("priced against TRUTH the receipt grows to 8", len(hm), 8)
+    chk("and still reaches everything", hr, 17)
+    chk("which is EXACTLY the forgery's price -- the advantage was the false note",
+        len(hm), barter.minimum_receipt(X, "order")[0])
 
     # Clause F.2's prediction about a mixed reversal.
     XA = frozenset(align(c) for c in X)

@@ -8196,6 +8196,22 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   the index rests on does not depend on a slot's direction. Every count is a floor on the entailment
   relation and therefore a ceiling on the receipt; nothing is repaired.
 
+  **And the largest banknote in that receipt is counterfeit.** The six are not six equal notes: the
+  one discharging the most — 5 of the other 16 — is `(matter T, timelike, pointwise, semiclassical,
+  ≥ 0)`, the **semiclassical WEC**, which the index records as **false**, the Casimir vacuum having
+  measured negative energy density in a timelike frame. The index is right to seat it, since an index
+  enumerates citations and not truths; the *receipt* is what was wrong, because **entailment from a
+  false premise is vacuous** — a refuted cell discharges nothing. Priced against truth rather than
+  citation the receipt is **8 of 17, not 6 — exactly what the forgery costs.** The entailment route's
+  whole apparent advantage over forging was one refuted condition doing the work, and both numbers now
+  print side by side.
+
+  **What is man-made here is the counterfeit.** The Casimir effect is man-made, measured, and it *is*
+  the failure of the receipt's largest note — the family's one contact with a laboratory is not a note
+  you can spend but the note nature had already forged. The negation is a genuine resource, and its
+  size is capped by quantum energy inequalities, which in this index is the **B slot** — the same
+  structure that makes the opening small.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
