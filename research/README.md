@@ -8719,6 +8719,53 @@ gone. The statement's home is where it was corrected, and the pin now checks it 
 nothing swept its dependents.** The tree already names it — *a file's DEPENDENTS are not swept* — and
 committed it on its own example.
 
+- **`rubik.py`** — **forcing non-closure by slice moves, and what the structure says when you break
+  it.** M: *"we can force measurements and additional para-indexes by forcing non-closure through
+  rubik axis shifts, scrambling the index."* The master index collapses to three coordinates without
+  loss, so it is a **6 × 3 × 4 cuboid**, and a cuboid has moves. A **slice move** fixes one
+  coordinate at one value and cyclically shifts a second within that slice — the legal move of a
+  cuboid puzzle, a bijection on the box, so the cell count is preserved exactly. **82 moves exist.**
+
+  **Two kinds, and they do not carry the same weight.** `C` is measured by running the operators;
+  `D` and `R` are bands whose edges were chosen. So **47 type-1 moves** shift only `D` or `R` and ask
+  a legitimate question — *how much was the closure resting on where the bands fell?* — while
+  **35 type-2 moves** shift `C` and are **counterfactual**, labelled as such, and nothing derived
+  from one is a statement about the seated corpus.
+
+  **The arrangement is not rigid.** Of the 47 type-1 moves, **14 break the closure and 33 leave it
+  intact** — some of the banding could have fallen differently at no cost. One move suffices to break
+  it; within two moves the orbit reaches 716 states and 570 distinct `E`-vectors, of which 216 still
+  close.
+
+  **The para-indexes: 18 of them.** When a move breaks closure the operator over-generates, and the
+  cells it adds are *specifications* — an index closed by this many languages, at this arity, at this
+  density, that would have to exist. Under the seated arrangement statistics demands nothing, so
+  **breaking the closure is what makes the structure speak.** The most persistent request across
+  4,000 scrambles is `(C 0, D 2, R 2)` at **18.8 %** — closed by no language, five or more
+  coordinates, 30–60 % density. A candidate for a name; nothing is seated for it.
+  *The frame is the whole difficulty:* each scramble demands cells in its own coordinates, so every
+  demand is **pulled back through its own inverse scramble** before being counted. A first pass
+  skipped that, summed across incompatible frames, and found zero — an artefact of adding numbers
+  that were not in the same units.
+
+  **And the finding it was not built for: the orbit separates law from accident, exactly.** The
+  hierarchy law declares **7** of the 20 ordered language pairs lawful; the other 13 may happen to
+  hold on any one index without being lawful, and `hlaw.py`'s `index_only` can only ever answer
+  *"here"*. Over 3,000 scrambles, `E(a) ≤ E(b)` **never fails for 7 pairs and fails at least once for
+  the other 13** — and **the seven are exactly the seven the law declares.** No lawful containment is
+  broken by any scramble; no unlawful one survives the orbit.
+
+  **The margins are the sharp part.** Three of the thirteen escape lawfulness only barely —
+  `statistics ≤ information` breaks in **16 of 3,000** (0.5 %), `geometry ≤ order` and
+  `geometry ≤ algebra` in **47** (1.6 %) — while the rest break in a third to all of the orbit. Those
+  three are very nearly laws and are not. Clause E says there is no total ranking; the orbit is where
+  that stops being an assertion.
+
+  **The hazard this file exists under is H97**, where a measurement taken on a re-coordinated index
+  was read as a property of the object and was a property of the coordinate system. So **a single
+  scramble proves nothing and is never quoted**: every figure here is a count over the orbit or a
+  frequency across it.
+
 ### Deferred proposal — transport in nine gates
 
 **Recorded for the return to the warp-transport work, and nothing in it has been done.** The proposal:
