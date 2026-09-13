@@ -8011,6 +8011,30 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   probabilistic.** Past the cap the instrument returns `None`, never a number: the norm goes
   imaginary there, which means the target is not a state, not that it is unlikely.
 
+  **Can a coefficient buy a discount? Three no's and one qualified yes.** The cap is `δ ≈ 0.81/S`
+  and the opening goes like `δ²`, so anything that multiplies the admissible `δ` is worth two of
+  itself. (1) **A uniform coefficient buys nothing** — the admissibility bracket is homogeneous of
+  degree 2, so scaling both columns by `c` is exactly scaling `λ` by `c`; verified to twelve digits.
+  (2) **The columns are priced 1:4 and the content cannot move** — at fixed total weight an all-`u`
+  deformation costs 1 and an all-`v` one costs 4, but the Janus family lies exactly on the hyperbola
+  `|u|² − |v|² = 1`, and `|v| = sinh δ` **is** the deformation; reducing it is not reweighting, it is
+  not deforming. (3) **The bill is not the columns anyway — it is the phase between them.** Of the
+  δ-dependent terms, `4|Im(v̄u)|` carries **99.9 % at δ = 0.001** and still 90.9 % at δ = 0.1, so a
+  coefficient on the columns attacks a tenth of a percent. The thing to attack is the phase, and that
+  is not a coefficient — it is the in-phase branch `reslice.py` derives. (4) **A mode-dependent `δ` is
+  a real gain, and the naive version of it is a truncation artefact.** The uniform cap is set by the
+  *softest* mode; averaging the per-mode caps flat gives ×109.8, ×259.2, ×438.0, ×886.2 at four
+  successive truncations — it **tracks the mode count**, because it is dominated by thermally dead
+  modes whose cap grows like `−ln λ` and whose occupation is zero. **Weighted by occupation it is
+  5.109128 at all four, stable to seven digits.** That one is real. Its growth is **not a power law**:
+  a fit over a decade reads `S^0.75`, but the local slope drifts monotonically 0.57 → 0.83 and is
+  still climbing, and a drifting slope is not an exponent; against `S/ln S` the ratio is flat to 13 %
+  over two decades, which is what the tower predicts. **A budget gain is not an opening gain, and the
+  file will not convert one into the other** — the opening is a function of the bulk `γ`, identified
+  with a *single* marginal `δ` common to every mode, and a per-mode `δ_n` is a normalizable Gaussian
+  state but is not that deformation. What is priced is how much deformation the bound allows; what it
+  opens is not measured.
+
 - **`reslice.py`** — the bridge, and how much of it is derived. **Half one is a theorem**: the
   deformation matrix `M = [[2v,u],[u,−2v]]` has `M†M = [[P, 4iI],[−4iI, P]]` with `P = |u|²+4|v|²`
   and `I = Im(v̄u)`, so its singular values² are `P ± 4|I|` and the exact admissibility criterion is
@@ -8028,6 +8052,57 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   reflection and the convex hull is reflection-invariant*, which is a refinement of the clause, not
   a violation of it. The forgery is invariant under the re-slicing: still 12 cells, still zero at the
   space/time intersection.
+
+  **The Clause F refinement, and it is a correction to a published clause.** Clause F says four of
+  the five languages need an order on each coordinate and `statistics` does not. That is true and it
+  is coarse — **"relabelling" is three operations, and the four that "need the order" do not need the
+  same thing.** Over 600 random indexes:
+
+  | | full reversal | one reversal | permutation |
+  |---|---|---|---|
+  | `order` / `algebra` | **600/600** | 135/600 | 165/600 |
+  | `geometry` | 591/600 | 597/600 | 278/600 |
+  | `information` | 121/600 | 128/600 | 151/600 |
+  | `statistics` | **600/600** | **600/600** | **600/600** |
+
+  Every entry is explained, and the explanation is the finding: **each language is invariant under a
+  group, the four groups differ, and they form a strict chain that is not the containment
+  hierarchy.** `statistics` has the full symmetric group — it reads no order at all, and 600/600 is a
+  theorem showing up as a count. `geometry` has the **reversal hypercube** `{id,rev}^d`: the hull
+  commutes with any *affine* relabelling, and a rank reversal is affine exactly when the coordinate's
+  observed values are equally spaced — all nine of its misses have a non-equally-spaced box and none
+  has an equally-spaced one, and restricted to those it is 400/400 under both reversals and
+  **1952/1952 under every mixed pattern**. `order` and `algebra` have only the **diagonal** pair
+  `{id, rev}`: the full reversal is an order-*anti*automorphism that swaps meet with join, and the
+  sublattice hull closes under both — 600/600 on the diagonal against 350 of 1952 on the mixed.
+  `information` has the **trivial** group: it is the join-closure, and the dual turns it into the
+  meet-closure, a different operator. So
+
+  > symmetric ⊃ hypercube `{id,rev}^d` ⊃ diagonal `{id,rev}` ⊃ trivial
+  > `statistics` — `geometry` — `order` = `algebra` — `information`
+
+  and Clause F is the claim that the first of those four groups is proper. True, and the weakest of
+  four separate facts. It does not say the other four behave alike: `geometry` survives a reversal
+  `order` cannot, and `information` survives neither.
+
+- **`orbit.py`** — **if everything oscillates, what is the residue?** An index read once is a
+  *snapshot*; if the system moves, the snapshot is part of an orbit and the cells a language admits
+  without having observed them stop being fiction. Tested by hiding part of the seated index and
+  asking what the closure of what remains recovers, scored on **both** recall (how much of the orbit
+  is anticipated) and precision (how much of what is admitted is real) — either alone inverts the
+  conclusion, and the file refuses to print one without the other. At 14 of 17 cells against a raw
+  snapshot's 82 %: `order`/`algebra` recall **93 % at 10 % precision**, `geometry` **91 % at 61 %**,
+  `information` 87 % at 13 %, `statistics` 86 % at **100 %**. So **every language beats the raw
+  snapshot on recall — the residue really does overlap the orbit — and only `geometry` is right about
+  it**; `order` anticipates by admitting nearly everything. `statistics` sits at precision 1 **by
+  theorem, not measurement**: it is monotone and `E = 0` on the orbit, so `statistics(X_t) ⊆
+  statistics(X) = X`, and it cannot over-claim — nor can it anticipate much, being a language that
+  admits only what it saw. **The mimic band and the anticipation band are the same band**: `geometry`
+  was the only language whose residue sits in `0 < E/|X| < 1`, and it is the only one whose residue is
+  mostly real orbit. Two different measurements landing on one operator. What it refuses: it does not
+  claim the closure *is* the orbit — at 14 of 17 the best case recovers the whole in 60 of 200 draws —
+  and it does not claim to model an oscillation, since hiding cells at random is a stand-in for a
+  cycle and has neither an order nor a period.
 
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is

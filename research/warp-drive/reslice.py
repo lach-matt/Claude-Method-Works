@@ -62,6 +62,68 @@ above are joined by one stated assumption and not by a derivation.  Everything
 either side of that assumption is computed here and can be checked.
 
 ===============================================================================
+THE CLAUSE F REFINEMENT -- FOUR INVARIANCE GROUPS, NOT ONE DICHOTOMY
+===============================================================================
+
+Clause F says four of the five languages need an order on each coordinate and
+`statistics` does not.  That is right and it is coarse: **"relabelling" is not
+one operation**, and the four that "need the order" do not need the same thing.
+Three distinct relabellings live inside the word, and the five languages sort
+differently under each:
+
+    FULL REVERSAL      every coordinate reversed at once -- the LATTICE DUAL
+    ONE REVERSAL       a single coordinate reversed, the others left alone
+    PERMUTATION        an arbitrary bijection of each coordinate's values
+
+Measured over 600 random indexes (seed 11), invariant counts:
+
+                      full reversal   one reversal   permutation
+        order            600/600         135/600        165/600
+        algebra          600/600         135/600        165/600
+        geometry         591/600         597/600        278/600
+        information      121/600         128/600        151/600
+        statistics       600/600         600/600        600/600
+
+Every number there is explained, and the explanation is the finding: each
+language is invariant under a GROUP, the four groups are DIFFERENT, and they
+form a strict chain that is not the containment hierarchy.
+
+  * `statistics` -- the FULL SYMMETRIC group, every bijection of every
+    coordinate.  It reads no order at all.  That is Clause F, and 600/600 is
+    a theorem showing up as a count.
+
+  * `geometry` -- the REVERSAL HYPERCUBE, all 2^d patterns of reversing each
+    coordinate independently.  The hull commutes with any AFFINE relabelling,
+    and a rank reversal is affine exactly when the coordinate's observed values
+    are equally spaced.  Of the nine full-reversal failures above, NINE have a
+    non-equally-spaced box and ZERO have an equally-spaced one; restricted to
+    equally-spaced boxes it is 400/400 under both reversals, and 1952/1952
+    under every MIXED pattern.  Its misses are an artefact of rank-encoding a
+    reversal, not a property of the hull.
+
+  * `order` and `algebra` -- the DIAGONAL pair {identity, full reversal}, two
+    elements.  Full reversal is an order-ANTIautomorphism of the product: it
+    swaps meet with join, and the sublattice hull closes under both, so it
+    commutes.  600/600, and again a theorem.  A single reversal is neither an
+    automorphism nor an antiautomorphism, and they break: 600/600 on the
+    diagonal patterns against 350 of 1952 on the mixed ones.
+
+  * `information` -- the TRIVIAL group.  It is the JOIN-closure, and the dual
+    turns join-closure into MEET-closure, which is a different operator.  It is
+    the only one of the five that the lattice dual moves, and its ~20 % hit
+    rate is coincidence, not invariance.
+
+So the chain is
+
+        symmetric  >  hypercube {id,rev}^d  >  diagonal {id,rev}  >  trivial
+        statistics    geometry                 order = algebra      information
+
+and Clause F's "four need the order" is the statement that the first of those
+four groups is proper.  It is true.  It is also the weakest of four separate
+facts, and reading it as "the other four behave alike" is wrong: `geometry`
+survives a reversal `order` cannot, and `information` survives neither.
+
+===============================================================================
 WHAT IT REFUSES TO DO
 ===============================================================================
 
@@ -72,9 +134,17 @@ labelled ASSUMED everywhere it appears.
 **It does not search for a re-slicing that gives the answer it wants.**  The
 candidate family is fixed in the source, every member is reported including
 the ones that fail, and the count of failures is printed.
+
+**It does not report an invariance rate as an invariance.**  `information`
+holds under the dual about a fifth of the time and is not invariant under it;
+`geometry` misses nine of six hundred and IS invariant under the operation the
+encoding was meant to express.  A rate and a group are different claims, and
+the census prints the rate while the reading names the group.
 """
 
+import itertools
 import math
+import random
 import sys
 
 import decomposable as D
@@ -146,6 +216,109 @@ def reversed_index():
     return frozenset((c[0], c[1], 3 - c[2], c[3], c[4]) for c in necindex.cells())
 
 
+# ------------------------------------------- the Clause F refinement: 3 groups
+
+def relabel(X, maps):
+    """Apply a per-coordinate bijection to every cell."""
+    d = len(maps)
+    return frozenset(tuple(maps[i][x[i]] for i in range(d)) for x in X)
+
+
+def commutes(X, maps):
+    """{lang: does the closure commute with this relabelling?}
+
+    Pull the closure of the relabelled index back through the inverse and
+    compare.  This is the only correct test: comparing SIZES would call
+    `information` invariant whenever the join- and meet-closures happen to be
+    equinumerous, which they often are and which is not the same claim.
+    """
+    d = len(maps)
+    inv = [{v: k for k, v in m.items()} for m in maps]
+    c0, _ = hlaw.closures(X)
+    cp, _ = hlaw.closures(relabel(X, maps))
+    return {L: frozenset(tuple(inv[i][y[i]] for i in range(d)) for y in cp[L]) == c0[L]
+            for L in hlaw.LANGS}
+
+
+def reversal(box, pattern):
+    """The relabelling that reverses coordinate i exactly where pattern[i]."""
+    return [dict(zip(v, list(reversed(v)))) if pattern[i] else {x: x for x in v}
+            for i, v in enumerate(box)]
+
+
+def equally_spaced(v):
+    """A rank reversal of this coordinate is AFFINE iff this is true."""
+    return len(v) < 3 or len({v[i + 1] - v[i] for i in range(len(v) - 1)}) == 1
+
+
+def random_index(rnd):
+    """The same family hlaw.sweep draws from, so the two censuses agree."""
+    d = rnd.randint(2, 4)
+    alpha = [rnd.randint(2, 4) for _ in range(d)]
+    allc = list(itertools.product(*[range(a) for a in alpha]))
+    return frozenset(rnd.sample(allc, rnd.randint(2, min(len(allc), 10))))
+
+
+def invariance_census(n=600, seed=11):
+    """{op: {lang: count}}, plus the spacing split for geometry's misses.
+
+    op is one of 'full', 'one', 'perm'.  Returns (counts, n, geometry_misses)
+    where geometry_misses is (with_equally_spaced_box, without).
+    """
+    rnd = random.Random(seed)
+    tal = {k: {L: 0 for L in hlaw.LANGS} for k in ("full", "one", "perm")}
+    geo_miss = [0, 0]
+    for _ in range(n):
+        X = random_index(rnd)
+        d = len(next(iter(X)))
+        box = D.box_of(X, d)
+        rf = commutes(X, reversal(box, (1,) * d))
+        for L in hlaw.LANGS:
+            tal["full"][L] += rf[L]
+        if not rf["geometry"]:
+            geo_miss[0 if all(equally_spaced(v) for v in box) else 1] += 1
+        k = rnd.randrange(d)
+        r1 = commutes(X, reversal(box, tuple(int(i == k) for i in range(d))))
+        for L in hlaw.LANGS:
+            tal["one"][L] += r1[L]
+        pm = []
+        for v in box:
+            sh = v[:]
+            rnd.shuffle(sh)
+            pm.append(dict(zip(v, sh)))
+        rp = commutes(X, pm)
+        for L in hlaw.LANGS:
+            tal["perm"][L] += rp[L]
+    return tal, n, tuple(geo_miss)
+
+
+def hypercube_census(n=300, seed=23):
+    """Every reversal pattern on equally-spaced boxes, split diagonal/mixed.
+
+    Returns {'geom_mixed': (inv, moved), 'oa_mixed': ..., 'oa_diag': ...}.
+    This is the test that separates `geometry`'s group from `order`'s: both
+    survive the diagonal, only `geometry` survives the mixed patterns.
+    """
+    rnd = random.Random(seed)
+    out = {k: [0, 0] for k in ("geom_mixed", "oa_mixed", "oa_diag")}
+    got = 0
+    while got < n:
+        X = random_index(rnd)
+        d = len(next(iter(X)))
+        box = D.box_of(X, d)
+        if not all(equally_spaced(v) for v in box):
+            continue                      # a non-affine encoding, excluded by name
+        got += 1
+        for pat in itertools.product((0, 1), repeat=d):
+            r = commutes(X, reversal(box, pat))
+            if sum(pat) in (0, d):
+                out["oa_diag"][r["order"]] += 1
+            else:
+                out["geom_mixed"][r["geometry"]] += 1
+                out["oa_mixed"][r["order"]] += 1
+    return {k: (v[1], v[0]) for k, v in out.items()}
+
+
 # --------------------------------------------------------------- the reading
 
 def report():
@@ -194,9 +367,37 @@ def report():
         print("   %-12s %3d -> %-3d  %s" % (L, len(c0[L]), len(cR[L]),
               "unmoved" if len(c0[L]) == len(cR[L]) else "moved"))
     print("   statistics unmoved -- Clause F, as proved.")
-    print("   geometry also unmoved, and that is NOT a violation: a reversal is")
-    print("   a REFLECTION, and the convex hull is reflection-invariant. Clause F")
-    print("   says these four need the order, not that they need its sign.")
+    print("   geometry also unmoved, and that is NOT a violation: see the")
+    print("   refinement below, which says exactly which group each one has.")
+    print()
+
+    print("THE CLAUSE F REFINEMENT -- \"relabelling\" is three operations.")
+    tal, n, geo = invariance_census()
+    print("   %-12s %-14s %-14s %s" % ("", "full reversal", "one reversal", "permutation"))
+    for L in hlaw.LANGS:
+        print("   %-12s %-14s %-14s %s"
+              % (L, "%d/%d" % (tal["full"][L], n), "%d/%d" % (tal["one"][L], n),
+                 "%d/%d" % (tal["perm"][L], n)))
+    print()
+    print("   geometry's %d misses under full reversal: %d have an equally-spaced"
+          % (sum(geo), geo[0]))
+    print("   box, %d do not -- a rank reversal is AFFINE only when the values are" % geo[1])
+    print("   equally spaced, so the misses are the encoding, not the hull.")
+    print()
+    hc = hypercube_census()
+    print("   On equally-spaced boxes, every reversal pattern:")
+    print("     geometry, MIXED patterns      %d invariant, %d moved" % hc["geom_mixed"])
+    print("     order,    MIXED patterns      %d invariant, %d moved" % hc["oa_mixed"])
+    print("     order,    DIAGONAL patterns   %d invariant, %d moved" % hc["oa_diag"])
+    print()
+    print("   FOUR GROUPS, A STRICT CHAIN, AND IT IS NOT THE HIERARCHY:")
+    print("     statistics   the full symmetric group -- reads no order at all")
+    print("     geometry     the reversal hypercube {id,rev}^d -- affine-invariant")
+    print("     order=algebra  the diagonal {id,rev} -- the lattice dual, which")
+    print("                  swaps meet and join and the sublattice hull has both")
+    print("     information  trivial -- join-closure, and the dual makes it MEET")
+    print("   Clause F is the claim that the first of these is proper. True, and")
+    print("   the weakest of the four: it does not say the other four behave alike.")
     print()
 
     f0 = c0["geometry"] - X0
@@ -284,6 +485,26 @@ def selftest():
         sum(1 for c in c0["geometry"] - X0 if c[1] == 2), 0)
     chk("nothing forged at the space/time intersection, after",
         sum(1 for c in cR["geometry"] - XR if c[1] == 2), 0)
+
+    # The Clause F refinement.  These are GROUP facts, so the structural pins
+    # are exact and the rate pins are only the census reproducing itself.
+    tal, n, geo = invariance_census()
+    chk("statistics invariant under all three relabellings",
+        (tal["full"]["statistics"], tal["one"]["statistics"], tal["perm"]["statistics"]),
+        (n, n, n))
+    chk("order and algebra invariant under the full reversal (the dual)",
+        (tal["full"]["order"], tal["full"]["algebra"]), (n, n))
+    chk("and NOT under a single reversal", tal["one"]["order"] < n // 2, True)
+    chk("information moved by the dual too -- it is the only one",
+        tal["full"]["information"] < n // 2, True)
+    chk("every geometry miss has a non-equally-spaced box", geo, (0, 9))
+
+    hc = hypercube_census()
+    chk("geometry survives every MIXED reversal pattern", hc["geom_mixed"][1], 0)
+    chk("order survives every DIAGONAL pattern", hc["oa_diag"][1], 0)
+    chk("order does not survive the mixed ones", hc["oa_mixed"][1] > 0, True)
+    chk("so geometry's group is strictly larger than order's",
+        hc["geom_mixed"][0] > hc["oa_mixed"][0], True)
 
     print("reslice selftest: %s" % ("PASS" if ok else "FAIL"))
     return 0 if ok else 1

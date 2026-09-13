@@ -68,6 +68,88 @@ and the three determinants below are that formula written out.  Everything is
 exact; nothing is fitted.
 
 ===============================================================================
+CAN A COEFFICIENT BUY A DISCOUNT?  FOUR ANSWERS, AND THE ONE YES IS NOT FREE
+===============================================================================
+
+The cap is delta_max ~ 0.81/S and the opening goes like delta^2, so anything
+that multiplies the admissible delta is worth two of itself.  Four ways to try
+it were priced.  THREE ARE NO, AND THE NO IS ALGEBRAIC RATHER THAN NUMERICAL.
+
+(1) A UNIFORM COEFFICIENT BUYS NOTHING.  The admissibility bracket
+
+        |u|^2 + 4|v|^2 + 4|Im(conj(v)u)|
+
+is HOMOGENEOUS OF DEGREE 2: scaling both columns by c multiplies it by exactly
+c^2, which is the same as scaling lam by c.  A uniform coefficient IS the
+deformation strength; it cannot discount it.  Verified to twelve digits.
+
+(2) THE COLUMNS ARE PRICED 1:4, AND THE CONTENT CANNOT MOVE.  At fixed total
+column weight and in phase, an all-`u` deformation costs 1 and an all-`v` one
+costs 4, so moving content from the same-side column to the cross column would
+buy a factor 4 in budget and 2 in headroom.  It is not available: the Janus
+family lies on the HYPERBOLA
+
+        |u|^2 - |v|^2 = 1        (cosh^2 d - sinh^2 d)
+
+exactly, at every d.  |v| = sinh d IS the deformation.  Reducing it is not
+reweighting the deformation, it is not deforming.
+
+(3) THE BILL IS NOT THE COLUMNS ANYWAY -- IT IS THE PHASE BETWEEN THEM.  Of
+the three terms, only two depend on d, and at the delta that matters the split
+is not close:
+
+        d = 0.001     4|v|^2 = 4.0e-06     4|Im| = 4.0e-03     phase = 99.9 %
+        d = 0.01      4|v|^2 = 4.0e-04     4|Im| = 4.0e-02     phase = 99.0 %
+        d = 0.1       4|v|^2 = 4.0e-02     4|Im| = 4.0e-01     phase = 90.9 %
+
+A coefficient that reweights the columns is attacking a tenth of a percent of
+the bill.  THE THING TO ATTACK IS THE PHASE, and the way to attack it is not a
+coefficient -- it is to bring the columns into phase, which is the branch
+reslice.py derives and which relaxes 1/S to 1/sqrt(S).
+
+(4) A MODE-DEPENDENT DELTA IS A REAL GAIN, AND THE NAIVE VERSION OF IT IS A
+TRUNCATION ARTEFACT.  The uniform cap is set by the SOFTEST mode; every other
+mode could take more.  Averaging the per-mode caps flat gives a large factor
+that MOVES WITH THE TRUNCATION and is therefore not a number:
+
+        gap = 0.15    tol 1e-8   122 modes   naive x109.8   weighted x5.109127
+                      tol 1e-18  276 modes   naive x259.2   weighted x5.109128
+                      tol 1e-30  460 modes   naive x438.0   weighted x5.109128
+                      tol 1e-60  921 modes   naive x886.2   weighted x5.109128
+
+The flat average is dominated by thermally dead modes whose cap grows like
+-ln(lam) and whose occupation is zero; it tracks the MODE COUNT almost exactly,
+which is the signature of an artefact and not of a discount.  WEIGHTED BY
+OCCUPATION it is stable to SEVEN digits over four decades of truncation.  That
+is the real one, and it is 5.109128 at this gap.
+
+The bisection ceiling is derived from lam rather than passed in, for the same
+reason: a fixed ceiling clamps exactly those dead modes, so the flat average
+would depend on the ceiling too and the truncation dependence would be partly
+hidden by a second artefact.
+
+ITS GROWTH IS NOT A POWER LAW, AND AN EARLIER PASS HERE RECORDED ONE.  Fitted
+over a decade it looks like S^0.75; the local slope drifts monotonically --
+0.57, 0.61, 0.64, 0.68, 0.71, 0.74, 0.76, 0.79, 0.81, 0.83 -- and a drifting
+slope is not an exponent.  Against S/ln(S) the ratio is flat to about 13 %
+over two decades of S (0.79 down to 0.69), which is the shape the tower
+predicts: per mode the small-d cap is (lam^-2 - 1)/4 and the occupation is
+1/(lam^-2 - 1), so their product is 1/4 for EVERY mode below the thermal
+scale, the numerator counts modes and the denominator is the partition sum.
+
+So the effective deformation goes from ~0.81/S uniform to ~1/ln(S) weighted --
+which would be an enormous change, and this file does not claim it as one:
+
+**A BUDGET GAIN IS NOT AN OPENING GAIN, AND THIS FILE WILL NOT CONVERT ONE
+INTO THE OTHER.**  The opening is a function of the BULK parameter gamma, and
+the identification gamma <-> delta is the paper's, for a SINGLE marginal
+Janus parameter common to every mode.  A per-mode delta_n is a normalizable
+Gaussian state and is NOT that deformation; no dictionary in this tree sends
+it to a single gamma.  What is measured here is how much deformation the
+normalizability bound allows.  What it opens is not measured, and saying it
+is 1/ln(S) instead of 1/S^2 would be exactly the unearned step.
+
+===============================================================================
 WHAT IT REFUSES TO REPORT
 ===============================================================================
 
@@ -81,6 +163,15 @@ number would be worse than a refusal, because it would look like an answer.
 **It does not claim the door is open or shut.**  It prices one deformation.
 Whether an opening of order 1/S^2 is useful is not a question arithmetic
 settles, and this file does not settle it.
+
+**It does not report a flat average over modes as a discount.**  That number
+moves with the truncation and the census prints all four truncations beside
+each other so it cannot be quoted alone.
+
+**It does not fit a power law to a drifting slope.**  The mode-dependent gain
+had an exponent recorded for it here and the exponent was an artefact of the
+fitting range; the census now prints the local slope at every step so the
+drift is visible in the output rather than hidden in a fit.
 """
 
 import math
@@ -215,6 +306,77 @@ def opening(gamma):
     return math.pi / 2 - mu0(-gamma * gamma)
 
 
+# ------------------------------------------- can a coefficient buy a discount
+
+def bracket(u, v):
+    """The admissibility bracket, homogeneous of degree 2 in (u, v)."""
+    return abs(u) ** 2 + 4 * abs(v) ** 2 + 4 * abs((v.conjugate() * u).imag)
+
+
+def janus_columns(d):
+    """The Janus line: the two columns at deformation d.  On the hyperbola."""
+    return math.cosh(d) + 0j, 1j * math.sinh(d)
+
+
+def budget_split(d):
+    """(|u|^2, 4|v|^2, 4|Im|, phase share of the d-DEPENDENT bill).
+
+    The first term is the undeformed TFD and does not depend on d, so the
+    share is taken over the other two -- quoting it over all three would
+    flatter the phase term at small d and understate it at large.
+    """
+    u, v = janus_columns(d)
+    U, V, I = abs(u) ** 2, 4 * abs(v) ** 2, 4 * abs((v.conjugate() * u).imag)
+    return U, V, I, I / (V + I)
+
+
+def mode_delta_max(lam, iters=100):
+    """Largest d this single mode admits.  The uniform cap is the min of these.
+
+    The bisection ceiling is DERIVED, not passed in.  At large d the bracket
+    goes like 2.25 e^{2d}, so the cap sits near -ln(lam) - ln(1.5); starting
+    two above that brackets it for every lam.  A fixed ceiling would silently
+    clamp the thermally dead modes and make the flat average below depend on
+    the ceiling as well as on the truncation -- one artefact hiding another.
+    """
+    hi = -math.log(lam) + 2.0
+    lo = 0.0
+    for _ in range(iters):
+        m = (lo + hi) / 2
+        if admissible(lam, m):
+            lo = m
+        else:
+            hi = m
+    return lo
+
+
+def discount(gap, tol=1e-18):
+    """(naive, weighted, n_modes) -- the flat and occupation-weighted ratios of
+    the mode-dependent cap to the uniform one.  The naive one is reported so it
+    can be seen moving with `tol`; it is not a discount."""
+    ms = modes(gap, tol=tol)
+    ds = [mode_delta_max(l) for _, l in ms]
+    du = min(ds)
+    w = [l * l / (1 - l * l) for _, l in ms]
+    naive = (sum(ds) / len(ds)) / du
+    wtd = (sum(wi * di for wi, di in zip(w, ds)) / sum(w)) / du
+    return naive, wtd, len(ms)
+
+
+def gain_scaling(gaps=(0.3, 0.2, 0.15, 0.1, 0.07, 0.05, 0.03, 0.02, 0.01, 0.006, 0.004)):
+    """[(S, gain, gain/(S/lnS), local log-log slope)] -- the evidence that the
+    growth is NOT a power law.  A drifting slope is the finding."""
+    out, prev = [], None
+    for g in gaps:
+        S = entropy(g)
+        _, wtd, _ = discount(g)
+        slope = ((math.log(wtd) - math.log(prev[1])) / (math.log(S) - math.log(prev[0]))
+                 if prev else None)
+        out.append((S, wtd, wtd / (S / math.log(S)), slope))
+        prev = (S, wtd)
+    return out
+
+
 # ------------------------------------------------------------------ the report
 
 def report():
@@ -277,6 +439,60 @@ def report():
     print()
     print("   Recorded, not adjudicated.  Whether an opening of that size is")
     print("   useful is not a question arithmetic settles.")
+    print()
+
+    print("5. CAN A COEFFICIENT BUY A DISCOUNT?  THREE NO AND ONE QUALIFIED YES.")
+    print()
+    print("   (1) A UNIFORM COEFFICIENT: nothing.  The bracket is homogeneous")
+    print("       of degree 2, so scaling the columns IS scaling lam.")
+    u0, v0 = janus_columns(0.3)
+    for c in (0.5, 2.0, 3.7):
+        print("       c = %-5.2f  bracket ratio %.12f  (c^2 = %.4f)"
+              % (c, bracket(c * u0, c * v0) / bracket(u0, v0), c * c))
+    print()
+    print("   (2) THE COLUMNS ARE PRICED 1:4 AND THE CONTENT CANNOT MOVE.")
+    for f in (0.0, 0.5, 1.0):
+        uu, vv = complex(math.sqrt(1 - f)), complex(math.sqrt(f))
+        print("       |v|^2 share %.2f  bracket %.4f  lam headroom %.4f"
+              % (f, bracket(uu, vv), 1 / math.sqrt(bracket(uu, vv))))
+    print("       but the Janus family is the HYPERBOLA |u|^2 - |v|^2 = 1:")
+    for dd in (0.0, 0.8, 1.5):
+        uu, vv = janus_columns(dd)
+        print("         d = %.1f   |u|^2 - |v|^2 = %.12f" % (dd, abs(uu) ** 2 - abs(vv) ** 2))
+    print("       |v| = sinh d IS the deformation. Reducing it is not deforming.")
+    print()
+    print("   (3) THE BILL IS THE PHASE, NOT THE COLUMNS.")
+    for dd in (0.001, 0.01, 0.1):
+        U, V, I, sh = budget_split(dd)
+        print("       d = %-6g 4|v|^2 = %.2e  4|Im| = %.2e   phase share %.1f%%"
+              % (dd, V, I, 100 * sh))
+    print("       A coefficient on the columns attacks a tenth of a percent.")
+    print("       The phase is attacked by bringing the columns INTO PHASE,")
+    print("       which is not a coefficient. See reslice.py.")
+    print()
+    print("   (4) A MODE-DEPENDENT DELTA IS REAL, AND ITS NAIVE FORM IS AN")
+    print("       ARTEFACT.  gap = 0.15, four truncations:")
+    for tol in (1e-8, 1e-18, 1e-30, 1e-60):
+        nv, wt, nm = discount(0.15, tol=tol)
+        print("       tol %-8.0e %3d modes   naive x%-7.1f  weighted x%.6f"
+              % (tol, nm, nv, wt))
+    print("       The naive one tracks the MODE COUNT. The weighted one is")
+    print("       stable to seven digits. Only the second is a number.")
+    print()
+    print("       AND ITS GROWTH IS NOT A POWER LAW:")
+    print("       %-10s %-10s %-12s %s" % ("S", "gain", "gain/(S/lnS)", "local slope"))
+    for S, gn, rat, sl in gain_scaling():
+        print("       %-10.2f %-10.3f %-12.4f %s"
+              % (S, gn, rat, "-" if sl is None else "%.4f" % sl))
+    print("       The slope DRIFTS from 0.57 to 0.83 and is still climbing, so")
+    print("       there is no exponent. Against S/ln(S) the ratio is flat to")
+    print("       about 13% over two decades. An earlier pass here recorded a")
+    print("       power law; it was the fitting range, not the physics.")
+    print()
+    print("   A BUDGET GAIN IS NOT AN OPENING GAIN. The opening is a function of")
+    print("   the BULK gamma, identified with a SINGLE marginal delta common to")
+    print("   every mode. A per-mode delta_n is a normalizable Gaussian state and")
+    print("   is not that deformation. This file prices the budget and stops.")
     return 0
 
 
@@ -335,6 +551,40 @@ def selftest():
     chk("opening/gamma^2 -> 0.589", abs(opening(0.01) / 1e-4 - 0.589) < 0.002, True)
     chk("mu0 < pi/2 exactly when gamma is imaginary", mu0(-0.01) < math.pi / 2, True)
     chk("and mu0 > pi/2 for real gamma (not traversable)", mu0(0.01) > math.pi / 2, True)
+
+    # The coefficient question: three no's and one qualified yes.
+    u0, v0 = janus_columns(0.3)
+    chk("the bracket is homogeneous of degree 2 (a uniform coefficient buys 0)",
+        max(abs(bracket(c * u0, c * v0) / bracket(u0, v0) - c * c)
+            for c in (0.5, 2.0, 3.7)) < 1e-12, True)
+    chk("the columns are priced 1:4",
+        (bracket(complex(1), 0j), bracket(0j, complex(1))), (1.0, 4.0))
+    chk("the Janus family sits on the hyperbola |u|^2 - |v|^2 = 1",
+        max(abs(abs(janus_columns(d)[0]) ** 2 - abs(janus_columns(d)[1]) ** 2 - 1)
+            for d in (0.0, 0.3, 0.8, 1.5)) < 1e-12, True)
+    chk("at d = 0.001 the phase carries 99.9% of the d-dependent bill",
+        budget_split(0.001)[3], 0.999, 1e-3)
+    chk("the phase share stays above 90% out to d = 0.1",
+        budget_split(0.1)[3] > 0.90, True)
+
+    n8, w8, _ = discount(0.15, tol=1e-8)
+    n60, w60, _ = discount(0.15, tol=1e-60)
+    chk("the naive discount MOVES with the truncation", n60 / n8 > 5, True)
+    chk("the occupation-weighted one does not, to six digits",
+        abs(w60 - w8) < 1e-6, True)
+    chk("and it is the value the report prints", w8, 5.109128, 1e-5)
+    chk("the naive figure tracks the MODE COUNT, which is what makes it an "
+        "artefact", abs((n60 / n8) / (921 / 122) - 1) < 0.10, True)
+
+    sc = gain_scaling()
+    slopes = [r[3] for r in sc if r[3] is not None]
+    chk("the log-log slope DRIFTS, so there is no exponent",
+        all(slopes[i] < slopes[i + 1] for i in range(len(slopes) - 1)), True)
+    chk("it drifts across the range an earlier pass fitted a power law to",
+        (round(min(slopes), 2), round(max(slopes), 2)), (0.57, 0.83))
+    rat = [r[2] for r in sc]
+    chk("against S/ln(S) the ratio is flat to 13% over two decades",
+        max(rat) / min(rat) < 1.16, True)
 
     print("postselect selftest: %s" % ("PASS" if ok else "FAIL"))
     return 0 if ok else 1
