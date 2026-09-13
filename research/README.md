@@ -8150,6 +8150,52 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   exhaust, **does not claim a cell is a unit of cost**, and does not claim the physical reflection
   is free.
 
+- **`entail.py`** — **the inequality of inequalities, and the equality of inequalities.** Every cell
+  of the index *is* an inequality, so two relations exist between the cells that the index has never
+  carried, and neither is the coordinate order. **The equality:** exactly one pair among the seated
+  cells is one statement written twice — the Einstein and Ricci NECs, identical because
+  `G_kk − R_kk = −(R/2)g_kk` and `g_kk = 0` on a null vector. **17 cells, 16 statements**; the corpus
+  already recorded this as a quotient rather than a collision, and what is added is the count.
+
+  **The inequality:** entailment, decided by logic alone and only within a fixed tensor and regime — a
+  different tensor is a different statement, not a weaker one. Three ladders, and they do not run the
+  same way: `V` is stronger for a *larger* direction set, while `M` (pointwise → smeared → averaged →
+  achronal) and `B` (`≥ 0` → `≥` a negative bound) are stronger *lower*. That gives 22 entailments
+  among the 17 — and asking which encoding makes entailment coincide with the coordinate order, exactly
+  four sign vectors work and all four agree: **`+V −M −B`. Two of the five slots are encoded
+  backwards.** `T` and `Q` come out free because no entailment crosses a tensor or a regime, which is
+  the comparability rule restated rather than an ambiguity. A step-path search had already picked
+  `inverse M` from eight candidates on purely structural grounds; it looked only at the `V`–`M` pair,
+  so the `B` flip was outside its reach, and within the pair it could see it recovered the correct
+  flip — a convergence, reported as nothing more.
+
+  **The payment.** If `a ⟹ b`, verifying `a` discharges `b` free, so the receipt is the set of
+  `⟹`-maximal cells — **exact rather than searched**: necessary, since nothing entails a maximal cell,
+  and sufficient, since they reach all seventeen. **Six of seventeen discharge the whole index.** But
+  the six is not unconditional, and that is the honest half:
+
+  | assumptions accepted | receipt |
+  |---|---|
+  | the measure ladder only (set restriction) | 12 of 17 |
+  | + the larger-direction-set steps | 10 |
+  | + the negative-bound step | 8 |
+  | + the continuity step | 7 |
+  | all of them | **6** |
+
+  **So the two routes are priced in different currencies.** A forged receipt costs 8 cells for an
+  `order`-reading account and assumes *no physics* — it is a fact about closure operators. Entailment
+  costs 6 and assumes two steps, or 12 and assumes almost none. Cheaper in cells is dearer in
+  assumptions, and neither table dominates the other.
+
+  **And the correct encoding collapses the over-generation.** Flipping `M` and `B` is a *mixed*
+  reversal, so Clause F.2 predicts who survives — `order`/`algebra` break, `geometry` survives by
+  affine-invariance, `statistics` by reading only membership. The prediction was available before the
+  measurement and it held; the size of it was not predicted: `order` 192 (E 175) → **58** (E 41),
+  `information` 156 → **39**, `geometry` and `statistics` unmoved. **Most of the residue those
+  languages reported was the encoding.** And `statistics` returns **E = 0 in both** — the one headline
+  the index rests on does not depend on a slot's direction. Every count is a floor on the entailment
+  relation and therefore a ceiling on the receipt; nothing is repaired.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
