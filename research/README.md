@@ -8254,6 +8254,50 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   technique, real measurement, orthogonal to a throat — it is anti-stiction for small mechanical
   devices. **Can it be mitigated: yes. Should it be, here: no — the thing being mitigated is the asset.**
 
+- **`limitaxis.py`** — **extending the periodic index to exotic matter, and the one axis it turns out
+  to be missing.** Eight negative-energy mechanisms were put to the 25 periodic axes — seated,
+  measured, then attacked by two hostile lenses each, 28 agents, no errors. **Zero of eight survived
+  both lenses**, which is reported before anything else: what follows is what remained after every
+  proposed seating broke. What broke was almost always the *magnitude*; what held was the
+  *classification*.
+
+  **No mechanism takes a row, and the refusal is mechanical** — 24 of the 25 axes are functions of
+  `(Z, charge, n, l)`, and the instrument raises rather than degrades. The static Casimir null is
+  **exact, not small**: of the measured spectra table's **104,832 rows, zero** carry a boundary,
+  cavity, plate or separation token; every row is a free atom or ion, a free atom sits at infinite
+  separation, and the density goes as the inverse fourth power.
+
+  **The ladder is the exact comparison that was asked for**, run through the one axis with a published
+  resolution — the measured quantum defect, finest recorded step `1e-05`: vacuum polarisation `~1e-04`
+  at high Z (**above**), Casimir–Polder `2.2e-05` (**above**), static Casimir **exactly 0**, squeezed
+  vacuum and dynamical Casimir **no axis at all**, Hawking/Unruh at 1 g `~1e-24`, non-minimal scalar
+  `~1e-29`, minimal scalar VEV `~1e-69` relative. **The index boundary runs between the two Casimir
+  mechanisms** — static Casimir survives removing every electron, so it is off-index; Casimir–Polder's
+  coefficient contains the static polarisability, so it is *on* the index and clears the resolution at
+  ten nanometres.
+
+  **The missing axis.** The one measurably present mechanism is vacuum polarisation — and it is not on
+  the defect axis, because the corpus already ruled where QED sits. Register 3253, quoted from the
+  seated member: *"the QED was real and it was in the LIMIT, not in the levels."* Li III's limit was
+  recorded as the bare Coulomb `Z²R = 987,635.841`; fitted from the series it is
+  **987,662.29 ± 0.36, higher by 26.45**, and the compendia add that the limit **must be measured, not
+  computed** and that a shift of even 0.2 changes the defect's behaviour in `n` — against which 26.45
+  is 132× the stated tolerance. **And the series limit is not one of the 25 axes; the word does not
+  occur in the instrument at all.** So the extension asked for is not a row and not a mechanism
+  column — **it is a 26th axis: the measured series limit, with its uncertainty.** That is a proposal;
+  nothing here adds it.
+
+  **And the number that was to clinch it is withdrawn.** The seating pass decomposed the 26.45 into
+  four terms with no free parameter, summing to +26.13 against +26.45 — 1.2 % agreement, read as
+  vacuum polarisation being quantitatively seated. **An independent recomputation does not reproduce
+  it**: reduced mass (−77.22 vs −77.27) and Dirac 1s (+118.33, exact) replicate, but self-energy
+  (+7.76 vs −15.52) and vacuum polarisation (−0.29 vs +0.59) differ in **both sign and magnitude**,
+  and the independent sum of +48.58 misses the banked deficit by 84 %. Neither decomposition is
+  banked: status **UNRESOLVED**, both printed, and the selftest pins the *disagreement* so it cannot
+  quietly heal in a later pass. The structural finding does not depend on it — the ruling is quoted
+  from the member, the deficit is the corpus's own banked number, and the absence of the limit from
+  the axes is a fact about the instrument.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
