@@ -8443,6 +8443,39 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   paper's one affected row moved 29/156 → 30/208 with its **INCOMPARABLE** verdict and the direction of
   the size difference both unchanged.
 
+- **`xigate.py`** — **the T = 1 gate is an exchange rate, not a wall.** The non-minimal route is the
+  only door in this tree that *overshoots* on magnitude (~1200×), and its gate was recorded as the
+  hierarchy problem: `ξ_required = (v/M_red)⁻² = 9.78 × 10³¹` at the Higgs VEV, 10²⁷ above what Higgs
+  inflation uses. True, and not the whole statement. **`ξ_required = (M_red/φ)²` falls as the square of
+  the field scale, and the Higgs VEV is simply small** — at the GUT scale the required coupling is
+  **1.48 × 10⁴, one and a half times a value already in the cosmology literature.** The 10²⁷ shortfall
+  belongs to the Higgs, not to the route.
+
+  **But the throat closes at the same place, and the relation is exact.** At the gate `ξφ² = M_red²`,
+  so the effective Planck scale *is* the field scale and the geometry is modified at the field's own
+  Compton length:
+
+  | field scale | ξ required | throat | in ℓ_P |
+  |---|---|---|---|
+  | Higgs VEV | 9.78e31 | 8.0e−19 m | 5.0e16 |
+  | see-saw | 5.93e14 | 2.0e−27 m | 1.2e8 |
+  | **GUT scale** | **1.48e4** | 9.9e−33 m | **610** |
+  | reduced Planck | 1.00 | 8.1e−35 m | 5.0 |
+
+  > **`ξ_required = (throat / ℓ_P)² / 8π`** — verified at five scales spanning sixteen orders, ratio
+  > 1.000000 at each. The `8π` is `M_Planck²/M_red²`, not a fit.
+
+  **So the gate is an exchange rate.** A reachable coupling is buyable and the price is throat size,
+  one for one, at a fixed rate — and it cannot be paid down, because `ξ` and the throat are the same
+  function of `φ`. **The route is not blocked by the hierarchy problem; it is blocked because its two
+  requirements are the same requirement seen twice.** At the only field scale where the coupling is
+  ordinary, the throat is 610 Planck lengths. **This is `scale.py`'s theorem arriving from a new
+  direction** — that file proved every route crosses within two orders of `ℓ_P` and proved the
+  convergence *inevitable*; T = 1 was the one candidate that overshot, and pushing it reproduces the
+  crossing with an exact coefficient instead of a coincidence. What would move it — a gate that is not
+  `φ² > κ/ξ`, a throat set by a second scale the single-field ansatz lacks, or a way to *localise* a
+  high-scale VEV — is in each case a different model, not a number.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
