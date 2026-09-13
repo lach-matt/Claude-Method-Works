@@ -6,13 +6,38 @@
 
 ---
 
-## §0 · Scope, and what this document is not
+## §0 · The law
 
-This derives a law about **five closure operators on a finite index**. It is a statement in lattice
-theory. It is **not** a statement about spacetime, about energy conditions as physics, or about
-whether a warp corridor is buildable. Nothing here bears on the physical obstruction measured
-elsewhere in this research programme — a shortfall of 69.03 orders of magnitude in the energy
-budget, and a required non-minimal coupling ξ ≥ 9.782907 × 10³¹ — and no clause below moves either.
+**Five formal languages close the same finite data, and their disagreement is lawful.**
+
+A finite table of observations — records over `d` attributes — does not speak for itself. Ask what
+*else* must hold given what was seen, and the answer depends on the language the question is put in.
+Order answers with a staircase, algebra with a sublattice hull, geometry with a pairwise convex hull,
+information with a join-closure, statistics with a pairwise-marginal closure. Each returns a superset
+of the data. They need not return the same one.
+
+Their relations are not free. **Of the twenty containments among the five, exactly seven hold in
+every finite index** — four relations, once `order` and `algebra` are recognised as the single
+operator they are. Each of the seven is proved, with the one imported step named where it is used:
+Clause B's lift to `d ≥ 3` is cited rather than reproved here (§4.3, §9), and Lemma 5 proves it
+outright at `d = 2`. **The other thirteen all vary from one index to the next** — six of them refuted
+as universal claims by an explicit minimal witness, the rest by measurement alone. Two of the five
+languages are one operator (Clause B). One is contained in another as a theorem rather than the
+tendency it had been recorded as (Clause C). Four of the five require the order of the index and the fifth does not (Clause F). And
+the total ranking in which all five were supposed to nest is **not** part of the law — it is a
+property of whichever index it was measured on, and fourteen distinct rankings appear across four
+hundred (Clause E).
+
+**It is a law of applied mathematics, and it does not stop there.** Carrying one body of data in
+several formal languages at once is the ordinary condition of an applied science. Physics is the
+extreme case: a single system held simultaneously in geometry, algebra, information and statistics,
+with relations between those descriptions relied on daily and never separated into the necessary and
+the incidental. Clauses E and H perform that separation. What is proved below is proved for these
+five operators over finite products of chains, and the distinction it draws is not peculiar to them.
+
+**What is not settled here.** Which operators belong to the family at all: §8b and §8c weigh two
+further candidates and admit neither. And anything off a finite product of chains — §8's N2 is
+Clause B failing there, in one direction only.
 
 Five status words are used and never merged. **The distinction between the third and fourth is the
 one most easily lost, and this document has lost it before.**
@@ -390,10 +415,10 @@ Lemma N1\* and its corollary in §8, not by this table.
 **G.6 — what is NOT testable here, stated so it is not smuggled in.** The review's chain runs
 *statistics gives the `if` → analysis gives the `then` → logic verifies both against the original
 geometry.* The first and third steps are measured above and hold. **The middle step cannot be
-measured**: `analysis` has **no operator** in the cypher — it is declared-only — and which languages
-exist — the roster of operator-bearing languages — is an open question in the corpus this cypher comes
-from, and is not settled here. **No operator for `analysis` was invented for this clause**, and none
-should be until that roster question is ruled on.
+measured**: no operator is given for `analysis` anywhere in this paper, and which operators belong
+to the family at all is a question this paper does not settle. **No operator for `analysis` was
+invented for this clause**, and none should be invented until that question is settled on its own
+terms.
 
 ---
 
@@ -461,12 +486,14 @@ individually **PROVED** (Clause B, C, G.3).
 > **E.** The **total** order in which the five languages nest is a property of the index, not a
 > law. (Clause H gives the part that *is* lawful — read them together.)
 
-Measured over **400 random worlds**:
+The ranking this clause refutes was read off a single index: **17 energy conditions over five
+coordinates in a 288-cell box.** It is a real index and the ranking really does hold on it — which is
+precisely why the clause is needed. Measured over **400 random worlds**:
 
 | observation | value |
 |---|---|
 | distinct size-orderings of the five | **14** |
-| frequency of the energy-condition index's ordering | **42 / 400** (fourth most common) |
+| frequency of that index's ordering among the 400 | **42 / 400** (fourth most common) |
 | `statistics` is the **minimum** *(below **all four** others, including `information`)* | 106 / 400 |
 | `statistics` is the **maximum** | **128 / 400** |
 | `geometry` vs `information` | `info < geom` 183 · incomparable 144 · equal 57 · `geom < info` 16 |
@@ -478,13 +505,13 @@ whenever `information` is incomparable with it. Clause H's `statistics ⊆ order
 geometry` hold **always**; it is only `statistics` vs `information` that varies. **106/400 is the
 four-way count; the three lawful containments are 600/600.**
 
-And **two indexes the corpus itself seats already disagree** — but on *size*, not on containment, and
+And **two of the indexes studied here already disagree** — but on *size*, not on containment, and
 an earlier draft conflated the two:
 
 | index | `\|geometry\|` | `\|information\|` | set relation |
 |---|---|---|---|
-| NEC index | 29 | 156 | **INCOMPARABLE** |
-| periodic 3-D | 173 | 114 | **INCOMPARABLE** |
+| the energy-condition index above | 29 | 156 | **INCOMPARABLE** |
+| a synthetic periodic index in three coordinates | 173 | 114 | **INCOMPARABLE** |
 
 > **⚠ THE "SWAP" IS A CARDINALITY ARTEFACT.** `geometry` and `information` are set-theoretically
 > **incomparable on both** seated indexes — neither contains the other — so nothing nests one way on one
@@ -493,7 +520,7 @@ an earlier draft conflated the two:
 > withdrawn.** The clause survives on the sampled evidence above, and on the fact that a size ranking is
 > not an order relation at all — which is itself the point.
 
-**Status: REFUTATION, SAMPLED** (400 worlds). The ladder above was a property of one 17-cell index.
+**Status: REFUTATION, SAMPLED** (400 worlds). The ranking was a property of that one index.
 
 ---
 
@@ -595,9 +622,9 @@ failing when `I` is infinite without a subcompleteness condition.
 
 ## §8b · Appendix — `analysis`, the residual, and why `logic` is needed
 
-> **THE ROSTER OF OPERATOR-BEARING LANGUAGES IS NOT SETTLED HERE.** The corpus's own cypher is
-> untouched and no roster is changed. This is a candidate operator, specified in review, measured,
-> and filed as **evidence**.
+> **WHICH OPERATORS BELONG TO THE FAMILY IS NOT SETTLED HERE.** The five of Clauses A–H are
+> unchanged and nothing below adds a sixth. This is a candidate operator, specified in review,
+> measured, and filed as **evidence**.
 
 > **⚠ THE FIRST VERSION OF THIS APPENDIX IS WITHDRAWN.** It formalized "best possible closure route"
 > as *minimum number of `∧`/`∨` steps* and concluded that `logic` had almost nothing to do — only
@@ -648,22 +675,21 @@ is the one about reaching zero, not about the residual in general.
 > stronger claim and the paper refuted it sixty lines later without noticing.
 
 **What this settles about `analysis`.** It returns a **residual magnitude**, not a cell decision, and
-the magnitude is nonzero for 71 % of its domain. That is precisely the corpus's recorded reason for
-excluding it (*"has a mechanism but returns a magnitude rather than a cell decision"*) — now with the
-mechanism named and the magnitude measured. **`analysis` is not a sixth operator-bearing language**,
+the magnitude is nonzero for 71 % of its domain. So it has a mechanism but does not decide a cell,
+which is the criterion the five satisfy and it does not — now with the mechanism named and the
+magnitude measured. **`analysis` is not a sixth operator-bearing language**,
 and the 71 % is exactly why the chain needs a third step: `statistics` proposes the `if`, `analysis`
 returns the residual, **`logic` adjudicates the residual that analysis declines to judge.**
 
-**Status: SAMPLED, CANDIDATE, NOT A RULING.** The draw is seed 53 over 300 worlds — `d` in 2–4,
+**Status: SAMPLED, CANDIDATE.** The draw is seed 53 over 300 worlds — `d` in 2–4,
 alphabets 2–4, `|X|` in 2–7 — which yielded the 155 statistical positions in 79 worlds reported here.
 
 ---
 
 ## §8c · Appendix — `logic` is an interpreter, not a language, and its refusals are seed-dependent
 
-> **THE ROSTER OF OPERATOR-BEARING LANGUAGES IS NOT SETTLED HERE.** Candidate, measured, filed as
-> evidence.
-> The corpus's cypher is untouched.
+> **WHICH OPERATORS BELONG TO THE FAMILY IS NOT SETTLED HERE.** Candidate, measured, filed as
+> evidence. The five of Clauses A–H are unchanged.
 
 > **⚠ THIS APPENDIX'S FIRST HEADLINE IS WITHDRAWN.** It reported *"8 of 155 positions refuted"* and
 > concluded that **the residual does not determine the verdict**, calling that the argument for `logic`
@@ -729,7 +755,7 @@ interpreter** — reading only `order` would reject 88 % of what reading only `g
 never the right test, and the earlier "passes the binary criterion, fails Clause A" tension was an
 artifact of the wrong frame. **Clause A stands unchallenged**; `logic` is simply outside its scope.
 
-**Status: SAMPLED, CANDIDATE, NOT A RULING.** Same draw as §8b: seed 53 over 300 worlds. The figures
+**Status: SAMPLED, CANDIDATE.** Same draw as §8b: seed 53 over 300 worlds. The figures
 below are properties of that draw, not of the operators — the seed-77 counterexample above is the
 proof of it. The tie-break remains unspecified; any figure quoted
 without saying *unanimous* or *existential* is unstable across an 8-position band.
@@ -800,7 +826,8 @@ it. **The factors need not be finite; the index set does.**
 
 **The honest summary of the generalization.** Clause B generalizes cleanly along Axis 1 and Axis 3 and
 **not at all along Axis 2**. Clauses C, F, G and H are statements about five specific operators and do
-not generalize beyond them — they are facts about *this* cypher, not about closure operators at large.
+not generalize beyond them — they are facts about *these five operators*, not about closure
+operators at large.
 
 ---
 
@@ -959,6 +986,6 @@ citation, and §9 says which citation.
 ### Scope note
 
 Clauses **A–H are the law, and they are complete**. Appendices **§8b** (`analysis`) and **§8c**
-(`logic`) are **not clauses of the law** — they concern candidate operators outside the five, filed as
-evidence bearing on the roster of operator-bearing languages, and they carry their own status markers. Nothing in A–H depends on
-either appendix.
+(`logic`) are **not clauses of the law** — they concern candidate operators outside the five, filed
+as evidence bearing on which operators belong to the family, and they carry their own status
+markers. Nothing in A–H depends on either appendix.
