@@ -166,11 +166,20 @@ def residual_and_logic(seed=53):
 
 
 # ------------------------------------------- §6b F: the relabelling sweep
+def _spaced(v):
+    """A rank reversal of this coordinate is AFFINE iff its values are evenly
+    spaced -- the condition F.2 states rather than absorbs."""
+    return len(v) < 3 or len({v[i + 1] - v[i] for i in range(len(v) - 1)}) == 1
+
+
 def f_sweep(n=400, seed=7):
     """Clause F. Generator: d in 2..3, alphabets 3..4, |X| in 3..8, seed 7.
     Returns {op: invariant_count} and the order/algebra agreement count."""
     rnd = random.Random(seed)
     inv = {L: 0 for L in LANGS}
+    rev_inv = {"full": {L: 0 for L in LANGS}, "mixed": {L: 0 for L in LANGS}}
+    rev_tot = {"full": 0, "mixed": 0}
+    geo_split = {True: [0, 0], False: [0, 0]}     # box affine? -> [reversals, misses]
     tot = 0
     agree = 0
     for _ in range(n):
@@ -179,21 +188,54 @@ def f_sweep(n=400, seed=7):
         allc = list(itertools.product(*[range(a) for a in alpha]))
         X = frozenset(rnd.sample(allc, rnd.randint(3, min(len(allc), 8))))
         box = D.box_of(X, d)
+
+        def invariant(maps):
+            iq = [{v: k for k, v in m.items()} for m in maps]
+            Y = frozenset(tuple(maps[i][x[i]] for i in range(d)) for x in X)
+            by = D.box_of(Y, d)
+            return {L: frozenset(tuple(iq[i][y[i]] for i in range(d))
+                                 for y in OPS[L](sorted(Y), by))
+                       == frozenset(OPS[L](sorted(X), box)) for L in LANGS}
+
+        # F.2: the reversal patterns.  Deterministic -- they draw no randomness,
+        # so the permutation column below is unchanged from before F.2 existed.
+        rv = [dict(zip(v, list(reversed(v)))) for v in box]
+        aff = all(_spaced(v) for v in box)
+        for pat in itertools.product((0, 1), repeat=d):
+            if sum(pat) == 0:
+                continue                       # the identity is trivially invariant
+            r = invariant([rv[i] if pat[i] else {x: x for x in box[i]}
+                           for i in range(d)])
+            key = "full" if sum(pat) == d else "mixed"
+            for L in LANGS:
+                rev_inv[key][L] += r[L]
+            rev_tot[key] += 1
+            geo_split[aff][0] += 1
+            geo_split[aff][1] += (not r["geometry"])
+
         perms = []
         for i in range(d):
             v = box[i]; sh = v[:]; rnd.shuffle(sh); perms.append(dict(zip(v, sh)))
-        ip = [{v: k for k, v in p.items()} for p in perms]
-        Xp = frozenset(tuple(perms[i][x[i]] for i in range(d)) for x in X)
-        bp = D.box_of(Xp, d)
         tot += 1
-        res = {}
+        res = invariant(perms)
         for L in LANGS:
-            back = frozenset(tuple(ip[i][y[i]] for i in range(d))
-                             for y in OPS[L](sorted(Xp), bp))
-            res[L] = back == OPS[L](sorted(X), box)
             inv[L] += res[L]
         agree += res["order"] == res["algebra"]
-    return inv, agree, tot
+    return inv, agree, tot, rev_inv, rev_tot, geo_split
+
+
+def f2_witness():
+    """The minimal index on which the lattice dual moves `information`.
+
+    X = {(0,1),(1,0)} is SELF-DUAL as a set, so nothing about the index moves;
+    the operator is simply not dual-equivariant.  Returns (join-closure,
+    pulled-back closure) -- equal in size, different as sets.
+    """
+    X = {(0, 1), (1, 0)}
+    rv = {0: 1, 1: 0}
+    dual = lambda S: frozenset((rv[a], rv[b]) for a, b in S)
+    assert dual(X) == frozenset(X), "the witness is supposed to be self-dual"
+    return frozenset(D.joinclose(set(X))), dual(frozenset(D.joinclose(set(dual(X)))))
 
 
 # ------------------------------------- §6c G: the hypothetical-language sweep
@@ -282,6 +324,15 @@ PINS = {
     "f_inv": {"order": 58, "algebra": 58, "geometry": 102, "information": 59,
               "statistics": 400},
     "f_agree": 400,
+    "f2_full": {"order": 400, "algebra": 400, "geometry": 397,
+                "information": 40, "statistics": 400},
+    "f2_mixed": {"order": 78, "algebra": 78, "geometry": 1555,
+                 "information": 111, "statistics": 1564},
+    "f2_tot": {"full": 400, "mixed": 1564},
+    "f2_geo_affine": [1382, 0],        # reversals on evenly-spaced boxes, misses
+    "f2_geo_other": [582, 12],
+    "f2_witness": (frozenset({(0, 1), (1, 0), (1, 1)}),
+                   frozenset({(0, 1), (1, 0), (0, 0)})),
     "g": {"st_in_geom": 500, "geom_preserved": 500, "st_union": 500,
           "alg_union": 98, "n": 500},
     "g5": (500, 84, 500),
@@ -331,10 +382,27 @@ def run(emit=False):
     chk("witnesses that are non-empty", all(len(e) > 0 for _, _, _, e in hw), True)
 
     print("\n §6b F -- the relabelling sweep (seed 7, d 2-3, alphabets 3-4)")
-    inv, agree, ftot = f_sweep()
+    inv, agree, ftot, rinv, rtot, gsplit = f_sweep()
     chk("invariant counts of %d" % ftot, inv, PINS["f_inv"])
     chk("statistics is ORDER-FREE", inv["statistics"] == ftot, True)
     chk("order and algebra agree on which instances break", agree, PINS["f_agree"])
+
+    print("\n §6b F.2 -- the three relabellings, on the SAME 400 draws")
+    chk("reversals drawn", rtot, PINS["f2_tot"])
+    chk("invariant under the FULL reversal (the dual)", rinv["full"], PINS["f2_full"])
+    chk("invariant under a MIXED reversal", rinv["mixed"], PINS["f2_mixed"])
+    chk("order and algebra are EXACT under the dual -- a theorem, not a rate",
+        (rinv["full"]["order"], rinv["full"]["algebra"]) == (rtot["full"],) * 2, True)
+    chk("statistics is invariant under every reversal too",
+        rinv["mixed"]["statistics"] == rtot["mixed"], True)
+    chk("geometry: reversals on evenly-spaced boxes, and its misses there",
+        gsplit[True], PINS["f2_geo_affine"])
+    chk("geometry: the rest, where every miss lives", gsplit[False], PINS["f2_geo_other"])
+    chk("so every geometry miss is a non-affine encoding", gsplit[True][1], 0)
+    jc, mc = f2_witness()
+    chk("the two-cell dual witness: join-closure vs meet-closure",
+        (jc, mc), PINS["f2_witness"])
+    chk("and they are the same SIZE, so counting would miss it", (len(jc), len(mc)), (3, 3))
 
     print("\n §6c G -- the hypothetical language (seed 11) and the registers (seed 3)")
     g = g_sweep()

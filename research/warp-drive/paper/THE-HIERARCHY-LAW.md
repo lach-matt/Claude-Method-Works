@@ -23,7 +23,10 @@ Clause B's lift to `d ≥ 3` is cited rather than reproved here (§4.3, §9), an
 outright at `d = 2`. **The other thirteen all vary from one index to the next** — six of them refuted
 as universal claims by an explicit minimal witness, the rest by measurement alone. Two of the five
 languages are one operator (Clause B). One is contained in another as a theorem rather than the
-tendency it had been recorded as (Clause C). Four of the five require the order of the index and the fifth does not (Clause F). And
+tendency it had been recorded as (Clause C). Four of the five require the order of the index and the
+fifth does not (Clause F) — and those four require *different* things, each language being invariant
+under its own group of relabellings, the four groups strictly nested in an order that is not the
+containment hierarchy (F.2). And
 the total ranking in which all five were supposed to nest is **not** part of the law — it is a
 property of whichever index it was measured on, and fourteen distinct rankings appear across four
 hundred (Clause E).
@@ -318,7 +321,9 @@ relabelling, so every value keeps its identity and every membership fact is pres
 | `statistics` | **400 / 400** | **ORDER-FREE** |
 
 *(The survivors are the draws where the shuffle happened to preserve the order, or the structure was
-degenerate. `geometry` survives more often because a 2-D convex hull also survives order-reversal.)*
+degenerate. `geometry` survives more often for a reason F.2 makes exact, and it is not the one an
+earlier draft gave: not that a 2-D hull survives order-reversal, but that a hull survives every
+**affine** relabelling, in every dimension.)*
 
 **`statistics`' invariance is a theorem, not luck.** D8 reads only the membership
 `π_ij(x) ∈ π_ij(X)`, and every bijective relabelling preserves membership. Two lines. **PROVED.**
@@ -351,6 +356,107 @@ Necessity of language is a condition of order for four of the five; the fifth ne
 **Status: PROVED** — `statistics` from D8 in two lines, and the other four by the explicit witnesses
 above. The 400-draw sweep is **SAMPLED** corroboration, not the proof; an earlier draft filed the four
 as EXHAUSTIVE, which they were not.
+
+### F.2 · The refinement — "relabelling" is three operations, and the four are four groups
+
+The clause above is true and it is coarse. **A relabelling is not one operation**, and the four
+operators that "require the order" do not require the same thing. Three relabellings live inside the
+word:
+
+- **the full reversal** — every coordinate reversed at once, which is the **lattice dual**;
+- **a mixed reversal** — some coordinates reversed and not others;
+- **a permutation** — an arbitrary bijection of each coordinate's values, which is the test above.
+
+Measured on the *same* four hundred draws as the table above, so the last column is that table's
+column unchanged and the two new ones are directly comparable to it:
+
+| operator | full reversal | mixed reversals | permutation |
+|---|---|---|---|
+| `order` | **400 / 400** | 78 / 1,564 | 58 / 400 |
+| `algebra` | **400 / 400** | 78 / 1,564 | 58 / 400 |
+| `geometry` | 397 / 400 | 1,555 / 1,564 | 102 / 400 |
+| `information` | 40 / 400 | 111 / 1,564 | 59 / 400 |
+| `statistics` | **400 / 400** | **1,564 / 1,564** | **400 / 400** |
+
+*(A draw of arity `d` contributes one full reversal and `2^d − 2` mixed ones; the identity is excluded
+as trivial. The mixed totals are therefore 1,564 rather than 400.)*
+
+Every entry is accounted for, and the account is the refinement: **each operator is invariant under
+its own group of relabellings, the four groups are different, and where all four are determined they
+are strictly nested — in an order that is not the containment hierarchy.**
+
+> **F.2.** Let `G(L)` be the set of coordinate relabellings under which `L` is invariant at **every**
+> index, and let `R = {id, rev}^d` be the reversal group — each coordinate independently reversed or
+> not — with `rev` its all-reversed element, the lattice dual. Then
+>
+> `G(statistics)` is everything; `G(geometry) ⊇ R` on evenly-spaced boxes and excludes some
+> permutation; `G(order) = G(algebra) = {id, rev}` exactly; and `G(information) ∩ R = {id}`.
+>
+> **So on `R`, where all four are determined, the four are strictly nested:**
+> `R ⊋ {id, rev} ⊋ {id}`, with `statistics` above `R` and `geometry` at `R`.
+
+**`statistics` — the full symmetric group.** Already proved above: D8 reads only membership, and every
+bijection preserves membership. This is the whole of Clause F as originally stated.
+
+**`order` and `algebra` — the diagonal, and this is a theorem.** Reversing every coordinate of a
+product of chains is an order-**anti**automorphism: it inverts `≤`, so it exchanges meet with join. The
+sublattice hull is closed under *both*, hence carried to itself, so `σ⁻¹⟨σX⟩ = ⟨X⟩` for the full
+reversal at every index — which is the `400 / 400` above, and it is exact rather than a rate. **PROVED.**
+A *mixed* reversal is neither an automorphism nor an antiautomorphism of the product, and the two
+operators break under it: the witness is already in the table above, since swapping the two values of
+one coordinate of `{(0,0),(1,1)}` *is* a mixed reversal. So `G(order)` contains the diagonal and no
+mixed pattern, and the `78 / 1,564` is coincidence. Nothing further can be added either: `order` and
+`algebra` read the index only through `≤`, and the only bijections of a finite chain that preserve or
+invert its order are the identity and the reversal. Hence `G(order) = G(algebra) = {id, rev}`,
+**exactly**, and this is the one of the four groups pinned from both sides.
+
+**`geometry` — the reversal group, once the encoding is affine.** A convex hull commutes with any
+affine bijection of the coordinates, and each coordinate may be reversed independently, so the whole
+group `{id, rev}^d` is admitted — not merely the diagonal, and not only at `d = 2`. The qualification
+is real and is the reason for the three misses: relabelling acts here by **rank**, and a rank reversal
+is affine exactly when the coordinate's observed values are equally spaced. Split by that condition,
+across all 1,964 reversals of the sweep:
+
+| | reversals | `geometry` misses |
+|---|---|---|
+| equally-spaced boxes | 1,382 | **0** |
+| otherwise | 582 | 12 |
+
+**Every miss is a non-affine encoding and none is a failure of the hull.** `geometry` is not invariant
+under a general permutation — the third witness in the table above — so its group is the reversal
+group and no more.
+
+**`information` — no reversal at all, and the witness is the sharpest of the four.** `information` is the
+join-closure (Clause C), and the dual exchanges join with meet, so the dual sends it to the
+*meet*-closure — a different operator. The minimal counterexample is two cells:
+
+> `X = {(0,1),(1,0)}`, the two-cell antichain, under the full reversal.
+> `information(X)` is the join-closure `{(0,1),(1,0),(1,1)}`; pulled back through the dual it is the
+> meet-closure `{(0,1),(1,0),(0,0)}`. The other four operators are all invariant here.
+
+Two features of that witness matter. First, **`X` is self-dual as a set** — the reversal maps it to
+itself — so the failure is not that the index moved. Nothing moved; the *operator* is not
+dual-equivariant. Second, **the two closures have the same size, three and three.** A test that
+compared cardinalities would have reported invariance. This is the same discipline as §7's refusal to
+read a size comparison as a containment, and here it is load-bearing: the `40 / 400` is unreachable by
+counting.
+
+Together with the mixed-reversal witness already in the table, that rules out **every** non-identity
+element of `R`, which is what the chain needs: `G(information) ∩ R = {id}`. Whether some exotic
+permutation of a larger alphabet survives at every index is **not settled here**, and the boxed
+statement is confined to `R` for that reason.
+
+**What the refinement changes.** Clause F says `G(statistics)` is strictly the largest of the five.
+That is true, and it is the weakest of four separate facts. It does **not** say the other four behave
+alike, and they do not: `geometry` survives a reversal `order` cannot, `order` survives a reversal
+`information` cannot, and `information` survives none. The clause stands; its four-and-one partition
+is a partition of `G(statistics)` against the rest and not a description of the rest.
+
+**Status: PROVED** — `statistics` from D8; `order` and `algebra` from the antiautomorphism argument;
+`geometry` from affine-invariance of the hull, with the rank-versus-affine condition stated rather
+than absorbed; `information` refuted at the dual by the two-cell self-dual witness. Each
+non-containment in the chain carries an explicit minimal witness. **The three sweep columns are
+SAMPLED corroboration on 400 draws (1,564 mixed reversals), not the proof.**
 
 ---
 
@@ -891,6 +997,7 @@ came from; every EXHAUSTIVE figure names the family it exhausted.
 | Clause D | ✓ | — | 150 worlds + explicit witness | — |
 | Clause E | refutation | — | 400 worlds | — |
 | Clause F | ✓ + 4 witnesses | — | 400 draws | — |
+| **Clause F.2** (the four groups) | ✓ + 3 witnesses | — | 400 draws, 1,964 reversals | — |
 | Clause G | ✓ (G.1, G.3, G.4) | — | 500 worlds; control 98/500 | — |
 | Clause H | ✓ + 6 witnesses + the §6d proof | — | 600 worlds | — |
 | **N1 (sharp, Lemma N1\*)** | ✓ | **702,628 cases** | — | **✓ both directions, 3×3, 4×4, 3×3×3** |
