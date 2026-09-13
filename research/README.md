@@ -8104,6 +8104,52 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   and it does not claim to model an oscillation, since hiding cells at random is a stand-in for a
   cycle and has neither an order nor a period.
 
+- **`barter.py`** — **what can be traded for cost, and what cannot.** Two questions that are the
+  same question. **Time is barterable; the cap is not.** Crossing the deformation in `N` steps is a
+  different protocol — it post-selects `N` times, priced with the two-parameter overlap, because
+  after the first step the bra is no longer the undeformed TFD. At 99 % of the cap a single jump
+  succeeds **15.5 %** of the time and 4,096 increments succeed **99.7 %**: the Zeno shape, each step
+  losing at second order in its own size so `N` steps lose `O(1/N)`, and the gain is largest exactly
+  at the edge where one jump nearly always fails. **But the cap does not move** — at 1.001, 1.05, 1.5
+  and 3.0 times `δ_max` the path is refused at `N` = 1, 8, 64 and 512 alike. Stated at its real size:
+  the probability was never the binding cost, and what time buys is the right to work at the *top* of
+  the cap instead of halfway up — `(0.99/0.50)² = 3.9×` in the opening. **A factor of four, and the
+  `1/S²` scaling is untouched because the cap that sets it is untouched.**
+
+  **The receipt can be forged, and the reflection is half of how.** An accountant reading `L` cannot
+  see `X`, only `L(X)`, so any `X'` with `L(X') = L(X)` settles the account. Every generating set
+  contains the **forced** cells — those `x` with `x ∉ L(X \ {x})` — so enumerating the rest gives the
+  exact minimum rather than an estimate:
+
+  | accountant reads | minimum receipt | discount | distinct minima |
+  |---|---|---|---|
+  | `order` / `algebra` | **8 of 17** | 53 % | 6 |
+  | `geometry` | 9 of 17 | 47 % | 1 |
+  | `information` | 11 of 17 | 35 % | 1 |
+  | `statistics` | 12 of 17 | 29 % | 1 |
+
+  **The more a language admits, the cheaper it is to fool** — `order` admits 192 cells and 8 convince
+  it, `statistics` admits 17 and needs 12. The discount runs inversely to discrimination. `order`'s 8
+  is exhaustive within `X` and an *upper* bound on the unrestricted minimum, since a forged receipt
+  need not be a subset of what was observed; the lower bound is 5, because a sublattice of a product
+  of chains is distributive and the free distributive lattice on 4 generators has 166 elements
+  against `|order(X)| = 192`. Bracket **[5, 8]**, not closed, and the 5 is a floor from what is
+  computable here — `FD` is brute force and `n = 5` is 2³² candidates.
+
+  **The inverse reflection.** A wormhole has two ends and the dual is what swaps them:
+  `L(dual(X')) = dual(L(X')) = dual(L(X)) = L(dual(X))` whenever `L` commutes with the dual, so
+  `dual(X')` settles the far account whenever `X'` settles this one. Measured: **`order`, `algebra`,
+  `geometry` and `statistics` YES; `information` NO.** **One receipt and a reflection pays both ends,
+  for four of the five** — and the one that catches it is the one whose invariance group is trivial.
+  **That is the Clause F refinement read as a list of who can be fooled: the invariance group is the
+  forgery group.** The weaker same-side forgery — passing a dual receipt off for `X` itself — needs
+  `L(X)` setwise dual-fixed, which this index is not, so it fails here for all five; over 300 random
+  indexes it holds 126, 126, 89, 70 and 76 times, and restricted to self-dual indexes it is automatic
+  for four of the five (60/60) and *still* fails for `information` (42/60). What the file refuses:
+  it does not call the probability gain a cost reduction, does not report a minimum it did not
+  exhaust, **does not claim a cell is a unit of cost**, and does not claim the physical reflection
+  is free.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.

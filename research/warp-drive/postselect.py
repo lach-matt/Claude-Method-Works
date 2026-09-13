@@ -195,6 +195,26 @@ def dets(lam, d):
     return d_cross, d_00, d_dd
 
 
+def dets_general(lam, d1, d2):
+    """det(I - A B) for <TFD(i d1) | TFD(i d2)>, the two-parameter overlap.
+
+    `dets` above is the d1 = 0 slice of this.  With A = B(d1)* and B = B(d2),
+
+        A B = lam^2 [[ K, -2i Sig ], [ 2i Sig, K ]]
+              K   = cosh d1 cosh d2 + 4 sinh d1 sinh d2
+              Sig = sinh(d1 + d2)
+
+    so det(I - A B) = (1 - lam^2 K)^2 - 4 lam^4 Sig^2.  Needed for a path that
+    post-selects at intermediate deformations: after the first step the state is
+    no longer the undeformed TFD, and using `dets` there would price every step
+    against the wrong bra.  The selftest asserts it reproduces all three of
+    `dets`, which is what ties it to the already-checked arithmetic."""
+    s1, c1 = math.sinh(d1), math.cosh(d1)
+    s2, c2 = math.sinh(d2), math.cosh(d2)
+    K = c1 * c2 + 4 * s1 * s2
+    return (1 - lam * lam * K) ** 2 - 4 * lam ** 4 * math.sinh(d1 + d2) ** 2
+
+
 def admissible(lam, d, u=None, v=None):
     """THE EXACT CRITERION, corrected.  Normalizability of exp[1/2 c! M c!]|0>
     with M = [[2v,u],[u,-2v]] is that every SINGULAR VALUE of lam*M is below 1:
@@ -551,6 +571,16 @@ def selftest():
     chk("opening/gamma^2 -> 0.589", abs(opening(0.01) / 1e-4 - 0.589) < 0.002, True)
     chk("mu0 < pi/2 exactly when gamma is imaginary", mu0(-0.01) < math.pi / 2, True)
     chk("and mu0 > pi/2 for real gamma (not traversable)", mu0(0.01) > math.pi / 2, True)
+
+    # The two-parameter overlap must reproduce all three of `dets`.
+    for lam, dd in ((0.6, 0.3), (0.3, 0.9), (0.45, 0.05)):
+        dc, d00, ddd = dets(lam, dd)
+        chk("dets_general reproduces dets at lam=%.2f d=%.2f" % (lam, dd),
+            max(abs(dets_general(lam, 0.0, dd) - dc),
+                abs(dets_general(lam, 0.0, 0.0) - d00),
+                abs(dets_general(lam, dd, dd) - ddd)) < 1e-14, True)
+    chk("and it is symmetric in its two arguments",
+        abs(dets_general(0.6, 0.2, 0.5) - dets_general(0.6, 0.5, 0.2)) < 1e-15, True)
 
     # The coefficient question: three no's and one qualified yes.
     u0, v0 = janus_columns(0.3)
