@@ -31,7 +31,7 @@ install is one command and the wheel does not belong in git.
 | file | what it is |
 |---|---|
 | **`prover.py`** | the reusable harness — start here for a *new* claim |
-| **`machinecheck.py`** | the obligations behind `paper/THE-HIERARCHY-LAW.md`, 15 of 15 discharged |
+| **`machinecheck.py`** | the obligations behind `paper/THE-HIERARCHY-LAW.md`, 21 of 21 discharged |
 | **`lawfigures.py`** | not a prover — recomputes every *number* the paper states |
 
 ```

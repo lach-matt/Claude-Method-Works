@@ -1,13 +1,8 @@
-# The Hierarchy Law
+# The Hierarchy Law of Mathematical Languages
 
-**A fully derived expansion, with provenance.**
+**Eight clauses on five closure operators over a finite index — fully derived, with provenance.**
 
 **Matthew Lach** · Independent Researcher · 12 September 2026
-
-All paths relative to `research/warp-drive/`. Law: `law.py` · Formalization: `decomposable.py` ·
-Machine checking: `machinecheck.py`, harness `prover.py`, route `PROOF-ASSISTANT.md` · Figures:
-`lawfigures.py` · Evidence for clause E: `induce.py` · Prior art, reconstructed:
-`refs/QUEYRANNE-TARDELLA-2008.md`
 
 ---
 
@@ -846,6 +841,11 @@ imports, and Queyranne–Tardella are its authors.
 ---
 
 ## §10 · Verification record
+
+Every filename in this paper is relative to `research/warp-drive/`: the law is `law.py`, its
+formalization `decomposable.py`, the machine checking `machinecheck.py` over the harness `prover.py`
+(route in `PROOF-ASSISTANT.md`), the figures `lawfigures.py`, the evidence for Clause E `induce.py`,
+and the reconstructed prior art `refs/QUEYRANNE-TARDELLA-2008.md`.
 
 **EXHAUSTIVE and SAMPLED are different words here.** A figure like "300/300" is a *seeded pseudorandom
 sweep*, not a decision procedure over a finite family, and an earlier draft filed both under

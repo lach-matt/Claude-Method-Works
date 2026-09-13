@@ -7985,7 +7985,7 @@ installed — `elan` and `opam` both need github, which the egress proxy refuses
 whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever stops working.
 
 - **`prover.py`** — the reusable harness. Start here for a new claim.
-- **`machinecheck.py`** — the 15 obligations behind `paper/THE-HIERARCHY-LAW.md`, all discharged.
+- **`machinecheck.py`** — the 21 obligations behind `paper/THE-HIERARCHY-LAW.md`, all discharged.
 - **`lawfigures.py`** — not a prover: recomputes every *number* the paper states, and exits 1 on drift.
 
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over

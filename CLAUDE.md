@@ -171,7 +171,7 @@ pip install z3-solver
 ```
 
 `research/warp-drive/prover.py` is a reusable harness for machine-checking finite claims about
-lattices, orders and closure operators; `machinecheck.py` is a worked set of 15 discharged
+lattices, orders and closure operators; `machinecheck.py` is a worked set of 21 discharged
 obligations; `PROOF-ASSISTANT.md` documents the route, the two encodings that make such claims
 decidable, and the two guards (vacuity, encoding drift) that must run before any result is believed.
 **Z3 is not vendored** — ~53 MB installed, and this is a document corpus. A machine-check there

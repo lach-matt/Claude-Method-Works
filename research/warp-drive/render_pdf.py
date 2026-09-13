@@ -174,5 +174,5 @@ ul,ol { margin:0 0 7pt; padding-left:18pt; } li { margin-bottom:2.5pt; }
 del { color:#888; }
 a { color:#111; }
 """
-print('<!doctype html><html><head><meta charset="utf-8"><title>The Hierarchy Law</title>'
+print('<!doctype html><html><head><meta charset="utf-8"><title>The Hierarchy Law of Mathematical Languages</title>'
       '<style>%s</style></head><body>%s</body></html>' % (CSS, conv(md)))
