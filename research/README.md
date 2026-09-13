@@ -8650,6 +8650,49 @@ occupy it, on a signature a same-shaped random set reproduces about one time in 
 arrival returned the master index to closure. Whether the demand *caused* anyone to look at the bounds
 cannot be established from inside the measurement, and it is not claimed.
 
+### The statistics row, run at last — and the device has an optimum
+
+`expand.py` has expanded TRANSITION-POSSIBLE through the languages for twenty-odd passes with
+**four rows recomputed every time and a fifth that nobody ever went back for**: *statistics — no
+measure over configurations has been declared here. NOT-RUN.* That was honest. It was also
+declarable.
+
+**`statrow.py` declares one** — uniform on the core mass over `[-2.0e-2, 8.0e-2]` at the seated
+defaults — and sweeps it. Three findings, two of them new:
+
+- **A lower edge, known in outline.** Below `m = 3.5e-3` the corridor ray leads but does not seat.
+- **An upper edge, and it is new.** `apply.py`'s table ran to `+1.5e-2`; nobody swept past `3.0e-2`.
+  **The lead does not weaken, it reverses** — the relative delay crosses zero between `4.00e-2`
+  (−3e-06) and `4.25e-2` (+1.1e-04). Beyond it the ray arrives **late**: the device becomes a lag.
+- **An interior optimum, which is the useful one. More exotic matter is not better.** The lead peaks
+  at **m ≈ 0.0195, relative = −5.96e-4**, and declines on both sides. *(And the value this tree has
+  used as its default throughout — `2.0e-2` — sits on the optimum. Recorded as a coincidence, since
+  no file says it was chosen for that.)*
+
+**The row admits.** The working set is an **interval of positive measure**, 3.5e-3 to 4.05e-2, with
+both edges located and an interior optimum — about 39 % of the swept range. **The device is not
+fine-tuned.** *(A one-dimensional slice: shell radius, core scale and baseline held fixed, and the
+file says so.)*
+
+**E is still 1.** A fifth admitting row does not change a count of refusals. **What changes is the
+channel, and that is why the row mattered.**
+
+Because `cl_a ⊆ cl_b` for each lawful containment, whatever `a` admits `b` admits — so the
+**admitting set is an up-set and the refusing set is a down-set**, and the down-sets are exactly the
+eight lawful channels. *Five binaries would be 32 patterns; the law allows eight.* `expand.py` never
+checked that, and now does. With statistics NOT-RUN the refusing set was undetermined between
+`{information}` = **K1** and `{information, statistics}` = **K4**. **Running the row decides it: K1**
+— one of only two channels nothing in this corpus occupies, and the rarest of the eight in hostile
+sampling at 111 draws in 40,000. K4 is occupied.
+
+**And the obstruction is atomic.** The only lawful down-set strictly below `{information}` is the
+empty one, so there is no pattern between *information refuses* and *nothing refuses*. **No partial
+credit: the obstruction cannot be reduced, only removed.** It can move *sideways* — `{statistics}`
+and `{geometry, statistics}` are both lawful and both incomparable to it — but that is a different
+obstruction, not a smaller one.
+
+Nothing here touches the magnitude, and `statrow.py` says so in its own text.
+
 ### The channel relation, seated — and the collapse claim corrected
 
 **A channel set is which of the five languages close an index, and it is not an arbitrary subset.**
