@@ -8261,7 +8261,7 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   proposed seating broke. What broke was almost always the *magnitude*; what held was the
   *classification*.
 
-  **No mechanism takes a row, and the refusal is mechanical** — 24 of the 25 axes are functions of
+  **No mechanism takes a row, and the refusal is mechanical** — 24 of the (then) 25 axes are functions of
   `(Z, charge, n, l)`, and the instrument raises rather than degrades. The static Casimir null is
   **exact, not small**: of the measured spectra table's **104,832 rows, zero** carry a boundary,
   cavity, plate or separation token; every row is a free atom or ion, a free atom sits at infinite
@@ -8282,10 +8282,13 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   recorded as the bare Coulomb `Z²R = 987,635.841`; fitted from the series it is
   **987,662.29 ± 0.36, higher by 26.45**, and the compendia add that the limit **must be measured, not
   computed** and that a shift of even 0.2 changes the defect's behaviour in `n` — against which 26.45
-  is 132× the stated tolerance. **And the series limit is not one of the 25 axes; the word does not
+  is 132× the stated tolerance. **And the series limit was not one of the 25 axes; the word did not
   occur in the instrument at all.** So the extension asked for is not a row and not a mechanism
-  column — **it is a 26th axis: the measured series limit, with its uncertainty.** That is a proposal;
-  nothing here adds it.
+  column — **it is a 26th axis: the measured series limit, with its uncertainty.** **It has since been
+  seated**: `READ` where a source printed the value, `FITTED` where a run recovered it, `None` where
+  neither — four stages banked out of every stage of every element, an absent limit meaning
+  levels-only rather than a guess, per register 2469's withdrawal of ten channels built on an invented
+  one. `populate.py` now carries 26 axes and 103 selftest fixtures, up from 25 and 77.
 
   **And the number that was to clinch it is withdrawn.** The seating pass decomposed the 26.45 into
   four terms with no free parameter, summing to +26.13 against +26.45 — 1.2 % agreement, read as
@@ -8293,8 +8296,16 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   it**: reduced mass (−77.22 vs −77.27) and Dirac 1s (+118.33, exact) replicate, but self-energy
   (+7.76 vs −15.52) and vacuum polarisation (−0.29 vs +0.59) differ in **both sign and magnitude**,
   and the independent sum of +48.58 misses the banked deficit by 84 %. Neither decomposition is
-  banked: status **UNRESOLVED**, both printed, and the selftest pins the *disagreement* so it cannot
-  quietly heal in a later pass. The structural finding does not depend on it — the ruling is quoted
+  banked — **and the corpus had the answer, which is why both were wrong: the baseline was.** Register
+  3357 records that the reduced mass is needed *twice*, once in the defect and once in the baseline a
+  limit is measured against, and that omitting it implies a spurious `Z^6.4` against a leading Dirac
+  `Z⁴`. Both attempts priced reduced mass as a *term* in a sum whose baseline had already dropped it.
+  Against `Z²R_M` the deficits are 103.94, 329.80, 816.68 at Z = 3, 4, 5, and register 3353 states
+  what they are: **the Sommerfeld–Dirac relativistic term less the 1s Lamb shift, ratio
+  0.8849 ± 0.0069, constant to under one per cent.** Recomputed independently, the Dirac terms
+  reproduce to the digit (118.32, 373.97, 913.03) and the deficits to better than 0.2 %. **A two-term
+  form, not a four-term one** — the four-term attempt was mis-specified, not mis-arithmetised. Status
+  **UNRESOLVED → RESOLVED**, and it was resolved in the corpus before either attempt was made. The structural finding does not depend on it — the ruling is quoted
   from the member, the deficit is the corpus's own banked number, and the absence of the limit from
   the axes is a fact about the instrument.
 

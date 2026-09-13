@@ -451,6 +451,100 @@ def ionisation_cells(Z):
 # The report
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# THE SERIES LIMIT -- the twenty-sixth axis
+# ---------------------------------------------------------------------------
+# "The ionisation limit. Writing it as a formula is the single most damaging
+# thing that can be done to a channel" -- and register 3249 is what happens
+# when it is: Li III's limit was recorded as the bare Coulomb Z^2 R and the
+# whole channel set moved when it was fitted from the series instead. So the
+# limit is READ or FITTED, NEVER computed, and a species with neither is not
+# given one. Register 2469's ruling stands: a defect is meaningless without a
+# limit, so an absent limit means levels-only, not a guess.
+#
+# Keyed by (Z, charge) with charge the spectroscopic stage, 1 = neutral.
+# (value cm^-1, sigma or None, status, provenance)
+LIMITS = {
+    (3, 3):  (987662.29,   0.36,  "FITTED",
+              "P.converge over 81 levels; register 3249"),
+    (5, 4):  (2091995.451, None,  "READ",
+              "printed under the B IV table; register 3313"),
+    (5, 5):  (2744111.38,  1.95,  "FITTED",
+              "not in the capture, fitted; register 3313"),
+    (15, 4): (415551.8,    350.0, "FITTED",
+              "four-member 3s.ns 3S run; register 3401"),
+}
+
+# Deficits against the REDUCED-MASS Coulomb baseline Z^2 R_M, as banked in
+# register 3357. Be IV's limit is not quoted anywhere as a limit, only as this
+# deficit, so it is carried here and its limit is DERIVED rather than FITTED --
+# the one place this file reconstructs a limit, and it is labelled.
+DEFICITS_RM = {(3, 3): 103.94, (4, 4): 329.80, (5, 5): 816.68}
+
+# Register 3353: the deficit IS the Sommerfeld-Dirac relativistic term less the
+# 1s Lamb shift, and the ratio is constant to under one per cent.
+DIRAC_RATIO = 0.8849
+DIRAC_RATIO_SD = 0.0069
+
+R_INF = 109737.31568          # cm^-1, CODATA
+ALPHA_FS = 7.2973525693e-3
+M_E_U = 5.48579909065e-4
+# Masses of the nuclides the fits used, in u. READ, not computed.
+NUCLIDE_U = {3: 7.0160034366, 4: 9.0121830700, 5: 11.0093054000,
+             15: 30.97376199842, 56: 137.9052470}
+
+
+def reduced_rydberg(Z):
+    """R_M for this element's nuclide. Register 3357 needed the reduced mass
+    TWICE -- once in the defect formula and once in the baseline a limit is
+    compared against -- and a baseline missing it produced an apparent Z^6.4."""
+    if Z not in NUCLIDE_U:
+        return None
+    return R_INF / (1.0 + M_E_U / NUCLIDE_U[Z])
+
+
+def dirac_term(Z):
+    """The Sommerfeld-Dirac 1s relativistic term, Z^4 alpha^2 R_M / 4."""
+    rm = reduced_rydberg(Z)
+    return None if rm is None else rm * Z ** 4 * ALPHA_FS ** 2 / 4.0
+
+
+def series_limit(Z, charge):
+    """(value, sigma, status, provenance) for this stage, or None.
+
+    None is the honest answer and the common one: four stages are banked out of
+    every stage of every element. Register 2469 withdrew ten channels built on
+    an invented limit, so nothing is invented here.
+    """
+    if (Z, charge) in LIMITS:
+        return LIMITS[(Z, charge)]
+    if (Z, charge) in DEFICITS_RM:
+        rm = reduced_rydberg(Z)
+        if rm is not None:
+            return (Z * Z * rm + DEFICITS_RM[(Z, charge)], None, "DERIVED",
+                    "reconstructed from register 3357's banked deficit")
+    return None
+
+
+def limit_deficit(Z, charge):
+    """The QED-and-relativistic deficit against Z^2 R_M, and what it is made of.
+
+    Returns (deficit, dirac, ratio) or None. This is the one place exotic matter
+    is measurably present on the periodic index: the deficit is the relativistic
+    term less the 1s Lamb shift, of which vacuum polarisation is a part.
+    """
+    if (Z, charge) in DEFICITS_RM:
+        d = DEFICITS_RM[(Z, charge)]
+    else:
+        lim = series_limit(Z, charge)
+        rm = reduced_rydberg(Z)
+        if lim is None or rm is None or lim[2] == "DERIVED":
+            return None
+        d = lim[0] - Z * Z * rm
+    dt = dirac_term(Z)
+    return None if dt is None else (d, dt, d / dt)
+
+
 AXES = [
     ("Z", READ, "the ground-state atomic number, the input"),
     ("symbol", READ, "NIST ASD 5.12 via LW1-ground.py (register 1306)"),
@@ -477,6 +571,10 @@ AXES = [
     ("bound", READ, "COORDINATES-2.13"),
     ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
     ("caps", PINNED, "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"),
+    ("series limit", READ, "the measured ionisation limit; READ or FITTED per "
+                           "registers 3249/3313/3401, never computed. The "
+                           "defect's own denominator, and where the QED sits "
+                           "(register 3253). None where unbanked."),
 ]
 
 
@@ -521,6 +619,15 @@ def populate(Z, spectra, charge=None, table="observed"):
         "set_aside": set_aside(Z), "janet_cell": janet_cell(Z),
         "outer": LW1.outer(Z),
     }
+    stage = charge if charge is not None else 1
+    lim = series_limit(Z, stage)
+    out["series_limit"] = None if lim is None else {
+        "value": lim[0], "sigma": lim[1], "status": lim[2], "source": lim[3]}
+    dfc = limit_deficit(Z, stage)
+    out["limit_deficit"] = None if dfc is None else {
+        "deficit": dfc[0], "dirac": dfc[1], "ratio": dfc[2],
+        "baseline": "Z^2 R_M (reduced mass), register 3357"}
+
     held, admitted = layout_closure()
     out["closure"] = {
         "held": len(held), "admitted": len(admitted),
@@ -614,6 +721,29 @@ def report(rep, show_channels=True, max_charge=None):
           % (rep["period"], rep["group"], rep["block_letter"]))
     print("    Janet                (n+l, l) = %s     [E = 0, register 1188]"
           % (rep["janet_cell"],))
+    sl = rep.get("series_limit")
+    print()
+    print("  THE SERIES LIMIT -- the 26th axis")
+    if sl is None:
+        print("    NOT BANKED for this stage. Register 2469: a defect is")
+        print("    meaningless without a limit, so this is levels-only, not a")
+        print("    guess. Four stages are banked in the whole table.")
+    else:
+        print("    limit = %.3f%s cm^-1   [%s]"
+              % (sl["value"],
+                 "" if sl["sigma"] is None else " +/- %.2f" % sl["sigma"],
+                 sl["status"]))
+        print("    %s" % sl["source"])
+        df = rep.get("limit_deficit")
+        if df is not None:
+            print("    deficit against Z^2 R_M = %+.2f cm^-1" % df["deficit"])
+            print("    Sommerfeld-Dirac term   = %+.2f cm^-1" % df["dirac"])
+            print("    ratio = %.4f   [register 3353: 0.8849 +/- 0.0069 over Z=3,4,5]"
+                  % df["ratio"])
+            print("    THE DEFICIT IS THE RELATIVISTIC TERM LESS THE 1s LAMB SHIFT.")
+            print("    That is where QED -- and so vacuum polarisation -- sits on")
+            print("    this index: in the LIMIT, not in the levels (register 3253).")
+
     cl = rep["closure"]
     print()
     print("  THE STRUCTURAL HALF -- R over the drawn layout          [PINNED]")
@@ -1006,6 +1136,62 @@ def selftest(spectra):
     else:
         print("  note: the spectra index is not in the tree; its fixtures are "
               "skipped")
+
+    # --- the twenty-sixth axis: the series limit ---------------------------
+    check(any(a[0] == "series limit" for a in AXES),
+          "the series limit is an axis")
+    check(len(AXES) == 26, "twenty-six axes")
+
+    # Every banked limit is READ or FITTED. Nothing is computed, which is the
+    # whole point of the axis -- register 3249's fault was a computed limit.
+    for key, (val, sig, st, src) in LIMITS.items():
+        check(st in ("READ", "FITTED"), "banked limit %r is READ or FITTED" % (key,))
+        check(val > 0 and src, "banked limit %r carries a value and a source" % (key,))
+    check(series_limit(3, 3)[0] == 987662.29, "Li III's fitted limit, register 3249")
+    check(series_limit(5, 5)[0] == 2744111.38, "B V's fitted limit, register 3313")
+    check(series_limit(5, 4)[2] == "READ", "B IV's limit was printed, not fitted")
+
+    # An unbanked stage returns None rather than a guess. Register 2469
+    # withdrew ten channels built on an invented limit.
+    check(series_limit(6, 1) is None, "an unbanked stage returns None, not a guess")
+    check(series_limit(56, 4) is None, "Ba IV is not banked here either")
+
+    # Register 3249: the deficit against the BARE Coulomb baseline is 26.45.
+    check(abs((987662.29 - 9 * R_INF) - 26.45) < 0.01,
+          "the bare-Coulomb deficit is register 3249's 26.45")
+
+    # Register 3357: against the REDUCED-MASS baseline the deficits are
+    # 103.94, 329.80, 816.68 and the Z^4 law holds. Two independent checks.
+    for (Z, ch), want in DEFICITS_RM.items():
+        lim = series_limit(Z, ch)
+        if lim is not None and lim[2] != "DERIVED":
+            got = lim[0] - Z * Z * reduced_rydberg(Z)
+            check(abs(got - want) < 2.0,
+                  "Z=%d deficit reproduces register 3357's %.2f" % (Z, want))
+
+    # Register 3353: deficit = Sommerfeld-Dirac term LESS the 1s Lamb shift,
+    # ratio constant to under one per cent across Z = 3, 4, 5.
+    ratios = [DEFICITS_RM[k] / dirac_term(k[0]) for k in sorted(DEFICITS_RM)]
+    check(all(abs(r - DIRAC_RATIO) < 0.02 for r in ratios),
+          "every ratio is within 0.02 of register 3353's 0.8849")
+    mean = sum(ratios) / len(ratios)
+    check(abs(mean - DIRAC_RATIO) < 0.001,
+          "and their mean IS 0.8849 (register 3353)")
+    check(abs(dirac_term(3) - 118.32) < 0.05, "Li III's Dirac term, register 3353")
+    check(abs(dirac_term(4) - 373.97) < 0.05, "Be IV's Dirac term, register 3353")
+    check(abs(dirac_term(5) - 913.03) < 0.05, "B V's Dirac term, register 3353")
+
+    # The baseline matters: register 3357 records that missing the reduced mass
+    # produced an apparent Z^6.4 against a leading Dirac Z^4. Pin the fault so
+    # the wrong baseline cannot creep back.
+    bare = [(987662.29 - 9 * R_INF), None, (2744111.38 - 25 * R_INF)]
+    check(abs(bare[0] - 26.45) < 0.01 and abs(bare[2] - 678.49) < 1.0,
+          "the bare-baseline deficits are 26.45 and 678.49")
+    import math as _m
+    bad = _m.log(bare[2] / bare[0]) / _m.log(5.0 / 3.0)
+    good = _m.log(DEFICITS_RM[(5, 5)] / DEFICITS_RM[(3, 3)]) / _m.log(5.0 / 3.0)
+    check(bad > 6.0, "the wrong baseline really does imply about Z^6.4")
+    check(abs(good - 4.0) < 0.1, "and the right one recovers the Z^4 law")
 
     print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
     for f in fails:

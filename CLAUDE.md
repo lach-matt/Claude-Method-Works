@@ -115,7 +115,10 @@ instruments run over the store — `tools/cypher.py` (the cypher analysis of §3
 index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation the volumes state
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
 companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
-`tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
+`tools/populate.py` (an element, and every ion of it, on every axis of every index — **26 axes since
+the series limit was seated**, the measured ionisation limit being `READ`/`FITTED` and never computed,
+and its deficit against the reduced-mass baseline being where QED enters the index per register 3253 —
+both halves
 of the method equation, per register 1206), `tools/orderideal.py` (register 66's downward-closure
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
 and files its measurement for R3 — see `docs/ORDER-IDEAL.md`) and **`tools/docfigures.py`**, which

@@ -37,8 +37,32 @@ computed), and the tower is `tower-2.py`; both are imported **by path** and neve
 | channels, per ion | charge, Nₑ, ℓ, mult, p, n₀, B, δ measured, δ by equation, residual, grade, witness, bound | `READ` + `PINNED` |
 | collapse | C(Z, ℓ) | `RECOVERED` |
 | Λ₈ | the ionisation ladder as transition cells, the seven constraints, the caps each needs | `RECONSTRUCTED` |
+| **series limit** | the measured ionisation limit, its uncertainty and its provenance | `READ` / `FITTED` |
 
 `--axes` prints the full inventory with a source for every row.
+
+## The series limit — the twenty-sixth axis
+
+The limit is the quantum defect's own denominator, `δ = n − Z√(R/(limit − level))`, and for a long
+time it was the one input the index used without indexing. **It is never computed here.** Register
+3249 is what happens when it is: Li III's limit was written as the bare Coulomb `Z²R = 987,635.841`
+and every channel moved when it was fitted from the series instead — **987,662.29 ± 0.36, higher by
+26.45**. The compendia state the rule outright, that the limit *"must be measured, not computed"* and
+that writing it as a formula is *"the single most damaging thing that can be done to a channel."*
+
+So the axis is `READ` where a source printed the value and `FITTED` where a run recovered it, and it
+is **`None` where neither** — four stages are banked out of every stage of every element. An absent
+limit is not filled in: register 2469 withdrew ten Ba III channels built on an invented one, because
+*"a quantum defect is n − Z√(R/(limit − level)) and is meaningless without it."* Absent means
+levels-only.
+
+**And the deficit is where QED sits on this index.** Register 3253: *"the QED was real and it was in
+the LIMIT, not in the levels."* Measured against the **reduced-mass** baseline `Z²R_M` — register 3357
+needed the reduced mass twice, once in the defect and once in the baseline, a bare `Z²R∞` baseline
+implying a spurious `Z^6.4` — the deficits are `103.94`, `329.80`, `816.68` at `Z = 3, 4, 5` and the
+`Z⁴` law holds. Register 3353 identifies what they are: **the Sommerfeld–Dirac relativistic term less
+the 1s Lamb shift**, at a ratio of **0.8849 ± 0.0069**, constant to under one per cent. The selftest
+pins all of it, including the wrong baseline, so the `Z^6.4` fault cannot creep back.
 
 ## Status, carried and not flattened
 

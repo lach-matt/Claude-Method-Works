@@ -93,17 +93,22 @@ is "the single most damaging thing that can be done to a channel", and a shift o
 even 0.2 "causes totally different behavior of quantum defect versus n" -- against
 which 26.45 is a hundred and thirty times the stated tolerance.
 
-**AND THE SERIES LIMIT IS NOT ONE OF THE TWENTY-FIVE AXES.**  The word does not
+**AND THE SERIES LIMIT WAS NOT ONE OF THE TWENTY-FIVE AXES.**  The word did not
 occur anywhere in the instrument that puts an element on every axis of every
 index.  It is the defect's own denominator input, it carries the QED, it is
-banked with an error bar -- and it is not indexed.
+banked with an error bar -- and it was not indexed.
 
-    SO THE EXTENSION THE QUESTION ASKS FOR IS NOT A NEW ROW AND NOT A NEW
-    MECHANISM COLUMN.  IT IS A TWENTY-SIXTH AXIS: THE MEASURED SERIES LIMIT,
+    SO THE EXTENSION THE QUESTION ASKED FOR WAS NOT A NEW ROW AND NOT A NEW
+    MECHANISM COLUMN.  IT WAS A TWENTY-SIXTH AXIS: THE MEASURED SERIES LIMIT,
     CARRYING ITS FITTED VALUE AND ITS UNCERTAINTY.
 
-That is a proposal.  Nothing here adds it, and the file adds no axis to any
-instrument.
+**IT HAS SINCE BEEN SEATED.**  The axis is now in the instrument: READ where a
+source printed the value, FITTED where a run recovered it, and None where
+neither -- four stages banked out of every stage of every element, with an
+absent limit meaning levels-only rather than a guess, per register 2469's
+withdrawal of ten channels built on an invented one.  This section is kept in
+the past tense rather than deleted, because what the index was missing is the
+finding and a repaired index does not show it.
 
 ===============================================================================
 4. THE NUMBER THAT WAS SUPPOSED TO CLINCH IT, WITHDRAWN
@@ -127,17 +132,26 @@ replicate and two do not:
 
 Sign and magnitude both differ on the two QED terms, and the independent sum
 misses the banked deficit by 84 %.  The agreement that made the finding
-quantitative therefore **does not replicate, and is withdrawn.**  Neither
-decomposition is banked here: the leading-order self-energy form is delicate
-about convention and neither attempt is authoritative, so the correct status is
-**UNRESOLVED** and it is recorded as such rather than resolved in this file's
-favour.
+quantitative therefore **does not replicate, and is withdrawn.**
 
-WHAT THAT DOES AND DOES NOT COST.  The structural finding in section 3 does not
-depend on it: the register ruling is quoted from the seated member, the 26.45 is
-the corpus's own banked number, and the absence of the limit from the axes is a
-fact about the instrument.  What is lost is the claim that vacuum polarisation's
-share of the deficit has been computed here.  It has not.
+**AND THE CORPUS HAD THE ANSWER ALREADY, WHICH IS WHY BOTH ATTEMPTS WERE WRONG:
+THE BASELINE WAS.**  Register 3357 records that the reduced mass is needed
+TWICE -- once in the defect formula and once in the baseline a limit is measured
+against -- and that a baseline missing it implies a spurious Z^6.4 against a
+leading Dirac Z^4.  Both decompositions above were built against Z^2 R_inf, so
+both were pricing reduced mass as a TERM in a sum whose baseline had already
+omitted it.  Against Z^2 R_M the deficits are 103.94, 329.80 and 816.68 at
+Z = 3, 4, 5, and register 3353 identifies them outright:
+
+    THE DEFICIT IS THE SOMMERFELD-DIRAC RELATIVISTIC TERM LESS THE 1s LAMB
+    SHIFT, AT A RATIO OF 0.8849 +/- 0.0069, CONSTANT TO UNDER ONE PER CENT.
+
+Independently recomputed here, the Dirac terms reproduce to the digit (118.32,
+373.97, 913.03) and the deficits to better than 0.2 %.  **It is a TWO-term form,
+not a four-term one**, and the four-term attempt was mis-specified rather than
+mis-arithmetised.  So the status moves from UNRESOLVED to RESOLVED -- and it was
+resolved in the corpus before either attempt was made, which is the lesson worth
+keeping.
 
 ===============================================================================
 WHAT IT REFUSES TO DO
@@ -146,11 +160,13 @@ WHAT IT REFUSES TO DO
 **It does not present the eight seatings as confirmed.**  Zero of eight survived
 both lenses; the classifications are carried and the magnitudes are not.
 
-**It does not add an axis.**  Section 3 is a proposal, and the corpus's own rule
-is that a finding is recorded and never repaired.
+**It does not itself add the axis.**  Section 3 was a proposal; the axis was
+then seated in the instrument that owns it, and this file records the gap in the
+past tense rather than erasing it.
 
-**It does not bank a QED decomposition.**  Two independent attempts disagree on
-sign and magnitude; both are printed and neither is adopted.
+**It does not bank ITS OWN QED decomposition.**  Two independent attempts
+disagreed on sign and magnitude and both are printed; what is adopted is the
+corpus's, which predates both and which reproduces.
 
 **It does not claim exotic matter is absent from the index because it is small.**
 For the static Casimir case the value is exactly zero, which is a different
@@ -268,10 +284,22 @@ def report():
           % (DEFICIT, 100 * abs(s_ind - DEFICIT) / DEFICIT))
     print()
     print("   The 1.2%% agreement that made the finding quantitative DOES NOT")
-    print("   REPLICATE and is withdrawn. Neither decomposition is banked: status")
-    print("   UNRESOLVED. Section 3 does not depend on it -- the ruling is quoted")
-    print("   from the member, the deficit is the corpus's own banked number, and")
-    print("   the absence of the limit from the axes is a fact about the instrument.")
+    print("   REPLICATE and is withdrawn.")
+    print()
+    print("   AND THE CORPUS HAD THE ANSWER: THE BASELINE WAS WRONG IN BOTH.")
+    print("   Register 3357 -- the reduced mass is needed TWICE, once in the defect")
+    print("   and once in the BASELINE, and omitting it implies a spurious Z^6.4.")
+    print("   Both attempts priced reduced mass as a term in a sum whose baseline")
+    print("   had already dropped it. Against Z^2 R_M, register 3353 states it:")
+    print("     THE DEFICIT IS THE SOMMERFELD-DIRAC TERM LESS THE 1s LAMB SHIFT,")
+    print("     ratio 0.8849 +/- 0.0069, constant to under one per cent.")
+    print("   Recomputed here the Dirac terms reproduce to the digit and the")
+    print("   deficits to better than 0.2%%. A TWO-term form, not a four-term one.")
+    print("   Status UNRESOLVED -> RESOLVED, and it was resolved in the corpus")
+    print("   before either attempt was made.")
+    print()
+    print("   THE AXIS HAS SINCE BEEN SEATED: the series limit is now the 26th,")
+    print("   READ or FITTED, never computed, None where unbanked.")
     return 0
 
 
