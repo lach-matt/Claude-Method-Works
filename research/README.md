@@ -8328,6 +8328,42 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   from the member, the deficit is the corpus's own banked number, and the absence of the limit from
   the axes is a fact about the instrument.
 
+- **`twoindex.py`** — **are they two indices, and do they oscillate into each other?** Two indices
+  cannot be intersected until they share coordinates, and a forced embedding manufactures whichever
+  answer it is pointed at — so the axes are only those both sides genuinely carry, and every one was
+  established by earlier measurement rather than invented here: `L` enters the ionisation limit, `Q`
+  regime, `E` evidential directness, `S` scaling with nuclear charge. Four axes, a 36-cell box. **That
+  thinness is the measurement, not a defect**: there were no further genuinely shared axes to use.
+
+  **The intersection is empty.** Nine mechanisms collapse to 5 distinct cells, seven periodic entries
+  to 3, and **no cell is shared** — no control needed. *The first half is answered yes: they are two
+  indices.*
+
+  **They interact under closure — and so would any two sets.** Closing the union admits cells that
+  closing each part does not (order 24 vs 13, geometry 20 vs 10, statistics 11 vs 9). But over 600
+  random disjoint 5+3 splits of the same box, a statistics interaction term of **≥ 2 occurs 81.7 % of
+  the time with a mean of 4.16** — so the measured 2 is *below* the random average, and ≤ 2 is itself
+  unremarkable at 30.7 %. **The test does not decide, and is reported as not deciding**; an
+  interaction term in a shared product box is generic, and reading one as a physical coupling would be
+  reading the box.
+
+  **The oscillation test is a clean no.** If two indices are one oscillating system, the closure of
+  either should *anticipate* cells of the other. Hide one, close the other: **0 of 5 and 0 of 3, in
+  both directions, under all five languages.** And the control is worse than zero for the claim — a
+  random three-cell set recovers exotic cells at a mean of 0.55 under `order`, so **an arbitrary set
+  anticipates the exotic index better than the periodic index does.** *The second half is answered no.*
+
+  **And the two results are one result.** Every exotic mechanism but one contributes exactly zero to a
+  free ion's limit — boundaries, prepared states, moving mirrors and proper acceleration are all
+  absent from a free atom — so the whole contact between the indices is **one mechanism touching one
+  quantity**. **A one-dimensional intersection is a contact, not a coupling**: there is no second point
+  to define a direction with, so there is nothing for an oscillation to run along, and the zero is what
+  a single point of contact *must* look like under any test of this shape. **What would change it:** a
+  second genuine contact. Casimir–Polder touches electronic structure through the static polarisability
+  and clears the defect resolution at ten nanometres — but it is zero on a *free* ion, and every banked
+  species is free. **A bound system held near a surface would populate a second point, and two points
+  admit a direction.** That is a capture, not a calculation.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
