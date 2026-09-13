@@ -157,7 +157,7 @@ def selftest():
 
     print("orbit selftest")
     X = orbit()
-    chk("the orbit is the seated index", len(X), 17)
+    chk("the orbit is the seated index", len(X), 18)
 
     # The theorem: statistics is monotone and E = 0 on the orbit, so its closure
     # of any snapshot is a SUBSET of the orbit -- precision exactly 1.

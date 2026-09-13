@@ -8425,9 +8425,23 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   construction. That narrows every `E = 0` in this tree, including the ones seated today; the
   measurements and their controls stand exactly as made, the *readings* narrow.
 
-  **Nothing is repaired** — the cell is not renamed, no arity coordinate is added, and no published
-  figure moves, since the cell *holds* under the reading the index implements and every count that used
-  it is arithmetically right.
+  **This has since been repaired on instruction.** The arity coordinate `A` is now seated
+  (`0` quadratic, `1` bilinear, starting at 0 so cypher's re-ranking stays the identity — the drift the
+  module itself warns about was live here). The mis-named cell is **kept and renamed
+  `causal-quadratic`** rather than deleted, and the true bilinear `DEC` seated beside it — the same
+  treatment the `G = R` identity already gets, where two cells stand and the identification is recorded
+  as a **quotient**, not a collision. A second quotient is now recorded with it: at `A = 0` the `V`
+  coordinate is not faithful between 1 and 2, since for a continuous tensor `T_vv ≥ 0` over all
+  timelike `v` already gives it over all causal `v`.
+
+  **What moved:** 17 cells → **18**, box 288 → **576**, order/algebra 192 → **256**, geometry 29 →
+  **30**, information 156 → **208**. **`statistics` still closes the family at `E = 0`**, and
+  `geometry`/`information` are **still incomparable** — both structural results survive the correction.
+  Downstream: `entail.py` gained a real arity ladder (bilinear entails quadratic, never the reverse),
+  and with it **entailment now beats forgery, 8 against 9, where before the arity fix the two were
+  tied at 8**. `barter.py` and `reslice.py` were made dimension-agnostic rather than re-pinned. The
+  paper's one affected row moved 29/156 → 30/208 with its **INCOMPARABLE** verdict and the direction of
+  the size difference both unchanged.
 
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is

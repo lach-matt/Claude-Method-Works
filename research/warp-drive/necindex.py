@@ -188,7 +188,7 @@ def _load_cypher():
 
 cypher = _load_cypher()
 
-COORDS = ("T", "V", "M", "Q", "B")
+COORDS = ("T", "V", "M", "Q", "B", "A")
 
 # THE CODING MUST BE PINNED, AND THIS IS NOT HOUSEKEEPING.
 #
@@ -205,35 +205,57 @@ COORDS = ("T", "V", "M", "Q", "B")
 # Declaring value_order pins code[i][v] = v, so every instrument downstream reads
 # and writes the same coordinates.  USE pinned_index(), NEVER cypher.Index DIRECT.
 VALUE_ORDER = {"T": [0, 1, 2, 3], "V": [0, 1, 2], "M": [0, 1, 2, 3],
-               "Q": [0, 1], "B": [0, 1, 2]}
+               "Q": [0, 1], "B": [0, 1, 2], "A": [0, 1]}
 
 
 def pinned_index(cells, name="the energy-condition family"):
     """cypher.Index with the coding pinned.  The only constructor to use here."""
     return cypher.Index(name, COORDS, sorted(set(cells)), value_order=VALUE_ORDER)
 
-# (name, T, V, M, Q, B, where it is named)
+# (name, T, V, M, Q, B, A, where it is named)
+# A is the ARITY coordinate, added after the cell below was found MIS-NAMED:
+#   0  QUADRATIC, one direction used twice:  T_mn v^m v^n  >= B
+#   1  BILINEAR, an ordered pair:            T_mn v^m w^n  >= B
+# A starts at 0 like every other slot, so cypher.Index's re-ranking stays the
+# identity -- the drift this file warns about above is a live hazard here.
+# Every condition of the original family is quadratic and carries A = 1. The
+# dominant energy condition is not, and could not be written at all before this
+# coordinate existed -- which is why the cell that carried its name carried WEC.
 FAMILY = [
-    ("NEC",                 0, 0, 0, 0, 0, "classical; BV call it the weakest"),
-    ("WEC",                 0, 1, 0, 0, 0, "classical"),
-    ("DEC",                 0, 2, 0, 0, 0, "classical; causal energy flux"),
-    ("SEC",                 3, 1, 0, 0, 0, "classical; IS the Ricci condition"),
-    ("NCC",                 3, 0, 0, 0, 0, "null convergence, singularity theorems"),
-    ("Einstein-NEC",        2, 0, 0, 0, 0, "G_kk >= 0; same cell content as NCC"),
-    ("BV-effective-NEC",    1, 0, 0, 0, 0, "Barcelo-Visser eq. (2.6), READ"),
-    ("ANEC",                0, 0, 2, 0, 0, "averaged, all complete null geodesics"),
-    ("AANEC",               0, 0, 3, 0, 0, "achronal; anecscope.py, the one with teeth"),
-    ("BV-effective-ANEC",   1, 0, 2, 0, 0, "Barcelo-Visser sect. 2.3, READ"),
-    ("semiclassical-NEC",   0, 0, 0, 1, 0, "FALSE -- Casimir, measured"),
-    ("semiclassical-ANEC",  0, 0, 2, 1, 0, "flat space; Faulkner-Leigh-Parrikar-Wang"),
-    ("semiclassical-AANEC", 0, 0, 3, 1, 0, "Graham-Olum; topological censorship uses it"),
-    ("SNEC",                0, 0, 1, 1, 1, "smeared null; nullbound.py, anec.py"),
-    ("QEI-Ford-Roman",      0, 1, 1, 1, 1, "persist.py"),
-    ("QEI-Fewster-Osterbrink", 0, 1, 1, 1, 1, "qei.py -- THE SAME CELL as Ford-Roman"),
-    ("QNEC",                0, 0, 0, 1, 2, "anec.py; entropy variation"),
-    ("semiclassical-WEC",   0, 1, 0, 1, 0, "FALSE -- Casimir; DEMANDED by the "
-                                           "index before it was seated"),
+    ("NEC",                 0, 0, 0, 0, 0, 0, "classical; BV call it the weakest"),
+    ("WEC",                 0, 1, 0, 0, 0, 0, "classical"),
+    ("causal-quadratic",    0, 2, 0, 0, 0, 0, "WAS SEATED AS 'DEC' AND IS NOT IT: "
+                                              "T_vv >= 0 over all causal v is WEC "
+                                              "and NEC together. Kept and renamed, "
+                                              "not deleted -- see the V quotient."),
+    ("DEC",                 0, 2, 0, 0, 0, 1, "the REAL one: T_mn v^m w^n >= 0 for "
+                                              "every future-causal ordered pair"),
+    ("SEC",                 3, 1, 0, 0, 0, 0, "classical; IS the Ricci condition"),
+    ("NCC",                 3, 0, 0, 0, 0, 0, "null convergence, singularity theorems"),
+    ("Einstein-NEC",        2, 0, 0, 0, 0, 0, "G_kk >= 0; same cell content as NCC"),
+    ("BV-effective-NEC",    1, 0, 0, 0, 0, 0, "Barcelo-Visser eq. (2.6), READ"),
+    ("ANEC",                0, 0, 2, 0, 0, 0, "averaged, all complete null geodesics"),
+    ("AANEC",               0, 0, 3, 0, 0, 0, "achronal; anecscope.py, the one with teeth"),
+    ("BV-effective-ANEC",   1, 0, 2, 0, 0, 0, "Barcelo-Visser sect. 2.3, READ"),
+    ("semiclassical-NEC",   0, 0, 0, 1, 0, 0, "FALSE -- Casimir, measured"),
+    ("semiclassical-ANEC",  0, 0, 2, 1, 0, 0, "flat space; Faulkner-Leigh-Parrikar-Wang"),
+    ("semiclassical-AANEC", 0, 0, 3, 1, 0, 0, "Graham-Olum; topological censorship uses it"),
+    ("SNEC",                0, 0, 1, 1, 1, 0, "smeared null; nullbound.py, anec.py"),
+    ("QEI-Ford-Roman",      0, 1, 1, 1, 1, 0, "persist.py"),
+    ("QEI-Fewster-Osterbrink", 0, 1, 1, 1, 1, 0, "qei.py -- THE SAME CELL as Ford-Roman"),
+    ("QNEC",                0, 0, 0, 1, 2, 0, "anec.py; entropy variation"),
+    ("semiclassical-WEC",   0, 1, 0, 1, 0, 0, "FALSE -- Casimir; DEMANDED by the "
+                                              "index before it was seated"),
 ]
+
+# THE V QUOTIENT, the second identification of its kind on this index.
+# At A = 0 the V coordinate is NOT FAITHFUL between 1 and 2: for a continuous
+# tensor the null cone is the boundary of the timelike cone, so T_vv >= 0 over
+# all timelike v already gives it over all causal v. `causal-quadratic` and WEC
+# are therefore one condition in two cells -- exactly the shape of the G = R
+# identity at V = 0, and recorded the same way rather than collapsed.
+# At A = 1 there is no such collapse: DEC is strictly stronger than both.
+V_QUOTIENT_AT_A0 = ((0, 1, 0, 0, 0, 0), (0, 2, 0, 0, 0, 0))
 
 # The escape routes recorded in this tree, and which slot each one moves.
 ESCAPES = [
@@ -252,7 +274,15 @@ NOTHING_IS_REPAIRED = True
 
 
 def cells():
-    return sorted({tuple(r[1:6]) for r in FAMILY})
+    """The seated cells, SIX coordinates now: (T, V, M, Q, B, A).
+
+    A was added when the cell seated as DEC was found to be WEC and NEC under
+    the family's own declared quadratic form. The mis-named cell is kept and
+    renamed rather than deleted -- the treatment the G = R identity already
+    gets on this index, where two cells stand and the identification is
+    recorded as a quotient rather than a collision.
+    """
+    return sorted({tuple(r[1:7]) for r in FAMILY})
 
 
 def index():
@@ -335,11 +365,11 @@ def report():
     print("MEASURED")
     print("=" * 79)
     print()
-    print("  the family, as an index over five slots")
+    print("  the family, as an index over six slots")
     print("      %-26s %2s %2s %2s %2s %2s   %s"
           % ("condition", *COORDS, "where it is named"))
     for r in FAMILY:
-        print("      %-26s %2d %2d %2d %2d %2d   %s"
+        print("      %-26s %2d %2d %2d %2d %2d %2d   %s"
               % (r[0], r[1], r[2], r[3], r[4], r[5], r[6]))
     print()
     print("      %-38s %6d" % ("named conditions", len(FAMILY)))
@@ -350,7 +380,7 @@ def report():
     print("  the collisions, which are the interchangeability")
     seen = {}
     for r in FAMILY:
-        seen.setdefault(tuple(r[1:6]), []).append(r[0])
+        seen.setdefault(tuple(r[1:7]), []).append(r[0])
     for cell, names in sorted(seen.items()):
         if len(names) > 1:
             print("      %-24s %s" % (str(cell), "  ==  ".join(names)))
@@ -430,20 +460,21 @@ def selftest():
     print()
 
     # --------------------------------------------------- the index is well formed
-    chk("named conditions", len(FAMILY), 18)
-    chk("distinct cells", len(cells()), 17)
+    chk("named conditions", len(FAMILY), 19)
+    chk("distinct cells", len(cells()), 18)
     chk("one name-pair collides onto one cell", len(FAMILY) - len(cells()), 1)
-    chk("every row has five slots",
-        sorted({len(r) for r in FAMILY}), [7])
+    chk("every row has six slots",
+        sorted({len(r) for r in FAMILY}), [8])
     chk("every slot value is in range",
         all(0 <= r[1] <= 3 and 0 <= r[2] <= 2 and 0 <= r[3] <= 3
-            and 0 <= r[4] <= 1 and 0 <= r[5] <= 2 for r in FAMILY), True)
+            and 0 <= r[4] <= 1 and 0 <= r[5] <= 2 and 0 <= r[6] <= 1
+            for r in FAMILY), True)
     chk("names are unique", len({r[0] for r in FAMILY}), len(FAMILY))
 
     # the two collisions are the two claimed interchangeabilities
     seen = {}
     for r in FAMILY:
-        seen.setdefault(tuple(r[1:6]), []).append(r[0])
+        seen.setdefault(tuple(r[1:7]), []).append(r[0])
     coll = sorted(tuple(sorted(v)) for v in seen.values() if len(v) > 1)
     chk("and it is exactly this one", coll,
         [("QEI-Fewster-Osterbrink", "QEI-Ford-Roman")])
@@ -451,10 +482,10 @@ def selftest():
     # claim this file first got wrong: NCC and Einstein-NEC are ONE CONDITION
     # in TWO CELLS, and the identity is what identifies them.
     chk("the identity quotients exactly one pair of cells",
-        quotient_pairs(), [((2, 0, 0, 0, 0), (3, 0, 0, 0, 0))])
+        quotient_pairs(), [((2, 0, 0, 0, 0, 0), (3, 0, 0, 0, 0, 0))])
     chk("and those two cells are NCC and Einstein-NEC",
         sorted(r[0] for r in FAMILY
-               if tuple(r[1:6]) in {(2, 0, 0, 0, 0), (3, 0, 0, 0, 0)}),
+               if tuple(r[1:7]) in {(2, 0, 0, 0, 0, 0), (3, 0, 0, 0, 0, 0)}),
         ["Einstein-NEC", "NCC"])
     # NEGATIVE CONTROL: off the null slice the coordinate must stay faithful.
     chk("T stays faithful off the null slice", t_coordinate_is_faithful(), [])
@@ -512,7 +543,7 @@ def selftest():
     chk("cypher is imported, not copied", CYPHER_IMPORTED_NOT_COPIED, True)
     chk("and it is the seated tool", os.path.basename(_CYPHER), "cypher.py")
     ix = index()
-    chk("the index builds", ix.d, 5)
+    chk("the index builds", ix.d, 6)
     chk("with the family's cells", len(ix.cells), len(cells()))
     res = cypher.run(ix, "1173", {"statistics_order": 2, "algebra_budget": 20000})
     chk("the cypher answered", isinstance(res, dict), True)
@@ -521,10 +552,10 @@ def selftest():
     # ------------------------------------ THE CLOSURE, AND HOW IT WAS REACHED
     cl = closure_by_language()
     chk("statistics closes the family exactly", cl["statistics"][1], [])
-    chk("and admits exactly the seated cells", cl["statistics"][0], 17)
+    chk("and admits exactly the seated cells", cl["statistics"][0], 18)
     # NEGATIVE CONTROL: no other language comes near, so E = 0 is a property of
     # THIS language and not of an index that any operator would regenerate.
-    for lang, want in (("order", 175), ("algebra", 175), ("information", 139),
+    for lang, want in (("order", 238), ("algebra", 238), ("information", 190),
                        ("geometry", 12)):
         chk("%s over-generates by %d" % (lang, want), len(cl[lang][1]), want)
     chk("every other language over-generates",
@@ -532,16 +563,16 @@ def selftest():
 
     # THE DISCOVERY, REPRODUCED: drop the demanded row and statistics asks for
     # it back.  This is the step that found it, kept runnable.
-    without = [c for c in cells() if c != (0, 1, 0, 1, 0)]
-    chk("dropping the semiclassical WEC leaves 16 cells", len(without), 16)
+    without = [c for c in cells() if c != (0, 1, 0, 1, 0, 0)]
+    chk("dropping the semiclassical WEC leaves 17 cells", len(without), 17)
     cl2 = closure_by_language(without)
     chk("and statistics demands exactly one cell back",
-        cl2["statistics"][1], [(0, 1, 0, 1, 0)])
+        cl2["statistics"][1], [(0, 1, 0, 1, 0, 0)])
     chk("which is the semiclassical WEC",
-        [r[0] for r in FAMILY if tuple(r[1:6]) == (0, 1, 0, 1, 0)],
+        [r[0] for r in FAMILY if tuple(r[1:7]) == (0, 1, 0, 1, 0, 0)],
         ["semiclassical-WEC"])
     chk("a refuted condition, seated as a citation not a truth",
-        all("FALSE" in r[6] for r in FAMILY
+        all("FALSE" in r[7] for r in FAMILY
             if r[0] in ("semiclassical-WEC", "semiclassical-NEC")), True)
 
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)

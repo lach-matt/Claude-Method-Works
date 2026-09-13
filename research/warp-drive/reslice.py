@@ -196,13 +196,13 @@ def steps(cells, i, j):
 # it found what it liked.
 CANDIDATES = (
     ("identity", lambda c: c),
-    ("inverse M  (3-M)", lambda c: (c[0], c[1], 3 - c[2], c[3], c[4])),
-    ("inverse V  (2-V)", lambda c: (c[0], 2 - c[1], c[2], c[3], c[4])),
-    ("inverse both", lambda c: (c[0], 2 - c[1], 3 - c[2], c[3], c[4])),
-    ("diagonal V+M", lambda c: (c[0], c[1] + c[2], c[2], c[3], c[4])),
-    ("diagonal V-M", lambda c: (c[0], c[1] - c[2] + 3, c[2], c[3], c[4])),
-    ("diagonal V+(3-M)", lambda c: (c[0], c[1] + 3 - c[2], c[2], c[3], c[4])),
-    ("swap to strength pair", lambda c: (c[0], 3 - c[2], 2 - c[1], c[3], c[4])),
+    ("inverse M  (3-M)", lambda c: c[:2] + (3 - c[2],) + c[3:]),
+    ("inverse V  (2-V)", lambda c: (c[0], 2 - c[1]) + c[2:]),
+    ("inverse both", lambda c: (c[0], 2 - c[1], 3 - c[2]) + c[3:]),
+    ("diagonal V+M", lambda c: (c[0], c[1] + c[2]) + c[2:]),
+    ("diagonal V-M", lambda c: (c[0], c[1] - c[2] + 3) + c[2:]),
+    ("diagonal V+(3-M)", lambda c: (c[0], c[1] + 3 - c[2]) + c[2:]),
+    ("swap to strength pair", lambda c: (c[0], 3 - c[2], 2 - c[1]) + c[3:]),
 )
 
 
@@ -213,7 +213,10 @@ def search():
 
 
 def reversed_index():
-    return frozenset((c[0], c[1], 3 - c[2], c[3], c[4]) for c in necindex.cells())
+    """Invert the M slot, leaving every other coordinate alone. Written
+    positionally so it survives the index gaining coordinates -- it gained the
+    arity slot after this file was written."""
+    return frozenset(c[:2] + (3 - c[2],) + c[3:] for c in necindex.cells())
 
 
 # ------------------------------------------- the Clause F refinement: 3 groups

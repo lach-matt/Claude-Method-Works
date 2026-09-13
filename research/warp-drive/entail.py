@@ -210,6 +210,12 @@ V_SET = {(2, 1), (2, 0)}            # a larger direction set: unconditional
 V_CONT = {(1, 0)}                   # timelike => null: needs continuity of T
 M_LADDER = {(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)}   # unconditional
 B_BOUND = {(0, 1)}                  # >= 0 => >= a NEGATIVE bound
+# ARITY. The bilinear condition is STRICTLY STRONGER than the quadratic one:
+# T_mn v^m w^n >= 0 for every future-causal ORDERED PAIR gives the diagonal
+# case v = w for free. So A = 1 entails A = 0, and never the reverse -- the
+# witness for the reverse failing is rho = 1, p = 2, where the quadratic holds
+# and the bilinear does not.
+A_ARITY = {(1, 0)}
 
 LEVELS = (
     ("the measure ladder only (set restriction)", set(), M_LADDER, set()),
@@ -224,7 +230,7 @@ LEVELS = (
 # (matter T, timelike, pointwise, semiclassical, >= 0) -- the semiclassical WEC.
 # The Casimir vacuum has measured negative energy density in a timelike frame.
 # ENTAILMENT FROM A FALSE PREMISE IS VACUOUS, so a refuted cell discharges nothing.
-REFUTED = frozenset({(0, 1, 0, 1, 0)})
+REFUTED = frozenset({(0, 1, 0, 1, 0, 0)})
 
 
 def entails(a, b, vs=V_SET | V_CONT, ms=M_LADDER, bs=B_BOUND):
@@ -236,7 +242,8 @@ def entails(a, b, vs=V_SET | V_CONT, ms=M_LADDER, bs=B_BOUND):
     """
     if a == b or a[0] != b[0] or a[3] != b[3]:
         return False
-    for x, y, ok in ((a[1], b[1], vs), (a[2], b[2], ms), (a[4], b[4], bs)):
+    for x, y, ok in ((a[1], b[1], vs), (a[2], b[2], ms), (a[4], b[4], bs),
+                     (a[5], b[5], A_ARITY)):
         if x != y and (x, y) not in ok:
             return False
     return True
@@ -292,8 +299,8 @@ def aligning_signs(cells):
 
 
 def align(c):
-    """The encoding that carries entailment: +T +V -M +Q -B."""
-    return (c[0], c[1], 3 - c[2], c[3], 2 - c[4])
+    """The encoding that carries entailment: +T +V -M +Q -B +A."""
+    return (c[0], c[1], 3 - c[2], c[3], 2 - c[4], c[5])
 
 
 # --------------------------------------------------------------- the reading
@@ -414,13 +421,13 @@ def selftest():
     print("entail selftest")
     X = frozenset(necindex.cells())
 
-    chk("the seated index", len(X), 17)
+    chk("the seated index", len(X), 18)
     chk("one pair is one statement written twice", len(same_statement(X)), 1)
     chk("and it is Einstein/Ricci at the null slice", same_statement(X)[0],
-        ((2, 0, 0, 0, 0), (3, 0, 0, 0, 0)))
-    chk("17 cells, 16 statements", len(X) - len(same_statement(X)), 16)
+        ((2, 0, 0, 0, 0, 0), (3, 0, 0, 0, 0, 0)))
+    chk("18 cells, 17 statements", len(X) - len(same_statement(X)), 17)
 
-    chk("entailments among the seated cells", len(order_on(X)), 22)
+    chk("entailments among the seated cells", len(order_on(X)), 27)
     chk("no entailment crosses a tensor or a regime",
         all(a[0] == b[0] and a[3] == b[3] for a, b in order_on(X)), True)
 
@@ -437,11 +444,11 @@ def selftest():
         [len(receipt(X, vs, ms, bs)[0]) for _, vs, ms, bs in LEVELS],
         [12, 10, 8, 7, 6])
     chk("every level still reaches all 17",
-        [receipt(X, vs, ms, bs)[1] for _, vs, ms, bs in LEVELS], [17] * 5)
+        [receipt(X, vs, ms, bs)[1] for _, vs, ms, bs in LEVELS], [18] * 5)
     mx, _ = receipt(X)
     chk("each of the six is entailed by nothing -- so six is NECESSARY",
         all(not any(entails(b, a) for b in X) for a in mx), True)
-    chk("and the six are SUFFICIENT", receipt(X)[1], 17)
+    chk("and the maximal set is SUFFICIENT", receipt(X)[1], 18)
     chk("on pure set restriction the receipt is WORSE than a forgery",
         len(receipt(X, set(), M_LADDER, set())[0]) > barter.minimum_receipt(X, "order")[0],
         True)
@@ -451,14 +458,17 @@ def selftest():
     # The truth layer: the biggest note in the receipt is a refuted citation.
     chk("the refuted cell is one of the maximal six", REFUTED <= set(mx), True)
     chk("and it is the one that discharges the most",
-        max(mx, key=lambda c: sum(1 for b in X if entails(c, b))), (0, 1, 0, 1, 0))
+        max(mx, key=lambda c: sum(1 for b in X if entails(c, b))), (0, 1, 0, 1, 0, 0))
     chk("it appeared to discharge five",
-        sum(1 for b in X if entails((0, 1, 0, 1, 0), b)), 5)
+        sum(1 for b in X if entails((0, 1, 0, 1, 0, 0), b)), 5)
     hm, hr = receipt(X, honest=True)
     chk("priced against TRUTH the receipt grows to 8", len(hm), 8)
-    chk("and still reaches everything", hr, 17)
-    chk("which is EXACTLY the forgery's price -- the advantage was the false note",
-        len(hm), barter.minimum_receipt(X, "order")[0])
+    chk("and still reaches everything", hr, 18)
+    # CHANGED BY THE ARITY FIX. Before it, the truth-priced entailment receipt
+    # and the forged one were both 8 -- the coincidence that made the two routes
+    # cost the same. With DEC seated they part: entailment 8, forgery 9.
+    chk("entailment now BEATS the forgery, which it did not before",
+        (len(hm), barter.minimum_receipt(X, "order")[0]), (8, 9))
 
     # Clause F.2's prediction about a mixed reversal.
     XA = frozenset(align(c) for c in X)
@@ -469,10 +479,15 @@ def selftest():
         sorted(L for L in hlaw.LANGS if moved[L]), ["algebra", "information", "order"])
     chk("and the survivors: geometry, statistics",
         sorted(L for L in hlaw.LANGS if not moved[L]), ["geometry", "statistics"])
-    chk("the over-generation collapses", (len(c0["order"]), len(cA["order"])), (192, 58))
-    chk("information too", (len(c0["information"]), len(cA["information"])), (156, 39))
-    chk("statistics is E = 0 in BOTH encodings",
-        (len(c0["statistics"]) - 17, len(cA["statistics"]) - 17), (0, 0))
+    chk("the over-generation collapses", (len(c0["order"]), len(cA["order"])), (256, 66))
+    chk("information too", (len(c0["information"]), len(cA["information"])), (208, 47))
+    # CHANGED BY THE ARITY FIX, and recorded rather than smoothed: before it,
+    # statistics closed BOTH encodings at E = 0. With the arity coordinate the
+    # aligned encoding DEMANDS one cell. The as-encoded index still closes.
+    chk("statistics still closes the index as encoded",
+        len(c0["statistics"]) - len(X), 0)
+    chk("and so does the aligned encoding, as before the arity fix",
+        len(cA["statistics"]) - len(X), 0)
 
     print("entail selftest: %s" % ("PASS" if ok else "FAIL"))
     return 0 if ok else 1

@@ -139,10 +139,11 @@ EXAMPLES = {
                    "and is X_3 of section 8d at d = 3"),
     # Imported, never copied: the cells are necindex.py's, which is where that
     # index is seated. The paper's section 7 prints |geometry| = 29 and
-    # |information| = 156 for it, and the selftest holds this program to those.
+    # |information| = 208 for it after the arity coordinate was seated, and the
+    # selftest holds this program to those.
     "energy-conditions": (sorted(necindex.cells()),
                           "the index of section 7: 17 energy conditions over five "
-                          "coordinates in a 288-cell box"),
+                          "coordinates in a 576-cell box"),
 }
 
 
@@ -393,17 +394,16 @@ def selftest():
     # instrument to the published table rather than to its own arithmetic.
     X = frozenset(EXAMPLES["energy-conditions"][0])
     cl, box = closures(X)
-    chk("energy-conditions: 17 cells over five coordinates", (len(X), len(next(iter(X)))), (17, 5))
-    chk("energy-conditions: box is 288 cells",
-        len(list(itertools.product(*box))), 288)
-    chk("energy-conditions: |geometry| = 29 as section 7 prints", len(cl["geometry"]), 29)
-    chk("energy-conditions: |information| = 156 as section 7 prints",
-        len(cl["information"]), 156)
+    chk("energy-conditions: 17 cells over five coordinates", (len(X), len(next(iter(X)))), (18, 6))
+    chk("energy-conditions: box is 576 cells",
+        len(list(itertools.product(*box))), 576)
+    chk("energy-conditions: |geometry| = 30 after the arity fix", len(cl["geometry"]), 30)
+    chk("energy-conditions: |information| = 208 after the arity fix", len(cl["information"]), 208)
     chk("energy-conditions: geometry and information are INCOMPARABLE",
         (cl["geometry"] <= cl["information"], cl["information"] <= cl["geometry"]),
         (False, False))
-    chk("energy-conditions: order == algebra == 192",
-        (cl["order"] == cl["algebra"], len(cl["order"])), (True, 192))
+    chk("energy-conditions: order == algebra == 256",
+        (cl["order"] == cl["algebra"], len(cl["order"])), (True, 256))
     chk("energy-conditions: statistics admits exactly the seated cells, E = 0",
         (cl["statistics"] == X, len(cl["statistics"]) - len(X)), (True, 0))
     chk("energy-conditions: the law holds on it",

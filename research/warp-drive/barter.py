@@ -332,7 +332,7 @@ def report():
     print("   of what was observed. The lower bound is %d: the lattice is" % lo)
     print("   distributive, so k generators build at most |FD(k)| elements, and")
     print("   |FD(%d)| = %d against |order(X)| = %d."
-          % (FD_MAX, free_distributive(FD_MAX), len(_closer("order", 5)(X))))
+          % (FD_MAX, free_distributive(FD_MAX), len(_closer("order", len(next(iter(X))))(X))))
     print("   BRACKET [%d, %d], NOT CLOSED -- and the %d is a floor from what is"
           % (lo, hi, lo))
     print("   computable here, not the best bound that exists: FD is brute force")
@@ -397,8 +397,9 @@ def selftest():
         all(p is not None for _, row in zeno(gap) for _, p in row), True)
 
     # HALF TWO.  The minima, exhaustive.
-    want = {"order": (8, 6), "algebra": (8, 6), "geometry": (9, 1),
-            "information": (11, 1), "statistics": (12, 1)}
+    # Re-pinned after the arity coordinate was seated: 18 cells, not 17.
+    want = {"order": (9, 6), "algebra": (9, 6), "geometry": (10, 1),
+            "information": (12, 1), "statistics": (13, 1)}
     for L in hlaw.LANGS:
         m, hits = minimum_receipt(X, L)
         chk("%s: minimum receipt and how many" % L, (m, len(hits)), want[L])
@@ -407,7 +408,7 @@ def selftest():
         chk("%s: every minimum contains the forced cells" % L,
             all(F <= h for h in minimum_receipt(X, L)[1]), True)
         chk("%s: no smaller set generates" % L,
-            all(_closer(L, 5)(frozenset(h) - {x}) != _closer(L, 5)(X)
+            all(_closer(L, len(next(iter(X))))(frozenset(h) - {x}) != _closer(L, len(next(iter(X))))(X)
                 for h in minimum_receipt(X, L)[1] for x in h), True)
 
     # The reflection, and the one language that catches it.
@@ -420,8 +421,8 @@ def selftest():
     # The bracket on order's unrestricted minimum.
     chk("free distributive lattice sizes, computed not quoted",
         [free_distributive(k) for k in range(1, 5)], [1, 4, 18, 166])
-    chk("order's unrestricted minimum is bracketed [5, 8], the 5 a floor",
-        order_bracket(X), (5, 8))
+    chk("order's unrestricted minimum is bracketed [5, 9], the 5 a floor",
+        order_bracket(X), (5, 9))
     try:
         free_distributive(FD_MAX + 1)
         chk("free_distributive refuses past its brute-force reach", False, True)

@@ -612,11 +612,14 @@ geometry` hold **always**; it is only `statistics` vs `information` that varies.
 four-way count; the three lawful containments are 600/600.**
 
 And **two of the indexes studied here already disagree** — but on *size*, not on containment, and
-an earlier draft conflated the two:
+an earlier draft conflated the two. (The energy-condition figures below moved from 29 and 156 when an
+arity coordinate was added to that index: one of its cells had been seated under a name whose
+condition is bilinear, which the index's declared quadratic form cannot express. Both the
+incomparability and the direction of the size difference are unchanged by the correction.)
 
 | index | `\|geometry\|` | `\|information\|` | set relation |
 |---|---|---|---|
-| the energy-condition index above | 29 | 156 | **INCOMPARABLE** |
+| the energy-condition index above | 30 | 208 | **INCOMPARABLE** |
 | a synthetic periodic index in three coordinates | 173 | 114 | **INCOMPARABLE** |
 
 > **⚠ THE "SWAP" IS A CARDINALITY ARTEFACT.** `geometry` and `information` are set-theoretically
