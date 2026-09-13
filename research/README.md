@@ -8650,6 +8650,73 @@ occupy it, on a signature a same-shaped random set reproduces about one time in 
 arrival returned the master index to closure. Whether the demand *caused* anyone to look at the bounds
 cannot be established from inside the measurement, and it is not claimed.
 
+### The channel lattice has two readings, and they disagree
+
+M, on the atomic obstruction: *"it suggests another unidentified axis, or even an overlap
+interaction with another master index. And the cell connects the two, creating the same value, same
+languages, but different shape obstruction in two indexes."* **That is right, and `duality.py` is the
+measurement.**
+
+A **channel set** — which languages *close* an index — is a down-set because closure propagates
+downward. **There is a second reading of the same eight positions, forced for the dual reason.** Say
+`L` **refuses** a cell `c` when `c ∉ cl_L(X)`. If `cl(a) ⊆ cl(b)` and `c` escapes `cl(b)`, it escapes
+`cl(a)` too — **refusal propagates downward as well**, so a **refusal set** is a down-set of the very
+same order. Measured over every cell of every seated index: **0 violations.**
+
+Two kinds of object, one lattice, and **the cell is what joins them** — a cell lives in an index, the
+index carries the channel reading, the cell carries the refusal reading.
+
+**And the readings disagree about which positions exist.**
+
+| K | channel set | as a channel | as a refusal |
+|---|---|---|---|
+| K0 | `{}` | seated ×3 | 256 cells |
+| **K1** | `{information}` | **vacant** | **1 cell** |
+| K2 | `{statistics}` | seated ×4 | 9 |
+| K3 | `{geometry, statistics}` | species ×4 | 249 |
+| K4 | `{information, statistics}` | seated ×1 | 208 |
+| **K5** | `{geometry, information, statistics}` | **vacant** | 87 |
+| K6 | `{algebra, information, order, statistics}` | witness | 7 |
+| K7 | all five | seated ×1 | 1059 |
+
+**Six of eight are occupied as channel sets; all eight as refusal sets.** The two nothing occupies as
+a channel are both reached by cells. And the shape differs exactly as predicted: an index carries an
+**arity and a density**, a cell decision carries **neither**. *Same value, same languages, different
+shape.*
+
+**K1 is the rarest thing in the corpus — one cell in 1,876, 0.05 % — and the warp obstruction is at
+it.**
+
+**And the one other instance names the shape.** It is `(period 4, group 11, s-block)` in the periodic
+layout read in three coordinates, and no element sits there. Every *pair* of its coordinates is
+present:
+
+- period 4 + group 11 → **copper**, at the d-block
+- period 4 + s-block → potassium, calcium
+- group 11 + s-block → **silver**, at period 5
+
+**Every pair exists. The triple does not.** `statistics` admits the cell because every 2-marginal is
+present; `information` is the **join** closure and refuses because the join of available things is not
+itself available.
+
+> **A K1 refusal is: every pair of requirements is jointly satisfiable, and the full combination is
+> not.**
+
+That is a statement about the warp obstruction nothing in this tree had made. `expand.py` said *what
+is missing is a value, not a structure*; this says **the value is missing in the shape of a join** —
+the refusal is not a missing ingredient and not a bad pair.
+
+**And the atomicity is real, not an artefact of the coordinates.** `information` and `statistics` are
+the **two minimal elements** of the containment order — nothing is lawfully below either — so a
+refusal at one has nothing smaller to fall back to. It points at a missing **containment**, not a
+missing axis: if `statistics` were below `information`, `{information}` would not be a lawful down-set
+at all. **Statistics admits, so the warp cell is a live witness that `statistics ≤ information` is not
+a law** — the same containment `rubik.py` measures failing in 16 of 3,000 scrambles, the tightest of
+the thirteen non-laws. *The device sits in the half per cent where the hierarchy's tightest near-law
+fails.*
+
+Nothing here moves the magnitude.
+
 ### The statistics row, run at last — and the device has an optimum
 
 `expand.py` has expanded TRANSITION-POSSIBLE through the languages for twenty-odd passes with
