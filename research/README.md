@@ -8599,6 +8599,34 @@ Contact one goes as `Z⁴`. Contact two's coefficient rises only from 1.52 to 4.
 what a direction needs. Nothing in the run survived both hostile lenses, so no seating is claimed from
 it; the corrections above are what it produced and they are verified here independently.
 
+- **`substance.py`** — **the Hawking–Ellis type, seated where it discriminates — and the index demands
+  the design target.** It **cannot** be an axis of the condition family, and the reason is measured:
+  every member there is a universal quantification applied to whatever tensor it is handed, so the type
+  is a property of the tensor handed *in*. **0 of 19 conditions name a type; a constant type column
+  leaves the box at 576 and every closure identical.** A constant column is not an axis — the same
+  category error that disqualified velocity, recorded rather than seated.
+
+  Classify **substances** instead and the type is the spine. Four slots, none constant: `H` Hawking–Ellis
+  type (I → IV by increasing departure from having a rest frame), `N` NEC satisfied, `E` evidential
+  directness, `K` **metric-first or matter-first**. Ten members, all READ from the tree — ordinary
+  matter, EM field, Casimir vacuum, scalar VEV, squeezed vacuum, radiation/null dust, photon-rocket
+  exterior, warpshell, the non-minimal scalar, and **the Alcubierre drive**.
+
+  **The index did not close. It demanded two cells, both Type I, NEC-violating, derived-only.** The
+  matter-first one was **already held and unseated** — the non-minimal scalar (a scalar has a rest frame;
+  violating the NEC is the whole purpose of ξ > 0; never measured). Seating it drops `E` from 2 to 1,
+  exactly as the semiclassical WEC did for the condition family.
+
+  > **The one that remains is the design target, and the index asked for it unprompted:**
+  > **Type I, NEC-violating, derived, metric-first.**
+
+  Read against the three metric-first rows: the **Alcubierre drive** is metric-first and NEC-violating
+  but **Type IV** — a class with no known members, measured at every point tested. **Warpshell** is
+  metric-first and **Type I** but **NEC-satisfying**, so it opens nothing. **The demanded cell is the
+  one that is both** — physically classed *and* throat-opening. The index is not describing a substance
+  anyone has; **it is stating the specification.** Nothing is seated for it: a demanded cell is a
+  candidate for a name, never a claim that the thing exists.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
