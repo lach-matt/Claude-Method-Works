@@ -170,6 +170,9 @@ Coq cannot be installed — `elan` and `opam` both need github, which the egress
 pip install z3-solver
 ```
 
+`research/warp-drive/hlaw.py` is the hierarchy law as a runnable instrument — hand it an index and
+it checks the seven lawful containments against it, exits 1 on a refutation, and refuses to print a
+total ranking because Clause E says there isn't one (`HLAW.md`).
 `research/warp-drive/prover.py` is a reusable harness for machine-checking finite claims about
 lattices, orders and closure operators; `machinecheck.py` is a worked set of 21 discharged
 obligations; `PROOF-ASSISTANT.md` documents the route, the two encodings that make such claims

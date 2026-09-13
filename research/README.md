@@ -7987,6 +7987,17 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
 - **`prover.py`** — the reusable harness. Start here for a new claim.
 - **`machinecheck.py`** — the 21 obligations behind `paper/THE-HIERARCHY-LAW.md`, all discharged.
 - **`lawfigures.py`** — not a prover: recomputes every *number* the paper states, and exits 1 on drift.
+- **`hlaw.py`** — the law as an instrument. Hand it an index and it reports what the law says about
+  *that* index: the five closures and their residuals, the seven lawful containments each checked
+  against the clause that proves it, the other thirteen marked `INDEX-ONLY` where they merely happen
+  to hold, and the partial order with every incomparable pair named as such. **Exit 1 is a refutation
+  of a proved clause, not a bug report.** `--sweep N` tries to break the law over N random indexes and
+  says plainly that a clean run corroborates and does not prove. Its refusals are the paper's own
+  withdrawn mistakes turned into properties of the program: it never prints a total ranking (Clause E),
+  never reports a size comparison as a containment, and never promotes a containment to a law because
+  it held once. `--selftest` is fixtured on the paper's printed numbers — including the
+  energy-condition index's `|geometry| = 29` against `|information| = 156`, incomparable. See
+  `HLAW.md`.
 
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
