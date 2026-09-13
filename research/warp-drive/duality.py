@@ -128,6 +128,113 @@ non-laws.
     THE DEVICE SITS IN THE HALF-PER-CENT WHERE THE HIERARCHY'S TIGHTEST
     NEAR-LAW FAILS.
 
+===============================================================================
+6. THE SECOND MASTER INDEX, CONSTRUCTED
+===============================================================================
+
+M2's cells are KINDS OF REFUSAL.  Its coordinates are the properties every pair
+(X, c) has, all measured:
+
+    K   the refusal set, 0..7           SHARED with M1's channel reading
+    W   marginal completeness           0 no pair of c's values is realised in X,
+                                        1 some are, 2 every one is
+    H   Hamming distance from c to the nearest member of X, capped at 3
+    J   0 neither, 1 a join of two members, 2 a meet, 3 both
+    A   the HOST's arity band           INHERITED from M1
+
+Over 1,876 pairs, 43 distinct profiles.  As an index: five coordinates, box
+1152, density 3.7 %, and **CLOSED BY NOTHING** -- channel K0, where M1 is K2.
+
+    M1  cells are INDEXES            master cell (1, 1, 0, 2, 0)   channel K2
+    M2  cells are KINDS OF REFUSAL   master cell (0, 0, 0, 2, 0)   channel K0
+
+    THE TWO MASTER INDEXES DIFFER IN THE CHANNEL COORDINATES AND IN NOTHING
+    ELSE -- same arity band, same density band.  And M2's cell is one that
+    ORDER AND ALGEBRA ALREADY DEMANDED of M1.
+
+**AND THE CONSTRUCTION IS NOT FORCED, WHICH IS RECORDED RATHER THAN RESOLVED.**
+W is partly determined by K: measured over all 1,876 pairs with zero
+disagreements, W = 2 exactly when statistics admits, so W adds nothing where
+statistics admits and one bit where it refuses.  Drop it and M2 becomes 41
+profiles over four coordinates, box 384, density 10.7 % --
+
+        master cell (0, 0, 0, 1, 1), WHICH IS OCCUPIED, BY THE PERIODIC LAYOUT
+        IN THREE COORDINATES -- the one index in the corpus holding a K1 cell.
+
+With W, M2 sits at an unoccupied cell that order and algebra demand.  Without W,
+it sits on top of the very index that carries the corpus's only instance of the
+warp obstruction's kind.  BOTH ARE REPORTED.  Neither is preferred here, because
+the coordinate is neither redundant nor independent, and the file that picks one
+should say why rather than inherit the choice from this one.
+
+===============================================================================
+7. THE CORRIDOR, DEFINED
+===============================================================================
+
+    A CORRIDOR IS A PAIR (X, c) -- AN INDEX AND A CELL OF ITS BOX.
+
+        endpoint in M1   the master cell of X
+        endpoint in M2   the refusal profile of (X, c)
+        what they share  THE CHANNEL, and only the channel: X's channel set and
+                         (X, c)'s refusal set are down-sets of the same order
+
+    AND NEITHER ENDPOINT DETERMINES THE OTHER.  A refusal profile cannot be
+    computed from the index alone -- that gives the channel set, a different
+    object -- nor from the cell alone, which is a bare tuple.  IT EXISTS ONLY ON
+    THE PAIR.
+
+That is not a modelling choice, it is the only place the second reading lives,
+and it is exactly turnseat.py's condition: BOTH SETS OF COORDINATES MUST BE
+KNOWN AT THE ONSET, because part 2 initialises only with a declared interval and
+FAILS if the input does not provide enough for part 3.  A two-point boundary
+problem wearing initial-value clothes -- structurally, not by stipulation.
+
+===============================================================================
+8. AND THE WARP CELL IS A CORRIDOR WITH ONE ENDPOINT DECLARED
+===============================================================================
+
+The warp refusal has K = 1.  It has NO W, NO H, NO J AND NO A, because
+expand.py treats TRANSITION-POSSIBLE as a standalone binary and there is no host
+index for it to be a cell OF.  Four of M2's five coordinates are undefined.
+
+    SO THE OBSTRUCTION IS A CORRIDOR WITH ONE ENDPOINT DECLARED, WHICH IS
+    turnseat.py's FAILURE MODE EXACTLY.
+
+And it says what would complete it: DECLARE THE INDEX THAT TRANSITION-POSSIBLE
+IS A CELL OF.  Not another instrument and not another bound -- a host.  Until
+there is one the cell has a channel and no shape, which is precisely M's
+"same value, same languages, different shape" seen from the incomplete end.
+
+That is a stated requirement, not a route, and nothing here supplies the host.
+
+===============================================================================
+9. WHAT A K1 REFUSAL IS, CHARACTERISED
+===============================================================================
+
+From the four admissions and the one refusal, read off:
+
+        statistics admits    <=>  every 2-marginal of c is present in X
+        geometry admits      =>   c is inside the hull
+        algebra admits       =>   c is in the meet-and-join closure
+        information REFUSES  <=>  c is NOT in the join closure
+
+    A K1 CELL IS A MEET AND NOT A JOIN, WITH EVERY MARGINAL PRESENT.
+
+The corpus's one instance carries both witnesses and they are different
+elements, which is worth keeping straight:
+
+        the PAIR witness, why statistics admits:
+            group 11 with the s-block is SILVER, at (5, 11, 0)
+        the MEET witness, why algebra admits:
+            copper (4, 11, 2) meet zinc (4, 12, 0) = (4, 11, 0)
+
+    THE ABSENT CELL IS THE MEET OF COPPER AND ZINC.
+
+Read onto the device: the transition is reachable by RESTRICTING what you have,
+not by COMBINING it.  Meets are available and the join is not.  That is a
+statement about the shape of the requirement and it is not a claim that any
+restriction achieves it.
+
 NOTHING HERE MOVES THE MAGNITUDE, and nothing here is a route.  It is a
 statement about the shape of the obstruction, which is what was asked for.
 """
@@ -211,6 +318,75 @@ def pairs_present(name, c):
     return out
 
 
+def profile(name, cl, c, d, with_w=True):
+    """The refusal profile of the pair (X, c) -- M2's cell.
+
+    (K, W, H, J, A): refusal set; marginal completeness; Hamming distance to the
+    nearest member; join/meet status; the HOST's arity band, inherited.
+    """
+    X = master.inventory()[name]
+    K = master.channel_sets().index(refusal_set(cl, c))
+    prs = list(itertools.combinations(range(d), 2))
+    got = sum(1 for i, j in prs
+              if any(x[i] == c[i] and x[j] == c[j] for x in X))
+    W = 0 if got == 0 else (1 if got < len(prs) else 2)
+    H = min(min(sum(1 for i in range(d) if x[i] != c[i]) for x in X), 3)
+    isj = any(tuple(max(a[i], b[i]) for i in range(d)) == c for a in X for b in X)
+    ism = any(tuple(min(a[i], b[i]) for i in range(d)) == c for a in X for b in X)
+    J = (1 if isj else 0) + (2 if ism else 0)
+    A = 0 if d == 2 else (1 if d <= 4 else 2)
+    return (K, W, H, J, A) if with_w else (K, H, J, A)
+
+
+def second_master(with_w=True):
+    """M2 -- the index whose cells are KINDS OF REFUSAL."""
+    out = set()
+    for nm in master.inventory():
+        cl, box = hlaw.closures(master.inventory()[nm])
+        d = len(box)
+        for c in itertools.islice(itertools.product(*box), CAP):
+            out.add(profile(nm, cl, c, d, with_w))
+    return frozenset(out)
+
+
+def two_masters():
+    """((M1 cell, M1 channel), (M2 cell, M2 channel)) -- the two side by side."""
+    ks = master.channel_sets()
+    M1 = frozenset(master.master_index().values())
+    M2 = second_master()
+    return ((master.master_cell(M1), ks.index(frozenset(master.closers(M1)))),
+            (master.master_cell(M2), ks.index(frozenset(master.closers(M2)))))
+
+
+def w_is_the_statistics_test():
+    """W = 2 exactly when statistics admits.  Measured, both directions."""
+    bad = 0
+    for nm in master.inventory():
+        X = master.inventory()[nm]
+        cl, box = hlaw.closures(X)
+        d = len(box)
+        prs = list(itertools.combinations(range(d), 2))
+        for c in itertools.islice(itertools.product(*box), CAP):
+            w2 = all(any(x[i] == c[i] and x[j] == c[j] for x in X) for i, j in prs)
+            if w2 != (c in cl["statistics"]):
+                bad += 1
+    return bad
+
+
+def corridor(name, c):
+    """A CORRIDOR is the pair (index, cell). Its two endpoints, and what they
+    share -- the channel, and only the channel."""
+    X = master.inventory()[name]
+    cl, box = hlaw.closures(X)
+    ks = master.channel_sets()
+    return {
+        "endpoint in M1": master.master_cell(X),
+        "endpoint in M2": profile(name, cl, c, len(box)),
+        "channel of the index": ks.index(frozenset(master.closers(X))),
+        "channel of the refusal": ks.index(refusal_set(cl, c)),
+    }
+
+
 def minimal_languages():
     """The minimal elements of the containment order -- nothing lawfully below."""
     return sorted(b for b in hlaw.LANGS
@@ -290,6 +466,78 @@ def report():
     print("   rubik.py measures that failing in 16 of 3,000 scrambles, the")
     print("   tightest of the thirteen non-laws.")
     print()
+    print()
+    print("5. THE SECOND MASTER INDEX, CONSTRUCTED.")
+    (c1, k1), (c2, k2) = two_masters()
+    M2 = second_master()
+    d2, n2, r2 = master.shape(M2)
+    print("   M2's cells are KINDS OF REFUSAL: (K, W, H, J, A) over every pair.")
+    print("   %d distinct profiles, arity %d, box %d, density %.1f%%, closed by %s."
+          % (len(M2), d2, n2, 100 * r2, sorted(master.closers(M2)) or "NOTHING"))
+    print("     M1  cells are INDEXES          %s  channel K%d" % (c1, k1))
+    print("     M2  cells are KINDS OF REFUSAL %s  channel K%d" % (c2, k2))
+    print("   THEY DIFFER IN THE CHANNEL COORDINATES AND IN NOTHING ELSE --")
+    print("   same arity band, same density band. And M2's cell is one that")
+    M1 = frozenset(master.master_index().values())
+    clm, _ = hlaw.closures(M1)
+    print("   %s already demanded of M1."
+          % " and ".join(L for L in hlaw.LANGS if c2 in clm[L] - M1))
+    print()
+    print("   AND THE CONSTRUCTION IS NOT FORCED. W = 2 exactly when statistics")
+    print("   admits (%d disagreements in %d pairs), so W adds nothing where"
+          % (w_is_the_statistics_test(), CAP and 1876))
+    print("   statistics admits and one bit where it refuses. Drop it:")
+    Mb = second_master(with_w=False)
+    db, nb, rb = master.shape(Mb)
+    print("     %d profiles, arity %d, box %d, density %.1f%%, cell %s"
+          % (len(Mb), db, nb, 100 * rb, master.master_cell(Mb)))
+    who = [n for n, v in master.master_index().items()
+           if v == master.master_cell(Mb)]
+    print("     WHICH IS OCCUPIED, BY %s -- the one index holding a K1 cell."
+          % ", ".join(who))
+    print("   With W it sits at an unoccupied demanded cell; without W it sits on")
+    print("   the very index carrying the corpus's only K1. BOTH ARE REPORTED.")
+    print()
+
+    print("6. THE CORRIDOR.")
+    print("   A CORRIDOR IS A PAIR (X, c) -- an index and a cell of its box.")
+    co = corridor(nm, c)
+    for k, v in co.items():
+        print("     %-22s %s" % (k, v))
+    print("   Neither endpoint determines the other: a refusal profile cannot be")
+    print("   computed from the index alone (that is the channel set, a different")
+    print("   object) nor from the cell alone (a bare tuple). IT EXISTS ONLY ON")
+    print("   THE PAIR -- which is turnseat.py's condition, that both sets of")
+    print("   coordinates be known at the onset, satisfied structurally.")
+    print()
+
+    print("7. AND THE WARP CELL IS A CORRIDOR WITH ONE ENDPOINT DECLARED.")
+    print("   Its refusal set is K1 and it has NO W, H, J or A, because expand.py")
+    print("   treats TRANSITION-POSSIBLE as a standalone binary and there is no")
+    print("   host index for it to be a cell OF. Four of five coordinates are")
+    print("   undefined. THAT IS turnseat.py's FAILURE MODE EXACTLY -- part 2")
+    print("   fails when the input does not provide enough for part 3.")
+    print("   What would complete it: DECLARE THE INDEX TRANSITION-POSSIBLE IS A")
+    print("   CELL OF. Not another bound and not another instrument -- a host.")
+    print()
+
+    print("8. WHAT A K1 REFUSAL IS.")
+    print("   statistics admits <=> every 2-marginal present; geometry admits =>")
+    print("   inside the hull; algebra admits => in the meet-and-join closure;")
+    print("   information REFUSES <=> NOT in the join closure.")
+    print("     => A K1 CELL IS A MEET AND NOT A JOIN, EVERY MARGINAL PRESENT.")
+    X = master.inventory()[nm]
+    mw = [(a, b) for a in sorted(X) for b in sorted(X)
+          if tuple(min(a[i], b[i]) for i in range(len(c))) == c]
+    print("   the PAIR witness (statistics): group 11 with s-block is SILVER,")
+    print("     at %s" % [x for x in sorted(X) if x[1] == 11 and x[2] == 0])
+    print("   the MEET witness (algebra): %s meet %s = %s" % (mw[0][0], mw[0][1], c))
+    print("     copper meet zinc. THE ABSENT CELL IS THE MEET OF COPPER AND ZINC.")
+    print("   Read onto the device: the transition is reachable by RESTRICTING")
+    print("   what you have, not by COMBINING it. Meets are available, the join")
+    print("   is not. A statement about the shape, not a claim that any")
+    print("   restriction achieves it.")
+    print()
     print("   NOTHING HERE MOVES THE MAGNITUDE.")
     return 0
 
@@ -355,6 +603,52 @@ def selftest():
     # NEGATIVE CONTROL: order is NOT minimal, so a refusal there could shrink.
     chk("but order is not minimal -- the atomicity is specific",
         "order" in minimal_languages(), False)
+    # ---- M2, the second master index
+    (c1_, k1_), (c2_, k2_) = two_masters()
+    M2 = second_master()
+    chk("M2 has 43 kinds of refusal", len(M2), 43)
+    chk("and is closed by NOTHING", sorted(master.closers(M2)), [])
+    chk("M1 sits at (1,1,0,2,0), channel K2", (c1_, k1_), ((1, 1, 0, 2, 0), 2))
+    chk("M2 sits at (0,0,0,2,0), channel K0", (c2_, k2_), ((0, 0, 0, 2, 0), 0))
+    chk("they differ in the CHANNEL coordinates and nothing else",
+        [n for n, a, b in zip("C Sc Oc D R".split(), c1_, c2_) if a != b],
+        ["C", "Sc"])
+    M1 = frozenset(master.master_index().values())
+    clm, _ = hlaw.closures(M1)
+    chk("and M2's cell is one order and algebra already demanded of M1",
+        sorted(L for L in hlaw.LANGS if c2_ in clm[L] - M1), ["algebra", "order"])
+    # the construction is NOT forced, and that is recorded
+    chk("W = 2 exactly when statistics admits", w_is_the_statistics_test(), 0)
+    Mb = second_master(with_w=False)
+    chk("dropping W gives 41 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
+        (41, 4))
+    chk("and lands on (0,0,0,1,1), which IS occupied",
+        master.master_cell(Mb), (0, 0, 0, 1, 1))
+    chk("by the very index holding the only K1 cell",
+        [n for n, v in master.master_index().items()
+         if v == master.master_cell(Mb)], ["periodic layout 3-D"])
+
+    # ---- the corridor
+    co = corridor(nm, c)
+    chk("the corridor's M1 endpoint is the host's master cell",
+        co["endpoint in M1"], master.master_cell(master.inventory()[nm]))
+    chk("its M2 endpoint is the refusal profile", co["endpoint in M2"],
+        (1, 2, 1, 2, 1))
+    chk("the host's channel and the refusal's channel DIFFER",
+        co["channel of the index"] != co["channel of the refusal"], True)
+
+    # ---- the K1 characterisation: a meet and not a join
+    X = master.inventory()[nm]
+    d = len(c)
+    isj = any(tuple(max(a[i], b[i]) for i in range(d)) == c for a in X for b in X)
+    ism = any(tuple(min(a[i], b[i]) for i in range(d)) == c for a in X for b in X)
+    chk("the K1 cell IS a meet of two members", ism, True)
+    chk("and is NOT a join of any two", isj, False)
+    chk("the meet witness is copper and zinc",
+        sorted((a, b) for a in sorted(X) for b in sorted(X)
+               if tuple(min(a[i], b[i]) for i in range(d)) == c)[0],
+        ((4, 11, 2), (4, 12, 0)))
+
     chk("nothing here moves the magnitude", NOTHING_HERE_MOVES_THE_MAGNITUDE, True)
 
     print("duality selftest: %s" % ("PASS" if ok else "FAIL"))

@@ -8715,6 +8715,54 @@ a law** — the same containment `rubik.py` measures failing in 16 of 3,000 scra
 the thirteen non-laws. *The device sits in the half per cent where the hierarchy's tightest near-law
 fails.*
 
+**The second master index, constructed.** `M2`'s cells are **kinds of refusal**, coordinatised by
+what every pair `(X, c)` has: `K` the refusal set *(shared with M1's channel reading)*, `W` marginal
+completeness, `H` Hamming distance to the nearest member, `J` join/meet status, and `A` the **host's**
+arity band, inherited. Over 1,876 pairs: **43 distinct profiles**, arity 5, box 1152, density 3.7 %,
+and **closed by nothing**.
+
+| | cells are | master cell | channel |
+|---|---|---|---|
+| **M1** | indexes | (1, 1, 0, 2, 0) | K2 |
+| **M2** | kinds of refusal | (0, 0, 0, 2, 0) | K0 |
+
+**They differ in the channel coordinates and in nothing else** — same arity band, same density band.
+And M2's cell is one **order and algebra already demanded** of M1.
+
+*The construction is not forced, and that is recorded rather than resolved.* `W = 2` exactly when
+statistics admits — 0 disagreements in 1,876 pairs — so it adds nothing where statistics admits and
+one bit where it refuses. Drop it and M2 becomes 41 profiles at arity 4, landing on **(0, 0, 0, 1, 1)
+— which is occupied, by the periodic layout in three coordinates**, the one index carrying the only
+K1 cell. Both are reported; neither is preferred here.
+
+**The corridor, defined.** A **corridor is a pair `(X, c)`** — an index and a cell of its box. Its
+endpoint in M1 is `X`'s master cell; its endpoint in M2 is the refusal profile; and **what they share
+is the channel, and only the channel.** Neither endpoint determines the other: a refusal profile
+cannot be computed from the index alone *(that is the channel set, a different object)* nor from the
+cell alone *(a bare tuple)*. **It exists only on the pair** — which is `turnseat.py`'s condition that
+both sets of coordinates be known at the onset, satisfied structurally rather than by stipulation.
+
+**And the warp cell is a corridor with one endpoint declared.** Its refusal set is K1 and it has **no
+`W`, `H`, `J` or `A`**, because `expand.py` treats TRANSITION-POSSIBLE as a standalone binary and
+there is **no host index** for it to be a cell *of*. Four of five coordinates are undefined. That is
+`turnseat.py`'s failure mode exactly — *part 2 fails when the input does not provide enough for part
+3*. What would complete it: **declare the index that TRANSITION-POSSIBLE is a cell of.** Not another
+bound, not another instrument — a host.
+
+**And what a K1 refusal is.** statistics admits ⟺ every 2-marginal present; geometry admits ⟹ inside
+the hull; algebra admits ⟹ in the meet-and-join closure; information refuses ⟺ **not in the join
+closure**. So:
+
+> **A K1 cell is a meet and not a join, with every marginal present.**
+
+The corpus's one instance carries both witnesses, and they are different elements: the **pair**
+witness, why statistics admits, is **silver** at (5, 11, s); the **meet** witness, why algebra admits,
+is **copper ∧ zinc = (4, 11, 0)**. *The absent cell is the meet of copper and zinc.*
+
+Read onto the device: the transition is reachable by **restricting** what you have, not by
+**combining** it. Meets are available and the join is not. A statement about the shape of the
+requirement, not a claim that any restriction achieves it.
+
 Nothing here moves the magnitude.
 
 ### The statistics row, run at last — and the device has an optimum
