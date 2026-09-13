@@ -8364,6 +8364,37 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   species is free. **A bound system held near a surface would populate a second point, and two points
   admit a direction.** That is a capture, not a calculation.
 
+- **`twoway.py`** — **how the two indices talk, and in which language.** The anticipation test returned
+  zero both ways; this asks the weaker and more useful question. A language **closes** an index when
+  `L(X) = X` — it says exactly what is there and nothing more — so a language that over-generates
+  cannot carry a claim about that index without importing cells the index denies. **The languages that
+  close an index are its available channels.**
+
+  | index | order | algebra | geometry | information | statistics |
+  |---|---|---|---|---|---|
+  | exotic mechanisms (8) | 51 | 51 | 13 | 11 | **0** |
+  | periodic layout (90) | 36 | 36 | 36 | **0** | **0** |
+  | Janet `(n+ℓ, ℓ)` (19) | **0** | **0** | **0** | **0** | **0** |
+
+  The channel sets are **strictly nested**: `closes(exotic) = {statistics} ⊊ closes(layout) =
+  {statistics, information} ⊊ closes(Janet) = all five`. **And it is not a cheap result** — over 300
+  random sets of the same size in the same box, drawn per index, **every single one was closed by
+  exactly one language, 300/300, both boxes, never two and never five.**
+
+  **`statistics` is the only two-way channel**, against either periodic index. `information` is
+  one-way (periodic only). **And nothing is exotic-only** — there is no language that closes the
+  exotic index and fails to close a periodic one, so the asymmetry runs one way without exception.
+  **The exotic index is the harder of the two to speak about**: anything sayable about it without
+  over-claiming is also sayable about the periodic table, and not the reverse.
+
+  **A second ordering, on indexes rather than languages.** The nesting orders three indexes by how many
+  languages close them — 1, 2, 5. The hierarchy law orders *operators on a fixed index*; this orders
+  *indexes by which operators they admit*. Different objects, and the second does not follow from the
+  first — the law says nothing about which index any operator will close. **And the Janet layout is the
+  maximally agreeable index**: all five languages exactly generate it, at a control rate of 0 in 300.
+  The corpus already records `(n+ℓ, ℓ)` at `E = 0`; what is added is that this holds in *every*
+  language, where the drawn eighteen-column layout misses by 36 cells in three of the five.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
