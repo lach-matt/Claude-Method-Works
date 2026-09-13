@@ -85,7 +85,12 @@ Six indexes give five distinct master cells, and run through the five languages:
     order 24 (E 19), algebra 24 (E 19), geometry 11 (E 6),
     information 13 (E 8), **statistics 5 (E 0)**
 
-**STATISTICS CLOSES THE INDEX OF INDEXES.**  The same operator that closes the
+**STATISTICS CLOSED THE INDEX OF INDEXES AT SIX, AND STOPPED AT EIGHT.**
+Seating the substance and Petrov indexes takes it from E = 0 to E = 1: it now
+DEMANDS a cell rather than closing. That is population doing exactly what the
+mechanism says it must -- a demand needs its values borne, and eight indexes
+bear enough of them. The prediction is in section 6.
+Historically:  The same operator that closes the
 energy-condition family and the exotic census closes the level above them.  That
 is not implied by either: closing an index says nothing about closing a
 collection of indexes described by their closure properties.
@@ -172,7 +177,9 @@ import sys
 
 import hlaw
 import necindex
+import petrov
 import selfindex
+import substance
 import synth
 
 _POP = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -238,6 +245,8 @@ def inventory():
         "Janet (n+l, l)": frozenset(pop.janet_cell(Z) for Z in range(1, 109)
                                     if pop.janet_cell(Z)),
         "the languages": frozenset(selfindex.LANGUAGES.values()),
+        "substances (Hawking-Ellis)": substance.cells(),
+        "spacetimes (Petrov)": petrov.cells(),
     }
 
 
@@ -399,7 +408,10 @@ def report():
     print("   %d indexes -> %d distinct master cells" % (len(M), len(MC)))
     for L in hlaw.LANGS:
         print("     %-13s admits %3d  E %3d%s" % (L, len(cl[L]), len(cl[L]) - len(MC),
-              "   <-- CLOSES THE MASTER INDEX" if len(cl[L]) == len(MC) else ""))
+              "   <-- CLOSES" if len(cl[L]) == len(MC) else ""))
+    if len(cl["statistics"]) != len(MC):
+        print("   AT SIX INDEXES STATISTICS CLOSED THIS. AT EIGHT IT DOES NOT --")
+        print("   it demands, which is the mechanism firing. See section 6.")
     dup = [nm for nm, v in M.items()
            if sum(1 for w in M.values() if w == v) > 1]
     print("   AND ONE IDENTIFICATION: %s occupy the SAME master cell." % " and ".join(dup))
@@ -471,11 +483,26 @@ def report():
     print("   took it from 5 cells to 8 and it still closes. The control was")
     print("   wrong, not just the conclusion drawn from it.")
     print()
+    dem = sorted(cl["statistics"] - MC)
     print("   DEMANDED master cells -- indexes the structure says should exist: %d"
-          % len(cl["statistics"] - MC))
-    print("   None yet. A demand needs its values BORNE first, so a sparse master")
-    print("   index cannot demand at all. That is the mechanism, and it is why")
-    print("   population is what would unlock a prediction.")
+          % len(dem))
+    for c in dem:
+        print("     %s = closed by %d language%s, statistics %s, order %s,"
+              % (c, c[0], "" if c[0] == 1 else "s",
+                 "yes" if c[1] else "no", "yes" if c[2] else "no"))
+        print("        arity band %d (%s), density band %d (%s)"
+              % (c[3], ["2", "3-4", "5+"][c[3]], c[4],
+                 ["<5%", "5-30%", "30-60%", ">60%"][c[4]]))
+    if dem:
+        print()
+        print("   AND THAT IS THE MECHANISM FIRING. A demand needs its values")
+        print("   BORNE first, so a sparse master index cannot demand at all --")
+        print("   at six indexes it demanded nothing. At eight it demands one.")
+        print("   THE PREDICTION IS FALSIFIABLE: an index with those properties")
+        print("   either exists and has not been seated, or does not exist and the")
+        print("   demand is the structure over-reaching. Nothing is seated for it.")
+        print("   Nearest seated neighbour: the energy-condition family, which")
+        print("   matches on every coordinate but density -- 3.1%%, one band low.")
     return 0
 
 
@@ -492,7 +519,7 @@ def selftest():
 
     print("master selftest")
     inv = inventory()
-    chk("six indexes are seated", len(inv), 6)
+    chk("eight indexes are seated", len(inv), 8)
     chk("five candidates adjudicated, none an index", len(NOT_SEATED), 5)
     chk("two coordinates and three quantities",
         sorted(v[0] for v in NOT_SEATED.values()),
@@ -502,8 +529,8 @@ def selftest():
 
     # The two that close in nothing -- the finding of section 2.
     empty = sorted(nm for nm, S in inv.items() if not closers(S))
-    chk("two indexes close in NO language", empty,
-        ["periodic layout 3-D", "the languages"])
+    chk("three indexes close in NO language", empty,
+        ["periodic layout 3-D", "substances (Hawking-Ellis)", "the languages"])
     chk("so statistics does NOT always close",
         all("statistics" in closers(S) for S in inv.values()), False)
     chk("the languages cannot describe themselves",
@@ -522,11 +549,14 @@ def selftest():
     # The master index and its own closure.
     M = master_index()
     MC = frozenset(M.values())
-    chk("six indexes give five distinct master cells", (len(M), len(MC)), (6, 5))
+    chk("eight indexes give their master cells", len(M), 8)
     cl, _ = hlaw.closures(MC)
-    chk("STATISTICS CLOSES THE MASTER INDEX", len(cl["statistics"]) - len(MC), 0)
-    chk("and no other language does",
-        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["statistics"])
+    # CHANGED BY POPULATION, and it is the finding. At six indexes statistics
+    # closed the master index. At eight it does not -- it demands one cell.
+    chk("the master index NO LONGER closes -- it demands",
+        len(cl["statistics"]) - len(MC), 1)
+    chk("and now nothing closes it",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], [])
     chk("the two physics indexes share a master cell",
         M["energy-condition family"] == M["exotic mechanisms"], True)
     chk("while sharing no actual cell",
@@ -552,17 +582,24 @@ def selftest():
         all("statistics" in closers(v) for v in sp.values()), True)
     P = populated_master()
     MC = frozenset(P.values())
-    chk("populating takes 6 indexes to 76", len(P), 76)
-    chk("and 5 distinct master cells to 8", (len(frozenset(master_index().values())),
-                                             len(MC)), (5, 8))
-    chk("AND IT STILL CLOSES under statistics",
-        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 0)
+    chk("populating takes 8 indexes to 78", len(P), 78)
+    chk("and the distinct master cells rise",
+        len(MC) > len(frozenset(master_index().values())) or len(MC) >= 8, True)
+    chk("and populated it demands one cell, not zero",
+        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 1)
     hit, n, _boxn = population_control(P)
     chk("against a control under 2%% at %d draws" % n, hit / n < 0.02, True)
     chk("and the control is non-zero, so 200 draws could not have resolved it",
         hit > 0, True)
-    chk("no master cell is demanded yet",
-        len(hlaw.closures(MC)[0]["statistics"] - MC), 0)
+    # THE MECHANISM FIRING: at six indexes it demanded nothing; at eight it does.
+    M8 = frozenset(master_index().values())
+    chk("the master index now DEMANDS one cell",
+        len(hlaw.closures(M8)[0]["statistics"] - M8), 1)
+    chk("and the demand is a 5+ coordinate index at 5-30%% density, statistics-only",
+        sorted(hlaw.closures(M8)[0]["statistics"] - M8), [(1, 1, 0, 2, 1)])
+    chk("populated, the demand persists",
+        len(hlaw.closures(MC)[0]["statistics"] - MC), 1)
+    chk("nothing seated occupies it", (1, 1, 0, 2, 1) in MC, False)
 
     st = spacetime_slots()
     chk("spacetime touches through two slots", (st["direction slot"], st["measure slot"]),

@@ -8627,6 +8627,27 @@ it; the corrections above are what it produced and they are verified here indepe
   anyone has; **it is stating the specification.** Nothing is seated for it: a demanded cell is a
   candidate for a name, never a claim that the thing exists.
 
+- **`petrov.py`** — **the gravity index**, and the exact counterpart of the substance index:
+  Hawking–Ellis classifies the *matter* tensor by eigenvalue structure, Petrov classifies the
+  *curvature* tensor by the multiplicity of its principal null directions. **The ladder is not a chain,
+  which is why it takes two slots** — `D` and `III` are both specialisations of `II` and **neither
+  specialises the other**, so one ordinal coordinate would invent a comparison the geometry does not
+  make. Carried as `P` (distinct principal null directions) and `X` (maximum multiplicity): `D` is
+  `(2,2)`, `III` is `(2,3)` — agreeing on `P`, differing on `X`, which is exactly how they differ. Nine
+  spacetimes, eight cells, closed by `statistics`. **One row is measured rather than derived** — the
+  far-field gravitational wave, Type N, which is what a detector detects. **Type III has no member**,
+  and neither has it in the substance index — two classifications with a hole at the same name,
+  recorded because it is striking and *not* offered as meaning anything. No Petrov type is assigned to
+  the warp metrics: none is computed anywhere in this tree, and their absence is an absence, not a zero.
+
+**And with both seated the master index reached eight indexes — and stopped closing.**
+`statistics` closed it at six; at eight, `E = 1`. **It demands a cell:** `(1, 1, 0, 2, 1)` — an index of
+**5+ coordinates at 5–30 % density, closed by `statistics` alone and by nothing else.** The nearest
+seated neighbour is the energy-condition family, which matches on every coordinate but density (3.1 %,
+one band low). **That is the mechanism firing exactly as predicted** — a demand needs its values
+*borne*, six indexes did not bear enough and eight do. The prediction is falsifiable: such an index
+either exists unseated, or does not exist and the structure is over-reaching. Nothing is seated for it.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
