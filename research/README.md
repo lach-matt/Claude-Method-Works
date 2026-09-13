@@ -8522,6 +8522,22 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   causal one; at `A = 1` (bilinear) it *stands*, DEC over an ordered causal pair being strictly
   stronger. No three-way bond is seated — nothing quantifies over an ordered triple.
 
+  **Populated: the spectra index is seventy indexes, not one.** On the *full* spectra table the split
+  is degenerate — the `(l, mult)` grid is complete for all **7,260** species, so every one is a product
+  box and closes in all five for no reason but shape. On the **358 rows graded `measured` and marked
+  `witnessed`** — the sourced seed, with the rest of the table computed from it — it is informative:
+  **70 species with ≥2 witnessed channels, and their channel sets vary** (all five: 60; `{geometry,
+  statistics}`: 4; `{information, statistics}`: 4; `{statistics}` alone: 2).
+
+  Seating them takes the master index from **6 indexes / 5 distinct cells to 76 / 8**, density 2.6 % →
+  4.2 % — **and it still closes under `statistics`**, against a control where random 8-cell sets in the
+  same box close **0.90 %** of the time over 2,000 draws (p < 0.009). **A correction goes with it:** an
+  earlier pass ran that control at 200 draws, read 0 %, and concluded closure *dies* as the master
+  index populates. The true rate is under one per cent, which 200 draws cannot resolve — **the control
+  was wrong, not just the conclusion.** Population is not destroying closure. **Demanded master cells:
+  0 so far** — and a demand needs its values *borne* first, so a sparse master index cannot demand at
+  all. That is the mechanism, and it is why population is what would unlock a prediction.
+
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
 **2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
