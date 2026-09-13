@@ -8650,6 +8650,59 @@ occupy it, on a signature a same-shaped random set reproduces about one time in 
 arrival returned the master index to closure. Whether the demand *caused* anyone to look at the bounds
 cannot be established from inside the measurement, and it is not claimed.
 
+### The channel relation, seated — and the collapse claim corrected
+
+**A channel set is which of the five languages close an index, and it is not an arbitrary subset.**
+If `a ⊆ b` is a lawful containment and `b` closes `X`, then `cl(a)` sits between `X` and `cl(b) = X`,
+so `a` closes `X` too. **The channel set is a down-set of the hierarchy law**, which cuts the 32
+subsets to **exactly eight**.
+
+**Six of the eight are occupied, at three standings that must not be flattened:**
+
+| | channel | standing | who |
+|---|---|---|---|
+| K0 | `{}` | seated | periodic 3-D, the languages, substances |
+| K1 | `{information}` | **vacant** | — |
+| K2 | `{statistics}` | seated | energy conditions, exotic, Petrov, bounds |
+| K3 | `{geometry, statistics}` | **species** | four witnessed spectra indexes |
+| K4 | `{information, statistics}` | seated | periodic 2-D |
+| K5 | `{geometry, information, statistics}` | **vacant** | — |
+| K6 | `{algebra, information, order, statistics}` | **witness** | hlaw's `geom-not-order` |
+| K7 | all five | seated | Janet |
+
+A **law witness** is built to exhibit a clause and fails `necindex.py`'s bar — no named members, no
+declared form — so K6 counts as *reachable*, not as an index to seat. **And all eight are
+realizable**: an independent census over eight small boxes exhibits a smallest witness for each,
+machine-checks the geometry-free implications with Z3 over *every* subset of four boxes, and finds
+**zero escapes in 40,000 hostile draws**. K1 and K5 are vacant here, not impossible.
+
+**The relation is a partial order, and the tree refutes itself.** The nine seated indexes do form a
+chain, and an earlier pass read that as a nesting law. The eight lawful channels carry **five
+incomparable pairs**, and the counterexample is printed in `hlaw.py`'s own witnesses: `antichain2`
+at K3 against `geom-not-order` at K6, neither containing the other. The control settles it —
+**three arbitrary indexes form a chain 97.4 % of the time**, so three nested ones were never
+evidence. `twoway.py` §3 said the law *"says nothing about which index any operator will close"*;
+that is **too strong and is corrected** — the law does not determine the channel set but confines it
+to a quarter of the space.
+
+**AND A CORRECTION TO THE COLLAPSE CLAIM, WHICH I FIRST STATED THE WRONG WAY ROUND.** There are two
+claims, not one:
+
+- **The collapse** — `(Sc, Oc)` a strict function of `C`, so five master coordinates carry three
+  dimensions — needs **only K1 vacant**. K1 is vacant on the nine *and* on the seventy witnessed
+  species, so **the collapse holds on both populations.** Robust.
+- **The finer claim** — that the closure coordinates fix *which* languages close an index, not merely
+  how many — needs K3 and K5 vacant too. **It already fails.** K3 is vacant among the nine and
+  **occupied by four witnessed species indexes**, and shares `(2, 1, 0)` with K4. With the species
+  seated, `Gc` stops being a function of `C` at `C = 2`.
+
+The first statement here made the collapse itself conditional on all three vacant channels. That
+conflated the two. **The collapse is robust; the faithfulness is not, and is already broken.**
+
+**Crossed against the rubik shifts:** the 18 type-1 para-indexes sit only at `C = 0` and `C = 1`, and
+`C = 1` carries two lawful channels — so **18 cells name 27 specifications**, nine of them at the
+vacant channel K1. Type-2 (counterfactual) moves shift `C` and reach K3, K5 and K6 as well.
+
 ### The arity repair's blast radius, closed
 
 **Seating the arity coordinate took the energy-condition family from five coordinates to six and

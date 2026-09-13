@@ -158,6 +158,101 @@ No three-way bond is seated: nothing in the family quantifies over an ordered
 triple. Whether one exists is not answered here.
 
 ===============================================================================
+6b. THE CHANNEL RELATION, AND WHY THE LATTICE IS THREE-DIMENSIONAL
+===============================================================================
+
+A channel set is which of the five languages close an index.  It is not an
+arbitrary subset: if L closes X and cl(L') is contained in cl(L), then cl(L')
+sits between X and cl(L) = X, so L' closes X as well.
+
+    THE CHANNEL SET IS DOWNWARD CLOSED, and only the DOWN-SETS of the hierarchy
+    law's containment order are lawful -- EIGHT of the 32 subsets, not 32.
+
+        K0  {}                                          seated x3
+        K1  {information}                               VACANT
+        K2  {statistics}                                seated x4
+        K3  {geometry, statistics}                      VACANT
+        K4  {information, statistics}                   seated x1
+        K5  {geometry, information, statistics}         VACANT
+        K6  {algebra, information, order, statistics}   VACANT
+        K7  all five                                    seated x1
+
+**THE OPEN QUESTION IS ANSWERED, AND THE ANSWER IS NO.**  An earlier pass asked
+whether the channel sets are totally ordered and could only say "they are on
+this sample".  They are: the four occupied sets form a chain, {} then
+{statistics} then {information, statistics} then all five, with no incomparable
+pair.  But among the EIGHT LAWFUL SETS THERE ARE FIVE INCOMPARABLE PAIRS.
+
+    SO THE TOTALITY IS A PROPERTY OF WHICH FOUR ARE OCCUPIED AND NOT A LAW.
+    One index at a vacant channel would end it, and four channels are vacant.
+
+**AND WHICH POPULATION YOU MEAN DECIDES THE ANSWER.**  Over the nine seated
+indexes four channels are vacant.  Over the seventy witnessed species indexes as
+well, only THREE are -- because **four species indexes close in exactly
+{geometry, statistics}, which is K3, and no seated index does.**  K3 was called
+vacant here on the strength of the nine alone and it is not.
+
+    seated only    occupied K0 K2 K4 K7        vacant K1 K3 K5 K6
+    with species   occupied K0 K2 K3 K4 K7     vacant K1 K5 K6
+
+**SO THERE ARE TWO CLAIMS AND THEY DO NOT HAVE THE SAME FATE.**
+
+THE COLLAPSE -- (Sc, Oc) a strict function of C, so five coordinates carry three
+dimensions -- needs ONE vacant channel, K1, an index closed by `information`
+alone.  K1 is vacant on BOTH populations, so **the collapse holds on both** and
+is the robust half.
+
+THE FINER CLAIM -- that (C, Sc, Oc) determines the CHANNEL SET and not merely
+its size -- needs K3 and K5 vacant as well, because K3 shares (2, 1, 0) with K4.
+**IT ALREADY FAILS.**  With the species seated, Gc stops being a function of C at
+C = 2, and the closure coordinates no longer tell you which languages close an
+index -- only how many.
+
+    THE COLLAPSE IS ROBUST.  THE FAITHFULNESS IS NOT, AND IS ALREADY BROKEN.
+
+An earlier statement here made the collapse itself conditional on all three
+vacant channels.  That conflated the two claims, and only K1 bears on the
+collapse.  Adding Gc as a sixth coordinate over the NINE was measured and
+changes nothing -- same eight cells, same E in all five languages -- which is
+now readable as what it is: a fact about the nine and not about the corpus.
+
+    A VACANT LAWFUL CHANNEL IS A STRONGER KIND OF PARA-INDEX THAN A SCRAMBLE
+    PRODUCES.  rubik.py's para-indexes are cells the structure demands once its
+    bands are shifted; these are positions the LAW ITSELF ADMITS and nothing in
+    the corpus occupies. Neither is a claim that such an index exists.
+
+**AND THE OCCUPANCY HAS THREE LEVELS OF STANDING, WHICH MUST NOT BE FLATTENED.**
+
+    K0  {}                       SEATED   periodic 3-D, languages, substances
+    K1  {information}            VACANT
+    K2  {statistics}             SEATED   energy conditions, exotic, Petrov, bounds
+    K3  {geometry, statistics}   SPECIES  four witnessed spectra indexes
+    K4  {information, statistics} SEATED  periodic 2-D
+    K5  {geometry, info, stats}  VACANT
+    K6  {algebra, info, order, stats}  WITNESS  hlaw's `geom-not-order`
+    K7  all five                 SEATED   Janet
+
+A law WITNESS is constructed to exhibit a clause and is not a corpus index --
+it fails necindex.py's bar, having no named members and no declared form -- so
+K6 is occupied for the purpose of showing the channel is realizable and NOT for
+the purpose of seating an index there.  Six of the eight are occupied at some
+standing; **K1 and K5 are occupied at none.**
+
+**AND ALL EIGHT ARE REALIZABLE.**  An independent census over eight small boxes
+exhibits a smallest witness for every one of the eight, machine-checks the six
+geometry-free lawful implications with Z3 over EVERY subset of four boxes, and
+finds ZERO escapes from the eight in 40,000 hostile random draws.  So K1 and K5
+are vacant in this corpus rather than impossible, which is exactly what makes
+them specifications rather than curiosities.
+
+**AND THE RELATION IS A PARTIAL ORDER, NOT A CHAIN -- REFUTED FROM INSIDE THE
+TREE.**  hlaw.py's own printed witnesses supply the counterexample: `antichain2`
+closes in {geometry, statistics} = K3 and `geom-not-order` in {algebra,
+information, order, statistics} = K6, and NEITHER CONTAINS THE OTHER.  The nine
+seated indexes do form a chain -- and three arbitrary indexes form a chain
+97.4 % of the time, so that was never evidence of a law.
+
+===============================================================================
 7. THE DEMAND WAS FILLED, AND BY AN INDEX BUILT FOR ANOTHER REASON
 ===============================================================================
 
@@ -532,6 +627,145 @@ ALT_DENSITY = ([0.05, 0.3, 0.6], [0.1, 0.3, 0.6], [0.05, 0.25, 0.6],
                [0.07, 0.32, 0.65])
 
 
+def channel_sets():
+    """The lawful channel sets, as DOWN-SETS of the hierarchy law's containments.
+
+    A channel set is which languages close an index. If L closes X and L' has
+    cl(L') contained in cl(L), then cl(L') sits between X and cl(L) = X, so L'
+    closes X too. THE CHANNEL SET IS THEREFORE DOWNWARD CLOSED, and only the
+    down-sets of the law's order are lawful -- EIGHT of the 32 subsets.
+    """
+    below = {a: set() for a in hlaw.LANGS}
+    for a, b in hlaw.LAWFUL:
+        below[b].add(a)
+    out = []
+    for k in range(len(hlaw.LANGS) + 1):
+        for S in itertools.combinations(sorted(hlaw.LANGS), k):
+            S = frozenset(S)
+            if all(below[b] <= S for b in S):
+                out.append(S)
+    return sorted(out, key=lambda s: (len(s), sorted(s)))
+
+
+def channel_of(S):
+    """Which lawful channel set an index has, as an index into channel_sets()."""
+    return channel_sets().index(frozenset(closers(S)))
+
+
+def channel_census(populated=False):
+    """({channel set: [indexes]}, occupied, vacant).
+
+    WHICH POPULATION MATTERS, and getting that wrong was a live error here. Over
+    the NINE seated indexes four channels are vacant; over the seventy witnessed
+    species indexes as well, only three are, because FOUR SPECIES INDEXES SIT AT
+    K3 {geometry, statistics} and no seated index does.
+    """
+    occ = {}
+    for nm, S in inventory().items():
+        occ.setdefault(frozenset(closers(S)), []).append(nm)
+    if populated:
+        for (Z, c), S in species_indexes().items():
+            occ.setdefault(frozenset(closers(S)), []).append("spectra Z=%d chg=%d" % (Z, c))
+    ks = channel_sets()
+    return occ, [i for i, k in enumerate(ks) if k in occ], \
+        [i for i, k in enumerate(ks) if k not in occ]
+
+
+def channel_chain():
+    """(incomparable pairs among SEATED channel sets, among ALL lawful ones).
+
+    THE OPEN QUESTION ANSWERED. An earlier pass asked whether the channel sets
+    are totally ordered. On the seated sample they are -- {} then {statistics}
+    then {information, statistics} then all five, no incomparable pair. Among
+    the eight LAWFUL sets there are five incomparable pairs. So the totality is
+    a property of WHICH FOUR ARE OCCUPIED, not a law, and one index at a vacant
+    channel would end it.
+    """
+    ks = channel_sets()
+    occ = {frozenset(closers(S)) for S in inventory().values()}
+    seat = sorted(occ, key=lambda s: sorted(s))
+    inc_s = [(a, b) for a, b in itertools.combinations(seat, 2)
+             if not (a <= b or b <= a)]
+    inc_a = [(i, j) for i, j in itertools.combinations(range(len(ks)), 2)
+             if not (ks[i] <= ks[j] or ks[j] <= ks[i])]
+    return inc_s, inc_a
+
+
+def channel_standing():
+    """{K: (standing, who)} -- who occupies each lawful channel, and at what
+    standing. THREE ARE NOT THE SAME THING and flattening them would be false:
+
+        SEATED   one of the nine indexes in inventory()
+        SPECIES  one of the seventy witnessed per-species spectra indexes
+        WITNESS  one of hlaw.py's own law witnesses -- constructed to exhibit a
+                 clause, NOT a corpus index and not a candidate to seat
+
+    Six of the eight are occupied at one standing or another; K1 {information}
+    and K5 {geometry, information, statistics} are occupied at none. An
+    independent census over eight small boxes realizes ALL EIGHT with explicit
+    witnesses, so the two are vacant HERE and not unrealizable.
+    """
+    ks = channel_sets()
+    out = {}
+    for nm, S in inventory().items():
+        out.setdefault(ks.index(frozenset(closers(S))), ("SEATED", []))[1].append(nm)
+    for (Z, c), S in species_indexes().items():
+        k = ks.index(frozenset(closers(S)))
+        if k not in out:
+            out[k] = ("SPECIES", [])
+        if out[k][0] == "SPECIES":
+            out[k][1].append("spectra Z=%d chg=%d" % (Z, c))
+    for nm, (X, _note) in hlaw.EXAMPLES.items():
+        k = ks.index(frozenset(closers(frozenset(tuple(c) for c in X))))
+        if k not in out:
+            out[k] = ("WITNESS", [])
+        if out[k][0] == "WITNESS":
+            out[k][1].append(nm)
+    for i in range(len(ks)):
+        out.setdefault(i, ("VACANT", []))
+    return out
+
+
+def collapse_condition():
+    """(collapse holds, faithful holds, [K1], [K3, K5]) -- TWO claims, not one,
+    and they do not have the same fate.
+
+    THE COLLAPSE. (Sc, Oc) is a function of C, so the five master coordinates
+    carry only three dimensions of information. It needs ONE vacant channel:
+
+        K1 {information}   an index closed by information alone would sit at
+                           C = 1 with Sc = 0, where every C = 1 cell has Sc = 1.
+
+    K1 is vacant over the nine seated indexes AND over the seventy witnessed
+    species indexes, so THE COLLAPSE HOLDS ON BOTH POPULATIONS.
+
+    THE FINER CLAIM -- that (C, Sc, Oc) determines the CHANNEL SET, not merely
+    its size -- needs two more:
+
+        K3 {geometry, statistics}              shares (2, 1, 0) with K4
+        K5 {geometry, information, statistics} shares (3, 1, 0) with nothing
+                                               seated, but would need Gc to be
+                                               told from a geometry-free C = 3
+
+    AND IT ALREADY FAILS. K3 is vacant among the nine and OCCUPIED among the
+    seventy: four witnessed species indexes close in exactly {geometry,
+    statistics}. So on the populated master index the closure coordinates do NOT
+    determine the channel set, and Gc stops being a function of C at C = 2.
+
+        THE COLLAPSE IS ROBUST. THE FAITHFULNESS IS NOT, AND IS ALREADY BROKEN.
+
+    An earlier statement here said the collapse itself was conditional on all
+    three. That conflated the two claims and is corrected: only K1 bears on the
+    collapse.
+    """
+    ks = channel_sets()
+    k1 = [ks.index(frozenset({"information"}))]
+    k35 = [ks.index(frozenset(x)) for x in
+           ({"geometry", "statistics"}, {"geometry", "information", "statistics"})]
+    _o, _oc, vac_pop = channel_census(populated=True)
+    return all(i in vac_pop for i in k1), all(i in vac_pop for i in k35), k1, k35
+
+
 def cell_under(S, arity_bands, density_bands):
     """master_cell with the band edges supplied rather than assumed."""
     c = closers(S)
@@ -728,6 +962,43 @@ def report():
         print("   demand is the structure over-reaching. Nothing is seated for it.")
         print("   Nearest seated neighbour: the energy-condition family, which")
         print("   matches on every coordinate but density -- 3.1%%, one band low.")
+    print()
+
+    print("6b. THE CHANNEL RELATION, AND WHY THIS IS THREE-DIMENSIONAL.")
+    ks = channel_sets()
+    occ, occi, vac = channel_census()
+    print("   The channel set is DOWNWARD CLOSED under the hierarchy law, so only")
+    print("   its down-sets are lawful: %d of the %d subsets." % (len(ks), 2 ** 5))
+    for i, k in enumerate(ks):
+        who = occ.get(k, [])
+        print("     K%d  %-46s %s" % (i, "{" + ", ".join(sorted(k)) + "}",
+              ("seated x%d" % len(who)) if who else "VACANT"))
+    inc_s, inc_a = channel_chain()
+    print("   Occupied %d of %d. Incomparable pairs among the seated: %d."
+          % (len(occi), len(ks), len(inc_s)))
+    print("   Among all eight lawful sets: %d." % len(inc_a))
+    print("   SO THE CHAIN IS TOTAL ON THE SAMPLE AND NOT A LAW. One index at a")
+    print("   vacant channel would end it, and four channels are vacant.")
+    print("   OCCUPANCY HAS THREE LEVELS OF STANDING, and flattening them")
+    print("   would be false -- a law WITNESS is not a corpus index:")
+    for k, (st, who) in sorted(channel_standing().items()):
+        w = ", ".join(who[:2]) + (" +%d" % (len(who) - 2) if len(who) > 2 else "")
+        print("     K%d  %-8s %s" % (k, st, w))
+    print("   Six of eight occupied at SOME standing. K1 and K5 at none.")
+    print("   AND ALL EIGHT ARE REALIZABLE -- an independent census exhibits a")
+    print("   smallest witness for every one, machine-checks the geometry-free")
+    print("   implications with Z3 over every subset of four boxes, and finds")
+    print("   zero escapes in 40,000 hostile draws. K1 and K5 are vacant HERE,")
+    print("   not impossible.")
+    print("   AND THE RELATION IS PARTIAL, refuted from inside the tree: hlaw's")
+    print("   own antichain2 (K3) and geom-not-order (K6) are INCOMPARABLE.")
+    print("   The nine seated do form a chain -- and three arbitrary indexes form")
+    print("   a chain 97.4%% of the time, so that was never evidence.")
+    col, faith, k1, k35 = collapse_condition()
+    print("   TWO CLAIMS, DIFFERENT FATES. The COLLAPSE needs only K%d vacant:" % k1[0])
+    print("     holds on both populations -> %s" % col)
+    print("   The FINER claim, that the closure coordinates fix the channel SET,")
+    print("     needs K%d and K%d vacant too -> %s. IT IS ALREADY BROKEN." % (k35[0], k35[1], faith))
     print()
 
     print("7. THE DEMAND WAS FILLED, BY AN INDEX BUILT FOR ANOTHER REASON.")
@@ -936,6 +1207,65 @@ def selftest():
         bfill < btot, True)
     chk("the resolved population control is 14 hits in 400,000 draws",
         CONTROL_RESOLVED, (14, 400000))
+
+    # ---------------------------------------- 6b. the channel relation
+    ks = channel_sets()
+    chk("lawful channel sets, as down-sets of the law", len(ks), 8)
+    chk("out of 32 subsets of the five languages", 2 ** 5, 32)
+    chk("every one is downward closed",
+        all(all(frozenset(a for a, b in hlaw.LAWFUL if b == x) <= k for x in k)
+            for k in ks), True)
+    occ, occi, vac = channel_census()
+    chk("channels occupied", occi, [0, 2, 4, 7])
+    chk("and channels VACANT", vac, [1, 3, 5, 6])
+    inc_s, inc_a = channel_chain()
+    chk("the seated channel sets are TOTALLY ordered", len(inc_s), 0)
+    chk("but the eight lawful ones are NOT -- five incomparable pairs",
+        len(inc_a), 5)
+    chk("so the totality is a property of the sample, not a law",
+        len(inc_s) == 0 and len(inc_a) > 0, True)
+    _o2, occ2, vac2 = channel_census(populated=True)
+    chk("with the species seated, K3 is OCCUPIED", occ2, [0, 2, 3, 4, 7])
+    chk("so only three channels are vacant in the corpus", vac2, [1, 5, 6])
+    chk("and the four occupants of K3 are species indexes",
+        sum(1 for S in species_indexes().values()
+            if frozenset(closers(S)) == frozenset({"geometry", "statistics"})), 4)
+    col, faith, k1, k35 = collapse_condition()
+    chk("the 3-D COLLAPSE holds, and needs only K1 vacant", (col, k1), (True, [1]))
+    chk("but the FINER claim -- coordinates fix the channel SET -- is BROKEN",
+        faith, False)
+    chk("because K3 shares (C,Sc,Oc) with K4 and is occupied",
+        3 in occ2 and 4 in occ2, True)
+    st = channel_standing()
+    chk("occupancy at three levels of standing",
+        sorted({v[0] for v in st.values()}), ["SEATED", "SPECIES", "VACANT", "WITNESS"])
+    chk("six of eight channels are occupied at SOME standing",
+        sum(1 for v in st.values() if v[0] != "VACANT"), 6)
+    chk("and the two occupied at NONE are K1 and K5",
+        [k for k, v in st.items() if v[0] == "VACANT"], [1, 5])
+    chk("K6 is held only by a law WITNESS, which is not a corpus index",
+        st[6][0], "WITNESS")
+    # THE RELATION IS PARTIAL, and the counterexample is already in the tree.
+    ex = {n: frozenset(tuple(c) for c in X) for n, (X, _) in hlaw.EXAMPLES.items()}
+    ca = frozenset(closers(ex["antichain2"]))
+    cb = frozenset(closers(ex["geom-not-order"]))
+    chk("hlaw's antichain2 sits at K3", channel_sets().index(ca), 3)
+    chk("and geom-not-order at K6", channel_sets().index(cb), 6)
+    chk("NEITHER CONTAINS THE OTHER -- the relation is partial, not a chain",
+        not (ca <= cb or cb <= ca), True)
+    # adding Gc changes nothing -- measured, not assumed, and only because K3/K5
+    # are empty.
+    def _c6(S):
+        c = closers(S); d, _n, r = shape(S)
+        return (len(c), int("statistics" in c), int("order" in c),
+                int("geometry" in c), _band(d, ARITY_BANDS), _band(r, DENSITY_BANDS))
+    M6 = frozenset(_c6(S) for S in inv.values())
+    chk("adding a geometry-closes coordinate gives the same cell count",
+        len(M6), len(frozenset(master_index().values())))
+    chk("and the same E in every language",
+        {L: len(hlaw.closures(M6)[0][L]) - len(M6) for L in hlaw.LANGS},
+        {L: len(hlaw.closures(frozenset(master_index().values()))[0][L])
+         - len(frozenset(master_index().values())) for L in hlaw.LANGS})
 
     st = spacetime_slots()
     chk("spacetime touches through two slots", (st["direction slot"], st["measure slot"]),

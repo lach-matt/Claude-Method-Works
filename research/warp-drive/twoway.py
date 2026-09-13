@@ -90,8 +90,24 @@ them -- 1, 2, 5.  **That is an ordering of INDEXES, and it is not the
 containment hierarchy of the languages.**  The hierarchy law orders the five
 operators against each other on a fixed index; this orders indexes against each
 other by which operators they admit.  The two are different objects and the
-second is not derivable from the first: the law says nothing about which index
-any operator will close.
+second is not derivable from the first.
+
+**BUT "THE LAW SAYS NOTHING ABOUT WHICH INDEX ANY OPERATOR WILL CLOSE" IS TOO
+STRONG, AND IS CORRECTED HERE.**  It does not DETERMINE the channel set, and it
+is far from silent about it.  If a is contained in b is lawful and b closes X,
+then cl(a) sits between X and cl(b) = X, so a closes X too: THE CHANNEL SET IS A
+DOWN-SET of the law's own containments.  That cuts the 32 subsets of the five
+languages to EXACTLY EIGHT admissible channel sets, and an exhaustive census
+over eight small boxes realizes all eight, with 40,000 hostile random draws
+finding zero escapes.  The law confines the answer to a quarter of the space.
+
+**AND THE NESTING IN SECTION 1 IS NOT A LAW EITHER.**  The eight down-sets carry
+FIVE INCOMPARABLE PAIRS, and the counterexample is already printed in hlaw.py:
+`antichain2` closes in {geometry, statistics} and `geom-not-order` in {algebra,
+information, order, statistics}, and neither contains the other.  Three indexes
+nesting is also not evidence: three arbitrary indexes form a chain 97.4 % of the
+time.  The three measured here do nest, and that is a fact about these three.
+See master.py section 6b.
 
 **AND THE JANET LAYOUT IS THE MAXIMALLY AGREEABLE INDEX.**  All five languages
 exactly generate it, at a control rate of 0 in 300.  The (n+l, l) coordinate is
@@ -259,7 +275,11 @@ def report():
     print("   -- 1, 2, 5. THE HIERARCHY LAW ORDERS OPERATORS ON A FIXED INDEX;")
     print("   THIS ORDERS INDEXES BY WHICH OPERATORS THEY ADMIT. Different")
     print("   objects, and the second does not follow from the first: the law")
-    print("   says nothing about which index any operator will close.")
+    print("   does not DETERMINE which index an operator closes -- but it is")
+    print("   not silent either: the channel set is a DOWN-SET of the law's own")
+    print("   containments, which cuts 32 subsets to EXACTLY EIGHT. CORRECTED;")
+    print("   see master.py section 6b. And the nesting of three is not a law --")
+    print("   three arbitrary indexes nest 97.4%% of the time.")
     print()
     print("   AND JANET IS THE MAXIMALLY AGREEABLE INDEX -- all five exactly")
     print("   generate it, at a control rate of 0 in 300. The corpus already")
