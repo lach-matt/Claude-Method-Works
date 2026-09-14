@@ -172,7 +172,24 @@ def janet_cell(Z):
 # The Pauli bound -- register 1141, PINNED
 # ---------------------------------------------------------------------------
 
-MADELUNG = sorted(((n, l) for n in range(1, 9) for l in range(0, min(n, 5))),
+# The Madelung order: subshells sorted by (n+l, n).  The bound on n is
+# COMPUTATIONAL and is stated here rather than hidden in a range().
+#
+#     THIS WAS `range(1, 9)` WITH `min(n, 5)`, AND BOTH CAPS WERE SILENT.
+#     n <= 8 omitted 9s, 9p, 9d and 10s; l <= 4 omitted 6h.  The consequence is
+#     not cosmetic: the n+l = 9 shell came out as 5g+6f+7d+8p = 48 and ended at
+#     168, where the true shell is 5g+6f+7d+8p+9s = 50 and ends at 170.  EVERY
+#     FIGURE ANY INSTRUMENT COMPUTED FROM THIS LIST PAST n+l = 8 WAS WRONG.
+#     Found 2026-09-14 by research/warp-drive/shells.py, whose shell-boundary
+#     detector disagreed with the list and was right.
+#
+# Nothing at or below n+l = 8 moves: the first twenty subshells are identical
+# either way, so every figure the corpus states -- which reach Z = 120 at most
+# -- is unchanged.  The selftest pins that.
+MADELUNG_N_MAX = 12
+
+MADELUNG = sorted(((n, l) for n in range(1, MADELUNG_N_MAX + 1)
+                   for l in range(0, n)),
                   key=lambda t: (t[0] + t[1], t[0]))
 
 
