@@ -129,11 +129,14 @@ the orbit is where that stops being an assertion.
 AND THE MARGINS ARE THE INTERESTING PART.  Three of the thirteen escape being
 lawful only barely:
 
-        statistics <= information      breaks in    16 of 3,000   (0.5 %)
-        geometry   <= order            breaks in    47 of 3,000   (1.6 %)
-        geometry   <= algebra          breaks in    47 of 3,000   (1.6 %)
+        statistics <= information      breaks in     2 of 3,000   (0.07 %)
+        geometry   <= order            breaks in    48 of 3,000   (1.6 %)
+        geometry   <= algebra          breaks in    48 of 3,000   (1.6 %)
 
-while the rest break in a third to all of the orbit.  Those three are very
+while the rest break in a third to all of the orbit.  The first margin was 16
+of 3,000 before the bounds correction, so the tightest near-law got EIGHT TIMES
+TIGHTER and is still not a law -- which is the sharpest available statement of
+how thin that particular edge of the hierarchy is.  Those three are very
 nearly laws and are not, which is a sharper statement of where the hierarchy is
 thin than counting refutations on one arrangement can give.
 """
@@ -322,6 +325,35 @@ def para_indexes(n=4000, length=3, kind="1", seed=17):
     return sorted(out, key=lambda t: (-t[1], t[0]))
 
 
+def demand_is_the_top_para(n=4000, length=3, kind="1", seed=17):
+    """(rank, robustness, counterfactual top, its robustness) for the master
+    index's own demanded cell in the para census.
+
+    THE FINDING, AND ITS OWN CONTROL. The cell master.py demands at rest is also
+    the cell the scrambles demand most often -- rank 1 under both move families,
+    at roughly twice the runner-up.  That is a statement about STABILITY and NOT
+    an independent confirmation, which is what the control establishes: refill
+    the demand by fiat and rerun, and the cell is gone from the census entirely
+    while the ranking reorganises around other cells.  The two measurements
+    share a cause.  What survives the control is the comparison of MAGNITUDES --
+    the demanded cell is asked for more often than the best cell available in
+    the world where it is already filled.
+    """
+    D3 = to3(master.DEMANDED_AT_EIGHT)
+    pi = para_indexes(n, length, kind, seed)
+    rank = next((i + 1 for i, (c, _r) in enumerate(pi) if c == D3), None)
+    rob = dict(pi).get(D3, 0.0)
+
+    filled = frozenset(set(seated()) | {D3})
+    orig = globals()["seated"]
+    globals()["seated"] = lambda: filled
+    try:
+        pf = para_indexes(n, length, kind, seed)
+    finally:
+        globals()["seated"] = orig
+    return rank, rob, (pf[0][0] if pf else None), (pf[0][1] if pf else 0.0)
+
+
 def invariants(n=1200, length=4, kind="1", seed=23):
     """What survives every scramble tried. A property invariant over the orbit
     is a property of the INDEX; one that dies on the first move was a property
@@ -445,6 +477,23 @@ def report():
         print("   THE TOP ROW IS THE STRUCTURE'S MOST PERSISTENT REQUEST. It is a")
         print("   candidate for a name and NOTHING IS SEATED FOR IT.")
     print()
+    print("   AND THE TOP ROW IS THE MASTER INDEX'S OWN DEMANDED CELL.")
+    rk, rob, cf, cfr = demand_is_the_top_para()
+    print("   %s -- rank %s at %.1f%%, against %.1f%% for the runner-up."
+          % (str(to3(master.DEMANDED_AT_EIGHT)), rk, 100 * rob,
+             100 * pi[1][1] if len(pi) > 1 else 0.0))
+    print("   It was not eligible before the bounds correction: the bounds index")
+    print("   sat on that cell, so a seated cell could not be a para-index.")
+    print("   THE CONTROL, AND IT CUTS AGAINST THE EASY READING. Refill the")
+    print("   demand by fiat and rerun: the cell leaves the census entirely and")
+    print("   %s tops it at %.1f%%. So this is NOT an independent"
+          % (str(cf), 100 * cfr))
+    print("   confirmation of the demand -- the two measurements share a cause.")
+    print("   What survives is the MAGNITUDE: %.1f%% against %.1f%%, so the"
+          % (100 * rob, 100 * cfr))
+    print("   demanded cell is asked for more often than the best cell available")
+    print("   in the world where it is already filled.")
+    print()
 
     print("4. THE ORBIT SEPARATES LAW FROM ACCIDENT, EXACTLY.")
     viol, n = law_separation()
@@ -555,6 +604,15 @@ def selftest():
         pull_back(scramble(X, seq), seq), X)
     pi = para_indexes(n=600, length=3, kind="1", seed=5)
     chk("para-indexes at 600 scrambles", len(pi), 18)
+    # --- AND THE TOP PARA-INDEX IS THE MASTER INDEX'S OWN DEMANDED CELL, with
+    # its own control pinned beside it so the claim cannot be quoted at the
+    # wrong strength. It is a STABILITY result, not a confirmation.
+    _rk, _rob, _cf, _cfr = demand_is_the_top_para(n=1000, length=3, seed=17)
+    chk("the demanded cell is the top para-index", _rk, 1)
+    chk("and it is not eligible while the fill stands -- the control",
+        _cf != to3(master.DEMANDED_AT_EIGHT), True)
+    chk("SO THIS IS NOT INDEPENDENT CONFIRMATION; the magnitude is what stands",
+        _rob > _cfr, True)
     chk("none of them is a seated cell", any(c in X for c, _r in pi), False)
     chk("every one is demanded by some scramble", all(r > 0 for _c, r in pi), True)
     chk("and the list is sorted by robustness",

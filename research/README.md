@@ -8761,8 +8761,8 @@ the **two minimal elements** of the containment order — nothing is lawfully be
 refusal at one has nothing smaller to fall back to. It points at a missing **containment**, not a
 missing axis: if `statistics` were below `information`, `{information}` would not be a lawful down-set
 at all. **Statistics admits, so the warp cell is a live witness that `statistics ≤ information` is not
-a law** — the same containment `rubik.py` measures failing in 16 of 3,000 scrambles, the tightest of
-the thirteen non-laws. *The device sits in the half per cent where the hierarchy's tightest near-law
+a law** — the same containment `rubik.py` measures failing in **2 of 3,000** scrambles, the tightest of
+the thirteen non-laws. *The device sits in the seven hundredths of a per cent where the hierarchy's tightest near-law
 fails.*
 
 **The second master index, constructed.** `M2`'s cells are **kinds of refusal**, coordinatised by
@@ -9008,17 +9008,30 @@ committed it on its own example.
   **35 type-2 moves** shift `C` and are **counterfactual**, labelled as such, and nothing derived
   from one is a statement about the seated corpus.
 
-  **The arrangement is not rigid.** Of the 47 type-1 moves, **14 break the closure and 33 leave it
-  intact** — some of the banding could have fallen differently at no cost. One move suffices to break
-  it; within two moves the orbit reaches 716 states and 570 distinct `E`-vectors, of which 216 still
-  close.
+  **The arrangement is not rigid — and after the bounds correction it is barely rigid at all.** Of
+  the 47 type-1 moves, **42 break the closure and 5 leave it intact.** *(It was 14 and 33 while the
+  bounds index still closed the lattice; the withdrawal moved the master index to `E = 1`, and almost
+  any shift now costs it.)* One move suffices to break it.
 
   **The para-indexes: 18 of them.** When a move breaks closure the operator over-generates, and the
   cells it adds are *specifications* — an index closed by this many languages, at this arity, at this
-  density, that would have to exist. Under the seated arrangement statistics demands nothing, so
-  **breaking the closure is what makes the structure speak.** The most persistent request across
-  4,000 scrambles is `(C 0, D 2, R 2)` at **18.8 %** — closed by no language, five or more
-  coordinates, 30–60 % density. A candidate for a name; nothing is seated for it.
+  density, that would have to exist. **Breaking the closure is what makes the structure speak.**
+
+  **And the most persistent request is the master index's own demanded cell.** Across 4,000
+  scrambles `(C 1, D 2, R 1)` — *closed by one language, five or more coordinates, 5–30 % density*,
+  which is `(1, 1, 0, 2, 1)` in five coordinates — is demanded **32.8 % of the time**, against
+  **16.6 %** for the runner-up. It tops the type-2 census too, at 25.6 % against 11.2 %. It was **not
+  eligible** before the bounds correction: the bounds index sat on that cell, and a seated cell
+  cannot be a para-index.
+
+  **The control cuts against the easy reading, and it is pinned beside the result.** Refill the
+  demand by fiat — the world the withdrawn report described — and rerun: the cell leaves the census
+  entirely and `(C 1, D 1, R 0)` tops it at **20.3 %**. *So this is not an independent confirmation
+  of the demand; the two measurements share a cause.* What survives the control is the **magnitude**:
+  32.8 % against 20.3 %, so the demanded cell is asked for more often than the best cell available in
+  the world where it is already filled. **The demand is the most scramble-stable feature of the
+  structure** — a statement about stability, not a second witness. A candidate for a name; nothing is
+  seated for it.
   *The frame is the whole difficulty:* each scramble demands cells in its own coordinates, so every
   demand is **pulled back through its own inverse scramble** before being counted. A first pass
   skipped that, summed across incompatible frames, and found zero — an artefact of adding numbers
@@ -9032,8 +9045,10 @@ committed it on its own example.
   broken by any scramble; no unlawful one survives the orbit.
 
   **The margins are the sharp part.** Three of the thirteen escape lawfulness only barely —
-  `statistics ≤ information` breaks in **16 of 3,000** (0.5 %), `geometry ≤ order` and
-  `geometry ≤ algebra` in **47** (1.6 %) — while the rest break in a third to all of the orbit. Those
+  `statistics ≤ information` breaks in **2 of 3,000** (0.07 %), `geometry ≤ order` and
+  `geometry ≤ algebra` in **48** (1.6 %) — while the rest break in a third to all of the orbit.
+  *(The `statistics ≤ information` margin tightened from 16 to 2 under the bounds correction: the
+  near-law got nearer, and it is still not a law.)* Those
   three are very nearly laws and are not. Clause E says there is no total ranking; the orbit is where
   that stops being an assertion.
 

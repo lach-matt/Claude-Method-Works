@@ -122,11 +122,11 @@ CONTAINMENT: if `statistics` were below `information`, then {information} would
 not be a lawful down-set at all and the refusal would have to include statistics
 -- but statistics ADMITS, so the warp cell is a live witness that
 `statistics <= information` is NOT a law.  rubik.py measures that same
-containment failing in only 16 of 3,000 scrambles, the tightest of the thirteen
-non-laws.
+containment failing in only 2 of 3,000 scrambles, the tightest of the thirteen
+non-laws by a factor of twenty-four.
 
-    THE DEVICE SITS IN THE HALF-PER-CENT WHERE THE HIERARCHY'S TIGHTEST
-    NEAR-LAW FAILS.
+    THE DEVICE SITS IN THE SEVEN-HUNDREDTHS OF A PER CENT WHERE THE HIERARCHY'S
+    TIGHTEST NEAR-LAW FAILS.
 
 ===============================================================================
 6. THE SECOND MASTER INDEX, CONSTRUCTED
@@ -515,8 +515,8 @@ def report():
     print("   statistics were below information, {information} would not be a")
     print("   lawful down-set at all. Statistics ADMITS, so the warp cell is a")
     print("   live witness that statistics <= information is NOT a law -- and")
-    print("   rubik.py measures that failing in 16 of 3,000 scrambles, the")
-    print("   tightest of the thirteen non-laws.")
+    print("   rubik.py measures that failing in 2 of 3,000 scrambles, the")
+    print("   tightest of the thirteen non-laws by a factor of twenty-four.")
     print()
     print()
     print("5. THE SECOND MASTER INDEX, CONSTRUCTED.")
