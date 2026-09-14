@@ -223,7 +223,25 @@ def outcome_index():
 
 
 def refusing_set(statistics_admits=True):
-    """The languages that refuse TRANSITION-POSSIBLE, as a channel set."""
+    """The languages that refuse TRANSITION-POSSIBLE, as a VERDICT PATTERN.
+
+    **THIS IS A DECLARED LITERAL AND NOT A MEASURED REFUSAL SET.**  Read the
+    three lines below: the set is written out by hand from expand.py's verdict
+    table.  No host index, no box, no closure operator is involved.
+
+    A REFUSAL SET elsewhere in this tree -- everything duality.py and
+    refusal.py measure -- is COMPUTED as {L : c not in cl_L(X)} for a cell c of
+    an index X's box.  The two are different kinds of object, and because both
+    are indexed through master.channel_sets() both print as "K<n>", which is how
+    the tree came to read one as the other.
+
+        MEASURED, in refusal.the_two_readings(): the same warp data DECLARED
+        reads K1 and COMPUTED, as a cell of the only seated box it numerically
+        fits, reads K5.  The value depends entirely on the reading.
+
+    So do not quote this function's output as a refusal set, and do not compare
+    it to the corpus's K1 cells without saying which kind you mean.
+    """
     r = {"information"}
     if not statistics_admits:
         r.add("statistics")
@@ -231,7 +249,13 @@ def refusing_set(statistics_admits=True):
 
 
 def channel_of_refusal(statistics_admits=True):
-    """Which lawful channel the refusal pattern occupies."""
+    """Which lawful position the VERDICT PATTERN occupies -- not a refusal set.
+
+    The lattice of eight lawful down-sets is shared by both kinds, so this
+    returns a position in it.  It does NOT establish that TRANSITION-POSSIBLE is
+    a cell of anything, and the warp cell correctly has no master cell in M1:
+    no host, no box, no cell.  See refusing_set's docstring.
+    """
     import master
     return master.channel_sets().index(refusing_set(statistics_admits))
 

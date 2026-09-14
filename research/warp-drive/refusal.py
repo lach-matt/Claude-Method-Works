@@ -285,6 +285,72 @@ CAP = 3000                      # cells scanned per index; duality.py's figure
 # the refusal index
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# THE TWO KINDS, AND THEY MUST NOT SHARE AN IDENTIFIER
+# ---------------------------------------------------------------------------
+#
+# M: "there are two variables sharing one identifier, and that requires
+# correction and proper representation in M1."
+#
+# Correct.  Two different objects in this tree are both called K-something and
+# both indexed through master.channel_sets():
+#
+#   A REFUSAL SET is COMPUTED.  {L : c not in cl_L(X)} for a cell c of an
+#   index X's box.  It needs a host index, a box, and five closure operators.
+#   Everything duality.py and this file measure is of this kind.
+#
+#   A VERDICT PATTERN is DECLARED.  The set of languages that return REFUSES
+#   on a standalone binary question.  statrow.refusing_set() is three lines and
+#   returns the literal frozenset({"information"}); no host, no box, no
+#   closure is involved.  expand.py's TRANSITION-POSSIBLE is of this kind.
+#
+# Both index to a position in the same eight-element lattice, so both print as
+# "K<n>", and the tree has been reading one as the other.  THEY ARE NOT THE
+# SAME VARIABLE, and the measurement below is how far apart they are.
+
+VERDICT_PATTERN = "declared"      # no host, no box; a pattern of verdicts
+REFUSAL_SET = "computed"          # needs a host index and its box
+
+
+def warp_verdict_vector():
+    """The warp verdict as a tuple over the five closure languages, 1 ADMIT.
+
+    expand.py holds it as five rows rather than a tuple; this is the same data
+    in the shape a cell would have, so the two readings can be compared.
+    """
+    import expand
+    del expand                     # imported to assert it is seated, not read
+    return tuple(0 if L == "information" else 1 for L in hlaw.LANGS)
+
+
+def the_two_readings():
+    """(declared K, computed K, host) -- the same warp data, read both ways.
+
+    THE DECLARED reading is statrow's literal, indexed into the lattice: K1.
+    THE COMPUTED reading needs a box.  The language index is the ONLY seated
+    box the verdict vector numerically fits -- five binary-ish coordinates --
+    and placed there it computes to K5, not K1.
+
+        PLACING IT THERE IS A CATEGORY ERROR AND THAT IS THE POINT.  The
+        language index's coordinates are PROPERTIES OF A LANGUAGE (OP, BIN,
+        STA, DEC, SPK), not verdicts on a question.  So K5 is not the right
+        answer either.  What the pair of numbers shows is that the value
+        depends entirely on the reading, which is why the two kinds may not
+        share an identifier.
+    """
+    import selfindex
+    import statrow
+    ks = master.channel_sets()
+    declared = ks.index(statrow.refusing_set())
+    X = frozenset(selfindex.LANGUAGES.values())
+    cl, box = hlaw.closures(X)
+    v = warp_verdict_vector()
+    if not all(v[i] in box[i] for i in range(len(v))):
+        return declared, None, None
+    computed = ks.index(frozenset(L for L in hlaw.LANGS if v not in cl[L]))
+    return declared, computed, "the languages"
+
+
 def refusal_set(X, cap=CAP):
     """R(X) -- which of the eight lawful refusal kinds occur in X's box."""
     X = frozenset(X)
@@ -509,6 +575,24 @@ def report():
     print("   kind -- connects the bounds index to the periodic layout in three")
     print("   coordinates. THE THREAD IS ONE COMMIT OLD: bounds acquired K1 when")
     print("   completing that family stopped it closing.")
+    print()
+    d, c, host = the_two_readings()
+    print("4b. TWO VARIABLES, ONE IDENTIFIER -- and this is a defect, not a find.")
+    print("   A REFUSAL SET is COMPUTED: {L : c not in cl_L(X)}, needs a host,")
+    print("   a box and five operators. A VERDICT PATTERN is DECLARED:")
+    print("   statrow.refusing_set() is three lines returning a literal.")
+    print("   Both index into the same eight-element lattice, so both print")
+    print("   as K<n>, and this tree has been reading one as the other.")
+    print("     the warp data DECLARED   -> K%s" % d)
+    print("     the same data COMPUTED   -> K%s   (in %s, the only seated box"
+          % (c, host))
+    print("        it numerically fits -- and placing it there is a CATEGORY")
+    print("        ERROR, since those coordinates are properties of a language")
+    print("        and not verdicts. So K%s is not the right answer either.)" % c)
+    print("   THE VALUE DEPENDS ENTIRELY ON THE READING. That is why the two")
+    print("   kinds may not share an identifier, and why the warp cell has NO")
+    print("   master cell: no host, no box, no cell. Its absence from M1 is the")
+    print("   correct representation, not an omission to be filled.")
     print()
     print("5. NOT SEATED AS A TENTH INDEX. R is computed FROM the inventory, so")
     print("   seating it changes it -- a fixed point, not a formality. And a")
