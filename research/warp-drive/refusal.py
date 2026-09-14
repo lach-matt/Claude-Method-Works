@@ -28,12 +28,12 @@ THE REFUSAL INDEX OF X is then the simplest thing in the neighbourhood:
 
     R(X) = { the refusal set of c : c a cell of X's box }   as a subset of K0..K7
 
-Nine seated indexes, nine subsets of an eight-element lattice.  duality.py's M2
+Ten seated indexes, ten subsets of an eight-element lattice.  duality.py's M2
 carries a five-coordinate PROFILE (K, W, H, J, A) instead; section 3 is why the
 extra four are chart decoration and K is the object.
 
 ===============================================================================
-1. THE NINE, MEASURED
+1. THE TEN, MEASURED
 ===============================================================================
 
     Janet (n+l, l, k)            {0,7}
@@ -41,15 +41,16 @@ extra four are chart decoration and K is the object.
     substances (Hawking-Ellis)   {0,2,7}
     the languages                {0,4,5,7}
     bounds                       {0,2,3,4,7}      <- lost K1 to DOCKET 4
+    questions                    {0,2,4,5,7}      <- seated by DOCKET 8
     spacetimes (Petrov)          {0,3,4,5,7}
     energy-condition family      {0,2,3,4,5,7}
     exotic mechanisms            {0,2,3,4,5,6,7}
     periodic layout 3-D          {0,1,3,4,5,6,7}
 
     K0 IS UNIVERSAL.  Every seated index has cells that NOTHING refuses -- cells
-    inside every one of the five closures.  Nine of nine, no exception.
+    inside every one of the five closures.  Ten of ten, no exception.
 
-    K7 IS IN EIGHT OF NINE.  The exception is `periodic layout 2-D`, and it is
+    K7 IS IN NINE OF TEN.  The exception is `periodic layout 2-D`, and it is
     the DENSEST index in the corpus at 71.4 %: too full to have a cell that
     every language refuses.  Dilute it -- see section 3 -- and K7 appears.
 
@@ -57,7 +58,7 @@ extra four are chart decoration and K is the object.
 
     THE LATTICE.  Minimal: Janet and periodic layout 2-D.  Maximal: exotic
     mechanisms and periodic layout 3-D -- bounds was a third maximum until
-    DOCKET 4 took K1 off it.  TEN of the thirty-six pairs are incomparable, so
+    DOCKET 4 took K1 off it.  THIRTEEN of the forty-five pairs are incomparable, so
     this is a lattice and not a chain -- the same shape the channel reading has,
     and for the same reason.
 
@@ -96,17 +97,17 @@ AND THAT ZERO-INFORMATION COORDINATE CHANGES THE CHANNEL.  Same eighty elements:
     density, and neither is an invariant of anything.  C, Sc and Oc survive a
     MONOTONE redundant coordinate and DO NOT survive a non-monotone one.
 
-    Across the nine, appending the monotone redundant coordinate moves the
-    master cell of FIVE and changes the channel of NONE.
+    Across the ten, appending the monotone redundant coordinate moves the
+    master cell of SIX and changes the channel of NONE.
 
     **SO A MASTER CELL IS A PROPERTY OF THE CHART, NOT OF THE OBJECT.**  Nothing
     in the construction prevents one object from occupying several cells, and
     the periodic table occupies three, in three different channels.
 
-AND THE DEMAND IS SATISFIABLE BY RE-CHARTING WHAT IS ALREADY SEATED.  Of 565
-re-chartings of the nine -- one redundant coordinate appended, or one coordinate
-dropped -- **twenty land exactly on the demanded cell (1,1,0,2,1)**.  Two are
-not tricks:
+AND THE DEMAND IS SATISFIABLE BY RE-CHARTING WHAT IS ALREADY SEATED.  Of 640
+re-chartings of the ten -- one redundant coordinate appended, or one coordinate
+dropped -- **twenty-eight land exactly on the demanded cell (1,1,0,2,1)**.  Three
+are not tricks:
 
         bounds MINUS its G coordinate   8 cells, arity 5, box 108, density
                                         7.4 %, closes statistics -- THE
@@ -114,6 +115,14 @@ not tricks:
                                         THE GRAVITY SLOT
         energy-condition family         lands there under FIVE different
                                         single-coordinate drops
+        questions                       SEVEN of its own re-chartings land on
+                                        the cell it already occupies -- and that
+                                        is evidence AGAINST the seating being a
+                                        fill, not for it.  A cell reachable
+                                        seven ways from one small box is an easy
+                                        cell; master.SIGNATURE_CONTROLS reads
+                                        the same thing at 22.4 % against 0.02 %
+                                        for bounds.
 
     Stated at its true strength: an arbitrary redundant coordinate is not a
     legitimate index, and the right answer to that is a CRITERION FOR A
@@ -127,12 +136,12 @@ not tricks:
 ===============================================================================
 
 duality.py's M2 profiles a pair as (K, W, H, J, A).  Put each truncation to the
-same monotone redundant coordinate that moved five master cells:
+same monotone redundant coordinate that moved six master cells:
 
-        (K, W, H, J, A)   invariant in 3 of 9
-        (K, W, J)         invariant in 6 of 9
-        (K, W)            invariant in 6 of 9
-        (K)               invariant in 8 of 9, AND THE ONE EXCEPTION ONLY GROWS
+        (K, W, H, J, A)   invariant in 4 of 10
+        (K, W, J)         invariant in 7 of 10
+        (K, W)            invariant in 7 of 10
+        (K)               invariant in 9 of 10, AND THE ONE EXCEPTION ONLY GROWS
 
 The exception is `periodic layout 2-D`, whose {0,4} gains K7 -- the dilution of
 section 1.  So K is MONOTONE under monotone re-charting: it never loses a
@@ -187,7 +196,7 @@ between exactly those.
     six is the artefact.
 
         (A first draft here added "and the only one missing K2".  That is
-        FALSE -- five of the nine lack K2, spacetimes among them -- and it
+        FALSE -- five of the ten lack K2, spacetimes among them -- and it
         survived a paragraph only because an ad-hoc size filter in the pin was
         doing the work.  Its own selftest caught it.  Withdrawn.)
 
@@ -380,7 +389,7 @@ def universal(R=None):
 
 
 def lattice(R=None):
-    """(minimal, maximal, incomparable pairs) of the nine refusal sets."""
+    """(minimal, maximal, incomparable pairs) of the seated refusal sets."""
     R = refusal_index() if R is None else R
     nm = sorted(R)
     mins = [a for a in nm if not any(b != a and R[b] < R[a] for b in nm)]
@@ -510,7 +519,8 @@ def report():
     print("=" * 74)
     print()
     R = refusal_index()
-    print("1. THE NINE, MEASURED.  R(X) = which refusal kinds occur in X's box.")
+    print("1. THE %d SEATED, MEASURED.  R(X) = which refusal kinds occur in its box."
+          % len(R))
     for nm in sorted(R, key=lambda n: (len(R[n]), n)):
         print("   %-28s %s" % (nm, "{" + ",".join(map(str, sorted(R[nm]))) + "}"))
     print()
@@ -519,21 +529,22 @@ def report():
     for k in range(8):
         who = occ[k]
         tag = ", ".join(who) if len(who) <= 2 else ""
-        print("   K%d  %-42s %d/9 %s"
-              % (k, "{" + ", ".join(sorted(ks[k])) + "}", len(who), tag))
+        print("   K%d  %-42s %d/%d %s"
+              % (k, "{" + ", ".join(sorted(ks[k])) + "}", len(who), len(R), tag))
     print("   UNIVERSAL: %s -- every index has cells NOTHING refuses."
           % sorted(universal(R)))
     print()
     mins, maxs, inc = lattice(R)
     print("   minimal %s" % mins)
     print("   maximal %s" % maxs)
-    print("   incomparable pairs: %d of 36 -- a lattice, not a chain" % len(inc))
+    print("   incomparable pairs: %d of %d -- a lattice, not a chain"
+          % (len(inc), len(R) * (len(R) - 1) // 2))
     print()
 
     print("2. THE MASTER INDEX INDEXES CHARTS, NOT OBJECTS.")
     moved, chg, tot = cell_survival()
     print("   Append a coordinate that is a FUNCTION of the existing ones --")
-    print("   zero information about which member is which. Over the nine:")
+    print("   zero information about which member is which. Over the %d:" % len(R))
     print("     master cells moved   %d of %d" % (moved, tot))
     print("     channels changed     %d of %d" % (chg, tot))
     print("   So D and R are chart properties. C, Sc, Oc survive a MONOTONE")
@@ -544,7 +555,11 @@ def report():
     hits, tried = rechartings_hitting()
     print("   AND THE DEMAND %s IS SATISFIABLE BY RE-CHARTING:"
           % (master.DEMANDED_AT_EIGHT,))
-    print("   %d of %d re-chartings of the SEATED nine land on it." % (len(hits), tried))
+    print("   %d of %d re-chartings of the SEATED %d land on it."
+          % (len(hits), tried, len(R)))
+    print("   SEVEN of them are the QUESTION index re-charted -- the index that")
+    print("   OCCUPIES this cell can be re-charted seven ways and still land on")
+    print("   it. Read that as the cell being easy, not the seating being right.")
     for nm, g, n, sh, clo in hits:
         if g.startswith("drop"):
             print("     %-26s %-8s cells %-3d arity %d density %5.1f%% closes %s"
@@ -612,7 +627,10 @@ def selftest():
 
     print("refusal selftest")
     R = refusal_index()
-    chk("nine seated indexes carry a refusal index", len(R), 9)
+    chk("ten seated indexes carry a refusal index", len(R), 10)
+    # DOCKET 8 seated the question index. Its refusal index is measured here
+    # like any other -- R(X) is computed from X, never declared.
+    chk("questions", sorted(R["questions"]), [0, 2, 4, 5, 7])
     chk("periodic layout 3-D, the richest", sorted(R["periodic layout 3-D"]),
         [0, 1, 3, 4, 5, 6, 7])
     chk("periodic layout 2-D, the poorest", sorted(R["periodic layout 2-D"]), [0, 4])
@@ -624,7 +642,7 @@ def selftest():
     chk("K0 is universal -- every index has a cell NOTHING refuses",
         sorted(universal(R)), [0])
     occ = occurrence(R)
-    chk("K7 in eight of nine", len(occ[7]), 8)
+    chk("K7 in nine of ten", len(occ[7]), 9)
     chk("and the exception is the DENSEST index",
         [nm for nm in R if 7 not in R[nm]], ["periodic layout 2-D"])
     chk("which is indeed the densest",
@@ -637,7 +655,8 @@ def selftest():
         ["Janet (n+l, l, k)", "periodic layout 2-D"])
     chk("maximal -- bounds fell out of it under DOCKET 4", maxs,
         ["exotic mechanisms", "periodic layout 3-D"])
-    chk("ten of thirty-six pairs incomparable -- still a lattice", len(inc), 10)
+    chk("thirteen of forty-five pairs incomparable -- still a lattice",
+        len(inc), 13)
 
     # ---- THE THREAD
     # THE THREAD IS DEAD. DOCKET 4 took bounds off K1, so the corpus holds ONE
@@ -652,22 +671,32 @@ def selftest():
     # missing K2", with an ad-hoc size filter to exclude the small sets. It is
     # false: FIVE of the nine lack K2, spacetimes (Petrov) among them, and the
     # filter was doing the work rather than the fact. The census is what stands.
-    chk("K2 is carried by four, and five lack it",
+    chk("K2 is carried by five, and five lack it",
         (len(occ[2]), sorted(nm for nm in R if 2 not in R[nm])),
-        (4, ["Janet (n+l, l, k)", "periodic layout 2-D", "periodic layout 3-D",
+        (5, ["Janet (n+l, l, k)", "periodic layout 2-D", "periodic layout 3-D",
              "spacetimes (Petrov)", "the languages"]))
     # NEGATIVE CONTROL: the conjecture as stated is FALSE and the pin says so.
-    chk("THE NINE DO NOT SHARE ONE REFUSAL INDEX",
-        len(set(map(frozenset, R.values()))), 9)
+    # AND IT SURVIVED THE TENTH SEATING: ten indexes, ten distinct refusal
+    # indexes. No two have ever coincided.
+    chk("THE TEN DO NOT SHARE ONE REFUSAL INDEX",
+        len(set(map(frozenset, R.values()))), 10)
 
     # ---- section 2, the chart finding
     moved, chg, tot = cell_survival()
-    chk("a zero-information coordinate moves five master cells", moved, 5)
+    chk("a zero-information coordinate moves six master cells", moved, 6)
     chk("and changes NO channel -- C survives a monotone re-charting", chg, 0)
 
     hits, tried = rechartings_hitting()
-    chk("re-chartings tried", tried, 565)
-    chk("re-chartings landing on the demanded cell", len(hits), 21)
+    chk("re-chartings tried", tried, 640)
+    chk("re-chartings landing on the demanded cell", len(hits), 28)
+    # AND SEVEN OF THE TWENTY-EIGHT ARE THE QUESTION INDEX'S OWN RE-CHARTINGS.
+    # That is not extra evidence for the seating -- it is the opposite. The
+    # index seated at the demanded cell can be re-charted seven ways and still
+    # land there, which says the cell is easy to reach from that box, exactly
+    # as master.SIGNATURE_CONTROLS["questions"] reads it at 22.4 %.
+    chk("seven of them are the question index re-charted",
+        sorted(b for a, b, _c, _s, _k in hits if a == "questions"),
+        ["dif01", "dif02", "dif12", "max13", "xor01", "xor02", "xor12"])
     chk("and one is bounds MINUS its gravity slot",
         ("bounds", "drop3") in [(a, b) for a, b, _c, _s, _k in hits], True)
     chk("the energy-condition family lands there five ways",
@@ -675,10 +704,10 @@ def selftest():
             if a == "energy-condition family"), 5)
 
     # ---- section 3, K is the object
-    for keep, want in ((("K", "W", "H", "J", "A"), 3), (("K", "W", "J"), 6),
-                       (("K", "W"), 6), (("K",), 8)):
+    for keep, want in ((("K", "W", "H", "J", "A"), 4), (("K", "W", "J"), 7),
+                       (("K", "W"), 7), (("K",), 9)):
         n, tot, rows = truncation_survival(keep)
-        chk("(%s) invariant in %d of 9" % (",".join(keep), want), n, want)
+        chk("(%s) invariant in %d of 10" % (",".join(keep), want), n, want)
     n, _t, rows = truncation_survival(("K",))
     chk("and K's one exception only GROWS, by K7",
         [(nm, g, l) for nm, g, l in rows], [("periodic layout 2-D", [(7,)], [])])

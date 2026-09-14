@@ -320,6 +320,7 @@ import bounds
 import hlaw
 import necindex
 import petrov
+import questions
 import selfindex
 import substance
 import synth
@@ -426,6 +427,15 @@ def inventory():
         "spacetimes (Petrov)": petrov.cells(),
         # SEATED LAST, AND IT LANDED IN THE CELL THE OTHER EIGHT DEMANDED.
         "bounds": bounds.cells(),
+        # DOCKET 8. Seven questions, one per language -- all seven ASK, only
+        # five ANSWER with a binary. A channel set IS the yes-set of those five
+        # questions (0 mismatches over the nine), so admission to any index is
+        # answering them, and the index whose members ARE the questions belongs
+        # here. It lands on (1,1,0,2,1) and CLOSES the master index.
+        #   NOT read as filling the demand: 1 of 26 coordinate subsets lands
+        #   there, three of its five coordinates are determined by a fourth,
+        #   and DOCKET 5 had already deleted the demand. See questions.py S4.
+        "questions": questions.cells(),
     }
 
 
@@ -550,14 +560,37 @@ DEMANDED_AT_EIGHT = (1, 1, 0, 2, 1)
 # long enough to resolve. Recorded as data because 2,000 draws read zero on
 # the widened box and a zero is an upper bound, not a rate -- the exact
 # mistake made once already on this control and corrected in section 6.
-CONTROL_RESOLVED = (14, 400000)   # seed 17, on the 79-index / 192-cell box
+CONTROL_RESOLVED = (3, 400000)    # seed 17, on the 80-index / 12-cell / 192-cell box
+
+# signature_control(X=...) as (hits, signature matches, draws, box), recorded
+# rather than recomputed in the selftest -- each run is 20,000 master cells and
+# every master cell is five closure computations. Reproduce with
+#   python3 -c "import master, questions; print(master.signature_control()); \
+#               print(master.signature_control(X=questions.cells()))"
+# THE TWO DISAGREE BY TWO ORDERS OF MAGNITUDE, and that is section 7 (i): the
+# index that landed non-generically is the one that was WITHDRAWN.
+SIGNATURE_CONTROLS = {
+    "bounds":    (4, 9, 20000, 216),        # 0.02 % -- stage 2, withdrawn
+    "questions": (4474, 4654, 20000, 72),   # 22.4 % -- stage 3, seated
+}
 
 
-def without_bounds():
-    """The master index as it stood at eight indexes -- the state that demanded."""
-    inv = inventory()
-    del inv["bounds"]
-    return {nm: master_cell(S) for nm, S in inv.items()}
+# The two indexes seated AFTER the demand was recorded. at_eight() removes both,
+# because the state that demanded is the state before either arrived -- and a
+# "historical" state that quietly contains the thing under test is not one.
+SEATED_AFTER_THE_DEMAND = ("bounds", "questions")
+
+
+def at_eight():
+    """The master index as it stood at eight indexes -- the state that demanded.
+
+    Excludes BOTH later seatings. `bounds` was seated first and did not fill the
+    demand (DOCKET 4); `questions` was seated second and landed on it (DOCKET 8).
+    Dropping only one of them would leave a nine-index state wearing an
+    eight-index label.
+    """
+    return {nm: master_cell(S) for nm, S in inventory().items()
+            if nm not in SEATED_AFTER_THE_DEMAND}
 
 
 def drop_one_sensitivity():
@@ -572,12 +605,15 @@ def drop_one_sensitivity():
     return out
 
 
-def signature_control(n=20000, seed=17):
-    """How often a RANDOM set of the bounds index's size, in its own box, lands
-    in the demanded cell. This is the honest measure of the hit: the arity band
-    is a choice, the closure signature is not."""
+def signature_control(n=20000, seed=17, X=None):
+    """How often a RANDOM set of X's size, in X's own box, lands in the demanded
+    cell. This is the honest measure of a hit: the arity band is a choice, the
+    closure signature is not. X defaults to the bounds index, the construction
+    this control was written for; pass questions.cells() to ask it of the index
+    that actually occupies the cell -- a control run on one index says nothing
+    about another, and reusing it across the two was a live temptation here."""
     import random as _r
-    X = bounds.cells()
+    X = bounds.cells() if X is None else frozenset(X)
     d = len(next(iter(X)))
     box = [sorted({c[i] for c in X}) for i in range(d)]
     allc = list(itertools.product(*box))
@@ -756,7 +792,7 @@ def banding_sensitivity():
     """How much of section 7 survives a different banding?
 
     (bandings, eight-index demand non-empty, bounds fills it, nine closes,
-     per-arity-banding {edges: (demands, fills)})
+     per-arity-banding {edges: (demands, fills)}, questions fills it, ten closes)
 
     THE HONEST CONTROL ON THIS FILE'S OWN HEADLINE. C, Sc and Oc are measured
     and cannot move. D and R are BANDED, and the band edges are assigned. So the
@@ -766,13 +802,15 @@ def banding_sensitivity():
     """
     inv = inventory()
     tot = dem = fills = closes = 0
+    qfills = closes10 = 0
     per = {}
     for de in ALT_ARITY:
         a = f = 0
         for re_ in ALT_DENSITY:
             tot += 1
             eight = frozenset(cell_under(S, de, re_)
-                              for nm, S in inv.items() if nm != "bounds")
+                              for nm, S in inv.items()
+                              if nm not in SEATED_AFTER_THE_DEMAND)
             d8 = hlaw.closures(eight)[0]["statistics"] - eight
             bc = cell_under(inv["bounds"], de, re_)
             nine = eight | {bc}
@@ -784,8 +822,18 @@ def banding_sensitivity():
                 f += 1
             if len(hlaw.closures(nine)[0]["statistics"]) == len(nine):
                 closes += 1
+            # DOCKET 8. The same two questions asked of the index seated after
+            # bounds -- does IT fill the eight-index demand, and does the full
+            # ten-index master index close -- under every banding rather than
+            # only the declared one.
+            qc = cell_under(inv["questions"], de, re_)
+            if qc in d8:
+                qfills += 1
+            ten = nine | {qc}
+            if len(hlaw.closures(ten)[0]["statistics"]) == len(ten):
+                closes10 += 1
         per[tuple(de)] = (a, f)
-    return tot, dem, fills, closes, per
+    return tot, dem, fills, closes, per, qfills, closes10
 
 
 def report():
@@ -900,9 +948,10 @@ def report():
     print()
     P = populated_master()
     MC0, MC = frozenset(master_index().values()), frozenset(P.values())
+    MC0_n = len(master_index())
     hit, n, boxn = population_control(P)
     cl, _ = hlaw.closures(MC)
-    print("   before   6 indexes, %d distinct cells" % len(MC0))
+    print("   before  %d indexes, %d distinct cells" % (MC0_n, len(MC0)))
     print("   after    %d indexes, %d distinct cells, box %d, density %.1f%%"
           % (len(P), len(MC), boxn, 100 * len(MC) / boxn))
     print("   statistics E = %d  -> STILL CLOSES" % (len(cl["statistics"]) - len(MC)))
@@ -914,15 +963,22 @@ def report():
     print("   read 0%, and concluded closure DIES as the master index populates.")
     print("   The true rate is under one per cent, which 200 draws cannot")
     print("   resolve. Population is NOT destroying closure: seventy real indexes")
-    print("   took it from 5 cells to 8 and it still closes. The control was")
+    print("   took it from 5 cells to %d and it still closes. The control was"
+          % len(MC))
     print("   wrong, not just the conclusion drawn from it.")
+    print("   THE SAME TRAP IS STILL SET. This run reads %d hits in %d draws,"
+          % (hit, n))
+    print("   which is an UPPER BOUND and not a rate. The resolved figure is")
+    print("   %d in %d -- quoted from there, never from the short run."
+          % CONTROL_RESOLVED)
     print()
     dem = sorted(cl["statistics"] - MC)
     print("   DEMANDED master cells -- indexes the structure says should exist: %d"
           % len(dem))
     if not dem:
-        print("     none. The demand standing at eight indexes was (1, 1, 0, 2, 1)")
-        print("     and the bounds index fills it exactly -- section 7.")
+        print("     none. The demand standing at eight indexes was %s and the"
+              % (DEMANDED_AT_EIGHT,))
+        print("     question index of DOCKET 8 now occupies it -- section 7.")
     for c in dem:
         print("     %s = closed by %d language%s, statistics %s, order %s,"
               % (c, c[0], "" if c[0] == 1 else "s",
@@ -970,7 +1026,7 @@ def report():
     print("   not impossible.")
     print("   AND THE RELATION IS PARTIAL, refuted from inside the tree: hlaw's")
     print("   own antichain2 (K3) and geom-not-order (K6) are INCOMPARABLE.")
-    print("   The nine seated do form a chain -- and three arbitrary indexes form")
+    print("   The ten seated do form a chain -- and three arbitrary indexes form")
     print("   a chain 97.4%% of the time, so that was never evidence.")
     col, faith, k1, k35 = collapse_condition()
     print("   TWO CLAIMS, DIFFERENT FATES. The COLLAPSE needs only K%d vacant:" % k1[0])
@@ -979,8 +1035,8 @@ def report():
     print("     needs K%d and K%d vacant too -> %s. IT IS ALREADY BROKEN." % (k35[0], k35[1], faith))
     print()
 
-    print("7. THE DEMAND WAS FILLED, BY AN INDEX BUILT FOR ANOTHER REASON.")
-    M8 = without_bounds()
+    print("7. THE DEMAND, IN THREE STATES: MADE, NOT FILLED, THEN OCCUPIED.")
+    M8 = at_eight()
     MC8 = frozenset(M8.values())
     d8 = sorted(hlaw.closures(MC8)[0]["statistics"] - MC8)
     print("   At eight indexes the master index demanded exactly one cell:")
@@ -990,60 +1046,96 @@ def report():
     print()
     XB = inv["bounds"]
     dB, nB, rB = shape(XB)
-    print("   THE BOUNDS INDEX OCCUPIES IT EXACTLY.")
+    print("   STAGE 2 -- THE BOUNDS INDEX, AND A FILL THAT WAS WITHDRAWN.")
     print("     %d bounds -> %d cells, %d coordinates, box %d, density %.1f%%,"
           % (len(bounds.BOUNDS), len(XB), dB, nB, 100 * rB))
     print("     closed by %s -> master cell %s"
-          % (", ".join(sorted(closers(XB))), master_cell(XB)))
-    print("     E goes 1 -> %d and nothing further is demanded."
-          % (len(hlaw.closures(MC)[0]["statistics"]) - len(MC)))
-    print()
-    print("   WHAT THAT IS WORTH, STATED HONESTLY.")
-    print("   IT IS NOT A BLIND PREDICTION. The demanded cell was measured and")
-    print("   printed before the bounds index was written.")
-    print("   THE ARITY BAND IS A CHOICE, AND IT IS LOAD-BEARING:")
+          % (", ".join(sorted(closers(XB))) or "NOTHING", master_cell(XB)))
+    print("   An earlier pass read that as the demand filled. DOCKET 4 completed")
+    print("   the bounds family -- Bekenstein enters at G = 0 -- and the completed")
+    print("   index lands on %s, not on the demanded cell. The fill was"
+          % (master_cell(XB),))
+    print("   WITHDRAWN, and at nine indexes the demand stood unfilled.")
+    print("   Two drop-one variants still reach it, and neither is the family:")
     for nm, mc in drop_one_sensitivity():
         print("     drop %-2s -> %s   %s"
               % (nm, mc, "HIT" if mc == DEMANDED_AT_EIGHT else "miss"))
-    print("   All five drops miss, because four coordinates put the index in")
-    print("   arity band 1. So D is carried entirely by the choice of five slots.")
-    hit, sig, n, boxn = signature_control()
-    print("   WHAT IS NOT A CHOICE IS THE CLOSURE SIGNATURE. Against %d random"
-          % n)
-    print("   %d-cell sets in the same %d-cell box: %d land in the demanded cell"
-          % (len(XB), boxn, hit))
-    print("   (%.2f%%), %d match the closure signature alone (%.2f%%)."
-          % (100 * hit / n, sig, 100 * sig / n))
-    print("   Given five slots, the landing is not generic.")
     print()
-    tot, dem, fl, cl9, per = banding_sensitivity()
-    print("   AND THE BANDING CARRIES MORE OF IT THAN WAS FIRST SAID.")
-    print("   C, Sc and Oc are measured; D and R are BANDED and the edges are")
-    print("   assigned. Over %d bandings (4 arity x 10 density):" % tot)
-    print("     the EIGHT-index master index demands something  %2d of %d (%.0f%%)"
-          % (dem, tot, 100 * dem / tot))
-    print("     and the bounds index FILLS that demand          %2d of %d (%.0f%%)"
+    XQ = inv["questions"]
+    dQ, nQ, rQ = shape(XQ)
+    print("   STAGE 3 -- THE QUESTION INDEX OCCUPIES IT. (DOCKET 8.)")
+    print("     %d cells, %d coordinates, box %d, density %.1f%%,"
+          % (len(XQ), dQ, nQ, 100 * rQ))
+    print("     closed by %s -> master cell %s"
+          % (", ".join(sorted(closers(XQ))) or "NOTHING", master_cell(XQ)))
+    print("     statistics E on the master index goes 1 -> %d."
+          % (len(hlaw.closures(MC)[0]["statistics"]) - len(MC)))
+    print()
+    print("   WHAT THAT IS WORTH, STATED HONESTLY. FOUR QUALIFICATIONS, and")
+    print("   together they are why this is NOT read as the demand vindicated.")
+    # Recorded, not recomputed -- 40,000 master cells is a two-minute report.
+    hitQ, sigQ, nQr, boxQ = SIGNATURE_CONTROLS["questions"]
+    hit, sig, n, boxn = SIGNATURE_CONTROLS["bounds"]
+    print("   (i)  AND THE CONTROL REFUSES THE STAGE-3 LANDING. Run in the")
+    print("        QUESTION index's own %d-cell box, %d random %d-cell sets:"
+          % (boxQ, nQr, len(XQ)))
+    print("        %d land in the demanded cell -- %.1f%%, and %d (%.1f%%) match"
+          % (hitQ, 100 * hitQ / nQr, sigQ, 100 * sigQ / nQr))
+    print("        the closure signature. THAT IS GENERIC. Nearly a quarter of")
+    print("        same-shaped random sets in that box land where this index")
+    print("        lands, because the box is small and every 4-cell subset of it")
+    print("        has much the same arity, density and closure behaviour.")
+    print("        The stage-2 control, on the BOUNDS box, reads the other way:")
+    print("        %d of %d (%.2f%%) land, %d (%.2f%%) match the signature."
+          % (hit, n, 100 * hit / n, sig, 100 * sig / n))
+    print("        SO THE NON-GENERICITY BELONGS TO THE WITHDRAWN STAGE, NOT TO")
+    print("        THE SEATED ONE. Two indexes, two boxes, two controls -- and")
+    print("        the surviving one is the weaker. Recorded, not repaired: the")
+    print("        seating stands on the closure fact, which is exact, and not")
+    print("        on a landing this control declines to call surprising.")
+    tot, dem_, fl, cl9, per, qfl, cl10 = banding_sensitivity()
+    print("   (ii) THE BANDING CARRIES MORE OF IT THAN WAS FIRST SAID. C, Sc and")
+    print("        Oc are measured; D and R are BANDED and the edges assigned.")
+    print("        Over %d bandings (4 arity x 10 density):" % tot)
+    print("          the EIGHT-index master index demands something %2d of %d (%.0f%%)"
+          % (dem_, tot, 100 * dem_ / tot))
+    print("          the bounds index FILLS that demand            %2d of %d (%.0f%%)"
           % (fl, tot, 100 * fl / tot))
-    print("     the NINE-index master index closes              %2d of %d (%.0f%%)"
+    print("          the QUESTION index fills it                   %2d of %d (%.0f%%)"
+          % (qfl, tot, 100 * qfl / tot))
+    print("          the NINE-index master index closes            %2d of %d (%.0f%%)"
           % (cl9, tot, 100 * cl9 / tot))
+    print("          the TEN-index master index closes             %2d of %d (%.0f%%)"
+          % (cl10, tot, 100 * cl10 / tot))
     for k, (a, f) in per.items():
-        print("       arity band %-8s demands %2d/10   fills %2d/10"
+        print("            arity band %-8s demands %2d/10   fills %2d/10"
               % (str(list(k)), a, f))
-    print("   AT D = [3, 6] THE DEMAND VANISHES ENTIRELY. It exists because")
-    print("   [3, 5] separates 5-coordinate indexes from 6-coordinate ones. So")
-    print("   the demand and its filling are properties of the DECLARED banding.")
-    print("   What defends that banding is only that it is OLDER than the result:")
-    print("   fixed when this file was written, before the substance, Petrov and")
-    print("   bounds indexes existed. Not tuned -- but not invariant either.")
+    print("        AT D = [3, 6] THE DEMAND VANISHES ENTIRELY -- it exists because")
+    print("        [3, 5] separates 5-coordinate indexes from 6-coordinate ones.")
+    print("        And the ten-index closure holds in FEWER bandings than the")
+    print("        nine-index one did. What defends the declared banding is only")
+    print("        that it is OLDER than the result: fixed when this file was")
+    print("        written, before the substance, Petrov, bounds and question")
+    print("        indexes existed. Not tuned -- but not invariant either.")
+    print("   (iii) THE DEMAND WAS ALREADY DELETED AS A PREDICTION. DOCKET 5")
+    print("        measured the realisable box -- Petrov cuts 80 spacetime cells")
+    print("        to 20 -- and the demanded cell is not in it. A cell that")
+    print("        cannot be realised cannot be predicted into existence, so")
+    print("        occupying it is a closure fact, not a confirmed forecast.")
+    print("   (iv) THE QUESTION INDEX WAS NOT BUILT TO LAND THERE, and cannot be")
+    print("        shown to have avoided it either. Its five coordinates are")
+    print("        properties of a question, chosen before its master cell was")
+    print("        computed; questions.py measures that 1 of 26 coordinate")
+    print("        subsets lands on the cell, and that three of the five")
+    print("        coordinates are determined by a fourth. Read that as a weak")
+    print("        non-genericity, not as a prediction met.")
     print()
     print("   SO THE CLAIM IS THIS AND NO MORE: the master index named a cell no")
-    print("   seated index occupied; an index built to answer a different")
-    print("   question -- what are the right-hand sides, as a family -- occupies")
-    print("   it, on a signature a same-shaped random set reproduces about one")
-    print("   time in a hundred; and its arrival returned the master index to")
-    print("   closure. Whether the demand CAUSED anyone to look at the bounds")
-    print("   cannot be established from inside the measurement, and is not")
-    print("   claimed.")
+    print("   seated index occupied; one index arrived, was read as filling it,")
+    print("   and was withdrawn; a second arrived and occupies it, returning the")
+    print("   master index to closure in statistics at E = 0. Whether the demand")
+    print("   CAUSED anyone to look cannot be established from inside the")
+    print("   measurement, and is not claimed.")
     return 0
 
 
@@ -1060,7 +1152,7 @@ def selftest():
 
     print("master selftest")
     inv = inventory()
-    chk("nine indexes are seated", len(inv), 9)
+    chk("ten indexes are seated", len(inv), 10)
     chk("five candidates adjudicated, none an index", len(NOT_SEATED), 5)
     chk("two coordinates and three quantities",
         sorted(v[0] for v in NOT_SEATED.values()),
@@ -1091,18 +1183,24 @@ def selftest():
     # The master index and its own closure.
     M = master_index()
     MC = frozenset(M.values())
-    chk("nine indexes give their master cells", len(M), 9)
-    chk("and eight distinct master cells", len(MC), 8)
+    chk("ten indexes give their master cells", len(M), 10)
+    chk("and nine distinct master cells", len(MC), 9)
     cl, _ = hlaw.closures(MC)
     # At six indexes statistics closed the master index. At eight it demanded
-    # one cell. At nine it closes again -- section 7 is why.
-    # WITHDRAWN. The bounds index was completed and no longer fills the demand.
-    chk("the master index does NOT close at nine -- the fill is withdrawn",
-        len(cl["statistics"]) - len(MC), 1)
-    chk("nothing closes it",
-        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], [])
-    chk("and the demand it made at eight is STILL OUTSTANDING",
-        sorted(cl["statistics"] - MC), [DEMANDED_AT_EIGHT])
+    # one cell. At nine -- bounds completed, DOCKET 4 -- the demand stood
+    # unfilled. DOCKET 8 seated the question index, which lands on the demanded
+    # cell, and at ten the master index closes in statistics again.
+    #   The closure is the measurement; the FILL is the reading, and the reading
+    #   is qualified: DOCKET 5 had already deleted the demand as a prediction
+    #   (its cell is not realisable), and the banding sweep below fills it in
+    #   only 8 of 40 bandings. So: it closes, and that is not a vindication.
+    chk("the master index CLOSES at ten, in statistics, E = 0",
+        len(cl["statistics"]) - len(MC), 0)
+    chk("and statistics is the only language that closes it",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["statistics"])
+    chk("so it demands NOTHING", sorted(cl["statistics"] - MC), [])
+    chk("and the cell it demanded at eight is now OCCUPIED, by questions",
+        M["questions"], DEMANDED_AT_EIGHT)
     chk("the two physics indexes share a master cell",
         M["energy-condition family"] == M["exotic mechanisms"], True)
     chk("while sharing no actual cell",
@@ -1135,11 +1233,11 @@ def selftest():
         all("statistics" in closers(v) for v in sp.values()), True)
     P = populated_master()
     MC = frozenset(P.values())
-    chk("populating takes 9 indexes to 79", len(P), 79)
+    chk("populating takes 10 indexes to 80", len(P), 80)
     chk("and the distinct master cells rise",
         len(MC) > len(frozenset(master_index().values())) or len(MC) >= 8, True)
-    chk("and populated it does not close either",
-        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 1)
+    chk("and populated it closes too -- 12 distinct cells, E = 0",
+        (len(MC), len(hlaw.closures(MC)[0]["statistics"]) - len(MC)), (12, 0))
     hit, n, _boxn = population_control(P)
     chk("against a control under 2%% at %d draws" % n, hit / n < 0.02, True)
     # AND THE SAME LIMITATION HAS RECURRED, which is worth a pin rather than a
@@ -1152,14 +1250,15 @@ def selftest():
         CONTROL_RESOLVED[0] > 0, True)
 
     # SECTION 7 -- the demand, and the index that filled it.
-    M8 = frozenset(without_bounds().values())
+    M8 = frozenset(at_eight().values())
     chk("at EIGHT indexes the master index demanded one cell",
         len(hlaw.closures(M8)[0]["statistics"] - M8), 1)
     chk("and the demand was a 5+ coordinate index at 5-30% density, statistics-only",
         sorted(hlaw.closures(M8)[0]["statistics"] - M8), [DEMANDED_AT_EIGHT])
     chk("no index seated at that point occupied it",
         DEMANDED_AT_EIGHT in M8, False)
-    P8 = {k: v for k, v in populated_master().items() if k != "bounds"}
+    P8 = {k: v for k, v in populated_master().items()
+          if k not in SEATED_AFTER_THE_DEMAND}
     chk("nor did any of the 78 populated at that point", len(P8), 78)
     chk("and none of those 78 occupied it",
         sum(1 for v in P8.values() if v == DEMANDED_AT_EIGHT), 0)
@@ -1167,8 +1266,9 @@ def selftest():
     chk("the bounds index NO LONGER occupies the demanded cell",
         master_cell(inv["bounds"]) == DEMANDED_AT_EIGHT, False)
     chk("it sits here instead", master_cell(inv["bounds"]), (0, 0, 0, 2, 0))
-    chk("and the demand is still outstanding, filled by nothing",
-        DEMANDED_AT_EIGHT in frozenset(master_index().values()), False)
+    chk("and at ten indexes it is occupied -- by the question index",
+        [nm for nm, mc in master_index().items() if mc == DEMANDED_AT_EIGHT],
+        ["questions"])
 
     # ONE drop-one variant now DOES reach it: dropping the gravity slot from the
     # completed family lands back on the demanded cell. A curiosity, not a fill --
@@ -1182,7 +1282,7 @@ def selftest():
 
     # AND THE BANDING CARRIES MORE THAN THE FIRST STATEMENT ADMITTED. Pinned so
     # the caveat cannot quietly fall out of the file.
-    btot, bdem, bfill, bclose, bper = banding_sensitivity()
+    btot, bdem, bfill, bclose, bper, bqfill, bclose10 = banding_sensitivity()
     chk("bandings swept", btot, 40)
     # DOCKET 1(a) MOVED TWO OF THESE, and the movement is worth reading. Seating
     # Janet's complete table took that index from arity 2 / density 59.4 % to
@@ -1197,8 +1297,31 @@ def selftest():
         bper[(3, 6)], (0, 0))
     chk("so the demand is a property of the declared banding, not invariant",
         bfill < btot, True)
-    chk("the resolved population control is 14 hits in 400,000 draws",
-        CONTROL_RESOLVED, (14, 400000))
+    # RE-RUN AFTER DOCKET 8. Seating the question index took the populated
+    # master index from 8 distinct cells to 12 in the same 192-cell box, and a
+    # 12-cell set closes more rarely than an 8-cell one: 3 hits in 400,000, down
+    # from 14. Re-measured, not carried forward -- a control quoted from the
+    # previous shape is not a control.
+    chk("the resolved population control is 3 hits in 400,000 draws",
+        CONTROL_RESOLVED, (3, 400000))
+    # DOCKET 8, AND THE HONEST HALF OF IT. The question index lands on the
+    # demanded cell under the DECLARED banding and under only 8 of the 40. The
+    # ten-index closure is likewise a property of the banding, not of the
+    # corpus: it holds in 17 of 40, FEWER than the nine-index closure's 20.
+    chk("questions fills the eight-index demand in 8 of 40 bandings", bqfill, 8)
+    # AND THE CONTROL REFUSES IT OUTRIGHT. The bounds index landed on this cell
+    # against 0.02% of same-shaped random sets in its own box; the question
+    # index lands against 22.4% of them in ITS box. The non-generic reading
+    # belongs to the stage that was withdrawn, not to the one that is seated.
+    chk("random sets in the QUESTION box land there 22.4%% of the time -- GENERIC",
+        SIGNATURE_CONTROLS["questions"], (4474, 4654, 20000, 72))
+    chk("against 0.02%% in the BOUNDS box -- the withdrawn stage was the strong one",
+        SIGNATURE_CONTROLS["bounds"], (4, 9, 20000, 216))
+    chk("two orders of magnitude apart, on the same control at the same n",
+        SIGNATURE_CONTROLS["questions"][0] > 100 * SIGNATURE_CONTROLS["bounds"][0],
+        True)
+    chk("and the ten-index master index closes in 17 of 40 -- FEWER than nine",
+        (bclose10, bclose10 < bclose), (17, True))
 
     # ---------------------------------------- 6b. the channel relation
     ks = channel_sets()

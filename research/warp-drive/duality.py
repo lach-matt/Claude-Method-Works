@@ -66,10 +66,11 @@ about.  SAME VALUE, SAME LANGUAGES, DIFFERENT SHAPE.
 3. K1 IS THE RAREST THING IN THE CORPUS, AND THE WARP OBSTRUCTION IS AT IT
 ===============================================================================
 
-Pooled over 1,876 cells of the nine seated indexes, the refusal sets are wildly
-uneven -- K7 takes 56 %, K0 14 %, K3 13 %, K4 11 % -- and
+Pooled over 2,508 cells of the ten seated indexes, the refusal sets are wildly
+uneven -- K7 takes 63 %, K0 14.5 %, K3 9.9 %, K4 8.3 % -- and
 
-    K1 OCCURS EXACTLY ONCE.  One cell in 1,876, 0.05 %, the rarest of the eight.
+    K1 OCCURS EXACTLY ONCE.  One cell in 2,508, 0.04 %, the rarest of the eight.
+    K6 is next at 7 and K2 at 11, so the rarity is a wide gap and not a tie.
 
 statrow.py measured the warp verdict's refusal set and it is K1: information
 alone refuses TRANSITION-POSSIBLE while order, geometry, algebra and now
@@ -142,25 +143,26 @@ M2's cells are KINDS OF REFUSAL.  Its coordinates are the properties every pair
     J   0 neither, 1 a join of two members, 2 a meet, 3 both
     A   the HOST's arity band           INHERITED from M1
 
-Over 2,436 pairs, 45 distinct profiles.  As an index: five coordinates, box
+Over 2,508 pairs, 45 distinct profiles.  As an index: five coordinates, box
 1152, density 4.0 %, and **CLOSED BY NOTHING** -- channel K0.
 
-    M1  cells are INDEXES            master cell (0, 0, 0, 2, 0)   channel K0
+    M1  cells are INDEXES            master cell (1, 1, 0, 2, 0)   channel K2
     M2  cells are KINDS OF REFUSAL   master cell (0, 0, 0, 2, 0)   channel K0
 
-    **AND THAT COINCIDENCE IS WITHDRAWN.**  It rested on a density measured
-    against the PRODUCT box, and the product box holds positions no pair could
-    occupy.  See section 5b.
+    **THEY DIFFER, AND SECTION 5d IS WHY THAT IS NOW SETTLED** rather than
+    undetermined: they differ on C, which is MEASURED, and no argument about
+    which box a density is taken against can move it.
 
-THAT IS NOT WHAT THIS FILE FIRST REPORTED, and the change is the bounds
-correction, not a re-reading.  As first written it said the two DIFFER in the
-channel coordinates and in nothing else -- M1 at (1, 1, 0, 2, 0) channel K2, M2
+THIS PIN HAS MOVED TWICE, AND NEITHER TIME BY A RE-READING.  As first written
+the two differed exactly as they do now -- M1 at (1, 1, 0, 2, 0) channel K2, M2
 at (0, 0, 0, 2, 0) channel K0, with M2's cell one that ORDER AND ALGEBRA already
 demanded of M1.  Completing the bounds family (a missing Z coordinate, a missing
 Casini member; see bounds.py) stopped the bounds index closing, which stopped
-the master index closing, which moved M1 from K2 to K0 -- onto M2's cell.  The
-coincidence is therefore a CONSEQUENCE of the withdrawal, arrived at by a route
-that had nothing to do with M2, which is the only reason it is worth anything.
+the master index closing, which moved M1 from K2 to K0 -- onto M2's cell, and
+sections 5b and 5c are the whole argument about whether that coincidence stood.
+DOCKET 8 then seated the question index, the master index closes in statistics
+again, and M1 IS BACK AT K2.  The coincidence existed only in the nine-index
+state, and it was never a fact about M2 at all.
 
 ===============================================================================
 5b. THE COINCIDENCE IS WITHDRAWN, AND THE FAULT IS GENERAL
@@ -186,7 +188,7 @@ IT CROSSES A BAND EDGE.  M2's master cell is **(0, 0, 0, 2, 1)**, not
 (0, 0, 0, 2, 0), and on that basis this file withdrew the coincidence.
 
 ===============================================================================
-5c. AND THE WITHDRAWAL WAS MADE ON AN UNFAIR COMPARISON.  IT IS UNDETERMINED.
+5c. AND THE WITHDRAWAL WAS MADE ON AN UNFAIR COMPARISON.  IT WAS UNDETERMINED.
 ===============================================================================
 
 **The correction above was applied to M2's box and NOT to M1's.**  M1's density
@@ -201,6 +203,9 @@ Applied SYMMETRICALLY -- the same treatment to both -- the readings are:
     BOTH corrected, 2 clauses   M1 (0,0,0,2,1)   M2 (0,0,0,2,1)   COINCIDE
     M2 on a fuller clause set   M1 (0,0,0,2,1)   M2 (0,0,0,2,2)   differ
 
+    (Those four rows are the NINE-INDEX state, kept as the record of the error.
+    Section 5d re-runs all four at ten.)
+
 M1's own realisable box is 56 of 192 -- the lawful `(C, Sc, Oc)` signatures, less
 the arity-2 exclusions -- giving 14.29 % against 4.17 %, which crosses the same
 band edge M2 crossed.
@@ -212,13 +217,41 @@ band edge M2 crossed.
     (a realisable box of 149) was reproduced by one adversarial check and could
     not be reconstructed by another.
 
-    The same holds of **M1 is a cell of itself**, which follows from the
-    coincidence and shares its status.
+    The same holds of **M1 is a cell of itself**, which followed from the
+    coincidence and shared its status.  Section 5d settles both.
 
 RECORDED, NOT REPAIRED, AND THE ERROR IS MINE: an asymmetric correction reported
 as a withdrawal.  What survives unconditionally is the fault itself -- every
 density in this tree is a product density unless it says otherwise -- and that
 is what DOCKET 5 rules on.
+
+===============================================================================
+5d. AND AT TEN INDEXES IT IS SETTLED -- ON A COORDINATE NO BOX CAN MOVE
+===============================================================================
+
+DOCKET 8 seated the question index; the master index closes in statistics again;
+M1 returns to (1, 1, 0, 2, 0), channel K2.  Re-run the same four rows:
+
+    both product boxes          M1 (1,1,0,2,0)   M2 (0,0,0,2,0)   differ
+    M2 corrected, M1 not        M1 (1,1,0,2,0)   M2 (0,0,0,2,1)   differ
+    BOTH corrected, 2 clauses   M1 (1,1,0,2,1)   M2 (0,0,0,2,1)   differ
+    M2 on a fuller clause set   M1 (1,1,0,2,1)   M2 (0,0,0,2,2)   differ
+
+    **ALL FOUR DIFFER, AND ALL FOUR DIFFER IN C AND Sc.**  Those two coordinates
+    are MEASURED -- C is how many of the five languages close the index, obtained
+    by running the operators -- so no choice of box, no clause set and no banding
+    touches them.  M1 closes in statistics; M2 is closed by nothing.  The entire
+    5b/5c dispute was about R, the one coordinate on which the two now agree.
+
+    **THE COINCIDENCE IS THEREFORE WITHDRAWN, AND THIS TIME IT IS ESTABLISHED
+    RATHER THAN UNDETERMINED.**  `WITHDRAWAL_IS_UNDETERMINED` is now False, and
+    the reason is not that the argument of 5c was answered -- it was not, and
+    the box-count question it raises is still open -- but that the answer stopped
+    mattering.  So does **M1 is a cell of itself**: (1,1,0,2,0) is not in M2.
+
+    AND THE HONEST CAVEAT: this is settled for the TEN-INDEX state, not for all
+    time.  It was settled the other way at nine.  What DOCKET 5's fault does to
+    every density in this tree is unaffected by any of it.
 
 THE FAULT IS NOT LOCAL TO THIS FILE.  Every density in this tree is taken
 against a product box.  In the master index's own 72-cell box, four positions
@@ -229,7 +262,7 @@ ALGEBRA EACH DEMAND THREE OF THE FOUR.  An E of 25 counts three cells that
 cannot exist.  Recorded here, not repaired here.
 
 **AND THE CONSTRUCTION IS NOT FORCED, WHICH IS RECORDED RATHER THAN RESOLVED.**
-W is partly determined by K: measured over all 2,436 pairs with zero
+W is partly determined by K: measured over all 2,508 pairs with zero
 disagreements, W = 2 exactly when statistics admits, so W adds nothing where
 statistics admits and one bit where it refuses.  Drop it and M2 becomes 43
 profiles over four coordinates, box 384, density 11.5 % --
@@ -324,10 +357,16 @@ import master
 
 CAP = 3000                      # cells scanned per index, for the pooled census
 
-# Section 5c. The coincidence's withdrawal rested on correcting M2's box and not
+# Section 5d. SETTLED AT TEN INDEXES. M1 closes in statistics and M2 in nothing,
+# so they differ in C and Sc -- measured coordinates that no box correction can
+# reach. The 5b/5c dispute was entirely about R, on which they now agree.
+# It was True through the nine-index state, and section 5c is why.
+#
+# Section 5c, kept as the record. The coincidence's withdrawal rested on
+# correcting M2's box and not
 # M1's. Symmetrically corrected they coincide again; on a fuller clause set they
 # do not. NEITHER STANDING NOR WITHDRAWN.
-WITHDRAWAL_IS_UNDETERMINED = True
+WITHDRAWAL_IS_UNDETERMINED = False
 K1 = frozenset({"information"})
 K5 = frozenset({"geometry", "information", "statistics"})
 
@@ -363,7 +402,7 @@ def downset_violations():
 
 
 def refusal_census():
-    """({channel set: cells}, total) pooled over the nine seated indexes."""
+    """({channel set: cells}, total) pooled over every seated index."""
     cnt = {k: 0 for k in master.channel_sets()}
     tot = 0
     for nm in master.inventory():
@@ -583,7 +622,7 @@ def report():
     print()
 
     print("2. K1 IS THE RAREST THING IN THE CORPUS.")
-    print("   %d cells scanned over the nine seated indexes; K1 occurs %d time(s),"
+    print("   %d cells scanned over the seated indexes; K1 occurs %d time(s),"
           % (tot, cnt[K1]))
     print("   %.2f%%. The warp verdict's refusal set is K1 (statrow.py)."
           % (100.0 * cnt[K1] / tot))
@@ -753,7 +792,7 @@ def selftest():
 
     cnt, tot = refusal_census()
     ks = master.channel_sets()
-    chk("cells scanned over the nine", tot, 2436)
+    chk("cells scanned over the ten", tot, 2508)
     chk("every one of the eight occurs as a refusal set",
         sum(1 for k in ks if cnt[k] > 0), 8)
     # ---- and the channel reading does NOT reach all eight
@@ -771,7 +810,7 @@ def selftest():
     # well as the periodic layout. Still the rarest of the eight.
     # DOCKET 4: was three. Re-coding Bekenstein G 1 -> 0 removed the two in the
     # bounds index, leaving the periodic one DOCKET 1 ruled a convention seam.
-    chk("K1 OCCURS ONCE IN 2,436 CELLS -- it occurred three times", cnt[K1], 1)
+    chk("K1 OCCURS ONCE IN 2,508 CELLS -- it occurred three times", cnt[K1], 1)
     # AND THE TWO NEW ONES ARE THE BOUNDS INDEX'S OWN DEMANDED CELLS. Not put
     # there -- both fell out of seating Casini and the Z slot. So the bounds
     # family's outstanding demand is a K1 refusal, the warp obstruction's kind.
@@ -827,12 +866,12 @@ def selftest():
     M2 = second_master()
     chk("M2 has 45 kinds of refusal", len(M2), 45)
     chk("and is closed by NOTHING", sorted(master.closers(M2)), [])
-    # AND NOW THEY COINCIDE. Completing the bounds family took M1 off closure,
-    # and the two master indexes -- one whose cells are indexes, one whose cells
-    # are kinds of refusal -- land on the SAME master cell at the same channel.
-    chk("M1 sits at (0,0,0,2,0), channel K0", (c1_, k1_), ((0, 0, 0, 2, 0), 0))
-    chk("M2 against the PRODUCT box appears to sit there too",
-        (c2_, k2_), ((0, 0, 0, 2, 0), 0))
+    # AND THEY NO LONGER COINCIDE. DOCKET 8 put the master index back on
+    # closure, so M1 returns to K2 and M2 stays at K0. Section 5d.
+    chk("M1 sits at (1,1,0,2,0), channel K2", (c1_, k1_), ((1, 1, 0, 2, 0), 2))
+    chk("M2 sits at (0,0,0,2,0), channel K0", (c2_, k2_), ((0, 0, 0, 2, 0), 0))
+    chk("so they differ in C and Sc, which are MEASURED",
+        (c1_[0] != c2_[0], c1_[1] != c2_[1]), (True, True))
     M1 = frozenset(master.master_index().values())
     clm, _ = hlaw.closures(M1)
     # ---- AND THAT COINCIDENCE IS WITHDRAWN. The product box holds positions no
@@ -846,9 +885,12 @@ def selftest():
          or ((p[1] == 2) != (p[0] in (0, 1)))], [])
     cc = corrected_master_cell(M2)
     chk("CORRECTED, M2 sits at (0,0,0,2,1)", cc, (0, 0, 0, 2, 1))
-    # ---- AND THE WITHDRAWAL WAS UNFAIR. Section 5c. M2's box was corrected and
-    # M1's was not; applied symmetrically the two coincide again. Pinned so the
-    # error cannot quietly become a result.
+    # ---- SECTION 5c's UNFAIR COMPARISON, RE-RUN AT TEN. The symmetric
+    # correction is still applied -- the error it records is still an error --
+    # but it no longer decides anything, because C and Sc already differ.
+    # M1's (C, Sc, Oc) is now TAKEN FROM ITS CLOSERS rather than hardcoded to
+    # zeros; hardcoding them was safe only while the master index closed in
+    # nothing, which is exactly the state that has ended.
     _ax = [sorted({c[i] for c in M1}) for i in range(5)]
     _sig = {(len(S), 1 if "statistics" in S else 0, 1 if "order" in S else 0)
             for S in master.channel_sets()}
@@ -856,13 +898,21 @@ def selftest():
            if c[:3] in _sig and not (c[0] == 0 and c[3] == 0)]
     chk("M1's own realisable box, never corrected until now", len(_r1), 56)
     _d1 = len(M1) / len(_r1)
-    _c1sym = (0, 0, 0, 2, sum(1 for e in master.DENSITY_BANDS if _d1 >= e))
-    chk("CORRECTED SYMMETRICALLY, M1 sits at (0,0,0,2,1) too", _c1sym, (0, 0, 0, 2, 1))
-    chk("SO UNDER A SYMMETRIC CORRECTION THEY COINCIDE AGAIN", _c1sym == cc, True)
-    chk("the withdrawal is therefore UNDETERMINED, not established",
-        WITHDRAWAL_IS_UNDETERMINED, True)
+    _clo1 = frozenset(master.closers(M1))
+    _c1sym = (len(_clo1), int("statistics" in _clo1), int("order" in _clo1),
+              c1_[3], sum(1 for e in master.DENSITY_BANDS if _d1 >= e))
+    chk("CORRECTED SYMMETRICALLY, M1 sits at (1,1,0,2,1)", _c1sym, (1, 1, 0, 2, 1))
+    chk("and M2 corrected sits at (0,0,0,2,1) -- the SAME density band", cc,
+        (0, 0, 0, 2, 1))
+    chk("SO THE SYMMETRIC CORRECTION NO LONGER RESTORES THE COINCIDENCE",
+        _c1sym == cc, False)
+    chk("because they differ where no box can reach them", _c1sym[:3] != cc[:3],
+        True)
+    chk("the withdrawal is therefore ESTABLISHED, not undetermined",
+        WITHDRAWAL_IS_UNDETERMINED, False)
+    chk("and M1 is NOT a cell of itself", c1_ in second_master(), False)
     # the pair count the census walks, measured rather than carried as a literal
-    chk("the pooled census walks 2,436 pairs", pairs_scanned(), 2436)
+    chk("the pooled census walks 2,508 pairs", pairs_scanned(), 2508)
     # the construction is NOT forced, and that is recorded
     chk("W = 2 exactly when statistics admits", w_is_the_statistics_test(), 0)
     Mb = second_master(with_w=False)

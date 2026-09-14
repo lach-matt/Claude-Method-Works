@@ -9,6 +9,16 @@ what it costs.
 A ruling here binds this tree's instruments and nothing else. It is not a
 Register entry and must never be cited as one.
 
+**A figure inside a ruled docket is AS MEASURED WHEN THAT DOCKET WAS RULED, and
+several have moved since.** DOCKET 8 seated a tenth index, so "nine indexes,
+eight cells" is now ten and nine; the master index closes in `statistics` at
+E = 0 where earlier dockets record it demanding one cell; and the counts in
+DOCKET 5's and DOCKET 6's tables were taken at nine. They are left as written
+because a docket is the record of a decision and the measurement it rested on —
+changing them would make the ruling unreadable. **For a current figure ask the
+instrument, never this file**: `master.py --selftest` pins the live counts, and
+DOCKET 8's closing section states which ones moved.
+
 ---
 
 ## DOCKET 1 — HOW IS A BLOCK ASSIGNED?  **RULED**
@@ -676,6 +686,54 @@ one coordinate choice of twenty-six.
     SCRUTINY.  The finding is about the demand, not about any of the three
     indexes that hit it.
 
+### AND IT IS SEATED ANYWAY — THE SEATING AND THE FILL ARE DIFFERENT CLAIMS
+
+*M: "It makes sense that the demand cell would demand the questions of the
+question index be answered before admittance into the index. So the seating
+seems to work."*
+
+Both halves of that reading were checked before anything moved, and both hold:
+
+- **A channel set IS the yes-set of the five binary questions.** Over the nine
+  indexes seated at the time, *0 mismatches*: the set of languages that close an
+  index is exactly the set of binary questions that answer yes on it. Admission
+  to any index in this tree *is* answering those questions. That is definitional
+  once the questions are written down, which is why it is stated as a check and
+  not as a discovery.
+- **The cell was vacant and the seating closes the index.** `questions` is now
+  `master.inventory()["questions"]`. Ten indexes, nine distinct master cells,
+  and the master index **closes in `statistics` at E = 0, demanding nothing** —
+  the first time it has closed since the eighth index was seated.
+
+**THE SEATING IS A CLOSURE FACT. IT IS NOT THE DEMAND MET.** Four measurements
+stand against reading it as a fill, and the fourth is new and is the sharpest:
+
+1. **The demand was already deleted** (DOCKET 5). Petrov-corrected, the
+   nine-index master index demands nothing at all.
+2. **The banding carries it.** `questions` fills the eight-index demand in
+   **8 of 40** bandings, and the **ten-index** master index closes in **17 of
+   40** — *fewer* than the nine-index one's 20. Seating it made the closure
+   slightly *less* banding-robust.
+3. **The landing rests on redundant coordinates** — 1 of 26 subsets, three of
+   five coordinates determined by `RET`.
+4. **The control refuses it.** `master.signature_control` run in the question
+   index's own 72-cell box: **4,474 of 20,000** random same-shaped sets land on
+   the demanded cell — **22.4 %**. The same control on the bounds box reads
+   **4 of 20,000, 0.02 %**. *The non-generic landing belongs to the stage that
+   was WITHDRAWN, not to the one that is seated.* Both figures are pinned in
+   `master.SIGNATURE_CONTROLS`.
+
+The measurement that survives is the exact one: **E = 0**. Everything read on
+top of it is qualified above, and the qualifications are seated in the selftest
+so they cannot quietly fall out.
+
+One consequence is recorded rather than repaired: `questions.demand_is_live()`
+became **self-referential** on seating — asking whether the demand is live on a
+master index that now contains the index being tested. It measures the
+nine-index state by default; `demand_is_live(True)` asks the other question and
+returns **(1, 1, 0, 1, 1)**, a *different* cell. Correcting the box moves the
+demand; it does not certify the one it moved off.
+
 ---
 
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
@@ -701,14 +759,17 @@ stated one, and docket 3 is why that is now urgent.
 
 A master cell is a property of the **chart**, not of the object. Appending a
 coordinate that is a *function of the existing ones* — zero information — moves
-**five of the nine** seated master cells. A **monotone** such coordinate leaves
+**six of the ten** seated master cells (five of nine before DOCKET 8). A **monotone** such coordinate leaves
 every channel intact; a **non-monotone** one does not, and the periodic table's
 block is the witness in this tree's own membership.
 
-**And the standing demand `(1,1,0,2,1)` is satisfiable by re-charting what is
-already seated: 20 of 550 re-chartings land on it**, including the bounds index
-minus its gravity coordinate and the energy-condition family under five different
-single-coordinate drops.
+**And the demanded cell `(1,1,0,2,1)` is reachable by re-charting what is
+already seated: 28 of 640 re-chartings land on it**, including the bounds index
+minus its gravity coordinate, the energy-condition family under five different
+single-coordinate drops, and — since DOCKET 8 — **seven re-chartings of the
+question index that now occupies it**. That last is the sharpest form of this
+docket's point: the index seated *on* the cell can be re-charted seven ways and
+still land there, which measures the cell's reachability, not the seating.
 
 So the demand is exactly as strong as a criterion for a legitimate chart, and no
 such criterion exists here. Until one does, **a demanded cell is a demand for a

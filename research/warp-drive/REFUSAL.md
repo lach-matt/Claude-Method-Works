@@ -41,22 +41,26 @@ R(X) = { the refusal set of c : c a cell of X's box }   ⊆ {K0 … K7}
 | substances (Hawking–Ellis) | `{0,2,7}` |
 | the languages | `{0,4,5,7}` |
 | bounds | `{0,2,3,4,7}` |
+| questions | `{0,2,4,5,7}` |
 | spacetimes (Petrov) | `{0,3,4,5,7}` |
 | energy-condition family | `{0,2,3,4,5,7}` |
 | exotic mechanisms | `{0,2,3,4,5,6,7}` |
 | periodic layout 3-D | `{0,1,3,4,5,6,7}` |
 
 **K0 is universal.** Every seated index has cells that *nothing* refuses — cells
-inside all five closures. Nine of nine.
+inside all five closures. Ten of ten.
 
-**K7 is in eight of nine.** The exception is `periodic layout 2-D`, and it is the
+**K7 is in nine of ten.** The exception is `periodic layout 2-D`, and it is the
 densest index in the corpus at 71.4 %: too full to have a cell every language
 refuses. Dilute it and K7 appears — see §3.
 
 **The lattice.** Minimal: Janet and periodic layout 2-D. Maximal: exotic
-mechanisms and periodic layout 3-D. **Ten of the thirty-six pairs are
+mechanisms and periodic layout 3-D. **Thirteen of the forty-five pairs are
 incomparable**, so this is a lattice and not a chain — the same shape the channel
-reading has, and for the same reason.
+reading has, and for the same reason. The tenth index, `questions`, changed
+neither the minima nor the maxima: it sits at `{0,2,4,5,7}`, inside `exotic
+mechanisms`, and it is the only index whose *whole profile set* nests inside
+another's (§3).
 
 ---
 
@@ -65,7 +69,7 @@ reading has, and for the same reason.
 `duality.py`'s `M2` profiles a pair as `(K, W, H, J, A)`: the refusal set, marginal
 completeness, capped Hamming distance to the nearest member, join/meet status,
 and the host's arity band. All five survive a redundancy audit — none is a
-function of the other four — but two exact constraints hold over all 2,436 real
+function of the other four — but two exact constraints hold over all 2,508 real
 pairs:
 
 - `H = 0` holds **exactly of member cells**, and a member lies in every closure,
@@ -106,19 +110,31 @@ conditional and the condition is stated.
 ## 3. Does every index share one refusal index? No, and the control kills the
 ## question too
 
-Built **separately per index** on the full `(K,W,H,J,A)` profile, the nine sets
-are **0 of 36 identical and 0 of 36 comparable** — not one containment, at full
-coordinates or with `A` dropped. The conjecture is false at its strongest
-reading.
+Built **separately per index** on the full `(K,W,H,J,A)` profile, the ten sets are
+**0 of 45 identical and 2 of 45 comparable** — at full coordinates and with `A`
+dropped alike. The conjecture is false at its strongest reading: no two indexes
+have the same refusal profile set, and 43 of the 45 pairs do not even nest.
 
-**And the control says observing that was never informative.** Over random
-families of the same shapes, identical pairs come out at a mean of **0.07 of 36**.
-Sharing was never on the table, so measuring zero confirms nothing about this
-corpus.
+**AND THE "0 of 36 comparable" THIS SECTION USED TO CLAIM WAS ALREADY STALE
+BEFORE THE TENTH INDEX ARRIVED.** The two comparable pairs are
 
-There is exactly **one** profile all nine share, `(K,W,H,J) = (0,2,0,3)`, and it
+    Janet (n+l, l, k)  ⊆  periodic layout 3-D      3 profiles inside 12
+    questions          ⊆  exotic mechanisms        7 profiles inside 17
+
+and only the second involves the index DOCKET 8 seated. The first is a
+consequence of **DOCKET 1(a)**, which recoded Janet from the arity-2 `(n+l, l)`
+chart to the complete arity-3 `(n+l, l, k)` table; the sentence here was written
+before that and was never re-measured. Recorded as a correction to this file, not
+to the instrument — `refusal.py` computes it fresh every run.
+
+**The control still says observing zero *identical* pairs was never informative.**
+Over random families of the same shapes, identical pairs came out at a mean of
+**0.07 of 36** at nine indexes. That control has **not** been re-run at ten and
+the figure is quoted as what it is: the nine-index measurement.
+
+There is exactly **one** profile all ten share, `(K,W,H,J) = (0,2,0,3)`, and it
 holds of a cell **iff that cell is a member** — definitional, and worthless. Any
-claim of the form *"all nine indexes share a refusal profile"* is true and empty.
+claim of the form *"all ten indexes share a refusal profile"* is true and empty.
 
 **What replaces the conjecture is sharper**: a rare `K` value is a thread between
 exactly the indexes carrying it. That is why §4 mattered, and why §4 is now
@@ -225,11 +241,11 @@ both injective, and `block` is a **function of** `(period, group)` there — the
 | + a **monotone** redundant coordinate | statistics | (1,1,0,1,1) |
 | + the **block**, non-monotone, 356 order-reversing pairs | **nothing** | (0,0,0,1,1) |
 
-Across the nine, a monotone redundant coordinate moves **five** master cells and
+Across the ten, a monotone redundant coordinate moves **six** master cells and
 changes **no** channel.
 
-**And the demand was satisfiable by relabelling.** 21 of 565 re-chartings of the
-already-seated nine land on `(1,1,0,2,1)` — including **the bounds index minus its
+**And the demand was satisfiable by relabelling.** 28 of 640 re-chartings of the
+already-seated ten land on `(1,1,0,2,1)` — including **the bounds index minus its
 gravity coordinate**, and the energy-condition family under five different
 single-coordinate drops.
 
@@ -256,7 +272,7 @@ both fall from `E = 25` to **`E_realisable = 22`**.
 > `{(0,0,0), (0,1,1), (1,0,1), (1,1,1)}`. Corrected: **8 forbidden, 76
 > reachable.** That kills *(Sc, Oc) is a strict function of C* as a law about
 > indexes; it survives only as a statement about this corpus, where K1 is vacant
-> over the nine seated and the seventy species.
+> over the ten seated and the seventy species.
 
 ---
 
@@ -281,22 +297,27 @@ built directly.
 
 ## 8. Recorded, not repaired
 
-- **The nine refusal indexes are pairwise incomparable**, and the control says
-  that was never going to be otherwise. Recorded.
+- **The ten refusal indexes are pairwise distinct**, and the control says that was
+  never going to be otherwise. They are *not* pairwise incomparable — two of the
+  45 pairs nest, and §3 records that this file claimed otherwise on a stale
+  measurement. Recorded.
 - **K1 has one instance and it is an artefact.** The warp obstruction stands on
   its own measurement and has no companion in this corpus.
 - **The demand mechanism is NOT empty, and this bullet said the opposite.** A
   screening pass shows **every demand the lattice has ever made is realisable** —
   56 (banding, state, cell) triples across the whole history, **zero** forbidden.
   So `E_realisable` salvages nothing because nothing needed salvaging: it bites
-  on order and algebra alone. Petrov-corrected, the **populated 79-index** master
-  index still demands `(1,1,0,0,2)`, and the seated nine demand in **9 of the 40**
-  declared bandings. What DOCKET 5 deletes is *this* demand, at *this* banding, on
-  *these nine* — not the mechanism.
+  on order and algebra alone. Petrov-corrected, the **populated 80-index** master
+  index still demands `(1,1,0,0,2)` — and now `(1,1,0,1,1)` beside it — while the
+  seated ten demand something in **23 of the 40** declared bandings. What DOCKET 5
+  deletes is *this* demand, at *this* banding, on *these* indexes — not the
+  mechanism. (The Petrov-corrected per-banding figure of 9 of 40 recorded here was
+  taken at nine indexes and has **not** been re-measured at ten; the 23 above is
+  the uncorrected sweep, which is a different quantity.)
 - **The scramble census is the one mechanism here that demands the impossible.**
-  It names all four forbidden cells among its eighteen para-indexes, at
-  robustness 0.043, 0.043, 0.033 and 0.025, none in the top six. Screened it is
-  **14, not 18**. A slice move can carry a `C = 0` cell into arity band 0, which
+  It names all four forbidden cells among its seventeen para-indexes, at
+  robustness 0.059, 0.049, 0.041 and 0.030, none in the top four. Screened it is
+  **13, not 17**. A slice move can carry a `C = 0` cell into arity band 0, which
   no index can occupy. `rubik.py` records none of this.
 - **A product-box fault one level up.** The master index's *own* box is 192
   product positions against **52** realisable, and its self-density moves

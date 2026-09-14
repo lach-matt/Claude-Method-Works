@@ -97,6 +97,16 @@ does not depend on where the bands fell.
     AND A PARA-INDEX IS A CANDIDATE FOR A NAME, NOT AN INSTRUCTION TO BUILD ONE.
     Nothing here is seated, and no para-index is claimed to exist.
 
+AND THE ONE PARA-INDEX THIS FILE EVER PUT WEIGHT ON HAS LEFT THE CENSUS.  Its
+section-3 headline was that the master index's own demanded cell (1,1,0,2,1) is
+also the cell scrambles ask for most often -- rank 1 at 33.4 %.  DOCKET 5
+withdrew that by correcting the frame.  DOCKET 8 then seated an index ON that
+cell, and a para-index is BY DEFINITION a cell no seated index occupies, so it
+is now excluded by the definition itself: rank None, robustness 0.0.  Withdrawn
+twice, for two independent reasons.  What remains is the census, which is a real
+measurement of which cells the orbit asks for -- 17 of them, topped by (1,1,0)
+at 23.1 % -- and no claim that any of them exists.
+
 THE FRAME IS THE WHOLE DIFFICULTY.  Each scramble demands cells in ITS OWN
 coordinates, and those differ from scramble to scramble, so the demands cannot
 be added up as they stand.  Every demand is therefore PULLED BACK through the
@@ -129,16 +139,18 @@ the orbit is where that stops being an assertion.
 AND THE MARGINS ARE THE INTERESTING PART.  Three of the thirteen escape being
 lawful only barely:
 
-        statistics <= information      breaks in     2 of 3,000   (0.07 %)
-        geometry   <= order            breaks in    48 of 3,000   (1.6 %)
-        geometry   <= algebra          breaks in    48 of 3,000   (1.6 %)
+        statistics <= information      breaks in     3 of 3,000   (0.10 %)
+        geometry   <= order            breaks in    55 of 3,000   (1.83 %)
+        geometry   <= algebra          breaks in    55 of 3,000   (1.83 %)
 
 while the rest break in a third to all of the orbit.  The first margin was 16
-of 3,000 before the bounds correction, so the tightest near-law got EIGHT TIMES
-TIGHTER and is still not a law -- which is the sharpest available statement of
-how thin that particular edge of the hierarchy is.  Those three are very
-nearly laws and are not, which is a sharper statement of where the hierarchy is
-thin than counting refutations on one arrangement can give.
+of 3,000 before the bounds correction and 2 of 3,000 after it; seating the
+question index moved it to 3.  THAT IT MOVES AT ALL IS THE POINT: the margin is
+a property of the seated arrangement, and only the ZEROS are properties of the
+law.  The seven zeros have not moved once across three changes of input.  Those
+three pairs are very nearly laws and are not, which is a sharper statement of
+where the hierarchy is thin than counting refutations on one arrangement can
+give.
 """
 
 import itertools
@@ -332,11 +344,16 @@ def para_indexes(n=4000, length=3, kind="1", seed=17):
 # it is the frame that is superseded.
 TOP_PARA_IS_WITHDRAWN_UNDER_DOCKET_5 = True
 
+# AND DOCKET 8 WITHDREW IT A SECOND TIME, by a different mechanism: the question
+# index is seated ON the demanded cell, so the cell is not a para-index at all.
+# demand_is_the_top_para() now returns rank None at robustness 0.0.
+TOP_PARA_IS_WITHDRAWN_UNDER_DOCKET_8 = True
+
 # And the para census names cells NO INDEX CAN OCCUPY. Under move family 1 all
-# four forbidden cells (C=0 at arity band 0) appear among the eighteen, at
-# robustness 0.043, 0.043, 0.033 and 0.025 -- none in the top six. The screened
-# census is FOURTEEN, not eighteen. A slice move can carry a C=0 cell into arity
-# band 0, and this file's arithmetic does not know that is impossible.
+# four forbidden cells (C=0 at arity band 0) appear among the seventeen, at
+# robustness 0.059, 0.049, 0.041 and 0.030 -- none in the top four. The screened
+# census is THIRTEEN, not seventeen. A slice move can carry a C=0 cell into
+# arity band 0, and this file's arithmetic does not know that is impossible.
 PARA_CENSUS_INCLUDES_IMPOSSIBLE_CELLS = 4
 
 
@@ -556,14 +573,15 @@ def selftest():
 
     print("rubik selftest")
     X = seated()
-    chk("the solved state is the master index", len(X), 8)
+    chk("the solved state is the master index", len(X), 9)
     chk("and it collapses to three coordinates", len(next(iter(X))), 3)
-    # THE SOLVED STATE NO LONGER CLOSES. Completing the bounds family took the
-    # master index off closure, so this file's "solved" state is now E = 1 under
-    # statistics. The law separation below is UNAFFECTED -- it is a statement
-    # about the ORBIT, and surviving a change of input exactly is worth more
-    # than it would have been worth had the input never moved.
-    chk("the state no longer closes -- E = 1", profile(X)["statistics"], 1)
+    # AND IT CLOSES AGAIN. This pin has now been moved twice by the input
+    # rather than by this file: DOCKET 4 took the master index off closure
+    # (E = 1), DOCKET 8 seated the question index and put it back (E = 0). The
+    # law separation below is UNAFFECTED by either -- it is a statement about
+    # the ORBIT, and surviving two changes of input exactly is worth more than
+    # it would have been worth had the input never moved.
+    chk("the solved state CLOSES again -- E = 0", profile(X)["statistics"], 0)
 
     # --- the move set
     chk("type-1 moves", len(moves("1")), 47)
@@ -576,7 +594,7 @@ def selftest():
 
     # --- a move is a bijection: size preserved, and it is invertible
     sizes = {len(apply_move(X, m)) for m in moves("all")}
-    chk("every move preserves the cell count", sizes, {8})
+    chk("every move preserves the cell count", sizes, {9})
     inv_ok = True
     for m in moves("all"):
         fa, at, sa, by = m
@@ -596,13 +614,19 @@ def selftest():
         sorted(k for k, v in SIG_STATUS.items() if v != "FORCED"), [1])
 
     # --- the census
+    # AND THE CENSUS INVERTED WHEN THE INPUT DID. At nine indexes 39 of 47
+    # type-1 moves left statistics with E > 0 and 8 held; at ten it is 15 and
+    # 32. That is not this file changing its mind -- E is measured the same way
+    # -- it is the ten-index state being a far more robust closure than the
+    # nine-index one was. THE HEADLINE SURVIVES THE INVERSION: a single move
+    # still breaks it, so the arrangement is still doing work.
     b1, h1, _r = single_move_census("1")
-    chk("type-1 moves that break closure", b1, 39)
-    chk("type-1 moves that hold it", h1, 8)
+    chk("type-1 moves that break closure", b1, 15)
+    chk("type-1 moves that hold it", h1, 32)
     chk("so a single move does NOT always break it", h1 > 0, True)
-    chk("fewest type-1 moves to break closure", distance_to_break("1"), 1)
+    chk("but one IS enough to break it", distance_to_break("1"), 1)
     b2, h2, _r2 = single_move_census("2")
-    chk("and the counterfactual moves break it about as often", (b2, h2), (25, 10))
+    chk("and the counterfactual moves break it FAR less often", (b2, h2), (4, 31))
 
     # --- the orbit
     sigs, states = orbit_signatures(depth=1, kind="1")
@@ -618,12 +642,17 @@ def selftest():
     chk("pulling a scramble back undoes it exactly",
         pull_back(scramble(X, seq), seq), X)
     pi = para_indexes(n=600, length=3, kind="1", seed=5)
-    chk("para-indexes at 600 scrambles", len(pi), 18)
-    # --- AND THE TOP PARA-INDEX IS THE MASTER INDEX'S OWN DEMANDED CELL, with
-    # its own control pinned beside it so the claim cannot be quoted at the
-    # wrong strength. It is a STABILITY result, not a confirmation.
+    chk("para-indexes at 600 scrambles", len(pi), 17)
+    # --- THE TOP-PARA HEADLINE IS NOW UNASKABLE, WHICH IS THE CLEANEST WAY IT
+    # COULD HAVE GONE. A para-index is by definition a demanded cell NO SEATED
+    # INDEX OCCUPIES. DOCKET 8 seated the question index ON the demanded cell,
+    # so the cell is excluded from the census by the definition itself: rank
+    # None, robustness 0.0. It was already withdrawn under DOCKET 5; it is now
+    # withdrawn twice, for two independent reasons, and neither is a repair.
     _rk, _rob, _cf, _cfr = demand_is_the_top_para(n=1000, length=3, seed=17)
-    chk("the demanded cell is the top para-index, IN THE SEATED FRAME", _rk, 1)
+    chk("the demanded cell is SEATED, so it is not a para-index at all",
+        (_rk, _rob, to3(master.DEMANDED_AT_EIGHT) in X), (None, 0.0, True))
+    chk("and the top para-index is some other cell", _cf, (1, 1, 0))
     # ---- AND THAT FRAME IS THE ONE DOCKET 5 CORRECTS. With Petrov at its
     # realisable-box cell (1,1,0,1,2) the demand is deleted, and this headline
     # goes with it: rank 1 at 33.38% becomes RANK 6 AT 7.12%, behind (0,1,0) at
@@ -641,8 +670,12 @@ def selftest():
         TOP_PARA_IS_WITHDRAWN_UNDER_DOCKET_5, True)
     chk("and it is not eligible while the fill stands -- the control",
         _cf != to3(master.DEMANDED_AT_EIGHT), True)
-    chk("SO THIS IS NOT INDEPENDENT CONFIRMATION; the magnitude is what stands",
-        _rob > _cfr, True)
+    # THE MAGNITUDE COMPARISON IS GONE TOO, and it fails in the direction that
+    # refuses the reading: 0.0 against 0.234. Nothing survives of this section's
+    # headline except the census itself, which is still a real measurement of
+    # which cells the orbit asks for.
+    chk("and the magnitude comparison no longer stands either",
+        (_rob, _cfr, _rob > _cfr), (0.0, 0.234, False))
     chk("none of them is a seated cell", any(c in X for c, _r in pi), False)
     chk("every one is demanded by some scramble", all(r > 0 for _c, r in pi), True)
     chk("and the list is sorted by robustness",
@@ -659,8 +692,8 @@ def selftest():
     chk("no unlawful containment survives the whole orbit", len(never - lawful), 0)
     # the near-misses: three escape lawfulness only barely, and that is the point
     chk("statistics <= information breaks only rarely",
-        viol[("statistics", "information")], 1)
-    chk("geometry <= order likewise", viol[("geometry", "order")], 25)
+        viol[("statistics", "information")], 2)
+    chk("geometry <= order likewise", viol[("geometry", "order")], 27)
     chk("but both DO break, so neither is lawful",
         viol[("statistics", "information")] > 0 and viol[("geometry", "order")] > 0,
         True)
@@ -672,7 +705,7 @@ def selftest():
     chk("order and algebra agree everywhere -- Clause B, a theorem",
         hold["order and algebra agree"], n)
     chk("BUT closure is NOT invariant, so the scramble does work",
-        hold["statistics still closes"], 53)
+        hold["statistics still closes"], 47)
     chk("and it is not always broken either",
         hold["statistics still closes"] > 0, True)
     chk("geometry-under-order is NOT invariant -- the law does not claim it",

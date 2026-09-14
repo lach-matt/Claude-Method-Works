@@ -221,9 +221,20 @@ def landing_robustness(roster=DEFAULT_ROSTER):
     return hits, tried
 
 
-def demand_is_live():
-    """Is there a demand to fill?  DOCKET 5 says no."""
+def demand_is_live(with_questions=False):
+    """Is there a demand to fill?  DOCKET 5 says no.
+
+    Measured on the state that MADE the demand -- the master index WITHOUT this
+    index -- with the Petrov row corrected to its realisable box. Once this
+    index is seated the measurement becomes self-referential: it would be asking
+    whether a demand is live on a state that already contains the thing being
+    tested for, and the answer to that is a different question. Pass
+    with_questions=True to ask that other question; the two disagree, and the
+    disagreement is reported rather than hidden.
+    """
     mi = dict(master.master_index())
+    if not with_questions:
+        del mi["questions"]
     mi["spacetimes (Petrov)"] = (1, 1, 0, 1, 2)     # the realisable-box cell
     C = frozenset(mi.values())
     cl, _ = hlaw.closures(C)
@@ -258,10 +269,19 @@ def report():
     print("     %d of %d coordinate subsets land there" % (h, t))
     print("     reduced to the independent content (RET, DECL) it lands on %s"
           % (master.master_cell(cells(keep=(0, 3))),))
-    print("     and Petrov-corrected the master index demands %s"
+    print("     and Petrov-corrected the nine-index master index demands %s"
           % (demand_is_live() or "NOTHING"))
     print("  Three constructions have now hit this cell and none survived.")
     print("  THE FINDING IS ABOUT THE DEMAND, NOT ABOUT THE INDEXES.")
+    print()
+    print("  AND THE INDEX IS SEATED ANYWAY -- master.py inventory()['questions'].")
+    print("  Seating is admission to the master index, which is a closure fact:")
+    print("  the cell was vacant, it is now occupied, and the ten-index master")
+    print("  index closes in statistics at E = 0. It is NOT the demand met.")
+    print("  Petrov-corrected AND with this index seated, the master index")
+    print("  demands %s instead -- a DIFFERENT cell. Correcting the box moves"
+          % (demand_is_live(True) or "NOTHING"))
+    print("  the demand; it does not certify the one that was moved off.")
 
 
 def selftest():
@@ -305,6 +325,15 @@ def selftest():
                if v == (2, 1, 0, 0, 3)), ["periodic layout 2-D"])
     chk("AND THE DEMAND IS NOT LIVE -- DOCKET 5 deleted it", demand_is_live(), [])
     chk("SO THIS IS NOT A FILL", False, False)
+    # SEATED ALL THE SAME, and the two readings are kept apart on purpose.
+    chk("the index IS seated in the master index",
+        "questions" in master.inventory(), True)
+    chk("and it occupies the demanded cell there",
+        master.master_index()["questions"], master.DEMANDED_AT_EIGHT)
+    chk("Petrov-corrected WITH it seated, a different cell is demanded",
+        demand_is_live(True), [(1, 1, 0, 1, 1)])
+    chk("which is not the cell this index occupies",
+        master.DEMANDED_AT_EIGHT in demand_is_live(True), False)
 
     print("questions selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

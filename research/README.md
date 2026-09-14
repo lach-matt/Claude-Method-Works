@@ -8490,11 +8490,22 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   | exotic mechanisms | 8 | 6 | 540 | 1.5 % | statistics | (1,1,0,2,0) |
   | periodic layout 2-D | 90 | 2 | 126 | 71.4 % | information, statistics | (2,1,0,0,3) |
   | periodic layout 3-D | 80 | 3 | 378 | 21.2 % | **nothing** | (0,0,0,1,1) |
-  | Janet `(n+ℓ, ℓ)` | 19 | 2 | 32 | 59.4 % | all five | (5,1,1,0,2) |
+  | Janet `(n+ℓ, ℓ, k)` | 120 | 3 | 448 | 26.8 % | all five | (5,1,1,1,1) |
   | the languages | 5 | 5 | 48 | 10.4 % | **nothing** | (0,0,0,2,1) |
   | substances (Hawking–Ellis) | 8 | 4 | 24 | 33.3 % | **nothing** | (0,0,0,1,2) |
   | spacetimes (Petrov) | 8 | 4 | 80 | 10.0 % | statistics | (1,1,0,1,1) |
-  | **bounds** | **8** | **6** | **216** | **3.7 %** | **nothing** | **(0,0,0,2,0)** |
+  | bounds | 8 | 6 | 216 | 3.7 % | **nothing** | (0,0,0,2,0) |
+  | **questions** | **4** | **5** | **72** | **5.6 %** | **statistics** | **(1,1,0,2,1)** |
+
+  **Ten indexes, nine distinct master cells, and the master index CLOSES in `statistics` at E = 0.**
+  Two rows moved after this table was first written and neither moved by a re-reading: DOCKET 1(a)
+  replaced Janet's arity-2 `(n+ℓ, ℓ)` coarsening with the complete 120-cell `(n+ℓ, ℓ, k)` table, and
+  DOCKET 8 seated `questions`. The question index lands on **(1,1,0,2,1)** — the cell the master index
+  demanded at eight — and returns it to closure. **That is a closure fact and not the demand met**:
+  DOCKET 5 had already deleted the demand as a prediction, the fill holds in only 8 of 40 bandings, and
+  a random same-shaped set in the question index's own box lands on that cell **22.4 %** of the time
+  against **0.02 %** for bounds. Four qualifications, all pinned in `master.py --selftest`; DOCKET 8's
+  closing section states them together.
 
   **Five candidates were adjudicated against `necindex`'s bar — a family of named members sharing one
   declared form over ordinal slots — and none is an index.** Two are coordinates, three are quantities,
@@ -9027,11 +9038,15 @@ committed it on its own example.
   **The control cuts against the easy reading, and it is pinned beside the result.** Refill the
   demand by fiat — the world the withdrawn report described — and rerun: the cell leaves the census
   entirely and `(C 1, D 1, R 0)` tops it at **20.3 %**. *So this is not an independent confirmation
-  of the demand; the two measurements share a cause.* What survives the control is the **magnitude**:
-  32.8 % against 20.3 %, so the demanded cell is asked for more often than the best cell available in
-  the world where it is already filled. **The demand is the most scramble-stable feature of the
-  structure** — a statement about stability, not a second witness. A candidate for a name; nothing is
-  seated for it.
+  of the demand; the two measurements share a cause.*
+
+  **AND THE HEADLINE IS NOW WITHDRAWN TWICE OVER, BY TWO INDEPENDENT MECHANISMS.** DOCKET 5 corrected
+  the frame and dropped the cell from rank 1 at 33.4 % to rank 6 at 7.1 %. DOCKET 8 then seated the
+  question index **on** that cell — and a para-index is *by definition* a cell no seated index
+  occupies, so it is excluded by the definition itself: **rank `None`, robustness 0.0**, against a new
+  top para-index `(C 1, D 1, R 0)` at 23.4 %. The surviving magnitude comparison goes with it: 0.0
+  against 0.234, which fails in the direction that refuses the reading. What remains is the census —
+  17 para-indexes, none seated, none claimed to exist.
   *The frame is the whole difficulty:* each scramble demands cells in its own coordinates, so every
   demand is **pulled back through its own inverse scramble** before being counted. A first pass
   skipped that, summed across incompatible frames, and found zero — an artefact of adding numbers
@@ -9045,17 +9060,56 @@ committed it on its own example.
   broken by any scramble; no unlawful one survives the orbit.
 
   **The margins are the sharp part.** Three of the thirteen escape lawfulness only barely —
-  `statistics ≤ information` breaks in **2 of 3,000** (0.07 %), `geometry ≤ order` and
-  `geometry ≤ algebra` in **48** (1.6 %) — while the rest break in a third to all of the orbit.
-  *(The `statistics ≤ information` margin tightened from 16 to 2 under the bounds correction: the
-  near-law got nearer, and it is still not a law.)* Those
-  three are very nearly laws and are not. Clause E says there is no total ranking; the orbit is where
+  `statistics ≤ information` breaks in **3 of 3,000** (0.10 %), `geometry ≤ order` and
+  `geometry ≤ algebra` in **55** (1.83 %) — while the rest break in a third to all of the orbit.
+  *(The `statistics ≤ information` margin went 16 → 2 under the bounds correction and 2 → 3 under the
+  question seating. **That it moves at all is the point:** a margin is a property of the seated
+  arrangement, and only the SEVEN ZEROS are properties of the law — and those have not moved once
+  across three changes of input.)* Those three are very nearly laws and are not. Clause E says there is no total ranking; the orbit is where
   that stops being an assertion.
 
   **The hazard this file exists under is H97**, where a measurement taken on a re-coordinated index
   was read as a property of the object and was a property of the coordinate system. So **a single
   scramble proves nothing and is never quoted**: every figure here is a count over the orbit or a
   frequency across it.
+
+- **`questions.py`** — **the question index: seven questions, one per language.** *M: "There are seven
+  languages, and likely 7 distinct, formalized, universal questions that can only be asked in that
+  language."* The roster stays **data** — `--roster five|seven`, nothing asserted in code, and this
+  rules nothing on the corpus's own docket 20x-04/20x-09. All seven **ask**; only five **answer with a
+  binary**, which reconciles a discrepancy this tree had carried unexamined: the channel lattice is
+  built on five because register 1173 admits a language only if it returns a binary, while the language
+  index has seven members. The two counts were never in conflict.
+
+  | language | asks — one thing, generally | an answer is |
+  |---|---|---|
+  | order | is there an admissible precedence? | binary |
+  | algebra | is it closed under its operation? | binary |
+  | geometry | does it embed? | binary |
+  | information | does it need an unavailable coordinate? | binary |
+  | statistics | is it drawn from a distribution? | binary |
+  | **analysis** | is there a continuous law? | **magnitude** |
+  | **documentary** | is it recorded, and by what? | **citation** |
+
+  **Coordinatised by properties of the QUESTION** — not of the language, or the index would be the
+  language index relabelled — and the construction returns a negative, which is the useful part:
+  **`RET` determines `OPR`, `RUN` and `SPK`; only `DECL` is independent of it, so seven questions
+  collapse to FOUR distinct cells.** As far as this tree can measure them, the seven questions differ
+  only in what kind of answer they return, refined once by whether roster 1173 declared them.
+
+  **A channel set IS the yes-set of the five binary questions** — 0 mismatches over the nine indexes
+  seated when that was checked. Admission to any index in this tree *is* answering those questions,
+  which is why the index is seated: `master.inventory()["questions"]`, ten indexes, nine distinct
+  master cells, and the master index **closes in `statistics` at E = 0** for the first time since the
+  eighth index was seated.
+
+  **The seating is a closure fact. It is NOT the demand met**, and four measurements say so — DOCKET 5
+  had already deleted the demand; the fill holds in **8 of 40** bandings and the ten-index closure in
+  **17 of 40**, *fewer* than the nine-index one's 20; the landing rests on redundant coordinates
+  (1 of 26 subsets); and the control refuses it outright — **22.4 %** of random same-shaped sets in the
+  question index's own 72-cell box land on that cell, against **0.02 %** for bounds. *The non-generic
+  landing belongs to the stage that was withdrawn, not to the one that is seated.* DOCKET 8 states all
+  four together, and `master.py --selftest` pins them.
 
 ### Deferred proposal — transport in nine gates
 
