@@ -312,6 +312,117 @@ would move it — into the demanded cell itself. Not claimed either way.
 
 ---
 
+## DOCKET 6 — IS THE MASTER INDEX THE RIGHT SHAPE?  **MEASURED, NOT RULED**
+
+*Raised 2026-09-14 by M: "If a vacancy cannot be filled, in an index of
+information, why is there no information to fill them? And does this suggest the
+index is not as accurate as it should be? Should it be a different shape?"*
+
+### The vacancy count, exactly
+
+The honest lawful box is **84** — seven `(C, Sc, Oc)` signatures from the eight
+lawful channel sets (K3 and K4 share `(2,1,0)`), times three arity bands, times
+four density bands.
+
+| | |
+|---|---|
+| lawful box | **84** |
+| seated | 8 |
+| forbidden (arity-2 lemma, at bandings `[3,5]`/`[3,6]`) | 8 |
+| **REALIZABLE VACANCIES** | **68** |
+
+### What is contained in them
+
+A vacancy is a **specification**: *an index closed by these languages, with this
+many coordinates, at this density*. Grouped:
+
+| signature | vacant | seated |
+|---|---|---|
+| closes in nothing | 4 | 4 |
+| **information alone** | **8** | **0** |
+| statistics alone | 10 | 2 |
+| two languages | 11 | 1 |
+| **three languages** | **12** | **0** |
+| **four languages** | **12** | **0** |
+| all five | 11 | 1 |
+
+**Three signatures are wholly empty** — information alone, three languages, four
+languages — and that is **32 of the 68**. The rest spread almost uniformly:
+19/24/25 across arity bands, 17/15/18/18 across density bands.
+
+**That uniformity is the tell.** If arity and density discriminated which
+indexes exist, the vacancies would clump. They do not.
+
+### Why there is no information to fill them
+
+Over the C(9,2) = 36 pairs of seated indexes, how many does each coordinate
+separate that **no other coordinate separates**?
+
+| coordinate | separates | separates **uniquely** |
+|---|---|---|
+| C | 27 of 36 | **0** |
+| Sc | 20 | **0** |
+| Oc | 8 | **0** |
+| D — *assigned* | 24 | **1** |
+| R — *assigned* | 27 | **2** |
+
+**The three coordinates this tree defends as measured carry no unique
+discrimination at all. The two it apologises for carry all of it.**
+
+And the crux: **seven of the nine seated indexes sit under a signature shared
+with another index, and both of those groups are told apart EXCLUSIVELY by D and
+R.** The four "closes in nothing" indexes — bounds, periodic 3-D, substances,
+the languages — are identical in `(C, Sc, Oc)` and separated only by their arity
+and density bands.
+
+**So the answer to M's question is: there is no information to fill the
+vacancies because most of them were never information-bearing positions.** The
+grid measures a real seven-position classification and then multiplies it
+twelvefold by two banded continua. The 68 is the product, not a census of
+absence.
+
+### Is there a better derived fit?  NO, AND THE CONTROL IS WHY
+
+| shape | box | cells | density | closes | indexes sharing a cell |
+|---|---|---|---|---|---|
+| `(C,Sc,Oc,D,R)` full | 84 | 8 | 9.5 % | nothing | 1 |
+| `(C,Sc,Oc,R)` | 28 | 7 | 25.0 % | statistics | 2 |
+| `(C,Sc,Oc,D)` | 21 | 6 | 28.6 % | statistics | 3 |
+| `(C,Sc,Oc)` signature | 7 | 4 | **57.1 %** | **all five** | 5 |
+| `(C)` alone | 6 | 4 | 66.7 % | nothing | 5 |
+
+The signature projection looks like the answer — six times the density, and it
+closes in all five where the full grid closes in nothing.
+
+**IT IS NOT, AND THE CONTROL SAYS SO OUTRIGHT.** Of the C(7,4) = 35 four-element
+subsets of the seven lawful signatures, **all 35 close in all five. 100 %.**
+Closure in that box is forced by its smallness and carries no information
+whatever. The apparent improvement is an artefact of projecting into a box too
+small to fail in.
+
+    A HEADLINE THIS DOCKET NEARLY CARRIED, KILLED BY ITS OWN CONTROL: "the
+    closure signature is the better fit, closing in all five where the full grid
+    closes in nothing."  False.  Every comparable subset does.
+
+### What is therefore established, and what is not
+
+**ESTABLISHED.** The vacancy rate is a product-box artefact; D and R inflate a
+seven-position classification twelvefold. C, Sc and Oc separate nothing
+uniquely. Seven of nine indexes are discriminated only by assigned coordinates.
+
+**NOT ESTABLISHED, and not by omission.** That a better shape exists. Every
+projection tried trades discrimination for density and buys no closure that
+isn't vacuous. The full grid remains the only shape that keeps eight of nine
+indexes distinct.
+
+**SO NO RULING.** The right shape is not settled by finding the current one
+unsatisfactory, and this docket declines to invent one. What it fixes is the
+reading: **the 68 vacancies are not 68 missing indexes.** They are a real
+seven-way classification seen through two banded continua, and any statement of
+the form *"the master index has 68 unfilled positions"* must say so.
+
+---
+
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
 
 The master index seats the periodic table three times: `periodic layout 2-D`
