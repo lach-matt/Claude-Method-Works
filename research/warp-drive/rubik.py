@@ -325,6 +325,21 @@ def para_indexes(n=4000, length=3, kind="1", seed=17):
     return sorted(out, key=lambda t: (-t[1], t[0]))
 
 
+# DOCKET 5 deletes the demand by correcting Petrov's density against a
+# realisable box, and this file's section-3 headline does not survive it: the
+# demanded cell falls from rank 1 at 33.38 % to RANK 6 AT 7.12 %. Recorded here
+# rather than deleted, because the seated-frame measurement is still correct --
+# it is the frame that is superseded.
+TOP_PARA_IS_WITHDRAWN_UNDER_DOCKET_5 = True
+
+# And the para census names cells NO INDEX CAN OCCUPY. Under move family 1 all
+# four forbidden cells (C=0 at arity band 0) appear among the eighteen, at
+# robustness 0.043, 0.043, 0.033 and 0.025 -- none in the top six. The screened
+# census is FOURTEEN, not eighteen. A slice move can carry a C=0 cell into arity
+# band 0, and this file's arithmetic does not know that is impossible.
+PARA_CENSUS_INCLUDES_IMPOSSIBLE_CELLS = 4
+
+
 def demand_is_the_top_para(n=4000, length=3, kind="1", seed=17):
     """(rank, robustness, counterfactual top, its robustness) for the master
     index's own demanded cell in the para census.
@@ -608,7 +623,22 @@ def selftest():
     # its own control pinned beside it so the claim cannot be quoted at the
     # wrong strength. It is a STABILITY result, not a confirmation.
     _rk, _rob, _cf, _cfr = demand_is_the_top_para(n=1000, length=3, seed=17)
-    chk("the demanded cell is the top para-index", _rk, 1)
+    chk("the demanded cell is the top para-index, IN THE SEATED FRAME", _rk, 1)
+    # ---- AND THAT FRAME IS THE ONE DOCKET 5 CORRECTS. With Petrov at its
+    # realisable-box cell (1,1,0,1,2) the demand is deleted, and this headline
+    # goes with it: rank 1 at 33.38% becomes RANK 6 AT 7.12%, behind (0,1,0) at
+    # 19.38%, (1,1,0) at 18.43% and (1,2,2) at 15.78%. WITHDRAWN under the ruling.
+    _orig = master.master_index
+    master.master_index = lambda: {**_orig(), "spacetimes (Petrov)": (1, 1, 0, 1, 2)}
+    try:
+        _pc = para_indexes(n=1000, length=3, kind="1", seed=17)
+    finally:
+        master.master_index = _orig
+    _D3 = to3(master.DEMANDED_AT_EIGHT)
+    _rkc = next((i + 1 for i, (c, _r) in enumerate(_pc) if c == _D3), None)
+    chk("PETROV-CORRECTED, it is not the top para-index", _rkc == 1, False)
+    chk("and the headline is withdrawn under DOCKET 5",
+        TOP_PARA_IS_WITHDRAWN_UNDER_DOCKET_5, True)
     chk("and it is not eligible while the fill stands -- the control",
         _cf != to3(master.DEMANDED_AT_EIGHT), True)
     chk("SO THIS IS NOT INDEPENDENT CONFIRMATION; the magnitude is what stands",

@@ -183,17 +183,42 @@ logically coupled.  Two exact constraints, each at zero violations:
     density against the realisable box  8.88 %   ->  band 1
 
 IT CROSSES A BAND EDGE.  M2's master cell is **(0, 0, 0, 2, 1)**, not
-(0, 0, 0, 2, 0), and therefore:
+(0, 0, 0, 2, 0), and on that basis this file withdrew the coincidence.
 
-    **THE TWO MASTER INDEXES DO NOT COINCIDE.**  M1 is at (0, 0, 0, 2, 0) and
-    corrected M2 at (0, 0, 0, 2, 1).  They agree on channel and arity band and
-    differ in density.  WITHDRAWN.
+===============================================================================
+5c. AND THE WITHDRAWAL WAS MADE ON AN UNFAIR COMPARISON.  IT IS UNDETERMINED.
+===============================================================================
 
-    **AND M1 IS NOT A CELL OF ITSELF.**  That followed from the coincidence and
-    falls with it.  The corrected cell is occupied -- by `the languages`, not by
-    the bounds index.  An index of refusals landing where the index of languages
-    lands is a different observation and is NOT offered as a replacement finding;
-    it is recorded so the reader knows where the corrected cell sits.
+**The correction above was applied to M2's box and NOT to M1's.**  M1's density
+was left as a raw PRODUCT density -- 8 cells in 192 -- while M2's was taken
+against a realisable box.  Comparing a corrected number with an uncorrected one
+is not a measurement, and the withdrawal rested on exactly that.
+
+Applied SYMMETRICALLY -- the same treatment to both -- the readings are:
+
+    both product boxes          M1 (0,0,0,2,0)   M2 (0,0,0,2,0)   COINCIDE
+    M2 corrected, M1 not        M1 (0,0,0,2,0)   M2 (0,0,0,2,1)   differ  <- mine
+    BOTH corrected, 2 clauses   M1 (0,0,0,2,1)   M2 (0,0,0,2,1)   COINCIDE
+    M2 on a fuller clause set   M1 (0,0,0,2,1)   M2 (0,0,0,2,2)   differ
+
+M1's own realisable box is 56 of 192 -- the lawful `(C, Sc, Oc)` signatures, less
+the arity-2 exclusions -- giving 14.29 % against 4.17 %, which crosses the same
+band edge M2 crossed.
+
+    **SO THE COINCIDENCE IS NEITHER STANDING NOR WITHDRAWN.  IT IS
+    UNDETERMINED**, and which way it falls depends on how many exact constraints
+    are applied to M2's profile box -- a count this tree has not settled.  Two
+    clauses restore it; a fuller set removes it, and the fuller set's own figure
+    (a realisable box of 149) was reproduced by one adversarial check and could
+    not be reconstructed by another.
+
+    The same holds of **M1 is a cell of itself**, which follows from the
+    coincidence and shares its status.
+
+RECORDED, NOT REPAIRED, AND THE ERROR IS MINE: an asymmetric correction reported
+as a withdrawal.  What survives unconditionally is the fault itself -- every
+density in this tree is a product density unless it says otherwise -- and that
+is what DOCKET 5 rules on.
 
 THE FAULT IS NOT LOCAL TO THIS FILE.  Every density in this tree is taken
 against a product box.  In the master index's own 72-cell box, four positions
@@ -298,6 +323,11 @@ import hlaw
 import master
 
 CAP = 3000                      # cells scanned per index, for the pooled census
+
+# Section 5c. The coincidence's withdrawal rested on correcting M2's box and not
+# M1's. Symmetrically corrected they coincide again; on a fuller clause set they
+# do not. NEITHER STANDING NOR WITHDRAWN.
+WITHDRAWAL_IS_UNDETERMINED = True
 K1 = frozenset({"information"})
 K5 = frozenset({"geometry", "information", "statistics"})
 
@@ -816,12 +846,21 @@ def selftest():
          or ((p[1] == 2) != (p[0] in (0, 1)))], [])
     cc = corrected_master_cell(M2)
     chk("CORRECTED, M2 sits at (0,0,0,2,1)", cc, (0, 0, 0, 2, 1))
-    chk("SO THE TWO MASTER INDEXES DO NOT COINCIDE -- WITHDRAWN", cc == c1_, False)
-    chk("and M1 is NOT a cell of itself under the corrected reading",
-        cc in M1 and cc == c1_, False)
-    chk("the corrected cell is occupied by the languages, not by bounds",
-        sorted(n for n, v in master.master_index().items() if v == cc),
-        ["the languages"])
+    # ---- AND THE WITHDRAWAL WAS UNFAIR. Section 5c. M2's box was corrected and
+    # M1's was not; applied symmetrically the two coincide again. Pinned so the
+    # error cannot quietly become a result.
+    _ax = [sorted({c[i] for c in M1}) for i in range(5)]
+    _sig = {(len(S), 1 if "statistics" in S else 0, 1 if "order" in S else 0)
+            for S in master.channel_sets()}
+    _r1 = [c for c in itertools.product(*_ax)
+           if c[:3] in _sig and not (c[0] == 0 and c[3] == 0)]
+    chk("M1's own realisable box, never corrected until now", len(_r1), 56)
+    _d1 = len(M1) / len(_r1)
+    _c1sym = (0, 0, 0, 2, sum(1 for e in master.DENSITY_BANDS if _d1 >= e))
+    chk("CORRECTED SYMMETRICALLY, M1 sits at (0,0,0,2,1) too", _c1sym, (0, 0, 0, 2, 1))
+    chk("SO UNDER A SYMMETRIC CORRECTION THEY COINCIDE AGAIN", _c1sym == cc, True)
+    chk("the withdrawal is therefore UNDETERMINED, not established",
+        WITHDRAWAL_IS_UNDETERMINED, True)
     # the pair count the census walks, measured rather than carried as a literal
     chk("the pooled census walks 2,436 pairs", pairs_scanned(), 2436)
     # the construction is NOT forced, and that is recorded

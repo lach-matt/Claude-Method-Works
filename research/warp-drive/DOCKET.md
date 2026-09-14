@@ -486,6 +486,90 @@ producing one.
 
 ---
 
+## DOCKET 7 — IS THE LANGUAGE INDEX THE MASTER INDEX?  **RULED, IN PART**
+
+*Raised 2026-09-14 by M: "My thought is that perhaps the language index is the
+master index."*
+
+### The strong form is false
+
+They are different objects and the refusal index separates them:
+
+    R(the master index) = {0, 2, 3, 4, 5, 7}
+    R(the languages)    = {0, 4, 5, 7}
+
+M1 carries K2 and K3 the language index does not. Nine cells against five, and
+different content. **Not the same index.**
+
+### But M1's own master cell IS the language index's cell
+
+Corrected symmetrically — both densities against realisable boxes, the fix
+`duality.py` §5c makes — M1 sits at **(0, 0, 0, 2, 1)**, and that is exactly
+where `the languages` sits. The master index's own master cell is the language
+index's cell.
+
+*Recorded and not leaned on:* a random 8-cell set self-coincides about 4 % of the
+time, and given self-coincidence, landing on any one of eight occupied cells is
+about one in eight. The coincidence is exact; it is not rare.
+
+### AND THE DEEP FORM IS TRUE, WHICH IS WHAT THE HYPOTHESIS WAS FOR
+
+**M1's entire measured content is a point in the language down-set lattice.**
+
+The eight lawful channel sets are precisely the eight **down-sets of the language
+containment order** — that is what makes them lawful, and `master.channel_sets()`
+derives them that way. So `(C, Sc, Oc)` is not three independent measurements; it
+is one measurement, *which languages close this index*, whose value space is an
+eight-element lattice of subsets of the languages. Nothing else in M1 is
+measured: `D` and `R` are assigned bands, and DOCKET 6 shows they do **all** the
+discriminating while `C`, `Sc` and `Oc` separate nothing uniquely.
+
+    THE 84-CELL GRID IS (7 signatures drawn from an 8-element language lattice)
+    x (3 arity bands) x (4 density bands).
+
+    THE LATTICE IS MEASURED.  THE TWELVE IS ASSIGNED.
+
+### So the shape M asked for, and it was never invented — it was there
+
+| | positions | occupied | vacancies |
+|---|---|---|---|
+| as the 84-cell grid | 84 | 8 | **68** |
+| **as the language lattice** | **8** | **6** | **2** |
+
+| K | closes in | standing |
+|---|---|---|
+| K0 | `{}` | seated ×4 |
+| **K1** | `{information}` | **VACANT** |
+| K2 | `{statistics}` | seated ×3 |
+| K3 | `{geometry, statistics}` | species ×4 |
+| K4 | `{information, statistics}` | seated ×1 |
+| **K5** | `{geometry, information, statistics}` | **VACANT** |
+| K6 | `{algebra, information, order, statistics}` | witness |
+| K7 | all five | seated ×1 |
+
+**The master index has two vacancies, not sixty-eight.** And both are named
+specifications rather than positions in a padded box: *an index closed by
+information alone*, and *an index closed by geometry, information and statistics*.
+K1 is the warp obstruction's own kind.
+
+### What is ruled, and what this does not claim
+
+**RULED.** Any statement of the form *"the master index has N unfilled
+positions"* must say which reading it is using. Against the language lattice —
+the only part of M1 that is measured rather than assigned — **N is 2.**
+
+**NOT CLAIMED: that 6 of 8 is remarkable.** Control: nine indexes thrown at eight
+positions fill **5.60** on average, and the corpus fills 6. The occupancy is
+exactly at chance. What the lattice buys is not a surprising density but the
+*right box* — one forced by the closure law rather than chosen, whose vacancies
+are specifications instead of padding.
+
+**NOT RULED: that M1 should be rebuilt as the lattice.** Collapsing to it loses
+the discrimination `D` and `R` provide, which DOCKET 6 measures as all of it.
+The two readings answer different questions and both are now stated.
+
+---
+
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
 
 The master index seats the periodic table three times: `periodic layout 2-D`
