@@ -10,14 +10,24 @@ A ruling here binds this tree's instruments and nothing else. It is not a
 Register entry and must never be cited as one.
 
 **A figure inside a ruled docket is AS MEASURED WHEN THAT DOCKET WAS RULED, and
-several have moved since.** DOCKET 8 seated a tenth index, so "nine indexes,
-eight cells" is now ten and nine; the master index closes in `statistics` at
-E = 0 where earlier dockets record it demanding one cell; and the counts in
-DOCKET 5's and DOCKET 6's tables were taken at nine. They are left as written
-because a docket is the record of a decision and the measurement it rested on —
-changing them would make the ruling unreadable. **For a current figure ask the
-instrument, never this file**: `master.py --selftest` pins the live counts, and
-DOCKET 8's closing section states which ones moved.
+several have moved since — some of them twice.** DOCKET 8 seated a tenth index,
+taking "nine indexes, eight cells" to ten and nine; **DOCKET 2 then withdrew
+one, and the live figure is nine indexes on eight cells again — a different
+nine and a different eight.** The master index closed in `statistics` alone at
+E = 0 where earlier dockets record it demanding one cell, and **since DOCKET 2
+it closes in `{geometry, statistics}`**: withdrawing an index GAINED it a
+language. The counts in DOCKET 5's and DOCKET 6's tables were taken at nine.
+They are left as written because a docket is the record of a decision and the
+measurement it rested on — changing them would make the ruling unreadable.
+**For a current figure ask the instrument, never this file**: `mi.py --selftest`
+pins the live index, rebuilt from scratch on admissible coordinates, and
+`master.py --selftest` pins the five-coordinate reading it succeeds.
+
+**AND TWO COORDINATES OF THAT FIVE ARE NOW DISQUALIFIED.** DOCKET 3 states the
+criterion and measures arity and density against it: both move on 9 of 9. Every
+five-coordinate cell quoted anywhere in this file is a statement about a chart,
+two of whose coordinates are decoration. The rulings stand; the coordinates they
+are written in do not all survive.
 
 ---
 
@@ -736,7 +746,70 @@ demand; it does not certify the one it moved off.
 
 ---
 
-## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
+## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **RULED**
+
+> **RULING (M).** *"3D is the finding and it is the superseding model moving
+> forward in all projects working with the corpus."*
+>
+> `periodic layout 2-D` is **WITHDRAWN** from the inventory as
+> over-representation. `periodic layout 3-D` supersedes it. Nine seated
+> indexes, eight distinct cells.
+
+**AND THE MEASUREMENT NOW SUPPORTS THE RULING, WHERE ONCE IT CUT AGAINST IT.**
+The paragraphs below were written when the 3-D chart stopped at Z = 108 — a
+defect, not a fact about the chart: `populate.block_of` reads the *observed*
+differentiating electron from `LW1-ground.py`, which stops there. Taken from
+Madelung, which needs no observation, **both charts reach 92 positions**, and on
+all ninety-two:
+
+| chart | cells | injective | reaches |
+|---|---|---|---|
+| `(period, group)` | 92 | yes, one element each | Z ≤ 120 |
+| `(period, group, block)` | 92 | yes, one element each | Z ≤ 120 |
+| `(n+ℓ, ℓ)` | 20 | **no** — 92 onto 20 | Z ≤ 120 |
+
+3-D projected onto `(period, group)` **is** 2-D, cell for cell, and `block` is a
+function of `(period, group)` with **zero** exceptions. So 2-D is a strict
+projection of 3-D and reaches nothing 3-D does not. The old objection — *"2-D
+reaches ten elements 3-D cannot"* — was an artefact of the truncated build and
+is **withdrawn**. Janet stays: it is a strict coarsening, not a duplicate, and
+it is the only chart of the three that is not injective.
+
+**WHAT THE RULING COST, STATED IN FULL.** Withdrawing one index is not free and
+none of this is hidden:
+
+- **The master index GAINED a language.** At ten it closed in `{statistics}`
+  alone; at nine it closes in `{geometry, statistics}`. The withdrawn chart was
+  obstructing geometry.
+- **K1 left the corpus entirely.** `refusal.py` §4's rarest refusal kind is now
+  carried by no seated index. The cause is **the block convention, not the
+  reach** — see the four-build table in `refusal.block_convention_table()` —
+  and completing the chart *forced* that convention, because past Z = 108 there
+  is no observed differentiating electron to read. **That convention question
+  is still open and a ruling is owed**; DOCKET 2 closed it by side effect.
+- **K7 became universal.** The withdrawn chart was the one index too dense
+  (71.4 %) to have a cell every language refuses. The counterexample was
+  removed rather than explained, so this is a fact about the seated nine and
+  not a law about indexes.
+- **`rubik.py`\'s discriminator became under-powered** — the withdrawal removed
+  most of the law-violating region and its sampled test began reporting two
+  unlawful containments as lawful. Repaired by making it exhaustive.
+
+**A departure from a corpus figure was required and is recorded.** The
+open-bound ruling (*"until we can prove that no more elements are left to
+discover or synthesize, the upper bound of the periodic table is open"*) applies
+to both charts or to neither. Applied to 2-D it gives 92 cells where chapter 6
+draws 90. **The corpus is not changed**: section 6 still states ninety,
+`tools/populate.py` is untouched, and `layout_closure()` returns what it always
+returned. `research/` now *constructs* its two-coordinate chart instead of
+importing the drawn one. M: *"yes, and we must do it because the evidence says
+we must."*
+
+The original argument, kept as the record of what was measured before:
+
+---
+
+### The original entry (superseded above)
 
 The master index seats the periodic table three times: `periodic layout 2-D`
 `(period, group)`, `periodic layout 3-D` `(period, group, block)`, and
@@ -751,11 +824,99 @@ Yet they occupy three different master cells in three different channels, and
 in nothing.** So the duplication is real and the vacancy is not caused by it.
 
 **What would settle it: a criterion for a legitimate chart.** This tree has never
-stated one, and docket 3 is why that is now urgent.
+stated one, and docket 3 is why that is now urgent. *(DOCKET 3 now states one —
+see the ruling below.)*
 
 ---
 
-## DOCKET 3 — WHAT IS A LEGITIMATE CHART?  **OPEN, AND IT IS THE PRIOR QUESTION**
+## DOCKET 9 — WHICH BLOCK CONVENTION DOES THE CORPUS RULE FOR?  **OPEN, AND OWED**
+
+**DOCKET 2 CLOSED THIS BY SIDE EFFECT AND THAT IS NOT A RULING.** Completing the
+three-coordinate layout required abandoning the *observed* differentiating
+electron — `populate.block_of` reads it from `LW1-ground.py`, which stops at
+Z = 108, so past there is nothing to read — and adopting the *Madelung* block.
+That was forced by the completion, argued for by nobody, and it destroyed the
+corpus's last K1 cell.
+
+**THE MEASUREMENT ISOLATING IT** (`refusal.block_convention_table()`):
+
+| reach | block convention | cells | K1 |
+|---|---|---|---|
+| 108 | observed | 80 | at `(4,11,0)` |
+| 108 | **madelung** | 80 | **none** |
+| 120 | observed | 80 | at `(4,11,0)` |
+| 120 | **madelung** | 92 | **none** |
+
+The reach does nothing alone — under the observed convention, extending to 120
+adds not one cell. **The convention does all of it.**
+
+**AND `refusal.py` §4 PREDICTED THE DESTINATION BEFORE DOCKET 2 EXISTED**, for a
+*third* convention (the block read off the drawn layout): *"K1 VANISHES,
+becoming K4 {information, statistics}"*. The measured value of `(4,11,0)` in the
+completed chart is K4, `{information, statistics}`, exactly. Two different
+departures from the observed convention, the same destination.
+
+**What would settle it:** a corpus citation. `populate.py`'s `block_of` asserts
+its convention in a docstring **without citing a register**, where `period_of`
+and `group_of` are pinned to section 6's ninety cells. DOCKET 1 ruled on how a
+block is *assigned* given a convention; it did not rule on which convention the
+corpus holds. Until that is settled, **the absence of K1 from this corpus is a
+fact about a convention this tree chose under duress**, and must not be quoted
+as a fact about the elements.
+
+Nothing is repaired on the strength of this.
+
+---
+
+## DOCKET 3 — WHAT IS A LEGITIMATE CHART?  **RULED**
+
+> **THE CRITERION.** A coordinate of the master index is **admissible** iff it
+> is invariant under appending a **monotone redundant** coordinate to the index
+> it charts.
+
+**IT IS WELL-POSED, AND THAT IS THE WHOLE ARGUMENT.** For monotone `g`,
+`(x, g(x)) ≤ (y, g(y)) ⟺ x ≤ y`. So appending a monotone redundant coordinate
+cannot change the order, cannot change which elements the index distinguishes,
+and cannot change anything the index *is*. Whatever moves under it was reading
+the chart and not the object. No appeal to taste, no list of blessed
+coordinates — one operation, and the coordinate either survives it or does not.
+
+**MEASURED OVER THE NINE SEATED INDEXES** (`charts.py`):
+
+| coordinate | moves on | verdict |
+|---|---|---|
+| arity | 9 of 9 | **DISQUALIFIED** |
+| density | 9 of 9 | **DISQUALIFIED** |
+| height | 0 of 9 | admitted |
+| width | 0 of 9 | admitted |
+| cells | 0 of 9 | admitted |
+| comparable pairs | 0 of 9 | admitted |
+| join-irreducibles | 0 of 9 | admitted |
+
+The separation is total — 9/9 or 0/9, nothing in between. **`D` and `R`, two of
+the five coordinates the master cell has been written in throughout this tree,
+fail.** `C` survives, which is why the closure reading was never in doubt.
+
+**CONSEQUENCE, AND IT IS THE REBUILD.** `mi.py` charts the master index on
+`(K, height, width)` — all admissible — and inherits nothing from `master.py`.
+`master.py` keeps its five-coordinate cell so the record of what was measured
+under it stays readable, and every file that quotes a five-coordinate cell is a
+statement about a chart two of whose coordinates are now known to be decoration.
+`rubik.py` §5b records the sharpest case: its puzzle is the cuboid `(C, D, R)`,
+so its "legitimate perturbation" shifts exactly the two disqualified axes.
+
+**AND IT ANSWERS THE DEMAND.** The demanded cell `(1,1,0,2,1)` is written in the
+disqualified chart. The criterion does not say the demand is void; it says the
+demand was **exactly as strong as the then-unstated criterion**, which is
+weaker than it has been stated anywhere in this tree, and that the right cell
+to demand is one written in admissible coordinates. Nothing is repaired on the
+strength of this — the five-coordinate readings stand as records.
+
+The original argument, kept as the record of what was measured before:
+
+---
+
+### The original entry (superseded above)
 
 A master cell is a property of the **chart**, not of the object. Appending a
 coordinate that is a *function of the existing ones* — zero information — moves

@@ -1870,15 +1870,25 @@ def selftest():
     print("\nCoverage -- the guard against looping")
     here = os.path.dirname(os.path.abspath(__file__))
     cited = {f[4] for f in FINDINGS} | {s[1] for s in SUPPORT}
-    # INSTRUMENT DOCUMENTATION, not findings papers, and therefore not cells.
-    # Every other .md here reports a result that bears on one of the three axes.
-    # These two document a TOOL: HLAW.md is the hierarchy law as a runnable
-    # instrument, PROOF-ASSISTANT.md is the Z3 route and its two guards. Neither
+    # INSTRUMENT DOCUMENTATION AND GOVERNANCE, not findings papers, and
+    # therefore not cells. Every other .md here reports a result that bears on
+    # one of the three axes. These document a TOOL or a DECISION: HLAW.md is the
+    # hierarchy law as a runnable instrument, PROOF-ASSISTANT.md is the Z3 route
+    # and its two guards, REFUSAL.md is the refusal index instrument, and
+    # DOCKET.md is this tree's open questions and the rulings on them. None
     # identifies warp energy, says whether a drive is possible, or derives a
-    # spec, so neither has a cell -- and giving them (0, 0, 0) to satisfy this
+    # spec, so none has a cell -- and giving them (0, 0, 0) to satisfy this
     # guard would assert a bearing they do not have. Exempted BY NAME so the
     # guard still fires on any findings paper that goes unindexed.
-    NOT_FINDINGS_PAPERS = {"HLAW.md", "PROOF-ASSISTANT.md"}
+    #
+    # THE GUARD CAUGHT THESE TWO LATE AND THAT IS THE GUARD WORKING. REFUSAL.md
+    # and DOCKET.md were both written after this list was fixed, and index3
+    # went unrun between; the first full sweep of the tree's selftests failed
+    # here. The exemption is the right answer and the delay is recorded, not
+    # tidied away: a guard that only fires when someone runs it is only as good
+    # as the sweep.
+    NOT_FINDINGS_PAPERS = {"HLAW.md", "PROOF-ASSISTANT.md",
+                           "REFUSAL.md", "DOCKET.md"}
     papers = sorted(os.path.basename(q) for q in glob.glob(os.path.join(here, "*.md")))
     uncited = [d for d in papers if d not in cited and d not in NOT_FINDINGS_PAPERS]
     ok &= (uncited == [])

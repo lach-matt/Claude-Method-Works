@@ -16,6 +16,18 @@ Every figure below carries the command that produces it. Run from
 `research/warp-drive/` unless stated. The instrument is `refusal.py`; the
 rulings it depends on are in `DOCKET.md`.
 
+> **DOCKET 2 AND DOCKET 3 MOVED THIS DOCUMENT AND IT HAS BEEN RE-MEASURED, NOT
+> RE-PHRASED.** `periodic layout 2-D` is withdrawn as over-representation, so
+> the inventory is **nine indexes on eight cells**, and the master index closes
+> in `{geometry, statistics}` where at ten it closed in `statistics` alone —
+> withdrawing an index *gained* it a language. Four headlines here were false
+> afterwards and each is corrected in place with what it used to say:
+> **K7 is now universal** (§1), **K is invariant and not merely monotone** (§2),
+> **K1 is carried by nothing at all** (§4), and **the chart criterion this
+> document asks for now exists** (§6). Two of the five coordinates every cell
+> here is written in are **disqualified** by that criterion; the readings stand
+> as records, and `mi.py` is the index rebuilt on admissible ones.
+
 ---
 
 ## 1. What it is
@@ -37,27 +49,35 @@ R(X) = { the refusal set of c : c a cell of X's box }   ⊆ {K0 … K7}
 | index | R(X) |
 |---|---|
 | Janet `(n+ℓ, ℓ, k)` | `{0,7}` |
-| periodic layout 2-D | `{0,4}` |
 | substances (Hawking–Ellis) | `{0,2,7}` |
 | the languages | `{0,4,5,7}` |
 | bounds | `{0,2,3,4,7}` |
 | questions | `{0,2,4,5,7}` |
 | spacetimes (Petrov) | `{0,3,4,5,7}` |
 | energy-condition family | `{0,2,3,4,5,7}` |
+| periodic layout 3-D | `{0,3,4,5,6,7}` |
 | exotic mechanisms | `{0,2,3,4,5,6,7}` |
-| periodic layout 3-D | `{0,1,3,4,5,6,7}` |
 
-**K0 is universal.** Every seated index has cells that *nothing* refuses — cells
-inside all five closures. Ten of ten.
+**K0 and K7 are both universal.** Every seated index has cells that *nothing*
+refuses — inside all five closures — and cells that *everything* refuses. Nine
+of nine both ways.
 
-**K7 is in nine of ten.** The exception is `periodic layout 2-D`, and it is the
-densest index in the corpus at 71.4 %: too full to have a cell every language
-refuses. Dilute it and K7 appears — see §3.
+> **This document said "only K0 is universal" and "K7 is in nine of ten" from
+> the day it was written until DOCKET 2.** The exception was `periodic layout
+> 2-D`, the densest index in the corpus at 71.4 %: too full to have a cell every
+> language refuses. Withdrawing that chart made K7 universal — which **removed
+> the counterexample rather than explaining it**, so this is a fact about the
+> seated nine and *not* a law about indexes. §3's dilution test is the reason to
+> think it would have gone anyway; the test was run on the chart, not the claim.
 
-**The lattice.** Minimal: Janet and periodic layout 2-D. Maximal: exotic
-mechanisms and periodic layout 3-D. **Thirteen of the forty-five pairs are
+**K1 is in nothing** — see §4, where it used to be two, then one, then none.
+**K6 is in two**, and is now the rarest kind any seated index holds.
+
+**The lattice.** Minimal: **Janet alone**. Maximal: **exotic mechanisms alone**
+— `bounds` was a maximum until DOCKET 4 took K1 off it, and `periodic layout
+3-D` until DOCKET 2 did the same. **Ten of the thirty-six pairs are
 incomparable**, so this is a lattice and not a chain — the same shape the channel
-reading has, and for the same reason. The tenth index, `questions`, changed
+reading has, and for the same reason. `questions`, seated by DOCKET 8, changed
 neither the minima nor the maxima: it sits at `{0,2,4,5,7}`, inside `exotic
 mechanisms`, and it is the only index whose *whole profile set* nests inside
 another's (§3).
@@ -90,30 +110,54 @@ information about which member is which — and truncate the profile:
 
 | truncation | invariant in |
 |---|---|
-| `(K,W,H,J,A)` | 3 of 9 |
-| `(K,W,J)` | 6 of 9 |
-| `(K,W)` | 6 of 9 |
-| **`(K)`** | **8 of 9 — and the one exception only GROWS** |
+| `(K,W,H,J,A)` | 4 of 9 |
+| `(K,W,J)` | 7 of 9 |
+| `(K,W)` | 7 of 9 |
+| **`(K)`** | **9 of 9 — NO EXCEPTION IN EITHER DIRECTION** |
 
-The exception is `periodic layout 2-D`, whose `{0,4}` gains K7. So **K is monotone
-under monotone re-charting: it never loses a refusal kind.** `H` is a capped
-Hamming distance and `A` is the host's arity band, both dimension-dependent by
-construction; what is worth having is that dropping them is not enough, and only
-`K` survives.
+**K is not merely monotone. It is invariant.** This table read `8 of 9 — and the
+one exception only GROWS`, the exception being `periodic layout 2-D`, whose
+`{0,4}` gained K7. DOCKET 2 withdrew that chart and the claim strengthened from
+*never loses a kind* to *never changes one*. `H` is a capped Hamming distance and
+`A` is the host's arity band, both dimension-dependent by construction; what is
+worth having is that dropping them is not enough, and only `K` survives.
+
+> **Two cautions on this table, and the first is a bug this tree shipped.**
+>
+> **The scans were capped and the cap manufactured a refutation.** They ran under
+> `cap = 3000`, and completing the periodic chart under DOCKET 2 grew its
+> re-charted box to 4,608 cells. `itertools.product` enumerates in a fixed order,
+> so the cap took a **lexicographic prefix** — and appending a coordinate
+> reorders the product, so the two capped scans covered *different regions of
+> different boxes*. The unscanned 35 % came back as *"periodic layout 3-D loses
+> K5"*, a refutation of this section's own headline made entirely of truncation.
+> `truncation_survival` is now **exact by default** and `refusal._uncapped()`
+> raises rather than let a prefix pass as a sample. The old ten were never
+> affected — every box among them was under the cap.
+>
+> **The first row is not a measurement.** `A` is the host's arity *band*, a
+> function of dimension alone, and appending a coordinate changes dimension by
+> construction — so any index whose band crosses 4 → 5 **must** differ, whatever
+> it holds. `spacetimes (Petrov)` and `substances` differ in that slot and no
+> other, their gains and losses pairing off one-for-one with `A` going 1 → 2.
+> **Two of the five non-invariant rows are the ruler moving, not the object.**
 
 Under a **non-monotone** re-charting `K` is not even monotone — the periodic
-table's 2-D profiles are not contained in its 3-D ones. The invariance is
-conditional and the condition is stated.
+table's 2-D profiles were not contained in its 3-D ones, back when both were
+seated. The invariance is conditional, the condition is stated, and **DOCKET 3
+now states the criterion that makes the condition checkable** (`charts.py`).
 
 ---
 
 ## 3. Does every index share one refusal index? No, and the control kills the
 ## question too
 
-Built **separately per index** on the full `(K,W,H,J,A)` profile, the ten sets are
-**0 of 45 identical and 2 of 45 comparable** — at full coordinates and with `A`
-dropped alike. The conjecture is false at its strongest reading: no two indexes
-have the same refusal profile set, and 43 of the 45 pairs do not even nest.
+Built **separately per index** on the full `(K,W,H,J,A)` profile, the nine sets
+are **0 of 36 identical and 2 of 36 comparable** — at full coordinates and with
+`A` dropped alike. The conjecture is false at its strongest reading: no two
+indexes have the same refusal profile set, and 34 of the 36 pairs do not even
+nest. *(0 of 45 and 2 of 45 at ten; DOCKET 2's withdrawal removed nine pairs and
+neither of the two comparable ones.)*
 
 **AND THE "0 of 36 comparable" THIS SECTION USED TO CLAIM WAS ALREADY STALE
 BEFORE THE TENTH INDEX ARRIVED.** The two comparable pairs are
@@ -129,12 +173,21 @@ to the instrument — `refusal.py` computes it fresh every run.
 
 **The control still says observing zero *identical* pairs was never informative.**
 Over random families of the same shapes, identical pairs came out at a mean of
-**0.07 of 36** at nine indexes. That control has **not** been re-run at ten and
-the figure is quoted as what it is: the nine-index measurement.
+**0.07 of 36** at nine indexes. That control was never re-run at ten, and the
+inventory is back at nine — but it is a **different** nine, so the figure is
+still quoted as what it is and not as current.
 
-There is exactly **one** profile all ten share, `(K,W,H,J) = (0,2,0,3)`, and it
-holds of a cell **iff that cell is a member** — definitional, and worthless. Any
-claim of the form *"all ten indexes share a refusal profile"* is true and empty.
+**There are now TWO profiles all nine share, and one of them is not worthless.**
+
+- `(K,W,H,J) = (0,2,0,3)` holds of a cell **iff that cell is a member** —
+  definitional. Any claim of the form *"all nine indexes share a refusal
+  profile"* built on this one is true and empty.
+- `(K,W,H,J) = (7,1,1,0)` is **new with DOCKET 2**: every seated index has a
+  vacant cell at Hamming distance 1 from a member, partially projected, neither
+  a join nor a meet, that **all five languages refuse**. It is not definitional.
+  It is also not independent of the withdrawal — it arrived when K7 became
+  universal and inherits exactly that caveat: the counterexample was removed,
+  not explained. Recorded as a shared profile, **not** offered as a law.
 
 **What replaces the conjecture is sharper**: a rare `K` value is a thread between
 exactly the indexes carrying it. That is why §4 mattered, and why §4 is now
@@ -142,11 +195,12 @@ closed.
 
 ---
 
-## 4. The K1 thread, and it is dead at both ends
+## 4. The K1 thread, and it is dead at all three ends
 
 K1 — *information refuses, everything else admits*; every pair of requirements
 jointly satisfiable and the full combination not — was the warp obstruction's own
-kind, and it occurred in two indexes. Neither survived.
+kind, and it occurred in two indexes. Neither survived, and then **DOCKET 2 took
+the cell that outlived both**. The corpus now holds **no K1 cell at all**.
 
 **DOCKET 1 — the periodic K1 is a CONVENTION seam.** `periodic layout 3-D` takes
 period and group from the drawn 18-column layout and the block from the observed
@@ -177,7 +231,37 @@ Newton's constant"*. And the black-hole saturation that motivated `G = 1` is
 already carried by the `K` slot, so coding it again double-counts one fact across
 two coordinates. Re-coded, **the bounds index holds no K1 cell.**
 
-**So the corpus holds one K1 cell and DOCKET 1 ruled it an artefact.**
+**DOCKET 2 — and the last cell is gone, killed by a convention nobody ruled on.**
+Completing the three-coordinate layout destroyed `(4,11,0)` as a K1 cell. The
+cell is **still in the box and still vacant**; only its refusal moved, from
+`{information}` to `{information, statistics}` — K1 to K4.
+
+Two things changed together and only one did the work
+(`refusal.block_convention_table()`):
+
+| reach | block convention | cells | K1 |
+|---|---|---|---|
+| 108 | observed | 80 | at `(4,11,0)` |
+| 108 | **madelung** | 80 | **none** |
+| 120 | observed | 80 | at `(4,11,0)` |
+| 120 | **madelung** | 92 | **none** |
+
+**The convention does all of it.** `populate.block_of` returns `None` past
+Z = 108, so extending the reach under the observed convention adds not one cell;
+switching the convention at the *old* reach kills K1 by itself. And the
+convention was **not optional** — past 108 there is no observed differentiating
+electron to read — so completing the chart *forced* it.
+
+**This section predicted the destination before DOCKET 2 existed.** The paragraph
+below on the drawn block says K1 *"vanishes, becoming K4 {information,
+statistics}"*. The measured value of `(4,11,0)` in the completed chart is K4,
+`{information, statistics}`, exactly. Two different departures from the observed
+convention, the same destination — which is stronger evidence for the
+convention-dependence claim than either departure alone.
+
+**So the corpus holds no K1 cell, and DOCKET 9 records that the convention
+question is still open and a ruling is owed.** DOCKET 2 closed it by side effect,
+which is not a ruling.
 
 ### And the warp cell's K1 is a different object entirely
 
@@ -230,24 +314,41 @@ structure, addressable by name, with its own lattice — and adds no row. M's wo
 Every density in this tree is taken against a **product box**, and a product box
 holds positions no member could occupy.
 
-**The master index's cells are charts, not objects.** On the 80 elements all
-three periodic charts reach, `(period, group)` and `(period, group, block)` are
-both injective, and `block` is a **function of** `(period, group)` there — the
-3-D chart is the 2-D chart plus a coordinate carrying zero information. Yet:
+**The master index's cells are charts, not objects.** Re-measured on the
+**completed** charts, which both reach 92 positions: `(period, group)` and
+`(period, group, block)` are both injective with one element per cell, 3-D
+projected onto `(period, group)` **is** 2-D cell for cell, and `block` is a
+function of `(period, group)` with **zero** exceptions — the 3-D chart is the 2-D
+chart plus a coordinate carrying zero information about which element is which.
+*(The original run used 80 elements, because the 3-D chart was truncated at
+Z = 108; it got the right answer on evidence that could not have detected a block
+separating only among the twelve it could not see. The finding now rests on all
+ninety-two.)* Yet:
 
-| chart, same 80 elements | closes in | master cell |
+| chart, same 92 elements | closes in | master cell |
 |---|---|---|
 | `(period, group)` | statistics | (1,1,0,0,3) |
 | + a **monotone** redundant coordinate | statistics | (1,1,0,1,1) |
-| + the **block**, non-monotone, 356 order-reversing pairs | **nothing** | (0,0,0,1,1) |
+| + the **block**, non-monotone, 627 order-reversing pairs of 2,294 | **nothing** | (0,0,0,1,1) |
 
-Across the ten, a monotone redundant coordinate moves **six** master cells and
-changes **no** channel.
+The three cells are unchanged from the 80-element reading; only the
+order-reversal count moved, 356 → 627. Across the **nine**, a monotone redundant
+coordinate moves **five** master cells and changes **no** channel.
 
-**And the demand was satisfiable by relabelling.** 28 of 640 re-chartings of the
-already-seated ten land on `(1,1,0,2,1)` — including **the bounds index minus its
+**And the demand was satisfiable by relabelling.** 28 of 625 re-chartings of the
+already-seated nine land on `(1,1,0,2,1)` — including **the bounds index minus its
 gravity coordinate**, and the energy-condition family under five different
 single-coordinate drops.
+
+> **AND DOCKET 3 NOW STATES THE CRITERION THIS SECTION COULD ONLY ASK FOR.** A
+> coordinate is admissible iff it survives appending a *monotone* redundant
+> coordinate — well-posed because for monotone `g`, `(x,g(x)) ≤ (y,g(y)) ⟺
+> x ≤ y`. Measured over the nine: **arity and density move on 9 of 9 and are
+> DISQUALIFIED**; height, width, cells, comparable pairs and join-irreducibles
+> move on **0 of 9** and are admitted. The separation is total. So every
+> five-coordinate cell in this document is written in a chart two of whose
+> coordinates are decoration, and `mi.py` rebuilds the index on
+> `(K, height, width)`.
 
 **Then the demand was deleted outright.** A Weyl tensor has exactly four principal
 null directions, so Petrov's `(P,X)` is a partition of four: product box 80,
@@ -297,23 +398,31 @@ built directly.
 
 ## 8. Recorded, not repaired
 
-- **The ten refusal indexes are pairwise distinct**, and the control says that was
-  never going to be otherwise. They are *not* pairwise incomparable — two of the
-  45 pairs nest, and §3 records that this file claimed otherwise on a stale
+- **The nine refusal indexes are pairwise distinct**, and the control says that
+  was never going to be otherwise. They are *not* pairwise incomparable — two of
+  the 36 pairs nest, and §3 records that this file claimed otherwise on a stale
   measurement. Recorded.
-- **K1 has one instance and it is an artefact.** The warp obstruction stands on
-  its own measurement and has no companion in this corpus.
+- **K1 has NO instance at all.** It had two, then one (an artefact, DOCKET 1),
+  and DOCKET 2 took the last. The warp obstruction stands entirely on its own
+  measurement, with no companion anywhere in this corpus — and §4 records that
+  the cause was a block convention nobody ruled on (DOCKET 9).
+- **Two coordinates of the five this document is written in are disqualified.**
+  DOCKET 3 states the criterion and measures arity and density against it: both
+  move on 9 of 9. The readings below stand as records of what was measured; the
+  chart they are written in does not survive its own test. See `mi.py`.
 - **The demand mechanism is NOT empty, and this bullet said the opposite.** A
   screening pass shows **every demand the lattice has ever made is realisable** —
   56 (banding, state, cell) triples across the whole history, **zero** forbidden.
   So `E_realisable` salvages nothing because nothing needed salvaging: it bites
   on order and algebra alone. Petrov-corrected, the **populated 80-index** master
   index still demands `(1,1,0,0,2)` — and now `(1,1,0,1,1)` beside it — while the
-  seated ten demand something in **23 of the 40** declared bandings. What DOCKET 5
-  deletes is *this* demand, at *this* banding, on *these* indexes — not the
-  mechanism. (The Petrov-corrected per-banding figure of 9 of 40 recorded here was
-  taken at nine indexes and has **not** been re-measured at ten; the 23 above is
-  the uncorrected sweep, which is a different quantity.)
+  seated ten demanded something in **23 of the 40** declared bandings. What
+  DOCKET 5 deletes is *this* demand, at *this* banding, on *these* indexes — not
+  the mechanism. (The Petrov-corrected per-banding figure of 9 of 40 recorded here
+  was taken at nine indexes and never re-measured at ten; the 23 above is the
+  uncorrected sweep, which is a different quantity. **Both predate DOCKET 2**, so
+  both are now figures for an inventory that no longer exists — quoted as history,
+  not as current. `master.py --selftest` pins the live banding counts.)
 - **The scramble census is the one mechanism here that demands the impossible.**
   It names all four forbidden cells among its seventeen para-indexes, at
   robustness 0.059, 0.049, 0.041 and 0.030, none in the top four. Screened it is
