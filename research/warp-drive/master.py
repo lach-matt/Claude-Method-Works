@@ -705,6 +705,134 @@ def channel_chain():
     return inc_s, inc_a
 
 
+# The C axis's own control: how often a RANDOM index of a seated index's size,
+# in that index's own box, lands in each of the eight lawful channels. 400 draws
+# per seated shape, seed 17. Recorded as data because 4,000 draws is 20,000
+# closure computations and a five-minute run. Reproduce with
+#   python3 -c "import master; print(master.c_axis_control())"
+C_AXIS_CONTROL = {0: 3350, 1: 7, 2: 558, 3: 63, 4: 2, 5: 8, 6: 1, 7: 11}
+C_AXIS_CONTROL_DRAWS = 4000
+
+# AND THE OBVIOUS EXPLANATION FOR C = 3 IS REFUTED BY ITS OWN CONTROL. K5 is the
+# only lawful channel holding geometry and information without order, and those
+# two are this corpus's only non-commuting operator pair -- so "they do not get
+# along" is the reading that suggests itself. It is false. Over 3,000 random
+# indexes in the seated shapes' own boxes, seed 23:
+#   P(geometry) 2.07 %   P(information) 0.90 %   P(both) 0.63 %
+#   independence would predict 0.019 % -- the pair co-occurs 34x ABOVE it.
+# They agree far more than chance. C = 3 is rare because each is rare, and
+# because when both close the other three usually close too: of the 19 control
+# draws holding both, 8 land at K5 and 11 at K7.
+GEOM_INFO_CONTROL = (0.0207, 0.0090, 0.0063, 3000)   # P(g), P(i), P(both), draws
+
+
+def c_axis_control(n=400, seed=17):
+    """{channel: hits} over n random indexes per seated shape, in its own box.
+
+    THE CONTROL THE C AXIS NEEDED AND DID NOT HAVE. This file printed the empty
+    run at C = 3 and C = 4 as "the most conspicuous feature of the shape, and a
+    standing question". It is neither: see c_gap().
+    """
+    import random as _r
+    ks = channel_sets()
+    rnd = _r.Random(seed)
+    hit = {k: 0 for k in range(8)}
+    for X in inventory().values():
+        d = len(next(iter(X)))
+        box = [sorted({c[i] for c in X}) for i in range(d)]
+        allc = list(itertools.product(*box))
+        k = min(len(X), len(allc))
+        for _ in range(n):
+            Y = frozenset(rnd.sample(allc, k))
+            hit[ks.index(frozenset(closers(Y)))] += 1
+    return hit
+
+
+def c_gap():
+    """Why nothing occupies C = 3 or C = 4 -- in three parts, and the third
+    withdraws the question.
+
+    (down-set sizes, occupied channels, joins of occupied that are vacant,
+     [(K, control rate, expected of the held population, observed)])
+
+    1. THE C AXIS IS NOT EVENLY AVAILABLE, AND ONE CLAUSE IS WHY. A channel set
+       is a down-set of the hierarchy law, and the law's down-sets by size are
+       1, 2, 2, 1, 1, 1: C = 1 and C = 2 each have TWO lawful sets to land in,
+       C = 3 and C = 4 have exactly ONE. The cause is `order` and `algebra`
+       being MUTUALLY lawful -- Clause B, the containment rubik.py's orbit never
+       breaks -- so they enter and leave a channel set together. From
+       {statistics, information} one may add geometry (C = 3) or add order AND
+       algebra (C = 4); there is no C = 3 holding order and no C = 4 holding
+       geometry. Drop either direction of that equivalence and the profile
+       becomes 1, 2, 2, 2, 2, 1 -- ten lawful channels, not eight. Demonstrated
+       rather than asserted: see the selftest.
+
+    2. C = 3 IS THE ONE JOIN THE HELD POPULATION IS MISSING. K3 = {geometry,
+       statistics} is occupied by four witnessed species indexes and
+       K4 = {information, statistics} by periodic layout 2-D and four more, and
+       K3 v K4 = K5 EXACTLY. The occupied channels are closed under meet and not
+       under join, and the single failure is C = 3.
+
+    3. AND THE CONTROL SAYS THERE WAS NOTHING TO EXPLAIN. A random index in a
+       seated shape's own box lands at C = 3 in 0.20 % of draws and at C = 4 in
+       0.03 %. Against the eighty indexes this tree holds -- ten seated and
+       seventy witnessed species -- that is an EXPECTED occupancy of 0.16 and
+       0.02. Observing zero at both is the expected observation; one would see
+       C = 3 occupied at all only 15 % of the time and C = 4 only 2 %.
+
+           THE EMPTY RUN ON THE C AXIS IS A BASE RATE, NOT A FINDING, and this
+           file called it "the most conspicuous feature of the shape" for three
+           renderings without ever running the control that would have said so.
+
+       AND THE QUESTION WAS POINTED AT THE WRONG CELL. K4 has a control rate of
+       0.05 %, an expected occupancy of 0.04, and FIVE occupants. The whole
+       distribution is displaced the same way -- K0 expected 67 and holds 4,
+       K7 expected 0.2 and holds 61 -- because a real chart of a structured
+       object is not a random point set. What wants explaining is why these
+       indexes close so much MORE than chance, not why two channels are empty.
+    """
+    ks = channel_sets()
+    sizes = {}
+    for S in ks:
+        sizes[len(S)] = sizes.get(len(S), 0) + 1
+
+    held = list(inventory().values()) + list(species_indexes().values())
+    seen = {}
+    for X in held:
+        k = ks.index(frozenset(closers(X)))
+        seen[k] = seen.get(k, 0) + 1
+    occupied = sorted(seen)
+
+    idx = {S: i for i, S in enumerate(ks)}
+    vacant_joins = []
+    for a, b in itertools.combinations(occupied, 2):
+        j = ks[a] | ks[b]
+        if j in idx and idx[j] not in seen:
+            vacant_joins.append((a, b, idx[j]))
+
+    n = len(held)
+    rate = [(k, C_AXIS_CONTROL[k] / C_AXIS_CONTROL_DRAWS) for k in range(8)]
+    table = [(k, r, round(n * r, 2), seen.get(k, 0)) for k, r in rate]
+    return sizes, occupied, vacant_joins, table
+
+
+def law_downset_sizes(law=None):
+    """{size: how many lawful channel sets have it}, for a given containment set.
+
+    Takes the law as an argument so the counterfactual in c_gap() part 1 can be
+    RUN rather than claimed: hand it the law minus one direction of the
+    order/algebra equivalence and the size profile changes.
+    """
+    law = set(hlaw.LAWFUL) if law is None else set(law)
+    out = {}
+    for r in range(len(hlaw.LANGS) + 1):
+        for S in itertools.combinations(hlaw.LANGS, r):
+            S = frozenset(S)
+            if all(a in S for b in S for a in hlaw.LANGS if (a, b) in law):
+                out[r] = out.get(r, 0) + 1
+    return out
+
+
 def channel_standing():
     """{K: (standing, who)} -- who occupies each lawful channel, and at what
     standing. THREE ARE NOT THE SAME THING and flattening them would be false:
@@ -1019,6 +1147,45 @@ def report():
         w = ", ".join(who[:2]) + (" +%d" % (len(who) - 2) if len(who) > 2 else "")
         print("     K%d  %-8s %s" % (k, st, w))
     print("   Six of eight occupied at SOME standing. K1 and K5 at none.")
+    print()
+    print("   AND THE EMPTY RUN ON THE C AXIS IS A BASE RATE, NOT A FINDING.")
+    _sz, _oc, _vj, _tb = c_gap()
+    print("   The law's down-sets by size: %s -- C = 3 and C = 4 have ONE"
+          % ", ".join("%d->%d" % (k, v) for k, v in sorted(_sz.items())))
+    print("   lawful channel each where C = 1 and C = 2 have two, because order")
+    print("   and algebra are MUTUALLY lawful and so move together. Drop one")
+    print("   direction of that and the profile becomes %s."
+          % ", ".join("%d->%d" % (k, v) for k, v in
+                      sorted(law_downset_sizes(
+                          set(hlaw.LAWFUL) - {("order", "algebra")}).items())))
+    print("   C = 3's channel is EXACTLY K3 v K4, both occupied -- the held")
+    print("   channels are meet-closed and not join-closed, and that is the gap.")
+    print()
+    print("   BUT THE CONTROL SAYS THERE WAS NOTHING TO EXPLAIN. Over %d random"
+          % C_AXIS_CONTROL_DRAWS)
+    print("   indexes in the seated shapes' own boxes:")
+    print("     K   rate      expected of %d   observed" % sum(v for _k, _r, _e, v in _tb))
+    for k, r, e, o in _tb:
+        flag = ""
+        if o == 0 and e < 1:
+            flag = "  <- zero is the EXPECTED reading"
+        elif e < 1 <= o:
+            flag = "  <- the anomaly is HERE"
+        print("     K%d  %7.4f%%  %8.2f       %4d%s" % (k, 100 * r, e, o, flag))
+    print("   So this file called the C gap \"the most conspicuous feature of the")
+    print("   shape\" for three renderings without running the control that")
+    print("   would have said otherwise. WITHDRAWN.")
+    print("   What wants explaining is the other direction: these indexes close")
+    print("   FAR more than chance, because a real chart of a structured object")
+    print("   is not a random point set.")
+    _pg, _pi, _pb, _pn = GEOM_INFO_CONTROL
+    print("   And the explanation that suggests itself for C = 3 is refuted too:")
+    print("     geometry %.2f%%  information %.2f%%  both %.2f%%  over %d draws"
+          % (100 * _pg, 100 * _pi, 100 * _pb, _pn))
+    print("     independence predicts %.3f%% -- they CO-OCCUR %.0fx above it."
+          % (100 * _pg * _pi, _pb / (_pg * _pi)))
+    print("     The only non-commuting operator pair agrees more than chance,")
+    print("     not less. C = 3 is rare because each is rare.")
     print("   AND ALL EIGHT ARE REALIZABLE -- an independent census exhibits a")
     print("   smallest witness for every one, machine-checks the geometry-free")
     print("   implications with Z3 over every subset of four boxes, and finds")
@@ -1351,6 +1518,45 @@ def selftest():
         faith, False)
     chk("because K3 shares (C,Sc,Oc) with K4 and is occupied",
         3 in occ2 and 4 in occ2, True)
+    # ---------------------------------------- 6c. THE C = 3 / C = 4 GAP
+    # This file printed the empty run at C = 3 and C = 4 as "the most
+    # conspicuous feature of the shape, and a standing question rather than a
+    # result" for three renderings. It ran no control. The control withdraws it.
+    _sizes, _occ, _vj, _tab = c_gap()
+    chk("the law's down-sets by size -- C=3 and C=4 have ONE lawful set each",
+        _sizes, {0: 1, 1: 2, 2: 2, 3: 1, 4: 1, 5: 1})
+    chk("and order == algebra is why: drop one direction and it becomes 2 and 2",
+        law_downset_sizes(set(hlaw.LAWFUL) - {("order", "algebra")}),
+        {0: 1, 1: 2, 2: 2, 3: 2, 4: 2, 5: 1})
+    chk("so the two vacant channels are K5 and K6",
+        [k for k in range(8) if k not in _occ], [1, 5, 6])
+    chk("C=3's channel is EXACTLY the join of two occupied ones", _vj,
+        [(3, 4, 5)])
+    chk("and the occupied channels are meet-closed, so that join is the only gap",
+        len(_vj), 1)
+    # THE CONTROL, AND IT WITHDRAWS THE QUESTION.
+    _r5 = dict((k, r) for k, r, _e, _o in _tab)
+    chk("a random index lands at C=3 in 0.20%% of draws",
+        round(100 * _r5[5], 2), 0.2)
+    chk("and at C=4 in 0.03%%", round(100 * _r5[6], 3), 0.025)
+    _e5 = dict((k, e) for k, _r, e, _o in _tab)
+    chk("so of the 80 indexes held, C=3 EXPECTS 0.16 and C=4 EXPECTS 0.02",
+        (_e5[5], _e5[6]), (0.16, 0.02))
+    chk("OBSERVING ZERO AT BOTH IS THE EXPECTED OBSERVATION -- not a finding",
+        (dict((k, o) for k, _r, _e, o in _tab)[5],
+         dict((k, o) for k, _r, _e, o in _tab)[6]), (0, 0))
+    # AND THE QUESTION WAS POINTED AT THE WRONG CELL.
+    _o5 = dict((k, o) for k, _r, _e, o in _tab)
+    chk("K4 is the anomaly: expected 0.04, and FIVE indexes are there",
+        (_e5[4], _o5[4]), (0.04, 5))
+    chk("the whole distribution is displaced -- K0 expects 67 and holds 4",
+        (_e5[0], _o5[0]), (67.0, 4))
+    chk("while K7 expects 0.22 and holds 61", (_e5[7], _o5[7]), (0.22, 61))
+    # AND THE EXPLANATION THAT SUGGESTS ITSELF FOR C=3 IS REFUTED.
+    _pg, _pi, _pb, _n = GEOM_INFO_CONTROL
+    chk("geometry and information CO-OCCUR 34x above independence, not below",
+        round(_pb / (_pg * _pi)), 34)
+
     st = channel_standing()
     chk("occupancy at three levels of standing",
         sorted({v[0] for v in st.values()}), ["SEATED", "SPECIES", "VACANT", "WITNESS"])
