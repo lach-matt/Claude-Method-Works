@@ -421,6 +421,69 @@ reading: **the 68 vacancies are not 68 missing indexes.** They are a real
 seven-way classification seen through two banded continua, and any statement of
 the form *"the master index has 68 unfilled positions"* must say so.
 
+### ADDENDUM — asked to tell its own shape, the index cannot, and the reason is size
+
+*M: "I don't think we need to invent one at all. The index should tell you its
+shape, and I can guarantee that shape is definitive."*
+
+**The method is right, it is the corpus's own, and this docket should have
+reached for it first.** Register 35: *"the order dimension of Λ is exactly
+three… the third coordinate is necessary rather than merely convenient."*
+Dushnik–Miller order dimension is an **invariant of the order**, not a choice —
+the least number of linear orders whose intersection reproduces the containment.
+An index asked that question answers with a number nobody selected.
+
+Asked:
+
+| index | declared | order dimension |
+|---|---|---|
+| the master index | 5 | **2** |
+| bounds | 6 | **2** |
+| exotic mechanisms | 6 | **2** |
+| the languages | 5 | **2** |
+| spacetimes (Petrov) | 4 | **2** |
+| substances | 4 | **2** |
+| periodic layout 2-D | 2 | 2 — *tight* |
+| Janet, periodic 3-D, energy conditions | 3, 3, 6 | ≥ 2, not computed exactly |
+
+And the realizer for the master index is **exhibited, not asserted** — two linear
+orders, 42 incomparable pairs, all 42 reversed, intersection reproducing the
+containment exactly. That is register 35's own standard: *the realiser is
+exhibited, never found; what is falsifiable is the exhibition.*
+
+**AND THE CONTROL SAYS THE ANSWER CARRIES NO INFORMATION.**
+
+| | dimension ≤ 2 among random sets of the same size in the same box |
+|---|---|
+| master index, 8 cells in 192 | **95.0 %** |
+| bounds, 8 in 216 | **96.4 %** |
+| Petrov, 8 in 80 | **92.8 %** |
+| substances, 8 in 24 | **88.8 %** |
+| any 6-cell set | **100 %** |
+
+Almost every small set has dimension 2. Forcing dimension 3 needs a **standard
+example** `S₃` — six elements in one exact configuration — and a random eight-cell
+set rarely contains one. So *"the master index has order dimension 2"* is true,
+exhibited, and **says nothing about the master index**.
+
+    THE SECOND HEADLINE THIS DOCKET KILLED WITH ITS OWN CONTROL, and the pattern
+    is now the finding: an apparently decisive structural fact about the master
+    index turns out to be a fact about its SIZE.  The first was closure under
+    the signature projection (100 % of comparable subsets close).  This is the
+    same shape of error, caught the same way.
+
+**SO: the index cannot tell you its shape, and the reason is not that the method
+is wrong — it is that there is not enough index to carry the question.**
+Register 35 got a definitive answer for Λ because **Λ has 976 cells**. The master
+index has **eight**. It is not merely sparse; at this size it is
+**under-determined** — too small for its own invariants to discriminate.
+
+**What would change that is not a better shape but more distinct cells.** The
+populated reading is 79 indexes over **11** cells, so seating more indexes does
+not help; seating indexes that land in *new* cells does. Until then the shape
+question has no measurable answer, and this docket records that rather than
+producing one.
+
 ---
 
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
