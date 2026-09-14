@@ -453,14 +453,48 @@ def layout_3d_complete():
     return frozenset(out)
 
 
+def layout_2d_complete():
+    """(period, group) for every element the layout defines -- 92 cells.
+
+    A DEPARTURE FROM A CORPUS FIGURE, AND THE FIRST THIS TREE HAS MADE.  Until
+    now this index was `pop.layout_closure()`, which reproduces chapter 6's
+    NINETY main-table cells exactly and whose count populate.py's own selftest
+    asserts against section 6.  This function does not use it.
+
+        THE CORPUS IS NOT CHANGED.  Section 6 still states ninety cells,
+        tools/populate.py is untouched, and `layout_closure()` still returns
+        what it always returned.  What has changed is that research/ now
+        CONSTRUCTS its two-coordinate chart instead of importing the drawn one.
+        That is what research/ is for -- original work produced FROM the corpus
+        -- but it is the first time the number has differed, so it is recorded
+        here rather than left to be discovered.
+
+    THE REASON IS M'S RULING ON THE UPPER BOUND: "until we can prove that no
+    more elements are left to discover or synthesize, the upper bound of the
+    periodic table is open, which means the periodic table is open to more not
+    yet identified elements until proven otherwise."  Applied to the 3-D layout
+    it gave 92 cells.  IT APPLIES TO BOTH CHARTS OR TO NEITHER -- leaving 2-D at
+    ninety while 3-D reached 120 would have made a coverage difference out of an
+    inconsistency in how the two were built, and DOCKET 2 turns on exactly that
+    comparison.  M: "yes, and we must do it because the evidence says we must."
+
+    Ninety of the ninety-two are chapter 6's own cells, unchanged.  The two
+    added are (8, 1) and (8, 2) -- Z = 119 and 120, the eighth period Janet's
+    construction already reaches.
+    """
+    pop = _populate()
+    return frozenset((pop.period_of(Z), pop.group_of(Z))
+                     for Z in range(1, LAYOUT_3D_REACH + 1)
+                     if not pop.set_aside(Z) and pop.group_of(Z) is not None)
+
+
 def inventory():
     """{name: cells} for every index actually seated in this tree."""
     pop = _populate()
-    held, _ = pop.layout_closure()
     return {
         "energy-condition family": frozenset(necindex.cells()),
         "exotic mechanisms": frozenset(synth.MECHANISMS.values()),
-        "periodic layout 2-D": frozenset(held),
+        "periodic layout 2-D": layout_2d_complete(),
         "periodic layout 3-D": layout_3d_complete(),
         # DOCKET 1(a). This was `janet_cell(Z)` over Z < 109 -- the (n+l, l)
         # chart of the OBSERVED differentiating electron, 19 cells, which charts
@@ -1386,8 +1420,13 @@ def selftest():
     chk("the languages cannot describe themselves",
         closers(inv["the languages"]), frozenset())
     # And the 2-D layout does, so it is the third coordinate that costs it.
-    chk("the layout closes in two languages at arity 2",
-        sorted(closers(inv["periodic layout 2-D"])), ["information", "statistics"])
+    # WAS {information, statistics} = K4, AT NINETY CELLS. Extending the chart
+    # to the eighth period cost it information: the two added cells break the
+    # join-closure the ninety had. So the 2-D layout is now K2, and K4 is vacant
+    # among the seated ten -- a channel LOST by completing an index, which is
+    # worth more than the pin it replaces.
+    chk("the layout closes in ONE language at arity 2 now that it reaches 120",
+        sorted(closers(inv["periodic layout 2-D"])), ["statistics"])
     chk("and in none at arity 3", closers(inv["periodic layout 3-D"]), frozenset())
 
     # The chain is still total on this sample, but its bottom is empty.
@@ -1510,11 +1549,13 @@ def selftest():
     # 23 of 40 bandings to 20, and the nine-index closure ROSE from 17 to 20.
     # So the correction made the demand slightly LESS banding-robust and the
     # closure slightly MORE. Neither figure was chosen; both are re-measured.
-    chk("the eight-index master index demands something in 21 of them", bdem, 21)
+    chk("the eight-index master index demands something in 28 of them", bdem, 28)
     chk("the COMPLETED bounds index fills that demand in ZERO of them", bfill, 0)
-    chk("and the nine-index master index closes in 19", bclose, 19)
-    chk("AND AT ARITY BAND [3, 6] THERE IS NO DEMAND AT ALL",
-        bper[(3, 6)], (0, 0))
+    chk("and the nine-index master index closes in 12", bclose, 12)
+    # WAS (0, 0) -- the one banding under which the demand vanished entirely.
+    # Completing both periodic charts ended that: it demands in 1 of 10 there.
+    chk("AND AT ARITY BAND [3, 6] THE DEMAND NEARLY VANISHES -- 1 of 10",
+        bper[(3, 6)], (1, 0))
     chk("so the demand is a property of the declared banding, not invariant",
         bfill < btot, True)
     # RE-RUN AFTER DOCKET 8. Seating the question index took the populated
@@ -1540,10 +1581,14 @@ def selftest():
     chk("two orders of magnitude apart, on the same control at the same n",
         SIGNATURE_CONTROLS["questions"][0] > 100 * SIGNATURE_CONTROLS["bounds"][0],
         True)
-    chk("and the ten-index master index closes in 17 of 40 -- FEWER than nine",
-        (bclose10, bclose10 < bclose), (17, True))
-    # AND THE MARGIN NARROWED WHEN THE 3-D LAYOUT WAS COMPLETED: nine-index
-    # closure fell 20 -> 19 while ten held at 17, so the gap is now 2, not 3.
+    # AND THIS REVERSES. At ninety cells the ten-index closure held in FEWER
+    # bandings than the nine-index one (17 against 20), and that was recorded as
+    # evidence AGAINST reading the question index as filling the demand.
+    # Completing both periodic charts inverts it: 14 against 12, so seating
+    # questions now makes the closure MORE banding-robust, not less. The
+    # qualification it supported is withdrawn; the other three stand.
+    chk("and the ten-index master index closes in 14 -- MORE than nine, reversed",
+        (bclose10, bclose10 > bclose), (14, True))
 
     # ---------------------------------------- 6b. the channel relation
     ks = channel_sets()
@@ -1553,8 +1598,9 @@ def selftest():
         all(all(frozenset(a for a, b in hlaw.LAWFUL if b == x) <= k for x in k)
             for k in ks), True)
     occ, occi, vac = channel_census()
-    chk("channels occupied", occi, [0, 2, 4, 7])
-    chk("and channels VACANT", vac, [1, 3, 5, 6])
+    # K4 WAS OCCUPIED BY periodic layout 2-D AND IS NOW VACANT AMONG THE SEATED.
+    chk("channels occupied", occi, [0, 2, 7])
+    chk("and channels VACANT", vac, [1, 3, 4, 5, 6])
     inc_s, inc_a = channel_chain()
     chk("the seated channel sets are TOTALLY ordered", len(inc_s), 0)
     chk("but the eight lawful ones are NOT -- five incomparable pairs",
@@ -1602,8 +1648,8 @@ def selftest():
          dict((k, o) for k, _r, _e, o in _tab)[6]), (0, 0))
     # AND THE QUESTION WAS POINTED AT THE WRONG CELL.
     _o5 = dict((k, o) for k, _r, _e, o in _tab)
-    chk("K4 is the anomaly: expected 0.04, and FIVE indexes are there",
-        (_e5[4], _o5[4]), (0.04, 5))
+    chk("K4 is the anomaly: expected 0.04, and FOUR indexes are there",
+        (_e5[4], _o5[4]), (0.04, 4))
     chk("the whole distribution is displaced -- K0 expects 67 and holds 4",
         (_e5[0], _o5[0]), (67.0, 4))
     chk("while K7 expects 0.22 and holds 61", (_e5[7], _o5[7]), (0.22, 61))
