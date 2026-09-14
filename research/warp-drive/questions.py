@@ -1,205 +1,267 @@
 """
 ===============================================================================
-questions.py -- THE QUESTION INDEX.  Cells are questions put to the languages.
+questions.py -- THE QUESTION INDEX.  Seven questions, one per language.
 ===============================================================================
 
 M: "warp is not an index. It is a question."
+M: "There are seven languages, and likely 7 distinct, formalized, universal
+    questions that can only be asked in that language."
+M: "they are general questions that ask one thing, some whose answers includes
+    warp."
 
-That is right, and following it produces the index this tree has been missing.
-
-===============================================================================
-0. WHY THERE HAD TO BE ONE
-===============================================================================
-
-An INDEX has cells and a box.  It closes, or fails to close, in each language,
-and that verdict places it in the channel lattice.  A QUESTION is asked OF the
-languages: each returns a verdict on it, and the pattern of verdicts is what you
-get back.  Both yield a subset of the five languages, which is why the tree
-confused them -- refusal.py's section on the two kinds is the correction.
-
-    A QUESTION IS NOT A CELL OF A PHYSICAL INDEX.  It has no box of its own and
-    it is not a member of the energy-condition family or the bounds index or any
-    other.  duality.py spent a section looking for the host of TRANSITION-
-    POSSIBLE and a later pass proved no such host can exist under the natural
-    reading -- the top-corner theorem.  BOTH WERE LOOKING FOR THE WRONG KIND OF
-    THING.
-
-    A QUESTION IS A MEMBER OF THE INDEX OF QUESTIONS, and its verdict pattern is
-    its CELL.  That is the home, and this file is it.
+All three are right, and the third is what makes the index buildable: the
+members are GENERAL questions, warp is not one of them, and warp appears in the
+ANSWERS to some.
 
 ===============================================================================
-1. THE MEMBERS -- four, and the tree already ran every one
+0. THE KIND, AND WHY THE TREE KEPT LOOKING FOR THE WRONG THING
 ===============================================================================
 
-The protocol is the corpus's own: register 1173 (a language is a coordinate
-system with a closure operator; logic is binary -> language -> binary), register
-1176 (E = 0 iff the languages agree) and section 33.2 (a language that falls
-silent IS the finding, and the identity of the silent language names the kind of
-object).  expand.py ran it once.  doors.py ran it three more times.
+An INDEX has cells and a box; it closes or fails to close, and that places it in
+the channel lattice.  A QUESTION is asked OF the languages.  Both yield a subset
+of the five binary-returning languages, which is why the tree confused them --
+refusal.py's section on the two kinds is that correction.
 
-                        order     algebra   geometry  informat. statistics
-    DOOR 1  OUTSIDE GR  ADMITS    CONTESTED ADMITS    ADMITS    NOT-RUN
-    DOOR 2  NOT ENERGY  REFUSES   NOT-RUN   ADMITS    ADMITS    NOT-RUN
-    DOOR 3  A RELIC     ADMITS    NOT-RUN   ADMITS    ADMITS    NOT-RUN
-    TRANSITION-POSSIBLE ADMITS    ADMITS    ADMITS    REFUSES   ADMITS
-
-Nothing here is new measurement.  Every row is read from the instrument that
-produced it, by import.  What is new is reading the four AS AN INDEX.
+duality.py spent a section hunting a host for TRANSITION-POSSIBLE, and a later
+pass proved by the top-corner theorem that no such host can exist.  BOTH WERE
+LOOKING FOR THE WRONG KIND OF THING, and so was this file's first version, which
+seated four warp questions and recorded "four members, all from one
+investigation" as its principal caution.  That caution was the whole objection.
 
 ===============================================================================
-2. THE CODING IS A CHOICE, AND THE RESULT DOES NOT DEPEND ON IT
+1. SEVEN LANGUAGES ASK; ONLY FIVE ANSWER WITH A BINARY
 ===============================================================================
 
-Four verdict values -- ADMITS, REFUSES, NOT-RUN, CONTESTED -- and a slot must be
-ORDINAL.  DOCKET 1's lesson is that a coding chosen for convenience can carry a
-finding on its own, so three defensible codings are run and compared:
+That is the resolution of a discrepancy this tree has carried unexamined.  The
+channel lattice is built on FIVE languages because only five return a binary --
+register 1173's admission criterion, and alpha.py proves membership in the
+hierarchy is exactly that.  But the language index has SEVEN members.
 
-    A  three-valued   REFUSES 0 < NOT-RUN = CONTESTED 1 < ADMITS 2
-    B  binary         ADMITS 1, everything else 0
-    C  four-valued    REFUSES 0 < NOT-RUN 1 < CONTESTED 2 < ADMITS 3
+    ALL SEVEN CAN ASK.  ONLY FIVE CAN ANSWER WITH A CELL DECISION.
+    `analysis` returns a MAGNITUDE and `documentary` returns a CITATION.
 
-    ALL THREE GIVE THE SAME MASTER CELL, (2, 1, 0, 2, 1), THE SAME CHANNEL
-    {geometry, statistics} = K3, AND THE SAME REFUSAL INDEX {0, 3, 5, 7}.
+So there are seven questions and a five-element answer lattice, and the two
+counts were never in conflict -- they count different things.
 
-A is the default because it is the reading section 33.2 supports: a silent
-language has not refused, it has not spoken.  But the finding is coding-robust
-and does not rest on that.
+THE SEVEN, in the tree's own words where it has them (research/README.md's
+expansion table gives six; documentary's is cypher.ADMISSION as alpha.py quotes
+it verbatim):
 
-===============================================================================
-3. WHAT IT LANDS ON, AND IT IS A CELL NOTHING OCCUPIED
-===============================================================================
-
-    cells 3 (A, B) or 4 (C)   arity 5   box 16 or 24   density 18.8 % / 16.7 %
-    closes in {geometry, statistics} -- K3
-    master cell (2, 1, 0, 2, 1)
-
-    NOT AMONG THE EIGHT SEATED CELLS.  NOT AMONG THE ELEVEN POPULATED ONES.
-
-Seating it takes the master index from **8 to 9** distinct cells, and the
-populated reading from **11 to 12**.
-
-    AND TWELVE IS THE THRESHOLD.  Order dimension -- the corpus's own measure of
-    an index's shape, register 35 -- is SATURATED below twelve distinct cells:
-    96.7 % of random 8-cell sets in the master box have dimension 2, so the
-    master index's own dimension of 2 says nothing about it.  At twelve the base
-    rate is 54.2 %, a coin flip, and the measurement carries a full bit.
-
-    SO THE QUESTION INDEX IS EXACTLY WHAT THE MASTER INDEX NEEDS IN ORDER TO
-    STATE ITS OWN SHAPE.  Not a chart change, not a re-banding -- a genuinely
-    new object, and the one the tree had been treating as a homeless cell.
-
-It also moves channel K3 from SPECIES -- occupied only by four witnessed spectra
-slices -- to SEATED.
+    order        is there an admissible precedence?              binary
+    algebra      is it closed under its operation?               binary
+    geometry     does it embed?                                  binary
+    information  does it need an unavailable coordinate?         binary
+    statistics   is it drawn from a distribution?                binary
+    analysis     is there a continuous law?                      MAGNITUDE
+    documentary  is it recorded, and by what?                    CITATION
 
 ===============================================================================
-4. WHAT THIS FILE DOES NOT CLAIM
+2. THE ROSTER IS DATA, AND THE RULING IS THIS TREE'S ONLY
 ===============================================================================
 
-    THAT FOUR MEMBERS IS A FAMILY RATHER THAN A CONVENIENCE SAMPLE.  All four
-    are warp questions from one investigation: three doors out of the obstruction
-    and the obstruction's own verdict.  A family of four drawn from one enquiry
-    is thin, and necindex.py's bar -- named members, one declared form, ordinal
-    slots -- is met on its face while the SPREAD is not.  Recorded as the
-    principal caution.
+Which languages there are is the corpus's docket 20x-04/20x-09, and CLAUDE.md is
+explicit that the rosters stay data.  M has ruled that this tree's work
+supersedes the older corpus material for further work.  Both are honoured:
 
-    THAT THE WARP OBSTRUCTION IS WEAKENED OR STRENGTHENED BY BEING HOUSED.  It
-    is neither.  expand.py's verdict stands exactly as measured; this file gives
-    it a place to sit and changes nothing about what it says.
+    THE ROSTER IS A PARAMETER.  `--roster` selects it, exactly as cypher.py
+    does, and nothing here asserts one in code.
 
-    THAT THE WARP QUESTION'S REFUSAL SET IS K1.  It is not a refusal set at all
-    -- see refusal.py section on the two kinds.  As a MEMBER of this index its
-    refusal set is K0, like every member of every index, by extensivity.  Its
-    verdict pattern {information} is a CELL COORDINATE and the two must not be
-    read as one number.
+    THE RULING IS SEVEN, FOR THIS TREE.  research/warp-drive/DOCKET.md carries
+    it.  It rules NOTHING on the corpus's docket, and tools/cypher.py is not
+    touched by this file or by that ruling.
+
+===============================================================================
+3. THE COORDINATES ARE PROPERTIES OF THE QUESTION -- AND THEY COLLAPSE
+===============================================================================
+
+Not properties of the language, or the index would be the language index
+relabelled.  Five were grounded from the tree:
+
+    RET   what an answer IS        0 citation, 1 magnitude, 2 binary
+    OPR   is there an operator that answers it
+    RUN   has this tree run it     0 never asked, 1 asked/NO-ROW, 2 answered
+    DECL  declared operator-bearing in roster 1173
+    SPK   does it speak on the energy-condition index
+
+    AND THEY ARE NOT INDEPENDENT.  Measured: RET DETERMINES OPR, RUN AND SPK,
+    and RUN determines RET.  Only DECL is independent of RET.  The seven
+    questions collapse to FOUR distinct cells.
+
+That is the honest content of the construction, and it is a negative: **as far
+as this tree can measure them, the seven questions differ only in what kind of
+answer they return, refined once by whether roster 1173 declared them.**  There
+is no more resolution available, because the five binary languages are
+extensive, idempotent and monotone alike -- hlaw measured 300 of 300 -- and
+nothing in the tree separates them except what they close, which is the channel
+lattice, which is the language index again.
+
+===============================================================================
+4. IT LANDS ON THE DEMANDED CELL, AND THAT IS NOT A FILL
+===============================================================================
+
+The five-coordinate form closes in `statistics` alone, arity 5, density 5.6 %,
+and its master cell is
+
+        (1, 1, 0, 2, 1)  --  EXACTLY master.DEMANDED_AT_EIGHT
+
+**THIS IS NOT REPORTED AS FILLING THE DEMAND, AND THREE MEASUREMENTS SAY WHY.**
+
+    ONE.  IT IS NOT ROBUST TO THE COORDINATE CHOICE.  Of the twenty-six
+    non-degenerate subsets of the five coordinates, EXACTLY ONE lands on that
+    cell -- the full five.  Reduce to the independent content, (RET, DECL), and
+    it lands on (2, 1, 0, 0, 3), a cell periodic layout 2-D already occupies.
+
+    TWO.  THE HIT RESTS ON REDUNDANT COORDINATES.  Three of the five are
+    determined by RET.  The arity band that puts it at D = 2 is carried by
+    coordinates that add no information about which question is which.
+
+    THREE.  THE DEMAND IS NOT LIVE.  DOCKET 5 corrected the Petrov index's
+    density against a realisable box -- a theorem about the Weyl tensor, not a
+    convention -- and Petrov-corrected the master index CLOSES and demands
+    NOTHING.  There is no demand here to fill.
+
+    AND THIS IS THE THIRD TIME.  The bounds index landed on this cell and its
+    own file recorded "drop any single one of the five slots and the hit fails";
+    that fill was withdrawn.  refusal.py measures that 21 of 565 re-chartings of
+    the ALREADY-SEATED indexes land on it.  Now a third construction lands on it
+    under one coordinate choice of twenty-six.
+
+        THE DEMANDED CELL IS EASY TO HIT, AND HITTING IT HAS NEVER ONCE
+        SURVIVED SCRUTINY.  That is the finding, and it is about the demand
+        rather than about any of the three indexes that hit it.
+
+===============================================================================
+WHAT THIS FILE CLAIMS
+===============================================================================
+
+    That there are seven questions, one per language, and the tree states six of
+    them in its own words.  That all seven ask and only five answer with a
+    binary, which reconciles the 7 and the 5.  That coordinatised by properties
+    of the question they collapse to four cells, and why.  That the landing on
+    the demanded cell is an artefact of a coordinate choice and is not a fill.
+
+    IT DOES NOT CLAIM that four cells over seven questions is a good index, that
+    the seven questions are exhaustive, or that the corpus's roster docket is
+    resolved.
 """
 
+import itertools
 import sys
 
-import doors
-import expand
 import hlaw
 import master
+import selfindex
 
-FIVE = ("order", "algebra", "geometry", "information", "statistics")
-
-CODINGS = {
-    "A": {"REFUSES": 0, "NOT-RUN": 1, "CONTESTED": 1, "ADMITS": 2},
-    "B": {"REFUSES": 0, "NOT-RUN": 0, "CONTESTED": 0, "ADMITS": 1},
-    "C": {"REFUSES": 0, "NOT-RUN": 1, "CONTESTED": 2, "ADMITS": 3},
+# The rosters are DATA. --roster selects one; nothing here asserts one.
+ROSTERS = {
+    "seven": ("order", "algebra", "geometry", "information", "statistics",
+              "analysis", "documentary"),
+    "five": ("order", "algebra", "geometry", "information", "statistics"),
 }
-DEFAULT = "A"
+DEFAULT_ROSTER = "seven"
+
+# The question each language asks -- one thing, generally. Six are the tree's
+# own words (research/README.md's expansion table); documentary's is
+# cypher.ADMISSION as alpha.py quotes it verbatim.
+ASKS = {
+    "order":       "is there an admissible precedence?",
+    "algebra":     "is it closed under its operation?",
+    "geometry":    "does it embed?",
+    "information": "does it need an unavailable coordinate?",
+    "statistics":  "is it drawn from a distribution?",
+    "analysis":    "is there a continuous law?",
+    "documentary": "is it recorded, and by what?",
+}
+RETURNS = {"documentary": 0, "analysis": 1}     # 0 citation, 1 magnitude, 2 binary
+ASKED = {"documentary": 0, "analysis": 1}       # 0 never, 1 asked/NO-ROW, 2 answered
+
+COORDS = ("RET", "OPR", "RUN", "DECL", "SPK")
 
 
-def verdict_rows():
-    """{question: {language: verdict}} -- read from the instruments, never copied."""
-    out = {}
-    for nm, sub, fn in doors.DOORS:
-        r = fn()
-        out["%s (%s)" % (nm, sub)] = {L: r.get(L, "NOT-RUN") for L in FIVE}
-    st = expand.expand()
-    out["TRANSITION-POSSIBLE"] = {L: st.get(L, "NOT-RUN") for L in FIVE}
-    return out
+def question_cell(lang):
+    """The five grounded coordinates, for the question `lang` asks."""
+    op, _bin, _sta, dec, spk = selfindex.LANGUAGES[lang]
+    return (RETURNS.get(lang, 2), op, ASKED.get(lang, 2), dec, spk)
 
 
-def cells(coding=DEFAULT):
-    cd = CODINGS[coding]
-    return frozenset(tuple(cd[r[L]] for L in FIVE)
-                     for r in verdict_rows().values())
+def cells(roster=DEFAULT_ROSTER, keep=None):
+    """The question index over a roster, optionally on a coordinate subset."""
+    idx = range(len(COORDS)) if keep is None else keep
+    return frozenset(tuple(question_cell(l)[i] for i in idx)
+                     for l in ROSTERS[roster])
 
 
-def coding_robust():
-    """(master cells, channels, refusal indexes) over the three codings."""
-    import refusal
-    mc = {k: master.master_cell(cells(k)) for k in CODINGS}
-    ch = {k: frozenset(master.closers(cells(k))) for k in CODINGS}
-    rx = {k: frozenset(refusal.refusal_set(cells(k))) for k in CODINGS}
-    return mc, ch, rx
+def determination(roster=DEFAULT_ROSTER):
+    """[(a, b)] -- coordinate a determines coordinate b over the roster."""
+    Q = {l: question_cell(l) for l in ROSTERS[roster]}
+    out = []
+    for i, j in itertools.permutations(range(len(COORDS)), 2):
+        f, ok = {}, True
+        for l in Q:
+            if Q[l][i] in f and f[Q[l][i]] != Q[l][j]:
+                ok = False
+                break
+            f[Q[l][i]] = Q[l][j]
+        if ok:
+            out.append((COORDS[i], COORDS[j]))
+    return sorted(out)
 
 
-def is_a_new_cell():
-    """(cell, new to seated, new to populated)."""
-    c = master.master_cell(cells())
-    return (c,
-            c not in frozenset(master.master_index().values()),
-            c not in frozenset(master.populated_master().values()))
+def landing_robustness(roster=DEFAULT_ROSTER):
+    """(hits, tried) -- coordinate subsets landing on the demanded cell."""
+    hits = tried = 0
+    for k in range(2, len(COORDS) + 1):
+        for keep in itertools.combinations(range(len(COORDS)), k):
+            Y = cells(roster, keep)
+            if any(len({c[i] for c in Y}) < 2 for i in range(len(keep))):
+                continue
+            tried += 1
+            if master.master_cell(Y) == master.DEMANDED_AT_EIGHT:
+                hits += 1
+    return hits, tried
+
+
+def demand_is_live():
+    """Is there a demand to fill?  DOCKET 5 says no."""
+    mi = dict(master.master_index())
+    mi["spacetimes (Petrov)"] = (1, 1, 0, 1, 2)     # the realisable-box cell
+    C = frozenset(mi.values())
+    cl, _ = hlaw.closures(C)
+    return sorted(cl["statistics"] - C)
 
 
 def report():
     print("=" * 74)
-    print("THE QUESTION INDEX -- cells are questions put to the languages")
+    print("THE QUESTION INDEX -- seven questions, one per language")
     print("=" * 74)
     print()
-    print("A question is not a cell of a physical index. It is a MEMBER here,")
-    print("and its verdict pattern is its cell.")
+    print("  SEVEN ASK. ONLY FIVE ANSWER WITH A BINARY.")
+    print("  %-14s %-46s %s" % ("language", "asks -- one thing, generally", "returns"))
+    RT = {0: "CITATION", 1: "MAGNITUDE", 2: "binary"}
+    for l in ROSTERS["seven"]:
+        print("  %-14s %-46s %s" % (l, ASKS[l], RT[RETURNS.get(l, 2)]))
     print()
-    rows = verdict_rows()
-    print("   %-34s %s" % ("question", " ".join("%-10s" % L[:10] for L in FIVE)))
-    for q, r in rows.items():
-        print("   %-34s %s" % (q, " ".join("%-10s" % r[L] for L in FIVE)))
+    print("  THE COORDINATES ARE PROPERTIES OF THE QUESTION -- AND THEY COLLAPSE.")
+    for a, b in determination():
+        print("     %s DETERMINES %s" % (a, b))
+    X = cells()
+    print("     seven questions -> %d distinct cells" % len(X))
     print()
-    mc, ch, rx = coding_robust()
-    print("   THE CODING IS A CHOICE AND THE RESULT IS ROBUST TO IT:")
-    for k in sorted(CODINGS):
-        X = cells(k)
-        a, b, d = master.shape(X)
-        print("     %s  %d cells, arity %d, box %-3d density %5.1f%%  closes %-24s %s"
-              % (k, len(X), a, b, 100 * d, sorted(ch[k]), mc[k]))
-    print("   all three agree on the master cell, the channel and R(X).")
+    a, b, d = master.shape(X)
+    print("  arity %d, box %d, density %.1f%%, closes %s"
+          % (a, b, 100 * d, sorted(master.closers(X)) or "NOTHING"))
+    print("  master cell %s" % (master.master_cell(X),))
     print()
-    c, new_s, new_p = is_a_new_cell()
-    MC = frozenset(master.master_index().values())
-    PC = frozenset(master.populated_master().values())
-    print("   master cell %s -- new to the seated cells: %s" % (c, new_s))
-    print("   seated    %d -> %d distinct cells" % (len(MC), len(MC | {c})))
-    print("   populated %d -> %d distinct cells" % (len(PC), len(PC | {c})))
-    print()
-    print("   AND TWELVE IS THE ORDER-DIMENSION THRESHOLD. Below it the measure")
-    print("   is saturated -- 96.7%% of random 8-cell sets give dimension 2. At")
-    print("   twelve the base rate is 54.2%%, so the answer carries a full bit.")
-    print("   THE QUESTION INDEX IS WHAT LETS THE MASTER INDEX STATE ITS SHAPE.")
-    print()
-    print("   CAUTION: four members, all from one investigation. The bar is met")
-    print("   on its face; the SPREAD is not. See section 4.")
+    h, t = landing_robustness()
+    print("  IT LANDS ON master.DEMANDED_AT_EIGHT %s -- AND THAT IS NOT A FILL:"
+          % (master.DEMANDED_AT_EIGHT,))
+    print("     %d of %d coordinate subsets land there" % (h, t))
+    print("     reduced to the independent content (RET, DECL) it lands on %s"
+          % (master.master_cell(cells(keep=(0, 3))),))
+    print("     and Petrov-corrected the master index demands %s"
+          % (demand_is_live() or "NOTHING"))
+    print("  Three constructions have now hit this cell and none survived.")
+    print("  THE FINDING IS ABOUT THE DEMAND, NOT ABOUT THE INDEXES.")
 
 
 def selftest():
@@ -214,41 +276,35 @@ def selftest():
             print("        expected %r" % (want,))
 
     print("questions selftest")
-    rows = verdict_rows()
-    chk("four questions have been put to the five languages", len(rows), 4)
-    chk("and TRANSITION-POSSIBLE is one of them",
-        "TRANSITION-POSSIBLE" in rows, True)
-    chk("its verdict is information REFUSES, the other four ADMIT",
-        (rows["TRANSITION-POSSIBLE"]["information"],
-         sorted(L for L in FIVE if rows["TRANSITION-POSSIBLE"][L] == "ADMITS")),
-        ("REFUSES", ["algebra", "geometry", "order", "statistics"]))
-    chk("four distinct verdict values occur",
-        sorted({v for r in rows.values() for v in r.values()}),
-        ["ADMITS", "CONTESTED", "NOT-RUN", "REFUSES"])
+    chk("the roster is DATA -- two are carried", sorted(ROSTERS), ["five", "seven"])
+    chk("seven languages ask", len(ROSTERS["seven"]), 7)
+    chk("and each has a stated question", sorted(ASKS) == sorted(ROSTERS["seven"]), True)
+    chk("only five answer with a binary",
+        sorted(l for l in ROSTERS["seven"] if RETURNS.get(l, 2) == 2),
+        ["algebra", "geometry", "information", "order", "statistics"])
+    chk("analysis returns a MAGNITUDE", RETURNS["analysis"], 1)
+    chk("documentary returns a CITATION", RETURNS["documentary"], 0)
 
-    # ---- THE CODING IS A CHOICE. The result must not depend on it.
-    mc, ch, rx = coding_robust()
-    chk("all three codings give ONE master cell", len(set(mc.values())), 1)
-    chk("and it is (2,1,0,2,1)", mc[DEFAULT], (2, 1, 0, 2, 1))
-    chk("all three give one channel", len(set(ch.values())), 1)
-    chk("and it is {geometry, statistics} = K3", sorted(ch[DEFAULT]),
-        ["geometry", "statistics"])
-    chk("all three give one refusal index", len(set(rx.values())), 1)
-    chk("and it is {0,3,5,7}", sorted(rx[DEFAULT]), [0, 3, 5, 7])
+    # ---- THE COLLAPSE, which is the honest content
+    det = determination()
+    chk("RET determines OPR, RUN and SPK",
+        sorted(b for a, b in det if a == "RET"), ["OPR", "RUN", "SPK"])
+    chk("only DECL is independent of RET",
+        "DECL" not in [b for a, b in det if a == "RET"], True)
+    chk("so seven questions give FOUR distinct cells", len(cells()), 4)
 
-    # ---- AND THE CELL IS NEW, which is the whole point
-    c, new_s, new_p = is_a_new_cell()
-    chk("the cell is NEW to the seated master index", new_s, True)
-    chk("and NEW to the populated one", new_p, True)
-    MC = frozenset(master.master_index().values())
-    PC = frozenset(master.populated_master().values())
-    chk("seating it takes seated from 8 to 9 cells",
-        (len(MC), len(MC | {c})), (8, 9))
-    chk("and populated from 11 to TWELVE -- the threshold",
-        (len(PC), len(PC | {c})), (11, 12))
-
-    # ---- the caution, pinned so it cannot fall out
-    chk("four members, and all four from one investigation", len(rows), 4)
+    # ---- THE LANDING, AND WHY IT IS NOT A FILL
+    chk("it lands on the demanded cell", master.master_cell(cells()),
+        master.DEMANDED_AT_EIGHT)
+    h, t = landing_robustness()
+    chk("but only 1 of 26 coordinate subsets does", (h, t), (1, 26))
+    chk("reduced to (RET, DECL) it lands on an OCCUPIED cell",
+        master.master_cell(cells(keep=(0, 3))), (2, 1, 0, 0, 3))
+    chk("and that cell is periodic layout 2-D's",
+        sorted(n for n, v in master.master_index().items()
+               if v == (2, 1, 0, 0, 3)), ["periodic layout 2-D"])
+    chk("AND THE DEMAND IS NOT LIVE -- DOCKET 5 deleted it", demand_is_live(), [])
+    chk("SO THIS IS NOT A FILL", False, False)
 
     print("questions selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
@@ -257,4 +313,10 @@ def selftest():
 if __name__ == "__main__":
     if "--selftest" in sys.argv:
         sys.exit(0 if selftest() else 1)
-    report()
+    if "--roster" in sys.argv:
+        r = sys.argv[sys.argv.index("--roster") + 1]
+        X = cells(r)
+        print("roster %s: %d questions -> %d cells, master cell %s"
+              % (r, len(ROSTERS[r]), len(X), master.master_cell(X)))
+    else:
+        report()

@@ -594,6 +594,90 @@ The two readings answer different questions and both are now stated.
 
 ---
 
+## DOCKET 8 — THE QUESTION ROSTER IS SEVEN, FOR THIS TREE  **RULED**
+
+*M: "There are seven languages, and likely 7 distinct, formalized, universal
+questions that can only be asked in that language." And: "This work is proven to
+supersede … the older corpus material is now superseded for all further work
+unless I rule otherwise."*
+
+### THE RULING
+
+**This tree's question roster is SEVEN — one question per language.** All seven
+**ask**; only five **answer with a binary**. That reconciles a discrepancy the
+tree had carried unexamined: the channel lattice is built on five because
+register 1173 admits a language only if it returns a binary, while the language
+index has seven members. The two counts were never in conflict — they count
+different things.
+
+| language | asks — one thing, generally | an answer is |
+|---|---|---|
+| order | is there an admissible precedence? | binary |
+| algebra | is it closed under its operation? | binary |
+| geometry | does it embed? | binary |
+| information | does it need an unavailable coordinate? | binary |
+| statistics | is it drawn from a distribution? | binary |
+| **analysis** | is there a continuous law? | **magnitude** |
+| **documentary** | is it recorded, and by what? | **citation** |
+
+Six are the tree's own words, from `research/README.md`'s expansion table.
+`documentary`'s is `cypher.ADMISSION` as `alpha.py` quotes it verbatim.
+
+### SCOPE, AND IT IS NARROW BY CONSTRUCTION
+
+**The roster stays DATA.** `questions.py --roster` selects one, exactly as
+`cypher.py` does; nothing asserts a roster in code.
+
+**This rules NOTHING on the corpus's docket 20x-04/20x-09**, which stays open,
+and **`tools/cypher.py` is not touched** by this file or this ruling. M's
+supersession applies to which findings this tree builds on, not to the store of
+record: `method/` and `drive/` are unchanged and stay so.
+
+### AND THE CONSTRUCTION RETURNS A NEGATIVE, WHICH IS THE USEFUL PART
+
+Coordinatised by **properties of the question** — not of the language, or the
+index would be the language index relabelled — five coordinates were grounded:
+`RET` what an answer is, `OPR` whether an operator answers it, `RUN` whether the
+tree has run it, `DECL` roster-1173 declaration, `SPK` whether it speaks on the
+energy-condition index.
+
+**They are not independent. `RET` DETERMINES `OPR`, `RUN` and `SPK`; only `DECL`
+is independent of it. Seven questions collapse to FOUR distinct cells.**
+
+That is the honest content: *as far as this tree can measure them, the seven
+questions differ only in what kind of answer they return, refined once by
+whether roster 1173 declared them.* No more resolution is available — the five
+binary languages are extensive, idempotent and monotone alike (300 of 300), and
+nothing separates them but what they close, which is the channel lattice, which
+is the language index again.
+
+### IT LANDS ON THE DEMANDED CELL.  THAT IS NOT A FILL.
+
+The five-coordinate form closes in `statistics` alone at 5.6 % over arity 5 —
+master cell **(1, 1, 0, 2, 1)**, exactly `DEMANDED_AT_EIGHT`. Three measurements
+refuse the reading:
+
+- **1 of 26** non-degenerate coordinate subsets lands there. Reduced to the
+  independent content `(RET, DECL)` it lands on `(2,1,0,0,3)` — already occupied
+  by `periodic layout 2-D`.
+- **The hit rests on redundant coordinates.** Three of the five are determined
+  by `RET`; the arity band placing it at `D = 2` is carried by coordinates that
+  say nothing about which question is which.
+- **The demand is not live.** DOCKET 5's Petrov correction deletes it —
+  Petrov-corrected the master index closes and demands **nothing**.
+
+**AND THIS IS THE THIRD TIME.** The bounds index landed there, its own file
+recording *"drop any single one of the five slots and the hit fails"*, and that
+fill was withdrawn. `refusal.py` measures **21 of 565** re-chartings of the
+already-seated indexes landing there. Now a third construction lands there under
+one coordinate choice of twenty-six.
+
+    THE DEMANDED CELL IS EASY TO HIT, AND HITTING IT HAS NEVER ONCE SURVIVED
+    SCRUTINY.  The finding is about the demand, not about any of the three
+    indexes that hit it.
+
+---
+
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
 
 The master index seats the periodic table three times: `periodic layout 2-D`
