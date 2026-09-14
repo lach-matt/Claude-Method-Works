@@ -241,16 +241,31 @@ the master index closes in statistics at E = 0 and demands nothing.** See DOCKET
 
 **And order and algebra demand the impossible.** At arity 2 the only 2-subset is
 the whole tuple, so statistics always closes and `C = 0` cannot occur at arity
-band 0 — 74,518 non-degenerate two-coordinate indexes, zero failures. Four of the
-72 cells are impossible and **order and algebra each demand three of them.**
+band 0 — 74,518 non-degenerate two-coordinate indexes, zero failures. Four cells
+are impossible and **order and algebra each demand three of them**; screened,
+both fall from `E = 25` to **`E_realisable = 22`**.
+
+> **Two corrections a later pass forced on this section.** *The forbidden four
+> are banding-dependent*: forbidden under arity bandings `[3,5]` and `[3,6]`,
+> where band 0 is arity 2 alone, but under `[4,5]` and `[4,6]` — both in the
+> tree's own alternatives — band 0 admits arity 3, `C = 0` occurs there, and
+> **nothing is forbidden**. And *the 72-cell box is itself a product-box
+> artefact*: the honest lawful box is **84**, seven channel signatures not six.
+> The dropped one is **K1 at `(C 1, Sc 0, Oc 0)`**, assumed away by a map whose
+> own status reads RECONSTRUCTED — and it is **reachable**, witness
+> `{(0,0,0), (0,1,1), (1,0,1), (1,1,1)}`. Corrected: **8 forbidden, 76
+> reachable.** That kills *(Sc, Oc) is a strict function of C* as a law about
+> indexes; it survives only as a statement about this corpus, where K1 is vacant
+> over the nine seated and the seventy species.
 
 ---
 
 ## 7. The vacancy census
 
 Of the 72 master cells, **exactly four are forbidden** and all 68 others are
-reachable with an explicit witness set verified by hlaw's own operators. Of the
-41 vacant cells only **one** is forbidden; the other **40 were filled**.
+reachable with an explicit witness set verified by hlaw's own operators — and
+over the corrected **84-cell lawful box** it is **8 forbidden, 76 reachable**.
+Of the 41 vacant cells only **one** is forbidden; the other **40 were filled**.
 
 So M's bet — *"most if not all of the non-contractual ones can be identified and
 filled"* — **is won**, 40 of 41, with the exception provably impossible.
@@ -270,8 +285,22 @@ built directly.
   that was never going to be otherwise. Recorded.
 - **K1 has one instance and it is an artefact.** The warp obstruction stands on
   its own measurement and has no companion in this corpus.
-- **The demand mechanism has no output left** once Petrov is corrected. Whether
-  it is salvageable under `E_realisable` is open.
+- **The demand mechanism is NOT empty, and this bullet said the opposite.** A
+  screening pass shows **every demand the lattice has ever made is realisable** —
+  56 (banding, state, cell) triples across the whole history, **zero** forbidden.
+  So `E_realisable` salvages nothing because nothing needed salvaging: it bites
+  on order and algebra alone. Petrov-corrected, the **populated 79-index** master
+  index still demands `(1,1,0,0,2)`, and the seated nine demand in **9 of the 40**
+  declared bandings. What DOCKET 5 deletes is *this* demand, at *this* banding, on
+  *these nine* — not the mechanism.
+- **The scramble census is the one mechanism here that demands the impossible.**
+  It names all four forbidden cells among its eighteen para-indexes, at
+  robustness 0.043, 0.043, 0.033 and 0.025, none in the top six. Screened it is
+  **14, not 18**. A slice move can carry a `C = 0` cell into arity band 0, which
+  no index can occupy. `rubik.py` records none of this.
+- **A product-box fault one level up.** The master index's *own* box is 192
+  product positions against **52** realisable, and its self-density moves
+  4.17 % → 15.38 %, band 0 → band 1.
 - **`master.shape` still multiplies value-set sizes.** Applying the realisable box
   properly means every index declaring one — a real design change, and docket 3's
   question in its most concrete form.
