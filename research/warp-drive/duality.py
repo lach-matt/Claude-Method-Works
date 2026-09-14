@@ -142,29 +142,46 @@ M2's cells are KINDS OF REFUSAL.  Its coordinates are the properties every pair
     J   0 neither, 1 a join of two members, 2 a meet, 3 both
     A   the HOST's arity band           INHERITED from M1
 
-Over 1,876 pairs, 43 distinct profiles.  As an index: five coordinates, box
-1152, density 3.7 %, and **CLOSED BY NOTHING** -- channel K0, where M1 is K2.
+Over 2,020 pairs, 46 distinct profiles.  As an index: five coordinates, box
+1152, density 4.0 %, and **CLOSED BY NOTHING** -- channel K0.
 
-    M1  cells are INDEXES            master cell (1, 1, 0, 2, 0)   channel K2
+    M1  cells are INDEXES            master cell (0, 0, 0, 2, 0)   channel K0
     M2  cells are KINDS OF REFUSAL   master cell (0, 0, 0, 2, 0)   channel K0
 
-    THE TWO MASTER INDEXES DIFFER IN THE CHANNEL COORDINATES AND IN NOTHING
-    ELSE -- same arity band, same density band.  And M2's cell is one that
-    ORDER AND ALGEBRA ALREADY DEMANDED of M1.
+    **THE TWO MASTER INDEXES COINCIDE.**  Same channel, same arity band, same
+    density band.  An index whose cells are indexes and an index whose cells are
+    kinds of refusal land on ONE CELL.
+
+THAT IS NOT WHAT THIS FILE FIRST REPORTED, and the change is the bounds
+correction, not a re-reading.  As first written it said the two DIFFER in the
+channel coordinates and in nothing else -- M1 at (1, 1, 0, 2, 0) channel K2, M2
+at (0, 0, 0, 2, 0) channel K0, with M2's cell one that ORDER AND ALGEBRA already
+demanded of M1.  Completing the bounds family (a missing Z coordinate, a missing
+Casini member; see bounds.py) stopped the bounds index closing, which stopped
+the master index closing, which moved M1 from K2 to K0 -- onto M2's cell.  The
+coincidence is therefore a CONSEQUENCE of the withdrawal, arrived at by a route
+that had nothing to do with M2, which is the only reason it is worth anything.
+
+AND THE CELL IS OCCUPIED -- by the bounds index itself, whose master cell is
+also (0, 0, 0, 2, 0).  SO M1 IS A CELL OF ITSELF: the master index's own master
+cell is one of its nine members.  Recorded, not interpreted.  Nothing here says
+self-membership is meaningful; it says the arithmetic produced it and the reader
+should know before treating M1 as an index of things other than itself.
 
 **AND THE CONSTRUCTION IS NOT FORCED, WHICH IS RECORDED RATHER THAN RESOLVED.**
-W is partly determined by K: measured over all 1,876 pairs with zero
+W is partly determined by K: measured over all 2,020 pairs with zero
 disagreements, W = 2 exactly when statistics admits, so W adds nothing where
-statistics admits and one bit where it refuses.  Drop it and M2 becomes 41
-profiles over four coordinates, box 384, density 10.7 % --
+statistics admits and one bit where it refuses.  Drop it and M2 becomes 44
+profiles over four coordinates, box 384, density 11.5 % --
 
         master cell (0, 0, 0, 1, 1), WHICH IS OCCUPIED, BY THE PERIODIC LAYOUT
         IN THREE COORDINATES -- the one index in the corpus holding a K1 cell.
 
-With W, M2 sits at an unoccupied cell that order and algebra demand.  Without W,
-it sits on top of the very index that carries the corpus's only instance of the
-warp obstruction's kind.  BOTH ARE REPORTED.  Neither is preferred here, because
-the coordinate is neither redundant nor independent, and the file that picks one
+So M2 sits on an occupied cell either way, and the choice is WHICH index it
+lands on: with W, the bounds index; without W, the periodic layout in three
+coordinates, the one carrying the corpus's only instance of the warp
+obstruction's kind.  BOTH ARE REPORTED.  Neither is preferred here, because the
+coordinate is neither redundant nor independent, and the file that picks one
 should say why rather than inherit the choice from this one.
 
 ===============================================================================
@@ -299,13 +316,32 @@ def occupancy():
     return {i: (stand[i][0], cnt[k]) for i, k in enumerate(ks)}
 
 
-def the_k1_cell():
-    """(index name, cell) -- the corpus's only K1 refusal."""
+def k1_cells():
+    """[(index name, cell)] -- every K1 refusal in the corpus.
+
+    WAS ONE, IS THREE.  Completing the bounds family added two, and they are
+    that index's own demanded cells -- so the bounds index's outstanding demand
+    is a K1 refusal, the same kind of obstruction as the warp cell.
+    """
+    out = []
     for nm in master.inventory():
         rows, _X = scan(nm)
         for c, r in rows:
             if r == K1:
-                return nm, c
+                out.append((nm, c))
+    return out
+
+
+def the_k1_cell():
+    """(index name, cell) -- the periodic-layout K1 refusal, the legible one.
+
+    Kept under its original name because the selftest and the corridor both
+    address it, and because it is the only one whose coordinates a reader can
+    name (period, group, block).  Use k1_cells() for the full set.
+    """
+    for nm, c in k1_cells():
+        if nm == "periodic layout 3-D":
+            return nm, c
     return None, None
 
 
@@ -356,6 +392,15 @@ def two_masters():
     M2 = second_master()
     return ((master.master_cell(M1), ks.index(frozenset(master.closers(M1)))),
             (master.master_cell(M2), ks.index(frozenset(master.closers(M2)))))
+
+
+def pairs_scanned():
+    """How many (index, cell) pairs the pooled census actually walks."""
+    n = 0
+    for nm in master.inventory():
+        _, box = hlaw.closures(master.inventory()[nm])
+        n += sum(1 for _ in itertools.islice(itertools.product(*box), CAP))
+    return n
 
 
 def w_is_the_statistics_test():
@@ -435,7 +480,14 @@ def report():
     print()
 
     nm, c = the_k1_cell()
-    print("3. AND THE ONE OTHER INSTANCE NAMES THE SHAPE.")
+    all_k1 = k1_cells()
+    print("3. AND ALL %d NAME THE SAME SHAPE." % len(all_k1))
+    for _n, _c in all_k1:
+        if _n != nm:
+            print("   %s, cell %s -- one of the two cells that" % (_n, _c))
+            print("     index's TIGHTEST languages demand (information and")
+            print("     statistics, E = 2 each; the union over all five is six).")
+    print("   THE LEGIBLE ONE, whose coordinates a reader can name:")
     print("   %s, cell %s" % (nm, c))
     print("   = period %d, group %d, %s-block, and no element sits there."
           % (c[0], c[1], "spd"[c[2]]))
@@ -476,16 +528,32 @@ def report():
           % (len(M2), d2, n2, 100 * r2, sorted(master.closers(M2)) or "NOTHING"))
     print("     M1  cells are INDEXES          %s  channel K%d" % (c1, k1))
     print("     M2  cells are KINDS OF REFUSAL %s  channel K%d" % (c2, k2))
-    print("   THEY DIFFER IN THE CHANNEL COORDINATES AND IN NOTHING ELSE --")
-    print("   same arity band, same density band. And M2's cell is one that")
     M1 = frozenset(master.master_index().values())
     clm, _ = hlaw.closures(M1)
-    print("   %s already demanded of M1."
-          % " and ".join(L for L in hlaw.LANGS if c2 in clm[L] - M1))
+    if c1 == c2 and k1 == k2:
+        print("   THEY COINCIDE -- same channel, same arity band, same density")
+        print("   band. AN INDEX OF INDEXES AND AN INDEX OF REFUSALS LAND ON ONE")
+        print("   CELL. That is a stronger statement than the one first reported")
+        print("   here, which was that they differ in the channel and nothing")
+        print("   else; completing the bounds family moved M1 onto M2's cell.")
+        if c2 in M1:
+            who = sorted(n for n, v in master.master_index().items() if v == c2)
+            print("   AND THE CELL IS OCCUPIED, BY %s --" % ", ".join(who))
+            print("   so M1 is a cell of itself. Recorded, not interpreted: the")
+            print("   master index's own master cell is one of its members.")
+    else:
+        same = [n for n, a, b in (("arity band", c1[3], c2[3]),
+                                  ("density band", c1[4], c2[4])) if a == b]
+        print("   THEY DIFFER. Shared: %s." % (", ".join(same) or "nothing"))
+        dem = " and ".join(L for L in hlaw.LANGS if c2 in clm[L] - M1)
+        if dem:
+            print("   And M2's cell is one %s already demanded of M1." % dem)
+        else:
+            print("   M2's cell is demanded of M1 by no language.")
     print()
     print("   AND THE CONSTRUCTION IS NOT FORCED. W = 2 exactly when statistics")
     print("   admits (%d disagreements in %d pairs), so W adds nothing where"
-          % (w_is_the_statistics_test(), CAP and 1876))
+          % (w_is_the_statistics_test(), pairs_scanned()))
     print("   statistics admits and one bit where it refuses. Drop it:")
     Mb = second_master(with_w=False)
     db, nb, rb = master.shape(Mb)
@@ -495,7 +563,9 @@ def report():
            if v == master.master_cell(Mb)]
     print("     WHICH IS OCCUPIED, BY %s -- the one index holding a K1 cell."
           % ", ".join(who))
-    print("   With W it sits at an unoccupied demanded cell; without W it sits on")
+    occ_w = sorted(n for n, v in master.master_index().items() if v == c2)
+    print("   With W it sits %s; without W it sits on"
+          % ("on " + ", ".join(occ_w) if occ_w else "at an unoccupied cell"))
     print("   the very index carrying the corpus's only K1. BOTH ARE REPORTED.")
     print()
 
@@ -560,7 +630,7 @@ def selftest():
 
     cnt, tot = refusal_census()
     ks = master.channel_sets()
-    chk("cells scanned over the nine", tot, 1876)
+    chk("cells scanned over the nine", tot, 2020)
     chk("every one of the eight occurs as a refusal set",
         sum(1 for k in ks if cnt[k] > 0), 8)
     # ---- and the channel reading does NOT reach all eight
@@ -573,7 +643,33 @@ def selftest():
         all(occ[i][1] > 0 for i in (1, 5)), True)
 
     # ---- K1 is the rarest, and it is where the warp obstruction sits
-    chk("K1 occurs exactly once in 1,876 cells", cnt[K1], 1)
+    # WAS ONE. Completing the bounds family added two more, both inside bounds
+    # itself -- so the warp obstruction's KIND now occurs in the bounds index as
+    # well as the periodic layout. Still the rarest of the eight.
+    chk("K1 occurs three times in 2,020 cells", cnt[K1], 3)
+    # AND THE TWO NEW ONES ARE THE BOUNDS INDEX'S OWN DEMANDED CELLS. Not put
+    # there -- both fell out of seating Casini and the Z slot. So the bounds
+    # family's outstanding demand is a K1 refusal, the warp obstruction's kind.
+    import bounds as _b
+    _bcl, _ = hlaw.closures(_b.cells())
+    chk("the other two K1 cells are in the bounds index",
+        sorted(c for n, c in k1_cells() if n == "bounds"),
+        [(2, 1, 0, 0, 0, 2), (2, 1, 0, 0, 1, 2)])
+    # STATED AT ITS TRUE STRENGTH, and the pin is what forced the correction.
+    # It is NOT everything that index demands -- the union over all five
+    # languages is six cells. It is what the TIGHTEST languages demand, and a
+    # K1 refusal is by definition exactly that: refused by information and
+    # admitted by everything else, so the two sets coincide by construction
+    # for the tightest pair. What is measured is that the pair IS the tightest.
+    chk("what the tightest languages demand of the bounds index",
+        sorted(_bcl["statistics"] - _b.cells()),
+        [(2, 1, 0, 0, 0, 2), (2, 1, 0, 0, 1, 2)])
+    chk("and statistics/information ARE the tightest there",
+        sorted(L for L in hlaw.LANGS
+               if len(_bcl[L]) == min(len(_bcl[M]) for M in hlaw.LANGS)),
+        ["information", "statistics"])
+    chk("the union over all five is larger, so this is not 'all it demands'",
+        len(set().union(*(_bcl[L] for L in hlaw.LANGS)) - _b.cells()), 6)
     chk("which is the rarest of the eight",
         min(cnt.values()), cnt[K1])
     import statrow
@@ -606,22 +702,27 @@ def selftest():
     # ---- M2, the second master index
     (c1_, k1_), (c2_, k2_) = two_masters()
     M2 = second_master()
-    chk("M2 has 43 kinds of refusal", len(M2), 43)
+    chk("M2 has 46 kinds of refusal", len(M2), 46)
     chk("and is closed by NOTHING", sorted(master.closers(M2)), [])
-    chk("M1 sits at (1,1,0,2,0), channel K2", (c1_, k1_), ((1, 1, 0, 2, 0), 2))
-    chk("M2 sits at (0,0,0,2,0), channel K0", (c2_, k2_), ((0, 0, 0, 2, 0), 0))
-    chk("they differ in the CHANNEL coordinates and nothing else",
-        [n for n, a, b in zip("C Sc Oc D R".split(), c1_, c2_) if a != b],
-        ["C", "Sc"])
+    # AND NOW THEY COINCIDE. Completing the bounds family took M1 off closure,
+    # and the two master indexes -- one whose cells are indexes, one whose cells
+    # are kinds of refusal -- land on the SAME master cell at the same channel.
+    chk("M1 sits at (0,0,0,2,0), channel K0", (c1_, k1_), ((0, 0, 0, 2, 0), 0))
+    chk("M2 sits there too", (c2_, k2_), ((0, 0, 0, 2, 0), 0))
+    chk("THE TWO MASTER INDEXES NOW COINCIDE", c1_, c2_)
     M1 = frozenset(master.master_index().values())
     clm, _ = hlaw.closures(M1)
-    chk("and M2's cell is one order and algebra already demanded of M1",
-        sorted(L for L in hlaw.LANGS if c2_ in clm[L] - M1), ["algebra", "order"])
+    chk("and it is a cell M1 itself now occupies", c2_ in M1, True)
+    chk("SO M1 IS A CELL OF ITSELF -- the witness is the bounds index",
+        sorted(n for n, v in master.master_index().items() if v == c2_),
+        ["bounds"])
+    # the pair count the census walks, measured rather than carried as a literal
+    chk("the pooled census walks 2,020 pairs", pairs_scanned(), 2020)
     # the construction is NOT forced, and that is recorded
     chk("W = 2 exactly when statistics admits", w_is_the_statistics_test(), 0)
     Mb = second_master(with_w=False)
-    chk("dropping W gives 41 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
-        (41, 4))
+    chk("dropping W gives 44 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
+        (44, 4))
     chk("and lands on (0,0,0,1,1), which IS occupied",
         master.master_cell(Mb), (0, 0, 0, 1, 1))
     chk("by the very index holding the only K1 cell",

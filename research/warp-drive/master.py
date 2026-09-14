@@ -253,119 +253,62 @@ seated indexes do form a chain -- and three arbitrary indexes form a chain
 97.4 % of the time, so that was never evidence of a law.
 
 ===============================================================================
-7. THE DEMAND WAS FILLED, AND BY AN INDEX BUILT FOR ANOTHER REASON
+7. THE DEMAND WAS FILLED, AND THE FILL IS WITHDRAWN
 ===============================================================================
 
-At eight indexes the master index stopped closing and demanded exactly one
-cell:
+At eight indexes the master index stopped closing and demanded exactly one cell:
 
     (C, Sc, Oc, D, R) = (1, 1, 0, 2, 1)
 
-    closed by ONE language, and that language is `statistics`, not `order`;
-    FIVE OR MORE coordinates; density between 5 % and 30 %.
+    closed by ONE language and that language `statistics`, not `order`; FIVE OR
+    MORE coordinates; density between 5 % and 30 %.
 
-Nothing seated occupied it. Of the 78 indexes reachable once the witnessed
-spectra are sliced per species, NONE occupied it. It was recorded as a
-falsifiable prediction: an index with those properties either exists and has not
-been seated, or does not exist and the structure is over-reaching.
+Nothing seated occupied it, and none of the 78 populated did.  The bounds index,
+AS FIRST WRITTEN -- eight named right-hand sides over five slots, seven cells in
+a box of 72, closed by `statistics` alone -- occupied it EXACTLY, and seating it
+returned the master index to E = 0.  That was reported with two caveats: the
+demanded cell was on the record beforehand, so it was never a blind prediction,
+and the fill held in only 10 of 40 bandings.
 
-**THE BOUNDS INDEX OCCUPIES IT EXACTLY.**  Eight named right-hand sides -- zero,
-ANEC, SNEC, Ford-Roman, Fewster-Osterbrink, QNEC, Bekenstein, Bousso -- over
-five slots, giving seven distinct cells in a box of 72. Closed by `statistics`
-and by nothing else. Density 9.7 %. Master cell (1, 1, 0, 2, 1).
+    **BOTH CAVEATS WERE TRUE.  NEITHER WAS THE ONE THAT MATTERED.  THE FILL IS
+    WITHDRAWN.**
 
-Seating it takes the master index from E = 1 back to **E = 0**, and it demands
-nothing further. Populated with the seventy species indexes beside it, 79
-indexes over 11 distinct cells, box 192, density 5.7 %, still E = 0.
+Completing the bounds family destroys it, and two independent completions each
+suffice.  A COORDINATE WAS MISSING: the W slot says what is bounded and nothing
+about what the smearing runs over, while Ford, Helfer and Roman prove a quantum
+energy inequality exists for timelike and null smearing and PROVABLY DOES NOT
+for a purely spatial average -- a distinction a theorem turns on is a coordinate.
+And A MEMBER WAS MISSING: Casini's relative-entropy bound, an entropy bounded by
+a modular energy, the same species as Bekenstein and QNEC which were already
+seated.  Either one alone moves the bounds index off the demanded cell.  See
+bounds.py.
 
-**AND THE POPULATION CONTROL FAILED THE SAME WAY TWICE.**  An early pass ran it
-at 200 draws, read 0 %, and concluded closure DIES as the master index
-populates; the true rate at that box was 0.90 %.  Seating the bounds index
-widened the populated box from 132 cells to 192, and at 2,000 draws the control
-read ZERO AGAIN -- the identical reading, on a rarer event.  Resolved at 400,000
-draws it is 14 hits, 3.5e-05, about one in twenty-eight thousand.  A zero is an
-upper bound, never a rate, and the draw count that resolves a control is a
-property of the box, not a constant to carry forward.
+    SO THE FILL RESTED ON THAT FAMILY BEING EXACTLY EIGHT MEMBERS IN EXACTLY
+    FIVE COORDINATES -- fragile to MEMBERSHIP, which is a fact about the
+    literature, and not merely to banding, which is a choice.
 
-WHAT THAT IS WORTH, STATED HONESTLY
------------------------------------
+THE STATE NOW, MEASURED:
 
-**IT IS NOT A BLIND PREDICTION.**  The demanded cell was measured and printed
-before the bounds index was written, and whoever wrote it could see it. Nothing
-here is a sealed envelope, and calling it one would be false.
+    nine indexes, eight distinct cells
+    order 30 (E 22), algebra 30 (E 22), geometry 13 (E 5),
+    information 19 (E 11), **statistics 9 (E 1)**
 
-**THE ARITY BAND IS A CHOICE, AND IT IS LOAD-BEARING.**  Drop any single one of
-the five slots and the hit fails -- every one of the five drops lands on a
-different cell, because four coordinates put the index in arity band 1 rather
-than 2. So the D coordinate of the hit is carried entirely by the decision to
-seat five slots. That decision is defensible on its own terms -- each slot is a
-property a bound actually has, none is constant across the eight, and the same
-B ladder is reused from the energy-condition family rather than invented -- but
-it is a decision and it could have gone otherwise.
+    THE MASTER INDEX DOES NOT CLOSE, AND IT STILL DEMANDS (1, 1, 0, 2, 1).
 
-**WHAT IS NOT A CHOICE IS THE CLOSURE SIGNATURE.**  C = 1, Sc = 1, Oc = 0 is
-measured by running the five operators over the seven cells. Against a control
-of 20,000 random 7-cell sets drawn from the same 72-cell box, that signature and
-the density band together come out **1.06 % of the time**; the signature alone
-comes out 1.06 %, so the density band is nearly free once the closure matches
-and the informative content is the closure. Given five slots, the landing is
-not generic.
+    Four indexes now close in no language -- bounds has joined periodic 3-D, the
+    substances and the languages.  Populated, 79 indexes over 11 cells, still
+    E = 1.  Over the forty bandings the demand exists in 23 and the bounds index
+    fills it in **0**.
 
-**SO THE CLAIM IS THIS AND NO MORE:** the master index named a cell no seated
-index occupied; an index built to answer a different question -- what are the
-right-hand sides, as a family -- was found to occupy it, on a signature that a
-same-shaped random set reproduces about one time in a hundred; and its arrival
-returned the master index to closure. Whether the demand *caused* anyone to look
-at the bounds cannot be established from inside the measurement, and it is not
-claimed.
+WHAT THE EPISODE IS WORTH, AND IT IS NOT NOTHING.  The demand is a real and
+still-open prediction: an index closed by statistics alone, five or more
+coordinates, 5-30 % density, that nothing in this corpus occupies.  What was
+wrong was the claim that something already did.  The failure mode is the one
+this tree keeps finding in its own work -- a result that rested on a family
+being complete when it was not -- and the caveat that was carried, banding, was
+not the caveat that killed it.  A CAVEAT CORRECTLY STATED IS NOT A CAVEAT
+CORRECTLY CHOSEN.
 
-AND THE BANDING CARRIES MORE OF IT THAN WAS FIRST SAID
-------------------------------------------------------
-
-The first statement of this section said the arity band is a choice and is
-load-bearing.  That was true and it was not the whole caveat.  C, Sc and Oc are
-measured and cannot move; D and R are BANDED, and the band edges are assigned.
-Swept over 4 arity bandings x 10 density bandings, `banding_sensitivity()`:
-
-    the EIGHT-index master index demands something   23 of 40   (58 %)
-    and the bounds index FILLS that demand           10 of 40   (25 %)
-    the NINE-index master index closes               21 of 40   (52 %)
-
-**AND ONE ARITY BANDING KILLS THE DEMAND OUTRIGHT.**  At D = [3, 6] -- five and
-six coordinates in one band rather than split -- the eight-index master index
-demands NOTHING, in all ten density choices.  The demand exists at all because
-[3, 5] separates the 5-coordinate indexes from the 6-coordinate ones.
-
-    SO THE DEMAND, AND THE BOUNDS INDEX FILLING IT, ARE PROPERTIES OF THE
-    DECLARED BANDING AND NOT BANDING-INVARIANT FACTS.
-
-What defends the seated banding is not that it is uniquely right but that it is
-OLDER THAN THE RESULT: [3, 5] and [.05, .3, .6] were fixed when this file was
-written, before the substance, Petrov and bounds indexes existed, and they
-encode the plain tripartitions "2 / 3-4 / 5+" and "<5 % / 5-30 % / 30-60 % /
->60 %".  They were not tuned to produce this.  But a reader who prefers
-"2 / 3-5 / 6+" gets no demand at all, and is entitled to.
-
-The closure signature is untouched by any of this -- C, Sc and Oc are measured
-from the operators -- so the 1.06 % control above stands as stated.  It is the
-D and R coordinates, and therefore the demand itself, that move.
-
-===============================================================================
-WHAT IT REFUSES TO DO
-===============================================================================
-
-**It does not lay the indexes side by side.**  That construction cannot be built
-honestly, and section 4 shows the failure mode live rather than describing it.
-
-**It does not invent the indexes that were asked for and do not exist.**
-Radiation, EM and magnitude are recorded as not seated.
-
-**It does not read the nine shared tuples as a meet.**  They are a coincidence
-of two different coordinate systems both being pairs of small integers.
-
-**It does not claim the channel chain is total in general.**  It is total on
-these six. One incomparable pair would end that, and none was found here, which
-is not the same as none existing.
 """
 
 import importlib.util
@@ -1092,8 +1035,9 @@ def selftest():
 
     # The two that close in nothing -- the finding of section 2.
     empty = sorted(nm for nm, S in inv.items() if not closers(S))
-    chk("three indexes close in NO language", empty,
-        ["periodic layout 3-D", "substances (Hawking-Ellis)", "the languages"])
+    chk("FOUR indexes close in NO language -- bounds joined them", empty,
+        ["bounds", "periodic layout 3-D", "substances (Hawking-Ellis)",
+         "the languages"])
     chk("so statistics does NOT always close",
         all("statistics" in closers(S) for S in inv.values()), False)
     chk("the languages cannot describe themselves",
@@ -1117,10 +1061,13 @@ def selftest():
     cl, _ = hlaw.closures(MC)
     # At six indexes statistics closed the master index. At eight it demanded
     # one cell. At nine it closes again -- section 7 is why.
-    chk("the master index CLOSES AGAIN at nine",
-        len(cl["statistics"]) - len(MC), 0)
-    chk("and statistics is still the only language that does",
-        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["statistics"])
+    # WITHDRAWN. The bounds index was completed and no longer fills the demand.
+    chk("the master index does NOT close at nine -- the fill is withdrawn",
+        len(cl["statistics"]) - len(MC), 1)
+    chk("nothing closes it",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], [])
+    chk("and the demand it made at eight is STILL OUTSTANDING",
+        sorted(cl["statistics"] - MC), [DEMANDED_AT_EIGHT])
     chk("the two physics indexes share a master cell",
         M["energy-condition family"] == M["exotic mechanisms"], True)
     chk("while sharing no actual cell",
@@ -1128,9 +1075,10 @@ def selftest():
 
     # The spurious meet.
     ms = {(a, b): sh for a, b, sh in meets()}
-    chk("only one pair of equal arity shares anything",
+    chk("two pairs of equal arity now share something -- bounds went to arity 6",
         sorted(k for k, v in ms.items() if v),
-        [("Janet (n+l, l)", "periodic layout 2-D")])
+        [("Janet (n+l, l)", "periodic layout 2-D"),
+         ("bounds", "energy-condition family")])
     chk("and it shares nine tuples",
         len(ms[("Janet (n+l, l)", "periodic layout 2-D")]), 9)
     chk("which is spurious: the two have different coordinate meanings",
@@ -1149,8 +1097,8 @@ def selftest():
     chk("populating takes 9 indexes to 79", len(P), 79)
     chk("and the distinct master cells rise",
         len(MC) > len(frozenset(master_index().values())) or len(MC) >= 8, True)
-    chk("and populated it still closes",
-        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 0)
+    chk("and populated it does not close either",
+        len(hlaw.closures(MC)[0]["statistics"]) - len(MC), 1)
     hit, n, _boxn = population_control(P)
     chk("against a control under 2%% at %d draws" % n, hit / n < 0.02, True)
     # AND THE SAME LIMITATION HAS RECURRED, which is worth a pin rather than a
@@ -1174,33 +1122,28 @@ def selftest():
     chk("nor did any of the 78 populated at that point", len(P8), 78)
     chk("and none of those 78 occupied it",
         sum(1 for v in P8.values() if v == DEMANDED_AT_EIGHT), 0)
-    chk("THE BOUNDS INDEX OCCUPIES THE DEMANDED CELL EXACTLY",
-        master_cell(inv["bounds"]), DEMANDED_AT_EIGHT)
-    chk("and seating it returns the master index to closure",
-        len(hlaw.closures(frozenset(master_index().values()))[0]["statistics"])
-        - len(frozenset(master_index().values())), 0)
-    chk("and it demands nothing further",
-        sorted(hlaw.closures(MC)[0]["statistics"] - MC), [])
+    # THE HEADLINE, WITHDRAWN. Completing the bounds family moved it off.
+    chk("the bounds index NO LONGER occupies the demanded cell",
+        master_cell(inv["bounds"]) == DEMANDED_AT_EIGHT, False)
+    chk("it sits here instead", master_cell(inv["bounds"]), (0, 0, 0, 2, 0))
+    chk("and the demand is still outstanding, filled by nothing",
+        DEMANDED_AT_EIGHT in frozenset(master_index().values()), False)
 
-    # THE HONEST CAVEAT: the arity band is a choice and it is load-bearing.
-    chk("all five drop-one variants MISS the demanded cell",
-        [nm for nm, mc in drop_one_sensitivity() if mc == DEMANDED_AT_EIGHT], [])
-    chk("because four coordinates fall to arity band 1",
-        {mc[3] for _nm, mc in drop_one_sensitivity()}, {1})
-    # WHAT IS NOT A CHOICE: the closure signature.
-    chit, csig, cn, _cbox = signature_control(n=5000)
-    chk("a random same-shaped set lands there ~1% of the time",
-        0.005 < chit / cn < 0.02, True)
-    chk("and the density band is nearly free once closure matches",
-        csig - chit <= 2, True)
+    # ONE drop-one variant now DOES reach it: dropping the gravity slot from the
+    # completed family lands back on the demanded cell. A curiosity, not a fill --
+    # the family with G removed is not the family.
+    chk("exactly one drop-one variant reaches the demanded cell",
+        [nm for nm, mc in drop_one_sensitivity() if mc == DEMANDED_AT_EIGHT], ["G"])
+    chk("and it is the one that deletes the gravity coordinate",
+        drop_one_sensitivity()[3][0], "G")
 
     # AND THE BANDING CARRIES MORE THAN THE FIRST STATEMENT ADMITTED. Pinned so
     # the caveat cannot quietly fall out of the file.
     btot, bdem, bfill, bclose, bper = banding_sensitivity()
     chk("bandings swept", btot, 40)
     chk("the eight-index master index demands something in 23 of them", bdem, 23)
-    chk("the bounds index fills that demand in only 10", bfill, 10)
-    chk("the nine-index master index closes in 21", bclose, 21)
+    chk("the COMPLETED bounds index fills that demand in ZERO of them", bfill, 0)
+    chk("and the nine-index master index closes in 17", bclose, 17)
     chk("AND AT ARITY BAND [3, 6] THERE IS NO DEMAND AT ALL",
         bper[(3, 6)], (0, 0))
     chk("so the demand is a property of the declared banding, not invariant",

@@ -8494,7 +8494,7 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   | the languages | 5 | 5 | 48 | 10.4 % | **nothing** | (0,0,0,2,1) |
   | substances (Hawking–Ellis) | 8 | 4 | 24 | 33.3 % | **nothing** | (0,0,0,1,2) |
   | spacetimes (Petrov) | 8 | 4 | 80 | 10.0 % | statistics | (1,1,0,1,1) |
-  | **bounds** | **7** | **5** | **72** | **9.7 %** | **statistics** | **(1,1,0,2,1)** |
+  | **bounds** | **8** | **6** | **216** | **3.7 %** | **nothing** | **(0,0,0,2,0)** |
 
   **Five candidates were adjudicated against `necindex`'s bar — a family of named members sharing one
   declared form over ordinal slots — and none is an index.** Two are coordinates, three are quantities,
@@ -8511,23 +8511,30 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   natural home is a further axis on the energy-condition family rather than a new index. Recorded, not
   built.
 
-  **Two indexes close in nothing, and `statistics` therefore does not always close** — refuting the
-  open question directly. In two coordinates the periodic layout closes in two languages; **add the
-  block coordinate and every language over-generates.** And **the language index closes in no
-  language**: not one of the five operators returns it exactly. *The languages cannot exactly describe
-  themselves.* The channel sets are still totally ordered here — `{}` ⊂ `{statistics}` ⊂
+  **Four of the nine seated indexes close in nothing, and `statistics` therefore does not always
+  close** — refuting the open question directly. In two coordinates the periodic layout closes in two
+  languages; **add the block coordinate and every language over-generates.** And **the language index
+  closes in no language**: not one of the five operators returns it exactly. *The languages cannot
+  exactly describe themselves.* The substances close in nothing, and since the correction **the bounds
+  index closes in nothing either** — it was two when this was first written and the count has moved
+  twice. The channel sets are still totally ordered here — `{}` ⊂ `{statistics}` ⊂
   `{statistics, information}` ⊂ all five — but the bottom of the chain is **empty**, not `{statistics}`.
 
-  **`statistics` closes the master index too** (E = 0, and it is the only one that does) — which is not
-  implied by closing any index below it. And one identification falls out: the **energy-condition family
-  and the exotic mechanisms occupy the same master cell** — same channel set, arity band and density
-  band. *At this level they are one object, while sharing no cell at all.*
+  **`statistics` came closest to closing the master index and no longer does** — at eight indexes
+  E = 1, and after the bounds correction still **E = 1** (`statistics` 9 against 8 cells; `geometry`
+  E = 5, `information` E = 11, `order` and `algebra` E = 22 each). It is the tightest by a wide margin
+  and the only one that ever reached E = 0 here. And one identification falls out: the
+  **energy-condition family and the exotic mechanisms occupy the same master cell** — same channel set,
+  arity band and density band. *At this level they are one object, while sharing no cell at all.*
 
-  **It closed at six, demanded at eight, and closes again at nine.** Seating the substance and Petrov
-  indexes took it from E = 0 to **E = 1** — it stopped closing and began *demanding*, which is the
-  mechanism firing: a demand needs its values borne first, so a sparse master index cannot demand at
-  all. Seating the bounds index took it back to **E = 0**. Nine indexes, eight distinct master cells,
-  nothing further demanded. See *the demand and the index that filled it*, below.
+  **It closed at six, demanded at eight, was reported closed again at nine — and that ninth closure is
+  withdrawn.** Seating the substance and Petrov indexes took it from E = 0 to **E = 1**: it stopped
+  closing and began *demanding*, which is the mechanism firing, since a demand needs its values borne
+  first and a sparse master index cannot demand at all. Seating the bounds index *as first written*
+  took it back to E = 0. Completing the bounds family — one missing coordinate, one missing member —
+  moves that index off the demanded cell, and the master index is back at **E = 1 with the same demand
+  outstanding**. Nine indexes, eight distinct master cells. See *the demand was filled, and the fill is
+  withdrawn*, below.
 
   **The one meet between "independent" indexes is spurious, and finding that is the point.** Of the
   equal-arity pairs, `periodic layout 2-D` and `Janet` share **nine tuples** — but `(period, group)` and
@@ -8551,7 +8558,9 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
   statistics}`: 4; `{information, statistics}`: 4; `{statistics}` alone: 2).
 
   Seating them takes the master index to **79 indexes over 11 distinct cells**, box 192, density 5.7 %
-  — **and it still closes under `statistics`** with nothing demanded.
+  — and after the bounds correction it is **`statistics` E = 1 there too**, the same deficit the seated
+  master index carries. *(Before the correction it closed, E = 0. The populated reading tracks the
+  seated one and is not an independent check on it.)*
 
   **And the same control failed the same way twice, which is worth more than the number it produced.**
   An early pass ran it at **200 draws**, read 0 %, and concluded closure *dies* as the master index
@@ -8565,44 +8574,69 @@ whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever 
 - **`bounds.py`** — **the bounds index: the right-hand sides, as a family.** Every member of the
   energy-condition family has a right-hand side, and the `B` slot orders those by how much negativity
   each licenses. That slot is a **coordinate** of that index. The bounds themselves are a **family**,
-  with their own members and their own slots, and this is it — **eight named bounds over five slots,
-  giving seven distinct cells in a box of 72**: what is bounded (`W`: pointwise density / smeared or
+  with their own members and their own slots, and this is it — **nine named bounds over six slots,
+  giving eight distinct cells in a box of 216**: what is bounded (`W`: pointwise density / smeared or
   averaged / entropy), the bound's value (`B`: zero / a negative constant / a state functional),
-  whether the RHS is state-dependent (`S`), whether gravity enters (`G`), and whether it is known
-  saturated (`K`). `B` deliberately **reuses the energy-condition family's own bound ladder** rather
-  than inventing a coding, so the two indexes agree where they overlap.
+  whether the RHS is state-dependent (`S`), whether gravity enters (`G`), whether it is known
+  saturated (`K`), and **what the smearing runs over (`Z`: pointwise / timelike or null / spacelike or
+  region)**. `B` deliberately **reuses the energy-condition family's own bound ladder** rather than
+  inventing a coding, so the two indexes agree where they overlap.
 
-  | bound | W | B | S | G | K | |
-  |---|---|---|---|---|---|---|
-  | zero (the NEC's RHS) | 0 | 0 | 0 | 0 | 0 | saturated by the vacuum and by EM |
-  | ANEC | 1 | 0 | 0 | 0 | 0 | averaged, RHS zero |
-  | SNEC | 1 | 1 | 0 | 0 | 1 | smeared null |
-  | Ford–Roman QI | 1 | 1 | 0 | 0 | 0 | **Casimir saturates it** |
-  | Fewster–Osterbrink QEI | 1 | 1 | 0 | 0 | 1 | state-independent; shares SNEC's cell |
-  | QNEC | 0 | 2 | 1 | 0 | 1 | entropy variation on the RHS |
-  | Bekenstein | 2 | 1 | 0 | 1 | 0 | saturated by black holes |
-  | Bousso covariant | 2 | 1 | 0 | 1 | 1 | lightsheets |
+  | bound | W | B | S | G | K | Z | |
+  |---|---|---|---|---|---|---|---|
+  | zero (the NEC's RHS) | 0 | 0 | 0 | 0 | 0 | 0 | saturated by the vacuum and by EM |
+  | ANEC | 1 | 0 | 0 | 0 | 0 | 1 | averaged, RHS zero |
+  | SNEC | 1 | 1 | 0 | 0 | 1 | 1 | smeared null |
+  | Ford–Roman QI | 1 | 1 | 0 | 0 | 0 | 1 | **Casimir saturates it** |
+  | Fewster–Osterbrink QEI | 1 | 1 | 0 | 0 | 1 | 1 | state-independent; shares SNEC's cell |
+  | QNEC | 0 | 2 | 1 | 0 | 1 | 0 | entropy variation on the RHS |
+  | **Casini (relative entropy)** | 2 | 2 | 1 | 0 | 1 | 2 | `ΔS_A ≤ Δ⟨H_A⟩`; **seated late, and it costs this file four claims** |
+  | Bekenstein | 2 | 1 | 0 | 1 | 0 | 2 | saturated by black holes |
+  | Bousso covariant | 2 | 1 | 0 | 1 | 1 | 2 | lightsheets |
 
-  Two things it makes visible that the `B` slot alone cannot. **The gravity split:** two of the eight
-  have gravity in them and six do not — the six are statements about quantum field theory on a fixed
-  background, the two about spacetime, and that division is invisible from inside the energy-condition
-  family where every bound is just a value of `B`. The two gravitational bounds are **exactly** the two
-  entropy bounds. **And saturation is a property of the bound, not of the condition:** four of the
-  eight are known saturated — zero by the vacuum and by the electromagnetic field, ANEC by the vacuum
-  along a complete null geodesic, **Ford–Roman by Casimir**, Bekenstein by black holes. That is which
-  walls have already been reached, and it is the difference between a bound that is a *limit* and one
-  that is an *estimate*. It is also the sharpest statement of why the negative-energy census comes out
-  as it does: **Casimir is the Ford–Roman bound saturated, not an exception to it**, which is why no
-  material choice crosses it. *(The count was written as three on the first pass, omitting ANEC; the
-  table was right and the sentence was wrong, and the selftest is what caught it.)*
+  **The `Z` slot is there because a theorem turns on it.** Ford, Helfer and Roman prove a quantum
+  energy inequality *exists* for timelike and null smearing and **provably does not exist** for a purely
+  spatial average. The `W` slot says what is bounded and says nothing about what the average runs over,
+  so a distinction the literature settles by theorem was invisible here. It splits the nine **two /
+  four / three** — pointwise `{zero, QNEC}`, timelike-or-null `{ANEC, SNEC, Ford–Roman,
+  Fewster–Osterbrink}`, spacelike-or-region `{Casini, Bekenstein, Bousso}` — and that third group is
+  exactly the set for which no QEI is available. **A ball integral is a `Z = 2` object**, and that is
+  the whole content of the requirement's collision with the quantum inequalities: it is not that a ball
+  integral evades the bounds, it is that the only bounds that reach it are the entropy bounds.
 
-  One collision: **SNEC and Fewster–Osterbrink occupy the same cell.** `statistics` closes the index
-  (E = 0) and is the only language that does.
+  Two things the slot table makes visible that the `B` slot alone cannot. **The gravity split:** two of
+  the nine have gravity in them and seven do not — the seven are statements about quantum field theory
+  on a fixed background, the two about spacetime, and that division is invisible from inside the
+  energy-condition family where every bound is just a value of `B`. **And saturation is a property of
+  the bound, not of the condition:** four of the nine are known saturated — zero by the vacuum and by
+  the electromagnetic field, ANEC by the vacuum along a complete null geodesic, **Ford–Roman by
+  Casimir**, Bekenstein by black holes. That is which walls have already been reached, and it is the
+  difference between a bound that is a *limit* and one that is an *estimate*. It is also the sharpest
+  statement of why the negative-energy census comes out as it does: **Casimir is the Ford–Roman bound
+  saturated, not an exception to it**, which is why no material choice crosses it. *(The saturated count
+  was written as three on the first pass, omitting ANEC; the table was right and the sentence was wrong,
+  and the selftest is what caught it.)*
 
-### The demand, and the index that filled it
+  One collision survives: **SNEC and Fewster–Osterbrink occupy the same cell.** **The index is closed by
+  nothing** — `statistics` and `information` are the tightest at `E = 2`, `order` and `algebra` at
+  `E = 6` — and it demands two cells, `(2,1,0,0,0,2)` and `(2,1,0,0,1,2)`: *a non-gravitational entropy
+  bound with a constant RHS on a spacelike region.*
+
+  **Seating Casini costs this file four of its own claims**, and every one of them was a coincidence of
+  the family being exactly eight members:
+
+  | claim, as first written | now |
+  |---|---|
+  | every entropy bound is gravitational | **false** — Casini has no `G` |
+  | the two gravitational bounds are exactly the two entropy bounds | **false** — there are three entropy bounds |
+  | only QNEC has a state-dependent RHS | **false** — Casini too |
+  | `statistics` closes the bounds index | **false** — `E = 2`, and nothing closes it |
+
+### The demand was filled, and the fill is withdrawn
 
 **At eight indexes the master index stopped closing and named exactly one missing cell. The ninth index
-seated occupies it exactly, and the master index closed again.**
+seated occupied it exactly, the master index closed again — and that result does not survive completing
+the bounds family.**
 
 The demand was `(C, Sc, Oc, D, R) = (1, 1, 0, 2, 1)` — *closed by one language and that language
 `statistics`, not `order`; five or more coordinates; density between 5 % and 30 %.* Nothing seated
@@ -8610,45 +8644,50 @@ occupied it, and **none of the 78 indexes reachable once the witnessed spectra a
 occupied it either.** It was recorded as falsifiable: an index with those properties either exists and
 has not been seated, or does not exist and the structure is over-reaching.
 
-**The bounds index occupies it exactly** — seven cells, five coordinates, box 72, density 9.7 %, closed
-by `statistics` and nothing else. Seating it takes the master index from **E = 1 back to E = 0**, and
-it demands nothing further. Populated, 79 indexes over 11 distinct cells, still E = 0.
+**The bounds index as first written occupied it exactly** — eight bounds, seven cells, five
+coordinates, box 72, density 9.7 %, closed by `statistics` and nothing else. That was reported with two
+caveats: the demanded cell was measured and printed *before* the bounds index was written, so it was
+never a sealed envelope; and the fill held in only 10 of 40 arity × density bandings.
 
-**What that is worth, stated at its true strength and no higher:**
+**Both caveats were true. Neither was the one that mattered.**
 
-- **It is not a blind prediction.** The demanded cell was measured and printed before the bounds index
-  was written, and whoever wrote it could see it. Nothing here is a sealed envelope, and calling it one
-  would be false.
-- **The arity band is a choice, and it is load-bearing.** Drop any single one of the five slots and the
-  hit fails — all five drop-one variants land elsewhere, because four coordinates put the index in
-  arity band 1 rather than 2. The `D` coordinate of the hit is carried entirely by the decision to seat
-  five slots. That decision is defensible on its own terms — each slot is a property a bound actually
-  has, none is constant across the eight, and the `B` ladder is reused rather than invented — but it is
-  a decision and it could have gone otherwise.
-- **What is not a choice is the closure signature.** `C = 1, Sc = 1, Oc = 0` is measured by running the
-  five operators over the seven cells. Against **20,000 random 7-cell sets drawn from the same 72-cell
-  box, that signature comes out 1.06 % of the time** — and 211 of the 212 that match it also match the
-  density band, so the density band is nearly free once the closure matches and the informative content
-  is the closure. **Given five slots, the landing is not generic.**
-- **And the banding carries more of it than the first statement admitted.** That first statement said
-  the arity band is a choice and is load-bearing; true, and not the whole caveat. `C`, `Sc` and `Oc` are
-  measured and cannot move, but `D` and `R` are **banded** and the edges are assigned. Swept over
-  4 arity × 10 density bandings: the eight-index master index **demands something in 23 of 40** (58 %),
-  the bounds index **fills that demand in only 10 of 40** (25 %), and the nine-index master index
-  **closes in 21 of 40** (52 %). **At arity band `[3, 6]` — five and six coordinates in one band rather
-  than split — the demand vanishes entirely, in all ten density choices.** The demand exists at all
-  because `[3, 5]` separates the 5-coordinate indexes from the 6-coordinate ones. *So the demand, and
-  the bounds index filling it, are properties of the declared banding and not banding-invariant facts.*
-  What defends the seated banding is not that it is uniquely right but that it is **older than the
-  result** — `[3, 5]` and `[.05, .3, .6]` were fixed before the substance, Petrov and bounds indexes
-  existed, and they encode the plain tripartitions *2 / 3-4 / 5+* and *<5 % / 5-30 % / 30-60 % / >60 %*.
-  Not tuned. Not invariant either, and a reader who prefers *2 / 3-5 / 6+* gets no demand at all.
+Completing the family destroys the fill, and **two independent completions each suffice on their own**:
 
-**So the claim is this and no more:** the master index named a cell no seated index occupied; an index
-built to answer a different question — *what are the right-hand sides, as a family* — was found to
-occupy it, on a signature a same-shaped random set reproduces about one time in a hundred; and its
-arrival returned the master index to closure. Whether the demand *caused* anyone to look at the bounds
-cannot be established from inside the measurement, and it is not claimed.
+- **A coordinate was missing** — the `Z` smearing signature above. Adding it alone, with the same eight
+  members, the family still closes under `statistics` but its master cell moves to `(1, 1, 0, 2, 0)`:
+  the density falls out of the band. **The demand is no longer filled.**
+- **A member was missing** — Casini's relative-entropy bound (arXiv:0804.2182; Blanco and Casini,
+  PRL **111** 221601), an entropy bounded by a modular energy, the same species as Bekenstein and QNEC
+  which were already seated. It was simply not there. Adding *it* alone, without the `Z` slot, the
+  family **stops closing** (`E = 2` under `statistics`) and the master cell moves to `(0, 0, 0, 2, 1)`.
+  **The demand is not filled either way.**
+
+**So the fill rested on that family being exactly eight members in exactly five coordinates — fragile
+to MEMBERSHIP, which is a fact about the literature, and not merely to banding, which is a choice.**
+The caveat that was carried was not the caveat that killed it. *A caveat correctly stated is not a
+caveat correctly chosen.*
+
+**The state now, measured:** nine indexes, eight distinct cells; `order` 30 (`E` 22), `algebra` 30
+(`E` 22), `geometry` 13 (`E` 5), `information` 19 (`E` 11), **`statistics` 9 (`E` 1)**. The master
+index **does not close, and it still demands `(1, 1, 0, 2, 1)`.** Four indexes now close in no
+language — bounds has joined periodic 3-D, the substances and the languages. Populated, 79 indexes over
+11 cells, still `E = 1`. Over the forty bandings the demand exists in **23** and the bounds index fills
+it in **0**. The master cell of the completed bounds index is `(0, 0, 0, 2, 0)`.
+
+**What survives, and it is not nothing.** The demand itself is untouched and still open: *an index
+closed by `statistics` alone, five or more coordinates, 5–30 % density* — a falsifiable prediction that
+nothing in this corpus currently occupies. What is withdrawn is the claim that something already did.
+And the closure-signature statistic that made the original hit interesting was measured on the
+seven-cell box and is not transferable: against 20,000 random 7-cell sets drawn from the same 72-cell
+box the signature `C = 1, Sc = 1, Oc = 0` came out **1.06 %** of the time, and 211 of the 212 that
+matched also matched the density band. That number described a landing that has since moved off the
+cell; it is recorded as what was measured, not as support for anything now.
+
+**What the episode is worth** is the failure mode, which is the one this tree keeps finding in its own
+work: a result that rested on a family being complete when it was not. The banding caveat was correctly
+stated, prominently carried, and irrelevant. It is also the reason `bounds.py` now pins its own
+membership and arity in a selftest — the withdrawal was found by adding a member, and the pins are what
+make the next addition report rather than pass silently.
 
 ### The channel lattice has two readings, and they disagree
 
@@ -8670,26 +8709,37 @@ index carries the channel reading, the cell carries the refusal reading.
 
 | K | channel set | as a channel | as a refusal |
 |---|---|---|---|
-| K0 | `{}` | seated ×3 | 256 cells |
-| **K1** | `{information}` | **vacant** | **1 cell** |
-| K2 | `{statistics}` | seated ×4 | 9 |
-| K3 | `{geometry, statistics}` | species ×4 | 249 |
+| K0 | `{}` | seated ×4 | 257 cells |
+| **K1** | `{information}` | **vacant** | **3 cells** |
+| K2 | `{statistics}` | seated ×3 | 10 |
+| K3 | `{geometry, statistics}` | species ×4 | 248 |
 | K4 | `{information, statistics}` | seated ×1 | 208 |
 | **K5** | `{geometry, information, statistics}` | **vacant** | 87 |
 | K6 | `{algebra, information, order, statistics}` | witness | 7 |
-| K7 | all five | seated ×1 | 1059 |
+| K7 | all five | seated ×1 | 1200 |
 
 **Six of eight are occupied as channel sets; all eight as refusal sets.** The two nothing occupies as
 a channel are both reached by cells. And the shape differs exactly as predicted: an index carries an
 **arity and a density**, a cell decision carries **neither**. *Same value, same languages, different
 shape.*
 
-**K1 is the rarest thing in the corpus — one cell in 1,876, 0.05 % — and the warp obstruction is at
-it.**
+**K1 is the rarest thing in the corpus — three cells in 2,020, 0.15 % — and the warp obstruction is at
+it.** *(One cell in 1,876 before the bounds correction; completing that family added the other two, and
+it stays the rarest of the eight by a factor of three.)*
 
-**And the one other instance names the shape.** It is `(period 4, group 11, s-block)` in the periodic
-layout read in three coordinates, and no element sits there. Every *pair* of its coordinates is
-present:
+**And all three name the same shape.** The two new ones are in the **bounds index**, at
+`(2,1,0,0,0,2)` and `(2,1,0,0,1,2)` — *a non-gravitational entropy bound with a constant RHS on a
+spacelike region*, which is what the completed bounds family asks for and does not have. They are
+exactly what that index's **tightest** languages demand: `information` and `statistics`, at `E = 2`
+each. *(Stated at its true strength: this is not everything the index demands — the union over all
+five languages is six cells. And it is half true by construction, since a K1 refusal is refused by
+`information` and admitted by the rest, so the tightest demand and the K1 set coincide whenever
+`information` is tightest. What is measured, and could have gone otherwise, is that it **is** tightest
+there.)* Neither cell was put there; both fell out of seating Casini and the `Z` slot.
+
+**The original instance is the one that names the shape most legibly.** It is `(period 4, group 11,
+s-block)` in the periodic layout read in three coordinates, and no element sits there. Every *pair* of
+its coordinates is present:
 
 - period 4 + group 11 → **copper**, at the d-block
 - period 4 + s-block → potassium, calcium
@@ -8718,22 +8768,37 @@ fails.*
 **The second master index, constructed.** `M2`'s cells are **kinds of refusal**, coordinatised by
 what every pair `(X, c)` has: `K` the refusal set *(shared with M1's channel reading)*, `W` marginal
 completeness, `H` Hamming distance to the nearest member, `J` join/meet status, and `A` the **host's**
-arity band, inherited. Over 1,876 pairs: **43 distinct profiles**, arity 5, box 1152, density 3.7 %,
+arity band, inherited. Over 2,020 pairs: **46 distinct profiles**, arity 5, box 1152, density 4.0 %,
 and **closed by nothing**.
 
 | | cells are | master cell | channel |
 |---|---|---|---|
-| **M1** | indexes | (1, 1, 0, 2, 0) | K2 |
+| **M1** | indexes | (0, 0, 0, 2, 0) | K0 |
 | **M2** | kinds of refusal | (0, 0, 0, 2, 0) | K0 |
 
-**They differ in the channel coordinates and in nothing else** — same arity band, same density band.
-And M2's cell is one **order and algebra already demanded** of M1.
+**The two master indexes coincide** — same channel, same arity band, same density band. An index whose
+cells are indexes and an index whose cells are kinds of refusal land on **one cell**.
+
+**That is not what was first reported here, and the change is the bounds correction rather than a
+re-reading.** As first written: M1 at `(1, 1, 0, 2, 0)` channel K2, M2 at `(0, 0, 0, 2, 0)` channel K0
+— *they differ in the channel coordinates and in nothing else*, with M2's cell one that **order and
+algebra already demanded** of M1. Completing the bounds family stopped the bounds index closing, which
+stopped the master index closing, which moved M1 from K2 to K0 — **onto M2's cell**. The coincidence
+is a *consequence* of the withdrawal, reached by a route that had nothing to do with M2, and that is
+the only reason it is worth anything.
+
+**And the cell is occupied — by the bounds index, whose own master cell is also `(0, 0, 0, 2, 0)`. So
+M1 is a cell of itself:** the master index's own master cell is one of its nine members. Recorded, not
+interpreted. Nothing here says self-membership is meaningful; it says the arithmetic produced it, and
+a reader treating M1 as an index of things other than itself should know.
 
 *The construction is not forced, and that is recorded rather than resolved.* `W = 2` exactly when
-statistics admits — 0 disagreements in 1,876 pairs — so it adds nothing where statistics admits and
-one bit where it refuses. Drop it and M2 becomes 41 profiles at arity 4, landing on **(0, 0, 0, 1, 1)
+statistics admits — 0 disagreements in 2,020 pairs — so it adds nothing where statistics admits and
+one bit where it refuses. Drop it and M2 becomes 44 profiles at arity 4, landing on **(0, 0, 0, 1, 1)
 — which is occupied, by the periodic layout in three coordinates**, the one index carrying the only
-K1 cell. Both are reported; neither is preferred here.
+K1 cell. **So M2 sits on an occupied cell either way**, and the choice is *which* index it lands on:
+with `W`, the bounds index; without `W`, the layout carrying the warp obstruction's kind. Both are
+reported; neither is preferred here.
 
 **The corridor, defined.** A **corridor is a pair `(X, c)`** — an index and a cell of its box. Its
 endpoint in M1 is `X`'s master cell; its endpoint in M2 is the refusal profile; and **what they share
@@ -9073,7 +9138,10 @@ it; the corrections above are what it produced and they are verified here indepe
 seated neighbour is the energy-condition family, which matches on every coordinate but density (3.1 %,
 one band low). **That is the mechanism firing exactly as predicted** — a demand needs its values
 *borne*, six indexes did not bear enough and eight do. The prediction is falsifiable: such an index
-either exists unseated, or does not exist and the structure is over-reaching. Nothing is seated for it.
+either exists unseated, or does not exist and the structure is over-reaching. **Nothing is seated for
+it.** *(The bounds index was reported as filling it and that report is withdrawn — completing the
+family moves it off the cell. See* the demand was filled, and the fill is withdrawn*, above. The demand
+itself is untouched and still open.)*
 
 **A machine-check here is not enumeration.** Each claim is a formula whose variables range over
 **every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is

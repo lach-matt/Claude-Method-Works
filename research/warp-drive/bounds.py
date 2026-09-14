@@ -26,6 +26,10 @@ THE SLOTS
     S  state-dependent RHS  0 no    1 yes
     G  gravity enters       0 no    1 yes (a G or an area appears)
     K  known to be saturated 0 yes  1 not known
+    Z  SMEARING SIGNATURE   0 pointwise
+                            1 timelike or null   -- a QEI exists
+                            2 spacelike / region -- FORD-HELFER-ROMAN PROVE
+                                                    NO QEI EXISTS
 
 B is deliberately the SAME ladder as the energy-condition family's B slot --
 by how much negativity the bound licenses -- so the two indexes agree where they
@@ -71,53 +75,107 @@ three here on the first pass, omitting ANEC; the table was right and the
 sentence was wrong, and the selftest is what caught it.
 
 ===============================================================================
-WHERE IT LANDS IN THE MASTER INDEX -- AND IT IS THE CELL THAT WAS DEMANDED
+CORRECTED: THE FILL DOES NOT SURVIVE COMPLETING THE FAMILY
 ===============================================================================
 
-At eight seated indexes the master index stopped closing and demanded exactly
-one cell: closed by one language and that language `statistics`, five or more
-coordinates, density between 5 % and 30 %.  Nothing seated occupied it.
+At eight seated indexes the master index demanded exactly one cell,
+(1, 1, 0, 2, 1).  THIS FILE, AS FIRST WRITTEN, OCCUPIED IT EXACTLY -- seven
+cells, five coordinates, box 72, density 9.7 %, closed by `statistics` alone --
+and seating it returned the master index to closure.  That was reported with two
+caveats: the demanded cell was on the record beforehand, so it was not a blind
+prediction, and the fill is banding-dependent, holding in 10 of 40 bandings.
 
-This index does.  Seven cells, five coordinates, box 72, density 9.7 %, closed
-by `statistics` and nothing else.  Seating it returns the master index to
-closure with nothing further demanded.
+    **BOTH CAVEATS WERE TRUE AND NEITHER WAS THE ONE THAT MATTERED.  THE FILL
+    DOES NOT SURVIVE COMPLETING THIS FAMILY, AND TWO SEPARATE COMPLETIONS KILL
+    IT INDEPENDENTLY.**
 
-Stated at its true strength and no higher: the demanded cell was on the record
-before this file was written, so it is not a blind prediction; and the arity
-band is carried entirely by the choice to seat five slots -- drop any one and
-the hit fails.  What is not a choice is the closure signature, which a random
-seven-cell set in this same box reproduces about one time in a hundred.
+**ONE: A COORDINATE WAS MISSING, AND A THEOREM MAKES IT LOAD-BEARING.**  The W
+slot says WHAT is bounded -- pointwise, smeared, entropy -- and says nothing
+about WHAT THE SMEARING RUNS OVER.  Ford, Helfer and Roman prove that a quantum
+energy inequality EXISTS for timelike and null smearing and PROVABLY DOES NOT
+EXIST for a purely spatial average.  A distinction a theorem turns on is a
+coordinate, not a note, and the Z slot is now it.  Adding it alone: the family
+still closes under `statistics`, but its master cell moves to (1, 1, 0, 2, 0)
+and THE DEMAND IS NO LONGER FILLED.
 
-AND THE DEMAND ITSELF IS BANDING-DEPENDENT, which is a caveat the first statement
-did not carry.  The master index's D and R coordinates are BANDED and the edges
-are assigned; swept over forty bandings, the eight-index master index demands
-anything in 23 and this index fills that demand in 10.  At arity band [3, 6] --
-five and six coordinates together rather than split -- there is no demand at all.
-So the hit is a property of the declared banding, defended only by that banding
-being older than the result.  master.py's banding_sensitivity() holds the sweep
-and section 7 holds the caveat in full.
+**TWO: A MEMBER WAS MISSING.**  Casini's relative-entropy bound, dS_A <= d<H_A>
+(arXiv:0804.2182; Blanco and Casini, PRL 111 221601), is a published bound of
+exactly the kind this family seats -- an entropy bounded by a modular energy,
+the same species as Bekenstein and QNEC, both of which were already here.  It
+was simply not seated.  Adding IT alone, without the Z slot: the family STOPS
+CLOSING, E = 2 under statistics, and the master cell moves to (0, 0, 0, 2, 1).
+THE DEMAND IS NOT FILLED EITHER WAY.
+
+    SO THE FILL RESTED ON THE FAMILY BEING EXACTLY THOSE EIGHT MEMBERS IN
+    EXACTLY THOSE FIVE COORDINATES.  It was fragile to MEMBERSHIP, not only to
+    banding, and membership is a fact about the literature rather than a choice.
+
+**AND SEATING CASINI COSTS THIS FILE FOUR OF ITS OWN CLAIMS**, every one of
+which turns out to have been a coincidence of the eight:
+
+    "every entropy bound is gravitational"          FALSE -- Casini has no G
+    "the two gravitational bounds are exactly the
+     two entropy bounds"                            FALSE -- there are three
+                                                    entropy bounds now
+    "only QNEC has a state-dependent RHS"           FALSE -- Casini too
+    "statistics closes the bounds index"            FALSE -- E = 2
+
+Recorded, not repaired: the claims are withdrawn where they fail and the pins
+below now assert the corrected values.
+
+===============================================================================
+WHAT THE SMEARING SIGNATURE SHOWS, AND IT IS THE USEFUL PART
+===============================================================================
+
+The Z slot splits the nine two / four / three:
+
+    Z = 0  pointwise               zero, QNEC
+    Z = 1  timelike or null        ANEC, SNEC, Ford-Roman, Fewster-Osterbrink
+    Z = 2  spacelike / region      Casini, Bekenstein, Bousso
+
+    AND THE SPLIT IS NOT THE GRAVITY SPLIT.  All three region bounds have W = 2,
+    an ENTROPY on the left; only two of them have gravity in them.
+
+Which gives the gap its exact shape.  certify.py's requirement is a VOLUME
+INTEGRAL OF rho OVER A BALL -- spacelike signature, energy density bounded.
+Read down the two columns:
+
+    every bound whose left-hand side is an ENERGY DENSITY has Z = 0 or 1
+    every bound with Z = 2 has an ENTROPY on its left-hand side
+
+    THERE IS NO BOUND IN THIS FAMILY WHOSE SMEARING SIGNATURE MATCHES THE
+    REQUIREMENT AND WHOSE BOUNDED OBJECT IS AN ENERGY.
+
+That is what certify.py meant by "no standard QI bounds it directly", stated as
+a property of the index rather than as a remark, and Ford-Helfer-Roman is why it
+is a theorem rather than a gap in anyone's reading.  IT DOES NOT WEAKEN THE
+OBSTRUCTION.  It says the obstruction has never been priced by an instrument of
+the right shape, and that no such instrument is known to exist.
 """
 
 import sys
 
 import hlaw
 
-# (name, W, B, S, G, K, note)
+# (name, W, B, S, G, K, Z, note)
 BOUNDS = [
-    ("zero (the NEC's RHS)",   0, 0, 0, 0, 0, "saturated by the vacuum and by EM"),
-    ("ANEC",                   1, 0, 0, 0, 0, "averaged, RHS zero"),
-    ("SNEC",                   1, 1, 0, 0, 1, "smeared null"),
-    ("Ford-Roman QI",          1, 1, 0, 0, 0, "CASIMIR SATURATES IT"),
-    ("Fewster-Osterbrink QEI", 1, 1, 0, 0, 1, "state-independent; shares SNEC's cell"),
-    ("QNEC",                   0, 2, 1, 0, 1, "entropy variation on the RHS"),
-    ("Bekenstein",             2, 1, 0, 1, 0, "saturated by black holes"),
-    ("Bousso covariant",       2, 1, 0, 1, 1, "lightsheets"),
+    ("zero (the NEC's RHS)",   0, 0, 0, 0, 0, 0, "saturated by the vacuum and by EM"),
+    ("ANEC",                   1, 0, 0, 0, 0, 1, "averaged, RHS zero"),
+    ("SNEC",                   1, 1, 0, 0, 1, 1, "smeared null"),
+    ("Ford-Roman QI",          1, 1, 0, 0, 0, 1, "CASIMIR SATURATES IT"),
+    ("Fewster-Osterbrink QEI", 1, 1, 0, 0, 1, 1, "state-independent; shares SNEC's cell"),
+    ("QNEC",                   0, 2, 1, 0, 1, 0, "entropy variation on the RHS"),
+    ("Casini (relative entropy)",
+                               2, 2, 1, 0, 1, 2, "dS_A <= d<H_A>; SEATED LATE, and "
+                                                 "it costs this file four claims"),
+    ("Bekenstein",             2, 1, 0, 1, 0, 2, "saturated by black holes"),
+    ("Bousso covariant",       2, 1, 0, 1, 1, 2, "lightsheets"),
 ]
-COORDS = ("W", "B", "S", "G", "K")
+COORDS = ("W", "B", "S", "G", "K", "Z")
 
 
 def cells():
-    return frozenset(tuple(r[1:6]) for r in BOUNDS)
+    return frozenset(tuple(r[1:7]) for r in BOUNDS)
 
 
 def saturated():
@@ -131,7 +189,7 @@ def gravitational():
 def collisions():
     seen = {}
     for r in BOUNDS:
-        seen.setdefault(tuple(r[1:6]), []).append(r[0])
+        seen.setdefault(tuple(r[1:7]), []).append(r[0])
     return sorted(tuple(sorted(v)) for v in seen.values() if len(v) > 1)
 
 
@@ -145,9 +203,10 @@ def report():
     print("negativity each licenses. That slot is a COORDINATE of that index.")
     print("The bounds themselves are a FAMILY, and this is it.")
     print()
-    print("   %-26s %2s %2s %2s %2s %2s  %s" % ("bound", *COORDS, "note"))
-    for nm, W, B, S, G, K, note in BOUNDS:
-        print("   %-26s %2d %2d %2d %2d %2d  %s" % (nm, W, B, S, G, K, note))
+    print("   %-26s %2s %2s %2s %2s %2s %2s  %s" % ("bound", *COORDS, "note"))
+    for nm, W, B, S, G, K, Z, note in BOUNDS:
+        print("   %-26s %2d %2d %2d %2d %2d %2d  %s"
+              % (nm, W, B, S, G, K, Z, note))
     print()
     print("   %d bounds -> %d distinct cells" % (len(BOUNDS), len(X)))
     for a in collisions():
@@ -191,28 +250,30 @@ def selftest():
 
     print("bounds selftest")
     X = cells()
-    chk("eight named bounds", len(BOUNDS), 8)
-    chk("seven distinct cells", len(X), 7)
-    chk("five coordinates", len(COORDS), 5)
+    chk("nine named bounds -- Casini seated late", len(BOUNDS), 9)
+    chk("eight distinct cells", len(X), 8)
+    chk("six coordinates -- the smearing signature is one of them", len(COORDS), 6)
     chk("no coordinate is constant",
-        all(len({c[i] for c in X}) > 1 for i in range(5)), True)
+        all(len({c[i] for c in X}) > 1 for i in range(len(COORDS))), True)
 
     chk("one cell collision, and it is the two QEIs", collisions(),
         [("Fewster-Osterbrink QEI", "SNEC")])
     chk("four bounds are known saturated", len(saturated()), 4)
     chk("and Ford-Roman is one of them", "Ford-Roman QI" in saturated(), True)
     chk("two bounds have gravity in them", len(gravitational()), 2)
-    chk("and they are the two entropy bounds",
-        sorted(gravitational()), ["Bekenstein", "Bousso covariant"])
-    chk("every entropy bound is gravitational",
-        all(r[4] == 1 for r in BOUNDS if r[1] == 2), True)
-    chk("and no non-entropy bound is",
-        any(r[4] == 1 for r in BOUNDS if r[1] != 2), False)
-
-    chk("only QNEC has a state-dependent RHS",
-        [r[0] for r in BOUNDS if r[3] == 1], ["QNEC"])
-    chk("and it is the only one whose bound is a state functional",
-        [r[0] for r in BOUNDS if r[2] == 2], ["QNEC"])
+    # WITHDRAWN. Each of the next three was a coincidence of the eight members
+    # first seated, and seating Casini -- a published bound of exactly the kind
+    # this family holds -- refutes all three. The corrected values are pinned.
+    chk("'every entropy bound is gravitational' is FALSE",
+        all(r[4] == 1 for r in BOUNDS if r[1] == 2), False)
+    chk("there are THREE entropy bounds and TWO gravitational ones",
+        (len([r for r in BOUNDS if r[1] == 2]), len(gravitational())), (3, 2))
+    chk("Casini is the entropy bound with no Newton constant",
+        [r[0] for r in BOUNDS if r[1] == 2 and r[4] == 0],
+        ["Casini (relative entropy)"])
+    chk("'only QNEC has a state-dependent RHS' is FALSE",
+        [r[0] for r in BOUNDS if r[3] == 1],
+        ["QNEC", "Casini (relative entropy)"])
 
     # B is the SAME ladder as the energy-condition family's, deliberately.
     import necindex
@@ -220,17 +281,43 @@ def selftest():
         {r[2] for r in BOUNDS} <= {c[4] for c in necindex.cells()}, True)
 
     cl, _ = hlaw.closures(X)
-    chk("statistics closes the bounds index", len(cl["statistics"]) - len(X), 0)
-    chk("and it is the ONLY language that does",
-        [L for L in hlaw.LANGS if len(cl[L]) == len(X)], ["statistics"])
+    # ALSO WITHDRAWN, and this is the one that mattered.
+    chk("'statistics closes the bounds index' is FALSE once Casini is seated",
+        len(cl["statistics"]) - len(X), 2)
+    chk("nothing closes it now",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(X)], [])
 
-    # WHERE IT LANDS ONE LEVEL UP. Pinned here as well as in the master index's
-    # own module, because a coordinate change in THIS file would move it.
+    # ---- THE SMEARING SIGNATURE, and the gap it gives an exact shape
+    Z = {0: [], 1: [], 2: []}
+    for r in BOUNDS:
+        Z[r[6]].append(r[0])
+    chk("the signature splits the nine two / four / three",
+        [len(Z[0]), len(Z[1]), len(Z[2])], [2, 4, 3])
+    chk("and the region bounds are not the gravitational ones",
+        sorted(Z[2]) == sorted(gravitational()), False)
+    chk("EVERY region-signature bound has an ENTROPY on its left",
+        all(r[1] == 2 for r in BOUNDS if r[6] == 2), True)
+    chk("and every energy-density bound is pointwise or timelike/null",
+        all(r[6] in (0, 1) for r in BOUNDS if r[1] != 2), True)
+    chk("SO NO BOUND HERE MATCHES THE REQUIREMENT'S SIGNATURE AND BOUNDS AN ENERGY",
+        [r[0] for r in BOUNDS if r[6] == 2 and r[1] != 2], [])
+
+    # ---- WHERE IT LANDS ONE LEVEL UP, AND THE FILL IS GONE
     import master
-    chk("shape is 5 coordinates in a box of 72", master.shape(X)[:2], (5, 72))
-    chk("density band 1 (5-30%)", master.master_cell(X)[4], 1)
-    chk("IT OCCUPIES THE CELL THE MASTER INDEX DEMANDED AT EIGHT",
-        master.master_cell(X), master.DEMANDED_AT_EIGHT)
+    chk("shape is 6 coordinates in a box of 216", master.shape(X)[:2], (6, 216))
+    chk("THE DEMANDED-CELL FILL DOES NOT SURVIVE COMPLETING THE FAMILY",
+        master.master_cell(X) == master.DEMANDED_AT_EIGHT, False)
+    chk("the master cell is now", master.master_cell(X), (0, 0, 0, 2, 0))
+    # and EACH completion kills it independently -- measured, not asserted
+    five = frozenset(tuple(r[1:6]) for r in BOUNDS)
+    chk("seating Casini alone (five coords) already misses it",
+        master.master_cell(five) == master.DEMANDED_AT_EIGHT, False)
+    eight6 = frozenset(tuple(r[1:7]) for r in BOUNDS
+                       if r[0] != "Casini (relative entropy)")
+    chk("and adding the signature alone (eight members) also misses it",
+        master.master_cell(eight6) == master.DEMANDED_AT_EIGHT, False)
+    chk("though with the signature alone the family still closes",
+        len(hlaw.closures(eight6)[0]["statistics"]) - len(eight6), 0)
     print("bounds selftest: %s" % ("PASS" if ok else "FAIL"))
     return 0 if ok else 1
 
