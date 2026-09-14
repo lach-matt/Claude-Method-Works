@@ -1173,8 +1173,10 @@ def selftest():
     # ONE drop-one variant now DOES reach it: dropping the gravity slot from the
     # completed family lands back on the demanded cell. A curiosity, not a fill --
     # the family with G removed is not the family.
-    chk("exactly one drop-one variant reaches the demanded cell",
-        [nm for nm, mc in drop_one_sensitivity() if mc == DEMANDED_AT_EIGHT], ["G"])
+    # DOCKET 4 made it TWO: with Bekenstein at G = 0 the K slot also reaches it.
+    chk("two drop-one variants reach the demanded cell",
+        [nm for nm, mc in drop_one_sensitivity() if mc == DEMANDED_AT_EIGHT],
+        ["G", "K"])
     chk("and it is the one that deletes the gravity coordinate",
         drop_one_sensitivity()[3][0], "G")
 

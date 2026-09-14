@@ -739,30 +739,30 @@ def selftest():
     # WAS ONE. Completing the bounds family added two more, both inside bounds
     # itself -- so the warp obstruction's KIND now occurs in the bounds index as
     # well as the periodic layout. Still the rarest of the eight.
-    chk("K1 occurs three times in 2,436 cells", cnt[K1], 3)
+    # DOCKET 4: was three. Re-coding Bekenstein G 1 -> 0 removed the two in the
+    # bounds index, leaving the periodic one DOCKET 1 ruled a convention seam.
+    chk("K1 OCCURS ONCE IN 2,436 CELLS -- it occurred three times", cnt[K1], 1)
     # AND THE TWO NEW ONES ARE THE BOUNDS INDEX'S OWN DEMANDED CELLS. Not put
     # there -- both fell out of seating Casini and the Z slot. So the bounds
     # family's outstanding demand is a K1 refusal, the warp obstruction's kind.
     import bounds as _b
     _bcl, _ = hlaw.closures(_b.cells())
-    chk("the other two K1 cells are in the bounds index",
-        sorted(c for n, c in k1_cells() if n == "bounds"),
-        [(2, 1, 0, 0, 0, 2), (2, 1, 0, 0, 1, 2)])
+    chk("AND THE BOUNDS INDEX NO LONGER HOLDS ONE",
+        sorted(c for n, c in k1_cells() if n == "bounds"), [])
     # STATED AT ITS TRUE STRENGTH, and the pin is what forced the correction.
     # It is NOT everything that index demands -- the union over all five
     # languages is six cells. It is what the TIGHTEST languages demand, and a
     # K1 refusal is by definition exactly that: refused by information and
     # admitted by everything else, so the two sets coincide by construction
     # for the tightest pair. What is measured is that the pair IS the tightest.
-    chk("what the tightest languages demand of the bounds index",
-        sorted(_bcl["statistics"] - _b.cells()),
-        [(2, 1, 0, 0, 0, 2), (2, 1, 0, 0, 1, 2)])
-    chk("and statistics/information ARE the tightest there",
+    chk("what the tightest language demands of the bounds index",
+        sorted(_bcl["statistics"] - _b.cells()), [(2, 1, 0, 0, 1, 2)])
+    chk("and statistics ALONE is now the tightest there",
         sorted(L for L in hlaw.LANGS
                if len(_bcl[L]) == min(len(_bcl[M]) for M in hlaw.LANGS)),
-        ["information", "statistics"])
+        ["statistics"])
     chk("the union over all five is larger, so this is not 'all it demands'",
-        len(set().union(*(_bcl[L] for L in hlaw.LANGS)) - _b.cells()), 6)
+        len(set().union(*(_bcl[L] for L in hlaw.LANGS)) - _b.cells()), 5)
     chk("which is the rarest of the eight",
         min(cnt.values()), cnt[K1])
     import statrow

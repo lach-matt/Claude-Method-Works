@@ -168,7 +168,13 @@ BOUNDS = [
     ("Casini (relative entropy)",
                                2, 2, 1, 0, 1, 2, "dS_A <= d<H_A>; SEATED LATE, and "
                                                  "it costs this file four claims"),
-    ("Bekenstein",             2, 1, 0, 1, 0, 2, "saturated by black holes"),
+    # DOCKET 4: G was 1. The slot's own rule is "a G or an area appears" and
+    # S <= 2 pi R E has neither; Bousso states in print (hep-th/0402058) that
+    # the bound "does not contain Newton's constant" and "remains nontrivial
+    # when gravity is turned off completely"; and the black-hole SATURATION
+    # that motivated G = 1 is already carried by K = 0. Coding it twice made
+    # G stop being a coordinate. THIS KILLS BOTH K1 CELLS OF THIS INDEX.
+    ("Bekenstein",             2, 1, 0, 0, 0, 2, "saturated by black holes; G re-coded 1->0, DOCKET 4"),
     ("Bousso covariant",       2, 1, 0, 1, 1, 2, "lightsheets"),
 ]
 COORDS = ("W", "B", "S", "G", "K", "Z")
@@ -260,17 +266,21 @@ def selftest():
         [("Fewster-Osterbrink QEI", "SNEC")])
     chk("four bounds are known saturated", len(saturated()), 4)
     chk("and Ford-Roman is one of them", "Ford-Roman QI" in saturated(), True)
-    chk("two bounds have gravity in them", len(gravitational()), 2)
+    # DOCKET 4 moved this: Bekenstein re-coded G 1 -> 0, so ONE bound carries
+    # gravity and it is Bousso, which genuinely has A/4G in its statement.
+    chk("ONE bound has gravity in it, and it is Bousso", len(gravitational()), 1)
     # WITHDRAWN. Each of the next three was a coincidence of the eight members
     # first seated, and seating Casini -- a published bound of exactly the kind
     # this family holds -- refutes all three. The corrected values are pinned.
     chk("'every entropy bound is gravitational' is FALSE",
         all(r[4] == 1 for r in BOUNDS if r[1] == 2), False)
-    chk("there are THREE entropy bounds and TWO gravitational ones",
-        (len([r for r in BOUNDS if r[1] == 2]), len(gravitational())), (3, 2))
-    chk("Casini is the entropy bound with no Newton constant",
-        [r[0] for r in BOUNDS if r[1] == 2 and r[4] == 0],
-        ["Casini (relative entropy)"])
+    chk("there are THREE entropy bounds and ONE gravitational one",
+        (len([r for r in BOUNDS if r[1] == 2]), len(gravitational())), (3, 1))
+    # DOCKET 4 again, and it doubles the count: TWO of the three entropy bounds
+    # now carry no Newton constant in their statements.
+    chk("TWO entropy bounds carry no Newton constant",
+        sorted(r[0] for r in BOUNDS if r[1] == 2 and r[4] == 0),
+        ["Bekenstein", "Casini (relative entropy)"])
     chk("'only QNEC has a state-dependent RHS' is FALSE",
         [r[0] for r in BOUNDS if r[3] == 1],
         ["QNEC", "Casini (relative entropy)"])
@@ -282,8 +292,11 @@ def selftest():
 
     cl, _ = hlaw.closures(X)
     # ALSO WITHDRAWN, and this is the one that mattered.
-    chk("'statistics closes the bounds index' is FALSE once Casini is seated",
-        len(cl["statistics"]) - len(X), 2)
+    # E was 2 with Bekenstein at G = 1. DOCKET 4 took it to 1 -- the re-coding
+    # moves the index CLOSER to closing without closing it, and it is what kills
+    # both K1 cells of this family.
+    chk("'statistics closes the bounds index' is FALSE -- E is 1, not 0",
+        len(cl["statistics"]) - len(X), 1)
     chk("nothing closes it now",
         [L for L in hlaw.LANGS if len(cl[L]) == len(X)], [])
 
@@ -316,8 +329,27 @@ def selftest():
                        if r[0] != "Casini (relative entropy)")
     chk("and adding the signature alone (eight members) also misses it",
         master.master_cell(eight6) == master.DEMANDED_AT_EIGHT, False)
-    chk("though with the signature alone the family still closes",
-        len(hlaw.closures(eight6)[0]["statistics"]) - len(eight6), 0)
+    chk("and with the signature alone the family no longer closes either",
+        len(hlaw.closures(eight6)[0]["statistics"]) - len(eight6), 1)
+    # ---- DOCKET 4's CONSEQUENCE, pinned where the re-coding lives.
+    import itertools as _it
+    _ks = master.channel_sets()
+    _cl, _box = hlaw.closures(X)
+    _k1 = [c for c in _it.product(*_box)
+           if _ks.index(frozenset(L for L in hlaw.LANGS if c not in _cl[L])) == 1]
+    chk("THIS INDEX NOW HOLDS NO K1 CELL AT ALL -- it held two", _k1, [])
+    # and the reversal is one integer, so the pin says which
+    _rows = [list(r) for r in BOUNDS]
+    for _r in _rows:
+        if _r[0].startswith("Bekenstein"):
+            _r[4] = 1
+    _back = frozenset(tuple(_r[1:7]) for _r in _rows)
+    _cl2, _box2 = hlaw.closures(_back)
+    _k1b = [c for c in _it.product(*_box2)
+            if _ks.index(frozenset(L for L in hlaw.LANGS if c not in _cl2[L])) == 1]
+    chk("and putting Bekenstein back at G = 1 restores exactly two",
+        _k1b, [(2, 1, 0, 0, 0, 2), (2, 1, 0, 0, 1, 2)])
+
     print("bounds selftest: %s" % ("PASS" if ok else "FAIL"))
     return 0 if ok else 1
 

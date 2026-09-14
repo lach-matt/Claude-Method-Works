@@ -141,6 +141,94 @@ demanded cells. Those two are unaffected by this docket.
 
 ---
 
+## DOCKET 4 — IS BEKENSTEIN GRAVITATIONAL?  **RULED**
+
+*Raised 2026-09-14 by the warp-cell audit, which found it while trying to bridge
+the two surviving K1 sites.*
+
+### The question
+
+`bounds.py` seats Bekenstein at **G = 1**. Its own rule for that slot reads,
+verbatim:
+
+    G  gravity enters       0 no    1 yes (a G or an area appears)
+
+Bekenstein's bound as stated is **S ≤ 2πRE**. It contains no Newton constant and
+no area. By the file's own test it is **G = 0**.
+
+The corpus's rarest refusal turns on the answer. With Bekenstein at G = 1 the
+bounds index holds **two K1 cells**; at G = 0 it holds **none**.
+
+### The case each way
+
+**For G = 1 (as seated).** The derivation is the generalised second law with a
+black-hole gedankenexperiment. The saturating object is a black hole. The file's
+own note for the row reads *"saturated by black holes"*.
+
+**For G = 0.** Three arguments, and the third is decisive.
+
+1. **The rule is a syntactic test on the STATEMENT**, and the statement has
+   neither a G nor an area. Nothing in the slot's definition mentions derivation
+   or provenance.
+2. **Bousso says so in print** (hep-th/0402058): the bound *"does not contain
+   Newton's constant"* and *"remains nontrivial when gravity is turned off
+   completely"*.
+3. **SATURATION ALREADY HAS ITS OWN SLOT, AND BEKENSTEIN IS IN IT.** `K = 0` is
+   the saturated flag — zero, ANEC, Ford–Roman and Bekenstein all carry it. So
+   *"saturated by black holes"* is recorded in `K`. Coding `G = 1` for the same
+   reason **double-counts one fact across two coordinates**, which is exactly
+   the fault that makes a coordinate stop being a coordinate.
+
+### THE RULING
+
+**Bekenstein is G = 0.** The `G` slot tests the statement, as the file defines
+it; provenance is not in its remit and saturation is in `K`'s. A tree whose
+discipline is to follow its own stated rules does not get to make an exception
+for the row where the exception is load-bearing.
+
+**If anyone wishes to reverse this, the way to do it is to change the RULE — to
+say `G` means "gravitational by provenance" — and then to re-code every other
+row against the new rule.** What is not available is leaving the rule as written
+and the row as coded.
+
+### What the ruling costs, stated plainly
+
+Measured, and the blast radius is smaller than the consequence:
+
+| | before | after |
+|---|---|---|
+| bounds cells | 8 | **8** |
+| bounds master cell | (0,0,0,2,0) | **(0,0,0,2,0)** |
+| bounds closers | nothing | **nothing** |
+| R(bounds) | {0,1,2,3,4,7} | **{0,2,3,4,7}** |
+| the gravity split | 2 of 9 | **1 of 9** |
+| **K1 cells in the bounds index** | **2** | **0** |
+
+And the consequence that matters:
+
+**THE CORPUS NOW HOLDS ONE K1 CELL, AND DOCKET 1 HAS ALREADY RULED IT AN
+ARTEFACT.** The survivor is `periodic layout 3-D` at (4, 11, 0), which exists
+only in a chart mixing two block conventions.
+
+**So the warp cell's K1 has no other non-artefact instance in this corpus at
+all.** That is a stronger and lonelier statement than the one `duality.py` was
+built on, and it changes what "the rarest refusal kind" means: not *rare among
+several*, but *unique, with the only companions withdrawn*. Anything built on
+the K1 thread must be rebuilt on that.
+
+### What is NOT ruled
+
+- **Whether `G` is the right coordinate at all.** `refusal.py` already records
+  that *bounds minus its G coordinate* is one of the 20 re-chartings landing on
+  the master index's demanded cell; this docket finds that the same coordinate,
+  changed on **one member**, destroys the K1 outright. G is load-bearing twice
+  over and in opposite directions. That is docket 3's question in its sharpest
+  form and it is not answered here.
+- **Whether Bousso should also move.** It genuinely carries A/4G, so its G = 1
+  is not in dispute under either rule. Only Bekenstein was contested.
+
+---
+
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
 
 The master index seats the periodic table three times: `periodic layout 2-D`

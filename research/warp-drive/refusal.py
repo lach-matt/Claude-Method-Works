@@ -40,9 +40,9 @@ extra four are chart decoration and K is the object.
     periodic layout 2-D          {0,4}
     substances (Hawking-Ellis)   {0,2,7}
     the languages                {0,4,5,7}
+    bounds                       {0,2,3,4,7}      <- lost K1 to DOCKET 4
     spacetimes (Petrov)          {0,3,4,5,7}
     energy-condition family      {0,2,3,4,5,7}
-    bounds                       {0,1,2,3,4,7}
     exotic mechanisms            {0,2,3,4,5,6,7}
     periodic layout 3-D          {0,1,3,4,5,6,7}
 
@@ -53,13 +53,13 @@ extra four are chart decoration and K is the object.
     the DENSEST index in the corpus at 71.4 %: too full to have a cell that
     every language refuses.  Dilute it -- see section 3 -- and K7 appears.
 
-    K1 IS IN TWO.  K6 IS IN TWO.  They are the rare ones and section 4 is what
-    they connect.
+    K1 IS IN ONE, AND SECTION 4 IS WHY IT USED TO BE TWO.  K6 IS IN TWO.
 
-    THE LATTICE.  Minimal: Janet and periodic layout 2-D.  Maximal: bounds,
-    exotic mechanisms and periodic layout 3-D.  Twelve of the thirty-six pairs
-    are incomparable, so this is a lattice and not a chain -- the same shape the
-    channel reading has, and for the same reason.
+    THE LATTICE.  Minimal: Janet and periodic layout 2-D.  Maximal: exotic
+    mechanisms and periodic layout 3-D -- bounds was a third maximum until
+    DOCKET 4 took K1 off it.  TEN of the thirty-six pairs are incomparable, so
+    this is a lattice and not a chain -- the same shape the channel reading has,
+    and for the same reason.
 
 ===============================================================================
 2. THE MASTER INDEX INDEXES CHARTS, NOT OBJECTS
@@ -160,21 +160,31 @@ THEY DO NOT ALL SHARE ONE.  Only K0 is universal.  What exists instead is
 better, because it discriminates: a K value present in FEW indexes is a thread
 between exactly those.
 
-    K1 {information refuses, everything else admits} occurs in TWO indexes:
+    **AND THE THREAD IS DEAD. BOTH ENDS WERE SEAMS.**  This section reported K1
+    in TWO indexes -- the bounds index at (2,1,0,0,0,2) and (2,1,0,0,1,2), and
+    the periodic layout in three coordinates at (4, 11, 0).  Neither survived.
 
-        bounds                  at (2,1,0,0,0,2) and (2,1,0,0,1,2) -- a
-                                non-gravitational entropy bound with a constant
-                                RHS on a spacelike region
-        periodic layout 3-D     at (4, 11, 0) -- period 4, group 11, s-block
+        DOCKET 1 ruled the periodic K1 a CONVENTION SEAM: that index mixes the
+        drawn layout's period and group with the observed differentiating
+        electron's block, and neither pure convention produces a K1 cell.
 
-    Two indexes with no other relation, sharing the corpus's rarest refusal
-    kind, WHICH IS THE WARP OBSTRUCTION'S KIND: every pair of requirements
-    jointly satisfiable, the full combination not.
+        DOCKET 4 ruled the bounds K1 a CODING SEAM of the same shape: it existed
+        only because Bekenstein was seated at G = 1, and bounds.py's own rule
+        for that slot is "a G or an area appears" -- S <= 2 pi R E has neither,
+        Bousso says so in print, and the black-hole saturation that motivated
+        G = 1 is already carried by the K slot.  Re-code that one integer and
+        the bounds index holds NO K1 cell.
 
-    K6 occurs in two: exotic mechanisms and periodic layout 3-D.  So the
-    periodic layout in three coordinates is the ONLY index carrying BOTH rare
-    kinds, and at seven of eight it is the richest refusal structure in the
-    corpus.
+    SO THE CORPUS HOLDS ONE K1 CELL AND IT IS THE ARTEFACT.  The warp cell's own
+    K1, measured from the device by statrow.py, now has NO other instance in
+    this corpus at all.  That is a lonelier statement than the one this file was
+    built on, and it changes what "the rarest refusal kind" means: not rare
+    among several, but unique with every companion withdrawn.
+
+    K6 still occurs in two: exotic mechanisms and periodic layout 3-D, and that
+    one is untouched by either docket.  The periodic layout is still the richest
+    refusal structure here -- but at six of eight now, not seven, and one of the
+    six is the artefact.
 
         (A first draft here added "and the only one missing K2".  That is
         FALSE -- five of the nine lack K2, spacetimes among them -- and it
@@ -522,7 +532,8 @@ def selftest():
     chk("periodic layout 3-D, the richest", sorted(R["periodic layout 3-D"]),
         [0, 1, 3, 4, 5, 6, 7])
     chk("periodic layout 2-D, the poorest", sorted(R["periodic layout 2-D"]), [0, 4])
-    chk("bounds", sorted(R["bounds"]), [0, 1, 2, 3, 4, 7])
+    # DOCKET 4: bounds LOST K1 when Bekenstein was re-coded G 1 -> 0.
+    chk("bounds", sorted(R["bounds"]), [0, 2, 3, 4, 7])
     chk("the languages", sorted(R["the languages"]), [0, 4, 5, 7])
 
     # ---- K0 universal, K7 all but the densest
@@ -540,13 +551,15 @@ def selftest():
     mins, maxs, inc = lattice(R)
     chk("minimal: the two redundant periodic charts", mins,
         ["Janet (n+l, l, k)", "periodic layout 2-D"])
-    chk("maximal", maxs,
-        ["bounds", "exotic mechanisms", "periodic layout 3-D"])
-    chk("twelve of thirty-six pairs incomparable -- a lattice", len(inc), 12)
+    chk("maximal -- bounds fell out of it under DOCKET 4", maxs,
+        ["exotic mechanisms", "periodic layout 3-D"])
+    chk("ten of thirty-six pairs incomparable -- still a lattice", len(inc), 10)
 
     # ---- THE THREAD
-    chk("K1 is carried by exactly two", occ[1],
-        ["bounds", "periodic layout 3-D"])
+    # THE THREAD IS DEAD. DOCKET 4 took bounds off K1, so the corpus holds ONE
+    # K1 cell -- and DOCKET 1 already ruled that one a convention seam.
+    chk("K1 IS CARRIED BY EXACTLY ONE, and DOCKET 1 ruled it an artefact",
+        occ[1], ["periodic layout 3-D"])
     chk("K6 is carried by exactly two", occ[6],
         ["exotic mechanisms", "periodic layout 3-D"])
     chk("so periodic layout 3-D carries BOTH rare kinds",
@@ -570,7 +583,7 @@ def selftest():
 
     hits, tried = rechartings_hitting()
     chk("re-chartings tried", tried, 565)
-    chk("re-chartings landing on the demanded cell", len(hits), 20)
+    chk("re-chartings landing on the demanded cell", len(hits), 21)
     chk("and one is bounds MINUS its gravity slot",
         ("bounds", "drop3") in [(a, b) for a, b, _c, _s, _k in hits], True)
     chk("the energy-condition family lands there five ways",
