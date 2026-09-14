@@ -211,8 +211,18 @@ def predict(combo):
     return 7 if sh == {"n+l"} else 3
 
 
+_CENSUS = {}
+
+
 def census(lo=2, hi=5, reach=fibred.REACH):
-    """{'all': {K: n}, 'inj': {K: n}} -- channels reached, and how often."""
+    """{'all': {K: n}, 'inj': {K: n}} -- channels reached, and how often.
+
+    MEMOISED: 372 closures over boxes up to five coordinates wide is about
+    seven minutes, and other instruments ask for this result.
+    """
+    key = (lo, hi, reach)
+    if key in _CENSUS:
+        return _CENSUS[key]
     allK, injK = {}, {}
     for c in combos(lo, hi):
         X = chart(c, reach)
@@ -220,7 +230,8 @@ def census(lo=2, hi=5, reach=fibred.REACH):
         allK[k] = allK.get(k, 0) + 1
         if len(X) == len(_addr(reach)):
             injK[k] = injK.get(k, 0) + 1
-    return {"all": allK, "inj": injK}
+    _CENSUS[key] = {"all": allK, "inj": injK}
+    return _CENSUS[key]
 
 
 def law(lo=2, hi=5, reach=fibred.REACH):

@@ -22,7 +22,7 @@ function scatter3d(opts){
     const y2 =  y*ce - z1*se;
     const z2 =  y*se + z1*ce;
     const d = 3.4, s = d/(d + z2);
-    const k = Math.min(W,H) * 0.255;
+    const k = Math.min(W,H) * (opts.scale ?? 0.255);
     return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
   }
 
