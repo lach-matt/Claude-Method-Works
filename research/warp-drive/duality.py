@@ -148,9 +148,9 @@ Over 2,436 pairs, 45 distinct profiles.  As an index: five coordinates, box
     M1  cells are INDEXES            master cell (0, 0, 0, 2, 0)   channel K0
     M2  cells are KINDS OF REFUSAL   master cell (0, 0, 0, 2, 0)   channel K0
 
-    **THE TWO MASTER INDEXES COINCIDE.**  Same channel, same arity band, same
-    density band.  An index whose cells are indexes and an index whose cells are
-    kinds of refusal land on ONE CELL.
+    **AND THAT COINCIDENCE IS WITHDRAWN.**  It rested on a density measured
+    against the PRODUCT box, and the product box holds positions no pair could
+    occupy.  See section 5b.
 
 THAT IS NOT WHAT THIS FILE FIRST REPORTED, and the change is the bounds
 correction, not a re-reading.  As first written it said the two DIFFER in the
@@ -162,11 +162,46 @@ the master index closing, which moved M1 from K2 to K0 -- onto M2's cell.  The
 coincidence is therefore a CONSEQUENCE of the withdrawal, arrived at by a route
 that had nothing to do with M2, which is the only reason it is worth anything.
 
-AND THE CELL IS OCCUPIED -- by the bounds index itself, whose master cell is
-also (0, 0, 0, 2, 0).  SO M1 IS A CELL OF ITSELF: the master index's own master
-cell is one of its nine members.  Recorded, not interpreted.  Nothing here says
-self-membership is meaningful; it says the arithmetic produced it and the reader
-should know before treating M1 as an index of things other than itself.
+===============================================================================
+5b. THE COINCIDENCE IS WITHDRAWN, AND THE FAULT IS GENERAL
+===============================================================================
+
+M2's density was taken against the PRODUCT of its coordinate value sets --
+8 x 3 x 4 x 4 x 3 = 1,152 -- as every density in this tree is.  A product box
+holds positions that NO PAIR COULD EVER OCCUPY, because the coordinates are
+logically coupled.  Two exact constraints, each at zero violations:
+
+    H = 0 holds exactly of MEMBER cells, and a member lies in every closure, so
+    H = 0 forces K = 0, W = 2 and J = 3 together.
+    W = 2 exactly when statistics admits, which is exactly K in {0, 1}.
+
+    645 of the 1,152 violate one of those.  507 REMAIN.  No occupied profile
+    violates either, which is the check that the constraints are found rather
+    than invented.
+
+    density against the product box     3.91 %   ->  band 0
+    density against the realisable box  8.88 %   ->  band 1
+
+IT CROSSES A BAND EDGE.  M2's master cell is **(0, 0, 0, 2, 1)**, not
+(0, 0, 0, 2, 0), and therefore:
+
+    **THE TWO MASTER INDEXES DO NOT COINCIDE.**  M1 is at (0, 0, 0, 2, 0) and
+    corrected M2 at (0, 0, 0, 2, 1).  They agree on channel and arity band and
+    differ in density.  WITHDRAWN.
+
+    **AND M1 IS NOT A CELL OF ITSELF.**  That followed from the coincidence and
+    falls with it.  The corrected cell is occupied -- by `the languages`, not by
+    the bounds index.  An index of refusals landing where the index of languages
+    lands is a different observation and is NOT offered as a replacement finding;
+    it is recorded so the reader knows where the corrected cell sits.
+
+THE FAULT IS NOT LOCAL TO THIS FILE.  Every density in this tree is taken
+against a product box.  In the master index's own 72-cell box, four positions
+are impossible -- at arity 2 the only 2-subset is the whole tuple, so statistics
+always closes and C = 0 cannot occur at arity band 0, checked over 74,518
+non-degenerate two-coordinate indexes with zero failures -- AND ORDER AND
+ALGEBRA EACH DEMAND THREE OF THE FOUR.  An E of 25 counts three cells that
+cannot exist.  Recorded here, not repaired here.
 
 **AND THE CONSTRUCTION IS NOT FORCED, WHICH IS RECORDED RATHER THAN RESOLVED.**
 W is partly determined by K: measured over all 2,436 pairs with zero
@@ -385,6 +420,51 @@ def second_master(with_w=True):
     return frozenset(out)
 
 
+def realisable_box(with_w=True):
+    """(realisable positions, product positions) of M2's coordinate box.
+
+    THE PRODUCT BOX CONTAINS POSITIONS NO PAIR COULD EVER OCCUPY, and that is
+    what corrects the coincidence this file first reported.  Two exact
+    constraints, each measured at zero violations over the real pairs:
+
+        H = 0 holds exactly of MEMBER cells, and a member lies in every closure,
+        so H = 0 forces K = 0 and W = 2 and J = 3 simultaneously.
+
+        W = 2 exactly when statistics admits, and statistics admits exactly when
+        it is absent from the refusal set, which is exactly K in {0, 1}.  So
+        W = 2 is a biconditional with K in {0, 1}.
+
+    Of the 8 x 3 x 4 x 4 x 3 = 1,152 product positions, 645 violate one of those
+    and 507 remain.  NO OCCUPIED PROFILE VIOLATES EITHER, which is the check
+    that the constraints are sound rather than invented.
+    """
+    dims = (8, 3, 4, 4, 3) if with_w else (8, 4, 4, 3)
+    box = list(itertools.product(*(range(d) for d in dims)))
+    if not with_w:
+        return len(box), len(box)   # without W neither constraint is stateable
+    bad = {p for p in box
+           if (p[2] == 0 and not (p[0] == 0 and p[1] == 2 and p[3] == 3))
+           or ((p[1] == 2) != (p[0] in (0, 1)))}
+    return len(box) - len(bad), len(box)
+
+
+def corrected_master_cell(M2=None):
+    """M2's master cell with density taken against the REALISABLE box.
+
+    master.master_cell goes through master.shape, which computes the PRODUCT
+    box.  This is the same cell with that one input corrected.
+    """
+    M2 = second_master() if M2 is None else M2
+    real, _prod = realisable_box()
+    dens = len(M2) / real
+    clo = sorted(master.closers(M2))
+    return (len(clo),
+            1 if "statistics" in clo else 0,
+            1 if "order" in clo else 0,
+            sum(1 for e in master.ARITY_BANDS if 5 >= e),
+            sum(1 for e in master.DENSITY_BANDS if dens >= e))
+
+
 def two_masters():
     """((M1 cell, M1 channel), (M2 cell, M2 channel)) -- the two side by side."""
     ks = master.channel_sets()
@@ -530,26 +610,39 @@ def report():
     print("     M2  cells are KINDS OF REFUSAL %s  channel K%d" % (c2, k2))
     M1 = frozenset(master.master_index().values())
     clm, _ = hlaw.closures(M1)
-    if c1 == c2 and k1 == k2:
-        print("   THEY COINCIDE -- same channel, same arity band, same density")
-        print("   band. AN INDEX OF INDEXES AND AN INDEX OF REFUSALS LAND ON ONE")
-        print("   CELL. That is a stronger statement than the one first reported")
-        print("   here, which was that they differ in the channel and nothing")
-        print("   else; completing the bounds family moved M1 onto M2's cell.")
-        if c2 in M1:
-            who = sorted(n for n, v in master.master_index().items() if v == c2)
-            print("   AND THE CELL IS OCCUPIED, BY %s --" % ", ".join(who))
-            print("   so M1 is a cell of itself. Recorded, not interpreted: the")
-            print("   master index's own master cell is one of its members.")
-    else:
-        same = [n for n, a, b in (("arity band", c1[3], c2[3]),
-                                  ("density band", c1[4], c2[4])) if a == b]
-        print("   THEY DIFFER. Shared: %s." % (", ".join(same) or "nothing"))
-        dem = " and ".join(L for L in hlaw.LANGS if c2 in clm[L] - M1)
-        if dem:
-            print("   And M2's cell is one %s already demanded of M1." % dem)
-        else:
-            print("   M2's cell is demanded of M1 by no language.")
+    real, prod = realisable_box()
+    cc = corrected_master_cell(M2)
+    print("   AND THE COINCIDENCE THIS FILE REPORTED IS WITHDRAWN.")
+    print("   M2's density was measured against the PRODUCT box of %d positions."
+          % prod)
+    print("   Only %d are realisable: H = 0 holds exactly of members and forces" % real)
+    print("   K = 0, W = 2, J = 3; and W = 2 is a biconditional with K in {0,1}.")
+    print("   %d positions violate one of those, and NO OCCUPIED PROFILE DOES,"
+          % (prod - real))
+    print("   which is the check that the constraints are sound.")
+    print("     density against the product box     %5.2f%%  -> band %d"
+          % (100 * len(M2) / prod, sum(1 for e in master.DENSITY_BANDS
+                                       if len(M2) / prod >= e)))
+    print("     density against the realisable box  %5.2f%%  -> band %d"
+          % (100 * len(M2) / real, sum(1 for e in master.DENSITY_BANDS
+                                       if len(M2) / real >= e)))
+    print("   IT CROSSES A BAND EDGE. M2's master cell is %s, not %s." % (cc, c2))
+    print("     M1 %s   M2 corrected %s   coincide: %s"
+          % (c1, cc, cc == c1))
+    who = sorted(n for n, v in master.master_index().items() if v == cc)
+    print("   The corrected cell is occupied by %s -- not by the bounds"
+          % (", ".join(who) if who else "NOTHING"))
+    print("   index, and M1 is NOT a cell of itself. Both of those were reported")
+    print("   here and both are withdrawn. THE FAULT IS GENERAL: every density in")
+    print("   this tree is taken against a product box, and a product box holds")
+    print("   positions that no member could occupy.")
+    same = [n for n, a, b in (("arity band", c1[3], cc[3]),
+                              ("density band", c1[4], cc[4])) if a == b]
+    print("   What the two still share: %s." % (", ".join(same) or "nothing"))
+    dem = " and ".join(L for L in hlaw.LANGS if cc in clm[L] - M1)
+    print("   And M2's corrected cell is one %s."
+          % (("%s already demanded of M1" % dem) if dem
+             else "M1 already occupies"))
     print()
     print("   AND THE CONSTRUCTION IS NOT FORCED. W = 2 exactly when statistics")
     print("   admits (%d disagreements in %d pairs), so W adds nothing where"
@@ -708,14 +801,27 @@ def selftest():
     # and the two master indexes -- one whose cells are indexes, one whose cells
     # are kinds of refusal -- land on the SAME master cell at the same channel.
     chk("M1 sits at (0,0,0,2,0), channel K0", (c1_, k1_), ((0, 0, 0, 2, 0), 0))
-    chk("M2 sits there too", (c2_, k2_), ((0, 0, 0, 2, 0), 0))
-    chk("THE TWO MASTER INDEXES NOW COINCIDE", c1_, c2_)
+    chk("M2 against the PRODUCT box appears to sit there too",
+        (c2_, k2_), ((0, 0, 0, 2, 0), 0))
     M1 = frozenset(master.master_index().values())
     clm, _ = hlaw.closures(M1)
-    chk("and it is a cell M1 itself now occupies", c2_ in M1, True)
-    chk("SO M1 IS A CELL OF ITSELF -- the witness is the bounds index",
-        sorted(n for n, v in master.master_index().items() if v == c2_),
-        ["bounds"])
+    # ---- AND THAT COINCIDENCE IS WITHDRAWN. The product box holds positions no
+    # pair could occupy; against the realisable box the density crosses a band.
+    real, prod = realisable_box()
+    chk("the product box is 1,152 positions", prod, 1152)
+    chk("of which only 507 are realisable", real, 507)
+    chk("and NO occupied profile violates -- the constraints are sound",
+        [p for p in M2
+         if (p[2] == 0 and not (p[0] == 0 and p[1] == 2 and p[3] == 3))
+         or ((p[1] == 2) != (p[0] in (0, 1)))], [])
+    cc = corrected_master_cell(M2)
+    chk("CORRECTED, M2 sits at (0,0,0,2,1)", cc, (0, 0, 0, 2, 1))
+    chk("SO THE TWO MASTER INDEXES DO NOT COINCIDE -- WITHDRAWN", cc == c1_, False)
+    chk("and M1 is NOT a cell of itself under the corrected reading",
+        cc in M1 and cc == c1_, False)
+    chk("the corrected cell is occupied by the languages, not by bounds",
+        sorted(n for n, v in master.master_index().items() if v == cc),
+        ["the languages"])
     # the pair count the census walks, measured rather than carried as a literal
     chk("the pooled census walks 2,436 pairs", pairs_scanned(), 2436)
     # the construction is NOT forced, and that is recorded
