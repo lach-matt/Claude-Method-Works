@@ -373,6 +373,34 @@ def _populate():
     return mod
 
 
+def janet_complete():
+    """Janet's left-step table, all 120 cells, from MADELUNG -- DOCKET 1(a).
+
+    The cell is (n+l, l, k) of the differentiating electron of the MADELUNG
+    configuration: period, block, and position within that subshell.  Madelung
+    is a law rather than an observation, so this reaches Z = 120 where anything
+    built on LW1-ground.py stops at 108 -- register 1446's four edges, 102
+    observed, 108 listed, 118 synthesised, 120 by Janet.
+
+    Period lengths come out 2, 2, 8, 8, 18, 18, 32, 32, summing to 120, and the
+    118 known elements occupy 118 of the cells.  MEASURED, not asserted: the
+    selftest pins all of it.
+    """
+    pop_ = _populate()
+    out = set()
+    for Z in range(1, 121):
+        now = {(n, l): o for n, l, o in pop_.aufbau_config(Z)}
+        prev = ({(n, l): o for n, l, o in pop_.aufbau_config(Z - 1)}
+                if Z > 1 else {})
+        gained = sorted((n, l) for (n, l), o in now.items()
+                        if o > prev.get((n, l), 0))
+        if not gained:
+            continue
+        n, l = gained[-1]
+        out.add((n + l, l, prev.get((n, l), 0)))
+    return frozenset(out)
+
+
 def inventory():
     """{name: cells} for every index actually seated in this tree."""
     pop = _populate()
@@ -384,8 +412,15 @@ def inventory():
         "periodic layout 3-D": frozenset(
             (pop.period_of(Z), pop.group_of(Z), pop.block_of(Z))
             for Z in range(1, 109) if not pop.set_aside(Z)),
-        "Janet (n+l, l)": frozenset(pop.janet_cell(Z) for Z in range(1, 109)
-                                    if pop.janet_cell(Z)),
+        # DOCKET 1(a). This was `janet_cell(Z)` over Z < 109 -- the (n+l, l)
+        # chart of the OBSERVED differentiating electron, 19 cells, which charts
+        # 80 elements onto 16 positions. THAT IS A COARSENING OF JANET'S TABLE
+        # AND NOT JANET'S TABLE. The left-step table is defined by MADELUNG, so
+        # it needs no observation and has no Z = 108 boundary: 120 cells, 118 of
+        # them occupied by known elements, period lengths 2 2 8 8 18 18 32 32.
+        # It closes in ALL FIVE at E = 0, independently confirming section 6.1's
+        # `left-step (Janet) | 120 | E = 0` by a different operator family.
+        "Janet (n+l, l, k)": janet_complete(),
         "the languages": frozenset(selfindex.LANGUAGES.values()),
         "substances (Hawking-Ellis)": substance.cells(),
         "spacetimes (Petrov)": petrov.cells(),
@@ -1075,15 +1110,21 @@ def selftest():
 
     # The spurious meet.
     ms = {(a, b): sh for a, b, sh in meets()}
-    chk("two pairs of equal arity now share something -- bounds went to arity 6",
+    # DOCKET 1(a) MOVED THIS AND MADE IT SHARPER. It was Janet against periodic
+    # layout 2-D, because the (n+l, l) coarsening was arity 2. The complete
+    # Janet table is arity 3, so the equal-arity partner is now periodic layout
+    # 3-D -- and STILL NINE SHARED TUPLES. The instance is better than the one
+    # it replaces: both are now genuinely three-coordinate charts OF THE SAME
+    # OBJECT, so the meet is spurious for a stronger reason than before.
+    chk("two pairs of equal arity share something",
         sorted(k for k, v in ms.items() if v),
-        [("Janet (n+l, l)", "periodic layout 2-D"),
+        [("Janet (n+l, l, k)", "periodic layout 3-D"),
          ("bounds", "energy-condition family")])
-    chk("and it shares nine tuples",
-        len(ms[("Janet (n+l, l)", "periodic layout 2-D")]), 9)
-    chk("which is spurious: the two have different coordinate meanings",
-        len(next(iter(inv["Janet (n+l, l)"]))) == len(next(iter(inv["periodic layout 2-D"]))),
-        True)
+    chk("and it is nine tuples, exactly as before the docket",
+        len(ms[("Janet (n+l, l, k)", "periodic layout 3-D")]), 9)
+    chk("spurious: (n+l, l, k) and (period, group, block) are different charts",
+        len(next(iter(inv["Janet (n+l, l, k)"])))
+        == len(next(iter(inv["periodic layout 3-D"]))), True)
 
     # Section 6: the per-species spectra indexes, and the population test.
     sp = species_indexes()
@@ -1141,9 +1182,15 @@ def selftest():
     # the caveat cannot quietly fall out of the file.
     btot, bdem, bfill, bclose, bper = banding_sensitivity()
     chk("bandings swept", btot, 40)
-    chk("the eight-index master index demands something in 23 of them", bdem, 23)
+    # DOCKET 1(a) MOVED TWO OF THESE, and the movement is worth reading. Seating
+    # Janet's complete table took that index from arity 2 / density 59.4 % to
+    # arity 3 / density 26.8 %, which crosses band edges. The demand fell from
+    # 23 of 40 bandings to 20, and the nine-index closure ROSE from 17 to 20.
+    # So the correction made the demand slightly LESS banding-robust and the
+    # closure slightly MORE. Neither figure was chosen; both are re-measured.
+    chk("the eight-index master index demands something in 20 of them", bdem, 20)
     chk("the COMPLETED bounds index fills that demand in ZERO of them", bfill, 0)
-    chk("and the nine-index master index closes in 17", bclose, 17)
+    chk("and the nine-index master index closes in 20", bclose, 20)
     chk("AND AT ARITY BAND [3, 6] THERE IS NO DEMAND AT ALL",
         bper[(3, 6)], (0, 0))
     chk("so the demand is a property of the declared banding, not invariant",

@@ -142,7 +142,7 @@ M2's cells are KINDS OF REFUSAL.  Its coordinates are the properties every pair
     J   0 neither, 1 a join of two members, 2 a meet, 3 both
     A   the HOST's arity band           INHERITED from M1
 
-Over 2,020 pairs, 46 distinct profiles.  As an index: five coordinates, box
+Over 2,436 pairs, 45 distinct profiles.  As an index: five coordinates, box
 1152, density 4.0 %, and **CLOSED BY NOTHING** -- channel K0.
 
     M1  cells are INDEXES            master cell (0, 0, 0, 2, 0)   channel K0
@@ -169,9 +169,9 @@ self-membership is meaningful; it says the arithmetic produced it and the reader
 should know before treating M1 as an index of things other than itself.
 
 **AND THE CONSTRUCTION IS NOT FORCED, WHICH IS RECORDED RATHER THAN RESOLVED.**
-W is partly determined by K: measured over all 2,020 pairs with zero
+W is partly determined by K: measured over all 2,436 pairs with zero
 disagreements, W = 2 exactly when statistics admits, so W adds nothing where
-statistics admits and one bit where it refuses.  Drop it and M2 becomes 44
+statistics admits and one bit where it refuses.  Drop it and M2 becomes 43
 profiles over four coordinates, box 384, density 11.5 % --
 
         master cell (0, 0, 0, 1, 1), WHICH IS OCCUPIED, BY THE PERIODIC LAYOUT
@@ -630,7 +630,7 @@ def selftest():
 
     cnt, tot = refusal_census()
     ks = master.channel_sets()
-    chk("cells scanned over the nine", tot, 2020)
+    chk("cells scanned over the nine", tot, 2436)
     chk("every one of the eight occurs as a refusal set",
         sum(1 for k in ks if cnt[k] > 0), 8)
     # ---- and the channel reading does NOT reach all eight
@@ -646,7 +646,7 @@ def selftest():
     # WAS ONE. Completing the bounds family added two more, both inside bounds
     # itself -- so the warp obstruction's KIND now occurs in the bounds index as
     # well as the periodic layout. Still the rarest of the eight.
-    chk("K1 occurs three times in 2,020 cells", cnt[K1], 3)
+    chk("K1 occurs three times in 2,436 cells", cnt[K1], 3)
     # AND THE TWO NEW ONES ARE THE BOUNDS INDEX'S OWN DEMANDED CELLS. Not put
     # there -- both fell out of seating Casini and the Z slot. So the bounds
     # family's outstanding demand is a K1 refusal, the warp obstruction's kind.
@@ -702,7 +702,7 @@ def selftest():
     # ---- M2, the second master index
     (c1_, k1_), (c2_, k2_) = two_masters()
     M2 = second_master()
-    chk("M2 has 46 kinds of refusal", len(M2), 46)
+    chk("M2 has 45 kinds of refusal", len(M2), 45)
     chk("and is closed by NOTHING", sorted(master.closers(M2)), [])
     # AND NOW THEY COINCIDE. Completing the bounds family took M1 off closure,
     # and the two master indexes -- one whose cells are indexes, one whose cells
@@ -717,12 +717,12 @@ def selftest():
         sorted(n for n, v in master.master_index().items() if v == c2_),
         ["bounds"])
     # the pair count the census walks, measured rather than carried as a literal
-    chk("the pooled census walks 2,020 pairs", pairs_scanned(), 2020)
+    chk("the pooled census walks 2,436 pairs", pairs_scanned(), 2436)
     # the construction is NOT forced, and that is recorded
     chk("W = 2 exactly when statistics admits", w_is_the_statistics_test(), 0)
     Mb = second_master(with_w=False)
-    chk("dropping W gives 44 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
-        (44, 4))
+    chk("dropping W gives 43 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
+        (43, 4))
     chk("and lands on (0,0,0,1,1), which IS occupied",
         master.master_cell(Mb), (0, 0, 0, 1, 1))
     chk("by the very index holding the only K1 cell",

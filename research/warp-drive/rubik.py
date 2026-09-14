@@ -582,17 +582,17 @@ def selftest():
 
     # --- the census
     b1, h1, _r = single_move_census("1")
-    chk("type-1 moves that break closure", b1, 42)
-    chk("type-1 moves that hold it", h1, 5)
+    chk("type-1 moves that break closure", b1, 39)
+    chk("type-1 moves that hold it", h1, 8)
     chk("so a single move does NOT always break it", h1 > 0, True)
     chk("fewest type-1 moves to break closure", distance_to_break("1"), 1)
     b2, h2, _r2 = single_move_census("2")
-    chk("and the counterfactual moves break it about as often", (b2, h2), (22, 13))
+    chk("and the counterfactual moves break it about as often", (b2, h2), (25, 10))
 
     # --- the orbit
     sigs, states = orbit_signatures(depth=1, kind="1")
-    chk("states within one type-1 move", states, 36)
-    chk("distinct E-vectors among them", len(sigs), 32)
+    chk("states within one type-1 move", states, 33)
+    chk("distinct E-vectors among them", len(sigs), 31)
     chk("the solved vector is among them",
         tuple(profile(X)[L] for L in hlaw.LANGS) in sigs, True)
 
@@ -629,8 +629,8 @@ def selftest():
     chk("no unlawful containment survives the whole orbit", len(never - lawful), 0)
     # the near-misses: three escape lawfulness only barely, and that is the point
     chk("statistics <= information breaks only rarely",
-        viol[("statistics", "information")], 2)
-    chk("geometry <= order likewise", viol[("geometry", "order")], 21)
+        viol[("statistics", "information")], 1)
+    chk("geometry <= order likewise", viol[("geometry", "order")], 25)
     chk("but both DO break, so neither is lawful",
         viol[("statistics", "information")] > 0 and viol[("geometry", "order")] > 0,
         True)
@@ -642,7 +642,7 @@ def selftest():
     chk("order and algebra agree everywhere -- Clause B, a theorem",
         hold["order and algebra agree"], n)
     chk("BUT closure is NOT invariant, so the scramble does work",
-        hold["statistics still closes"], 47)
+        hold["statistics still closes"], 53)
     chk("and it is not always broken either",
         hold["statistics still closes"] > 0, True)
     chk("geometry-under-order is NOT invariant -- the law does not claim it",

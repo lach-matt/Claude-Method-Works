@@ -36,7 +36,7 @@ extra four are chart decoration and K is the object.
 1. THE NINE, MEASURED
 ===============================================================================
 
-    Janet (n+l, l)               {0,7}
+    Janet (n+l, l, k)            {0,7}
     periodic layout 2-D          {0,4}
     substances (Hawking-Ellis)   {0,2,7}
     the languages                {0,4,5,7}
@@ -70,7 +70,7 @@ after it is conditioned on it.
 
 M asked whether the periodic table is OVER-REPRESENTED, being seated three
 times: `periodic layout 2-D` at (period, group), `periodic layout 3-D` at
-(period, group, block), and `Janet (n+l, l)`.  It is, and worse than that.
+(period, group, block), and `Janet (n+l, l, k)`.  It is, and worse than that.
 
     LW1-ground.py stops at Z = 108, so `block_of` returns None for Z 109..118
     and the three-coordinate layout cannot chart them.  On the EIGHTY elements
@@ -103,7 +103,7 @@ AND THAT ZERO-INFORMATION COORDINATE CHANGES THE CHANNEL.  Same eighty elements:
     in the construction prevents one object from occupying several cells, and
     the periodic table occupies three, in three different channels.
 
-AND THE DEMAND IS SATISFIABLE BY RE-CHARTING WHAT IS ALREADY SEATED.  Of 550
+AND THE DEMAND IS SATISFIABLE BY RE-CHARTING WHAT IS ALREADY SEATED.  Of 565
 re-chartings of the nine -- one redundant coordinate appended, or one coordinate
 dropped -- **twenty land exactly on the demanded cell (1,1,0,2,1)**.  Two are
 not tricks:
@@ -130,8 +130,8 @@ duality.py's M2 profiles a pair as (K, W, H, J, A).  Put each truncation to the
 same monotone redundant coordinate that moved five master cells:
 
         (K, W, H, J, A)   invariant in 3 of 9
-        (K, W, J)         invariant in 5 of 9
-        (K, W)            invariant in 5 of 9
+        (K, W, J)         invariant in 6 of 9
+        (K, W)            invariant in 6 of 9
         (K)               invariant in 8 of 9, AND THE ONE EXCEPTION ONLY GROWS
 
 The exception is `periodic layout 2-D`, whose {0,4} gains K7 -- the dilution of
@@ -539,7 +539,7 @@ def selftest():
     # ---- the lattice
     mins, maxs, inc = lattice(R)
     chk("minimal: the two redundant periodic charts", mins,
-        ["Janet (n+l, l)", "periodic layout 2-D"])
+        ["Janet (n+l, l, k)", "periodic layout 2-D"])
     chk("maximal", maxs,
         ["bounds", "exotic mechanisms", "periodic layout 3-D"])
     chk("twelve of thirty-six pairs incomparable -- a lattice", len(inc), 12)
@@ -557,7 +557,7 @@ def selftest():
     # filter was doing the work rather than the fact. The census is what stands.
     chk("K2 is carried by four, and five lack it",
         (len(occ[2]), sorted(nm for nm in R if 2 not in R[nm])),
-        (4, ["Janet (n+l, l)", "periodic layout 2-D", "periodic layout 3-D",
+        (4, ["Janet (n+l, l, k)", "periodic layout 2-D", "periodic layout 3-D",
              "spacetimes (Petrov)", "the languages"]))
     # NEGATIVE CONTROL: the conjecture as stated is FALSE and the pin says so.
     chk("THE NINE DO NOT SHARE ONE REFUSAL INDEX",
@@ -569,7 +569,7 @@ def selftest():
     chk("and changes NO channel -- C survives a monotone re-charting", chg, 0)
 
     hits, tried = rechartings_hitting()
-    chk("re-chartings tried", tried, 550)
+    chk("re-chartings tried", tried, 565)
     chk("re-chartings landing on the demanded cell", len(hits), 20)
     chk("and one is bounds MINUS its gravity slot",
         ("bounds", "drop3") in [(a, b) for a, b, _c, _s, _k in hits], True)
@@ -578,8 +578,8 @@ def selftest():
             if a == "energy-condition family"), 5)
 
     # ---- section 3, K is the object
-    for keep, want in ((("K", "W", "H", "J", "A"), 3), (("K", "W", "J"), 5),
-                       (("K", "W"), 5), (("K",), 8)):
+    for keep, want in ((("K", "W", "H", "J", "A"), 3), (("K", "W", "J"), 6),
+                       (("K", "W"), 6), (("K",), 8)):
         n, tot, rows = truncation_survival(keep)
         chk("(%s) invariant in %d of 9" % (",".join(keep), want), n, want)
     n, _t, rows = truncation_survival(("K",))
