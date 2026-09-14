@@ -436,6 +436,30 @@ def k1_cells():
     return out
 
 
+def the_rarest_cell():
+    """(index name, cell) -- an instance of the RAREST refusal kind now held.
+
+    SUCCEEDS the_k1_cell(), WHICH RETURNS NOTHING SINCE THE 3-D CHART WAS
+    COMPLETED.  K1 was the rarest at one cell in 2,508 and is now carried by no
+    index at all.  THE RAREST IS NOW K6 -- and K6 is the channel Birkhoff
+    isolates: join-irreducible, meet-irreducible, in no join or meet of any
+    other, alone in its phase.  The rarest refusal in the corpus is the one
+    structurally unreachable channel, which is a better place for it than the
+    accident it replaced.
+    """
+    cnt, _tot = refusal_census()
+    ks = master.channel_sets()
+    live = [(cnt.get(k, 0), i) for i, k in enumerate(ks) if cnt.get(k, 0) > 0]
+    if not live:
+        return None, None
+    _n, rarest = min(live)
+    for nm in sorted(master.inventory()):
+        for c, r in scan(nm)[0]:
+            if ks.index(r) == rarest:
+                return nm, c
+    return None, None
+
+
 def the_k1_cell():
     """(index name, cell) -- the periodic-layout K1 refusal, the legible one.
 
@@ -792,17 +816,19 @@ def selftest():
 
     cnt, tot = refusal_census()
     ks = master.channel_sets()
-    chk("cells scanned over the ten", tot, 2508)
-    chk("every one of the eight occurs as a refusal set",
-        sum(1 for k in ks if cnt[k] > 0), 8)
+    chk("cells scanned over the nine", tot, 2580)
+    # WAS EIGHT. K1 fell to zero when the 3-D chart was completed, so the
+    # refusal reading no longer reaches every lawful kind either.
+    chk("SEVEN of the eight occur as a refusal set -- K1 no longer does",
+        sum(1 for k in ks if cnt[k] > 0), 7)
     # ---- and the channel reading does NOT reach all eight
     occ = occupancy()
     chk("but only six occur as channel sets",
         sum(1 for i in occ if occ[i][0] != "VACANT"), 6)
-    chk("the two missing as channels are K1 and K5",
+    chk("the channels vacant among the seated",
         [i for i in occ if occ[i][0] == "VACANT"], [1, 5])
-    chk("and BOTH are reached as refusals",
-        all(occ[i][1] > 0 for i in (1, 5)), True)
+    chk("and K5 is still reached as a refusal where K1 is NOT -- the reading",
+        (occ[5][1] > 0, occ[1][1] > 0), (True, False))
 
     # ---- K1 is the rarest, and it is where the warp obstruction sits
     # WAS ONE. Completing the bounds family added two more, both inside bounds
@@ -810,7 +836,8 @@ def selftest():
     # well as the periodic layout. Still the rarest of the eight.
     # DOCKET 4: was three. Re-coding Bekenstein G 1 -> 0 removed the two in the
     # bounds index, leaving the periodic one DOCKET 1 ruled a convention seam.
-    chk("K1 OCCURS ONCE IN 2,508 CELLS -- it occurred three times", cnt[K1], 1)
+    chk("K1 OCCURS ZERO TIMES NOW -- it was one in 2,508, three before that",
+        cnt[K1], 0)
     # AND THE TWO NEW ONES ARE THE BOUNDS INDEX'S OWN DEMANDED CELLS. Not put
     # there -- both fell out of seating Casini and the Z slot. So the bounds
     # family's outstanding demand is a K1 refusal, the warp obstruction's kind.
@@ -837,22 +864,33 @@ def selftest():
     import statrow
     chk("and the warp refusal set is K1", statrow.channel_of_refusal(), 1)
 
-    # ---- the one cell, and the shape it names
-    nm, c = the_k1_cell()
-    chk("the only K1 cell is in the periodic layout in three coordinates",
-        nm, "periodic layout 3-D")
-    chk("at (period 4, group 11, s-block)", c, (4, 11, 0))
-    chk("and no element sits there", c in master.inventory()[nm], False)
-    chk("EVERY PAIR of its coordinates is present in the layout",
-        [p for _i, _j, p in pairs_present(nm, c)], [True, True, True])
-    # the three pairs, named, because the third one is the surprise
-    X = master.inventory()[nm]
-    chk("period 4 with group 11 is copper, at the d-block",
-        sorted(x for x in X if x[0] == 4 and x[1] == 11), [(4, 11, 2)])
-    chk("group 11 with s-block is SILVER, at period 5",
-        sorted(x for x in X if x[1] == 11 and x[2] == 0), [(5, 11, 0)])
-    chk("and the triple is absent, which is the whole of the refusal",
-        (4, 11, 0) in X, False)
+    # ---- THE ONE CELL IS GONE, AND ITS DISAPPEARANCE IS THE FINDING NOW.
+    #
+    # This block named the corpus's unique K1 cell -- (period 4, group 11,
+    # s-block) in the three-coordinate periodic layout: the rarest refusal in
+    # the tree at one cell in 2,508, present as a pair in every projection and
+    # absent as a triple, which is what a K1 refusal IS. Section 3 tied it to
+    # the warp obstruction.
+    #
+    # COMPLETING THE 3-D CHART DESTROYED IT. `block_of` took the differentiating
+    # electron from the OBSERVED ground configurations and stopped at Z = 108,
+    # so the chart was missing ten positions; rebuilt from Madelung it reaches
+    # its whole period, and the K1 cell does not survive the completion.
+    #
+    # RECORDED, NOT REPAIRED, and what it costs is stated rather than absorbed:
+    # section 3 was true of an INCOMPLETE index. The warp verdict's refusal set
+    # is still K1 -- statrow measures that separately and nothing here touches
+    # it -- but the corpus now holds no K1 cell for it to be rare among. THE
+    # OBSTRUCTION STANDS ON ITS OWN MEASUREMENT AND HAS NO COMPANION HERE.
+    chk("THE UNIQUE K1 CELL IS GONE -- completing the 3-D chart destroyed it",
+        the_k1_cell(), (None, None))
+    chk("K1 occurs ZERO times in the pooled census, where it occurred once",
+        cnt[K1], 0)
+    chk("and no index carries it at all", k1_cells(), [])
+    chk("the warp refusal set is STILL K1, measured independently by statrow",
+        statrow.channel_of_refusal(), 1)
+    chk("so the rarest refusal now has NO instance -- the thread has one end",
+        (cnt[K1], statrow.channel_of_refusal()), (0, 1))
 
     # ---- atomicity is a property of the order, not of the coordinates
     chk("the minimal languages", minimal_languages(), ["information", "statistics"])
@@ -864,12 +902,13 @@ def selftest():
     # ---- M2, the second master index
     (c1_, k1_), (c2_, k2_) = two_masters()
     M2 = second_master()
-    chk("M2 has 45 kinds of refusal", len(M2), 45)
+    chk("M2 has 43 kinds of refusal", len(M2), 43)
     chk("and is closed by NOTHING", sorted(master.closers(M2)), [])
     # AND THEY NO LONGER COINCIDE. DOCKET 8 put the master index back on
     # closure, so M1 returns to K2 and M2 stays at K0. Section 5d.
-    chk("M1 sits at (1,1,0,2,0), channel K2", (c1_, k1_), ((1, 1, 0, 2, 0), 2))
-    chk("M2 sits at (0,0,0,2,0), channel K0", (c2_, k2_), ((0, 0, 0, 2, 0), 0))
+    # DOCKET 2 moved M1 again: withdrawing the 2-D chart takes it to K3.
+    chk("M1 sits at (2,1,0,2,1), channel K3", (c1_, k1_), ((2, 1, 0, 2, 1), 3))
+    chk("M2 sits at (0,0,0,2,1), channel K0", (c2_, k2_), ((0, 0, 0, 2, 1), 0))
     chk("so they differ in C and Sc, which are MEASURED",
         (c1_[0] != c2_[0], c1_[1] != c2_[1]), (True, True))
     M1 = frozenset(master.master_index().values())
@@ -896,12 +935,12 @@ def selftest():
             for S in master.channel_sets()}
     _r1 = [c for c in itertools.product(*_ax)
            if c[:3] in _sig and not (c[0] == 0 and c[3] == 0)]
-    chk("M1's own realisable box, never corrected until now", len(_r1), 56)
+    chk("M1's own realisable box, never corrected until now", len(_r1), 24)
     _d1 = len(M1) / len(_r1)
     _clo1 = frozenset(master.closers(M1))
     _c1sym = (len(_clo1), int("statistics" in _clo1), int("order" in _clo1),
               c1_[3], sum(1 for e in master.DENSITY_BANDS if _d1 >= e))
-    chk("CORRECTED SYMMETRICALLY, M1 sits at (1,1,0,2,1)", _c1sym, (1, 1, 0, 2, 1))
+    chk("CORRECTED SYMMETRICALLY, M1 sits at (2,1,0,2,2)", _c1sym, (2, 1, 0, 2, 2))
     chk("and M2 corrected sits at (0,0,0,2,1) -- the SAME density band", cc,
         (0, 0, 0, 2, 1))
     chk("SO THE SYMMETRIC CORRECTION NO LONGER RESTORES THE COINCIDENCE",
@@ -912,12 +951,12 @@ def selftest():
         WITHDRAWAL_IS_UNDETERMINED, False)
     chk("and M1 is NOT a cell of itself", c1_ in second_master(), False)
     # the pair count the census walks, measured rather than carried as a literal
-    chk("the pooled census walks 2,508 pairs", pairs_scanned(), 2508)
+    chk("the pooled census walks 2,580 pairs", pairs_scanned(), 2580)
     # the construction is NOT forced, and that is recorded
     chk("W = 2 exactly when statistics admits", w_is_the_statistics_test(), 0)
     Mb = second_master(with_w=False)
-    chk("dropping W gives 43 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
-        (43, 4))
+    chk("dropping W gives 40 profiles at arity 4", (len(Mb), master.shape(Mb)[0]),
+        (40, 4))
     chk("and lands on (0,0,0,1,1), which IS occupied",
         master.master_cell(Mb), (0, 0, 0, 1, 1))
     chk("by the very index holding the only K1 cell",
@@ -925,25 +964,36 @@ def selftest():
          if v == master.master_cell(Mb)], ["periodic layout 3-D"])
 
     # ---- the corridor
+    # THE CORRIDOR, re-pointed. It was addressed to the K1 cell, which no
+    # longer exists; the concept is untouched -- a corridor is a PAIR, an index
+    # and a cell of its box -- so it now takes the rarest refusal actually held.
+    nm, c = the_rarest_cell()
+    chk("the rarest refusal now held is K6, the isolated channel",
+        master.channel_sets().index(dict(scan(nm)[0])[c]), 6)
     co = corridor(nm, c)
     chk("the corridor's M1 endpoint is the host's master cell",
         co["endpoint in M1"], master.master_cell(master.inventory()[nm]))
     chk("its M2 endpoint is the refusal profile", co["endpoint in M2"],
-        (1, 2, 1, 2, 1))
+        (6, 1, 1, 0, 2))
     chk("the host's channel and the refusal's channel DIFFER",
         co["channel of the index"] != co["channel of the refusal"], True)
 
-    # ---- the K1 characterisation: a meet and not a join
-    X = master.inventory()[nm]
-    d = len(c)
-    isj = any(tuple(max(a[i], b[i]) for i in range(d)) == c for a in X for b in X)
-    ism = any(tuple(min(a[i], b[i]) for i in range(d)) == c for a in X for b in X)
-    chk("the K1 cell IS a meet of two members", ism, True)
-    chk("and is NOT a join of any two", isj, False)
-    chk("the meet witness is copper and zinc",
-        sorted((a, b) for a in sorted(X) for b in sorted(X)
-               if tuple(min(a[i], b[i]) for i in range(d)) == c)[0],
-        ((4, 11, 2), (4, 12, 0)))
+    # ---- WHAT REPLACED THE K1 CHARACTERISATION.
+    #
+    # This block showed the K1 cell was a MEET of two members and not a join --
+    # copper and zinc -- which is what made it legible. That cell is gone with
+    # the rest of K1. It is NOT re-pointed at the K6 cell: that would be a
+    # different statement about a different object, and asserting it here is
+    # exactly the substitution this tree keeps catching. What is re-measured is
+    # the succession.
+    chk("K1 was the rarest and is now carried by nothing", cnt[K1], 0)
+    chk("the rarest kind now held is K6, at seven cells", cnt[ks[6]], 7)
+    chk("and K6 is in NO join of any other pair of channels",
+        [1 for a in range(8) for b in range(8)
+         if a != b and a != 6 and b != 6 and (ks[a] | ks[b]) == ks[6]], [])
+    chk("nor in any meet, so it can only ever be occupied directly",
+        [1 for a in range(8) for b in range(8)
+         if a != b and a != 6 and b != 6 and (ks[a] & ks[b]) == ks[6]], [])
 
     chk("nothing here moves the magnitude", NOTHING_HERE_MOVES_THE_MAGNITUDE, True)
 

@@ -452,8 +452,14 @@ def selftest():
 
     # ---- THE STOCK, which is the answer
     k5, k6 = stock()
+    # WAS FIVE. DOCKET 2 withdrew periodic layout 2-D, which was one of them,
+    # and it had already stopped being join-closed when it reached its own
+    # construction's period. FOUR REMAIN, all spectra -- so the corpus now holds
+    # NO SEATED INDEX of the shape K5 needs, only witnessed species.
     chk("K5 candidates held -- join-semilattices that are not lattices",
-        len(k5), 5)
+        len(k5), 4)
+    chk("and every one of them is a witnessed species, not a seated index",
+        [n for n, _h, _c in k5 if not n.startswith("spectra")], [])
     chk("and not one is hull-complete", sum(1 for _n, h, _c in k5 if h), 0)
     chk("so all five sit at K4", sorted({c for _n, _h, c in k5}), [4])
     chk("K6 candidates held -- sublattices", len(k6), 61)
@@ -469,8 +475,8 @@ def selftest():
     chk("2-determination is FREE for a sublattice and not for a semilattice",
         (l2 == ls, round(100 * j2 / jn, 1)), (True, 55.6))
     # the honest reading of each zero
-    chk("P(zero at K5) over five candidates -- unremarkable",
-        round(100 * (1 - jh / j2) ** len(k5)), 20)
+    chk("P(zero at K5) over four candidates -- even less remarkable",
+        round(100 * (1 - jh / j2) ** len(k5)), 27)
     chk("P(zero at K6) over sixty-one -- an UPPER BOUND on surprise, not a p",
         round(100 * (1 - lh / l2) ** len(k6), 1), 1.4)
     chk("because the sixty spectra are ONE construction, not sixty draws",

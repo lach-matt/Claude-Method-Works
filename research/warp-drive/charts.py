@@ -363,16 +363,18 @@ def selftest():
 
     print("charts selftest")
     mono = admissibility(MONOTONE)
-    chk("the D axis moves on EVERY seated index", mono["arity (the D axis)"], 10)
-    chk("and so does the R axis", mono["density (the R axis)"], 10)
+    n_idx = len(master.inventory())
+    chk("the D axis moves on EVERY seated index",
+        mono["arity (the D axis)"], n_idx)
+    chk("and so does the R axis", mono["density (the R axis)"], n_idx)
     chk("height is invariant", mono["height"], 0)
     chk("width is invariant", mono["width"], 0)
     chk("as are cells, comparable pairs and join-irreducibles",
         [mono[k] for k in ("cells", "comparable pairs", "join-irreducibles")],
         [0, 0, 0])
     non = admissibility(NON_MONOTONE)
-    chk("but NOT under a non-monotone re-charting -- height", non["height"], 8)
-    chk("... and width", non["width"], 7)
+    chk("but NOT under a non-monotone re-charting -- height", non["height"], 7)
+    chk("... and width", non["width"], 8)
     chk("only raw size survives that, and it discriminates least", non["cells"], 0)
 
     # the proof, checked rather than asserted: monotone g preserves the order
@@ -386,8 +388,9 @@ def selftest():
     chk("MONOTONE re-charting preserves the containment order exactly", bad, 0)
 
     R = rebuilt()
-    chk("ten indexes on (K, height, width)", len(R), 10)
-    chk("nine distinct cells", len(frozenset(R.values())), 9)
+    chk("nine indexes on (K, height, width) -- 2-D withdrawn by DOCKET 2",
+        len(R), 9)
+    chk("eight distinct cells", len(frozenset(R.values())), 8)
     chk("the shared cell is exotic mechanisms and Petrov",
         sorted(n for n, c in R.items() if c == (2, 3, 4)),
         ["exotic mechanisms", "spacetimes (Petrov)"])
@@ -402,20 +405,36 @@ def selftest():
 
     # the two withdrawals
     own, who = self_cell()
-    chk("on measured axes the MI's own cell is VACANT", (own, who), ((2, 5, 3), []))
+    chk("on the canonical measured axes the MI's own cell is VACANT",
+        (own, who), ((2, 5, 2), []))
     trip = measured_triples()
-    chk("and vacant under EVERY measured triple",
-        sum(1 for _n, _c, _cl, _d, _o, w in trip if w), 0)
+    # THE STORY HAS CHANGED AND THE REVISION IS THE POINT. This once read
+    # "vacant under EVERY measured triple", against band-edge charts where the
+    # index WAS self-membered -- so self-membership looked like an artefact of
+    # the assigned axes specifically. Withdrawing the 2-D chart removed it from
+    # the band-edge charts TOO, and one measured triple gained it. The honest
+    # statement is weaker and better: SELF-MEMBERSHIP IS CHART-DEPENDENT AND
+    # RARE -- it holds in ONE of the eight charts tried, and not the canonical.
+    chk("and vacant under five of the six measured triples",
+        sum(1 for _n, _c, _cl, _d, _o, w in trip if w), 1)
+    chk("the one exception is (K, cells, height), witnessed by bounds",
+        [(list(nm), w) for nm, _c, _cl, _d, _o, w in trip if w],
+        [(["K", "cells", "height"], ["bounds"])])
     chk("six measured triples were swept", len(trip), 6)
     chk("four of the six still close in statistics",
         sum(1 for _n, _c, clo, _d, _o, _w in trip if clo == ["statistics"]), 4)
+    # THE TWO BAND-EDGE CHARTS NO LONGER SELF-MEMBER EITHER. They did while the
+    # 2-D chart was seated -- energy-conditions and exotic mechanisms under the
+    # original five coordinates, spacetimes (Petrov) under (K,D,R), and the
+    # spacetime reading was built on that second one. DOCKET 2 removed both.
     _o5, w5 = self_cell(master.master_cell)
-    chk("where the ORIGINAL chart made it self-membered", w5,
-        ["energy-condition family", "exotic mechanisms"])
-    _o3, w3 = self_cell(
-        lambda X: (channel(X),) + master.master_cell(X)[3:])
-    chk("and the (K,D,R) chart made the witness SPACETIME -- an artefact", w3,
-        ["spacetimes (Petrov)"])
+    chk("the ORIGINAL chart no longer self-members", (_o5, w5),
+        ((2, 1, 0, 2, 1), []))
+    _o3, w3 = self_cell(lambda X: (channel(X),) + master.master_cell(X)[3:])
+    chk("nor does (K,D,R), which is where the spacetime reading came from",
+        (_o3, w3), ((3, 1, 2), []))
+    chk("so self-membership survives in 1 of the 8 charts tried, not 2",
+        sum(1 for _n, _c, _cl, _d, _o, w in trip if w) + bool(w5) + bool(w3), 1)
     print("charts selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
 

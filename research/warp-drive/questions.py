@@ -320,9 +320,17 @@ def selftest():
     chk("but only 1 of 26 coordinate subsets does", (h, t), (1, 26))
     chk("reduced to (RET, DECL) it lands on an OCCUPIED cell",
         master.master_cell(cells(keep=(0, 3))), (2, 1, 0, 0, 3))
-    chk("and that cell is periodic layout 2-D's",
+    # IT WAS periodic layout 2-D'S, AND THAT INDEX IS WITHDRAWN (DOCKET 2).
+    # The reduced form still lands on (2,1,0,0,3); the cell is now VACANT, so
+    # the argument it supported -- "reduced to its independent content the
+    # question index lands on an OCCUPIED cell" -- is weaker than it was. What
+    # survives is that the reduced form does not land on the demanded cell.
+    chk("that cell is now VACANT -- 2-D held it and was withdrawn",
         sorted(n for n, v in master.master_index().items()
-               if v == (2, 1, 0, 0, 3)), ["periodic layout 2-D"])
+               if v == (2, 1, 0, 0, 3)), [])
+    chk("but the reduced form still does not land on the demanded cell",
+        master.master_cell(cells(keep=(0, 3))) == master.DEMANDED_AT_EIGHT,
+        False)
     chk("AND THE DEMAND IS NOT LIVE -- DOCKET 5 deleted it", demand_is_live(), [])
     chk("SO THIS IS NOT A FILL", False, False)
     # SEATED ALL THE SAME, and the two readings are kept apart on purpose.

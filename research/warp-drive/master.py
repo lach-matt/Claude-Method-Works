@@ -494,7 +494,14 @@ def inventory():
     return {
         "energy-condition family": frozenset(necindex.cells()),
         "exotic mechanisms": frozenset(synth.MECHANISMS.values()),
-        "periodic layout 2-D": layout_2d_complete(),
+        # WITHDRAWN -- DOCKET 2, ruled 2026-09-14. "3D is the finding and it
+        # is the superseding model moving forward in all projects working with
+        # the corpus."  The two charts are in exact bijection at equal reach,
+        # `block` is a function of (period, group) with zero collisions, and the
+        # unique K1 cell that was the last argument for keeping both was
+        # destroyed by completing the 3-D chart. layout_2d_complete() is kept
+        # below so the withdrawal can be re-measured, and is not seated.
+        #   "periodic layout 2-D": layout_2d_complete(),
         "periodic layout 3-D": layout_3d_complete(),
         # DOCKET 1(a). This was `janet_cell(Z)` over Z < 109 -- the (n+l, l)
         # chart of the OBSERVED differentiating electron, 19 cells, which charts
@@ -1402,7 +1409,8 @@ def selftest():
 
     print("master selftest")
     inv = inventory()
-    chk("ten indexes are seated", len(inv), 10)
+    # NINE. DOCKET 2 withdrew periodic layout 2-D as over-representation.
+    chk("nine indexes are seated -- 2-D withdrawn by DOCKET 2", len(inv), 9)
     chk("five candidates adjudicated, none an index", len(NOT_SEATED), 5)
     chk("two coordinates and three quantities",
         sorted(v[0] for v in NOT_SEATED.values()),
@@ -1420,13 +1428,16 @@ def selftest():
     chk("the languages cannot describe themselves",
         closers(inv["the languages"]), frozenset())
     # And the 2-D layout does, so it is the third coordinate that costs it.
-    # WAS {information, statistics} = K4, AT NINETY CELLS. Extending the chart
-    # to the eighth period cost it information: the two added cells break the
-    # join-closure the ninety had. So the 2-D layout is now K2, and K4 is vacant
-    # among the seated ten -- a channel LOST by completing an index, which is
-    # worth more than the pin it replaces.
-    chk("the layout closes in ONE language at arity 2 now that it reaches 120",
-        sorted(closers(inv["periodic layout 2-D"])), ["statistics"])
+    # THE 2-D LAYOUT IS WITHDRAWN, and its last measurement is kept here as the
+    # record of why: at ninety cells it closed in {information, statistics}, and
+    # extended to its own construction's reach it closed in {statistics} alone.
+    # It is still constructible, so the withdrawal is checkable rather than
+    # merely asserted.
+    chk("the withdrawn 2-D chart still builds, and closes in statistics alone",
+        sorted(closers(layout_2d_complete())), ["statistics"])
+    chk("and it is the exact projection of the 3-D chart -- a coarsening",
+        layout_2d_complete() ==
+        frozenset((p, g) for p, g, _b in inv["periodic layout 3-D"]), True)
     chk("and in none at arity 3", closers(inv["periodic layout 3-D"]), frozenset())
 
     # The chain is still total on this sample, but its bottom is empty.
@@ -1438,8 +1449,8 @@ def selftest():
     # The master index and its own closure.
     M = master_index()
     MC = frozenset(M.values())
-    chk("ten indexes give their master cells", len(M), 10)
-    chk("and nine distinct master cells", len(MC), 9)
+    chk("nine indexes give their master cells", len(M), 9)
+    chk("and eight distinct master cells", len(MC), 8)
     cl, _ = hlaw.closures(MC)
     # At six indexes statistics closed the master index. At eight it demanded
     # one cell. At nine -- bounds completed, DOCKET 4 -- the demand stood
@@ -1451,8 +1462,13 @@ def selftest():
     #   only 8 of 40 bandings. So: it closes, and that is not a vindication.
     chk("the master index CLOSES at ten, in statistics, E = 0",
         len(cl["statistics"]) - len(MC), 0)
-    chk("and statistics is the only language that closes it",
-        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["statistics"])
+    # AND WITHDRAWING 2-D GAINED A LANGUAGE ON THIS CHART. At ten indexes only
+    # statistics closed; at nine, geometry closes too. The withdrawn chart was
+    # the one cell geometry could not reach. (On the MEASURED axes -- mi.py --
+    # it still closes in statistics alone; the two charts disagree, which is
+    # DOCKET 3's point about a master cell being a property of the chart.)
+    chk("and geometry closes it too, once 2-D is withdrawn",
+        [L for L in hlaw.LANGS if len(cl[L]) == len(MC)], ["geometry", "statistics"])
     chk("so it demands NOTHING", sorted(cl["statistics"] - MC), [])
     chk("and the cell it demanded at eight is now OCCUPIED, by questions",
         M["questions"], DEMANDED_AT_EIGHT)
@@ -1492,7 +1508,7 @@ def selftest():
         all("statistics" in closers(v) for v in sp.values()), True)
     P = populated_master()
     MC = frozenset(P.values())
-    chk("populating takes 10 indexes to 80", len(P), 80)
+    chk("populating takes 9 indexes to 79", len(P), 79)
     chk("and the distinct master cells rise",
         len(MC) > len(frozenset(master_index().values())) or len(MC) >= 8, True)
     chk("and populated it closes too -- 12 distinct cells, E = 0",
@@ -1518,8 +1534,8 @@ def selftest():
         DEMANDED_AT_EIGHT in M8, False)
     P8 = {k: v for k, v in populated_master().items()
           if k not in SEATED_AFTER_THE_DEMAND}
-    chk("nor did any of the 78 populated at that point", len(P8), 78)
-    chk("and none of those 78 occupied it",
+    chk("nor did any of the 77 populated at that point", len(P8), 77)
+    chk("and none of those 77 occupied it",
         sum(1 for v in P8.values() if v == DEMANDED_AT_EIGHT), 0)
     # THE HEADLINE, WITHDRAWN. Completing the bounds family moved it off.
     chk("the bounds index NO LONGER occupies the demanded cell",
@@ -1549,13 +1565,13 @@ def selftest():
     # 23 of 40 bandings to 20, and the nine-index closure ROSE from 17 to 20.
     # So the correction made the demand slightly LESS banding-robust and the
     # closure slightly MORE. Neither figure was chosen; both are re-measured.
-    chk("the eight-index master index demands something in 28 of them", bdem, 28)
+    chk("the eight-index master index demands something in 21 of them", bdem, 21)
     chk("the COMPLETED bounds index fills that demand in ZERO of them", bfill, 0)
-    chk("and the nine-index master index closes in 12", bclose, 12)
+    chk("and the nine-index master index closes in 19", bclose, 19)
     # WAS (0, 0) -- the one banding under which the demand vanished entirely.
     # Completing both periodic charts ended that: it demands in 1 of 10 there.
-    chk("AND AT ARITY BAND [3, 6] THE DEMAND NEARLY VANISHES -- 1 of 10",
-        bper[(3, 6)], (1, 0))
+    chk("AND AT ARITY BAND [3, 6] THERE IS NO DEMAND AT ALL, again",
+        bper[(3, 6)], (0, 0))
     chk("so the demand is a property of the declared banding, not invariant",
         bfill < btot, True)
     # RE-RUN AFTER DOCKET 8. Seating the question index took the populated
@@ -1587,8 +1603,8 @@ def selftest():
     # Completing both periodic charts inverts it: 14 against 12, so seating
     # questions now makes the closure MORE banding-robust, not less. The
     # qualification it supported is withdrawn; the other three stand.
-    chk("and the ten-index master index closes in 14 -- MORE than nine, reversed",
-        (bclose10, bclose10 > bclose), (14, True))
+    chk("and the ten-index master index closes in 17 -- FEWER than nine again",
+        (bclose10, bclose10 < bclose), (17, True))
 
     # ---------------------------------------- 6b. the channel relation
     ks = channel_sets()
@@ -1650,8 +1666,9 @@ def selftest():
     _o5 = dict((k, o) for k, _r, _e, o in _tab)
     chk("K4 is the anomaly: expected 0.04, and FOUR indexes are there",
         (_e5[4], _o5[4]), (0.04, 4))
-    chk("the whole distribution is displaced -- K0 expects 67 and holds 4",
-        (_e5[0], _o5[0]), (67.0, 4))
+    chk("and K2 now holds six, not seven", _o5[2], 6)
+    chk("the whole distribution is displaced -- K0 expects 66.16 and holds 4",
+        (_e5[0], _o5[0]), (66.16, 4))
     chk("while K7 expects 0.22 and holds 61", (_e5[7], _o5[7]), (0.22, 61))
     # AND THE EXPLANATION THAT SUGGESTS ITSELF FOR C=3 IS REFUTED.
     _pg, _pi, _pb, _n = GEOM_INFO_CONTROL
