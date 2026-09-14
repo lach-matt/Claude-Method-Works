@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 r"""
-hexad.py -- THE SIX MASTER INDEXES AS ONE INDEX: six points in the admissible
-chart, fifteen join threads, and a self-seating that converges where the
-refusal index's did not.
+hexad.py -- THE FIGURE THE SEATED INDEXES MAKE, and what changes as it grows.
 
 M: "What happens if we combine all 6 MIs into a single index of which in 3D it
 represents a 6 cornered polygon, with join threads as diagonals?"
@@ -10,121 +8,110 @@ represents a 6 cornered polygon, with join threads as diagonals?"
     python3 hexad.py             the reading
     python3 hexad.py --selftest  fixtures
 
+THE FILE IS STILL CALLED hexad.py AND THE FIGURE IS NO LONGER A HEXAD.  It was
+six when it was built.  Seating the channel index and the entropy index took it
+to eight, and the name is kept because the finding is exactly that the figure
+GROWS -- renaming it at every seating would hide the thing worth seeing.
+
 ===============================================================================
 0. THE CONSTRUCTION IS ALREADY PAID FOR
 ===============================================================================
 
-Every one of the six carries a cell on the SAME admissible chart --
-(K, height, width) -- because DOCKET 3 fixed that chart for all of them.  So no
-new coordinates are needed and nothing is chosen: the hexad is just
+Every seated index carries a cell on the SAME admissible chart --
+(K, height, width) -- because DOCKET 3 fixed that chart for all of them.  So the
+figure is just
 
-        H  =  { cell(M) : M one of the six master indexes }
+        F  =  { cell(M) : M a seated master index }
 
-and it is a six-cell index in exactly the space the others are charted in.
-THE SIX CELLS ARE DISTINCT, so it really is a hexad and not a smaller figure
-wearing six labels.
+and it is an index in exactly the space its own members are charted in.  No new
+coordinates, nothing chosen.  At eight:
 
-        MI (the nine)        (2,  5,  2)      closes statistics
-        refusal index        (0,  5,  4)      closes nothing
-        provenance           (0,  5,  5)      closes nothing
-        ionisation ladder    (0, 18, 16)      closes nothing
-        shell fibration      (3, 26, 17)      closes geometry, statistics
-        Janet fibration      (7, 30, 12)      closes all five
+        refusal index        (0,  5,  4)      channel index      (0, 16, 24)
+        provenance           (0,  5,  5)      ionisation ladder  (0, 18, 16)
+        entropy index        (2,  4,  5)      shell fibration    (3, 26, 17)
+        MI (the nine)        (2,  5,  2)      Janet fibration    (7, 30, 12)
 
 ===============================================================================
-1. WHAT IT CLOSES, AND THE CHANNEL DOES NOT MOVE GOING UP A LEVEL
+1. THE FIGURE'S CHANNEL IS NOT STABLE UNDER GROWTH
 ===============================================================================
 
-        6 cells, K2 -- closes STATISTICS and nothing else
-        its own cell (2, 4, 2)
+        six     K2 -- closes STATISTICS      own cell (2, 4, 2)
+        seven   K0 -- closes NOTHING         own cell (0, 4, 3)
+        eight   K0 -- closes NOTHING         own cell (0, 4, 4)
 
-    **THAT IS THE MASTER INDEX'S OWN CHANNEL.**  MI, an index of nine indexes,
-    closes in statistics.  The hexad, an index of six indexes-of-things and
-    indexes-of-indexes, closes in statistics too.  Going up a level of
-    abstraction did not change which language holds.
-
-    AND THE HEXAD IS NOT ONE OF ITS OWN MEMBERS.  Its cell (2, 4, 2) differs
-    from MI's (2, 5, 2) in height alone, and is not among the six.  So as it
-    stands it does not contain itself -- which is where section 3 starts.
+    AT SIX IT CLOSED IN STATISTICS -- the master index's own channel, which read
+    as a striking invariance of level.  **THE SEVENTH VERTEX DESTROYED IT.**
+    Adding the entropy index alone takes the figure to K0, and it does not come
+    back.  So the hexad's K2 was a fact about those six and not about the
+    construction, and this file says so where it once said otherwise.
 
 ===============================================================================
-2. THE FIFTEEN JOIN THREADS: TEN LAND, FIVE ESCAPE
+2. THE JOIN THREADS, AND A CORRESPONDENCE THAT IS TRUE ONLY AT SIX
 ===============================================================================
 
-A thread between two vertices is their JOIN, the coordinatewise max.  In a
-product of chains that join is always another point of the box; the question is
-whether it is another VERTEX.
+A thread between two vertices is their JOIN, the coordinatewise max.
 
-        10 of the 15 joins land on one of the six
-         5 escape the figure
+        six     15 pairs   10 land   5 escape    5 distinct escape cells
+        seven   21 pairs   12 land   9 escape    5 distinct
+        eight   28 pairs   14 land  14 escape    9 distinct
 
-    **AND THE FIVE ESCAPING JOINS ARE EXACTLY THE INFORMATION DEFICIT.**
-    E(information) = 5, and the join-closure adds exactly five cells.  The
-    correspondence is not a coincidence and not an approximation: information's
-    operator IS join-closure, so the cells it demands are precisely the joins
-    that escape.  **The diagonals that leave the polygon are what the index
-    fails to know.**
+    AT SIX, AND ONLY AT SIX, THE ESCAPING DIAGONALS ARE EXACTLY THE INFORMATION
+    DEFICIT: five escapes, five distinct cells, E(information) = 5.
 
-        the five escaping joins        refusal v MI      (2,  5,  4)
-                                       provenance v MI   (2,  5,  5)
-                                       ions v MI         (2, 18, 16)
-                                       ions v Janet      (7, 30, 16)
-                                       shell v Janet     (7, 30, 17)
+    **AND THE REASON IS A ONE-ROUND CLOSURE, WHICH IS NOT GENERAL.**  Information's
+    operator is join-closure, and join-closure ITERATES -- the joins of the new
+    cells with the old must be added too.  At six that second round adds nothing,
+    so the pairwise diagonals are the whole deficit.  At eight the second round
+    adds one more cell, and the count goes 9 distinct diagonals against a deficit
+    of 10.  Measured:
 
-    **MI IS IN THREE OF THE FIVE.**  The index of indexes is the vertex hardest
-    to join with the rest: pair it with the refusal index, with provenance, or
-    with the ladder, and the thread leaves the figure every time.  Pair it with
-    either fibration and the thread lands.  Nothing else is in more than two.
+        six     one round adds  5,  full closure adds  5  in 1 round
+        eight   one round adds  9,  full closure adds 10  in 2 rounds
 
-    THE MEETS BEHAVE DIFFERENTLY AND THE ASYMMETRY IS REAL.  Five meets escape
-    as well, but they land on only THREE distinct cells -- the three K0 vertices
-    all meet MI at the same place, (0, 5, 2).  So meet-closure adds three where
-    join-closure adds five, and the figure is lopsided in a way a hexagon drawn
-    on paper would hide.
+    SO THE EARLIER STATEMENT -- "the escaping diagonals are exactly what the
+    index fails to know" -- IS TRUE AT SIX AND IS NOT A LAW.  What is always true
+    is that the FULL join-closure is the information deficit, which is
+    definitional and says less.  Recorded rather than quietly re-pinned, because
+    the difference is between a picture and a theorem.
 
 ===============================================================================
-3. SEAT THE HEXAD IN ITSELF AND IT CONVERGES
+3. SELF-SEATING: CONVERGES AT SIX AND SEVEN, CYCLES AT EIGHT
 ===============================================================================
 
-The refusal index could not be seated: rindex.py found that recomputing it over
-an inventory containing itself CYCLES, with period two, on the faithful chart.
-Put the hexad to the same test -- add its own cell as a seventh member and
-recompute:
+rindex.py found the refusal index CYCLES when recomputed over an inventory
+containing itself.  Put the figure to the same test -- add its own cell as an
+extra member and recompute:
 
-        step 1    7 cells, K2, own cell (2, 4, 2)
-        step 2    unchanged -- FIXED POINT
+        six     FIXED POINT at step 2, seven cells
+        seven   FIXED POINT at step 3, eight cells
+        eight   **CYCLE, period 2, from step 2**
 
-    **IT CONVERGES IN ONE STEP, AND THE FIXED POINT CONTAINS ITSELF.**  The
-    seventh member IS the hexad's own cell, and adding it changes nothing:
-    cell(H + {cell(H)}) = cell(H) = (2, 4, 2).
+    **THE FIXED POINT IS LOST AS THE FIGURE GROWS.**  At six this file reported
+    convergence and offered an explanation -- that the figure's members are cells
+    already computed, so a new one disturbs nothing.  That explanation predicted
+    convergence at every size and is REFUTED at eight.  The honest statement is
+    that self-seating converges for some seated sets and not others, and nothing
+    here says which in advance.
 
-    SO SELF-REFERENCE IS NOT UNIFORMLY FATAL HERE, AND THAT IS THE FINDING.
-    Two objects in this tree were put to the same test and gave opposite
-    answers.  The refusal index cycles because R is recomputed FROM the
-    inventory -- adding a member changes every other member's value.  The
-    hexad's members are CELLS, already computed, and adding a seventh does not
-    disturb the other six; only the hexad's own cell could move, and it does not.
-
-        THE DIFFERENCE IS THAT ONE MAP IS MONOTONE IN ITS INPUT AND THE OTHER
-        IS NOT.  Stated as a measurement rather than a theorem: this file
-        verifies the fixed point, it does not prove convergence is forced.
+        THE REFUTED SENTENCE, kept because it was published: "Self-reference is
+        not uniformly fatal here."  It is not uniformly fatal and it is not
+        uniformly survivable either; the hexad and the octad disagree.
 
 ===============================================================================
 4. WHAT THIS FILE REFUSES
 ===============================================================================
 
-    TO CALL THE HEPTAD A SEVENTH MASTER INDEX.  Its seventh member is a
-    bookkeeping entry -- the hexad's own cell -- not a new object with its own
-    members.  The count of master indexes is six.
+    TO NAME A PARTICULAR POLYGON AS THE CLASSIFICATION.  sources.py measures 84
+    further second-order indexes buildable from nine admissible measurements,
+    occupying 20 vertices the figure does not have.  Any claim that a fixed
+    figure is the classification is refuted by building one more index.
 
-    TO READ THE CONVERGENCE AS A LICENCE TO SEAT THE REFUSAL INDEX.  The two
-    tests are of different maps and gave different answers; the refusal index's
-    cycle stands exactly as rindex.py reports it.
+    TO READ THE SIX-VERTEX PROPERTIES AS STRUCTURAL.  K2, the one-round closure
+    and the fixed point are all properties of that particular six, and all three
+    fail by eight.
 
-    TO DRAW THE HEXAD AS A REGULAR HEXAGON.  Six points in (K, height, width)
-    are not coplanar and not evenly spaced; the render places them at their
-    measured coordinates.  A tidy hexagon would be a picture of the word "six",
-    not of the index.
+    TO DRAW IT AS A REGULAR POLYGON.  The vertices are not coplanar and not
+    evenly spaced; the render places them at their measured coordinates.
 """
 
 import itertools
@@ -134,17 +121,21 @@ import hlaw
 import mi
 
 import axes as _axes
+import entropy as _entropy
 import fibred as _fibred
 import ions as _ions
 import madelung as _madelung
 import rindex as _rindex
+import spectra as _spectra
 
-ORDER = ("MI (the nine)", "refusal index", "provenance",
-         "ionisation ladder", "shell fibration", "Janet fibration")
+# The six the figure was built on, in the order it first reported them.
+SIX = ("MI (the nine)", "refusal index", "provenance",
+       "ionisation ladder", "shell fibration", "Janet fibration")
+ADDED = ("entropy index", "channel index")
 
 
-def six():
-    """{name: the index itself} -- the six master indexes."""
+def all_indexes():
+    """{name: the index itself} over every seated master index."""
     return {
         "MI (the nine)": frozenset(mi.index().values()),
         "refusal index": _rindex.rindex(),
@@ -152,29 +143,32 @@ def six():
         "ionisation ladder": _ions.index(),
         "shell fibration": _fibred.index(),
         "Janet fibration": _madelung.janet(),
+        "entropy index": _entropy.index(),
+        "channel index": _spectra.index(),
     }
 
 
-def cells():
-    """{name: its cell on the admissible chart}."""
-    return {nm: mi.cell(X) for nm, X in six().items()}
+def cells(names=None):
+    """{name: its cell on the admissible chart}, over `names` or all eight."""
+    A = all_indexes()
+    ns = list(A) if names is None else list(names)
+    return {n: mi.cell(A[n]) for n in ns}
+
+
+def figure(names=None):
+    """F -- the seated cells as one index."""
+    return frozenset(cells(names).values())
 
 
 def hexad():
-    """H -- the six cells as one index."""
-    return frozenset(cells().values())
+    """The original six, kept so the growth is measurable against it."""
+    return figure(SIX)
 
 
 def closers(X):
     X = frozenset(X)
     cl, _b = hlaw.closures(X)
     return sorted(L for L in hlaw.LANGS if len(cl[L]) == len(X))
-
-
-def deficits(X):
-    X = frozenset(X)
-    cl, _b = hlaw.closures(X)
-    return {L: len(cl[L]) - len(X) for L in sorted(hlaw.LANGS)}
 
 
 def _join(a, b):
@@ -185,121 +179,143 @@ def _meet(a, b):
     return tuple(min(x, y) for x, y in zip(a, b))
 
 
-def threads():
-    """[(nameA, nameB, join, join lands, meet, meet lands)] over all 15 pairs."""
-    H = hexad()
-    who = {v: k for k, v in cells().items()}
-    out = []
-    for a, b in itertools.combinations(sorted(H), 2):
-        j, m = _join(a, b), _meet(a, b)
-        out.append((who[a], who[b], j, j in H, m, m in H))
-    return out
+def threads(names=None):
+    """[(a, b, join, join lands, meet, meet lands)] over every pair."""
+    F = figure(names)
+    who = {v: k for k, v in cells(names).items()}
+    return [(who[a], who[b], _join(a, b), _join(a, b) in F,
+             _meet(a, b), _meet(a, b) in F)
+            for a, b in itertools.combinations(sorted(F), 2)]
 
 
-def escaping():
-    """([(a, b, join)] that leave the figure, [(a, b, meet)] likewise)."""
-    t = threads()
+def escaping(names=None):
+    """([(a, b, join)] leaving the figure, [(a, b, meet)] likewise)."""
+    t = threads(names)
     return ([(a, b, j) for a, b, j, jl, _m, _ml in t if not jl],
             [(a, b, m) for a, b, _j, _jl, m, ml in t if not ml])
 
 
-def involvement():
-    """{vertex: how many escaping joins it is in} -- who resists joining."""
+def join_closure(names=None):
+    """(the closure, cells it adds, how many ROUNDS it took).
+
+    The round count is the whole of section 2: at six the closure stabilises in
+    one round, so the pairwise diagonals ARE the deficit; above six it does not.
+    """
+    S = set(figure(names))
+    start, rounds = len(S), 0
+    while True:
+        new = {_join(a, b) for a in S for b in S} - S
+        if not new:
+            return frozenset(S), len(S) - start, rounds
+        S |= new
+        rounds += 1
+
+
+def deficit(names=None, lang="information"):
+    F = figure(names)
+    cl, _b = hlaw.closures(F)
+    return len(cl[lang]) - len(F)
+
+
+def diagonals_equal_deficit(names=None):
+    """(escaping pairs, distinct escape cells, E(information), rounds).
+
+    True correspondence needs distinct == E, which needs a one-round closure.
+    """
+    ej, _em = escaping(names)
+    _c, _added, rounds = join_closure(names)
+    return len(ej), len({j for _a, _b, j in ej}), deficit(names), rounds
+
+
+def self_seat(names=None, steps=12):
+    """(verdict, step, cells) -- add the figure's own cell and recompute."""
+    base = set(cells(names).values())
+    cur, seq = frozenset(base), [frozenset(base)]
+    for s in range(1, steps + 1):
+        nxt = frozenset(base | {mi.cell(cur)})
+        if nxt == cur:
+            return "FIXED POINT", s, len(nxt)
+        if nxt in seq:
+            return "CYCLE period %d" % (s - seq.index(nxt)), s, len(nxt)
+        seq.append(nxt)
+        cur = nxt
+    return "UNSETTLED", None, len(cur)
+
+
+def growth():
+    """[(size, K, own cell, verdict, step)] at six, seven and eight."""
+    out = []
+    for k in (6, 7, 8):
+        ns = list(SIX) + list(ADDED[:k - 6])
+        F = figure(ns)
+        v, s, _n = self_seat(ns)
+        out.append((k, mi.K(F), mi.cell(F), v, s))
+    return out
+
+
+def involvement(names=None):
+    """{vertex: how many escaping joins it is in}."""
     out = {}
-    for a, b, _j in escaping()[0]:
+    for a, b, _j in escaping(names)[0]:
         out[a] = out.get(a, 0) + 1
         out[b] = out.get(b, 0) + 1
     return dict(sorted(out.items(), key=lambda kv: (-kv[1], kv[0])))
 
 
-def self_seat(steps=10):
-    """[(step, cells, K, own cell)] and the verdict, seating H inside itself.
-
-    The same test rindex.py ran on the refusal index, which CYCLED.  Here the
-    seventh member is the hexad's own cell.
-    """
-    base = set(cells().values())
-    cur, seq, rows = frozenset(base), [frozenset(base)], []
-    for s in range(1, steps + 1):
-        nxt = frozenset(base | {mi.cell(cur)})
-        rows.append((s, len(nxt), mi.K(nxt), mi.cell(nxt)))
-        if nxt == cur:
-            return rows, "FIXED POINT", s
-        if nxt in seq:
-            return rows, "CYCLE", seq.index(nxt)
-        seq.append(nxt)
-        cur = nxt
-    return rows, "UNSETTLED", None
-
-
-def heptad():
-    """The fixed point: the six plus the hexad's own cell."""
-    base = set(cells().values())
-    return frozenset(base | {mi.cell(frozenset(base))})
-
-
 # ---------------------------------------------------------------------------
 
 def report():
-    H = hexad()
+    F = figure()
     print("=" * 74)
-    print("THE HEXAD -- the six master indexes as one index")
+    print("THE FIGURE THE SEATED INDEXES MAKE -- now eight, once six")
     print("=" * 74)
     print()
-    print("0. THE CONSTRUCTION IS ALREADY PAID FOR. All six carry a cell on the")
-    print("   SAME admissible chart, so nothing is chosen.")
-    c = cells()
-    for nm in ORDER:
-        X = six()[nm]
-        print("   %-20s %-12s %5d members   closes %s"
-              % (nm, str(c[nm]), len(X), ", ".join(closers(X)) or "nothing"))
-    print("   six distinct cells: %s" % (len(H) == 6))
+    print("0. THE CONSTRUCTION IS ALREADY PAID FOR. Every seated index carries")
+    print("   a cell on the SAME admissible chart, so nothing is chosen.")
+    for nm, c in sorted(cells().items(), key=lambda kv: kv[1]):
+        print("   %-22s %s" % (nm, c))
     print()
 
-    print("1. WHAT IT CLOSES.")
-    print("   %d cells   K%d   closes %s   its own cell %s"
-          % (len(H), mi.K(H), ", ".join(closers(H)) or "NOTHING", mi.cell(H)))
-    print("   THE MASTER INDEX'S OWN CHANNEL -- going up a level did not move")
-    print("   which language holds. And the hexad is NOT one of its own members.")
+    print("1. THE CHANNEL IS NOT STABLE UNDER GROWTH.")
+    for k, K, c, v, s in growth():
+        print("   %d vertices  K%-2d  closes %-12s own cell %s"
+              % (k, K, ", ".join(closers(figure(list(SIX) + list(ADDED[:k - 6]))))
+                 or "nothing", c))
+    print("   At six it closed in STATISTICS -- the master index's own channel.")
+    print("   THE SEVENTH VERTEX DESTROYED IT and it does not come back.")
     print()
 
-    print("2. THE FIFTEEN JOIN THREADS.")
-    t = threads()
-    land = sum(1 for _a, _b, _j, jl, _m, _ml in t if jl)
-    print("   %-20s %-20s %-14s %-9s %-14s %s"
-          % ("from", "to", "join", "", "meet", ""))
-    for a, b, j, jl, m, ml in t:
-        print("   %-20s %-20s %-14s %-9s %-14s %s"
-              % (a, b, j, "LANDS" if jl else "escapes",
-                 m, "LANDS" if ml else "escapes"))
-    ej, em = escaping()
-    D = deficits(H)
-    print()
-    print("   joins landing %d of 15, escaping %d" % (land, len(ej)))
-    print("   E(information) = %d, and join-closure adds %d cells."
-          % (D["information"], len({_join(a, b) for a in H for b in H}) - len(H)))
-    print("   THE ESCAPING DIAGONALS ARE EXACTLY WHAT THE INDEX FAILS TO KNOW:")
-    print("   information's operator IS join-closure.")
-    print("   meets escaping %d but landing on only %d distinct cells -- the")
-    print("   three K0 vertices all meet MI at the same place."
-          % (len(em), len({m for _a, _b, m in em})))
-    print("   who resists joining: %s" % involvement())
+    print("2. THE JOIN THREADS.")
+    for k in (6, 7, 8):
+        ns = list(SIX) + list(ADDED[:k - 6])
+        p, d, E, r = diagonals_equal_deficit(ns)
+        tot = len(threads(ns))
+        print("   %d vertices  %2d pairs  %2d escape  %2d distinct  E(info) %2d"
+              "  closure rounds %d" % (k, tot, p, d, E, r))
+    print("   AT SIX, AND ONLY AT SIX, distinct escapes == E(information).")
+    print("   The reason is a ONE-ROUND closure: join-closure iterates, and at")
+    print("   six the second round adds nothing. At eight it adds one more, so")
+    print("   nine diagonals stand against a deficit of ten.")
+    print("   What is ALWAYS true is that the FULL join-closure is the deficit,")
+    print("   which is definitional and says less.")
     print()
 
-    print("3. SEAT THE HEXAD IN ITSELF.")
-    rows, verdict, at = self_seat()
-    for s, n, k, cc in rows:
-        print("   step %d: %d cells  K%d  own cell %s" % (s, n, k, cc))
-    print("   VERDICT: %s at step %s" % (verdict, at))
-    print("   The refusal index CYCLED under the same test. This converges in")
-    print("   one step and the fixed point CONTAINS ITSELF. Self-reference is")
-    print("   not uniformly fatal here, and that is the finding.")
+    print("3. SELF-SEATING.")
+    for k, _K, _c, v, s in growth():
+        print("   %d vertices  %-18s at step %s" % (k, v, s))
+    print("   THE FIXED POINT IS LOST AS THE FIGURE GROWS. At six this file")
+    print("   reported convergence and explained it by the members being cells")
+    print("   already computed -- an explanation that predicted convergence at")
+    print("   every size, and is REFUTED at eight.")
     print()
-    print("4. REFUSED: to call the heptad a seventh master index -- its seventh")
-    print("   member is a bookkeeping entry, not an object with members. To")
-    print("   read this convergence as licence to seat the refusal index --")
-    print("   different maps, different answers. To draw the hexad as a REGULAR")
-    print("   hexagon -- the six points are not coplanar and not evenly spaced.")
+    print("   who resists joining, at eight: %s"
+          % list(involvement().items())[:4])
+    print()
+    print("4. REFUSED: to name a particular polygon as the classification --")
+    print("   sources.py measures 84 further second-order indexes on 20")
+    print("   vertices this figure does not have. To read the six-vertex")
+    print("   properties as structural -- K2, the one-round closure and the")
+    print("   fixed point all fail by eight. To draw it as a regular polygon.")
     return 0
 
 
@@ -317,64 +333,56 @@ def selftest():
             print("        expected %r" % (want,))
 
     print("hexad selftest")
-    H, c = hexad(), cells()
+    F, c = figure(), cells()
 
-    chk("six master indexes", len(six()), 6)
-    chk("on six DISTINCT cells -- it really is a hexad", len(H), 6)
+    chk("eight seated indexes", len(all_indexes()), 8)
+    chk("on eight DISTINCT cells", len(F), 8)
+    chk("the original six are still six distinct cells", len(hexad()), 6)
     chk("MI's cell", c["MI (the nine)"], (2, 5, 2))
-    chk("the refusal index's", c["refusal index"], (0, 5, 4))
-    chk("provenance's", c["provenance"], (0, 5, 5))
-    chk("the ladder's", c["ionisation ladder"], (0, 18, 16))
-    chk("the shell fibration's", c["shell fibration"], (3, 26, 17))
-    chk("Janet's", c["Janet fibration"], (7, 30, 12))
+    chk("the entropy index's", c["entropy index"], (2, 4, 5))
+    chk("the channel index's", c["channel index"], (0, 16, 24))
 
-    # ---- the channel does not move going up a level
-    chk("the hexad closes in statistics alone", closers(H), ["statistics"])
-    chk("which is K2 -- the master index's own channel",
-        (mi.K(H), mi.K(frozenset(mi.index().values()))), (2, 2))
-    chk("its own cell", mi.cell(H), (2, 4, 2))
-    chk("and it is NOT one of its own members", mi.cell(H) in H, False)
+    # ---- THE CHANNEL IS NOT STABLE. The headline correction.
+    g = growth()
+    chk("at six the figure closed in statistics", closers(hexad()),
+        ["statistics"])
+    chk("at eight it closes NOTHING", closers(F), [])
+    chk("K at six, seven, eight", [K for _k, K, _c, _v, _s in g], [2, 0, 0])
+    chk("own cell at six, seven, eight", [cc for _k, _K, cc, _v, _s in g],
+        [(2, 4, 2), (0, 4, 3), (0, 4, 4)])
+    # SO THE SEVENTH VERTEX ALONE DID IT.
+    chk("the seventh vertex alone destroyed the channel",
+        (mi.K(hexad()), mi.K(figure(list(SIX) + ["entropy index"]))), (2, 0))
 
-    # ---- the threads
-    t = threads()
-    chk("fifteen pairs", len(t), 15)
-    land = sum(1 for _a, _b, _j, jl, _m, _ml in t if jl)
-    chk("ten joins land on a vertex", land, 10)
-    ej, em = escaping()
-    chk("and five escape", len(ej), 5)
-    # THE CORRESPONDENCE, and it is exact rather than approximate.
-    D = deficits(H)
-    chk("E(information) EQUALS the number of escaping joins",
-        (D["information"], len(ej)), (5, 5))
-    chk("because information's operator IS join-closure",
-        len({_join(a, b) for a in H for b in H} - H), 5)
-    chk("statistics closes, so its deficit is zero", D["statistics"], 0)
+    # ---- the correspondence, and its true condition
+    p6, d6, E6, r6 = diagonals_equal_deficit(SIX)
+    p8, d8, E8, r8 = diagonals_equal_deficit()
+    chk("at six: escapes, distinct, E(info)", (p6, d6, E6), (5, 5, 5))
+    chk("and the join-closure stabilises in ONE round", r6, 1)
+    chk("at eight: escapes, distinct, E(info)", (p8, d8, E8), (14, 9, 10))
+    chk("and it takes TWO rounds", r8, 2)
+    # THE CORRECTION, pinned both ways so it cannot be requoted as a law.
+    chk("so distinct == E(info) at six", d6 == E6, True)
+    chk("and NOT at eight", d8 == E8, False)
+    # WHAT IS ALWAYS TRUE.
+    for ns in (SIX, None):
+        _cl, added, _r = join_closure(ns)
+        chk("full join-closure == E(information)%s"
+            % ("" if ns else " (at eight)"), added, deficit(ns))
 
-    # ---- who resists
-    chk("MI is in three of the five escaping joins",
-        involvement()["MI (the nine)"], 3)
-    chk("and nothing else is in more than two",
-        max(v for k, v in involvement().items() if k != "MI (the nine)"), 2)
+    # ---- SELF-SEATING FLIPS
+    chk("six converges", self_seat(SIX)[0], "FIXED POINT")
+    chk("seven converges", self_seat(list(SIX) + ["entropy index"])[0],
+        "FIXED POINT")
+    chk("EIGHT CYCLES", self_seat()[0], "CYCLE period 2")
+    chk("so the fixed point is lost as the figure grows",
+        [v for _k, _K, _c, v, _s in g],
+        ["FIXED POINT", "FIXED POINT", "CYCLE period 2"])
 
-    # ---- the meet asymmetry
-    chk("five meets escape too", len(em), 5)
-    chk("but onto only THREE distinct cells", len({m for _a, _b, m in em}), 3)
-    chk("the three K0 vertices all meet MI at the same place",
-        sorted({m for a, b, m in em
-                if "MI (the nine)" in (a, b)}), [(0, 5, 2)])
-
-    # ---- THE HEADLINE: it converges where the refusal index cycled
-    rows, verdict, at = self_seat()
-    chk("seating the hexad in itself CONVERGES", verdict, "FIXED POINT")
-    chk("at step 2, on seven cells", (at, rows[-1][1]), (2, 7))
-    chk("and the fixed point CONTAINS ITSELF", mi.cell(heptad()) in heptad(),
-        True)
-    chk("its channel is unchanged by the seating", mi.K(heptad()), 2)
-    # THE CONTRAST, re-read from rindex rather than recalled.
-    per, _ent, _cyc = _rindex.convergence("indicator")
-    chk("where the refusal index CYCLES on its faithful chart", per, 2)
-    chk("so the two self-seatings give opposite answers",
-        (verdict == "FIXED POINT", per == 1), (True, False))
+    # ---- the pairwise threads still count correctly
+    chk("28 pairs at eight", len(threads()), 28)
+    chk("14 land, 14 escape",
+        (sum(1 for _a, _b, _j, jl, _m, _ml in threads() if jl), p8), (14, 14))
 
     print("hexad selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
