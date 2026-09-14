@@ -402,6 +402,57 @@ def janet_complete():
     return frozenset(out)
 
 
+# The reach of the periodic table, RULED BY M: "until we can prove that no more
+# elements are left to discover or synthesize, the upper bound of the periodic
+# table is open, which means the periodic table is open to more not yet
+# identified elements until proven otherwise."  So the chart reaches as far as
+# the CONSTRUCTION defines and not as far as observation has got: Z = 120, the
+# end of Janet's eighth period (lengths 2 2 8 8 18 18 32 32), which is the same
+# reach janet_complete() has.
+LAYOUT_3D_REACH = 120
+
+
+def layout_3d_complete():
+    """(period, group, block) for every element the layout defines -- 92 cells.
+
+    THIS WAS 80, AND THAT WAS A DEFECT OF THE SAME KIND DOCKET 1(a) FIXED FOR
+    JANET, one line above it in inventory() and left unapplied.  The old form
+    read `block_of(Z) for Z in range(1, 109)`, and `populate.block_of` takes the
+    differentiating electron from `LW1.GROUND` -- the OBSERVED ground
+    configurations, which stop at Z = 108.  So the chart could not reach
+    meitnerium onward and lost ten positions that `period_of` and `group_of`
+    -- pure layout arithmetic, bound to nothing -- had no trouble with.
+
+    MADELUNG NEEDS NO OBSERVATION, which is the whole of janet_complete()'s
+    argument, and the block is the l of the differentiating electron either way.
+    Taken from Madelung the chart reaches Z = 120: 90 cells to Z = 118 -- exactly
+    the positions periodic layout 2-D reaches, so the two are now in bijection
+    over the same elements -- and two more in the eighth period.
+
+    M RAISED THIS: "109 to 118 and 119 and 120 are contained and represented in
+    period 3D. If it does not, you are using the wrong index for period 3D."
+    That was right, and every figure this tree computed from the 80-cell version
+    was wrong with it.
+    """
+    pop = _populate()
+    out = set()
+    for Z in range(1, LAYOUT_3D_REACH + 1):
+        if pop.set_aside(Z):
+            continue
+        g = pop.group_of(Z)
+        if g is None:
+            continue
+        now = {(n, l): o for n, l, o in pop.aufbau_config(Z)}
+        prev = ({(n, l): o for n, l, o in pop.aufbau_config(Z - 1)}
+                if Z > 1 else {})
+        gained = sorted((n, l) for (n, l), o in now.items()
+                        if o > prev.get((n, l), 0))
+        if not gained:
+            continue
+        out.add((pop.period_of(Z), g, gained[-1][1]))
+    return frozenset(out)
+
+
 def inventory():
     """{name: cells} for every index actually seated in this tree."""
     pop = _populate()
@@ -410,9 +461,7 @@ def inventory():
         "energy-condition family": frozenset(necindex.cells()),
         "exotic mechanisms": frozenset(synth.MECHANISMS.values()),
         "periodic layout 2-D": frozenset(held),
-        "periodic layout 3-D": frozenset(
-            (pop.period_of(Z), pop.group_of(Z), pop.block_of(Z))
-            for Z in range(1, 109) if not pop.set_aside(Z)),
+        "periodic layout 3-D": layout_3d_complete(),
         # DOCKET 1(a). This was `janet_cell(Z)` over Z < 109 -- the (n+l, l)
         # chart of the OBSERVED differentiating electron, 19 cells, which charts
         # 80 elements onto 16 positions. THAT IS A COARSENING OF JANET'S TABLE
@@ -1385,8 +1434,12 @@ def selftest():
         sorted(k for k, v in ms.items() if v),
         [("Janet (n+l, l, k)", "periodic layout 3-D"),
          ("bounds", "energy-condition family")])
-    chk("and it is nine tuples, exactly as before the docket",
-        len(ms[("Janet (n+l, l, k)", "periodic layout 3-D")]), 9)
+    # WAS NINE. Completing the 3-D layout to Janet's reach (80 -> 92 cells)
+    # took the shared count to eleven. The finding is unchanged and slightly
+    # stronger: two genuinely three-coordinate charts OF THE SAME OBJECT share
+    # eleven tuples, and the meet is spurious for the same reason.
+    chk("and it is eleven tuples now that the 3-D layout is complete",
+        len(ms[("Janet (n+l, l, k)", "periodic layout 3-D")]), 11)
     chk("spurious: (n+l, l, k) and (period, group, block) are different charts",
         len(next(iter(inv["Janet (n+l, l, k)"])))
         == len(next(iter(inv["periodic layout 3-D"]))), True)
@@ -1457,9 +1510,9 @@ def selftest():
     # 23 of 40 bandings to 20, and the nine-index closure ROSE from 17 to 20.
     # So the correction made the demand slightly LESS banding-robust and the
     # closure slightly MORE. Neither figure was chosen; both are re-measured.
-    chk("the eight-index master index demands something in 20 of them", bdem, 20)
+    chk("the eight-index master index demands something in 21 of them", bdem, 21)
     chk("the COMPLETED bounds index fills that demand in ZERO of them", bfill, 0)
-    chk("and the nine-index master index closes in 20", bclose, 20)
+    chk("and the nine-index master index closes in 19", bclose, 19)
     chk("AND AT ARITY BAND [3, 6] THERE IS NO DEMAND AT ALL",
         bper[(3, 6)], (0, 0))
     chk("so the demand is a property of the declared banding, not invariant",
@@ -1489,6 +1542,8 @@ def selftest():
         True)
     chk("and the ten-index master index closes in 17 of 40 -- FEWER than nine",
         (bclose10, bclose10 < bclose), (17, True))
+    # AND THE MARGIN NARROWED WHEN THE 3-D LAYOUT WAS COMPLETED: nine-index
+    # closure fell 20 -> 19 while ten held at 17, so the gap is now 2, not 3.
 
     # ---------------------------------------- 6b. the channel relation
     ks = channel_sets()
