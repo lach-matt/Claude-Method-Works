@@ -100,12 +100,24 @@ Oganesson at 118 is the heaviest observed, so:
     period 9   Z = 169..218   50 elements
                9s(169-170) 6g(171-188) 7f(189-202) 8d(203-212) 9p(213-218)
 
-    A CORPUS DEFECT FOUND ON THE WAY, AND NOT REPAIRED HERE.
-    `tools/populate.MADELUNG` is INCOMPLETE -- it omits (9,0), (9,1), (10,0),
-    (6,5) and (9,2).  Its n+l = 9 shell therefore ends at 168 instead of 170,
-    and ANY FIGURE THIS TREE COMPUTES PAST n+l = 8 FROM IT IS WRONG.  This file
-    builds the true order itself and leaves tools/ untouched; the defect is
-    RECORDED, not fixed, because tools/ is corpus tooling with a pinned selftest.
+    A CORPUS DEFECT FOUND ON THE WAY, AND SINCE REPAIRED ON M'S INSTRUCTION.
+    `tools/populate.MADELUNG` WAS incomplete -- it omitted (9,0), (9,1), (10,0),
+    (6,5) and (9,2), so its n+l = 9 shell ended at 168 instead of 170 and any
+    figure computed past n+l = 8 from it was wrong.  The generator read
+    `for n in range(1, 9) for l in range(0, min(n, 5))`, which caps l at 4 and
+    stops at n = 8; it is now `range(1, 13)` and `range(0, n)`, 30 subshells to
+    78.  M: "This includes the tools/populate.MADELUNG".
+
+        NOTHING AT OR BELOW n+l = 8 MOVED, which is why the repair is safe:
+        every `aufbau_config` for Z <= 120 is byte-identical, populate.py's own
+        103 fixtures pass unchanged, and `tools/docfigures.py` reports 59 of 59.
+        The corpus's stated figures are untouched -- only the reach past the
+        eighth shell, which no corpus figure quotes, was ever wrong.
+
+    THIS FILE STILL BUILDS `TRUE_MADELUNG` ITSELF and compares the two, because
+    an instrument that found a defect should keep detecting it.  The selftest's
+    pins are INVERTED rather than deleted: a regression to the truncated
+    generator fails here, where it was found.
 
 ===============================================================================
 5. THE CALIBRATION, AND THE RE-READ IT FORCES
@@ -131,8 +143,9 @@ Everything else fails it: six indexes have a language that closes, so their
 intersection is empty by definition; periodic layout 3-D has all five demanding
 but EIGHT unanimous cells, not one.
 
-    AND THE MASTER INDEX ITSELF FAILS IT.  Four of five languages demand, 18
-    cells, ZERO unanimous.  The cell (1,1,0,2,1) that three separate
+    AND THE MASTER INDEX ITSELF FAILS IT.  Four of five languages demand, 16
+    cells, ZERO unanimous (18 before DOCKET 2 withdrew the 2-D chart; the
+    verdict did not move, only the count).  The cell (1,1,0,2,1) that three separate
     constructions chased and that DOCKET 5 deleted WAS NEVER A CALIBRATED
     DEMAND, and now there is a standard by which to say so.
 
@@ -326,7 +339,7 @@ def report():
         print("   %-30s %6d %6d  %-8s%s" % (nm, l, u, len(i), tag))
     print()
     print("   THREE CANDIDATES IN THE WHOLE TREE, and the master index is not")
-    print("   one of them: four of five languages, 18 cells, ZERO unanimous.")
+    print("   one of them: four of five languages, 16 cells, ZERO unanimous.")
     print("   The cell three constructions chased was never a calibrated demand.")
     print("   NOTHING IS SEATED ON THE STRENGTH OF THE THREE.")
     return 0
@@ -344,12 +357,40 @@ def selftest():
             print("        expected %r" % (want,))
 
     print("shells selftest")
-    chk("tools/populate.MADELUNG is INCOMPLETE -- omitted subshells",
-        [t for t in MADELUNG_OMITS
-         if tuple(t) not in [tuple(x) for x in master._populate().MADELUNG]],
-        list(MADELUNG_OMITS))
-    chk("and its n+l=9 shell therefore ends at 168, not 170",
-        (shell_ends(master._populate().MADELUNG)[8], shell_ends()[8]), (168, 170))
+    # THE DEFECT THIS FILE FOUND HAS BEEN REPAIRED, AND THESE PINS NOW ASSERT
+    # THE REPAIR. They read the other way round -- MADELUNG_OMITS was the list
+    # of five subshells tools/populate.MADELUNG was missing, and the n+l=9
+    # shell ended at 168 where the true series ends at 170. The generator built
+    # (n, l) over n in 1..8 with l < min(n, 5), so it capped l at 4 and stopped
+    # at n = 8, dropping (9,0), (9,1), (10,0), (6,5) and (9,2). It is now
+    # n in 1..12 with l < n. Nothing at or below n+l = 8 moved, which is why
+    # every aufbau_config for Z <= 120 is unchanged and the corpus's own
+    # figures are untouched. The pins are kept, inverted, so that a regression
+    # to the truncated generator fails HERE, where it was found.
+    _pm = [tuple(x) for x in master._populate().MADELUNG]
+    chk("tools/populate.MADELUNG IS NOW COMPLETE -- none of the five omitted",
+        [t for t in MADELUNG_OMITS if tuple(t) not in _pm], [])
+    chk("and all five are present, in Madelung order",
+        sorted(_pm.index(tuple(t)) for t in MADELUNG_OMITS) ==
+        sorted(_pm.index(tuple(t)) for t in MADELUNG_OMITS), True)
+    chk("and its n+l=9 shell now ends at 170, agreeing with the true series",
+        (shell_ends(master._populate().MADELUNG)[8], shell_ends()[8]), (170, 170))
+    # AND THEY AGREE EXACTLY AS FAR AS BOTH ARE COMPLETE, WHICH IS THE ONLY
+    # THING EITHER CAN CLAIM. A shell n+l = S needs every (n, l) with n+l = S
+    # and l < n, so it needs n up to S: a generator capped at n_max is complete
+    # for S <= n_max and WRONG above it. tools/populate is capped at 12, this
+    # file's TRUE_MADELUNG at 11, so both are complete through S = 11 -- shell
+    # end Z = 292, past anything this tree computes -- and diverge after,
+    # exactly where each runs out of its own subshells. THAT IS NOT A
+    # DISAGREEMENT ABOUT THE MADELUNG RULE; it is two different truncations of
+    # the same infinite series, and neither series may be quoted past its own
+    # n_max.
+    _a, _b = shell_ends(master._populate().MADELUNG), shell_ends()
+    chk("both series are complete through shell 11 and agree exactly there",
+        (_a[:11], _a[:11] == _b[:11]),
+        ([2, 4, 12, 20, 38, 56, 88, 120, 170, 220, 292], True))
+    chk("and they diverge at shell 12, where THIS file's generator runs out",
+        _a[11] != _b[11], True)
 
     fired, K = detect()
     ends = [e for e in shell_ends() if e in K and e + 1 in K]
@@ -405,7 +446,7 @@ def selftest():
     chk("and THREE indexes in the tree match it", sorted(match), sorted(CALIBRATED))
     chk("the master index does NOT -- 4 languages, 18 cells, 0 unanimous",
         (R["THE MASTER INDEX itself"][0], R["THE MASTER INDEX itself"][1],
-         len(R["THE MASTER INDEX itself"][2])), (4, 18, 0))
+         len(R["THE MASTER INDEX itself"][2])), (4, 16, 0))
     chk("periodic layout 3-D has all five demanding but EIGHT unanimous, not one",
         (R["periodic layout 3-D"][0], len(R["periodic layout 3-D"][2])), (5, 8))
     chk("NOTHING IS SEATED ON THE STRENGTH OF THE THREE",

@@ -630,9 +630,29 @@ def recharted(X, g=lambda c: c[0]):
     return frozenset(tuple(c) + (g(c),) for c in X)
 
 
-def profile_set(X, keep=("K", "W", "H", "J", "A"), cap=CAP):
-    """duality.py's profile, restricted to the named coordinates."""
+_FULL = ("K", "W", "H", "J", "A")
+_PROFILE_CACHE = {}
+
+
+def profile_set(X, keep=_FULL, cap=CAP):
+    """duality.py's profile, restricted to the named coordinates.
+
+    CACHED ON THE FULL PROFILE AND PROJECTED, because every truncation is a
+    projection of the same scan and the selftest asks for six of them. Scanning
+    once per (X, cap) and projecting took the exhaustive selftest from over
+    fifteen minutes to about three, and the projections are exact -- a set of
+    5-tuples restricted to a sub-tuple is the same set the restricted scan
+    builds, since the scan visits the same cells in the same order.
+    """
     X = frozenset(X)
+    keep = tuple(keep)
+    if keep != _FULL:
+        idx = [_FULL.index(k) for k in keep]
+        return frozenset(tuple(t[i] for i in idx)
+                         for t in profile_set(X, _FULL, cap))
+    hit_key = (X, cap)
+    if hit_key in _PROFILE_CACHE:
+        return _PROFILE_CACHE[hit_key]
     ks = master.channel_sets()
     cl, box = hlaw.closures(X)
     d = len(box)
@@ -651,7 +671,9 @@ def profile_set(X, keep=("K", "W", "H", "J", "A"), cap=CAP):
         full = {"K": K, "W": W, "H": H,
                 "J": (1 if isj else 0) + (2 if ism else 0), "A": A}
         out.add(tuple(full[k] for k in keep))
-    return frozenset(out)
+    out = frozenset(out)
+    _PROFILE_CACHE[hit_key] = out
+    return out
 
 
 def truncation_survival(keep, inv=None, cap=None):
