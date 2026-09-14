@@ -125,32 +125,85 @@ pairs of the five languages.  The other thirteen may happen to hold on any
 particular index without being lawful -- hlaw.py's `index_only` asks exactly
 that question and can only answer "here".  A scramble asks it everywhere.
 
-    Over 3,000 type-1 scrambles, E(a) <= E(b) NEVER FAILS for 7 ordered pairs
-    and FAILS AT LEAST ONCE for the other 13.
+    Over the COMPLETE ball of radius 3 -- all 6,933 states reachable in three
+    type-1 moves -- E(a) <= E(b) NEVER FAILS for 7 ordered pairs and FAILS
+    somewhere for the other 13.
 
     THE SEVEN ARE EXACTLY THE SEVEN THE LAW DECLARES.  No lawful containment is
-    broken by any scramble; no unlawful containment survives all of them.
+    broken anywhere in the ball; no unlawful containment survives it.
 
 So the orbit is a DISCRIMINATOR: it separates what the law guarantees from what
 the seated arrangement merely happened to satisfy, and on this index the law is
 neither too strong nor too weak.  Clause E says there is no total ranking, and
 the orbit is where that stops being an assertion.
 
+    **THIS WAS A SAMPLE AND IS NOW A BALL, AND THE CHANGE WAS FORCED.**  It read
+    "over 3,000 type-1 scrambles" until DOCKET 2 withdrew periodic layout 2-D,
+    at which point the selftest's n = 1500 form REPORTED THE SEPARATION AND WAS
+    WRONG: `geometry <= order` and `geometry <= algebra` survived all 1500 and
+    came back as lawful.  They are not lawful; they break 10 times in 6,933.
+    Withdrawing the densest index took most of the violating region with it and
+    the margins fell an order of magnitude, so a sample that had been ample
+    became under-powered without anyone changing it.  At n = 3000 the answer
+    depends on the SEED -- 11 and 5 separate correctly, 77 does not.
+
+    A SAMPLE CANNOT PROVE A "NEVER".  It can only fail to find the
+    counterexample, and that is precisely what this file's headline claims.
+    `law_separation_exact` enumerates the ball instead, in about ten seconds,
+    and the sampled `law_separation` is kept only for radii the ball cannot
+    reach.  The selftest keeps the old n = 1500 call as a NEGATIVE CONTROL, so
+    the failure that forced this stays reproducible rather than becoming a
+    story about it.
+
 AND THE MARGINS ARE THE INTERESTING PART.  Three of the thirteen escape being
-lawful only barely:
+lawful only barely -- exact counts over the ball, not frequencies in a sample:
 
-        statistics <= information      breaks in     3 of 3,000   (0.10 %)
-        geometry   <= order            breaks in    55 of 3,000   (1.83 %)
-        geometry   <= algebra          breaks in    55 of 3,000   (1.83 %)
+        statistics <= information      breaks in   109 of 6,933   (1.57 %)
+        geometry   <= order            breaks in    10 of 6,933   (0.14 %)
+        geometry   <= algebra          breaks in    10 of 6,933   (0.14 %)
 
-while the rest break in a third to all of the orbit.  The first margin was 16
-of 3,000 before the bounds correction and 2 of 3,000 after it; seating the
-question index moved it to 3.  THAT IT MOVES AT ALL IS THE POINT: the margin is
-a property of the seated arrangement, and only the ZEROS are properties of the
-law.  The seven zeros have not moved once across three changes of input.  Those
-three pairs are very nearly laws and are not, which is a sharper statement of
-where the hierarchy is thin than counting refutations on one arrangement can
+while the rest break in a fifth to all of the ball.  The first margin has moved
+at every change of input -- 16 then 2 then 3 per 3,000 sampled, and 1.57 % of
+the ball now.  THAT IT MOVES AT ALL IS THE POINT: the margin is a property of
+the seated arrangement, and only the ZEROS are properties of the law.  The seven
+zeros have not moved once across four changes of input, DOCKET 2 included.
+Those three pairs are very nearly laws and are not, which is a sharper statement
+of where the hierarchy is thin than counting refutations on one arrangement can
 give.
+
+    THE LAST TWO BREAK TOGETHER, AT IDENTICAL COUNTS, AND THAT IS NOT A
+    COINCIDENCE.  `order and algebra agree` holds on all 6,933 states of the
+    ball -- Clause B as a theorem -- so any state breaking geometry <= order
+    breaks geometry <= algebra in the same move.  Two margins, one event.
+
+===============================================================================
+5b. AND THE PUZZLE IS BUILT ON TWO DISQUALIFIED AXES
+===============================================================================
+
+RECORDED, NOT REPAIRED, AND IT LIMITS EVERYTHING ABOVE.  The cuboid is
+(C, D, R), and DOCKET 3 -- see charts.py -- states the criterion for a
+legitimate coordinate and measures D and R against it: a coordinate is
+admissible iff it survives appending a MONOTONE redundant coordinate, and
+arity and density move on 9 of 9 seated indexes.  They are chart decoration.
+So the TYPE 1 move, the one this file calls "a legitimate perturbation", shifts
+exactly the two coordinates that are not properties of any object here.
+
+    THAT DOES NOT VOID THE HEADLINE, and the reason is worth stating.  Section
+    5's finding is about the LANGUAGES -- which containments E(a) <= E(b) break
+    -- and E is recomputed from the moved cell set by running the operators.
+    The move is a way of generating cell sets to test the law against; it does
+    not have to be a legitimate index for the law's verdict on the result to be
+    a real verdict.  The ball is 6,933 arrangements and the law survives all of
+    them.
+
+    WHAT IT DOES VOID is any reading of a type-1 move as "the same index,
+    re-banded".  It is not the same index and D and R were never telling us
+    which index it was.  Section 2's framing -- "how much of the closure was
+    resting on where the bands happened to fall?" -- has a better answer than
+    this file can give: charts.py answers NONE OF IT, because C survives a
+    monotone re-charting and D and R do not.  The para-index census in section
+    4 inherits the same limit, and its headline was already withdrawn under
+    DOCKET 5 for an unrelated reason.
 """
 
 import itertools
@@ -386,31 +439,116 @@ def demand_is_the_top_para(n=4000, length=3, kind="1", seed=17):
     return rank, rob, (pf[0][0] if pf else None), (pf[0][1] if pf else 0.0)
 
 
+# Each test takes (state, its profile, the seated set). Shared by the sampled
+# and the exhaustive form so the two can never drift apart.
+_INVARIANT_TESTS = {
+    "cell count is preserved": lambda S, p, X: len(S) == len(X),
+    "statistics still closes": lambda S, p, X: p["statistics"] == 0,
+    "order and algebra agree": lambda S, p, X: p["order"] == p["algebra"],
+    "statistics is weakest or equal":
+        lambda S, p, X: all(p["statistics"] <= p[L] for L in hlaw.LANGS),
+    "geometry demands fewer than order":
+        lambda S, p, X: p["geometry"] <= p["order"],
+    "some language over-generates":
+        lambda S, p, X: any(p[L] > 0 for L in hlaw.LANGS),
+}
+
+
 def invariants(n=1200, length=4, kind="1", seed=23):
     """What survives every scramble tried. A property invariant over the orbit
     is a property of the INDEX; one that dies on the first move was a property
-    of the arrangement."""
+    of the arrangement.
+
+    PREFER invariants_exact(). This form samples, and a sample that reports a
+    property invariant has only failed to find the counterexample -- at n = 200
+    this said `geometry demands fewer than order` held on all 200 when it
+    breaks in the complete ball. Kept for radii the ball cannot reach.
+    """
     X = seated()
     mv = moves(kind)
     rnd = random.Random(seed)
-    tests = {
-        "cell count is preserved": lambda S: len(S) == len(X),
-        "statistics still closes": lambda S: profile(S)["statistics"] == 0,
-        "order and algebra agree": lambda S: profile(S)["order"] == profile(S)["algebra"],
-        "statistics is weakest or equal":
-            lambda S: (lambda p: all(p["statistics"] <= p[L] for L in hlaw.LANGS))(profile(S)),
-        "geometry demands fewer than order":
-            lambda S: (lambda p: p["geometry"] <= p["order"])(profile(S)),
-        "some language over-generates":
-            lambda S: any(profile(S)[L] > 0 for L in hlaw.LANGS),
-    }
-    hold = {k: 0 for k in tests}
+    hold = {k: 0 for k in _INVARIANT_TESTS}
     for _ in range(n):
         S = scramble(X, [rnd.choice(mv) for _ in range(length)])
-        for k, f in tests.items():
-            if f(S):
+        p = profile(S)
+        for k, f in _INVARIANT_TESTS.items():
+            if f(S, p, X):
                 hold[k] += 1
     return hold, n
+
+
+def orbit_ball(radius=3, kind="1"):
+    """Every distinct state reachable in <= `radius` moves. EXHAUSTIVE.
+
+    The type-1 ball grows 28, 496, 6933, 75746 -- so radius 3 is 6,933 states
+    and costs about ten seconds, and radius 4 is eleven times that. A complete
+    ball beats any sample of it: over a ball, "never breaks" is a fact and not
+    an estimate that a larger sample might overturn.
+    """
+    X = seated()
+    mv = moves(kind)
+    seen, frontier = {X}, [X]
+    for _ in range(radius):
+        nxt = []
+        for Y in frontier:
+            for m in mv:
+                Z = apply_move(Y, m)
+                if Z not in seen:
+                    seen.add(Z)
+                    nxt.append(Z)
+        frontier = nxt
+    return seen
+
+
+def law_separation_exact(radius=3, kind="1"):
+    """({(a,b): breaks}, states) over the COMPLETE ball -- not a sample.
+
+    THIS REPLACES THE SAMPLED DISCRIMINATOR AND THE REASON IS A NEAR-MISS.
+    `law_separation` drew n scrambles at random, and at n = 1500 -- the figure
+    this file's selftest pinned while ten indexes were seated -- the separation
+    FAILED after DOCKET 2 withdrew one: `geometry <= order` and
+    `geometry <= algebra` survived all 1500 and read as lawful when they are
+    not. They were not unbreakable, only rare. Withdrawing the densest index
+    took most of the violating region with it, and the margins fell about an
+    order of magnitude -- 1.83 % of the orbit to 0.14 % of it -- so a sample
+    that had been ample became under-powered without changing.
+
+        IT WAS ALSO SEED-DEPENDENT, WHICH IS WORSE. At n = 3000 seeds 11 and 5
+        separate correctly and seed 77 does not. A pin whose truth depends on
+        a seed is not a measurement of the object.
+
+    Over the complete ball there is no n and no seed. Exactly seven ordered
+    pairs never break, they are exactly hlaw.LAWFUL, and all thirteen others
+    break somewhere in the ball.
+    """
+    L = list(hlaw.LANGS)
+    pairs = [(a, b) for a in L for b in L if a != b]
+    viol = {p: 0 for p in pairs}
+    ball = orbit_ball(radius, kind)
+    for Y in ball:
+        pr = profile(Y)
+        for a, b in pairs:
+            if pr[a] > pr[b]:
+                viol[(a, b)] += 1
+    return viol, len(ball)
+
+
+def invariants_exact(radius=3, kind="1"):
+    """{test: how many states of the COMPLETE ball satisfy it}, states.
+
+    Same repair as law_separation_exact, and for the same reason: at n = 200
+    the sampled form reported `geometry demands fewer than order` invariant on
+    all 200, which is false -- it breaks in 10 of the 6,933-state ball.
+    """
+    X = seated()
+    hold = {k: 0 for k in _INVARIANT_TESTS}
+    ball = orbit_ball(radius, kind)
+    for S in ball:
+        p = profile(S)
+        for k, f in _INVARIANT_TESTS.items():
+            if f(S, p, X):
+                hold[k] += 1
+    return hold, len(ball)
 
 
 def law_separation(n=3000, length=4, kind="1", seed=11):
@@ -528,10 +666,14 @@ def report():
     print()
 
     print("4. THE ORBIT SEPARATES LAW FROM ACCIDENT, EXACTLY.")
-    viol, n = law_separation()
+    viol, n = law_separation_exact(radius=3)
     lawful = set(hlaw.LAWFUL)
     never = sorted(p for p, v in viol.items() if v == 0)
-    print("   %d ordered pairs of languages; %d never break across %d scrambles."
+    print("   EXHAUSTIVE over the complete radius-3 ball, not a sample: a")
+    print("   sample can only fail to find a counterexample, and 'never")
+    print("   breaks' is exactly what this claims. The n=1500 sample this")
+    print("   used before DOCKET 2 got it WRONG -- see law_separation_exact.")
+    print("   %d ordered pairs of languages; %d never break across %d states."
           % (len(viol), len(never), n))
     print("   the law declares %d lawful. Overlap: %d. Lawful pairs broken: %d."
           % (len(lawful), len(set(never) & lawful), len(lawful - set(never))))
@@ -540,23 +682,43 @@ def report():
     print("   SO THE SEVEN THAT HOLD ARE EXACTLY THE SEVEN THE LAW DECLARES.")
     print()
     print("   and the margins -- the three that escape being lawful only barely:")
-    for p, v in sorted((p for p in viol.items() if p[1] > 0), key=lambda t: t[1])[:3]:
-        print("      %-13s <= %-13s breaks in %4d of %d  (%.1f%%)"
-              % (p[0][0], p[0][1], p[1], n, 100.0 * p[1] / n))
-    print("   while the rest break in a third to all of the orbit. Clause E says")
+    # p is the (a, b) pair and v the count -- p[1] here was the SECOND
+    # LANGUAGE, not the count, and this line raised TypeError on every run.
+    for p, v in sorted((q for q in viol.items() if q[1] > 0), key=lambda t: t[1])[:3]:
+        print("      %-13s <= %-13s breaks in %4d of %d  (%.2f%%)"
+              % (p[0], p[1], v, n, 100.0 * v / n))
+    print("   The last two break together at identical counts because order")
+    print("   and algebra agree on every state of the ball -- Clause B as a")
+    print("   theorem -- so one move breaks both. Two margins, one event.")
+    print("   while the rest break in a fifth to all of the ball. Clause E says")
     print("   there is no total ranking; this is where that stops being an")
     print("   assertion.")
     print()
 
     print("5. WHAT SURVIVES EVERY SCRAMBLE IS ABOUT THE INDEX.")
-    hold, n = invariants()
+    hold, n = invariants_exact(radius=3)
     for k in sorted(hold, key=lambda k: -hold[k]):
         v = hold[k]
         tag = "INVARIANT" if v == n else ("never" if v == 0 else "")
         print("   %-38s %5d / %d  %s" % (k, v, n, tag))
     print("   An invariant here is a property of the INDEX. Anything that dies")
     print("   on the first move was a property of the ARRANGEMENT, and H97 is")
-    print("   what happens when the two are confused.")
+    print("   what happens when the two are confused. INVARIANT means over the")
+    print("   whole ball, which a sampled run could never have said.")
+    print()
+    print("5b. AND THE PUZZLE IS BUILT ON TWO DISQUALIFIED AXES.")
+    print("   The cuboid is (C,D,R) and DOCKET 3 -- charts.py -- disqualifies")
+    print("   D and R: arity and density move under a monotone redundant")
+    print("   coordinate on 9 of 9 seated indexes, so neither is a property of")
+    print("   any object here. The TYPE 1 move, the one called legitimate")
+    print("   above, shifts exactly those two.")
+    print("   THIS DOES NOT VOID SECTION 4: E is recomputed from the moved")
+    print("   cell set, so the ball is 6,933 arrangements the law survives,")
+    print("   whether or not each is a legitimate index.")
+    print("   IT DOES VOID reading a type-1 move as the same index re-banded.")
+    print("   charts.py answers section 2's question better than this file")
+    print("   can: NONE of the closure rested on the bands, because C")
+    print("   survives a monotone re-charting and D and R do not.")
     return 0
 
 
@@ -573,7 +735,10 @@ def selftest():
 
     print("rubik selftest")
     X = seated()
-    chk("the solved state is the master index", len(X), 9)
+    # EIGHT, NOT NINE. DOCKET 2 withdrew periodic layout 2-D, leaving nine
+    # seated indexes on eight distinct (C,D,R) cells -- the puzzle is the
+    # CELLS, not the indexes, and two indexes have always shared one.
+    chk("the solved state is the master index", len(X), 8)
     chk("and it collapses to three coordinates", len(next(iter(X))), 3)
     # AND IT CLOSES AGAIN. This pin has now been moved twice by the input
     # rather than by this file: DOCKET 4 took the master index off closure
@@ -594,7 +759,7 @@ def selftest():
 
     # --- a move is a bijection: size preserved, and it is invertible
     sizes = {len(apply_move(X, m)) for m in moves("all")}
-    chk("every move preserves the cell count", sizes, {9})
+    chk("every move preserves the cell count", sizes, {8})
     inv_ok = True
     for m in moves("all"):
         fa, at, sa, by = m
@@ -630,8 +795,8 @@ def selftest():
 
     # --- the orbit
     sigs, states = orbit_signatures(depth=1, kind="1")
-    chk("states within one type-1 move", states, 33)
-    chk("distinct E-vectors among them", len(sigs), 31)
+    chk("states within one type-1 move", states, 28)
+    chk("distinct E-vectors among them", len(sigs), 24)
     chk("the solved vector is among them",
         tuple(profile(X)[L] for L in hlaw.LANGS) in sigs, True)
 
@@ -671,45 +836,66 @@ def selftest():
     chk("and it is not eligible while the fill stands -- the control",
         _cf != to3(master.DEMANDED_AT_EIGHT), True)
     # THE MAGNITUDE COMPARISON IS GONE TOO, and it fails in the direction that
-    # refuses the reading: 0.0 against 0.234. Nothing survives of this section's
+    # refuses the reading: 0.0 against 0.221. Nothing survives of this section's
     # headline except the census itself, which is still a real measurement of
-    # which cells the orbit asks for.
+    # which cells the orbit asks for. (0.234 under the ten; DOCKET 2 moved the
+    # figure and not the verdict, which stays withdrawn.)
     chk("and the magnitude comparison no longer stands either",
-        (_rob, _cfr, _rob > _cfr), (0.0, 0.234, False))
+        (_rob, _cfr, _rob > _cfr), (0.0, 0.221, False))
     chk("none of them is a seated cell", any(c in X for c, _r in pi), False)
     chk("every one is demanded by some scramble", all(r > 0 for _c, r in pi), True)
     chk("and the list is sorted by robustness",
         all(pi[i][1] >= pi[i + 1][1] for i in range(len(pi) - 1)), True)
 
     # --- THE HEADLINE: the orbit separates lawful containments from accidents.
-    viol, vn = law_separation(n=1500, length=4, seed=11)
+    # EXHAUSTIVE NOW, over the complete radius-3 ball. The sampled form at
+    # n=1500 FAILED after DOCKET 2 -- geometry<=order and geometry<=algebra
+    # survived all 1500 and read as lawful. They break 10 times in 6,933. See
+    # law_separation_exact(); a sample cannot prove a "never".
+    chk("the radius-3 ball is complete and this size", len(orbit_ball(3)), 6933)
+    viol, vn = law_separation_exact(radius=3)
     never = {p for p, v in viol.items() if v == 0}
     lawful = set(hlaw.LAWFUL)
     chk("ordered pairs of languages", len(viol), 20)
-    chk("containments the orbit NEVER breaks", len(never), 7)
+    chk("containments the ball NEVER breaks", len(never), 7)
     chk("and they are EXACTLY the ones the law declares", never, lawful)
-    chk("no lawful containment is broken by any scramble", len(lawful - never), 0)
-    chk("no unlawful containment survives the whole orbit", len(never - lawful), 0)
-    # the near-misses: three escape lawfulness only barely, and that is the point
-    chk("statistics <= information breaks only rarely",
-        viol[("statistics", "information")], 2)
-    chk("geometry <= order likewise", viol[("geometry", "order")], 27)
-    chk("but both DO break, so neither is lawful",
-        viol[("statistics", "information")] > 0 and viol[("geometry", "order")] > 0,
-        True)
+    chk("no lawful containment is broken anywhere in the ball",
+        len(lawful - never), 0)
+    chk("and no unlawful one survives it", len(never - lawful), 0)
+    # the near-misses: three escape lawfulness only barely, and that is the
+    # point. All three fell about an order of magnitude when the densest index
+    # was withdrawn, which is what under-powered the old sample.
+    chk("statistics <= information breaks in 109 of 6,933 (1.57 %)",
+        viol[("statistics", "information")], 109)
+    chk("geometry <= order breaks in 10 (0.14 %)",
+        viol[("geometry", "order")], 10)
+    chk("geometry <= algebra breaks in the same 10",
+        viol[("geometry", "algebra")], 10)
+    chk("so all three DO break, and none of them is lawful",
+        all(viol[p] > 0 for p in (("statistics", "information"),
+                                  ("geometry", "order"),
+                                  ("geometry", "algebra"))), True)
+    # NEGATIVE CONTROL ON THE SAMPLE ITSELF: the old pin's exact failure,
+    # reproduced, so the reason for the exhaustive form stays checkable.
+    _vs, _ = law_separation(n=1500, length=4, seed=11)
+    _ns = {p for p, v in _vs.items() if v == 0}
+    chk("and the n=1500 sample STILL mis-reports two as lawful",
+        sorted(_ns - lawful),
+        [("geometry", "algebra"), ("geometry", "order")])
 
     # --- invariants. THE NEGATIVE CONTROL MATTERS MOST: if everything were
     # invariant the scramble would be doing nothing.
-    hold, n = invariants(n=200, length=4, seed=23)
+    hold, n = invariants_exact(radius=3)
+    chk("states in the ball", n, 6933)
     chk("cell count is invariant", hold["cell count is preserved"], n)
     chk("order and algebra agree everywhere -- Clause B, a theorem",
         hold["order and algebra agree"], n)
     chk("BUT closure is NOT invariant, so the scramble does work",
-        hold["statistics still closes"], 47)
+        hold["statistics still closes"], 1848)
     chk("and it is not always broken either",
         hold["statistics still closes"] > 0, True)
     chk("geometry-under-order is NOT invariant -- the law does not claim it",
-        hold["geometry demands fewer than order"], 197)
+        hold["geometry demands fewer than order"], 6923)
 
     chk("nothing is seated here", NOTHING_IS_SEATED_HERE, True)
     chk("a single scramble proves nothing", A_SINGLE_SCRAMBLE_PROVES_NOTHING, True)

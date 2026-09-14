@@ -28,39 +28,49 @@ THE REFUSAL INDEX OF X is then the simplest thing in the neighbourhood:
 
     R(X) = { the refusal set of c : c a cell of X's box }   as a subset of K0..K7
 
-Ten seated indexes, ten subsets of an eight-element lattice.  duality.py's M2
+Nine seated indexes, nine subsets of an eight-element lattice.  duality.py's M2
 carries a five-coordinate PROFILE (K, W, H, J, A) instead; section 3 is why the
 extra four are chart decoration and K is the object.
 
 ===============================================================================
-1. THE TEN, MEASURED
+1. THE NINE, MEASURED
 ===============================================================================
 
     Janet (n+l, l, k)            {0,7}
-    periodic layout 2-D          {0,4}
     substances (Hawking-Ellis)   {0,2,7}
     the languages                {0,4,5,7}
     bounds                       {0,2,3,4,7}      <- lost K1 to DOCKET 4
     questions                    {0,2,4,5,7}      <- seated by DOCKET 8
     spacetimes (Petrov)          {0,3,4,5,7}
     energy-condition family      {0,2,3,4,5,7}
+    periodic layout 3-D          {0,3,4,5,6,7}    <- lost K1 to DOCKET 2
     exotic mechanisms            {0,2,3,4,5,6,7}
-    periodic layout 3-D          {0,1,3,4,5,6,7}
 
-    K0 IS UNIVERSAL.  Every seated index has cells that NOTHING refuses -- cells
-    inside every one of the five closures.  Ten of ten, no exception.
+    NINE, NOT TEN.  DOCKET 2 withdrew `periodic layout 2-D` as
+    over-representation, and it was this section's most quoted row twice over:
+    the poorest refusal index at {0,4} and the sole exception to K7.
 
-    K7 IS IN NINE OF TEN.  The exception is `periodic layout 2-D`, and it is
-    the DENSEST index in the corpus at 71.4 %: too full to have a cell that
-    every language refuses.  Dilute it -- see section 3 -- and K7 appears.
+    K0 AND K7 ARE BOTH UNIVERSAL.  Every seated index has cells that NOTHING
+    refuses -- inside every one of the five closures -- and cells that
+    EVERYTHING refuses.  Nine of nine both ways.
 
-    K1 IS IN ONE, AND SECTION 4 IS WHY IT USED TO BE TWO.  K6 IS IN TWO.
+        K7'S UNIVERSALITY IS ONE COMMIT OLD, and it was bought rather than
+        found.  The exception was `periodic layout 2-D`, the densest index in
+        the corpus at 71.4 %: too full to have a cell every language refuses.
+        Withdrawing the chart removed the counterexample instead of explaining
+        it, so this is a fact about the seated nine and NOT a law about indexes.
+        Section 3's dilution test is the reason to think it would have gone
+        anyway -- dilute that chart and K7 appears -- but the test was run on
+        the chart, not on the claim.
 
-    THE LATTICE.  Minimal: Janet and periodic layout 2-D.  Maximal: exotic
-    mechanisms and periodic layout 3-D -- bounds was a third maximum until
-    DOCKET 4 took K1 off it.  THIRTEEN of the forty-five pairs are incomparable, so
-    this is a lattice and not a chain -- the same shape the channel reading has,
-    and for the same reason.
+    K1 IS IN NOTHING, and section 4 is why it used to be two and then one.
+    K6 IS IN TWO, and is now the rarest kind any index holds.
+
+    THE LATTICE.  Minimal: Janet alone.  Maximal: exotic mechanisms alone --
+    bounds was a maximum until DOCKET 4 took K1 off it, and periodic layout 3-D
+    until DOCKET 2 did the same.  TEN of the thirty-six pairs are incomparable,
+    so this is a lattice and not a chain -- the same shape the channel reading
+    has, and for the same reason.
 
 ===============================================================================
 2. THE MASTER INDEX INDEXES CHARTS, NOT OBJECTS
@@ -73,39 +83,54 @@ M asked whether the periodic table is OVER-REPRESENTED, being seated three
 times: `periodic layout 2-D` at (period, group), `periodic layout 3-D` at
 (period, group, block), and `Janet (n+l, l, k)`.  It is, and worse than that.
 
-    LW1-ground.py stops at Z = 108, so `block_of` returns None for Z 109..118
-    and the three-coordinate layout cannot chart them.  On the EIGHTY elements
-    all three charts reach:
+    RE-MEASURED ON THE COMPLETED CHARTS, AND THE FINDING SURVIVES INTACT.  This
+    section originally ran on EIGHTY elements, because `populate.block_of`
+    takes the differentiating electron from LW1-ground.py's OBSERVED
+    configurations, which stop at Z = 108 -- so the three-coordinate layout
+    could not chart 109..118 and the comparison was made on the eighty all
+    three reached.  M called that the wrong index for 3-D and was right.  Taken
+    from Madelung, which needs no observation, both charts reach NINETY-TWO
+    positions, and on all ninety-two:
 
-        (period, group)         INJECTIVE, 80 cells
-        (period, group, block)  INJECTIVE, 80 cells
-        (n+l, l)                NOT injective -- 80 elements onto 16 cells
+        (period, group)         INJECTIVE, 92 cells, one element each
+        (period, group, block)  INJECTIVE, 92 cells, one element each
+        (n+l, l)                NOT injective -- 92 elements onto 20 cells
 
-    So Janet is a strict COARSENING, and 2-D and 3-D are in BIJECTION via the
-    elements.  `block` is a FUNCTION of `(period, group)` on all eighty: the
+    3-D projected onto (period, group) IS 2-D, cell for cell.  So Janet is a
+    strict COARSENING, and 2-D and 3-D are in BIJECTION via the elements.
+    `block` is a FUNCTION of `(period, group)` with ZERO exceptions on all
+    ninety-two -- not one (period, group) pair carries two blocks: the
     three-coordinate layout is the two-coordinate layout PLUS A COORDINATE THAT
     CARRIES ZERO INFORMATION about which element is which.
 
-AND THAT ZERO-INFORMATION COORDINATE CHANGES THE CHANNEL.  Same eighty elements:
+        THE OLD FIGURES WERE MEASURED ON A TRUNCATED CHART AND STILL GAVE THE
+        RIGHT ANSWER.  That is luck, not method, and it is recorded as such:
+        the eighty-element comparison could not have detected a block that
+        separates only among the twelve elements it could not see.  The
+        ninety-two-element re-measurement is what the finding now rests on.
+
+AND THAT ZERO-INFORMATION COORDINATE CHANGES THE CHANNEL.  Same ninety-two:
 
         (period, group)                        closes statistics  (1,1,0,0,3)
         + a MONOTONE redundant coordinate      closes statistics  (1,1,0,1,1)
         + the block, a NON-monotone one        closes NOTHING     (0,0,0,1,1)
 
-    The block is order-reversing on 356 pairs.  So D and R move under ANY
+    The three cells are unchanged from the eighty-element reading; only the
+    order-reversal count moved, 356 -> 627, of 2,294 comparable ordered pairs.
+    The block is order-reversing on 627 pairs.  So D and R move under ANY
     redundant coordinate, which is expected -- they are bands on arity and
     density, and neither is an invariant of anything.  C, Sc and Oc survive a
     MONOTONE redundant coordinate and DO NOT survive a non-monotone one.
 
-    Across the ten, appending the monotone redundant coordinate moves the
-    master cell of SIX and changes the channel of NONE.
+    Across the nine, appending the monotone redundant coordinate moves the
+    master cell of FIVE and changes the channel of NONE.
 
     **SO A MASTER CELL IS A PROPERTY OF THE CHART, NOT OF THE OBJECT.**  Nothing
     in the construction prevents one object from occupying several cells, and
     the periodic table occupies three, in three different channels.
 
-AND THE DEMAND IS SATISFIABLE BY RE-CHARTING WHAT IS ALREADY SEATED.  Of 640
-re-chartings of the ten -- one redundant coordinate appended, or one coordinate
+AND THE DEMAND IS SATISFIABLE BY RE-CHARTING WHAT IS ALREADY SEATED.  Of 625
+re-chartings of the nine -- one redundant coordinate appended, or one coordinate
 dropped -- **twenty-eight land exactly on the demanded cell (1,1,0,2,1)**.  Three
 are not tricks:
 
@@ -126,28 +151,67 @@ are not tricks:
 
     Stated at its true strength: an arbitrary redundant coordinate is not a
     legitimate index, and the right answer to that is a CRITERION FOR A
-    LEGITIMATE CHART.  This tree has never stated one.  So "nothing in this
-    corpus occupies the demanded cell" is true relative to the chart choices,
-    and the demand is exactly as strong as the unstated criterion and no
-    stronger.  RECORDED, NOT REPAIRED.
+    LEGITIMATE CHART.
+
+        **AND THE CRITERION NOW EXISTS.**  This section read "this tree has
+        never stated one" from the day it was written until DOCKET 3, and
+        `charts.py` states it: a coordinate is admissible iff it is invariant
+        under appending a MONOTONE redundant coordinate, which is well-posed
+        because for monotone g, (x, g(x)) <= (y, g(y)) iff x <= y -- so such a
+        coordinate cannot change the order and anything it moves was reading
+        the chart rather than the object.  Measured against it, arity and
+        density move on 9 of 9 and are DISQUALIFIED; height, width, cells,
+        comparable pairs and join-irreducibles move on 0 of 9 and are admitted.
+        That is why mi.py is charted on (K, height, width) and not on this
+        file's five-coordinate cell.
+
+    So "nothing in this corpus occupies the demanded cell" was true relative to
+    the chart choices, and the demand was exactly as strong as the then-unstated
+    criterion.  The criterion is now stated and two of the five coordinates fail
+    it.  RECORDED, NOT REPAIRED -- this file keeps its own cells so the record
+    of what was measured under them stays readable.
 
 ===============================================================================
 3. K IS THE OBJECT.  W, H, J AND A ARE CHART DECORATION.
 ===============================================================================
 
 duality.py's M2 profiles a pair as (K, W, H, J, A).  Put each truncation to the
-same monotone redundant coordinate that moved six master cells:
+same monotone redundant coordinate that moved five master cells:
 
-        (K, W, H, J, A)   invariant in 4 of 10
-        (K, W, J)         invariant in 7 of 10
-        (K, W)            invariant in 7 of 10
-        (K)               invariant in 9 of 10, AND THE ONE EXCEPTION ONLY GROWS
+        (K, W, H, J, A)   invariant in 4 of 9
+        (K, W, J)         invariant in 7 of 9
+        (K, W)            invariant in 7 of 9
+        (K)               invariant in 9 of 9 -- NO EXCEPTION IN EITHER DIRECTION
 
-The exception is `periodic layout 2-D`, whose {0,4} gains K7 -- the dilution of
-section 1.  So K is MONOTONE under monotone re-charting: it never loses a
-refusal kind.  H is a capped Hamming distance and A is the host's arity band, so
-both are dimension-dependent by construction and it is no surprise they move;
-what is worth having is that dropping them is not enough, and only K survives.
+**K IS NOT MERELY MONOTONE.  IT IS INVARIANT.**  This section previously read
+"9 of 10, and the one exception only GROWS": the exception was `periodic layout
+2-D`, whose {0,4} gained K7, and DOCKET 2 withdrew that chart as
+over-representation.  Its exception went with it, and the claim strengthened
+from "never loses a kind" to "never changes one".  H is a capped Hamming
+distance and A is the host's arity band, so both are dimension-dependent by
+construction and it is no surprise they move; what is worth having is that
+dropping them is not enough, and only K survives.
+
+    **AND THE (K,W,H,J,A) ROW IS NOT A MEASUREMENT.**  A is master's arity
+    band, a function of dimension alone, and appending a coordinate changes
+    dimension by construction -- so any index whose band crosses 4 -> 5 MUST
+    differ, whatever it holds.  spacetimes (Petrov) and substances differ in
+    that slot and no other: twelve gains and eleven losses for Petrov, pairing
+    off one-for-one with A going 1 -> 2.  Two of the five non-invariant rows
+    are that artefact.  Counted honestly the full profile survives in 4 of 9,
+    and two of the five failures are the ruler moving, not the object.
+
+**THE CAP LIED ONCE AND NOW IT REFUSES.**  These four rows were scanned under
+`cap = CAP = 3000` until DOCKET 2 completed the periodic chart, which grew its
+re-charted box to 4,608 cells.  itertools.product enumerates in a fixed order,
+so the cap took a LEXICOGRAPHIC PREFIX, and appending a coordinate reorders the
+product -- meaning the two capped scans covered different regions of different
+boxes.  The unscanned 35 % came back as `periodic layout 3-D loses K5`, a
+refutation of this section's own headline manufactured entirely by truncation.
+Exact, it loses nothing.  `truncation_survival` is now exact by default and
+`_uncapped()` raises rather than let a prefix pass as a sample.  The old ten
+were never affected -- every box among them was under the cap, and the 2-D
+exception reproduces exactly at cap=None.
 
     THE SAME LESSON TWICE.  The master index's cells are charts on indexes; the
     refusal profile's coordinates are a chart on the refusal set.  In both cases
@@ -155,8 +219,10 @@ what is worth having is that dropping them is not enough, and only K survives.
     about how it was written down.
 
 UNDER A NON-MONOTONE re-charting K is not even monotone: the 2-D chart's
-refusal profiles are NOT contained in the 3-D chart's.  So the invariance is
-conditional and the condition is stated.
+refusal profiles were NOT contained in the 3-D chart's, back when both were
+seated.  So the invariance is conditional and the condition is stated -- and
+`charts.py` now states the criterion that makes the condition checkable, which
+this section could only ask for.
 
 ===============================================================================
 4. THE THREAD, AND IT IS K1
@@ -165,9 +231,17 @@ conditional and the condition is stated.
 M: "each index likely shares the same refusal index as us, which means we can
 draw threads that extend through multiple MIs."
 
-THEY DO NOT ALL SHARE ONE.  Only K0 is universal.  What exists instead is
-better, because it discriminates: a K value present in FEW indexes is a thread
-between exactly those.
+THEY DO NOT ALL SHARE ONE.  TWO are universal -- K0 and K7 -- and neither
+discriminates, which is the point.  What exists instead is better, because it
+does: a K value present in FEW indexes is a thread between exactly those.
+
+    **"ONLY K0 IS UNIVERSAL" IS SUPERSEDED.**  It held while periodic layout
+    2-D was seated -- that chart was the one index with no cell all five
+    languages refuse, at 71.4 % the densest in the corpus and too full to have
+    one.  DOCKET 2 withdrew it as over-representation, and K7 became universal
+    with it.  So every seated index now has BOTH a cell no language refuses and
+    a cell every language refuses; the two extremes are free and only the
+    middle carries information.
 
     **AND THE THREAD IS DEAD. BOTH ENDS WERE SEAMS.**  This section reported K1
     in TWO indexes -- the bounds index at (2,1,0,0,0,2) and (2,1,0,0,1,2), and
@@ -184,28 +258,68 @@ between exactly those.
         G = 1 is already carried by the K slot.  Re-code that one integer and
         the bounds index holds NO K1 cell.
 
-    SO THE CORPUS HOLDS ONE K1 CELL AND IT IS THE ARTEFACT.  The warp cell's own
-    K1, measured from the device by statrow.py, now has NO other instance in
-    this corpus at all.  That is a lonelier statement than the one this file was
-    built on, and it changes what "the rarest refusal kind" means: not rare
-    among several, but unique with every companion withdrawn.
+    AND DOCKET 2 TOOK THE THIRD.  **THE CORPUS NOW HOLDS NO K1 CELL AT ALL.**
+    Completing the three-coordinate layout destroyed (4,11,0) as a K1 cell: the
+    cell is still in the box and still vacant, but its refusal set went from
+    {information} to {information, statistics} -- K1 to K4.  Statistics stopped
+    refusing to admit it.
+
+        **AND THE CAUSE IS THE BLOCK CONVENTION, NOT THE REACH.**  This is worth
+        stating exactly, because the two changed together and only one did the
+        work.  Four builds, holding one variable at a time:
+
+            reach 108, OBSERVED block    80 cells   K1 at (4,11,0)
+            reach 108, MADELUNG block    80 cells   NO K1
+            reach 120, OBSERVED block    80 cells   K1 at (4,11,0)
+            reach 120, MADELUNG block    92 cells   NO K1
+
+        The reach does nothing on its own -- `populate.block_of` returns None
+        past Z = 108, so extending to 120 under the observed convention adds not
+        one cell.  The convention does everything.  And the convention was NOT
+        optional: reaching past 108 REQUIRES abandoning the observed block,
+        because there is no observed differentiating electron to read.  So
+        completing the chart FORCED the convention change, and the convention
+        change killed K1.
+
+        **THIS SECTION PREDICTED IT.**  Four paragraphs down, written before
+        DOCKET 2 existed: recompute the layout with the block read off a
+        convention other than the differentiating electron and "K1 VANISHES,
+        becoming K4 {information, statistics}".  The measured value of (4,11,0)
+        in the completed chart is K4, {information, statistics}, exactly.  The
+        prediction was made for the DRAWN block and holds for the MADELUNG one
+        too -- two different departures from the observed convention, the same
+        destination.  WHICH CONVENTION THE CORPUS RULES FOR WAS RECORDED AS OPEN
+        BELOW, AND DOCKET 2 CLOSED IT BY SIDE EFFECT rather than by ruling.
+        That is recorded, not repaired: the ruling is still owed.
+
+    SO THE WARP CELL'S OWN K1, measured from the device by statrow.py, now has
+    NO instance anywhere in this corpus.  That is lonelier still than the
+    one-companion statement this file was built on, and it changes what "the
+    rarest refusal kind" means twice over: not rare among several, not unique
+    with every companion withdrawn, but the only holder of a kind no seated
+    index reaches.
 
     K6 still occurs in two: exotic mechanisms and periodic layout 3-D, and that
-    one is untouched by either docket.  The periodic layout is still the richest
-    refusal structure here -- but at six of eight now, not seven, and one of the
-    six is the artefact.
+    one is untouched by any docket.  It is now the RAREST kind any seated index
+    holds.  The periodic layout is still among the richest refusal structures
+    here -- but at six of eight now, not seven, and exotic mechanisms at seven
+    has passed it.
 
         (A first draft here added "and the only one missing K2".  That is
-        FALSE -- five of the ten lack K2, spacetimes among them -- and it
+        FALSE -- four of the nine lack K2, spacetimes among them -- and it
         survived a paragraph only because an ad-hoc size filter in the pin was
         doing the work.  Its own selftest caught it.  Withdrawn.)
 
 CAUTION, AND IT MATTERS.  `bounds` acquired K1 only when completing that family
 stopped it closing, in the commit immediately before this file.  Before that K1
-was in the periodic layout alone.  THE THREAD IS ONE COMMIT OLD, and a reader
-should weigh it accordingly.
+was in the periodic layout alone.  THE THREAD WAS ONE COMMIT OLD, and every
+paragraph below it was written while it was still alive.  THEY ARE KEPT AS THE
+RECORD OF A DEAD THREAD: the analysis they contain is what made the death
+legible, and the four-build table above is only readable because the copper /
+silver / palladium pass had already located exactly what the cell rested on.
 
-AND THE OTHER END OF THE THREAD IS CONVENTION-DEPENDENT.  A separate pass put
+AND THE OTHER END OF THE THREAD IS CONVENTION-DEPENDENT.  **THIS IS THE
+PARAGRAPH DOCKET 2 CONFIRMED, AND IT WAS WRITTEN FIRST.**  A separate pass put
 the periodic K1 to the decisive test: recompute the three-coordinate layout with
 the block read off the DRAWN layout (group -> block) instead of the
 differentiating electron.  **K1 VANISHES**, becoming K4 {information,
@@ -216,6 +330,10 @@ the elements, and populate.py's `block_of` asserts its convention in a docstring
 without citing a register, where `period_of` and `group_of` are pinned to
 section 6's ninety cells.  WHICH CONVENTION THE CORPUS RULES FOR IS OPEN, and
 the whole periodic half of this thread turns on it.
+
+    IT IS STILL OPEN.  DOCKET 2 did not rule on it; it adopted the Madelung
+    block because reaching past Z = 108 leaves no alternative, and inherited
+    this paragraph's consequence without arguing for it.  A ruling is owed.
 
 WHAT THE PERIODIC K1 ACTUALLY RESTS ON, measured over all 160 single-cell
 perturbations of the seated layout: **exactly two elements, copper and silver**,
@@ -234,14 +352,18 @@ Madelung configuration and K1 RELOCATES to (4,10,0) rather than vanishing.
     four natural readings of "outermost", two return no element at all, and Pd
     is unique only under "the valence s shell the period assigns".
 
-A SECOND CAUTION.  The two minimal refusal sets are Janet and periodic layout
-2-D -- exactly the two charts section 2 finds redundant.  That is a convergence
-of two independent measurements and not a proof of either: the redundant charts
-are also the coarse ones, and coarse sets have fewer refusal kinds for reasons
-that have nothing to do with being redundant.
+A SECOND CAUTION, NOW HALF WITHDRAWN.  This read: "the two minimal refusal sets
+are Janet and periodic layout 2-D -- exactly the two charts section 2 finds
+redundant", offered as a convergence of two independent measurements and not a
+proof of either.  DOCKET 2 withdrew one of the two, so the convergence is gone
+and only Janet is minimal.  What stands is the caution the paragraph carried:
+the redundant charts were also the coarse ones, and coarse sets have fewer
+refusal kinds for reasons that have nothing to do with being redundant.  Janet
+alone at {0,7} is the coarsest chart here -- 92 elements onto 20 cells -- and
+its minimality is fully explained by that.
 
 ===============================================================================
-5. WHY IT IS NOT SEATED AS A TENTH INDEX
+5. WHY IT IS NOT SEATED AS A MEMBER OF THE INVENTORY
 ===============================================================================
 
 M asked for it seated "as an extension of the master index", and extension is
@@ -249,14 +371,18 @@ the right word rather than member.
 
 R is computed FROM the inventory.  Seating it as a tenth member changes the
 inventory, which changes R, which changes what was seated.  That is a fixed-point
-problem and not a formality.  This file therefore seats R as a FUNCTION ON THE
+problem and not a formality.  DOCKET 2 supplies the empirical case: withdrawing
+ONE index moved K1 out of the corpus entirely, made K7 universal, and collapsed
+the maximal set from two to one.  R is that sensitive to its own input.  This file therefore seats R as a FUNCTION ON THE
 MEMBERS -- an added structure over the master index, addressable by name, with
 its own lattice -- and does not add a row.  Whether the iteration converges is
 open here and is the first thing to settle next.
 
-    AND SECTION 2 IS A SECOND REASON TO WAIT.  Seating anything new into a master
-    index whose cells are charts rather than objects seats a chart.  The criterion
-    for a legitimate chart is the prior question.
+    AND SECTION 2 WAS A SECOND REASON TO WAIT.  Seating anything new into a
+    master index whose cells are charts rather than objects seats a chart, and
+    the criterion for a legitimate chart was the prior question.  DOCKET 3
+    answers it -- see charts.py -- so this reason has been discharged and the
+    fixed-point reason above is the only one still standing.
 
 ===============================================================================
 WHAT THIS FILE REFUSES TO CONCLUDE
@@ -282,6 +408,7 @@ WHAT THIS FILE REFUSES TO CONCLUDE
 """
 
 import itertools
+import math
 import sys
 
 import hlaw
@@ -360,9 +487,40 @@ def the_two_readings():
     return declared, computed, "the languages"
 
 
+def boxsize(X):
+    """How many cells a scan of X's box must visit."""
+    return math.prod(len(b) for b in hlaw.closures(frozenset(X))[1])
+
+
+def _uncapped(X, cap, what):
+    """Refuse a capped scan rather than report its prefix as a measurement.
+
+    A CAP IS NOT A SAMPLE.  itertools.product enumerates in a fixed order, so a
+    truncated scan is the box's LEXICOGRAPHIC PREFIX, not a random one -- and
+    appending a coordinate reorders the product, so two capped scans of X and
+    of recharted(X) cover different regions.  Comparing them is not a weak
+    measurement, it is not a measurement.  This function makes that loud.
+
+    IT EXISTS BECAUSE THE CAP ALREADY LIED ONCE.  Completing the periodic chart
+    under DOCKET 2 grew its recharted box from under the cap to 4,608 cells
+    against CAP = 3,000, and section 3's scan silently reported the unscanned
+    35 % as periodic layout 3-D LOSING K5 -- a refutation of the section's own
+    headline, manufactured entirely by the truncation.  Exact, it loses nothing.
+    """
+    if cap is None:
+        return
+    n = boxsize(X)
+    if n > cap:
+        raise ValueError(
+            "%s: box is %d cells against a cap of %d. A capped scan is a "
+            "lexicographic prefix, not a sample; pass cap=None for an exact "
+            "scan rather than accept a truncated one." % (what, n, cap))
+
+
 def refusal_set(X, cap=CAP):
     """R(X) -- which of the eight lawful refusal kinds occur in X's box."""
     X = frozenset(X)
+    _uncapped(X, cap, "refusal_set")
     ks = master.channel_sets()
     cl, box = hlaw.closures(X)
     return frozenset(
@@ -374,6 +532,59 @@ def refusal_index(inv=None, cap=CAP):
     """{index name: R(X)} over the seated inventory."""
     inv = master.inventory() if inv is None else inv
     return {nm: refusal_set(inv[nm], cap) for nm in inv}
+
+
+def block_convention_table():
+    """[(reach, convention, cells, [K1 cells])] -- what killed the last K1.
+
+    DOCKET 2 completed the three-coordinate layout and the corpus's last K1
+    cell died with it.  Two things changed at once -- the reach (108 -> 120) and
+    the block convention (the OBSERVED differentiating electron, from
+    LW1-ground.py, -> the MADELUNG one) -- so this holds each fixed in turn.
+
+    THE CONVENTION DOES ALL THE WORK.  `populate.block_of` returns None past
+    Z = 108, so extending the reach under the observed convention adds not one
+    cell; switching the convention at the OLD reach kills K1 by itself.  And the
+    convention was not optional: past 108 there is no observed differentiating
+    electron to read, so completing the chart forced it.  Section 4 predicted
+    the result for a THIRD convention (the drawn block) before DOCKET 2 existed.
+    """
+    pop = master._populate()
+
+    def madelung(Z):
+        now = {(n, l): o for n, l, o in pop.aufbau_config(Z)}
+        prev = ({(n, l): o for n, l, o in pop.aufbau_config(Z - 1)}
+                if Z > 1 else {})
+        g = sorted((n, l) for (n, l), o in now.items() if o > prev.get((n, l), 0))
+        return g[-1][1] if g else None
+
+    def build(reach, fn):
+        out = set()
+        for Z in range(1, reach + 1):
+            if pop.set_aside(Z):
+                continue
+            g = pop.group_of(Z)
+            if g is None:
+                continue
+            b = fn(Z)
+            if b is None:
+                continue
+            out.add((pop.period_of(Z), g, b))
+        return frozenset(out)
+
+    ks = master.channel_sets()
+    rows = []
+    for reach, name, fn in ((108, "observed", pop.block_of),
+                            (108, "madelung", madelung),
+                            (120, "observed", pop.block_of),
+                            (120, "madelung", madelung)):
+        X = build(reach, fn)
+        cl, box = hlaw.closures(X)
+        k1 = [c for c in itertools.product(*box)
+              if ks.index(frozenset(L for L in hlaw.LANGS
+                                    if c not in cl[L])) == 1]
+        rows.append((reach, name, len(X), sorted(k1)))
+    return rows
 
 
 def occurrence(R=None):
@@ -443,11 +654,19 @@ def profile_set(X, keep=("K", "W", "H", "J", "A"), cap=CAP):
     return frozenset(out)
 
 
-def truncation_survival(keep, inv=None, cap=CAP):
-    """(invariant count, total, [(name, gained, lost)]) for that truncation."""
+def truncation_survival(keep, inv=None, cap=None):
+    """(invariant count, total, [(name, gained, lost)]) for that truncation.
+
+    EXACT BY DEFAULT, and the default is the repair.  This took cap=CAP until
+    the periodic chart was completed, at which point the recharted box passed
+    the cap and the truncation reported itself as a lost refusal kind.  See
+    _uncapped().  The largest scan here is 4,608 cells and costs seconds.
+    """
     inv = master.inventory() if inv is None else inv
     rows, n = [], 0
     for nm in sorted(inv):
+        _uncapped(inv[nm], cap, nm)
+        _uncapped(recharted(inv[nm]), cap, nm + " re-charted")
         a = profile_set(inv[nm], keep, cap)
         b = profile_set(recharted(inv[nm]), keep, cap)
         if a == b:
@@ -531,8 +750,10 @@ def report():
         tag = ", ".join(who) if len(who) <= 2 else ""
         print("   K%d  %-42s %d/%d %s"
               % (k, "{" + ", ".join(sorted(ks[k])) + "}", len(who), len(R), tag))
-    print("   UNIVERSAL: %s -- every index has cells NOTHING refuses."
+    print("   UNIVERSAL: %s -- every index has cells NOTHING refuses AND"
           % sorted(universal(R)))
+    print("   cells EVERYTHING refuses. K7 joined when DOCKET 2 withdrew the")
+    print("   2-D chart, the one index too dense to have such a cell.")
     print()
     mins, maxs, inc = lattice(R)
     print("   minimal %s" % mins)
@@ -549,7 +770,7 @@ def report():
     print("     channels changed     %d of %d" % (chg, tot))
     print("   So D and R are chart properties. C, Sc, Oc survive a MONOTONE")
     print("   redundant coordinate -- and the periodic table's block, which is")
-    print("   a function of (period, group) and order-reversing on 356 pairs,")
+    print("   a function of (period, group) and order-reversing on 627 pairs,")
     print("   takes that index from closing in statistics to closing in nothing.")
     print()
     hits, tried = rechartings_hitting()
@@ -575,21 +796,42 @@ def report():
         if keep == ("K",) and rows:
             nm, gained, lost = rows[0]
             extra = "   (%s gained %s, lost %s)" % (nm, gained, lost or "nothing")
+        elif keep == ("K",):
+            extra = "   -- NO EXCEPTION, either direction"
         print("   %-18s invariant in %d of %d%s"
               % ("(" + ",".join(keep) + ")", n, tot, extra))
-    print("   K never LOSES a kind, so it is monotone under monotone")
-    print("   re-charting. Under a non-monotone one it is not even that.")
+    print("   K does not merely fail to LOSE a kind -- it does not CHANGE one.")
+    print("   Its one exception was the 2-D chart DOCKET 2 withdrew. Under a")
+    print("   non-monotone re-charting it is not even monotone.")
+    print("   THESE ARE EXACT SCANS. Under the old cap=3000 the last row read")
+    print("   8 of 9 with the 3-D chart LOSING K5 -- which was the unscanned")
+    print("   35%% of a 4,608-cell box and nothing else. See _uncapped().")
+    print("   AND THE FIRST ROW IS PART ARTEFACT: A is a band on arity and")
+    print("   re-charting changes arity, so Petrov and substances MUST differ.")
+    print()
+    print("3b. WHAT KILLED THE LAST K1 -- the reach or the block convention?")
+    for reach, name, cells, k1 in block_convention_table():
+        print("     reach %-4d %-9s %3d cells   K1: %s"
+              % (reach, name, cells, k1 if k1 else "none"))
+    print("   THE CONVENTION, ALONE. block_of is None past Z=108, so the reach")
+    print("   adds nothing on its own; switching convention at the OLD reach")
+    print("   kills K1 by itself. And past 108 there is no observed")
+    print("   differentiating electron, so completing the chart FORCED it.")
+    print("   Section 4 predicted this for a THIRD convention before DOCKET 2")
+    print("   existed: (4,11,0) survives, vacant, at K4 {information,")
+    print("   statistics} -- exactly the destination it named.")
     print()
 
-    print("4. THE THREAD, AND IT IS K1.")
+    print("4. THE THREAD, AND IT IS DEAD -- K1 IS CARRIED BY NOTHING.")
     for k, who in sorted(threads(R).items()):
         print("   K%d carried by exactly %d: %s" % (k, len(who), ", ".join(who)))
-    print("   Only K0 is universal, so 'every index shares one refusal index'")
-    print("   is FALSE. What exists is sharper: a rare kind is a thread between")
-    print("   exactly the indexes carrying it, and K1 -- the warp obstruction's")
-    print("   kind -- connects the bounds index to the periodic layout in three")
-    print("   coordinates. THE THREAD IS ONE COMMIT OLD: bounds acquired K1 when")
-    print("   completing that family stopped it closing.")
+    print("   K0 and K7 are BOTH universal, so 'every index shares one")
+    print("   refusal index' is FALSE for a different reason than before:")
+    print("   two are shared by all nine and neither discriminates. What is")
+    print("   sharper: a rare kind is a thread between exactly the indexes")
+    print("   carrying it. K1 -- the warp obstruction's kind -- is now carried")
+    print("   by NOTHING: completing the periodic chart destroyed the last cell")
+    print("   holding it. K6 at two indexes is the rarest kind still held.")
     print()
     d, c, host = the_two_readings()
     print("4b. TWO VARIABLES, ONE IDENTIFIER -- and this is a defect, not a find.")
@@ -609,9 +851,13 @@ def report():
     print("   master cell: no host, no box, no cell. Its absence from M1 is the")
     print("   correct representation, not an omission to be filled.")
     print()
-    print("5. NOT SEATED AS A TENTH INDEX. R is computed FROM the inventory, so")
-    print("   seating it changes it -- a fixed point, not a formality. And a")
-    print("   master index whose cells are charts seats a chart. Both are open.")
+    print("5. NOT SEATED AS A MEMBER. R is computed FROM the inventory, so")
+    print("   seating it changes it -- a fixed point, not a formality, and")
+    print("   DOCKET 2 shows how sharp: withdrawing ONE index took K1 out of")
+    print("   the corpus, made K7 universal and halved the maximal set.")
+    print("   The second reason -- that a master index whose cells are charts")
+    print("   seats a chart -- is DISCHARGED: DOCKET 3 states the criterion")
+    print("   (charts.py). The fixed point is the only one still open.")
 
 
 def selftest():
@@ -627,67 +873,111 @@ def selftest():
 
     print("refusal selftest")
     R = refusal_index()
-    chk("ten seated indexes carry a refusal index", len(R), 10)
+    # NINE. DOCKET 2 withdrew periodic layout 2-D as over-representation, and
+    # it was this file's poorest refusal index -- {0,4} -- and the one exception
+    # to K7. Both of those pins go with it.
+    chk("nine seated indexes carry a refusal index", len(R), 9)
     # DOCKET 8 seated the question index. Its refusal index is measured here
     # like any other -- R(X) is computed from X, never declared.
     chk("questions", sorted(R["questions"]), [0, 2, 4, 5, 7])
-    chk("periodic layout 3-D, the richest", sorted(R["periodic layout 3-D"]),
-        [0, 1, 3, 4, 5, 6, 7])
-    chk("periodic layout 2-D, the poorest", sorted(R["periodic layout 2-D"]), [0, 4])
+    # AND IT LOST K1 WHEN IT WAS COMPLETED. This index carried the corpus's
+    # only K1 refusal; rebuilding it from Madelung to its whole period destroyed
+    # the cell, and no index carries K1 now. exotic mechanisms is the richest.
+    chk("periodic layout 3-D lost K1 when it was completed",
+        sorted(R["periodic layout 3-D"]), [0, 3, 4, 5, 6, 7])
+    chk("exotic mechanisms is now the richest",
+        sorted(R["exotic mechanisms"]), [0, 2, 3, 4, 5, 6, 7])
+    chk("and K1 is carried by NOTHING", [n for n in R if 1 in R[n]], [])
+    chk("Janet is now the poorest", sorted(R["Janet (n+l, l, k)"]), [0, 7])
     # DOCKET 4: bounds LOST K1 when Bekenstein was re-coded G 1 -> 0.
     chk("bounds", sorted(R["bounds"]), [0, 2, 3, 4, 7])
     chk("the languages", sorted(R["the languages"]), [0, 4, 5, 7])
 
-    # ---- K0 universal, K7 all but the densest
-    chk("K0 is universal -- every index has a cell NOTHING refuses",
-        sorted(universal(R)), [0])
+    # ---- K0 AND K7 BOTH UNIVERSAL NOW
+    # This pin read [0] for as long as periodic layout 2-D was seated: it was
+    # the one index with no cell all five languages refuse. Withdrawing it
+    # under DOCKET 2 made K7 universal too, so the intersection is {0, 7} and
+    # section 4's "only K0 is universal" is superseded. Both are exact: every
+    # seated box is under CAP, so refusal_set() truncates nothing.
+    chk("K0 AND K7 are both universal now", sorted(universal(R)), [0, 7])
     occ = occurrence(R)
-    chk("K7 in nine of ten", len(occ[7]), 9)
-    chk("and the exception is the DENSEST index",
-        [nm for nm in R if 7 not in R[nm]], ["periodic layout 2-D"])
-    chk("which is indeed the densest",
-        max(R, key=lambda n: master.shape(master.inventory()[n])[2]),
-        "periodic layout 2-D")
+    # K7 IS NOW UNIVERSAL. Its one exception was periodic layout 2-D, the
+    # densest index in the corpus at 71.4 %: too full to have a cell every
+    # language refuses. Withdrawn, and the exception with it.
+    chk("K7 is in ALL NINE now -- its one exception was the withdrawn chart",
+        len(occ[7]), 9)
+    chk("no index lacks it", [nm for nm in R if 7 not in R[nm]], [])
+    chk("and the densest index is now substances, which HAS K7",
+        (max(R, key=lambda n: master.shape(master.inventory()[n])[2]),
+         7 in R["substances (Hawking-Ellis)"]),
+        ("substances (Hawking-Ellis)", True))
 
     # ---- the lattice
     mins, maxs, inc = lattice(R)
-    chk("minimal: the two redundant periodic charts", mins,
-        ["Janet (n+l, l, k)", "periodic layout 2-D"])
-    chk("maximal -- bounds fell out of it under DOCKET 4", maxs,
-        ["exotic mechanisms", "periodic layout 3-D"])
-    chk("thirteen of forty-five pairs incomparable -- still a lattice",
-        len(inc), 13)
+    chk("minimal: Janet alone, now that the 2-D chart is withdrawn", mins,
+        ["Janet (n+l, l, k)"])
+    chk("maximal: exotic mechanisms alone, since 3-D lost K1", maxs,
+        ["exotic mechanisms"])
+    chk("ten of thirty-six pairs incomparable -- still a lattice",
+        len(inc), 10)
 
     # ---- THE THREAD
     # THE THREAD IS DEAD. DOCKET 4 took bounds off K1, so the corpus holds ONE
     # K1 cell -- and DOCKET 1 already ruled that one a convention seam.
-    chk("K1 IS CARRIED BY EXACTLY ONE, and DOCKET 1 ruled it an artefact",
-        occ[1], ["periodic layout 3-D"])
-    chk("K6 is carried by exactly two", occ[6],
+    # THE THREAD IS NOT MERELY DEAD, ITS SUBJECT IS GONE. K1 was carried by one
+    # index and completing that index destroyed the cell.
+    chk("K1 IS CARRIED BY NOTHING AT ALL", occ[1], [])
+    chk("K6 is carried by exactly two, and is now the RAREST kind held", occ[6],
         ["exotic mechanisms", "periodic layout 3-D"])
-    chk("so periodic layout 3-D carries BOTH rare kinds",
-        {1, 6} <= R["periodic layout 3-D"], True)
+    chk("periodic layout 3-D no longer carries both rare kinds -- only K6",
+        ({1, 6} <= R["periodic layout 3-D"], 6 in R["periodic layout 3-D"]),
+        (False, True))
     # WITHDRAWN BY ITS OWN PIN. This first read "and it is the only index
     # missing K2", with an ad-hoc size filter to exclude the small sets. It is
     # false: FIVE of the nine lack K2, spacetimes (Petrov) among them, and the
     # filter was doing the work rather than the fact. The census is what stands.
-    chk("K2 is carried by five, and five lack it",
+    chk("K2 is carried by five, and four lack it",
         (len(occ[2]), sorted(nm for nm in R if 2 not in R[nm])),
-        (5, ["Janet (n+l, l, k)", "periodic layout 2-D", "periodic layout 3-D",
+        (5, ["Janet (n+l, l, k)", "periodic layout 3-D",
              "spacetimes (Petrov)", "the languages"]))
     # NEGATIVE CONTROL: the conjecture as stated is FALSE and the pin says so.
     # AND IT SURVIVED THE TENTH SEATING: ten indexes, ten distinct refusal
     # indexes. No two have ever coincided.
-    chk("THE TEN DO NOT SHARE ONE REFUSAL INDEX",
-        len(set(map(frozenset, R.values()))), 10)
+    chk("THE NINE DO NOT SHARE ONE REFUSAL INDEX",
+        len(set(map(frozenset, R.values()))), 9)
+
+    # ---- DOCKET 2: what actually killed the last K1 cell
+    tbl = block_convention_table()
+    chk("the reach alone changes NOTHING -- block_of is None past 108",
+        [(r, n, c) for r, n, c, _k in tbl if n == "observed"],
+        [(108, "observed", 80), (120, "observed", 80)])
+    chk("and both observed builds keep the K1 cell",
+        [k for _r, n, _c, k in tbl if n == "observed"],
+        [[(4, 11, 0)], [(4, 11, 0)]])
+    chk("the CONVENTION alone kills it, at the OLD reach",
+        [(r, n, c, k) for r, n, c, k in tbl if (r, n) == (108, "madelung")],
+        [(108, "madelung", 80, [])])
+    chk("and the completed chart is 92 cells with no K1",
+        [(r, n, c, k) for r, n, c, k in tbl if (r, n) == (120, "madelung")],
+        [(120, "madelung", 92, [])])
+    # SECTION 4 PREDICTED THE DESTINATION. The cell survives in the box and is
+    # still vacant; only its refusal moved, to exactly the K4 the section named.
+    X3 = master.inventory()["periodic layout 3-D"]
+    _cl, _box = hlaw.closures(frozenset(X3))
+    chk("(4,11,0) is still a vacant cell of the completed box",
+        ((4, 11, 0) in X3, all((4, 11, 0)[i] in _box[i] for i in range(3))),
+        (False, True))
+    chk("and it is now K4 {information, statistics}, as section 4 predicted",
+        sorted(L for L in hlaw.LANGS if (4, 11, 0) not in _cl[L]),
+        ["information", "statistics"])
 
     # ---- section 2, the chart finding
     moved, chg, tot = cell_survival()
-    chk("a zero-information coordinate moves six master cells", moved, 6)
+    chk("a zero-information coordinate moves five master cells", moved, 5)
     chk("and changes NO channel -- C survives a monotone re-charting", chg, 0)
 
     hits, tried = rechartings_hitting()
-    chk("re-chartings tried", tried, 640)
+    chk("re-chartings tried", tried, 625)
     chk("re-chartings landing on the demanded cell", len(hits), 28)
     # AND SEVEN OF THE TWENTY-EIGHT ARE THE QUESTION INDEX'S OWN RE-CHARTINGS.
     # That is not extra evidence for the seating -- it is the opposite. The
@@ -704,13 +994,36 @@ def selftest():
             if a == "energy-condition family"), 5)
 
     # ---- section 3, K is the object
+    # EXACT SCANS. Measured with cap=None -- see _uncapped(). Under the old
+    # cap=CAP the last row read 8 of 9 with periodic layout 3-D LOSING K5,
+    # which was the unscanned 35 % of a 4,608-cell box and nothing else.
     for keep, want in ((("K", "W", "H", "J", "A"), 4), (("K", "W", "J"), 7),
                        (("K", "W"), 7), (("K",), 9)):
         n, tot, rows = truncation_survival(keep)
-        chk("(%s) invariant in %d of 10" % (",".join(keep), want), n, want)
+        chk("(%s) invariant in %d of 9" % (",".join(keep), want), (n, tot),
+            (want, 9))
+    # K IS NOT MERELY MONOTONE, IT IS INVARIANT. No index gains a refusal kind
+    # and none loses one. This is STRONGER than what this section claimed for
+    # the ten, where periodic layout 2-D gained K7; withdrawing that chart took
+    # the only exception with it.
     n, _t, rows = truncation_survival(("K",))
-    chk("and K's one exception only GROWS, by K7",
-        [(nm, g, l) for nm, g, l in rows], [("periodic layout 2-D", [(7,)], [])])
+    chk("K HAS NO EXCEPTION AT ALL NOW", [(nm, g, l) for nm, g, l in rows], [])
+    # AND THE CAP GUARD REFUSES RATHER THAN TRUNCATES.
+    try:
+        truncation_survival(("K",), cap=100)
+        chk("a capped scan is refused, not reported", "no refusal", "refused")
+    except ValueError:
+        chk("a capped scan is refused, not reported", "refused", "refused")
+    # A IS NOT A MEASUREMENT UNDER THIS TEST. master's arity band is a function
+    # of dimension and re-charting changes dimension by construction, so every
+    # index whose arity band crosses 4 -> 5 must move. Petrov and substances
+    # differ ONLY in that slot: their gains and losses pair off one-for-one
+    # with A going 1 -> 2. The (K,W,H,J,A) row is that artefact, not a finding.
+    _n, _t, full = truncation_survival(("K", "W", "H", "J", "A"))
+    petrov = [r for r in full if r[0] == "spacetimes (Petrov)"][0]
+    chk("Petrov's whole difference is the arity slot moving 1 -> 2",
+        (sorted({g[-1] for g in petrov[1]}), sorted({l[-1] for l in petrov[2]})),
+        ([2], [1]))
 
     print("refusal selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
