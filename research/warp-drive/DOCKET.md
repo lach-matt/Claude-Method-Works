@@ -478,11 +478,35 @@ Register 35 got a definitive answer for Λ because **Λ has 976 cells**. The mas
 index has **eight**. It is not merely sparse; at this size it is
 **under-determined** — too small for its own invariants to discriminate.
 
-**What would change that is not a better shape but more distinct cells.** The
-populated reading is 79 indexes over **11** cells, so seating more indexes does
-not help; seating indexes that land in *new* cells does. Until then the shape
-question has no measurable answer, and this docket records that rather than
-producing one.
+**What would change that is not a better shape but more distinct cells** — and
+the threshold is now measured rather than gestured at. Testing dimension ≤ 2 by
+Gallai's forcing relation (polynomial, so it reaches sizes the linear-extension
+enumeration could not), over random sets in the master index's own 192-cell box:
+
+| distinct cells | dim ≤ 2 among random sets | reading |
+|---|---|---|
+| 6 | 100.0 % | saturated |
+| **8** | **96.7 %** | **saturated — the seated master index** |
+| 10 | 81.5 % | weak |
+| **11** | — | **the populated reading** |
+| **12** | **54.2 %** | **INFORMATIVE — a coin flip, so a full bit** |
+| 14 | 28.2 % | informative |
+| 16 | 15.0 % | informative |
+| 20 | 1.7 % | informative |
+| 30 | 0.0 % | informative |
+
+**THE THRESHOLD IS TWELVE DISTINCT CELLS.** Below it the answer is forced by
+size; at twelve the base rate is a coin flip and the measurement carries a full
+bit; by twenty it is decisive.
+
+    The seated master index has EIGHT and needs FOUR more.
+    The populated reading has ELEVEN and needs ONE.
+
+**So the populated master index is a single distinct cell away from being able
+to state its own shape.** That is the most concrete construction task this whole
+line has produced, and the supply is known: the realizable vacancies of DOCKET 6,
+or — under DOCKET 7's reading — the two vacant positions of the language lattice,
+K1 and K5.
 
 ---
 
