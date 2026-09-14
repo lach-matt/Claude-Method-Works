@@ -246,6 +246,7 @@ footer{margin-top:38px;padding-top:16px;border-top:1px solid var(--line);
       <label class="opt" style="color:var(--stat)"><input type="checkbox" id="l-p1" checked><span class="sw" style="background:currentColor"></span>Para-index<span class="n" id="n-p1">&mdash;</span></label>
       <label class="opt" style="color:var(--warn)"><input type="checkbox" id="l-p2"><span class="sw hollow"></span>Counterfactual<span class="n" id="n-p2">&mdash;</span></label>
       <p class="mini">Cells a Rubik slice shift makes the structure demand, pulled back to this frame. Ring size is robustness across 4,000 scrambles.</p>
+      <p class="mini" id="ring-recon">&mdash;</p>
     </div>
     <div class="grp">
       <h2>Threads</h2>
@@ -4540,6 +4541,22 @@ for (const kind of ["seated","stat","geom","info","ord","empty"]){
   set("n-cover", DATA.cover.length);
   set("n-join", DATA.pairs.filter(x => x.join_seated).length);
 }
+/* The picture must reconcile against the legend: a reader counting marks has to
+   be able to reach the same total the rows add up to. A scramble ring forces its
+   cell on whatever its row says, so the rings that sit on switched-off rows are
+   the difference, and the panel states it rather than leaving it to arithmetic. */
+function reconcileRings(){
+  const el = document.getElementById("ring-recon");
+  if (!el) return;
+  const shown = P.filter(visible);
+  const forced = shown.filter(p => ((on("l-p1") && p.p1 > 0) || (on("l-p2") && p.p2 > 0))
+    && !(p.kind === "seated" ? on("l-seated") : p.kind === "stat" ? on("l-stat")
+       : p.kind === "geom" ? on("l-geom") : p.kind === "info" ? on("l-info")
+       : p.kind === "ord" ? on("l-ord") : on("l-empty")));
+  el.innerHTML = "<b>" + shown.length + " marks drawn</b> at this setting \u2014 "
+    + (shown.length - forced.length) + " from the rows above, plus <b>" + forced.length
+    + "</b> a ring forces on from a row that is switched off.";
+}
 /* the four cells no index can occupy: at arity 2 statistics always closes */
 const FORBIDDEN = new Set(DATA.forbidden.map(key));
 for (const p of P) p.forbidden = FORBIDDEN.has(p.k);
@@ -4639,6 +4656,7 @@ let picked = null, hovered = null;
 })();
 
 function draw(){
+  reconcileRings();
   const t = tone();
   ctx.clearRect(0, 0, W, H);
 
@@ -4741,8 +4759,17 @@ function draw(){
 
   for (const { p, q } of pts){
     const sel = picked === p.k, hov = hovered === p.k;
+    /* A point drawn ONLY because it carries a scramble ring must still be
+       countable. At the vacant size it rendered as a 2.4 px hollow at half
+       alpha -- a ring with no centre -- so six of the thirty-five marks could
+       not be counted off the picture. `ringOnly` gives those a legible centre
+       without promoting them to the colour of a cell some language wants. */
+    const ringed = (on("l-p1") && p.p1 > 0) || (on("l-p2") && p.p2 > 0);
+    const ringOnly = ringed && !on(p.kind === "empty" ? "l-empty"
+                                : p.kind === "ord" ? "l-ord" : "l-seated")
+                     && (p.kind === "empty" || p.kind === "ord");
     const base = p.kind === "seated" ? 6.2 : p.kind === "stat" ? 6.6
-              : p.kind === "empty" ? 2.0 : 4.4;
+              : p.kind === "empty" ? (ringOnly ? 3.6 : 2.0) : 4.4;
     // the demand is WITHDRAWN -- drawn hollow and struck, not filled
     if (p.kind === "stat") { ctx.globalAlpha = 0.55; }
     const rad = base * q.k * 1.16 * (sel ? 1.5 : hov ? 1.22 : 1);
@@ -4750,7 +4777,9 @@ function draw(){
     p._sx = q.x; p._sy = q.y; p._sr = Math.max(rad, 5);
 
     if (p.kind === "empty"){
-      ctx.strokeStyle = col; ctx.globalAlpha = .5; ctx.lineWidth = 1;
+      ctx.strokeStyle = col;
+      ctx.globalAlpha = ringOnly ? 1 : .5;
+      ctx.lineWidth = ringOnly ? 1.5 : 1;
       ctx.beginPath(); ctx.arc(q.x, q.y, rad, 0, 6.2832); ctx.stroke();
       ctx.globalAlpha = 1;
     } else {
