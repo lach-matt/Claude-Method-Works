@@ -229,6 +229,89 @@ the K1 thread must be rebuilt on that.
 
 ---
 
+## DOCKET 5 — THE PRODUCT-BOX FAULT, AND IT DELETES THE DEMAND  **RULED IN PART**
+
+*Raised 2026-09-14 by M: "three of the 23 cells the master index demands are
+among the forbidden four ... this is a huge flag we must chase." Chased.*
+
+### The fault
+
+Every density in this tree is taken against a **product box** — `master.shape`
+multiplies the sizes of the observed value sets. A product box contains positions
+that **no member could ever occupy**, because the coordinates are logically
+coupled. Three instances, in increasing order of consequence.
+
+**ONE — the master index's own box.** At arity 2 the only 2-subset of
+coordinates is the whole tuple, so statistics admits a cell iff it IS a member,
+so statistics always closes and `C = 0` is impossible at arity band 0. Verified
+by exhaustion over **74,518 non-degenerate two-coordinate indexes, zero
+failures.** Four of the 72 cells are impossible — **and order and algebra each
+demand three of them.** An `E` of 25 counts three cells that cannot exist.
+
+**TWO — the refusal index M2.** `H = 0` holds exactly of members and forces
+`K = 0, W = 2, J = 3`; `W = 2` is a biconditional with `K in {0,1}`. **645 of
+1,152 positions violate one. 507 remain.** No occupied profile violates either.
+Density 3.91 % → 8.88 %, which crosses a band edge, which withdrew *the two
+master indexes coincide* and *M1 is a cell of itself*.
+
+**THREE — and this one is a theorem.** A Weyl tensor has **exactly four principal
+null directions counted with multiplicity**, so `(P, X)` — distinct PNDs and
+maximum multiplicity — is a partition of four and admits exactly the six Petrov
+types. `petrov.py`'s other two slots, `E` (evidential directness) and `V`
+(vacuum), are free.
+
+| | product | realisable |
+|---|---|---|
+| Petrov box | 5 × 4 × 2 × 2 = **80** | 5 × 2 × 2 = **20** |
+| density | 10.0 % → band 1 | **40.0 % → band 2** |
+| master cell | (1,1,0,1,1) | **(1,1,0,1,2)** |
+
+*(Robust to the reading: counting Type III's absent `X = 3` as available gives a
+box of 24 and 33.3 %, still band 2.)*
+
+### AND THAT DELETES THE STANDING DEMAND
+
+    master index with Petrov corrected:  9 indexes, 8 cells
+    order E 25, algebra E 25, geometry E 4, information E 10, statistics E 0
+    CLOSES IN statistics.  DEMANDS NOTHING.
+
+The demand `(1,1,0,2,1)` has survived a great deal in this tree — the bounds
+index arriving, the bounds fill being withdrawn, DOCKET 1(a)'s Janet
+replacement. **It does not survive a theorem about the Weyl tensor.** The
+demand's `(C, R) = (1, 1)` two-marginal had Petrov as its sole supplier; move
+Petrov and the marginal is gone.
+
+Exhaustive over all 256 R-band assignments to the four indexes whose bands move,
+the demand survives **only** where Petrov stays at band 1. Over the tree's own
+forty declared bandings it goes from demanded-in-14 to **demanded-in-0**.
+
+### THE RULING, and it is deliberately partial
+
+**RULED: the Petrov correction stands.** It rests on the algebra of the Weyl
+tensor, not on a convention, and nothing in this tree gets to prefer a product
+box to a theorem.
+
+**RULED: the demand is therefore withdrawn as an outstanding prediction.** Every
+statement in this tree of the form *"the master index demands a cell nothing
+occupies"* is now conditional on a density taken against a product box, and must
+say so or be withdrawn. `master.py` section 7, `rubik.py`'s para-index headline
+and `research/README.md` all carry it.
+
+**NOT RULED: the general re-plumbing.** Applying this properly means every index
+declaring its realisable box, and `master.shape` taking that instead of the
+product. That is a real design change and it is docket 3's question — *what is a
+legitimate chart* — in its most concrete form. Four of the nine indexes move
+bands at the defensible tier (Janet 1→3 but vacuously, since its realisable box
+IS its cell set at exactly 120 = 120; bounds 0→1; periodic 3-D 1→2 or 3;
+Petrov 1→2). Five hold.
+
+**LEFT UNDECIDED, and flagged because it is one clause from mattering:** the
+energy-condition family does not move on any defensible constraint, but it sits
+at density **0.0469 against a band edge of 0.05**. One assumed coupling clause
+would move it — into the demanded cell itself. Not claimed either way.
+
+---
+
 ## DOCKET 2 — SHOULD THE PERIODIC TABLE BE SEATED MORE THAN ONCE?  **OPEN**
 
 The master index seats the periodic table three times: `periodic layout 2-D`
