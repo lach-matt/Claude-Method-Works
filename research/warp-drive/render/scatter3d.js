@@ -66,6 +66,21 @@ function scatter3d(opts){
     axis(ctx,W,H,[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted'));
     axis(ctx,W,H,[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted'));
 
+    // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
+    if(opts.edges){
+      for(const e of opts.edges){
+        const p = project(nrm(e[0],rx), nrm(e[1],ry), nrm(e[2],rz), W, H);
+        const q = project(nrm(e[3],rx), nrm(e[4],ry), nrm(e[5],rz), W, H);
+        ctx.save();
+        ctx.strokeStyle = tok(e[6]);
+        ctx.lineWidth = e[7] ? 1 : 1.6;
+        ctx.globalAlpha = e[7] ? .85 : .5;
+        if(e[7]) ctx.setLineDash([5,4]);
+        ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+        ctx.restore();
+      }
+    }
+
     const S = pts.map(p => {
       const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
       return {p, sx, sy, sz, sc};
@@ -76,11 +91,17 @@ function scatter3d(opts){
     for(const o of S){
       const r = (opts.r || 4) * o.sc;
       ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
-      ctx.fillStyle = tok(opts.colour(o.p));
-      ctx.globalAlpha = .35 + .65*o.sc*0.9;
-      ctx.fill();
-      if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
-        ctx.lineWidth = 1; ctx.stroke(); }
+      if(o.p.hollow){
+        ctx.globalAlpha = 1; ctx.strokeStyle = tok(opts.colour(o.p));
+        ctx.lineWidth = 1.6; ctx.setLineDash([3,2.5]); ctx.stroke();
+        ctx.setLineDash([]);
+      } else {
+        ctx.fillStyle = tok(opts.colour(o.p));
+        ctx.globalAlpha = .35 + .65*o.sc*0.9;
+        ctx.fill();
+        if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+          ctx.lineWidth = 1; ctx.stroke(); }
+      }
       ctx.globalAlpha = 1;
     }
     if(opts.labels){
