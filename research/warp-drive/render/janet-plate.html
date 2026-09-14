@@ -1,0 +1,439 @@
+<title>The Janet Perspective</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --vacant:#98A2AF; --live:#137A69;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --vacant:#5F6A79; --live:#4CC6AF;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --vacant:#5F6A79; --live:#4CC6AF;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+p{margin:0 0 1.05em}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+td.cell{color:var(--ink)}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.c7{color:var(--geometry)} .c3{color:var(--statistics)} .c6{color:var(--order)}
+.yes{color:var(--live);font-weight:600} .no{color:var(--algebra);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.note.k6{border-left-color:var(--order)} .note.k6 .lab{color:var(--order)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.5em}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.trio{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Research plate · the third perspective</p>
+  <h1>The Janet&nbsp;Perspective</h1>
+  <p class="dek">The same 170 electrons, fibred over the fill order instead of the
+  shell. One coordinate changes — and it decides which half of the top of the
+  language poset survives.</p>
+  <div class="stamp">
+    <span>instrument <b>madelung.py</b></span>
+    <span>base <b>n+ℓ</b></span>
+    <span>fibre <b>(ℓ, k)</b></span>
+    <span>cells <b>170</b></span>
+    <span>channel <b>K7</b></span>
+  </div>
+</header>
+
+<!-- ================================================= 1 -->
+<section>
+  <div class="shead"><span class="snum">01</span><h2>Three perspectives, one definition</h2></div>
+  <p class="sub">Three master indexes now exist. The same five closure operators run on all of
+  them; what differs is what they are indexes <em>of</em>.</p>
+
+  <div class="trio">
+    <div class="per">
+      <div class="who">first</div>
+      <div class="what">The Master Index</div>
+      <div class="co">(K, height, width)</div>
+      <div class="obj">Nine indexes, charted by which languages close them.
+      The object is <strong>the corpus</strong>.</div>
+    </div>
+    <div class="per">
+      <div class="who">second</div>
+      <div class="what">The Shell Fibration</div>
+      <div class="co">(n, ℓ, k)</div>
+      <div class="obj">170 elements, fibred over the shell an electron occupies.
+      The object is <strong>the elements</strong>.</div>
+    </div>
+    <div class="per" style="border-color:var(--accent);border-width:2px">
+      <div class="who" style="color:var(--accent)">third — this plate</div>
+      <div class="what">The Janet Fibration</div>
+      <div class="co">(n+ℓ, ℓ, k)</div>
+      <div class="obj">The same 170, fibred over <em>when</em> the electron is added.
+      The object is <strong>the elements</strong>.</div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:26px">
+    <span class="lab">The second and third differ in exactly one coordinate</span>
+    <p style="margin-bottom:0"><span class="mono">ℓ</span> and <span class="mono">k</span> are
+    <em>identical</em> between them. Only the base changes — from the shell an electron occupies
+    to the shell-plus-subshell that orders the filling. This instrument builds its index by
+    re-charting the other's, in one comprehension, so the two perspectives cannot drift apart.
+    And it reproduces a seated index exactly: <span class="mono">janet() == mi.janet()</span>,
+    cell for cell. Nothing new is seated here — a seated object is read as a bundle.</p>
+  </div>
+</section>
+
+<!-- ================================================= 2 -->
+<section>
+  <div class="shead"><span class="snum">02</span><h2>The fibres double. They do not mirror.</h2></div>
+  <p class="sub">Same 170 cells, same fibres, redistributed by the change of base. The difference
+  in profile is the whole of what follows.</p>
+
+  <figure class="plate">
+    <svg viewBox="0 0 860 400" role="img" aria-label="Fibre profiles compared: palindrome versus doubled">
+      <text x="60" y="20" font-size="9.5" fill="var(--muted)" letter-spacing="1.4">BASE n — THE SHELL FIBRATION</text>
+      <line x1="60" y1="150" x2="820" y2="150" stroke="var(--rule)"/>
+      <g fill="var(--statistics)" opacity=".55">
+        <rect x="72"  y="145" width="60" height="5"/>
+        <rect x="156" y="131" width="60" height="19"/>
+        <rect x="240" y="107" width="60" height="43"/>
+        <rect x="324" y="73"  width="60" height="77"/>
+        <rect x="408" y="30"  width="60" height="120"/>
+        <rect x="492" y="73"  width="60" height="77"/>
+        <rect x="576" y="107" width="60" height="43"/>
+        <rect x="660" y="131" width="60" height="19"/>
+        <rect x="744" y="145" width="60" height="5"/>
+      </g>
+      <g font-size="10" fill="var(--body)" text-anchor="middle">
+        <text x="102" y="140">2</text><text x="186" y="126">8</text>
+        <text x="270" y="102">18</text><text x="354" y="68">32</text>
+        <text x="438" y="25">50</text><text x="522" y="68">32</text>
+        <text x="606" y="102">18</text><text x="690" y="126">8</text>
+        <text x="774" y="140">2</text>
+      </g>
+      <text x="820" y="166" text-anchor="end" font-size="10" fill="var(--statistics)">PALINDROME — peaks, then mirrors down</text>
+
+      <text x="60" y="212" font-size="9.5" fill="var(--muted)" letter-spacing="1.4">BASE n+ℓ — THE JANET FIBRATION</text>
+      <line x1="60" y1="342" x2="820" y2="342" stroke="var(--rule)"/>
+      <g fill="var(--geometry)">
+        <rect x="72"  y="337" width="60" height="5"/>
+        <rect x="156" y="337" width="60" height="5"/>
+        <rect x="240" y="323" width="60" height="19"/>
+        <rect x="324" y="323" width="60" height="19"/>
+        <rect x="408" y="299" width="60" height="43"/>
+        <rect x="492" y="299" width="60" height="43"/>
+        <rect x="576" y="265" width="60" height="77"/>
+        <rect x="660" y="265" width="60" height="77"/>
+        <rect x="744" y="222" width="60" height="120"/>
+      </g>
+      <g font-size="10" fill="var(--body)" text-anchor="middle">
+        <text x="102" y="332">2</text><text x="186" y="332">2</text>
+        <text x="270" y="318">8</text><text x="354" y="318">8</text>
+        <text x="438" y="294">18</text><text x="522" y="294">18</text>
+        <text x="606" y="260">32</text><text x="690" y="260">32</text>
+        <text x="774" y="217">50</text>
+      </g>
+      <text x="820" y="358" text-anchor="end" font-size="10" fill="var(--geometry)">DOUBLED — each value twice, and NEVER SHRINKS</text>
+      <g font-size="10" fill="var(--muted)" text-anchor="middle">
+        <text x="102" y="380">1</text><text x="186" y="380">2</text>
+        <text x="270" y="380">3</text><text x="354" y="380">4</text>
+        <text x="438" y="380">5</text><text x="522" y="380">6</text>
+        <text x="606" y="380">7</text><text x="690" y="380">8</text>
+        <text x="774" y="380">9</text>
+      </g>
+      <text x="56" y="380" text-anchor="end" font-size="9.5" fill="var(--faint)">base</text>
+    </svg>
+    <figcaption><b>At n+ℓ = S the subshells are the (n, ℓ) with n+ℓ = S and ℓ &lt; n</b>, so ℓ runs
+    0 … ⌈S/2⌉−1 and the fibre holds 2⌈S/2⌉² cells — which takes each value <em>twice</em> as S
+    advances. The shell fibration's fibres peak at n = 5 and mirror back down.
+    <b>The Janet fibres never shrink.</b></figcaption>
+  </figure>
+</section>
+
+<!-- ================================================= 3 -->
+<section>
+  <div class="shead"><span class="snum">03</span><h2>It never transitions — and that was predicted</h2></div>
+  <p class="sub">The shell fibration's sliding scale drops from K7 to K3 at the first shrinking
+  shell. Sweep this one and there is no drop at all.</p>
+
+  <figure class="plate">
+    <svg viewBox="0 0 860 200" role="img" aria-label="Janet cumulative sweep stays at K7 throughout">
+      <text x="56" y="60" text-anchor="end" font-size="10.5" fill="var(--muted)">K7</text>
+      <text x="56" y="150" text-anchor="end" font-size="10.5" fill="var(--vacant)">K3</text>
+      <line x1="66" y1="54" x2="820" y2="54" stroke="var(--rule)" stroke-dasharray="2 4"/>
+      <line x1="66" y1="144" x2="820" y2="144" stroke="var(--rule)" stroke-dasharray="2 4"/>
+      <path d="M96 54 L800 54" fill="none" stroke="var(--geometry)" stroke-width="2.6"/>
+      <g fill="var(--geometry)">
+        <circle cx="96" cy="54" r="6"/><circle cx="184" cy="54" r="6"/>
+        <circle cx="272" cy="54" r="6"/><circle cx="360" cy="54" r="6"/>
+        <circle cx="448" cy="54" r="6"/><circle cx="536" cy="54" r="6"/>
+        <circle cx="624" cy="54" r="6"/><circle cx="712" cy="54" r="6"/>
+        <circle cx="800" cy="54" r="6"/>
+      </g>
+      <text x="448" y="36" text-anchor="middle" font-size="10.5" fill="var(--geometry)">all five languages close, at every stop</text>
+      <text x="448" y="132" text-anchor="middle" font-size="10" fill="var(--vacant)">the shell fibration drops to here at its sixth shell — this one never does</text>
+      <g font-size="10" fill="var(--muted)" text-anchor="middle">
+        <text x="96" y="172">n+ℓ≤1</text><text x="184" y="172">≤2</text>
+        <text x="272" y="172">≤3</text><text x="360" y="172">≤4</text>
+        <text x="448" y="172">≤5</text><text x="536" y="172">≤6</text>
+        <text x="624" y="172">≤7</text><text x="712" y="172">≤8</text>
+        <text x="800" y="172">≤9</text>
+      </g>
+      <g font-size="9.5" fill="var(--faint)" text-anchor="middle">
+        <text x="96" y="188">2</text><text x="184" y="188">4</text>
+        <text x="272" y="188">12</text><text x="360" y="188">20</text>
+        <text x="448" y="188">38</text><text x="536" y="188">56</text>
+        <text x="624" y="188">88</text><text x="712" y="188">120</text>
+        <text x="800" y="188">170</text>
+      </g>
+      <text x="56" y="188" text-anchor="end" font-size="9" fill="var(--faint)">cells</text>
+    </svg>
+    <figcaption><b>K7 at every stop.</b> No transition anywhere in the sweep.</figcaption>
+  </figure>
+
+  <div class="note good">
+    <span class="lab">The law forbade it, and the law was fitted elsewhere</span>
+    <p>The shell fibration's law is that the K7 → K3 transition lands on <strong>the first
+    shrinking shell</strong> — verified at nine reaches there. The Janet fibres never shrink. So
+    the law says this sweep <em>can have no transition</em>, and it has none.</p>
+    <p style="margin-bottom:0"><em>Stated at its true strength.</em> This is the only
+    cross-prediction in this tree made from a law and then checked on an index the law was not
+    fitted to. It is weaker than it sounds — a law fitted on one family and confirmed on a close
+    relative is corroboration, not independent test — and it is stronger than nothing, because the
+    law could have failed and did not.</p>
+  </div>
+</section>
+
+<!-- ================================================= 4 -->
+<section>
+  <div class="shead"><span class="snum">04</span><h2>The same projection, the complementary channel</h2></div>
+  <p class="sub">Drop ℓ from each perspective. Both give 82 cells. They are different 82-cell sets,
+  and their channels are exact complements.</p>
+
+  <figure class="plate">
+    <svg viewBox="0 0 860 250" role="img" aria-label="Dropping l from each base gives complementary channels">
+      <!-- left: (n,k) -> K3 -->
+      <g>
+        <rect x="40" y="30" width="330" height="76" rx="4" fill="var(--sunk)" stroke="var(--rule)"/>
+        <text x="205" y="58" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="600">(n, k)</text>
+        <text x="205" y="80" text-anchor="middle" font-size="10" fill="var(--muted)">shell base, ℓ dropped — 82 cells</text>
+        <text x="205" y="96" text-anchor="middle" font-size="9" fill="var(--algebra)">NOT injective</text>
+        <path d="M205 106 L205 138" stroke="var(--rule-hard)" stroke-width="1.6"/>
+        <circle cx="205" cy="160" r="22" fill="var(--statistics)"/>
+        <text x="205" y="165" text-anchor="middle" font-size="14" fill="var(--panel)" font-weight="600">K3</text>
+        <text x="205" y="200" text-anchor="middle" font-size="10.5" fill="var(--statistics)">geometry, statistics</text>
+        <text x="205" y="218" text-anchor="middle" font-size="9.5" fill="var(--muted)">= down(geometry)</text>
+        <text x="205" y="236" text-anchor="middle" font-size="9" fill="var(--faint)">geometry survives</text>
+      </g>
+      <!-- right: (n+l,k) -> K6 -->
+      <g>
+        <rect x="490" y="30" width="330" height="76" rx="4" fill="var(--sunk)" stroke="var(--rule)"/>
+        <text x="655" y="58" text-anchor="middle" font-size="13" fill="var(--ink)" font-weight="600">(n+ℓ, k)</text>
+        <text x="655" y="80" text-anchor="middle" font-size="10" fill="var(--muted)">fill-order base, ℓ dropped — 82 cells</text>
+        <text x="655" y="96" text-anchor="middle" font-size="9" fill="var(--algebra)">NOT injective</text>
+        <path d="M655 106 L655 138" stroke="var(--rule-hard)" stroke-width="1.6"/>
+        <circle cx="655" cy="160" r="22" fill="var(--order)"/>
+        <text x="655" y="165" text-anchor="middle" font-size="14" fill="var(--panel)" font-weight="600">K6</text>
+        <text x="655" y="200" text-anchor="middle" font-size="10.5" fill="var(--order)">order, algebra, information, statistics</text>
+        <text x="655" y="218" text-anchor="middle" font-size="9.5" fill="var(--muted)">= down(order) = down(algebra)</text>
+        <text x="655" y="236" text-anchor="middle" font-size="9" fill="var(--faint)">the order/algebra block survives</text>
+      </g>
+      <!-- middle -->
+      <text x="430" y="126" text-anchor="middle" font-size="10" fill="var(--muted)">union</text>
+      <text x="430" y="142" text-anchor="middle" font-size="9.5" fill="var(--ink)">ALL FIVE</text>
+      <text x="430" y="170" text-anchor="middle" font-size="10" fill="var(--muted)">intersection</text>
+      <text x="430" y="186" text-anchor="middle" font-size="9.5" fill="var(--statistics)">{statistics}</text>
+      <text x="430" y="202" text-anchor="middle" font-size="8.5" fill="var(--faint)">the poset minimum</text>
+      <line x1="380" y1="160" x2="410" y2="160" stroke="var(--rule-hard)" stroke-dasharray="3 2"/>
+      <line x1="450" y1="160" x2="480" y2="160" stroke="var(--rule-hard)" stroke-dasharray="3 2"/>
+    </svg>
+    <figcaption><b>K3 = down(geometry) and K6 = down(order) = down(algebra)</b> — the principal
+    down-sets of the <em>two maximal languages</em>, which are the two switches of the master
+    index's phase square. <b>So the choice of base selects a maximal language.</b> Address the
+    electron by the shell it occupies and drop the subshell: geometry survives. Address it by when
+    it is added and drop the subshell: the order/algebra block survives instead, and geometry is
+    the one thing lost. One coordinate decides which half of the top of the poset you keep.</figcaption>
+  </figure>
+</section>
+
+<!-- ================================================= 5 -->
+<section>
+  <div class="shead"><span class="snum">05</span><h2>K6 — the channel the master index leaves empty</h2></div>
+  <p class="sub">K6 is join-irreducible, meet-irreducible, a co-atom, and alone in its phase. It
+  was vacant. A chart built only from seated corpus data sits in it.</p>
+
+  <div class="kv">
+    <div><dt>the chart</dt><dd style="font-size:1rem">(n+ℓ, k)<small>fill-order shell and slot</small></dd></div>
+    <div><dt>channel</dt><dd style="color:var(--order)">K6<small>everything but geometry</small></dd></div>
+    <div><dt>reach control</dt><dd style="font-size:1rem;color:var(--live)">passes<small>K6 at 9 consecutive reaches, 10 → 122 cells</small></dd></div>
+    <div><dt>injective</dt><dd style="font-size:1rem;color:var(--algebra)">NO<small>170 elements onto 82 cells</small></dd></div>
+  </div>
+
+  <div class="note k6">
+    <span class="lab">What is measured: K6 is reachable</span>
+    <p style="margin-bottom:0">That was open before, and it is now closed. The chart holds K6 at
+    every complete shell reach from <span class="mono">n+ℓ ≤ 3</span> through
+    <span class="mono">n+ℓ ≤ 11</span> — nine consecutive reaches across an order of magnitude.
+    Only the two degenerate reaches give K7.</p>
+  </div>
+
+  <div class="note warn">
+    <span class="lab">What is not measured: that it deserves a seat</span>
+    <p><strong>The K6 chart is a coarsening, and that is the price.</strong> It maps 170 elements
+    onto 82 cells — <strong>88 elements share an address with another</strong>, and the chart
+    cannot say which element is which. Every one of the nine seated indexes, and both fibrations,
+    are injective on their own members. A non-injective chart of 170 elements is a weaker object
+    than any of them.</p>
+    <p style="margin-bottom:0">No criterion in this tree governs dropping a coordinate — the chart
+    criterion asks whether a coordinate survives an <em>appended</em> redundant one, which is a
+    different operation. The nearest precedent cuts against seating: the re-charting census treats
+    coordinate drops as showing a demand is chart-relative, not as producing new members.
+    <strong>K6 is reachable and unseated.</strong> Whether it deserves a seat is a ruling, not a
+    measurement.</p>
+  </div>
+</section>
+
+<!-- ================================================= 6 -->
+<section>
+  <div class="shead"><span class="snum">06</span><h2>The four charts, side by side</h2></div>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>chart</th><th>base</th><th style="text-align:right">cells</th>
+      <th>injective</th><th>channel</th><th>closes in</th><th>fibres</th></tr></thead>
+    <tbody>
+      <tr><td class="name">shell fibration</td><td class="cell">n</td><td class="num">170</td>
+        <td class="yes">yes</td><td><span class="chip c3">K3</span></td>
+        <td>geometry, statistics</td><td class="cell">palindrome</td></tr>
+      <tr style="background:color-mix(in srgb,var(--geometry) 8%,transparent)">
+        <td class="name">Janet fibration</td><td class="cell">n+ℓ</td><td class="num">170</td>
+        <td class="yes">yes</td><td><span class="chip c7">K7</span></td>
+        <td>all five</td><td class="cell">doubled</td></tr>
+      <tr style="opacity:.8"><td class="name">(n, k)</td><td class="cell">n</td><td class="num">82</td>
+        <td class="no">no</td><td><span class="chip c3">K3</span></td>
+        <td>geometry, statistics</td><td class="cell">—</td></tr>
+      <tr style="opacity:.8"><td class="name">(n+ℓ, k)</td><td class="cell">n+ℓ</td><td class="num">82</td>
+        <td class="no">no</td><td><span class="chip c6">K6</span></td>
+        <td>order, algebra, information, statistics</td><td class="cell">—</td></tr>
+    </tbody>
+    <caption><b>The master index is not a fifth row.</b> It charts <em>indexes</em>, not elements;
+    its cells are (K, height, width) of other objects. The three perspectives share the five
+    operators, not their members.</caption>
+  </table>
+  </div>
+
+  <div class="note">
+    <span class="lab">What the three agree on, and what they don't</span>
+    <p><strong>Agree:</strong> the seven lawful containments hold everywhere — on every index and
+    every fibre of both bundles, zero broken. Dilworth holds on all of them. Every fibre of both
+    bundles closes in all five languages.</p>
+    <p style="margin-bottom:0"><strong>Disagree:</strong> the channel, and only the channel.</p>
+  </div>
+</section>
+
+<!-- ================================================= 7 -->
+<section>
+  <div class="shead"><span class="snum">07</span><h2>What this refuses to conclude</h2></div>
+  <ul class="tight">
+    <li><strong>That the Janet perspective is the right one because it reaches K7.</strong> Closing
+    in more languages is not being more true. K7 means every operator is satisfied, which a
+    complete rectangle achieves trivially — the shell fibration's K3 is a stronger statement about
+    structure, not a weaker one.</li>
+    <li><strong>That K6 is now occupied.</strong> A projection is not a seated index, and this one
+    throws away which element is which for 88 of 170.</li>
+    <li><strong>That the base is the only thing that matters.</strong> It is the only thing that
+    differs <em>here</em>, between two charts sharing ℓ and k. Nothing measured says a third base
+    would not behave differently again — and one is obvious and untried: <span class="mono">ℓ</span>
+    itself.</li>
+  </ul>
+</section>
+
+<footer class="foot">
+  <p style="margin-bottom:.5em">Every figure on this plate is produced by
+  <code>python3 madelung.py</code> and pinned by <code>python3 madelung.py --selftest</code>
+  (40 fixtures). It re-charts <code>fibred.py</code>'s index rather than re-deriving the electrons,
+  and imports <code>hlaw.py</code>'s operators and <code>mi.py</code>'s chart.</p>
+  <p style="margin-bottom:0">170 elements · 9 fibres · no transition · channel K7 ·
+  and K6 reachable, unseated.</p>
+</footer>
+
+</div>

@@ -829,6 +829,60 @@ see the ruling below.)*
 
 ---
 
+## DOCKET 10 — IS K6 OCCUPIED?  **OPEN**
+
+**A chart of the corpus's own element data lands in K6, and K6 was vacant.** The
+master index occupies K0, K2 and K7 and nothing else. K6 —
+`{order, algebra, information, statistics}`, everything but geometry — is the
+channel that is **alone in its phase**, join-irreducible, meet-irreducible, a
+co-atom. `madelung.k6_chart()` is `(n+ℓ, k)`: the 170 differentiating electrons
+addressed by fill-order shell and slot, with the subshell dropped. It closes in
+exactly those four.
+
+**The reach control passes.** K6 at every complete shell reach from
+`n+ℓ ≤ 3` through `n+ℓ ≤ 11` — nine consecutive reaches, 10 cells to 122. Only
+the two degenerate reaches give K7.
+
+**And it is half of an exact duality.** The same projection on the other base —
+`(n, k)`, the shell fibration with ℓ dropped — gives 82 cells too, a *different*
+82, and lands in **K3**. The two channels are complementary: union all five,
+intersection `{statistics}`, the poset minimum. K3 = down(geometry) and
+K6 = down(order) = down(algebra), so **the two charts realise the principal
+down-sets of the two maximal languages** — the two switches of the phase square.
+Which maximal language survives is decided by the choice of base and nothing
+else.
+
+**WHAT IS MEASURED IS THAT K6 IS REACHABLE.** That was open before, and it is
+now closed: a chart built only from seated corpus data sits in K6 and stays
+there across an order of magnitude of reach.
+
+**WHAT IS NOT MEASURED IS THAT IT DESERVES A SEAT**, and there is a real
+objection:
+
+> **The K6 chart is a COARSENING.** It maps 170 elements onto 82 cells —
+> **88 elements share an address with another** and the chart cannot say which
+> element is which. Every one of the nine seated indexes, and both fibrations,
+> are injective on their own members. A non-injective chart of 170 elements is
+> a weaker object than any of them.
+
+DOCKET 3's criterion does not settle this: it governs the **coordinates of the
+master index** and asks whether a coordinate survives an appended monotone
+redundant one. Dropping a coordinate is a different operation, and no criterion
+in this tree governs it. The nearest precedent cuts against seating — the
+re-charting census in `refusal.py` §2 treats coordinate drops as showing the
+demand is *chart-relative*, not as producing new members.
+
+**What would settle it:** a criterion for when a coarsening may be seated. The
+obvious candidate — that a seated index must be injective on the objects it
+charts — would refuse this one and would also have to be checked against the
+nine already seated. **Janet is a coarsening too**, of the elements onto
+`(n+ℓ, ℓ, k)`; it is injective there, but `(n+ℓ, ℓ)` alone is not, and DOCKET 2
+turned on exactly which projections count.
+
+Nothing is seated on the strength of this. K6 is **reachable and unseated**.
+
+---
+
 ## DOCKET 9 — WHICH BLOCK CONVENTION DOES THE CORPUS RULE FOR?  **OPEN, AND OWED**
 
 **DOCKET 2 CLOSED THIS BY SIDE EFFECT AND THAT IS NOT A RULING.** Completing the
