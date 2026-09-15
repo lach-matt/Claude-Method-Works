@@ -1735,3 +1735,130 @@ them and neither altering any existing call:
 **WHAT THE VIEW DOES NOT SHOW, and the caption says so:** the chart's own
 coordinates. Its axes are the member's identity, not the seven slots the index
 is charted on.
+
+---
+
+## DOCKET 18 — nine candidate indexes adjudicated: three built, six rejected
+
+M: *"Please continue with the other identified first-order indexes."*
+
+An earlier hunt over the corpus returned 22 candidates and qualified 9. **Those
+9 were re-adjudicated against the CURRENT registry**, because the hunt ran before
+`gravity` existed and `gravity` has since absorbed all 3,558 AME2020 nuclides and
+the levels of 118 species. A candidate distinct then may be a duplicate now.
+
+### The six rejections, each with the number that decides it
+
+| candidate | why it is not an index |
+|---|---|
+| COORDINATES.tsv, 104,832 rows | **98.8 % declaration, not observation** — 103,545 rows are a formula on a chosen grid, and DOCKET 11 pinned the OBSERVED box. Every observed row is one `channels` already consumes. |
+| SPECTRA-DATA.tsv, 596 rows | **It is `laws.py`'s own source file.** `laws.rows()` returns 596. Jaccard 0.98; the 11 extra keys are the rows `laws` already verdicts UNPARSED or REVERSED. |
+| AME2020 nuclide index, 3,558 | **Identical to `gravity`'s mass source**, row overlap 1.000, and (Z, N) is perfectly injective — both coordinates together are a row label. |
+| Angeli–Marinova charge radii, 23 | All 23 contained in AME2020; `R_fm` is 23/23 = 1.0000 LABEL, and sign(d⟨r²⟩) equals sign(N − N_ref) on 23/23 — zero information beyond two AME integers. |
+| X-ray Ritz closure, 317 | **Half of it tests a spreadsheet**: 81 of 165 theory members close to exactly zero. The rescued chart is 152 cells over 152 members — injective. |
+| Landé interval rule, 894 triples | **Folded into `terms`, not rejected as false.** See below. |
+
+### BUILD 1 — `nucshell`, and the magic numbers turn out to prove nothing
+
+22 nuclear single-particle subshells on `(nr, l, sigma)`. **22 cells, box 42,
+cell (3, 7, 6), and it closes under geometry AND statistics** — the only seated
+index of arity 3 that reaches that channel.
+
+**IT IS THE ONLY NON-ATOMIC MEMBER TYPE IN THE TREE.** No seated index carries a
+single-particle half-integer j; `gravity`'s 2Je is a whole electron cloud's
+angular momentum attached to a Z.
+
+**THE FIRST FINDING IS THAT A TEST EVERYONE TRUSTS IS NULL HERE.** Two banked
+orders disagree at 8 of 22 positions. Order A's own header calls itself
+"CORRECTED standard order, capacities verified to close at 2, 8, 20, 28, 50, 82,
+126". The check passes — **and it passes for B as well**, both hitting all seven
+and both totalling 126.
+
+    THE FIRST EXPLANATION WRITTEN FOR THIS WAS WRONG AND ITS FIXTURE CAUGHT IT.
+    The claim was that no disagreement sits at a block-closing position;
+    position 21 does. The true statement is stronger: **the seven blocks have
+    IDENTICAL MEMBERSHIP in both orders**, and they differ only by permutations
+    inside blocks. A block's closing sum is a sum over a SET, so no permutation
+    inside it can move that sum. The magic numbers verify the BLOCK PARTITION and
+    say nothing whatever about sequence.
+
+**WHAT DECIDES IT IS CORROBORATION, AND IT IS ONE-SIDED.** Four further files
+carry a sequence: `c3.py`, `c4.py` and `corridor_identity.py` match A on all 22,
+and **`method/members/r2-ch16e.py` — a SEATED MEMBER — matches A on all 16 it
+carries**. Every one of the four matches B on exactly 11, which is the common
+prefix. **Not one file follows B past the point of disagreement.** B is not
+called wrong: RECOVERED / UNCORROBORATED / SUPERSEDED is what is measured.
+
+**`delta` (A's position minus B's) is a real measurement and still not an axis.**
+Appending it takes the index from closing two languages to closing **nothing**,
+and the box from 42 to 210; no three-coordinate chart containing it is faithful.
+Banked as a ledger column, status MEASURED.
+
+**AND THE CELL TUPLES DO COLLIDE.** This was first asserted zero and the fixture
+refused it: `channels` 13, `fibred` 5, `madelung` and `inversion` 4, `laws` 1.
+They are **homographs at full arity** — a nuclear (nr, l, sigma) equal to an
+electronic (n, l, k) — which is exactly why `overlap.py` calls `cell_overlap` the
+WEAK test and keeps a strong one on identity keys beside it.
+
+### BUILD 2 — `terms`, and the gate fired
+
+5,132 Russell–Saunders terms over 122 spectra. **112 cells, box 270, cell
+(0, 13, 18), K0.**
+
+**TWO CANDIDATES WERE FOLDED INTO ONE.** A Landé triple lies inside exactly one
+term — the map is total and many-to-one — so seating both would put one body of
+rows on two vertices at two cells, which `overlap.py` §0 names as the dangerous
+case. Neither precedent licenses it: `periodic layout 2-D` was a strict
+projection and was withdrawn; `madelung` is a strict coarsening and stayed. Landé
+is a **refinement of the member granularity**, which multiplies the box.
+
+**THE INTERVAL VERDICT WAS GATED BEFORE THE NUMBERS WERE SEEN**, because it
+carries a declared tolerance and a tolerance is a tuning constant:
+
+| tolerance | 0.01 | 0.02 | 0.05 | 0.10 | 0.20 | 0.50 |
+|---|---|---|---|---|---|---|
+| cells with interval | 152 | 162 | 174 | **177** | 172 | 163 |
+| its cell width | 31 | 31 | 32 | **34** | 33 | 32 |
+| cells without | 112 | 112 | 112 | 112 | 112 | 112 |
+
+**IT MOVES, AND IT IS NOT EVEN MONOTONE.** So `interval` drops to the ledger and
+the index seats on four coordinates. The Landé measurement is banked per triple
+— 1,269 rows, with an untuned band and **18 degenerate intervals refused rather
+than banded to zero**.
+
+**IT DOES NOT TEST RUSSELL–SAUNDERS COUPLING**, and the measurement says so:
+MIXED occurs on **exactly one member of 5,132** (the Al I `3s.3p.(3P*).6p 2S` row,
+banking J = 3/2 against a predicted {1/2}). So `completeness` measures the
+agreement between a banked LABEL and its own banked J VALUES — a statement about
+the table. The row is charted and left alone.
+
+**194 FILES WERE FOUND WHERE THE CANDIDATE'S LIST HELD 43**, and the other 151
+differ only in whether their header is capitalised. Sources are chosen by a
+predicate; a file list would have lost them, and a file is never in a member key.
+
+### BUILD 3 — `madrule`
+
+20 elements whose NIST-observed ground configuration is not the Madelung
+prediction. **13 cells, box 96, cell (2, 6, 4), closes in statistics alone.**
+Members are ELEMENTS, a type no seated index has.
+
+It is not `inversion`: **17 of `inversion`'s 20 subshell pairs carry no
+exception**, so an inversion is necessary and nowhere near sufficient. But
+`madrule` at (2, 6, 4) sits **one width-unit from `inversion` at (2, 6, 5)** —
+same channel, same height. **That is recorded and not ruled on**: whether such
+proximity should block a seating is a ruling, and the file does not make it.
+
+The half-filled story is **counted, not told**: 2 half-filled acceptors, 4
+filled, and **14 neither** — more than the other two together.
+
+### The figure
+
+Vertices 8 → **11**. E 19 → **39**. All three are disruptive; none was built to
+land anywhere. `registry.COMPLETE` stays False.
+
+### A FIFTH pinned-count fixture became a property
+
+`nucshell`'s homograph fixture pinned exact per-index collision counts, and
+seating two further arity-3 indexes changed them — so a CORRECT addition to the
+registry fired the fixture. The same error as `store.py`'s docket count,
+`preserve`'s adjudication count and twice in `figure`/`demand`/`overlap`.

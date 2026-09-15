@@ -260,7 +260,7 @@ CSS = r"""<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=
   --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
   --information:#B86A12; --statistics:#2456A0;
   --bound:#B86A12; --free:#137A69; --undet:#7C8796;
-  --hue7:#8A6D3B; --hue8:#4A5A8C;
+  --hue7:#8A6D3B; --hue8:#4A5A8C; --hue9:#9C4A6E;
   --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
 }
 @media (prefers-color-scheme:dark){
@@ -271,8 +271,7 @@ CSS = r"""<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=
     --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
     --information:#E0A557; --statistics:#79A9EE;
     --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
-  --hue7:#CBA96B; --hue8:#8FA3D9;
-    --hue7:#CBA96B; --hue8:#8FA3D9;
+    --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
   }
 }
@@ -283,6 +282,7 @@ CSS = r"""<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=
   --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
   --information:#E0A557; --statistics:#79A9EE;
   --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
 }
 *{box-sizing:border-box}

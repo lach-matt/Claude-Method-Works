@@ -37,10 +37,10 @@ import registry    # noqa: E402
 E = html.escape
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 # EIGHT DISTINCT TOKENS, because the channel index reaches l = 7 and a ramp of
-# six made l = 6 and l = 0 the SAME COLOUR -- two different subshell types under
+# six made l = 6 and l = 0 the SAME COLOUR (and the term index needs nine) -- two different subshell types under
 # one hue, which is a lie the eye cannot see through. `ramp()` refuses to wrap.
 RAMP = ("--statistics", "--geometry", "--information", "--algebra", "--order",
-        "--accent", "--hue7", "--hue8")
+        "--accent", "--hue7", "--hue8", "--hue9")
 
 
 def ramp(vals):
@@ -694,10 +694,490 @@ def build_ions():
     _write("ions-index-plate.html", h)
 
 
+
+
+def build_nucshell():
+    import nucshell as N
+    X = N.index()
+    m = measured(X)
+    ss = sorted({c[2] for c in X})
+    pts = [(c[0], c[1], c[2], ramp(ss)[c[2]], 0, "") for c in sorted(X)]
+    h = [plate.head("The Nuclear Subshell Index"), '<div class="wrap">']
+    h.append('''<header class="mast">
+  <p class="eyebrow">Research plate · the only non-atomic index seated here</p>
+  <h1>The Nuclear&nbsp;Subshell&nbsp;Index</h1>
+  <p class="dek">The single-particle subshells of the shell model, to the 126
+  closure — and the one member type in this tree that is not atomic.</p>
+  <div class="stamp"><span>instrument <b>nucshell.py</b></span>
+  <span>members <b>22 subshells</b></span><span>arity <b>3</b></span>
+  <span>cells <b>%d</b></span><span>cell <b>(%d,&nbsp;%d,&nbsp;%d)</b></span>
+  <span>closes <b>geometry, statistics</b></span></div>
+</header>''' % (m["cells"], *m["cell"]))
+    h.append('''<section>
+  <div class="shead"><span class="snum">01</span><h2>Two banked orders, the same
+  twenty-two subshells</h2></div>
+  <p class="sub">Order&nbsp;A is
+  <span class="mono">extracted/archives/restore-point-2-13/nuclear_corridor.py</span>,
+  order&nbsp;B is <span class="mono">recovered/nuccorr.py</span>. They hold the
+  same set and differ at <b>eight</b> of the twenty-two positions.</p>
+  <div class="tablewrap"><table><thead><tr><th class="num">position</th>
+    <th>order A</th><th>order B</th></tr></thead><tbody>%s</tbody></table>
+    <caption>Membership is not in question; only the sequence is.</caption></div>
+</section>''' % "".join(
+        '<tr><td class="num">%d</td><td class="mono">%s</td>'
+        '<td class="mono">%s</td></tr>' % d for d in N.disagreements()))
+    ha, hb, sep = N.magic_is_null()
+    rows, allsame = N.block_membership_identical()
+    h.append('''<section>
+  <div class="shead"><span class="snum">02</span><h2>The magic numbers do not
+  decide it</h2></div>
+  <p class="sub">Order A's own header calls itself <em>"CORRECTED standard
+  order, capacities verified to close at 2, 8, 20, 28, 50, 82, 126"</em>. The
+  check passes — and it passes for B as well.</p>
+  <div class="kv">
+    <div><dt>A hits</dt><dd>%s</dd></div>
+    <div><dt>B hits</dt><dd>%s</dd></div>
+    <div><dt>separates them</dt><dd class="hot">%s</dd></div>
+  </div>
+  <div class="note good" style="margin-top:22px">
+    <span class="lab">And the reason is a fact about sets, not about positions</span>
+    <p>The first explanation written here was that no disagreement sits at a
+    block-closing position. <b>Its own fixture refused that</b> — position 21
+    does. The true statement is stronger: <b>the seven blocks have identical
+    membership in both orders</b>, and the orders differ only by permutations
+    <em>inside</em> blocks.</p>
+    <p style="margin-bottom:0">A block's closing sum is the sum over its
+    members, which is a <em>set</em>, so no permutation inside it can move that
+    sum. The magic numbers verify the <b>block partition</b> and say nothing
+    whatever about the sequence within a block. A test that passes for both
+    candidates is not evidence for either, and this file does not quote it as
+    though it were.</p>
+  </div>
+  <div class="tablewrap"><table><thead><tr><th class="num">closure</th>
+    <th>same membership in A and B</th><th class="num">subshells</th></tr></thead>
+    <tbody>%s</tbody></table></div>
+</section>''' % (list(ha), list(hb), sep, "".join(
+        '<tr><td class="num">%d</td><td>%s</td><td class="num">%d</td></tr>'
+        % (c, '<span class="yes">yes</span>' if s else
+           '<span class="no">no</span>', n) for c, s, n in rows)))
+    h.append('''<section>
+  <div class="shead"><span class="snum">03</span><h2>What decides it is
+  corroboration, and it is one-sided</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>file</th>
+    <th class="num">longest run matching A</th>
+    <th class="num">matching B</th><th></th></tr></thead><tbody>%s</tbody></table>
+    <caption>The 11 is the <b>common prefix</b>: positions 0–10 are where A and
+    B agree, so every file stops matching B exactly where the two diverge.
+    <b>Not one file in the repository follows B past the disagreement</b>, and
+    one of the four that follow A is a seated member of The Method.</caption>
+  </div>
+  <div class="note"><span class="lab">B is not called wrong</span>
+  <p style="margin-bottom:0">Order B reproduces every magic number and is a
+  coherent shell-model parameterisation. Its status is <b>%s</b> — superseded
+  and uncorroborated is what is measured; <em>wrong</em> is not. Order A's own
+  status is <b>%s</b>: a shell-model ordering, not a theorem.</p></div>
+</section>''' % ("".join(
+        '<tr><td class="mono sm">%s</td><td class="num">%d</td>'
+        '<td class="num">%d</td><td>%s</td></tr>'
+        % (r, a, b, '<span class="chip b1">SEATED MEMBER</span>' if s else "")
+        for r, a, b, s in N.corroboration()),
+        N.ORDER_B_STATUS, N.ORDER_A_STATUS))
+    h.append('''<section>
+  <div class="shead"><span class="snum">04</span><h2>The three coordinates</h2></div>
+  %s
+  <p class="after"><b>sigma rather than j itself</b>, because j is determined by
+  (l, sigma) and a coordinate the others already fix is over-representation.
+  Spin–orbit splitting <em>is</em> the sigma&nbsp;=&nbsp;+1 member lying below
+  its sigma&nbsp;=&nbsp;−1 partner, so the coordinate is the physics rather than
+  a re-encoding of it.</p>
+</section>''' % chart_table([("nr", "radial quantum number"),
+                            ("l", "orbital angular momentum"),
+                            ("sigma", "sign(j &minus; l): +1 is j = l+&frac12;")],
+                           X, m["res"]))
+    h.append(plate.view3d(
+        "nu3d", pts, ("nr  radial quantum number", "l  orbital angular momentum",
+                      "sigma  sign(j - l)"),
+        [(ramp(ss)[v], "sigma = %+d  (j = l %s &frac12;)" % (v, "+" if v > 0 else "&minus;"))
+         for v in ss],
+        plate.exactness(X, (0, 1, 2), m["cells"], 0, []) +
+        " The two coloured sheets are the two spin&ndash;orbit partners: every "
+        "subshell with j = l+&frac12; sits on one, its j = l&minus;&frac12; twin "
+        "on the other, and the gap between them is the splitting that makes the "
+        "magic numbers what they are.",
+        "One point per nuclear subshell, at its own (nr, l, sigma).",
+        "05", "The index, plotted exactly", radius=7,
+        aria="the nuclear subshell index: 22 subshells at nr, l and the "
+             "spin-orbit sign"))
+    h.append('''<section>
+  <div class="shead"><span class="snum">06</span><h2>What was measured and
+  refused</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>candidate coordinate</th>
+    <th class="num">distinct</th><th class="num">ratio</th><th>verdict</th>
+    </tr></thead><tbody>%s</tbody></table></div>
+  <div class="note warn"><span class="lab">delta is a real measurement and still
+  does not go on an axis</span>
+  <p style="margin-bottom:0">It is neither constant nor a label. But appending
+  it takes the index from closing under <b>geometry and statistics</b> to
+  closing <b>nothing</b>, and takes the box from <b>42 to 210</b>; and no
+  three-coordinate chart containing it is faithful — the three that exist hold
+  17, 10 and 17 cells against 22. So it is banked as a <b>ledger column</b>, one
+  row per subshell, and never charted. Status <b>%s</b>, never PINNED.</p></div>
+  <div class="tablewrap tall"><table><thead><tr><th>subshell</th>
+    <th class="num">nr</th><th class="num">l</th><th class="num">2j</th>
+    <th class="num">rank A</th><th class="num">rank B</th>
+    <th class="num">delta</th><th class="num">cumulative</th></tr></thead>
+    <tbody>%s</tbody></table>
+    <caption>The ledger. A shaded cumulative figure is a magic number.</caption>
+  </div>
+</section>''' % ("".join(
+        '<tr><td class="name">%s</td><td class="num">%d</td>'
+        '<td class="num">%.4f</td><td>%s</td></tr>'
+        % (nm, d, r, '<span class="no">LABEL</span>' if v == "LABEL" else v)
+        for nm, d, _n, r, v in N.rejected_coordinates()),
+        N.DELTA_STATUS,
+        "".join('<tr><td class="name mono">%s</td><td class="num">%d</td>'
+                '<td class="num">%d</td><td class="num">%d</td>'
+                '<td class="num">%d</td><td class="num">%d</td>'
+                '<td class="num">%+d</td><td class="num">%s</td></tr>'
+                % (nm, nr, l, tj, ra, rb, d,
+                   ('<b class="hot">%d</b>' % cum) if cum in N.MAGIC else cum)
+                for nm, nr, l, tj, ra, rb, d, cum in N.ledger())))
+    hom = N.cell_homographs()
+    h.append('''<section>
+  <div class="shead"><span class="snum">07</span><h2>The member type is new —
+  and the cell tuples do collide</h2></div>
+  <p class="sub">No seated index has a nuclear member. <span class="mono">gravity</span>
+  carries 2J<sub>e</sub>, which is a whole electron cloud's angular momentum for
+  a nuclide-charge state, not a single-particle j.</p>
+  <div class="note warn"><span class="lab">And the cell tuples DO collide, which
+  was asserted otherwise and refused</span>
+  <p>This section was first written claiming the full-arity intersection with
+  every seated index is zero. <b>Its fixture refused it:</b> %s.</p>
+  <p style="margin-bottom:0">They are <b>homographs at full arity</b>. A nuclear
+  (nr, l, sigma) that happens to equal an electronic (n, l, k) is two different
+  objects printing the same — collisions with <span class="mono">fibred</span>
+  need k = 1, because sigma is ±1. <b>This is exactly why
+  <span class="mono">overlap.py</span> calls cell_overlap the WEAK test</b> and
+  keeps a strong one on identity keys beside it.</p></div>
+</section>''' % ", ".join("<span class=\"mono\">%s</span> %d" % (k, v)
+                          for k, v in sorted(hom.items())))
+    h.append(foot("nucshell", nfixtures("nucshell")))
+    h.append("</div>")
+    _write("nucshell-plate.html", h)
+
+
+def build_madrule():
+    import madrule as M
+    X = M.index()
+    m = measured(X)
+    ds = sorted({c[1] for c in X})
+    pts = [(c[0], c[2], c[1], ramp(ds)[c[1]], 0, "") for c in sorted(X)]
+    tab = M.table()
+    npairs, without = M.inversion_pairs_without_exception()
+    a, b, _d = M.near_inversion()
+    hf, ff, nn = M.stability_story()
+    h = [plate.head("The Madelung Exception Index"), '<div class="wrap">']
+    h.append('''<header class="mast">
+  <p class="eyebrow">Research plate · an index of the periodic elements</p>
+  <h1>The Madelung&nbsp;Exception&nbsp;Index</h1>
+  <p class="dek">The twenty elements whose observed ground configuration is not
+  the one the rule predicts — the first object in this tree that tests Madelung
+  against measurement, element by element.</p>
+  <div class="stamp"><span>instrument <b>madrule.py</b></span>
+  <span>members <b>20 elements</b></span><span>arity <b>3</b></span>
+  <span>cells <b>%d</b></span><span>cell <b>(%d,&nbsp;%d,&nbsp;%d)</b></span></div>
+</header>''' % (m["cells"], *m["cell"]))
+    h.append('''<section>
+  <div class="shead"><span class="snum">01</span><h2>Two sides, never merged</h2></div>
+  %s
+  <p class="after"><b>Both sides sum to Z on all 108, and that is a fixture.</b>
+  A configuration parser that silently dropped a token would <em>invent</em>
+  exceptions out of its own gaps, so the arithmetic is checked before any
+  comparison is made, and the parser raises rather than skipping.</p>
+  <div class="note"><span class="lab">The reach control, printed rather than hidden</span>
+  <p style="margin-bottom:0">The count is a function of how far the observed
+  table reaches: %s. First exception <b>%s at Z = %d</b>.</p></div>
+</section>''' % (kv(("observed", "108", "LW1-ground.py · NIST ASD 5.12 · status %s" % M.OBSERVED_STATUS),
+                    ("predicted", "108", "shells.py config() · status %s" % M.PREDICTED_STATUS),
+                    ("the rule", M.RULE_STATUS, "not a theorem"),
+                    ("exceptions", len(tab), "the members")),
+                 ", ".join("Z&le;%d&rarr;%d" % r for r in M.reach_control()),
+                 M.first_exception()[1], M.first_exception()[0]))
+    h.append('''<section>
+  <div class="shead"><span class="snum">02</span><h2>The three coordinates</h2></div>
+  <p class="sub">An exception moves electrons from a subshell the rule would have
+  filled to one it would not have. The coordinates are that transfer.</p>
+  %s
+  <p class="after">Z was measured as a coordinate and <b>refused</b>: 20/20 =
+  1.0000, a row label. And <b>occ is the coordinate nearest the threshold</b> at
+  0.6154 — the one that tips first if the reach ever grows, recorded now rather
+  than discovered later.</p>
+</section>''' % chart_table([("S_a", "the acceptor's Madelung group n+l"),
+                            ("l_d", "the donor's orbital angular momentum"),
+                            ("occ", "observed occupancy of the acceptor")],
+                           X, m["res"]))
+    h.append(plate.view3d(
+        "mr3d", pts, ("S_a  acceptor group n+l", "occ  acceptor occupancy",
+                      "l_d  donor l"),
+        [(ramp(ds)[v], "donor l = %d  (%s)" % (v, SUB[v])) for v in ds],
+        plate.exactness(X, (0, 1, 2), m["cells"], 0, []) +
+        " Colour is the donor's &#8467;, which is also the vertical axis: the "
+        "three sheets are the three kinds of subshell that give an electron up "
+        "&mdash; s, d and f. <b>Twenty elements fall on %d cells</b>, so several "
+        "exceptions share a transfer exactly." % m["cells"],
+        "One point per cell of the chart.",
+        "03", "The index, plotted exactly", radius=7,
+        aria="the Madelung exception index: %d cells at acceptor group, "
+             "occupancy and donor l" % m["cells"]))
+    h.append('''<section>
+  <div class="shead"><span class="snum">04</span><h2>It is not
+  <span class="mono">inversion</span>, and that was measured</h2></div>
+  <p class="sub"><span class="mono">inversion</span> asks where the two orders
+  disagree. This asks where <em>nature</em> disagrees with one of them.</p>
+  <div class="kv">
+    <div><dt>inversion's subshell pairs</dt><dd>%d</dd></div>
+    <div><dt>carrying no exception</dt><dd class="hot">%d</dd></div>
+    <div><dt>element overlap</dt><dd>0<small>inversion has no elements</small></dd></div>
+  </div>
+  <p class="after">An inversion is <b>necessary</b> for an exception and nowhere
+  near <b>sufficient</b>.</p>
+  <div class="note warn"><span class="lab">And the two cells are adjacent —
+  recorded, not ruled on</span>
+  <p style="margin-bottom:0">This index sits at <b>%s</b>;
+  <span class="mono">inversion</span> sits at <b>%s</b>. Same channel, same
+  height, one unit of width apart. That is a measurement and not a verdict:
+  whether such proximity should block a seating is a <em>ruling</em>, and this
+  file does not make it. It is stated because a reader comparing the two charts
+  would find it anyway.</p></div>
+</section>''' % (npairs, without, a, b))
+    h.append('''<section>
+  <div class="shead"><span class="snum">05</span><h2>Every exception</h2></div>
+  <div class="tablewrap tall"><table><thead><tr><th class="num">Z</th>
+    <th>element</th><th>acceptor</th><th>donor</th><th>cell</th></tr></thead>
+    <tbody>%s</tbody></table></div>
+  <div class="note"><span class="lab">The half-filled story is counted, not told</span>
+  <p style="margin-bottom:0">The familiar account is that an exception buys a
+  half-filled or filled subshell. Measured over the twenty: <b>%d</b> land on a
+  half-filled acceptor, <b>%d</b> on a filled one, and <b>%d on neither</b> —
+  more than the other two together. The count is printed; the story is not
+  told.</p></div>
+</section>''' % ("".join(
+        '<tr><td class="num">%d</td><td class="name">%s</td>'
+        '<td class="mono">%d%s</td><td class="mono">%d%s</td>'
+        '<td class="cell">(%d, %d, %d)</td></tr>'
+        % (Z, sym, ac[0], SUB[ac[1]], dn[0], SUB[dn[1]], *c)
+        for Z, sym, ac, dn, c in tab), hf, ff, nn))
+    h.append(foot("madrule", nfixtures("madrule")))
+    h.append("</div>")
+    _write("madrule-plate.html", h)
+
+
+
+
+def build_terms():
+    import terms as T
+    import itertools as _it
+    X = T.index()
+    m = measured(X)
+    c = T.census()
+    comp, iv = T.verdict_counts()
+    tri = (0, 1, 2)                       # mult, L, parity -- the widest, 71 pts
+    proj = sorted({tuple(cc[i] for i in tri) for cc in X})
+    ls = sorted({p[1] for p in proj})
+    pts = [(p[0], p[2], p[1], ramp(ls)[p[1]], 0, "") for p in proj]
+    # every off-axis colour, measured
+    offaxis = []
+    for t3 in _it.combinations(range(4), 3):
+        rest = [i for i in range(4) if i not in t3][0]
+        pr = collections.defaultdict(set)
+        for cc in X:
+            pr[tuple(cc[i] for i in t3)].add(cc[rest])
+        offaxis.append(("/".join(T.NAMES[i] for i in t3), T.NAMES[rest],
+                        len(pr), sum(1 for v in pr.values() if len(v) > 1)))
+    h = [plate.head("The Term Index"), '<div class="wrap">']
+    h.append('''<header class="mast">
+  <p class="eyebrow">Research plate · two candidates folded into one index</p>
+  <h1>The Term&nbsp;Index</h1>
+  <p class="dek">Every Russell–Saunders term of every banked spectrum, charted
+  by what its J values do — with the Landé interval measured, gated, and sent
+  to the ledger rather than onto an axis.</p>
+  <div class="stamp"><span>instrument <b>terms.py</b></span>
+  <span>members <b>%s terms</b></span><span>spectra <b>%d</b></span>
+  <span>arity <b>4</b></span><span>cells <b>%d</b></span>
+  <span>cell <b>(%d,&nbsp;%d,&nbsp;%d)</b></span><span>channel <b>K0</b></span></div>
+</header>''' % ("{:,}".format(c["members"]), c["spectra"], m["cells"], *m["cell"]))
+    h.append('''<div class="note warn" style="margin-top:26px">
+  <span class="lab">Two candidates were folded into one, and that is the point</span>
+  <p>A Russell–Saunders term index and a Landé interval-rule index were
+  proposed separately over the same rows. <b>A Landé triple lies inside exactly
+  one term</b> — every triple needs an L, an S and a J to exist at all — so the
+  map from triples to terms is total and many-to-one. Seating both would put
+  <em>one body of rows on two vertices at two different cells</em>, which is the
+  case <span class="mono">overlap.py</span>'s own section 0 names as the
+  dangerous one.</p>
+  <p style="margin-bottom:0">Neither precedent licenses it. <em>periodic layout
+  2-D</em> was withdrawn for being a strict projection over the same members;
+  <span class="mono">madelung</span> stayed because it is a strict
+  <em>coarsening</em> over the same members. Landé is neither — it is a
+  <b>refinement of the member granularity</b>, which multiplies the box instead
+  of coarsening it. So there is one index, and the interval is banked per
+  triple in the ledger.</p>
+</div>''')
+    gr = T.gate()
+    h.append('''<section>
+  <div class="shead"><span class="snum">01</span><h2>The gate fired: four
+  coordinates, not five</h2></div>
+  <p class="sub">The interval verdict carries a <b>declared tolerance</b>, which
+  is a tuning constant, so it was gated <em>before</em> the numbers were seen:
+  chart the index across a range of tolerances and see whether the cell count
+  moves.</p>
+  <div class="tablewrap"><table><thead><tr><th class="num">tolerance</th>
+    <th class="num">cells with interval</th><th>its cell</th>
+    <th class="num">cells without</th></tr></thead><tbody>%s</tbody></table>
+    <caption>The five-coordinate count moves, its cell moves, and the count is
+    <b>not even monotone</b>. The four-coordinate count does not move at
+    all.</caption></div>
+  <div class="note good">
+    <span class="lab">So the verdict is the measurement's, not the author's</span>
+    <p style="margin-bottom:0">A coordinate whose alphabet is a function of a
+    number nobody measured is not an axis. <b>interval drops to the ledger</b>,
+    status <span class="mono">%s</span>, and the index seats on
+    (mult,&nbsp;L,&nbsp;parity,&nbsp;completeness) at <b>%d cells, box %d, cell
+    %s</b> — a chart that is tolerance-independent at every tolerance
+    tried.</p></div>
+</section>''' % ("".join(
+        '<tr><td class="num">%s</td><td class="num">%d</td>'
+        '<td class="cell">(%d, %d, %d)</td><td class="num">%d</td></tr>'
+        % (t, n, cc[0], cc[1], cc[2], mm) for t, n, cc, mm in gr),
+        T.INTERVAL_STATUS, m["cells"], m["box"], m["cell"]))
+    h.append('''<section>
+  <div class="shead"><span class="snum">02</span><h2>The sources, chosen by
+  predicate and never by a file list</h2></div>
+  %s
+  <div class="note"><span class="lab">What is refused at the door, and named</span>
+  <p><b>Bracketed jK, jj and Racah labels are refused, not coerced</b> — a label
+  like <span class="mono">2[5/2]*</span> is not an LS term and has no L or S to
+  test; forcing one would invent the measurement. %s rows carry such a label.
+  Four files are refused for an unreadable species and are <em>named</em>:
+  %s. One file is skipped as a byte-identical duplicate:
+  <span class="mono">recovered/LuI__16455659.tsv</span>.</p>
+  <p style="margin-bottom:0"><b>On LuI</b>, whose data rows are byte-identical
+  to the corpus's own <span class="mono">quarantine/LuI.FABRICATED.tsv</span>:
+  it is read anyway, because the label is unsupported. An <em>independent</em>
+  capture under register 1639 agrees <b>exactly</b> on all %d of its
+  (config, term, J) rows — zero disagreements, a strict subset. %d rows are
+  corroborated, %d undecided, and the file is neither trusted whole nor
+  discarded whole. Nothing is repaired, moved or relabelled.</p></div>
+  <p class="after"><b>194 files were found where the candidate's own list held
+  43.</b> The other 151 differ from those 43 only in whether their header is
+  capitalised — which is a filing fact, not a fact about the data, and selecting
+  by a file list would have lost them.</p>
+</section>''' % (kv(("files", c["files"], "by header predicate"),
+                    ("spectra", c["spectra"], "the member key, never the file"),
+                    ("rows scanned", "{:,}".format(c["rows"]), ""),
+                    ("levels admitted", "{:,}".format(c["admitted"]), ""),
+                    ("MEMBERS", "{:,}".format(c["members"]), "")),
+                 "{:,}".format(c["refused_bracketed"]),
+                 ", ".join("<span class=\"mono sm\">%s</span>" % f
+                           for f in T.unreadable_species()),
+                 T.LUI_CORROBORATED_ROWS, T.LUI_CORROBORATED_ROWS,
+                 T.LUI_UNDECIDED_ROWS))
+    h.append('''<section>
+  <div class="shead"><span class="snum">03</span><h2>The four seated
+  coordinates</h2></div>
+  %s
+  <div class="note warn"><span class="lab">It does NOT test Russell–Saunders
+  coupling, and the measurement says so</span>
+  <p style="margin-bottom:0"><b>MIXED — a banked J outside the multiplet the
+  term symbol implies — occurs on exactly ONE member of %s</b>, the Al&nbsp;I
+  <span class="mono">3s.3p.(3P*).6p 2S</span> row, which banks J&nbsp;=&nbsp;3/2
+  against a predicted {1/2}. So what <span class="mono">completeness</span>
+  measures is the agreement between a banked <em>label</em> and its own banked
+  <em>J values</em>: a statement about the table, not about whether nature
+  couples that way. Calling it a coupling test is the claim the numbers refuse.
+  The row is charted and <b>left alone</b>.</p></div>
+</section>''' % (chart_table([("mult", "2S+1 from the term symbol, clipped at 5"),
+                             ("L", "the term letter, clipped at 8"),
+                             ("parity", "0 even, 1 odd"),
+                             ("completeness", "banked J set against the implied multiplet")],
+                            X, m["res"]),
+                 "{:,}".format(c["members"])))
+    h.append(plate.view3d(
+        "te3d", pts, ("mult  2S+1", "parity  0 even, 1 odd",
+                      "L  term letter"),
+        [(ramp(ls)[v], "L = %d  (%s)" % (v, "SPDFGHIKL"[v])) for v in ls],
+        plate.exactness(X, tri, len(proj), 0,
+                        [(n, imp, t) for t, _c, n, imp in
+                         [(a, b, n, imp) for a, b, n, imp in offaxis]]) +
+        " <b>And the colour restates an axis rather than smuggling the fourth "
+        "coordinate in as a lie.</b> Every off-axis colour was measured and "
+        "every one is impure: " +
+        "; ".join("%s coloured by %s, %d of %d points mixed"
+                  % (a, b, imp, n) for a, b, n, imp in offaxis) +
+        ". There is no honest fourth channel here, so colour is L, which is "
+        "also the vertical axis.",
+        "This index has four coordinates, so its 3-D view is a projection — and "
+        "what the projection costs is measured, including what it could not "
+        "honestly show.",
+        "04", "The index, projected — and what that costs", radius=6,
+        aria="the term index: %d of %d cells projected onto multiplicity, "
+             "L and parity" % (len(proj), m["cells"])))
+    h.append('''<section>
+  <div class="shead"><span class="snum">05</span><h2>What the verdicts say</h2></div>
+  <div class="trio">
+    <div class="per"><div class="who">completeness</div>
+      <div class="what">%s</div>
+      <div class="obj">COMPLETE %s · SHORT %s · MIXED %d. <b>SHORT does not mean
+      a level is absent</b> — a partial capture and a partial measurement look
+      the same from here, and this file cannot tell which.</div></div>
+    <div class="per"><div class="who">interval, at the declared %g</div>
+      <div class="what">%s obey · %s break</div>
+      <div class="obj"><b>BREAKS is not a fault.</b> The Landé rule is an
+      approximation that holds in pure LS coupling; departure from it is
+      physics.</div></div>
+    <div class="per"><div class="who">not testable</div>
+      <div class="what">%s</div>
+      <div class="obj">%.0f%% of members have fewer than three banked levels
+      with energies, so the interval cannot be formed. <b>That is a fact about
+      the capture and not negative evidence.</b></div></div>
+  </div>
+  <h3>The Landé ledger — banked per triple, never charted</h3>
+  <p>%s consecutive-J triples, each keyed to its parent term, carrying the raw
+  ratio against (J+1)/J and an <b>untuned</b> band. <b>%d degenerate intervals
+  are refused rather than banded to zero</b>, which would have been a lie about
+  a division by nothing.</p>
+  <div class="tablewrap"><table><thead><tr><th>spectrum</th><th>term</th>
+    <th>2J triple</th><th class="num">ratio</th><th class="num">Landé</th>
+    <th class="num">band</th></tr></thead><tbody>%s</tbody></table>
+    <caption>The first twenty of %s.</caption></div>
+</section>''' % (("%d" % sum(comp.values())), "{:,}".format(comp.get("COMPLETE", 0)),
+                 "{:,}".format(comp.get("SHORT", 0)), comp.get("MIXED", 0),
+                 T.TOLERANCE, iv.get("OBEYS", 0), iv.get("BREAKS", 0),
+                 "{:,}".format(iv.get("NOT-TESTABLE", 0)),
+                 100.0 * iv.get("NOT-TESTABLE", 0) / c["members"],
+                 "{:,}".format(len(T.ledger())), len(T.degenerate_intervals()),
+                 "".join(
+                     '<tr><td class="name">%s</td><td class="mono">%s</td>'
+                     '<td class="mono">%d/%d/%d</td><td class="num">%s</td>'
+                     '<td class="num">%.4f</td><td class="num">%s</td></tr>'
+                     % (E(sp), E(tm), tr[0], tr[1], tr[2],
+                        ("%.4f" % R) if R is not None else
+                        '<span class="no">DEGEN</span>', want,
+                        band if band is not None else
+                        '<span class="no">%s</span>' % verd)
+                     for sp, _cf, tm, tr, R, want, band, verd in T.ledger()[:20]),
+                 "{:,}".format(len(T.ledger()))))
+    h.append(foot("terms", nfixtures("terms")))
+    h.append("</div>")
+    _write("terms-plate.html", h)
+
+
 BUILDERS = {"inversion": build_inversion, "probability": build_probability,
             "laws": build_laws, "fibred": build_fibred,
             "madelung": build_madelung, "channels": build_channels,
-            "ions": build_ions}
+            "ions": build_ions,
+            "nucshell": build_nucshell, "madrule": build_madrule,
+            "terms": build_terms}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or sorted(BUILDERS)

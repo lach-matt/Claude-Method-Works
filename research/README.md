@@ -11990,3 +11990,62 @@ does not carry a copy of one.
 Both were forced by looking at the rendered output: the first camera sweep tried to solve
 legibility geometrically, five of seven plates then satisfied no angle at all, and the constraint
 was the wrong tool.
+
+
+---
+
+## Three more first-order indexes, and six candidates rejected
+
+Nine candidates from the corpus hunt were **re-adjudicated against the current registry** — the hunt
+ran before `gravity` existed, and `gravity` has since absorbed all 3,558 AME2020 nuclides and the
+levels of 118 species, so a candidate distinct then may be a duplicate now. **Three built, six
+rejected, each rejection carrying the number that decides it:** COORDINATES.tsv is 98.8 % formula on
+a chosen grid against DOCKET 11's observed box; SPECTRA-DATA.tsv *is* `laws.py`'s own source file
+(596 rows, Jaccard 0.98); the AME2020 index is `gravity`'s mass source at row overlap 1.000 with
+(Z, N) perfectly injective; the charge radii are 23/23 contained in AME2020 with an injective
+`R_fm`; the X-ray Ritz closure has 81 of 165 theory members closing to exactly zero.
+
+- **`nucshell.py`** — **22 nuclear single-particle subshells** on `(nr, l, sigma)`. **22 cells, box
+  42, cell `(3, 7, 6)`, and it closes under geometry AND statistics** — the only arity-3 index here
+  to reach that channel. **The only non-atomic member type in the tree**: no seated index carries a
+  single-particle half-integer j.
+
+  **A test everyone trusts turns out to be null here.** Two banked orders disagree at 8 of 22
+  positions, and order A's header calls itself *"CORRECTED ... verified to close at 2, 8, 20, 28, 50,
+  82, 126"*. It does — **and so does B**, both hitting all seven. The first explanation written for
+  that was wrong and its fixture caught it; the true statement is stronger: **the seven blocks have
+  identical membership in both orders**, so they differ only by permutations *inside* blocks, and a
+  block's closing sum is a sum over a set. **The magic numbers verify the block partition and say
+  nothing about sequence.** What decides it is corroboration, and it is one-sided: three files match
+  A on all 22 and **a seated member of The Method matches it on all 16 it carries**, while every one
+  of them matches B on exactly 11 — the common prefix. B is not called wrong: RECOVERED /
+  UNCORROBORATED / SUPERSEDED is what is measured. `delta` is a real measurement that still never
+  goes on an axis — appending it takes the index from closing two languages to closing **nothing**.
+  And the cell tuples **do** collide with five seated indexes; they are homographs at full arity,
+  which is exactly why `overlap.py` calls `cell_overlap` the weak test.
+
+- **`terms.py`** — **5,132 Russell–Saunders terms over 122 spectra**, 112 cells, box 270, cell
+  `(0, 13, 18)`, K0. **Two candidates folded into one**: a Landé triple lies inside exactly one term,
+  so seating both would put one body of rows on two vertices — and neither precedent licenses it
+  (`periodic layout 2-D` was a strict *projection* and was withdrawn; `madelung` is a strict
+  *coarsening* and stayed; Landé is a **refinement of the member granularity**).
+
+  **The gate fired.** The interval verdict carries a declared tolerance, so it was gated before the
+  numbers were seen: the five-coordinate cell count runs 152, 162, 174, **177**, 172, 163 across
+  tolerances 0.01 to 0.50 — it moves, its cell moves, and it is **not even monotone** — while the
+  four-coordinate count is 112 at every one. So `interval` drops to the ledger, banked per triple
+  over 1,269 rows with an untuned band and **18 degenerate intervals refused rather than banded to
+  zero**. **It does not test Russell–Saunders coupling**, and the measurement says so: MIXED occurs
+  on **exactly one member of 5,132**. And **194 files were found where the candidate's list held
+  43** — the other 151 differ only in whether their header is capitalised, which is a filing fact.
+
+- **`madrule.py`** — **the 20 elements the Madelung rule misses**, charted by the transfer that
+  separates observed from predicted. 13 cells, box 96, cell `(2, 6, 4)`, closes in statistics alone.
+  Members are **elements**, a type no seated index has. It is not `inversion`: **17 of inversion's 20
+  pairs carry no exception**, so an inversion is necessary and nowhere near sufficient. But it sits
+  **one width-unit from `inversion`** at the same channel and height — recorded, and *not* ruled on.
+  The half-filled story is counted rather than told: 2 half-filled, 4 filled, **14 neither**.
+
+**The figure: 8 vertices → 11, E 19 → 39.** All three are disruptive and none was built to land
+anywhere. `registry.COMPLETE` stays False. Every one has a plate with a 3-D view, built on the same
+scaffold. See DOCKET 18.

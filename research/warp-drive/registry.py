@@ -46,6 +46,12 @@ quantum numbers.
     gravity       3,394 nuclide-charge   Z, N, A, q, Ne, 2J, level status
                   states, read in 8
                   spacetime dimensions
+    nucshell      22 NUCLEAR subshells   nr, l, j -- the only non-atomic
+                                         member type seated here
+    madrule       20 elements the        n+l acceptor, l donor, occupancy
+                  Madelung rule misses
+    terms         5,132 LS terms over    2S+1, L, parity, the banked J set
+                  122 spectra
 
 REMOVED, files deleted, all created in the session that made the mess:
 `store.py` and its thirteen filing-system indexes; `obstruction.py` with its
@@ -98,6 +104,12 @@ REGISTERED = (
     ("gravity", "index", "TABLE",
      "3,394 nuclide-charge states x 8 dimensions",
      "Z, N, A, q, Ne, 2J, level status"),
+    ("nucshell", "index", "TABLE", "22 nuclear single-particle subshells",
+     "nr, l, j (nuclear)"),
+    ("madrule", "index", "RESIDUAL", "20 Madelung exceptions, by their transfer",
+     "n+l of the acceptor, l of the donor, occupancy"),
+    ("terms", "index", "TABLE", "5,132 Russell-Saunders terms over 122 spectra",
+     "2S+1, L, parity, the banked J set"),
 )
 
 NOT_AN_INDEX = {
@@ -244,7 +256,7 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
-    chk("eight indexes registered", len(REGISTERED), 8)
+    chk("eleven indexes registered", len(REGISTERED), 11)
     chk("every one names its quantum numbers",
         [n for n, *_r in rows() if not _r[4].strip()], [])
     chk("every method is known",
@@ -272,6 +284,9 @@ def selftest():
     chk("probability seats 25 subshells", sz["probability.index"], 25)
     chk("inversion seats 17 distinct cells", sz["inversion.index"], 17)
     chk("gravity seats 914 distinct cells", sz["gravity.index"], 914)
+    chk("nucshell seats 22 nuclear subshells", sz["nucshell.index"], 22)
+    chk("madrule seats 13 distinct cells", sz["madrule.index"], 13)
+    chk("terms seats 112 distinct cells", sz["terms.index"], 112)
     chk("completeness is not claimed", COMPLETE, False)
     print("registry selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

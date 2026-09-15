@@ -1,4 +1,4 @@
-<title>The Rydberg Residual Index</title>
+<title>The Nuclear Subshell Index</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 :root{
@@ -144,54 +144,92 @@ ul.refuse li b{color:var(--ink)}
 </style>
 <div class="wrap">
 <header class="mast">
-  <p class="eyebrow">Research plate · an index of the periodic elements</p>
-  <h1>The Rydberg&nbsp;Residual&nbsp;Index</h1>
-  <p class="dek">Every banked Rydberg series measured against the law it is
-  supposed to obey — and charted by how badly a single quantum defect describes
-  it.</p>
-  <div class="stamp"><span>instrument <b>laws.py</b></span>
-  <span>members <b>596 series</b></span><span>arity <b>3</b></span>
-  <span>cells <b>54</b></span><span>cell <b>(0,&nbsp;25,&nbsp;7)</b></span></div>
+  <p class="eyebrow">Research plate · the only non-atomic index seated here</p>
+  <h1>The Nuclear&nbsp;Subshell&nbsp;Index</h1>
+  <p class="dek">The single-particle subshells of the shell model, to the 126
+  closure — and the one member type in this tree that is not atomic.</p>
+  <div class="stamp"><span>instrument <b>nucshell.py</b></span>
+  <span>members <b>22 subshells</b></span><span>arity <b>3</b></span>
+  <span>cells <b>22</b></span><span>cell <b>(3,&nbsp;7,&nbsp;6)</b></span>
+  <span>closes <b>geometry, statistics</b></span></div>
 </header>
 <section>
-  <div class="shead"><span class="snum">01</span><h2>A residual index, not a
-  table of values</h2></div>
-  <p class="sub">The Rydberg–Ritz law says a series member sits at
-  n* = n &minus; &delta;. The tables bank one fitted &delta; per series. The
-  residual is how far the law, with that one &delta;, misses the banked n* — and
-  that residual is the measurement.</p>
-  <div class="note"><span class="lab">Nothing is fitted here</span>
-  <p style="margin-bottom:0">No constant chosen, no threshold tuned, and the
-  only tolerance is the table's own printed precision. Where a row cannot be
-  parsed it is reported as unparsed, not guessed:
-  <span class="mono">unparsed()</span> holds 12 of 596.</p></div>
-  <div class="kv"><div><dt>CONSISTENT</dt><dd>432</dd></div><div><dt>DRIFTS</dt><dd>147</dd></div><div><dt>INCONSISTENT</dt><dd>4</dd></div><div><dt>REVERSED</dt><dd>1</dd></div><div><dt>UNPARSED</dt><dd>12</dd></div></div>
+  <div class="shead"><span class="snum">01</span><h2>Two banked orders, the same
+  twenty-two subshells</h2></div>
+  <p class="sub">Order&nbsp;A is
+  <span class="mono">extracted/archives/restore-point-2-13/nuclear_corridor.py</span>,
+  order&nbsp;B is <span class="mono">recovered/nuccorr.py</span>. They hold the
+  same set and differ at <b>eight</b> of the twenty-two positions.</p>
+  <div class="tablewrap"><table><thead><tr><th class="num">position</th>
+    <th>order A</th><th>order B</th></tr></thead><tbody><tr><td class="num">11</td><td class="mono">1g7/2</td><td class="mono">2d5/2</td></tr><tr><td class="num">12</td><td class="mono">2d5/2</td><td class="mono">3s1/2</td></tr><tr><td class="num">14</td><td class="mono">3s1/2</td><td class="mono">1g7/2</td></tr><tr><td class="num">16</td><td class="mono">1h9/2</td><td class="mono">2f7/2</td></tr><tr><td class="num">17</td><td class="mono">2f7/2</td><td class="mono">3p3/2</td></tr><tr><td class="num">18</td><td class="mono">1i13/2</td><td class="mono">1h9/2</td></tr><tr><td class="num">19</td><td class="mono">3p3/2</td><td class="mono">3p1/2</td></tr><tr><td class="num">21</td><td class="mono">3p1/2</td><td class="mono">1i13/2</td></tr></tbody></table>
+    <caption>Membership is not in question; only the sequence is.</caption></div>
 </section>
 <section>
-  <div class="shead"><span class="snum">02</span><h2>The three coordinates</h2></div>
-  <p class="sub">One cell per series: how long the series runs, how many levels
-  it banks, and how far the residual drifts across it.</p>
-  <div class="tablewrap"><table><thead><tr><th>slot</th><th>what it measures</th><th>alphabet</th><th class="num">values</th><th class="num">distinct/cells</th><th>verdict</th></tr></thead><tbody><tr><td class="name mono">span</td><td>n<sub>hi</sub> &minus; n<sub>lo</sub> — how far the series runs</td><td class="mono sm">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 23, 27, 28, 29, …</td><td class="num">28</td><td class="num">0.518</td><td>measurement</td></tr><tr><td class="name mono">levels</td><td>how many levels the table banks</td><td class="mono sm">2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23,…</td><td class="num">30</td><td class="num">0.556</td><td>measurement</td></tr><tr><td class="name mono">drift</td><td>|residual spread| &times; 10 — the band</td><td class="mono sm">0, 1, 2, 3, 5, 6</td><td class="num">6</td><td class="num">0.111</td><td>measurement</td></tr></tbody></table><caption>A coordinate separating 90% or more of the members is a row label, not a measurement. None here is.</caption></div>
-  <div class="note warn"><span class="lab">A drifting residual is not an error
-  in the data</span>
-  <p style="margin-bottom:0">The likely reading is a quantum defect that
-  <em>moves along the series</em> while the table prints one fitted value, which
-  makes the residual a measurement of how well a single defect describes the
-  series — a real quantity, and the one worth indexing. The
-  <span class="mono">lit</span> column says <em>unverified</em> for most rows
-  and that caution is inherited.</p></div>
+  <div class="shead"><span class="snum">02</span><h2>The magic numbers do not
+  decide it</h2></div>
+  <p class="sub">Order A's own header calls itself <em>"CORRECTED standard
+  order, capacities verified to close at 2, 8, 20, 28, 50, 82, 126"</em>. The
+  check passes — and it passes for B as well.</p>
+  <div class="kv">
+    <div><dt>A hits</dt><dd>[2, 8, 20, 28, 50, 82, 126]</dd></div>
+    <div><dt>B hits</dt><dd>[2, 8, 20, 28, 50, 82, 126]</dd></div>
+    <div><dt>separates them</dt><dd class="hot">False</dd></div>
+  </div>
+  <div class="note good" style="margin-top:22px">
+    <span class="lab">And the reason is a fact about sets, not about positions</span>
+    <p>The first explanation written here was that no disagreement sits at a
+    block-closing position. <b>Its own fixture refused that</b> — position 21
+    does. The true statement is stronger: <b>the seven blocks have identical
+    membership in both orders</b>, and the orders differ only by permutations
+    <em>inside</em> blocks.</p>
+    <p style="margin-bottom:0">A block's closing sum is the sum over its
+    members, which is a <em>set</em>, so no permutation inside it can move that
+    sum. The magic numbers verify the <b>block partition</b> and say nothing
+    whatever about the sequence within a block. A test that passes for both
+    candidates is not evidence for either, and this file does not quote it as
+    though it were.</p>
+  </div>
+  <div class="tablewrap"><table><thead><tr><th class="num">closure</th>
+    <th>same membership in A and B</th><th class="num">subshells</th></tr></thead>
+    <tbody><tr><td class="num">2</td><td><span class="yes">yes</span></td><td class="num">1</td></tr><tr><td class="num">8</td><td><span class="yes">yes</span></td><td class="num">2</td></tr><tr><td class="num">20</td><td><span class="yes">yes</span></td><td class="num">3</td></tr><tr><td class="num">28</td><td><span class="yes">yes</span></td><td class="num">1</td></tr><tr><td class="num">50</td><td><span class="yes">yes</span></td><td class="num">4</td></tr><tr><td class="num">82</td><td><span class="yes">yes</span></td><td class="num">5</td></tr><tr><td class="num">126</td><td><span class="yes">yes</span></td><td class="num">6</td></tr></tbody></table></div>
 </section>
 <section>
-  <div class="shead"><span class="snum">03</span><h2>The index, plotted exactly</h2></div>
-  <p class="sub">One point per cell of the chart, at its own coordinates.</p>
+  <div class="shead"><span class="snum">03</span><h2>What decides it is
+  corroboration, and it is one-sided</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>file</th>
+    <th class="num">longest run matching A</th>
+    <th class="num">matching B</th><th></th></tr></thead><tbody><tr><td class="mono sm">recovered/c3.py</td><td class="num">22</td><td class="num">11</td><td></td></tr><tr><td class="mono sm">recovered/c4.py</td><td class="num">22</td><td class="num">11</td><td></td></tr><tr><td class="mono sm">recovered/corridor_identity.py</td><td class="num">22</td><td class="num">11</td><td></td></tr><tr><td class="mono sm">method/members/r2-ch16e.py</td><td class="num">16</td><td class="num">11</td><td><span class="chip b1">SEATED MEMBER</span></td></tr></tbody></table>
+    <caption>The 11 is the <b>common prefix</b>: positions 0–10 are where A and
+    B agree, so every file stops matching B exactly where the two diverge.
+    <b>Not one file in the repository follows B past the disagreement</b>, and
+    one of the four that follow A is a seated member of The Method.</caption>
+  </div>
+  <div class="note"><span class="lab">B is not called wrong</span>
+  <p style="margin-bottom:0">Order B reproduces every magic number and is a
+  coherent shell-model parameterisation. Its status is <b>RECOVERED / UNCORROBORATED / SUPERSEDED</b> — superseded
+  and uncorroborated is what is measured; <em>wrong</em> is not. Order A's own
+  status is <b>EMPIRICAL-RULE</b>: a shell-model ordering, not a theorem.</p></div>
+</section>
+<section>
+  <div class="shead"><span class="snum">04</span><h2>The three coordinates</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>slot</th><th>what it measures</th><th>alphabet</th><th class="num">values</th><th class="num">distinct/cells</th><th>verdict</th></tr></thead><tbody><tr><td class="name mono">nr</td><td>radial quantum number</td><td class="mono sm">1, 2, 3</td><td class="num">3</td><td class="num">0.136</td><td>measurement</td></tr><tr><td class="name mono">l</td><td>orbital angular momentum</td><td class="mono sm">0, 1, 2, 3, 4, 5, 6</td><td class="num">7</td><td class="num">0.318</td><td>measurement</td></tr><tr><td class="name mono">sigma</td><td>sign(j &minus; l): +1 is j = l+&frac12;</td><td class="mono sm">-1, 1</td><td class="num">2</td><td class="num">0.091</td><td>measurement</td></tr></tbody></table><caption>A coordinate separating 90% or more of the members is a row label, not a measurement. None here is.</caption></div>
+  <p class="after"><b>sigma rather than j itself</b>, because j is determined by
+  (l, sigma) and a coordinate the others already fix is over-representation.
+  Spin–orbit splitting <em>is</em> the sigma&nbsp;=&nbsp;+1 member lying below
+  its sigma&nbsp;=&nbsp;−1 partner, so the coordinate is the physics rather than
+  a re-encoding of it.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">05</span><h2>The index, plotted exactly</h2></div>
+  <p class="sub">One point per nuclear subshell, at its own (nr, l, sigma).</p>
   <figure class="plate">
-    <div class="v3d"><canvas id="la3d" aria-label="the Rydberg residual index: 54 cells at span, levels and drift band"></canvas></div>
+    <div class="v3d"><canvas id="nu3d" aria-label="the nuclear subshell index: 22 subshells at nr, l and the spin-orbit sign"></canvas></div>
     <div class="v3dbar">
-      <button id="la3d-spin" type="button">pause rotation</button>
+      <button id="nu3d-spin" type="button">pause rotation</button>
       <span class="hint">drag to rotate</span>
-      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>drift band 0</span><span><i style="background:var(--geometry)"></i>drift band 1</span><span><i style="background:var(--information)"></i>drift band 2</span><span><i style="background:var(--algebra)"></i>drift band 3</span><span><i style="background:var(--order)"></i>drift band 5</span><span><i style="background:var(--accent)"></i>drift band 6</span></span>
+      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>sigma = -1  (j = l &minus; &frac12;)</span><span><i style="background:var(--geometry)"></i>sigma = +1  (j = l + &frac12;)</span></span>
     </div>
-    <figcaption><b>This view is the index itself, not a projection of it.</b> The chart has three coordinates and they are the three axes, so every one of the 54 cells is its own point and nothing is collapsed, summarised or dropped. Colour is the drift band, which is also the vertical axis. <b>The floor of the box — band 0 — is every series a single quantum defect describes to the table's own precision</b>, and the points above it are the ones it does not. 596 series fall on 54 distinct cells, so the index is a heavy coarsening of the series set and says so.</figcaption>
+    <figcaption><b>This view is the index itself, not a projection of it.</b> The chart has three coordinates and they are the three axes, so every one of the 22 cells is its own point and nothing is collapsed, summarised or dropped. The two coloured sheets are the two spin&ndash;orbit partners: every subshell with j = l+&frac12; sits on one, its j = l&minus;&frac12; twin on the other, and the gap between them is the splitting that makes the magic numbers what they are.</figcaption>
   </figure>
   <script>/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
    cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
@@ -388,11 +426,11 @@ function scatter3d(opts){
 }
 
 (function(){
-const T=["--accent", "--algebra", "--geometry", "--information", "--order", "--statistics"];
-const RAW=[[1,2,0,5],[2,3,0,5],[2,3,1,2],[2,3,2,3],[2,3,3,1],[2,3,5,4],[3,4,0,5],[3,4,1,2],[3,4,2,3],[4,5,0,5],[4,5,1,2],[4,5,2,3],[5,6,0,5],[5,6,1,2],[5,6,3,1],[5,6,5,4],[5,6,6,0],[6,7,0,5],[6,7,1,2],[7,8,0,5],[7,8,2,3],[8,9,0,5],[8,9,2,3],[8,9,6,0],[9,10,0,5],[9,10,1,2],[10,11,0,5],[10,11,1,2],[10,11,2,3],[11,12,1,2],[12,13,0,5],[13,14,0,5],[13,14,1,2],[14,15,0,5],[15,16,0,5],[16,17,0,5],[17,18,0,5],[23,23,1,2],[23,24,0,5],[27,28,0,5],[28,20,0,5],[29,21,0,5],[30,22,0,5],[30,29,1,2],[30,31,0,5],[31,23,0,5],[31,32,1,2],[32,22,0,5],[32,24,0,5],[33,25,0,5],[36,37,0,5],[36,37,1,2],[40,41,2,3],[51,52,0,5]];
+const T=["--geometry", "--statistics"];
+const RAW=[[1,0,1,0],[1,1,-1,1],[1,1,1,0],[1,2,-1,1],[1,2,1,0],[1,3,-1,1],[1,3,1,0],[1,4,-1,1],[1,4,1,0],[1,5,-1,1],[1,5,1,0],[1,6,1,0],[2,0,1,0],[2,1,-1,1],[2,1,1,0],[2,2,-1,1],[2,2,1,0],[2,3,-1,1],[2,3,1,0],[3,0,1,0],[3,1,-1,1],[3,1,1,0]];
 const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0}));
-scatter3d({id:'la3d',points:PTS,xlab:"span  n range",ylab:"levels  banked",zlab:"drift  band",
-  az:3.72,el:0.1,scale:0.26,height:510,r:6,
+scatter3d({id:'nu3d',points:PTS,xlab:"nr  radial quantum number",ylab:"l  orbital angular momentum",zlab:"sigma  sign(j - l)",
+  az:0.78,el:0.62,scale:0.24,height:510,r:7,
   xcol:'--geometry',ycol:'--order',zcol:'--information',
   colour:p=>p.c});
 })();</script>
@@ -400,11 +438,43 @@ scatter3d({id:'la3d',points:PTS,xlab:"span  n range",ylab:"levels  banked",zlab:
 
 
 <section>
-  <div class="shead"><span class="snum">04</span><h2>What it measures</h2></div>
-  <div class="kv"><div><dt>cells</dt><dd>54<small>from 596 banked series</small></dd></div><div><dt>box</dt><dd>5040<small>what charting cost tracks</small></dd></div><div><dt>cell</dt><dd>(0, 25, 7)<small>K, height, width</small></dd></div></div>
-  <div class="tablewrap"><table><thead><tr><th>language</th><th class="num">admits</th><th class="num">E</th><th>verdict</th></tr></thead><tbody><tr><td class="name">order</td><td class="num">430</td><td class="num">376</td><td><span class="no">does not close</span></td></tr><tr><td class="name">algebra</td><td class="num">430</td><td class="num">376</td><td><span class="no">does not close</span></td></tr><tr><td class="name">geometry</td><td class="num">533</td><td class="num">479</td><td><span class="no">does not close</span></td></tr><tr><td class="name">information</td><td class="num">308</td><td class="num">254</td><td><span class="no">does not close</span></td></tr><tr><td class="name">statistics</td><td class="num">56</td><td class="num">2</td><td><span class="no">does not close</span></td></tr></tbody></table><caption>Against 54 cells held.</caption></div>
-  <p class="after"><b>Refused:</b> to call an inconsistent row an error; to fit
-  anything; to extend to a law whose terms the corpus does not already state.</p>
+  <div class="shead"><span class="snum">06</span><h2>What was measured and
+  refused</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>candidate coordinate</th>
+    <th class="num">distinct</th><th class="num">ratio</th><th>verdict</th>
+    </tr></thead><tbody><tr><td class="name">rank</td><td class="num">22</td><td class="num">1.0000</td><td><span class="no">LABEL</span></td></tr><tr><td class="name">cumulative 2j+1</td><td class="num">22</td><td class="num">1.0000</td><td><span class="no">LABEL</span></td></tr><tr><td class="name">delta</td><td class="num">5</td><td class="num">0.2273</td><td>measurement, ledger</td></tr></tbody></table></div>
+  <div class="note warn"><span class="lab">delta is a real measurement and still
+  does not go on an axis</span>
+  <p style="margin-bottom:0">It is neither constant nor a label. But appending
+  it takes the index from closing under <b>geometry and statistics</b> to
+  closing <b>nothing</b>, and takes the box from <b>42 to 210</b>; and no
+  three-coordinate chart containing it is faithful — the three that exist hold
+  17, 10 and 17 cells against 22. So it is banked as a <b>ledger column</b>, one
+  row per subshell, and never charted. Status <b>MEASURED</b>, never PINNED.</p></div>
+  <div class="tablewrap tall"><table><thead><tr><th>subshell</th>
+    <th class="num">nr</th><th class="num">l</th><th class="num">2j</th>
+    <th class="num">rank A</th><th class="num">rank B</th>
+    <th class="num">delta</th><th class="num">cumulative</th></tr></thead>
+    <tbody><tr><td class="name mono">1s1/2</td><td class="num">1</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">+0</td><td class="num"><b class="hot">2</b></td></tr><tr><td class="name mono">1p3/2</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">+0</td><td class="num">6</td></tr><tr><td class="name mono">1p1/2</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">+0</td><td class="num"><b class="hot">8</b></td></tr><tr><td class="name mono">1d5/2</td><td class="num">1</td><td class="num">2</td><td class="num">5</td><td class="num">3</td><td class="num">3</td><td class="num">+0</td><td class="num">14</td></tr><tr><td class="name mono">2s1/2</td><td class="num">2</td><td class="num">0</td><td class="num">1</td><td class="num">4</td><td class="num">4</td><td class="num">+0</td><td class="num">16</td></tr><tr><td class="name mono">1d3/2</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">5</td><td class="num">5</td><td class="num">+0</td><td class="num"><b class="hot">20</b></td></tr><tr><td class="name mono">1f7/2</td><td class="num">1</td><td class="num">3</td><td class="num">7</td><td class="num">6</td><td class="num">6</td><td class="num">+0</td><td class="num"><b class="hot">28</b></td></tr><tr><td class="name mono">2p3/2</td><td class="num">2</td><td class="num">1</td><td class="num">3</td><td class="num">7</td><td class="num">7</td><td class="num">+0</td><td class="num">32</td></tr><tr><td class="name mono">1f5/2</td><td class="num">1</td><td class="num">3</td><td class="num">5</td><td class="num">8</td><td class="num">8</td><td class="num">+0</td><td class="num">38</td></tr><tr><td class="name mono">2p1/2</td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td class="num">9</td><td class="num">9</td><td class="num">+0</td><td class="num">40</td></tr><tr><td class="name mono">1g9/2</td><td class="num">1</td><td class="num">4</td><td class="num">9</td><td class="num">10</td><td class="num">10</td><td class="num">+0</td><td class="num"><b class="hot">50</b></td></tr><tr><td class="name mono">1g7/2</td><td class="num">1</td><td class="num">4</td><td class="num">7</td><td class="num">11</td><td class="num">14</td><td class="num">-3</td><td class="num">58</td></tr><tr><td class="name mono">2d5/2</td><td class="num">2</td><td class="num">2</td><td class="num">5</td><td class="num">12</td><td class="num">11</td><td class="num">+1</td><td class="num">64</td></tr><tr><td class="name mono">2d3/2</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">13</td><td class="num">13</td><td class="num">+0</td><td class="num">68</td></tr><tr><td class="name mono">3s1/2</td><td class="num">3</td><td class="num">0</td><td class="num">1</td><td class="num">14</td><td class="num">12</td><td class="num">+2</td><td class="num">70</td></tr><tr><td class="name mono">1h11/2</td><td class="num">1</td><td class="num">5</td><td class="num">11</td><td class="num">15</td><td class="num">15</td><td class="num">+0</td><td class="num"><b class="hot">82</b></td></tr><tr><td class="name mono">1h9/2</td><td class="num">1</td><td class="num">5</td><td class="num">9</td><td class="num">16</td><td class="num">18</td><td class="num">-2</td><td class="num">92</td></tr><tr><td class="name mono">2f7/2</td><td class="num">2</td><td class="num">3</td><td class="num">7</td><td class="num">17</td><td class="num">16</td><td class="num">+1</td><td class="num">100</td></tr><tr><td class="name mono">1i13/2</td><td class="num">1</td><td class="num">6</td><td class="num">13</td><td class="num">18</td><td class="num">21</td><td class="num">-3</td><td class="num">114</td></tr><tr><td class="name mono">3p3/2</td><td class="num">3</td><td class="num">1</td><td class="num">3</td><td class="num">19</td><td class="num">17</td><td class="num">+2</td><td class="num">118</td></tr><tr><td class="name mono">2f5/2</td><td class="num">2</td><td class="num">3</td><td class="num">5</td><td class="num">20</td><td class="num">20</td><td class="num">+0</td><td class="num">124</td></tr><tr><td class="name mono">3p1/2</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">21</td><td class="num">19</td><td class="num">+2</td><td class="num"><b class="hot">126</b></td></tr></tbody></table>
+    <caption>The ledger. A shaded cumulative figure is a magic number.</caption>
+  </div>
 </section>
-<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/laws.py --selftest</code> — 31 fixtures<br><code>python3 research/warp-drive/laws.py</code> — the reading<br><code>python3 research/warp-drive/render/build_index_plates.py laws</code> — this plate</p></div>
+<section>
+  <div class="shead"><span class="snum">07</span><h2>The member type is new —
+  and the cell tuples do collide</h2></div>
+  <p class="sub">No seated index has a nuclear member. <span class="mono">gravity</span>
+  carries 2J<sub>e</sub>, which is a whole electron cloud's angular momentum for
+  a nuclide-charge state, not a single-particle j.</p>
+  <div class="note warn"><span class="lab">And the cell tuples DO collide, which
+  was asserted otherwise and refused</span>
+  <p>This section was first written claiming the full-arity intersection with
+  every seated index is zero. <b>Its fixture refused it:</b> <span class="mono">channels.index</span> 13, <span class="mono">fibred.index</span> 5, <span class="mono">inversion.index</span> 4, <span class="mono">laws.index</span> 1, <span class="mono">madelung.janet</span> 4.</p>
+  <p style="margin-bottom:0">They are <b>homographs at full arity</b>. A nuclear
+  (nr, l, sigma) that happens to equal an electronic (n, l, k) is two different
+  objects printing the same — collisions with <span class="mono">fibred</span>
+  need k = 1, because sigma is ±1. <b>This is exactly why
+  <span class="mono">overlap.py</span> calls cell_overlap the WEAK test</b> and
+  keeps a strong one on identity keys beside it.</p></div>
+</section>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/nucshell.py --selftest</code> — 45 fixtures<br><code>python3 research/warp-drive/nucshell.py</code> — the reading<br><code>python3 research/warp-drive/render/build_index_plates.py nucshell</code> — this plate</p></div>
 </div>

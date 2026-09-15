@@ -46,7 +46,7 @@ contaminated set happened to be seated in.  No clean trajectory exists: the
 element indexes were never seated one at a time against each other, and
 producing that is work rather than a re-read of a log.
 
-To name a shape.  Seven vertices is what there are today, not a finding.
+To name a shape.  The count is whatever registry seats today, not a finding.
 """
 
 import itertools
@@ -121,7 +121,8 @@ def report():
     print()
     print("4. REFUSED: to report a growth narrative -- the old one was an")
     print("   artefact of the order a contaminated set was seated in, and no")
-    print("   clean trajectory exists yet. To name a shape: eight vertices is")
+    print("   clean trajectory exists yet. To name a shape: %d vertices is"
+          % len(C))
     print("   what there are today, not a finding.")
     return 0
 
@@ -138,8 +139,11 @@ def selftest():
 
     chk("the criterion holds on every vertex", registry.enforce(), [])
     C = cells()
-    chk("eight vertices", len(C), 8)
-    chk("and eight distinct cells", len(figure()), 8)
+    # A PROPERTY, NOT A PINNED COUNT -- the same error this tree has now made
+    # four times: pinning a number that CORRECT behaviour changes.
+    chk("the figure is exactly the registered element indexes",
+        (len(C), len(figure())),
+        (len(registry.REGISTERED),) * 2)
     chk("every vertex is a registered element index",
         sorted(C) == sorted(n.split(".")[0] for n, *_r in registry.rows()), True)
     chk("no filing-system index is present",
