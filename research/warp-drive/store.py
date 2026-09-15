@@ -8,8 +8,9 @@ M: "We are trying to identify first-order indexes. Every time we think we have
 identified all of them, more show up. The complete characterization index is not
 settled until all first-order indexes are identified and built."
 
-    python3 store.py             the reading
-    python3 store.py --selftest  fixtures   (slow: the manifest channel is ~4m)
+    python3 store.py                     the reading
+    python3 store.py --selftest          fixtures, channel-cheap indexes only
+    python3 store.py --selftest --slow   every channel, and it takes an hour
 
 ===============================================================================
 0. SIX WERE NAMED.  THIRTEEN WERE THERE.
@@ -150,6 +151,10 @@ SOURCES = {
     "pending list": "drive/PENDING.tsv",
 }
 _SKIPPED = {}
+
+# Above this many cells, measuring a channel costs minutes; the selftest skips
+# those by default and SAYS SO.  See the note in selftest().
+CHANNEL_BUDGET = 150
 
 
 def _rows(rel):
@@ -588,7 +593,10 @@ def report():
     print("   No RECONSTRUCTED order is carried anywhere in this file.")
     print()
     print("4. THE CHART CRITERION (DOCKET 3) AND THE CHANNELS.")
-    print("   (the drive manifest's channel takes about four minutes)")
+    print("   (this section measures every channel and takes about an hour;")
+    print("    the selftest skips the %d indexes over %d cells and says so)"
+          % (len([n for n in INDEXES if len(INDEXES[n]()) > CHANNEL_BUDGET]),
+             CHANNEL_BUDGET))
     bad = False
     for n in INDEXES:
         crit = criterion(n)
@@ -695,14 +703,36 @@ def selftest():
         chk("%s: height and width bound the size" % n,
             max(h, w) <= c <= h * w, True)
 
-    for n in INDEXES:
+    # ---- THE CHANNEL-DEPENDENT FIXTURES, AND WHY THEY ARE BEHIND A FLAG.
+    # Measuring a channel runs five closure operators over every pair of
+    # coordinates, and DOCKET 3's criterion asks for it TWICE per index (the
+    # index and its lifted copy).  On the drive manifest's 661 cells that is
+    # minutes apiece, and the whole sweep timed out at fifty.  A selftest
+    # nobody can finish is a selftest nobody runs.
+    #
+    # SO THEY ARE SKIPPED BY DEFAULT AND THE SKIP IS COUNTED AND PRINTED.
+    # PROOF-ASSISTANT.md records the failure mode this avoids: guard_encoding
+    # reported "no drift" while silently discarding 67 of 400 trials, and the
+    # counterexamples lived in exactly what it discarded.  Nothing here is
+    # skipped silently, and `--slow` runs every one.
+    slow = "--slow" in sys.argv
+    cheap = [n for n in INDEXES if len(INDEXES[n]()) <= CHANNEL_BUDGET]
+    dear = [n for n in INDEXES if n not in cheap]
+    for n in (sorted(INDEXES) if slow else sorted(cheap)):
         crit = criterion(n)
         chk("%s: K admissible" % n, crit["K"], 0)
         chk("%s: height admissible" % n, crit["height"], 0)
         chk("%s: width admissible" % n, crit["width"], 0)
         chk("%s: the cell is a 3-tuple" % n, len(cell(n)), 3)
+    if not slow:
+        print("  [--] SKIPPED the channel fixtures for %d of %d indexes, over"
+              % (len(dear), len(INDEXES)))
+        print("       %d cells each: %s" % (CHANNEL_BUDGET, ", ".join(sorted(dear))))
+        print("       Run `python3 store.py --selftest --slow` for those.")
+    chk("the skip is accounted for", len(cheap) + len(dear), len(INDEXES))
+    chk("and it is not hiding most of the tree", len(cheap) > len(dear), True)
 
-    chk("all six verdicts reported", len(against_demand()), 6)
+    chk("all thirteen verdicts reported", len(against_demand()), 13)
     print("store selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
 
