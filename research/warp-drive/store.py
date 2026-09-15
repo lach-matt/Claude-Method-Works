@@ -156,6 +156,11 @@ _SKIPPED = {}
 # those by default and SAYS SO.  See the note in selftest().
 CHANNEL_BUDGET = 150
 
+# AND THE CELL COUNT IS THE WRONG BUDGET, which cost an hour to find out.
+# Charting cost tracks the BOX -- the product of the coordinate alphabets --
+# so this is the budget that actually bounds the work.  See against_demand().
+BOX_BUDGET = 50000
+
 
 def _rows(rel):
     with open(os.path.join(ROOT, rel), newline="", encoding="utf-8") as f:
@@ -543,15 +548,31 @@ def criterion(name):
             "width": 0 if mi.width(X) == mi.width(lifted) else 1}
 
 
-def against_demand():
-    """[(name, cell, verdict)] -- where each of the six lands on the figure."""
+def against_demand(budget=None):
+    """[(name, cell, verdict)] -- where each index lands on the figure.
+
+    `budget` bounds it by CELL COUNT, but that is the wrong quantity and this
+    took an hour to learn: charting cost tracks the BOX -- the product of the
+    coordinate alphabets -- and `overlap.box_of` is the predictor.  The member
+    index has HALF the drive manifest's cells and FIFTY-ONE TIMES its box, and
+    a cell-count budget lets it straight through.
+
+        THIS IS WHY THE BOUNDED SELFTEST STILL TIMED OUT.  The channel
+        fixtures were bounded and this function was not, so it charted a
+        790,000-cell box behind a guard that thought it had skipped it.
+    """
     import demand
     import hexad
+    import overlap
     F = hexad.figure()
     D = set(demand.demand(F))
     J, _r = demand.closure(F)
     out = []
     for n in INDEXES:
+        if budget is not None and overlap.box_of(INDEXES[n]()) > budget:
+            out.append((n, "UNMEASURED", "box %d over budget %d"
+                        % (overlap.box_of(INDEXES[n]()), budget)))
+            continue
         c = cell(n)
         if c in D:
             v = "DEMANDED -- seating it drops E by one"
@@ -716,7 +737,10 @@ def selftest():
     # counterexamples lived in exactly what it discarded.  Nothing here is
     # skipped silently, and `--slow` runs every one.
     slow = "--slow" in sys.argv
-    cheap = [n for n in INDEXES if len(INDEXES[n]()) <= CHANNEL_BUDGET]
+    import overlap
+    cheap = [n for n in INDEXES
+             if len(INDEXES[n]()) <= CHANNEL_BUDGET
+             and overlap.box_of(INDEXES[n]()) <= BOX_BUDGET]
     dear = [n for n in INDEXES if n not in cheap]
     for n in (sorted(INDEXES) if slow else sorted(cheap)):
         crit = criterion(n)
@@ -732,7 +756,14 @@ def selftest():
     chk("the skip is accounted for", len(cheap) + len(dear), len(INDEXES))
     chk("and it is not hiding most of the tree", len(cheap) > len(dear), True)
 
-    chk("all thirteen verdicts reported", len(against_demand()), 13)
+    ad = against_demand(budget=None if slow else BOX_BUDGET)
+    chk("all thirteen verdicts reported", len(ad), 13)
+    if not slow:
+        over = [n for n, c, _v in ad if c == "UNMEASURED"]
+        print("  [--] and %d of them are UNMEASURED, by BOX not cell count: %s"
+              % (len(over), ", ".join(sorted(over))))
+        chk("the unmeasured ones are named, not dropped",
+            len(over) + len([1 for _n, c, _v in ad if c != "UNMEASURED"]), 13)
     print("store selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
 
