@@ -12105,14 +12105,37 @@ Asking whether to lift `OUT_OF_SCOPE_IS_A_RULING` treated "which sources are in 
 question. It is not: **identifying every first-order index IS the task**, and the characterization is
 not settled until they are all built. `store.py` builds the six that were named:
 
+**And building them turned six into thirteen.** While building the six, the tree was checked for
+generated tables nobody had listed. **Seven more, and one of them is the store of record itself** —
+`method/MEMBER-INDEX.tsv`, the 343 seated members of The Method 1.6, the first thing `CLAUDE.md` says to
+read. `sources.py` had named the BUILD snapshots and the drive mirror and not the members.
+
 | index | members | cells | height | width |
 |---|---|---|---|---|
-| drive manifest | 820 mirrored files | 661 | 210 | 16 |
-| build series | 149 BUILD files | 131 | 88 | 8 |
-| register gaps | 132 numbered holes | 132 | 68 | 9 |
+| drive manifest | 820 mirrored files | 661 | 216 | 16 |
+| **member index** | **343 seated members** | **343** | **30** | **45** |
+| chat export | 352 conversations | 326 | 92 | 16 |
 | recovered ledger | 259 conversations | 259 | 52 | 22 |
-| coverage census | 1,005 artefact names | 23 | 16 | 5 |
-| dockets | 14 | 14 | — | — |
+| register gaps | 132 numbered holes | 132 | 68 | 6 |
+| build series | 149 BUILD files | 131 | 89 | 7 |
+| extracted ledger | 40 archives | 29 | 11 | 7 |
+| prose-only list | 194 conversations | 29 | 22 | 3 |
+| handoff gap | 26 handoffs | 24 | 20 | 3 |
+| coverage census | 1,005 artefact names | 18 | 8 | 5 |
+| retraction audit | 391 rows | 16 | 7 | 4 |
+| dockets | 15 | 15 | 4 | 8 |
+| pending list | 4 rows | 3 | 2 | 2 |
+
+Not one row was skipped: every column in all thirteen tables parsed.
+
+**The member index is FAITHFUL** — 343 members on 343 distinct cells, so the chart loses no member of
+the store of record. **The docket index is self-referential**: opening a docket changes it, including a
+docket about the docket index, so its count is deliberately not pinned — what is pinned is the property,
+one cell per docket, and a floor.
+
+*(An earlier draft of this table quoted figures from the exploratory probe rather than from `store.py`;
+the probe ranked categories where the instrument tallies them, which moves five of the heights and
+widths. The instrument's numbers are the ones above.)*
 
 **One design decision runs through all six: no category is ever ranked.** A mime type, a gap class, a
 docket state — none of them has an order, and inventing one puts a `RECONSTRUCTED` status into every
@@ -12121,8 +12144,9 @@ contributes **how many rows carry it**, which is a measurement of the table and 
 integers are. It costs collisions between equal-sized categories, and `collisions()` reports them
 rather than leaving them to be found.
 
-**And `UNNAMED_SOURCES_MAY_EXIST = True` stands in the file**, because six is what was *named*, not what
-exists — which is M's point exactly.
+**`UNNAMED_SOURCES_MAY_EXIST = True` was already in the file when six was the number, and it is still
+there at thirteen.** The jump is the evidence for it, not an argument against: this file set out to
+build six and found seven more by looking, which is M's point stated as a measurement.
 
 ### DOCKET 14 — the guard is built, and it cannot classify
 

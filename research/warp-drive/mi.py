@@ -164,8 +164,24 @@ def channels():
     return sorted(out, key=lambda S: (len(S), sorted(S)))
 
 
+_K_CACHE = {}
+
+
 def K(X):
-    return channels().index(frozenset(closers(X)))
+    """Which channel X closes in, 0..7.  MEMOISED BY THE INDEX ITSELF.
+
+    Pure, so a memo changes no figure.  It is here because a first-order index
+    over the artefact store can be hundreds of cells -- the drive manifest is
+    661 -- and one channel measurement runs the five closure operators over
+    every pair of coordinates.  The DOCKET 3 criterion asks for the channel
+    twice per index, `cell` a third time, and `hexad` once more per report; at
+    four minutes a call that is the difference between an instrument that runs
+    and one nobody runs.
+    """
+    key = frozenset(X)
+    if key not in _K_CACHE:
+        _K_CACHE[key] = channels().index(frozenset(closers(X)))
+    return _K_CACHE[key]
 
 
 def cell(X):

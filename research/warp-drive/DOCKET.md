@@ -1373,3 +1373,55 @@ times out of seven.
 A pre-commit check remains DOCKET 14's candidate 1 and is not built. `CLAUDE.md`
 says this is a document corpus and not to add CI, so `preserve.py --check` is an
 instrument a person or a later ruling can wire up; it installs nothing.
+
+---
+
+## DOCKET 15 — THE MASTER INDEX IS THE INDEX OF UNIVERSAL FIRST-ORDERS  **NAMED, WITH ONE QUESTION**
+
+*Named 2026-09-15 by M: "And I think we will refer to the main master index the
+index of universal first-orders."*
+
+### The name
+
+`mi.py` has been called "the master index" throughout, which says what it ranks
+above and nothing about what it is. **The index of universal first-orders** says
+what its members are. The name is adopted; `mi.py` keeps its filename, because
+renaming a file is what DOCKET 14 exists to make expensive.
+
+### The one question, recorded rather than assumed away
+
+**Two objects could answer to the name, and they are different objects.**
+
+| | members | count |
+|---|---|---|
+| `mi.py` | the seated indexes, charted by which languages close them | 9 |
+| the figure (`hexad.py`) | the cell of every seated index | 11, and growing |
+
+M's phrase is "the main master index", which is `mi.py`. But `mi.py`'s members
+are **not all first-order**: three of the nine are second-order — the master
+index itself, the refusal index and the entropy index — whose members are
+measurements of the seated inventory rather than things the corpus banks.
+`sources.py` draws that line and `entropy.py` states why it matters.
+
+So the name as applied to `mi.py` is **aspirational rather than descriptive**
+until either
+
+1. the second-order members are moved out of it, leaving an index whose members
+   really are all first-order; or
+2. "first-order" in the name is read as naming the *kind of object the index is*
+   rather than a property of every member.
+
+**This tree adopts the name and reads it as (2) until ruled otherwise**, and
+flags the reading here so that nothing downstream quotes "universal
+first-orders" as a claim that every member is first-order. It is a name, not a
+measurement, and `sources.py` remains the place that says which member is which.
+
+### What is not in question
+
+"Universal" is already measured and is not a courtesy. `mcheck_mi.py` proves
+**O2 — K0 is universal** — `unsat` over every subset of a 3×3×3 box, under the
+observed-box convention pinned in DOCKET 11, and deliberately without the
+spanning hypothesis so that it holds for every subset and not only the spanning
+ones. The word in the name is earned by that obligation.
+
+Nothing is renamed on disk on the strength of this.

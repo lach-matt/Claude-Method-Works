@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 r"""
-store.py -- THE SIX FIRST-ORDER INDEXES THE ARTEFACT STORE CARRIES, built.
+store.py -- THE FIRST-ORDER INDEXES THE ARTEFACT STORE CARRIES.  Six were
+named; there are THIRTEEN, and the seven nobody had listed include the store of
+record itself.
 
 M: "We are trying to identify first-order indexes. Every time we think we have
 identified all of them, more show up. The complete characterization index is not
@@ -10,7 +12,33 @@ settled until all first-order indexes are identified and built."
     python3 store.py --selftest  fixtures   (slow: the manifest channel is ~4m)
 
 ===============================================================================
-0. WHY THESE SIX AND NOT A CHOICE
+0. SIX WERE NAMED.  THIRTEEN WERE THERE.
+===============================================================================
+
+M: "Every time we think we have identified all of them, more show up."  This
+file was written to build the six `sources.py` named, and while building them the
+tree was checked for generated tables that nobody had listed.  **Seven more.**
+
+    method/MEMBER-INDEX.tsv     343 members -- THE STORE OF RECORD ITSELF
+    extracted/LEDGER.tsv        2,504 source occurrences over 40 archives
+    PROSE-ONLY.tsv              1,168 statements the chats hold and the repo does not
+    RETRACTION-AUDIT.tsv        391 rows -- is a withdrawn figure still standing
+    drive/chats/INDEX.tsv       352 conversations, with message counts
+    HANDOFF-GAP.tsv             26 handoffs cited by number
+    drive/PENDING.tsv           4 rows, outstanding by decision
+
+THE MEMBER INDEX IS THE ONE THAT SHOULD HAVE BEEN OBVIOUS.  `method/` is the
+store of record for The Method 1.6 -- 343 members, byte-exact, md5 per member --
+and it is the first thing `CLAUDE.md` says to read.  `sources.py` named the BUILD
+snapshots and the drive mirror and did not name the members themselves.
+
+    SO THE COUNT IS NOT THE POINT AND THIS FILE SAYS SO IN ITS OWN CONSTANT.
+    `UNNAMED_SOURCES_MAY_EXIST = True` was already here when six was the number;
+    it is still here at thirteen, and the jump from six to thirteen is the
+    evidence for it rather than an argument against.
+
+===============================================================================
+1. WHY THESE AND NOT A CHOICE
 ===============================================================================
 
 `sources.py` named six first-order sources this tree had not built and ruled them
@@ -25,6 +53,16 @@ nothing added and nothing dropped:
     the coverage census   every artefact name, by family and disposition
     the dockets           this tree's own open questions
 
+and the seven that were not named:
+
+    the member index      the 343 seated members of The Method 1.6
+    the extracted ledger  the archives, by what came out of each
+    the prose-only list   the conversations, by what they hold and the repo lacks
+    the retraction audit  every withdrawn figure, by whether it still stands
+    the chat export       the 352 conversations, by size
+    the handoff gap       the handoffs cited by number and not held
+    the pending list      what the mirror still owes
+
     FIRST-ORDER MEANS THE MEMBERS ARE THINGS THE CORPUS BANKS.  Not measurements
     of the seated indexes -- that is second-order, and `sources.py` measured that
     its supply is unbounded.  Each of the six below reads a generated table and
@@ -35,7 +73,7 @@ nothing added and nothing dropped:
     those trees; this file adds nothing to them and regenerates nothing.
 
 ===============================================================================
-1. EVERY COORDINATE IS A COUNT OR A MEASURED QUANTITY, NEVER A RANKING
+2. EVERY COORDINATE IS A COUNT OR A MEASURED QUANTITY, NEVER A RANKING
 ===============================================================================
 
 A categorical column -- a mime type, a gap class, a docket state -- has no order,
@@ -56,7 +94,7 @@ are.
     that happens rather than leaving it to be discovered.
 
 ===============================================================================
-2. WHAT IS MEASURED AND WHAT IS NOT
+3. WHAT IS MEASURED AND WHAT IS NOT
 ===============================================================================
 
 Each index gets its cell on the same admissible chart every other index in this
@@ -68,16 +106,17 @@ since.  Section 5 reports where each lands, and the two indexes built before the
 demand table was read both missed.
 
 ===============================================================================
-3. WHAT THIS FILE REFUSES
+4. WHAT THIS FILE REFUSES
 ===============================================================================
 
-To read a table the corpus does not generate.  Six files, all listed in
-`SOURCES`, all produced by a named instrument.  Nothing is scraped and no tree is
+To read a table the corpus does not generate.  Every file is listed in
+`SOURCES` and every one is produced by a named instrument.  Nothing is scraped and no tree is
 walked; `CLAUDE.md` is explicit that the store is read from its manifests.
 
-To treat six as complete.  M's point is that the supply keeps growing, and this
-file cannot refute that -- it builds the six that were NAMED, and a seventh
-source found tomorrow is a seventh index.  `UNNAMED_SOURCES_MAY_EXIST = True`.
+To treat thirteen as complete.  M's point is that the supply keeps growing, and
+this file is the evidence: it set out to build six and found seven more by
+looking.  A fourteenth found tomorrow is a fourteenth index.
+`UNNAMED_SOURCES_MAY_EXIST = True`.
 
 To smooth a table.  Where a column is empty or unparseable the row is counted as
 `skipped` and reported, never guessed at.
@@ -102,6 +141,13 @@ SOURCES = {
     "recovered ledger": "recovered/LEDGER.tsv",
     "coverage census": "COVERAGE.tsv",
     "dockets": "research/warp-drive/DOCKET.md",
+    "member index": "method/MEMBER-INDEX.tsv",
+    "extracted ledger": "extracted/LEDGER.tsv",
+    "prose-only list": "PROSE-ONLY.tsv",
+    "retraction audit": "RETRACTION-AUDIT.tsv",
+    "chat export": "drive/chats/INDEX.tsv",
+    "handoff gap": "HANDOFF-GAP.tsv",
+    "pending list": "drive/PENDING.tsv",
 }
 _SKIPPED = {}
 
@@ -270,6 +316,162 @@ def docket_index():
 
 
 # ---------------------------------------------------------------------------
+# 7. the member index -- the store of record itself
+# ---------------------------------------------------------------------------
+
+def member_index():
+    """(how many members share its extension, its bytes, its bundle offset).
+
+    THE 343 SEATED MEMBERS OF THE METHOD 1.6.  `method/` is the store of record
+    and the first thing `CLAUDE.md` says to read; `sources.py` named the BUILD
+    snapshots and the drive mirror and did not name the members themselves.
+    The offset is where the member sits inside its bundle, which orders the
+    members within a bundle exactly as the bundle does.
+    """
+    rs = _rows(SOURCES["member index"])
+    ext = _tally(r["ext"] for r in rs)
+    out, skip = set(), 0
+    for r in rs:
+        b, o = _int(r["bytes"]), _int(r["bundle_offset"])
+        if b is None or o is None:
+            skip += 1
+            continue
+        out.add((ext[r["ext"]], b, o))
+    _SKIPPED["member index"] = skip
+    return frozenset(out)
+
+
+# ---------------------------------------------------------------------------
+# 8. the extracted ledger, by archive
+# ---------------------------------------------------------------------------
+
+def extracted_index():
+    """(occurrences, distinct dispositions, total bytes) per source archive.
+
+    THE MEMBERS ARE ARCHIVES, NOT OCCURRENCES.  2,504 rows over the archives and
+    project exports the mirror holds; charting the rows restates the ledger,
+    charting the archives asks what came out of each.
+    """
+    rs = _rows(SOURCES["extracted ledger"])
+    by = collections.defaultdict(list)
+    for r in rs:
+        by[r["source"]].append(r)
+    out, skip = set(), 0
+    for v in by.values():
+        sz = [_int(x["size_bytes"]) for x in v]
+        if any(x is None for x in sz):
+            skip += 1
+            continue
+        out.add((len(v), len({x["disposition"] for x in v}), sum(sz)))
+    _SKIPPED["extracted ledger"] = skip
+    return frozenset(out)
+
+
+def archives():
+    return len({r["source"] for r in _rows(SOURCES["extracted ledger"])})
+
+
+# ---------------------------------------------------------------------------
+# 9. the prose-only list, by conversation
+# ---------------------------------------------------------------------------
+
+def prose_index():
+    """(statements, distinct categories, distinct confidences) per conversation.
+
+    What the chat history holds that the repository does not, charted by where
+    it was said rather than by what was said -- the categories are a closed set
+    of seven and would make a seven-cell index on their own.
+    """
+    rs = _rows(SOURCES["prose-only list"])
+    by = collections.defaultdict(list)
+    for r in rs:
+        by[r["conversation"]].append(r)
+    return frozenset((len(v), len({x["category"] for x in v}),
+                      len({x["confidence"] for x in v})) for v in by.values())
+
+
+# ---------------------------------------------------------------------------
+# 10. the retraction audit
+# ---------------------------------------------------------------------------
+
+def retraction_index():
+    """(how many rows share its verdict, its confidence tally, its pass tally).
+
+    Is a withdrawn figure still standing.  Every coordinate is a tally, because
+    all three columns are categorical and none of them has an order.
+    """
+    rs = _rows(SOURCES["retraction audit"])
+    ver = _tally(r["verdict"] for r in rs)
+    con = _tally(r["confidence"] for r in rs)
+    pas = _tally(r["pass"] for r in rs)
+    return frozenset((ver[r["verdict"]], con[r["confidence"]], pas[r["pass"]])
+                     for r in rs)
+
+
+# ---------------------------------------------------------------------------
+# 11. the chat export
+# ---------------------------------------------------------------------------
+
+def chat_index():
+    """(messages, bytes, how many conversations share its shard) per conversation."""
+    rs = _rows(SOURCES["chat export"])
+    shard = _tally(r["shard_path"] for r in rs)
+    out, skip = set(), 0
+    for r in rs:
+        m, b = _int(r["message_count"]), _int(r["bytes"])
+        if m is None or b is None:
+            skip += 1
+            continue
+        out.add((m, b, shard[r["shard_path"]]))
+    _SKIPPED["chat export"] = skip
+    return frozenset(out)
+
+
+# ---------------------------------------------------------------------------
+# 12. the handoff gap
+# ---------------------------------------------------------------------------
+
+def handoff_index():
+    """(how many share its class, its bytes, its lines) per cited handoff."""
+    rs = _rows(SOURCES["handoff gap"])
+    cls = _tally(r["class"] for r in rs)
+    out, skip = set(), 0
+    for r in rs:
+        b, l = _int(r["bytes"]), _int(r["lines"])
+        if b is None or l is None:
+            skip += 1
+            continue
+        out.add((cls[r["class"]], b, l))
+    _SKIPPED["handoff gap"] = skip
+    return frozenset(out)
+
+
+# ---------------------------------------------------------------------------
+# 13. the pending list
+# ---------------------------------------------------------------------------
+
+def pending_index():
+    """(how many share its source, its bytes, how many share its reason).
+
+    FOUR ROWS, AND IT IS STILL AN INDEX.  `CLAUDE.md` records that all four are
+    pending by decision rather than by obstacle; the index says nothing about
+    that and charts only what the table holds.
+    """
+    rs = _rows(SOURCES["pending list"])
+    src = _tally(r["source"] for r in rs)
+    rea = _tally(r["reason"] for r in rs)
+    out, skip = set(), 0
+    for r in rs:
+        b = _int(r["drive_size_bytes"])
+        if b is None:
+            skip += 1
+            continue
+        out.add((src[r["source"]], b, rea[r["reason"]]))
+    _SKIPPED["pending list"] = skip
+    return frozenset(out)
+
+
+# ---------------------------------------------------------------------------
 
 INDEXES = {
     "build series": build_index,
@@ -278,6 +480,13 @@ INDEXES = {
     "recovered ledger": recovered_index,
     "coverage census": coverage_index,
     "dockets": docket_index,
+    "member index": member_index,
+    "extracted ledger": extracted_index,
+    "prose-only list": prose_index,
+    "retraction audit": retraction_index,
+    "chat export": chat_index,
+    "handoff gap": handoff_index,
+    "pending list": pending_index,
 }
 _CELL = {}
 
@@ -413,8 +622,14 @@ def selftest():
         print("  [%s] %-54s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    chk("six sources named", len(SOURCES), 6)
-    chk("six indexes built", len(INDEXES), 6)
+    chk("thirteen sources named", len(SOURCES), 13)
+    chk("thirteen indexes built", len(INDEXES), 13)
+    chk("every named source has an index", sorted(SOURCES), sorted(INDEXES))
+    chk("six of them are the ones sources.py listed",
+        len([n for n in SOURCES if n in ("build series", "drive manifest",
+                                         "register gaps", "recovered ledger",
+                                         "coverage census", "dockets")]), 6)
+    chk("and seven were found by looking", len(SOURCES) - 6, 7)
     chk("every source file exists",
         [n for n, r in SOURCES.items()
          if not os.path.exists(os.path.join(ROOT, r))], [])
@@ -429,9 +644,24 @@ def selftest():
     chk("the recovered ledger is 3,224 rows",
         len(_rows(SOURCES["recovered ledger"])), 3224)
     chk("over 259 conversations", conversations(), 259)
+    chk("the member index seats 343 members",
+        len(_rows(SOURCES["member index"])), 343)
+    chk("the extracted ledger is 2,504 occurrences",
+        len(_rows(SOURCES["extracted ledger"])), 2504)
+    chk("over %d archives" % archives(), archives() > 20, True)
+    chk("the prose-only list is 1,168 statements",
+        len(_rows(SOURCES["prose-only list"])), 1168)
+    chk("the retraction audit is 391 rows",
+        len(_rows(SOURCES["retraction audit"])), 391)
+    chk("the chat export is 352 conversations",
+        len(_rows(SOURCES["chat export"])), 352)
+    chk("the handoff gap is 26 rows",
+        len(_rows(SOURCES["handoff gap"])), 26)
+    chk("the pending list is 4 rows",
+        len(_rows(SOURCES["pending list"])), 4)
     d = _dockets()
-    chk("the dockets are numbered 1..14 with none missing",
-        sorted(n for n, _s, _l in d), list(range(1, 15)))
+    chk("the dockets are numbered from 1 with none missing",
+        sorted(n for n, _s, _l in d), list(range(1, len(d) + 1)))
     chk("DOCKET 11 is pinned",
         next(s for n, s, _l in d if n == 11), "PINNED")
     chk("DOCKET 3 is ruled", next(s for n, s, _l in d if n == 3), "RULED")
@@ -441,8 +671,25 @@ def selftest():
     chk("drive manifest cells", sh["drive manifest"][0], 661)
     chk("register gaps cells", sh["register gaps"][0], 132)
     chk("recovered ledger cells", sh["recovered ledger"][0], 259)
-    chk("coverage census cells", sh["coverage census"][0], 23)
-    chk("dockets cells", sh["dockets"][0], 14)
+    chk("coverage census cells", sh["coverage census"][0], 18)
+    chk("member index cells", sh["member index"][0], 343)
+    chk("the member index is FAITHFUL -- one cell per seated member",
+        sh["member index"][0], len(_rows(SOURCES["member index"])))
+    chk("extracted ledger cells", sh["extracted ledger"][0], 29)
+    chk("and it has one cell per archive at most",
+        sh["extracted ledger"][0] <= archives(), True)
+    chk("prose-only cells", sh["prose-only list"][0], 29)
+    chk("retraction audit cells", sh["retraction audit"][0], 16)
+    chk("chat export cells", sh["chat export"][0], 326)
+    chk("handoff gap cells", sh["handoff gap"][0], 24)
+    chk("pending list cells", sh["pending list"][0], 3)
+    # THE DOCKET INDEX IS SELF-REFERENTIAL AND ITS COUNT IS NOT PINNED.
+    # Opening a docket changes it -- including a docket about this index -- so
+    # what is pinned is the PROPERTY (one cell per docket) and a floor on the
+    # count, not a number that a later ruling would falsify.
+    chk("the dockets index is faithful -- one cell per docket",
+        sh["dockets"][0], len(_dockets()))
+    chk("and there are at least fifteen dockets", len(_dockets()) >= 15, True)
     chk("no row was skipped", {k: v for k, v in _SKIPPED.items() if v}, {})
     for n, (c, h, w) in sh.items():
         chk("%s: height and width bound the size" % n,
