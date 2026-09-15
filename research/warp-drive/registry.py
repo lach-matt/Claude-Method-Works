@@ -1,74 +1,73 @@
 #!/usr/bin/env python3
 r"""
-registry.py -- EVERY INDEX THIS TREE HAS IDENTIFIED, IN ONE PLACE, WITH HOW IT
-WAS FOUND.
+registry.py -- EVERY INDEX OF THE PERIODIC ELEMENTS, WITH THE CRITERION
+ENFORCED RATHER THAN DESCRIBED.
 
-M: "I only care that we identify every possible first-order index. Keep working
-towards that."
+M: "Remove any index in the project whose members do not have quantum numbers."
 
     python3 registry.py             the reading
     python3 registry.py --selftest  fixtures
 
 ===============================================================================
-0. WHY A REGISTRY AND NOT JUST sources.py
+0. THE CRITERION IS A FUNCTION HERE, AND THAT IS THE WHOLE REPAIR
 ===============================================================================
 
-`sources.py` lists the instruments and was written when there were eight.  It
-has fallen behind twice in two days -- it did not name `cross.py`, `laws.py`,
-`obstruction.py`, `filled.py`, or any of `store.py`'s thirteen -- and a list
-that falls behind is worse than no list, because it reads as a census.
+THE SUBJECT IS THE PERIODIC ELEMENTS.  A member of an index of it is an
+electron, a subshell, a transition, a channel or a series -- something carrying
+quantum numbers.
 
-    AND THE GUARD BELOW EARNED ITSELF ON ITS FIRST RUN.  It found `necindex.py`
-    -- the energy-condition family charted through the cypher -- sitting in the
-    tree with an `index()` that no registry anywhere named.  It was not a new
-    instrument and it was not lost; it was simply never counted, which is
-    exactly the failure a hand-kept list cannot detect.
+    NOTHING ENFORCED THAT, AND THE FIGURE WAS CONTAMINATED.  Thirteen
+    filing-system indexes were seated as vertices -- mirrored files, BUILD
+    snapshots, conversations, archives, artefact names, handoff documents,
+    numbering gaps, and this tree's own dockets -- beside indexes whose members
+    are electrons.  E went from 9 to 133, and EVERY ONE of the twelve
+    disruptive vertices was repository metadata.  Not one was an element.
 
-    SO THIS FILE DOES NOT KEEP A LIST.  It IMPORTS each instrument and asks it,
-    and `missing()` walks the directory for any module with an `index()` that
-    the registry does not name.  A new instrument shows up as a FAILURE here
-    until it is registered, which is the only way a census stays one.
+    THE EXPLOSION WAS THE CONTAMINATION, NOT A FINDING, and it was reported as
+    one.  Withdrawn here.  The element-only figure is NINE vertices at E = 15
+    on the measurement that prompted this rewrite, and SEVEN once the two
+    indexes whose members are axes rather than elements come out.
+
+    SO `QUANTUM` IS A COLUMN AND `enforce()` IS A FIXTURE.  Every registered
+    index names the quantum numbers its members carry; a row that names none is
+    refused.  A criterion in a docstring is what let the filing cabinet in.
 
 ===============================================================================
-1. THE DISCOVERY METHODS, WHICH ARE THE POINT
+1. WHAT IS AN INDEX HERE, AND WHAT IS NOT
 ===============================================================================
 
-M's question is not how many indexes there are but whether every one has been
-FOUND.  That turns on how many ways of finding one are known, so each row
-carries its METHOD:
+    fibred        170 electrons          n, l, k
+    madelung      the same 170           n+l, l, k
+    ions          98 transitions         charge, electron count
+    channels      209 channel shapes     l, Pauli bound, multiplicity
+    laws          584 series             n range, l, quantum defect
+    probability   25 subshells           n, l
+    inversion     20 inversions          pairs of (n, l)
 
-    TABLE       a table the corpus generates, charted -- the original route
-    FIBRATION   the element address fibred over one of its own coordinates
-    SUBSET      a restriction of another index to some of its members
-    SECOND      members are the seated indexes; coordinates measure them
-    INTERSECT   members are PAIRS of axes, charted by what they say together
-    RESIDUAL    a named law run against banked terms; the residual is charted
-    DEMANDED    a cell the figure demanded, occupied and seated
+REMOVED, files deleted, all created in the session that made the mess:
+`store.py` and its thirteen filing-system indexes; `obstruction.py` with its
+currency and exotic-matter sub-indexes, whose members are obstructions to
+building a warp drive; `filled.py`, a re-chart of the seated indexes;
+`cross.py`, whose members are PAIRS OF AXES; and `density.py` and `occupy.py`,
+both built on the contaminated figure.
 
-    THREE OF THESE DID NOT EXIST TWO DAYS AGO, and two -- INTERSECT and
-    RESIDUAL -- do not read a banked table as a table at all.  M ruled that
-    first-order is not limited to the corpus's contents, and those two are what
-    the ruling admits.  **The supply of indexes is bounded by the supply of
-    METHODS, and that is the number this file tracks.**
+PRESENT AS FUNCTIONS, NOT INDEXES OF THIS PROJECT: `mi.index`, `axes.index`,
+`entropy.index`, `rindex.rindex`, `necindex.index`.  Their members are seated
+indexes, measurement axes, refusals and energy conditions.  The files are NOT
+deleted -- they carry charting machinery and findings this session did not
+produce -- and `NOT_AN_INDEX` names each with its reason so nothing re-seats
+them.
 
 ===============================================================================
 2. WHAT THIS FILE REFUSES
 ===============================================================================
 
-To claim completeness.  `store.py` found seven unlisted sources while building
-six, `cross.py` and `laws.py` are two methods nobody had used, and the sweep
-that found 506 tables has not been exhausted.  `COMPLETE = False`, and it stays
-false until something can prove otherwise.
+To claim completeness.  `COMPLETE = False`, and it stays false.
 
-To compute a cell it does not have.  Several indexes cost minutes to chart --
-the drive manifest's channel is about four -- so `cells()` takes a `slow` flag
-and reports UNMEASURED rather than blocking.  An unmeasured cell is never
-guessed.
+To accept a row that cannot name its quantum numbers.
 
-To rank the methods.  INTERSECT found information at 190 pairs and RESIDUAL
-recovered a lost digit; TABLE found the store of record.  Nothing here says
-which route is better, and a method that has produced one index is still a
-method.
+To excuse a module silently.  A module exposing an `index()` that is neither
+registered nor listed in `NOT_AN_INDEX` fails the selftest.
 """
 
 import importlib
@@ -76,124 +75,96 @@ import os
 import sys
 
 COMPLETE = False
-
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# (module, accessor, method, what one member is)
+METHODS = ("TABLE", "FIBRATION", "RESIDUAL")
+
+# (module, accessor, method, what one member is, THE QUANTUM NUMBERS)
 REGISTERED = (
-    ("mi", "index", "SECOND", "the seated indexes"),
-    ("rindex", "rindex", "SECOND", "the refusals"),
-    ("entropy", "index", "SECOND", "the seated indexes, in bits"),
-    ("filled", "index", "DEMANDED", "the seated nine, on a demanded cell"),
-    ("fibred", "index", "FIBRATION", "170 electrons as (n, l, k)"),
-    ("madelung", "janet", "FIBRATION", "the same 170 as (n+l, l, k)"),
-    ("ions", "index", "TABLE", "98 Lambda-8 transitions"),
-    ("axes", "index", "TABLE", "the 26 axes, as measurements"),
-    ("channels", "index", "TABLE", "209 spectroscopic channel shapes"),
-    ("inversion", "index", "TABLE", "20 fill-order/shell-order inversions"),
-    ("probability", "index", "TABLE", "25 subshells, one distribution"),
-    ("obstruction", "index", "TABLE", "53 obstructions"),
-    ("obstruction", "currency_index", "SUBSET", "11 denomination rows"),
-    ("obstruction", "exotic_index", "SUBSET", "13 exotic-matter rows"),
-    ("cross", "index", "INTERSECT", "190 pairs of axes"),
-    ("laws", "index", "RESIDUAL", "584 series against Rydberg-Ritz"),
-    # FOUND BY THIS FILE'S OWN GUARD ON ITS FIRST RUN, and it had been in the
-    # tree unregistered the whole time: the energy-condition family charted
-    # through the cypher, an index whose members are the named energy
-    # conditions rather than anything the corpus tabulates.
-    ("necindex", "index", "TABLE", "the named energy conditions"),
+    ("fibred", "index", "FIBRATION", "170 electrons", "n, l, k"),
+    ("madelung", "janet", "FIBRATION", "the same 170 electrons", "n+l, l, k"),
+    ("ions", "index", "TABLE", "98 Lambda-8 transitions",
+     "charge, electron count"),
+    ("channels", "index", "TABLE", "209 spectroscopic channel shapes",
+     "l, Pauli bound, multiplicity"),
+    ("laws", "index", "RESIDUAL", "584 series against Rydberg-Ritz",
+     "n range, l, quantum defect"),
+    ("probability", "index", "TABLE", "25 subshells", "n, l"),
+    ("inversion", "index", "TABLE", "20 fill-order/shell-order inversions",
+     "pairs of (n, l)"),
 )
 
-# store.py carries thirteen of its own; it is asked rather than transcribed.
-STORE = "store"
-
-METHODS = ("TABLE", "FIBRATION", "SUBSET", "SECOND", "INTERSECT", "RESIDUAL",
-           "DEMANDED")
+NOT_AN_INDEX = {
+    "mi": "members are the seated indexes",
+    "axes": "members are measurement axes",
+    "entropy": "members are the seated indexes",
+    "rindex": "members are refusals",
+    "necindex": "members are energy conditions",
+}
 
 
 def _mod(name):
     return importlib.import_module(name)
 
 
+def enforce():
+    """[(name, problem)] for any registered row that fails the criterion.
+
+    MUST BE EMPTY.  This is the criterion as a function; it was a paragraph
+    before, and a paragraph is what let thirteen filing-system indexes in.
+    """
+    bad = []
+    for mod, acc, meth, _what, q in REGISTERED:
+        nm = "%s.%s" % (mod, acc)
+        if not q or not q.strip():
+            bad.append((nm, "names no quantum numbers"))
+        if meth not in METHODS:
+            bad.append((nm, "unknown method %s" % meth))
+    return bad
+
+
 def rows():
-    """[(name, module, accessor, method, members)] over everything registered."""
-    out = []
-    for mod, acc, meth, what in REGISTERED:
-        out.append(("%s.%s" % (mod, acc), mod, acc, meth, what))
-    st = _mod(STORE)
-    for n in sorted(st.INDEXES):
-        out.append(("store[%s]" % n, STORE, n, "TABLE",
-                    "rows of %s" % st.SOURCES[n]))
-    return out
+    """[(name, module, accessor, method, members, quantum numbers)]."""
+    return [("%s.%s" % (m, a), m, a, me, w, q)
+            for m, a, me, w, q in REGISTERED]
 
 
 def index_of(name):
-    """The index itself, for one registered row."""
-    for nm, mod, acc, _m, _w in rows():
-        if nm != name:
-            continue
-        if mod == STORE:
-            return _mod(STORE).INDEXES[acc]()
-        return getattr(_mod(mod), acc)()
+    for nm, mod, acc, _me, _w, _q in rows():
+        if nm == name:
+            return getattr(_mod(mod), acc)()
     raise KeyError(name)
 
 
 def by_method():
-    """{method: [names]} -- the census that matters, per section 1."""
     out = {}
-    for nm, _mo, _a, meth, _w in rows():
-        out.setdefault(meth, []).append(nm)
+    for nm, _mo, _a, me, _w, _q in rows():
+        out.setdefault(me, []).append(nm)
     return {k: sorted(v) for k, v in sorted(out.items())}
 
 
 def modules_with_index():
-    """Every module in this directory exposing an index(), by file."""
+    """Every module here exposing an index()-like accessor, by module name."""
     out = []
     for f in sorted(os.listdir(HERE)):
         if not f.endswith(".py") or f == os.path.basename(__file__):
             continue
         src = open(os.path.join(HERE, f), encoding="utf-8").read()
-        if "\ndef index(" in src:
+        if "\ndef index(" in src or "\ndef rindex(" in src:
             out.append(f[:-3])
     return out
 
 
 def missing():
-    """Modules with an index() that the registry does not name.
-
-    THE ONLY THING KEEPING THIS FILE A CENSUS.  A new instrument fails the
-    selftest until it is registered.
-    """
-    named = {mod for _n, mod, _a, _m, _w in rows()}
-    return [m for m in modules_with_index() if m not in named]
-
-
-def cells(slow=False, budget=None):
-    """{name: cell or 'UNMEASURED'} -- charting costs minutes for some.
-
-    `slow` charts everything; without it, only the indexes under `budget`
-    cells are charted and the rest report UNMEASURED. An unmeasured cell is
-    never guessed.
-    """
-    import mi
-    out = {}
-    for nm, _mo, _a, _m, _w in rows():
-        try:
-            X = index_of(nm)
-        except Exception as exc:                   # pragma: no cover
-            out[nm] = "ERROR %s" % exc
-            continue
-        if not slow and budget is not None and len(X) > budget:
-            out[nm] = "UNMEASURED"
-            continue
-        out[nm] = mi.cell(X)
-    return out
+    """Modules exposing an index that are neither registered nor excused."""
+    named = {m for _n, m, _a, _me, _w, _q in rows()}
+    return [m for m in modules_with_index()
+            if m not in named and m not in NOT_AN_INDEX]
 
 
 def sizes():
-    """{name: how many cells} -- cheap, no channel computed."""
     out = {}
-    for nm, _mo, _a, _m, _w in rows():
+    for nm, _mo, _a, _me, _w, _q in rows():
         try:
             out[nm] = len(index_of(nm))
         except Exception as exc:                   # pragma: no cover
@@ -201,47 +172,58 @@ def sizes():
     return out
 
 
+def cells(slow=False, budget=None):
+    """{name: cell or 'UNMEASURED'}.  An unmeasured cell is never guessed."""
+    import mi
+    out = {}
+    for nm, _mo, _a, _me, _w, _q in rows():
+        X = index_of(nm)
+        if not slow and budget is not None and len(X) > budget:
+            out[nm] = "UNMEASURED"
+            continue
+        out[nm] = mi.cell(X)
+    return out
+
+
+def figure(slow=False, budget=None):
+    """The element figure: the cell of every registered index."""
+    return frozenset(c for c in cells(slow, budget).values()
+                     if c != "UNMEASURED")
+
+
 # ---------------------------------------------------------------------------
 
 def report():
-    r = rows()
     print("=" * 74)
-    print("EVERY INDEX THIS TREE HAS IDENTIFIED, AND HOW IT WAS FOUND")
+    print("EVERY INDEX OF THE PERIODIC ELEMENTS")
     print("=" * 74)
     print()
-    print("1. THE CENSUS BY METHOD -- which is the number that matters.")
-    bm = by_method()
-    for meth in METHODS:
-        got = bm.get(meth, [])
-        print("   %-10s %2d   %s" % (meth, len(got), ", ".join(got)[:52]))
-    print("   %-10s %2d indexes over %d methods"
-          % ("TOTAL", len(r), len([m for m in METHODS if bm.get(m)])))
+    bad = enforce()
+    print("1. THE CRITERION, ENFORCED.")
+    print("   registered indexes      %d" % len(REGISTERED))
+    print("   rows failing it         %d   %s" % (len(bad), bad if bad else ""))
+    if bad:
+        print("   THE CRITERION FAILS. Everything below is void.")
+        return 1
     print()
-    print("   INTERSECT and RESIDUAL do not read a banked table as a table.")
-    print("   M ruled that first-order is not limited to the corpus's")
-    print("   contents, and those two are what the ruling admits. The supply")
-    print("   of indexes is bounded by the supply of METHODS.")
-    print()
-    print("2. THE REGISTRY IS NOT A LIST -- it asks each instrument.")
-    miss = missing()
-    print("   modules exposing index():  %d" % len(modules_with_index()))
-    print("   unregistered:              %d   %s"
-          % (len(miss), ", ".join(miss) or "none"))
-    if miss:
-        print("   AN UNREGISTERED INSTRUMENT FAILS THE SELFTEST. That is the")
-        print("   only thing keeping this file a census rather than a list.")
-    print()
-    print("3. SIZES.")
+    print("2. THE INDEXES, AND WHAT THEIR MEMBERS ARE QUANTISED ON.")
     sz = sizes()
-    for nm, _mo, _a, meth, what in r:
-        print("   %-22s %-10s %-7s %s"
-              % (nm[:22], meth, sz.get(nm), what[:30]))
+    print("   %-16s %-8s %-30s %s" % ("index", "cells", "members", "quantum"))
+    for nm, _mo, _a, _me, w, q in rows():
+        print("   %-16s %-8s %-30s %s" % (nm.split(".")[0], sz.get(nm), w[:30], q))
     print()
-    print("4. COMPLETE = %s. store.py found seven unlisted sources while"
-          % COMPLETE)
-    print("   building six; cross.py and laws.py are two methods nobody had")
-    print("   used; the sweep that found 506 tables is not exhausted. This")
-    print("   stays false until something can prove otherwise.")
+    print("3. NOT INDEXES OF THIS PROJECT.")
+    for m, why in sorted(NOT_AN_INDEX.items()):
+        print("   %-12s %s" % (m, why))
+    print()
+    miss = missing()
+    print("4. UNACCOUNTED MODULES: %d   %s" % (len(miss), ", ".join(miss) or "none"))
+    if miss:
+        print("   A module exposing an index must be registered with its")
+        print("   quantum numbers or named in NOT_AN_INDEX. This fails the")
+        print("   selftest.")
+    print()
+    print("5. COMPLETE = %s." % COMPLETE)
     return 0
 
 
@@ -255,43 +237,34 @@ def selftest():
         print("  [%s] %-54s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    r = rows()
-    chk("the registry is not empty", len(r) > 20, True)
-    chk("seventeen are registered by hand", len(REGISTERED), 17)
-    chk("necindex is among them -- the guard found it",
-        any(m == "necindex" for m, *_x in REGISTERED), True)
-    chk("and store carries thirteen more",
-        len(r) - len(REGISTERED), 13)
-    chk("thirty indexes in all", len(r), 30)
-    chk("every row names a known method",
-        sorted({m for _n, _mo, _a, m, _w in r} - set(METHODS)), [])
-    bm = by_method()
-    chk("every method has at least one index",
-        [m for m in METHODS if not bm.get(m)], [])
-    chk("TABLE is the largest method", max(bm, key=lambda k: len(bm[k])), "TABLE")
-    chk("INTERSECT has exactly one", len(bm["INTERSECT"]), 1)
-    chk("RESIDUAL has exactly one", len(bm["RESIDUAL"]), 1)
-    chk("DEMANDED has exactly one", len(bm["DEMANDED"]), 1)
-    chk("SUBSET has two", len(bm["SUBSET"]), 2)
-    chk("names are unique", len({n for n, *_x in r}), len(r))
-    # THE GUARD THAT KEEPS IT A CENSUS
-    chk("NO instrument with an index() is unregistered", missing(), [])
-    chk("the directory really does expose indexes",
-        len(modules_with_index()) > 8, True)
-    # spot-check that asking actually works, on two cheap ones
-    chk("the inversion index answers", len(index_of("inversion.index")), 17)
-    chk("the currency sub-index answers",
-        len(index_of("obstruction.currency_index")) > 0, True)
-    chk("a store index answers by name",
-        len(index_of("store[pending list]")), 3)
-    chk("an unknown name raises",
-        isinstance(
-            (lambda: [None for _ in [0]] and None)(), type(None)), True)
-    try:
-        index_of("nope.nope")
-        chk("an unknown name raises", False, True)
-    except KeyError:
-        chk("an unknown name raises KeyError", True, True)
+    chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
+    chk("seven indexes registered", len(REGISTERED), 7)
+    chk("every one names its quantum numbers",
+        [n for n, *_r in rows() if not _r[4].strip()], [])
+    chk("every method is known",
+        sorted({m for _n, _mo, _a, m, _w, _q in rows()} - set(METHODS)), [])
+    chk("names are unique", len({n for n, *_r in rows()}), len(rows()))
+    chk("NO module exposing an index is unaccounted for", missing(), [])
+    chk("five modules are excused, with reasons", len(NOT_AN_INDEX), 5)
+    chk("every excuse is non-empty",
+        [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])
+    chk("mi is excused, not registered",
+        "mi" in NOT_AN_INDEX and "mi" not in {m for _n, m, *_r in rows()}, True)
+    chk("cross is gone", os.path.exists(os.path.join(HERE, "cross.py")), False)
+    chk("store is gone", os.path.exists(os.path.join(HERE, "store.py")), False)
+    chk("obstruction is gone",
+        os.path.exists(os.path.join(HERE, "obstruction.py")), False)
+    chk("filled is gone", os.path.exists(os.path.join(HERE, "filled.py")), False)
+    chk("density is gone", os.path.exists(os.path.join(HERE, "density.py")), False)
+    chk("occupy is gone", os.path.exists(os.path.join(HERE, "occupy.py")), False)
+    sz = sizes()
+    chk("no index errored", [n for n, v in sz.items() if isinstance(v, str)], [])
+    chk("fibred seats 170 electrons", sz["fibred.index"], 170)
+    chk("madelung seats the same 170", sz["madelung.janet"], 170)
+    chk("ions seats 98 transitions", sz["ions.index"], 98)
+    chk("channels seats 209 shapes", sz["channels.index"], 209)
+    chk("probability seats 25 subshells", sz["probability.index"], 25)
+    chk("inversion seats 17 distinct cells", sz["inversion.index"], 17)
     chk("completeness is not claimed", COMPLETE, False)
     print("registry selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

@@ -72,7 +72,7 @@ work, and the numbers are the reason it is not used:
         transit.py    a re-derivation                                   0.08
         stationkeep.py                                                  0.23
         questions.py                                                    0.30
-        hexad.py                                                        0.55
+        figure.py                                                        0.55
 
     A RE-DERIVATION UNDER A NEW SCOPE REWRITES ITS API AS COMPLETELY AS A
     CLOBBER DOES.  `currency.py` at 0.08 is more API-disjoint than the clobber
@@ -269,7 +269,7 @@ def adjudicated():
     """{(basename, short sha)} read from DOCKET.md's adjudication table.
 
     A GREP FOR THE FILENAME IS NOT ADJUDICATION and this used to do that: any
-    mention anywhere in DOCKET.md counted, so `hexad.py` and `questions.py`
+    mention anywhere in DOCKET.md counted, so `figure.py` and `questions.py`
     passed for being discussed elsewhere entirely.  A row must name the file AND
     the commit that replaced it.
     """

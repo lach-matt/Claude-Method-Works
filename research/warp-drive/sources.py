@@ -1,114 +1,28 @@
 #!/usr/bin/env python3
 r"""
-sources.py -- WHAT ELSE CAN BE BUILT, AND WHERE THE COUNTING HAS TO STOP.
+sources.py -- WITHDRAWN.  Its census counted the filing cabinet as subject
+matter.
 
-M: "any other available index that can be and has not yet been identified and
-built in the same fashion and criterion as the rest."
+M: "Remove any index in the project whose members do not have quantum numbers."
 
-    python3 sources.py             the reading
-    python3 sources.py --selftest  fixtures
+This file named six "unbuilt first-order sources" -- the BUILD series, the drive
+manifest, the Register, the recovered ledger, the coverage census, the dockets --
+and I built all six and seven more besides.  NONE OF THEM IS AN INDEX OF THE
+PERIODIC ELEMENTS.  Every member is a file, a conversation, an archive or a
+docket, and the figure ran E from 9 to 133 on the mixture.
 
-    THE ANSWER HAS TWO HALVES AND THEY ARE NOT ALIKE.  One is a finite list that
-    can be finished.  The other is a construction that cannot, and pretending to
-    enumerate it would be the single most misleading thing this tree could do.
+It also measured a "second-order supply" of 84 indexes over 21 vertices by
+charting the seated indexes against each other.  Those members are indexes, not
+elements, so that count is off-subject too.
 
-===============================================================================
-1. FIRST-ORDER AND SECOND-ORDER
-===============================================================================
+    THE LIVE CENSUS IS `registry.py`, which ENFORCES the criterion rather than
+    listing sources: every index names the quantum numbers its members carry,
+    and a module exposing an index that is neither registered nor excused fails
+    the selftest.
 
-    FIRST-ORDER   its members are things the corpus banks -- elements,
-                  transitions, measurements, channels.  The supply is bounded by
-                  what the corpus HAS.
-
-    SECOND-ORDER  its members are the seated indexes, and its coordinates are
-                  measurements OF them.  The supply is bounded by how many
-                  admissible measurements one can write down, which is not a
-                  bound.
-
-Eight indexes are seated.  Five are first-order and three are second-order:
-
-        FIRST-ORDER                        SECOND-ORDER
-        shell fibration   (n, l, k)        the master index    MI
-        Janet fibration   (n+l, l, k)      the refusal index   R
-        ionisation ladder Lambda_8         the entropy index   H
-        provenance        the 26 axes
-        channel index     (l, B, mult)
-
-===============================================================================
-2. THE SECOND-ORDER SUPPLY IS NOT A LIST, AND HERE IS THE MEASUREMENT
-===============================================================================
-
-Take nine per-index measurements that PASS the chart criterion -- cells, height,
-width, comparable pairs, join-irreducibles, H_max, H_min, |R(X)| and K itself.
-Every one moves on 0 of 9 under an appended monotone redundant coordinate, so
-every one is admissible by DOCKET 3's own test.
-
-    Three-coordinate charts from those nine:      **84 indexes**
-    Distinct (K, height, width) vertices:         **21**
-    Of which NOT already hexad vertices:          **20**
-
-    **EIGHTY-FOUR NEW INDEXES FROM A STARTER SET OF NINE.**  And the starter set
-    is itself open -- H_max and H_min were added in one afternoon and nothing
-    stops a tenth measurement tomorrow.  Nor is arity three special; the same
-    nine give more at arity two and four.
-
-    SO "HOW MANY MASTER INDEXES ARE THERE" HAS NO SECOND-ORDER ANSWER.  Counting
-    them is counting one's own measurements.  The honest statement is that the
-    second-order family is a CONSTRUCTION with a generating rule, and the rule is
-    written above.
-
-===============================================================================
-3. WHAT THIS MEANS FOR "COMPLETE"
-===============================================================================
-
-    THE RULES ARE COMPLETE.  Eight lawful channels and no more, because a closing
-    set must be a down-set.  The chart criterion is fixed.  The reachability law
-    holds with no exceptions over 86 injective charts.  K1, K4 and K5 are
-    unreachable from the element address; K4 is reachable from the ladder; K2 and
-    K6 only by coarsening.  None of that moves when a new index is built.
-
-    THE FIGURE IS NOT COMPLETE, AND CANNOT BE.  Every new index is another
-    vertex.  The hexad became an octad in one sitting, and 20 more vertices are
-    a comprehension away.  Any claim that a particular polygon is THE
-    classification is refuted by building one more index, which takes minutes.
-
-    SO THE CLASSIFICATION IS OF KINDS, NOT OF MEMBERS -- which is the ordinary
-    situation for a classification and worth saying plainly.
-
-===============================================================================
-4. FIRST-ORDER SOURCES STILL UNBUILT
-===============================================================================
-
-These are real, banked, and NOT built here.  Each is listed with why.
-
-    THE BUILD SERIES         140 files, BUILD9 to BUILD179, two streams.
-    THE DRIVE MANIFEST       820 files with mime, size, md5, status.
-    THE REGISTER             1,660 entries over 1-1792, 132 numbered gaps.
-    THE RECOVERED LEDGER     3,173 files in six statuses.
-    THE COVERAGE CENSUS      1,005 artefact names in five dispositions.
-    THE DOCKETS              ten, with rulings.
-
-    **EVERY ONE OF THEM INDEXES THE ARTEFACT STORE, NOT THE METHOD.**  They are
-    facts about which files exist, what was recovered and what a build contained
-    -- bookkeeping about the repository rather than mathematics about the
-    corpus's content.  An index of them would be well formed and would occupy a
-    vertex, and it would be measuring the filing cabinet.
-
-    THAT IS A JUDGEMENT AND IT IS FLAGGED AS ONE.  `OUT_OF_SCOPE_IS_A_RULING` is
-    True in this file.  A ruling could bring any of them in, and the instrument
-    to build one would look exactly like `provenance`.
-
-===============================================================================
-5. WHAT THIS FILE REFUSES
-===============================================================================
-
-    TO ENUMERATE THE SECOND-ORDER FAMILY.  Section 2 measures its size at one
-    arity from one starter set and stops.  A list would imply a bound.
-
-    TO BUILD THE BOOKKEEPING INDEXES WITHOUT A RULING.  See section 4.
-
-    TO CALL THE EIGHT COMPLETE.  They are what is seated.  Section 3 says why no
-    number belongs in that sentence.
+Nothing here is imported by anything.  It is kept only because DOCKET 16 cites
+it as the origin of the contamination; read it as a record of a mistake, not as
+a census.  See DOCKET 16.
 """
 
 import itertools
@@ -121,6 +35,7 @@ import entropy as _entropy
 import refusal as _refusal
 
 OUT_OF_SCOPE_IS_A_RULING = True
+WITHDRAWN = True  # DOCKET 16: this census counted the filing cabinet
 
 FIRST_ORDER = {
     "shell fibration": "fibred.py",
@@ -247,9 +162,9 @@ def report():
     n, verts, chans = second_order_family(3)
     print("   three-coordinate charts from those nine   %d indexes" % n)
     print("   distinct (K, height, width) vertices      %d" % len(verts))
-    import hexad
+    import figure as _fig
     print("   of which NOT already hexad vertices       %d"
-          % len(verts - hexad.hexad()))
+          % len(verts - _fig.hexad()))
     print("   channels reached                          %s" % chans)
     print("   EIGHTY-FOUR FROM A STARTER SET OF NINE, and the starter set is")
     print("   itself open. Counting these is counting one's own measurements.")
@@ -310,9 +225,9 @@ def selftest():
     n, verts, chans = second_order_family(3)
     chk("three-coordinate second-order indexes buildable", n, 84)
     chk("distinct vertices they occupy", len(verts), 21)
-    import hexad
+    import figure as _fig
     chk("NEW vertices, not already in the hexad",
-        len(verts - hexad.hexad()), 20)
+        len(verts - _fig.hexad()), 20)
     chk("channels they reach", chans, {0: 17, 2: 67})
     # AND IT GROWS WITH ARITY, so three is not special.
     n2, v2, _c2 = second_order_family(2)

@@ -289,8 +289,8 @@ def report():
     print("   CELL        %s" % (cell(),))
     try:
         import demand
-        import hexad
-        if cell() in demand.demand(hexad.figure()):
+        import figure as _fig
+        if cell() in demand.demand(_fig.figure()):
             print("   AND THAT CELL IS ONE THE OCTAD DEMANDS.  E drops by one.")
         else:
             print("   THAT CELL IS NOT DEMANDED BY THE OCTAD.  Seating it raises E.")

@@ -84,6 +84,10 @@ nothing: it is a row identifier wearing a measurement's clothes.
         drive manifest   661 cells   alphabets [12, 640,   2]   box    15,360
         member index     343 cells   alphabets [ 7, 329, 343]   box   789,929
 
+    BOTH OF THOSE ARE NOW DELETED -- they were filing-system indexes, not
+    indexes of the periodic elements -- but the measurement stands and is why
+    this section exists.
+
     HALF THE CELLS AND FIFTY-ONE TIMES THE BOX, because the member index
     carries TWO near-injective coordinates -- `bytes` at 329 distinct over 343
     members and `bundle_offset` at 343 over 343 -- whose alphabets multiply.
@@ -277,7 +281,7 @@ def labelled():
     """
     import registry
     out = []
-    for nm, _mo, _a, _m, _w in registry.rows():
+    for nm, _mo, _a, _m, _w, _q in registry.rows():
         try:
             X = registry.index_of(nm)
         except Exception:                          # pragma: no cover
@@ -291,7 +295,7 @@ def seated_cells():
     """{name: cell set} over every registered index, cheaply."""
     import registry
     out = {}
-    for nm, _mo, _a, _m, _w in registry.rows():
+    for nm, _mo, _a, _m, _w, _q in registry.rows():
         try:
             out[nm] = frozenset(registry.index_of(nm))
         except Exception:                          # pragma: no cover
@@ -455,20 +459,24 @@ def selftest():
     chk("box is the product of the alphabets",
         box_of(frozenset({(0, 0, 0), (1, 1, 1), (2, 2, 2)})), 27)
     chk("an empty index has box 0", box_of(frozenset()), 0)
-    # the measured case that prompted this section
-    import store
-    mi_x = store.INDEXES["member index"]()
-    dm_x = store.INDEXES["drive manifest"]()
-    chk("the member index has FEWER cells than the manifest",
-        len(mi_x) < len(dm_x), True)
-    chk("but a much larger box", box_of(mi_x) > box_of(dm_x) * 20, True)
-    chk("because two of its coordinates are labels",
-        len([1 for _i, _d, _n, _r, v in resolution(mi_x) if v == "LABEL"]), 2)
-    chk("where the manifest has one",
-        len([1 for _i, _d, _n, _r, v in resolution(dm_x) if v == "LABEL"]), 1)
+    # THE CASE THAT PROMPTED THIS SECTION IS GONE, AND THE FIXTURE GOES WITH
+    # IT.  The member index and the drive manifest were filing-system indexes
+    # -- 343 files in a bundle, 820 mirrored files -- and were deleted when M
+    # ruled that an index whose members carry no quantum numbers is not an
+    # index of this project.  The measurement they produced is kept in the
+    # docstring as the reason this section exists; the fixture is re-pointed at
+    # a constructed case so it tests the instrument and not the deleted data.
+    two_labels = frozenset((i % 2, i, i * 3) for i in range(12))
+    chk("an index with two near-injective coordinates is caught",
+        len([1 for _i, _d, _n, _r, v in resolution(two_labels)
+             if v == "LABEL"]), 2)
+    chk("and its box dwarfs its cell count",
+        box_of(two_labels) > len(two_labels) * 20, True)
 
     C = seated_cells()
-    chk("every registered index yielded cells", len(C) > 25, True)
+    chk("every registered index yielded cells", len(C), 7)
+    chk("and every one is an element index",
+        sorted(C) == sorted(n for n, *_r in __import__("registry").rows()), True)
     print("overlap selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
 

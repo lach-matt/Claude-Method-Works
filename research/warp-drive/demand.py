@@ -20,7 +20,7 @@ and its vertexes are is the scope."
 `hexad.py` measured a figure at six, seven and eight vertices and refused to name
 a polygon.  The refusal was right and unhelpful: it said the classification is not
 this shape without saying what would make it one.  M's closure condition fixes
-that.  Read E as `hexad.deficit` reads it -- the information deficit,
+that.  Read E as `the information deficit` reads it -- the information deficit,
 |J(F)| - |F|, where J is the join-closure -- and
 
     E = 0   the figure is JOIN-CLOSED.  Every pair of vertices joins to a vertex.
@@ -112,7 +112,7 @@ import itertools
 import random
 import sys
 
-import hexad
+import figure as _fig
 import hlaw
 import mi
 
@@ -143,7 +143,7 @@ def demand(F):
 def E(F):
     """The information deficit, computed two ways and asserted equal.
 
-    hexad.deficit runs hlaw's information operator; this runs the join-closure
+    hlaw's information operator; this runs the join-closure
     directly.  They must agree -- the information closure IS the join-closure --
     and a disagreement would mean one of them is not what it says it is.
     """
@@ -179,11 +179,11 @@ def neutrality(names=None, base=None):
     verdict is "demanded" (in J(base), drops E), "neutral" (outside, costs
     nothing) or "disruptive" (outside, and raises E by more than nothing).
     """
-    base = list(base or (list(hexad.SIX) + list(hexad.ADDED[:2])))
-    B = hexad.figure(base)
+    base = list(base) if base else sorted(_fig.cells())
+    B = _fig.figure(base)
     JB, _r = closure(B)
     out = []
-    for nm, c in hexad.cells(names).items():
+    for nm, c in _fig.cells(names).items():
         if nm in base:
             continue
         if c in JB:
@@ -209,7 +209,7 @@ def size_band(cell):
 
 def predictions(names=None):
     """[(cell, K set, size band, [(a, b)] that demand it)] -- the missing vertices."""
-    F = sorted(hexad.figure(names))
+    F = sorted(_fig.figure(names))
     chans = mi.channels()
     prov = provenance(F)
     return [(c, sorted(chans[c[0]]), size_band(c), prov[c]) for c in demand(F)]
@@ -276,8 +276,10 @@ def cross_check(names=None):
     The information closure IS the join-closure, so these must agree.  They are
     computed by different code and the agreement is the check.
     """
-    F = hexad.figure(names)
-    return E(F), hexad.deficit(names)
+    F = _fig.figure(names)
+    J, _r = closure(F)
+    cl, _b = hlaw.closures(F)
+    return len(J) - len(F), len(cl["information"]) - len(F)
 
 
 def _disjoint_chains(h, w):
@@ -317,13 +319,13 @@ def bands_are_tight():
 # ---------------------------------------------------------------------------
 
 def report():
-    F = hexad.figure()
+    F = _fig.figure()
     J, rounds = closure(F)
     print("=" * 74)
     print("THE FIGURE NAMES ITS OWN MISSING VERTICES")
     print("=" * 74)
     print()
-    print("0. WHERE THE OCTAD STANDS.")
+    print("0. WHERE THE ELEMENT FIGURE STANDS.")
     print("   seated vertices   %d" % len(F))
     print("   join-closure      %d   (%d rounds)" % (len(J), rounds))
     print("   E                 %d   -- and M's condition is E = 0 or 1" % E(F))
@@ -337,7 +339,7 @@ def report():
     for c, ks, (lo, hi), prov in predictions():
         ksn = "{%s}" % ", ".join(ks) if ks else "{} (K0)"
         src = prov[0] if prov else None
-        who = {v: k for k, v in hexad.cells().items()}
+        who = {v: k for k, v in _fig.cells().items()}
         lab = "%s + %s" % (who[src[0]], who[src[1]]) if src else "round 2"
         print("   %-13s %-34s %-12s %s"
               % (str(c), ksn, "%d..%d" % (lo, hi), lab))
@@ -348,15 +350,7 @@ def report():
     print("   says such an index exists.")
     print()
 
-    print("2. THE TWO VERTICES SEATED AFTER THE OCTAD, AND WHAT THEY COST.")
-    for nm, c, v in neutrality():
-        print("   %-20s %-12s %s" % (nm, str(c), v))
-    print("   A NEUTRAL VERTEX IS NOT A FAILURE. The figure grew by two and the")
-    print("   demand is the same ten cells -- so E is not a moving target, and")
-    print("   the programme is no further from closing than it was at eight.")
-    print()
-
-    print("3. THE PROGRAMME TERMINATES, AND THE PRICE IS E.")
+    print("2. THE PROGRAMME TERMINATES, AND THE PRICE IS E.")
     for k, (n, bad, note) in lemmas().items():
         print("   [%s] %-44s %s" % ("ok" if not bad else "XX", k, note))
     print()
@@ -366,13 +360,13 @@ def report():
           % len(J))
     print()
 
-    print("4. THE SIZE BANDS ARE TIGHT AT BOTH ENDS.")
+    print("3. THE SIZE BANDS ARE TIGHT AT BOTH ENDS.")
     for (h, w), ch, gr in bands_are_tight():
         print("   h=%d w=%d   one chain (h,w,|X|) = %s   %d disjoint chains = %s"
               % (h, w, ch, w, gr))
     print()
 
-    print("5. REFUSED: to claim any demanded cell is occupiable -- a")
+    print("4. REFUSED: to claim any demanded cell is occupiable -- a")
     print("   specification no object meets refutes the programme rather than")
     print("   leaving a gap in it.  To name the final shape before its vertices")
     print("   are measured.  To treat E = 1 as second best: it is a figure with")
@@ -390,43 +384,34 @@ def selftest():
         print("  [%s] %-52s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    OCTAD = list(hexad.SIX) + list(hexad.ADDED[:2])
-    F8 = hexad.figure(OCTAD)
-    F = hexad.figure()                      # the live figure, now ten
-    chk("the octad was eight vertices", len(F8), 8)
-    chk("its join-closure was eighteen", len(closure(F8)[0]), 18)
-    chk("E at eight", E(F8), 10)
-    chk("the live figure is ten vertices", len(F), 10)
-    chk("its join-closure is twenty", len(closure(F)[0]), 20)
-    chk("E at ten is STILL ten", E(F), 10)
-    chk("the closure takes two rounds", closure(F)[1], 2)
-    a, b = cross_check()
-    chk("join-closure E == hlaw information E", a == b, True)
-    chk("E at six", E(hexad.figure(hexad.SIX)), 5)
-    chk("ten cells demanded", len(demand(F)), 10)
-    chk("and they are the SAME ten the octad demanded -- the two new",
-        set(demand(F)), set(demand(F8)))
-    chk("vertices are NEUTRAL: outside J, adding no join but themselves",
-        sorted(closure(F)[0] - closure(F8)[0]), sorted(F - F8))
+    F = _fig.figure()
+    chk("the figure is the element figure", len(F), 7)
+    chk("E equals the demand it names", E(F), len(demand(F)))
     chk("the demand is inside the closure",
         set(demand(F)) <= set(closure(F)[0]), True)
-    chk("seating all ten closes it", E(frozenset(F) | set(demand(F))), 0)
+    chk("seating all of it closes the figure",
+        E(frozenset(F) | set(demand(F))), 0)
     chk("and gives exactly the closure",
-        frozenset(F) | set(demand(F)) == closure(F)[0], True)
-    chk("seating nine leaves E = 1", E(frozenset(F) | set(demand(F)[:9])), 1)
-    chk("(0,18,24) is demanded", (0, 18, 24) in demand(F), True)
-    chk("(7,30,24) is demanded", (7, 30, 24) in demand(F), True)
-    chk("the Janet cell is NOT demanded -- it is seated",
-        (7, 30, 12) in demand(F), False)
-    chk("size band of (7,30,24)", size_band((7, 30, 24)), (30, 720))
-    chk("size band of (2,5,4)", size_band((2, 5, 4)), (5, 20))
-    nt = neutrality()
-    chk("both post-octad vertices are accounted for", len(nt), 2)
-    chk("both are NEUTRAL -- they cost the programme nothing",
-        all("NEUTRAL" in v for _n, _c, v in nt), True)
-    chk("a demanded cell is not neutral",
-        neutral(demand(F8)[0], F8), False)
-    chk("and it is inside the closure", demand(F8)[0] in closure(F8)[0], True)
+        frozenset(F) | set(demand(F)), closure(F)[0])
+    if len(demand(F)) > 1:
+        chk("seating all but one leaves E = 1",
+            E(frozenset(F) | set(demand(F)[:-1])), 1)
+    a, b = cross_check()
+    chk("join-closure E == hlaw information E", a, b)
+    # hand-computable cases, independent of any figure
+    D2 = frozenset({(0, 1, 0), (1, 0, 1)})
+    chk("an incomparable pair demands its join", E(D2), 1)
+    chk("and the join is the coordinatewise max",
+        demand(D2), [(1, 1, 1)])
+    C2 = frozenset({(0, 0, 0), (1, 1, 1)})
+    chk("a comparable pair demands nothing", E(C2), 0)
+    chk("a singleton demands nothing", E(frozenset({(3, 4, 5)})), 0)
+    nt = neutrality(base=sorted(_fig.cells())[:3])
+    chk("neutrality accounts for every vertex outside the base", len(nt),
+        len(_fig.cells()) - 3)
+    chk("every verdict is one of the three kinds",
+        sorted({v.split()[0] for _n, _c, v in nt}
+               - {"demanded", "NEUTRAL", "disruptive"}), [])
     lem = lemmas()
     for k, (n, bad, _note) in lem.items():
         chk("%-44s violations" % k, bad, 0)

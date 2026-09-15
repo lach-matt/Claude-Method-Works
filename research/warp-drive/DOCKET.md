@@ -1111,7 +1111,7 @@ Nothing is repaired on the strength of this.
 
 ---
 
-## DOCKET 12 — WHEN A DEMANDED CELL IS SATISFIABLE, DOES IT GET SEATED?  **RULED: YES**
+## DOCKET 12 — WHEN A DEMANDED CELL IS SATISFIABLE, DOES IT GET SEATED?  **RULED YES, AND THE SEATING IS VOID**
 
 *Raised 2026-09-15 by `occupy.py`, which found one.*
 
@@ -1190,7 +1190,7 @@ nothing about an unsatisfied one.
 
 ---
 
-## DOCKET 13 — THE SIX UNBUILT FIRST-ORDER SOURCES  **WITHDRAWN: THE QUESTION WAS MIS-POSED**
+## DOCKET 13 — THE SIX UNBUILT FIRST-ORDER SOURCES  **WITHDRAWN TWICE: MIS-POSED, THEN OFF-SUBJECT**
 
 *Raised 2026-09-15. `sources.py` named them and ruled them out of scope; the scope
 has since moved and `occupy.py` measured that the programme cannot close without
@@ -1376,7 +1376,7 @@ instrument a person or a later ruling can wire up; it installs nothing.
 
 ---
 
-## DOCKET 15 — THE MASTER INDEX IS THE INDEX OF UNIVERSAL FIRST-ORDERS  **NAMED, WITH ONE QUESTION**
+## DOCKET 15 — THE MASTER INDEX IS THE INDEX OF UNIVERSAL FIRST-ORDERS  **NAMED; THE OBJECT IT NAMED IS NO LONGER AN INDEX**
 
 *Named 2026-09-15 by M: "And I think we will refer to the main master index the
 index of universal first-orders."*
@@ -1425,3 +1425,73 @@ spanning hypothesis so that it holds for every subset and not only the spanning
 ones. The word in the name is earned by that obligation.
 
 Nothing is renamed on disk on the strength of this.
+
+
+---
+
+## DOCKET 16 — THE FIGURE WAS CONTAMINATED WITH THE FILING CABINET  **RULED BY M; EXECUTED**
+
+*Raised 2026-09-15 by M, twice, after I failed to see it the first time:
+"Can you seriously not identify what is subject matter directly relating to the
+periodic elements, and what is not?" and then the ruling: "Remove any index in
+the project whose members do not have quantum numbers."*
+
+### What happened
+
+The subject of this corpus is the periodic elements. A member of an index of it
+is an electron, a subshell, a transition, a channel or a series — something
+carrying quantum numbers.
+
+**Thirteen filing-system indexes were seated as vertices of the master figure.**
+Mirrored files. BUILD snapshots. Conversations. Archives. Artefact names.
+Handoff documents. Holes in a numbering scheme. And this tree's own dockets —
+an index of its administrative questions, seated as a vertex of a
+classification of atomic structure. Beside them went three indexes of
+warp-drive obstructions and four re-charts of the seated indexes.
+
+### What it cost, measured
+
+| | |
+|---|---|
+| E on the contaminated figure | 9 → **133** over 25 vertices |
+| disruptive vertices | **12** |
+| of those that were repository metadata | **12** |
+| of those that were elements | **0** |
+| E on the element figure | **15** at 9 vertices, **and 7 vertices once the axis-membered indexes came out** |
+
+**The demand explosion was the contamination.** It was reported to M as a
+finding — that identifying every first-order index and driving E to 0 or 1 pull
+in opposite directions. **That claim is withdrawn.** M's palindromic-demand
+prediction was never tested; the sample was contaminated before it could be.
+
+### Executed
+
+DELETED: `store.py` (thirteen filing-system indexes), `obstruction.py` with its
+currency and exotic-matter sub-indexes, `filled.py`, `cross.py` (members are
+pairs of axes), `density.py` and `occupy.py` (both built on the contaminated
+figure), and `hexad.py`.
+
+**`hexad.py`'s three published findings are WITHDRAWN, not revised** — the
+channel not stable under growth, the diagonals equalling the deficit only at
+six, the self-seating cycle at eight. All three were measured on the
+contaminated set. A measurement on the wrong member set is not a measurement of
+the right one with an error bar. `figure.py` replaces it and reports no growth
+narrative, because no clean one exists.
+
+NOT DELETED, NOT INDEXES: `mi.index`, `axes.index`, `entropy.index`,
+`rindex.rindex`, `necindex.index`. Their members are seated indexes, measurement
+axes, refusals and energy conditions. The files carry charting machinery and
+findings this session did not produce; `registry.NOT_AN_INDEX` names each with
+its reason.
+
+### The repair that matters
+
+**The criterion is now a function, not a paragraph.** `registry.enforce()`
+refuses any registered index that cannot name the quantum numbers its members
+carry, and `registry.missing()` fails the selftest for any module in the tree
+exposing an index that is neither registered nor explicitly excused. A criterion
+in a docstring is what let the filing cabinet in.
+
+Seven indexes stand: `fibred` (n, l, k), `madelung` (n+l, l, k), `ions` (charge,
+electron count), `channels` (l, Pauli bound, multiplicity), `laws` (n range, l,
+quantum defect), `probability` (n, l), `inversion` (pairs of (n, l)).
