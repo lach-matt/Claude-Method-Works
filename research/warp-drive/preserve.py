@@ -426,7 +426,21 @@ def selftest():
         any(r[0].endswith("spectra.py") and r[2] == "CITED" for r in cen), True)
     chk("every replacement is adjudicated",
         sorted(os.path.basename(r[0]) for r in unrecorded()), [])
-    chk("the adjudication table names seven", len(adjudicated()), 7)
+    # NOT A PINNED NUMBER.  The table grows whenever a replacement is
+    # adjudicated -- it went from seven to nine when the DOCKET 16 cleanup
+    # rewrote registry.py and sources.py -- so pinning the count makes the
+    # fixture fail for the guard doing its job.  What is pinned is the
+    # PROPERTY: every replacement the guard finds has a row, and no row names
+    # a file the tree has never had.
+    adj = adjudicated()
+    chk("the table has a row for every replacement found",
+        sorted({(os.path.basename(p), s[:7]) for p, s, *_r in replacements()}
+               - adj), [])
+    chk("and it names at least the nine adjudicated so far",
+        len(adj) >= 9, True)
+    chk("every row names a real file",
+        [b for b, _s in adj
+         if not any(os.path.basename(p) == b for p, *_r in replacements())], [])
     chk("a filename alone is not adjudication -- the sha must match",
         recorded("x/spectra.py", "0000000"), False)
     # the prospective half
