@@ -1362,11 +1362,18 @@ longer answers to its name.
 | `transit.py` | `4fb7bc3` | **RE-DERIVATION.** "Travel > turn > seat, as three gated parts" → M's "not traversable — correct, at least not in the sense we…". Same object, rewritten around a correction M supplied. |
 | `stationkeep.py` | `e248fb9` | **RE-DERIVATION.** "The delta-v nobody computed" → "what the ladder actually costs, after the literature was read". Same quantity, recomputed against sources. |
 | `questions.py` | `3c9124d` | **RE-DERIVATION.** "THE QUESTION INDEX. Cells are questions put to the languages." → "THE QUESTION INDEX. Seven questions, one per language." Same index; DOCKET 8 ruled the roster at seven and the file follows the ruling. |
-| `hexad.py` | `49e064c` | **RE-DERIVATION.** "The six master indexes as one index" → "the figure the seated indexes make, and what changes as it grows". Deliberate, and the file keeps its name because the finding is that the figure grows past six. |
+| `hexad.py` | `49e064c` | **RE-DERIVATION.** "The six master indexes as one index" → "the figure the seated indexes make, and what changes as it grows". Deliberate, and the file keeps its name because the finding is that the figure grows past six. Superseded: the file was **deleted** at `46f635f` under DOCKET 16, its findings withdrawn. |
+| `registry.py` | `46f635f` | **RE-DERIVATION under DOCKET 16.** "Every index this tree has identified, in one place, with how it was found" → "every index of the periodic elements, with the criterion enforced rather than described". Same object — the census — rebuilt so the criterion is `enforce()` rather than a paragraph. The guard flagged it and was right to: it deletes more than it adds and changes its identification line. |
+| `sources.py` | `46f635f` | **WITHDRAWAL, not a re-derivation.** Its census named six "unbuilt first-order sources" and all six are filing cabinet; it is the origin of the contamination DOCKET 16 records. The body is replaced by an account of the mistake, `WITHDRAWN = True`, and the file is kept only because DOCKET 16 cites it. Nothing imports it. |
 
-**One clobber, one restore, five re-derivations.** The ratio is the argument for
-the narrow contract: a guard that ruled automatically would have been wrong six
-times out of seven.
+**One clobber, one restore, six re-derivations and one withdrawal.** The ratio is
+the argument for the narrow contract: a guard that ruled automatically would have
+been wrong eight times out of nine.
+
+**AND IT CAUGHT THE CLEANUP PASS ITSELF.** `registry.py` and `sources.py` were
+rewritten wholesale while removing the contamination, and `preserve --check`
+failed on both before they were adjudicated here. That is the guard working on
+the person who built it, which is the only test of a guard that counts.
 
 ### What is still owed
 
