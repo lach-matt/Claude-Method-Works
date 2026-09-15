@@ -11818,3 +11818,165 @@ before being seated.
 
 Six asterisks remain in the rendered text of the paper and all six are correct: `Lemma N1*` is the
 lemma's name, written `N1\*` in the source so it is not read as markup.
+---
+
+## The eight indexes, the census that bounds them, and the figure they make
+
+M: *"Rebuild the MI from scratch, so no superseded data leaks in."* — then *"3 master indexes. Each a
+perspective of the same definition"*, then *"are there any other MIs we can derive from given
+information?"*, then *"any other available index that can be and has not yet been identified and built
+in the same fashion and criterion as the rest."*
+
+**Eleven instruments, and the arc is one question asked four times and answered differently each time.**
+Every one is stdlib-only, carries a `--selftest` over the corpus's own recorded numbers, and all ten that
+the last pass touched **PASS**.
+
+### The chart, and why the old five axes are gone
+
+**DOCKET 3 IS RULED.** A coordinate is admissible iff it survives appending a **monotone redundant**
+coordinate — for monotone `g`, `(x, g(x)) ≤ (y, g(y)) ⟺ x ≤ y`, so a coordinate that is already a
+function of the others must not move the reading. Put the old five through it: **arity and density move
+9 of 9 and are DISQUALIFIED**; height, width, cells, comparable pairs and join-irreducibles move **0 of
+9** and are admitted. The chart is therefore
+
+    (K, height, width)
+
+with `K` the channel — which of the five languages close the index, a down-set of the hierarchy law,
+0..7 — `height` the longest chain (Mirsky) and `width` the largest antichain (Dilworth).
+
+### The eight, each on that same chart, nothing chosen
+
+| index | file | members | cell |
+|---|---|---|---|
+| the master index | `mi.py` | the nine seated indexes | **(2, 5, 2)** — and it is VACANT |
+| the shell fibration | `fibred.py` | 170 electrons as `(n, l, k)` | **(3, 26, 17)** |
+| the Janet fibration | `madelung.py` | the same 170 as `(n+l, l, k)` | **(7, 30, 12)** |
+| the ionisation ladder | `ions.py` | 98 distinct Λ₈ transitions | **(0, 18, 16)** |
+| the provenance index | `axes.py` | the 26 axes, as measurements | **(0, 5, 5)** |
+| the refusal index | `rindex.py` | the refusals, four charts | **(0, 5, 4)** |
+| the channel index | `spectra.py` | 209 shapes over 104,832 rows | **(0, 16, 24)** |
+| the entropy index | `entropy.py` | marginal and joint entropies | **(2, 4, 5)** |
+
+**The second and third differ in ONE COORDINATE** — `n` against `n+l` — share the other two, run the same
+operators under the same laws, **and land in different channels**. That is the whole content of "each a
+perspective of the same definition". The Janet fibres `(2,2,8,8,18,18,32,32,50)` **never shrink**; the
+shell fibres `(2,8,18,32,50,32,18,8,2)` do, and the turn is at `floor(S/2)+2`, the first shrinking shell
+— **not** `ceil((S+1)/2)`, the peak, which is what this file said first and the selftest caught.
+
+### `charts3.py` — the answer to "are there others" is a law, not a list
+
+Nine coordinates, all functions of `(n, l, k)` alone, **372 charts** at arity 2–5 (`C(9,2..5)`). By **any**
+chart the reachable channels are K0, K2, K3, K6, K7; **injectively** — without throwing away which element
+is which — only **K0, K3, K7**; K1, K4 and K5 are reached by **no chart at all**. Of the 86 injective
+charts the shell-coordinate law decides every one, **no violations**, 112 excluded for a stated reason.
+So the three fibrations are **representatives of a classification, not picks from an open field** — and
+the way past it is not a new chart but a new *kind of member*, which is exactly what `ions.py`, `axes.py`,
+`rindex.py`, `spectra.py` and `entropy.py` each do.
+
+### Three that cost their own headline
+
+- **`ions.py`** is built on `tools/populate.ionisation_cells`, whose own docstring carries
+  **RECONSTRUCTED** and says why; **the status is not flattened anywhere**, and every channel in that file
+  is a fact about *that mapping* as much as about ions. 5,778 stage rows collapse to **98** transitions
+  because the cell is a function of `Ne` alone; the 8th slot is always `None` and is dropped. It reaches
+  **K4** through `(sl, tl)` — the only chart that does — at the cost of **91 of the 98 losing identity**.
+- **`rindex.py` settles what `refusal.py` refused, and the refusal survives.** Four charts; the two
+  faithful ones **disagree** — the indicator chart cycles with period 2, the `(|R|, sum)` chart is a fixed
+  point. So "does seating R converge" has no chart-free answer, and **the cycle is one bit wide: the K5
+  bit**.
+- **`spectra.py`** found a data fault in the corpus's most authoritative rows: **25 of 358 carry a decimal
+  `B`, and all 25 are `measured`/`witnessed`.** It also measured `witnessed ≡ measured` **exactly** — the
+  same set — so `wit` is a monotone function of `grade`, and `(l, grade)` and `(l, grade, wit)` are both
+  21 cells in K3. That is the **first confirmation of the chart criterion outside the element address**.
+
+### `sources.py` — the classification cannot be a fixed polygon, and this measures why
+
+Five first-order sources and three second-order ones are seated. Nine admissible measurements over the
+seated inventory yield **84 three-coordinate second-order indexes on 21 vertices — 20 of them new**
+(arity 2 gives 36, arity 4 gives 126). Six further first-order sources are **named and unbuilt** — the
+BUILD series, the drive manifest, the Register, the recovered ledger, the coverage census, the dockets —
+and `OUT_OF_SCOPE_IS_A_RULING = True` says that is a decision, not an oversight.
+
+### `hexad.py` — and it corrected two of its own published claims
+
+Asked what six indexes make as one figure, this file reported a hexad closing in **statistics**, with
+escaping join diagonals matching the information deficit, self-seating to a **fixed point**. Generalised
+to eight, **all three fail**:
+
+| | channel | own cell | escapes | distinct | E(info) | rounds | self-seating |
+|---|---|---|---|---|---|---|---|
+| six | **K2** | (2,4,2) | 5 | 5 | 5 | 1 | FIXED POINT |
+| seven | K0 | (0,4,3) | 9 | 5 | 5 | 1 | FIXED POINT |
+| eight | K0 | (0,4,4) | 14 | 9 | 10 | 2 | **CYCLE, period 2** |
+
+**The seventh vertex destroyed the channel and it does not come back.** The diagonal/deficit
+correspondence held at six only because the join-closure stabilised in **one round**; at eight it takes
+two, so nine diagonals stand against a deficit of ten. And the fixed point was explained at six by the
+members being cells already computed — an explanation that **predicts convergence at every size, and is
+refuted at eight**. What survives is the definitional statement, that the *full* join-closure is the
+deficit, which says less.
+
+> **The six-vertex properties were read as structural and they are not.** Recorded, not repaired.
+
+### `mcheck_mi.py` — and the guard that could not have caught its own blind spot
+
+Four obligations are put to Z3 over every subset of a named box. Two mattered more than the run that
+produced them:
+
+**`hlaw.closures` takes the box to be the OBSERVED alphabet; the harness quantified over a DECLARED one.**
+For a subset that uses every value on every axis the two agree. For one that does not they are operators
+on different boxes — and
+
+    X = [(0,1,0),(0,1,1),(0,1,2),(0,2,1),(0,2,2),(2,2,1),(2,2,2)]
+
+closes **all five** under the observed box and, under the declared `(3,3,3)` box, closes algebra,
+information and statistics but **not order** — and `order ≤ algebra`, so the closer-set is **not a
+down-set**. (Z3 returns whichever model it finds, so the file's printed counterexample varies by run;
+the one quoted here is the one checked by hand against `hlaw.OPS`.) The first run reported that as a
+refutation of the down-set law. **It is not.** It is a
+measurement of the convention: order's closure is the staircase *within the box*, so a declared box wider
+than the observed alphabet hands it cells `X` was never asked about, while algebra's sublattice closure
+only takes mins and maxes of members and cannot leave the observed alphabet. The same mechanism refutes
+the chart criterion's O4 at `X = [(0,0),(0,1),(2,1),(2,2)]`. **Both verified independently against
+`hlaw.OPS` before being believed.**
+
+**And `guard_encoding` was structurally unable to find this.** It skips every trial whose observed box is
+not the declared shape — it has to, or it would be comparing two different operators — so the region the
+counterexamples live in is *precisely* the region it never sampled. A guard with a blind spot reports
+"no drift" from the part of the space where there is none. It now **reports its own skip count**, and
+`guard_encoding_nonspanning` covers the skipped region by handing `hlaw` the declared box instead of
+letting it observe one.
+
+The obligations now carry `spans` — which is `prover.observed`, **already seated, and first rewritten
+here rather than imported**, the copy-a-member fault in miniature — and **O1b and O4b run the same
+formulas without it and report what fails**, because the convention is load-bearing and saying so is the
+finding. The run:
+
+```
+  [ok] encoding matches hlaw on spanning sets            no drift
+  [--] that guard SKIPPED 67 of 400 trials as non-spanning -- its blind spot
+  [ok] encoding matches hlaw on 49 NON-spanning sets     no drift
+
+  [PROVED]  O1  closers is always a DOWN-SET                    unsat  (2^27 subsets)
+  [PROVED]  O2  K0 is universal                                 unsat  (2^27 subsets)
+  [REFUTED] O3  K7 is NOT universal -- a witness exists         sat    (22 cells, spanning)
+  [PROVED]  O4  monotone redundant coordinate keeps the channel unsat  (2^9  subsets)
+
+  [  XX  ]  O1b closers is a DOWN-SET   (no spanning hypothesis)   sat
+  [  XX  ]  O4b monotone redundant coord (no spanning hypothesis)  sat
+```
+
+O2 carries no hypothesis and is left that way deliberately: **K0 is universal over every subset,
+spanning or not**, which is the stronger statement. O3's witness is required to span, so the refutation
+is a refutation under hlaw's own convention and not an artefact of the declared box.
+
+### Seated
+- `mi.py`, `fibred.py`, `madelung.py`, `charts3.py`, `ions.py`, `axes.py`, `rindex.py`, `spectra.py`,
+  `entropy.py`, `sources.py` — **new**, ten instruments, all `--selftest` **PASS**. `hexad.py` —
+  **rewritten**, generalised from six vertices to eight, and **two of its own published claims
+  withdrawn**. `mcheck_mi.py` — **repaired**: the spanning hypothesis added to O1, O3 and O4, `spans`
+  delegated to `prover.observed`, `guard_encoding` made to report its skip count, and
+  `guard_encoding_nonspanning` added to cover the region it cannot reach. `render/` — eight plates, each
+  with a 3-D rendering drawn by `render/scatter3d.js`, a hand-rolled canvas projector with no CDN.
+  `DOCKET.md` — **DOCKET 2 and DOCKET 3 RULED**; DOCKET 9 and DOCKET 10 remain open.
+

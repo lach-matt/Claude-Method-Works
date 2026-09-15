@@ -33,6 +33,7 @@ install is one command and the wheel does not belong in git.
 | **`prover.py`** | the reusable harness — start here for a *new* claim |
 | **`machinecheck.py`** | the obligations behind `paper/THE-HIERARCHY-LAW.md`, 21 of 21 discharged |
 | **`lawfigures.py`** | not a prover — recomputes every *number* the paper states |
+| **`mcheck_mi.py`** | the four obligations behind the index classification, and the guard that had a blind spot |
 
 ```
 pip install z3-solver
@@ -94,6 +95,29 @@ repository actually computes, cell by cell.
 `machinecheck.py` runs both before reporting any obligation, and refuses to report if either fails.
 **Copy that discipline.** A green run with an unchecked encoding is worse than no run, because it
 looks like evidence.
+
+### A third failure, found 2026-09-15: the guard with a blind spot
+
+**An encoding guard can only compare where the two things are comparable, and that exclusion is itself
+a gap.** `mcheck_mi.py`'s guard compares its formulas against `hlaw.closures` — but `hlaw` takes the
+box to be the **observed alphabet** while the harness quantifies over a **declared** box, so the guard
+had to skip every trial whose observed box was not the declared shape. **67 of 400 trials, skipped in
+silence**, and it reported "no drift" from the 333 that remained.
+
+Then the obligations ran over *all* subsets, non-spanning ones included — and reported the down-set law
+and the chart criterion both refuted. Neither is. Both counterexamples are non-spanning, which is to
+say **both live exactly in the region the guard could not sample**. See `DOCKET.md` DOCKET 11.
+
+Three things follow, and they generalise past this file:
+
+1. **A guard that skips must count what it skipped and print the count.** An unreported exclusion reads
+   as coverage.
+2. **The skipped region needs its own guard.** Here, `guard_encoding_nonspanning` asks `hlaw.OPS`
+   directly with the declared box passed in, rather than going through `hlaw.closures`, which would
+   observe one.
+3. **A convention the operators disagree about is a hypothesis, and it must be written into the
+   obligation.** `prover.observed` was already seated and is exactly that formula; `mcheck_mi.py`
+   rewrote it rather than importing it, which is how it came to be treated as a detail.
 
 ---
 

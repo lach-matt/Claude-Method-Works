@@ -993,3 +993,77 @@ demand has been stated at anywhere in this tree.
 
 Nothing is repaired on the strength of this. It is recorded, and it gates
 docket 2.
+
+---
+
+## DOCKET 11 — OBSERVED BOX OR DECLARED BOX?  **OPEN, AND IT IS LOAD-BEARING**
+
+*Raised 2026-09-15 by `mcheck_mi.py`, which reported two of this tree's laws
+refuted and was wrong about why.*
+
+### The question
+
+`hlaw.closures` takes the box to be the **observed alphabet**: `box_of(X)` is, on
+each axis, the sorted set of values `X` actually uses. A machine-check quantifying
+over subsets of a **declared** box is therefore not always running hlaw's
+operators. For a subset that uses every value on every axis the two agree. For one
+that does not they are operators on different boxes.
+
+**And the verdicts genuinely differ.**
+
+    X = [(0,1,0),(0,1,1),(0,1,2),(0,2,1),(0,2,2),(2,2,1),(2,2,2)]
+
+| box | order | algebra | geometry | information | statistics | down-set? |
+|---|---|---|---|---|---|---|
+| observed `[[0,2],[1,2],[0,1,2]]` | ✓ | ✓ | ✓ | ✓ | ✓ | yes, K7 |
+| declared `(3,3,3)` | **✗** | ✓ | ✗ | ✓ | ✓ | **NO** |
+
+`order ≤ algebra` in the poset, so `{algebra, information, statistics}` is not a
+down-set and **the eight-lawful-channels theorem fails** — under the declared
+convention. The same mechanism moves the DOCKET 3 chart criterion: at
+`X = [(0,0),(0,1),(2,1),(2,2)]` in a 3×3 box, appending the monotone redundant
+`g(x) = x_0` turns `order` from refusing to closing.
+
+**THE MECHANISM, AND IT IS NOT AN ACCIDENT.** Order's closure is the staircase
+*within the box*, so a declared box wider than the observed alphabet hands it
+cells `X` was never asked about. Algebra's sublattice closure only ever takes mins
+and maxes of members and **cannot leave the observed alphabet**. The two operators
+disagree about what the box is for.
+
+### What this does and does not settle
+
+**The laws are not refuted.** With `spans` — hlaw's convention written as a
+formula, which is `prover.observed`, already seated — O1 and O4 are both `unsat`
+over every subset of their boxes. Both counterexamples above were confirmed
+independently against `hlaw.OPS` before being believed.
+
+**What is refuted is the idea that the convention is bookkeeping.** Two of this
+tree's three structural results are theorems *of the observed-box convention*, and
+neither has ever been stated that way.
+
+**And the guard could not have caught it.** `guard_encoding` skips every trial
+whose observed box is not the declared shape — it has to, or it is comparing two
+different operators — so the region the counterexamples live in is precisely the
+region it never sampled. It reported "no drift" from the part of the space where
+there is none. **67 of 400 trials were being skipped in silence.** It now reports
+that count, and `guard_encoding_nonspanning` covers the skipped region by handing
+`hlaw` the declared box rather than letting it observe one.
+
+### What would settle it
+
+A ruling on which box an index is charted over when the index does not fill its
+declared box. Three candidates, and this tree has no basis to choose:
+
+1. **Observed** — hlaw's current behaviour. An index is charted over exactly the
+   values it uses. Costs: the chart of an index changes when a member is added
+   that widens an axis, even if nothing else moves.
+2. **Declared** — the box is part of the index's definition. Costs: the down-set
+   law and the chart criterion, both measured above.
+3. **Both, as separate readings** — a cell carries the convention it was read
+   under. Costs: every seated figure in this tree needs re-stating.
+
+**Related but not the same as DOCKET 9**, which asks which *block* convention the
+corpus rules for. That one is about assigning a coordinate; this one is about what
+the coordinate ranges over. A ruling on either leaves the other open.
+
+Nothing is repaired on the strength of this.
