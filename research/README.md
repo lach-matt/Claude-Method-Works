@@ -11944,3 +11944,49 @@ those three facts ask for.
   since the loop only repaints while spinning, and axis text painted after the points, since a dense
   cloud otherwise buries a label at half the azimuths. **Standing note, not acted on:** M — *"gravity may be a potential solution for
   warp transition theory"* — recorded for when the warp work resumes. See DOCKET 17.
+
+
+---
+
+## Every seated index now has a rendering, and every rendering has a 3-D view
+
+M: *"We'll need renderings with 3d representation as well for all of them."*
+
+**`research/warp-drive/render/plate.py` is the shared scaffold**, and it exists because the
+interesting part of a plate is not its prose. It holds one copy of the house stylesheet, and two
+things that must be *measured* rather than chosen:
+
+- **The axis choice.** An arity-3 index is plotted **exactly** — three coordinates, three axes, one
+  point per cell, nothing collapsed — and the caption says so instead of leaving a reader to assume
+  it. An index of higher arity must be projected, and all C(arity, 3) projections are charted for
+  how many points survive and how many would carry **more than one colour**. A point with two
+  colours is a lie; the count is printed whether it is zero or not.
+- **The camera.** Swept, not picked, under three constraints: the whole cube stays on canvas at
+  *every* azimuth the auto-spin passes through rather than only the opening one; all three axes
+  project to at least 30 % of the longest, so the view is actually three-dimensional; and the still
+  frame keeps its labels clear. Legibility itself is not the camera's job — see below.
+
+**Seven plates were built or rebuilt on it:** `fibred`, `madelung`, `channels`, `ions`, `laws`,
+`probability`, `inversion`. The first four had plates already — `fibration-plate`, `janet-plate`,
+`ions-plate`, `spectra-plate` — but each **froze its own copy of the runtime** and three generations
+have since diverged, and `spectra-plate` still attributes the channel index to `spectra.py`, the
+module it had before it was reseated as `channels.py`. **The old plates are not deleted**: they are
+the record of what was rendered before, and DOCKET 14 says superseded material is kept. The new
+plates inline `scatter3d.js` **at build time**, so a plate cannot drift from the runtime because it
+does not carry a copy of one.
+
+**Six of the eight indexes are arity 3, so their 3-D view is the index itself** — `fibred`,
+`madelung`, `channels`, `laws`, `probability`, `inversion`. Only `ions` (arity 7) and `gravity`
+(arity 7) are projections, and both plates say so and give the measured cost: `ions` keeps **95 of
+98 cells with 0 mixed**, against a widest projection of 97 with 1 mixed that was therefore not used.
+
+**Two more additive changes to `scatter3d.js`**, on top of the two the gravity plate needed:
+
+- **An axis label is painted on its own ground** — a panel-coloured plate behind the text. The spin
+  passes through every azimuth, so no camera can keep a label clear of a dense cloud at all of them;
+  a camera constraint could only ever fix the opening frame. This fixes every frame.
+- **Axis text is painted after the points**, the lines still before them.
+
+Both were forced by looking at the rendered output: the first camera sweep tried to solve
+legibility geometrically, five of seven plates then satisfied no angle at all, and the constraint
+was the wrong tool.

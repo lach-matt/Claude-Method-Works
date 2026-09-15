@@ -33,11 +33,20 @@ function scatter3d(opts){
       ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
       return;                       /* text is painted in a later pass */
     }
-    ctx.fillStyle = colour; ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.font = '600 11px "IBM Plex Mono", monospace';
     ctx.textAlign='center'; ctx.textBaseline='middle';
     const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
     const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
     const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    /* AN AXIS LABEL GETS ITS OWN GROUND.  The auto-spin passes through every
+       azimuth, so no camera keeps a label clear of a dense cloud at all of
+       them; a panel-coloured plate behind the text makes it legible at every
+       angle instead of at the opening one. */
+    const tw = ctx.measureText(label).width;
+    ctx.fillStyle = tok('--panel'); ctx.globalAlpha = 0.82;
+    ctx.fillRect(lx - tw/2 - 4, ly - 8, tw + 8, 16);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = colour;
     ctx.fillText(label, lx, ly);
   }
 
