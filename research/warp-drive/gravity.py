@@ -49,36 +49,91 @@ dimension carried as a coordinate rather than assumed.
 1. WHAT A MEMBER IS
 ===============================================================================
 
-    (Z, N, A, q, Ne, 2Je, D)
+    (Z, N, A, q, Ne, 2Je, L, D)
 
         Z     proton number
         N     neutron number
         A     nucleon number, A = Z + N        RECOMPUTED, never read
         q     charge state of the ion          q = 0 is the neutral atom
         Ne    electron count, Ne = Z - q
-        2Je   twice the total electronic angular momentum of the GROUND level
+        2Je   twice the total electronic angular momentum of the level read
+        L     0 the table's ground level, 1 an excited level
         D     the spacetime dimension the field is read in
 
-Every slot is a quantum number or a count of them.  The criterion
-`registry.enforce()` applies is met by construction, not by exemption.
+Every slot is a quantum number, a count of them, or the status of the level the
+other slots were read at.  The criterion `registry.enforce()` applies is met by
+construction, not by exemption.
 
-    **2,696 members, over 8 dimensions: 21,568 charted rows.**
-    87 species (element + charge state), Z from 3 to 90, q from 0 to 15.
+    **3,394 members, over 8 dimensions: 27,152 charted rows.**
+    118 species (element + charge state), Z from 3 to 90, q from 0 to 15.
 
 ===============================================================================
-2. WHERE EVERY NUMBER COMES FROM
+2. L IS A COORDINATE AND NOT AN EXCLUSION, AND THAT IS A CORRECTION
+===============================================================================
+
+**AN EARLIER BUILD OF THIS FILE DROPPED 31 SPECIES AND IT WAS WRONG TO.**  Their
+captures bank no level at 0.00 cm-1 -- they are series or high-l captures whose
+lowest banked level is an excited one -- and they were excluded on the grounds
+that reading an excited level's J as a GROUND J is an error.
+
+    THE PREMISE IS RIGHT AND THE CONCLUSION DOES NOT FOLLOW.  Reading an
+    excited level's J as a ground J would indeed be an error.  But an excited
+    level is a real state of a real ion, with a real angular momentum and a
+    banked energy, and ITS EXTERIOR GRAVITATIONAL FIELD IS AS REAL AS THE
+    GROUND STATE'S.  Two different things were confused: what the level IS, and
+    whether it is the ground.  The first is the measurement; the second is a
+    status.
+
+    SO THE STATUS IS A COORDINATE.  `L` = 0 where the capture banks a level at
+    0.00 exactly, 1 where the lowest it banks is excited.  Nothing is dropped
+    and nothing is relabelled as a ground it is not.  `excited_species()` names
+    all 31 with the level each was read at.
+
+    AND THE EXCITATION ENERGY GOES INTO THE MASS, EXACTLY.  A level at nu~ cm-1
+    carries h*c*(100*nu~)/c^2 of mass, so M gains `lv * CM1_KG`.  It is small --
+    `excitation_bound()` measures the worst at 5.4e-8 of M, on B V's lightest
+    nuclide -- and it is included anyway.  IT IS BANKED.  Electron binding is
+    bounded rather than included because it is NOT banked, and the two are
+    treated differently for that reason and no other.
+
+    WHAT IT BOUGHT, MEASURED RATHER THAN ASSERTED.  Members 2,696 -> 3,394;
+    species 87 -> 118.  The angular momentum alphabet gained EXACTLY ONE value
+    it did not have: **2Je = 5, that is J = 5/2, on 19 members, and no ground
+    level among the 87 supplies it.**  The first draft of this paragraph
+    claimed two new values, 2 and 5; that was wrong -- 2Je = 2 was already
+    seated on 29 ground members, and the excited levels raise it to 346 rather
+    than introducing it.  The selftest now pins which values are exclusive to
+    L = 1, so the claim cannot drift again.
+
+        2Je     0     1     2     3     4     5     8
+        L = 0   921   938    29   539   228     0    41
+        L = 1   140   150   317     0    72    19     0
+
+    Nuclides with an exactly Schwarzschild exterior rose 228 -> 236, and members
+    relieved by dimension 536 -> 607.  The 31 are not simply more of the same:
+    they reach one state the ground levels do not, and they move the weight of
+    the alphabet substantially where they overlap it.
+
+    ONE MEMBER PER (SPECIES, NUCLIDE), STILL.  Each species contributes its
+    LOWEST banked level and no other, so no body is charted twice and the
+    member set carries no duplication.  Charting every banked level of every
+    species would multiply the same nuclides by their level tables, and that is
+    over-representation rather than reach.
+
+===============================================================================
+3. WHERE EVERY NUMBER COMES FROM
 ===============================================================================
 
     M   AME2020 Table I, `extracted/archives/restore-point-2-13/captures/
         AME2020-TableI.tsv` -- 3,558 nuclides with Z, N, A, symbol, mass excess
         in keV, uncertainty and a quality flag.  The ion mass is
 
-            M = A*u + (mass excess)/c^2 - q*m_e
+            M = A*u + (mass excess)/c^2 - q*m_e + (level)*CM1_KG
 
         and the reconstruction is checked against the table's own zero: carbon
         12 has mass excess 0.0 keV by the definition of the scale, and the
-        expression returns exactly 12 u for it.  That is a fixture, not a
-        remark.
+        expression returns exactly 12 u for its ground neutral atom.  That is a
+        fixture, not a remark.
 
         ELECTRON BINDING IS NEGLECTED, AND THE NEGLECT IS BOUNDED RATHER THAN
         WAVED AT.  `binding_bound()` takes the crude hydrogenic ceiling
@@ -92,27 +147,24 @@ Every slot is a quantum number or a count of them.  The criterion
         by the definition of the numeral.
 
     2Je the NIST ASD level captures in `recovered/`, columns
-        `config  term  J  level_cm1`, taking the row at level_cm1 = 0.00
-        exactly -- the ground level, by the table's own convention.  57 of the
-        captures carry that header commented out; the parser accepts both
-        spellings, which is a fact about the capture format and not an
-        inference about the data.
+        `config  term  J  level_cm1`, taking the LOWEST row the capture banks
+        with a readable J.  57 of the captures carry that header commented out;
+        the parser accepts both spellings, which is a fact about the capture
+        format and not an inference about the data.  No lowest level in the 118
+        is bracketed or otherwise not a plain number, which is checked.
 
         149 captures name a species and carry a level table: **118 distinct
-        species**.  **87 of them bank a TRUE ground.**  The other **31** are
-        series or high-l captures whose lowest banked level is an EXCITED one,
-        and reading its J as a ground J is exactly the error this refuses.
-        `excluded_species()` names all 31 with the level that disqualified
-        each.
+        species**, all of them members.  **87 are read at the table's ground
+        (L = 0) and 31 at an excited level (L = 1).**
 
     D   NOT MEASURED.  It is the index's independent variable, and carrying it
         is the whole point of the file.  4 to 11: four is observed; five and
-        six are where the horizon structure changes (section 4); ten and eleven
+        six are where the horizon structure changes (section 5); ten and eleven
         are the string and M-theory dimensions, and eleven is Nahm's ceiling on
         supergravity.
 
 ===============================================================================
-3. THE TWO ANGULAR-MOMENTUM FACTS, AND THEY NEED NO NUCLEAR DATUM
+4. THE TWO ANGULAR-MOMENTUM FACTS, AND THEY NEED NO NUCLEAR DATUM
 ===============================================================================
 
 The Kerr parameter is built from the body's TOTAL angular momentum, which for a
@@ -128,24 +180,27 @@ rests on them rather than on a guess at I.
             (A + Ne) odd   ==>   F >= 1/2 > 0,
 
     with no knowledge of I whatever.  That is the coordinate `F`, it is exact
-    arithmetic on two banked integers, and it holds for **1,347 of the 2,696
-    members.**
+    arithmetic on two banked integers, and it holds for **1,697 of the 3,394
+    members.**  IT IS INDEPENDENT OF L: the integer-or-half-integer character of
+    Je is fixed by the electron count, not by which level the electrons are in.
 
     **VANISHING.**  The converse needs one empirical input.  Every even-Z,
     even-N nucleus has ground-state spin zero; this is the pairing rule, it is
     exceptionless over measured ground states, and it is an EMPIRICAL RULE, not
     a theorem.  Its status is carried as `PAIRING_RULE_STATUS` and is never
-    flattened.  Where it applies and 2Je = 0 as well, F = 0 exactly: **308
-    members**, of which **228 distinct nuclides are neutral** and therefore
-    have an exterior field that is EXACTLY SCHWARZSCHILD.
+    flattened.  Where it applies and 2Je = 0 as well, F = 0 exactly: **365
+    members**, of which **236 distinct nuclides are neutral** and therefore
+    have an exterior field that is EXACTLY SCHWARZSCHILD.  Electronic
+    excitation does not touch this: the pairing rule is about the NUCLEAR
+    ground state, and the nucleus of an electronically excited atom is in it.
 
     The two are mutually exclusive, and the selftest checks that rather than
     assuming it: F = 0 established needs Ne even, while A + Ne odd with A even
-    needs Ne odd.  **1,041 members are neither**, and those are the ones whose
+    needs Ne odd.  **1,332 members are neither**, and those are the ones whose
     bound class is UNDETERMINED above four dimensions.
 
 ===============================================================================
-4. THE DIMENSION CHANGES THE ANSWER, NOT THE ARITHMETIC
+5. THE DIMENSION CHANGES THE ANSWER, NOT THE ARITHMETIC
 ===============================================================================
 
 A singly-rotating Myers-Perry black hole in D dimensions has a horizon where
@@ -166,7 +221,7 @@ A singly-rotating Myers-Perry black hole in D dimensions has a horizon where
     experiment cannot reach -- and the statement above never uses it.  It says
     a root EXISTS, not where.
 
-    **536 of the 2,696 members are bound at D <= 5 and unbound at D >= 6.**
+    **607 of the 3,394 members are bound at D <= 5 and unbound at D >= 6.**
 
     CHARGE IS NOT RELIEVED THE SAME WAY.  The static charged Tangherlini
     function is f(r) = 1 - mu/x + Q^2/x^2 with x = r^(D-3); its roots are the
@@ -175,7 +230,7 @@ A singly-rotating Myers-Perry black hole in D dimensions has a horizon where
     dimension and charge is not.
 
 ===============================================================================
-5. THE COORDINATES
+6. THE COORDINATES
 ===============================================================================
 
     D   spacetime dimension                    4 .. 11
@@ -185,6 +240,7 @@ A singly-rotating Myers-Perry black hole in D dimensions has a horizon where
                                                floor(log10 chi)      [33..36]
     Y   charge-decade rank                     0 none, else the rank of
                                                floor(log10 Qtilde)   [15..17]
+    L   level status                           0 the table's ground, 1 excited
     E   mass evidence                          0 measured, 1 estimated, from
                                                AME2020's own quality column
 
@@ -211,50 +267,55 @@ would place it thirty-three units from its nearest neighbour and distort every
 convex hull the geometry operator takes.  The coordinate is therefore the RANK
 in the sorted alphabet, evenly spaced, as every other chart in this tree is.
 That is a choice, so `encoding_sensitivity()` charts the raw-decade encoding as
-well.  **Both give (0, 18, 65): the choice costs nothing, and that is measured
+well.  **Both give (0, 19, 112): the choice costs nothing, and that is measured
 rather than assumed away.**
 
 ===============================================================================
-6. WHAT IT MEASURES
+7. WHAT IT MEASURES
 ===============================================================================
 
-    2,696 members x 8 dimensions   21,568 rows
-    distinct cells                 524          box 1,920
-    no constant coordinate, no coordinate the others determine, no LABEL
+    3,394 members x 8 dimensions   27,152 rows
+    distinct cells                 914          box 3,840
+    no constant coordinate, no coordinate the others determine, no LABEL --
+    and that is re-measured with L in, which is how L earned its slot
     closers                        NONE.  K0.
-    CELL                           (0, 18, 65)
+    CELL                           (0, 19, 112)
 
-        order 1360   algebra 1360   geometry 1360   information 1232
-        statistics 1120        -- against 524 held
+        order 2720   algebra 2720   geometry 2720   information 2464
+        statistics 2120        -- against 914 held
 
 **FINDING A: THE DIMENSION IS INVISIBLE TO THE ADMISSIBLE CHART AND VISIBLE IN
-THE CELL COUNT.**  Fix D and chart the remaining five coordinates:
+THE CELL COUNT.**  Fix D and chart the remaining six coordinates:
 
-        D = 4        62 cells      cell (0, 10, 12)
-        D = 5 .. 11  66 cells      cell (0, 10, 12)
+        D = 4        109 cells      cell (0, 11, 22)
+        D = 5 .. 11  115 cells      cell (0, 11, 22)
 
-    The same (K, height, width) at every dimension, and FOUR MORE CELLS from
-    five upward.  The four are the B = 2 rows: in four dimensions Kerr-Newman
+    The same (K, height, width) at every dimension, and SIX MORE CELLS from
+    five upward.  Those are the B = 2 rows: in four dimensions Kerr-Newman
     covers every (M, Q, J) so no member is undetermined, and from five upward
     the charged rotating metric is unknown and some are.  **So what the
     dimension adds to this index is an ignorance class, not a geometry class**
     -- and the admissible chart cannot see it, because (K, height, width) is
     invariant under it.  Recorded, not repaired.
 
-**FINDING B: THE RELIEF AT SIX IS IN THE MEMBERS AND NOT IN THE CELL.**  536
+**FINDING B: THE RELIEF AT SIX IS IN THE MEMBERS AND NOT IN THE CELL.**  607
 members lose their bound at D = 6, and the cell does not move.  A chart that
-reports (K, height, width) would report the ultraspinning transition as
-nothing at all.  That is a limit of the chart, stated here so nobody reads the
+reports (K, height, width) would report the ultraspinning transition as nothing
+at all.  That is a limit of the chart, stated here so nobody reads the
 invariance as a finding about gravity.
 
 ===============================================================================
-7. WHAT THIS FILE REFUSES
+8. WHAT THIS FILE REFUSES
 ===============================================================================
 
 **TO CALL 2Je THE MEMBER'S SPIN.**  It is the electronic part.  The nuclear
 part is not banked, so chi as computed is the electronic contribution to the
-Kerr parameter and nothing more.  Section 3's two facts are the only
+Kerr parameter and nothing more.  Section 4's two facts are the only
 total-angular-momentum statements made here, and neither needs I.
+
+**TO CALL AN EXCITED LEVEL A GROUND STATE.**  `L` carries the distinction on
+every member, `excited_species()` names all 31 with the level each was read at,
+and no summary collapses the two.
 
 **TO PUT A NUMBER ON A HORIZON ABOVE FOUR DIMENSIONS.**  G_D is fixed by
 nothing measured here.  Only existence statements are made above D = 4, and
@@ -264,10 +325,12 @@ only where an exact solution supplies one.
 zero as an exceptionless empirical rule.  `PAIRING_RULE_STATUS` says so, and
 every member whose F = 0 rests on it.
 
-**TO EXTEND THE 87 SPECIES BY INFERENCE.**  Hund's rules would give a ground J
-for every element in the table, and that is a computation, not a capture.  The
-118 species that parse are counted, the 31 without a banked ground are named
-with the level that disqualified each, and the index is the 87 that bank one.
+**TO CHART MORE THAN ONE LEVEL PER SPECIES.**  The level tables hold thousands;
+charting them would multiply the same nuclides by their own spectra, and that
+is over-representation rather than reach.
+
+**TO EXTEND THE 118 SPECIES BY INFERENCE.**  Hund's rules would give a ground J
+for every element in the table, and that is a computation, not a capture.
 
 **TO ASSIGN THE WARP METRICS ANYTHING.**  The same refusal petrov.py makes, for
 the same reason: nothing in this tree computes one.
@@ -278,6 +341,8 @@ stays False.
 """
 
 
+
+import collections
 import math
 import os
 import re
@@ -300,12 +365,14 @@ HBAR = 1.054571817e-34
 E_CHG = 1.602176634e-19
 M_E = 9.1093837015e-31
 EPS0 = 8.8541878128e-12
+H_PLANCK = 6.62607015e-34
 KEV_J = 1.602176634e-16
+CM1_KG = H_PLANCK * 100.0 / C_SI      # E = h c (100 nu~), mass = E/c^2
 EV_J = 1.602176634e-19
 K_Q = math.sqrt(4 * math.pi * EPS0 * G_SI)
 
 DIMS = tuple(range(4, 12))              # 4 .. 11, Nahm's ceiling at the top
-NAMES = ("D", "B", "F", "X", "Y", "E")
+NAMES = ("D", "B", "F", "X", "Y", "L", "E")
 ARITY = len(NAMES)
 
 PAIRING_RULE_STATUS = "EMPIRICAL-RULE"  # even-even ground states have I = 0
@@ -428,17 +495,29 @@ def captures():
 
 
 def grounds():
-    """{(symbol, numeral): (2J, config, term, file)} -- a TRUE ground only."""
+    """{(symbol, numeral): (2J, config, term, file)} -- level_cm1 = 0.00 exactly.
+
+    The table's own ground, and the coordinate L records that it is one.
+    """
     return {sp: (v[1], v[2], v[3], v[4])
             for sp, v in captures().items() if v[0] == 0.0}
 
 
-def excluded_species():
-    """[(species, lowest banked level, file)] -- parsed, but no banked ground.
+def excited_species():
+    """[(species, level cm-1, 2J, config, term, file)] -- read ABOVE the ground.
 
-    Taking the J of an excited level as a ground J is the error this refuses.
+    THESE ARE MEMBERS, NOT EXCLUSIONS, AND THAT IS A CORRECTION.  An earlier
+    build dropped them because their capture banks no level at 0.00: they are
+    series or high-l captures whose lowest banked level is an excited one.
+    Dropping them confused two different things.  Reading an excited level's J
+    AS A GROUND J would be an error -- but an excited level is a real state of
+    a real ion with a real angular momentum and a banked energy, and its
+    exterior gravitational field is as real as the ground state's.  So the
+    question "is this the table's ground?" is a COORDINATE (`L`) and not an
+    exclusion, and the excitation energy is added to M exactly rather than
+    ignored.
     """
-    return sorted((("%s %s" % sp), v[0], v[4])
+    return sorted((("%s %s" % sp), v[0], v[1], v[2], v[3], v[4])
                   for sp, v in captures().items() if v[0] != 0.0)
 
 
@@ -475,25 +554,48 @@ def carbon12():
 # ------------------------------------------------------------- the members
 
 def members():
-    """[(Z, N, A, q, Ne, 2Je, quality, M_kg, chi, Qtilde)] -- no D yet."""
+    """[(Z, N, A, q, Ne, 2Je, L, level_cm1, quality, M_kg, chi, Qtilde)].
+
+    EVERY parsed species, at its lowest banked level -- the ground where the
+    capture banks one, an excited level where it does not, and `L` says which.
+    One member per (species, nuclide): no species contributes two levels, so
+    the member set carries no duplicated body.
+    """
     if "mem" in _CACHE:
         return _CACHE["mem"]
     s2z = symbol_to_Z()
     out = []
-    for (sym, num), (tj, _cfg, _term, _f) in sorted(grounds().items()):
+    for (sym, num), (lv, tj, _cfg, _term, _f) in sorted(captures().items()):
         Z, q = s2z[sym], ROMAN[num] - 1
         Ne = Z - q
         if Ne < 1:
             continue
+        L = 0 if lv == 0.0 else 1
         for zz, N, A, _s, dm, qual in nuclides():
             if zz != Z:
                 continue
-            M = A * U_KG + dm * KEV_J / C_SI ** 2 - q * M_E
+            # The excitation energy is BANKED, so it is added exactly.  The
+            # electron binding is not banked, so it is bounded instead.
+            M = (A * U_KG + dm * KEV_J / C_SI ** 2 - q * M_E + lv * CM1_KG)
             chi = (tj / 2.0) * HBAR * C_SI / (G_SI * M * M)
             qt = q * E_CHG / (M * K_Q)
-            out.append((Z, N, A, q, Ne, tj, qual, M, chi, qt))
+            out.append((Z, N, A, q, Ne, tj, L, lv, qual, M, chi, qt))
     _CACHE["mem"] = out
     return out
+
+
+def excitation_bound():
+    """(worst excitation mass / M, the member it belongs to).
+
+    Included rather than neglected -- this measures how much it could ever
+    matter, which is a different question from whether to include it.
+    """
+    worst, who = 0.0, None
+    for Z, _N, A, _q, _Ne, _tj, _L, lv, _ql, M, _c, _t in members():
+        r = lv * CM1_KG / M
+        if r > worst:
+            worst, who = r, (Z, A)
+    return worst, who
 
 
 def binding_bound():
@@ -505,7 +607,7 @@ def binding_bound():
     resolution of X and Y, or the neglect would be moving cells.
     """
     worst, who = 0.0, None
-    for Z, _N, A, _q, _Ne, _tj, _ql, M, _c, _t in members():
+    for Z, _N, A, _q, _Ne, _tj, _L, _lv, _ql, M, _c, _t in members():
         r = (Z ** 3 * 13.6 * EV_J) / (M * C_SI ** 2)
         if r > worst:
             worst, who = r, (Z, A)
@@ -567,10 +669,10 @@ def bound_class(D, q, F, Jzero):
 def _ranks():
     """(spin alphabet, charge alphabet) -- the observed decades, sorted."""
     if "rk" not in _CACHE:
-        sp = sorted({int(math.floor(math.log10(m[8])))
-                     for m in members() if m[8] > 0})
-        ch = sorted({int(math.floor(math.log10(m[9])))
-                     for m in members() if m[9] > 0})
+        sp = sorted({int(math.floor(math.log10(m[10])))
+                     for m in members() if m[10] > 0})
+        ch = sorted({int(math.floor(math.log10(m[11])))
+                     for m in members() if m[11] > 0})
         _CACHE["rk"] = (sp, ch)
     return _CACHE["rk"]
 
@@ -579,7 +681,7 @@ def rows(raw_decades=False):
     """[(member tuple, cell)] -- every member in every dimension, charted."""
     sp, ch = _ranks()
     out = []
-    for Z, N, A, q, Ne, tj, qual, M, chi, qt in members():
+    for Z, N, A, q, Ne, tj, L, _lv, qual, M, chi, qt in members():
         F = forced(A, Ne)
         Jz = vanishes(Z, N, tj)
         if chi <= 0:
@@ -595,7 +697,7 @@ def rows(raw_decades=False):
         E = 0 if qual == "M" else 1
         for D in DIMS:
             B = bound_class(D, q, F, Jz)
-            out.append(((Z, N, A, q, Ne, tj, D), (D, B, F, X, Y, E)))
+            out.append(((Z, N, A, q, Ne, tj, L, D), (D, B, F, X, Y, L, E)))
     return out
 
 
@@ -690,7 +792,7 @@ def relieved():
     """
     seen = {}
     for m, c in rows():
-        seen.setdefault(m[:6], {})[c[0]] = c[1]
+        seen.setdefault(m[:7], {})[c[0]] = c[1]
     return sorted(k for k, v in seen.items()
                   if v[4] == BOUND_YES and v[5] == BOUND_YES
                   and all(v[D] == BOUND_NONE for D in range(6, 12)))
@@ -698,7 +800,7 @@ def relieved():
 
 def schwarzschild_members():
     """Members whose exterior field is exactly Schwarzschild: q = 0, F = 0."""
-    return sorted({(Z, N, A) for Z, N, A, q, _Ne, tj, _ql, _M, _c, _t
+    return sorted({(Z, N, A) for Z, N, A, q, _Ne, tj, _L, _lv, _ql, _M, _c, _t
                    in members() if q == 0 and vanishes(Z, N, tj)})
 
 
@@ -714,13 +816,14 @@ def report():
     print("Derived from the elements themselves, as M ruled. A member is a")
     print("nuclide in a charge state, read in a spacetime dimension:")
     print()
-    print("    (Z, N, A, q, Ne, 2Je, D)")
+    print("    (Z, N, A, q, Ne, 2Je, L, D)")
     print()
-    print("Every slot is a quantum number or a count of them, so registry's")
-    print("criterion is met by construction rather than by exemption.")
+    print("Every slot is a quantum number, a count of them, or the status of")
+    print("the level the rest were read at. registry's criterion is met by")
+    print("construction rather than by exemption.")
     print()
     print("-" * 74)
-    print("1. THE DATA, AND WHAT IT EXCLUDES.")
+    print("1. THE DATA, AND THE STATUS IT CARRIES INSTEAD OF EXCLUDING.")
     print("-" * 74)
     m12, dm12 = carbon12()
     print("   AME2020 Table I nuclides kept        %d" % len(nuclides()))
@@ -729,13 +832,17 @@ def report():
           % (12.0, m12))
     print("   ASD captures naming a species        %d files" % capture_files())
     print("   distinct species among them          %d" % len(captures()))
-    print("   ...banking a TRUE ground level       %d" % len(grounds()))
-    print("   ...whose lowest level is EXCITED     %d   EXCLUDED"
-          % len(excluded_species()))
-    for nm, lv, _f in excluded_species()[:6]:
-        print("        %-10s lowest banked level %12.2f cm-1" % (nm, lv))
-    print("        ... and %d more, all named by excluded_species()"
-          % (len(excluded_species()) - 6))
+    print("   ...read at the table's ground, L = 0 %d" % len(grounds()))
+    print("   ...read at an excited level, L = 1   %d   MEMBERS, NOT EXCLUDED"
+          % len(excited_species()))
+    for nm, lv, tj, cfg, _tm, _f in excited_species()[:6]:
+        print("        %-10s %12.2f cm-1   2J = %-2d  %s"
+              % (nm, lv, tj, cfg[:22]))
+    print("        ... and %d more, all named by excited_species()"
+          % (len(excited_species()) - 6))
+    xb, xwho = excitation_bound()
+    print("   excitation mass, INCLUDED exactly    worst %.2e  (Z=%d, A=%d)"
+          % (xb, xwho[0], xwho[1]))
     print("   nuclide x charge-state members       %d" % len(ms))
     print("   x %d dimensions (4..11)               %d charted rows"
           % (len(DIMS), len(rows())))
@@ -747,15 +854,36 @@ def report():
           % round(math.log10(0.1 / wb)))
     print("      move a cell. Bounded, not waved at.")
     print()
-    print("   THE %d SPECIES, WITH THEIR GROUND J:" % len(grounds()))
+    print("   THE %d SPECIES, WITH THE J OF THE LEVEL EACH WAS READ AT"
+          % len(captures()))
+    print("   (* marks a species read at an EXCITED level, L = 1):")
     line = "   "
-    for i, (sp, v) in enumerate(sorted(grounds().items())):
-        line += "%-14s" % ("%s %s %s" % (sp[0], sp[1], _j_str(v[0])))
+    allsp = sorted((sp, v[1], v[0]) for sp, v in captures().items())
+    for i, (sp, tj, lv) in enumerate(allsp):
+        line += "%-15s" % ("%s %s %s%s" % (sp[0], sp[1], _j_str(tj),
+                                           "*" if lv else ""))
         if i % 5 == 4:
             print(line)
             line = "   "
     if line.strip():
         print(line)
+    print()
+    print("   WHAT THE 31 BOUGHT, MEASURED. The 2Je alphabet by level status:")
+    g0 = collections.Counter(m[5] for m in ms if m[6] == 0)
+    g1 = collections.Counter(m[5] for m in ms if m[6] == 1)
+    only1 = sorted(set(g1) - set(g0))
+    only0 = sorted(set(g0) - set(g1))
+    print("        2Je   " + "".join("%6s" % _j_str(j)
+                                     for j in sorted(set(g0) | set(g1))))
+    print("        L = 0 " + "".join("%6d" % g0.get(j, 0)
+                                     for j in sorted(set(g0) | set(g1))))
+    print("        L = 1 " + "".join("%6d" % g1.get(j, 0)
+                                     for j in sorted(set(g0) | set(g1))))
+    print("   seated ONLY by an excited level: %s" %
+          ", ".join(_j_str(j) for j in only1))
+    print("   seated ONLY by a ground level:   %s" %
+          ", ".join(_j_str(j) for j in only0))
+    print("   The 31 add one J the grounds never reach and re-weight the rest.")
     print()
     print("-" * 74)
     print("2. THE TWO ANGULAR-MOMENTUM FACTS, WITH NO NUCLEAR DATUM.")
@@ -769,6 +897,7 @@ def report():
     print("   F != 0 FORCED by (A + Ne) odd        %4d of %d members"
           % (nf, len(ms)))
     print("   F  = 0 by the pairing rule           %4d" % nv)
+    print("   forced is independent of L -- it reads the electron count")
     print("   neither -- undetermined              %4d" % (len(ms) - nf - nv))
     print("   pairing rule status                  %s" % PAIRING_RULE_STATUS)
     sch = schwarzschild_members()
@@ -843,8 +972,9 @@ def report():
     print("      CELL COUNT. Fix D, chart the other five:")
     for D in DIMS:
         print("        D = %-3d %3d cells    cell %s" % (D, pd[D][0], pd[D][1]))
-    print("      The same (K, height, width) at every dimension, and four more")
-    print("      cells from five upward. The four are the B = 2 rows: in four")
+    print("      The same (K, height, width) at every dimension, and %d more"
+          % (pd[max(DIMS)][0] - pd[4][0]))
+    print("      cells from five upward. Those are the B = 2 rows: in four")
     print("      dimensions Kerr-Newman covers every (M, Q, J) so nothing is")
     print("      undetermined; above it the charged rotating metric is unknown")
     print("      and some members are. SO WHAT THE DIMENSION ADDS HERE IS AN")
@@ -867,8 +997,12 @@ def report():
     print("     nothing measured here; only existence statements are made.")
     print("   To read the pairing rule as a theorem. It is %s."
           % PAIRING_RULE_STATUS)
+    print("   To call an excited level a ground state -- L carries it on")
+    print("     every member and no summary collapses the two.")
+    print("   To chart more than one level per species -- that would multiply")
+    print("     the same nuclides by their own spectra.")
     print("   To extend the %d species by Hund's rules -- that is a"
-          % len(grounds()))
+          % len(captures()))
     print("     computation, not a capture.")
     print("   To assign the warp metrics anything.")
     print("   To claim completeness. registry.COMPLETE stays False.")
@@ -896,6 +1030,7 @@ def _coord_doc(nm):
             "F": "forced angular momentum (A+Ne odd)",
             "X": "spin-decade rank of chi",
             "Y": "charge-decade rank of Qtilde",
+            "L": "level status (0 the table's ground 1 excited)",
             "E": "mass evidence (0 measured 1 estimated)"}[nm]
 
 
@@ -925,33 +1060,58 @@ def selftest():
     chk("captures naming a species and carrying a level table",
         capture_files(), 149)
     chk("distinct species among them", len(captures()), 118)
-    chk("of which bank a TRUE ground level", len(grounds()), 87)
-    chk("the rest are excluded, by name", len(excluded_species()), 31)
-    chk("no excluded species sits at level 0.00",
-        [s2 for s2, lv, _f in excluded_species() if lv == 0.0], [])
-    chk("87 + 31 accounts for every parsed species",
-        len(grounds()) + len(excluded_species()), len(captures()))
+    chk("EVERY ONE OF THEM IS A MEMBER -- none is excluded",
+        len(grounds()) + len(excited_species()), len(captures()))
+    chk("read at the table's ground, L = 0", len(grounds()), 87)
+    chk("read at an excited level, L = 1", len(excited_species()), 31)
+    chk("no L = 0 species is excited",
+        [s2 for s2, lv, *_r in excited_species() if lv == 0.0], [])
+    chk("every excited level is above the ground",
+        min(lv for _s, lv, *_r in excited_species()) > 0.0, True)
+    chk("no lowest level is bracketed or otherwise not a plain number",
+        [s2 for s2, lv, *_r in excited_species()
+         if not isinstance(lv, float)], [])
 
     # -- the members
     ms = members()
-    chk("members (species x nuclide)", len(ms), 2696)
-    chk("rows (x 8 dimensions)", len(rows()), 2696 * 8)
+    chk("members (species x nuclide)", len(ms), 3394)
+    chk("rows (x 8 dimensions)", len(rows()), 3394 * 8)
+    chk("ONE LEVEL PER SPECIES -- no body is charted twice",
+        len({(m[0], m[3], m[1]) for m in ms}), len(ms))
+    chk("L splits them", sorted(collections.Counter(m[6] for m in ms).items()),
+        [(0, 2696), (1, 698)])
     chk("every member has Ne >= 1", min(m[4] for m in ms) >= 1, True)
     chk("every member has A = Z + N",
         all(m[2] == m[0] + m[1] for m in ms), True)
-    chk("2Je observed", sorted({m[5] for m in ms}), [0, 1, 2, 3, 4, 8])
+    chk("2Je observed", sorted({m[5] for m in ms}), [0, 1, 2, 3, 4, 5, 8])
+    chk("2Je = 5 IS SEATED ONLY BY THE EXCITED LEVELS",
+        sorted({m[5] for m in ms if m[6] == 1}
+               - {m[5] for m in ms if m[6] == 0}), [5])
+    chk("and it is the ONLY value they add -- 2 was already on 29 grounds",
+        sum(1 for m in ms if m[6] == 0 and m[5] == 2), 29)
+    chk("which the excited levels raise to 346, not introduce",
+        sum(1 for m in ms if m[5] == 2), 346)
+    chk("2Je = 3 and 8 are seated only by grounds",
+        sorted({m[5] for m in ms if m[6] == 0}
+               - {m[5] for m in ms if m[6] == 1}), [3, 8])
     chk("Z runs 3 to 90", (min(m[0] for m in ms), max(m[0] for m in ms)),
         (3, 90))
     chk("q reaches 15 (Fe XVI)", max(m[3] for m in ms), 15)
 
-    # -- THE NEGLECT IS BOUNDED, NOT WAVED AT
+    # -- THE BANKED CORRECTION IS INCLUDED; THE UNBANKED ONE IS BOUNDED
+    xb, xwho = excitation_bound()
+    chk("the excitation energy is IN the mass, worst 5.4e-8",
+        (round(xb, 10) > 0, xb < 1e-7), (True, True))
+    chk("and its worst case is B V's lightest nuclide", xwho, (5, 6))
+    chk("a ground member carries no excitation term",
+        [m for m in ms if m[6] == 0 and m[7] != 0.0], [])
     wb, who = binding_bound()
-    chk("worst neglected binding sits at Z = 90, A = 208", who, (90, 208))
+    chk("worst NEGLECTED binding sits at Z = 90, A = 208", who, (90, 208))
     chk("and is below 1e-4 of M c^2", wb < 1e-4, True)
     chk("...three orders below the decade resolution of X and Y",
         wb < 0.1 / 100, True)
 
-    # -- section 3: the two angular-momentum facts
+    # -- section 4: the two angular-momentum facts
     chk("forced is exactly (A + Ne) odd",
         all(forced(a, ne) == (a + ne) % 2
             for a in range(1, 40) for ne in range(1, 40)), True)
@@ -959,21 +1119,23 @@ def selftest():
         [m for m in ms if forced(m[2], m[4]) and vanishes(m[0], m[1], m[5])],
         [])
     chk("members with F forced nonzero", sum(1 for m in ms
-                                             if forced(m[2], m[4])), 1347)
+                                             if forced(m[2], m[4])), 1697)
     chk("members with F established zero",
-        sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 308)
+        sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 365)
     chk("members that are neither -- the undetermined class",
         len(ms) - sum(1 for m in ms if forced(m[2], m[4]))
-        - sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 1041)
+        - sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 1332)
+    chk("FORCED IS INDEPENDENT OF L -- it reads the electron count, not a level",
+        sorted({forced(m[2], m[4]) for m in ms if m[6] == 1}), [0, 1])
     chk("vanishes needs even Z, even N and 2Je = 0",
         [vanishes(20, 20, 0), vanishes(20, 21, 0), vanishes(19, 20, 0),
          vanishes(20, 20, 1)], [True, False, False, False])
     chk("nuclides whose exterior field is EXACTLY Schwarzschild",
-        len(schwarzschild_members()), 228)
+        len(schwarzschild_members()), 236)
     chk("PAIRING_RULE_STATUS is not flattened to a proof",
         PAIRING_RULE_STATUS, "EMPIRICAL-RULE")
 
-    # -- section 4: the horizon-bound table, branch by branch
+    # -- section 5: the horizon-bound table, branch by branch
     chk("D=4, q=0, J=0     Schwarzschild, no bound",
         bound_class(4, 0, 0, True), BOUND_NONE)
     chk("D=4, q>0          Kerr-Newman, a bound",
@@ -1002,7 +1164,7 @@ def selftest():
 
     # -- the transition is at SIX, counted over the members
     rel = relieved()
-    chk("members bound at D<=5 and unbound at D>=6", len(rel), 536)
+    chk("members bound at D<=5 and unbound at D>=6", len(rel), 607)
     chk("every one of them is neutral and forced",
         [m for m in rel if m[3] != 0 or not forced(m[2], m[4])], [])
     chk("none is relieved at D = 5",
@@ -1011,31 +1173,34 @@ def selftest():
 
     # -- the chart
     X = index()
-    chk("arity is 6", len(next(iter(X))), ARITY)
-    chk("distinct cells", len(X), 524)
-    chk("box", overlap.box_of(X), 1920)
+    chk("arity is 7", len(next(iter(X))), ARITY)
+    chk("distinct cells", len(X), 914)
+    chk("box", overlap.box_of(X), 3840)
     chk("no coordinate is constant", constant_coords(), [])
     chk("NO COORDINATE IS DETERMINED BY THE OTHERS -- no over-representation",
         [d[0] for d in dependent_coords()], [])
+    chk("...AND THAT IS RE-MEASURED WITH L IN, WHICH IS HOW L EARNED ITS SLOT",
+        "L" in [d[0] for d in dependent_coords()], False)
     chk("no coordinate is a LABEL", [l[0] for l in labels()], [])
     chk("D runs 4..11", sorted({c[0] for c in X}), list(DIMS))
     chk("B takes all three values", sorted({c[1] for c in X}), [0, 1, 2])
+    chk("L takes both", sorted({c[5] for c in X}), [0, 1])
     chk("it closes NOTHING -- K0", closers(), [])
-    chk("CELL", cell(), (0, 18, 65))
+    chk("CELL", cell(), (0, 19, 112))
 
     # -- FINDING A, and it is the whole point of carrying D
     pd = per_dimension_cells()
-    chk("D = 4 charts 62 cells", pd[4][0], 62)
-    chk("every D >= 5 charts 66", sorted({pd[D][0] for D in DIMS[1:]}), [66])
+    chk("D = 4 charts 109 cells", pd[4][0], 109)
+    chk("every D >= 5 charts 115", sorted({pd[D][0] for D in DIMS[1:]}), [115])
     chk("THE CELL IS THE SAME AT EVERY DIMENSION",
-        sorted({pd[D][1] for D in DIMS}), [(0, 10, 12)])
-    chk("and the four extra cells are exactly the B = 2 rows",
+        sorted({pd[D][1] for D in DIMS}), [(0, 11, 22)])
+    chk("and D = 4 carries no undetermined row",
         sorted({c[1] for c in X if c[0] == 4}), [0, 1])
 
     # -- the encoding choice is measured, not assumed away
     a, b, same = encoding_sensitivity()
     chk("the rank and raw-decade encodings agree", same, True)
-    chk("and both give the same cell", (a, b), ((0, 18, 65), (0, 18, 65)))
+    chk("and both give the same cell", (a, b), ((0, 19, 112), (0, 19, 112)))
 
     # -- the refusals, as facts about the file
     src = open(os.path.abspath(__file__), encoding="utf-8").read()

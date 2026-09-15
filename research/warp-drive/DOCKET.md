@@ -1543,14 +1543,16 @@ and, before that, the question that opened it:
 
 ### What was built
 
-`gravity.py`. A member is `(Z, N, A, q, Ne, 2Je, D)` — a nuclide in a charge
-state, read in a spacetime dimension. **2,696 members over 8 dimensions: 21,568
-charted rows, 524 distinct cells, box 1,920, cell (0, 18, 65), K0.**
+`gravity.py`. A member is `(Z, N, A, q, Ne, 2Je, L, D)` — a nuclide in a charge
+state, read in a spacetime dimension, with `L` saying whether the level it was
+read at is the table's ground. **3,394 members over 8 dimensions: 27,152
+charted rows, 914 distinct cells, box 3,840, cell (0, 19, 112), K0.**
 
 M from AME2020 Table I (3,558 nuclides), q from the capture's spectroscopic
-numeral, 2Je from the NIST ASD ground levels in `recovered/` — 149 captures,
-118 species, **87 banking a true ground and 31 excluded** for banking only an
-excited one.
+numeral, 2Je from the NIST ASD levels in `recovered/` — 149 captures,
+**118 species, all of them members**: 87 read at the table's ground and 31 at
+an excited level. (The 31 were excluded in the first build. See the correction
+below.)
 
 ### The two angular-momentum facts, and neither needs a nuclear datum
 
@@ -1558,12 +1560,15 @@ AME2020 Table I banks no nuclear spin, so the total F is banked for no member.
 
 - **FORCED.** Je is half-odd-integer iff Ne is odd; I is half-odd-integer iff A
   is odd; so F is half-odd-integer iff A + Ne is odd — and a half-odd-integer
-  angular momentum is never zero. **1,347 of 2,696 members, with no knowledge of
-  I whatever.**
+  angular momentum is never zero. **1,697 of 3,394 members, with no knowledge of
+  I whatever.** It is independent of `L`: the integer-or-half-integer character
+  of Je is fixed by the electron count, not by which level the electrons are in.
 - **VANISHING.** Even-Z even-N nuclei have ground-state spin zero. That is the
   pairing rule: **`PAIRING_RULE_STATUS = "EMPIRICAL-RULE"`, never flattened.**
-  With 2Je = 0 as well it gives F = 0 exactly — **308 members, 228 distinct
-  nuclides whose exterior field is exactly Schwarzschild.**
+  With 2Je = 0 as well it gives F = 0 exactly — **365 members, 236 distinct
+  nuclides whose exterior field is exactly Schwarzschild.** Electronic
+  excitation does not touch it: the pairing rule is about the NUCLEAR ground
+  state, and the nucleus of an electronically excited atom is in it.
 
 ### The dimension, which is the whole point
 
@@ -1575,24 +1580,24 @@ Singly-rotating Myers–Perry: `f(r) = r^(D-3) + a² r^(D-5) = μ`.
 | 5 | r² + a² | μ ≥ a² — a bound, and a different one |
 | ≥ 6 | D−5 ≥ 1, so f(0) = 0 and f rises without limit | **nothing. A root for every μ > 0 and every a** |
 
-**536 of the 2,696 members are bound at D ≤ 5 and unbound at D ≥ 6**, and every
+**607 of the 3,394 members are bound at D ≤ 5 and unbound at D ≥ 6**, and every
 one is neutral with a forced angular momentum. The statement never uses the
 value of G_D, which nothing here measures: it says a root *exists*, not where.
 
 **Charge is not relieved the same way.** Static charged Tangherlini has roots of
 x² − μx + Q² with x = r^(D−3), existing iff μ² ≥ 4Q² — a bound in every
-dimension. 80 members carry it at every D.
+dimension. 129 members carry it at every D.
 
 ### Two findings, recorded and not repaired
 
 **A. The dimension is invisible to the admissible chart and visible in the cell
-count.** Fix D and chart the other five: **62 cells at D = 4, 66 at every
-D ≥ 5, and the cell is (0, 10, 12) at all eight.** The four extra are the B = 2
+count.** Fix D and chart the other six: **109 cells at D = 4, 115 at every
+D ≥ 5, and the cell is (0, 11, 22) at all eight.** The six extra are the B = 2
 rows — above four dimensions the general charged *rotating* Einstein–Maxwell
 solution is unknown in closed form, so some members have no exact metric. **What
 the dimension adds to this index is an ignorance class, not a geometry class.**
 
-**B. The relief at six is in the members and not in the cell.** 536 members lose
+**B. The relief at six is in the members and not in the cell.** 607 members lose
 their bound at D = 6 and (K, height, width) does not move. A chart reporting it
 would report the ultraspinning transition as nothing at all. That is a limit of
 the chart, stated so nobody reads the invariance as a finding about gravity.
@@ -1622,3 +1627,111 @@ three before it: pinning a number that correct behaviour changes.**
 M: *"gravity may be a potential solution for warp transition theory."* Recorded
 for when the warp work resumes. Nothing here pursues it, and nothing here
 assigns a Petrov type or a horizon structure to any warp metric.
+
+### CORRECTED AFTER SEATING — the 31 were excluded, and should not have been
+
+M: *"31 species were excluded, not approximated - adjust the index to include
+these. They are still very relevant."*
+
+**THE PREMISE WAS RIGHT AND THE CONCLUSION DID NOT FOLLOW.** The first build
+dropped 31 species because their captures bank no level at 0.00 cm-1, on the
+grounds that reading an excited level's J AS A GROUND J is an error. That much
+is true. But an excited level is a real state of a real ion, with a real angular
+momentum and a banked energy, and its exterior gravitational field is as real as
+the ground state's. Two different things were confused: **what the level is**,
+which is the measurement, and **whether it is the ground**, which is a status.
+
+So the status became the coordinate `L`, arity 6 → 7. Nothing is dropped and
+nothing is relabelled as a ground it is not. `excited_species()` names all 31
+with the level each was read at, and every summary carries the split.
+
+**AND THE EXCITATION ENERGY GOES INTO THE MASS, EXACTLY.** A level at nu~ cm-1
+carries h·c·(100·nu~)/c² of mass. Worst case 5.4e-8 of M, on B V's lightest
+nuclide — negligible, and included anyway **because it is banked**. Electron
+binding is bounded rather than included because it is NOT banked. That is the
+only difference in how the two are treated.
+
+| | before | after |
+|---|---|---|
+| species | 87 | **118** |
+| members | 2,696 | **3,394** |
+| charted rows | 21,568 | **27,152** |
+| arity | 6 | **7** |
+| distinct cells | 524 | **914** |
+| box | 1,920 | **3,840** |
+| cell | (0, 18, 65) | **(0, 19, 112)** |
+| per-dimension cells | 62 / 66 | **109 / 115** |
+| per-dimension cell | (0, 10, 12) | **(0, 11, 22)** |
+| exactly Schwarzschild | 228 | **236** |
+| relieved at D = 6 | 536 | **607** |
+| figure E | 19 | **19, unchanged** |
+
+`L` is not over-representation and that is measured, not argued:
+`constant_coords()`, `dependent_coords()` and `labels()` are all empty with it
+in, so it is neither constant, nor determined by the other six, nor a row label.
+
+**A CLAIM WAS WITHDRAWN IN THE SAME PASS, BY ITS OWN FIXTURE.** The first
+paragraph written about what the 31 bought said the angular-momentum alphabet
+gained TWO values, 2 and 5. **The selftest refused it.** 2Je = 2 was already
+seated on 29 ground members; the excited levels raise it to 346 rather than
+introducing it. Exactly one value is new — **2Je = 5, J = 5/2, on 19 members**.
+The corrected table is now in the file and pinned:
+
+| 2Je | 0 | 1/2 | 1 | 3/2 | 2 | 5/2 | 4 |
+|---|---|---|---|---|---|---|---|
+| L = 0 ground | 921 | 938 | 29 | 539 | 228 | 0 | 41 |
+| L = 1 excited | 140 | 150 | 317 | 0 | 72 | 19 | 0 |
+
+**ONE LEVEL PER SPECIES, STILL.** Each species contributes its lowest banked
+level and no other, so no body is charted twice. Charting every banked level
+would multiply the same nuclides by their own spectra, and that is
+over-representation rather than reach. It is refused in the file.
+
+### The 3-D rendering, and why it is the member space rather than the chart
+
+M: *"This too, like all the others requires a 3D rendering included in the
+render package."*
+
+The house pattern is `render/scatter3d.js` inlined verbatim into the plate — no
+`<script src>`, so a published artifact needs no supporting file. The gravity
+plate follows it, and **the generator inlines the file at build time** rather
+than freezing a copy, so plate and runtime cannot drift. (Three generations of
+the runtime are frozen in the older plates; this is the first that reads it.)
+
+**WHICH THREE AXES WAS MEASURED, NOT CHOSEN.** All C(7,3) = 35 projections of
+the 914 chart cells were measured for how many points survive and how many would
+carry more than one colour:
+
+| | points | collapse | impure |
+|---|---|---|---|
+| best cell-space triple, D/X/Y | 128 of 914 | 86 % | **44** |
+| D/B/X | 83 | 91 % | 0, but B is then an axis |
+| **member space (N−Z, Z, q)** | **3,394 of 3,394** | **none** | **0 at every D** |
+
+The member space is **injective** — q gives the charge, Z−q the electron count,
+(N−Z)+2Z the nucleon number, and (Z, q) the species and so 2Je, which is every
+input `bound_class` takes — so the horizon-bound class is a *function* of the
+plotted point and no point can carry two colours. Measured: 0 impure, summed
+over all eight dimensions. The x axis is the **neutron excess** N−Z rather than
+N, because N and Z are correlated and plotting one against the other puts every
+point on a thin diagonal ribbon; N−Z is twice the isospin projection T3, carries
+the same information, and straightens it.
+
+**The reader picks the dimension and 607 points change colour between 5 and 6.**
+That is the ultraspinning transition, member by member. The 698 members read at
+an excited level are drawn hollow.
+
+**TWO ADDITIVE CHANGES TO `scatter3d.js`**, both because a dense cloud needs
+them and neither altering any existing call:
+
+1. It now **returns a handle** `{draw, canvas, view}`. The animation loop only
+   redraws while spinning, so without it a recolour is invisible to a reader who
+   paused rotation or who has `prefers-reduced-motion` set. Every existing call
+   site ignores the return value.
+2. **Axis text is painted after the points**, the lines still before them. A
+   3,394-point cloud otherwise buries a label at half the azimuths the spin
+   passes through, and the still frame is what a thumbnail gets.
+
+**WHAT THE VIEW DOES NOT SHOW, and the caption says so:** the chart's own
+coordinates. Its axes are the member's identity, not the seven slots the index
+is charted on.

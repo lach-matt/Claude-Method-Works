@@ -10,6 +10,8 @@ the other plates in this directory share) rather than inventing one.
 """
 import collections
 import html
+import itertools
+import json
 import math
 import os
 import sys
@@ -32,7 +34,9 @@ X = G.index()
 CL, _B = hlaw.closures(X)
 MS = G.members()
 PD = G.per_dimension_cells()
-GR = G.grounds()
+GR = G.captures()          # EVERY species is a member now
+GROUND = G.grounds()
+EXCITED = G.excited_species()
 BD = G.by_dimension()
 FC = FIG.cells()
 FIGF = FIG.figure()
@@ -52,17 +56,18 @@ BCLS = {0: "b0", 1: "b1", 2: "b2"}
 
 
 def species_rows():
+    """One row per species -- ALL 118, with the level each was read at."""
     s2z = G.symbol_to_Z()
     per = collections.Counter((m[0], m[3]) for m in MS)
     out = []
-    for (sym, num), (tj, cfg, term, src) in sorted(GR.items()):
+    for (sym, num), (lv, tj, cfg, term, src) in sorted(GR.items()):
         Z, q = s2z[sym], G.ROMAN[num] - 1
         rs = [m for m in MS if m[0] == Z and m[3] == q]
-        chi = sorted({int(math.floor(math.log10(m[8]))) for m in rs if m[8] > 0})
-        qt = sorted({int(math.floor(math.log10(m[9]))) for m in rs if m[9] > 0})
+        chi = sorted({int(math.floor(math.log10(m[10]))) for m in rs if m[10] > 0})
+        qt = sorted({int(math.floor(math.log10(m[11]))) for m in rs if m[11] > 0})
         out.append(dict(sp="%s %s" % (sym, num), Z=Z, q=q, Ne=Z - q, tj=tj,
-                        cfg=cfg, term=term, n=per[(Z, q)],
-                        chi=chi, qt=qt, src=src))
+                        cfg=cfg, term=term, n=per[(Z, q)], lv=lv,
+                        L=0 if lv == 0.0 else 1, chi=chi, qt=qt, src=src))
     return out
 
 
@@ -132,10 +137,176 @@ def ladder_svg():
     return "\n".join(p)
 
 
+SCATTER_JS = """%s
+const BT=%s, TOK=['--free','--bound','--undet'];
+const RAW=[%s];
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],b:BT[a[3]],hollow:a[4]||0}));
+let curD=4;
+const V=scatter3d({id:'gr3d',points:PTS,xlab:'N-Z  neutron excess',ylab:'Z  protons',
+  zlab:'q  charge state',az:3.78,el:0.10,r:2.6,height:510,scale:0.26,
+  xcol:'--geometry',ycol:'--order',zcol:'--information',
+  colour:p=>TOK[+p.b[curD-4]]});
+const bar=document.getElementById('gr3d-dims');
+const cap=document.getElementById('gr3d-now');
+function setD(d){
+  curD=d;
+  for(const b of bar.querySelectorAll('button'))
+    b.classList.toggle('on', +b.dataset.d===d);
+  const n=[0,0,0];
+  for(const p of PTS) n[+p.b[d-4]]++;
+  cap.textContent='D = '+d+'   \\u00b7   '+n[1]+' bound, '+n[0]+' unbound, '
+                 +n[2]+' undetermined';
+  V.draw();
+}
+for(const b of bar.querySelectorAll('button'))
+  b.addEventListener('click',()=>setD(+b.dataset.d));
+setD(4);
+"""
+
+SECTION_3D = """<section>
+  <div class="shead"><span class="snum">04</span><h2>Every member, in the
+  dimension you choose</h2></div>
+  <p class="sub">One point per member: %(nmem)s of them, at its neutron number,
+  neutron excess, proton number and charge state, coloured by whether a
+  horizon bound exists
+  for it in the dimension selected. <strong>Step from 5 to 6.</strong></p>
+
+  <figure class="plate">
+    <div class="v3d"><canvas id="gr3d" aria-label="%(nmem)s members of the gravity index plotted at neutron excess, proton number and charge state, coloured by horizon-bound class in the selected spacetime dimension"></canvas></div>
+    <div class="v3dbar">
+      <button id="gr3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="dims">dimension <span id="gr3d-dims">%(buttons)s</span></span>
+    </div>
+    <div class="v3dbar">
+      <b id="gr3d-now" class="now"></b>
+      <span class="v3dkey">
+        <span><i style="background:var(--bound)"></i>a bound exists</span>
+        <span><i style="background:var(--free)"></i>no bound</span>
+        <span><i style="background:var(--undet)"></i>undetermined</span>
+        <span><i style="border:1.5px dashed var(--muted);background:none"></i>read at an excited level</span>
+      </span>
+    </div>
+    <figcaption><b>This view collapses nothing, and that is measured rather
+    than asserted.</b> (N&minus;Z,&nbsp;Z,&nbsp;q) is <em>injective</em> on
+    the member set &mdash; %(npts)s distinct points for %(nmem)s members
+    &mdash; and the
+    horizon-bound class is a <em>function</em> of it, since q gives the
+    charge, Z&minus;q the electron count, (N&minus;Z)+2Z the nucleon number,
+    and (Z,&nbsp;q) the species and so 2J<sub>e</sub> &mdash; every input the
+    bound table takes. The x axis is the <em>neutron excess</em> rather than N
+    because N and Z are correlated and plotting one against the other puts
+    every point on a thin diagonal ribbon; N&minus;Z is twice the isospin
+    projection T&#8323;, carries the same information, and straightens it.
+    <b>So no point carries two colours at any dimension: %(impure)d impure
+    points, summed over all eight.</b> The runner-up &mdash; projecting the
+    %(cells)s chart cells onto their own best three coordinates
+    (%(besttri)s) &mdash; keeps %(bestn)d points, a %(collapse).0f%%
+    collapse, and %(bestimp)d of those would carry mixed colour. That view was
+    not built, for that reason.
+    <br><br><b>Step from 5 to 6 and %(rel)s points turn from amber to
+    teal.</b> That is the ultraspinning transition member by member: neutral
+    bodies with a forced angular momentum, whose Kerr and Myers&ndash;Perry
+    bounds bite at four and five dimensions and do not exist at six. Nothing
+    moves again from 6 to 11. The dashed rings are the %(nexc)d members read at
+    an excited level rather than a ground one.
+    <br><br><b>What it does not show:</b> the chart's own coordinates. These
+    axes are the member's identity, not the seven slots (D, B, F, X, Y, L, E)
+    the index is charted on &mdash; the spin and charge decades, the level
+    status and the mass evidence are all absent from this picture. It is the
+    membership, not the chart.</figcaption>
+  </figure>
+  <script>%(js)s</script>
+</section>
+
+"""
+
+# ------------------------------------------------------- the 3-D member view
+
+# (Z, N, q) IS INJECTIVE ON THE MEMBER SET AND B IS A FUNCTION OF IT.  q gives
+# the charge, Z - q the electron count, Z + N the nucleon number, and (Z, q)
+# the species and so 2Je -- which is every input `bound_class` takes.  So this
+# view collapses NOTHING and no point can carry two colours.  Both are measured
+# in `view3d_facts()` rather than argued.
+
+
+def view3d_facts():
+    """(points, members, impure points over all D, the cell-space runner-up)."""
+    seen = collections.defaultdict(set)
+    for Z, N, A_, q, Ne, tj, _L, _lv, _ql, _M, _c, _t in MS:
+        for D in G.DIMS:
+            seen[(N - Z, Z, q)].add(G.bound_class(D, q, G.forced(A_, Ne),
+                                                    G.vanishes(Z, N, tj)))
+    impure = sum(1 for v in seen.values() if len(v) > len(G.DIMS) and False)
+    # a point is impure if, AT A FIXED D, it carries two classes; measured here
+    bad = 0
+    for D in G.DIMS:
+        at = collections.defaultdict(set)
+        for Z, N, A_, q, Ne, tj, _L, _lv, _ql, _M, _c, _t in MS:
+            at[(N - Z, Z, q)].add(G.bound_class(D, q, G.forced(A_, Ne),
+                                                  G.vanishes(Z, N, tj)))
+        bad += sum(1 for v in at.values() if len(v) > 1)
+    best = None
+    X = sorted(G.index())
+    for tri in itertools.combinations(range(G.ARITY), 3):
+        pr = collections.defaultdict(set)
+        for c in X:
+            pr[tuple(c[i] for i in tri)].add(c[1])
+        n = len(pr)
+        imp = sum(1 for v in pr.values() if len(v) > 1)
+        if best is None or n > best[0]:
+            best = (n, imp, tuple(G.NAMES[i] for i in tri))
+    return len(seen), len(MS), bad, best
+
+
+def view3d_points():
+    """[(N-Z, Z, q, bound-class string over D, hollow)] -- one per member.
+
+    THE NEUTRON EXCESS, NOT N.  N and Z are strongly correlated -- the valley of
+    stability -- so plotting N against Z puts every point on a thin diagonal
+    ribbon and wastes the box.  N - Z is twice the isospin projection T3, a
+    quantum number in its own right, and (N-Z, Z, q) carries exactly the same
+    information as (N, Z, q) since N = (N-Z) + Z.  Injectivity is unaffected and
+    is re-measured in view3d_facts().
+    """
+    out = []
+    for Z, N, A_, q, Ne, tj, L, _lv, _ql, _M, _c, _t in MS:
+        F, Jz = G.forced(A_, Ne), G.vanishes(Z, N, tj)
+        b = "".join(str(G.bound_class(D, q, F, Jz)) for D in G.DIMS)
+        out.append((N - Z, Z, q, b, 1 if L else 0))
+    return out
+
+
+def view3d_js():
+    pts = view3d_points()
+    tab = sorted({p[3] for p in pts})
+    idx = {b: i for i, b in enumerate(tab)}
+    packed = ",".join("[%d,%d,%d,%d%s]" % (n, z, q, idx[b], ",1" if h else "")
+                      for n, z, q, b, h in pts)
+    runtime = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "scatter3d.js"), encoding="utf-8").read()
+    return SCATTER_JS % (runtime, json.dumps(tab), packed)
+
+
+def view3d_section():
+    pts = view3d_points()
+    npts, nmem, impure, best = view3d_facts()
+    rel = len(G.relieved())
+    nexc = sum(1 for p in pts if p[4])
+    buttons = "".join('<button type="button" data-d="%d">%d</button>' % (D, D)
+                      for D in G.DIMS)
+    return SECTION_3D % dict(
+        nmem="{:,}".format(nmem), npts="{:,}".format(npts), impure=impure,
+        buttons=buttons, rel="{:,}".format(rel), nexc=nexc,
+        besttri=", ".join(best[2]), bestn=best[0], bestimp=best[1],
+        collapse=100 * (1 - best[0] / len(G.index())),
+        cells="{:,}".format(len(G.index())), js=view3d_js())
+
+
 # ------------------------------------------------------------------ the page
 def build():
     sp = species_rows()
-    exc = G.excluded_species()
+    exc = EXCITED
     nf = sum(1 for m in MS if G.forced(m[2], m[4]))
     nv = sum(1 for m in MS if G.vanishes(m[0], m[1], m[5]))
     qn = {n.split(".")[0]: r[-1] for n, *r in registry.rows()}
@@ -190,21 +361,23 @@ def build():
     A('''<section>
   <div class="shead"><span class="snum">01</span><h2>What a member is</h2></div>
   <p class="sub">A nuclide in a charge state, read in a spacetime dimension.
-  Every slot is a quantum number or a count of them, so the criterion
+  Every slot is a quantum number, a count of them, or the status of the level
+  the rest were read at &mdash; so the criterion
   <span class="mono">registry.enforce()</span> applies is met by construction
   rather than by exemption.</p>
-  <p class="eqn mono">(Z, N, A, q, N<sub>e</sub>, 2J<sub>e</sub>, D)</p>
+  <p class="eqn mono">(Z, N, A, q, N<sub>e</sub>, 2J<sub>e</sub>, L, D)</p>
   <div class="kv">
     <div><dt>Z, N, A</dt><dd>%s<small>nuclides in AME2020 Table&nbsp;I;
       A recomputed as Z+N, never read</small></dd></div>
     <div><dt>q, N<sub>e</sub></dt><dd>%s<small>charge states, from the
       spectroscopic numeral: Al&nbsp;III is q&nbsp;=&nbsp;2</small></dd></div>
-    <div><dt>2J<sub>e</sub></dt><dd>%s<small>species banking a true ground
-      level, of %d that parse</small></dd></div>
+    <div><dt>2J<sub>e</sub>, L</dt><dd>%s<small>species, all members: %d read
+      at the table&#39;s ground, %d at an excited level</small></dd></div>
     <div><dt>D</dt><dd>4 – 11<small>not measured: the independent variable.
       Nahm's ceiling on supergravity at the top</small></dd></div>
   </div>''' % (f"{len(G.nuclides()):,}", ", ".join(str(q) for q in
-                sorted({m[3] for m in MS})), len(GR), len(G.captures())))
+                sorted({m[3] for m in MS})), len(G.captures()),
+                len(GROUND), len(EXCITED)))
 
     A('''  <h3>Where every number comes from</h3>
   <div class="tablewrap"><table>
@@ -246,17 +419,18 @@ def build():
     <strong>%d orders below the resolution</strong> and cannot move a cell.</p>
   </div>''' % (f"{len(MS):,}", WB, WHO[0], WHO[1], round(math.log10(0.1 / WB))))
 
-    A('''  <div class="note warn">
-    <span class="lab">And %d species are excluded rather than approximated</span>
+    A('''  <div class="note">
+    <span class="lab">Every parsed species is a member, and L says how it was read</span>
     <p style="margin-bottom:0">%d captures name a species and carry a level
-    table, giving %d distinct species. <strong>%d bank a true ground.</strong>
-    The other %d are series or high-ℓ captures whose lowest banked level is an
-    <em>excited</em> one, and reading its J as a ground J is exactly the error
-    this refuses. Section&nbsp;07 names all %d with the level that disqualified
-    each.</p>
+    table, giving %d distinct species. <strong>%d are read at the table's
+    ground (L&nbsp;=&nbsp;0) and %d at an excited level (L&nbsp;=&nbsp;1)</strong>
+    &mdash; series or high-&#8467; captures that bank nothing at
+    0.00&nbsp;cm&#8315;&#185;. None is dropped and none is relabelled as a
+    ground it is not; the excitation energy goes into M exactly. Section&nbsp;08
+    names all %d with the level each was read at, and measures what they bought.</p>
   </div>
-</section>''' % (len(exc), G.capture_files(), len(G.captures()), len(GR),
-                 len(exc), len(exc)))
+</section>''' % (G.capture_files(), len(G.captures()), len(GROUND), len(exc),
+                 len(exc)))
 
     # 02 the two J facts
     A('''<section>
@@ -362,13 +536,16 @@ def build():
 </section>''' % (ladder_svg(), f"{len(G.relieved()):,}", f"{len(MS):,}",
                  CLASSD[max(G.DIMS)].get(1, 0)))
 
-    # 04 branch table
+    # 04 the 3-D member view -- one point per member, no collapse
+    A(view3d_section())
+
+    # 05 branch table
     rowsb = "".join(
         '<tr><td class="mono sm">%s</td><td><span class="chip %s">%s</span></td></tr>'
         % (E(t.split("  ")[0].strip()), BCLS[v], BNAME[v])
         for t, v in G.BRANCHES)
     A('''<section>
-  <div class="shead"><span class="snum">04</span><h2>B is a table of exact
+  <div class="shead"><span class="snum">05</span><h2>B is a table of exact
   solutions, not a judgement</h2></div>
   <p class="sub">Each branch names the metric it rests on, and where no exact
   metric is known the value is <em>undetermined</em> and stays undetermined.</p>
@@ -387,6 +564,7 @@ def build():
     doc = {"D": "spacetime dimension", "B": "horizon-bound class",
            "F": "forced angular momentum, (A+N<sub>e</sub>) odd",
            "X": "spin-decade rank of χ", "Y": "charge-decade rank of Q̃",
+           "L": "level status — 0 the table's ground, 1 excited",
            "E": "mass evidence — AME2020's own quality column"}
     crows = "".join(
         '<tr><td class="name mono">%s</td><td>%s</td><td class="mono">%s</td>'
@@ -403,7 +581,7 @@ def build():
         for L in hlaw.LANGS)
     ea, eb, esame = G.encoding_sensitivity()
     A('''<section>
-  <div class="shead"><span class="snum">05</span><h2>The chart</h2></div>
+  <div class="shead"><span class="snum">06</span><h2>The chart</h2></div>
   <div class="tablewrap"><table>
     <thead><tr><th>slot</th><th>what it measures</th><th>alphabet</th><th>values</th></tr></thead>
     <tbody>%s</tbody></table>
@@ -474,7 +652,7 @@ def build():
            ", ".join(BNAME[b] for b in BD[D][1]))
         for D in G.DIMS)
     A('''<section>
-  <div class="shead"><span class="snum">06</span><h2>Two findings, recorded and
+  <div class="shead"><span class="snum">07</span><h2>Two findings, recorded and
   not repaired</h2></div>
 
   <h3>A · The dimension is invisible to the chart and visible in the cell count</h3>
@@ -497,52 +675,97 @@ def build():
   here so nobody reads the invariance as a finding about gravity.</p>
 </section>''' % (prow, f"{len(G.relieved()):,}"))
 
-    # 07 species
+    # 08 species
     srow = "".join(
-        '<tr><td class="name">%s</td><td class="num">%d</td><td class="num">%d</td>'
+        '<tr><td class="name">%s%s</td><td class="num">%d</td><td class="num">%d</td>'
         '<td class="num">%d</td><td class="mono">%s</td><td class="mono">%s</td>'
-        '<td class="mono">%s</td><td class="num">%d</td>'
+        '<td class="mono">%s</td><td class="num">%s</td><td class="num">%d</td>'
         '<td class="mono sm">%s</td><td class="mono sm">%s</td></tr>'
-        % (E(r["sp"]), r["Z"], r["q"], r["Ne"], E(r["cfg"]), E(r["term"]),
-           jstr(r["tj"]), r["n"],
+        % (E(r["sp"]), ' <span class="chip b2">L1</span>' if r["L"] else "",
+           r["Z"], r["q"], r["Ne"], E(r["cfg"]), E(r["term"]),
+           jstr(r["tj"]),
+           "ground" if not r["L"] else "%.0f" % r["lv"], r["n"],
            "–".join(str(d) for d in (r["chi"][:1] + r["chi"][-1:])) or "—",
            "–".join(str(d) for d in (r["qt"][:1] + r["qt"][-1:])) or "—")
         for r in sp)
+    g0 = collections.Counter(m[5] for m in MS if m[6] == 0)
+    g1 = collections.Counter(m[5] for m in MS if m[6] == 1)
+    js = sorted(set(g0) | set(g1))
+    jrow = ("<tr><td class=\"name\">L = 0 &nbsp;ground</td>"
+            + "".join('<td class="num">%d</td>' % g0.get(j, 0) for j in js)
+            + "</tr><tr><td class=\"name\">L = 1 &nbsp;excited</td>"
+            + "".join('<td class="num">%d</td>' % g1.get(j, 0) for j in js)
+            + "</tr>")
+    only1 = sorted(set(g1) - set(g0))
+    only0 = sorted(set(g0) - set(g1))
     A('''<section>
-  <div class="shead"><span class="snum">07</span><h2>The %d species</h2></div>
+  <div class="shead"><span class="snum">08</span><h2>All %d species, and what
+  the excited ones bought</h2></div>
   <p class="sub">Each species contributes one member per banked nuclide of its
-  element. Z runs %d to %d, q runs 0 to %d.</p>
-  <div class="tablewrap tall"><table>
-    <thead><tr><th>species</th><th class="num">Z</th><th class="num">q</th>
-      <th class="num">N<sub>e</sub></th><th>ground config</th><th>term</th>
-      <th>J</th><th class="num">nuclides</th><th>log χ</th><th>log Q̃</th></tr></thead>
-    <tbody>%s</tbody></table>
-    <caption>Ground configuration, term and J as the NIST ASD capture banks
-    them. The last two columns are the range of floor(log₁₀) over that species'
-    nuclides — χ falls as A rises because χ ∝ 1/M².</caption>
+  element &mdash; its <em>lowest</em> banked level and no other, so no body is
+  charted twice. Z runs %d to %d, q runs 0 to %d. <b>%d are read at the table's
+  ground and %d at an excited level</b>, marked <span class="chip b2">L1</span>.</p>
+
+  <div class="note good">
+    <span class="lab">A correction: these 31 were excluded, and should not have been</span>
+    <p>An earlier build dropped them because their capture banks no level at
+    0.00&nbsp;cm&#8315;&#185;. The premise was right and the conclusion did not
+    follow. Reading an excited level's J <em>as a ground J</em> would indeed be
+    an error &mdash; but an excited level is a real state of a real ion, with a
+    real angular momentum and a banked energy, and its exterior gravitational
+    field is as real as the ground state's. Two things were confused: what the
+    level <em>is</em>, and whether it is the ground. The first is the
+    measurement; the second is a status.</p>
+    <p style="margin-bottom:0">So the status is the coordinate <b>L</b>, nothing
+    is dropped, and nothing is relabelled as a ground it is not. The excitation
+    energy goes into M <em>exactly</em> &mdash; worst case %.1e of Mc&sup2;. It
+    is included because it is <em>banked</em>; electron binding is bounded
+    instead because it is not. That is the only difference between them.</p>
   </div>
 
-  <h3>And the %d excluded</h3>
-  <p>Parsed, but banking no ground level. Reading the J of an excited level as a
-  ground J is the error this refuses.</p>
   <div class="tablewrap"><table>
-    <thead><tr><th>species</th><th class="num">lowest banked level / cm⁻¹</th><th>capture</th></tr></thead>
+    <thead><tr><th>2J<sub>e</sub></th>%s</tr></thead>
     <tbody>%s</tbody></table>
+    <caption><b>What the 31 bought, measured rather than asserted.</b> They add
+    exactly one angular momentum the grounds never reach &mdash; J = %s, on %d
+    members &mdash; and re-weight the rest: 2J<sub>e</sub> = 2 was already
+    seated on 29 ground members and rises to %d. J = %s are seated only by
+    grounds. Members %s &rarr; %s, nuclides with an exactly Schwarzschild
+    exterior 228 &rarr; %d, members relieved by dimension 536 &rarr; %s.</caption>
+  </div>
+
+  <div class="tablewrap tall" style="margin-top:22px"><table>
+    <thead><tr><th>species</th><th class="num">Z</th><th class="num">q</th>
+      <th class="num">N<sub>e</sub></th><th>config</th><th>term</th>
+      <th>J</th><th class="num">level / cm&#8315;&#185;</th>
+      <th class="num">nuclides</th><th>log &chi;</th><th>log Q&#771;</th></tr></thead>
+    <tbody>%s</tbody></table>
+    <caption>Configuration, term and J as the NIST ASD capture banks them, at
+    the lowest level each capture holds. The last two columns are the range of
+    floor(log&#8321;&#8320;) over that species' nuclides &mdash; &chi; falls as
+    A rises because &chi; &prop; 1/M&sup2;.</caption>
   </div>
 </section>''' % (len(sp), min(m[0] for m in MS), max(m[0] for m in MS),
-                 max(m[3] for m in MS), srow, len(exc),
-                 "".join('<tr><td class="name">%s</td><td class="num">%.2f</td>'
-                         '<td class="mono sm">%s</td></tr>' % (E(s), lv, E(f))
-                         for s, lv, f in exc)))
+                 max(m[3] for m in MS), len(GROUND), len(exc),
+                 G.excitation_bound()[0],
+                 "".join('<th class="num">%s</th>' % jstr(j) for j in js),
+                 jrow,
+                 ", ".join(jstr(j) for j in only1), sum(g1[j] for j in only1),
+                 g0.get(2, 0) + g1.get(2, 0),
+                 ", ".join(jstr(j) for j in only0),
+                 "2,696", "{:,}".format(len(MS)),
+                 len(G.schwarzschild_members()),
+                 "{:,}".format(len(G.relieved())),
+                 srow))
 
-    # 08 the figure
+    # 09 the figure
     frow = "".join(
         '<tr><td class="name">%s</td><td class="cell">(%d, %d, %d)</td>'
         '<td class="mono sm">%s</td></tr>'
         % (n, *c, E(qn[n]))
         for n, c in sorted(FC.items(), key=lambda kv: kv[1]))
     A('''<section>
-  <div class="shead"><span class="snum">08</span><h2>Seated in the index of
+  <div class="shead"><span class="snum">09</span><h2>Seated in the index of
   first-order indexes</h2></div>
   <p class="sub">One vertex per index of the periodic elements.
   <span class="mono">registry.enforce()</span> returns empty, and
@@ -569,7 +792,7 @@ def build():
 
     # 09 refusals
     A('''<section>
-  <div class="shead"><span class="snum">09</span><h2>What this file refuses</h2></div>
+  <div class="shead"><span class="snum">10</span><h2>What this file refuses</h2></div>
   <ul class="tight refuse">
     <li><b>To call 2J<sub>e</sub> the member's spin.</b> It is the electronic
       part. The nuclear part is not banked, so χ as computed is the electronic
@@ -735,6 +958,23 @@ ul.refuse li b{color:var(--ink)}
 .per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
 .per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
 .per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3dbar .hint{color:var(--faint)}
+.v3dbar .dims{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.v3dbar .dims button{padding:3px 8px;min-width:30px}
+.v3dbar .dims button.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.v3dbar .now{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+@media (prefers-reduced-motion: reduce){.v3d canvas{}}
 </style>'''
 
 

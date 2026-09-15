@@ -11869,40 +11869,54 @@ since Schwarzschild, Kerr and Reissner–Nordström are the only three rows an a
 puts all three at (2, 2). That is the "particular reason" M asked about. `gravity.py` is the index
 those three facts ask for.
 
-- **`gravity.py`** — **the gravity index.** A member is `(Z, N, A, q, Ne, 2Je, D)`: a nuclide in a
-  charge state, read in a spacetime dimension. **2,696 members over 8 dimensions — 21,568 rows, 524
-  cells, box 1,920, cell `(0, 18, 65)`, K0.** M from AME2020 Table I (3,558 nuclides; the mass path is
+- **`gravity.py`** — **the gravity index.** A member is `(Z, N, A, q, Ne, 2Je, L, D)`: a nuclide in a
+  charge state, read in a spacetime dimension, with `L` saying whether the level it was read at is
+  the table's ground. **3,394 members over 8 dimensions — 27,152 rows, 914 cells, box 3,840, cell
+  `(0, 19, 112)`, K0.** M from AME2020 Table I (3,558 nuclides; the mass path is
   checked against the scale's own zero — carbon 12 banks mass excess 0.0 keV and the expression
   returns exactly 12 u, as a fixture); q from the capture's spectroscopic numeral; 2Je from the NIST
-  ASD ground levels in `recovered/` — 149 captures, 118 species, **87 banking a true ground and 31
-  excluded** for banking only an excited one, each named with the level that disqualified it.
+  ASD levels in `recovered/` — 149 captures, **118 species, all of them members**: 87 read at the
+  table's ground and **31 at an excited level**, each named with the level it was read at.
   Electron binding is neglected and the neglect is *bounded*: worst 5.1e-5 of Mc² at Z = 90, A = 208,
   three orders below the decade resolution of the chart.
+
+  **The 31 excited-level species were excluded in the first build and should not have been.** The
+  premise was right and the conclusion did not follow: reading an excited level's J *as a ground J*
+  would be an error, but an excited level is a real state of a real ion with a real angular momentum
+  and a banked energy, and its exterior field is as real as the ground state's. What the level *is*
+  and whether it is the ground are two different things — the first is the measurement, the second a
+  status — so the status became the coordinate `L`, and the excitation energy goes into M exactly
+  (worst 5.4e-8 of Mc², included **because it is banked**, where electron binding is bounded instead
+  because it is not). Members 2,696 → **3,394**, arity 6 → **7**, cells 524 → **914**. `L` is neither
+  constant, nor determined by the other six, nor a LABEL — measured, not argued. **And one claim
+  about the 31 was withdrawn by its own fixture**: the alphabet gains exactly one angular momentum
+  the grounds never reach, J = 5/2 on 19 members, not the two first written — 2J = 2 was already
+  seated on 29 grounds and rises to 346.
 
   **Two angular-momentum facts, and neither needs a nuclear datum.** AME2020 banks no nuclear spin.
   *Forced*: Je is half-odd-integer iff Ne is odd and I is half-odd-integer iff A is odd, so F is
   half-odd-integer iff **A + Ne is odd** — and a half-odd-integer angular momentum is never zero.
-  **1,347 of 2,696 members, with no knowledge of I whatever.** *Vanishing*: even-Z even-N nuclei have
+  **1,697 of 3,394 members, with no knowledge of I whatever**, and it is independent of `L`. *Vanishing*: even-Z even-N nuclei have
   ground-state spin zero — the pairing rule, carried as `PAIRING_RULE_STATUS = "EMPIRICAL-RULE"` and
-  never flattened — which with 2Je = 0 gives F = 0 exactly: 308 members, **228 distinct nuclides whose
+  never flattened — which with 2Je = 0 gives F = 0 exactly: 365 members, **236 distinct nuclides whose
   exterior field is exactly Schwarzschild.**
 
   **The dimension changes the answer, not the arithmetic.** Singly-rotating Myers–Perry has a horizon
   where `f(r) = r^(D-3) + a² r^(D-5) = μ`. At D = 4 that needs μ ≥ 2a (the Kerr bound); at D = 5,
   μ ≥ a²; at **D ≥ 6, D−5 ≥ 1 so f(0) = 0 and f rises without limit — a root for every μ > 0 and every
   a, no bound at all.** The ultraspinning regime, and it never uses the value of G_D, which nothing
-  here measures: it says a root *exists*, not where. **536 members are bound at D ≤ 5 and unbound at
+  here measures: it says a root *exists*, not where. **607 members are bound at D ≤ 5 and unbound at
   D ≥ 6.** Charge is not relieved the same way — static charged Tangherlini's roots exist iff
-  μ² ≥ 4Q², a bound in every dimension, carried by 80 members at every D.
+  μ² ≥ 4Q², a bound in every dimension, carried by 129 members at every D.
 
   **`B` is a table of exact solutions, not a judgement.** Each branch names the metric it rests on, and
   where none is known the value is *undetermined* and stays undetermined: the general charged
   **rotating** Einstein–Maxwell solution is not known in closed form for D ≥ 5.
 
-  **Two findings, recorded and not repaired.** *(A)* Fix D and chart the other five slots: **62 cells
-  at D = 4, 66 at every D ≥ 5, and the cell is `(0, 10, 12)` at all eight.** The four extra are exactly
+  **Two findings, recorded and not repaired.** *(A)* Fix D and chart the other six slots: **109 cells
+  at D = 4, 115 at every D ≥ 5, and the cell is `(0, 11, 22)` at all eight.** The four extra are exactly
   the undetermined rows — **so what the dimension adds to this index is an ignorance class, not a
-  geometry class**, and the admissible chart cannot see it. *(B)* 536 members lose their bound at
+  geometry class**, and the admissible chart cannot see it. *(B)* 607 members lose their bound at
   D = 6 and the cell does not move: a chart reporting (K, height, width) would report the ultraspinning
   transition as nothing at all. A limit of the chart, stated so nobody reads the invariance as a
   finding about gravity.
@@ -11912,12 +11926,21 @@ those three facts ask for.
   only care that we identify every possible first-order index."*
 
   **Refused:** to call 2Je the member's spin (it is the electronic part; the nuclear part is not
-  banked); to put a number on a horizon above D = 4 (G_D is fixed by nothing measured here); to read
+  banked); to call an excited level a ground state (`L` carries it on every member); to chart more
+  than one level per species (that would multiply the same nuclides by their own spectra); to put a number on a horizon above D = 4 (G_D is fixed by nothing measured here); to read
   the pairing rule as a theorem; to extend the 87 species by Hund's rules (a computation, not a
   capture); to assign the warp metrics anything; to claim completeness — `registry.COMPLETE` stays
   False.
 
   **Rendering:** `research/warp-drive/render/gravity-plate.html`, regenerated by
   `render/build_gravity_plate.py` — every figure on the plate is read from the instrument at build
-  time, never retyped. **Standing note, not acted on:** M — *"gravity may be a potential solution for
+  time, never retyped, and `scatter3d.js` is inlined at build time so plate and runtime cannot
+  drift. **It carries a 3-D view, and which three axes it uses was measured rather than chosen:**
+  all 35 projections of the 914 chart cells were charted, and the best (D/X/Y) keeps 128 points, an
+  86 % collapse, with 44 of them carrying mixed colour. The member space **(N−Z, Z, q) is injective
+  on all 3,394 members with zero impure points at every dimension**, because the horizon-bound class
+  is a function of the plotted point. The reader picks the dimension and **607 points change colour
+  between 5 and 6**. `scatter3d.js` gained two additive changes for it — a returned `{draw}` handle,
+  since the loop only repaints while spinning, and axis text painted after the points, since a dense
+  cloud otherwise buries a label at half the azimuths. **Standing note, not acted on:** M — *"gravity may be a potential solution for
   warp transition theory"* — recorded for when the warp work resumes. See DOCKET 17.

@@ -26,10 +26,13 @@ function scatter3d(opts){
     return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
   }
 
-  function axis(ctx,W,H,a,b,label,colour){
+  function axis(ctx,W,H,a,b,label,colour,textOnly){
     const p = project(...a,W,H), q = project(...b,W,H);
-    ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    if(!textOnly){
+      ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+      return;                       /* text is painted in a later pass */
+    }
     ctx.fillStyle = colour; ctx.font = '600 11px "IBM Plex Mono", monospace';
     ctx.textAlign='center'; ctx.textBaseline='middle';
     const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
@@ -62,9 +65,14 @@ function scatter3d(opts){
     }
     ctx.globalAlpha = 1;
 
-    axis(ctx,W,H,[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted'));
-    axis(ctx,W,H,[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted'));
-    axis(ctx,W,H,[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted'));
+    /* AXIS LINES NOW, AXIS TEXT AFTER THE POINTS.  A dense cloud otherwise
+       paints over a label at half the azimuths the auto-spin passes through,
+       and the still frame is what a thumbnail and a reduced-motion reader
+       get. The lines stay behind the points, which is correct. */
+    const AX = [[[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted')],
+                [[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted')],
+                [[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted')]];
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],false);
 
     // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
     if(opts.edges){
@@ -104,6 +112,8 @@ function scatter3d(opts){
       }
       ctx.globalAlpha = 1;
     }
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],true);
+
     if(opts.labels){
       const placed = [];
       ctx.font = '10px "IBM Plex Mono", monospace';
@@ -164,4 +174,11 @@ function scatter3d(opts){
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
   draw();
   loop();
+
+  /* ADDITIVE: a handle, so a caller that changes what opts.colour returns can
+     force a repaint. The loop only redraws while spinning, so without this a
+     recolour is invisible to a reader who paused rotation or who has
+     prefers-reduced-motion set. Nothing else changes: every existing call site
+     ignores the return value. */
+  return { draw, canvas: cv, view: (a, e) => { az = a ?? az; el = e ?? el; draw(); } };
 }

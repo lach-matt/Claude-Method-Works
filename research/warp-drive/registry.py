@@ -43,7 +43,7 @@ quantum numbers.
     laws          584 series             n range, l, quantum defect
     probability   25 subshells           n, l
     inversion     20 inversions          pairs of (n, l)
-    gravity       2,696 nuclide-charge   Z, N, A, q, Ne, 2J
+    gravity       3,394 nuclide-charge   Z, N, A, q, Ne, 2J, level status
                   states, read in 8
                   spacetime dimensions
 
@@ -96,8 +96,8 @@ REGISTERED = (
     ("inversion", "index", "TABLE", "20 fill-order/shell-order inversions",
      "pairs of (n, l)"),
     ("gravity", "index", "TABLE",
-     "2,696 nuclide-charge states x 8 dimensions",
-     "Z, N, A, q, Ne, 2J"),
+     "3,394 nuclide-charge states x 8 dimensions",
+     "Z, N, A, q, Ne, 2J, level status"),
 )
 
 NOT_AN_INDEX = {
@@ -271,7 +271,7 @@ def selftest():
     chk("channels seats 209 shapes", sz["channels.index"], 209)
     chk("probability seats 25 subshells", sz["probability.index"], 25)
     chk("inversion seats 17 distinct cells", sz["inversion.index"], 17)
-    chk("gravity seats 524 distinct cells", sz["gravity.index"], 524)
+    chk("gravity seats 914 distinct cells", sz["gravity.index"], 914)
     chk("completeness is not claimed", COMPLETE, False)
     print("registry selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
