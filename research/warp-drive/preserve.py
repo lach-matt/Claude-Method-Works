@@ -438,9 +438,21 @@ def selftest():
                - adj), [])
     chk("and it names at least the nine adjudicated so far",
         len(adj) >= 9, True)
-    chk("every row names a real file",
-        [b for b, _s in adj
-         if not any(os.path.basename(p) == b for p, *_r in replacements())], [])
+    # A ROW MUST OUTLIVE ITS FILE, WHICH IS THE POINT OF THE WHOLE FILE.
+    # This fixture first asked whether every row names a file the tree still
+    # tracks, and failed on hexad.py -- deleted under DOCKET 16, its row
+    # correctly still standing. A record that vanished when its subject was
+    # deleted would be the opposite of preservation. So the test is against
+    # git HISTORY, not the current tracked set.
+    ever = set()
+    for line in _git("log", "--all", "--name-only", "--format=").split():
+        if line.endswith(".py"):
+            ever.add(os.path.basename(line))
+    chk("every row names a file the tree has EVER had",
+        sorted(b for b, _s in adj if b not in ever), [])
+    chk("and a row survives its file being deleted",
+        "hexad.py" in {b for b, _s in adj}
+        and not os.path.exists(os.path.join(ROOT, HERE, "hexad.py")), True)
     chk("a filename alone is not adjudication -- the sha must match",
         recorded("x/spectra.py", "0000000"), False)
     # the prospective half
