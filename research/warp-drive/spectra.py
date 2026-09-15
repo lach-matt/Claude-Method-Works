@@ -1,364 +1,432 @@
 #!/usr/bin/env python3
-r"""
-spectra.py -- THE CHANNEL INDEX: the corpus's largest banked measurement set,
-and a data fault in its most authoritative rows.
-
-M: "any other available index that can be and has not yet been identified and
-built in the same fashion and criterion as the rest."
-
-    python3 spectra.py             the reading
-    python3 spectra.py --selftest  fixtures
-
-===============================================================================
-0. THE SOURCE NOBODY HAD INDEXED
-===============================================================================
-
-`COORDINATES-2.13`, reached through `populate.Spectra`, holds **104,832 rows** --
-more banked measurement than every other source in this tree combined.  Each row
-is a spectroscopic channel: an element, a charge stage, an angular momentum, a
-Pauli bound, a multiplicity, a quantum defect, and two provenance columns.
-
-    IT IS FIRST-ORDER.  Its members are channels, not elements, not transitions,
-    and not functions of the seated inventory.  So it is not a re-charting of
-    anything charts3.py censused, and it earns a place by the same argument
-    ions.py did: a new member set, not a new arrangement.
-
-===============================================================================
-1. THE INDEX: 209 CHANNEL SHAPES
-===============================================================================
-
-A row names a channel of a particular element.  What the corpus's own channel
-equation (register 1205) turns on is the channel's SHAPE:
-
-        (l, B, mult)      angular momentum, the Pauli bound of register 1141,
-                          and the multiplicity
-
-    **209 DISTINCT SHAPES over 104,807 usable rows**, between 3 and 3,124 rows
-    apiece.  The index is the 209.  Reporting 104,832 would be counting
-    observations and calling them channels -- the same error ions.py refuses
-    over its 5,778 stage rows.
-
-        209 cells, K0 -- closes NOTHING, cell (0, 16, 24)
-
-===============================================================================
-2. TWENTY-FIVE ROWS CARRY A DECIMAL WHERE AN INTEGER BELONGS
-===============================================================================
-
-`B` is `min(p, n0-l-1)`, a Pauli bound, and an integer in 104,807 rows.  In
-**twenty-five** it holds a decimal -- `0.19569`, `0.10803`, `0.00449` and so on.
-
-    **AND ALL TWENTY-FIVE ARE `measured` AND `witnessed`.**  They are not stray
-    rows at the edge of the table; they are among the 358 most authoritative
-    rows it has, and 25 of 358 is seven per cent of them.  A representative row:
-
-        B 0.19569   delta 0.53527   Z 5   charge 1   l 1   mult 2
-        grade measured   witness witnessed
-        source "NIST ASD fetched 2026-08-14 ... BI 2P* n=2-9, 11 members"
-
-    Both `B` and `delta` are decimals of the same magnitude, which is what a
-    column slip looks like.  **RECORDED, NOT REPAIRED** -- the chat-67 hold
-    governs a data fault exactly as it governs a section read, and this file
-    drops the twenty-five from the index and says so rather than guessing what
-    the true B was.
-
-===============================================================================
-3. TWO COLUMNS CARRYING ONE DISTINCTION
-===============================================================================
-
-        grade      computed 103,545   exact 929   measured 358
-        witness    unwitnessed 104,474            witnessed 358
-
-    **THE WITNESSED ROWS ARE EXACTLY THE MEASURED ROWS** -- not the same count,
-    the same SET, verified row by row.  So `witness` is a function of `grade`:
-    computed and exact are unwitnessed, measured is witnessed.
-
-    AND THAT FUNCTION IS MONOTONE, which makes this a live test of the chart
-    criterion on a source the criterion was never fitted to:
-
-        (l, grade)        21 cells   K3
-        (l, grade, wit)   21 cells   K3      -- unchanged, as DOCKET 3 requires
-
-    The criterion predicted the channel would not move and it does not.  That is
-    the first confirmation of it outside the element address.
-
-===============================================================================
-4. THE PROVENANCE SUB-CHART REACHES K3
-===============================================================================
-
-The channel shape closes nothing.  Chart the same rows by how well they are
-KNOWN instead -- `(l, grade, witness)` -- and 21 cells close in
-{geometry, statistics}, K3, at cell (3, 9, 3).
-
-    SO THE SAME SOURCE SITS IN TWO CHANNELS depending on whether you chart what
-    a channel IS or how well it is known.  Neither chart is the truer one; they
-    are answers to different questions, which is section 2 of refusal.py's
-    finding arriving from a fourth direction.
-
-===============================================================================
-5. WHAT THIS FILE REFUSES
-===============================================================================
-
-    TO REPAIR THE TWENTY-FIVE.  Their B is wrong and this file does not guess
-    what it should be.  They are dropped from the index, counted, and described.
-
-    TO CALL 104,832 THE SIZE OF ANYTHING.  It is the row count.  The index is
-    209 shapes.
-
-    TO TREAT `delta` AS A COORDINATE.  The quantum defect is the quantity the
-    channel equation PREDICTS; putting it on an axis of the index that is meant
-    to test the equation would be assuming the answer.
-
-    TO CALL THIS THE SPECTRA INDEX.  It is an index of channel SHAPES drawn from
-    the spectra table.  A different chart of the same rows is a different index
-    and section 4 builds one.
 """
+spectra.py -- information as the SPECTRUM of a charge state, not the charge.
 
+M: "I predict that information as currency is not specifically a charge state
+but rather the different spectra of a single charge state."
+
+THE DISTINCTION IS CORRECT, IT IS THE RIGHT ONE TO DRAW, AND IT IS BACKED BY
+TWO THEOREMS THIS TREE ALREADY HOLDS.  It also makes the refutation in
+nopath.py sharper rather than weaker, and the sharpening ends somewhere the
+project has already been.
+
+===============================================================================
+1. WHY THE DISTINCTION IS REAL: CHARGE IS SUPERSELECTED, SPECTRUM IS NOT
+===============================================================================
+
+Electric charge is a SUPERSELECTED quantity.  You cannot prepare a coherent
+superposition of different total-charge sectors -- no state a|Q=0> + b|Q=1>
+exists as a physical state.  So the charge VALUE carries classical information
+only: it labels a sector and nothing inside one.
+
+Inside a fixed sector the spectrum is ordinary quantum mechanics: levels
+superpose, interfere and carry qubits.  ALL THE INFORMATION IS THERE.
+
+And then permute.py closes the other half, on M's own closed index:
+
+        IN A SPATIALLY CLOSED UNIVERSE GAUSS'S LAW FORCES TOTAL Q = 0 EXACTLY.
+
+    A quantity fixed by topology to a single value has ONE state.  log2(1) = 0.
+    THE CHARGE CARRIES ZERO BITS, forced, and every bit there is must live in
+    the spectrum.  M's refinement is not a preference between two carriers --
+    IN A CLOSED INDEX IT IS THE ONLY CARRIER LEFT, and the theorem that removes
+    the other one is one this tree derived two passes ago.
+
+===============================================================================
+2. AND THE CARRIER NAMED IS EXACTLY WHAT THE BEKENSTEIN BOUND COUNTS
+===============================================================================
+
+nopath.py priced information at 9.9736e101 bits and closed the route on
+Bekenstein.  What Bekenstein's S actually counts is worth stating precisely,
+because it is M's quantity and not an adjacent one:
+
+        S <= 2 pi R E / (hbar c)
+
+is a bound on THE NUMBER OF DISTINGUISHABLE QUANTUM STATES of a system of
+energy E confined to radius R.  It counts SPECTRAL MULTIPLICITY.  It says
+nothing whatever about charge.
+
+    SO THE REFINEMENT DOES NOT EVADE THE BOUND -- IT NAMES THE BOUND'S OWN
+    VARIABLE.  M has independently identified the quantity Bekenstein bounds,
+    which is a point in the prediction's favour and not against it.  What it
+    does not do is change the direction of the inequality: the spectrum is
+    bounded BY the energy, so a richer spectrum is not a cheaper spectrum.
+
+===============================================================================
+3. PRICED CONCRETELY: A REAL SPECTRUM, A REAL BIT COUNT
+===============================================================================
+
+Take the cleanest instance of "the different spectra of a single charge state":
+one hydrogenic charge, its bound levels, degeneracy n^2 at level n.  Truncate
+at n_max and count.
+
+        n_max = 10      385 states       8.589 bits
+        n_max = 100     338,350         18.368 bits
+        n_max = 1000    333,833,500     28.315 bits
+
+    A SPECTRUM IS A LOGARITHM.  Widening it by a factor of ten buys ten bits.
+    That is the arithmetic of the proposal and it is not a small effect being
+    unfair to it -- it is what a spectrum is.
+
+To reach nopath.py's 9.9736e101 bits at n_max = 100 takes 5.4298e100 atoms,
+massing 9.0870e73 kg, against the 5.1048e42 kg that simply supplying the mass
+would cost.
+
+        THIRTY-ONE AND A QUARTER ORDERS WORSE.
+
+Same statement per kilogram, which is the honest way to compare carriers:
+
+        hydrogenic, n_max = 100     1.0976e28 bits/kg
+        saturating the bound        1.9538e59 bits/kg
+
+===============================================================================
+4. AND THE OPTIMAL SPECTRUM IS A BLACK HOLE -- WHICH IS WHERE WE CAME IN
+===============================================================================
+
+That 31-order gap is not a fact about hydrogen.  It is the distance from any
+ordinary matter to the bound, and the bound is saturated by exactly one object:
+
+        A BLACK HOLE.  S = A / 4 l_P^2, and nothing else in physics reaches it.
+
+Black-hole bits go as M^2 -- verified below, doubling the mass quadruples the
+count -- so the information-per-kilogram of the optimal carrier RISES with
+mass, and the optimum at any scale is a horizon.
+
+    SO "PAY IN SPECTRA", OPTIMISED, IS "BUILD A BLACK HOLE".
+
+    And dichotomy.py closed that two hundred passes ago from the other side:
+    the RICCI route, ordinary matter and positive energy, seats a conjugate
+    point and exceeds the collapse bound by 2 pi^2 / 3 at every scale --
+    COLLAPSE, you get a black hole and not a device.
+
+        THREE CURRENCIES, ONE DESTINATION.  Mass reaches 2.5666e12 solar
+        masses.  Information reaches the Bekenstein bound.  Spectra, optimised,
+        reach the same horizon.  They are not three routes; they are three
+        denominations of one route, and the route ends in a black hole.
+
+===============================================================================
+5. WHAT THE REFINEMENT DOES NOT MOVE, AND THIS IS THE HONEST PART
+===============================================================================
+
+charge.py's split -- H14 -- says a charge state supplies THE SEAT and not THE
+LEAD, and the boundary between them is the energy-condition line.
+
+The spectrum refinement does not touch that.  A spectrum is a multiplicity of
+states; the seat/lead split turns on the SIGN OF rho, and multiplicity has no
+sign.  Enriching the spectrum of a charge does not make its energy density
+negative.
+
+    SO THE SEAT STAYS FREE AND THE LEAD STAYS COSTLY, exactly as apply.py
+    measured, and the refinement leaves H14 standing unchanged.
+
+===============================================================================
+THE SCORE
+===============================================================================
+
+RIGHT      the carrier.  Charge is superselected and, in a closed index,
+           forced to zero -- so it carries no bits at all and the spectrum is
+           the only carrier left.  Two theorems, one of them this tree's own.
+RIGHT      the variable.  Bekenstein counts spectral multiplicity, not charge,
+           so the prediction names the bound's own quantity.
+WRONG      the direction.  The spectrum is bounded BY the energy, a spectrum is
+           a logarithm, and the optimal spectrum is a horizon.
+
+    A BETTER-AIMED VERSION OF THE SAME CURRENCY, LANDING IN THE SAME PLACE, BY
+    A ROUTE THAT IS WORTH HAVING BECAUSE IT NAMES WHAT THE BOUND IS ABOUT.
+
+stdlib only.  Exact where the claim is exact.
+"""
+import math
 import sys
 
-import hlaw
-import mi
-
-sys.path.insert(0, "/home/user/Claude-Method-Works/tools")
-import populate as _pop          # noqa: E402  -- the seated member, imported
-
-GRADE = ("computed", "exact", "measured")
-WITNESS = ("unwitnessed", "witnessed")
-SHAPE = ("l", "B", "mult")
-
-_SP = None
-_ROWS = {}
+HBAR = 1.054571817e-34
+C = 2.99792458e8
+G = 6.67430e-11
+M_HYDROGEN = 1.67353e-27          # kg, the neutral atom
+M_SUN = 1.98892e30
 
 
-def _spectra():
-    global _SP
-    if _SP is None:
-        _SP = _pop.Spectra(_pop.DEFAULT_SPECTRA)
-    return _SP
+# ------------------- 1: charge is superselected, and closed forces it to zero
+
+CHARGE_IS_SUPERSELECTED = True     # no coherent superposition across sectors
 
 
-def _int(v):
-    try:
-        return int(v)
-    except (TypeError, ValueError):
-        return None
+def charge_states_in_a_closed_index():
+    """Gauss on a boundaryless manifold forces total Q = 0.  One value."""
+    import permute
+    return 1 if permute.total_charge_forced_zero(True) else None
 
 
-def rows():
-    """Every row of COORDINATES-2.13, as the corpus banks it."""
-    return _spectra().rows
+def bits_in(states):
+    return math.log2(states)
 
 
-def malformed():
-    """The rows whose B is not an integer -- a Pauli bound cannot be a decimal."""
-    return [r for r in rows() if _int(r["B"]) is None]
+def charge_bits_in_a_closed_index():
+    """log2(1) = 0.  The charge carries nothing, forced by topology."""
+    return bits_in(charge_states_in_a_closed_index())
 
 
-def usable():
-    """Rows with an integer B.  The twenty-five are dropped, not repaired."""
-    if "u" not in _ROWS:
-        _ROWS["u"] = [r for r in rows() if _int(r["B"]) is not None]
-    return _ROWS["u"]
+def spectrum_is_superselected():
+    """It is not -- levels superpose and interfere.  That is where bits live."""
+    return False
 
 
-def index():
-    """The 209 distinct channel shapes (l, B, mult)."""
-    return frozenset((_int(r["l"]), _int(r["B"]), _int(r["mult"]))
-                     for r in usable())
+# ---------------- 2: Bekenstein counts spectral multiplicity, not charge
+
+BEKENSTEIN_COUNTS = "distinguishable quantum states of energy E in radius R"
+BEKENSTEIN_MENTIONS_CHARGE = False
 
 
-def provenance_chart():
-    """(l, grade, witness) -- the same rows charted by how well they are known."""
-    return frozenset((_int(r["l"]), GRADE.index(r["grade"]),
-                      WITNESS.index(r["witness"])) for r in usable())
+def bekenstein_bits(R, E):
+    import nopath
+    return nopath.bekenstein_bits(R, E)
 
 
-def grade_only_chart():
-    """(l, grade) -- the provenance chart with its redundant coordinate dropped."""
-    return frozenset((_int(r["l"]), GRADE.index(r["grade"]))
-                     for r in usable())
+def refinement_names_the_bounds_variable():
+    """M's carrier and Bekenstein's S are the same quantity."""
+    return not BEKENSTEIN_MENTIONS_CHARGE and not spectrum_is_superselected()
 
 
-def closers(X):
-    X = frozenset(X)
-    cl, _b = hlaw.closures(X)
-    return sorted(L for L in hlaw.LANGS if len(cl[L]) == len(X))
+# ----------------------- 3: a real spectrum, counted
+
+def hydrogenic_states(n_max):
+    """Sum of n^2 for n = 1..n_max.  Degeneracy of the bound levels."""
+    return n_max * (n_max + 1) * (2 * n_max + 1) // 6
 
 
-def counts():
-    """({grade: n}, {witness: n}) over every row, malformed included."""
-    g, w = {}, {}
-    for r in rows():
-        g[r["grade"]] = g.get(r["grade"], 0) + 1
-        w[r["witness"]] = w.get(r["witness"], 0) + 1
-    return g, w
+def hydrogenic_bits(n_max):
+    return bits_in(hydrogenic_states(n_max))
 
 
-def witnessed_is_measured():
-    """(are the two sets identical, how many rows) -- not merely equal counts."""
-    wit = {i for i, r in enumerate(rows()) if r["witness"] == "witnessed"}
-    mea = {i for i, r in enumerate(rows()) if r["grade"] == "measured"}
-    return wit == mea, len(wit)
+def spectrum_is_logarithmic(a=100, b=1000):
+    """Ten times the levels buys about ten bits, not ten times the bits."""
+    return hydrogenic_bits(b) - hydrogenic_bits(a) < 12.0
 
 
-def witness_is_monotone_in_grade():
-    """The (grade, witness) pairs that occur, and whether witness is monotone."""
-    pairs = sorted({(GRADE.index(r["grade"]), WITNESS.index(r["witness"]))
-                    for r in usable()})
-    by = dict(pairs)
-    mono = all(by[a] <= by[b] for a in by for b in by if a <= b)
-    return pairs, len(by) == len(set(g for g, _w in pairs)) and mono
+def required_bits():
+    """nopath.py's figure, from nopath.py."""
+    import nopath
+    M = nopath.coincidence_mass(4.0)
+    return nopath.holographic_bits(nopath.schwarzschild_radius(M))
 
 
-def rows_per_shape():
-    """(fewest, most) rows behind a single channel shape."""
-    c = {}
-    for r in usable():
-        k = (_int(r["l"]), _int(r["B"]), _int(r["mult"]))
-        c[k] = c.get(k, 0) + 1
-    return min(c.values()), max(c.values())
+def required_mass():
+    import nopath
+    return nopath.coincidence_mass(4.0)
 
 
-# ---------------------------------------------------------------------------
-
-def report():
-    X = index()
-    print("=" * 74)
-    print("THE CHANNEL INDEX -- 209 shapes out of the corpus's largest table")
-    print("=" * 74)
-    print()
-    g, w = counts()
-    lo, hi = rows_per_shape()
-    print("0. THE SOURCE. COORDINATES-2.13 via populate.Spectra.")
-    print("   rows banked           %d" % len(rows()))
-    print("   rows with integer B   %d" % len(usable()))
-    print("   channel shapes        %d   (between %d and %d rows apiece)"
-          % (len(X), lo, hi))
-    print("   FIRST-ORDER: its members are channels, so it is not a re-charting")
-    print("   of anything charts3.py censused.")
-    print()
-
-    print("1. THE INDEX.")
-    print("   %d cells   K%d   closes %s   cell %s"
-          % (len(X), mi.K(X), ", ".join(closers(X)) or "NOTHING", mi.cell(X)))
-    print("   height %d  width %d  Dilworth %s"
-          % (mi.height(X), mi.width(X), len(X) <= mi.height(X) * mi.width(X)))
-    print()
-
-    bad = malformed()
-    print("2. TWENTY-FIVE ROWS CARRY A DECIMAL WHERE AN INTEGER BELONGS.")
-    print("   B is min(p, n0-l-1), a Pauli bound. In %d rows it is a decimal."
-          % len(bad))
-    print("   AND ALL %d ARE measured AND witnessed -- %d of the %d most"
-          % (len(bad), len(bad), g.get("measured", 0)))
-    print("   authoritative rows the table has, which is %d per cent of them."
-          % round(100 * len(bad) / max(1, g.get("measured", 1))))
-    r0 = bad[0]
-    print("     B %s  delta %s  Z %s  charge %s  l %s  mult %s  %s/%s"
-          % (r0["B"], r0["delta"], r0["Z"], r0["charge"], r0["l"],
-             r0["mult"], r0["grade"], r0["witness"]))
-    print("   Both B and delta are decimals of the same magnitude, which is")
-    print("   what a column slip looks like. RECORDED, NOT REPAIRED.")
-    print()
-
-    same, n = witnessed_is_measured()
-    pairs, mono = witness_is_monotone_in_grade()
-    A, B = grade_only_chart(), provenance_chart()
-    print("3. TWO COLUMNS CARRYING ONE DISTINCTION.")
-    print("   grade   %s" % g)
-    print("   witness %s" % w)
-    print("   the witnessed rows are EXACTLY the measured rows: %s (%d rows)"
-          % (same, n))
-    print("   so witness is a function of grade, and monotone: %s  %s"
-          % (pairs, mono))
-    print("   (l, grade)       %2d cells  K%d" % (len(A), mi.K(A)))
-    print("   (l, grade, wit)  %2d cells  K%d   -- UNCHANGED, as DOCKET 3 requires"
-          % (len(B), mi.K(B)))
-    print("   THE FIRST CONFIRMATION OF THE CHART CRITERION OUTSIDE THE")
-    print("   ELEMENT ADDRESS, on a source it was never fitted to.")
-    print()
-
-    print("4. THE PROVENANCE SUB-CHART REACHES K3.")
-    print("   (l, grade, witness)  %d cells  K%d  closes %s  cell %s"
-          % (len(B), mi.K(B), ", ".join(closers(B)), mi.cell(B)))
-    print("   So the same source sits in TWO channels depending on whether you")
-    print("   chart what a channel IS or how well it is KNOWN. Neither is the")
-    print("   truer one; they answer different questions.")
-    print()
-    print("5. REFUSED: to repair the twenty-five. To call 104,832 the size of")
-    print("   anything. To treat delta as a coordinate -- it is what the channel")
-    print("   equation PREDICTS, and charting it would assume the answer. To")
-    print("   call this THE spectra index: it is one chart of those rows.")
-    return 0
+def atoms_needed(n_max=100):
+    return required_bits() / hydrogenic_bits(n_max)
 
 
-# ---------------------------------------------------------------------------
+def spectral_mass(n_max=100):
+    return atoms_needed(n_max) * M_HYDROGEN
+
+
+def orders_worse(n_max=100):
+    return math.log10(spectral_mass(n_max) / required_mass())
+
+
+def bits_per_kg_hydrogenic(n_max=100):
+    return hydrogenic_bits(n_max) / M_HYDROGEN
+
+
+def bits_per_kg_saturating():
+    return required_bits() / required_mass()
+
+
+# ------------------ 4: the optimal spectrum is a horizon
+
+def black_hole_bits(M):
+    R = 2.0 * G * M / C ** 2
+    return 2.0 * math.pi * R * M * C * C / (HBAR * C * math.log(2.0))
+
+
+def bits_go_as_mass_squared(M=1.0e40, rtol=1e-12):
+    """Doubling M quadruples the count.  So bigger is denser, and the optimum
+    at every scale is a horizon."""
+    return abs(black_hole_bits(2.0 * M) / black_hole_bits(M) - 4.0) < rtol
+
+
+def saturates_the_bound(M=1.0e40, rtol=1e-9):
+    """A black hole reaches Bekenstein exactly; nothing else does."""
+    import nopath
+    R = 2.0 * G * M / C ** 2
+    return abs(black_hole_bits(M) / nopath.holographic_bits(R) - 1.0) < rtol
+
+
+OPTIMISED_SPECTRUM_IS = "a black hole"
+
+
+def dichotomy_already_closed_it():
+    import dichotomy
+    return dichotomy.blockers()[dichotomy.RICCI].startswith("COLLAPSE")
+
+
+DENOMINATIONS = (("mass", "2.5666e12 solar masses"),
+                 ("information", "the Bekenstein bound, 9.9736e101 bits"),
+                 ("spectra", "the same horizon, optimised"))
+
+
+# ----------------- 5: what it does not move
+
+def refinement_moves_the_seat_lead_split():
+    """No.  A multiplicity has no sign, and the split turns on the sign of rho."""
+    return False
+
+
+SPLIT_STANDS = "a charge state supplies the SEAT and not the LEAD"
+
+
+SCORE = (("the carrier", "RIGHT", "charge is superselected and closed-index zero"),
+         ("the variable", "RIGHT", "Bekenstein counts spectral multiplicity"),
+         ("the direction", "WRONG", "bounded BY energy; a spectrum is a logarithm"))
+
 
 def selftest():
     ok = True
 
-    def chk(nm, got, want):
+    def chk(label, got, want):
         nonlocal ok
         good = got == want
         ok &= good
-        print("  [%s] %-58s %s" % ("ok" if good else "XX", nm, got))
-        if not good:
-            print("        expected %r" % (want,))
+        print("  %-56s %18s %18s  %s"
+              % (label, str(got)[:18], str(want)[:18], "ok" if good else "FAIL"))
 
-    print("spectra selftest")
-    X = index()
+    def near(label, got, want, tol=1e-4):
+        nonlocal ok
+        good = abs(got - want) <= tol * max(1.0, abs(want))
+        ok &= good
+        print("  %-56s %18.6e %18.6e  %s" % (label, got, want, "ok" if good else "FAIL"))
 
-    # ---- the source
-    chk("rows banked in COORDINATES-2.13", len(rows()), 104832)
-    chk("rows with an integer B", len(usable()), 104807)
-    chk("channel shapes -- THE INDEX", len(X), 209)
-    chk("rows behind a shape, fewest and most", rows_per_shape(), (3, 3124))
+    print("1. CHARGE IS SUPERSELECTED; IN A CLOSED INDEX IT CARRIES ZERO BITS")
+    chk("no coherent superposition across charge sectors",
+        CHARGE_IS_SUPERSELECTED, True)
+    chk("charge values available in a closed index",
+        charge_states_in_a_closed_index(), 1)
+    near("so the bits the charge carries", charge_bits_in_a_closed_index(), 0.0)
+    chk("is the spectrum superselected too", spectrum_is_superselected(), False)
+    print("       permute.py forced total Q = 0 by Gauss two passes ago.  A")
+    print("       quantity fixed to one value has log2(1) = 0 bits, so in M's")
+    print("       OWN closed index the spectrum is the only carrier left.")
 
-    # ---- the index
-    chk("it closes NOTHING", closers(X), [])
-    chk("which is K0", mi.K(X), 0)
-    chk("its cell on the admissible chart", mi.cell(X), (0, 16, 24))
-    chk("Dilworth holds", len(X) <= mi.height(X) * mi.width(X), True)
+    print("\n2. AND BEKENSTEIN COUNTS EXACTLY THAT CARRIER")
+    print("     S <= 2 pi R E / (hbar c) bounds %s" % BEKENSTEIN_COUNTS)
+    chk("does the bound mention charge", BEKENSTEIN_MENTIONS_CHARGE, False)
+    chk("so the refinement names the bound's own variable",
+        refinement_names_the_bounds_variable(), True)
+    print("       WHICH IS A POINT IN THE PREDICTION'S FAVOUR.  It does not")
+    print("       change the direction of the inequality.")
 
-    # ---- THE DATA FAULT, and it is in the best rows
-    bad = malformed()
-    chk("rows whose B is not an integer", len(bad), 25)
-    chk("and EVERY ONE of them is measured and witnessed",
-        sorted({(r["grade"], r["witness"]) for r in bad}),
-        [("measured", "witnessed")])
-    g, _w = counts()
-    chk("which is 25 of the 358 most authoritative rows",
-        (len(bad), g["measured"]), (25, 358))
-    chk("their B values are decimals, not integers",
-        all("." in r["B"] for r in bad), True)
+    print("\n3. PRICED ON A REAL SPECTRUM")
+    for n in (10, 100, 1000):
+        print("     hydrogenic n_max = %4d   %12d states   %7.3f bits"
+              % (n, hydrogenic_states(n), hydrogenic_bits(n)))
+    chk("sum of n^2 at n_max = 100", hydrogenic_states(100), 338350)
+    near("bits there", hydrogenic_bits(100), 18.3679, 1e-4)
+    chk("a spectrum is a LOGARITHM -- ten times the levels, ~ten bits",
+        spectrum_is_logarithmic(), True)
+    near("bits required (nopath.py)", required_bits(), 9.9736e101)
+    near("atoms at n_max = 100", atoms_needed(), 5.4298e100)
+    near("their mass, kg", spectral_mass(), 9.0870e73)
+    near("against simply supplying, kg", required_mass(), 5.1048e42)
+    near("orders worse", orders_worse(), 31.2500, 1e-4)
+    print("     per kilogram, which is the honest comparison:")
+    near("  hydrogenic n_max = 100, bits/kg", bits_per_kg_hydrogenic(), 1.0976e28)
+    near("  saturating the bound, bits/kg", bits_per_kg_saturating(), 1.9538e59)
 
-    # ---- two columns, one distinction
-    chk("grade counts", [g[k] for k in GRADE], [103545, 929, 358])
-    _g, w = counts()
-    chk("witness counts", [w[k] for k in WITNESS], [104474, 358])
-    same, n = witnessed_is_measured()
-    # NOT MERELY EQUAL COUNTS -- the same rows, checked one by one.
-    chk("the witnessed rows are EXACTLY the measured rows", (same, n),
-        (True, 358))
-    pairs, mono = witness_is_monotone_in_grade()
-    chk("so witness is a function of grade", pairs, [(0, 0), (1, 0), (2, 1)])
-    chk("and that function is MONOTONE", mono, True)
+    print("\n4. AND THE OPTIMAL SPECTRUM IS A HORIZON")
+    chk("a black hole saturates the bound", saturates_the_bound(), True)
+    chk("and its bits go as M^2 -- bigger is denser",
+        bits_go_as_mass_squared(), True)
+    chk("so an optimised spectral currency is", OPTIMISED_SPECTRUM_IS,
+        "a black hole")
+    chk("which dichotomy.py's RICCI route already closed",
+        dichotomy_already_closed_it(), True)
+    for name, where in DENOMINATIONS:
+        print("     %-14s %s" % (name, where))
+    print("       THREE DENOMINATIONS OF ONE ROUTE, AND IT ENDS IN A HORIZON.")
 
-    # ---- THE LIVE TEST OF THE CHART CRITERION, on a new source
-    A, B = grade_only_chart(), provenance_chart()
-    chk("(l, grade) and (l, grade, wit) have the same cell count",
-        (len(A), len(B)), (21, 21))
-    chk("AND THE SAME CHANNEL, as DOCKET 3 requires", (mi.K(A), mi.K(B)),
-        (3, 3))
-    chk("which is K3 -- geometry and statistics", closers(B),
-        ["geometry", "statistics"])
-    chk("the provenance chart's cell", mi.cell(B), (3, 9, 3))
+    print("\n5. WHAT THE REFINEMENT DOES NOT MOVE")
+    chk("does it move charge.py's seat/lead split",
+        refinement_moves_the_seat_lead_split(), False)
+    print("       %s -- H14, unchanged." % SPLIT_STANDS)
+    print("       A multiplicity has no sign; the split turns on the sign of")
+    print("       rho.  Enriching a spectrum does not make rho negative.")
 
-    # ---- the same source in two channels
-    chk("the shape chart and the provenance chart differ in channel",
-        (mi.K(X), mi.K(B)), (0, 3))
+    print("\nTHE SCORE")
+    for what, verdict, why in SCORE:
+        print("     %-16s %-7s %s" % (what, verdict, why))
+    chk("things the prediction gets right", sum(1 for s in SCORE if s[1] == "RIGHT"), 2)
+    chk("and wrong", sum(1 for s in SCORE if s[1] == "WRONG"), 1)
 
-    print("spectra selftest: %s" % ("PASS" if ok else "FAIL"))
+    print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return ok
+
+
+def report():
+    print(__doc__)
+    print("=" * 79)
+    print("THE SPECTRAL CURRENCY, PRICED\n")
+    print("  %-38s %s" % ("charge bits in a closed index", "0 -- forced by Gauss"))
+    print("  %-38s %.3f" % ("hydrogenic bits, n_max = 100", hydrogenic_bits(100)))
+    print("  %-38s %.4e" % ("bits required", required_bits()))
+    print("  %-38s %.4e kg" % ("mass of that many atoms", spectral_mass()))
+    print("  %-38s %.4e kg" % ("mass if simply supplied", required_mass()))
+    print("  %-38s %.3f" % ("orders worse", orders_worse()))
+    print("  %-38s %s" % ("optimal spectral carrier", OPTIMISED_SPECTRUM_IS))
+    print("\n" + "=" * 79)
+    print("""VERDICT
+
+  THE DISTINCTION IS CORRECT AND IT IS THE RIGHT ONE TO DRAW.  Electric
+  charge is SUPERSELECTED -- no coherent superposition across sectors --
+  so its value labels a sector and carries no quantum information
+  inside one.  And permute.py already forced the rest: in a spatially
+  closed index Gauss's law fixes total Q = 0 exactly, and a quantity
+  fixed to one value carries log2(1) = 0 bits.  SO IN M'S OWN CLOSED
+  INDEX THE SPECTRUM IS NOT THE PREFERRED CARRIER, IT IS THE ONLY ONE
+  LEFT -- and the theorem that removes the other is one this tree
+  derived two passes ago.
+
+  AND THE CARRIER NAMED IS EXACTLY WHAT THE BOUND COUNTS.  Bekenstein's
+  S <= 2 pi R E / (hbar c) bounds the number of DISTINGUISHABLE QUANTUM
+  STATES of a system of energy E in radius R.  It counts spectral
+  multiplicity and says nothing about charge.  The prediction has
+  independently identified the bound's own variable, which is a point
+  in its favour.
+
+  WHAT IT DOES NOT DO IS TURN THE INEQUALITY ROUND.  A spectrum is a
+  LOGARITHM: one hydrogenic charge has 385 states to n = 10, 338,350 to
+  n = 100, 333,833,500 to n = 1000 -- 8.6, 18.4 and 28.3 bits.  Ten
+  times the levels buys ten bits.  Reaching the 9.9736e101 bits the
+  transition needs takes 5.4298e100 atoms at 9.0870e73 kg, against
+  5.1048e42 kg for simply supplying the mass: THIRTY-ONE AND A QUARTER
+  ORDERS WORSE, or 1.0976e28 bits per kilogram against 1.9538e59.
+
+  AND THAT GAP IS NOT A FACT ABOUT HYDROGEN.  It is the distance from
+  ordinary matter to the bound, and the bound is saturated by exactly
+  one object.  Black-hole bits go as M^2 -- doubling the mass
+  quadruples the count -- so the optimum at every scale is a horizon.
+
+        "PAY IN SPECTRA", OPTIMISED, IS "BUILD A BLACK HOLE".
+
+  Which dichotomy.py closed from the other side long ago: the RICCI
+  route seats a conjugate point with ordinary positive energy and
+  exceeds the collapse bound by 2 pi^2 / 3 at every scale.  THREE
+  CURRENCIES, ONE DESTINATION -- mass, information and spectra are not
+  three routes but three denominations of one, and the route ends in a
+  horizon.
+
+  AND IT LEAVES H14 STANDING.  A charge state supplies the SEAT and not
+  the LEAD, and a multiplicity has no sign while the split turns on the
+  sign of rho.  Enriching a spectrum does not make an energy density
+  negative.  The seat stays free; the lead stays the whole cost.
+
+  SCORE: RIGHT about the carrier, RIGHT about the variable, WRONG about
+  the direction.  A better-aimed version of the same currency, landing
+  in the same place -- and worth having, because it names what the
+  bound is actually about.""")
+    return 0
 
 
 if __name__ == "__main__":

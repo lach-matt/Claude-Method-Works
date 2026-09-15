@@ -127,7 +127,9 @@ FIRST_ORDER = {
     "Janet fibration": "madelung.py",
     "ionisation ladder": "ions.py",
     "provenance": "axes.py",
-    "channel index": "spectra.py",
+    "channel index": "channels.py",
+    "inversion index": "inversion.py",
+    "probability index": "probability.py",
 }
 SECOND_ORDER = {
     "the master index": "mi.py",
@@ -135,6 +137,14 @@ SECOND_ORDER = {
     "the entropy index": "entropy.py",
 }
 
+# THE SCOPE MOVED ON 2026-09-15 AND THIS CONSTANT IS NOW CONTESTED.
+# M: "Whatever the final shape and its vertexes are is the scope."  occupy.py
+# then measured that EIGHT of the ten cells the figure demands need 18 to 30
+# members, which no second-order index over the seated vertices can reach -- so
+# they can only be first-order, and the six below are the first-order sources
+# this tree has named and not built.  OUT_OF_SCOPE_IS_A_RULING was a decision
+# taken under the old scope; it is left standing rather than flipped here,
+# because flipping a ruling is not an instrument's job.  See DOCKET 13.
 UNBUILT_FIRST_ORDER = {
     "the BUILD series": "140 files, BUILD9-179, two streams",
     "the drive manifest": "820 files with mime, size, md5, status",
@@ -284,9 +294,9 @@ def selftest():
 
     print("sources selftest")
 
-    chk("five first-order indexes seated", len(FIRST_ORDER), 5)
+    chk("seven first-order indexes seated", len(FIRST_ORDER), 7)
     chk("three second-order", len(SECOND_ORDER), 3)
-    chk("eight in all", len(seated()), 8)
+    chk("ten in all", len(seated()), 10)
     chk("and every name is distinct",
         len(set(FIRST_ORDER) & set(SECOND_ORDER)), 0)
 

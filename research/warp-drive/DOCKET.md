@@ -996,7 +996,7 @@ docket 2.
 
 ---
 
-## DOCKET 11 — OBSERVED BOX OR DECLARED BOX?  **OPEN, AND IT IS LOAD-BEARING**
+## DOCKET 11 — OBSERVED BOX OR DECLARED BOX?  **PINNED, NOT RULED**
 
 *Raised 2026-09-15 by `mcheck_mi.py`, which reported two of this tree's laws
 refuted and was wrong about why.*
@@ -1066,4 +1066,215 @@ declared box. Three candidates, and this tree has no basis to choose:
 corpus rules for. That one is about assigning a coordinate; this one is about what
 the coordinate ranges over. A ruling on either leaves the other open.
 
+### THE PIN
+
+*M, 2026-09-15: "pin because it may not hold if more vertexes can be added."*
+
+**PINNED: the OBSERVED box.** Every figure this tree states is read under hlaw's
+own convention, `box_of(X)` on each axis, and every instrument already computes
+it that way. The pin makes that explicit where it was silent.
+
+**A PIN IS NOT A RULING AND THE DIFFERENCE IS THE WHOLE POINT.** The corpus's own
+status vocabulary is used here as the corpus uses it:
+
+| | what it would mean |
+|---|---|
+| `RULED` | the corpus decides for the observed box, and the question is shut |
+| **`PINNED`** | **this tree works in the observed box, and says so at every use** |
+| `READ` | a register states it — none does |
+
+**WHY IT IS A PIN AND NOT A RULING.** M's reason is the right one and it is
+measurable: **the pin may not survive more vertices.** The convention is only
+load-bearing where an index does not fill its declared box, and whether the
+figure's vertices do that is a property of the vertices — so a vertex seated
+tomorrow can move which side of the distinction the figure sits on. A ruling
+would have to be re-opened; a pin is expected to be re-measured.
+
+**WHAT THE PIN OBLIGES.** Three things, and they are checkable:
+
+1. **Every law stated under it names it.** The down-set law and the DOCKET 3
+   chart criterion are theorems *of the observed-box convention*, proved `unsat`
+   over their boxes in `mcheck_mi.py` with `spans` as the hypothesis. Neither may
+   be stated without it.
+2. **O1b and O4b stay in the file.** The same formulas without the hypothesis,
+   reporting their failures, are what make the pin visible rather than assumed.
+3. **The pin is re-measured whenever a vertex is seated.** `demand.py` names the
+   figure's missing vertices; each one seated is an occasion to re-run
+   `mcheck_mi.py`, not an occasion to assume the pin held.
+
+**WHAT IS STILL NOT SETTLED.** Which convention the *corpus* holds. The pin binds
+this tree's instruments and nothing else, exactly as the header of this file says
+a ruling does — and less, because it is not a ruling. The three candidates above
+stay on the docket.
+
 Nothing is repaired on the strength of this.
+
+---
+
+## DOCKET 12 — WHEN A DEMANDED CELL IS SATISFIABLE, DOES IT GET SEATED?  **OPEN**
+
+*Raised 2026-09-15 by `occupy.py`, which found one.*
+
+### The question
+
+`demand.py` turns the closure question into a programme: the figure names exactly
+E cells it is missing, seating one of them drops E by exactly one, and seating all
+of them closes it. At ten vertices E = 10 and the ten cells are named.
+
+**One of them is occupied.** `(2, 5, 4)` is the cell of a second-order index built
+from `sources.py`'s pre-existing measurement pool — and not by one freak
+combination but by **nine distinct ones**: eight at arity 2 and 3, one more at
+arity 4. The first count taken was eight, because the identifying run swept only
+arity 2 and 3; the fixture caught it.
+
+**So the cell is satisfiable, and this tree will not seat it.** `entropy.py`
+states the reason and it binds: the supply of second-order indexes is bounded only
+by the supply of admissible measurements, which is not bounded at all. Seating one
+because it lands where the figure wants a vertex would make the vertex count
+arbitrary — and with nine combinations reaching the same cell, **there is no
+principle here that picks one of them.**
+
+### What is NOT in question
+
+**Eight of the ten cells are closed to this entire class of candidate**, by a
+counting argument that needs no census: an index of n members has height ≤ n and
+width ≤ n, so a cell needs max(h, w) members, and a second-order index over ten
+seated vertices has at most ten. Those eight need 18 to 30. **They can only be
+first-order** — indexes whose members are things the corpus banks. That is not a
+docket question; it is measured, and `occupy.py --selftest` pins it.
+
+`(2, 5, 5)` is the tenth: reachable in principle at ≤ 10 members, and occupied by
+nothing in the pool. Open in the ordinary sense.
+
+### What would settle it
+
+A rule for when a satisfiable cell is seated. Three candidates:
+
+1. **Never seat a second-order index at a demanded cell.** Closure is then a
+   statement about first-order indexes alone, and E = 0 requires ten first-order
+   discoveries. Costs: the two reachable cells may be permanently unfillable while
+   being demonstrably satisfiable, which is a strange thing for a classification
+   to say.
+2. **Seat it when the occupation is canonical** — when exactly one member of the
+   pool reaches the cell. Costs: `(2, 5, 4)` is reached nine ways and so would
+   stay unseated, which makes the rule turn on an accident of the pool's size.
+3. **Seat the whole pool.** Every second-order index over the seated inventory
+   becomes a vertex. Costs: the figure is then unbounded by construction and E is
+   not a target at all — which `sources.py` already measured and is why the
+   hexad's own report refuses to name a polygon.
+
+**A ruling is owed before the paper can state what the final shape is**, because
+under rule 3 there is no final shape, and under rules 1 and 2 there may be one.
+
+Nothing is seated on the strength of this. E stays at 10.
+
+---
+
+## DOCKET 13 — THE SIX UNBUILT FIRST-ORDER SOURCES  **OPEN, AND THE SCOPE NOW NEEDS THEM**
+
+*Raised 2026-09-15. `sources.py` named them and ruled them out of scope; the scope
+has since moved and `occupy.py` measured that the programme cannot close without
+them.*
+
+### The question
+
+`sources.py` carries `OUT_OF_SCOPE_IS_A_RULING = True` beside six first-order
+sources it names and does not build:
+
+| source | size |
+|---|---|
+| the BUILD series | 140 files, BUILD9–179, two streams |
+| the drive manifest | 820 files with mime, size, md5, status |
+| the Register | 1,660 entries over 1–1792, 132 numbered gaps |
+| the recovered ledger | 3,173 files in six statuses |
+| the coverage census | 1,005 artefact names in five dispositions |
+| the dockets | now thirteen, with rulings |
+
+**That ruling was taken under a scope that has since changed.** M, 2026-09-15:
+*"Whatever the final shape and its vertexes are is the scope."*
+
+**And the measurement says the scope cannot be met without them.** `occupy.py`:
+eight of the ten demanded cells need **18 to 30 members**, and a second-order
+index over the ten seated vertices has at most ten. Those eight are closed to
+every second-order candidate by a counting bound. **They can only be first-order**
+— and the six above are every first-order source this tree has named and not
+built. Each is the right order of size: 140, 820, 1,660, 3,173, 1,005 members.
+
+### What this docket does NOT claim
+
+That any of the six occupies a demanded cell. Nothing has been built and nothing
+has been measured; their cells are unknown, and a source of the right size can
+land anywhere. The counting bound says where the missing vertices **cannot** come
+from, not where they do.
+
+That building them is free. Five of the six read the corpus's generated trees,
+which `CLAUDE.md` governs: they are read-only sources for an instrument that
+writes nothing into them, exactly as the existing first-order indexes read
+`populate.py`. The sixth reads this file.
+
+### What would settle it
+
+A ruling that lifts `OUT_OF_SCOPE_IS_A_RULING` for these six, or one that keeps
+it and accepts that the figure cannot reach E = 0 or 1 by any route this tree has
+identified. **Those are the only two positions**, and the second is a coherent
+one: it says the classification's missing vertices are outside this tree, which
+is a finding rather than a failure.
+
+Nothing is built on the strength of this.
+
+---
+
+## DOCKET 14 — A FILE WAS OVERWRITTEN AND THE VERIFICATION COULD NOT SEE IT  **REPAIRED, AND THE GAP IS NOT**
+
+*Raised 2026-09-15, found while answering M's question about a currency index.*
+
+### What happened
+
+On 2026-09-14, commit `49e064c` wrote the channel index to `research/warp-drive/spectra.py`.
+**That name was taken.** `spectra.py` had existed since `ffbaa15` — *"information as
+the SPECTRUM of a charge state, not the charge"*, 435 lines, written to answer
+M's prediction that *"information as currency is not specifically a charge state
+but rather the different spectra of a single charge state"*.
+
+The commit recorded it as `275 insertions(+), 343 deletions(-)` on one file and
+described it as a new instrument. It was a replacement.
+
+**And the file was load-bearing.** `obstruct.py`'s `SPECTRAL-CURRENCY` row names
+`spectra.py` as the instrument that settled it; `index3.py` carries **five
+findings** attributed to it; `rates.py` and `compress.py` both reason from its
+result that the optimised spectrum is a horizon. Those citations pointed at a
+file whose content was gone.
+
+### Why nothing caught it
+
+**A new file and a clobbered file are indistinguishable to `--selftest`.** The
+channel index's own fixtures passed on the first run, exactly as they should
+have — they test the channel index. Nothing in this tree asks whether a name was
+already in use, and `git` reported the overwrite in a statistic nobody reads
+aloud. The verification sweep ran `spectra.py --selftest` and got `PASS`.
+
+**That is the finding, and it is not the same as the mistake.** The mistake was
+mine and is repaired. The gap is that a destructive write to an existing
+instrument produces a green run.
+
+### The repair
+
+`spectra.py` is restored from `ffbaa15`, byte for byte. The channel index is
+seated at **`channels.py`**, a name that was free, and carries the whole of this
+in its own docstring. `hexad.py` and `sources.py` are rewired. No citation
+elsewhere needed changing, because every one of them meant the original.
+
+### What would settle the gap
+
+A guard that refuses a write to an existing instrument's path unless the write
+is declared as a replacement. Three candidates:
+
+1. **A pre-commit check** that flags any commit whose diff deletes more than half
+   of an existing `.py` under `research/` — cheap, catches this exact shape, and
+   would have fired here at 343 deletions against 275 insertions.
+2. **A name registry** — `sources.py` already lists every seated instrument, so a
+   new file whose basename is already registered could fail its own selftest.
+3. **Nothing, and rely on reading the diff.** The honest option, and it is what
+   failed on 2026-09-14.
+
+Nothing is built on the strength of this yet.

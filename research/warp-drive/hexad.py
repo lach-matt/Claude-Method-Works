@@ -123,15 +123,18 @@ import mi
 import axes as _axes
 import entropy as _entropy
 import fibred as _fibred
+import inversion as _inversion
 import ions as _ions
 import madelung as _madelung
+import probability as _probability
 import rindex as _rindex
-import spectra as _spectra
+import channels as _channels
 
 # The six the figure was built on, in the order it first reported them.
 SIX = ("MI (the nine)", "refusal index", "provenance",
        "ionisation ladder", "shell fibration", "Janet fibration")
-ADDED = ("entropy index", "channel index")
+ADDED = ("entropy index", "channel index",
+         "inversion index", "probability index")
 
 
 def all_indexes():
@@ -144,12 +147,14 @@ def all_indexes():
         "shell fibration": _fibred.index(),
         "Janet fibration": _madelung.janet(),
         "entropy index": _entropy.index(),
-        "channel index": _spectra.index(),
+        "channel index": _channels.index(),
+        "inversion index": _inversion.index(),
+        "probability index": _probability.index(),
     }
 
 
 def cells(names=None):
-    """{name: its cell on the admissible chart}, over `names` or all eight."""
+    """{name: its cell on the admissible chart}, over `names` or all ten."""
     A = all_indexes()
     ns = list(A) if names is None else list(names)
     return {n: mi.cell(A[n]) for n in ns}
@@ -245,7 +250,7 @@ def self_seat(names=None, steps=12):
 def growth():
     """[(size, K, own cell, verdict, step)] at six, seven and eight."""
     out = []
-    for k in (6, 7, 8):
+    for k in range(6, 6 + len(ADDED) + 1):
         ns = list(SIX) + list(ADDED[:k - 6])
         F = figure(ns)
         v, s, _n = self_seat(ns)
@@ -267,7 +272,7 @@ def involvement(names=None):
 def report():
     F = figure()
     print("=" * 74)
-    print("THE FIGURE THE SEATED INDEXES MAKE -- now eight, once six")
+    print("THE FIGURE THE SEATED INDEXES MAKE -- now ten, once six")
     print("=" * 74)
     print()
     print("0. THE CONSTRUCTION IS ALREADY PAID FOR. Every seated index carries")
@@ -286,7 +291,7 @@ def report():
     print()
 
     print("2. THE JOIN THREADS.")
-    for k in (6, 7, 8):
+    for k in range(6, 7 + len(ADDED)):
         ns = list(SIX) + list(ADDED[:k - 6])
         p, d, E, r = diagonals_equal_deficit(ns)
         tot = len(threads(ns))
@@ -298,6 +303,11 @@ def report():
     print("   nine diagonals stand against a deficit of ten.")
     print("   What is ALWAYS true is that the FULL join-closure is the deficit,")
     print("   which is definitional and says less.")
+    print("   AND E DID NOT MOVE FROM EIGHT TO TEN. Both vertices seated after")
+    print("   the octad are NEUTRAL in demand.py's sense -- outside the closure,")
+    print("   adding no join but themselves -- so the figure grew by two and the")
+    print("   ten cells it is missing are the same ten. Growth is not automatic")
+    print("   drift away from closure, and that had not been measured before.")
     print()
 
     print("3. SELF-SEATING.")
@@ -308,14 +318,31 @@ def report():
     print("   already computed -- an explanation that predicted convergence at")
     print("   every size, and is REFUTED at eight.")
     print()
-    print("   who resists joining, at eight: %s"
+    print("   who resists joining, at ten: %s"
           % list(involvement().items())[:4])
     print()
-    print("4. REFUSED: to name a particular polygon as the classification --")
+    print("4. WHAT THE FIGURE IS MISSING IS NOW A LIST, NOT A MOOD.")
+    try:
+        import demand
+        import occupy
+        print("   E = %d, and demand.py names the %d cells."
+              % (demand.E(F), demand.E(F)))
+        cl, op = occupy.unreachable()
+        print("   %d of them are CLOSED to every second-order index over this"
+              % len(cl))
+        print("   figure by a counting bound; they can only be first-order.")
+        print("   Of the %d that remain, one is occupied eight ways and one is"
+              % len(op))
+        print("   open. DOCKET 12 asks whether a satisfiable cell is seated.")
+    except Exception as exc:                       # pragma: no cover
+        print("   (demand.py / occupy.py not consulted: %s)" % exc)
+    print()
+    print("5. REFUSED: to name a particular polygon as the classification --")
     print("   sources.py measures 84 further second-order indexes on 20")
     print("   vertices this figure does not have. To read the six-vertex")
     print("   properties as structural -- K2, the one-round closure and the")
     print("   fixed point all fail by eight. To draw it as a regular polygon.")
+    print("   To call ten the final shape: E is 10 and the condition is 0 or 1.")
     return 0
 
 
@@ -334,29 +361,36 @@ def selftest():
 
     print("hexad selftest")
     F, c = figure(), cells()
+    OCTAD = list(SIX) + list(ADDED[:2])
+    F8 = figure(OCTAD)
 
-    chk("eight seated indexes", len(all_indexes()), 8)
-    chk("on eight DISTINCT cells", len(F), 8)
+    chk("ten seated indexes", len(all_indexes()), 10)
+    chk("on ten DISTINCT cells", len(F), 10)
+    chk("the octad is still eight distinct cells", len(F8), 8)
     chk("the original six are still six distinct cells", len(hexad()), 6)
     chk("MI's cell", c["MI (the nine)"], (2, 5, 2))
     chk("the entropy index's", c["entropy index"], (2, 4, 5))
     chk("the channel index's", c["channel index"], (0, 16, 24))
+    chk("the inversion index's", c["inversion index"], (2, 6, 5))
+    chk("the probability index's", c["probability index"], (2, 8, 9))
 
     # ---- THE CHANNEL IS NOT STABLE. The headline correction.
     g = growth()
     chk("at six the figure closed in statistics", closers(hexad()),
         ["statistics"])
-    chk("at eight it closes NOTHING", closers(F), [])
-    chk("K at six, seven, eight", [K for _k, K, _c, _v, _s in g], [2, 0, 0])
-    chk("own cell at six, seven, eight", [cc for _k, _K, cc, _v, _s in g],
-        [(2, 4, 2), (0, 4, 3), (0, 4, 4)])
+    chk("at eight it closes NOTHING", closers(F8), [])
+    chk("at ten it still closes nothing", closers(F), [])
+    chk("K at six..ten", [K for _k, K, _c, _v, _s in g], [2, 0, 0, 0, 0])
+    chk("own cell at six..ten", [cc for _k, _K, cc, _v, _s in g],
+        [(2, 4, 2), (0, 4, 3), (0, 4, 4), (0, 4, 4), (0, 5, 4)])
     # SO THE SEVENTH VERTEX ALONE DID IT.
     chk("the seventh vertex alone destroyed the channel",
         (mi.K(hexad()), mi.K(figure(list(SIX) + ["entropy index"]))), (2, 0))
 
     # ---- the correspondence, and its true condition
     p6, d6, E6, r6 = diagonals_equal_deficit(SIX)
-    p8, d8, E8, r8 = diagonals_equal_deficit()
+    p8, d8, E8, r8 = diagonals_equal_deficit(OCTAD)
+    p10, d10, E10, r10 = diagonals_equal_deficit()
     chk("at six: escapes, distinct, E(info)", (p6, d6, E6), (5, 5, 5))
     chk("and the join-closure stabilises in ONE round", r6, 1)
     chk("at eight: escapes, distinct, E(info)", (p8, d8, E8), (14, 9, 10))
@@ -364,25 +398,33 @@ def selftest():
     # THE CORRECTION, pinned both ways so it cannot be requoted as a law.
     chk("so distinct == E(info) at six", d6 == E6, True)
     chk("and NOT at eight", d8 == E8, False)
+    # AND E DID NOT MOVE FROM EIGHT TO TEN -- both new vertices are neutral.
+    chk("E(info) at ten is still ten", E10, 10)
+    chk("but the escaping pairs grew", p10 > p8, True)
+    chk("so more diagonals escape while the DEFICIT stands still", 
+        (p8, E8, p10, E10), (14, 10, p10, 10))
     # WHAT IS ALWAYS TRUE.
-    for ns in (SIX, None):
+    for ns, lab in ((SIX, " (at six)"), (OCTAD, " (at eight)"), (None, " (at ten)")):
         _cl, added, _r = join_closure(ns)
-        chk("full join-closure == E(information)%s"
-            % ("" if ns else " (at eight)"), added, deficit(ns))
+        chk("full join-closure == E(information)%s" % lab, added, deficit(ns))
 
     # ---- SELF-SEATING FLIPS
     chk("six converges", self_seat(SIX)[0], "FIXED POINT")
     chk("seven converges", self_seat(list(SIX) + ["entropy index"])[0],
         "FIXED POINT")
-    chk("EIGHT CYCLES", self_seat()[0], "CYCLE period 2")
+    chk("EIGHT CYCLES", self_seat(OCTAD)[0], "CYCLE period 2")
     chk("so the fixed point is lost as the figure grows",
-        [v for _k, _K, _c, v, _s in g],
+        [v for _k, _K, _c, v, _s in g][:3],
         ["FIXED POINT", "FIXED POINT", "CYCLE period 2"])
 
     # ---- the pairwise threads still count correctly
-    chk("28 pairs at eight", len(threads()), 28)
-    chk("14 land, 14 escape",
-        (sum(1 for _a, _b, _j, jl, _m, _ml in threads() if jl), p8), (14, 14))
+    chk("28 pairs at eight", len(threads(OCTAD)), 28)
+    chk("45 pairs at ten", len(threads()), 45)
+    chk("14 land, 14 escape at eight",
+        (sum(1 for _a, _b, _j, jl, _m, _ml in threads(OCTAD) if jl), p8),
+        (14, 14))
+    chk("every pair either lands or escapes, at ten",
+        sum(1 for _a, _b, _j, jl, _m, _ml in threads() if jl) + p10, 45)
 
     print("hexad selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

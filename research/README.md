@@ -11854,7 +11854,7 @@ with `K` the channel — which of the five languages close the index, a down-set
 | the ionisation ladder | `ions.py` | 98 distinct Λ₈ transitions | **(0, 18, 16)** |
 | the provenance index | `axes.py` | the 26 axes, as measurements | **(0, 5, 5)** |
 | the refusal index | `rindex.py` | the refusals, four charts | **(0, 5, 4)** |
-| the channel index | `spectra.py` | 209 shapes over 104,832 rows | **(0, 16, 24)** |
+| the channel index | `channels.py` | 209 shapes over 104,832 rows | **(0, 16, 24)** |
 | the entropy index | `entropy.py` | marginal and joint entropies | **(2, 4, 5)** |
 
 **The second and third differ in ONE COORDINATE** — `n` against `n+l` — share the other two, run the same
@@ -11871,7 +11871,7 @@ is which — only **K0, K3, K7**; K1, K4 and K5 are reached by **no chart at all
 charts the shell-coordinate law decides every one, **no violations**, 112 excluded for a stated reason.
 So the three fibrations are **representatives of a classification, not picks from an open field** — and
 the way past it is not a new chart but a new *kind of member*, which is exactly what `ions.py`, `axes.py`,
-`rindex.py`, `spectra.py` and `entropy.py` each do.
+`rindex.py`, `channels.py` and `entropy.py` each do.
 
 ### Three that cost their own headline
 
@@ -11884,7 +11884,7 @@ the way past it is not a new chart but a new *kind of member*, which is exactly 
   faithful ones **disagree** — the indicator chart cycles with period 2, the `(|R|, sum)` chart is a fixed
   point. So "does seating R converge" has no chart-free answer, and **the cycle is one bit wide: the K5
   bit**.
-- **`spectra.py`** found a data fault in the corpus's most authoritative rows: **25 of 358 carry a decimal
+- **`channels.py`** found a data fault in the corpus's most authoritative rows: **25 of 358 carry a decimal
   `B`, and all 25 are `measured`/`witnessed`.** It also measured `witnessed ≡ measured` **exactly** — the
   same set — so `wit` is a monotone function of `grade`, and `(l, grade)` and `(l, grade, wit)` are both
   21 cells in K3. That is the **first confirmation of the chart criterion outside the element address**.
@@ -11971,8 +11971,9 @@ spanning or not**, which is the stronger statement. O3's witness is required to 
 is a refutation under hlaw's own convention and not an artefact of the declared box.
 
 ### Seated
-- `mi.py`, `fibred.py`, `madelung.py`, `charts3.py`, `ions.py`, `axes.py`, `rindex.py`, `spectra.py`,
-  `entropy.py`, `sources.py` — **new**, ten instruments, all `--selftest` **PASS**. `hexad.py` —
+- `mi.py`, `fibred.py`, `madelung.py`, `charts3.py`, `ions.py`, `axes.py`, `rindex.py`, `channels.py`,
+  `entropy.py`, `sources.py` — **new**, ten instruments, all `--selftest` **PASS**. (`channels.py` was
+  committed as `spectra.py` and **overwrote an instrument of that name**; see DOCKET 14.) `hexad.py` —
   **rewritten**, generalised from six vertices to eight, and **two of its own published claims
   withdrawn**. `mcheck_mi.py` — **repaired**: the spanning hypothesis added to O1, O3 and O4, `spans`
   delegated to `prover.observed`, `guard_encoding` made to report its skip count, and
@@ -11980,3 +11981,99 @@ is a refutation under hlaw's own convention and not an artefact of the declared 
   with a 3-D rendering drawn by `render/scatter3d.js`, a hand-rolled canvas projector with no CDN.
   `DOCKET.md` — **DOCKET 2 and DOCKET 3 RULED**; DOCKET 9 and DOCKET 10 remain open.
 
+
+---
+
+## The closure programme — the figure names its own missing vertices, and there are exactly E of them
+
+M: *"I am not satisfied with the closure of the octad, and I suggest there exists at least one more
+vertex index of measurable class and value. The closure of the complete configuration is either E=0 or
+1... Whatever the final shape and its vertexes are is the scope."*
+
+**That turns an open-ended search into a programme with a target, and `demand.py` is the instrument.**
+Write F for the seated cells, J(F) for their join-closure, D = J(F) \ F. Four facts, checked over 400
+random figures with **zero violations**:
+
+| | |
+|---|---|
+| **L1** | E = \|D\|. Definitional, stated so the rest has a unit. |
+| **L2** | Seating a **demanded** cell drops E by **exactly one** — J(F) is unchanged, so nothing else moves. |
+| **L3** | Seating anything else moves E by 0 or up. **Measured**, not asserted; the distribution is printed. |
+| **L4** | Seating all of D gives exactly J(F), which is join-closed, so **E = 0**. |
+
+**So the final shape is not an open-ended search.** At any moment the figure names exactly E missing
+vertices, and a demanded cell is a **specification with content**: `(K, h, w)` fixes which languages
+close it, its longest chain, its largest antichain, and — by Mirsky and Dilworth — a member count in
+`[max(h,w), h·w]`. Both ends of that band are attained, by one chain and by w **disjoint** chains; the
+obvious witness, the h×w grid, is the wrong one, because a grid's height is h+w−1.
+
+### The two indexes M named both exist, and both miss
+
+| | members | closes | cell | verdict |
+|---|---|---|---|---|
+| **inversion index** (`inversion.py`) | 20 disagreements between the fill order and the shell order | statistics | **(2, 6, 5)** | not demanded |
+| **probability index** (`probability.py`) | 25 subshells, one distribution read three ways | statistics | **(2, 8, 9)** | not demanded |
+
+**The inversion index is structure, not bookkeeping.** 4s fills before 3d, and that single inversion is
+why the transition metals exist. **Every one of the twenty crosses a shell boundary and that is forced**
+— at equal n the Madelung key and the shell key both reduce to l, so the two orders agree, and
+`crossing_is_forced()` exhausts the 30 same-shell pairs rather than quoting the argument.
+
+**The probability index cost itself two claims, both recorded in the file.** It asserted that `p_n` does
+not determine `p`; the fixture refuted it — **it does**. And it assumed the reach truncates a subshell;
+**it does not** — 170 lands exactly on a Madelung boundary, so every count is a full capacity and the
+marginal is a formula in l. Neither conditional is, so the index is not thereby a re-chart of l, but the
+marginal alone is, and the docstring said otherwise before the fixtures ran.
+
+### And E did not move
+
+```
+ 6 vertices  E= 5      8 vertices  E=10     10 vertices  E=10
+ 7 vertices  E= 5      9 vertices  E=10
+```
+
+Both new vertices are **NEUTRAL** in `demand.py`'s sense — outside J(F), and joining with every cell of
+J(F) back into it. The figure grew by two and **the ten cells it is missing are the same ten.** Growth
+is not automatic drift away from closure, and that had not been measured before.
+
+### `occupy.py` — which of the ten can be filled, and by what kind of index
+
+**A counting bound closes most of the table, and it needs no census.** An index of n members has
+height ≤ n and width ≤ n, so a cell needs max(h, w) members — and a second-order index over the ten
+seated vertices has at most ten. **Eight of the ten demanded cells need 18 to 30 members.** They are
+unreachable by *every* second-order candidate, however the measurements are chosen, and **can only be
+first-order**: indexes whose members are things the corpus banks.
+
+Of the two that remain, **`(2, 5, 4)` is occupied** — by a second-order index from `sources.py`'s
+pre-existing pool, and not by one freak combination but by **nine distinct ones** — eight at arity 2
+and 3, one more at arity 4. The first count taken was eight, because the identifying sweep covered only
+arity 2 and 3; the fixture caught it. `(2, 5, 5)` is reachable in principle and occupied by nothing in the pool.
+
+**The census is not a fit and the order of events is the argument.** The pool was fixed before any
+demand table existed; the inversion and probability indexes were built, measured and seated before the
+table was consulted; **both missed.** A procedure that only ever produces hits is fitting, and this one
+produced two misses first.
+
+**Nothing is seated on the strength of it, and E stays at 10.** A satisfiable cell is not a vertex: the
+supply of second-order indexes is unbounded, nine combinations reach the same cell, and this tree has
+no principle that picks one.
+
+### Three dockets, and the scope now runs through two of them
+
+- **DOCKET 11 — observed box or declared box. PINNED, NOT RULED.** M: *"pin because it may not hold if
+  more vertexes can be added."* The observed box is pinned and named at every use; the pin obliges a
+  re-measure whenever a vertex is seated, which is exactly why it is a pin and not a ruling.
+- **DOCKET 12 — when a demanded cell is satisfiable, does it get seated?** Three candidate rules, each
+  with a stated cost. **Under one of them there is no final shape at all**, so the paper cannot state
+  what the final shape is until this is ruled.
+- **DOCKET 13 — the six unbuilt first-order sources.** `sources.py` named them and ruled them out of
+  scope; **the scope has moved and the counting bound says the programme cannot close without them.**
+  Two coherent positions: lift the ruling, or keep it and accept that the missing vertices lie outside
+  this tree — which would be a finding, not a failure.
+
+### Seated
+- `demand.py`, `inversion.py`, `probability.py`, `occupy.py` — **new**. `hexad.py` — **extended to ten
+  vertices**, the growth sweep generalised, the neutral-vertex finding seated. `sources.py` — the two
+  new first-order indexes registered; `OUT_OF_SCOPE_IS_A_RULING` left standing and marked contested,
+  because flipping a ruling is not an instrument's job. `DOCKET.md` — **DOCKET 11 pinned, DOCKET 12 and
+  DOCKET 13 opened**.
