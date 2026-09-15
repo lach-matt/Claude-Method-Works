@@ -1111,7 +1111,7 @@ Nothing is repaired on the strength of this.
 
 ---
 
-## DOCKET 12 — WHEN A DEMANDED CELL IS SATISFIABLE, DOES IT GET SEATED?  **OPEN**
+## DOCKET 12 — WHEN A DEMANDED CELL IS SATISFIABLE, DOES IT GET SEATED?  **RULED: YES**
 
 *Raised 2026-09-15 by `occupy.py`, which found one.*
 
@@ -1166,11 +1166,31 @@ A rule for when a satisfiable cell is seated. Three candidates:
 **A ruling is owed before the paper can state what the final shape is**, because
 under rule 3 there is no final shape, and under rules 1 and 2 there may be one.
 
-Nothing is seated on the strength of this. E stays at 10.
+### RULED YES, 2026-09-15 — and the objection dissolved on measurement
+
+*M: "12 - yes."*
+
+**The objection this docket raised against its own answer does not survive a
+measurement.** It said: nine witnesses reach `(2, 5, 4)`, no principle picks one,
+so the vertex is arbitrary. But **a vertex IS a cell**, and `filled.py` checks
+every one of the nine — they all give the same cell. The figure does not depend
+on which is named. What is arbitrary is the *label* of the witness, and
+`CANON_IS_ARBITRARY = True` says so where a reader will find it.
+
+So candidate rule 2 — seat it when the occupation is canonical — was asking the
+wrong question. Canonicity of the *witness* was never what mattered; uniqueness
+of the *cell* is, and it holds.
+
+**Seated, and the cost is measured rather than quoted from L2:** eleven vertices,
+**E from 10 to 9**, and the other nine demanded cells exactly as they were.
+
+`(2, 5, 5)` is untouched by this ruling. It is reachable in principle and
+occupied by nothing in the pool, and a ruling about a satisfiable cell says
+nothing about an unsatisfied one.
 
 ---
 
-## DOCKET 13 — THE SIX UNBUILT FIRST-ORDER SOURCES  **OPEN, AND THE SCOPE NOW NEEDS THEM**
+## DOCKET 13 — THE SIX UNBUILT FIRST-ORDER SOURCES  **WITHDRAWN: THE QUESTION WAS MIS-POSED**
 
 *Raised 2026-09-15. `sources.py` named them and ruled them out of scope; the scope
 has since moved and `occupy.py` measured that the programme cannot close without
@@ -1212,15 +1232,40 @@ which `CLAUDE.md` governs: they are read-only sources for an instrument that
 writes nothing into them, exactly as the existing first-order indexes read
 `populate.py`. The sixth reads this file.
 
-### What would settle it
+### WITHDRAWN, 2026-09-15
 
-A ruling that lifts `OUT_OF_SCOPE_IS_A_RULING` for these six, or one that keeps
-it and accepts that the figure cannot reach E = 0 or 1 by any route this tree has
-identified. **Those are the only two positions**, and the second is a coherent
-one: it says the classification's missing vertices are outside this tree, which
-is a finding rather than a failure.
+*M: "I don't understand your question. We are trying to identify first-order
+indexes. Every time we think we have identified all of them, more show up. The
+complete characterization index is not settled until all first-order indexes are
+identified and built."*
 
-Nothing is built on the strength of this.
+**The docket asked the wrong thing.** It framed "which sources are in scope" as
+an open question with two positions. It is not a question: **identifying every
+first-order index IS the task**, and the characterization is not settled until
+they are all built. There was never a second position to weigh.
+
+`OUT_OF_SCOPE_IS_A_RULING` was a decision taken when the scope was the six
+master indexes. Under the standing scope it has no work to do, and `sources.py`
+carries a note to that effect rather than the flag being flipped silently.
+
+**All six are built**, in `store.py`: the drive manifest (820 files, 661 cells),
+the BUILD series (149, 131), the Register's numbering gaps (132, 132), the
+recovered ledger by conversation (259, 259), the coverage census (1,005 names, 23
+cells) and this file's own dockets (14).
+
+**And six is what was NAMED, not what exists.** `store.py` carries
+`UNNAMED_SOURCES_MAY_EXIST = True` for exactly M's reason: every time this tree
+has thought the list complete, another source has shown up. A seventh found
+tomorrow is a seventh index, and this docket closing does not say otherwise.
+
+### One design decision, and it is worth recording
+
+**No category is ranked anywhere in `store.py`.** A mime type, a gap class, a
+docket state — none has an order, and inventing one would put a `RECONSTRUCTED`
+status into every figure downstream, which `axes.py` and `obstruction.py` both
+have to carry. Instead a category contributes **how many rows carry it**: a
+measurement of the table, ordered because integers are. The cost is that two
+equal-sized categories collide, and `collisions()` reports where.
 
 ---
 
@@ -1264,17 +1309,67 @@ seated at **`channels.py`**, a name that was free, and carries the whole of this
 in its own docstring. `hexad.py` and `sources.py` are rewired. No citation
 elsewhere needed changing, because every one of them meant the original.
 
-### What would settle the gap
+### The guard, built — and what it cannot do
 
-A guard that refuses a write to an existing instrument's path unless the write
-is declared as a replacement. Three candidates:
+*M, 2026-09-15: "of course. The preservation of superseded material is vital to
+verification and restore needs."*
 
-1. **A pre-commit check** that flags any commit whose diff deletes more than half
-   of an existing `.py` under `research/` — cheap, catches this exact shape, and
-   would have fired here at 343 deletions against 275 insertions.
-2. **A name registry** — `sources.py` already lists every seated instrument, so a
-   new file whose basename is already registered could fail its own selftest.
-3. **Nothing, and rely on reading the diff.** The honest option, and it is what
-   failed on 2026-09-14.
+`preserve.py` flags a **replacement** where a commit both (a) deletes more than it
+adds, or at least half the file, and (b) changes the file's own
+`name.py -- ...` self-identification line. It found **seven** in this tree.
 
-Nothing is built on the strength of this yet.
+**IT CANNOT TELL A CLOBBER FROM A RE-DERIVATION, AND THE OBVIOUS DISCRIMINATOR
+WAS MEASURED AND FAILS.** How much of a file's public API survives ought to
+separate them — a revision keeps its function names. Jaccard over top-level
+`def` names:
+
+| | | |
+|---|---|---|
+| `spectra.py` | **the clobber** | **0.06** |
+| `currency.py` | a re-derivation | 0.08 |
+| `transit.py` | a re-derivation | 0.08 |
+| `stationkeep.py` | a re-derivation | 0.23 |
+| `questions.py` | a re-derivation | 0.30 |
+| `hexad.py` | a re-derivation | 0.55 |
+
+**A re-derivation under a new scope rewrites its API as completely as a clobber
+does.** `currency.py` is *more* API-disjoint than the clobber. Any threshold that
+admits one admits the other, so no threshold is used and none should be quoted
+from this table.
+
+**So the contract is narrower than DOCKET 14 first asked for.** The guard
+surfaces every replacement, checks the superseded content is recoverable, names
+who cited it beforehand, and **requires each to be adjudicated in the table
+below**. It classifies nothing. That is what would have caught `spectra.py` on
+the day — not a verdict, but a row demanding one.
+
+**And the first version of `recorded()` was a grep for the filename**, so
+`hexad.py` and `questions.py` counted as adjudicated for being discussed
+elsewhere in this file. A row must name the file **and** the commit.
+
+### The adjudication table
+
+Every replacement the guard finds, with a ruling. `preserve.py --check` exits 1
+on any row not here — including uncited ones, because a replacement nothing cites
+today can be cited tomorrow, and the citation will point at content that no
+longer answers to its name.
+
+| file | commit | ruling |
+|---|---|---|
+| `spectra.py` | `49e064c` | **CLOBBER.** The channel index written over "information as the SPECTRUM of a charge state". Restored; the channel index reseated as `channels.py`. This is the case the guard exists for. |
+| `spectra.py` | `9fc1ff9` | **RESTORE.** The inverse of the row above, and it trips the same test — a restore looks exactly like a replacement. Correct to flag, correct to keep. |
+| `currency.py` | `59c77c9` | **RE-DERIVATION.** "Is there a cheaper currency than mass-energy?" → "the bill, re-derived in the scope M chose". Same subject, new scope after the modified-gravity scope decision. The old question is answered inside the new file, not discarded. |
+| `transit.py` | `4fb7bc3` | **RE-DERIVATION.** "Travel > turn > seat, as three gated parts" → M's "not traversable — correct, at least not in the sense we…". Same object, rewritten around a correction M supplied. |
+| `stationkeep.py` | `e248fb9` | **RE-DERIVATION.** "The delta-v nobody computed" → "what the ladder actually costs, after the literature was read". Same quantity, recomputed against sources. |
+| `questions.py` | `3c9124d` | **RE-DERIVATION.** "THE QUESTION INDEX. Cells are questions put to the languages." → "THE QUESTION INDEX. Seven questions, one per language." Same index; DOCKET 8 ruled the roster at seven and the file follows the ruling. |
+| `hexad.py` | `49e064c` | **RE-DERIVATION.** "The six master indexes as one index" → "the figure the seated indexes make, and what changes as it grows". Deliberate, and the file keeps its name because the finding is that the figure grows past six. |
+
+**One clobber, one restore, five re-derivations.** The ratio is the argument for
+the narrow contract: a guard that ruled automatically would have been wrong six
+times out of seven.
+
+### What is still owed
+
+A pre-commit check remains DOCKET 14's candidate 1 and is not built. `CLAUDE.md`
+says this is a document corpus and not to add CI, so `preserve.py --check` is an
+instrument a person or a later ruling can wire up; it installs nothing.

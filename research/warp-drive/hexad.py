@@ -153,11 +153,23 @@ def all_indexes():
     }
 
 
+_CELL_CACHE = {}
+
+
 def cells(names=None):
-    """{name: its cell on the admissible chart}, over `names` or all ten."""
+    """{name: its cell on the admissible chart}, over `names` or all of them.
+
+    MEMOISED BY NAME, because one vertex now costs minutes.  The drive manifest
+    index is 661 cells and its channel takes about four minutes to measure;
+    `report()` asks for the cells a dozen times, and without this the file
+    becomes unrunnable rather than merely slow.
+    """
     A = all_indexes()
     ns = list(A) if names is None else list(names)
-    return {n: mi.cell(A[n]) for n in ns}
+    for n in ns:
+        if n not in _CELL_CACHE:
+            _CELL_CACHE[n] = mi.cell(A[n])
+    return {n: _CELL_CACHE[n] for n in ns}
 
 
 def figure(names=None):

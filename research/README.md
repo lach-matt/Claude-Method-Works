@@ -12077,3 +12077,93 @@ no principle that picks one.
   new first-order indexes registered; `OUT_OF_SCOPE_IS_A_RULING` left standing and marked contested,
   because flipping a ruling is not an instrument's job. `DOCKET.md` — **DOCKET 11 pinned, DOCKET 12 and
   DOCKET 13 opened**.
+
+---
+
+## Three rulings, and the guard found six more replacements than the one it was built for
+
+M, on the three dockets: **12 — yes.** **13 — *"I don't understand your question. We are trying to
+identify first-order indexes. Every time we think we have identified all of them, more show up. The
+complete characterization index is not settled until all first-order indexes are identified and
+built."*** **14 — *"of course. The preservation of superseded material is vital to verification and
+restore needs."***
+
+### DOCKET 12, ruled yes — and the objection dissolves on measurement
+
+DOCKET 12 asked whether a satisfiable demanded cell gets seated, and raised its own objection: `(2,5,4)`
+is reached **nine** ways, so there is no principle picking a witness and the vertex would be arbitrary.
+
+**A vertex IS a cell, and all nine witnesses give the same cell.** `filled.py` checks every one. The
+figure does not depend on which is named; what is arbitrary is only the label, and
+`CANON_IS_ARBITRARY = True` says so in the source. The effect is measured rather than quoted from L2:
+
+    eleven vertices, E from 10 to 9, and the other nine demanded cells exactly as they were.
+
+### DOCKET 13 — the question was the wrong shape, and it is withdrawn
+
+Asking whether to lift `OUT_OF_SCOPE_IS_A_RULING` treated "which sources are in scope" as the open
+question. It is not: **identifying every first-order index IS the task**, and the characterization is
+not settled until they are all built. `store.py` builds the six that were named:
+
+| index | members | cells | height | width |
+|---|---|---|---|---|
+| drive manifest | 820 mirrored files | 661 | 210 | 16 |
+| build series | 149 BUILD files | 131 | 88 | 8 |
+| register gaps | 132 numbered holes | 132 | 68 | 9 |
+| recovered ledger | 259 conversations | 259 | 52 | 22 |
+| coverage census | 1,005 artefact names | 23 | 16 | 5 |
+| dockets | 14 | 14 | — | — |
+
+**One design decision runs through all six: no category is ever ranked.** A mime type, a gap class, a
+docket state — none of them has an order, and inventing one puts a `RECONSTRUCTED` status into every
+figure downstream, which is what `axes.py` and `obstruction.py` both have to carry. Instead a category
+contributes **how many rows carry it**, which is a measurement of the table and is ordered because
+integers are. It costs collisions between equal-sized categories, and `collisions()` reports them
+rather than leaving them to be found.
+
+**And `UNNAMED_SOURCES_MAY_EXIST = True` stands in the file**, because six is what was *named*, not what
+exists — which is M's point exactly.
+
+### DOCKET 14 — the guard is built, and it cannot classify
+
+`preserve.py` flags a **replacement** where a commit both (a) deletes more than it adds, or at least
+half the file, and (b) changes the file's own `name.py -- ...` self-identification line. It found
+**seven**: one clobber, one restore, five re-derivations.
+
+**The obvious automatic discriminator was measured and it fails.** How much of a file's public API
+survives ought to separate a revision from a replacement. Jaccard over top-level `def` names:
+
+| | | |
+|---|---|---|
+| `spectra.py` | **the clobber** | **0.06** |
+| `currency.py` | a re-derivation | 0.08 |
+| `transit.py` | a re-derivation | 0.08 |
+| `stationkeep.py` | a re-derivation | 0.23 |
+| `questions.py` | a re-derivation | 0.30 |
+| `hexad.py` | a re-derivation | 0.55 |
+
+**A re-derivation under a new scope rewrites its API as completely as a clobber does** — `currency.py`
+is *more* API-disjoint than the clobber. Any threshold admitting one admits the other, so none is used
+and none should be quoted from that table.
+
+**So the contract is narrower than the docket first asked for.** The guard surfaces every replacement,
+confirms the superseded bytes are recoverable, names who cited the file beforehand, and **requires each
+to be adjudicated** — a row in DOCKET 14 naming the file *and* the commit. It rules on nothing. **A
+guard that ruled automatically would have been wrong six times out of seven**, and that ratio is the
+argument for the contract.
+
+Two further faults, both in the guard itself, both found by its own fixtures:
+
+- **`recorded()` was a grep for the filename.** `hexad.py` and `questions.py` counted as adjudicated
+  for being mentioned elsewhere in `DOCKET.md`. A row must now name the commit.
+- **`--check` failed only on *cited* replacements.** An uncited one is still a trap: nothing cites it
+  today, something will tomorrow, and the citation will point at content that no longer answers to its
+  name. It now fails on all of them. `preserve.py --check` currently reports **clean**.
+
+And one conflation of my own: the selftest asserted the *tree* was clean, so a true finding made a
+fixture fail. **A selftest tests the instrument; `--check` reports the tree.** They are separated.
+
+### Seated
+- `filled.py`, `store.py`, `preserve.py` — **new**. `hexad.py` — cell computation memoised by name,
+  because one vertex now costs minutes. `DOCKET.md` — **DOCKET 12 ruled**, **DOCKET 13 withdrawn as
+  mis-posed**, **DOCKET 14 built** with its seven-row adjudication table.
