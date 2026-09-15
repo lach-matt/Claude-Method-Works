@@ -70,7 +70,41 @@ verdict and never as DISTINCT.  Calling two things distinct because you could
 not compare them is the error this file exists to avoid making.
 
 ===============================================================================
-3. WHAT THIS FILE REFUSES
+3. A NEAR-INJECTIVE COORDINATE IS A LABEL, AND IT CORRUPTS DENSITY TOO
+===============================================================================
+
+The same concern from the other side.  A coordinate whose distinct values
+number nearly as many as the members SEPARATES EVERYTHING and therefore groups
+nothing: it is a row identifier wearing a measurement's clothes.
+
+    IT IS NOT MERELY UNINFORMATIVE, IT IS EXPENSIVE, and the two facts have one
+    cause.  Charting cost tracks the BOX -- the product of the coordinate
+    alphabets -- and not the cell count, which was measured directly:
+
+        drive manifest   661 cells   alphabets [12, 640,   2]   box    15,360
+        member index     343 cells   alphabets [ 7, 329, 343]   box   789,929
+
+    HALF THE CELLS AND FIFTY-ONE TIMES THE BOX, because the member index
+    carries TWO near-injective coordinates -- `bytes` at 329 distinct over 343
+    members and `bundle_offset` at 343 over 343 -- whose alphabets multiply.
+    The manifest escapes only because its third coordinate, path depth, has two
+    values.  Charting the manifest took 211 seconds; the member index had not
+    finished after seventy-two minutes of CPU.
+
+    AND IT IS THE SAME DENSITY FAULT M NAMED.  density = |J(F)| / |box|.  A
+    near-injective coordinate inflates the denominator directly, so an index
+    charted on two of them drives the density down while telling the figure
+    almost nothing -- over-representation by resolution rather than by
+    duplication.
+
+`resolution()` measures it: distinct values over members, per coordinate.  Above
+`LABEL` the coordinate is reported as a label rather than a measurement.  THIS
+FILE DOES NOT RE-CHART ANYTHING -- the member index is mine and is badly
+charted, and that is recorded here rather than quietly fixed, because a
+re-chart changes a seated figure and that is a ruling.
+
+===============================================================================
+4. WHAT THIS FILE REFUSES
 ===============================================================================
 
 To drop a source.  It measures and reports; which of an overlapping pair to
@@ -204,6 +238,55 @@ def cell_overlap(A, B):
     return j, v
 
 
+LABEL = 0.9
+
+
+def resolution(X):
+    """[(coordinate, distinct, members, ratio, verdict)] for one index.
+
+    ratio near 1 means the coordinate separates nearly every member, which is
+    a label rather than a measurement: it groups nothing and multiplies the
+    box.  See section 3.
+    """
+    X = sorted(X)
+    n = len(X)
+    out = []
+    for i in range(len(X[0]) if X else 0):
+        d = len({c[i] for c in X})
+        r = d / n if n else 0.0
+        out.append((i, d, n, round(r, 4),
+                    "LABEL" if r >= LABEL else "measurement"))
+    return out
+
+
+def box_of(X):
+    """The product of the coordinate alphabets -- what charting cost tracks."""
+    if not X:
+        return 0
+    b = 1
+    for i in range(len(next(iter(X)))):
+        b *= len({c[i] for c in X})
+    return b
+
+
+def labelled():
+    """[(name, cells, box, [label coordinates])] over every registered index.
+
+    An index with TWO label coordinates is the expensive-and-uninformative
+    case, and it is named rather than silently tolerated.
+    """
+    import registry
+    out = []
+    for nm, _mo, _a, _m, _w in registry.rows():
+        try:
+            X = registry.index_of(nm)
+        except Exception:                          # pragma: no cover
+            continue
+        labs = [i for i, _d, _n, _r, v in resolution(X) if v == "LABEL"]
+        out.append((nm, len(X), box_of(X), labs))
+    return sorted(out, key=lambda t: -t[2])
+
+
 def seated_cells():
     """{name: cell set} over every registered index, cheaply."""
     import registry
@@ -274,7 +357,19 @@ def report():
     print("   not mistaken for the strong one: two charts of the same rows on")
     print("   disjoint cells score ZERO here and look maximally distinct.")
     print()
-    print("3. REFUSED: to drop a source -- which of an overlapping pair to")
+    print("3. RESOLUTION -- a coordinate that separates everything is a label.")
+    print("   Charting cost tracks the BOX, not the cell count. The ten")
+    print("   largest boxes among the seated indexes:")
+    print("   %-24s %-7s %-12s %s" % ("index", "cells", "box", "label coords"))
+    for nm, n, b, labs in labelled()[:10]:
+        print("   %-24s %-7d %-12d %s"
+              % (nm[:24], n, b, labs if labs else ""))
+    print("   TWO label coordinates is the expensive-and-uninformative case:")
+    print("   the alphabets multiply into the box, and density = |J(F)|/|box|")
+    print("   falls for no informational reason. Recorded, not re-charted -- a")
+    print("   re-chart moves a seated figure and that is a ruling.")
+    print()
+    print("4. REFUSED: to drop a source -- which of an overlapping pair to")
     print("   seat is a ruling. To treat overlap as proof: two independent")
     print("   measurements of the same 88 elements SHOULD share rows, and")
     print("   laws.py depends on exactly that. To compare what it cannot key:")
@@ -348,6 +443,29 @@ def selftest():
     chk("and the reason names the overlap", "identical" in why, True)
     rec2, why2 = admit(sp, [], limit=2000)
     chk("against nothing admitted, a source is admitted", rec2, True)
+
+    # RESOLUTION, on cases computable by hand
+    inj = frozenset({(0, i, 0) for i in range(10)})
+    res = resolution(inj)
+    chk("an injective coordinate is a LABEL", res[1][4], "LABEL")
+    chk("and its ratio is 1", res[1][3], 1.0)
+    chk("a constant coordinate is a measurement", res[0][4], "measurement")
+    chk("and its ratio is 1/n", res[0][3], 0.1)
+    chk("the box of that toy is 1 x 10 x 1", box_of(inj), 10)
+    chk("box is the product of the alphabets",
+        box_of(frozenset({(0, 0, 0), (1, 1, 1), (2, 2, 2)})), 27)
+    chk("an empty index has box 0", box_of(frozenset()), 0)
+    # the measured case that prompted this section
+    import store
+    mi_x = store.INDEXES["member index"]()
+    dm_x = store.INDEXES["drive manifest"]()
+    chk("the member index has FEWER cells than the manifest",
+        len(mi_x) < len(dm_x), True)
+    chk("but a much larger box", box_of(mi_x) > box_of(dm_x) * 20, True)
+    chk("because two of its coordinates are labels",
+        len([1 for _i, _d, _n, _r, v in resolution(mi_x) if v == "LABEL"]), 2)
+    chk("where the manifest has one",
+        len([1 for _i, _d, _n, _r, v in resolution(dm_x) if v == "LABEL"]), 1)
 
     C = seated_cells()
     chk("every registered index yielded cells", len(C) > 25, True)
