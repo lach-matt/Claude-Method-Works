@@ -121,7 +121,7 @@ def report():
     print()
     print("4. REFUSED: to report a growth narrative -- the old one was an")
     print("   artefact of the order a contaminated set was seated in, and no")
-    print("   clean trajectory exists yet. To name a shape: seven vertices is")
+    print("   clean trajectory exists yet. To name a shape: eight vertices is")
     print("   what there are today, not a finding.")
     return 0
 
@@ -138,8 +138,8 @@ def selftest():
 
     chk("the criterion holds on every vertex", registry.enforce(), [])
     C = cells()
-    chk("seven vertices", len(C), 7)
-    chk("and seven distinct cells", len(figure()), 7)
+    chk("eight vertices", len(C), 8)
+    chk("and eight distinct cells", len(figure()), 8)
     chk("every vertex is a registered element index",
         sorted(C) == sorted(n.split(".")[0] for n, *_r in registry.rows()), True)
     chk("no filing-system index is present",

@@ -43,6 +43,9 @@ quantum numbers.
     laws          584 series             n range, l, quantum defect
     probability   25 subshells           n, l
     inversion     20 inversions          pairs of (n, l)
+    gravity       2,696 nuclide-charge   Z, N, A, q, Ne, 2J
+                  states, read in 8
+                  spacetime dimensions
 
 REMOVED, files deleted, all created in the session that made the mess:
 `store.py` and its thirteen filing-system indexes; `obstruction.py` with its
@@ -92,6 +95,9 @@ REGISTERED = (
     ("probability", "index", "TABLE", "25 subshells", "n, l"),
     ("inversion", "index", "TABLE", "20 fill-order/shell-order inversions",
      "pairs of (n, l)"),
+    ("gravity", "index", "TABLE",
+     "2,696 nuclide-charge states x 8 dimensions",
+     "Z, N, A, q, Ne, 2J"),
 )
 
 NOT_AN_INDEX = {
@@ -238,7 +244,7 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
-    chk("seven indexes registered", len(REGISTERED), 7)
+    chk("eight indexes registered", len(REGISTERED), 8)
     chk("every one names its quantum numbers",
         [n for n, *_r in rows() if not _r[4].strip()], [])
     chk("every method is known",
@@ -265,6 +271,7 @@ def selftest():
     chk("channels seats 209 shapes", sz["channels.index"], 209)
     chk("probability seats 25 subshells", sz["probability.index"], 25)
     chk("inversion seats 17 distinct cells", sz["inversion.index"], 17)
+    chk("gravity seats 524 distinct cells", sz["gravity.index"], 524)
     chk("completeness is not claimed", COMPLETE, False)
     print("registry selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

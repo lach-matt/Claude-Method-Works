@@ -385,7 +385,13 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     F = _fig.figure()
-    chk("the figure is the element figure", len(F), 7)
+    # A PROPERTY, NOT A PINNED COUNT.  Pinning the number here fires the
+    # fixture every time an index is correctly seated, which has now happened
+    # three times in this tree.  What must hold is that the figure IS the
+    # registry -- one vertex per registered element index, no more and no less.
+    chk("the figure is exactly the registered element indexes",
+        (len(F), len(_fig.cells())),
+        (len(__import__("registry").REGISTERED),) * 2)
     chk("E equals the demand it names", E(F), len(demand(F)))
     chk("the demand is inside the closure",
         set(demand(F)) <= set(closure(F)[0]), True)

@@ -11845,6 +11845,79 @@ on the contaminated set, and a measurement on the wrong member set is not a meas
 one with an error bar.
 
 What stands is in `research/warp-drive/registry.py`, which now **enforces** the criterion instead of
-describing it: seven indexes, each naming the quantum numbers its members carry, and a selftest that
+describing it: every registered index names the quantum numbers its members carry, and a selftest
 fails if any module in the tree exposes an index that is neither registered nor explicitly excused.
-See DOCKET 16.
+Seven stood at the cleanup; the eighth is below. See DOCKET 16.
+
+
+---
+
+## The gravity index, derived from the elements — `gravity.py`
+
+**M ruled it in, and named the reason:** *"The gravity index does belong because it is derived from
+the elements themselves. I am aware the Petrov is spacetime, but specifically gravity is a force that
+cannot exist outside spacetime, otherwise it would no longer be relative."*
+
+**`petrov.py` is not withdrawn and is not this.** Three facts about that file, not opinions about it:
+its members are spacetimes and none carries a quantum number; **it is a D = 4 theorem and its own
+first line says so** — "a Weyl tensor has four principal null directions counted with multiplicity" is
+the factorisation of the Weyl *spinor*, available in four dimensions and nowhere else, while above
+four the classification is the CMPP alignment type and a *generic* Weyl tensor has no aligned null
+direction at all (type G, no 4D analogue), so a generic higher-dimensional vacuum read through
+`petrov.py`'s (P, X) = (0, 0) prints as **flat**; and read against elements it is maximally degenerate,
+since Schwarzschild, Kerr and Reissner–Nordström are the only three rows an atom could occupy and it
+puts all three at (2, 2). That is the "particular reason" M asked about. `gravity.py` is the index
+those three facts ask for.
+
+- **`gravity.py`** — **the gravity index.** A member is `(Z, N, A, q, Ne, 2Je, D)`: a nuclide in a
+  charge state, read in a spacetime dimension. **2,696 members over 8 dimensions — 21,568 rows, 524
+  cells, box 1,920, cell `(0, 18, 65)`, K0.** M from AME2020 Table I (3,558 nuclides; the mass path is
+  checked against the scale's own zero — carbon 12 banks mass excess 0.0 keV and the expression
+  returns exactly 12 u, as a fixture); q from the capture's spectroscopic numeral; 2Je from the NIST
+  ASD ground levels in `recovered/` — 149 captures, 118 species, **87 banking a true ground and 31
+  excluded** for banking only an excited one, each named with the level that disqualified it.
+  Electron binding is neglected and the neglect is *bounded*: worst 5.1e-5 of Mc² at Z = 90, A = 208,
+  three orders below the decade resolution of the chart.
+
+  **Two angular-momentum facts, and neither needs a nuclear datum.** AME2020 banks no nuclear spin.
+  *Forced*: Je is half-odd-integer iff Ne is odd and I is half-odd-integer iff A is odd, so F is
+  half-odd-integer iff **A + Ne is odd** — and a half-odd-integer angular momentum is never zero.
+  **1,347 of 2,696 members, with no knowledge of I whatever.** *Vanishing*: even-Z even-N nuclei have
+  ground-state spin zero — the pairing rule, carried as `PAIRING_RULE_STATUS = "EMPIRICAL-RULE"` and
+  never flattened — which with 2Je = 0 gives F = 0 exactly: 308 members, **228 distinct nuclides whose
+  exterior field is exactly Schwarzschild.**
+
+  **The dimension changes the answer, not the arithmetic.** Singly-rotating Myers–Perry has a horizon
+  where `f(r) = r^(D-3) + a² r^(D-5) = μ`. At D = 4 that needs μ ≥ 2a (the Kerr bound); at D = 5,
+  μ ≥ a²; at **D ≥ 6, D−5 ≥ 1 so f(0) = 0 and f rises without limit — a root for every μ > 0 and every
+  a, no bound at all.** The ultraspinning regime, and it never uses the value of G_D, which nothing
+  here measures: it says a root *exists*, not where. **536 members are bound at D ≤ 5 and unbound at
+  D ≥ 6.** Charge is not relieved the same way — static charged Tangherlini's roots exist iff
+  μ² ≥ 4Q², a bound in every dimension, carried by 80 members at every D.
+
+  **`B` is a table of exact solutions, not a judgement.** Each branch names the metric it rests on, and
+  where none is known the value is *undetermined* and stays undetermined: the general charged
+  **rotating** Einstein–Maxwell solution is not known in closed form for D ≥ 5.
+
+  **Two findings, recorded and not repaired.** *(A)* Fix D and chart the other five slots: **62 cells
+  at D = 4, 66 at every D ≥ 5, and the cell is `(0, 10, 12)` at all eight.** The four extra are exactly
+  the undetermined rows — **so what the dimension adds to this index is an ignorance class, not a
+  geometry class**, and the admissible chart cannot see it. *(B)* 536 members lose their bound at
+  D = 6 and the cell does not move: a chart reporting (K, height, width) would report the ultraspinning
+  transition as nothing at all. A limit of the chart, stated so nobody reads the invariance as a
+  finding about gravity.
+
+  **What it costs the figure, reported and not softened:** vertices 7 → **8**, E 14 → **19**. Gravity
+  is *disruptive* — it raises the demand rather than filling it. M: *"I don't care about closure. I
+  only care that we identify every possible first-order index."*
+
+  **Refused:** to call 2Je the member's spin (it is the electronic part; the nuclear part is not
+  banked); to put a number on a horizon above D = 4 (G_D is fixed by nothing measured here); to read
+  the pairing rule as a theorem; to extend the 87 species by Hund's rules (a computation, not a
+  capture); to assign the warp metrics anything; to claim completeness — `registry.COMPLETE` stays
+  False.
+
+  **Rendering:** `research/warp-drive/render/gravity-plate.html`, regenerated by
+  `render/build_gravity_plate.py` — every figure on the plate is read from the instrument at build
+  time, never retyped. **Standing note, not acted on:** M — *"gravity may be a potential solution for
+  warp transition theory"* — recorded for when the warp work resumes. See DOCKET 17.

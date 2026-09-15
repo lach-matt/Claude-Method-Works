@@ -1502,3 +1502,123 @@ in a docstring is what let the filing cabinet in.
 Seven indexes stand: `fibred` (n, l, k), `madelung` (n+l, l, k), `ions` (charge,
 electron count), `channels` (l, Pauli bound, multiplicity), `laws` (n range, l,
 quantum defect), `probability` (n, l), `inversion` (pairs of (n, l)).
+
+---
+
+## DOCKET 17 — the gravity index: element-derived, and read across dimensions
+
+**RULED BY M, and the ruling is the reason the index exists.**
+
+> "The gravity index does belong because it is derived from the elements
+> themselves. I am aware the Petrov is spacetime, but specifically gravity is a
+> force that cannot exist outside spacetime, otherwise it would no longer be
+> relative."
+
+and, before that, the question that opened it:
+
+> "we need to look at the gravity index again because it might be incomplete for
+> a very particular reason, it is relative and measurable across dimensions"
+
+### The diagnosis, which came first
+
+`petrov.py` charts nine spacetimes by Petrov type. Three facts about the file:
+
+1. **Its members are spacetimes, not elements.** None carries a quantum number,
+   so `registry.enforce()` refuses it and registry does not seat it.
+2. **It is a D = 4 theorem and says so in its own first line.** "A Weyl tensor
+   has four principal null directions counted with multiplicity" is the
+   factorisation of the Weyl *spinor* into four principal spinors, available in
+   four dimensions and nowhere else. Above four, the classification is the CMPP
+   alignment type, and a *generic* Weyl tensor there has no aligned null
+   direction at all — type G, with no four-dimensional analogue. `petrov.py`
+   codes (P, X) = (0, 0) as type O, conformally flat, so a generic
+   higher-dimensional vacuum read through that chart prints as **flat**. That is
+   M's "particular reason", and it is a category error rather than a missing row.
+3. **Read against elements it is maximally degenerate.** Schwarzschild, Kerr and
+   Reissner–Nordström are the only three rows an atom could occupy, and
+   `petrov.py` puts all three in type D at (2, 2).
+
+**`petrov.py` IS NOT WITHDRAWN.** It is a correct index of what it indexes.
+`gravity.py` is the index those three facts ask for, and the two coexist.
+
+### What was built
+
+`gravity.py`. A member is `(Z, N, A, q, Ne, 2Je, D)` — a nuclide in a charge
+state, read in a spacetime dimension. **2,696 members over 8 dimensions: 21,568
+charted rows, 524 distinct cells, box 1,920, cell (0, 18, 65), K0.**
+
+M from AME2020 Table I (3,558 nuclides), q from the capture's spectroscopic
+numeral, 2Je from the NIST ASD ground levels in `recovered/` — 149 captures,
+118 species, **87 banking a true ground and 31 excluded** for banking only an
+excited one.
+
+### The two angular-momentum facts, and neither needs a nuclear datum
+
+AME2020 Table I banks no nuclear spin, so the total F is banked for no member.
+
+- **FORCED.** Je is half-odd-integer iff Ne is odd; I is half-odd-integer iff A
+  is odd; so F is half-odd-integer iff A + Ne is odd — and a half-odd-integer
+  angular momentum is never zero. **1,347 of 2,696 members, with no knowledge of
+  I whatever.**
+- **VANISHING.** Even-Z even-N nuclei have ground-state spin zero. That is the
+  pairing rule: **`PAIRING_RULE_STATUS = "EMPIRICAL-RULE"`, never flattened.**
+  With 2Je = 0 as well it gives F = 0 exactly — **308 members, 228 distinct
+  nuclides whose exterior field is exactly Schwarzschild.**
+
+### The dimension, which is the whole point
+
+Singly-rotating Myers–Perry: `f(r) = r^(D-3) + a² r^(D-5) = μ`.
+
+| D | f(r) | a root needs |
+|---|---|---|
+| 4 | r + a²/r | μ ≥ 2a — the Kerr bound |
+| 5 | r² + a² | μ ≥ a² — a bound, and a different one |
+| ≥ 6 | D−5 ≥ 1, so f(0) = 0 and f rises without limit | **nothing. A root for every μ > 0 and every a** |
+
+**536 of the 2,696 members are bound at D ≤ 5 and unbound at D ≥ 6**, and every
+one is neutral with a forced angular momentum. The statement never uses the
+value of G_D, which nothing here measures: it says a root *exists*, not where.
+
+**Charge is not relieved the same way.** Static charged Tangherlini has roots of
+x² − μx + Q² with x = r^(D−3), existing iff μ² ≥ 4Q² — a bound in every
+dimension. 80 members carry it at every D.
+
+### Two findings, recorded and not repaired
+
+**A. The dimension is invisible to the admissible chart and visible in the cell
+count.** Fix D and chart the other five: **62 cells at D = 4, 66 at every
+D ≥ 5, and the cell is (0, 10, 12) at all eight.** The four extra are the B = 2
+rows — above four dimensions the general charged *rotating* Einstein–Maxwell
+solution is unknown in closed form, so some members have no exact metric. **What
+the dimension adds to this index is an ignorance class, not a geometry class.**
+
+**B. The relief at six is in the members and not in the cell.** 536 members lose
+their bound at D = 6 and (K, height, width) does not move. A chart reporting it
+would report the ultraspinning transition as nothing at all. That is a limit of
+the chart, stated so nobody reads the invariance as a finding about gravity.
+
+### What it cost the figure, reported and not softened
+
+| | |
+|---|---|
+| vertices | 7 → **8** |
+| E | 14 → **19** |
+| so gravity is | **disruptive** — it raises the demand rather than filling it |
+
+Its width of 65 sits far outside the other seven, and the join of it with
+anything above it lands outside the figure. **Whether the figure closes is not
+the criterion** — M: *"I don't care about closure. I only care that we identify
+every possible first-order index."*
+
+### Two fixtures were converted from pinned counts to properties
+
+`demand.py` and `overlap.py` each pinned the figure at seven vertices, so
+correctly seating an eighth fired the fixture. Both now assert the figure *is*
+the registry rather than that it has a particular size. **Same error as the
+three before it: pinning a number that correct behaviour changes.**
+
+### Standing note, not acted on
+
+M: *"gravity may be a potential solution for warp transition theory."* Recorded
+for when the warp work resumes. Nothing here pursues it, and nothing here
+assigns a Petrov type or a horizon structure to any warp metric.

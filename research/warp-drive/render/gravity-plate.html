@@ -1,0 +1,578 @@
+<title>The Gravity Index</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --bound:#B86A12; --free:#137A69; --undet:#7C8796;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.06rem;font-weight:600;margin:34px 0 12px;letter-spacing:-.006em}
+p{margin:0 0 1.05em}
+p.after{margin-top:18px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sm{font-size:.82em}
+.eqn{font-size:1.16rem;color:var(--ink);background:var(--sunk);border:1px solid var(--rule);
+  border-radius:3px;padding:15px 18px;letter-spacing:.02em;margin:0 0 22px;overflow-x:auto}
+.hot{color:var(--algebra)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+.tablewrap.tall{max-height:560px;overflow-y:auto}
+.tablewrap.tall thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+th.num{text-align:right}
+td.cell{color:var(--ink)}
+td.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.chip.b0{color:var(--free)} .chip.b1{color:var(--bound)} .chip.b2{color:var(--undet)}
+.yes{color:var(--geometry);font-weight:600} .no{color:var(--muted);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+rect.b0{fill:var(--free)} rect.b1{fill:var(--bound)} rect.b2{fill:var(--undet)}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.key span{display:flex;align-items:center;gap:7px}
+.key i.k{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+.key i.b0{background:var(--free)} .key i.b1{background:var(--bound)} .key i.b2{background:var(--undet)}
+svg text.tb0{fill:var(--free)} svg text.tb1{fill:var(--bound)} svg text.tb2{fill:var(--undet)}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd.hot{color:var(--algebra)}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.7em}
+ul.refuse li b{color:var(--ink)}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.trio,.duo{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+</style>
+<div class="wrap">
+<header class="mast">
+  <p class="eyebrow">Research plate · master index eight</p>
+  <h1>The Gravity&nbsp;Index</h1>
+  <p class="dek">The gravitational field of the elements themselves — a nuclide
+  in a charge state, read in eight spacetime dimensions — and the one place
+  where the dimension changes the answer rather than the arithmetic.</p>
+  <div class="stamp">
+    <span>instrument <b>gravity.py</b></span>
+    <span>members <b>2,696</b></span>
+    <span>rows <b>21,568</b></span>
+    <span>arity <b>6</b></span>
+    <span>cells <b>524</b></span>
+    <span>channel <b>K0</b></span>
+    <span>cell <b>(0,&nbsp;18,&nbsp;65)</b></span>
+  </div>
+</header>
+<div class="note warn" style="margin-top:26px">
+  <span class="lab">Why petrov.py is not this, and is not withdrawn either</span>
+  <p><strong>Petrov is a four-dimensional theorem and its own first line says
+  so.</strong> “A Weyl tensor has four principal null directions counted with
+  multiplicity” is the factorisation of the Weyl <em>spinor</em> into four
+  principal spinors, which is available in four dimensions and nowhere else.
+  Above four the classification is the CMPP alignment type, and a
+  <em>generic</em> Weyl tensor there has no aligned null direction at all —
+  type&nbsp;G, with no four-dimensional analogue. <span class="mono">petrov.py</span>
+  codes (P,&nbsp;X)&nbsp;=&nbsp;(0,&nbsp;0) as type&nbsp;O, conformally flat, so
+  a generic higher-dimensional vacuum read through that chart would print as
+  <em>flat</em>.</p>
+  <p>Two further facts, about the file rather than about gravity: its members
+  are spacetimes, none of which carries a quantum number; and read against
+  elements it is maximally degenerate — Schwarzschild, Kerr and
+  Reissner–Nordström are the only three rows an atom could occupy and it puts
+  all three in type&nbsp;D at (2,&nbsp;2), so every element, every ionisation
+  stage and every level would land in one cell.</p>
+  <p style="margin-bottom:0"><span class="mono">petrov.py</span> is a correct
+  index of what it indexes and it stays where it is. This is the index those
+  three facts ask for.</p>
+</div>
+<section>
+  <div class="shead"><span class="snum">01</span><h2>What a member is</h2></div>
+  <p class="sub">A nuclide in a charge state, read in a spacetime dimension.
+  Every slot is a quantum number or a count of them, so the criterion
+  <span class="mono">registry.enforce()</span> applies is met by construction
+  rather than by exemption.</p>
+  <p class="eqn mono">(Z, N, A, q, N<sub>e</sub>, 2J<sub>e</sub>, D)</p>
+  <div class="kv">
+    <div><dt>Z, N, A</dt><dd>3,558<small>nuclides in AME2020 Table&nbsp;I;
+      A recomputed as Z+N, never read</small></dd></div>
+    <div><dt>q, N<sub>e</sub></dt><dd>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15<small>charge states, from the
+      spectroscopic numeral: Al&nbsp;III is q&nbsp;=&nbsp;2</small></dd></div>
+    <div><dt>2J<sub>e</sub></dt><dd>87<small>species banking a true ground
+      level, of 118 that parse</small></dd></div>
+    <div><dt>D</dt><dd>4 – 11<small>not measured: the independent variable.
+      Nahm's ceiling on supergravity at the top</small></dd></div>
+  </div>
+  <h3>Where every number comes from</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>quantity</th><th>source</th><th>what is done to it</th></tr></thead>
+    <tbody>
+    <tr><td class="name">M</td>
+        <td class="mono sm">extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv</td>
+        <td>M = A·u + Δ/c² − q·m<sub>e</sub>, from the mass excess in keV</td></tr>
+    <tr><td class="name">q</td><td class="mono sm">the capture's spectroscopic numeral</td>
+        <td>exact by the definition of the numeral</td></tr>
+    <tr><td class="name">2J<sub>e</sub></td>
+        <td class="mono sm">recovered/*.tsv — NIST ASD level tables</td>
+        <td>the row at level_cm1 = 0.00 exactly, the table's own ground</td></tr>
+    <tr><td class="name">χ</td><td class="mono sm">derived</td>
+        <td>J<sub>e</sub>ħc ⁄ (GM²) — the dimensionless Kerr spin</td></tr>
+    <tr><td class="name">Q̃</td><td class="mono sm">derived</td>
+        <td>qe ⁄ (M√(4πε₀G)) — the dimensionless Reissner–Nordström charge</td></tr>
+    </tbody></table>
+    <caption>CODATA 2018 throughout, the values this tree already uses.</caption>
+  </div>
+  <div class="note good">
+    <span class="lab">The mass path is checked against the scale's own zero</span>
+    <p style="margin-bottom:0">Carbon&nbsp;12 has mass excess <span class="mono">0.0 keV</span>
+    in the table <em>by the definition</em> of the atomic mass unit, so the
+    expression above must return exactly 12&nbsp;u for it. It returns
+    <span class="mono">12.0 u</span>. That is a fixture in
+    <span class="mono">--selftest</span>, not a remark — an independent check on
+    the whole path from the table to M.</p>
+  </div>
+  <div class="note">
+    <span class="lab">Electron binding is neglected, and the neglect is bounded</span>
+    <p style="margin-bottom:0">Z³·13.6&nbsp;eV is a crude ceiling on an atom's
+    total electronic binding — every electron bound no more tightly than the
+    innermost one, counted Z times. Against Mc² the worst case over all 2,696
+    members is <span class="mono">5.12e-05</span>, at Z&nbsp;=&nbsp;90,
+    A&nbsp;=&nbsp;208. The coordinates are decade-resolution, so the neglect sits
+    <strong>3 orders below the resolution</strong> and cannot move a cell.</p>
+  </div>
+  <div class="note warn">
+    <span class="lab">And 31 species are excluded rather than approximated</span>
+    <p style="margin-bottom:0">149 captures name a species and carry a level
+    table, giving 118 distinct species. <strong>87 bank a true ground.</strong>
+    The other 31 are series or high-ℓ captures whose lowest banked level is an
+    <em>excited</em> one, and reading its J as a ground J is exactly the error
+    this refuses. Section&nbsp;07 names all 31 with the level that disqualified
+    each.</p>
+  </div>
+</section>
+<section>
+  <div class="shead"><span class="snum">02</span><h2>Two angular-momentum facts,
+  and neither needs a nuclear datum</h2></div>
+  <p class="sub">The Kerr parameter is built from the body's <em>total</em>
+  angular momentum, which for a free atom is F, not J<sub>e</sub>. AME2020
+  Table&nbsp;I banks no nuclear spin, so F is banked for no member here. Two
+  exact statements survive that anyway, and the index rests on them rather than
+  on a guess at I.</p>
+
+  <div class="duo">
+    <div class="per">
+      <div class="who">Forced — exact arithmetic</div>
+      <div class="what">(A + N<sub>e</sub>) odd ⟹ F ≥ ½ &gt; 0</div>
+      <div class="co">1,347 of 2,696 members</div>
+      <div class="obj">J<sub>e</sub> is half-odd-integer exactly when
+      N<sub>e</sub> is odd; I is half-odd-integer exactly when A is odd;
+      F&nbsp;=&nbsp;J<sub>e</sub>&nbsp;+&nbsp;I is half-odd-integer exactly when
+      one holds and not the other. A half-odd-integer angular momentum cannot be
+      zero. <strong>No knowledge of I whatever.</strong></div>
+    </div>
+    <div class="per">
+      <div class="who">Vanishing — one empirical input</div>
+      <div class="what">even-Z, even-N, 2J<sub>e</sub> = 0 ⟹ F = 0</div>
+      <div class="co">308 members · status EMPIRICAL-RULE</div>
+      <div class="obj">Every even-Z, even-N nucleus has ground-state spin zero.
+      That is the pairing rule: exceptionless over measured ground states, and
+      an <strong>empirical rule, not a theorem</strong>. It is carried as
+      <span class="mono">PAIRING_RULE_STATUS</span> and never flattened. Where it
+      applies, the exterior field has no rotation at all.</div>
+    </div>
+  </div>
+
+  <div class="kv" style="margin-top:22px">
+    <div><dt>F forced nonzero</dt><dd>1,347<small>50% of members</small></dd></div>
+    <div><dt>F established zero</dt><dd>308<small>11%</small></dd></div>
+    <div><dt>neither</dt><dd>1,041<small>the undetermined class above D = 4</small></dd></div>
+    <div><dt>exactly Schwarzschild</dt><dd>228<small>distinct nuclides, neutral
+      with F = 0</small></dd></div>
+  </div>
+  <p class="after">The two are mutually exclusive, and the selftest checks that
+  rather than assuming it: F&nbsp;=&nbsp;0 established needs N<sub>e</sub> even,
+  while A&nbsp;+&nbsp;N<sub>e</sub> odd with A even needs N<sub>e</sub> odd.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">03</span><h2>The dimension changes the
+  answer, not the arithmetic</h2></div>
+  <p class="sub">A singly-rotating Myers–Perry black hole in D dimensions has a
+  horizon where f(r) = r<sup>D−3</sup> + a²r<sup>D−5</sup> = μ.</p>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>D</th><th>f(r)</th><th>behaviour</th><th>verdict</th></tr></thead>
+    <tbody>
+      <tr><td class="name">4</td><td class="mono">r + a²/r</td>
+        <td>falls to a minimum 2a, then rises</td>
+        <td>a root needs μ ≥ 2a — <b>the Kerr bound</b></td></tr>
+      <tr><td class="name">5</td><td class="mono">r² + a²</td>
+        <td>f(0) = a² &gt; 0 and increases</td>
+        <td>a root needs μ ≥ a² — <b>a bound, and a different one</b></td></tr>
+      <tr><td class="name">≥ 6</td><td class="mono">r<sup>D−3</sup> + a²r<sup>D−5</sup></td>
+        <td>D−5 ≥ 1, so f(0) = 0 and f rises without limit</td>
+        <td><b class="hot">a root for every μ &gt; 0 and every a — no bound</b></td></tr>
+    </tbody></table>
+    <caption>The ultraspinning regime. It never uses the value of G<sub>D</sub>,
+    which nothing here measures: it says a root <em>exists</em>, not where.</caption>
+  </div>
+
+  <figure class="plate" style="margin-top:26px">
+    <svg viewBox="0 0 880 330" role="img" aria-label="members by horizon-bound class in each spacetime dimension">
+<line x1="66" y1="256.0" x2="854" y2="256.0" stroke="var(--rule)" stroke-width="1"/>
+<text x="57" y="259.4" text-anchor="end" font-size="10" fill="var(--faint)">0</text>
+<line x1="66" y1="147.0" x2="854" y2="147.0" stroke="var(--rule)" stroke-width="1"/>
+<text x="57" y="150.4" text-anchor="end" font-size="10" fill="var(--faint)">1348</text>
+<line x1="66" y1="38.0" x2="854" y2="38.0" stroke="var(--rule)" stroke-width="1"/>
+<text x="57" y="41.4" text-anchor="end" font-size="10" fill="var(--faint)">2696</text>
+<rect x="87.7" y="56.4" width="55.2" height="199.6" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="115.2" y="159.8" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">2468</text>
+<rect x="87.7" y="38.0" width="55.2" height="18.4" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="115.2" y="50.8" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">228</text>
+<text x="115.2" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 4</text>
+<text x="115.2" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">62 cells</text>
+<text x="115.2" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="186.2" y="206.2" width="55.2" height="49.8" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="213.8" y="234.7" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">616</text>
+<rect x="186.2" y="56.4" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="213.8" y="134.9" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="186.2" y="38.0" width="55.2" height="18.4" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="213.8" y="50.8" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">228</text>
+<text x="213.8" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 5</text>
+<text x="213.8" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="213.8" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="284.7" y="249.5" width="55.2" height="6.5" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<rect x="284.7" y="99.8" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="312.2" y="178.3" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="284.7" y="38.0" width="55.2" height="61.8" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="312.2" y="72.5" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">764</text>
+<text x="312.2" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 6</text>
+<text x="312.2" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="312.2" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="383.2" y="249.5" width="55.2" height="6.5" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<rect x="383.2" y="99.8" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="410.8" y="178.3" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="383.2" y="38.0" width="55.2" height="61.8" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="410.8" y="72.5" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">764</text>
+<text x="410.8" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 7</text>
+<text x="410.8" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="410.8" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="481.7" y="249.5" width="55.2" height="6.5" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<rect x="481.7" y="99.8" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="509.2" y="178.3" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="481.7" y="38.0" width="55.2" height="61.8" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="509.2" y="72.5" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">764</text>
+<text x="509.2" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 8</text>
+<text x="509.2" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="509.2" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="580.2" y="249.5" width="55.2" height="6.5" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<rect x="580.2" y="99.8" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="607.8" y="178.3" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="580.2" y="38.0" width="55.2" height="61.8" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="607.8" y="72.5" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">764</text>
+<text x="607.8" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 9</text>
+<text x="607.8" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="607.8" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="678.7" y="249.5" width="55.2" height="6.5" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<rect x="678.7" y="99.8" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="706.2" y="178.3" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="678.7" y="38.0" width="55.2" height="61.8" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="706.2" y="72.5" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">764</text>
+<text x="706.2" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 10</text>
+<text x="706.2" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="706.2" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<rect x="777.2" y="249.5" width="55.2" height="6.5" class="b1" stroke="var(--panel)" stroke-width="0.8"/>
+<rect x="777.2" y="99.8" width="55.2" height="149.8" class="b2" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="804.8" y="178.3" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">1852</text>
+<rect x="777.2" y="38.0" width="55.2" height="61.8" class="b0" stroke="var(--panel)" stroke-width="0.8"/>
+<text x="804.8" y="72.5" text-anchor="middle" font-size="10.5" fill="var(--panel)" font-weight="600">764</text>
+<text x="804.8" y="278" text-anchor="middle" font-size="13" font-weight="600" fill="var(--ink)">D = 11</text>
+<text x="804.8" y="294" text-anchor="middle" font-size="10" fill="var(--faint)">66 cells</text>
+<text x="804.8" y="308" text-anchor="middle" font-size="10" fill="var(--faint)">(0, 10, 12)</text>
+<line x1="263.0" y1="24" x2="263.0" y2="260" stroke="var(--algebra)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="391.0" y="18" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--algebra)">ultraspinning from here — 536 members lose their bound</text>
+<text x="312.2" y="245.0" text-anchor="middle" font-size="9.5" font-weight="600" class="tb1">80</text>
+<text x="410.8" y="245.0" text-anchor="middle" font-size="9.5" font-weight="600" class="tb1">80</text>
+<text x="509.2" y="245.0" text-anchor="middle" font-size="9.5" font-weight="600" class="tb1">80</text>
+<text x="607.8" y="245.0" text-anchor="middle" font-size="9.5" font-weight="600" class="tb1">80</text>
+<text x="706.2" y="245.0" text-anchor="middle" font-size="9.5" font-weight="600" class="tb1">80</text>
+<text x="804.8" y="245.0" text-anchor="middle" font-size="9.5" font-weight="600" class="tb1">80</text>
+</svg>
+    <div class="key">
+      <span><i class="k b1"></i> a bound exists</span>
+      <span><i class="k b0"></i> no bound — a horizon for every coupling</span>
+      <span><i class="k b2"></i> undetermined — no exact solution</span>
+    </div>
+    <figcaption><b>Members by horizon-bound class in each dimension.</b> The
+    amber block at D&nbsp;=&nbsp;4 and 5 is the Kerr and Myers–Perry bounds
+    biting; from D&nbsp;=&nbsp;6 <b>536 of the 2,696 members</b> move to
+    <em>no bound</em>, and every one of them is neutral with a forced angular
+    momentum. The grey block appears at D&nbsp;=&nbsp;5 and never leaves: those
+    are charged members whose angular momentum is not established zero, for
+    which <b>no exact charged rotating solution of the Einstein–Maxwell
+    equations is known in closed form</b>. And a thin amber band of <b>80
+    survives at every dimension</b> — charged members whose total angular
+    momentum <em>is</em> established zero, where static
+    Tangherlini–Reissner–Nordström imposes a bound in every D.
+    Charge is never relieved.</figcaption>
+  </figure>
+
+  <div class="note warn">
+    <span class="lab">Charge is not relieved the same way</span>
+    <p style="margin-bottom:0">The static charged Tangherlini function is
+    f(r)&nbsp;=&nbsp;1&nbsp;−&nbsp;μ/x&nbsp;+&nbsp;Q²/x² with
+    x&nbsp;=&nbsp;r<sup>D−3</sup>; its roots are the roots of
+    x²&nbsp;−&nbsp;μx&nbsp;+&nbsp;Q², which exist exactly when μ²&nbsp;≥&nbsp;4Q².
+    <strong>A bound, in every dimension.</strong> The asymmetry is real: rotation
+    is relieved by dimension and charge is not.</p>
+  </div>
+</section>
+<section>
+  <div class="shead"><span class="snum">04</span><h2>B is a table of exact
+  solutions, not a judgement</h2></div>
+  <p class="sub">Each branch names the metric it rests on, and where no exact
+  metric is known the value is <em>undetermined</em> and stays undetermined.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>branch</th><th>B</th></tr></thead>
+    <tbody><tr><td class="mono sm">D=4,</td><td><span class="chip b0">no bound</span></td></tr><tr><td class="mono sm">D=4,</td><td><span class="chip b1">a bound</span></td></tr><tr><td class="mono sm">D&gt;=5, J=0, q=0</td><td><span class="chip b0">no bound</span></td></tr><tr><td class="mono sm">D&gt;=5, J=0, q&gt;0</td><td><span class="chip b1">a bound</span></td></tr><tr><td class="mono sm">D=5,</td><td><span class="chip b1">a bound</span></td></tr><tr><td class="mono sm">D&gt;=6, J!=0, q=0</td><td><span class="chip b0">no bound</span></td></tr><tr><td class="mono sm">D&gt;=5, q&gt;0, J not proved zero</td><td><span class="chip b2">undetermined</span></td></tr><tr><td class="mono sm">D&gt;=5, q=0, J undetermined</td><td><span class="chip b2">undetermined</span></td></tr></tbody></table>
+    <caption>The general charged <em>rotating</em> solution of the
+    Einstein–Maxwell equations is not known in closed form for D ≥ 5, so a
+    member with q &gt; 0 whose total angular momentum is not established zero has
+    no exact metric above four dimensions. B = 2 records that instead of
+    inheriting the static answer.</caption>
+  </div>
+</section>
+<section>
+  <div class="shead"><span class="snum">05</span><h2>The chart</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>slot</th><th>what it measures</th><th>alphabet</th><th>values</th></tr></thead>
+    <tbody><tr><td class="name mono">D</td><td>spacetime dimension</td><td class="mono">[4, 5, 6, 7, 8, 9, 10, 11]</td><td class="num">8</td></tr><tr><td class="name mono">B</td><td>horizon-bound class</td><td class="mono">[0, 1, 2]</td><td class="num">3</td></tr><tr><td class="name mono">F</td><td>forced angular momentum, (A+N<sub>e</sub>) odd</td><td class="mono">[0, 1]</td><td class="num">2</td></tr><tr><td class="name mono">X</td><td>spin-decade rank of χ</td><td class="mono">[0, 1, 2, 3, 4]</td><td class="num">5</td></tr><tr><td class="name mono">Y</td><td>charge-decade rank of Q̃</td><td class="mono">[0, 1, 2, 3]</td><td class="num">4</td></tr><tr><td class="name mono">E</td><td>mass evidence — AME2020's own quality column</td><td class="mono">[0, 1]</td><td class="num">2</td></tr></tbody></table>
+    <caption>Spin decades floor(log₁₀ χ) = [33, 34, 35, 36]. Charge decades
+    floor(log₁₀ Q̃) = [15, 16, 17]. Kerr–Newman has a horizon exactly when
+    χ² + Q̃² ≤ 1; every charged or spinning member here exceeds that by fifteen
+    to thirty-six orders of magnitude, which is the ordinary statement that an
+    atom is not a black hole. The <em>decade</em> is what varies across the
+    elements, and it is what is charted.</caption>
+  </div>
+
+  <div class="kv" style="margin-top:22px">
+    <div><dt>charted rows</dt><dd>21,568</dd></div>
+    <div><dt>distinct cells</dt><dd>524</dd></div>
+    <div><dt>box</dt><dd>1,920<small>what charting cost tracks</small></dd></div>
+    <div><dt>cell</dt><dd>(0, 18, 65)<small>K, height, width</small></dd></div>
+  </div>
+
+  <div class="trio" style="margin-top:14px">
+    <div class="per"><div class="who">constant coordinates</div>
+      <div class="what">none</div>
+      <div class="obj">A one-valued slot carries no information and widens every
+      closure for free.</div></div>
+    <div class="per"><div class="who">determined by the others</div>
+      <div class="what">none</div>
+      <div class="obj">Over-representation is the fault this looks for: a slot
+      the rest already fix adds no member distinction and multiplies the box.</div></div>
+    <div class="per"><div class="who">LABEL coordinates</div>
+      <div class="what">none</div>
+      <div class="obj">A slot separating ≥ 90% of members is a row label, not a
+      measurement.</div></div>
+  </div>
+
+  <div class="tablewrap" style="margin-top:22px"><table>
+    <thead><tr><th>language</th><th class="num">admits</th><th class="num">E</th><th>verdict</th></tr></thead>
+    <tbody><tr><td class="name">order</td><td class="num">1360</td><td class="num">836</td><td><span class="no">does not close</span></td></tr><tr><td class="name">algebra</td><td class="num">1360</td><td class="num">836</td><td><span class="no">does not close</span></td></tr><tr><td class="name">geometry</td><td class="num">1360</td><td class="num">836</td><td><span class="no">does not close</span></td></tr><tr><td class="name">information</td><td class="num">1232</td><td class="num">708</td><td><span class="no">does not close</span></td></tr><tr><td class="name">statistics</td><td class="num">1120</td><td class="num">596</td><td><span class="no">does not close</span></td></tr></tbody></table>
+    <caption>Against 524 cells held. <b>It closes nothing — K0.</b></caption>
+  </div>
+
+  <div class="note good">
+    <span class="lab">The encoding is a rank, and the alternative is measured</span>
+    <p style="margin-bottom:0">χ = 0 exactly when J<sub>e</sub> = 0, and log 0 is
+    not a number, so a member with no electronic angular momentum has no decade
+    at all. Writing it as 0 beside decades of 33 to 36 would place it 33 units
+    from its nearest neighbour and distort every convex hull the geometry
+    operator takes. The coordinate is therefore the <em>rank</em> in the sorted
+    alphabet, evenly spaced, as every other chart in this tree is. That is a
+    choice, so <span class="mono">encoding_sensitivity()</span> charts the
+    raw-decade encoding too: <span class="mono">(0, 18, 65)</span> against
+    <span class="mono">(0, 18, 65)</span> — <strong>the choice costs nothing, and that is measured</strong>.</p>
+  </div>
+</section>
+<section>
+  <div class="shead"><span class="snum">06</span><h2>Two findings, recorded and
+  not repaired</h2></div>
+
+  <h3>A · The dimension is invisible to the chart and visible in the cell count</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>dimension</th><th class="num">cells</th><th>cell</th><th>bound classes present</th></tr></thead>
+    <tbody><tr><td class="name">D = 4</td><td class="num">62</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound</td></tr><tr><td class="name">D = 5</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr><tr><td class="name">D = 6</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr><tr><td class="name">D = 7</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr><tr><td class="name">D = 8</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr><tr><td class="name">D = 9</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr><tr><td class="name">D = 10</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr><tr><td class="name">D = 11</td><td class="num">66</td><td class="cell">(0, 10, 12)</td><td class="mono sm">no bound, a bound, undetermined</td></tr></tbody></table>
+    <caption>Fix D and chart the other five slots.</caption>
+  </div>
+  <p class="after">The same (K, height, width) at <em>every</em> dimension, and
+  four more cells from five upward. The four are the B&nbsp;=&nbsp;2 rows: in
+  four dimensions Kerr–Newman covers every (M,&nbsp;Q,&nbsp;J) so nothing is
+  undetermined; above it the charged rotating metric is unknown and some members
+  are. <strong>So what the dimension adds to this index is an ignorance class,
+  not a geometry class</strong> — and the admissible chart cannot see it.</p>
+
+  <h3>B · The relief at six is in the members and not in the cell</h3>
+  <p>536 members lose their bound at D&nbsp;=&nbsp;6 and the cell does not move. A
+  chart reporting (K,&nbsp;height,&nbsp;width) would report the ultraspinning
+  transition as <em>nothing at all</em>. That is a limit of the chart, stated
+  here so nobody reads the invariance as a finding about gravity.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">07</span><h2>The 87 species</h2></div>
+  <p class="sub">Each species contributes one member per banked nuclide of its
+  element. Z runs 3 to 90, q runs 0 to 15.</p>
+  <div class="tablewrap tall"><table>
+    <thead><tr><th>species</th><th class="num">Z</th><th class="num">q</th>
+      <th class="num">N<sub>e</sub></th><th>ground config</th><th>term</th>
+      <th>J</th><th class="num">nuclides</th><th>log χ</th><th>log Q̃</th></tr></thead>
+    <tbody><tr><td class="name">Ac I</td><td class="num">89</td><td class="num">0</td><td class="num">89</td><td class="mono">6d.7s2</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">33</td><td class="mono sm">33–33</td><td class="mono sm">—</td></tr><tr><td class="name">Al I</td><td class="num">13</td><td class="num">0</td><td class="num">13</td><td class="mono">3s2.3p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">23</td><td class="mono sm">34–35</td><td class="mono sm">—</td></tr><tr><td class="name">Al III</td><td class="num">13</td><td class="num">2</td><td class="num">11</td><td class="mono">3s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">23</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Ar II</td><td class="num">18</td><td class="num">1</td><td class="num">17</td><td class="mono">3s23p5</td><td class="mono">2P°</td><td class="mono">3&frasl;2</td><td class="num">26</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">As II</td><td class="num">33</td><td class="num">1</td><td class="num">32</td><td class="mono">4s2.4p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">33</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">As III</td><td class="num">33</td><td class="num">2</td><td class="num">31</td><td class="mono">4s2.4p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">33</td><td class="mono sm">34–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">As IV</td><td class="num">33</td><td class="num">3</td><td class="num">30</td><td class="mono">3d10.4s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">33</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">B I</td><td class="num">5</td><td class="num">0</td><td class="num">5</td><td class="mono">2s2.2p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">16</td><td class="mono sm">35–36</td><td class="mono sm">—</td></tr><tr><td class="name">B III</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="mono">2s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">16</td><td class="mono sm">35–36</td><td class="mono sm">17–17</td></tr><tr><td class="name">Ba I</td><td class="num">56</td><td class="num">0</td><td class="num">56</td><td class="mono">6s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">42</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Ba II</td><td class="num">56</td><td class="num">1</td><td class="num">55</td><td class="mono">6s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">42</td><td class="mono sm">33–33</td><td class="mono sm">15–15</td></tr><tr><td class="name">Ba III</td><td class="num">56</td><td class="num">2</td><td class="num">54</td><td class="mono">5p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">42</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">Ba IV</td><td class="num">56</td><td class="num">3</td><td class="num">53</td><td class="mono">5s2.5p5</td><td class="mono">2P*</td><td class="mono">3&frasl;2</td><td class="num">42</td><td class="mono sm">34–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">Be I</td><td class="num">4</td><td class="num">0</td><td class="num">4</td><td class="mono">2s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">12</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Bi II</td><td class="num">83</td><td class="num">1</td><td class="num">82</td><td class="mono">6s2.6p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">41</td><td class="mono sm">—</td><td class="mono sm">15–15</td></tr><tr><td class="name">Bi III</td><td class="num">83</td><td class="num">2</td><td class="num">81</td><td class="mono">6s2.6p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">41</td><td class="mono sm">33–33</td><td class="mono sm">15–16</td></tr><tr><td class="name">Br IV</td><td class="num">35</td><td class="num">3</td><td class="num">32</td><td class="mono">4s2.4p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">34</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">Br V</td><td class="num">35</td><td class="num">4</td><td class="num">31</td><td class="mono">4s2.4p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">34</td><td class="mono sm">33–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">Br VI</td><td class="num">35</td><td class="num">5</td><td class="num">30</td><td class="mono">3d10.4s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">34</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">C II</td><td class="num">6</td><td class="num">1</td><td class="num">5</td><td class="mono">2s2(1S)2p</td><td class="mono">2P°</td><td class="mono">1&frasl;2</td><td class="num">16</td><td class="mono sm">35–36</td><td class="mono sm">16–17</td></tr><tr><td class="name">Ca I</td><td class="num">20</td><td class="num">0</td><td class="num">20</td><td class="mono">4s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Ca II</td><td class="num">20</td><td class="num">1</td><td class="num">19</td><td class="mono">4s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">29</td><td class="mono sm">34–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">Ca III</td><td class="num">20</td><td class="num">2</td><td class="num">18</td><td class="mono">3s2.3p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">Ca VIII</td><td class="num">20</td><td class="num">7</td><td class="num">13</td><td class="mono">3s2.3p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">29</td><td class="mono sm">34–34</td><td class="mono sm">17–17</td></tr><tr><td class="name">Cd II</td><td class="num">48</td><td class="num">1</td><td class="num">47</td><td class="mono">5s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">42</td><td class="mono sm">33–33</td><td class="mono sm">15–16</td></tr><tr><td class="name">Ce I</td><td class="num">58</td><td class="num">0</td><td class="num">58</td><td class="mono">4f.5d.6s2</td><td class="mono">1G*</td><td class="mono">4</td><td class="num">41</td><td class="mono sm">34–34</td><td class="mono sm">—</td></tr><tr><td class="name">Co IX</td><td class="num">27</td><td class="num">8</td><td class="num">19</td><td class="mono">3p6.3d</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">32</td><td class="mono sm">34–35</td><td class="mono sm">17–17</td></tr><tr><td class="name">Cr III</td><td class="num">24</td><td class="num">2</td><td class="num">22</td><td class="mono">3d4</td><td class="mono">5D</td><td class="mono">0</td><td class="num">30</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">Cr VI</td><td class="num">24</td><td class="num">5</td><td class="num">19</td><td class="mono">3p6.3d</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">30</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Cs I</td><td class="num">55</td><td class="num">0</td><td class="num">55</td><td class="mono">5p6.6s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">42</td><td class="mono sm">33–33</td><td class="mono sm">—</td></tr><tr><td class="name">Fe VI</td><td class="num">26</td><td class="num">5</td><td class="num">21</td><td class="mono">3d3</td><td class="mono">4F</td><td class="mono">3&frasl;2</td><td class="num">32</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Fe VII</td><td class="num">26</td><td class="num">6</td><td class="num">20</td><td class="mono">3p6.3d2</td><td class="mono">3F</td><td class="mono">2</td><td class="num">32</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Fe VIII</td><td class="num">26</td><td class="num">7</td><td class="num">19</td><td class="mono">3p6.3d</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">32</td><td class="mono sm">34–35</td><td class="mono sm">17–17</td></tr><tr><td class="name">Fe XVI</td><td class="num">26</td><td class="num">15</td><td class="num">11</td><td class="mono">3s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">32</td><td class="mono sm">34–34</td><td class="mono sm">17–17</td></tr><tr><td class="name">Ga I</td><td class="num">31</td><td class="num">0</td><td class="num">31</td><td class="mono">3d10.4s2.4p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">33</td><td class="mono sm">34–34</td><td class="mono sm">—</td></tr><tr><td class="name">Ge I</td><td class="num">32</td><td class="num">0</td><td class="num">32</td><td class="mono">4s2.4p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">33</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Ge II</td><td class="num">32</td><td class="num">1</td><td class="num">31</td><td class="mono">4s2.4p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">33</td><td class="mono sm">34–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">Hf I</td><td class="num">72</td><td class="num">0</td><td class="num">72</td><td class="mono">5d2.6s2</td><td class="mono">a 3F</td><td class="mono">2</td><td class="num">38</td><td class="mono sm">33–34</td><td class="mono sm">—</td></tr><tr><td class="name">Hg I</td><td class="num">80</td><td class="num">0</td><td class="num">80</td><td class="mono">5d10.6s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">47</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Hg II</td><td class="num">80</td><td class="num">1</td><td class="num">79</td><td class="mono">6s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">47</td><td class="mono sm">33–33</td><td class="mono sm">15–15</td></tr><tr><td class="name">In I</td><td class="num">49</td><td class="num">0</td><td class="num">49</td><td class="mono">5s2.5p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">42</td><td class="mono sm">33–33</td><td class="mono sm">—</td></tr><tr><td class="name">K I</td><td class="num">19</td><td class="num">0</td><td class="num">19</td><td class="mono">4s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">29</td><td class="mono sm">34–34</td><td class="mono sm">—</td></tr><tr><td class="name">K II</td><td class="num">19</td><td class="num">1</td><td class="num">18</td><td class="mono">3p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">K VII</td><td class="num">19</td><td class="num">6</td><td class="num">13</td><td class="mono">3s2.3p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">29</td><td class="mono sm">34–34</td><td class="mono sm">17–17</td></tr><tr><td class="name">Kr I</td><td class="num">36</td><td class="num">0</td><td class="num">36</td><td class="mono">4s2.4p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">35</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">La I</td><td class="num">57</td><td class="num">0</td><td class="num">57</td><td class="mono">5d.6s2</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">42</td><td class="mono sm">34–34</td><td class="mono sm">—</td></tr><tr><td class="name">Li I</td><td class="num">3</td><td class="num">0</td><td class="num">3</td><td class="mono">2s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">11</td><td class="mono sm">35–36</td><td class="mono sm">—</td></tr><tr><td class="name">Li II</td><td class="num">3</td><td class="num">1</td><td class="num">2</td><td class="mono">1s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">11</td><td class="mono sm">—</td><td class="mono sm">16–17</td></tr><tr><td class="name">Li III</td><td class="num">3</td><td class="num">2</td><td class="num">1</td><td class="mono">1s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">11</td><td class="mono sm">35–36</td><td class="mono sm">17–17</td></tr><tr><td class="name">Lu I</td><td class="num">71</td><td class="num">0</td><td class="num">71</td><td class="mono">5d.6s2</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">39</td><td class="mono sm">33–34</td><td class="mono sm">—</td></tr><tr><td class="name">Mg I</td><td class="num">12</td><td class="num">0</td><td class="num">12</td><td class="mono">3s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">23</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Mg II</td><td class="num">12</td><td class="num">1</td><td class="num">11</td><td class="mono">3s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">23</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">Mn VI</td><td class="num">25</td><td class="num">5</td><td class="num">20</td><td class="mono">3p6.3d2</td><td class="mono">3F</td><td class="mono">2</td><td class="num">31</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Mn VII</td><td class="num">25</td><td class="num">6</td><td class="num">19</td><td class="mono">3p6.3d</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">31</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Na I</td><td class="num">11</td><td class="num">0</td><td class="num">11</td><td class="mono">2p6.3s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">23</td><td class="mono sm">34–35</td><td class="mono sm">—</td></tr><tr><td class="name">Ne I</td><td class="num">10</td><td class="num">0</td><td class="num">10</td><td class="mono">2p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">20</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Ne II</td><td class="num">10</td><td class="num">1</td><td class="num">9</td><td class="mono">2s22p5</td><td class="mono">2P°</td><td class="mono">3&frasl;2</td><td class="num">20</td><td class="mono sm">35–36</td><td class="mono sm">16–16</td></tr><tr><td class="name">Pb I</td><td class="num">82</td><td class="num">0</td><td class="num">82</td><td class="mono">6s2.6p2</td><td class="mono">(1/2,1/2)</td><td class="mono">0</td><td class="num">43</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">S VI</td><td class="num">16</td><td class="num">5</td><td class="num">11</td><td class="mono">3s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">24</td><td class="mono sm">34–35</td><td class="mono sm">17–17</td></tr><tr><td class="name">Sc I</td><td class="num">21</td><td class="num">0</td><td class="num">21</td><td class="mono">3d.4s2</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">—</td></tr><tr><td class="name">Sc II</td><td class="num">21</td><td class="num">1</td><td class="num">20</td><td class="mono">4s</td><td class="mono">3D</td><td class="mono">1</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">Sc III</td><td class="num">21</td><td class="num">2</td><td class="num">19</td><td class="mono">3p6.3d</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">Sc IV</td><td class="num">21</td><td class="num">3</td><td class="num">18</td><td class="mono">3s2.3p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">Sc IX</td><td class="num">21</td><td class="num">8</td><td class="num">13</td><td class="mono">3s2.3p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">29</td><td class="mono sm">34–34</td><td class="mono sm">17–17</td></tr><tr><td class="name">Se III</td><td class="num">34</td><td class="num">2</td><td class="num">32</td><td class="mono">4s2.4p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">33</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">Se IV</td><td class="num">34</td><td class="num">3</td><td class="num">31</td><td class="mono">4s2.4p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">33</td><td class="mono sm">33–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">Si I</td><td class="num">14</td><td class="num">0</td><td class="num">14</td><td class="mono">3s23p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">24</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Si II</td><td class="num">14</td><td class="num">1</td><td class="num">13</td><td class="mono">3s2(1S)3p</td><td class="mono">2P°</td><td class="mono">1&frasl;2</td><td class="num">24</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">Si IV</td><td class="num">14</td><td class="num">3</td><td class="num">11</td><td class="mono">3s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">24</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">Sn I</td><td class="num">50</td><td class="num">0</td><td class="num">50</td><td class="mono">5s2.5p2</td><td class="mono">3P</td><td class="mono">0</td><td class="num">42</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Sr I</td><td class="num">38</td><td class="num">0</td><td class="num">38</td><td class="mono">5s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">35</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Th I</td><td class="num">90</td><td class="num">0</td><td class="num">90</td><td class="mono">6d2.7s2</td><td class="mono">3F</td><td class="mono">2</td><td class="num">32</td><td class="mono sm">33–33</td><td class="mono sm">—</td></tr><tr><td class="name">Ti I</td><td class="num">22</td><td class="num">0</td><td class="num">22</td><td class="mono">3d2.4s2</td><td class="mono">a 3F</td><td class="mono">2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">—</td></tr><tr><td class="name">Ti II</td><td class="num">22</td><td class="num">1</td><td class="num">21</td><td class="mono">3d2.(3F).4s</td><td class="mono">a 4F</td><td class="mono">3&frasl;2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">Ti V</td><td class="num">22</td><td class="num">4</td><td class="num">18</td><td class="mono">3s2.3p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">16–17</td></tr><tr><td class="name">Ti X</td><td class="num">22</td><td class="num">9</td><td class="num">13</td><td class="mono">3s2.3p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">29</td><td class="mono sm">34–34</td><td class="mono sm">17–17</td></tr><tr><td class="name">Tl I</td><td class="num">81</td><td class="num">0</td><td class="num">81</td><td class="mono">6s2.6p</td><td class="mono">2P*</td><td class="mono">1&frasl;2</td><td class="num">43</td><td class="mono sm">33–33</td><td class="mono sm">—</td></tr><tr><td class="name">V II</td><td class="num">23</td><td class="num">1</td><td class="num">22</td><td class="mono">3d4</td><td class="mono">a 5D</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">16–16</td></tr><tr><td class="name">V III</td><td class="num">23</td><td class="num">2</td><td class="num">21</td><td class="mono">3d3</td><td class="mono">a 4F</td><td class="mono">3&frasl;2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">V IV</td><td class="num">23</td><td class="num">3</td><td class="num">20</td><td class="mono">3p6.3d2</td><td class="mono">3F</td><td class="mono">2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">16–16</td></tr><tr><td class="name">V V</td><td class="num">23</td><td class="num">4</td><td class="num">19</td><td class="mono">3p6.3d</td><td class="mono">2D</td><td class="mono">3&frasl;2</td><td class="num">29</td><td class="mono sm">34–35</td><td class="mono sm">16–17</td></tr><tr><td class="name">V VI</td><td class="num">23</td><td class="num">5</td><td class="num">18</td><td class="mono">3s2.3p6</td><td class="mono">1S</td><td class="mono">0</td><td class="num">29</td><td class="mono sm">—</td><td class="mono sm">16–17</td></tr><tr><td class="name">Y I</td><td class="num">39</td><td class="num">0</td><td class="num">39</td><td class="mono">4d.5s2</td><td class="mono">a 2D</td><td class="mono">3&frasl;2</td><td class="num">35</td><td class="mono sm">34–34</td><td class="mono sm">—</td></tr><tr><td class="name">Yb I</td><td class="num">70</td><td class="num">0</td><td class="num">70</td><td class="mono">4f14.6s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">38</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Zn I</td><td class="num">30</td><td class="num">0</td><td class="num">30</td><td class="mono">4s2</td><td class="mono">1S</td><td class="mono">0</td><td class="num">33</td><td class="mono sm">—</td><td class="mono sm">—</td></tr><tr><td class="name">Zn II</td><td class="num">30</td><td class="num">1</td><td class="num">29</td><td class="mono">3d104s</td><td class="mono">2S</td><td class="mono">1&frasl;2</td><td class="num">33</td><td class="mono sm">34–34</td><td class="mono sm">16–16</td></tr><tr><td class="name">Zr I</td><td class="num">40</td><td class="num">0</td><td class="num">40</td><td class="mono">4d2.5s2</td><td class="mono">a 3F</td><td class="mono">2</td><td class="num">37</td><td class="mono sm">34–34</td><td class="mono sm">—</td></tr></tbody></table>
+    <caption>Ground configuration, term and J as the NIST ASD capture banks
+    them. The last two columns are the range of floor(log₁₀) over that species'
+    nuclides — χ falls as A rises because χ ∝ 1/M².</caption>
+  </div>
+
+  <h3>And the 31 excluded</h3>
+  <p>Parsed, but banking no ground level. Reading the J of an excited level as a
+  ground J is the error this refuses.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>species</th><th class="num">lowest banked level / cm⁻¹</th><th>capture</th></tr></thead>
+    <tbody><tr><td class="name">Al IV</td><td class="num">616644.20</td><td class="mono sm">AlIV.tsv</td></tr><tr><td class="name">Ar I</td><td class="num">93143.76</td><td class="mono sm">ArI.tsv</td></tr><tr><td class="name">B II</td><td class="num">129773.83</td><td class="mono sm">BII.tsv</td></tr><tr><td class="name">B IV</td><td class="num">1882763.50</td><td class="mono sm">BIV.tsv</td></tr><tr><td class="name">B V</td><td class="num">2439199.69</td><td class="mono sm">BV.tsv</td></tr><tr><td class="name">Be III</td><td class="num">956518.70</td><td class="mono sm">BeIII.tsv</td></tr><tr><td class="name">Be IV</td><td class="num">1560902.32</td><td class="mono sm">BeIV.tsv</td></tr><tr><td class="name">C I</td><td class="num">60333.45</td><td class="mono sm">CI_full.tsv</td></tr><tr><td class="name">C III</td><td class="num">238213.00</td><td class="mono sm">CIII.tsv</td></tr><tr><td class="name">C V</td><td class="num">2411292.80</td><td class="mono sm">CV.tsv</td></tr><tr><td class="name">Ca IX</td><td class="num">774480.00</td><td class="mono sm">CaIX.tsv</td></tr><tr><td class="name">Cd I</td><td class="num">51483.98</td><td class="mono sm">CdI.tsv</td></tr><tr><td class="name">F I</td><td class="num">102405.71</td><td class="mono sm">FI.tsv</td></tr><tr><td class="name">Fe XV</td><td class="num">1763700.00</td><td class="mono sm">FeXV.tsv</td></tr><tr><td class="name">Ga II</td><td class="num">102944.60</td><td class="mono sm">GaII.tsv</td></tr><tr><td class="name">Ge III</td><td class="num">158565.02</td><td class="mono sm">GeIII.tsv</td></tr><tr><td class="name">Mg III</td><td class="num">545820.40</td><td class="mono sm">MgIII.tsv</td></tr><tr><td class="name">N I</td><td class="num">83284.07</td><td class="mono sm">NI_full.tsv</td></tr><tr><td class="name">N III</td><td class="num">221302.20</td><td class="mono sm">NIII.tsv</td></tr><tr><td class="name">O III</td><td class="num">267258.71</td><td class="mono sm">OIII.tsv</td></tr><tr><td class="name">O IV</td><td class="num">357614.30</td><td class="mono sm">OIV.tsv</td></tr><tr><td class="name">P I</td><td class="num">55939.42</td><td class="mono sm">PI.tsv</td></tr><tr><td class="name">P II</td><td class="num">86597.55</td><td class="mono sm">PII.tsv</td></tr><tr><td class="name">P III</td><td class="num">117835.95</td><td class="mono sm">PIII.tsv</td></tr><tr><td class="name">P IV</td><td class="num">226898.14</td><td class="mono sm">PIV.tsv</td></tr><tr><td class="name">S III</td><td class="num">146697.37</td><td class="mono sm">SIII.tsv</td></tr><tr><td class="name">S IV</td><td class="num">181448.20</td><td class="mono sm">SIV.tsv</td></tr><tr><td class="name">S V</td><td class="num">311595.10</td><td class="mono sm">SV.tsv</td></tr><tr><td class="name">Si III</td><td class="num">153377.05</td><td class="mono sm">SiIII_low.tsv</td></tr><tr><td class="name">Ti III</td><td class="num">38064.35</td><td class="mono sm">TiIII.tsv</td></tr><tr><td class="name">Ti XI</td><td class="num">1065780.00</td><td class="mono sm">TiXI.tsv</td></tr></tbody></table>
+  </div>
+</section>
+<section>
+  <div class="shead"><span class="snum">08</span><h2>Seated in the index of
+  first-order indexes</h2></div>
+  <p class="sub">One vertex per index of the periodic elements.
+  <span class="mono">registry.enforce()</span> returns empty, and
+  <span class="mono">registry.missing()</span> returns empty: no module exposing
+  an index is unaccounted for.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>index</th><th>cell</th><th>quantum numbers its members carry</th></tr></thead>
+    <tbody><tr><td class="name">channels</td><td class="cell">(0, 16, 24)</td><td class="mono sm">l, Pauli bound, multiplicity</td></tr><tr><td class="name">ions</td><td class="cell">(0, 18, 16)</td><td class="mono sm">charge, electron count</td></tr><tr><td class="name">gravity</td><td class="cell">(0, 18, 65)</td><td class="mono sm">Z, N, A, q, Ne, 2J</td></tr><tr><td class="name">laws</td><td class="cell">(0, 25, 7)</td><td class="mono sm">n range, l, quantum defect</td></tr><tr><td class="name">inversion</td><td class="cell">(2, 6, 5)</td><td class="mono sm">pairs of (n, l)</td></tr><tr><td class="name">probability</td><td class="cell">(2, 8, 9)</td><td class="mono sm">n, l</td></tr><tr><td class="name">fibred</td><td class="cell">(3, 26, 17)</td><td class="mono sm">n, l, k</td></tr><tr><td class="name">madelung</td><td class="cell">(7, 30, 12)</td><td class="mono sm">n+l, l, k</td></tr></tbody></table>
+    <caption>8 vertices. <span class="mono">registry.COMPLETE</span> stays
+    False.</caption>
+  </div>
+  <div class="kv" style="margin-top:22px">
+    <div><dt>E before</dt><dd>14<small>seven vertices</small></dd></div>
+    <div><dt>E after</dt><dd>19<small>eight, with gravity</small></dd></div>
+    <div><dt>gravity is</dt><dd class="hot">disruptive<small>it raises the demand
+      rather than filling it</small></dd></div>
+  </div>
+  <p class="after">Gravity does not fill demand: it raises it, by 5. That is
+  reported and not softened. The width 65 it brings is far outside the other
+  seven vertices, and the join of it with anything above it lands outside the
+  figure. <strong>Whether the figure closes is not the criterion</strong> —
+  identifying every first-order index is.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">09</span><h2>What this file refuses</h2></div>
+  <ul class="tight refuse">
+    <li><b>To call 2J<sub>e</sub> the member's spin.</b> It is the electronic
+      part. The nuclear part is not banked, so χ as computed is the electronic
+      contribution to the Kerr parameter and nothing more. Section&nbsp;02's two
+      facts are the only total-angular-momentum statements made here, and
+      neither needs I.</li>
+    <li><b>To put a number on a horizon above four dimensions.</b>
+      G<sub>D</sub> is fixed by nothing measured here. Only existence statements
+      are made above D&nbsp;=&nbsp;4, and only where an exact solution supplies
+      one.</li>
+    <li><b>To read the pairing rule as a theorem.</b> Even-even ground states
+      have spin zero as an exceptionless empirical rule.
+      <span class="mono">PAIRING_RULE_STATUS</span> says so, and every member
+      whose F&nbsp;=&nbsp;0 rests on it.</li>
+    <li><b>To extend the 87 species by inference.</b> Hund's rules would give a
+      ground J for every element in the table, and that is a computation, not a
+      capture.</li>
+    <li><b>To assign the warp metrics anything.</b> The same refusal
+      <span class="mono">petrov.py</span> makes, for the same reason: nothing in
+      this tree computes one.</li>
+    <li><b>To claim the index is complete.</b> It is an index of the elements'
+      gravitational field as the banked data determines it.</li>
+  </ul>
+</section>
+<div class="foot">
+  <p>Every figure on this plate is read from the instrument at build time, not
+  retyped. Re-verify with:</p>
+  <p><code>python3 research/warp-drive/gravity.py --selftest</code> — 62 fixtures<br>
+  <code>python3 research/warp-drive/gravity.py</code> — the reading<br>
+  <code>python3 research/warp-drive/registry.py --selftest</code> — the criterion<br>
+  <code>python3 research/warp-drive/figure.py --selftest</code> — the figure<br>
+  <code>python3 research/warp-drive/render/build_gravity_plate.py</code> — this plate</p>
+</div>
+</div>

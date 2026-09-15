@@ -474,7 +474,9 @@ def selftest():
         box_of(two_labels) > len(two_labels) * 20, True)
 
     C = seated_cells()
-    chk("every registered index yielded cells", len(C), 7)
+    # A PROPERTY, NOT A PINNED COUNT -- see the same note in demand.py.
+    chk("every registered index yielded cells", len(C),
+        len(__import__("registry").rows()))
     chk("and every one is an element index",
         sorted(C) == sorted(n for n, *_r in __import__("registry").rows()), True)
     print("overlap selftest: %s" % ("PASS" if ok else "FAIL"))
