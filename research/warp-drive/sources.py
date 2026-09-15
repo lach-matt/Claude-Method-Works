@@ -142,106 +142,53 @@ def seated():
 
 def report():
     print("=" * 74)
-    print("WHAT ELSE CAN BE BUILT, AND WHERE THE COUNTING HAS TO STOP")
+    print("sources.py -- WITHDRAWN.  See DOCKET 16.")
     print("=" * 74)
     print()
-    print("1. EIGHT SEATED: %d first-order, %d second-order."
-          % (len(FIRST_ORDER), len(SECOND_ORDER)))
-    print("   FIRST-ORDER -- members are things the corpus banks:")
-    for nm, f in FIRST_ORDER.items():
-        print("     %-22s %s" % (nm, f))
-    print("   SECOND-ORDER -- members are the seated indexes:")
-    for nm, f in SECOND_ORDER.items():
-        print("     %-22s %s" % (nm, f))
+    print("This file's census counted the filing cabinet as subject matter.")
+    print("It named six 'unbuilt first-order sources' and every one of them is")
+    print("a table about the repository, not about matter:")
+    for k2, v in sorted(UNBUILT_FIRST_ORDER.items()):
+        print("   %-24s %s" % (k2, v))
     print()
-
-    adm = admissibility()
-    print("2. THE SECOND-ORDER SUPPLY IS NOT A LIST.")
-    print("   nine per-index measurements, and every one is ADMISSIBLE:")
-    print("     %s" % ", ".join("%s(%d)" % (n, m) for n, m in sorted(adm.items())))
-    n, verts, chans = second_order_family(3)
-    print("   three-coordinate charts from those nine   %d indexes" % n)
-    print("   distinct (K, height, width) vertices      %d" % len(verts))
-    import figure as _fig
-    print("   of which NOT already hexad vertices       %d"
-          % len(verts - _fig.hexad()))
-    print("   channels reached                          %s" % chans)
-    print("   EIGHTY-FOUR FROM A STARTER SET OF NINE, and the starter set is")
-    print("   itself open. Counting these is counting one's own measurements.")
-    print()
-
-    print("3. SO: THE RULES ARE COMPLETE, THE FIGURE IS NOT.")
-    print("   complete -- 8 lawful channels, the chart criterion, the")
-    print("   reachability law, what each source can and cannot reach.")
-    print("   NOT complete -- the vertex set. The hexad became an octad in one")
-    print("   sitting and 20 more vertices are a comprehension away.")
-    print("   THE CLASSIFICATION IS OF KINDS, NOT OF MEMBERS.")
-    print()
-
-    print("4. FIRST-ORDER SOURCES STILL UNBUILT, and why.")
-    for nm, what in UNBUILT_FIRST_ORDER.items():
-        print("     %-22s %s" % (nm, what))
-    print("   EVERY ONE INDEXES THE ARTEFACT STORE, NOT THE METHOD -- which")
-    print("   files exist, what was recovered, what a build contained. An index")
-    print("   of them would be well formed and would be measuring the filing")
-    print("   cabinet. OUT_OF_SCOPE_IS_A_RULING = %s; a ruling could bring any")
-    print("   of them in, and the instrument would look like axes.py."
-          % OUT_OF_SCOPE_IS_A_RULING)
-    print()
-    print("5. REFUSED: to enumerate the second-order family -- a list would")
-    print("   imply a bound. To build the bookkeeping indexes without a ruling.")
-    print("   To call the eight complete.")
+    print("All six were built and seated, along with seven more. The figure's")
+    print("demand ran from 9 to 133 and every disruptive vertex was repository")
+    print("metadata. The live census is registry.py, which ENFORCES that a")
+    print("member carries quantum numbers instead of listing sources.")
     return 0
 
 
-# ---------------------------------------------------------------------------
-
 def selftest():
+    """A WITHDRAWN FILE ASSERTS ITS WITHDRAWAL AND MEASURES NOTHING.
+
+    The old fixtures pinned the census this file is withdrawn for: how many
+    second-order indexes the pool yields, how many of their vertices the figure
+    did not have. Re-running them would re-assert the contamination. They are
+    gone, and what is checked is that the withdrawal is real.
+    """
     ok = True
 
-    def chk(nm, got, want):
+    def chk(lab, got, want):
         nonlocal ok
         good = got == want
         ok &= good
-        print("  [%s] %-58s %s" % ("ok" if good else "XX", nm, got))
-        if not good:
-            print("        expected %r" % (want,))
+        print("  [%s] %-54s %s" % ("ok" if good else "XX", lab,
+                                   got if good else "%s != %s" % (got, want)))
 
-    print("sources selftest")
-
-    chk("seven first-order indexes seated", len(FIRST_ORDER), 7)
-    chk("three second-order", len(SECOND_ORDER), 3)
-    chk("ten in all", len(seated()), 10)
-    chk("and every name is distinct",
-        len(set(FIRST_ORDER) & set(SECOND_ORDER)), 0)
-
-    # ---- the nine measurements all pass DOCKET 3's test
-    adm = admissibility()
-    chk("nine per-index measurements", len(adm), 9)
-    chk("and EVERY one is admissible", sorted(set(adm.values())), [0])
-    chk("so none is disqualified", [n for n, m in adm.items() if m], [])
-
-    # ---- THE HEADLINE: the supply is not a list
-    n, verts, chans = second_order_family(3)
-    chk("three-coordinate second-order indexes buildable", n, 84)
-    chk("distinct vertices they occupy", len(verts), 21)
-    import figure as _fig
-    chk("NEW vertices, not already in the hexad",
-        len(verts - _fig.hexad()), 20)
-    chk("channels they reach", chans, {0: 17, 2: 67})
-    # AND IT GROWS WITH ARITY, so three is not special.
-    n2, v2, _c2 = second_order_family(2)
-    n4, v4, _c4 = second_order_family(4)
-    chk("arity 2 and arity 4 give more still", (n2, n4), (36, 126))
-    chk("and between them still more vertices",
-        len(verts | v2 | v4) > len(verts), True)
-
-    # ---- the boundary is declared, not assumed
-    chk("six first-order sources are named unbuilt",
-        len(UNBUILT_FIRST_ORDER), 6)
-    chk("and the exclusion is flagged as a ruling", OUT_OF_SCOPE_IS_A_RULING,
-        True)
-
+    chk("this file is withdrawn", WITHDRAWN, True)
+    chk("the six it named are all filing cabinet",
+        sorted(UNBUILT_FIRST_ORDER), sorted([
+            "the BUILD series", "the Register", "the coverage census",
+            "the dockets", "the drive manifest", "the recovered ledger"]))
+    chk("none of them names a quantum number",
+        [k for k in UNBUILT_FIRST_ORDER
+         if any(t in k.lower() for t in ("shell", "orbital", "level",
+                                         "term", "nuclide"))], [])
+    import os
+    chk("nothing imports it",
+        [f for f in os.listdir(".")
+         if f.endswith(".py") and f != "sources.py"
+         and "import sources" in open(f, encoding="utf-8").read()], [])
     print("sources selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
 
