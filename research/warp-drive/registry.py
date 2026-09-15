@@ -113,7 +113,10 @@ REGISTERED = (
 )
 
 NOT_AN_INDEX = {
-    "mi": "members are the seated indexes",
+    "mi": "members are the seated indexes -- and NINE OF THEM ARE NOT "
+          "REGISTERED ONES; figure.superseded_mi() measures it",
+    "figure": "the index of first-order indexes: its members ARE the seated "
+              "indexes, so they carry no quantum numbers",
     "axes": "members are measurement axes",
     "entropy": "members are the seated indexes",
     "rindex": "members are refusals",
@@ -263,7 +266,7 @@ def selftest():
         sorted({m for _n, _mo, _a, m, _w, _q in rows()} - set(METHODS)), [])
     chk("names are unique", len({n for n, *_r in rows()}), len(rows()))
     chk("NO module exposing an index is unaccounted for", missing(), [])
-    chk("five modules are excused, with reasons", len(NOT_AN_INDEX), 5)
+    chk("six modules are excused, with reasons", len(NOT_AN_INDEX), 6)
     chk("every excuse is non-empty",
         [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])
     chk("mi is excused, not registered",

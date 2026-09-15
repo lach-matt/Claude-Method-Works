@@ -12049,3 +12049,45 @@ a chosen grid against DOCKET 11's observed box; SPECTRA-DATA.tsv *is* `laws.py`'
 **The figure: 8 vertices → 11, E 19 → 39.** All three are disruptive and none was built to land
 anywhere. `registry.COMPLETE` stays False. Every one has a plate with a 3-D view, built on the same
 scaffold. See DOCKET 18.
+
+
+---
+
+## The index of first-order indexes, rebuilt — and what the rebuild found
+
+M: *"Rebuild the index of first-order indexes please."*
+
+**`mi.py`'s master index is built on a hardcoded list of nine, and not one of them is a seated index
+of the periodic elements.** Energy conditions, warp-drive mechanisms, the withdrawn 2-D periodic
+layout, the five languages, Hawking–Ellis substances, Petrov spacetimes, bounds and questions.
+**The intersection with the registry's eleven is empty.**
+
+That is **DOCKET 16's contamination in a file the cleanup did not reach**. `hexad.py` and `store.py`
+were withdrawn for seating filing-system indexes as vertices; `mi.py` survived because
+`registry.NOT_AN_INDEX` excuses it as *"members are the seated indexes"* — which is true of its
+**type** and says nothing about **which**. The excuse was accurate and it deflected the audit that
+mattered. **`mi.py` is not deleted and its charting machinery is not touched**: `mi.cell`,
+`mi.height`, `mi.width`, `mi.K` and `mi.channels` are correct and are what the rebuild measures
+with. Superseded are the four that depend on the nine, and `figure.superseded_mi()` returns the
+comparison so the finding is re-measurable rather than narrated.
+
+- **`figure.py`** — **the index of first-order indexes.** It asks `registry.rows()` and holds no
+  list of its own, so it cannot drift from the registry. **11 vertices, 11 distinct cells — no two
+  seated indexes share one** — box 440, closes under `statistics` alone, E = 39. **Its own cell is
+  `(2, 4, 5)` and no member occupies it**: the index of first-order indexes is not one of its own.
+  Dilworth holds on every vertex, no violations.
+
+  **And two of its three axes are row labels.** `overlap.resolution()` on the figure itself: K is
+  4/11 = 0.364, a measurement; **height is 10/11 = 0.909 and width is 11/11 = 1.000 — both LABELs**.
+  The chart that measures every index here is, applied to itself, two row labels and one
+  measurement. Each index has essentially its own height and its own width, so those two approach
+  injectivity **by construction** as the figure grows — invisible at six vertices, plain at eleven.
+  **Recorded and not repaired**: changing the master index's chart is a *ruling*, and DOCKET 11
+  pinned (K, height, width). What the file does instead is print the resolution beside the reading
+  every time, so the limit travels with the number.
+
+  **Rendering:** `render/masterindex-plate.html`, with an **exact** 3-D view — one labelled point per
+  index, nothing collapsed. Wiring it exposed a defect in the shared scaffold: `plate.view3d`
+  accepted a label in its point tuple and **silently dropped it**, so a caption promising labelled
+  dots would have shipped with none. `render/mi-plate.html` is kept as the record of what the master
+  index looked like when it was the nine. See DOCKET 19.

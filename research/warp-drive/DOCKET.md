@@ -1862,3 +1862,100 @@ land anywhere. `registry.COMPLETE` stays False.
 seating two further arity-3 indexes changed them — so a CORRECT addition to the
 registry fired the fixture. The same error as `store.py`'s docket count,
 `preserve`'s adjudication count and twice in `figure`/`demand`/`overlap`.
+
+---
+
+## DOCKET 19 — the index of first-order indexes, rebuilt over the registry
+
+M: *"Rebuild the index of first-order indexes please. And rerender the plate."*
+
+### The finding the rebuild turned up first
+
+**`mi.py`'s MASTER INDEX IS BUILT ON A HARDCODED LIST OF NINE, AND NOT ONE OF
+THEM IS A SEATED INDEX OF THE PERIODIC ELEMENTS.**
+
+| `mi.inventory()` | `registry.rows()` |
+|---|---|
+| energy-condition family | fibred |
+| exotic mechanisms | madelung |
+| periodic layout (WITHDRAWN under DOCKET 2) | ions |
+| Janet (n+l, l, k) | channels |
+| the languages | laws |
+| substances (Hawking–Ellis) | probability |
+| spacetimes (Petrov) | inversion |
+| bounds | gravity |
+| questions | nucshell |
+| | madrule |
+| | terms |
+
+**The intersection is EMPTY.** Nine against eleven, nothing shared. Energy
+conditions, warp-drive mechanisms, a withdrawn layout, the five languages,
+Hawking–Ellis substances, Petrov spacetimes, bounds and questions — none of them
+has a member carrying a quantum number.
+
+**THIS IS DOCKET 16's CONTAMINATION IN A FILE THE CLEANUP DID NOT REACH.**
+`hexad.py` and `store.py` were withdrawn for seating filing-system indexes as
+vertices. `mi.py` survived because `registry.NOT_AN_INDEX` excuses it as
+*"members are the seated indexes"* — **which is true of its TYPE and says nothing
+about WHICH**. The excuse was accurate and the audit it deflected was the one
+that mattered. `NOT_AN_INDEX`'s entry for `mi` now says so.
+
+**`mi.py` IS NOT DELETED AND ITS CHARTING MACHINERY IS NOT TOUCHED.** `mi.cell`,
+`mi.height`, `mi.width`, `mi.K` and `mi.channels` are correct, are imported by
+every instrument here, and are what the rebuild measures with. Superseded are
+the four that depend on the nine: `inventory`, `index`, `state`, `self_cell`.
+DOCKET 14 — a superseded record is kept, and `figure.superseded_mi()` returns
+the comparison so the finding is re-measurable rather than narrated.
+
+### The rebuild
+
+`figure.py` **asks `registry.rows()` and holds no list of its own**, so it cannot
+drift from the registry. 11 vertices, **11 distinct cells — no two seated
+indexes share one** — box 440, closes under `statistics` alone, E = 39.
+
+**ITS OWN CELL IS (2, 4, 5) AND NO MEMBER OCCUPIES IT.** The index of
+first-order indexes is not one of its own first-order indexes. Measured by
+`self_cell()`, and not offered as meaning anything.
+
+### THE SECOND FINDING: two of its three axes are row labels
+
+`overlap.resolution()` applied to the figure itself:
+
+| axis | distinct | of | ratio | verdict |
+|---|---|---|---|---|
+| K | 4 | 11 | 0.364 | measurement |
+| height | 10 | 11 | **0.909** | **LABEL** |
+| width | 11 | 11 | **1.000** | **LABEL** |
+
+**The chart that measures every index in this tree is, applied to itself, two
+row labels and one measurement.** A coordinate separating 90 % or more of the
+members groups nothing and multiplies the box — `overlap.py` exists to catch
+exactly that, and it catches it here.
+
+    IT WAS INVISIBLE AT SIX VERTICES AND IS PLAIN AT ELEVEN.  Each index has
+    essentially its own height and its own width, so those two approach
+    injectivity BY CONSTRUCTION as the figure grows.  Only K stays a
+    measurement: a down-set of the language poset, eight possible values and
+    four observed.
+
+**RECORDED AND NOT REPAIRED.** Changing the master index's chart is a *ruling*,
+and DOCKET 11 pinned (K, height, width). What the file does instead is print the
+resolution beside the reading every time, so the limit travels with the number.
+
+### Also measured
+
+Dilworth holds on **every** vertex: |X| ≤ height × width, no violations. The box
+is ragged and the product overstates the space — DOCKET 3's other half, by
+theorem rather than census.
+
+### The plate
+
+`render/masterindex-plate.html`, on the shared scaffold, with a 3-D view that is
+**exact** — three coordinates, three axes, one labelled point per index, nothing
+collapsed. Wiring it exposed a defect in the scaffold: `plate.view3d` accepted a
+label in its point tuple and **silently dropped it**, so a caption promising
+labelled dots would have shipped with none. Labels are now packed and
+`labels:true` is passed when any point carries one.
+
+`render/mi-plate.html` is kept, not deleted: it is the record of what the master
+index looked like when it was the nine.

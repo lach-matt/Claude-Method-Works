@@ -69,21 +69,25 @@ the observed box provides and a declared box would not.
 the sequence that reaches it.
 
     THE BALL IS MUCH SMALLER THAN THE MOVE SET, AND THE REASON IS SPARSITY.
-    216 moves on the seated frame reach only 173 distinct states.  The obvious
-    explanation -- that some slices are empty, so their moves are the identity
-    -- is WRONG, and a fixture refuted it: there are ZERO identity moves,
-    because the observed box guarantees every value is used by some cell.
+    **338 moves on the seated frame reach only 292 distinct states.**  The
+    obvious explanation -- that some slices are empty, so their moves are the
+    identity -- is WRONG, and a fixture refuted it: there are ZERO identity
+    moves, because the observed box guarantees every value is used by some cell.
 
-    The measured cause is that the figure is SPARSE.  Ten cells in a 4 x 8 x 8
-    box gives twenty slices, and `slice_occupancy()` reports
+    The measured cause is that the figure is SPARSE, and GROWTH MADE IT SPARSER
+    RATHER THAN DENSER.  Eleven cells in a 4 x 10 x 11 box gives twenty-five
+    slices, and `slice_occupancy()` reports
 
-        16 slices hold exactly ONE cell,  2 hold three,  2 hold four.
+        21 slices hold exactly ONE cell,  2 hold two,  1 holds three,
+        1 holds five.
 
     A singleton slice IS that one cell, so two different slices containing the
-    same cell give the SAME move.  `(0, 3, 1, k)` and `(2, 17, 1, k)` collide
-    for every k, because the only cell with K = 3 is also the only cell of
-    width 17 -- it is the shell fibration.  43 images are reached more than
-    once this way.
+    same cell give the SAME move.  46 images are reached more than once this
+    way.  **At seven vertices the figures were 216 moves, 173 images, 16
+    singleton slices and 43 collisions**; the ratio of singletons rose from
+    16/20 to 21/25 as four more indexes were seated, because every new index
+    arrived at a height and a width no other index had -- which is section 2 of
+    `figure.py`, seen from the move set's side.
 
     THAT IS GOOD NEWS FOR THE SEARCH and bad news for the move set's
     expressiveness: the orbit is smaller than the move count suggests, so an
@@ -332,7 +336,12 @@ def selftest():
     chk("the empty sequence changes nothing", scramble(F, ()), F)
 
     G = figure()
-    chk("the seated figure is the element figure", len(G), 7)
+    # A PROPERTY, NOT A PINNED COUNT.  This is the SIXTH fixture in this tree
+    # fired by a CORRECT addition to the registry -- pinning a number that
+    # right behaviour changes.  What must hold is that the figure IS the
+    # registry, not that it has some particular size.
+    chk("the seated figure is exactly the registered element indexes",
+        len(G), len(__import__("registry").REGISTERED))
     chk("its E is measured, not pinned", demand.E(G) >= 0, True)
     gm = moves(G)
     chk("the seated move set is non-empty", len(gm) > 0, True)

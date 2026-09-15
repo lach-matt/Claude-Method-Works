@@ -180,23 +180,28 @@ def view3d(pid, points, labels, colour_tokens, caption, sub, snum, title,
 
     toks = sorted({p[3] for p in points})
     ti = {t: i for i, t in enumerate(toks)}
+    # THE LABEL IS PACKED, because view3d took one in its point tuple and then
+    # dropped it -- a caption on the master plate promised labelled dots and
+    # the view had none.
+    labelled = any(len(p) > 5 and p[5] for p in points)
     packed = ",".join(
-        "[%s,%s,%s,%d%s]" % (_n(p[0]), _n(p[1]), _n(p[2]), ti[p[3]],
-                             ",1" if p[4] else "")
+        "[%s,%s,%s,%d,%d%s]" % (_n(p[0]), _n(p[1]), _n(p[2]), ti[p[3]],
+                                1 if p[4] else 0,
+                                "," + json.dumps(p[5]) if labelled else "")
         for p in points)
     runtime = open(os.path.join(HERE, "scatter3d.js"), encoding="utf-8").read()
     js = """%s
 (function(){
 const T=%s;
 const RAW=[%s];
-const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0}));
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
 scatter3d({id:'%s',points:PTS,xlab:%s,ylab:%s,zlab:%s,
-  az:%s,el:%s,scale:%s,height:%d,r:%s,
+  az:%s,el:%s,scale:%s,height:%d,r:%s,%s
   xcol:'--geometry',ycol:'--order',zcol:'--information',
   colour:p=>p.c});
 })();""" % (runtime, json.dumps(toks), packed, pid,
             json.dumps(labels[0]), json.dumps(labels[1]), json.dumps(labels[2]),
-            az, el, sc, H, radius)
+            az, el, sc, H, radius, "labels:true," if labelled else "")
 
     legend = "".join(
         '<span><i style="background:var(%s)"></i>%s</span>' % (t, w)

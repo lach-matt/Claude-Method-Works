@@ -1172,12 +1172,181 @@ def build_terms():
     _write("terms-plate.html", h)
 
 
+
+
+def build_masterindex():
+    """The index of first-order indexes -- the master plate."""
+    import figure as FIG
+    import demand as DEM
+    C = FIG.cells()
+    X = FIG.figure()
+    q = FIG.quantum_of()
+    m = measured(X)
+    own, occ = FIG.self_cell()
+    res = FIG.resolution()
+    nine, eleven, shared = FIG.superseded_mi()
+    ks = sorted({c[0] for c in X})
+    # one point per VERTEX, at its own (K, height, width), coloured by channel
+    pts = [(c[1], c[2], c[0], ramp(ks)[c[0]], 0, n)
+           for n, c in sorted(C.items(), key=lambda kv: kv[1])]
+    h = [plate.head("The Index of First-Order Indexes"), '<div class="wrap">']
+    h.append('''<header class="mast">
+  <p class="eyebrow">Research plate · the master index</p>
+  <h1>The Index of First-Order&nbsp;Indexes</h1>
+  <p class="dek">Its members are the seated indexes of the periodic elements —
+  one vertex each, at that index's own cell. A second-order object, and the only
+  one here.</p>
+  <div class="stamp"><span>instrument <b>figure.py</b></span>
+  <span>vertices <b>%d</b></span><span>cells <b>%d</b></span>
+  <span>box <b>%d</b></span><span>closes <b>statistics</b></span>
+  <span>E <b>%d</b></span><span>its own cell <b>(%d,&nbsp;%d,&nbsp;%d)</b></span></div>
+</header>''' % (len(C), m["cells"], m["box"], DEM.E(X), *own))
+    h.append('''<div class="note warn" style="margin-top:26px">
+  <span class="lab">The rebuild: it asks the registry, and the predecessor did not</span>
+  <p><span class="mono">mi.py</span>'s master index is built on a <b>hardcoded
+  list of nine</b>, and <b>not one of the nine is a seated index of the periodic
+  elements</b>: energy conditions, warp-drive mechanisms, the withdrawn 2-D
+  periodic layout, the five languages, Hawking–Ellis substances, Petrov
+  spacetimes, bounds and questions. <b>The intersection with the registry's %d
+  is empty.</b></p>
+  <p>That is DOCKET 16's contamination in a file the cleanup did not reach.
+  <span class="mono">hexad.py</span> and <span class="mono">store.py</span> were
+  withdrawn for seating filing-system indexes as vertices;
+  <span class="mono">mi.py</span> survived because
+  <span class="mono">registry.NOT_AN_INDEX</span> excuses it as <em>"members are
+  the seated indexes"</em> — which is true of its <em>type</em> and says nothing
+  about <em>which</em>.</p>
+  <p style="margin-bottom:0"><b><span class="mono">mi.py</span> is not deleted
+  and its charting machinery is not touched.</b>
+  <span class="mono">mi.cell</span>, <span class="mono">mi.height</span>,
+  <span class="mono">mi.width</span>, <span class="mono">mi.K</span> and
+  <span class="mono">mi.channels</span> are correct, are imported by everything
+  here, and are what this plate measures with. Superseded are the four that
+  depend on the nine: <span class="mono">inventory</span>,
+  <span class="mono">index</span>, <span class="mono">state</span>,
+  <span class="mono">self_cell</span>. DOCKET 14 — a superseded record is
+  kept.</p>
+</div>''' % len(eleven))
+    h.append('''<section>
+  <div class="shead"><span class="snum">01</span><h2>The vertices</h2></div>
+  <p class="sub">One per registered index, at its own (K, height, width). The
+  vertex set is <span class="mono">registry.rows()</span> and nothing else, so
+  it cannot drift from the registry — it does not hold a copy of it.</p>
+  <div class="tablewrap"><table><thead><tr><th>index</th><th>cell</th>
+    <th class="num">K</th><th>quantum numbers ITS members carry</th></tr></thead>
+    <tbody>%s</tbody></table>
+    <caption><b>%d vertices, %d distinct cells — no two seated indexes share a
+    cell.</b></caption></div>
+</section>''' % ("".join(
+        '<tr><td class="name">%s</td><td class="cell">(%d, %d, %d)</td>'
+        '<td class="num">%d</td><td class="mono sm">%s</td></tr>'
+        % (n, c[0], c[1], c[2], c[0], E(q[n]))
+        for n, c in sorted(C.items(), key=lambda kv: kv[1])),
+        len(C), m["cells"]))
+    h.append(plate.view3d(
+        "ma3d", pts, ("height  longest chain", "width  largest antichain",
+                      "K  the channel"),
+        [(ramp(ks)[v], "K%d" % v) for v in ks],
+        plate.exactness(X, (0, 1, 2), m["cells"], 0, []) +
+        " Each point is a whole index — <b>the labelled dot is that index's "
+        "entire chart reduced to one position</b>. Colour is K, the channel, "
+        "which is also the vertical axis: the four sheets are the four channels "
+        "the eleven occupy out of eight possible. <b>gravity's width of 112 is "
+        "what stretches the box</b>, and the crowd near the origin is every "
+        "small index.",
+        "One point per seated index, at its own cell. Labelled, because there "
+        "are only eleven and each one is a whole index.",
+        "02", "The master index, plotted exactly", radius=8,
+        aria="the index of first-order indexes: %d vertices at height, width "
+             "and channel" % len(C)))
+    h.append('''<section>
+  <div class="shead"><span class="snum">03</span><h2>Two of its three axes are
+  row labels, and growth exposed it</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>axis</th>
+    <th class="num">distinct</th><th class="num">of</th>
+    <th class="num">ratio</th><th>verdict</th></tr></thead><tbody>%s</tbody>
+    </table><caption>The threshold is 0.9.</caption></div>
+  <div class="note warn">
+    <span class="lab">The chart that measures every index here is, applied to
+    itself, two row labels and one measurement</span>
+    <p>A coordinate separating 90 %% or more of the members <em>groups
+    nothing</em> and multiplies the box — which is exactly what
+    <span class="mono">overlap.py</span> exists to catch, and it catches it
+    here. Each index has essentially its own height and its own width, so those
+    two approach injectivity <b>by construction</b> as the figure grows:
+    invisible at six vertices, plain at %d.</p>
+    <p style="margin-bottom:0">Only <b>K</b> stays a measurement — a down-set of
+    the language poset, eight possible values and %d observed.
+    <b>Recorded and not repaired</b>: changing the master index's chart is a
+    <em>ruling</em>, and DOCKET 11 pinned (K, height, width). What can be done
+    honestly is print the limit beside the number, every time.</p></div>
+</section>''' % ("".join(
+        '<tr><td class="name mono">%s</td><td class="num">%d</td>'
+        '<td class="num">%d</td><td class="num">%.4f</td><td>%s</td></tr>'
+        % (a, d, n, r, '<span class="no">LABEL</span>' if v == "LABEL"
+           else "measurement") for a, d, n, r, v in res),
+        len(C), len({c[0] for c in X})))
+    cl, _b = hlaw.closures(X)
+    h.append('''<section>
+  <div class="shead"><span class="snum">04</span><h2>What it closes, and what
+  it is not</h2></div>
+  %s
+  <div class="kv" style="margin-top:22px">
+    <div><dt>closers</dt><dd>statistics<small>alone</small></dd></div>
+    <div><dt>E</dt><dd>%d<small>reported, never a target</small></dd></div>
+    <div><dt>its own cell</dt><dd>(%d, %d, %d)</dd></div>
+    <div><dt>occupied by</dt><dd class="hot">%s<small>it is not one of its own
+      first-order indexes</small></dd></div>
+  </div>
+  <p class="after"><b>E is not a target.</b> M: <em>"I don't care about closure.
+  I only care that we identify every possible first-order index."</em> It is
+  reported because it is measured, and no index seated here was built to land on
+  a demanded cell.</p>
+</section>''' % (closure_table(m), DEM.E(X), own[0], own[1], own[2],
+                 ", ".join(occ) if occ else "no member"))
+    h.append('''<section>
+  <div class="shead"><span class="snum">05</span><h2>Dilworth on every
+  vertex</h2></div>
+  <p class="sub">|X| ≤ height × width, so the three axes are not independent and
+  the product box overstates the space — DOCKET 3's other half, by theorem
+  rather than census.</p>
+  <div class="tablewrap"><table><thead><tr><th>index</th><th class="num">|X|</th>
+    <th class="num">height</th><th class="num">width</th>
+    <th class="num">h × w</th><th></th></tr></thead><tbody>%s</tbody></table>
+    <caption>No violations.</caption></div>
+</section>''' % "".join(
+        '<tr><td class="name">%s</td><td class="num">%d</td>'
+        '<td class="num">%d</td><td class="num">%d</td><td class="num">%d</td>'
+        '<td>%s</td></tr>'
+        % (nm, n, hh, w, hw, '<span class="yes">holds</span>' if okd
+           else '<span class="no">VIOLATED</span>')
+        for nm, n, hh, w, hw, okd in FIG.dilworth()))
+    h.append('''<section>
+  <div class="shead"><span class="snum">06</span><h2>What it refuses</h2></div>
+  <ul class="tight refuse">
+    <li><b>To report a growth narrative.</b> The old one was an artefact of the
+      order a contaminated set was seated in, and no clean trajectory exists
+      yet. Vertex counts are printed; trends are not.</li>
+    <li><b>To name a shape.</b> %d vertices is what there are today —
+      <em>hexad</em>, <em>octad</em> and the rest were names for a count that
+      kept moving.</li>
+    <li><b>To treat E as a target.</b></li>
+    <li><b>To call itself complete.</b> <span class="mono">registry.COMPLETE</span>
+      is False and this file has no opinion the registry does not.</li>
+  </ul>
+</section>''' % len(C))
+    h.append(foot("figure", nfixtures("figure")))
+    h.append("</div>")
+    _write("masterindex-plate.html", h)
+
+
 BUILDERS = {"inversion": build_inversion, "probability": build_probability,
             "laws": build_laws, "fibred": build_fibred,
             "madelung": build_madelung, "channels": build_channels,
             "ions": build_ions,
             "nucshell": build_nucshell, "madrule": build_madrule,
-            "terms": build_terms}
+            "terms": build_terms,
+            "masterindex": build_masterindex}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or sorted(BUILDERS)
