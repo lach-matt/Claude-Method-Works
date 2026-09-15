@@ -88,7 +88,27 @@ work, and the numbers are the reason it is not used:
     verdict, but a row demanding one.
 
 ===============================================================================
-4. WHAT THIS FILE REFUSES
+4. RETROSPECTIVE IS TOO LATE, SO THERE IS A PROSPECTIVE CHECK TOO
+===============================================================================
+
+`replacements()` reads committed history.  It would have caught `spectra.py` --
+the day AFTER the clobber, with the diff already pushed.  That is late, and the
+limitation surfaced through a fixture: this file asserted it could see itself in
+`git ls-files`, and failed, because it was not yet committed.
+
+    `pending()` IS THE SAME TEST AGAINST THE WORKING TREE.  For every tracked
+    instrument it compares the identification line at HEAD with the one on disk,
+    and measures the deletion the same way.  A clobber that has been written but
+    not committed shows up there, which is the only moment it is still free to
+    fix.
+
+    IT CANNOT SEE A FILE THAT WAS NEVER COMMITTED, and does not need to: a file
+    with no history has overwritten nothing.  What it cannot see either is a
+    replacement that carefully preserves the identification line, which is the
+    same blind spot clause (b) has and is stated in section 5.
+
+===============================================================================
+5. WHAT THIS FILE REFUSES
 ===============================================================================
 
 To claim git loses anything.  Every superseded byte is recoverable from the
@@ -205,6 +225,36 @@ def citations(path, sha):
     return sorted(out)
 
 
+def pending():
+    """[(path, added, deleted, HEAD ident, working ident)] -- uncommitted ones.
+
+    The prospective half of the guard.  Same two clauses as `replacements()`,
+    applied to the working tree against HEAD, so a clobber is visible while it
+    is still free to fix.
+    """
+    out = []
+    for path in instruments():
+        head = _git("show", "HEAD:%s" % path)
+        if not head:
+            continue
+        full = os.path.join(ROOT, path)
+        if not os.path.exists(full):
+            continue
+        work = open(full, encoding="utf-8").read()
+        if work == head:
+            continue
+        stat = _git("diff", "--numstat", "HEAD", "--", path).split()
+        if len(stat) < 2 or not stat[0].isdigit() or not stat[1].isdigit():
+            continue
+        add, dele = int(stat[0]), int(stat[1])
+        if not (dele > add or dele >= len(head.splitlines()) / 2):
+            continue
+        hb, wb = ident_of(head), ident_of(work)
+        if hb and wb and hb != wb:
+            out.append((path, add, dele, hb, wb))
+    return out
+
+
 def recoverable(path, sha):
     """The superseded blob still resolves in the object store."""
     h = history(path)
@@ -291,8 +341,17 @@ def report():
         print("   %-34s %-8s %-8d %-6s %s"
               % (path, sev, n, "yes" if rec else "NO", "yes" if rc else "NO"))
     print()
+    pend = pending()
+    print("3. THE PROSPECTIVE HALF -- the working tree against HEAD.")
+    if not pend:
+        print("   nothing uncommitted looks like a replacement.")
+    for path, add, dele, hb, wb in pend:
+        print("   %s  +%d -%d" % (path, add, dele))
+        print("      HEAD: %s" % hb[:60])
+        print("      disk: %s" % wb[:60])
+    print()
     bad = unrecorded()
-    print("3. VERDICT: %s"
+    print("4. VERDICT: %s"
           % ("no unrecorded replacement stands" if not bad
              else "%d UNRECORDED REPLACEMENT(S)" % len(bad)))
     for r in bad:
@@ -300,7 +359,7 @@ def report():
               % (r[0], r[3]))
         print("   DOCKET.md. Restore it or write it up.")
     print()
-    print("4. REFUSED: to claim git loses anything -- every superseded byte is")
+    print("5. REFUSED: to claim git loses anything -- every superseded byte is")
     print("   recoverable, and the danger is SILENT loss, a citation pointing")
     print("   at content that no longer answers to its name. To be a hook: this")
     print("   installs nothing. To judge a refactor: clause (b) is what keeps an")
@@ -321,7 +380,13 @@ def selftest():
 
     inst = instruments()
     chk("the tree is tracked", len(inst) > 50, True)
-    chk("this file is one of them", HERE + "/preserve.py" in inst, True)
+    # ASSERTED ON A FILE THAT HAS ALWAYS BEEN TRACKED, not on this one.  The
+    # fixture used to name preserve.py and failed on its first run, because a
+    # file is invisible to `git ls-files` until it is committed.  That failure
+    # is what section 4 exists for; the fixture itself was just bootstrapping.
+    chk("a long-tracked instrument is visible", HERE + "/mi.py" in inst, True)
+    chk("and so is hlaw, which everything imports",
+        HERE + "/hlaw.py" in inst, True)
     # the identification parser, on real content
     chk("it reads this file's own identification",
         (ident_of(open(__file__, encoding="utf-8").read()) or "").startswith(
@@ -364,6 +429,12 @@ def selftest():
     chk("the adjudication table names seven", len(adjudicated()), 7)
     chk("a filename alone is not adjudication -- the sha must match",
         recorded("x/spectra.py", "0000000"), False)
+    # the prospective half
+    pend = pending()
+    chk("no uncommitted replacement is pending",
+        [os.path.basename(p) for p, *_r in pend], [])
+    chk("pending() reads the working tree, not history",
+        isinstance(pend, list), True)
     print("preserve selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
 
@@ -373,8 +444,13 @@ if __name__ == "__main__":
         sys.exit(0 if selftest() else 1)
     if "--check" in sys.argv:
         bad = unrecorded()
+        pend = pending()
         for r in bad:
             print("UNRECORDED REPLACEMENT: %s (%s), cited by %d" % (r[0], r[1], r[3]))
-        print("preserve --check: %s" % ("clean" if not bad else "FAIL"))
-        sys.exit(1 if bad else 0)
+        for path, add, dele, hb, wb in pend:
+            print("UNCOMMITTED REPLACEMENT: %s  +%d -%d" % (path, add, dele))
+            print("    HEAD says: %s" % hb[:60])
+            print("    disk says: %s" % wb[:60])
+        print("preserve --check: %s" % ("clean" if not (bad or pend) else "FAIL"))
+        sys.exit(1 if (bad or pend) else 0)
     sys.exit(report())
