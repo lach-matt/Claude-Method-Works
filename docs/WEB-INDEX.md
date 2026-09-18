@@ -257,8 +257,15 @@ result and the drift runs over the rest.
 ## Deploying
 
 The site is static. `.github/workflows/pages.yml` deploys `public/` to GitHub Pages on every push
-to `main` once Pages is set to "GitHub Actions" under the repository's Settings → Pages. Any
-static host serves it unchanged, and because the data ships as script files it needs no server at
+to `main` that touches it, and on demand, once the Pages site exists with source "GitHub Actions".
+**The workflow cannot create that site itself on this repository.** It carries
+`enablement: true` on `actions/configure-pages`, and run 35385180002 (2026-09-18, on the branch)
+failed at that step with *Resource not accessible by integration*: the repository is private, and
+the job's `GITHUB_TOKEN` may not create a Pages site there — the two earlier runs on `main` failed
+the same way, before that option was set. So the one-time step is a person's: Settings → Pages →
+Source: GitHub Actions, which on a private repository needs a plan that includes Pages, or else
+make the repository public. After that the next push to `main` under `public/**` deploys, and the
+run's `page_url` is the address. Any static host serves it unchanged, and because the data ships as script files it needs no server at
 all: `public/` copied to a phone and `index.html` opened from the file system is the same site.
 
 ## What it is not
