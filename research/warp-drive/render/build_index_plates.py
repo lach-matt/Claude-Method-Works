@@ -1198,9 +1198,12 @@ def build_masterindex():
   one here.</p>
   <div class="stamp"><span>instrument <b>figure.py</b></span>
   <span>vertices <b>%d</b></span><span>cells <b>%d</b></span>
-  <span>box <b>%d</b></span><span>closes <b>statistics</b></span>
+  <span>box <b>%d</b></span><span>closes <b>%s</b></span>
+  <span>channels <b>%d of 8</b></span>
   <span>E <b>%d</b></span><span>its own cell <b>(%d,&nbsp;%d,&nbsp;%d)</b></span></div>
-</header>''' % (len(C), m["cells"], m["box"], DEM.E(X), *own))
+</header>''' % (len(C), m["cells"], m["box"],
+                " + ".join(FIG.closers()) or "nothing",
+                len(ks), DEM.E(X), *own))
     h.append('''<div class="note warn" style="margin-top:26px">
   <span class="lab">The rebuild: it asks the registry, and the predecessor did not</span>
   <p><span class="mono">mi.py</span>'s master index is built on a <b>hardcoded
@@ -1248,51 +1251,59 @@ def build_masterindex():
                       "K  the channel"),
         [(ramp(ks)[v], "K%d" % v) for v in ks],
         plate.exactness(X, (0, 1, 2), m["cells"], 0, []) +
-        " Each point is a whole index — <b>the labelled dot is that index's "
-        "entire chart reduced to one position</b>. Colour is K, the channel, "
-        "which is also the vertical axis: the four sheets are the four channels "
-        "the eleven occupy out of eight possible. <b>gravity's width of 112 is "
-        "what stretches the box</b>, and the crowd near the origin is every "
-        "small index.",
+        " Each point is a whole index — <b>the labelled dot is that "
+        "index's entire chart reduced to one position</b>. Colour is K, the "
+        "channel, which is also the vertical axis: the %d sheets are the %d "
+        "channels the %d occupy out of eight possible, and the three narrowest "
+        "points are the coarsenings M's overlap ruling seated. <b>gravity's "
+        "width of 112 is what stretches the box</b>, and the crowd near the "
+        "origin is every small index." % (len(ks), len(ks), len(C)),
         "One point per seated index, at its own cell. Labelled, because there "
-        "are only eleven and each one is a whole index.",
+        "are only %d and each one is a whole index." % len(C),
         "02", "The master index, plotted exactly", radius=8,
         aria="the index of first-order indexes: %d vertices at height, width "
              "and channel" % len(C)))
     h.append('''<section>
-  <div class="shead"><span class="snum">03</span><h2>Two of its three axes are
-  row labels, and growth exposed it</h2></div>
+  <div class="shead"><span class="snum">03</span><h2>Its three axes were two
+  row labels and a measurement — and are now three measurements</h2></div>
   <div class="tablewrap"><table><thead><tr><th>axis</th>
     <th class="num">distinct</th><th class="num">of</th>
     <th class="num">ratio</th><th>verdict</th></tr></thead><tbody>%s</tbody>
     </table><caption>The threshold is 0.9.</caption></div>
   <div class="note warn">
-    <span class="lab">The chart that measures every index here is, applied to
-    itself, two row labels and one measurement</span>
+    <span class="lab">A recorded prediction, refuted by measurement</span>
     <p>A coordinate separating 90 %% or more of the members <em>groups
-    nothing</em> and multiplies the box — which is exactly what
-    <span class="mono">overlap.py</span> exists to catch, and it catches it
-    here. Each index has essentially its own height and its own width, so those
-    two approach injectivity <b>by construction</b> as the figure grows:
-    invisible at six vertices, plain at %d.</p>
-    <p style="margin-bottom:0">Only <b>K</b> stays a measurement — a down-set of
-    the language poset, eight possible values and %d observed.
-    <b>Recorded and not repaired</b>: changing the master index's chart is a
-    <em>ruling</em>, and DOCKET 11 pinned (K, height, width). What can be done
-    honestly is print the limit beside the number, every time.</p></div>
+    nothing</em> and multiplies the box — which is what
+    <span class="mono">overlap.py</span> exists to catch. <b>At eleven vertices
+    it caught it here</b>: height 0.909 and width perfectly injective at 1.000,
+    both LABELs, leaving K the only measurement. The reasoning filed with that
+    finding was that each index has essentially its own height and its own
+    width, so the two approach injectivity <b>by construction</b> as the figure
+    grows.</p>
+    <p><b>That reasoning is now refuted.</b> Three more vertices — the
+    coarsenings M's overlap ruling seated — made it <em>better</em>: height
+    0.909 &rarr; 0.714, width 1.000 &rarr; 0.857, and <b>no axis is a row label
+    any more</b>. The prediction assumed every new index brings a new height and
+    a new width; a <em>coarsening</em> of a seated index does not, because it
+    lands in the part of the poset its parent already occupies. The label
+    problem tracks <b>how the vertex set is built</b>, not how big it is.</p>
+    <p style="margin-bottom:0"><b>K</b> was never in doubt — a down-set of the
+    language poset, eight possible values and %d observed at %d vertices.
+    DOCKET 11's chart is unchanged: nothing was repaired, the figure moved, and
+    the old reading is kept beside the new one.</p></div>
 </section>''' % ("".join(
         '<tr><td class="name mono">%s</td><td class="num">%d</td>'
         '<td class="num">%d</td><td class="num">%.4f</td><td>%s</td></tr>'
         % (a, d, n, r, '<span class="no">LABEL</span>' if v == "LABEL"
            else "measurement") for a, d, n, r, v in res),
-        len(C), len({c[0] for c in X})))
+        len({c[0] for c in X}), len(C)))
     cl, _b = hlaw.closures(X)
     h.append('''<section>
   <div class="shead"><span class="snum">04</span><h2>What it closes, and what
   it is not</h2></div>
   %s
   <div class="kv" style="margin-top:22px">
-    <div><dt>closers</dt><dd>statistics<small>alone</small></dd></div>
+    <div><dt>closers</dt><dd>%s<small>%s</small></dd></div>
     <div><dt>E</dt><dd>%d<small>reported, never a target</small></dd></div>
     <div><dt>its own cell</dt><dd>(%d, %d, %d)</dd></div>
     <div><dt>occupied by</dt><dd class="hot">%s<small>it is not one of its own
@@ -1302,7 +1313,11 @@ def build_masterindex():
   I only care that we identify every possible first-order index."</em> It is
   reported because it is measured, and no index seated here was built to land on
   a demanded cell.</p>
-</section>''' % (closure_table(m), DEM.E(X), own[0], own[1], own[2],
+</section>''' % (closure_table(m),
+                 " + ".join(FIG.closers()) or "none",
+                 "it closes in nothing; at eleven vertices it closed under "
+                 "statistics" if not FIG.closers() else "of the five",
+                 DEM.E(X), own[0], own[1], own[2],
                  ", ".join(occ) if occ else "no member"))
     h.append('''<section>
   <div class="shead"><span class="snum">05</span><h2>Dilworth on every
@@ -1340,13 +1355,247 @@ def build_masterindex():
     _write("masterindex-plate.html", h)
 
 
+
+def build_overlaprule():
+    """M's overlap ruling: what it seats, what it refuses, and on which ground."""
+    import overlaprule as OR
+    import figure as FIG
+    ks_all = sorted({c[0] for c in FIG.figure()})
+    cand = [(pp, cc, OR.mi.K(OR.project(pp, cc)), len(OR.project(pp, cc)),
+             OR.adjudicate(pp, cc)) for pp, cc, _k in OR.CANDIDATES]
+    seats = OR.admissible()
+    gate_first, max_first = OR.order_matters()
+
+    h = [plate.head("The Overlap Ruling"), '<div class="wrap">']
+    h.append('''<header class="mast">
+  <p class="eyebrow">Research plate &middot; a ruling, and its three seatings</p>
+  <h1>The Overlap&nbsp;Ruling</h1>
+  <p class="dek">When a chart that overlaps a seated index may be seated
+  anyway &mdash; and when it is one piece of information seated twice.</p>
+  <div class="stamp"><span>instrument <b>overlaprule.py</b></span>
+  <span>candidates <b>%d</b></span><span>seated <b>%d</b></span>
+  <span>refused <b>%d</b></span><span>channels now <b>%d of 8</b></span></div>
+</header>''' % (len(cand), len(seats), len(OR.refused()), len(ks_all)))
+
+    h.append('''<div class="note">
+  <span class="lab">The ruling</span>
+  <p style="margin-bottom:0"><em>&ldquo;They can be seated with overlaps so long
+  as it is not an overlap of same information. An overlap of values in two
+  different languages should tell us two parts of definition contained in that
+  overlapped position. Information is information. But its relative position in
+  this index is information about an object.&rdquo;</em> &mdash; M</p>
+</div>''')
+
+    h.append('''<section>
+  <div class="shead"><span class="snum">01</span><h2>The reading is picked by
+  arithmetic, not by preference</h2></div>
+  <p class="sub">Six readings of &ldquo;not an overlap of same information&rdquo;,
+  charted against all 272 proper sub-charts of the seated indexes.</p>
+  <div class="tablewrap"><table><thead><tr><th>reading</th>
+    <th class="num">admits</th><th></th></tr></thead><tbody>
+    <tr><td>R1 &mdash; channel differs from its own parent</td>
+      <td class="num">109</td><td><span class="no">explodes</span></td></tr>
+    <tr><td>R2 &mdash; cell differs from its own parent</td>
+      <td class="num">254</td><td><span class="no">explodes</span></td></tr>
+    <tr><td>R3 &mdash; cell occupied by no seated vertex</td>
+      <td class="num">252</td><td><span class="no">explodes</span></td></tr>
+    <tr><td><b>R4 &mdash; CHANNEL occupied by no seated vertex</b></td>
+      <td class="num"><b>6</b></td><td><span class="yes">bounded</span></td></tr>
+    </tbody></table>
+    <caption><b>R3 admits 252, of which 117 are coarsenings of
+    <span class="mono">gravity</span> alone</b> &mdash; the explosion
+    <span class="mono">overlap.py</span> exists to prevent, through the front
+    door. R4 admits six, and R4 is what M&rsquo;s words say: the ruling names
+    <em>languages</em>, and the channel is the set of languages that close a
+    chart.</caption></div>
+</section>''')
+
+    h.append('''<section>
+  <div class="shead"><span class="snum">02</span><h2>Every candidate, every
+  ground</h2></div>
+  <p class="sub">Two of the three grounds are DOCKET 2&rsquo;s own, from the
+  withdrawal of <span class="mono">periodic layout 2-D</span>: a chart with as
+  many cells as its parent is the parent relabelled, and a channel that moves
+  as the construction extends is a fact about where it stopped.</p>
+  <div class="tablewrap"><table><thead><tr><th>parent</th><th>sub-chart</th>
+    <th class="num">K</th><th class="num">cells</th><th>novel channel</th>
+    <th>not a relabelling</th><th>reach gate</th><th></th></tr></thead>
+    <tbody>%s</tbody></table>
+    <caption><b>%d seated, %d refused.</b> K1, K5 and K6 became occupied; K4
+    did not &mdash; its only two candidates both failed on the reach, which is
+    two failures and not a theorem.</caption></div>
+</section>''' % ("".join(
+        '<tr><td class="name">%s</td><td class="mono sm">%s</td>'
+        '<td class="num">%d</td><td class="num">%d</td>'
+        '<td>%s</td><td>%s</td><td>%s</td><td><b>%s</b></td></tr>'
+        % (pp, "/".join(cc), k, nc,
+           _yn(g["novel channel"]), _yn(g["not a relabelling"]),
+           _yn(g["reach stable"]),
+           '<span class="yes">SEAT</span>' if okd
+           else '<span class="no">refuse</span>')
+        for pp, cc, k, nc, (okd, g) in cand), len(seats), len(OR.refused())))
+
+    h.append('''<section>
+  <div class="shead"><span class="snum">03</span><h2>The reach gate</h2></div>
+  <p class="sub">Shaped after the two failures this tree has already seen
+  &mdash; DOCKET 2&rsquo;s moving channel and <span class="mono">terms.py</span>&rsquo;s
+  non-monotone cell count. <b>(a)</b> no late arrival, <b>(b)</b> no
+  oscillation, <b>(c)</b> a majority of reaches. Swept over each parent&rsquo;s
+  own <em>data</em> reach and never over an independent variable.</p>
+  <div class="tablewrap"><table><thead><tr><th>sub-chart</th>
+    <th class="num">holds</th><th>the sweep</th></tr></thead><tbody>%s</tbody>
+    </table><caption>A gate that admits everything is not a gate: this one
+    refuses half of what it is shown.</caption></div>
+</section>''' % "".join(
+        '<tr><td class="name">%s <span class="mono sm">%s</span></td>'
+        '<td class="num">%d/%d</td><td class="mono sm">%s</td></tr>'
+        % (pp, "/".join(cc), OR.ground_reach_stable(pp, cc)[1],
+           OR.ground_reach_stable(pp, cc)[2],
+           " &nbsp; ".join(
+               ("<b>K%d</b>" % kk if kk == k else
+                '<span class="no">K%d</span>' % kk) + "<small>(%d)</small>" % nn
+               for _l, nn, kk in OR.reach_sweep(pp, cc)))
+        for pp, cc, k, _nc, _v in cand))
+
+    # ---- the three 3-D views.  Two of the three charts have arity 2, so the
+    # third axis is the REACH -- the sweep that gated them, drawn rather than
+    # tabulated.  It is a real coordinate of the measurement, not a filler.
+    for snum, (pp, cc) in zip(("04", "05", "06"),
+                              [(a, b) for a, b, _k, _n in seats]):
+        k = OR.mi.K(OR.project(pp, cc))
+        X = OR.project(pp, cc)
+        unit, pts_r = OR.SWEEPS[pp]
+        if len(cc) == 3:
+            vals = sorted({x[2] for x in X})
+            tok = ramp(vals)
+            pt = [(x[0], x[1], x[2], tok[x[2]], 0, None) for x in sorted(X)]
+            axes = (cc[0], cc[1], cc[2])
+            legend = [(tok[v], "%s = %s" % (cc[2], v)) for v in vals]
+            cap = ("<b>This view is the index itself, not a projection of "
+                   "it.</b> The chart has three coordinates and they are the "
+                   "three axes, so every one of the %d cells is its own point "
+                   "and nothing is collapsed. <b>It is join-closed and not "
+                   "meet-closed</b> &mdash; 0 join counterexamples against 32 "
+                   "meet, in 325 unordered pairs &mdash; so it is a "
+                   "join-semilattice, which is the shape K1 has here." % len(X))
+            sub_ = ("One point per realised (bound class, forced angular "
+                    "momentum, spin decade). Colour is the spin decade.")
+        else:
+            tok = ramp(list(pts_r))
+            pt = []
+            for r in pts_r:
+                for x in sorted(OR.at_reach(pp, cc, r)):
+                    pt.append((x[0], x[1], r, tok[r], 0, None))
+            axes = (cc[0], cc[1], "reach  %s" % unit)
+            legend = [(tok[r], "%s %s" % (unit, r)) for r in pts_r]
+            cap = ("The chart has two coordinates, so <b>the third axis is the "
+                   "reach</b> &mdash; the sweep the gate ran, drawn rather "
+                   "than tabulated. Each horizontal sheet is the chart at one "
+                   "reach; read upward to watch it fill. <b>%d of the %d "
+                   "sheets close in K%d</b>, which is what the gate measures, "
+                   "and the top sheet is the %d cells actually seated."
+                   % (OR.ground_reach_stable(pp, cc)[1], len(pts_r), k, len(X)))
+            sub_ = ("The chart at every point of its own data reach, stacked. "
+                    "Colour is the reach.")
+        h.append(plate.view3d(
+            "or3d%s" % snum, pt, axes, legend, cap, sub_, snum,
+            "%s (%s) &mdash; K%d" % (pp, ", ".join(cc), k), radius=7,
+            aria="%s on %s, %d points" % (pp, "/".join(cc), len(pt))))
+
+    h.append('''<section>
+  <div class="shead"><span class="snum">07</span><h2>The order of the two tests
+  is load-bearing</h2></div>
+  <p class="sub">A maximality clause also applies: if a super-chart of the same
+  parent reaches the same channel, the smaller chart repeats its language set
+  and carries nothing more. <span class="mono">gravity&nbsp;(B,F,X)</span> and
+  <span class="mono">gravity&nbsp;(B,F,X,E)</span> are exactly that pair, both
+  K1 &mdash; and the gate refuses the larger one.</p>
+  <div class="kv">
+    <div><dt>gate, then maximality</dt><dd>%s<small>K1 occupied</small></dd></div>
+    <div><dt>maximality, then gate</dt><dd>%s<small>K1 EMPTY</small></dd></div>
+  </div>
+  <p class="after"><b>Soundness before redundancy.</b> The gate asks whether a
+  channel verdict is a fact about the object; maximality asks which of two facts
+  to keep. A chart that fails the gate has no channel verdict to be maximal
+  about. Here the clause is <em>inert</em> &mdash; the three that pass have three
+  different parents &mdash; and it is implemented and fixtured anyway, because it
+  is inert by measurement and not by construction.</p>
+</section>''' % (", ".join("K%d" % k for k in gate_first),
+                 ", ".join("K%d" % k for k in max_first)))
+
+    h.append('''<section>
+  <div class="shead"><span class="snum">08</span><h2>Recorded, not explained:
+  the closure algebra sees the ultraspinning threshold</h2></div>
+  <p class="sub">Sweeping <span class="mono">gravity</span>&rsquo;s D &mdash; its
+  <em>independent variable</em>, so no part of any gate.</p>
+  <div class="tablewrap"><table><thead><tr><th>sub-chart</th>%s</tr></thead>
+    <tbody>%s</tbody></table></div>
+  <div class="note warn">
+    <span class="lab">D = 6 is exactly where singly-rotating Myers&ndash;Perry
+    loses its horizon bound</span>
+    <p style="margin-bottom:0">Read in four and five dimensions the bound
+    structure of nuclear matter <b>closes in all five languages</b>. Admit the
+    sixth and four of the five break at once, leaving information alone, and it
+    never moves again through D&nbsp;=&nbsp;11. D&nbsp;=&nbsp;4 gives the Kerr
+    bound &mu;&nbsp;&ge;&nbsp;2a, D&nbsp;=&nbsp;5 gives
+    &mu;&nbsp;&ge;&nbsp;a&sup2;, and from D&nbsp;=&nbsp;6 the ultraspinning
+    branch has none. <b>The threshold is visible in the closure algebra, at the
+    dimension the theorem names, without the closure operators being told
+    anything about dimension.</b> One threshold in one index, found by sweeping
+    rather than predicted, and no mechanism is offered for why losing a bound
+    should cost four languages and not three.</p></div>
+</section>''' % ("".join('<th class="num">D &le; %d</th>' % d
+                          for d, _n, _k in OR.dimension_finding()[0][1]),
+                 "".join(
+        '<tr><td class="name mono sm">%s</td>%s</tr>'
+        % ("/".join(cols),
+           "".join('<td class="num">%s</td>'
+                   % ('<span class="no">K%d</span>' % kk if kk != 1
+                      else "<b>K%d</b>" % kk) for _d, _n, kk in seq))
+        for cols, seq in OR.dimension_finding())))
+
+    h.append('''<section>
+  <div class="shead"><span class="snum">09</span><h2>What this ruling refuses</h2></div>
+  <ul class="tight refuse">
+    <li><b>To seat on a differing channel alone.</b> Three of six candidates
+      died on the other grounds.</li>
+    <li><b>To call K4 unreachable.</b> Two candidates reached it and both failed
+      the reach gate. Two failures, not a theorem.</li>
+    <li><b>To reopen DOCKET 2.</b> <span class="mono">periodic layout 2-D</span>
+      fails the bijection ground <em>and</em> the reach ground.</li>
+    <li><b>To revive anything deleted for the criterion.</b>
+      <span class="mono">store.py</span>, <span class="mono">obstruction.py</span>,
+      <span class="mono">cross.py</span>, <span class="mono">density.py</span> and
+      <span class="mono">occupy.py</span> went because their members are not
+      elements, and this ruling says nothing about that.</li>
+    <li><b>To be run twice for more.</b>
+      <span class="mono">seated_channels()</span> excludes the ruling&rsquo;s own
+      rows, so a second pass sees the same four empty channels and the same six
+      candidates. Nothing compounds.</li>
+    <li><b>To claim the per-witness readings were independently checked.</b> A
+      seventeen-agent adversarial run returned <em>one</em> agent before a weekly
+      quota; it checked the readings in section 01 and contributed section 07,
+      and nothing else. The physics stated for each seating is this tree&rsquo;s
+      own reading.</li>
+  </ul>
+</section>''')
+    h.append(foot("overlaprule", nfixtures("overlaprule")))
+    h.append("</div>")
+    _write("overlaprule-plate.html", h)
+
+
+def _yn(v):
+    return ('<span class="yes">yes</span>' if v
+            else '<span class="no">NO</span>')
+
 BUILDERS = {"inversion": build_inversion, "probability": build_probability,
             "laws": build_laws, "fibred": build_fibred,
             "madelung": build_madelung, "channels": build_channels,
             "ions": build_ions,
             "nucshell": build_nucshell, "madrule": build_madrule,
             "terms": build_terms,
-            "masterindex": build_masterindex}
+            "masterindex": build_masterindex,
+            "overlaprule": build_overlaprule}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or sorted(BUILDERS)
