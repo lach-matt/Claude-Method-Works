@@ -12200,6 +12200,45 @@ maximality clause. The per-witness physics above is therefore *this tree's own r
 corroborated by `madelung.py` §3 for the madelung row and by nothing outside this tree for the other
 two. It is stated as a claim and is not stated as verified.
 
+### What the ruling leaves open, stated as dockets
+
+**DOCKET 22 — the per-witness physics is unverified.** A seventeen-agent adversarial run (three
+lenses on each of the six candidates, plus precedent, consequence and synthesis) returned **one
+agent** before the account hit a weekly quota. That one reproduced the reading counts of section 01
+and contributed the maximality clause; it checked nothing else. The two-parts-of-the-definition
+statements for `gravity (B,F,X)` and `nucshell (l,σ)` rest on this tree's own reading alone;
+`madelung (n+l,k)` is corroborated by `madelung.py` §3. **What would settle it:** re-run the same
+three lenses per witness and see whether any refutes. The run is scripted and resumable.
+
+**DOCKET 23 — `madrule (S_a, l_d)` is the likeliest refusal to be overturned.** It holds K4 at both
+Z ≤ 103 and Z ≤ 108, so it passes the open-upper-bound test that `ions` fails; it is refused on the
+majority condition alone, with five earlier reaches of 1–5 cells. **What would settle it:** new
+elements. Its 20 exceptions saturate at Z = 103, and a handful of new synthesised elements would
+either give it a majority or move it off K4. Note also §3c — being arity 2, half of K4 is free to it
+either way, so overturning the count would not by itself earn the channel.
+
+**DOCKET 24 — an unreproduced K1 candidate over a new member set.** A hunt agent, before dying on
+the same quota, reported *"K1 — one of the four empty channels, stable across four caps"* on the
+U3/U4 allowed sets, having measured the 5,132 LS terms down to **100 distinct observed (2L, 2S, 2J)
+triples, 99 of which satisfy the triangle rule** (the one exception being terms.py's own known Al I
+MIXED member). Its exact construction died with it. **Two reconstructions were tried and neither
+reproduces K1**: the observed triples on (2L, 2S, 2J) land at **K0** `(0, 18, 9)`, and the
+allowed-minus-observed residual lands at **K2** at cap 6 and **K0** at caps 8–16. This is recorded as
+a lead, not a result. **What would settle it:** the agent named "U3/U4", which does not match the
+triangle-rule reading either reconstruction used — identifying what it meant is the whole of the
+work. Unlike the six coarsenings, this would be a **new member set** and would need no overlap
+ruling at all.
+
+**DOCKET 25 — the unseated-chart sweep is partial.** Every chart-shaped accessor in the research
+tree is being charted, looking for first-order indexes that already exist here as functions and have
+never been seated. Twelve found so far; the five that are seated chart as expected, and the seven
+that are not — `axes.index`, `bounds.cells`, `channels.provenance_chart`,
+`channels.grade_only_chart`, `entropy.index`, `figure.figure`, `figure.index` — all land in
+**already-occupied channels** (K0, K2, K3), and most are excused by `registry.NOT_AN_INDEX` anyway
+because their members are axes, bounds, refusals or the seated indexes themselves. **Yield so far is
+zero new indexes.** The sweep is expensive because importing a module runs its report; it is capped
+and will not cover the whole tree in one pass.
+
 ## The index of first-order indexes, rebuilt — and what the rebuild found
 
 M: *"Rebuild the index of first-order indexes please."*
