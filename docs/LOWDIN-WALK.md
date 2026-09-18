@@ -56,15 +56,63 @@ fixture, ε = c²(√(1 − (Z/c)²) − 1); at c → ∞ it is Schrödinger's, 
 the relativistic term with the wrong sign **fails** the Dirac fixture — the record's own demand
 (§III) that every instrument carry a demonstrable failure mode.
 
-**The field is not the record's.** The record's mean field is Hartree–Fock. This instrument's is
-the **local-exchange** self-consistent field of Herman and Skillman (1963): Hartree potential of
-the density plus Kohn–Sham exchange V_x = −(3ρ/π)^{1/3}, with Latter's tail so that an occupied
-orbital sees −(Z − N + 1)/r asymptotically. The added electron of the frontier scan sees the
-unmodified field, asymptote −(Z − N)/r = −1/r, which is why a far g channel sits near −1/(2n²)
-here as in the record. Non-local exchange is **not reproduced**, and nor are the record's collapse
-criterion (register 1703), its correlation clause (1705) or its Z = 91 two-branch diagnostic.
-Local exchange is known to bind compact d and f channels more strongly than Hartree–Fock does,
-and the divergences below sit exactly where that bias acts.
+**Two fields, and the second is the record's.** The instrument runs the chain in two mean
+fields, chosen by `--field`, and the table carries both under a `field` column.
+
+*`lx`, local exchange.* The self-consistent field of Herman and Skillman (1963): Hartree
+potential of the density plus Kohn–Sham exchange V_x = −(3ρ/π)^{1/3}, with Latter's tail so that
+an occupied orbital sees −(Z − N + 1)/r asymptotically. The added electron of the frontier scan
+sees the unmodified field, asymptote −(Z − N)/r = −1/r. Local exchange is known to bind compact
+d and f channels more strongly than Hartree–Fock does, and its divergences from the record sit
+exactly where that bias acts. It is also the start every Hartree–Fock field is converged from.
+
+*`hf`, Hartree–Fock.* The average-of-configuration Hartree–Fock field with non-local exchange —
+the object Bach, Lieb, Loss and Solovej's theorem is about, which the record names as its
+well-posedness condition (§X, Law C) — under the same Koelling–Harmon kinetic operator. For a
+shell a of occupation q_a:
+
+```
+(T + V_a) P_a − X_a = ε_a P_a + Σ_b ε_ab P_b
+V_a = −Z/r + (q_a−1)[Y⁰(aa) − (2ℓ+1)/(4ℓ+1) Σ_{k>0} a_k(ℓ,ℓ) Y^k(aa)]/r + Σ_{b≠a} q_b Y⁰(bb)/r
+X_a = Σ_{b≠a} ½ q_b Σ_k a_k(ℓ_a,ℓ_b) Y^k(ab)/r · P_b ,     a_k(ℓ,ℓ') = (ℓ k ℓ'; 0 0 0)²
+```
+
+Each equation is solved as an inhomogeneous shooting problem: homogeneous and particular
+solutions integrated out and in with a shared coefficient pass, matched at the turning point,
+the eigenvalue fixed by the norm condition ∫P² = 1 on the branch below the local eigenvalue
+(the exchange operator is positive, so the Hartree–Fock root lies below it, where the norm falls
+from its pole and crosses one exactly once). The inward integration starts where the WKB decay
+from the turning point reaches e⁻¹², not further: the homogeneous solution grows by that same
+factor and the matching subtracts it from the particular branch, so a longer span costs digits.
+Orbitals of one ℓ are coupled by off-diagonal multipliers ε_ab. Each equation carries its own
+and, at the root, one exact Newton step (one particular solution per partner, the problem being
+linear in its source) moves them to the values that make the solution orthogonal, so every
+equation holds exactly with an orthonormal set. What that leaves free is the rotation angle of
+each coupled pair within its own span, and the variational condition q_a ε_ab = q_b ε_ba fixes it
+(Froese Fischer's rotation analysis): after every sweep each pair takes a Newton step toward the
+angle at which the energy is stationary, with the exact gradient 2(q_a⟨b|F_a|a⟩ − q_b⟨a|F_b|b⟩)
+from the state's orbitals and the curvature from the energy at three angles. Nothing is
+Schmidt-orthogonalised — a Schmidt step after mixing admits fixed points at which the solved
+orbital differs from the stored one by a multiple of its partner, and the equations then hold
+only up to that residual; two such fixed points, at 3 × 10⁻⁵ and 10⁻³ hartree from the exact
+values, were found and discarded on the way to this scheme. A pair of closed shells carries no
+multiplier and no rotation: the energy is invariant under their rotation, every rotated pair
+solves the coupled equations, and only the canonical pair carries the orbital energies the
+record compares. The added electron of the scan sees the same operator at the full occupation,
+its own exchange with every occupied orbital and its multipliers against the occupied orbitals of
+its ℓ iterated until the overlaps vanish. One approximation is stated and is the field's only
+one: the one-electron part of the rotation energy is non-relativistic; the operators solved are
+Koelling–Harmon throughout, and the angle is a correction.
+
+The fixtures are the exact numerical Hartree–Fock orbital energies of Froese Fischer and of
+Clementi and Roetti, at c → ∞, reproduced to 2 × 10⁻⁴ or better (most to 10⁻⁶): He 1s
+−0.917956, Li 2s −0.196323, Be 2s −0.309270, B 2p −0.309856, Ne 2p −0.850410, Na 3s −0.182103,
+Ar 3p −0.591017 — closed shells, single open shells, and open shells coupled to one and to two
+closed shells of the same ℓ, which is where a multiplier scheme fails if it is going to.
+
+Neither field reproduces the record's collapse criterion (register 1703), its correlation clause
+(1705) or its Z = 91 two-branch diagnostic; and the `hf` field is a rebuild from the record's
+statement, not the record's code, which never arrived.
 
 **Numerics.** Logarithmic grid r = e^x from 10⁻⁷ to 300 bohr, step 0.005 in x, 4,365 points.
 The equation is integrated as a first-order pair in x by fourth-order Runge–Kutta, outward from
@@ -77,13 +125,15 @@ Stdlib only; runs on the default `python3` (3.11).
 
 ## What it returns
 
-`LOWDIN-WALK.tsv` at the repository root: **238 rows**, 119 per setting, Z = 2 to 120, one row per
-(c, Z). Columns: `c`, `Z`, `symbol`, `cfg_prev` (the chain's own cfg(Z−1)), `entrant`, `D_ent`,
-`runner_up`, `D_runner`, `margin` (|D(entrant)| − |D(runner-up)|), `observed_gain` (the channel
-that gained an electron from Z−1 to Z in `LW1-ground.py`, or `-` above 108), `agree`, `spectrum`
-(every bound candidate, deepest first), `scf_iterations`, `converged`, `status`. Every status is
-`RECONSTRUCTED`. Regenerate it, never hand-edit it; `--verify` recomputes one row at each setting
-and compares.
+`LOWDIN-WALK.tsv` at the repository root: one row per (field, c, Z), Z = 2 to 120, 119 rows per
+(field, setting). Columns: `field` (`lx` or `hf`), `c`, `Z`, `symbol`, `cfg_prev` (the chain's own
+cfg(Z−1)), `entrant`, `D_ent`, `runner_up`, `D_runner`, `margin` (|D(entrant)| − |D(runner-up)|),
+`observed_gain` (the channel that gained an electron from Z−1 to Z in `LW1-ground.py`, or `-`
+above 108), `agree`, `spectrum` (every bound candidate, deepest first), `scf_iterations`,
+`converged`, `status`, `note` (empty, or what went wrong: a field that did not converge says so
+with its residuals, and a Hartree–Fock step that failed twice says the row carries the
+local-exchange result). Every status is `RECONSTRUCTED`. Regenerate it, never hand-edit it;
+`--verify` recomputes one row per (field, setting) and compares.
 
 ## What it measured
 
@@ -138,13 +188,15 @@ and its disagreements with the record are named row by row with the margin at ea
 ## How to run it
 
 ```
-python3 tools/lowdin_walk.py --selftest                      # 29 checks, about 2 s
-python3 tools/lowdin_walk.py --z 47 --c 137.035999 --from observed
-python3 tools/lowdin_walk.py --z 90 --c inf --from observed  # one step, 4–9 s each
-python3 tools/lowdin_walk.py --goldens                        # Ag, Hg, Th at both settings
-python3 tools/lowdin_walk.py --chain --c 137.035999 --out c137.tsv   # 119 rows, ~8 min
-python3 tools/lowdin_walk.py --chain --c inf --out cinf.tsv          # ~6 min
-python3 tools/lowdin_walk.py --merge c137.tsv cinf.tsv --out LOWDIN-WALK.tsv
+python3 tools/lowdin_walk.py --selftest                      # 39 checks, about 25 s
+python3 tools/lowdin_walk.py --z 47 --c 137.035999 --from observed              # lx, 4 s
+python3 tools/lowdin_walk.py --z 90 --c inf --field hf --from observed          # hf, minutes
+python3 tools/lowdin_walk.py --goldens [--field hf]           # Ag, Hg, Th at both settings
+python3 tools/lowdin_walk.py --chain --c 137.035999 --out lx-c137.tsv           # 119 rows, ~8 min
+python3 tools/lowdin_walk.py --chain --c inf --out lx-cinf.tsv                  # ~6 min
+python3 tools/lowdin_walk.py --chain --c 137.035999 --field hf --out hf-c137.tsv  # hours
+python3 tools/lowdin_walk.py --chain --c inf --field hf --out hf-cinf.tsv
+python3 tools/lowdin_walk.py --merge lx-c137.tsv lx-cinf.tsv hf-c137.tsv hf-cinf.tsv --out LOWDIN-WALK.tsv
 python3 tools/lowdin_walk.py --report LOWDIN-WALK.tsv [--json]
 python3 tools/lowdin_walk.py --verify LOWDIN-WALK.tsv
 ```

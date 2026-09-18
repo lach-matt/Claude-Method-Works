@@ -994,7 +994,7 @@
         ${row('E', c.E, 'PINNED', E_TIP)}
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, section 6')}
       </div>`)}
-      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.file || '').split('/').pop()} L${paper.eleven_line}; register 1706`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.budget) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in a local-exchange field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction run in a field that is not the record\'s; placed beside it, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
+      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.file || '').split('/').pop()} L${paper.eleven_line}; register 1706`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.budget) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
       ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
       <div class="cite">${esc(citation(rootNode))}</div>`;
@@ -1021,29 +1021,39 @@
     return relRecordSection(e, rel) + walkSection(e, rec, rel);
   }
 
+const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'s field, rebuilt)', lx: 'local exchange (Hartree–Fock–Slater)' };
   function walkSection(e, rec, rel) {
     // the reconstruction (tools/lowdin_walk.py over LOWDIN-WALK.tsv), RECONSTRUCTED, beside the
-    // record's READ result and never in its place
+    // record's READ result and never in its place; one block per field, the record's own
+    // (Hartree–Fock) first where it is held
     const walk = rel.walk;
     if (!walk) return '';
     const wr = rec && rec.walk;
-    if (!wr) return section('The walk, reconstructed', `<p class="note">no row at Z = ${e.Z}: the walk runs Z = 2 to 120 (${esc(walk.table.file)})</p>`, badge('RECONSTRUCTED', walk.field));
+    if (!wr || !wr.fields) return section('The walk, reconstructed', `<p class="note">no row at Z = ${e.Z}: the walk runs Z = 2 to 120 (${esc(walk.table.file)})</p>`, badge('RECONSTRUCTED', walk.field));
     const fmtD = (v) => (v === null || v === undefined) ? '—' : v.toFixed(6);
     const spec = (r) => r.spectrum.slice(0, 6).map((x) => `${esc(x.channel)} ${x.D.toFixed(5)}`).join(' · ') + (r.spectrum.length > 6 ? ' · …' : '');
-    const one = (k, label) => {
-      const r = wr[k];
-      if (!r) return row(label, 'no row', null, 'the walk carries no row here');
-      return row(label, `<strong>${esc(r.entrant)}</strong> <span class="plain">D = ${fmtD(r.D_ent)} Ha · runner-up ${esc(r.runner_up)} by ${fmtD(r.margin)} · in the field of (Z = ${e.Z}, ${esc(r.cfg_prev)}) · candidates: ${spec(r)}</span>`, 'RECONSTRUCTED', `tools/lowdin_walk.py: scf ${r.scf_iterations} iterations${r.converged ? ', converged' : ', NOT CONVERGED'}; the depth is one electron's eigenvalue in the frozen local-exchange field`);
-    };
-    const c1 = wr.c137;
-    const body = `<div class="fields">
-      ${one('c137', 'entrant at c = 137.035999')}
-      ${one('cinf', 'entrant at c → ∞')}
-      ${row('displaced in the reconstruction', wr.displaced ? `yes <span class="rel-tag walk-tag">entrants differ</span>` : 'no', 'RECONSTRUCTED', 'whether the two settings\' entrants differ at this Z')}
-      ${c1 && c1.observed_gain !== '-' ? row('observed gain at this Z', `${esc(c1.observed_gain)} — the c = 137 entrant ${c1.agree === 'yes' ? 'agrees' : 'differs'}`, 'READ', 'LW1-ground.py (register 1306): the channel that gained an electron from Z − 1 to Z. The chain never moves an electron, so a rearranged step (Cr, Cu, Pd, La, Gd, Th …) reads as a disagreement under this reading') : ''}
-      ${e.relativistic ? row('in the record', 'one of the eleven register 1706 displaces', 'READ', 'THE-LOWDIN-SOLUTION-2.md; register 1706') : ''}
-    </div><p class="note">${esc(walk.field)}. ${esc(caveat('walk-reconstructed'))}</p>`;
-    return section('The walk, reconstructed', body, badge('RECONSTRUCTED', `${walk.instrument} over ${walk.table.file}, md5 ${walk.table.md5.slice(0, 12)}`));
+    const order = [walk.primary].concat(Object.keys(wr.fields).filter((k) => k !== walk.primary));
+    let body = '';
+    for (const fld of order) {
+      const wf = wr.fields[fld];
+      if (!wf) continue;
+      const one = (k, label) => {
+        const r = wf[k];
+        if (!r) return row(label, 'no row', null, 'the walk carries no row here');
+        return row(label, `<strong>${esc(r.entrant)}</strong> <span class="plain">D = ${fmtD(r.D_ent)} Ha · runner-up ${esc(r.runner_up)} by ${fmtD(r.margin)} · in the field of (Z = ${e.Z}, ${esc(r.cfg_prev)}) · candidates: ${spec(r)}</span>`, 'RECONSTRUCTED', `tools/lowdin_walk.py, field ${fld}: scf ${r.scf_iterations} iterations${r.converged ? ', converged' : ', NOT CONVERGED'}; the depth is one electron's eigenvalue in the frozen field`);
+      };
+      const c1 = wf.c137;
+      body += `<div class="fields">
+        ${row('field', esc(WALK_FIELD_LABEL[fld] || fld), 'RECONSTRUCTED', esc(((walk.fields || {})[fld] || {}).name || ''), true)}
+        ${one('c137', 'entrant at c = 137.035999')}
+        ${one('cinf', 'entrant at c → ∞')}
+        ${row('displaced in this field', wf.displaced ? `yes <span class="rel-tag walk-tag">entrants differ</span>` : 'no', 'RECONSTRUCTED', 'whether the two settings\' entrants differ at this Z in this field')}
+        ${c1 && c1.observed_gain !== '-' ? row('observed gain at this Z', `${esc(c1.observed_gain)} — the c = 137 entrant ${c1.agree === 'yes' ? 'agrees' : 'differs'}`, 'READ', 'LW1-ground.py (register 1306): the channel that gained an electron from Z − 1 to Z. The chain never moves an electron, so a rearranged step (Cr, Cu, Pd, La, Gd, Th …) reads as a disagreement under this reading') : ''}
+      </div>`;
+    }
+    body += `<div class="fields">${e.relativistic ? row('in the record', 'one of the eleven register 1706 displaces', 'READ', 'THE-LOWDIN-SOLUTION-2.md; register 1706') : row('in the record', 'not among the eleven', 'READ', 'register 1706')}</div>
+      <p class="note">${esc(caveat('walk-reconstructed'))}</p>`;
+    return section('The walk, reconstructed', body, badge('RECONSTRUCTED', `${walk.instrument} over ${walk.table.file}, md5 ${walk.table.md5.slice(0, 12)}; primary field ${walk.primary}`));
   }
 
   function relRecordSection(e, rel) {
@@ -1608,13 +1618,19 @@
         if (walk && walk.summary && walk.summary.compare) {
           const cp = walk.summary.compare;
           lines.push('', `the walk, reconstructed ${st('RECONSTRUCTED')} — ${walk.instrument} over ${walk.table.file} (md5 ${walk.table.md5.slice(0, 12)})`, walk.field);
-          Object.keys(walk.summary.settings).sort().forEach((c) => {
-            const sm = walk.summary.settings[c];
-            lines.push(`  c = ${c}: entrant = observed gain at ${sm.agree} of ${sm.scored}; openings ${sm.openings.map((o) => `${o.channel}@${o.Z}`).join(' ')}; clause 1 violations ${sm.clause1_violations.length}, clause 2 exceptions ${sm.clause2_exceptions.length}${sm.clause2_exceptions.length ? ' (' + sm.clause2_exceptions.join(', ') + ')' : ''}`);
+          Object.keys(walk.summary.settings).sort().forEach((key) => {
+            const sm = walk.summary.settings[key];
+            lines.push(`  field ${sm.field || key.split(':')[0]}, c = ${sm.c || key.split(':')[1]}: entrant = observed gain at ${sm.agree} of ${sm.scored}; openings ${sm.openings.map((o) => `${o.channel}@${o.Z}`).join(' ')}; clause 1 violations ${sm.clause1_violations.length}, clause 2 exceptions ${sm.clause2_exceptions.length}${sm.clause2_exceptions.length ? ' (' + sm.clause2_exceptions.join(', ') + ')' : ''}`);
           });
-          lines.push(`  displaced at c → ∞: ${cp.displaced.length} — ${cp.displaced.map((d) => `${d.symbol}(${d.entrant_c137}|${d.entrant_cinf})`).join(' ') || 'none'}`);
-          lines.push(`  of the record's eleven: ${cp.in_eleven.length} displaced here too${cp.in_eleven.length ? ' (' + cp.in_eleven.join(', ') + ')' : ''}; ${cp.eleven_not_displaced.length} not${cp.eleven_not_displaced.length ? ' (' + cp.eleven_not_displaced.join(', ') + ')' : ''}; ${cp.not_in_eleven.length} displaced here and not in the record${cp.not_in_eleven.length ? ' (' + cp.not_in_eleven.join(', ') + ')' : ''}`);
-          if (cp.thorium) lines.push(`  Th: ${cp.thorium.entrant_c137} at c = 137.035999, ${cp.thorium.entrant_cinf} at c → ∞ — ${cp.thorium.identical ? 'identical' : 'different'}`);
+          const fieldsCmp = walk.summary.fields || { [walk.primary || 'lx']: cp };
+          Object.keys(fieldsCmp).sort().forEach((fld) => {
+            const c = fieldsCmp[fld];
+            lines.push(`  field ${fld}: displaced at c → ∞: ${c.displaced.length} — ${c.displaced.map((d) => `${d.symbol}(${d.entrant_c137}|${d.entrant_cinf})`).join(' ') || 'none'}`);
+            lines.push(`    of the record's eleven: ${c.in_eleven.length} displaced here too${c.in_eleven.length ? ' (' + c.in_eleven.join(', ') + ')' : ''}; ${c.eleven_not_displaced.length} not${c.eleven_not_displaced.length ? ' (' + c.eleven_not_displaced.join(', ') + ')' : ''}; ${c.not_in_eleven.length} displaced here and not in the record${c.not_in_eleven.length ? ' (' + c.not_in_eleven.join(', ') + ')' : ''}`);
+            if (c.thorium) lines.push(`    Th: ${c.thorium.entrant_c137} at c = 137.035999, ${c.thorium.entrant_cinf} at c → ∞ — ${c.thorium.identical ? 'identical' : 'different'}`);
+          });
+          const fc = walk.summary.fields_compare;
+          if (fc) lines.push(`  the two fields at c = 137.035999: entrants differ at ${fc.entrants_differ.length} — ${fc.entrants_differ.map((d) => `${d.symbol}(lx ${d.lx}|hf ${d.hf})`).join(' ') || 'none'}`);
           lines.push(`  ${caveat('walk-reconstructed')}`);
         }
         return lines.join('\n');
@@ -1625,13 +1641,20 @@
           if (!walk) return 'no reconstructed walk in this build of data/index.js (LOWDIN-WALK.tsv was absent when webindex.py ran)';
           if (!wr) return `${e.symbol}: no walk row (the walk runs Z = 2 to 120)`;
           const lines = [`${e.symbol} (Z = ${e.Z}) in the reconstructed walk ${st('RECONSTRUCTED')} — ${walk.instrument} over ${walk.table.file}`];
-          for (const k of ['c137', 'cinf']) {
-            const r = wr[k];
-            if (!r) continue;
-            lines.push(`  c = ${k === 'cinf' ? '∞' : '137.035999'}: entrant ${r.entrant} (D ${r.D_ent.toFixed(6)} Ha), runner-up ${r.runner_up} by ${r.margin === null ? '—' : r.margin.toFixed(6)}; field of (${e.Z}, ${r.cfg_prev}); scf ${r.scf_iterations}${r.converged ? '' : ' NOT CONVERGED'}`);
-            lines.push(`    candidates: ${r.spectrum.map((x) => `${x.channel} ${x.D.toFixed(5)}`).join('  ')}`);
+          const order = [walk.primary].concat(Object.keys(wr.fields || {}).filter((k) => k !== walk.primary));
+          for (const fld of order) {
+            const wf = (wr.fields || {})[fld];
+            if (!wf) continue;
+            lines.push(`  field ${fld} — ${WALK_FIELD_LABEL[fld] || fld}`);
+            for (const k of ['c137', 'cinf']) {
+              const r = wf[k];
+              if (!r) continue;
+              lines.push(`    c = ${k === 'cinf' ? '∞' : '137.035999'}: entrant ${r.entrant} (D ${r.D_ent.toFixed(6)} Ha), runner-up ${r.runner_up} by ${r.margin === null ? '—' : r.margin.toFixed(6)}; field of (${e.Z}, ${r.cfg_prev}); scf ${r.scf_iterations}${r.converged ? '' : ' NOT CONVERGED'}`);
+              lines.push(`      candidates: ${r.spectrum.map((x) => `${x.channel} ${x.D.toFixed(5)}`).join('  ')}`);
+            }
+            lines.push(`    displaced in this field: ${wf.displaced ? 'yes' : 'no'}${wf.c137 && wf.c137.observed_gain !== '-' ? `; observed gain ${wf.c137.observed_gain} (${wf.c137.agree === 'yes' ? 'the c = 137 entrant agrees' : 'the c = 137 entrant differs'}) ${st('READ')}` : ''}`);
           }
-          lines.push(`  displaced in the reconstruction: ${wr.displaced ? 'yes' : 'no'}${wr.c137 && wr.c137.observed_gain !== '-' ? `; observed gain ${wr.c137.observed_gain} (${wr.c137.agree === 'yes' ? 'the c = 137 entrant agrees' : 'the c = 137 entrant differs'}) ${st('READ')}` : ''}${e.relativistic ? '; one of the record\'s eleven ' + st('READ') : ''}`);
+          lines.push(`  in the record: ${e.relativistic ? 'one of the eleven' : 'not among the eleven'} ${st('READ')}`);
           lines.push(`  ${caveat('walk-reconstructed')}`);
           return lines.join('\n');
         });
@@ -2040,6 +2063,7 @@ var SOLVERS, LIB;
   // ------------------------------------------------------------------ status
   var READ = 'READ', PINNED = 'PINNED', DERIVED = 'DERIVED',
       RECOVERED = 'RECOVERED', RECONSTRUCTED = 'RECONSTRUCTED';
+  var WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'s field, rebuilt)', lx: 'local exchange (Hartree–Fock–Slater)' };
 
   // Register 1205's coefficients, digit for digit, used only when
   // ctx.index.equation does not carry them (the fallback is reported).
@@ -3620,7 +3644,7 @@ var SOLVERS, LIB;
                          { value: 'compare', label: 'the reconstruction against the record' },
                          { value: 'recompute', label: 'recompute the c → ∞ table' }] }],
     source: { instrument: 'lowdin_construction', file: 'method/members/THE-LOWDIN-SOLUTION-2.md',
-              also: ['walk_scan', 'walk_frontier', 'walk_solve', 'walk_integrate', 'walk_potentials', 'walk_scf'] },
+              also: ['walk_scan_hf', 'walk_scf_hf', 'walk_hf_operator', 'walk_solve_inh', 'walk_scan', 'walk_frontier', 'walk_solve', 'walk_integrate', 'walk_potentials', 'walk_scf'] },
     run: async function (values, ctx) {
       var rel = ctx.index && ctx.index.relativistic;
       if (!rel) return fail('this build of data/index.js carries no relativistic block (run python3 tools/webindex.py)');
@@ -3638,8 +3662,8 @@ var SOLVERS, LIB;
         rows.push(row('what is held', 'the paper\'s statement, register 1706 and the SCF audit\'s table of the eleven', READ, cite));
         if (walk && walk.summary && walk.summary.compare) {
           var cp = walk.summary.compare;
-          rows.push(row('the walk, reconstructed', 'a c → ∞ table exists here as a reconstruction, not the record\'s: Z = ' + cp.Z_first + ' to ' + cp.Z_last + ' at both settings', RECONSTRUCTED, wcite));
-          rows.push(row('field', walk.field, RECONSTRUCTED, 'what the reconstruction is; not reproduced: ' + walk.not_reproduced));
+          rows.push(row('the walk, reconstructed', 'a c → ∞ table exists here as a reconstruction, not the record\'s: Z = ' + cp.Z_first + ' to ' + cp.Z_last + ' at both settings, in ' + Object.keys(walk.fields || { lx: 1 }).length + ' field(s); the primary is ' + (walk.primary || 'lx'), RECONSTRUCTED, wcite));
+          rows.push(row('field (primary)', walk.field, RECONSTRUCTED, 'what the reconstruction is; not reproduced: ' + walk.not_reproduced));
           rows.push(row('displaced in the reconstruction', cp.displaced.length ? cp.displaced.map(function (d) { return d.symbol + ' (' + d.entrant_c137 + ' | ' + d.entrant_cinf + ')'; }).join(', ') : 'none', RECONSTRUCTED, 'entrants that differ between c = 137.035999 and c → ∞'));
           rows.push(row('against the record\'s eleven', cp.in_eleven.length + ' displaced here too' + (cp.in_eleven.length ? ' (' + cp.in_eleven.join(', ') + ')' : '') + '; ' + cp.eleven_not_displaced.length + ' not' + (cp.eleven_not_displaced.length ? ' (' + cp.eleven_not_displaced.join(', ') + ')' : '') + '; ' + cp.not_in_eleven.length + ' displaced here and not in the record' + (cp.not_in_eleven.length ? ' (' + cp.not_in_eleven.join(', ') + ')' : ''), RECONSTRUCTED, 'register 1706 against ' + walk.table.file));
           if (cp.thorium) rows.push(row('thorium, the null-difference control', cp.thorium.entrant_c137 + ' at c = 137.035999, ' + cp.thorium.entrant_cinf + ' at c → ∞ — ' + (cp.thorium.identical ? 'identical' : 'different'), RECONSTRUCTED, 'the record: the entrant survives by path and the competition inverts'));
@@ -3649,10 +3673,10 @@ var SOLVERS, LIB;
       if (op === 'compare') {
         if (!walk || !walk.summary) return fail('no reconstructed walk in this build of data/index.js (LOWDIN-WALK.tsv was absent when webindex.py ran)');
         var sm = walk.summary, cmp = sm.compare;
-        rows.push(row('instrument', walk.instrument + ' → ' + walk.table.file + ', ' + walk.table.rows + ' rows', RECONSTRUCTED, wcite));
-        rows.push(row('field', walk.field, RECONSTRUCTED, 'not reproduced: ' + walk.not_reproduced));
-        Object.keys(sm.settings).sort().forEach(function (c) {
-          var s = sm.settings[c], lab = 'c = ' + (c === 'inf' ? '∞' : c);
+        rows.push(row('instrument', walk.instrument + ' → ' + walk.table.file + ', ' + walk.table.rows + ' rows; fields ' + Object.keys(walk.fields || { lx: 1 }).join(', ') + '; primary ' + (walk.primary || 'lx'), RECONSTRUCTED, wcite));
+        Object.keys(walk.fields || {}).forEach(function (fld) { rows.push(row('field ' + fld, walk.fields[fld].name, RECONSTRUCTED, 'not reproduced: ' + walk.fields[fld].not_reproduced)); });
+        Object.keys(sm.settings).sort().forEach(function (key) {
+          var s = sm.settings[key], lab = 'field ' + (s.field || key.split(':')[0]) + ', c = ' + ((s.c || key.split(':')[1]) === 'inf' ? '∞' : (s.c || key.split(':')[1]));
           rows.push(row(lab + ': openings', s.openings.map(function (o) { return o.channel + '@' + o.Z; }).join(' '), RECONSTRUCTED, 'first Z at which each channel is the entrant; observed: ' + s.openings_observed.map(function (o) { return o.channel + '@' + o.Z; }).join(' ')));
           rows.push(row(lab + ': same order as observed', s.same_order ? 'yes' : 'no', RECONSTRUCTED, 'over the channels both sequences open' + (s.openings_displaced.length ? '; at a different Z: ' + s.openings_displaced.map(function (o) { return o.channel + ' ' + o.Z + '≠' + o.observed_Z; }).join(', ') : '')));
           rows.push(row(lab + ': clause 1 violations / clause 2 exceptions', s.clause1_violations.length + ' / ' + s.clause2_exceptions.length + (s.clause2_exceptions.length ? ' (' + s.clause2_exceptions.join('; ') + ')' : ''), RECONSTRUCTED, 'the record: 0 violations, exceptions exactly La, Ac, Th'));
@@ -3662,15 +3686,18 @@ var SOLVERS, LIB;
           rows.push(row(lab + ': smallest margins', s.smallest_margins.map(function (m) { return m.symbol + ' ' + m.entrant + ' over ' + m.runner_up + ' by ' + fmt6(m.margin); }).join('; '), RECONSTRUCTED, 'the record\'s contested rows: Z = 38, 56, 72, 89, 105'));
           if (s.not_converged.length) rows.push(row(lab + ': NOT CONVERGED', s.not_converged.join(' '), RECONSTRUCTED, 'rows whose field did not converge'));
         });
-        if (cmp) {
-          rows.push(row('displaced at c → ∞', cmp.displaced.length ? cmp.displaced.map(function (d) { return d.symbol + ' (' + d.entrant_c137 + ' | ' + d.entrant_cinf + ')'; }).join(', ') : 'none', RECONSTRUCTED, 'entrants differ between the two settings'));
-          rows.push(row('the record\'s eleven', cmp.eleven_1706.join(', '), READ, 'register 1706'));
-          rows.push(row('of the eleven, displaced here too', cmp.in_eleven.length + (cmp.in_eleven.length ? ': ' + cmp.in_eleven.join(', ') : ''), RECONSTRUCTED, ''));
-          rows.push(row('of the eleven, not displaced here', cmp.eleven_not_displaced.length + (cmp.eleven_not_displaced.length ? ': ' + cmp.eleven_not_displaced.join(', ') : ''), RECONSTRUCTED, ''));
-          rows.push(row('displaced here, not in the record', cmp.not_in_eleven.length + (cmp.not_in_eleven.length ? ': ' + cmp.not_in_eleven.join(', ') : ''), RECONSTRUCTED, ''));
-          if (cmp.thorium) rows.push(row('thorium, the null-difference control', cmp.thorium.entrant_c137 + ' at c = 137.035999, ' + cmp.thorium.entrant_cinf + ' at c → ∞ — ' + (cmp.thorium.identical ? 'identical' : 'different') + '; top three: ' + cmp.thorium.top3_c137.join(' ') + ' | ' + cmp.thorium.top3_cinf.join(' '), RECONSTRUCTED, 'the record: the entrant survives by path, the competition inverts'));
-          (cmp.named_rows || []).forEach(function (nr) { rows.push(row(nr.symbol + ' (' + nr.Z + ') top three', nr.top3_c137.join(' ') + '  |  ' + nr.top3_cinf.join(' '), RECONSTRUCTED, 'c = 137.035999 | c → ∞')); });
-        }
+        var fieldsCmp = sm.fields || (cmp ? { lx: cmp } : {});
+        Object.keys(fieldsCmp).sort().forEach(function (fld) {
+          var c = fieldsCmp[fld], pre = 'field ' + fld + ': ';
+          rows.push(row(pre + 'displaced at c → ∞', c.displaced.length ? c.displaced.map(function (d) { return d.symbol + ' (' + d.entrant_c137 + ' | ' + d.entrant_cinf + ')'; }).join(', ') : 'none', RECONSTRUCTED, 'entrants differ between the two settings'));
+          rows.push(row(pre + 'the record\'s eleven', c.eleven_1706.join(', '), READ, 'register 1706'));
+          rows.push(row(pre + 'of the eleven, displaced here too', c.in_eleven.length + (c.in_eleven.length ? ': ' + c.in_eleven.join(', ') : ''), RECONSTRUCTED, ''));
+          rows.push(row(pre + 'of the eleven, not displaced here', c.eleven_not_displaced.length + (c.eleven_not_displaced.length ? ': ' + c.eleven_not_displaced.join(', ') : ''), RECONSTRUCTED, ''));
+          rows.push(row(pre + 'displaced here, not in the record', c.not_in_eleven.length + (c.not_in_eleven.length ? ': ' + c.not_in_eleven.join(', ') : ''), RECONSTRUCTED, ''));
+          if (c.thorium) rows.push(row(pre + 'thorium, the null-difference control', c.thorium.entrant_c137 + ' at c = 137.035999, ' + c.thorium.entrant_cinf + ' at c → ∞ — ' + (c.thorium.identical ? 'identical' : 'different') + '; top three: ' + c.thorium.top3_c137.join(' ') + ' | ' + c.thorium.top3_cinf.join(' '), RECONSTRUCTED, 'the record: the entrant survives by path, the competition inverts'));
+          (c.named_rows || []).forEach(function (nr) { rows.push(row(pre + nr.symbol + ' (' + nr.Z + ') top three', nr.top3_c137.join(' ') + '  |  ' + nr.top3_cinf.join(' '), RECONSTRUCTED, 'c = 137.035999 | c → ∞')); });
+        });
+        if (sm.fields_compare) rows.push(row('the two fields at c = 137.035999', sm.fields_compare.entrants_differ.length ? sm.fields_compare.entrants_differ.map(function (d) { return d.symbol + ' (lx ' + d.lx + ' | hf ' + d.hf + ')'; }).join(', ') : 'no entrant differs', RECONSTRUCTED, 'local exchange against Hartree–Fock over ' + sm.fields_compare.rows + ' rows'));
         return { rows: rows, ok: true, text: caveat(ctx.index, 'walk-reconstructed') || '' };
       }
       if (op === 'walk') {
@@ -3680,23 +3707,28 @@ var SOLVERS, LIB;
         var recw = ctx.element(Zw) || await ctx.load(Zw);
         if (!recw) return fail('no record for Z = ' + Zw);
         var wr = recw.walk;
-        if (!wr) return fail('the walk has no row at Z = ' + Zw + ' (it runs Z = 2 to 120)');
+        if (!wr || !wr.fields) return fail('the walk has no row at Z = ' + Zw + ' (it runs Z = 2 to 120)');
         rows.push(row('element', recw.symbol + ' (Z = ' + Zw + ')', READ, 'LW1-ground.py (register 1306)'));
-        ['c137', 'cinf'].forEach(function (k) {
-          var r = wr[k]; if (!r) return;
-          var lab = 'c = ' + (k === 'cinf' ? '∞' : '137.035999');
-          rows.push(row(lab + ': entrant', r.entrant, RECONSTRUCTED, 'deepest candidate of one electron in the frozen field of (Z = ' + Zw + ', ' + r.cfg_prev + ')'));
-          rows.push(row(lab + ': depth D', fmt6(r.D_ent) + ' Ha', RECONSTRUCTED, 'the eigenvalue of the added electron in the local-exchange field; asymptote −1/r'));
-          rows.push(row(lab + ': runner-up, margin', r.runner_up + ', ' + fmt6(r.margin) + ' Ha', RECONSTRUCTED, '|D(entrant)| − |D(runner-up)|'));
-          rows.push(row(lab + ': candidates', r.spectrum.map(function (x) { return x.channel + ' ' + x.D.toFixed(5); }).join('  '), RECONSTRUCTED, 'every unfilled channel to 8s and 8g that binds, deepest first'));
-          rows.push(row(lab + ': scf', r.scf_iterations + ' iterations, ' + (r.converged ? 'converged' : 'NOT CONVERGED'), RECONSTRUCTED, 'mixed to 1e-7 in r·V'));
+        var order = [walk.primary].concat(Object.keys(wr.fields).filter(function (k) { return k !== walk.primary; }));
+        order.forEach(function (fld) {
+          var wf = wr.fields[fld]; if (!wf) return;
+          rows.push(row('field ' + fld, WALK_FIELD_LABEL[fld] || fld, RECONSTRUCTED, ((walk.fields || {})[fld] || {}).name || ''));
+          ['c137', 'cinf'].forEach(function (k) {
+            var r = wf[k]; if (!r) return;
+            var lab = fld + ', c = ' + (k === 'cinf' ? '∞' : '137.035999');
+            rows.push(row(lab + ': entrant', r.entrant, RECONSTRUCTED, 'deepest candidate of one electron in the frozen field of (Z = ' + Zw + ', ' + r.cfg_prev + ')'));
+            rows.push(row(lab + ': depth D', fmt6(r.D_ent) + ' Ha', RECONSTRUCTED, 'the eigenvalue of the added electron in the frozen ' + (fld === 'hf' ? 'Hartree–Fock' : 'local-exchange') + ' field; asymptote −1/r'));
+            rows.push(row(lab + ': runner-up, margin', r.runner_up + ', ' + fmt6(r.margin) + ' Ha', RECONSTRUCTED, '|D(entrant)| − |D(runner-up)|'));
+            rows.push(row(lab + ': candidates', r.spectrum.map(function (x) { return x.channel + ' ' + x.D.toFixed(5); }).join('  '), RECONSTRUCTED, 'every unfilled channel to 8s and 8g that binds, deepest first'));
+            rows.push(row(lab + ': scf', r.scf_iterations + ' iterations, ' + (r.converged ? 'converged' : 'NOT CONVERGED'), RECONSTRUCTED, fld === 'hf' ? 'sweeps to 1e-7 in the eigenvalues and orbitals' : 'mixed to 1e-7 in r·V'));
+          });
+          rows.push(row(fld + ': displaced', wf.displaced ? 'yes' : 'no', RECONSTRUCTED, 'the two settings\' entrants differ in this field, or not'));
         });
-        rows.push(row('displaced in the reconstruction', wr.displaced ? 'yes' : 'no', RECONSTRUCTED, 'the two settings\' entrants differ, or not'));
-        if (wr.c137 && wr.c137.observed_gain !== '-') rows.push(row('observed gain at this Z', wr.c137.observed_gain + ' — the c = 137 entrant ' + (wr.c137.agree === 'yes' ? 'agrees' : 'differs'), READ, 'LW1-ground.py: the channel that gained an electron from Z − 1 to Z; the chain never moves an electron'));
+        var prim = wr.fields[walk.primary] || wr.fields[order[0]];
+        if (prim && prim.c137 && prim.c137.observed_gain !== '-') rows.push(row('observed gain at this Z', prim.c137.observed_gain + ' — the primary field\'s c = 137 entrant ' + (prim.c137.agree === 'yes' ? 'agrees' : 'differs'), READ, 'LW1-ground.py: the channel that gained an electron from Z − 1 to Z; the chain never moves an electron'));
         var inEleven = rel.eleven.some(function (e) { return e.Z === Zw; });
         rows.push(row('in the record', inEleven ? 'one of the eleven register 1706 displaces' : 'not among the eleven', READ, cite));
-        rows.push(row('field', walk.field, RECONSTRUCTED, wcite));
-        return { rows: rows, ok: true, walk: wr, text: caveat(ctx.index, 'walk-reconstructed') || '' };
+        return { rows: rows, ok: true, walk: wr, primary: walk.primary, text: caveat(ctx.index, 'walk-reconstructed') || '' };
       }
       if (op === 'eleven') {
         rows.push(row('elements displaced at c → ∞', rel.eleven.length, READ, cite));
@@ -3772,19 +3804,26 @@ var SOLVERS, LIB;
         ck.eq('the summary\'s eleven are the paper\'s eleven, in order', cp.eleven_1706.join(','), rel.eleven.map(function (e) { return e.symbol; }).join(','));
         var layw = (ctx.index.layout || []).filter(function (e) { return e.walk_displaced; }).map(function (e) { return e.symbol; }).sort();
         ck.eq('layout flags exactly the reconstruction\'s displaced', layw.join(','), disp.slice().sort().join(','));
+        var prim = walk.primary || 'lx';
+        ck.ok('the primary field is hf when held', !walk.fields || !walk.fields.hf || prim === 'hf', prim, 'hf');
+        Object.keys(walk.fields || {}).forEach(function (fld) {
+          ck.eq('field ' + fld + ' carries one entrant row per Z', (walk.fields[fld].entrants || []).length, 119);
+        });
         var w47 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'walk' }, ctx);
         var e47 = ents.filter(function (e) { return e.Z === 47; })[0];
-        ck.eq('Ag walk row: the element file\'s entrant at c = 137 is the index\'s', w47.ok ? w47.walk.c137.entrant : w47.message, e47.c137);
-        ck.eq('Ag walk row: the element file\'s entrant at c → ∞ is the index\'s', w47.ok ? w47.walk.cinf.entrant : w47.message, e47.cinf);
+        var f47 = w47.ok ? w47.walk.fields[prim] : null;
+        ck.eq('Ag walk row: the element file\'s primary-field entrant at c = 137 is the index\'s', f47 ? f47.c137.entrant : w47.message, e47.c137);
+        ck.eq('Ag walk row: the element file\'s primary-field entrant at c → ∞ is the index\'s', f47 ? f47.cinf.entrant : w47.message, e47.cinf);
         var w90 = await MODE_RELATIVISTIC.run({ Z: 90, operation: 'walk' }, ctx);
-        ck.eq('Th: the two entrants ' + (cp.thorium && cp.thorium.identical ? 'identical' : 'different') + ' in the element file, as the summary states', w90.ok ? (w90.walk.c137.entrant === w90.walk.cinf.entrant) : w90.message, !!(cp.thorium && cp.thorium.identical));
+        var f90 = w90.ok ? w90.walk.fields[prim] : null;
+        ck.eq('Th: the two entrants ' + (cp.thorium && cp.thorium.identical ? 'identical' : 'different') + ' in the element file, as the summary states', f90 ? (f90.c137.entrant === f90.cinf.entrant) : w90.message, !!(cp.thorium && cp.thorium.identical));
         var w120 = await MODE_RELATIVISTIC.run({ Z: 120, operation: 'walk' }, ctx);
         ck.ok('Z = 120 carries walk rows though it is not populated', w120.ok, w120.ok, true);
         var rc = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'recompute' }, ctx);
         ck.ok('recompute still refuses the record\'s table and names the reconstruction beside it', rc.ok && rc.rows[0].value === 'not computable here' && rc.rows.some(function (r) { return r.status === RECONSTRUCTED; }), rc.ok, true);
         var cmpr = await MODE_RELATIVISTIC.run({ operation: 'compare' }, ctx);
         ck.ok('compare reports every row as RECONSTRUCTED or READ, never bare', cmpr.ok && cmpr.rows.every(function (r) { return r.status === RECONSTRUCTED || r.status === READ; }), cmpr.ok, true);
-        ck.notes.push('reconstruction beside the record: ' + cp.displaced.length + ' displaced at c → ∞, ' + cp.in_eleven.length + ' of the record\'s eleven; the record\'s own table stays not held');
+        ck.notes.push('reconstruction beside the record (' + prim + ' field primary): ' + cp.displaced.length + ' displaced at c → ∞, ' + cp.in_eleven.length + ' of the record\'s eleven; the record\'s own table stays not held');
       }
       ck.notes.push('nothing of the record\'s is computed: its construction is not held; ' + rel.eleven.length + ' elements READ');
       return ck.result();

@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "The Method 1.6 · every element on every axis of every index",
-  "built": "2026-09-18T19:43:57+00:00",
-  "commit": "e9797696c00f",
+  "built": "2026-09-18T20:56:16+00:00",
+  "commit": "e9b77f6fa390",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a corpus figure. The corpus carries symbols (register 1306)."
  },
@@ -439,44 +439,72 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "walk_integrate": {
    "python": "def integrate(field, l, eps, c, sign=1.0):\n    \"\"\"one shot at energy eps.  Returns (nodes, mismatch, p_match, norm_r, s_out, s_in,\n    p_out list, ok) -- or None when eps is not bracketed by the potential on the grid.\n    sign flips the relativistic term (the demonstrable failure mode); it is 1.0 in use.\"\"\"\n    g = field.grid\n    r, r2, V, dV, r2V = g.r, g.r2, field.V, field.dVdx, field.r2V\n    n = g.n\n    H = 2 * g.h\n    ll = l * (l + 1)\n    rel = c is not None\n    inv2c2 = 1.0 / (2 * c * c) if rel else 0.0\n\n    # coefficient arrays for this eps\n    A = [0.0] * n\n    B = [0.0] * n\n    if rel:\n        for i in range(n):\n            M = 1.0 + (eps - V[i]) * inv2c2\n            if M <= 0.0:\n                return None              # ε below −2c²: no such state\n            A[i] = -sign * dV[i] * inv2c2 / M\n            B[i] = ll + 2.0 * M * (r2V[i] - eps * r2[i])\n    else:\n        for i in range(n):\n            B[i] = ll + 2.0 * (r2V[i] - eps * r2[i])\n\n    # matching point: the outermost index where B < 0 (classically allowed), stepping by 2\n    m = -1\n    for i in range(n - 1, -1, -1):\n        if B[i] < 0.0:\n            m = i\n            break\n    if m < 4:\n        return None                      # eps below the potential everywhere: too low\n    if m >= n - 4:\n        return None                      # allowed region reaches the grid edge: too high\n    if m % 2:\n        m -= 1\n\n    # outward: the r^γ series at the nucleus\n    Z = field.Z\n    if rel:\n        g2 = ll + 1.0 - (Z / c) ** 2 * sign\n        gam = math.sqrt(g2) if g2 > 0 else 0.5\n    else:\n        gam = l + 1.0\n    p = 1.0\n    s = gam\n    pout = [0.0] * (m + 1)\n    pout[0] = p\n    nodes = 0\n    scale_shift = 0\n    for i in range(0, m, 2):\n        a0, b0 = A[i], B[i]\n        a1, b1 = A[i + 1], B[i + 1]\n        a2, b2 = A[i + 2], B[i + 2]\n        k1p = s\n        k1s = s + a0 * (s - p) + b0 * p\n        p1 = p + 0.5 * H * k1p\n        s1 = s + 0.5 * H * k1s\n        k2p = s1\n        k2s = s1 + a1 * (s1 - p1) + b1 * p1\n        p2 = p + 0.5 * H * k2p\n        s2 = s + 0.5 * H * k2s\n        k3p = s2\n        k3s = s2 + a1 * (s2 - p2) + b1 * p2\n        p3 = p + H * k3p\n        s3 = s + H * k3s\n        k4p = s3\n        k4s = s3 + a2 * (s3 - p3) + b2 * p3\n        pn = p + H / 6.0 * (k1p + 2 * k2p + 2 * k3p + k4p)\n        sn = s + H / 6.0 * (k1s + 2 * k2s + 2 * k3s + k4s)\n        if pn * p < 0.0:\n            nodes += 1\n        p, s = pn, sn\n        if abs(p) > 1e100:\n            p *= 1e-100\n            s *= 1e-100\n            pout = [v * 1e-100 for v in pout]\n        pout[i + 1] = 0.0                # midpoints are not carried\n        pout[i + 2] = p\n    p_out, s_out = p, s\n    # fill the midpoints of the outward solution by a second pass is unnecessary: the\n    # norm uses the even points only (Simpson on the coarse step H).\n\n    # inward: WKB tail from the last point\n    bN = B[n - 1]\n    p = 1e-30\n    s = -math.sqrt(bN) * p if bN > 0 else -p\n    pin = {}\n    pin[n - 1] = p\n    for i in range(n - 1, m, -2):\n        a0, b0 = A[i], B[i]\n        a1, b1 = A[i - 1], B[i - 1]\n        a2, b2 = A[i - 2], B[i - 2]\n        hh = -H\n        k1p = s\n        k1s = s + a0 * (s - p) + b0 * p\n        p1 = p + 0.5 * hh * k1p\n        s1 = s + 0.5 * hh * k1s\n        k2p = s1\n        k2s = s1 + a1 * (s1 - p1) + b1 * p1\n        p2 = p + 0.5 * hh * k2p\n        s2 = s + 0.5 * hh * k2s\n        k3p = s2\n        k3s = s2 + a1 * (s2 - p2) + b1 * p2\n        p3 = p + hh * k3p\n        s3 = s + hh * k3s\n        k4p = s3\n        k4s = s3 + a2 * (s3 - p3) + b2 * p3\n        p = p + hh / 6.0 * (k1p + 2 * k2p + 2 * k3p + k4p)\n        s = s + hh / 6.0 * (k1s + 2 * k2s + 2 * k3s + k4s)\n        if abs(p) > 1e100:\n            p *= 1e-100\n            s *= 1e-100\n            for k in pin:\n                pin[k] *= 1e-100\n        pin[i - 2] = p\n    p_in, s_in = p, s\n    if p_out == 0.0 or p_in == 0.0:\n        return None\n\n    # scale the inward branch onto the outward one at m\n    f = p_out / p_in\n    s_in *= f\n    for k in pin:\n        pin[k] *= f\n\n    # the full function on the coarse (even) points, and its norm ∫P² dr = ∫ p² r dx\n    P = [0.0] * n\n    for i in range(0, m + 1, 2):\n        P[i] = pout[i]\n    for i in range(m, n, 2):\n        P[i] = pin.get(i, 0.0)\n    f2 = [P[i] * P[i] * r[i] for i in range(0, n, 2)]\n    norm = integral(f2, H)\n    mismatch = (s_out - s_in) / r[m]     # (dP/dr)_out − (dP/dr)_in at the match, P(m) = p_out\n    # Hartree's correction: Δε = P(m) [P'_out − P'_in] / (2 ∫P² dr)\n    deps = p_out * mismatch / (2.0 * norm)\n    return nodes, deps, P, norm, m\n",
    "file": "tools/lowdin_walk.py",
-   "line": 222,
+   "line": 227,
    "status": "RECONSTRUCTED",
    "source": "one shot of the Koelling-Harmon radial pair in x = ln r, RK4 outward from the r^gamma series and inward from the WKB tail, matched at the outer turning point; the Hartree matching correction"
   },
   "walk_solve": {
    "python": "def solve(field, n, l, c, eps0=None, tol=1e-9, sign=1.0, maxit=80, trace=None):\n    \"\"\"the bound state (n, l) of the field: returns (eps, P_normalised) or None when the\n    grid holds no such bound state (eps ≥ 0).\"\"\"\n    target = n - l - 1\n    Z = field.Z\n    if eps0 is None:\n        eps = -0.5 * (Z / n) ** 2\n    else:\n        eps = eps0\n    if eps >= 0:\n        eps = -1e-3\n    lo, hi = None, 0.0                   # bounds: lo < eps_true < hi\n    floor = -4.0 * Z * Z - 10.0          # below the deepest level any field here holds\n    for it in range(maxit):\n        if eps < floor:\n            return None\n        res = integrate(field, l, eps, c, sign)\n        if trace:\n            trace(f\"      it {it:2d} eps {eps: .8f} lo {lo} hi {hi} -> \" +\n                  (\"none\" if res is None else f\"nodes {res[0]} deps {res[1]: .3e}\"))\n        if res is None:\n            # too low or too high?  decide by where the allowed region sits\n            g = field.grid\n            # if eps is above V at the grid edge the region reaches the edge -> too high\n            if eps > field.V[g.n - 1] + l * (l + 1) / (2 * g.r2[g.n - 1]):\n                hi = eps\n                eps = (lo + hi) / 2 if lo is not None else eps * 2.0 - 1e-6\n            else:\n                lo = eps\n                eps = (lo + hi) / 2\n            continue\n        nodes, deps, P, norm, m = res\n        if nodes > target:\n            hi = eps\n            eps = (lo + hi) / 2 if lo is not None else eps * 2.0 - 1e-6\n            continue\n        if nodes < target:\n            lo = eps\n            eps = (lo + hi) / 2\n            continue\n        # right node count: the sign of the correction tightens the bracket, and the\n        # Newton-like step is capped and kept inside it (the Hartree correction is\n        # first-order; from a distant start it overshoots past the node boundary)\n        if deps > 0:\n            lo = eps if lo is None else max(lo, eps)\n        else:\n            hi = min(hi, eps)\n        if abs(deps) > 0.5 * abs(eps):\n            deps = math.copysign(0.5 * abs(eps), deps)\n        new = eps + deps\n        if lo is not None and new <= lo:\n            new = (eps + lo) / 2\n        if new >= hi:\n            new = (eps + hi) / 2\n        if abs(new - eps) < tol * max(1.0, abs(eps)):\n            eps = new\n            res = integrate(field, l, eps, c, sign)\n            if res is None:\n                return None\n            nodes, deps, P, norm, m = res\n            if nodes != target:\n                return None\n            inv = 1.0 / math.sqrt(norm)\n            P = [v * inv for v in P]\n            # the integration carries the even points (RK4 steps of 2h); the odd points\n            # are filled by four-point Lagrange interpolation, fourth order like the rest\n            nn = len(P)\n            for i in range(1, nn - 1, 2):\n                if 3 <= i <= nn - 4:\n                    P[i] = (-P[i - 3] + 9 * P[i - 1] + 9 * P[i + 1] - P[i + 3]) / 16.0\n                else:\n                    P[i] = 0.5 * (P[i - 1] + P[i + 1])\n            return eps, P\n        eps = new\n        if eps >= 0:\n            return None\n    return None\n",
    "file": "tools/lowdin_walk.py",
-   "line": 364,
+   "line": 369,
    "status": "RECONSTRUCTED",
    "source": "the bound state (n, l): node count brackets, the correction refines"
   },
   "walk_potentials": {
    "python": "def potentials(grid, Z, N, D):\n    \"\"\"from D(x) = Σ q P² (= 4πr²ρ) return (V_cand, V_occ): the electronic part of the\n    field an ADDED electron sees (Hartree + local exchange; asymptote −(Z−N)/r with the\n    nucleus) and the part the OCCUPIED orbitals see (the same, Latter-tailed to\n    −(Z−N+1)/r).\"\"\"\n    r = grid.r\n    h = grid.h\n    n = grid.n\n    Q = cumint([D[i] * r[i] for i in range(n)], h)          # charge inside r\n    tail = cumint(D, h)                                     # ∫_0^x D dx'\n    total = tail[-1]\n    Vh = [Q[i] / r[i] + (total - tail[i]) for i in range(n)]\n    Vx = [-XC * (D[i] / (4 * math.pi * grid.r2[i])) ** (1.0 / 3.0) if D[i] > 0 else 0.0\n          for i in range(n)]\n    Vc = [Vh[i] + Vx[i] for i in range(n)]\n    lat = Z - N + 1                                         # Latter: V ≥ … in magnitude\n    Vo = [min(Vc[i], (Z - lat) / r[i]) for i in range(n)]   # total = Vo − Z/r ≤ −lat/r\n    return Vc, Vo\n",
    "file": "tools/lowdin_walk.py",
-   "line": 450,
+   "line": 455,
    "status": "RECONSTRUCTED",
    "source": "Hartree + Kohn-Sham local exchange from the density; Latter's tail for the occupied orbitals, none for the added electron"
   },
   "walk_scf": {
    "python": "def scf(grid, Z, cfg, c, Vstart=None, eps_start=None, mix=0.35, tol=1e-7, maxit=300,\n        log=None):\n    \"\"\"converge the field of the ion (Z, cfg).  Returns a dict with V_cand (electronic\n    part), orbitals {(n,l): (eps, P)}, iterations, converged flag, N.\"\"\"\n    N = sum(cfg.values())\n    n = grid.n\n    r = grid.r\n    if Vstart is None:\n        # a screened start: N−1 electrons at the Thomas–Fermi scale\n        a = 0.8853 / Z ** (1.0 / 3.0)\n        Vel = [max(N - 1, 0) * (1.0 - math.exp(-r[i] / a)) / r[i] for i in range(n)]\n    else:\n        Vel = list(Vstart)\n    eps = dict(eps_start or {})\n    orbs = {}\n    converged = False\n    it = 0\n    beta = mix\n    last_res = None\n    Vcand = Vel\n    for it in range(1, maxit + 1):\n        field = Field(grid, Z, Vel)\n        D = [0.0] * n\n        for nl, q in sorted(cfg.items()):\n            if q <= 0:\n                continue\n            sol = solve(field, nl[0], nl[1], c, eps.get(nl))\n            if sol is None:\n                sol = solve(field, nl[0], nl[1], c, None)\n            if sol is None:\n                raise RuntimeError(f\"Z={Z} cfg={cfg_str(cfg)}: no bound {ch_name(nl)}\")\n            e, P = sol\n            eps[nl] = e\n            orbs[nl] = (e, P)\n            for i in range(n):\n                D[i] += q * P[i] * P[i]\n        Vc, Vo = potentials(grid, Z, N, D)\n        res = max(abs(Vo[i] - Vel[i]) * r[i] for i in range(n))\n        if log:\n            log(f\"    scf it {it:3d}  residual {res:.3e}  beta {beta:.2f}\")\n        if res < tol:\n            converged = True\n            Vcand = Vc\n            break\n        if last_res is not None and res > last_res:\n            beta = max(0.05, beta * 0.5)\n        elif last_res is not None and res < 0.3 * last_res:\n            beta = min(0.6, beta * 1.25)\n        last_res = res\n        Vel = [(1 - beta) * Vel[i] + beta * Vo[i] for i in range(n)]\n        Vcand = Vc\n    return {\"Z\": Z, \"N\": N, \"cfg\": dict(cfg), \"V_cand\": Vcand, \"V_occ\": Vel,\n            \"orbitals\": orbs, \"eps\": eps, \"iterations\": it, \"converged\": converged,\n            \"D\": D}\n",
    "file": "tools/lowdin_walk.py",
-   "line": 470,
+   "line": 475,
    "status": "RECONSTRUCTED",
    "source": "the self-consistent field of the ion (Z, cfg), mixed to 1e-7"
   },
   "walk_frontier": {
    "python": "def frontier(cfg):\n    out = []\n    for n in range(1, N_MAX + 1):\n        for l in range(0, min(n, L_MAX + 1)):\n            if cfg.get((n, l), 0) < capacity((n, l)):\n                out.append((n, l))\n    return out\n",
    "file": "tools/lowdin_walk.py",
-   "line": 526,
+   "line": 531,
    "status": "RECONSTRUCTED",
    "source": "the unfilled (n, l) channels up to 8s and 8g"
   },
   "walk_scan": {
    "python": "def scan(grid, Z, state, c, eps_hint=None):\n    \"\"\"the candidate spectrum of one electron added to the frozen field: [(eps, (n,l))]\n    sorted deepest first.\"\"\"\n    field = Field(grid, Z, state[\"V_cand\"])\n    eps_hint = eps_hint or {}\n    spec = []\n    for nl in frontier(state[\"cfg\"]):\n        guess = eps_hint.get(nl)\n        if guess is None:\n            guess = -0.5 / nl[0] ** 2 * max(1.0, (Z - state[\"N\"])) ** 2\n            occ = state[\"eps\"].get(nl)\n            if occ is not None:\n                guess = occ * 0.7\n        sol = solve(field, nl[0], nl[1], c, guess)\n        if sol is None:\n            continue\n        spec.append((sol[0], nl))\n    spec.sort()\n    return spec\n",
    "file": "tools/lowdin_walk.py",
-   "line": 535,
+   "line": 540,
    "status": "RECONSTRUCTED",
    "source": "the candidate spectrum: one electron in each frontier channel of the frozen field, deepest first; the entrant is the first"
+  },
+  "walk_hf_operator": {
+   "python": "def hf_operator(grid, pw, Z, orbs, cfg, a, Pa, occ_self):\n    \"\"\"V_loc (electronic part) and the exchange source X for channel a = (n, l) whose\n    current function is Pa; occ_self is the occupation the same-shell terms carry (q_a − 1\n    for an occupied orbital, q_a for an added electron in an open shell, 0 for an empty\n    channel).  orbs: {(n,l): P} of the occupied orbitals, cfg their occupations.\"\"\"\n    n = grid.n\n    r = grid.r\n    la = a[1]\n    Vel = [0.0] * n\n    X = [0.0] * n\n    for b, Pb in orbs.items():\n        qb = cfg[b]\n        if qb <= 0:\n            continue\n        if b == a:\n            continue\n        y0 = yk_over_r(grid, pw, Pb, Pb, 0)\n        for i in range(n):\n            Vel[i] += qb * y0[i]\n        lb = b[1]\n        for k in range(abs(la - lb), la + lb + 1, 2):\n            ak = a_k(la, k, lb)\n            if ak == 0.0:\n                continue\n            yk = yk_over_r(grid, pw, Pa, Pb, k)\n            f = 0.5 * qb * ak\n            for i in range(n):\n                X[i] += f * yk[i] * Pb[i]\n    if occ_self > 0:\n        Pself = orbs.get(a, Pa)\n        y0 = yk_over_r(grid, pw, Pself, Pself, 0)\n        for i in range(n):\n            Vel[i] += occ_self * y0[i]\n        fac = (2 * la + 1) / (4 * la + 1)\n        for k in range(2, 2 * la + 1, 2):\n            ak = a_k(la, k, la)\n            yk = yk_over_r(grid, pw, Pself, Pself, k)\n            f = occ_self * fac * ak\n            for i in range(n):\n                Vel[i] -= f * yk[i]\n    return Vel, X\n",
+   "file": "tools/lowdin_walk.py",
+   "line": 1010,
+   "status": "RECONSTRUCTED",
+   "source": "the Hartree-Fock operator of one channel: the local part (direct and same-shell average-of-configuration exchange) and the non-local exchange source from every other occupied orbital"
+  },
+  "walk_solve_inh": {
+   "python": "def solve_inh(field, n, l, c, X, eps0, others=(), lam=(), tol=1e-8, maxit=60, trace=None, warm=None):\n    \"\"\"the orbital (n, l) of  (T + V_loc − ε)P = X + Σ_b λ_b P_b , normalised.  The source is\n    fixed, so the local problem's eigenvalue ε_pole (the homogeneous solve, whose node\n    count is reliable) is a pole of the solution's norm N(ε); the exchange operator is\n    positive, so the root lies below it, and there N falls from the pole, so N = 1 has one\n    root: bracketed in δ = ε_pole − ε and refined by a secant in ln N against ln δ.\n    Returns (eps, P, overlaps, multipliers): overlaps = [⟨P_b|P⟩ for b in others] of the\n    solution before its correction, and the multipliers λ_b + Δλ_b that make it orthogonal,\n    found by one exact Newton step at the root (one particular solution per partner); P is\n    the corrected, renormalised orbital.  Or None.  With no exchange source and no others it is the homogeneous solve.  The node\n    count is a diagnostic, not a bracket: a particular solution far from the pole carries\n    the nodes of its source.\"\"\"\n    g = field.grid\n    n_ = g.n\n    src = None\n    if X is not None and max(abs(v) for v in X) != 0.0:\n        src = list(X)\n    for Pb, lb in zip(others, lam):\n        if lb:\n            if src is None:\n                src = [0.0] * n_\n            for i in range(n_):\n                src[i] += lb * Pb[i]\n    if src is None:\n        sol = solve(field, n, l, c, eps0, tol=tol)\n        if sol is None:\n            return None\n        return sol[0], sol[1], [_dot(g, Pb, sol[1]) for Pb in others], list(lam)\n    hom = solve(field, n, l, c, (warm or {}).get(\"pole\", eps0))\n    if hom is None:\n        return None\n    e_pole = hom[0]\n    if warm is not None:\n        warm[\"pole\"] = e_pole\n    # the level below: the root must lie between it and the pole, or it is another state's\n    d_max = None\n    if n - 1 > l:\n        below = solve(field, n - 1, l, c, (warm or {}).get(\"below\"))\n        if below is not None:\n            if warm is not None:\n                warm[\"below\"] = below[0]\n            d_max = 0.999 * (e_pole - below[0])\n\n    def N_at(d):\n        res = shoot_multi(field, l, e_pole - d, c, [src])\n        if res is None:\n            return None\n        P = res[0][0]\n        N = _norm_even(g, P)\n        if not (N > 0.0) or N != N:\n            return None\n        return P, N\n\n    if warm is not None and warm.get(\"d\"):\n        d = warm[\"d\"]\n    else:\n        d = max(1e-6, 0.5 * (e_pole - eps0)) if (eps0 is not None and eps0 < e_pole) else max(1e-6, 1e-3 * abs(e_pole))\n    if d_max is not None and d > d_max:\n        d = 0.5 * d_max\n    res = N_at(d)\n    tries = 0\n    while res is None and tries < 20:\n        d *= 0.5\n        res = N_at(d)\n        tries += 1\n    if res is None:\n        return None\n    lo = hi = None\n    lnN = math.log(res[1])\n    if trace:\n        trace(f\"      inh pole {e_pole: .9f}  d0 {d:.3e} lnN {lnN: .3e}\")\n    best = None\n    if abs(lnN) < tol:\n        best = (d, res)\n    else:\n        # a warm start sits near the root: bracket by small factors first\n        grow = 1.25 if (warm is not None and warm.get(\"d\")) else 2.0\n        if lnN > 0:\n            lo = (d, lnN)\n            for _ in range(60):\n                d *= grow\n                if d_max is not None and d >= d_max:\n                    d = d_max\n                res = N_at(d)\n                if res is None:\n                    return None\n                lnN = math.log(res[1])\n                if trace:\n                    trace(f\"      inh grow  d {d:.3e} lnN {lnN: .3e}\")\n                if lnN < 0:\n                    hi = (d, lnN)\n                    break\n                lo = (d, lnN)\n                if d_max is not None and d >= d_max:\n                    break                # no root above the level below: another state's\n            if hi is None:\n                return None\n        else:\n            hi = (d, lnN)\n            for _ in range(60):\n                d /= grow\n                res = N_at(d)\n                if res is None:\n                    return None\n                lnN = math.log(res[1])\n                if trace:\n                    trace(f\"      inh shrink d {d:.3e} lnN {lnN: .3e}\")\n                if lnN > 0:\n                    lo = (d, lnN)\n                    break\n                hi = (d, lnN)\n            if lo is None:\n                return None\n        near = None\n        for it in range(maxit):\n            la, lb = math.log(lo[0]), math.log(hi[0])\n            t = lo[1] / (lo[1] - hi[1])\n            ld = la + t * (lb - la)\n            if not (la < ld < lb) or it % 4 == 3:\n                ld = 0.5 * (la + lb)\n            d = math.exp(ld)\n            res = N_at(d)\n            if res is None:\n                return None\n            lnN = math.log(res[1])\n            if trace:\n                trace(f\"      inh it {it:2d} d {d:.6e} eps {e_pole - d: .9f} lnN {lnN: .3e}\")\n            if abs(lnN) < tol:\n                best = (d, res)\n                break\n            if near is None or abs(lnN) < near[0]:\n                near = (abs(lnN), d, res)\n            if lnN > 0:\n                lo = (d, lnN)\n            else:\n                hi = (d, lnN)\n        if best is None:\n            if near is not None and near[0] < 1e-5:\n                best = (near[1], near[2])\n            else:\n                return None\n    d, res = best\n    P, N = res\n    inv = 1.0 / math.sqrt(N)\n    P = [v * inv for v in P]\n    eps = e_pole - d\n    if warm is not None:\n        warm[\"d\"] = d\n    ovl = [_dot_even(g, Pb, P) for Pb in others]\n    new_lam = list(lam)\n    if others:\n        # the multipliers that make THIS solution orthogonal, by one Newton step at the\n        # root: with v_b = (H_loc − ε)^{-1} P_b,  ⟨b'|P + Σ Δλ_b v_b⟩ = 0  is linear in Δλ\n        # and exact; the corrected P is renormalised (a second-order change)\n        res_v = shoot_multi(field, l, eps, c, list(others))\n        if res_v is not None:\n            vs = res_v[0]\n            nb = len(others)\n            Mx = [[_dot_even(g, others[bp], vs[b]) for b in range(nb)] for bp in range(nb)]\n            dl = _solve_small(Mx, [-o for o in ovl])\n            if dl is not None and all(abs(x) < 1e3 for x in dl):\n                for b in range(nb):\n                    vb = vs[b]\n                    x = dl[b]\n                    for i in range(0, g.n, 2):\n                        P[i] += x * vb[i]\n                N2 = _norm_even(g, P)\n                inv2 = 1.0 / math.sqrt(N2)\n                P = [v * inv2 for v in P]\n                new_lam = [lb + x for lb, x in zip(lam, dl)]\n    P = _fill_odd(P)\n    return eps, P, ovl, new_lam\n",
+   "file": "tools/lowdin_walk.py",
+   "line": 836,
+   "status": "RECONSTRUCTED",
+   "source": "the orbital of the inhomogeneous equation, its energy fixed by the norm condition below the local pole, its multipliers by one Newton step to orthogonality"
+  },
+  "walk_scf_hf": {
+   "python": "def scf_hf(grid, Z, cfg, c, start, mix=0.7, tol=1e-7, maxit=150, log=None):\n    \"\"\"converge the Hartree–Fock field of the ion (Z, cfg) from the local-exchange state\n    `start`.\n\n    Orbitals of one ℓ are coupled by off-diagonal multipliers.  Each equation carries its\n    own, λ_ab: the equation is solved with them as a fixed source, and at the root one\n    exact Newton step (one particular solution per partner) moves them to the values that\n    make the solution orthogonal, so at convergence every equation holds exactly with an\n    orthonormal set.  What that leaves free is the rotation angle of each coupled pair\n    within its own span, and the variational condition q_a ε_ab = q_b ε_ba fixes it (Froese\n    Fischer's rotation analysis): after every sweep each pair takes a Newton step toward\n    the angle at which the average-of-configuration energy is stationary, with the exact\n    gradient 2(q_a⟨b|F_a|a⟩ − q_b⟨a|F_b|b⟩) from the state's orbitals and the curvature\n    from the energy at three angles (its one-electron part non-relativistic; the field's\n    operators stay Koelling–Harmon).  Nothing is Schmidt-orthogonalised: a Schmidt step\n    after mixing admits fixed points where the solved orbital differs from the stored one\n    by a multiple of its partner, and the equations then hold only up to that residual.\n    A pair of CLOSED shells carries no multiplier and no rotation: the energy is invariant\n    under their rotation, and only the canonical pair (the eigenfunctions of the one Fock\n    operator) carries the orbital energies the record compares.  The field is converged\n    when the orbitals, the eigenvalues, every overlap and every angle are still.  Returns\n    a state dict like scf()'s, with orbitals {(n,l): (eps, P)}; the field is the\n    orbitals.\"\"\"\n    N = sum(cfg.values())\n    pw = Powers(grid)\n    orbs = {nl: list(P) for nl, (e, P) in start[\"orbitals\"].items() if cfg.get(nl, 0) > 0}\n    eps = {nl: e for nl, (e, P) in start[\"orbitals\"].items() if cfg.get(nl, 0) > 0}\n    order = sorted(orbs, key=lambda k: (k[1], k[0]))\n\n    def coupled(a, b):\n        return a != b and a[1] == b[1] and not (cfg[a] == capacity(a) and cfg[b] == capacity(b))\n\n    pairs = [(a, b) for i, a in enumerate(order) for b in order[i + 1:] if coupled(a, b)]\n    lam_of = {a: {} for a in order}\n    rot = {}\n    warm = {a: {} for a in order}\n    converged = False\n    it = 0\n    beta = mix\n    last = None\n    d_rot = 0.0\n    o_max = 0.0\n    for it in range(1, maxit + 1):\n        de_max = 0.0\n        dp_max = 0.0\n        o_max = 0.0\n        for a in order:\n            qa = cfg[a]\n            others = [b for b in order if coupled(a, b)]\n            Vel, X = hf_operator(grid, pw, Z, orbs, cfg, a, orbs[a], qa - 1)\n            field = Field(grid, Z, Vel)\n            lam = [lam_of[a].get(b, 0.0) for b in others]\n            sol = solve_inh(field, a[0], a[1], c, X, eps[a], [orbs[b] for b in others], lam, warm=warm[a])\n            if sol is None:\n                warm[a] = {}\n                sol = solve_inh(field, a[0], a[1], c, X, eps[a], [orbs[b] for b in others], lam)\n            if sol is None:\n                if log:\n                    solve_inh(field, a[0], a[1], c, X, eps[a], [orbs[b] for b in others], lam, trace=log)\n                raise RuntimeError(f\"HF Z={Z} cfg={cfg_str(cfg)}: no solution for {ch_name(a)} at iteration {it} (eps {eps[a]})\")\n            e_new, P_new, ovl, new_lam = sol\n            for b, lb in zip(others, new_lam):\n                lam_of[a][b] = lb\n            o_max = max([o_max] + [abs(o) for o in ovl])\n            P_mix = [(1 - beta) * orbs[a][i] + beta * P_new[i] for i in range(grid.n)]\n            nrm = math.sqrt(_dot(grid, P_mix, P_mix))\n            P_mix = [v / nrm for v in P_mix]\n            dp = math.sqrt(_dot(grid, [P_mix[i] - orbs[a][i] for i in range(grid.n)],\n                                [P_mix[i] - orbs[a][i] for i in range(grid.n)]))\n            de_max = max(de_max, abs(e_new - eps[a]) / max(1.0, abs(e_new)))\n            dp_max = max(dp_max, dp)\n            orbs[a] = P_mix\n            eps[a] = e_new\n        # the rotation step: within each coupled pair's span the energy must be\n        # stationary; the exact gradient from the state, the curvature from the energy\n        d_rot = 0.0\n        for (a, b) in pairs:\n            if not HF_ROTATE:\n                break\n            g = pair_gradient(grid, pw, Z, orbs, cfg, a, b, eps, c)\n            mem = rot.get((a, b))\n            H = mem[1] if (mem is not None and it % 3 != 1) else pair_curvature(grid, pw, Z, orbs, cfg, a, b)\n            theta = rotate_pair(grid, pw, Z, orbs, cfg, a, b, g, H)\n            d_rot = max(d_rot, abs(theta))\n            rot[(a, b)] = (theta, H)\n        res = max(de_max, dp_max)\n        if log:\n            log(f\"    hf it {it:3d}  d_eps {de_max:.2e}  d_P {dp_max:.2e}  d_rot {d_rot:.2e}  ovl {o_max:.1e}  beta {beta:.2f}  \"\n                + \" \".join(f\"{ch_name(a)}:{eps[a]:.6f}\" for a in order))\n        if res < tol and d_rot < 1e-6 and o_max < 1e-6:\n            converged = True\n            break\n        if last is not None and res > 1.5 * last:\n            beta = max(0.3, beta * 0.7)\n        elif last is not None and res < 0.5 * last:\n            beta = min(0.9, beta * 1.1)\n        last = res\n    return {\"Z\": Z, \"N\": N, \"cfg\": dict(cfg), \"orbitals\": {a: (eps[a], orbs[a]) for a in order},\n            \"eps\": dict(eps), \"iterations\": it, \"converged\": converged, \"field\": \"hf\",\n            \"orbs\": orbs, \"pw\": pw, \"lam\": {ch_name(a): {ch_name(b): v for b, v in d.items()} for a, d in lam_of.items()},\n            \"d_rot\": d_rot, \"overlap\": o_max,\n            \"note\": \"\" if converged else f\"hf not converged in {it} sweeps: residual {last:.1e}, angle {d_rot:.1e}, overlap {o_max:.1e}\"}\n",
+   "file": "tools/lowdin_walk.py",
+   "line": 1242,
+   "status": "RECONSTRUCTED",
+   "source": "the Hartree-Fock field of the ion: per-equation multipliers and the pair rotation at which the energy is stationary"
+  },
+  "walk_scan_hf": {
+   "python": "def scan_hf(grid, Z, state, c, lx_spec=None, log=None):\n    \"\"\"the candidate spectrum in the frozen Hartree–Fock field: one electron in each\n    frontier channel, its own exchange with every occupied orbital iterated to\n    self-consistency and its multipliers against the occupied orbitals of its ℓ iterated to\n    orthogonality (the occupied orbitals do not respond, so the equation is the projected\n    one and its multipliers are its own, moved by the Newton step of solve_inh until the\n    overlaps vanish).  Deepest first.\"\"\"\n    cfg = state[\"cfg\"]\n    orbs = state[\"orbs\"]\n    pw = state[\"pw\"]\n    hint = {nl: e for e, nl in (lx_spec or [])}\n    spec = []\n    for nl in frontier(cfg):\n        occ_self = cfg.get(nl, 0)\n        others = [b for b in orbs if b != nl and b[1] == nl[1]]\n        Pothers = [orbs[b] for b in others]\n        guess_e = hint.get(nl, state[\"eps\"].get(nl))\n        Pc = orbs.get(nl)\n        if Pc is None:\n            Vel0, _X0 = hf_operator(grid, pw, Z, orbs, cfg, nl, [0.0] * grid.n, 0)\n            f0 = Field(grid, Z, Vel0)\n            h0 = solve(f0, nl[0], nl[1], c, guess_e)\n            if h0 is None:\n                continue\n            guess_e, Pc = h0\n            if others:\n                Pc = _orthogonalise(grid, Pc, Pothers)\n        lam = [0.0] * len(others)\n        e_prev = None\n        ok = False\n        wm = {}\n        for k in range(60):\n            Vel, X = hf_operator(grid, pw, Z, orbs, cfg, nl, Pc, occ_self)\n            field = Field(grid, Z, Vel)\n            sol = solve_inh(field, nl[0], nl[1], c, X, guess_e, Pothers, lam, warm=wm)\n            if sol is None:\n                wm = {}\n                sol = solve_inh(field, nl[0], nl[1], c, X, guess_e, Pothers, lam)\n            if sol is None:\n                break\n            e_new, P_new, ovl, lam = sol\n            Pn = [0.5 * Pc[i] + 0.5 * P_new[i] for i in range(grid.n)] if e_prev is not None else P_new\n            nrm = math.sqrt(_dot(grid, Pn, Pn))\n            Pc = [v / nrm for v in Pn]\n            guess_e = e_new\n            if e_prev is not None and abs(e_new - e_prev) < 1e-9 * max(1.0, abs(e_new)) \\\n                    and max([abs(o) for o in ovl] or [0.0]) < 1e-7:\n                ok = True\n                break\n            e_prev = e_new\n        if e_prev is not None and guess_e < 0:\n            spec.append((guess_e, nl))\n            if log and not ok:\n                log(f\"    scan: {ch_name(nl)} not settled after 60 rounds\")\n    spec.sort()\n    return spec\n",
+   "file": "tools/lowdin_walk.py",
+   "line": 1346,
+   "status": "RECONSTRUCTED",
+   "source": "the candidate spectrum in the frozen Hartree-Fock field, each candidate's own exchange and multipliers iterated"
   },
   "lowdin_construction": {
    "python": null,
@@ -661,11 +689,1093 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "instrument": "tools/lowdin_walk.py",
    "table": {
     "file": "LOWDIN-WALK.tsv",
-    "bytes": 100377,
-    "md5": "5e6aeb8a907dc880a06f7e5b6562f44e",
+    "bytes": 101340,
+    "md5": "29fbb6405650b731e04a25b0b32cd51e",
     "rows": 238
    },
+   "primary": "lx",
    "field": "Koelling-Harmon scalar-relativistic radial equation in a local-exchange (Kohn-Sham, V_x = -(3 rho/pi)^(1/3)) self-consistent field with Latter's tail: the Hartree-Fock-Slater construction, not the record's Hartree-Fock",
+   "not_reproduced": "the record's non-local exchange; its collapse criterion; its correlation clause; its Z = 91 two-branch diagnostic",
+   "fields": {
+    "lx": {
+     "field": "lx",
+     "name": "Koelling-Harmon scalar-relativistic radial equation in a local-exchange (Kohn-Sham, V_x = -(3 rho/pi)^(1/3)) self-consistent field with Latter's tail: the Hartree-Fock-Slater construction, not the record's Hartree-Fock",
+     "not_reproduced": "the record's non-local exchange; its collapse criterion; its correlation clause; its Z = 91 two-branch diagnostic",
+     "entrants": [
+      {
+       "Z": 2,
+       "symbol": "He",
+       "c137": "1s",
+       "cinf": "1s",
+       "margin_c137": 1.13394831,
+       "margin_cinf": 1.13390294,
+       "displaced": false
+      },
+      {
+       "Z": 3,
+       "symbol": "Li",
+       "c137": "2s",
+       "cinf": "2s",
+       "margin_c137": 0.07271971,
+       "margin_cinf": 0.07269298,
+       "displaced": false
+      },
+      {
+       "Z": 4,
+       "symbol": "Be",
+       "c137": "2s",
+       "cinf": "2s",
+       "margin_c137": 0.13951638,
+       "margin_cinf": 0.13941582,
+       "displaced": false
+      },
+      {
+       "Z": 5,
+       "symbol": "B",
+       "c137": "2p",
+       "cinf": "2p",
+       "margin_c137": 0.32771191,
+       "margin_cinf": 0.32781676,
+       "displaced": false
+      },
+      {
+       "Z": 6,
+       "symbol": "C",
+       "c137": "2p",
+       "cinf": "2p",
+       "margin_c137": 0.45246834,
+       "margin_cinf": 0.45265599,
+       "displaced": false
+      },
+      {
+       "Z": 7,
+       "symbol": "N",
+       "c137": "2p",
+       "cinf": "2p",
+       "margin_c137": 0.57709058,
+       "margin_cinf": 0.57738236,
+       "displaced": false
+      },
+      {
+       "Z": 8,
+       "symbol": "O",
+       "c137": "2p",
+       "cinf": "2p",
+       "margin_c137": 0.70439978,
+       "margin_cinf": 0.70482323,
+       "displaced": false
+      },
+      {
+       "Z": 9,
+       "symbol": "F",
+       "c137": "2p",
+       "cinf": "2p",
+       "margin_c137": 0.83566261,
+       "margin_cinf": 0.8362486,
+       "displaced": false
+      },
+      {
+       "Z": 10,
+       "symbol": "Ne",
+       "c137": "2p",
+       "cinf": "2p",
+       "margin_c137": 0.97146949,
+       "margin_cinf": 0.97225154,
+       "displaced": false
+      },
+      {
+       "Z": 11,
+       "symbol": "Na",
+       "c137": "3s",
+       "cinf": "3s",
+       "margin_c137": 0.11069328,
+       "margin_cinf": 0.11020783,
+       "displaced": false
+      },
+      {
+       "Z": 12,
+       "symbol": "Mg",
+       "c137": "3s",
+       "cinf": "3s",
+       "margin_c137": 0.15614253,
+       "margin_cinf": 0.15532214,
+       "displaced": false
+      },
+      {
+       "Z": 13,
+       "symbol": "Al",
+       "c137": "3p",
+       "cinf": "3p",
+       "margin_c137": 0.18699368,
+       "margin_cinf": 0.18751574,
+       "displaced": false
+      },
+      {
+       "Z": 14,
+       "symbol": "Si",
+       "c137": "3p",
+       "cinf": "3p",
+       "margin_c137": 0.26206871,
+       "margin_cinf": 0.26279785,
+       "displaced": false
+      },
+      {
+       "Z": 15,
+       "symbol": "P",
+       "c137": "3p",
+       "cinf": "3p",
+       "margin_c137": 0.34186874,
+       "margin_cinf": 0.34275944,
+       "displaced": false
+      },
+      {
+       "Z": 16,
+       "symbol": "S",
+       "c137": "3p",
+       "cinf": "3p",
+       "margin_c137": 0.42476429,
+       "margin_cinf": 0.4258143,
+       "displaced": false
+      },
+      {
+       "Z": 17,
+       "symbol": "Cl",
+       "c137": "3p",
+       "cinf": "3p",
+       "margin_c137": 0.51084732,
+       "margin_cinf": 0.51206181,
+       "displaced": false
+      },
+      {
+       "Z": 18,
+       "symbol": "Ar",
+       "c137": "3p",
+       "cinf": "3p",
+       "margin_c137": 0.60030039,
+       "margin_cinf": 0.60168329,
+       "displaced": false
+      },
+      {
+       "Z": 19,
+       "symbol": "K",
+       "c137": "4s",
+       "cinf": "4s",
+       "margin_c137": 0.08501865,
+       "margin_cinf": 0.08214046,
+       "displaced": false
+      },
+      {
+       "Z": 20,
+       "symbol": "Ca",
+       "c137": "4s",
+       "cinf": "4s",
+       "margin_c137": 0.02722139,
+       "margin_cinf": 0.02157626,
+       "displaced": false
+      },
+      {
+       "Z": 21,
+       "symbol": "Sc",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.25256387,
+       "margin_cinf": 0.25986696,
+       "displaced": false
+      },
+      {
+       "Z": 22,
+       "symbol": "Ti",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.30643274,
+       "margin_cinf": 0.31448372,
+       "displaced": false
+      },
+      {
+       "Z": 23,
+       "symbol": "V",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.35576853,
+       "margin_cinf": 0.36475614,
+       "displaced": false
+      },
+      {
+       "Z": 24,
+       "symbol": "Cr",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.40222727,
+       "margin_cinf": 0.41227912,
+       "displaced": false
+      },
+      {
+       "Z": 25,
+       "symbol": "Mn",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.4466174,
+       "margin_cinf": 0.45784223,
+       "displaced": false
+      },
+      {
+       "Z": 26,
+       "symbol": "Fe",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.48940838,
+       "margin_cinf": 0.50190759,
+       "displaced": false
+      },
+      {
+       "Z": 27,
+       "symbol": "Co",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.53090397,
+       "margin_cinf": 0.54477539,
+       "displaced": false
+      },
+      {
+       "Z": 28,
+       "symbol": "Ni",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.57131188,
+       "margin_cinf": 0.58665368,
+       "displaced": false
+      },
+      {
+       "Z": 29,
+       "symbol": "Cu",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.61078286,
+       "margin_cinf": 0.62769586,
+       "displaced": false
+      },
+      {
+       "Z": 30,
+       "symbol": "Zn",
+       "c137": "3d",
+       "cinf": "3d",
+       "margin_c137": 0.64943218,
+       "margin_cinf": 0.66801488,
+       "displaced": false
+      },
+      {
+       "Z": 31,
+       "symbol": "Ga",
+       "c137": "4p",
+       "cinf": "4p",
+       "margin_c137": 0.18923114,
+       "margin_cinf": 0.19099953,
+       "displaced": false
+      },
+      {
+       "Z": 32,
+       "symbol": "Ge",
+       "c137": "4p",
+       "cinf": "4p",
+       "margin_c137": 0.24699881,
+       "margin_cinf": 0.24963301,
+       "displaced": false
+      },
+      {
+       "Z": 33,
+       "symbol": "As",
+       "c137": "4p",
+       "cinf": "4p",
+       "margin_c137": 0.31006958,
+       "margin_cinf": 0.31308032,
+       "displaced": false
+      },
+      {
+       "Z": 34,
+       "symbol": "Se",
+       "c137": "4p",
+       "cinf": "4p",
+       "margin_c137": 0.374441,
+       "margin_cinf": 0.37774556,
+       "displaced": false
+      },
+      {
+       "Z": 35,
+       "symbol": "Br",
+       "c137": "4p",
+       "cinf": "4p",
+       "margin_c137": 0.44008207,
+       "margin_cinf": 0.44365688,
+       "displaced": false
+      },
+      {
+       "Z": 36,
+       "symbol": "Kr",
+       "c137": "4p",
+       "cinf": "4p",
+       "margin_c137": 0.50725359,
+       "margin_cinf": 0.5110798,
+       "displaced": false
+      },
+      {
+       "Z": 37,
+       "symbol": "Rb",
+       "c137": "5s",
+       "cinf": "5s",
+       "margin_c137": 0.08574849,
+       "margin_cinf": 0.07690085,
+       "displaced": false
+      },
+      {
+       "Z": 38,
+       "symbol": "Sr",
+       "c137": "5s",
+       "cinf": "5s",
+       "margin_c137": 0.06223826,
+       "margin_cinf": 0.04775689,
+       "displaced": false
+      },
+      {
+       "Z": 39,
+       "symbol": "Y",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.13406907,
+       "margin_cinf": 0.14948669,
+       "displaced": false
+      },
+      {
+       "Z": 40,
+       "symbol": "Zr",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.18864697,
+       "margin_cinf": 0.20555757,
+       "displaced": false
+      },
+      {
+       "Z": 41,
+       "symbol": "Nb",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.24063408,
+       "margin_cinf": 0.25934186,
+       "displaced": false
+      },
+      {
+       "Z": 42,
+       "symbol": "Mo",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.29169653,
+       "margin_cinf": 0.31235959,
+       "displaced": false
+      },
+      {
+       "Z": 43,
+       "symbol": "Tc",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.34243385,
+       "margin_cinf": 0.36517488,
+       "displaced": false
+      },
+      {
+       "Z": 44,
+       "symbol": "Ru",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.39311948,
+       "margin_cinf": 0.41805136,
+       "displaced": false
+      },
+      {
+       "Z": 45,
+       "symbol": "Rh",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.44389768,
+       "margin_cinf": 0.47113178,
+       "displaced": false
+      },
+      {
+       "Z": 46,
+       "symbol": "Pd",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.49484864,
+       "margin_cinf": 0.52449725,
+       "displaced": false
+      },
+      {
+       "Z": 47,
+       "symbol": "Ag",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.54602173,
+       "margin_cinf": 0.57820065,
+       "displaced": false
+      },
+      {
+       "Z": 48,
+       "symbol": "Cd",
+       "c137": "4d",
+       "cinf": "4d",
+       "margin_c137": 0.5974453,
+       "margin_cinf": 0.63227257,
+       "displaced": false
+      },
+      {
+       "Z": 49,
+       "symbol": "In",
+       "c137": "5p",
+       "cinf": "5p",
+       "margin_c137": 0.17422662,
+       "margin_cinf": 0.17792747,
+       "displaced": false
+      },
+      {
+       "Z": 50,
+       "symbol": "Sn",
+       "c137": "5p",
+       "cinf": "5p",
+       "margin_c137": 0.2202816,
+       "margin_cinf": 0.22565264,
+       "displaced": false
+      },
+      {
+       "Z": 51,
+       "symbol": "Sb",
+       "c137": "5p",
+       "cinf": "5p",
+       "margin_c137": 0.27053465,
+       "margin_cinf": 0.27654622,
+       "displaced": false
+      },
+      {
+       "Z": 52,
+       "symbol": "Te",
+       "c137": "5p",
+       "cinf": "5p",
+       "margin_c137": 0.32132842,
+       "margin_cinf": 0.32780917,
+       "displaced": false
+      },
+      {
+       "Z": 53,
+       "symbol": "I",
+       "c137": "5p",
+       "cinf": "5p",
+       "margin_c137": 0.37258928,
+       "margin_cinf": 0.37949654,
+       "displaced": false
+      },
+      {
+       "Z": 54,
+       "symbol": "Xe",
+       "c137": "5p",
+       "cinf": "5p",
+       "margin_c137": 0.42455445,
+       "margin_cinf": 0.4318585,
+       "displaced": false
+      },
+      {
+       "Z": 55,
+       "symbol": "Cs",
+       "c137": "6s",
+       "cinf": "6s",
+       "margin_c137": 0.0487688,
+       "margin_cinf": 0.02908518,
+       "displaced": false
+      },
+      {
+       "Z": 56,
+       "symbol": "Ba",
+       "c137": "6s",
+       "cinf": "5d",
+       "margin_c137": 0.0248226,
+       "margin_cinf": 0.00366088,
+       "displaced": true
+      },
+      {
+       "Z": 57,
+       "symbol": "La",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.08977633,
+       "margin_cinf": 0.1663153,
+       "displaced": false
+      },
+      {
+       "Z": 58,
+       "symbol": "Ce",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.1285128,
+       "margin_cinf": 0.20729222,
+       "displaced": false
+      },
+      {
+       "Z": 59,
+       "symbol": "Pr",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.16125681,
+       "margin_cinf": 0.24311218,
+       "displaced": false
+      },
+      {
+       "Z": 60,
+       "symbol": "Nd",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.18949479,
+       "margin_cinf": 0.27495586,
+       "displaced": false
+      },
+      {
+       "Z": 61,
+       "symbol": "Pm",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.21410963,
+       "margin_cinf": 0.30356865,
+       "displaced": false
+      },
+      {
+       "Z": 62,
+       "symbol": "Sm",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.23568564,
+       "margin_cinf": 0.32945591,
+       "displaced": false
+      },
+      {
+       "Z": 63,
+       "symbol": "Eu",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.25463588,
+       "margin_cinf": 0.3529869,
+       "displaced": false
+      },
+      {
+       "Z": 64,
+       "symbol": "Gd",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.27126881,
+       "margin_cinf": 0.37444073,
+       "displaced": false
+      },
+      {
+       "Z": 65,
+       "symbol": "Tb",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.2858233,
+       "margin_cinf": 0.39403677,
+       "displaced": false
+      },
+      {
+       "Z": 66,
+       "symbol": "Dy",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.29848938,
+       "margin_cinf": 0.4119511,
+       "displaced": false
+      },
+      {
+       "Z": 67,
+       "symbol": "Ho",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.30942215,
+       "margin_cinf": 0.42786616,
+       "displaced": false
+      },
+      {
+       "Z": 68,
+       "symbol": "Er",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.3187521,
+       "margin_cinf": 0.43777555,
+       "displaced": false
+      },
+      {
+       "Z": 69,
+       "symbol": "Tm",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.32658821,
+       "margin_cinf": 0.44624273,
+       "displaced": false
+      },
+      {
+       "Z": 70,
+       "symbol": "Yb",
+       "c137": "4f",
+       "cinf": "4f",
+       "margin_c137": 0.33302558,
+       "margin_cinf": 0.45337041,
+       "displaced": false
+      },
+      {
+       "Z": 71,
+       "symbol": "Lu",
+       "c137": "5d",
+       "cinf": "6s",
+       "margin_c137": 0.09956176,
+       "margin_cinf": 0.02138542,
+       "displaced": true
+      },
+      {
+       "Z": 72,
+       "symbol": "Hf",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.14508006,
+       "margin_cinf": 0.19107801,
+       "displaced": false
+      },
+      {
+       "Z": 73,
+       "symbol": "Ta",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.18873486,
+       "margin_cinf": 0.23904386,
+       "displaced": false
+      },
+      {
+       "Z": 74,
+       "symbol": "W",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.23184969,
+       "margin_cinf": 0.28653696,
+       "displaced": false
+      },
+      {
+       "Z": 75,
+       "symbol": "Re",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.27489827,
+       "margin_cinf": 0.33402148,
+       "displaced": false
+      },
+      {
+       "Z": 76,
+       "symbol": "Os",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.31808181,
+       "margin_cinf": 0.38171096,
+       "displaced": false
+      },
+      {
+       "Z": 77,
+       "symbol": "Ir",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.36150033,
+       "margin_cinf": 0.42971975,
+       "displaced": false
+      },
+      {
+       "Z": 78,
+       "symbol": "Pt",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.40520783,
+       "margin_cinf": 0.47811573,
+       "displaced": false
+      },
+      {
+       "Z": 79,
+       "symbol": "Au",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.44923505,
+       "margin_cinf": 0.5269423,
+       "displaced": false
+      },
+      {
+       "Z": 80,
+       "symbol": "Hg",
+       "c137": "5d",
+       "cinf": "5d",
+       "margin_c137": 0.4935998,
+       "margin_cinf": 0.57622696,
+       "displaced": false
+      },
+      {
+       "Z": 81,
+       "symbol": "Tl",
+       "c137": "6p",
+       "cinf": "6p",
+       "margin_c137": 0.16213529,
+       "margin_cinf": 0.17307262,
+       "displaced": false
+      },
+      {
+       "Z": 82,
+       "symbol": "Pb",
+       "c137": "6p",
+       "cinf": "6p",
+       "margin_c137": 0.19975613,
+       "margin_cinf": 0.21558549,
+       "displaced": false
+      },
+      {
+       "Z": 83,
+       "symbol": "Bi",
+       "c137": "6p",
+       "cinf": "6p",
+       "margin_c137": 0.24329494,
+       "margin_cinf": 0.26090524,
+       "displaced": false
+      },
+      {
+       "Z": 84,
+       "symbol": "Po",
+       "c137": "6p",
+       "cinf": "6p",
+       "margin_c137": 0.28725644,
+       "margin_cinf": 0.30618315,
+       "displaced": false
+      },
+      {
+       "Z": 85,
+       "symbol": "At",
+       "c137": "6p",
+       "cinf": "6p",
+       "margin_c137": 0.33126482,
+       "margin_cinf": 0.35142201,
+       "displaced": false
+      },
+      {
+       "Z": 86,
+       "symbol": "Rn",
+       "c137": "6p",
+       "cinf": "6p",
+       "margin_c137": 0.37550568,
+       "margin_cinf": 0.39685416,
+       "displaced": false
+      },
+      {
+       "Z": 87,
+       "symbol": "Fr",
+       "c137": "7s",
+       "cinf": "7s",
+       "margin_c137": 0.07128084,
+       "margin_cinf": 0.0210456,
+       "displaced": false
+      },
+      {
+       "Z": 88,
+       "symbol": "Ra",
+       "c137": "7s",
+       "cinf": "6d",
+       "margin_c137": 0.06211879,
+       "margin_cinf": 0.00668457,
+       "displaced": true
+      },
+      {
+       "Z": 89,
+       "symbol": "Ac",
+       "c137": "6d",
+       "cinf": "5f",
+       "margin_c137": 0.05553556,
+       "margin_cinf": 0.08089383,
+       "displaced": true
+      },
+      {
+       "Z": 90,
+       "symbol": "Th",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.0613636,
+       "margin_cinf": 0.13397204,
+       "displaced": false
+      },
+      {
+       "Z": 91,
+       "symbol": "Pa",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.10903334,
+       "margin_cinf": 0.18464212,
+       "displaced": false
+      },
+      {
+       "Z": 92,
+       "symbol": "U",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.15423692,
+       "margin_cinf": 0.23367542,
+       "displaced": false
+      },
+      {
+       "Z": 93,
+       "symbol": "Np",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.19761097,
+       "margin_cinf": 0.28147777,
+       "displaced": false
+      },
+      {
+       "Z": 94,
+       "symbol": "Pu",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.23950085,
+       "margin_cinf": 0.32829416,
+       "displaced": false
+      },
+      {
+       "Z": 95,
+       "symbol": "Am",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.28011752,
+       "margin_cinf": 0.37428504,
+       "displaced": false
+      },
+      {
+       "Z": 96,
+       "symbol": "Cm",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.31959833,
+       "margin_cinf": 0.41956192,
+       "displaced": false
+      },
+      {
+       "Z": 97,
+       "symbol": "Bk",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.35803847,
+       "margin_cinf": 0.46420754,
+       "displaced": false
+      },
+      {
+       "Z": 98,
+       "symbol": "Cf",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.39550524,
+       "margin_cinf": 0.50828154,
+       "displaced": false
+      },
+      {
+       "Z": 99,
+       "symbol": "Es",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.43204756,
+       "margin_cinf": 0.55183139,
+       "displaced": false
+      },
+      {
+       "Z": 100,
+       "symbol": "Fm",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.46770051,
+       "margin_cinf": 0.59489413,
+       "displaced": false
+      },
+      {
+       "Z": 101,
+       "symbol": "Md",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.50249176,
+       "margin_cinf": 0.63749947,
+       "displaced": false
+      },
+      {
+       "Z": 102,
+       "symbol": "No",
+       "c137": "5f",
+       "cinf": "5f",
+       "margin_c137": 0.5364391,
+       "margin_cinf": 0.67967147,
+       "displaced": false
+      },
+      {
+       "Z": 103,
+       "symbol": "Lr",
+       "c137": "5f",
+       "cinf": "6d",
+       "margin_c137": 0.56955611,
+       "margin_cinf": 0.01349532,
+       "displaced": true
+      },
+      {
+       "Z": 104,
+       "symbol": "Rf",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.117501,
+       "margin_cinf": 0.04617956,
+       "displaced": false
+      },
+      {
+       "Z": 105,
+       "symbol": "Db",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.15430371,
+       "margin_cinf": 0.07846424,
+       "displaced": false
+      },
+      {
+       "Z": 106,
+       "symbol": "Sg",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.19018129,
+       "margin_cinf": 0.11091521,
+       "displaced": false
+      },
+      {
+       "Z": 107,
+       "symbol": "Bh",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.22570242,
+       "margin_cinf": 0.14374659,
+       "displaced": false
+      },
+      {
+       "Z": 108,
+       "symbol": "Hs",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.26111736,
+       "margin_cinf": 0.17704325,
+       "displaced": false
+      },
+      {
+       "Z": 109,
+       "symbol": "Mt",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.2965495,
+       "margin_cinf": 0.21083927,
+       "displaced": false
+      },
+      {
+       "Z": 110,
+       "symbol": "Ds",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.33206276,
+       "margin_cinf": 0.24514611,
+       "displaced": false
+      },
+      {
+       "Z": 111,
+       "symbol": "Rg",
+       "c137": "6d",
+       "cinf": "6d",
+       "margin_c137": 0.36769017,
+       "margin_cinf": 0.27996639,
+       "displaced": false
+      },
+      {
+       "Z": 112,
+       "symbol": "Cn",
+       "c137": "6d",
+       "cinf": "7s",
+       "margin_c137": 0.40344841,
+       "margin_cinf": 0.15991313,
+       "displaced": true
+      },
+      {
+       "Z": 113,
+       "symbol": "Nh",
+       "c137": "7p",
+       "cinf": "7p",
+       "margin_c137": 0.13272835,
+       "margin_cinf": 0.16384594,
+       "displaced": false
+      },
+      {
+       "Z": 114,
+       "symbol": "Fl",
+       "c137": "7p",
+       "cinf": "7p",
+       "margin_c137": 0.15895619,
+       "margin_cinf": 0.20182501,
+       "displaced": false
+      },
+      {
+       "Z": 115,
+       "symbol": "Mc",
+       "c137": "7p",
+       "cinf": "7p",
+       "margin_c137": 0.19339546,
+       "margin_cinf": 0.2418,
+       "displaced": false
+      },
+      {
+       "Z": 116,
+       "symbol": "Lv",
+       "c137": "7p",
+       "cinf": "7p",
+       "margin_c137": 0.22817626,
+       "margin_cinf": 0.28145921,
+       "displaced": false
+      },
+      {
+       "Z": 117,
+       "symbol": "Ts",
+       "c137": "7p",
+       "cinf": "7p",
+       "margin_c137": 0.26259136,
+       "margin_cinf": 0.32083452,
+       "displaced": false
+      },
+      {
+       "Z": 118,
+       "symbol": "Og",
+       "c137": "7p",
+       "cinf": "7p",
+       "margin_c137": 0.29674094,
+       "margin_cinf": 0.36014508,
+       "displaced": false
+      },
+      {
+       "Z": 119,
+       "symbol": "Uue",
+       "c137": "8s",
+       "cinf": "8s",
+       "margin_c137": 0.11497651,
+       "margin_cinf": 3.532e-05,
+       "displaced": false
+      },
+      {
+       "Z": 120,
+       "symbol": "Ubn",
+       "c137": "8s",
+       "cinf": "6f",
+       "margin_c137": 0.12307422,
+       "margin_cinf": 0.09095094,
+       "displaced": true
+      }
+     ]
+    }
+   },
    "c": {
     "c137": 137.035999,
     "cinf": null
@@ -676,12 +1786,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "h": 0.005,
     "points": 4365
    },
-   "not_reproduced": "the record's non-local exchange; its collapse criterion; its correlation clause; its Z = 91 two-branch diagnostic",
    "summary": {
     "status": "RECONSTRUCTED",
     "rows": 238,
     "settings": {
-     "137.035999": {
+     "lx:137.035999": {
+      "field": "lx",
+      "field_name": "local exchange (Kohn–Sham) with Latter's tail: Hartree–Fock–Slater",
+      "c": "137.035999",
       "rows": 119,
       "Z_first": 2,
       "Z_last": 120,
@@ -1009,7 +2121,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
        }
       ]
      },
-     "inf": {
+     "lx:inf": {
+      "field": "lx",
+      "field_name": "local exchange (Kohn–Sham) with Latter's tail: Hartree–Fock–Slater",
+      "c": "inf",
       "rows": 119,
       "Z_first": 2,
       "Z_last": 120,
@@ -1373,6 +2488,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      }
     },
     "compare": {
+     "field": "lx",
+     "field_name": "local exchange (Kohn–Sham) with Latter's tail: Hartree–Fock–Slater",
      "Z_first": 2,
      "Z_last": 120,
      "rows": 119,
@@ -1612,7 +2729,253 @@ window.__mi = window.__mi || {}; window.__mi.index = {
        ]
       }
      ]
-    }
+    },
+    "fields": {
+     "lx": {
+      "field": "lx",
+      "field_name": "local exchange (Kohn–Sham) with Latter's tail: Hartree–Fock–Slater",
+      "Z_first": 2,
+      "Z_last": 120,
+      "rows": 119,
+      "displaced": [
+       {
+        "symbol": "Ba",
+        "Z": 56,
+        "entrant_c137": "6s",
+        "entrant_cinf": "5d"
+       },
+       {
+        "symbol": "Lu",
+        "Z": 71,
+        "entrant_c137": "5d",
+        "entrant_cinf": "6s"
+       },
+       {
+        "symbol": "Ra",
+        "Z": 88,
+        "entrant_c137": "7s",
+        "entrant_cinf": "6d"
+       },
+       {
+        "symbol": "Ac",
+        "Z": 89,
+        "entrant_c137": "6d",
+        "entrant_cinf": "5f"
+       },
+       {
+        "symbol": "Lr",
+        "Z": 103,
+        "entrant_c137": "5f",
+        "entrant_cinf": "6d"
+       },
+       {
+        "symbol": "Cn",
+        "Z": 112,
+        "entrant_c137": "6d",
+        "entrant_cinf": "7s"
+       },
+       {
+        "symbol": "Ubn",
+        "Z": 120,
+        "entrant_c137": "8s",
+        "entrant_cinf": "6f"
+       }
+      ],
+      "eleven_1706": [
+       "Mn",
+       "Zn",
+       "Ag",
+       "Cd",
+       "Nd",
+       "Pm",
+       "Sm",
+       "Lu",
+       "Hg",
+       "Lr",
+       "Rf"
+      ],
+      "in_eleven": [
+       "Lu",
+       "Lr"
+      ],
+      "not_in_eleven": [
+       "Ba",
+       "Ra",
+       "Ac",
+       "Cn",
+       "Ubn"
+      ],
+      "eleven_not_displaced": [
+       "Mn",
+       "Zn",
+       "Ag",
+       "Cd",
+       "Nd",
+       "Pm",
+       "Sm",
+       "Hg",
+       "Rf"
+      ],
+      "thorium": {
+       "entrant_c137": "5f",
+       "entrant_cinf": "5f",
+       "identical": true,
+       "top3_c137": [
+        "5f:-0.40022777",
+        "6d:-0.33886416",
+        "7p:-0.20647270"
+       ],
+       "top3_cinf": [
+        "5f:-0.44422213",
+        "6d:-0.31025009",
+        "7s:-0.27264593"
+       ]
+      },
+      "named_rows": [
+       {
+        "symbol": "Mn",
+        "Z": 25,
+        "top3_c137": [
+         "3d:-0.74138426",
+         "4p:-0.29476685",
+         "5s:-0.12289774"
+        ],
+        "top3_cinf": [
+         "3d:-0.75313672",
+         "4p:-0.29529450",
+         "5s:-0.12235490"
+        ]
+       },
+       {
+        "symbol": "Zn",
+        "Z": 30,
+        "top3_c137": [
+         "3d:-0.96938076",
+         "4p:-0.31994857",
+         "5s:-0.13260640"
+        ],
+        "top3_cinf": [
+         "3d:-0.98864532",
+         "4p:-0.32063045",
+         "5s:-0.13167224"
+        ]
+       },
+       {
+        "symbol": "Ag",
+        "Z": 47,
+        "top3_c137": [
+         "4d:-0.83970830",
+         "5p:-0.29368657",
+         "6s:-0.12375895"
+        ],
+        "top3_cinf": [
+         "4d:-0.87291006",
+         "5p:-0.29470942",
+         "6s:-0.12164596"
+        ]
+       },
+       {
+        "symbol": "Cd",
+        "Z": 48,
+        "top3_c137": [
+         "4d:-0.89489438",
+         "5p:-0.29744908",
+         "6s:-0.12520239"
+        ],
+        "top3_cinf": [
+         "4d:-0.93088284",
+         "5p:-0.29861027",
+         "6s:-0.12296056"
+        ]
+       },
+       {
+        "symbol": "Nd",
+        "Z": 60,
+        "top3_c137": [
+         "4f:-0.54541758",
+         "5d:-0.35592279",
+         "6p:-0.21538466"
+        ],
+        "top3_cinf": [
+         "4f:-0.59909892",
+         "5d:-0.32414306",
+         "6s:-0.29469865"
+        ]
+       },
+       {
+        "symbol": "Lu",
+        "Z": 71,
+        "top3_c137": [
+         "5d:-0.32766324",
+         "6p:-0.22810148",
+         "7s:-0.11012868"
+        ],
+        "top3_cinf": [
+         "6s:-0.33305956",
+         "5d:-0.31167414",
+         "6p:-0.21030286"
+        ]
+       },
+       {
+        "symbol": "Hg",
+        "Z": 80,
+        "top3_c137": [
+         "5d:-0.78203740",
+         "6p:-0.28843761",
+         "7s:-0.12772538"
+        ],
+        "top3_cinf": [
+         "5d:-0.86744204",
+         "6p:-0.29121508",
+         "7s:-0.12031657"
+        ]
+       },
+       {
+        "symbol": "Th",
+        "Z": 90,
+        "top3_c137": [
+         "5f:-0.40022777",
+         "6d:-0.33886416",
+         "7p:-0.20647270"
+        ],
+        "top3_cinf": [
+         "5f:-0.44422213",
+         "6d:-0.31025009",
+         "7s:-0.27264593"
+        ]
+       },
+       {
+        "symbol": "Lr",
+        "Z": 103,
+        "top3_c137": [
+         "5f:-0.91382663",
+         "6d:-0.34427052",
+         "7p:-0.22296478"
+        ],
+        "top3_cinf": [
+         "6d:-0.32046755",
+         "7s:-0.30697223",
+         "7p:-0.19872732"
+        ]
+       },
+       {
+        "symbol": "Rf",
+        "Z": 104,
+        "top3_c137": [
+         "6d:-0.34125784",
+         "7p:-0.22375684",
+         "8s:-0.11797506"
+        ],
+        "top3_cinf": [
+         "6d:-0.37265496",
+         "7s:-0.32647540",
+         "7p:-0.20944955"
+        ]
+       }
+      ]
+     }
+    },
+    "primary_field": "lx"
    },
    "entrants": [
     {
@@ -3379,7 +4742,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "walk-reconstructed",
-   "text": "The walk shown beside the record is a RECONSTRUCTION (tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's construction run in a local-exchange field, not its Hartree–Fock one. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the record's number, and the record's Λ_chain and Λ_cinf stay unheld."
+   "text": "The walk shown beside the record is a RECONSTRUCTION (tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's construction rebuilt from its statement and run in two fields, a local-exchange one and the record's own average-of-configuration Hartree–Fock with non-local exchange, neither of them the record's code, which never arrived. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the record's number, and the record's Λ_chain and Λ_cinf stay unheld."
   },
   {
    "id": "limit-kind",
@@ -3428,6 +4791,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "symmetry": 8
    }
@@ -3460,6 +4824,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 7,
     "term": 3,
@@ -3495,6 +4860,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 17,
     "no-analysis": 2,
@@ -3531,6 +4897,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 24,
     "term": 6,
@@ -3566,6 +4933,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "no-analysis": 2,
     "ionisation-limit": 3,
@@ -3603,6 +4971,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 28,
     "term": 7,
@@ -3639,6 +5008,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 16,
     "coupling": 4,
@@ -3676,6 +5046,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 20,
     "unresolved": 36,
@@ -3713,6 +5084,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 4,
     "coupling": 26,
@@ -3750,6 +5122,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 39,
     "none": 7,
@@ -3787,6 +5160,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "ionisation-limit": 6,
     "unresolved": 50,
@@ -3824,6 +5198,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 13,
     "term": 42,
@@ -3861,6 +5236,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 14,
     "ionisation-limit": 2,
@@ -3899,6 +5275,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 48,
     "none": 22,
@@ -3936,6 +5313,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 40,
     "unresolved": 72,
@@ -3973,6 +5351,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 50,
     "unresolved": 78,
@@ -4010,6 +5389,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 60,
     "unresolved": 84,
@@ -4046,6 +5426,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 70,
     "unresolved": 90,
@@ -4083,6 +5464,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 6,
     "no-analysis": 21,
@@ -4120,6 +5502,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 22,
     "term": 68,
@@ -4157,6 +5540,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 84,
     "unresolved": 102,
@@ -4194,6 +5578,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 85,
     "unresolved": 108,
@@ -4231,6 +5616,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 70,
     "unresolved": 114,
@@ -4267,6 +5653,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 80,
     "unresolved": 120,
@@ -4303,6 +5690,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 90,
     "unresolved": 126,
@@ -4339,6 +5727,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 100,
     "unresolved": 132,
@@ -4376,6 +5765,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 110,
     "unresolved": 138,
@@ -4412,6 +5802,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 120,
     "unresolved": 144,
@@ -4448,6 +5839,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 130,
     "unresolved": 150,
@@ -4484,6 +5876,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 101,
     "none": 9,
@@ -4521,6 +5914,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 8,
     "ionisation-limit": 2,
@@ -4559,6 +5953,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 110,
     "unresolved": 165,
@@ -4596,6 +5991,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 140,
     "unresolved": 171,
@@ -4632,6 +6028,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 150,
     "unresolved": 177,
@@ -4668,6 +6065,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 160,
     "unresolved": 183,
@@ -4704,6 +6102,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 125,
     "unresolved": 189,
@@ -4740,6 +6139,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "no-analysis": 35,
     "unresolved": 192,
@@ -4776,6 +6176,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 135,
     "unresolved": 198,
@@ -4813,6 +6214,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 140,
     "unresolved": 201,
@@ -4849,6 +6251,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 150,
     "unresolved": 207,
@@ -4885,6 +6288,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 170,
     "unresolved": 213,
@@ -4921,6 +6325,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 180,
     "unresolved": 219,
@@ -4957,6 +6362,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 190,
     "unresolved": 225,
@@ -4994,6 +6400,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 200,
     "unresolved": 231,
@@ -5030,6 +6437,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 210,
     "unresolved": 237,
@@ -5066,6 +6474,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 220,
     "unresolved": 243,
@@ -5102,6 +6511,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 230,
     "unresolved": 249,
@@ -5138,6 +6548,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "none": 12,
     "term": 153,
@@ -5175,6 +6586,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 164,
     "ionisation-limit": 1,
@@ -5212,6 +6624,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 175,
     "unresolved": 264,
@@ -5248,6 +6661,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 240,
     "unresolved": 270,
@@ -5284,6 +6698,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 250,
     "unresolved": 276,
@@ -5320,6 +6735,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 260,
     "unresolved": 282,
@@ -5356,6 +6772,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 185,
     "unresolved": 288,
@@ -5392,6 +6809,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "ionisation-limit": 5,
     "unresolved": 291,
@@ -5429,6 +6847,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "term": 195,
     "unresolved": 297,
@@ -5466,6 +6885,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 205,
     "unresolved": 300,
@@ -5502,6 +6922,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 215,
     "unresolved": 306,
@@ -5538,6 +6959,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 270,
     "unresolved": 312,
@@ -5574,6 +6996,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 280,
     "unresolved": 318,
@@ -5610,6 +7033,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 290,
     "unresolved": 324,
@@ -5646,6 +7070,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 300,
     "unresolved": 330,
@@ -5682,6 +7107,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 310,
     "unresolved": 336,
@@ -5718,6 +7144,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 320,
     "unresolved": 342,
@@ -5754,6 +7181,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 330,
     "unresolved": 348,
@@ -5790,6 +7218,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 340,
     "unresolved": 354,
@@ -5826,6 +7255,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 350,
     "unresolved": 360,
@@ -5862,6 +7292,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 360,
     "unresolved": 366,
@@ -5898,6 +7329,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 370,
     "unresolved": 372,
@@ -5934,6 +7366,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 225,
     "unresolved": 378,
@@ -5970,6 +7403,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "term": 229,
     "ionisation-limit": 1,
@@ -6007,6 +7441,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 240,
     "unresolved": 387,
@@ -6043,6 +7478,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 380,
     "unresolved": 393,
@@ -6079,6 +7515,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 390,
     "unresolved": 399,
@@ -6115,6 +7552,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 400,
     "unresolved": 405,
@@ -6151,6 +7589,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 410,
     "unresolved": 411,
@@ -6187,6 +7626,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 420,
     "unresolved": 417,
@@ -6223,6 +7663,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 430,
     "unresolved": 423,
@@ -6259,6 +7700,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 440,
     "unresolved": 429,
@@ -6295,6 +7737,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 250,
     "unresolved": 435,
@@ -6332,6 +7775,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "ionisation-limit": 3,
     "term": 252,
@@ -6369,6 +7813,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 265,
     "unresolved": 444,
@@ -6405,6 +7850,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 450,
     "unresolved": 450,
@@ -6442,6 +7888,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 460,
     "unresolved": 456,
@@ -6478,6 +7925,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 470,
     "unresolved": 462,
@@ -6514,6 +7962,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 275,
     "unresolved": 468,
@@ -6550,6 +7999,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "ionisation-limit": 2,
     "term": 278,
@@ -6587,6 +8037,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "term": 290,
     "unresolved": 477,
@@ -6623,6 +8074,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "term": 295,
     "unresolved": 480,
@@ -6659,6 +8111,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 305,
     "unresolved": 486,
@@ -6695,6 +8148,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 480,
     "unresolved": 492,
@@ -6731,6 +8185,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 490,
     "unresolved": 498,
@@ -6767,6 +8222,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 500,
     "unresolved": 504,
@@ -6803,6 +8259,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 510,
     "unresolved": 510,
@@ -6839,6 +8296,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 520,
     "unresolved": 516,
@@ -6875,6 +8333,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 530,
     "unresolved": 522,
@@ -6911,6 +8370,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 540,
     "unresolved": 528,
@@ -6947,6 +8407,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 550,
     "unresolved": 534,
@@ -6983,6 +8444,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 560,
     "unresolved": 540,
@@ -7019,6 +8481,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 570,
     "unresolved": 546,
@@ -7055,6 +8518,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "coupling": 580,
     "unresolved": 552,
@@ -7091,6 +8555,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "term": 315,
     "unresolved": 558,
@@ -7127,6 +8592,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "term": 320,
     "unresolved": 561,
@@ -7163,6 +8629,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": true,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1512,
     "symmetry": 8
@@ -7196,6 +8663,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1528,
     "symmetry": 8
@@ -7229,6 +8697,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1544,
     "symmetry": 8
@@ -7262,6 +8731,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1560,
     "symmetry": 8
@@ -7295,6 +8765,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1576,
     "symmetry": 8
@@ -7325,6 +8796,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1592,
     "symmetry": 8
@@ -7355,6 +8827,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1608,
     "symmetry": 8
@@ -7385,6 +8858,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1624,
     "symmetry": 8
@@ -7415,6 +8889,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "nuclear": 1640,
     "symmetry": 8
@@ -7445,6 +8920,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1648,
     "symmetry": 8
@@ -7475,6 +8951,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1664,
     "symmetry": 8
@@ -7505,6 +8982,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1680,
     "symmetry": 8
@@ -7535,6 +9013,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1696,
     "symmetry": 8
@@ -7565,6 +9044,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1712,
     "symmetry": 8
@@ -7595,6 +9075,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1728,
     "symmetry": 8
@@ -7625,6 +9106,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": false,
+   "walk_lx_displaced": false,
    "limits": {
     "nuclear": 1744
    }
@@ -7654,6 +9136,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "relativistic": false,
    "walk_displaced": true,
+   "walk_lx_displaced": true,
    "limits": {
     "nuclear": 1760
    }
@@ -7671,954 +9154,954 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 2,
    "file": "elements/2.js",
-   "bytes": 12153,
-   "md5": "b0adb5ef480109d3fd600e717a287220",
-   "payload_bytes": 12073,
-   "payload_md5": "1cce00f5c6ff94200aea139515208054"
+   "bytes": 12171,
+   "md5": "4b39ca2e0f20b193649adbb0ccb6a022",
+   "payload_bytes": 12091,
+   "payload_md5": "8956036e0a8286dd36c5ebfe0db68055"
   },
   {
    "Z": 3,
    "file": "elements/3.js",
-   "bytes": 15607,
-   "md5": "c4badf7202bbd4fee143772a05bd3b19",
-   "payload_bytes": 15527,
-   "payload_md5": "023e677bfc89aa3338f480d50ea18a30"
+   "bytes": 15625,
+   "md5": "fffdd96361dd744787b17f5547e6f51e",
+   "payload_bytes": 15545,
+   "payload_md5": "3f356c6de692f8582cc26fbac5cb17d3"
   },
   {
    "Z": 4,
    "file": "elements/4.js",
-   "bytes": 21387,
-   "md5": "dea6d90c9eced907d2d127a1d6f36499",
-   "payload_bytes": 21307,
-   "payload_md5": "74684f7ff78b5338ba68aa4e32547b0f"
+   "bytes": 21405,
+   "md5": "098df9e24dadba72175be1b0aba365cb",
+   "payload_bytes": 21325,
+   "payload_md5": "b6da033528ce96fe3eb84d1eb3cbe7f1"
   },
   {
    "Z": 5,
    "file": "elements/5.js",
-   "bytes": 25527,
-   "md5": "4162555e8795bdf6c1803d46c6df7dba",
-   "payload_bytes": 25447,
-   "payload_md5": "19f516833342dec2c2845930aae39df7"
+   "bytes": 25545,
+   "md5": "6f04a11c1d5dac3e7854e3c0d7ab3590",
+   "payload_bytes": 25465,
+   "payload_md5": "1b020bc4082e641a4da191d573dd1d55"
   },
   {
    "Z": 6,
    "file": "elements/6.js",
-   "bytes": 31341,
-   "md5": "8b3bae73a55b78602242e9dd3a0e7a95",
-   "payload_bytes": 31261,
-   "payload_md5": "8eb248650c74e11ebebdb6a028b689f8"
+   "bytes": 31359,
+   "md5": "e8436749ff35edd0fe31d58e09faf8d9",
+   "payload_bytes": 31279,
+   "payload_md5": "70c5351e193d12ce3f2d487784158c67"
   },
   {
    "Z": 7,
    "file": "elements/7.js",
-   "bytes": 38144,
-   "md5": "f61855c6a67f07ed02a75e4440cb12b6",
-   "payload_bytes": 38064,
-   "payload_md5": "3830d385023b8059067b9612ce315cb7"
+   "bytes": 38162,
+   "md5": "a4e4e02424b1877ac2f13e7eebc80da4",
+   "payload_bytes": 38082,
+   "payload_md5": "7abff1f936a3dfd010eefb15561ffc29"
   },
   {
    "Z": 8,
    "file": "elements/8.js",
-   "bytes": 44206,
-   "md5": "1780a9d390d60f759e1bc048256dd902",
-   "payload_bytes": 44126,
-   "payload_md5": "2796485bba6ebe82dc89117084949dcf"
+   "bytes": 44224,
+   "md5": "6dabffcfe951e8df6a26c9e62f480924",
+   "payload_bytes": 44144,
+   "payload_md5": "6211315fdd1902b8181d07f13db47d61"
   },
   {
    "Z": 9,
    "file": "elements/9.js",
-   "bytes": 50489,
-   "md5": "48febfb9ff3fae67e5b1ab1a2a4e1316",
-   "payload_bytes": 50409,
-   "payload_md5": "cd2bd1809636cba6fb81d00c81652590"
+   "bytes": 50507,
+   "md5": "c0ffede48d9b3f60d26ccf5d0dc45884",
+   "payload_bytes": 50427,
+   "payload_md5": "5a2579d05275d7f955b9517ca41df9cb"
   },
   {
    "Z": 10,
    "file": "elements/10.js",
-   "bytes": 56574,
-   "md5": "b34bf351fdcbaf06e7d98dfd00b25cfa",
-   "payload_bytes": 56493,
-   "payload_md5": "fe8e3d17b0afce940b2668b51b3798ca"
+   "bytes": 56592,
+   "md5": "545442359007da7b34f9bf5c6f121359",
+   "payload_bytes": 56511,
+   "payload_md5": "7d45a861440c1c197de94a0f892cd8df"
   },
   {
    "Z": 11,
    "file": "elements/11.js",
-   "bytes": 61353,
-   "md5": "ed4398535442e01698108987d2c93f24",
-   "payload_bytes": 61272,
-   "payload_md5": "86e265fd507d9600c8ae9f21db9f74fd"
+   "bytes": 61371,
+   "md5": "afbff6a5b23a3a565569330e1689b100",
+   "payload_bytes": 61290,
+   "payload_md5": "1be015ecb8e3baa9070a9db358e03021"
   },
   {
    "Z": 12,
    "file": "elements/12.js",
-   "bytes": 66348,
-   "md5": "d4c0bf9c7b81530e035e9937a84c421c",
-   "payload_bytes": 66267,
-   "payload_md5": "06bd20c3ada810e0a33e38b836dab669"
+   "bytes": 66366,
+   "md5": "419f1ed30c6f653e41219cd4e4e40381",
+   "payload_bytes": 66285,
+   "payload_md5": "4d15d58e11b5831058adb483c63bbb82"
   },
   {
    "Z": 13,
    "file": "elements/13.js",
-   "bytes": 70598,
-   "md5": "a207cf8d843ce69f2eb49d7b7b4690c4",
-   "payload_bytes": 70517,
-   "payload_md5": "bd515301dbd640ff8931a213c0658564"
+   "bytes": 70616,
+   "md5": "e87051d7ac78ca8df12ffe8b0a501617",
+   "payload_bytes": 70535,
+   "payload_md5": "14165162d659731e765a86fa72aced98"
   },
   {
    "Z": 14,
    "file": "elements/14.js",
-   "bytes": 76203,
-   "md5": "9a3e3fdd058b8f2dec1bca00d3c4cad0",
-   "payload_bytes": 76122,
-   "payload_md5": "f69c56524dc54e5db50aeca659dd957e"
+   "bytes": 76221,
+   "md5": "e060c417e5653b9c5f00dbc1b44dc041",
+   "payload_bytes": 76140,
+   "payload_md5": "0f74121a4f96b5da1c4a0f1abc2efa34"
   },
   {
    "Z": 15,
    "file": "elements/15.js",
-   "bytes": 82608,
-   "md5": "82a3dabae203e8ec9bd8459fda1cd442",
-   "payload_bytes": 82527,
-   "payload_md5": "3a99447fcbb7b168672ce3bb72bec4fd"
+   "bytes": 82626,
+   "md5": "b46de12050f276c0a83ee62d88d651e7",
+   "payload_bytes": 82545,
+   "payload_md5": "3bcdfd4264ce5677f52634c7d94c350c"
   },
   {
    "Z": 16,
    "file": "elements/16.js",
-   "bytes": 88280,
-   "md5": "687d2bd1c155cb3359a521ce518cd3ce",
-   "payload_bytes": 88199,
-   "payload_md5": "ab523e6b84bda9d1f4e884d88c0f75f6"
+   "bytes": 88298,
+   "md5": "60e13944213aa5c56c63a5da2e94bf8a",
+   "payload_bytes": 88217,
+   "payload_md5": "23af53a3837cc0487806067ea90ccb7c"
   },
   {
    "Z": 17,
    "file": "elements/17.js",
-   "bytes": 95193,
-   "md5": "06b56134627e950a74ebaf1e07f7e748",
-   "payload_bytes": 95112,
-   "payload_md5": "d4e39da58f78018029226608f81e9561"
+   "bytes": 95211,
+   "md5": "9f6ec98e386ecd487a9bb87e91d5ae3e",
+   "payload_bytes": 95130,
+   "payload_md5": "c5216d702d663d01ed204dd2d8830364"
   },
   {
    "Z": 18,
    "file": "elements/18.js",
-   "bytes": 102305,
-   "md5": "81f9cefa213c4a4b4d5c6bf85862b445",
-   "payload_bytes": 102224,
-   "payload_md5": "3feda5ce7094236699bbe5d38cd05f37"
+   "bytes": 102323,
+   "md5": "27de7c2284c380bb1ca600684b9fd466",
+   "payload_bytes": 102242,
+   "payload_md5": "16d88b2333002207b29c08f5a6b0b449"
   },
   {
    "Z": 19,
    "file": "elements/19.js",
-   "bytes": 106167,
-   "md5": "1c00626d1891227466389e8b770f536c",
-   "payload_bytes": 106086,
-   "payload_md5": "37ebc7c0a7f5ac375608aaf105ce2d98"
+   "bytes": 106185,
+   "md5": "8971097216a71324f3f1fcb646f57614",
+   "payload_bytes": 106104,
+   "payload_md5": "db60262794ec02043ebfb18110026bbd"
   },
   {
    "Z": 20,
    "file": "elements/20.js",
-   "bytes": 111566,
-   "md5": "7dfb02b2091f2aec9a577b408cb80c37",
-   "payload_bytes": 111485,
-   "payload_md5": "aedcfefe7aa5afdced99ff627d2280c6"
+   "bytes": 111584,
+   "md5": "f3d08152f9a4aebbffd7d0d1182ede38",
+   "payload_bytes": 111503,
+   "payload_md5": "b1a94e8bfc3fc47d1b24394d439c6074"
   },
   {
    "Z": 21,
    "file": "elements/21.js",
-   "bytes": 116615,
-   "md5": "0f248f0c4e4b9f646737265f80534484",
-   "payload_bytes": 116534,
-   "payload_md5": "1a1d66b2b762a93e65aaadce2ea095fb"
+   "bytes": 116633,
+   "md5": "a32b77082f0564a952c3393a09a4efb6",
+   "payload_bytes": 116552,
+   "payload_md5": "c82fc260fb8a87de86285217f92f8ba1"
   },
   {
    "Z": 22,
    "file": "elements/22.js",
-   "bytes": 122365,
-   "md5": "d38ec047411631eb51e4b610e6f7352a",
-   "payload_bytes": 122284,
-   "payload_md5": "7c1743bf534c19f7a9c116cdb0220a14"
+   "bytes": 122383,
+   "md5": "48f5ca33d75f1fac29bca33aa6aa5d34",
+   "payload_bytes": 122302,
+   "payload_md5": "5ea738ab656359d66c25d9fff88d77a8"
   },
   {
    "Z": 23,
    "file": "elements/23.js",
-   "bytes": 129244,
-   "md5": "0a6d46815ba35d4066ec988ce6e850b0",
-   "payload_bytes": 129163,
-   "payload_md5": "1f89d0ff7b02e653f47ec2bb8eb8f24e"
+   "bytes": 129262,
+   "md5": "92d9f133bfbc853ce1f983184dfb1d15",
+   "payload_bytes": 129181,
+   "payload_md5": "c801c19f65eb829faa75b6d63f747605"
   },
   {
    "Z": 24,
    "file": "elements/24.js",
-   "bytes": 135247,
-   "md5": "28ee80aeb39690e81062410894d76b1d",
-   "payload_bytes": 135166,
-   "payload_md5": "4a134de45d696bff54b8fc5a90fc6f10"
+   "bytes": 135265,
+   "md5": "39acaa9dafabdfad75464123273c8597",
+   "payload_bytes": 135184,
+   "payload_md5": "ea051d8b6669d7cb532e228219de50d7"
   },
   {
    "Z": 25,
    "file": "elements/25.js",
-   "bytes": 141127,
-   "md5": "9b0036acdada5247c3ae651bd862b8e6",
-   "payload_bytes": 141046,
-   "payload_md5": "af2f34a4051c4273305ea04c7ffb1af3"
+   "bytes": 141145,
+   "md5": "36a2d0f66ef6fe4f23d34c4290da575a",
+   "payload_bytes": 141064,
+   "payload_md5": "309fd58327d3c83ccd337c977d03083a"
   },
   {
    "Z": 26,
    "file": "elements/26.js",
-   "bytes": 146570,
-   "md5": "5d68acee22e61c69d35a4b4262026c9b",
-   "payload_bytes": 146489,
-   "payload_md5": "d049784c2bfd3aec49e4b85edf2b13b5"
+   "bytes": 146588,
+   "md5": "fb135645e36a1e278a468ea27263d504",
+   "payload_bytes": 146507,
+   "payload_md5": "eee2f94aac45490cb067fc1f1a61d914"
   },
   {
    "Z": 27,
    "file": "elements/27.js",
-   "bytes": 153089,
-   "md5": "a55e474c23c5a25ec683ce085d92685b",
-   "payload_bytes": 153008,
-   "payload_md5": "2dd0353232c09c1c37ceac7b5c3cc24b"
+   "bytes": 153107,
+   "md5": "5189f3cf326a2ed93eb4c1c4c9fb8751",
+   "payload_bytes": 153026,
+   "payload_md5": "8b7b230ee398144ff92bbfbca0335c81"
   },
   {
    "Z": 28,
    "file": "elements/28.js",
-   "bytes": 159035,
-   "md5": "21b0521ec38679d1043c2d550c683c26",
-   "payload_bytes": 158954,
-   "payload_md5": "67e4d3120e01a753ee2ae59066b282ac"
+   "bytes": 159053,
+   "md5": "f94a63125e21f2bffac06cf724a672cd",
+   "payload_bytes": 158972,
+   "payload_md5": "8a84d367cd502dafef2954aad797ad5e"
   },
   {
    "Z": 29,
    "file": "elements/29.js",
-   "bytes": 165064,
-   "md5": "b5ae2dec45ab2d4a7baeadd62b1bb7c9",
-   "payload_bytes": 164983,
-   "payload_md5": "f245eb5166bb437c93a07f16b37d7c97"
+   "bytes": 165082,
+   "md5": "66a148253f44bffbb607aed4c26f4e4a",
+   "payload_bytes": 165001,
+   "payload_md5": "195bff560c33498144d365e4d21ce210"
   },
   {
    "Z": 30,
    "file": "elements/30.js",
-   "bytes": 170917,
-   "md5": "3480ec183485065d1099711d8f3f3d94",
-   "payload_bytes": 170836,
-   "payload_md5": "7dc26abc40caaf3f3721d33ac53b2811"
+   "bytes": 170935,
+   "md5": "f3cb77252f9f426d27d9e174f64aa885",
+   "payload_bytes": 170854,
+   "payload_md5": "8e0d8ab03e3b8b8af1114cc47aa75254"
   },
   {
    "Z": 31,
    "file": "elements/31.js",
-   "bytes": 175035,
-   "md5": "b975cb319e2a7166dd95a489c82e65e6",
-   "payload_bytes": 174954,
-   "payload_md5": "c2402124e8dc1008d263008d67d5ae4c"
+   "bytes": 175053,
+   "md5": "3a2f8ac3a87ffce77672bfefd3a4f648",
+   "payload_bytes": 174972,
+   "payload_md5": "e096ddccb92f34280617d66a12a3435e"
   },
   {
    "Z": 32,
    "file": "elements/32.js",
-   "bytes": 181420,
-   "md5": "f75b3a62a71cb4f162eeab2d0aaf2586",
-   "payload_bytes": 181339,
-   "payload_md5": "e3480f29d990c36bb877901734717ac8"
+   "bytes": 181438,
+   "md5": "5c9add8790c115dd9f666471e536a198",
+   "payload_bytes": 181357,
+   "payload_md5": "0f38b27b665fb363750f4a7816996900"
   },
   {
    "Z": 33,
    "file": "elements/33.js",
-   "bytes": 187692,
-   "md5": "edf32511a55961cdf891aa34f02f370e",
-   "payload_bytes": 187611,
-   "payload_md5": "14071e86f53c2d63cf3edd9490eeb027"
+   "bytes": 187710,
+   "md5": "e89968cbbc209c3d43fab2e0c3171580",
+   "payload_bytes": 187629,
+   "payload_md5": "e87d70c3013d5e57552bb0c271f0a54d"
   },
   {
    "Z": 34,
    "file": "elements/34.js",
-   "bytes": 193648,
-   "md5": "903886d4037e728af9c46a20df92d02e",
-   "payload_bytes": 193567,
-   "payload_md5": "c78b21cbb754f9329f2ac76684177f02"
+   "bytes": 193666,
+   "md5": "36d1ff1930bbd12eaf23a881e542e76e",
+   "payload_bytes": 193585,
+   "payload_md5": "7c9394707833fa0437193e3ef28ac2e5"
   },
   {
    "Z": 35,
    "file": "elements/35.js",
-   "bytes": 199604,
-   "md5": "8e0402f5e5f0238c3f36498c5bc52bb9",
-   "payload_bytes": 199523,
-   "payload_md5": "220a308206ad46578984ff80c7371ba5"
+   "bytes": 199622,
+   "md5": "efb555bb1f1895f9ab14a40a8892fac3",
+   "payload_bytes": 199541,
+   "payload_md5": "83b84de8d4d0908aa6fb2bc4d0ffa978"
   },
   {
    "Z": 36,
    "file": "elements/36.js",
-   "bytes": 205862,
-   "md5": "b7ce098e1b0fc4ccd046672c7279511d",
-   "payload_bytes": 205781,
-   "payload_md5": "8224e246df682fedb848e3ce1ae3e068"
+   "bytes": 205880,
+   "md5": "99cbb15f8ae2be540122375ad58a417e",
+   "payload_bytes": 205799,
+   "payload_md5": "0f7cbaff380ebfef1071597eb6a948d8"
   },
   {
    "Z": 37,
    "file": "elements/37.js",
-   "bytes": 209969,
-   "md5": "3f9ed0fd22e8e50f795da032255feeab",
-   "payload_bytes": 209888,
-   "payload_md5": "7e95b42b511e4ea5563e27fb957c8c1c"
+   "bytes": 209987,
+   "md5": "6cccdcba8f1230d6d8d41d6781fb91b4",
+   "payload_bytes": 209906,
+   "payload_md5": "0e173f1624bddd0063645860910757e5"
   },
   {
    "Z": 38,
    "file": "elements/38.js",
-   "bytes": 215997,
-   "md5": "f8eea00a61083aee04f415606e70c25d",
-   "payload_bytes": 215916,
-   "payload_md5": "2df631b290bd9a3817c6f4fc9536f886"
+   "bytes": 216015,
+   "md5": "4dd162650701f1e77f6d97eed7315496",
+   "payload_bytes": 215934,
+   "payload_md5": "91cbd488cdb74a2318b1a1ae81182a3d"
   },
   {
    "Z": 39,
    "file": "elements/39.js",
-   "bytes": 220460,
-   "md5": "8ae211203bbc6b6b807c64df59e78eec",
-   "payload_bytes": 220379,
-   "payload_md5": "02d3cebf85ba7a83534bef94033290d6"
+   "bytes": 220478,
+   "md5": "3d32d6df85e83f1848e9c47c684630da",
+   "payload_bytes": 220397,
+   "payload_md5": "7fbc55e8054a7542596f0188a269e540"
   },
   {
    "Z": 40,
    "file": "elements/40.js",
-   "bytes": 226720,
-   "md5": "a562f8ef3fd09c501ed0df81bb8eca7c",
-   "payload_bytes": 226639,
-   "payload_md5": "b7a2821d64dd6287e090921801a562d4"
+   "bytes": 226738,
+   "md5": "f79fbb20f80a7ea5be85ba5a845c5383",
+   "payload_bytes": 226657,
+   "payload_md5": "e176f11249e6de1611863ea18647f21a"
   },
   {
    "Z": 41,
    "file": "elements/41.js",
-   "bytes": 232722,
-   "md5": "d1231f254c2f45b9dc869fc3a7eda404",
-   "payload_bytes": 232641,
-   "payload_md5": "04faa8ca4ef8556647452036237da34a"
+   "bytes": 232740,
+   "md5": "f5d398431f407a95510bc80b71cbca24",
+   "payload_bytes": 232659,
+   "payload_md5": "e184c516d7a699cf6279c6ec1ceb5ea8"
   },
   {
    "Z": 42,
    "file": "elements/42.js",
-   "bytes": 238716,
-   "md5": "c3768d1fc3171eb32d73d0ecd0863a52",
-   "payload_bytes": 238635,
-   "payload_md5": "040fe3fcb953f6f2bf137ac7c8d66641"
+   "bytes": 238734,
+   "md5": "c52fb028f07276ca99258d3cbb0ba98b",
+   "payload_bytes": 238653,
+   "payload_md5": "e9f6ddd7dd6ce31fd5d6fdd260969121"
   },
   {
    "Z": 43,
    "file": "elements/43.js",
-   "bytes": 244562,
-   "md5": "b06334b430869cb2866e5902f29a808f",
-   "payload_bytes": 244481,
-   "payload_md5": "08f73b6ce45fd4a96f665a447d99fac3"
+   "bytes": 244580,
+   "md5": "f1e80ff0c78f9df45d329774097175e9",
+   "payload_bytes": 244499,
+   "payload_md5": "6b8f9d5f541d344b59842226b01dd960"
   },
   {
    "Z": 44,
    "file": "elements/44.js",
-   "bytes": 250667,
-   "md5": "54e0b61606f3a40a6dbcb9d344f328b0",
-   "payload_bytes": 250586,
-   "payload_md5": "d99e1507ee2b6c168bb8ab8977ed673a"
+   "bytes": 250685,
+   "md5": "0f6ccc1fbe833f78dbe1c9d000265493",
+   "payload_bytes": 250604,
+   "payload_md5": "82d0def4aca46058bf642402e7c1ae33"
   },
   {
    "Z": 45,
    "file": "elements/45.js",
-   "bytes": 256618,
-   "md5": "e497218bce33c91e85957a6b2e3aec95",
-   "payload_bytes": 256537,
-   "payload_md5": "b1f73454a15ff68a055ba849e993ca27"
+   "bytes": 256636,
+   "md5": "cf9035f0e7e498515d82e4e236c560d8",
+   "payload_bytes": 256555,
+   "payload_md5": "4e2956714076821f84d7a60e7e836a18"
   },
   {
    "Z": 46,
    "file": "elements/46.js",
-   "bytes": 262496,
-   "md5": "627755394846521f14de6ecd97cc94be",
-   "payload_bytes": 262415,
-   "payload_md5": "a6deb635bb3cadaa1e9cde023009f1c4"
+   "bytes": 262514,
+   "md5": "3344f19fea7e9c416b9d575c2cae5030",
+   "payload_bytes": 262433,
+   "payload_md5": "54813e7aafbd6022e326871f844a2f94"
   },
   {
    "Z": 47,
    "file": "elements/47.js",
-   "bytes": 268515,
-   "md5": "305ec19bf17e96308d0efc3a6c16e48f",
-   "payload_bytes": 268434,
-   "payload_md5": "bfbf235f12ee6913c05854898b9ec51c"
+   "bytes": 268533,
+   "md5": "85e4acd39a0f896984a1eaf710a2aefd",
+   "payload_bytes": 268452,
+   "payload_md5": "4f7fbcd4bf737dcd96540bd4c727a04b"
   },
   {
    "Z": 48,
    "file": "elements/48.js",
-   "bytes": 274203,
-   "md5": "b7bd00b8e13783018f1c9ca3962c5cdd",
-   "payload_bytes": 274122,
-   "payload_md5": "594af49c51cc445a63445c9b75d973bb"
+   "bytes": 274221,
+   "md5": "c035d0c3b257a82987a8ea5baddd1a30",
+   "payload_bytes": 274140,
+   "payload_md5": "5e9ce014b2571cdedd604d6c701ee8c6"
   },
   {
    "Z": 49,
    "file": "elements/49.js",
-   "bytes": 279043,
-   "md5": "17d80c6e51584be7a469c5dfdd700718",
-   "payload_bytes": 278962,
-   "payload_md5": "5e6bf37a298ca5f28efac50d0be05684"
+   "bytes": 279061,
+   "md5": "8d5dc4314b9710a588c2976e3e6aee20",
+   "payload_bytes": 278980,
+   "payload_md5": "8b69c4d9b1467b7ad02abc0546f2da4e"
   },
   {
    "Z": 50,
    "file": "elements/50.js",
-   "bytes": 285290,
-   "md5": "e355b75cdb662a7d222429ad46749d3b",
-   "payload_bytes": 285209,
-   "payload_md5": "d02ec7043d584f282e13a30bc516965a"
+   "bytes": 285308,
+   "md5": "b51434edb7d14ce435420ec16da40043",
+   "payload_bytes": 285227,
+   "payload_md5": "909c9ac04bdff95c4a1608ac34204e15"
   },
   {
    "Z": 51,
    "file": "elements/51.js",
-   "bytes": 291221,
-   "md5": "e3984f92eeb321ae6939d11c1c691ea7",
-   "payload_bytes": 291140,
-   "payload_md5": "b08c3ea194dadb53390faed61f2ae883"
+   "bytes": 291239,
+   "md5": "d1ae1b9af5e9a870e1050f87be21359c",
+   "payload_bytes": 291158,
+   "payload_md5": "4d2ed7ccfd808d7966364c15821594d4"
   },
   {
    "Z": 52,
    "file": "elements/52.js",
-   "bytes": 297189,
-   "md5": "6b413c00fbd0762256787badb6a72c01",
-   "payload_bytes": 297108,
-   "payload_md5": "c48d0009eff35af4d8813430e8449cd0"
+   "bytes": 297207,
+   "md5": "d99f68ea46128f5b94c4e1f6e77e84d8",
+   "payload_bytes": 297126,
+   "payload_md5": "acc02a2126c30890b7577f68ecd10a2d"
   },
   {
    "Z": 53,
    "file": "elements/53.js",
-   "bytes": 303128,
-   "md5": "62b9cd3ecd3cd11fc4890db62983d702",
-   "payload_bytes": 303047,
-   "payload_md5": "2596ce2862944661f8774e9e4cf278df"
+   "bytes": 303146,
+   "md5": "e043d674ff3b8586baf228b20875cbdd",
+   "payload_bytes": 303065,
+   "payload_md5": "dd97705b422cea13709e1b32353260d6"
   },
   {
    "Z": 54,
    "file": "elements/54.js",
-   "bytes": 312546,
-   "md5": "05f9c124f2f046221518df317dd01bb5",
-   "payload_bytes": 312465,
-   "payload_md5": "88b913c335e3dede92925adc771eb9eb"
+   "bytes": 312564,
+   "md5": "934eac560805c4a006b71134a88cc8b9",
+   "payload_bytes": 312483,
+   "payload_md5": "67e728668534698de169b4ec91467751"
   },
   {
    "Z": 55,
    "file": "elements/55.js",
-   "bytes": 317035,
-   "md5": "efbbcf5ec34bb04e65c034799655ae7b",
-   "payload_bytes": 316954,
-   "payload_md5": "f40a6124eb5f6c456ae9f825d2f174d2"
+   "bytes": 317053,
+   "md5": "54afbb14510978fb56f2ac814f137920",
+   "payload_bytes": 316972,
+   "payload_md5": "34951d80a82b5e5ceda1afce62691fdd"
   },
   {
    "Z": 56,
    "file": "elements/56.js",
-   "bytes": 322772,
-   "md5": "5d5072021d305eba172fdcadd15bf369",
-   "payload_bytes": 322691,
-   "payload_md5": "b1220e0c0b58c05721884ed1833bb68c"
+   "bytes": 322790,
+   "md5": "2465d21842f77c0f14b6243f11178ab5",
+   "payload_bytes": 322709,
+   "payload_md5": "e81f952791cc2e5436bce3fadc1c63c0"
   },
   {
    "Z": 57,
    "file": "elements/57.js",
-   "bytes": 327176,
-   "md5": "d3ca900e7c787977105210a314eb0a7e",
-   "payload_bytes": 327095,
-   "payload_md5": "b2772cb578372a4fa38989d8f1457aa6"
+   "bytes": 327194,
+   "md5": "b41acd68eab5cb376eefb6b3f029281f",
+   "payload_bytes": 327113,
+   "payload_md5": "45568c92360e4b6e849736ac9683395a"
   },
   {
    "Z": 58,
    "file": "elements/58.js",
-   "bytes": 333759,
-   "md5": "0d9bfec327718d76377058fd7d9a51ed",
-   "payload_bytes": 333678,
-   "payload_md5": "b584539e2b97708e3724421b1c8cdfcb"
+   "bytes": 333777,
+   "md5": "1167d8cedd14783c1cd56b64502879bc",
+   "payload_bytes": 333696,
+   "payload_md5": "a0c8a7b1478ae69693200086a51ff213"
   },
   {
    "Z": 59,
    "file": "elements/59.js",
-   "bytes": 339663,
-   "md5": "ef2ccffd15de7295ecfea93928f39bed",
-   "payload_bytes": 339582,
-   "payload_md5": "8e1126f0dd49a16459ff980ae320ef5c"
+   "bytes": 339681,
+   "md5": "d2c221a070b35ab7d5e17d72fe4e846c",
+   "payload_bytes": 339600,
+   "payload_md5": "5aa165514386c543bf59afeb223950fc"
   },
   {
    "Z": 60,
    "file": "elements/60.js",
-   "bytes": 345774,
-   "md5": "02a119170eee4b2b4f61e061263d4650",
-   "payload_bytes": 345693,
-   "payload_md5": "0036e21122edb3eef5b2f11135239ac0"
+   "bytes": 345792,
+   "md5": "fae73d2b77fe0538242df1512e325076",
+   "payload_bytes": 345711,
+   "payload_md5": "ec50b1e86361b1727a0c63e458d67da5"
   },
   {
    "Z": 61,
    "file": "elements/61.js",
-   "bytes": 351631,
-   "md5": "b61228bdac6ea6453ac9ebfc6162177f",
-   "payload_bytes": 351550,
-   "payload_md5": "96a05998d779570b9cf5843023dce07f"
+   "bytes": 351649,
+   "md5": "a913fc65892770a1231285d13c1482c3",
+   "payload_bytes": 351568,
+   "payload_md5": "0fdd497adafeedc061009dcd381eeab6"
   },
   {
    "Z": 62,
    "file": "elements/62.js",
-   "bytes": 357680,
-   "md5": "0465881d3f2fe996a17fb7ac723af874",
-   "payload_bytes": 357599,
-   "payload_md5": "a7edc4212ca804d0c75f3adaec1757f7"
+   "bytes": 357698,
+   "md5": "39d597fd01f415be2128b427271d32bf",
+   "payload_bytes": 357617,
+   "payload_md5": "87e0104bb42701649b660be0725d325a"
   },
   {
    "Z": 63,
    "file": "elements/63.js",
-   "bytes": 363677,
-   "md5": "e90ea6af9f54f1758a72112477dd3a56",
-   "payload_bytes": 363596,
-   "payload_md5": "01d0582b4db29848af32477edb893f19"
+   "bytes": 363695,
+   "md5": "07ea52985e8264069e07c7eb0d54aa0e",
+   "payload_bytes": 363614,
+   "payload_md5": "3533157ed6285e682d67edaf9d847030"
   },
   {
    "Z": 64,
    "file": "elements/64.js",
-   "bytes": 369873,
-   "md5": "908a50164a02c6868a6b6be5953e43cd",
-   "payload_bytes": 369792,
-   "payload_md5": "a339d8adb000c955a45024750c62d012"
+   "bytes": 369891,
+   "md5": "88539b88a9a5b578ee4c79286d7f237e",
+   "payload_bytes": 369810,
+   "payload_md5": "71b60c2e6b99c115ba8933f62fe2de1e"
   },
   {
    "Z": 65,
    "file": "elements/65.js",
-   "bytes": 375819,
-   "md5": "ee72cceb882405fe43e0c5750ea0c8f2",
-   "payload_bytes": 375738,
-   "payload_md5": "06c6b52e10096548bf6755acc34f9d30"
+   "bytes": 375837,
+   "md5": "b7099a9a88140550ced59c44c41ad8b6",
+   "payload_bytes": 375756,
+   "payload_md5": "5ce9b1b31dee5cb64a8dab1512ae651c"
   },
   {
    "Z": 66,
    "file": "elements/66.js",
-   "bytes": 381885,
-   "md5": "49f8d57428ecf2249c0c181740ec3270",
-   "payload_bytes": 381804,
-   "payload_md5": "ecae4e75833b3adc9757fcf6cf370303"
+   "bytes": 381903,
+   "md5": "55843331df0b431d38781aee01e11753",
+   "payload_bytes": 381822,
+   "payload_md5": "68eab734278ab44bdc9e058b291ef002"
   },
   {
    "Z": 67,
    "file": "elements/67.js",
-   "bytes": 387877,
-   "md5": "cc38904b393e369ba8fecde59c7143dc",
-   "payload_bytes": 387796,
-   "payload_md5": "9b2b015042972301f21912428c7d209b"
+   "bytes": 387895,
+   "md5": "23be020ed1f22a131f55d3f95e923dee",
+   "payload_bytes": 387814,
+   "payload_md5": "c895eb6ee464697c661c45d98f7078e3"
   },
   {
    "Z": 68,
    "file": "elements/68.js",
-   "bytes": 393878,
-   "md5": "61f341b157b1cd5e5058f85d397b30e3",
-   "payload_bytes": 393797,
-   "payload_md5": "c5a2c0a7db2d6dc16a883b16087f29f3"
+   "bytes": 393896,
+   "md5": "f9e94be435aeb57d0c7c564d3cb57733",
+   "payload_bytes": 393815,
+   "payload_md5": "bc136f5cb5766728f440418bdc4ad1a1"
   },
   {
    "Z": 69,
    "file": "elements/69.js",
-   "bytes": 399960,
-   "md5": "11adb3b0034fb7e7249200d0756e19a4",
-   "payload_bytes": 399879,
-   "payload_md5": "fde9c09a2d4f83dc07a3b546b255fa25"
+   "bytes": 399978,
+   "md5": "e9711e19be8817ed93fccef1fd53c90d",
+   "payload_bytes": 399897,
+   "payload_md5": "4dbaf9f553be270f9d1b7b3d9681098f"
   },
   {
    "Z": 70,
    "file": "elements/70.js",
-   "bytes": 406288,
-   "md5": "f7ec9ec81cc94db08fc3c6d6b09b3bdc",
-   "payload_bytes": 406207,
-   "payload_md5": "4834318e8ccb405ee0afd2dc49e475b0"
+   "bytes": 406306,
+   "md5": "b8a7d4dec1f39d6424276659fd0fb7f1",
+   "payload_bytes": 406225,
+   "payload_md5": "e25d6604611cefb50c900dff525be486"
   },
   {
    "Z": 71,
    "file": "elements/71.js",
-   "bytes": 410516,
-   "md5": "9d3c446245eebde956ba5f5a46e29566",
-   "payload_bytes": 410435,
-   "payload_md5": "f0ce9ae46872a7611058b4e85bf8713a"
+   "bytes": 410534,
+   "md5": "337df05b3de1d181f6d6f87cce96af78",
+   "payload_bytes": 410453,
+   "payload_md5": "37d6d3b20cd375f7aedfa1466fac0582"
   },
   {
    "Z": 72,
    "file": "elements/72.js",
-   "bytes": 416838,
-   "md5": "ccd3878b487b0f7394821af14005ff8c",
-   "payload_bytes": 416757,
-   "payload_md5": "6efc3fc116109e9a9a6eaf02f1a9c927"
+   "bytes": 416856,
+   "md5": "2a957f4d72184b0d53b97bef2eb2d1c7",
+   "payload_bytes": 416775,
+   "payload_md5": "ca8094d770ec8e677787ed0fbf784852"
   },
   {
    "Z": 73,
    "file": "elements/73.js",
-   "bytes": 422827,
-   "md5": "bc3a9195f01948cb4f0b8bdd2408b226",
-   "payload_bytes": 422746,
-   "payload_md5": "7b3b0bfe3e4bcc45f04b56295d7f7ef8"
+   "bytes": 422845,
+   "md5": "24b30e8bac8209fe11418a0f668529e6",
+   "payload_bytes": 422764,
+   "payload_md5": "b54dfe7f96e0b9f04aff07a6e1c9c887"
   },
   {
    "Z": 74,
    "file": "elements/74.js",
-   "bytes": 428822,
-   "md5": "303f1b39e3239245b276fbd9a153822d",
-   "payload_bytes": 428741,
-   "payload_md5": "e464dceacc25abfabd98c23918d35ca1"
+   "bytes": 428840,
+   "md5": "a6ecc9ceea1effc17ce4de22fd554b72",
+   "payload_bytes": 428759,
+   "payload_md5": "f767028772b81c3825e82b28c8b98308"
   },
   {
    "Z": 75,
    "file": "elements/75.js",
-   "bytes": 434835,
-   "md5": "33a293410b6931db9a921784bf765ab1",
-   "payload_bytes": 434754,
-   "payload_md5": "67dec7a3c42e89a1a9158736d9c0fc54"
+   "bytes": 434853,
+   "md5": "2e3db0e1ef4a1e86a193d6910a9c7678",
+   "payload_bytes": 434772,
+   "payload_md5": "157088e9ee73eddb05abf2805acbd8ef"
   },
   {
    "Z": 76,
    "file": "elements/76.js",
-   "bytes": 440864,
-   "md5": "c93dea7ce1e7177f5bc58e75fe0cc5c7",
-   "payload_bytes": 440783,
-   "payload_md5": "fc932d8196cb6ebe4ed50f2aeffee3c1"
+   "bytes": 440882,
+   "md5": "11fb1409798af5555e04462e7b235705",
+   "payload_bytes": 440801,
+   "payload_md5": "19ddbcf0e39c8a177ced7852958c70a0"
   },
   {
    "Z": 77,
    "file": "elements/77.js",
-   "bytes": 446893,
-   "md5": "821ab9645360182d2a89f41e45c0f5d5",
-   "payload_bytes": 446812,
-   "payload_md5": "a37c17f461cc1d28c902bedf5e33729b"
+   "bytes": 446911,
+   "md5": "a50ac444b2370573edc2416dc84ea91d",
+   "payload_bytes": 446830,
+   "payload_md5": "28198e7edc78fe371d0a0531b647e1e1"
   },
   {
    "Z": 78,
    "file": "elements/78.js",
-   "bytes": 452999,
-   "md5": "6820159b710eac668f12ab9295e4a5a4",
-   "payload_bytes": 452918,
-   "payload_md5": "bf457ca35064ceafe813d7b4bab00fed"
+   "bytes": 453017,
+   "md5": "ad6bcdd6a0edf0662020021167491837",
+   "payload_bytes": 452936,
+   "payload_md5": "3653e9cf0a057f23e38635a1e6006331"
   },
   {
    "Z": 79,
    "file": "elements/79.js",
-   "bytes": 459018,
-   "md5": "56892ec80fc8f9b8192d135ce6bc85bc",
-   "payload_bytes": 458937,
-   "payload_md5": "add79f2a53813d3a6262c0144becae34"
+   "bytes": 459036,
+   "md5": "8a19220efa3110e8ea41c6a599eb9513",
+   "payload_bytes": 458955,
+   "payload_md5": "43850efd757523535e60c9f4b85003fd"
   },
   {
    "Z": 80,
    "file": "elements/80.js",
-   "bytes": 465110,
-   "md5": "ed9a95252327a0bf9c3144695f43daa5",
-   "payload_bytes": 465029,
-   "payload_md5": "4277fb84c83dd0b6c2d9868397170237"
+   "bytes": 465128,
+   "md5": "7c3812488123396241ee36909ba0274f",
+   "payload_bytes": 465047,
+   "payload_md5": "7a6eba061232d327b2ed9bc87e5bac67"
   },
   {
    "Z": 81,
    "file": "elements/81.js",
-   "bytes": 469641,
-   "md5": "9cbbad2433663151dd9c8f6923718d20",
-   "payload_bytes": 469560,
-   "payload_md5": "3a0ca126a2e3546012decd9457c020c3"
+   "bytes": 469659,
+   "md5": "f5d627568f2c59c2f876fe92c314cecf",
+   "payload_bytes": 469578,
+   "payload_md5": "802cb3d49492296fc7682446c1bb188c"
   },
   {
    "Z": 82,
    "file": "elements/82.js",
-   "bytes": 475812,
-   "md5": "1ec5123d754b5041deab8d47ccbf35e0",
-   "payload_bytes": 475731,
-   "payload_md5": "ea0a614f4e92df9ab3223536e4bfd908"
+   "bytes": 475830,
+   "md5": "ca855388084391f0be6002d7c8ed9623",
+   "payload_bytes": 475749,
+   "payload_md5": "e514d1416f1f9154725b852fcec9beff"
   },
   {
    "Z": 83,
    "file": "elements/83.js",
-   "bytes": 481601,
-   "md5": "989c1c3d5db132893f8ed6a3d237147f",
-   "payload_bytes": 481520,
-   "payload_md5": "c16ab17b9526949cb9be4453f964700c"
+   "bytes": 481619,
+   "md5": "50f1b44199f6cc3ab42e3323f2a0defa",
+   "payload_bytes": 481538,
+   "payload_md5": "36ed6b4668b80999d849545c93c479e5"
   },
   {
    "Z": 84,
    "file": "elements/84.js",
-   "bytes": 487867,
-   "md5": "9077161e7ca332711ce5d9acad56b1b7",
-   "payload_bytes": 487786,
-   "payload_md5": "dde4db068adf3616cec028a98d6566ac"
+   "bytes": 487885,
+   "md5": "010ac8065598e27dcc66ce0f571472bc",
+   "payload_bytes": 487804,
+   "payload_md5": "640918adc1cb7a06e8c95904c0d2c866"
   },
   {
    "Z": 85,
    "file": "elements/85.js",
-   "bytes": 493852,
-   "md5": "ed016dea6126cce0b8809d2ebd6fc13f",
-   "payload_bytes": 493771,
-   "payload_md5": "dfb3eaee486d136d97d43c6522e8f009"
+   "bytes": 493870,
+   "md5": "7ce157e7bac33aa752713d7ebcdfec34",
+   "payload_bytes": 493789,
+   "payload_md5": "e4896a57730bfe668b57f50c43ef1259"
   },
   {
    "Z": 86,
    "file": "elements/86.js",
-   "bytes": 500271,
-   "md5": "59b5455b70eed5d3daac5c6dcb180b7a",
-   "payload_bytes": 500190,
-   "payload_md5": "60edf39dac075eb51a9ac2988d035348"
+   "bytes": 500289,
+   "md5": "8fa76c7abe3beb1ef0ef5e3c8f6371cf",
+   "payload_bytes": 500208,
+   "payload_md5": "768b37e056a0bfa55acc55ba21d42941"
   },
   {
    "Z": 87,
    "file": "elements/87.js",
-   "bytes": 504539,
-   "md5": "c6adf67fdd522e94216ef8c274c9f16b",
-   "payload_bytes": 504458,
-   "payload_md5": "3db33e7734b2746ab2fe0cc89517d948"
+   "bytes": 504557,
+   "md5": "93f1a4ed153da54b9125e163346490fc",
+   "payload_bytes": 504476,
+   "payload_md5": "62901838b69732c90745726796dc42f6"
   },
   {
    "Z": 88,
    "file": "elements/88.js",
-   "bytes": 510785,
-   "md5": "e472fd8887b2d3c36de5d3702b05a75b",
-   "payload_bytes": 510704,
-   "payload_md5": "1f98175f0f01c346ba98ae9620157d65"
+   "bytes": 510803,
+   "md5": "608f7c1637f85be8323aba8e504e0173",
+   "payload_bytes": 510722,
+   "payload_md5": "769e774b3a0aa54a54b803f80202d226"
   },
   {
    "Z": 89,
    "file": "elements/89.js",
-   "bytes": 514999,
-   "md5": "a7069b04ae80a9272adc224a5c836621",
-   "payload_bytes": 514918,
-   "payload_md5": "bd13ae4c810e26ab4fc904b6663fc0a7"
+   "bytes": 515017,
+   "md5": "e9532789afc8db23d3c8f4487eeb0dac",
+   "payload_bytes": 514936,
+   "payload_md5": "be24ae26b7577d8a9edfd7f6e5feadc1"
   },
   {
    "Z": 90,
    "file": "elements/90.js",
-   "bytes": 521356,
-   "md5": "6ffee6d69dee9efef1d1d875e1cc68af",
-   "payload_bytes": 521275,
-   "payload_md5": "adc43caf1d0e8b8c7e5eeffa50c502a2"
+   "bytes": 521374,
+   "md5": "7d381b74da4586e23c33c0bba16b96ab",
+   "payload_bytes": 521293,
+   "payload_md5": "4c8562dc74da947a917fc025b3dd7d18"
   },
   {
    "Z": 91,
    "file": "elements/91.js",
-   "bytes": 527502,
-   "md5": "2f88f05210d9a50efc8e79bb08e34528",
-   "payload_bytes": 527421,
-   "payload_md5": "0906e6d8e8584a85ff0060a190c3ae6c"
+   "bytes": 527520,
+   "md5": "c38e7a76991e1bbe4ca803c039e2b6da",
+   "payload_bytes": 527439,
+   "payload_md5": "deec16fdb2281e3cb02a9fd701f49284"
   },
   {
    "Z": 92,
    "file": "elements/92.js",
-   "bytes": 533496,
-   "md5": "9aa9683b092684cf387724e1c7dd5d4c",
-   "payload_bytes": 533415,
-   "payload_md5": "84aa7294c6725df9d5b13f6eafb87b79"
+   "bytes": 533514,
+   "md5": "f47bd546ef6e5b51f78450cbb9c76c82",
+   "payload_bytes": 533433,
+   "payload_md5": "b268dc256b6c45e70189e9a29b2a54aa"
   },
   {
    "Z": 93,
    "file": "elements/93.js",
-   "bytes": 539608,
-   "md5": "9dd34fc204f7e88af769cadce0ff07fb",
-   "payload_bytes": 539527,
-   "payload_md5": "c289d4234e689454aecdfd910677d64a"
+   "bytes": 539626,
+   "md5": "da4abf75baf4ef495d8e2cfbc77ea37e",
+   "payload_bytes": 539545,
+   "payload_md5": "9f63a23590bc5472ac17002b0c5eca7a"
   },
   {
    "Z": 94,
    "file": "elements/94.js",
-   "bytes": 545434,
-   "md5": "6f0839608abaa02253fc762823831b09",
-   "payload_bytes": 545353,
-   "payload_md5": "cd2c3bc50bbdcccab1cee3666a864723"
+   "bytes": 545452,
+   "md5": "c35eeecbb11fb54699a6444462221ef6",
+   "payload_bytes": 545371,
+   "payload_md5": "4b35ca5df799f84a0b2167df0e2d300d"
   },
   {
    "Z": 95,
    "file": "elements/95.js",
-   "bytes": 551542,
-   "md5": "f0dca626388c46d88e9e5150531c0a21",
-   "payload_bytes": 551461,
-   "payload_md5": "e6546fc26d8efb604eb238aaeafef6e2"
+   "bytes": 551560,
+   "md5": "863d46365aa8aa89fbb504d773e8b2e4",
+   "payload_bytes": 551479,
+   "payload_md5": "959af38c0a8fcb6f8aebc7599c7143a1"
   },
   {
    "Z": 96,
    "file": "elements/96.js",
-   "bytes": 557608,
-   "md5": "7963b3464bdd5279d60377115fa89956",
-   "payload_bytes": 557527,
-   "payload_md5": "c9e2374ca038b634eceac19c9627d112"
+   "bytes": 557626,
+   "md5": "787e01e90c15597f318bcd0a6dd088d2",
+   "payload_bytes": 557545,
+   "payload_md5": "20cfeedfba22139c5a985428120c97a3"
   },
   {
    "Z": 97,
    "file": "elements/97.js",
-   "bytes": 563616,
-   "md5": "3f1ac6292a13f60acaec861018aab48a",
-   "payload_bytes": 563535,
-   "payload_md5": "89f800e4759069e4bac5a1608b44c013"
+   "bytes": 563634,
+   "md5": "5355ec3028773aa6a5588b589d4e0416",
+   "payload_bytes": 563553,
+   "payload_md5": "925ce899de0c443ef51ffbb587a985aa"
   },
   {
    "Z": 98,
    "file": "elements/98.js",
-   "bytes": 569617,
-   "md5": "c2ba706af1f44bf715a869a1f1fd1055",
-   "payload_bytes": 569536,
-   "payload_md5": "cabaa979585858f305a587cd8097d611"
+   "bytes": 569635,
+   "md5": "22adc6a376f02a169fb3e49a5ce310e0",
+   "payload_bytes": 569554,
+   "payload_md5": "46df754acfcf9ffef167fc50a55cdc0c"
   },
   {
    "Z": 99,
    "file": "elements/99.js",
-   "bytes": 575605,
-   "md5": "3f06a364b1c186afd28d95bd588e8807",
-   "payload_bytes": 575524,
-   "payload_md5": "4f71455a589089488e1052568e8f35a9"
+   "bytes": 575623,
+   "md5": "03df62c8e3c8cfda96ef257e2b3f3ea9",
+   "payload_bytes": 575542,
+   "payload_md5": "97b98b5c20413182a851d464f14991db"
   },
   {
    "Z": 100,
    "file": "elements/100.js",
-   "bytes": 581700,
-   "md5": "aaebe1777e76ae2550c0ff5b48cd2931",
-   "payload_bytes": 581618,
-   "payload_md5": "afbf5c6aa10e75795137dd1cbe176545"
+   "bytes": 581718,
+   "md5": "d2e05c539bbfb1bc1c9dc238ad992983",
+   "payload_bytes": 581636,
+   "payload_md5": "baca20cd877c030e69dd83c29790d627"
   },
   {
    "Z": 101,
    "file": "elements/101.js",
-   "bytes": 587734,
-   "md5": "1c9c83ea2f7f4f06cab23dca58691a34",
-   "payload_bytes": 587652,
-   "payload_md5": "a5d8422c18001b667eb6bb983a024270"
+   "bytes": 587752,
+   "md5": "de60c82be4d35d173d862594b3896a4c",
+   "payload_bytes": 587670,
+   "payload_md5": "d31940573a4d069398d44f0d389764c0"
   },
   {
    "Z": 102,
    "file": "elements/102.js",
-   "bytes": 594166,
-   "md5": "8d3f08e5666ddf7119231cf79157ad97",
-   "payload_bytes": 594084,
-   "payload_md5": "6c14fac79322f193458d91ef56f19c42"
+   "bytes": 594184,
+   "md5": "ba120633ffcae11cdaa7b73f4a0f3d42",
+   "payload_bytes": 594102,
+   "payload_md5": "d7f334a0b3b5cdf8fc38499ba831019f"
   },
   {
    "Z": 103,
    "file": "elements/103.js",
-   "bytes": 598418,
-   "md5": "1303b88737cd63156baf3a62262616e8",
-   "payload_bytes": 598336,
-   "payload_md5": "a19f5301e0e99b2931b619b9bd7f5ded"
+   "bytes": 598436,
+   "md5": "d5bf78ebecf202a1d2594a5352cbd5ef",
+   "payload_bytes": 598354,
+   "payload_md5": "8705fb24619275d50b5e174d2faad4ae"
   },
   {
    "Z": 104,
    "file": "elements/104.js",
-   "bytes": 569299,
-   "md5": "5a2ea46f363f3845b31e348bc32cdf81",
-   "payload_bytes": 569217,
-   "payload_md5": "857c4fc418d72fd6663d223a9ce86a56"
+   "bytes": 569317,
+   "md5": "f4c6736f10ca15bbffcdc0a718cff215",
+   "payload_bytes": 569235,
+   "payload_md5": "e1123dd69d5d4925a04979954851b07f"
   },
   {
    "Z": 105,
    "file": "elements/105.js",
-   "bytes": 575128,
-   "md5": "0e9d8bd1b2f4507647b6828803745fbf",
-   "payload_bytes": 575046,
-   "payload_md5": "54a93a17a2a8f13c543fc8277c428a07"
+   "bytes": 575146,
+   "md5": "5baa30dae50738e7bf33df5f5f472f16",
+   "payload_bytes": 575064,
+   "payload_md5": "89b62d5d069a7a9e3fd3be7728e5356a"
   },
   {
    "Z": 106,
    "file": "elements/106.js",
-   "bytes": 580971,
-   "md5": "39c4d2b11c4257ed8f34cf427e35edc0",
-   "payload_bytes": 580889,
-   "payload_md5": "4877eb878277d32e7844552be23f9970"
+   "bytes": 580989,
+   "md5": "117be7d17fbe7c8e8abd3673b73c6ba1",
+   "payload_bytes": 580907,
+   "payload_md5": "1da6710f8fd883dbf81801ab8e3437f5"
   },
   {
    "Z": 107,
    "file": "elements/107.js",
-   "bytes": 586772,
-   "md5": "3b4b74ea48de18cf74461815a7651562",
-   "payload_bytes": 586690,
-   "payload_md5": "9a7483af061f3c1d9609df345eca681a"
+   "bytes": 586790,
+   "md5": "563c8fe8e67eeb486b3f5fe4a9f4bd9a",
+   "payload_bytes": 586708,
+   "payload_md5": "1f4bf4d5235f85fcc509cc5870b9849e"
   },
   {
    "Z": 108,
    "file": "elements/108.js",
-   "bytes": 592577,
-   "md5": "9298cacd7a996f6c50169c69404f4e71",
-   "payload_bytes": 592495,
-   "payload_md5": "06b8c6094c88b0792655781860420c7d"
+   "bytes": 592595,
+   "md5": "fc9a60e8ca4d447d44190e5abf4bbc11",
+   "payload_bytes": 592513,
+   "payload_md5": "8f3392528fe84196a8c13d3a75bf81e1"
   },
   {
    "Z": 109,
    "file": "elements/109.js",
-   "bytes": 510306,
-   "md5": "5c2dcbee8d5643b5c781d074be882b76",
-   "payload_bytes": 510224,
-   "payload_md5": "b916f21315d7144f3c8a8aaebd1f381c"
+   "bytes": 510324,
+   "md5": "ceaaf6810ce1dc26342daf3439fe5c3b",
+   "payload_bytes": 510242,
+   "payload_md5": "e7a04d4afbcae8f3f742dec7342eeddd"
   },
   {
    "Z": 110,
    "file": "elements/110.js",
-   "bytes": 515283,
-   "md5": "932c894750197b17f8fc5a449100c4e0",
-   "payload_bytes": 515201,
-   "payload_md5": "15f39d779d2046e7915323170971ee24"
+   "bytes": 515301,
+   "md5": "6c00a1c1254f41d69baa9fa13120423d",
+   "payload_bytes": 515219,
+   "payload_md5": "5d0777f7ad8be809c21d1bdad608d2fc"
   },
   {
    "Z": 111,
    "file": "elements/111.js",
-   "bytes": 520245,
-   "md5": "d7e60fe644d5a016b01b51bcefc1c952",
-   "payload_bytes": 520163,
-   "payload_md5": "6fb6efa1eb4fc3d98579873d630fda96"
+   "bytes": 520263,
+   "md5": "6cf9672c5fcac8dd7f214cd61d106926",
+   "payload_bytes": 520181,
+   "payload_md5": "38ebdc043d2e4247494b81b54b8ff813"
   },
   {
    "Z": 112,
    "file": "elements/112.js",
-   "bytes": 525229,
-   "md5": "6799d685e1af4bc709b75a50ec85fe18",
-   "payload_bytes": 525147,
-   "payload_md5": "46465e190613d8c5919cf11bbe8a8648"
+   "bytes": 525247,
+   "md5": "f70b8d8992eb65a45e0ee7ef9cdf37af",
+   "payload_bytes": 525165,
+   "payload_md5": "f393576314130d31686b38336a38847b"
   },
   {
    "Z": 113,
    "file": "elements/113.js",
-   "bytes": 528320,
-   "md5": "03c90bc502108bd9f97e4a9dd9add17a",
-   "payload_bytes": 528238,
-   "payload_md5": "fad8fa17188f6249a30943dc21c421a9"
+   "bytes": 528338,
+   "md5": "ba4270fb5fd02c9937568ce4412f9fba",
+   "payload_bytes": 528256,
+   "payload_md5": "010a35cf2a1e4b0b2092a3444bf5d529"
   },
   {
    "Z": 114,
    "file": "elements/114.js",
-   "bytes": 533335,
-   "md5": "17618a67f455e26194d9d994145f1a5d",
-   "payload_bytes": 533253,
-   "payload_md5": "3bb90845424f81fe5e2405439f39173b"
+   "bytes": 533353,
+   "md5": "dccad32ddfab12d970e3a2989836182e",
+   "payload_bytes": 533271,
+   "payload_md5": "9895f28a46ee34e22625f177b9f8a802"
   },
   {
    "Z": 115,
    "file": "elements/115.js",
-   "bytes": 538331,
-   "md5": "d7532a3bd9dda82f6f8ea363d0303907",
-   "payload_bytes": 538249,
-   "payload_md5": "937778045218b400672ee324fecb0804"
+   "bytes": 538349,
+   "md5": "6065618cd5ee612deed2142539a311d3",
+   "payload_bytes": 538267,
+   "payload_md5": "331ffead0f81c7763b0d09effc8027bf"
   },
   {
    "Z": 116,
    "file": "elements/116.js",
-   "bytes": 543265,
-   "md5": "350e216380dfc73e9a3cebca1a5a34e6",
-   "payload_bytes": 543183,
-   "payload_md5": "552edb7e6ddde5bbb1a8696860fe0f2e"
+   "bytes": 543283,
+   "md5": "c139fc3f8f8c7f3bb8d65c3cfadaa91f",
+   "payload_bytes": 543201,
+   "payload_md5": "f7507de1e7f8e001f04dbd47fb78ca98"
   },
   {
    "Z": 117,
    "file": "elements/117.js",
-   "bytes": 548268,
-   "md5": "2c07e02a2e7be542f8d5c230c6afcfa9",
-   "payload_bytes": 548186,
-   "payload_md5": "26f291068cd2c731d3bec18b9bce2518"
+   "bytes": 548286,
+   "md5": "ccdfeeb27353c6df78a95c5f45d9177d",
+   "payload_bytes": 548204,
+   "payload_md5": "ac34183d02cbdfb41ee7e7b118ad197c"
   },
   {
    "Z": 118,
    "file": "elements/118.js",
-   "bytes": 553259,
-   "md5": "8446a1d2943187cbb906b6e058304a9b",
-   "payload_bytes": 553177,
-   "payload_md5": "13895fc64eecfcfd2bba771209621547"
+   "bytes": 553277,
+   "md5": "7c78b39d7d618944452c24bb882882c3",
+   "payload_bytes": 553195,
+   "payload_md5": "98bc4be459019dfa723ff4d69e63ec39"
   },
   {
    "Z": 119,
    "file": "elements/119.js",
-   "bytes": 674795,
-   "md5": "2cc9c3fcffb84cb999487ae4446a424e",
-   "payload_bytes": 674713,
-   "payload_md5": "01818aa6ea7ff428cfad28d2b939e25d"
+   "bytes": 674813,
+   "md5": "c477f65ebf72f78e1fb443d299b6017d",
+   "payload_bytes": 674731,
+   "payload_md5": "80f869237e7361d614bb49f182eaf4ea"
   },
   {
    "Z": 120,
    "file": "elements/120.js",
-   "bytes": 719594,
-   "md5": "7e8fbb3be5a84bb2aa57dcaefeccda2e",
-   "payload_bytes": 719512,
-   "payload_md5": "ce75e2806068a2ddc4030abbc3728287"
+   "bytes": 719612,
+   "md5": "eeebcee8a72dfa26188dc30cc8b1360b",
+   "payload_bytes": 719530,
+   "payload_md5": "3287c8b090f4a38390bb33cbcc53bbe8"
   }
  ],
  "protocol": {
