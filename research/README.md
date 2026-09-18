@@ -12053,6 +12053,120 @@ scaffold. See DOCKET 18.
 
 ---
 
+## The overlap ruling — when an overlapping chart may be seated
+
+M: *"They can be seated with overlaps so long as it is not an overlap of same information. An
+overlap of values in two different languages should tell us two parts of definition contained in
+that overlapped position. Information is information. But its relative position in this index is
+information about an object."*
+
+**The four empty channels were one fact, not four.** The eleven occupied K0, K2, K3 and K7. The
+four they left empty — K1, K4, K5, K6 — are **exactly the information-bearing channels other than
+K7**. Reading `hlaw.LAWFUL`, the law leaves two languages free to close alone, `information` and
+`statistics`; the corpus used that freedom for statistics (6 of 11 indexes) and never for
+information, which closed on exactly one index and only alongside all four others.
+
+`overlaprule.py` is the ruling as a runnable instrument — `python3 overlaprule.py`, `--census`,
+`--selftest`.
+
+**The reading is `novel channel`, and that is arithmetic rather than preference.** Six readings of
+"not an overlap of same information" were charted against all 272 proper sub-charts of the eleven:
+
+| reading | admits |
+|---|---|
+| R1 channel differs from its own parent | 109 |
+| R2 cell differs from its own parent | 254 |
+| R3 cell occupied by no seated vertex | 252 |
+| **R4 channel occupied by no seated vertex** | **6** |
+
+R3 admits 252, **117 of them coarsenings of `gravity` alone** — the explosion `overlap.py` exists to
+prevent, arrived at through the front door. R4 admits six. And R4 is what M's words say: the ruling
+names **languages**, and the channel is the set of languages that close a chart. The text and the
+arithmetic pick the same reading, which is the only reason to trust either. *(An independent pass
+reproduced all four counts.)*
+
+**The other two grounds are DOCKET 2's, already ruled.** DOCKET 2 withdrew `periodic layout 2-D`
+and not on bare overlap — it gave four grounds, two of which are about *sameness* and survive
+untouched: **bijection** (a chart with as many cells as its parent is the parent relabelled) and
+**the channel moved** (2-D closed `{information, statistics}` at ninety cells and `{statistics}`
+alone at its own construction's reach). All six candidates clear the bijection ground. The reach
+ground has teeth.
+
+**The reach gate**, in the shape of the two failures this tree has already seen — DOCKET 2's moving
+channel and `terms.py`'s non-monotone cell count: **(a)** no late arrival, **(b)** no oscillation,
+**(c)** a majority of reaches. Swept over each parent's own *data* reach, never over an independent
+variable.
+
+| candidate | K | gate | verdict |
+|---|---|---|---|
+| `madelung` (n+l, k) | K6 | 7/7 | **seated** |
+| `nucshell` (l, σ) | K5 | 6/7 | **seated** |
+| `gravity` (B, F, X) | K1 | 6/6 | **seated** |
+| `gravity` (B, F, X, E) | K1 | oscillates K1→K0→K1 | refused |
+| `ions` (sl, tl) | K4 | K2 at five reaches, K4 only at the terminal one | refused |
+| `madrule` (S_a, l_d) | K4 | 2 of 7 | refused |
+
+**So K1, K5 and K6 became occupied and K4 did not.** Seven of the eight channels are now reached.
+K4's only two candidates both failed on the reach — that is two failures, not a theorem, and the
+file refuses to call K4 unreachable.
+
+**The order of the two tests is load-bearing.** A maximality clause also applies — if a super-chart
+of the same parent reaches the same channel, the smaller chart repeats its language set and carries
+nothing more. Applied *before* the gate it picks `gravity (B,F,X,E)`, which the gate then kills, and
+**K1 ends up empty**. Applied *after*, the gate kills the oscillator and `(B,F,X)` survives as the
+only K1 chart of that parent, and **K1 ends up occupied**. Soundness before redundancy; a chart that
+fails the gate has no channel verdict to be maximal about. `order_matters()` measures both.
+
+**Two parts of the definition, named as physics** — the ruling's middle term, which a differing
+channel does not supply on its own:
+
+- **madelung.** The parent gives all 170 electrons a unique `(n+l, l, k)` address and closes in all
+  five languages — which a complete rectangle does for free. Forget the subshell and the 170
+  collapse onto 82 positions closing order, algebra, information and statistics but **not geometry**.
+  A K7 parent says yes to everything, so **the collapse is the only way to ask which of its five
+  closures the structure earns.** `madelung.py` §4 measured this in 2026-09 and declined to seat it
+  in terms: *"WHETHER TO SEAT IT IS A RULING AND NOT A MEASUREMENT. This file does not seat it."*
+  This is that ruling.
+- **nucshell.** Forget the radial node count and the realised (ℓ, σ) pairs **gain** join-closure:
+  any two realised orbital-angular-momentum/spin-orbit combinations have a realised combination
+  above both, while the full three-coordinate address does not. **nr is what breaks join-closure in
+  the nuclear shell sequence.**
+- **gravity.** The full seven-coordinate chart closes in nothing — ragged in every language. The
+  (bound class, forced J, spin decade) triple closes information alone: **0 join counterexamples and
+  32 meet counterexamples in 325 unordered pairs**, a join-semilattice that is not a lattice. So
+  **the raggedness of the full chart lives in D, Y, L and E and not in the bound structure** — which
+  is the part a warp-metric reading would need.
+
+**And the dimension sweep threw off a better finding than the gate it is not part of.** Sweeping
+gravity's D — its *independent variable*, so no part of any gate:
+
+```
+(B, F, X)   D <= 5  K7 (21 cells)    D <= 6 .. 11  K1 (26 cells)
+```
+
+Read in four and five dimensions the bound structure of nuclear matter **closes in all five
+languages**; admit the sixth and four of the five break at once, leaving information alone, and it
+never moves again through D = 11. **D = 6 is exactly where singly-rotating Myers–Perry loses its
+horizon bound** — D = 4 gives the Kerr bound μ ≥ 2a, D = 5 gives μ ≥ a², and from D = 6 the
+ultraspinning branch has none. **The ultraspinning threshold is visible in the closure algebra, at
+the dimension the theorem names, without the closure operators being told anything about
+dimension.** One threshold, in one index, found by sweeping rather than predicted, and no mechanism
+is offered for why losing a bound should cost four languages and not three. Recorded, not explained.
+
+**What the ruling does not do.** It does not reopen DOCKET 2 — `periodic layout 2-D` fails the
+bijection ground *and* the reach ground. It does not revive anything deleted for the criterion
+(`store.py`, `obstruction.py`, `cross.py`, `density.py`, `occupy.py` went because their members are
+not elements). It cannot be run twice for more: `seated_channels()` excludes the ruling's own rows,
+because "novel" means novel against the index the ruling was handed, and a second pass sees the same
+four empty channels and the same six candidates.
+
+**What it is not verified on.** A seventeen-agent verification run was launched — three adversarial
+lenses per candidate plus precedent, consequence and synthesis passes. **One returned before the
+account hit a weekly quota**; it is the one that reproduced the reading counts and contributed the
+maximality clause. The per-witness physics above is therefore *this tree's own reading*,
+corroborated by `madelung.py` §3 for the madelung row and by nothing outside this tree for the other
+two. It is stated as a claim and is not stated as verified.
+
 ## The index of first-order indexes, rebuilt — and what the rebuild found
 
 M: *"Rebuild the index of first-order indexes please."*
@@ -12060,7 +12174,7 @@ M: *"Rebuild the index of first-order indexes please."*
 **`mi.py`'s master index is built on a hardcoded list of nine, and not one of them is a seated index
 of the periodic elements.** Energy conditions, warp-drive mechanisms, the withdrawn 2-D periodic
 layout, the five languages, Hawking–Ellis substances, Petrov spacetimes, bounds and questions.
-**The intersection with the registry's eleven is empty.**
+**The intersection with the registry's fourteen is empty.**
 
 That is **DOCKET 16's contamination in a file the cleanup did not reach**. `hexad.py` and `store.py`
 were withdrawn for seating filing-system indexes as vertices; `mi.py` survived because
@@ -12072,19 +12186,30 @@ with. Superseded are the four that depend on the nine, and `figure.superseded_mi
 comparison so the finding is re-measurable rather than narrated.
 
 - **`figure.py`** — **the index of first-order indexes.** It asks `registry.rows()` and holds no
-  list of its own, so it cannot drift from the registry. **11 vertices, 11 distinct cells — no two
-  seated indexes share one** — box 440, closes under `statistics` alone, E = 39. **Its own cell is
-  `(2, 4, 5)` and no member occupies it**: the index of first-order indexes is not one of its own.
-  Dilworth holds on every vertex, no violations.
+  list of its own, so it cannot drift from the registry. **14 vertices, 14 distinct cells — no two
+  seated indexes share one** — it closes in **nothing**, E = 81. **Its own cell is `(0, 5, 6)` and
+  no member occupies it**: the index of first-order indexes is not one of its own. Dilworth holds
+  on every vertex, no violations.
 
-  **And two of its three axes are row labels.** `overlap.resolution()` on the figure itself: K is
-  4/11 = 0.364, a measurement; **height is 10/11 = 0.909 and width is 11/11 = 1.000 — both LABELs**.
-  The chart that measures every index here is, applied to itself, two row labels and one
-  measurement. Each index has essentially its own height and its own width, so those two approach
-  injectivity **by construction** as the figure grows — invisible at six vertices, plain at eleven.
-  **Recorded and not repaired**: changing the master index's chart is a *ruling*, and DOCKET 11
-  pinned (K, height, width). What the file does instead is print the resolution beside the reading
-  every time, so the limit travels with the number.
+  **Three of the fourteen were seated by M's overlap ruling** — see the section below. At eleven it
+  was 11 cells, closed under `statistics` alone, E = 39, own cell `(2, 4, 5)`.
+
+  **And at eleven, two of its three axes were row labels — at fourteen, none are.**
+  `overlap.resolution()` on the figure itself, then and now:
+
+  | | 11 vertices | 14 vertices |
+  |---|---|---|
+  | K | 0.364 measurement | 0.500 measurement |
+  | height | 0.909 **LABEL** | **0.714 measurement** |
+  | width | 1.000 **LABEL** | **0.857 measurement** |
+
+  The reasoning recorded at eleven was that each index has essentially its own height and width, so
+  those two approach injectivity **by construction** as the figure grows. **That reasoning is now
+  refuted by measurement**: three more vertices made it better, not worse, because a *coarsening* of
+  a seated index lands in the part of the poset its parent already occupies and so groups where
+  every previous addition separated. What the argument really showed is that the label problem
+  tracks **how the vertex set is built**, not how big it is. The old text is kept in `figure.py`
+  §2 because it is what the later measurement tested. DOCKET 11's chart is unchanged.
 
   **Rendering:** `render/masterindex-plate.html`, with an **exact** 3-D view — one labelled point per
   index, nothing collapsed. Wiring it exposed a defect in the shared scaffold: `plate.view3d`

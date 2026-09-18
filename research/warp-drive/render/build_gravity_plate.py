@@ -310,7 +310,7 @@ def build():
     exc = EXCITED
     nf = sum(1 for m in MS if G.forced(m[2], m[4]))
     nv = sum(1 for m in MS if G.vanishes(m[0], m[1], m[5]))
-    qn = {n.split(".")[0]: r[-1] for n, *r in registry.rows()}
+    qn = {registry.short(n): r[-1] for n, *r in registry.rows()}
 
     h = []
     A = h.append

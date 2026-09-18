@@ -57,14 +57,48 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    11 vertices, 11 distinct cells -- no two seated indexes share a cell
-    box 440
-    it closes under `statistics` ALONE
-    E = 39
+    14 vertices, 14 distinct cells -- no two seated indexes share a cell
+    it closes in NOTHING
+    E = 81
 
-**ITS OWN CELL IS (2, 4, 5), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 6), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
+
+===============================================================================
+1b. WHAT THE OVERLAP RULING COST AND WHAT IT BOUGHT -- BOTH, MEASURED
+===============================================================================
+
+Three of the fourteen are coarsenings seated by M's overlap ruling; the move is
+stated and gated in `overlaprule.py`.  It is reported here in both directions
+because it cut both ways and a one-sided report would be a lie by selection.
+
+                              11 vertices        14 vertices
+    distinct cells            11                 14
+    channels occupied         4 of 8 (0,2,3,7)   **7 of 8** (all but K4)
+    the figure's own closers  {statistics}       **NOTHING**
+    E                         39                 **81**
+    its own cell              (2, 4, 5)          (0, 5, 6)
+    K      resolution         0.364 measurement  0.500 measurement
+    height resolution         0.909 **LABEL**    **0.714 measurement**
+    width  resolution         1.000 **LABEL**    **0.857 measurement**
+
+    WHAT IT COST.  The figure's one closure.  At eleven it closed under
+    statistics; at fourteen it closes under nothing, and E more than doubled.
+    Anyone reading E as progress should read that as a large step backwards.
+
+    WHAT IT BOUGHT, AND IT IS THE THING SECTION 2 SAID COULD NOT BE REPAIRED.
+    At eleven, TWO OF THE THREE AXES WERE ROW LABELS -- height at 0.909 and
+    width perfectly injective at 1.000.  At fourteen BOTH ARE MEASUREMENTS.
+    The three new vertices land at heights and widths the figure already held,
+    so they group where every previous addition separated.
+
+    THAT WAS NOT THE REASON FOR SEATING THEM and it is not offered as one --
+    `overlaprule.py` seats on a novel channel, a non-bijection and a reach
+    gate, and would have seated these three whatever they did to the
+    resolution.  It is reported because section 2 called the label problem
+    unrepairable-by-measurement, and a measurement repaired it.  Recorded, not
+    claimed as a method.
 
 ===============================================================================
 2. THE FINDING THAT GROWTH EXPOSED: TWO OF ITS THREE AXES ARE ROW LABELS
@@ -76,8 +110,10 @@ measured by `self_cell()` and is not offered as meaning anything.
         height  10 distinct over 11    0.909    **LABEL**
         width   11 distinct over 11    1.000    **LABEL**
 
-**THE CHART THAT MEASURES EVERY INDEX HERE IS, APPLIED TO ITSELF, TWO ROW
-LABELS AND ONE MEASUREMENT.**  A coordinate separating 90 % or more of the
+**AT ELEVEN, THE CHART THAT MEASURES EVERY INDEX HERE WAS, APPLIED TO ITSELF,
+TWO ROW LABELS AND ONE MEASUREMENT.**  Section 1b has the fourteen-vertex
+figures, where both labels have become measurements; this section is kept as
+written because the reasoning in it is what the later measurement tested.  A coordinate separating 90 % or more of the
 members groups nothing and multiplies the box; `overlap.py` exists to catch
 exactly that, and it catches it here.
 
@@ -86,6 +122,15 @@ exactly that, and it catches it here.
     two coordinates approach injectivity by construction.  Only K -- a down-set
     of the language poset, with eight possible values and four observed --
     stays a measurement.
+
+        AND THAT REASONING IS NOW REFUTED, BY THE MEASUREMENT IN SECTION 1b.
+        "Approach injectivity by construction" predicted that growth makes it
+        worse.  Three more vertices made it better: height 0.909 -> 0.714,
+        width 1.000 -> 0.857.  The prediction failed because it assumed every
+        new index brings a new height and a new width, and a COARSENING of a
+        seated index does not -- it lands in the part of the poset its parent
+        already occupies.  What the argument really showed is that the label
+        problem tracks how the vertex set is built, not how big it is.
 
     THIS IS RECORDED AND NOT REPAIRED.  Changing the master index's chart is a
     ruling, not a measurement, and DOCKET 11 pinned (K, height, width) as the
@@ -100,7 +145,7 @@ exactly that, and it catches it here.
 contaminated set was seated in, and no clean trajectory exists yet.  Vertex
 counts are printed, trends are not.
 
-**TO NAME A SHAPE.**  Eleven vertices is what there are today.  `hexad`,
+**TO NAME A SHAPE.**  Fourteen vertices is what there are today.  `hexad`,
 `octad` and the rest were names for a count that kept moving.
 
 **TO TREAT E AS A TARGET.**  M: "I don't care about closure. I only care that we
@@ -129,13 +174,13 @@ ARITY = 3
 
 def all_indexes():
     """{short name: the index's own cell set} -- ASKED, never held."""
-    return {nm.split(".")[0]: registry.index_of(nm)
+    return {registry.short(nm): registry.index_of(nm)
             for nm, *_r in registry.rows()}
 
 
 def cells(names=None):
     """{short name: (K, height, width)} for every registered element index."""
-    c = {nm.split(".")[0]: v for nm, v in registry.cells().items()}
+    c = {registry.short(nm): v for nm, v in registry.cells().items()}
     return c if names is None else {n: c[n] for n in names}
 
 
@@ -155,7 +200,7 @@ def index(names=None):
 
 def quantum_of():
     """{short name: the quantum numbers ITS members carry}."""
-    return {nm.split(".")[0]: r[-1] for nm, *r in registry.rows()}
+    return {registry.short(nm): r[-1] for nm, *r in registry.rows()}
 
 
 # -------------------------------------------------------------- what it is
@@ -360,7 +405,7 @@ def selftest():
     chk("the figure IS exactly the registered element indexes",
         (len(C), len(figure())), (len(registry.REGISTERED),) * 2)
     chk("every vertex is a registered element index",
-        sorted(C) == sorted(n.split(".")[0] for n, *_r in registry.rows()),
+        sorted(C) == sorted(registry.short(n) for n, *_r in registry.rows()),
         True)
     chk("it holds no list of its own -- it asks registry",
         "inventory" in dir(), False)
@@ -373,20 +418,27 @@ def selftest():
     # -- what it is
     chk("the join-closure contains the figure", F <= demand.closure(F)[0], True)
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
-    chk("it closes under statistics alone", closers(), ["statistics"])
+    # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
+    # three coarsenings cost the figure its one closure.  Recorded, not hidden.
+    chk("at fourteen it closes in NOTHING -- the ruling cost it its closure",
+        closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (2, 4, 5))
+    chk("it has its own cell", own, (0, 5, 6))
+    chk("seven of the eight channels are occupied; only K4 is not",
+        sorted({c[0] for c in figure()}), [0, 1, 2, 3, 5, 6, 7])
     chk("AND NO MEMBER OCCUPIES IT -- it is not one of its own", occ, [])
 
     # -- section 2, the finding growth exposed
     res = dict((a, (r, v)) for a, _d, _n, r, v in resolution())
     chk("K is a measurement", res["K"][1], "measurement")
-    chk("HEIGHT IS A ROW LABEL at this many vertices", res["height"][1],
-        "LABEL")
-    chk("WIDTH IS A ROW LABEL, perfectly injective",
-        (res["width"][1], res["width"][0]), ("LABEL", 1.0))
-    chk("so two of the three axes are labels", sorted(labelled_axes()),
-        ["height", "width"])
+    # SECTION 1b.  Both of these were LABELs at eleven vertices -- height
+    # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
+    # heights and widths the figure already held, and both became measurements.
+    chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
+        (res["height"][1], res["height"][0]), ("measurement", 0.7143))
+    chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
+        (res["width"][1], res["width"][0]), ("measurement", 0.8571))
+    chk("NO axis is a row label any more", sorted(labelled_axes()), [])
     chk("and the file prints that beside the reading rather than hiding it",
         "LABEL" in open(__file__, encoding="utf-8").read(), True)
 

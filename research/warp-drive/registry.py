@@ -110,6 +110,24 @@ REGISTERED = (
      "n+l of the acceptor, l of the donor, occupancy"),
     ("terms", "index", "TABLE", "5,132 Russell-Saunders terms over 122 spectra",
      "2S+1, L, parity, the banked J set"),
+    # ---- SEATED BY THE OVERLAP RULING.  M: "They can be seated with overlaps
+    # so long as it is not an overlap of same information ... its relative
+    # position in this index is information about an object."  Each of the
+    # three is a coarsening of a row above, over the SAME members, reaching a
+    # channel no row above reaches.  `overlaprule.py` states the ruling, the
+    # three grounds it is tested on, the three candidates it REFUSES, and the
+    # two parts of the definition each seating carries.  They are seated in
+    # that file rather than in their parents so that the rows a ruling put here
+    # are visible as such.
+    ("overlaprule", "gravity_bound", "TABLE",
+     "the same 3,394 nuclide-charge states, on the bound structure alone",
+     "horizon-bound class, forced angular momentum, spin-decade rank"),
+    ("overlaprule", "nucshell_lsigma", "TABLE",
+     "the same 22 nuclear subshells, radially blind",
+     "l, spin-orbit sign (nuclear)"),
+    ("overlaprule", "madelung_slot", "FIBRATION",
+     "the same 170 electrons, subshell-blind",
+     "n+l, k"),
 )
 
 NOT_AN_INDEX = {
@@ -148,6 +166,39 @@ def rows():
     """[(name, module, accessor, method, members, quantum numbers)]."""
     return [("%s.%s" % (m, a), m, a, me, w, q)
             for m, a, me, w, q in REGISTERED]
+
+
+def short(name=None):
+    """{full name: a unique short label}, or one label if `name` is given.
+
+    THE MODULE NAME WAS THE LABEL AND THAT STOPPED BEING UNIQUE.  Every row
+    here was one module until the overlap ruling seated three coarsenings in
+    `overlaprule.py`; `figure.py` keyed its vertices on `name.split(".")[0]`
+    and silently folded three vertices into one -- twelve where there are
+    fourteen.  The selftest caught it because the figure's vertex count is a
+    PROPERTY there and not a pinned number, which is the whole reason that
+    conversion was made.
+
+    So the label is the module where the module seats one row, and the
+    ACCESSOR where it seats more.  `short_is_unique()` is a fixture, not a
+    hope.
+    """
+    n = {}
+    for _nm, m, _a, _me, _w, _q in rows():
+        n[m] = n.get(m, 0) + 1
+    out = {nm: (m if n[m] == 1 else a) for nm, m, a, _me, _w, _q in rows()}
+    return out if name is None else out[name]
+
+
+def short_is_unique():
+    """[] unless two rows want the same label."""
+    lab = short()
+    seen, bad = {}, []
+    for nm, l in sorted(lab.items()):
+        if l in seen:
+            bad.append((l, seen[l], nm))
+        seen[l] = nm
+    return bad
 
 
 def index_of(name):
@@ -231,7 +282,7 @@ def report():
     sz = sizes()
     print("   %-16s %-8s %-30s %s" % ("index", "cells", "members", "quantum"))
     for nm, _mo, _a, _me, w, q in rows():
-        print("   %-16s %-8s %-30s %s" % (nm.split(".")[0], sz.get(nm), w[:30], q))
+        print("   %-16s %-8s %-30s %s" % (short(nm), sz.get(nm), w[:30], q))
     print()
     print("3. NOT INDEXES OF THIS PROJECT.")
     for m, why in sorted(NOT_AN_INDEX.items()):
@@ -259,12 +310,23 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
-    chk("eleven indexes registered", len(REGISTERED), 11)
+    chk("fourteen indexes registered -- eleven, and three the overlap ruling "
+        "seated", len(REGISTERED), 14)
+    chk("exactly three came from the ruling, and they agree with it",
+        sorted((m, a) for m, a, _me, _w, _q in REGISTERED
+               if m == "overlaprule"),
+        [("overlaprule", "gravity_bound"), ("overlaprule", "madelung_slot"),
+         ("overlaprule", "nucshell_lsigma")])
     chk("every one names its quantum numbers",
         [n for n, *_r in rows() if not _r[4].strip()], [])
     chk("every method is known",
         sorted({m for _n, _mo, _a, m, _w, _q in rows()} - set(METHODS)), [])
     chk("names are unique", len({n for n, *_r in rows()}), len(rows()))
+    chk("SHORT labels are unique too -- three rows share one module now",
+        short_is_unique(), [])
+    chk("and the three that do are labelled by their accessor",
+        sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
+        ["gravity_bound", "madelung_slot", "nucshell_lsigma"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
     chk("six modules are excused, with reasons", len(NOT_AN_INDEX), 6)
     chk("every excuse is non-empty",
@@ -290,6 +352,12 @@ def selftest():
     chk("nucshell seats 22 nuclear subshells", sz["nucshell.index"], 22)
     chk("madrule seats 13 distinct cells", sz["madrule.index"], 13)
     chk("terms seats 112 distinct cells", sz["terms.index"], 112)
+    chk("the ruling's gravity coarsening seats 26",
+        sz["overlaprule.gravity_bound"], 26)
+    chk("the ruling's nucshell coarsening seats 12",
+        sz["overlaprule.nucshell_lsigma"], 12)
+    chk("the ruling's madelung coarsening seats 82",
+        sz["overlaprule.madelung_slot"], 82)
     chk("completeness is not claimed", COMPLETE, False)
     print("registry selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
