@@ -1341,7 +1341,7 @@ def scf_hf(grid, Z, cfg, c, start, mix=0.7, tol=1e-7, maxit=150, log=None):
         hist.append((x_vec, r_vec))
         if len(hist) > 5:
             hist.pop(0)
-        if anderson and len(hist) >= 2 and d_rot < 0.05:
+        if anderson and len(hist) >= 2 and d_rot < 1e-5:
             m = len(hist)
             R = [[sum(map(_mul, hist[i][1], hist[j][1])) for j in range(m)] for i in range(m)]
             ridge = 1e-10 * max(R[i][i] for i in range(m))
@@ -1374,7 +1374,7 @@ def scf_hf(grid, Z, cfg, c, start, mix=0.7, tol=1e-7, maxit=150, log=None):
             g = pair_gradient(grid, pw, Z, orbs, cfg, a, b, eps, c)
             mem = rot.get((a, b))
             H = mem[1] if (mem is not None and it % 3 != 1) else pair_curvature(grid, pw, Z, orbs, cfg, a, b)
-            theta = rotate_pair(grid, pw, Z, orbs, cfg, a, b, g, H)
+            theta = rotate_pair(grid, pw, Z, orbs, cfg, a, b, g, 2.0 * H)   # half the Newton step
             d_rot = max(d_rot, abs(theta))
             rot[(a, b)] = (theta, H)
         res = max(de_max, dp_max)
@@ -1385,11 +1385,10 @@ def scf_hf(grid, Z, cfg, c, start, mix=0.7, tol=1e-7, maxit=150, log=None):
         # variational form.  The field is settled by the equations: the rotation is
         # released and the disagreement recorded on the row.
         dp_hist.append((de_max, dp_max, d_rot))
-        if rotate and pairs and it > 20 and len(dp_hist) >= 6:
-            recent = dp_hist[-6:]
-            if all(x[0] < 1e-9 for x in recent) and max(x[1] for x in recent) > 0 \
-                    and (max(x[1] for x in recent) - min(x[1] for x in recent)) < 1e-3 * max(x[1] for x in recent) \
-                    and min(x[2] for x in recent) > 1e-6:
+        if rotate and pairs and it > 20 and len(dp_hist) >= 10:
+            recent = dp_hist[-10:]
+            stalled = min(x[1] for x in recent) > 0.5 * max(x[1] for x in recent)
+            if stalled and min(x[2] for x in recent) > 1e-6:
                 rotate = False
                 note_rot = (f"pair rotation released at sweep {it}: the energy-stationary angle and the "
                             f"equations' orthogonal solutions disagree by {d_rot:.1e} rad (Koelling–Harmon "
