@@ -1,0 +1,518 @@
+{
+ "schema": 2,
+ "commit": "b2605e4d7391",
+ "regenerate": "python3 research/warp-drive/state.py --json",
+ "complete": false,
+ "registry": {
+  "rows": 13,
+  "indexes": [
+   {
+    "name": "fibred.index",
+    "module": "fibred",
+    "accessor": "index",
+    "method": "FIBRATION",
+    "label": "fibred",
+    "members": "170 electrons",
+    "quantum": "n, l, k",
+    "cells": 170,
+    "cell": [
+     3,
+     26,
+     17
+    ],
+    "channel": 3,
+    "languages": [
+     "geometry",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "madelung.janet",
+    "module": "madelung",
+    "accessor": "janet",
+    "method": "FIBRATION",
+    "label": "madelung",
+    "members": "the same 170 electrons",
+    "quantum": "n+l, l, k",
+    "cells": 170,
+    "cell": [
+     7,
+     30,
+     12
+    ],
+    "channel": 7,
+    "languages": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "ions.index",
+    "module": "ions",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "ions",
+    "members": "98 Lambda-8 transitions",
+    "quantum": "charge, electron count",
+    "cells": 98,
+    "cell": [
+     0,
+     18,
+     16
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "channels.index",
+    "module": "channels",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "channels",
+    "members": "209 spectroscopic channel shapes",
+    "quantum": "l, Pauli bound, multiplicity",
+    "cells": 209,
+    "cell": [
+     0,
+     16,
+     24
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "laws.index",
+    "module": "laws",
+    "accessor": "index",
+    "method": "RESIDUAL",
+    "label": "laws",
+    "members": "584 series against Rydberg-Ritz",
+    "quantum": "n range, l, quantum defect",
+    "cells": 54,
+    "cell": [
+     0,
+     25,
+     7
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "probability.index",
+    "module": "probability",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "probability",
+    "members": "25 subshells",
+    "quantum": "n, l",
+    "cells": 25,
+    "cell": [
+     2,
+     8,
+     9
+    ],
+    "channel": 2,
+    "languages": [
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "inversion.index",
+    "module": "inversion",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "inversion",
+    "members": "20 fill-order/shell-order inversions",
+    "quantum": "pairs of (n, l)",
+    "cells": 17,
+    "cell": [
+     2,
+     6,
+     5
+    ],
+    "channel": 2,
+    "languages": [
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "gravity.index",
+    "module": "gravity",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "gravity",
+    "members": "3,394 nuclide-charge states x 8 dimensions",
+    "quantum": "Z, N, A, q, Ne, 2J, level status",
+    "cells": 914,
+    "cell": [
+     0,
+     19,
+     112
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "nucshell.index",
+    "module": "nucshell",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "nucshell",
+    "members": "22 nuclear single-particle subshells",
+    "quantum": "nr, l, j (nuclear)",
+    "cells": 22,
+    "cell": [
+     3,
+     7,
+     6
+    ],
+    "channel": 3,
+    "languages": [
+     "geometry",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "madrule.index",
+    "module": "madrule",
+    "accessor": "index",
+    "method": "RESIDUAL",
+    "label": "madrule",
+    "members": "20 Madelung exceptions, by their transfer",
+    "quantum": "n+l of the acceptor, l of the donor, occupancy",
+    "cells": 13,
+    "cell": [
+     2,
+     6,
+     4
+    ],
+    "channel": 2,
+    "languages": [
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "terms.index",
+    "module": "terms",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "terms",
+    "members": "5,132 Russell-Saunders terms over 122 spectra",
+    "quantum": "2S+1, L, parity, the banked J set",
+    "cells": 112,
+    "cell": [
+     0,
+     13,
+     18
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false
+   },
+   {
+    "name": "overlaprule.gravity_bound",
+    "module": "overlaprule",
+    "accessor": "gravity_bound",
+    "method": "TABLE",
+    "label": "gravity_bound",
+    "members": "the same 3,394 nuclide-charge states, on the bound structure alone",
+    "quantum": "horizon-bound class, forced angular momentum, spin-decade rank",
+    "cells": 26,
+    "cell": [
+     1,
+     8,
+     5
+    ],
+    "channel": 1,
+    "languages": [
+     "information"
+    ],
+    "seated_by_overlap_ruling": true
+   },
+   {
+    "name": "overlaprule.madelung_slot",
+    "module": "overlaprule",
+    "accessor": "madelung_slot",
+    "method": "FIBRATION",
+    "label": "madelung_slot",
+    "members": "the same 170 electrons, subshell-blind",
+    "quantum": "n+l, k",
+    "cells": 82,
+    "cell": [
+     6,
+     26,
+     6
+    ],
+    "channel": 6,
+    "languages": [
+     "algebra",
+     "information",
+     "order",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": true
+   }
+  ]
+ },
+ "figure": {
+  "vertices": 13,
+  "distinct_cells": 13,
+  "closers": [],
+  "own_cell": [
+   0,
+   5,
+   5
+  ],
+  "own_cell_occupied_by": [],
+  "E": 59,
+  "channels_occupied": [
+   0,
+   1,
+   2,
+   3,
+   6,
+   7
+  ],
+  "channels_empty": [
+   4,
+   5
+  ],
+  "resolution": {
+   "K": {
+    "distinct": 6,
+    "of": 13,
+    "ratio": 0.4615,
+    "verdict": "measurement"
+   },
+   "height": {
+    "distinct": 10,
+    "of": 13,
+    "ratio": 0.7692,
+    "verdict": "measurement"
+   },
+   "width": {
+    "distinct": 11,
+    "of": 13,
+    "ratio": 0.8462,
+    "verdict": "measurement"
+   }
+  },
+  "labelled_axes": []
+ },
+ "channels": {
+  "K0": [],
+  "K1": [
+   "information"
+  ],
+  "K2": [
+   "statistics"
+  ],
+  "K3": [
+   "geometry",
+   "statistics"
+  ],
+  "K4": [
+   "information",
+   "statistics"
+  ],
+  "K5": [
+   "geometry",
+   "information",
+   "statistics"
+  ],
+  "K6": [
+   "algebra",
+   "information",
+   "order",
+   "statistics"
+  ],
+  "K7": [
+   "algebra",
+   "geometry",
+   "information",
+   "order",
+   "statistics"
+  ]
+ },
+ "overlap_ruling": {
+  "grounds": [
+   "novel channel",
+   "not a relabelling",
+   "reach stable",
+   "coordinate forced"
+  ],
+  "seated": [
+   {
+    "parent": "gravity",
+    "cols": [
+     "B",
+     "F",
+     "X"
+    ],
+    "channel": 1,
+    "cells": 26
+   },
+   {
+    "parent": "madelung",
+    "cols": [
+     "n+l",
+     "k"
+    ],
+    "channel": 6,
+    "cells": 82
+   }
+  ],
+  "refused": [
+   {
+    "parent": "gravity",
+    "cols": [
+     "B",
+     "F",
+     "X",
+     "E"
+    ],
+    "failed": [
+     "reach stable"
+    ]
+   },
+   {
+    "parent": "ions",
+    "cols": [
+     "sl",
+     "tl"
+    ],
+    "failed": [
+     "reach stable"
+    ]
+   },
+   {
+    "parent": "madrule",
+    "cols": [
+     "S_a",
+     "l_d"
+    ],
+    "failed": [
+     "reach stable"
+    ]
+   },
+   {
+    "parent": "nucshell",
+    "cols": [
+     "l",
+     "sigma"
+    ],
+    "failed": [
+     "coordinate forced"
+    ]
+   }
+  ],
+  "candidates": 6
+ },
+ "retractions": [
+  {
+   "where": "overlaprule.py \u00a75",
+   "claimed": "madelung's parent is 'a complete rectangle, which closes everything for free'",
+   "measured": "FALSE. 170 cells in an 810-cell box, density 0.2099, not even a down-set. Its sibling fibred holds the same 170 at the same density and is K3."
+  },
+  {
+   "where": "overlaprule.py \u00a75",
+   "claimed": "'the fill-order base carries order and algebra and does NOT carry geometry'",
+   "measured": "FALSE of the base. Paired with l the same base is K7. The parent's three arity-2 projections are K7 / K6 / K7."
+  },
+  {
+   "where": "overlaprule.py \u00a75",
+   "claimed": "'the radial node count is what breaks join-closure' in the nuclear shell sequence",
+   "measured": "FALSE. (nr, sigma) is 6 cells at K7 with ZERO join counterexamples, so forgetting l restores join-closure exactly as completely."
+  },
+  {
+   "where": "overlaprule.py \u00a75",
+   "claimed": "gravity: 'the raggedness lives in D,Y,L,E and NOT in the bound structure'",
+   "measured": "TRUE operatively (256 join failures against 0) and FALSE in its strong reading: 509 of 96,372 parent join failures are witnessed inside the bound triple, cross-block."
+  },
+  {
+   "where": "overlaprule.py",
+   "claimed": "gravity (B,F,X) is 'dimension-blind'",
+   "measured": "FALSE. B is a function of (D, q, F, Jzero) and its profile differs at D=4, D=5 and D>=6."
+  },
+  {
+   "where": "overlaprule.py \u00a76",
+   "claimed": "the ultraspinning reading",
+   "measured": "It is off CUMULATIVE D sweeps. Per single dimension D=4 is K7, D=5 is K1, and D=6..11 are EACH K0."
+  },
+  {
+   "where": "nucshell.py",
+   "claimed": "its parent closes 'K7 ... the only seated index of arity 3 to reach it'",
+   "measured": "BOTH HALVES FALSE. It is K3, and fibred.index is a second arity-3 K3."
+  },
+  {
+   "where": "boxinvariance.py",
+   "claimed": "madelung's 170 are 'ENUMERATED, not generated by a rule over an alphabet'",
+   "measured": "FALSE. All 170 reproduce from {1<=n<=12, 0<=l<n, n+l<=9, 0<=k<2(2l+1)}. The test was applicable and had been declared inapplicable instead of run. Run now: madelung PASSES, the channel moves K6 -> K7 when l<n is dropped."
+  },
+  {
+   "where": "overlaprule.py \u00a75",
+   "claimed": "gravity (B,F,X) has '64 meet counterexamples'",
+   "measured": "That is the ORDERED count printed beside the UNORDERED pair total. It is 32 in 325 unordered pairs. The selftest caught it."
+  },
+  {
+   "where": "figure.py \u00a71b",
+   "claimed": "'the three new vertices land at heights and widths the figure already held'",
+   "measured": "FALSE of the one that fell -- nucshell (l, sigma) had width 2, which was new. True of the two that remain."
+  }
+ ],
+ "dockets": [
+  {
+   "id": "22",
+   "status": "CLOSED-WITH-CORRECTIONS",
+   "question": "Were the ruling's per-witness physics claims ever independently checked?",
+   "finding": "Nine adversarial agents, three lenses on each of three seatings. Two survived; nucshell (l, sigma) was UNSEATED. Ten corrections applied.",
+   "what_would_settle_it": "Settled. Re-running the same lenses would re-check it."
+  },
+  {
+   "id": "23",
+   "status": "CLOSED",
+   "question": "Could madrule reach K4 at an arity where statistics is earned?",
+   "finding": "Yes -- 3 of its 120 arity-3 charts do. None may be seated: they were found by searching for K4, which is fitted by this tree's own rule.",
+   "what_would_settle_it": "A coordinate justified from the corpus BEFORE the chart is run."
+  },
+  {
+   "id": "24",
+   "status": "CLOSED",
+   "question": "Was the reported K1 candidate over the U3/U4 allowed sets real?",
+   "finding": "Real and reproduced exactly -- 0 joins and 2,862/12,489/40,887/110,229, the corpus's own figures at \u00a729.12 U4. Refused as a theorem: the channel is K1 at nine of ten boxes, so it does not depend on the data.",
+   "what_would_settle_it": "Settled."
+  },
+  {
+   "id": "25",
+   "status": "OPEN",
+   "question": "Does the research tree already hold an unseated first-order index?",
+   "finding": "A census of every chart-shaped accessor over all 231 modules, with attempt logging so coverage is a fact rather than an inference.",
+   "what_would_settle_it": "Completing the census and adjudicating anything it finds."
+  },
+  {
+   "id": "26",
+   "status": "OPEN",
+   "question": "Is the madelung/fibred family built on a withdrawn table?",
+   "finding": "fibred.address calls tools/populate.aufbau_config, whose docstring says Register 1306 WITHDREW that table. 25 of 108 addresses differ from the banked observed ground configurations and 62 of the 170 lie beyond Z=108. At two matched reaches the PARENT falls K7 -> K0 while the coarsening holds K6 -> K2.",
+   "what_would_settle_it": "A ruling on whether the seated object is the Madelung prediction or the observed configurations. It touches two PRE-RULING seated vertices."
+  }
+ ],
+ "not_claimed": [
+  "COMPLETE is False and stays False -- this is not every first-order index, it is the ones found and survived.",
+  "An empty channel is not a theorem that nothing can sit there.",
+  "A refusal is recorded so it can be re-adjudicated, not closed."
+ ]
+}
