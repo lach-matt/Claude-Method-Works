@@ -424,10 +424,21 @@ def member_types():
 
     Not one of them is nuclear, which is the claim the numeric cell collisions
     cannot touch.
+
+    THE EXCLUSION IS "OVER THESE SAME MEMBERS", NOT "IN THIS MODULE".  It was
+    the module until M's overlap ruling seated a coarsening of this index in
+    `overlaprule.py`, and the fixture below then reported a nuclear member in
+    another index -- correctly, by the letter, and falsely in substance: the
+    row is `nucshell (l, sigma)`, these 22 subshells with nr forgotten.  The
+    claim was never that one module owns the nuclear members; it is that no
+    OTHER MEMBER SET here is nuclear.  `overlaprule.holds_members_of` answers
+    that, and the fixture is unweakened -- a genuinely new nuclear index would
+    still fire it.
     """
     import registry
-    return [(nm, w) for nm, mo, _a, _me, w, _q in registry.rows()
-            if mo != "nucshell"]
+    import overlaprule
+    return [(nm, w) for nm, _mo, _a, _me, w, _q in registry.rows()
+            if not overlaprule.holds_members_of(nm, "nucshell")]
 
 
 # ---------------------------------------------------------------- the reading
@@ -656,9 +667,13 @@ def selftest():
     chk("delta's status is not flattened to PINNED", DELTA_STATUS, "MEASURED")
 
     # -- the member type is new, measured against the registry
-    chk("no seated index has a nuclear member -- the STRONG test",
+    chk("no OTHER MEMBER SET here is nuclear -- the STRONG test",
         [nm for nm, w in member_types()
          if "nucl" in w.lower() and "nuclide" not in w.lower()], [])
+    chk("and the ruling's coarsening of THIS index is the row it excludes",
+        [nm for nm, *_r in __import__("registry").rows()
+         if nm not in {n for n, _w in member_types()}],
+        ["nucshell.index", "overlaprule.nucshell_lsigma"])
     # A PROPERTY, NOT A PINNED COUNT.  This tree has now made that mistake
     # five times: the first version of this fixture pinned the exact per-index
     # collision counts, and seating two further arity-3 indexes changed them --

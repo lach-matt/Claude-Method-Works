@@ -659,19 +659,48 @@ def refused():
 
 # ------------------------------------------------- the seated three, as rows
 
+# The rows this ruling seats, each naming the parent it coarsens.  ONE PLACE:
+# the accessors read it and so does anyone asking whose members a row holds --
+# `nucshell.py` asks, because its "no other seated index has a nuclear member"
+# fixture has to exclude a coarsening of nucshell without excluding anything
+# else, and the row's MODULE no longer says whose members it holds.
+SEATED_ROWS = {
+    "gravity_bound":   ("gravity",  ("B", "F", "X")),
+    "nucshell_lsigma": ("nucshell", ("l", "sigma")),
+    "madelung_slot":   ("madelung", ("n+l", "k")),
+}
+
+
+def parent_of(accessor):
+    """Whose members does this ruling's row hold?  None if not one of ours."""
+    r = SEATED_ROWS.get(accessor)
+    return r[0] if r else None
+
+
+def holds_members_of(name, parent):
+    """Is the registry row `name` over `parent`'s own members?
+
+    True for the parent's own row, and for any coarsening of it this ruling
+    seated.  This is the question "same object?", which the module name stopped
+    answering when three rows landed in one module.
+    """
+    mod, _, acc = name.partition(".")
+    return mod == parent or (mod == SELF and parent_of(acc) == parent)
+
+
 def gravity_bound():
     """gravity (B, F, X) -- the bound structure, dimension-blind.  K1."""
-    return project("gravity", ("B", "F", "X"))
+    return project(*SEATED_ROWS["gravity_bound"])
 
 
 def nucshell_lsigma():
     """nucshell (l, sigma) -- the nuclear subshells, radially blind.  K5."""
-    return project("nucshell", ("l", "sigma"))
+    return project(*SEATED_ROWS["nucshell_lsigma"])
 
 
 def madelung_slot():
     """madelung (n+l, k) -- the Janet collapse, subshell-blind.  K6."""
-    return project("madelung", ("n+l", "k"))
+    return project(*SEATED_ROWS["madelung_slot"])
 
 
 # ------------------------------------------------------------ the census
@@ -940,6 +969,14 @@ def selftest():
     # what seats, and where
     seats = admissible()
     chk("three seat", len(seats), 3)
+    chk("SEATED_ROWS agrees with what the gate admits",
+        sorted((p, c) for p, c, _k, _n in seats),
+        sorted(SEATED_ROWS.values()))
+    chk("every seated row names the parent whose members it holds",
+        [a for a in SEATED_ROWS
+         if not holds_members_of("%s.%s" % (SELF, a), parent_of(a))], [])
+    chk("and holds_members_of does NOT claim a row of another parent",
+        holds_members_of("overlaprule.nucshell_lsigma", "gravity"), False)
     chk("they occupy K1, K5 and K6", sorted(k for _p, _c, k, _n in seats),
         [1, 5, 6])
     chk("K4 is reached by two candidates and seated by neither",
