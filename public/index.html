@@ -2,87 +2,134 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#030712">
 <title>The Method Index</title>
 <meta name="description" content="The Method 1.6, read as an index: every element on every axis, every ion, every channel, every measured cell, each value carrying the status the corpus gives it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@500;600&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%274%27 fill=%27%231d6f8f%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%279%27 fill=%27none%27 stroke=%27white%27 stroke-width=%272%27 stroke-dasharray=%273 2%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%273%27 fill=%27%23c2571a%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%274%27 fill=%27%23030712%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%279%27 fill=%27none%27 stroke=%27%2338bdf8%27 stroke-width=%272%27 stroke-dasharray=%273 2%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%273%27 fill=%27%23fb923c%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
+
+  <!-- 1. header toolbar -->
   <header id="topbar">
     <div id="brand">
       <h1 id="site-title">The Method Index</h1>
       <p id="site-subtitle">The Method 1.6 · every element on every axis of every index</p>
     </div>
-    <form id="search" role="search" autocomplete="off">
-      <label for="q" class="visually-hidden">Find an element, ion or channel</label>
-      <input id="q" type="search" placeholder="Fe, iron, Fe II, Fe II d, Fe II d 3 …" spellcheck="false">
-      <ul id="suggest" role="listbox" hidden></ul>
-    </form>
-    <nav id="views">
+    <nav id="views" aria-label="Views">
       <div class="seg" role="group" aria-label="Layout">
-        <button type="button" id="layout-table" class="seg-btn is-on" data-layout="table" title="Section 6: period × group. 90 held, 126 admitted, E = 36">Period × group</button>
-        <button type="button" id="layout-janet" class="seg-btn" data-layout="janet" title="Register 1188: (n+ℓ, ℓ). E = 0">Janet (n+ℓ, ℓ)</button>
+        <button type="button" id="layout-table" class="seg-btn is-on" data-layout="table" title="Section 6: period × group">Period × group</button>
+        <button type="button" id="layout-janet" class="seg-btn" data-layout="janet" title="Register 1188: (n+ℓ, ℓ)">Janet (n+ℓ, ℓ)</button>
       </div>
       <button type="button" id="btn-provenance" class="ghost">Provenance</button>
       <button type="button" id="btn-help" class="ghost">Help</button>
-      <button type="button" id="btn-theme" class="ghost" aria-label="Toggle theme" title="Toggle theme">◐</button>
+      <button type="button" id="btn-theme" class="ghost" aria-label="Toggle light or dark theme" title="Toggle theme">◐</button>
     </nav>
   </header>
 
-  <main id="stage">
-    <section id="canvas-wrap">
-      <canvas id="canvas" aria-label="Zoomable index" role="img"></canvas>
+  <!-- 2. search bar -->
+  <section id="searchbar" aria-label="Search">
+    <form id="search" role="search" autocomplete="off">
+      <label for="q" class="visually-hidden">Find an element, ion or channel</label>
+      <input id="q" type="search" role="combobox" aria-autocomplete="list" aria-controls="suggest" aria-expanded="false" placeholder="Fe, iron, Fe II, Fe II d, Fe II d 3 …" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go">
+      <ul id="suggest" role="listbox" aria-label="Suggestions" hidden></ul>
+    </form>
+  </section>
+
+  <main id="main">
+    <!-- 3. canvas viewport -->
+    <section id="canvas-wrap" aria-label="Zoomable index">
+      <canvas id="canvas" aria-label="Zoomable index of The Method 1.6. With the canvas focused: Esc up one level, H the whole index, + and − zoom, arrow keys pan" role="img" tabindex="0"></canvas>
       <nav id="crumbs" aria-label="Path"></nav>
-      <div id="legend">
-        <div class="legend-title">Cells by grade</div>
+      <div id="legend" aria-label="Legend">
+        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Cells by grade</button>
+        <div id="legend-rows">
         <div class="legend-row"><span class="sw sw-measured"></span> measured <span class="legend-n" id="n-measured"></span></div>
         <div class="legend-row"><span class="sw sw-exact"></span> exact <span class="legend-n" id="n-exact"></span></div>
         <div class="legend-row"><span class="sw sw-computed"></span> computed <span class="legend-n" id="n-computed"></span></div>
         <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held (E)</div>
         <div class="legend-row"><span class="sw sw-csv"></span> spectra rows only (Z &gt; 108)</div>
+        <div class="legend-row"><span class="sw sw-ladder"></span> Λ₈ ionisation ladder</div>
+        </div>
       </div>
-      <div id="zoomctl">
-        <button type="button" id="z-in" aria-label="Zoom in">+</button>
-        <button type="button" id="z-out" aria-label="Zoom out">−</button>
-        <button type="button" id="z-home" aria-label="Whole index" title="Whole index (H)">⌂</button>
+      <div id="zoomctl" role="group" aria-label="Zoom">
+        <button type="button" id="z-in" aria-label="Zoom in" title="Zoom in (+)">+</button>
+        <button type="button" id="z-out" aria-label="Zoom out" title="Zoom out (−)">−</button>
+        <button type="button" id="z-home" aria-label="Reset to the whole index" title="Whole index (H)">Reset</button>
       </div>
-      <div id="loading" hidden>loading …</div>
+      <div id="loading" role="status" hidden>loading …</div>
     </section>
 
-    <aside id="inspector" aria-live="polite">
-      <div id="inspector-head">
-        <button type="button" id="btn-up" class="ghost" title="Up one level (Esc)">↑ up</button>
-        <button type="button" id="btn-collapse" class="ghost" aria-label="Collapse panel">›</button>
-      </div>
-      <div id="inspector-body"></div>
-    </aside>
+    <div id="side">
+      <!-- the one live region: a line naming the selection, so a screen reader is not read every table -->
+      <div id="status" class="visually-hidden" role="status" aria-live="polite"></div>
+      <!-- 4. element detail plate -->
+      <section id="inspector" class="plate" aria-label="Detail">
+        <div class="plate-head">
+          <h2>Detail</h2>
+          <div class="plate-tools">
+            <button type="button" id="btn-up" class="ghost" title="Up one level (Esc)">↑ up</button>
+            <button type="button" id="btn-canvas" class="ghost" title="Back to the canvas">↥ canvas</button>
+          </div>
+        </div>
+        <div id="inspector-body"></div>
+      </section>
+
+      <!-- 5. assistant panel -->
+      <section id="assistant" class="plate" aria-label="Query the index">
+        <div class="plate-head">
+          <h2>Query the index</h2>
+          <span class="assist-mode" id="assist-mode">console</span>
+        </div>
+        <label for="assist-q" class="visually-hidden">Question or console command</label>
+        <textarea id="assist-q" class="term" rows="4" placeholder="help · go Fe II d 3 · closure · measured Fe · residuals Fe · B Pd · ladder Fe" spellcheck="false" autocapitalize="off"></textarea>
+        <div class="assist-row">
+          <button type="button" id="assist-run" class="btn is-primary">Query Web AI Agent</button>
+          <button type="button" id="assist-stop" class="btn" hidden>Stop</button>
+          <button type="button" id="assist-clear" class="btn">Clear</button>
+        </div>
+        <div id="assist-out" class="resp" aria-live="polite"></div>
+      </section>
+
+      <!-- 6. solver suite -->
+      <section id="solvers" class="plate" aria-label="Solver suite">
+        <div class="plate-head">
+          <h2>Solver suite</h2>
+          <span class="assist-mode" id="solver-count"></span>
+        </div>
+        <div id="solver-body"></div>
+      </section>
+    </div>
   </main>
 
-  <dialog id="dlg-provenance">
-    <div class="dlg-head"><h2>Provenance</h2><button type="button" class="ghost dlg-close" data-close="dlg-provenance">✕</button></div>
+  <dialog id="dlg-provenance" aria-labelledby="dlg-provenance-title">
+    <div class="dlg-head"><h2 id="dlg-provenance-title">Provenance</h2><button type="button" class="ghost dlg-close" data-close="dlg-provenance" aria-label="Close">✕</button></div>
     <div id="provenance-body" class="dlg-body"></div>
   </dialog>
 
-  <dialog id="dlg-help">
-    <div class="dlg-head"><h2>Reading this index</h2><button type="button" class="ghost dlg-close" data-close="dlg-help">✕</button></div>
+  <dialog id="dlg-help" aria-labelledby="dlg-help-title">
+    <div class="dlg-head"><h2 id="dlg-help-title">Reading this index</h2><button type="button" class="ghost dlg-close" data-close="dlg-help" aria-label="Close">✕</button></div>
     <div class="dlg-body">
-      <p>The top level is the drawn periodic layout of section 6: 90 cells held, 126 admitted by ℛ, and the 36 the operator admits but the table does not hold drawn as dashed ghosts. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = 0.</p>
-      <p>Zoom into an element and its ions appear inside it, in spectroscopic order (I is neutral). Zoom into an ion and its eight ℓ channels appear; into a channel and its cells, one per multiplicity, coloured by grade. Every cell is a row of COORDINATES-2.13.</p>
-      <p>Every value in the panel carries a status badge. <span class="badge st-READ">READ</span> is a measurement from a member or the mirror; <span class="badge st-PINNED">PINNED</span> the corpus defines it at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the corpus states the object but not the form a program needs. A status is never flattened.</p>
+      <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as dashed ghosts. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
+      <p>Zoom into an element and its ions appear inside it, in spectroscopic order (I is neutral), joined by the glowing Λ₈ ionisation ladder — one line per step of the record's ladder, nothing invented. Zoom into an ion and its eight ℓ channels appear; into a channel and its cells, one per multiplicity, coloured by grade. Every cell is a row of COORDINATES-2.13.</p>
+      <p>Every value in the detail plate carries a status badge. <span class="badge st-READ">READ</span> is a measurement from a member or the mirror; <span class="badge st-PINNED">PINNED</span> the corpus defines it at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the corpus states the object but not the form a program needs. A status is never flattened.</p>
       <h3>Navigation</h3>
       <ul>
-        <li>Scroll or pinch to zoom, drag to pan, click a node to fly to it.</li>
-        <li><kbd>Esc</kbd> up one level · <kbd>H</kbd> whole index · <kbd>/</kbd> search · <kbd>+</kbd> <kbd>−</kbd> zoom · arrow keys pan.</li>
+        <li>Scroll or pinch to zoom, drag to pan, tap a node to fly to it; the detail plate follows the selection.</li>
+        <li>With the canvas focused (click or tab to it): <kbd>Esc</kbd> up one level · <kbd>H</kbd> whole index · <kbd>+</kbd> <kbd>−</kbd> zoom · arrow keys pan. <kbd>/</kbd> focuses search from anywhere outside a text field. Table rows in the detail plate open with <kbd>Enter</kbd>.</li>
         <li>Search accepts a symbol, Z, name, or a path: <code>Fe II</code>, <code>Fe II d</code>, <code>Fe II d 3</code>.</li>
         <li>The address bar carries the path, so any node is a link.</li>
       </ul>
-      <h3>What this is not</h3>
-      <p>Nothing here is computed by the page. Every number is <code>tools/populate.py</code>'s, serialised by <code>tools/webindex.py</code>, and the page does no arithmetic of its own. A finding is recorded, never repaired: where the spectra index disagrees with the observed configurations, both values are shown.</p>
+      <h3>Query the index</h3>
+      <p>The console answers deterministically from the loaded data: <code>help</code>, <code>go Fe II d 3</code>, <code>axes</code>, <code>closure</code>, <code>sources</code>, <code>caveats</code>, <code>count</code>, <code>measured Fe</code>, <code>residuals Fe</code>, <code>B Pd</code>, <code>ladder Fe</code>. When the page runs as a claude.ai artifact a second answerer, Claude, is offered beside it and is always labelled; it is instructed to answer only from the selected record and to name the status of every number it quotes.</p>
+      <h3>What computes and what does not</h3>
+      <p>The explorer computes nothing; the solver suite does, and every solver carries a selftest against the instrument's own numbers. Every value the explorer shows is <code>tools/populate.py</code>'s, serialised by <code>tools/webindex.py</code>. A finding is recorded, never repaired: where the spectra index disagrees with the observed configurations, both values are shown.</p>
     </div>
   </dialog>
 </div>

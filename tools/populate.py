@@ -472,7 +472,7 @@ AXES = [
     ("B", PINNED, "min(p, n0-l-1), the Pauli bound (register 1141)"),
     ("delta measured", READ, "COORDINATES-2.13, grade measured/exact"),
     ("delta equation", PINNED, "the channel equation, final form (register 1205)"),
-    ("C(Z)", RECON, "the collapse coordinate (registers 1188-1190)"),
+    ("C(Z)", RECOVERED, "the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188-1190); see collapse_C"),
     ("witness", READ, "COORDINATES-2.13"),
     ("bound", READ, "COORDINATES-2.13"),
     ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
