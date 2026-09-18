@@ -219,6 +219,57 @@ and its channel floor is K2.
     two that reached it reached it at the one arity where half the channel is
     free.**
 
+3d. DOCKET 23 -- K4 IS REACHABLE AT ARITY 3, AND THAT IS NOT A LICENCE
+===============================================================================
+
+Section 3c says K4's statistics bit is free at arity 2 and that both charts
+which reached K4 are arity 2.  The obvious next question is whether `madrule`
+could reach K4 at an arity where statistics has to be EARNED.  It can.
+
+    madrule (S_a, l_d)          6 cells   arity 2   K4   statistics free
+    madrule (S_a, l_d, occ)    13 cells   arity 3   K2   statistics EARNED,
+                                                         information lost
+
+    So its own full chart answers the question badly: add the third coordinate
+    it already has, and information stops closing.
+
+    BUT madrule MEASURES MORE THAN IT CHARTS.  `madrule.table()` gives every
+    exception as (Z, symbol, acceptor, donor, cell) with acceptor and donor
+    each a full (n, l).  Ten quantities are available from that: S_a, l_d, occ,
+    n_a, l_a, n_d, S_d, dS, dn, dl.  Over all 120 arity-3 charts of those ten:
+
+        K0 16    K2 57    K3 32    K4 3    K5 3    K6 1    K7 8
+
+    THREE REACH K4 AT ARITY 3 -- (S_a, l_d, S_d), (S_a, l_d, dn) and
+    (l_d, S_d, dn), each 6 cells.  At arity 3 `kdet` is not trivial, so those
+    three earn their statistics.
+
+    AND NOT ONE OF THEM MAY BE SEATED, because of how they were found.  This
+    file went looking for K4 and searched 120 charts until three landed there.
+    `inversion.py` and `probability.py` both state the rule it breaks: "an
+    index built to land on a cell demand.py wants would be fitted, and a fitted
+    vertex closes nothing."  A chart selected BECAUSE it lands in a channel is
+    the definition of fitted, and the search is on the record above so that
+    nobody can later present one of the three as a discovery.
+
+    WHAT WOULD MAKE ONE SEATABLE, stated so it can be done properly.  A
+    coordinate justified from the corpus BEFORE the chart is run.  One such
+    justification is available and this file will not use it: a Madelung
+    exception is a TRANSFER BETWEEN TWO SUBSHELLS, and the seated row charts
+    the acceptor by its n+l and the donor by its l -- an asymmetry nothing
+    requires.  The symmetric chart is (S_a, l_d, S_d), which is one of the
+    three.  THAT ARGUMENT IS SOUND AND IT WAS FORMED AFTER SEEING THE ANSWER,
+    which is exactly the order that makes it inadmissible here.  Someone who
+    reaches it from the corpus's own account of the transfer, without this
+    section in front of them, has a seating; this pass does not.
+
+    SO DOCKET 23 CLOSES, AND NOT AS "WAIT FOR NEW ELEMENTS".  `madrule
+    (S_a, l_d)` stays refused on the majority condition, and section 3c stands:
+    it could never earn K4 at arity 2 however many elements arrive.  What is
+    withdrawn is the stronger reading that K4 needs an arity madrule cannot
+    reach -- it can, three ways, and the obstacle is provenance rather than
+    arithmetic.
+
 ===============================================================================
 4. THE VERDICTS
 ===============================================================================
@@ -245,7 +296,9 @@ and its channel floor is K2.
                        K4 at its widest two reaches, so unlike `ions` it passes
                        the open-upper-bound test in section 3, and it is
                        refused on the count alone.  The likeliest of anything
-                       here to be re-adjudicated.
+                       here to be re-adjudicated -- though NOT at arity 2, and
+                       section 3d shows the three arity-3 charts that do reach
+                       K4 and why none of them may be seated.
 
     SO K1, K5 AND K6 BECOME OCCUPIED AND K4 DOES NOT.  The empty channel that
     remains is the one whose only two candidates both failed on the reach, and
@@ -800,6 +853,31 @@ def k4_analysis():
     return ar, forced
 
 
+def madrule_arity3():
+    """Section 3d: every arity-3 chart of what madrule MEASURES, by channel.
+
+    Ten quantities come out of `madrule.table()` -- the chart seats three of
+    them.  This returns {K: [chart, ...]} over all 120 arity-3 combinations.
+
+    REPORTED SO THE SEARCH IS ON THE RECORD.  Three of the 120 reach K4 with
+    statistics earned, and none may be seated: a chart chosen because it lands
+    in a channel is fitted, and this function is the evidence that they were
+    chosen that way.
+    """
+    import madrule
+    rows = []
+    for _Z, _sym, (na, la), (nd, ld), cell in madrule.table():
+        rows.append({"S_a": na + la, "l_d": ld, "occ": cell[2], "n_a": na,
+                     "l_a": la, "n_d": nd, "S_d": nd + ld,
+                     "dS": (na + la) - (nd + ld), "dn": na - nd, "dl": la - ld})
+    keys = ("S_a", "l_d", "occ", "n_a", "l_a", "n_d", "S_d", "dS", "dn", "dl")
+    out = {}
+    for combo in itertools.combinations(keys, 3):
+        X = frozenset(tuple(r[k] for k in combo) for r in rows)
+        out.setdefault(mi.K(X), []).append("/".join(combo))
+    return {k: sorted(v) for k, v in sorted(out.items())}
+
+
 def semilattice(parent, cols):
     """(join counterexamples, meet counterexamples, pairs) for a sub-chart."""
     X = sorted(project(parent, cols))
@@ -1017,6 +1095,22 @@ def selftest():
         [k for k in (5, 6, 7) if not forced[k]], [])
     chk("and is NOT law-forced at K2 or K4 -- K4 is the exposed one",
         [k for k in (2, 4) if forced[k]], [])
+
+    # SECTION 3d.  DOCKET 23: K4 IS reachable at arity 3, and the three that
+    # reach it were found by searching for K4, which is what fitted means.
+    m3 = madrule_arity3()
+    chk("120 arity-3 charts of what madrule measures",
+        sum(len(v) for v in m3.values()), 120)
+    chk("three of them reach K4, with statistics EARNED at arity 3",
+        m3.get(4, []),
+        ["S_a/l_d/S_d", "S_a/l_d/dn", "l_d/S_d/dn"])
+    chk("madrule's own full chart is K2, not K4 -- adding occ loses information",
+        mi.K(project("madrule", ("S_a", "l_d", "occ"))), 2)
+    chk("so the arity-2 pair is the only K4 route madrule already charts",
+        mi.K(project("madrule", ("S_a", "l_d"))), 4)
+    chk("and NONE of the three is seated -- they were found by searching",
+        [c for c in m3.get(4, [])
+         if tuple(c.split("/")) in {tuple(x[1]) for x in sound()}], [])
 
     # THE VACUITY GUARD.  A gate that passes everything measures nothing, and a
     # gate that fails everything measures nothing either.

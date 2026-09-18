@@ -12210,6 +12210,37 @@ statements for `gravity (B,F,X)` and `nucshell (l,σ)` rest on this tree's own r
 `madelung (n+l,k)` is corroborated by `madelung.py` §3. **What would settle it:** re-run the same
 three lenses per witness and see whether any refutes. The run is scripted and resumable.
 
+**DOCKET 23 — CLOSED, and not as "wait for new elements".** The question was whether `madrule`
+could reach K4 at an arity where `statistics` has to be *earned* rather than handed over free by
+§3c. Its own full chart answers badly — **`(S_a, l_d, occ)` at arity 3 is K2, not K4**: add the
+third coordinate it already has and `information` stops closing.
+
+But `madrule.table()` measures more than `madrule.index()` charts — every exception carries a full
+`(n, l)` for both acceptor and donor, giving ten quantities. Over **all 120 arity-3 charts** of those
+ten: K0 16, K2 57, K3 32, **K4 3**, K5 3, K6 1, K7 8. **Three reach K4 at arity 3** —
+`(S_a, l_d, S_d)`, `(S_a, l_d, dn)` and `(l_d, S_d, dn)`, six cells each — and at arity 3 `kdet` is
+not trivial, so those three **earn** their statistics.
+
+**And not one of them may be seated, because of how they were found.** This pass went looking for K4
+and searched 120 charts until three landed there. `inversion.py` and `probability.py` both state the
+rule that breaks: *"an index built to land on a cell `demand.py` wants would be fitted, and a fitted
+vertex closes nothing."* The search is on the record in `overlaprule.madrule_arity3()` precisely so
+that none of the three can later be presented as a discovery.
+
+**What would make one seatable, stated so it can be done properly.** A coordinate justified from the
+corpus *before* the chart is run. One such justification exists and this pass will not use it: a
+Madelung exception is a **transfer between two subshells**, and the seated row charts the acceptor by
+its `n+l` and the donor by its `l` — an asymmetry nothing requires. The symmetric chart is
+`(S_a, l_d, S_d)`, which is one of the three. **That argument is sound and it was formed after seeing
+the answer**, which is exactly the order that makes it inadmissible here.
+
+So: `madrule (S_a, l_d)` stays refused on the majority condition, and §3c stands — it could never
+earn K4 at arity 2 however many elements arrive. What is **withdrawn** is the stronger reading that
+K4 needs an arity `madrule` cannot reach. It can, three ways, and the obstacle is **provenance, not
+arithmetic**.
+
+*Superseded — the original docket text follows:*
+
 **DOCKET 23 — `madrule (S_a, l_d)` is the likeliest refusal to be overturned.** It holds K4 at both
 Z ≤ 103 and Z ≤ 108, so it passes the open-upper-bound test that `ions` fails; it is refused on the
 majority condition alone, with five earlier reaches of 1–5 cells. **What would settle it:** new
