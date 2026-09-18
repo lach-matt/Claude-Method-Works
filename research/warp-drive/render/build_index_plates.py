@@ -1254,7 +1254,7 @@ def build_masterindex():
         " Each point is a whole index — <b>the labelled dot is that "
         "index's entire chart reduced to one position</b>. Colour is K, the "
         "channel, which is also the vertical axis: the %d sheets are the %d "
-        "channels the %d occupy out of eight possible, and the three narrowest "
+        "channels the %d occupy out of eight possible, and the two narrowest "
         "points are the coarsenings M's overlap ruling seated. <b>gravity's "
         "width of 112 is what stretches the box</b>, and the crowd near the "
         "origin is every small index." % (len(ks), len(ks), len(C)),
@@ -1421,9 +1421,13 @@ def build_overlaprule():
     <th class="num">K</th><th class="num">cells</th><th>novel channel</th>
     <th>not a relabelling</th><th>reach gate</th><th></th></tr></thead>
     <tbody>%s</tbody></table>
-    <caption><b>%d seated, %d refused.</b> K1, K5 and K6 became occupied; K4
-    did not &mdash; its only two candidates both failed on the reach, which is
-    two failures and not a theorem.</caption></div>
+    <caption><b>%d seated, %d refused.</b> K1 and K6 became occupied. K4 did
+    not &mdash; its only two candidates both failed on the reach. <b>K5 did
+    not either, and that one is a retraction</b>: <span class="mono">nucshell
+    (l,&nbsp;sigma)</span> was seated here and then <b>unseated by DOCKET
+    22</b>, because the identical partition written as (l,&nbsp;2j) &mdash; and
+    2j is the datum <span class="mono">order_a()</span> banks &mdash; lands at
+    the occupied K7. See section 06c.</caption></div>
 </section>''' % ("".join(
         '<tr><td class="name">%s</td><td class="mono sm">%s</td>'
         '<td class="num">%d</td><td class="num">%d</td>'
@@ -1545,6 +1549,50 @@ def build_overlaprule():
     here. So &ldquo;K4 is empty&rdquo; is a sharper statement than two
     candidates failing a gate: <b>the only two that reached it did so at the one
     arity where half the channel is free.</b></p></div>
+</section>''')
+    h.append('''<section>
+  <div class="shead"><span class="snum">06c</span><h2>What the verification
+  unseated &mdash; a row this ruling had already seated</h2></div>
+  <p class="sub">Nine adversarial agents, three lenses on each of the three
+  seatings. Two survived every test. One did not, and it fell on a measurement
+  none of the other grounds asks for.</p>
+  <div class="tablewrap"><table><thead><tr><th>address of the SAME 22 members</th>
+    <th class="num">cells</th><th class="num">K</th><th>closers</th></tr></thead>
+    <tbody>
+    <tr><td class="mono">nucshell (l, sigma)</td><td class="num">12</td>
+      <td class="num">5</td><td>geometry + information + statistics</td></tr>
+    <tr><td class="mono">nucshell (l, 2j)</td><td class="num">12</td>
+      <td class="num"><b>7</b></td><td><b>all five</b></td></tr>
+    <tr><td class="mono">nucshell (2j, sigma)</td><td class="num">12</td>
+      <td class="num"><b>7</b></td><td><b>all five</b></td></tr>
+    </tbody></table>
+    <caption>The fibres are <b>identical</b> under (l,&nbsp;sigma) and
+    (l,&nbsp;2j) &mdash; verified, not assumed.</caption></div>
+  <div class="note warn">
+    <span class="lab">The K5 was a fact about which name was written down</span>
+    <p>K7 is occupied, so under either alternative address
+    <span class="mono">ground_novel_channel</span> returns false and the chart
+    was <b>never a candidate</b>. And <b>2j is the banked primitive</b>:
+    <span class="mono">nucshell.order_a()</span> stores
+    (nr,&nbsp;l,&nbsp;Fraction(j)) and sigma is <em>derived</em> from it.
+    <span class="mono">nucshell.py</span>&rsquo;s own stated reason for
+    preferring sigma &mdash; <em>&ldquo;j is determined by
+    (l,&nbsp;sigma)&rdquo;</em> &mdash; holds verbatim with the roles swapped,
+    at identical LABEL ratios of 0.3182.</p>
+    <p><b>The fourth ground came from the fall.</b>
+    <span class="mono">ground_coordinate_forced</span>: two addresses inducing
+    the identical partition of the identical members are one chart written
+    twice. It was checked on the survivors <em>before</em> the unseating &mdash;
+    madelung&rsquo;s partition is identical under (k,&nbsp;S), (k,&nbsp;S+k) and
+    (S,&nbsp;S+k), <b>all K6</b>; gravity&rsquo;s rank and raw-decade encodings
+    give identical partitions, <b>both K1</b>.</p>
+    <p style="margin-bottom:0"><b>The parent is untouched</b> &mdash;
+    (nr,&nbsp;l,&nbsp;sigma) and (nr,&nbsp;l,&nbsp;2j) are both K3, so no
+    pre-ruling vertex moves. The figure went 14 &rarr; 13 vertices, E 81 &rarr;
+    59, K5 empty again &mdash; and <b>both resolution axes stayed
+    measurements</b>, so the gain recorded in
+    <span class="mono">figure.py</span> &sect;1b was not carried by the vertex
+    that fell.</p></div>
 </section>''')
     h.append('''<section>
   <div class="shead"><span class="snum">07</span><h2>The order of the two tests

@@ -149,8 +149,8 @@ ul.refuse li b{color:var(--ink)}
   <p class="dek">When a chart that overlaps a seated index may be seated
   anyway &mdash; and when it is one piece of information seated twice.</p>
   <div class="stamp"><span>instrument <b>overlaprule.py</b></span>
-  <span>candidates <b>6</b></span><span>seated <b>3</b></span>
-  <span>refused <b>3</b></span><span>channels now <b>7 of 8</b></span></div>
+  <span>candidates <b>6</b></span><span>seated <b>2</b></span>
+  <span>refused <b>4</b></span><span>channels now <b>6 of 8</b></span></div>
 </header>
 <div class="note">
   <span class="lab">The ruling</span>
@@ -193,10 +193,14 @@ ul.refuse li b{color:var(--ink)}
   <div class="tablewrap"><table><thead><tr><th>parent</th><th>sub-chart</th>
     <th class="num">K</th><th class="num">cells</th><th>novel channel</th>
     <th>not a relabelling</th><th>reach gate</th><th></th></tr></thead>
-    <tbody><tr><td class="name">gravity</td><td class="mono sm">B/F/X</td><td class="num">1</td><td class="num">26</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><b><span class="yes">SEAT</span></b></td></tr><tr><td class="name">gravity</td><td class="mono sm">B/F/X/E</td><td class="num">1</td><td class="num">52</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">NO</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">ions</td><td class="mono sm">sl/tl</td><td class="num">4</td><td class="num">7</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">NO</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">madrule</td><td class="mono sm">S_a/l_d</td><td class="num">4</td><td class="num">6</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">NO</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">nucshell</td><td class="mono sm">l/sigma</td><td class="num">5</td><td class="num">12</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><b><span class="yes">SEAT</span></b></td></tr><tr><td class="name">madelung</td><td class="mono sm">n+l/k</td><td class="num">6</td><td class="num">82</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><b><span class="yes">SEAT</span></b></td></tr></tbody></table>
-    <caption><b>3 seated, 3 refused.</b> K1, K5 and K6 became occupied; K4
-    did not &mdash; its only two candidates both failed on the reach, which is
-    two failures and not a theorem.</caption></div>
+    <tbody><tr><td class="name">gravity</td><td class="mono sm">B/F/X</td><td class="num">1</td><td class="num">26</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><b><span class="yes">SEAT</span></b></td></tr><tr><td class="name">gravity</td><td class="mono sm">B/F/X/E</td><td class="num">1</td><td class="num">52</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">NO</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">ions</td><td class="mono sm">sl/tl</td><td class="num">4</td><td class="num">7</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">NO</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">madrule</td><td class="mono sm">S_a/l_d</td><td class="num">4</td><td class="num">6</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="no">NO</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">nucshell</td><td class="mono sm">l/sigma</td><td class="num">5</td><td class="num">12</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><b><span class="no">refuse</span></b></td></tr><tr><td class="name">madelung</td><td class="mono sm">n+l/k</td><td class="num">6</td><td class="num">82</td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><span class="yes">yes</span></td><td><b><span class="yes">SEAT</span></b></td></tr></tbody></table>
+    <caption><b>2 seated, 4 refused.</b> K1 and K6 became occupied. K4 did
+    not &mdash; its only two candidates both failed on the reach. <b>K5 did
+    not either, and that one is a retraction</b>: <span class="mono">nucshell
+    (l,&nbsp;sigma)</span> was seated here and then <b>unseated by DOCKET
+    22</b>, because the identical partition written as (l,&nbsp;2j) &mdash; and
+    2j is the datum <span class="mono">order_a()</span> banks &mdash; lands at
+    the occupied K7. See section 06c.</caption></div>
 </section>
 <section>
   <div class="shead"><span class="snum">03</span><h2>The reach gate</h2></div>
@@ -429,230 +433,12 @@ scatter3d({id:'or3d04',points:PTS,xlab:"B",ylab:"F",zlab:"X",
 
 
 <section>
-  <div class="shead"><span class="snum">05</span><h2>nucshell (l, sigma) &mdash; K5</h2></div>
+  <div class="shead"><span class="snum">05</span><h2>madelung (n+l, k) &mdash; K6</h2></div>
   <p class="sub">The chart at every point of its own data reach, stacked. Colour is the reach.</p>
   <figure class="plate">
-    <div class="v3d"><canvas id="or3d05" aria-label="nucshell on l/sigma, 79 points"></canvas></div>
+    <div class="v3d"><canvas id="or3d05" aria-label="madelung on n+l/k, 284 points"></canvas></div>
     <div class="v3dbar">
       <button id="or3d05-spin" type="button">pause rotation</button>
-      <span class="hint">drag to rotate</span>
-      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>subshells 8</span><span><i style="background:var(--geometry)"></i>subshells 11</span><span><i style="background:var(--information)"></i>subshells 14</span><span><i style="background:var(--algebra)"></i>subshells 16</span><span><i style="background:var(--order)"></i>subshells 18</span><span><i style="background:var(--accent)"></i>subshells 20</span><span><i style="background:var(--hue7)"></i>subshells 22</span></span>
-    </div>
-    <figcaption>The chart has two coordinates, so <b>the third axis is the reach</b> &mdash; the sweep the gate ran, drawn rather than tabulated. Each horizontal sheet is the chart at one reach; read upward to watch it fill. <b>6 of the 7 sheets close in K5</b>, which is what the gate measures, and the top sheet is the 12 cells actually seated.</figcaption>
-  </figure>
-  <script>/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
-   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
-function scatter3d(opts){
-  const cv = document.getElementById(opts.id);
-  if(!cv) return;
-  const wrap = cv.parentElement;
-  const css = getComputedStyle(document.documentElement);
-  const tok = n => css.getPropertyValue(n).trim() || '#888';
-  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
-  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let drag = null;
-
-  const pts = opts.points;
-  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
-  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
-  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
-
-  function project(x,y,z,W,H){
-    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
-    const x1 =  x*ca - z*sa;
-    const z1 =  x*sa + z*ca;
-    const y2 =  y*ce - z1*se;
-    const z2 =  y*se + z1*ce;
-    const d = 3.4, s = d/(d + z2);
-    const k = Math.min(W,H) * (opts.scale ?? 0.255);
-    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
-  }
-
-  function axis(ctx,W,H,a,b,label,colour,textOnly){
-    const p = project(...a,W,H), q = project(...b,W,H);
-    if(!textOnly){
-      ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
-      return;                       /* text is painted in a later pass */
-    }
-    ctx.font = '600 11px "IBM Plex Mono", monospace';
-    ctx.textAlign='center'; ctx.textBaseline='middle';
-    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
-    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
-    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
-    /* AN AXIS LABEL GETS ITS OWN GROUND.  The auto-spin passes through every
-       azimuth, so no camera keeps a label clear of a dense cloud at all of
-       them; a panel-coloured plate behind the text makes it legible at every
-       angle instead of at the opening one. */
-    const tw = ctx.measureText(label).width;
-    ctx.fillStyle = tok('--panel'); ctx.globalAlpha = 0.82;
-    ctx.fillRect(lx - tw/2 - 4, ly - 8, tw + 8, 16);
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = colour;
-    ctx.fillText(label, lx, ly);
-  }
-
-  function draw(){
-    const W = wrap.clientWidth, H = opts.height || 420;
-    const dpr = Math.min(window.devicePixelRatio||1, 2);
-    if(cv.width !== W*dpr || cv.height !== H*dpr){
-      cv.width = W*dpr; cv.height = H*dpr;
-      cv.style.width = W+'px'; cv.style.height = H+'px';
-    }
-    const ctx = cv.getContext('2d');
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.clearRect(0,0,W,H);
-
-    // the box, drawn faintly so the rotation is legible
-    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
-    const C = [];
-    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
-      C.push([sx,sy,sz]);
-    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
-    ctx.globalAlpha = .5;
-    for(const [i,j] of E){
-      const p = project(...C[i],W,H), q = project(...C[j],W,H);
-      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
-
-    /* AXIS LINES NOW, AXIS TEXT AFTER THE POINTS.  A dense cloud otherwise
-       paints over a label at half the azimuths the auto-spin passes through,
-       and the still frame is what a thumbnail and a reduced-motion reader
-       get. The lines stay behind the points, which is correct. */
-    const AX = [[[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted')],
-                [[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted')],
-                [[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted')]];
-    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],false);
-
-    // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
-    if(opts.edges){
-      for(const e of opts.edges){
-        const p = project(nrm(e[0],rx), nrm(e[1],ry), nrm(e[2],rz), W, H);
-        const q = project(nrm(e[3],rx), nrm(e[4],ry), nrm(e[5],rz), W, H);
-        ctx.save();
-        ctx.strokeStyle = tok(e[6]);
-        ctx.lineWidth = e[7] ? 1 : 1.6;
-        ctx.globalAlpha = e[7] ? .85 : .5;
-        if(e[7]) ctx.setLineDash([5,4]);
-        ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
-        ctx.restore();
-      }
-    }
-
-    const S = pts.map(p => {
-      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
-      return {p, sx, sy, sz, sc};
-    }).sort((a,b) => b.sz - a.sz);
-
-    // points first, labels second: a near point must never paint over a
-    // label already placed for a farther one.
-    for(const o of S){
-      const r = (opts.r || 4) * o.sc;
-      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
-      if(o.p.hollow){
-        ctx.globalAlpha = 1; ctx.strokeStyle = tok(opts.colour(o.p));
-        ctx.lineWidth = 1.6; ctx.setLineDash([3,2.5]); ctx.stroke();
-        ctx.setLineDash([]);
-      } else {
-        ctx.fillStyle = tok(opts.colour(o.p));
-        ctx.globalAlpha = .35 + .65*o.sc*0.9;
-        ctx.fill();
-        if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
-          ctx.lineWidth = 1; ctx.stroke(); }
-      }
-      ctx.globalAlpha = 1;
-    }
-    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],true);
-
-    if(opts.labels){
-      const placed = [];
-      ctx.font = '10px "IBM Plex Mono", monospace';
-      ctx.textAlign='left'; ctx.textBaseline='middle';
-      for(const o of S.slice().reverse()){
-        if(!o.p.n) continue;
-        const r = (opts.r || 4) * o.sc;
-        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
-        let ly = o.sy;
-        for(let t=0; t<14; t++){
-          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
-                                         lx < q.x+q.w+8 && q.x < lx+w+8);
-          if(!clash) break;
-          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
-        }
-        placed.push({x:lx, y:ly, w});
-        if(Math.abs(ly-o.sy) > 2){
-          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
-          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
-          ctx.lineTo(lx - 2, ly); ctx.stroke();
-        }
-        ctx.fillStyle = tok('--body');
-        ctx.fillText(o.p.n, lx, ly);
-      }
-    }
-  }
-
-  let raf = null;
-  function loop(){
-    if(spin && !drag){ az += 0.0032; draw(); }
-    raf = requestAnimationFrame(loop);
-  }
-
-  cv.addEventListener('pointerdown', e => {
-    drag = {x:e.clientX, y:e.clientY, az, el};
-    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
-  });
-  cv.addEventListener('pointermove', e => {
-    if(!drag) return;
-    az = drag.az + (e.clientX - drag.x)*0.0075;
-    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
-    draw();
-  });
-  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
-  cv.addEventListener('pointerup', stop);
-  cv.addEventListener('pointercancel', stop);
-  cv.style.cursor = 'grab';
-  cv.style.touchAction = 'none';
-
-  const btn = document.getElementById(opts.id + '-spin');
-  if(btn){
-    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
-    sync();
-    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
-  }
-
-  new ResizeObserver(draw).observe(wrap);
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
-  draw();
-  loop();
-
-  /* ADDITIVE: a handle, so a caller that changes what opts.colour returns can
-     force a repaint. The loop only redraws while spinning, so without this a
-     recolour is invisible to a reader who paused rotation or who has
-     prefers-reduced-motion set. Nothing else changes: every existing call site
-     ignores the return value. */
-  return { draw, canvas: cv, view: (a, e) => { az = a ?? az; el = e ?? el; draw(); } };
-}
-
-(function(){
-const T=["--accent", "--algebra", "--geometry", "--hue7", "--information", "--order", "--statistics"];
-const RAW=[[0,1,8,6,0],[1,-1,8,6,0],[1,1,8,6,0],[2,-1,8,6,0],[2,1,8,6,0],[3,-1,8,6,0],[3,1,8,6,0],[4,-1,8,6,0],[0,1,11,2,0],[1,-1,11,2,0],[1,1,11,2,0],[2,-1,11,2,0],[2,1,11,2,0],[3,-1,11,2,0],[3,1,11,2,0],[4,-1,11,2,0],[4,1,11,2,0],[5,-1,11,2,0],[5,1,11,2,0],[0,1,14,4,0],[1,-1,14,4,0],[1,1,14,4,0],[2,-1,14,4,0],[2,1,14,4,0],[3,-1,14,4,0],[3,1,14,4,0],[4,-1,14,4,0],[4,1,14,4,0],[5,-1,14,4,0],[5,1,14,4,0],[6,1,14,4,0],[0,1,16,1,0],[1,-1,16,1,0],[1,1,16,1,0],[2,-1,16,1,0],[2,1,16,1,0],[3,-1,16,1,0],[3,1,16,1,0],[4,-1,16,1,0],[4,1,16,1,0],[5,-1,16,1,0],[5,1,16,1,0],[6,1,16,1,0],[0,1,18,5,0],[1,-1,18,5,0],[1,1,18,5,0],[2,-1,18,5,0],[2,1,18,5,0],[3,-1,18,5,0],[3,1,18,5,0],[4,-1,18,5,0],[4,1,18,5,0],[5,-1,18,5,0],[5,1,18,5,0],[6,1,18,5,0],[0,1,20,0,0],[1,-1,20,0,0],[1,1,20,0,0],[2,-1,20,0,0],[2,1,20,0,0],[3,-1,20,0,0],[3,1,20,0,0],[4,-1,20,0,0],[4,1,20,0,0],[5,-1,20,0,0],[5,1,20,0,0],[6,1,20,0,0],[0,1,22,3,0],[1,-1,22,3,0],[1,1,22,3,0],[2,-1,22,3,0],[2,1,22,3,0],[3,-1,22,3,0],[3,1,22,3,0],[4,-1,22,3,0],[4,1,22,3,0],[5,-1,22,3,0],[5,1,22,3,0],[6,1,22,3,0]];
-const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
-scatter3d({id:'or3d05',points:PTS,xlab:"l",ylab:"sigma",zlab:"reach  subshells",
-  az:0.78,el:0.62,scale:0.24,height:510,r:7,
-  xcol:'--geometry',ycol:'--order',zcol:'--information',
-  colour:p=>p.c});
-})();</script>
-</section>
-
-
-<section>
-  <div class="shead"><span class="snum">06</span><h2>madelung (n+l, k) &mdash; K6</h2></div>
-  <p class="sub">The chart at every point of its own data reach, stacked. Colour is the reach.</p>
-  <figure class="plate">
-    <div class="v3d"><canvas id="or3d06" aria-label="madelung on n+l/k, 284 points"></canvas></div>
-    <div class="v3dbar">
-      <button id="or3d06-spin" type="button">pause rotation</button>
       <span class="hint">drag to rotate</span>
       <span class="v3dkey"><span><i style="background:var(--statistics)"></i>electrons 12</span><span><i style="background:var(--geometry)"></i>electrons 20</span><span><i style="background:var(--information)"></i>electrons 38</span><span><i style="background:var(--algebra)"></i>electrons 56</span><span><i style="background:var(--order)"></i>electrons 88</span><span><i style="background:var(--accent)"></i>electrons 120</span><span><i style="background:var(--hue7)"></i>electrons 170</span></span>
     </div>
@@ -856,7 +642,7 @@ function scatter3d(opts){
 const T=["--accent", "--algebra", "--geometry", "--hue7", "--information", "--order", "--statistics"];
 const RAW=[[1,0,12,6,0],[1,1,12,6,0],[2,0,12,6,0],[2,1,12,6,0],[3,0,12,6,0],[3,1,12,6,0],[3,2,12,6,0],[3,3,12,6,0],[3,4,12,6,0],[3,5,12,6,0],[1,0,20,2,0],[1,1,20,2,0],[2,0,20,2,0],[2,1,20,2,0],[3,0,20,2,0],[3,1,20,2,0],[3,2,20,2,0],[3,3,20,2,0],[3,4,20,2,0],[3,5,20,2,0],[4,0,20,2,0],[4,1,20,2,0],[4,2,20,2,0],[4,3,20,2,0],[4,4,20,2,0],[4,5,20,2,0],[1,0,38,4,0],[1,1,38,4,0],[2,0,38,4,0],[2,1,38,4,0],[3,0,38,4,0],[3,1,38,4,0],[3,2,38,4,0],[3,3,38,4,0],[3,4,38,4,0],[3,5,38,4,0],[4,0,38,4,0],[4,1,38,4,0],[4,2,38,4,0],[4,3,38,4,0],[4,4,38,4,0],[4,5,38,4,0],[5,0,38,4,0],[5,1,38,4,0],[5,2,38,4,0],[5,3,38,4,0],[5,4,38,4,0],[5,5,38,4,0],[5,6,38,4,0],[5,7,38,4,0],[5,8,38,4,0],[5,9,38,4,0],[1,0,56,1,0],[1,1,56,1,0],[2,0,56,1,0],[2,1,56,1,0],[3,0,56,1,0],[3,1,56,1,0],[3,2,56,1,0],[3,3,56,1,0],[3,4,56,1,0],[3,5,56,1,0],[4,0,56,1,0],[4,1,56,1,0],[4,2,56,1,0],[4,3,56,1,0],[4,4,56,1,0],[4,5,56,1,0],[5,0,56,1,0],[5,1,56,1,0],[5,2,56,1,0],[5,3,56,1,0],[5,4,56,1,0],[5,5,56,1,0],[5,6,56,1,0],[5,7,56,1,0],[5,8,56,1,0],[5,9,56,1,0],[6,0,56,1,0],[6,1,56,1,0],[6,2,56,1,0],[6,3,56,1,0],[6,4,56,1,0],[6,5,56,1,0],[6,6,56,1,0],[6,7,56,1,0],[6,8,56,1,0],[6,9,56,1,0],[1,0,88,5,0],[1,1,88,5,0],[2,0,88,5,0],[2,1,88,5,0],[3,0,88,5,0],[3,1,88,5,0],[3,2,88,5,0],[3,3,88,5,0],[3,4,88,5,0],[3,5,88,5,0],[4,0,88,5,0],[4,1,88,5,0],[4,2,88,5,0],[4,3,88,5,0],[4,4,88,5,0],[4,5,88,5,0],[5,0,88,5,0],[5,1,88,5,0],[5,2,88,5,0],[5,3,88,5,0],[5,4,88,5,0],[5,5,88,5,0],[5,6,88,5,0],[5,7,88,5,0],[5,8,88,5,0],[5,9,88,5,0],[6,0,88,5,0],[6,1,88,5,0],[6,2,88,5,0],[6,3,88,5,0],[6,4,88,5,0],[6,5,88,5,0],[6,6,88,5,0],[6,7,88,5,0],[6,8,88,5,0],[6,9,88,5,0],[7,0,88,5,0],[7,1,88,5,0],[7,2,88,5,0],[7,3,88,5,0],[7,4,88,5,0],[7,5,88,5,0],[7,6,88,5,0],[7,7,88,5,0],[7,8,88,5,0],[7,9,88,5,0],[7,10,88,5,0],[7,11,88,5,0],[7,12,88,5,0],[7,13,88,5,0],[1,0,120,0,0],[1,1,120,0,0],[2,0,120,0,0],[2,1,120,0,0],[3,0,120,0,0],[3,1,120,0,0],[3,2,120,0,0],[3,3,120,0,0],[3,4,120,0,0],[3,5,120,0,0],[4,0,120,0,0],[4,1,120,0,0],[4,2,120,0,0],[4,3,120,0,0],[4,4,120,0,0],[4,5,120,0,0],[5,0,120,0,0],[5,1,120,0,0],[5,2,120,0,0],[5,3,120,0,0],[5,4,120,0,0],[5,5,120,0,0],[5,6,120,0,0],[5,7,120,0,0],[5,8,120,0,0],[5,9,120,0,0],[6,0,120,0,0],[6,1,120,0,0],[6,2,120,0,0],[6,3,120,0,0],[6,4,120,0,0],[6,5,120,0,0],[6,6,120,0,0],[6,7,120,0,0],[6,8,120,0,0],[6,9,120,0,0],[7,0,120,0,0],[7,1,120,0,0],[7,2,120,0,0],[7,3,120,0,0],[7,4,120,0,0],[7,5,120,0,0],[7,6,120,0,0],[7,7,120,0,0],[7,8,120,0,0],[7,9,120,0,0],[7,10,120,0,0],[7,11,120,0,0],[7,12,120,0,0],[7,13,120,0,0],[8,0,120,0,0],[8,1,120,0,0],[8,2,120,0,0],[8,3,120,0,0],[8,4,120,0,0],[8,5,120,0,0],[8,6,120,0,0],[8,7,120,0,0],[8,8,120,0,0],[8,9,120,0,0],[8,10,120,0,0],[8,11,120,0,0],[8,12,120,0,0],[8,13,120,0,0],[1,0,170,3,0],[1,1,170,3,0],[2,0,170,3,0],[2,1,170,3,0],[3,0,170,3,0],[3,1,170,3,0],[3,2,170,3,0],[3,3,170,3,0],[3,4,170,3,0],[3,5,170,3,0],[4,0,170,3,0],[4,1,170,3,0],[4,2,170,3,0],[4,3,170,3,0],[4,4,170,3,0],[4,5,170,3,0],[5,0,170,3,0],[5,1,170,3,0],[5,2,170,3,0],[5,3,170,3,0],[5,4,170,3,0],[5,5,170,3,0],[5,6,170,3,0],[5,7,170,3,0],[5,8,170,3,0],[5,9,170,3,0],[6,0,170,3,0],[6,1,170,3,0],[6,2,170,3,0],[6,3,170,3,0],[6,4,170,3,0],[6,5,170,3,0],[6,6,170,3,0],[6,7,170,3,0],[6,8,170,3,0],[6,9,170,3,0],[7,0,170,3,0],[7,1,170,3,0],[7,2,170,3,0],[7,3,170,3,0],[7,4,170,3,0],[7,5,170,3,0],[7,6,170,3,0],[7,7,170,3,0],[7,8,170,3,0],[7,9,170,3,0],[7,10,170,3,0],[7,11,170,3,0],[7,12,170,3,0],[7,13,170,3,0],[8,0,170,3,0],[8,1,170,3,0],[8,2,170,3,0],[8,3,170,3,0],[8,4,170,3,0],[8,5,170,3,0],[8,6,170,3,0],[8,7,170,3,0],[8,8,170,3,0],[8,9,170,3,0],[8,10,170,3,0],[8,11,170,3,0],[8,12,170,3,0],[8,13,170,3,0],[9,0,170,3,0],[9,1,170,3,0],[9,2,170,3,0],[9,3,170,3,0],[9,4,170,3,0],[9,5,170,3,0],[9,6,170,3,0],[9,7,170,3,0],[9,8,170,3,0],[9,9,170,3,0],[9,10,170,3,0],[9,11,170,3,0],[9,12,170,3,0],[9,13,170,3,0],[9,14,170,3,0],[9,15,170,3,0],[9,16,170,3,0],[9,17,170,3,0]];
 const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
-scatter3d({id:'or3d06',points:PTS,xlab:"n+l",ylab:"k",zlab:"reach  electrons",
+scatter3d({id:'or3d05',points:PTS,xlab:"n+l",ylab:"k",zlab:"reach  electrons",
   az:3.12,el:0.7,scale:0.24,height:510,r:7,
   xcol:'--geometry',ycol:'--order',zcol:'--information',
   colour:p=>p.c});
@@ -909,6 +695,50 @@ scatter3d({id:'or3d06',points:PTS,xlab:"n+l",ylab:"k",zlab:"reach  electrons",
     arity where half the channel is free.</b></p></div>
 </section>
 <section>
+  <div class="shead"><span class="snum">06c</span><h2>What the verification
+  unseated &mdash; a row this ruling had already seated</h2></div>
+  <p class="sub">Nine adversarial agents, three lenses on each of the three
+  seatings. Two survived every test. One did not, and it fell on a measurement
+  none of the other grounds asks for.</p>
+  <div class="tablewrap"><table><thead><tr><th>address of the SAME 22 members</th>
+    <th class="num">cells</th><th class="num">K</th><th>closers</th></tr></thead>
+    <tbody>
+    <tr><td class="mono">nucshell (l, sigma)</td><td class="num">12</td>
+      <td class="num">5</td><td>geometry + information + statistics</td></tr>
+    <tr><td class="mono">nucshell (l, 2j)</td><td class="num">12</td>
+      <td class="num"><b>7</b></td><td><b>all five</b></td></tr>
+    <tr><td class="mono">nucshell (2j, sigma)</td><td class="num">12</td>
+      <td class="num"><b>7</b></td><td><b>all five</b></td></tr>
+    </tbody></table>
+    <caption>The fibres are <b>identical</b> under (l,&nbsp;sigma) and
+    (l,&nbsp;2j) &mdash; verified, not assumed.</caption></div>
+  <div class="note warn">
+    <span class="lab">The K5 was a fact about which name was written down</span>
+    <p>K7 is occupied, so under either alternative address
+    <span class="mono">ground_novel_channel</span> returns false and the chart
+    was <b>never a candidate</b>. And <b>2j is the banked primitive</b>:
+    <span class="mono">nucshell.order_a()</span> stores
+    (nr,&nbsp;l,&nbsp;Fraction(j)) and sigma is <em>derived</em> from it.
+    <span class="mono">nucshell.py</span>&rsquo;s own stated reason for
+    preferring sigma &mdash; <em>&ldquo;j is determined by
+    (l,&nbsp;sigma)&rdquo;</em> &mdash; holds verbatim with the roles swapped,
+    at identical LABEL ratios of 0.3182.</p>
+    <p><b>The fourth ground came from the fall.</b>
+    <span class="mono">ground_coordinate_forced</span>: two addresses inducing
+    the identical partition of the identical members are one chart written
+    twice. It was checked on the survivors <em>before</em> the unseating &mdash;
+    madelung&rsquo;s partition is identical under (k,&nbsp;S), (k,&nbsp;S+k) and
+    (S,&nbsp;S+k), <b>all K6</b>; gravity&rsquo;s rank and raw-decade encodings
+    give identical partitions, <b>both K1</b>.</p>
+    <p style="margin-bottom:0"><b>The parent is untouched</b> &mdash;
+    (nr,&nbsp;l,&nbsp;sigma) and (nr,&nbsp;l,&nbsp;2j) are both K3, so no
+    pre-ruling vertex moves. The figure went 14 &rarr; 13 vertices, E 81 &rarr;
+    59, K5 empty again &mdash; and <b>both resolution axes stayed
+    measurements</b>, so the gain recorded in
+    <span class="mono">figure.py</span> &sect;1b was not carried by the vertex
+    that fell.</p></div>
+</section>
+<section>
   <div class="shead"><span class="snum">07</span><h2>The order of the two tests
   is load-bearing</h2></div>
   <p class="sub">A maximality clause also applies: if a super-chart of the same
@@ -917,8 +747,8 @@ scatter3d({id:'or3d06',points:PTS,xlab:"n+l",ylab:"k",zlab:"reach  electrons",
   <span class="mono">gravity&nbsp;(B,F,X,E)</span> are exactly that pair, both
   K1 &mdash; and the gate refuses the larger one.</p>
   <div class="kv">
-    <div><dt>gate, then maximality</dt><dd>K1, K5, K6<small>K1 occupied</small></dd></div>
-    <div><dt>maximality, then gate</dt><dd>K5, K6<small>K1 EMPTY</small></dd></div>
+    <div><dt>gate, then maximality</dt><dd>K1, K6<small>K1 occupied</small></dd></div>
+    <div><dt>maximality, then gate</dt><dd>K6<small>K1 EMPTY</small></dd></div>
   </div>
   <p class="after"><b>Soundness before redundancy.</b> The gate asks whether a
   channel verdict is a fact about the object; maximality asks which of two facts
@@ -974,5 +804,5 @@ scatter3d({id:'or3d06',points:PTS,xlab:"n+l",ylab:"k",zlab:"reach  electrons",
       own reading.</li>
   </ul>
 </section>
-<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/overlaprule.py --selftest</code> — 42 fixtures<br><code>python3 research/warp-drive/overlaprule.py</code> — the reading<br><code>python3 research/warp-drive/render/build_index_plates.py overlaprule</code> — this plate</p></div>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/overlaprule.py --selftest</code> — 58 fixtures<br><code>python3 research/warp-drive/overlaprule.py</code> — the reading<br><code>python3 research/warp-drive/render/build_index_plates.py overlaprule</code> — this plate</p></div>
 </div>
