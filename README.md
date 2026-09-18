@@ -110,6 +110,13 @@ it, each with a real contract and a self-check.
   transition cells of its ionisation ladder with the caps each one needs. Runs **both halves of the
   method equation** (register 1206) — ℛ places the cells, the channel equation values them. See
   [`docs/POPULATE.md`](docs/POPULATE.md).
+* [`tools/lowdin_walk.py`](tools/lowdin_walk.py) — the Löwdin solution's entrant walk,
+  **reconstructed**: the record's own chain (`THE-LOWDIN-SOLUTION-2.md` §II.2) with the
+  Koelling–Harmon equation and one constant, run in a local-exchange field — not the record's
+  Hartree–Fock, whose code never arrived — at c = 137.035999 and c → ∞, into
+  [`LOWDIN-WALK.tsv`](LOWDIN-WALK.tsv). Every value is RECONSTRUCTED and placed beside the record's
+  READ result, never in its place; its selftest is exact hydrogenic and Dirac levels plus a
+  deliberate failure mode. See [`docs/LOWDIN-WALK.md`](docs/LOWDIN-WALK.md).
 
 Every one of them runs `--selftest`, whose fixtures are the corpus's own recorded numbers, and every
 one is stdlib-only so an audit can run it from any tree.

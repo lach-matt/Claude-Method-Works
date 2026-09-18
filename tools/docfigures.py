@@ -110,6 +110,18 @@ def _is_finding(site):
     return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
+def _walk_summary():
+    return _tool_json("lowdin_walk.py", ["--report", str(ROOT / "LOWDIN-WALK.tsv"), "--json"])
+
+
+def _walk_setting(c):
+    return _walk_summary().get("settings", {}).get(c, {})
+
+
+def _walk_compare():
+    return _walk_summary().get("compare") or {}
+
+
 def _manifest():
     return [r["repo_path"] for r in _rows("drive/MANIFEST.tsv")]
 
@@ -181,6 +193,22 @@ def checks():
          sum(1 for p in man if re.search(r"figures_BUILD\d+\.zip$", p))),
         ("CLAUDE.md", "__<driveFileId> duplicates", 100,
          sum(1 for p in man if "__" in os.path.basename(p))),
+        # the reconstructed walk: LOWDIN-WALK.tsv through the instrument's own summary
+        ("docs/LOWDIN-WALK.md", "LOWDIN-WALK rows", 238, len(_rows("LOWDIN-WALK.tsv"))),
+        ("docs/LOWDIN-WALK.md", "walk: entrant = observed gain at c = 137.035999", 96,
+         _walk_setting("137.035999").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk: entrant = observed gain at c = inf", 92,
+         _walk_setting("inf").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk: chain configuration identical at c = 137.035999", 84,
+         _walk_setting("137.035999").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk: clause 2 exceptions at c = 137.035999", 1,
+         len(_walk_setting("137.035999").get("clause2_exceptions", []))),
+        ("CLAUDE.md", "walk: entrants differing between the settings", 7,
+         len(_walk_compare().get("displaced", []))),
+        ("CLAUDE.md", "walk: of register 1706's eleven, displaced here too", 2,
+         len(_walk_compare().get("in_eleven", []))),
+        ("docs/LOWDIN-WALK.md", "walk: rows not converged", 0,
+         sum(len(v.get("not_converged", [])) for v in _walk_summary().get("settings", {}).values())),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY conversations", 194,
