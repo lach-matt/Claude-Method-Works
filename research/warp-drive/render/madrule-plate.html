@@ -382,8 +382,8 @@ function scatter3d(opts){
 
 (function(){
 const T=["--geometry", "--information", "--statistics"];
-const RAW=[[5,5,0,2],[5,10,0,2],[6,4,0,2],[6,5,0,2],[6,7,0,2],[6,8,0,2],[6,10,0,2],[7,9,0,2],[7,10,0,2],[7,1,3,1],[8,1,2,0],[8,1,3,1],[8,2,3,1]];
-const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0}));
+const RAW=[[5,5,0,2,0],[5,10,0,2,0],[6,4,0,2,0],[6,5,0,2,0],[6,7,0,2,0],[6,8,0,2,0],[6,10,0,2,0],[7,9,0,2,0],[7,10,0,2,0],[7,1,3,1,0],[8,1,2,0,0],[8,1,3,1,0],[8,2,3,1,0]];
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
 scatter3d({id:'mr3d',points:PTS,xlab:"S_a  acceptor group n+l",ylab:"occ  acceptor occupancy",zlab:"l_d  donor l",
   az:5.52,el:0.1,scale:0.26,height:510,r:7,
   xcol:'--geometry',ycol:'--order',zcol:'--information',

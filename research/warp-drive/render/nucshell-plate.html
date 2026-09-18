@@ -427,8 +427,8 @@ function scatter3d(opts){
 
 (function(){
 const T=["--geometry", "--statistics"];
-const RAW=[[1,0,1,0],[1,1,-1,1],[1,1,1,0],[1,2,-1,1],[1,2,1,0],[1,3,-1,1],[1,3,1,0],[1,4,-1,1],[1,4,1,0],[1,5,-1,1],[1,5,1,0],[1,6,1,0],[2,0,1,0],[2,1,-1,1],[2,1,1,0],[2,2,-1,1],[2,2,1,0],[2,3,-1,1],[2,3,1,0],[3,0,1,0],[3,1,-1,1],[3,1,1,0]];
-const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0}));
+const RAW=[[1,0,1,0,0],[1,1,-1,1,0],[1,1,1,0,0],[1,2,-1,1,0],[1,2,1,0,0],[1,3,-1,1,0],[1,3,1,0,0],[1,4,-1,1,0],[1,4,1,0,0],[1,5,-1,1,0],[1,5,1,0,0],[1,6,1,0,0],[2,0,1,0,0],[2,1,-1,1,0],[2,1,1,0,0],[2,2,-1,1,0],[2,2,1,0,0],[2,3,-1,1,0],[2,3,1,0,0],[3,0,1,0,0],[3,1,-1,1,0],[3,1,1,0,0]];
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
 scatter3d({id:'nu3d',points:PTS,xlab:"nr  radial quantum number",ylab:"l  orbital angular momentum",zlab:"sigma  sign(j - l)",
   az:0.78,el:0.62,scale:0.24,height:510,r:7,
   xcol:'--geometry',ycol:'--order',zcol:'--information',
@@ -468,7 +468,7 @@ scatter3d({id:'nu3d',points:PTS,xlab:"nr  radial quantum number",ylab:"l  orbita
   <div class="note warn"><span class="lab">And the cell tuples DO collide, which
   was asserted otherwise and refused</span>
   <p>This section was first written claiming the full-arity intersection with
-  every seated index is zero. <b>Its fixture refused it:</b> <span class="mono">channels.index</span> 13, <span class="mono">fibred.index</span> 5, <span class="mono">inversion.index</span> 4, <span class="mono">laws.index</span> 1, <span class="mono">madelung.janet</span> 4.</p>
+  every seated index is zero. <b>Its fixture refused it:</b> <span class="mono">channels.index</span> 13, <span class="mono">fibred.index</span> 5, <span class="mono">inversion.index</span> 4, <span class="mono">laws.index</span> 1, <span class="mono">madelung.janet</span> 4, <span class="mono">overlaprule.gravity_bound</span> 4.</p>
   <p style="margin-bottom:0">They are <b>homographs at full arity</b>. A nuclear
   (nr, l, sigma) that happens to equal an electronic (n, l, k) is two different
   objects printing the same — collisions with <span class="mono">fibred</span>
