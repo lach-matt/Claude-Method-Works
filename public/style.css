@@ -26,6 +26,15 @@
   --st-derived: #b4c0cf;
   --st-recovered: #fbbf24;
   --st-reconstructed: #d8b4fe;
+  --rel: #f472b6;
+  --lim-ionisation-limit: #fb923c;
+  --lim-unresolved: #64748b;
+  --lim-nuclear: #f87171;
+  --lim-term: #a78bfa;
+  --lim-coupling: #22d3ee;
+  --lim-no-analysis: #334155;
+  --lim-symmetry: #4ade80;
+  --lim-none: #1e293b;
   --blk-s: #0f2a3f;
   --blk-p: #0f2f22;
   --blk-d: #3a2c12;
@@ -71,6 +80,15 @@
   --st-derived: #5c6a76;
   --st-recovered: #b07a12;
   --st-reconstructed: #8a3f9e;
+  --rel: #be185d;
+  --lim-ionisation-limit: #c2571a;
+  --lim-unresolved: #94a0aa;
+  --lim-nuclear: #b91c1c;
+  --lim-term: #6d28d9;
+  --lim-coupling: #0e7490;
+  --lim-no-analysis: #cbd5e1;
+  --lim-symmetry: #2f7a4e;
+  --lim-none: #e6e9e6;
   --blk-s: #d4e6ee;
   --blk-p: #d9ead7;
   --blk-d: #f2e5c9;
@@ -379,3 +397,32 @@ dialog::backdrop { background: var(--backdrop); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---- limits facet and the relativistic marker ---- */
+.sw-rel { border-radius: 2px; background: var(--rel); }
+.sw-lim-ionisation-limit { background: var(--lim-ionisation-limit); }
+.sw-lim-unresolved { background: var(--lim-unresolved); }
+.sw-lim-nuclear { background: var(--lim-nuclear); }
+.sw-lim-term { background: var(--lim-term); }
+.sw-lim-coupling { background: var(--lim-coupling); }
+.sw-lim-no-analysis { background: var(--lim-no-analysis); border-color: var(--line-strong); }
+.sw-lim-symmetry { background: transparent; border-color: var(--lim-symmetry); }
+.sw-lim-none { background: var(--lim-none); border-color: var(--line-strong); }
+.dot-lim-ionisation-limit { background: var(--lim-ionisation-limit); }
+.dot-lim-unresolved { background: var(--lim-unresolved); }
+.dot-lim-nuclear { background: var(--lim-nuclear); }
+.dot-lim-term { background: var(--lim-term); }
+.dot-lim-coupling { background: var(--lim-coupling); }
+.dot-lim-no-analysis { background: var(--lim-no-analysis); border-color: var(--line-strong); }
+.dot-lim-symmetry { border-color: var(--lim-symmetry); }
+.dot-lim-none { background: var(--lim-none); border-color: var(--line-strong); }
+.legend-seg { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 5px; overflow: hidden; margin: 2px 0 5px; }
+.legend-seg button { border: 0; background: transparent; color: var(--ink); padding: 3px 8px; font-size: 11px; min-height: 24px; }
+.legend-seg button + button { border-left: 1px solid var(--line-strong); }
+.legend-seg button.is-on { background: var(--accent); color: var(--accent-ink); }
+#legend[data-color="grade"] .legend-limit { display: none; }
+#legend[data-color="limit"] .legend-grade { display: none; }
+.rel-tag { display: inline-block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; padding: 2px 6px; border-radius: 3px; background: var(--rel); color: var(--accent-ink); margin-left: 6px; vertical-align: middle; }
+.plate-fig { margin: 8px 0 0; }
+.plate-fig img { max-width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.plate-fig figcaption { font-size: 11.5px; color: var(--muted); margin-top: 4px; }

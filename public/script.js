@@ -75,7 +75,41 @@
       surface: g('--surface'), line: g('--line'), lineStrong: g('--line-strong'), accent: g('--accent'), glow: g('--accent-glow') || g('--accent'),
       measured: g('--measured'), exact: g('--exact'), computed: g('--computed'), ghost: g('--ghost'), csv: g('--csv'),
       blk: { s: g('--blk-s'), p: g('--blk-p'), d: g('--blk-d'), f: g('--blk-f'), none: g('--blk-none') },
+      rel: g('--rel') || g('--accent'),
+      lim: Object.fromEntries(LIMIT_KIND_ORDER.map((k) => [k, g('--lim-' + k) || g('--computed')])),
     };
+  }
+
+  // ---------------------------------------------------------------- the limits facet
+  // A bound note in COORDINATES-2.13 is READ; its kind is DERIVED by the rules data/index.js
+  // carries (index.limits.rules), applied here exactly as tools/webindex.py applied them.
+  const LIMIT_KIND_ORDER = ['ionisation-limit', 'unresolved', 'nuclear', 'term', 'coupling', 'no-analysis', 'symmetry', 'none'];
+  const LIMIT_LABEL = {
+    'ionisation-limit': 'series limit printed', unresolved: 'series unresolved', nuclear: 'nuclear: no isotope or nuclide',
+    term: 'not keyable (no single 2S+1)', coupling: 'open-shell core', 'no-analysis': 'no analysis located (not a bound)',
+    symmetry: 'δ = 0 by symmetry', none: 'no note',
+  };
+  const limitCache = new Map();
+  function limitKind(note) {
+    if (limitCache.has(note)) return limitCache.get(note);
+    const rules = (state.index && state.index.limits && state.index.limits.rules) || [];
+    let kind = null;
+    for (const r of rules) { if (new RegExp(r.regex).test(note)) { kind = r.kind; break; } }
+    limitCache.set(note, kind);
+    return kind;
+  }
+  function limitRule(kind) {
+    const rules = (state.index && state.index.limits && state.index.limits.rules) || [];
+    return rules.find((r) => r.kind === kind) || null;
+  }
+  function setCellColor(mode) {
+    state.cellColor = mode === 'limit' ? 'limit' : 'grade';
+    const legend = $('#legend');
+    if (legend) {
+      legend.dataset.color = state.cellColor;
+      legend.querySelectorAll('.legend-seg button').forEach((b) => b.classList.toggle('is-on', b.dataset.color === state.cellColor));
+    }
+    requestDraw();
   }
 
   // ---------------------------------------------------------------- layout
@@ -196,7 +230,7 @@
         const pm = pack(ch.measured.length, pc.r * 0.9);
         node.cells = ch.measured.map((m, q) => ({
           kind: 'cell', Z, charge: c, l: ch.l, mult: m.mult, dx: node.dx + pm.pos[q].x, dy: node.dy + pm.pos[q].y, r: pm.r,
-          rec: m, parent: node,
+          rec: m, parent: node, lim: limitKind(m.bound_note),
         }));
         return node;
       });
@@ -493,6 +527,17 @@
       ctx.setLineDash([]);
     }
     if (isSel) { ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.strokeRect(p.x + 1, p.y + 1, s - 2, s - 2); }
+    if (e.relativistic && s >= 8) {
+      // one of the eleven the paper's construction displaces at c → ∞ (READ): a corner mark
+      const t = Math.max(4, s * 0.16);
+      ctx.fillStyle = C.rel;
+      ctx.beginPath(); ctx.moveTo(p.x + s - 1, p.y + s - 1); ctx.lineTo(p.x + s - 1 - t, p.y + s - 1); ctx.lineTo(p.x + s - 1, p.y + s - 1 - t); ctx.closePath(); ctx.fill();
+      if (s >= 150) {
+        ctx.fillStyle = C.rel; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
+        ctx.font = `${s * 0.06}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.fillText('displaced at c → ∞', p.x + s - t - s * 0.02, p.y + s * 0.985);
+      }
+    }
 
     if (s >= 20) {
       ctx.fillStyle = C.text;
@@ -652,7 +697,12 @@
       if (rs < 1) continue;
       const isSel = sel && sel.kind === 'cell' && sel.Z === c.Z && sel.charge === c.charge && sel.l === c.l && sel.mult === c.mult;
       ctx.beginPath(); ctx.arc(x, y, rs, 0, Math.PI * 2);
-      if (c.rec.grade === 'measured') { ctx.fillStyle = C.measured; ctx.fill(); }
+      if (state.cellColor === 'limit') {
+        const col = C.lim[c.lim] || C.computed;
+        if (c.lim === 'symmetry') { ctx.fillStyle = C.surface; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = Math.max(1, rs * 0.12); ctx.stroke(); }
+        else { ctx.fillStyle = col; ctx.fill(); }
+        if (c.rec.grade === 'measured') { ctx.strokeStyle = C.measured; ctx.lineWidth = Math.max(1, rs * 0.14); ctx.stroke(); }
+      } else if (c.rec.grade === 'measured') { ctx.fillStyle = C.measured; ctx.fill(); }
       else if (c.rec.grade === 'exact') { ctx.fillStyle = C.surface; ctx.fill(); ctx.strokeStyle = C.exact; ctx.lineWidth = Math.max(1, rs * 0.12); ctx.stroke(); }
       else { ctx.fillStyle = C.computed; ctx.globalAlpha = 0.7; ctx.fill(); ctx.globalAlpha = 1; }
       if (c.rec.witness === 'witnessed' && rs >= 6) {
@@ -661,7 +711,7 @@
       }
       if (isSel) { ctx.beginPath(); ctx.arc(x, y, rs + 3, 0, Math.PI * 2); ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.stroke(); }
       if (rs >= 9) {
-        ctx.fillStyle = c.rec.grade === 'measured' ? C.bg : C.text;
+        ctx.fillStyle = (state.cellColor === 'limit' ? (c.lim === 'symmetry' || c.lim === 'none' || c.lim === 'no-analysis') : c.rec.grade !== 'measured') ? C.text : C.bg;
         ctx.font = `500 ${Math.max(9, rs * 0.8)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(String(c.mult), x, y);
@@ -876,6 +926,8 @@
       if (act === 'copy-json') copyText(body.querySelector('pre.raw').textContent, b);
       if (act === 'copy-link') copyText(location.href.split('#')[0] + hashOf(node), b);
       if (act === 'open-prov') $('#dlg-provenance').showModal();
+      if (act === 'color-limit') setCellColor('limit');
+      if (act === 'color-grade') setCellColor('grade');
     }));
   }
   function bindGo(root) {
@@ -928,6 +980,7 @@
         ${row('E', c.E, 'PINNED', E_TIP)}
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, section 6')}
       </div>`)}
+      ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.file || '').split('/').pop()} L${paper.eleven_line}; register 1706`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.budget) || ''), true)}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
       ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
       <div class="cite">${esc(citation(rootNode))}</div>`;
@@ -946,6 +999,41 @@
         ${row('E', c.E, 'PINNED', E_TIP)}
       </div>`)}
       <div class="cite">${esc(citation(node))}</div>`;
+  }
+
+  function relSection(e) {
+    const rel = state.index.relativistic;
+    if (!rel) return '';
+    const src = rel.sources || {}, paper = src.paper || {};
+    const cite = `${(paper.file || 'THE-LOWDIN-SOLUTION-2.md').split('/').pop()} L${paper.eleven_line}; register 1706; r2-scf.out`;
+    const hit = (rel.eleven || []).find((x) => x.Z === e.Z);
+    const fig = (state.index.figures || [])[0];
+    let body = `<div class="fields">
+      ${row('displaced at c → ∞', hit ? `yes <span class="rel-tag">one of the eleven</span>` : 'no', 'READ', hit ? cite : cite + ': not among the eleven')}
+      ${hit ? row('observed configuration', esc(hit.configuration || '—'), 'READ', 'r2-scf.out over LW1-ground.py (register 1306)') : ''}
+      ${hit ? row('entrant channel', esc(hit.entrant || '—'), 'READ', 'r2-scf.out: the channel the relativistic walk enters at this Z') : ''}
+      ${e.Z === 90 && rel.thorium ? row('thorium', esc(rel.thorium), 'READ', `${(paper.file || '').split('/').pop()} L${paper.thorium_line}`, true) : ''}
+      ${row('c', rel.c, 'READ', esc(rel.construction || 'the one admitted constant'))}
+      ${row('instrument', 'not held — nothing computed here', null, esc((rel.instrument && rel.instrument.note) || ''), true)}
+    </div>`;
+    if (hit || e.Z === 90) {
+      body += `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
+      if (fig && fig.file) body += `<figure class="plate-fig"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as extracted/LEDGER.tsv records ${badge('READ', 'the figure as the extracted tree holds it')}</figcaption></figure>`;
+    }
+    return section('Relativistic limit', body, badge('READ', 'the paper\'s own result; the construction is not held'));
+  }
+
+  function limitsSection(e) {
+    const lim = state.index.limits;
+    if (!lim || !e.limits) return '';
+    const total = Object.values(e.limits).reduce((a, b) => a + b, 0);
+    const rows = LIMIT_KIND_ORDER.filter((k) => e.limits[k]).map((k) => {
+      const r = limitRule(k);
+      return `<div class="f-k"><span class="dot dot-lim-${k}"></span>${esc(LIMIT_LABEL[k] || k)}</div><div class="f-v">${e.limits[k].toLocaleString()} ${badge('DERIVED', r ? r.meaning : 'kind by the stated rule')}</div>`;
+    }).join('');
+    return section('Limits', `<p class="note">The bound the csv records on each of the element's ${total.toLocaleString()} cells, by kind. The note is ${badge('READ', lim.source || 'COORDINATES-2.13, bound column')}; the kind is ${badge('DERIVED', 'by the rule data/index.js carries; see the cell plate for the rule')}.</p>
+      <div class="fields">${rows}</div>
+      <div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`);
   }
 
   function renderElement(node) {
@@ -971,6 +1059,7 @@
           ${row('ions', e.counts.ions, 'DERIVED', "counts over the record's COORDINATES-2.13 rows")}
         </div>`)}
         ${ions ? section('Ions', `<div class="chips">${ions.map((i) => `<button type="button" class="chip is-csv" data-go="${node.Z}/${i.charge}">${esc(e.symbol)} ${roman(i.charge)}</button>`).join('')}</div>`) : loadNote()}
+        ${limitsSection(e)}
         ${rec ? actions(node, { Z: rec.Z, symbol: rec.symbol, populated: rec.populated, note: rec.note, channels: rec.channels.length }) : ''}`;
     }
     let html = head;
@@ -1012,6 +1101,7 @@
           }).join('')}
           </tbody></table></div>`, badge('RECONSTRUCTED', (axisStatus('Lambda_8 cell') || {}).source));
       }
+      html += relSection(e) + limitsSection(e);
       html += actions(node, { ...rec, channels: `${rec.channels.length} channels — see the ion nodes` });
     } else {
       html += loadNote();
@@ -1119,6 +1209,8 @@
       ${axRow('witness', esc(m.witness), 'witness', true)}
       ${row('source', esc(m.source), 'READ', 'COORDINATES-2.13, source column', true)}
       ${axRow('bound note', esc(m.bound_note), 'bound', true)}
+      ${(() => { const k = limitKind(m.bound_note); const r = limitRule(k); return row('limit kind', k ? `<span class="dot dot-lim-${k}"></span>${esc(LIMIT_LABEL[k] || k)}` : '—', k ? 'DERIVED' : null, r ? `rule ${esc(r.regex)}: ${esc(r.meaning)}` : 'no rule matched'); })()}
+      ${(() => { const mm = /^limit ([0-9.]+);/.exec(m.bound_note); return mm ? row('series limit, as printed', mm[1], 'READ', 'COORDINATES-2.13, bound column; no unit is carried and none is added') : ''; })()}
     </div>`);
     html += actions(node, { Z: node.Z, charge: node.charge, l: node.l, ...m, delta_equation: ch.delta_equation, B_computed: ch.B_computed });
     return html;
@@ -1338,6 +1430,7 @@
     const legend = $('#legend'), legendBtn = $('#legend-toggle');
     const setLegend = (open) => { legend.classList.toggle('is-collapsed', !open); legendBtn.setAttribute('aria-expanded', String(open)); };
     legendBtn.addEventListener('click', () => setLegend(legend.classList.contains('is-collapsed')));
+    legend.querySelectorAll('.legend-seg button').forEach((b) => b.addEventListener('click', () => setCellColor(b.dataset.color)));
     if (isPhone()) setLegend(false);
     $('#btn-provenance').addEventListener('click', () => $('#dlg-provenance').showModal());
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
@@ -1385,6 +1478,8 @@
   residuals <El>      its measured rows: δ, δ by equation, residual
   B <El>              rows where B in the csv disagrees with B computed, and rows where B is not a bound
   ladder <El>         the Λ₈ steps, with any failing constraint
+  limits <El>         the bound the csv records on its cells, by kind; series limits as printed
+  relativistic        the eleven elements displaced at c → ∞ (READ; the construction is not held)
 <El> is a symbol, a Z or a name; the element is loaded if it is not yet. An unknown input prints this text.`;
 
   function findElement(tok) {
@@ -1441,6 +1536,30 @@
       case 'count': {
         const t = ix.totals;
         return `elements populated ${t.populated} · spectra rows only ${t.csv_only}\ncells ${t.rows} = measured ${t.measured} + exact ${t.exact} + computed ${t.computed}; witnessed ${t.witnessed}\ncommit ${ix.meta.commit || '?'} · built ${ix.meta.built}`;
+      }
+      case 'limits':
+        return withElement(toks[1], (e, rec) => {
+          const counts = {}, lims = [];
+          for (const ch of rec.channels) for (const m of ch.measured) {
+            const k = limitKind(m.bound_note) || 'unclassified';
+            counts[k] = (counts[k] || 0) + 1;
+            const mm = /^limit ([0-9.]+);/.exec(m.bound_note);
+            if (mm) lims.push(`${cellName(e.symbol, ch, m).padEnd(22)} limit ${mm[1]} (as printed)`);
+          }
+          const lines = [`${e.symbol}: bound note ${st('READ')} · kind ${st('DERIVED')} by the rule data/index.js carries`];
+          for (const k of LIMIT_KIND_ORDER) if (counts[k]) lines.push(`${(LIMIT_LABEL[k] || k).padEnd(34)} ${counts[k]}`);
+          if (lims.length) lines.push('', 'series limits printed in the csv (no unit carried):', ...lims);
+          return lines.join('\n');
+        });
+      case 'relativistic': {
+        const rel = ix.relativistic;
+        if (!rel) return 'no relativistic block in this build of data/index.js';
+        const paper = (rel.sources || {}).paper || {};
+        const lines = [`${rel.statement || ''} ${st('READ')}`, `source: ${paper.file || ''} L${paper.eleven_line}; register 1706; r2-scf.out`, ''];
+        for (const x of rel.eleven || []) lines.push(`${x.symbol.padEnd(3)} Z=${String(x.Z).padEnd(4)} ${(x.configuration || '').padEnd(24)} entrant ${x.entrant || '?'}`);
+        if (rel.thorium) lines.push('', rel.thorium);
+        lines.push('', `instrument: not held — ${(rel.instrument && rel.instrument.note) || ''}`, (rel.instrument && rel.instrument.budget) || '');
+        return lines.join('\n');
       }
       case 'measured':
         return withElement(toks[1], (e, rec) => {
@@ -1746,6 +1865,7 @@ QUESTION: ${question}`;
         const ins = state.index.instruments;
         const it = ins && src.instrument ? ins[src.instrument] : null;
         if (it && it.python) srcPre.textContent = `# ${it.file || ''}:${it.line || ''} — ${it.status || ''}\n# ${it.source || ''}\n${it.python}`;
+        else if (it && it.text) srcPre.textContent = `# ${it.file || ''} — ${it.status || ''}${it.held === false ? ' — instrument NOT HELD' : ''}\n# ${it.source || ''}\n\n${it.text}`;
         else if (!ins) srcPre.textContent = 'instrument source not carried: this build of data/index.js has no instruments block (run python3 tools/webindex.py).';
         else srcPre.textContent = `no instrument named "${src.instrument || '?'}" in data/index.js → instruments (${Object.keys(ins).join(', ')}).`;
         srcPre.hidden = false; b.setAttribute('aria-expanded', 'true');
@@ -1781,6 +1901,8 @@ QUESTION: ${question}`;
     $('#n-measured').textContent = ix.totals.measured;
     $('#n-exact').textContent = ix.totals.exact;
     $('#n-computed').textContent = ix.totals.computed.toLocaleString();
+    const limRows = $('#legend-limit-rows');
+    if (limRows && ix.limits) limRows.innerHTML = (ix.limits.kinds || []).map((k) => `<div class="legend-row"><span class="sw sw-lim-${esc(k.kind)}"></span> ${esc(LIMIT_LABEL[k.kind] || k.kind)} <span class="legend-n">${k.count.toLocaleString()}</span></div>`).join('');
     // the layout buttons' titles and the help dialog's figures, from index.closure and the fixtures
     const cl = ix.closure || {}, jan = ((ix.fixtures || {}).closure || {}).janet || null;
     $('#layout-table').title = `Section 6: period × group. ${cl.held} held, ${cl.admitted} admitted, E = ${cl.E}`;
@@ -1810,7 +1932,8 @@ QUESTION: ${question}`;
 
 
 /* =====================================================================
- * Solver suite — six modes ported from tools/populate.py and tools/cypher.py.
+ * Solver suite — six modes ported from tools/populate.py and tools/cypher.py, and a seventh
+ * that computes nothing: the relativistic limit, READ from the seated paper.
  * Registry: window.MI.solvers; library: window.MI.solverLib.
  * ===================================================================== */
 (function () {
@@ -1829,7 +1952,7 @@ QUESTION: ${question}`;
  * exactly as the site badges an IUPAC name. A finding is recorded, never
  * repaired; a refusal is a result, not an error.
  *
- * Registry: window.MI.solvers (the six modes) and window.MI.solverLib (LIB).
+ * Registry: window.MI.solvers (the seven modes) and window.MI.solverLib (LIB).
  * Nothing else is global: the whole module is one function scope.
  */
 
@@ -3399,7 +3522,94 @@ var SOLVERS, LIB;
     }
   };
 
-  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT];
+
+  // 7. relativistic ---------------------------------------------------------
+  // Nothing here is computed. The scalar-relativistic construction (Koelling-Harmon
+  // Hartree-Fock at c = 137) and its repetition at c -> inf are not held; what is held
+  // is the paper's own result, register 1706 and the SCF audit's table, all READ.
+  var MODE_RELATIVISTIC = {
+    id: 'relativistic',
+    title: 'The relativistic limit (c = 137 against c → ∞)',
+    status: READ,
+    statusNote: 'THE-LOWDIN-SOLUTION-2.md and register 1706: the observed table is irreducibly relativistic. The construction itself is not held, so this mode reads and refuses; it computes nothing.',
+    description: 'Quantum mechanics supplies the range of configurations; the speed of light, entering once as c = 137 through the scalar-relativistic reduction of the Dirac equation, decides which of them the observed table holds. Repeated with c sent to infinity, the same construction misplaces eleven elements and inverts the channel competition at thorium. The construction is not held here (session 104 was never sealed), so this mode reports the paper\'s own result, READ, and refuses to recompute the c → ∞ table rather than invent one.',
+    inputs: [sel('Z'),
+             { name: 'operation', label: 'operation', type: 'select', default: 'element',
+               options: [{ value: 'element', label: 'is this element displaced at c → ∞?' },
+                         { value: 'eleven', label: 'the eleven, with their entrant channels' },
+                         { value: 'recompute', label: 'recompute the c → ∞ table' }] }],
+    source: { instrument: 'lowdin_construction', file: 'method/members/THE-LOWDIN-SOLUTION-2.md' },
+    run: async function (values, ctx) {
+      var rel = ctx.index && ctx.index.relativistic;
+      if (!rel) return fail('this build of data/index.js carries no relativistic block (run python3 tools/webindex.py)');
+      var op = values.operation || 'element', rows = [];
+      var src = rel.sources || {}, paper = src.paper || {};
+      var cite = (paper.file || 'THE-LOWDIN-SOLUTION-2.md') + ' L' + paper.eleven_line + '; register 1706; r2-scf.out';
+      var inst = rel.instrument || {};
+      if (op === 'recompute') {
+        rows.push(row('c → ∞ table', 'not computable here', null, inst.note || 'the construction is not held'));
+        rows.push(row('why', 'the scalar-relativistic construction (Koelling–Harmon, c = 137) and its repetition at c → ∞ are not held; session 104 was never sealed', null, inst.budget || ''));
+        (inst.readme_rows || []).forEach(function (l, i) { rows.push(row('LW1-README row ' + (i + 1), l, null, 'the delivery README, a seated member')); });
+        rows.push(row('what is held', 'the paper\'s statement, register 1706 and the SCF audit\'s table of the eleven', READ, cite));
+        return { rows: rows, ok: true, text: rel.statement || '' };
+      }
+      if (op === 'eleven') {
+        rows.push(row('elements displaced at c → ∞', rel.eleven.length, READ, cite));
+        rel.eleven.forEach(function (e) {
+          rows.push(row(e.symbol + ' (Z = ' + e.Z + ')', (e.configuration || '') + ' → entrant ' + (e.entrant || '?'), READ, 'r2-scf.out: the eleven in the observed table, over LW1-ground.py'));
+        });
+        if (rel.thorium) rows.push(row('thorium', rel.thorium, READ, (paper.file || '') + ' L' + paper.thorium_line));
+        rows.push(row('instrument', 'not held — nothing computed here', null, inst.note || ''));
+        return { rows: rows, ok: true, text: 'Register 1706: ' + ((src.register && src.register.text) || '') };
+      }
+      var Z = int(values.Z);
+      if (Z === null || Z < 1 || Z > 120) return fail('Z must be an integer from 1 to 120');
+      var got = await elementOrFail(ctx, Z);
+      if (got.fail) return got.fail;
+      var rec = got.rec, hit = null;
+      for (var i = 0; i < rel.eleven.length; i++) if (rel.eleven[i].Z === Z) hit = rel.eleven[i];
+      rows.push(row('element', rec.symbol + ' (Z = ' + Z + ')', READ, 'LW1-ground.py (register 1306)'));
+      rows.push(row('displaced at c → ∞', hit ? 'yes' : 'no', READ, cite + (hit ? '' : ': not among the eleven')));
+      if (hit) {
+        rows.push(row('observed configuration', hit.configuration || '—', READ, 'r2-scf.out over LW1-ground.py'));
+        rows.push(row('entrant channel', hit.entrant || '—', READ, 'r2-scf.out: the channel the relativistic walk enters at this Z'));
+      }
+      if (Z === 90 && rel.thorium) rows.push(row('thorium', rel.thorium, READ, (paper.file || '') + ' L' + paper.thorium_line));
+      if (!rec.populated) rows.push(row('note', 'above Z = 108 the construction\'s 107-row table does not reach; the record carries csv rows only', null));
+      rows.push(row('c', rel.c, READ, rel.construction || 'the one admitted constant'));
+      rows.push(row('instrument', 'not held — nothing computed here', null, inst.budget || ''));
+      return { rows: rows, ok: true, text: rel.statement || '' };
+    },
+    selftest: async function (ctx) {
+      var ck = new Checker();
+      var rel = ctx.index && ctx.index.relativistic;
+      ck.ok('data/index.js carries the relativistic block', !!rel, !!rel, true);
+      if (!rel) return ck.result();
+      ck.eq('eleven elements READ from the paper', rel.eleven.length, 11);
+      var lay = (ctx.index.layout || []).filter(function (e) { return e.relativistic; });
+      ck.eq('layout flags exactly the eleven', lay.length, 11);
+      var byZ = function (a, b) { return a - b; };
+      ck.eq('the flagged Z are the eleven', lay.map(function (e) { return e.Z; }).sort(byZ).join(','), rel.eleven.map(function (e) { return e.Z; }).sort(byZ).join(','));
+      ck.ok('every one of the eleven carries an entrant channel', rel.eleven.every(function (e) { return !!e.entrant; }), rel.eleven.filter(function (e) { return !e.entrant; }).length, 0);
+      ck.eq('Th (90) is not among the eleven', rel.eleven.some(function (e) { return e.Z === 90; }), false);
+      ck.ok('the thorium inversion sentence is carried', !!rel.thorium, !!rel.thorium, true);
+      ck.eq('instrument recorded as not held', !!(rel.instrument && rel.instrument.held), false);
+      var r1 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'element' }, ctx);
+      ck.eq('Ag: displaced at c → ∞ = yes', r1.ok ? r1.rows[1].value : r1.message, 'yes');
+      var r2 = await MODE_RELATIVISTIC.run({ Z: 26, operation: 'element' }, ctx);
+      ck.eq('Fe: displaced at c → ∞ = no', r2.ok ? r2.rows[1].value : r2.message, 'no');
+      var r3 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'recompute' }, ctx);
+      ck.eq('recompute refuses and prints no number', r3.ok ? r3.rows[0].value : r3.message, 'not computable here');
+      var noNumber = r3.ok && r3.rows.every(function (r) { return typeof r.value !== 'number'; });
+      ck.ok('recompute rows carry no numeric value', noNumber, noNumber, true);
+      var figs = ctx.index.figures || [];
+      ck.ok('Figure 5 is carried with the md5 extracted/LEDGER.tsv records', figs.length > 0 && figs.every(function (f) { return f.ok; }), figs.length, 1);
+      ck.notes.push('nothing computed: the construction is not held; ' + rel.eleven.length + ' elements READ');
+      return ck.result();
+    }
+  };
+
+  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC];
   LIB = {
     channelDelta: channelDelta, channelTerms: channelTerms, collapseC: collapseC, pauliBound: pauliBound,
     coreP: coreP, n0Of: n0Of, orderClosure: orderClosure, lambdaConstraints: lambdaConstraints,

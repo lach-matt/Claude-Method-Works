@@ -163,12 +163,180 @@ CAVEATS = [
      "text": "The channel equation is validated in its stated domain and "
              "extrapolated outside it. A residual on a channel outside that "
              "domain is not a finding against the equation."},
+    {"id": "relativistic-not-held",
+     "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
+             "Hartree\u2013Fock at c = 137) and its repetition at c \u2192 \u221e "
+             "are not held: the L\u00f6wdin delivery records objects 1, 2, 4\u20138 "
+             "and 10 as pending bank and object 11 as not held, because session "
+             "104 was never sealed. The eleven displaced elements are READ from "
+             "THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and "
+             "never withdrawn (r2-scf), and the site cannot recompute them."},
+    {"id": "limit-kind",
+     "text": "A limit kind is a classification of the csv's own bound note by "
+             "the stated rule: the note is READ, the kind is DERIVED, and the "
+             "rule is shown beside it. 'no analysis located' is, as the note "
+             "itself says, not a bound on existence; a series limit is printed "
+             "as the csv prints it, with no unit added."},
     {"id": "n0-reading",
      "text": "n₀'s reading is RECONSTRUCTED. Register 1141 names the terms "
              "of B = min(p, n₀ − ℓ − 1) but not whether a "
              "partially filled subshell counts; 'first entirely unoccupied n' "
              "matches the column at 97.7 % and He I settles it."},
 ]
+
+
+# The eight kinds a bound note in COORDINATES-2.13 falls into. The note is READ;
+# the kind is DERIVED by these rules, in this order, and the rules travel with
+# the data so the page applies the same ones. Every one of the csv's distinct
+# notes must match exactly one rule, and the selftest asserts it.
+LIMIT_KINDS = [
+    ("ionisation-limit", r"^limit [0-9.]+;",
+     "a series limit the csv prints for the channel (one electron outside a "
+     "closed shell); the value is shown as printed, no unit added"),
+    ("unresolved", r"^series unresolved",
+     "the series is unresolved above the stated n in any published analysis"),
+    ("nuclear", r"^no (long-lived|primordial) isotope|^no nuclide synthesised",
+     "a nuclear limit: no long-lived or primordial isotope, or no nuclide "
+     "synthesised"),
+    ("term", r"^not keyable",
+     "no single 2S+1 keys the channel (hole plus electron, or multi-valence)"),
+    ("coupling", r"^open-shell core",
+     "an open-shell core with the stated number of parents"),
+    ("no-analysis", r"^no analysis located|^none \u2014 separable",
+     "no analysis located at this charge, or a separable series simply not "
+     "yet measured; NOT a bound on existence, as the note says"),
+    ("symmetry", r"^derived by symmetry",
+     "delta = 0 by symmetry; no measurement required"),
+    ("none", r"^-$",
+     "the csv carries no note"),
+]
+
+
+def limit_kind(note):
+    """The kind a bound note falls into, or None if no rule matches."""
+    for kind, rx, _meaning in LIMIT_KINDS:
+        if re.search(rx, note):
+            return kind
+    return None
+
+
+def limits(spectra):
+    """The bounds facet: every distinct bound note in COORDINATES-2.13 with its
+    count and kind, and the kinds with their totals."""
+    import collections
+    notes = collections.Counter(r["bound"] for r in spectra.rows)
+    kinds = collections.Counter()
+    rows = []
+    unclassified = []
+    for note, n in notes.most_common():
+        k = limit_kind(note)
+        if k is None:
+            unclassified.append(note)
+        kinds[k] += n
+        rows.append({"note": note, "kind": k, "count": n})
+    return {
+        "status": {"note": populate.READ, "kind": populate.DERIVED},
+        "source": "COORDINATES-2.13, bound column",
+        "rules": [{"kind": k, "regex": rx, "meaning": m} for k, rx, m in LIMIT_KINDS],
+        "kinds": [{"kind": k, "count": kinds[k]} for k, _rx, _m in LIMIT_KINDS],
+        "notes": rows,
+        "distinct_notes": len(notes),
+        "unclassified": unclassified,
+    }
+
+
+def _limit_counts(rec):
+    out = {}
+    for ch in rec["channels"]:
+        for m in ch["measured"]:
+            k = limit_kind(m["bound_note"]) or "unclassified"
+            out[k] = out.get(k, 0) + 1
+    return out
+
+
+def _member_text(name):
+    with open(os.path.join(populate.MEMBERS, name), encoding="utf-8") as fh:
+        return fh.read()
+
+
+def relativistic():
+    """The relativistic limit, READ from the seated paper and the Register,
+    with the instrument's held-status read from the delivery README and the
+    SCF audit. Nothing here is computed: the construction is not held."""
+    paper = "THE-LOWDIN-SOLUTION-2.md"
+    lines = _member_text(paper).split("\n")
+    def find(pattern):
+        for i, l in enumerate(lines, 1):
+            m = re.search(pattern, l)
+            if m:
+                s0 = l.rfind(". ", 0, m.start()) + 2 if ". " in l[:m.start()] else 0
+                e0 = l.find(". ", m.end())
+                return {"line": i, "text": l[s0:(e0 + 1 if e0 >= 0 else len(l))].strip()}
+        return None
+    eleven_s = find(r"They disagree at eleven elements: ")
+    m = re.search(r"eleven elements: ([A-Z][a-z]?(?:, [A-Z][a-z]?)*), and ([A-Z][a-z]?)\.", eleven_s["text"])
+    symbols = m.group(1).split(", ") + [m.group(2)]
+    c137 = find(r"scalar-relativistic reduction of the Dirac equation as c = 137")
+    thorium = find(r"inverts the underlying channel competition at thorium")
+    irreducible = find(r"irreducibly relativistic: with the speed of light taken to infinity")
+    # register 1706, first paragraph, verbatim
+    reg = _member_text("The_Method_1_6___The_Register-2.md").split("\n")
+    i = reg.index("### 1706")
+    body = next(l for l in reg[i + 1:] if l.strip())
+    # r2-scf.out: the eleven's configurations and entrants, and the budget
+    scf = _member_text("r2-scf.out").split("\n")
+    ent_line = next(l for l in scf if "the eleven in the observed table" in l)
+    entrants = []
+    for part in ent_line.split(": ", 1)[1].split(" | "):
+        mm = re.match(r"([A-Z][a-z]?) (\d+) (.+?) ent (\S+)$", part.strip())
+        entrants.append({"symbol": mm.group(1), "Z": int(mm.group(2)),
+                         "configuration": mm.group(3), "entrant": mm.group(4)})
+    count_line = next(l for l in scf if "eleven elements listed" in l)
+    budget = next(l for l in scf if l.strip().startswith("UNREPRODUCIBLE with that budget"))
+    readme = _member_text("LW1-README.md").split("\n")
+    held_rows = [l for l in readme if "PENDING BANK" in l or "NOT HELD" in l]
+    return {
+        "status": populate.READ,
+        "c": 137,
+        "statement": irreducible["text"] if irreducible else None,
+        "construction": c137["text"] if c137 else None,
+        "eleven": [{"symbol": sym, "Z": populate.SYMBOL_TO_Z[sym],
+                    **({e["symbol"]: e for e in entrants}.get(sym, {}) and
+                       {"configuration": {e["symbol"]: e for e in entrants}[sym]["configuration"],
+                        "entrant": {e["symbol"]: e for e in entrants}[sym]["entrant"]} or {})}
+                   for sym in symbols],
+        "thorium": thorium["text"] if thorium else None,
+        "sources": {
+            "paper": {"file": "method/members/" + paper, "eleven_line": eleven_s["line"],
+                      "construction_line": c137["line"] if c137 else None,
+                      "thorium_line": thorium["line"] if thorium else None},
+            "register": {"entry": 1706, "text": body},
+            "scf_audit": {"file": "method/members/r2-scf.out",
+                          "count": count_line.strip(), "entrants": entrants},
+        },
+        "instrument": {
+            "held": False,
+            "note": "the scalar-relativistic construction and its c -> inf "
+                    "repetition are not held; the figures are record-carried",
+            "readme_rows": held_rows,
+            "budget": budget.strip(),
+        },
+    }
+
+
+FIGURE = "FIG6relativisticvsnonrelativistic.png"
+
+
+def figure_source():
+    """Figure 5 of the paper, as the extracted tree holds it, with the md5
+    extracted/LEDGER.tsv records for it."""
+    with open(os.path.join(REPO, "extracted", "LEDGER.tsv"), encoding="utf-8") as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["member"].endswith(FIGURE) and r["disposition"] == "EXTRACTED":
+                return {"path": os.path.join(REPO, r["target_path"]),
+                        "md5_recorded": r["md5"], "bytes": int(r["size_bytes"]),
+                        "archive": r["source"]}
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -536,6 +704,26 @@ def _counts(rec):
 
 def build(spectra, out_dir=OUT, write=True, log=print):
     held, admitted = populate.layout_closure()
+    relb = relativistic()
+    rel_z = {e["Z"] for e in relb["eleven"]}
+    lim_block = limits(spectra)
+    fig = figure_source()
+    figures = []
+    if fig and os.path.exists(fig["path"]):
+        with open(fig["path"], "rb") as fh:
+            blob = fh.read()
+        figures.append({"file": "figures/" + FIGURE, "bytes": len(blob),
+                        "md5": hashlib.md5(blob).hexdigest(),
+                        "md5_recorded": fig["md5_recorded"],
+                        "ok": hashlib.md5(blob).hexdigest() == fig["md5_recorded"],
+                        "archive": fig["archive"],
+                        "caption": "Figure 5 of THE-LOWDIN-SOLUTION-2.md: the "
+                                   "derived table at c = 137 against c -> inf",
+                        "status": populate.READ})
+        if write:
+            os.makedirs(os.path.join(out_dir, "figures"), exist_ok=True)
+            with open(os.path.join(out_dir, "figures", FIGURE), "wb") as fh:
+                fh.write(blob)
     denied = sorted(admitted - held)
     layout = []
     manifest = []
@@ -548,6 +736,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
     for Z in zs:
         rec = element_record(Z, spectra)
         counts = _counts(rec)
+        lim = _limit_counts(rec)
         for k in ("rows", "measured", "exact", "computed", "witnessed"):
             totals[k] += counts[k]
         totals["populated" if rec["populated"] else "csv_only"] += 1
@@ -570,6 +759,8 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "held": (rec["closure"]["cell_held"] if rec["closure"] else None),
             "populated": rec["populated"],
             "counts": counts,
+            "relativistic": Z in rel_z,
+            "limits": lim,
         })
         log("  Z=%3d %-3s %7d B  rows %5d  measured %3d" % (
             Z, rec["symbol"], len(blob), counts["rows"], counts["measured"]))
@@ -611,7 +802,22 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                      "exponent": "e(Ne) = E0 - E1 ln Ne",
                      "status": populate.PINNED,
                      "source": "register 1205, final form"},
-        "instruments": instruments(),
+        "instruments": dict(instruments(), lowdin_construction={
+            "python": None,
+            "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+            "status": populate.READ,
+            "held": False,
+            "source": "the scalar-relativistic construction is not held; the "
+                      "paper's own statement, register 1706 and the SCF audit "
+                      "are shown in its place",
+            "text": "\n\n".join(t for t in [
+                relb["statement"], relb["construction"], relb["thorium"],
+                "Register 1706: " + relb["sources"]["register"]["text"],
+                "r2-scf.out: " + relb["sources"]["scf_audit"]["count"],
+                relb["instrument"]["budget"]] if t)}),
+        "relativistic": relb,
+        "limits": lim_block,
+        "figures": figures,
         "fixtures": fixtures(spectra),
         "caveats": CAVEATS,
         "totals": totals,
@@ -705,6 +911,36 @@ def selftest():
     check("layout rows", len(index["layout"]), 120)
     check("manifest rows", len(index["manifest"]), 120)
 
+    # --- the relativistic limit and the bounds facet -------------------------
+    rel = index["relativistic"]
+    check("relativistic: eleven elements read from the paper", len(rel["eleven"]), 11)
+    check("relativistic: the eleven resolve to Z in LW1-ground.py",
+          all(e["Z"] in populate.LW1.GROUND for e in rel["eleven"]), True)
+    check("relativistic: r2-scf entrant table agrees, in order",
+          [e["symbol"] for e in rel["sources"]["scf_audit"]["entrants"]],
+          [e["symbol"] for e in rel["eleven"]])
+    check("relativistic: every one of the eleven carries an entrant channel",
+          all("entrant" in e for e in rel["eleven"]), True)
+    check("relativistic: register 1706 names the same eleven",
+          all(e["symbol"] in rel["sources"]["register"]["text"] for e in rel["eleven"]), True)
+    check("relativistic: thorium sentence read", bool(rel["thorium"]), True)
+    check("relativistic: instrument recorded as not held", rel["instrument"]["held"], False)
+    check("relativistic: layout flags exactly eleven",
+          sum(1 for e in index["layout"] if e["relativistic"]), 11)
+    check("relativistic: Th is not among the eleven", 90 in {e["Z"] for e in rel["eleven"]}, False)
+    figs = index["figures"]
+    check("figure 5 held and md5 matches extracted/LEDGER.tsv",
+          bool(figs) and all(f["ok"] for f in figs), True)
+    lim = index["limits"]
+    check("limits: distinct bound notes", lim["distinct_notes"], 22)
+    check("limits: every note classified", lim["unclassified"], [])
+    check("limits: kind counts sum to the rows",
+          sum(k["count"] for k in lim["kinds"]), len(spectra.rows))
+    check("limits: layout counts sum to the rows",
+          sum(sum(e["limits"].values()) for e in index["layout"]), len(spectra.rows))
+    check("limits: no unclassified in any layout entry",
+          any("unclassified" in e["limits"] for e in index["layout"]), False)
+
     # --- the data protocol ---------------------------------------------------
     check("manifest names .js files only",
           all(m["file"].endswith(".js") for m in index["manifest"]), True)
@@ -738,10 +974,18 @@ def selftest():
 
     # --- the instruments -----------------------------------------------------
     ins = index["instruments"]
-    check("instruments: the nine, in order", list(ins),
+    check("instruments: the nine with python, in order",
+          [n for n, r in ins.items() if r.get("python")],
           [n for n, *_ in INSTRUMENTS])
+    check("instruments: the tenth is the unheld construction, text only",
+          (ins.get("lowdin_construction", {}).get("python"),
+           ins.get("lowdin_construction", {}).get("held"),
+           bool(ins.get("lowdin_construction", {}).get("text"))),
+          (None, False, True))
     parses = True
     for name, rec in ins.items():
+        if not rec.get("python"):
+            continue
         try:
             ast.parse(rec["python"])
         except SyntaxError:
@@ -879,6 +1123,14 @@ def verify(out_dir=OUT):
         print("  manifest and layout disagree on the element count")
     for s in index["sources"]:
         print("  %-52s %s" % (s["file"], "ok" if s["ok"] else "MD5 DRIFT"))
+    for f in index.get("figures", []):
+        p = os.path.join(out_dir, f["file"])
+        got = _md5(p) if os.path.exists(p) else None
+        if got != f["md5"] or got != f["md5_recorded"]:
+            bad += 1
+            print("  MISMATCH %s  manifest %s  ledger %s  on disk %s" % (f["file"], f["md5"], f["md5_recorded"], got))
+        else:
+            print("  %-52s ok (extracted/LEDGER.tsv md5)" % f["file"])
     print("VERIFY OK" if bad == 0 else "VERIFY FAILED")
     return 0 if bad == 0 else 1
 

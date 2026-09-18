@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "The Method 1.6 · every element on every axis of every index",
-  "built": "2026-09-18T16:13:37+00:00",
-  "commit": "a4cd621ca4da",
+  "built": "2026-09-18T17:03:58+00:00",
+  "commit": "ef7b325d5e5b",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a corpus figure. The corpus carries symbols (register 1306)."
  },
@@ -435,8 +435,395 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "line": 119,
    "status": "PINNED",
    "source": "R, the order operator of section 32.4.1; matches the seated instrument rclose.py"
+  },
+  "lowdin_construction": {
+   "python": null,
+   "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+   "status": "READ",
+   "held": false,
+   "source": "the scalar-relativistic construction is not held; the paper's own statement, register 1706 and the SCF audit are shown in its place",
+   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.\n\nRegister 1706: **ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese and zinc, 5s for 4d at silver and cadmium, 5d for 4f across four lanthanides, 6s for 5d at mercury, the heavy actinides wrongly altogether. The relativistic walk scores 107/107, so all eleven are errors of the equation-without-light against nature; the thorium competition inverts besides, though its entrant survives by path.* **The wall chart is not a solution of the non-relativistic Schrödinger equation. Quarantine standing: Λ_cinf is contrast, never data.**\n\nr2-scf.out: 1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11\n\nUNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120"
   }
  },
+ "relativistic": {
+  "status": "READ",
+  "c": 137,
+  "statement": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.",
+  "construction": "Finally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.",
+  "eleven": [
+   {
+    "symbol": "Mn",
+    "Z": 25,
+    "configuration": "[Ar]3d5 4s2",
+    "entrant": "4s"
+   },
+   {
+    "symbol": "Zn",
+    "Z": 30,
+    "configuration": "[Ar]3d10 4s2",
+    "entrant": "4s"
+   },
+   {
+    "symbol": "Ag",
+    "Z": 47,
+    "configuration": "[Kr]4d10 5s",
+    "entrant": "5s"
+   },
+   {
+    "symbol": "Cd",
+    "Z": 48,
+    "configuration": "[Kr]4d10 5s2",
+    "entrant": "5s"
+   },
+   {
+    "symbol": "Nd",
+    "Z": 60,
+    "configuration": "[Xe]4f4 6s2",
+    "entrant": "4f"
+   },
+   {
+    "symbol": "Pm",
+    "Z": 61,
+    "configuration": "[Xe]4f5 6s2",
+    "entrant": "4f"
+   },
+   {
+    "symbol": "Sm",
+    "Z": 62,
+    "configuration": "[Xe]4f6 6s2",
+    "entrant": "4f"
+   },
+   {
+    "symbol": "Lu",
+    "Z": 71,
+    "configuration": "[Xe]4f14 5d 6s2",
+    "entrant": "5d"
+   },
+   {
+    "symbol": "Hg",
+    "Z": 80,
+    "configuration": "[Xe]4f14 5d10 6s2",
+    "entrant": "6s"
+   },
+   {
+    "symbol": "Lr",
+    "Z": 103,
+    "configuration": "[Rn]5f14 7s2 7p",
+    "entrant": "7p"
+   },
+   {
+    "symbol": "Rf",
+    "Z": 104,
+    "configuration": "[Rn]5f14 6d2 7s2",
+    "entrant": "6d"
+   }
+  ],
+  "thorium": "*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.",
+  "sources": {
+   "paper": {
+    "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+    "eleven_line": 156,
+    "construction_line": 27,
+    "thorium_line": 45
+   },
+   "register": {
+    "entry": 1706,
+    "text": "**ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese and zinc, 5s for 4d at silver and cadmium, 5d for 4f across four lanthanides, 6s for 5d at mercury, the heavy actinides wrongly altogether. The relativistic walk scores 107/107, so all eleven are errors of the equation-without-light against nature; the thorium competition inverts besides, though its entrant survives by path.* **The wall chart is not a solution of the non-relativistic Schrödinger equation. Quarantine standing: Λ_cinf is contrast, never data.**"
+   },
+   "scf_audit": {
+    "file": "method/members/r2-scf.out",
+    "count": "1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11",
+    "entrants": [
+     {
+      "symbol": "Mn",
+      "Z": 25,
+      "configuration": "[Ar]3d5 4s2",
+      "entrant": "4s"
+     },
+     {
+      "symbol": "Zn",
+      "Z": 30,
+      "configuration": "[Ar]3d10 4s2",
+      "entrant": "4s"
+     },
+     {
+      "symbol": "Ag",
+      "Z": 47,
+      "configuration": "[Kr]4d10 5s",
+      "entrant": "5s"
+     },
+     {
+      "symbol": "Cd",
+      "Z": 48,
+      "configuration": "[Kr]4d10 5s2",
+      "entrant": "5s"
+     },
+     {
+      "symbol": "Nd",
+      "Z": 60,
+      "configuration": "[Xe]4f4 6s2",
+      "entrant": "4f"
+     },
+     {
+      "symbol": "Pm",
+      "Z": 61,
+      "configuration": "[Xe]4f5 6s2",
+      "entrant": "4f"
+     },
+     {
+      "symbol": "Sm",
+      "Z": 62,
+      "configuration": "[Xe]4f6 6s2",
+      "entrant": "4f"
+     },
+     {
+      "symbol": "Lu",
+      "Z": 71,
+      "configuration": "[Xe]4f14 5d 6s2",
+      "entrant": "5d"
+     },
+     {
+      "symbol": "Hg",
+      "Z": 80,
+      "configuration": "[Xe]4f14 5d10 6s2",
+      "entrant": "6s"
+     },
+     {
+      "symbol": "Lr",
+      "Z": 103,
+      "configuration": "[Rn]5f14 7s2 7p",
+      "entrant": "7p"
+     },
+     {
+      "symbol": "Rf",
+      "Z": 104,
+      "configuration": "[Rn]5f14 6d2 7s2",
+      "entrant": "6d"
+     }
+    ]
+   }
+  },
+  "instrument": {
+   "held": false,
+   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are record-carried",
+   "readme_rows": [
+    "| 1, 2, 4, 5, 6, 7, 8, 10 | PENDING BANK | LOWDIN-HANDOFF-103.tgz (sha256 05ea7bd5…, 1870 sealed files, root c6bcdd21) — the last sealed archive; awaiting upload to the Löwdin chat |",
+    "| 9 (1707–1711) | PENDING BANK (packs 93–103) + NOT HELD (S104 restatement w104.py) | see note on S104 |",
+    "| 11 six figures | NOT HELD as files unless M supplies S104 outputs | fig1–6.py and the PNGs were archived in pack104, never sealed (see note) |",
+    "  the query itself is NOT HELD. The file's own fields are: ground shells as printed, ground level,"
+   ],
+   "budget": "UNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120"
+  }
+ },
+ "limits": {
+  "status": {
+   "note": "READ",
+   "kind": "DERIVED"
+  },
+  "source": "COORDINATES-2.13, bound column",
+  "rules": [
+   {
+    "kind": "ionisation-limit",
+    "regex": "^limit [0-9.]+;",
+    "meaning": "a series limit the csv prints for the channel (one electron outside a closed shell); the value is shown as printed, no unit added"
+   },
+   {
+    "kind": "unresolved",
+    "regex": "^series unresolved",
+    "meaning": "the series is unresolved above the stated n in any published analysis"
+   },
+   {
+    "kind": "nuclear",
+    "regex": "^no (long-lived|primordial) isotope|^no nuclide synthesised",
+    "meaning": "a nuclear limit: no long-lived or primordial isotope, or no nuclide synthesised"
+   },
+   {
+    "kind": "term",
+    "regex": "^not keyable",
+    "meaning": "no single 2S+1 keys the channel (hole plus electron, or multi-valence)"
+   },
+   {
+    "kind": "coupling",
+    "regex": "^open-shell core",
+    "meaning": "an open-shell core with the stated number of parents"
+   },
+   {
+    "kind": "no-analysis",
+    "regex": "^no analysis located|^none \\u2014 separable",
+    "meaning": "no analysis located at this charge, or a separable series simply not yet measured; NOT a bound on existence, as the note says"
+   },
+   {
+    "kind": "symmetry",
+    "regex": "^derived by symmetry",
+    "meaning": "delta = 0 by symmetry; no measurement required"
+   },
+   {
+    "kind": "none",
+    "regex": "^-$",
+    "meaning": "the csv carries no note"
+   }
+  ],
+  "kinds": [
+   {
+    "kind": "ionisation-limit",
+    "count": 25
+   },
+   {
+    "kind": "unresolved",
+    "count": 28526
+   },
+   {
+    "kind": "nuclear",
+    "count": 27821
+   },
+   {
+    "kind": "term",
+    "count": 17626
+   },
+   {
+    "kind": "coupling",
+    "count": 26641
+   },
+   {
+    "kind": "no-analysis",
+    "count": 2931
+   },
+   {
+    "kind": "symmetry",
+    "count": 929
+   },
+   {
+    "kind": "none",
+    "count": 333
+   }
+  ],
+  "notes": [
+   {
+    "note": "series unresolved above ng in any published analysis",
+    "kind": "unresolved",
+    "count": 28526
+   },
+   {
+    "note": "no long-lived isotope",
+    "kind": "nuclear",
+    "count": 24312
+   },
+   {
+    "note": "not keyable: no single 2S+1 (hole+electron or multi-valence)",
+    "kind": "term",
+    "count": 17626
+   },
+   {
+    "note": "open-shell core, 16 parents",
+    "kind": "coupling",
+    "count": 11605
+   },
+   {
+    "note": "open-shell core, 3 parents",
+    "kind": "coupling",
+    "count": 9756
+   },
+   {
+    "note": "open-shell core, 119 parents",
+    "kind": "coupling",
+    "count": 5280
+   },
+   {
+    "note": "no analysis located at this charge (NOT a bound on existence)",
+    "kind": "no-analysis",
+    "count": 2691
+   },
+   {
+    "note": "no nuclide synthesised; theoretically admitted — Janet left-step, 8s(2) closes the eighth period at element 120",
+    "kind": "nuclear",
+    "count": 1760
+   },
+   {
+    "note": "no nuclide synthesised; theoretically admitted — Janet left-step, 8s(1) opens element 119",
+    "kind": "nuclear",
+    "count": 1744
+   },
+   {
+    "note": "derived by symmetry; no measurement required",
+    "kind": "symmetry",
+    "count": 929
+   },
+   {
+    "note": "-",
+    "kind": "none",
+    "count": 333
+   },
+   {
+    "note": "none — separable series, simply not yet measured",
+    "kind": "no-analysis",
+    "count": 240
+   },
+   {
+    "note": "limit 41449.451; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 6
+   },
+   {
+    "note": "no primordial isotope (R 1587)",
+    "kind": "nuclear",
+    "count": 5
+   },
+   {
+    "note": "limit 31406.4677325; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 5
+   },
+   {
+    "note": "limit 66928.04; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 3
+   },
+   {
+    "note": "limit 49266.66; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 3
+   },
+   {
+    "note": "limit 48278.48; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 2
+   },
+   {
+    "note": "limit 48387.634; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 2
+   },
+   {
+    "note": "limit 32848.872; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 2
+   },
+   {
+    "note": "limit 46670.107; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 1
+   },
+   {
+    "note": "limit 43762.6; one electron outside a closed shell",
+    "kind": "ionisation-limit",
+    "count": 1
+   }
+  ],
+  "distinct_notes": 22,
+  "unclassified": []
+ },
+ "figures": [
+  {
+   "file": "figures/FIG6relativisticvsnonrelativistic.png",
+   "bytes": 110305,
+   "md5": "7a328342a38f01358a160fc164047bf9",
+   "md5_recorded": "7a328342a38f01358a160fc164047bf9",
+   "ok": true,
+   "archive": "drive/The Method Materials/The_Method_1_6_figures.zip",
+   "caption": "Figure 5 of THE-LOWDIN-SOLUTION-2.md: the derived table at c = 137 against c -> inf",
+   "status": "READ"
+  }
+ ],
  "fixtures": {
   "note": "computed at build with tools/populate.py's own functions, never typed in; a browser-side solver that cannot reproduce these must say so rather than print a result",
   "equation_report": {
@@ -913,6 +1300,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "text": "The channel equation is validated in its stated domain and extrapolated outside it. A residual on a channel outside that domain is not a finding against the equation."
   },
   {
+   "id": "relativistic-not-held",
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) and its repetition at c → ∞ are not held: the Löwdin delivery records objects 1, 2, 4–8 and 10 as pending bank and object 11 as not held, because session 104 was never sealed. The eleven displaced elements are READ from THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and never withdrawn (r2-scf), and the site cannot recompute them."
+  },
+  {
+   "id": "limit-kind",
+   "text": "A limit kind is a classification of the csv's own bound note by the stated rule: the note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis located' is, as the note itself says, not a bound on existence; a series limit is printed as the csv prints it, with no unit added."
+  },
+  {
    "id": "n0-reading",
    "text": "n₀'s reading is RECONSTRUCTED. Register 1141 names the terms of B = min(p, n₀ − ℓ − 1) but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
   }
@@ -952,6 +1347,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 0,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "symmetry": 8
    }
   },
   {
@@ -979,6 +1378,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 9,
     "witnessed": 7,
     "lambda8_steps": 1
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 7,
+    "term": 3,
+    "unresolved": 6,
+    "symmetry": 8
    }
   },
   {
@@ -1006,6 +1412,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 12,
     "witnessed": 17,
     "lambda8_steps": 2
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 17,
+    "no-analysis": 2,
+    "unresolved": 9,
+    "term": 1,
+    "symmetry": 3
    }
   },
   {
@@ -1033,6 +1447,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 21,
     "witnessed": 24,
     "lambda8_steps": 3
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 24,
+    "term": 6,
+    "unresolved": 15,
+    "symmetry": 3
    }
   },
   {
@@ -1060,6 +1481,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 24,
     "witnessed": 29,
     "lambda8_steps": 4
+   },
+   "relativistic": false,
+   "limits": {
+    "no-analysis": 2,
+    "ionisation-limit": 3,
+    "unresolved": 18,
+    "none": 26,
+    "term": 4,
+    "symmetry": 3
    }
   },
   {
@@ -1087,6 +1517,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 36,
     "witnessed": 28,
     "lambda8_steps": 5
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 28,
+    "term": 7,
+    "unresolved": 24,
+    "no-analysis": 5,
+    "symmetry": 8
    }
   },
   {
@@ -1114,6 +1552,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 64,
     "witnessed": 16,
     "lambda8_steps": 6
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 16,
+    "coupling": 4,
+    "unresolved": 30,
+    "term": 25,
+    "no-analysis": 5,
+    "symmetry": 8
    }
   },
   {
@@ -1141,6 +1588,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 86,
     "witnessed": 10,
     "lambda8_steps": 7
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 20,
+    "unresolved": 36,
+    "none": 10,
+    "term": 25,
+    "no-analysis": 5,
+    "symmetry": 8
    }
   },
   {
@@ -1168,6 +1624,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 108,
     "witnessed": 4,
     "lambda8_steps": 8
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 4,
+    "coupling": 26,
+    "unresolved": 42,
+    "term": 30,
+    "no-analysis": 10,
+    "symmetry": 8
    }
   },
   {
@@ -1195,6 +1660,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 121,
     "witnessed": 7,
     "lambda8_steps": 9
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 39,
+    "none": 7,
+    "unresolved": 48,
+    "coupling": 24,
+    "no-analysis": 10,
+    "symmetry": 8
    }
   },
   {
@@ -1222,6 +1696,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 130,
     "witnessed": 6,
     "lambda8_steps": 10
+   },
+   "relativistic": false,
+   "limits": {
+    "ionisation-limit": 6,
+    "unresolved": 50,
+    "term": 40,
+    "coupling": 30,
+    "no-analysis": 10,
+    "symmetry": 8
    }
   },
   {
@@ -1249,6 +1732,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 139,
     "witnessed": 13,
     "lambda8_steps": 11
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 13,
+    "term": 42,
+    "unresolved": 57,
+    "coupling": 30,
+    "no-analysis": 10,
+    "symmetry": 8
    }
   },
   {
@@ -1276,6 +1768,16 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 144,
     "witnessed": 16,
     "lambda8_steps": 12
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 14,
+    "ionisation-limit": 2,
+    "unresolved": 60,
+    "term": 44,
+    "coupling": 30,
+    "no-analysis": 10,
+    "symmetry": 8
    }
   },
   {
@@ -1303,6 +1805,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 154,
     "witnessed": 22,
     "lambda8_steps": 13
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 48,
+    "none": 22,
+    "unresolved": 66,
+    "coupling": 30,
+    "no-analysis": 10,
+    "symmetry": 8
    }
   },
   {
@@ -1330,6 +1841,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 179,
     "witnessed": 13,
     "lambda8_steps": 14
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 40,
+    "unresolved": 72,
+    "term": 51,
+    "none": 13,
+    "no-analysis": 16,
+    "symmetry": 8
    }
   },
   {
@@ -1357,6 +1877,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 191,
     "witnessed": 17,
     "lambda8_steps": 15
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 50,
+    "unresolved": 78,
+    "term": 51,
+    "none": 17,
+    "no-analysis": 12,
+    "symmetry": 8
    }
   },
   {
@@ -1384,6 +1913,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 224,
     "witnessed": 0,
     "lambda8_steps": 16
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 60,
+    "unresolved": 84,
+    "term": 60,
+    "no-analysis": 20,
+    "symmetry": 8
    }
   },
   {
@@ -1411,6 +1948,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 237,
     "witnessed": 3,
     "lambda8_steps": 17
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 70,
+    "unresolved": 90,
+    "none": 3,
+    "coupling": 57,
+    "no-analysis": 20,
+    "symmetry": 8
    }
   },
   {
@@ -1438,6 +1984,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 242,
     "witnessed": 6,
     "lambda8_steps": 18
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 6,
+    "no-analysis": 21,
+    "unresolved": 93,
+    "term": 70,
+    "coupling": 58,
+    "symmetry": 8
    }
   },
   {
@@ -1465,6 +2020,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 242,
     "witnessed": 22,
     "lambda8_steps": 19
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 22,
+    "term": 68,
+    "unresolved": 99,
+    "coupling": 57,
+    "no-analysis": 18,
+    "symmetry": 8
    }
   },
   {
@@ -1492,6 +2056,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 266,
     "witnessed": 6,
     "lambda8_steps": 20
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 84,
+    "unresolved": 102,
+    "none": 6,
+    "coupling": 60,
+    "no-analysis": 20,
+    "symmetry": 8
    }
   },
   {
@@ -1519,6 +2092,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 274,
     "witnessed": 14,
     "lambda8_steps": 21
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 85,
+    "unresolved": 108,
+    "none": 14,
+    "no-analysis": 21,
+    "coupling": 60,
+    "symmetry": 8
    }
   },
   {
@@ -1546,6 +2128,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 304,
     "witnessed": 0,
     "lambda8_steps": 22
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 70,
+    "unresolved": 114,
+    "term": 95,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1573,6 +2163,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 320,
     "witnessed": 0,
     "lambda8_steps": 23
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 80,
+    "unresolved": 120,
+    "term": 95,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1600,6 +2198,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 336,
     "witnessed": 0,
     "lambda8_steps": 24
+   },
+   "relativistic": true,
+   "limits": {
+    "coupling": 90,
+    "unresolved": 126,
+    "term": 95,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1627,6 +2233,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 341,
     "witnessed": 11,
     "lambda8_steps": 25
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 100,
+    "unresolved": 132,
+    "term": 91,
+    "no-analysis": 18,
+    "none": 11,
+    "symmetry": 8
    }
   },
   {
@@ -1654,6 +2269,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 368,
     "witnessed": 0,
     "lambda8_steps": 26
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 110,
+    "unresolved": 138,
+    "term": 95,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1681,6 +2304,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 384,
     "witnessed": 0,
     "lambda8_steps": 27
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 120,
+    "unresolved": 144,
+    "term": 95,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1708,6 +2339,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 400,
     "witnessed": 0,
     "lambda8_steps": 28
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 130,
+    "unresolved": 150,
+    "term": 95,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1735,6 +2374,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 407,
     "witnessed": 9,
     "lambda8_steps": 29
+   },
+   "relativistic": true,
+   "limits": {
+    "term": 101,
+    "none": 9,
+    "unresolved": 156,
+    "coupling": 125,
+    "no-analysis": 25,
+    "symmetry": 8
    }
   },
   {
@@ -1762,6 +2410,16 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 414,
     "witnessed": 10,
     "lambda8_steps": 30
+   },
+   "relativistic": false,
+   "limits": {
+    "none": 8,
+    "ionisation-limit": 2,
+    "no-analysis": 26,
+    "unresolved": 159,
+    "term": 99,
+    "coupling": 130,
+    "symmetry": 8
    }
   },
   {
@@ -1789,6 +2447,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 435,
     "witnessed": 5,
     "lambda8_steps": 31
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 110,
+    "unresolved": 165,
+    "no-analysis": 30,
+    "none": 5,
+    "coupling": 130,
+    "symmetry": 8
    }
   },
   {
@@ -1816,6 +2483,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 456,
     "witnessed": 0,
     "lambda8_steps": 32
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 140,
+    "unresolved": 171,
+    "term": 115,
+    "no-analysis": 30,
+    "symmetry": 8
    }
   },
   {
@@ -1843,6 +2518,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 472,
     "witnessed": 0,
     "lambda8_steps": 33
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 150,
+    "unresolved": 177,
+    "term": 115,
+    "no-analysis": 30,
+    "symmetry": 8
    }
   },
   {
@@ -1870,6 +2553,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 488,
     "witnessed": 0,
     "lambda8_steps": 34
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 160,
+    "unresolved": 183,
+    "term": 115,
+    "no-analysis": 30,
+    "symmetry": 8
    }
   },
   {
@@ -1897,6 +2588,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 504,
     "witnessed": 0,
     "lambda8_steps": 35
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 125,
+    "unresolved": 189,
+    "coupling": 160,
+    "no-analysis": 30,
+    "symmetry": 8
    }
   },
   {
@@ -1924,6 +2623,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 512,
     "witnessed": 0,
     "lambda8_steps": 36
+   },
+   "relativistic": false,
+   "limits": {
+    "no-analysis": 35,
+    "unresolved": 192,
+    "term": 125,
+    "coupling": 160,
+    "symmetry": 8
    }
   },
   {
@@ -1951,6 +2658,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 523,
     "witnessed": 5,
     "lambda8_steps": 37
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 135,
+    "unresolved": 198,
+    "none": 5,
+    "coupling": 160,
+    "no-analysis": 30,
+    "symmetry": 8
    }
   },
   {
@@ -1978,6 +2694,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 536,
     "witnessed": 0,
     "lambda8_steps": 38
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 140,
+    "unresolved": 201,
+    "no-analysis": 35,
+    "coupling": 160,
+    "symmetry": 8
    }
   },
   {
@@ -2005,6 +2729,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 552,
     "witnessed": 0,
     "lambda8_steps": 39
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 150,
+    "unresolved": 207,
+    "no-analysis": 35,
+    "coupling": 160,
+    "symmetry": 8
    }
   },
   {
@@ -2032,6 +2764,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 568,
     "witnessed": 0,
     "lambda8_steps": 40
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 170,
+    "unresolved": 213,
+    "term": 150,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2059,6 +2799,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 584,
     "witnessed": 0,
     "lambda8_steps": 41
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 180,
+    "unresolved": 219,
+    "term": 150,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2086,6 +2834,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 600,
     "witnessed": 0,
     "lambda8_steps": 42
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 190,
+    "unresolved": 225,
+    "term": 150,
+    "nuclear": 5,
+    "no-analysis": 30,
+    "symmetry": 8
    }
   },
   {
@@ -2113,6 +2870,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 616,
     "witnessed": 0,
     "lambda8_steps": 43
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 200,
+    "unresolved": 231,
+    "term": 150,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2140,6 +2905,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 632,
     "witnessed": 0,
     "lambda8_steps": 44
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 210,
+    "unresolved": 237,
+    "term": 150,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2167,6 +2940,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 648,
     "witnessed": 0,
     "lambda8_steps": 45
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 220,
+    "unresolved": 243,
+    "term": 150,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2194,6 +2975,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 664,
     "witnessed": 0,
     "lambda8_steps": 46
+   },
+   "relativistic": true,
+   "limits": {
+    "coupling": 230,
+    "unresolved": 249,
+    "term": 150,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2221,6 +3010,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 668,
     "witnessed": 12,
     "lambda8_steps": 47
+   },
+   "relativistic": true,
+   "limits": {
+    "none": 12,
+    "term": 153,
+    "unresolved": 255,
+    "coupling": 225,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2248,6 +3046,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 687,
     "witnessed": 1,
     "lambda8_steps": 48
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 164,
+    "ionisation-limit": 1,
+    "unresolved": 258,
+    "coupling": 230,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2275,6 +3082,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 704,
     "witnessed": 0,
     "lambda8_steps": 49
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 175,
+    "unresolved": 264,
+    "coupling": 230,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2302,6 +3117,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 720,
     "witnessed": 0,
     "lambda8_steps": 50
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 240,
+    "unresolved": 270,
+    "term": 175,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2329,6 +3152,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 736,
     "witnessed": 0,
     "lambda8_steps": 51
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 250,
+    "unresolved": 276,
+    "term": 175,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2356,6 +3187,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 752,
     "witnessed": 0,
     "lambda8_steps": 52
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 260,
+    "unresolved": 282,
+    "term": 175,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2383,6 +3222,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 768,
     "witnessed": 0,
     "lambda8_steps": 53
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 185,
+    "unresolved": 288,
+    "coupling": 260,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2410,6 +3257,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 771,
     "witnessed": 5,
     "lambda8_steps": 54
+   },
+   "relativistic": false,
+   "limits": {
+    "ionisation-limit": 5,
+    "unresolved": 291,
+    "term": 185,
+    "coupling": 260,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2437,6 +3293,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 787,
     "witnessed": 5,
     "lambda8_steps": 55
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 195,
+    "unresolved": 297,
+    "none": 5,
+    "coupling": 260,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2464,6 +3329,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 800,
     "witnessed": 0,
     "lambda8_steps": 56
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 205,
+    "unresolved": 300,
+    "coupling": 260,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2491,6 +3364,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 816,
     "witnessed": 0,
     "lambda8_steps": 57
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 215,
+    "unresolved": 306,
+    "coupling": 260,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2518,6 +3399,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 832,
     "witnessed": 0,
     "lambda8_steps": 58
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 270,
+    "unresolved": 312,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2545,6 +3434,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 848,
     "witnessed": 0,
     "lambda8_steps": 59
+   },
+   "relativistic": true,
+   "limits": {
+    "coupling": 280,
+    "unresolved": 318,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2572,6 +3469,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 864,
     "witnessed": 0,
     "lambda8_steps": 60
+   },
+   "relativistic": true,
+   "limits": {
+    "coupling": 290,
+    "unresolved": 324,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2599,6 +3504,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 880,
     "witnessed": 0,
     "lambda8_steps": 61
+   },
+   "relativistic": true,
+   "limits": {
+    "coupling": 300,
+    "unresolved": 330,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2626,6 +3539,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 896,
     "witnessed": 0,
     "lambda8_steps": 62
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 310,
+    "unresolved": 336,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2653,6 +3574,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 912,
     "witnessed": 0,
     "lambda8_steps": 63
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 320,
+    "unresolved": 342,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2680,6 +3609,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 928,
     "witnessed": 0,
     "lambda8_steps": 64
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 330,
+    "unresolved": 348,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2707,6 +3644,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 944,
     "witnessed": 0,
     "lambda8_steps": 65
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 340,
+    "unresolved": 354,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2734,6 +3679,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 960,
     "witnessed": 0,
     "lambda8_steps": 66
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 350,
+    "unresolved": 360,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2761,6 +3714,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 976,
     "witnessed": 0,
     "lambda8_steps": 67
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 360,
+    "unresolved": 366,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2788,6 +3749,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 992,
     "witnessed": 0,
     "lambda8_steps": 68
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 370,
+    "unresolved": 372,
+    "term": 215,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2815,6 +3784,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1008,
     "witnessed": 0,
     "lambda8_steps": 69
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 225,
+    "unresolved": 378,
+    "coupling": 370,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2842,6 +3819,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1015,
     "witnessed": 1,
     "lambda8_steps": 70
+   },
+   "relativistic": true,
+   "limits": {
+    "term": 229,
+    "ionisation-limit": 1,
+    "unresolved": 381,
+    "coupling": 370,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2869,6 +3855,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1032,
     "witnessed": 0,
     "lambda8_steps": 71
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 240,
+    "unresolved": 387,
+    "coupling": 370,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2896,6 +3890,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1048,
     "witnessed": 0,
     "lambda8_steps": 72
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 380,
+    "unresolved": 393,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2923,6 +3925,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1064,
     "witnessed": 0,
     "lambda8_steps": 73
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 390,
+    "unresolved": 399,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2950,6 +3960,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1080,
     "witnessed": 0,
     "lambda8_steps": 74
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 400,
+    "unresolved": 405,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -2977,6 +3995,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1096,
     "witnessed": 0,
     "lambda8_steps": 75
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 410,
+    "unresolved": 411,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3004,6 +4030,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1112,
     "witnessed": 0,
     "lambda8_steps": 76
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 420,
+    "unresolved": 417,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3031,6 +4065,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1128,
     "witnessed": 0,
     "lambda8_steps": 77
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 430,
+    "unresolved": 423,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3058,6 +4100,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1144,
     "witnessed": 0,
     "lambda8_steps": 78
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 440,
+    "unresolved": 429,
+    "term": 240,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3085,6 +4135,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1155,
     "witnessed": 5,
     "lambda8_steps": 79
+   },
+   "relativistic": true,
+   "limits": {
+    "term": 250,
+    "unresolved": 435,
+    "none": 5,
+    "coupling": 435,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3112,6 +4171,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1165,
     "witnessed": 3,
     "lambda8_steps": 80
+   },
+   "relativistic": false,
+   "limits": {
+    "ionisation-limit": 3,
+    "term": 252,
+    "unresolved": 438,
+    "coupling": 440,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3139,6 +4207,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1184,
     "witnessed": 0,
     "lambda8_steps": 81
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 265,
+    "unresolved": 444,
+    "coupling": 440,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3166,6 +4242,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1196,
     "witnessed": 4,
     "lambda8_steps": 82
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 450,
+    "unresolved": 450,
+    "term": 261,
+    "none": 4,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3193,6 +4278,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1216,
     "witnessed": 0,
     "lambda8_steps": 83
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 460,
+    "unresolved": 456,
+    "term": 265,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3220,6 +4313,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1232,
     "witnessed": 0,
     "lambda8_steps": 84
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 470,
+    "unresolved": 462,
+    "term": 265,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3247,6 +4348,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1248,
     "witnessed": 0,
     "lambda8_steps": 85
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 275,
+    "unresolved": 468,
+    "coupling": 470,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3274,6 +4383,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1254,
     "witnessed": 2,
     "lambda8_steps": 86
+   },
+   "relativistic": false,
+   "limits": {
+    "ionisation-limit": 2,
+    "term": 278,
+    "unresolved": 471,
+    "coupling": 470,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3301,6 +4419,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1272,
     "witnessed": 0,
     "lambda8_steps": 87
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 290,
+    "unresolved": 477,
+    "coupling": 470,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3328,6 +4454,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1280,
     "witnessed": 0,
     "lambda8_steps": 88
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 295,
+    "unresolved": 480,
+    "coupling": 470,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3355,6 +4489,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1296,
     "witnessed": 0,
     "lambda8_steps": 89
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 305,
+    "unresolved": 486,
+    "coupling": 470,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3382,6 +4524,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1312,
     "witnessed": 0,
     "lambda8_steps": 90
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 480,
+    "unresolved": 492,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3409,6 +4559,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1328,
     "witnessed": 0,
     "lambda8_steps": 91
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 490,
+    "unresolved": 498,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3436,6 +4594,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1344,
     "witnessed": 0,
     "lambda8_steps": 92
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 500,
+    "unresolved": 504,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3463,6 +4629,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1360,
     "witnessed": 0,
     "lambda8_steps": 93
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 510,
+    "unresolved": 510,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3490,6 +4664,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1376,
     "witnessed": 0,
     "lambda8_steps": 94
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 520,
+    "unresolved": 516,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3517,6 +4699,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1392,
     "witnessed": 0,
     "lambda8_steps": 95
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 530,
+    "unresolved": 522,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3544,6 +4734,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1408,
     "witnessed": 0,
     "lambda8_steps": 96
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 540,
+    "unresolved": 528,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3571,6 +4769,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1424,
     "witnessed": 0,
     "lambda8_steps": 97
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 550,
+    "unresolved": 534,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3598,6 +4804,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1440,
     "witnessed": 0,
     "lambda8_steps": 98
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 560,
+    "unresolved": 540,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3625,6 +4839,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1456,
     "witnessed": 0,
     "lambda8_steps": 99
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 570,
+    "unresolved": 546,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3652,6 +4874,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1472,
     "witnessed": 0,
     "lambda8_steps": 100
+   },
+   "relativistic": false,
+   "limits": {
+    "coupling": 580,
+    "unresolved": 552,
+    "term": 305,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3679,6 +4909,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1488,
     "witnessed": 0,
     "lambda8_steps": 101
+   },
+   "relativistic": false,
+   "limits": {
+    "term": 315,
+    "unresolved": 558,
+    "coupling": 580,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3706,6 +4944,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1496,
     "witnessed": 0,
     "lambda8_steps": 102
+   },
+   "relativistic": true,
+   "limits": {
+    "term": 320,
+    "unresolved": 561,
+    "coupling": 580,
+    "no-analysis": 35,
+    "symmetry": 8
    }
   },
   {
@@ -3733,6 +4979,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1512,
     "witnessed": 0,
     "lambda8_steps": 103
+   },
+   "relativistic": true,
+   "limits": {
+    "nuclear": 1512,
+    "symmetry": 8
    }
   },
   {
@@ -3760,6 +5011,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1528,
     "witnessed": 0,
     "lambda8_steps": 104
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1528,
+    "symmetry": 8
    }
   },
   {
@@ -3787,6 +5043,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1544,
     "witnessed": 0,
     "lambda8_steps": 105
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1544,
+    "symmetry": 8
    }
   },
   {
@@ -3814,6 +5075,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1560,
     "witnessed": 0,
     "lambda8_steps": 106
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1560,
+    "symmetry": 8
    }
   },
   {
@@ -3841,6 +5107,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1576,
     "witnessed": 0,
     "lambda8_steps": 107
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1576,
+    "symmetry": 8
    }
   },
   {
@@ -3865,6 +5136,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1592,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1592,
+    "symmetry": 8
    }
   },
   {
@@ -3889,6 +5165,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1608,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1608,
+    "symmetry": 8
    }
   },
   {
@@ -3913,6 +5194,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1624,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1624,
+    "symmetry": 8
    }
   },
   {
@@ -3937,6 +5223,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1640,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1640,
+    "symmetry": 8
    }
   },
   {
@@ -3961,6 +5252,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1648,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1648,
+    "symmetry": 8
    }
   },
   {
@@ -3985,6 +5281,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1664,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1664,
+    "symmetry": 8
    }
   },
   {
@@ -4009,6 +5310,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1680,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1680,
+    "symmetry": 8
    }
   },
   {
@@ -4033,6 +5339,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1696,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1696,
+    "symmetry": 8
    }
   },
   {
@@ -4057,6 +5368,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1712,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1712,
+    "symmetry": 8
    }
   },
   {
@@ -4081,6 +5397,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1728,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1728,
+    "symmetry": 8
    }
   },
   {
@@ -4105,6 +5426,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1744,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1744
    }
   },
   {
@@ -4129,6 +5454,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "computed": 1760,
     "witnessed": 0,
     "lambda8_steps": 0
+   },
+   "relativistic": false,
+   "limits": {
+    "nuclear": 1760
    }
   }
  ],

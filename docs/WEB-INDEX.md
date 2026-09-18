@@ -7,7 +7,7 @@ researchers and students as a research tool, not a brochure.
 
 ```sh
 python3 tools/webindex.py             # write public/data/ from the instruments
-python3 tools/webindex.py --selftest  # 60 fixtures, nothing written
+python3 tools/webindex.py --selftest  # 76 fixtures, nothing written
 python3 tools/webindex.py --verify    # public/data/ against its own manifest and the sources
 cd public && python3 -m http.server   # then open http://localhost:8000/ — or open public/index.html directly
 ```
@@ -142,6 +142,40 @@ an overdetermined element is held on the log-form residual it minimises, and the
 typed-p case asserts n₀ read from the record keeps `RECONSTRUCTED`. The assistant's run button is
 labelled by what answers — `Query` for the console alone, `Query console + Claude` only once the
 artifact runtime has granted the second answerer.
+
+## The relativistic limit and the bounds facet
+
+Two facets put the solution range and its limit on the same node, in the author's framing —
+quantum mechanics as the range, relativity as the limit on it, observation at the base — and
+both are grounded the only honest way the corpus allows.
+
+**The relativistic limit (the seventh solver mode) computes nothing.** `THE-LOWDIN-SOLUTION-2.md`
+derives the table in the scalar-relativistic (Koelling–Harmon) Hartree–Fock reduction with one
+admitted constant, c = 137, and reports that the same construction at c → ∞ misplaces eleven
+elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — and inverts the channel competition at
+thorium. The construction itself is **not held**: `LW1-README.md` records the delivery's objects
+1, 2, 4–8 and 10 as pending bank and object 11 as not held, because session 104 was never
+sealed, and `r2-scf.out` grades every figure of that family UNREPRODUCIBLE with a stated budget,
+record-carried and never withdrawn. So `webindex.py` **reads** the eleven from the paper's own
+sentence, cross-checks them against register 1706 and the SCF audit's table of configurations and
+entrant channels (the selftest asserts all three agree, in order), copies Figure 5 from
+`extracted/` with the md5 `extracted/LEDGER.tsv` records, and exports the block as `READ`. The page
+marks the eleven on the table, the element plate shows the result with the figure, the console
+answers `relativistic`, and the mode's `recompute` operation refuses with the reason rather than
+printing a table no instrument produced. `instruments.lowdin_construction` carries the passages,
+not Python, and the "Instrument source" toggle shows them as such.
+
+**The bounds facet** reads the `bound` column of COORDINATES-2.13 — 22 distinct notes over the
+104,832 cells — and classifies each into one of eight kinds by a regex rule that travels in
+`index.js` → `limits.rules`, applied identically by the exporter and the page: a series limit
+printed for the channel, a series unresolved above the stated n, a nuclear limit (no long-lived or
+primordial isotope, no nuclide synthesised), no single 2S+1 keying the channel, an open-shell core,
+no analysis located (which the note itself says is not a bound on existence), δ = 0 by symmetry,
+and no note. The note is `READ`, the kind `DERIVED`, and the rule is shown on the cell plate
+beside them; a printed series limit is shown as printed, with no unit added. The legend's
+"Cells by" control colours cells by grade or by limit kind, each element plate counts its cells
+by kind, and the console answers `limits <El>`. The exporter's selftest asserts every note is
+classified and every count sums to the rows.
 
 ## Provenance
 

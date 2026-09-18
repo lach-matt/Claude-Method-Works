@@ -47,15 +47,23 @@
     <section id="canvas-wrap" aria-label="Zoomable index">
       <canvas id="canvas" aria-label="Zoomable index of The Method 1.6. With the canvas focused: Esc up one level, H the whole index, + and − zoom, arrow keys pan" role="img" tabindex="0"></canvas>
       <nav id="crumbs" aria-label="Path"></nav>
-      <div id="legend" aria-label="Legend">
-        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Cells by grade</button>
+      <div id="legend" aria-label="Legend" data-color="grade">
+        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Cells by</button>
         <div id="legend-rows">
+        <div class="legend-seg" role="group" aria-label="Colour cells by">
+          <button type="button" class="is-on" data-color="grade">grade</button>
+          <button type="button" data-color="limit">limit</button>
+        </div>
+        <div class="legend-grade">
         <div class="legend-row"><span class="sw sw-measured"></span> measured <span class="legend-n" id="n-measured"></span></div>
         <div class="legend-row"><span class="sw sw-exact"></span> exact <span class="legend-n" id="n-exact"></span></div>
         <div class="legend-row"><span class="sw sw-computed"></span> computed <span class="legend-n" id="n-computed"></span></div>
+        </div>
+        <div class="legend-limit" id="legend-limit-rows"></div>
         <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held (E)</div>
         <div class="legend-row"><span class="sw sw-csv"></span> spectra rows only (Z &gt; 108)</div>
         <div class="legend-row"><span class="sw sw-ladder"></span> Λ₈ ionisation ladder</div>
+        <div class="legend-row"><span class="sw sw-rel"></span> displaced at c → ∞ (relativistic limit)</div>
         </div>
       </div>
       <div id="zoomctl" role="group" aria-label="Zoom">
