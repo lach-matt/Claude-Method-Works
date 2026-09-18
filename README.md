@@ -19,6 +19,13 @@ same-folder duplicates of files already mirrored, reachable only by Drive id.
 
 See [`drive/README.md`](drive/README.md) for the detail.
 
+## The index as a website — [`public/`](public/)
+
+A zoomable reading of the index: the drawn periodic layout at the top, each element opening into its
+ions, channels and cells, every value badged with its status. `python3 tools/webindex.py` writes
+`public/data/` from the instruments; serve `public/` from any static host. See
+[`docs/WEB-INDEX.md`](docs/WEB-INDEX.md).
+
 ## Everything the mirror had sealed — [`extracted/`](extracted/)
 
 Thirty-one of the mirrored files are archives and nine are Claude project exports. Between them they
