@@ -3531,7 +3531,7 @@ var SOLVERS, LIB;
     id: 'relativistic',
     title: 'The relativistic limit (c = 137 against c → ∞)',
     status: READ,
-    statusNote: 'THE-LOWDIN-SOLUTION-2.md and register 1706: the observed table is irreducibly relativistic. The construction itself is not held, so this mode reads and refuses; it computes nothing.',
+    statusNote: 'THE-LOWDIN-SOLUTION-2.md and register 1706: the observed table is irreducibly relativistic. The construction itself is not held, so this mode reads and refuses; it computes nothing. The Löwdin project answered the site\'s request on 2026-09-18 (LW1-ADDENDUM-REPLY.md, Drive id 17Er2HegMveIkaPQ_cjmDJT0vX7kP-iek): the c → ∞ path is sealed in LOWDIN-HANDOFF-103.tgz and a single-Z wrapper with goldens at Ag, Hg and Th is committed on bank receipt.',
     description: 'Quantum mechanics supplies the range of configurations; the speed of light, entering once as c = 137 through the scalar-relativistic reduction of the Dirac equation, decides which of them the observed table holds. Repeated with c sent to infinity, the same construction misplaces eleven elements and inverts the channel competition at thorium. The construction is not held here (session 104 was never sealed), so this mode reports the paper\'s own result, READ, and refuses to recompute the c → ∞ table rather than invent one.',
     inputs: [sel('Z'),
              { name: 'operation', label: 'operation', type: 'select', default: 'element',
@@ -3598,6 +3598,14 @@ var SOLVERS, LIB;
       ck.eq('Ag: displaced at c → ∞ = yes', r1.ok ? r1.rows[1].value : r1.message, 'yes');
       var r2 = await MODE_RELATIVISTIC.run({ Z: 26, operation: 'element' }, ctx);
       ck.eq('Fe: displaced at c → ∞ = no', r2.ok ? r2.rows[1].value : r2.message, 'no');
+      // Both directions, as the Löwdin project's reply of 2026-09-18 recommends: Hg is displaced,
+      // Th is a collapse-criterion row (register 1703) and the null-difference control. A c switch
+      // that displaced everything would pass a displacement-only test; Th is what catches it.
+      var r4 = await MODE_RELATIVISTIC.run({ Z: 80, operation: 'element' }, ctx);
+      ck.eq('Hg: displaced at c → ∞ = yes (displacement direction)', r4.ok ? r4.rows[1].value : r4.message, 'yes');
+      var r5 = await MODE_RELATIVISTIC.run({ Z: 90, operation: 'element' }, ctx);
+      ck.eq('Th: displaced at c → ∞ = no (the null-difference control)', r5.ok ? r5.rows[1].value : r5.message, 'no');
+      ck.ok('Th carries the thorium inversion sentence, not a displacement', r5.ok && r5.rows.some(function (r) { return r.label === 'thorium'; }), r5.ok, true);
       var r3 = await MODE_RELATIVISTIC.run({ Z: 47, operation: 'recompute' }, ctx);
       ck.eq('recompute refuses and prints no number', r3.ok ? r3.rows[0].value : r3.message, 'not computable here');
       var noNumber = r3.ok && r3.rows.every(function (r) { return typeof r.value !== 'number'; });

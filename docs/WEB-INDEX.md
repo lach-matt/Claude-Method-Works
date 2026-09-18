@@ -165,6 +165,21 @@ answers `relativistic`, and the mode's `recompute` operation refuses with the re
 printing a table no instrument produced. `instruments.lowdin_construction` carries the passages,
 not Python, and the "Instrument source" toggle shows them as such.
 
+**The request and its answer.** The site asked the Löwdin project for items 5, 2, 1, 11 and 12 of
+the standing REQUEST-LOWDIN and for one new object, a single-Z walk switchable between c = 137.035999
+and c → ∞. The reply of 2026-09-18 (`LW1-ADDENDUM-REPLY.md`, Drive id
+`17Er2HegMveIkaPQ_cjmDJT0vX7kP-iek`, 4,276 B, md5 `8df39014…`, seated in `LOWDIN-DELIVERY-1/` on
+Drive and not yet in the mirror — it reaches `drive/` only through the sync route, since the connector
+returns rendered text, not bytes) measures rather than assumes: the one code store in that session
+holds the thirteen corridor-line instruments and not one takes c; the c → ∞ path exists only inside
+`LOWDIN-HANDOFF-103.tgz`; no `--c` switch was ever written. The project commits, on bank receipt, to a
+thin wrapper over the sealed solver with goldens at Ag, Hg and Th at both settings. Its one remark is
+taken up here: Th is not among the eleven but a collapse-criterion row (register 1703), which makes it
+the **null-difference control** — a broken c switch that displaced everything would pass a
+displacement-only test — so the seventh mode's selftest now asserts both directions, displacement at
+Hg and identity at Th. Until the bank arrives the mode stays `READ`, which is the state of the
+evidence, not a defect.
+
 **The bounds facet** reads the `bound` column of COORDINATES-2.13 — 22 distinct notes over the
 104,832 cells — and classifies each into one of eight kinds by a regex rule that travels in
 `index.js` → `limits.rules`, applied identically by the exporter and the page: a series limit
