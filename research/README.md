@@ -12217,6 +12217,39 @@ elements. Its 20 exceptions saturate at Z = 103, and a handful of new synthesise
 either give it a majority or move it off K4. Note also §3c — being arity 2, half of K4 is free to it
 either way, so overturning the count would not by itself earn the channel.
 
+**DOCKET 24 — CLOSED. The lead was real, it is reproduced, and it is refused as a theorem.**
+`U4` is not a module or an ion: it is a **corpus section label**, §29.12 U4, and
+`method/members/r2-ch19a.py` §2 names the object exactly — `T = {|2L − 2S| ≤ 2J ≤ 2L + 2S}`,
+join-closed and meet-broken, checked at caps 6, 8, 10, 12 on [0, cap]³. Re-measured independently,
+**the corpus's own four figures come back exactly — 0 joins and 2,862 / 12,489 / 40,887 / 110,229**
+(printed at §29.12 U4 L8289–L8290 and again at §12.11.2 L3387) — and the channel is **K1 at all four
+caps**. The two earlier reconstructions missed it because the object is the *allowed* region itself,
+not the observed triples (K0) nor the allowed-minus-observed residual (K2 then K0).
+
+**And it still does not seat**, on a ground nothing here has been refused on before. `boxinvariance.py`
+hands the same predicate ten different boxes — the observed alphabet, three caps, even-only L, a tiny
+box, a two-valued S, a sparse L, a sparse J, a singleton S, equal L and S alphabets. **K1 at nine of
+ten**, cells running 15 → 1,105 and meets 24 → 110,229 without the channel moving; the tenth is the
+singleton-S box, degenerate because one coordinate takes one value, which makes the chart arity 2 in
+substance and hands it geometry and statistics free (§3c above).
+
+**A channel that does not depend on the data is a property of the rule, not of the elements.** This is
+strictly stronger than the reach gate: that asks whether the channel depends on *where the
+construction stopped*; this asks whether it depends on the data *at all*. T passes the reach gate
+trivially — it passes everywhere — and fails here. Seat it and the index of first-order indexes gains
+a vertex that would sit exactly where it sits in a universe with no atoms in it.
+
+**The test applies to predicate-defined charts only**, and that limit is load-bearing.
+`madelung`'s 170 electrons, `nucshell`'s 22 subshells and `gravity`'s 3,394 nuclide-charge states are
+*enumerated*; there is no other box to hand them, so `applies_to` returns False and the report says
+**NOT-APPLICABLE, which is not a pass**. The reach gate remains their only reach test. What is *not*
+claimed: that T is uninteresting — it is the K1 shape in its purest form, the same join-semilattice
+that `gravity (B, F, X)` is — nor that every predicate-defined chart fails; one whose channel moved
+with the box would seat, and the selftest's vacuity guard shows a different rule giving a different
+channel.
+
+*Superseded — the original docket text follows, kept because it is what the closure answers:*
+
 **DOCKET 24 — an unreproduced K1 candidate over a new member set.** A hunt agent, before dying on
 the same quota, reported *"K1 — one of the four empty channels, stable across four caps"* on the
 U3/U4 allowed sets, having measured the 5,132 LS terms down to **100 distinct observed (2L, 2S, 2J)
