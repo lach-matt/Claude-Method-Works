@@ -178,6 +178,47 @@ added a clause this file had missed:
     parents, so none contains another.  It is implemented and fixtured anyway,
     because it is inert by measurement and not by construction.
 
+3c. WHY K4 IS THE HARD ONE, AND IT IS NOT AN ACCIDENT
+===============================================================================
+
+`statistics` is `D.kdet(S, box, 2)`, and kdet opens with
+
+        if k >= d:
+            return True
+
+SO EVERY ARITY-2 CHART CLOSES `statistics`, WHATEVER IT CONTAINS.  Measured
+over all 283 charts of the eleven: **72 of 72 arity-2 charts close statistics
+and none fails to**, while at arity 3 it is 41 of 82 and by arity 6 it is 0 of
+14.  An arity-2 chart therefore cannot be K0 at all -- the census finds zero --
+and its channel floor is K2.
+
+    NOW LOOK AT WHICH CHANNELS THE LAW PROTECTS FROM THAT.  `hlaw.LAWFUL` has
+    (statistics, geometry), (statistics, algebra) and (statistics, order): if
+    geometry closes, statistics must; if algebra or order closes, statistics
+    must.  So at K5 and K6 the statistics bit is FORCED BY LAW and the free
+    pass changes nothing -- the seatings there stand on geometry and on the
+    order/algebra block, which arity buys nobody.
+
+    K4 = {information, statistics} IS THE ONE CHANNEL WITH NEITHER PROTECTION.
+    Nothing in the law forces statistics from information.  It is the only
+    channel above K1 whose extra content is exactly the bit an arity-2 chart
+    gets for free.
+
+    AND BOTH CHARTS THAT REACHED K4 ARE ARITY 2 -- `ions` (sl, tl) and
+    `madrule` (S_a, l_d), 7 cells and 6 cells.  **No chart of arity 3 or more,
+    anywhere in the 272, reaches K4.**  So neither candidate ever demonstrated
+    statistics as a property of its object; both were handed it by their
+    coordinate count, and what they actually showed is join-closure, which is
+    K1.
+
+    THIS IS NOT A PROOF THAT K4 IS UNREACHABLE and the file does not offer one.
+    An arity-3-or-more chart that is join-closed and genuinely 2-determined,
+    and neither hull-complete nor meet-closed, would sit in K4 having earned
+    every bit of it.  None exists here.  That is what "K4 is empty" means, and
+    it is a sharper statement than two candidates having failed a gate: **the
+    two that reached it reached it at the one arity where half the channel is
+    free.**
+
 ===============================================================================
 4. THE VERDICTS
 ===============================================================================
@@ -346,6 +387,7 @@ Sweeping gravity's D -- its independent variable, not its reach:
 import itertools
 import sys
 
+import hlaw
 import mi
 import registry
 
@@ -694,6 +736,41 @@ def dimension_finding():
     return out
 
 
+def statistics_is_free(d=2, k=2):
+    """Does `statistics` close for free at arity d?  Section 3c.
+
+    THE WITNESS IS THE CUBE MINUS ONE CORNER, {0,1}^d less the all-ones point.
+    Every 2-projection of it is the whole of {0,1}^2, so reconstructing from
+    the 2-projections gives the FULL cube -- one point more than the set.  It
+    is the canonical not-2-determined set at every d >= 3.
+
+    AT d = 2 THE SAME SET IS ALSO NOT 2-DETERMINED BY THAT ARGUMENT, and kdet
+    returns True anyway, because of its opening `if k >= d: return True`.  That
+    is the demonstration: not a set chosen to pass, but the very set that
+    fails at every higher arity, passing at this one.
+    """
+    import decomposable as D
+    full = [tuple(x) for x in itertools.product((0, 1), repeat=d)]
+    X = frozenset(x for x in full if x != tuple([1] * d))
+    return D.kdet(X, D.box_of(X, d), k)
+
+
+def k4_analysis():
+    """(the K4 candidates' arities, whether statistics is law-forced per channel).
+
+    Section 3c.  K4 is the only channel above K1 whose extra bit over K1 is
+    neither forced by the law nor earned at the arity its occupants have.
+    """
+    LAW = set(hlaw.LAWFUL)
+    ch = mi.channels()
+    forced = {}
+    for i, S in enumerate(ch):
+        forced[i] = ("statistics" in S and
+                     any((("statistics", b) in LAW) for b in S))
+    ar = {(p, tuple(c)): len(c) for p, c, k in CANDIDATES if k == 4}
+    return ar, forced
+
+
 def semilattice(parent, cols):
     """(join counterexamples, meet counterexamples, pairs) for a sub-chart."""
     X = sorted(project(parent, cols))
@@ -889,6 +966,20 @@ def selftest():
         dim[("B", "F", "X")][1][2], 1)
     chk("and never moves again through D = 11",
         sorted({k for _d, _n, k in dim[("B", "F", "X")][1:]}), [1])
+
+    # SECTION 3c.  statistics is free at arity 2, and K4 is the one channel
+    # that has neither that protection nor the law's.
+    chk("the cube-minus-a-corner is NOT 2-determined at arity 3",
+        statistics_is_free(3), False)
+    chk("nor at arity 4", statistics_is_free(4), False)
+    chk("AND THE SAME SET PASSES AT ARITY 2 -- statistics is free there",
+        statistics_is_free(2), True)
+    ar, forced = k4_analysis()
+    chk("both K4 candidates are arity 2", sorted(ar.values()), [2, 2])
+    chk("statistics is LAW-FORCED at K5, K6 and K7",
+        [k for k in (5, 6, 7) if not forced[k]], [])
+    chk("and is NOT law-forced at K2 or K4 -- K4 is the exposed one",
+        [k for k in (2, 4) if forced[k]], [])
 
     # THE VACUITY GUARD.  A gate that passes everything measures nothing, and a
     # gate that fails everything measures nothing either.

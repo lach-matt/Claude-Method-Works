@@ -1503,6 +1503,50 @@ def build_overlaprule():
             aria="%s on %s, %d points" % (pp, "/".join(cc), len(pt))))
 
     h.append('''<section>
+  <div class="shead"><span class="snum">06b</span><h2>Why K4 is the hard one,
+  and it is not an accident</h2></div>
+  <p class="sub"><span class="mono">statistics</span> is
+  <span class="mono">D.kdet(S, box, 2)</span>, and kdet opens with
+  <span class="mono">if k &gt;= d: return True</span>.</p>
+  <div class="tablewrap"><table><thead><tr><th class="num">arity</th>
+    <th class="num">closes statistics</th><th class="num">does not</th>
+    </tr></thead><tbody>
+    <tr><td class="num">2</td><td class="num"><b>72</b></td>
+      <td class="num"><b>0</b></td></tr>
+    <tr><td class="num">3</td><td class="num">41</td><td class="num">41</td></tr>
+    <tr><td class="num">4</td><td class="num">11</td><td class="num">60</td></tr>
+    <tr><td class="num">5</td><td class="num">1</td><td class="num">41</td></tr>
+    <tr><td class="num">6</td><td class="num">0</td><td class="num">14</td></tr>
+    <tr><td class="num">7</td><td class="num">0</td><td class="num">2</td></tr>
+    </tbody></table><caption>All 283 charts of the seated indexes. <b>Every
+    arity-2 chart closes statistics and none fails to</b>, so an arity-2 chart
+    cannot be K0 &mdash; its channel floor is K2.</caption></div>
+  <div class="note warn">
+    <span class="lab">K4 is the one channel the law does not protect from that
+    free pass</span>
+    <p><span class="mono">hlaw.LAWFUL</span> holds (statistics,&nbsp;geometry),
+    (statistics,&nbsp;algebra) and (statistics,&nbsp;order): if geometry closes,
+    statistics must; if algebra or order closes, statistics must. <b>At K5 and
+    K6 the statistics bit is forced by law</b>, and those two seatings stand on
+    geometry and on the order/algebra block, which arity buys nobody.</p>
+    <p><b>K4 = {information, statistics} has neither protection.</b> Nothing in
+    the law forces statistics from information &mdash; it is the only channel
+    above K1 whose extra content is exactly the bit arity 2 grants free. And
+    <b>both charts that reached K4 are arity 2</b>: <span class="mono">ions</span>
+    (sl,&nbsp;tl) at 7 cells and <span class="mono">madrule</span>
+    (S_a,&nbsp;l_d) at 6. <b>No chart of arity 3 or more, anywhere in the 272,
+    reaches K4.</b> Neither ever demonstrated statistics as a property of its
+    object; both were handed it by their coordinate count, and what they showed
+    is join-closure &mdash; which is K1.</p>
+    <p style="margin-bottom:0"><b>This is not a proof that K4 is
+    unreachable</b>, and none is offered. An arity-3-or-more chart that is
+    join-closed and genuinely 2-determined, and neither hull-complete nor
+    meet-closed, would sit in K4 having earned every bit of it. None exists
+    here. So &ldquo;K4 is empty&rdquo; is a sharper statement than two
+    candidates failing a gate: <b>the only two that reached it did so at the one
+    arity where half the channel is free.</b></p></div>
+</section>''')
+    h.append('''<section>
   <div class="shead"><span class="snum">07</span><h2>The order of the two tests
   is load-bearing</h2></div>
   <p class="sub">A maximality clause also applies: if a super-chart of the same

@@ -12110,6 +12110,39 @@ variable.
 K4's only two candidates both failed on the reach — that is two failures, not a theorem, and the
 file refuses to call K4 unreachable.
 
+**And K4 being the one that stayed empty is not an accident.** `statistics` is
+`D.kdet(S, box, 2)`, whose first two lines are `if k >= d: return True` — so **every arity-2 chart
+closes statistics whatever it contains**. Measured over all 283 charts: **72 of 72 arity-2 charts
+close it and none fails to**, against 41 of 82 at arity 3 and 0 of 14 at arity 6. An arity-2 chart
+cannot be K0 at all; its channel floor is K2.
+
+Now look at which channels the law protects from that free pass. `hlaw.LAWFUL` contains
+(statistics, geometry), (statistics, algebra) and (statistics, order) — so if geometry closes,
+statistics must, and likewise for the order/algebra block. **At K5 and K6 the statistics bit is
+forced by law**, and those two seatings stand on geometry and on the order/algebra block, which
+arity buys nobody.
+
+**K4 = {information, statistics} is the one channel with neither protection.** Nothing in the law
+forces statistics from information. It is the only channel above K1 whose extra content is exactly
+the bit an arity-2 chart gets free — and **both charts that reached it are arity 2**, `ions` (sl, tl)
+at 7 cells and `madrule` (S_a, l_d) at 6. **No chart of arity 3 or more, anywhere in the 272, reaches
+K4.** So neither candidate ever demonstrated statistics as a property of its object; both were handed
+it by their coordinate count, and what they actually showed is join-closure, which is K1.
+
+That is not a proof K4 is unreachable, and none is offered: an arity-3-or-more chart that is
+join-closed and genuinely 2-determined, and neither hull-complete nor meet-closed, would sit in K4
+having earned every bit of it. None exists here. **"K4 is empty" is therefore a sharper statement
+than two candidates failing a gate — the only two that reached it did so at the one arity where half
+the channel is free.**
+
+**And the two K4 refusals are not the same refusal.** Taking "holds its channel at its widest two
+reaches" as the test M's open-upper-bound ruling implies — *"until we can prove that no more elements
+are left to discover or synthesize, the upper bound of the periodic table is open"* (`mi.py` §3) —
+all three seated charts pass, and of the refused **only `ions` fails**: K4 appears at Z ≤ 108 and at
+nothing before, which is the DOCKET 2 shape. `madrule` holds K4 at both Z ≤ 103 and Z ≤ 108 and is
+refused on the majority condition alone, its other five reaches holding 1 to 5 cells — sizes at which
+every language closes for free. **`madrule` is the likeliest thing here to be re-adjudicated.**
+
 **The order of the two tests is load-bearing.** A maximality clause also applies — if a super-chart
 of the same parent reaches the same channel, the smaller chart repeats its language set and carries
 nothing more. Applied *before* the gate it picks `gravity (B,F,X,E)`, which the gate then kills, and
