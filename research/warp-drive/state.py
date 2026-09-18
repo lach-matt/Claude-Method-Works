@@ -92,15 +92,18 @@ DOCKETS = (
      "findings stand out -- K4 is reached by NOTHING in the whole tree, and "
      "K5 is reached by exactly one chart, the row DOCKET 22 retracted.",
      "Settled for the tree as it stands. A new member set would reopen it."),
-    ("26", "OPEN",
+    ("26", "CLOSED",
      "Is the madelung/fibred family built on a withdrawn table?",
-     "fibred.address calls tools/populate.aufbau_config, whose docstring says "
-     "Register 1306 WITHDREW that table. 25 of 108 addresses differ from the "
-     "banked observed ground configurations and 62 of the 170 lie beyond "
-     "Z=108. At two matched reaches the PARENT falls K7 -> K0 while the "
-     "coarsening holds K6 -> K2.",
-     "A ruling on whether the seated object is the Madelung prediction or the "
-     "observed configurations. It touches two PRE-RULING seated vertices."),
+     "The table was withdrawn as a source of OBSERVED configurations, and it "
+     "remains exactly what its docstring says -- what Madelung PREDICTS -- so "
+     "fibred and madelung are honestly labelled and stay. What was missing "
+     "was the other object. M ruled BOTH, and `observed` is now seated: the "
+     "108 differentiating electrons register 1306 banks, 98 cells at "
+     "(0, 20, 13), K0. 25 of 108 ADDRESSES differ from the prediction and 20 "
+     "of 108 CONFIGURATIONS do -- and those 20 are exactly madrule's "
+     "exceptions. Twelve elements lose occupancy in a subshell, which the "
+     "prediction is monotone and cannot do.",
+     "Settled by ruling. Neither chart supersedes the other."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
@@ -169,6 +172,12 @@ RETRACTIONS = (
      "The test was applicable and had been declared inapplicable instead of "
      "run. Run now: madelung PASSES, the channel moves K6 -> K7 when l<n is "
      "dropped."),
+    ("registry.py", "fibred and madelung described as '170 electrons' with no "
+     "provenance",
+     "INCOMPLETE rather than false. They are the MADELUNG-PREDICTED 170, built "
+     "on a table Register 1306 withdrew as a source of observed "
+     "configurations. Relabelled, and the observed object seated beside them "
+     "-- DOCKET 26."),
     ("overlaprule.py §5", "gravity (B,F,X) has '64 meet counterexamples'",
      "That is the ORDERED count printed beside the UNORDERED pair total. It "
      "is 32 in 325 unordered pairs. The selftest caught it."),

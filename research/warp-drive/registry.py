@@ -90,8 +90,10 @@ METHODS = ("TABLE", "FIBRATION", "RESIDUAL")
 
 # (module, accessor, method, what one member is, THE QUANTUM NUMBERS)
 REGISTERED = (
-    ("fibred", "index", "FIBRATION", "170 electrons", "n, l, k"),
-    ("madelung", "janet", "FIBRATION", "the same 170 electrons", "n+l, l, k"),
+    ("fibred", "index", "FIBRATION", "170 electrons, MADELUNG-PREDICTED",
+     "n, l, k"),
+    ("madelung", "janet", "FIBRATION",
+     "the same 170 electrons, MADELUNG-PREDICTED", "n+l, l, k"),
     ("ions", "index", "TABLE", "98 Lambda-8 transitions",
      "charge, electron count"),
     ("channels", "index", "TABLE", "209 spectroscopic channel shapes",
@@ -119,6 +121,14 @@ REGISTERED = (
     # two parts of the definition each seating carries.  They are seated in
     # that file rather than in their parents so that the rows a ruling put here
     # are visible as such.
+    # DOCKET 26.  M: "both".  `fibred` and `madelung` chart the configuration
+    # MADELUNG PREDICTS; this charts the one register 1306 BANKS AS OBSERVED.
+    # 25 of 108 addresses differ, 20 of 108 configurations do -- and those 20
+    # are exactly `madrule`'s exceptions.  Neither supersedes the other; the
+    # places they part are the finding neither holds alone.  See observed.py.
+    ("observed", "index", "FIBRATION",
+     "108 observed differentiating electrons, register 1306",
+     "n, l, k (observed)"),
     ("overlaprule", "gravity_bound", "TABLE",
      "the same 3,394 nuclide-charge states, on the bound structure alone",
      "horizon-bound class, forced angular momentum, spin-decade rank"),
@@ -312,8 +322,9 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
-    chk("thirteen indexes registered -- eleven, and two the overlap ruling "
-        "seated after DOCKET 22 unseated a third", len(REGISTERED), 13)
+    chk("fourteen indexes registered -- eleven, two the overlap ruling seated "
+        "after DOCKET 22 unseated a third, and one DOCKET 26 added",
+        len(REGISTERED), 14)
     chk("exactly two came from the ruling, and they agree with it",
         sorted((m, a) for m, a, _me, _w, _q in REGISTERED
                if m == "overlaprule"),
@@ -353,6 +364,8 @@ def selftest():
     chk("nucshell seats 22 nuclear subshells", sz["nucshell.index"], 22)
     chk("madrule seats 13 distinct cells", sz["madrule.index"], 13)
     chk("terms seats 112 distinct cells", sz["terms.index"], 112)
+    chk("DOCKET 26's observed fibration seats 98 distinct cells",
+        sz["observed.index"], 98)
     chk("the ruling's gravity coarsening seats 26",
         sz["overlaprule.gravity_bound"], 26)
     chk("the ruling's madelung coarsening seats 82",
