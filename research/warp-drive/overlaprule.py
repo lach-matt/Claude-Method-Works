@@ -752,8 +752,17 @@ def nucshell_lsigma():
 
 
 def madelung_slot():
-    """madelung (n+l, k) -- the Janet collapse, subshell-blind.  K6."""
-    return project(*SEATED_ROWS["madelung_slot"])
+    """madelung (n+l, k) -- the Janet collapse, subshell-blind.  K6.
+
+    CALLS madelung's OWN NAMED ACCESSOR rather than re-deriving the projection.
+    `madelung.k6_chart()` already existed -- section 3 of that file measured
+    this collapse and section 4 declined to seat it pending a ruling -- and the
+    two are identical, which a fixture asserts.  An instrument imports a seated
+    member; it never copies one, and re-projecting when the parent exposes the
+    chart under its own name is a copy by another route.
+    """
+    import madelung
+    return frozenset(madelung.k6_chart())
 
 
 # ------------------------------------------------------------ the census
@@ -1063,6 +1072,15 @@ def selftest():
     chk("gravity (B/F/X) is 26 cells", len(gravity_bound()), 26)
     chk("nucshell (l/sigma) is 12 cells", len(nucshell_lsigma()), 12)
     chk("madelung (n+l/k) is 82 cells", len(madelung_slot()), 82)
+    chk("and it IS madelung.k6_chart, not a re-derivation of it",
+        madelung_slot() == project(*SEATED_ROWS["madelung_slot"]), True)
+    chk("its sibling madelung.k3_chart is the complementary collapse",
+        (len(frozenset(__import__("madelung").k3_chart())),
+         mi.K(frozenset(__import__("madelung").k3_chart()))), (82, 3))
+    chk("K6 and K3 union to all five and meet at statistics alone",
+        (sorted(set(mi.channels()[6]) | set(mi.channels()[3])),
+         sorted(set(mi.channels()[6]) & set(mi.channels()[3]))),
+        (sorted(hlaw.LANGS), ["statistics"]))
     chk("gravity (B/F/X) lands at K1", mi.K(gravity_bound()), 1)
     chk("nucshell (l/sigma) lands at K5", mi.K(nucshell_lsigma()), 5)
     chk("madelung (n+l/k) lands at K6", mi.K(madelung_slot()), 6)
