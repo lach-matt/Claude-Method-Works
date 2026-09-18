@@ -673,10 +673,21 @@ def selftest():
     chk("no OTHER MEMBER SET here is nuclear -- the STRONG test",
         [nm for nm, w in member_types()
          if "nucl" in w.lower() and "nuclide" not in w.lower()], [])
-    chk("and the ruling's coarsening of THIS index is the row it excludes",
+    # A PROPERTY, NOT A PIN.  This asserted two excluded rows while the overlap
+    # ruling's coarsening of this index was seated; DOCKET 22 unseated it, and
+    # a pinned list of names fired on a CORRECT removal.  What must hold is
+    # that the excluded rows are EXACTLY the registry rows over these members,
+    # however many of them there happen to be.
+    import overlaprule as _OR
+    chk("the excluded rows are exactly the registry rows over THESE members",
         [nm for nm, *_r in __import__("registry").rows()
          if nm not in {n for n, _w in member_types()}],
-        ["nucshell.index", "overlaprule.nucshell_lsigma"])
+        [nm for nm, *_r in __import__("registry").rows()
+         if _OR.holds_members_of(nm, "nucshell")])
+    chk("and today that is nucshell.index alone -- the ruling's coarsening of "
+        "it was unseated by DOCKET 22",
+        [nm for nm, *_r in __import__("registry").rows()
+         if nm not in {n for n, _w in member_types()}], ["nucshell.index"])
     # A PROPERTY, NOT A PINNED COUNT.  This tree has now made that mistake
     # five times: the first version of this fixture pinned the exact per-index
     # collision counts, and seating two further arity-3 indexes changed them --

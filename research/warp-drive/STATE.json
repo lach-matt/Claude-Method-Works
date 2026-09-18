@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "0571a2ed5384",
+ "commit": "e617aa82362e",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 13,
+  "rows": 14,
   "indexes": [
    {
     "name": "fibred.index",
@@ -12,7 +12,7 @@
     "accessor": "index",
     "method": "FIBRATION",
     "label": "fibred",
-    "members": "170 electrons",
+    "members": "170 electrons, MADELUNG-PREDICTED",
     "quantum": "n, l, k",
     "cells": 170,
     "cell": [
@@ -33,7 +33,7 @@
     "accessor": "janet",
     "method": "FIBRATION",
     "label": "madelung",
-    "members": "the same 170 electrons",
+    "members": "the same 170 electrons, MADELUNG-PREDICTED",
     "quantum": "n+l, l, k",
     "cells": 170,
     "cell": [
@@ -223,6 +223,24 @@
     "seated_by_overlap_ruling": false
    },
    {
+    "name": "observed.index",
+    "module": "observed",
+    "accessor": "index",
+    "method": "FIBRATION",
+    "label": "observed",
+    "members": "108 observed differentiating electrons, register 1306",
+    "quantum": "n, l, k (observed)",
+    "cells": 98,
+    "cell": [
+     0,
+     20,
+     13
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false
+   },
+   {
     "name": "overlaprule.gravity_bound",
     "module": "overlaprule",
     "accessor": "gravity_bound",
@@ -268,16 +286,16 @@
   ]
  },
  "figure": {
-  "vertices": 13,
-  "distinct_cells": 13,
+  "vertices": 14,
+  "distinct_cells": 14,
   "closers": [],
   "own_cell": [
    0,
    5,
-   5
+   6
   ],
   "own_cell_occupied_by": [],
-  "E": 59,
+  "E": 84,
   "channels_occupied": [
    0,
    1,
@@ -293,20 +311,20 @@
   "resolution": {
    "K": {
     "distinct": 6,
-    "of": 13,
-    "ratio": 0.4615,
+    "of": 14,
+    "ratio": 0.4286,
     "verdict": "measurement"
    },
    "height": {
-    "distinct": 10,
-    "of": 13,
-    "ratio": 0.7692,
+    "distinct": 11,
+    "of": 14,
+    "ratio": 0.7857,
     "verdict": "measurement"
    },
    "width": {
-    "distinct": 11,
-    "of": 13,
-    "ratio": 0.8462,
+    "distinct": 12,
+    "of": 14,
+    "ratio": 0.8571,
     "verdict": "measurement"
    }
   },
@@ -499,6 +517,11 @@
    "measured": "FALSE. All 170 reproduce from {1<=n<=12, 0<=l<n, n+l<=9, 0<=k<2(2l+1)}. The test was applicable and had been declared inapplicable instead of run. Run now: madelung PASSES, the channel moves K6 -> K7 when l<n is dropped."
   },
   {
+   "where": "registry.py",
+   "claimed": "fibred and madelung described as '170 electrons' with no provenance",
+   "measured": "INCOMPLETE rather than false. They are the MADELUNG-PREDICTED 170, built on a table Register 1306 withdrew as a source of observed configurations. Relabelled, and the observed object seated beside them -- DOCKET 26."
+  },
+  {
    "where": "overlaprule.py \u00a75",
    "claimed": "gravity (B,F,X) has '64 meet counterexamples'",
    "measured": "That is the ORDERED count printed beside the UNORDERED pair total. It is 32 in 325 unordered pairs. The selftest caught it."
@@ -540,10 +563,10 @@
   },
   {
    "id": "26",
-   "status": "OPEN",
+   "status": "CLOSED",
    "question": "Is the madelung/fibred family built on a withdrawn table?",
-   "finding": "fibred.address calls tools/populate.aufbau_config, whose docstring says Register 1306 WITHDREW that table. 25 of 108 addresses differ from the banked observed ground configurations and 62 of the 170 lie beyond Z=108. At two matched reaches the PARENT falls K7 -> K0 while the coarsening holds K6 -> K2.",
-   "what_would_settle_it": "A ruling on whether the seated object is the Madelung prediction or the observed configurations. It touches two PRE-RULING seated vertices."
+   "finding": "The table was withdrawn as a source of OBSERVED configurations, and it remains exactly what its docstring says -- what Madelung PREDICTS -- so fibred and madelung are honestly labelled and stay. What was missing was the other object. M ruled BOTH, and `observed` is now seated: the 108 differentiating electrons register 1306 banks, 98 cells at (0, 20, 13), K0. 25 of 108 ADDRESSES differ from the prediction and 20 of 108 CONFIGURATIONS do -- and those 20 are exactly madrule's exceptions. Twelve elements lose occupancy in a subshell, which the prediction is monotone and cannot do.",
+   "what_would_settle_it": "Settled by ruling. Neither chart supersedes the other."
   }
  ],
  "not_claimed": [
