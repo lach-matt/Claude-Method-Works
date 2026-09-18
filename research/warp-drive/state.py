@@ -84,7 +84,7 @@ DOCKETS = (
      "Settled."),
     ("25", "CLOSED",
      "Does the research tree already hold an unseated first-order index?",
-     "NO. Census of every chart-shaped accessor, 231 of 232 modules attempted "
+     "NO. Census of every chart-shaped accessor, all 232 modules attempted "
      "with attempt logging, 44 charts over 31 modules, 24 unseated and not "
      "excused, and NOT ONE is a new first-order index: they are members that "
      "are not elements, alternate charts of already-seated member sets (all "
@@ -107,9 +107,13 @@ DOCKETS = (
 # census that hides its own double-counts is not a census.
 CENSUS = {
     "modules_in_tree": 232,
-    "modules_attempted": 231,
-    "never_attempted": ["state"],
-    "unimportable": ["c333", "pdftext", "render_pdf"],
+    "modules_attempted": 232,
+    "never_attempted": [],
+    "unimportable": ["c333 (needs a module 'common' that is not here)",
+                     "machinecheck (SystemExit at import)",
+                     "pdftext (IndexError -- takes argv)",
+                     "render_pdf (IndexError -- takes argv)"],
+    "imported_but_no_chart": ["state", "machinecheck-vacancy", "mcheck_mi"],
     "charts_found": 44,
     "modules_with_a_chart": 31,
     "unseated_not_excused": 24,
@@ -452,8 +456,10 @@ def selftest():
         S["overlap_ruling"]["candidates"])
     # DOCKET 25's census -- hand-recorded from the sweep logs, so guarded.
     c = S["census"]
-    chk("the census attempted all but one module",
-        c["modules_in_tree"] - c["modules_attempted"], 1)
+    chk("EVERY module in the tree was attempted",
+        c["modules_in_tree"] - c["modules_attempted"], 0)
+    chk("and the four that cannot be imported are named with the reason",
+        [u for u in c["unimportable"] if "(" not in u], [])
     chk("its per-channel counts sum to the chart total",
         sum(c["charts_per_channel"].values()), c["charts_found"])
     chk("K4 is reached by no chart at all", c["charts_per_channel"]["K4"], 0)

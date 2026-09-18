@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "commit": "58ab29e36482",
+ "commit": "0571a2ed5384",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
@@ -349,14 +349,18 @@
  },
  "census": {
   "modules_in_tree": 232,
-  "modules_attempted": 231,
-  "never_attempted": [
-   "state"
-  ],
+  "modules_attempted": 232,
+  "never_attempted": [],
   "unimportable": [
-   "c333",
-   "pdftext",
-   "render_pdf"
+   "c333 (needs a module 'common' that is not here)",
+   "machinecheck (SystemExit at import)",
+   "pdftext (IndexError -- takes argv)",
+   "render_pdf (IndexError -- takes argv)"
+  ],
+  "imported_but_no_chart": [
+   "state",
+   "machinecheck-vacancy",
+   "mcheck_mi"
   ],
   "charts_found": 44,
   "modules_with_a_chart": 31,
@@ -531,7 +535,7 @@
    "id": "25",
    "status": "CLOSED",
    "question": "Does the research tree already hold an unseated first-order index?",
-   "finding": "NO. Census of every chart-shaped accessor, 231 of 232 modules attempted with attempt logging, 44 charts over 31 modules, 24 unseated and not excused, and NOT ONE is a new first-order index: they are members that are not elements, alternate charts of already-seated member sets (all landing in OCCUPIED channels), or withdrawn/duplicate charts. Two findings stand out -- K4 is reached by NOTHING in the whole tree, and K5 is reached by exactly one chart, the row DOCKET 22 retracted.",
+   "finding": "NO. Census of every chart-shaped accessor, all 232 modules attempted with attempt logging, 44 charts over 31 modules, 24 unseated and not excused, and NOT ONE is a new first-order index: they are members that are not elements, alternate charts of already-seated member sets (all landing in OCCUPIED channels), or withdrawn/duplicate charts. Two findings stand out -- K4 is reached by NOTHING in the whole tree, and K5 is reached by exactly one chart, the row DOCKET 22 retracted.",
    "what_would_settle_it": "Settled for the tree as it stands. A new member set would reopen it."
   },
   {
