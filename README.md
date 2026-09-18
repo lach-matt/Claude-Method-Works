@@ -11,7 +11,7 @@ all works for the books
 | [`drive/The Method Prints & Proofs/`](drive/The%20Method%20Prints%20%26%20Proofs/) | Prints and proofs |
 | [`drive/MANIFEST.tsv`](drive/MANIFEST.tsv) | File-by-file inventory: repo path, Drive id, title, size, modified time, md5, status |
 
-**819 of the 823 Drive files are mirrored, every one verified by md5.**
+**822 of the 826 Drive files are mirrored: 819 verified against Drive's own md5, 3 adopted by another route (`ok-adopted`).**
 [`drive/MANIFEST.tsv`](drive/MANIFEST.tsv) inventories them; [`drive/PENDING.tsv`](drive/PENDING.tsv)
 lists the four still outstanding with a reason each. Two are the 370 MB `conversations.json` exports,
 which exceed GitHub's 100 MB per-file limit and need sharding rather than transferring. Two are

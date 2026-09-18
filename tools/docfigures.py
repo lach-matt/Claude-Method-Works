@@ -142,7 +142,7 @@ def checks():
     return [
         ("CLAUDE.md", "members extracted from the bundles", 343,
          len(_rows("method/MEMBER-INDEX.tsv"))),
-        ("CLAUDE.md", "drive/ MANIFEST rows", 820, len(man)),
+        ("CLAUDE.md", "drive/ MANIFEST rows", 822, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,
          len(disk ^ set(man))),
         ("CLAUDE.md", "drive/ rows with status ok", 819,
@@ -179,7 +179,7 @@ def checks():
           max(_build_nums("_main_and_register.md")))),
         ("CLAUDE.md", "figure bundles held", 3,
          sum(1 for p in man if re.search(r"figures_BUILD\d+\.zip$", p))),
-        ("CLAUDE.md", "__<driveFileId> duplicates", 99,
+        ("CLAUDE.md", "__<driveFileId> duplicates", 100,
          sum(1 for p in man if "__" in os.path.basename(p))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
