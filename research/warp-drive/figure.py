@@ -57,11 +57,11 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    14 vertices, 14 distinct cells -- no two seated indexes share a cell
+    13 vertices, 13 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 81
+    E = 59
 
-**ITS OWN CELL IS (0, 5, 6), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 5), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
 
@@ -73,25 +73,36 @@ Three of the fourteen are coarsenings seated by M's overlap ruling; the move is
 stated and gated in `overlaprule.py`.  It is reported here in both directions
 because it cut both ways and a one-sided report would be a lie by selection.
 
-                              11 vertices        14 vertices
-    distinct cells            11                 14
-    channels occupied         4 of 8 (0,2,3,7)   **7 of 8** (all but K4)
+                              11 vertices        13 vertices
+    distinct cells            11                 13
+    channels occupied         4 of 8 (0,2,3,7)   **6 of 8** (all but K4, K5)
     the figure's own closers  {statistics}       **NOTHING**
-    E                         39                 **81**
-    its own cell              (2, 4, 5)          (0, 5, 6)
-    K      resolution         0.364 measurement  0.500 measurement
-    height resolution         0.909 **LABEL**    **0.714 measurement**
-    width  resolution         1.000 **LABEL**    **0.857 measurement**
+    E                         39                 **59**
+    its own cell              (2, 4, 5)          (0, 5, 5)
+    K      resolution         0.364 measurement  0.462 measurement
+    height resolution         0.909 **LABEL**    **0.769 measurement**
+    width  resolution         1.000 **LABEL**    **0.846 measurement**
+
+    IT WAS BRIEFLY FOURTEEN.  A third coarsening, `nucshell (l, sigma)` at K5,
+    was seated and then UNSEATED by DOCKET 22's verification: the same 22
+    members under `(l, 2j)` -- an IDENTICAL partition, and 2j is what
+    `nucshell.order_a()` banks -- land at K7, which is occupied, so the chart
+    had no novel channel at all.  See `overlaprule.py` section 3e.  At fourteen
+    the figures were E 81, own cell (0, 5, 6), resolutions 0.500/0.714/0.857.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
-    statistics; at fourteen it closes under nothing, and E more than doubled.
-    Anyone reading E as progress should read that as a large step backwards.
+    statistics; at thirteen it closes under nothing, and E went 39 to 59.
+    Anyone reading E as progress should read that as a step backwards.
 
     WHAT IT BOUGHT, AND IT IS THE THING SECTION 2 SAID COULD NOT BE REPAIRED.
     At eleven, TWO OF THE THREE AXES WERE ROW LABELS -- height at 0.909 and
-    width perfectly injective at 1.000.  At fourteen BOTH ARE MEASUREMENTS.
-    The three new vertices land at heights and widths the figure already held,
-    so they group where every previous addition separated.
+    width perfectly injective at 1.000.  At thirteen BOTH ARE MEASUREMENTS.
+    Both seated coarsenings land at heights and widths the figure already held
+    -- gravity_bound at width 5, madelung_slot at width 6, against base widths
+    [4,5,6,7,9,12,16,17,18,24,112] -- so they group where every previous
+    addition separated.  THE UNSEATED THIRD HAD WIDTH 2, WHICH WAS NEW: the
+    claim was false while it was seated, and DOCKET 22's correction J caught
+    that independently of the unseating.
 
     THAT WAS NOT THE REASON FOR SEATING THEM and it is not offered as one --
     `overlaprule.py` seats on a novel channel, a non-bijection and a reach
@@ -111,7 +122,7 @@ because it cut both ways and a one-sided report would be a lie by selection.
         width   11 distinct over 11    1.000    **LABEL**
 
 **AT ELEVEN, THE CHART THAT MEASURES EVERY INDEX HERE WAS, APPLIED TO ITSELF,
-TWO ROW LABELS AND ONE MEASUREMENT.**  Section 1b has the fourteen-vertex
+TWO ROW LABELS AND ONE MEASUREMENT.**  Section 1b has the thirteen-vertex
 figures, where both labels have become measurements; this section is kept as
 written because the reasoning in it is what the later measurement tested.  A coordinate separating 90 % or more of the
 members groups nothing and multiplies the box; `overlap.py` exists to catch
@@ -125,8 +136,8 @@ exactly that, and it catches it here.
 
         AND THAT REASONING IS NOW REFUTED, BY THE MEASUREMENT IN SECTION 1b.
         "Approach injectivity by construction" predicted that growth makes it
-        worse.  Three more vertices made it better: height 0.909 -> 0.714,
-        width 1.000 -> 0.857.  The prediction failed because it assumed every
+        worse.  Two more vertices made it better: height 0.909 -> 0.769,
+        width 1.000 -> 0.846.  The prediction failed because it assumed every
         new index brings a new height and a new width, and a COARSENING of a
         seated index does not -- it lands in the part of the poset its parent
         already occupies.  What the argument really showed is that the label
@@ -145,7 +156,7 @@ exactly that, and it catches it here.
 contaminated set was seated in, and no clean trajectory exists yet.  Vertex
 counts are printed, trends are not.
 
-**TO NAME A SHAPE.**  Fourteen vertices is what there are today.  `hexad`,
+**TO NAME A SHAPE.**  Thirteen vertices is what there are today.  `hexad`,
 `octad` and the rest were names for a count that kept moving.
 
 **TO TREAT E AS A TARGET.**  M: "I don't care about closure. I only care that we
@@ -423,9 +434,9 @@ def selftest():
     chk("at fourteen it closes in NOTHING -- the ruling cost it its closure",
         closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 6))
-    chk("seven of the eight channels are occupied; only K4 is not",
-        sorted({c[0] for c in figure()}), [0, 1, 2, 3, 5, 6, 7])
+    chk("it has its own cell", own, (0, 5, 5))
+    chk("six of the eight channels are occupied; K4 and K5 are not",
+        sorted({c[0] for c in figure()}), [0, 1, 2, 3, 6, 7])
     chk("AND NO MEMBER OCCUPIES IT -- it is not one of its own", occ, [])
 
     # -- section 2, the finding growth exposed
@@ -435,9 +446,11 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.7143))
+        (res["height"][1], res["height"][0]), ("measurement", 0.7692))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.8571))
+        (res["width"][1], res["width"][0]), ("measurement", 0.8462))
+    chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
+        "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])
     chk("and the file prints that beside the reading rather than hiding it",
         "LABEL" in open(__file__, encoding="utf-8").read(), True)

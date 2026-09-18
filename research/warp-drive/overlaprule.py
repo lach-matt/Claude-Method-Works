@@ -164,9 +164,10 @@ added a clause this file had missed:
     then K0 then K1 across the Z sweep.
 
     SO THE ORDER DECIDES THE ANSWER.  Maximality first picks (B,F,X,E), the gate
-    then kills it, and K1 ENDS UP EMPTY.  Gate first kills (B,F,X,E), leaving
-    (B,F,X) the only surviving K1 chart of that parent -- maximal among what
-    survived -- and K1 ENDS UP OCCUPIED.
+    then kills it, and K1 ENDS UP EMPTY -- the seating list is K6 alone.  Gate
+    first kills (B,F,X,E), leaving (B,F,X) the only surviving K1 chart of that
+    parent -- maximal among what survived -- and the list is K1 and K6.
+    `order_matters()` returns exactly that pair and a fixture pins it.
 
     THE GATE RUNS FIRST, AND NOT BECAUSE IT GIVES THE FULLER ANSWER.  The gate
     asks whether a channel verdict is a fact about the object; maximality asks
@@ -174,7 +175,7 @@ added a clause this file had missed:
     verdict to be maximal about.  Soundness before redundancy -- otherwise the
     redundancy test is choosing between one real reading and one artefact.
 
-    HERE THE CLAUSE IS INERT.  The three that pass the gate have three different
+    HERE THE CLAUSE IS INERT.  The rows that pass the gate have different
     parents, so none contains another.  It is implemented and fixtured anyway,
     because it is inert by measurement and not by construction.
 
@@ -270,17 +271,73 @@ could reach K4 at an arity where statistics has to be EARNED.  It can.
     reach -- it can, three ways, and the obstacle is provenance rather than
     arithmetic.
 
+3e. DOCKET 22: THE GROUND THAT UNSEATED ONE OF THIS FILE'S OWN ROWS
+===============================================================================
+
+Nine agents, three lenses on each of the three seatings, adversarial and
+read-only.  Two survived every test.  ONE DID NOT, and it fell on a measurement
+none of the grounds above asks for.
+
+    THE SAME 22 MEMBERS, THE SAME 12-FOLD PARTITION, THREE FAITHFUL ADDRESSES:
+
+        nucshell (l, sigma)   12 cells   K5   geometry+information+statistics
+        nucshell (l, 2j)      12 cells   K7   ALL FIVE
+        nucshell (2j, sigma)  12 cells   K7   ALL FIVE
+
+    The fibres are identical -- verified, not assumed.  K7 is OCCUPIED, so
+    under either alternative `ground_novel_channel` returns False and the chart
+    is not a candidate at all.  AND 2j IS THE BANKED PRIMITIVE:
+    `nucshell.order_a()` stores (nr, l, Fraction(j)), and sigma is DERIVED from
+    it.  nucshell.py's stated reason for preferring sigma -- "j is determined
+    by (l, sigma)" -- holds verbatim with the roles swapped, at identical LABEL
+    ratios of 0.3182.
+
+    SO THE K5 WAS A FACT ABOUT WHICH NAME WAS WRITTEN DOWN.  `ground_
+    coordinate_forced` is that test: two addresses inducing the IDENTICAL
+    partition of the IDENTICAL members are one chart written twice, and if one
+    reaches an empty channel while the other reaches an occupied one, the
+    channel is not a property of the object.
+
+    THE OTHER TWO PASS IT, and that was checked before the unseating rather
+    than assumed.  `madelung (n+l, k)`: three alternative pairs over the
+    quantities fibred banks -- (k, S), (k, S+k), (S, S+k) -- induce the same
+    82 fibres and ALL land at K6.  `gravity (B, F, X)`: the rank encoding and
+    the raw-decade encoding induce the same 26 fibres and both land at K1,
+    which is `gravity.encoding_sensitivity()`'s question asked of the
+    coarsening.
+
+    THE PARENT IS UNTOUCHED.  (nr, l, sigma) and (nr, l, 2j) are both K3, so
+    no pre-ruling vertex moves.  The fault was the coarsening's alone.
+
+    WHAT IT COST TO PUT RIGHT: the figure goes 14 -> 13 vertices, E 81 -> 59,
+    K5 empties, and BOTH resolution axes stay measurements -- so figure.py
+    section 1b's gain was not carried by the vertex that fell.
+
+    AND A SECOND, INDEPENDENT GROUND AGAINST THE SAME ROW, found by the same
+    pass: section 5's nucshell part B said "the radial node count is what
+    breaks join-closure".  Measured, (nr, sigma) is 6 cells at K7 with ZERO
+    join counterexamples -- forgetting `l` restores join-closure exactly as
+    forgetting `nr` does.  The attribution was false whatever the channel did.
+
 ===============================================================================
 4. THE VERDICTS
 ===============================================================================
 
-    SEATED, three:
+    SEATED, two:
 
     madelung (n+l, k)     K6    82 cells    gate 7/7    parent K7 at (n+l,l,k)
-    nucshell (l, sigma)   K5    12 cells    gate 6/7    parent K3 at (nr,l,sigma)
     gravity  (B, F, X)    K1    26 cells    gate 6/6    parent K0 at seven
 
-    REFUSED, three, each recorded so it can be re-adjudicated:
+    madelung's "7/7" IS AT COMPLETE n+l SHELL REACHES, which is the schedule
+    `SWEEPS` samples.  The two unsampled degenerate reaches (2 and 4 electrons)
+    are K7; over all nine it is 7/9 and still passes.  Quoted with its schedule
+    because 7/7 reads like seven independent checks and is not.
+
+    REFUSED, four, each recorded so it can be re-adjudicated:
+
+    nucshell (l, sigma) K5  COORDINATE NOT FORCED.  SEATED AND THEN UNSEATED --
+                       section 3e.  The identical partition under (l, 2j) is
+                       K7, which is occupied, and 2j is the banked primitive.
 
     gravity (B,F,X,E)  K1   OSCILLATES.  K1, K0, K1, K1, K1, K1 across
                        Z <= 20/40/60/80/100/118.  The arity-4 extension of a
@@ -317,7 +374,11 @@ information" is not a part of a definition and is not offered as one.
 
     MADELUNG.  Part A: every one of the 170 electrons has a unique address in
     (fill-order shell, subshell, slot), and the realised addresses close in all
-    five languages -- a complete rectangle, which closes everything for free.
+    five languages.  THAT K7 IS NOT FREE, and an earlier draft of this sentence
+    said it was: the chart is 170 cells in an 810-cell box, density 0.2099, not
+    a complete rectangle and not even a down-set of the product order.  Its
+    sibling `fibred` (n, l, k) holds the same 170 members at the same arity and
+    the same density and is K3.  (DOCKET 22, correction A.)
     Part B: forget the subshell.  The 170 collapse onto 82 fill-order-shell/slot
     positions, and THAT set closes in order, algebra, information and
     statistics but NOT geometry.  Its sibling (n, k) -- the same collapse from
@@ -341,9 +402,25 @@ information" is not a part of a definition and is not offered as one.
         operator is satisfied, which a complete rectangle achieves trivially."  A
         chart that closes everything for free says nothing about which of its
         closures the structure earns.  The collapse is the only way to ask, and
-        the answer is that the fill-order base carries the order and algebra
-        block and does NOT carry geometry.  The parent cannot say that, because
-        the parent says yes to everything.  So the second part of the definition
+        the answer is that the fill-order-shell/slot COLLAPSE carries the
+        order and algebra block and does NOT carry geometry.  THE BASE ALONE
+        DOES NOT DECIDE THIS -- paired with l instead of k the same base is K7.
+        The parent's three arity-2 projections are (n+l, l) 25 cells K7,
+        (n+l, k) 82 cells K6 and (l, k) 50 cells K7: ONE K7 PARENT, THREE
+        DIFFERENT ANSWERS, and that non-derivability is the measurement the
+        argument needs -- not the rectangle premise, which is false.
+        (DOCKET 22, correction B.)
+
+        AND THE CHANNEL IS WEAKLY DISCRIMINATING AT THIS SHAPE, which is worth
+        saying against this file's own interest.  398 of 400 random monotone
+        nine-row staircases summing to 82 in the same box are also K6.  What is
+        specific to the electrons was measured separately: remove the flats in
+        the row lengths (2,2,6,6,10,10,14,14,18) and it is K7; drop the l < n
+        rule so the lengths run 4S-2 and it is K7.  The flats ARE the
+        fill-order-shell doubling and l < n IS the hydrogenic constraint, so
+        the physics is real -- but it lives in those two facts and not in the
+        phrase "closes order, algebra, information, not geometry".
+        (Correction C.)  So the second part of the definition
         is not a language gained -- it is WHICH OF THE PARENT'S FIVE WERE REAL,
         and that is information about the electrons, not about the chart.
 
@@ -354,15 +431,14 @@ information" is not a part of a definition and is not offered as one.
         pair is an argument available to a reader, not a vertex in the figure.
         The seating stands on the K7-probe argument alone.
 
-    NUCSHELL.  Part A: the 22 nuclear single-particle subshells, addressed by
-    (radial nodes, orbital angular momentum, spin-orbit sign), close geometry
-    and statistics.  Part B: forget the radial node count.  The realised
-    (l, sigma) pairs close geometry, statistics AND information -- join-closure
-    is GAINED by forgetting nr.  Physically: any two realised
-    orbital-angular-momentum/spin-orbit-alignment combinations have a realised
-    combination above both, while the full three-coordinate address does not.
-    The radial node count is what breaks join-closure in the nuclear shell
-    sequence, and neither chart alone says that.
+    NUCSHELL -- WITHDRAWN, DOCKET 22.  This paragraph claimed that forgetting
+    the radial node count is what restores join-closure in the nuclear shell
+    sequence.  IT IS FALSE AS MEASURED: (nr, sigma) is 6 cells at K7 with ZERO
+    join counterexamples, so forgetting `l` restores join-closure exactly as
+    completely as forgetting `nr` does, and the attribution singles out
+    nothing.  The row was unseated for a prior and independent reason --
+    section 3e, the coordinate is not forced -- but this physics was wrong on
+    its own and would have had to go either way.
 
     GRAVITY.  Part A: the full seven-coordinate nuclide-dimension chart closes
     in NOTHING -- it is ragged in every language.  Part B: the
@@ -375,8 +451,14 @@ information" is not a part of a definition and is not offered as one.
     for any two realised (bound class, forced J, spin decade) combinations
     there is a realised combination at least as constrained as both, and not
     always one at most as constrained as both.  So the raggedness of the full
-    chart lives in D, Y, L and E, and NOT in the bound structure, which is the
-    part a warp-metric reading would need.  Neither chart alone locates it.
+    chart is CARRIED BY D, Y, L and E: their own projection has 112 cells, K2,
+    and 256 join counterexamples, against the bound triple's ZERO.  That is the
+    operative comparison and it is measured.  THE STRONG READING IS FALSE and
+    is withdrawn: 509 of the parent's 96,372 join failures are witnessed by
+    pairs differing only in (B, F, X), so the bound structure is not innocent.
+    Those 509 fail as a CROSS-BLOCK interaction -- the join's own bound triple
+    is realised elsewhere in the chart -- which is why the triple's own
+    projection still has no join failure of its own.  (DOCKET 22, correction E.)
 
 ===============================================================================
 6. THE DIMENSION FINDING, WHICH IS NOT PART OF ANY GATE
@@ -399,6 +481,13 @@ Sweeping gravity's D -- its independent variable, not its reach:
     charting: the ultraspinning threshold is VISIBLE IN THE CLOSURE ALGEBRA, at
     the dimension the theorem names, without the closure operators being told
     anything about dimension.
+
+    AND THE READING IS OFF CUMULATIVE SWEEPS, WHICH NEVER EXPOSE A K0.  Per
+    single dimension the picture is different and is recorded here rather than
+    left for someone to find: D = 4 alone is K7 (11 cells), D = 5 alone is K1
+    (17), and D = 6 through 11 are EACH K0 (17 cells, 5 join counterexamples).
+    The seated K1 is the union over D and holds at no single dimension above
+    five.  (DOCKET 22, correction F.)
 
     THIS FILE DOES NOT CLAIM MORE THAN THAT.  It is one threshold in one index,
     it was found by sweeping a variable rather than predicted, and no mechanism
@@ -653,12 +742,81 @@ def ground_maximal(parent, cols, among=None):
     return True
 
 
+# Alternative FAITHFUL addresses of a parent's members: quantities the parent
+# already banks, from which a re-coordinatisation can be built.  Section 3e.
+ALT_COORDS = {
+    "nucshell": ("nr", "l", "sigma", "2j"),
+    "madelung": ("n", "l", "k", "S", "n-l", "2n", "l+k", "S+k"),
+    "gravity":  ("D", "B", "F", "X", "Y", "L", "E"),
+}
+
+
+def _alt_rows(parent):
+    """[{quantity: value}] over the parent's members, in the ALT_COORDS basis."""
+    if parent == "nucshell":
+        import nucshell
+        return [{"nr": nr, "l": l, "sigma": int(2 * (j - l)), "2j": int(2 * j)}
+                for nr, l, j in nucshell.order_a()]
+    if parent == "madelung":
+        import fibred
+        return [{"n": n, "l": l, "k": k, "S": n + l, "n-l": n - l, "2n": 2 * n,
+                 "l+k": l + k, "S+k": n + l + k}
+                for n, l, k in fibred.addresses().values()]
+    if parent == "gravity":
+        import gravity
+        NB = {"D": 0, "B": 1, "F": 2, "X": 3, "Y": 4, "L": 5, "E": 6}
+        return [{k: c[i] for k, i in NB.items()} for _m, c in gravity.rows()]
+    raise KeyError(parent)
+
+
+def _partition(rows, ks):
+    d = {}
+    for i, r in enumerate(rows):
+        d.setdefault(tuple(r[k] for k in ks), []).append(i)
+    return (frozenset(frozenset(v) for v in d.values()),
+            frozenset(tuple(r[k] for k in ks) for r in rows))
+
+
+def recoordinatisations(parent, cols):
+    """[(cols, cells, K)] for every alternative address inducing the SAME fibres.
+
+    Section 3e.  The seated chart is included; anything else here partitions the
+    parent's members exactly as it does, by other names.
+    """
+    if parent not in ALT_COORDS:
+        return None
+    rows = _alt_rows(parent)
+    base, _X = _partition(rows, [{"n+l": "S"}.get(c, c) for c in cols])
+    out = []
+    for combo in itertools.combinations(ALT_COORDS[parent], len(cols)):
+        pt, X = _partition(rows, combo)
+        if pt == base:
+            out.append((combo, len(X), mi.K(X)))
+    return out
+
+
+def ground_coordinate_forced(parent, cols):
+    """Does the novel channel survive a faithful RE-COORDINATISATION?
+
+    Section 3e, and it is the ground DOCKET 22 found by unseating a row this
+    file had already seated.  Two addresses that induce the IDENTICAL partition
+    of the identical members are the same chart written twice; if one reaches an
+    empty channel and the other an occupied one, the channel is a fact about
+    which name was written down.
+    """
+    alts = recoordinatisations(parent, cols)
+    if alts is None:
+        return True                       # no alternative basis banked: untested
+    return len({k for _c, _n, k in alts}) == 1
+
+
 def grounds(parent, cols):
-    """{ground: bool} for the three SOUNDNESS grounds.  Maximality is not one."""
+    """{ground: bool} for the SOUNDNESS grounds.  Maximality is not one."""
     return {
         "novel channel": ground_novel_channel(parent, cols),
         "not a relabelling": ground_not_relabelling(parent, cols),
         "reach stable": ground_reach_stable(parent, cols)[0],
+        "coordinate forced": ground_coordinate_forced(parent, cols),
     }
 
 
@@ -719,14 +877,23 @@ def refused():
 # else, and the row's MODULE no longer says whose members it holds.
 SEATED_ROWS = {
     "gravity_bound":   ("gravity",  ("B", "F", "X")),
-    "nucshell_lsigma": ("nucshell", ("l", "sigma")),
     "madelung_slot":   ("madelung", ("n+l", "k")),
+}
+
+# UNSEATED BY DOCKET 22, and kept here so the accessor still resolves for
+# anyone re-adjudicating it.  Section 3e is the ground.
+UNSEATED_ROWS = {
+    "nucshell_lsigma": ("nucshell", ("l", "sigma")),
 }
 
 
 def parent_of(accessor):
-    """Whose members does this ruling's row hold?  None if not one of ours."""
-    r = SEATED_ROWS.get(accessor)
+    """Whose members does this ruling's row hold?  None if not one of ours.
+
+    Answers for UNSEATED rows too -- the question is whose members a chart
+    holds, which does not change when it stops being seated.
+    """
+    r = SEATED_ROWS.get(accessor) or UNSEATED_ROWS.get(accessor)
     return r[0] if r else None
 
 
@@ -742,13 +909,23 @@ def holds_members_of(name, parent):
 
 
 def gravity_bound():
-    """gravity (B, F, X) -- the bound structure, dimension-blind.  K1."""
+    """gravity (B, F, X) -- the bound structure with D dropped.  K1.
+
+    NOT "dimension-blind", which an earlier docstring claimed: B is a function
+    of (D, q, F, Jzero) and its profile differs at D = 4, at D = 5 and at
+    D >= 6.  Dropping D pools those, it does not make the chart independent of
+    them.  DOCKET 22, correction G.
+    """
     return project(*SEATED_ROWS["gravity_bound"])
 
 
 def nucshell_lsigma():
-    """nucshell (l, sigma) -- the nuclear subshells, radially blind.  K5."""
-    return project(*SEATED_ROWS["nucshell_lsigma"])
+    """nucshell (l, sigma) -- 12 cells, K5.  UNSEATED, DOCKET 22, section 3e.
+
+    Kept callable because the finding is about it and a refusal that cannot be
+    re-measured is not a record.  It is NOT in the registry.
+    """
+    return project(*UNSEATED_ROWS["nucshell_lsigma"])
 
 
 def madelung_slot():
@@ -1016,7 +1193,7 @@ def selftest():
         [c for c in CANDIDATES if not ground_not_relabelling(c[0], c[1])], [])
 
     # the gate, and that it REFUSES -- a rule that admits everything is none
-    chk("the reach gate refuses three of six", len(refused()), 3)
+    chk("FOUR of the six are refused, after DOCKET 22", len(refused()), 4)
     chk("it refuses gravity (B/F/X/E) for oscillation",
         ground_reach_stable("gravity", ("B", "F", "X", "E"))[4], True)
     chk("it refuses ions (sl/tl) for late arrival",
@@ -1050,12 +1227,12 @@ def selftest():
     chk("but (B/F/X) does NOT clear it among ALL candidates",
         ground_maximal("gravity", ("B", "F", "X"),
                        [(p, tuple(c)) for p, c, _k in CANDIDATES]), False)
-    chk("so the order decides: gate-first K1/K5/K6, maximality-first K5/K6",
-        order_matters(), ([1, 5, 6], [5, 6]))
+    chk("so the order decides: gate-first K1/K6, maximality-first K6 alone",
+        order_matters(), ([1, 6], [6]))
 
     # what seats, and where
     seats = admissible()
-    chk("three seat", len(seats), 3)
+    chk("two seat", len(seats), 2)
     chk("SEATED_ROWS agrees with what the gate admits",
         sorted((p, c) for p, c, _k, _n in seats),
         sorted(SEATED_ROWS.values()))
@@ -1064,13 +1241,15 @@ def selftest():
          if not holds_members_of("%s.%s" % (SELF, a), parent_of(a))], [])
     chk("and holds_members_of does NOT claim a row of another parent",
         holds_members_of("overlaprule.nucshell_lsigma", "gravity"), False)
-    chk("they occupy K1, K5 and K6", sorted(k for _p, _c, k, _n in seats),
-        [1, 5, 6])
+    chk("they occupy K1 and K6", sorted(k for _p, _c, k, _n in seats), [1, 6])
+    chk("K5 is empty again -- DOCKET 22 unseated its only occupant",
+        5 in {k for _p, _c, k, _n in seats}, False)
     chk("K4 is reached by two candidates and seated by neither",
         sorted(c[2] for c in CANDIDATES if c[2] == 4), [4, 4])
     chk("K4 stays empty", 4 in {k for _p, _c, k, _n in seats}, False)
     chk("gravity (B/F/X) is 26 cells", len(gravity_bound()), 26)
-    chk("nucshell (l/sigma) is 12 cells", len(nucshell_lsigma()), 12)
+    chk("the UNSEATED nucshell (l/sigma) is still 12 cells and still K5",
+        (len(nucshell_lsigma()), mi.K(nucshell_lsigma())), (12, 5))
     chk("madelung (n+l/k) is 82 cells", len(madelung_slot()), 82)
     chk("and it IS madelung.k6_chart, not a re-derivation of it",
         madelung_slot() == project(*SEATED_ROWS["madelung_slot"]), True)
@@ -1082,7 +1261,21 @@ def selftest():
          sorted(set(mi.channels()[6]) & set(mi.channels()[3]))),
         (sorted(hlaw.LANGS), ["statistics"]))
     chk("gravity (B/F/X) lands at K1", mi.K(gravity_bound()), 1)
-    chk("nucshell (l/sigma) lands at K5", mi.K(nucshell_lsigma()), 5)
+    # SECTION 3e.  The ground that unseated it, and that the other two pass.
+    chk("nucshell (l/sigma) FAILS coordinate-forced -- the identical partition "
+        "under (l, 2j) is K7", ground_coordinate_forced("nucshell",
+                                                        ("l", "sigma")), False)
+    chk("and the channels its re-coordinatisations reach are K5 AND K7",
+        sorted({k for _c, _n, k in recoordinatisations("nucshell",
+                                                       ("l", "sigma"))}),
+        [5, 7])
+    chk("madelung (n+l/k) passes it -- every same-partition address is K6",
+        sorted({k for _c, _n, k in recoordinatisations("madelung",
+                                                       ("n+l", "k"))}), [6])
+    chk("gravity (B/F/X) passes it", ground_coordinate_forced(
+        "gravity", ("B", "F", "X")), True)
+    chk("the parent is untouched: (nr,l,sigma) and (nr,l,2j) are both K3",
+        sorted({mi.K(project("nucshell", ("nr", "l", "sigma")))}), [3])
     chk("madelung (n+l/k) lands at K6", mi.K(madelung_slot()), 6)
 
     # the K1 shape, which is the recipe section 5 names

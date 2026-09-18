@@ -122,9 +122,11 @@ REGISTERED = (
     ("overlaprule", "gravity_bound", "TABLE",
      "the same 3,394 nuclide-charge states, on the bound structure alone",
      "horizon-bound class, forced angular momentum, spin-decade rank"),
-    ("overlaprule", "nucshell_lsigma", "TABLE",
-     "the same 22 nuclear subshells, radially blind",
-     "l, spin-orbit sign (nuclear)"),
+    # UNSEATED BY DOCKET 22.  ("overlaprule", "nucshell_lsigma", ...) sat here.
+    # The same 22 members under (l, 2j) -- an IDENTICAL partition, and 2j is
+    # what order_a() actually banks -- land at K7, which is occupied, so the
+    # chart has no novel channel and was never a candidate.  The K5 was a fact
+    # about writing the second coordinate as sigma.  overlaprule.py section 3e.
     ("overlaprule", "madelung_slot", "FIBRATION",
      "the same 170 electrons, subshell-blind",
      "n+l, k"),
@@ -310,13 +312,12 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
-    chk("fourteen indexes registered -- eleven, and three the overlap ruling "
-        "seated", len(REGISTERED), 14)
-    chk("exactly three came from the ruling, and they agree with it",
+    chk("thirteen indexes registered -- eleven, and two the overlap ruling "
+        "seated after DOCKET 22 unseated a third", len(REGISTERED), 13)
+    chk("exactly two came from the ruling, and they agree with it",
         sorted((m, a) for m, a, _me, _w, _q in REGISTERED
                if m == "overlaprule"),
-        [("overlaprule", "gravity_bound"), ("overlaprule", "madelung_slot"),
-         ("overlaprule", "nucshell_lsigma")])
+        [("overlaprule", "gravity_bound"), ("overlaprule", "madelung_slot")])
     chk("every one names its quantum numbers",
         [n for n, *_r in rows() if not _r[4].strip()], [])
     chk("every method is known",
@@ -324,9 +325,9 @@ def selftest():
     chk("names are unique", len({n for n, *_r in rows()}), len(rows()))
     chk("SHORT labels are unique too -- three rows share one module now",
         short_is_unique(), [])
-    chk("and the three that do are labelled by their accessor",
+    chk("and the two that do are labelled by their accessor",
         sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
-        ["gravity_bound", "madelung_slot", "nucshell_lsigma"])
+        ["gravity_bound", "madelung_slot"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
     chk("six modules are excused, with reasons", len(NOT_AN_INDEX), 6)
     chk("every excuse is non-empty",
@@ -354,8 +355,6 @@ def selftest():
     chk("terms seats 112 distinct cells", sz["terms.index"], 112)
     chk("the ruling's gravity coarsening seats 26",
         sz["overlaprule.gravity_bound"], 26)
-    chk("the ruling's nucshell coarsening seats 12",
-        sz["overlaprule.nucshell_lsigma"], 12)
     chk("the ruling's madelung coarsening seats 82",
         sz["overlaprule.madelung_slot"], 82)
     chk("completeness is not claimed", COMPLETE, False)

@@ -88,8 +88,11 @@ coordinate is the physics rather than a re-encoding of it.
     22 members, 22 distinct cells -- the chart is FAITHFUL -- box 42.
     No coordinate is a LABEL: nr 0.1364, l 0.3182, sigma 0.0909.
 
-**IT CLOSES UNDER GEOMETRY AND STATISTICS.**  That is channel K7 in this tree's
-numbering, and it is the only seated index of arity 3 to reach it.
+**IT CLOSES UNDER GEOMETRY AND STATISTICS.**  That is channel K3 in this tree's
+numbering -- NOT K7, and it is not alone there: `fibred.index` is a second
+seated arity-3 index at K3.  (Both halves of the old sentence were false and
+this file's own selftest already pinned the cell at (3, 7, 6), which is K3.
+DOCKET 22 found it.)
 
 ===============================================================================
 3. WHAT WAS MEASURED AND REFUSED AS A COORDINATE
