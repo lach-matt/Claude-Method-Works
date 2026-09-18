@@ -102,6 +102,38 @@ own data reach:
     is swept in section 5 and reported as a finding, and it is a better finding
     than the gate it is not part of.
 
+    THE STRONGEST OBJECTION TO THIS GATE, AND WHY IT DOES NOT LAND.  For
+    `ions` the sweep runs to Z <= 108, which is the whole of LW1-ground.py's
+    table -- so the intermediate reaches look like truncations this file
+    imposed, and the terminal one looks like the complete object whose verdict
+    should simply be believed.  If that were right, "K4 only at the terminal
+    reach" would be no fault at all.
+
+        IT IS NOT RIGHT, AND M RULED WHY.  mi.py section 3 quotes him: "until
+        we can prove that no more elements are left to discover or synthesize,
+        the upper bound of the periodic table is open."  SO Z <= 108 IS NOT A
+        COMPLETE OBJECT.  It is where the data stops, and a chart whose channel
+        first appears at the last element anyone has made is a chart one new
+        element can move again.  That is precisely the risk the gate exists to
+        price, and DOCKET 2's 2-D chart is the case where it was paid.
+
+        THE OTHER FIVE ARE UNAFFECTED BY THE SAME ARGUMENT, and checking that
+        rather than assuming it turned up a distinction worth keeping.  Take
+        "holds its channel at its widest TWO reaches" as the open-upper-bound
+        test -- a verdict already confirmed by one more element's worth of data
+        is not a verdict the next element invents.  All three SEATED charts
+        pass it.  Of the refused, ONLY `ions` fails it: K4 appears at Z <= 108
+        and at nothing before.  `madrule` holds K4 at both Z <= 103 and
+        Z <= 108 and PASSES this test -- it is refused on the majority
+        condition alone, 2 of 7, with its other five reaches holding 1, 2, 3, 4
+        and 5 cells, sizes at which every language closes for free.
+
+        SO THE TWO K4 REFUSALS ARE NOT THE SAME REFUSAL, and the file should
+        not pretend they are.  `ions` is the DOCKET 2 shape.  `madrule` is a
+        chart too small to have said anything yet, whose 20 exceptions saturate
+        at Z = 103 and which a few new elements could move either way.  Of
+        everything refused here, madrule is the one most likely to come back.
+
     AN EARLIER FORM OF THIS GATE CALLED A REACH DEGENERATE WHEN SOME COORDINATE
     HAD NOT YET TAKEN EVERY VALUE IT TAKES AT FULL REACH.  It is recorded here
     because it is wrong and the way it is wrong is instructive: for a chart
@@ -168,7 +200,11 @@ added a clause this file had missed:
     madrule (S_a, l_d) K4   NO MAJORITY.  K4 at 2 of 7 reaches.  The five
                        earlier reaches hold 1, 2, 3, 4 and 5 cells and close in
                        all five languages, which a chart that small does for
-                       free.
+                       free.  IT IS THE WEAKEST OF THE THREE REFUSALS: it holds
+                       K4 at its widest two reaches, so unlike `ions` it passes
+                       the open-upper-bound test in section 3, and it is
+                       refused on the count alone.  The likeliest of anything
+                       here to be re-adjudicated.
 
     SO K1, K5 AND K6 BECOME OCCUPIED AND K4 DOES NOT.  The empty channel that
     remains is the one whose only two candidates both failed on the reach, and
@@ -794,6 +830,19 @@ def selftest():
         ground_reach_stable("ions", ("sl", "tl"))[3], True)
     chk("it refuses madrule (S_a/l_d) for want of a majority",
         ground_reach_stable("madrule", ("S_a", "l_d"))[5], False)
+    # THE OPEN UPPER BOUND.  M: "until we can prove that no more elements are
+    # left to discover or synthesize, the upper bound of the periodic table is
+    # open."  A verdict holding at every available reach survives one more; a
+    # verdict arriving at the last available reach does not.  Section 3.
+    chk("every SEATED chart holds its channel at its widest TWO reaches",
+        [(p, c) for p, c in sound()
+         if [k for _l, _n, k in reach_sweep(p, c)][-2:]
+         != [mi.K(project(p, c))] * 2], [])
+    chk("of the refused, only ions fails that too -- madrule holds K4 at its "
+        "widest two and is refused on the majority alone",
+        sorted(p for p, c, _w in refused()
+               if [k for _l, _n, k in reach_sweep(p, c)][-2:]
+               != [mi.K(project(p, c))] * 2), ["ions"])
     chk("gravity (B/F/X) passes at every one of its six reaches",
         ground_reach_stable("gravity", ("B", "F", "X"))[1:3], (6, 6))
     chk("nucshell (l/sigma) passes at six of seven",
