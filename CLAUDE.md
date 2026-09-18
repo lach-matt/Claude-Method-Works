@@ -10,7 +10,7 @@ chat opens by reading this tree — `python3 method/verify.py` asserts every mem
 both bundles. Start here. See `method/README.md`.
 
 **`drive/` is a read-only mirror** of two Google Drive folders — the archive and the original-input
-witness, not the read path. **820 files, ~842 MB**, and `drive/MANIFEST.tsv` inventories every one of
+witness, not the read path. **822 files, ~842 MB**, and `drive/MANIFEST.tsv` inventories every one of
 them (repo path, Drive id, title, mime type, size, modified time, md5, status), all with status `ok`
 — or **`ok-adopted`** for a file recorded by `drive_sync.py --adopt`, which takes a copy fetched by
 another route and cannot compare Drive's own md5, so it never claims `ok`.
@@ -221,8 +221,12 @@ about 6 MB. Do not read or grep the tree wholesale: start from `MANIFEST.tsv`, t
 - Uppercase topic prefixes on notes: `REWRITE-`, `HANDOFF-`, `REGISTER-`, `RULING-`, `FILL-`,
   `STORE-`, `READING-`, `LIMITS-`, `REPAIR-`, `PROPOSED-`, `MERGE-` — e.g. `REWRITE-chapter10-void.md`, `REGISTER-QUEUE-APPEND-batch1.md`.
 - A few ordered notes use `NN-topic.md` (`01-fill-limit.md`, `03-fill-value.md`).
-- A `__<driveFileId>` suffix (**99 files**) marks an older Drive copy of a duplicated title; the
-  newest copy keeps the plain name. Both are intentional — do not merge or delete either.
+- A `__<driveFileId>` suffix (**100 files**) marks an older Drive copy of a duplicated title; the
+  newest copy keeps the plain name. Both are intentional — do not merge or delete either. One
+  exception, by decision: `LOWDIN-DELIVERY-1/MANIFEST__1t0dHJHZomGeCbag-oFVYJ72NeDAanTP_.tsv` is the
+  **newer** copy (the delivery's manifest reissued 2026-09-18 with the reply's row), adopted under its
+  id because `--adopt` refuses a path held by another Drive id; the next full sync pass applies the
+  rule and swaps the names.
 
 ## If asked to change the corpus
 
