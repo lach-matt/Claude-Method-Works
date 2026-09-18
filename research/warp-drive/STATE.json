@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "commit": "b2605e4d7391",
+ "commit": "58ab29e36482",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
@@ -347,6 +347,38 @@
    "statistics"
   ]
  },
+ "census": {
+  "modules_in_tree": 232,
+  "modules_attempted": 231,
+  "never_attempted": [
+   "state"
+  ],
+  "unimportable": [
+   "c333",
+   "pdftext",
+   "render_pdf"
+  ],
+  "charts_found": 44,
+  "modules_with_a_chart": 31,
+  "unseated_not_excused": 24,
+  "new_first_order_indexes": 0,
+  "charts_per_channel": {
+   "K0": 15,
+   "K1": 1,
+   "K2": 10,
+   "K3": 7,
+   "K4": 0,
+   "K5": 1,
+   "K6": 2,
+   "K7": 8
+  },
+  "K4_reached_by": "nothing in the tree -- 0 of 44 charts over 231 modules",
+  "K5_reached_by": "exactly one chart, overlaprule.nucshell_lsigma, which DOCKET 22 retracted",
+  "artifacts_of_the_census": [
+   "madelung.k6_chart is listed unseated but IS the seated madelung_slot under its other accessor name -- the census keys on (module, accessor) and double-counts it",
+   "boxinvariance.madelung_predicate at K3 is a helper written during this work that reproduces fibred's members, not a discovery"
+  ]
+ },
  "overlap_ruling": {
   "grounds": [
    "novel channel",
@@ -497,10 +529,10 @@
   },
   {
    "id": "25",
-   "status": "OPEN",
+   "status": "CLOSED",
    "question": "Does the research tree already hold an unseated first-order index?",
-   "finding": "A census of every chart-shaped accessor over all 231 modules, with attempt logging so coverage is a fact rather than an inference.",
-   "what_would_settle_it": "Completing the census and adjudicating anything it finds."
+   "finding": "NO. Census of every chart-shaped accessor, 231 of 232 modules attempted with attempt logging, 44 charts over 31 modules, 24 unseated and not excused, and NOT ONE is a new first-order index: they are members that are not elements, alternate charts of already-seated member sets (all landing in OCCUPIED channels), or withdrawn/duplicate charts. Two findings stand out -- K4 is reached by NOTHING in the whole tree, and K5 is reached by exactly one chart, the row DOCKET 22 retracted.",
+   "what_would_settle_it": "Settled for the tree as it stands. A new member set would reopen it."
   },
   {
    "id": "26",

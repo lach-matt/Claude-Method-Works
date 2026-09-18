@@ -82,11 +82,16 @@ DOCKETS = (
      "the corpus's own figures at §29.12 U4. Refused as a theorem: the channel "
      "is K1 at nine of ten boxes, so it does not depend on the data.",
      "Settled."),
-    ("25", "OPEN",
+    ("25", "CLOSED",
      "Does the research tree already hold an unseated first-order index?",
-     "A census of every chart-shaped accessor over all 231 modules, with "
-     "attempt logging so coverage is a fact rather than an inference.",
-     "Completing the census and adjudicating anything it finds."),
+     "NO. Census of every chart-shaped accessor, 231 of 232 modules attempted "
+     "with attempt logging, 44 charts over 31 modules, 24 unseated and not "
+     "excused, and NOT ONE is a new first-order index: they are members that "
+     "are not elements, alternate charts of already-seated member sets (all "
+     "landing in OCCUPIED channels), or withdrawn/duplicate charts. Two "
+     "findings stand out -- K4 is reached by NOTHING in the whole tree, and "
+     "K5 is reached by exactly one chart, the row DOCKET 22 retracted.",
+     "Settled for the tree as it stands. A new member set would reopen it."),
     ("26", "OPEN",
      "Is the madelung/fibred family built on a withdrawn table?",
      "fibred.address calls tools/populate.aufbau_config, whose docstring says "
@@ -97,6 +102,31 @@ DOCKETS = (
      "A ruling on whether the seated object is the Madelung prediction or the "
      "observed configurations. It touches two PRE-RULING seated vertices."),
 )
+
+# DOCKET 25's census, as measured.  The two artifact rows are named because a
+# census that hides its own double-counts is not a census.
+CENSUS = {
+    "modules_in_tree": 232,
+    "modules_attempted": 231,
+    "never_attempted": ["state"],
+    "unimportable": ["c333", "pdftext", "render_pdf"],
+    "charts_found": 44,
+    "modules_with_a_chart": 31,
+    "unseated_not_excused": 24,
+    "new_first_order_indexes": 0,
+    "charts_per_channel": {"K0": 15, "K1": 1, "K2": 10, "K3": 7, "K4": 0,
+                           "K5": 1, "K6": 2, "K7": 8},
+    "K4_reached_by": "nothing in the tree -- 0 of 44 charts over 231 modules",
+    "K5_reached_by": "exactly one chart, overlaprule.nucshell_lsigma, which "
+                     "DOCKET 22 retracted",
+    "artifacts_of_the_census": [
+        "madelung.k6_chart is listed unseated but IS the seated "
+        "madelung_slot under its other accessor name -- the census keys on "
+        "(module, accessor) and double-counts it",
+        "boxinvariance.madelung_predicate at K3 is a helper written during "
+        "this work that reproduces fibred's members, not a discovery",
+    ],
+}
 
 # Things this tree asserted and then measured to be false.  Generated where it
 # can be -- the unseating is read from overlaprule -- and quoted where the
@@ -210,6 +240,7 @@ def state():
             "labelled_axes": sorted(figure.labelled_axes()),
         },
         "channels": {"K%d" % i: sorted(s) for i, s in enumerate(ch)},
+        "census": CENSUS,
         "overlap_ruling": {
             "grounds": ["novel channel", "not a relabelling", "reach stable",
                         "coordinate forced"],
@@ -298,6 +329,33 @@ def to_markdown(S):
     for r in S["retractions"]:
         L.append("- **%s** claimed *%s*. %s" % (r["where"], r["claimed"],
                                                 r["measured"]))
+    L.append("")
+    c = S["census"]
+    L.append("## The census (DOCKET 25)")
+    L.append("")
+    L.append("Every chart-shaped accessor in the research tree, with attempt "
+             "logging so coverage is measured rather than inferred.")
+    L.append("")
+    L.append("| | |")
+    L.append("|---|---|")
+    L.append("| modules attempted | %d of %d |"
+             % (c["modules_attempted"], c["modules_in_tree"]))
+    L.append("| charts found | %d over %d modules |"
+             % (c["charts_found"], c["modules_with_a_chart"]))
+    L.append("| unseated and not excused | %d |" % c["unseated_not_excused"])
+    L.append("| **new first-order indexes** | **%d** |"
+             % c["new_first_order_indexes"])
+    L.append("| K4 | %s |" % c["K4_reached_by"])
+    L.append("| K5 | %s |" % c["K5_reached_by"])
+    L.append("")
+    L.append("Charts per channel: " + ", ".join(
+        "%s %d" % (k, v) for k, v in c["charts_per_channel"].items()) + ".")
+    L.append("")
+    L.append("Artifacts of the census itself, named because a census that "
+             "hides its own double-counts is not a census:")
+    L.append("")
+    for a in c["artifacts_of_the_census"]:
+        L.append("- %s" % a)
     L.append("")
     L.append("## Dockets")
     L.append("")
@@ -392,6 +450,20 @@ def selftest():
         len(S["overlap_ruling"]["seated"])
         + len(S["overlap_ruling"]["refused"]),
         S["overlap_ruling"]["candidates"])
+    # DOCKET 25's census -- hand-recorded from the sweep logs, so guarded.
+    c = S["census"]
+    chk("the census attempted all but one module",
+        c["modules_in_tree"] - c["modules_attempted"], 1)
+    chk("its per-channel counts sum to the chart total",
+        sum(c["charts_per_channel"].values()), c["charts_found"])
+    chk("K4 is reached by no chart at all", c["charts_per_channel"]["K4"], 0)
+    chk("K5 by exactly one -- the retracted row",
+        c["charts_per_channel"]["K5"], 1)
+    chk("and every channel the FIGURE occupies has at least one chart",
+        [k for k in S["figure"]["channels_occupied"]
+         if c["charts_per_channel"]["K%d" % k] == 0], [])
+    chk("the census names its own artifacts",
+        len(c["artifacts_of_the_census"]) > 0, True)
     chk("markdown renders without raising", bool(to_markdown(S)), True)
     print("state selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
