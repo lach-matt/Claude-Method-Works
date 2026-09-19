@@ -5448,26 +5448,49 @@ var SOLVERS, LIB;
       .replace(/([⁰¹²³⁴⁵⁶⁷⁸⁹]*)([⁺⁻])/g, function (_m, d, sg) { return '^' + d.split('').map(function (c) { return SUP[c]; }).join('') + SUP[sg]; })
       .replace(/[−–]/g, '-').replace(/\s+/g, '');
   }
-  function parseFormula(text) {
-    // {counts: {El: n}, charge, phase, errors: []}; D and T count as H and are noted
-    var out = { counts: {}, charge: 0, phase: null, errors: [], notes: [] };
+  var ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8 };
+  var SUBS = '₀₁₂₃₄₅₆₇₈₉', SUPS = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+  function typesetFormula(f, charge) {
+    // digits after a letter or a closing bracket are subscripts; the charge is a superscript
+    var t = f.replace(/([A-Za-z\)\]])(\d+)/g, function (_m, a, d) { return a + d.split('').map(function (c) { return SUBS[+c]; }).join(''); });
+    if (charge) t += (Math.abs(charge) > 1 ? String(Math.abs(charge)).split('').map(function (c) { return SUPS[+c]; }).join('') : '') + (charge > 0 ? '⁺' : '⁻');
+    return t;
+  }
+  function parseFormula(text, reading) {
+    // {counts: {El: n}, charge, phase, errors: [], notes: [], typeset, ambiguous}
+    // reading: 'charge' or 'subscript', for a plain "X<digits><sign>" after a single element
+    // symbol, which the text alone cannot decide: Fe3+ is iron(III) but N3- is azide and I3-
+    // triiodide. The default is the charge reading, the alternative is recorded, and the
+    // balancer and the check try the other where the default cannot balance.
+    var out = { counts: {}, charge: 0, phase: null, errors: [], notes: [], ambiguous: null, typeset: '' };
     var f = normaliseFormula(text);
     var ph = f.match(/\((s|l|g|aq|cr|am)\)$/i);
     if (ph) { out.phase = ph[1].toLowerCase(); f = f.slice(0, -ph[0].length); }
-    // the charge. Explicit: ^2+, {2+}, ²⁺. Plain "Fe3+" is read as charge 3 when what precedes the
-    // digits is a single element symbol (a monatomic ion), and "MnO4-" as a subscript and charge
-    // 1 otherwise; "Hg2^2+" and "O2^-" need the caret. The convention is stated in the mode.
-    var ch = f.match(/\^\{?(\d*)([+-])\}?$/) || f.match(/\{(\d*)([+-])\}$/);
-    if (ch) { out.charge = (ch[1] ? parseInt(ch[1], 10) : 1) * (ch[2] === '+' ? 1 : -1); f = f.slice(0, -ch[0].length); }
-    else {
-      ch = f.match(/(\d*)([+-])$/);
-      if (ch) {
-        var before = f.slice(0, -ch[0].length);
-        if (ch[1] && /^[A-Z][a-z]?$/.test(before)) { out.charge = parseInt(ch[1], 10) * (ch[2] === '+' ? 1 : -1); f = before; }
-        else { out.charge = ch[2] === '+' ? 1 : -1; f = f.slice(0, -1); }
+    var ch = f.match(/\^\{?(\d*)([+-])\}?$/) || f.match(/[\{\(](\d*)([+-])[\}\)]$/) || f.match(/([+-])(\d+)$/);
+    if (ch) {
+      var mag, sg;
+      if (/^[+-]\d+$/.test(ch[0])) { sg = ch[1]; mag = ch[2]; } else { mag = ch[1]; sg = ch[2]; }
+      out.charge = (mag ? parseInt(mag, 10) : 1) * (sg === '+' ? 1 : -1); f = f.slice(0, -ch[0].length);
+    } else {
+      var rm = f.match(/^([A-Z][a-z]?)\((I{1,3}|IV|VI{0,3}|VIII)\)$/);
+      if (rm) { out.charge = ROMAN[rm[2]]; f = rm[1]; out.notes.push(rm[1] + '(' + rm[2] + ') read as the ion ' + rm[1] + '^' + ROMAN[rm[2]] + '+'); }
+      else {
+        ch = f.match(/(\d*)([+-])$/);
+        if (ch) {
+          var before = f.slice(0, -ch[0].length);
+          if (ch[1] && /^[A-Z][a-z]?$/.test(before)) {
+            var asCharge = { counts: {}, charge: parseInt(ch[1], 10) * (ch[2] === '+' ? 1 : -1), f: before },
+                asSub = { counts: {}, charge: ch[2] === '+' ? 1 : -1, f: before + ch[1] };
+            asCharge.counts[before] = 1; asSub.counts[before] = parseInt(ch[1], 10);
+            var use = reading === 'subscript' ? asSub : asCharge, alt = reading === 'subscript' ? asCharge : asSub;
+            out.charge = use.charge; f = use.f;
+            out.ambiguous = { readAs: reading === 'subscript' ? 'subscript' : 'charge', alt: { counts: alt.counts, charge: alt.charge, typeset: typesetFormula(alt.f, alt.charge) },
+              spellings: { charge: before + '^' + ch[1] + ch[2], subscript: before + ch[1] + '^' + ch[2] } };
+          } else { out.charge = ch[2] === '+' ? 1 : -1; f = f.slice(0, -1); }
+        }
       }
     }
-    if (f === 'e' || f === '') { if (f === 'e') { if (!ch) out.errors.push('an electron needs its charge, e-'); } else out.errors.push('empty formula'); return out; }
+    if (f === 'e' || f === '') { if (f === 'e') { if (!ch) out.errors.push('an electron needs its charge, e-'); out.typeset = 'e⁻'; } else out.errors.push('empty formula'); return out; }
     var parts = f.split(/[·*]/);
     parts.forEach(function (part, pi) {
       var mult = 1;
@@ -5493,26 +5516,66 @@ var SOLVERS, LIB;
       if (stack.length !== 1) { out.errors.push('unbalanced bracket'); return; }
       Object.keys(stack[0]).forEach(function (el) { out.counts[el] = (out.counts[el] || 0) + stack[0][el] * mult; });
     });
+    out.typeset = typesetFormula(f, out.charge) + (out.phase ? '(' + out.phase + ')' : '');
     return out;
   }
-  function parseSide(text) {
+  function describeReading(sp) {
+    // "Fe³⁺: Fe 1, charge +3" -- how a species was read, for the rows that show it
+    var els = Object.keys(sp.counts).map(function (e) { return e + ' ' + sp.counts[e]; }).join(', ');
+    return sp.typeset + ': ' + (els || 'no atoms') + ', charge ' + (sp.charge > 0 ? '+' : '') + sp.charge;
+  }
+  function parseSide(text, readings) {
+    readings = readings || {};
     return text.split(/\s\+\s|\s\+$|^\+\s/).map(function (t) { return t.trim(); }).filter(Boolean).map(function (t) {
       var m = t.match(/^(\d+(?:\.\d+)?|\d+\/\d+)\s*(.*)$/), coef = 1, formula = t;
       if (m && m[2]) { coef = m[1].indexOf('/') >= 0 ? parseInt(m[1].split('/')[0], 10) / parseInt(m[1].split('/')[1], 10) : parseFloat(m[1]); formula = m[2]; }
-      var f = parseFormula(formula);
-      return { coef: coef, formula: formula, counts: f.counts, charge: f.charge, phase: f.phase, errors: f.errors, notes: f.notes };
+      var f = parseFormula(formula, readings[normaliseFormula(formula)]);
+      return { coef: coef, formula: formula, counts: f.counts, charge: f.charge, phase: f.phase, errors: f.errors, notes: f.notes, typeset: f.typeset, ambiguous: f.ambiguous };
     });
   }
-  function parseEquation(text) {
+  function parseEquation(text, readings) {
     var t = String(text).trim().replace(/\s+/g, ' ');
     var arrow = t.match(/\s(→|⟶|->|—>|⇌|⇄|<=>|↔|⟷|=)\s/);
     if (!arrow) return { error: 'no arrow found: write reactants → products (→, ->, = or ⇌), with spaces around + signs' };
     var idx = t.indexOf(arrow[0]);
-    return { arrow: arrow[1], reactants: parseSide(t.slice(0, idx)), products: parseSide(t.slice(idx + arrow[0].length)) };
+    return { arrow: arrow[1], reactants: parseSide(t.slice(0, idx), readings), products: parseSide(t.slice(idx + arrow[0].length), readings) };
   }
-  function checkEquation(text) {
-    var eq = parseEquation(text);
+  function ambiguousSpecies(eq) {
+    var out = {};
+    eq.reactants.concat(eq.products).forEach(function (sp) { if (sp.ambiguous) out[normaliseFormula(sp.formula)] = sp; });
+    return Object.keys(out);
+  }
+  function readingCombos(keys) {
+    // every assignment of charge/subscript to the ambiguous species, default first; capped
+    keys = keys.slice(0, 6);
+    var combos = [];
+    for (var mask = 0; mask < (1 << keys.length); mask++) {
+      var r = {}; keys.forEach(function (k, i) { r[k] = (mask >> i) & 1 ? 'subscript' : 'charge'; });
+      combos.push(r);
+    }
+    return combos;
+  }
+  function readingNotes(eq) {
+    return eq.reactants.concat(eq.products).filter(function (sp) { return sp.ambiguous; }).map(function (sp) {
+      return sp.formula + ' read as ' + sp.typeset + ' (' + sp.ambiguous.readAs + '); the other reading, ' + sp.ambiguous.alt.typeset + ', is written ' + sp.ambiguous.spellings[sp.ambiguous.readAs === 'charge' ? 'subscript' : 'charge'];
+    });
+  }
+  function checkEquation(text, readings) {
+    var eq = parseEquation(text, readings);
     if (eq.error) return { ok: false, error: eq.error, text: text };
+    if (!readings) {
+      var amb = ambiguousSpecies(eq);
+      if (amb.length) {
+        var combos = readingCombos(amb), first = null;
+        for (var ci = 0; ci < combos.length; ci++) {
+          var r = checkEquation(text, combos[ci]);
+          if (ci === 0) first = r;
+          if (r.balanced) { if (ci > 0) r.notes = r.notes.concat(['balanced under the other reading of an ambiguous ion: ' + readingNotes(parseEquation(text, combos[ci])).join('; ')]); r.readings = combos[ci]; return r; }
+        }
+        first.notes = first.notes.concat(readingNotes(eq)); first.readings = combos[0];
+        return first;
+      }
+    }
     var tally = {}, chargeL = 0, chargeR = 0, errors = [], notes = [];
     function add(side, sign) {
       side.forEach(function (sp) {
@@ -5526,6 +5589,8 @@ var SOLVERS, LIB;
     var balancedAtoms = atoms.every(function (a) { return a.ok; }), balancedCharge = Math.abs(chargeL - chargeR) < 1e-9;
     return { ok: errors.length === 0, text: text, arrow: eq.arrow, reactants: eq.reactants, products: eq.products, atoms: atoms,
       charge: { left: chargeL, right: chargeR, ok: balancedCharge }, balanced: errors.length === 0 && balancedAtoms && balancedCharge,
+      readings: readings || {}, readAs: eq.reactants.concat(eq.products).map(describeReading),
+      typeset: eq.reactants.map(function (sp) { return (sp.coef === 1 ? '' : sp.coef + ' ') + sp.typeset; }).join(' + ') + ' → ' + eq.products.map(function (sp) { return (sp.coef === 1 ? '' : sp.coef + ' ') + sp.typeset; }).join(' + '),
       errors: errors, notes: notes.filter(function (n, i, a) { return a.indexOf(n) === i; }) };
   }
 
@@ -5654,17 +5719,36 @@ var SOLVERS, LIB;
   var MEDIUM_SPECIES = { acidic: ['H+', 'H2O'], basic: ['OH-', 'H2O'], none: [] };
   function balanceEquation(text, options) {
     options = options || {};
-    var eq = parseEquation(text);
-    if (eq.error) return { ok: false, error: eq.error };
+    var eq0 = parseEquation(text);
+    if (eq0.error) return { ok: false, error: eq0.error };
+    var amb = ambiguousSpecies(eq0);
+    if (amb.length && !options.readings) {
+      // try every reading of the ambiguous ions; use the one that balances, and say so
+      var combos = readingCombos(amb), results = [];
+      for (var ci = 0; ci < combos.length; ci++) {
+        var rr = balanceEquation(text, Object.assign({}, options, { readings: combos[ci] }));
+        results.push(rr);
+        if (rr.ok) {
+          if (ci > 0) rr.readingNote = 'balanced under the other reading of an ambiguous ion: ' + readingNotes(parseEquation(text, combos[ci])).join('; ');
+          else rr.readingNote = readingNotes(eq0).join('; ');
+          var others = results.slice(0, ci).filter(function (x) { return x.ok; });
+          if (others.length) rr.readingNote += '; another reading also balances: ' + others[0].balanced;
+          return rr;
+        }
+      }
+      results[0].readingNote = readingNotes(eq0).join('; ') + '; no reading of the ambiguous ions balances';
+      return results[0];
+    }
+    var eq = parseEquation(text, options.readings);
     var species = [];
-    eq.reactants.forEach(function (sp) { species.push({ formula: sp.formula, counts: sp.counts, charge: sp.charge, side: 0, given: true, errors: sp.errors }); });
-    eq.products.forEach(function (sp) { species.push({ formula: sp.formula, counts: sp.counts, charge: sp.charge, side: 1, given: true, errors: sp.errors }); });
+    eq.reactants.forEach(function (sp) { species.push({ formula: sp.formula, counts: sp.counts, charge: sp.charge, side: 0, given: true, errors: sp.errors, typeset: sp.typeset }); });
+    eq.products.forEach(function (sp) { species.push({ formula: sp.formula, counts: sp.counts, charge: sp.charge, side: 1, given: true, errors: sp.errors, typeset: sp.typeset }); });
     var bad = species.filter(function (sp) { return sp.errors.length; });
     if (bad.length) return { ok: false, error: bad.map(function (sp) { return sp.formula + ': ' + sp.errors.join('; '); }).join(' · ') };
     var have = {}; species.forEach(function (sp) { have[normaliseFormula(sp.formula)] = true; });
     var extra = (MEDIUM_SPECIES[options.medium] || []).concat(options.halfReaction ? ['e-'] : []);
     var added = [];
-    extra.forEach(function (f) { if (!have[normaliseFormula(f)]) { var pf = parseFormula(f); species.push({ formula: f, counts: pf.counts, charge: pf.charge, side: 0, given: false, errors: [] }); added.push(f); } });
+    extra.forEach(function (f) { if (!have[normaliseFormula(f)]) { var pf = parseFormula(f); species.push({ formula: f, counts: pf.counts, charge: pf.charge, side: 0, given: false, errors: [], typeset: pf.typeset }); added.push(f); } });
     function solve(list) {
       var els = {}; list.forEach(function (sp) { Object.keys(sp.counts).forEach(function (e) { els[e] = 1; }); });
       var rows = Object.keys(els).sort().map(function (e) { return list.map(function (sp) { return fr(BigInt((sp.side === 0 ? 1 : -1) * (sp.counts[e] || 0))); }); });
@@ -5696,9 +5780,13 @@ var SOLVERS, LIB;
     var L = [], R = [];
     species.forEach(function (sp, i) { if (coef[i] === 0) return; var t = (coef[i] === 1 ? '' : coef[i] + ' ') + sp.formula; (sp.side === 0 ? L : R).push(t); });
     out.balanced = L.join(' + ') + ' → ' + R.join(' + ');
+    var TL = [], TR = [];
+    species.forEach(function (sp, i) { if (coef[i] === 0) return; var t = (coef[i] === 1 ? '' : coef[i] + ' ') + sp.typeset; (sp.side === 0 ? TL : TR).push(t); });
+    out.typeset = TL.join(' + ') + ' → ' + TR.join(' + ');
+    out.readAs = species.map(describeReading);
     var e = species.findIndex(function (sp) { return normaliseFormula(sp.formula) === 'e-'; });
     if (e >= 0 && coef[e]) out.electrons = { n: coef[e], side: species[e].side === 0 ? 'gained (reduction)' : 'lost (oxidation)' };
-    out.check = checkEquation(out.balanced);
+    out.check = checkEquation(out.balanced, options.readings);
     return out;
   }
 
@@ -5707,7 +5795,7 @@ var SOLVERS, LIB;
     title: 'Balance a chemical equation',
     status: DERIVED,
     statusNote: 'The algebraic method, exact: conservation of every element and of charge as a linear system over the species given, its nullspace computed in rational arithmetic, the smallest whole-number solution. Redox in water by adding H+/H2O or OH-/H2O; half-reactions by adding e-. Nothing is guessed: species that cannot balance are said to, and species that admit more than one reaction get the basis, not a choice.',
-    description: 'Give the species: reactants → products, with charges as Fe3+, Cr2O7^2-, e-. The convention: a plain digit and sign after a single element symbol is the charge (Fe3+); after a polyatomic formula the digit is a subscript and the charge is one (MnO4-); any other charge takes a caret (SO4^2-, Hg2^2+, O2^-) or a superscript (SO₄²⁻). The mode balances by conservation of every element and of charge, exactly. For a redox reaction in water choose the medium: acidic adds H⁺ and H₂O, basic adds OH⁻ and H₂O, each only where needed and on whichever side the arithmetic puts it. A half-reaction allows e⁻, and the electrons transferred are reported. If the species admit no balance, or more than one, the mode says so and does not invent a species or pick a reaction. The result is then tallied by the equation check, so the balancer is checked by an instrument that is not itself.',
+    description: 'Give the species: reactants → products, with charges as Fe3+, Cr2O7^2-, e-. Charges in any usual notation: Fe3+, Fe^3+, Fe{3+}, Fe(3+), Fe+3, Fe³⁺ or Fe(III); MnO4-, SO4^2-, SO4-2, SO4(2-), SO₄²⁻. A plain digit and sign after a single element symbol is the one ambiguous form (Fe3+ is iron(III), but N3- is azide and I3- triiodide): the mode reads it as a charge, shows every reading it made, and where that reading cannot balance and the other can it uses the other and says so. The mode balances by conservation of every element and of charge, exactly. For a redox reaction in water choose the medium: acidic adds H⁺ and H₂O, basic adds OH⁻ and H₂O, each only where needed and on whichever side the arithmetic puts it. A half-reaction allows e⁻, and the electrons transferred are reported. If the species admit no balance, or more than one, the mode says so and does not invent a species or pick a reaction. The result is then tallied by the equation check, so the balancer is checked by an instrument that is not itself.',
     inputs: [{ name: 'equation', label: 'species', type: 'textarea', default: 'MnO4- + Fe2+ → Mn2+ + Fe3+', help: 'reactants → products; spaces around +' },
              { name: 'medium', label: 'medium', type: 'select', default: 'acidic', options: [{ value: 'none', label: 'as written' }, { value: 'acidic', label: 'acidic (H⁺, H₂O)' }, { value: 'basic', label: 'basic (OH⁻, H₂O)' }] },
              { name: 'half', label: 'half-reaction', type: 'select', default: 'no', options: [{ value: 'no', label: 'no' }, { value: 'yes', label: 'yes: allow e⁻' }] }],
@@ -5717,9 +5805,14 @@ var SOLVERS, LIB;
       var rows = [];
       if (!r.ok) {
         if (r.basis) r.basis.forEach(function (v, i) { rows.push(row('basis ' + (i + 1), r.species.map(function (sp, j) { return v[j] ? v[j] + '·' + sp.formula : null; }).filter(Boolean).join(', '), DERIVED, 'a coefficient vector; a negative entry means the other side')); });
+        if (r.readAs) r.readAs.forEach(function (d, i) { rows.push(row('read ' + r.species[i].formula, d, null, 'how the species was read')); });
+        if (r.readingNote) rows.push(row('ambiguous ion', r.readingNote, DERIVED));
         return { rows: rows, ok: false, message: r.error };
       }
       rows.push(row('balanced', r.balanced, DERIVED, 'smallest whole-number coefficients; the species are typed, not a figure of the index'));
+      rows.push(row('typeset', r.typeset, DERIVED));
+      r.readAs.forEach(function (d, i) { rows.push(row('read ' + r.species[i].formula, d, null, r.species[i].given ? 'how the species was read' : 'added')); });
+      if (r.readingNote) rows.push(row('ambiguous ion', r.readingNote, DERIVED, 'a plain digit and sign after one element symbol: Fe3+ is a charge, I3- a subscript; write the caret form to be explicit'));
       r.coefficients.forEach(function (c) { rows.push(row((c.side === 0 ? 'reactant ' : 'product ') + c.formula, c.coefficient, DERIVED, c.given ? undefined : 'added for the ' + r.medium + ' medium' + (normaliseFormula(c.formula) === 'e-' ? ' (electrons)' : ''))); });
       if (r.added.length) rows.push(row('added', r.added.join(', '), DERIVED, 'each on the side the arithmetic put it; none where not needed'));
       if (r.electrons) rows.push(row('electrons', r.electrons.n + ' ' + r.electrons.side, DERIVED, 'the half-reaction\'s transfer'));
@@ -5750,6 +5843,10 @@ var SOLVERS, LIB;
       ck.eq('two independent reactions are reported as a basis, not chosen', (amb.ok === false) && amb.dimension === 2 && amb.basis.length === 2, true);
       ck.eq('a species that must cross the arrow is reported, not moved', /other side/.test(balanceEquation('H2O → H2 + O2 + H2O2').error || '') || balanceEquation('H2O → H2 + O2 + H2O2').dimension === 2, true);
       ck.eq('the balanced result passes the equation check', balanceEquation('Cr2O7^2- + Fe2+ → Cr3+ + Fe3+', { medium: 'acidic' }).check.balanced, true);
+      ck.eq('an ambiguous ion is read the way that balances, and the reading is said: triiodide', (function () { var r = balanceEquation('I2 + I- → I3-'); return r.balanced + ' | ' + (/other reading/.test(r.readingNote || '')); })(), 'I2 + I- → I3- | true');
+      ck.eq('sign-first and roman notations balance the same redox', co('Fe+2 + Ce(IV) → Fe(III) + Ce+3'), 'Fe+2 + Ce(IV) → Fe(III) + Ce+3');
+      ck.eq('the typeset balance', balanceEquation('MnO4- + Fe2+ → Mn2+ + Fe3+', { medium: 'acidic' }).typeset, 'MnO₄⁻ + 5 Fe²⁺ + 8 H⁺ → Mn²⁺ + 5 Fe³⁺ + 4 H₂O');
+      ck.eq('every species reports how it was read', balanceEquation('Fe3+ + e- → Fe2+').readAs.join(' | '), 'Fe³⁺: Fe 1, charge +3 | e⁻: no atoms, charge -1 | Fe²⁺: Fe 1, charge +2');
       return ck.result();
     }
   };
@@ -5759,13 +5856,15 @@ var SOLVERS, LIB;
     title: 'Chemical equation check',
     status: DERIVED,
     statusNote: 'Deterministic: conservation of every element and of charge, checked over an equation another author wrote; each element linked to its record. The page writes no chemistry.',
-    description: 'Paste a chemical equation (→, ->, = or ⇌; spaces around + signs; charges as Fe3+, SO4^2-, e-; hydrates with ·). The mode tallies every element on each side and the charge, says whether the equation balances, and links each element to its record in the index. It does not balance the equation for you: a finding is recorded, never repaired.',
+    description: 'Paste a chemical equation (→, ->, = or ⇌; spaces around + signs; charges as Fe3+, SO4^2-, Fe(III), SO₄²⁻, e-; hydrates with ·). The mode shows how it read every species, tallies every element on each side and the charge, says whether the equation balances, and links each element to its record in the index. It does not balance the equation for you: a finding is recorded, never repaired.',
     inputs: [{ name: 'equation', label: 'equation', type: 'textarea', default: '2 H2 + O2 → 2 H2O', help: 'one equation' }],
     source: { instrument: 'checkEquation', file: 'public/script.js' },
     run: async function (values, ctx) {
       var r = checkEquation(values.equation || '');
       if (r.error) return fail(r.error);
       var rows = [];
+      rows.push(row('typeset', r.typeset, null, 'as read'));
+      r.readAs.forEach(function (d) { rows.push(row('read', d, null)); });
       r.atoms.forEach(function (a) {
         var e = ctx.index && ctx.index.layout ? ctx.index.layout.find(function (x) { return x.Z === a.Z; }) : null;
         rows.push(row(a.element + ' (Z = ' + (a.Z || '?') + ')', a.left + ' → ' + a.right + (a.ok ? '' : '  UNBALANCED'), DERIVED, e ? 'in the index: ' + (e.name || e.symbol) + (e.populated ? ', populated' : ', spectra rows only') : 'not an element of the index'));
@@ -5787,6 +5886,11 @@ var SOLVERS, LIB;
       ck.eq('MnO4^- + 8 H+ + 5 Fe2+ → Mn2+ + 5 Fe3+ + 4 H2O', checkEquation('MnO4^- + 8 H+ + 5 Fe2+ → Mn2+ + 5 Fe3+ + 4 H2O').balanced, true);
       ck.eq('an unknown symbol is an error, not a guess', checkEquation('Xx + O2 → XxO2').errors.length > 0, true);
       ck.eq('Fe3+ is a monatomic ion of charge 3; MnO4- a polyatomic ion of charge 1; O2^- needs the caret', [parseFormula('Fe3+').charge, parseFormula('MnO4-').charge, parseFormula('MnO4-').counts.O, parseFormula('O2^-').charge, parseFormula('O2^-').counts.O, parseFormula('Hg2^2+').charge].join(','), '3,-1,4,-1,2,2');
+      ck.eq('every usual charge notation reads the same ion', ['Fe^3+', 'Fe{3+}', 'Fe(3+)', 'Fe+3', 'Fe³⁺', 'Fe(III)'].map(function (f) { return parseFormula(f).charge; }).join(','), '3,3,3,3,3,3');
+      ck.eq('and for a polyatomic ion', ['SO4^2-', 'SO4-2', 'SO4(2-)', 'SO₄²⁻', 'SO4{2-}'].map(function (f) { var r = parseFormula(f); return r.charge + '/' + r.counts.O; }).join(','), '-2/4,-2/4,-2/4,-2/4,-2/4');
+      ck.eq('a plain digit and sign after one symbol is ambiguous and both readings are kept', (function () { var r = parseFormula('I3-'); return r.charge + ',' + r.counts.I + ',' + r.ambiguous.alt.charge + ',' + r.ambiguous.alt.counts.I + ',' + r.ambiguous.alt.typeset; })(), '-3,1,-1,3,I₃⁻');
+      ck.eq('the check tries the other reading: I2 + I- → I3- balances as triiodide', (function () { var r = checkEquation('I2 + I- → I3-'); return r.balanced + '|' + (r.notes.some(function (n) { return /other reading/.test(n); })); })(), 'true|true');
+      ck.eq('the typeset form', checkEquation('2 Fe3+ + Sn2+ → 2 Fe2+ + Sn4+').typeset, '2 Fe³⁺ + Sn²⁺ → 2 Fe²⁺ + Sn⁴⁺');
       ck.eq('phase labels are read and dropped', checkEquation('NaCl(aq) → Na+(aq) + Cl-(aq)').balanced, true);
       ck.eq('no arrow is refused', !!checkEquation('H2 + O2 H2O').error, true);
       ck.eq('the elements of an equation are listed with Z', checkEquation('2 H2 + O2 → 2 H2O').atoms.map(function (a) { return a.element + a.Z; }).join(','), 'H1,O8');

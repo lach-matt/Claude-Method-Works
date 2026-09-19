@@ -452,8 +452,16 @@ The mode refuses rather than guesses: species that admit no balance are said to,
 more than one reaction get the basis and not a choice, and a given species whose coefficient comes
 out negative is reported as belonging on the other side, not moved. Every result is tallied by
 `checkEquation` before it is shown, so the balancer is checked by an instrument that is not itself.
-Seventeen fixtures: combustion, permanganate in acid and in base, dichromate, two half-reactions
-with their electron counts, a disproportionation, the refusals. The page still writes no
+Charges are read in any usual notation (`Fe3+`, `Fe^3+`, `Fe{3+}`, `Fe(3+)`, `Fe+3`, `Fe³⁺`,
+`Fe(III)`; `MnO4-`, `SO4^2-`, `SO4-2`, `SO4(2-)`, `SO₄²⁻`), and the one form the text cannot
+decide — a plain digit and sign after a single element symbol, where Fe3+ is iron(III) but N3-
+is azide and I3- triiodide — is kept with both readings: the parser reads it as a charge and
+records the alternative, both chemistry modes show how every species was read, and the balancer
+and the check try the other reading where the default cannot balance and say which reading they
+used. Results are also typeset (MnO₄⁻ + 5 Fe²⁺ + 8 H⁺ → Mn²⁺ + 5 Fe³⁺ + 4 H₂O). Twenty-one
+fixtures: combustion, permanganate in acid and in base, dichromate, two half-reactions with their
+electron counts, a disproportionation, triiodide read the way that balances, the notations, the
+refusals. The page still writes no
 chemistry of its own: the species are the reader's or the model's.
 
 ## The public build
