@@ -43,6 +43,23 @@ from build_index_plates import (                                # noqa: E402
 E = html.escape
 
 
+def pfoot(mod):
+    """The footer, naming THIS builder.
+
+    `build_index_plates.foot` hardcodes its own filename, so every plate in
+    this family was printing a re-verify command that does not rebuild it.
+    The footer is the one part of a plate whose whole job is to be runnable,
+    so it gets its own version here rather than an inherited near-miss.
+    """
+    return ('<div class="foot"><p>Every figure on this plate is read from the '
+            'instrument at build time, not retyped. Re-verify with:</p>'
+            '<p><code>python3 research/warp-drive/%s.py --selftest</code> '
+            '&mdash; %d fixtures<br><code>python3 research/warp-drive/%s.py'
+            '</code> &mdash; the reading<br><code>python3 research/warp-drive/'
+            'render/build_particle_plates.py %s</code> &mdash; this plate</p>'
+            '</div>' % (mod, nfixtures(mod), mod, mod))
+
+
 def _typo(t):
     """Set the declared SOURCE string as prose.
 
@@ -257,7 +274,7 @@ def build_fundamental():
                     ("width", str(m["cell"][2]), "Dilworth"),
                     ("|X| &le; h&times;w", "%d &le; %d" %
                      (m["cells"], m["cell"][1] * m["cell"][2]), ""))))
-    h.append(foot("fundamental", nfixtures("fundamental")))
+    h.append(pfoot("fundamental"))
     h.append("</div>")
     _write("fundamental-plate.html", h)
 
@@ -390,7 +407,7 @@ def build_mesons():
                     ("width", str(m["cell"][2]), "Dilworth"),
                     ("|X| &le; h&times;w", "%d &le; %d" %
                      (m["cells"], m["cell"][1] * m["cell"][2]), ""))))
-    h.append(foot("mesons", nfixtures("mesons")))
+    h.append(pfoot("mesons"))
     h.append("</div>")
     _write("mesons-plate.html", h)
 
@@ -526,7 +543,7 @@ def build_baryons():
                     ("width", str(m["cell"][2]), "Dilworth"),
                     ("|X| &le; h&times;w", "%d &le; %d" %
                      (m["cells"], m["cell"][1] * m["cell"][2]), ""))))
-    h.append(foot("baryons", nfixtures("baryons")))
+    h.append(pfoot("baryons"))
     h.append("</div>")
     _write("baryons-plate.html", h)
 
@@ -677,7 +694,7 @@ def build_quasiparticle():
         'member set: a mode carries a symmetry label and a frequency, and those '
         'are quantum numbers. It is (material, mode), it needs a real fetch, '
         'and it is not what DOCKET 27 asked for.</p></section>')
-    h.append(foot("quasiparticle", nfixtures("quasiparticle")))
+    h.append(pfoot("quasiparticle"))
     h.append("</div>")
     _write("quasiparticle-plate.html", h)
 
@@ -815,15 +832,350 @@ def build_fqh():
         'the part that says what kind of thing the quasiparticle is.</p></div>'
         '</section>' % (a, b, f, 100.0 * a / len(Q.rows())))
 
-    h.append(foot("fqh", nfixtures("fqh")))
+    h.append(pfoot("fqh"))
     h.append("</div>")
     _write("fqh-plate.html", h)
+
+
+def lattice_svg(B, Q, out):
+    """The (2J, Q3) lattice drawn flat -- boson frame, excitations, and what
+    lies outside.  A 2-D index gets a 2-D picture; plate.view3d needs three
+    axes and this chart has two, which is a reason to draw it properly rather
+    than to pad it."""
+    Js = sorted({j for j, _q in B | Q})
+    Qs = sorted({q for _j, q in B | Q})
+    W, H = 74, 62
+    L, T = 92, 34
+    w = L + W * (len(Qs) - 1) + 300
+    hgt = T + H * (len(Js) - 1) + 78
+    outset = set(out)
+    p = ['<svg viewBox="0 0 %d %d" role="img" aria-label="the boson lattice '
+         'and the excitations in it" style="max-width:100%%;height:auto">'
+         % (w, hgt)]
+    # grid
+    for i, q in enumerate(Qs):
+        x = L + W * i
+        p.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="var(--rule)" '
+                 'stroke-width="1"/>' % (x, T - 16, x, T + H * (len(Js) - 1) + 16))
+        p.append('<text x="%d" y="%d" text-anchor="middle" font-size="13" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--muted)">%d'
+                 '</text>' % (x, T + H * (len(Js) - 1) + 40, q))
+    for r, j in enumerate(reversed(Js)):
+        y = T + H * r
+        p.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="var(--rule)" '
+                 'stroke-width="1"/>' % (L - 18, y, L + W * (len(Qs) - 1) + 18, y))
+        p.append('<text x="%d" y="%d" text-anchor="end" font-size="13" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--muted)">%d'
+                 '</text>' % (L - 30, y + 5, j))
+    # marks
+    for r, j in enumerate(reversed(Js)):
+        for i, q in enumerate(Qs):
+            x, y = L + W * i, T + H * r
+            inB, inQ = (j, q) in B, (j, q) in Q
+            if inB:
+                p.append('<circle cx="%d" cy="%d" r="9" fill="var(--rule-hard)"/>'
+                         % (x, y))
+            if inQ:
+                col = "var(--algebra)" if (j, q) in outset else "var(--geometry)"
+                p.append('<circle cx="%d" cy="%d" r="15" fill="none" '
+                         'stroke="%s" stroke-width="3.5"/>' % (x, y, col))
+            if (j, q) in outset:
+                p.append('<circle cx="%d" cy="%d" r="23" fill="none" '
+                         'stroke="var(--algebra)" stroke-width="1.5" '
+                         'stroke-dasharray="3 3"/>' % (x, y))
+    p.append('<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+             'letter-spacing="1.4" font-family="IBM Plex Mono,monospace" '
+             'fill="var(--muted)">Q3 &#8212; CHARGE IN THIRDS</text>'
+             % (L + W * (len(Qs) - 1) / 2, hgt - 16))
+    p.append('<text transform="translate(22,%d) rotate(-90)" '
+             'text-anchor="middle" font-size="12" letter-spacing="1.4" '
+             'font-family="IBM Plex Mono,monospace" fill="var(--muted)">2J'
+             '</text>' % (T + H * (len(Js) - 1) / 2))
+    # legend
+    lx = L + W * (len(Qs) - 1) + 46
+    for k, (lab, mk) in enumerate((("the tree&rsquo;s bosons", "solid"),
+                                   ("the excitations", "ring"),
+                                   ("outside the bosons", "out"))):
+        y = T + 26 * k
+        if mk == "solid":
+            p.append('<circle cx="%d" cy="%d" r="7" fill="var(--rule-hard)"/>' % (lx, y))
+        elif mk == "ring":
+            p.append('<circle cx="%d" cy="%d" r="9" fill="none" '
+                     'stroke="var(--geometry)" stroke-width="3"/>' % (lx, y))
+        else:
+            p.append('<circle cx="%d" cy="%d" r="9" fill="none" '
+                     'stroke="var(--algebra)" stroke-width="3"/>' % (lx, y))
+        p.append('<text x="%d" y="%d" font-size="12.5" fill="var(--body)">%s'
+                 '</text>' % (lx + 18, y + 4, lab))
+    p.append("</svg>")
+    return "".join(p)
+
+def build_bosonqp():
+    """DOCKET 31 -- a sublattice, and every number derived rather than typed."""
+    import bosonqp as Q
+    X = Q.index()
+    m = measured(X)
+    nb, nq, bsub, qsub, subset, out, nu, usub = Q.relation()
+    tot, full, n5, f5 = Q.box_freeness()
+
+    h = [plate.head("The Boson Sublattice"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate · an index of quantum objects · DOCKET 31",
+        "The Boson&nbsp;Sublattice",
+        "The bosonic excitations of condensed matter &mdash; Cooper pairs, "
+        "excitons, phonons, magnons &mdash; placed in the frame the "
+        "tree&rsquo;s own bosons already live in, and asked whether they sit "
+        "inside it closed.",
+        [("instrument", "bosonqp.py"), ("members", "%d" % len(Q.members())),
+         ("rules", "3 derivations"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("extends the bosons by", "%d cells" % (nu - nb))]))
+
+    h.append('<div class="note warn">'
+             '<span class="lab">Two rulings, and the second threw out the '
+             'first draft</span>'
+             '<p>M, first: <em>&ldquo;almost nothing &mdash; but not nothing, '
+             'which means measurable ... it is a sub index/sublattice of '
+             'bosons.&rdquo;</em> That corrected DOCKET 28, which wrote '
+             '&ldquo;almost nothing&rdquo; and then treated it as nothing.</p>'
+             '<p style="margin-bottom:0">M, second: <em>&ldquo;Do not add '
+             'declared. Nothing less than computed or measured. Declared still '
+             'requires proof.&rdquo;</em> The first draft listed eleven kinds '
+             'with their spins and charges written out from textbook '
+             'knowledge, and <span class="mono">registry.py</span> had grown a '
+             'whole provenance category &mdash; DECLARED &mdash; to let that '
+             'pass its own guard. <b>Both are gone.</b> Every number on this '
+             'plate comes out of one of the three rules below.</p></div>')
+
+    h.append(
+        '<section><div class="shead"><span class="snum">01</span>'
+        '<h2>Three derivation rules, and nothing outside them</h2></div>'
+        '<p class="sub">The inputs are what a thing is made of, which symmetry '
+        'it breaks, and what it mixes &mdash; each the definition of the '
+        'object rather than a measurement of it.</p>'
+        '<div class="kv">'
+        '<div><dt>composition</dt><dd>charge adds; spin combines<small>the '
+        'electron (2J&nbsp;=&nbsp;1, Q3&nbsp;=&nbsp;&minus;3) and photon '
+        '(2,&nbsp;0) are READ from the seated fundamental index</small></dd></div>'
+        '<div><dt>broken symmetry</dt><dd>2J = 2 &times; the generator&rsquo;s '
+        'rank<small>and Q3 = 0 when it commutes with charge</small></dd></div>'
+        '<div><dt>hybridisation</dt><dd>inherit what the constituents share'
+        '<small>and RAISE when they disagree</small></dd></div></div>'
+        '<div class="note good"><span class="lab">The second rule corrected '
+        'this file on its first use</span>'
+        '<p style="margin-bottom:0">The first draft wrote the phonon down as '
+        'spin&nbsp;0. The phonon is the Goldstone mode of <b>broken '
+        'translation</b>, whose generator is the momentum P &mdash; a VECTOR '
+        '&mdash; so the rule returns <b>2J&nbsp;=&nbsp;2</b>. The rule is '
+        'right and the draft was wrong: three broken translations in three '
+        'dimensions give the three acoustic branches, which a scalar mode '
+        'could not. <b>A derivation that can contradict what you would have '
+        'written down is the only kind worth having.</b></p></div>'
+        '</section>')
+
+    h.append(
+        '<section><div class="shead"><span class="snum">02</span>'
+        '<h2>Every member, and which rule produced it</h2></div>'
+        '<div class="tablewrap"><table><thead><tr><th>rule</th><th>member</th>'
+        '<th class="num">2J</th><th class="num">Q3</th></tr></thead><tbody>%s'
+        '</tbody></table><caption>%d members on %d cells. The eight collective '
+        'modes add members but <b>no new cells</b>.</caption></div>'
+        '<div class="note"><span class="lab">The trion excludes itself</span>'
+        '<p style="margin-bottom:0">Two electrons and a hole compose to 2J in '
+        '{1,&nbsp;3} &mdash; half-integer, a <b>fermion</b> &mdash; and a '
+        'sublattice of the bosons holds none. Nothing here decides that; the '
+        'addition rule returns it. And <span class="mono">hybrid()</span> '
+        'raises on constituents that disagree, so the third rule has a failure '
+        'mode too.</p></div></section>'
+        % ("".join(
+            '<tr><td>%s</td><td class="mono">%s</td><td class="num">%d</td>'
+            '<td class="num">%d</td></tr>' % (E(k), E(n), j, q)
+            for k, n, j, q in Q.members()),
+           len(Q.members()), m["cells"]))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">03</span>'
+        '<h2>The index, drawn flat</h2></div>'
+        '<p class="sub">Two coordinates, so this is the index ITSELF and not a '
+        'projection of it &mdash; nothing is collapsed, summarised or '
+        'dropped.</p>'
+        '<div class="fig">%s</div>'
+        '<p class="cap">The tree&rsquo;s fifteen boson cells, the five the '
+        'excitations occupy, and the two that fall outside the frame '
+        'altogether. <b>Both are the Cooper pair</b>, at a charge no meson and '
+        'no gauge boson reaches.</p></section>'
+        % lattice_svg(Q.boson_frame(), X, out))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">04</span>'
+        '<h2>The finding is the relation, not the chart</h2></div>'
+        '<div class="tablewrap"><table><thead><tr><th></th>'
+        '<th class="num">cells</th><th>sublattice?</th></tr></thead><tbody>'
+        '<tr><td>the tree&rsquo;s own bosons on (2J, Q3)</td>'
+        '<td class="num">%d</td><td><span class="yes">yes</span></td></tr>'
+        '<tr><td>the bosonic excitations</td><td class="num">%d</td>'
+        '<td><span class="yes">yes</span></td></tr>'
+        '<tr><td>the union</td><td class="num">%d</td>'
+        '<td><span class="yes">yes</span></td></tr>'
+        '</tbody></table><caption>But the second is <b>NOT a subset</b> of the '
+        'first.</caption></div>'
+        '<div class="note good"><span class="lab">The Cooper pair carries '
+        '&minus;2e and nothing else in the tree does</span>'
+        '<p style="margin-bottom:0">Every meson and every gauge boson is '
+        'charged &minus;1, 0 or +1. Two electrons bound in a metal reach a '
+        'charge no elementary or composite boson here reaches &mdash; in '
+        '<b>both</b> spin states, the triplet being helium-3&rsquo;s p-wave '
+        'pairing. So the excitations are a sublattice of the bosons only once '
+        'the lattice is <b>extended to hold them</b>, and the extension is '
+        '<b>%d cells wide</b>: %s.</p></div></section>'
+        % (nb, nq, nu, nu - nb, E(str(out))))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">05</span>'
+        '<h2>The channel, and why it is not free this time</h2></div>'
+        '<p class="sub">The chart closes all five languages &mdash; K7. The '
+        'first draft was a three-cell CHAIN, and a chain closes almost '
+        'everything by being one.</p>'
+        '<p><b>This chart is not a chain.</b> It is %d cells at width %d, and '
+        'the measurement changes with it: over the box this chart lives in, '
+        'only <b>%d of %d</b> subsets close all five, and of the <b>%d</b> '
+        'subsets its own size only <b>%d</b> do. So the K7 is earned by '
+        'two-thirds of the alternatives failing, not handed over by shape.</p>'
+        '<div class="note"><span class="lab">z3, pointed at this file&rsquo;s '
+        'own result</span>'
+        '<p style="margin-bottom:0"><span class="mono">--prove</span> runs four '
+        'claims over every subset of the box: that every chain there is '
+        'closed (so a chain&rsquo;s K7 <em>is</em> free), a vacuity guard that '
+        'chains exist, a contrast that some subset is not closed, and finally '
+        'that <b>THIS chart is not a chain</b> &mdash; so the free pass does '
+        'not reach it. It is still five cells, and section 04 is the '
+        'finding.</p></div></section>'
+        % (m["cells"], m["cell"][2], full, tot, n5, f5))
+
+    h.append(pfoot("bosonqp"))
+    h.append("</div>")
+    _write("bosonqp-plate.html", h)
+
+
+def build_readrezayi():
+    """DOCKET 32 -- the non-abelian Hall quasiparticles."""
+    import readrezayi as R
+    X = R.index()
+    m = measured(X)
+    na, nn, sh, ain, nin, asub, nsub = R.nesting()
+    F = R.fermions()
+
+    h = [plate.head("The Non-Abelian Anyons"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate · an index of quantum objects · DOCKET 32",
+        "The Non-Abelian&nbsp;Anyons",
+        "The other kind of Hall quasiparticle: exchange does not multiply the "
+        "state by a phase, it ROTATES IT inside a degenerate space. These are "
+        "the excitations proposed for topological quantum computing.",
+        [("instrument", "readrezayi.py"),
+         ("members", "%d primaries" % len(R.rows())),
+         ("states", "%d Read-Rezayi" % len(R.levels())),
+         ("arity", "4"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">01</span>'
+        '<h2>Moore&ndash;Read <em>is</em> RR&#8322;</h2></div>'
+        '<p class="sub">Not a separate construction, which is why there is one '
+        'instrument and not two. The series sits at '
+        '&nu;&nbsp;=&nbsp;2&nbsp;+&nbsp;k/(k+2).</p>'
+        '<div class="tablewrap"><table><thead><tr><th class="num">k</th>'
+        '<th class="num">&nu;</th><th class="num">charge</th>'
+        '<th class="num">primaries</th><th>observed</th></tr></thead><tbody>%s'
+        '</tbody></table><caption>Two levels have a reported plateau; the rest '
+        'is the series&rsquo; own continuation, declared as such.</caption></div>'
+        '<div class="note good"><span class="lab">k is a REACH, and that is the '
+        'whole difference from DOCKET 28</span>'
+        '<p style="margin-bottom:0">That docket charted SU(2)<sub>k</sub> for '
+        'every k and was refused, because varying k there varied <em>which '
+        'theory you were in</em> &mdash; a union over universes, with nothing '
+        'about the data being varied. Here each k <b>names a plateau at a '
+        'definite &nu;</b>, so varying the reach is varying how far up the '
+        'observed series you have got, exactly as varying Z is.</p></div>'
+        '</section>'
+        % "".join(
+            '<tr><td class="num mono">%d</td><td class="num mono">%s</td>'
+            '<td class="num mono">e/%d</td><td class="num">%d</td><td>%s</td>'
+            '</tr>' % (k, R.filling(k), k + 2, len(R.primaries(k)),
+                       "<b>%s</b> (%s)" % R.OBSERVED[k]
+                       if k in R.OBSERVED else "")
+            for k in R.levels()))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">02</span>'
+        '<h2>Validated against the literature, not against itself</h2></div>'
+        '<p class="eqn mono">h = l(l+2) / (4(k+2)) &nbsp;&minus;&nbsp; '
+        'm&sup2; / (4k)</p>'
+        '<div class="tablewrap"><table><thead><tr><th>what the literature '
+        'fixes</th><th class="num">computed</th><th>verdict</th></tr></thead>'
+        '<tbody>%s</tbody></table><caption>No tuning. The closed form returns '
+        'them.</caption></div>'
+        '<div class="note warn"><span class="lab">And this closes DOCKET '
+        '28&rsquo;s trap from the other side</span>'
+        '<p style="margin-bottom:0">That docket recorded that '
+        'SU(2)<sub>2</sub> is commonly called &ldquo;Ising&rdquo; and is not: '
+        'its j&nbsp;=&nbsp;&frac12; carries h&nbsp;=&nbsp;3/16 where the Ising '
+        '&sigma; carries <b>1/16</b>. The real Moore&ndash;Read state carries '
+        '1/16, which this file computes. <b>So that chart had the wrong '
+        'physics as well as the wrong shape</b>, and the caution written there '
+        'against trusting the name was the important half of it.</p></div>'
+        '</section>'
+        % "".join(
+            '<tr><td>%s</td><td class="num mono">%s</td><td>%s</td></tr>'
+            % (E(w), E(str(g)), '<span class="yes">ok</span>' if ok
+               else '<span class="no">DIFFERS</span>')
+            for w, g, _x, ok in R.validation()))
+
+    h.append(_view(
+        "rr3d", X, 0,
+        ["STAT  boson / fermion / anyon", "ORD  order of the twist",
+         "CHORD  order of the charge", "K  the level"],
+        "Colour is the statistics class &mdash; and unlike the abelian index, "
+        "all three values occur.",
+        "03", "The index, projected", "the non-abelian anyon index",
+        radius=5))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">04</span>'
+        '<h2>The Majorana bounds DOCKET 30&rsquo;s theorem</h2></div>'
+        '<p class="sub"><span class="mono">fqh.py</span> proved that NOT ONE '
+        'Laughlin quasiparticle is ever a fermion &mdash; forced, because '
+        '&theta;/&pi;&nbsp;=&nbsp;j&sup2;/m is a half only if m divides '
+        '2j&sup2; and m is odd.</p>'
+        '<p><b>This series has %d fermions.</b> The one at k&nbsp;=&nbsp;2 is '
+        'the Ising &psi; at h&nbsp;=&nbsp;&frac12; &mdash; the neutral '
+        '<b>Majorana fermion</b> of the Moore&ndash;Read state. So the theorem '
+        'was never about Hall quasiparticles in general; it was about the '
+        '<em>abelian</em> ones, and this is precisely where the two families '
+        'part.</p>'
+        '<div class="note"><span class="lab">And neither index nests in the '
+        'other &mdash; a negative result, reported</span>'
+        '<p style="margin-bottom:0">DOCKET 31 found the bosonic excitations '
+        'sitting inside the boson lattice as a sublattice. Nothing of that '
+        'kind happens here: on the three coordinates they share, the abelian '
+        'chart has <b>%d</b> cells and the non-abelian <b>%d</b>, they share '
+        '<b>%d</b>, <b>neither contains the other</b> and neither is a '
+        'sublattice on its own. Reported so that one positive nesting result '
+        'is not read as a pattern.</p></div></section>'
+        % (len(F), na, nn, sh))
+
+    h.append(pfoot("readrezayi"))
+    h.append("</div>")
+    _write("readrezayi-plate.html", h)
 
 
 BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
             "baryons": build_baryons,
             "quasiparticle": build_quasiparticle,
-            "fqh": build_fqh}
+            "fqh": build_fqh,
+            "bosonqp": build_bosonqp,
+            "readrezayi": build_readrezayi}
 
 if __name__ == "__main__":
     for w in (sys.argv[1:] or sorted(BUILDERS)):

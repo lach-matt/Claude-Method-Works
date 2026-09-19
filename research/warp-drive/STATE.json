@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "87a16d22769c",
+ "commit": "ae72544f7950",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 19,
+  "rows": 21,
   "indexes": [
    {
     "name": "fibred.index",
@@ -543,20 +543,70 @@
      "why": "COMPUTED from the Laughlin wavefunction's closed form -- R. B. Laughlin, Phys. Rev. Lett. 50, 1395 (1983).  No table is read.  The three observed filling fractions are named in OBSERVED, not fetched.",
      "paths": []
     }
+   },
+   {
+    "name": "bosonqp.index",
+    "module": "bosonqp",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "bosonqp",
+    "members": "15 bosonic excitations -- composites, Goldstone modes and hybrids, every number derived",
+    "quantum": "2J, Q3",
+    "cells": 5,
+    "cell": [
+     7,
+     4,
+     2
+    ],
+    "channel": 7,
+    "languages": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED by three rules and nothing else.  COMPOSITION: charge adds and spin combines by angular-momentum addition.  BROKEN SYMMETRY: 2J is twice the broken generator's rank under rotation, and Q3 is zero when it commutes with the charge operator.  HYBRIDISATION: a mix inherits what its constituents share, and raises when they disagree.  The electron and photon are read from the seated `fundamental` index, which reads the PDG capture; the BOSON frame from `fundamental` and `mesons`.  No quantum number is written down in this file.",
+     "paths": []
+    }
+   },
+   {
+    "name": "readrezayi.index",
+    "module": "readrezayi",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "readrezayi",
+    "members": "363 parafermion primaries of eleven Read-Rezayi states, two observed",
+    "quantum": "statistics class, order of the twist, order of the charge, level",
+    "cells": 78,
+    "cell": [
+     0,
+     19,
+     11
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED from the Z_k parafermion closed form -- Zamolodchikov and Fateev (1985); Moore and Read, Nucl. Phys. B 360, 362 (1991); Read and Rezayi, Phys. Rev. B 59, 8084 (1999).  No table is read.  The weights are validated against the two values the literature fixes: the Ising sigma at h = 1/16 and the Fibonacci tau at h = 2/5.",
+     "paths": []
+    }
    }
   ]
  },
  "figure": {
-  "vertices": 19,
-  "distinct_cells": 19,
+  "vertices": 21,
+  "distinct_cells": 21,
   "closers": [],
   "own_cell": [
    0,
    5,
-   9
+   10
   ],
   "own_cell_occupied_by": [],
-  "E": 193,
+  "E": 292,
   "channels_occupied": [
    0,
    1,
@@ -572,20 +622,20 @@
   "resolution": {
    "K": {
     "distinct": 7,
-    "of": 19,
-    "ratio": 0.3684,
+    "of": 21,
+    "ratio": 0.3333,
     "verdict": "measurement"
    },
    "height": {
-    "distinct": 13,
-    "of": 19,
-    "ratio": 0.6842,
+    "distinct": 14,
+    "of": 21,
+    "ratio": 0.6667,
     "verdict": "measurement"
    },
    "width": {
-    "distinct": 14,
-    "of": 19,
-    "ratio": 0.7368,
+    "distinct": 16,
+    "of": 21,
+    "ratio": 0.7619,
     "verdict": "measurement"
    }
   },
@@ -865,6 +915,20 @@
    "question": "M: \"And they need to be seated. Why were the indexes not seated?\"",
    "finding": "TWO REASONS, AND ONLY ONE WAS A JUDGEMENT CALL. The textbook quasiparticles have no member set of the right shape and that is unchanged -- four kinds on two cells, every distinguishing number the host's. The ANYON refusal was re-examined and DOCKET 28 HAD REFUSED THE WRONG OBJECT: it charted SU(2)_k for every k, which is a UNION OVER THEORIES and not a reach over data, so the box varied which universes were included rather than how much data there was, and of course the channel never moved. The test was right; the object was wrong. Rebuilt as a reach -- fqh.py, the quasiparticles of the Laughlin states, indexed by a MEASURED filling fraction -- THE CHANNEL MOVES (K2 then K0) and boxinvariance.verdict_of() returns SEAT. 168 members over twelve states, 30 cells, cell (0, 15, 4). Three of the twelve states are observed and the e/3 quasiparticle's charge was measured by shot noise in 1997. A theorem fell out: NOT ONE of the 168 is a fermion, forced because theta/pi = j^2/m is a half only if m divides 2j^2 and m is odd.",
    "what_would_settle_it": "DOCKET 28's chart stays refused -- this is a different object, not an overrule, and both verdicts are on the record. The non-abelian states (Moore-Read, Read-Rezayi) are a further member set and are not here."
+  },
+  {
+   "id": "31",
+   "status": "CLOSED",
+   "question": "M: \"almost nothing -- but not nothing ... it is a sub index/sublattice of bosons.\"",
+   "finding": "DOCKET 28 wrote \"almost nothing\" and then treated it as nothing. Low resolution is not none -- overlap.py's LABEL threshold is 0.9 and these coordinates do not meet it. The ruling also NAMES the object, which DOCKET 28 never found: a SUBLATTICE OF THE BOSONS. bosonqp.py places 11 bosonic collective excitations in the frame the tree's own bosons share, (2J, Q3), which the ruling forces rather than leaves to be chosen. THE FINDING IS THE RELATION: the tree's bosons are 15 cells and already a sublattice, the quasiparticles are 3 cells and a sublattice, they are NOT a subset, and the one cell outside is the COOPER PAIR at charge -2e -- a charge no meson and no gauge boson reaches. The union is 16 cells and still a sublattice, so the extension is exactly one cell wide. The K7 is NOT a finding and the file says so first: three cells in a 2x2 box is a chain, and z3 proves over every subset of that box that a chain is closed under meet and join, with a vacuity guard and a contrast.",
+   "what_would_settle_it": "REOPENED AND REBUILT BY A SECOND RULING. M: \"Do not add declared. Nothing less than computed or measured. Declared still requires proof.\" The first draft listed eleven kinds with their spins and charges written out from textbook knowledge and called it DECLARED provenance; registry.py had grown a whole category for it. Both are gone. A member is now defined by WHAT IT IS MADE OF and every number is COMPUTED -- charge additive, spin by angular-momentum addition, the electron read from the seated fundamental index. 7 members over 3 composites, 5 cells. The trion EXCLUDES ITSELF by composing to half-integer spin. The cost is real and recorded: the collective modes (phonon, magnon, plasmon, polariton, roton, phason, amplitude mode, magnon-polaron) are NOT composites, so they cannot be computed and are no longer seated. The finding survived and strengthened -- the extension is now TWO cells wide, both Cooper pair spin states -- and the K7 is no longer free because the chart is no longer a chain: of the six subsets its own size in its own box, only two close all five."
+  },
+  {
+   "id": "32",
+   "status": "CLOSED",
+   "question": "The non-abelian Hall states -- Moore-Read at nu=5/2 and Read-Rezayi at 12/5 -- named as a further member set by DOCKET 30 and left open.",
+   "finding": "SEATED. readrezayi.py charts the Z_k parafermion primaries of the Read-Rezayi series; Moore-Read IS RR_2, not a separate construction. 363 members over eleven levels, 78 cells, K0. k is a genuine REACH because RR_k sits at nu = 2 + k/(k+2), so each k names a plateau -- which is exactly what DOCKET 28's SU(2)_k union lacked -- and the channel MOVES K2 to K0, so the same test seats it. THE WEIGHTS ARE VALIDATED AGAINST THE LITERATURE: the closed form returns {0, 1/16, 1/2} at k=2, exactly the Ising category, and 2/5 at k=3, the Fibonacci tau; charges e/4 and e/5 as published. TWO NEGATIVE FINDINGS. First, the Majorana bounds DOCKET 30's theorem: fqh proved no Laughlin quasiparticle is ever a fermion, and this series has six, the first being the Ising psi at h = 1/2 -- so that theorem was about the ABELIAN ones. Second, NEITHER index nests in the other: 15 cells against 57 on their shared coordinates, 8 in common, neither containing the other and neither a sublattice, which is the negative counterpart of DOCKET 31.",
+   "what_would_settle_it": "It also closes DOCKET 28's trap: SU(2)_2 carries h = 3/16 and the real Moore-Read state carries 1/16, so that chart had the wrong PHYSICS as well as the wrong shape."
   }
  ],
  "not_claimed": [
