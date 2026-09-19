@@ -1174,6 +1174,47 @@ def build_terms():
 
 
 
+def build_observed():
+    """DOCKET 26's index -- the configurations nature has, not the predicted."""
+    import observed as O
+    import madrule as MR
+    losses = O.losses()
+    da = O.differing_addresses()
+    dc = O.differing_configs()
+    only_o = O.only_observed()
+    only_p = O.only_predicted()
+    build = _shell_plate(
+        "observed-plate.html", O.index(),
+        [("n", "principal quantum number"),
+         ("l", "orbital angular momentum"),
+         ("k", "occupancy of the subshell at that electron")],
+        "The Observed Fibration",
+        "The same address as the shell fibration, read off what nature "
+        "actually fills \u2014 register 1306\u2019s banked ground "
+        "configurations, not what Madelung predicts.",
+        "108 elements",
+        "One point per observed differentiating electron, at its own (n, \u2113, k).",
+        "It is the SAME COORDINATES as <span class=\"mono\">fibred</span> over "
+        "a DIFFERENT member set, and the places the two part are the finding "
+        "neither holds alone. <b>%d of 108 addresses differ</b> from the "
+        "prediction and %d of 108 configurations do."
+        % (len(da), len(dc)),
+        "observed", "ob3d", '''<section>
+  <div class="shead"><span class="snum">01</span><h2>M ruled &ldquo;both&rdquo;,
+  and this is the other one</h2></div>
+  <p class="sub">DOCKET 26 asked whether the madelung/fibred family was built on
+  a withdrawn table. It was not &mdash; the table was withdrawn as a source of
+  <em>observed</em> configurations and remains exactly what its docstring says,
+  what Madelung <em>predicts</em>. What was missing was the other object.</p>
+  <p><span class="mono">fibred</span> and <span class="mono">madelung</span>
+  chart the configuration the rule PREDICTS. This charts the one register 1306
+  BANKS AS OBSERVED, loaded by path from
+  <span class="mono">method/members/LW1-ground.py</span>, a seated member of The
+  Method. Neither supersedes the other, and both are seated.</p>
+</section>''')
+    return build
+
+
 def build_masterindex():
     """The index of first-order indexes -- the master plate."""
     import figure as FIG
@@ -1688,6 +1729,7 @@ BUILDERS = {"inversion": build_inversion, "probability": build_probability,
             "ions": build_ions,
             "nucshell": build_nucshell, "madrule": build_madrule,
             "terms": build_terms,
+            "observed": build_observed,
             "masterindex": build_masterindex,
             "overlaprule": build_overlaprule}
 
