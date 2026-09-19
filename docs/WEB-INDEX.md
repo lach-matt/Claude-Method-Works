@@ -74,10 +74,14 @@ the reading the plane used alone before. The renderer is hand-written on the sam
 pitch about the scene's centre, a mild perspective, faces sorted far to near and shaded by a fixed
 light, no library, so the page still opens from a plain file on a phone. The scene is fitted to the
 viewport by the projected extent of its corners at the home angle (the focal length and centring are
-kept on the orbit so the scene does not swim as it turns, and refitted on resize); a heavy element
-is a needle by the record's own geometry, so its ions are kept at least 13 px apart with the base
-anchored near the bottom, the lower stages where the known cells sit coming up first and the rest
-reached by zoom or pan (Shift-drag, or a two-finger drag). The slab stands on a base plane ruled
+kept on the orbit so the scene does not swim as it turns, and refitted on resize), and **every scene
+fits its canvas whole at the home view** — a heavy element is a needle by the record's own geometry,
+and its ions come apart under the reader's zoom, when the scene scrolls under a vertical drag with
+a chip at the clipped edge counting the hidden stages (an earlier reading kept the ions 13 px
+apart and let the slab overrun the canvas; it was withdrawn because a rendering must fit the window
+it occupies). A node's radius on screen is capped at 22 px at the fitted zoom, growing with the
+zoom, so a scene a few cells wide does not fill the canvas with a handful of spheres; the hit test
+uses the same radius. The slab stands on a base plane ruled
 by ℓ inside a hairline silhouette, unmeasured cells are small faint dots, the ladder carries a dot
 on each rung's ion, the numerals and letters are set in the sans, and the whole-index view labels
 the slabs with their symbols where there is room and rules its base every ten Z. The element plate's

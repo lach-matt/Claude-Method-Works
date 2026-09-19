@@ -861,20 +861,8 @@
     o.fitF = Math.min(w / Math.max(1e-6, x1 - x0), h / Math.max(1e-6, y1 - y0));
     o.dx = -o.fitF * (x0 + x1) / 2;
     o.dy = o.fitF * (y0 + y1) / 2 - (bottom - pad) / 2;
-    if (scene.kind === 'element' && scene.ions.length > 1) {
-      // the ions must stay legible: at least 13 px apart, the slab's base anchored near the bottom
-      // of the viewport, so a heavy element shows its lower stages (where the known cells sit)
-      // and the reader zooms out or pans for the rest
-      const a = rot(scene.lx, 0, 3.5), b2 = rot(scene.lx, 1, 3.5);
-      const da = Math.max(0.05, a[2] + D), db = Math.max(0.05, b2[2] + D);
-      const gap = o.fitF * Math.hypot(b2[0] / db - a[0] / da, b2[1] / db - a[1] / da);
-      if (gap < 13) {
-        o.fitF *= 13 / gap;
-        const base = rot(scene.centre[0], ex.y0, scene.centre[2]), dbase = Math.max(0.05, base[2] + D);
-        o.dx = -o.fitF * (x0 + x1) / 2;
-        o.dy = (H() - bottom - 10) - H() / 2 + (o.fitF * base[1]) / dbase;
-      }
-    }
+    // a heavy element is a needle by the record's own geometry: it is still fitted whole, so nothing
+    // is cut off, and its ions come apart under the reader's zoom, when the scene scrolls
     return o;
   }
   function latCamera(scene) {
@@ -1038,11 +1026,19 @@
   // measured cell, a paper disc ringed in green for an exact one, a small grey dot for a computed
   // one, the witnessed ring outside a measured node, the limit colours when that facet is on;
   // a soft highlight off the top left gives the sphere its shape
+  // a node's radius on screen: its diameter in cells at the projection's scale, never above
+  // NODE_MAX px at the fitted zoom (a scene a few cells wide would otherwise fill the canvas with
+  // a handful of spheres), the cap growing with the reader's zoom
+  const NODE_MAX = 22;
+  function nodeRadius(cb, k) {
+    const zoom = state.orbit ? state.orbit.zoom : 1;
+    return Math.min((cb.s / 2) * k, NODE_MAX * Math.max(1, zoom));
+  }
   function drawCube(cb, cam, col, outline) {
     const C = state.colors;
     const p0 = cam.proj(cb._r);
     if (p0.x < -40 || p0.y < -40 || p0.x > W() + 40 || p0.y > H() + 40) return;
-    const r = Math.max(0.6, (cb.s / 2) * p0.k * (cb.known ? 1 : 0.9));
+    const r = Math.max(0.6, nodeRadius(cb, p0.k) * (cb.known ? 1 : 0.9));
     const node = cb.node;
     if (cb.ghost) {
       // a cell the operator admits and the layout does not hold: a hollow node in the ghost tint,
@@ -1325,7 +1321,7 @@
     let best = null;
     for (const cb of scene.cubes) {
       const p = cam.proj(cam.rot(cb.x, cb.y, cb.z));
-      const hs = Math.max(3, (cb.s / 2) * p.k * 1.1);
+      const hs = Math.max(3, nodeRadius(cb, p.k) * 1.1);
       if (Math.hypot(sx - p.x, sy - p.y) <= hs && (!best || p.d < best.d)) best = { d: p.d, cb };
     }
     if (best) return best.cb.node || { go: [best.cb.Z, best.cb.charge, best.cb.l] };
