@@ -388,8 +388,8 @@ reopens the census over the three new member sets — every sub-chart of their d
 against charge with flavour dropped, 16 cells at cell (5, 7, 4), **the tree's only K5**, on all four
 of the overlap ruling's grounds and at every mass cut; refused, `baryons (P, 2I, Q3)` at K1 because
 K1 is held, and `fundamental (Q3, GEN)` at K4 because at arity 2 the statistics language closes
-every chart for free (105 of 105) and what it shows is join-closure. Seven of the eight channels are
-now occupied. `docket27.py` also counts antimatter rather than implying it — 231 of the 550 charted
+every chart for free (105 of 105 at the time, 106 of 106 once the band index, itself arity 2, was seated) and what it shows is join-closure. Seven of the eight channels were
+occupied then; the spin-4 index later took the eighth. `docket27.py` also counts antimatter rather than implying it — 231 of the 550 charted
 members, 42 % — and resolves the photon, the muon and the antimuon by name with their cells.
 DOCKET 30, `fqh.py`, re-examines DOCKET 28 and finds it refused the wrong object: the anyon chart
 was a union over theories (SU(2)_k for every k), not a reach over data. Rebuilt as a reach — the
@@ -472,11 +472,14 @@ member's plate links the same row in the meson index.
 **`subpop.py`** is **the member sub-population sweep**: every earlier sweep varied a chart's
 columns, this one varies its members — one coordinate held to one value over every index with
 declared coordinates — and asks whether the sub-population is closed and which channel it reaches.
-`_subpop` carries its census (143 closed sets, 2 reaching a channel no index occupied, both at K4:
+`_subpop` carries its census (143 closed sets when it first ran, 203 once the nuclear band index was
+seated, since the sweep is over the seated indexes and a new index extends it by construction; 2
+reaching a channel no index occupied either way, both at K4:
 one at effective arity 2 where statistics is free, and the spin-4 mesons at arity 3), the spin-4
 population under the parent's mass reach (K5 at every cut, never K4 — the refusal the seating
-answered on a different reach; both statements stand), which indexes are lattices at all (three;
-for the rest the sweep tests closure in the ambient box, and the block says so), the recursion
+answered on a different reach; both statements stand), which indexes are lattices at all (three of
+twenty-three, nineteen not and one too large to test; for the rest the sweep tests closure in the
+ambient box, and the block says so), the recursion
 determination (within the family, chain 2 over 14 containments; the three lattices peeled one
 element at a time with every intermediate re-checked, two exact and one a verified lower bound;
 exhaustively over every subset of the four indexes small enough, chains 5, 7, 6 and 14), the
@@ -488,14 +491,40 @@ and distinguished (one the candidate, one a different object). Occupancy in the 
 as it stood before the sweep's own finding was seated, or the finding would erase itself; the
 block carries that note. The sweep costs a few minutes at build and is memoised with the rest.
 
+**The nuclear band index, the deformed-paper capture and the bond question** followed on the
+same branch and are read the same way (`_nuclear`, `_bonds`). `nucbands.py` seats the nuclear
+excited states of the magnetic and antimagnetic rotational bands, the candidate the sub-population
+sweep first declared unreachable and then reached by a join: `nbcapture.py` parses the published
+data table (arXiv:2303.13849) seated in the tree, reproduces the paper's own census exactly (252
+MR bands in 123 nuclei, 38 AMR in 27) and its selection rule (213 of 213 AMR steps at ΔI = 2),
+and records the source's one fault as printed, the parser's own fault found by audit and fixed,
+and the anomaly run down and found not a fault. The index is 2,152 members of 2,245 captured
+levels on (2I, parity), 121 cells, cell (2, 63, 2), K2 — and the plate says the K2 is the free
+one, since statistics is vacuous at arity 2, and tables every superset of the two coordinates,
+all seven K0. Three refusals are counted apart (27 bands with no spin-parity column, 93 levels
+with no parity, 6 level rows with none inside a band that has them, each closing its gamma
+arithmetic), the bands themselves are a 67-cell sub-population measured and not seated, and the
+two mechanisms are charted apart. The explorer opens it as a fifth index (`#/p/nucbands`; spin
+across, parity up, coloured by mechanism, one node per level, fanned at its cell) and a member's
+plate carries its nucleus, mechanism, band and energy. The second paper (arXiv:2508.05447, the
+deformed rotor's tower) is carried as **captured, not seated**: the document's own delimiter is
+absent from the extraction (0 of 210), an earlier refusal that concluded no parse could recover
+the entries is recorded as retracted, a sequence-with-reset rule recovers 233 of 234 with the 61
+bandhead states exact, and the two entries with a falling spin sequence are named rather than
+split. `bonds.py` answers whether a bond can be indexed, three readings and three refusals on
+three grounds, with the decidable parts re-derived (σ_v's action, the π² microstates, the
+fourteen nucleon–nucleon partial waves at J ≤ 3) and the finding that outlives the question: every
+closure channel is now occupied, so the overlap rule's novel-channel ground can never be
+satisfied again. The Particles dialog carries both; the captures' md5s join the provenance list.
+
 That join-over-meet correction is also the retrieval law the released three-body paper's closure
 measurement gives, and the Ask prompt now carries it as clause (g) of the retrieval method: a
 failed narrow search is a meet, and its retry is a join over a larger index, never the same meet
 again.
 
-Neither instrument is on `main` yet: a plain build from the repository tree carries three indexes
-and no sweep, and the fixtures and pins are conditional on their presence; the shipped data was
-built with `--warp-root` on the warp branch at c5135e7.
+None of these instruments is on `main` yet: a plain build from the repository tree carries three
+indexes and no sweep, and the fixtures and pins are conditional on their presence; the shipped
+data was built with `--warp-root` on the warp branch at 4de78a4.
 
 ### Each particle index as an index of the explorer
 
@@ -642,7 +671,7 @@ public object — with no citing line.
 
 ## Papers, figures, glossary
 
-**Papers.** The two released papers are read on the site, not linked out of it: `papers_block`
+**Papers.** The three released papers are read on the site, not linked out of it: `papers_block`
 renders each from its seated text at build with a small stdlib Markdown renderer (headings,
 paragraphs, lists, blockquotes, fenced code, pipe tables, rules, images; arXiv and DOI identifiers
 linked by pattern), records its md5 against the store's, copies every figure it cites out of the
@@ -651,11 +680,19 @@ archives hold a `fig1_shape_sphere.png` and only one is the paper's) with the le
 measured one, and writes the lot to `data/papers.js`, loaded on demand (`ensurePapers`). The reader
 carries a table of contents, the figures inline, a cite line per paper and the md5. The text is the
 author's own and is shipped as written — the public-build guard is not run over `papers.js`, and
-the three-body paper's own citations of the books stay its own. **The hierarchy of mathematical
-languages paper is a slot** (`PAPER_SLOTS`, `held: false`): the author named it as released, its
-file is not in the repository, and the site lists it and shows nothing in its place. The selftest
-asserts the two papers and the slot, every held paper's md5 against the store, every figure's md5
-against the ledger, and that the render carries every heading of the Löwdin paper.
+the three-body paper's own citations of the books stay its own. **The hierarchy law paper is the third**, and
+it comes from the research tree rather than the store (`RESEARCH_PAPERS`:
+`research/warp-drive/paper/THE-HIERARCHY-LAW.md`, "The Hierarchy Law of Mathematical Languages",
+11,350 words by the generator's count, no figures, a provenance ledger and a verification record of its own). No ledger row
+records its md5, so the md5 is measured at build and the file's last commit is recorded beside it
+(`tree.commit`), the paper card and the reader say so, and the PDF beside it in the tree is copied
+to `data/papers/languages/` and offered as a download with its md5, on the card, in the reader and
+in Provenance. The guard is run over its text as a measurement (`book_citations`, with the two section-number
+patterns excluded and recorded apart as `own_section_marks`, because the paper numbers its own
+sections with § and "Section n"), and the selftest asserts that it cites nothing from the books; the slot mechanism (`PAPER_SLOTS`) stays
+for a paper named before its file arrives. The selftest asserts the three papers in order, every
+store paper's md5 against the store, every figure's md5 against the ledger, the research paper's
+commit and PDF, and that the render carries every heading of the Löwdin paper and of this one.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,

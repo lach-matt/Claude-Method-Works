@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T13:31:34+00:00",
-  "commit": "79e920e0f57a",
+  "built": "2026-09-19T18:53:06+00:00",
+  "commit": "364e85fb1c26",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "79e920e0f57a",
-   "text": "Lach, M. (2026). The Method Index, edition 79e920e0f57a. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 79e920e0f57a}\n}"
+   "commit": "364e85fb1c26",
+   "text": "Lach, M. (2026). The Method Index, edition 364e85fb1c26. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 364e85fb1c26}\n}"
   },
   "history": [
    {
@@ -219,13 +219,41 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/79e920e0f57a3e5acfb97709824c4ca9e7cfada2",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "2cb6bc3",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2cb6bc38c01d53ba6dc18a0c0373a64ff393f20c",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "fdf00d5",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fdf00d522c29fc61abd2389735a10780282b0022",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "d002152",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d0021529ab9c91b0eb353a2f921b80526196046b",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "364e85f",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/364e85fb1c264923f8a8675ce4e4bbf631eabfeb",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 75290,
-  "md5": "290fd4eb9de42ebea0f88a804a89978d",
+  "bytes": 165542,
+  "md5": "05514ad75a7282ccf971e1af2a4bafb0",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -239,6 +267,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "md5_recorded": "4a06e8930b9f7a7a8226dca2db39e35c",
     "words": 5859,
     "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
+    "tree": null,
+    "pdf": null,
     "headings": 25,
     "figures": 6,
     "figures_ok": true,
@@ -256,6 +286,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "md5_recorded": "f2adca041b5d95d941b40a6e7dfae64c",
     "words": 3636,
     "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
+    "tree": null,
+    "pdf": null,
     "headings": 16,
     "figures": 3,
     "figures_ok": true,
@@ -264,20 +296,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "slug": "languages",
-    "title": "The hierarchy of mathematical languages",
-    "subtitle": null,
+    "title": "The Hierarchy Law of Mathematical Languages",
+    "subtitle": "Matthew Lach · Independent Researcher · 12 September 2026",
     "author": "Lach, M.",
-    "held": false,
-    "bytes": null,
-    "md5": null,
+    "held": true,
+    "bytes": 67223,
+    "md5": "0907ff3d5aa8fb1a4bb4b199a341271c",
     "md5_recorded": null,
-    "words": null,
-    "note": "named by the author as released to the site; the paper's file is not yet in the repository, so the site lists it and shows nothing in its place",
-    "headings": 0,
+    "words": 11350,
+    "note": "the paper as the author wrote it, from the repository's research tree rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "research/warp-drive/paper/THE-HIERARCHY-LAW.md",
+     "commit": "5bdadaa"
+    },
+    "pdf": {
+     "file": "papers/languages/THE-HIERARCHY-LAW.pdf",
+     "bytes": 1021231,
+     "md5": "1ea3368e06a444b6acdd78eaa3397b31",
+     "commit": "5bdadaa"
+    },
+    "headings": 29,
     "figures": 0,
     "figures_ok": true,
     "arxiv": 0,
-    "doi": 0
+    "doi": 1
    }
   ]
  },
@@ -292,14 +334,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 75290,
-   "md5": "290fd4eb9de42ebea0f88a804a89978d",
+   "bytes": 165542,
+   "md5": "05514ad75a7282ccf971e1af2a4bafb0",
    "what": "the released papers, rendered"
   },
   {
+   "file": "data/papers/languages/THE-HIERARCHY-LAW.pdf",
+   "bytes": 1021231,
+   "md5": "1ea3368e06a444b6acdd78eaa3397b31",
+   "what": "The Hierarchy Law of Mathematical Languages, as a PDF; md5 measured at build, commit 5bdadaa"
+  },
+  {
    "file": "data/particles.js",
-   "bytes": 231619,
-   "md5": "c2b87b65e1d38f7051b5095ba3f0936f",
+   "bytes": 727462,
+   "md5": "67519a8ff70ced0cf6a79f517d356668",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
@@ -9541,8 +9589,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 231619,
-  "md5": "c2b87b65e1d38f7051b5095ba3f0936f",
+  "bytes": 727462,
+  "md5": "67519a8ff70ced0cf6a79f517d356668",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9554,12 +9602,36 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "bytes": 33555,
      "md5": "53a5b67b4dfe12c782635191ca9e1fd0",
      "exists": true
+    },
+    {
+     "path": "research/warp-drive/captures/NUCBANDS-levels.tsv",
+     "bytes": 61455,
+     "md5": "d182668ff0192a3ed8d29c7f9a2b0ef8",
+     "exists": true
+    },
+    {
+     "path": "research/warp-drive/captures/NUCBANDS-bands.tsv",
+     "bytes": 11560,
+     "md5": "74d2217998e555c4362f021820b45af7",
+     "exists": true
+    },
+    {
+     "path": "research/warp-drive/captures/NUCBANDS-unplaced.tsv",
+     "bytes": 636,
+     "md5": "a5bafe0b78cb766967af0ff3deb8b171",
+     "exists": true
+    },
+    {
+     "path": "research/warp-drive/captures/arxiv-2303.13849.txt",
+     "bytes": 214530,
+     "md5": "1847412451a8fff4d81f4dfde0fc07d9",
+     "exists": true
     }
    ],
    "tree": {
     "root": "research/warp-drive",
-    "commit": "c5135e7",
-    "state_commit": "561fea909b1b",
+    "commit": "4de78a4",
+    "state_commit": "09276204387e",
     "instruments": [
      "pdgcapture.py",
      "fundamental.py",
@@ -9569,6 +9641,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "quasiparticle.py",
      "spin4.py",
      "subpop.py",
+     "nucbands.py",
+     "nbcapture.py",
+     "deformed.py",
+     "bonds.py",
      "particlesweep.py"
     ]
    }
@@ -9684,9 +9760,25 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "of_charted": 550
   },
   "spin4": "spin4: 10 spin-4 mesons, 9 cells, K4 (K5 on the established states)",
+  "nuclear": {
+   "members": 2152,
+   "cells": 121,
+   "channel": 2,
+   "refusals": [
+    27,
+    93,
+    6
+   ],
+   "census_exact": true,
+   "deformed": "233 of 234 entries, not seated"
+  },
+  "bonds": {
+   "refusals": 3,
+   "empty_channels": []
+  },
   "subpop": {
-   "tested": 306,
-   "closed_sets": 143,
+   "tested": 366,
+   "closed_sets": 203,
    "hits": 2,
    "exhaustive_chains": [
     5,

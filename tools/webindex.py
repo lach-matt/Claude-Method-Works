@@ -51,6 +51,7 @@ from __future__ import annotations
 import argparse
 import ast
 import bisect
+import collections
 import contextlib
 import csv
 import datetime as _dt
@@ -155,7 +156,11 @@ _PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
 # is this repository's own reconstruction, not one of the books, and the two
 # captures are public tables (PDG, spglib) written with their provenance
 PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
-                "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture"}
+                "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture",
+                "THE-HIERARCHY-LAW.md": "the hierarchy law paper",
+                "NUCBANDS-levels.tsv": "the band-level capture", "NUCBANDS-bands.tsv": "the band capture",
+                "NUCBANDS-unplaced.tsv": "the unplaced-level capture", "DEFORMED-entries.tsv": "the deformed-band entry capture",
+                "DEFORMED-levels.tsv": "the deformed-band level capture"}
 
 
 def private_hits(text):
@@ -670,11 +675,18 @@ PAPER_SLUGS = {
 }
 # papers the author has named as released to the site but whose file is not
 # in the repository: a slot on the site, held: false, never a fabricated body
-PAPER_SLOTS = [
-    {"slug": "languages", "title": "The hierarchy of mathematical languages", "held": False,
-     "note": "named by the author as released to the site; the paper's file is not yet "
-             "in the repository, so the site lists it and shows nothing in its place"},
-]
+PAPER_SLOTS = []
+# papers released to the site from the research tree rather than the store: the
+# author's own text, in the repository under research/, with no ledger row to
+# check against -- so the md5 is measured at build and the file's last commit
+# recorded beside it, and a PDF beside the text is carried as a download
+_OWN_SECTION_MARKS = {r"\b[Ss]ections?\s+\d", r"§\s?\d"}
+RESEARCH_PAPERS = {
+    "research/warp-drive/paper/THE-HIERARCHY-LAW.md": {
+        "slug": "languages", "short": "the hierarchy law paper",
+        "pdf": "research/warp-drive/paper/pdf/THE-HIERARCHY-LAW.pdf",
+    },
+}
 # the edition history the site shows: the commits that changed public/ or the
 # generator, each with a note written for the site (the commit subjects are
 # git's record, not the site's, and are not shipped)
@@ -918,6 +930,59 @@ def papers_block(out_dir=OUT, write=True, log=print):
             "note": "the paper as the author wrote it, rendered at build; nothing in it is edited "
                     "for the site, and its own citations are its own",
         })
+    for rel, spec in RESEARCH_PAPERS.items():
+        path = os.path.join(REPO, rel)
+        if not os.path.isfile(path):
+            papers.append({"slug": spec["slug"], "short": spec["short"], "title": spec["short"], "held": False, "author": SITE_AUTHOR,
+                           "note": "named by the author as released; its file is not in this tree, so the site lists it and shows nothing in its place"})
+            continue
+        with open(path, "rb") as fh:
+            raw = fh.read()
+        text = raw.decode("utf-8")
+        slug = spec["slug"]
+        figs = []
+
+        def img_r(alt, src, _figs=figs):
+            _figs.append({"ref": src, "file": None, "held": False})
+            return '<span class="fig-missing">[figure %s: not carried]</span>' % html_escape(os.path.basename(src))
+        body, headings = md_to_html(text, {"img": img_r})
+        h1 = next((h for h in headings if h["level"] == 1), None)
+        arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        pdf = None
+        if spec.get("pdf") and os.path.isfile(os.path.join(REPO, spec["pdf"])):
+            with open(os.path.join(REPO, spec["pdf"]), "rb") as fh:
+                pblob = fh.read()
+            prel = "papers/%s/%s" % (slug, os.path.basename(spec["pdf"]))
+            if write:
+                os.makedirs(os.path.join(out_dir, "papers", slug), exist_ok=True)
+                with open(os.path.join(out_dir, prel), "wb") as fh:
+                    fh.write(pblob)
+            pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": _git_last_commit(spec["pdf"])}
+        papers.append({
+            "slug": slug, "short": spec["short"],
+            "title": (h1 or {}).get("text") or spec["short"],
+            "subtitle": _paper_byline(text),
+            "author": SITE_AUTHOR,
+            "held": True,
+            "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
+            "md5_recorded": None,
+            "tree": {"path": rel, "commit": _git_last_commit(rel)},
+            "words": len(text.split()),
+            "headings": headings,
+            "figures": figs,
+            "arxiv": arx, "doi": dois,
+            "pdf": pdf,
+            "html": body,
+            # the guard as a measurement over the paper's text: the section-number patterns are
+            # excluded because the paper numbers its own sections with § and "Section n", which
+            # are its own marks and not citations of the books; every other pattern counts
+            "book_citations": [h for h in private_hits(text) if h not in _OWN_SECTION_MARKS],
+            "own_section_marks": [h for h in private_hits(text) if h in _OWN_SECTION_MARKS],
+            "note": "the paper as the author wrote it, from the repository's research tree rather than the store: "
+                    "no ledger row records its md5, so the md5 is measured at build and the file's last commit "
+                    "is recorded beside it; nothing in it is edited for the site",
+        })
     for slot in PAPER_SLOTS:
         papers.append(dict(slot, author=SITE_AUTHOR))
     blob = (PAPERS_PREFIX + json.dumps(papers, ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
@@ -925,7 +990,7 @@ def papers_block(out_dir=OUT, write=True, log=print):
         with open(os.path.join(out_dir, PAPERS_JS), "wb") as fh:
             fh.write(blob)
     summary = [{k: p.get(k) for k in ("slug", "title", "subtitle", "author", "held", "bytes", "md5",
-                                        "md5_recorded", "words", "note")}
+                                        "md5_recorded", "words", "note", "tree", "pdf")}
                | {"headings": len(p.get("headings", [])), "figures": len(p.get("figures", [])),
                   "figures_ok": all(f.get("ok") for f in p.get("figures", []) if f.get("held")),
                   "arxiv": len(p.get("arxiv", [])), "doi": len(p.get("doi", []))}
@@ -933,6 +998,24 @@ def papers_block(out_dir=OUT, write=True, log=print):
     return {"file": "data/" + PAPERS_JS, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
             "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
             "papers": summary}
+
+
+def _git_last_commit(rel):
+    """The short hash of the last commit that touched `rel`, or None."""
+    try:
+        return subprocess.run(["git", "log", "-1", "--format=%h", "--", rel], cwd=REPO,
+                              capture_output=True, text=True, check=True).stdout.strip() or None
+    except Exception:  # noqa: BLE001 -- not a git checkout
+        return None
+
+
+def _paper_byline(text):
+    """The bold byline of a research paper (author · affiliation · date), or None."""
+    for ln in text.split("\n")[1:12]:
+        s = ln.strip()
+        if s.startswith("**") and "·" in s:
+            return re.sub(r"[*_]", "", s).strip()
+    return None
 
 
 def equation_points(spectra):
@@ -1011,10 +1094,10 @@ def warp_modules(root):
     except Exception as e:  # noqa: BLE001 -- the docket is in progress on the other session
         mods["quasiparticle"] = None
         mods["quasiparticle_error"] = repr(e)
-    for extra in ("spin4", "subpop"):
+    for extra in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds"):
         try:
             mods[extra] = importlib.import_module(extra)
-        except Exception as e:  # noqa: BLE001 -- DOCKET 33/34 may not be in an older tree
+        except Exception as e:  # noqa: BLE001 -- DOCKET 33-37 may not be in an older tree
             mods[extra] = None
             mods[extra + "_error"] = repr(e)
     mods["root"] = root
@@ -1341,6 +1424,117 @@ def _subpop(SP):
     }
 
 
+def _nuclear(N, C, D):
+    """DOCKET 35 as the site carries it: the nuclear excited states of the
+    magnetic and antimagnetic rotational bands as an index on (2I, parity),
+    with the capture's own totality argument, its three refusals counted
+    apart, the free K2 said rather than banked, and the second paper's
+    status (DOCKET 36) beside it."""
+    K, h, w = N.cell()
+    heads = {(b["table"], b["A"], b["el"], b["band"]): b for b in N.bandrows()}
+    rows, seen = [], {}
+    for r in N.members():
+        A, el, tb, band, E = int(r["A"]), r["el"], r["table"], int(r["band"]), r["E_keV"]
+        key = "%d%s-%s-%d-%s" % (A, el, tb, band, E)
+        if key in seen:
+            seen[key] += 1
+            key += "~%d" % seen[key]
+        else:
+            seen[key] = 0
+        hd = heads.get((tb, r["A"], el, r["band"]), {})
+        rows.append({"name": "%d%s %s band %d · %s keV" % (A, el, tb, band, E), "key": key,
+                     "coords": [int(r["2I"]), int(r["par"])],
+                     "extra": {"table": tb, "A": A, "Z": int(r["Z"]), "N": A - int(r["Z"]), "el": el, "band": band, "E_keV": E,
+                               "band_levels": int(hd["levels"]) if hd.get("levels") else None, "head_E": hd.get("head_E") or None}})
+    nb_nospin, nb_nopar, nb_unplaced = N.refusals()
+    reasons = collections.Counter(C.nospin_reason().values())
+    steps = C.steps()
+    mr = steps.get("MR", {}); amr = steps.get("AMR", {})
+    bt = N.by_table()
+    arity3 = [{"coordinates": list(c), "channel": k, "cells": n, "cell": {"channel": cl[0], "height": cl[1], "width": cl[2]}} for c, k, n, cl in N.ARITY3]
+    cen = C.census()
+    index = {
+        "id": "nucbands", "title": "The nuclear excited states in rotational bands",
+        "member": "a nuclear excited state in a magnetic or antimagnetic rotational band, carrying spin I and parity as a particle carries J and P; the bands themselves are measured as a sub-population and not seated",
+        "coordinates": [{"name": "2I", "meaning": "spin, doubled so a half-integer spin stays an integer", "status": "READ"},
+                        {"name": "P", "meaning": "parity, +1 or −1", "status": "READ"}],
+        "members": len(rows), "charted": len(rows), "levels_captured": len(N.levels()), "unplaced": [], "unplaced_why": "",
+        "rows": rows,
+        "cells": len(N.index()), "cell": {"channel": K, "height": h, "width": w}, "closers": N.closers(N.index()) if hasattr(N, "closers") else ["statistics"],
+        "free_channel": {"arity": N.statistics_is_free()[0], "free": N.statistics_is_free()[1], "status": "DERIVED",
+                         "note": "at arity 2 the statistics closer is vacuous, so the K2 is the free one and the index really closes in nothing, which is where the mesons and baryons sit too; said rather than banked"},
+        "supersets": {"rows": arity3, "status": "DERIVED", "note": "every superset of (2I, P) over the five coordinates the capture carries loses the channel: the extra coordinate buys cells and costs the free pass; all seven measured, the last on a ninety-minute run after a forty-minute one timed out and was named unmeasured rather than filled in"},
+        "refusals": {"bands_no_spin": nb_nospin, "bands_no_spin_reasons": {"energy_unknown": reasons.get("ENERGY-UNKNOWN", 0), "spin_relative": reasons.get("SPIN-RELATIVE", 0)},
+                     "levels_no_parity": nb_nopar, "levels_no_spin_in_a_band": nb_unplaced,
+                     "unplaced": [{"table": u["table"], "A": int(u["A"]), "el": u["el"], "band": int(u["band"]), "E_keV": u["E_keV"], "Egamma": u["Egamma"], "closes": u["closes"] == "True"} for u in N.unplaced_rows()],
+                     "status": "READ",
+                     "note": "three refusals on the criterion, counted apart because they are different facts about the source: bands printed with no spin-parity column at all (energies relative to an unknown bandhead, or a relative spin ladder), levels with a spin and no parity, and level rows with no spin-parity inside a band that has them, each of the last closing its own gamma arithmetic against a level below it"},
+        "bands": {"cells": len(N.band_chart()), "status": "DERIVED", "note": "the bandhead states as a chart: the same channel, a sub-population of this index, measured and not seated, because seating the tower and its rungs would be two indexes for one subject"},
+        "by_table": {k: {"levels": v[0], "cells": v[1], "channel": v[2]} for k, v in bt.items()},
+        "by_table_note": "MR is magnetic rotation, the shears mechanism at ΔI = 1; AMR is antimagnetic rotation at ΔI = 2; the two mechanisms charted apart land in the same channel",
+        "resolution": [{"axis": a, "distinct": d, "cells": n, "ratio": round(r, 4)} for a, d, n, r in N.resolution()],
+        "refused": [],
+        "in_progress": True,
+    }
+    capture = {
+        "paper": C.PAPER, "arxiv": "2303.13849", "source_md5": C.SRC_MD5, "source_md5_now": C.md5(C.SRC),
+        "census": {"stated": {k: {"bands": v[0], "nuclei": v[1]} for k, v in C.STATED.items()}, "measured": {k: {"bands": v[0], "nuclei": v[1]} for k, v in cen.items()},
+                   "exact": all(cen[k] == C.STATED[k] for k in C.STATED), "status": "DERIVED",
+                   "note": "the paper's own census, from its abstract and summary, reproduced exactly and independently for its two tables; the parse is measured against it, never fitted to it"},
+        "selection_rule": {"MR": {"delta_2I_2": mr.get(2, 0), "steps": sum(mr.values())}, "AMR": {"delta_2I_4": amr.get(4, 0), "steps": sum(amr.values())}, "status": "DERIVED",
+                           "note": "a count cannot catch a parser that reads the right number of wrong things, so the second check is the physics each table is defined by: AMR steps at ΔI = 2, MR steps at ΔI = 1"},
+        "source_faults": [{"A": a, "el": e, "band": b, "text": w} for a, e, b, w in C.SOURCE_FAULTS],
+        "parser_faults": [{"A": a, "el": e, "band": b, "text": w} for a, e, b, w in C.PARSER_FAULTS],
+        "not_a_fault": [{"A": a, "el": e, "band": b, "text": w} for a, e, b, w in C.NOT_A_FAULT],
+        "faults_note": "faults in the source are captured as printed and not repaired; a fault in the parser, found by audit, is recorded beside them because a capture that only records the source's faults is flattering itself",
+        "status": "READ",
+    }
+    deformed = None
+    if D is not None:
+        req, blanks, page, hdr, avail = D.separators()
+        absent, recovered, why = D.verdict()
+        ent, bands, heads_n = D.census2()
+        deformed = {
+            "paper": D.PAPER, "arxiv": "2508.05447",
+            "stated": dict(D.STATED), "spec": D.SPEC, "spec_is_stated": D.spec_is_stated(),
+            "attempts": [{"method": m, "entries": n, "why": w} for m, n, w in D.ATTEMPTS],
+            "separators": {"required": req, "blank_lines": blanks, "at_page_breaks": page, "inside_headers": hdr, "available": avail},
+            "delimiter_absent": absent, "recovered": recovered, "sections": len(D.sections()),
+            "census": {"entries": ent, "bands": bands, "bandheads": heads_n},
+            "discontinuities": [{"entry": i, "band_number": no, "drop": [list(d) for d in dr]} for i, no, _sp, dr in D.discontinuities()],
+            "verdict": "CAPTURED, NOT SEATED", "why": why, "verdict_status": "READ",
+            "note": "the deformed rotor's tower, the candidate the sub-population sweep actually named; the document's own delimiter, a blank row between entries, was collapsed by the text extraction, and an earlier refusal concluded from that that no parse could recover the entries; that conclusion is retracted, a sequence-with-reset rule on the band number recovering 233 of 234 in 24 blocks matching the 24 nuclide sections; two entries carry a falling spin sequence and splitting both would give 235, so the capture stays at 233 and nothing is seated",
+        }
+    return {"index": index, "capture": capture, "deformed": deformed,
+            "status_note": "a candidate the sub-population sweep first declared unreachable, reached by navigating by join rather than by meet: the shears-rotation paper captured in full with its own census reproduced, and its levels seated as an index; the deformed-rotor paper captured and not seated"}
+
+
+def _bonds(B):
+    """DOCKET 37 as the site carries it: can a bond be indexed? Three
+    readings, three refusals on three different grounds, the decidable
+    parts re-derived by the instrument."""
+    occ, empty = B.channels_exhausted()
+    return {
+        "title": "Can a bond be indexed?",
+        "question": "an index or indexes of chemical, atomic and particle bonds",
+        "status_note": "the question was worth measuring rather than waving off: the indexes chart atomic orbitals, nuclear orbitals, atomic terms, nuclei, particles and quasiparticles and nothing between the atom and the nucleus; the answer is no three times, and the three noes are not the same no",
+        "refusals": [{"reading": n, "ground": g, "why": w, "status": "DERIVED"} for n, g, w in B.REFUSALS],
+        "molecular": {
+            "measured": dict(B.MEASURED), "measured_note": "measured with an electronic-structure package over fifteen diatomics in a scoping pass and recorded, not re-derived, since the instrument is stdlib-only; the figures the refusal turns on are re-derived below",
+            "bond_vs_mo": [{"molecule": m, "bond_order": b, "occupied_mos": o, "equal": eq} for m, b, o, eq in B.bond_vs_mo()],
+            "no_inversion": list(B.NO_INVERSION),
+            "basis": {"molecule": "N2", "counts": [{"basis": b, "mos": c} for b, c in B.N2_MO_BY_BASIS], "distinct": B.basis_spread()[0], "min": B.basis_spread()[1], "max": B.basis_spread()[2]},
+            "sigma_v_eigenvalues": B.sigma_v_on_sigma(), "pi2_microstates": sum(B.pi_squared().values()), "sigma_terms_from_pi2": {"triplet": B.sigma_terms_from_pi2()[0], "singlet": B.sigma_terms_from_pi2()[1]},
+            "status": "DERIVED",
+        },
+        "particle": {"partial_waves_J3": B.partial_waves(3), "growth": [{"J_max": j, "channels": len(B.partial_waves(j))} for j in (1, 2, 3, 4)], "status": "DERIVED",
+                     "note": "the nucleon-nucleon partial waves are derived from the triangle rule and the Pauli condition alone and are the channels the phase-shift literature prints; they fail twice, labelling the pair's state rather than the binding, and every finite count of them is a potential model's operator basis"},
+        "channels": {"occupied": occ, "empty": empty, "status": "DERIVED",
+                     "finding": "every one of the eight closure channels is now carried by some index, so the overlap rule's first ground, a channel no index reaches, can never be satisfied again; every future candidate must bring a genuinely new member set, as the nuclear band index did"},
+        "in_progress": True,
+    }
+
+
 def _frac(x):
     return "%d/%d" % (x.numerator, x.denominator) if x.denominator != 1 else str(x.numerator)
 
@@ -1505,6 +1699,12 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     # --- quasiparticles (docket 28) -----------------------------------------
     if mods.get("spin4") is not None:
         indexes.append(_spin4(mods["spin4"], extra))
+    nuclear = None
+    if mods.get("nucbands") is not None and mods.get("nbcapture") is not None:
+        nuclear = _nuclear(mods["nucbands"], mods["nbcapture"], mods.get("deformed"))
+    elif mods.get("nucbands_error"):
+        nuclear = {"absent": True, "note": "the nuclear band instrument did not import: " + mods["nucbands_error"][:200]}
+    bonds = _bonds(mods["bonds"]) if mods.get("bonds") is not None else None
     subpop = None
     if mods.get("subpop") is not None:
         subpop = _subpop(mods["subpop"])
@@ -1568,9 +1768,15 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
-    for extra_mod in ("spin4", "subpop"):
+    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds"):
         if mods.get(extra_mod) is not None:
             prov["tree"]["instruments"].append(extra_mod + ".py")
+    if nuclear and not nuclear.get("absent"):
+        for path in ("captures/NUCBANDS-levels.tsv", "captures/NUCBANDS-bands.tsv", "captures/NUCBANDS-unplaced.tsv", "captures/arxiv-2303.13849.txt"):
+            fp = os.path.join(root, path)
+            if os.path.isfile(fp):
+                with open(fp, "rb") as fh:
+                    prov["capture"].append({"path": "research/warp-drive/" + path, "bytes": os.path.getsize(fp), "md5": hashlib.md5(fh.read()).hexdigest(), "exists": True})
     sweep = None
     if PS is not None:
         sweep = _sweep(PS)
@@ -1580,6 +1786,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     full = {
         "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
         "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
+        "nuclear": nuclear, "bonds": bonds,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -1602,6 +1809,12 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "antimatter": ({"total": accounting["antimatter"]["total"], "of_charted": accounting["antimatter"]["of_charted"]} if "antimatter" in accounting else None),
         "spin4": (next(("spin4: %d spin-4 mesons, %d cells, K%d (K%d on the established states)" % (ix["members"], ix["cells"], ix["cell"]["channel"], ix["reach"]["established"]["channel"])
                         for ix in indexes if ix["id"] == "spin4"), None)),
+        "nuclear": ({"members": nuclear["index"]["members"], "cells": nuclear["index"]["cells"], "channel": nuclear["index"]["cell"]["channel"],
+                     "refusals": [nuclear["index"]["refusals"][k] for k in ("bands_no_spin", "levels_no_parity", "levels_no_spin_in_a_band")],
+                     "census_exact": nuclear["capture"]["census"]["exact"],
+                     "deformed": ("%d of %d entries, not seated" % (nuclear["deformed"]["census"]["entries"], nuclear["deformed"]["stated"]["entries"]) if nuclear.get("deformed") else None)}
+                    if nuclear and not nuclear.get("absent") else None),
+        "bonds": ({"refusals": len(bonds["refusals"]), "empty_channels": bonds["channels"]["empty"]} if bonds else None),
         "subpop": ({"tested": subpop["census"]["tested"], "closed_sets": subpop["census"]["closed_sets"], "hits": subpop["census"]["reaching_an_unoccupied_channel"],
                     "exhaustive_chains": [e["longest_chain"] for e in subpop["exhaustive"]], "lattices": subpop["lattices"]["count"]} if subpop and not subpop.get("absent") else None),
         "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
@@ -2620,6 +2833,8 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             {"file": "data/index.js", "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"},
             {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
             {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
+            *[{"file": "data/" + p["pdf"]["file"], "bytes": p["pdf"]["bytes"], "md5": p["pdf"]["md5"], "what": "%s, as a PDF; md5 measured at build, commit %s" % (p["title"], p["pdf"]["commit"] or "?")}
+              for p in papers["papers"] if p.get("pdf")],
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"} if pindex else None,
             walk_copy,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
@@ -2778,13 +2993,35 @@ def selftest(warp_root=WARP_ROOT):
             check("spin-4 mesons: 2J is constant at 8, so the effective arity is 3", (s4["held_constant"]["value"], s4["held_constant"]["constant"], s4["arity"]["effective"]), (8, True, 3))
             check("spin-4 mesons: the channel moves with the status reach, K5 then K4; K5 on the established states", (s4["reach"]["moves"], s4["reach"]["channels_seen"], s4["reach"]["established"]), (True, [4, 5], {"cells": 7, "channel": 5, "note": s4["reach"]["established"]["note"]}))
             check("spin-4 mesons: the two massless rows are charted, and every member is a meson row", (s4["massless"], all(r["extra"]["family"] == "meson" for r in s4["rows"])), (["K(4)(2500)+", "K(4)(2500)-"], True))
-            check("spin-4 mesons: statistics is free at arity 2, 105 of 105", s4["arity"]["statistics_at_arity_2"], {"closes": 105, "charts": 105})
+            check("spin-4 mesons: statistics is free at arity 2, every chart of at least 105", (s4["arity"]["statistics_at_arity_2"]["closes"] == s4["arity"]["statistics_at_arity_2"]["charts"], s4["arity"]["statistics_at_arity_2"]["charts"] >= 105), (True, True))
+        nu = pfull.get("nuclear")
+        if nu and not nu.get("absent"):
+            ni = nu["index"]
+            check("nuclear bands: 2,152 members of 2,245 levels on 121 cells, cell (2, 63, 2)", (ni["members"], ni["levels_captured"], ni["cells"], ni["cell"]), (2152, 2245, 121, {"channel": 2, "height": 63, "width": 2}))
+            check("nuclear bands: the K2 is the free one, said", (ni["free_channel"]["arity"], ni["free_channel"]["free"]), (2, True))
+            check("nuclear bands: three refusals counted apart, 27 + 93 + 6", [ni["refusals"][k] for k in ("bands_no_spin", "levels_no_parity", "levels_no_spin_in_a_band")], [27, 93, 6])
+            check("nuclear bands: every superset of (2I, P) is K0", sorted({r["channel"] for r in ni["supersets"]["rows"][1:]}), [0])
+            check("nuclear bands: the bands as a sub-population hold 67 cells", ni["bands"]["cells"], 67)
+            check("nuclear bands: the capture reproduces the paper's census exactly, 252/123 and 38/27", (nu["capture"]["census"]["exact"], nu["capture"]["census"]["measured"]), (True, {"MR": {"bands": 252, "nuclei": 123}, "AMR": {"bands": 38, "nuclei": 27}}))
+            check("nuclear bands: 213 of 213 AMR steps at ΔI = 2", (nu["capture"]["selection_rule"]["AMR"]["delta_2I_4"], nu["capture"]["selection_rule"]["AMR"]["steps"]), (213, 213))
+            check("nuclear bands: the source md5 is the one the capture records", nu["capture"]["source_md5"], nu["capture"]["source_md5_now"])
+            check("nuclear bands: every member row carries both coordinates and a nucleus", all(len(r["coords"]) == 2 and r["extra"]["A"] > r["extra"]["Z"] > 0 for r in ni["rows"]), True)
+            if nu.get("deformed"):
+                check("deformed bands: 233 of 234 entries recovered, 61 bandheads exact, not seated", (nu["deformed"]["census"], nu["deformed"]["recovered"], nu["deformed"]["verdict"]), ({"entries": 233, "bands": 172, "bandheads": 61}, 233, "CAPTURED, NOT SEATED"))
+                check("deformed bands: the document's delimiter is absent, 0 of 210, and the earlier refusal is retracted", (nu["deformed"]["separators"]["available"], nu["deformed"]["separators"]["required"], "RETRACTED" in nu["deformed"]["why"]), (0, 210, True))
+        bo = pfull.get("bonds")
+        if bo:
+            check("bonds: three refusals on three grounds, and no channel empty", (len(bo["refusals"]), bo["channels"]["empty"]), (3, []))
+            check("bonds: fourteen NN partial waves at J ≤ 3, growing 6, 10, 14, 18", (len(bo["particle"]["partial_waves_J3"]), [g["channels"] for g in bo["particle"]["growth"]]), (14, [6, 10, 14, 18]))
+            check("bonds: an MO is not a bond, and g/u is the host's on 34 of 103", ([b["equal"] for b in bo["molecular"]["bond_vs_mo"]], bo["molecular"]["measured"]["without_gu"]), ([True, False, False, False], 34))
         sp = pfull.get("subpop")
         if sp and not sp.get("absent"):
-            check("sub-population sweep: 143 closed sets, 2 reaching an unoccupied channel", (sp["census"]["closed_sets"], sp["census"]["reaching_an_unoccupied_channel"]), (143, 2))
+            grown = bool(nu and not nu.get("absent"))
+            check("sub-population sweep: %s closed sets, 2 reaching an unoccupied channel" % ("more than 143 once the band index is seated" if grown else "143"), (sp["census"]["closed_sets"] > 143 if grown else sp["census"]["closed_sets"], sp["census"]["reaching_an_unoccupied_channel"]), (True if grown else 143, 2))
             check("sub-population sweep: both hits at K4, one at effective arity 2 and one at 3", sorted((h["channel"], h["effective_arity"]) for h in sp["hits"]), [(4, 2), (4, 3)])
             check("sub-population sweep: under the mass reach the spin-4 population never reaches K4", 4 in {c["channel"] for c in sp["spin4_under_mass"]["cuts"]}, False)
             check("sub-population sweep: three lattices, and the family's chain is 2 over 14 containments", (sp["lattices"]["count"], sp["family"]["containments"], sp["family"]["longest_chain"]), (3, 14, 2))
+            check("sub-population sweep: the not-lattices and the one too large to test are counted apart", (sp["lattices"]["not"] >= 18, sp["lattices"]["undetermined"] <= 1), (True, True))
             check("sub-population sweep: the exhaustive chains are 5, 7, 6, 14", [e["longest_chain"] for e in sp["exhaustive"]], [5, 7, 6, 14])
             check("sub-population sweep: two lattices peel to empty, exact", sorted(r["lattice"] for r in sp["recursion"] if r["maximal"]), ["bosonqp.index", "overlaprule.madelung_slot"])
             check("sub-population sweep: the chiral Goldstones are a full box, the electroweak ones a relabelling", (sp["candidates"]["chiral_goldstone"]["full_box"], sp["candidates"]["electroweak"]["held_by_fundamental"]), (True, True))
@@ -2808,7 +3045,7 @@ def selftest(warp_root=WARP_ROOT):
             check("sweep: all four grounds hold for the seating", all(sw["seated"]["grounds"].values()), True)
             check("sweep: the four corners not held lie outside the hull", (sw["seated"]["corners_not_held"], sw["seated"]["corners_outside_hull"]),
                   ([[0, -6], [0, 6], [1, -6], [1, 6]], True))
-            check("sweep: statistics is free at arity 2, 105 of 105; geometry is earned, 74", (sw["arity2_freeness"]["statistics"]["closes"], sw["arity2_freeness"]["geometry"]["closes"]), (105, 74))
+            check("sweep: statistics is free at arity 2, every chart of at least 105; geometry is earned, 74", (sw["arity2_freeness"]["statistics"]["closes"] == sw["arity2_freeness"]["statistics"]["charts"], sw["arity2_freeness"]["statistics"]["charts"] >= 105, sw["arity2_freeness"]["geometry"]["closes"]), (True, True, 74))
             check("sweep: " + ("all eight channels occupied once the spin-4 index is seated" if four else "seven channels occupied, only K4 empty"), sw["occupancy"]["now"], [0, 1, 2, 3, 4, 5, 6, 7] if four else [0, 1, 2, 3, 5, 6, 7])
         fq = (pfull.get("quasiparticles") or {}).get("seated")
         if fq and not fq.get("absent"):
@@ -2835,9 +3072,19 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
                   [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
-    check("papers: the two released papers and the one slot", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
-    check("papers: the slot is not held", pp[2]["held"], False)
-    check("papers: every held paper's md5 is the store's", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"]), True)
+    check("papers: the three released papers, in order", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
+    check("papers: all three are held", [p["held"] for p in pp], [True, True, True])
+    check("papers: every paper from the store carries the store's md5", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"] and p["md5_recorded"]), True)
+    check("papers: the hierarchy law paper comes from the research tree with its commit, and its PDF with an md5",
+          (pp[2]["tree"]["path"], bool(pp[2]["tree"]["commit"]), bool(pp[2]["pdf"] and pp[2]["pdf"]["md5"])),
+          ("research/warp-drive/paper/THE-HIERARCHY-LAW.md", True, True))
+    check("papers: the hierarchy law paper is over ten thousand words and opens with the law", (pp[2]["words"] > 10000, pp[2]["title"]), (True, "The Hierarchy Law of Mathematical Languages"))
+    full_papers = json.loads(open(os.path.join(OUT, PAPERS_JS), encoding="utf-8").read()[len(PAPERS_PREFIX):-len(WRAP_SUFFIX)]) if os.path.isfile(os.path.join(OUT, PAPERS_JS)) else []
+    lang = next((p for p in full_papers if p["slug"] == "languages"), None)
+    if lang:
+        check("papers: the hierarchy law paper cites nothing from the books, measured by the guard with its own section marks excluded",
+              (lang["book_citations"], sorted(lang["own_section_marks"])), ([], sorted(_OWN_SECTION_MARKS)))
+        check("papers: its render carries every heading of the source", len(lang["headings"]), sum(1 for ln in open(os.path.join(REPO, "research/warp-drive/paper/THE-HIERARCHY-LAW.md"), encoding="utf-8") if ln.startswith("#")))
     check("papers: every figure a held paper cites is carried with its ledger md5", all(p["figures_ok"] for p in pp if p["held"]), True)
     check("papers: the three-body paper cites 3 figures, the Löwdin paper 3 or more",
           (pp[1]["figures"], pp[0]["figures"] >= 3), (3, True))
