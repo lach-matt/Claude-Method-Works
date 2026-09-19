@@ -229,6 +229,17 @@ REGISTERED = (
     ("readrezayi", "index", "TABLE",
      "363 parafermion primaries of eleven Read-Rezayi states, two observed",
      "statistics class, order of the twist, order of the charge, level"),
+    # ---- DOCKET 34.  M: "still indexable.  Just contains no mass.  But a
+    # legitimate index.  Build it and seat it."  DOCKET 33 found this chart and
+    # refused it on a MASS reach -- but mass is not total over these members
+    # and mesons.py already refuses it as a coordinate, so that was the wrong
+    # reach.  On PDG STATUS, which every row carries, the channel MOVES (K5 to
+    # K4) and boxinvariance seats it.  THE FIRST ARITY-3 K4 IN THE TREE: every
+    # earlier one was arity 2, where statistics closes free.  This fills the
+    # last empty channel.
+    ("spin4", "index", "TABLE",
+     "10 spin-4 mesons, two of them without a printed mass",
+     "P, 2I, Q3"),
 )
 
 NOT_AN_INDEX = {
@@ -518,7 +529,7 @@ def selftest():
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
-        "non-abelian states", len(REGISTERED), 21)
+        "non-abelian states and DOCKET 34's K4", len(REGISTERED), 22)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED

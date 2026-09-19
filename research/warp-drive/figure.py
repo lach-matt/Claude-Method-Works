@@ -57,9 +57,9 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    21 vertices, 21 distinct cells -- no two seated indexes share a cell
+    22 vertices, 22 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 292
+    E = 348
 
 **ITS OWN CELL IS (0, 5, 10), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
@@ -188,6 +188,31 @@ because it cut both ways and a one-sided report would be a lie by selection.
     eight cells on their three common coordinates and neither contains the
     other, which is the negative counterpart of DOCKET 31's nesting and is
     reported so that one positive result is not read as a pattern.
+
+    AND TWENTY-TWO, WHERE THE CHANNEL CENSUS CLOSES.  DOCKET 34 seated
+    `spin4` -- the ten spin-4 mesons on (P, 2I, Q3), 9 cells at (4, 5, 3) --
+    and **ALL EIGHT CHANNELS ARE NOW OCCUPIED.**  At twenty-two: E 348, own
+    cell (0, 5, 10), resolutions 0.364 / 0.682 / 0.773.
+
+    IT IS THE FIRST ARITY-3 K4 THIS TREE HAS HELD.  Four charts reached K4
+    before it -- `ions (sl, tl)`, `madrule (S_a, l_d)`,
+    `fundamental (Q3, GEN)` and `madrule` at l_d = 0 -- and all four were
+    arity 2, where `statistics` closes free at 105 of 105.  K4 is the one
+    channel above K1 whose extra content is exactly that free bit, so all four
+    showed join-closure and nothing more.  This one is arity 3, where
+    statistics closes 59 of 125, so the bit is earned.
+
+    AND DOCKET 33 HAD REFUSED IT ON THE WRONG REACH.  That docket swept it by
+    MASS, which is not total over these members -- two carry none -- and
+    concluded the K4 rested on rows the table could not place.  PDG STATUS is
+    total over them and is the reach this set has: swept on it the channel
+    MOVES, K5 to K4, which is what boxinvariance asks for.  The move is itself
+    recorded: on PDG's ESTABLISHED states alone the index is K5, and it is K4
+    only once the status-2 states are admitted.  Both readings are true.
+
+    WHAT A FULL CENSUS MEANS AND DOES NOT.  Every down-set of the hierarchy law
+    is now carried by something.  That is a statement about eight cells.
+    `registry.COMPLETE` is False and stays False.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
@@ -530,14 +555,15 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at twenty-one it closes in NOTHING -- the ruling cost it its "
+    chk("at twenty-two it closes in NOTHING -- the ruling cost it its "
         "closure at fourteen and nothing since has given it back",
         closers(), [])
     own, occ = self_cell()
     chk("it has its own cell", own, (0, 5, 10))
-    chk("SEVEN of the eight channels are occupied; only K4 is not -- "
-        "DOCKET 29 filled K5", sorted({c[0] for c in figure()}),
-        [0, 1, 2, 3, 5, 6, 7])
+    chk("ALL EIGHT CHANNELS ARE OCCUPIED -- DOCKET 34 filled the last",
+        sorted({c[0] for c in figure()}), [0, 1, 2, 3, 4, 5, 6, 7])
+    chk("and none is empty", [k for k in range(8)
+                              if k not in {c[0] for c in figure()}], [])
     chk("AND NO MEMBER OCCUPIES IT -- it is not one of its own", occ, [])
 
     # -- section 2, the finding growth exposed
@@ -547,9 +573,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6818))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7619))
+        (res["width"][1], res["width"][0]), ("measurement", 0.7727))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])
