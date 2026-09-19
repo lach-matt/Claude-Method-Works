@@ -481,6 +481,7 @@
     catch (err) {
       // a blank canvas says nothing; the error is written on it, and to the console, so it can be reported
       console.error(err);
+      state.lastDrawError = { at: Date.now(), message: String(err && err.message || err), where: (err && err.stack || '').split('\n').slice(0, 3).join(' | ') };
       try {
         const dpr = window.devicePixelRatio || 1; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.fillStyle = state.colors ? state.colors.bg : '#fff'; ctx.fillRect(0, 0, W(), H());
@@ -492,15 +493,18 @@
   }
   function drawInner(now) {
     drawQueued = false;
-    if (!canvasVisible) return;      // resumed by the observer when the canvas scrolls back into view
+    // an explicit draw always paints, even while the canvas is scrolled away: a resize clears the
+    // canvas, and a browser whose observer never fires on the way back would otherwise show it
+    // blank. Only the animation loop pauses while hidden, resumed by the observer.
     const animating = stepAnim(now || performance.now());
+    state.lastDraw = { at: Date.now(), view: state.view, visible: canvasVisible };
     const dpr = window.devicePixelRatio || 1;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const C = state.colors;
     ctx.fillStyle = C.bg;
     ctx.fillRect(0, 0, W(), H());
     if (!state.index) return;
-    if (state.view === 'lattice') { drawLattice(); if (animating) requestDraw(); return; }
+    if (state.view === 'lattice') { drawLattice(); if (animating && canvasVisible) requestDraw(); return; }
     const s = CELL * state.cam.k;
 
     drawAxes(s);
@@ -542,7 +546,7 @@
       if (p.x + s < 0 || p.y + s < 0 || p.x > W() || p.y > H()) continue;
       drawElement(e, p, s);
     }
-    if (animating) requestDraw();
+    if (animating && canvasVisible) requestDraw();
   }
 
   function drawAxes(s) {
@@ -3302,6 +3306,54 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         if (canvasVisible) requestDraw();
       }).observe(wrap);
     }
+    // a fallback for a browser whose observer does not fire on the way back: on any scroll that
+    // ends with the canvas in the viewport, mark it visible and paint
+    let scrollT = null;
+    window.addEventListener('scroll', () => {
+      if (scrollT) clearTimeout(scrollT);
+      scrollT = setTimeout(() => {
+        const r = wrap.getBoundingClientRect();
+        const inView = r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+        if (inView && !canvasVisible) { canvasVisible = true; requestDraw(); }
+      }, 120);
+    }, { passive: true });
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') requestDraw(); });
+    // diagnostics: what this browser is doing with the page, for a report from a phone with no console
+    const diagBtn = $('#diag-copy'), diagOut = $('#diag-out');
+    if (diagBtn && diagOut) {
+      const show = () => { diagOut.textContent = diagnostics(); diagOut.hidden = false; };
+      diagBtn.addEventListener('click', () => { show(); copyText(diagOut.textContent, diagBtn); });
+      $('#dlg-help').addEventListener('toggle', show);
+    }
+  }
+
+  // the page's own account of itself: browser, canvas, what is drawn, what failed -- one block of
+  // text a reader can copy from Help and paste into a report, which a phone browser with no
+  // console cannot otherwise produce
+  function diagnostics() {
+    const L = [];
+    const sel = state.selected || {};
+    try {
+      L.push(`page: ${location.href}`);
+      L.push(`edition: ${(state.index && state.index.meta && state.index.meta.commit) || '?'} · script ok`);
+      L.push(`browser: ${navigator.userAgent}`);
+      L.push(`viewport: ${window.innerWidth}×${window.innerHeight} · dpr ${window.devicePixelRatio || 1} · touch ${('ontouchstart' in window) ? 'yes' : 'no'} · reduced motion ${reduced ? 'yes' : 'no'}`);
+      L.push(`canvas: ${canvas.width}×${canvas.height} px buffer, ${canvas.clientWidth}×${canvas.clientHeight} css · wrap ${wrap.clientWidth}×${wrap.clientHeight} · context ${ctx ? '2d ok' : 'NONE'} · in viewport ${(() => { const r = wrap.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; })()} · observer says visible ${canvasVisible}`);
+      L.push(`support: IntersectionObserver ${'IntersectionObserver' in window} · ResizeObserver ${'ResizeObserver' in window} · PointerEvent ${'PointerEvent' in window} · dialog ${typeof HTMLDialogElement !== 'undefined' && !!HTMLDialogElement.prototype.showModal} · BigInt ${typeof BigInt !== 'undefined'} · localStorage ${(() => { try { localStorage.getItem('x'); return 'ok'; } catch (e) { return 'blocked'; } })()}`);
+      L.push(`view: ${state.view} · layout ${state.layout} · element view ${state.elementView} · selected ${sel.kind || 'none'}${sel.Z ? ' Z=' + sel.Z : ''}${sel.id ? ' ' + sel.id : ''} · scene ${state.scene ? state.scene.kind + (state.scene.Z ? ' Z=' + state.scene.Z : '') + ' ' + state.scene.cubes.length + ' nodes' : 'none'} · orbit ${state.orbit ? `rx ${state.orbit.rx.toFixed(2)} ry ${state.orbit.ry.toFixed(2)} zoom ${state.orbit.zoom.toFixed(2)} fit ${state.orbit.fitF ? state.orbit.fitF.toFixed(1) : '?'}` : 'none'}`);
+      L.push(`data: elements loaded ${state.elements.size} · load errors ${state.loadErrors.size}${state.loadErrors.size ? ' (' + [...state.loadErrors.entries()].slice(0, 3).map(([z, m]) => z + ': ' + m).join('; ') + ')' : ''} · particles ${state.particleIndex ? 'loaded' : 'not loaded'} · papers ${state.papers ? 'loaded' : 'not loaded'}`);
+      L.push(`last draw: ${state.lastDraw ? `${new Date(state.lastDraw.at).toISOString()} view ${state.lastDraw.view} visible ${state.lastDraw.visible}` : 'never'}`);
+      L.push(`last draw error: ${state.lastDrawError ? `${state.lastDrawError.message} — ${state.lastDrawError.where}` : 'none'}`);
+      // a small lattice drawn off screen with the same calls the view uses
+      try {
+        const c2 = document.createElement('canvas'); c2.width = 40; c2.height = 40; const x = c2.getContext('2d');
+        const g = x.createRadialGradient(15, 15, 2, 20, 20, 16); g.addColorStop(0, '#fff'); g.addColorStop(1, '#000');
+        x.fillStyle = g; x.beginPath(); x.arc(20, 20, 16, 0, Math.PI * 2); x.fill(); x.setLineDash([3, 3]); x.strokeStyle = '#f00'; x.stroke();
+        const px = x.getImageData(20, 20, 1, 1).data;
+        L.push(`test draw: ok (gradient, arc, dash; centre pixel ${px[0]},${px[1]},${px[2]},${px[3]})`);
+      } catch (e) { L.push(`test draw: FAILED ${e.message}`); }
+    } catch (e) { L.push(`diagnostics failed: ${e.message}`); }
+    return L.join('\n');
   }
 
   // the edition: which build of the data this page reads, from data/index.js's own meta
@@ -3372,6 +3424,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   history             every edition of the site
   glossary            where the terms are defined
   check <text>        the machine check over pasted text with the markers ⟦path⟧ ⟪f(args) = v⟫ ⦃equation⦄
+  diag                what this browser is doing with the page: canvas, view, last draw, last error
 <El> is a symbol, a Z or a name; the element is loaded if it is not yet. An unknown input prints this text.`;
 
   function findElement(tok) {
@@ -3404,6 +3457,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const ax = (name) => { const a = axisStatus(name); return a ? a.status : '—'; };
     switch (cmd) {
       case 'help': return HELP;
+      case 'diag': case 'diagnostics': return diagnostics();
       case 'particles': {
         const pt = ix.particles; if (!pt) return ix.particle_index ? `the particle indexes: ${ix.particle_index.indexes.map((x) => x.title + ' (' + x.members + ' members, ' + x.cells + ' cells, K' + x.cell.channel + ')').join('; ')}; ${ix.particle_index.accounting.identity}. Open Particles for every member with its statuses.` : 'this build of the index carries no particles block';
         const w = pt.window;

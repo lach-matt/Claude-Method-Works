@@ -711,6 +711,17 @@ also suggests a particle by name or an index by title. The address bar carries t
 (`#/Fe/II/d/3`, `#/p/mesons/pi0`), so every node is a link. Copy JSON copies the node's record; Copy link its
 address; Raw record shows the record inline; the element file is linked directly.
 
+**If a view does not draw.** The draw loop pauses only its animation frames while `#canvas-wrap`
+is scrolled out of view; an explicit draw always paints, because a resize clears the canvas and a
+browser whose IntersectionObserver never fires on the way back would otherwise show it blank (the
+first report of "3D not rendering" came from the DuckDuckGo Android browser, which has no console).
+A debounced scroll listener marks the canvas visible again as a fallback, a `visibilitychange`
+handler repaints on return, a drawing error is written on the canvas and kept as
+`state.lastDrawError`, and Help carries **Copy diagnostics** — the browser, viewport, canvas
+buffer, feature support, view, scene, orbit, loaded data, last draw, last error, and a small
+off-screen test draw with the same calls the view uses — the same text as the console command
+`diag`, so a phone can report what went wrong.
+
 The home view fits the layout above the legend overlay, so the set-aside actinide row is never
 under it at any viewport; the legend can still be collapsed. The Λ₈ ladder's glow is two strokes,
 a wide translucent one under a thin bright one, not `shadowBlur`; the ion and channel nodes carry
