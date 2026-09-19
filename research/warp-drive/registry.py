@@ -165,6 +165,23 @@ REGISTERED = (
     ("overlaprule", "madelung_slot", "FIBRATION",
      "the same 170 electrons, subshell-blind",
      "n+l, k"),
+    # ---- DOCKET 27.  M: "Can you now please produce indexes and plates for
+    # all particles other than periodic atoms ... whatever particle there is
+    # that isn't already indexed."  Section 0b rules the subject widened and
+    # the criterion untouched.  Three NEW MEMBER SETS, not coarsenings of any
+    # row above, so the overlap ruling's four grounds do not apply -- each is
+    # a first index of objects this tree had never charted.  Antiparticles are
+    # separate members in all three.  Composite nuclei stay out: they ARE the
+    # periodic elements and `gravity` already seats them.
+    ("fundamental", "index", "TABLE",
+     "30 Standard Model particles -- 12 quarks, 12 leptons, 6 gauge/Higgs",
+     "2J, Q3, colour dimension, generation"),
+    ("mesons", "index", "TABLE",
+     "242 mesons of the PDG table, 8 set aside for want of a printed parity",
+     "2J, P, 2I, Q3"),
+    ("baryons", "index", "TABLE",
+     "278 baryons of the PDG table, 14 set aside for want of a printed parity",
+     "2J, P, 2I, Q3, strangeness, charm, beauty"),
 )
 
 NOT_AN_INDEX = {
@@ -347,9 +364,14 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
-    chk("fourteen indexes registered -- eleven, two the overlap ruling seated "
-        "after DOCKET 22 unseated a third, and one DOCKET 26 added",
-        len(REGISTERED), 14)
+    chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
+        "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
+        "27's three particle indexes", len(REGISTERED), 17)
+    chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
+        "above -- each is a new member set",
+        sorted(m for m, _a, _me, _w, _q in REGISTERED
+               if m in ("fundamental", "mesons", "baryons")),
+        ["baryons", "fundamental", "mesons"])
     chk("exactly two came from the ruling, and they agree with it",
         sorted((m, a) for m, a, _me, _w, _q in REGISTERED
                if m == "overlaprule"),
