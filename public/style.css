@@ -388,12 +388,15 @@ pre.src { white-space: pre; word-break: normal; }
 /* ---- dialogs ---- */
 dialog {
   border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink);
-  width: min(780px, calc(100vw - 24px)); max-height: calc(100vh - 48px); padding: 0; box-shadow: var(--shadow);
+  width: min(780px, calc(100vw - 24px)); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); padding: 0; box-shadow: var(--shadow);
+  overscroll-behavior: contain;
 }
+dialog[open] { display: flex; flex-direction: column; }
+.dlg-head { flex: 0 0 auto; }
 dialog::backdrop { background: var(--backdrop); }
 .dlg-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; border-bottom: 1px solid var(--line); }
 .dlg-head h2 { font-family: var(--font-display); font-size: 20px; font-weight: 600; }
-.dlg-body { padding: 16px 24px 26px; overflow: auto; max-height: calc(100vh - 124px); font-size: 13.5px; }
+.dlg-body { padding: 16px 24px 26px; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; flex: 1 1 auto; min-height: 0; max-height: calc(100vh - 124px); max-height: calc(100dvh - 124px); font-size: 13.5px; }
 .dlg-body p { max-width: 70ch; }
 .dlg-body h3 { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--ink); margin: 22px 0 8px; padding-bottom: 5px; border-bottom: 1px solid var(--line); }
 .dlg-body ul { padding-left: 18px; }
@@ -503,7 +506,12 @@ dialog.dlg-wide { width: min(1080px, calc(100vw - 24px)); }
 .paper p { max-width: none; margin: 0 0 12px; }
 .paper blockquote { margin: 12px 0; padding: 6px 16px; border-left: 3px solid var(--accent); color: var(--ink); background: var(--surface-2, transparent); }
 .paper blockquote p { margin: 6px 0; }
-.paper img { max-width: 100%; height: auto; display: block; margin: 14px auto; border: 1px solid var(--line); border-radius: 4px; }
+.paper img { max-width: 100%; height: auto; display: block; margin: 14px auto; border: 1px solid var(--line); border-radius: 4px; cursor: zoom-in; }
+.paper a.fig-link { display: block; }
+.fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.fig-scroll img { max-width: none; width: auto; max-height: 70vh; }
+.plate-fig { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.plate-fig img { cursor: zoom-in; }
 .paper code { font-family: var(--font-mono); font-size: 0.86em; }
 .paper pre { background: var(--surface-2, var(--surface)); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; overflow: auto; font-size: 12.5px; }
 .paper ul, .paper ol { padding-left: 22px; margin: 0 0 12px; }

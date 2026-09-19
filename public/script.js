@@ -20,6 +20,8 @@
   const CELL = 100;                 // world units per table cell
   const EL_R = 44;                  // radius of the circle inside a cell
   const DATA = 'data/';
+  // a query string tied to the edition, so a browser that cached an older element or papers file fetches the one this index was built with
+  const dataVersion = () => (state.index && state.index.meta && state.index.meta.commit && location.protocol !== 'file:' ? `?v=${state.index.meta.commit}` : '');
 
   const state = {
     index: null,
@@ -284,7 +286,7 @@
       const have = window.__mi && window.__mi.el && window.__mi.el[Z];
       if (have) { resolve(have); return; }
       const s = document.createElement('script');
-      s.src = `${DATA}elements/${Z}.js`;
+      s.src = `${DATA}elements/${Z}.js${dataVersion()}`;
       s.async = true;
       s.onload = () => {
         s.remove();
@@ -466,6 +468,20 @@
   }
 
   function draw(now) {
+    try { drawInner(now); }
+    catch (err) {
+      // a blank canvas says nothing; the error is written on it, and to the console, so it can be reported
+      console.error(err);
+      try {
+        const dpr = window.devicePixelRatio || 1; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.fillStyle = state.colors ? state.colors.bg : '#fff'; ctx.fillRect(0, 0, W(), H());
+        ctx.fillStyle = '#b3261e'; ctx.font = '13px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+        const lines = ['the drawing failed in this browser:', String(err && err.message || err), (err && err.stack || '').split('\n')[1] || '', 'Please report this line with your browser and device.'];
+        lines.forEach((t, i) => ctx.fillText(t.slice(0, 120), 12, 12 + i * 18));
+      } catch (e2) { /* nothing more to do */ }
+    }
+  }
+  function drawInner(now) {
     drawQueued = false;
     if (!canvasVisible) return;      // resumed by the observer when the canvas scrolls back into view
     const animating = stepAnim(now || performance.now());
@@ -1619,7 +1635,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     </div>`;
     if (hit || e.Z === 90) {
       body += `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
-      if (fig && fig.file) body += `<figure class="plate-fig"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}</figcaption></figure>`;
+      if (fig && fig.file) body += `<figure class="plate-fig"><a href="data/${esc(fig.file)}" target="_blank" rel="noopener" title="open the figure at full size"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"></a><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}</figcaption></figure>`;
     }
     return section('Relativistic limit', body, badge('READ', 'the paper\'s own result; the construction is not held'));
   }
@@ -1840,7 +1856,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (window.__mi && window.__mi.particle_index) { state.particleIndex = window.__mi.particle_index; return Promise.resolve(state.particleIndex); }
     return new Promise((resolve, reject) => {
       const sc = document.createElement('script');
-      sc.src = `${DATA}particles.js`; sc.async = true;
+      sc.src = `${DATA}particles.js${dataVersion()}`; sc.async = true;
       sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.particle_index) { state.particleIndex = window.__mi.particle_index; resolve(state.particleIndex); } else reject(new Error('data/particles.js loaded but set no window.__mi.particle_index')); };
       sc.onerror = () => { sc.remove(); reject(new Error('data/particles.js could not be loaded; it is written by python3 tools/webindex.py when the particle instruments are in the tree')); };
       document.head.appendChild(sc);
@@ -1947,6 +1963,44 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
+      const bq = q.bosons;
+      if (bq) {
+        html += `<h3>${esc(bq.title)}</h3>
+          <p class="note">One member is ${esc(bq.member)}. ${bq.members.length} members on ${bq.cells} cells; closure channel K${bq.cell.channel} (height ${bq.cell.height}, width ${bq.cell.width}); closed by ${bq.closers.length ? esc(bq.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement')}</p>
+          <div class="fields">
+            ${row('source', esc(bq.source), bq.source_status, esc(bq.source_note), true)}
+            ${bq.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}
+            ${row('the relation', `the tree's own bosons hold ${bq.relation.boson_cells} cells and are ${bq.relation.bosons_sublattice ? 'a sublattice' : 'not a sublattice'}; the excitations hold ${bq.relation.qp_cells} and are ${bq.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}; ${bq.relation.qp_subset_of_bosons ? 'a subset' : 'not a subset'} — outside: ${bq.relation.outside_members.map((o) => `(${o.cell.join(', ')}) ${esc(o.members.join(', '))}`).join('; ') || 'none'}; the union holds ${bq.relation.union_cells} cells and is ${bq.relation.union_sublattice ? 'still a sublattice' : 'not a sublattice'}`, bq.relation.status, esc(bq.relation.note), true)}
+            ${row('the channel', `${bq.channel_note.is_chain ? 'a chain' : 'not a chain'}; over the chart's own box ${bq.channel_note.box.closing_all} of ${bq.channel_note.box.subsets} subsets close under every language, ${bq.channel_note.box.of_this_size_closing} of the ${bq.channel_note.box.of_this_size} of this size`, 'DERIVED', esc(bq.channel_note.text), true)}
+            ${bq.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}
+          </div>
+          <div class="tbl-wrap"><table class="t"><thead><tr><th>member</th><th>kind</th><th>made of / breaks</th>${bq.coordinates.map((c) => `<th>${esc(c.name)}</th>`).join('')}</tr></thead><tbody>
+            ${bq.composites.map((r) => `<tr><td>${esc(r.name)}</td><td>composite</td><td class="mono">${esc(r.parts.join(' + '))}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+            ${bq.broken.map((r) => `<tr><td>${esc(r.name)}</td><td>broken symmetry</td><td class="wrap">${esc(r.breaks)} — generator ${esc(r.generator)}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+            ${bq.hybrids.map((r) => `<tr><td>${esc(r.name)}</td><td>hybrid</td><td class="mono">${esc(r.parts.join(' × '))}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+          </tbody></table></div>`;
+      }
+      const rr = q.nonabelian;
+      if (rr) {
+        html += `<h3>${esc(rr.title)}</h3>
+          <p class="note">One member is ${esc(rr.member)}. Reach k ≤ ${rr.reach}: ${rr.levels} levels, ${rr.members} members on ${rr.cells} cells; closure channel K${rr.cell.channel} (height ${rr.cell.height}, width ${rr.cell.width}); closed by ${rr.closers.length ? esc(rr.closers.join(', ')) : 'no language'}. ${badge('DERIVED')}</p>
+          <div class="fields">
+            ${row('source', esc(rr.source), rr.source_status, esc(rr.source_note), true)}
+            ${row('observed levels', rr.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)}, quasihole charge e/${o.fundamental_charge.split('/')[1] || '?'})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}
+            ${row('validated against the literature', rr.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes: the Ising category at k = 2, the Fibonacci τ at k = 3, the quasihole charges e/4 and e/5', true)}
+            ${row('verdict', `<b>${esc(rr.verdict)}</b> — ${esc(rr.why)}`, rr.verdict_status, 'the sweep: ' + rr.sweep.map((b) => `${esc(b.box)} → ${b.cells} cells, K${b.channel}${b.degenerate ? ' (degenerate)' : ''}`).join('; '), true)}
+            ${row('fermions', `${rr.fermions.length}: ${rr.fermions.slice(0, 6).map((f) => `k = ${f.k} (l, m) = (${f.l}, ${f.m}) h = ${esc(f.h)}`).join('; ')}${rr.fermions.length > 6 ? ' …' : ''}`, 'DERIVED', esc(rr.fermions_note), true)}
+            ${row('against the abelian index', `${rr.nesting.abelian_cells} abelian cells, ${rr.nesting.nonabelian_cells} non-abelian, ${rr.nesting.shared} shared; abelian in non-abelian: ${rr.nesting.abelian_in_nonabelian ? 'yes' : 'no'}; non-abelian in abelian: ${rr.nesting.nonabelian_in_abelian ? 'yes' : 'no'}; sublattices: ${rr.nesting.abelian_sublattice ? 'yes' : 'no'} / ${rr.nesting.nonabelian_sublattice ? 'yes' : 'no'}`, rr.nesting.status, esc(rr.nesting.note), true)}
+          </div>
+          <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>
+            ${rr.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td></tr>`).join('')}
+          </tbody></table></div>
+          <details><summary>Every member (${rr.rows.length})</summary>
+            <div class="tbl-wrap"><table class="t particle-table"><thead><tr><th>k</th><th>l</th><th>m</th><th>h</th><th>Q (e)</th>${rr.coordinates.map((c) => `<th>${esc(c.name)}</th>`).join('')}<th class="hide-narrow">level</th></tr></thead><tbody>
+              ${rr.rows.map((r) => `<tr><td>${r.k}</td><td>${r.l}</td><td>${r.m}</td><td>${esc(r.h)} ${badge('DERIVED')}</td><td>${esc(r.Q)} ${badge('DERIVED')}</td>${r.coords.map((v, i) => `<td>${v} ${badge(rr.coordinates[i].status)}</td>`).join('')}<td class="hide-narrow">${r.observed ? 'observed plateau' : '<span class="muted">continuation</span>'}</td></tr>`).join('')}
+            </tbody></table></div>
+          </details>`;
+      }
       const fq = q.seated;
       if (fq && !fq.absent) {
         html += `<h3>${esc(fq.title)}</h3>
@@ -2187,7 +2241,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (window.__mi && window.__mi.papers) { state.papers = window.__mi.papers; return Promise.resolve(state.papers); }
     return new Promise((resolve, reject) => {
       const sc = document.createElement('script');
-      sc.src = `${DATA}papers.js`; sc.async = true;
+      sc.src = `${DATA}papers.js${dataVersion()}`; sc.async = true;
       sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.papers) { state.papers = window.__mi.papers; resolve(state.papers); } else reject(new Error('data/papers.js loaded but set no window.__mi.papers')); };
       sc.onerror = () => { sc.remove(); reject(new Error('data/papers.js could not be loaded; it is written by python3 tools/webindex.py')); };
       document.head.appendChild(sc);
@@ -2230,6 +2284,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           </nav>
           <article class="paper" id="paper-article">${pp.html}</article>
         </div>`;
+      host.querySelectorAll('#paper-article img').forEach((im) => { const a = document.createElement('a'); a.className = 'fig-link'; a.href = im.getAttribute('src'); a.target = '_blank'; a.rel = 'noopener'; a.title = 'open the figure at full size'; im.replaceWith(a); a.appendChild(im); });
       host.querySelector('[data-act="papers-back"]').addEventListener('click', () => renderPapers());
       host.querySelectorAll('.paper-toc a[data-h]').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); const t = host.querySelector('#' + CSS.escape(a.dataset.h)); if (t) t.scrollIntoView({ block: 'start', behavior: 'smooth' }); }));
       host.querySelector('[data-act="paper-cite"]').addEventListener('click', (ev) => { ev.preventDefault(); alertLine(host, paperCite(pp)); });
@@ -3464,6 +3519,16 @@ Plain prose, at most 350 words, then a line "Sources:" with the web sources you 
       $('#solver-body').innerHTML = '<p class="note">no index, so no solver context</p>';
       $('#assist-mode').textContent = 'no data';
       return;
+    }
+    if (!ix.lattice || !ix.meta || !ix.manifest) {
+      // an index.js older than this page (a cached copy): fetch a fresh one past the cache and boot again
+      if (!window.__mi_reloaded) {
+        window.__mi_reloaded = true;
+        $('#inspector-body').innerHTML = '<p class="note">the data this browser cached is older than the page; loading the current data …</p>';
+        const sc = document.createElement('script'); sc.src = `${DATA}index.js?v=${Date.now()}`; sc.onload = () => { sc.remove(); boot(); }; sc.onerror = () => { $('#inspector-body').innerHTML = '<p class="note">could not load a current data/index.js; reload the page</p>'; };
+        document.head.appendChild(sc);
+        return;
+      }
     }
     state.index = ix;
     for (const a of ix.axes || []) AX[a.axis] = a;

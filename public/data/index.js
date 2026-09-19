@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T05:51:47+00:00",
-  "commit": "720e6bba8ede",
+  "built": "2026-09-19T06:50:54+00:00",
+  "commit": "adbbcd4e4bd4",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "720e6bba8ede",
-   "text": "Lach, M. (2026). The Method Index, edition 720e6bba8ede. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 720e6bba8ede}\n}"
+   "commit": "adbbcd4e4bd4",
+   "text": "Lach, M. (2026). The Method Index, edition adbbcd4e4bd4. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition adbbcd4e4bd4}\n}"
   },
   "history": [
    {
@@ -156,6 +156,34 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/48324891e26ea5276c3adc7729196742f9c8db15",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "d8fcff5",
+    "files": 112,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d8fcff592773bf6bafd63d39452821373bb1bf30",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "67e98e0",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/67e98e094889407af54e034caf2d5c7350c4f018",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "8a01e28",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8a01e28061beec3499df05a15486420bd587dd38",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "adbbcd4",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/adbbcd4e4bd46f33e99471801e04620ad646d635",
+    "note": null
    }
   ]
  },
@@ -235,8 +263,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/particles.js",
-   "bytes": 173238,
-   "md5": "19944962334e6c3bd1dbec8da780a726",
+   "bytes": 217973,
+   "md5": "d314a20b9bdc744fb9d6312e3c56ca86",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
@@ -9478,8 +9506,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 173238,
-  "md5": "19944962334e6c3bd1dbec8da780a726",
+  "bytes": 217973,
+  "md5": "d314a20b9bdc744fb9d6312e3c56ca86",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9495,8 +9523,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    ],
    "tree": {
     "root": "research/warp-drive",
-    "commit": "720e6bba8ede",
-    "state_commit": "87a16d22769c",
+    "commit": "7bcfece",
+    "state_commit": "ae72544f7950",
     "instruments": [
      "pdgcapture.py",
      "fundamental.py",
@@ -9588,7 +9616,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "quasiparticles": {
    "in_progress": true,
    "verdict": "REFUSE-AS-THEOREM",
-   "seated": "fqh: 168 quasiparticles of 12 Laughlin states, 30 cells, K0"
+   "seated": "fqh: 168 quasiparticles of 12 Laughlin states, 30 cells, K0",
+   "bosons": "bosonqp: 15 bosonic excitations, 5 cells, K7",
+   "nonabelian": "readrezayi: 363 primaries of 11 levels, 78 cells, K0"
   },
   "antimatter": {
    "total": 231,

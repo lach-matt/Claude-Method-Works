@@ -384,7 +384,26 @@ quasiparticles of twelve states, 30 cells, cell (0, 15, 4)**, three states obser
 Both verdicts stay on the record; the non-abelian states are named as not here. The site carries
 the seated index with every member (m, j, Q, θ/π as exact fractions, the four coordinates with
 their statuses), a figure of j against the filling, the sweep and its verdict, and the earlier
-refusal after it; the quasiparticle work is still in progress on the other session.
+refusal after it; the quasiparticle work is still in progress on the other session. DOCKET 31,
+`bosonqp.py`, seats the composite bosonic excitations of a solid — Cooper pair, exciton and
+biexciton composed from the electron and the hole, six collective modes from the symmetry each
+breaks, two hybrids — with every number computed by three stated rules and none written down
+(15 members, 5 cells, K7, the trion excluding itself as a fermion), as a sublattice beside the
+tree's own bosons: not a subset, one cell outside, the union still a sublattice. DOCKET 32,
+`readrezayi.py`, seats the non-abelian Hall quasiparticles, the Z_k parafermion primaries of the
+Read–Rezayi series with Moore–Read as k = 2: 363 members over eleven levels, 78 cells, K0, the
+weights validated against the Ising category at k = 2 and the Fibonacci τ at k = 3, six fermions
+where the abelian index has none, and neither Hall index nesting in the other. The site carries
+both as their instruments report them, every value DERIVED from the stated rules or closed form,
+the plateaux READ.
+
+**Two things the page does for a browser it has never met.** If drawing ever throws, the error
+is written on the canvas with the line that threw, so a blank canvas can be reported rather than
+described; and if the `index.js` a browser cached is older than the page (no `lattice` block), the
+page fetches a fresh one past the cache and boots again, while element, papers and particle files
+are requested with the edition as a query string so they match the index. Dialogs size to the
+visible viewport (`dvh`) and scroll inside a flex column, and every figure image opens at full
+size on a tap.
 
 **`webindex.py` imports those instruments by path and retypes nothing.** `particle_index_block`
 puts the warp tree's directory on `sys.path` (its modules import each other by bare name and reach
