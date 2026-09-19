@@ -136,6 +136,22 @@ Elements 109 to 120 are drawn apart, dashed, because `LW1-ground.py` stops at 10
 COORDINATES-2.13 does not. Their rows are shown `READ` from the csv with no configuration,
 equation or derived value behind them, and the panel says so.
 
+## The table as a lattice
+
+**The drawn periodic layout is also a rotatable lattice.** The *Table (3D)* layout draws the same
+layout with a third axis — group across, period up with period 1 at the top, ℓ into the page — so
+the s, p, d and f blocks stand as layers. Every element is a node at its drawn cell in its block's
+layer, coloured by block and carrying its symbol; the thirty-six ghosts are hollow nodes in the
+layer the ℓ-by-group rule gives them, the deferred ones fuller, each with its subshell written in;
+helium moves to group 2 and the ghosts to the twenty of that placement when the toggle is on. The
+set-aside lanthanides and actinides, which the layout gives no group, are drawn in their period
+rows at the long-form table's columns 3 to 16 (x = 3 + Z − 58, and Z − 90), a **DERIVED**
+placement the caption states each time; elements 119 and 120 sit in period 8 in the s layer with
+the spectra-rows tint. The nodes are the plane view's own nodes, so a tap opens the element's slab
+or the ghost's definition, Esc returns to the table, and the caption names what is drawn.
+`buildTableScene` builds it from `layout` and `state.ghosts`, `drawTableAxes` draws the base, the
+four layer frames and the three axes, and the camera, fit, orbit and hit test are the lattice's.
+
 ## Set like a reference work
 
 The page is set the way a reference work is read, and the choices are recorded here so a later
