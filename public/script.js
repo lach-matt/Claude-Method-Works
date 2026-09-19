@@ -3162,6 +3162,7 @@ QUESTION: ${question}`;
 4. Every chemical equation you write goes on its own line inside ⦃ ⦄, with spaces around + signs, charges as Fe3+ or SO4^2- or e-, and the arrow → . The page will tally atoms and charge.
 5. Never say the page verified, confirmed or validated anything: the page checks your answer after you write it, and you do not know the result. Do not claim a status for a value; the page attaches statuses.
 6. Do not write laboratory procedures or safety instructions.
+7. If you balance an equation, write the balanced form inside ⦃ ⦄; the page has its own exact balancer (solver mode 10) and will tally yours.
 Plain prose, at most 350 words, then a line "Sources:" with the web sources you used.`;
   }
   async function askModel(question, context, settings, signal) {
@@ -5441,7 +5442,10 @@ var SOLVERS, LIB;
   var SUB = { '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9' };
   var SUP = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-' };
   function normaliseFormula(s) {
-    return String(s).replace(/[₀₁₂₃₄₅₆₇₈₉]/g, function (c) { return SUB[c]; }).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]/g, function (c) { return SUP[c]; })
+    // subscripts to digits; a superscript charge (²⁺, ⁻) to the explicit ^2+ form, so it stays
+    // distinguishable from a subscript followed by a sign
+    return String(s).replace(/[₀₁₂₃₄₅₆₇₈₉]/g, function (c) { return SUB[c]; })
+      .replace(/([⁰¹²³⁴⁵⁶⁷⁸⁹]*)([⁺⁻])/g, function (_m, d, sg) { return '^' + d.split('').map(function (c) { return SUP[c]; }).join('') + SUP[sg]; })
       .replace(/[−–]/g, '-').replace(/\s+/g, '');
   }
   function parseFormula(text) {
@@ -5450,8 +5454,19 @@ var SOLVERS, LIB;
     var f = normaliseFormula(text);
     var ph = f.match(/\((s|l|g|aq|cr|am)\)$/i);
     if (ph) { out.phase = ph[1].toLowerCase(); f = f.slice(0, -ph[0].length); }
-    var ch = f.match(/(?:\^)?(?:\{)?(\d*)([+-])(?:\})?$/);
+    // the charge. Explicit: ^2+, {2+}, ²⁺. Plain "Fe3+" is read as charge 3 when what precedes the
+    // digits is a single element symbol (a monatomic ion), and "MnO4-" as a subscript and charge
+    // 1 otherwise; "Hg2^2+" and "O2^-" need the caret. The convention is stated in the mode.
+    var ch = f.match(/\^\{?(\d*)([+-])\}?$/) || f.match(/\{(\d*)([+-])\}$/);
     if (ch) { out.charge = (ch[1] ? parseInt(ch[1], 10) : 1) * (ch[2] === '+' ? 1 : -1); f = f.slice(0, -ch[0].length); }
+    else {
+      ch = f.match(/(\d*)([+-])$/);
+      if (ch) {
+        var before = f.slice(0, -ch[0].length);
+        if (ch[1] && /^[A-Z][a-z]?$/.test(before)) { out.charge = parseInt(ch[1], 10) * (ch[2] === '+' ? 1 : -1); f = before; }
+        else { out.charge = ch[2] === '+' ? 1 : -1; f = f.slice(0, -1); }
+      }
+    }
     if (f === 'e' || f === '') { if (f === 'e') { if (!ch) out.errors.push('an electron needs its charge, e-'); } else out.errors.push('empty formula'); return out; }
     var parts = f.split(/[·*]/);
     parts.forEach(function (part, pi) {
@@ -5587,6 +5602,158 @@ var SOLVERS, LIB;
     return out;
   }
 
+  // ------------------------------------- balancing: the algebraic method, exact
+  // Conservation of every element and of charge is a homogeneous linear system over the
+  // species; its nullspace, computed exactly over the rationals (BigInt fractions), holds
+  // every balance the species admit. One dimension is a balance, scaled to the smallest
+  // whole numbers; none means the species cannot balance as written; more than one means
+  // the species admit more than one reaction and the mode shows the basis rather than
+  // choosing. Redox in water adds H+ and H2O (acidic) or OH- and H2O (basic), and a
+  // half-reaction adds e-; an added species lands on whichever side its sign puts it.
+  function bgcd(a, b) { a = a < 0n ? -a : a; b = b < 0n ? -b : b; while (b) { var t = a % b; a = b; b = t; } return a; }
+  function fr(n, d) { d = d === undefined ? 1n : d; if (d < 0n) { n = -n; d = -d; } var g = bgcd(n, d) || 1n; return { n: n / g, d: d / g }; }
+  function fadd(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function fsub(a, b) { return fr(a.n * b.d - b.n * a.d, a.d * b.d); }
+  function fmul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function fdiv(a, b) { return fr(a.n * b.d, a.d * b.n); }
+  function fzero(a) { return a.n === 0n; }
+  function nullspace(M, ncols) {
+    // M: rows of BigInt fractions; returns a list of basis vectors (fractions) of {x : M x = 0}
+    var A = M.map(function (r) { return r.slice(); }), pivots = [], r = 0;
+    for (var c = 0; c < ncols && r < A.length; c++) {
+      var pr = -1;
+      for (var i = r; i < A.length; i++) if (!fzero(A[i][c])) { pr = i; break; }
+      if (pr < 0) continue;
+      var tmp = A[r]; A[r] = A[pr]; A[pr] = tmp;
+      var pv = A[r][c];
+      A[r] = A[r].map(function (v) { return fdiv(v, pv); });
+      for (var k = 0; k < A.length; k++) {
+        if (k === r || fzero(A[k][c])) continue;
+        var f = A[k][c];
+        A[k] = A[k].map(function (v, j) { return fsub(v, fmul(f, A[r][j])); });
+      }
+      pivots.push(c); r += 1;
+    }
+    var free = []; for (var j = 0; j < ncols; j++) if (pivots.indexOf(j) < 0) free.push(j);
+    return free.map(function (fc) {
+      var v = []; for (var j = 0; j < ncols; j++) v.push(fr(0n));
+      v[fc] = fr(1n);
+      pivots.forEach(function (pc, i) { v[pc] = fr(-A[i][fc].n, A[i][fc].d); });
+      return v;
+    });
+  }
+  function toIntegers(v) {
+    var L = 1n; v.forEach(function (x) { L = L / bgcd(L, x.d) * x.d; });
+    var ints = v.map(function (x) { return x.n * (L / x.d); });
+    var g = 0n; ints.forEach(function (x) { g = bgcd(g, x); });
+    if (g > 1n) ints = ints.map(function (x) { return x / g; });
+    var neg = 0, pos = 0; ints.forEach(function (x) { if (x < 0n) neg += 1; else if (x > 0n) pos += 1; });
+    if (neg > pos) ints = ints.map(function (x) { return -x; });
+    return ints;
+  }
+  var MEDIUM_SPECIES = { acidic: ['H+', 'H2O'], basic: ['OH-', 'H2O'], none: [] };
+  function balanceEquation(text, options) {
+    options = options || {};
+    var eq = parseEquation(text);
+    if (eq.error) return { ok: false, error: eq.error };
+    var species = [];
+    eq.reactants.forEach(function (sp) { species.push({ formula: sp.formula, counts: sp.counts, charge: sp.charge, side: 0, given: true, errors: sp.errors }); });
+    eq.products.forEach(function (sp) { species.push({ formula: sp.formula, counts: sp.counts, charge: sp.charge, side: 1, given: true, errors: sp.errors }); });
+    var bad = species.filter(function (sp) { return sp.errors.length; });
+    if (bad.length) return { ok: false, error: bad.map(function (sp) { return sp.formula + ': ' + sp.errors.join('; '); }).join(' · ') };
+    var have = {}; species.forEach(function (sp) { have[normaliseFormula(sp.formula)] = true; });
+    var extra = (MEDIUM_SPECIES[options.medium] || []).concat(options.halfReaction ? ['e-'] : []);
+    var added = [];
+    extra.forEach(function (f) { if (!have[normaliseFormula(f)]) { var pf = parseFormula(f); species.push({ formula: f, counts: pf.counts, charge: pf.charge, side: 0, given: false, errors: [] }); added.push(f); } });
+    function solve(list) {
+      var els = {}; list.forEach(function (sp) { Object.keys(sp.counts).forEach(function (e) { els[e] = 1; }); });
+      var rows = Object.keys(els).sort().map(function (e) { return list.map(function (sp) { return fr(BigInt((sp.side === 0 ? 1 : -1) * (sp.counts[e] || 0))); }); });
+      rows.push(list.map(function (sp) { return fr(BigInt((sp.side === 0 ? 1 : -1) * sp.charge)); }));
+      return nullspace(rows, list.length);
+    }
+    var basis = solve(species);
+    // with the medium's species added, try dropping each added species that is not needed
+    if (basis.length > 1 && added.length) {
+      for (var drop = 0; drop < added.length; drop++) {
+        var trial = species.filter(function (sp) { return sp.given || sp.formula !== added[drop]; });
+        var b2 = solve(trial);
+        if (b2.length === 1) { species = trial; basis = b2; added = added.filter(function (f) { return f !== added[drop]; }); break; }
+      }
+    }
+    var out = { ok: true, species: species.map(function (sp) { return { formula: sp.formula, given: sp.given, side: sp.side }; }), added: added, dimension: basis.length, medium: options.medium || 'none', halfReaction: !!options.halfReaction };
+    if (basis.length === 0) { out.ok = false; out.error = 'the species given admit no balance: atoms or charge cannot be conserved with these alone' + (options.medium && options.medium !== 'none' ? ', even with ' + extra.join(' and ') : ' (for a reaction in water, choose acidic or basic; for a half-reaction, allow e-)'); return out; }
+    if (basis.length > 1) { out.ok = false; out.error = 'the species admit ' + basis.length + ' independent reactions, so no single balance is determined; the basis is shown'; out.basis = basis.map(function (v) { return toIntegers(v).map(function (x) { return Number(x); }); }); return out; }
+    var ints = toIntegers(basis[0]);
+    var coef = ints.map(function (x) { return Number(x); });
+    var moved = [], wrong = [];
+    species.forEach(function (sp, i) {
+      if (coef[i] < 0) { if (sp.given) wrong.push(sp.formula); else { sp.side = 1 - sp.side; coef[i] = -coef[i]; moved.push(sp.formula); } }
+    });
+    out.coefficients = species.map(function (sp, i) { return { formula: sp.formula, coefficient: coef[i], side: sp.side, given: sp.given }; });
+    if (wrong.length) { out.ok = false; out.error = 'a balance exists only with ' + wrong.join(', ') + ' on the other side of the arrow; not rewritten'; return out; }
+    var zero = species.filter(function (sp, i) { return coef[i] === 0 && sp.given; }).map(function (sp) { return sp.formula; });
+    if (zero.length) out.note = 'takes no part: ' + zero.join(', ');
+    var L = [], R = [];
+    species.forEach(function (sp, i) { if (coef[i] === 0) return; var t = (coef[i] === 1 ? '' : coef[i] + ' ') + sp.formula; (sp.side === 0 ? L : R).push(t); });
+    out.balanced = L.join(' + ') + ' → ' + R.join(' + ');
+    var e = species.findIndex(function (sp) { return normaliseFormula(sp.formula) === 'e-'; });
+    if (e >= 0 && coef[e]) out.electrons = { n: coef[e], side: species[e].side === 0 ? 'gained (reduction)' : 'lost (oxidation)' };
+    out.check = checkEquation(out.balanced);
+    return out;
+  }
+
+  var MODE_BALANCE = {
+    id: 'balance',
+    title: 'Balance a chemical equation',
+    status: DERIVED,
+    statusNote: 'The algebraic method, exact: conservation of every element and of charge as a linear system over the species given, its nullspace computed in rational arithmetic, the smallest whole-number solution. Redox in water by adding H+/H2O or OH-/H2O; half-reactions by adding e-. Nothing is guessed: species that cannot balance are said to, and species that admit more than one reaction get the basis, not a choice.',
+    description: 'Give the species: reactants → products, with charges as Fe3+, Cr2O7^2-, e-. The convention: a plain digit and sign after a single element symbol is the charge (Fe3+); after a polyatomic formula the digit is a subscript and the charge is one (MnO4-); any other charge takes a caret (SO4^2-, Hg2^2+, O2^-) or a superscript (SO₄²⁻). The mode balances by conservation of every element and of charge, exactly. For a redox reaction in water choose the medium: acidic adds H⁺ and H₂O, basic adds OH⁻ and H₂O, each only where needed and on whichever side the arithmetic puts it. A half-reaction allows e⁻, and the electrons transferred are reported. If the species admit no balance, or more than one, the mode says so and does not invent a species or pick a reaction. The result is then tallied by the equation check, so the balancer is checked by an instrument that is not itself.',
+    inputs: [{ name: 'equation', label: 'species', type: 'textarea', default: 'MnO4- + Fe2+ → Mn2+ + Fe3+', help: 'reactants → products; spaces around +' },
+             { name: 'medium', label: 'medium', type: 'select', default: 'acidic', options: [{ value: 'none', label: 'as written' }, { value: 'acidic', label: 'acidic (H⁺, H₂O)' }, { value: 'basic', label: 'basic (OH⁻, H₂O)' }] },
+             { name: 'half', label: 'half-reaction', type: 'select', default: 'no', options: [{ value: 'no', label: 'no' }, { value: 'yes', label: 'yes: allow e⁻' }] }],
+    source: { instrument: 'balanceEquation', file: 'public/script.js' },
+    run: async function (values, ctx) {
+      var r = balanceEquation(values.equation || '', { medium: values.medium, halfReaction: values.half === 'yes' });
+      var rows = [];
+      if (!r.ok) {
+        if (r.basis) r.basis.forEach(function (v, i) { rows.push(row('basis ' + (i + 1), r.species.map(function (sp, j) { return v[j] ? v[j] + '·' + sp.formula : null; }).filter(Boolean).join(', '), DERIVED, 'a coefficient vector; a negative entry means the other side')); });
+        return { rows: rows, ok: false, message: r.error };
+      }
+      rows.push(row('balanced', r.balanced, DERIVED, 'smallest whole-number coefficients; the species are typed, not a figure of the index'));
+      r.coefficients.forEach(function (c) { rows.push(row((c.side === 0 ? 'reactant ' : 'product ') + c.formula, c.coefficient, DERIVED, c.given ? undefined : 'added for the ' + r.medium + ' medium' + (normaliseFormula(c.formula) === 'e-' ? ' (electrons)' : ''))); });
+      if (r.added.length) rows.push(row('added', r.added.join(', '), DERIVED, 'each on the side the arithmetic put it; none where not needed'));
+      if (r.electrons) rows.push(row('electrons', r.electrons.n + ' ' + r.electrons.side, DERIVED, 'the half-reaction\'s transfer'));
+      if (r.note) rows.push(row('note', r.note, DERIVED));
+      var ck = r.check;
+      rows.push(row('checked', ck.balanced ? 'the equation check tallies it as balanced' : 'THE EQUATION CHECK DOES NOT TALLY IT AS BALANCED', DERIVED, ck.atoms.map(function (a) { return a.element + ' ' + a.left + '→' + a.right; }).join(', ') + '; charge ' + ck.charge.left + '→' + ck.charge.right));
+      return { rows: rows, ok: true, text: r.balanced };
+    },
+    selftest: async function () {
+      var ck = new Checker();
+      var co = function (text, opt) { var r = balanceEquation(text, opt || {}); return r.ok ? r.balanced : 'FAIL: ' + r.error; };
+      ck.eq('H2 + O2 → H2O', co('H2 + O2 → H2O'), '2 H2 + O2 → 2 H2O');
+      ck.eq('Fe + O2 → Fe2O3', co('Fe + O2 → Fe2O3'), '4 Fe + 3 O2 → 2 Fe2O3');
+      ck.eq('C3H8 + O2 → CO2 + H2O', co('C3H8 + O2 → CO2 + H2O'), 'C3H8 + 5 O2 → 3 CO2 + 4 H2O');
+      ck.eq('KMnO4 + HCl → KCl + MnCl2 + H2O + Cl2', co('KMnO4 + HCl → KCl + MnCl2 + H2O + Cl2'), '2 KMnO4 + 16 HCl → 2 KCl + 2 MnCl2 + 8 H2O + 5 Cl2');
+      ck.eq('redox, acidic: permanganate and iron(II)', co('MnO4- + Fe2+ → Mn2+ + Fe3+', { medium: 'acidic' }), 'MnO4- + 5 Fe2+ + 8 H+ → Mn2+ + 5 Fe3+ + 4 H2O');
+      ck.eq('redox, acidic: dichromate and iron(II)', co('Cr2O7^2- + Fe2+ → Cr3+ + Fe3+', { medium: 'acidic' }), 'Cr2O7^2- + 6 Fe2+ + 14 H+ → 2 Cr3+ + 6 Fe3+ + 7 H2O');
+      ck.eq('redox, basic: permanganate and iodide', co('MnO4- + I- → MnO2 + I2', { medium: 'basic' }), '2 MnO4- + 6 I- + 4 H2O → 2 MnO2 + 3 I2 + 8 OH-');
+      ck.eq('half-reaction: Fe2+ → Fe3+', co('Fe2+ → Fe3+', { halfReaction: true }), 'Fe2+ → Fe3+ + e-');
+      ck.eq('half-reaction, acidic: permanganate reduction', co('MnO4- → Mn2+', { medium: 'acidic', halfReaction: true }), 'MnO4- + 8 H+ + 5 e- → Mn2+ + 4 H2O');
+      var h = balanceEquation('MnO4- → Mn2+', { medium: 'acidic', halfReaction: true });
+      ck.eq('and it reports five electrons gained', h.electrons.n + ' ' + h.electrons.side, '5 gained (reduction)');
+      ck.eq('disproportionation, species given in full', co('Cl2 + OH- → Cl- + ClO3- + H2O'), '3 Cl2 + 6 OH- → 5 Cl- + ClO3- + 3 H2O');
+      ck.eq('a non-redox equation in an acidic medium adds nothing', co('H2 + O2 → H2O', { medium: 'acidic' }), '2 H2 + O2 → 2 H2O');
+      ck.eq('an added species lands on the side the arithmetic puts it', balanceEquation('MnO4- + I- → MnO2 + I2', { medium: 'basic' }).coefficients.filter(function (c) { return !c.given; }).map(function (c) { return c.formula + (c.side ? '→right' : '→left'); }).join(','), 'OH-→right,H2O→left');
+      ck.eq('species that cannot balance are refused, not padded', balanceEquation('H2 → O2').ok, false);
+      var amb = balanceEquation('C + O2 → CO + CO2');
+      ck.eq('two independent reactions are reported as a basis, not chosen', (amb.ok === false) && amb.dimension === 2 && amb.basis.length === 2, true);
+      ck.eq('a species that must cross the arrow is reported, not moved', /other side/.test(balanceEquation('H2O → H2 + O2 + H2O2').error || '') || balanceEquation('H2O → H2 + O2 + H2O2').dimension === 2, true);
+      ck.eq('the balanced result passes the equation check', balanceEquation('Cr2O7^2- + Fe2+ → Cr3+ + Fe3+', { medium: 'acidic' }).check.balanced, true);
+      return ck.result();
+    }
+  };
+
   var MODE_CHEM = {
     id: 'equation-check',
     title: 'Chemical equation check',
@@ -5619,6 +5786,7 @@ var SOLVERS, LIB;
       ck.eq('Zn + 2 H+ → Zn2+ + H2 with unicode charges', checkEquation('Zn + 2 H⁺ → Zn²⁺ + H₂').balanced, true);
       ck.eq('MnO4^- + 8 H+ + 5 Fe2+ → Mn2+ + 5 Fe3+ + 4 H2O', checkEquation('MnO4^- + 8 H+ + 5 Fe2+ → Mn2+ + 5 Fe3+ + 4 H2O').balanced, true);
       ck.eq('an unknown symbol is an error, not a guess', checkEquation('Xx + O2 → XxO2').errors.length > 0, true);
+      ck.eq('Fe3+ is a monatomic ion of charge 3; MnO4- a polyatomic ion of charge 1; O2^- needs the caret', [parseFormula('Fe3+').charge, parseFormula('MnO4-').charge, parseFormula('MnO4-').counts.O, parseFormula('O2^-').charge, parseFormula('O2^-').counts.O, parseFormula('Hg2^2+').charge].join(','), '3,-1,4,-1,2,2');
       ck.eq('phase labels are read and dropped', checkEquation('NaCl(aq) → Na+(aq) + Cl-(aq)').balanced, true);
       ck.eq('no arrow is refused', !!checkEquation('H2 + O2 H2O').error, true);
       ck.eq('the elements of an equation are listed with Z', checkEquation('2 H2 + O2 → 2 H2O').atoms.map(function (a) { return a.element + a.Z; }).join(','), 'H1,O8');
@@ -5637,7 +5805,7 @@ var SOLVERS, LIB;
     }
   };
 
-  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF, MODE_CHEM];
+  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF, MODE_CHEM, MODE_BALANCE];
   LIB = {
     channelDelta: channelDelta, channelTerms: channelTerms, collapseC: collapseC, pauliBound: pauliBound,
     coreP: coreP, n0Of: n0Of, orderClosure: orderClosure, lambdaConstraints: lambdaConstraints,
@@ -5647,7 +5815,7 @@ var SOLVERS, LIB;
     measuredRowsAll: measuredRowsAll, presetCells: presetCells, cellsText: cellsText, parseCells: parseCells,
     janetCypherFixture: janetCypherFixture, lambdaCypherFixture: lambdaCypherFixture,
     label: label, roman: roman, FALLBACK_COEF: FALLBACK_COEF, COEF_NAMES: COEF_NAMES,
-    parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, SYMBOL_Z: SYMBOL_Z
+    parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, balanceEquation: balanceEquation, SYMBOL_Z: SYMBOL_Z
   };
 
 if (typeof window !== 'undefined') { window.MI = window.MI || {}; window.MI.solvers = SOLVERS; window.MI.solverLib = LIB; }

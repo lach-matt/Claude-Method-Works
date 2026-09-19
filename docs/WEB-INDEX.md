@@ -442,8 +442,19 @@ mismatch is never corrected. Web sources the API reports are listed under the an
 command `check <text>` runs the same checker over any pasted text, so the check can be exercised
 without a key, and the ninth solver mode, *Chemical equation check*, runs the equation part on its
 own with a selftest over eleven fixtures (brackets, hydrates, ionic charges in three notations,
-phase labels, an unknown symbol refused, no arrow refused). The page writes no chemistry and no
-procedure: it checks what another author wrote.
+phase labels, an unknown symbol refused, no arrow refused). **The tenth mode balances.** `balanceEquation` is the algebraic method made exact: conservation
+of every element and of charge as a homogeneous linear system over the species given, its
+nullspace computed over the rationals in BigInt fractions, the one-dimensional case scaled to the
+smallest whole numbers. Redox in water is a choice of medium — acidic adds H⁺ and H₂O, basic adds
+OH⁻ and H₂O — and a half-reaction allows e⁻; an added species is used only where the arithmetic
+needs it, lands on whichever side its sign puts it, and the electrons transferred are reported.
+The mode refuses rather than guesses: species that admit no balance are said to, species that admit
+more than one reaction get the basis and not a choice, and a given species whose coefficient comes
+out negative is reported as belonging on the other side, not moved. Every result is tallied by
+`checkEquation` before it is shown, so the balancer is checked by an instrument that is not itself.
+Seventeen fixtures: combustion, permanganate in acid and in base, dichromate, two half-reactions
+with their electron counts, a disproportionation, the refusals. The page still writes no
+chemistry of its own: the species are the reader's or the model's.
 
 ## The public build
 
