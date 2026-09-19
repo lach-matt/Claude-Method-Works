@@ -254,6 +254,16 @@ REGISTERED = (
 )
 
 NOT_AN_INDEX = {
+    # DOCKET 37.  Three readings of "a bond", three refusals, three
+    # DIFFERENT grounds -- and the molecular hole in this register is
+    # real, so the candidate was measured rather than waved off.
+    "bonds": "chemical, atomic and particle bonds -- REFUSED three "
+             "times over: the molecular orbital's +/- is provably the "
+             "MOLECULE's and its g/u the HOST's, leaving lambda alone "
+             "as the orbital's own; no reading of the atomic bond is an "
+             "object; "
+             "and the NN partial waves have no census that is not a "
+             "potential model's operator basis.  See bonds.py",
     # DOCKET 36.  Not a refusal on the criterion -- the members WOULD
     # carry quantum numbers.  It is a refusal on the INPUT: the paper's
     # own entry delimiter was collapsed by the PDF-to-text extraction,
@@ -573,8 +583,8 @@ def selftest():
         sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
         ["baryon_isomultiplet", "gravity_bound", "madelung_slot"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
-    chk("eight modules are excused, with reasons", len(NOT_AN_INDEX), 8)
-    chk("and SIX of the eight are excused by the criterion -- quasiparticle "
+    chk("nine modules are excused, with reasons", len(NOT_AN_INDEX), 9)
+    chk("and SIX of the nine are excused by the criterion -- quasiparticle "
         "is the one excused by BOX INVARIANCE instead",
         sorted(k for k, v in NOT_AN_INDEX.items() if "criterion passes" in v),
         ["quasiparticle"])

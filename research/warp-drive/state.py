@@ -74,6 +74,45 @@ SCHEMA = 2
 # THE ONE HAND-MAINTAINED TABLE.  A docket is a question, a status and what
 # would settle it; the selftest refuses a row missing any of the three.
 DOCKETS = (
+    ("37", "REFUSED-THREE-WAYS",
+     "Can an index be derived of chemical, atomic and particle bonds?",
+     "NO, three times, on three DIFFERENT grounds -- and the question was "
+     "worth measuring because the register really does have a molecular hole: "
+     "it charts atomic orbitals three ways, nuclear orbitals, atomic terms, "
+     "nuclei, particles and quasiparticles, and NOTHING between the atom and "
+     "the nucleus. (1) THE CHEMICAL BOND read as the molecular orbital fails "
+     "before any coordinate is tested, because an MO is not a bond -- F2's "
+     "single bond is nine occupied MOs, N2's triple is five, and only H2 "
+     "happens to match. Of the three proposed axes lambda is the orbital's "
+     "own, g/u exists only on a homonuclear host (34 of 103 measured members "
+     "carry none), and +/- is PROVED not to be the orbital's: sigma_v fixes "
+     "every m=0 harmonic so every one-electron sigma MO is sigma-plus, while "
+     "3Sigma- and 1Sigma+ both descend from pi^2 -- identical orbital numbers, "
+     "different +/-. What survives, (lambda, g/u), is in bijection with the MO "
+     "symbol set, so the chart relabels its members' own names. No census is "
+     "possible either: one molecule has 10, 18, 18, 28, 60 and 110 MOs under "
+     "six basis sets, so the count is the basis set's. (2) THE ATOMIC BOND has "
+     "four readings and not one is an object with its own numbers -- "
+     "electron-nucleus binding IS the atomic orbital already seated three "
+     "times; bond TYPE is a taxonomy whose only numbers are magnitudes, which "
+     "mesons.py already refused; a crystal bond orbital is labelled by the "
+     "host's space group; a hybrid is not an eigenstate of L^2. (3) THE "
+     "PARTICLE BOND: force carriers are already fundamental's and quarkonium "
+     "already mesons'. The NN partial waves ARE new members -- bonds.py "
+     "derives the fourteen J<=3 channels from the Pauli condition alone -- and "
+     "they fail twice: a partial wave labels the nucleon PAIR's state rather "
+     "than the binding, and every finite count of them (Granada's fifteen, "
+     "Argonne v14's fourteen) counts a POTENTIAL MODEL's operator basis, not "
+     "the object's. AND A FINDING THAT OUTLIVES THE DOCKET: all eight channels "
+     "are now occupied, so the overlap ruling's novel-channel ground can never "
+     "be satisfied again -- DOCKET 34 took the last one, and every future "
+     "candidate must bring a genuinely new member set.",
+     "For the chemical reading, nothing -- the +/- proof is arithmetic and does "
+     "not depend on data. The diatomic ELECTRONIC STATE (not the bond) is a "
+     "fair index of something and its census exists in Huber & Herzberg; it is "
+     "unreachable from here, and it would be an index of molecules, not bonds. "
+     "For the NN waves, a census of CHANNELS rather than of a model's "
+     "operators would reopen it."),
     ("36", "OPEN-ON-ONE-ENTRY (a REFUSAL, RETRACTED)",
      "Can arXiv:2508.05447's Table 3 -- the DEFORMED two-quasiparticle "
      "rotational bands, the candidate subpop.py actually named -- be captured "
