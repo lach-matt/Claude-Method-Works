@@ -1223,6 +1223,43 @@
         ctx.globalAlpha = 1;
       }
     }
+    // a scene taller or wider than the canvas: how much is clipped, kept for the drag handler,
+    // and a chip at the clipped edge saying so, since a cut-off slab looks finished otherwise
+    state.latOverflow = latOverflow(scene, cam);
+    const ov = state.latOverflow;
+    if (ov.top > 0 || ov.bottom > 0) {
+      ctx.font = F(11, 'sans'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const chip = (text, y) => {
+        const w = ctx.measureText(text).width + 18;
+        ctx.fillStyle = shade(C.surface === '' ? C.bg : C.surface, 1, 0.92); roundRectPath(W() / 2 - w / 2, y - 11, w, 22, 11); ctx.fill();
+        ctx.strokeStyle = shade(C.lineStrong, 1, 0.6); ctx.lineWidth = 1; ctx.stroke();
+        ctx.fillStyle = C.muted; ctx.fillText(text, W() / 2, y);
+      };
+      const stages = scene.kind === 'element' ? ' stages' : '';
+      if (ov.top > 0) chip(`▲ ${scene.kind === 'element' ? ov.topCount + stages + ' above' : 'more above'} · pull down to see them`, 16);
+      if (ov.bottom > 0) chip(`▼ ${scene.kind === 'element' ? ov.bottomCount + stages + ' below' : 'more below'} · pull up to see them`, H() - 16);
+    }
+  }
+  // how far the scene's projected extent overruns the canvas, in px, and for an element how
+  // many stages are hidden at each edge
+  function latOverflow(scene, cam) {
+    const ex = scene.ext;
+    let y0 = Infinity, y1 = -Infinity;
+    for (const x of [ex.x0, ex.x1]) for (const y of [ex.y0, ex.y1]) for (const z of [ex.z0, ex.z1]) { const p = cam.proj(cam.rot(x, y, z)); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y); }
+    const out = { top: Math.max(0, 8 - y0), bottom: Math.max(0, y1 - (H() - 8)), topCount: 0, bottomCount: 0 };
+    if (scene.kind === 'element') {
+      for (const ion of scene.ions) { const p = cam.proj(cam.rot(0, ion.y, 3.5)); if (p.y < 6) out.topCount += 1; else if (p.y > H() - 6) out.bottomCount += 1; }
+    }
+    return out;
+  }
+  // the scene may be scrolled by dragging, never out of sight: at least 60 px of it stays on the canvas
+  function clampPan(scene, o) {
+    const cam = latCamera(scene), ex = scene.ext;
+    let y0 = Infinity, y1 = -Infinity, x0 = Infinity, x1 = -Infinity;
+    for (const x of [ex.x0, ex.x1]) for (const y of [ex.y0, ex.y1]) for (const z of [ex.z0, ex.z1]) { const p = cam.proj(cam.rot(x, y, z)); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y); x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x); }
+    if (y1 < 60) o.dy += 60 - y1; else if (y0 > H() - 60) o.dy -= y0 - (H() - 60);
+    if (x1 < 60) o.dx += 60 - x1; else if (x0 > W() - 60) o.dx -= x0 - (W() - 60);
+    return o;
   }
 
   // the caption in the bar above the canvas: what is drawn, and what it is drawn from
@@ -2670,7 +2707,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     canvas.addEventListener('pointerdown', (ev) => {
       canvas.setPointerCapture(ev.pointerId);
       pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
-      dragged = false; last = { x: ev.clientX, y: ev.clientY };
+      dragged = false; last = { x: ev.clientX, y: ev.clientY, x0: ev.clientX, y0: ev.clientY, mode: null };
       if (pts.size === 2) {
         const [a, b] = [...pts.values()];
         pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: state.cam.k, zoom: (state.orbit || orbitHome()).zoom, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 };
@@ -2711,11 +2748,19 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         if (Math.abs(dx) + Math.abs(dy) > 2) dragged = true;
         if (state.view === 'lattice') {
           const o = state.orbit || orbitHome();
-          if (ev.shiftKey) { o.dx = (o.dx || 0) + dx; o.dy = (o.dy || 0) + dy; }
-          else { o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008)); }
+          if (!last.mode) {
+            const tx = ev.clientX - last.x0, ty = ev.clientY - last.y0;
+            if (Math.abs(tx) + Math.abs(ty) >= 6) {
+              // a slab taller than the canvas scrolls under a mostly vertical drag; anything else rotates
+              const ov = state.latOverflow || {};
+              last.mode = ev.shiftKey ? 'pan' : ((ov.top > 0 || ov.bottom > 0) && Math.abs(ty) > 1.4 * Math.abs(tx)) ? 'pan' : 'rotate';
+            }
+          }
+          if (last.mode === 'pan' || (last.mode === null && ev.shiftKey)) { o.dx = (o.dx || 0) + (last.mode === 'pan' && !ev.shiftKey ? 0 : dx); o.dy = (o.dy || 0) + dy; if (state.scene) clampPan(state.scene, o); }
+          else if (last.mode === 'rotate') { o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008)); }
           state.orbit = o;
         } else { state.cam.tx += dx; state.cam.ty += dy; state.anim = null; }
-        last = { x: ev.clientX, y: ev.clientY };
+        last.x = ev.clientX; last.y = ev.clientY;
         requestDraw();
       }
     });
@@ -2765,7 +2810,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       else if (ev.key.startsWith('Arrow') && state.view === 'lattice') {
         const o = state.orbit || orbitHome();
         if (ev.key === 'ArrowLeft') o.ry -= 0.12; if (ev.key === 'ArrowRight') o.ry += 0.12;
-        if (ev.key === 'ArrowUp') o.rx = Math.max(-1.45, o.rx - 0.12); if (ev.key === 'ArrowDown') o.rx = Math.min(1.45, o.rx + 0.12);
+        const ov = state.latOverflow || {}; const scrolls = ov.top > 0 || ov.bottom > 0;
+        if (ev.key === 'ArrowUp') { if (scrolls) { o.dy = (o.dy || 0) + 60; if (state.scene) clampPan(state.scene, o); } else o.rx = Math.max(-1.45, o.rx - 0.12); }
+        if (ev.key === 'ArrowDown') { if (scrolls) { o.dy = (o.dy || 0) - 60; if (state.scene) clampPan(state.scene, o); } else o.rx = Math.min(1.45, o.rx + 0.12); }
         state.orbit = o; requestDraw(); ev.preventDefault();
       }
       else if (ev.key.startsWith('Arrow')) {
