@@ -30,7 +30,8 @@
     bounds: { x0: 0, y0: 0, x1: 1, y1: 1 },
     elements: new Map(),            // Z -> record
     trees: new Map(),               // Z -> {ions: [...]} with relative frames
-    pending: new Map(),             // Z -> promise
+    pending: new Map(),
+    papers: null,                   // data/papers.js, loaded on demand             // Z -> promise
     loadErrors: new Map(),          // Z -> message
     selected: null,                 // node
     hover: null, hoverKey: '',      // the node under a mouse pointer on the plane
@@ -1969,6 +1970,209 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
 
   // ---------------------------------------------------------------- provenance
+
+  // ---------------------------------------------------------------- the released papers
+  // data/papers.js sets window.__mi.papers: each released paper rendered at build from
+  // its own text, its headings, its figures with their ledger md5. Loaded on demand.
+  function ensurePapers() {
+    if (state.papers) return Promise.resolve(state.papers);
+    if (window.__mi && window.__mi.papers) { state.papers = window.__mi.papers; return Promise.resolve(state.papers); }
+    return new Promise((resolve, reject) => {
+      const sc = document.createElement('script');
+      sc.src = `${DATA}papers.js`; sc.async = true;
+      sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.papers) { state.papers = window.__mi.papers; resolve(state.papers); } else reject(new Error('data/papers.js loaded but set no window.__mi.papers')); };
+      sc.onerror = () => { sc.remove(); reject(new Error('data/papers.js could not be loaded; it is written by python3 tools/webindex.py')); };
+      document.head.appendChild(sc);
+    });
+  }
+  function paperCite(pp) {
+    const m = state.index.meta || {}, c = m.cite || {};
+    return `${c.author || 'Lach, M.'} (${c.year || ''}). ${pp.title}. In ${c.title || 'The Method Index'}, edition ${c.commit || '?'}. ${c.url || ''}#paper=${pp.slug}`;
+  }
+  function renderPapers(slug) {
+    const host = $('#papers-body');
+    host.innerHTML = '<p class="note">loading the papers…</p>';
+    ensurePapers().then((papers) => {
+      const sum = (state.index.papers || {});
+      if (!slug) {
+        host.innerHTML = `<p class="note">The papers the author has released to this site, as written. Each is rendered at build from its own text; its figures travel with the md5 the repository's ledger records. ${sum.papers ? badge('READ', 'the paper\'s own text; nothing in it is edited for the site') : ''}</p>
+          <div class="paper-list">${papers.map((pp) => `<div class="paper-card${pp.held ? '' : ' is-slot'}">
+            <h3>${esc(pp.title)}</h3>${pp.subtitle ? `<p class="paper-sub">${esc(pp.subtitle)}</p>` : ''}
+            <p class="note">${esc(pp.author || '')}${pp.held ? ` · ${(pp.words || 0).toLocaleString()} words · ${(pp.figures || []).length} figure${(pp.figures || []).length === 1 ? '' : 's'} · ${(pp.arxiv || []).length + (pp.doi || []).length} linked identifiers · md5 <span class="mono">${esc((pp.md5 || '').slice(0, 12))}</span>${pp.md5_recorded ? (pp.md5 === pp.md5_recorded ? ' <span class="ok">matches the store</span>' : ' <span class="bad">DRIFT from the store</span>') : ''}` : ` · <b>not yet held</b> — ${esc(pp.note || '')}`}</p>
+            ${pp.held ? `<div class="actions"><button type="button" data-paper="${esc(pp.slug)}">Read</button><button type="button" class="ghost" data-cite="${esc(pp.slug)}">Cite</button></div>` : ''}
+          </div>`).join('')}</div>`;
+        host.querySelectorAll('button[data-paper]').forEach((b) => b.addEventListener('click', () => renderPapers(b.dataset.paper)));
+        host.querySelectorAll('button[data-cite]').forEach((b) => b.addEventListener('click', () => {
+          const pp = papers.find((x) => x.slug === b.dataset.cite);
+          const line = paperCite(pp);
+          try { navigator.clipboard.writeText(line); } catch (e) { /* no clipboard */ }
+          b.textContent = 'copied'; setTimeout(() => { b.textContent = 'Cite'; }, 1200);
+          alertLine(host, line);
+        }));
+        return;
+      }
+      const pp = papers.find((x) => x.slug === slug);
+      if (!pp || !pp.held) { host.innerHTML = '<p class="note">no such paper is held.</p>'; return; }
+      host.innerHTML = `<div class="paper-head"><button type="button" class="ghost" data-act="papers-back">← all papers</button>
+          <span class="note">${esc(pp.author || '')} · md5 <span class="mono">${esc((pp.md5 || '').slice(0, 12))}</span> ${badge('READ', 'the paper\'s own text, rendered at build')}</span></div>
+        <div class="paper-layout">
+          <nav class="paper-toc" aria-label="Contents">${pp.headings.filter((h) => h.level >= 2 && h.level <= 3).map((h) => `<a href="#${esc(h.id)}" data-h="${esc(h.id)}" class="toc-${h.level}">${esc(h.text)}</a>`).join('')}
+            <div class="note" style="margin-top:10px">figures ${pp.figures.filter((f) => f.held).length} held${pp.figures.some((f) => !f.held) ? `, ${pp.figures.filter((f) => !f.held).length} not held` : ''}; every held figure's md5 ${pp.figures.every((f) => !f.held || f.ok) ? 'matches the ledger' : 'DRIFTS from the ledger'}</div>
+            <div class="note" style="margin-top:6px"><a href="#" data-act="paper-cite">cite this paper</a></div>
+          </nav>
+          <article class="paper" id="paper-article">${pp.html}</article>
+        </div>`;
+      host.querySelector('[data-act="papers-back"]').addEventListener('click', () => renderPapers());
+      host.querySelectorAll('.paper-toc a[data-h]').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); const t = host.querySelector('#' + CSS.escape(a.dataset.h)); if (t) t.scrollIntoView({ block: 'start', behavior: 'smooth' }); }));
+      host.querySelector('[data-act="paper-cite"]').addEventListener('click', (ev) => { ev.preventDefault(); alertLine(host, paperCite(pp)); });
+      host.scrollTop = 0;
+    }).catch((err) => { host.innerHTML = `<p class="note">${esc(err.message)}</p>`; });
+  }
+  function alertLine(host, text) {
+    let box = host.querySelector('.cite-box');
+    if (!box) { box = document.createElement('div'); box.className = 'cite-box'; host.prepend(box); }
+    box.innerHTML = `<span class="mono">${esc(text)}</span>`;
+  }
+
+  // ---------------------------------------------------------------- figures from the data
+  // Every figure here is drawn from data/index.js at open: no number is typed, and the
+  // caption names the block it is drawn from and the status that block carries.
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs, text) {
+    const e = document.createElementNS(SVG_NS, tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v));
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function figFrame(w, h) {
+    const svg = svgEl('svg', { viewBox: `0 0 ${w} ${h}`, width: '100%', role: 'img', class: 'fig-svg', 'font-family': 'IBM Plex Sans, system-ui, sans-serif', 'font-size': '11' });
+    return svg;
+  }
+  function axisX(svg, x0, x1, y, ticks, fmt, label) {
+    svg.appendChild(svgEl('line', { x1: x0, x2: x1, y1: y, y2: y, class: 'ax' }));
+    ticks.forEach(([px, v]) => { svg.appendChild(svgEl('line', { x1: px, x2: px, y1: y, y2: y + 4, class: 'ax' })); svg.appendChild(svgEl('text', { x: px, y: y + 15, 'text-anchor': 'middle', class: 'tick' }, fmt(v))); });
+    if (label) svg.appendChild(svgEl('text', { x: (x0 + x1) / 2, y: y + 30, 'text-anchor': 'middle', class: 'lab' }, label));
+  }
+  function axisY(svg, x, y0, y1, ticks, fmt, label) {
+    svg.appendChild(svgEl('line', { x1: x, x2: x, y1: y0, y2: y1, class: 'ax' }));
+    ticks.forEach(([py, v]) => { svg.appendChild(svgEl('line', { x1: x - 4, x2: x, y1: py, y2: py, class: 'ax' })); svg.appendChild(svgEl('text', { x: x - 7, y: py + 3.5, 'text-anchor': 'end', class: 'tick' }, fmt(v))); });
+    if (label) { const t = svgEl('text', { x: 14, y: (y0 + y1) / 2, 'text-anchor': 'middle', class: 'lab', transform: `rotate(-90 14 ${(y0 + y1) / 2})` }, label); svg.appendChild(t); }
+  }
+  function niceTicks(lo, hi, n) {
+    const span = hi - lo || 1, raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((st) => span / st <= n) || mag * 10;
+    const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10));
+    return out;
+  }
+  const L_COLOR = ['#1f4e8c', '#b5651d', '#3a7d44', '#8b3a62', '#6b6b6b', '#c9a227', '#2a9d8f', '#7b2cbf'];
+  function figEquation(ix) {
+    const fd = (ix.figure_data || {}).equation; if (!fd || !fd.rows.length) return null;
+    const W = 560, H = 400, m = { l: 56, r: 16, t: 14, b: 44 };
+    const xs = fd.rows.map((r) => r[3]), ys = fd.rows.map((r) => r[4]);
+    const lo = Math.min(...xs, ...ys), hi = Math.max(...xs, ...ys);
+    const sx = (v) => m.l + (v - lo) / (hi - lo) * (W - m.l - m.r), sy = (v) => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
+    const svg = figFrame(W, H);
+    const tk = niceTicks(lo, hi, 6);
+    axisX(svg, m.l, W - m.r, H - m.b, tk.map((v) => [sx(v), v]), (v) => String(v), 'δ measured (READ)');
+    axisY(svg, m.l, H - m.b, m.t, tk.map((v) => [sy(v), v]), (v) => String(v), 'δ by the channel equation (PINNED)');
+    svg.appendChild(svgEl('line', { x1: sx(lo), y1: sy(lo), x2: sx(hi), y2: sy(hi), class: 'ref' }));
+    fd.rows.forEach((r) => svg.appendChild(svgEl('circle', { cx: sx(r[3]), cy: sy(r[4]), r: 3.2, fill: L_COLOR[r[2] % L_COLOR.length], 'fill-opacity': 0.75, stroke: 'none' })).append(svgEl('title', {}, `${symbolOf(r[0])} ${roman(r[1])} ${LSYM[r[2]] || r[2]}: δ ${r[3]} measured, ${r[4]} by equation`)));
+    const ls = [...new Set(fd.rows.map((r) => r[2]))].sort((a, b) => a - b);
+    ls.forEach((l, i) => { svg.appendChild(svgEl('circle', { cx: m.l + 14, cy: m.t + 12 + i * 15, r: 4, fill: L_COLOR[l % L_COLOR.length] })); svg.appendChild(svgEl('text', { x: m.l + 24, y: m.t + 16 + i * 15, class: 'tick' }, `ℓ = ${LSYM[l] || l} (${fd.rows.filter((r) => r[2] === l).length})`)); });
+    const rep = (ix.fixtures || {}).equation_report || {};
+    return { id: 'equation', title: 'The channel equation against every measured channel', svg,
+      caption: `${fd.rows.length} measured channels: δ read from the spectra index (READ) against δ from the channel equation (PINNED), coloured by ℓ; the diagonal is agreement. rms ${rep.rms !== undefined ? rep.rms.toFixed(4) : '?'}, R² ${rep.R2 !== undefined ? rep.R2.toFixed(4) : '?'}, median |error| ${rep.median_abs_error !== undefined ? rep.median_abs_error.toFixed(4) : '?'} over the same rows. ${fd.source}`, status: 'DERIVED' };
+  }
+  function figResiduals(ix) {
+    const fd = (ix.figure_data || {}).equation; if (!fd || !fd.rows.length) return null;
+    const res = fd.rows.map((r) => r[3] - r[4]);
+    const W = 560, H = 300, m = { l: 56, r: 16, t: 14, b: 44 };
+    const lo = Math.min(...res), hi = Math.max(...res), nb = 30, bw = (hi - lo) / nb || 1;
+    const bins = new Array(nb).fill(0); res.forEach((v) => { bins[Math.min(nb - 1, Math.floor((v - lo) / bw))] += 1; });
+    const top = Math.max(...bins);
+    const sx = (v) => m.l + (v - lo) / (hi - lo) * (W - m.l - m.r), sy = (c) => H - m.b - c / top * (H - m.t - m.b);
+    const svg = figFrame(W, H);
+    axisX(svg, m.l, W - m.r, H - m.b, niceTicks(lo, hi, 7).map((v) => [sx(v), v]), (v) => String(v), 'residual: δ measured − δ by equation');
+    axisY(svg, m.l, H - m.b, m.t, niceTicks(0, top, 5).map((v) => [sy(v), v]), (v) => String(v), 'channels');
+    bins.forEach((c, i) => svg.appendChild(svgEl('rect', { x: sx(lo + i * bw) + 0.5, y: sy(c), width: Math.max(1, sx(lo + bw) - sx(lo) - 1), height: H - m.b - sy(c), fill: '#1f4e8c', 'fill-opacity': 0.7 })));
+    if (lo < 0 && hi > 0) svg.appendChild(svgEl('line', { x1: sx(0), x2: sx(0), y1: m.t, y2: H - m.b, class: 'ref' }));
+    const by = ((ix.fixtures || {}).equation_report || {}).by_l || [];
+    return { id: 'residuals', title: 'The residual distribution', svg,
+      caption: `${res.length} residuals in ${nb} bins; the dashed line is zero. By ℓ, rms: ${by.map((b) => `${LSYM[b.l] || b.l} ${b.rms.toFixed(3)} (${b.n})`).join(', ')}. DERIVED from the same rows as the figure above.`, status: 'DERIVED' };
+  }
+  function figCoverage(ix) {
+    const lay = ix.layout || []; if (!lay.length) return null;
+    const W = 720, H = 240, m = { l: 48, r: 12, t: 14, b: 40 };
+    const zmax = Math.max(...lay.map((e) => e.Z)), top = Math.max(...lay.map((e) => e.counts.measured)) || 1;
+    const sx = (z) => m.l + (z - 0.5) / zmax * (W - m.l - m.r), sy = (c) => H - m.b - c / top * (H - m.t - m.b);
+    const svg = figFrame(W, H);
+    axisX(svg, m.l, W - m.r, H - m.b, niceTicks(0, zmax, 12).filter((v) => v > 0).map((v) => [sx(v), v]), (v) => String(v), 'Z');
+    axisY(svg, m.l, H - m.b, m.t, niceTicks(0, top, 4).map((v) => [sy(v), v]), (v) => String(v), 'measured cells');
+    lay.forEach((e) => { const r = svgEl('rect', { x: sx(e.Z) - 2, y: sy(e.counts.measured), width: 4, height: H - m.b - sy(e.counts.measured), fill: e.populated ? '#1f4e8c' : '#999', 'fill-opacity': 0.8 }); r.append(svgEl('title', {}, `${e.symbol} (Z = ${e.Z}): ${e.counts.measured} measured of ${e.counts.rows} cells`)); svg.appendChild(r); });
+    const t = ix.totals || {};
+    return { id: 'coverage', title: 'Where the measurements are', svg,
+      caption: `Measured cells per element, Z = 1 to ${zmax}: ${t.measured} measured of ${(t.rows || 0).toLocaleString()} cells in all; grey bars are elements the observed configurations table does not reach (Z > 108). DERIVED from the layout's counts.`, status: 'DERIVED' };
+  }
+  function figWalk(ix) {
+    const rel = ix.relativistic || {}, walk = rel.walk; if (!walk || !walk.fields) return null;
+    const fld = walk.fields[walk.primary] || walk.fields.hf || walk.fields.lx; if (!fld) return null;
+    const ents = fld.entrants.filter((e) => e.margin_c137 !== null && e.margin_c137 !== undefined);
+    const W = 720, H = 300, m = { l: 56, r: 12, t: 14, b: 40 };
+    const zmax = Math.max(...ents.map((e) => e.Z));
+    const vals = ents.flatMap((e) => [e.margin_c137, e.margin_cinf]).filter((v) => v !== null && v !== undefined && isFinite(v));
+    const lo = 0, hi = Math.max(...vals);
+    const sx = (z) => m.l + (z - 1) / (zmax - 1) * (W - m.l - m.r), sy = (v) => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
+    const svg = figFrame(W, H);
+    axisX(svg, m.l, W - m.r, H - m.b, niceTicks(0, zmax, 12).filter((v) => v > 0).map((v) => [sx(v), v]), (v) => String(v), 'Z');
+    axisY(svg, m.l, H - m.b, m.t, niceTicks(lo, hi, 5).map((v) => [sy(v), v]), (v) => String(v), 'margin, hartree');
+    const path = (key, cls) => { const d = ents.map((e, i) => `${i ? 'L' : 'M'}${sx(e.Z).toFixed(1)},${sy(e[key]).toFixed(1)}`).join(''); svg.appendChild(svgEl('path', { d, class: cls, fill: 'none' })); };
+    path('margin_c137', 'ln-a'); path('margin_cinf', 'ln-b');
+    ents.filter((e) => e.displaced).forEach((e) => { const c = svgEl('circle', { cx: sx(e.Z), cy: sy(Math.min(e.margin_c137, e.margin_cinf)), r: 5, fill: 'none', stroke: '#b5651d', 'stroke-width': 1.6 }); c.append(svgEl('title', {}, `${e.symbol}: entrant ${e.c137} at c = 137.035999, ${e.cinf} at c → ∞`)); svg.appendChild(c); svg.appendChild(svgEl('text', { x: sx(e.Z), y: sy(Math.min(e.margin_c137, e.margin_cinf)) - 8, 'text-anchor': 'middle', class: 'tick' }, e.symbol)); });
+    svg.appendChild(svgEl('line', { x1: m.l + 10, x2: m.l + 34, y1: m.t + 8, y2: m.t + 8, class: 'ln-a' })); svg.appendChild(svgEl('text', { x: m.l + 40, y: m.t + 12, class: 'tick' }, 'c = 137.035999'));
+    svg.appendChild(svgEl('line', { x1: m.l + 10, x2: m.l + 34, y1: m.t + 24, y2: m.t + 24, class: 'ln-b' })); svg.appendChild(svgEl('text', { x: m.l + 40, y: m.t + 28, class: 'tick' }, 'c → ∞'));
+    svg.appendChild(svgEl('circle', { cx: m.l + 22, cy: m.t + 40, r: 5, fill: 'none', stroke: '#b5651d', 'stroke-width': 1.6 })); svg.appendChild(svgEl('text', { x: m.l + 40, y: m.t + 44, class: 'tick' }, 'displaced between the settings'));
+    return { id: 'walk', title: 'The reconstructed walk: the entrant\'s margin at both settings', svg,
+      caption: `For every Z the gap in energy between the entrant channel and its runner-up, in the ${WALK_FIELD_LABEL[walk.primary] || walk.primary} field, at c = 137.035999 and at c → ∞; a ring marks an element whose entrant differs between the settings. A small margin is a contested row. RECONSTRUCTED: the walk is this repository's rebuild of the paper's chain, placed beside the paper's result and never in its place.`, status: 'RECONSTRUCTED' };
+  }
+  function figClosure(ix) {
+    const c = ix.closure || {}, pl = c.placement || {}, jan = ((ix.fixtures || {}).closure || {}).janet || null;
+    if (c.E === undefined) return null;
+    const bars = [{ k: 'periodic, helium at 18', E: c.E, parts: c.decomposition ? [['forbidden (1d, 1p, 2d)', c.decomposition.forbidden, '#8b3a62'], ['deferred (3d, helium\'s slot)', c.decomposition.deferred, '#c9a227']] : [['E', c.E, '#1f4e8c']] },
+      { k: 'periodic, helium at 2', E: pl.helium_at_2 ? pl.helium_at_2.E : null, parts: pl.helium_at_2 ? [['E', pl.helium_at_2.E, '#1f4e8c']] : [] },
+      { k: 'Janet (n+ℓ, ℓ)', E: jan ? jan.E : null, parts: jan ? [['E', jan.E, '#1f4e8c']] : [] }].filter((b) => b.E !== null);
+    const W = 560, H = 220, m = { l: 56, r: 16, t: 14, b: 44 };
+    const top = Math.max(...bars.map((b) => b.E), 1);
+    const sy = (v) => H - m.b - v / top * (H - m.t - m.b), bw = (W - m.l - m.r) / bars.length;
+    const svg = figFrame(W, H);
+    axisY(svg, m.l, H - m.b, m.t, niceTicks(0, top, 4).map((v) => [sy(v), v]), (v) => String(v), 'E = admitted − held');
+    svg.appendChild(svgEl('line', { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, class: 'ax' }));
+    bars.forEach((b, i) => { let acc = 0; const x = m.l + i * bw + bw * 0.25; b.parts.forEach(([name, v, col]) => { const r = svgEl('rect', { x, y: sy(acc + v), width: bw * 0.5, height: sy(acc) - sy(acc + v), fill: col, 'fill-opacity': 0.85 }); r.append(svgEl('title', {}, `${b.k}: ${name} ${v}`)); svg.appendChild(r); acc += v; }); svg.appendChild(svgEl('text', { x: x + bw * 0.25, y: sy(b.E) - 6, 'text-anchor': 'middle', class: 'lab' }, `E = ${b.E}`)); svg.appendChild(svgEl('text', { x: x + bw * 0.25, y: H - m.b + 16, 'text-anchor': 'middle', class: 'tick' }, b.k)); });
+    return { id: 'closure', title: 'Closure across the layouts', svg,
+      caption: `E, the cells ℛ admits and the layout does not hold, on the drawn periodic layout (${c.held} held, ${c.admitted} admitted; the split is 25 forbidden by ℓ ≤ n − 1 and 11 deferred), on the same layout with helium at group 2, and on the Janet layout. Computed at build with the order operator (PINNED); the split is READ.`, status: 'PINNED' };
+  }
+  function renderFigures() {
+    const host = $('#figures-body'), ix = state.index;
+    const figs = [figEquation(ix), figResiduals(ix), figCoverage(ix), figWalk(ix), figClosure(ix)].filter(Boolean);
+    host.innerHTML = `<p class="note">Drawn in the browser from <code>data/index.js</code> when this dialog opens: no figure here is an image, and no number in one is typed. Each caption names the block it is drawn from and the status that block carries. Hover a mark for its value; download any figure as SVG.</p>`;
+    figs.forEach((f) => {
+      const fig = document.createElement('figure'); fig.className = 'data-fig'; fig.id = 'fig-' + f.id;
+      const h = document.createElement('h3'); h.textContent = f.title; fig.appendChild(h);
+      fig.appendChild(f.svg);
+      const cap = document.createElement('figcaption'); cap.innerHTML = `${esc(f.caption)} ${badge(f.status)} <a href="#" data-dl="${f.id}">download SVG</a>`; fig.appendChild(cap);
+      host.appendChild(fig);
+    });
+    host.querySelectorAll('a[data-dl]').forEach((a) => a.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const svg = host.querySelector('#fig-' + a.dataset.dl + ' svg').cloneNode(true);
+      svg.setAttribute('xmlns', SVG_NS);
+      const style = document.createElementNS(SVG_NS, 'style'); style.textContent = '.ax{stroke:#555;stroke-width:1}.tick{fill:#333;font-size:11px}.lab{fill:#333;font-size:12px}.ref{stroke:#999;stroke-dasharray:4 3}.ln-a{stroke:#1f4e8c;stroke-width:1.6}.ln-b{stroke:#b5651d;stroke-width:1.6;stroke-dasharray:5 3}';
+      svg.prepend(style);
+      const blob = new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob), dl = document.createElement('a'); dl.href = url; dl.download = `method-index-${a.dataset.dl}-${(state.index.meta || {}).commit || 'edition'}.svg`; dl.click();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    }));
+  }
+
   function renderProvenance() {
     const ix = state.index, m = ix.meta || {}, t = ix.totals || {};
     const eq = ix.equation || null, col = ix.collapse || null, ins = ix.instruments || null, fx = ix.fixtures || null;
@@ -2032,6 +2236,25 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       <ul>${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>
       <h3>Element files</h3>
       <p class="note">${(ix.manifest || []).length} files under <code>data/elements/</code>, ${((ix.manifest || []).reduce((a, x) => a + (x.bytes || 0), 0) / 1e6).toFixed(1)} MB, each md5 recorded in <code>data/index.js</code>; <code>python3 tools/webindex.py --verify</code> checks them.${ix.protocol ? ` Protocol: ${esc(ix.protocol.index)}; ${esc(ix.protocol.element)} — ${esc(ix.protocol.why)}.` : ''}</p>`;
+    const cite = m.cite || null, dls = ix.downloads || [], hist = m.history || [];
+    if (cite) {
+      html += `<h3>How to cite</h3><p class="note">The site as a whole, at this edition. A paper carries its own cite line under Papers, and every node's plate offers a citation naming its path.</p>
+        <div class="cite-box"><span class="mono">${esc(cite.text)}</span></div>
+        <details class="note"><summary>BibTeX</summary><pre class="mono">${esc(cite.bibtex || '')}</pre></details>`;
+    }
+    if (dls.length) {
+      html += `<h3>Downloads</h3><p class="note">The data the site reads, as files, each with the md5 recorded at build where the file is a single blob.</p>
+        <div class="tbl-wrap"><table class="t"><thead><tr><th>file</th><th>what</th><th class="hide-narrow">bytes</th><th class="hide-narrow">md5</th></tr></thead><tbody>
+        ${dls.map((d) => `<tr><td class="wrap">${d.file.includes('<') ? esc(d.file) : `<a href="${esc(d.file)}" download>${esc(d.file)}</a>`}</td><td class="wrap">${esc(d.what || '')}</td><td class="hide-narrow">${d.bytes ? d.bytes.toLocaleString() : ''}</td><td class="hide-narrow mono">${esc((d.md5 || '').slice(0, 12))}</td></tr>`).join('')}
+        </tbody></table></div>
+        <p class="note">The repository itself, with every generator and its selftest: <a href="https://github.com/lach-matt/Claude-Method-Works" target="_blank" rel="noopener noreferrer">github.com/lach-matt/Claude-Method-Works</a>.</p>`;
+    }
+    if (hist.length) {
+      html += `<h3>Editions</h3><p class="note">Every commit that changed the site or its generator, oldest first; the current edition is the last row. A note is the site's own description of the change; the commit is the record.</p>
+        <div class="tbl-wrap"><table class="t"><thead><tr><th>date</th><th>edition</th><th>change</th><th class="hide-narrow">files</th></tr></thead><tbody>
+        ${hist.map((h) => `<tr${m.commit && (m.commit.startsWith(h.commit) || h.commit.startsWith(m.commit)) ? ' class="is-current"' : ''}><td>${esc(h.date)}</td><td><a href="${esc(h.url)}" target="_blank" rel="noopener noreferrer" class="mono">${esc(h.commit)}</a></td><td class="wrap">${esc(h.note || '')}</td><td class="hide-narrow">${h.files}</td></tr>`).join('')}
+        </tbody></table></div>`;
+    }
     $('#provenance-body').innerHTML = html;
   }
 
@@ -2225,6 +2448,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (state.index.particles) $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
     else $('#btn-particles').hidden = true;
     $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });
+    $('#btn-papers').addEventListener('click', () => { if (!$('#papers-body').innerHTML) renderPapers(); $('#dlg-papers').showModal(); });
+    $('#btn-figures').addEventListener('click', () => { renderFigures(); $('#dlg-figures').showModal(); });
+    $('#btn-glossary').addEventListener('click', () => $('#dlg-glossary').showModal());
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
     document.querySelectorAll('.dlg-close').forEach((b) => b.addEventListener('click', () => $('#' + b.dataset.close).close()));
     document.querySelectorAll('dialog').forEach((d) => d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); }));
@@ -2297,6 +2523,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   particles           what the sources state of the binders and particles beyond the electron
   particle <term>     one of them: muon, pion, tau, antimatter, positronium, antiprotonic, photon, quark, boson, neutrino …
   references [term]   every arXiv and DOI identifier the sources print, or those whose citing line mentions <term>
+  papers              the released papers held here, with their md5s
+  figures             what the Figures dialog draws
+  cite                the site's cite line at this edition
+  history             every edition of the site
+  glossary            where the terms are defined
 <El> is a symbol, a Z or a name; the element is loaded if it is not yet. An unknown input prints this text.`;
 
   function findElement(tok) {
@@ -2366,6 +2597,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         Object.keys(pt.absent.terms).forEach((t) => { if (term.includes(t.toLowerCase())) { const a = pt.absent.terms[t]; out.push(`${t}: ${a.occurrences ? a.occurrences + ' occurrences, first at ' + a.first.file + ' L' + a.first.line : 'absent from the sources — counted at build, not a cell of the lattice'} ${st(pt.absent.status)}`); } });
         return out.length ? out.join('\n') : `nothing in the particles block matches "${term}"` + (flat.toLowerCase().includes(term) ? ' by name, though the term occurs in a passage; open Particles' : '');
       }
+      case 'papers': {
+        const pp = (ix.papers || {}).papers || []; if (!pp.length) return 'this build carries no papers block';
+        return pp.map((p) => `  ${p.title}${p.subtitle ? ' — ' + p.subtitle : ''} · ${p.author} · ${p.held ? `${p.words.toLocaleString()} words, ${p.figures} figures, md5 ${p.md5.slice(0, 12)} ${p.md5 === p.md5_recorded ? '(matches the store)' : '(DRIFT)'}` : 'not yet held: ' + p.note}`).join('\n') + '\nOpen Papers to read one.';
+      }
+      case 'figures': return 'Figures drawn from the data at open: the channel equation against every measured channel; the residual distribution; where the measurements are; the reconstructed walk\'s margins at both settings; closure across the layouts. Open Figures to see them; each downloads as SVG.';
+      case 'cite': { const c = (ix.meta || {}).cite; return c ? c.text : 'no cite line in this build'; }
+      case 'history': case 'editions': { const h = (ix.meta || {}).history || []; return h.length ? h.map((r) => `  ${r.date}  ${r.commit}  ${r.note || ''}`).join('\n') : 'no edition history in this build'; }
+      case 'glossary': return 'Open Glossary for every term and mark the site uses, defined in the site\'s own words: the statuses, cells and channels, the channel equation\'s terms, layouts and closure, the lattice, the relativistic limit and the walk.';
       case 'references': case 'refs': {
         const rf = ix.references; if (!rf) return 'no references block in data/index.js';
         const term = toks.slice(1).join(' ').toLowerCase();

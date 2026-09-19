@@ -26,15 +26,18 @@
       <div class="seg" role="group" aria-label="Layout">
         <button type="button" id="layout-table" class="seg-btn is-on" data-layout="table" title="The drawn layout: period × group">Period × group</button>
         <button type="button" id="layout-janet" class="seg-btn" data-layout="janet" title="Janet: (n+ℓ, ℓ)">Janet (n+ℓ, ℓ)</button>
-        <button type="button" id="layout-lattice" class="seg-btn" data-layout="lattice" title="Λ_spectra as a lattice: element across, ionisation stage up, ℓ into the page (Index of Indices, Figure 6)">Lattice (Z · stage · ℓ)</button>
+        <button type="button" id="layout-lattice" class="seg-btn" data-layout="lattice" title="Λ_spectra as a lattice: element across, ionisation stage up, ℓ into the page">Lattice (Z · stage · ℓ)</button>
       </div>
       <div class="seg" role="group" aria-label="Element view" id="elview">
         <button type="button" class="seg-btn is-on" data-elview="lattice" title="An element as its slab of the lattice: stage up, ℓ into the page, one cube per cell; drag to rotate, wheel or pinch to zoom">3D</button>
         <button type="button" class="seg-btn" data-elview="nest" title="An element as nested circles: ions, then channels, then cells">Nest</button>
       </div>
+      <button type="button" id="btn-papers" class="ghost" title="The released papers, read here">Papers</button>
+      <button type="button" id="btn-figures" class="ghost" title="Figures drawn from the data at build">Figures</button>
       <button type="button" id="btn-particles" class="ghost" title="Binders and particles beyond the electron, as the sources state them">Particles</button>
       <button type="button" id="btn-references" class="ghost" title="Every outward identifier the sources cite: NIST ASD, arXiv, DOI">References</button>
       <button type="button" id="btn-provenance" class="ghost">Provenance</button>
+      <button type="button" id="btn-glossary" class="ghost" title="Every term and mark the site uses, defined">Glossary</button>
       <button type="button" id="btn-help" class="ghost">Help</button>
       <button type="button" id="btn-theme" class="ghost" aria-label="Toggle light or dark theme" title="Toggle theme">◐</button>
     </nav>
@@ -141,6 +144,86 @@
   <dialog id="dlg-particles" aria-labelledby="dlg-particles-title">
     <div class="dlg-head"><h2 id="dlg-particles-title">Particles and binders</h2><button type="button" class="ghost dlg-close" data-close="dlg-particles" aria-label="Close">✕</button></div>
     <div id="particles-body" class="dlg-body"></div>
+  </dialog>
+
+  <dialog id="dlg-papers" aria-labelledby="dlg-papers-title" class="dlg-wide">
+    <div class="dlg-head"><h2 id="dlg-papers-title">Papers</h2><button type="button" class="ghost dlg-close" data-close="dlg-papers" aria-label="Close">✕</button></div>
+    <div id="papers-body" class="dlg-body"></div>
+  </dialog>
+
+  <dialog id="dlg-figures" aria-labelledby="dlg-figures-title" class="dlg-wide">
+    <div class="dlg-head"><h2 id="dlg-figures-title">Figures from the data</h2><button type="button" class="ghost dlg-close" data-close="dlg-figures" aria-label="Close">✕</button></div>
+    <div id="figures-body" class="dlg-body"></div>
+  </dialog>
+
+  <dialog id="dlg-glossary" aria-labelledby="dlg-glossary-title">
+    <div class="dlg-head"><h2 id="dlg-glossary-title">Glossary and keys</h2><button type="button" class="ghost dlg-close" data-close="dlg-glossary" aria-label="Close">✕</button></div>
+    <div class="dlg-body glossary">
+      <p class="note">Every term the site uses, in the site's own words. A definition here is a reading aid; the value it describes carries its own status wherever it appears.</p>
+      <h3>Statuses</h3>
+      <dl>
+        <dt><span class="badge st-READ">READ</span></dt><dd>A value taken as recorded from a source table or paper: a measured level, an observed configuration, a stated figure. Nothing was computed to produce it.</dd>
+        <dt><span class="badge st-PINNED">PINNED</span></dt><dd>A standing definition stated at the precision a program needs: the channel equation's coefficients, the Pauli bound, the order operator, the standing caps.</dd>
+        <dt><span class="badge st-DERIVED">DERIVED</span></dt><dd>Arithmetic on READ or PINNED quantities with nothing added: a count, a difference, a classification by a stated rule.</dd>
+        <dt><span class="badge st-RECOVERED">RECOVERED</span></dt><dd>A form stated nowhere in a program's terms, measured out of the index's own computed column and consistent with what is said of it qualitatively. The collapse ramp C(Z, ℓ) is the one such object here.</dd>
+        <dt><span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span></dt><dd>An object whose behaviour is stated but not the form a program needs, rebuilt here and kept marked so a later decision can move it: the ionisation-ladder mapping, the reading of n₀, and the whole of the reconstructed walk.</dd>
+        <dt>a status is never flattened</dt><dd>A value keeps the weakest status of anything it depends on. A DERIVED count over RECONSTRUCTED rows is shown RECONSTRUCTED, and a solver's result carries the status of its weakest input.</dd>
+      </dl>
+      <h3>Cells and channels</h3>
+      <dl>
+        <dt>channel</dt><dd>One ion at one orbital angular momentum ℓ: the series of levels an electron in that ion runs through as its principal quantum number n rises. A channel is addressed as element, ionisation stage, ℓ; for example <code>Fe II d</code>.</dd>
+        <dt>cell</dt><dd>One row of the spectra index: a channel at one multiplicity, carrying its quantum defect δ, its grade and its bound. Some channels hold several cells because the series splits by multiplicity.</dd>
+        <dt>ionisation stage</dt><dd>The ion's charge plus one, in spectroscopic Roman numerals: Fe I is the neutral atom, Fe II has lost one electron. The lattice draws the stage upward.</dd>
+        <dt>quantum defect, δ</dt><dd>How far a series departs from the hydrogenic ladder: the levels sit at −1/(2(n − δ)²) rather than −1/(2n²). A one-electron channel has δ = 0 exactly, by symmetry.</dd>
+        <dt>grade: measured, exact, computed</dt><dd><em>Measured</em>: δ read from levels in a compilation, chiefly NIST ASD. <em>Exact</em>: a one-electron channel, δ = 0 by symmetry. <em>Computed</em>: δ from the channel equation, where no measurement is held.</dd>
+        <dt>witnessed</dt><dd>A cell whose measured δ has an independent second reading in the source data. Drawn with a ring in the lattice.</dd>
+        <dt>bound, and its kind</dt><dd>The note the spectra index records on each cell about where the series ends or why it cannot be keyed. The note is READ; its kind is DERIVED by a stated rule into eight: series limit printed · series unresolved · nuclear (no isotope or nuclide) · not keyable (no single 2S+1) · open-shell core · no analysis located · δ = 0 by symmetry · no note.</dd>
+        <dt>multiplicity</dt><dd>2S+1, the spin multiplicity of the term the series belongs to. It is the fourth coordinate of a cell after Z, charge and ℓ.</dd>
+      </dl>
+      <h3>The channel equation and its terms</h3>
+      <dl>
+        <dt>the channel equation</dt><dd>The one equation that predicts δ for every channel from the ion's own configuration, in two branches: one where the core holds electrons at this ℓ (p &gt; 0) and one where it does not (p = 0). Its five constants A, K, H, E₀ and E₁ are PINNED. Solver mode 1 evaluates it term by term.</dd>
+        <dt>p</dt><dd>The number of orbitals the ion's core already holds at this ℓ, read from the observed ground configuration.</dd>
+        <dt>n₀</dt><dd>The first principal quantum number at this ℓ that the core leaves entirely unoccupied. Its reading is RECONSTRUCTED; the helium s series settles it.</dd>
+        <dt>B, the Pauli bound</dt><dd>B = min(p, n₀ − ℓ − 1): how many core orbitals at this ℓ lie below the series, and so how many nodes exclusion forces on the running electron. Solver mode 2.</dd>
+        <dt>C(Z, ℓ), the collapse coordinate</dt><dd>A ramp from 0 to 1 across the eight elements where the ℓ-orbital collapses into the core (opening at Sc for d, at La for f), carried by the p = 0 branch. Its form is RECOVERED from the computed column. Solver mode 3.</dd>
+        <dt>Nₑ and the exponent</dt><dd>Nₑ is the ion's electron count; the equation's exponent falls as e(Nₑ) = E₀ − E₁ ln Nₑ. At Nₑ = 1 the (Nₑ − 1)/Nₑ factor vanishes and the equation returns 0 exactly.</dd>
+        <dt>residual</dt><dd>δ measured minus δ from the equation, on a measured cell. The Figures dialog draws every residual; the rms over all measured channels is a fixture the solver selftest checks.</dd>
+      </dl>
+      <h3>Layouts and closure</h3>
+      <dl>
+        <dt>the drawn periodic layout</dt><dd>The eighteen-column table, period down and group across, with helium at group 18 and the lanthanides and actinides set aside below. Ninety main-table cells are held.</dd>
+        <dt>ℛ, the order operator</dt><dd>A cell is <em>admitted</em> when every cell below it on every axis is held: the downward closure of the held set. It is PINNED and computed in the closure solver (mode 4).</dd>
+        <dt>held, admitted, E</dt><dd>Held: the cells the layout draws. Admitted: the cells ℛ reaches from them. E = admitted − held: the cells the operator admits and the table does not hold. On the periodic layout E = 36; on the Janet layout E = 0.</dd>
+        <dt>ghost cell</dt><dd>One of the thirty-six, drawn tinted in the gaps of the short periods. Tap one for its definition: 1d, 1p and 2d are forbidden by ℓ ≤ n − 1 (lighter tint), 3d and helium's vacated slot are deferred (fuller tint).</dd>
+        <dt>the priced alternative</dt><dd>Helium drawn at group 2 above beryllium, where its configuration puts it. E falls from 36 to 20, and the plate offers the toggle.</dd>
+        <dt>set aside</dt><dd>The twenty-eight lanthanides and actinides, drawn below the main table and not counted among its held cells.</dd>
+        <dt>Janet cell, (n+ℓ, ℓ)</dt><dd>Each element placed by the n+ℓ and ℓ of its differentiating electron: the left-step table. On it the closure is exact, E = 0.</dd>
+      </dl>
+      <h3>The lattice</h3>
+      <dl>
+        <dt>Λ_spectra</dt><dd>The spectra index seen as a lattice: every element a slab at its Z, ionisation stage up, ℓ into the page, one node per cell. Rotate by dragging, zoom by wheel or pinch, pan with Shift-drag or two fingers.</dd>
+        <dt>node marks</dt><dd>A filled sphere is a measured cell, ringed when witnessed; a disc with a green ring is an exact cell; a small grey dot is a computed cell; the selected cell carries the accent ring. Colour by grade or by limit kind from the key.</dd>
+        <dt>Λ₈ and the ionisation ladder</dt><dd>The eight-coordinate cell (n, ℓ, k, q, e, f, g, 2S) an ion occupies, with seven constraints and standing caps (n, e, ℓ, k, f) = (3, 3, 1, 3, 1). The ladder is the sequence of Λ₈ cells an element's ions step through; the mapping is RECONSTRUCTED. Solver mode 5 tests a cell.</dd>
+        <dt>the tower</dt><dd>The layers above Λ₈ that the index is indexed by; a source table the site reads for its coordinates.</dd>
+      </dl>
+      <h3>The relativistic limit and the walk</h3>
+      <dl>
+        <dt>the Löwdin paper</dt><dd>The released paper that derives the periodic table's filling order from the many-electron equation with one constant, and shows that at c → ∞ eleven elements are misplaced. Read it under Papers.</dd>
+        <dt>the eleven</dt><dd>The elements the paper's construction displaces when the speed of light is sent to infinity: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf. Marked on the table by the relativistic colouring.</dd>
+        <dt>entrant</dt><dd>The channel the chain adds an electron to on the step from Z − 1 to Z: the deepest unfilled channel in the frozen field of the ion. The walk's entrant is compared with the observed gain from the configurations table.</dd>
+        <dt>displaced</dt><dd>An element whose entrant differs between the two settings, c = 137.035999 and c → ∞.</dd>
+        <dt>margin</dt><dd>The energy gap, in hartree, between the entrant and its runner-up. A small margin is a contested row.</dd>
+        <dt>the walk, reconstructed</dt><dd>The paper's own chain run here in two fields, the paper's average-of-configuration Hartree–Fock field with non-local exchange and a local-exchange field beside it, at both settings, into a 476-row table. Every value of it is RECONSTRUCTED and it is placed beside the paper's result, never in its place. Solver mode 7.</dd>
+        <dt>converged</dt><dd>Whether the self-consistent field of a row settled to 10⁻⁷. Three Hartree–Fock rows at c = 137.035999 (Ts, Og, Ubn) settled to 10⁻⁶ instead, and the table says so on the row.</dd>
+      </dl>
+      <h3>The site</h3>
+      <dl>
+        <dt>edition</dt><dd>The commit the data was built from, shown after the subtitle and in every citation line. The Provenance panel lists every edition.</dd>
+        <dt>the explorer computes nothing</dt><dd>Every value the explorer shows was serialised at build from the generator; the browser reads and draws. Only the solver suite computes, and each solver carries a selftest against exported numbers.</dd>
+        <dt>a finding is recorded, never repaired</dt><dd>Where two sources disagree, both values are shown with their statuses; the site does not choose.</dd>
+      </dl>
+    </div>
   </dialog>
 
   <dialog id="dlg-references" aria-labelledby="dlg-references-title">

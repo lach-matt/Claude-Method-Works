@@ -651,6 +651,309 @@ def _manifest_row(suffix):
     return None
 
 
+SITE_URL = "https://lach-matt.github.io/Claude-Method-Works/"
+SITE_AUTHOR = "Lach, M."
+PAPERS_JS = "papers.js"
+PAPERS_PREFIX = "window.__mi = window.__mi || {}; window.__mi.papers = "
+# where each released paper's figures live, as extracted/LEDGER.tsv names the
+# archive: the paper cites `figures/<name>` and more than one archive holds a
+# file of that name, so the paper's own delivery is named here
+PAPER_FIGURE_ARCHIVES = {
+    "THE-LOWDIN-SOLUTION-2.md": "The_Method_1_6_figures.zip",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "THREEBODY-DELIVERY-1/THREEBODY-DELIVERY-1.zip",
+}
+PAPER_SLUGS = {
+    "THE-LOWDIN-SOLUTION-2.md": "lowdin",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "three-body",
+}
+# papers the author has named as released to the site but whose file is not
+# in the repository: a slot on the site, held: false, never a fabricated body
+PAPER_SLOTS = [
+    {"slug": "languages", "title": "The hierarchy of mathematical languages", "held": False,
+     "note": "named by the author as released to the site; the paper's file is not yet "
+             "in the repository, so the site lists it and shows nothing in its place"},
+]
+# the edition history the site shows: the commits that changed public/ or the
+# generator, each with a note written for the site (the commit subjects are
+# git's record, not the site's, and are not shipped)
+EDITION_NOTES = {
+    "745414d": "first page",
+    "a4cd621": "interactive index, first pass",
+    "ef7b325": "touch-first site; data as script files; solver suite; coefficient calculator",
+    "86276a0": "the relativistic limit as a seventh mode; the bounds facet",
+    "d415284": "mode 7 asserts both directions, thorium the null-difference control",
+    "0360a25": "the Löwdin delivery's reply cited from the store",
+    "e9b77f6": "the Löwdin walk reconstructed beside the paper, at both settings",
+    "5755759": "a Hartree-Fock field with non-local exchange, in progress",
+    "ab7a374": "the walk in the paper's own Hartree-Fock field, 476 rows",
+    "5e55930": "the thirty-six cells carry their definitions; helium's placement offered",
+    "fc8bcdb": "the lattice in three dimensions: every element its slab, rotatable and zoomable",
+    "81bd08e": "particles and binders; references linked by construction; the muon balance as a mode",
+    "3f71e96": "set like a reference work: type, palette, frame",
+    "337b922": "the index's cells drawn as a table, not a grid",
+    "3c1abef": "the lattice drawn as a figure: fitted, grounded, labelled",
+    "07f9ff7": "the lattice's cells as nodes",
+    "2d0d5e3": "the public build: the site cites nothing from the unpublished books",
+}
+
+
+def _git_history():
+    """The commits that changed the site, oldest first: date, short hash and
+    the number of files each touched under public/ or the generator."""
+    try:
+        out = subprocess.run(["git", "log", "--date=short", "--format=%H%x09%h%x09%ad", "--",
+                              "public/", "tools/webindex.py"],
+                             cwd=REPO, capture_output=True, text=True, check=True)
+    except Exception:  # noqa: BLE001 -- provenance is best effort
+        return []
+    rows = []
+    for ln in out.stdout.strip().split("\n"):
+        if not ln.strip():
+            continue
+        full, short, date = ln.split("\t")
+        try:
+            files = subprocess.run(["git", "show", "--format=", "--name-only", full, "--",
+                                    "public/", "tools/webindex.py"],
+                                   cwd=REPO, capture_output=True, text=True, check=True).stdout.split()
+        except Exception:  # noqa: BLE001
+            files = []
+        rows.append({"date": date, "commit": short, "files": len(files),
+                     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/" + full,
+                     "note": next((n for k, n in EDITION_NOTES.items() if short.startswith(k)), None)})
+    rows.reverse()
+    return rows
+
+
+def cite_block(head):
+    year = _dt.datetime.now(_dt.timezone.utc).year
+    return {"author": SITE_AUTHOR, "title": SITE_TITLE, "year": year, "url": SITE_URL,
+            "commit": head,
+            "text": "%s (%d). %s, edition %s. %s" % (SITE_AUTHOR, year, SITE_TITLE, head or "?", SITE_URL),
+            "bibtex": "@misc{lach%d_method_index,\n  author = {Lach, M.},\n  title = {%s},\n"
+                      "  year = {%d},\n  howpublished = {\\url{%s}},\n  note = {edition %s}\n}"
+                      % (year, SITE_TITLE, year, SITE_URL, head or "?")}
+
+
+# --- a small Markdown renderer for the released papers -----------------------
+_MD_INLINE = [
+    (re.compile(r"!\[([^\]]*)\]\(([^)]+)\)"), lambda m, ctx: ctx["img"](m.group(1), m.group(2))),
+    (re.compile(r"\[([^\]]+)\]\(([^)]+)\)"), lambda m, ctx: '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(2), m.group(1))),
+    (re.compile(r"`([^`]+)`"), lambda m, ctx: "<code>%s</code>" % m.group(1)),
+    (re.compile(r"\*\*\*(.+?)\*\*\*"), lambda m, ctx: "<b><i>%s</i></b>" % m.group(1)),
+    (re.compile(r"\*\*(.+?)\*\*"), lambda m, ctx: "<b>%s</b>" % m.group(1)),
+    (re.compile(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])"), lambda m, ctx: "<i>%s</i>" % m.group(1)),
+]
+
+
+def _md_inline(text, ctx):
+    text = html_escape(text)
+    # identifiers first, so a link's own URL is not re-linked inside a tag
+    text = ARXIV_NEW.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
+    text = ARXIV_OLD.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
+    text = re.sub(r"(?<![/\w])(10\.\d{4,9}/[^\s\"'<>,;)\]]+)", lambda m: '<a href="https://doi.org/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1).rstrip("."), m.group(1)), text)
+    for rx, fn in _MD_INLINE:
+        text = rx.sub(lambda m, fn=fn: fn(m, ctx), text)
+    return text
+
+
+def html_escape(t):
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _slugify(t):
+    t = re.sub(r"<[^>]+>", "", t)
+    t = re.sub(r"[^A-Za-z0-9]+", "-", t).strip("-").lower()
+    return t[:60] or "s"
+
+
+def md_to_html(text, ctx):
+    """Headings, paragraphs, lists, blockquotes, fenced code, pipe tables,
+    rules and images, with the inline forms above. Not a Markdown engine; the
+    two released papers use no more than this, and the selftest asserts the
+    render carries every heading of the source."""
+    out, headings = [], []
+    lines = text.split("\n")
+    i, n = 0, len(lines)
+    para = []
+
+    def flush():
+        if para:
+            out.append("<p>%s</p>" % _md_inline(" ".join(x.strip() for x in para), ctx))
+            para.clear()
+    while i < n:
+        ln = lines[i]
+        st = ln.strip()
+        if st.startswith("```"):
+            flush()
+            j = i + 1
+            code = []
+            while j < n and not lines[j].strip().startswith("```"):
+                code.append(lines[j]); j += 1
+            out.append("<pre><code>%s</code></pre>" % html_escape("\n".join(code)))
+            i = j + 1
+            continue
+        m = re.match(r"^(#{1,6})\s+(.*)$", st)
+        if m:
+            flush()
+            lvl, txt = len(m.group(1)), _md_inline(m.group(2).strip(), ctx)
+            hid = "h-%d-%s" % (len(headings) + 1, _slugify(m.group(2)))
+            headings.append({"level": lvl, "text": re.sub(r"<[^>]+>", "", txt), "id": hid})
+            out.append('<h%d id="%s">%s</h%d>' % (lvl, hid, txt, lvl))
+            i += 1
+            continue
+        if re.match(r"^(-{3,}|\*{3,}|_{3,})$", st):
+            flush(); out.append("<hr>"); i += 1; continue
+        if st.startswith("|") and i + 1 < n and re.match(r"^\|?\s*:?-{2,}", lines[i + 1].strip()):
+            flush()
+            hdr = [c.strip() for c in st.strip("|").split("|")]
+            j = i + 2
+            body = []
+            while j < n and lines[j].strip().startswith("|"):
+                body.append([c.strip() for c in lines[j].strip().strip("|").split("|")]); j += 1
+            out.append('<div class="tbl-wrap"><table class="t"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>' % (
+                "".join("<th>%s</th>" % _md_inline(c, ctx) for c in hdr),
+                "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % _md_inline(c, ctx) for c in r) for r in body)))
+            i = j
+            continue
+        if st.startswith(">"):
+            flush()
+            q = []
+            while i < n and lines[i].strip().startswith(">"):
+                q.append(lines[i].strip()[1:].strip()); i += 1
+            out.append("<blockquote>%s</blockquote>" % "".join("<p>%s</p>" % _md_inline(x, ctx) for x in " ".join(q).split("  ") if x.strip()))
+            continue
+        lm = re.match(r"^(\s*)([-*]|\d+[.)])\s+(.*)$", ln)
+        if lm:
+            flush()
+            ordered = lm.group(2)[0].isdigit()
+            items = []
+            while i < n:
+                lm2 = re.match(r"^(\s*)([-*]|\d+[.)])\s+(.*)$", lines[i])
+                if lm2:
+                    items.append(lm2.group(3)); i += 1
+                elif lines[i].strip() and lines[i].startswith("  ") and items:
+                    items[-1] += " " + lines[i].strip(); i += 1
+                else:
+                    break
+            tag = "ol" if ordered else "ul"
+            out.append("<%s>%s</%s>" % (tag, "".join("<li>%s</li>" % _md_inline(x, ctx) for x in items), tag))
+            continue
+        if not st:
+            flush(); i += 1; continue
+        para.append(ln)
+        i += 1
+    flush()
+    return "\n".join(out), headings
+
+
+def _ledger_figure(name, archive_hint):
+    """The extracted figure a paper cites by `figures/<name>`, from the ledger
+    row of the paper's own archive; None when the ledger holds no such row."""
+    with open(os.path.join(REPO, "extracted", "LEDGER.tsv"), encoding="utf-8") as fh:
+        rows = [r for r in csv.DictReader(fh, delimiter="\t")
+                if os.path.basename(r["member"]) == name and r["disposition"] in ("EXTRACTED", "DUP-OF-EXTRACTED")]
+    rows = [r for r in rows if archive_hint in r["source"]] or rows
+    for r in rows:
+        path = os.path.join(REPO, r["target_path"])
+        if os.path.exists(path):
+            return {"path": path, "md5_recorded": r["md5"], "bytes": int(r["size_bytes"])}
+    return None
+
+
+def papers_block(out_dir=OUT, write=True, log=print):
+    """The released papers as the site reads them: each rendered to HTML at
+    build from its seated text (the text is the author's own and is shipped as
+    written), its headings as a table of contents, its figures copied from the
+    extracted tree with their ledger md5, and every arXiv or DOI identifier it
+    prints. Written to data/papers.js, loaded on demand."""
+    papers = []
+    for fn, short in PUBLIC_PAPERS.items():
+        path = os.path.join(MEMBERS, fn)
+        with open(path, "rb") as fh:
+            raw = fh.read()
+        text = raw.decode("utf-8")
+        slug = PAPER_SLUGS[fn]
+        figs = []
+        figdir = os.path.join(out_dir, "papers", slug, "figures")
+
+        def img(alt, src, _slug=slug, _figs=figs, _figdir=figdir, _fn=fn):
+            name = os.path.basename(src)
+            f = _ledger_figure(name, PAPER_FIGURE_ARCHIVES[_fn])
+            rel = "papers/%s/figures/%s" % (_slug, name)
+            if f is None:
+                _figs.append({"ref": src, "file": None, "held": False})
+                return '<span class="fig-missing">[figure %s: not held in the extracted tree]</span>' % html_escape(name)
+            with open(f["path"], "rb") as fh:
+                blob = fh.read()
+            md5 = hashlib.md5(blob).hexdigest()
+            if write:
+                os.makedirs(_figdir, exist_ok=True)
+                with open(os.path.join(_figdir, name), "wb") as fh:
+                    fh.write(blob)
+            _figs.append({"ref": src, "file": rel, "held": True, "bytes": len(blob), "md5": md5,
+                          "md5_recorded": f["md5_recorded"], "ok": md5 == f["md5_recorded"]})
+            alt = re.sub(r"[*_]", "", alt).strip()
+            return '<img src="data/%s" alt="%s" loading="lazy">' % (rel, html_escape(alt))
+        body, headings = md_to_html(text, {"img": img})
+        h1 = next((h for h in headings if h["level"] == 1), None)
+        h2 = next((h for h in headings if h["level"] == 2), None)
+        arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        row = _member_row(fn)
+        papers.append({
+            "slug": slug, "short": short,
+            "title": (h1 or {}).get("text") or short,
+            "subtitle": (h2 or {}).get("text") if h2 and headings.index(h2) == 1 else None,
+            "author": SITE_AUTHOR,
+            "held": True,
+            "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
+            "md5_recorded": row["md5"] if row else None,
+            "words": len(text.split()),
+            "headings": headings,
+            "figures": figs,
+            "arxiv": arx, "doi": dois,
+            "html": body,
+            "note": "the paper as the author wrote it, rendered at build; nothing in it is edited "
+                    "for the site, and its own citations are its own",
+        })
+    for slot in PAPER_SLOTS:
+        papers.append(dict(slot, author=SITE_AUTHOR))
+    blob = (PAPERS_PREFIX + json.dumps(papers, ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
+    if write:
+        with open(os.path.join(out_dir, PAPERS_JS), "wb") as fh:
+            fh.write(blob)
+    summary = [{k: p.get(k) for k in ("slug", "title", "subtitle", "author", "held", "bytes", "md5",
+                                        "md5_recorded", "words", "note")}
+               | {"headings": len(p.get("headings", [])), "figures": len(p.get("figures", [])),
+                  "figures_ok": all(f.get("ok") for f in p.get("figures", []) if f.get("held")),
+                  "arxiv": len(p.get("arxiv", [])), "doi": len(p.get("doi", []))}
+               for p in papers]
+    return {"file": "data/" + PAPERS_JS, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
+            "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
+            "papers": summary}
+
+
+def equation_points(spectra):
+    """Every measured channel with its measured delta and the equation's, for
+    the figure the page draws: [Z, charge, l, delta_measured, delta_equation].
+    The same rows equation_figures scores, so the two cannot disagree."""
+    pts = []
+    for r in spectra.rows:
+        if r["grade"] != "measured":
+            continue
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        if (Z - c) >= 1 and (Z - c) not in populate.LW1.GROUND:
+            continue
+        eq = populate.channel_delta(Z, c, l, "observed")
+        if eq is None:
+            continue
+        pts.append([Z, c, l, float(r["delta"]), round(eq, 6)])
+    return {"status": populate.PINNED, "rows": pts,
+            "columns": ["Z", "charge", "l", "delta_measured", "delta_equation"],
+            "source": "COORDINATES-2.13's measured rows (delta READ) against the channel "
+                      "equation as populate.channel_delta computes it (PINNED)"}
+
+
 def _git_head():
     try:
         out = subprocess.run(["git", "rev-parse", "--short=12", "HEAD"],
@@ -1584,6 +1887,16 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
                 fh.write(blob)
     denied = sorted(admitted - held)
     denied_cells = denied_cell_definitions(denied)
+    papers = papers_block(out_dir, write, log)
+    walk_copy = None
+    if walk and os.path.exists(WALK_TSV):
+        with open(WALK_TSV, "rb") as fh:
+            wblob = fh.read()
+        if write:
+            with open(os.path.join(out_dir, "LOWDIN-WALK.tsv"), "wb") as fh:
+                fh.write(wblob)
+        walk_copy = {"file": "data/LOWDIN-WALK.tsv", "bytes": len(wblob), "md5": hashlib.md5(wblob).hexdigest(),
+                     "what": "the reconstructed walk, 476 rows, RECONSTRUCTED; the table the site reads"}
     layout = []
     manifest = []
     totals = {"rows": 0, "measured": 0, "exact": 0, "computed": 0,
@@ -1639,7 +1952,18 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
             "names_note": "Element names are IUPAC labels for search only; "
                           "they are not a figure of the index, which carries "
                           "symbols.",
+            "url": SITE_URL,
+            "cite": cite_block(_git_head()),
+            "history": _git_history(),
         },
+        "papers": papers,
+        "downloads": [d for d in [
+            {"file": "data/index.js", "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"},
+            {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
+            {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
+            walk_copy,
+            {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
+        ] if d],
         "sources": sources(),
         "status_legend": STATUS_LEGEND,
         "axes": axes,
@@ -1694,6 +2018,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
         "limits": lim_block,
         "figures": figures,
         "fixtures": fixtures(spectra),
+        "figure_data": {"equation": equation_points(spectra)},
         "caveats": CAVEATS,
         "totals": totals,
         "layout": layout,
@@ -1765,6 +2090,21 @@ def selftest():
     check("with particles: the muon balance's seven instruments follow the walk's",
           [n for n in full["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}],
           [n for n, *_ in MUCF_INSTRUMENTS])
+    pp = index["papers"]["papers"]
+    check("papers: the two released papers and the one slot", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
+    check("papers: the slot is not held", pp[2]["held"], False)
+    check("papers: every held paper's md5 is the store's", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"]), True)
+    check("papers: every figure a held paper cites is carried with its ledger md5", all(p["figures_ok"] for p in pp if p["held"]), True)
+    check("papers: the three-body paper cites 3 figures, the Löwdin paper 3 or more",
+          (pp[1]["figures"], pp[0]["figures"] >= 3), (3, True))
+    html_l, heads_l = md_to_html(open(os.path.join(MEMBERS, "THE-LOWDIN-SOLUTION-2.md"), encoding="utf-8").read(), {"img": lambda a, b: ""})
+    src_heads = [ln.lstrip("#").strip() for ln in open(os.path.join(MEMBERS, "THE-LOWDIN-SOLUTION-2.md"), encoding="utf-8") if ln.startswith("#")]
+    check("papers: the render carries every heading of the Löwdin paper", len(heads_l), len(src_heads))
+    check("papers: no raw markdown heading survives the render", "\n#" in html_l, False)
+    fd = index["figure_data"]["equation"]
+    check("figure data: one point per scored measured channel", len(fd["rows"]), index["fixtures"]["equation_report"]["channels"])
+    check("meta: cite line names the author, the title and the edition", (SITE_AUTHOR in index["meta"]["cite"]["text"], SITE_TITLE in index["meta"]["cite"]["text"]), (True, True))
+    check("meta: the edition history is carried, oldest first, every row with a date", all(r["date"] for r in index["meta"]["history"]) and len(index["meta"]["history"]) >= 1, True)
     t = index["totals"]
     check("elements populated (LW1-ground.py)", t["populated"], 108)
     check("elements CSV-only (Z = 109 to 120)", t["csv_only"], 12)
@@ -2110,6 +2450,16 @@ def verify(out_dir=OUT):
             print("  MISMATCH %s  index %s  on disk %s" % (walk["table"]["file"], walk["table"]["md5"], got))
         else:
             print("  %-52s ok (the walk table the index was built from)" % walk["table"]["file"])
+    for d in index.get("downloads", []):
+        if not d.get("md5"):
+            continue
+        p = os.path.join(out_dir, d["file"][len("data/"):] if d["file"].startswith("data/") else d["file"])
+        got = _md5(p) if os.path.exists(p) else None
+        if got != d["md5"]:
+            bad += 1
+            print("  MISMATCH %s  index %s  on disk %s" % (d["file"], d["md5"], got))
+        else:
+            print("  %-52s ok (download, md5 as the index records it)" % d["file"])
     for f in index.get("figures", []):
         p = os.path.join(out_dir, f["file"])
         got = _md5(p) if os.path.exists(p) else None

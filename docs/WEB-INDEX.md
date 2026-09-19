@@ -377,6 +377,49 @@ on demand, so the numbers stay measured while the site does not carry them. The 
 identifiers found in the unreleased files are still listed — an arXiv or DOI identifier is a
 public object — with no citing line.
 
+## Papers, figures, glossary
+
+**Papers.** The two released papers are read on the site, not linked out of it: `papers_block`
+renders each from its seated text at build with a small stdlib Markdown renderer (headings,
+paragraphs, lists, blockquotes, fenced code, pipe tables, rules, images; arXiv and DOI identifiers
+linked by pattern), records its md5 against the store's, copies every figure it cites out of the
+extracted tree by the ledger row of the paper's own archive (`PAPER_FIGURE_ARCHIVES`, because two
+archives hold a `fig1_shape_sphere.png` and only one is the paper's) with the ledger md5 beside the
+measured one, and writes the lot to `data/papers.js`, loaded on demand (`ensurePapers`). The reader
+carries a table of contents, the figures inline, a cite line per paper and the md5. The text is the
+author's own and is shipped as written — the public-build guard is not run over `papers.js`, and
+the three-body paper's own citations of the books stay its own. **The hierarchy of mathematical
+languages paper is a slot** (`PAPER_SLOTS`, `held: false`): the author named it as released, its
+file is not in the repository, and the site lists it and shows nothing in its place. The selftest
+asserts the two papers and the slot, every held paper's md5 against the store, every figure's md5
+against the ledger, and that the render carries every heading of the Löwdin paper.
+
+**Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
+`index.js` when it opens — no image, no typed number, each caption naming its block and status,
+each downloadable as SVG stamped with the edition: the channel equation against every measured
+channel (δ READ against δ PINNED, by ℓ, with the rms, R² and median |error| the fixture records),
+the residual distribution, where the measurements are (measured cells per Z), the reconstructed
+walk's entrant margin at both settings with the displaced ringed (RECONSTRUCTED), and closure
+across the layouts (E = 36 split 25 + 11, 20 with helium at group 2, 0 on Janet). The points
+behind the first two are `figure_data.equation`, written by `equation_points` over exactly the
+rows `equation_figures` scores, so the figure and the fixture cannot disagree.
+
+**Glossary and keys.** A hand-written dialog in `index.html` defines every term and mark the site
+uses in the site's own words — the statuses, cells and channels, the channel equation's terms,
+layouts and closure, the lattice, the relativistic limit and the walk, the site's own conventions —
+42 terms in seven groups. It cites no source and carries no figure; a value keeps its own status
+wherever it appears.
+
+**Cite, downloads, editions.** `meta.cite` carries the site's cite line and a BibTeX entry
+(author from the released papers, title, year, edition = commit, URL); every paper has its own
+under Papers; every node's plate already offered one. `downloads` lists the data as files with the
+md5 recorded at build where the file is one blob (`papers.js`, the walk table copied to
+`data/LOWDIN-WALK.tsv`, the Löwdin figure), and `--verify` checks each against the index.
+`meta.history` is the edition history — every commit that changed `public/` or the generator,
+oldest first, with a note written for the site (`EDITION_NOTES`; the commit subjects are git's
+record and are not shipped) and a link to the commit. The Provenance panel shows all three, and
+the console answers `papers`, `figures`, `cite`, `history` and `glossary`.
+
 ## Provenance
 
 The Provenance panel lists every file a number came from with the md5 the store records for it
