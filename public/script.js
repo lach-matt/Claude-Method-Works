@@ -35,6 +35,10 @@
     selected: null,                 // node
     cam: { k: 1, tx: 0, ty: 0 },
     anim: null,
+    view: 'plane',                  // 'plane' (the zoomable layout) or 'lattice' (three dimensions)
+    elementView: 'lattice',         // how an element opens: its slab of the lattice, or the nested circles
+    orbit: null,                    // {rx, ry, zoom} of the lattice camera
+    scene: null,                    // the lattice scene drawn: kind 'element' (Z) or 'index'
     colors: {},
     lastHash: '',
   };
@@ -125,7 +129,7 @@
       state.frames.set(Z, { x, y, cx: x + CELL / 2, cy: y + CELL / 2 });
       x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x + CELL); y1 = Math.max(y1, y + CELL);
     };
-    if (state.layout === 'table') {
+    if (state.layout !== 'janet') {
       const c = state.index.closure;
       const he2 = state.heliumAt === 2 && c.placement && c.placement.helium_at_2;
       for (const e of L) {
@@ -140,7 +144,7 @@
       }
       // the cells R admits and the layout does not hold, each with section 6.1.1's definition
       const defs = new Map((c.denied_cells || []).map((d) => [`${d.p},${d.g}`, d]));
-      const denied = he2 ? c.placement.helium_at_2.denied : c.denied;
+      const denied = state.layout === 'table' ? (he2 ? c.placement.helium_at_2.denied : c.denied) : [];
       for (const [p, g] of denied) {
         state.ghosts.push({ p, g, x: (g - 1) * CELL, y: (p - 1) * CELL, def: defs.get(`${p},${g}`) || null });
       }
@@ -410,6 +414,7 @@
     return true;
   }
   function zoomAt(sx, sy, factor) {
+    if (state.view === 'lattice') { orbitZoom(factor); return; }
     const home = homeCam();
     const k = Math.max(home.k * 0.4, Math.min(20000, state.cam.k * factor));
     const f = k / state.cam.k;
@@ -446,6 +451,7 @@
     ctx.fillStyle = C.bg;
     ctx.fillRect(0, 0, W(), H());
     if (!state.index) return;
+    if (state.view === 'lattice') { drawLattice(); if (animating) requestDraw(); return; }
     const s = CELL * state.cam.k;
 
     drawAxes(s);
@@ -756,6 +762,368 @@
     }
   }
 
+  // ---------------------------------------------------------------- the lattice, in three dimensions
+  // Λ_spectra drawn as the record draws it — the Index of Indices' Figure 6, the Löwdin paper's
+  // Figure 1(b), and the record's own renderer (spectra-lattice.html): element across,
+  // ionisation stage up, ℓ into the page, one cube per cell, a known cell a full cube and an
+  // unmeasured one a faint small cube. An element is its slab at x = Z; where a site holds two
+  // multiplicities the cells sit side by side along x. The scene is built from the element
+  // record the plane draws, nothing is computed here, and a colour means the grade it means
+  // everywhere else on the page. The whole index (the third layout) is every slab at once.
+  const LAT = { KNOWN: 0.86, FAINT: 0.30 };     // cube edges, the archived renderer's own
+  const FACES = [
+    { n: [1, 0, 0], u: 1, v: 2 }, { n: [-1, 0, 0], u: 1, v: 2 },
+    { n: [0, 1, 0], u: 0, v: 2 }, { n: [0, -1, 0], u: 0, v: 2 },
+    { n: [0, 0, 1], u: 0, v: 1 }, { n: [0, 0, -1], u: 0, v: 1 },
+  ];
+  const LIGHT = [-0.35, 0.8, -0.48];
+  function orbitHome() { return { rx: 0.36, ry: -0.6, zoom: 1 }; }
+
+  function rgbOf(col) {
+    const s = String(col || '').trim();
+    let m = s.match(/^#([0-9a-f]{6})$/i);
+    if (m) return [parseInt(m[1].slice(0, 2), 16), parseInt(m[1].slice(2, 4), 16), parseInt(m[1].slice(4, 6), 16)];
+    m = s.match(/^#([0-9a-f]{3})$/i);
+    if (m) return [17 * parseInt(m[1][0], 16), 17 * parseInt(m[1][1], 16), 17 * parseInt(m[1][2], 16)];
+    m = s.match(/^rgba?\(([^)]+)\)$/i);
+    if (m) { const v = m[1].split(',').map((x) => parseFloat(x)); return [v[0], v[1], v[2]]; }
+    return [128, 128, 128];
+  }
+  function shade(col, k, a) {
+    const [r, g, b] = rgbOf(col).map((v) => Math.max(0, Math.min(255, Math.round(v * k))));
+    return a === undefined ? `rgb(${r},${g},${b})` : `rgba(${r},${g},${b},${a})`;
+  }
+
+  // the camera: yaw about y, pitch about x, the eye at −D on the rotated z axis, a mild
+  // perspective; zoom is the focal length, so the scene turns about its own centre
+  function latCamera(scene) {
+    const o = state.orbit || orbitHome();
+    const cy = Math.cos(o.ry), sy = Math.sin(o.ry), cx = Math.cos(o.rx), sx = Math.sin(o.rx);
+    const D = Math.max(3, scene.R * 3.2);
+    const f = ((0.82 * Math.min(W(), H()) * D) / (2 * scene.R)) * o.zoom;
+    const c = scene.centre;
+    const rot = (x, y, z) => {
+      x -= c[0]; y -= c[1]; z -= c[2];
+      const x1 = x * cy + z * sy, z1 = -x * sy + z * cy;
+      return [x1, y * cx - z1 * sx, y * sx + z1 * cx];
+    };
+    const rotN = (x, y, z) => { const x1 = x * cy + z * sy, z1 = -x * sy + z * cy; return [x1, y * cx - z1 * sx, y * sx + z1 * cx]; };
+    const proj = (p) => { const d = Math.max(0.05, p[2] + D); return { x: W() / 2 + (f * p[0]) / d, y: H() / 2 - (f * p[1]) / d, d, k: f / d }; };
+    return { rot, rotN, proj, D, f, eye: [0, 0, -D] };
+  }
+
+  function cellColour(node) {
+    const C = state.colors;
+    if (state.cellColor === 'limit') return C.lim[node.lim] || C.computed;
+    return node.rec.grade === 'measured' ? C.measured : node.rec.grade === 'exact' ? C.exact : C.computed;
+  }
+
+  // one element: its slab, stage up (y = charge − 1), ℓ into the page (z = ℓ), the cells of a
+  // site along x, and the Λ₈ ladder climbing the front-left edge one rung per recorded step
+  function buildElementScene(Z) {
+    const rec = state.elements.get(Z), tree = state.trees.get(Z);
+    const e = state.index.layout.find((x) => x.Z === Z);
+    if (!rec || !tree || !e) return null;
+    const cubes = [], ions = [];
+    let xmax = 0;
+    for (const ion of tree.ions) {
+      ions.push({ charge: ion.charge, y: ion.charge - 1, node: ion });
+      for (const ch of ion.channels) {
+        const n = ch.cells.length;
+        ch.cells.forEach((c, i) => {
+          const x = i - (n - 1) / 2;
+          xmax = Math.max(xmax, Math.abs(x));
+          const known = c.rec.grade !== 'computed';
+          cubes.push({ x, y: ion.charge - 1, z: ch.l, s: known ? LAT.KNOWN : LAT.FAINT, known, node: c, Z, charge: ion.charge, l: ch.l, mult: c.mult });
+        });
+      }
+    }
+    const lx = -(xmax + 1.15);
+    const byCharge = new Map(ions.map((i) => [i.charge, i]));
+    const ladder = [];
+    for (const s of rec.lambda8 || []) {
+      const a = byCharge.get(s.charge - 1), b = byCharge.get(s.charge);
+      if (a && b) ladder.push({ a: [lx, a.y, -0.85], b: [lx, b.y, -0.85], charge: s.charge });
+    }
+    const ext = { x0: lx - 0.3, x1: xmax + 0.6, y0: -0.6, y1: ions.length - 0.4, z0: -1.1, z1: 7.6 };
+    const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
+    const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
+    return { kind: 'element', Z, e, rec, cubes, ions, ladder, ext, centre, R, lx, slabs: [] };
+  }
+
+  // the whole index: every element a slab at x = Z (charge 1..Z by ℓ 0..7, the generator
+  // asserts it), the known cells as cubes, one per site, from data/index.js's lattice block
+  function buildIndexScene() {
+    const lat = state.index.lattice;
+    if (!lat || !lat.known) return null;
+    const byEl = new Map(state.index.layout.map((e) => [e.Z, e]));
+    const slabs = [], cubes = [];
+    for (const e of state.index.layout) {
+      const Z = e.Z;
+      slabs.push({ Z, e, node: { kind: 'element', Z, e }, centre: [Z, (Z - 1) / 2, 3.5],
+        corners: [[Z, -0.5, -0.5], [Z, Z - 0.5, -0.5], [Z, Z - 0.5, 7.5], [Z, -0.5, 7.5]] });
+    }
+    const sites = new Map();
+    for (const k of lat.known) {
+      const key = `${k[0]},${k[1]},${k[2]}`;
+      let s = sites.get(key);
+      if (!s) { s = { Z: k[0], charge: k[1], l: k[2], mults: [], measured: 0, exact: 0 }; sites.set(key, s); }
+      s.mults.push(k[3]); if (k[4] === 1) s.measured++; else s.exact++;
+    }
+    for (const s of sites.values()) {
+      cubes.push({ x: s.Z, y: s.charge - 1, z: s.l, s: LAT.KNOWN, known: true, grade: s.measured ? 'measured' : 'exact', site: s, Z: s.Z, charge: s.charge, l: s.l, e: byEl.get(s.Z), node: null });
+    }
+    const zmax = lat.Z_max || 120;
+    const ext = { x0: 0.4, x1: zmax + 0.6, y0: -0.6, y1: zmax - 0.4, z0: -0.6, z1: 7.6 };
+    const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
+    const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
+    return { kind: 'index', cubes, slabs, ions: [], ladder: [], ext, centre, R, lat };
+  }
+
+  function sameNode(a, b) {
+    return !!a && !!b && a.kind === b.kind && a.Z === b.Z && a.charge === b.charge && a.l === b.l && a.mult === b.mult;
+  }
+  function selMatchesCube(sel, cb) {
+    if (!sel || sel.Z !== cb.Z) return false;
+    if (sel.kind === 'cell') return sel.charge === cb.charge && sel.l === cb.l && sel.mult === cb.mult;
+    if (sel.kind === 'channel') return sel.charge === cb.charge && sel.l === cb.l;
+    if (sel.kind === 'ion') return sel.charge === cb.charge;
+    return false;
+  }
+
+  function drawCube(cb, cam, col, outline) {
+    const h = cb.s / 2;
+    const c = [cb.x, cb.y, cb.z];
+    const p0 = cam.proj(cb._r);
+    if (p0.x < -40 || p0.y < -40 || p0.x > W() + 40 || p0.y > H() + 40) return;
+    const px = cb.s * p0.k;
+    if (px < 2.5) {
+      // too small for faces: a square at the projected centre, alpha by grade
+      ctx.fillStyle = shade(col, 0.9, cb.known ? 1 : 0.35);
+      ctx.fillRect(p0.x - px / 2, p0.y - px / 2, Math.max(1, px), Math.max(1, px));
+      if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.5; ctx.strokeRect(p0.x - px / 2 - 2, p0.y - px / 2 - 2, px + 4, px + 4); }
+      return;
+    }
+    for (const F of FACES) {
+      const n2 = cam.rotN(F.n[0], F.n[1], F.n[2]);
+      const fc = cam.rot(c[0] + F.n[0] * h, c[1] + F.n[1] * h, c[2] + F.n[2] * h);
+      if (n2[0] * (fc[0] - cam.eye[0]) + n2[1] * (fc[1] - cam.eye[1]) + n2[2] * (fc[2] - cam.eye[2]) >= 0) continue;
+      ctx.beginPath();
+      [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([su, sv], i) => {
+        const q = [c[0] + F.n[0] * h, c[1] + F.n[1] * h, c[2] + F.n[2] * h];
+        q[F.u] += su * h; q[F.v] += sv * h;
+        const p = cam.proj(cam.rot(q[0], q[1], q[2]));
+        if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+      });
+      ctx.closePath();
+      const lit = 0.55 + 0.45 * Math.max(0, n2[0] * LIGHT[0] + n2[1] * LIGHT[1] + n2[2] * LIGHT[2]);
+      ctx.fillStyle = shade(col, lit, cb.known ? 1 : 0.32);
+      ctx.fill();
+      if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke(); }
+      else if (cb.known) { ctx.strokeStyle = shade(col, lit * 0.65); ctx.lineWidth = 0.75; ctx.stroke(); }
+    }
+  }
+
+  function latLine(cam, a, b, style, width, dash) {
+    const pa = cam.proj(cam.rot(a[0], a[1], a[2])), pb = cam.proj(cam.rot(b[0], b[1], b[2]));
+    ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
+    ctx.strokeStyle = style; ctx.lineWidth = width; if (dash) ctx.setLineDash(dash);
+    ctx.stroke(); ctx.setLineDash([]);
+    return [pa, pb];
+  }
+
+  // the axes and their ticks: stage up (roman numerals, each an ion, tappable), ℓ into the
+  // page (s p d f g h i k), and for the whole index Z across
+  function drawLatAxes(scene, cam) {
+    const C = state.colors, ex = scene.ext;
+    const font = (px) => `${px}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+    scene._labels = [];
+    const ox = scene.kind === 'element' ? scene.lx - 0.15 : ex.x0, oy = -0.5, oz = -0.5;
+    const yTop = scene.kind === 'element' ? scene.ions.length - 0.5 : ex.y1;
+    ctx.globalAlpha = 0.9;
+    latLine(cam, [ox, oy, oz], [ox, yTop, oz], C.lineStrong, 1);
+    latLine(cam, [ox, oy, oz], [ox, oy, 7.5], C.lineStrong, 1);
+    if (scene.kind === 'index') latLine(cam, [ox, oy, oz], [ex.x1, oy, oz], C.lineStrong, 1);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = C.muted; ctx.textBaseline = 'middle';
+    // ℓ ticks
+    const zt = [];
+    for (let l = 0; l < 8; l++) zt.push(cam.proj(cam.rot(ox, oy, l)));
+    const zgap = zt.length > 1 ? Math.hypot(zt[1].x - zt[0].x, zt[1].y - zt[0].y) : 0;
+    if (zgap >= 9) {
+      ctx.font = font(Math.max(9, Math.min(13, zgap * 0.8))); ctx.textAlign = 'center';
+      for (let l = 0; l < 8; l++) ctx.fillText(LSYM[l] || String(l), zt[l].x, zt[l].y + 10);
+    }
+    // stage ticks: every ion in the element scene, every tenth in the index
+    if (scene.kind === 'element') {
+      const ys = scene.ions.map((i) => cam.proj(cam.rot(ox, i.y, oz)));
+      const ygap = ys.length > 1 ? Math.hypot(ys[1].x - ys[0].x, ys[1].y - ys[0].y) : 40;
+      const step = ygap >= 11 ? 1 : Math.ceil(11 / Math.max(ygap, 0.5));
+      ctx.font = font(Math.max(9, Math.min(12, ygap * 0.7 + 4))); ctx.textAlign = 'right';
+      const sel = state.selected;
+      scene.ions.forEach((ion, i) => {
+        const p = ys[i];
+        const hot = sel && sel.Z === scene.Z && sel.charge === ion.charge;
+        if (i % step === 0 || hot) {
+          const t = roman(ion.charge);
+          ctx.fillStyle = hot ? C.accent : C.muted;
+          ctx.fillText(t, p.x - 6, p.y);
+          const w = ctx.measureText(t).width;
+          scene._labels.push({ x: p.x - 6 - w - 2, y: p.y - 7, w: w + 8, h: 14, node: ion.node });
+        }
+      });
+      ctx.fillStyle = C.muted;
+    } else {
+      ctx.font = font(10); ctx.textAlign = 'right';
+      for (let c = 10; c <= ex.y1; c += 10) { const p = cam.proj(cam.rot(ox, c - 1, oz)); ctx.fillText(roman(c), p.x - 6, p.y); }
+      ctx.textAlign = 'center';
+      for (let Z = 10; Z <= ex.x1; Z += 10) { const p = cam.proj(cam.rot(Z, oy, oz)); ctx.fillText(String(Z), p.x, p.y + 12); }
+    }
+    // axis names
+    ctx.font = font(10); ctx.textAlign = 'left';
+    const pY = cam.proj(cam.rot(ox, yTop + (scene.kind === 'element' ? 0.6 : 4), oz));
+    ctx.fillText('stage ↑', pY.x + 4, pY.y);
+    const pZ = cam.proj(cam.rot(ox, oy, 8.2));
+    ctx.fillText('ℓ', pZ.x + 4, pZ.y);
+    if (scene.kind === 'index') { const pX = cam.proj(cam.rot(ex.x1 + 1, oy, oz)); ctx.fillText('Z →', pX.x + 4, pX.y); }
+  }
+
+  function drawLattice() {
+    const scene = state.scene, C = state.colors;
+    if (!scene) {
+      ctx.fillStyle = C.muted; ctx.font = `12px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const sel = state.selected;
+      ctx.fillText(sel && state.loadErrors.has(sel.Z) ? 'record not loaded' : 'loading the lattice …', W() / 2, H() / 2);
+      return;
+    }
+    const cam = latCamera(scene);
+    const sel = state.selected;
+    drawLatAxes(scene, cam);
+    // the selected ion's row, as a plane under its cubes
+    if (scene.kind === 'element' && sel && sel.Z === scene.Z && sel.kind === 'ion') {
+      const y = sel.charge - 1, ex = scene.ext;
+      ctx.beginPath();
+      [[ex.x0 + 0.5, y, -0.5], [ex.x1, y, -0.5], [ex.x1, y, 7.5], [ex.x0 + 0.5, y, 7.5]].forEach((q, i) => { const p = cam.proj(cam.rot(q[0], q[1], q[2])); if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
+      ctx.closePath(); ctx.fillStyle = shade(C.accent, 1, 0.1); ctx.fill(); ctx.strokeStyle = shade(C.accent, 1, 0.5); ctx.lineWidth = 1; ctx.stroke();
+    }
+    const items = [];
+    for (const sl of scene.slabs) { const r = cam.rot(sl.centre[0], sl.centre[1], sl.centre[2]); items.push({ t: 'slab', d: r[2], sl }); }
+    for (const cb of scene.cubes) { cb._r = cam.rot(cb.x, cb.y, cb.z); items.push({ t: 'cube', d: cb._r[2], cb }); }
+    for (const seg of scene.ladder) { const a = cam.rot(seg.a[0], seg.a[1], seg.a[2]), b = cam.rot(seg.b[0], seg.b[1], seg.b[2]); items.push({ t: 'ladder', d: (a[2] + b[2]) / 2, seg }); }
+    items.sort((a, b) => b.d - a.d);
+    for (const it of items) {
+      if (it.t === 'cube') {
+        const cb = it.cb;
+        const col = cb.node ? cellColour(cb.node) : (cb.grade === 'measured' ? C.measured : C.exact);
+        const hot = scene.kind === 'element' ? selMatchesCube(sel, cb) : (sel && sel.kind !== 'root' && sel.Z === cb.Z);
+        drawCube(cb, cam, col, hot ? C.accent : null);
+      } else if (it.t === 'slab') {
+        const sl = it.sl;
+        const hot = sel && sel.kind !== 'root' && sel.Z === sl.Z;
+        ctx.beginPath();
+        sl.corners.forEach((q, i) => { const p = cam.proj(cam.rot(q[0], q[1], q[2])); if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
+        ctx.closePath();
+        ctx.fillStyle = shade(sl.e.populated ? (C.blk[sl.e.block] || C.blk.none) : C.csv, 1.15, hot ? 0.55 : 0.28); ctx.fill();
+        ctx.strokeStyle = hot ? C.accent : shade(C.lineStrong, 1, 0.8); ctx.lineWidth = hot ? 1.5 : 0.5; ctx.stroke();
+      } else {
+        const seg = it.seg;
+        const hot = sel && sel.Z === scene.Z && sel.charge === seg.charge;
+        const [pa, pb] = [cam.proj(cam.rot(seg.a[0], seg.a[1], seg.a[2])), cam.proj(cam.rot(seg.b[0], seg.b[1], seg.b[2]))];
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = C.accent; ctx.globalAlpha = hot ? 0.35 : 0.12; ctx.lineWidth = hot ? 7 : 4;
+        ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+        ctx.globalAlpha = hot ? 0.95 : 0.35; ctx.lineWidth = hot ? 2.5 : 1.25;
+        ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+    }
+    // the caption, at the top right where the crumbs are not: what is drawn, and from what
+    const rx = W() - 12;
+    ctx.textAlign = 'right'; ctx.textBaseline = 'top';
+    ctx.font = `500 13px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+    ctx.fillStyle = C.text;
+    if (scene.kind === 'element') {
+      ctx.fillText(`${scene.e.symbol} · Z = ${scene.Z} · the lattice`, rx, 10);
+      ctx.font = `11px "IBM Plex Mono", ui-monospace, Menlo, monospace`; ctx.fillStyle = C.muted;
+      const n = scene.cubes.length, k = scene.cubes.filter((c) => c.known).length;
+      ctx.fillText(`stage up, ℓ into the page · ${scene.ions.length} ions · ${n.toLocaleString()} cells, ${k} known`, rx, 28);
+      ctx.fillText('DERIVED from the record; nothing computed', rx, 43);
+    } else {
+      ctx.fillText('Λ_spectra as a lattice', rx, 10);
+      ctx.font = `11px "IBM Plex Mono", ui-monospace, Menlo, monospace`; ctx.fillStyle = C.muted;
+      ctx.fillText(`element across, stage up, ℓ into the page · ${scene.lat.sites.toLocaleString()} sites · ${scene.lat.known.length.toLocaleString()} known cells (Figure 6, READ)`, rx, 28);
+      ctx.fillText('tap a slab for its element, a cube for its channel', rx, 43);
+    }
+  }
+
+  function hitLattice(sx, sy) {
+    const scene = state.scene;
+    if (!scene) return null;
+    for (const lb of scene._labels || []) if (sx >= lb.x && sx <= lb.x + lb.w && sy >= lb.y && sy <= lb.y + lb.h) return lb.node;
+    const cam = latCamera(scene);
+    let best = null;
+    for (const cb of scene.cubes) {
+      const p = cam.proj(cam.rot(cb.x, cb.y, cb.z));
+      const hs = Math.max(3, (cb.s / 2) * p.k * 1.1);
+      if (Math.abs(sx - p.x) <= hs && Math.abs(sy - p.y) <= hs && (!best || p.d < best.d)) best = { d: p.d, cb };
+    }
+    if (best) return best.cb.node || { go: [best.cb.Z, best.cb.charge, best.cb.l] };
+    let bestSlab = null;
+    for (const sl of scene.slabs) {
+      const pts = sl.corners.map((q) => cam.proj(cam.rot(q[0], q[1], q[2])));
+      let inside = false;
+      for (let i = 0, j = 3; i < 4; j = i++) {
+        if ((pts[i].y > sy) !== (pts[j].y > sy) && sx < ((pts[j].x - pts[i].x) * (sy - pts[i].y)) / (pts[j].y - pts[i].y) + pts[i].x) inside = !inside;
+      }
+      if (!inside) continue;
+      const d = cam.rot(sl.centre[0], sl.centre[1], sl.centre[2])[2];
+      if (!bestSlab || d < bestSlab.d) bestSlab = { d, sl };
+    }
+    return bestSlab ? bestSlab.sl.node : null;
+  }
+
+  // which view a node opens in: the plane for the layouts' root and the ghosts, the lattice
+  // for the third layout's root and, by the element-view toggle, for every node of an element
+  function viewFor(node) {
+    if (node.kind === 'root') return state.layout === 'lattice' ? 'lattice' : 'plane';
+    if (node.kind === 'ghost') return 'plane';
+    return state.elementView === 'lattice' ? 'lattice' : 'plane';
+  }
+  function enterView(node) {
+    const v = viewFor(node), prev = state.view;
+    state.view = v;
+    const lg = $('#legend-lattice'); if (lg) lg.hidden = v !== 'lattice';
+    if (v !== 'lattice') return v;
+    if (node.kind === 'root') {
+      if (!state.scene || state.scene.kind !== 'index') { state.scene = buildIndexScene(); state.orbit = orbitHome(); }
+    } else if (!state.scene || state.scene.kind !== 'element' || state.scene.Z !== node.Z) {
+      state.scene = buildElementScene(node.Z);
+      if (!state.scene) {
+        ensureElement(node.Z).then(() => {
+          if (state.view === 'lattice' && state.selected && state.selected.Z === node.Z) { state.scene = buildElementScene(node.Z); requestDraw(); }
+        }).catch(() => { requestDraw(); });
+      }
+      state.orbit = prev === 'lattice' && state.orbit ? { ...state.orbit, zoom: 1 } : orbitHome();
+    }
+    return v;
+  }
+  function setElementView(mode) {
+    if (mode === state.elementView) return;
+    state.elementView = mode;
+    document.querySelectorAll('.seg-btn[data-elview]').forEach((b) => b.classList.toggle('is-on', b.dataset.elview === mode));
+    const sel = state.selected || rootNode;
+    select(sel, { setHash: false, reveal: false });
+  }
+  // exposed for the browser smoke test, which reads the scene it cannot otherwise see
+  window.__mi_state = state;
+  window.__mi_lat = { cam: latCamera, hit: hitLattice };
+  function orbitZoom(factor) {
+    const o = state.orbit || orbitHome();
+    o.zoom = Math.max(0.25, Math.min(16, o.zoom * factor));
+    state.orbit = o; requestDraw();
+  }
+
   // ---------------------------------------------------------------- hit test
   function hit(sx, sy) {
     const w = toWorld(sx, sy);
@@ -831,7 +1199,8 @@
       state.lastHash = h;
       if (location.hash !== h) history.replaceState(null, '', h);
     }
-    if (fly) {
+    const view = enterView(node);
+    if (fly && view === 'plane') {
       const flyMs = reveal && isPhone() ? 0 : ms;   // the plate scrolls the canvas away on a phone
       if (node.kind === 'root') flyTo(homeCam(), flyMs);
       else {
@@ -966,6 +1335,8 @@
       if (act === 'color-limit') setCellColor('limit');
       if (act === 'color-grade') setCellColor('grade');
       if (act === 'helium-toggle') setHelium(state.heliumAt === 2 ? 18 : 2);
+      if (act === 'lattice-view') { if (state.elementView !== 'lattice') setElementView('lattice'); else select(node, { setHash: false, reveal: false }); revealCanvas(); }
+      if (act === 'nest-view') { setElementView('nest'); revealCanvas(); }
     }));
   }
 
@@ -1008,7 +1379,10 @@
 
   function renderRoot() {
     const ix = state.index, t = ix.totals, c = ix.closure;
-    const layoutNote = state.layout === 'table'
+    const lat = ix.lattice;
+    const layoutNote = state.layout === 'lattice' && lat
+      ? `Λ_spectra as a lattice, the way the record draws it (Index of Indices, Figure 6): every element a slab at its Z, ionisation stage up, ℓ into the page — <b>${lat.sites.toLocaleString()}</b> sites, <b>${lat.known.length.toLocaleString()}</b> known cells (${lat.counts.measured} measured, ${lat.counts.exact} exact) drawn as cubes, the rest the faint body of each slab. The measured wedge sits at low Z and low ℓ. Drag to rotate, wheel or pinch to zoom, tap a slab for its element.`
+      : state.layout === 'table'
       ? `Section 6's drawn layout: <b>${c.held}</b> cells held, <b>${c.admitted}</b> admitted by ℛ, <b>E = ${c.E}</b>. The ${c.E} are the gaps in the short periods, drawn as dashed ghosts; ${c.set_aside} f-block elements are set aside below the table.`
       : `Register 1188's coordinate: Janet's cell is (n+ℓ, ℓ) of the differentiating electron, and on it E = 0. Elements without a cell (Z &gt; 108) sit on the bottom row.`;
     return `<div class="kind">the index</div>
@@ -1084,6 +1458,19 @@
       <div class="cite">${esc(citation(node))}</div>`;
   }
 
+  function latticeSection(e, rec) {
+    const lat = state.index.lattice || {};
+    const n = rec ? rec.channels.reduce((a, ch) => a + ch.measured.length, 0) : (e.counts ? e.counts.rows : 0);
+    const k = rec ? rec.channels.reduce((a, ch) => a + ch.measured.filter((m) => m.grade !== 'computed').length, 0) : ((e.counts ? e.counts.measured + e.counts.exact : 0));
+    const on = state.view === 'lattice' && state.scene && state.scene.kind === 'element' && state.scene.Z === e.Z;
+    return section('The lattice', `<p class="note">${esc(e.symbol)} as its slab of Λ_spectra, drawn the way the record draws the index: ionisation stage up, ℓ into the page, one cube per cell, the cells of a site side by side where it holds two multiplicities. Known cells are full cubes coloured by grade; unmeasured ones the faint body of the slab. The Λ₈ ladder climbs the front edge, one rung per recorded step.</p>
+      <div class="fields">
+        ${row('axes', 'element across · stage up · ℓ into the page', 'READ', lat.source || 'Index of Indices, Figure 6')}
+        ${row('cells drawn', `${n.toLocaleString()} (${k} known)`, 'DERIVED', 'one cube per row of COORDINATES-2.13 for this element; nothing computed')}
+        ${row('cube', `${(lat.cube || {}).known || 0.86} known · ${(lat.cube || {}).faint || 0.3} unmeasured`, 'READ', (lat.cube || {}).note || '')}
+      </div>
+      <div class="actions"><button type="button" data-act="lattice-view">${on ? 'Rotate it on the canvas' : 'Open the lattice'}</button><button type="button" data-act="nest-view">${state.elementView === 'nest' ? 'Nested circles (shown)' : 'Show as nested circles'}</button></div>`);
+  }
   function relSection(e, rec) {
     const rel = state.index.relativistic;
     if (!rel) return '';
@@ -1202,6 +1589,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
       ${rec ? row('cell held', rec.closure.cell_held ? 'yes' : (e.set_aside ? 'set aside' : 'no'), 'PINNED', 'section 6 against ℛ') : ''}
       ${rec && rec.closure.denied_in_this_period.length ? row('denied in this period', `groups ${rec.closure.denied_in_this_period.join(', ')}`, 'DERIVED', 'admitted − held, this period') : ''}
     </div>`);
+    html += latticeSection(e, rec);
     if (rec) {
       html += section('Configuration', `<div class="tbl-wrap"><table class="t"><thead><tr><th>subshell</th><th class="num">n</th><th class="num">ℓ</th><th class="num">occ</th><th class="num">cap</th><th class="num">n+ℓ</th><th>full</th></tr></thead><tbody>
         ${rec.configuration.map((c) => `<tr><td>${esc(c.subshell)}</td><td class="num">${c.n}</td><td class="num">${c.l}</td><td class="num">${c.occupancy}</td><td class="num">${c.capacity}</td><td class="num">${c['n+l']}</td><td>${c.full ? '●' : '○'}</td></tr>`).join('')}
@@ -1461,7 +1849,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
       dragged = false; last = { x: ev.clientX, y: ev.clientY };
       if (pts.size === 2) {
         const [a, b] = [...pts.values()];
-        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: state.cam.k };
+        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: state.cam.k, zoom: (state.orbit || orbitHome()).zoom };
       }
       canvas.classList.add('is-dragging');
     });
@@ -1473,14 +1861,19 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
         const [a, b] = [...pts.values()];
         const d = Math.hypot(a.x - b.x, a.y - b.y);
         const mx = (a.x + b.x) / 2 - rect.left, my = (a.y + b.y) / 2 - rect.top;
-        zoomAt(mx, my, (pinch.k * (d / pinch.d)) / state.cam.k);
+        if (state.view === 'lattice') { const o = state.orbit || orbitHome(); o.zoom = Math.max(0.25, Math.min(16, pinch.zoom * (d / pinch.d))); state.orbit = o; requestDraw(); }
+        else zoomAt(mx, my, (pinch.k * (d / pinch.d)) / state.cam.k);
         dragged = true;
         return;
       }
       if (pts.size === 1 && last) {
         const dx = ev.clientX - last.x, dy = ev.clientY - last.y;
         if (Math.abs(dx) + Math.abs(dy) > 2) dragged = true;
-        state.cam.tx += dx; state.cam.ty += dy; state.anim = null;
+        if (state.view === 'lattice') {
+          const o = state.orbit || orbitHome();
+          o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008));
+          state.orbit = o;
+        } else { state.cam.tx += dx; state.cam.ty += dy; state.anim = null; }
         last = { x: ev.clientX, y: ev.clientY };
         requestDraw();
       }
@@ -1493,8 +1886,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
       if (pts.size < 2) pinch = null;
       if (pts.size === 0) canvas.classList.remove('is-dragging');
       if (wasClick) {
-        const node = hit(ev.clientX - rect.left, ev.clientY - rect.top);
-        if (node) select(node);
+        const sx = ev.clientX - rect.left, sy = ev.clientY - rect.top;
+        const node = state.view === 'lattice' ? hitLattice(sx, sy) : hit(sx, sy);
+        if (node && node.go) goToPath(...node.go);
+        else if (node) select(node);
       }
     };
     canvas.addEventListener('pointerup', up);
@@ -1525,6 +1920,12 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
       else if (ev.key === 'h' || ev.key === 'H') select(rootNode);
       else if (ev.key === '+' || ev.key === '=') zoomAt(W() / 2, H() / 2, 1.5);
       else if (ev.key === '-' || ev.key === '_') zoomAt(W() / 2, H() / 2, 1 / 1.5);
+      else if (ev.key.startsWith('Arrow') && state.view === 'lattice') {
+        const o = state.orbit || orbitHome();
+        if (ev.key === 'ArrowLeft') o.ry -= 0.12; if (ev.key === 'ArrowRight') o.ry += 0.12;
+        if (ev.key === 'ArrowUp') o.rx = Math.max(-1.45, o.rx - 0.12); if (ev.key === 'ArrowDown') o.rx = Math.min(1.45, o.rx + 0.12);
+        state.orbit = o; requestDraw(); ev.preventDefault();
+      }
       else if (ev.key.startsWith('Arrow')) {
         const d = 60;
         if (ev.key === 'ArrowLeft') state.cam.tx += d; if (ev.key === 'ArrowRight') state.cam.tx -= d;
@@ -1559,7 +1960,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
     document.querySelectorAll('.dlg-close').forEach((b) => b.addEventListener('click', () => $('#' + b.dataset.close).close()));
     document.querySelectorAll('dialog').forEach((d) => d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); }));
-    document.querySelectorAll('.seg-btn').forEach((b) => b.addEventListener('click', () => setLayout(b.dataset.layout)));
+    document.querySelectorAll('.seg-btn[data-layout]').forEach((b) => b.addEventListener('click', () => setLayout(b.dataset.layout)));
+    document.querySelectorAll('.seg-btn[data-elview]').forEach((b) => b.addEventListener('click', () => setElementView(b.dataset.elview)));
     $('#btn-theme').addEventListener('click', () => {
       const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
@@ -1581,8 +1983,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
   function setLayout(mode) {
     if (mode === state.layout) return;
     state.layout = mode;
-    document.querySelectorAll('.seg-btn').forEach((b) => b.classList.toggle('is-on', b.dataset.layout === mode));
+    document.querySelectorAll('.seg-btn[data-layout]').forEach((b) => b.classList.toggle('is-on', b.dataset.layout === mode));
     buildFrames();
+    if (mode !== 'lattice' && state.scene && state.scene.kind === 'index') state.scene = null;
     const sel = state.selected || rootNode;
     if (sel.kind === 'ghost' && mode !== 'table') select(rootNode, { reveal: false });
     else select(sel, { setHash: false, reveal: false });
@@ -1604,6 +2007,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
   limits <El>         the bound the csv records on its cells, by kind; series limits as printed
   relativistic        the eleven elements displaced at c → ∞ (READ; the construction is not held), and the reconstruction beside them
   walk <El>           the element in the reconstructed walk at both settings (RECONSTRUCTED; tools/lowdin_walk.py)
+  lattice             the whole index as a lattice: sites, known cells, the axes and their source
 <El> is a symbol, a Z or a name; the element is loaded if it is not yet. An unknown input prints this text.`;
 
   function findElement(tok) {
@@ -1636,6 +2040,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     const ax = (name) => { const a = axisStatus(name); return a ? a.status : '—'; };
     switch (cmd) {
       case 'help': return HELP;
+      case 'lattice': { const lat = ix.lattice; if (!lat) return 'no lattice block in data/index.js'; return `${lat.index} ${st(lat.status)}\n  axes: x ${lat.axes.x}; y ${lat.axes.y}; z ${lat.axes.z}\n  ${lat.sites.toLocaleString()} sites (${lat.slab}); ${lat.known.length.toLocaleString()} known cells: ${lat.counts.measured} measured, ${lat.counts.exact} exact, over ${lat.counts.known_sites} sites\n  drawing ${st(lat.drawing)}: ${lat.cube.note}\n  source: ${lat.source}`; }
       case 'go': {
         const it = suggestions(toks.slice(1).join(' '))[0];
         if (!it || !it.go) return `no such path: ${toks.slice(1).join(' ')}`;

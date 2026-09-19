@@ -26,6 +26,11 @@
       <div class="seg" role="group" aria-label="Layout">
         <button type="button" id="layout-table" class="seg-btn is-on" data-layout="table" title="Section 6: period × group">Period × group</button>
         <button type="button" id="layout-janet" class="seg-btn" data-layout="janet" title="Register 1188: (n+ℓ, ℓ)">Janet (n+ℓ, ℓ)</button>
+        <button type="button" id="layout-lattice" class="seg-btn" data-layout="lattice" title="Λ_spectra as a lattice: element across, ionisation stage up, ℓ into the page (Index of Indices, Figure 6)">Lattice (Z · stage · ℓ)</button>
+      </div>
+      <div class="seg" role="group" aria-label="Element view" id="elview">
+        <button type="button" class="seg-btn is-on" data-elview="lattice" title="An element as its slab of the lattice: stage up, ℓ into the page, one cube per cell; drag to rotate, wheel or pinch to zoom">3D</button>
+        <button type="button" class="seg-btn" data-elview="nest" title="An element as nested circles: ions, then channels, then cells">Nest</button>
       </div>
       <button type="button" id="btn-provenance" class="ghost">Provenance</button>
       <button type="button" id="btn-help" class="ghost">Help</button>
@@ -66,6 +71,7 @@
         <div class="legend-row"><span class="sw sw-ladder"></span> Λ₈ ionisation ladder</div>
         <div class="legend-row"><span class="sw sw-rel"></span> displaced at c → ∞ (relativistic limit)</div>
         <div class="legend-row"><span class="sw sw-walk"></span> displaced at c → ∞ in the reconstructed walk</div>
+        <div class="legend-row legend-lattice" id="legend-lattice" hidden>lattice: stage up, ℓ into the page · drag rotates · wheel or pinch zooms · tap a cube</div>
         </div>
       </div>
       <div id="zoomctl" role="group" aria-label="Zoom">
@@ -127,7 +133,7 @@
     <div class="dlg-head"><h2 id="dlg-help-title">Reading this index</h2><button type="button" class="ghost dlg-close" data-close="dlg-help" aria-label="Close">✕</button></div>
     <div class="dlg-body">
       <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as ghosts, each labelled with the subshell section 6.1.1 names it — 1d, 1p and 2d forbidden by ℓ ≤ n−1 (dashed), 3d and helium's vacated slot deferred (dotted). Tap one for its definition, and the plate offers Register 448's alternative: helium drawn at group 2, where E = 20. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
-      <p>Zoom into an element and its ions appear inside it, in spectroscopic order (I is neutral), joined by the glowing Λ₈ ionisation ladder — one line per step of the record's ladder, nothing invented. Zoom into an ion and its eight ℓ channels appear; into a channel and its cells, one per multiplicity, coloured by grade. Every cell is a row of COORDINATES-2.13.</p>
+      <p>Tap an element and it opens as its slab of the lattice in three dimensions, the way the record draws Λ_spectra (Index of Indices, Figure 6): ionisation stage up, ℓ into the page, one cube per cell, side by side along the third axis where a site holds two multiplicities; known cells are full cubes coloured by grade, unmeasured ones faint small cubes; the glowing Λ₈ ionisation ladder climbs the front edge, one rung per step of the record's ladder, nothing invented. Drag to rotate, wheel or pinch to zoom, tap a cube for its cell, a row for its ion. The third layout, <em>Lattice</em>, is the whole solid: every element a slab, Z across, the measured wedge at low Z and low ℓ. <em>Nest</em> shows the same element as the nested circles instead: ions in spectroscopic order (I is neutral) joined by the ladder, each ion opening into its eight ℓ channels, each channel into its cells. Every cell is a row of COORDINATES-2.13.</p>
       <p>Every value in the detail plate carries a status badge. <span class="badge st-READ">READ</span> is a measurement from a member or the mirror; <span class="badge st-PINNED">PINNED</span> the corpus defines it at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the corpus states the object but not the form a program needs. A status is never flattened.</p>
       <h3>Navigation</h3>
       <ul>

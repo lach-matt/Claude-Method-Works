@@ -790,6 +790,44 @@ def helium_placement():
     }
 
 
+def lattice_block(spectra):
+    """Lambda_spectra as the record draws it -- Index of Indices Figure 6: element
+    across, l into the page, ionisation stage up -- carried compactly for the site's
+    whole-index 3-D view. The slab of every element is charge 1..Z by l 0..7 (the
+    selftest asserts 58,080 sites = 8 * sum Z), so only the known cells travel:
+    every measured or exact row as [Z, charge, l, mult, grade], grade 1 measured
+    and 2 exact. The axes are READ from the record's own caption; the drawing is
+    DERIVED from the same rows the plane draws, and nothing is computed."""
+    known = sorted(([int(r["Z"]), int(r["charge"]), int(r["l"]), int(r["mult"]),
+                     1 if r["grade"] == "measured" else 2]
+                    for r in spectra.rows if r["grade"] in ("measured", "exact")))
+    sites = {(int(r["Z"]), int(r["charge"]), int(r["l"])) for r in spectra.rows}
+    zs = sorted({int(r["Z"]) for r in spectra.rows})
+    return {
+        "index": "Lambda_spectra as a lattice: element across, l into the page, "
+                 "ionisation stage up",
+        "axes": {"x": "Z, the element", "y": "charge, the ionisation stage (1 is neutral)",
+                 "z": "l, the channel (0 to 7: s p d f g h i k)"},
+        "status": populate.READ,
+        "source": "The_Method_1_6___The_Index_of_Indices-2.md L343 (Figure 6 caption); "
+                  "THE-LOWDIN-SOLUTION-2.md L92 (Figure 1(b)); the record's own renderer, "
+                  "extracted/archives/restore-point-2-13/spectra-lattice.html (x = Z, "
+                  "y = stage, z = l; cube 0.86 known, 0.30 unmeasured)",
+        "drawing": populate.DERIVED,
+        "slab": "every element's slab is charge 1..Z by l 0..7; a site holds one cell "
+                "per multiplicity, side by side",
+        "sites": len(sites),
+        "Z_max": zs[-1],
+        "known": known,
+        "counts": {"measured": sum(1 for k in known if k[4] == 1),
+                   "exact": sum(1 for k in known if k[4] == 2),
+                   "known_sites": len({(k[0], k[1], k[2]) for k in known})},
+        "cube": {"known": 0.86, "faint": 0.30,
+                 "note": "the archived renderer's own edge lengths; a known cell is a "
+                         "full cube, an unmeasured one a faint small cube"},
+    }
+
+
 def fixtures(spectra):
     """Numbers the browser-side solver selftests must reproduce, every one
     computed here with populate.py's own functions and none typed in."""
@@ -1041,6 +1079,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
         "caps": populate.CAPS,
         "lambda_coords": populate.LAMBDA_COORDS,
         "lambda_meaning": populate.LAMBDA_MEANING,
+        "lattice": lattice_block(spectra),
         "closure": {
             "index": "periodic table (period × group), section 6",
             "operator": "ℛ, the PINNED order operator of section 32.4.1 "
@@ -1160,6 +1199,13 @@ def selftest():
           sum(1 for r in spectra.rows if r["grade"] == "exact"))
     check("witnessed rows", t["witnessed"],
           sum(1 for r in spectra.rows if r["witness"] == "witnessed"))
+    lat = index["lattice"]
+    check("lattice: sites = 8 * sum Z (charge 1..Z by l 0..7 for every element)",
+          lat["sites"], 8 * sum(range(1, lat["Z_max"] + 1)))
+    check("lattice: known cells = measured + exact rows", len(lat["known"]),
+          sum(1 for r in spectra.rows if r["grade"] in ("measured", "exact")))
+    check("lattice: measured cells", lat["counts"]["measured"],
+          sum(1 for r in spectra.rows if r["grade"] == "measured"))
     c = index["closure"]
     check("closure held (section 6)", c["held"], 90)
     check("closure admitted", c["admitted"], 126)

@@ -20,8 +20,8 @@ Stdlib only on the Python side; no build step, no package manager, no framework 
 
 | level | node | drawn from |
 | --- | --- | --- |
-| the index | the drawn layout of section 6 (period × group), or Janet's (n+ℓ, ℓ) | `index.js` → `layout`, `closure` |
-| element | Z, symbol, ground shells and level, configuration table, layout cell, closure, Λ₈ ladder | `elements/<Z>.js` (populate.py's record) |
+| the index | the drawn layout of section 6 (period × group), Janet's (n+ℓ, ℓ), or Λ_spectra as a lattice in three dimensions | `index.js` → `layout`, `closure`, `lattice` |
+| element | Z, symbol, ground shells and level, configuration table, layout cell, closure, Λ₈ ladder; drawn as its slab of the lattice, or as nested circles | `elements/<Z>.js` (populate.py's record) |
 | ion | spectroscopic stage, Nₑ, core, the eight channels, the Λ₈ step at that stage | the element record's `channels` and `lambda8` |
 | channel | ℓ, p, n₀, B, C(Z, ℓ), δ by equation, and its cells | one entry of `channels` |
 | cell | δ, grade, witness, source, bound note, B in the csv against B computed, residual | one row of COORDINATES-2.13 |
@@ -50,6 +50,29 @@ both closures with cypher's own ℛ, helium moved and nothing else (`closure.pla
 the register, the recomputation DERIVED). The root plate and every ghost's plate offer *Draw helium
 at group 2*: the frames are rebuilt from the build's two closures, twenty ghosts remain, and the
 closure solver's browser selftest reproduces E = 20 from the ninety cells with helium moved.
+
+**The lattice, in three dimensions.** An element opens as its slab of Λ_spectra, drawn the way
+the record draws the index — the Index of Indices' Figure 6 ("element across, ℓ into the page,
+ionisation stage up"), the Löwdin paper's Figure 1(b), and the record's own archived renderer
+(`extracted/archives/restore-point-2-13/spectra-lattice.html`, x = Z, y = stage, z = ℓ, a known
+cell a cube of edge 0.86 and an unmeasured one of 0.30): ionisation stage up, ℓ into the page, one
+cube per cell, the cells of a site side by side along the third axis where it holds two
+multiplicities. Known cells are full cubes coloured by grade (or by limit, with the legend's
+toggle); unmeasured ones are the faint body of the slab; the Λ₈ ladder climbs the front edge, one
+rung per recorded step; the stage axis carries every ion as a tappable roman numeral and the ℓ axis
+its letters. Drag rotates, wheel or pinch zooms, arrow keys rotate, a tap on a cube selects the cell
+and on a numeral the ion, and the plate follows as on the plane. The third layout, **Lattice**, is
+the whole solid: every element a slab at its Z (charge 1..Z by ℓ 0..7 — `webindex.py` asserts the
+58,080 sites are exactly that), the 1,287 known cells as cubes, one per site, from a compact block
+`index.js` → `lattice` carries (`[Z, charge, ℓ, mult, grade]` for every measured or exact row; the
+axes READ from the record's caption, the drawing DERIVED, nothing computed); the measured wedge at
+low Z and low ℓ is the record's own remark made visible, and a tap on a slab opens the element. The
+**Nest** toggle shows an element as the nested circles instead — ions, channels, cells — which is
+the reading the plane used alone before. The renderer is hand-written on the same canvas: a yaw and
+pitch about the scene's centre, a mild perspective, faces sorted far to near and shaded by a fixed
+light, no library, so the page still opens from a plain file on a phone. The element plate's
+"The lattice" section names the axes with their source and counts the cubes drawn, and the console
+answers `lattice`.
 
 Elements 109 to 120 are drawn apart, dashed, because `LW1-ground.py` stops at 108 and
 COORDINATES-2.13 does not. Their rows are shown `READ` from the csv with no configuration,
