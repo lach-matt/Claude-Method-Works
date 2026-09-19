@@ -110,6 +110,18 @@ def _is_finding(site):
     return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
+def _walk_summary():
+    return _tool_json("lowdin_walk.py", ["--report", str(ROOT / "LOWDIN-WALK.tsv"), "--json"])
+
+
+def _walk_setting(c):
+    return _walk_summary().get("settings", {}).get(c, {})
+
+
+def _walk_compare(field="lx"):
+    return (_walk_summary().get("fields") or {}).get(field) or {}
+
+
 def _manifest():
     return [r["repo_path"] for r in _rows("drive/MANIFEST.tsv")]
 
@@ -181,6 +193,38 @@ def checks():
          sum(1 for p in man if re.search(r"figures_BUILD\d+\.zip$", p))),
         ("CLAUDE.md", "__<driveFileId> duplicates", 100,
          sum(1 for p in man if "__" in os.path.basename(p))),
+        # the reconstructed walk: LOWDIN-WALK.tsv through the instrument's own summary
+        ("docs/LOWDIN-WALK.md", "LOWDIN-WALK rows", 476, len(_rows("LOWDIN-WALK.tsv"))),
+        ("docs/LOWDIN-WALK.md", "walk lx: entrant = observed gain at c = 137.035999", 96,
+         _walk_setting("lx:137.035999").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk lx: entrant = observed gain at c = inf", 92,
+         _walk_setting("lx:inf").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk lx: chain configuration identical at c = 137.035999", 84,
+         _walk_setting("lx:137.035999").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk lx: clause 2 exceptions at c = 137.035999", 1,
+         len(_walk_setting("lx:137.035999").get("clause2_exceptions", []))),
+        ("docs/LOWDIN-WALK.md", "walk lx: entrants differing between the settings", 7,
+         len(_walk_compare("lx").get("displaced", []))),
+        ("docs/LOWDIN-WALK.md", "walk lx: of register 1706's eleven, displaced here too", 2,
+         len(_walk_compare("lx").get("in_eleven", []))),
+        ("docs/LOWDIN-WALK.md", "walk hf: entrant = observed gain at c = 137.035999", 94,
+         _walk_setting("hf:137.035999").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk hf: entrant = observed gain at c = inf", 96,
+         _walk_setting("hf:inf").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk hf: chain configuration identical at c = 137.035999", 70,
+         _walk_setting("hf:137.035999").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk hf: chain configuration identical at c = inf", 76,
+         _walk_setting("hf:inf").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk hf: clause 2 exceptions at c = 137.035999", 2,
+         len(_walk_setting("hf:137.035999").get("clause2_exceptions", []))),
+        ("docs/LOWDIN-WALK.md", "walk hf: entrants differing between the settings", 5,
+         len(_walk_compare("hf").get("displaced", []))),
+        ("docs/LOWDIN-WALK.md", "walk hf: of register 1706's eleven, displaced here too", 1,
+         len(_walk_compare("hf").get("in_eleven", []))),
+        ("docs/LOWDIN-WALK.md", "walk: the two fields' entrants differ at c = 137.035999", 6,
+         len((_walk_summary().get("fields_compare") or {}).get("entrants_differ", []))),
+        ("docs/LOWDIN-WALK.md", "walk: rows not converged (three hf rows at c = 137.035999)", 3,
+         sum(len(v.get("not_converged", [])) for v in _walk_summary().get("settings", {}).values())),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY conversations", 194,

@@ -27,6 +27,7 @@
   --st-recovered: #fbbf24;
   --st-reconstructed: #d8b4fe;
   --rel: #f472b6;
+  --walk: #fb923c;
   --lim-ionisation-limit: #fb923c;
   --lim-unresolved: #64748b;
   --lim-nuclear: #f87171;
@@ -81,6 +82,7 @@
   --st-recovered: #b07a12;
   --st-reconstructed: #8a3f9e;
   --rel: #be185d;
+  --walk: #c2410c;
   --lim-ionisation-limit: #c2571a;
   --lim-unresolved: #94a0aa;
   --lim-nuclear: #b91c1c;
@@ -400,6 +402,8 @@ dialog::backdrop { background: var(--backdrop); }
 
 /* ---- limits facet and the relativistic marker ---- */
 .sw-rel { border-radius: 2px; background: var(--rel); }
+.sw-walk { border-radius: 2px; background: transparent; border: 1.5px solid var(--walk); box-sizing: border-box; }
+.walk-tag { background: var(--walk); }
 .sw-lim-ionisation-limit { background: var(--lim-ionisation-limit); }
 .sw-lim-unresolved { background: var(--lim-unresolved); }
 .sw-lim-nuclear { background: var(--lim-nuclear); }

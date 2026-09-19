@@ -171,6 +171,16 @@ CAVEATS = [
              "104 was never sealed. The eleven displaced elements are READ from "
              "THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and "
              "never withdrawn (r2-scf), and the site cannot recompute them."},
+    {"id": "walk-reconstructed",
+     "text": "The walk shown beside the record is a RECONSTRUCTION "
+             "(tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's "
+             "construction rebuilt from its statement and run in two fields, "
+             "a local-exchange one and the record's own average-of-"
+             "configuration Hartree\u2013Fock with non-local exchange, "
+             "neither of them the record's code, which never arrived. Where it "
+             "agrees with the record that is a measurement; where it disagrees "
+             "that is a measurement too. It is never the record's number, and "
+             "the record's \u039b_chain and \u039b_cinf stay unheld."},
     {"id": "limit-kind",
      "text": "A limit kind is a classification of the csv's own bound note by "
              "the stated rule: the note is READ, the kind is DERIVED, and the "
@@ -337,6 +347,173 @@ def figure_source():
                         "md5_recorded": r["md5"], "bytes": int(r["size_bytes"]),
                         "archive": r["source"]}
     return None
+
+
+WALK_TSV = os.path.join(REPO, "LOWDIN-WALK.tsv")
+WALK_PY = os.path.join(TOOLS, "lowdin_walk.py")
+_WALK_MOD = None
+
+
+def walk_module():
+    """tools/lowdin_walk.py, imported by path; the instrument, never copied."""
+    global _WALK_MOD
+    if _WALK_MOD is None:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("lowdin_walk", WALK_PY)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _WALK_MOD = mod
+    return _WALK_MOD
+
+
+# The instrument's functions the page shows beside its own reading of the
+# walk. Each carries RECONSTRUCTED: the record's field is Hartree-Fock and the
+# instrument's is local-exchange, so nothing it returns is the record's number.
+WALK_INSTRUMENTS = [
+    ("walk_integrate", "integrate",
+     "one shot of the Koelling-Harmon radial pair in x = ln r, RK4 outward "
+     "from the r^gamma series and inward from the WKB tail, matched at the "
+     "outer turning point; the Hartree matching correction"),
+    ("walk_solve", "solve",
+     "the bound state (n, l): node count brackets, the correction refines"),
+    ("walk_potentials", "potentials",
+     "Hartree + Kohn-Sham local exchange from the density; Latter's tail "
+     "for the occupied orbitals, none for the added electron"),
+    ("walk_scf", "scf",
+     "the self-consistent field of the ion (Z, cfg), mixed to 1e-7"),
+    ("walk_frontier", "frontier",
+     "the unfilled (n, l) channels up to 8s and 8g"),
+    ("walk_scan", "scan",
+     "the candidate spectrum: one electron in each frontier channel of the "
+     "frozen field, deepest first; the entrant is the first"),
+    ("walk_hf_operator", "hf_operator",
+     "the Hartree-Fock operator of one channel: the local part (direct and "
+     "same-shell average-of-configuration exchange) and the non-local "
+     "exchange source from every other occupied orbital"),
+    ("walk_solve_inh", "solve_inh",
+     "the orbital of the inhomogeneous equation, its energy fixed by the "
+     "norm condition below the local pole, its multipliers by one Newton "
+     "step to orthogonality"),
+    ("walk_scf_hf", "scf_hf",
+     "the Hartree-Fock field of the ion: per-equation multipliers and the "
+     "pair rotation at which the energy is stationary"),
+    ("walk_scan_hf", "scan_hf",
+     "the candidate spectrum in the frozen Hartree-Fock field, each "
+     "candidate's own exchange and multipliers iterated"),
+]
+
+
+def walk_instruments():
+    lw = walk_module()
+    out = {}
+    for name, fn_name, source in WALK_INSTRUMENTS:
+        fn = getattr(lw, fn_name)
+        lines, start = inspect.getsourcelines(fn)
+        out[name] = {"python": "".join(lines), "file": "tools/lowdin_walk.py",
+                     "line": start, "status": populate.RECON, "source": source}
+    return out
+
+
+def walk_rows_by_z(rows):
+    """per Z, per field, the two settings' rows, values typed, the spectrum unpacked:
+    {Z: {"Z", "symbol", "fields": {"lx": {"c137": row, "cinf": row, "displaced": bool},
+    "hf": {...}}}}."""
+    per_z = {}
+    for r in rows:
+        Z = int(r["Z"])
+        d = per_z.setdefault(Z, {"Z": Z, "symbol": r["symbol"], "fields": {}})
+        fld = d["fields"].setdefault(r.get("field", "lx"), {})
+        key = "cinf" if r["c"] == "inf" else "c137"
+        spec = []
+        for tok in r["spectrum"].split(";"):
+            ch, e = tok.split(":")
+            spec.append({"channel": ch, "D": float(e)})
+        fld[key] = {
+            "c": r["c"], "cfg_prev": r["cfg_prev"], "entrant": r["entrant"],
+            "D_ent": float(r["D_ent"]), "runner_up": r["runner_up"],
+            "D_runner": (None if r["D_runner"] == "nan" else float(r["D_runner"])),
+            "margin": (None if r["margin"] == "nan" else float(r["margin"])),
+            "observed_gain": r["observed_gain"], "agree": r["agree"],
+            "spectrum": spec, "scf_iterations": int(r["scf_iterations"]),
+            "converged": r["converged"] == "yes", "status": r["status"],
+        }
+    for d in per_z.values():
+        for fld in d["fields"].values():
+            fld["displaced"] = ("c137" in fld and "cinf" in fld
+                                and fld["c137"]["entrant"] != fld["cinf"]["entrant"])
+    return per_z
+
+
+def walk_block():
+    """The reconstruction of the walk -- tools/lowdin_walk.py over
+    LOWDIN-WALK.tsv -- as the site carries it: the table's md5, the summary the
+    instrument's own --report prints (openings, clauses, scores under each
+    reading, the g-channel pins, the smallest margins, the displaced elements
+    against register 1706's eleven, the thorium control), and one entrant per Z
+    per setting. Every value is RECONSTRUCTED. The record's Lambda_chain and
+    Lambda_cinf stay READ and unheld; this is placed beside them, not in their
+    place. None if the table is absent."""
+    if not os.path.exists(WALK_TSV):
+        return None, {}
+    lw = walk_module()
+    rows = lw.read_rows(WALK_TSV)
+    for r in rows:
+        r.setdefault("field", "lx")
+    per_z = walk_rows_by_z(rows)
+    with open(WALK_TSV, "rb") as fh:
+        blob = fh.read()
+    grid = lw.Grid()
+    summary = lw.summarise(rows)
+    field_names = {
+        "lx": "Koelling-Harmon scalar-relativistic radial equation in a "
+              "local-exchange (Kohn-Sham, V_x = -(3 rho/pi)^(1/3)) "
+              "self-consistent field with Latter's tail: the Hartree-Fock-"
+              "Slater construction, not the record's Hartree-Fock",
+        "hf": "Koelling-Harmon scalar-relativistic radial equation in the "
+              "average-of-configuration Hartree-Fock field with non-local "
+              "exchange: the record's own field, rebuilt here",
+    }
+    not_reproduced = {
+        "lx": "the record's non-local exchange; its collapse criterion; its "
+              "correlation clause; its Z = 91 two-branch diagnostic",
+        "hf": "the record's collapse criterion; its correlation clause; its "
+              "Z = 91 two-branch diagnostic; and the record's own code, which "
+              "never arrived -- this is a rebuild from its statement",
+    }
+    fields = {}
+    for fld in ("lx", "hf"):
+        if not any(fld in d["fields"] for d in per_z.values()):
+            continue
+        fields[fld] = {
+            "field": fld,
+            "name": field_names[fld],
+            "not_reproduced": not_reproduced[fld],
+            "entrants": [{"Z": Z, "symbol": d["symbol"],
+                          "c137": d["fields"][fld].get("c137", {}).get("entrant"),
+                          "cinf": d["fields"][fld].get("cinf", {}).get("entrant"),
+                          "margin_c137": d["fields"][fld].get("c137", {}).get("margin"),
+                          "margin_cinf": d["fields"][fld].get("cinf", {}).get("margin"),
+                          "displaced": d["fields"][fld]["displaced"]}
+                         for Z, d in sorted(per_z.items()) if fld in d["fields"]],
+        }
+    primary = summary.get("primary_field") or ("hf" if "hf" in fields else "lx")
+    block = {
+        "status": lw.STATUS,
+        "instrument": "tools/lowdin_walk.py",
+        "table": {"file": "LOWDIN-WALK.tsv", "bytes": len(blob),
+                  "md5": hashlib.md5(blob).hexdigest(), "rows": len(rows)},
+        "primary": primary,
+        "field": field_names[primary],
+        "not_reproduced": not_reproduced[primary],
+        "fields": fields,
+        "c": {"c137": lw.C_LIGHT, "cinf": None},
+        "grid": {"r_min": grid.r[0], "r_max": grid.r[-1], "h": grid.h,
+                 "points": grid.n},
+        "summary": summary,
+        # the primary field's entrants, for readers of the earlier shape
+        "entrants": fields[primary]["entrants"],
+    }
+    return block, per_z
 
 
 # ---------------------------------------------------------------------------
@@ -706,6 +883,10 @@ def build(spectra, out_dir=OUT, write=True, log=print):
     held, admitted = populate.layout_closure()
     relb = relativistic()
     rel_z = {e["Z"] for e in relb["eleven"]}
+    walk, walk_rows = walk_block()
+    relb["walk"] = walk
+    walk_z = {e["Z"] for e in (walk or {}).get("entrants", []) if e["displaced"]}
+    walk_lx_z = {e["Z"] for e in ((walk or {}).get("fields", {}).get("lx", {}).get("entrants", [])) if e["displaced"]}
     lim_block = limits(spectra)
     fig = figure_source()
     figures = []
@@ -735,6 +916,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
         _remove_json_outputs(out_dir, log)
     for Z in zs:
         rec = element_record(Z, spectra)
+        rec["walk"] = walk_rows.get(Z)
         counts = _counts(rec)
         lim = _limit_counts(rec)
         for k in ("rows", "measured", "exact", "computed", "witnessed"):
@@ -760,6 +942,8 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "populated": rec["populated"],
             "counts": counts,
             "relativistic": Z in rel_z,
+            "walk_displaced": Z in walk_z,
+            "walk_lx_displaced": Z in walk_lx_z,
             "limits": lim,
         })
         log("  Z=%3d %-3s %7d B  rows %5d  measured %3d" % (
@@ -802,7 +986,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                      "exponent": "e(Ne) = E0 - E1 ln Ne",
                      "status": populate.PINNED,
                      "source": "register 1205, final form"},
-        "instruments": dict(instruments(), lowdin_construction={
+        "instruments": dict(instruments(), **(walk_instruments() if walk else {}), lowdin_construction={
             "python": None,
             "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
             "status": populate.READ,
@@ -931,6 +1115,53 @@ def selftest():
     figs = index["figures"]
     check("figure 5 held and md5 matches extracted/LEDGER.tsv",
           bool(figs) and all(f["ok"] for f in figs), True)
+    walk = rel["walk"]
+    check("walk: LOWDIN-WALK.tsv read into the relativistic block", walk is not None, True)
+    if walk:
+        lw = walk_module()
+        check("walk: status RECONSTRUCTED, never flattened", walk["status"], populate.RECON)
+        flds = sorted(walk["fields"])
+        check("walk: the fields held", flds, sorted(k for k in ("lx", "hf") if k in walk["fields"]))
+        check("walk: primary field is hf when held, else lx",
+              walk["primary"], "hf" if "hf" in walk["fields"] else "lx")
+        settings = walk["summary"]["settings"]
+        for fld in flds:
+            keys = sorted(k for k in settings if k.startswith(fld + ":"))
+            check(f"walk {fld}: two settings, 137.035999 and inf", keys, [f"{fld}:137.035999", f"{fld}:inf"])
+            check(f"walk {fld}: 119 rows per setting, Z = 2 to 120",
+                  [(settings[k]["rows"], settings[k]["Z_first"], settings[k]["Z_last"]) for k in keys],
+                  [(119, 2, 120), (119, 2, 120)])
+            # every local-exchange row converged; three Hartree–Fock rows at c = 137.035999 did
+            # not (Ts, Og, Ubn: the open 7p and 8s shells' multipliers against the closed shells
+            # of their ℓ under the energy-dependent Koelling–Harmon operator settle at a residual
+            # of 10⁻⁶ rather than 10⁻⁷), and the table says so on the row -- the fixture is the
+            # measured record, never a flattened one
+            check(f"walk {fld}: rows not converged, as the table records them",
+                  [settings[k]["not_converged"] for k in keys],
+                  [[], []] if fld == "lx" else [["Ts", "Og", "Ubn"], []])
+            ents = walk["fields"][fld]["entrants"]
+            check(f"walk {fld}: one entrant row per Z", [e["Z"] for e in ents], list(range(2, 121)))
+            disp = [e["symbol"] for e in ents if e["displaced"]]
+            cp = walk["summary"]["fields"][fld]
+            check(f"walk {fld}: displaced set is the summary's", disp, [d["symbol"] for d in cp["displaced"]])
+            check(f"walk {fld}: the summary's eleven are register 1706's", cp["eleven_1706"], lw.ELEVEN_1706)
+            check(f"walk {fld}: in/not-in/missing partition the record's eleven and the displaced",
+                  (sorted(cp["in_eleven"] + cp["eleven_not_displaced"]),
+                   sorted(cp["in_eleven"] + cp["not_in_eleven"])),
+                  (sorted(lw.ELEVEN_1706), sorted(disp)))
+            check(f"walk {fld}: the thorium control is reported", cp["thorium"] is not None, True)
+        check("walk: table rows are the settings' rows", walk["table"]["rows"], 119 * 2 * len(flds))
+        check("walk: table md5 is the file's", walk["table"]["md5"], _md5(WALK_TSV))
+        prim = walk["fields"][walk["primary"]]["entrants"]
+        check("walk: layout flags exactly the primary field's displaced",
+              sorted(e["symbol"] for e in index["layout"] if e["walk_displaced"]),
+              sorted(e["symbol"] for e in prim if e["displaced"]))
+        check("walk: the c constant is register 1701's", walk["c"]["c137"], 137.035999)
+        check("walk: instruments carried with python, RECONSTRUCTED",
+              all(index["instruments"][n]["status"] == populate.RECON and index["instruments"][n]["python"]
+                  for n, _f, _s in WALK_INSTRUMENTS), True)
+        check("walk: the primary field's not_reproduced is stated",
+              bool(walk["not_reproduced"]), True)
     lim = index["limits"]
     check("limits: distinct bound notes", lim["distinct_notes"], 22)
     check("limits: every note classified", lim["unclassified"], [])
@@ -944,6 +1175,7 @@ def selftest():
     # --- the data protocol ---------------------------------------------------
     check("manifest names .js files only",
           all(m["file"].endswith(".js") for m in index["manifest"]), True)
+    h["walk"] = walk_block()[1].get(1)      # the build attaches the walk rows before serialising
     body = _compact(h).encode("utf-8")
     blob = wrap_element(1, body)
     check("element wrapper opens with the protocol prefix",
@@ -974,9 +1206,9 @@ def selftest():
 
     # --- the instruments -----------------------------------------------------
     ins = index["instruments"]
-    check("instruments: the nine with python, in order",
+    check("instruments: the nine with python, then the walk's ten, in order",
           [n for n, r in ins.items() if r.get("python")],
-          [n for n, *_ in INSTRUMENTS])
+          [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else []))
     check("instruments: the tenth is the unheld construction, text only",
           (ins.get("lowdin_construction", {}).get("python"),
            ins.get("lowdin_construction", {}).get("held"),
@@ -1123,6 +1355,14 @@ def verify(out_dir=OUT):
         print("  manifest and layout disagree on the element count")
     for s in index["sources"]:
         print("  %-52s %s" % (s["file"], "ok" if s["ok"] else "MD5 DRIFT"))
+    walk = (index.get("relativistic") or {}).get("walk")
+    if walk:
+        got = _md5(WALK_TSV) if os.path.exists(WALK_TSV) else None
+        if got != walk["table"]["md5"]:
+            bad += 1
+            print("  MISMATCH %s  index %s  on disk %s" % (walk["table"]["file"], walk["table"]["md5"], got))
+        else:
+            print("  %-52s ok (the walk table the index was built from)" % walk["table"]["file"])
     for f in index.get("figures", []):
         p = os.path.join(out_dir, f["file"])
         got = _md5(p) if os.path.exists(p) else None

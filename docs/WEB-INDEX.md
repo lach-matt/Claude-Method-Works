@@ -149,7 +149,7 @@ Two facets put the solution range and its limit on the same node, in the author'
 quantum mechanics as the range, relativity as the limit on it, observation at the base — and
 both are grounded the only honest way the corpus allows.
 
-**The relativistic limit (the seventh solver mode) computes nothing.** `THE-LOWDIN-SOLUTION-2.md`
+**The relativistic limit (the seventh solver mode) computes nothing of the record's.** `THE-LOWDIN-SOLUTION-2.md`
 derives the table in the scalar-relativistic (Koelling–Harmon) Hartree–Fock reduction with one
 admitted constant, c = 137, and reports that the same construction at c → ∞ misplaces eleven
 elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — and inverts the channel competition at
@@ -178,8 +178,38 @@ thin wrapper over the sealed solver with goldens at Ag, Hg and Th at both settin
 taken up here: Th is not among the eleven but a collapse-criterion row (register 1703), which makes it
 the **null-difference control** — a broken c switch that displaced everything would pass a
 displacement-only test — so the seventh mode's selftest now asserts both directions, displacement at
-Hg and identity at Th. Until the bank arrives the mode stays `READ`, which is the state of the
-evidence, not a defect.
+Hg and identity at Th. The bank did not arrive, the Löwdin project has concluded, and the author's
+ruling was that anything still needed is this repository's to build.
+
+**The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
+chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:
+the record's own average-of-configuration Hartree–Fock field with non-local exchange, and a
+local-exchange (Hartree–Fock–Slater) field beside it, at both c = 137.035999 and c → ∞, into
+`LOWDIN-WALK.tsv` (476 rows, 119 per field and setting; every local-exchange row converged, and three
+Hartree–Fock rows at c = 137.035999 — Ts, Og, Ubn — carry `converged = no` with their residuals in
+`note`, at margins four orders above them). `webindex.py` reads that table into `index.js` as
+`relativistic.walk` — its md5, the instrument's own summary as data, one entrant per Z per field and
+setting, the Hartree–Fock field primary — and puts each element's four rows, candidate spectra
+included, into its element file; the ten functions of the instrument travel in `instruments` as
+`walk_*`. **Every value is RECONSTRUCTED and the record's Λ_chain and Λ_cinf stay READ and unheld**;
+the caveat `walk-reconstructed` travels with the block. What it measured, in the record's field: at
+c = 137.035999 the entrant equals the observed gain at 94 of 107 rows, clause 1 holds without
+exception, clause 2 has the record's La and Ac exceptions and Th takes 6d as the record has it, and
+the g channels sit at −1/(2n²) to 2.5 × 10⁻⁶; at c → ∞ 96 of 107; the entrants differ between the
+settings at 5 elements (Ce, Hf, Th, Rf, Ubn), of which 1 — Rf — is the record's eleven, and at Th
+the entrant is 6d at c = 137.035999 and 5f at c → ∞, the record's inversion without the record's
+path clause. In the local field: 96 and 92 of 107, 7 displaced of which Lu and Lr are the eleven,
+and Th 5f at both settings. The page draws the Hartree–Fock reconstruction's displaced elements with
+a hollow corner mark apart from the record's filled one, the element plate carries "The walk,
+reconstructed" beside "Relativistic limit" with both fields (Z = 2 to 120, so the twelve unpopulated
+elements carry it too), the console answers `walk <El>` and appends the reconstruction to
+`relativistic`, the "Instrument source" toggle shows the ten functions after the record's passages,
+and the mode gains `walk` (this element, both fields, both settings) and `compare` (the
+reconstruction against the record) while `recompute` still refuses the record's table and names the
+reconstruction beside it. The mode's selftest checks the block is carried, that the element files
+and `index.js` agree at Ag, that Th's entrants stand as the summary states in each field, that
+Z = 120 carries rows, and that `compare` prints no row without a status. See `docs/LOWDIN-WALK.md`
+for the instrument, its fixtures and the full comparison.
 
 **The bounds facet** reads the `bound` column of COORDINATES-2.13 — 22 distinct notes over the
 104,832 cells — and classifies each into one of eight kinds by a regex rule that travels in
@@ -257,8 +287,15 @@ result and the drift runs over the rest.
 ## Deploying
 
 The site is static. `.github/workflows/pages.yml` deploys `public/` to GitHub Pages on every push
-to `main` once Pages is set to "GitHub Actions" under the repository's Settings → Pages. Any
-static host serves it unchanged, and because the data ships as script files it needs no server at
+to `main` that touches it, and on demand, once the Pages site exists with source "GitHub Actions".
+**The workflow cannot create that site itself on this repository.** It carries
+`enablement: true` on `actions/configure-pages`, and run 35385180002 (2026-09-18, on the branch)
+failed at that step with *Resource not accessible by integration*: the repository is private, and
+the job's `GITHUB_TOKEN` may not create a Pages site there — the two earlier runs on `main` failed
+the same way, before that option was set. So the one-time step is a person's: Settings → Pages →
+Source: GitHub Actions, which on a private repository needs a plan that includes Pages, or else
+make the repository public. After that the next push to `main` under `public/**` deploys, and the
+run's `page_url` is the address. Any static host serves it unchanged, and because the data ships as script files it needs no server at
 all: `public/` copied to a phone and `index.html` opened from the file system is the same site.
 
 ## What it is not
