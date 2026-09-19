@@ -4,6 +4,7 @@
 # source md5  particle2026.csv       b6f460a16e4cd93a5cc721f3aee1d6c2
 # excluded: nuclei (the periodic elements, seated as gravity) and PDG status 4 NotInPDT (fourth generation and diquarks)
 # '?' means the quantity is NOT DEFINED or not known -- it is never a value
+# census  PDG table 6506 = 5880 composite nuclei + 54 status-4 + 572 kept
 # rows 572
 pdgid	name	family	J2	P	C	I2	G	Q3	anti	quarks	mass_MeV	width_MeV	status	rank
 -204126	Lambda(c)(2880)~-	baryon	5	-1	?	0	?	-3	1	UDC	2881.63	5.6	0	3

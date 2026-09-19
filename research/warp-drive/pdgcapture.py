@@ -160,6 +160,28 @@ def _source_md5():
     return h
 
 
+def census():
+    """(total, composite nuclei, status 4, kept, {reason: [names]}).
+
+    THE COMPLETENESS QUESTION, ASKED OF THE WHOLE TABLE.  DOCKET 27 is
+    "everything other than the periodic atoms", so what is left out has to be
+    counted and named rather than waved at.  Needs the `particle` package;
+    `write()` puts the answer in the capture's header so the read path gets it
+    without the package.
+    """
+    from particle import Particle
+    allp = list(Particle.all())
+    comp = [p for p in allp if _is_composite_nucleus(p.pdgid)]
+    st4 = [p for p in allp
+           if not _is_composite_nucleus(p.pdgid) and int(p.status) == 4]
+    kept = len(allp) - len(comp) - len(st4)
+    return (len(allp), len(comp), len(st4), kept,
+            {"composite nuclei -- the periodic elements, seated as gravity":
+             len(comp),
+             "PDG status 4 NotInPDT -- diquarks and the fourth generation":
+             sorted(p.name for p in st4)})
+
+
 def write():
     import particle
     rows = _rows()
@@ -175,6 +197,9 @@ def write():
                  "diquarks)\n")
         fh.write("# '?' means the quantity is NOT DEFINED or not known -- it "
                  "is never a value\n")
+        tot, ncomp, nst4, nkept, _why = census()
+        fh.write("# census  PDG table %d = %d composite nuclei + %d status-4 "
+                 "+ %d kept\n" % (tot, ncomp, nst4, nkept))
         fh.write("# rows %d\n" % len(rows))
         fh.write("\t".join(COLS) + "\n")
         for r in rows:

@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "commit": "031d0e414c44",
+ "commit": "4c45ead1226d",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
@@ -427,9 +427,9 @@
        "path": "research/warp-drive/captures/PDG-2026.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 33481,
+       "bytes": 33555,
        "files": 1,
-       "md5": "59564437bdaf327433f2786c566e805e"
+       "md5": "53a5b67b4dfe12c782635191ca9e1fd0"
       }
      ]
     }
@@ -458,9 +458,9 @@
        "path": "research/warp-drive/captures/PDG-2026.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 33481,
+       "bytes": 33555,
        "files": 1,
-       "md5": "59564437bdaf327433f2786c566e805e"
+       "md5": "53a5b67b4dfe12c782635191ca9e1fd0"
       }
      ]
     }
@@ -489,9 +489,9 @@
        "path": "research/warp-drive/captures/PDG-2026.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 33481,
+       "bytes": 33555,
        "files": 1,
-       "md5": "59564437bdaf327433f2786c566e805e"
+       "md5": "53a5b67b4dfe12c782635191ca9e1fd0"
       }
      ]
     }
@@ -780,6 +780,13 @@
    "question": "Is the madelung/fibred family built on a withdrawn table?",
    "finding": "The table was withdrawn as a source of OBSERVED configurations, and it remains exactly what its docstring says -- what Madelung PREDICTS -- so fibred and madelung are honestly labelled and stay. What was missing was the other object. M ruled BOTH, and `observed` is now seated: the 108 differentiating electrons register 1306 banks, 98 cells at (0, 20, 13), K0. 25 of 108 ADDRESSES differ from the prediction and 20 of 108 CONFIGURATIONS do -- and those 20 are exactly madrule's exceptions. Twelve elements lose occupancy in a subshell, which the prediction is monotone and cannot do.",
    "what_would_settle_it": "Settled by ruling. Neither chart supersedes the other."
+  },
+  {
+   "id": "27",
+   "status": "CLOSED",
+   "question": "Can the subject widen past the periodic atoms, and if so is every other particle now indexed?",
+   "finding": "M ruled it a valid exception: \"These are legitimate particles and can and must be accepted.\" The SUBJECT widened to quantum objects; the CRITERION is untouched and enforce() is still empty. Three indexes seated -- fundamental (30 Standard Model particles, K2), mesons (242 of 250, K0) and baryons (278 of 292, K0). docket27.py accounts for the whole PDG table: 6,506 = 5,880 composite nuclei (the periodic atoms, already seated as gravity) + 54 PDG status-4 + 572 kept, and ALL 572 are members of a seated index. 550 of them land on a cell; the 22 that do not are named, and each is a parity the table does not print. NO NEW CHANNEL was reached: K4 and K5 are still empty after three new families of matter.",
+   "what_would_settle_it": "Quasiparticles are the one honest gap -- they would pass the criterion and are simply not in this table. Indexing them needs another source."
   }
  ],
  "not_claimed": [

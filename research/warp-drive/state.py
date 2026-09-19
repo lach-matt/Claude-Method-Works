@@ -104,6 +104,22 @@ DOCKETS = (
      "exceptions. Twelve elements lose occupancy in a subshell, which the "
      "prediction is monotone and cannot do.",
      "Settled by ruling. Neither chart supersedes the other."),
+    ("27", "CLOSED",
+     "Can the subject widen past the periodic atoms, and if so is every other "
+     "particle now indexed?",
+     "M ruled it a valid exception: \"These are legitimate particles and can "
+     "and must be accepted.\" The SUBJECT widened to quantum objects; the "
+     "CRITERION is untouched and enforce() is still empty. Three indexes "
+     "seated -- fundamental (30 Standard Model particles, K2), mesons (242 "
+     "of 250, K0) and baryons (278 of 292, K0). docket27.py accounts for the "
+     "whole PDG table: 6,506 = 5,880 composite nuclei (the periodic atoms, "
+     "already seated as gravity) + 54 PDG status-4 + 572 kept, and ALL 572 "
+     "are members of a seated index. 550 of them land on a cell; the 22 that "
+     "do not are named, and each is a parity the table does not print. NO NEW "
+     "CHANNEL was reached: K4 and K5 are still empty after three new families "
+     "of matter.",
+     "Quasiparticles are the one honest gap -- they would pass the criterion "
+     "and are simply not in this table. Indexing them needs another source."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
