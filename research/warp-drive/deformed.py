@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""deformed.py -- DOCKET 36.  A RETRACTED REFUSAL, AND WHAT SURVIVES IT.
+r"""deformed.py -- DOCKET 36.  A RETRACTED REFUSAL, AND THE CAPTURE THAT CLOSES IT.
 
     python3 deformed.py             the reading
     python3 deformed.py --selftest  fixtures
@@ -12,10 +12,11 @@ r"""deformed.py -- DOCKET 36.  A RETRACTED REFUSAL, AND WHAT SURVIVES IT.
     why a fifth would fail too", and "WHAT CANNOT BE RECOVERED IS WHICH LEVELS
     BELONG TO WHICH BAND".
 
-    WHAT IS TRUE: a fifth parse succeeds.  `segment()` below recovers 233 of
-    the paper's 234 entries with a six-line rule, in 24 blocks that match the
-    24 nuclide sections exactly, every block contiguous 1..n.  An adversarial
-    audit found it and I reproduced it before writing this.
+    WHAT IS TRUE: a fifth parse succeeds.  `segment()` below recovers the
+    paper's 234 entries with a seven-line rule, in 24 blocks that match the 24
+    nuclide sections exactly, every block contiguous 1..n.  An adversarial
+    audit found the rule at 233 and I reproduced it before writing this; the
+    234th is section 2c.
 
     WHAT WENT WRONG IS WORTH MORE THAN THE FIX.  The blank-row measurement in
     section 2 is correct, and stronger than it was stated.  The error was
@@ -103,6 +104,89 @@ IT DOES NOT FOLLOW THAT NOTHING ELSE SEGMENTS THE TABLE, and the sentence that
 used to stand here said it did.  RETRACTED.  See section 2b.
 
 ===============================================================================
+2c. THE 234th ENTRY.  ONE LINE, AND IT IS A TRAILING FULL STOP
+===============================================================================
+
+The tightened rule reached 233 and stopped, and the missing one was NOT a
+subtle parse: at 164-Ho the band-number line is printed
+
+    `6. `
+
+and `SEG = ^(\d{1,3})(\s|$)` refuses it, because after the 6 comes a period
+and not whitespace.  Every other band number in the table is bare.
+
+IT IS A BAND NUMBER AND NOT A COMMENT MARKER, and four things say so, none of
+them the count:
+
+    ITS VALUE IS THE ONE EXPECTED.  The preceding entry is band 5 of that
+    nuclide, so the scan was looking for exactly 6 at exactly that moment.
+
+    THE COMMENT NUMBERING RESTARTS RIGHT AFTER IT.  The next comment line is
+    `1. pi7/2[523]nu11/2[505]` -- a fresh configuration, which is what comment
+    1 of an entry always is.  A comment marker `6.` followed by comment `1.`
+    is not a reading anyone would defend.
+
+    THE ENERGY OFFSET CHANGES.  The levels before it are `...+x` and the ones
+    after are `...+y`.  A band has ONE bandhead, so one entry cannot carry two
+    unknown offsets.
+
+    A NEW REFERENCE OPENS.  `2005LI63` appears immediately below it, as a
+    citation does at the head of an entry.
+
+AND THE SHAPE IS ADMITTED NARROWLY, WHICH MATTERS MORE THAN THE FIND.  The
+obvious repair -- let the band-number regex take an optional period -- is
+WRONG, and measurably so: the comment column is itself numbered `1. `, `2. `,
+`3. `, so the pool jumps from 692 candidate lines to 1,032 and the rule
+returns 380 boundaries against 234.  `SEGDOT` therefore matches a bare number
+with a period AND NOTHING ELSE ON THE LINE.  Exactly ONE line in the whole
+table region has that shape, and it is this one.  The candidate pool goes 692
+-> 693 and the noise rejected stays at 459.
+
+===============================================================================
+2d. AND THE CAPTURE IS NOW TOTAL AGAINST THE PAPER'S OWN CENSUS
+===============================================================================
+
+    entries          234  stated     234  captured    EXACT
+    bands            173  stated     173  captured    EXACT
+    bandhead states   61  stated      61  captured    EXACT
+
+THREE INDEPENDENT NUMBERS, NOT ONE, and the third was already exact before the
+234th entry was found -- which is what made the search well-posed.  Splitting
+a band into two bands adds one entry AND one band and leaves bandheads alone,
+so only a split could have closed the gap, and only one split could.
+
+Two further structural checks hold: 24 blocks against 24 nuclide sections, and
+every block contiguous 1..n -- which a run of coincidences would not be.
+
+    THE PAPER'S OTHER FOUR FIGURES ARE NOT VALIDATORS AND WERE CHECKED ANYWAY.
+    63 GM doublets, 76 with signature splitting, 29 with inversion, 10 band
+    crossings.  Those are counts the paper makes about its dataset in prose,
+    not censuses of a table column: the comment text yields 73, 25 and 10 for
+    the last three and nothing at all for GM doublets, which is a phrase the
+    table never prints.  A capture is not validated against a number the
+    source does not tabulate, so these are recorded and not used.
+
+===============================================================================
+2e. ONE DISCONTINUITY REMAINS, AND IT IS A FEATURE OF THE SOURCE
+===============================================================================
+
+164-Lu, band 4, runs (23+) (24+) (25+) and then (16-) (18-) (20-) (22-): the
+spin falls and the parity flips, neither of which a rotational band does.  It
+is NOT a missed boundary, and the same four tests that convicted `6. ` acquit
+this one:
+
+    NO CANDIDATE LINE.  There is no integer line of any shape at the break.
+    THE COMMENT NUMBERING DOES NOT RESTART -- it runs 1, 2, 3 straight across.
+    THE OFFSET DOES NOT CHANGE -- every level is `...+z`.
+    NO NEW REFERENCE OPENS.
+    AND THE TRANSITION ENERGIES ARE ONE SMOOTH CASCADE: 344.4, 411.4, 472.1,
+    519.7, 553.9, 584.4, monotone across the break.
+
+So the paper prints it as one entry, and this file captures it as one entry.
+Whether the printed spins are right is the paper's business and not this
+capture's.  RECORDED, NOT REPAIRED.
+
+===============================================================================
 3. WHAT IS RECOVERABLE, WHICH IS NOT NOTHING
 ===============================================================================
 
@@ -117,11 +201,12 @@ used to stand here said it did.  RETRACTED.  See section 2b.
 
 AND BAND MEMBERSHIP IS RECOVERABLE AFTER ALL -- section 2b.  The sentence that
 stood here, "WHAT CANNOT BE RECOVERED IS WHICH LEVELS BELONG TO WHICH BAND",
-is RETRACTED.  What remains true is the standard it was defending: a capture
-is not seated until its totality is demonstrated, and 233 of 234 is not 234.
+is RETRACTED.  The standard it was defending is met rather than waived: a
+capture is not seated until its totality is demonstrated, and section 2d
+demonstrates it on three of the paper's own numbers.
 
 ===============================================================================
-4. WHAT WOULD SETTLE IT
+4. WHAT WOULD HAVE SETTLED IT, AND WHY NONE OF IT WAS NEEDED
 ===============================================================================
 
 AN EXTRACTION THAT PRESERVES LAYOUT.  The blank rows exist in the PDF; they
@@ -158,9 +243,14 @@ THREE ROUTES, ALL MEASURED:
     package that took the name.  Closed on CONTENT, which is a better closure
     than the wrong-name one it replaces.
 
-The docket is OPEN ON AN INPUT, not on an idea -- which is a different thing
-from the four closed routes `subpop.py` records, and is why it is written down
-rather than retried.
+THE DOCKET IS CLOSED ON THE CAPTURE, and none of the three routes above was
+used: no second extraction, no mirror, no external level scheme.  The whole of
+it came out of the text already in hand, and the last step was one line with a
+full stop on it.
+
+WHAT IS NOT CLOSED IS SEATING.  A capture is not an index.  Whether these
+levels earn a position in the master index is the overlap ruling's question,
+and `docket36_chart()` measures the chart without answering it.
 """
 
 import os
@@ -273,6 +363,14 @@ def separators():
 
 
 SEG = re.compile(r'^(\d{1,3})(\s|$)')
+# THE 234th ENTRY.  One band-number line in the whole table region is
+# printed with a trailing period -- `6. ` at 164-Ho -- and `SEG` refuses
+# it.  This shape is a BARE number alone on its line; it is NOT the
+# comment column's `1. pi7/2[523]nu11/2[505]`, which carries text after
+# the period and would flood the candidate pool if admitted (measured:
+# 380 boundaries instead of 234).  Exactly ONE line in the table matches
+# this, and it is the one that was missing.
+SEGDOT = re.compile(r'^(\d{1,3})\.\s*$')
 
 
 def segment():
@@ -292,7 +390,7 @@ def segment():
     if "s" not in _C:
         out, exp = [], 1
         for j, line in enumerate(table()):
-            m = SEG.match(line)
+            m = SEG.match(line) or SEGDOT.match(line)
             if not m:
                 continue
             v = int(m.group(1))
@@ -408,7 +506,7 @@ def entries():
                 nn = [x for x in nums if 80 <= x <= 115]
                 if zz and nn:
                     Z, N = zz[0], nn[0]
-            m = SEG.match(t)
+            m = SEG.match(t) or SEGDOT.match(t)
             if m:
                 v = int(m.group(1))
                 if v == exp or (v == 1 and exp > 1):
@@ -459,14 +557,81 @@ def discontinuities():
 
 
 def verdict():
-    """(blank-row delimiter absent?, entries recoverable another way, why)."""
-    req, blanks, page, hdr, avail = separators()
+    """(blank-row delimiter absent?, entries recovered, why)."""
+    req, _blanks, _page, _hdr, avail = separators()
     return (avail == 0, len(segment()),
             "the document's own delimiter is absent -- %d separators required, "
-            "%d available -- but %d of %d entries are recoverable from the band "
-            "number under a sequence-with-reset rule, so the earlier conclusion "
-            "that none were is RETRACTED"
+            "%d available -- and all %d of %d entries are recoverable from the "
+            "band number under a sequence-with-reset rule, so the earlier "
+            "conclusion that none were is RETRACTED"
             % (req, avail, len(segment()), STATED["entries"]))
+
+
+def dotted_number_lines():
+    """[(line, text)] -- every line that is a bare integer plus a full stop.
+
+    Section 2c's narrowness, measured rather than asserted.  EXACTLY ONE line
+    in the table region has this shape, which is why admitting it adds one
+    candidate and not three hundred.
+    """
+    return [(k, s) for k, s in enumerate(table()) if SEGDOT.match(s)]
+
+
+def candidate_pool():
+    """(candidate lines, chosen, rejected as noise) under the live rule."""
+    b = table()
+    cand = [l for l in b if SEG.match(l) or SEGDOT.match(l)]
+    return (len(cand), len(segment()), len(cand) - len(segment()))
+
+
+def prose_figures():
+    """{phrase: occurrences} -- the paper's four NON-tabulated census figures.
+
+    Checked so that nobody later mistakes their absence for an oversight, and
+    NOT used as validators: these are counts the paper makes in prose about
+    its dataset, not censuses of a column of Table 3.  `GM doublet` is not a
+    phrase the table prints at all.
+    """
+    import re as _re
+    txt = "\n".join(table())
+    out = {}
+    for lab, pats in (("signature_splitting", ("Signature splitting",
+                                               "signature splitting")),
+                      ("signature_inversion", ("Signature inversion",
+                                               "signature inversion")),
+                      ("band_crossings", ("crossing",)),
+                      ("gm_doublets", ("GM doublet", "Gallagher"))):
+        out[lab] = sum(len(_re.findall(x, txt)) for x in pats)
+    return out
+
+
+def _parity(tok):
+    if "\u2212" in tok or "-" in tok:
+        return -1
+    return 1 if "+" in tok else None
+
+
+def docket36_chart():
+    """(cells, K, cell, members, levels with no parity) -- MEASURED, NOT SEATED.
+
+    The chart these levels would give on (2I, parity), the same coordinates
+    `nucbands.py` carries.  It is reported so the seating question is asked
+    with numbers in hand; seating is a RULING and this file does not make it.
+    """
+    import mi as _mi
+    cells, n, nopar = set(), 0, 0
+    for e in entries():
+        for _en, sp in e["levels"]:
+            i2, p = two_i(sp), _parity(sp)
+            if i2 is None:
+                continue
+            if p is None:
+                nopar += 1
+                continue
+            cells.add((i2, p))
+            n += 1
+    X = frozenset(cells)
+    return (len(X), _mi.K(X), _mi.cell(X), n, nopar)
 
 
 def write():
@@ -477,14 +642,19 @@ def write():
     """
     c = census2()
     hdr = ("# %s\n"
-           "# INCOMPLETE CAPTURE -- NOT SEATED.  %d entries against the "
-           "paper's %d;\n"
-           "# %d bands against %d; bandhead states %d against %d (exact).\n"
-           "# Two entries carry a falling spin sequence and are merged bands;\n"
-           "# splitting both would give %d against %d, so the gap is NOT\n"
-           "# forced.  See deformed.discontinuities().\n"
+           "# CAPTURE TOTAL AGAINST THE PAPER'S OWN CENSUS -- entries %d/%d, "
+           "bands %d/%d,\n"
+           "# bandhead states %d/%d, all exact; 24 blocks against 24 nuclide "
+           "sections,\n"
+           "# every block contiguous 1..n.  NOT SEATED: a capture is not an "
+           "index, and\n"
+           "# seating is the overlap ruling's question.  One entry (164-Lu "
+           "band 4) carries\n"
+           "# a falling spin sequence; it is the SOURCE's, not a missed "
+           "boundary -- see\n"
+           "# deformed.discontinuities() and section 2e.\n"
            % (PAPER, c[0], STATED["entries"], c[1], STATED["bands"],
-              c[2], STATED["bandheads"], c[0] + 2, STATED["entries"]))
+              c[2], STATED["bandheads"]))
     with open(ENTRIES_TSV, "w", encoding="utf-8") as f:
         f.write(hdr)
         f.write("seq\tno\tA\tZ\tN\tlevels\tkind\tspin_falls\n")
@@ -543,8 +713,8 @@ def selftest():
     chk("the document's own delimiter IS absent -- that much stands", absent, True)
     # THE RETRACTION, AS A FIXTURE.  This file once concluded that no parse
     # could recover entry boundaries.  A tightened sequence rule does.
-    chk("BUT 233 of 234 entries ARE recoverable -- the old conclusion is "
-        "RETRACTED", got, 233)
+    chk("BUT all 234 entries ARE recoverable -- the old conclusion is "
+        "RETRACTED", got, 234)
     chk("in 24 blocks, matching the 24 nuclide sections exactly",
         (len(blocks()), len(sections())), (24, 24))
     chk("and every block is contiguous 1..n, which a coincidence would not be",
@@ -556,29 +726,53 @@ def selftest():
     chk("what IS recoverable is measured too, not just the failure",
         len(levels()) > 1500, True)
 
-    # -- THE CAPTURE THE RETRACTED REFUSAL SAID COULD NOT EXIST
+    # -- THE 234th ENTRY, AND THE NARROWNESS OF THE SHAPE THAT FOUND IT
+    dots = dotted_number_lines()
+    chk("EXACTLY ONE line in the table is a bare integer plus a full stop",
+        [(k, t.strip()) for k, t in dots], [(1408, "6.")])
+    chk("and admitting it adds ONE candidate, not a flood",
+        candidate_pool(), (693, 234, 459))
+    chk("the comment column is numbered too, which is why the shape is narrow",
+        any(re.match(r'^\d{1,3}\.\s+\S', t) for t in table()), True)
+
+    # -- THE CAPTURE, AND ITS TOTALITY AGAINST THREE STATED NUMBERS
     c = census2()
-    chk("the capture stands at 233 entries, 172 bands, 61 bandhead states",
-        c, (233, 172, 61))
-    chk("and the BANDHEAD STATES are exactly the paper's figure",
-        (c[2], STATED["bandheads"]), (61, 61))
-    chk("entries and bands are each ONE short, and that is not rounded away",
-        (STATED["entries"] - c[0], STATED["bands"] - c[1]), (1, 1))
+    chk("entries, bands and bandhead states all EXACT against the paper",
+        c, (STATED["entries"], STATED["bands"], STATED["bandheads"]))
+    chk("and the three are consistent: bands + bandheads = entries",
+        c[1] + c[2], c[0])
     chk("every entry carries its nuclide",
-        sum(1 for e in entries() if e["A"]), 233)
+        sum(1 for e in entries() if e["A"]), 234)
     chk("levels attached", sum(len(e["levels"]) for e in entries()), 1964)
 
-    # -- AND WHY IT IS NOT FORCED THE REST OF THE WAY
+    # -- THE ONE REMAINING DISCONTINUITY IS THE SOURCE'S, NOT A MISSED LINE
     d = discontinuities()
-    chk("TWO entries have a falling spin sequence -- merged bands",
-        [(i, no) for i, no, _s, _d in d], [(33, 5), (206, 4)])
-    chk("but splitting BOTH would give 235 against a stated 234, so the "
-        "capture is left short rather than fitted",
-        c[0] + len(d) > STATED["entries"], True)
+    chk("ONE entry has a falling spin sequence, and it is 164-Lu band 4",
+        [(no, len(sp)) for _i, no, sp, _dr in d], [(4, 7)])
+    chk("no integer line of any shape sits at its break -- not a boundary",
+        [t for t in table()[7283:7286] if SEG.match(t) or SEGDOT.match(t)], [])
+    chk("splitting it would give 235 against a stated 234, so it stands",
+        c[0] + len(d), 235)
+
+    # -- THE PROSE FIGURES WERE CHECKED AND ARE NOT USED
+    pf = prose_figures()
+    chk("the paper's four prose figures do not tabulate, and are not "
+        "validators", (pf["gm_doublets"], pf["signature_splitting"] ==
+                       STATED["signature_splitting"]), (0, False))
+
     chk("the four forward attempts are recorded with their numbers",
         [n for _w, n, _y in ATTEMPTS], [154, 176, 160, 195])
     chk("and none of them reached the stated census",
         [n for _w, n, _y in ATTEMPTS if n == STATED["entries"]], [])
+
+    # -- MEASURED, NOT SEATED
+    cells, K, cell, n, nopar = docket36_chart()
+    chk("the chart these levels would give is measured", (cells, K, cell),
+        (96, 2, (2, 49, 2)))
+    chk("on 1,904 levels, with 60 carrying no parity", (n, nopar), (1904, 60))
+    chk("and NOTHING IS SEATED HERE -- seating is a ruling",
+        "docket36_chart" in open(__file__, encoding="utf-8").read()
+        and "NOT SEATED" in open(__file__, encoding="utf-8").read(), True)
 
     print("deformed selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
@@ -586,7 +780,7 @@ def selftest():
 
 def report():
     print("=" * 79)
-    print("DOCKET 36 -- THE DEFORMED BANDS.  A REFUSAL, RETRACTED.")
+    print("DOCKET 36 -- THE DEFORMED BANDS.  A REFUSAL RETRACTED, AND THE CAPTURE CLOSED.")
     print("=" * 79)
     print()
     print("SOURCE  %s" % PAPER)
@@ -636,45 +830,82 @@ def report():
     print("     nuclide sections, with Z and N           %3d" % len(S))
     print("     level rows                              %4d" % len(levels()))
     print("   Band membership too, now that section 4 recovers the")
-    print("   boundaries.  NOTHING IS SEATED YET, and the reason is no longer")
-    print("   impossibility: it is that 233 of 234 is not 234, and a capture")
-    print("   is not seated until its totality is demonstrated.")
+    print("   boundaries -- and the totality a capture needs before it may be")
+    print("   seated is demonstrated in section 6, not waived.")
     print()
-    print("6. THE CAPTURE, BUILT ON THAT SEGMENTATION -- AND STILL SHORT.")
+    print("6. THE 234th ENTRY WAS ONE LINE WITH A FULL STOP ON IT.")
+    for k, t in dotted_number_lines():
+        print("     line %-6d %-8s the only bare integer + full stop in the"
+              % (k, repr(t.strip())))
+    print("                        whole table region.  SEG wanted whitespace")
+    print("                        after the digits and refused it.")
+    print("   IT IS A BAND NUMBER, and none of the four reasons is the count:")
+    print("     its value is the one the scan was expecting at that moment;")
+    print("     the comment numbering RESTARTS at 1 immediately below it;")
+    print("     the energy offset changes from +x to +y, and a band has one")
+    print("       bandhead;")
+    print("     and a new reference, 2005LI63, opens under it.")
+    cp = candidate_pool()
+    print("   THE SHAPE IS ADMITTED NARROWLY.  Letting the band-number regex")
+    print("   take an optional period would swallow the comment column's own")
+    print("   `1. `, `2. `, `3. ` markers and return 380 boundaries.  A bare")
+    print("   number with a period AND NOTHING ELSE matches exactly one line:")
+    print("     candidates %d   chosen %d   noise rejected %d" % cp)
+    print()
+    print("7. THE CAPTURE IS TOTAL AGAINST THE PAPER'S OWN CENSUS.")
     c = census2()
-    print("     %-22s %-10s %s" % ("", "paper", "captured"))
-    print("     %-22s %-10d %d%s" % ("entries", STATED["entries"], c[0],
-                                     "" if c[0] == STATED["entries"] else "   SHORT BY %d" % (STATED["entries"] - c[0])))
-    print("     %-22s %-10d %d%s" % ("bands (>=2 levels)", STATED["bands"], c[1],
-                                     "" if c[1] == STATED["bands"] else "   SHORT BY %d" % (STATED["bands"] - c[1])))
-    print("     %-22s %-10d %d%s" % ("bandhead states", STATED["bandheads"], c[2],
-                                     "   EXACT" if c[2] == STATED["bandheads"] else ""))
-    print("     %-22s %-10s %d" % ("levels attached", "-",
-                                   sum(len(e["levels"]) for e in entries())))
+    print("     %-22s %-10s %-10s %s" % ("", "paper", "captured", ""))
+    for lab, key, got in (("entries", "entries", c[0]),
+                          ("bands (>=2 levels)", "bands", c[1]),
+                          ("bandhead states", "bandheads", c[2])):
+        print("     %-22s %-10d %-10d %s"
+              % (lab, STATED[key], got,
+                 "EXACT" if got == STATED[key] else "SHORT BY %d"
+                 % (STATED[key] - got)))
+    print("     %-22s %-10s %-10d" % ("levels attached", "-",
+                                      sum(len(e["levels"]) for e in entries())))
+    print("   THREE INDEPENDENT NUMBERS, and the third was exact BEFORE the")
+    print("   234th entry was found -- which is what made the search")
+    print("   well-posed.  A split adds one entry and one band and leaves")
+    print("   bandheads alone, so only a split could close the gap, and only")
+    print("   one split could.  Two structural checks hold beside them: %d"
+          % len(blocks()))
+    print("   blocks against %d nuclide sections, every block contiguous 1..n."
+          % len(sections()))
     print()
-    print("   AND IT IS LEFT SHORT RATHER THAN FITTED.  Two entries carry a")
-    print("   FALLING spin sequence, which a rotational band cannot do, so")
-    print("   each is two bands merged where a number line was not read:")
+    print("   THE PAPER'S OTHER FOUR FIGURES ARE NOT VALIDATORS, and were")
+    print("   checked rather than passed over -- they are prose counts about")
+    print("   the dataset, not censuses of a table column:")
+    pf = prose_figures()
+    for k in ("gm_doublets", "signature_splitting", "signature_inversion",
+              "band_crossings"):
+        print("     %-22s stated %-6d in the table %d"
+              % (k, STATED[k], pf[k]))
+    print()
+    print("8. ONE DISCONTINUITY REMAINS AND IT IS THE SOURCE'S.")
     for i, no, sp, dr in discontinuities():
         print("     entry %-4d no=%-3d %d levels, falls %s -> %s"
               % (i, no, len(sp), dr[0][0], dr[0][1]))
-    print("   Splitting BOTH would give %d against the paper's %d.  One of"
-          % (c[0] + len(discontinuities()), STATED["entries"]))
-    print("   them is therefore not what it looks like, and until that is")
-    print("   settled the capture stays at %d and NOTHING IS SEATED." % c[0])
+    print("   164-Lu band 4 runs (23+) (24+) (25+) then (16-) (18-) (20-)")
+    print("   (22-).  The same four tests that convicted the `6. ` line")
+    print("   acquit this one: no candidate line at the break, the comment")
+    print("   numbering does not restart, the offset stays +z, no new")
+    print("   reference opens -- and the transition energies are one smooth")
+    print("   cascade across it, 344.4 411.4 472.1 519.7 553.9 584.4.")
+    print("   The paper prints it as one entry.  RECORDED, NOT REPAIRED.")
     print()
-    print("7. WHAT REMAINS BEFORE ANYTHING IS SEATED.")
-    print("   ADJUDICATING THE TWO DISCONTINUITIES, which decides whether the")
-    print("   count is 233, 234 or 235, and the totality argument that follows.")
-    print("   The paper offers an unusually rich fixture set")
-    print("   to check a finished capture against -- 234 = 173 bands + 61")
-    print("   bandhead states, 63 GM doublets, 76 with signature splitting, 29")
-    print("   with inversion, 10 band crossings, 58 bandheads with half-lives.")
+    print("9. MEASURED, NOT SEATED.")
+    cells, K, cell, n, nopar = docket36_chart()
+    print("     on (2I, parity): %d cells, K%d, cell %s" % (cells, K, cell))
+    print("     from %d levels carrying both, %d carrying no parity"
+          % (n, nopar))
+    print("   A CAPTURE IS NOT AN INDEX.  That cell is held by no seated")
+    print("   index and the member set is a new one -- deformed odd-odd")
+    print("   nuclei, not the near-spherical shears bands already seated --")
+    print("   so it is a seating CANDIDATE.  Seating is a ruling and this")
+    print("   file does not make it.")
     print()
-    print("   A LAYOUT-PRESERVING EXTRACTION IS NO LONGER NEEDED and this file")
-    print("   used to say it was.  Section 4 works on the text already here.")
-    print()
-    print("   THE DOCKET IS OPEN ON ONE MISSING ENTRY, NOT ON AN INPUT.")
+    print("   THE DOCKET IS CLOSED ON THE CAPTURE.  IT IS OPEN ON SEATING.")
     return 0
 
 
@@ -684,6 +915,6 @@ if __name__ == "__main__":
     if "--write" in sys.argv:
         c = write()
         print("wrote DEFORMED-entries.tsv and DEFORMED-levels.tsv "
-              "(%d entries, %d bands, %d bandheads) -- NOT SEATED" % c)
+              "(%d entries, %d bands, %d bandheads) -- TOTAL, NOT SEATED" % c)
         sys.exit(0)
     sys.exit(report())

@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "commit": "d16c59e3a0c6",
+ "commit": "bfa413696718",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {

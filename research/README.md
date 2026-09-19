@@ -12775,3 +12775,74 @@ now admits a numeral only if **some instrument actually produced it**: every int
 instrument computes is still caught, and a real one no longer needs to be remembered.
 
 **Reproduce:** `python3 research/warp-drive/paper/mipaper.py --selftest`, then `--md` and `--pdf`.
+
+## DOCKET 36 closed — the 234th entry was one line with a full stop on it
+
+`deformed.py` had the capture at **233 of the paper's 234** entries and two entries carrying a
+falling spin sequence. Splitting both would have given 235, so the gap was left open rather than
+forced. It is now closed, and the missing entry was not subtle.
+
+**At 164-Ho the band-number line is printed `6. `**, and the segmentation regex
+`SEG = ^(\d{1,3})(\s|$)` refuses it — after the `6` comes a period, not whitespace. Every other band
+number in the table is bare.
+
+**It is a band number and not a comment marker, and none of the four reasons is the count:**
+
+- its value is exactly the one the scan was expecting at that moment (the previous entry is band 5);
+- the comment numbering **restarts at 1** immediately below it — `1. π7/2[523]ν11/2[505]`, which is
+  what comment 1 of an entry always is. A comment marker `6.` followed by comment `1.` is not a
+  reading anyone would defend;
+- the energy offset changes from `+x` to `+y`, and a band has **one** bandhead;
+- a new reference, `2005LI63`, opens under it.
+
+**The shape is admitted narrowly, and that matters more than the find.** The obvious repair — let the
+band-number regex take an optional period — is wrong and measurably so: the comment column is itself
+numbered `1. `, `2. `, `3. `, so the candidate pool jumps 692 → 1,032 and the rule returns **380**
+boundaries against 234. `SEGDOT` therefore matches a bare integer with a period *and nothing else on
+the line*. **Exactly one line in the whole table region has that shape.** Pool 692 → 693, noise
+rejected unchanged at 459.
+
+### The capture is total against the paper's own census
+
+| | paper | captured | |
+|---|---|---|---|
+| entries | 234 | **234** | EXACT |
+| bands (≥2 levels) | 173 | **173** | EXACT |
+| bandhead states | 61 | **61** | EXACT |
+| levels attached | — | 1,964 | |
+
+**Three independent numbers, and the third was already exact before the 234th entry was found** —
+which is what made the search well-posed. A split adds one entry *and* one band and leaves bandheads
+alone, so only a split could close the gap, and only one split could. Two structural checks hold
+beside them: **24 blocks against 24 nuclide sections, every block contiguous 1..n.**
+
+**The paper's other four figures are not validators, and were checked rather than passed over.** 63 GM
+doublets, 76 with signature splitting, 29 with inversion, 10 band crossings are counts the paper
+makes *in prose* about its dataset, not censuses of a table column: the comment text yields 73, 25
+and 10 for the last three and **nothing at all** for GM doublets, a phrase the table never prints. A
+capture is not validated against a number its source does not tabulate.
+
+### One discontinuity remains, and it is the source's
+
+**164-Lu band 4** runs (23⁺) (24⁺) (25⁺) then (16⁻) (18⁻) (20⁻) (22⁻) — the spin falls and the parity
+flips, neither of which a rotational band does. It is **not** a missed boundary, and the same four
+tests that convicted `6. ` acquit it: no integer line of any shape at the break, the comment
+numbering runs 1, 2, 3 straight across, the offset stays `+z`, no new reference opens — and the
+transition energies are **one smooth cascade** across it: 344.4, 411.4, 472.1, 519.7, 553.9, 584.4.
+The paper prints it as one entry and the capture takes it as one. Whether the printed spins are right
+is the paper's business. **Recorded, not repaired.**
+
+### Measured, not seated
+
+On (2I, parity) — `nucbands.py`'s coordinates — these levels give **96 cells, K2, cell (2, 49, 2)**,
+from 1,904 levels carrying both quantum numbers and 60 carrying no parity. That cell is held by no
+seated index, and the member set is a new one: deformed odd-odd nuclei at 156 ≤ A ≤ 168, not the
+near-spherical shears bands `nucbands` already seats. **So it is a seating candidate.** A capture is
+not an index, seating is a ruling, and `deformed.py` does not make it — `docket36_chart()` reports
+the numbers so the question can be asked with them in hand.
+
+**None of the three blocked routes was needed.** No second extraction, no mirror, no external level
+scheme — the whole of it came out of the text already in hand. **The docket is closed on the capture
+and open on seating.**
+
+**Reproduce:** `python3 research/warp-drive/deformed.py --selftest` (29 fixtures), then `--write`.

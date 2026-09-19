@@ -159,16 +159,23 @@ NOT_INDEXED = (
      "two-quasiparticle rotational bands in DEFORMED odd-odd nuclei, "
      "Z 67-71, N 89-97 -- 234 bands/states, of which the paper says 173 are "
      "bands and 61 are bandhead states",
-     "NOT SEATED, AND THE REASON CHANGED UNDER AUDIT.  deformed.py once "
-     "claimed a proof that NO parse could recover this table's entry "
-     "boundaries; that conclusion is RETRACTED.  What stands is narrower and "
-     "stronger: the delimiter the paper itself defines -- a blank row between "
-     "entries -- is absent from this extraction, ZERO of its 71 blank lines "
-     "being separators (50 page boundaries, 21 nuclide-header internals).  "
-     "But a sequence-with-reset rule on the band number recovers 233 of the "
-     "234 entries in 24 blocks matching the 24 nuclide sections, every block "
-     "contiguous.  So the docket is open on ONE MISSING ENTRY, not on the "
-     "input, and nothing is seated because 233 is not 234."),
+     "CAPTURED IN FULL, NOT SEATED, AND THE REASON CHANGED TWICE UNDER "
+     "AUDIT.  deformed.py once claimed a proof that NO parse could recover "
+     "this table's entry boundaries; that conclusion is RETRACTED.  What "
+     "stands is narrower and stronger: the delimiter the paper itself defines "
+     "-- a blank row between entries -- is absent from this extraction, ZERO "
+     "of its 71 blank lines being separators (50 page boundaries, 21 "
+     "nuclide-header internals).  A sequence-with-reset rule on the band "
+     "number recovers the entries anyway, and it now recovers ALL 234: the "
+     "one it missed is a band-number line printed `6. `, with a trailing full "
+     "stop the regex refused, and exactly one line in the table has that "
+     "shape.  The capture is total against three of the paper's own numbers "
+     "-- 234 entries, 173 bands, 61 bandhead states, all exact -- in 24 "
+     "blocks matching the 24 nuclide sections, every block contiguous.  "
+     "NOTHING IS SEATED, and the reason is no longer the capture: a capture "
+     "is not an index, and seating is a ruling.  On (2I, parity) these levels "
+     "give 96 cells at K2, cell (2, 49, 2) -- a cell no seated index holds, "
+     "from a member set this one does not cover."),
 )
 
 # MEASURED by --sweep over the seated member set.  Every superset of (2I, pi)
@@ -376,8 +383,10 @@ def selftest():
     # citing a state of that docket which has stopped holding.
     import deformed
     absent, got, _why = deformed.verdict()
-    chk("the blank-row delimiter is still absent, and 233 of 234 entries are "
-        "still recoverable", (absent, got), (True, 233))
+    chk("the blank-row delimiter is still absent, and all 234 entries are "
+        "now recoverable", (absent, got), (True, 234))
+    chk("and that docket's capture is total against the paper's own census",
+        deformed.census2(), (234, 173, 61))
 
     # Re-MEASURE the cheapest arity-3 row rather than trusting the table.
     # The other two are 997 and 1,247 cells and belong in --sweep.
