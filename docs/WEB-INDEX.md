@@ -182,29 +182,34 @@ Hg and identity at Th. The bank did not arrive, the Löwdin project has conclude
 ruling was that anything still needed is this repository's to build.
 
 **The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
-chain of §II.2 with the Koelling–Harmon equation and one constant — in a field it can build here, a
-local-exchange (Hartree–Fock–Slater) self-consistent field rather than the record's Hartree–Fock,
-at both c = 137.035999 and c → ∞, into `LOWDIN-WALK.tsv` (238 rows, 119 per setting, every one
-converged). `webindex.py` reads that table into `index.js` as `relativistic.walk` — its md5, the
-instrument's own summary as data, one entrant per Z per setting — and puts each element's two rows,
-candidate spectra included, into its element file; the six functions of the instrument travel in
-`instruments` as `walk_*`. **Every value is RECONSTRUCTED and the record's Λ_chain and Λ_cinf stay
-READ and unheld**; the caveat `walk-reconstructed` travels with the block. What it measured: at
-c = 137.035999 the entrant equals the observed gain at 96 of 107 rows, clause 1 holds without
-exception and clause 2 has one exception (Ac) against the record's La, Ac, Th; at c → ∞ 92 of 107;
-the entrants differ between the settings at 7 elements (Ba, Lu, Ra, Ac, Lr, Cn, Ubn), of which 2 —
-Lu and Lr — are the record's eleven, and at Th the entrant is 5f at both settings, the null-difference
-control holding by a route the record does not have. The page draws the reconstruction's displaced
-elements with a hollow corner mark apart from the record's filled one, the element plate carries "The
-walk, reconstructed" beside "Relativistic limit" (Z = 2 to 120, so the twelve unpopulated elements
-carry it too), the console answers `walk <El>` and appends the reconstruction to `relativistic`, the
-"Instrument source" toggle shows the six functions after the record's passages, and the mode gains
-`walk` (this element at both settings) and `compare` (the reconstruction against the record) while
-`recompute` still refuses the record's table and names the reconstruction beside it. The mode's
-selftest checks the block is carried, that the element files and `index.js` agree at Ag, that Th's
-two entrants stand as the summary states, that Z = 120 carries rows, and that `compare` prints no
-row without a status. See `docs/LOWDIN-WALK.md` for the instrument, its fixtures and the full
-comparison.
+chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:
+the record's own average-of-configuration Hartree–Fock field with non-local exchange, and a
+local-exchange (Hartree–Fock–Slater) field beside it, at both c = 137.035999 and c → ∞, into
+`LOWDIN-WALK.tsv` (476 rows, 119 per field and setting; every local-exchange row converged, and three
+Hartree–Fock rows at c = 137.035999 — Ts, Og, Ubn — carry `converged = no` with their residuals in
+`note`, at margins four orders above them). `webindex.py` reads that table into `index.js` as
+`relativistic.walk` — its md5, the instrument's own summary as data, one entrant per Z per field and
+setting, the Hartree–Fock field primary — and puts each element's four rows, candidate spectra
+included, into its element file; the ten functions of the instrument travel in `instruments` as
+`walk_*`. **Every value is RECONSTRUCTED and the record's Λ_chain and Λ_cinf stay READ and unheld**;
+the caveat `walk-reconstructed` travels with the block. What it measured, in the record's field: at
+c = 137.035999 the entrant equals the observed gain at 94 of 107 rows, clause 1 holds without
+exception, clause 2 has the record's La and Ac exceptions and Th takes 6d as the record has it, and
+the g channels sit at −1/(2n²) to 2.5 × 10⁻⁶; at c → ∞ 96 of 107; the entrants differ between the
+settings at 5 elements (Ce, Hf, Th, Rf, Ubn), of which 1 — Rf — is the record's eleven, and at Th
+the entrant is 6d at c = 137.035999 and 5f at c → ∞, the record's inversion without the record's
+path clause. In the local field: 96 and 92 of 107, 7 displaced of which Lu and Lr are the eleven,
+and Th 5f at both settings. The page draws the Hartree–Fock reconstruction's displaced elements with
+a hollow corner mark apart from the record's filled one, the element plate carries "The walk,
+reconstructed" beside "Relativistic limit" with both fields (Z = 2 to 120, so the twelve unpopulated
+elements carry it too), the console answers `walk <El>` and appends the reconstruction to
+`relativistic`, the "Instrument source" toggle shows the ten functions after the record's passages,
+and the mode gains `walk` (this element, both fields, both settings) and `compare` (the
+reconstruction against the record) while `recompute` still refuses the record's table and names the
+reconstruction beside it. The mode's selftest checks the block is carried, that the element files
+and `index.js` agree at Ag, that Th's entrants stand as the summary states in each field, that
+Z = 120 carries rows, and that `compare` prints no row without a status. See `docs/LOWDIN-WALK.md`
+for the instrument, its fixtures and the full comparison.
 
 **The bounds facet** reads the `bound` column of COORDINATES-2.13 — 22 distinct notes over the
 104,832 cells — and classifies each into one of eight kinds by a regex rule that travels in

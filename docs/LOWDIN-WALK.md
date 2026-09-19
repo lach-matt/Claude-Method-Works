@@ -120,7 +120,9 @@ the r^γ series at the nucleus (γ² = ℓ(ℓ+1) + 1 − (Z/c)²) and inward fr
 the outer classical turning point; the eigenvalue is bracketed by node count and refined by the
 Hartree matching correction to 10⁻⁹ relative. The error against the exact hydrogenic levels
 scales as the fourth power of the step (measured: 3 × 10⁻⁵ at 0.02, 2 × 10⁻⁶ at 0.01, 1 × 10⁻⁷ at
-0.005). The field is mixed to a residual below 10⁻⁷ in r·V; every one of the 238 rows converged.
+0.005). The local-exchange field is mixed to a residual below 10⁻⁷ in r·V and every one of its 238 rows
+converged; the Hartree–Fock field to 10⁻⁷ in the orbitals, 10⁻⁶ in every overlap and angle, and
+three of its 238 rows did not reach it, which the table says on the row (below).
 Stdlib only; runs on the default `python3` (3.11).
 
 ## What it returns
@@ -137,53 +139,106 @@ local-exchange result). Every status is `RECONSTRUCTED`. Regenerate it, never ha
 
 ## What it measured
 
-Read the two settings first, then the comparison. The record's figures are quoted beside each so
-the reader sees both; nothing was adjusted to bring them together.
+Read the Hartree–Fock field first — it is the record's own — then the local-exchange field
+beside it, then the comparisons. The record's figures are quoted beside each so the reader sees
+both; nothing was adjusted to bring them together. Every figure below is `--report`'s, and
+`tools/docfigures.py` pins the counts.
 
-**At c = 137.035999.** The entrant equals the observed gain at **96 of 107** scored rows. The
-eleven disagreements are Mn, Zn, Tc, Ag, Cd, La, Gd, Hg, Th, Cm and Lr — every one a row where
-nature rearranges an already-open block or takes d over f, which the chain, never moving an
-electron, cannot follow (the record makes the same scope statement for the chromium class,
-register 1701). The chain's own configuration is identical to the observed one at 84 of 107.
-Clause 1 — smaller n+ℓ opens first — holds without exception over the derived openings, as in the
-record. Clause 2 has **one** exception here, 6d at 89 before 5f at 90 (the record's set is
-exactly La, Ac, Th): the local field opens 4f at Z = 57 with no lanthanum exception and 5d only at
-71, and takes 5f at thorium where the record's collapse criterion takes 6d. 7p opens at 113 here
-against the observed 103 (Lr): 5f at lawrencium. The five smallest margins are Ba (6s over 5d by
-0.0248 Ha), Ca (0.0272), Cs (0.0488), Ac (0.0555) and Th (0.0614) — the alkaline earths and the
-actinide openings, which is where the record places its contested rows too (Z = 38, 56, 72, 89,
-105; register 1705). Every g channel is offered at all 119 elements and sits within 4.2 × 10⁻⁴
-Ha of −1/(2n²); the record offers 5g at 65 elements, 6g at 70, 7g at 57 and 8g at 28, at
-−1/(2n²) to storage precision. The residual here is penetration of the ion's outer shells by the
-g orbital's inner lobe, real in this field.
+**Hartree–Fock at c = 137.035999.** The entrant equals the observed gain at **94 of 107** scored
+rows. The thirteen disagreements are Mn, Zn, Tc, Ag, Cd, Ce, Gd, Lu, Hf, Hg, Cm, Lr and Rf — the
+six of the chromium class (Mn, Zn, Tc, Ag, Cd, Hg), where nature rearranges an already-open block
+and the chain, never moving an electron, cannot follow (the record makes the same scope statement,
+register 1701), and seven in the f blocks — at their edges and half-filled points — and the
+actinide openings. The chain's own configuration is
+identical to the observed one at 70 of 107. The derived opening sequence is the observed one in
+the same order — 5d at 57, 4f at 59, 6p at 81, 7s at 87, 6d at 89, 5f at 91, 7p at 113, 8s at
+119 — differing in Z only at 4f (59 against 58) and 7p (113 against 103, lawrencium). Clause 1,
+smaller n+ℓ opens first, holds without exception. Clause 2 has **two** exceptions, 5d at 57 before
+4f at 59 and 6d at 89 before 5f at 91 — **lanthanum and actinium**, which are two of the record's
+three (La, Ac, Th); at thorium the entrant is **6d**, as the record has it, with 5f uncollapsed.
+Every g channel is offered at all 119 elements and sits within **2.5 × 10⁻⁶** Ha of −1/(2n²) —
+the record's "−1/(2n²) to storage precision", which the local field missed by 4 × 10⁻⁴,
+reproduced once the exchange is non-local (the record offers 5g at 65 elements, 6g at 70, 7g at
+57 and 8g at 28). The five smallest margins are Ce (5d over 4f by 0.0014 Ha), Pa (5f over 6d by
+0.0053), Y (4d over 5p by 0.0199), Ac (6d over 7p by 0.0204) and Db (6d over 7p by 0.0292).
 
-**At c → ∞.** **92 of 107**, with fifteen disagreements; identical configuration at 61 of 107.
-Clause 1 holds; clause 2 has two exceptions, 5d at 56 before 4f at 57 and 6d at 88 before 5f at
-89 — barium and radium take d in the non-relativistic field, by 0.0037 and 0.0067 Ha. At Z = 120
-the entrant is **6f**, and at Z = 119 8s wins over 7d by less than 10⁻⁴ Ha; the 5g channel
-departs from −1/(2n²) by 0.21 Ha at the top of the range, which is its collapse beginning in the
-non-relativistic local field.
+Three rows did not converge, and the table records them as such: **Ts, Og and Ubn**, at 7p⁴, 7p⁵
+and 8s¹, with residuals of 6.4 × 10⁻⁷, 6.1 × 10⁻⁶ and 1.5 × 10⁻⁶ against a tolerance of 10⁻⁷.
+At each the eigenvalues are still to 10⁻⁸ and every overlap is below 2 × 10⁻⁷; the residual sits
+in one deep closed shell's equation — at Ts the 2p, whose multiplier against the open 7p is
+−575 Ha — and repeats sweep after sweep. The mechanism is the one the rotation release names:
+under the Koelling–Harmon operator each orbital's kinetic term is taken at its own energy, so the
+coupled equations of one ℓ are not a single Hermitian problem and the orthogonal solution and
+the energy-stationary one disagree by a residual that no mixing removes (at Ubn the rotation was
+released at sweep 21 with the two 2.0 × 10⁻² rad apart). The same three configurations converge
+in 17, 17 and 18 sweeps at c → ∞, where the operator is one. The entrant margins at the three
+rows are 0.158, 0.280 and 0.236 Ha, four to five orders above the residual; the rows stand, marked
+`converged = no` with the residuals in `note`, and they are not repaired.
 
-**The two settings against each other.** The entrants differ at **7** elements: Ba (6s | 5d),
-Lu (5d | 6s), Ra (7s | 6d), Ac (6d | 5f), Lr (5f | 6d), Cn (6d | 7s) and Ubn (8s | 6f). Register
-1706's eleven are Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf. **Two** are displaced here too, Lu
-and Lr; **nine** are not; **five** are displaced here and not in the record. At Th the entrant is
-5f at both settings — the null-difference control the Löwdin reply asked the site to carry holds,
-but by a route the record does not have: the record's entrant at Th is 6d, surviving by path
-while the competition inverts; here 5f is collapsed at both settings and wins by 0.061 and 0.044
-Ha. The record's Mn, Zn, Ag, Cd and Hg displacements cannot occur in this chain: 4s, 5s and 6s are
-full by the time the d block opens at both settings, since the s channel wins at Ca by 0.027 and
-0.022 Ha and at Sr by 0.062 and 0.048. For the record's twin to file silver under 5s, its
-non-relativistic chain must have taken 4d before 5s at rubidium or strontium; Λ_cinf is not held,
-so which it did is not decidable here.
+**Hartree–Fock at c → ∞.** **96 of 107**, with eleven disagreements — the chromium six, Gd, Lu,
+Th (5f against 6d), Cm and Lr; identical configuration at 76 of 107. The openings are the
+observed ones in the observed order, differing only at 5f (90 against 91) and 7p; clause 2 has
+the same two exceptions, La and Ac. The g channels sit within 7.1 × 10⁻⁶ of −1/(2n²). At Z = 120
+the entrant is **7d** over 8s by 0.0034 Ha, the smallest margin at this setting, and 8s wins 7d at
+119 by 0.0200; the others of the five are Ra (7s over 6d by 0.0175), Ba (6s over 5d by 0.0273)
+and Fr (7s over 7p by 0.0308).
 
-None of this is a finding against the record. The record's construction scored 107 of 107 in a
-Hartree–Fock field with a derived collapse criterion; this one scores 96 of 107 in a local-exchange
-field without one, and the difference is concentrated at the f openings and the s–d competitions,
-which is what the exchange bias predicts. What the reconstruction establishes is narrower and
-worth having: the record's algorithm, as stated, run with the record's equation and one constant,
-reproduces the ordering clause and the period structure in a field one can build in an afternoon,
-and its disagreements with the record are named row by row with the margin at each.
+**The two settings against each other, in the record's field.** The entrants differ at **5**
+elements: Ce (5d | 4f), Hf (4f | 5d), Th (6d | 5f), Rf (5f | 6d) and Ubn (8s | 7d). Register
+1706's eleven are Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf. **One** is displaced here too,
+**Rf**; ten are not; four are displaced here and not in the record. At Th the entrant is **6d at
+c = 137.035999 and 5f at c → ∞**: the record's own c = 137 entrant, and the record's own
+statement that the competition inverts at c → ∞ — what this field lacks is the path clause by
+which the record's entrant survives the inversion (register 1703's collapse criterion, which no
+field here has), so here the entrant follows the competition. The record's Mn, Zn, Ag, Cd and Hg
+displacements cannot occur in this chain at either setting: the s channel wins at Ca by 0.058
+and 0.057 Ha, at Sr by 0.072 and 0.051 and at Ba by 0.047 and 0.027, so 4s, 5s and 6s are full
+by the time each d block opens (in the local field the same holds at Ca and Sr, by 0.027 and
+0.022 and by 0.062 and 0.048, while barium takes 5d at c → ∞ by 0.0037). For the record's twin to file silver under 5s, its non-relativistic chain must have taken
+4d before 5s at rubidium or strontium; Λ_cinf is not held, so which it did is not decidable here.
+
+**Local exchange at c = 137.035999.** **96 of 107**, with eleven disagreements — Mn, Zn, Tc, Ag,
+Cd, La, Gd, Hg, Th, Cm and Lr; identical configuration at 84 of 107. Clause 1 holds; clause 2
+has **one** exception, 6d at 89 before 5f at 90: the local field opens 4f at 57 with no lanthanum
+exception and 5d only at 71, and takes 5f at thorium where the record takes 6d. The g channels
+sit within 4.2 × 10⁻⁴ of −1/(2n²), the residual being penetration of the ion's outer shells by
+the g orbital's inner lobe in a local field. The five smallest margins are Ba (6s over 5d by
+0.0248 Ha), Ca (0.0272), Cs (0.0488), Ac (0.0555) and Th (0.0614).
+
+**Local exchange at c → ∞.** **92 of 107**, fifteen disagreements, identical configuration at 61
+of 107; clause 2 has two exceptions, 5d at 56 and 6d at 88, barium and radium taking d by 0.0037
+and 0.0067 Ha. At Z = 120 the entrant is 6f, and the 5g channel departs from −1/(2n²) by 0.21 Ha
+at the top of the range: the g collapse beginning in a local field.
+
+**The two settings against each other, in the local field.** The entrants differ at **7**: Ba
+(6s | 5d), Lu (5d | 6s), Ra (7s | 6d), Ac (6d | 5f), Lr (5f | 6d), Cn (6d | 7s) and Ubn (8s | 6f);
+**two** of the record's eleven, Lu and Lr; five displaced here and not in the record. At Th the
+entrant is 5f at both settings — the null-difference control holds, but by a route the record
+does not have, 5f collapsed at both.
+
+**The two fields against each other at c = 137.035999.** The entrants differ at **6** elements —
+La, Ce, Lu, Hf, Th and Rf — every one at an f-block boundary or an actinide opening, which is
+where local exchange's stronger binding of compact d and f channels acts. Going from the local
+field to the record's moves the lanthanum exception into place, moves thorium to 6d, restores
+the g channels to −1/(2n²), moves the displaced set from Lu and Lr to Rf, and costs two rows at
+Ce and Hf.
+
+None of this is a finding against the record. The record's construction scored 107 of 107 with a
+derived collapse criterion; this one scores 94 and 96 in the record's own field without one, and
+its disagreements are the chromium class the record itself excludes plus the f-block edges where
+the criterion decides. What the reconstruction establishes is narrower and worth having: the
+record's algorithm, as stated, run with the record's equation, the record's field and one
+constant, reproduces the ordering clause, the period structure, the lanthanum and actinium
+exceptions, the thorium entrant and the g-channel storage precision, and every disagreement with
+the record is named row by row with the margin at each.
+
+**How the Hartree–Fock rows were assembled.** Each Hartree–Fock setting ran as two chain
+segments on separate cores: one from Z = 2 and one seeded at Z = 60 with the local-exchange
+chain's configuration there. A chain step depends on cfg(Z − 1) alone, so a segment's rows are the
+chain's own from the first Z at which its configuration equals the chain's: at c = 137.035999
+the two coincide from Z = 73, at c → ∞ from Z = 62, and the table holds the first segment to 72
+and 61 and the second from there. The seed rows themselves were dropped. About three hours per
+setting.
 
 ## How to run it
 
@@ -211,9 +266,12 @@ JSON. `--report --json` is what `tools/webindex.py` and `tools/docfigures.py` re
 
 `tools/webindex.py` reads `LOWDIN-WALK.tsv` into `public/data/index.js` as
 `relativistic.walk` — the table's md5, the summary above as data, one entrant per Z per setting —
-and puts each element's two rows, spectra included, into its element file; the six functions of
-the instrument travel verbatim in `instruments` as `walk_*`, RECONSTRUCTED. The page draws the
-reconstruction's displaced elements with a hollow corner mark apart from the record's filled one,
+and puts each element's four rows, spectra included, into its element file; the ten functions of
+the instrument travel verbatim in `instruments` as `walk_*`, RECONSTRUCTED. The Hartree–Fock
+field is the primary — the record's own — and the local-exchange field stands beside it, both
+carried whole. The page draws the
+Hartree–Fock reconstruction's displaced elements with a hollow corner mark apart from the record's
+filled one,
 the element plate carries "The walk, reconstructed" beside "Relativistic limit", the console
 answers `walk <El>`, and the seventh solver mode gains `walk` and `compare` operations while its
 `recompute` still refuses the record's table and names the reconstruction beside it. See
@@ -224,6 +282,6 @@ answers `walk <El>`, and the seventh solver mode gains `walk` and `compare` oper
 It is not Λ_chain, Λ_cinf, or any object of the Löwdin delivery, and it is not a member. It writes
 to none of `method/`, `drive/`, `extracted/` or `recovered/`. Its output is generated —
 regenerate, never hand-edit — and its statuses are never flattened: a reader who quotes a
-figure from `LOWDIN-WALK.tsv` quotes a RECONSTRUCTED figure. A Hartree–Fock field, with the
-record's non-local exchange, is the build that would let the comparison be made in the record's
-own field; it is not attempted here, and nothing above should be read as if it had been.
+figure from `LOWDIN-WALK.tsv` quotes a RECONSTRUCTED figure. The Hartree–Fock field is a
+rebuild from the record's statement of its equations, not the record's code, and its three
+unconverged rows are recorded as such rather than repaired or relaxed into `converged = yes`.

@@ -112,8 +112,9 @@ it, each with a real contract and a self-check.
   [`docs/POPULATE.md`](docs/POPULATE.md).
 * [`tools/lowdin_walk.py`](tools/lowdin_walk.py) — the Löwdin solution's entrant walk,
   **reconstructed**: the record's own chain (`THE-LOWDIN-SOLUTION-2.md` §II.2) with the
-  Koelling–Harmon equation and one constant, run in a local-exchange field — not the record's
-  Hartree–Fock, whose code never arrived — at c = 137.035999 and c → ∞, into
+  Koelling–Harmon equation and one constant, run in the record's own average-of-configuration
+  Hartree–Fock field (rebuilt from its statement; the record's code never arrived) and in a
+  local-exchange field beside it, at c = 137.035999 and c → ∞, into
   [`LOWDIN-WALK.tsv`](LOWDIN-WALK.tsv). Every value is RECONSTRUCTED and placed beside the record's
   READ result, never in its place; its selftest is exact hydrogenic and Dirac levels plus a
   deliberate failure mode. See [`docs/LOWDIN-WALK.md`](docs/LOWDIN-WALK.md).
