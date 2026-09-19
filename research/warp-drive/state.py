@@ -239,6 +239,37 @@ DOCKETS = (
      "It also closes DOCKET 28's trap: SU(2)_2 carries h = 3/16 and the real "
      "Moore-Read state carries 1/16, so that chart had the wrong PHYSICS as "
      "well as the wrong shape."),
+    ("33", "CLOSED-WITH-A-CORRECTION",
+     "M: \"seat that sweep as an instrument ... run all candidates. Leave no "
+     "stone unturned. And if any sublattice may possibly contain its own "
+     "sublattice, we must seek a determination.\"",
+     "subpop.py seats the MEMBER sub-population sweep -- every sweep before it "
+     "varied COLUMNS (DOCKET 25 over accessors, DOCKET 29 over all 142 "
+     "coordinate subsets), and DOCKET 31 asked the member question without "
+     "naming it as a method. 143 sublattices found; TWO reach K4, the last "
+     "empty channel. One dissolves (madrule at l_d=0 holds a coordinate "
+     "constant, effective arity 2, statistics free). THE OTHER IS THE FIRST "
+     "ARITY-3 K4 THIS TREE HAS SEEN: the spin-4 mesons on (P, 2I, Q3), 10 "
+     "members, 9 cells, cell (4,5,3), statistics EARNED. IT STILL FAILS, and "
+     "for a NEW reason -- two of the ten carry no printed mass, so under the "
+     "parent's own reach the population is 7 cells at K5 at every cut and "
+     "never 9 at K4. K4 stays empty for a THIRD reason: a channel that lives "
+     "on members the table cannot place in a reach. THE RECURSION "
+     "DETERMINATION CORRECTED ITSELF: within the sweep's family there are 14 "
+     "strict containments and the longest chain is 2, which would have been "
+     "reported as the answer -- but enumerating EVERY subset of the three "
+     "indexes small enough gives chains of 5 (bosonqp), 6 (madrule) and 14 "
+     "(baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more than "
+     "the whole family sweep found). The depth-2 figure is about the FAMILY, "
+     "not the lattices. All candidates run: the chiral Goldstone sublattice is "
+     "real but a FULL PRODUCT BOX so its closure is free; the electroweak "
+     "eaten Goldstones land on three cells fundamental already holds, a "
+     "relabelling.",
+     "NOT DETERMINED for the eighteen indexes too large to enumerate -- the "
+     "family figure is a floor there, and too_large() names them. And NUCLEAR "
+     "ROTATIONAL BANDS were not run at all: a band's members are nuclear "
+     "excited states, gravity's 2J is from ATOMIC levels and AME2020 carries "
+     "masses, so it needs ENSDF -- a fetch nobody here has made."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
