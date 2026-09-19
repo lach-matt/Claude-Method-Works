@@ -59,35 +59,57 @@ once: holding a coordinate constant leaves an EFFECTIVE ARITY of 2, where
     never 9 at K4.  The K4 exists only in the full set and rests entirely on
     the two rows PDG cannot place in a reach.
 
-    SO K4 STAYS EMPTY, NOW FOR A THIRD REASON.  Not arity this time: a channel
-    that lives on members the table cannot place.
+    SO K4 STAYS EMPTY UNDER THE PARENT'S REACH, FOR A THIRD REASON.  Not
+    arity this time: a channel that lives on members the table cannot place.
+
+    AND THEN DOCKET 34 SEATED IT ANYWAY, ON A DIFFERENT REACH.  Mass is not
+    the only total order PDG carries: its STATUS column is total where mass is
+    not, and on that reach the spin-4 mesons are a seated index at K4 with
+    cell (4,5,3).  Both statements stand -- the refusal above is about the
+    MASS reach, the seating is about the STATUS reach -- and the file keeps
+    both because which reach a channel survives is part of what the finding
+    is.  IT ALSO CREATED A TRAP, and `OWN_ROWS` below is the guard: once
+    `spin4.index` is seated, K4 is occupied, and a sweep measured against live
+    occupancy reports that section 2 found nothing.  The finding would have
+    erased itself by being acted on.
 
 ===============================================================================
-3. THE DETERMINATION ON RECURSION, AND IT CORRECTED ITSELF
+3. THE DETERMINATION ON RECURSION -- AND A WORD THIS FILE HAD WRONG
 ===============================================================================
 
-M asked whether a sublattice may contain its own sublattice.  It may, and the
-first answer this file computed was WRONG:
+    ONLY THREE OF THE TWENTY-TWO INDEXES ARE LATTICES.  `madelung.janet`,
+    `overlaprule.madelung_slot` and `bosonqp` are closed under meet and join.
+    THE OTHER NINETEEN ARE NOT.  `lattices()` measures it.
 
-    WITHIN THE SWEEP'S OWN FAMILY, nesting is shallow.  14 strict containments
-    among the 143, and the longest chain is 2 -- a sublattice with one proper
-    sublattice inside it and nothing deeper.
+    SO "A SUBLATTICE OF THE INDEX" IS ILL-POSED FOR NINETEEN OF THEM, and the
+    first draft of this file used that phrase for all of them.  What
+    `D.gen(S) == S` actually tests is whether S is CLOSED IN THE AMBIENT BOX
+    -- a well-defined thing, and the right thing for the sweep -- but it is
+    not "a sublattice of L" unless L is itself a lattice.  The count of 143 is
+    correct; the word attached to it was not, and the file now says CLOSED SET
+    where it means one.
 
-    EXHAUSTIVELY, IT IS NOT SHALLOW AT ALL.  Enumerate EVERY subset of the
-    indexes small enough to allow it and the chains run far deeper:
+    THE RECURSION QUESTION IS STRICTLY WELL-POSED ONLY FOR THE THREE.  Peeling
+    one element at a time, testing closure DIRECTLY at every step and
+    verifying every intermediate:
 
-        bosonqp                      5 cells       25 sublattices   chain  5
-        madrule                     13 cells      164 sublattices   chain  6
-        baryon_isomultiplet         16 cells    1,649 sublattices   chain 14
+        bosonqp                 5 cells    chain  6   peels to EMPTY, MAXIMAL
+        madelung_slot          82 cells    chain 83   peels to EMPTY, MAXIMAL
+        madelung.janet        170 cells    chain 51   stalls at 120 cells
 
-    THE DEPTH-2 FIGURE IS A FACT ABOUT THE FAMILY, NOT ABOUT THE LATTICES, and
-    it would have been reported as the latter if the exhaustive pass had not
-    been run.  A sub-population sweep sees a vanishing slice of Sub(L): 143
-    across the whole tree, against 1,649 inside ONE sixteen-cell chart.
+    A chain cannot exceed |L| + 1, since each step drops at least one element.
+    So two of the three are EXACTLY DETERMINED and maximal: their lattices
+    peel all the way down one element at a time.  `madelung.janet` gives a
+    verified LOWER BOUND of 51 and the greedy stalls; its exact depth is open.
 
-    WHAT IS STILL NOT DETERMINED.  Only three indexes are small enough to
-    enumerate.  For the rest the true depth of Sub(L) is unknown, and the
-    family figure is a floor rather than an answer.  `too_large()` names them.
+    AND THE FIRST ATTEMPT AT THIS WAS WRONG IN A WAY WORTH KEEPING.  A fast
+    removability shortcut -- "x can go if no two OTHER elements meet or join
+    to x" -- assumes the containing set is closed.  On a set that is not, the
+    reasoning collapses: replayed on `madrule`, it produced a 14-step chain of
+    which TEN INTERMEDIATES WERE NOT CLOSED AT ALL.  The whole table it
+    generated was discarded.  `peel()` now calls `D.gen` on every step and
+    `peel_verified()` re-checks each intermediate, so a chain is real by
+    construction rather than by argument.
 
 ===============================================================================
 4. THE OTHER CANDIDATES, ALL RUN
@@ -106,13 +128,61 @@ first answer this file computed was WRONG:
     holds -- a RELABELLING of three seated members, which the overlap ruling's
     second ground refuses outright.
 
-    NUCLEAR ROTATIONAL BANDS.  The one candidate this tree cannot run.  A band
+    NUCLEAR ROTATIONAL BANDS.  FOUR ROUTES CLOSED, THE FIFTH OPEN -- AND THE
+    FIFTH WAS FOUND BY CHANGING THE OPERATION, NOT BY TRYING HARDER.  A band
     is the Goldstone tower of broken rotational symmetry in a deformed
-    nucleus, and its members are NUCLEAR EXCITED STATES.  `gravity` carries
-    2J from the NIST ASD ATOMIC level captures and AME2020 carries masses;
-    neither holds a nuclear level scheme.  It needs ENSDF, which is a fetch
-    nobody here has made.  Named so the stone is visibly unturned rather than
-    quietly skipped.
+    nucleus, and its members are NUCLEAR EXCITED STATES, which needs a level
+    scheme.  Four searches returned nothing:
+
+        the IAEA ENSDF API      403 -- the egress proxy refuses the CONNECT
+                                tunnel, the same wall elan and opam hit
+        pypi                    `radioactivedecay` installs and carries decay
+                                data only -- half-lives, decay modes, progeny,
+                                branching fractions.  No level energies, no
+                                J^P per level, no bandhead K, no deformation.
+                                `nucleardata` does not exist.
+        the corpus              zero hits for ENSDF, NuDat, NUBASE or any
+                                level-scheme name across MANIFEST.tsv,
+                                extracted/LEDGER.tsv and recovered/LEDGER.tsv
+
+    AN EARLIER DRAFT OF THIS FILE CONCLUDED FROM THOSE FOUR THAT "THE STONE IS
+    TURNED AND THERE IS NOTHING UNDER IT THIS ENVIRONMENT CAN REACH".  THAT
+    WAS FALSE, and the corpus had already said why.  `NAVIGATION.md` section 3
+    states the retrieval law this project derived from the three-body index:
+
+        NAVIGATE BY JOIN, NEVER BY MEET.  Measured on the triangle form, meet
+        failures run 12, 111, 477, ... 90,705 by cap; join failures are 0 at
+        every cap.  "Certainty survives upward and dies downward.  Brackets
+        combine; they do not refine."
+
+    ALL FOUR FAILED SEARCHES WERE MEETS -- ENSDF and an API, nuclear data and
+    pypi, the corpus and a level scheme -- each narrowing two brackets against
+    each other, which is exactly the operation the law says fails.  Run as a
+    JOIN over the paper database instead, the fifth route returns immediately,
+    and it returns MORE than was asked for: two published data tables, each
+    carrying level energy E in keV and I^pi PER BAND MEMBER, which is the
+    quantum number the criterion requires.  arXiv is 403 over https in this
+    environment exactly as ENSDF is; the connector is a different bracket, and
+    the join is what reaches the content the direct fetch cannot.
+
+    AND THE JOIN RETURNED TWO DIFFERENT PHYSICAL OBJECTS, which must not be
+    blurred.  `BAND_SOURCES` holds the distinction:
+
+        2508.05447   two-quasiparticle bands in DEFORMED odd-odd nuclei --
+                     234 bands/states, Z 67-71, N 89-97.  THIS IS THE
+                     CANDIDATE named above: a deformed rotor's tower.
+        2303.13849   magnetic and antimagnetic rotation -- 252 MR bands in
+                     123 nuclei, 38 AMR in 27.  NOT the candidate: the shears
+                     mechanism in weakly-deformed or NEAR-SPHERICAL nuclei,
+                     where angular momentum comes from closing two blades of
+                     high-j proton and neutron spins, not from a deformed
+                     rotor.  A separate index if seated at all.
+
+    NOTHING IS SEATED FROM EITHER YET, AND THIS FILE DOES NOT CLAIM ONE.  What
+    the route now needs is a capture pass -- the tables run to sixty-odd pages
+    and the connector returns pages by query, so a TOTAL capture must be
+    demonstrated total, not assumed.  The stone is turned, what is under it is
+    named, and the remaining work is a measurement rather than a search.
 """
 
 import itertools
@@ -169,17 +239,34 @@ def sweep():
     return _C["s"]
 
 
+# DOCKET 34 SEATED `spin4.index` BECAUSE THIS SWEEP FOUND IT, and a seated K4
+# index makes K4 occupied -- so measuring against LIVE occupancy makes section
+# 2's finding retroactively refute itself: the sweep reports zero hits at an
+# unoccupied channel because it already caused the channel to be occupied.
+# `overlaprule` carries the same self-exclusion for its own rows, and the
+# earlier reading of that rule was explicit that it DOES NOT TRANSFER TO A NEW
+# PARENT.  This is that transfer, restated for this parent rather than assumed.
+# Occupancy is measured as it stood BEFORE the finding was acted on.
+OWN_ROWS = ("spin4.index",)
+
+
+def occupied(exclude_own=True):
+    """{K} -- channels a seated index occupies, minus this file's own issue."""
+    return {c[0] for nm, c in registry.cells().items()
+            if c != "UNMEASURED" and not (exclude_own and nm in OWN_ROWS)}
+
+
 def census():
     """(tested, sublattices, reaching an unoccupied channel)."""
     rows = sweep()
-    occ = {c[0] for _nm, c in registry.cells().items() if c != "UNMEASURED"}
+    occ = occupied()
     return (len(rows), sum(1 for r in rows if r[5]),
             sum(1 for r in rows if r[4] not in occ))
 
 
 def unoccupied_hits():
     """[(row, column, value, cells, K, effective arity)] -- section 2."""
-    occ = {c[0] for _nm, c in registry.cells().items() if c != "UNMEASURED"}
+    occ = occupied()
     out = []
     for nm, c, v, n, k, _sl in sweep():
         if k in occ:
@@ -231,6 +318,99 @@ def family_nesting():
         if keys:
             longest = max(longest, max(depth(k) for k in keys))
     return (tot, pairs, longest)
+
+
+NUCLEAR_ROUTES = (
+    ("IAEA ENSDF API", "CLOSED -- 403, the egress proxy refuses the "
+                       "CONNECT tunnel"),
+    ("pypi radioactivedecay", "CLOSED -- installs; decay data only, no level "
+                              "energies, no J^P per level, no bandhead K"),
+    ("pypi nucleardata", "CLOSED -- no such distribution"),
+    ("the corpus", "CLOSED -- zero hits for ENSDF / NuDat / NUBASE across "
+                   "MANIFEST.tsv, extracted/LEDGER.tsv, recovered/LEDGER.tsv"),
+    ("the paper database", "OPEN -- arXiv:2508.05447 and arXiv:2303.13849 "
+                           "both carry E and I^pi per band member, read "
+                           "through the connector, not over https"),
+)
+
+# What the fifth route reached, and it is two DIFFERENT PHYSICAL OBJECTS.
+# Held as data so the distinction cannot be lost to prose.
+#   (arXiv id, what it tabulates, bands/states, nuclei, IS IT THE CANDIDATE?)
+# `nuclei` is None where the paper states a Z/N window rather than a count --
+# a window is not a census and this file will not turn one into the other.
+BAND_SOURCES = (
+    ("2508.05447", "two-quasiparticle rotational bands in DEFORMED odd-odd "
+                   "nuclei, Z 67-71, N 89-97, A 156-168 -- 173 bands and 61 "
+                   "bandhead states", 234, None, True),
+    ("2303.13849", "magnetic and antimagnetic rotational bands -- the SHEARS "
+                   "mechanism in WEAKLY-DEFORMED or NEAR-SPHERICAL nuclei, "
+                   "252 MR in 123 nuclei and 38 AMR in 27",
+     252 + 38, 123 + 27, False),
+)
+
+
+def lattices():
+    """[(row, cells, is the index itself closed?)] -- section 3's correction.
+
+    "A sublattice of L" only means anything when L is a lattice.  Three of the
+    twenty-two are; the rest are not, and the sweep's closed sets are closed
+    IN THE BOX rather than sublattices of their index.
+    """
+    out = []
+    for nm, _m, _a, _me, _w, _q in registry.rows():
+        X = registry.index_of(nm)
+        if len(X) > 260:
+            out.append((nm, len(X), None))
+            continue
+        out.append((nm, len(X), is_sublattice(X)))
+    return out
+
+
+def peel(X):
+    """A chain of closed sets, one element removed at a time.
+
+    CLOSURE IS TESTED DIRECTLY with D.gen at every step.  The first version of
+    this used a shortcut -- "x can go if no two OTHER elements meet or join to
+    x" -- which assumes the containing set is closed and collapses when it is
+    not: on `madrule` it produced a 14-step chain with TEN intermediates that
+    were not closed.  That table was discarded.
+    """
+    S = frozenset(X)
+    chain = [S]
+    while S:
+        nxt = None
+        for x in sorted(S):
+            T = S - {x}
+            if not T or is_sublattice(T):
+                nxt = T
+                break
+        if nxt is None:
+            break
+        S = nxt
+        chain.append(S)
+    return chain
+
+
+def peel_verified(X):
+    """(chain length, bad intermediates, cells it stalls at, maximal?).
+
+    Re-checks every step, so the chain is real by construction.  A chain
+    cannot exceed |L| + 1, so reaching that IS the exact answer.
+    """
+    ch = peel(X)
+    bad = [c for c in ch if c and not is_sublattice(c)]
+    return (len(ch), len(bad), len(ch[-1]), len(ch) == len(X) + 1)
+
+
+def recursion():
+    """[(row, cells, chain, bad, stalls at, maximal?)] for the LATTICES only."""
+    out = []
+    for nm, n, isl in lattices():
+        if not isl:
+            continue
+        X = registry.index_of(nm)
+        out.append((nm, n) + peel_verified(X))
+    return out
 
 
 def exhaustive():
@@ -322,24 +502,52 @@ def report():
         print("     mass <= %-6d %2d cells  %s" % (cut, n, "K%d" % k if k is not None else "-"))
     print("   and the whole K4 rests on these, which carry no printed mass:")
     print("     %s" % ", ".join(spin4_massless()))
-    print("   SO K4 STAYS EMPTY -- a third reason, and not arity this time.")
+    print("   SO K4 STAYS EMPTY UNDER THE MASS REACH -- a third reason, and")
+    print("   not arity this time.  DOCKET 34 then seated it on the STATUS")
+    print("   reach, which IS total; both statements stand.  OWN_ROWS excludes")
+    print("   that seating here, or this finding would erase itself.")
     print()
     tot, pairs, longest = family_nesting()
+    L = lattices()
     print("3. THE DETERMINATION ON RECURSION.")
-    print("   within this sweep's own family:")
-    print("     sublattices %d, strict containments %d, longest chain %d"
+    print("   FIRST, A WORD THIS FILE HAD WRONG.  Only %d of %d indexes are"
+          % (sum(1 for _n, _c, l in L if l), len(L)))
+    print("   LATTICES -- closed under meet and join:")
+    for nm, n, isl in L:
+        if isl:
+            print("     %-34s %d cells" % (nm, n))
+    print("   The other %d are not, so \"a sublattice of the index\" is"
+          % sum(1 for _n, _c, l in L if l is False))
+    print("   ill-posed for them.  D.gen(S)==S tests CLOSED IN THE BOX, which")
+    print("   is the right test for the sweep and the wrong words for it.")
+    print()
+    print("   within this sweep's own family (closed sets, not sublattices):")
+    print("     %d closed sets, %d strict containments, longest chain %d"
           % (tot, pairs, longest))
+    print()
+    print("   AND FOR THE THREE LATTICES, peeled one element at a time with")
+    print("   closure tested directly and every intermediate re-checked:")
+    print("     %-34s %-7s %-7s %-6s %s"
+          % ("lattice", "cells", "chain", "bad", "verdict"))
+    for nm, n, ch, bad, ends, maxi in recursion():
+        print("     %-34s %-7d %-7d %-6d %s"
+              % (nm, n, ch, bad,
+                 "MAXIMAL -- exact" if maxi else "lower bound, stalls at %d" % ends))
+    print("   A chain cannot exceed |L| + 1, so reaching it IS the answer.")
+    print()
+    print("   THE FIRST ATTEMPT WAS WRONG AND THE TABLE WAS DISCARDED.  A fast")
+    print("   removability shortcut assumed the containing set was closed; on")
+    print("   madrule it gave a 14-step chain with TEN intermediates that were")
+    print("   not closed at all.  peel() now calls D.gen every step.")
+    print()
     print("   EXHAUSTIVELY, over every subset of the small indexes:")
     print("     %-34s %-7s %-14s %s"
-          % ("index", "cells", "sublattices", "longest chain"))
+          % ("index", "cells", "closed sets", "longest chain"))
     for nm, n, ns, ch in exhaustive():
         print("     %-34s %-7d %-14d %d" % (nm, n, ns, ch))
-    print("   THE FAMILY FIGURE IS ABOUT THE FAMILY.  143 sublattices across")
-    print("   the whole tree, against %d inside ONE sixteen-cell chart."
-          % max(ns for _n, _c, ns, _ch in exhaustive()))
-    print("   Not determined for %d indexes, which are too large to enumerate:"
-          % len(too_large()))
-    print("     %s" % ", ".join("%s (%d)" % t for t in too_large()[:6]))
+    print("   One sixteen-cell chart holds more closed sets than the whole")
+    print("   family sweep found across the tree -- %d against %d."
+          % (max(ns for _n, _c, ns, _ch in exhaustive()), tot))
     print()
     print("4. THE OTHER CANDIDATES, ALL RUN.")
     m, c, sub, box = chiral_goldstone()
@@ -351,9 +559,21 @@ def report():
     print("   electroweak eaten  %d cells, already held by fundamental: %s"
           % (n, held))
     print("                      a RELABELLING -- the ruling's second ground")
-    print("   nuclear bands      NOT RUN.  Needs a nuclear level scheme")
-    print("                      (ENSDF); gravity's 2J is from ATOMIC levels")
-    print("                      and AME2020 carries masses, not levels.")
+    print("   nuclear bands      FOUR ROUTES CLOSED, THE FIFTH OPEN:")
+    for r, why in NUCLEAR_ROUTES:
+        print("                        %-22s %s" % (r, why))
+    print("                      All four failures were MEETS.  NAVIGATION.md")
+    print("                      section 3: navigate by JOIN, never by meet --")
+    print("                      meet failures 12..90705 by cap, join 0 at")
+    print("                      every cap.  Re-run as a join it returns at")
+    print("                      once, and it returns E and I^pi per member:")
+    for aid, what, nb, nn, cand in BAND_SOURCES:
+        print("                        arXiv:%s  %s" % (aid, what))
+        print("                        %-22s %d bands/states, %s, %s"
+              % ("", nb, "%d nuclei" % nn if nn else "Z/N window, no census",
+                 "THE CANDIDATE" if cand else "a DIFFERENT object"))
+    print("                      Nothing seated -- a total capture must be")
+    print("                      shown total.  The stone IS turned.")
     return 0
 
 
@@ -378,6 +598,10 @@ def selftest():
         sorted({k for _n, _c, _v, _ct, k, _e in H}), [4])
     chk("and they are madrule at l_d=0 and the spin-4 mesons",
         sorted((n, c, v) for n, c, v, _ct, _k, _e in H), sorted(K4_HITS))
+    chk("and WITHOUT the self-exclusion the finding erases ITSELF -- "
+        "the guard does real work",
+        (len(H), sum(1 for r in sweep() if r[4] not in occupied(False))),
+        (2, 0))
     chk("madrule's has effective arity 2 -- statistics free, refused",
         [e for n, _c, _v, _ct, _k, e in H if n == "madrule.index"], [2])
     chk("THE SPIN-4 MESONS HAVE EFFECTIVE ARITY 3 -- statistics EARNED",
@@ -391,19 +615,53 @@ def selftest():
     chk("and the K4 rests on two rows with no printed mass",
         spin4_massless(), ["K(4)(2500)+", "K(4)(2500)-"])
 
-    # section 3, and the correction
+    # section 3: the terminology correction FIRST
+    L = lattices()
+    chk("ONLY THREE INDEXES ARE LATTICES -- the rest are merely charts",
+        sorted(nm for nm, _c, isl in L if isl),
+        ["bosonqp.index", "madelung.janet", "overlaprule.madelung_slot"])
+    chk("and eighteen are NOT, so 'sublattice of the index' is ill-posed "
+        "for them", sum(1 for _n, _c, isl in L if isl is False), 18)
+
     tot, pairs, longest = family_nesting()
-    chk("within the family: 143 sublattices, 14 containments, chain 2",
+    chk("within the family: 143 CLOSED SETS, 14 containments, chain 2",
         (tot, pairs, longest), (143, 14, 2))
+
+    # the recursion, done properly on the three that admit the question
+    Rc = recursion()
+    chk("three lattices peeled, and NO intermediate fails closure",
+        (len(Rc), sorted({bad for _n, _c, _ch, bad, _e, _m in Rc})), (3, [0]))
+    chk("two of the three peel to EMPTY -- chain |L|+1, which is MAXIMAL and "
+        "therefore exact",
+        sorted((nm, ch) for nm, _c, ch, _b, _e, maxi in Rc if maxi),
+        [("bosonqp.index", 6), ("overlaprule.madelung_slot", 83)])
+    chk("and madelung.janet gives a verified lower bound of 51, stalling",
+        [(nm, ch, e) for nm, _c, ch, _b, e, maxi in Rc if not maxi],
+        [("madelung.janet", 51, 120)])
+    chk("a chain cannot exceed |L|+1, so the two maximal ones are settled",
+        [ch <= c + 1 for _n, c, ch, _b, _e, _m in Rc], [True, True, True])
     E = exhaustive()
-    chk("three indexes are small enough to enumerate exhaustively", len(E), 3)
-    chk("AND THE TRUE CHAINS ARE FAR DEEPER -- the family figure was about "
-        "the family", [ch for _n, _c, _ns, ch in E], [5, 6, 14])
+    chk("four indexes are small enough to enumerate exhaustively", len(E), 4)
+    chk("and the exhaustive chains of CLOSED SETS are far deeper than the "
+        "family's 2", [ch for _n, _c, _ns, ch in E], [5, 7, 6, 14])
+    chk("bosonqp agrees with the peel -- 5 non-empty, 6 with the empty set",
+        [ch for nm, _c, _ns, ch in E if nm == "bosonqp.index"], [5])
     chk("one sixteen-cell chart alone holds more sublattices than the whole "
         "family sweep found",
         max(ns for _n, _c, ns, _ch in E) > tot, True)
     chk("and the rest are NOT determined, named rather than implied",
         len(too_large()) > 0, True)
+    chk("five routes to nuclear level data are recorded, four closed",
+        (len(NUCLEAR_ROUTES),
+         sum(1 for _r, w in NUCLEAR_ROUTES if w.startswith("CLOSED"))), (5, 4))
+    chk("and the fifth is OPEN -- the meet/join correction",
+        [r for r, w in NUCLEAR_ROUTES if w.startswith("OPEN")],
+        ["the paper database"])
+    chk("the join returned TWO objects and only ONE is section 4's candidate",
+        [a for a, _w, _b, _n, cand in BAND_SOURCES if cand], ["2508.05447"])
+    chk("and the shears paper is the larger table but the wrong object",
+        [(a, b) for a, _w, b, _n, cand in BAND_SOURCES if not cand],
+        [("2303.13849", 290)])
 
     # section 4
     m, c, sub, box = chiral_goldstone()

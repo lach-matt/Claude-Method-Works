@@ -257,19 +257,30 @@ DOCKETS = (
      "on members the table cannot place in a reach. THE RECURSION "
      "DETERMINATION CORRECTED ITSELF: within the sweep's family there are 14 "
      "strict containments and the longest chain is 2, which would have been "
-     "reported as the answer -- but enumerating EVERY subset of the three "
-     "indexes small enough gives chains of 5 (bosonqp), 6 (madrule) and 14 "
-     "(baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more than "
-     "the whole family sweep found). The depth-2 figure is about the FAMILY, "
+     "reported as the answer -- but enumerating EVERY subset of the four "
+     "indexes small enough gives chains of 5 (bosonqp), 7 (spin4), 6 (madrule) "
+     "and 14 (baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more "
+     "than the whole family sweep found). The depth-2 figure is about the FAMILY, "
      "not the lattices. All candidates run: the chiral Goldstone sublattice is "
      "real but a FULL PRODUCT BOX so its closure is free; the electroweak "
      "eaten Goldstones land on three cells fundamental already holds, a "
      "relabelling.",
      "NOT DETERMINED for the eighteen indexes too large to enumerate -- the "
-     "family figure is a floor there, and too_large() names them. And NUCLEAR "
-     "ROTATIONAL BANDS were not run at all: a band's members are nuclear "
-     "excited states, gravity's 2J is from ATOMIC levels and AME2020 carries "
-     "masses, so it needs ENSDF -- a fetch nobody here has made."),
+     "family figure is a floor there, and too_large() names them. NUCLEAR "
+     "ROTATIONAL BANDS were not run, and the reason this file first gave was "
+     "WRONG: four searches for a level scheme returned nothing (ENSDF 403, two "
+     "pypi dead ends, zero corpus hits) and subpop.py concluded there was "
+     "nothing this environment could reach. ALL FOUR WERE MEETS. NAVIGATION.md "
+     "section 3 -- the retrieval law this project derived from the three-body "
+     "index -- says navigate by JOIN, never by meet: meet failures run 12 to "
+     "90,705 by cap, join failures are 0 at every cap. Run as a join over the "
+     "paper database the fifth route returns at once, with E and I^pi PER BAND "
+     "MEMBER: arXiv:2508.05447 (234 two-quasiparticle bands in DEFORMED odd-odd "
+     "nuclei -- the candidate) and arXiv:2303.13849 (290 magnetic and "
+     "antimagnetic bands in 150 nuclei -- the SHEARS mechanism in NEAR-SPHERICAL "
+     "nuclei, a DIFFERENT object). arXiv is 403 over https here exactly as ENSDF "
+     "is; the connector is a different bracket and the join is what reached it. "
+     "NOTHING IS SEATED: what remains is a capture that must be shown total."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
@@ -663,9 +674,17 @@ def selftest():
     chk("K4 is reached by no chart at all", c["charts_per_channel"]["K4"], 0)
     chk("K5 by exactly one -- the retracted row",
         c["charts_per_channel"]["K5"], 1)
-    chk("and every channel the FIGURE occupies has at least one chart",
+    # DOCKET 34 broke the coincidence this fixture used to rest on.  The
+    # census counts CHARTS (DOCKET 25's unseated candidates); the figure
+    # counts SEATED INDEXES.  They agreed channel-for-channel until spin4 was
+    # seated at K4 on the PDG status reach, which no chart reaches.  That is
+    # not a drift -- it is the whole content of DOCKET 33 and 34.
+    chk("K4 is occupied by a SEATED INDEX and reached by NO CHART",
+        (4 in S["figure"]["channels_occupied"], c["charts_per_channel"]["K4"]),
+        (True, 0))
+    chk("and every OTHER channel the figure occupies has at least one chart",
         [k for k in S["figure"]["channels_occupied"]
-         if c["charts_per_channel"]["K%d" % k] == 0], [])
+         if k != 4 and c["charts_per_channel"]["K%d" % k] == 0], [])
     chk("the census names its own artifacts",
         len(c["artifacts_of_the_census"]) > 0, True)
     chk("markdown renders without raising", bool(to_markdown(S)), True)

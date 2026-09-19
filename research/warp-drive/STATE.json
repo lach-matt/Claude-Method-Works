@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "ff45c1458c63",
+ "commit": "561fea909b1b",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 21,
+  "rows": 22,
   "indexes": [
    {
     "name": "fibred.index",
@@ -593,12 +593,46 @@
      "why": "COMPUTED from the Z_k parafermion closed form -- Zamolodchikov and Fateev (1985); Moore and Read, Nucl. Phys. B 360, 362 (1991); Read and Rezayi, Phys. Rev. B 59, 8084 (1999).  No table is read.  The weights are validated against the two values the literature fixes: the Ising sigma at h = 1/16 and the Fibonacci tau at h = 2/5.",
      "paths": []
     }
+   },
+   {
+    "name": "spin4.index",
+    "module": "spin4",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "spin4",
+    "members": "10 spin-4 mesons, two of them without a printed mass",
+    "quantum": "P, 2I, Q3",
+    "cells": 9,
+    "cell": [
+     4,
+     5,
+     3
+    ],
+    "channel": 4,
+    "languages": [
+     "information",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "Read from `mesons.rows()`, the seated meson index, which reads captures/PDG-2026.tsv.  The PDG status used as the reach comes from the same capture.  Nothing is written down here.",
+     "paths": [
+      {
+       "path": "research/warp-drive/captures/PDG-2026.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 33555,
+       "files": 1,
+       "md5": "53a5b67b4dfe12c782635191ca9e1fd0"
+      }
+     ]
+    }
    }
   ]
  },
  "figure": {
-  "vertices": 21,
-  "distinct_cells": 21,
+  "vertices": 22,
+  "distinct_cells": 22,
   "closers": [],
   "own_cell": [
    0,
@@ -606,36 +640,35 @@
    10
   ],
   "own_cell_occupied_by": [],
-  "E": 292,
+  "E": 348,
   "channels_occupied": [
    0,
    1,
    2,
    3,
+   4,
    5,
    6,
    7
   ],
-  "channels_empty": [
-   4
-  ],
+  "channels_empty": [],
   "resolution": {
    "K": {
-    "distinct": 7,
-    "of": 21,
-    "ratio": 0.3333,
+    "distinct": 8,
+    "of": 22,
+    "ratio": 0.3636,
     "verdict": "measurement"
    },
    "height": {
-    "distinct": 14,
-    "of": 21,
-    "ratio": 0.6667,
+    "distinct": 15,
+    "of": 22,
+    "ratio": 0.6818,
     "verdict": "measurement"
    },
    "width": {
-    "distinct": 16,
-    "of": 21,
-    "ratio": 0.7619,
+    "distinct": 17,
+    "of": 22,
+    "ratio": 0.7727,
     "verdict": "measurement"
    }
   },
@@ -769,6 +802,7 @@
      "tl"
     ],
     "failed": [
+     "novel channel",
      "reach stable"
     ]
    },
@@ -779,6 +813,7 @@
      "l_d"
     ],
     "failed": [
+     "novel channel",
      "reach stable"
     ]
    },
@@ -934,8 +969,8 @@
    "id": "33",
    "status": "CLOSED-WITH-A-CORRECTION",
    "question": "M: \"seat that sweep as an instrument ... run all candidates. Leave no stone unturned. And if any sublattice may possibly contain its own sublattice, we must seek a determination.\"",
-   "finding": "subpop.py seats the MEMBER sub-population sweep -- every sweep before it varied COLUMNS (DOCKET 25 over accessors, DOCKET 29 over all 142 coordinate subsets), and DOCKET 31 asked the member question without naming it as a method. 143 sublattices found; TWO reach K4, the last empty channel. One dissolves (madrule at l_d=0 holds a coordinate constant, effective arity 2, statistics free). THE OTHER IS THE FIRST ARITY-3 K4 THIS TREE HAS SEEN: the spin-4 mesons on (P, 2I, Q3), 10 members, 9 cells, cell (4,5,3), statistics EARNED. IT STILL FAILS, and for a NEW reason -- two of the ten carry no printed mass, so under the parent's own reach the population is 7 cells at K5 at every cut and never 9 at K4. K4 stays empty for a THIRD reason: a channel that lives on members the table cannot place in a reach. THE RECURSION DETERMINATION CORRECTED ITSELF: within the sweep's family there are 14 strict containments and the longest chain is 2, which would have been reported as the answer -- but enumerating EVERY subset of the three indexes small enough gives chains of 5 (bosonqp), 6 (madrule) and 14 (baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more than the whole family sweep found). The depth-2 figure is about the FAMILY, not the lattices. All candidates run: the chiral Goldstone sublattice is real but a FULL PRODUCT BOX so its closure is free; the electroweak eaten Goldstones land on three cells fundamental already holds, a relabelling.",
-   "what_would_settle_it": "NOT DETERMINED for the eighteen indexes too large to enumerate -- the family figure is a floor there, and too_large() names them. And NUCLEAR ROTATIONAL BANDS were not run at all: a band's members are nuclear excited states, gravity's 2J is from ATOMIC levels and AME2020 carries masses, so it needs ENSDF -- a fetch nobody here has made."
+   "finding": "subpop.py seats the MEMBER sub-population sweep -- every sweep before it varied COLUMNS (DOCKET 25 over accessors, DOCKET 29 over all 142 coordinate subsets), and DOCKET 31 asked the member question without naming it as a method. 143 sublattices found; TWO reach K4, the last empty channel. One dissolves (madrule at l_d=0 holds a coordinate constant, effective arity 2, statistics free). THE OTHER IS THE FIRST ARITY-3 K4 THIS TREE HAS SEEN: the spin-4 mesons on (P, 2I, Q3), 10 members, 9 cells, cell (4,5,3), statistics EARNED. IT STILL FAILS, and for a NEW reason -- two of the ten carry no printed mass, so under the parent's own reach the population is 7 cells at K5 at every cut and never 9 at K4. K4 stays empty for a THIRD reason: a channel that lives on members the table cannot place in a reach. THE RECURSION DETERMINATION CORRECTED ITSELF: within the sweep's family there are 14 strict containments and the longest chain is 2, which would have been reported as the answer -- but enumerating EVERY subset of the four indexes small enough gives chains of 5 (bosonqp), 7 (spin4), 6 (madrule) and 14 (baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more than the whole family sweep found). The depth-2 figure is about the FAMILY, not the lattices. All candidates run: the chiral Goldstone sublattice is real but a FULL PRODUCT BOX so its closure is free; the electroweak eaten Goldstones land on three cells fundamental already holds, a relabelling.",
+   "what_would_settle_it": "NOT DETERMINED for the eighteen indexes too large to enumerate -- the family figure is a floor there, and too_large() names them. NUCLEAR ROTATIONAL BANDS were not run, and the reason this file first gave was WRONG: four searches for a level scheme returned nothing (ENSDF 403, two pypi dead ends, zero corpus hits) and subpop.py concluded there was nothing this environment could reach. ALL FOUR WERE MEETS. NAVIGATION.md section 3 -- the retrieval law this project derived from the three-body index -- says navigate by JOIN, never by meet: meet failures run 12 to 90,705 by cap, join failures are 0 at every cap. Run as a join over the paper database the fifth route returns at once, with E and I^pi PER BAND MEMBER: arXiv:2508.05447 (234 two-quasiparticle bands in DEFORMED odd-odd nuclei -- the candidate) and arXiv:2303.13849 (290 magnetic and antimagnetic bands in 150 nuclei -- the SHEARS mechanism in NEAR-SPHERICAL nuclei, a DIFFERENT object). arXiv is 403 over https here exactly as ENSDF is; the connector is a different bracket and the join is what reached it. NOTHING IS SEATED: what remains is a capture that must be shown total."
   }
  ],
  "not_claimed": [
