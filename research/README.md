@@ -12554,3 +12554,165 @@ is arity 2, and the only way to give it a third axis is to chart `(2I, π, ΔI)`
 itself. So the earlier claim *"every seated index now has a rendering, and every rendering has a
 3-D view"* holds in its first half and **no longer holds in its second**. Drawing a third axis that
 the index does not have would have been a picture of a chart nobody seated.
+
+## `bonds.py`, `predict.py`, `ghosts.py` — what the register predicts, and the law that decides how much of it is real
+
+Three passes, asked in three sentences, and the third one turned into a theorem that governs the
+other two.
+
+### `bonds.py` — DOCKET 37: can a bond be indexed? Three readings, three noes, three grounds
+
+M: *"Can we also derive an index or indexes of chemical, atomic, and particle bonds?"* The criterion
+in `registry.py` is that **a member must carry quantum numbers of its own**, and a bond is measured
+three ways here, each refused on its own measured ground and none on the criterion twice:
+
+- **the chemical bond** — σ/π/δ is the *symmetry* of a molecular orbital, so what carries the quantum
+  numbers is the orbital, not the bond; `sigma_terms_from_pi2()` measures the classic π² → (³Σ⁻, ¹Δ,
+  ¹Σ⁺) decomposition and the terms belong to the *configuration*.
+- **the nuclear/atomic bond** — binding energy is a magnitude, not a quantum number, and
+  `basis_spread()` shows the candidate coordinates are basis-set artefacts (5 → 10 → 110).
+- **the scattering channel** — `partial_waves(3)` gives 14 channels at J ≤ 3 and they are *already*
+  the (J, P) index; charting them again is the overlap ruling's second ground, a relabelling.
+
+`channels_exhausted()` closes it: all eight lawful channels are already occupied, so even a chart
+that survived the criterion would earn no position. **14 fixtures, stdlib only.**
+`python3 research/warp-drive/bonds.py --selftest`
+
+### `predict.py` — DOCKET 38: E per seated index, and why E is an upper bound
+
+§25.6 says the number of predictions an index can make is E(X). `demand.py` computed E for the
+*figure*; it had never been computed for the seated indexes. Measured over all twenty-two that close
+(`gravity`, at 914 cells, does not and is named rather than dropped): **3,206 cells the register's own
+join-closure demands and no member occupies**, led by baryons 1,012, readrezayi 678, channels 367.
+Sixteen indexes predict; six are complete. The split is exact — every E = 0 index closes under
+INFORMATION and every E > 0 index does not — and that is near-definitional, so it is stated as such
+and not as a result.
+
+The result is the second half. **An E cell is not a prediction until it is adjudicated**, and the
+first cell examined was neither forbidden nor open: `(2J, P, 2I, Q3) = (2, −1, 0, 3)` is the D_s slot,
+and **D_s\*(2112)+ exists** — the capture simply carries it with no parity. So E splits three ways:
+FORBIDDEN (a bound rules it out), **UNPLACED** (the object exists and the *source* gives it no
+coordinates), OPEN (a real prediction). `python3 research/warp-drive/predict.py --selftest`
+
+### `ghosts.py` — DOCKET 39: the bound per index, UNPLACED separated from OPEN, and seven laws
+
+M: *"Do the bound per index and separate UNPLACED from OPEN. Derive all you can, including proofs,
+theorems, and laws."* Both halves are done. The first half came back **mostly negative, and the
+reason is a theorem rather than a shortage of physics.**
+
+**LAW 1 — PROJECTION.** π_i(J(X)) = π_i(X): the join is componentwise max, and max(a,b) ∈ {a,b}, so
+the demand never invents a coordinate value. **No single-coordinate bound can forbid anything.**
+Measured: of 1,012 demanded baryon cells, **zero** carry an even 2J.
+
+**LAW 2 — MAX-STABILITY.** If X ⊆ B and B is closed under componentwise max then J(X) ⊆ B. J(X) is
+the least max-closed set containing X.
+
+**LAW 3 — MONOTONE VACUITY.** A bound `x_i ≤ f(x_j…)` with f non-decreasing is max-closed, hence
+forbids nothing. *Proof:* c_i = max(a_i,b_i) = a_i ≤ f(a_j) ≤ f(c_j). **This is the finding.** Every
+atomic and nuclear bound in this tree has exactly that shape — ℓ ≤ n−1 (the radial node count
+n−ℓ−1 ≥ 0), k ≤ 2(2ℓ+1) (Pauli), q ≤ k, ℓ = 0 ⇒ σ = +1 (j = ℓ ± ½ and j ≥ 0), occ ≤ Pauli-through-S_a
+— all five are real theorems, all five hold on **every** seated member with zero violations, and
+**all five forbid nothing**. A sixth was sought at the largest of the undecided indexes and found:
+Russell–Saunders gives a singlet one level, so `mult = 1 ⇒ the term is not SHORT` on `terms`. It is
+monotone too. Not "nothing was found": nothing *can* be found. `max_closed()` verifies
+the hypothesis by exhaustion over each index's own product box rather than reading it off the algebra.
+
+**LAW 4 — WHAT CAN FORBID.** Only a bound that is antitone somewhere, or carries a congruence. **One
+qualifies in this tree and it qualifies twice over: Gell-Mann–Nishijima on the baryons**, which has
+an absolute value *and* a mod-2 congruence. It forbids **593 of the 1,012** demanded baryon cells —
+**58.6 % of the largest prediction set in the register, emptied by theorem.**
+
+**LAW 5 — COORDINATE EXPRESSIBILITY.** A bound B(c, v) on a cell and a hidden variable forbids c iff
+*no* v satisfies it. Worked both ways:
+
+> **Theorem.** Every (J, P) with J a non-negative integer and P = ±1 is realised by some qq̄ (L, S).
+> *Proof, four cases.* P = −1 needs L even: J even → (L,S) = (J,0); J odd → (J−1, 1); J = 0 forces
+> L = S, and L = S = 0 gives 0⁻. P = +1 needs L odd: J odd → (J,0); J even ≥ 2 → (J−1,1); J = 0 gives
+> L = S = 1, i.e. 0⁺. ∎
+
+So **the quark model forbids no cell of the meson index.** The famous exotics — 0⁻⁻, 0⁺⁻, 1⁻⁺, 2⁺⁻ —
+are forbidden in J^PC, and **C is not a coordinate**: `mesons.py` refused it for totality, 168 of 250
+mesons carrying no C at all. The refusal was right and it has a price, and this is the first time the
+price is measured. **A coordinate refused for totality is adjudication power given up.**
+
+**LAW 6 — ADJUDICATION IS RELATIVE TO THE OPERATOR, and this corrects DOCKET 38.** `predict.py` cited
+the element layer's "E = 36, split 25 forbidden + 11 deferred" as the precedent without saying that
+the 36 is an **order** deficit while all 3,206 are **join** deficits — `tools/cypher.py`'s own fixture
+reads `("periodic table 2-D", {"order": 36})`. Measured on those same 90 cells: **E_join = 0,
+E_order = 36**, and ℓ ≤ n−1 forbids **25** of the order ghosts and **0** of the join ghosts. Law 3 says
+it could never have been otherwise. The three bins survive intact; the precedent is re-attributed,
+and the note is recorded inside `predict.py` rather than tidied away.
+
+**LAW 7 — FORBIDDING POWER IS A PROPERTY OF THE CHART, NOT THE BOUND.** The same ℓ ≤ n−1 forbids 25
+cells on (period, group), 0 on (n, ℓ, k) and 0 on (n+ℓ, ℓ, k). **And the caution is sharper than the
+law:** DOCKET 2 *withdrew* the 2-D layout as over-representation, and it is exactly the chart on which
+the bound has teeth. A chart that can forbid is not thereby a better chart.
+
+#### Gell-Mann–Nishijima is not assumed here — it is measured off the quark strings
+
+`gmn_from_quarks()` rebuilds all three legs from the capture's own quark content, importing no
+textbook value: charge from the quark charges, I₃ = (n_u − n_d)/2, and the identity Q − I₃ = Y/2.
+**Baryons: 292 rows, 292 parse, 292/292 on all three legs, no exception.** Mesons: 250 rows, **191
+parse** (59 are flavour mixtures — which is exactly *why* `mesons.py` could not chart S, C and B, and
+therefore why the bound is inexpressible there), charge 191/191, identity 191/191, **and the isospin
+weight fails twice.**
+
+> **A fault in the capture, found by a bound rather than by re-reading the source.**
+> `B(s2)*(5840)0` and its antiparticle carry quark content `sB` with I2 = 1, while the *same* content
+> on `B(s)0` and `B(s)*0` carries I2 = 0 in the same file (`captures/PDG-2026.tsv` lines 370–372,
+> 452–454). An s-b̄ pair holds no u or d, so I₃ = 0 and I = ½ has no weight to sit on.
+> **Recorded, not repaired** — and `bs2_consequence()` measures what it costs: with I2 = 0 on both
+> rows the meson index is 66 cells, E = 15, cell (0, 10, 14) — *identical* before and after, because
+> both (4,1,1,0) and (4,1,0,0) are already occupied. The fault is real and demonstrably inconsequential
+> here, and neither half of that is asserted without the number.
+
+#### UNPLACED separated from OPEN, and the separator is a rule
+
+> A demanded cell **c** is **UNPLACED** iff the index's own source holds a row the module declined to
+> chart which supplies **arity − 1** of the coordinates and agrees with c on every one of them.
+
+The strength condition is the whole rule: a row missing one coordinate names a line and pins each
+cell on it; a row missing two names a plane and pins nothing. Without it, four thousand unparsed NIST
+term labels would "explain" every empty cell in `terms`.
+
+| index | E | FORBIDDEN | UNPLACED | OPEN | what pins |
+|---|---|---|---|---|---|
+| baryons | 1012 | **593** | 8 | 411 | 14 rows with no P (Ξ, Ω) |
+| readrezayi | 678 | 0 | 0 | 678 | source gapless |
+| channels | 367 | 0 | **23** | 344 | 25 rows with a non-integer B |
+| ions | 296 | 0 | 0 | 296 | source gapless |
+| laws | 254 | 0 | 0 | 254 | 13 dropped, none pins a cell |
+| fibred | 140 | 0 | 0 | 140 | source gapless |
+| probability | 112 | 0 | 0 | 112 | source gapless |
+| terms | 98 | 0 | — | — | **UNDECIDED** |
+| fqh | 71 | 0 | 0 | 71 | source gapless |
+| observed | 56 | 0 | 0 | 56 | source gapless |
+| fundamental | 46 | 0 | 0 | 46 | source gapless |
+| inversion | 24 | 0 | 0 | 24 | source gapless |
+| madrule | 18 | 0 | 0 | 18 | source gapless |
+| mesons | 15 | 0 | **3** | 12 | 8 rows with no P (D, D_s) |
+| nucshell | 14 | 0 | 0 | 14 | source gapless |
+| nucbands | 5 | 0 | **2** | 3 | 93 levels with no parity |
+| **TOTAL** | **3,206** | **593** | **36** | **2,479** | **+ 98 UNDECIDED** |
+
+"Source gapless" is measured, not assumed: `gapless()` re-counts source rows against rows charted for
+all ten and requires equality. **Three UNPLACED meson cells are pinned by two objects, not three** —
+D_s2\*(2573)+ lacks only P, so it pins both (4,−1,0,3) and (4,+1,0,3) and will fill exactly one;
+`unplaced_objects()` counts objects beside cells so the two are never confused.
+
+**`terms` is the one refusal and its reason is exact.** 4,033 of 16,624 NIST rows carry a bracketed
+jK/jj/Racah label, which supplies neither `mult` nor `L` — two of four coordinates — so none can pin
+a cell. But `terms._load()` discards a refused row *without banking its term key*, so the tree cannot
+ask the one question that would settle it: **is there a term all of whose level rows were refused?**
+Such a term would supply mult, L and parity and lack only `completeness` — exactly strength
+arity − 1. **What would settle it: have the loader bank the refused rows' keys.** Until then 98 cells
+are UNDECIDED and are counted as neither.
+
+**What this refuses.** To call 2,479 a count of undiscovered objects. For the seven indexes with a
+derived bound the OPEN figure is **final against every monotone bound, by Law 3** — that is a proof,
+not a survey. For the eight with none derived it is open against nothing at all, and a bound found
+tomorrow may empty any of them. The two situations are different and are not summed into one
+adjective.
+
+**Reproduce:** `python3 research/warp-drive/ghosts.py --selftest` (the whole table is re-measured from
+the tree, not sampled) and `python3 research/warp-drive/ghosts.py` for the reading.

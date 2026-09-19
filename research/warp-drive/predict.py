@@ -47,6 +47,19 @@ l <= n-1 -- orbitals that cannot exist -- and 11 DEFERRED, real but filled
 elsewhere.  Register 448 rules the split.  An unadjudicated E is a count of
 QUESTIONS, not of objects.
 
+    CORRECTION, DOCKET 39.  THE TWO E's ARE MEASURED AGAINST DIFFERENT
+    OPERATORS AND THIS FILE DID NOT SAY SO.  The element layout's 36 is an
+    ORDER deficit -- `tools/cypher.py`'s own fixture reads ("periodic table
+    2-D", {"order": 36}) -- while every E in section 1 is an INFORMATION/join
+    deficit.  Measured on those same 90 cells the JOIN deficit is ZERO, and
+    l <= n-1 forbids 25 of the 36 order ghosts and none of the join ghosts,
+    of which there are none.  `ghosts.py` proves it could not have been
+    otherwise: a bound of the form x_i <= f(x_j) with f non-decreasing is
+    closed under componentwise max, so a join-closure can never leave it.
+    THE THREE BINS BELOW SURVIVE THE CORRECTION INTACT -- they are about what
+    an empty cell means, not about which operator emptied it -- and the
+    precedent is re-attributed rather than withdrawn.
+
 THE PARTICLE LAYER NEEDS A THIRD BIN, AND THIS FILE IS WHERE IT IS NAMED.
 Checking the smallest prediction set -- mesons, fifteen cells -- the very first
 cell examined was neither forbidden nor deferred:
@@ -91,6 +104,12 @@ number are unplaced, and the remainder -- only the remainder -- are open.
     that would land there if the source assigned it coordinates.  The D_s* case
     above was found exactly that way and took one query.
 
+BOTH ARE DONE IN `ghosts.py`, DOCKET 39, and the first came back mostly negative
+for a reason that is a theorem: 593 of the 1,012 baryon cells are FORBIDDEN by
+Gell-Mann--Nishijima, and every other bound derivable in this tree is MONOTONE
+and therefore forbids nothing whatever.  The separation gives 36 UNPLACED, 2,479
+OPEN and 98 UNDECIDED.
+
 Neither is done here.  This file measures E, names the three bins, and proves
 by one worked case that the bins are not empty of each other.
 """
@@ -122,7 +141,10 @@ TOO_LARGE = ("gravity.index",)
 
 # The element layer's own adjudication, from docs/WEB-INDEX.md and register 448.
 # The precedent this file generalises.
-ELEMENT_GHOSTS = {"E": 36, "forbidden": 25, "deferred": 11}
+ELEMENT_GHOSTS = {"E": 36, "forbidden": 25, "deferred": 11,
+                  # DOCKET 39: and the OPERATOR, which this file first
+                  # omitted.  The join deficit of the same 90 cells is 0.
+                  "operator": "order", "E_join": 0}
 
 # The worked case that forced the third bin.
 UNPLACED_CASE = (
