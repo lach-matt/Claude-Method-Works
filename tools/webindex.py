@@ -83,8 +83,8 @@ ELEMENT_PREFIX = ("window.__mi = window.__mi || {}; "
 WRAP_SUFFIX = ";\n"
 
 SITE_TITLE = "The Method Index"
-SITE_SUBTITLE = ("An index of The Method 1.6: every element on every axis of every index, "
-                 "each value carrying the status the corpus gives it")
+SITE_SUBTITLE = ("Every element on every axis of every index, each value carrying "
+                 "the status the data gives it")
 
 # IUPAC names, for search and labels only. They are not a corpus figure and the
 # site labels them as such; the corpus carries symbols (register 1306).
@@ -126,32 +126,131 @@ SYMBOLS_ABOVE_108 = {
     115: "Mc", 116: "Lv", 117: "Ts", 118: "Og", 119: "Uue", 120: "Ubn",
 }
 
+# ---------------------------------------------------------------------------
+# the public build -- the site cites nothing from the unpublished books
+# ---------------------------------------------------------------------------
+# The books this index is drawn from are unpublished and not peer reviewed, and
+# the author's ruling is that the public site references none of them: no
+# register numbers, section numbers, member file names, line references or
+# passages. The data, the statuses and the instruments stay; provenance outward
+# is the public sources (NIST ASD, arXiv, DOI) and the papers the author has
+# released to the site. PUBLIC_PAPERS names those; PRIVATE_PATTERNS is what may
+# not appear in any string the site ships, and the selftest walks every string
+# of index.js and every element file against it. Blocks drawn from papers not
+# yet released (the muon material) build only behind --with-particles.
+PUBLIC_PAPERS = {
+    "THE-LOWDIN-SOLUTION-2.md": "the Löwdin paper",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "the three-body paper",
+}
+PRIVATE_PATTERNS = [
+    r"\b[Rr]egisters?\s+\d", r"\b[Ss]ections?\s+\d", r"§\s?\d", r"\bchapters?\s+\d",
+    r"[A-Za-z0-9_\-]+\.md\b", r"\bL\d{2,5}\b(?![.\d])", r"The Method 1\.6", r"\bcorpus\b",
+    r"\bCompendium\b", r"PROSE-ONLY", r"\bdockets?\b", r"\brulings?\b", r"\bseated members?\b",
+    r"\bbundles?\b", r"method/members", r"\brecovered/", r"\bdrive/", r"LW1-", r"r2-scf",
+    r"tower-2\.py", r"\.tsv\b", r"rclose\.py", r"\bsessions?\s+\d", r"\bchats?\s+\d",
+    r"\bhandoffs?\b", r"\bfaults?\s+\d",
+]
+_PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
+# names the site may print that a pattern would otherwise catch: the walk table
+# is this repository's own reconstruction, not one of the books
+PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table"}
+
+
+def private_hits(text):
+    """The private patterns a string matches, with the paper titles allowed."""
+    if not isinstance(text, str):
+        return []
+    t = text
+    for fn, title in list(PUBLIC_PAPERS.items()) + list(PUBLIC_NAMES.items()):
+        t = t.replace(fn, title)
+    return [rx.pattern for rx in _PRIVATE_RX if rx.search(t)]
+
+
+def private_strings(obj, path="index", out=None, limit=40):
+    """Every string in a JSON object that cites the private books, with its path."""
+    out = [] if out is None else out
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            k = str(k)
+            if private_hits(k):
+                out.append((path + "." + k, "(key) " + k))
+            private_strings(v, path + "." + k, out, limit)
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            private_strings(v, path + "[%d]" % i, out, limit)
+    elif isinstance(obj, str) and private_hits(obj):
+        out.append((path, obj[:120]))
+    return out
+
+
+def public_text(s):
+    """The narrow rewrites a data string needs to be public: the coordinates
+    table's own source column names a register, and a walk note names a
+    member. Everything else is written public at its source."""
+    if not isinstance(s, str):
+        return s
+    s = re.sub(r"read from (\S+) levels, R 1627", r"read from the species' own level files", s)
+    s = s.replace("NIST ASD fetched 2026-08-14 (session 1.8 queue)", "NIST ASD fetched 2026-08-14")
+    s = s.replace("LW1-ground.py", "the observed configurations table")
+    s = re.sub(r"\bregister 1706's eleven\b", "the Löwdin paper's eleven", s)
+    s = re.sub(r"\bregister 1706\b", "the Löwdin paper", s)
+    return s
+
+
+def public_obj(obj):
+    """public_text over every string of a JSON object, keys included."""
+    if isinstance(obj, dict):
+        return {public_text(k): public_obj(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [public_obj(v) for v in obj]
+    return public_text(obj)
+
+
+def redact_source(py):
+    """An instrument's source for the public site: its code entire, its
+    docstrings and comments kept only where they cite nothing private."""
+    def fix_doc(m):
+        body = m.group(2)
+        if private_hits(body):
+            return m.group(1) + "(docstring withheld on the public site: it cites the author's unpublished notes)" + m.group(1)
+        return m.group(0)
+    py = re.sub(r'(""")(.*?)(""")', lambda m: fix_doc(m), py, flags=re.S)
+    out = []
+    for ln in py.split("\n"):
+        if "#" in ln:
+            code, _, comment = ln.partition("#")
+            if private_hits(comment):
+                ln = code.rstrip() + ("  # (comment withheld)" if code.strip() else "# (comment withheld)")
+        out.append(ln)
+    return "\n".join(out)
+
+
 STATUS_LEGEND = {
-    "READ": "a measurement, taken from a member or the mirror",
-    "PINNED": "the corpus defines it at the precision a program needs",
+    "READ": "a measurement, taken as recorded from the source data",
+    "PINNED": "a standing definition, stated at the precision a program needs",
     "DERIVED": "arithmetic on a READ or PINNED quantity, nothing added",
-    "RECOVERED": "not stated in any member, but recovered by measurement from "
-                 "the index's own computed column and consistent with what the "
-                 "registers say about it qualitatively",
-    "RECONSTRUCTED": "the corpus states the object and its behaviour but not "
-                     "the form a program needs; reconstructed here, measured, "
-                     "and kept as such so a later ruling can move it",
+    "RECOVERED": "not stated anywhere in a program's form, but recovered by "
+                 "measurement from the index's own computed column and consistent "
+                 "with what is said of it qualitatively",
+    "RECONSTRUCTED": "the object and its behaviour are stated but not the form a "
+                     "program needs; reconstructed here, measured, and kept as "
+                     "such so a later decision can move it",
 }
 
 # The site's own caveats, drawn from docs/POPULATE.md's "Known gaps" and
 # "Two findings". They are shown on every page, not buried in a footnote.
 CAVEATS = [
     {"id": "above-108",
-     "text": "Elements above Z = 108 are not populated. LW1-ground.py stops at "
-             "108 because measurement does. COORDINATES-2.13 carries rows to "
-             "Z = 120 and those are shown READ from the CSV with no "
-             "configuration, equation or derived value behind them."},
+     "text": "Elements above Z = 108 are not populated. The observed configurations "
+             "stop at 108 because measurement does. COORDINATES-2.13 carries rows to "
+             "Z = 120 and those are shown READ from the CSV with no configuration, "
+             "equation or derived value behind them."},
     {"id": "b-aufbau",
-     "text": "The spectra index's B column was built on a withdrawn "
-             "configuration table (aufbau, patched by hand). Register 1306 "
-             "corrected the configurations and COORDINATES-2.13 was never "
-             "rebuilt on them. Where the observed table gives a different Pauli "
-             "bound the site shows both and marks the disagreement."},
+     "text": "The spectra index's B column was built on a withdrawn configuration "
+             "table (aufbau, patched by hand). The configurations were later corrected "
+             "and COORDINATES-2.13 was never rebuilt on them. Where the observed table "
+             "gives a different Pauli bound the site shows both and marks the "
+             "disagreement."},
     {"id": "b-overloaded",
      "text": "25 measured rows carry a float in the B column: a dispersion of "
              "the median defect, not a bound. The site says 'B column is not a "
@@ -160,8 +259,8 @@ CAVEATS = [
     {"id": "lambda8-mapping",
      "text": "A Λ₈ cell is a transition, so an element is not a cell. "
              "The mapping shown is the element's own ionisation ladder read off "
-             "the observed configurations. Nothing in the store fixes this "
-             "mapping; it is RECONSTRUCTED and a later ruling can move it."},
+             "the observed configurations. Nothing fixes this mapping; it is "
+             "RECONSTRUCTED and a later decision can move it."},
     {"id": "equation-domain",
      "text": "The channel equation is validated in its stated domain and "
              "extrapolated outside it. A residual on a channel outside that "
@@ -169,21 +268,17 @@ CAVEATS = [
     {"id": "relativistic-not-held",
      "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
              "Hartree\u2013Fock at c = 137) and its repetition at c \u2192 \u221e "
-             "are not held: the L\u00f6wdin delivery records objects 1, 2, 4\u20138 "
-             "and 10 as pending bank and object 11 as not held, because session "
-             "104 was never sealed. The eleven displaced elements are READ from "
-             "THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and "
-             "never withdrawn (r2-scf), and the site cannot recompute them."},
+             "are not held: the code behind the L\u00f6wdin paper never arrived. "
+             "The eleven displaced elements are READ from the paper's own statement "
+             "and the site cannot recompute them."},
     {"id": "walk-reconstructed",
-     "text": "The walk shown beside the record is a RECONSTRUCTION "
-             "(tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's "
-             "construction rebuilt from its statement and run in two fields, "
-             "a local-exchange one and the record's own average-of-"
-             "configuration Hartree\u2013Fock with non-local exchange, "
-             "neither of them the record's code, which never arrived. Where it "
-             "agrees with the record that is a measurement; where it disagrees "
-             "that is a measurement too. It is never the record's number, and "
-             "the record's \u039b_chain and \u039b_cinf stay unheld."},
+     "text": "The walk shown beside the paper is a RECONSTRUCTION "
+             "(tools/lowdin_walk.py): the paper's construction rebuilt from its "
+             "statement and run in two fields, a local-exchange one and the paper's "
+             "own average-of-configuration Hartree\u2013Fock with non-local exchange, "
+             "neither of them the paper's code, which never arrived. Where it "
+             "agrees with the paper that is a measurement; where it disagrees "
+             "that is a measurement too. It is never the paper's number."},
     {"id": "limit-kind",
      "text": "A limit kind is a classification of the csv's own bound note by "
              "the stated rule: the note is READ, the kind is DERIVED, and the "
@@ -191,10 +286,10 @@ CAVEATS = [
              "itself says, not a bound on existence; a series limit is printed "
              "as the csv prints it, with no unit added."},
     {"id": "n0-reading",
-     "text": "n₀'s reading is RECONSTRUCTED. Register 1141 names the terms "
-             "of B = min(p, n₀ − ℓ − 1) but not whether a "
-             "partially filled subshell counts; 'first entirely unoccupied n' "
-             "matches the column at 97.7 % and He I settles it."},
+     "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) "
+             "names its terms but not whether a partially filled subshell counts; "
+             "'first entirely unoccupied n' matches the column at 97.7 % and He I "
+             "settles it."},
 ]
 
 
@@ -320,19 +415,16 @@ def relativistic():
                    for sym in symbols],
         "thorium": thorium["text"] if thorium else None,
         "sources": {
-            "paper": {"file": "method/members/" + paper, "eleven_line": eleven_s["line"],
+            "paper": {"title": PUBLIC_PAPERS[paper], "eleven_line": eleven_s["line"],
+                      "eleven_text": eleven_s["text"],
                       "construction_line": c137["line"] if c137 else None,
                       "thorium_line": thorium["line"] if thorium else None},
-            "register": {"entry": 1706, "text": body},
-            "scf_audit": {"file": "method/members/r2-scf.out",
-                          "count": count_line.strip(), "entrants": entrants},
+            "scf_audit": {"entrants": entrants},
         },
         "instrument": {
             "held": False,
             "note": "the scalar-relativistic construction and its c -> inf "
-                    "repetition are not held; the figures are record-carried",
-            "readme_rows": held_rows,
-            "budget": budget.strip(),
+                    "repetition are not held; the figures are the paper's own",
         },
     }
 
@@ -412,7 +504,7 @@ def walk_instruments():
     for name, fn_name, source in WALK_INSTRUMENTS:
         fn = getattr(lw, fn_name)
         lines, start = inspect.getsourcelines(fn)
-        out[name] = {"python": "".join(lines), "file": "tools/lowdin_walk.py",
+        out[name] = {"python": redact_source("".join(lines)), "file": "tools/lowdin_walk.py",
                      "line": start, "status": populate.RECON, "source": source}
     return out
 
@@ -447,6 +539,18 @@ def walk_rows_by_z(rows):
     return per_z
 
 
+def _public_walk_summary(summary):
+    """The walk's summary as the site carries it: the paper's eleven under the
+    key 'eleven', not under the number of the note that lists them."""
+    def fix(o):
+        if isinstance(o, dict):
+            return {("eleven" if k == "eleven_1706" else k): fix(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [fix(v) for v in o]
+        return o
+    return fix(summary)
+
+
 def walk_block():
     """The reconstruction of the walk -- tools/lowdin_walk.py over
     LOWDIN-WALK.tsv -- as the site carries it: the table's md5, the summary the
@@ -466,7 +570,7 @@ def walk_block():
     with open(WALK_TSV, "rb") as fh:
         blob = fh.read()
     grid = lw.Grid()
-    summary = lw.summarise(rows)
+    summary = _public_walk_summary(lw.summarise(rows))
     field_names = {
         "lx": "Koelling-Harmon scalar-relativistic radial equation in a "
               "local-exchange (Kohn-Sham, V_x = -(3 rho/pi)^(1/3)) "
@@ -566,17 +670,17 @@ def sources():
         row = _member_row(member)
         path = os.path.join(populate.MEMBERS, member)
         out.append({
-            "file": "method/members/" + member,
+            "file": {"LW1-ground.py": "the observed configurations table",
+                     "tower-2.py": "the tower"}[member],
             "role": {"LW1-ground.py": "observed ground configurations, "
-                                      "Z = 1 to 108 (register 1306, NIST ASD 5.12)",
+                                      "Z = 1 to 108 (NIST ASD 5.12)",
                      "tower-2.py": "the tower above Λ₈"}[member],
             "md5_recorded": row["md5"] if row else None,
             "md5_measured": _md5(path) if os.path.exists(path) else None,
-            "bundle": row["bundle"] if row else None,
         })
     row = _manifest_row("COORDINATES-2_13.csv")
     out.append({
-        "file": "drive/The Method Materials/COORDINATES-2_13.csv",
+        "file": "COORDINATES-2.13 (csv)",
         "role": "the spectra index: (Z, charge, ℓ, mult) → a channel",
         "md5_recorded": row["md5"] if row else None,
         "md5_measured": (_md5(populate.DEFAULT_SPECTRA)
@@ -599,32 +703,45 @@ def sources():
 # solvers show this source beside their result and re-derive nothing from it.
 INSTRUMENTS = [
     ("channel_delta", populate.channel_delta, "tools/populate.py", populate.PINNED,
-     "the channel equation, final form (register 1205); its p = 0 branch "
+     "the channel equation, final form; its p = 0 branch "
      "carries the RECOVERED collapse ramp C(Z)"),
     ("collapse_C", populate.collapse_C, "tools/populate.py", populate.RECOVERED,
      "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's "
-     "computed column (registers 1188 to 1190); no member states its form"),
+     "computed column; no source states its form"),
     ("pauli_bound", populate.pauli_bound, "tools/populate.py", populate.PINNED,
-     "B = min(p, n0 - l - 1), the Pauli bound (register 1141)"),
+     "B = min(p, n0 - l - 1), the Pauli bound"),
     ("core_p", populate.core_p, "tools/populate.py", populate.PINNED,
      "p, the core's orbital count at this l, from the observed ground "
-     "configuration of the core (registers 1141, 1306)"),
+     "configuration of the core"),
     ("n0_of", populate.n0_of, "tools/populate.py", populate.RECON,
-     "n0, the first entirely unoccupied n at this l; register 1141 names the "
+     "n0, the first entirely unoccupied n at this l; the source names the "
      "term but not the reading, and He I ns settles it"),
     ("lambda_constraints", populate.lambda_constraints, "tools/populate.py",
-     populate.PINNED, "section 7.1's seven constraints, four origins"),
+     populate.PINNED, "the seven constraints on Lambda_8, of four origins"),
     ("caps_needed", populate.caps_needed, "tools/populate.py", populate.PINNED,
-     "the caps a Lambda_8 cell needs, read against section 7.4's "
+     "the caps a Lambda_8 cell needs, read against the standing "
      "(n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the "
      "RECONSTRUCTED ionisation-ladder mapping and carries its own status"),
     ("within_caps", populate.within_caps, "tools/populate.py", populate.PINNED,
-     "section 7.4's standing caps; a cell outside them is reported OUTSIDE, "
+     "the standing caps; a cell outside them is reported OUTSIDE, "
      "never truncated"),
     ("op_order", cypher.op_order, "tools/cypher.py", cypher.PINNED,
-     "R, the order operator of section 32.4.1; matches the seated instrument "
-     "rclose.py"),
+     "R, the order operator: a cell is admitted when every cell below it on "
+     "every axis is held"),
 ]
+
+
+PUBLIC_AXIS_SOURCES = {
+    "symbol": "NIST ASD 5.12, through the observed configurations table",
+    "capacity": "2(2l+1), Pauli exclusion",
+    "n+l": "the Madelung/Janet coordinate",
+    "period": "the drawn eighteen-column layout",
+    "p": "the core's orbital count at this l, from the Pauli bound's definition",
+    "B": "min(p, n0-l-1), the Pauli bound",
+    "delta equation": "the channel equation, final form",
+    "C(Z)": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column; see collapse_C",
+    "caps": "the standing caps (n,e,l,k,f) = (3,3,1,3,1)",
+}
 
 
 def instruments():
@@ -634,7 +751,7 @@ def instruments():
     out = {}
     for name, fn, rel, status, source in INSTRUMENTS:
         lines, start = inspect.getsourcelines(fn)
-        out[name] = {"python": "".join(lines), "file": rel, "line": start,
+        out[name] = {"python": redact_source("".join(lines)), "file": rel, "line": start,
                      "status": status, "source": source}
     return out
 
@@ -686,9 +803,9 @@ def equation_figures(spectra, grades=("measured",), table="observed"):
             "median_abs_error": med, "by_l": by_l,
             "status": populate.PINNED,
             "note": "populate.equation_report over COORDINATES-2.13's measured "
-                    "rows; register 1205 records rms 0.1610, R2 0.9741 on a "
-                    "different sample of 284 channels, so the figures are not "
-                    "expected to match it exactly"}
+                    "rows; the equation's published fit (rms 0.1610, R2 0.9741) was "
+                    "made on a different sample of 284 channels, so the figures are "
+                    "not expected to match it exactly"}
 
 
 def _decoded_closure(name, coords, cells):
@@ -746,14 +863,14 @@ def denied_cell_definitions(denied):
         if l > n - 1:
             cls = "forbidden"
             sub = "%d%s" % (n, letter)
-            reason = ("forbidden by l <= n-1 (section 7.1, the hydrogenic radial "
-                      "solution): a %d%s orbital cannot exist" % (n, letter))
+            reason = ("forbidden by l <= n-1, the hydrogenic radial solution: "
+                      "a %d%s orbital cannot exist" % (n, letter))
         elif (p, g) == (1, 2):
             cls = "deferred"
             sub = "1s, the slot helium vacates"
             reason = ("deferred, not forbidden: l = 0 satisfies l <= n-1 here; "
                       "helium is drawn at group 18, and 1p contributes five "
-                      "cells rather than six because of it (section 6.1.1)")
+                      "cells rather than six because of it")
         else:
             cls = "deferred"
             sub = "%d%s" % (n, letter)
@@ -778,8 +895,7 @@ def helium_placement():
                                     ["period", "group"], alt)
     return {
         "status": populate.READ,
-        "source": "Register 448 (The_Method_1_6___The_Register-2.md L1665); "
-                  "section 6.1.1 (The_Method_1_6-2.md L1567-1570)",
+        "source": "the author's standing rule on helium's placement",
         "helium_at_18": {"held": len(held), "admitted": len(admitted),
                          "E": len(admitted) - len(held),
                          "denied": [list(c) for c in sorted(admitted - held)]},
@@ -789,7 +905,7 @@ def helium_placement():
         "priced": (len(admitted) - len(held)) - (len(a2) - len(h2)),
         "note": "IUPAC draws helium at 18, the left-step and quantum-chemical "
                 "case at 2; E prices the choice at sixteen cells, a number that "
-                "argument does not have (Register 448)",
+                "argument does not have",
     }
 
 
@@ -812,10 +928,10 @@ def lattice_block(spectra):
         "axes": {"x": "Z, the element", "y": "charge, the ionisation stage (1 is neutral)",
                  "z": "l, the channel (0 to 7: s p d f g h i k)"},
         "status": populate.READ,
-        "source": "The_Method_1_6___The_Index_of_Indices-2.md L343 (Figure 6 caption); "
-                  "THE-LOWDIN-SOLUTION-2.md L92 (Figure 1(b)); the record's own renderer, "
-                  "extracted/archives/restore-point-2-13/spectra-lattice.html (x = Z, "
-                  "y = stage, z = l; cube 0.86 known, 0.30 unmeasured)",
+        "source": "the author's own three-dimensional drawing of the index (element "
+                  "across, l into the page, ionisation stage up; the Löwdin paper's "
+                  "Figure 1(b) draws the same solid), whose renderer used cubes of "
+                  "edge 0.86 for a known cell and 0.30 for an unmeasured one",
         "drawing": populate.DERIVED,
         "slab": "every element's slab is charge 1..Z by l 0..7; a site holds one cell "
                 "per multiplicity, side by side",
@@ -1165,7 +1281,7 @@ def mucf_instruments():
     out = {}
     for name, fn_name, source in MUCF_INSTRUMENTS:
         lines, start = inspect.getsourcelines(getattr(mod, fn_name))
-        out[name] = {"python": "".join(lines), "file": "tools/mucf.py", "line": start,
+        out[name] = {"python": redact_source("".join(lines)), "file": "tools/mucf.py", "line": start,
                      "status": populate.PINNED,
                      "source": source + " -- the paper's own model, computed for it (PINNED); "
                                         "each result carries the weakest status of its inputs in "
@@ -1191,13 +1307,18 @@ def references_block():
     arxiv, doi, urls = {}, {}, {}
 
     def add(store, key, rel, i, ln):
+        # the identifier is public; the line that cites it is quoted only
+        # from a paper the author has released to the site
         e = store.setdefault(key, {"id": key, "cites": []})
-        text = ln.strip()
+        e["n"] = e.get("n", 0) + 1
+        paper = PUBLIC_PAPERS.get(os.path.basename(rel))
+        if paper is None:
+            return
+        text = _plain(ln.strip())
         if len(text) > 320:
             text = text[:317] + "..."
         if len(e["cites"]) < 6:
-            e["cites"].append({"file": rel, "line": i, "text": text})
-        e["n"] = e.get("n", 0) + 1
+            e["cites"].append({"paper": paper, "text": text})
 
     for path, rel in files:
         with open(path, encoding="utf-8") as fh:
@@ -1219,24 +1340,26 @@ def references_block():
         e["url"] = "https://doi.org/" + e["id"]
     for e in urls.values():
         e["url"] = e["id"]
-    # the one data source the corpus links itself, and the spectra compilations by species
-    nist_line, _, nist_text = _find("method/members/The_Method_1_6-2.md", r"https://physics\.nist\.gov/asd")
-    lw_line, _, lw_text = _find("method/members/LW1-ground.py", r"NIST ASD ver\. 5\.12")
+    # the one data source the index links itself, and the spectra compilations by species
+    _find("method/members/The_Method_1_6-2.md", r"https://physics\.nist\.gov/asd")
+    _find("method/members/LW1-ground.py", r"NIST ASD ver\. 5\.12")
     return {
-        "note": "identifiers the corpus prints, found at build by pattern over method/members and "
-                "papers/ and linked by construction; a compilation named without an identifier is "
-                "cited as a string and not linked, because the target would be invented",
+        "note": "identifiers the index's sources cite, found at build by pattern and linked by "
+                "construction; a compilation named without an identifier is cited as a string "
+                "and not linked, because the target would be invented. A citing line is quoted "
+                "only from a paper released to the site.",
+        "quoted_from": sorted(PUBLIC_PAPERS.values()),
         "arxiv": sorted(arxiv.values(), key=lambda e: e["id"]),
         "doi": sorted(doi.values(), key=lambda e: e["id"]),
         "urls": sorted(urls.values(), key=lambda e: e["id"]),
         "nist_asd": {"name": "NIST Atomic Spectra Database (ver. 5.12), Kramida, Ralchenko, Reader and NIST ASD Team (2024)",
                      "url": "https://physics.nist.gov/asd", "doi": "10.18434/T4W30F",
                      "doi_url": "https://doi.org/10.18434/T4W30F",
-                     "cited_for": [_site("method/members/The_Method_1_6-2.md", nist_line, nist_text),
-                                   _site("method/members/LW1-ground.py", lw_line, lw_text)],
-                     "query_not_held": "LW1-README.md: no query string or URL is stored in the file or "
-                                       "anywhere in the bank; the query itself is NOT HELD -- the database "
-                                       "is linkable, the query is not"},
+                     "cited_for": ["the observed ground configurations, Z = 1 to 108",
+                                   "the measured levels of the spectra index"],
+                     "query_not_held": "no query string or URL behind the level tables is stored "
+                                       "anywhere; the query itself is NOT HELD -- the database is "
+                                       "linkable, the query is not"},
         "spectra_sources": spectra_sources(),
     }
 
@@ -1256,7 +1379,7 @@ def spectra_sources():
             continue
         name, species = ln[2:30].strip(), ln[30:].strip()
         if name and species:
-            rows.append({"compilation": name, "species": species, "line": i + 1})
+            rows.append({"compilation": name, "species": species})
         elif name and rows:
             rows[-1]["compilation"] += " " + name
         elif species and rows:
@@ -1264,11 +1387,12 @@ def spectra_sources():
     by_species = {}
     for r in rows:
         for sp in [s.strip() for s in r["species"].split(",") if s.strip()]:
-            by_species[sp] = {"compilation": r["compilation"], "line": r["line"],
+            by_species[sp] = {"compilation": r["compilation"],
                               "url": "https://physics.nist.gov/asd" if r["compilation"].startswith("NIST ASD") else None}
     if len(by_species) < 20:
         raise RuntimeError("%s: B.1 parsed %d species, expected about 26" % (rel, len(by_species)))
-    return {"file": rel, "rows": rows, "by_species": by_species}
+    return {"source": "the spectra index's own table of compilations by species",
+            "rows": rows, "by_species": by_species}
 
 
 def fixtures(spectra):
@@ -1303,15 +1427,15 @@ def fixtures(spectra):
                 "these must say so rather than print a result",
         "equation_report": equation_figures(spectra),
         "closure": {
-            "operator": "cypher.op_order, R (section 32.4.1)",
+            "operator": "cypher.op_order, R, the order operator",
             "status": populate.PINNED,
             "periodic": {"held": len(held), "admitted": len(admitted),
                          "E": len(admitted) - len(held),
-                         "index": "periodic table (period x group), section 6, "
-                                  "the ninety main-table cells"},
+                         "index": "periodic table (period x group), the ninety "
+                                  "main-table cells"},
             "helium_at_2": dict(helium_placement()["helium_at_2"],
                                 index="the ninety cells with helium moved to "
-                                      "(1, 2); Register 448 records E = 20"),
+                                      "(1, 2); the author's rule records E = 20"),
             "janet": {"held": len(jh), "admitted": len(ja),
                       "E": len(ja) - len(jh), "box": jbox,
                       "cells": [list(c) for c in sorted(jh)],
@@ -1330,10 +1454,10 @@ def fixtures(spectra):
         "hydrogenic_zero": {"Z": 1, "charge": 1, "l": 0,
                             "delta_equation": populate.channel_delta(1, 1, 0),
                             "status": populate.PINNED,
-                            "source": "register 5193: at Ne = 1 the (Ne-1)/Ne "
+                            "source": "the one-electron identity: at Ne = 1 the (Ne-1)/Ne "
                                       "factor vanishes identically"},
         "pauli": {"status": populate.PINNED,
-                  "source": "register 1141; populate.selftest's own pair",
+                  "source": "the Pauli bound's definition; populate.selftest's own pair",
                   "rows": [{"label": "He I ns", "Z": 2, "charge": 1, "l": 0,
                             "B": populate.pauli_bound(2, 1, 0)},
                            {"label": "Be I ns", "Z": 4, "charge": 1, "l": 0,
@@ -1407,7 +1531,7 @@ def _csv_only_element(Z, spectra):
         "channels": [chans[k] for k in sorted(chans)],
         "lambda8": [],
         "populated": False,
-        "note": "COORDINATES-2.13 rows only; LW1-ground.py stops at Z = 108",
+        "note": "COORDINATES-2.13 rows only; the observed configurations stop at Z = 108",
     }
 
 
@@ -1433,7 +1557,7 @@ def _counts(rec):
     }
 
 
-def build(spectra, out_dir=OUT, write=True, log=print):
+def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
     held, admitted = populate.layout_closure()
     relb = relativistic()
     rel_z = {e["Z"] for e in relb["eleven"]}
@@ -1451,9 +1575,8 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                         "md5": hashlib.md5(blob).hexdigest(),
                         "md5_recorded": fig["md5_recorded"],
                         "ok": hashlib.md5(blob).hexdigest() == fig["md5_recorded"],
-                        "archive": fig["archive"],
-                        "caption": "Figure 5 of THE-LOWDIN-SOLUTION-2.md: the "
-                                   "derived table at c = 137 against c -> inf",
+                        "caption": "Figure 5 of the Löwdin paper: the derived "
+                                   "table at c = 137 against c -> inf",
                         "status": populate.READ})
         if write:
             os.makedirs(os.path.join(out_dir, "figures"), exist_ok=True)
@@ -1472,6 +1595,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
     for Z in zs:
         rec = element_record(Z, spectra)
         rec["walk"] = walk_rows.get(Z)
+        rec = public_obj(rec)
         counts = _counts(rec)
         lim = _limit_counts(rec)
         for k in ("rows", "measured", "exact", "computed", "witnessed"):
@@ -1504,7 +1628,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
         log("  Z=%3d %-3s %7d B  rows %5d  measured %3d" % (
             Z, rec["symbol"], len(blob), counts["rows"], counts["measured"]))
 
-    axes = [{"axis": a, "status": s, "source": d} for a, s, d in populate.AXES]
+    axes = [{"axis": a, "status": s, "source": PUBLIC_AXIS_SOURCES.get(a, d)} for a, s, d in populate.AXES]
     index = {
         "meta": {
             "title": SITE_TITLE,
@@ -1513,8 +1637,8 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "commit": _git_head(),
             "generator": "tools/webindex.py over tools/populate.py",
             "names_note": "Element names are IUPAC labels for search only; "
-                          "they are not a corpus figure. The corpus carries "
-                          "symbols (register 1306).",
+                          "they are not a figure of the index, which carries "
+                          "symbols.",
         },
         "sources": sources(),
         "status_legend": STATUS_LEGEND,
@@ -1523,31 +1647,25 @@ def build(spectra, out_dir=OUT, write=True, log=print):
         "lambda_coords": populate.LAMBDA_COORDS,
         "lambda_meaning": populate.LAMBDA_MEANING,
         "lattice": lattice_block(spectra),
-        "particles": particles_block(),
+        "particles": particles_block() if with_particles else None,
         "references": references_block(),
         "closure": {
-            "index": "periodic table (period × group), section 6",
-            "operator": "ℛ, the PINNED order operator of section 32.4.1 "
-                        "(tools/cypher.py)",
+            "index": "the eighteen-column periodic layout (period × group)",
+            "operator": "ℛ, the PINNED order operator (tools/cypher.py)",
             "held": len(held), "admitted": len(admitted),
             "E": len(admitted) - len(held),
             "denied": [list(c) for c in denied],
             "denied_cells": denied_cells,
             "decomposition": {
                 "status": populate.READ,
-                "source": "section 6.1.1 (The_Method_1_6-2.md L1555-1570); "
-                          "Register 448; READ-ch6.md L32",
+                "source": "the author's standing account of the thirty-six",
                 "forbidden": sum(1 for d in denied_cells if d["class"] == "forbidden"),
                 "deferred": sum(1 for d in denied_cells if d["class"] == "deferred"),
                 "by_subshell": {k: sum(1 for d in denied_cells if d["subshell"] == k)
                                 for k in sorted({d["subshell"] for d in denied_cells})},
-                "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (Transitions.md "
-                        "L368, READ); class by l <= n-1 (section 7.1, PINNED); "
-                        "the split 25 + 11 is the book's own (READ) and the "
-                        "derivation is asserted against it",
-                "not_the_void": "the void is L.void, the box-minus-lattice remainder "
-                                "of chapter 10 (Rota 1964), and is not the thirty-six "
-                                "(PROSE-ONLY.tsv PO-0014, PO-0410)",
+                "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (READ); class by "
+                        "l <= n-1 (PINNED); the split 25 + 11 is the author's own (READ) "
+                        "and the derivation is asserted against it",
             },
             "placement": helium_placement(),
             "set_aside": 28,
@@ -1561,20 +1679,17 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                      "form": _equation_form(),
                      "exponent": "e(Ne) = E0 - E1 ln Ne",
                      "status": populate.PINNED,
-                     "source": "register 1205, final form"},
-        "instruments": dict(instruments(), **(walk_instruments() if walk else {}), **mucf_instruments(), lowdin_construction={
+                     "source": "the channel equation's final form"},
+        "instruments": dict(instruments(), **(walk_instruments() if walk else {}),
+                            **(mucf_instruments() if with_particles else {}), lowdin_construction={
             "python": None,
-            "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+            "file": PUBLIC_PAPERS["THE-LOWDIN-SOLUTION-2.md"],
             "status": populate.READ,
             "held": False,
             "source": "the scalar-relativistic construction is not held; the "
-                      "paper's own statement, register 1706 and the SCF audit "
-                      "are shown in its place",
+                      "paper's own statement is shown in its place",
             "text": "\n\n".join(t for t in [
-                relb["statement"], relb["construction"], relb["thorium"],
-                "Register 1706: " + relb["sources"]["register"]["text"],
-                "r2-scf.out: " + relb["sources"]["scf_audit"]["count"],
-                relb["instrument"]["budget"]] if t)}),
+                relb["statement"], relb["construction"], relb["thorium"]] if t)}),
         "relativistic": relb,
         "limits": lim_block,
         "figures": figures,
@@ -1591,6 +1706,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "encoding": "utf-8",
         },
     }
+    index = public_obj(index)
     if write:
         text = json.dumps(index, ensure_ascii=False, indent=1, allow_nan=False)
         with open(os.path.join(out_dir, "index.js"), "w", encoding="utf-8") as fh:
@@ -1634,6 +1750,21 @@ def selftest():
 
     print("webindex selftest")
     index = build(spectra, write=False, log=lambda *_a, **_k: None)
+    # the public guard: no string of the public build cites the unpublished books
+    hits = private_strings(index)
+    for Z in sorted(set(populate.LW1.GROUND) | set(spectra.by_z)):
+        rec = public_obj(element_record(Z, spectra))
+        private_strings(rec, "elements/%d" % Z, hits)
+    for path, text in hits[:12]:
+        print("    private: %s: %s" % (path, text))
+    check("public build: no string cites the unpublished books", len(hits), 0)
+    check("public build: the particles block is off without --with-particles", index["particles"], None)
+    check("public build: the muon balance's instruments are off without --with-particles",
+          [n for n in index["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}], [])
+    full = build(spectra, write=False, log=lambda *_a, **_k: None, with_particles=True)
+    check("with particles: the muon balance's seven instruments follow the walk's",
+          [n for n in full["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}],
+          [n for n, *_ in MUCF_INSTRUMENTS])
     t = index["totals"]
     check("elements populated (LW1-ground.py)", t["populated"], 108)
     check("elements CSV-only (Z = 109 to 120)", t["csv_only"], 12)
@@ -1644,7 +1775,7 @@ def selftest():
           sum(1 for r in spectra.rows if r["grade"] == "exact"))
     check("witnessed rows", t["witnessed"],
           sum(1 for r in spectra.rows if r["witness"] == "witnessed"))
-    pt = index["particles"]
+    pt = full["particles"]
     check("particles: the structural window is [119, 918] m_e (paper section 2)", pt["window"]["m_e"], [119, 918])
     check("particles: the window's occupants, muon and pion, in m_e", [pt["window"]["occupants"]["muon"], pt["window"]["occupants"]["pion"]], [207, 273])
     check("particles: the muon mass PDG 206.7683 from fault 14f-04", pt["muon"]["mass_m_e"]["PDG"], 206.7683)
@@ -1721,8 +1852,8 @@ def selftest():
           [e["symbol"] for e in rel["eleven"]])
     check("relativistic: every one of the eleven carries an entrant channel",
           all("entrant" in e for e in rel["eleven"]), True)
-    check("relativistic: register 1706 names the same eleven",
-          all(e["symbol"] in rel["sources"]["register"]["text"] for e in rel["eleven"]), True)
+    check("relativistic: the paper's eleven line names the same eleven",
+          all(e["symbol"] in rel["sources"]["paper"]["eleven_text"] for e in rel["eleven"]), True)
     check("relativistic: thorium sentence read", bool(rel["thorium"]), True)
     check("relativistic: instrument recorded as not held", rel["instrument"]["held"], False)
     check("relativistic: layout flags exactly eleven",
@@ -1760,7 +1891,7 @@ def selftest():
             disp = [e["symbol"] for e in ents if e["displaced"]]
             cp = walk["summary"]["fields"][fld]
             check(f"walk {fld}: displaced set is the summary's", disp, [d["symbol"] for d in cp["displaced"]])
-            check(f"walk {fld}: the summary's eleven are register 1706's", cp["eleven_1706"], lw.ELEVEN_1706)
+            check(f"walk {fld}: the summary's eleven are the paper's", cp["eleven"], lw.ELEVEN_1706)
             check(f"walk {fld}: in/not-in/missing partition the record's eleven and the displaced",
                   (sorted(cp["in_eleven"] + cp["eleven_not_displaced"]),
                    sorted(cp["in_eleven"] + cp["not_in_eleven"])),
@@ -1822,10 +1953,9 @@ def selftest():
 
     # --- the instruments -----------------------------------------------------
     ins = index["instruments"]
-    check("instruments: the nine with python, then the walk's ten, then the muon balance's seven, in order",
+    check("instruments: the nine with python, then the walk's ten, in order",
           [n for n, r in ins.items() if r.get("python")],
-          [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else [])
-          + [n for n, *_ in MUCF_INSTRUMENTS])
+          [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else []))
     check("instruments: the tenth is the unheld construction, text only",
           (ins.get("lowdin_construction", {}).get("python"),
            ins.get("lowdin_construction", {}).get("held"),
@@ -1997,13 +2127,16 @@ def main(argv=None):
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--with-particles", action="store_true",
+                    help="build the Particles block and the muon balance's instruments; "
+                         "off by default because the paper they read is not released")
     args = ap.parse_args(argv)
     if args.selftest:
         return selftest()
     if args.verify:
         return verify(args.out)
     spectra = populate.Spectra(populate.DEFAULT_SPECTRA)
-    index = build(spectra, out_dir=args.out)
+    index = build(spectra, out_dir=args.out, with_particles=args.with_particles)
     t = index["totals"]
     print("wrote %s: %d elements (%d populated, %d CSV-only), %d rows, "
           "%d measured" % (args.out, len(index["layout"]), t["populated"],

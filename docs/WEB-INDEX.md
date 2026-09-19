@@ -84,7 +84,7 @@ the slabs with their symbols where there is room and rules its base every ten Z.
 "The lattice" section names the axes with their source and counts the cubes drawn, and the console
 answers `lattice`.
 
-**Particles and binders.** The lattice is electrons-only by construction — its coordinates carry
+**Particles and binders (built only with `--with-particles`; see *The public build* below).** The lattice is electrons-only by construction — its coordinates carry
 configuration and not scale, so a muonic atom occupies the same cell as its electronic twin
 (`Muon_Catalysed_Fusion_v1.1.md` §2.1) and the lattice produces pure numbers and no rate (Register
 L421, the dimensional obstruction). What the corpus states of the particles beyond the electron is
@@ -121,8 +121,9 @@ console answers `particles`, `particle <term>` and `references [term]`.
 5.12 at `physics.nist.gov/asd`, DOI 10.18434/T4W30F, cited for the ground configurations of
 `LW1-ground.py` and for the dated retrieval 25 measured cells name — and prints identifiers for the
 rest: `webindex.py` finds every arXiv and DOI identifier over `method/members` and `papers/` at
-build (53 arXiv, 7 DOI) with the line that cites each, and the *References* dialog links them
-(`arxiv.org/abs/<id>`, `doi.org/<doi>`) beside the citing text. Section B.1 of the Spectra
+build (53 arXiv, 7 DOI), and the *References* dialog links them (`arxiv.org/abs/<id>`,
+`doi.org/<doi>`); the citing line is quoted beside an identifier only where the citing file is
+one of the released papers, and never with a file name or line number of the books. Section B.1 of the Spectra
 Compendium is parsed into a species → compilation table (26 species), so a measured cell's plate
 resolves its `source` column: a dated NIST retrieval or a B.1 species drawn from NIST ASD links to
 the database and its DOI; Kaufman & Martin, Kramida & Martin and Sansonetti are cited as strings,
@@ -348,6 +349,33 @@ beside them; a printed series limit is shown as printed, with no unit added. The
 "Cells by" control colours cells by grade or by limit kind, each element plate counts its cells
 by kind, and the console answers `limits <El>`. The exporter's selftest asserts every note is
 classified and every count sums to the rows.
+
+## The public build
+
+The books the index is drawn from are unpublished and not peer reviewed, and the author's ruling
+(2026-09-19) is that **the public site references none of them**: no register numbers, section
+numbers, member file names, line references or quoted passages, and no search over the corpus.
+The data, the statuses and the instruments stay; provenance outward is the public sources (NIST
+ASD, arXiv, DOI) and the papers the author has released to the site — `PUBLIC_PAPERS` in
+`webindex.py`, at present the Löwdin paper and the three-body paper, each named on the site by
+title. The rule is enforced, not remembered: `PRIVATE_PATTERNS` lists what may not appear in any
+string the site ships, `private_strings` walks every string (keys included) of `index.js` and of
+every element file, and the selftest fails on the first hit. Where a data string needed rewording
+to pass — the coordinates table's own `source` column names a register, and the observed
+configurations table is named by file — `public_text` carries the narrow rewrite and the value
+beside it is untouched; a status is never changed by this pass. Shipped instrument sources go
+through `redact_source`, which keeps the code entire and withholds only a docstring or comment
+that cites the books. `LOWDIN-WALK.tsv` is allowed by name (`PUBLIC_NAMES`): it is this
+repository's own reconstruction, not one of the books.
+
+**What the flag withholds.** The Particles dialog and the muon energy balance (solver mode 8,
+the seven `mucf_*` instruments) read `Muon_Catalysed_Fusion_v1.1.md`, which is not released, so
+they build only under `python3 tools/webindex.py --with-particles`; the public build writes
+`"particles": null`, the page hides the button, and the solver registry drops any mode whose
+`requires` names an absent block. `docfigures.py` still pins the block's figures by building it
+on demand, so the numbers stay measured while the site does not carry them. The reference
+identifiers found in the unreleased files are still listed — an arXiv or DOI identifier is a
+public object — with no citing line.
 
 ## Provenance
 

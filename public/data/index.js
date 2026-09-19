@@ -1,31 +1,29 @@
 window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
-  "subtitle": "An index of The Method 1.6: every element on every axis of every index, each value carrying the status the corpus gives it",
-  "built": "2026-09-19T04:04:57+00:00",
-  "commit": "81bd08ede450",
+  "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
+  "built": "2026-09-19T04:53:54+00:00",
+  "commit": "07f9ff7ebe9b",
   "generator": "tools/webindex.py over tools/populate.py",
-  "names_note": "Element names are IUPAC labels for search only; they are not a corpus figure. The corpus carries symbols (register 1306)."
+  "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols."
  },
  "sources": [
   {
-   "file": "method/members/LW1-ground.py",
-   "role": "observed ground configurations, Z = 1 to 108 (register 1306, NIST ASD 5.12)",
+   "file": "the observed configurations table",
+   "role": "observed ground configurations, Z = 1 to 108 (NIST ASD 5.12)",
    "md5_recorded": "236975ac23aa29960d4f7c2a4d200cd6",
    "md5_measured": "236975ac23aa29960d4f7c2a4d200cd6",
-   "bundle": "BUILD180_compendia",
    "ok": true
   },
   {
-   "file": "method/members/tower-2.py",
+   "file": "the tower",
    "role": "the tower above Λ₈",
    "md5_recorded": "c0bce27abe23ad939d297ac1022a01d7",
    "md5_measured": "c0bce27abe23ad939d297ac1022a01d7",
-   "bundle": "BUILD180_compendia",
    "ok": true
   },
   {
-   "file": "drive/The Method Materials/COORDINATES-2_13.csv",
+   "file": "COORDINATES-2.13 (csv)",
    "role": "the spectra index: (Z, charge, ℓ, mult) → a channel",
    "md5_recorded": "906d08be19630b6f824ec0164de11773",
    "md5_measured": "906d08be19630b6f824ec0164de11773",
@@ -34,11 +32,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   }
  ],
  "status_legend": {
-  "READ": "a measurement, taken from a member or the mirror",
-  "PINNED": "the corpus defines it at the precision a program needs",
+  "READ": "a measurement, taken as recorded from the source data",
+  "PINNED": "a standing definition, stated at the precision a program needs",
   "DERIVED": "arithmetic on a READ or PINNED quantity, nothing added",
-  "RECOVERED": "not stated in any member, but recovered by measurement from the index's own computed column and consistent with what the registers say about it qualitatively",
-  "RECONSTRUCTED": "the corpus states the object and its behaviour but not the form a program needs; reconstructed here, measured, and kept as such so a later ruling can move it"
+  "RECOVERED": "not stated anywhere in a program's form, but recovered by measurement from the index's own computed column and consistent with what is said of it qualitatively",
+  "RECONSTRUCTED": "the object and its behaviour are stated but not the form a program needs; reconstructed here, measured, and kept as such so a later decision can move it"
  },
  "axes": [
   {
@@ -49,7 +47,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "symbol",
    "status": "READ",
-   "source": "NIST ASD 5.12 via LW1-ground.py (register 1306)"
+   "source": "NIST ASD 5.12, through the observed configurations table"
   },
   {
    "axis": "configuration",
@@ -79,17 +77,17 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "capacity",
    "status": "PINNED",
-   "source": "2(2l+1), Pauli exclusion (section 7.1)"
+   "source": "2(2l+1), Pauli exclusion"
   },
   {
    "axis": "n+l",
    "status": "DERIVED",
-   "source": "the Madelung/Janet coordinate (register 1188)"
+   "source": "the Madelung/Janet coordinate"
   },
   {
    "axis": "period",
    "status": "DERIVED",
-   "source": "the drawn eighteen-column layout (section 6)"
+   "source": "the drawn eighteen-column layout"
   },
   {
    "axis": "group",
@@ -119,7 +117,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "p",
    "status": "PINNED",
-   "source": "the core's orbital count at this l (register 1141)"
+   "source": "the core's orbital count at this l, from the Pauli bound's definition"
   },
   {
    "axis": "n0",
@@ -129,7 +127,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "B",
    "status": "PINNED",
-   "source": "min(p, n0-l-1), the Pauli bound (register 1141)"
+   "source": "min(p, n0-l-1), the Pauli bound"
   },
   {
    "axis": "delta measured",
@@ -139,12 +137,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "delta equation",
    "status": "PINNED",
-   "source": "the channel equation, final form (register 1205)"
+   "source": "the channel equation, final form"
   },
   {
    "axis": "C(Z)",
    "status": "RECOVERED",
-   "source": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188-1190); see collapse_C"
+   "source": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column; see collapse_C"
   },
   {
    "axis": "witness",
@@ -164,7 +162,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "caps",
    "status": "PINNED",
-   "source": "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"
+   "source": "the standing caps (n,e,l,k,f) = (3,3,1,3,1)"
   }
  ],
  "caps": {
@@ -202,7 +200,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "z": "l, the channel (0 to 7: s p d f g h i k)"
   },
   "status": "READ",
-  "source": "The_Method_1_6___The_Index_of_Indices-2.md L343 (Figure 6 caption); THE-LOWDIN-SOLUTION-2.md L92 (Figure 1(b)); the record's own renderer, extracted/archives/restore-point-2-13/spectra-lattice.html (x = Z, y = stage, z = l; cube 0.86 known, 0.30 unmeasured)",
+  "source": "the author's own three-dimensional drawing of the index (element across, l into the page, ionisation stage up; the Löwdin paper's Figure 1(b) draws the same solid), whose renderer used cubes of edge 0.86 for a known cell and 0.30 for an unmeasured one",
   "drawing": "DERIVED",
   "slab": "every element's slab is charge 1..Z by l 0..7; a site holds one cell per multiplicity, side by side",
   "sites": 58080,
@@ -9229,949 +9227,71 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "note": "the archived renderer's own edge lengths; a known cell is a full cube, an unmeasured one a faint small cube"
   }
  },
- "particles": {
-  "status_note": "every figure below is READ from the passage that states it, parsed at build; an instrument's figures carry the instrument's own status vocabulary (MEASURED / PINNED / PROJECTED / EXTRAPOLATED / PROSE-ONLY, and REFUSED below the kinematic floor); a PROSE-ONLY row is held in the chat export and in no file; ABSENT is counted, not assumed. Nothing here is a lattice figure: the lattice carries configuration, not scale.",
-  "scope": [
-   {
-    "name": "the lattice carries no scale",
-    "status": "READ",
-    "site": {
-     "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-     "line": 100,
-     "quote": "atom therefore occupies the same cell as its electronic twin: same n, same ℓ, same k, throughout."
-    }
-   },
-   {
-    "name": "the lattice supplies the frame, not the rates",
-    "status": "READ",
-    "site": {
-     "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-     "line": 106,
-     "quote": "realisations of that cell are physically available. The lattice supplies the frame; it does not supply"
-    }
-   },
-   {
-    "name": "the dimensional obstruction",
-    "status": "READ",
-    "site": {
-     "file": "method/members/The_Method_1_6___The_Register-2.md",
-     "line": 421,
-     "quote": "THE DIMENSIONAL OBSTRUCTION: THE LATTICE PRODUCES PURE NUMBERS, AND FUSION RATES NEED DIMENSIONAL SCALES. *Each axis of Λ is a count — n radial nodes, ℓ angular nodes, k electrons — so Λ ⊆ ℕ³ and every quantity built from its coordinates is a pure number."
-    }
-   },
-   {
-    "name": "the paper is not a member of either bundle (docket C-8 open)",
-    "status": "READ",
-    "site": {
-     "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-     "line": 9,
-     "quote": "references. It is not a member of either live bundle, and no claim in it is audited by them.*"
-    }
-   }
-  ],
-  "window": {
-   "m_e": [
-    119,
-    918
-   ],
-   "status": "READ",
-   "site": {
-    "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-    "line": 89,
-    "quote": "The structural window is [119, 918] mₑ."
-   },
-   "occupants": {
-    "muon": 207,
-    "pion": 273,
-    "site": {
-     "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-     "line": 92,
-     "quote": "state). Inside it sit the muon (207 mₑ) and the pion (273 mₑ); a second filter — interaction type —"
-    }
-   },
-   "interior": {
-    "below": 1.74,
-    "above": 4.44,
-    "site": {
-     "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-     "line": 94,
-     "quote": "interior to the window by 1.74× and 4.44×, so the conclusion survives reasonable movement of either"
-    }
-   },
-   "N_states": {
-    "electron": 60.6,
-    "muon": 4.21,
-    "tau": 1.03,
-    "status": "READ",
-    "site": {
-     "file": "method/members/The_Method_1_6-2.md",
-     "line": 5967,
-     "quote": "below and 4.44× above, so the conclusion survives reasonable movement of either edge. Recomputed here: N_states of 60.6, 4.21 and 1.03 for electron, muon and tau against the paper's 61, 4.2 and 1.03."
-    }
-   },
-   "bracket": {
-    "file": "method/members/The_Method_1_6-2.md",
-    "line": 5970,
-    "quote": "A bracket with one occupant is a derivation. §22.1's bracket says where a value must lie and"
-   }
-  },
-  "binder": {
-   "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-   "line": 62,
-   "quote": "A binder — negatively charged, leptonic (a hadron is absorbed before it can catalyse), mass"
-  },
-  "exclusions": {
-   "status": "READ",
-   "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-   "rows": [
-    {
-     "excluded": "electron-bound systems (ambient \"cold fusion\")",
-     "grounds": "geometry: 74,100 fm separation, ~91 orders short",
-     "line": 367
-    },
-    {
-     "excluded": "tau and heavier binders",
-     "grounds": "the molecular index degenerates; no edge cell",
-     "line": 368
-    },
-    {
-     "excluded": "π⁻, K⁻, p̄, Σ⁻",
-     "grounds": "nuclear absorption preempts catalysis",
-     "line": 369
-    },
-    {
-     "excluded": "enhanced ambient screening",
-     "grounds": "conservation (§6.1)",
-     "line": 370
-    },
-    {
-     "excluded": "the cryogenic operating branch",
-     "grounds": "thermodynamics (§6.2) — new in v1.1",
-     "line": 371
-    },
-    {
-     "excluded": "excess heat without commensurate ash",
-     "grounds": "baryon number: any d–d branching deposits 3.76 × 10⁻⁸ – 2.74 × 10⁻⁷ mol of heavy ash per watt-day, a window 7.29× wide whose ends are the extremal channels",
-     "line": 372
-    },
-    {
-     "excluded": "d + d with γ-dominant branching",
-     "grounds": "selection rule: s-wave d + d is 0⁺ → 0⁺, which emits no single photon",
-     "line": 373
-    },
-    {
-     "excluded": "thermal and inertial fusion",
-     "grounds": "by definition — approach supplied by kinetic energy",
-     "line": 374
-    },
-    {
-     "excluded": "chain multiplication of binders",
-     "grounds": "no nuclear event funds a muon (§4)",
-     "line": 375
-    }
-   ]
-  },
-  "muon": {
-   "mass_m_e": {
-    "printed": 207,
-    "PDG": 206.7683,
-    "status": "READ",
-    "site": {
-     "file": "recovered/READ-ch14f.md",
-     "line": 87,
-     "quote": "| muon 206.7683 (PDG) | 1.7375 → 1.74 | 4.4398 → 4.44 |"
-    },
-    "fault": "14f-04",
-    "fault_note": {
-     "file": "recovered/READ-ch14f.md",
-     "line": 91,
-     "quote": "correct — this is an internal-closure failure, not a wrong value."
-    }
-   },
-   "instrument": {
-    "file": "tools/mucf.py",
-    "status_table": [
-     {
-      "name": "lambda_0",
-      "value": "4.665e5 s^-1",
-      "status": "MEASURED",
-      "note": "bound-muon disappearance"
-     },
-     {
-      "name": "lambda_c",
-      "value": "2.6e8 s^-1",
-      "status": "PINNED",
-      "note": "cycle saturation (harmonic sum, sec.3.3)"
-     },
-     {
-      "name": "transfer",
-      "value": "(2.7 +/- 0.9)e8",
-      "status": "MEASURED",
-      "note": "sec.3.3 -- the cap, and lambda_c's parent"
-     },
-     {
-      "name": "Q_fus",
-      "value": "17.59 MeV",
-      "status": "MEASURED",
-      "note": "d+t"
-     },
-     {
-      "name": "E_mu",
-      "value": "5 GeV achieved",
-      "status": "MEASURED",
-      "note": "sec.4; 0.30 GeV kinematic floor PINNED"
-     },
-     {
-      "name": "omega_s",
-      "value": "0.45 / 0.56 %",
-      "status": "MEASURED",
-      "note": "SIN / PSI, final sticking"
-     },
-     {
-      "name": "omega_s",
-      "value": "0.34 %",
-      "status": "PROJECTED",
-      "note": "dual polarisation"
-     },
-     {
-      "name": "omega_s",
-      "value": "0.31 %",
-      "status": "PROJECTED",
-      "note": "J=1,v=0 -- and see REFUSALS"
-     },
-     {
-      "name": "omega_s",
-      "value": "0.234 %",
-      "status": "PROJECTED",
-      "note": "both composed: 0.34 * 0.31/0.45"
-     },
-     {
-      "name": "phi",
-      "value": "0.01 .. 1.5 LHD",
-      "status": "MEASURED",
-      "note": "scanned record (PSI); JINR 0.2 .. 1.2"
-     },
-     {
-      "name": "E_del",
-      "value": "874 TeV/muon",
-      "status": "PROSE-ONLY",
-      "note": "PSI 1.4 MW over 1e10 delivered mu/s"
-     },
-     {
-      "name": "f_work",
-      "value": "0.501",
-      "status": "PROSE-ONLY",
-      "note": "convertible fraction, alpha + blanket"
-     }
-    ],
-    "constants": {
-     "lambda_0": 466500.0,
-     "lambda_c": 260000000.0,
-     "transfer": [
-      270000000.0,
-      90000000.0
-     ],
-     "Q_fus_MeV": 17.59,
-     "E_mu_achieved_GeV": 5.0,
-     "E_mu_floor_GeV": 0.3,
-     "E_mu_delivered_TeV": 874.0,
-     "collection_factor": 175000.0,
-     "f_work": 0.501,
-     "f_alpha": 0.199,
-     "carnot_800": 0.62,
-     "phi_measured_max": 1.5,
-     "omega_measured_min": 0.0045,
-     "sticking": {
-      "psi": {
-       "omega_s": 0.0056,
-       "status": "MEASURED"
-      },
-      "sin": {
-       "omega_s": 0.0045,
-       "status": "MEASURED"
-      },
-      "pol": {
-       "omega_s": 0.0034,
-       "status": "PROJECTED"
-      },
-      "j1": {
-       "omega_s": 0.0031,
-       "status": "PROJECTED"
-      },
-      "both": {
-       "omega_s": 0.00234,
-       "status": "PROJECTED"
-      }
-     },
-     "reservation_j1": "the 0.31% J=1 figure is carried by the paper with the reservation that its source does not resolve whether it is initial or post-reactivation sticking"
-    },
-    "fixtures": {
-     "table_5_1": [
-      {
-       "omega_s": 0.0056,
-       "Q": [
-        0.5,
-        0.54,
-        0.57
-       ]
-      },
-      {
-       "omega_s": 0.0045,
-       "Q": [
-        0.59,
-        0.65,
-        0.69
-       ]
-      },
-      {
-       "omega_s": 0.0034,
-       "Q": [
-        0.72,
-        0.82,
-        0.88
-       ]
-      },
-      {
-       "omega_s": 0.0031,
-       "Q": [
-        0.77,
-        0.88,
-        0.95
-       ]
-      },
-      {
-       "omega_s": 0.00234,
-       "Q": [
-        0.93,
-        1.1,
-        1.21
-       ]
-      }
-     ],
-     "phis": [
-      1.2,
-      2.0,
-      3.0
-     ],
-     "E_mu": 5.0,
-     "breakeven_5_1": [
-      {
-       "phi": 1.2,
-       "omega_s": 0.00202
-      },
-      {
-       "phi": 2.0,
-       "omega_s": 0.00262
-      },
-      {
-       "phi": 3.0,
-       "omega_s": 0.00292
-      }
-     ],
-     "note": "the paper's own Table 5.1 and section 5.1 thresholds, read from tools/mucf.py whose selftest asserts them; the 0.234 % row is a recorded divergence (the row is computed at the transfer rate 2.7e8 rather than the pinned saturation 2.6e8) and is NOTED, not repaired"
-    },
-    "reclassified": {
-     "file": "papers/Muon_Catalysed_Fusion_v1.1.md",
-     "line": 437,
-     "quote": "Reclassified in v1.1: E_μ = 5 GeV per muon, described in v1.0 as achieved and verified, is"
-    }
-   },
-   "collection": {
-    "status": "SOURCED",
-    "source": "tools/collector.py; papers/Muon_Collection_Budget_v1.0.md",
-    "MuSIC_mu_minus_per_W": [
-     90000.0,
-     10000.0
-    ],
-    "MuSIC_all_mu_per_W": 1040000.0,
-    "MuSIC_proton_GeV": 0.392,
-    "Mu2e_stopped_per_p": 0.0016,
-    "COMET_captured_per_p": [
-     0.061,
-     0.144
-    ],
-    "pion_threshold_GeV": 0.3,
-    "paper_assumed_GeV": 5.0,
-    "work_breakeven_GeV": 1.96,
-    "heat_breakeven_GeV": 3.9,
-    "arxiv": {
-     "MuSIC": "1610.07850",
-     "Mu2e": "1211.7019",
-     "COMET": "1812.09018"
-    }
-   }
-  },
-  "antimatter": {
-   "status": "RECOVERED",
-   "note": "PART K of recovered/structural-results.md -- recovered from the chat export, not a member of either bundle, with no instrument",
-   "cpt": {
-    "file": "recovered/structural-results.md",
-    "line": 410,
-    "quote": "Λ is CPT-invariant. Every coordinate is CPT-even — all counts and"
-   },
-   "alpha": {
-    "value": "2 × 10⁻¹²",
-    "site": {
-     "file": "recovered/structural-results.md",
-     "line": 414,
-     "quote": "hydrogen at 2 × 10⁻¹²."
-    }
-   },
-   "reduced_mass": {
-    "site": {
-     "file": "recovered/structural-results.md",
-     "line": 420,
-     "quote": "The real second axis is reduced mass, not charge:"
-    },
-    "systems": [
-     {
-      "system": "positronium",
-      "mu_over_me": 0.5,
-      "radius_A": 1.058,
-      "line": 424
-     },
-     {
-      "system": "hydrogen, antihydrogen",
-      "mu_over_me": 1.0,
-      "radius_A": 0.529,
-      "line": 425
-     },
-     {
-      "system": "muonic hydrogen",
-      "mu_over_me": 186.0,
-      "radius_A": 0.0028,
-      "line": 426
-     },
-     {
-      "system": "antiprotonic helium",
-      "mu_over_me": 1467.0,
-      "radius_A": 0.00036,
-      "line": 427
-     }
-    ]
-   },
-   "antihydrogen": {
-    "file": "recovered/structural-results.md",
-    "line": 434,
-    "quote": "The bracket cannot help antihydrogen. It is 1.8 × 10¹² times wider than"
-   },
-   "antiprotonic_only": {
-    "file": "recovered/structural-results.md",
-    "line": 437,
-    "quote": "δ is pure correction. Antiprotonic helium is the only antimatter system with"
-   }
-  },
-  "antiprotonic_helium": {
-   "status": "READ",
-   "cell": [
-    35,
-    33
-   ],
-   "site": {
-    "file": "method/members/The_Method_1_6-2.md",
-    "line": 4419,
-    "quote": "Worked case, in an apparatus. Antiprotonic helium, cell (35,33):"
-   },
-   "routes": [
-    {
-     "route": "measured directly",
-     "MHz": "804,633,059.0",
-     "pm": 8.2,
-     "line": 4423
-    },
-    {
-     "route": "two-photon minus a different single-photon",
-     "MHz": "804,633,057.8",
-     "pm": 10.6,
-     "line": 4424
-    }
-   ],
-   "agreement_sigma": 0.09,
-   "agreement_site": {
-    "file": "method/members/The_Method_1_6-2.md",
-    "line": 4426,
-    "quote": "Agreement at 0.09σ, with no shared measurement. One laser resonance against a two-photon resonance minus an unrelated one. That is path-disjointness realised in hardware."
-   },
-   "scope": "PO-0279: enters as a scope statement, not as cells"
-  },
-  "photon": {
-   "status": "READ",
-   "E": 1,
-   "site": {
-    "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-    "line": 1274,
-    "quote": "The defect is E = 1, cap-independent — four meets and one restored cell at box caps 4, 6 and 8 alike — and the single cell ℛ restores is precisely the one the atom vetoes: the photon's unit of angular momentum, with the parity half of the rule a congruence that breaks joins, the photon's odd parity."
-   },
-   "claim": {
-    "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-    "line": 1274,
-    "quote": "An index is honest about what it proposes; it is not thereby right, and the one place this index makes a checkable physical claim on its own, the claim is false — which is why the falseness is a result and not a failure."
-   }
-  },
-  "constants": {
-   "status": "PINNED",
-   "file": "method/members/The_Method_1_6___The_Physics_Compendium-2.md",
-   "count": 27,
-   "rows": [
-    {
-     "name": "subshell capacity",
-     "value": "4l+2",
-     "note": "an exact integer",
-     "line": 373,
-     "withdrawn": false
-    },
-    {
-     "name": "angular momentum bound",
-     "value": "l <= n-1",
-     "note": "an exact integer",
-     "line": 383,
-     "withdrawn": false
-    },
-    {
-     "name": "Rydberg constant",
-     "value": "R_inf = 109737.31568 cm^-1",
-     "note": "",
-     "line": 393,
-     "withdrawn": false
-    },
-    {
-     "name": "proton-electron mass ratio",
-     "value": "m_p/m_e = 1836.15267343",
-     "note": "",
-     "line": 403,
-     "withdrawn": false
-    },
-    {
-     "name": "Cs I np defect",
-     "value": "3.5667",
-     "note": "",
-     "line": 413,
-     "withdrawn": false
-    },
-    {
-     "name": "ionisation limit",
-     "value": "I",
-     "note": "per species, cm^-1",
-     "line": 423,
-     "withdrawn": false
-    },
-    {
-     "name": "aufbau ordering",
-     "value": "n+l, then n",
-     "note": "a permutation of subshells",
-     "line": 433,
-     "withdrawn": false
-    },
-    {
-     "name": "Janet block boundary",
-     "value": "Z = 21, 57, 89",
-     "note": "an exact integer",
-     "line": 443,
-     "withdrawn": false
-    },
-    {
-     "name": "Hund's first rule",
-     "value": "max S for the core",
-     "note": "a term selection",
-     "line": 453,
-     "withdrawn": false
-    },
-    {
-     "name": "core dipole polarisability",
-     "value": "alpha_d",
-     "note": "per core, a0^3",
-     "line": 463,
-     "withdrawn": false
-    },
-    {
-     "name": "actinide defects",
-     "value": "5.2, 4.75, 3.8, 2.0",
-     "note": "theoretical",
-     "line": 473,
-     "withdrawn": false
-    },
-    {
-     "name": "Seaton polarisation constant",
-     "value": "3 alpha c^2 / K(l)",
-     "note": "",
-     "line": 483,
-     "withdrawn": false
-    },
-    {
-     "name": "reduced-mass Rydberg",
-     "value": "R_M = R_inf/(1 + 1/(A m_p))",
-     "note": "",
-     "line": 493,
-     "withdrawn": false
-    },
-    {
-     "name": "bracket yardstick",
-     "value": "2 Z^2 R / nu^3",
-     "note": "",
-     "line": 503,
-     "withdrawn": false
-    },
-    {
-     "name": "channel equation, a",
-     "value": "0.3772",
-     "note": "",
-     "line": 513,
-     "withdrawn": false
-    },
-    {
-     "name": "channel equation, e0",
-     "value": "0.8297",
-     "note": "",
-     "line": 523,
-     "withdrawn": false
-    },
-    {
-     "name": "channel equation, e1",
-     "value": "-0.0900",
-     "note": "",
-     "line": 533,
-     "withdrawn": false
-    },
-    {
-     "name": "channel equation, k",
-     "value": "0.4942",
-     "note": "",
-     "line": 543,
-     "withdrawn": false
-    },
-    {
-     "name": "channel equation, h",
-     "value": "0.5415",
-     "note": "",
-     "line": 553,
-     "withdrawn": false
-    },
-    {
-     "name": "isoelectronic ladder, B",
-     "value": "per sequence",
-     "note": "",
-     "line": 563,
-     "withdrawn": false
-    },
-    {
-     "name": "five-sigma admissibility",
-     "value": "r >= 5",
-     "note": "a threshold",
-     "line": 573,
-     "withdrawn": false
-    },
-    {
-     "name": "exchange coefficient",
-     "value": "s = -0.0782",
-     "note": "WITHDRAWN",
-     "line": 583,
-     "withdrawn": true
-    },
-    {
-     "name": "speed of light",
-     "value": "c = 137.035999 a.u.",
-     "note": "",
-     "line": 595,
-     "withdrawn": false
-    },
-    {
-     "name": "three-body masses",
-     "value": "m₁, m₂, m₃",
-     "note": "three positive reals",
-     "line": 605,
-     "withdrawn": false
-    },
-    {
-     "name": "three-body energy",
-     "value": "E",
-     "note": "a real",
-     "line": 615,
-     "withdrawn": false
-    },
-    {
-     "name": "three-body angular momentum",
-     "value": "L",
-     "note": "a real",
-     "line": 625,
-     "withdrawn": false
-    },
-    {
-     "name": "gravitational constant",
-     "value": "G = 1",
-     "note": "",
-     "line": 635,
-     "withdrawn": false
-    }
-   ],
-   "note": "Lambda_phys, the 27 declared parameters of the Physics Compendium, each with kind, value, domain and provenance in the record; one is WITHDRAWN and stays listed as such"
-  },
-  "prose_only": [
-   {
-    "id": "PO-0896",
-    "category": "MEASUREMENT",
-    "label": "Structural window [119, 918] electron masses for a binder",
-    "quote": "The window is [119, 918] mₑ. And notice what it unifies: the electron's failure and the tau's failure, which the session found separately and by different arguments, are simply the two edges of one window — one runs out of geometry, the other runs out of index.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0893",
-    "category": "MEASUREMENT",
-    "label": "E = 1 over the charged-catalyst candidate index",
-    "quote": "E = 1 over the candidate index. Not \"the best option\" — the only one in the known particle spectrum. Constraints 2 and 4 form a vise: everything heavy enough to be fast is either hadronic (absorbed) or too short-lived, and the one gap between those jaws holds a single particle.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0415",
-    "category": "DEFINITION",
-    "label": "Lambda's mass-blindness is the thread to cold fusion",
-    "quote": "The bracket was measurably Z-blind — it held 56 of 56 with the wrong nuclear charge... The same structure makes Λ mass-blind: a muonic atom occupies the same cell — same n, ℓ, k, q, e, f, g, S — as its electronic twin. The index cannot tell them apart, because the index carries configuration, not scale.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0341",
-    "category": "DEFINITION",
-    "label": "Muonic atoms lie outside the object the Challenge named",
-    "quote": "Where it would matter — and this is worth one sentence in T4's scope statement, nothing more — is as a boundary marker: the derivation governs electronic atoms with point nuclei. A muonic atom, or a nucleus whose size competes with the orbital scale, lies outside the object the Challenge named. Löwdin asked about the periodic table; muonic atoms are not in it.",
-    "confidence": "MEDIUM",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0897",
-    "category": "MEASUREMENT",
-    "label": "Transfer rate caps the muon cycle: lambda_c saturates at 2.6e8",
-    "quote": "It's wrong, because the cycle is a harmonic sum. Driving the formation resonance moves the bottleneck to transfer, which is verified at 2.7 × 10⁸ — so λ_c saturates at 2.6 × 10⁸, not 10¹⁰... So temperature buys a factor of 3.6 in λ_c and then stops. That is a real and previously unstated ceiling in this corpus",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0898",
-    "category": "MEASUREMENT",
-    "label": "Flux gap: Q > 1 is necessary but not sufficient",
-    "quote": "Against ~10⁸ /s at PSI today and ~10¹⁰ /s planned for HIMB. One megawatt of fusion needs roughly 10⁵ times the best planned muon source.... Q > 1 is necessary but not sufficient. Even at breakeven, useful power requires a beam current five to seven orders beyond anything built or designed.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0411",
-    "category": "DEFINITION",
-    "label": "Ash bracket: a mechanism-independent 7.3x conservation window",
-    "quote": "Every possible branching, measured or invented, predicts between 3.76 × 10⁻⁸ and 2.74 × 10⁻⁷ mol of heavy ash per watt-day — a window only 7.3× wide (= Q_γ/Q_hn), with the measured vacuum point at 2.48 × 10⁻⁷, near the top.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0412",
-    "category": "DEFINITION",
-    "label": "The exact 0+ to 0+ prohibition kills the historical gamma claim",
-    "quote": "At ambient energies d + d enters in s-wave; identical bosons force L + S even, so the entrance is 0⁺ — and the transition 0⁺ → 0⁺ (⁴He ground state) cannot emit a single photon at all: an exact EM theorem, not a small number.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0279",
-    "category": "DECISION",
-    "label": "Antiprotonic helium enters as a scope statement, not as cells",
-    "quote": "The bracket extends to it. The cost law does not. The reason is that the hydrogenic index is not the right coordinate for a three-body system, and V = 4ν/3 assumes it is. ... > spacing ∝ n^−4.71, where hydrogenic requires n^−3 ... levels reconstructed by summing transitions are monotone by construction, so containment is vacuous.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   },
-   {
-    "id": "PO-0682",
-    "category": "FAULT",
-    "label": "Sum-constraint blindness is R's third registered limitation",
-    "quote": "The book's pairwise ℛ fails on the decuplet — E = 6 on the full multiplet, admitting six quark-content combinations that are not particles — because a simplex (n_d + n_s ≤ 3) is a sum constraint, invisible to order bounds, the exact sibling of the parity lesson: value-set escape, fibration-dependence, and now sum-constraints. Three registered bounds on ℛ.",
-    "confidence": "HIGH",
-    "status": "PROSE-ONLY"
-   }
-  ],
-  "absent": {
-   "status": "DERIVED",
-   "terms": {
-    "neutrino": {
-     "occurrences": 0,
-     "first": null
-    },
-    "gluon": {
-     "occurrences": 0,
-     "first": null
-    },
-    "Higgs": {
-     "occurrences": 0,
-     "first": null
-    },
-    "muonium": {
-     "occurrences": 0,
-     "first": null
-    },
-    "protonium": {
-     "occurrences": 0,
-     "first": null
-    },
-    "kaon": {
-     "occurrences": 0,
-     "first": null
-    },
-    "positronium": {
-     "occurrences": 0,
-     "first": null
-    }
-   },
-   "note": "occurrences counted over method/members and papers/ at build; a term with none is absent from the corpus, not a cell of it"
-  }
- },
+ "particles": null,
  "references": {
-  "note": "identifiers the corpus prints, found at build by pattern over method/members and papers/ and linked by construction; a compilation named without an identifier is cited as a string and not linked, because the target would be invented",
+  "note": "identifiers the index's sources cite, found at build by pattern and linked by construction; a compilation named without an identifier is cited as a string and not linked, because the target would be invented. A citing line is quoted only from a paper released to the site.",
+  "quoted_from": [
+   "the Löwdin paper",
+   "the three-body paper"
+  ],
   "arxiv": [
    {
     "id": "0706.3134",
-    "cites": [
-     {
-      "file": "method/members/READ-ch16j.md",
-      "line": 42,
-      "text": "*Triadophilia* (arXiv:0706.3134).* He and Szendroi appear only in the text;"
-     },
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11804,
-      "text": "**Candelas, P., de la Ossa, X. & Rodriguez-Villegas, F.** (2007). *Triadophilia* (arXiv:0706.3134). — the thinly populated tip of the Hodge plot."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/0706.3134"
    },
    {
     "id": "0801.4676",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5629,
-      "text": "**BOTH SUPPLIED VERDICTS FAIL ON THEIR REASONING, AND ONE PREMISE IS FALSE AGAINST THE LITERATURE.** *Two answers were supplied to register 1496's questions, both NO, both from an outside model, and both flagged by the person as requiring verification. Verified, and neither argument establishes its conclusion.* **CL..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/0801.4676"
    },
    {
     "id": "0904.1212",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2190,
-      "text": "- Feldstein, B. (2009). Spontaneous Lorentz violation, negative energy and the second law of thermodynamics. arXiv:0904.1212. **[A]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/0904.1212"
    },
    {
     "id": "0906.4065",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4797,
-      "text": "**PRIOR ART FOR THE ⅔: IT IS THOMAS–FERMI'S, IN THE RIGHT FORM.** *Carcassés & González, **Thomas-Fermi scaling in the energy spectra of atomic ions**, Phys. Rev. A **80** (2009) 024502, arXiv:0906.4065: **E_ioniz = Z²·N^(−2/3)·g(N/Z)**, with g given analytically in two adjustable parameters and fitted to more than ..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/0906.4065"
    },
    {
     "id": "0908.1668",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2242,
-      "text": "- Rastegin, A. E. (2009). A note on general no-cloning theorem for black boxes. arXiv:0908.1668. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/0908.1668"
    },
    {
     "id": "0910.5751",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2203,
-      "text": "- Wall, A. C. (2010). Proving the achronal ANEC from the generalized second law. arXiv:0910.5751. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/0910.5751"
    },
    {
     "id": "1105.3445",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5557,
-      "text": "**G1 CHECK ONE: THE CIRCULARITY IS CLEARED, AND WHAT BLOCKS WALL'S ROUTE IS BUCHHOLZ'S FACT FOR THE THIRD TIME.** *The queue's first ordered check on M.C2: Wall proves the achronal ANEC from the generalized second law, Faulkner & Speranza use the ANEC to get half-sided modular inclusion and HSMI to get the GSL, and ..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1105.3445"
    },
    {
     "id": "1110.6134",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5497,
-      "text": "**AND THE RATIO-4 IDENTITY IS NOT A STEP TOWARD THE PROOF — IT IS THE PROOF, BECAUSE IT MAKES THE CONSTRAINT MATRIX RANK ONE.** *Computed in exact rationals: the six constraint vectors in (β, α) are (6, 3/2), (10, 5/2), (10, 5/2), (−6, −3/2), (−14, −7/2) and (−18, −9/2).* **Every one is a positive multiple of (4, 1)..."
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5778,
-      "text": "**AND I CALLED THE NILSSON CITATION WRONG ON THE STRENGTH OF AN ABSTRACT'S SILENCE.** *arXiv 1110.6134 was the one fetch that returned content — its abstract. Register 1462 cites its table for κ = 0.0250 at ℓ = 1 within N = 5 against 0.0570 at ℓ = 3 and ℓ = 5, a factor of 2.3 inside one shell, offered as the field a..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/1110.6134"
    },
    {
     "id": "1203.5425",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 5408,
-      "text": "| **arXiv:1203.5425 (CODATA 2010)** | **open — Table XII, all fifteen frequencies, both papers** |"
-     },
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 10188,
-      "text": "Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *J..."
-     },
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11585,
-      "text": "both accessed via CODATA 2010, Table XII (arXiv:1203.5425) and arXiv:1304.4330."
-     },
-     {
-      "file": "method/members/The_Method_1_6___Spectra_Compendium-2.md",
-      "line": 988,
-      "text": "Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *J..."
-     }
-    ],
+    "cites": [],
     "n": 4,
     "url": "https://arxiv.org/abs/1203.5425"
    },
    {
     "id": "1204.0603",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-      "line": 3727,
-      "text": "**Berengut et al., arXiv:1204.0603** locate the 6p–5f crossing in the thallium"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4893,
-      "text": "**PRIOR ART FOR THE QUADRATIC, AND IT SAVES THREE CAPTURES.** *Krug, S. L., and von Lilienfeld, O. A., **Alchemical insights into approximately quadratic energies of iso-electronic atoms**, arXiv:2406.18416 (2024): experimental ΔE against nuclear charge for isoelectronic atoms across Z = 1–86, approximately quadrati..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/1204.0603"
    },
@@ -10179,9 +9299,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "1206.4932",
     "cites": [
      {
-      "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
-      "line": 238,
-      "text": "7. Hantsch, F. (2014). \"Existence of minimizers in restricted Hartree–Fock theory.\" *Electron. J. Diff. Equ.* 2014(44), 1–16; arXiv:1206.4932."
+      "paper": "the Löwdin paper",
+      "text": "Hantsch, F. (2014). \"Existence of minimizers in restricted Hartree–Fock theory.\" Electron. J. Diff. Equ. 2014(44), 1–16; arXiv:1206.4932."
      }
     ],
     "n": 1,
@@ -10189,81 +9308,31 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "id": "1211.7019",
-    "cites": [
-     {
-      "file": "papers/Muon_Collection_Budget_v1.0.md",
-      "line": 220,
-      "text": "2. Mu2e Collaboration, *Mu2e Conceptual Design Report*, FERMILAB-TM-2545, arXiv:1211.7019 (2012), and"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1211.7019"
    },
    {
     "id": "1304.4330",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 5407,
-      "text": "| arXiv:1304.4330 | **open** — the *Nature* paper entire |"
-     },
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 10188,
-      "text": "Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *J..."
-     },
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11585,
-      "text": "both accessed via CODATA 2010, Table XII (arXiv:1203.5425) and arXiv:1304.4330."
-     },
-     {
-      "file": "method/members/The_Method_1_6___Spectra_Compendium-2.md",
-      "line": 988,
-      "text": "Hori *et al.*, *Nature* **475**, 484 (2011) and *Phys. Rev. Lett.* **96**, 243401 (2006), both accessed via CODATA 2010 Table XII (arXiv:1203.5425) and arXiv:1304.4330 · Korobov, *Phys. Rev. A* **77**, 042506 (2008) · Singer, Stanojevic, Weidemüller & Côté, *J. Phys. B* **38**, S295 (2005) · Sugar & Corliss 1985, *J..."
-     }
-    ],
+    "cites": [],
     "n": 4,
     "url": "https://arxiv.org/abs/1304.4330"
    },
    {
     "id": "1308.1017",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5954,
-      "text": "**THE CITATION TRAIL WORKS: TOPBASE DEFECTS FOR FIVE FULL IONISATION LADDERS, AND THEY ARE THEORY.** *M could not reach the ADNDT tables and asked whether anyone citing them might hold what we need. Following the trail from the PRA companion's reference 32 reaches de Kertanguy, arXiv:1308.1017, which cites Theodosio..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1308.1017"
    },
    {
     "id": "1308.1711",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 5409,
-      "text": "| arXiv:1308.1711, an unrelated citing paper | **open** — corroborates to 0.1 MHz |"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1308.1711"
    },
    {
     "id": "1310.1284",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Physics_Compendium-2.md",
-      "line": 579,
-      "text": "**Where it comes from.** the convention is particle physics's; its history and its critics are in Lyons, Discovering the significance of 5 sigma, arXiv:1310.1284 (2013)"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4649,
-      "text": "**TWO ATTRIBUTIONS CAME OUT SHARPER THAN THE REGISTER HAD THEM.** *`R_M`, the reduced-mass Rydberg — the very correction register 868 got wrong — has a famous origin: **Bohr 1913**, after Fowler objected that the Pickering series did not fit, replaced the electron mass with the reduced mass and got five-digit agreem..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/1310.1284"
    },
@@ -10271,9 +9340,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "1402.0841",
     "cites": [
      {
-      "file": "method/members/The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md",
-      "line": 201,
-      "text": "Montgomery, R. (2014). The three-body problem and the shape sphere. arXiv:1402.0841; *Amer. Math. Monthly* 122 (2015), 299–321."
+      "paper": "the three-body paper",
+      "text": "Montgomery, R. (2014). The three-body problem and the shape sphere. arXiv:1402.0841; Amer. Math. Monthly 122 (2015), 299–321."
      }
     ],
     "n": 1,
@@ -10281,482 +9349,199 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "id": "1406.4094",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11741,
-      "text": "**[S] — abstract and body read; the body checked at their section 1.1 for eqs. (1.6) and (1.7b).** · · **Van Isacker, P.** (2014). Seniority in quantum many-body systems. arXiv:1406.4094 and"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1406.4094"
    },
    {
     "id": "1406.4550",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2243,
-      "text": "- Sbisà, F. (2015). Classical and quantum ghosts. *European Journal of Physics* 36, 015009; arXiv:1406.4550. **[A]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1406.4550"
    },
    {
     "id": "1412.0011",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11680,
-      "text": "Siggers, M. (2016). On the representations of finite distributive lattices (arXiv:1412.0011). —"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1412.0011"
    },
    {
     "id": "1507.00297",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2199,
-      "text": "- Kontou, E.-A. & Olum, K. D. (2015). Proof of the ANEC in a classical curved spacetime using a null-projected quantum inequality. arXiv:1507.00297. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1507.00297"
    },
    {
     "id": "1610.07850",
-    "cites": [
-     {
-      "file": "papers/Muon_Collection_Budget_v1.0.md",
-      "line": 217,
-      "text": "1. S. Cook *et al.*, *MuSIC: delivering the world's most intense muon beam*, arXiv:1610.07850 (2016);"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1610.07850"
    },
    {
     "id": "1706.06237",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___Spectra_Compendium-2.md",
-      "line": 1017,
-      "text": "| arXiv:1706.06237 | Cs I np at n = 70–100 |"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Physics_Compendium-2.md",
-      "line": 419,
-      "text": "**Where it comes from.** arXiv:1706.06237 (2017), n = 70-100; earlier 3.55925 at n = 9-50 (Lorenzen & Niemax, Z. Phys. A 315, 1984)"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4489,
-      "text": "**THE EXTERIOR PREDICTIONS VERIFY WHERE THEY REACH.** *Cs I np: the walk says **3.659**, measured **3.5667** (arXiv:1706.06237, n = 70–100) — an error of +0.093, **2.6%**, with a stated error factor of 1.67.* **But it reached one of seven** — *the actinides at Z = 89–90 are too far from any measured cell for a step ..."
-     }
-    ],
+    "cites": [],
     "n": 3,
     "url": "https://arxiv.org/abs/1706.06237"
    },
    {
     "id": "1807.04726",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2195,
-      "text": "- Maldacena, J., Milekhin, A. & Popov, F. (2018). Traversable wormholes in four dimensions. arXiv:1807.04726; *CQG* 40, 155016 (2023). **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1807.04726"
    },
    {
     "id": "1809.05160",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11801,
-      "text": "Huang, W. & Taylor, W. (2019). JHEP (arXiv:1809.05160). — the counts 248,305 / 248,305 / 495,515"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1809.05160"
    },
    {
     "id": "1812.04683",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2209,
-      "text": "- Ceyhan, F. & Faulkner, T. (2018). Recovering the QNEC from the ANEC. arXiv:1812.04683. **[A]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1812.04683"
    },
    {
     "id": "1812.09018",
-    "cites": [
-     {
-      "file": "papers/Muon_Collection_Budget_v1.0.md",
-      "line": 222,
-      "text": "3. COMET Collaboration, *COMET Phase-I Technical Design Report*, arXiv:1812.09018 (2018);"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1812.09018"
    },
    {
     "id": "1907.02776",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4057,
-      "text": "**THREE K I CHANNELS AND ITS LIMIT ARE VERIFIED AGAINST AN EIGHT-DIGIT PUBLISHED SOURCE.** *Peper et al., arXiv:1907.02776 — ETH Zurich, frequency-comb-referenced. **ns: ours 2.1912 ± 0.0111 against 2.18194. nd: 0.2460 ± 0.0380 against 0.25977. nf: 0.0112 ± 0.0030 against 0.00876.** Three of three agree.* **And the ..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1907.02776"
    },
    {
     "id": "1909.00233",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5121,
-      "text": "**A COUNTING FORMULA FOR THE MAGIC NUMBERS, AND ITS ATTRIBUTION.** *magic(N) = HOcum(N) for N ≤ 2 and HOcum(N−1) + 2(N+1) for N ≥ 3, giving 2, 8, 20, 28, 50, 82, 126 and predicting 184.* **And the search settled it against me: HOcum(N−1) + 2(N+1) IS the published SO-like sequence 2, 6, 14, 28, 50, 82, 126 (arXiv:190..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/1909.00233"
    },
    {
     "id": "2008.07942",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2206,
-      "text": "- Iizuka, N., Ishibashi, A. & Maeda, K. (2020). The averaged null energy conditions in even dimensional curved spacetimes from AdS/CFT duality. *JHEP* 10, 106; arXiv:2008.07942. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2008.07942"
    },
    {
     "id": "2012.11569",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2212,
-      "text": "- Freivogel, B., Kontou, E.-A. & Krommydas, D. (2020). The return of the singularities: applications of the smeared null energy condition. arXiv:2012.11569. **[A]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2012.11569"
    },
    {
     "id": "2207.06441",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5589,
-      "text": "**THE COUPLING MECHANISM IS diff(S), AND IT IS THE ONE FACTOR THE CONSTRUCTION M.C2 DEPENDS ON LEAVES OUT.** *The person restated the target as a coupling mechanism for corner modes, which is exactly right: a(y) and b(y) ARE corner modes, so the question is what couples them at different points of the corner. The li..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2207.06441"
    },
    {
     "id": "2211.08524",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11757,
-      "text": "· **Complexity results for implication bases of convex geometries** (arXiv:2211.08524). — **Lemma 2:"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 2065,
-      "text": "**THE SEED'S EXACT COMPUTATION IS NP-HARD, AND THE LITERATURE HAD THE THEOREM UNDER ANOTHER NAME.** *The minimum cardinality generator problem is NP-hard**, by reduction from Boolean CNF satisfiability — arXiv:2211.08524, Lemma 2, in the setting of implication bases for convex geometries.* **That is §14.5.7's seed e..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/2211.08524"
    },
    {
     "id": "2309.03871",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5585,
-      "text": "**ALL THREE COUPLING CANDIDATES FAIL, THE EXPECTED COMBINATION DOES NOT ARISE, AND ONE WEAK COUPLING SURVIVES.** *The person asked for all three tested individually and expected a combination of two or three. Predictions were declared before any test: candidate 1 to fail, candidate 2 strongest, candidate 3 weak.* **..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2309.03871"
    },
    {
     "id": "2312.07646",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2211,
-      "text": "- Kudler-Flam, J., Leutheusser, S., Rahman, A. A., Satishchandran, G. & Speranza, A. J. (2025). Covariant regulator for entanglement entropy: proofs of the Bekenstein bound and the quantum null energy condition. *PRD* 111, 105001; arXiv:2312.07646. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2312.07646"
    },
    {
     "id": "2402.02609",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4713,
-      "text": "**THE TWO LADDERS, AND WHAT MAKES D AND F DIFFERENT.** *An ℓ ≥ 2 orbital with no core orbital of its own ℓ faces a centrifugal barrier that splits the potential into two wells (Connerade, ch. 5; arXiv:2402.02609). Below its threshold it sits in the OUTER well and raising the charge pulls it inward, so δ RISES. s and..."
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4725,
-      "text": "**AND h(f) FROM PUBLISHED RADII, NOT FROM A DEFECT.** *arXiv:2402.02609: the collapsed and uncollapsed f wavefunctions are BOTH NODELESS, so the collapse is pure phase and h is the inner-well defect. For a nodeless state ⟨r⟩ = (3n∗² − ℓ(ℓ+1))/2Z_c.* **Ba's hydrogenic 4f at ⟨r⟩ = 18 a₀ gives δ = 0.000 EXACTLY — the f..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/2402.02609"
    },
    {
     "id": "2403.18937",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 2057,
-      "text": "**M.sorce AND M.C1 CLOSE, ONE BY SEARCH AND ONE BY READING.** *Sorce,* *Analyticity and the Unruh effect: a study of local modular flow**, JHEP 2024, 40 — arXiv:2403.18937 §3.1:* **due to microcausality any unitary group acting geometrically implements a conformal transformation, so geometric modular flow is generat..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2403.18937"
    },
    {
     "id": "2405.00847",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-      "line": 2394,
-      "text": "The object is conditional (register 1507): it is proved on one existence hypothesis, in nine steps none of which uses a Killing field — P_λ ≥ 0 from the ANEC on achronal generators (register 1471); U(s) unitary by Stone; U(s) B U(s)† ⊆ B because the cut translates into itself, which is causal structure (register 150..."
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5533,
-      "text": "**G1 · M.C2's OBSTRUCTION IS RELOCATED AND SHARPENED, NOT REMOVED — AND THE PERSON'S CAUTION IS WHY.** *M.C2 is the one OPEN object of 214. Its check says positivity of the null translation generator is not implied by Hadamard and is a SELECTION CRITERION assumed by everyone who needs it. A search — the move registe..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/2405.00847"
    },
    {
     "id": "2406.18416",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-      "line": 3721,
-      "text": "isoelectronic sequence is **Krug & von Lilienfeld, arXiv:2406.18416 (2024)**,"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4893,
-      "text": "**PRIOR ART FOR THE QUADRATIC, AND IT SAVES THREE CAPTURES.** *Krug, S. L., and von Lilienfeld, O. A., **Alchemical insights into approximately quadratic energies of iso-electronic atoms**, arXiv:2406.18416 (2024): experimental ΔE against nuclear charge for isoelectronic atoms across Z = 1–86, approximately quadrati..."
-     }
-    ],
+    "cites": [],
     "n": 2,
     "url": "https://arxiv.org/abs/2406.18416"
    },
    {
     "id": "2502.20961",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___Spectra_Compendium-2.md",
-      "line": 1019,
-      "text": "| arXiv:2502.20961 | Cs⁺ dipole and quadrupole polarisabilities |"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Physics_Compendium-2.md",
-      "line": 469,
-      "text": "**Where it comes from.** Born & Heisenberg, Z. Phys. 23 (1924) 388-410; systematic values Mayer & Mayer, Phys. Rev. 43 (1933) 605-611; modern e.g. Cs+ 15.696(16) a0^3, arXiv:2502.20961"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Physics_Compendium-2.md",
-      "line": 471,
-      "text": "> **Where it fails.** below l = 4, where penetration dominates and Seaton's formula does not apply. AND for nf treated as non-penetrating: arXiv:2502.20961 reports alpha_d and alpha_q that then disagree with the ng energies."
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4541,
-      "text": "**A MEASURED QUADRUPOLE POLARISABILITY, AND THE SAME TENSION WE COULD NOT RESOLVE.** *arXiv:2502.20961 gives Cs⁺ α_d = 15.696(16) a₀³ and α_q = 78.6(12) a₀⁵ from ℓ ≥ 4, against theory at 15.8–15.9 and 76–118.* **And they report that treating nf as non-penetrating gives α_d and α_q that disagree with the ng energies*..."
-     }
-    ],
+    "cites": [],
     "n": 4,
     "url": "https://arxiv.org/abs/2502.20961"
    },
    {
     "id": "2507.10683",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 5593,
-      "text": "**THE QUOTIENT IS NOT AVAILABLE: diff(S) IS PHYSICAL, NOT GAUGE — SO THE COUPLING ORGANISES THE FREEDOM RATHER THAN REDUCING IT.** *Register 1487 inferred that if a(y) transforms under Diff(S) its physical content is its diffeomorphism class, which would have cut the freedom from a function to a finite-dimensional s..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2507.10683"
    },
    {
     "id": "2508.06733",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-      "line": 3030,
-      "text": "> **Prior art: asymptotic quantum defects for all ionisation stages of all ions with Z ≤ 50 are tabulated in Theodosiou, Inokuti & Manson, At. Data Nucl. Data Tables 35 (1986) 473-486, Hartree-Slater. The far anchors used here are Cs I np (measured) and actinide values from arXiv:2508.06733.**"
-     },
-     {
-      "file": "method/members/The_Method_1_6___Spectra_Compendium-2.md",
-      "line": 1018,
-      "text": "| arXiv:2508.06733 | actinide defects, Z = 89–103 |"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Physics_Compendium-2.md",
-      "line": 479,
-      "text": "**Where it comes from.** arXiv:2508.06733 (2025), theoretical"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4493,
-      "text": "**ANCHORING AT BOTH ENDS FIXES THE EXTRAPOLATION AT ALMOST NO COST.** *Seven far anchors — Cs I np measured, and Th/Ac ns, np, nd, nf from actinide theory (arXiv:2508.06733, δ ≈ 5.2, 4.75, 3.8, 2.0 for Z = 89–103) — extend the sample from Z ≤ 83 to Z = 90.* **The far-anchor median error falls 0.754 → 0.064, a factor..."
-     }
-    ],
+    "cites": [],
     "n": 4,
     "url": "https://arxiv.org/abs/2508.06733"
    },
    {
     "id": "2601.07915",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 4229,
-      "text": "*Established for linearised perturbations of Killing horizons by* **Chandrasekaran & Flanagan** *(arXiv:2601.07915); the non-expanding case where no Killing field exists remains open.*"
-     },
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11736,
-      "text": "gravity. arXiv:2601.07915. — half-sided supertranslation generators from doubled corner edge modes;"
-     },
-     {
-      "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-      "line": 2394,
-      "text": "The object is conditional (register 1507): it is proved on one existence hypothesis, in nine steps none of which uses a Killing field — P_λ ≥ 0 from the ANEC on achronal generators (register 1471); U(s) unitary by Stone; U(s) B U(s)† ⊆ B because the cut translates into itself, which is causal structure (register 150..."
-     },
-     {
-      "file": "method/members/The_Method_1_6___Mathematical_Compendium-2.md",
-      "line": 3360,
-      "text": "**What would settle it.** The covariance of conditional expectations across the full family of cuts, in the manner of an over-determined joint fit. *Chandrasekaran & Flanagan (arXiv:2601.07915) is the nearest published treatment and was read into the diagnosis at registers 1037–1042.*"
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 2089,
-      "text": "**THE COMPANION'S READING OF Chandrasekaran–Flanagan IS VERIFIED AGAINST THEIR EQUATIONS.** *arXiv:2601.07915, submitted 12 Jan 2026. Their abstract says the null translation generator is* **necessarily two-sided* **; the companion says its two-sidedness* **enters only through the expansion* **. Both are right, and ..."
-     },
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 3769,
-      "text": "**So M.C2 IS RECORDED WITH TWO ROUTES AND ONE OF THEM NAMED AS UNATTEMPTED.** *The geometric route is blocked and the literature confirms it — Chandrasekaran & Flanagan have the Killing case (arXiv:2601.07915) and the non-expanding case is where a Killing field does not exist.* **The algebraic route is not blocked i..."
-     }
-    ],
+    "cites": [],
     "n": 6,
     "url": "https://arxiv.org/abs/2601.07915"
    },
    {
     "id": "2605.00028",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4525,
-      "text": "**PRIOR ART: THE NOBLE-GAS-CENTRED COORDINATE IS PUBLISHED.** *Washburn, Simons & Allahyarov, arXiv:2605.00028, 22 April 2026: **ρ = d/L_p**, distance from the preceding noble gas normalised by period length, with J(ρ) = cosh(ρ ln φ) − 1 organising first ionisation energy, electron affinity, electronegativity and ha..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/2605.00028"
    },
    {
     "id": "alg-geom/9310003",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11794,
-      "text": "Batyrev, V. V. (1994). J. Alg. Geom. 3, 493 (arXiv:alg-geom/9310003). — dual polyhedra and mirror"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/alg-geom/9310003"
    },
    {
     "id": "gr-qc/0401004",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2222,
-      "text": "- Friedman, J. L. (2004). The Cauchy problem on spacetimes that are not globally hyperbolic. gr-qc/0401004. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/gr-qc/0401004"
    },
    {
     "id": "gr-qc/9409043",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2208,
-      "text": "- Visser, M. (1994). Scale anomalies imply violation of the averaged null energy condition. gr-qc/9409043. **[A]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/gr-qc/9409043"
    },
    {
     "id": "hep-ph/9306225",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2179,
-      "text": "- Greenberg, O. W. (1993). (Para)bosons, (para)fermions, quons and other beasts in the menagerie of particle statistics. hep-ph/9306225. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/hep-ph/9306225"
    },
    {
     "id": "hep-th/0002240",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11797,
-      "text": "Kreuzer, M. & Skarke, H. (2000). Adv. Theor. Math. Phys. 4, 1209 (arXiv:hep-th/0002240). — all"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/hep-th/0002240"
    },
    {
     "id": "hep-th/9707220",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2180,
-      "text": "- Greenberg, O. W. (1997). Spin-statistics, spin-locality, and TCP: three distinct theorems. hep-th/9707220. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/hep-th/9707220"
    },
@@ -10764,13 +9549,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "math-ph/0608060",
     "cites": [
      {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11823,
-      "text": "· Hsiang, W.-Y. & Straume, E. (2006). arXiv:math-ph/0608060. — kinematic geometry of triangles."
-     },
-     {
-      "file": "method/members/The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md",
-      "line": 184,
+      "paper": "the three-body paper",
       "text": "Hsiang, W.-Y. & Straume, E. (2006). Kinematic geometry of triangles and the study of the three-body problem. arXiv:math-ph/0608060."
      }
     ],
@@ -10779,25 +9558,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "id": "physics/0504154",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6___The_Register-2.md",
-      "line": 4537,
-      "text": "**AND ORGANISING QUANTUM DEFECTS ON THE Z^⅓ AXIS ACROSS THE WHOLE TABLE IS PUBLISHED.** *arXiv:physics/0504154 compiles experimental defects for **37 elements** and plots μ against Z^⅓ against a systematic theory, alongside the numerical μ(Z) of Fano, Theodosiou & Dehmer.* **Z^⅓ is register 1064's Thomas–Fermi axis ..."
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/physics/0504154"
    },
    {
     "id": "quant-ph/0608088",
-    "cites": [
-     {
-      "file": "method/members/Transitions.md",
-      "line": 2182,
-      "text": "- Bernabéu, J. et al. (VIP collaboration) (2006). An experiment to search for a violation of the Pauli exclusion principle. quant-ph/0608088. **[F]**"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://arxiv.org/abs/quant-ph/0608088"
    }
@@ -10805,13 +9572,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "doi": [
    {
     "id": "10.1007/978-3-642-99147-9_1",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 5479,
-      "text": "chapter DOI — 10.1007/978-3-642-99147-9_1 for §III, _2 for the tables — and a"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://doi.org/10.1007/978-3-642-99147-9_1"
    },
@@ -10819,9 +9580,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "10.1063/1.1670299",
     "cites": [
      {
-      "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
-      "line": 251,
-      "text": "16. Gerratt, J. & Mills, I. M. (1968). \"Force Constants and Dipole-Moment Derivatives of Molecules from Perturbed Hartree–Fock Calculations. I.\" *J. Chem. Phys.* 49, 1719–1729. DOI 10.1063/1.1670299."
+      "paper": "the Löwdin paper",
+      "text": "Gerratt, J. & Mills, I. M. (1968). \"Force Constants and Dipole-Moment Derivatives of Molecules from Perturbed Hartree–Fock Calculations. I.\" J. Chem. Phys. 49, 1719–1729. DOI 10.1063/1.1670299."
      }
     ],
     "n": 1,
@@ -10831,9 +9591,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "10.1063/1.1747632",
     "cites": [
      {
-      "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
-      "line": 249,
-      "text": "14. Löwdin, P.-O. (1950). \"On the Non-Orthogonality Problem Connected with the Use of Atomic Wave Functions in the Theory of Molecules and Crystals.\" *J. Chem. Phys.* 18(3), 365–375. DOI 10.1063/1.1747632."
+      "paper": "the Löwdin paper",
+      "text": "Löwdin, P.-O. (1950). \"On the Non-Orthogonality Problem Connected with the Use of Atomic Wave Functions in the Theory of Molecules and Crystals.\" J. Chem. Phys. 18(3), 365–375. DOI 10.1063/1.1747632."
      }
     ],
     "n": 1,
@@ -10843,9 +9602,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "10.1088/0022-3700/20/7/009",
     "cites": [
      {
-      "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
-      "line": 240,
-      "text": "9. Dzuba, V. A., Flambaum, V. V., Silvestrov, P. G. & Sushkov, O. P. (1987). \"Correlation potential method for the calculation of energy levels, hyperfine structure and E1 transition amplitudes in atoms with one unpaired electron.\" *J. Phys. B* 20, 1399–1412. DOI 10.1088/0022-3700/20/7/009. [the second-order correla..."
+      "paper": "the Löwdin paper",
+      "text": "Dzuba, V. A., Flambaum, V. V., Silvestrov, P. G. & Sushkov, O. P. (1987). \"Correlation potential method for the calculation of energy levels, hyperfine structure and E1 transition amplitudes in atoms with one unpaired electron.\" J. Phys. B 20, 1399–1412. DOI 10.1088/0022-3700/20/7/009. [the second-order correlation ..."
      }
     ],
     "n": 1,
@@ -10855,9 +9613,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "10.1103/PhysRev.177.62",
     "cites": [
      {
-      "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
-      "line": 243,
-      "text": "10. Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). \"Theoretical Calculations of the d-, f-, and g-Electron Transition Series.\" *Phys. Rev.* 177, 62. DOI 10.1103/PhysRev.177.62."
+      "paper": "the Löwdin paper",
+      "text": "Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). \"Theoretical Calculations of the d-, f-, and g-Electron Transition Series.\" Phys. Rev. 177, 62. DOI 10.1103/PhysRev.177.62."
      }
     ],
     "n": 1,
@@ -10867,9 +9624,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "id": "10.1103/PhysRevLett.72.2981",
     "cites": [
      {
-      "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
-      "line": 237,
-      "text": "6. Bach, V., Lieb, E. H., Loss, M. & Solovej, J. P. (1994). \"There are no unfilled shells in unrestricted Hartree–Fock theory.\" *Phys. Rev. Lett.* 72, 2981–2983. DOI 10.1103/PhysRevLett.72.2981. [the well-posedness condition]"
+      "paper": "the Löwdin paper",
+      "text": "Bach, V., Lieb, E. H., Loss, M. & Solovej, J. P. (1994). \"There are no unfilled shells in unrestricted Hartree–Fock theory.\" Phys. Rev. Lett. 72, 2981–2983. DOI 10.1103/PhysRevLett.72.2981. [the well-posedness condition]"
      }
     ],
     "n": 1,
@@ -10877,13 +9633,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "id": "10.18434/T4W30F",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11516,
-      "text": "(ver. 5.12). https://physics.nist.gov/asd  DOI 10.18434/T4W30F. Queried 3 August 2026 for H I and"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://doi.org/10.18434/T4W30F"
    }
@@ -10891,13 +9641,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "urls": [
    {
     "id": "https://physics.nist.gov/asd",
-    "cites": [
-     {
-      "file": "method/members/The_Method_1_6-2.md",
-      "line": 11516,
-      "text": "(ver. 5.12). https://physics.nist.gov/asd  DOI 10.18434/T4W30F. Queried 3 August 2026 for H I and"
-     }
-    ],
+    "cites": [],
     "n": 1,
     "url": "https://physics.nist.gov/asd"
    }
@@ -10908,185 +9652,146 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "doi": "10.18434/T4W30F",
    "doi_url": "https://doi.org/10.18434/T4W30F",
    "cited_for": [
-    {
-     "file": "method/members/The_Method_1_6-2.md",
-     "line": 11516,
-     "quote": "(ver. 5.12). https://physics.nist.gov/asd  DOI 10.18434/T4W30F. Queried 3 August 2026 for H I and"
-    },
-    {
-     "file": "method/members/LW1-ground.py",
-     "line": 4,
-     "quote": "NIST ASD ver. 5.12, GSIE interface, retrieved 2026-08-09:"
-    }
+    "the observed ground configurations, Z = 1 to 108",
+    "the measured levels of the spectra index"
    ],
-   "query_not_held": "LW1-README.md: no query string or URL is stored in the file or anywhere in the bank; the query itself is NOT HELD -- the database is linkable, the query is not"
+   "query_not_held": "no query string or URL behind the level tables is stored anywhere; the query itself is NOT HELD -- the database is linkable, the query is not"
   },
   "spectra_sources": {
-   "file": "method/members/The_Method_1_6___Spectra_Compendium-2.md",
+   "source": "the spectra index's own table of compilations by species",
    "rows": [
     {
      "compilation": "Kaufman & Martin 1991, JPCRD 20, 775",
-     "species": "Al I, Al II",
-     "line": 977
+     "species": "Al I, Al II"
     },
     {
      "compilation": "Kramida & Martin 1997, JPCRD 26, 1185",
-     "species": "Be I",
-     "line": 979
+     "species": "Be I"
     },
     {
      "compilation": "NIST ASD",
-     "species": "Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne I (¹⁄₂), Si I, Si II, Zn II",
-     "line": 981
+     "species": "Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne I (¹⁄₂), Si I, Si II, Zn II"
     },
     {
      "compilation": "Sansonetti 2008, JPCRD 37, 1659",
-     "species": "Na I",
-     "line": 983
+     "species": "Na I"
     },
     {
      "compilation": "Sansonetti 2008, JPCRD 37, 7",
-     "species": "K I",
-     "line": 985
+     "species": "K I"
     }
    ],
    "by_species": {
     "Al I": {
      "compilation": "Kaufman & Martin 1991, JPCRD 20, 775",
-     "line": 977,
      "url": null
     },
     "Al II": {
      "compilation": "Kaufman & Martin 1991, JPCRD 20, 775",
-     "line": 977,
      "url": null
     },
     "Be I": {
      "compilation": "Kramida & Martin 1997, JPCRD 26, 1185",
-     "line": 979,
      "url": null
     },
     "Ar II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Be II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Bi I": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "C II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Ca II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Cd II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Ga I": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "He I": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "He II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Hg II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "K II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Li I": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Li II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Mg II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "N II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Na II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Ne I (³⁄₂)": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Ne I (¹⁄₂)": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Si I": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Si II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Zn II": {
      "compilation": "NIST ASD",
-     "line": 981,
      "url": "https://physics.nist.gov/asd"
     },
     "Na I": {
      "compilation": "Sansonetti 2008, JPCRD 37, 1659",
-     "line": 983,
      "url": null
     },
     "K I": {
      "compilation": "Sansonetti 2008, JPCRD 37, 7",
-     "line": 985,
      "url": null
     }
    }
   }
  },
  "closure": {
-  "index": "periodic table (period × group), section 6",
-  "operator": "ℛ, the PINNED order operator of section 32.4.1 (tools/cypher.py)",
+  "index": "the eighteen-column periodic layout (period × group)",
+  "operator": "ℛ, the PINNED order operator (tools/cypher.py)",
   "held": 90,
   "admitted": 126,
   "E": 36,
@@ -11244,7 +9949,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 0,
     "subshell": "1s, the slot helium vacates",
     "class": "deferred",
-    "reason": "deferred, not forbidden: l = 0 satisfies l <= n-1 here; helium is drawn at group 18, and 1p contributes five cells rather than six because of it (section 6.1.1)"
+    "reason": "deferred, not forbidden: l = 0 satisfies l <= n-1 here; helium is drawn at group 18, and 1p contributes five cells rather than six because of it"
    },
    {
     "p": 1,
@@ -11253,7 +9958,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11262,7 +9967,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11271,7 +9976,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11280,7 +9985,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11289,7 +9994,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11298,7 +10003,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11307,7 +10012,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11316,7 +10021,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11325,7 +10030,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11334,7 +10039,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "1d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
    },
    {
     "p": 1,
@@ -11343,7 +10048,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 1,
     "subshell": "1p",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
    },
    {
     "p": 1,
@@ -11352,7 +10057,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 1,
     "subshell": "1p",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
    },
    {
     "p": 1,
@@ -11361,7 +10066,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 1,
     "subshell": "1p",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
    },
    {
     "p": 1,
@@ -11370,7 +10075,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 1,
     "subshell": "1p",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
    },
    {
     "p": 1,
@@ -11379,7 +10084,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 1,
     "subshell": "1p",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
    },
    {
     "p": 2,
@@ -11388,7 +10093,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11397,7 +10102,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11406,7 +10111,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11415,7 +10120,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11424,7 +10129,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11433,7 +10138,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11442,7 +10147,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11451,7 +10156,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11460,7 +10165,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 2,
@@ -11469,7 +10174,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "l": 2,
     "subshell": "2d",
     "class": "forbidden",
-    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
    },
    {
     "p": 3,
@@ -11564,7 +10269,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   ],
   "decomposition": {
    "status": "READ",
-   "source": "section 6.1.1 (The_Method_1_6-2.md L1555-1570); Register 448; READ-ch6.md L32",
+   "source": "the author's standing account of the thirty-six",
    "forbidden": 25,
    "deferred": 11,
    "by_subshell": {
@@ -11574,12 +10279,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "2d": 10,
     "3d": 10
    },
-   "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (Transitions.md L368, READ); class by l <= n-1 (section 7.1, PINNED); the split 25 + 11 is the book's own (READ) and the derivation is asserted against it",
-   "not_the_void": "the void is L.void, the box-minus-lattice remainder of chapter 10 (Rota 1964), and is not the thirty-six (PROSE-ONLY.tsv PO-0014, PO-0410)"
+   "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (READ); class by l <= n-1 (PINNED); the split 25 + 11 is the author's own (READ) and the derivation is asserted against it"
   },
   "placement": {
    "status": "READ",
-   "source": "Register 448 (The_Method_1_6___The_Register-2.md L1665); section 6.1.1 (The_Method_1_6-2.md L1567-1570)",
+   "source": "the author's standing rule on helium's placement",
    "helium_at_18": {
     "held": 90,
     "admitted": 126,
@@ -11819,7 +10523,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     ]
    },
    "priced": 16,
-   "note": "IUPAC draws helium at 18, the left-step and quantum-chemical case at 2; E prices the choice at sixteen cells, a number that argument does not have (Register 448)"
+   "note": "IUPAC draws helium at 18, the left-step and quantum-chemical case at 2; E prices the choice at sixteen cells, a number that argument does not have"
   },
   "set_aside": 28
  },
@@ -11845,71 +10549,71 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   ],
   "exponent": "e(Ne) = E0 - E1 ln Ne",
   "status": "PINNED",
-  "source": "register 1205, final form"
+  "source": "the channel equation's final form"
  },
  "instruments": {
   "channel_delta": {
-   "python": "def channel_delta(Z, charge, l, table=\"observed\"):\n    \"\"\"delta for a Rydberg channel, register 1205's standing form.\n\n        delta = a p^e(Ne) Ne^k ln(c+1)/c                  where p > 0\n        delta = h C(Z) ((Ne-1)/Ne) Ne^k ln(c+1)/c         where p = 0\n\n    Ne is the electron count of the ION and c its spectroscopic charge, so a\n    neutral atom is c = 1 and the core it presents is singly charged.\n\n    Register 5193 records that at Ne = 1 the (Ne-1)/Ne factor vanishes\n    identically for every charge and every C(Z), which is what makes a\n    one-electron ion return exactly zero -- the hydrogenic case, and not a\n    fitted one.\"\"\"\n    Ne = Z - charge + 1\n    c = charge\n    if Ne < 1 or c < 1:\n        return None\n    core = Ne - 1\n    p = core_p(core, l, table) if core >= 1 else 0\n    if p is None:\n        return None\n    charge_factor = math.log(c + 1) / c\n    if p > 0:\n        e = E0 - E1 * math.log(Ne)\n        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor\n    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)\n            * (Ne ** K_COEFF) * charge_factor)\n",
+   "python": "def channel_delta(Z, charge, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    Ne = Z - charge + 1\n    c = charge\n    if Ne < 1 or c < 1:\n        return None\n    core = Ne - 1\n    p = core_p(core, l, table) if core >= 1 else 0\n    if p is None:\n        return None\n    charge_factor = math.log(c + 1) / c\n    if p > 0:\n        e = E0 - E1 * math.log(Ne)\n        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor\n    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)\n            * (Ne ** K_COEFF) * charge_factor)\n",
    "file": "tools/populate.py",
    "line": 300,
    "status": "PINNED",
-   "source": "the channel equation, final form (register 1205); its p = 0 branch carries the RECOVERED collapse ramp C(Z)"
+   "source": "the channel equation, final form; its p = 0 branch carries the RECOVERED collapse ramp C(Z)"
   },
   "collapse_C": {
-   "python": "def collapse_C(Z, l):\n    \"\"\"C(Z), the collapse coordinate across the Janet boundary.\n\n        C(Z, l) = clamp( 0.5 + (Z - Z0(l)) / 8, 0, 1 )\n\n    RECOVERED, not reconstructed. No member states the form: register 1190 says\n    only that it is \"read off the periodic table, not fitted -- one lookup\".\n    But COORDINATES-2.13's own computed column is generated by this equation,\n    so C can be INVERTED out of it, and it comes back exact:\n\n        l = 2:  C = 0.125, 0.250, 0.375, 0.500, 0.625, 0.750, 0.875, 1.000\n                at Z =  18,   19,    20,    21,    22,    23,    24,    25\n        l = 3:  the same eight values at Z = 54 to 61\n        l = 1:  the same eight values at Z =  2 to  9\n\n    A linear ramp eight wide, reaching exactly 0.5 at the Janet boundary and\n    saturating four beyond it. That is register 1189 in closed form -- \"the\n    collapse is a rapid transition, NOT A STEP\" -- and it is why Ca I nd is\n    0.908 at Z = 20, below the threshold: C(20, 2) = 0.375, already a third of\n    the way up the ramp. An indicator would have made it zero.\n\n    Above l = 3 there is no collapse and C is zero, which the index agrees\n    with: every l >= 4 channel inverts to C = 0 exactly.\"\"\"\n    z0 = COLLAPSE_Z.get(l)\n    if z0 is None:\n        return 0.0\n    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))\n",
+   "python": "def collapse_C(Z, l):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    z0 = COLLAPSE_Z.get(l)\n    if z0 is None:\n        return 0.0\n    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))\n",
    "file": "tools/populate.py",
    "line": 271,
    "status": "RECOVERED",
-   "source": "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188 to 1190); no member states its form"
+   "source": "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's computed column; no source states its form"
   },
   "pauli_bound": {
-   "python": "def pauli_bound(Z, charge, l, config=None):\n    \"\"\"B = min(p, n0 - l - 1). Register 1141, Pauli 1925, Janet 1929.\"\"\"\n    core = Z - charge\n    if core < 1:\n        return 0\n    if config is not None:\n        occ = {(n, ll): o for n, ll, o in config}\n        p = sum(1 for n, ll, o in config if ll == l and o > 0)\n        n = l + 1\n        while occ.get((n, l), 0) > 0:\n            n += 1\n    else:\n        p = core_p(core, l)\n        n = n0_of(core, l)\n        if p is None or n is None:\n            return None\n    return max(0, min(p, n - l - 1))\n",
+   "python": "def pauli_bound(Z, charge, l, config=None):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    core = Z - charge\n    if core < 1:\n        return 0\n    if config is not None:\n        occ = {(n, ll): o for n, ll, o in config}\n        p = sum(1 for n, ll, o in config if ll == l and o > 0)\n        n = l + 1\n        while occ.get((n, l), 0) > 0:\n            n += 1\n    else:\n        p = core_p(core, l)\n        n = n0_of(core, l)\n        if p is None or n is None:\n            return None\n    return max(0, min(p, n - l - 1))\n",
    "file": "tools/populate.py",
    "line": 234,
    "status": "PINNED",
-   "source": "B = min(p, n0 - l - 1), the Pauli bound (register 1141)"
+   "source": "B = min(p, n0 - l - 1), the Pauli bound"
   },
   "core_p": {
-   "python": "def core_p(core_Ne, l, table=\"observed\"):\n    \"\"\"p, the core's orbital count at this l, from the OBSERVED ground\n    configuration of the core (register 1306).\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)\n",
+   "python": "def core_p(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)\n",
    "file": "tools/populate.py",
    "line": 206,
    "status": "PINNED",
-   "source": "p, the core's orbital count at this l, from the observed ground configuration of the core (registers 1141, 1306)"
+   "source": "p, the core's orbital count at this l, from the observed ground configuration of the core"
   },
   "n0_of": {
-   "python": "def n0_of(core_Ne, l, table=\"observed\"):\n    \"\"\"n0, the first Pauli-allowed n.\n\n    RECONSTRUCTED. Register 1141 states the bound and names its two terms; it\n    does not say whether a PARTIALLY filled subshell counts as allowed. Both\n    readings were measured against COORDINATES-2.13's own B column: \"first n\n    with room\" matches 87.0% of 102,871 rows, \"first ENTIRELY UNOCCUPIED n\"\n    matches 97.7%. He I ns settles it -- the core is 1s(1), the CSV gives B = 1,\n    and only the second reading returns 1.\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    occ = {(n, ll): o for n, ll, o in cfg}\n    n = l + 1\n    while occ.get((n, l), 0) > 0:\n        n += 1\n    return n\n",
+   "python": "def n0_of(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    occ = {(n, ll): o for n, ll, o in cfg}\n    n = l + 1\n    while occ.get((n, l), 0) > 0:\n        n += 1\n    return n\n",
    "file": "tools/populate.py",
    "line": 215,
    "status": "RECONSTRUCTED",
-   "source": "n0, the first entirely unoccupied n at this l; register 1141 names the term but not the reading, and He I ns settles it"
+   "source": "n0, the first entirely unoccupied n at this l; the source names the term but not the reading, and He I ns settles it"
   },
   "lambda_constraints": {
-   "python": "def lambda_constraints(cell):\n    \"\"\"Section 7.1's seven constraints, four origins. PINNED.\"\"\"\n    n, l, k, q, e, f, g, S2 = cell\n    return [\n        (\"l <= n-1\", l <= n - 1, \"hydrogenic radial solution\"),\n        (\"k <= 2(2l+1)\", k <= 2 * (2 * l + 1), \"Pauli exclusion\"),\n        (\"q <= k\", q <= k, \"counting\"),\n        (\"f <= e-1\", f <= e - 1, \"hydrogenic radial solution\"),\n        (\"g <= 2(2f+1)\", g <= 2 * (2 * f + 1), \"Pauli exclusion\"),\n        (\"g <= q\", g <= q, \"counting\"),\n        (\"2S <= k\", S2 <= k, \"vector coupling (an envelope)\"),\n    ]\n",
+   "python": "def lambda_constraints(cell):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    n, l, k, q, e, f, g, S2 = cell\n    return [\n        (\"l <= n-1\", l <= n - 1, \"hydrogenic radial solution\"),\n        (\"k <= 2(2l+1)\", k <= 2 * (2 * l + 1), \"Pauli exclusion\"),\n        (\"q <= k\", q <= k, \"counting\"),\n        (\"f <= e-1\", f <= e - 1, \"hydrogenic radial solution\"),\n        (\"g <= 2(2f+1)\", g <= 2 * (2 * f + 1), \"Pauli exclusion\"),\n        (\"g <= q\", g <= q, \"counting\"),\n        (\"2S <= k\", S2 <= k, \"vector coupling (an envelope)\"),\n    ]\n",
    "file": "tools/populate.py",
    "line": 384,
    "status": "PINNED",
-   "source": "section 7.1's seven constraints, four origins"
+   "source": "the seven constraints on Lambda_8, of four origins"
   },
   "caps_needed": {
    "python": "def caps_needed(cell):\n    n, l, k, q, e, f, g, _S2 = cell\n    return dict(n=n, e=e, l=l, f=f, k=k)\n",
    "file": "tools/populate.py",
    "line": 398,
    "status": "PINNED",
-   "source": "the caps a Lambda_8 cell needs, read against section 7.4's (n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the RECONSTRUCTED ionisation-ladder mapping and carries its own status"
+   "source": "the caps a Lambda_8 cell needs, read against the standing (n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the RECONSTRUCTED ionisation-ladder mapping and carries its own status"
   },
   "within_caps": {
    "python": "def within_caps(cell, caps=CAPS):\n    need = caps_needed(cell)\n    return {ax: need[ax] <= caps[ax] for ax in caps}\n",
    "file": "tools/populate.py",
    "line": 403,
    "status": "PINNED",
-   "source": "section 7.4's standing caps; a cell outside them is reported OUTSIDE, never truncated"
+   "source": "the standing caps; a cell outside them is reported OUTSIDE, never truncated"
   },
   "op_order": {
-   "python": "def op_order(ix, opts):\n    \"\"\"R, §32.4.1. R(X) = {x in box : x_i <= phi_ij(x_j) for all i != j},\n    phi_ij(a) = max{y_i : y in X, y_j <= a}. Matches the seated instrument rclose.py.\"\"\"\n    if ix.d < 2:\n        return None, \"R needs at least two coordinates\"\n    X, D = ix.cells, ix.d\n    phi = {}\n    for i in range(D):\n        for j in range(D):\n            if i == j:\n                continue\n            for a in ix.alphabets[j]:\n                cand = [y[i] for y in X if y[j] <= a]\n                phi[(i, j, a)] = max(cand) if cand else None\n    out = set()\n    for x in ix.ambient():\n        good = True\n        for i in range(D):\n            for j in range(D):\n                if i == j:\n                    continue\n                p = phi[(i, j, x[j])]\n                if p is None or x[i] > p:\n                    good = False\n                    break\n            if not good:\n                break\n        if good:\n            out.add(x)\n    return out, \"staircase closure over the ambient product\"\n",
+   "python": "def op_order(ix, opts):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    if ix.d < 2:\n        return None, \"R needs at least two coordinates\"\n    X, D = ix.cells, ix.d\n    phi = {}\n    for i in range(D):\n        for j in range(D):\n            if i == j:\n                continue\n            for a in ix.alphabets[j]:\n                cand = [y[i] for y in X if y[j] <= a]\n                phi[(i, j, a)] = max(cand) if cand else None\n    out = set()\n    for x in ix.ambient():\n        good = True\n        for i in range(D):\n            for j in range(D):\n                if i == j:\n                    continue\n                p = phi[(i, j, x[j])]\n                if p is None or x[i] > p:\n                    good = False\n                    break\n            if not good:\n                break\n        if good:\n            out.add(x)\n    return out, \"staircase closure over the ambient product\"\n",
    "file": "tools/cypher.py",
    "line": 119,
    "status": "PINNED",
-   "source": "R, the order operator of section 32.4.1; matches the seated instrument rclose.py"
+   "source": "R, the order operator: a cell is admitted when every cell below it on every axis is held"
   },
   "walk_integrate": {
    "python": "def integrate(field, l, eps, c, sign=1.0):\n    \"\"\"one shot at energy eps.  Returns (nodes, mismatch, p_match, norm_r, s_out, s_in,\n    p_out list, ok) -- or None when eps is not bracketed by the potential on the grid.\n    sign flips the relativistic term (the demonstrable failure mode); it is 1.0 in use.\"\"\"\n    g = field.grid\n    r, r2, V, dV, r2V = g.r, g.r2, field.V, field.dVdx, field.r2V\n    n = g.n\n    H = 2 * g.h\n    ll = l * (l + 1)\n    rel = c is not None\n    inv2c2 = 1.0 / (2 * c * c) if rel else 0.0\n\n    # coefficient arrays for this eps\n    A = [0.0] * n\n    B = [0.0] * n\n    if rel:\n        for i in range(n):\n            M = 1.0 + (eps - V[i]) * inv2c2\n            if M <= 0.0:\n                return None              # ε below −2c²: no such state\n            A[i] = -sign * dV[i] * inv2c2 / M\n            B[i] = ll + 2.0 * M * (r2V[i] - eps * r2[i])\n    else:\n        for i in range(n):\n            B[i] = ll + 2.0 * (r2V[i] - eps * r2[i])\n\n    # matching point: the outermost index where B < 0 (classically allowed), stepping by 2\n    m = -1\n    for i in range(n - 1, -1, -1):\n        if B[i] < 0.0:\n            m = i\n            break\n    if m < 4:\n        return None                      # eps below the potential everywhere: too low\n    if m >= n - 4:\n        return None                      # allowed region reaches the grid edge: too high\n    if m % 2:\n        m -= 1\n\n    # outward: the r^γ series at the nucleus\n    Z = field.Z\n    if rel:\n        g2 = ll + 1.0 - (Z / c) ** 2 * sign\n        gam = math.sqrt(g2) if g2 > 0 else 0.5\n    else:\n        gam = l + 1.0\n    p = 1.0\n    s = gam\n    pout = [0.0] * (m + 1)\n    pout[0] = p\n    nodes = 0\n    scale_shift = 0\n    for i in range(0, m, 2):\n        a0, b0 = A[i], B[i]\n        a1, b1 = A[i + 1], B[i + 1]\n        a2, b2 = A[i + 2], B[i + 2]\n        k1p = s\n        k1s = s + a0 * (s - p) + b0 * p\n        p1 = p + 0.5 * H * k1p\n        s1 = s + 0.5 * H * k1s\n        k2p = s1\n        k2s = s1 + a1 * (s1 - p1) + b1 * p1\n        p2 = p + 0.5 * H * k2p\n        s2 = s + 0.5 * H * k2s\n        k3p = s2\n        k3s = s2 + a1 * (s2 - p2) + b1 * p2\n        p3 = p + H * k3p\n        s3 = s + H * k3s\n        k4p = s3\n        k4s = s3 + a2 * (s3 - p3) + b2 * p3\n        pn = p + H / 6.0 * (k1p + 2 * k2p + 2 * k3p + k4p)\n        sn = s + H / 6.0 * (k1s + 2 * k2s + 2 * k3s + k4s)\n        if pn * p < 0.0:\n            nodes += 1\n        p, s = pn, sn\n        if abs(p) > 1e100:\n            p *= 1e-100\n            s *= 1e-100\n            pout = [v * 1e-100 for v in pout]\n        pout[i + 1] = 0.0                # midpoints are not carried\n        pout[i + 2] = p\n    p_out, s_out = p, s\n    # fill the midpoints of the outward solution by a second pass is unnecessary: the\n    # norm uses the even points only (Simpson on the coarse step H).\n\n    # inward: WKB tail from the last point\n    bN = B[n - 1]\n    p = 1e-30\n    s = -math.sqrt(bN) * p if bN > 0 else -p\n    pin = {}\n    pin[n - 1] = p\n    for i in range(n - 1, m, -2):\n        a0, b0 = A[i], B[i]\n        a1, b1 = A[i - 1], B[i - 1]\n        a2, b2 = A[i - 2], B[i - 2]\n        hh = -H\n        k1p = s\n        k1s = s + a0 * (s - p) + b0 * p\n        p1 = p + 0.5 * hh * k1p\n        s1 = s + 0.5 * hh * k1s\n        k2p = s1\n        k2s = s1 + a1 * (s1 - p1) + b1 * p1\n        p2 = p + 0.5 * hh * k2p\n        s2 = s + 0.5 * hh * k2s\n        k3p = s2\n        k3s = s2 + a1 * (s2 - p2) + b1 * p2\n        p3 = p + hh * k3p\n        s3 = s + hh * k3s\n        k4p = s3\n        k4s = s3 + a2 * (s3 - p3) + b2 * p3\n        p = p + hh / 6.0 * (k1p + 2 * k2p + 2 * k3p + k4p)\n        s = s + hh / 6.0 * (k1s + 2 * k2s + 2 * k3s + k4s)\n        if abs(p) > 1e100:\n            p *= 1e-100\n            s *= 1e-100\n            for k in pin:\n                pin[k] *= 1e-100\n        pin[i - 2] = p\n    p_in, s_in = p, s\n    if p_out == 0.0 or p_in == 0.0:\n        return None\n\n    # scale the inward branch onto the outward one at m\n    f = p_out / p_in\n    s_in *= f\n    for k in pin:\n        pin[k] *= f\n\n    # the full function on the coarse (even) points, and its norm ∫P² dr = ∫ p² r dx\n    P = [0.0] * n\n    for i in range(0, m + 1, 2):\n        P[i] = pout[i]\n    for i in range(m, n, 2):\n        P[i] = pin.get(i, 0.0)\n    f2 = [P[i] * P[i] * r[i] for i in range(0, n, 2)]\n    norm = integral(f2, H)\n    mismatch = (s_out - s_in) / r[m]     # (dP/dr)_out − (dP/dr)_in at the match, P(m) = p_out\n    # Hartree's correction: Δε = P(m) [P'_out − P'_in] / (2 ∫P² dr)\n    deps = p_out * mismatch / (2.0 * norm)\n    return nodes, deps, P, norm, m\n",
@@ -11981,62 +10685,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "status": "RECONSTRUCTED",
    "source": "the candidate spectrum in the frozen Hartree-Fock field, each candidate's own exchange and multipliers iterated"
   },
-  "mucf_cycles": {
-   "python": "def cycles(omega_s, phi, lambda_c=LAMBDA_C):\n    \"\"\"N, catalytic cycles per muon. Paper sec.5.1.\"\"\"\n    return phi * lambda_c / (LAMBDA_0 + omega_s * phi * lambda_c)\n",
-   "file": "tools/mucf.py",
-   "line": 152,
-   "status": "PINNED",
-   "source": "N, catalytic cycles per muon (paper section 5.1) -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
-  "mucf_gain": {
-   "python": "def gain(omega_s, phi, e_mu, lambda_c=LAMBDA_C):\n    \"\"\"Q, raw energy out over muon production cost in.\"\"\"\n    return cycles(omega_s, phi, lambda_c) * Q_FUS_MEV / (e_mu * 1000.0)\n",
-   "file": "tools/mucf.py",
-   "line": 157,
-   "status": "PINNED",
-   "source": "Q, raw energy out over muon production cost in -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
-  "mucf_e_mu_for": {
-   "python": "def e_mu_for(omega_s, phi, target=1.0, lambda_c=LAMBDA_C):\n    \"\"\"The muon production cost at which Q reaches target. GeV.\"\"\"\n    return cycles(omega_s, phi, lambda_c) * Q_FUS_MEV / (target * 1000.0)\n",
-   "file": "tools/mucf.py",
-   "line": 162,
-   "status": "PINNED",
-   "source": "the muon production cost at which Q reaches a target, GeV -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
-  "mucf_e_mu_for_work": {
-   "python": "def e_mu_for_work(omega_s, phi, target=1.0, lambda_c=LAMBDA_C):\n    \"\"\"E_mu at which WORK out reaches target x work in. Only F_WORK of the\n    fusion heat is convertible, so this threshold is the plant-relevant one.\"\"\"\n    return e_mu_for(omega_s, phi, target, lambda_c) * F_WORK\n",
-   "file": "tools/mucf.py",
-   "line": 167,
-   "status": "PINNED",
-   "source": "E_mu at which WORK out reaches the target; only f_work of the fusion heat is convertible -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
-  "mucf_status_of": {
-   "python": "def status_of(omega_s, phi, e_mu):\n    \"\"\"Weakest status among the inputs, with the reason.\"\"\"\n    worst, why = \"MEASURED\", []\n    if phi > PHI_MEASURED_MAX:\n        worst = \"EXTRAPOLATED\"\n        why.append(f\"phi={phi:g} exceeds the scanned record (<= {PHI_MEASURED_MAX} LHD)\")\n    for _, (w, st) in STICKING.items():\n        if abs(w - omega_s) < 1e-9 and st == \"PROJECTED\":\n            if worst != \"EXTRAPOLATED\":\n                worst = \"PROJECTED\"\n            why.append(\"sticking below the measured floor requires an undemonstrated lever\")\n            break\n    else:\n        if omega_s < OMEGA_MEASURED_MIN and worst != \"EXTRAPOLATED\":\n            worst = \"PROJECTED\"\n            why.append(\"sticking below the measured floor requires an undemonstrated lever\")\n    if e_mu < E_MU_ACHIEVED:\n        if worst == \"MEASURED\":\n            worst = \"PROJECTED\"\n        why.append(f\"E_mu={e_mu:g} GeV is below the achieved {E_MU_ACHIEVED} GeV\")\n    if e_mu < E_MU_FLOOR:\n        worst = \"REFUSED\"\n        why.append(f\"E_mu={e_mu:g} GeV is below the {E_MU_FLOOR} GeV kinematic floor\")\n    return worst, \"; \".join(why) if why else \"all inputs within the measured record\"\n",
-   "file": "tools/mucf.py",
-   "line": 173,
-   "status": "PINNED",
-   "source": "the weakest status among the inputs, with the reason; REFUSED below the kinematic floor -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
-  "mucf_band": {
-   "python": "def band(omega_s, phi, e_mu):\n    \"\"\"Q across the transfer-rate uncertainty. lambda_c inherits its parent's band,\n    scaled by the ratio the paper's own rounding implies (2.6e8 from 2.7e8).\"\"\"\n    c, u = TRANSFER\n    scale = LAMBDA_C / c\n    return tuple(gain(omega_s, phi, e_mu, lambda_c=(c + s * u) * scale)\n                 for s in (-1.0, 0.0, +1.0))\n",
-   "file": "tools/mucf.py",
-   "line": 199,
-   "status": "PINNED",
-   "source": "Q across the transfer-rate uncertainty -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
-  "mucf_muons_for": {
-   "python": "def muons_for(power_w, omega_s, phi, lambda_c=LAMBDA_C):\n    \"\"\"Muon rate a stated fusion power requires, /s.\"\"\"\n    return power_w / (Q_FUS_MEV * MEV_J) / cycles(omega_s, phi, lambda_c)\n",
-   "file": "tools/mucf.py",
-   "line": 208,
-   "status": "PINNED",
-   "source": "the muon rate a fusion power needs -- the paper's own model, computed for it (PINNED); each result carries the weakest status of its inputs in mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"
-  },
   "lowdin_construction": {
    "python": null,
-   "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+   "file": "the Löwdin paper",
    "status": "READ",
    "held": false,
-   "source": "the scalar-relativistic construction is not held; the paper's own statement, register 1706 and the SCF audit are shown in its place",
-   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.\n\nRegister 1706: **ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese and zinc, 5s for 4d at silver and cadmium, 5d for 4f across four lanthanides, 6s for 5d at mercury, the heavy actinides wrongly altogether. The relativistic walk scores 107/107, so all eleven are errors of the equation-without-light against nature; the thorium competition inverts besides, though its entrant survives by path.* **The wall chart is not a solution of the non-relativistic Schrödinger equation. Quarantine standing: Λ_cinf is contrast, never data.**\n\nr2-scf.out: 1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11\n\nUNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120"
+   "source": "the scalar-relativistic construction is not held; the paper's own statement is shown in its place",
+   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides."
   }
  },
  "relativistic": {
@@ -12115,18 +10770,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "thorium": "*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.",
   "sources": {
    "paper": {
-    "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+    "title": "the Löwdin paper",
     "eleven_line": 156,
+    "eleven_text": "They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf.",
     "construction_line": 27,
     "thorium_line": 45
    },
-   "register": {
-    "entry": 1706,
-    "text": "**ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese and zinc, 5s for 4d at silver and cadmium, 5d for 4f across four lanthanides, 6s for 5d at mercury, the heavy actinides wrongly altogether. The relativistic walk scores 107/107, so all eleven are errors of the equation-without-light against nature; the thorium competition inverts besides, though its entrant survives by path.* **The wall chart is not a solution of the non-relativistic Schrödinger equation. Quarantine standing: Λ_cinf is contrast, never data.**"
-   },
    "scf_audit": {
-    "file": "method/members/r2-scf.out",
-    "count": "1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11",
     "entrants": [
      {
       "symbol": "Mn",
@@ -12199,14 +10849,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   "instrument": {
    "held": false,
-   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are record-carried",
-   "readme_rows": [
-    "| 1, 2, 4, 5, 6, 7, 8, 10 | PENDING BANK | LOWDIN-HANDOFF-103.tgz (sha256 05ea7bd5…, 1870 sealed files, root c6bcdd21) — the last sealed archive; awaiting upload to the Löwdin chat |",
-    "| 9 (1707–1711) | PENDING BANK (packs 93–103) + NOT HELD (S104 restatement w104.py) | see note on S104 |",
-    "| 11 six figures | NOT HELD as files unless M supplies S104 outputs | fig1–6.py and the PNGs were archived in pack104, never sealed (see note) |",
-    "  the query itself is NOT HELD. The file's own fields are: ground shells as printed, ground level,"
-   ],
-   "budget": "UNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120"
+   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are the paper's own"
   },
   "walk": {
    "status": "RECONSTRUCTED",
@@ -15791,7 +14434,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
        "entrant_cinf": "7d"
       }
      ],
-     "eleven_1706": [
+     "eleven": [
       "Mn",
       "Zn",
       "Ag",
@@ -16034,7 +14677,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
         "entrant_cinf": "6f"
        }
       ],
-      "eleven_1706": [
+      "eleven": [
        "Mn",
        "Zn",
        "Ag",
@@ -16265,7 +14908,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
         "entrant_cinf": "7d"
        }
       ],
-      "eleven_1706": [
+      "eleven": [
        "Mn",
        "Zn",
        "Ag",
@@ -17781,8 +16424,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "md5": "7a328342a38f01358a160fc164047bf9",
    "md5_recorded": "7a328342a38f01358a160fc164047bf9",
    "ok": true,
-   "archive": "drive/The Method Materials/The_Method_1_6_figures.zip",
-   "caption": "Figure 5 of THE-LOWDIN-SOLUTION-2.md: the derived table at c = 137 against c -> inf",
+   "caption": "Figure 5 of the Löwdin paper: the derived table at c = 137 against c -> inf",
    "status": "READ"
   }
  ],
@@ -17831,16 +16473,16 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     }
    ],
    "status": "PINNED",
-   "note": "populate.equation_report over COORDINATES-2.13's measured rows; register 1205 records rms 0.1610, R2 0.9741 on a different sample of 284 channels, so the figures are not expected to match it exactly"
+   "note": "populate.equation_report over COORDINATES-2.13's measured rows; the equation's published fit (rms 0.1610, R2 0.9741) was made on a different sample of 284 channels, so the figures are not expected to match it exactly"
   },
   "closure": {
-   "operator": "cypher.op_order, R (section 32.4.1)",
+   "operator": "cypher.op_order, R, the order operator",
    "status": "PINNED",
    "periodic": {
     "held": 90,
     "admitted": 126,
     "E": 36,
-    "index": "periodic table (period x group), section 6, the ninety main-table cells"
+    "index": "periodic table (period x group), the ninety main-table cells"
    },
    "helium_at_2": {
     "held": 90,
@@ -17928,7 +16570,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
       12
      ]
     ],
-    "index": "the ninety cells with helium moved to (1, 2); Register 448 records E = 20"
+    "index": "the ninety cells with helium moved to (1, 2); the author's rule records E = 20"
    },
    "janet": {
     "held": 19,
@@ -18013,7 +16655,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
       3
      ]
     ],
-    "index": "Janet (n+l x l): the distinct cells of the 108 elements LW1-ground.py carries"
+    "index": "Janet (n+l x l): the distinct cells of the 108 elements the observed configurations table carries"
    },
    "janet_cypher_fixture": {
     "held": 22,
@@ -18161,11 +16803,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "l": 0,
    "delta_equation": 0.0,
    "status": "PINNED",
-   "source": "register 5193: at Ne = 1 the (Ne-1)/Ne factor vanishes identically"
+   "source": "the one-electron identity: at Ne = 1 the (Ne-1)/Ne factor vanishes identically"
   },
   "pauli": {
    "status": "PINNED",
-   "source": "register 1141; populate.selftest's own pair",
+   "source": "the Pauli bound's definition; populate.selftest's own pair",
    "rows": [
     {
      "label": "He I ns",
@@ -18331,11 +16973,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "caveats": [
   {
    "id": "above-108",
-   "text": "Elements above Z = 108 are not populated. LW1-ground.py stops at 108 because measurement does. COORDINATES-2.13 carries rows to Z = 120 and those are shown READ from the CSV with no configuration, equation or derived value behind them."
+   "text": "Elements above Z = 108 are not populated. The observed configurations stop at 108 because measurement does. COORDINATES-2.13 carries rows to Z = 120 and those are shown READ from the CSV with no configuration, equation or derived value behind them."
   },
   {
    "id": "b-aufbau",
-   "text": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand). Register 1306 corrected the configurations and COORDINATES-2.13 was never rebuilt on them. Where the observed table gives a different Pauli bound the site shows both and marks the disagreement."
+   "text": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand). The configurations were later corrected and COORDINATES-2.13 was never rebuilt on them. Where the observed table gives a different Pauli bound the site shows both and marks the disagreement."
   },
   {
    "id": "b-overloaded",
@@ -18343,7 +16985,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "lambda8-mapping",
-   "text": "A Λ₈ cell is a transition, so an element is not a cell. The mapping shown is the element's own ionisation ladder read off the observed configurations. Nothing in the store fixes this mapping; it is RECONSTRUCTED and a later ruling can move it."
+   "text": "A Λ₈ cell is a transition, so an element is not a cell. The mapping shown is the element's own ionisation ladder read off the observed configurations. Nothing fixes this mapping; it is RECONSTRUCTED and a later decision can move it."
   },
   {
    "id": "equation-domain",
@@ -18351,11 +16993,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "relativistic-not-held",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) and its repetition at c → ∞ are not held: the Löwdin delivery records objects 1, 2, 4–8 and 10 as pending bank and object 11 as not held, because session 104 was never sealed. The eleven displaced elements are READ from THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and never withdrawn (r2-scf), and the site cannot recompute them."
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) and its repetition at c → ∞ are not held: the code behind the Löwdin paper never arrived. The eleven displaced elements are READ from the paper's own statement and the site cannot recompute them."
   },
   {
    "id": "walk-reconstructed",
-   "text": "The walk shown beside the record is a RECONSTRUCTION (tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's construction rebuilt from its statement and run in two fields, a local-exchange one and the record's own average-of-configuration Hartree–Fock with non-local exchange, neither of them the record's code, which never arrived. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the record's number, and the record's Λ_chain and Λ_cinf stay unheld."
+   "text": "The walk shown beside the paper is a RECONSTRUCTION (tools/lowdin_walk.py): the paper's construction rebuilt from its statement and run in two fields, a local-exchange one and the paper's own average-of-configuration Hartree–Fock with non-local exchange, neither of them the paper's code, which never arrived. Where it agrees with the paper that is a measurement; where it disagrees that is a measurement too. It is never the paper's number."
   },
   {
    "id": "limit-kind",
@@ -18363,7 +17005,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "n0-reading",
-   "text": "n₀'s reading is RECONSTRUCTED. Register 1141 names the terms of B = min(p, n₀ − ℓ − 1) but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
+   "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) names its terms but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
   }
  ],
  "totals": {
@@ -22791,10 +21433,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 5,
    "file": "elements/5.js",
-   "bytes": 27906,
-   "md5": "2cab6a04c3f80c61a786bba22175fda0",
-   "payload_bytes": 27826,
-   "payload_md5": "e724ee8e30f7880674649679698fc265"
+   "bytes": 27846,
+   "md5": "45d874505a81ff31199eea44cff7c6e8",
+   "payload_bytes": 27766,
+   "payload_md5": "79f9461f48de0cc8d50c65e1f9b26f5e"
   },
   {
    "Z": 6,
@@ -22839,10 +21481,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 11,
    "file": "elements/11.js",
-   "bytes": 63672,
-   "md5": "1b7c2169d7776e07d49d54494a72e2f5",
-   "payload_bytes": 63591,
-   "payload_md5": "5485fc6760ed82fdf35cbba41f90fed7"
+   "bytes": 63552,
+   "md5": "34c1816c59b7fd6bdd5ebdb8bfb77407",
+   "payload_bytes": 63471,
+   "payload_md5": "e85679af3894b4c99e1147ebbe12350b"
   },
   {
    "Z": 12,
@@ -22855,10 +21497,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 13,
    "file": "elements/13.js",
-   "bytes": 72864,
-   "md5": "e637ea66effe0cfb7816b78ed885d977",
-   "payload_bytes": 72783,
-   "payload_md5": "c2bf8b5f6328d3063eaa02c305a55366"
+   "bytes": 72824,
+   "md5": "848e53164206e593da14cdb042140d50",
+   "payload_bytes": 72743,
+   "payload_md5": "34c76586f53082fa21f2eb76c851a0fd"
   },
   {
    "Z": 14,
@@ -22911,18 +21553,18 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 20,
    "file": "elements/20.js",
-   "bytes": 113784,
-   "md5": "d8e365f3a454ed83ee7150b55897b818",
-   "payload_bytes": 113703,
-   "payload_md5": "7e4d3bbf411c840bfef9c7261dbe9728"
+   "bytes": 113790,
+   "md5": "941feeffd3074aadd9e64dcf1313b8ad",
+   "payload_bytes": 113709,
+   "payload_md5": "ed707ad935eef1cc73972050be696b07"
   },
   {
    "Z": 21,
    "file": "elements/21.js",
-   "bytes": 118439,
-   "md5": "e96d256d616a579c59c58ce85de70b6a",
-   "payload_bytes": 118358,
-   "payload_md5": "650084d974d3cccdc9cbd8e5de35cc7f"
+   "bytes": 118444,
+   "md5": "0dd6b2737461673aca50d2a9668c55ce",
+   "payload_bytes": 118363,
+   "payload_md5": "9ce05862140e7364b1982e5857c91d68"
   },
   {
    "Z": 22,
@@ -22991,18 +21633,18 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 30,
    "file": "elements/30.js",
-   "bytes": 173077,
-   "md5": "75d124f64fa056f2c19f53f106efc41b",
-   "payload_bytes": 172996,
-   "payload_md5": "ac391957e15238c1b200ae99c6db0147"
+   "bytes": 173083,
+   "md5": "582760f411e1fbda4131a0de810fd6ea",
+   "payload_bytes": 173002,
+   "payload_md5": "870e704c45d0e272b60c64fab1246d31"
   },
   {
    "Z": 31,
    "file": "elements/31.js",
-   "bytes": 177135,
-   "md5": "cdfc96ed61a5162b466c17deb026c8c9",
-   "payload_bytes": 177054,
-   "payload_md5": "d46824c05629e4953440f577342c2bec"
+   "bytes": 177095,
+   "md5": "f871b88c2b8046be064cc32eb55c6f4d",
+   "payload_bytes": 177014,
+   "payload_md5": "e1f63cd498c4b99dddaacb59eff32894"
   },
   {
    "Z": 32,
@@ -23143,10 +21785,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 49,
    "file": "elements/49.js",
-   "bytes": 280702,
-   "md5": "9c9f9a5fefcb477229880c081544f29e",
-   "payload_bytes": 280621,
-   "payload_md5": "e5f79cc3b5cdbad272c0d2c4f38f1d9e"
+   "bytes": 280682,
+   "md5": "8f63d18743b22d8d7145b08f4330663c",
+   "payload_bytes": 280601,
+   "payload_md5": "080eac161fd405fbf8fbe8613190aeec"
   },
   {
    "Z": 50,
@@ -23191,10 +21833,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 55,
    "file": "elements/55.js",
-   "bytes": 318905,
-   "md5": "d5ff7c54ef475a7157c391b2969b75e6",
-   "payload_bytes": 318824,
-   "payload_md5": "59319d14619b49f0c15144751b9dd46c"
+   "bytes": 318805,
+   "md5": "9c66e1aa8e9ffa2419e1f59454d03058",
+   "payload_bytes": 318724,
+   "payload_md5": "f2085eb69db72d4f68b9afbf00e0afd1"
   },
   {
    "Z": 56,
@@ -23319,10 +21961,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 71,
    "file": "elements/71.js",
-   "bytes": 412337,
-   "md5": "0c6b6a4586923bd9b1b638df847429cf",
-   "payload_bytes": 412256,
-   "payload_md5": "f3503b9e69f2de241d8d5e2eb86d3133"
+   "bytes": 412317,
+   "md5": "01c57be044f935d2c670ca84e2f0757a",
+   "payload_bytes": 412236,
+   "payload_md5": "b1591ab0d56750150f86ad06e884e001"
   },
   {
    "Z": 72,
@@ -23399,10 +22041,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 81,
    "file": "elements/81.js",
-   "bytes": 471140,
-   "md5": "7346c4711968f71ec0114b206aada88b",
-   "payload_bytes": 471059,
-   "payload_md5": "02816ed2a8f5257dafd13cb53bb366b5"
+   "bytes": 471080,
+   "md5": "d19e76f0806ecf1057d683caeb43695d",
+   "payload_bytes": 470999,
+   "payload_md5": "d75c06992ad41c6ef833fd6f2252fa4d"
   },
   {
    "Z": 82,
@@ -23447,10 +22089,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 87,
    "file": "elements/87.js",
-   "bytes": 506173,
-   "md5": "d3465e51f403d7f1abbf5f9780da3fe4",
-   "payload_bytes": 506092,
-   "payload_md5": "a5905a999330561c9714d415e1806014"
+   "bytes": 506133,
+   "md5": "6b62fca4b604bb0f23be73e00aef4f4c",
+   "payload_bytes": 506052,
+   "payload_md5": "4460d93f3e15c6f9f7fbc1e2290b5698"
   },
   {
    "Z": 88,
@@ -23623,98 +22265,98 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 109,
    "file": "elements/109.js",
-   "bytes": 511767,
-   "md5": "8984014330c305e24efadf6ffa1774ef",
-   "payload_bytes": 511685,
-   "payload_md5": "314ae8335a829f5f67a9239db3220206"
+   "bytes": 511780,
+   "md5": "7b3f1da32b7b124d4b43861fd4d8c3a5",
+   "payload_bytes": 511698,
+   "payload_md5": "2630ef19dce441e20459e36433977447"
   },
   {
    "Z": 110,
    "file": "elements/110.js",
-   "bytes": 516740,
-   "md5": "80b337c10eecb57e141b7a136d01497f",
-   "payload_bytes": 516658,
-   "payload_md5": "77e01b0b71db50b16915f28857599898"
+   "bytes": 516753,
+   "md5": "95d03edb05f6e1c0e680371ebf66d5d0",
+   "payload_bytes": 516671,
+   "payload_md5": "98302c73140fc4f790de85133955a6ea"
   },
   {
    "Z": 111,
    "file": "elements/111.js",
-   "bytes": 521672,
-   "md5": "3dc13e2969647e331319296c1df31291",
-   "payload_bytes": 521590,
-   "payload_md5": "048525077e7b9cd87252c9ef3b68236f"
+   "bytes": 521685,
+   "md5": "4c703adaf0e5cbbf0f1df52c0e2ad983",
+   "payload_bytes": 521603,
+   "payload_md5": "3ca012f0d5483aec7b9b00c0e84e3283"
   },
   {
    "Z": 112,
    "file": "elements/112.js",
-   "bytes": 526689,
-   "md5": "578c46f339155b5c0c038e7f7e1425dd",
-   "payload_bytes": 526607,
-   "payload_md5": "2c0842aa0d26584e44a93991866b7a8d"
+   "bytes": 526702,
+   "md5": "5a9bd8c35b8c878002c0af3ce2432dc3",
+   "payload_bytes": 526620,
+   "payload_md5": "6ad2954931dc9074412a9cdfba165a9e"
   },
   {
    "Z": 113,
    "file": "elements/113.js",
-   "bytes": 529685,
-   "md5": "f94fee402d445faa1e921f55f180e112",
-   "payload_bytes": 529603,
-   "payload_md5": "6d9448b4bc8a0b1915f457d27d50ae6b"
+   "bytes": 529698,
+   "md5": "1454e85c014cc7e4e31f61cf50906418",
+   "payload_bytes": 529616,
+   "payload_md5": "9853cf7d5fb02e707ea97037c744161b"
   },
   {
    "Z": 114,
    "file": "elements/114.js",
-   "bytes": 534741,
-   "md5": "e0d2e51a85d1dd4239342fea3ec2907c",
-   "payload_bytes": 534659,
-   "payload_md5": "b999d1d2c21afc5f2e3687173bd19c90"
+   "bytes": 534754,
+   "md5": "e23fd1c8af11a9a734758ce9be93fded",
+   "payload_bytes": 534672,
+   "payload_md5": "ef06b6473f9588d766973837c5fb321b"
   },
   {
    "Z": 115,
    "file": "elements/115.js",
-   "bytes": 539799,
-   "md5": "659b8ff877ab402af8d0b66bfccf9216",
-   "payload_bytes": 539717,
-   "payload_md5": "0bf0e4dcb1d86d76c2e9dc1693c809c9"
+   "bytes": 539812,
+   "md5": "2205894ab004b20e9943c76cfc722043",
+   "payload_bytes": 539730,
+   "payload_md5": "a1b716bb9efbae10d9a4f64a30ae63fe"
   },
   {
    "Z": 116,
    "file": "elements/116.js",
-   "bytes": 544735,
-   "md5": "41c299f7292d12efe22713d6666a1306",
-   "payload_bytes": 544653,
-   "payload_md5": "e8d2859340c7e57e1df14fb91ac5420e"
+   "bytes": 544748,
+   "md5": "ca49b55f6edc83867ef99b7b26bbb6a2",
+   "payload_bytes": 544666,
+   "payload_md5": "22ee501c0d972802dbc2e9a61fcbce11"
   },
   {
    "Z": 117,
    "file": "elements/117.js",
-   "bytes": 549741,
-   "md5": "e6792ca839010608c39e234115df70e7",
-   "payload_bytes": 549659,
-   "payload_md5": "5b5698810b7ffc1acd88e50c87f2131d"
+   "bytes": 549754,
+   "md5": "6552134344947fa941dbf4938e7c84f1",
+   "payload_bytes": 549672,
+   "payload_md5": "b9a3791aa307e0a583e534ac1e4dc2b7"
   },
   {
    "Z": 118,
    "file": "elements/118.js",
-   "bytes": 554734,
-   "md5": "b6c2b246c8b7f8f2832b7b635a7336aa",
-   "payload_bytes": 554652,
-   "payload_md5": "ddc5a841720d34cdd06da021322234fb"
+   "bytes": 554747,
+   "md5": "dd0be236183be44569f5b3ee6cca8da9",
+   "payload_bytes": 554665,
+   "payload_md5": "d0d645bee67f991eb11fc7c7afefb6bc"
   },
   {
    "Z": 119,
    "file": "elements/119.js",
-   "bytes": 676199,
-   "md5": "0ab5d51ba5aff8791199341e463e8c78",
-   "payload_bytes": 676117,
-   "payload_md5": "f1373c2d089c9f334f753016a049fb5d"
+   "bytes": 676212,
+   "md5": "90fd1dd091183c621f83ab31ee081fc5",
+   "payload_bytes": 676130,
+   "payload_md5": "7d9a5f29a2b7f57bdf59d1cd0ec6059c"
   },
   {
    "Z": 120,
    "file": "elements/120.js",
-   "bytes": 721006,
-   "md5": "e3d4497d17778c57b4a7f4a0e05ffc80",
-   "payload_bytes": 720924,
-   "payload_md5": "dca2558da850cff7fff25d34468cb51b"
+   "bytes": 721019,
+   "md5": "d17a312f6414e9578b3161b65c622f23",
+   "payload_bytes": 720937,
+   "payload_md5": "4619712bcf499b6e094252bccbf5f1ff"
   }
  ],
  "protocol": {

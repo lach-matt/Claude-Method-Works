@@ -119,6 +119,20 @@ def _site_index():
     return json.loads(end[start:])
 
 
+_PARTICLES = {}
+
+
+def _particles():
+    """The site's Particles block, which the public build does not carry (the
+    paper it reads is not released), built on demand by the generator's own
+    function so the figures the doc states about it are still measured."""
+    if "block" not in _PARTICLES:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import webindex
+        _PARTICLES["block"] = webindex.particles_block()
+    return _PARTICLES["block"]
+
+
 def _walk_summary():
     return _tool_json("lowdin_walk.py", ["--report", str(ROOT / "LOWDIN-WALK.tsv"), "--json"])
 
@@ -253,10 +267,12 @@ def checks():
          len(_site_index()["references"]["doi"])),
         ("docs/WEB-INDEX.md", "site references: B.1 species mapped to a compilation", 26,
          len(_site_index()["references"]["spectra_sources"]["by_species"])),
-        ("docs/WEB-INDEX.md", "site particles: constants of Lambda_phys", 27,
-         _site_index()["particles"]["constants"]["count"]),
-        ("docs/WEB-INDEX.md", "site particles: the muon window in electron masses", [119, 918],
-         _site_index()["particles"]["window"]["m_e"]),
+        ("docs/WEB-INDEX.md", "site particles: absent from the public build (None)", None,
+         _site_index()["particles"]),
+        ("docs/WEB-INDEX.md", "site particles: constants of Lambda_phys (--with-particles)", 27,
+         _particles()["constants"]["count"]),
+        ("docs/WEB-INDEX.md", "site particles: the muon window in electron masses (--with-particles)", [119, 918],
+         _particles()["window"]["m_e"]),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY conversations", 194,
