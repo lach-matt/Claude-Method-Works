@@ -217,7 +217,8 @@ REGISTERED = (
     # electron by charge addition and angular-momentum addition.  The
     # collective modes left with it, because they are not composites.
     ("bosonqp", "index", "TABLE",
-     "7 composite bosonic excitations, computed from the seated electron",
+     "15 bosonic excitations -- composites, Goldstone modes and hybrids, "
+     "every number derived",
      "2J, Q3"),
     # ---- DOCKET 32.  M: "the non-abelian Hall states are a further member
     # set and are not in this index -- we do this next."  The other kind of

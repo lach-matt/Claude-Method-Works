@@ -35,42 +35,51 @@ Declared still requires proof."
     object rather than a measurement of it.
 
 ===============================================================================
-1. THE TWO RULES, AND THE ONE CONSTITUENT
+1. THREE DERIVATION RULES, AND NOTHING OUTSIDE THEM
 ===============================================================================
 
-    CHARGE IS ADDITIVE.  Q(composite) = sum of the constituents' Q.
-    SPIN COMBINES.  Two spins s1, s2 give every S from |s1 - s2| to s1 + s2 in
-    integer steps, and a composite of n spins is that rule applied n-1 times.
+    COMPOSITION.  A bound state of constituents: CHARGE ADDS, and SPIN
+    COMBINES by angular-momentum addition -- two spins s1, s2 give every S
+    from |s1 - s2| to s1 + s2 in integer steps.  The constituents' own numbers
+    are read from a seated index: the ELECTRON, 2J = 1 and Q3 = -3, and the
+    PHOTON, 2J = 2 and Q3 = 0, both out of `fundamental.rows()`.  A HOLE is
+    the absence of an electron from a filled band -- charge negated, spin
+    magnitude unchanged, which is arithmetic on a seated value.
 
-Every constituent here is one particle and one anti-particle-like absence:
+    BROKEN SYMMETRY.  A collective mode is the quantum of a fluctuation in a
+    broken generator, and the generator fixes both numbers:
 
-    the ELECTRON, read from `fundamental.rows()` -- 2J = 1, Q3 = -3, which is
-        the PDG capture's value and this file does not restate it
-    a HOLE, the absence of an electron from a filled band: charge NEGATED,
-        spin magnitude unchanged.  That is the definition of a hole, and the
-        negation is arithmetic on the seated value rather than a new one.
+        2J  =  2 x the generator's RANK under rotation
+               (a scalar generator gives 0, a vector generator gives 2)
+        Q3  =  0 if the generator COMMUTES with the charge operator
 
-A MEMBER IS A COMPOSITE IN ONE OF ITS ALLOWED SPIN STATES.  The spin states
-are not listed either -- they come out of the addition rule, so the biexciton
-contributing three members and the exciton two is a computed fact.
+    THAT RULE CORRECTED THIS FILE.  The first draft wrote the phonon down as
+    spin 0.  The phonon is the Goldstone mode of BROKEN TRANSLATION, whose
+    generator is the momentum P -- a VECTOR -- so the rule returns 2J = 2, and
+    the rule is right: three broken translations in three dimensions give the
+    three acoustic branches, which a scalar mode could not.  A derivation that
+    can contradict what you would have written down is the only kind worth
+    having, and this one did on its first use.
+
+    HYBRIDISATION.  A hybrid mixes two modes, and MIXING IS ONLY ALLOWED
+    BETWEEN MODES THAT AGREE on every quantum number -- symmetry forbids the
+    rest.  So a hybrid inherits the shared value, and a proposed hybrid whose
+    constituents DISAGREE is an error rather than a choice.  `hybrid()` raises
+    on one, so the rule has a failure mode and is not a way of writing down
+    an answer.
+
+EVERY NUMBER IN THIS FILE COMES OUT OF ONE OF THOSE THREE.  The inputs are
+what a thing is made of, which symmetry it breaks, and what it mixes -- each
+the definition of the object rather than a measurement of it.
 
 ===============================================================================
-2. WHAT IS NOT HERE, AND BOTH EXCLUSIONS ARE FORCED RATHER THAN CHOSEN
+2. WHAT IS NOT HERE, AND THE EXCLUSION IS FORCED
 ===============================================================================
 
     THE TRION EXCLUDES ITSELF.  Two electrons and a hole compose to 2J in
-    {1, 3} -- half-integer spin, a FERMION -- and a sublattice of the bosons
-    holds no fermion.  Nothing in this file decides that; the addition rule
-    returns it.  `excluded()` shows the computation.
-
-    THE COLLECTIVE MODES ARE NOT MEMBERS, and this is the cost of the second
-    ruling.  A phonon, a plasmon, a roton, a phason, a magnon, a polariton and
-    an amplitude mode are all real bosonic excitations and all were in the
-    first draft.  THEY ARE NOT COMPOSITES OF CONSTITUENTS, so their quantum
-    numbers cannot be computed the way these are -- they would have to be
-    written down, which is exactly what the ruling forbids.  They are named in
-    `NOT_COMPOSITE` so their absence is visible, and seating them needs a
-    derivation nobody here has.
+    {1, 3} -- half-integer, a FERMION -- and a sublattice of the bosons holds
+    none.  Nothing in this file decides that; the addition rule returns it.
+    `excluded()` shows the computation.
 
 ===============================================================================
 3. THE FINDING: A SUBLATTICE THAT EXTENDS THE BOSONS BY TWO CELLS
@@ -121,11 +130,14 @@ import mesons
 import mi
 
 SOURCE = (
-    "COMPUTED.  Charge is additive and spin combines by angular-momentum "
-    "addition; the electron's own 2J and Q3 are read from the seated "
-    "`fundamental` index, which reads the PDG capture.  No quantum number is "
-    "written down in this file.  The BOSON frame is read from the seated "
-    "`fundamental` and `mesons` indexes.",
+    "COMPUTED by three rules and nothing else.  COMPOSITION: charge adds and "
+    "spin combines by angular-momentum addition.  BROKEN SYMMETRY: 2J is "
+    "twice the broken generator's rank under rotation, and Q3 is zero when it "
+    "commutes with the charge operator.  HYBRIDISATION: a mix inherits what "
+    "its constituents share, and raises when they disagree.  The electron and "
+    "photon are read from the seated `fundamental` index, which reads the PDG "
+    "capture; the BOSON frame from `fundamental` and `mesons`.  No quantum "
+    "number is written down in this file.",
     (),
 )
 
@@ -146,10 +158,28 @@ CANDIDATES_EXCLUDED = (
     ("trion", ("e-", "e-", "hole")),
 )
 
-# Real bosonic excitations that are NOT composites of constituents, so their
-# quantum numbers cannot be computed the way these are.  Section 2.
-NOT_COMPOSITE = ("phonon", "magnon", "plasmon", "polariton", "roton",
-                 "phason", "amplitude (Higgs) mode", "magnon-polaron")
+# A collective mode is named by the SYMMETRY IT BREAKS, and the generator
+# fixes both its numbers -- section 1's second rule.
+#   (mode, what breaks, the generator, its rank under rotation,
+#    does it commute with the charge operator)
+BROKEN = (
+    ("phonon", "translation", "P (momentum)", 1, True),
+    ("magnon", "spin rotation", "S (spin)", 1, True),
+    ("plasmon", "electromagnetic U(1) phase", "N (number)", 0, True),
+    ("phason", "density-wave phase", "N (number)", 0, True),
+    ("roton", "superfluid phase", "N (number)", 0, True),
+    ("amplitude (Higgs) mode", "nothing -- it is the order parameter's "
+                               "MODULUS, not a Goldstone mode",
+     "the modulus itself", 0, True),
+)
+
+# A hybrid mixes two modes.  Mixing is ALLOWED ONLY between modes that agree
+# on every quantum number, so the constituents are named and the value is
+# whatever they share -- a disagreement raises.  Section 1's third rule.
+HYBRIDS = (
+    ("polariton", ("photon", "phonon")),
+    ("magnon-polaron", ("magnon", "phonon")),
+)
 
 _C = {}
 
@@ -160,6 +190,14 @@ def electron():
         if n == "e-":
             return (j, q)
     raise AssertionError("the seated fundamental index has no electron")
+
+
+def photon():
+    """(2J, Q3) for the photon, READ from the seated index."""
+    for n, _p, j, q, _c, _g in fundamental.rows():
+        if n == "gamma":
+            return (j, q)
+    raise AssertionError("the seated fundamental index has no photon")
 
 
 def constituent(name):
@@ -202,8 +240,61 @@ def excluded():
     return out
 
 
+def goldstone(rank, commutes):
+    """(2J, Q3) from a broken generator -- section 1's second rule.
+
+    The spin is twice the generator's rank: a scalar generator gives a scalar
+    mode, a vector generator a vector one.  The charge is zero exactly when
+    the generator commutes with the charge operator.
+    """
+    return (2 * rank, 0 if commutes else electron()[1])
+
+
+def broken_rows():
+    """[(mode, breaks, generator, 2J, Q3)] -- the collective modes."""
+    return [(nm, br, gen) + goldstone(rank, comm)
+            for nm, br, gen, rank, comm in BROKEN]
+
+
+def hybrid(parts):
+    """(2J, Q3) shared by the constituents -- section 1's third rule.
+
+    RAISES if they disagree, because symmetry forbids mixing modes that do
+    not share their quantum numbers.  The rule has a failure mode; that is
+    what makes it a derivation rather than a way of writing down an answer.
+    """
+    vals = []
+    for p in parts:
+        if p == "photon":
+            vals.append(photon())
+        else:
+            hit = [(j, q) for nm, _b, _g, j, q in broken_rows() if nm == p]
+            if not hit:
+                raise KeyError("no derived mode named %r to hybridise" % p)
+            vals.append(hit[0])
+    if len(set(vals)) != 1:
+        raise ValueError("cannot hybridise modes that disagree: %s" % vals)
+    return vals[0]
+
+
+def hybrid_rows():
+    """[(mode, parts, 2J, Q3)]."""
+    return [(nm, parts) + hybrid(parts) for nm, parts in HYBRIDS]
+
+
 def index():
-    return frozenset((j, q) for _n, _p, j, q in rows())
+    return frozenset(
+        [(j, q) for _n, _p, j, q in rows()]
+        + [(j, q) for _n, _b, _g, j, q in broken_rows()]
+        + [(j, q) for _n, _p, j, q in hybrid_rows()])
+
+
+def members():
+    """[(kind, name, 2J, Q3)] -- every member, however it was derived."""
+    return ([("composite", nm, j, q) for nm, _p, j, q in rows()]
+            + [("broken symmetry", nm, j, q)
+               for nm, _b, _g, j, q in broken_rows()]
+            + [("hybrid", nm, j, q) for nm, _p, j, q in hybrid_rows()])
 
 
 def boson_frame():
@@ -338,7 +429,7 @@ def report():
     print("   the electron, READ from the seated index: 2J = %d, Q3 = %d"
           % electron())
     print()
-    print("1. THE MEMBERS: %d, over %d composites." % (len(rows()), len(COMPOSITES)))
+    print("1. THE MEMBERS: %d, over three derivation rules." % len(members()))
     print("   %-14s %-26s %-5s %s" % ("composite", "made of", "2J", "Q3"))
     for nm, parts, j, q in rows():
         print("   %-14s %-26s %-5d %d" % (nm, "+".join(parts), j, q))
@@ -348,11 +439,22 @@ def report():
         print("   %-10s %-22s 2J in %s" % (nm, "+".join(parts), spins))
         print("              %s" % why)
     print()
-    print("   NOT COMPOSITES, so not computable here and therefore not seated:")
-    print("   %s" % ", ".join(NOT_COMPOSITE))
-    print("   Real excitations, and seating them needs a derivation nobody")
-    print("   here has.  The first draft wrote their numbers down; the ruling")
-    print("   forbids that.")
+    print()
+    print("2b. THE COLLECTIVE MODES, DERIVED FROM THE SYMMETRY THEY BREAK.")
+    print("   %-24s %-30s %-16s %-4s %s"
+          % ("mode", "what breaks", "generator", "2J", "Q3"))
+    for nm, br, gen, j, q in broken_rows():
+        print("   %-24s %-30s %-16s %-4d %d" % (nm, br[:30], gen, j, q))
+    print("   THE PHONON COMES OUT 2J = 2 AND THE FIRST DRAFT WROTE 0.  Broken")
+    print("   translation has a VECTOR generator, and three broken translations")
+    print("   give the three acoustic branches a scalar could not.")
+    print()
+    print("2c. THE HYBRIDS -- mixing is allowed only between modes that agree.")
+    for nm, parts, j, q in hybrid_rows():
+        print("   %-24s %-30s 2J = %-4d Q3 = %d"
+              % (nm, " + ".join(parts), j, q))
+    print("   hybrid() RAISES on constituents that disagree, so the rule has")
+    print("   a failure mode.")
     print()
     nb, nq, bsub, qsub, subset, out, nu, usub = relation()
     print("3. THE FINDING.")
@@ -403,9 +505,44 @@ def selftest():
     chk("four spin-halves give 2J in {0, 2, 4}",
         compose(("e-", "e-", "hole", "hole"))[1], [0, 2, 4])
 
+    # -- the second rule, and the correction it forced
+    chk("the photon is READ from the seated index too", photon(), (2, 0))
+    chk("a VECTOR generator gives a vector mode", goldstone(1, True), (2, 0))
+    chk("a SCALAR generator gives a scalar one", goldstone(0, True), (0, 0))
+    B = {nm: (j, q) for nm, _b, _g, j, q in broken_rows()}
+    chk("THE PHONON IS 2J = 2 -- broken translation, generator P, a vector",
+        B["phonon"], (2, 0))
+    chk("and that CONTRADICTS the first draft, which wrote it down as 0",
+        B["phonon"] != (0, 0), True)
+    chk("the magnon likewise, from broken spin rotation", B["magnon"], (2, 0))
+    chk("the phase modes are scalars -- plasmon, phason, roton",
+        sorted({B[n] for n in ("plasmon", "phason", "roton")}), [(0, 0)])
+    chk("and the amplitude mode is the modulus, not a Goldstone",
+        B["amplitude (Higgs) mode"], (0, 0))
+
+    # -- the third rule, and its failure mode
+    H = {nm: (j, q) for nm, _p, j, q in hybrid_rows()}
+    chk("a polariton is the photon mixed with a mode that MATCHES it",
+        H["polariton"], (2, 0))
+    chk("and the magnon-polaron likewise", H["magnon-polaron"], (2, 0))
+    try:
+        hybrid(("photon", "plasmon"))
+        raised = False
+    except ValueError:
+        raised = True
+    chk("MIXING MODES THAT DISAGREE RAISES -- the rule can fail, which is "
+        "what makes it a derivation", raised, True)
+
     R = rows()
     chk("seven members over three composites", (len(R), len(COMPOSITES)),
         (7, 3))
+    chk("fifteen members in all, over three derivation rules",
+        (len(members()),
+         sorted({k for k, _n, _j, _q in members()})),
+        (15, ["broken symmetry", "composite", "hybrid"]))
+    chk("and the eight collective modes add MEMBERS but no new CELLS",
+        (len(index()),
+         frozenset((j, q) for _n, _p, j, q in rows()) == index()), (5, True))
     chk("and the member count is COMPUTED -- the biexciton contributes three",
         sorted((nm, len([1 for n2, _p, _j, _q in R if n2 == nm]))
                for nm in {n for n, _p, _j, _q in R}),
@@ -417,8 +554,8 @@ def selftest():
         [(nm, spins) for nm, _p, spins, _w in E], [("trion", [1, 3])])
     chk("every seated member is a boson -- 2J even, by computation",
         sorted({j % 2 for _n, _p, j, _q in R}), [0])
-    chk("eight real excitations are named as not-composites, not omitted",
-        len(NOT_COMPOSITE), 8)
+    chk("eight collective modes are DERIVED, not omitted and not written down",
+        len(BROKEN) + len(HYBRIDS), 8)
 
     # -- section 3: the finding
     nb, nq, bsub, qsub, subset, out, nu, usub = relation()
