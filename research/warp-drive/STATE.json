@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "4c45ead1226d",
+ "commit": "6dd0a47d9735",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 17,
+  "rows": 18,
   "indexes": [
    {
     "name": "fibred.index",
@@ -495,49 +495,75 @@
       }
      ]
     }
+   },
+   {
+    "name": "overlaprule.baryon_isomultiplet",
+    "module": "overlaprule",
+    "accessor": "baryon_isomultiplet",
+    "method": "TABLE",
+    "label": "baryon_isomultiplet",
+    "members": "the same 278 baryons, isospin against charge with flavour dropped",
+    "quantum": "2I, Q3",
+    "cells": 16,
+    "cell": [
+     5,
+     7,
+     4
+    ],
+    "channel": 5,
+    "languages": [
+     "geometry",
+     "information",
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": true,
+    "source": {
+     "why": "Inherited: every row here is a coarsening of a parent index and reads exactly what that parent reads.",
+     "paths": []
+    }
    }
   ]
  },
  "figure": {
-  "vertices": 17,
-  "distinct_cells": 17,
+  "vertices": 18,
+  "distinct_cells": 18,
   "closers": [],
   "own_cell": [
    0,
    5,
-   8
+   9
   ],
   "own_cell_occupied_by": [],
-  "E": 126,
+  "E": 165,
   "channels_occupied": [
    0,
    1,
    2,
    3,
+   5,
    6,
    7
   ],
   "channels_empty": [
-   4,
-   5
+   4
   ],
   "resolution": {
    "K": {
-    "distinct": 6,
-    "of": 17,
-    "ratio": 0.3529,
+    "distinct": 7,
+    "of": 18,
+    "ratio": 0.3889,
     "verdict": "measurement"
    },
    "height": {
     "distinct": 12,
-    "of": 17,
-    "ratio": 0.7059,
+    "of": 18,
+    "ratio": 0.6667,
     "verdict": "measurement"
    },
    "width": {
     "distinct": 14,
-    "of": 17,
-    "ratio": 0.8235,
+    "of": 18,
+    "ratio": 0.7778,
     "verdict": "measurement"
    }
   },
@@ -640,6 +666,15 @@
     ],
     "channel": 6,
     "cells": 82
+   },
+   {
+    "parent": "baryons",
+    "cols": [
+     "2I",
+     "Q3"
+    ],
+    "channel": 5,
+    "cells": 16
    }
   ],
   "refused": [
@@ -686,7 +721,7 @@
     ]
    }
   ],
-  "candidates": 6
+  "candidates": 7
  },
  "retractions": [
   {
@@ -787,6 +822,20 @@
    "question": "Can the subject widen past the periodic atoms, and if so is every other particle now indexed?",
    "finding": "M ruled it a valid exception: \"These are legitimate particles and can and must be accepted.\" The SUBJECT widened to quantum objects; the CRITERION is untouched and enforce() is still empty. Three indexes seated -- fundamental (30 Standard Model particles, K2), mesons (242 of 250, K0) and baryons (278 of 292, K0). docket27.py accounts for the whole PDG table: 6,506 = 5,880 composite nuclei (the periodic atoms, already seated as gravity) + 54 PDG status-4 + 572 kept, and ALL 572 are members of a seated index. 550 of them land on a cell; the 22 that do not are named, and each is a parity the table does not print. NO NEW CHANNEL was reached: K4 and K5 are still empty after three new families of matter.",
    "what_would_settle_it": "Quasiparticles are the one honest gap -- they would pass the criterion and are simply not in this table. Indexing them needs another source."
+  },
+  {
+   "id": "28",
+   "status": "CLOSED",
+   "question": "Can the quasiparticles DOCKET 27 left out be indexed?",
+   "finding": "NO, and for two separate measured reasons rather than a failed fetch. There is no PDG for quasiparticles because the quantum numbers are not the quasiparticle's: the four textbook kinds land on TWO cells of their universal numbers and every one is a boson, while everything that distinguishes one mode from another is the HOST'S -- 230 space groups, 32 point groups, 73 arithmetic crystal classes, banked in sgcapture.py from spglib. The member set would be (material, mode), a materials database and not a particle table. And the one family that needs no fetch, the anyons of SU(2)_k, charts but is REFUSED BY BOX INVARIANCE: the channel is K2 at every box from k<=4 to k<=24 while the cell moves at every box, so it is a theorem about the construction.",
+   "what_would_settle_it": "A materials database of phonon modes with each mode's irrep IS a legitimate member set. It needs a real fetch and is not what DOCKET 27 asked for."
+  },
+  {
+   "id": "29",
+   "status": "CLOSED",
+   "question": "Has every index the particle member sets admit been found, or only every particle been made a member?",
+   "finding": "The DOCKET 25 census reopened over the three new member sets, exactly as its ruling said a new member set would. All 142 sub-charts swept. Three reach a channel the ruling's census calls empty; two are refused and ONE IS SEATED. Refused: baryons (P, 2I, Q3) at K1, because K1 is held by gravity_bound and the ruling's self-exclusion does not transfer to a new parent; and fundamental (Q3, GEN) at K4, because it is arity 2 and statistics closes 105 of 105 arity-2 charts for free, so what it shows is join-closure, which is K1. SEATED: baryons (2I, Q3) at K5, the tree's ONLY K5 -- isospin against charge, 16 cells, all four grounds, K5 at every mass cut. It stands on GEOMETRY, which is earned (74 of 105) and which the law forces statistics from, so the arity-2 free pass cannot reach it. SEVEN OF EIGHT CHANNELS ARE NOW OCCUPIED; only K4 is empty, and all three charts that ever reached K4 were arity 2.",
+   "what_would_settle_it": "A chart of arity 3 or more reaching K4 would fill the last channel. None exists anywhere in this tree."
   }
  ],
  "not_claimed": [

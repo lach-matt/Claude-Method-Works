@@ -1368,14 +1368,15 @@ def build_overlaprule():
 
     h = [plate.head("The Overlap Ruling"), '<div class="wrap">']
     h.append('''<header class="mast">
-  <p class="eyebrow">Research plate &middot; a ruling, and its three seatings</p>
+  <p class="eyebrow">Research plate &middot; a ruling, and its %d seatings</p>
   <h1>The Overlap&nbsp;Ruling</h1>
   <p class="dek">When a chart that overlaps a seated index may be seated
   anyway &mdash; and when it is one piece of information seated twice.</p>
   <div class="stamp"><span>instrument <b>overlaprule.py</b></span>
   <span>candidates <b>%d</b></span><span>seated <b>%d</b></span>
   <span>refused <b>%d</b></span><span>channels now <b>%d of 8</b></span></div>
-</header>''' % (len(cand), len(seats), len(OR.refused()), len(ks_all)))
+</header>''' % (len(seats), len(cand), len(seats), len(OR.refused()),
+                 len(ks_all)))
 
     h.append('''<div class="note">
   <span class="lab">The ruling</span>
@@ -1531,12 +1532,12 @@ def build_overlaprule():
     <p><span class="mono">hlaw.LAWFUL</span> holds (statistics,&nbsp;geometry),
     (statistics,&nbsp;algebra) and (statistics,&nbsp;order): if geometry closes,
     statistics must; if algebra or order closes, statistics must. <b>At K5 and
-    K6 the statistics bit is forced by law</b>, and those two seatings stand on
-    geometry and on the order/algebra block, which arity buys nobody.</p>
+    K6 the statistics bit is forced by law</b>, and the %d seatings there stand
+    on geometry and on the order/algebra block, which arity buys nobody.</p>
     <p><b>K4 = {information, statistics} has neither protection.</b> Nothing in
     the law forces statistics from information &mdash; it is the only channel
     above K1 whose extra content is exactly the bit arity 2 grants free. And
-    <b>both charts that reached K4 are arity 2</b>: <span class="mono">ions</span>
+    <b>every chart that has reached K4 is arity 2</b>: <span class="mono">ions</span>
     (sl,&nbsp;tl) at 7 cells and <span class="mono">madrule</span>
     (S_a,&nbsp;l_d) at 6. <b>No chart of arity 3 or more, anywhere in the 272,
     reaches K4.</b> Neither ever demonstrated statistics as a property of its
@@ -1549,7 +1550,7 @@ def build_overlaprule():
     here. So &ldquo;K4 is empty&rdquo; is a sharper statement than two
     candidates failing a gate: <b>the only two that reached it did so at the one
     arity where half the channel is free.</b></p></div>
-</section>''')
+</section>''' % len([1 for _p, _c, k, _n in seats if k in (5, 6)]))
     h.append('''<section>
   <div class="shead"><span class="snum">06c</span><h2>What the verification
   unseated &mdash; a row this ruling had already seated</h2></div>
@@ -1649,10 +1650,11 @@ def build_overlaprule():
     h.append('''<section>
   <div class="shead"><span class="snum">09</span><h2>What this ruling refuses</h2></div>
   <ul class="tight refuse">
-    <li><b>To seat on a differing channel alone.</b> Three of six candidates
+    <li><b>To seat on a differing channel alone.</b> %d of %d candidates
       died on the other grounds.</li>
-    <li><b>To call K4 unreachable.</b> Two candidates reached it and both failed
-      the reach gate. Two failures, not a theorem.</li>
+    <li><b>To call K4 unreachable.</b> Every chart that reached it was arity 2,
+      where <span class="mono">statistics</span> closes free &mdash; 105 of 105,
+      measured. An argument, not a theorem.</li>
     <li><b>To reopen DOCKET 2.</b> <span class="mono">periodic layout 2-D</span>
       fails the bijection ground <em>and</em> the reach ground.</li>
     <li><b>To revive anything deleted for the criterion.</b>
@@ -1662,7 +1664,7 @@ def build_overlaprule():
       elements, and this ruling says nothing about that.</li>
     <li><b>To be run twice for more.</b>
       <span class="mono">seated_channels()</span> excludes the ruling&rsquo;s own
-      rows, so a second pass sees the same four empty channels and the same six
+      rows, so a second pass sees the same empty channels and the same %d
       candidates. Nothing compounds.</li>
     <li><b>To claim the per-witness readings were independently checked.</b> A
       seventeen-agent adversarial run returned <em>one</em> agent before a weekly
@@ -1670,7 +1672,7 @@ def build_overlaprule():
       and nothing else. The physics stated for each seating is this tree&rsquo;s
       own reading.</li>
   </ul>
-</section>''')
+</section>''' % (len(OR.refused()), len(cand), len(cand)))
     h.append(foot("overlaprule", nfixtures("overlaprule")))
     h.append("</div>")
     _write("overlaprule-plate.html", h)

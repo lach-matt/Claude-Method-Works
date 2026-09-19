@@ -385,6 +385,28 @@ def selftest():
           len([n for n in G[g] if n not in part])) for g in (1, 2, 3)],
         [(4, 4), (4, 4), (4, 4)])
 
+    # THE PARTICLES M ASKED FOR BY NAME, pinned individually.  M: "We need
+    # photons, muons, anti-matter, whatever particle there is that isn't
+    # already indexed."  A count can be right while a named member is missing
+    # -- the nucleon trap in pdgcapture.py was exactly that -- so each is
+    # asserted by name and by every coordinate it carries.
+    by = {n: t for t in R for n in (t[0],)}
+    chk("THE PHOTON is a member, spin 1, neutral, colour singlet, no generation",
+        by["gamma"][2:], (2, 0, 1, 0))
+    chk("THE MUON is a member, spin 1/2, charge -1, second generation",
+        by["mu-"][2:], (1, -3, 1, 2))
+    chk("AND THE ANTIMUON, with the charge reversed and nothing else",
+        by["mu+"][2:], (1, 3, 1, 2))
+    chk("the muon neutrino and its antineutrino are members too",
+        (by["nu(mu)"][2:], by["nu(mu)~"][2:]), ((1, 0, 1, 2), (1, 0, 1, 2)))
+    chk("THE POSITRON is a member, and is not the electron",
+        (by["e+"][2:], by["e+"][2:] != by["e-"][2:]), ((1, 3, 1, 1), True))
+    chk("ANTIMATTER IS 13 OF THE 30, not a footnote -- six antiquarks, six "
+        "antileptons, and W- which is W+'s antiparticle",
+        len([1 for _n, p, *_x in R if p < 0]), 13)
+    chk("and the gauge boson among them is W-",
+        sorted(n for n, p, *_x in R if p < 0 and abs(p) > 16), ["W-"])
+
     # the chart, and the four collisions that ARE the finding
     X = index()
     chk("arity 4", len(next(iter(X))), 4)
