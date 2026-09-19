@@ -555,11 +555,11 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at twenty-two it closes in NOTHING -- the ruling cost it its "
+    chk("at twenty-three it closes in NOTHING -- the ruling cost it its "
         "closure at fourteen and nothing since has given it back",
         closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 10))
+    chk("it has its own cell", own, (0, 5, 11))
     chk("ALL EIGHT CHANNELS ARE OCCUPIED -- DOCKET 34 filled the last",
         sorted({c[0] for c in figure()}), [0, 1, 2, 3, 4, 5, 6, 7])
     chk("and none is empty", [k for k in range(8)
@@ -573,9 +573,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6818))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6957))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7727))
+        (res["width"][1], res["width"][0]), ("measurement", 0.7391))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

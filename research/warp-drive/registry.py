@@ -240,6 +240,17 @@ REGISTERED = (
     ("spin4", "index", "TABLE",
      "10 spin-4 mesons, two of them without a printed mass",
      "P, 2I, Q3"),
+    # DOCKET 35.  The candidate subpop.py declared unreachable, reached by
+    # navigating by JOIN instead of by meet -- NAVIGATION.md section 3.  A
+    # nuclear excited state carries I and pi exactly as a particle carries J
+    # and P.  ITS K2 IS THE FREE ONE: at arity 2 kdet closes statistics for
+    # nothing, so the index really closes in NOTHING, which is where mesons
+    # and baryons sit too.  nucbands.py says so in its own section 3 rather
+    # than banking the channel.
+    ("nucbands", "index", "TABLE",
+     "2,145 nuclear excited states in magnetic and antimagnetic rotational "
+     "bands; 27 bands and 93 levels refused for carrying no quantum number",
+     "2I, parity"),
 )
 
 NOT_AN_INDEX = {
@@ -525,11 +536,12 @@ def selftest():
     chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
         [])
-    chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
+    chk("eighteen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
-        "non-abelian states and DOCKET 34's K4", len(REGISTERED), 22)
+        "non-abelian states, DOCKET 34's K4 and DOCKET 35's nuclear "
+        "rotational levels", len(REGISTERED), 23)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED

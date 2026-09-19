@@ -12412,3 +12412,97 @@ comparison so the finding is re-measurable rather than narrated.
   accepted a label in its point tuple and **silently dropped it**, so a caption promising labelled
   dots would have shipped with none. `render/mi-plate.html` is kept as the record of what the master
   index looked like when it was the nine. See DOCKET 19.
+
+## `nucbands.py` — the route `subpop.py` declared closed, reopened by the corpus's own navigation law
+
+**DOCKET 35.** `subpop.py` §4 named nuclear rotational bands as a candidate index and then shut it:
+four searches for a level scheme returned nothing, and the file concluded *"THE STONE IS TURNED AND
+THERE IS NOTHING UNDER IT THIS ENVIRONMENT CAN REACH."* **That was false, and this project had
+already written down why.**
+
+`NAVIGATION.md` §3 is a retrieval law derived from the three-body index, not a search habit:
+**navigate by join, never by meet.** Measured on the triangle form, meet failures run
+12 → 111 → 477 → … → 90,705 by cap; **join failures are 0 at every cap.** *"Certainty survives
+upward and dies downward. Brackets combine; they do not refine."* All four failed searches were
+**meets** — ENSDF ∧ API, nuclear-data ∧ pypi, corpus ∧ level-scheme. Run as a **join** over the
+paper database, the route opens immediately. `curl` to arxiv.org returns **403** through the egress
+proxy, exactly as ENSDF does; the connector is a different bracket, and the join reached what the
+direct fetch could not.
+
+### The capture, and why its totality is provable
+
+`nbcapture.py` parses `captures/arxiv-2303.13849.txt` (Teng & Ma, *Magnetic and antimagnetic
+rotational bands data tables*, submitted to Atomic Data and Nuclear Data Tables), seated in the tree
+so the capture reproduces **with no network at all**. The totality argument is not "the queries
+looked complete" — it is the paper's own census, reproduced exactly and independently for the two
+tables:
+
+| table | the paper states | the parse finds |
+|---|---|---|
+| A, magnetic rotation | 252 bands in 123 nuclei | **252 / 123** |
+| B, antimagnetic rotation | 38 bands in 27 nuclei | **38 / 27** |
+
+**And a count fixture cannot catch a parser that reads the right number of wrong things**, so the
+second check is the physics each paper states as the *defining* property of its bands:
+
+- **AMR is ΔI = 2 — and 213 of 213 consecutive steps are.** 100 %.
+- **MR is ΔI = 1 — and 1,758 of 1,762 are.**
+
+The four exceptions are two bands and **neither is the parser's**. `85Zr` band 1 steps
+31/2 → 35/2 → 39/2: the source prints exactly that, two ΔI = 2 steps at the top of the band carrying
+only E2 energies and no M1 — a band crossing, real physics. `133Pr` band 3 prints **(57/2⁻) between
+(45/2⁻) and (49/2⁻)**; the energies 6323.6 / 6824.6 / 7372.8 run in order and the E2 cascade is
+unbroken, so the level is 47/2 and **the 5 is a typo in the published table**. Captured as printed,
+named in `SOURCE_FAULTS`, **recorded and not repaired**.
+
+### The index, and two refusals on the criterion
+
+`nucbands.py` seats **2,145 nuclear excited states on (2I, parity)** — 121 cells, cell **(2, 63, 2)**.
+A level is the quantum object, carrying I and π exactly as a particle carries J and P. Two groups are
+**refused on the criterion rather than dropped**, and counted apart because they are different facts
+about the source: **27 bands the source prints with no I^π column at all** (energies relative to an
+unknown bandhead — `200Pb 1 X`, then 100.6+X, 223.9+X), and **93 levels with a spin but no parity**.
+
+The **band** chart — 67 cells, same channel — is measured and **not** seated. A band is a *family* of
+levels; seating both the tower and its rungs would be two vertices for one subject, which is the
+over-representation the register exists to prevent.
+
+### The K2 is the free one, and the file says so
+
+The index closes in `{statistics}` — channel K2. **It would be a lie to bank that as a closure.**
+`kdet` opens `if k >= d: return True`, so at arity 2 statistics closes for nothing, and this tree has
+measured 105 of 105 arity-2 charts closing it. **The nuclear band index closes in nothing**; its real
+content is K0, where `mesons` and `baryons` also sit. And no third coordinate rescues it — every
+superset **loses** the channel:
+
+| K | cells | cell | coordinates |
+|---|---|---|---|
+| **K2** | 121 | (2, 63, 2) | 2I, π |
+| K0 | 194 | (0, 64, 4) | 2I, π, ΔI |
+| K0 | 997 | (0, 85, 34) | 2I, π, Z |
+| K0 | 1,247 | (0, 83, 42) | 2I, π, N |
+
+### The second paper is captured and **not** parsed
+
+The same join returned **arXiv:2508.05447** — two-quasiparticle bands in **deformed** odd-odd nuclei,
+which is the object `subpop.py` actually named, and a *different mechanism* from the shears rotation
+of near-spherical nuclei above. Its text is seated in `captures/`. **It is not indexed, after two
+parse attempts that reached 154 and 176 of its stated 234 entries**, and the 173/61 band-versus-
+bandhead split reproduces under neither reading. Its Table 3 interleaves free prose into the data
+columns — reaction strings carrying nuclide names and spins, comment lists numbered 1., 2., 3. — so a
+nuclide header and a comment marker are not separable by shape alone. **A capture that cannot be
+shown total is not seated**, and the attempt is recorded with its numbers so nobody repeats it.
+
+**Reproduce:** `python3 research/warp-drive/nbcapture.py --selftest` (12 fixtures, the paper's own
+census and its own selection rule), `python3 research/warp-drive/nucbands.py --selftest`,
+`python3 research/warp-drive/nucbands.py --sweep`.
+
+**Two plates, and the first one in this tree with no 3-D view.** `render/build_particle_plates.py`
+now builds `spin4-plate.html` and `nucbands-plate.html` — DOCKET 34's index had never had a
+rendering either, which is a gap this pass closes. The spin-4 plate carries the usual swept 3-D
+view, because that chart is arity 3. **The nucbands plate does not, and cannot**: the seated index
+is arity 2, and the only way to give it a third axis is to chart `(2I, π, ΔI)`, `(2I, π, Z)` or
+`(2I, π, N)` — **each of which is a different chart at K0**, measured and tabled on the plate
+itself. So the earlier claim *"every seated index now has a rendering, and every rendering has a
+3-D view"* holds in its first half and **no longer holds in its second**. Drawing a third axis that
+the index does not have would have been a picture of a chart nobody seated.

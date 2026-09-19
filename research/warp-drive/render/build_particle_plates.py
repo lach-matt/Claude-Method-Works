@@ -1170,12 +1170,176 @@ def build_readrezayi():
     _write("readrezayi-plate.html", h)
 
 
+def build_spin4():
+    """DOCKET 34 -- the tree's only K4, and the last empty channel filled."""
+    import spin4 as S
+    X = S.index()
+    m = measured(X)
+    names = ("P (parity)", "2I (isospin, doubled)", "Q3 (charge, thirds)")
+
+    h = [plate.head("The Spin-4 Mesons"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate &middot; an index of quantum objects &middot; DOCKET 34",
+        "The Spin-4&nbsp;Mesons",
+        "The only chart in this tree that reaches K4 &mdash; and the only one "
+        "that earns it, every earlier K4 having been arity&nbsp;2 where "
+        "statistics closes for free.",
+        [("instrument", "spin4.py"), ("members", "%d mesons" % len(S.rows())),
+         ("arity", "3"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<div class="note warn">'
+             '<span class="lab">DOCKET 33 found this chart and REFUSED it. '
+             'The refusal was on the wrong reach</span>'
+             '<p style="margin-bottom:0">The sub-population sweep turned this '
+             'chart up and turned it down: two of the ten mesons carry no '
+             'printed mass, so swept by a MASS cut the population is 7 cells '
+             'at K5 at every cut and never 9 at K4. But mass is not the only '
+             'total order the table carries. <b>PDG STATUS is total where mass '
+             'is not</b>, and on that reach the channel moves K5&nbsp;&rarr;'
+             '&nbsp;K4 and holds. Both statements stand: the refusal is about '
+             'the mass reach, the seating about the status reach, and which '
+             'reach a channel survives is part of what the finding is.</p>'
+             '</div>')
+
+    h.append(_view("v-spin4", X, 2, names,
+                   "Colour is Q3, the charge in thirds.", 1,
+                   "The chart, at arity 3",
+                   "Three-dimensional scatter of the spin-4 meson chart."))
+
+    h.append('<section><h2>3. The chart</h2>')
+    h.append(chart_table(
+        [("P", "intrinsic parity of the meson"),
+         ("2I", "isospin, doubled, so the half-integers stay integers"),
+         ("Q3", "electric charge in thirds")],
+        X, m["res"]))
+    h.append(closure_table(m))
+    h.append('<p>Statistics is <b>earned</b> here, not free: <code>kdet</code> '
+             'returns early only when the arity is at most the determinant '
+             'order, and this chart is arity&nbsp;3. That is what makes it '
+             'the first real K4 in the tree.</p></section>')
+
+    ml = S.massless()
+    h.append('<section><h2>4. The two rows the table cannot place</h2>'
+             '<p>The whole K4 rests on <b>%s</b>, which the Particle Data '
+             'Group lists with no mass at all. That is not a defect in the '
+             'chart &mdash; it is why the mass reach could never reach it, '
+             'and why the status reach can.</p></section>'
+             % E(" and ".join(ml)))
+
+    h.append(pfoot("spin4"))
+    h.append("</div>")
+    _write("spin4-plate.html", h)
+
+
+def build_nucbands():
+    """DOCKET 35 -- the route a meet closed and a join opened."""
+    import nucbands as N
+    X = N.index()
+    m = measured(X)
+    nb, npar = N.refusals()
+
+    h = [plate.head("Nuclear Rotational Levels"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate &middot; an index of quantum objects &middot; DOCKET 35",
+        "Nuclear Rotational&nbsp;Levels",
+        "Nuclear excited states in magnetic and antimagnetic rotational bands "
+        "&mdash; the candidate an earlier pass declared unreachable, reached "
+        "by navigating by JOIN instead of by meet.",
+        [("instrument", "nucbands.py"),
+         ("members", "%d levels" % len(N.members())),
+         ("bands", "%d" % len(N.bandrows())),
+         ("arity", "2"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<div class="note"><span class="lab">The corpus&rsquo;s own '
+             'retrieval law reopened a route this project had closed</span>'
+             '<p style="margin-bottom:0"><code>subpop.py</code> &sect;4 tried '
+             'four searches for a nuclear level scheme, found nothing, and '
+             'concluded there was nothing this environment could reach. '
+             '<b>All four were MEETS.</b> <code>NAVIGATION.md</code> &sect;3 '
+             '&mdash; a law derived from the three-body index, not a search '
+             'habit &mdash; says navigate by <b>JOIN</b>, never by meet: meet '
+             'failures run 12&nbsp;&rarr;&nbsp;90,705 by cap, <b>join failures '
+             'are 0 at every cap</b>. Run as a join the route opened at once. '
+             'arXiv is 403 over https through this proxy exactly as ENSDF is; '
+             'the connector is a different bracket, and the join is what '
+             'reached it.</p></div>')
+
+    h.append('<section><h2>1. The capture is total, and the paper proves it'
+             '</h2>'
+             '<p>The totality argument is not &ldquo;the queries looked '
+             'complete&rdquo;. It is the paper&rsquo;s own census, reproduced '
+             'exactly and independently for its two tables &mdash; and then a '
+             'second check a count cannot make.</p>'
+             '<table class="tab"><thead><tr><th>table</th><th>the paper '
+             'states</th><th>the parse finds</th></tr></thead><tbody>'
+             '<tr><td>A &mdash; magnetic rotation</td><td>252 bands in 123 '
+             'nuclei</td><td class="num"><b>252 / 123</b></td></tr>'
+             '<tr><td>B &mdash; antimagnetic rotation</td><td>38 bands in 27 '
+             'nuclei</td><td class="num"><b>38 / 27</b></td></tr>'
+             '</tbody></table>'
+             '<p>A count fixture cannot catch a parser that reads the right '
+             'number of <em>wrong</em> things. So the second check is the '
+             'physics each table is defined by: an AMR band is a '
+             '&Delta;I&nbsp;=&nbsp;2 sequence and an MR band a '
+             '&Delta;I&nbsp;=&nbsp;1 one. Measured over every consecutive '
+             'pair of extracted spins: <b>213 of 213</b> AMR steps are '
+             '&Delta;I&nbsp;=&nbsp;2, and <b>1,758 of 1,762</b> MR steps are '
+             '&Delta;I&nbsp;=&nbsp;1. Landing on 100&nbsp;% is what says the '
+             'columns are being read in the right order.</p></section>')
+
+    h.append('<section><h2>2. Two refusals, on the criterion</h2>'
+             '<p><b>%d bands</b> are printed with no I<sup>&pi;</sup> column '
+             'at all &mdash; their energies are relative to an unknown '
+             'bandhead, <span class="mono">200Pb&nbsp;1&nbsp;X</span>, then '
+             '100.6+X, 223.9+X. <b>%d levels</b> carry a spin but no parity. '
+             'A member must carry quantum numbers, so both are refused &mdash; '
+             'and counted <em>apart</em>, because &ldquo;no parity '
+             'printed&rdquo; and &ldquo;no spin printed&rdquo; are different '
+             'facts about the source and flattening them would lose one.</p>'
+             '</section>' % (nb, npar))
+
+    h.append('<section><h2>3. The chart, and the K2 that is the free one</h2>')
+    h.append(closure_table(m))
+    h.append('<p><b>It would be a lie to bank that K2 as a closure.</b> '
+             '<code>kdet</code> opens <code>if k &gt;= d: return True</code>, '
+             'so at arity&nbsp;2 statistics closes for nothing, and this tree '
+             'has measured 105 of 105 arity-2 charts closing it. <b>The '
+             'nuclear band index closes in NOTHING</b>; its real content is '
+             'K0, where <code>mesons</code> and <code>baryons</code> also sit. '
+             'And no third coordinate rescues it &mdash; every superset '
+             '<em>loses</em> the channel:</p>'
+             '<table class="tab"><thead><tr><th>K</th><th>cells</th>'
+             '<th>cell</th><th>coordinates</th></tr></thead><tbody>%s'
+             '</tbody></table></section>'
+             % "".join('<tr><td class="mono">K%d</td><td class="num">%d</td>'
+                       '<td class="mono sm">%s</td><td class="mono sm">%s</td>'
+                       '</tr>' % (k, n, c, ", ".join(cols))
+                       for cols, k, n, c in N.ARITY3))
+
+    for nm, what, why in N.NOT_INDEXED:
+        h.append('<div class="note warn"><span class="lab">The same join '
+                 'returned a second paper, and it is NOT indexed</span>'
+                 '<p style="margin-bottom:0"><span class="mono">%s</span> '
+                 '&mdash; %s. <b>Two parse attempts, both short, neither '
+                 'seated.</b> %s</p></div>' % (E(nm), E(what), E(why)))
+
+    h.append(pfoot("nucbands"))
+    h.append("</div>")
+    _write("nucbands-plate.html", h)
+
+
 BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
             "baryons": build_baryons,
             "quasiparticle": build_quasiparticle,
             "fqh": build_fqh,
             "bosonqp": build_bosonqp,
-            "readrezayi": build_readrezayi}
+            "readrezayi": build_readrezayi,
+            "spin4": build_spin4,
+            "nucbands": build_nucbands}
 
 if __name__ == "__main__":
     for w in (sys.argv[1:] or sorted(BUILDERS)):

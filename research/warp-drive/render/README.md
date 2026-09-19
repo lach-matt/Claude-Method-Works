@@ -38,7 +38,11 @@ measured axis choice, the swept camera and the inlined runtime are one implement
 one per plate.
 
     python3 build_index_plates.py              the periodic-element indexes
-    python3 build_particle_plates.py           DOCKET 27's three particle indexes
+    python3 build_particle_plates.py           DOCKET 27's three particle indexes,
+                                               and DOCKET 30/31/32/34/35's
+    python3 build_particle_plates.py nucbands  the one plate with NO 3-D view:
+                                               its index is arity 2, and every
+                                               third axis is a DIFFERENT chart at K0
     python3 build_particle_plates.py mesons    just one
 
 **Every figure on a plate is read from its instrument at build time.** Nothing is retyped, and each

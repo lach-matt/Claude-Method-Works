@@ -565,6 +565,9 @@ COORDS = {
     "fundamental": ("2J", "Q3", "COL", "GEN"),
     "mesons":      ("2J", "P", "2I", "Q3"),
     "baryons":     ("2J", "P", "2I", "Q3", "S", "C", "B"),
+    # DOCKET 35.  Two coordinates, so the ruling's own machinery can reach it;
+    # a sub-population sweep over an arity-2 chart has one column to hold.
+    "nucbands":    ("2I", "par"),
 }
 
 # The six candidates R4 admits.  PINNED so the default report runs in a second;
@@ -682,6 +685,11 @@ def at_reach(parent, cols, r):
 # ------------------------------------------------------------- the grounds
 
 SELF = "overlaprule"     # this file's own rows, once the ruling has seated them
+
+# The channels occupied when this ruling was HANDED its index.  Historical, and
+# kept so the file can say what moved rather than quietly re-measuring: DOCKET
+# 34 seated spin4 at K4 and took a channel that was empty at the ruling.
+RULED_CHANNELS = (0, 2, 3, 7)
 
 
 def seated_channels():
@@ -1276,22 +1284,40 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     # the ruling's reading, and that it is the bounded one
-    chk("the eleven occupy four channels", sorted(seated_channels()),
-        [0, 2, 3, 7])
+    # DOCKET 34 MOVED THIS, AND THE MOVE IS THE FINDING.  When the ruling was
+    # handed its index the seated rows occupied [0, 2, 3, 7] and K4 was empty,
+    # which is why two candidates at K4 counted as novel.  spin4 then took K4,
+    # so measured LIVE the occupied set is [0, 2, 3, 4, 7] and those two are
+    # no longer novel.  Nothing is unseated by that -- neither was ever seated,
+    # both having failed the reach gate -- but the ruling's own candidate list
+    # is smaller today than the day it was ruled, and this file says so rather
+    # than freezing the old number.  (DOCKET 35's nucbands lands at K2, which
+    # was already occupied, and changes nothing here.)
+    chk("LIVE, five channels are occupied -- DOCKET 34 added K4",
+        sorted(seated_channels()), [0, 2, 3, 4, 7])
+    chk("and at the ruling it was four: K4 is the one that arrived",
+        sorted(set(seated_channels()) - set(RULED_CHANNELS)), [4])
     chk("seated_channels EXCLUDES this ruling's own rows -- it must",
         sorted({nm.split(".")[0] for nm in registry.cells()}
                & {SELF}) == [SELF]
-        and sorted(seated_channels()) == [0, 2, 3, 7],
+        and sorted(seated_channels()) == [0, 2, 3, 4, 7],
         True)
-    chk("a second pass finds the same seven -- nothing compounds",
+    chk("a second pass finds the same five -- nothing compounds",
         len([c for c in CANDIDATES
-             if ground_novel_channel(c[0], c[1])]), 7)
-    chk("four channels are empty",
-        [k for k in range(8) if k not in seated_channels()], [1, 4, 5, 6])
+             if ground_novel_channel(c[0], c[1])]), 5)
+    chk("three channels are empty now, four at the ruling",
+        ([k for k in range(8) if k not in seated_channels()],
+         [k for k in range(8) if k not in RULED_CHANNELS]),
+        ([1, 5, 6], [1, 4, 5, 6]))
     chk("seven candidates -- six, and DOCKET 29's from the particle sweep",
         len(CANDIDATES), 7)
-    chk("every candidate has a novel channel",
-        [c for c in CANDIDATES if not ground_novel_channel(c[0], c[1])], [])
+    chk("and TWO of the seven lost their novel channel to DOCKET 34",
+        sorted((c[0], c[1]) for c in CANDIDATES
+               if not ground_novel_channel(c[0], c[1])),
+        [("ions", ("sl", "tl")), ("madrule", ("S_a", "l_d"))])
+    chk("both of those were at K4, and neither was ever seated",
+        sorted({mi.K(project(c[0], c[1])) for c in CANDIDATES
+                if not ground_novel_channel(c[0], c[1])}), [4])
     chk("NONE is a relabelling -- DOCKET 2's bijection ground",
         [c for c in CANDIDATES if not ground_not_relabelling(c[0], c[1])], [])
 

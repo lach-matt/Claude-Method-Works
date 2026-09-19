@@ -33,7 +33,7 @@ enumeration DOCKET 29 ran on the other axis.
 Over every seated index with a declared coordinate list:
 
     sub-populations of 2 cells or more      the census below
-    of those, SUBLATTICES                   143
+    of those, SUBLATTICES                   203  (143 before DOCKET 35)
     reaching a channel the index lacks      2
 
     AND ONE OF THE TWO IS THE FIRST ARITY-3 K4 THIS TREE HAS SEEN.
@@ -79,15 +79,22 @@ once: holding a coordinate constant leaves an EFFECTIVE ARITY of 2, where
 
     ONLY THREE OF THE TWENTY-TWO INDEXES ARE LATTICES.  `madelung.janet`,
     `overlaprule.madelung_slot` and `bosonqp` are closed under meet and join.
-    THE OTHER NINETEEN ARE NOT.  `lattices()` measures it.
+    THE OTHER TWENTY ARE NOT.  `lattices()` measures it.
 
-    SO "A SUBLATTICE OF THE INDEX" IS ILL-POSED FOR NINETEEN OF THEM, and the
+    SO "A SUBLATTICE OF THE INDEX" IS ILL-POSED FOR TWENTY OF THEM, and the
     first draft of this file used that phrase for all of them.  What
     `D.gen(S) == S` actually tests is whether S is CLOSED IN THE AMBIENT BOX
     -- a well-defined thing, and the right thing for the sweep -- but it is
-    not "a sublattice of L" unless L is itself a lattice.  The count of 143 is
+    not "a sublattice of L" unless L is itself a lattice.  The count is
     correct; the word attached to it was not, and the file now says CLOSED SET
     where it means one.
+
+    AND THE COUNT ITSELF MOVES AS THE REGISTER GROWS.  It was 143 when DOCKET
+    33 ran and is 203 now, because DOCKET 35 seated `nucbands` and this sweep
+    is over the SEATED indexes -- a new index extends it by construction.  The
+    containment structure did not move: 14 containments and a longest chain of
+    2, exactly as before.  The figure is a function of the register, and that
+    is a property of the measurement rather than a drift in it.
 
     THE RECURSION QUESTION IS STRICTLY WELL-POSED ONLY FOR THE THREE.  Peeling
     one element at a time, testing closure DIRECTLY at every step and
@@ -178,11 +185,21 @@ once: holding a coordinate constant leaves an EFFECTIVE ARITY of 2, where
                      high-j proton and neutron spins, not from a deformed
                      rotor.  A separate index if seated at all.
 
-    NOTHING IS SEATED FROM EITHER YET, AND THIS FILE DOES NOT CLAIM ONE.  What
-    the route now needs is a capture pass -- the tables run to sixty-odd pages
-    and the connector returns pages by query, so a TOTAL capture must be
-    demonstrated total, not assumed.  The stone is turned, what is under it is
-    named, and the remaining work is a measurement rather than a search.
+    AND ONE OF THE TWO IS NOW SEATED.  DOCKET 35 captured 2303.13849 in full
+    -- `nbcapture.py` reproduces the paper's own census exactly (252 MR bands
+    in 123 nuclei, 38 AMR in 27) and its own Delta-I selection rule (213 of
+    213 AMR steps at Delta-I = 2, which a count fixture could not have
+    caught) -- and `nucbands.py` seats 2,145 nuclear excited states on
+    (2I, parity) at 121 cells, cell (2, 63, 2).  ITS K2 IS THE FREE ONE:
+    statistics is vacuous at arity 2, so the index really closes in nothing,
+    and every third coordinate measured drops it to K0 outright.
+
+    2508.05447 IS CAPTURED AND NOT PARSED, after two attempts that reached
+    154 and 176 of its stated 234 entries.  Its Table 3 interleaves free
+    prose into the data columns.  A capture that cannot be shown total is not
+    seated, so the candidate this section actually named -- the DEFORMED
+    rotor's tower -- is still open.  The stone is turned; one of the two
+    things under it is banked and the other is named with its numbers.
 """
 
 import itertools
@@ -328,9 +345,11 @@ NUCLEAR_ROUTES = (
     ("pypi nucleardata", "CLOSED -- no such distribution"),
     ("the corpus", "CLOSED -- zero hits for ENSDF / NuDat / NUBASE across "
                    "MANIFEST.tsv, extracted/LEDGER.tsv, recovered/LEDGER.tsv"),
-    ("the paper database", "OPEN -- arXiv:2508.05447 and arXiv:2303.13849 "
-                           "both carry E and I^pi per band member, read "
-                           "through the connector, not over https"),
+    ("the paper database", "OPEN, AND WALKED -- arXiv:2303.13849 is captured "
+                           "in full and seated as nucbands (DOCKET 35); "
+                           "arXiv:2508.05447 is captured as text and NOT "
+                           "parsed, two attempts reaching 154 and 176 of its "
+                           "stated 234 entries"),
 )
 
 # What the fifth route reached, and it is two DIFFERENT PHYSICAL OBJECTS.
@@ -572,8 +591,11 @@ def report():
         print("                        %-22s %d bands/states, %s, %s"
               % ("", nb, "%d nuclei" % nn if nn else "Z/N window, no census",
                  "THE CANDIDATE" if cand else "a DIFFERENT object"))
-    print("                      Nothing seated -- a total capture must be")
-    print("                      shown total.  The stone IS turned.")
+    print("                      2303.13849 is now CAPTURED AND SEATED as")
+    print("                      nucbands (DOCKET 35): 2,145 levels, 121")
+    print("                      cells, cell (2,63,2), and the K2 is free.")
+    print("                      2508.05447 is captured and NOT parsed --")
+    print("                      154 and 176 of its stated 234 in two tries.")
     return 0
 
 
@@ -590,7 +612,13 @@ def selftest():
     t, sl, un = census()
     chk("the sweep tests sub-populations and finds sublattices among them",
         (sl > 0, sl < t), (True, True))
-    chk("143 of them are sublattices", sl, 143)
+    # DOCKET 35 SEATED nucbands AND THE SWEEP GREW.  This sweep is over the
+    # seated indexes, so a new index legitimately extends it: 143 -> 203.
+    # WHAT DID NOT MOVE IS THE FINDING -- still exactly two sub-populations
+    # reach an unoccupied channel, still madrule at l_d=0 and the spin-4
+    # mesons, and the containment structure below is untouched at 14 and 2.
+    chk("203 of them are sublattices -- 143 before DOCKET 35 seated nucbands",
+        sl, 203)
     chk("and exactly two reach a channel the index lacks", un, 2)
 
     H = unoccupied_hits()
@@ -620,12 +648,13 @@ def selftest():
     chk("ONLY THREE INDEXES ARE LATTICES -- the rest are merely charts",
         sorted(nm for nm, _c, isl in L if isl),
         ["bosonqp.index", "madelung.janet", "overlaprule.madelung_slot"])
-    chk("and eighteen are NOT, so 'sublattice of the index' is ill-posed "
-        "for them", sum(1 for _n, _c, isl in L if isl is False), 18)
+    chk("and nineteen are NOT, so 'sublattice of the index' is ill-posed "
+        "for them", sum(1 for _n, _c, isl in L if isl is False), 19)
 
     tot, pairs, longest = family_nesting()
-    chk("within the family: 143 CLOSED SETS, 14 containments, chain 2",
-        (tot, pairs, longest), (143, 14, 2))
+    chk("within the family: 203 CLOSED SETS, 14 containments, chain 2 -- "
+        "the sets grew, the CONTAINMENT STRUCTURE did not",
+        (tot, pairs, longest), (203, 14, 2))
 
     # the recursion, done properly on the three that admit the question
     Rc = recursion()

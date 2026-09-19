@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "561fea909b1b",
+ "commit": "c5135e710762",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 22,
+  "rows": 23,
   "indexes": [
    {
     "name": "fibred.index",
@@ -627,20 +627,69 @@
       }
      ]
     }
+   },
+   {
+    "name": "nucbands.index",
+    "module": "nucbands",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "nucbands",
+    "members": "2,145 nuclear excited states in magnetic and antimagnetic rotational bands; 27 bands and 93 levels refused for carrying no quantum number",
+    "quantum": "2I, parity",
+    "cells": 121,
+    "cell": [
+     2,
+     63,
+     2
+    ],
+    "channel": 2,
+    "languages": [
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "Read from captures/NUCBANDS-levels.tsv, written by nbcapture.py from captures/arxiv-2303.13849.txt -- Teng & Ma, 'Magnetic and antimagnetic rotational bands data tables', submitted to Atomic Data and Nuclear Data Tables.  The capture reproduces the paper's own census exactly (252 MR bands in 123 nuclei, 38 AMR in 27) and its own Delta-I selection rule (213/213 AMR steps at Delta-I = 2).  Nothing is written down by hand.",
+     "paths": [
+      {
+       "path": "research/warp-drive/captures/NUCBANDS-levels.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 61254,
+       "files": 1,
+       "md5": "0daa70295abd76a0f16b90d0085abf7e"
+      },
+      {
+       "path": "research/warp-drive/captures/NUCBANDS-bands.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 10651,
+       "files": 1,
+       "md5": "99b3cd5d8594a0ab17a775b74b7370ea"
+      },
+      {
+       "path": "research/warp-drive/captures/arxiv-2303.13849.txt",
+       "kind": "file",
+       "exists": true,
+       "bytes": 214530,
+       "files": 1,
+       "md5": "1847412451a8fff4d81f4dfde0fc07d9"
+      }
+     ]
+    }
    }
   ]
  },
  "figure": {
-  "vertices": 22,
-  "distinct_cells": 22,
+  "vertices": 23,
+  "distinct_cells": 23,
   "closers": [],
   "own_cell": [
    0,
    5,
-   10
+   11
   ],
   "own_cell_occupied_by": [],
-  "E": 348,
+  "E": 430,
   "channels_occupied": [
    0,
    1,
@@ -655,20 +704,20 @@
   "resolution": {
    "K": {
     "distinct": 8,
-    "of": 22,
-    "ratio": 0.3636,
+    "of": 23,
+    "ratio": 0.3478,
     "verdict": "measurement"
    },
    "height": {
-    "distinct": 15,
-    "of": 22,
-    "ratio": 0.6818,
+    "distinct": 16,
+    "of": 23,
+    "ratio": 0.6957,
     "verdict": "measurement"
    },
    "width": {
     "distinct": 17,
-    "of": 22,
-    "ratio": 0.7727,
+    "of": 23,
+    "ratio": 0.7391,
     "verdict": "measurement"
    }
   },
@@ -970,7 +1019,7 @@
    "status": "CLOSED-WITH-A-CORRECTION",
    "question": "M: \"seat that sweep as an instrument ... run all candidates. Leave no stone unturned. And if any sublattice may possibly contain its own sublattice, we must seek a determination.\"",
    "finding": "subpop.py seats the MEMBER sub-population sweep -- every sweep before it varied COLUMNS (DOCKET 25 over accessors, DOCKET 29 over all 142 coordinate subsets), and DOCKET 31 asked the member question without naming it as a method. 143 sublattices found; TWO reach K4, the last empty channel. One dissolves (madrule at l_d=0 holds a coordinate constant, effective arity 2, statistics free). THE OTHER IS THE FIRST ARITY-3 K4 THIS TREE HAS SEEN: the spin-4 mesons on (P, 2I, Q3), 10 members, 9 cells, cell (4,5,3), statistics EARNED. IT STILL FAILS, and for a NEW reason -- two of the ten carry no printed mass, so under the parent's own reach the population is 7 cells at K5 at every cut and never 9 at K4. K4 stays empty for a THIRD reason: a channel that lives on members the table cannot place in a reach. THE RECURSION DETERMINATION CORRECTED ITSELF: within the sweep's family there are 14 strict containments and the longest chain is 2, which would have been reported as the answer -- but enumerating EVERY subset of the four indexes small enough gives chains of 5 (bosonqp), 7 (spin4), 6 (madrule) and 14 (baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more than the whole family sweep found). The depth-2 figure is about the FAMILY, not the lattices. All candidates run: the chiral Goldstone sublattice is real but a FULL PRODUCT BOX so its closure is free; the electroweak eaten Goldstones land on three cells fundamental already holds, a relabelling.",
-   "what_would_settle_it": "NOT DETERMINED for the eighteen indexes too large to enumerate -- the family figure is a floor there, and too_large() names them. NUCLEAR ROTATIONAL BANDS were not run, and the reason this file first gave was WRONG: four searches for a level scheme returned nothing (ENSDF 403, two pypi dead ends, zero corpus hits) and subpop.py concluded there was nothing this environment could reach. ALL FOUR WERE MEETS. NAVIGATION.md section 3 -- the retrieval law this project derived from the three-body index -- says navigate by JOIN, never by meet: meet failures run 12 to 90,705 by cap, join failures are 0 at every cap. Run as a join over the paper database the fifth route returns at once, with E and I^pi PER BAND MEMBER: arXiv:2508.05447 (234 two-quasiparticle bands in DEFORMED odd-odd nuclei -- the candidate) and arXiv:2303.13849 (290 magnetic and antimagnetic bands in 150 nuclei -- the SHEARS mechanism in NEAR-SPHERICAL nuclei, a DIFFERENT object). arXiv is 403 over https here exactly as ENSDF is; the connector is a different bracket and the join is what reached it. NOTHING IS SEATED: what remains is a capture that must be shown total."
+   "what_would_settle_it": "NOT DETERMINED for the eighteen indexes too large to enumerate -- the family figure is a floor there, and too_large() names them. NUCLEAR ROTATIONAL BANDS were not run, and the reason this file first gave was WRONG: four searches for a level scheme returned nothing (ENSDF 403, two pypi dead ends, zero corpus hits) and subpop.py concluded there was nothing this environment could reach. ALL FOUR WERE MEETS. NAVIGATION.md section 3 -- the retrieval law this project derived from the three-body index -- says navigate by JOIN, never by meet: meet failures run 12 to 90,705 by cap, join failures are 0 at every cap. Run as a join over the paper database the fifth route returns at once, with E and I^pi PER BAND MEMBER: arXiv:2508.05447 (234 two-quasiparticle bands in DEFORMED odd-odd nuclei -- the candidate) and arXiv:2303.13849 (290 magnetic and antimagnetic bands in 150 nuclei -- the SHEARS mechanism in NEAR-SPHERICAL nuclei, a DIFFERENT object). arXiv is 403 over https here exactly as ENSDF is; the connector is a different bracket and the join is what reached it. DOCKET 35 THEN WALKED IT: nbcapture.py captures 2303.13849 in full, reproducing the paper's own census exactly (252 MR bands in 123 nuclei, 38 AMR in 27) AND its own Delta-I selection rule (213 of 213 AMR steps at Delta-I = 2), which is a check on column order that a count cannot make. nucbands.py seats 2,145 nuclear excited states on (2I, parity): 121 cells, cell (2,63,2), K2 -- AND THE K2 IS THE FREE ONE, statistics being vacuous at arity 2, so the index closes in NOTHING and every third coordinate measured drops it to K0. Refused on the criterion: 27 bands the source prints with no I^pi column at all, and 93 levels with a spin but no parity, counted apart because they are different facts. 2508.05447 -- the DEFORMED rotor's tower, the candidate subpop.py actually named -- is captured as text and NOT parsed: two attempts reached 154 and 176 of its stated 234 entries, and a capture that cannot be shown total is not seated."
   }
  ],
  "not_claimed": [

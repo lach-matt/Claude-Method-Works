@@ -280,7 +280,20 @@ DOCKETS = (
      "antimagnetic bands in 150 nuclei -- the SHEARS mechanism in NEAR-SPHERICAL "
      "nuclei, a DIFFERENT object). arXiv is 403 over https here exactly as ENSDF "
      "is; the connector is a different bracket and the join is what reached it. "
-     "NOTHING IS SEATED: what remains is a capture that must be shown total."),
+     "DOCKET 35 THEN WALKED IT: nbcapture.py captures 2303.13849 in full, "
+     "reproducing the paper's own census exactly (252 MR bands in 123 nuclei, 38 "
+     "AMR in 27) AND its own Delta-I selection rule (213 of 213 AMR steps at "
+     "Delta-I = 2), which is a check on column order that a count cannot make. "
+     "nucbands.py seats 2,145 nuclear excited states on (2I, parity): 121 cells, "
+     "cell (2,63,2), K2 -- AND THE K2 IS THE FREE ONE, statistics being vacuous "
+     "at arity 2, so the index closes in NOTHING and every third coordinate "
+     "measured drops it to K0. Refused on the criterion: 27 bands the source "
+     "prints with no I^pi column at all, and 93 levels with a spin but no "
+     "parity, counted apart because they are different facts. 2508.05447 -- the "
+     "DEFORMED rotor's tower, the candidate subpop.py actually named -- is "
+     "captured as text and NOT parsed: two attempts reached 154 and 176 of its "
+     "stated 234 entries, and a capture that cannot be shown total is not "
+     "seated."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
