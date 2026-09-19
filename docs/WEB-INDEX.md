@@ -136,6 +136,22 @@ Elements 109 to 120 are drawn apart, dashed, because `LW1-ground.py` stops at 10
 COORDINATES-2.13 does not. Their rows are shown `READ` from the csv with no configuration,
 equation or derived value behind them, and the panel says so.
 
+## The table as a lattice
+
+**The drawn periodic layout is also a rotatable lattice.** The *Table (3D)* layout draws the same
+layout with a third axis — group across, period up with period 1 at the top, ℓ into the page — so
+the s, p, d and f blocks stand as layers. Every element is a node at its drawn cell in its block's
+layer, coloured by block and carrying its symbol; the thirty-six ghosts are hollow nodes in the
+layer the ℓ-by-group rule gives them, the deferred ones fuller, each with its subshell written in;
+helium moves to group 2 and the ghosts to the twenty of that placement when the toggle is on. The
+set-aside lanthanides and actinides, which the layout gives no group, are drawn in their period
+rows at the long-form table's columns 3 to 16 (x = 3 + Z − 58, and Z − 90), a **DERIVED**
+placement the caption states each time; elements 119 and 120 sit in period 8 in the s layer with
+the spectra-rows tint. The nodes are the plane view's own nodes, so a tap opens the element's slab
+or the ghost's definition, Esc returns to the table, and the caption names what is drawn.
+`buildTableScene` builds it from `layout` and `state.ghosts`, `drawTableAxes` draws the base, the
+four layer frames and the three axes, and the camera, fit, orbit and hit test are the lattice's.
+
 ## Set like a reference work
 
 The page is set the way a reference work is read, and the choices are recorded here so a later
@@ -384,7 +400,26 @@ quasiparticles of twelve states, 30 cells, cell (0, 15, 4)**, three states obser
 Both verdicts stay on the record; the non-abelian states are named as not here. The site carries
 the seated index with every member (m, j, Q, θ/π as exact fractions, the four coordinates with
 their statuses), a figure of j against the filling, the sweep and its verdict, and the earlier
-refusal after it; the quasiparticle work is still in progress on the other session.
+refusal after it; the quasiparticle work is still in progress on the other session. DOCKET 31,
+`bosonqp.py`, seats the composite bosonic excitations of a solid — Cooper pair, exciton and
+biexciton composed from the electron and the hole, six collective modes from the symmetry each
+breaks, two hybrids — with every number computed by three stated rules and none written down
+(15 members, 5 cells, K7, the trion excluding itself as a fermion), as a sublattice beside the
+tree's own bosons: not a subset, one cell outside, the union still a sublattice. DOCKET 32,
+`readrezayi.py`, seats the non-abelian Hall quasiparticles, the Z_k parafermion primaries of the
+Read–Rezayi series with Moore–Read as k = 2: 363 members over eleven levels, 78 cells, K0, the
+weights validated against the Ising category at k = 2 and the Fibonacci τ at k = 3, six fermions
+where the abelian index has none, and neither Hall index nesting in the other. The site carries
+both as their instruments report them, every value DERIVED from the stated rules or closed form,
+the plateaux READ.
+
+**Two things the page does for a browser it has never met.** If drawing ever throws, the error
+is written on the canvas with the line that threw, so a blank canvas can be reported rather than
+described; and if the `index.js` a browser cached is older than the page (no `lattice` block), the
+page fetches a fresh one past the cache and boots again, while element, papers and particle files
+are requested with the edition as a query string so they match the index. Dialogs size to the
+visible viewport (`dvh`) and scroll inside a flex column, and every figure image opens at full
+size on a tap.
 
 **`webindex.py` imports those instruments by path and retypes nothing.** `particle_index_block`
 puts the warp tree's directory on `sys.path` (its modules import each other by bare name and reach

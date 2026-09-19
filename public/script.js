@@ -20,6 +20,8 @@
   const CELL = 100;                 // world units per table cell
   const EL_R = 44;                  // radius of the circle inside a cell
   const DATA = 'data/';
+  // a query string tied to the edition, so a browser that cached an older element or papers file fetches the one this index was built with
+  const dataVersion = () => (state.index && state.index.meta && state.index.meta.commit && location.protocol !== 'file:' ? `?v=${state.index.meta.commit}` : '');
 
   const state = {
     index: null,
@@ -82,6 +84,7 @@
       bg: g('--canvas-bg'), grid: g('--canvas-grid'), text: g('--canvas-text'), muted: g('--canvas-text-muted'),
       surface: g('--surface'), line: g('--line'), lineStrong: g('--line-strong'), accent: g('--accent'), glow: g('--accent-glow') || g('--accent'),
       measured: g('--measured'), exact: g('--exact'), computed: g('--computed'), ghost: g('--ghost'), csv: g('--csv'),
+      ink: g('--ink'),
       blk: { s: g('--blk-s'), p: g('--blk-p'), d: g('--blk-d'), f: g('--blk-f'), none: g('--blk-none') },
       rel: g('--rel') || g('--accent'),
       faint: g('--faint') || g('--canvas-text-muted'),
@@ -167,7 +170,7 @@
       }
       // the cells R admits and the layout does not hold, each with its stated definition
       const defs = new Map((c.denied_cells || []).map((d) => [`${d.p},${d.g}`, d]));
-      const denied = state.layout === 'table' ? (he2 ? c.placement.helium_at_2.denied : c.denied) : [];
+      const denied = state.layout === 'table' || state.layout === 'table3d' ? (he2 ? c.placement.helium_at_2.denied : c.denied) : [];
       for (const [p, g] of denied) {
         state.ghosts.push({ p, g, x: (g - 1) * CELL, y: (p - 1) * CELL, def: defs.get(`${p},${g}`) || null });
       }
@@ -284,7 +287,7 @@
       const have = window.__mi && window.__mi.el && window.__mi.el[Z];
       if (have) { resolve(have); return; }
       const s = document.createElement('script');
-      s.src = `${DATA}elements/${Z}.js`;
+      s.src = `${DATA}elements/${Z}.js${dataVersion()}`;
       s.async = true;
       s.onload = () => {
         s.remove();
@@ -466,6 +469,20 @@
   }
 
   function draw(now) {
+    try { drawInner(now); }
+    catch (err) {
+      // a blank canvas says nothing; the error is written on it, and to the console, so it can be reported
+      console.error(err);
+      try {
+        const dpr = window.devicePixelRatio || 1; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.fillStyle = state.colors ? state.colors.bg : '#fff'; ctx.fillRect(0, 0, W(), H());
+        ctx.fillStyle = '#b3261e'; ctx.font = '13px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+        const lines = ['the drawing failed in this browser:', String(err && err.message || err), (err && err.stack || '').split('\n')[1] || '', 'Please report this line with your browser and device.'];
+        lines.forEach((t, i) => ctx.fillText(t.slice(0, 120), 12, 12 + i * 18));
+      } catch (e2) { /* nothing more to do */ }
+    }
+  }
+  function drawInner(now) {
     drawQueued = false;
     if (!canvasVisible) return;      // resumed by the observer when the canvas scrolls back into view
     const animating = stepAnim(now || performance.now());
@@ -925,6 +942,75 @@
     return { kind: 'index', cubes, slabs, ions: [], ladder: [], ext, centre, R, lat };
   }
 
+  // the drawn periodic layout as a lattice: group across (x), period up (y, period 1 at the
+  // top), ℓ into the page (z), so the s, p, d and f blocks become layers. An element is a node
+  // at its drawn cell in its block's layer; the set-aside lanthanides and actinides, which the
+  // layout gives no group, are drawn in their period row at the long-form table's columns 3 to
+  // 16 (x = 3 + Z − 58, and Z − 90), which is a DERIVED placement and the caption says so; the
+  // thirty-six ghosts sit at their cells in the layer the ℓ-by-group rule gives them. Every node
+  // is the same node the plane view opens.
+  function tableHome() { return { rx: 0.7, ry: -0.48, zoom: 1 }; }
+  function lOfGroup(g) { return g <= 2 ? 0 : g <= 12 ? 2 : 1; }
+  function buildTableScene() {
+    const c = state.index.closure, C = state.colors;
+    const he2 = state.heliumAt === 2 && c.placement && c.placement.helium_at_2;
+    const cubes = [];
+    let derivedPlacements = 0;
+    for (const e of state.index.layout) {
+      let x, derived = false;
+      if (e.set_aside) { x = (e.Z <= 71 ? e.Z - 58 : e.Z - 90) + 3; derived = true; derivedPlacements += 1; }
+      else if (he2 && e.Z === 2) x = 2;
+      else x = e.group;
+      if (x === null || x === undefined || e.period === null || e.period === undefined) continue;
+      const lz = e.block && LSYM.indexOf(e.block) >= 0 ? LSYM.indexOf(e.block) : lOfGroup(x);
+      cubes.push({ x, y: 8 - e.period, z: lz, s: LAT.KNOWN, known: true, Z: e.Z, e, derivedX: derived, label: e.symbol,
+        colour: e.populated ? (C.blk[e.block] || C.blk.none) : C.csv, node: { kind: 'element', Z: e.Z, e } });
+    }
+    for (const g of state.ghosts || []) {
+      const d = g.def || {};
+      cubes.push({ x: g.g, y: 8 - g.p, z: d.l !== undefined && d.l !== null ? d.l : lOfGroup(g.g), s: LAT.KNOWN * 0.8, known: false, ghost: true, p: g.p, g: g.g,
+        cls: d.class || null, label: d.subshell ? d.subshell.split(',')[0] : null, node: { kind: 'ghost', ...g } });
+    }
+    const ext = { x0: 0.3, x1: 18.7, y0: -0.6, y1: 7.6, z0: -0.7, z1: 3.7 };
+    const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
+    const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
+    return { kind: 'table', cubes, slabs: [], ions: [], ladder: [], ext, centre, R, ghosts: (state.ghosts || []).length, derivedPlacements, heliumAt: he2 ? 2 : 18 };
+  }
+  function drawTableAxes(scene, cam) {
+    const C = state.colors, ex = scene.ext;
+    scene._labels = [];
+    const P = (x, y, z) => cam.proj(cam.rot(x, y, z));
+    // the base plane under the table, and the four ℓ layers as hairlines across it
+    const by = ex.y0 + 0.05;
+    ctx.beginPath();
+    [[ex.x0, by, ex.z0], [ex.x1, by, ex.z0], [ex.x1, by, ex.z1], [ex.x0, by, ex.z1]].forEach((q, i) => { const p = P(q[0], q[1], q[2]); if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
+    ctx.closePath(); ctx.fillStyle = shade(C.lineStrong, 1, 0.08); ctx.fill(); ctx.strokeStyle = shade(C.lineStrong, 1, 0.5); ctx.lineWidth = 1; ctx.stroke();
+    for (let l = 0; l <= 3; l++) latLine(cam, [ex.x0, by, l], [ex.x1, by, l], shade(C.lineStrong, 1, 0.2), 1);
+    // each layer's outline, a faint frame standing on the base
+    for (let l = 0; l <= 3; l++) {
+      const E = [[[ex.x0, by, l], [ex.x0, ex.y1, l]], [[ex.x1, by, l], [ex.x1, ex.y1, l]], [[ex.x0, ex.y1, l], [ex.x1, ex.y1, l]]];
+      for (const [a, b] of E) latLine(cam, a, b, shade(C.lineStrong, 1, 0.12), 1);
+    }
+    // the axes: group along the front edge, period up the left, ℓ into the page
+    const ox = ex.x0, oy = ex.y0, oz = -0.5;
+    latLine(cam, [ox, oy, oz], [ex.x1, oy, oz], shade(C.lineStrong, 1, 0.9), 1);
+    latLine(cam, [ox, oy, oz], [ox, ex.y1, oz], shade(C.lineStrong, 1, 0.9), 1);
+    latLine(cam, [ox, oy, oz], [ox, oy, 3.5], shade(C.lineStrong, 1, 0.9), 1);
+    ctx.fillStyle = C.muted; ctx.textBaseline = 'middle';
+    const p1 = P(1, oy, oz), p2 = P(2, oy, oz), gap = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+    ctx.font = F(Math.max(9, Math.min(11, gap * 0.6)), 'sans'); ctx.textAlign = 'center';
+    const every = gap >= 12 ? 1 : gap >= 6 ? 2 : 3;
+    for (let g = 1; g <= 18; g++) { if ((g - 1) % every !== 0 && g !== 18) continue; const p = P(g, oy, oz); ctx.fillText(String(g), p.x, p.y + 12); }
+    ctx.textAlign = 'right';
+    for (let per = 1; per <= 8; per++) { const p = P(ox, 8 - per, oz); ctx.fillText(String(per), p.x - 7, p.y); }
+    ctx.textAlign = 'center';
+    for (let l = 0; l <= 3; l++) { const p = P(ox, oy, l); ctx.fillText(LSYM[l], p.x - 10, p.y + 10); }
+    ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left';
+    const pX = P(ex.x1 + 0.6, oy, oz); ctx.fillText('group →', pX.x + 4, pX.y);
+    const pY = P(ox, ex.y1 + 0.5, oz); ctx.fillText('period (1 at the top)', pY.x + 4, pY.y);
+    const pZ = P(ox, oy, 4.1); ctx.fillText('ℓ → (the blocks as layers)', pZ.x + 4, pZ.y);
+  }
+
   function sameNode(a, b) {
     return !!a && !!b && a.kind === b.kind && a.Z === b.Z && a.charge === b.charge && a.l === b.l && a.mult === b.mult;
   }
@@ -946,8 +1032,19 @@
     if (p0.x < -40 || p0.y < -40 || p0.x > W() + 40 || p0.y > H() + 40) return;
     const r = Math.max(0.6, (cb.s / 2) * p0.k * (cb.known ? 1 : 0.9));
     const node = cb.node;
-    const grade = node ? node.rec.grade : cb.grade;
-    const byLimit = state.cellColor === 'limit' && node;
+    if (cb.ghost) {
+      // a cell the operator admits and the layout does not hold: a hollow node in the ghost tint,
+      // the deferred ones fuller, its subshell written in when there is room
+      ctx.beginPath(); ctx.arc(p0.x, p0.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = C.ghost; ctx.globalAlpha = cb.cls === 'deferred' ? 0.38 : 0.16; ctx.fill(); ctx.globalAlpha = 1;
+      ctx.setLineDash([3, 3]); ctx.strokeStyle = shade(C.ghost, 0.8); ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
+      if (cb.label && r >= 9) { ctx.fillStyle = C.muted; ctx.font = F(Math.max(8, r * 0.55), 'sans'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(cb.label, p0.x, p0.y); }
+      if (outline) { ctx.beginPath(); ctx.arc(p0.x, p0.y, r + 2.5, 0, Math.PI * 2); ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke(); }
+      ctx.lineWidth = 1;
+      return;
+    }
+    const grade = node && node.rec ? node.rec.grade : cb.grade;
+    const byLimit = state.cellColor === 'limit' && node && node.rec;
     const hollow = byLimit ? node.lim === 'symmetry' : grade === 'exact';
     ctx.beginPath(); ctx.arc(p0.x, p0.y, r, 0, Math.PI * 2);
     if (!cb.known) {
@@ -963,10 +1060,16 @@
       } else ctx.fillStyle = col;
       ctx.fill();
       if (r >= 2) { ctx.strokeStyle = shade(col, 0.7); ctx.lineWidth = 0.6; ctx.stroke(); }
-      if (grade === 'measured' && node && node.rec.witness === 'witnessed' && r >= 4) {
+      if (grade === 'measured' && node && node.rec && node.rec.witness === 'witnessed' && r >= 4) {
         ctx.beginPath(); ctx.arc(p0.x, p0.y, r * 1.3, 0, Math.PI * 2);
         ctx.strokeStyle = C.measured; ctx.lineWidth = 1; ctx.stroke();
       }
+    }
+    if (cb.label && r >= 7) {
+      // the element's symbol on its node, in the table lattice
+      ctx.fillStyle = C.ink || C.text || '#1c2128'; ctx.font = F(Math.max(8, Math.min(16, r * 0.95)), 'serif', '600'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(cb.label, p0.x, p0.y + 0.5);
+      if (cb.derivedX && r >= 10) { ctx.font = F(Math.max(7, r * 0.4), 'sans'); ctx.fillStyle = C.muted; ctx.fillText('set aside', p0.x, p0.y + r * 0.72); }
     }
     if (outline) {
       ctx.beginPath(); ctx.arc(p0.x, p0.y, r + 2.5, 0, Math.PI * 2);
@@ -986,6 +1089,7 @@
   // the axes and their ticks: stage up (roman numerals, each an ion, tappable), ℓ into the
   // page (s p d f g h i k), and for the whole index Z across
   function drawLatAxes(scene, cam) {
+    if (scene.kind === 'table') return drawTableAxes(scene, cam);
     const C = state.colors, ex = scene.ext;
     scene._labels = [];
     const ox = scene.kind === 'element' ? scene.lx - 0.15 : ex.x0, oy = -0.5, oz = -0.5;
@@ -1094,8 +1198,10 @@
     for (const it of items) {
       if (it.t === 'cube') {
         const cb = it.cb;
-        const col = cb.node ? cellColour(cb.node) : (cb.grade === 'measured' ? C.measured : C.exact);
-        const hot = scene.kind === 'element' ? selMatchesCube(sel, cb) : (sel && sel.kind !== 'root' && sel.Z === cb.Z);
+        const col = cb.colour ? cb.colour : (cb.node && cb.node.rec ? cellColour(cb.node) : (cb.grade === 'measured' ? C.measured : C.exact));
+        const hot = scene.kind === 'element' ? selMatchesCube(sel, cb)
+          : scene.kind === 'table' ? (cb.ghost ? !!(sel && sel.kind === 'ghost' && sel.p === cb.p && sel.g === cb.g) : !!(sel && sel.kind !== 'root' && sel.kind !== 'ghost' && sel.Z === cb.Z))
+          : (sel && sel.kind !== 'root' && sel.Z === cb.Z);
         drawCube(cb, cam, col, hot ? C.accent : null);
       } else if (it.t === 'slab') {
         const sl = it.sl;
@@ -1117,6 +1223,43 @@
         ctx.globalAlpha = 1;
       }
     }
+    // a scene taller or wider than the canvas: how much is clipped, kept for the drag handler,
+    // and a chip at the clipped edge saying so, since a cut-off slab looks finished otherwise
+    state.latOverflow = latOverflow(scene, cam);
+    const ov = state.latOverflow;
+    if (ov.top > 0 || ov.bottom > 0) {
+      ctx.font = F(11, 'sans'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const chip = (text, y) => {
+        const w = ctx.measureText(text).width + 18;
+        ctx.fillStyle = shade(C.surface === '' ? C.bg : C.surface, 1, 0.92); roundRectPath(W() / 2 - w / 2, y - 11, w, 22, 11); ctx.fill();
+        ctx.strokeStyle = shade(C.lineStrong, 1, 0.6); ctx.lineWidth = 1; ctx.stroke();
+        ctx.fillStyle = C.muted; ctx.fillText(text, W() / 2, y);
+      };
+      const stages = scene.kind === 'element' ? ' stages' : '';
+      if (ov.top > 0) chip(`▲ ${scene.kind === 'element' ? ov.topCount + stages + ' above' : 'more above'} · pull down to see them`, 16);
+      if (ov.bottom > 0) chip(`▼ ${scene.kind === 'element' ? ov.bottomCount + stages + ' below' : 'more below'} · pull up to see them`, H() - 16);
+    }
+  }
+  // how far the scene's projected extent overruns the canvas, in px, and for an element how
+  // many stages are hidden at each edge
+  function latOverflow(scene, cam) {
+    const ex = scene.ext;
+    let y0 = Infinity, y1 = -Infinity;
+    for (const x of [ex.x0, ex.x1]) for (const y of [ex.y0, ex.y1]) for (const z of [ex.z0, ex.z1]) { const p = cam.proj(cam.rot(x, y, z)); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y); }
+    const out = { top: Math.max(0, 8 - y0), bottom: Math.max(0, y1 - (H() - 8)), topCount: 0, bottomCount: 0 };
+    if (scene.kind === 'element') {
+      for (const ion of scene.ions) { const p = cam.proj(cam.rot(0, ion.y, 3.5)); if (p.y < 6) out.topCount += 1; else if (p.y > H() - 6) out.bottomCount += 1; }
+    }
+    return out;
+  }
+  // the scene may be scrolled by dragging, never out of sight: at least 60 px of it stays on the canvas
+  function clampPan(scene, o) {
+    const cam = latCamera(scene), ex = scene.ext;
+    let y0 = Infinity, y1 = -Infinity, x0 = Infinity, x1 = -Infinity;
+    for (const x of [ex.x0, ex.x1]) for (const y of [ex.y0, ex.y1]) for (const z of [ex.z0, ex.z1]) { const p = cam.proj(cam.rot(x, y, z)); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y); x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x); }
+    if (y1 < 60) o.dy += 60 - y1; else if (y0 > H() - 60) o.dy -= y0 - (H() - 60);
+    if (x1 < 60) o.dx += 60 - x1; else if (x0 > W() - 60) o.dx -= x0 - (W() - 60);
+    return o;
   }
 
   // the caption in the bar above the canvas: what is drawn, and what it is drawn from
@@ -1130,6 +1273,9 @@
       else if (sc.kind === 'element') {
         const n = sc.cubes.length, k = sc.cubes.filter((c) => c.known).length;
         html = `<b>${esc(sc.e.symbol)}</b> as its slab of the lattice · stage up, ℓ into the page · ${sc.ions.length} ions · ${n.toLocaleString()} cells, ${k} known · one node per cell · derived from the record, nothing computed`;
+      } else if (sc.kind === 'table') {
+        const c = state.index.closure;
+        html = `<b>The drawn layout as a lattice</b> · group across, period up, ℓ into the page · ${sc.cubes.length - sc.ghosts} elements · ${sc.ghosts} ghosts${sc.heliumAt === 2 ? ' · helium at group 2' : ''} · E = ${sc.heliumAt === 2 && c.placement ? c.placement.helium_at_2.E : c.E} · the ${sc.derivedPlacements} set aside drawn at the long-form columns`;
       } else {
         html = `<b>Λ_spectra as a lattice</b> · element across, stage up, ℓ into the page · ${sc.lat.sites.toLocaleString()} sites · ${sc.lat.known.length.toLocaleString()} known cells as nodes (Figure 6)`;
       }
@@ -1174,8 +1320,8 @@
   // which view a node opens in: the plane for the layouts' root and the ghosts, the lattice
   // for the third layout's root and, by the element-view toggle, for every node of an element
   function viewFor(node) {
-    if (node.kind === 'root') return state.layout === 'lattice' ? 'lattice' : 'plane';
-    if (node.kind === 'ghost') return 'plane';
+    if (node.kind === 'root') return state.layout === 'lattice' || state.layout === 'table3d' ? 'lattice' : 'plane';
+    if (node.kind === 'ghost') return state.layout === 'table3d' ? 'lattice' : 'plane';
     return state.elementView === 'lattice' ? 'lattice' : 'plane';
   }
   function enterView(node) {
@@ -1183,8 +1329,11 @@
     state.view = v;
     const lg = $('#legend-lattice'); if (lg) lg.hidden = v !== 'lattice';
     if (v !== 'lattice') return v;
-    if (node.kind === 'root') {
-      if (!state.scene || state.scene.kind !== 'index') { state.scene = buildIndexScene(); state.orbit = orbitHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
+    if (node.kind === 'root' || node.kind === 'ghost') {
+      if (state.layout === 'table3d') {
+        if (!state.scene || state.scene.kind !== 'table') { state.scene = buildTableScene(); state.orbit = tableHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
+        else if (node.kind === 'root' && state.orbit) { state.orbit.zoom = 1; fitOrbit(state.scene, state.orbit); }
+      } else if (!state.scene || state.scene.kind !== 'index') { state.scene = buildIndexScene(); state.orbit = orbitHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
       else if (node.kind === 'root' && state.orbit) { state.orbit.zoom = 1; fitOrbit(state.scene, state.orbit); }
     } else if (!state.scene || state.scene.kind !== 'element' || state.scene.Z !== node.Z) {
       state.scene = buildElementScene(node.Z);
@@ -1437,6 +1586,7 @@
     if (at === state.heliumAt) return;
     state.heliumAt = at;
     buildFrames();
+    if (state.scene && state.scene.kind === 'table') { state.scene = buildTableScene(); if (state.orbit) fitOrbit(state.scene, state.orbit); }
     updateCaption();
     const sel = state.selected || rootNode;
     if (sel.kind === 'ghost') {
@@ -1474,7 +1624,7 @@
     const lat = ix.lattice;
     const layoutNote = state.layout === 'lattice' && lat
       ? `Λ_spectra as a lattice, the way the source figure draws it: every element a slab at its Z, ionisation stage up, ℓ into the page — <b>${lat.sites.toLocaleString()}</b> sites, <b>${lat.known.length.toLocaleString()}</b> known cells (${lat.counts.measured} measured, ${lat.counts.exact} exact) drawn as cubes, the rest the faint body of each slab. The measured wedge sits at low Z and low ℓ. Drag to rotate, wheel or pinch to zoom, tap a slab for its element.`
-      : state.layout === 'table'
+      : state.layout === 'table' || state.layout === 'table3d'
       ? `The drawn periodic layout: <b>${c.held}</b> cells held, <b>${c.admitted}</b> admitted by ℛ, <b>E = ${c.E}</b>. The ${c.E} are the gaps in the short periods, drawn as tinted ghosts each labelled with its subshell; ${c.set_aside} f-block elements are set aside below the table.`
       : `Janet's coordinate: the cell is (n+ℓ, ℓ) of the differentiating electron, and on it E = 0. Elements without a cell (Z &gt; 108) sit on the bottom row.`;
     return `<div class="kind">the index</div>
@@ -1499,7 +1649,7 @@
         ${c.decomposition ? row('the thirty-six', `${c.decomposition.forbidden} forbidden by ℓ ≤ n−1 (1d, 1p, 2d) + ${c.decomposition.deferred} deferred (3d, and helium's slot)`, 'READ', 'the stated decomposition — tap a ghost for its definition') : ''}
         ${c.placement ? row('helium at 2 instead', `E = ${c.placement.helium_at_2.E}, priced at ${c.placement.priced} cells`, 'READ', c.placement.source) : ''}
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, set aside below the table')}
-      </div>${c.placement && state.layout === 'table' ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (IUPAC)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
+      </div>${c.placement && (state.layout === 'table' || state.layout === 'table3d') ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (IUPAC)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
       ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
       ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
@@ -1619,7 +1769,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     </div>`;
     if (hit || e.Z === 90) {
       body += `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
-      if (fig && fig.file) body += `<figure class="plate-fig"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}</figcaption></figure>`;
+      if (fig && fig.file) body += `<figure class="plate-fig"><a href="data/${esc(fig.file)}" target="_blank" rel="noopener" title="open the figure at full size"><img src="data/${esc(fig.file)}" alt="${esc(fig.caption || 'Figure 5')}" loading="lazy"></a><figcaption>${esc(fig.caption || '')} · md5 ${esc((fig.md5 || '').slice(0, 12))} as the ledger records ${badge('READ', 'the figure as the repository holds it')}</figcaption></figure>`;
     }
     return section('Relativistic limit', body, badge('READ', 'the paper\'s own result; the construction is not held'));
   }
@@ -1840,7 +1990,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (window.__mi && window.__mi.particle_index) { state.particleIndex = window.__mi.particle_index; return Promise.resolve(state.particleIndex); }
     return new Promise((resolve, reject) => {
       const sc = document.createElement('script');
-      sc.src = `${DATA}particles.js`; sc.async = true;
+      sc.src = `${DATA}particles.js${dataVersion()}`; sc.async = true;
       sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.particle_index) { state.particleIndex = window.__mi.particle_index; resolve(state.particleIndex); } else reject(new Error('data/particles.js loaded but set no window.__mi.particle_index')); };
       sc.onerror = () => { sc.remove(); reject(new Error('data/particles.js could not be loaded; it is written by python3 tools/webindex.py when the particle instruments are in the tree')); };
       document.head.appendChild(sc);
@@ -1947,6 +2097,44 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
+      const bq = q.bosons;
+      if (bq) {
+        html += `<h3>${esc(bq.title)}</h3>
+          <p class="note">One member is ${esc(bq.member)}. ${bq.members.length} members on ${bq.cells} cells; closure channel K${bq.cell.channel} (height ${bq.cell.height}, width ${bq.cell.width}); closed by ${bq.closers.length ? esc(bq.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement')}</p>
+          <div class="fields">
+            ${row('source', esc(bq.source), bq.source_status, esc(bq.source_note), true)}
+            ${bq.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}
+            ${row('the relation', `the tree's own bosons hold ${bq.relation.boson_cells} cells and are ${bq.relation.bosons_sublattice ? 'a sublattice' : 'not a sublattice'}; the excitations hold ${bq.relation.qp_cells} and are ${bq.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}; ${bq.relation.qp_subset_of_bosons ? 'a subset' : 'not a subset'} — outside: ${bq.relation.outside_members.map((o) => `(${o.cell.join(', ')}) ${esc(o.members.join(', '))}`).join('; ') || 'none'}; the union holds ${bq.relation.union_cells} cells and is ${bq.relation.union_sublattice ? 'still a sublattice' : 'not a sublattice'}`, bq.relation.status, esc(bq.relation.note), true)}
+            ${row('the channel', `${bq.channel_note.is_chain ? 'a chain' : 'not a chain'}; over the chart's own box ${bq.channel_note.box.closing_all} of ${bq.channel_note.box.subsets} subsets close under every language, ${bq.channel_note.box.of_this_size_closing} of the ${bq.channel_note.box.of_this_size} of this size`, 'DERIVED', esc(bq.channel_note.text), true)}
+            ${bq.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}
+          </div>
+          <div class="tbl-wrap"><table class="t"><thead><tr><th>member</th><th>kind</th><th>made of / breaks</th>${bq.coordinates.map((c) => `<th>${esc(c.name)}</th>`).join('')}</tr></thead><tbody>
+            ${bq.composites.map((r) => `<tr><td>${esc(r.name)}</td><td>composite</td><td class="mono">${esc(r.parts.join(' + '))}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+            ${bq.broken.map((r) => `<tr><td>${esc(r.name)}</td><td>broken symmetry</td><td class="wrap">${esc(r.breaks)} — generator ${esc(r.generator)}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+            ${bq.hybrids.map((r) => `<tr><td>${esc(r.name)}</td><td>hybrid</td><td class="mono">${esc(r.parts.join(' × '))}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+          </tbody></table></div>`;
+      }
+      const rr = q.nonabelian;
+      if (rr) {
+        html += `<h3>${esc(rr.title)}</h3>
+          <p class="note">One member is ${esc(rr.member)}. Reach k ≤ ${rr.reach}: ${rr.levels} levels, ${rr.members} members on ${rr.cells} cells; closure channel K${rr.cell.channel} (height ${rr.cell.height}, width ${rr.cell.width}); closed by ${rr.closers.length ? esc(rr.closers.join(', ')) : 'no language'}. ${badge('DERIVED')}</p>
+          <div class="fields">
+            ${row('source', esc(rr.source), rr.source_status, esc(rr.source_note), true)}
+            ${row('observed levels', rr.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)}, quasihole charge e/${o.fundamental_charge.split('/')[1] || '?'})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}
+            ${row('validated against the literature', rr.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes: the Ising category at k = 2, the Fibonacci τ at k = 3, the quasihole charges e/4 and e/5', true)}
+            ${row('verdict', `<b>${esc(rr.verdict)}</b> — ${esc(rr.why)}`, rr.verdict_status, 'the sweep: ' + rr.sweep.map((b) => `${esc(b.box)} → ${b.cells} cells, K${b.channel}${b.degenerate ? ' (degenerate)' : ''}`).join('; '), true)}
+            ${row('fermions', `${rr.fermions.length}: ${rr.fermions.slice(0, 6).map((f) => `k = ${f.k} (l, m) = (${f.l}, ${f.m}) h = ${esc(f.h)}`).join('; ')}${rr.fermions.length > 6 ? ' …' : ''}`, 'DERIVED', esc(rr.fermions_note), true)}
+            ${row('against the abelian index', `${rr.nesting.abelian_cells} abelian cells, ${rr.nesting.nonabelian_cells} non-abelian, ${rr.nesting.shared} shared; abelian in non-abelian: ${rr.nesting.abelian_in_nonabelian ? 'yes' : 'no'}; non-abelian in abelian: ${rr.nesting.nonabelian_in_abelian ? 'yes' : 'no'}; sublattices: ${rr.nesting.abelian_sublattice ? 'yes' : 'no'} / ${rr.nesting.nonabelian_sublattice ? 'yes' : 'no'}`, rr.nesting.status, esc(rr.nesting.note), true)}
+          </div>
+          <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>
+            ${rr.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td></tr>`).join('')}
+          </tbody></table></div>
+          <details><summary>Every member (${rr.rows.length})</summary>
+            <div class="tbl-wrap"><table class="t particle-table"><thead><tr><th>k</th><th>l</th><th>m</th><th>h</th><th>Q (e)</th>${rr.coordinates.map((c) => `<th>${esc(c.name)}</th>`).join('')}<th class="hide-narrow">level</th></tr></thead><tbody>
+              ${rr.rows.map((r) => `<tr><td>${r.k}</td><td>${r.l}</td><td>${r.m}</td><td>${esc(r.h)} ${badge('DERIVED')}</td><td>${esc(r.Q)} ${badge('DERIVED')}</td>${r.coords.map((v, i) => `<td>${v} ${badge(rr.coordinates[i].status)}</td>`).join('')}<td class="hide-narrow">${r.observed ? 'observed plateau' : '<span class="muted">continuation</span>'}</td></tr>`).join('')}
+            </tbody></table></div>
+          </details>`;
+      }
       const fq = q.seated;
       if (fq && !fq.absent) {
         html += `<h3>${esc(fq.title)}</h3>
@@ -2187,7 +2375,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (window.__mi && window.__mi.papers) { state.papers = window.__mi.papers; return Promise.resolve(state.papers); }
     return new Promise((resolve, reject) => {
       const sc = document.createElement('script');
-      sc.src = `${DATA}papers.js`; sc.async = true;
+      sc.src = `${DATA}papers.js${dataVersion()}`; sc.async = true;
       sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.papers) { state.papers = window.__mi.papers; resolve(state.papers); } else reject(new Error('data/papers.js loaded but set no window.__mi.papers')); };
       sc.onerror = () => { sc.remove(); reject(new Error('data/papers.js could not be loaded; it is written by python3 tools/webindex.py')); };
       document.head.appendChild(sc);
@@ -2230,6 +2418,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           </nav>
           <article class="paper" id="paper-article">${pp.html}</article>
         </div>`;
+      host.querySelectorAll('#paper-article img').forEach((im) => { const a = document.createElement('a'); a.className = 'fig-link'; a.href = im.getAttribute('src'); a.target = '_blank'; a.rel = 'noopener'; a.title = 'open the figure at full size'; im.replaceWith(a); a.appendChild(im); });
       host.querySelector('[data-act="papers-back"]').addEventListener('click', () => renderPapers());
       host.querySelectorAll('.paper-toc a[data-h]').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); const t = host.querySelector('#' + CSS.escape(a.dataset.h)); if (t) t.scrollIntoView({ block: 'start', behavior: 'smooth' }); }));
       host.querySelector('[data-act="paper-cite"]').addEventListener('click', (ev) => { ev.preventDefault(); alertLine(host, paperCite(pp)); });
@@ -2518,7 +2707,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     canvas.addEventListener('pointerdown', (ev) => {
       canvas.setPointerCapture(ev.pointerId);
       pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
-      dragged = false; last = { x: ev.clientX, y: ev.clientY };
+      dragged = false; last = { x: ev.clientX, y: ev.clientY, x0: ev.clientX, y0: ev.clientY, mode: null };
       if (pts.size === 2) {
         const [a, b] = [...pts.values()];
         pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: state.cam.k, zoom: (state.orbit || orbitHome()).zoom, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 };
@@ -2559,11 +2748,19 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         if (Math.abs(dx) + Math.abs(dy) > 2) dragged = true;
         if (state.view === 'lattice') {
           const o = state.orbit || orbitHome();
-          if (ev.shiftKey) { o.dx = (o.dx || 0) + dx; o.dy = (o.dy || 0) + dy; }
-          else { o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008)); }
+          if (!last.mode) {
+            const tx = ev.clientX - last.x0, ty = ev.clientY - last.y0;
+            if (Math.abs(tx) + Math.abs(ty) >= 6) {
+              // a slab taller than the canvas scrolls under a mostly vertical drag; anything else rotates
+              const ov = state.latOverflow || {};
+              last.mode = ev.shiftKey ? 'pan' : ((ov.top > 0 || ov.bottom > 0) && Math.abs(ty) > 1.4 * Math.abs(tx)) ? 'pan' : 'rotate';
+            }
+          }
+          if (last.mode === 'pan' || (last.mode === null && ev.shiftKey)) { o.dx = (o.dx || 0) + (last.mode === 'pan' && !ev.shiftKey ? 0 : dx); o.dy = (o.dy || 0) + dy; if (state.scene) clampPan(state.scene, o); }
+          else if (last.mode === 'rotate') { o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008)); }
           state.orbit = o;
         } else { state.cam.tx += dx; state.cam.ty += dy; state.anim = null; }
-        last = { x: ev.clientX, y: ev.clientY };
+        last.x = ev.clientX; last.y = ev.clientY;
         requestDraw();
       }
     });
@@ -2613,7 +2810,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       else if (ev.key.startsWith('Arrow') && state.view === 'lattice') {
         const o = state.orbit || orbitHome();
         if (ev.key === 'ArrowLeft') o.ry -= 0.12; if (ev.key === 'ArrowRight') o.ry += 0.12;
-        if (ev.key === 'ArrowUp') o.rx = Math.max(-1.45, o.rx - 0.12); if (ev.key === 'ArrowDown') o.rx = Math.min(1.45, o.rx + 0.12);
+        const ov = state.latOverflow || {}; const scrolls = ov.top > 0 || ov.bottom > 0;
+        if (ev.key === 'ArrowUp') { if (scrolls) { o.dy = (o.dy || 0) + 60; if (state.scene) clampPan(state.scene, o); } else o.rx = Math.max(-1.45, o.rx - 0.12); }
+        if (ev.key === 'ArrowDown') { if (scrolls) { o.dy = (o.dy || 0) - 60; if (state.scene) clampPan(state.scene, o); } else o.rx = Math.min(1.45, o.rx + 0.12); }
         state.orbit = o; requestDraw(); ev.preventDefault();
       }
       else if (ev.key.startsWith('Arrow')) {
@@ -2700,14 +2899,16 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     }
   }
 
+  function rebuildTableScene() { if (state.scene && state.scene.kind === 'table') { buildFrames(); state.scene = buildTableScene(); if (state.orbit) fitOrbit(state.scene, state.orbit); updateCaption(); requestDraw(); } }
   function setLayout(mode) {
     if (mode === state.layout) return;
     state.layout = mode;
     document.querySelectorAll('.seg-btn[data-layout]').forEach((b) => b.classList.toggle('is-on', b.dataset.layout === mode));
     buildFrames();
     if (mode !== 'lattice' && state.scene && state.scene.kind === 'index') state.scene = null;
+    if (mode !== 'table3d' && state.scene && state.scene.kind === 'table') state.scene = null;
     const sel = state.selected || rootNode;
-    if (sel.kind === 'ghost' && mode !== 'table') select(rootNode, { reveal: false });
+    if (sel.kind === 'ghost' && mode !== 'table' && mode !== 'table3d') select(rootNode, { reveal: false });
     else select(sel, { setHash: false, reveal: false });
   }
 
@@ -3464,6 +3665,16 @@ Plain prose, at most 350 words, then a line "Sources:" with the web sources you 
       $('#solver-body').innerHTML = '<p class="note">no index, so no solver context</p>';
       $('#assist-mode').textContent = 'no data';
       return;
+    }
+    if (!ix.lattice || !ix.meta || !ix.manifest) {
+      // an index.js older than this page (a cached copy): fetch a fresh one past the cache and boot again
+      if (!window.__mi_reloaded) {
+        window.__mi_reloaded = true;
+        $('#inspector-body').innerHTML = '<p class="note">the data this browser cached is older than the page; loading the current data …</p>';
+        const sc = document.createElement('script'); sc.src = `${DATA}index.js?v=${Date.now()}`; sc.onload = () => { sc.remove(); boot(); }; sc.onerror = () => { $('#inspector-body').innerHTML = '<p class="note">could not load a current data/index.js; reload the page</p>'; };
+        document.head.appendChild(sc);
+        return;
+      }
     }
     state.index = ix;
     for (const a of ix.axes || []) AX[a.axis] = a;

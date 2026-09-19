@@ -995,6 +995,12 @@ def warp_modules(root):
     except Exception as e:  # noqa: BLE001 -- DOCKET 30 may not be in an older tree
         mods["fqh"] = None
         mods["fqh_error"] = repr(e)
+    for extra in ("bosonqp", "readrezayi"):
+        try:
+            mods[extra] = importlib.import_module(extra)
+        except Exception as e:  # noqa: BLE001 -- DOCKET 31/32 may not be in an older tree
+            mods[extra] = None
+            mods[extra + "_error"] = repr(e)
     try:
         mods["particlesweep"] = importlib.import_module("particlesweep")
     except Exception as e:  # noqa: BLE001 -- DOCKET 29 may not be in an older tree
@@ -1155,6 +1161,71 @@ def _fqh(FQ):
         "fractional_charges": [{"m": m, "denominators": d} for m, d in FQ.fractional_charges()],
         "e_over_3": {"text": "the e/3 quasiparticle is not a prediction: its fractional charge was measured directly by shot noise in 1997, in a system built only from electrons", "status": "READ"},
         "not_here": "the non-abelian states (Moore–Read, Read–Rezayi) are a further member set and are not here",
+        "in_progress": True,
+    }
+
+
+def _bosonqp(BQ):
+    """DOCKET 31 as the site carries it: the composite bosonic excitations,
+    every number computed by three stated rules from what the object is made
+    of, as a sublattice beside the tree's own bosons."""
+    K, h, w = BQ.cell()
+    nb, nq, bsub, qsub, subset, outside, nunion, usub = BQ.relation()
+    tot, full, n5, f5 = BQ.box_freeness()
+    return {
+        "id": "bosonqp", "title": "The composite bosonic excitations, as a sublattice of the bosons",
+        "member": "a bosonic collective excitation of a solid: a composite of electrons and holes in one spin state, a collective mode named by the symmetry it breaks, or a hybrid of two modes",
+        "source": BQ.SOURCE[0], "source_status": "DERIVED",
+        "source_note": "nothing is written down as a value: charge adds and spin combines by angular-momentum addition for a composite, a broken generator's rank and commutation fix a collective mode's numbers, and a hybrid inherits what its constituents share; the electron and the photon are read from the fundamental index",
+        "coordinates": [{"name": "2J", "meaning": "spin, doubled, computed", "status": "DERIVED"},
+                        {"name": "Q3", "meaning": "electric charge in thirds, computed", "status": "DERIVED"}],
+        "rules": [{"rule": "composition", "text": "charge adds; spin combines by angular-momentum addition, so a composite is one member per spin state; a hole is the electron with its charge negated"},
+                  {"rule": "broken symmetry", "text": "2J is twice the broken generator's rank under rotation and Q3 is zero where the generator commutes with the charge operator; the phonon comes out a vector mode, which the three acoustic branches require"},
+                  {"rule": "hybridisation", "text": "a hybrid mixes only modes that agree on every quantum number and inherits the shared value; a disagreement is an error, not a choice"}],
+        "members": [{"kind": k, "name": n, "coords": [j, q]} for k, n, j, q in BQ.members()],
+        "composites": [{"name": n, "parts": list(pts), "coords": [j, q]} for n, pts, j, q in BQ.rows()],
+        "broken": [{"name": n, "breaks": b, "generator": g, "coords": [j, q]} for n, b, g, j, q in BQ.broken_rows()],
+        "hybrids": [{"name": n, "parts": list(pts), "coords": [j, q]} for n, pts, j, q in BQ.hybrid_rows()],
+        "excluded": [{"name": n, "parts": list(pts), "spins": list(sp), "why": why} for n, pts, sp, why in BQ.excluded()],
+        "cells": len(BQ.index()), "cell": {"channel": K, "height": h, "width": w}, "closers": BQ.closers(),
+        "relation": {"boson_cells": nb, "qp_cells": nq, "bosons_sublattice": bsub, "qp_sublattice": qsub, "qp_subset_of_bosons": subset,
+                     "outside": [list(c) for c in outside], "union_cells": nunion, "union_sublattice": usub,
+                     "outside_members": [{"cell": list(c), "members": m} for c, m in BQ.outside()],
+                     "note": "the tree's own bosons on (2J, Q3) are already a sublattice; the excitations are a sublattice; they are not a subset; the cells outside are the extension, and the union is still a sublattice", "status": "DERIVED"},
+        "channel_note": {"is_chain": BQ.is_chain(), "box": {"subsets": tot, "closing_all": full, "of_this_size": n5, "of_this_size_closing": f5},
+                         "text": "the channel is measured over the chart's own box rather than asserted: how many subsets of the box close under every language, and how many of the chart's own size do"},
+        "in_progress": True,
+    }
+
+
+def _readrezayi(RR):
+    """DOCKET 32 as the site carries it: the non-abelian Hall quasiparticles,
+    the Z_k parafermion primaries of the Read-Rezayi series, computed from the
+    closed form and validated against the two values the literature fixes."""
+    rows = RR.rows()
+    K, h, w = RR.cell()
+    verdict, why = RR.verdict()
+    nA, nN, shared, a_in_n, n_in_a, a_sub, n_sub = RR.nesting()
+    return {
+        "id": "readrezayi", "title": "The non-abelian Hall quasiparticles: the Read–Rezayi series",
+        "member": "a primary field of the Z_k parafermion theory of the Read–Rezayi state at filling ν = 2 + k/(k+2); Moore–Read is k = 2",
+        "source": RR.SOURCE[0], "source_status": "PINNED",
+        "source_note": "computed from the closed form h = l(l+2)/(4(k+2)) − m²/(4k) with (l, m) identified with (k − l, m − k); exact rationals",
+        "reach": RR.REACH, "levels": len(RR.levels()), "members": len(rows), "cells": len(RR.index()),
+        "cell": {"channel": K, "height": h, "width": w}, "closers": RR.closers(RR.index()),
+        "observed": [{"k": k, "filling": f, "name": n, "nu": _frac(RR.filling(k)), "fundamental_charge": _frac(RR.fundamental_charge(k))} for k, (f, n) in sorted(RR.OBSERVED.items())],
+        "coordinates": [{"name": "STAT", "meaning": "0 boson, 1 fermion, 2 anyon, from h mod 1", "status": "DERIVED"},
+                        {"name": "ORD", "meaning": "the order of the topological twist: the denominator of h", "status": "DERIVED"},
+                        {"name": "CHORD", "meaning": "the order of the quasihole charge", "status": "DERIVED"},
+                        {"name": "K", "meaning": "the level, which names the filling fraction ν = 2 + k/(k+2)", "status": "READ"}],
+        "rows": [{"k": k, "l": l, "m": m, "h": _frac(hh), "Q": _frac(Q), "coords": [st, o, c, k], "observed": k in RR.OBSERVED} for k, l, m, hh, Q, st, o, c in rows],
+        "validation": [{"what": a, "computed": str(b), "expected": str(c), "agrees": d} for a, b, c, d in RR.validation()],
+        "sweep": [{"box": a, "cells": b, "channel": c, "closers": d, "degenerate": g} for a, b, c, d, _e, _f, g in RR.sweep()],
+        "verdict": verdict, "why": why, "verdict_status": "READ",
+        "fermions": [{"k": k, "l": l, "m": m, "h": _frac(hh)} for k, l, m, hh in RR.fermions()],
+        "fermions_note": "the abelian index proved that no Laughlin quasiparticle is a fermion; this series has them, the first the Ising ψ at h = 1/2, so that theorem was about the abelian ones",
+        "nesting": {"abelian_cells": nA, "nonabelian_cells": nN, "shared": shared, "abelian_in_nonabelian": a_in_n, "nonabelian_in_abelian": n_in_a, "abelian_sublattice": a_sub, "nonabelian_sublattice": n_sub,
+                    "note": "on the three coordinates the two Hall indexes share, neither nests in the other and neither is a sublattice: the negative counterpart of the bosonic result", "status": "DERIVED"},
         "in_progress": True,
     }
 
@@ -1352,6 +1423,10 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                        "verdict": verdict, "why": why, "verdict_status": "READ"},
             "reopens": "a materials database of phonon modes over a fixed set of crystals, each mode with its symmetry label and frequency, is a legitimate member set; it needs a real fetch and is named so the door is visibly open",
         }
+        if mods.get("bosonqp") is not None:
+            quasi["bosons"] = _bosonqp(mods["bosonqp"])
+        if mods.get("readrezayi") is not None:
+            quasi["nonabelian"] = _readrezayi(mods["readrezayi"])
         if FQ is not None:
             quasi["seated"] = _fqh(FQ)
             quasi["status_note"] = ("the gap the particle indexes left open, closed twice by the other session: first with two measured refusals, "
@@ -1400,7 +1475,9 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                     for ix in indexes],
         "quasiparticles": ({"in_progress": True, "verdict": (quasi.get("anyons") or {}).get("verdict"),
                             "seated": ("fqh: %d quasiparticles of %d Laughlin states, %d cells, K%d" % (quasi["seated"]["members"], quasi["seated"]["states"], quasi["seated"]["cells"], quasi["seated"]["cell"]["channel"])
-                                       if quasi.get("seated") and not quasi["seated"].get("absent") else None)} if quasi else None),
+                                       if quasi.get("seated") and not quasi["seated"].get("absent") else None),
+                            "bosons": ("bosonqp: %d bosonic excitations, %d cells, K%d" % (len(quasi["bosons"]["members"]), quasi["bosons"]["cells"], quasi["bosons"]["cell"]["channel"]) if quasi.get("bosons") else None),
+                            "nonabelian": ("readrezayi: %d primaries of %d levels, %d cells, K%d" % (quasi["nonabelian"]["members"], quasi["nonabelian"]["levels"], quasi["nonabelian"]["cells"], quasi["nonabelian"]["cell"]["channel"]) if quasi.get("nonabelian") else None)} if quasi else None),
         "antimatter": ({"total": accounting["antimatter"]["total"], "of_charted": accounting["antimatter"]["of_charted"]} if "antimatter" in accounting else None),
         "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
                    "refused": len(sweep["refused"]), "occupied_now": sweep["occupancy"]["now"]} if sweep and not sweep.get("absent") else None),
@@ -2597,6 +2674,17 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles seated: 150 anyons, 0 fermions, 18 bosons", [fq["statistics"][k] for k in ("anyons", "fermions", "bosons")], [150, 0, 18])
             check("quasiparticles seated: the observed states are 1/3, 1/5, 1/7", [o["m"] for o in fq["observed"]], [3, 5, 7])
             check("quasiparticles seated: every row carries four coordinates and its charge as a fraction", all(len(r["coords"]) == 4 and "/" in r["Q"] or r["j"] == 0 for r in fq["rows"]), True)
+        bq = (pfull.get("quasiparticles") or {}).get("bosons")
+        if bq:
+            check("bosonic excitations: members, cells and channel as the record states", (len(bq["members"]), bq["cells"], bq["cell"]["channel"]), (15, 5, 7))
+            check("bosonic excitations: the trion excludes itself as a fermion", [x["name"] for x in bq["excluded"]], ["trion"])
+            check("bosonic excitations: not a subset of the bosons, and the union still a sublattice", (bq["relation"]["qp_subset_of_bosons"], bq["relation"]["union_sublattice"]), (False, True))
+        rr = (pfull.get("quasiparticles") or {}).get("nonabelian")
+        if rr:
+            check("non-abelian: 363 primaries of 11 levels, 78 cells, K0", (rr["members"], rr["levels"], rr["cells"], rr["cell"]["channel"]), (363, 11, 78, 0))
+            check("non-abelian: the verdict is SEAT", rr["verdict"], "SEAT")
+            check("non-abelian: every literature fixed point agrees", all(v["agrees"] for v in rr["validation"]), True)
+            check("non-abelian: neither Hall index nests in the other", (rr["nesting"]["abelian_in_nonabelian"], rr["nesting"]["nonabelian_in_abelian"]), (False, False))
         if pfull["quasiparticles"] and pfull["quasiparticles"].get("anyons"):
             qa = pfull["quasiparticles"]["anyons"]
             check("quasiparticles: the anyon chart is refused as a theorem", qa["verdict"], "REFUSE-AS-THEOREM")
