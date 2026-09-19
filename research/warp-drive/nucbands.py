@@ -76,17 +76,24 @@ arity 2 statistics closes for nothing, and this tree has measured that 105 of
     index is still an index -- it is a chart of quantum objects on quantum
     numbers -- but it predicts nothing, and this file does not pretend it does.
 
-AND NO ARITY-3 READING RESCUES IT.  MEASURED, over every superset of (2I, pi)
-in the five coordinates the capture carries:
+AND NO WIDER READING RESCUES IT.  MEASURED, over the supersets of (2I, pi) in
+the five coordinates the capture carries:
 
     K2    121 cells   (2, 63, 2)    2I, pi
     K0    194 cells   (0, 64, 4)    2I, pi, dI
     K0    997 cells   (0, 85, 34)   2I, pi, Z
     K0  1,247 cells   (0, 83, 42)   2I, pi, N
+    K0  1,054 cells   (0, 85, 42)   2I, pi, dI, Z
+    K0  1,307 cells   (0, 80, 55)   2I, pi, dI, N
+    K0  1,672 cells   (0, 61, 74)   2I, pi, Z, N
 
-Every third coordinate moves the channel DOWN, not up: it buys cells and loses
-the free pass.  `ARITY3` holds those figures and `--sweep` re-derives them; the
-selftest re-measures the dI row rather than trusting the table.
+Every extra coordinate moves the channel DOWN, not up: it buys cells and loses
+the free pass.  SIX OF THE SEVEN SUPERSETS ARE MEASURED AND THE SEVENTH IS NOT
+-- the full five-coordinate chart did not return inside a 40-minute budget, and
+`UNMEASURED` names it.  A pattern in six is not a measurement of the seventh,
+so this file does not report one.  `ARITY3` holds the figures and `--sweep`
+re-derives them; the selftest re-measures the dI row rather than trusting the
+table.
 
 ===============================================================================
 4. THE TWO PAPERS ARE TWO OBJECTS, AND ONLY ONE IS CAPTURED HERE
@@ -153,6 +160,21 @@ ARITY3 = (
     (("2I", "par", "dI"), 0, 194, (0, 64, 4)),
     (("2I", "par", "Z"), 0, 997, (0, 85, 34)),
     (("2I", "par", "N"), 0, 1247, (0, 83, 42)),
+    (("2I", "par", "dI", "Z"), 0, 1054, (0, 85, 42)),
+    (("2I", "par", "dI", "N"), 0, 1307, (0, 80, 55)),
+    (("2I", "par", "Z", "N"), 0, 1672, (0, 61, 74)),
+)
+
+# THE ONE SUPERSET THIS FILE HAS NOT MEASURED, named rather than assumed.
+# The full five-coordinate chart did not return inside a 40-minute budget --
+# `mi.K` runs five closure operators over every pair of coordinates and the
+# cell count is the largest here.  SIX of the seven supersets are measured and
+# every one is K0; the seventh is UNMEASURED, and a pattern in six is not a
+# measurement of the seventh.
+UNMEASURED = (
+    (("2I", "par", "dI", "Z", "N"),
+     "timed out at 40 minutes; re-run with "
+     "`python3 nucbands.py --sweep` and a longer budget"),
 )
 
 _C = {}
@@ -317,6 +339,11 @@ def selftest():
     chk("adding dI LOSES the channel -- K2 falls to K0, as ARITY3 records",
         (mi.K(X3), len(X3), mi.cell(X3)), (0, 194, (0, 64, 4)))
     chk("and ARITY3 says the same", ARITY3[1][1:], (0, 194, (0, 64, 4)))
+    chk("SIX supersets measured and every one of them loses the channel",
+        (len(ARITY3) - 1, sorted({k for _c, k, _n, _cell in ARITY3[1:]})),
+        (6, [0]))
+    chk("and the seventh is named UNMEASURED, not assumed to match",
+        [c for c, _why in UNMEASURED], [("2I", "par", "dI", "Z", "N")])
 
     for p in (BANDS_TSV, LEVELS_TSV):
         chk("%s is in the tree" % os.path.basename(p), os.path.exists(p), True)

@@ -12481,6 +12481,16 @@ superset **loses** the channel:
 | K0 | 194 | (0, 64, 4) | 2I, π, ΔI |
 | K0 | 997 | (0, 85, 34) | 2I, π, Z |
 | K0 | 1,247 | (0, 83, 42) | 2I, π, N |
+| K0 | 1,054 | (0, 85, 42) | 2I, π, ΔI, Z |
+| K0 | 1,307 | (0, 80, 55) | 2I, π, ΔI, N |
+| K0 | 1,672 | (0, 61, 74) | 2I, π, Z, N |
+| — | — | **UNMEASURED** | 2I, π, ΔI, Z, N |
+
+**Six of the seven supersets are measured and every one loses the channel; the seventh is not
+measured.** The full five-coordinate chart did not return inside a 40-minute budget — `mi.K` runs
+five closure operators over every pair of coordinates and that chart is the largest here. It is
+marked `UNMEASURED` in the instrument and on the plate rather than filled in from the pattern: **a
+pattern in six is not a measurement of the seventh.**
 
 ### The second paper is captured and **not** parsed
 

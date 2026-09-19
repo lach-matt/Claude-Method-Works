@@ -1314,11 +1314,22 @@ def build_nucbands():
              '<em>loses</em> the channel:</p>'
              '<table class="tab"><thead><tr><th>K</th><th>cells</th>'
              '<th>cell</th><th>coordinates</th></tr></thead><tbody>%s'
-             '</tbody></table></section>'
-             % "".join('<tr><td class="mono">K%d</td><td class="num">%d</td>'
-                       '<td class="mono sm">%s</td><td class="mono sm">%s</td>'
-                       '</tr>' % (k, n, c, ", ".join(cols))
-                       for cols, k, n, c in N.ARITY3))
+             '%s</tbody></table>'
+             '<p class="sm">Six of the seven supersets are measured and every '
+             'one loses the channel. <b>The seventh is not measured</b> &mdash; '
+             'the full five-coordinate chart did not return inside a '
+             '40-minute budget &mdash; and a pattern in six is not a '
+             'measurement of the seventh, so it is marked rather than '
+             'assumed.</p></section>'
+             % ("".join('<tr><td class="mono">K%d</td><td class="num">%d</td>'
+                        '<td class="mono sm">%s</td><td class="mono sm">%s</td>'
+                        '</tr>' % (k, n, c, ", ".join(cols))
+                        for cols, k, n, c in N.ARITY3),
+                "".join('<tr><td class="mono">&mdash;</td>'
+                        '<td class="num">&mdash;</td>'
+                        '<td class="no">UNMEASURED</td>'
+                        '<td class="mono sm">%s</td></tr>' % ", ".join(cols)
+                        for cols, _why in N.UNMEASURED)))
 
     for nm, what, why in N.NOT_INDEXED:
         h.append('<div class="note warn"><span class="lab">The same join '
