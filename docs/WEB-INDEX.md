@@ -447,7 +447,55 @@ the selftest checks that too. The channel closures take about thirty seconds per
 **Incorporating the next index the other session seats** is the same contract: an instrument in
 the tree with `rows()`, `index()` and `cell()`, coordinates declared before the chart is run, a
 `SOURCE` beside the code, and a status for every value. Add its coordinates to `PARTICLE_COORDS`,
-its block to `particle_index_block`, and its figures to the selftest.
+its block to `particle_index_block`, and its figures to the selftest — and, for the explorer, a
+row in `PAXES` naming which of its coordinates go on the axes, or it draws the first three.
+
+### Each particle index as an index of the explorer
+
+Every particle index the build carries is also a first-class index of the explorer, beside the
+elements, and not only a table in the Particles dialog. `script.js` reads `particles.js` into
+descriptors (`particleIndexes()`): the three PDG indexes and, as they land, the Hall
+quasiparticles (`fqh`), the bosonic excitations (`bosonqp`) and the Read–Rezayi primaries
+(`readrezayi`), each with its rows as `{name, key, coords, extra}`, the key unique within the
+index (a duplicated name in the bosonic index, the Cooper pair at two spins, is keyed by its 2J).
+An index opens as a lattice (`buildParticleScene`): three of its declared coordinates on the axes
+and a fourth as colour, by the `PAXES` table — charge across, spin up, generation or isospin into
+the page for the PDG indexes; the inverse filling or the level across and the two orders on the
+other axes for the Hall indexes — with **one node per charted member at the rank of its values**,
+so a charge of −1, 0, +1 and a spin of 0, ½, 1, 3/2 draw at even spacing. A drawn position can
+hold several cells where the index has more coordinates than the drawing (the baryons' seven), and
+the members sharing one are fanned out in a small grid inside it, smaller the more there are; the
+caption counts the drawn positions and the shared ones. **Which coordinate goes on which axis is a
+choice of this page**, badged DERIVED on the plate with the coordinate table saying what is drawn
+where; every value, the cell count and the closure channel are the instrument's, and the scene
+computes nothing. The axes tick in the coordinate's own units (Q, J, I read back from Q3, 2J, 2I),
+and a colour key sits in the canvas's corner. A member's name is drawn under its node once the
+reader has zoomed past 1.6× and always under the selected one.
+
+The nodes are `{kind: 'pindex', id}` (parent: the root) and `{kind: 'particle', id, i, row}`
+(parent: its index), so the crumbs, `Esc`, the `↑ up` button and the hash all work as they do for
+an element: an index is `#/p/mesons`, a member `#/p/mesons/pi0` (the key URI-encoded, so
+`#/p/mesons/J%2Fpsi(1S)`), resolved by `goToParticle` after `ensureParticleIndex()`. A member's
+plate carries its coordinates each with the coordinate's status and read back in its units, its
+cell (the full tuple) with the cell's other members as chips, what the table prints of it — the
+PDG id, whether it is an antiparticle (DERIVED: a negative id), family, quark content, mass and
+width (READ), C and G where printed, the table's own antiparticle-naming flag and status flags —
+or for a Hall quasiparticle its state, j, charge and exchange phase, for a primary its level,
+(l, m), weight and quasihole charge, for a bosonic excitation how it is made; then the previous
+and next member and the usual Copy JSON, Copy link and Raw record. The index's plate carries the
+member definition, the counts, the coordinate table with statuses and the drawn axis, the members
+set aside by name, the refused coordinates with their measurements, the source, and every member
+as a chip. `citation()` cites a particle node to the capture and the instruments, not to the
+element sources.
+
+The particle indexes load when the page is idle after boot (`ensureParticleIndex`, ~218 KB), and
+then the **index picker** at the top left (`#index-pick`, hidden when the build carries no
+particle indexes) lists the elements and each index, search suggests members by name and indexes
+by title (`pi0`, `lambda`, `mesons`, an exact particle name outranking an element whose symbol
+starts the same way), and the Particles dialog's headings carry *Open as an index*. Choosing a
+layout button while a particle index is open returns to the elements. A smoke test opens every
+index and a member of each by hash, taps a node, follows a chip, climbs with `Esc`, searches,
+uses the picker and the dialog's button, and drags to rotate, on desktop and phone viewports.
 
 ## Ask a model, with a machine check
 
@@ -610,8 +658,9 @@ level, `H` the whole index, `+`/`−` zoom, arrows pan; `/` focuses search from 
 text field. A table row in the detail plate is a `role="link"` with `tabindex="0"` and opens on
 `Enter`. Search takes a symbol, Z or name, or a path — `Fe II`, `Fe II d`, `Fe II d 3`; the ℓ token
 is one letter of `spdfgh` or a number (`Fe II 6`), never a substring match, and ℓ = 6, 7 are
-labelled by number as the record's `subshell_letter` is. The address bar carries the path
-(`#/Fe/II/d/3`), so every node is a link. Copy JSON copies the node's record; Copy link its
+labelled by number as the record's `subshell_letter` is; once the particle indexes have loaded it
+also suggests a particle by name or an index by title. The address bar carries the path
+(`#/Fe/II/d/3`, `#/p/mesons/pi0`), so every node is a link. Copy JSON copies the node's record; Copy link its
 address; Raw record shows the record inline; the element file is linked directly.
 
 The home view fits the layout above the legend overlay, so the set-aside actinide row is never

@@ -33,7 +33,9 @@
     elements: new Map(),            // Z -> record
     trees: new Map(),               // Z -> {ions: [...]} with relative frames
     pending: new Map(),
-    papers: null,                   // data/papers.js, loaded on demand             // Z -> promise
+    papers: null,                   // data/papers.js, loaded on demand
+    particleIndex: null,            // data/particles.js, loaded on demand
+    pindexes: null,                 // the particle indexes as the explorer reads them, built once from particleIndex             // Z -> promise
     loadErrors: new Map(),          // Z -> message
     selected: null,                 // node
     hover: null, hoverKey: '',      // the node under a mouse pointer on the plane
@@ -362,6 +364,8 @@
     if (node.kind === 'root') return null;
     if (node.kind === 'element' || node.kind === 'ghost') return rootNode;
     if (node.kind === 'ion') return elementNode(node.Z);
+    if (node.kind === 'pindex') return rootNode;
+    if (node.kind === 'particle') return pindexNode(node.id) || rootNode;
     return node.parent;
   }
 
@@ -379,6 +383,8 @@
       case 'ion': return `${symbolOf(node.Z)} ${roman(node.charge)}`;
       case 'channel': return `${LSYM[node.l] || node.l}`;
       case 'cell': return `2S+1 = ${node.mult}`;
+      case 'pindex': return node.px.short;
+      case 'particle': return node.row.name;
     }
     return '';
   }
@@ -387,6 +393,8 @@
   function hashOf(node) {
     if (node.kind === 'root') return '#/';
     if (node.kind === 'ghost') return `#/E/${node.p}/${node.g}`;
+    if (node.kind === 'pindex') return `#/p/${node.id}`;
+    if (node.kind === 'particle') return `#/p/${node.id}/${encodeURIComponent(node.row.key)}`;
     const parts = [symbolOf(node.Z)];
     if (node.charge) parts.push(roman(node.charge));
     if (node.l !== undefined) parts.push(LSYM[node.l] || String(node.l));
@@ -1071,6 +1079,16 @@
       ctx.fillText(cb.label, p0.x, p0.y + 0.5);
       if (cb.derivedX && r >= 10) { ctx.font = F(Math.max(7, r * 0.4), 'sans'); ctx.fillStyle = C.muted; ctx.fillText('set aside', p0.x, p0.y + r * 0.72); }
     }
+    if (cb.tag && (outline || (r >= 9 && state.orbit && state.orbit.zoom >= 1.6))) {
+      // a particle's name under its node once the reader has zoomed in far enough for the names
+      // to have room, and always on the selected one
+      const tag = cb.tag.length > 14 && !outline ? cb.tag.slice(0, 13) + '…' : cb.tag;
+      ctx.font = F(Math.max(8.5, Math.min(11, r * 0.7)), 'sans'); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      const tw = ctx.measureText(tag).width;
+      ctx.fillStyle = shade(C.surface === '' ? C.bg : C.surface, 1, 0.8); ctx.fillRect(p0.x - tw / 2 - 2, p0.y + r + 2, tw + 4, 12);
+      ctx.fillStyle = outline ? C.accent : C.muted; ctx.fillText(tag, p0.x, p0.y + r + 3);
+      ctx.textBaseline = 'middle';
+    }
     if (outline) {
       ctx.beginPath(); ctx.arc(p0.x, p0.y, r + 2.5, 0, Math.PI * 2);
       ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke();
@@ -1090,6 +1108,7 @@
   // page (s p d f g h i k), and for the whole index Z across
   function drawLatAxes(scene, cam) {
     if (scene.kind === 'table') return drawTableAxes(scene, cam);
+    if (scene.kind === 'particles') return drawParticleAxes(scene, cam);
     const C = state.colors, ex = scene.ext;
     scene._labels = [];
     const ox = scene.kind === 'element' ? scene.lx - 0.15 : ex.x0, oy = -0.5, oz = -0.5;
@@ -1201,7 +1220,8 @@
         const col = cb.colour ? cb.colour : (cb.node && cb.node.rec ? cellColour(cb.node) : (cb.grade === 'measured' ? C.measured : C.exact));
         const hot = scene.kind === 'element' ? selMatchesCube(sel, cb)
           : scene.kind === 'table' ? (cb.ghost ? !!(sel && sel.kind === 'ghost' && sel.p === cb.p && sel.g === cb.g) : !!(sel && sel.kind !== 'root' && sel.kind !== 'ghost' && sel.Z === cb.Z))
-          : (sel && sel.kind !== 'root' && sel.Z === cb.Z);
+          : scene.kind === 'particles' ? !!(sel && sel.kind === 'particle' && sel.id === cb.node.id && sel.i === cb.node.i)
+          : !!(sel && sel.kind !== 'root' && sel.Z !== undefined && sel.Z === cb.Z);
         drawCube(cb, cam, col, hot ? C.accent : null);
       } else if (it.t === 'slab') {
         const sl = it.sl;
@@ -1273,6 +1293,8 @@
       else if (sc.kind === 'element') {
         const n = sc.cubes.length, k = sc.cubes.filter((c) => c.known).length;
         html = `<b>${esc(sc.e.symbol)}</b> as its slab of the lattice · stage up, ℓ into the page · ${sc.ions.length} ions · ${n.toLocaleString()} cells, ${k} known · one node per cell · derived from the record, nothing computed`;
+      } else if (sc.kind === 'particles') {
+        html = particleCaption(sc);
       } else if (sc.kind === 'table') {
         const c = state.index.closure;
         html = `<b>The drawn layout as a lattice</b> · group across, period up, ℓ into the page · ${sc.cubes.length - sc.ghosts} elements · ${sc.ghosts} ghosts${sc.heliumAt === 2 ? ' · helium at group 2' : ''} · E = ${sc.heliumAt === 2 && c.placement ? c.placement.helium_at_2.E : c.E} · the ${sc.derivedPlacements} set aside drawn at the long-form columns`;
@@ -1320,6 +1342,7 @@
   // which view a node opens in: the plane for the layouts' root and the ghosts, the lattice
   // for the third layout's root and, by the element-view toggle, for every node of an element
   function viewFor(node) {
+    if (isParticleNode(node)) return 'lattice';
     if (node.kind === 'root') return state.layout === 'lattice' || state.layout === 'table3d' ? 'lattice' : 'plane';
     if (node.kind === 'ghost') return state.layout === 'table3d' ? 'lattice' : 'plane';
     return state.elementView === 'lattice' ? 'lattice' : 'plane';
@@ -1329,6 +1352,11 @@
     state.view = v;
     const lg = $('#legend-lattice'); if (lg) lg.hidden = v !== 'lattice';
     if (v !== 'lattice') return v;
+    if (isParticleNode(node)) {
+      if (!state.scene || state.scene.kind !== 'particles' || state.scene.id !== node.id) { state.scene = buildParticleScene(node.id); state.orbit = particleHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
+      else if (node.kind === 'pindex' && state.orbit) { state.orbit.zoom = 1; fitOrbit(state.scene, state.orbit); }
+      return v;
+    }
     if (node.kind === 'root' || node.kind === 'ghost') {
       if (state.layout === 'table3d') {
         if (!state.scene || state.scene.kind !== 'table') { state.scene = buildTableScene(); state.orbit = tableHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
@@ -1439,6 +1467,9 @@
       if (location.hash !== h) history.replaceState(null, '', h);
     }
     const view = enterView(node);
+    const pick = $('#index-pick');
+    if (pick) { const want = isParticleNode(node) ? node.id : 'elements'; if (pick.value !== want) pick.value = want; }
+    document.querySelectorAll('.seg-btn[data-layout]').forEach((b) => b.classList.toggle('is-on', !isParticleNode(node) && b.dataset.layout === state.layout));
     if (fly && view === 'plane') {
       const flyMs = reveal && isPhone() ? 0 : ms;   // the plate scrolls the canvas away on a phone
       if (node.kind === 'root') flyTo(homeCam(), flyMs);
@@ -1453,6 +1484,7 @@
   }
 
   async function goToPath(Z, charge, l, mult, opts = {}) {
+    if (Z === 'p') return goToParticle(charge, l, opts);
     const el = elementNode(Z);
     if (!el) return false;
     if (charge === undefined) { await select(el, opts); return true; }
@@ -1474,6 +1506,7 @@
     const parts = (h || '').replace(/^#\/?/, '').split('/').filter(Boolean);
     if (!parts.length) return { root: true };
     if (parts[0] === 'E' && parts.length === 3) return { ghost: { p: +parts[1], g: +parts[2] } };
+    if (parts[0] === 'p') { let member; if (parts[2] !== undefined) { try { member = decodeURIComponent(parts[2]); } catch (e) { member = parts[2]; } } return { pindex: parts[1] || '', member }; }
     const e = state.index.layout.find((x) => x.symbol.toLowerCase() === parts[0].toLowerCase() || String(x.Z) === parts[0]);
     if (!e) return null;
     const out = { Z: e.Z };
@@ -1488,6 +1521,7 @@
     if (h === state.lastHash) return;
     const p = parseHash(h);
     if (!p || p.root) return select(rootNode, { fly, ms, reveal });
+    if (p.pindex !== undefined) return goToParticle(p.pindex, p.member, { fly, ms, reveal });
     if (p.ghost) {
       const g = state.ghosts.find((x) => x.p === p.ghost.p && x.g === p.ghost.g);
       return g ? select({ kind: 'ghost', ...g }, { fly, ms, reveal }) : select(rootNode, { fly, ms, reveal });
@@ -1547,6 +1581,11 @@
   }
   function citation(node) {
     const m = state.index.meta || {};
+    if (isParticleNode(node)) {
+      const ps = (state.particleIndex || {}).source || {}, tree = ps.tree || {}, px = node.px;
+      const src = px.family === 'pdg' ? `${ps.citation || ''}${ps.doi ? ', DOI ' + ps.doi : ''}` : (px.source.text || '');
+      return `${pathText(node)}. The Method Index, particle indexes, read at build from ${(tree.instruments || []).join(', ')}${tree.commit ? ' at ' + String(tree.commit).slice(0, 12) : ''} and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Source: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
+    }
     const src = (state.index.sources || []).map((s) => `${s.file.split('/').pop()} ${s.md5_measured ? s.md5_measured.slice(0, 8) : '?'}`).join(', ');
     return `${pathText(node)}. The Method Index, read by tools/populate.py and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Sources: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
   }
@@ -1561,6 +1600,8 @@
       case 'ion': html = renderIon(node); break;
       case 'channel': html = renderChannel(node); break;
       case 'cell': html = renderCell(node); break;
+      case 'pindex': html = renderPIndex(node); break;
+      case 'particle': html = renderParticle(node); break;
     }
     body.innerHTML = html;
     $('#status').textContent = pathText(node);
@@ -1572,6 +1613,7 @@
       if (act === 'copy-json') copyText(body.querySelector('pre.raw').textContent, b);
       if (act === 'copy-link') copyText(location.href.split('#')[0] + hashOf(node), b);
       if (act === 'open-prov') $('#dlg-provenance').showModal();
+      if (act === 'open-particles') { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); }
       if (act === 'color-limit') setCellColor('limit');
       if (act === 'color-grade') setCellColor('grade');
       if (act === 'helium-toggle') setHelium(state.heliumAt === 2 ? 18 : 2);
@@ -1596,6 +1638,12 @@
     requestDraw();
   }
   function bindGo(root) {
+    root.querySelectorAll('[data-pgo]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const dlg = el.closest('dialog'); if (dlg && dlg.open) dlg.close();
+        goToParticle(el.dataset.pgo, el.dataset.pkey === undefined ? undefined : el.dataset.pkey);
+      });
+    });
     root.querySelectorAll('[data-go]').forEach((el) => {
       const go = () => {
         const [Z, c, l, m] = el.dataset.go.split('/');
@@ -1996,6 +2044,330 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       document.head.appendChild(sc);
     });
   }
+  // ---------------------------------------------------------------- the particle indexes as indexes
+  // Each particle index the build carries is an index in its own right here, beside the elements:
+  // a lattice on three of its declared coordinates, one node per charted member at the rank of
+  // its values, tappable to the member's plate, searchable by name and routable by hash
+  // (#/p/<index>/<member>). Which coordinate goes on which axis is a choice of this page, said
+  // so on the plate and the caption; every value, every cell count and every status is the
+  // instrument's, and nothing here computes one.
+  const PAXES = {
+    fundamental: { x: 'Q3', y: '2J', z: 'GEN', colour: 'COL' },
+    mesons: { x: 'Q3', y: '2J', z: '2I', colour: 'P' },
+    baryons: { x: 'Q3', y: '2J', z: '2I', colour: 'S' },
+    fqh: { x: 'M', y: 'ORD', z: 'CHORD', colour: 'STAT' },
+    bosonqp: { x: 'Q3', y: '2J', z: null, colour: 'kind' },
+    readrezayi: { x: 'K', y: 'ORD', z: 'CHORD', colour: 'STAT' },
+  };
+  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries' };
+  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', kind: 'kind' };
+  const half = (v) => (v % 2 ? `${v}/2` : String(v / 2));
+  const third = (v) => (v % 3 === 0 ? String(v / 3) : `${v}/3`).replace('-', '−');
+  // a coordinate's value read out in its own units: the doubled spin as J, the charge in thirds as Q
+  function coordText(name, v) {
+    if (v === null || v === undefined) return 'not printed';
+    switch (name) {
+      case 'Q3': return `Q = ${third(v)}`;
+      case '2J': return `J = ${half(v)}`;
+      case '2I': return `I = ${half(v)}`;
+      case 'P': return `P = ${v > 0 ? '+' : '−'}`;
+      case 'COL': return v === 1 ? 'colour singlet' : v === 3 ? 'colour triplet' : v === 8 ? 'colour octet' : `dimension ${v}`;
+      case 'GEN': return v === 0 ? 'a boson, no generation' : `generation ${v}`;
+      case 'STAT': return v === 0 ? 'boson' : v === 1 ? 'fermion' : v === 2 ? 'anyon' : String(v);
+      case 'M': return `ν = 1/${v}`;
+      case 'K': return `k = ${v}`;
+      default: return `${PLABEL[name] || name} = ${v}`;
+    }
+  }
+  function coordTick(name, v) {
+    if (v === null || v === undefined) return '?';
+    switch (name) {
+      case 'Q3': return third(v);
+      case '2J': case '2I': return half(v);
+      case 'P': return v > 0 ? '+' : '−';
+      case 'STAT': return ['boson', 'fermion', 'anyon'][v] || String(v);
+      case 'M': return `1/${v}`;
+      default: return String(v);
+    }
+  }
+  // the descriptors: one per index the build carries, in the shape the explorer reads --
+  // rows as {i, name, key, coords, extra}, with key unique within the index
+  function particleIndexes() {
+    if (state.pindexes) return state.pindexes;
+    const P = state.particleIndex;
+    if (!P) return [];
+    const out = [];
+    const src = P.source || {};
+    for (const ix of P.indexes || []) {
+      out.push({ id: ix.id, family: 'pdg', title: ix.title, short: PSHORT[ix.id] || ix.title, member: ix.member, coordinates: ix.coordinates,
+        members: ix.members, charted: ix.charted, cells: ix.cells, cell: ix.cell, closers: ix.closers || [], refused: ix.refused || [], unplaced: ix.unplaced || [], unplaced_why: ix.unplaced_why || '',
+        source: { text: src.citation || '', doi: src.doi || null, status: 'READ', note: 'the review the capture reads' },
+        rows: ix.rows.map((r, i) => ({ i, name: r.name, key: r.name, coords: r.coords, extra: r.extra, pdgid: r.pdgid })),
+        colour_rule: ix.colour_rule || null, conjugation: ix.conjugation || null, collisions: ix.collisions || null, collisions_note: ix.collisions_note || '' });
+    }
+    const q = P.quasiparticles || {};
+    const fq = q.seated;
+    if (fq && !fq.absent && fq.rows) {
+      out.push({ id: 'fqh', family: 'quasi', title: fq.title, short: PSHORT.fqh, member: fq.member, coordinates: fq.coordinates,
+        members: fq.members, charted: fq.rows.length, cells: fq.cells, cell: fq.cell, closers: fq.closers || [], refused: fq.refused || [], unplaced: [], unplaced_why: '',
+        source: { text: fq.source, status: fq.source_status, note: fq.source_note }, observed: fq.observed || [], observed_note: fq.observed_note || '', statistics: fq.statistics || null, verdict: fq.verdict, why: fq.why, verdict_status: fq.verdict_status, not_here: fq.not_here || '', in_progress: !!fq.in_progress,
+        rows: fq.rows.map((r, i) => ({ i, name: `ν = 1/${r.m}, j = ${r.j}`, key: `1-${r.m}-j${r.j}`, coords: r.coords, extra: { m: r.m, j: r.j, Q: r.Q, theta: r.theta, observed: r.observed } })) });
+    }
+    const bq = q.bosons;
+    if (bq && bq.members) {
+      const seen = new Map();
+      const detail = new Map();
+      (bq.composites || []).forEach((r) => detail.set(r.name, { kind: 'composite', parts: r.parts }));
+      (bq.broken || []).forEach((r) => detail.set(r.name, { kind: 'broken symmetry', breaks: r.breaks, generator: r.generator }));
+      (bq.hybrids || []).forEach((r) => detail.set(r.name, { kind: 'hybrid', parts: r.parts }));
+      const names = bq.members.map((m) => m.name);
+      out.push({ id: 'bosonqp', family: 'quasi', title: bq.title, short: PSHORT.bosonqp, member: bq.member, coordinates: bq.coordinates,
+        members: bq.members.length, charted: bq.members.length, cells: bq.cells, cell: bq.cell, closers: bq.closers || [], refused: [], unplaced: [], unplaced_why: '',
+        source: { text: bq.source, status: bq.source_status, note: bq.source_note }, rules: bq.rules || [], excluded: bq.excluded || [], relation: bq.relation || null, in_progress: !!bq.in_progress,
+        rows: bq.members.map((m, i) => {
+          const dup = names.filter((n) => n === m.name).length > 1;
+          const key = dup ? `${m.name} (2J = ${m.coords[0]})` : m.name;
+          const d = detail.get(m.name) || { kind: m.kind };
+          return { i, name: key, key, coords: m.coords, extra: { kind: m.kind, ...d } };
+        }) });
+    }
+    const rr = q.nonabelian;
+    if (rr && rr.rows) {
+      out.push({ id: 'readrezayi', family: 'quasi', title: rr.title, short: PSHORT.readrezayi, member: rr.member, coordinates: rr.coordinates,
+        members: rr.members, charted: rr.rows.length, cells: rr.cells, cell: rr.cell, closers: rr.closers || [], refused: [], unplaced: [], unplaced_why: '',
+        source: { text: rr.source, status: rr.source_status, note: rr.source_note }, observed: rr.observed || [], validation: rr.validation || [], verdict: rr.verdict, why: rr.why, verdict_status: rr.verdict_status, fermions: rr.fermions || [], fermions_note: rr.fermions_note || '', in_progress: !!rr.in_progress,
+        rows: rr.rows.map((r, i) => ({ i, name: `k = ${r.k}, (l, m) = (${r.l}, ${r.m})`, key: `k${r.k}-l${r.l}-m${r.m}`, coords: r.coords, extra: { k: r.k, l: r.l, m: r.m, h: r.h, Q: r.Q, observed: r.observed } })) });
+    }
+    for (const px of out) {
+      px.byKey = new Map(px.rows.map((r) => [r.key.toLowerCase(), r]));
+      px.byName = new Map();
+      for (const r of px.rows) if (!px.byName.has(r.name.toLowerCase())) px.byName.set(r.name.toLowerCase(), r);
+      px.axes = PAXES[px.id] || { x: px.coordinates[0].name, y: (px.coordinates[1] || {}).name || null, z: (px.coordinates[2] || {}).name || null, colour: (px.coordinates[3] || {}).name || null };
+    }
+    state.pindexes = out;
+    return out;
+  }
+  function pindexOf(id) { return particleIndexes().find((p) => p.id === id) || null; }
+  function pindexNode(id) { const px = pindexOf(id); return px ? { kind: 'pindex', id, px } : null; }
+  function particleNode(px, row) { return { kind: 'particle', id: px.id, i: row.i, row, px }; }
+  function findParticle(px, ref) {
+    if (ref === undefined || ref === null) return null;
+    const t = String(ref).toLowerCase();
+    if (/^~\d+$/.test(t)) return px.rows[parseInt(t.slice(1), 10)] || null;
+    return px.byKey.get(t) || px.byName.get(t) || null;
+  }
+  async function goToParticle(id, ref, opts = {}) {
+    try { await ensureParticleIndex(); } catch (e) { await select(rootNode, opts); return false; }
+    const px = pindexOf(id);
+    if (!px) { await select(rootNode, opts); return false; }
+    if (ref === undefined) { await select(pindexNode(id), opts); return true; }
+    const row = findParticle(px, ref);
+    if (!row) { await select(pindexNode(id), opts); return false; }
+    await select(particleNode(px, row), opts);
+    return true;
+  }
+  const isParticleNode = (n) => !!n && (n.kind === 'pindex' || n.kind === 'particle');
+  // the cell a member sits in is its full coordinate tuple; the drawn position is three of them
+  const cellKey = (r) => r.coords.join(',');
+  function particleHome() { return { rx: 0.42, ry: -0.62, zoom: 1 }; }
+
+  // the scene: one node per charted member at the rank of its x, y and z values (rank, not the
+  // value, so a charge of −1, 0, +1 and a spin of 0, 1/2, 1, 3/2 draw at even spacing); members
+  // sharing a drawn position are fanned out in a small grid inside it, smaller the more there are
+  function buildParticleScene(id) {
+    const px = pindexOf(id);
+    if (!px) return null;
+    const names = px.coordinates.map((c) => c.name);
+    const ax = px.axes;
+    const idx = (n) => (n === null || n === undefined ? -1 : names.indexOf(n));
+    const xi = idx(ax.x), yi = idx(ax.y), zi = idx(ax.z), ci = ax.colour === 'kind' ? -2 : idx(ax.colour);
+    const rows = px.rows.filter((r) => r.coords.every((v) => v !== null && v !== undefined));
+    const uniq = (k) => (k < 0 ? [0] : [...new Set(rows.map((r) => r.coords[k]))].sort((a, b) => a - b));
+    const xs = uniq(xi), ys = uniq(yi), zs = uniq(zi);
+    const cval = (r) => (ci === -2 ? r.extra.kind : ci < 0 ? null : r.coords[ci]);
+    const cvals = ci === -2 ? [...new Set(rows.map((r) => r.extra.kind))] : ci < 0 ? [] : [...new Set(rows.map((r) => r.coords[ci]))].sort((a, b) => a - b);
+    const C = state.colors;
+    const colourOf = (r) => (ci === -1 ? C.measured : L_COLOR[Math.max(0, cvals.indexOf(cval(r))) % L_COLOR.length]);
+    const pos = new Map();
+    for (const r of rows) {
+      const p = [xi < 0 ? 0 : xs.indexOf(r.coords[xi]), yi < 0 ? 0 : ys.indexOf(r.coords[yi]), zi < 0 ? 0 : zs.indexOf(r.coords[zi])];
+      const key = p.join(',');
+      if (!pos.has(key)) pos.set(key, { p, rows: [] });
+      pos.get(key).rows.push(r);
+    }
+    const cubes = [];
+    let fanned = 0;
+    for (const g of pos.values()) {
+      const n = g.rows.length, cols = Math.ceil(Math.sqrt(n)), rws = Math.ceil(n / cols);
+      if (n > 1) fanned += 1;
+      const s = n === 1 ? 0.56 : Math.max(0.12, 0.8 / cols);
+      g.rows.forEach((r, k) => {
+        const dx = n === 1 ? 0 : ((k % cols) + 0.5) / cols * 0.84 - 0.42;
+        const dy = n === 1 ? 0 : 0.42 - (Math.floor(k / cols) + 0.5) / rws * 0.84;
+        cubes.push({ x: g.p[0] + dx, y: g.p[1] + dy, z: g.p[2], s, known: true, colour: colourOf(r), tag: r.name, node: particleNode(px, r), mates: n });
+      });
+    }
+    const ext = { x0: -0.6, x1: xs.length - 0.4, y0: -0.6, y1: ys.length - 0.4, z0: -0.6, z1: zs.length - 0.4 };
+    const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
+    const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
+    return { kind: 'particles', id, px, cubes, slabs: [], ions: [], ladder: [], ext, centre, R, ax, xs, ys, zs, cvals, ci, drawn: rows.length, positions: pos.size, fanned,
+      key: cvals.map((v) => ({ v, label: ci === -2 ? String(v) : coordTick(ax.colour, v), colour: L_COLOR[cvals.indexOf(v) % L_COLOR.length] })) };
+  }
+  function drawParticleAxes(scene, cam) {
+    const C = state.colors, ex = scene.ext, ax = scene.ax;
+    scene._labels = [];
+    const P = (x, y, z) => cam.proj(cam.rot(x, y, z));
+    const by = ex.y0 + 0.05;
+    ctx.beginPath();
+    [[ex.x0, by, ex.z0], [ex.x1, by, ex.z0], [ex.x1, by, ex.z1], [ex.x0, by, ex.z1]].forEach((q, i) => { const p = P(q[0], q[1], q[2]); if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
+    ctx.closePath(); ctx.fillStyle = shade(C.lineStrong, 1, 0.08); ctx.fill(); ctx.strokeStyle = shade(C.lineStrong, 1, 0.5); ctx.lineWidth = 1; ctx.stroke();
+    for (let k = 0; k < scene.zs.length; k++) latLine(cam, [ex.x0, by, k], [ex.x1, by, k], shade(C.lineStrong, 1, 0.2), 1);
+    for (let k = 0; k < scene.xs.length; k++) latLine(cam, [k, by, ex.z0], [k, by, ex.z1], shade(C.lineStrong, 1, 0.12), 1);
+    // each z layer's frame, standing on the base
+    for (let k = 0; k < scene.zs.length; k++) {
+      const E = [[[ex.x0, by, k], [ex.x0, ex.y1, k]], [[ex.x1, by, k], [ex.x1, ex.y1, k]], [[ex.x0, ex.y1, k], [ex.x1, ex.y1, k]]];
+      for (const [a, b] of E) latLine(cam, a, b, shade(C.lineStrong, 1, 0.12), 1);
+    }
+    const ox = ex.x0, oy = ex.y0, oz = ex.z0;
+    latLine(cam, [ox, oy, oz], [ex.x1, oy, oz], shade(C.lineStrong, 1, 0.9), 1);
+    latLine(cam, [ox, oy, oz], [ox, ex.y1, oz], shade(C.lineStrong, 1, 0.9), 1);
+    if (scene.zs.length > 1) latLine(cam, [ox, oy, oz], [ox, oy, ex.z1], shade(C.lineStrong, 1, 0.9), 1);
+    ctx.fillStyle = C.muted; ctx.textBaseline = 'middle';
+    const p1 = P(0, oy, oz), p2 = P(1, oy, oz), gap = scene.xs.length > 1 ? Math.hypot(p2.x - p1.x, p2.y - p1.y) : 60;
+    ctx.font = F(Math.max(9, Math.min(11, gap * 0.45)), 'sans'); ctx.textAlign = 'center';
+    const every = gap >= 26 ? 1 : gap >= 13 ? 2 : 4;
+    scene.xs.forEach((v, k) => { if (k % every !== 0 && k !== scene.xs.length - 1) return; const p = P(k, oy, oz); ctx.fillText(coordTick(ax.x, v), p.x, p.y + 12); });
+    ctx.textAlign = 'right';
+    scene.ys.forEach((v, k) => { const p = P(ox, k, oz); ctx.fillText(coordTick(ax.y, v), p.x - 7, p.y); });
+    if (scene.zs.length > 1) { ctx.textAlign = 'center'; scene.zs.forEach((v, k) => { const p = P(ox, oy, k); ctx.fillText(coordTick(ax.z, v), p.x - 12, p.y + 10); }); }
+    ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left';
+    const pX = P(ex.x1 + 0.4, oy, oz); ctx.fillText(`${PLABEL[ax.x] || ax.x} →`, pX.x + 4, pX.y);
+    const pY = P(ox, ex.y1 + 0.5, oz); ctx.fillText(`${PLABEL[ax.y] || ax.y} ↑`, pY.x + 4, pY.y);
+    if (scene.zs.length > 1) { const pZ = P(ox, oy, ex.z1 + 0.5); ctx.fillText(`${PLABEL[ax.z] || ax.z} → (layers)`, pZ.x + 4, pZ.y); }
+    // the colour key, in the canvas's top-left corner
+    if (scene.key.length) {
+      ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      let x = 12, y = 14;
+      const head = `${PLABEL[ax.colour] || ax.colour}:`;
+      ctx.fillStyle = C.muted; ctx.fillText(head, x, y); x += ctx.measureText(head).width + 10;
+      for (const k of scene.key) {
+        const w = ctx.measureText(k.label).width + 22;
+        if (x + w > W() - 8) { x = 12; y += 16; }
+        ctx.beginPath(); ctx.arc(x + 5, y, 4.5, 0, Math.PI * 2); ctx.fillStyle = k.colour; ctx.fill();
+        ctx.fillStyle = C.muted; ctx.fillText(k.label, x + 14, y); x += w;
+      }
+    }
+  }
+  function particleCaption(sc) {
+    const px = sc.px, ax = sc.ax;
+    return `<b>${esc(px.short)}</b> as a lattice · ${esc(PLABEL[ax.x] || ax.x)} across, ${esc(PLABEL[ax.y] || ax.y)} up${sc.zs.length > 1 ? `, ${esc(PLABEL[ax.z] || ax.z)} into the page` : ''} · ${sc.drawn} members on ${sc.positions} drawn positions${sc.fanned ? `, ${sc.fanned} shared and fanned out` : ''} · ${px.cells} cells, K${px.cell.channel} · the axes a choice of this page; every value the instrument's`;
+  }
+  function particleSuggestions(t) {
+    if (!t || !state.particleIndex) return [];
+    const out = [];
+    for (const px of particleIndexes()) {
+      if (px.short.toLowerCase().includes(t) || px.id.includes(t) || px.title.toLowerCase().includes(t)) out.push({ path: px.short, note: `index · ${px.members} members on ${px.cells} cells`, go: ['p', px.id] });
+    }
+    const starts = [], within = [];
+    for (const px of particleIndexes()) for (const r of px.rows) {
+      const n = r.name.toLowerCase();
+      if (n.startsWith(t)) starts.push([px, r]); else if (n.includes(t)) within.push([px, r]);
+    }
+    for (const [px, r] of starts.concat(within).slice(0, 8)) out.push({ path: r.name, note: `${px.short} · ${px.coordinates.map((c, k) => `${c.name} ${r.coords[k] === null ? '?' : r.coords[k]}`).join(' ')}`, go: ['p', px.id, r.key] });
+    return out;
+  }
+  function pchip(px, r, current) {
+    return `<button type="button" class="pchip${current ? ' is-current' : ''}" data-pgo="${esc(px.id)}" data-pkey="${esc(r.key)}" title="${esc(px.coordinates.map((c, k) => `${c.name} = ${r.coords[k] === null ? 'not printed' : r.coords[k]}`).join(', '))}">${esc(r.name)}</button>`;
+  }
+  function particleSourceRows(px) {
+    const src = state.particleIndex.source || {}, tree = src.tree || {};
+    let h = '';
+    if (px.family === 'pdg') h += row('source', `${esc(px.source.text)}${px.source.doi ? ' · ' + ext('https://doi.org/' + px.source.doi, 'DOI ' + px.source.doi) : ''}`, 'READ', 'the review the capture reads', true);
+    else h += row('source', esc(px.source.text || ''), px.source.status, esc(px.source.note || ''), true);
+    h += row('instruments', `${esc(tree.root || '')}: ${(tree.instruments || []).map((i) => `<span class="mono">${esc(i)}</span>`).join(', ')}${tree.commit ? ` · tree at <span class="mono">${esc(String(tree.commit).slice(0, 12))}</span>` : ''}`, null, 'imported at build, never copied; the cells and the channel are their measurement', true);
+    return h;
+  }
+  function renderPIndex(node) {
+    const px = node.px, ax = px.axes;
+    const onAxis = (n) => (n === ax.x ? 'across (x)' : n === ax.y ? 'up (y)' : n === ax.z ? 'into the page (z)' : n === ax.colour ? 'colour' : '—');
+    const undrawn = px.coordinates.map((c) => c.name).filter((n) => onAxis(n) === '—');
+    let extra = '';
+    if (px.id === 'fqh') extra = section('The states', `<div class="fields">${row('observed states', px.observed.map((o) => `ν = ${esc(o.filling)} (fundamental charge ${esc(o.fundamental_charge)})`).join(' · '), 'READ', esc(px.observed_note), true)}${px.statistics ? row('statistics', `${px.statistics.anyons} anyons, ${px.statistics.fermions} fermions, ${px.statistics.bosons} bosons`, px.statistics.status, esc(px.statistics.note || ''), true) : ''}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}</div>${px.not_here ? `<p class="note"><b>Not here:</b> ${esc(px.not_here)}</p>` : ''}`);
+    else if (px.id === 'readrezayi') extra = section('The levels', `<div class="fields">${row('observed levels', px.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}${row('validated', px.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes', true)}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}${row('fermions', `${px.fermions.length}`, 'DERIVED', esc(px.fermions_note), true)}</div>`);
+    else if (px.id === 'bosonqp') extra = section('The three rules', `<div class="fields">${px.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}${px.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}${px.relation ? row('the relation', `${px.relation.qp_subset_of_bosons ? 'a subset of the bosons' : 'not a subset of the bosons'}; ${px.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}`, px.relation.status, esc(px.relation.note || ''), true) : ''}</div>`);
+    else if (px.id === 'fundamental' && px.colour_rule) extra = section('The colour assignment', `<p class="note">Not in the capture: ${px.colour_rule.map((c) => `${esc(c.what)} → ${c.dimension}`).join(' · ')} ${badge('PINNED', 'the Standard Model\'s definition, printed rather than hidden')}</p>${px.collisions ? `<p class="note"><b>${px.collisions.length} cells hold two members</b> — ${esc(px.collisions_note)} ${badge('DERIVED')}</p>` : ''}`);
+    else if (px.conjugation) extra = section('Antimatter, measured rather than seated', `<p class="note">${px.conjugation.pairs} particle–antiparticle pairs, ${px.conjugation.split} split by the chart and ${px.conjugation.collided} collided${px.conjugation.note ? '; ' + esc(px.conjugation.note) : ''}. ${badge('DERIVED')}</p>`);
+    return `<div class="kind">a particle index${px.in_progress ? ' · in progress' : ''}</div>
+      <h2 class="node-title">${esc(px.title)}</h2>
+      <p class="node-sub">One member is ${esc(px.member)}.</p>
+      <div class="stats">
+        <div class="stat"><b>${px.members}</b><span>members ${badge(px.family === 'pdg' ? 'READ' : 'DERIVED', px.family === 'pdg' ? 'rows of the table the capture keeps' : 'members the instrument computes from its stated rule')}</span></div>
+        <div class="stat"><b>${px.charted}</b><span>charted ${badge('DERIVED', 'members with every coordinate printed, so each lands on a cell')}</span></div>
+        <div class="stat"><b>${px.cells}</b><span>cells ${badge('DERIVED', 'the instrument\'s own count over the members')}</span></div>
+        <div class="stat"><b>K${px.cell.channel}</b><span>closure channel ${badge('DERIVED', `height ${px.cell.height}, width ${px.cell.width}; closed by ${px.closers.length ? px.closers.join(', ') : 'no language'}`)}</span></div>
+      </div>
+      <p class="note">Drawn as a lattice: <b>${esc(PLABEL[ax.x] || ax.x)}</b> across, <b>${esc(PLABEL[ax.y] || ax.y)}</b> up${ax.z ? `, <b>${esc(PLABEL[ax.z] || ax.z)}</b> into the page` : ''}${ax.colour ? `, coloured by <b>${esc(PLABEL[ax.colour] || ax.colour)}</b>` : ''}; one node per charted member at the rank of its values, members sharing a drawn position fanned out inside it${undrawn.length ? `; ${undrawn.map(esc).join(', ')} not drawn, so a drawn position may hold several cells` : ''}. Tap a node for its member. ${badge('DERIVED', 'which coordinate goes on which axis is a choice of this page, not a coordinate of the index')}</p>
+      ${section('Coordinates', `<div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th><th>drawn</th></tr></thead><tbody>${px.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td><td>${esc(onAxis(c.name))}</td></tr>`).join('')}</tbody></table></div>`)}
+      ${px.unplaced.length ? section('Set aside by name', `<p class="note">${px.unplaced.length} members land on no cell because ${esc(px.unplaced_why)}: ${px.unplaced.map((n) => { const r = px.byName.get(String(n).toLowerCase()); return r ? pchip(px, r) : esc(n); }).join(' ')}</p>`) : ''}
+      ${extra}
+      ${px.refused.length ? section(`Refused coordinates (${px.refused.length})`, `<details><summary>each with its measurement</summary><div class="fields">${px.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div></details>`) : ''}
+      ${section('Source', `<div class="fields">${particleSourceRows(px)}</div>`)}
+      ${section(`Members (${px.rows.length})`, `<div class="pchips">${px.rows.map((r) => pchip(px, r)).join('')}</div>`)}
+      <div class="actions"><button type="button" data-act="open-particles">Full detail: the Particles dialog</button><button type="button" data-act="copy-link">Copy link</button></div>
+      <div class="cite">${esc(citation(node))}</div>`;
+  }
+  function renderParticle(node) {
+    const px = node.px, r = node.row;
+    const mates = px.rows.filter((o) => o !== r && cellKey(o) === cellKey(r));
+    const prev = px.rows[r.i - 1], next = px.rows[r.i + 1];
+    const x = r.extra || {};
+    let printed = '';
+    if (px.family === 'pdg') {
+      const antiName = { 0: 'its own antiparticle', 1: 'an antiparticle named with a bar', 2: 'an antiparticle named by its charge sign' }[x.anti];
+      printed = section('What the table prints', `<div class="fields">
+        ${row('PDG id', `<span class="mono">${r.pdgid}</span>`, 'READ', 'the Monte Carlo numbering scheme\'s id', true)}
+        ${row('antiparticle', r.pdgid < 0 ? 'yes — a member in its own right, counted in the antimatter total' : 'no', 'DERIVED', 'a negative id in the numbering scheme', true)}
+        ${row('family', esc(x.family || ''), 'READ', null, true)}
+        ${row('quark content', x.quarks ? `<span class="mono">${esc(x.quarks)}</span>` : '—', 'READ', null, true)}
+        ${row('mass', x.mass_MeV === null || x.mass_MeV === undefined ? '<span class="muted">limit only</span>' : `${esc(fmtV(x.mass_MeV))} MeV`, 'READ', 'as the table prints it', true)}
+        ${row('width', x.width_MeV === null || x.width_MeV === undefined ? '—' : `${esc(fmtV(x.width_MeV))} MeV`, x.width_MeV === null || x.width_MeV === undefined ? null : 'READ', null, true)}
+        ${x.C !== null && x.C !== undefined ? row('C-parity', x.C > 0 ? '+' : '−', 'READ', 'printed for this member; refused as a coordinate because it is not total', true) : ''}
+        ${x.G !== null && x.G !== undefined ? row('G-parity', x.G > 0 ? '+' : '−', 'READ', 'printed for this member; refused as a coordinate because it is not total', true) : ''}
+        ${row('antiparticle naming', antiName || String(x.anti), 'READ', 'the table\'s own flag', true)}
+        ${row('status · rank', `${esc(x.status)} · ${esc(x.rank)}`, 'READ', 'the table\'s own flags', true)}
+      </div>`);
+    } else if (px.id === 'fqh') {
+      printed = section('The state and the quasiparticle', `<div class="fields">
+        ${row('state', `ν = 1/${x.m}${x.observed ? ' — an observed plateau' : ' — the series\' continuation'}`, x.observed ? 'READ' : 'DERIVED', null, true)}
+        ${row('j', String(x.j), 'DERIVED', 'j = 0 is the vacuum', true)}
+        ${row('charge Q', `${esc(x.Q)} e`, 'DERIVED', 'Q = j/m', true)}
+        ${row('exchange phase θ/π', esc(x.theta), 'DERIVED', 'θ/π = j²/m mod 1', true)}
+      </div>`);
+    } else if (px.id === 'readrezayi') {
+      printed = section('The primary field', `<div class="fields">
+        ${row('level k', `${x.k}${x.observed ? ' — an observed plateau' : ' — the series\' continuation'}`, x.observed ? 'READ' : 'DERIVED', 'ν = 2 + k/(k+2)', true)}
+        ${row('(l, m)', `(${x.l}, ${x.m})`, 'DERIVED', null, true)}
+        ${row('conformal weight h', esc(x.h), 'DERIVED', null, true)}
+        ${row('quasihole charge Q', `${esc(x.Q)} e`, 'DERIVED', null, true)}
+      </div>`);
+    } else if (px.id === 'bosonqp') {
+      printed = section('How it is made', `<div class="fields">
+        ${row('kind', esc(x.kind || ''), 'DERIVED', null, true)}
+        ${x.parts ? row(x.kind === 'hybrid' ? 'mixes' : 'made of', `<span class="mono">${esc(x.parts.join(x.kind === 'hybrid' ? ' × ' : ' + '))}</span>`, 'DERIVED', null, true) : ''}
+        ${x.breaks ? row('breaks', `${esc(x.breaks)} — generator ${esc(x.generator || '')}`, 'DERIVED', null, true) : ''}
+      </div>`);
+    }
+    const record = { index: px.id, name: r.name, coordinates: Object.fromEntries(px.coordinates.map((c, k) => [c.name, r.coords[k]])), statuses: Object.fromEntries(px.coordinates.map((c) => [c.name, c.status])), ...(r.pdgid !== undefined ? { pdgid: r.pdgid } : {}), extra: r.extra };
+    return `<div class="kind">a member of ${esc(px.short.toLowerCase())}</div>
+      <h2 class="node-title">${esc(r.name)}</h2>
+      <p class="node-sub">${esc(px.member)}</p>
+      ${section('Coordinates', `<div class="fields">${px.coordinates.map((c, k) => row(c.name, r.coords[k] === null || r.coords[k] === undefined ? '<span class="muted">not printed — no cell</span>' : `${r.coords[k]} <span class="muted">· ${esc(coordText(c.name, r.coords[k]))}</span>`, r.coords[k] === null ? null : c.status, esc(c.meaning), true)).join('')}</div>`)}
+      ${section('Its cell', r.coords.some((v) => v === null) ? `<p class="note">No cell: a coordinate is not printed, so the member is set aside by name and drawn nowhere.</p>` : `<p class="note">cell (${r.coords.join(', ')}) ${mates.length ? `holds ${mates.length + 1} members: ${mates.map((o) => pchip(px, o)).join(' ')}` : 'holds this member alone'} ${badge('DERIVED', 'the cell is the full coordinate tuple; the count is over the members')}</p>`)}
+      ${printed}
+      <div class="pnav">${prev ? pchip(px, prev) : ''}<span class="muted">${r.i + 1} of ${px.rows.length}</span>${next ? pchip(px, next) : ''}</div>
+      ${actions(node, record)}`;
+  }
+
   const fmtV = (v) => v === null || v === undefined ? '—' : (typeof v === 'number' && !Number.isInteger(v) ? String(+v.toPrecision(7)) : String(v));
   function particleFigure(ix) {
     // members on (Q3 across, 2J up), one mark per member, jittered within the cell by index,
@@ -2051,9 +2423,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('note', esc(src.quantum_numbers_note), null, null, true)}
         ${row('instruments', `${esc(src.tree.root)}: ${src.tree.instruments.map((i) => `<span class="mono">${esc(i)}</span>`).join(', ')}${src.tree.commit ? ` · tree at <span class="mono">${esc(String(src.tree.commit).slice(0, 12))}</span>` : ''}`, null, 'imported at build, never copied', true)}
       </div>`;
+    const openIx = (id) => `<button type="button" class="ghost open-ix" data-pgo="${esc(id)}" title="Open this index in the explorer: its lattice, one node per member">Open as an index →</button>`;
     px.indexes.forEach((ix) => {
       const names = ix.coordinates.map((c) => c.name);
-      html += `<h3>${esc(ix.title)}</h3>
+      html += `<h3>${esc(ix.title)} ${openIx(ix.id)}</h3>
         <p class="note">One member is ${esc(ix.member)}. ${ix.members} members, ${ix.charted} charted on ${ix.cells} cells${ix.unplaced.length ? `, ${ix.unplaced.length} set aside by name (${esc(ix.unplaced.join(', '))}) because ${esc(ix.unplaced_why || '')}` : ''}. Closure channel K${ix.cell.channel} (height ${ix.cell.height}, width ${ix.cell.width}); closed by ${ix.closers.length ? esc(ix.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement over the members')}</p>
         <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>
           ${ix.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td></tr>`).join('')}
@@ -2099,7 +2472,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
       const bq = q.bosons;
       if (bq) {
-        html += `<h3>${esc(bq.title)}</h3>
+        html += `<h3>${esc(bq.title)} ${openIx('bosonqp')}</h3>
           <p class="note">One member is ${esc(bq.member)}. ${bq.members.length} members on ${bq.cells} cells; closure channel K${bq.cell.channel} (height ${bq.cell.height}, width ${bq.cell.width}); closed by ${bq.closers.length ? esc(bq.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement')}</p>
           <div class="fields">
             ${row('source', esc(bq.source), bq.source_status, esc(bq.source_note), true)}
@@ -2116,7 +2489,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       }
       const rr = q.nonabelian;
       if (rr) {
-        html += `<h3>${esc(rr.title)}</h3>
+        html += `<h3>${esc(rr.title)} ${openIx('readrezayi')}</h3>
           <p class="note">One member is ${esc(rr.member)}. Reach k ≤ ${rr.reach}: ${rr.levels} levels, ${rr.members} members on ${rr.cells} cells; closure channel K${rr.cell.channel} (height ${rr.cell.height}, width ${rr.cell.width}); closed by ${rr.closers.length ? esc(rr.closers.join(', ')) : 'no language'}. ${badge('DERIVED')}</p>
           <div class="fields">
             ${row('source', esc(rr.source), rr.source_status, esc(rr.source_note), true)}
@@ -2137,7 +2510,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       }
       const fq = q.seated;
       if (fq && !fq.absent) {
-        html += `<h3>${esc(fq.title)}</h3>
+        html += `<h3>${esc(fq.title)} ${openIx('fqh')}</h3>
           <p class="note">One member is ${esc(fq.member)}. Reach m ≤ ${fq.reach}: ${fq.states} states, ${fq.members} members on ${fq.cells} cells; closure channel K${fq.cell.channel} (height ${fq.cell.height}, width ${fq.cell.width}); closed by ${fq.closers.length ? esc(fq.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement')}</p>
           <div class="fields">
             ${row('source', esc(fq.source), fq.source_status, esc(fq.source_note), true)}
@@ -2172,6 +2545,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       if (q.reopens) html += `<p class="note"><b>What would reopen it:</b> ${esc(q.reopens)}</p>`;
     }
     host.innerHTML = html;
+    bindGo(host);
     const fqFig = host.querySelector('#pfig-fqh');
     if (fqFig && q && q.seated && q.seated.rows) {
       const fq = q.seated, ms = [...new Set(fq.rows.map((r) => r.m))].sort((a, b) => a - b), jmax = Math.max(...fq.rows.map((r) => r.j));
@@ -2661,12 +3035,16 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const toks = q.trim().split(/\s+/).filter(Boolean);
     if (!toks.length) return [];
     const t0 = toks[0].toLowerCase();
+    const pm = particleSuggestions(q.trim().toLowerCase());
     let els = L.filter((e) => e.symbol.toLowerCase() === t0 || String(e.Z) === t0);
     const exact = els.length === 1;
     if (!els.length) els = L.filter((e) => e.symbol.toLowerCase().startsWith(t0) || (e.name && e.name.toLowerCase().startsWith(t0)));
     if (!els.length) els = L.filter((e) => e.name && e.name.toLowerCase().includes(t0));
     if (toks.length === 1 || !exact) {
-      return els.slice(0, 10).map((e) => ({ path: e.symbol, note: `${e.name || ''} · Z=${e.Z}${e.populated ? '' : ' · rows only'}`, go: [e.Z] }));
+      const out = els.slice(0, 10).map((e) => ({ path: e.symbol, note: `${e.name || ''} · Z=${e.Z}${e.populated ? '' : ' · rows only'}`, go: [e.Z] }));
+      // a particle whose name is exactly the query outranks an element whose symbol merely starts with it
+      const exactP = pm.filter((it) => it.path.toLowerCase() === q.trim().toLowerCase());
+      return exactP.concat(out, pm.filter((it) => !exactP.includes(it))).slice(0, 12);
     }
     const e = els[0];
     const c = fromRoman(toks[1].toUpperCase()) || parseInt(toks[1], 10);
@@ -2852,6 +3230,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     try { keyOpen = localStorage.getItem('key') === 'open'; } catch (e) { /* none */ }
     setLegend(keyOpen && !isPhone());
     $('#btn-provenance').addEventListener('click', () => $('#dlg-provenance').showModal());
+    const pick = $('#index-pick');
+    if (pick) {
+      pick.hidden = !state.index.particle_index;
+      pick.addEventListener('change', () => { if (pick.value === 'elements') select(rootNode, { reveal: false }); else goToParticle(pick.value, undefined, { reveal: false }); });
+    }
     if (state.index.particles || state.index.particle_index) $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
     else $('#btn-particles').hidden = true;
     $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });
@@ -2901,15 +3284,26 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
 
   function rebuildTableScene() { if (state.scene && state.scene.kind === 'table') { buildFrames(); state.scene = buildTableScene(); if (state.orbit) fitOrbit(state.scene, state.orbit); updateCaption(); requestDraw(); } }
   function setLayout(mode) {
-    if (mode === state.layout) return;
+    const onParticles = isParticleNode(state.selected);
+    if (mode === state.layout && !onParticles) return;
     state.layout = mode;
     document.querySelectorAll('.seg-btn[data-layout]').forEach((b) => b.classList.toggle('is-on', b.dataset.layout === mode));
     buildFrames();
     if (mode !== 'lattice' && state.scene && state.scene.kind === 'index') state.scene = null;
     if (mode !== 'table3d' && state.scene && state.scene.kind === 'table') state.scene = null;
     const sel = state.selected || rootNode;
-    if (sel.kind === 'ghost' && mode !== 'table' && mode !== 'table3d') select(rootNode, { reveal: false });
+    if (onParticles) select(rootNode, { reveal: false });
+    else if (sel.kind === 'ghost' && mode !== 'table' && mode !== 'table3d') select(rootNode, { reveal: false });
     else select(sel, { setHash: false, reveal: false });
+  }
+  // the index picker: the elements, or any particle index the build carries
+  function fillIndexPicker() {
+    const pick = $('#index-pick');
+    if (!pick) return;
+    const cur = state.selected && isParticleNode(state.selected) ? state.selected.id : 'elements';
+    pick.innerHTML = '<option value="elements">Elements</option>' + particleIndexes().map((px) => `<option value="${esc(px.id)}">${esc(px.short)} (${px.members})</option>`).join('');
+    pick.value = cur;
+    pick.hidden = false;
   }
 
   // ---------------------------------------------------------------- assistant: the console
@@ -3711,6 +4105,8 @@ List a blocked or empty route as honestly as an open one; the page counts the op
     if (location.hash && location.hash !== '#/') await applyHash(true, 0, false);
     else await select(rootNode, { fly: false, reveal: false });
     requestDraw();
+    // the particle indexes load when the page is idle, so the picker and the search know them
+    if (ix.particle_index) (window.requestIdleCallback || ((f) => setTimeout(f, 1200)))(() => ensureParticleIndex().then(fillIndexPicker).catch(() => {}));
   }
 
   const start = () => boot().catch((err) => {
