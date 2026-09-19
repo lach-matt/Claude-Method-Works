@@ -720,6 +720,76 @@ def janet_closure_cypher_fixture():
                              for c in ix.cells])
 
 
+def l_by_group(g):
+    """Transitions.md L368 (READ): l is fully determined by group -- s at 1-2,
+    d at 3-12, p at 13-18 -- and non-monotone in g, which is why no envelope
+    over (period, group) can refuse the thirty-six."""
+    return 0 if g <= 2 else (2 if g <= 12 else 1)
+
+
+def denied_cell_definitions(denied):
+    """Section 6.1.1 names every one of the thirty-six (The_Method_1_6-2.md
+    L1555-1570, ruled by Register 448): each is a subshell of the row it sits
+    in, read off the group's l, and the hydrogenic bound l <= n-1 (section 7.1)
+    splits them -- 1d (10), 1p (5) and 2d (10) forbidden, 25; 3d (10) real but
+    deferred by the Madelung order, and period 1 group 2, the slot helium
+    vacates, deferred rather than forbidden because l = 0 satisfies the bound
+    there, 11. The class is DERIVED from the PINNED bound; the totals are READ
+    and the selftest asserts the derivation reproduces them."""
+    out = []
+    for p, g in denied:
+        n, l = p, l_by_group(g)
+        letter = "spdf"[l]
+        if l > n - 1:
+            cls = "forbidden"
+            sub = "%d%s" % (n, letter)
+            reason = ("forbidden by l <= n-1 (section 7.1, the hydrogenic radial "
+                      "solution): a %d%s orbital cannot exist" % (n, letter))
+        elif (p, g) == (1, 2):
+            cls = "deferred"
+            sub = "1s, the slot helium vacates"
+            reason = ("deferred, not forbidden: l = 0 satisfies l <= n-1 here; "
+                      "helium is drawn at group 18, and 1p contributes five "
+                      "cells rather than six because of it (section 6.1.1)")
+        else:
+            cls = "deferred"
+            sub = "%d%s" % (n, letter)
+            reason = ("real but deferred by the Madelung order: %d%s fills "
+                      "after %ds and is drawn in period %d" % (n, letter, n + 1, n + 1))
+        out.append({"p": p, "g": g, "n": n, "l": l, "subshell": sub,
+                    "class": cls, "reason": reason})
+    return out
+
+
+def helium_placement():
+    """Register 448 (READ): E is placement-sensitive -- 36 with helium at
+    group 18, 20 with helium at group 2, because phi(group | period <= 1)
+    drops from 18 to 2 and the whole first row of gaps disappears; E prices
+    the choice at sixteen cells. Both closures are computed here with
+    cypher's own R over the ninety cells, helium moved and nothing else."""
+    held, admitted = populate.layout_closure()
+    if (1, 18) not in held:
+        raise RuntimeError("helium is not at (1, 18) in the drawn layout")
+    alt = sorted((held - {(1, 18)}) | {(1, 2)})
+    h2, a2, _box = _decoded_closure("periodic table, helium at group 2",
+                                    ["period", "group"], alt)
+    return {
+        "status": populate.READ,
+        "source": "Register 448 (The_Method_1_6___The_Register-2.md L1665); "
+                  "section 6.1.1 (The_Method_1_6-2.md L1567-1570)",
+        "helium_at_18": {"held": len(held), "admitted": len(admitted),
+                         "E": len(admitted) - len(held),
+                         "denied": [list(c) for c in sorted(admitted - held)]},
+        "helium_at_2": {"held": len(h2), "admitted": len(a2),
+                        "E": len(a2) - len(h2),
+                        "denied": [list(c) for c in sorted(a2 - h2)]},
+        "priced": (len(admitted) - len(held)) - (len(a2) - len(h2)),
+        "note": "IUPAC draws helium at 18, the left-step and quantum-chemical "
+                "case at 2; E prices the choice at sixteen cells, a number that "
+                "argument does not have (Register 448)",
+    }
+
+
 def fixtures(spectra):
     """Numbers the browser-side solver selftests must reproduce, every one
     computed here with populate.py's own functions and none typed in."""
@@ -758,6 +828,9 @@ def fixtures(spectra):
                          "E": len(admitted) - len(held),
                          "index": "periodic table (period x group), section 6, "
                                   "the ninety main-table cells"},
+            "helium_at_2": dict(helium_placement()["helium_at_2"],
+                                index="the ninety cells with helium moved to "
+                                      "(1, 2); Register 448 records E = 20"),
             "janet": {"held": len(jh), "admitted": len(ja),
                       "E": len(ja) - len(jh), "box": jbox,
                       "cells": [list(c) for c in sorted(jh)],
@@ -906,6 +979,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             with open(os.path.join(out_dir, "figures", FIGURE), "wb") as fh:
                 fh.write(blob)
     denied = sorted(admitted - held)
+    denied_cells = denied_cell_definitions(denied)
     layout = []
     manifest = []
     totals = {"rows": 0, "measured": 0, "exact": 0, "computed": 0,
@@ -974,6 +1048,24 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "held": len(held), "admitted": len(admitted),
             "E": len(admitted) - len(held),
             "denied": [list(c) for c in denied],
+            "denied_cells": denied_cells,
+            "decomposition": {
+                "status": populate.READ,
+                "source": "section 6.1.1 (The_Method_1_6-2.md L1555-1570); "
+                          "Register 448; READ-ch6.md L32",
+                "forbidden": sum(1 for d in denied_cells if d["class"] == "forbidden"),
+                "deferred": sum(1 for d in denied_cells if d["class"] == "deferred"),
+                "by_subshell": {k: sum(1 for d in denied_cells if d["subshell"] == k)
+                                for k in sorted({d["subshell"] for d in denied_cells})},
+                "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (Transitions.md "
+                        "L368, READ); class by l <= n-1 (section 7.1, PINNED); "
+                        "the split 25 + 11 is the book's own (READ) and the "
+                        "derivation is asserted against it",
+                "not_the_void": "the void is L.void, the box-minus-lattice remainder "
+                                "of chapter 10 (Rota 1964), and is not the thirty-six "
+                                "(PROSE-ONLY.tsv PO-0014, PO-0410)",
+            },
+            "placement": helium_placement(),
             "set_aside": 28,
         },
         "collapse": {"Z0": populate.COLLAPSE_Z, "width": populate.COLLAPSE_WIDTH,
@@ -1073,6 +1165,22 @@ def selftest():
     check("closure admitted", c["admitted"], 126)
     check("closure E", c["E"], 36)
     check("denied cells listed", len(c["denied"]), 36)
+    d = c["decomposition"]
+    check("the thirty-six decompose 25 forbidden (section 6.1.1)", d["forbidden"], 25)
+    check("the thirty-six decompose 11 deferred (section 6.1.1)", d["deferred"], 11)
+    check("by subshell: 1d 10, 1p 5, 2d 10, 3d 10, helium's slot 1",
+          d["by_subshell"], {"1d": 10, "1p": 5, "2d": 10, "3d": 10,
+                             "1s, the slot helium vacates": 1})
+    check("every denied cell carries a definition",
+          sorted((x["p"], x["g"]) for x in c["denied_cells"]),
+          sorted(tuple(x) for x in c["denied"]))
+    pl = c["placement"]
+    check("E with helium at group 18 (Register 448)", pl["helium_at_18"]["E"], 36)
+    check("E with helium at group 2 (Register 448)", pl["helium_at_2"]["E"], 20)
+    check("E prices the placement at sixteen cells", pl["priced"], 16)
+    check("helium at group 2: the twenty are the 2d and 3d rows",
+          pl["helium_at_2"]["denied"],
+          [[2, g] for g in range(3, 13)] + [[3, g] for g in range(3, 13)])
     check("axes carry a status", all(a["status"] in STATUS_LEGEND
                                     for a in index["axes"]), True)
     # one status per quantity: the axis table's C(Z) is the instrument's own

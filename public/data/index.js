@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "The Method 1.6 · every element on every axis of every index",
-  "built": "2026-09-19T02:31:39+00:00",
-  "commit": "68c2d27eff39",
+  "built": "2026-09-19T03:20:12+00:00",
+  "commit": "006840304e30",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a corpus figure. The corpus carries symbols (register 1306)."
  },
@@ -346,6 +346,591 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     12
    ]
   ],
+  "denied_cells": [
+   {
+    "p": 1,
+    "g": 2,
+    "n": 1,
+    "l": 0,
+    "subshell": "1s, the slot helium vacates",
+    "class": "deferred",
+    "reason": "deferred, not forbidden: l = 0 satisfies l <= n-1 here; helium is drawn at group 18, and 1p contributes five cells rather than six because of it (section 6.1.1)"
+   },
+   {
+    "p": 1,
+    "g": 3,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 4,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 5,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 6,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 7,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 8,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 9,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 10,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 11,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 12,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 13,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 14,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 15,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 16,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 17,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 1p orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 3,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 4,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 5,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 6,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 7,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 8,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 9,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 10,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 11,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 12,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1 (section 7.1, the hydrogenic radial solution): a 2d orbital cannot exist"
+   },
+   {
+    "p": 3,
+    "g": 3,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 4,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 5,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 6,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 7,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 8,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 9,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 10,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 11,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 12,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   }
+  ],
+  "decomposition": {
+   "status": "READ",
+   "source": "section 6.1.1 (The_Method_1_6-2.md L1555-1570); Register 448; READ-ch6.md L32",
+   "forbidden": 25,
+   "deferred": 11,
+   "by_subshell": {
+    "1d": 10,
+    "1p": 5,
+    "1s, the slot helium vacates": 1,
+    "2d": 10,
+    "3d": 10
+   },
+   "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (Transitions.md L368, READ); class by l <= n-1 (section 7.1, PINNED); the split 25 + 11 is the book's own (READ) and the derivation is asserted against it",
+   "not_the_void": "the void is L.void, the box-minus-lattice remainder of chapter 10 (Rota 1964), and is not the thirty-six (PROSE-ONLY.tsv PO-0014, PO-0410)"
+  },
+  "placement": {
+   "status": "READ",
+   "source": "Register 448 (The_Method_1_6___The_Register-2.md L1665); section 6.1.1 (The_Method_1_6-2.md L1567-1570)",
+   "helium_at_18": {
+    "held": 90,
+    "admitted": 126,
+    "E": 36,
+    "denied": [
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      1,
+      6
+     ],
+     [
+      1,
+      7
+     ],
+     [
+      1,
+      8
+     ],
+     [
+      1,
+      9
+     ],
+     [
+      1,
+      10
+     ],
+     [
+      1,
+      11
+     ],
+     [
+      1,
+      12
+     ],
+     [
+      1,
+      13
+     ],
+     [
+      1,
+      14
+     ],
+     [
+      1,
+      15
+     ],
+     [
+      1,
+      16
+     ],
+     [
+      1,
+      17
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      2,
+      11
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      3,
+      8
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      3,
+      12
+     ]
+    ]
+   },
+   "helium_at_2": {
+    "held": 90,
+    "admitted": 110,
+    "E": 20,
+    "denied": [
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      2,
+      11
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      3,
+      8
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      3,
+      12
+     ]
+    ]
+   },
+   "priced": 16,
+   "note": "IUPAC draws helium at 18, the left-step and quantum-chemical case at 2; E prices the choice at sixteen cells, a number that argument does not have (Register 448)"
+  },
   "set_aside": 28
  },
  "collapse": {
@@ -6317,6 +6902,94 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "admitted": 126,
     "E": 36,
     "index": "periodic table (period x group), section 6, the ninety main-table cells"
+   },
+   "helium_at_2": {
+    "held": 90,
+    "admitted": 110,
+    "E": 20,
+    "denied": [
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      2,
+      11
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      3,
+      8
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      3,
+      12
+     ]
+    ],
+    "index": "the ninety cells with helium moved to (1, 2); Register 448 records E = 20"
    },
    "janet": {
     "held": 19,

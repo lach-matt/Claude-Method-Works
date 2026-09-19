@@ -28,8 +28,28 @@ Stdlib only on the Python side; no build step, no package manager, no framework 
 
 Two layouts of the same elements, because the corpus reads the two indexes differently: on the
 period × group layout ℛ admits 126 cells against 90 held, **E = 36**, and the 36 are drawn as
-dashed ghosts, each a node with its own explanation; on Janet's coordinate **E = 0** and there are
-no ghosts to draw. The layout toggle is the closure figure made visible.
+ghosts, each a node with its own explanation; on Janet's coordinate **E = 0** and there are no
+ghosts to draw. The layout toggle is the closure figure made visible.
+
+**Each of the thirty-six carries the definition section 6.1.1 gives it.** The book names every one:
+a subshell of the row it sits in, ℓ read off the group (s at 1–2, d at 3–12, p at 13–18,
+`Transitions.md` L368), and the hydrogenic bound ℓ ≤ n−1 of section 7.1 splits them — **25
+forbidden** (1d at period 1 groups 3–12, 1p at groups 13–17, 2d at period 2 groups 3–12: orbitals
+that cannot exist) and **11 deferred** (3d at period 3 groups 3–12, real but filled after 4s and
+drawn in period 4, and period 1 group 2, the slot helium vacates, which ℓ = 0 satisfies the bound
+in). Register 448 rules the split 25 + 11, not 26 + 10, and the discrepancy is helium. `webindex.py`
+derives each cell's class from the bound (`closure.denied_cells`), asserts the derivation against
+the book's own totals in its selftest, and carries the totals as `closure.decomposition` READ; the
+canvas labels each ghost with its subshell, dashed for forbidden and dotted with a faint fill for
+deferred, and the ghost's plate states the definition in words with the status on each row. The
+corpus also rules what the thirty-six are **not**: the void is `L.void`, chapter 10's
+box-minus-lattice remainder, and PROSE-ONLY rows PO-0014 and PO-0410 refuse the conflation, so the
+plate says so. Register 448 adds that **E is placement-sensitive** — 36 with helium at group 18,
+**20** with helium at group 2, E pricing the choice at sixteen cells — and `webindex.py` computes
+both closures with cypher's own ℛ, helium moved and nothing else (`closure.placement`, READ against
+the register, the recomputation DERIVED). The root plate and every ghost's plate offer *Draw helium
+at group 2*: the frames are rebuilt from the build's two closures, twenty ghosts remain, and the
+closure solver's browser selftest reproduces E = 20 from the ninety cells with helium moved.
 
 Elements 109 to 120 are drawn apart, dashed, because `LW1-ground.py` stops at 108 and
 COORDINATES-2.13 does not. Their rows are shown `READ` from the csv with no configuration,

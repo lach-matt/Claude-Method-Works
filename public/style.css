@@ -199,6 +199,7 @@ a { color: var(--accent); }
 .sw-exact { background: transparent; border-color: var(--exact); }
 .sw-computed { background: var(--computed); opacity: 0.9; }
 .sw-ghost { border-radius: 2px; border: 1.5px dashed var(--ghost); }
+.sw-ghost-def { border-radius: 2px; border: 1.5px dotted var(--ghost); background: color-mix(in srgb, var(--ghost) 25%, transparent); }
 .sw-csv { border-radius: 2px; border: 1.5px dashed var(--csv); }
 .sw-ladder { border-radius: 1px; height: 2px; width: 12px; background: var(--accent); box-shadow: 0 0 4px var(--accent-glow); }
 

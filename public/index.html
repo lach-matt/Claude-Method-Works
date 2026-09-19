@@ -60,7 +60,8 @@
         <div class="legend-row"><span class="sw sw-computed"></span> computed <span class="legend-n" id="n-computed"></span></div>
         </div>
         <div class="legend-limit" id="legend-limit-rows"></div>
-        <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held (E)</div>
+        <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held: forbidden by ℓ ≤ n−1 (1d, 1p, 2d)</div>
+        <div class="legend-row"><span class="sw sw-ghost-def"></span> admitted, not held: deferred (3d, helium's slot)</div>
         <div class="legend-row"><span class="sw sw-csv"></span> spectra rows only (Z &gt; 108)</div>
         <div class="legend-row"><span class="sw sw-ladder"></span> Λ₈ ionisation ladder</div>
         <div class="legend-row"><span class="sw sw-rel"></span> displaced at c → ∞ (relativistic limit)</div>
@@ -125,7 +126,7 @@
   <dialog id="dlg-help" aria-labelledby="dlg-help-title">
     <div class="dlg-head"><h2 id="dlg-help-title">Reading this index</h2><button type="button" class="ghost dlg-close" data-close="dlg-help" aria-label="Close">✕</button></div>
     <div class="dlg-body">
-      <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as dashed ghosts. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
+      <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as ghosts, each labelled with the subshell section 6.1.1 names it — 1d, 1p and 2d forbidden by ℓ ≤ n−1 (dashed), 3d and helium's vacated slot deferred (dotted). Tap one for its definition, and the plate offers Register 448's alternative: helium drawn at group 2, where E = 20. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
       <p>Zoom into an element and its ions appear inside it, in spectroscopic order (I is neutral), joined by the glowing Λ₈ ionisation ladder — one line per step of the record's ladder, nothing invented. Zoom into an ion and its eight ℓ channels appear; into a channel and its cells, one per multiplicity, coloured by grade. Every cell is a row of COORDINATES-2.13.</p>
       <p>Every value in the detail plate carries a status badge. <span class="badge st-READ">READ</span> is a measurement from a member or the mirror; <span class="badge st-PINNED">PINNED</span> the corpus defines it at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the corpus states the object but not the form a program needs. A status is never flattened.</p>
       <h3>Navigation</h3>

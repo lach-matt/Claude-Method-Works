@@ -25,7 +25,8 @@
     index: null,
     layout: 'table',
     frames: new Map(),              // Z -> {x, y, cx, cy}
-    ghosts: [],                     // {p, g, x, y}
+    ghosts: [],                     // {p, g, x, y, def}
+    heliumAt: 18,                   // 18 (section 6, IUPAC) or 2 (Register 448's priced alternative)
     bounds: { x0: 0, y0: 0, x1: 1, y1: 1 },
     elements: new Map(),            // Z -> record
     trees: new Map(),               // Z -> {ions: [...]} with relative frames
@@ -125,16 +126,23 @@
       x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x + CELL); y1 = Math.max(y1, y + CELL);
     };
     if (state.layout === 'table') {
+      const c = state.index.closure;
+      const he2 = state.heliumAt === 2 && c.placement && c.placement.helium_at_2;
       for (const e of L) {
         if (e.set_aside) {
           const lan = e.Z <= 71;
           put(e.Z, (lan ? e.Z - 58 : e.Z - 90) + 3, lan ? 8.5 : 9.5);
+        } else if (he2 && e.Z === 2) {
+          put(e.Z, 1, 0);                 // helium drawn at group 2 (Register 448's alternative)
         } else {
           put(e.Z, e.group - 1, e.period - 1);
         }
       }
-      for (const [p, g] of state.index.closure.denied) {
-        state.ghosts.push({ p, g, x: (g - 1) * CELL, y: (p - 1) * CELL });
+      // the cells R admits and the layout does not hold, each with section 6.1.1's definition
+      const defs = new Map((c.denied_cells || []).map((d) => [`${d.p},${d.g}`, d]));
+      const denied = he2 ? c.placement.helium_at_2.denied : c.denied;
+      for (const [p, g] of denied) {
+        state.ghosts.push({ p, g, x: (g - 1) * CELL, y: (p - 1) * CELL, def: defs.get(`${p},${g}`) || null });
       }
     } else {
       const off = { 3: 0, 2: 14, 1: 24, 0: 30 };
@@ -446,16 +454,31 @@
       for (const g of state.ghosts) {
         const p = toScreen(g.x, g.y);
         if (p.x + s < 0 || p.y + s < 0 || p.x > W() || p.y > H()) continue;
-        ctx.setLineDash([Math.max(2, s * 0.06), Math.max(2, s * 0.05)]);
+        const deferred = g.def && g.def.class === 'deferred';
+        if (deferred) {
+          // a cell that could hold an element and does not: a faint fill under a dotted edge
+          ctx.fillStyle = C.ghost; ctx.globalAlpha = 0.18;
+          ctx.fillRect(p.x + s * 0.06, p.y + s * 0.06, s * 0.88, s * 0.88);
+          ctx.globalAlpha = 1;
+          ctx.setLineDash([Math.max(1, s * 0.02), Math.max(2, s * 0.05)]);
+        } else {
+          // forbidden by l <= n-1: a dashed edge and nothing inside
+          ctx.setLineDash([Math.max(2, s * 0.06), Math.max(2, s * 0.05)]);
+        }
         ctx.strokeStyle = C.ghost;
         ctx.lineWidth = 1;
         ctx.strokeRect(p.x + s * 0.06, p.y + s * 0.06, s * 0.88, s * 0.88);
         ctx.setLineDash([]);
         if (s >= 30) {
           ctx.fillStyle = C.muted;
-          ctx.font = `${Math.max(9, s * 0.16)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-          ctx.fillText('E', p.x + s / 2, p.y + s / 2);
+          const sub = g.def ? (g.def.p === 1 && g.def.g === 2 ? 'He' : g.def.subshell) : 'E';
+          ctx.font = `${Math.max(9, s * 0.16)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+          ctx.fillText(sub, p.x + s / 2, p.y + s / 2 - (s >= 60 ? s * 0.06 : 0));
+          if (s >= 60 && g.def) {
+            ctx.font = `${Math.max(8, s * 0.075)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+            ctx.fillText(g.def.p === 1 && g.def.g === 2 ? "helium's slot" : g.def.class, p.x + s / 2, p.y + s / 2 + s * 0.12);
+          }
         }
         if (state.selected && state.selected.kind === 'ghost' && state.selected.p === g.p && state.selected.g === g.g) {
           ctx.strokeStyle = C.accent; ctx.lineWidth = 2;
@@ -942,7 +965,22 @@
       if (act === 'open-prov') $('#dlg-provenance').showModal();
       if (act === 'color-limit') setCellColor('limit');
       if (act === 'color-grade') setCellColor('grade');
+      if (act === 'helium-toggle') setHelium(state.heliumAt === 2 ? 18 : 2);
     }));
+  }
+
+  // Register 448's alternative placement: helium at group 2, E = 20. The frames are rebuilt
+  // from the build's own two closures; nothing is recomputed here.
+  function setHelium(at) {
+    if (at === state.heliumAt) return;
+    state.heliumAt = at;
+    buildFrames();
+    const sel = state.selected || rootNode;
+    if (sel.kind === 'ghost') {
+      const g = state.ghosts.find((x) => x.p === sel.p && x.g === sel.g);
+      select(g ? { kind: 'ghost', ...g } : rootNode, { setHash: false, reveal: false });
+    } else select(sel, { setHash: false, reveal: false });
+    requestDraw();
   }
   function bindGo(root) {
     root.querySelectorAll('[data-go]').forEach((el) => {
@@ -992,8 +1030,10 @@
         ${row('held', c.held, 'PINNED', 'section 6: ninety main-table cells')}
         ${row('admitted', c.admitted, 'PINNED', 'ℛ over the layout')}
         ${row('E', c.E, 'PINNED', E_TIP)}
+        ${c.decomposition ? row('the thirty-six', `${c.decomposition.forbidden} forbidden by ℓ ≤ n−1 (1d, 1p, 2d) + ${c.decomposition.deferred} deferred (3d, and helium's slot)`, 'READ', 'section 6.1.1; Register 448 — tap a ghost for its definition') : ''}
+        ${c.placement ? row('helium at 2 instead', `E = ${c.placement.helium_at_2.E}, priced at ${c.placement.priced} cells`, 'READ', c.placement.source) : ''}
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, section 6')}
-      </div>`)}
+      </div>${c.placement && state.layout === 'table' ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (section 6)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
       ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.file || '').split('/').pop()} L${paper.eleven_line}; register 1706`, true)}${row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.budget) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
       ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
@@ -1002,16 +1042,45 @@
 
   function renderGhost(node) {
     const c = state.index.closure;
-    return `<div class="kind">admitted, not held</div>
-      <h2 class="node-title">Period ${node.p}, group ${node.g}</h2>
-      <p class="node-sub">one of the ${c.E} cells that make E = ${c.E}</p>
-      <p class="note">ℛ, the order operator, admits this cell: the layout has a period ${node.p} and a group ${node.g}, so the downward closure of the held set reaches it. Section 6's table does not hold it. E counts what the operator admits and the object does not hold, and here it is a gap in a short period, not an element that is missing.</p>
-      ${section('Closure', `<div class="fields">
+    const d = node.def || (c.denied_cells || []).find((x) => x.p === node.p && x.g === node.g) || null;
+    const dec = c.decomposition || {};
+    const pl = c.placement || null;
+    const heSlot = d && d.p === 1 && d.g === 2;
+    const title = d ? (heSlot ? 'Period 1, group 2 — the slot helium vacates' : `Period ${node.p}, group ${node.g} — ${esc(d.subshell)}, ${d.class}`) : `Period ${node.p}, group ${node.g}`;
+    const kindLine = d ? (d.class === 'forbidden' ? 'admitted, not held · forbidden by ℓ ≤ n−1' : 'admitted, not held · deferred') : 'admitted, not held';
+    const defn = d ? (d.class === 'forbidden'
+      ? `<p class="note">The layout puts this cell in period ${node.p}, and its group ${node.g} carries ℓ = ${d.l} (${LSYM[d.l]}: ℓ is fixed by group — s at 1–2, d at 3–12, p at 13–18). A ${esc(d.subshell)} orbital needs ℓ ≤ n − 1 = ${d.n - 1}, and ℓ = ${d.l} fails it: the hydrogenic radial solution has no such state. The cell could never hold an element. It is one of the twenty-five that two constraints cast as a shadow.</p>`
+      : heSlot
+        ? `<p class="note">Helium sits at group 18 in the drawn layout, and the cell it vacates — period 1, group 2 — carries ℓ = 0, which satisfies ℓ ≤ n − 1 = 0. So this cell is deferred, not forbidden: it could hold an element, and the only reason it holds none is where helium is drawn. That is also why 1p contributes five cells and not six. Register 448 prices the choice: with helium at group 2, E falls from 36 to 20.</p>`
+        : `<p class="note">Group ${node.g} carries ℓ = 2 (d), and period ${node.p} gives n = ${d.n}, so this is a ${esc(d.subshell)} cell and ℓ = 2 ≤ n − 1 = ${d.n - 1} holds: the orbital exists. It stands empty because the Madelung order fills 3d after 4s, so the ten 3d elements are drawn in period 4. Real, and deferred: one of the eleven cells that could hold an element and do not.</p>`)
+      : `<p class="note">ℛ, the order operator, admits this cell: the layout has a period ${node.p} and a group ${node.g}, so the downward closure of the held set reaches it. Section 6's table does not hold it.</p>`;
+    return `<div class="kind">${kindLine}</div>
+      <h2 class="node-title">${title}</h2>
+      <p class="node-sub">one of the ${c.E} cells that make E = ${c.E}${state.heliumAt === 2 ? ' · drawn with helium at group 2 (E = ' + (pl ? pl.helium_at_2.E : '?') + ')' : ''}</p>
+      ${defn}
+      ${d ? section('Definition', `<div class="fields">
         ${row('cell', `(${node.p}, ${node.g})`, 'DERIVED', 'admitted − held')}
+        ${row('subshell', esc(d.subshell), 'READ', 'section 6.1.1: the thirty-six decompose as subshells of their rows; ℓ by group from Transitions.md L368')}
+        ${row('n, ℓ', `${d.n}, ${d.l} (${LSYM[d.l]})`, 'DERIVED', 'n is the period; ℓ is fixed by the group')}
+        ${row('ℓ ≤ n − 1', d.class === 'forbidden' ? '<span class="bad">fails</span>' : '<span class="ok">holds</span>', 'PINNED', 'section 7.1, the hydrogenic radial solution')}
+        ${row('class', d.class, 'DERIVED', 'from the bound; the totals 25 + 11 are READ (section 6.1.1, Register 448) and the derivation is asserted against them')}
+        ${row('why', esc(d.reason), null, undefined, true)}
+      </div>`) : ''}
+      ${section('The thirty-six', `<div class="fields">
+        ${row('forbidden by ℓ ≤ n−1', dec.forbidden !== undefined ? `${dec.forbidden} — 1d (10), 1p (5), 2d (10)` : '—', 'READ', 'section 6.1.1; Register 448: 25 + 11, not 26 + 10, and the discrepancy is helium')}
+        ${row('real but deferred', dec.deferred !== undefined ? `${dec.deferred} — 3d (10), and period 1 group 2` : '—', 'READ', 'section 6.1.1')}
         ${row('held', c.held, 'PINNED', 'section 6')}
         ${row('admitted', c.admitted, 'PINNED', 'ℛ over the layout')}
         ${row('E', c.E, 'PINNED', E_TIP)}
+        ${row('not the void', 'the void is L.void, chapter 10\'s box-minus-lattice remainder, and is not these cells', null, dec.not_the_void || '', true)}
       </div>`)}
+      ${pl ? section('Where helium is drawn', `<p class="note">E is not a property of the elements; it is a property of where helium is drawn. With helium at group 18 the first row's gaps are admitted, ${pl.helium_at_18.E} in all; with helium at group 2, φ̂(group | period ≤ 1) drops from 18 to 2 and the whole first row disappears, ${pl.helium_at_2.E}. E prices the choice at ${pl.priced} cells.</p>
+        <div class="fields">
+          ${row('helium at 18', `E = ${pl.helium_at_18.E}`, 'READ', pl.source)}
+          ${row('helium at 2', `E = ${pl.helium_at_2.E}`, 'READ', pl.source)}
+          ${row('recomputed here', `${pl.helium_at_18.E} and ${pl.helium_at_2.E}`, 'DERIVED', 'ℛ (cypher.op_order) over the ninety cells, helium moved and nothing else, at build; the closure solver\'s selftest reproduces both in the browser')}
+        </div>
+        <div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (section 6)' : 'Draw helium at group 2 (E = ' + pl.helium_at_2.E + ')'}</button></div>`, badge('READ', 'Register 448')) : ''}
       <div class="cite">${esc(citation(node))}</div>`;
   }
 
@@ -3243,6 +3312,15 @@ var SOLVERS, LIB;
         var denied = r.denied.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
         ck.eq('periodic: the 36 denied are section 6\'s (p1,g2..g17), (p2,g3..g12), (p3,g3..g12)', denied, want36);
         if (ctx.index.closure && ctx.index.closure.denied) ck.eq('periodic: denied = index.closure.denied', denied, ctx.index.closure.denied);
+        // Register 448: E is placement-sensitive -- helium moved from (1, 18) to (1, 2) and
+        // nothing else, E falls from 36 to 20; the build's own figure is the fixture
+        var moved = per.cells.filter(function (c) { return !(c[0] === 1 && c[1] === 18); }).concat([[1, 2]]);
+        var r2 = orderClosure(moved);
+        var want2 = fx && fx.helium_at_2 ? fx.helium_at_2 : { held: 90, admitted: 110, E: 20 };
+        ck.eq('helium at group 2: held', r2.held.length, want2.held);
+        ck.eq('helium at group 2: E = 20 (Register 448)', r2.E, want2.E);
+        if (want2.denied) ck.eq('helium at group 2: the twenty denied are the build\'s', r2.denied.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; }), want2.denied);
+        ck.eq('E prices the placement at sixteen cells', r.E - r2.E, 16);
       } else ck.ok('periodic preset available from index.layout', false, 'no cells', '90 cells');
       var jan = presetCells(ctx.index, 'janet');
       if (jan && jan.cells.length) {

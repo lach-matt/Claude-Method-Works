@@ -110,6 +110,15 @@ def _is_finding(site):
     return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
+def _site_index():
+    """public/data/index.js, the generated site index, read as data: the file is
+    `window.__mi = ...; window.__mi.index = {...};` and the object is JSON."""
+    blob = (ROOT / "public" / "data" / "index.js").read_text(encoding="utf-8")
+    start = blob.index("window.__mi.index = ") + len("window.__mi.index = ")
+    end = blob.rstrip().rstrip(";")
+    return json.loads(end[start:])
+
+
 def _walk_summary():
     return _tool_json("lowdin_walk.py", ["--report", str(ROOT / "LOWDIN-WALK.tsv"), "--json"])
 
@@ -225,6 +234,15 @@ def checks():
          len((_walk_summary().get("fields_compare") or {}).get("entrants_differ", []))),
         ("docs/LOWDIN-WALK.md", "walk: rows not converged (three hf rows at c = 137.035999)", 3,
          sum(len(v.get("not_converged", [])) for v in _walk_summary().get("settings", {}).values())),
+        # the thirty-six of section 6, as the site carries them (webindex.py over cypher's R)
+        ("docs/WEB-INDEX.md", "site closure: the thirty-six forbidden by l <= n-1", 25,
+         _site_index()["closure"]["decomposition"]["forbidden"]),
+        ("docs/WEB-INDEX.md", "site closure: the thirty-six deferred", 11,
+         _site_index()["closure"]["decomposition"]["deferred"]),
+        ("docs/WEB-INDEX.md", "site closure: E with helium at group 2 (Register 448)", 20,
+         _site_index()["closure"]["placement"]["helium_at_2"]["E"]),
+        ("docs/WEB-INDEX.md", "site closure: E prices helium's placement at", 16,
+         _site_index()["closure"]["placement"]["priced"]),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY conversations", 194,
