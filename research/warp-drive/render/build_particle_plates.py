@@ -682,9 +682,148 @@ def build_quasiparticle():
     _write("quasiparticle-plate.html", h)
 
 
+def build_fqh():
+    """DOCKET 30 -- the quasiparticles that DID seat, and why this one does."""
+    import fqh as Q
+    import quasiparticle as QP
+    X = Q.index()
+    m = measured(X)
+    rows = Q.sweep()
+    v, why = Q.verdict()
+    a, f, b = Q.anyon_fraction()
+
+    h = [plate.head("The Hall Quasiparticles"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate · an index of quantum objects · DOCKET 30",
+        "The Hall&nbsp;Quasiparticles",
+        "The quasiparticles of the fractional quantum Hall states &mdash; "
+        "excitations carrying a FRACTION of the electron charge, in a system "
+        "built only from electrons, and obeying neither Bose nor Fermi "
+        "statistics.",
+        [("instrument", "fqh.py"), ("members", "%d quasiparticles" % len(Q.rows())),
+         ("states", "%d Laughlin" % len(Q.states())),
+         ("arity", "4"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<div class="note warn">'
+             '<span class="lab">DOCKET 28 refused an anyon chart. This is not '
+             'that chart, and that refusal still stands</span>'
+             '<p style="margin-bottom:0">DOCKET 28 charted the anyons of '
+             'SU(2)<sub>k</sub> <em>for every k up to a cap</em>. Each k is a '
+             'different topological order &mdash; a different physical system '
+             '&mdash; so its &ldquo;box&rdquo; was never a reach. It was a '
+             'choice of <b>how many universes to include</b>, and nothing '
+             'about the data was being varied, so of course the channel never '
+             'moved. <b>The test was right and the object was wrong.</b> This '
+             'plate charts a REACH instead: one family of one kind of system, '
+             'indexed by a measured filling fraction. Section 03 is the '
+             'difference, in one table.</p></div>')
+
+    h.append(
+        '<section><div class="shead"><span class="snum">01</span>'
+        '<h2>A member is a quasiparticle, and it carries a fraction of an '
+        'electron</h2></div>'
+        '<p class="sub">The Laughlin state at filling &nu;&nbsp;=&nbsp;1/m has '
+        'exactly m of them, labelled j&nbsp;=&nbsp;0&hellip;m&minus;1, with '
+        'j&nbsp;=&nbsp;0 the vacuum.</p>'
+        '<p class="eqn mono">electric charge&nbsp;&nbsp;Q = j/m&nbsp;&nbsp;'
+        '(units of e)<br>exchange phase&nbsp;&nbsp;&theta;/&pi; = '
+        'j&sup2;/m</p>'
+        '<p>Both are computed as exact fractions, never floats, because <b>the '
+        'whole content of this index is that these quantities are '
+        'rational</b>.</p>'
+        '<div class="tablewrap"><table><thead><tr><th class="num">j</th>'
+        '<th class="num">Q / e</th><th class="num">&theta; / &pi;</th>'
+        '<th>statistics</th></tr></thead><tbody>%s</tbody></table>'
+        '<caption>The &nu;&nbsp;=&nbsp;1/3 state in full. <b>The charge-e/3 '
+        'quasiparticle is not a prediction of this file</b> &mdash; its '
+        'fractional charge was measured directly by shot noise in 1997.'
+        '</caption></div>'
+        '<div class="note"><span class="lab">Three of the twelve states are '
+        'observed; the rest are the sequence&rsquo;s own continuation</span>'
+        '<p style="margin-bottom:0">%s. The reach runs to m&nbsp;&le;&nbsp;%d '
+        'and is <em>declared</em>, not claimed as observed &mdash; the same '
+        'shape as <span class="mono">fibred</span> charting 170 electrons '
+        'where 118 elements are known.</p></div></section>'
+        % ("".join(
+            '<tr><td class="num mono">%d</td><td class="num mono">%s</td>'
+            '<td class="num mono">%s</td><td>%s</td></tr>'
+            % (j, Qq, th, ('boson', 'fermion',
+                           '<b>ANYON</b>')[st])
+            for j, Qq, th, st in Q.laughlin_state(3)),
+           ", ".join("&nu;&nbsp;=&nbsp;%s carries %s" % (nu, q)
+                     for _m, nu, q in Q.observed_states()),
+           Q.REACH))
+
+    h.append(_view(
+        "h3d", X, 0,
+        ["STAT  boson / anyon", "ORD  order of the exchange phase",
+         "CHORD  order of the charge", "M  inverse filling fraction"],
+        "Colour is the statistics class. The inverse filling fraction is an "
+        "axis because it is the most directly MEASURED number here &mdash; "
+        "1/m is the quantised Hall conductance.",
+        "02", "The index, projected", "the FQH quasiparticle index",
+        radius=6))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">03</span>'
+        '<h2>Why this one seats where DOCKET 28&rsquo;s did not</h2></div>'
+        '<p class="sub">A chart whose membership is a predicate over a box can '
+        'be handed a different box. If the channel never moves, the channel is '
+        'a property of the rule and not of the data. Here it moves.</p>'
+        '<div class="tablewrap"><table><thead><tr><th>box</th>'
+        '<th class="num">cells</th><th class="num">channel</th><th>closes</th>'
+        '</tr></thead><tbody>%s</tbody></table>'
+        '<caption>K2 at the two smallest reaches, K0 from '
+        'm&nbsp;&le;&nbsp;9 onward. <b>The channel moves with the box.</b>'
+        '</caption></div>'
+        '<div class="note good"><span class="lab">%s</span>'
+        '<p style="margin-bottom:0">%s &mdash; and '
+        '<span class="mono">boxinvariance.verdict_of()</span> is the tree&rsquo;s '
+        'own test, imported and not reimplemented. Run against DOCKET 28&rsquo;s '
+        'chart the same function still returns <b>%s</b>. Two objects, two '
+        'verdicts, both on the record.</p></div></section>'
+        % ("".join(
+            '<tr><td class="mono">%s</td><td class="num">%d</td>'
+            '<td class="num">K%d</td><td>%s</td></tr>'
+            % (E(nm), nc, k, ", ".join(cl) or "nothing")
+            for nm, nc, k, cl, _j, _mm, _d in rows),
+           E(v), E(why), E(QP.verdict()[0])))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">04</span>'
+        '<h2>Not one of them is a fermion, and that is forced</h2></div>'
+        '<p class="sub">%d anyons, %d bosons, and <b>%d fermions</b>. '
+        '%.0f%% of the members are neither &mdash; which cannot happen in '
+        'three dimensions.</p>'
+        '<p>The zero is not an observation about this reach. '
+        '&theta;/&pi;&nbsp;=&nbsp;j&sup2;/m is a half-integer only if m '
+        'divides 2j&sup2;, and <b>m is odd</b>, so m divides j&sup2; and the '
+        'phase comes out a whole integer instead. <b>There is no third '
+        'case</b>: a Laughlin quasiparticle is a boson or an anyon. The '
+        'fixture proves it over the whole reach rather than quoting the '
+        'argument.</p>'
+        '<div class="note"><span class="lab">What is refused as a '
+        'coordinate</span>'
+        '<p style="margin-bottom:0">The label <span class="mono">j</span> is '
+        'the anyon&rsquo;s ADDRESS within its state, and charting an address is '
+        'a relabelling. Q and &theta; themselves are refused too: they are '
+        'near-injective over the members, and '
+        '<span class="mono">overlap.py</span> calls a near-injective '
+        'coordinate a row label. Their ORDERS are charted instead, which is '
+        'the part that says what kind of thing the quasiparticle is.</p></div>'
+        '</section>' % (a, b, f, 100.0 * a / len(Q.rows())))
+
+    h.append(foot("fqh", nfixtures("fqh")))
+    h.append("</div>")
+    _write("fqh-plate.html", h)
+
+
 BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
             "baryons": build_baryons,
-            "quasiparticle": build_quasiparticle}
+            "quasiparticle": build_quasiparticle,
+            "fqh": build_fqh}
 
 if __name__ == "__main__":
     for w in (sys.argv[1:] or sorted(BUILDERS)):
