@@ -56,14 +56,16 @@ the record draws the index — the Index of Indices' Figure 6 ("element across, 
 ionisation stage up"), the Löwdin paper's Figure 1(b), and the record's own archived renderer
 (`extracted/archives/restore-point-2-13/spectra-lattice.html`, x = Z, y = stage, z = ℓ, a known
 cell a cube of edge 0.86 and an unmeasured one of 0.30): ionisation stage up, ℓ into the page, one
-cube per cell, the cells of a site side by side along the third axis where it holds two
-multiplicities. Known cells are full cubes coloured by grade (or by limit, with the legend's
-toggle); unmeasured ones are the faint body of the slab; the Λ₈ ladder climbs the front edge, one
+node per cell, the cells of a site side by side along the third axis where it holds two
+multiplicities. A node carries the nested view's own mark — a filled sphere for a measured cell, a
+paper disc ringed in green for an exact one, a small grey dot for a computed one, the witnessed ring
+outside a measured node, the limit colours when that facet is on — so the two readings of an element
+share one vocabulary; unmeasured nodes are the faint body of the slab; the Λ₈ ladder climbs the front edge, one
 rung per recorded step; the stage axis carries every ion as a tappable roman numeral and the ℓ axis
-its letters. Drag rotates, wheel or pinch zooms, arrow keys rotate, a tap on a cube selects the cell
+its letters. Drag rotates, wheel or pinch zooms, arrow keys rotate, a tap on a node selects the cell
 and on a numeral the ion, and the plate follows as on the plane. The third layout, **Lattice**, is
 the whole solid: every element a slab at its Z (charge 1..Z by ℓ 0..7 — `webindex.py` asserts the
-58,080 sites are exactly that), the 1,287 known cells as cubes, one per site, from a compact block
+58,080 sites are exactly that), the 1,287 known cells as nodes, one per site, from a compact block
 `index.js` → `lattice` carries (`[Z, charge, ℓ, mult, grade]` for every measured or exact row; the
 axes READ from the record's caption, the drawing DERIVED, nothing computed); the measured wedge at
 low Z and low ℓ is the record's own remark made visible, and a tap on a slab opens the element. The
@@ -76,7 +78,7 @@ kept on the orbit so the scene does not swim as it turns, and refitted on resize
 is a needle by the record's own geometry, so its ions are kept at least 13 px apart with the base
 anchored near the bottom, the lower stages where the known cells sit coming up first and the rest
 reached by zoom or pan (Shift-drag, or a two-finger drag). The slab stands on a base plane ruled
-by ℓ inside a hairline silhouette, unmeasured cells are small faint cubes, the ladder carries a dot
+by ℓ inside a hairline silhouette, unmeasured cells are small faint dots, the ladder carries a dot
 on each rung's ion, the numerals and letters are set in the sans, and the whole-index view labels
 the slabs with their symbols where there is room and rules its base every ten Z. The element plate's
 "The lattice" section names the axes with their source and counts the cubes drawn, and the console
@@ -150,7 +152,7 @@ a masthead with the title, a one-line statement and the edition (the data's comm
 from `index.js`'s own meta), the path and the caption in a bar above the canvas rather than painted
 into it, a compact key, a footer that names the generator and the edition, and a print stylesheet
 that prints the plates and dialogs in full width with outward links spelled out. The Λ₈ ladder is
-one quiet line per rung and the lattice's cubes are lit softly. **The index's cells** are drawn
+one quiet line per rung and the lattice's nodes are lit by a soft highlight. **The index's cells** are drawn
 inset from their frames so the gutters make the grid, with soft corners, the block tint as the fill
 and the same tint one tone deeper as the edge; a spectra-only element carries its colour on the edge
 instead of a dash; the record's displaced elements and the walk's are dot markers at the top right,

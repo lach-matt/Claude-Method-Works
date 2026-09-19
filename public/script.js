@@ -784,13 +784,7 @@
   // multiplicities the cells sit side by side along x. The scene is built from the element
   // record the plane draws, nothing is computed here, and a colour means the grade it means
   // everywhere else on the page. The whole index (the third layout) is every slab at once.
-  const LAT = { KNOWN: 0.86, FAINT: 0.24 };     // cube edges: the archived renderer's 0.86 for a known cell; the unmeasured drawn smaller still
-  const FACES = [
-    { n: [1, 0, 0], u: 1, v: 2 }, { n: [-1, 0, 0], u: 1, v: 2 },
-    { n: [0, 1, 0], u: 0, v: 2 }, { n: [0, -1, 0], u: 0, v: 2 },
-    { n: [0, 0, 1], u: 0, v: 1 }, { n: [0, 0, -1], u: 0, v: 1 },
-  ];
-  const LIGHT = [-0.35, 0.8, -0.48];
+  const LAT = { KNOWN: 0.86, FAINT: 0.26 };     // node diameters, in cells: the archived renderer's 0.86 for a known cell; the unmeasured drawn small
   function orbitHome() { return { rx: 0.36, ry: -0.6, zoom: 1 }; }
 
   function rgbOf(col) {
@@ -941,37 +935,43 @@
     return false;
   }
 
+  // a cell as a node: the nest view's vocabulary in three dimensions -- a filled sphere for a
+  // measured cell, a paper disc ringed in green for an exact one, a small grey dot for a computed
+  // one, the witnessed ring outside a measured node, the limit colours when that facet is on;
+  // a soft highlight off the top left gives the sphere its shape
   function drawCube(cb, cam, col, outline) {
-    const h = cb.s / 2;
-    const c = [cb.x, cb.y, cb.z];
+    const C = state.colors;
     const p0 = cam.proj(cb._r);
     if (p0.x < -40 || p0.y < -40 || p0.x > W() + 40 || p0.y > H() + 40) return;
-    const px = cb.s * p0.k;
-    if (px < 2.5) {
-      // too small for faces: a square at the projected centre, alpha by grade
-      ctx.fillStyle = shade(col, 0.95, cb.known ? 1 : 0.22);
-      ctx.fillRect(p0.x - px / 2, p0.y - px / 2, Math.max(1, px), Math.max(1, px));
-      if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.5; ctx.strokeRect(p0.x - px / 2 - 2, p0.y - px / 2 - 2, px + 4, px + 4); }
-      return;
-    }
-    for (const F of FACES) {
-      const n2 = cam.rotN(F.n[0], F.n[1], F.n[2]);
-      const fc = cam.rot(c[0] + F.n[0] * h, c[1] + F.n[1] * h, c[2] + F.n[2] * h);
-      if (n2[0] * (fc[0] - cam.eye[0]) + n2[1] * (fc[1] - cam.eye[1]) + n2[2] * (fc[2] - cam.eye[2]) >= 0) continue;
-      ctx.beginPath();
-      [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([su, sv], i) => {
-        const q = [c[0] + F.n[0] * h, c[1] + F.n[1] * h, c[2] + F.n[2] * h];
-        q[F.u] += su * h; q[F.v] += sv * h;
-        const p = cam.proj(cam.rot(q[0], q[1], q[2]));
-        if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
-      });
-      ctx.closePath();
-      const lit = 0.74 + 0.26 * Math.max(0, n2[0] * LIGHT[0] + n2[1] * LIGHT[1] + n2[2] * LIGHT[2]);
-      ctx.fillStyle = shade(col, lit, cb.known ? 1 : 0.22);
+    const r = Math.max(0.6, (cb.s / 2) * p0.k * (cb.known ? 1 : 0.9));
+    const node = cb.node;
+    const grade = node ? node.rec.grade : cb.grade;
+    const byLimit = state.cellColor === 'limit' && node;
+    const hollow = byLimit ? node.lim === 'symmetry' : grade === 'exact';
+    ctx.beginPath(); ctx.arc(p0.x, p0.y, r, 0, Math.PI * 2);
+    if (!cb.known) {
+      ctx.fillStyle = C.computed; ctx.globalAlpha = 0.55; ctx.fill(); ctx.globalAlpha = 1;
+    } else if (hollow) {
+      ctx.fillStyle = C.surface; ctx.fill();
+      ctx.strokeStyle = col; ctx.lineWidth = Math.max(1, r * 0.22); ctx.stroke();
+    } else {
+      if (r >= 3) {
+        const g = ctx.createRadialGradient(p0.x - r * 0.35, p0.y - r * 0.35, r * 0.1, p0.x, p0.y, r);
+        g.addColorStop(0, shade(col, 1.25)); g.addColorStop(0.7, col); g.addColorStop(1, shade(col, 0.72));
+        ctx.fillStyle = g;
+      } else ctx.fillStyle = col;
       ctx.fill();
-      if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke(); }
-      else if (cb.known) { ctx.strokeStyle = shade(col, lit * 0.72); ctx.lineWidth = 0.5; ctx.stroke(); }
+      if (r >= 2) { ctx.strokeStyle = shade(col, 0.7); ctx.lineWidth = 0.6; ctx.stroke(); }
+      if (grade === 'measured' && node && node.rec.witness === 'witnessed' && r >= 4) {
+        ctx.beginPath(); ctx.arc(p0.x, p0.y, r * 1.3, 0, Math.PI * 2);
+        ctx.strokeStyle = C.measured; ctx.lineWidth = 1; ctx.stroke();
+      }
     }
+    if (outline) {
+      ctx.beginPath(); ctx.arc(p0.x, p0.y, r + 2.5, 0, Math.PI * 2);
+      ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke();
+    }
+    ctx.lineWidth = 1;
   }
 
   function latLine(cam, a, b, style, width, dash) {
@@ -1128,9 +1128,9 @@
       if (!sc) html = 'loading the lattice …';
       else if (sc.kind === 'element') {
         const n = sc.cubes.length, k = sc.cubes.filter((c) => c.known).length;
-        html = `<b>${esc(sc.e.symbol)}</b> as its slab of the lattice · stage up, ℓ into the page · ${sc.ions.length} ions · ${n.toLocaleString()} cells, ${k} known · derived from the record, nothing computed`;
+        html = `<b>${esc(sc.e.symbol)}</b> as its slab of the lattice · stage up, ℓ into the page · ${sc.ions.length} ions · ${n.toLocaleString()} cells, ${k} known · one node per cell · derived from the record, nothing computed`;
       } else {
-        html = `<b>Λ_spectra as a lattice</b> · element across, stage up, ℓ into the page · ${sc.lat.sites.toLocaleString()} sites · ${sc.lat.known.length.toLocaleString()} known cells (Figure 6)`;
+        html = `<b>Λ_spectra as a lattice</b> · element across, stage up, ℓ into the page · ${sc.lat.sites.toLocaleString()} sites · ${sc.lat.known.length.toLocaleString()} known cells as nodes (Figure 6)`;
       }
     } else {
       const c = state.index.closure;
@@ -1153,7 +1153,7 @@
     for (const cb of scene.cubes) {
       const p = cam.proj(cam.rot(cb.x, cb.y, cb.z));
       const hs = Math.max(3, (cb.s / 2) * p.k * 1.1);
-      if (Math.abs(sx - p.x) <= hs && Math.abs(sy - p.y) <= hs && (!best || p.d < best.d)) best = { d: p.d, cb };
+      if (Math.hypot(sx - p.x, sy - p.y) <= hs && (!best || p.d < best.d)) best = { d: p.d, cb };
     }
     if (best) return best.cb.node || { go: [best.cb.Z, best.cb.charge, best.cb.l] };
     let bestSlab = null;
@@ -1554,11 +1554,11 @@
     const n = rec ? rec.channels.reduce((a, ch) => a + ch.measured.length, 0) : (e.counts ? e.counts.rows : 0);
     const k = rec ? rec.channels.reduce((a, ch) => a + ch.measured.filter((m) => m.grade !== 'computed').length, 0) : ((e.counts ? e.counts.measured + e.counts.exact : 0));
     const on = state.view === 'lattice' && state.scene && state.scene.kind === 'element' && state.scene.Z === e.Z;
-    return section('The lattice', `<p class="note">${esc(e.symbol)} as its slab of Λ_spectra, drawn the way the record draws the index: ionisation stage up, ℓ into the page, one cube per cell, the cells of a site side by side where it holds two multiplicities. Known cells are full cubes coloured by grade; unmeasured ones the faint body of the slab. The Λ₈ ladder climbs the front edge, one rung per recorded step.</p>
+    return section('The lattice', `<p class="note">${esc(e.symbol)} as its slab of Λ_spectra, on the record's own axes: ionisation stage up, ℓ into the page, one node per cell, the cells of a site side by side where it holds two multiplicities. Nodes carry the same marks as the nested view — a filled sphere for a measured cell, a ringed disc for an exact one, a small grey dot for a computed one — and the ladder climbs the front edge, one rung per recorded step.</p>
       <div class="fields">
         ${row('axes', 'element across · stage up · ℓ into the page', 'READ', lat.source || 'Index of Indices, Figure 6')}
         ${row('cells drawn', `${n.toLocaleString()} (${k} known)`, 'DERIVED', 'one cube per row of COORDINATES-2.13 for this element; nothing computed')}
-        ${row('cube', `${(lat.cube || {}).known || 0.86} known · ${(lat.cube || {}).faint || 0.3} unmeasured`, 'READ', (lat.cube || {}).note || '')}
+        ${row('the record\'s renderer', `cubes of edge ${(lat.cube || {}).known || 0.86} known, ${(lat.cube || {}).faint || 0.3} unmeasured`, 'READ', ((lat.cube || {}).note || '') + '; drawn here as nodes of the same footprint, in the nested view\'s marks')}
       </div>
       <div class="actions"><button type="button" data-act="lattice-view">${on ? 'Rotate it on the canvas' : 'Open the lattice'}</button><button type="button" data-act="nest-view">${state.elementView === 'nest' ? 'Nested circles (shown)' : 'Show as nested circles'}</button></div>`);
   }
