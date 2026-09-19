@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "commit": "fa95c41a0824",
+ "commit": "09276204387e",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
@@ -654,17 +654,17 @@
        "path": "research/warp-drive/captures/NUCBANDS-levels.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 61254,
+       "bytes": 61455,
        "files": 1,
-       "md5": "0daa70295abd76a0f16b90d0085abf7e"
+       "md5": "d182668ff0192a3ed8d29c7f9a2b0ef8"
       },
       {
        "path": "research/warp-drive/captures/NUCBANDS-bands.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 10651,
+       "bytes": 11560,
        "files": 1,
-       "md5": "99b3cd5d8594a0ab17a775b74b7370ea"
+       "md5": "74d2217998e555c4362f021820b45af7"
       },
       {
        "path": "research/warp-drive/captures/arxiv-2303.13849.txt",
@@ -939,10 +939,10 @@
  "dockets": [
   {
    "id": "36",
-   "status": "REFUSED-ON-THE-INPUT",
+   "status": "OPEN-ON-ONE-ENTRY (a REFUSAL, RETRACTED)",
    "question": "Can arXiv:2508.05447's Table 3 -- the DEFORMED two-quasiparticle rotational bands, the candidate subpop.py actually named -- be captured total and seated?",
-   "finding": "NO, and deformed.py PROVES it rather than reporting a parser that gave up. Four forward parses came up short (154, 176, 160, 195 against the stated 234) and each fix moved the number without explaining the gap -- fitting a parser to a target, the fault DOCKET 23 refused. Working BACKWARDS explains all four at once: the paper's own Explanation of Table 3 says 'A single blank row separates the entries for each band', and that delimiter is ABSENT from this extraction. 234 entries over 24 nuclide sections need 210 separators; the file holds 71 blank lines, 22 at page breaks, so AT MOST 49 -- four times short -- and the 156-Ho entry 1->2 boundary carries none at all. The PDF-to-text conversion collapsed them. What IS recoverable: the 24 nuclide sections with Z and N (Ho x8, Tm x11, Lu x5) and the level rows, once the wrapped parity is rejoined and RELATIVE energies (A+134.27, 1135.7+y) are admitted. What is not is which levels belong to which band -- exactly what the lost delimiter carried -- and the census that would show a capture total is a census of BANDS. THIS IS A THIRD KIND OF REFUSAL: not the criterion, not box invariance, but the INPUT.",
-   "what_would_settle_it": "An extraction that preserves layout -- blank rows, or the column x-positions so the band-number column is told from a page number by POSITION rather than by shape. Not available here: arXiv is 403 through this proxy exactly as ENSDF is, and the connector returns this same extraction. The docket is open on an INPUT, not on an idea."
+   "finding": "NOT YET, AND THE FIRST ANSWER GIVEN HERE WAS WRONG AND IS RETRACTED. Four forward parses came up short (154, 176, 160, 195 against the stated 234). Working backwards found the paper's own delimiter -- 'A single blank row separates the entries for each band' -- and it IS absent from this extraction: 210 separators required, and of the 71 blank lines 50 are page boundaries and 21 are nuclide-header internals, so ZERO are separators (an earlier count of '22 page breaks, at most 49 available' was itself wrong, in a classifier that tested backwards). THAT MUCH STANDS AND IS STRONGER THAN STATED. What does not stand is the conclusion drawn from it: the file went on to claim no parse could recover entry boundaries, which is a statement about every possible parse and was never measured. AN ADVERSARIAL AUDIT REFUTED IT. A sequence-with-reset rule on the band number -- next expected integer, or a 1 opening a new nuclide, nothing else -- recovers 233 of 234 entries in 24 blocks matching the 24 nuclide sections, every block contiguous. The four attempts failed because they RELAXED the sequence; tightening it works. Also recoverable: the 24 sections with Z and N, and the level rows once wrapped parity is rejoined and relative energies (A+134.27, 1135.7+y) are admitted. NOTHING IS SEATED, because 233 is not 234.",
+   "what_would_settle_it": "Finding the 234th entry, then validating a finished capture against the paper's own rich fixture set (234 = 173 bands + 61 bandhead states, 63 GM doublets, 76 with signature splitting, 29 with inversion, 10 band crossings, 58 bandheads with half-lives). A layout-preserving extraction is NO LONGER NEEDED -- an earlier entry here said it was, on a claim that the proxy blocks every mirror, which was also wrong: storage.googleapis.com and github.com both tunnel. The docket is open on ONE MISSING ENTRY, not on an input."
   },
   {
    "id": "22",
