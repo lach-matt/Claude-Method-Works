@@ -57,11 +57,11 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    19 vertices, 19 distinct cells -- no two seated indexes share a cell
+    20 vertices, 20 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 193
+    E = 249
 
-**ITS OWN CELL IS (0, 5, 9), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 10), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
 
@@ -156,6 +156,20 @@ because it cut both ways and a one-sided report would be a lie by selection.
 
     DOCKET 28's CHART IS STILL REFUSED and this did not overturn it.  Two
     different objects, two different verdicts, both on the record.
+
+    AND TWENTY.  DOCKET 31 seated `bosonqp` on M's ruling that the textbook
+    quasiparticles' universal numbers are "almost nothing -- BUT NOT NOTHING",
+    and that the object is a SUBLATTICE OF THE BOSONS.  Eleven bosonic
+    collective excitations on (2J, Q3), three cells, K7.  At twenty: E 249,
+    own cell (0, 5, 10), resolutions 0.350 / 0.700 / 0.750.
+
+    ITS K7 IS NOT A FINDING AND THE FILE SAYS SO FIRST.  Three cells in a 2x2
+    box is a chain, and z3 proves over every subset of that box that a chain
+    is closed under meet and join -- so the channel is a fact about shape.
+    What IS the finding is the sublattice relation: the quasiparticles are a
+    sublattice, they are NOT a subset of the tree's bosons, and the one cell
+    outside is the COOPER PAIR at charge -2e, which no meson and no gauge
+    boson reaches.  The union is still a sublattice, one cell wider.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
@@ -498,10 +512,10 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at nineteen it closes in NOTHING -- the ruling cost it its closure "
+    chk("at twenty it closes in NOTHING -- the ruling cost it its closure "
         "at fourteen and nothing since has given it back", closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 9))
+    chk("it has its own cell", own, (0, 5, 10))
     chk("SEVEN of the eight channels are occupied; only K4 is not -- "
         "DOCKET 29 filled K5", sorted({c[0] for c in figure()}),
         [0, 1, 2, 3, 5, 6, 7])
@@ -514,9 +528,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6842))
+        (res["height"][1], res["height"][0]), ("measurement", 0.7))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7368))
+        (res["width"][1], res["width"][0]), ("measurement", 0.75))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

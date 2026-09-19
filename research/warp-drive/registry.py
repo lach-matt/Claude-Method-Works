@@ -204,6 +204,18 @@ REGISTERED = (
      "168 quasiparticles of twelve Laughlin states, three of them observed",
      "statistics class, order of the exchange phase, order of the charge, "
      "inverse filling fraction"),
+    # ---- DOCKET 31.  M: "almost nothing -- but not nothing, which means
+    # measurable ... it is a sub index/sublattice of bosons."  DOCKET 28 read
+    # "almost nothing" as nothing; low resolution is not no resolution, and
+    # overlap.py's LABEL threshold is the test these coordinates pass.  The
+    # ruling also NAMES the object, which DOCKET 28 never found: not an index
+    # of quasiparticles floating free but a SUBLATTICE of the bosons.  The
+    # member list is DECLARED from physics, not captured -- there is no
+    # particle table for quasiparticles and that part of DOCKET 28 stands --
+    # so every row of KINDS carries its own reason.
+    ("bosonqp", "index", "TABLE",
+     "11 bosonic collective excitations, placed in the tree's own boson frame",
+     "2J, Q3"),
 )
 
 NOT_AN_INDEX = {
@@ -476,16 +488,24 @@ def selftest():
         sorted({tuple(d["path"] for d in sources()["%s.index" % m]["paths"])
                 for m in ("fundamental", "mesons", "baryons")}),
         [("research/warp-drive/captures/PDG-2026.tsv",)])
-    chk("a computed index declares an empty path tuple, which is a source "
-        "and not a gap",
+    # FOUR KINDS OF SOURCE WITH NO FILE, and they are not equally strong.
+    # COMPUTED is a rule, INLINE is a transcription in the module, Inherited
+    # is a parent's, and DECLARED is a human writing values from physics
+    # knowledge -- the weakest, and the one that must never hide among the
+    # others.
+    NOFILE = ("COMPUTED", "INLINE", "Inherited", "DECLARED", "recovered/")
+    chk("an index with no file declares which kind of source it has instead",
         [nm for nm, v in sources().items()
-         if not v["paths"] and "COMPUTED" not in v["why"]
-         and "INLINE" not in v["why"] and "Inherited" not in v["why"]
-         and "recovered/" not in v["why"]], [])
+         if not v["paths"] and not any(k in v["why"] for k in NOFILE)], [])
+    chk("and exactly one row is DECLARED -- the weakest provenance here, kept "
+        "visible rather than folded into COMPUTED",
+        sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
+        ["bosonqp.index"])
     chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
-        "quasiparticles", len(REGISTERED), 19)
+        "quasiparticles, and DOCKET 31's boson sublattice",
+        len(REGISTERED), 20)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED
