@@ -531,8 +531,160 @@ def build_baryons():
     _write("baryons-plate.html", h)
 
 
+def build_quasiparticle():
+    """DOCKET 28's REFUSAL -- and the plate says so in the mast, not the fine
+    print.  Nothing here is seated; two separate measurements say why."""
+    import quasiparticle as Q
+    X = Q.index(12)
+    m = measured(X)
+    kinds, ucells = Q.universal_is_almost_nothing()
+    sg, pg, ac = Q.host_carries_it()
+    v, why = Q.verdict()
+    rows = Q.sweep()
+
+    h = [plate.head("The Quasiparticle Refusal"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate · a refusal, measured twice · DOCKET 28",
+        "The Quasiparticle&nbsp;Refusal",
+        "DOCKET 27 named quasiparticles as its one honest gap &mdash; they "
+        "would pass the criterion and are simply not in the particle table. "
+        "This went and looked. There is nothing to seat, and neither reason "
+        "is &ldquo;we could not find a file&rdquo;.",
+        [("instrument", "quasiparticle.py"), ("verdict", "NOTHING SEATED"),
+         ("reasons", "2, both measured"),
+         ("box sweep", "%d boxes" % len(rows)),
+         ("channel", "K%d at every one" % rows[0][2])]))
+
+    h.append('<div class="note warn">'
+             '<span class="lab">This plate is of a refusal, and the '
+             'distinction matters</span>'
+             '<p style="margin-bottom:0">Every other plate in this set renders '
+             'a <em>seated</em> index. This one renders a chart that was '
+             'measured and then turned down. <span class="mono">registry.py'
+             '</span> carries <span class="mono">quasiparticle</span> in '
+             '<span class="mono">NOT_AN_INDEX</span>, and it is the only entry '
+             'there whose members <em>pass</em> the criterion &mdash; an anyon '
+             'carries topological charge, topological spin and a quantum '
+             'dimension. It is excluded by BOX INVARIANCE instead, which is a '
+             'different kind of exclusion and is marked as one.</p></div>')
+
+    kindrows = "".join(
+        '<tr><td class="mono">%s</td><td class="num">%d</td><td>boson</td></tr>'
+        % (E(n), sp) for n, sp in Q.UNIVERSAL)
+    h.append(
+        '<section><div class="shead"><span class="snum">01</span>'
+        '<h2>There is no particle table for quasiparticles, and the reason is '
+        'structural</h2></div>'
+        '<p class="sub">Not an absent file. A phonon does not carry the kind of '
+        'quantum numbers a meson carries.</p>'
+        '<p>The Particle Data Group tabulates a meson&rsquo;s spin, parity and '
+        'isospin because <b>those are properties of the meson</b>. Ask the same '
+        'of a phonon and the question changes shape. The universal quantum '
+        'numbers of the textbook kinds are almost nothing:</p>'
+        '<div class="tablewrap"><table><thead><tr><th>kind</th>'
+        '<th class="num">spin</th><th>statistics</th></tr></thead><tbody>%s'
+        '</tbody></table><caption>%d kinds on <b>%d cells</b> of their '
+        'universal numbers, and every one a boson. A chart at that resolution '
+        'is reporting on bosons.</caption></div>'
+        '<div class="note"><span class="lab">Everything that distinguishes one '
+        'mode from another belongs to the host</span>'
+        '<p>A lattice mode is labelled by an irreducible representation of the '
+        'little group of its wavevector, and which group that is depends on the '
+        'crystal:</p>%s'
+        '<p style="margin-bottom:0">Banked in <span class="mono">sgcapture.py'
+        '</span> from spglib, with all four canonical figures checked. The same '
+        'phonon in silicon (Fd-3m) and in rock salt (Fm-3m) carries different '
+        'labels because the <em>crystals</em> differ. <b>So the member set '
+        'would be (material, mode)</b> &mdash; a materials database, not a '
+        'particle table. And a space group carries no quantum numbers either, '
+        'so it is not an index in its own right.</p></div></section>'
+        % (kindrows, kinds, ucells,
+           kv(("space groups", sg, ""), ("point groups", pg, ""),
+              ("arithmetic crystal classes", ac, ""))))
+
+    spots = "".join(
+        '<tr><td>%s</td><td class="num mono">%s</td><td class="num mono">%s</td>'
+        '<td>%s</td></tr>'
+        % (E(w), g, x, '<span class="yes">ok</span>' if g == x
+           else '<span class="no">DIFFERS</span>')
+        for w, g, x in Q.spot_checks())
+    h.append(
+        '<section><div class="shead"><span class="snum">02</span>'
+        '<h2>One family needs no fetch at all</h2></div>'
+        '<p class="sub">The anyons of SU(2)<sub>k</sub> &mdash; the topological '
+        'excitations of a two-dimensional topologically ordered medium &mdash; '
+        'are given by a closed form rather than by measurement.</p>'
+        '<p class="eqn mono">topological spin&nbsp;&nbsp;h = j(j+1)/(k+2)<br>'
+        'quantum dimension&nbsp;&nbsp;d = sin((2j+1)&pi;/(k+2)) / '
+        'sin(&pi;/(k+2))<br>fusion&nbsp;&nbsp;j&#8321; &times; j&#8322; = '
+        '|j&#8321;&minus;j&#8322;| &hellip; min(j&#8321;+j&#8322;, '
+        'k&minus;j&#8321;&minus;j&#8322;)</p>'
+        '<div class="tablewrap"><table><thead><tr><th>spot check</th>'
+        '<th class="num">computed</th><th class="num">expected</th>'
+        '<th>verdict</th></tr></thead><tbody>%s</tbody></table>'
+        '<caption>Every check tests the computed value, never the remembered '
+        'name.</caption></div>'
+        '<div class="note warn"><span class="lab">SU(2)<sub>2</sub> is not the '
+        'Ising category, and a fixture written against the name would have '
+        'passed for the wrong reason</span>'
+        '<p style="margin-bottom:0">It is commonly called Ising. Its '
+        'j&nbsp;=&nbsp;&frac12; carries h&nbsp;=&nbsp;3/16; the Ising &sigma; '
+        'carries h&nbsp;=&nbsp;1/16. The two are related and distinct, and '
+        '<span class="mono">NOT_ISING</span> records it in the instrument.</p>'
+        '</div></section>' % spots)
+
+    h.append(_view(
+        "q3d", X, 0,
+        ["STAT  boson / fermion / anyon", "ORD  order of the topological twist",
+         "NSELF  outcomes of j x j", "AB  abelian or not"],
+        "Colour is the statistics class. The chart is real and it is still "
+        "refused &mdash; section 04 is why.",
+        "03", "The chart that was refused", "the SU(2)_k anyon chart",
+        radius=5.5))
+
+    sweeprows = "".join(
+        '<tr><td class="mono">%s</td><td class="num">%d</td>'
+        '<td class="num">K%d</td><td>%s</td></tr>'
+        % (E(nm), nc, k, ", ".join(cl) or "nothing")
+        for nm, nc, k, cl, _j, _m, _d in rows)
+    h.append(
+        '<section><div class="shead"><span class="snum">04</span>'
+        '<h2>And box invariance refuses it</h2></div>'
+        '<p class="sub">A chart whose membership is a predicate over a box can '
+        'be handed a different box and asked again. <b>If the channel never '
+        'moves, the channel is a property of the rule and not of the data.</b> '
+        'That is <span class="mono">boxinvariance.py</span>, and it is imported '
+        'here rather than reimplemented.</p>'
+        '<div class="tablewrap"><table><thead><tr><th>box</th>'
+        '<th class="num">cells</th><th class="num">channel</th><th>closes</th>'
+        '</tr></thead><tbody>%s</tbody></table><caption>The cells move at every '
+        'box. <b>The channel does not move at all.</b></caption></div>'
+        '<div class="note warn"><span class="lab">%s</span>'
+        '<p style="margin-bottom:0">%s</p></div>'
+        '<p><b>What this does not show.</b> Box invariance refuses <em>the '
+        'chart that was run</em>. It does not show that no chart of anyons '
+        'could ever be seated &mdash; a different coordinate set over the same '
+        'members might move with the box. A measurement can only refuse what it '
+        'measured.</p></section>' % (sweeprows, E(v), E(why)))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">05</span>'
+        '<h2>What would reopen it</h2></div>'
+        '<p class="sub">Named so the door is visibly open rather than quietly '
+        'shut.</p>'
+        '<p>A materials database &mdash; the phonon-mode tables of a fixed set '
+        'of crystals, each mode with its irrep &mdash; <b>IS</b> a legitimate '
+        'member set: a mode carries a symmetry label and a frequency, and those '
+        'are quantum numbers. It is (material, mode), it needs a real fetch, '
+        'and it is not what DOCKET 27 asked for.</p></section>')
+    h.append(foot("quasiparticle", nfixtures("quasiparticle")))
+    h.append("</div>")
+    _write("quasiparticle-plate.html", h)
+
+
 BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
-            "baryons": build_baryons}
+            "baryons": build_baryons,
+            "quasiparticle": build_quasiparticle}
 
 if __name__ == "__main__":
     for w in (sys.argv[1:] or sorted(BUILDERS)):
