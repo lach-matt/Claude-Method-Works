@@ -365,7 +365,7 @@
     if (node.kind === 'element' || node.kind === 'ghost') return rootNode;
     if (node.kind === 'ion') return elementNode(node.Z);
     if (node.kind === 'pindex') return rootNode;
-    if (node.kind === 'particle') return pindexNode(node.id) || rootNode;
+    if (node.kind === 'particle' || node.kind === 'pghost') return pindexNode(node.id) || rootNode;
     return node.parent;
   }
 
@@ -385,6 +385,7 @@
       case 'cell': return `2S+1 = ${node.mult}`;
       case 'pindex': return node.px.short;
       case 'particle': return node.row.name;
+      case 'pghost': return `demanded cell (${node.cell.join(', ')})`;
     }
     return '';
   }
@@ -395,6 +396,7 @@
     if (node.kind === 'ghost') return `#/E/${node.p}/${node.g}`;
     if (node.kind === 'pindex') return `#/p/${node.id}`;
     if (node.kind === 'particle') return `#/p/${node.id}/${encodeURIComponent(node.row.key)}`;
+    if (node.kind === 'pghost') return `#/p/${node.id}/ghost/${node.key}`;
     const parts = [symbolOf(node.Z)];
     if (node.charge) parts.push(roman(node.charge));
     if (node.l !== undefined) parts.push(LSYM[node.l] || String(node.l));
@@ -1042,10 +1044,12 @@
     const node = cb.node;
     if (cb.ghost) {
       // a cell the operator admits and the layout does not hold: a hollow node in the ghost tint,
-      // the deferred ones fuller, its subshell written in when there is room
+      // the deferred ones fuller, its subshell written in when there is room; a particle index's
+      // demanded cell takes its bin's tint -- forbidden faint and dashed, unplaced amber, open in the accent
+      const gcol = cb.gbin === 'OPEN' ? C.accent : cb.gbin === 'UNPLACED' ? '#b5651d' : C.ghost;
       ctx.beginPath(); ctx.arc(p0.x, p0.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = C.ghost; ctx.globalAlpha = cb.cls === 'deferred' ? 0.38 : 0.16; ctx.fill(); ctx.globalAlpha = 1;
-      ctx.setLineDash([3, 3]); ctx.strokeStyle = shade(C.ghost, 0.8); ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = gcol; ctx.globalAlpha = cb.gbin === 'FORBIDDEN' ? 0.08 : cb.gbin ? 0.22 : cb.cls === 'deferred' ? 0.38 : 0.16; ctx.fill(); ctx.globalAlpha = 1;
+      ctx.setLineDash(cb.gbin === 'FORBIDDEN' || !cb.gbin ? [3, 3] : []); ctx.strokeStyle = shade(gcol, 0.8); ctx.lineWidth = cb.gbin && cb.gbin !== 'FORBIDDEN' ? 1.4 : 1; ctx.stroke(); ctx.setLineDash([]);
       if (cb.label && r >= 9) { ctx.fillStyle = C.muted; ctx.font = F(Math.max(8, r * 0.55), 'sans'); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(cb.label, p0.x, p0.y); }
       if (outline) { ctx.beginPath(); ctx.arc(p0.x, p0.y, r + 2.5, 0, Math.PI * 2); ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke(); }
       ctx.lineWidth = 1;
@@ -1220,7 +1224,7 @@
         const col = cb.colour ? cb.colour : (cb.node && cb.node.rec ? cellColour(cb.node) : (cb.grade === 'measured' ? C.measured : C.exact));
         const hot = scene.kind === 'element' ? selMatchesCube(sel, cb)
           : scene.kind === 'table' ? (cb.ghost ? !!(sel && sel.kind === 'ghost' && sel.p === cb.p && sel.g === cb.g) : !!(sel && sel.kind !== 'root' && sel.kind !== 'ghost' && sel.Z === cb.Z))
-          : scene.kind === 'particles' ? !!(sel && sel.kind === 'particle' && sel.id === cb.node.id && sel.i === cb.node.i)
+          : scene.kind === 'particles' ? !!(sel && sel.id === cb.node.id && ((sel.kind === 'particle' && cb.node.kind === 'particle' && sel.i === cb.node.i) || (sel.kind === 'pghost' && cb.node.kind === 'pghost' && sel.key === cb.node.key)))
           : !!(sel && sel.kind !== 'root' && sel.Z !== undefined && sel.Z === cb.Z);
         drawCube(cb, cam, col, hot ? C.accent : null);
       } else if (it.t === 'slab') {
@@ -1511,7 +1515,7 @@
     const parts = (h || '').replace(/^#\/?/, '').split('/').filter(Boolean);
     if (!parts.length) return { root: true };
     if (parts[0] === 'E' && parts.length === 3) return { ghost: { p: +parts[1], g: +parts[2] } };
-    if (parts[0] === 'p') { let member; if (parts[2] !== undefined) { try { member = decodeURIComponent(parts[2]); } catch (e) { member = parts[2]; } } return { pindex: parts[1] || '', member }; }
+    if (parts[0] === 'p') { if (parts[2] === 'ghost') return { pindex: parts[1] || '', ghost: parts[3] || '' }; let member; if (parts[2] !== undefined) { try { member = decodeURIComponent(parts[2]); } catch (e) { member = parts[2]; } } return { pindex: parts[1] || '', member }; }
     const e = state.index.layout.find((x) => x.symbol.toLowerCase() === parts[0].toLowerCase() || String(x.Z) === parts[0]);
     if (!e) return null;
     const out = { Z: e.Z };
@@ -1526,6 +1530,7 @@
     if (h === state.lastHash) return;
     const p = parseHash(h);
     if (!p || p.root) return select(rootNode, { fly, ms, reveal });
+    if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, { fly, ms, reveal });
     if (p.pindex !== undefined) return goToParticle(p.pindex, p.member, { fly, ms, reveal });
     if (p.ghost) {
       const g = state.ghosts.find((x) => x.p === p.ghost.p && x.g === p.ghost.g);
@@ -1588,6 +1593,7 @@
     const m = state.index.meta || {};
     if (isParticleNode(node)) {
       const ps = (state.particleIndex || {}).source || {}, tree = ps.tree || {}, px = node.px;
+      if (!px) return `${pathText(node)}. The Method Index.`;
       const src = px.family === 'pdg' ? `${ps.citation || ''}${ps.doi ? ', DOI ' + ps.doi : ''}` : (px.source.text || '');
       return `${pathText(node)}. The Method Index, particle indexes, read at build from ${(tree.instruments || []).join(', ')}${tree.commit ? ' at ' + String(tree.commit).slice(0, 12) : ''} and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Source: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
     }
@@ -1607,6 +1613,7 @@
       case 'cell': html = renderCell(node); break;
       case 'pindex': html = renderPIndex(node); break;
       case 'particle': html = renderParticle(node); break;
+      case 'pghost': html = renderPGhost(node); break;
     }
     body.innerHTML = html;
     $('#status').textContent = pathText(node);
@@ -1646,7 +1653,8 @@
     root.querySelectorAll('[data-pgo]').forEach((el) => {
       el.addEventListener('click', () => {
         const dlg = el.closest('dialog'); if (dlg && dlg.open) dlg.close();
-        goToParticle(el.dataset.pgo, el.dataset.pkey === undefined ? undefined : el.dataset.pkey);
+        if (el.dataset.pghost !== undefined) goToGhost(el.dataset.pgo, el.dataset.pghost);
+        else goToParticle(el.dataset.pgo, el.dataset.pkey === undefined ? undefined : el.dataset.pkey);
       });
     });
     root.querySelectorAll('[data-go]').forEach((el) => {
@@ -2155,7 +2163,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         source: { text: rr.source, status: rr.source_status, note: rr.source_note }, observed: rr.observed || [], validation: rr.validation || [], verdict: rr.verdict, why: rr.why, verdict_status: rr.verdict_status, fermions: rr.fermions || [], fermions_note: rr.fermions_note || '', in_progress: !!rr.in_progress,
         rows: rr.rows.map((r, i) => ({ i, name: `k = ${r.k}, (l, m) = (${r.l}, ${r.m})`, key: `k${r.k}-l${r.l}-m${r.m}`, coords: r.coords, extra: { k: r.k, l: r.l, m: r.m, h: r.h, Q: r.Q, observed: r.observed } })) });
     }
+    const pred = (P.predictions && !P.predictions.absent) ? P.predictions.by_index || {} : {};
     for (const px of out) {
+      px.demand = pred[px.id] || null;      // the cells its closure demands, adjudicated
       px.byKey = new Map(px.rows.map((r) => [r.key.toLowerCase(), r]));
       px.byName = new Map();
       for (const r of px.rows) if (!px.byName.has(r.name.toLowerCase())) px.byName.set(r.name.toLowerCase(), r);
@@ -2173,6 +2183,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (/^~\d+$/.test(t)) return px.rows[parseInt(t.slice(1), 10)] || null;
     return px.byKey.get(t) || px.byName.get(t) || null;
   }
+  async function goToGhost(id, key, opts = {}) {
+    try { await ensureParticleIndex(); } catch (e) { await select(rootNode, opts); return false; }
+    const px = pindexOf(id);
+    const g = px ? findGhost(px, key) : null;
+    if (!g) { await select(px ? pindexNode(id) : rootNode, opts); return false; }
+    await select(pghostNode(px, g), opts);
+    return true;
+  }
   async function goToParticle(id, ref, opts = {}) {
     try { await ensureParticleIndex(); } catch (e) { await select(rootNode, opts); return false; }
     const px = pindexOf(id);
@@ -2183,7 +2201,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     await select(particleNode(px, row), opts);
     return true;
   }
-  const isParticleNode = (n) => !!n && (n.kind === 'pindex' || n.kind === 'particle');
+  const isParticleNode = (n) => !!n && (n.kind === 'pindex' || n.kind === 'particle' || n.kind === 'pghost');
+  const GHOST_BIN = { FORBIDDEN: 'forbidden', UNPLACED: 'unplaced', OPEN: 'open', UNDECIDED: 'undecided' };
+  function pghostNode(px, g) { return { kind: 'pghost', id: px.id, cell: g.cell, key: g.cell.join(','), bin: g.bin, g, px }; }
+  function findGhost(px, key) { return px.demand ? px.demand.cells.find((g) => g.cell.join(',') === key) || null : null; }
   // the cell a member sits in is its full coordinate tuple; the drawn position is three of them
   const cellKey = (r) => r.coords.join(',');
   function particleHome() { return { rx: 0.42, ry: -0.62, zoom: 1 }; }
@@ -2214,6 +2235,19 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       if (!pos.has(key)) pos.set(key, { p, rows: [] });
       pos.get(key).rows.push(r);
     }
+    // the demanded cells, adjudicated, as ghosts at their own positions: a position may hold
+    // members and ghosts together, and they are fanned as one group, the ghosts hollow
+    const ghosts = (state.showGhosts !== false && px.demand) ? px.demand.cells : [];
+    const ghostCount = { FORBIDDEN: 0, UNPLACED: 0, OPEN: 0, UNDECIDED: 0 };
+    for (const g of ghosts) {
+      const c = g.cell;
+      const p = [xi < 0 ? 0 : xs.indexOf(c[xi]), yi < 0 ? 0 : ys.indexOf(c[yi]), zi < 0 ? 0 : zs.indexOf(c[zi])];
+      if (p.some((v) => v < 0)) continue;   // a value no member carries: not drawable, and the projection law says it cannot happen
+      const key = p.join(',');
+      if (!pos.has(key)) pos.set(key, { p, rows: [] });
+      pos.get(key).rows.push({ ghost: g });
+      ghostCount[g.bin] = (ghostCount[g.bin] || 0) + 1;
+    }
     const cubes = [];
     let fanned = 0;
     for (const g of pos.values()) {
@@ -2223,13 +2257,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       g.rows.forEach((r, k) => {
         const dx = n === 1 ? 0 : ((k % cols) + 0.5) / cols * 0.84 - 0.42;
         const dy = n === 1 ? 0 : 0.42 - (Math.floor(k / cols) + 0.5) / rws * 0.84;
-        cubes.push({ x: g.p[0] + dx, y: g.p[1] + dy, z: g.p[2], s, known: true, colour: colourOf(r), tag: r.name, node: particleNode(px, r), mates: n });
+        if (r.ghost) cubes.push({ x: g.p[0] + dx, y: g.p[1] + dy, z: g.p[2], s: s * 0.9, known: false, ghost: true, gbin: r.ghost.bin, cls: r.ghost.bin === 'FORBIDDEN' ? 'forbidden' : 'deferred', node: pghostNode(px, r.ghost), mates: n });
+        else cubes.push({ x: g.p[0] + dx, y: g.p[1] + dy, z: g.p[2], s, known: true, colour: colourOf(r), tag: r.name, node: particleNode(px, r), mates: n });
       });
     }
     const ext = { x0: -0.6, x1: xs.length - 0.4, y0: -0.6, y1: ys.length - 0.4, z0: -0.6, z1: zs.length - 0.4 };
     const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
     const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
-    return { kind: 'particles', id, px, cubes, slabs: [], ions: [], ladder: [], ext, centre, R, ax, xs, ys, zs, cvals, ci, drawn: rows.length, positions: pos.size, fanned,
+    return { kind: 'particles', id, px, cubes, slabs: [], ions: [], ladder: [], ext, centre, R, ax, xs, ys, zs, cvals, ci, drawn: rows.length, positions: pos.size, fanned, ghosts: ghosts.length, ghostCount,
       key: cvals.map((v) => ({ v, label: ck ? String(v) : coordTick(ax.colour, v), colour: L_COLOR[cvals.indexOf(v) % L_COLOR.length] })) };
   }
   function drawParticleAxes(scene, cam) {
@@ -2264,11 +2299,22 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const pY = P(ox, ex.y1 + 0.5, oz); ctx.fillText(`${axisLabel(scene.px, ax.y)} ↑`, pY.x + 4, pY.y);
     if (scene.zs.length > 1) { const pZ = P(ox, oy, ex.z1 + 0.5); ctx.fillText(`${axisLabel(scene.px, ax.z)} → (layers)`, pZ.x + 4, pZ.y); }
     // the colour key, in the canvas's top-left corner
-    if (scene.key.length) {
+    if (scene.key.length || scene.ghosts) {
       ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
       let x = 12, y = 14;
-      const head = `${axisLabel(scene.px, ax.colour)}:`;
-      ctx.fillStyle = C.muted; ctx.fillText(head, x, y); x += ctx.measureText(head).width + 10;
+      if (scene.ghosts) {
+        const gk = [['open', C.accent, 'OPEN'], ['unplaced', '#b5651d', 'UNPLACED'], ['forbidden', C.ghost, 'FORBIDDEN']].filter((k) => (scene.ghostCount || {})[k[2]]);
+        ctx.fillStyle = C.muted; ctx.fillText('demanded:', x, y); x += ctx.measureText('demanded:').width + 8;
+        for (const [lab, col, bin] of gk) {
+          const w = ctx.measureText(lab).width + 22;
+          ctx.beginPath(); ctx.arc(x + 5, y, 4.5, 0, Math.PI * 2); ctx.fillStyle = col; ctx.globalAlpha = 0.25; ctx.fill(); ctx.globalAlpha = 1;
+          ctx.setLineDash(bin === 'FORBIDDEN' ? [2, 2] : []); ctx.strokeStyle = shade(col, 0.8); ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
+          ctx.fillStyle = C.muted; ctx.fillText(lab, x + 14, y); x += w;
+        }
+        x += 10;
+      }
+      const head = scene.key.length ? `${axisLabel(scene.px, ax.colour)}:` : '';
+      if (head) { ctx.fillStyle = C.muted; ctx.fillText(head, x, y); x += ctx.measureText(head).width + 10; }
       for (const k of scene.key) {
         const w = ctx.measureText(k.label).width + 22;
         if (x + w > W() - 8) { x = 12; y += 16; }
@@ -2279,7 +2325,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
   function particleCaption(sc) {
     const px = sc.px, ax = sc.ax;
-    return `<b>${esc(px.short)}</b> as a lattice · ${esc(axisLabel(px, ax.x))} across, ${esc(axisLabel(px, ax.y))} up${sc.zs.length > 1 ? `, ${esc(axisLabel(px, ax.z))} into the page` : ''} · ${sc.drawn} members on ${sc.positions} drawn positions${sc.fanned ? `, ${sc.fanned} shared and fanned out` : ''} · ${px.cells} cells, K${px.cell.channel} · the axes a choice of this page; every value the instrument's`;
+    const gc = sc.ghostCount || {};
+    return `<b>${esc(px.short)}</b> as a lattice · ${esc(axisLabel(px, ax.x))} across, ${esc(axisLabel(px, ax.y))} up${sc.zs.length > 1 ? `, ${esc(axisLabel(px, ax.z))} into the page` : ''} · ${sc.drawn} members on ${sc.positions} drawn positions${sc.fanned ? `, ${sc.fanned} shared and fanned out` : ''}${sc.ghosts ? ` · ${sc.ghosts} demanded cells as ghosts (${gc.FORBIDDEN || 0} forbidden, ${gc.UNPLACED || 0} unplaced, ${gc.OPEN || 0} open${gc.UNDECIDED ? `, ${gc.UNDECIDED} undecided` : ''})` : ''} · ${px.cells} cells, K${px.cell.channel} · the axes a choice of this page; every value the instrument's`;
   }
   function particleSuggestions(t) {
     if (!t || !state.particleIndex) return [];
@@ -2368,10 +2415,51 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${px.unplaced.length ? section('Set aside by name', `<p class="note">${px.unplaced.length} members land on no cell because ${esc(px.unplaced_why)}: ${px.unplaced.map((n) => { const r = px.byName.get(String(n).toLowerCase()); return r ? pchip(px, r) : esc(n); }).join(' ')}</p>`) : ''}
       ${extra}
       ${px.refused.length ? section(`Refused coordinates (${px.refused.length})`, `<details><summary>each with its measurement</summary><div class="fields">${px.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div></details>`) : ''}
+      ${px.demand ? demandSection(px) : ''}
       ${section('Source', `<div class="fields">${particleSourceRows(px)}</div>`)}
       ${section(`Members (${px.rows.length})`, `<div class="pchips">${px.rows.map((r) => pchip(px, r)).join('')}</div>`)}
       <div class="actions"><button type="button" data-act="open-particles">Full detail: the Particles dialog</button><button type="button" data-act="copy-link">Copy link</button></div>
       <div class="cite">${esc(citation(node))}</div>`;
+  }
+  const BIN_TEXT = {
+    FORBIDDEN: 'a bound rules the combination out; its emptiness is a theorem',
+    UNPLACED: 'the object exists and the source gives it no coordinates',
+    OPEN: 'physical, placeable, and nothing there: a prediction in the sense the instrument states, and an upper bound',
+    UNDECIDED: 'neither unplaced nor open can be decided from what the source banks',
+  };
+  function gchip(px, g, current) {
+    return `<button type="button" class="pchip gchip-${esc(GHOST_BIN[g.bin] || 'open')}${current ? ' is-current' : ''}" data-pgo="${esc(px.id)}" data-pghost="${esc(g.cell.join(','))}" title="${esc(g.bin + ': ' + px.coordinates.map((c, k) => `${c.name} = ${g.cell[k]}`).join(', '))}">(${g.cell.join(', ')})</button>`;
+  }
+  function demandSection(px) {
+    const d = px.demand, P = state.particleIndex.predictions || {};
+    const bins = ['FORBIDDEN', 'UNPLACED', 'OPEN', 'UNDECIDED'].filter((b) => d.cells.some((g) => g.bin === b));
+    const LIMIT = 60;
+    return section('The cells its closure demands', `<p class="note">E = <b>${d.E}</b>: the cells this index's own join-closure demands and no member occupies, drawn as ghosts in the lattice and adjudicated cell by cell. ${d.E ? `<b>${d.forbidden}</b> forbidden, <b>${d.unplaced}</b> unplaced, <b>${d.open}</b> open${d.undecided ? `, <b>${d.undecided}</b> undecided` : ''}.` : 'None: the index is complete under its own closure.'} ${badge(d.status, 'E is an upper bound on predictions; a demanded cell is not a prediction until adjudicated')}</p>
+      <div class="fields">
+        ${row('the bound', d.bound ? `${esc(d.bound)} — from ${esc(d.bound_from)}` : d.bound_status === 'theorem: none forbids' ? 'none, and the absence is a theorem: the quark model, fully stated, forbids no cell of this chart' : 'none derived; the open figure is open against nothing at all, and a bound found later may empty it', d.bound ? 'DERIVED' : null, d.bound ? 'derived from a stated physical law, checked against every member with no violation, then applied to the demand' : null, true)}
+        ${d.recorded ? row('against the instrument\'s record', `${d.recorded.join(' / ')} (E / forbidden / unplaced / open / undecided)`, 'DERIVED', 'the cell-by-cell count here against the count the instrument records', true) : ''}
+        ${P.element_precedent ? row('the operator', 'a join deficit; the element table\'s thirty-six ghosts are an order deficit, and the precedent transfers the bins, not the numbers', 'DERIVED', esc(P.element_precedent.note || ''), true) : ''}
+      </div>
+      ${bins.map((b) => { const cs = d.cells.filter((g) => g.bin === b); return `<p class="note"><b>${esc(b)}</b> (${cs.length}) — ${esc(BIN_TEXT[b])}</p><div class="pchips">${cs.slice(0, LIMIT).map((g) => gchip(px, g)).join('')}${cs.length > LIMIT ? `<span class="muted">… and ${cs.length - LIMIT} more, every one drawn in the lattice</span>` : ''}</div>`; }).join('')}`);
+  }
+  function renderPGhost(node) {
+    const px = node.px, g = node.g, d = px.demand;
+    const mates = px.rows.filter((r) => r.coords.every((v, i) => v === g.cell[i]));
+    const prev = d.cells[d.cells.indexOf(g) - 1], next = d.cells[d.cells.indexOf(g) + 1];
+    return `<div class="kind">a demanded cell of ${esc(px.short.toLowerCase())} · ${esc(g.bin.toLowerCase())}</div>
+      <h2 class="node-title">(${g.cell.join(', ')})</h2>
+      <p class="node-sub">A cell the index's own join-closure demands and no member occupies — ${esc(BIN_TEXT[g.bin])}.</p>
+      ${section('Coordinates', `<div class="fields">${px.coordinates.map((c, k) => row(c.name, `${g.cell[k]} <span class="muted">· ${esc(coordText(c.name, g.cell[k]))}</span>`, 'DERIVED', 'a value the closure demanded; by the projection law it is a value some member carries', true)).join('')}</div>`)}
+      ${section('Its adjudication', `<div class="fields">
+        ${row('bin', `<b>${esc(g.bin)}</b>`, 'DERIVED', esc(BIN_TEXT[g.bin]), true)}
+        ${g.bin === 'FORBIDDEN' ? row('forbidden by', esc(d.bound || ''), 'DERIVED', esc(d.bound_from || ''), true) : ''}
+        ${g.bin === 'UNPLACED' ? row('pinned by', g.pinned_by.length ? g.pinned_by.map((n) => `<span class="mono">${esc(n)}</span>`).join(', ') : 'a source row the instrument declined to chart, supplying every coordinate but one', 'READ', 'the source holds the object and prints no value for one coordinate; the cell is empty because of the source, not because of nature', true) : ''}
+        ${g.bin === 'OPEN' ? row('open', d.bound ? 'no bound derivable here forbids it and no source row explains it; final against every monotone bound' : 'no source row explains it, and no bound was derived for this index, so it is open against nothing at all', 'DERIVED', null, true) : ''}
+        ${row('in this index', `E = ${d.E}: ${d.forbidden} forbidden, ${d.unplaced} unplaced, ${d.open} open${d.undecided ? `, ${d.undecided} undecided` : ''}`, 'DERIVED', null, true)}
+        ${mates.length ? row('members at this cell', mates.map((r) => pchip(px, r)).join(' '), null, 'a demanded cell holds no member by definition; this would be a fault', true) : ''}
+      </div>`)}
+      <div class="pnav">${prev ? gchip(px, prev) : ''}<span class="muted">demanded cell ${d.cells.indexOf(g) + 1} of ${d.cells.length}</span>${next ? gchip(px, next) : ''}</div>
+      ${actions(node, { index: px.id, cell: g.cell, bin: g.bin, pinned_by: g.pinned_by, coordinates: Object.fromEntries(px.coordinates.map((c, k) => [c.name, g.cell[k]])) })}`;
   }
   function renderParticle(node) {
     const px = node.px, r = node.row;
@@ -2478,8 +2566,34 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('every wider reading', n.supersets.rows.slice(1).map((r) => `(${r.coordinates.join(', ')}) → K${r.channel}, ${r.cells.toLocaleString()} cells`).join('; '), n.supersets.status, esc(n.supersets.note), true)}
         ${row('the capture', `${esc(c.paper)} · ${ext('https://arxiv.org/abs/' + c.arxiv, 'arXiv:' + c.arxiv)}: ${Object.entries(c.census.measured).map(([k, v]) => `${k} ${v.bands}/${v.nuclei}`).join(', ')} against the paper's ${Object.entries(c.census.stated).map(([k, v]) => `${v.bands}/${v.nuclei}`).join(', ')} — ${c.census.exact ? 'exact' : 'NOT exact'}; AMR ${c.selection_rule.AMR.delta_2I_4}/${c.selection_rule.AMR.steps} steps at ΔI = 2`, c.census.status, esc(c.census.note + ' ' + c.selection_rule.note), true)}
         ${row('faults', `${c.source_faults.length} in the source, captured as printed; ${c.parser_faults.length} in the parser, found by audit and fixed; ${c.not_a_fault.length} run down and found not a fault`, 'READ', esc(c.faults_note), true)}
-        ${d ? row('the second paper', `${ext('https://arxiv.org/abs/' + d.arxiv, 'arXiv:' + d.arxiv)} — <b>${esc(d.verdict)}</b>: ${d.census.entries} of ${d.stated.entries} entries, ${d.census.bandheads} of ${d.stated.bandheads} bandhead states exact`, d.verdict_status, esc(d.note), true) : ''}
+        ${d ? row('the second paper', `${ext('https://arxiv.org/abs/' + d.arxiv, 'arXiv:' + d.arxiv)} — <b>${esc(d.verdict)}</b>: ${d.census.entries} of ${d.stated.entries} entries, ${d.census.bands} of ${d.stated.bands} bands, ${d.census.bandheads} of ${d.stated.bandheads} bandhead states${d.total ? ', all exact' : ''}${d.closure ? `; on the band index's coordinates these levels would give ${d.closure.chart.cells} cells at K${d.closure.chart.channel}, cell (${d.closure.chart.cell.channel}, ${d.closure.chart.cell.height}, ${d.closure.chart.cell.width}), measured and not seated` : ''}`, d.verdict_status, esc(d.closure ? d.closure.note : d.note), true) : ''}
       </div>`;
+  }
+  function renderPredictions(P) {
+    const A = P.adjudication, T = A.totals, G = P.gmn;
+    return `<h3>${esc(P.title)} <span class="muted">(in progress on the other session)</span></h3><p class="note">${esc(P.status_note)}</p>
+      <div class="fields">
+        ${row('E per index', P.E_by_index.filter((e) => e.E > 0).map((e) => `${esc(e.index)} ${e.E.toLocaleString()}`).join(' · ') + `; complete (E = 0): ${P.E_by_index.filter((e) => e.E === 0).map((e) => esc(e.index)).join(', ')}` + (P.too_large.length ? `; not closed here: ${P.too_large.map(esc).join(', ')}` : ''), 'DERIVED', `${P.total_E.toLocaleString()} cells demanded over ${P.E_by_index.length} indexes, ${P.partition.predicting} predicting and ${P.partition.complete} complete`, true)}
+        ${row('the partition', `${P.partition.zero_close_information && P.partition.positive_do_not ? 'exact' : 'NOT exact'}: E = 0 exactly where the index closes under information`, P.partition.status, esc(P.partition.note), true)}
+        ${P.bins.map((b) => row(esc(b.bin), esc(b.meaning), 'PINNED', 'the three bins, named by the instrument', true)).join('')}
+        ${row('the worked case', `${esc(P.worked_case.index)} cell (${P.worked_case.cell.join(', ')}): ${esc(P.worked_case.text)}`, P.worked_case.status, null, true)}
+        ${row('the element precedent', `${P.element_precedent.cells} drawn positions: order deficit ${P.element_precedent.E_order}, join deficit ${P.element_precedent.E_join}; the hydrogenic bound forbids ${P.element_precedent.order_ghosts_forbidden_by_l_le_n_minus_1} of the order ghosts and ${P.element_precedent.join_ghosts_forbidden} of the join ghosts`, P.element_precedent.status, esc(P.element_precedent.note), true)}
+      </div>
+      <h3>The adjudication, and the laws that empty most of it</h3>
+      <div class="fields">${P.laws.map((l) => row(esc(l.law), esc(l.text), 'DERIVED', 'proved by the instrument and then measured on the live tree', true)).join('')}</div>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>index</th><th>E</th><th>forbidden</th><th>unplaced</th><th>open</th><th>undecided</th><th>bound</th></tr></thead><tbody>
+        ${A.rows.map((r) => `<tr><td class="mono">${esc(r.index)}</td><td>${r.E.toLocaleString()}</td><td>${r.forbidden}</td><td>${r.unplaced}</td><td>${r.open.toLocaleString()}</td><td>${r.undecided}</td><td class="wrap">${esc(r.bound)}</td></tr>`).join('')}
+        <tr><th>total</th><th>${T.E.toLocaleString()}</th><th>${T.forbidden}</th><th>${T.unplaced}</th><th>${T.open.toLocaleString()}</th><th>${T.undecided}</th><th></th></tr>
+      </tbody></table></div>
+      <div class="fields">
+        ${row('the rule for UNPLACED', esc(A.rule), A.status, null, true)}
+        ${row('undecided: ' + esc(A.undecided.index), esc(A.undecided.why), 'READ', null, true)}
+        ${row('the one bound that forbids', `${esc(G.identity)}: baryons ${G.baryons.identity_ok} of ${G.baryons.rows} rows clean; mesons ${G.mesons.parsed} of ${G.mesons.rows} parse (the rest are flavour mixtures), ${G.mesons.identity_ok} identities hold and the isospin weight fails on ${G.mesons.faults.length}: ${G.mesons.faults.map((f) => `<span class="mono">${esc(f.name)}</span>`).join(', ')}`, G.status, esc(G.fault_note), true)}
+        ${row('the fault\'s consequence', `as captured ${G.fault_consequence.as_captured.cells} cells, E = ${G.fault_consequence.as_captured.E}; with I = 0 on both rows ${G.fault_consequence.with_I_zero.cells} cells, E = ${G.fault_consequence.with_I_zero.E}`, 'DERIVED', esc(G.fault_consequence.note), true)}
+        ${row('the quark model on the mesons', `${G.quark_model_theorem.holds ? 'the theorem holds' : 'the theorem FAILS'}: ${esc(G.quark_model_theorem.text)}`, 'DERIVED', null, true)}
+        ${A.refuses.map((r) => row('refuses', esc(r), null, null, true)).join('')}
+      </div>
+      <p class="note">Every demanded cell of this site's own indexes is drawn in its lattice as a ghost, adjudicated: ${Object.entries(P.by_index).map(([id, v]) => `${esc(PSHORT[id] || id)} ${v.E}`).join(' · ')}. Open an index and tap a ghost for its cell.</p>`;
   }
   function renderBonds(b) {
     const m = b.molecular, pw = b.particle;
@@ -2587,6 +2701,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const nu = px.nuclear;
     if (nu && !nu.absent) html += renderNuclear(nu, openIx);
     if (px.bonds) html += renderBonds(px.bonds);
+    if (px.predictions && !px.predictions.absent) html += renderPredictions(px.predictions);
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;

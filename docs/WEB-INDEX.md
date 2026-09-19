@@ -521,6 +521,43 @@ fourteen nucleon–nucleon partial waves at J ≤ 3) and the finding that outliv
 closure channel is now occupied, so the overlap rule's novel-channel ground can never be
 satisfied again. The Particles dialog carries both; the captures' md5s join the provenance list.
 
+**What the indexes predict, and the ghosts in every particle lattice.** `predict.py` measures E per
+seated index, the cells an index's own join-closure demands and no member occupies: 3,206 over
+twenty-two indexes, sixteen predicting and six complete, the partition exact (E = 0 exactly where
+the index closes under information, near definitional and said so), E reported as an upper bound
+because a demanded cell is one of three things and only one is a prediction: FORBIDDEN, UNPLACED
+or OPEN, the worked case being the D_s slot in the mesons, empty because the source prints no
+spin-parity for a particle that exists. `ghosts.py` does the adjudication: seven laws (a
+join-closure never invents a coordinate value; a monotone bound forbids nothing, so every atomic
+and nuclear bound in the tree, real theorems all, forbids nothing by theorem; only an antitone,
+congruential or non-monotone bound can forbid; a hidden variable free to range forbids nothing,
+so the quark model forbids no meson cell; E is relative to the operator, the element table's 36
+being an order deficit with a join deficit of zero on the same ninety cells; forbidding power is
+the chart's), one bound that forbids, Gell-Mann–Nishijima on the baryons, re-derived from the
+capture's own quark strings (292 of 292 clean, and a capture fault on the mesons found by its
+isospin leg, recorded and not repaired, its consequence measured as nil), and the separation of
+UNPLACED from OPEN by a rule with a strength condition: 593 forbidden, 36 unplaced, 2,479 open,
+98 undecided. `_predictions` carries all of it, and for the site's own eight indexes it classifies
+**every demanded cell** with the instrument's own bound and source gaps (nine seconds at build),
+naming the source row that pins an UNPLACED one; the selftest asserts the cell-by-cell counts
+against the instrument's recorded table and that every demanded cell sits on coordinate values
+its members carry, which the projection law guarantees. The explorer draws them: **every
+demanded cell of a particle index is a ghost in its lattice**, hollow, tinted by its bin
+(forbidden faint and dashed, unplaced amber, open in the accent), fanned with the members at its
+position, counted in the caption and the canvas key, listed by bin on the index's plate, and each
+opening to a plate of its own (`#/p/mesons/ghost/2,-1,0,3`) with its coordinates read back, its
+bin and what decides it, and the members that would be its cell mates (none, by definition). The
+baryons' 1,012 draw beside their 278 members. The Particles dialog carries the E table, the laws,
+the adjudication table, the rule, the undecided index, the bound and the fault.
+
+**The deformed-paper capture is closed.** The missing entry was a band-number line printed with a
+full stop, admitted narrowly (exactly one such line exists), and the capture is total against
+three of the paper's own figures, 234 entries, 173 bands, 61 bandhead states; the remaining
+falling spin sequence is one entry the paper prints as one, acquitted; on the band index's
+coordinates the levels give 96 cells at K2, cell (2, 49, 2), measured and not seated, because a
+capture is not an index and seating is a ruling of the other session. The block carries the
+closure with its numbers, and the pin reads "234 of 234 entries, total, not seated".
+
 That join-over-meet correction is also the retrieval law the released three-body paper's closure
 measurement gives, and the Ask prompt now carries it as clause (g) of the retrieval method: a
 failed narrow search is a meet, and its retry is a join over a larger index, never the same meet
@@ -528,7 +565,7 @@ again.
 
 None of these instruments is on `main` yet: a plain build from the repository tree carries three
 indexes and no sweep, and the fixtures and pins are conditional on their presence; the shipped
-data was built with `--warp-root` on the warp branch at 4de78a4.
+data was built with `--warp-root` on the warp branch at d264df1.
 
 ### Each particle index as an index of the explorer
 
