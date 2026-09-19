@@ -1357,7 +1357,12 @@
     const lg = $('#legend-lattice'); if (lg) lg.hidden = v !== 'lattice';
     if (v !== 'lattice') return v;
     if (isParticleNode(node)) {
-      if (!state.scene || state.scene.kind !== 'particles' || state.scene.id !== node.id) { state.scene = buildParticleScene(node.id); state.orbit = particleHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
+      if (!state.scene || state.scene.kind !== 'particles' || state.scene.id !== node.id) {
+        state.scene = buildParticleScene(node.id);
+        // a two-coordinate index is a plane: it opens face-on, tilted just enough to show it is a lattice
+        state.orbit = state.scene && state.scene.zs.length === 1 ? { rx: 0.22, ry: -0.1, zoom: 1 } : particleHome();
+        if (state.scene) fitOrbit(state.scene, state.orbit);
+      }
       else if (node.kind === 'pindex' && state.orbit) { state.orbit.zoom = 1; fitOrbit(state.scene, state.orbit); }
       return v;
     }
@@ -2063,10 +2068,12 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     bosonqp: { x: 'Q3', y: '2J', z: null, colour: 'extra:kind' },
     readrezayi: { x: 'K', y: 'ORD', z: 'CHORD', colour: 'STAT' },
     spin4: { x: 'Q3', y: '2I', z: 'P', colour: 'extra:pdg_status' },
+    nucbands: { x: '2I', y: 'P', z: null, colour: 'extra:table' },
   };
-  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries' };
-  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status' };
+  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries' };
+  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)' };
   const half = (v) => (v % 2 ? `${v}/2` : String(v / 2));
+  const axisLabel = (px, name) => (px && px.id === 'nucbands' && name === '2I' ? 'spin I' : (PLABEL[name] || name));
   const third = (v) => (v % 3 === 0 ? String(v / 3) : `${v}/3`).replace('-', '−');
   // a coordinate's value read out in its own units: the doubled spin as J, the charge in thirds as Q
   function coordText(name, v) {
@@ -2109,6 +2116,15 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         source: { text: src.citation || '', doi: src.doi || null, status: 'READ', note: 'the review the capture reads' },
         rows: ix.rows.map((r, i) => ({ i, name: r.name, key: r.name, coords: r.coords, extra: r.extra, pdgid: r.pdgid })),
         colour_rule: ix.colour_rule || null, conjugation: ix.conjugation || null, collisions: ix.collisions || null, collisions_note: ix.collisions_note || '', raw: ix, in_progress: false });
+    }
+    const nu = P.nuclear;
+    if (nu && !nu.absent && nu.index) {
+      const ni = nu.index;
+      out.push({ id: 'nucbands', family: 'nuclear', title: ni.title, short: PSHORT.nucbands, member: ni.member, coordinates: ni.coordinates,
+        members: ni.members, charted: ni.charted, cells: ni.cells, cell: ni.cell, closers: ni.closers || [], refused: [], unplaced: [], unplaced_why: '',
+        source: { text: `${nu.capture.paper} (arXiv:${nu.capture.arxiv}); the capture reproduces the paper's own census exactly`, status: 'READ', note: 'read from the capture the instrument writes; nothing is written down by hand' },
+        raw: ni, capture: nu.capture, deformed: nu.deformed || null, in_progress: !!ni.in_progress,
+        rows: ni.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
     }
     const q = P.quasiparticles || {};
     const fq = q.seated;
@@ -2248,14 +2264,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     scene.ys.forEach((v, k) => { const p = P(ox, k, oz); ctx.fillText(coordTick(ax.y, v), p.x - 7, p.y); });
     if (scene.zs.length > 1) { ctx.textAlign = 'center'; scene.zs.forEach((v, k) => { const p = P(ox, oy, k); ctx.fillText(coordTick(ax.z, v), p.x - 12, p.y + 10); }); }
     ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left';
-    const pX = P(ex.x1 + 0.4, oy, oz); ctx.fillText(`${PLABEL[ax.x] || ax.x} →`, pX.x + 4, pX.y);
-    const pY = P(ox, ex.y1 + 0.5, oz); ctx.fillText(`${PLABEL[ax.y] || ax.y} ↑`, pY.x + 4, pY.y);
-    if (scene.zs.length > 1) { const pZ = P(ox, oy, ex.z1 + 0.5); ctx.fillText(`${PLABEL[ax.z] || ax.z} → (layers)`, pZ.x + 4, pZ.y); }
+    const pX = P(ex.x1 + 0.4, oy, oz); ctx.fillText(`${axisLabel(scene.px, ax.x)} →`, pX.x + 4, pX.y);
+    const pY = P(ox, ex.y1 + 0.5, oz); ctx.fillText(`${axisLabel(scene.px, ax.y)} ↑`, pY.x + 4, pY.y);
+    if (scene.zs.length > 1) { const pZ = P(ox, oy, ex.z1 + 0.5); ctx.fillText(`${axisLabel(scene.px, ax.z)} → (layers)`, pZ.x + 4, pZ.y); }
     // the colour key, in the canvas's top-left corner
     if (scene.key.length) {
       ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
       let x = 12, y = 14;
-      const head = `${PLABEL[ax.colour] || ax.colour}:`;
+      const head = `${axisLabel(scene.px, ax.colour)}:`;
       ctx.fillStyle = C.muted; ctx.fillText(head, x, y); x += ctx.measureText(head).width + 10;
       for (const k of scene.key) {
         const w = ctx.measureText(k.label).width + 22;
@@ -2267,7 +2283,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
   function particleCaption(sc) {
     const px = sc.px, ax = sc.ax;
-    return `<b>${esc(px.short)}</b> as a lattice · ${esc(PLABEL[ax.x] || ax.x)} across, ${esc(PLABEL[ax.y] || ax.y)} up${sc.zs.length > 1 ? `, ${esc(PLABEL[ax.z] || ax.z)} into the page` : ''} · ${sc.drawn} members on ${sc.positions} drawn positions${sc.fanned ? `, ${sc.fanned} shared and fanned out` : ''} · ${px.cells} cells, K${px.cell.channel} · the axes a choice of this page; every value the instrument's`;
+    return `<b>${esc(px.short)}</b> as a lattice · ${esc(axisLabel(px, ax.x))} across, ${esc(axisLabel(px, ax.y))} up${sc.zs.length > 1 ? `, ${esc(axisLabel(px, ax.z))} into the page` : ''} · ${sc.drawn} members on ${sc.positions} drawn positions${sc.fanned ? `, ${sc.fanned} shared and fanned out` : ''} · ${px.cells} cells, K${px.cell.channel} · the axes a choice of this page; every value the instrument's`;
   }
   function particleSuggestions(t) {
     if (!t || !state.particleIndex) return [];
@@ -2313,18 +2329,45 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('the two tests', esc(s.tests.note), s.tests.status, esc(s.tests.box_invariance + ' — ' + s.tests.reach_gate), true)}
         ${row('every channel occupied', s.channels.all_occupied ? 'yes' : 'no', 'DERIVED', esc(s.channels.note), true)}
       </div>`); }
+    else if (px.id === 'nucbands' && px.raw) { const n = px.raw, c = px.capture, d = px.deformed; extra = section('The index, its refusals and its channel', `<div class="fields">
+        ${row('levels captured', `${n.levels_captured.toLocaleString()}, of which ${n.members.toLocaleString()} carry both coordinates and are the members`, 'READ', null, true)}
+        ${row('refused: bands with no spin-parity column', `${n.refusals.bands_no_spin} (${n.refusals.bands_no_spin_reasons.energy_unknown} with energies relative to an unknown bandhead, ${n.refusals.bands_no_spin_reasons.spin_relative} with a relative spin ladder)`, n.refusals.status, esc(n.refusals.note), true)}
+        ${row('refused: levels with a spin and no parity', String(n.refusals.levels_no_parity), n.refusals.status, null, true)}
+        ${row('refused: level rows with no spin-parity inside a band that has them', `${n.refusals.levels_no_spin_in_a_band}: ${n.refusals.unplaced.map((u) => `${u.A}${u.el} band ${u.band} at ${u.E_keV} keV${u.closes ? ', gamma closes' : ''}`).join('; ')}`, n.refusals.status, 'found by audit, each closing its own gamma arithmetic against a level below it', true)}
+        ${row('the channel', `K${px.cell.channel} at arity ${n.free_channel.arity}, and it is the free one`, n.free_channel.status, esc(n.free_channel.note), true)}
+        ${row('the bands as a sub-population', `${n.bands.cells} cells, the same channel`, n.bands.status, esc(n.bands.note), true)}
+        ${Object.entries(n.by_table).map(([k, v]) => row(`${k} alone`, `${v.levels.toLocaleString()} levels on ${v.cells} cells, K${v.channel}`, 'DERIVED', esc(n.by_table_note), true)).join('')}
+      </div>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinates</th><th>channel</th><th>cells</th><th>cell</th></tr></thead><tbody>${n.supersets.rows.map((r) => `<tr><td class="mono">${esc(r.coordinates.join(', '))}</td><td>K${r.channel}</td><td>${r.cells.toLocaleString()}</td><td>(${r.cell.channel}, ${r.cell.height}, ${r.cell.width})</td></tr>`).join('')}</tbody></table></div>
+      <p class="note">${esc(n.supersets.note)} ${badge(n.supersets.status)}</p>`)
+      + section('The capture and its totality', `<div class="fields">
+        ${row('paper', `${esc(c.paper)} · ${ext('https://arxiv.org/abs/' + c.arxiv, 'arXiv:' + c.arxiv)}`, 'READ', `source text md5 ${c.source_md5}${c.source_md5 === c.source_md5_now ? ', as the capture records it' : ' — DRIFT'}`, true)}
+        ${row('the census', Object.entries(c.census.measured).map(([k, v]) => `${k}: ${v.bands} bands in ${v.nuclei} nuclei (stated ${c.census.stated[k].bands}/${c.census.stated[k].nuclei})`).join(' · ') + (c.census.exact ? ' — exact' : ' — NOT exact'), c.census.status, esc(c.census.note), true)}
+        ${row('the selection rule', `AMR ${c.selection_rule.AMR.delta_2I_4} of ${c.selection_rule.AMR.steps} steps at ΔI = 2; MR ${c.selection_rule.MR.delta_2I_2} of ${c.selection_rule.MR.steps} at ΔI = 1`, c.selection_rule.status, esc(c.selection_rule.note), true)}
+        ${c.source_faults.map((f) => row(`a fault in the source: ${f.A}${f.el} band ${f.band}`, esc(f.text), 'READ', esc(c.faults_note), true)).join('')}
+        ${c.parser_faults.map((f) => row(`a fault in the parser, fixed: ${f.A}${f.el} band ${f.band}`, esc(f.text), 'READ', esc(c.faults_note), true)).join('')}
+        ${c.not_a_fault.map((f) => row(`not a fault: ${f.A}${f.el} band ${f.band}`, esc(f.text), 'READ', null, true)).join('')}
+      </div>`)
+      + (d ? section('The second paper: captured, not seated', `<div class="fields">
+        ${row('paper', `${esc(d.paper)} · ${ext('https://arxiv.org/abs/' + d.arxiv, 'arXiv:' + d.arxiv)}`, 'READ', null, true)}
+        ${row('verdict', `<b>${esc(d.verdict)}</b> — ${esc(d.why)}`, d.verdict_status, esc(d.note), true)}
+        ${row('the census', `${d.census.entries} of ${d.stated.entries} entries, ${d.census.bands} of ${d.stated.bands} bands, ${d.census.bandheads} of ${d.stated.bandheads} bandhead states`, 'DERIVED', 'the bandhead count landing exactly is the one strong signal the segmentation is right; it is an independent figure the paper states and was not tuned toward', true)}
+        ${row('the delimiter', `"${esc(d.spec)}": ${d.separators.required} required, ${d.separators.blank_lines} blank lines present, ${d.separators.at_page_breaks} at page breaks and ${d.separators.inside_headers} inside headers, ${d.separators.available} available`, 'DERIVED', null, true)}
+        ${row('the four forward parses', d.attempts.map((a) => `${a.entries} (${esc(a.method)}: ${esc(a.why)})`).join('; '), 'READ', 'recorded so a fifth is not written by accident; the fifth that works tightens the sequence rule instead of relaxing it', true)}
+        ${row('the two discontinuities', d.discontinuities.map((x) => `entry ${x.entry} (band ${x.band_number}) falls ${x.drop.map((p) => p.join(' → ')).join(', ')}`).join('; '), 'DERIVED', 'a rotational band\'s spins ascend, so each looks like two bands merged; splitting both gives 235 against 234, so one is not what it looks like, and the capture stays short', true)}
+      </div>`) : ''); }
     else if (px.id === 'fundamental' && px.colour_rule) extra = section('The colour assignment', `<p class="note">Not in the capture: ${px.colour_rule.map((c) => `${esc(c.what)} → ${c.dimension}`).join(' · ')} ${badge('PINNED', 'the Standard Model\'s definition, printed rather than hidden')}</p>${px.collisions ? `<p class="note"><b>${px.collisions.length} cells hold two members</b> — ${esc(px.collisions_note)} ${badge('DERIVED')}</p>` : ''}`);
     else if (px.conjugation) extra = section('Antimatter, measured rather than seated', `<p class="note">${px.conjugation.pairs} particle–antiparticle pairs, ${px.conjugation.split} split by the chart and ${px.conjugation.collided} collided${px.conjugation.note ? '; ' + esc(px.conjugation.note) : ''}. ${badge('DERIVED')}</p>`);
     return `<div class="kind">a particle index${px.in_progress ? ' · in progress' : ''}</div>
       <h2 class="node-title">${esc(px.title)}</h2>
       <p class="node-sub">One member is ${esc(px.member)}.</p>
       <div class="stats">
-        <div class="stat"><b>${px.members}</b><span>members ${badge(px.family === 'pdg' ? 'READ' : 'DERIVED', px.family === 'pdg' ? 'rows of the table the capture keeps' : 'members the instrument computes from its stated rule')}</span></div>
+        <div class="stat"><b>${px.members.toLocaleString()}</b><span>members ${badge(px.family === 'pdg' || px.family === 'nuclear' ? 'READ' : 'DERIVED', px.family === 'pdg' ? 'rows of the table the capture keeps' : px.family === 'nuclear' ? 'levels of the published data table the capture keeps, those carrying both coordinates' : 'members the instrument computes from its stated rule')}</span></div>
         <div class="stat"><b>${px.charted}</b><span>charted ${badge('DERIVED', 'members with every coordinate printed, so each lands on a cell')}</span></div>
         <div class="stat"><b>${px.cells}</b><span>cells ${badge('DERIVED', 'the instrument\'s own count over the members')}</span></div>
         <div class="stat"><b>K${px.cell.channel}</b><span>closure channel ${badge('DERIVED', `height ${px.cell.height}, width ${px.cell.width}; closed by ${px.closers.length ? px.closers.join(', ') : 'no language'}`)}</span></div>
       </div>
-      <p class="note">Drawn as a lattice: <b>${esc(PLABEL[ax.x] || ax.x)}</b> across, <b>${esc(PLABEL[ax.y] || ax.y)}</b> up${ax.z ? `, <b>${esc(PLABEL[ax.z] || ax.z)}</b> into the page` : ''}${ax.colour ? `, coloured by <b>${esc(PLABEL[ax.colour] || ax.colour)}</b>` : ''}; one node per charted member at the rank of its values, members sharing a drawn position fanned out inside it${undrawn.length ? `; ${undrawn.map(esc).join(', ')} not drawn, so a drawn position may hold several cells` : ''}. Tap a node for its member. ${badge('DERIVED', 'which coordinate goes on which axis is a choice of this page, not a coordinate of the index')}</p>
+      <p class="note">Drawn as a lattice: <b>${esc(axisLabel(px, ax.x))}</b> across, <b>${esc(axisLabel(px, ax.y))}</b> up${ax.z ? `, <b>${esc(axisLabel(px, ax.z))}</b> into the page` : ''}${ax.colour ? `, coloured by <b>${esc(axisLabel(px, ax.colour))}</b>` : ''}; one node per charted member at the rank of its values, members sharing a drawn position fanned out inside it${undrawn.length ? `; ${undrawn.map(esc).join(', ')} not drawn, so a drawn position may hold several cells` : ''}. Tap a node for its member. ${badge('DERIVED', 'which coordinate goes on which axis is a choice of this page, not a coordinate of the index')}</p>
       ${section('Coordinates', `<div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th><th>drawn</th></tr></thead><tbody>${px.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td><td>${esc(onAxis(c.name))}</td></tr>`).join('')}</tbody></table></div>`)}
       ${px.unplaced.length ? section('Set aside by name', `<p class="note">${px.unplaced.length} members land on no cell because ${esc(px.unplaced_why)}: ${px.unplaced.map((n) => { const r = px.byName.get(String(n).toLowerCase()); return r ? pchip(px, r) : esc(n); }).join(' ')}</p>`) : ''}
       ${extra}
@@ -2367,6 +2410,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('(l, m)', `(${x.l}, ${x.m})`, 'DERIVED', null, true)}
         ${row('conformal weight h', esc(x.h), 'DERIVED', null, true)}
         ${row('quasihole charge Q', `${esc(x.Q)} e`, 'DERIVED', null, true)}
+      </div>`);
+    } else if (px.id === 'nucbands') {
+      printed = section('The level', `<div class="fields">
+        ${row('nucleus', `${x.A}${esc(x.el)} — Z = ${x.Z}, N = ${x.N}`, 'READ', null, true)}
+        ${row('mechanism', x.table === 'MR' ? 'MR — magnetic rotation, the shears mechanism, ΔI = 1' : 'AMR — antimagnetic rotation, ΔI = 2', 'READ', 'which of the paper\'s two tables the band is in', true)}
+        ${row('band', `${x.band}${x.band_levels ? ` · ${x.band_levels} levels${x.head_E ? `, bandhead at ${esc(x.head_E)} keV` : ''}` : ''}`, 'READ', null, true)}
+        ${row('excitation energy', `${esc(x.E_keV)} keV`, 'READ', 'as the table prints it', true)}
       </div>`);
     } else if (px.id === 'bosonqp') {
       printed = section('How it is made', `<div class="fields">
@@ -2420,6 +2470,33 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     });
     cvals.forEach((v, i) => { svg.appendChild(svgEl('circle', { cx: m.l + 10 + i * 96, cy: m.t - 6, r: 4, fill: L_COLOR[i % L_COLOR.length] })); svg.appendChild(svgEl('text', { x: m.l + 18 + i * 96, y: m.t - 2, class: 'tick' }, `${names[ci]} ${v === null ? 'not printed' : '= ' + v}`)); });
     return svg;
+  }
+  function renderNuclear(nu, openIx) {
+    const n = nu.index, c = nu.capture, d = nu.deformed;
+    return `<h3>${esc(n.title)} ${openIx('nucbands')} <span class="muted">(in progress on the other session)</span></h3><p class="note">${esc(nu.status_note)}</p>
+      <p class="note">One member is ${esc(n.member)}. ${n.members.toLocaleString()} members of ${n.levels_captured.toLocaleString()} captured levels on ${n.cells} cells; closure channel K${n.cell.channel} (height ${n.cell.height}, width ${n.cell.width}) — ${esc(n.free_channel.note)} ${badge('DERIVED')}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>${n.coordinates.map((x) => `<tr><td class="mono">${esc(x.name)}</td><td class="wrap">${esc(x.meaning)}</td><td>${badge(x.status)}</td></tr>`).join('')}</tbody></table></div>
+      <div class="fields">
+        ${row('refused, counted apart', `${n.refusals.bands_no_spin} bands with no spin-parity column, ${n.refusals.levels_no_parity} levels with no parity, ${n.refusals.levels_no_spin_in_a_band} level rows with no spin-parity inside a band that has them`, n.refusals.status, esc(n.refusals.note), true)}
+        ${row('the bands themselves', `${n.bands.cells} cells as a sub-population, measured and not seated`, n.bands.status, esc(n.bands.note), true)}
+        ${row('every wider reading', n.supersets.rows.slice(1).map((r) => `(${r.coordinates.join(', ')}) → K${r.channel}, ${r.cells.toLocaleString()} cells`).join('; '), n.supersets.status, esc(n.supersets.note), true)}
+        ${row('the capture', `${esc(c.paper)} · ${ext('https://arxiv.org/abs/' + c.arxiv, 'arXiv:' + c.arxiv)}: ${Object.entries(c.census.measured).map(([k, v]) => `${k} ${v.bands}/${v.nuclei}`).join(', ')} against the paper's ${Object.entries(c.census.stated).map(([k, v]) => `${v.bands}/${v.nuclei}`).join(', ')} — ${c.census.exact ? 'exact' : 'NOT exact'}; AMR ${c.selection_rule.AMR.delta_2I_4}/${c.selection_rule.AMR.steps} steps at ΔI = 2`, c.census.status, esc(c.census.note + ' ' + c.selection_rule.note), true)}
+        ${row('faults', `${c.source_faults.length} in the source, captured as printed; ${c.parser_faults.length} in the parser, found by audit and fixed; ${c.not_a_fault.length} run down and found not a fault`, 'READ', esc(c.faults_note), true)}
+        ${d ? row('the second paper', `${ext('https://arxiv.org/abs/' + d.arxiv, 'arXiv:' + d.arxiv)} — <b>${esc(d.verdict)}</b>: ${d.census.entries} of ${d.stated.entries} entries, ${d.census.bandheads} of ${d.stated.bandheads} bandhead states exact`, d.verdict_status, esc(d.note), true) : ''}
+      </div>`;
+  }
+  function renderBonds(b) {
+    const m = b.molecular, pw = b.particle;
+    return `<h3>${esc(b.title)} <span class="muted">(in progress on the other session)</span></h3><p class="note">${esc(b.status_note)}</p>
+      <div class="fields">
+        ${b.refusals.map((r) => row(esc(r.reading), `<b>${esc(r.ground)}</b> — ${esc(r.why)}`, r.status, null, true)).join('')}
+        ${row('an orbital is not a bond', m.bond_vs_mo.map((x) => `${esc(x.molecule)}: bond order ${x.bond_order}, ${x.occupied_mos} occupied orbitals${x.equal ? '' : ' — differ'}`).join('; '), m.status, null, true)}
+        ${row('g/u is the host\'s', `${m.measured.without_gu} of ${m.measured.members} measured members carry none (${m.no_inversion.map(esc).join(', ')} have no inversion centre)`, 'READ', esc(m.measured_note), true)}
+        ${row('+/− is provably constant on one-electron orbitals', `σ_v eigenvalues over every m = 0 harmonic: {${m.sigma_v_eigenvalues.join(', ')}}; and π² gives ${m.pi2_microstates} microstates with a triplet (${m.sigma_terms_from_pi2.triplet}) and a singlet (${m.sigma_terms_from_pi2.singlet}) at M_L = 0, so ³Σ⁻ and ¹Σ⁺ come from one configuration`, m.status, 're-derived by the instrument, not quoted', true)}
+        ${row('no census', `${esc(m.basis.molecule)} has ${m.basis.distinct} distinct orbital counts, ${m.basis.min} to ${m.basis.max}, across ${m.basis.counts.length} basis sets: the count is the basis set's`, m.status, m.basis.counts.map((x) => `${x.basis} ${x.mos}`).join(', '), true)}
+        ${row('the nucleon–nucleon partial waves', `${pw.partial_waves_J3.length} channels at J ≤ 3: <span class="mono">${pw.partial_waves_J3.map(esc).join(' ')}</span>; growth ${pw.growth.map((g) => g.channels).join(', ')} for J ≤ ${pw.growth.map((g) => g.J_max).join(', ')}`, pw.status, esc(pw.note), true)}
+        ${row('a finding that outlives the question', `channels occupied K${b.channels.occupied.join(', K')}; empty: ${b.channels.empty.length ? 'K' + b.channels.empty.join(', K') : 'none'}`, b.channels.status, esc(b.channels.finding), true)}
+      </div>`;
   }
   function renderSubpop(sp) {
     const cand = sp.candidates, nb = cand.nuclear_bands;
@@ -2511,6 +2588,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     }
     const sp = px.subpop;
     if (sp && !sp.absent) html += renderSubpop(sp);
+    const nu = px.nuclear;
+    if (nu && !nu.absent) html += renderNuclear(nu, openIx);
+    if (px.bonds) html += renderBonds(px.bonds);
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
