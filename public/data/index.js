@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T18:53:06+00:00",
-  "commit": "364e85fb1c26",
+  "built": "2026-09-19T21:58:50+00:00",
+  "commit": "ac7fb3170664",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "364e85fb1c26",
-   "text": "Lach, M. (2026). The Method Index, edition 364e85fb1c26. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 364e85fb1c26}\n}"
+   "commit": "ac7fb3170664",
+   "text": "Lach, M. (2026). The Method Index, edition ac7fb3170664. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition ac7fb3170664}\n}"
   },
   "history": [
    {
@@ -247,6 +247,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/364e85fb1c264923f8a8675ce4e4bbf631eabfeb",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "96da041",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/96da04147973889226a949a1c834aa33cda05b5b",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "ac7fb31",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ac7fb3170664b4fcc906621c860a04a3c2e4e53c",
+    "note": null
    }
   ]
  },
@@ -346,8 +360,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/particles.js",
-   "bytes": 727462,
-   "md5": "67519a8ff70ced0cf6a79f517d356668",
+   "bytes": 856442,
+   "md5": "4ed5e6adea5e835c2b0f384b7b138f68",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
@@ -9589,8 +9603,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 727462,
-  "md5": "67519a8ff70ced0cf6a79f517d356668",
+  "bytes": 856442,
+  "md5": "4ed5e6adea5e835c2b0f384b7b138f68",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9630,8 +9644,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    ],
    "tree": {
     "root": "research/warp-drive",
-    "commit": "4de78a4",
-    "state_commit": "09276204387e",
+    "commit": "d264df1",
+    "state_commit": "bfa413696718",
     "instruments": [
      "pdgcapture.py",
      "fundamental.py",
@@ -9645,6 +9659,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "nbcapture.py",
      "deformed.py",
      "bonds.py",
+     "predict.py",
+     "ghosts.py",
      "particlesweep.py"
     ]
    }
@@ -9770,11 +9786,24 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     6
    ],
    "census_exact": true,
-   "deformed": "233 of 234 entries, not seated"
+   "deformed": "234 of 234 entries, total, not seated"
   },
   "bonds": {
    "refusals": 3,
    "empty_channels": []
+  },
+  "predictions": {
+   "total_E": 3206,
+   "predicting": 16,
+   "complete": 6,
+   "totals": {
+    "E": 3206,
+    "forbidden": 593,
+    "unplaced": 36,
+    "open": 2479,
+    "undecided": 98
+   },
+   "site_ghosts": 1827
   },
   "subpop": {
    "tested": 366,

@@ -1094,10 +1094,10 @@ def warp_modules(root):
     except Exception as e:  # noqa: BLE001 -- the docket is in progress on the other session
         mods["quasiparticle"] = None
         mods["quasiparticle_error"] = repr(e)
-    for extra in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds"):
+    for extra in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds", "predict", "ghosts", "demand"):
         try:
             mods[extra] = importlib.import_module(extra)
-        except Exception as e:  # noqa: BLE001 -- DOCKET 33-37 may not be in an older tree
+        except Exception as e:  # noqa: BLE001 -- DOCKET 33-39 may not be in an older tree
             mods[extra] = None
             mods[extra + "_error"] = repr(e)
     mods["root"] = root
@@ -1494,19 +1494,143 @@ def _nuclear(N, C, D):
         req, blanks, page, hdr, avail = D.separators()
         absent, recovered, why = D.verdict()
         ent, bands, heads_n = D.census2()
+        total = (ent, bands, heads_n) == (D.STATED["entries"], D.STATED["bands"], D.STATED["bandheads"])
+        closure = None
+        if hasattr(D, "docket36_chart"):
+            cells36, k36, cell36, n36, nopar36 = D.docket36_chart()
+            cand = D.candidate_pool() if hasattr(D, "candidate_pool") else None
+            closure = {"dotted_lines": [{"line": k, "text": s.strip()} for k, s in D.dotted_number_lines()] if hasattr(D, "dotted_number_lines") else [],
+                       "candidate_pool": {"candidates": cand[0], "chosen": cand[1], "rejected": cand[2]} if cand else None,
+                       "prose_figures": D.prose_figures() if hasattr(D, "prose_figures") else None,
+                       "chart": {"cells": cells36, "channel": k36, "cell": {"channel": cell36[0], "height": cell36[1], "width": cell36[2]}, "members": n36, "levels_no_parity": nopar36},
+                       "note": "the missing entry was a band-number line printed with a trailing full stop, which the sequence rule refused; it is admitted narrowly, a bare integer with a full stop and nothing else on the line, of which exactly one exists in the table, because admitting any dotted number would take the comment column's own numbering too; the capture is then total against three of the paper's own figures, and the third, the bandhead count, was exact before the entry was found, which is what made the search well-posed; the remaining falling spin sequence is one entry the paper prints as one, acquitted by the same four tests; on the same coordinates as the band index these levels give a chart no seated index holds, measured and not seated, because a capture is not an index and seating is a decision of the other session"}
         deformed = {
             "paper": D.PAPER, "arxiv": "2508.05447",
             "stated": dict(D.STATED), "spec": D.SPEC, "spec_is_stated": D.spec_is_stated(),
             "attempts": [{"method": m, "entries": n, "why": w} for m, n, w in D.ATTEMPTS],
             "separators": {"required": req, "blank_lines": blanks, "at_page_breaks": page, "inside_headers": hdr, "available": avail},
             "delimiter_absent": absent, "recovered": recovered, "sections": len(D.sections()),
-            "census": {"entries": ent, "bands": bands, "bandheads": heads_n},
+            "census": {"entries": ent, "bands": bands, "bandheads": heads_n}, "total": total,
             "discontinuities": [{"entry": i, "band_number": no, "drop": [list(d) for d in dr]} for i, no, _sp, dr in D.discontinuities()],
-            "verdict": "CAPTURED, NOT SEATED", "why": why, "verdict_status": "READ",
+            "verdict": "CAPTURED IN FULL, NOT SEATED" if total else "CAPTURED, NOT SEATED", "why": why, "verdict_status": "READ",
+            "closure": closure,
             "note": "the deformed rotor's tower, the candidate the sub-population sweep actually named; the document's own delimiter, a blank row between entries, was collapsed by the text extraction, and an earlier refusal concluded from that that no parse could recover the entries; that conclusion is retracted, a sequence-with-reset rule on the band number recovering 233 of 234 in 24 blocks matching the 24 nuclide sections; two entries carry a falling spin sequence and splitting both would give 235, so the capture stays at 233 and nothing is seated",
         }
     return {"index": index, "capture": capture, "deformed": deformed,
             "status_note": "a candidate the sub-population sweep first declared unreachable, reached by navigating by join rather than by meet: the shears-rotation paper captured in full with its own census reproduced, and its levels seated as an index; the deformed-rotor paper captured and not seated"}
+
+
+SITE_INDEX_IDS = {"fundamental.index": "fundamental", "mesons.index": "mesons", "baryons.index": "baryons", "spin4.index": "spin4",
+                  "nucbands.index": "nucbands", "fqh.index": "fqh", "readrezayi.index": "readrezayi", "bosonqp.index": "bosonqp"}
+
+
+def _predictions(PR, GH, DM, mods):
+    """DOCKETS 38 and 39 as the site carries them: E per seated index, the
+    cells each index's own join-closure demands and no member occupies, with
+    every demanded cell of the site's own indexes adjudicated into FORBIDDEN,
+    UNPLACED or OPEN by the instrument's bounds and source gaps, so the
+    explorer can draw them as ghosts beside the members; E carried as the
+    upper bound the instrument says it is."""
+    import registry as R
+    zero_ok, pos_ok, n_zero, n_pos = PR.partition()
+    ep = GH.element_precedent()
+    laws = [
+        {"law": "L1 projection", "text": "the join-closure never invents a coordinate value, so no single-coordinate bound can forbid a demanded cell; measured, none of the demanded baryon cells carries an even 2J"},
+        {"law": "L2 max-stability", "text": "a bound whose admissible set is closed under componentwise max forbids nothing"},
+        {"law": "L3 monotone vacuity", "text": "a bound of the form x_i ≤ f(x_j) with f non-decreasing is max-closed, so it forbids nothing; every atomic and nuclear bound in the tree has that shape, holds on every member, and forbids nothing, not because nothing was found but because nothing can be"},
+        {"law": "L4 what can forbid", "text": "only a bound that is antitone in some coordinate, carries a congruence, or is a non-monotone function of several coordinates; the one such bound here is Gell-Mann–Nishijima on the baryons"},
+        {"law": "L5 coordinate expressibility", "text": "a bound on a variable the index does not carry forbids a cell only if no value of that variable satisfies it; the quark model forbids no cell of the meson index, because every (J, P) is realised by some (L, S), and the exotic combinations need C, a coordinate the meson index refused for totality"},
+        {"law": "L6 relativity to the operator", "text": "E is a deficit against an operator: the element layout's 36 ghosts are an order deficit while these are join deficits, and on the same 90 cells the join deficit is zero"},
+        {"law": "L7 forbidding power is the chart's", "text": "the same bound forbids 25 cells on (period, group) and none on (n, l, k); a chart that can forbid is not thereby a better chart"},
+    ]
+    bounds = []
+    for nm, (label, law, mono, _fn) in GH.BOUNDS.items():
+        e, f, u, o, und = GH.TABLE.get(nm, (None, None, None, None, None))
+        bounds.append({"index": nm.split(".")[0], "bound": label, "from": law, "monotone": mono, "E": e, "forbidden": f})
+    table = [{"index": nm.split(".")[0], "E": v[0], "forbidden": v[1], "unplaced": v[2], "open": v[3], "undecided": v[4],
+              "bound": ("none, and the absence is a theorem" if nm in GH.NO_BOUND_BY_THEOREM else ("none derived" if nm in GH.NO_BOUND_DERIVED else GH.BOUNDS[nm][0]) if nm in GH.BOUNDS or nm in GH.NO_BOUND_BY_THEOREM or nm in GH.NO_BOUND_DERIVED else "undecided" if nm in GH.UNDECIDED else "—")}
+             for nm, v in sorted(GH.TABLE.items(), key=lambda kv: -kv[1][0])]
+    tot = GH.totals()
+    gb = GH.gmn_from_quarks("baryon"); gm = GH.gmn_from_quarks("meson")
+    before, after = GH.bs2_consequence()
+    qq_ok, qq_missing = GH.qqbar_theorem()
+    # every demanded cell of the site's own indexes, adjudicated cell by cell with the instrument's
+    # own rule, so the explorer can draw them; a source row that pins an UNPLACED cell is named
+    by_index = {}
+    for nm, sid in SITE_INDEX_IDS.items():
+        try:
+            X = frozenset(R.index_of(nm))
+        except Exception:  # noqa: BLE001 -- an index the registry does not seat in this tree
+            continue
+        d = sorted(DM.demand(X))
+        fn = GH.BOUNDS[nm][3] if nm in GH.BOUNDS else None
+        gap = GH.GAPS[nm]() if nm in GH.GAPS else []
+        names = _gap_names(nm, mods)
+        cells = []
+        for c in d:
+            if fn and not fn(c):
+                b, pins = "FORBIDDEN", []
+            else:
+                pins = [names.get(tuple(g), None) for g in gap if GH._pins(g, c)]
+                b = "UNPLACED" if pins else "OPEN"
+            if nm in GH.UNDECIDED and b != "FORBIDDEN":
+                b = "UNDECIDED"
+            cells.append({"cell": list(c), "bin": b, "pinned_by": sorted({p for p in pins if p})})
+        cnt = collections.Counter(x["bin"] for x in cells)
+        by_index[sid] = {"E": len(d), "forbidden": cnt.get("FORBIDDEN", 0), "unplaced": cnt.get("UNPLACED", 0), "open": cnt.get("OPEN", 0), "undecided": cnt.get("UNDECIDED", 0),
+                         "bound": GH.BOUNDS[nm][0] if nm in GH.BOUNDS else None, "bound_from": GH.BOUNDS[nm][1] if nm in GH.BOUNDS else None,
+                         "bound_status": ("theorem: none forbids" if nm in GH.NO_BOUND_BY_THEOREM else "none derived" if nm in GH.NO_BOUND_DERIVED else "derived" if nm in GH.BOUNDS else "none"),
+                         "recorded": list(GH.TABLE[nm]) if nm in GH.TABLE else None, "cells": cells, "status": "DERIVED"}
+    return {
+        "title": "What the indexes predict",
+        "status_note": "E is the number of cells an index's own join-closure demands and no member occupies; it is reported as an upper bound on predictions, because a demanded cell is not a prediction until it is adjudicated, and the adjudication is done here with the instrument's own bounds and source gaps",
+        "E_by_index": [{"index": nm.split(".")[0], "E": e} for nm, e in sorted(PR.E_BY_INDEX.items(), key=lambda kv: (-kv[1], kv[0]))],
+        "too_large": [nm.split(".")[0] for nm in PR.TOO_LARGE],
+        "partition": {"zero_close_information": zero_ok, "positive_do_not": pos_ok, "complete": n_zero, "predicting": n_pos, "status": "DERIVED",
+                      "note": "every index with E = 0 closes under information and every index with E > 0 does not; near definitional, since E is the join deficit and the information closer is the join closer; the result is the numbers"},
+        "total_E": PR.total(),
+        "bins": [{"bin": b, "meaning": m} for b, m in PR.BINS],
+        "worked_case": {"index": PR.UNPLACED_CASE[0].split(".")[0], "cell": list(PR.UNPLACED_CASE[1]), "text": PR.UNPLACED_CASE[2], "status": "READ"},
+        "element_precedent": {"cells": ep[0], "E_join": ep[1], "E_order": ep[2], "order_ghosts_forbidden_by_l_le_n_minus_1": ep[3], "join_ghosts_forbidden": ep[4], "status": "DERIVED",
+                              "note": "the element layout's thirty-six ghosts are an order deficit, adjudicated 25 forbidden and 11 deferred; the particle and nuclear E are join deficits, and on the same ninety cells the join deficit is zero, so the precedent transfers the bins and not the numbers"},
+        "laws": laws,
+        "bounds": bounds,
+        "adjudication": {"rows": table, "totals": {"E": tot[0], "forbidden": tot[1], "unplaced": tot[2], "open": tot[3], "undecided": tot[4]}, "status": "DERIVED",
+                         "rule": "a demanded cell is UNPLACED when the index's own source holds a row the instrument declined to chart which supplies all but one coordinate and agrees with the cell on every one it supplies; a row missing two coordinates pins nothing",
+                         "undecided": {"index": "terms", "why": GH.UNDECIDED["terms.index"]},
+                         "refuses": ["to call the OPEN total a count of undiscovered objects: for the indexes with a derived bound it is final against every monotone bound, by theorem; for those with none derived it is open against nothing at all", "to repair the capture fault below", "to read forbidding power as evidence of a better chart"]},
+        "gmn": {"identity": "Q = I3 + Y/2 with Y = B + S + C + B' + T, re-derived from the capture's own quark strings",
+                "baryons": {"rows": gb[0], "parsed": gb[1], "charge_ok": gb[2], "isospin_ok": gb[3], "identity_ok": gb[4], "faults": [{"name": n, "quarks": q, "I2": i, "T2": tt} for n, q, i, tt in gb[5]]},
+                "mesons": {"rows": gm[0], "parsed": gm[1], "charge_ok": gm[2], "isospin_ok": gm[3], "identity_ok": gm[4], "faults": [{"name": n, "quarks": q, "I2": i, "T2": tt} for n, q, i, tt in gm[5]]},
+                "fault_note": "the meson isospin leg fails on one state and its antiparticle, whose quark content carries no u or d and so no weight for I = 1/2 while the same content on two other rows carries I = 0 in the same file: a fault in the capture, recorded and not repaired",
+                "fault_consequence": {"as_captured": {"cells": before[0], "E": before[1], "cell": list(before[2])}, "with_I_zero": {"cells": after[0], "E": after[1], "cell": list(after[2])}, "note": "measured rather than asserted: the meson index is the same before and after, because both cells are occupied by other members"},
+                "quark_model_theorem": {"holds": qq_ok, "missing": [list(m) for m in qq_missing], "text": "every (J, P) with J a non-negative integer is realised by some quark–antiquark (L, S), so the quark model forbids no cell of the meson index; the exotic combinations are exotic in J^PC, and C is not a coordinate here"},
+                "status": "DERIVED"},
+        "by_index": by_index,
+        "in_progress": True,
+    }
+
+
+def _gap_names(nm, mods):
+    """{partial source tuple: a name} for the rows an index declined to chart, where the
+    instrument's own rows carry one, so an UNPLACED cell can say what pins it."""
+    out = {}
+    try:
+        if nm == "mesons.index":
+            for r in mods["mesons"].all_rows():
+                if r[3] is None:
+                    out[(r[2], None, r[4], r[5])] = r[0]
+        elif nm == "baryons.index":
+            for r in mods["baryons"].all_rows():
+                if r[3] is None:
+                    out[(r[2], None) + tuple(r[4:])] = r[0]
+        elif nm == "nucbands.index":
+            for r in mods["nucbands"].levels():
+                if r["2I"] and not r["par"]:
+                    out.setdefault((int(r["2I"]), None), "%s%s %s band %s · %s keV" % (r["A"], r["el"], r["table"], r["band"], r["E_keV"]))
+    except Exception:  # noqa: BLE001 -- a name is a courtesy, never a requirement
+        pass
+    return out
 
 
 def _bonds(B):
@@ -1705,6 +1829,11 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     elif mods.get("nucbands_error"):
         nuclear = {"absent": True, "note": "the nuclear band instrument did not import: " + mods["nucbands_error"][:200]}
     bonds = _bonds(mods["bonds"]) if mods.get("bonds") is not None else None
+    predictions = None
+    if mods.get("predict") is not None and mods.get("ghosts") is not None and mods.get("demand") is not None:
+        predictions = _predictions(mods["predict"], mods["ghosts"], mods["demand"], mods)
+    elif mods.get("ghosts_error") or mods.get("predict_error"):
+        predictions = {"absent": True, "note": "the prediction instruments did not import: " + (mods.get("ghosts_error") or mods.get("predict_error"))[:200]}
     subpop = None
     if mods.get("subpop") is not None:
         subpop = _subpop(mods["subpop"])
@@ -1768,7 +1897,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
-    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds"):
+    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds", "predict", "ghosts"):
         if mods.get(extra_mod) is not None:
             prov["tree"]["instruments"].append(extra_mod + ".py")
     if nuclear and not nuclear.get("absent"):
@@ -1786,7 +1915,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     full = {
         "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
         "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
-        "nuclear": nuclear, "bonds": bonds,
+        "nuclear": nuclear, "bonds": bonds, "predictions": predictions,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -1812,9 +1941,12 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "nuclear": ({"members": nuclear["index"]["members"], "cells": nuclear["index"]["cells"], "channel": nuclear["index"]["cell"]["channel"],
                      "refusals": [nuclear["index"]["refusals"][k] for k in ("bands_no_spin", "levels_no_parity", "levels_no_spin_in_a_band")],
                      "census_exact": nuclear["capture"]["census"]["exact"],
-                     "deformed": ("%d of %d entries, not seated" % (nuclear["deformed"]["census"]["entries"], nuclear["deformed"]["stated"]["entries"]) if nuclear.get("deformed") else None)}
+                     "deformed": ("%d of %d entries, %s, not seated" % (nuclear["deformed"]["census"]["entries"], nuclear["deformed"]["stated"]["entries"], "total" if nuclear["deformed"].get("total") else "short") if nuclear.get("deformed") else None)}
                     if nuclear and not nuclear.get("absent") else None),
         "bonds": ({"refusals": len(bonds["refusals"]), "empty_channels": bonds["channels"]["empty"]} if bonds else None),
+        "predictions": ({"total_E": predictions["total_E"], "predicting": predictions["partition"]["predicting"], "complete": predictions["partition"]["complete"],
+                         "totals": predictions["adjudication"]["totals"], "site_ghosts": sum(v["E"] for v in predictions["by_index"].values())}
+                        if predictions and not predictions.get("absent") else None),
         "subpop": ({"tested": subpop["census"]["tested"], "closed_sets": subpop["census"]["closed_sets"], "hits": subpop["census"]["reaching_an_unoccupied_channel"],
                     "exhaustive_chains": [e["longest_chain"] for e in subpop["exhaustive"]], "lattices": subpop["lattices"]["count"]} if subpop and not subpop.get("absent") else None),
         "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
@@ -3007,8 +3139,37 @@ def selftest(warp_root=WARP_ROOT):
             check("nuclear bands: the source md5 is the one the capture records", nu["capture"]["source_md5"], nu["capture"]["source_md5_now"])
             check("nuclear bands: every member row carries both coordinates and a nucleus", all(len(r["coords"]) == 2 and r["extra"]["A"] > r["extra"]["Z"] > 0 for r in ni["rows"]), True)
             if nu.get("deformed"):
-                check("deformed bands: 233 of 234 entries recovered, 61 bandheads exact, not seated", (nu["deformed"]["census"], nu["deformed"]["recovered"], nu["deformed"]["verdict"]), ({"entries": 233, "bands": 172, "bandheads": 61}, 233, "CAPTURED, NOT SEATED"))
-                check("deformed bands: the document's delimiter is absent, 0 of 210, and the earlier refusal is retracted", (nu["deformed"]["separators"]["available"], nu["deformed"]["separators"]["required"], "RETRACTED" in nu["deformed"]["why"]), (0, 210, True))
+                d36 = nu["deformed"]
+                if d36.get("closure"):
+                    check("deformed bands: all 234 entries recovered, 173 bands and 61 bandheads exact, total, not seated", (d36["census"], d36["recovered"], d36["total"], d36["verdict"]), ({"entries": 234, "bands": 173, "bandheads": 61}, 234, True, "CAPTURED IN FULL, NOT SEATED"))
+                    check("deformed bands: exactly one dotted band-number line, and one discontinuity left, acquitted", (len(d36["closure"]["dotted_lines"]), len(d36["discontinuities"])), (1, 1))
+                    check("deformed bands: the chart these levels would give, 96 cells at K2, cell (2, 49, 2), measured not seated", (d36["closure"]["chart"]["cells"], d36["closure"]["chart"]["channel"], d36["closure"]["chart"]["cell"]), (96, 2, {"channel": 2, "height": 49, "width": 2}))
+                else:
+                    check("deformed bands: 233 of 234 entries recovered, 61 bandheads exact, not seated", (d36["census"], d36["recovered"], d36["verdict"]), ({"entries": 233, "bands": 172, "bandheads": 61}, 233, "CAPTURED, NOT SEATED"))
+                check("deformed bands: the document's delimiter is absent, 0 of 210, and the earlier refusal is retracted", (d36["separators"]["available"], d36["separators"]["required"], "RETRACTED" in d36["why"]), (0, 210, True))
+        pr = pfull.get("predictions")
+        if pr and not pr.get("absent"):
+            check("predictions: 3,206 demanded cells over 22 indexes, 16 predicting and 6 complete", (pr["total_E"], len(pr["E_by_index"]), pr["partition"]["predicting"], pr["partition"]["complete"]), (3206, 22, 16, 6))
+            check("predictions: the partition is exact, E = 0 iff the index closes under information", (pr["partition"]["zero_close_information"], pr["partition"]["positive_do_not"]), (True, True))
+            check("predictions: adjudicated 593 forbidden, 36 unplaced, 2,479 open, 98 undecided", pr["adjudication"]["totals"], {"E": 3206, "forbidden": 593, "unplaced": 36, "open": 2479, "undecided": 98})
+            check("predictions: the mesons' fifteen are 0 forbidden, 3 unplaced, 12 open, cell by cell", [pr["by_index"]["mesons"][k] for k in ("E", "forbidden", "unplaced", "open")], [15, 0, 3, 12])
+            check("predictions: the baryons' 1,012 are 593 forbidden by Gell-Mann–Nishijima, 8 unplaced, 411 open, cell by cell", [pr["by_index"]["baryons"][k] for k in ("E", "forbidden", "unplaced", "open")], [1012, 593, 8, 411])
+            check("predictions: every site index's cell-by-cell counts agree with the instrument's recorded table", all(v["recorded"] is None or [v["E"], v["forbidden"], v["unplaced"], v["open"], v["undecided"]] == v["recorded"] for v in pr["by_index"].values()), True)
+            check("predictions: the worked case is the D_s slot, and it is pinned by a named row", (pr["worked_case"]["cell"], any(x["cell"] == pr["worked_case"]["cell"] and x["bin"] == "UNPLACED" and x["pinned_by"] for x in pr["by_index"]["mesons"]["cells"])), ([2, -1, 0, 3], True))
+            check("predictions: Gell-Mann–Nishijima re-derived, 292 of 292 baryons clean and two meson faults recorded", (pr["gmn"]["baryons"]["identity_ok"], pr["gmn"]["baryons"]["rows"], len(pr["gmn"]["mesons"]["faults"])), (292, 292, 2))
+            check("predictions: the fault's consequence is nil, measured", pr["gmn"]["fault_consequence"]["as_captured"] == pr["gmn"]["fault_consequence"]["with_I_zero"], True)
+            check("predictions: the quark-model theorem holds and the element precedent is an order deficit with a zero join deficit", (pr["gmn"]["quark_model_theorem"]["holds"], pr["element_precedent"]["E_order"], pr["element_precedent"]["E_join"], pr["element_precedent"]["order_ghosts_forbidden_by_l_le_n_minus_1"]), (True, 36, 0, 25))
+            # every demanded cell's coordinate values are values some member of that index carries (the projection law), so the explorer can place it
+            ok_place = True
+            for sid, v in pr["by_index"].items():
+                src = next((ix for ix in pfull["indexes"] if ix["id"] == sid), None) or (pfull["nuclear"]["index"] if sid == "nucbands" and pfull.get("nuclear") else None) \
+                      or ((pfull.get("quasiparticles") or {}).get({"fqh": "seated", "readrezayi": "nonabelian", "bosons": "bosons"}.get(sid, sid)) if sid in ("fqh", "readrezayi") else None)
+                if not src:
+                    continue
+                rows = src["rows"]
+                vals = [set(r["coords"][i] for r in rows if r["coords"][i] is not None) for i in range(len(rows[0]["coords"]))]
+                ok_place &= all(all(x["cell"][i] in vals[i] for i in range(len(vals))) for x in v["cells"])
+            check("predictions: every demanded cell of the site's indexes sits on coordinate values its members carry", ok_place, True)
         bo = pfull.get("bonds")
         if bo:
             check("bonds: three refusals on three grounds, and no channel empty", (len(bo["refusals"]), bo["channels"]["empty"]), (3, []))
