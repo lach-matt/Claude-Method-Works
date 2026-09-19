@@ -75,16 +75,21 @@
   function readColors() {
     const cs = getComputedStyle(document.documentElement);
     const g = (n) => cs.getPropertyValue(n).trim();
+    state.fonts = { mono: g('--font-mono') || 'ui-monospace, monospace', sans: g('--font-body') || 'sans-serif', serif: g('--font-display') || 'serif' };
     state.colors = {
       bg: g('--canvas-bg'), grid: g('--canvas-grid'), text: g('--canvas-text'), muted: g('--canvas-text-muted'),
       surface: g('--surface'), line: g('--line'), lineStrong: g('--line-strong'), accent: g('--accent'), glow: g('--accent-glow') || g('--accent'),
       measured: g('--measured'), exact: g('--exact'), computed: g('--computed'), ghost: g('--ghost'), csv: g('--csv'),
       blk: { s: g('--blk-s'), p: g('--blk-p'), d: g('--blk-d'), f: g('--blk-f'), none: g('--blk-none') },
       rel: g('--rel') || g('--accent'),
+      faint: g('--faint') || g('--canvas-text-muted'),
       walk: g('--walk') || g('--rel') || g('--accent'),
       lim: Object.fromEntries(LIMIT_KIND_ORDER.map((k) => [k, g('--lim-' + k) || g('--computed')])),
     };
   }
+
+  // canvas type: mono for numerals and identifiers, sans for labels, serif for symbols
+  const F = (px, role = 'mono', weight = '') => `${weight ? weight + ' ' : ''}${px}px ${(state.fonts || {})[role] || 'monospace'}`;
 
   // ---------------------------------------------------------------- the limits facet
   // A bound note in COORDINATES-2.13 is READ; its kind is DERIVED by the rules data/index.js
@@ -461,28 +466,21 @@
         const p = toScreen(g.x, g.y);
         if (p.x + s < 0 || p.y + s < 0 || p.x > W() || p.y > H()) continue;
         const deferred = g.def && g.def.class === 'deferred';
-        if (deferred) {
-          // a cell that could hold an element and does not: a faint fill under a dotted edge
-          ctx.fillStyle = C.ghost; ctx.globalAlpha = 0.18;
-          ctx.fillRect(p.x + s * 0.06, p.y + s * 0.06, s * 0.88, s * 0.88);
-          ctx.globalAlpha = 1;
-          ctx.setLineDash([Math.max(1, s * 0.02), Math.max(2, s * 0.05)]);
-        } else {
-          // forbidden by l <= n-1: a dashed edge and nothing inside
-          ctx.setLineDash([Math.max(2, s * 0.06), Math.max(2, s * 0.05)]);
-        }
-        ctx.strokeStyle = C.ghost;
-        ctx.lineWidth = 1;
-        ctx.strokeRect(p.x + s * 0.06, p.y + s * 0.06, s * 0.88, s * 0.88);
-        ctx.setLineDash([]);
+        // a tint, not a dash: the lighter one forbidden by l <= n-1, the fuller one a cell that
+        // could hold an element and does not; a hairline edge on both
+        ctx.fillStyle = C.ghost; ctx.globalAlpha = deferred ? 0.42 : 0.18;
+        ctx.fillRect(p.x + s * 0.06, p.y + s * 0.06, s * 0.88, s * 0.88);
+        ctx.globalAlpha = 1;
+        ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+        ctx.strokeRect(p.x + s * 0.06 + 0.5, p.y + s * 0.06 + 0.5, s * 0.88 - 1, s * 0.88 - 1);
         if (s >= 30) {
           ctx.fillStyle = C.muted;
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
           const sub = g.def ? (g.def.p === 1 && g.def.g === 2 ? 'He' : g.def.subshell) : 'E';
-          ctx.font = `${Math.max(9, s * 0.16)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+          ctx.font = F(Math.max(9, s * 0.16));
           ctx.fillText(sub, p.x + s / 2, p.y + s / 2 - (s >= 60 ? s * 0.06 : 0));
           if (s >= 60 && g.def) {
-            ctx.font = `${Math.max(8, s * 0.075)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+            ctx.font = F(Math.max(8, s * 0.075));
             ctx.fillText(g.def.p === 1 && g.def.g === 2 ? "helium's slot" : g.def.class, p.x + s / 2, p.y + s / 2 + s * 0.12);
           }
         }
@@ -506,7 +504,7 @@
     const C = state.colors;
     if (s < 14) return;
     ctx.fillStyle = C.muted;
-    ctx.font = `${Math.max(9, Math.min(13, s * 0.16))}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+    ctx.font = F(Math.max(9, Math.min(12, s * 0.15)), 'sans');
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     if (state.layout === 'table') {
       for (let g = 1; g <= 18; g++) {
@@ -564,7 +562,7 @@
       ctx.beginPath(); ctx.moveTo(p.x + s - 1, p.y + s - 1); ctx.lineTo(p.x + s - 1 - t, p.y + s - 1); ctx.lineTo(p.x + s - 1, p.y + s - 1 - t); ctx.closePath(); ctx.fill();
       if (s >= 150) {
         ctx.fillStyle = C.rel; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
-        ctx.font = `${s * 0.06}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(s * 0.05, 'sans');
         ctx.fillText('displaced at c → ∞', p.x + s - t - s * 0.02, p.y + s * 0.985);
       }
     }
@@ -577,7 +575,7 @@
       ctx.lineWidth = 1;
       if (s >= 150) {
         ctx.fillStyle = C.walk; ctx.textAlign = 'right'; ctx.textBaseline = 'top';
-        ctx.font = `${s * 0.032}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(s * 0.032, 'sans');
         ctx.fillText('reconstructed walk', p.x + s - t - s * 0.02, p.y + s * 0.025);
       }
     }
@@ -586,23 +584,23 @@
       ctx.fillStyle = C.text;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const symSize = s >= 150 ? s * 0.11 : s * 0.3;
-      ctx.font = `500 ${symSize}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+      ctx.font = F(symSize, 'serif', '500');
       const sy = s >= 150 ? p.y + s * 0.085 : p.y + s * 0.5;
       ctx.fillText(e.symbol, p.x + s / 2, sy);
     }
     if (s >= 48) {
       ctx.fillStyle = C.muted;
       ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-      ctx.font = `${s * 0.1}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+      ctx.font = F(s * 0.1);
       ctx.fillText(String(e.Z), p.x + s * 0.06, p.y + s * 0.05);
       if (e.name) {
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-        ctx.font = `${s * 0.085}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(s * 0.08, 'sans');
         ctx.fillText(e.name, p.x + s / 2, p.y + s * 0.96);
       }
       if (e.counts) {
         ctx.textAlign = 'right'; ctx.textBaseline = 'top';
-        ctx.font = `${s * 0.075}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(s * 0.075);
         ctx.fillStyle = e.counts.measured ? C.measured : C.muted;
         ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.94, p.y + s * 0.06);
       }
@@ -619,7 +617,7 @@
       } else {
         if (!state.loadErrors.has(e.Z) && !state.pending.has(e.Z)) ensureElement(e.Z).catch(() => {});
         ctx.fillStyle = C.muted;
-        ctx.font = `${Math.max(10, s * 0.06)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(Math.max(10, s * 0.06));
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(state.loadErrors.has(e.Z) ? 'record not loaded' : 'loading …', cx, cy);
       }
@@ -654,14 +652,10 @@
         const ux = dx / d, uy = dy / d;
         const x1 = ax + ux * a.r * k, y1 = ay + uy * a.r * k, x2 = bx - ux * b.r * k, y2 = by - uy * b.r * k;
         if ((x2 - x1) * ux + (y2 - y1) * uy <= 0) continue;
-        // the glow is a wide translucent stroke under a thin bright one: no shadowBlur, which
-        // rasterises a blur per stroke on every frame of the fly
+        // one quiet line per rung; the selected ion's rungs drawn full
         ctx.strokeStyle = C.accent;
-        ctx.globalAlpha = hot ? 0.35 : 0.1;
-        ctx.lineWidth = hot ? 7 : 4;
-        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
-        ctx.globalAlpha = hot ? 0.95 : 0.28;
-        ctx.lineWidth = hot ? 2.5 : 1.25;
+        ctx.globalAlpha = hot ? 1 : 0.45;
+        ctx.lineWidth = hot ? 2 : 1.25;
         ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
       }
     };
@@ -690,12 +684,12 @@
       }
       if (rs >= 13 && rs < 45) {
         ctx.fillStyle = C.text;
-        ctx.font = `500 ${Math.max(9, rs * 0.42)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(Math.max(9, rs * 0.42), 'mono', '500');
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(roman(ion.charge), x, y);
       } else if (rs >= 45) {
         ctx.fillStyle = C.muted;
-        ctx.font = `500 ${Math.max(10, rs * 0.11)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(Math.max(10, rs * 0.11), 'mono', '500');
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(`${e.symbol} ${roman(ion.charge)}`, x, y - rs * 0.82);
         drawChannels(ion, ox, oy);
@@ -719,12 +713,12 @@
       ctx.stroke();
       if (rs >= 10 && rs < 40) {
         ctx.fillStyle = C.text;
-        ctx.font = `500 ${Math.max(9, rs * 0.7)}px "IBM Plex Mono", ui-monospace, monospace`;
+        ctx.font = F(Math.max(9, rs * 0.7), 'mono', '500');
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(LSYM[ch.l] || String(ch.l), x, y);
       } else if (rs >= 40) {
         ctx.fillStyle = C.muted;
-        ctx.font = `500 ${Math.max(10, rs * 0.16)}px "IBM Plex Mono", ui-monospace, monospace`;
+        ctx.font = F(Math.max(10, rs * 0.16), 'mono', '500');
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(`${LSYM[ch.l] || ch.l}`, x, y - rs * 0.78);
         drawCells(ch, ox, oy);
@@ -755,7 +749,7 @@
       if (isSel) { ctx.beginPath(); ctx.arc(x, y, rs + 3, 0, Math.PI * 2); ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.stroke(); }
       if (rs >= 9) {
         ctx.fillStyle = (state.cellColor === 'limit' ? (c.lim === 'symmetry' || c.lim === 'none' || c.lim === 'no-analysis') : c.rec.grade !== 'measured') ? C.text : C.bg;
-        ctx.font = `500 ${Math.max(9, rs * 0.8)}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+        ctx.font = F(Math.max(9, rs * 0.8), 'mono', '500');
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(String(c.mult), x, y);
       }
@@ -899,7 +893,7 @@
     const px = cb.s * p0.k;
     if (px < 2.5) {
       // too small for faces: a square at the projected centre, alpha by grade
-      ctx.fillStyle = shade(col, 0.9, cb.known ? 1 : 0.35);
+      ctx.fillStyle = shade(col, 0.95, cb.known ? 1 : 0.28);
       ctx.fillRect(p0.x - px / 2, p0.y - px / 2, Math.max(1, px), Math.max(1, px));
       if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.5; ctx.strokeRect(p0.x - px / 2 - 2, p0.y - px / 2 - 2, px + 4, px + 4); }
       return;
@@ -916,11 +910,11 @@
         if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
       });
       ctx.closePath();
-      const lit = 0.55 + 0.45 * Math.max(0, n2[0] * LIGHT[0] + n2[1] * LIGHT[1] + n2[2] * LIGHT[2]);
-      ctx.fillStyle = shade(col, lit, cb.known ? 1 : 0.32);
+      const lit = 0.74 + 0.26 * Math.max(0, n2[0] * LIGHT[0] + n2[1] * LIGHT[1] + n2[2] * LIGHT[2]);
+      ctx.fillStyle = shade(col, lit, cb.known ? 1 : 0.28);
       ctx.fill();
       if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke(); }
-      else if (cb.known) { ctx.strokeStyle = shade(col, lit * 0.65); ctx.lineWidth = 0.75; ctx.stroke(); }
+      else if (cb.known) { ctx.strokeStyle = shade(col, lit * 0.72); ctx.lineWidth = 0.5; ctx.stroke(); }
     }
   }
 
@@ -936,7 +930,7 @@
   // page (s p d f g h i k), and for the whole index Z across
   function drawLatAxes(scene, cam) {
     const C = state.colors, ex = scene.ext;
-    const font = (px) => `${px}px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+    const font = (px) => F(px);
     scene._labels = [];
     const ox = scene.kind === 'element' ? scene.lx - 0.15 : ex.x0, oy = -0.5, oz = -0.5;
     const yTop = scene.kind === 'element' ? scene.ions.length - 0.5 : ex.y1;
@@ -991,7 +985,7 @@
   function drawLattice() {
     const scene = state.scene, C = state.colors;
     if (!scene) {
-      ctx.fillStyle = C.muted; ctx.font = `12px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
+      ctx.fillStyle = C.muted; ctx.font = F(12);
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const sel = state.selected;
       ctx.fillText(sel && state.loadErrors.has(sel.Z) ? 'record not loaded' : 'loading the lattice …', W() / 2, H() / 2);
@@ -1024,37 +1018,44 @@
         ctx.beginPath();
         sl.corners.forEach((q, i) => { const p = cam.proj(cam.rot(q[0], q[1], q[2])); if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
         ctx.closePath();
-        ctx.fillStyle = shade(sl.e.populated ? (C.blk[sl.e.block] || C.blk.none) : C.csv, 1.15, hot ? 0.55 : 0.28); ctx.fill();
-        ctx.strokeStyle = hot ? C.accent : shade(C.lineStrong, 1, 0.8); ctx.lineWidth = hot ? 1.5 : 0.5; ctx.stroke();
+        ctx.fillStyle = shade(sl.e.populated ? (C.blk[sl.e.block] || C.blk.none) : C.csv, 1, hot ? 0.75 : 0.5); ctx.fill();
+        ctx.strokeStyle = hot ? C.accent : shade(C.lineStrong, 1, 0.6); ctx.lineWidth = hot ? 1.5 : 0.5; ctx.stroke();
       } else {
         const seg = it.seg;
         const hot = sel && sel.Z === scene.Z && sel.charge === seg.charge;
         const [pa, pb] = [cam.proj(cam.rot(seg.a[0], seg.a[1], seg.a[2])), cam.proj(cam.rot(seg.b[0], seg.b[1], seg.b[2]))];
         ctx.lineCap = 'round';
-        ctx.strokeStyle = C.accent; ctx.globalAlpha = hot ? 0.35 : 0.12; ctx.lineWidth = hot ? 7 : 4;
-        ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
-        ctx.globalAlpha = hot ? 0.95 : 0.35; ctx.lineWidth = hot ? 2.5 : 1.25;
+        ctx.strokeStyle = C.accent; ctx.globalAlpha = hot ? 1 : 0.5; ctx.lineWidth = hot ? 2 : 1.25;
         ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
         ctx.globalAlpha = 1;
       }
     }
-    // the caption, at the top right where the crumbs are not: what is drawn, and from what
-    const rx = W() - 12;
-    ctx.textAlign = 'right'; ctx.textBaseline = 'top';
-    ctx.font = `500 13px "IBM Plex Mono", ui-monospace, Menlo, monospace`;
-    ctx.fillStyle = C.text;
-    if (scene.kind === 'element') {
-      ctx.fillText(`${scene.e.symbol} · Z = ${scene.Z} · the lattice`, rx, 10);
-      ctx.font = `11px "IBM Plex Mono", ui-monospace, Menlo, monospace`; ctx.fillStyle = C.muted;
-      const n = scene.cubes.length, k = scene.cubes.filter((c) => c.known).length;
-      ctx.fillText(`stage up, ℓ into the page · ${scene.ions.length} ions · ${n.toLocaleString()} cells, ${k} known`, rx, 28);
-      ctx.fillText('DERIVED from the record; nothing computed', rx, 43);
+  }
+
+  // the caption in the bar above the canvas: what is drawn, and what it is drawn from
+  function updateCaption() {
+    const el = $('#canvas-caption');
+    if (!el || !state.index) return;
+    let html = '';
+    if (state.view === 'lattice') {
+      const sc = state.scene;
+      if (!sc) html = 'loading the lattice …';
+      else if (sc.kind === 'element') {
+        const n = sc.cubes.length, k = sc.cubes.filter((c) => c.known).length;
+        html = `<b>${esc(sc.e.symbol)}</b> as its slab of the lattice · stage up, ℓ into the page · ${sc.ions.length} ions · ${n.toLocaleString()} cells, ${k} known · derived from the record, nothing computed`;
+      } else {
+        html = `<b>Λ_spectra as a lattice</b> · element across, stage up, ℓ into the page · ${sc.lat.sites.toLocaleString()} sites · ${sc.lat.known.length.toLocaleString()} known cells (Figure 6)`;
+      }
     } else {
-      ctx.fillText('Λ_spectra as a lattice', rx, 10);
-      ctx.font = `11px "IBM Plex Mono", ui-monospace, Menlo, monospace`; ctx.fillStyle = C.muted;
-      ctx.fillText(`element across, stage up, ℓ into the page · ${scene.lat.sites.toLocaleString()} sites · ${scene.lat.known.length.toLocaleString()} known cells (Figure 6, READ)`, rx, 28);
-      ctx.fillText('tap a slab for its element, a cube for its channel', rx, 43);
+      const c = state.index.closure;
+      const sel = state.selected;
+      if (sel && sel.kind !== 'root' && sel.kind !== 'ghost' && sel.Z) {
+        const e = state.index.layout.find((x) => x.Z === sel.Z) || {};
+        html = `<b>${esc(e.symbol || '')}</b> as nested circles · ions, channels, cells`;
+      } else if (state.layout === 'janet') html = `<b>Janet's layout</b> (n+ℓ, ℓ) · E = 0`;
+      else html = `<b>Section 6</b> · ${c.held} held · ${c.admitted} admitted by ℛ · E = ${state.heliumAt === 2 && c.placement ? c.placement.helium_at_2.E + ' with helium at group 2' : c.E}`;
     }
+    if (el.innerHTML !== html) el.innerHTML = html;
   }
 
   function hitLattice(sx, sy) {
@@ -1101,7 +1102,7 @@
       state.scene = buildElementScene(node.Z);
       if (!state.scene) {
         ensureElement(node.Z).then(() => {
-          if (state.view === 'lattice' && state.selected && state.selected.Z === node.Z) { state.scene = buildElementScene(node.Z); requestDraw(); }
+          if (state.view === 'lattice' && state.selected && state.selected.Z === node.Z) { state.scene = buildElementScene(node.Z); updateCaption(); requestDraw(); }
         }).catch(() => { requestDraw(); });
       }
       state.orbit = prev === 'lattice' && state.orbit ? { ...state.orbit, zoom: 1 } : orbitHome();
@@ -1209,6 +1210,7 @@
       }
     }
     if (reveal) revealPlate();
+    updateCaption();
     requestDraw();
   }
 
@@ -1346,6 +1348,7 @@
     if (at === state.heliumAt) return;
     state.heliumAt = at;
     buildFrames();
+    updateCaption();
     const sel = state.selected || rootNode;
     if (sel.kind === 'ghost') {
       const g = state.ghosts.find((x) => x.p === sel.p && x.g === sel.g);
@@ -1383,7 +1386,7 @@
     const layoutNote = state.layout === 'lattice' && lat
       ? `Λ_spectra as a lattice, the way the record draws it (Index of Indices, Figure 6): every element a slab at its Z, ionisation stage up, ℓ into the page — <b>${lat.sites.toLocaleString()}</b> sites, <b>${lat.known.length.toLocaleString()}</b> known cells (${lat.counts.measured} measured, ${lat.counts.exact} exact) drawn as cubes, the rest the faint body of each slab. The measured wedge sits at low Z and low ℓ. Drag to rotate, wheel or pinch to zoom, tap a slab for its element.`
       : state.layout === 'table'
-      ? `Section 6's drawn layout: <b>${c.held}</b> cells held, <b>${c.admitted}</b> admitted by ℛ, <b>E = ${c.E}</b>. The ${c.E} are the gaps in the short periods, drawn as dashed ghosts; ${c.set_aside} f-block elements are set aside below the table.`
+      ? `Section 6's drawn layout: <b>${c.held}</b> cells held, <b>${c.admitted}</b> admitted by ℛ, <b>E = ${c.E}</b>. The ${c.E} are the gaps in the short periods, drawn as tinted ghosts each labelled with the subshell section 6.1.1 names it; ${c.set_aside} f-block elements are set aside below the table.`
       : `Register 1188's coordinate: Janet's cell is (n+ℓ, ℓ) of the differentiating electron, and on it E = 0. Elements without a cell (Z &gt; 108) sit on the bottom row.`;
     return `<div class="kind">the index</div>
       <h2 class="node-title">${esc(ix.meta.title)}</h2>
@@ -2091,9 +2094,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
 
   const sysLight = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : { matches: false, addEventListener() {} };
   function effectiveTheme() {
-    // Dark is the default regardless of the OS preference (the author's criterion); light only
-    // when stamped explicitly, by the toggle or by the host.
-    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    // Light is the default, as a reference work is read; dark only when stamped explicitly, by
+    // the toggle or by the host.
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
   function setupChrome() {
     $('#z-in').addEventListener('click', () => zoomAt(W() / 2, H() / 2, 1.5));
@@ -2129,6 +2132,24 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
         canvasVisible = en.isIntersecting || en.intersectionRatio > 0;
         if (canvasVisible) requestDraw();
       }).observe(wrap);
+    }
+  }
+
+  // the edition: which build of the data this page reads, from data/index.js's own meta
+  function setupEdition() {
+    const m = (state.index && state.index.meta) || {};
+    const commit = (m.commit || '').slice(0, 7), built = (m.built || '').slice(0, 10);
+    const ed = $('#edition');
+    if (ed) ed.textContent = commit ? `edition ${commit} · ${built}` : '';
+    const foot = `<span><b>The Method Index</b> — an index of The Method 1.6.</span>
+      <span>Data generated by <span class="mono">tools/webindex.py</span> over <span class="mono">tools/populate.py</span>; every value carries the status the corpus gives it, and the explorer computes nothing.</span>
+      ${commit ? `<span>Edition <span class="mono">${esc(commit)}</span>, built ${esc(built)}.</span>` : ''}
+      <button type="button" class="ghost" data-act="open-prov">Provenance and sources</button>`;
+    for (const id of ['#foot', '#side-foot']) {
+      const el = $(id);
+      if (!el) continue;
+      el.innerHTML = foot;
+      el.querySelectorAll('[data-act="open-prov"]').forEach((b) => b.addEventListener('click', () => $('#dlg-provenance').showModal()));
     }
   }
 
@@ -2385,7 +2406,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
 
   // ---------------------------------------------------------------- assistant: Claude (claude.ai artifact runtime only)
   const claude = { fn: null, ctl: null };
-  const RUN_LABEL = { console: 'Query Web AI Agent', both: 'Query Web AI Agent · console + Claude' };
+  const RUN_LABEL = { console: 'Ask', both: 'Ask · console + Claude' };
   function setupClaude() {
     const mode = $('#assist-mode'), run = $('#assist-run');
     run.textContent = RUN_LABEL.console;
@@ -2674,7 +2695,7 @@ QUESTION: ${question}`;
     state.index = ix;
     for (const a of ix.axes || []) AX[a.axis] = a;
     $('#site-title').textContent = ix.meta.title;
-    $('#site-subtitle').textContent = ix.meta.subtitle;
+    $('#site-subtitle').innerHTML = `${esc(ix.meta.subtitle)}.<span id="edition"></span>`;
     document.title = ix.meta.title;
     $('#n-measured').textContent = ix.totals.measured;
     $('#n-exact').textContent = ix.totals.exact;
@@ -2690,7 +2711,7 @@ QUESTION: ${question}`;
     buildFrames();
     resize();
     renderProvenance();
-    setupSearch(); setupPointer(); setupKeys(); setupChrome(); setupAssistant(); setupClaude(); setupSolvers();
+    setupSearch(); setupPointer(); setupKeys(); setupChrome(); setupAssistant(); setupClaude(); setupSolvers(); setupEdition();
     state.cam = homeCam();
     state.lastHash = null;
     if (location.hash && location.hash !== '#/') await applyHash(true, 0, false);

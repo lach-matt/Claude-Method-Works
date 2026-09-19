@@ -83,7 +83,8 @@ ELEMENT_PREFIX = ("window.__mi = window.__mi || {}; "
 WRAP_SUFFIX = ";\n"
 
 SITE_TITLE = "The Method Index"
-SITE_SUBTITLE = "The Method 1.6 · every element on every axis of every index"
+SITE_SUBTITLE = ("An index of The Method 1.6: every element on every axis of every index, "
+                 "each value carrying the status the corpus gives it")
 
 # IUPAC names, for search and labels only. They are not a corpus figure and the
 # site labels them as such; the corpus carries symbols (register 1306).

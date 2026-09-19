@@ -1,9 +1,9 @@
 window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
-  "subtitle": "The Method 1.6 · every element on every axis of every index",
-  "built": "2026-09-19T03:47:56+00:00",
-  "commit": "fc8bcdb8e459",
+  "subtitle": "An index of The Method 1.6: every element on every axis of every index, each value carrying the status the corpus gives it",
+  "built": "2026-09-19T04:04:57+00:00",
+  "commit": "81bd08ede450",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a corpus figure. The corpus carries symbols (register 1306)."
  },

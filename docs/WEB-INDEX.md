@@ -125,6 +125,26 @@ Elements 109 to 120 are drawn apart, dashed, because `LW1-ground.py` stops at 10
 COORDINATES-2.13 does not. Their rows are shown `READ` from the csv with no configuration,
 equation or derived value behind them, and the panel says so.
 
+## Set like a reference work
+
+The page is set the way a reference work is read, and the choices are recorded here so a later
+hand keeps them. **Type:** IBM Plex Sans for prose and the interface, IBM Plex Serif for the title,
+node titles and section heads, IBM Plex Mono only for numbers, symbols, identifiers and code — the
+canvas draws element symbols in the serif, labels in the sans and numerals in the mono, all read
+from the stylesheet's tokens through one helper, so no face is named in the script. **Palette:**
+light by default (warm paper, near-black ink, one deep-blue accent), dark by explicit choice through
+the toggle or a host's `data-theme="dark"`; the grade colours (measured, exact, computed) are
+desaturated so they still read without glowing, the block tints are pale, and the thirty-six ghosts
+are tints rather than dashes. **Statuses are labels, not badges:** every value still carries one,
+as small capitals in the muted grey at the row's end, coloured only where it warns (RECOVERED and
+PROJECTED amber, RECONSTRUCTED and PROSE-ONLY purple, EXTRAPOLATED and REFUSED red). **The frame:**
+a masthead with the title, a one-line statement and the edition (the data's commit and build date,
+from `index.js`'s own meta), the path and the caption in a bar above the canvas rather than painted
+into it, a compact key, a footer that names the generator and the edition, and a print stylesheet
+that prints the plates and dialogs in full width with outward links spelled out. The Λ₈ ladder is
+one quiet line per rung and the lattice's cubes are lit softly. None of this changes a value or a
+status; `tools/webindex.py` is untouched by it except for the site's subtitle.
+
 ## The data format
 
 The site must open from a plain `file://` URL on a phone — someone handed `public/` as a folder,

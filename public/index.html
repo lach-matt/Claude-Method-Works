@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#030712">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f5f1">
 <title>The Method Index</title>
 <meta name="description" content="The Method 1.6, read as an index: every element on every axis, every ion, every channel, every measured cell, each value carrying the status the corpus gives it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%274%27 fill=%27%23030712%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%279%27 fill=%27none%27 stroke=%27%2338bdf8%27 stroke-width=%272%27 stroke-dasharray=%273 2%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%273%27 fill=%27%23fb923c%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%273%27 fill=%27%231f4e8c%27/%3E%3Ctext x=%2716%27 y=%2722%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-size=%2717%27 font-weight=%27600%27 fill=%27%23ffffff%27%3EM%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <header id="topbar">
     <div id="brand">
       <h1 id="site-title">The Method Index</h1>
-      <p id="site-subtitle">The Method 1.6 · every element on every axis of every index</p>
+      <p id="site-subtitle">An index of The Method 1.6: every element on every axis of every index, each value carrying the status the corpus gives it.<span id="edition"></span></p>
     </div>
     <nav id="views" aria-label="Views">
       <div class="seg" role="group" aria-label="Layout">
@@ -50,12 +50,16 @@
   </section>
 
   <main id="main">
-    <!-- 3. canvas viewport -->
+    <!-- 3. canvas: the path and the caption above it, the drawing below -->
+    <div id="canvas-col">
+    <div id="canvas-bar">
+      <nav id="crumbs" aria-label="Path"></nav>
+      <div id="canvas-caption" aria-live="polite"></div>
+    </div>
     <section id="canvas-wrap" aria-label="Zoomable index">
       <canvas id="canvas" aria-label="Zoomable index of The Method 1.6. With the canvas focused: Esc up one level, H the whole index, + and − zoom, arrow keys pan" role="img" tabindex="0"></canvas>
-      <nav id="crumbs" aria-label="Path"></nav>
-      <div id="legend" aria-label="Legend" data-color="grade">
-        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Cells by</button>
+      <div id="legend" aria-label="Key" data-color="grade">
+        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Key</button>
         <div id="legend-rows">
         <div class="legend-seg" role="group" aria-label="Colour cells by">
           <button type="button" class="is-on" data-color="grade">grade</button>
@@ -67,13 +71,13 @@
         <div class="legend-row"><span class="sw sw-computed"></span> computed <span class="legend-n" id="n-computed"></span></div>
         </div>
         <div class="legend-limit" id="legend-limit-rows"></div>
-        <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held: forbidden by ℓ ≤ n−1 (1d, 1p, 2d)</div>
-        <div class="legend-row"><span class="sw sw-ghost-def"></span> admitted, not held: deferred (3d, helium's slot)</div>
+        <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held: forbidden by ℓ ≤ n−1</div>
+        <div class="legend-row"><span class="sw sw-ghost-def"></span> admitted, not held: deferred</div>
         <div class="legend-row"><span class="sw sw-csv"></span> spectra rows only (Z &gt; 108)</div>
         <div class="legend-row"><span class="sw sw-ladder"></span> Λ₈ ionisation ladder</div>
         <div class="legend-row"><span class="sw sw-rel"></span> displaced at c → ∞ (relativistic limit)</div>
         <div class="legend-row"><span class="sw sw-walk"></span> displaced at c → ∞ in the reconstructed walk</div>
-        <div class="legend-row legend-lattice" id="legend-lattice" hidden>lattice: stage up, ℓ into the page · drag rotates · wheel or pinch zooms · tap a cube</div>
+        <div class="legend-row legend-lattice" id="legend-lattice" hidden>Lattice: stage up, ℓ into the page. Drag rotates, wheel or pinch zooms, tap a cube.</div>
         </div>
       </div>
       <div id="zoomctl" role="group" aria-label="Zoom">
@@ -83,6 +87,7 @@
       </div>
       <div id="loading" role="status" hidden>loading …</div>
     </section>
+    </div>
 
     <div id="side">
       <!-- the one live region: a line naming the selection, so a screen reader is not read every table -->
@@ -99,16 +104,16 @@
         <div id="inspector-body"></div>
       </section>
 
-      <!-- 5. assistant panel -->
-      <section id="assistant" class="plate" aria-label="Query the index">
+      <!-- 5. console -->
+      <section id="assistant" class="plate" aria-label="Console">
         <div class="plate-head">
-          <h2>Query the index</h2>
+          <h2>Console</h2>
           <span class="assist-mode" id="assist-mode">console</span>
         </div>
         <label for="assist-q" class="visually-hidden">Question or console command</label>
         <textarea id="assist-q" class="term" rows="4" placeholder="help · go Fe II d 3 · closure · measured Fe · residuals Fe · B Pd · ladder Fe" spellcheck="false" autocapitalize="off"></textarea>
         <div class="assist-row">
-          <button type="button" id="assist-run" class="btn is-primary">Query Web AI Agent</button>
+          <button type="button" id="assist-run" class="btn is-primary">Ask</button>
           <button type="button" id="assist-stop" class="btn" hidden>Stop</button>
           <button type="button" id="assist-clear" class="btn">Clear</button>
         </div>
@@ -123,8 +128,10 @@
         </div>
         <div id="solver-body"></div>
       </section>
+      <footer id="side-foot" class="foot" aria-label="About this index"></footer>
     </div>
   </main>
+  <footer id="foot" aria-label="About this index"></footer>
 
   <dialog id="dlg-provenance" aria-labelledby="dlg-provenance-title">
     <div class="dlg-head"><h2 id="dlg-provenance-title">Provenance</h2><button type="button" class="ghost dlg-close" data-close="dlg-provenance" aria-label="Close">✕</button></div>
@@ -144,7 +151,7 @@
   <dialog id="dlg-help" aria-labelledby="dlg-help-title">
     <div class="dlg-head"><h2 id="dlg-help-title">Reading this index</h2><button type="button" class="ghost dlg-close" data-close="dlg-help" aria-label="Close">✕</button></div>
     <div class="dlg-body">
-      <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as ghosts, each labelled with the subshell section 6.1.1 names it — 1d, 1p and 2d forbidden by ℓ ≤ n−1 (dashed), 3d and helium's vacated slot deferred (dotted). Tap one for its definition, and the plate offers Register 448's alternative: helium drawn at group 2, where E = 20. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
+      <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as ghosts, each labelled with the subshell section 6.1.1 names it — 1d, 1p and 2d forbidden by ℓ ≤ n−1 (the lighter tint), 3d and helium's vacated slot deferred (the fuller tint). Tap one for its definition, and the plate offers Register 448's alternative: helium drawn at group 2, where E = 20. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
       <p>Tap an element and it opens as its slab of the lattice in three dimensions, the way the record draws Λ_spectra (Index of Indices, Figure 6): ionisation stage up, ℓ into the page, one cube per cell, side by side along the third axis where a site holds two multiplicities; known cells are full cubes coloured by grade, unmeasured ones faint small cubes; the glowing Λ₈ ionisation ladder climbs the front edge, one rung per step of the record's ladder, nothing invented. Drag to rotate, wheel or pinch to zoom, tap a cube for its cell, a row for its ion. The third layout, <em>Lattice</em>, is the whole solid: every element a slab, Z across, the measured wedge at low Z and low ℓ. <em>Nest</em> shows the same element as the nested circles instead: ions in spectroscopic order (I is neutral) joined by the ladder, each ion opening into its eight ℓ channels, each channel into its cells. Every cell is a row of COORDINATES-2.13.</p>
       <p>Every value in the detail plate carries a status badge. <span class="badge st-READ">READ</span> is a measurement from a member or the mirror; <span class="badge st-PINNED">PINNED</span> the corpus defines it at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the corpus states the object but not the form a program needs. A status is never flattened.</p>
       <h3>Navigation</h3>
