@@ -455,6 +455,7 @@
   }
 
   function resize() {
+    if (state.view === 'lattice' && state.scene && state.orbit) fitOrbit(state.scene, state.orbit);
     const dpr = window.devicePixelRatio || 1;
     canvas.width = Math.round(wrap.clientWidth * dpr);
     canvas.height = Math.round(wrap.clientHeight * dpr);
@@ -783,7 +784,7 @@
   // multiplicities the cells sit side by side along x. The scene is built from the element
   // record the plane draws, nothing is computed here, and a colour means the grade it means
   // everywhere else on the page. The whole index (the third layout) is every slab at once.
-  const LAT = { KNOWN: 0.86, FAINT: 0.30 };     // cube edges, the archived renderer's own
+  const LAT = { KNOWN: 0.86, FAINT: 0.24 };     // cube edges: the archived renderer's 0.86 for a known cell; the unmeasured drawn smaller still
   const FACES = [
     { n: [1, 0, 0], u: 1, v: 2 }, { n: [-1, 0, 0], u: 1, v: 2 },
     { n: [0, 1, 0], u: 0, v: 2 }, { n: [0, -1, 0], u: 0, v: 2 },
@@ -809,11 +810,8 @@
 
   // the camera: yaw about y, pitch about x, the eye at −D on the rotated z axis, a mild
   // perspective; zoom is the focal length, so the scene turns about its own centre
-  function latCamera(scene) {
-    const o = state.orbit || orbitHome();
+  function latRotation(scene, o) {
     const cy = Math.cos(o.ry), sy = Math.sin(o.ry), cx = Math.cos(o.rx), sx = Math.sin(o.rx);
-    const D = Math.max(3, scene.R * 3.2);
-    const f = ((0.82 * Math.min(W(), H()) * D) / (2 * scene.R)) * o.zoom;
     const c = scene.centre;
     const rot = (x, y, z) => {
       x -= c[0]; y -= c[1]; z -= c[2];
@@ -821,7 +819,46 @@
       return [x1, y * cx - z1 * sx, y * sx + z1 * cx];
     };
     const rotN = (x, y, z) => { const x1 = x * cy + z * sy, z1 = -x * sy + z * cy; return [x1, y * cx - z1 * sx, y * sx + z1 * cx]; };
-    const proj = (p) => { const d = Math.max(0.05, p[2] + D); return { x: W() / 2 + (f * p[0]) / d, y: H() / 2 - (f * p[1]) / d, d, k: f / d }; };
+    return { rot, rotN, D: Math.max(3, scene.R * 3.2) };
+  }
+  // fit: the eight corners of the scene's extent, projected at the orbit's angle, fill 86 % of the
+  // viewport; the focal length and the centring shift are kept on the orbit so the scene does not
+  // swim as it turns, and are refitted on Reset and on resize
+  function fitOrbit(scene, o) {
+    const { rot, D } = latRotation(scene, o), ex = scene.ext;
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    for (const x of [ex.x0, ex.x1]) for (const y of [ex.y0, ex.y1]) for (const z of [ex.z0, ex.z1]) {
+      const r = rot(x, y, z), d = Math.max(0.05, r[2] + D);
+      x0 = Math.min(x0, r[0] / d); x1 = Math.max(x1, r[0] / d); y0 = Math.min(y0, r[1] / d); y1 = Math.max(y1, r[1] / d);
+    }
+    const legend = $('#legend');
+    const pad = 28, bottom = legend && !legend.hidden && !legend.classList.contains('is-collapsed') ? Math.min(H() * 0.4, legend.offsetHeight + 24) : 44;
+    const w = Math.max(60, W() - 2 * pad), h = Math.max(60, H() - pad - bottom);
+    o.fitF = Math.min(w / Math.max(1e-6, x1 - x0), h / Math.max(1e-6, y1 - y0));
+    o.dx = -o.fitF * (x0 + x1) / 2;
+    o.dy = o.fitF * (y0 + y1) / 2 - (bottom - pad) / 2;
+    if (scene.kind === 'element' && scene.ions.length > 1) {
+      // the ions must stay legible: at least 13 px apart, the slab's base anchored near the bottom
+      // of the viewport, so a heavy element shows its lower stages (where the known cells sit)
+      // and the reader zooms out or pans for the rest
+      const a = rot(scene.lx, 0, 3.5), b2 = rot(scene.lx, 1, 3.5);
+      const da = Math.max(0.05, a[2] + D), db = Math.max(0.05, b2[2] + D);
+      const gap = o.fitF * Math.hypot(b2[0] / db - a[0] / da, b2[1] / db - a[1] / da);
+      if (gap < 13) {
+        o.fitF *= 13 / gap;
+        const base = rot(scene.centre[0], ex.y0, scene.centre[2]), dbase = Math.max(0.05, base[2] + D);
+        o.dx = -o.fitF * (x0 + x1) / 2;
+        o.dy = (H() - bottom - 10) - H() / 2 + (o.fitF * base[1]) / dbase;
+      }
+    }
+    return o;
+  }
+  function latCamera(scene) {
+    const o = state.orbit || orbitHome();
+    if (!o.fitF) fitOrbit(scene, o);
+    const { rot, rotN, D } = latRotation(scene, o);
+    const f = o.fitF * o.zoom, dx = o.dx || 0, dy = o.dy || 0;
+    const proj = (p) => { const d = Math.max(0.05, p[2] + D); return { x: W() / 2 + dx + (f * p[0]) / d, y: H() / 2 + dy - (f * p[1]) / d, d, k: f / d }; };
     return { rot, rotN, proj, D, f, eye: [0, 0, -D] };
   }
 
@@ -861,7 +898,7 @@
     const ext = { x0: lx - 0.3, x1: xmax + 0.6, y0: -0.6, y1: ions.length - 0.4, z0: -1.1, z1: 7.6 };
     const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
     const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
-    return { kind: 'element', Z, e, rec, cubes, ions, ladder, ext, centre, R, lx, slabs: [] };
+    return { kind: 'element', Z, e, rec, cubes, ions, ladder, ext, centre, R, lx, xmax, slabs: [] };
   }
 
   // the whole index: every element a slab at x = Z (charge 1..Z by ℓ 0..7, the generator
@@ -912,7 +949,7 @@
     const px = cb.s * p0.k;
     if (px < 2.5) {
       // too small for faces: a square at the projected centre, alpha by grade
-      ctx.fillStyle = shade(col, 0.95, cb.known ? 1 : 0.28);
+      ctx.fillStyle = shade(col, 0.95, cb.known ? 1 : 0.22);
       ctx.fillRect(p0.x - px / 2, p0.y - px / 2, Math.max(1, px), Math.max(1, px));
       if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.5; ctx.strokeRect(p0.x - px / 2 - 2, p0.y - px / 2 - 2, px + 4, px + 4); }
       return;
@@ -930,7 +967,7 @@
       });
       ctx.closePath();
       const lit = 0.74 + 0.26 * Math.max(0, n2[0] * LIGHT[0] + n2[1] * LIGHT[1] + n2[2] * LIGHT[2]);
-      ctx.fillStyle = shade(col, lit, cb.known ? 1 : 0.28);
+      ctx.fillStyle = shade(col, lit, cb.known ? 1 : 0.22);
       ctx.fill();
       if (outline) { ctx.strokeStyle = outline; ctx.lineWidth = 1.75; ctx.stroke(); }
       else if (cb.known) { ctx.strokeStyle = shade(col, lit * 0.72); ctx.lineWidth = 0.5; ctx.stroke(); }
@@ -949,30 +986,46 @@
   // page (s p d f g h i k), and for the whole index Z across
   function drawLatAxes(scene, cam) {
     const C = state.colors, ex = scene.ext;
-    const font = (px) => F(px);
     scene._labels = [];
     const ox = scene.kind === 'element' ? scene.lx - 0.15 : ex.x0, oy = -0.5, oz = -0.5;
     const yTop = scene.kind === 'element' ? scene.ions.length - 0.5 : ex.y1;
-    ctx.globalAlpha = 0.9;
-    latLine(cam, [ox, oy, oz], [ox, yTop, oz], C.lineStrong, 1);
-    latLine(cam, [ox, oy, oz], [ox, oy, 7.5], C.lineStrong, 1);
-    if (scene.kind === 'index') latLine(cam, [ox, oy, oz], [ex.x1, oy, oz], C.lineStrong, 1);
-    ctx.globalAlpha = 1;
+    const P = (x, y, z) => cam.proj(cam.rot(x, y, z));
+    // the base plane, under everything, and the slab's silhouette
+    const bx0 = scene.kind === 'element' ? scene.lx - 0.4 : ex.x0, bx1 = ex.x1, by = ex.y0 + 0.05, bz0 = -0.6, bz1 = 7.6;
+    ctx.beginPath();
+    [[bx0, by, bz0], [bx1, by, bz0], [bx1, by, bz1], [bx0, by, bz1]].forEach((q, i) => { const p = P(q[0], q[1], q[2]); if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
+    ctx.closePath(); ctx.fillStyle = shade(C.surface === '' ? C.bg : C.lineStrong, 1, 0.08); ctx.fill();
+    ctx.strokeStyle = shade(C.lineStrong, 1, 0.5); ctx.lineWidth = 1; ctx.stroke();
+    if (scene.kind === 'index') {
+      for (let Z = 10; Z < ex.x1; Z += 10) latLine(cam, [Z, by, bz0], [Z, by, bz1], shade(C.lineStrong, 1, 0.25), 1);
+    } else {
+      for (let l = 0; l <= 7; l++) latLine(cam, [bx0, by, l], [bx1, by, l], shade(C.lineStrong, 1, 0.18), 1);
+      // the silhouette of the slab, twelve hairlines
+      const sx0 = -(scene.xmax || 0) - 0.5, sx1 = (scene.xmax || 0) + 0.5, sy0 = -0.5, sy1 = yTop, sz0 = -0.5, sz1 = 7.5;
+      const E = [[[sx0, sy0, sz0], [sx1, sy0, sz0]], [[sx0, sy0, sz1], [sx1, sy0, sz1]], [[sx0, sy1, sz0], [sx1, sy1, sz0]], [[sx0, sy1, sz1], [sx1, sy1, sz1]],
+                 [[sx0, sy0, sz0], [sx0, sy1, sz0]], [[sx1, sy0, sz0], [sx1, sy1, sz0]], [[sx0, sy0, sz1], [sx0, sy1, sz1]], [[sx1, sy0, sz1], [sx1, sy1, sz1]],
+                 [[sx0, sy0, sz0], [sx0, sy0, sz1]], [[sx1, sy0, sz0], [sx1, sy0, sz1]], [[sx0, sy1, sz0], [sx0, sy1, sz1]], [[sx1, sy1, sz0], [sx1, sy1, sz1]]];
+      for (const [q1, q2] of E) latLine(cam, q1, q2, shade(C.lineStrong, 1, 0.3), 1);
+    }
+    // the axes
+    latLine(cam, [ox, oy, oz], [ox, yTop, oz], shade(C.lineStrong, 1, 0.9), 1);
+    latLine(cam, [ox, oy, oz], [ox, oy, 7.5], shade(C.lineStrong, 1, 0.9), 1);
+    if (scene.kind === 'index') latLine(cam, [ox, oy, oz], [ex.x1, oy, oz], shade(C.lineStrong, 1, 0.9), 1);
     ctx.fillStyle = C.muted; ctx.textBaseline = 'middle';
     // ℓ ticks
     const zt = [];
-    for (let l = 0; l < 8; l++) zt.push(cam.proj(cam.rot(ox, oy, l)));
-    const zgap = zt.length > 1 ? Math.hypot(zt[1].x - zt[0].x, zt[1].y - zt[0].y) : 0;
+    for (let l = 0; l < 8; l++) zt.push(P(ox, oy, l));
+    const zgap = Math.hypot(zt[1].x - zt[0].x, zt[1].y - zt[0].y);
     if (zgap >= 9) {
-      ctx.font = font(Math.max(9, Math.min(13, zgap * 0.8))); ctx.textAlign = 'center';
-      for (let l = 0; l < 8; l++) ctx.fillText(LSYM[l] || String(l), zt[l].x, zt[l].y + 10);
+      ctx.font = F(Math.max(9, Math.min(12, zgap * 0.75)), 'sans'); ctx.textAlign = 'center';
+      for (let l = 0; l < 8; l++) ctx.fillText(LSYM[l] || String(l), zt[l].x, zt[l].y + 11);
     }
-    // stage ticks: every ion in the element scene, every tenth in the index
+    // stage ticks: every ion in the element scene (each a tappable numeral), every tenth in the index
     if (scene.kind === 'element') {
-      const ys = scene.ions.map((i) => cam.proj(cam.rot(ox, i.y, oz)));
+      const ys = scene.ions.map((i) => P(ox, i.y, oz));
       const ygap = ys.length > 1 ? Math.hypot(ys[1].x - ys[0].x, ys[1].y - ys[0].y) : 40;
       const step = ygap >= 11 ? 1 : Math.ceil(11 / Math.max(ygap, 0.5));
-      ctx.font = font(Math.max(9, Math.min(12, ygap * 0.7 + 4))); ctx.textAlign = 'right';
+      ctx.font = F(Math.max(9, Math.min(11.5, ygap * 0.6 + 5)), 'sans'); ctx.textAlign = 'right';
       const sel = state.selected;
       scene.ions.forEach((ion, i) => {
         const p = ys[i];
@@ -980,25 +1033,37 @@
         if (i % step === 0 || hot) {
           const t = roman(ion.charge);
           ctx.fillStyle = hot ? C.accent : C.muted;
-          ctx.fillText(t, p.x - 6, p.y);
+          ctx.fillText(t, p.x - 7, p.y);
           const w = ctx.measureText(t).width;
-          scene._labels.push({ x: p.x - 6 - w - 2, y: p.y - 7, w: w + 8, h: 14, node: ion.node });
+          scene._labels.push({ x: p.x - 7 - w - 2, y: p.y - 7, w: w + 8, h: 14, node: ion.node });
         }
       });
       ctx.fillStyle = C.muted;
     } else {
-      ctx.font = font(10); ctx.textAlign = 'right';
-      for (let c = 10; c <= ex.y1; c += 10) { const p = cam.proj(cam.rot(ox, c - 1, oz)); ctx.fillText(roman(c), p.x - 6, p.y); }
+      ctx.font = F(10, 'sans'); ctx.textAlign = 'right';
+      for (let c = 10; c <= ex.y1; c += 10) { const p = P(ox, c - 1, oz); ctx.fillText(roman(c), p.x - 7, p.y); }
       ctx.textAlign = 'center';
-      for (let Z = 10; Z <= ex.x1; Z += 10) { const p = cam.proj(cam.rot(Z, oy, oz)); ctx.fillText(String(Z), p.x, p.y + 12); }
+      for (let Z = 10; Z <= ex.x1; Z += 10) { const p = P(Z, oy, oz); ctx.fillText(String(Z), p.x, p.y + 12); }
+      // the slabs' symbols, where they have room
+      const p1 = P(1, ex.y1, oz), p2 = P(2, ex.y1, oz);
+      const gap = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+      const every = gap >= 13 ? 1 : gap >= 6.5 ? 2 : gap >= 2.6 ? 5 : 10;
+      ctx.font = F(Math.max(9, Math.min(11, gap * 0.8)), 'sans'); ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      ctx.fillStyle = C.faint;
+      for (const sl of scene.slabs) {
+        if (sl.Z % every !== 0 && every !== 1) continue;
+        const p = P(sl.Z, sl.Z - 0.5 + 0.6, 3.5);
+        ctx.fillText(sl.e.symbol, p.x, p.y);
+      }
+      ctx.textBaseline = 'middle';
     }
     // axis names
-    ctx.font = font(10); ctx.textAlign = 'left';
-    const pY = cam.proj(cam.rot(ox, yTop + (scene.kind === 'element' ? 0.6 : 4), oz));
-    ctx.fillText('stage ↑', pY.x + 4, pY.y);
-    const pZ = cam.proj(cam.rot(ox, oy, 8.2));
-    ctx.fillText('ℓ', pZ.x + 4, pZ.y);
-    if (scene.kind === 'index') { const pX = cam.proj(cam.rot(ex.x1 + 1, oy, oz)); ctx.fillText('Z →', pX.x + 4, pX.y); }
+    ctx.fillStyle = C.muted; ctx.font = F(10.5, 'sans'); ctx.textAlign = 'left';
+    const pY = P(ox, yTop + (scene.kind === 'element' ? 0.7 : 4), oz);
+    ctx.fillText('ionisation stage ↑', pY.x + 4, pY.y);
+    const pZ = P(ox, oy, 8.3);
+    ctx.fillText('ℓ →', pZ.x + 4, pZ.y);
+    if (scene.kind === 'index') { const pX = P(ex.x1 + 1, oy, oz); ctx.fillText('Z →', pX.x + 4, pX.y); }
   }
 
   function drawLattice() {
@@ -1046,6 +1111,8 @@
         ctx.lineCap = 'round';
         ctx.strokeStyle = C.accent; ctx.globalAlpha = hot ? 1 : 0.5; ctx.lineWidth = hot ? 2 : 1.25;
         ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+        // the rung's ion, a dot at the upper end
+        ctx.beginPath(); ctx.arc(pb.x, pb.y, hot ? 3.2 : 2.2, 0, Math.PI * 2); ctx.fillStyle = C.accent; ctx.fill();
         ctx.globalAlpha = 1;
       }
     }
@@ -1116,15 +1183,17 @@
     const lg = $('#legend-lattice'); if (lg) lg.hidden = v !== 'lattice';
     if (v !== 'lattice') return v;
     if (node.kind === 'root') {
-      if (!state.scene || state.scene.kind !== 'index') { state.scene = buildIndexScene(); state.orbit = orbitHome(); }
+      if (!state.scene || state.scene.kind !== 'index') { state.scene = buildIndexScene(); state.orbit = orbitHome(); if (state.scene) fitOrbit(state.scene, state.orbit); }
+      else if (node.kind === 'root' && state.orbit) { state.orbit.zoom = 1; fitOrbit(state.scene, state.orbit); }
     } else if (!state.scene || state.scene.kind !== 'element' || state.scene.Z !== node.Z) {
       state.scene = buildElementScene(node.Z);
       if (!state.scene) {
         ensureElement(node.Z).then(() => {
-          if (state.view === 'lattice' && state.selected && state.selected.Z === node.Z) { state.scene = buildElementScene(node.Z); updateCaption(); requestDraw(); }
+          if (state.view === 'lattice' && state.selected && state.selected.Z === node.Z) { state.scene = buildElementScene(node.Z); if (state.scene && state.orbit) fitOrbit(state.scene, state.orbit); updateCaption(); requestDraw(); }
         }).catch(() => { requestDraw(); });
       }
-      state.orbit = prev === 'lattice' && state.orbit ? { ...state.orbit, zoom: 1 } : orbitHome();
+      state.orbit = prev === 'lattice' && state.orbit ? { rx: state.orbit.rx, ry: state.orbit.ry, zoom: 1 } : orbitHome();
+      if (state.scene) fitOrbit(state.scene, state.orbit);
     }
     return v;
   }
@@ -2021,7 +2090,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
       dragged = false; last = { x: ev.clientX, y: ev.clientY };
       if (pts.size === 2) {
         const [a, b] = [...pts.values()];
-        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: state.cam.k, zoom: (state.orbit || orbitHome()).zoom };
+        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: state.cam.k, zoom: (state.orbit || orbitHome()).zoom, mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 };
       }
       canvas.classList.add('is-dragging');
     });
@@ -2043,7 +2112,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
         const [a, b] = [...pts.values()];
         const d = Math.hypot(a.x - b.x, a.y - b.y);
         const mx = (a.x + b.x) / 2 - rect.left, my = (a.y + b.y) / 2 - rect.top;
-        if (state.view === 'lattice') { const o = state.orbit || orbitHome(); o.zoom = Math.max(0.25, Math.min(16, pinch.zoom * (d / pinch.d))); state.orbit = o; requestDraw(); }
+        if (state.view === 'lattice') {
+          const o = state.orbit || orbitHome();
+          o.zoom = Math.max(0.25, Math.min(16, pinch.zoom * (d / pinch.d)));
+          const cmx = (a.x + b.x) / 2, cmy = (a.y + b.y) / 2;
+          o.dx = (o.dx || 0) + (cmx - pinch.mx); o.dy = (o.dy || 0) + (cmy - pinch.my); pinch.mx = cmx; pinch.my = cmy;
+          state.orbit = o; requestDraw();
+        }
         else zoomAt(mx, my, (pinch.k * (d / pinch.d)) / state.cam.k);
         dragged = true;
         return;
@@ -2053,7 +2128,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
         if (Math.abs(dx) + Math.abs(dy) > 2) dragged = true;
         if (state.view === 'lattice') {
           const o = state.orbit || orbitHome();
-          o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008));
+          if (ev.shiftKey) { o.dx = (o.dx || 0) + dx; o.dy = (o.dy || 0) + dy; }
+          else { o.ry += dx * 0.008; o.rx = Math.max(-1.45, Math.min(1.45, o.rx + dy * 0.008)); }
           state.orbit = o;
         } else { state.cam.tx += dx; state.cam.ty += dy; state.anim = null; }
         last = { x: ev.clientX, y: ev.clientY };

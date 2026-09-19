@@ -70,7 +70,15 @@ low Z and low ℓ is the record's own remark made visible, and a tap on a slab o
 **Nest** toggle shows an element as the nested circles instead — ions, channels, cells — which is
 the reading the plane used alone before. The renderer is hand-written on the same canvas: a yaw and
 pitch about the scene's centre, a mild perspective, faces sorted far to near and shaded by a fixed
-light, no library, so the page still opens from a plain file on a phone. The element plate's
+light, no library, so the page still opens from a plain file on a phone. The scene is fitted to the
+viewport by the projected extent of its corners at the home angle (the focal length and centring are
+kept on the orbit so the scene does not swim as it turns, and refitted on resize); a heavy element
+is a needle by the record's own geometry, so its ions are kept at least 13 px apart with the base
+anchored near the bottom, the lower stages where the known cells sit coming up first and the rest
+reached by zoom or pan (Shift-drag, or a two-finger drag). The slab stands on a base plane ruled
+by ℓ inside a hairline silhouette, unmeasured cells are small faint cubes, the ladder carries a dot
+on each rung's ion, the numerals and letters are set in the sans, and the whole-index view labels
+the slabs with their symbols where there is room and rules its base every ten Z. The element plate's
 "The lattice" section names the axes with their source and counts the cubes drawn, and the console
 answers `lattice`.
 
