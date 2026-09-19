@@ -259,9 +259,11 @@ NOT_AN_INDEX = {
     # own entry delimiter was collapsed by the PDF-to-text extraction,
     # and deformed.py proves it (210 separators required, at most 49
     # present).  A capture that cannot be shown total is not seated.
-    "deformed": "the deformed two-quasiparticle rotational bands -- "
-                "REFUSED ON THE INPUT, with a proof in deformed.py, "
-                "not on the criterion",
+    "deformed": "the deformed two-quasiparticle rotational bands -- NOT "
+                "SEATED because the capture is 233 of 234 entries, not "
+                "because the object fails the criterion.  An earlier "
+                "REFUSED-ON-THE-INPUT ruling here was RETRACTED under audit: "
+                "see deformed.py",
     "mi": "members are the seated indexes -- and NINE OF THEM ARE NOT "
           "REGISTERED ONES; figure.superseded_mi() measures it",
     "figure": "the index of first-order indexes: its members ARE the seated "
@@ -544,7 +546,7 @@ def selftest():
     chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
         [])
-    chk("eighteen indexes registered -- eleven, two the overlap ruling seated "
+    chk("twenty-three indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
@@ -580,8 +582,9 @@ def selftest():
     # thing: not the criterion, not box invariance, but THE INPUT.  The members
     # would carry quantum numbers; the file that should carry them lost the
     # delimiter that segments the table, and deformed.py proves it.
-    chk("and ONE is excused on the INPUT rather than on the object",
-        sorted(k for k, v in NOT_AN_INDEX.items() if "REFUSED ON THE INPUT" in v),
+    chk("and ONE is excused for an INCOMPLETE CAPTURE rather than on the "
+        "object -- its earlier input-refusal was retracted",
+        sorted(k for k, v in NOT_AN_INDEX.items() if "RETRACTED" in v),
         ["deformed"])
     chk("every excuse is non-empty",
         [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])

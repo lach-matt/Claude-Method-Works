@@ -77,11 +77,13 @@ once: holding a coordinate constant leaves an EFFECTIVE ARITY of 2, where
 3. THE DETERMINATION ON RECURSION -- AND A WORD THIS FILE HAD WRONG
 ===============================================================================
 
-    ONLY THREE OF THE TWENTY-TWO INDEXES ARE LATTICES.  `madelung.janet`,
+    ONLY THREE OF THE TWENTY-THREE INDEXES ARE LATTICES.  `madelung.janet`,
     `overlaprule.madelung_slot` and `bosonqp` are closed under meet and join.
-    THE OTHER TWENTY ARE NOT.  `lattices()` measures it.
+    NINETEEN ARE MEASURABLY NOT, and one is too large to measure -- 3 + 19 + 1
+    = 23.  `lattices()` measures it, and returns None rather than False for the
+    one it cannot reach.
 
-    SO "A SUBLATTICE OF THE INDEX" IS ILL-POSED FOR TWENTY OF THEM, and the
+    SO "A SUBLATTICE OF THE INDEX" IS ILL-POSED FOR NINETEEN OF THEM, and the
     first draft of this file used that phrase for all of them.  What
     `D.gen(S) == S` actually tests is whether S is CLOSED IN THE AMBIENT BOX
     -- a well-defined thing, and the right thing for the sweep -- but it is

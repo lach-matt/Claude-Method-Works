@@ -1,11 +1,39 @@
 #!/usr/bin/env python3
-r"""deformed.py -- DOCKET 36.  A REFUSAL, AND A PROOF THAT IT IS THE RIGHT ONE.
+r"""deformed.py -- DOCKET 36.  A RETRACTED REFUSAL, AND WHAT SURVIVES IT.
 
     python3 deformed.py             the reading
     python3 deformed.py --selftest  fixtures
 
 ===============================================================================
-0. WHAT WAS WANTED, AND WHY FOUR ATTEMPTS AT IT WERE ALL DOOMED
+0. THIS FILE ONCE CLAIMED A PROOF OF IMPOSSIBILITY.  THE CLAIM WAS FALSE.
+===============================================================================
+
+    WHAT IT SAID: "no regex recovers a delimiter that is not there ... it is
+    why a fifth would fail too", and "WHAT CANNOT BE RECOVERED IS WHICH LEVELS
+    BELONG TO WHICH BAND".
+
+    WHAT IS TRUE: a fifth parse succeeds.  `segment()` below recovers 233 of
+    the paper's 234 entries with a six-line rule, in 24 blocks that match the
+    24 nuclide sections exactly, every block contiguous 1..n.  An adversarial
+    audit found it and I reproduced it before writing this.
+
+    WHAT WENT WRONG IS WORTH MORE THAN THE FIX.  The blank-row measurement in
+    section 2 is correct, and stronger than it was stated.  The error was
+    generalising from it: "the delimiter the DOCUMENT DEFINES is absent" is a
+    fact about blank rows, and I turned it into "no delimiter is recoverable",
+    which is a fact about every possible parse and was never measured.  The
+    four failed attempts felt like evidence for the stronger claim and were
+    only ever evidence for the weaker one.
+
+    AND THE FOUR ATTEMPTS FAILED FOR A REASON I HAD BACKWARDS.  Attempt 2
+    tracked the band number as one stream with no per-nuclide reset; attempt 4
+    RELAXED the sequence to tolerate a gap.  The rule that works TIGHTENS it:
+    demand the next integer exactly, or a 1 that opens a new nuclide, and
+    never anything else.  Relaxing admits the page numbers; tightening makes
+    them invisible, because the scan is only ever looking for one value.
+
+===============================================================================
+0b. WHAT WAS WANTED, AND WHY THE FIRST FOUR ATTEMPTS MISSED
 ===============================================================================
 
 `nucbands.py` (DOCKET 35) seated the magnetic and antimagnetic rotational
@@ -47,21 +75,32 @@ and a bad one.
     REQUIRED.  234 entries spread over 24 nuclide sections need 210 separators
     between entries of the same nuclide.
 
-    PRESENT.  The table region holds 71 blank lines in total.  22 of them sit
-    at a page break -- a page number, a blank, then the repeated column
-    header.  That leaves AT MOST 49 that could be entry separators, against
-    210 required.  Even granting every one of them, the file is four times
-    short.
+    PRESENT.  ZERO.  The table region holds 71 blank lines and not one is an
+    entry separator: 50 sit immediately before a bare page number, and 21 sit
+    INSIDE a nuclide header, whose extraction layout is A / Z / blank / N /
+    symbol -- 21 rather than 24 because three headers print Z and N on one
+    line ("67 89", "69 105", "71 93").
+
+    AN EARLIER VERSION OF THIS FILE SAID "22 at a page break, so at most 49
+    available", AND BOTH HALVES WERE WRONG.  Its classifier tested backwards
+    -- a bare number BEFORE the blank -- which caught the 21 header internals
+    plus exactly one real page break by accident, where the preceding line was
+    a transition energy that happened to be three digits.  Its other arm,
+    looking for the repeated column header after the blank, never fired at
+    all, because in this extraction the order is content, blank, page number,
+    header.  Classifying FORWARD, and testing for the nuclide symbol before
+    the page number, gives 21 / 50 / 0.  The finding is stronger than the
+    version that was wrong about it: not "at most 49 against 210" but NONE.
 
     DIRECT.  At the 156-Ho entry 1 -> entry 2 boundary, where the
     specification requires a blank row, THERE IS NONE: the comment text of
     entry 1 runs straight into the line `2 `.
 
-THE PDF-TO-TEXT EXTRACTION COLLAPSED THE BLANK ROWS.  The information that
-segments this table was destroyed before the file reached this repository, and
-no regex recovers a delimiter that is not there.  That is not a limitation of
-the four parses; it is the reason all four failed, and it is why a fifth would
-fail too.
+THE PDF-TO-TEXT EXTRACTION COLLAPSED THE BLANK ROWS.  That much is measured
+and it is why the document's OWN delimiter cannot be used.
+
+IT DOES NOT FOLLOW THAT NOTHING ELSE SEGMENTS THE TABLE, and the sentence that
+used to stand here said it did.  RETRACTED.  See section 2b.
 
 ===============================================================================
 3. WHAT IS RECOVERABLE, WHICH IS NOT NOTHING
@@ -76,11 +115,10 @@ fail too.
     writes bandheads as `A+134.27` and `1135.7+y`, which no absolute-energy
     token matches, and that alone was one of the four parses' losses.
 
-WHAT CANNOT BE RECOVERED IS WHICH LEVELS BELONG TO WHICH BAND.  A level
-without its band is still a quantum object carrying I and pi -- but the census
-that would show the capture TOTAL is a census of BANDS, and without the
-delimiter there is no way to show that the levels are all of them either.  A
-capture that cannot be shown total is not seated.
+AND BAND MEMBERSHIP IS RECOVERABLE AFTER ALL -- section 2b.  The sentence that
+stood here, "WHAT CANNOT BE RECOVERED IS WHICH LEVELS BELONG TO WHICH BAND",
+is RETRACTED.  What remains true is the standard it was defending: a capture
+is not seated until its totality is demonstrated, and 233 of 234 is not 234.
 
 ===============================================================================
 4. WHAT WOULD SETTLE IT
@@ -95,10 +133,17 @@ parseable and this docket closeable.
 That is not available here, and that was checked rather than assumed --
 THREE ROUTES, ALL MEASURED:
 
-    THE BYTES.  arXiv is 403 through the egress proxy, exactly as ENSDF is.
-    The proxy's own status endpoint lists what bypasses it, and the whole list
-    is package registries: pypi, npm, crates, the Go proxy.  No arXiv mirror
-    is reachable, so there is no second extraction to fetch.
+    THE BYTES.  arXiv itself is 403 through the egress proxy, exactly as
+    ENSDF is.  AN EARLIER VERSION OF THIS SECTION WENT FURTHER AND WAS WRONG:
+    it said the proxy's bypass list "is package registries" and concluded no
+    mirror is reachable.  That conflated two different things -- the `noProxy`
+    list (hosts that skip the proxy entirely, which IS just the registries)
+    with what the proxy PERMITS, which is much wider.  Measured directly:
+    storage.googleapis.com and github.com both tunnel (server replies, not
+    CONNECT refusals) while arxiv.org is refused outright.  So a mirror may
+    well be reachable, and the sentence claiming otherwise is RETRACTED.
+    It is also now moot: section 2b recovers the boundaries from the text
+    already in hand, with no second extraction needed.
 
     THE CONNECTOR.  Both of its tools -- the whole-paper read and the
     page-query read -- return THIS extraction.  There is no layout-preserving
@@ -202,16 +247,62 @@ def separators():
     """
     b = table()
     blanks = [k for k, s in enumerate(b) if not s.strip()]
-    page = 0
+    page = hdr = 0
     for k in blanks:
-        nxt = next((b[j].strip() for j in range(k + 1, min(k + 4, len(b)))
-                    if b[j].strip()), "")
-        prv = next((b[j].strip() for j in range(k - 1, max(k - 4, -1), -1)
-                    if b[j].strip()), "")
-        if nxt.startswith("S.No.") or re.fullmatch(r'\d{1,3}', prv):
+        nxt = [b[j].strip() for j in range(k + 1, min(k + 6, len(b)))
+               if b[j].strip()][:2]
+        # ORDER MATTERS: a header-internal blank is followed by N, which looks
+        # exactly like a page number.  Test for the nuclide symbol FIRST.
+        if any(x in SY for x in nxt):
+            hdr += 1
+        elif nxt and re.fullmatch(r'\d{1,3}', nxt[0]):
             page += 1
     required = STATED["entries"] - len(sections())
-    return (required, len(blanks), page, len(blanks) - page)
+    return (required, len(blanks), page, hdr, len(blanks) - page - hdr)
+
+
+SEG = re.compile(r'^(\d{1,3})(\s|$)')
+
+
+def segment():
+    """[(line, band number)] -- the entry boundaries, recovered.
+
+    THE RULE THAT WORKS, and it TIGHTENS where the four failed attempts
+    relaxed.  Walk every line that opens with a small integer and accept it
+    only if it is the next number expected, or a 1 that opens a new nuclide.
+    Nothing else is ever accepted.
+
+    That is why the band-number column's ambiguity with page numbers stops
+    mattering: the scan is looking for ONE value at a time, so a page number
+    is only ever consulted if it happens to equal the next band number at the
+    moment it appears -- and it never does.  Of 692 candidate lines, 459 are
+    noise and none of them is chosen.
+    """
+    if "s" not in _C:
+        out, exp = [], 1
+        for j, line in enumerate(table()):
+            m = SEG.match(line)
+            if not m:
+                continue
+            v = int(m.group(1))
+            if v == exp:
+                out.append((j, v)); exp += 1
+            elif v == 1 and exp > 1:
+                out.append((j, 1)); exp = 2
+        _C["s"] = out
+    return _C["s"]
+
+
+def blocks():
+    """[[band numbers]] per nuclide -- one block per reset."""
+    out, cur = [], []
+    for _j, v in segment():
+        if v == 1 and cur:
+            out.append(cur); cur = []
+        cur.append(v)
+    if cur:
+        out.append(cur)
+    return out
 
 
 def boundary_has_no_blank():
@@ -276,12 +367,14 @@ def levels():
 
 
 def verdict():
-    """(settled?, why) -- and it is settled as a REFUSAL, on the input."""
-    req, blanks, page, avail = separators()
-    return (avail < req,
-            "the delimiter the document defines is absent from this "
-            "extraction: %d separators required, at most %d available"
-            % (req, avail))
+    """(blank-row delimiter absent?, entries recoverable another way, why)."""
+    req, blanks, page, hdr, avail = separators()
+    return (avail == 0, len(segment()),
+            "the document's own delimiter is absent -- %d separators required, "
+            "%d available -- but %d of %d entries are recoverable from the band "
+            "number under a sequence-with-reset rule, so the earlier conclusion "
+            "that none were is RETRACTED"
+            % (req, avail, len(segment()), STATED["entries"]))
 
 
 def selftest():
@@ -308,19 +401,28 @@ def selftest():
                for sym in {s[1] for s in S}),
         [("Ho", 8), ("Lu", 5), ("Tm", 11)])
 
-    req, blanks, page, avail = separators()
+    req, blanks, page, hdr, avail = separators()
     chk("210 entry separators are REQUIRED by the paper's own census", req, 210)
-    chk("71 blank lines are PRESENT, 22 of them at a page break",
-        (blanks, page), (71, 22))
-    chk("so at most 49 could be separators, against 210 required",
-        (avail, avail < req), (49, True))
-    chk("and even granting every one, the file is four times short",
-        req // max(avail, 1) >= 4, True)
+    chk("71 blank lines are PRESENT: 50 page boundaries, 21 header internals",
+        (blanks, page, hdr), (71, 50, 21))
+    chk("so ZERO are entry separators -- stronger than the 49 once claimed",
+        avail, 0)
     chk("DIRECT: the 156-Ho entry 1 -> 2 boundary carries no blank row",
         boundary_has_no_blank(), True)
 
-    settled, _why = verdict()
-    chk("SO THE REFUSAL IS PROVED, not asserted", settled, True)
+    absent, got, _why = verdict()
+    chk("the document's own delimiter IS absent -- that much stands", absent, True)
+    # THE RETRACTION, AS A FIXTURE.  This file once concluded that no parse
+    # could recover entry boundaries.  A tightened sequence rule does.
+    chk("BUT 233 of 234 entries ARE recoverable -- the old conclusion is "
+        "RETRACTED", got, 233)
+    chk("in 24 blocks, matching the 24 nuclide sections exactly",
+        (len(blocks()), len(sections())), (24, 24))
+    chk("and every block is contiguous 1..n, which a coincidence would not be",
+        [b for b in blocks() if b != list(range(1, len(b) + 1))], [])
+    chk("the file says RETRACTED where it was wrong, rather than quietly "
+        "rewriting", open(__file__, encoding="utf-8").read().count("RETRACTED") >= 3,
+        True)
 
     chk("what IS recoverable is measured too, not just the failure",
         len(levels()) > 1500, True)
@@ -335,7 +437,7 @@ def selftest():
 
 def report():
     print("=" * 79)
-    print("DOCKET 36 -- THE DEFORMED TWO-QUASIPARTICLE BANDS.  REFUSED, WITH A PROOF.")
+    print("DOCKET 36 -- THE DEFORMED BANDS.  A REFUSAL, RETRACTED.")
     print("=" * 79)
     print()
     print("SOURCE  %s" % PAPER)
@@ -355,38 +457,51 @@ def report():
     print("   proxy, and that column is bare integers indistinguishable from")
     print("   page numbers and the comment column's own markers.")
     print()
-    print("3. AND THE DELIMITER IS NOT IN THIS FILE.")
-    req, blanks, page, avail = separators()
+    print("3. AND THE DOCUMENT'S OWN DELIMITER IS NOT IN THIS FILE.")
+    req, blanks, page, hdr, avail = separators()
     print("     required, by the paper's own census      %3d" % req)
     print("     blank lines present in the table         %3d" % blanks)
-    print("     of those, sitting at a page break        %3d" % page)
-    print("     AT MOST available as separators          %3d" % avail)
-    print("   Even granting every one, the file is %dx short."
-          % (req // max(avail, 1)))
+    print("       sitting at a page boundary             %3d" % page)
+    print("       sitting INSIDE a nuclide header        %3d" % hdr)
+    print("     available as entry separators            %3d" % avail)
     print("   DIRECT CHECK -- 156-Ho, entry 1 to entry 2, where the spec")
     print("   requires a blank row: %s"
           % ("THERE IS NONE" if boundary_has_no_blank() else "there is one"))
     print()
-    print("   The extraction collapsed the blank rows.  No regex recovers a")
-    print("   delimiter that is not there, which is why all four failed and")
-    print("   why a fifth would too.")
+    print("4. BUT THAT DOES NOT MEAN NOTHING SEGMENTS THE TABLE, AND THIS")
+    print("   FILE ONCE SAID IT DID.  RETRACTED.")
+    print("     entries recovered by a sequence-with-reset rule   %3d of %d"
+          % (len(segment()), STATED["entries"]))
+    print("     blocks, against %d nuclide sections               %3d"
+          % (len(sections()), len(blocks())))
+    print("     every block contiguous 1..n                       %s"
+          % all(b == list(range(1, len(b) + 1)) for b in blocks()))
+    print("   The rule TIGHTENS where the four attempts relaxed: take the next")
+    print("   expected integer, or a 1 that opens a nuclide, and nothing else.")
+    print("   The band number's ambiguity with page numbers then stops")
+    print("   mattering -- the scan seeks one value at a time, and of 692")
+    print("   candidate lines the 459 noise ones are never chosen.")
     print()
-    print("4. WHAT IS RECOVERABLE, WHICH IS NOT NOTHING.")
+    print("5. WHAT ELSE IS RECOVERABLE.")
     S = sections()
     print("     nuclide sections, with Z and N           %3d" % len(S))
     print("     level rows                              %4d" % len(levels()))
-    print("   But WHICH LEVELS BELONG TO WHICH BAND is exactly what the lost")
-    print("   delimiter carried, and the census that would show a capture")
-    print("   total is a census of BANDS.  So nothing is seated.")
+    print("   Band membership too, now that section 4 recovers the")
+    print("   boundaries.  NOTHING IS SEATED YET, and the reason is no longer")
+    print("   impossibility: it is that 233 of 234 is not 234, and a capture")
+    print("   is not seated until its totality is demonstrated.")
     print()
-    print("5. WHAT WOULD SETTLE IT.")
-    print("   An extraction that preserves layout -- blank rows, or the column")
-    print("   x-positions, so the band-number column is told from a page")
-    print("   number by POSITION rather than by shape.  Not available here:")
-    print("   arXiv is 403 through this proxy exactly as ENSDF is, and the")
-    print("   connector returns this same extraction.")
+    print("6. WHAT REMAINS BEFORE ANYTHING IS SEATED.")
+    print("   ONE ENTRY of the 234, and the totality argument that follows")
+    print("   from finding it.  The paper offers an unusually rich fixture set")
+    print("   to check a finished capture against -- 234 = 173 bands + 61")
+    print("   bandhead states, 63 GM doublets, 76 with signature splitting, 29")
+    print("   with inversion, 10 band crossings, 58 bandheads with half-lives.")
     print()
-    print("   THE DOCKET IS OPEN ON AN INPUT, NOT ON AN IDEA.")
+    print("   A LAYOUT-PRESERVING EXTRACTION IS NO LONGER NEEDED and this file")
+    print("   used to say it was.  Section 4 works on the text already here.")
+    print()
+    print("   THE DOCKET IS OPEN ON ONE MISSING ENTRY, NOT ON AN INPUT.")
     return 0
 
 

@@ -47,8 +47,17 @@ the fixtures are of two kinds, and the second kind is the one that matters:
     being read in the right order.
 
 ===============================================================================
-THE FOUR ANOMALIES, ALL RUN DOWN, AND NONE OF THEM THIS PARSER'S
+THE ANOMALIES -- AND ONE OF THEM *WAS* THIS PARSER'S
 ===============================================================================
+
+    THIS SECTION ONCE READ "NONE OF THEM THIS PARSER'S" AND THAT WAS FALSE.
+    An adversarial audit found 146-Tb band 1 losing SEVEN of its eight printed
+    levels, silently.  `PARSER_FAULTS` records it, and the loss is exactly the
+    failure mode the section above claims to defend against: the census stayed
+    EXACT, because the bandhead survived and the band was still counted, and
+    the Delta-I fixture registered nothing, because a band cut down to one
+    level contributes no consecutive pair at all.  Two checks that were
+    supposed to be independent were both blind to the same defect.
 
     85-Zr BAND 1 jumps 31/2 -> 35/2 -> 39/2.  The source prints exactly that:
     two Delta-I = 2 steps at the top of the band, carrying only E2 energies
@@ -65,12 +74,24 @@ THE FOUR ANOMALIES, ALL RUN DOWN, AND NONE OF THEM THIS PARSER'S
 THE 27 BANDS THAT CARRY NO SPIN AT ALL
 ===============================================================================
 
-    Twenty-seven of the 252 MR bands are printed with NO I-pi COLUMN.  They
-    sit in the A ~ 190 region (Hg, Pb, Bi, At, Fr) and their energies are
-    relative to an unknown bandhead -- `200-Pb 1 X`, then 100.6+X, 223.9+X and
-    so on.  The paper's Explanation of Tables says why: absolute excitation
-    energies are unknown where the linking transitions to lower levels are not
-    established.
+    Twenty-seven of the 252 MR bands are printed with NO I-pi COLUMN, AND THEY
+    FAIL IN TWO DIFFERENT WAYS.  An earlier draft asserted one reason for all
+    twenty-seven and was wrong about one of them.
+
+    TWENTY-SIX ARE UNKNOWN IN ENERGY.  They sit in the A ~ 190 region (Hg, Pb,
+    Bi, At, Fr) and their energies are relative to an unknown bandhead --
+    `200-Pb 1 X`, then 100.6+X, 223.9+X and so on.  The paper's Explanation of
+    Tables says why: absolute excitation energies are unknown where the
+    linking transitions to lower levels are not established.
+
+    THE TWENTY-SEVENTH IS 141-Eu BAND 3 AND IT IS THE OTHER WAY ROUND.  A is
+    141, not ~190.  Its energies are ABSOLUTE -- 5641, 5976, 6325 ... 9036 keV,
+    carrying no X/Y/Z label, which by the paper's own key means the absolute
+    energy IS known.  What is relative is the SPIN: the column reads I, I+1,
+    I+2 ... I+8.  The DISPOSITION is unchanged and correct -- a relative spin
+    ladder carries no absolute quantum number, so it is refused on the same
+    criterion -- but the REASON is the mirror image of the other twenty-six,
+    and `nospin_reason()` now measures which is which instead of asserting.
 
     THEY ARE NOT A PARSE FAILURE AND THEY ARE NOT AN INDEX MEMBER.  The
     criterion is that a member carries quantum numbers; a band with no spin
@@ -85,6 +106,7 @@ periodic table typed out here.  THIS FILE IS THE ONLY ONE THAT NEEDS IT --
 `nucbands.py` reads the TSV and is stdlib-only.
 """
 
+import collections
 import hashlib
 import os
 import re
@@ -95,6 +117,7 @@ CAP = os.path.join(HERE, "captures")
 SRC = os.path.join(CAP, "arxiv-2303.13849.txt")
 BANDS_TSV = os.path.join(CAP, "NUCBANDS-bands.tsv")
 LEVELS_TSV = os.path.join(CAP, "NUCBANDS-levels.tsv")
+UNPLACED_TSV = os.path.join(CAP, "NUCBANDS-unplaced.tsv")
 
 PAPER = "arXiv:2303.13849 -- Teng & Ma, Magnetic and antimagnetic rotational bands data tables"
 SRC_MD5 = "1847412451a8fff4d81f4dfde0fc07d9"
@@ -111,11 +134,31 @@ SOURCE_FAULTS = (
                    "printed and NOT repaired."),
 )
 
+# FAULTS IN THIS PARSER, found by audit rather than by fixture.  Kept because
+# a capture that only records the SOURCE's faults is flattering itself.
+PARSER_FAULTS = (
+    (146, "Tb", 1,
+     "lost SEVEN of its eight printed levels.  The ENER alternation accepted "
+     "the offset-first spelling `266.5+X` and not the label-first `X+266.5`; "
+     "exactly seven lines in both tables have that shape and all seven are "
+     "this band.  Neither the census nor the Delta-I check could see it -- "
+     "the bandhead survived so the band was still counted, and a one-level "
+     "band contributes no consecutive pair.  FIXED: the alternation now takes "
+     "both spellings, and `no band has exactly one level` is a fixture."),
+)
+
 # Real physics the structural check turned up, so it is not re-litigated.
 NOT_A_FAULT = (
-    (85, "Zr", 1, "31/2 -> 35/2 -> 39/2 is two Delta-I = 2 steps at the top of "
-                  "the band, with E2 energies 1451 and 1705 and no M1: a band "
-                  "crossing, printed correctly."),
+    (85, "Zr", 1, "31/2 -> 35/2 -> 39/2 is two Delta-I = 2 steps at the top "
+                  "of the band.  The printed 1451 and 1705 are exactly "
+                  "E(35/2)-E(31/2) and E(39/2)-E(35/2), so they are E2 column "
+                  "entries and no M1 is missing: the rows are internally "
+                  "consistent and THERE IS NOTHING TO REPAIR.  WHY the M1 "
+                  "cascade stops is UNDETERMINED here -- an earlier draft "
+                  "called it a band crossing, which is a plausible reading "
+                  "and not a measurement, and the paper offers no commentary "
+                  "on this band.  The disposition stands; the mechanism is "
+                  "withdrawn."),
 )
 
 ELEM = set("""H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn
@@ -136,11 +179,18 @@ def _sections(lines):
 DATA = re.compile(r'^(\d{2,3}$|\(?\d+\.\d|\d+ [\(\d]|[A-Z][a-z]? \d'
                   r'|\(?\d+\+[A-Z]\b|\d+ [A-Z]\b)')
 PARITY = re.compile(r'^[\(\)]*[+−][\)\(]*$')
+# The LABEL-FIRST alternative `X+266.5` was missing and cost 146-Tb band 1
+# seven of its eight levels -- see PARSER_FAULTS.  Offset-first `266.5+X` was
+# always accepted; the two spellings both occur and the table uses whichever
+# the original reference used.
 ENER = (r'\(?[\d]+(?:\.\d+)?(?:\+[A-Z])?\)?|\(?[A-Z]\)?'
+        r'|\(?[A-Z]\+\d+(?:\.\d+)?\)?'
         r'|\(?\d*\+[A-Z]\)?|\(A[<>]\d+\)\?')
 SPIN = r'\(?\d{1,2}(?:/2)?[\(\)]*[+−]?[\(\)]*\)?'
 ROW = re.compile(r'^(%s)\s+(%s)(\s|$)' % (ENER, SPIN))
 ENERTOK = re.compile(r'^(%s)$' % ENER)
+# an energy then a gamma and nothing else: a level row with no I^pi
+UNSPINNED = re.compile(r'^(\(?[\d.]+\)?)\s+(\(?[\d.]+\)?)\s*$')
 
 
 def _strip(lines):
@@ -267,8 +317,71 @@ def bands():
                 if r:
                     i2, par = spin2(r[1])
                     cur["levels"].append((r[0], i2, par))
+                else:
+                    cur.setdefault("raw", []).append(s)
+                if not r and cur["levels"]:
+                    # A LEVEL ROW WITH NO I^pi, INSIDE A BAND THAT HAS THEM.
+                    # Shape: an energy then a gamma and nothing else.  Kept so
+                    # the third refusal is COUNTED rather than silent.
+                    u = UNSPINNED.match(s)
+                    if u:
+                        cur.setdefault("unspinned", []).append((u.group(1),
+                                                                u.group(2)))
         _C["b"] = out
     return _C["b"]
+
+
+def unplaced():
+    """[(table, A, el, band, E, Egamma, gap, closes?)] -- the THIRD refusal.
+
+    Level rows the source prints with NO I^pi inside a band that otherwise
+    carries spins.  They are refused on the same criterion as everything else
+    -- a member carries quantum numbers -- but they were vanishing with no
+    counter at all, which the other two refusals do not do.
+
+    `closes` is the corroboration that each is a REAL level and not a parse
+    artefact: the printed gamma reproduces the drop to a level below it.  THE
+    FIRST VERSION OF THIS CHECK WAS WRONG IN TWO WAYS and reported two false
+    negatives, so both are handled explicitly rather than tolerated:
+
+        the gamma may be an E2, spanning TWO levels rather than one, which is
+        the whole reason the table has separate M1 and E2 columns; and
+
+        the level below may itself be one of these unspinned rows, so the
+        predecessor set has to include them, not just the placed levels.
+
+    A row that still does not close is reported with closes=False rather than
+    dropped, so the check cannot pass by excluding its own failures.
+    """
+    def _f(x):
+        try:
+            return float(re.sub(r'[()]', "", x))
+        except ValueError:
+            return None
+
+    out = []
+    for b in bands():
+        un = b.get("unspinned", [])
+        if not un:
+            continue
+        rungs = sorted(x for x in
+                       [_f(e) for (e, _i, _p) in b["levels"]] +
+                       [_f(e) for (e, _g) in un] if x is not None)
+        for (e, g) in un:
+            here, gam = _f(e), _f(g)
+            if here is None or gam is None:
+                out.append((b["table"], b["A"], b["el"], b["band"], e, g,
+                            None, False))
+                continue
+            below = [x for x in rungs if x < here - 0.05]
+            # M1 to the rung below, or E2 across the two below
+            gaps = [round(here - below[-1], 1)] if below else []
+            if len(below) >= 2:
+                gaps.append(round(here - below[-2], 1))
+            ok = any(abs(gp - gam) < 1.5 for gp in gaps)
+            out.append((b["table"], b["A"], b["el"], b["band"], e, g,
+                        gaps[0] if gaps else None, ok))
+    return out
 
 
 def census():
@@ -300,6 +413,25 @@ def nospin():
     return [(b["A"], b["el"], b["band"]) for b in bands() if not b["levels"]]
 
 
+def nospin_reason():
+    """{(A, el, band): 'ENERGY-UNKNOWN' or 'SPIN-RELATIVE'} for the 27.
+
+    MEASURED, because asserting one reason for all 27 is exactly how this file
+    got it wrong.  A band whose rows carry an X/Y/Z/U/V ENERGY LABEL is
+    unknown in energy; one whose energies are plain numbers and whose spin
+    column is a relative ladder (I, I+1, ...) is unknown in SPIN.
+    """
+    out = {}
+    for bd in bands():
+        if bd["levels"]:
+            continue
+        rows = bd.get("raw", [])
+        labelled = any(re.match(r'^\(?[\d.]*\+?[A-Z]', r) for r in rows)
+        out[(bd["A"], bd["el"], bd["band"])] = ("ENERGY-UNKNOWN" if labelled
+                                                else "SPIN-RELATIVE")
+    return out
+
+
 def zmap():
     """{symbol: Z} from mendeleev.  Capture-side only; the TSV carries Z."""
     from mendeleev import element
@@ -315,15 +447,22 @@ def write():
         f.write("# source %s md5 %s\n" % (os.path.basename(SRC), SRC_MD5))
         f.write("# Z from mendeleev 1.3.0.  Regenerate: python3 nbcapture.py --write\n")
         f.write("# status NO-SPIN: the source prints no I^pi column for this band\n")
-        f.write("table\tA\tZ\tel\tband\tlevels\thead_E\thead_2I\thead_par\tstatus\n")
+        f.write("# reason: why a NO-SPIN band carries no quantum number --\n")
+        f.write("#   ENERGY-UNKNOWN (26, A ~ 190, energies relative to X/Y/Z)\n")
+        f.write("#   SPIN-RELATIVE  (1, 141-Eu band 3: absolute energies, a\n")
+        f.write("#                   relative spin ladder I, I+1 ... I+8)\n")
+        f.write("table\tA\tZ\tel\tband\tlevels\thead_E\thead_2I\thead_par"
+                "\tstatus\treason\n")
+        why = nospin_reason()
         for b in bands():
             lv = b["levels"]
             h = lv[0] if lv else ("", None, None)
-            f.write("%s\t%d\t%d\t%s\t%d\t%d\t%s\t%s\t%s\t%s\n"
+            f.write("%s\t%d\t%d\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t%s\n"
                     % (b["table"], b["A"], Z[b["el"]], b["el"], b["band"], len(lv),
                        h[0], "" if h[1] is None else h[1],
                        "" if h[2] is None else h[2],
-                       "PLACED" if lv else "NO-SPIN"))
+                       "PLACED" if lv else "NO-SPIN",
+                       "" if lv else why.get((b["A"], b["el"], b["band"]), "")))
             n += 1
     with open(LEVELS_TSV, "w", encoding="utf-8") as f:
         f.write("# %s\n" % PAPER)
@@ -335,6 +474,17 @@ def write():
                 f.write("%s\t%d\t%d\t%s\t%d\t%s\t%s\t%s\n"
                         % (b["table"], b["A"], Z[b["el"]], b["el"], b["band"],
                            e, "" if i2 is None else i2, "" if par is None else par))
+    with open(UNPLACED_TSV, "w", encoding="utf-8") as f:
+        f.write("# %s\n" % PAPER)
+        f.write("# THE THIRD REFUSAL, counted rather than silent: level rows\n")
+        f.write("# the source prints with NO I^pi inside a band that has them.\n")
+        f.write("# `closes` is the corroboration -- the printed gamma\n")
+        f.write("# reproduces the drop to a level below (M1) or across two\n")
+        f.write("# (E2), so each is a real level whose spin is unassigned.\n")
+        f.write("table\tA\tel\tband\tE_keV\tEgamma\tgap\tcloses\n")
+        for (t, A, el, bd, e, g, gap, ok) in unplaced():
+            f.write("%s\t%d\t%s\t%d\t%s\t%s\t%s\t%s\n"
+                    % (t, A, el, bd, e, g, "" if gap is None else gap, ok))
     return n
 
 
@@ -364,8 +514,8 @@ def selftest():
     s = steps()
     chk("AMR is Delta-I = 2 by definition -- and ALL 213 steps are",
         (sorted(s["AMR"]), sum(s["AMR"].values())), ([4], 213))
-    chk("MR is Delta-I = 1 by definition -- 1758 of 1762 steps are",
-        (s["MR"][2], sum(s["MR"].values())), (1758, 1762))
+    chk("MR is Delta-I = 1 by definition -- 1765 of 1769 steps are",
+        (s["MR"][2], sum(s["MR"].values())), (1765, 1769))
     chk("and the four exceptions are two bands, both run down",
         sorted(k for k in s["MR"] if k != 2), [-8, 4, 12])
 
@@ -373,9 +523,16 @@ def selftest():
         (len(nospin()), len([b for b in bands()
                              if b["table"] == "AMR" and not b["levels"]])),
         (27, 0))
-    chk("and every one of them is in the A ~ 190 region, as the source says",
-        sorted({el for _a, el, _b in nospin()}),
-        ["At", "Bi", "Eu", "Fr", "Hg", "Pb"])
+    chk("they are NOT all one thing: 26 unknown in ENERGY, 1 in SPIN",
+        sorted(collections.Counter(nospin_reason().values()).items()),
+        [("ENERGY-UNKNOWN", 26), ("SPIN-RELATIVE", 1)])
+    chk("and the odd one out is 141-Eu band 3, at A = 141 and not A ~ 190",
+        [k for k, v in nospin_reason().items() if v == "SPIN-RELATIVE"],
+        [(141, "Eu", 3)])
+    chk("the other 26 are the A ~ 190 region the source describes",
+        sorted({el for (a, el, _b), v in nospin_reason().items()
+                if v == "ENERGY-UNKNOWN"}),
+        ["At", "Bi", "Fr", "Hg", "Pb"])
 
     chk("the source's own typo is named, not silently corrected",
         [(a, e, b) for a, e, b, _w in SOURCE_FAULTS], [(133, "Pr", 3)])
@@ -385,11 +542,28 @@ def selftest():
         [29, 31, 33, 35, 37, 39, 41, 43, 45, 57, 49, 51, 53])
 
     lv = sum(len(b["levels"]) for b in bands())
-    chk("levels extracted, and every one carries a spin", lv, 2238)
+    chk("levels extracted, and every one carries a spin", lv, 2245)
+    # THE TRIPWIRE THE AUDIT ASKED FOR.  146-Tb band 1 was cut to a single
+    # level by a parser fault and NOTHING saw it -- the census still counted
+    # the band and a one-level band makes no consecutive pair.  This is the
+    # cheap invariant that catches that whole class.
+    chk("NO band has exactly one level -- the fault that hid in that shape",
+        [(b["A"], b["el"], b["band"]) for b in bands() if len(b["levels"]) == 1],
+        [])
+    chk("146-Tb band 1 has all eight of its printed levels back",
+        [len(b["levels"]) for b in bands()
+         if (b["A"], b["el"], b["band"]) == (146, "Tb", 1)], [8])
+    chk("and the parser fault that lost them is RECORDED, not just fixed",
+        [(a, e, n) for a, e, n, _w in PARSER_FAULTS], [(146, "Tb", 1)])
+    u = unplaced()
+    chk("SIX level rows carry no I^pi inside a band that does -- the third "
+        "refusal, now counted", len(u), 6)
+    chk("and every one closes its own gamma arithmetic, so each is a REAL "
+        "level the paper left unassigned", [x for x in u if not x[7]], [])
     chk("no extracted level is missing its 2I",
         sum(1 for b in bands() for x in b["levels"] if x[1] is None), 0)
 
-    for p, want in ((BANDS_TSV, 290), (LEVELS_TSV, 2238)):
+    for p, want in ((BANDS_TSV, 290), (LEVELS_TSV, 2245)):
         if os.path.exists(p):
             rows = [l for l in open(p, encoding="utf-8")
                     if l.strip() and not l.startswith("#")][1:]

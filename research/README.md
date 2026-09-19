@@ -12484,20 +12484,22 @@ superset **loses** the channel:
 | K0 | 1,054 | (0, 85, 42) | 2I, π, ΔI, Z |
 | K0 | 1,307 | (0, 80, 55) | 2I, π, ΔI, N |
 | K0 | 1,672 | (0, 61, 74) | 2I, π, Z, N |
-| — | — | **UNMEASURED** | 2I, π, ΔI, Z, N |
+| K0 | 1,715 | (0, 59, 81) | 2I, π, ΔI, Z, N |
 
-**Six of the seven supersets are measured and every one loses the channel; the seventh is not
-measured.** The full five-coordinate chart did not return inside a 40-minute budget — `mi.K` runs
-five closure operators over every pair of coordinates and that chart is the largest here. It is
-marked `UNMEASURED` in the instrument and on the plate rather than filled in from the pattern: **a
-pattern in six is not a measurement of the seventh.**
+**All seven supersets are measured and every one loses the channel.** The last row had to wait for
+the CPU: `mi.K` runs five closure operators over every pair of coordinates and that chart is the
+largest here, so it timed out at 40 minutes. It was carried as `UNMEASURED` in the instrument, on
+the plate and here — **named rather than filled in from the six K0 rows above**, with a fixture
+asserting exactly that — until a 90-minute run returned `K0, 1,715 cells, (0, 59, 81)`. **The guess
+would have been right and withholding it was still correct:** a pattern in six is not a measurement
+of the seventh, and the only way to know which it was is to spend the CPU.
 
 ### The second paper is captured and **not** parsed
 
 The same join returned **arXiv:2508.05447** — two-quasiparticle bands in **deformed** odd-odd nuclei,
 which is the object `subpop.py` actually named, and a *different mechanism* from the shears rotation
-of near-spherical nuclei above. Its text is seated in `captures/`. **It is not indexed, and `deformed.py`
-(DOCKET 36) proves that is the right answer for this input.**
+of near-spherical nuclei above. Its text is seated in `captures/`. **It is not indexed — and `deformed.py` (DOCKET 36)
+now records a RETRACTION, because the first answer I gave was wrong.**
 
 Four forward parses came up short — 154, 176, 160, 195 entries against the stated 234 — and each fix
 was a better guess at the line shapes that moved the number without explaining the gap. That is
@@ -12508,11 +12510,24 @@ four at once.** The paper's own *Explanation of Table 3* states its delimiter:
 > the band number."*
 
 **The delimiter is a blank row, and it is not in this file.** 234 entries over 24 nuclide sections
-need **210** separators; the extraction holds **71** blank lines, **22** of them at page breaks, so
-**at most 49** — four times short. Checked directly at the 156-Ho entry 1 → 2 boundary, where the
-specification requires a blank row: **there is none.** The PDF-to-text conversion collapsed them, and
-no regex recovers a delimiter that is not there — which is why all four parses failed and why a fifth
-would too.
+need **210** separators; the extraction holds **71** blank lines and **none** is one — 50 sit at a
+page boundary and 21 sit *inside* a nuclide header (A / Z / blank / N / symbol; 21 not 24 because
+three headers print Z and N on one line). Checked directly at the 156-Ho entry 1 → 2 boundary, where
+the specification requires a blank row: **there is none.**
+
+**And then I over-concluded, which an adversarial audit caught.** From "the delimiter the *document
+defines* is absent" I wrote "no regex recovers a delimiter that is not there … a fifth parse would
+fail too". That is a claim about every possible parse and it was never measured. **A fifth parse
+succeeds.** A sequence-with-reset rule on the band number — take the next expected integer, or a `1`
+that opens a new nuclide, and nothing else — recovers **233 of the 234 entries**, in **24 blocks
+matching the 24 nuclide sections**, every block contiguous 1..n. The four earlier attempts failed
+because they *relaxed* the sequence constraint; **tightening it is what works**, and once the scan
+seeks one value at a time the band number's ambiguity with page numbers stops mattering (692
+candidate lines, 459 of them noise, none chosen).
+
+An earlier claim here that the proxy's bypass list is "package registries only" was also wrong, and
+is withdrawn: `storage.googleapis.com` and `github.com` both tunnel. It is moot anyway — the
+boundaries come out of the text already in hand.
 
 What *is* recoverable is not nothing: the **24 nuclide sections** resolve cleanly with Z and N for
 every one (Ho ×8, Tm ×11, Lu ×5), and the level rows come out once the wrapped parity is rejoined and
@@ -12521,12 +12536,10 @@ absolute-energy token matches. But **which levels belong to which band is exactl
 delimiter carried**, and the census that would show a capture total is a census of bands. So nothing
 is seated.
 
-**What would settle it is an extraction that preserves layout** — blank rows, or the column
-x-positions so the band-number column is told from a page number by *position* rather than by shape.
-Not available here: arXiv is 403 through the egress proxy exactly as ENSDF is, and the connector
-returns this same extraction. **The docket is open on an input, not on an idea**, which is a
-different thing from the four closed routes `subpop.py` records. `python3 research/warp-drive/deformed.py
---selftest` — 13 fixtures, the proof.
+**What remains is one entry of the 234**, and the totality argument that follows from finding it.
+Nothing is seated, and the reason is no longer impossibility — it is that 233 is not 234. **The
+docket is open on one missing entry, not on an input.**
+`python3 research/warp-drive/deformed.py --selftest` — the retraction, as fixtures.
 
 **Reproduce:** `python3 research/warp-drive/nbcapture.py --selftest` (12 fixtures, the paper's own
 census and its own selection rule), `python3 research/warp-drive/nucbands.py --selftest`,

@@ -54,13 +54,25 @@ which is the over-representation the whole register exists to prevent.
     could not place in a mass reach.
 
     93 LEVELS CARRY A SPIN BUT NO PARITY.  The source prints the spin and
-    leaves the parity column empty, mostly in the A ~ 60 region.  A member must
-    carry BOTH coordinates or it cannot be placed on the chart, so they are
-    refused too -- and refused SEPARATELY, because "no parity printed" and "no
-    spin printed" are different facts about the source and flattening them
-    would lose one.
+    leaves the parity column empty.  An earlier draft said these sit "mostly in
+    the A ~ 60 region" and that was WRONG: measured, they run 19 at A ~ 50, 11
+    at 100, 12 at 110, 13 at 120, 9 at 130, 20 at 190 and 9 at 200 -- the
+    largest single group is A ~ 190, not A ~ 60.  A member must carry BOTH
+    coordinates, so they are refused -- and refused SEPARATELY, because "no
+    parity printed" and "no spin printed" are different facts about the source
+    and flattening them would lose one.
 
-2,238 levels are captured; 2,145 carry both and are the members.
+    AND SIX LEVEL ROWS CARRY NO I-pi AT ALL INSIDE A BAND THAT DOES.  A third
+    refusal, and it was found by audit because these six were vanishing with NO
+    COUNTER -- unlike the other two groups, which are captured and reported.
+    103-Ag band 4, 132-Ba band 2, 194-Bi band 1 (twice), 197-Bi band 1 and
+    144-Dy AMR band 1.  Each is the terminal row of its band and each CLOSES
+    ITS OWN GAMMA ARITHMETIC against a level below it, so each is a real level
+    whose spin the paper left unassigned rather than a parse artefact.
+    `nbcapture.unplaced()` measures them and captures/NUCBANDS-unplaced.tsv
+    carries them.
+
+2,245 levels are captured; 2,152 carry both and are the members.
 
 ===============================================================================
 3. THE CHANNEL IS K2 AND THE K2 IS THE FREE ONE.  SAY SO.
@@ -87,13 +99,15 @@ the five coordinates the capture carries:
     K0  1,307 cells   (0, 80, 55)   2I, pi, dI, N
     K0  1,672 cells   (0, 61, 74)   2I, pi, Z, N
 
+    K0  1,715 cells   (0, 59, 81)   2I, pi, dI, Z, N
+
 Every extra coordinate moves the channel DOWN, not up: it buys cells and loses
-the free pass.  SIX OF THE SEVEN SUPERSETS ARE MEASURED AND THE SEVENTH IS NOT
--- the full five-coordinate chart did not return inside a 40-minute budget, and
-`UNMEASURED` names it.  A pattern in six is not a measurement of the seventh,
-so this file does not report one.  `ARITY3` holds the figures and `--sweep`
-re-derives them; the selftest re-measures the dI row rather than trusting the
-table.
+the free pass.  ALL SEVEN SUPERSETS ARE MEASURED and every one is K0, so the
+claim has no hole in it.  The last row had to wait: it timed out at 40 minutes
+and was carried as UNMEASURED -- named rather than filled in from the six K0
+rows above -- until a 90-minute run returned it.  `ARITY3` holds the figures
+and `--sweep` re-derives them; the selftest re-measures the dI row rather than
+trusting the table.
 
 ===============================================================================
 4. THE TWO PAPERS ARE TWO OBJECTS, AND ONLY ONE IS CAPTURED HERE
@@ -114,6 +128,7 @@ interleaves free prose into the data columns, so a parse of it would need its
 own totality argument and would not share this one.  Named, not smuggled in.
 """
 
+import collections
 import csv
 import os
 import sys
@@ -123,6 +138,7 @@ import mi
 HERE = os.path.dirname(os.path.abspath(__file__))
 BANDS_TSV = os.path.join(HERE, "captures", "NUCBANDS-bands.tsv")
 LEVELS_TSV = os.path.join(HERE, "captures", "NUCBANDS-levels.tsv")
+UNPLACED_TSV = os.path.join(HERE, "captures", "NUCBANDS-unplaced.tsv")
 
 SOURCE = (
     "Read from captures/NUCBANDS-levels.tsv, written by nbcapture.py from "
@@ -143,15 +159,16 @@ NOT_INDEXED = (
      "two-quasiparticle rotational bands in DEFORMED odd-odd nuclei, "
      "Z 67-71, N 89-97 -- 234 bands/states, of which the paper says 173 are "
      "bands and 61 are bandhead states",
-     "REFUSED WITH A PROOF, IN deformed.py (DOCKET 36).  Four forward "
-     "parses came up short -- 154, 176, 160, 195 against the stated 234 -- "
-     "and working BACKWARDS explains all four at once.  The paper's own "
-     "Explanation of Table 3 says 'A single blank row separates the entries "
-     "for each band'; the table needs 210 such separators and this extraction "
-     "holds 71 blank lines, 22 of them page breaks, so AT MOST 49.  The "
-     "delimiter was collapsed in the PDF-to-text conversion, and no regex "
-     "recovers a delimiter that is not there.  What would settle it is a "
-     "layout-preserving extraction, not another pattern."),
+     "NOT SEATED, AND THE REASON CHANGED UNDER AUDIT.  deformed.py once "
+     "claimed a proof that NO parse could recover this table's entry "
+     "boundaries; that conclusion is RETRACTED.  What stands is narrower and "
+     "stronger: the delimiter the paper itself defines -- a blank row between "
+     "entries -- is absent from this extraction, ZERO of its 71 blank lines "
+     "being separators (50 page boundaries, 21 nuclide-header internals).  "
+     "But a sequence-with-reset rule on the band number recovers 233 of the "
+     "234 entries in 24 blocks matching the 24 nuclide sections, every block "
+     "contiguous.  So the docket is open on ONE MISSING ENTRY, not on the "
+     "input, and nothing is seated because 233 is not 234."),
 )
 
 # MEASURED by --sweep over the seated member set.  Every superset of (2I, pi)
@@ -164,19 +181,18 @@ ARITY3 = (
     (("2I", "par", "dI", "Z"), 0, 1054, (0, 85, 42)),
     (("2I", "par", "dI", "N"), 0, 1307, (0, 80, 55)),
     (("2I", "par", "Z", "N"), 0, 1672, (0, 61, 74)),
+    (("2I", "par", "dI", "Z", "N"), 0, 1715, (0, 59, 81)),
 )
 
-# THE ONE SUPERSET THIS FILE HAS NOT MEASURED, named rather than assumed.
-# The full five-coordinate chart did not return inside a 40-minute budget --
-# `mi.K` runs five closure operators over every pair of coordinates and the
-# cell count is the largest here.  SIX of the seven supersets are measured and
-# every one is K0; the seventh is UNMEASURED, and a pattern in six is not a
-# measurement of the seventh.
-UNMEASURED = (
-    (("2I", "par", "dI", "Z", "N"),
-     "timed out at 40 minutes; re-run with "
-     "`python3 nucbands.py --sweep` and a longer budget"),
-)
+# NOTHING IS UNMEASURED HERE ANY MORE, and the way that resolved is worth
+# keeping.  The five-coordinate row timed out at 40 minutes and this file
+# carried it as UNMEASURED rather than filling it in from the six K0 rows
+# above -- with a fixture asserting it was NAMED rather than assumed.  Re-run
+# on a 90-minute budget it returned K0, 1,715 cells, (0, 59, 81).  THE GUESS
+# WOULD HAVE BEEN RIGHT AND WITHHOLDING IT WAS STILL CORRECT: a pattern in six
+# is not a measurement of the seventh, and the only way to know which it was
+# is to spend the CPU.
+UNMEASURED = ()
 
 _C = {}
 
@@ -206,9 +222,22 @@ def members():
 
 
 def refusals():
-    """(bands with no I^pi at all, levels with a spin but no parity)."""
+    """(bands with no I^pi, levels with no parity, level rows with no I^pi).
+
+    THREE groups, counted apart.  The third was found by audit: it was being
+    dropped silently while the other two were reported, which is exactly the
+    asymmetry this function now refuses to keep.
+    """
     return (sum(1 for r in bandrows() if r["status"] == "NO-SPIN"),
-            sum(1 for r in levels() if r["2I"] and not r["par"]))
+            sum(1 for r in levels() if r["2I"] and not r["par"]),
+            len(unplaced_rows()))
+
+
+def unplaced_rows():
+    """The third refusal, read from the capture rather than recomputed."""
+    if "u" not in _C:
+        _C["u"] = _read(UNPLACED_TSV)
+    return _C["u"]
 
 
 def index():
@@ -285,10 +314,15 @@ def selftest():
         print("  [%s] %-58s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    chk("2,238 levels captured, 2,145 carrying BOTH quantum numbers",
-        (len(levels()), len(members())), (2238, 2145))
-    chk("and the refusals are two DIFFERENT facts, counted apart",
-        refusals(), (27, 93))
+    chk("2,245 levels captured, 2,152 carrying BOTH quantum numbers",
+        (len(levels()), len(members())), (2245, 2152))
+    chk("and the refusals are THREE different facts, counted apart",
+        refusals(), (27, 93, 6))
+    chk("the no-parity levels are NOT mostly A ~ 60 -- that claim was wrong",
+        sorted(collections.Counter(
+            int(r["A"]) // 10 * 10 for r in levels()
+            if r["2I"] and not r["par"]).items()),
+        [(50, 19), (100, 11), (110, 12), (120, 13), (130, 9), (190, 20), (200, 9)])
     chk("290 bands captured -- the paper's 252 MR plus its 38 AMR",
         (len(bandrows()),
          sum(1 for r in bandrows() if r["table"] == "MR"),
@@ -322,23 +356,28 @@ def selftest():
     # fixture had the wrong one first.
     chk("and AMR is much the smaller of the two",
         (t["MR"][0], t["AMR"][0], t["MR"][0] + t["AMR"][0]),
-        (1907, 238, 2145))
+        (1914, 238, 2152))
 
     chk("the second paper is named as NOT indexed, not quietly dropped",
         [n for n, _w, _y in NOT_INDEXED], ["arxiv-2508.05447.txt"])
-    chk("all four failed parse attempts are recorded with their numbers",
-        [n for n, _w, why in NOT_INDEXED
-         if all(x in why for x in ("154", "176", "160", "195"))],
-        ["arxiv-2508.05447.txt"])
-    chk("and the refusal points at deformed.py, where it is PROVED",
-        [n for n, _w, why in NOT_INDEXED if "deformed.py" in why],
-        ["arxiv-2508.05447.txt"])
-    # The proof itself lives in deformed.py and is re-run here, so this file
-    # cannot go on citing a refusal that has stopped holding.
+    # The attempt record lives in deformed.py, which owns that docket; this
+    # file asserts it is THERE rather than keeping a second copy that can
+    # drift from it.
     import deformed
-    settled, _why = deformed.verdict()
-    chk("and deformed.py still proves it on the file as it stands",
-        settled, True)
+    chk("all four failed parse attempts are recorded, with their numbers",
+        [n for _w, n, _y in deformed.ATTEMPTS], [154, 176, 160, 195])
+    chk("and none of them reached the stated census",
+        [n for _w, n, _y in deformed.ATTEMPTS if n == 234], [])
+    chk("and the entry points at deformed.py, where the RETRACTION lives",
+        [n for n, _w, why in NOT_INDEXED
+         if "deformed.py" in why and "RETRACTED" in why],
+        ["arxiv-2508.05447.txt"])
+    # Re-run deformed.py's own measurement here, so this file cannot go on
+    # citing a state of that docket which has stopped holding.
+    import deformed
+    absent, got, _why = deformed.verdict()
+    chk("the blank-row delimiter is still absent, and 233 of 234 entries are "
+        "still recoverable", (absent, got), (True, 233))
 
     # Re-MEASURE the cheapest arity-3 row rather than trusting the table.
     # The other two are 997 and 1,247 cells and belong in --sweep.
@@ -349,11 +388,12 @@ def selftest():
     chk("adding dI LOSES the channel -- K2 falls to K0, as ARITY3 records",
         (mi.K(X3), len(X3), mi.cell(X3)), (0, 194, (0, 64, 4)))
     chk("and ARITY3 says the same", ARITY3[1][1:], (0, 194, (0, 64, 4)))
-    chk("SIX supersets measured and every one of them loses the channel",
+    chk("ALL SEVEN supersets measured, and every one loses the channel",
         (len(ARITY3) - 1, sorted({k for _c, k, _n, _cell in ARITY3[1:]})),
-        (6, [0]))
-    chk("and the seventh is named UNMEASURED, not assumed to match",
-        [c for c, _why in UNMEASURED], [("2I", "par", "dI", "Z", "N")])
+        (7, [0]))
+    chk("and nothing is left unmeasured", list(UNMEASURED), [])
+    chk("the five-coordinate row is the one that had to wait for CPU",
+        ARITY3[-1], (("2I", "par", "dI", "Z", "N"), 0, 1715, (0, 59, 81)))
 
     for p in (BANDS_TSV, LEVELS_TSV):
         chk("%s is in the tree" % os.path.basename(p), os.path.exists(p), True)
@@ -373,9 +413,10 @@ def report():
     print("   12 to 90,705 by cap, join failures are 0 at every cap.")
     print()
     print("1. THE MEMBERS ARE LEVELS.")
-    nb, npar = refusals()
+    nb, npar, nun = refusals()
     print("   levels captured                 %d" % len(levels()))
     print("   refused, no parity printed      %d" % npar)
+    print("   refused, no I^pi on the row     %d  (the third refusal)" % nun)
     print("   MEMBERS (2I and parity both)    %d" % len(members()))
     print("   bands captured                  %d  (252 MR + 38 AMR)"
           % len(bandrows()))

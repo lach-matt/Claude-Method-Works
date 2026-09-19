@@ -1238,7 +1238,7 @@ def build_nucbands():
     import nucbands as N
     X = N.index()
     m = measured(X)
-    nb, npar = N.refusals()
+    nb, npar, nun = N.refusals()
 
     h = [plate.head("Nuclear Rotational Levels"), '<div class="wrap">']
     h.append(_mast(
@@ -1287,11 +1287,11 @@ def build_nucbands():
              '&Delta;I&nbsp;=&nbsp;2 sequence and an MR band a '
              '&Delta;I&nbsp;=&nbsp;1 one. Measured over every consecutive '
              'pair of extracted spins: <b>213 of 213</b> AMR steps are '
-             '&Delta;I&nbsp;=&nbsp;2, and <b>1,758 of 1,762</b> MR steps are '
+             '&Delta;I&nbsp;=&nbsp;2, and <b>1,765 of 1,769</b> MR steps are '
              '&Delta;I&nbsp;=&nbsp;1. Landing on 100&nbsp;% is what says the '
              'columns are being read in the right order.</p></section>')
 
-    h.append('<section><h2>2. Two refusals, on the criterion</h2>'
+    h.append('<section><h2>2. Three refusals, on the criterion</h2>'
              '<p><b>%d bands</b> are printed with no I<sup>&pi;</sup> column '
              'at all &mdash; their energies are relative to an unknown '
              'bandhead, <span class="mono">200Pb&nbsp;1&nbsp;X</span>, then '
@@ -1299,8 +1299,19 @@ def build_nucbands():
              'A member must carry quantum numbers, so both are refused &mdash; '
              'and counted <em>apart</em>, because &ldquo;no parity '
              'printed&rdquo; and &ldquo;no spin printed&rdquo; are different '
-             'facts about the source and flattening them would lose one.</p>'
-             '</section>' % (nb, npar))
+             'facts about the source and flattening them would lose one. '
+             'Of the %d, twenty-six are unknown in <em>energy</em> and one '
+             '&mdash; 141Eu band 3 &mdash; is the mirror image, with absolute '
+             'energies and a <em>relative spin ladder</em> I, I+1 &hellip; '
+             'I+8; an earlier draft asserted one reason for all twenty-seven '
+             'and was wrong about that one.</p>'
+             '<p><b>%d level rows carry no I<sup>&pi;</sup> at all, inside a '
+             'band that does.</b> A third refusal, and it was found by audit '
+             '&mdash; these six were vanishing with <em>no counter</em> while '
+             'the other two groups were captured and reported. Each closes its '
+             'own gamma arithmetic against a level below it, so each is a real '
+             'level whose spin the paper left unassigned, not a parse '
+             'artefact.</p></section>' % (nb, npar, nb, nun))
 
     h.append('<section><h2>3. The chart, and the K2 that is the free one</h2>')
     h.append(closure_table(m))
@@ -1315,12 +1326,12 @@ def build_nucbands():
              '<table class="tab"><thead><tr><th>K</th><th>cells</th>'
              '<th>cell</th><th>coordinates</th></tr></thead><tbody>%s'
              '%s</tbody></table>'
-             '<p class="sm">Six of the seven supersets are measured and every '
-             'one loses the channel. <b>The seventh is not measured</b> &mdash; '
-             'the full five-coordinate chart did not return inside a '
-             '40-minute budget &mdash; and a pattern in six is not a '
-             'measurement of the seventh, so it is marked rather than '
-             'assumed.</p></section>'
+             '<p class="sm"><b>All seven supersets are measured and every one '
+             'loses the channel.</b> The last row had to wait for the CPU: it '
+             'timed out at 40 minutes and was carried as UNMEASURED &mdash; '
+             'named rather than filled in from the six K0 rows above &mdash; '
+             'until a 90-minute run returned it. A pattern in six is not a '
+             'measurement of the seventh.</p></section>'
              % ("".join('<tr><td class="mono">K%d</td><td class="num">%d</td>'
                         '<td class="mono sm">%s</td><td class="mono sm">%s</td>'
                         '</tr>' % (k, n, c, ", ".join(cols))
@@ -1335,8 +1346,7 @@ def build_nucbands():
         h.append('<div class="note warn"><span class="lab">The same join '
                  'returned a second paper, and it is NOT indexed</span>'
                  '<p style="margin-bottom:0"><span class="mono">%s</span> '
-                 '&mdash; %s. <b>Two parse attempts, both short, neither '
-                 'seated.</b> %s</p></div>' % (E(nm), E(what), E(why)))
+                 '&mdash; %s. %s</p></div>' % (E(nm), E(what), E(why)))
 
     h.append(pfoot("nucbands"))
     h.append("</div>")
