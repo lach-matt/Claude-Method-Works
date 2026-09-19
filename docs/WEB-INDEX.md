@@ -447,7 +447,103 @@ the selftest checks that too. The channel closures take about thirty seconds per
 **Incorporating the next index the other session seats** is the same contract: an instrument in
 the tree with `rows()`, `index()` and `cell()`, coordinates declared before the chart is run, a
 `SOURCE` beside the code, and a status for every value. Add its coordinates to `PARTICLE_COORDS`,
-its block to `particle_index_block`, and its figures to the selftest.
+its block to `particle_index_block`, and its figures to the selftest — and, for the explorer, a
+row in `PAXES` naming which of its coordinates go on the axes, or it draws the first three.
+
+### The spin-4 mesons and the member sub-population sweep
+
+Two more of the other session's instruments are read at build when the tree carries them.
+**`spin4.py`** seats **the spin-4 mesons** as a fourth index: the ten mesons of the table with
+2J = 8, a sub-population of the meson index with the spin held constant (so it carries no
+information and is not a coordinate; the effective arity is 3), charted on (P, 2I, Q3) — 10
+members on 9 cells, cell (4, 5, 3), closed by information and statistics, **K4**, the tree's only
+K4 and the last of the eight closure channels to be occupied. It is seated on the table's own
+**status** flag as its reach, which is total where mass is not (two members, K(4)(2500)±, have no
+printed mass and are charted anyway): the channel moves with the reach — K5 on the established
+states alone, K4 once the status-2 states are admitted — so the box-invariance test seats it, and
+**both readings are carried** (`reach.established`), the K4 always quoted with its condition. The
+overlap rule's reach gate would read the same movement as a late arrival; the block records that
+the two tests disagree rather than choosing. `_spin4` writes it in the shape of the other three
+indexes plus `parent`, `held_constant`, `massless`, `reach`, `arity`, `tests` and `channels`, so
+the Particles dialog and the explorer carry it with no special case beyond a `PAXES` row (charge
+across, isospin up, parity into the page, coloured by the PDG status) and a plate section; a
+member's plate links the same row in the meson index.
+
+**`subpop.py`** is **the member sub-population sweep**: every earlier sweep varied a chart's
+columns, this one varies its members — one coordinate held to one value over every index with
+declared coordinates — and asks whether the sub-population is closed and which channel it reaches.
+`_subpop` carries its census (143 closed sets, 2 reaching a channel no index occupied, both at K4:
+one at effective arity 2 where statistics is free, and the spin-4 mesons at arity 3), the spin-4
+population under the parent's mass reach (K5 at every cut, never K4 — the refusal the seating
+answered on a different reach; both statements stand), which indexes are lattices at all (three;
+for the rest the sweep tests closure in the ambient box, and the block says so), the recursion
+determination (within the family, chain 2 over 14 containments; the three lattices peeled one
+element at a time with every intermediate re-checked, two exact and one a verified lower bound;
+exhaustively over every subset of the four indexes small enough, chains 5, 7, 6 and 14), the
+indexes too large to determine, named, and the candidates run and not seated — the chiral
+Goldstones (a full box, so free), the electroweak eaten Goldstones (a relabelling), and the
+nuclear rotational bands, whose five routes are listed with their states and whose two sources,
+reached by a join over a paper database after four meets failed, are linked by arXiv identifier
+and distinguished (one the candidate, one a different object). Occupancy in the census is measured
+as it stood before the sweep's own finding was seated, or the finding would erase itself; the
+block carries that note. The sweep costs a few minutes at build and is memoised with the rest.
+
+That join-over-meet correction is also the retrieval law the released three-body paper's closure
+measurement gives, and the Ask prompt now carries it as clause (g) of the retrieval method: a
+failed narrow search is a meet, and its retry is a join over a larger index, never the same meet
+again.
+
+Neither instrument is on `main` yet: a plain build from the repository tree carries three indexes
+and no sweep, and the fixtures and pins are conditional on their presence; the shipped data was
+built with `--warp-root` on the warp branch at c5135e7.
+
+### Each particle index as an index of the explorer
+
+Every particle index the build carries is also a first-class index of the explorer, beside the
+elements, and not only a table in the Particles dialog. `script.js` reads `particles.js` into
+descriptors (`particleIndexes()`): the three PDG indexes and, as they land, the Hall
+quasiparticles (`fqh`), the bosonic excitations (`bosonqp`) and the Read–Rezayi primaries
+(`readrezayi`), each with its rows as `{name, key, coords, extra}`, the key unique within the
+index (a duplicated name in the bosonic index, the Cooper pair at two spins, is keyed by its 2J).
+An index opens as a lattice (`buildParticleScene`): three of its declared coordinates on the axes
+and a fourth as colour (a coordinate, or as `extra:<field>` a field the row carries beside them,
+such as the PDG status), by the `PAXES` table — charge across, spin up, generation or isospin into
+the page for the PDG indexes; the inverse filling or the level across and the two orders on the
+other axes for the Hall indexes — with **one node per charted member at the rank of its values**,
+so a charge of −1, 0, +1 and a spin of 0, ½, 1, 3/2 draw at even spacing. A drawn position can
+hold several cells where the index has more coordinates than the drawing (the baryons' seven), and
+the members sharing one are fanned out in a small grid inside it, smaller the more there are; the
+caption counts the drawn positions and the shared ones. **Which coordinate goes on which axis is a
+choice of this page**, badged DERIVED on the plate with the coordinate table saying what is drawn
+where; every value, the cell count and the closure channel are the instrument's, and the scene
+computes nothing. The axes tick in the coordinate's own units (Q, J, I read back from Q3, 2J, 2I),
+and a colour key sits in the canvas's corner. A member's name is drawn under its node once the
+reader has zoomed past 1.6× and always under the selected one.
+
+The nodes are `{kind: 'pindex', id}` (parent: the root) and `{kind: 'particle', id, i, row}`
+(parent: its index), so the crumbs, `Esc`, the `↑ up` button and the hash all work as they do for
+an element: an index is `#/p/mesons`, a member `#/p/mesons/pi0` (the key URI-encoded, so
+`#/p/mesons/J%2Fpsi(1S)`), resolved by `goToParticle` after `ensureParticleIndex()`. A member's
+plate carries its coordinates each with the coordinate's status and read back in its units, its
+cell (the full tuple) with the cell's other members as chips, what the table prints of it — the
+PDG id, whether it is an antiparticle (DERIVED: a negative id), family, quark content, mass and
+width (READ), C and G where printed, the table's own antiparticle-naming flag and status flags —
+or for a Hall quasiparticle its state, j, charge and exchange phase, for a primary its level,
+(l, m), weight and quasihole charge, for a bosonic excitation how it is made; then the previous
+and next member and the usual Copy JSON, Copy link and Raw record. The index's plate carries the
+member definition, the counts, the coordinate table with statuses and the drawn axis, the members
+set aside by name, the refused coordinates with their measurements, the source, and every member
+as a chip. `citation()` cites a particle node to the capture and the instruments, not to the
+element sources.
+
+The particle indexes load when the page is idle after boot (`ensureParticleIndex`, ~218 KB), and
+then the **index picker** at the top left (`#index-pick`, hidden when the build carries no
+particle indexes) lists the elements and each index, search suggests members by name and indexes
+by title (`pi0`, `lambda`, `mesons`, an exact particle name outranking an element whose symbol
+starts the same way), and the Particles dialog's headings carry *Open as an index*. Choosing a
+layout button while a particle index is open returns to the elements. A smoke test opens every
+index and a member of each by hash, taps a node, follows a chip, climbs with `Esc`, searches,
+uses the picker and the dialog's button, and drags to rotate, on desktop and phone viewports.
 
 ## Ask a model, with a machine check
 
@@ -464,6 +560,24 @@ the question mentions, the particle rows it names) — and mark the work with th
 the page's own library can repeat (the channel equation, the Pauli bound, the collapse ramp, the
 core's p and n₀, E), and `⦃equation⦄` around every chemical equation. It is told never to claim
 the page verified anything, and not to write laboratory procedures.
+
+**It searches the way the index retrieves.** The system prompt carries the retrieval procedure the
+work states for itself, in the site's own words: enumerate the target facts before searching; for
+each target list the routes that could carry it by type — primary, preprint, review, compilation,
+citing paper, deposit, database — and try the open ones first, since a paywall blocks a route and
+not a fact and a compilation can carry a better figure than the primary; read every retrieved source
+for the sources it names before searching afresh; move along the route set when a route is
+blocked rather than re-attempting it; a fact on two independent routes closes, a fact on one is
+fragile and marked so, and a fact not retrieved is a stated gap with the routes tried; and ask for
+a source as a catalogue entry (DOI, arXiv number, archive identifier, database record), not only as
+a text string. Two more markers carry the attribution: `⟨⟨url⟩⟩` after every figure taken from the
+web, one per route that carried it, and a `RETRIEVAL` table at the end, one line per (target,
+route) with its type, source, result and value. `checkRetrieval` parses the table, reads the route
+type from the words, resolves each source to an identifier (DOI, arXiv, ark, URL), counts the open
+routes per target as its redundancy ρ (two close, one is fragile, none is a stated gap), and checks
+every source — inline or in the table — against the URLs the search tool actually returned in the
+API response, so a source the searches never produced is flagged rather than trusted. Fixtures in
+the ninth mode cover the parser, the identifiers, the redundancy verdicts and the flag.
 
 **The machine check is the solver module's `checkAnswer`, selftested.** It resolves every cited
 path back to the loaded value (`askResolve`) and compares the figure the model wrote beside it
@@ -592,9 +706,21 @@ level, `H` the whole index, `+`/`−` zoom, arrows pan; `/` focuses search from 
 text field. A table row in the detail plate is a `role="link"` with `tabindex="0"` and opens on
 `Enter`. Search takes a symbol, Z or name, or a path — `Fe II`, `Fe II d`, `Fe II d 3`; the ℓ token
 is one letter of `spdfgh` or a number (`Fe II 6`), never a substring match, and ℓ = 6, 7 are
-labelled by number as the record's `subshell_letter` is. The address bar carries the path
-(`#/Fe/II/d/3`), so every node is a link. Copy JSON copies the node's record; Copy link its
+labelled by number as the record's `subshell_letter` is; once the particle indexes have loaded it
+also suggests a particle by name or an index by title. The address bar carries the path
+(`#/Fe/II/d/3`, `#/p/mesons/pi0`), so every node is a link. Copy JSON copies the node's record; Copy link its
 address; Raw record shows the record inline; the element file is linked directly.
+
+**If a view does not draw.** The draw loop pauses only its animation frames while `#canvas-wrap`
+is scrolled out of view; an explicit draw always paints, because a resize clears the canvas and a
+browser whose IntersectionObserver never fires on the way back would otherwise show it blank (the
+first report of "3D not rendering" came from the DuckDuckGo Android browser, which has no console).
+A debounced scroll listener marks the canvas visible again as a fallback, a `visibilitychange`
+handler repaints on return, a drawing error is written on the canvas and kept as
+`state.lastDrawError`, and Help carries **Copy diagnostics** — the browser, viewport, canvas
+buffer, feature support, view, scene, orbit, loaded data, last draw, last error, and a small
+off-screen test draw with the same calls the view uses — the same text as the console command
+`diag`, so a phone can report what went wrong.
 
 The home view fits the layout above the legend overlay, so the set-aside actinide row is never
 under it at any viewport; the legend can still be collapsed. The Λ₈ ladder's glow is two strokes,
