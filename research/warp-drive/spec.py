@@ -296,7 +296,10 @@ def selftest():
     chk("five it does not", len(DOES_NOT), 5)
 
     print("\nCONSISTENCY with the instruments this inherits from")
-    import seatindex, charge, transit
+    # turnseat.py, NOT transit.py: the travel>turn>seat instrument was overwritten
+    # by an unrelated file of the same name. Recovered from git as turnseat.py.
+    import seatindex, charge
+    import turnseat as transit
     near("seatindex's universal threshold at 1.5456e8 m",
          seatindex.tkk_required(1.5456e8), energy_density(1.0e11), 1e-3)
     chk("charge.py: EM stress-energy is ordinary", charge.em_is_ordinary(), True)

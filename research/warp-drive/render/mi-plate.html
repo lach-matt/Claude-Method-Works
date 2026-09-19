@@ -1,0 +1,844 @@
+<title>The Master Index</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC;
+  --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --vacant:#98A2AF; --live:#137A69;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453;
+    --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --vacant:#5F6A79; --live:#4CC6AF;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453;
+  --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --vacant:#5F6A79; --live:#4CC6AF;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--body);
+  font-family:Spectral,Georgia,'Times New Roman',serif;
+  font-size:17px; line-height:1.62;
+  padding-block:0; padding-left:20px; padding-right:20px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,5.5vw,3.1rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.3rem,3vw,1.62rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.02rem;font-weight:600;line-height:1.3}
+p{margin:0 0 1.05em}
+a{color:var(--accent)}
+.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar .hint{color:var(--faint)}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+/* ---- masthead ---- */
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px;margin-bottom:14px}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 16px;
+}
+.dek{font-size:1.16rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{
+  display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);
+  letter-spacing:.04em;
+}
+.stamp b{color:var(--body);font-weight:500}
+
+/* ---- section scaffolding ---- */
+section{margin-top:60px;scroll-margin-top:20px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em;
+}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+
+/* ---- the nine, as a table ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:660px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.cell{font-family:'IBM Plex Mono',monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+tr.k7 td{background:color-mix(in srgb,var(--geometry) 8%,transparent)}
+
+.chip{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;
+  border:1px solid currentColor;line-height:1.5;
+}
+.c-none{color:var(--faint)}
+.c-stat{color:var(--statistics)}
+.c-all{color:var(--geometry)}
+
+/* ---- figures ---- */
+figure{margin:0}
+.plate{
+  background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow);
+}
+figcaption{
+  font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;
+  border-top:1px solid var(--rule);
+}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.duo{grid-template-columns:1fr}}
+
+/* ---- phase square ---- */
+.phase{display:grid;grid-template-columns:auto 1fr 1fr;gap:0;font-family:'IBM Plex Mono',monospace}
+.phase>div{padding:14px 12px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
+.phase .hdr{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
+.phase .rlab{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center}
+.phase .q{text-align:center}
+.phase .q .ks{font-size:1.02rem;font-weight:600;color:var(--ink);letter-spacing:.06em}
+.phase .q .n{font-size:.66rem;color:var(--faint);margin-top:5px;letter-spacing:.06em}
+.phase .alone{background:color-mix(in srgb,var(--order) 12%,transparent)}
+.phase .alone .ks{color:var(--order)}
+
+/* ---- callouts ---- */
+.note{
+  border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0;
+}
+.note p:last-child{margin-bottom:0}
+.note .lab{
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:7px;
+}
+.note.warn{border-left-color:var(--algebra)}
+.note.warn .lab{color:var(--algebra)}
+
+/* ---- key/value strip ---- */
+.kv{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{
+  font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px;
+}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.24rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+
+/* ---- language legend ---- */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 20px;font-family:'IBM Plex Mono',monospace;font-size:.74rem}
+.legend span{display:flex;align-items:center;gap:7px;color:var(--muted)}
+.legend i{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+
+/* ---- E bars ---- */
+.ebar{display:grid;grid-template-columns:96px 1fr 46px;gap:12px;align-items:center;margin-bottom:9px;font-family:'IBM Plex Mono',monospace;font-size:.76rem}
+.ebar .track{height:9px;background:var(--sunk);border-radius:2px;overflow:hidden}
+.ebar .fill{height:100%;border-radius:2px}
+.ebar .v{text-align:right;color:var(--ink);font-weight:500}
+
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.42em}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Research plate · rebuilt from scratch</p>
+  <h1>The Master&nbsp;Index</h1>
+  <p class="dek">Nine formal indexes, sorted by which of five mathematical languages close
+  them — charted on coordinates that survive their own admissibility test.</p>
+  <div class="stamp">
+    <span>instrument <b>mi.py</b></span>
+    <span>indexes <b>9</b></span>
+    <span>distinct cells <b>8</b></span>
+    <span>chart <b>(K, height, width)</b></span>
+  </div>
+</header>
+
+<p style="margin-top:26px">This index inherits nothing from the one it replaces. Its predecessor was
+written on five coordinates, and two of them — arity and density — fail the criterion
+for a legitimate chart: append a coordinate that carries no information and both move,
+on nine indexes out of nine. The three coordinates here move on none.</p>
+
+<!-- ============================================================ 1 -->
+<section id="languages">
+  <div class="shead"><span class="snum">01</span><h2>Five languages, and how they rank</h2></div>
+  <p class="sub">A language <em>closes</em> an index when every cell its operator generates is
+  already in the index. The five are closure operators on a finite box, and they are not
+  independent: seven containments hold everywhere, thirteen break somewhere.</p>
+
+  <div class="legend">
+    <span><i style="background:var(--order)"></i>order</span>
+    <span><i style="background:var(--algebra)"></i>algebra</span>
+    <span><i style="background:var(--geometry)"></i>geometry</span>
+    <span><i style="background:var(--information)"></i>information</span>
+    <span><i style="background:var(--statistics)"></i>statistics</span>
+  </div>
+
+  <div class="duo">
+    <figure class="plate">
+      <svg viewBox="0 0 300 262" role="img" aria-label="Hasse diagram of the five languages">
+        <g stroke="var(--rule-hard)" stroke-width="1.5" fill="none">
+          <path d="M74 196 L60 122"/>
+          <path d="M74 196 L214 122"/>
+          <path d="M218 196 L222 122"/>
+        </g>
+        <!-- statistics -->
+        <circle cx="74" cy="204" r="7" fill="var(--statistics)"/>
+        <text x="74" y="230" text-anchor="middle" font-size="10.5" fill="var(--statistics)">statistics</text>
+        <text x="74" y="245" text-anchor="middle" font-size="8.5" fill="var(--faint)">minimal</text>
+        <!-- information -->
+        <circle cx="218" cy="204" r="7" fill="var(--information)"/>
+        <text x="218" y="230" text-anchor="middle" font-size="10.5" fill="var(--information)">information</text>
+        <text x="218" y="245" text-anchor="middle" font-size="8.5" fill="var(--faint)">minimal</text>
+        <!-- geometry -->
+        <circle cx="58" cy="114" r="7" fill="var(--geometry)"/>
+        <text x="58" y="98" text-anchor="middle" font-size="10.5" fill="var(--geometry)">geometry</text>
+        <text x="58" y="84" text-anchor="middle" font-size="8.5" fill="var(--faint)">MAXIMAL</text>
+        <!-- order/algebra block -->
+        <rect x="176" y="104" width="92" height="20" rx="3" fill="none" stroke="var(--order)" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <circle cx="196" cy="114" r="6" fill="var(--order)"/>
+        <circle cx="248" cy="114" r="6" fill="var(--algebra)"/>
+        <text x="222" y="98" text-anchor="middle" font-size="10.5" fill="var(--ink)">order ≡ algebra</text>
+        <text x="222" y="84" text-anchor="middle" font-size="8.5" fill="var(--faint)">MAXIMAL</text>
+        <text x="222" y="141" text-anchor="middle" font-size="8.5" fill="var(--faint)">one block</text>
+      </svg>
+      <figcaption><b>The language poset.</b> Order and algebra agree on every arrangement
+      tested — a theorem, not a coincidence — so they move as one block. Geometry sits
+      above statistics alone; the block sits above <em>both</em> minimal languages.
+      That asymmetry is the whole of §3.</figcaption>
+    </figure>
+
+    <figure class="plate">
+      <svg viewBox="0 0 300 262" role="img" aria-label="Which language is hardest to satisfy on the index itself">
+        <text x="8" y="18" font-size="9" fill="var(--muted)" letter-spacing="1.4">CELLS DEMANDED OF THE INDEX ITSELF</text>
+        <g font-size="10.5">
+          <text x="8" y="52" fill="var(--geometry)">geometry</text>
+          <rect x="98" y="43" width="192" height="11" rx="2" fill="var(--sunk)"/>
+          <rect x="98" y="43" width="192" height="11" rx="2" fill="var(--geometry)"/>
+          <text x="282" y="52" text-anchor="end" font-size="9.5" fill="var(--panel)" font-weight="600">13</text>
+
+          <text x="8" y="88" fill="var(--order)">order</text>
+          <rect x="98" y="79" width="192" height="11" rx="2" fill="var(--sunk)"/>
+          <rect x="98" y="79" width="162" height="11" rx="2" fill="var(--order)"/>
+          <text x="252" y="88" text-anchor="end" font-size="9.5" fill="var(--panel)" font-weight="600">11</text>
+
+          <text x="8" y="124" fill="var(--algebra)">algebra</text>
+          <rect x="98" y="115" width="192" height="11" rx="2" fill="var(--sunk)"/>
+          <rect x="98" y="115" width="162" height="11" rx="2" fill="var(--algebra)"/>
+          <text x="252" y="124" text-anchor="end" font-size="9.5" fill="var(--panel)" font-weight="600">11</text>
+
+          <text x="8" y="160" fill="var(--information)">information</text>
+          <rect x="98" y="151" width="192" height="11" rx="2" fill="var(--sunk)"/>
+          <rect x="98" y="151" width="74" height="11" rx="2" fill="var(--information)"/>
+          <text x="180" y="160" font-size="9.5" fill="var(--information)" font-weight="600">5</text>
+
+          <text x="8" y="196" fill="var(--statistics)">statistics</text>
+          <rect x="98" y="187" width="192" height="11" rx="2" fill="var(--sunk)"/>
+          <circle cx="103" cy="192.5" r="3.5" fill="var(--statistics)"/>
+          <text x="115" y="196" font-size="9.5" fill="var(--statistics)" font-weight="600">0 — CLOSES</text>
+        </g>
+        <line x1="98" y1="212" x2="290" y2="212" stroke="var(--rule)" stroke-width="1"/>
+        <text x="98" y="228" font-size="8.5" fill="var(--faint)">E = cells the operator generates that the index does not hold</text>
+        <text x="98" y="243" font-size="8.5" fill="var(--faint)">E = 0 is closure. Only statistics reaches it.</text>
+      </svg>
+      <figcaption><b>The index closes in statistics and nothing else.</b> Its statistics
+      deficit is zero and every other language overshoots. Geometry asks for the most —
+      thirteen cells the index does not contain.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================ 2 -->
+<section id="nine">
+  <div class="shead"><span class="snum">02</span><h2>The nine, measured</h2></div>
+  <p class="sub">Every axis below is a measurement, not an assignment. <span class="mono">K</span>
+  names the set of languages that close the index; <span class="mono">height</span> is its
+  longest chain and <span class="mono">width</span> its largest antichain, by Mirsky and
+  Dilworth respectively.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th>index</th><th>cell (K,h,w)</th><th style="text-align:right">cells</th>
+      <th style="text-align:right">arity</th><th>closes in</th>
+      <th style="text-align:right">languages demanding</th><th style="text-align:right">unanimous</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="name">the languages</td><td class="cell">(0, 3, 2)</td><td class="num">5</td><td class="num">5</td><td><span class="chip c-none">nothing</span></td><td class="num">5</td><td class="num">1</td></tr>
+      <tr><td class="name">substances (Hawking–Ellis)</td><td class="cell">(0, 4, 3)</td><td class="num">8</td><td class="num">4</td><td><span class="chip c-none">nothing</span></td><td class="num">5</td><td class="num">1</td></tr>
+      <tr><td class="name">bounds</td><td class="cell">(0, 5, 3)</td><td class="num">8</td><td class="num">6</td><td><span class="chip c-none">nothing</span></td><td class="num">5</td><td class="num">1</td></tr>
+      <tr><td class="name">periodic layout</td><td class="cell">(0, 19, 12)</td><td class="num">108</td><td class="num">3</td><td><span class="chip c-none">nothing</span></td><td class="num">5</td><td class="num">9</td></tr>
+      <tr><td class="name">questions</td><td class="cell">(2, 3, 2)</td><td class="num">4</td><td class="num">5</td><td><span class="chip c-stat">statistics</span></td><td class="num">4</td><td class="num">0</td></tr>
+      <tr><td class="name">exotic mechanisms</td><td class="cell">(2, 3, 4)</td><td class="num">8</td><td class="num">6</td><td><span class="chip c-stat">statistics</span></td><td class="num">4</td><td class="num">0</td></tr>
+      <tr><td class="name">spacetimes (Petrov)</td><td class="cell">(2, 3, 4)</td><td class="num">8</td><td class="num">4</td><td><span class="chip c-stat">statistics</span></td><td class="num">4</td><td class="num">0</td></tr>
+      <tr><td class="name">energy-condition family</td><td class="cell">(2, 5, 8)</td><td class="num">18</td><td class="num">6</td><td><span class="chip c-stat">statistics</span></td><td class="num">4</td><td class="num">0</td></tr>
+      <tr class="k7"><td class="name">Janet (n+ℓ, ℓ, k)</td><td class="cell">(7, 30, 12)</td><td class="num">170</td><td class="num">3</td><td><span class="chip c-all">all five</span></td><td class="num">0</td><td class="num">0</td></tr>
+    </tbody>
+    <caption><b>Nine indexes on eight distinct cells.</b> Exotic mechanisms and
+    spacetimes (Petrov) share <span class="mono">(2, 3, 4)</span> exactly — the one collision, and it survives
+    a chart that separates everything else. <span class="mono">periodic layout 2-D</span> is withdrawn as
+    over-representation: it is a strict projection of the three-coordinate chart and reaches nothing it does not.</caption>
+  </table>
+  </div>
+
+  <figure class="plate" style="margin-top:24px">
+    <svg viewBox="0 0 880 420" role="img" aria-label="The nine indexes plotted on height against width">
+      <!-- axes -->
+      <g stroke="var(--rule)" stroke-width="1">
+        <line x1="70" y1="360" x2="840" y2="360"/>
+        <line x1="70" y1="40" x2="70" y2="360"/>
+      </g>
+      <g stroke="var(--rule)" stroke-width="1" stroke-dasharray="2 4" opacity=".7">
+        <line x1="70" y1="280" x2="840" y2="280"/>
+        <line x1="70" y1="200" x2="840" y2="200"/>
+        <line x1="70" y1="120" x2="840" y2="120"/>
+        <line x1="262" y1="40" x2="262" y2="360"/>
+        <line x1="455" y1="40" x2="455" y2="360"/>
+        <line x1="647" y1="40" x2="647" y2="360"/>
+      </g>
+      <!-- axis labels -->
+      <g font-size="10" fill="var(--muted)">
+        <text x="70" y="378" text-anchor="middle">0</text>
+        <text x="262" y="378" text-anchor="middle">8</text>
+        <text x="455" y="378" text-anchor="middle">16</text>
+        <text x="647" y="378" text-anchor="middle">24</text>
+        <text x="840" y="378" text-anchor="middle">32</text>
+        <text x="60" y="364" text-anchor="end">0</text>
+        <text x="60" y="284" text-anchor="end">4</text>
+        <text x="60" y="204" text-anchor="end">8</text>
+        <text x="60" y="124" text-anchor="end">12</text>
+      </g>
+      <text x="455" y="402" text-anchor="middle" font-size="10.5" fill="var(--body)" letter-spacing="1.6">HEIGHT — longest chain (Mirsky)</text>
+      <text x="20" y="200" text-anchor="middle" font-size="10.5" fill="var(--body)" letter-spacing="1.6" transform="rotate(-90 20 200)">WIDTH — largest antichain</text>
+
+      <!-- leader lines into the label stack -->
+      <g stroke="var(--rule-hard)" stroke-width=".8" fill="none" opacity=".8">
+        <path d="M197 200 L244 193"/>
+        <path d="M153 280 L244 233"/>
+        <path d="M173 300 L244 255"/>
+        <path d="M197 300 L244 277"/>
+        <path d="M143 320 L244 299"/>
+        <path d="M155 322 L244 321"/>
+        <path d="M197 324 L244 343"/>
+      </g>
+
+      <!-- K0 — closes nothing -->
+      <g fill="var(--faint)">
+        <circle cx="166" cy="300" r="6.5"/>
+        <circle cx="136" cy="320" r="6.5"/>
+        <circle cx="527" cy="120" r="6.5"/>
+      </g>
+      <circle cx="190" cy="300" r="6.5" fill="var(--faint)"/>
+
+      <!-- K2 — closes statistics -->
+      <g fill="var(--statistics)">
+        <circle cx="142" cy="280" r="6.5"/>
+        <circle cx="190" cy="200" r="6.5"/>
+        <circle cx="148" cy="322" r="6.5"/>
+      </g>
+      <!-- exotic + Petrov share the cell exactly -->
+      <circle cx="142" cy="280" r="11.5" fill="none" stroke="var(--statistics)" stroke-width="1.3" opacity=".55"/>
+      <!-- the index's own cell, vacant -->
+      <circle cx="190" cy="324" r="8.5" fill="none" stroke="var(--vacant)" stroke-width="1.6" stroke-dasharray="3 2.5"/>
+
+      <!-- label stack -->
+      <g font-size="10">
+        <text x="250" y="196" fill="var(--statistics)">energy-condition family <tspan fill="var(--faint)">(2,5,8)</tspan></text>
+        <text x="250" y="236" fill="var(--statistics)">exotic mechanisms + spacetimes (Petrov) <tspan fill="var(--faint)">(2,3,4)</tspan></text>
+        <text x="250" y="258" fill="var(--body)">substances (Hawking–Ellis) <tspan fill="var(--faint)">(0,4,3)</tspan></text>
+        <text x="250" y="280" fill="var(--body)">bounds <tspan fill="var(--faint)">(0,5,3)</tspan></text>
+        <text x="250" y="302" fill="var(--body)">the languages <tspan fill="var(--faint)">(0,3,2)</tspan></text>
+        <text x="250" y="324" fill="var(--statistics)">questions <tspan fill="var(--faint)">(2,3,2)</tspan></text>
+        <text x="250" y="346" fill="var(--vacant)">the index's OWN cell (2,5,2) — vacant</text>
+      </g>
+
+      <!-- isolated points -->
+      <text x="527" y="105" text-anchor="middle" font-size="10.5" fill="var(--body)">periodic layout <tspan fill="var(--faint)">(0,19,12)</tspan></text>
+      <circle cx="792" cy="120" r="8" fill="var(--geometry)"/>
+      <text x="792" y="103" text-anchor="middle" font-size="10.5" fill="var(--geometry)" font-weight="600">Janet (n+ℓ, ℓ, k)</text>
+      <text x="792" y="142" text-anchor="middle" font-size="9" fill="var(--geometry)">(7,30,12) — closes all five</text>
+
+      <!-- key -->
+      <g transform="translate(596,236)" font-size="9.5">
+        <rect x="-12" y="-18" width="256" height="80" rx="3" fill="var(--sunk)" stroke="var(--rule)"/>
+        <circle cx="2" cy="-2" r="5.5" fill="var(--faint)"/><text x="16" y="1.5" fill="var(--muted)">K0 — closes nothing</text>
+        <circle cx="2" cy="16" r="5.5" fill="var(--statistics)"/><text x="16" y="19.5" fill="var(--muted)">K2 — closes statistics</text>
+        <circle cx="2" cy="34" r="5.5" fill="var(--geometry)"/><text x="16" y="37.5" fill="var(--muted)">K7 — closes all five</text>
+        <circle cx="2" cy="52" r="5.5" fill="none" stroke="var(--vacant)" stroke-width="1.4" stroke-dasharray="2.5 2"/><text x="16" y="55.5" fill="var(--muted)">lawful but unoccupied</text>
+      </g>
+    </svg>
+    <figcaption><b>Only three of the eight channels are occupied.</b> Four indexes close
+    nothing, four close statistics alone, and one closes everything. K1, K3, K4, K5 and K6
+    are lawful positions that no seated index holds — and the index's own cell
+    <span class="mono">(2, 5, 2)</span> is vacant too, so the master index does not contain itself.
+    <br><br><em>Two markers are nudged apart to stay visible.</em>
+    <span class="mono">the languages</span> and <span class="mono">questions</span> sit at the same
+    height and width, <span class="mono">(3, 2)</span>, and are separated only by K — which is the
+    plot's own argument that K is doing work the geometry cannot.
+    <span class="mono">exotic mechanisms</span> and <span class="mono">spacetimes (Petrov)</span>,
+    ringed, are <em>not</em> nudged: they occupy one cell exactly, all three coordinates.</figcaption>
+  </figure>
+</section>
+
+
+<section id="space">
+  <div class="shead"><span class="snum">02½</span><h2>The index in three dimensions</h2></div>
+  <p class="sub">The chart <em>is</em> three-dimensional, so it can be shown as one. Drag to
+  rotate. Height runs left to right, width bottom to top, and the channel K runs into the
+  depth — so the three occupied channels are three planes.</p>
+
+  <figure class="plate">
+    <div class="v3d"><canvas id="mi3d" aria-label="The nine indexes plotted in (K, height, width) space"></canvas></div>
+    <div class="v3dbar">
+      <button id="mi3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey">
+        <span><i style="background:var(--faint)"></i>K0 closes nothing</span>
+        <span><i style="background:var(--statistics)"></i>K2 statistics</span>
+        <span><i style="background:var(--geometry)"></i>K7 all five</span>
+      </span>
+    </div>
+    <figcaption><b>The K axis is not a scale — it is a lattice position</b>, so the depth
+    separation between the K0 plane, the K2 plane and Janet at K7 is ordinal and nothing about
+    the spacing is metric. What the rotation shows that the flat plot cannot: the four K0 indexes
+    and the four K2 indexes occupy <em>almost the same footprint</em> in (height, width) and are
+    separated only by depth. Janet sits alone, far out on every axis at once.</figcaption>
+  </figure>
+</section>
+<!-- ============================================================ 3 -->
+<section id="lattice">
+  <div class="shead"><span class="snum">03</span><h2>The channel lattice</h2></div>
+  <p class="sub">A set of closing languages is not arbitrary. It must be a <em>down-set</em> of
+  the language poset — if a language closes, everything below it closes — which leaves exactly
+  eight lawful positions out of the thirty-two subsets.</p>
+
+  <figure class="plate">
+    <svg viewBox="0 0 700 480" role="img" aria-label="Hasse diagram of the eight lawful channels">
+      <!-- the ten covering relations, centre to centre; nodes are opaque and sit on top -->
+      <g stroke="var(--rule-hard)" stroke-width="1.6" fill="none">
+        <path d="M322 412 L242 344"/>
+        <path d="M322 412 L402 344"/>
+        <path d="M242 344 L282 268"/>
+        <path d="M402 344 L442 268"/>
+        <path d="M402 344 L282 268"/>
+        <path d="M442 268 L382 192"/>
+        <path d="M282 268 L382 192"/>
+        <path d="M282 268 L222 192"/>
+        <path d="M382 192 L302 116"/>
+        <path d="M222 192 L302 116"/>
+      </g>
+
+      <!-- K0 : occupied -->
+      <circle cx="322" cy="412" r="19" fill="var(--faint)"/>
+      <text x="322" y="417" text-anchor="middle" font-size="13" font-weight="600" fill="var(--panel)">K0</text>
+      <text x="322" y="450" text-anchor="middle" font-size="10" fill="var(--muted)">{ } — closes nothing</text>
+      <text x="322" y="464" text-anchor="middle" font-size="9" fill="var(--live)" font-weight="600">4 indexes</text>
+
+      <!-- K1 : vacant -->
+      <circle cx="242" cy="344" r="19" fill="var(--panel)" stroke="var(--vacant)" stroke-width="1.8" stroke-dasharray="3.5 3"/>
+      <text x="242" y="349" text-anchor="middle" font-size="13" font-weight="600" fill="var(--vacant)">K1</text>
+      <text x="216" y="340" text-anchor="end" font-size="9.5" fill="var(--information)">information</text>
+      <text x="216" y="353" text-anchor="end" font-size="8.5" fill="var(--vacant)">vacant</text>
+
+      <!-- K2 : occupied -->
+      <circle cx="402" cy="344" r="19" fill="var(--statistics)"/>
+      <text x="402" y="349" text-anchor="middle" font-size="13" font-weight="600" fill="var(--panel)">K2</text>
+      <text x="428" y="340" font-size="9.5" fill="var(--statistics)">statistics</text>
+      <text x="428" y="353" font-size="9" fill="var(--live)" font-weight="600">4 indexes</text>
+
+      <!-- K4 : vacant -->
+      <circle cx="282" cy="268" r="19" fill="var(--panel)" stroke="var(--vacant)" stroke-width="1.8" stroke-dasharray="3.5 3"/>
+      <text x="282" y="273" text-anchor="middle" font-size="13" font-weight="600" fill="var(--vacant)">K4</text>
+      <text x="256" y="264" text-anchor="end" font-size="9.5" fill="var(--muted)">info + stat</text>
+      <text x="256" y="277" text-anchor="end" font-size="8.5" fill="var(--vacant)">vacant</text>
+
+      <!-- K3 : vacant -->
+      <circle cx="442" cy="268" r="19" fill="var(--panel)" stroke="var(--vacant)" stroke-width="1.8" stroke-dasharray="3.5 3"/>
+      <text x="442" y="273" text-anchor="middle" font-size="13" font-weight="600" fill="var(--vacant)">K3</text>
+      <text x="468" y="264" font-size="9.5" fill="var(--muted)">geom + stat</text>
+      <text x="468" y="277" font-size="8.5" fill="var(--vacant)">vacant</text>
+
+      <!-- K6 : vacant, and alone in its phase -->
+      <circle cx="222" cy="192" r="19" fill="var(--panel)" stroke="var(--order)" stroke-width="2.2"/>
+      <text x="222" y="197" text-anchor="middle" font-size="13" font-weight="600" fill="var(--order)">K6</text>
+      <text x="196" y="184" text-anchor="end" font-size="9.5" fill="var(--order)">ord/alg + info + stat</text>
+      <text x="196" y="197" text-anchor="end" font-size="8.5" fill="var(--order)" font-weight="600">ALONE IN ITS PHASE</text>
+      <text x="196" y="210" text-anchor="end" font-size="8.5" fill="var(--vacant)">vacant</text>
+
+      <!-- K5 : vacant -->
+      <circle cx="382" cy="192" r="19" fill="var(--panel)" stroke="var(--vacant)" stroke-width="1.8" stroke-dasharray="3.5 3"/>
+      <text x="382" y="197" text-anchor="middle" font-size="13" font-weight="600" fill="var(--vacant)">K5</text>
+      <text x="408" y="188" font-size="9.5" fill="var(--muted)">geom + info + stat</text>
+      <text x="408" y="201" font-size="8.5" fill="var(--vacant)">vacant</text>
+
+      <!-- K7 : occupied -->
+      <circle cx="302" cy="116" r="19" fill="var(--geometry)"/>
+      <text x="302" y="121" text-anchor="middle" font-size="13" font-weight="600" fill="var(--panel)">K7</text>
+      <text x="302" y="86" text-anchor="middle" font-size="10" fill="var(--geometry)">all five close</text>
+      <text x="302" y="72" text-anchor="middle" font-size="9" fill="var(--live)" font-weight="600">1 index — Janet</text>
+
+      <g transform="translate(556,116)">
+        <text x="0" y="0" font-size="9" fill="var(--muted)" letter-spacing="1.3">8 OF 32 SUBSETS</text>
+        <text x="0" y="15" font-size="9" fill="var(--faint)">ARE LAWFUL</text>
+        <text x="0" y="41" font-size="9" fill="var(--muted)" letter-spacing="1.3">3 OCCUPIED</text>
+        <text x="0" y="56" font-size="9" fill="var(--faint)">5 VACANT</text>
+        <text x="0" y="82" font-size="9" fill="var(--muted)" letter-spacing="1.3">10 COVERS</text>
+        <text x="0" y="97" font-size="9" fill="var(--faint)">a lattice, not a chain</text>
+      </g>
+    </svg>
+    <figcaption><b>Solid nodes are occupied; dashed are lawful but empty.</b> By Birkhoff's
+    representation theorem the join-irreducible channels are exactly the principal down-sets —
+    one per element of the language poset. <span class="mono">K6 = down(order/algebra)</span>,
+    <span class="mono">K3 = down(geometry)</span>, <span class="mono">K1 = down(information)</span>,
+    <span class="mono">K2 = down(statistics)</span>.</figcaption>
+  </figure>
+</section>
+
+<!-- ============================================================ 4 -->
+<section id="phase">
+  <div class="shead"><span class="snum">04</span><h2>The phase square, and why K6 is alone</h2></div>
+  <p class="sub">The poset has exactly two maximal elements — geometry, and the order/algebra
+  block. Treat each as a switch and the eight channels fall into four quadrants. They do not
+  fall evenly, and the unevenness is forced.</p>
+
+  <div class="plate">
+    <div class="phase">
+      <div style="border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)"></div>
+      <div class="hdr">order/algebra&nbsp;OFF</div>
+      <div class="hdr" style="border-right:none">order/algebra&nbsp;ON</div>
+
+      <div class="rlab">geometry&nbsp;OFF</div>
+      <div class="q"><div class="ks">K0&nbsp;&nbsp;K1&nbsp;&nbsp;K2&nbsp;&nbsp;K4</div><div class="n">four channels</div></div>
+      <div class="q alone" style="border-right:none"><div class="ks">K6</div><div class="n">one channel — alone</div></div>
+
+      <div class="rlab" style="border-bottom:none">geometry&nbsp;ON</div>
+      <div class="q" style="border-bottom:none"><div class="ks">K3&nbsp;&nbsp;K5</div><div class="n">two channels</div></div>
+      <div class="q" style="border-right:none;border-bottom:none"><div class="ks">K7</div><div class="n">one channel — the top</div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lab">Why the quadrants are uneven</span>
+    <p>Turning a switch ON forces everything beneath it on as well, because a channel is a
+    down-set. <strong>The order/algebra block sits above <em>both</em> minimal languages</strong>
+    — statistics and information — so switching it on drags both in and leaves nothing free to
+    vary. That is why its quadrant holds exactly one channel.</p>
+    <p style="margin-bottom:0"><strong>Geometry sits above statistics only.</strong> Information
+    stays free, so its quadrant holds two. And with both switches off, both minimal languages
+    are free and the quadrant holds four. One, two, four — the count of each quadrant is
+    <span class="mono">2<sup>(minimal languages left free)</sup></span>, and nothing about it is
+    an accident of this corpus.</p>
+  </div>
+
+  <div class="note warn">
+    <span class="lab">What K6 is, stated carefully</span>
+    <p style="margin-bottom:0">K6 is join-irreducible and meet-irreducible, a co-atom, and the
+    sole occupant of its phase. It is also <strong>vacant</strong> — no seated index closes in
+    exactly <span class="mono">{order, algebra, information, statistics}</span>. Its isolation is
+    a theorem about the lattice; its emptiness is a fact about what has been seated so far. The
+    two must not be read as one finding.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 5 -->
+<section id="self">
+  <div class="shead"><span class="snum">05</span><h2>The index, read as an index</h2></div>
+  <p class="sub">The nine cells are themselves a finite set in a product box, so every operator
+  that applies to a member applies to the whole. This is the one measurement the construction
+  makes about itself.</p>
+
+  <div class="kv">
+    <div><dt>indexes</dt><dd>9<small>on 8 distinct cells</small></dd></div>
+    <div><dt>closes in</dt><dd style="font-size:1rem;color:var(--statistics)">statistics<small>and nothing else</small></dd></div>
+    <div><dt>demands</dt><dd>0<small>nothing is missing under its own closure</small></dd></div>
+    <div><dt>own cell</dt><dd style="font-size:1rem">(2, 5, 2)<small>VACANT — it does not contain itself</small></dd></div>
+    <div><dt>Dilworth</dt><dd style="font-size:1rem;color:var(--live)">holds<small>|X| ≤ h × w on all nine</small></dd></div>
+  </div>
+
+  <div class="note">
+    <span class="lab">The self-membership question, answered and then narrowed</span>
+    <p style="margin-bottom:0">The master index sits at <span class="mono">(2, 5, 2)</span> and
+    no index occupies that cell, so it is not a member of itself. That reads like a structural
+    fact and it is not: self-membership was measured across eight different charts and holds in
+    <strong>one</strong> of them — not this one. It is <em>chart-dependent and rare</em>, which is
+    a weaker and truer statement than the one this tree first published.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 6 -->
+<section id="calibration">
+  <div class="shead"><span class="snum">06</span><h2>Which demands are worth trusting</h2></div>
+  <p class="sub">An index that does not close <em>demands</em> the cells it lacks. Most such
+  demands are noise. There is now exactly one calibration for telling them apart, and it was
+  checked against an independent ground truth nine times.</p>
+
+  <p>The Janet chart, one element short of a shell boundary, has all five languages demanding
+  and their intersection is exactly one cell. That cell names the next element — and it does so
+  correctly at every boundary tested, including <span class="mono">Z = 170</span> and
+  <span class="mono">Z = 220</span>, far beyond anything observed. The one demand ever found
+  <em>wrong</em> scored three languages and thirty-six cells. So:</p>
+
+  <div class="note">
+    <span class="lab">The signature of a trustworthy demand</span>
+    <p style="margin-bottom:0"><strong>All five languages demand, and their intersection is
+    exactly one cell.</strong></p>
+  </div>
+
+  <p>Re-read against that standard, the whole tree has three candidates:</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>index</th><th>languages demanding</th><th>unanimous cells</th><th>the cell demanded</th></tr></thead>
+    <tbody>
+      <tr><td class="name">bounds</td><td class="num">5</td><td class="num">1</td><td class="cell">(2, 1, 0, 0, 1, 2)</td></tr>
+      <tr><td class="name">substances (Hawking–Ellis)</td><td class="num">5</td><td class="num">1</td><td class="cell">(0, 1, 2, 1)</td></tr>
+      <tr><td class="name">the languages</td><td class="num">5</td><td class="num">1</td><td class="cell">(1, 0, 2, 1, 0)</td></tr>
+      <tr style="opacity:.62"><td class="name">the master index itself</td><td class="num">4</td><td class="num">0</td><td class="cell">— fails</td></tr>
+      <tr style="opacity:.62"><td class="name">periodic layout</td><td class="num">5</td><td class="num">9</td><td class="cell">— fails</td></tr>
+    </tbody>
+    <caption>Six indexes fail because a language already closes them, so the intersection is
+    empty by definition. The periodic layout has all five demanding but nine unanimous cells,
+    not one.</caption>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <span class="lab">Recorded, not repaired</span>
+    <p style="margin-bottom:0">Nothing here is seated on the strength of a demand. These three
+    pass the only calibration this tree has, which is a reason to <em>test</em> them and not a
+    reason to believe them. The cell that three separate constructions once chased was never a
+    calibrated demand — and now there is a standard by which to say so.</p>
+  </div>
+</section>
+
+<!-- ============================================================ 7 -->
+<section id="refuses">
+  <div class="shead"><span class="snum">07</span><h2>What this index refuses to conclude</h2></div>
+  <p class="sub">The refusals are load-bearing. Each one marks a place where the construction
+  could produce a number and the number would not mean what it appears to.</p>
+
+  <ul class="tight">
+    <li><strong>That a vacant channel is a gap to be filled.</strong> Five of the eight lawful
+    positions hold nothing. That is a fact about what has been seated, not a prediction that
+    something belongs there.</li>
+    <li><strong>That K6's isolation and K6's emptiness are one finding.</strong> The first is a
+    theorem about the lattice; the second is a census. They happen to be true of the same node.</li>
+    <li><strong>That the withdrawn chart's exit explains anything.</strong> Withdrawing
+    <span class="mono">periodic layout 2-D</span> made a universal claim true by removing its only
+    counterexample. Removing a counterexample is not explaining it.</li>
+    <li><strong>That a five-coordinate cell quoted elsewhere is wrong.</strong> Two of those five
+    coordinates fail the admissibility test, so those readings are statements about a chart. They
+    stand as records of what was measured; they are not re-derived here.</li>
+    <li><strong>That the index ranks the languages.</strong> Geometry and the order/algebra block
+    are incomparable. There is no total ranking, and the lattice is where that stops being an
+    assertion.</li>
+  </ul>
+</section>
+
+<footer class="foot">
+  <p style="margin-bottom:.5em">Every figure on this plate is produced by
+  <code>python3 mi.py</code> and pinned by <code>python3 mi.py --selftest</code>.
+  The chart criterion is <code>charts.py</code>; the demand calibration is
+  <code>shells.py</code>; the hierarchy law is <code>hlaw.py</code>.</p>
+  <p style="margin-bottom:0">Nine indexes · eight cells · three occupied channels ·
+  zero demands · zero Dilworth violations.</p>
+</footer>
+
+</div>
+
+
+<script>
+/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * 0.255;
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    ctx.fillStyle = colour; ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    axis(ctx,W,H,[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted'));
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      ctx.fillStyle = tok(opts.colour(o.p));
+      ctx.globalAlpha = .35 + .65*o.sc*0.9;
+      ctx.fill();
+      if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+        ctx.lineWidth = 1; ctx.stroke(); }
+      ctx.globalAlpha = 1;
+    }
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+}
+
+scatter3d({id:'mi3d',points:[{"x":3,"y":2,"z":0,"n":"the languages","K":0},{"x":4,"y":3,"z":0,"n":"substances (Hawking-Ellis)","K":0},{"x":5,"y":3,"z":0,"n":"bounds","K":0},{"x":19,"y":12,"z":0,"n":"periodic layout","K":0},{"x":3,"y":2,"z":2,"n":"questions","K":2},{"x":3,"y":4,"z":2,"n":"exotic mechanisms + spacetimes (Petrov)","K":2},{"x":5,"y":8,"z":2,"n":"energy-condition family","K":2},{"x":30,"y":12,"z":7,"n":"Janet (n+l, l, k)","K":7}],xlab:'height',ylab:'width',zlab:'K',rz:[0,7],r:7,stroke:true,labels:true,colour:p=>p.K===7?'--geometry':(p.K===2?'--statistics':'--faint')});
+</script>

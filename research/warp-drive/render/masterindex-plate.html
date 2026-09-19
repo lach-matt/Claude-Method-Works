@@ -1,0 +1,484 @@
+<title>The Index of First-Order Indexes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --bound:#B86A12; --free:#137A69; --undet:#7C8796;
+  --hue7:#8A6D3B; --hue8:#4A5A8C; --hue9:#9C4A6E;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+    --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.06rem;font-weight:600;margin:34px 0 12px;letter-spacing:-.006em}
+p{margin:0 0 1.05em}
+p.after{margin-top:18px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sm{font-size:.82em}
+.eqn{font-size:1.16rem;color:var(--ink);background:var(--sunk);border:1px solid var(--rule);
+  border-radius:3px;padding:15px 18px;letter-spacing:.02em;margin:0 0 22px;overflow-x:auto}
+.hot{color:var(--algebra)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+.tablewrap.tall{max-height:560px;overflow-y:auto}
+.tablewrap.tall thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+th.num{text-align:right}
+td.cell{color:var(--ink)}
+td.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.chip.b0{color:var(--free)} .chip.b1{color:var(--bound)} .chip.b2{color:var(--undet)}
+.yes{color:var(--geometry);font-weight:600} .no{color:var(--muted);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+rect.b0{fill:var(--free)} rect.b1{fill:var(--bound)} rect.b2{fill:var(--undet)}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.key span{display:flex;align-items:center;gap:7px}
+.key i.k{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+.key i.b0{background:var(--free)} .key i.b1{background:var(--bound)} .key i.b2{background:var(--undet)}
+svg text.tb0{fill:var(--free)} svg text.tb1{fill:var(--bound)} svg text.tb2{fill:var(--undet)}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd.hot{color:var(--algebra)}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.7em}
+ul.refuse li b{color:var(--ink)}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.trio,.duo{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3dbar .hint{color:var(--faint)}
+.v3dbar .dims{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.v3dbar .dims button{padding:3px 8px;min-width:30px}
+.v3dbar .dims button.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.v3dbar .now{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+@media (prefers-reduced-motion: reduce){.v3d canvas{}}
+</style>
+<div class="wrap">
+<header class="mast">
+  <p class="eyebrow">Research plate · the master index</p>
+  <h1>The Index of First-Order&nbsp;Indexes</h1>
+  <p class="dek">Its members are the seated indexes of the periodic elements —
+  one vertex each, at that index's own cell. A second-order object, and the only
+  one here.</p>
+  <div class="stamp"><span>instrument <b>figure.py</b></span>
+  <span>vertices <b>18</b></span><span>cells <b>18</b></span>
+  <span>box <b>1176</b></span><span>closes <b>nothing</b></span>
+  <span>channels <b>7 of 8</b></span>
+  <span>E <b>165</b></span><span>its own cell <b>(0,&nbsp;5,&nbsp;9)</b></span></div>
+</header>
+<div class="note warn" style="margin-top:26px">
+  <span class="lab">The rebuild: it asks the registry, and the predecessor did not</span>
+  <p><span class="mono">mi.py</span>'s master index is built on a <b>hardcoded
+  list of nine</b>, and <b>not one of the nine is a seated index of the periodic
+  elements</b>: energy conditions, warp-drive mechanisms, the withdrawn 2-D
+  periodic layout, the five languages, Hawking–Ellis substances, Petrov
+  spacetimes, bounds and questions. <b>The intersection with the registry's 18
+  is empty.</b></p>
+  <p>That is DOCKET 16's contamination in a file the cleanup did not reach.
+  <span class="mono">hexad.py</span> and <span class="mono">store.py</span> were
+  withdrawn for seating filing-system indexes as vertices;
+  <span class="mono">mi.py</span> survived because
+  <span class="mono">registry.NOT_AN_INDEX</span> excuses it as <em>"members are
+  the seated indexes"</em> — which is true of its <em>type</em> and says nothing
+  about <em>which</em>.</p>
+  <p style="margin-bottom:0"><b><span class="mono">mi.py</span> is not deleted
+  and its charting machinery is not touched.</b>
+  <span class="mono">mi.cell</span>, <span class="mono">mi.height</span>,
+  <span class="mono">mi.width</span>, <span class="mono">mi.K</span> and
+  <span class="mono">mi.channels</span> are correct, are imported by everything
+  here, and are what this plate measures with. Superseded are the four that
+  depend on the nine: <span class="mono">inventory</span>,
+  <span class="mono">index</span>, <span class="mono">state</span>,
+  <span class="mono">self_cell</span>. DOCKET 14 — a superseded record is
+  kept.</p>
+</div>
+<section>
+  <div class="shead"><span class="snum">01</span><h2>The vertices</h2></div>
+  <p class="sub">One per registered index, at its own (K, height, width). The
+  vertex set is <span class="mono">registry.rows()</span> and nothing else, so
+  it cannot drift from the registry — it does not hold a copy of it.</p>
+  <div class="tablewrap"><table><thead><tr><th>index</th><th>cell</th>
+    <th class="num">K</th><th>quantum numbers ITS members carry</th></tr></thead>
+    <tbody><tr><td class="name">mesons</td><td class="cell">(0, 10, 14)</td><td class="num">0</td><td class="mono sm">2J, P, 2I, Q3</td></tr><tr><td class="name">baryons</td><td class="cell">(0, 10, 40)</td><td class="num">0</td><td class="mono sm">2J, P, 2I, Q3, strangeness, charm, beauty</td></tr><tr><td class="name">terms</td><td class="cell">(0, 13, 18)</td><td class="num">0</td><td class="mono sm">2S+1, L, parity, the banked J set</td></tr><tr><td class="name">channels</td><td class="cell">(0, 16, 24)</td><td class="num">0</td><td class="mono sm">l, Pauli bound, multiplicity</td></tr><tr><td class="name">ions</td><td class="cell">(0, 18, 16)</td><td class="num">0</td><td class="mono sm">charge, electron count</td></tr><tr><td class="name">gravity</td><td class="cell">(0, 19, 112)</td><td class="num">0</td><td class="mono sm">Z, N, A, q, Ne, 2J, level status</td></tr><tr><td class="name">observed</td><td class="cell">(0, 20, 13)</td><td class="num">0</td><td class="mono sm">n, l, k (observed)</td></tr><tr><td class="name">laws</td><td class="cell">(0, 25, 7)</td><td class="num">0</td><td class="mono sm">n range, l, quantum defect</td></tr><tr><td class="name">gravity_bound</td><td class="cell">(1, 8, 5)</td><td class="num">1</td><td class="mono sm">horizon-bound class, forced angular momentum, spin-decade rank</td></tr><tr><td class="name">madrule</td><td class="cell">(2, 6, 4)</td><td class="num">2</td><td class="mono sm">n+l of the acceptor, l of the donor, occupancy</td></tr><tr><td class="name">inversion</td><td class="cell">(2, 6, 5)</td><td class="num">2</td><td class="mono sm">pairs of (n, l)</td></tr><tr><td class="name">fundamental</td><td class="cell">(2, 7, 7)</td><td class="num">2</td><td class="mono sm">2J, Q3, colour dimension, generation</td></tr><tr><td class="name">probability</td><td class="cell">(2, 8, 9)</td><td class="num">2</td><td class="mono sm">n, l</td></tr><tr><td class="name">nucshell</td><td class="cell">(3, 7, 6)</td><td class="num">3</td><td class="mono sm">nr, l, j (nuclear)</td></tr><tr><td class="name">fibred</td><td class="cell">(3, 26, 17)</td><td class="num">3</td><td class="mono sm">n, l, k</td></tr><tr><td class="name">baryon_isomultiplet</td><td class="cell">(5, 7, 4)</td><td class="num">5</td><td class="mono sm">2I, Q3</td></tr><tr><td class="name">madelung_slot</td><td class="cell">(6, 26, 6)</td><td class="num">6</td><td class="mono sm">n+l, k</td></tr><tr><td class="name">madelung</td><td class="cell">(7, 30, 12)</td><td class="num">7</td><td class="mono sm">n+l, l, k</td></tr></tbody></table>
+    <caption><b>18 vertices, 18 distinct cells — no two seated indexes share a
+    cell.</b></caption></div>
+</section>
+<section>
+  <div class="shead"><span class="snum">02</span><h2>The master index, plotted exactly</h2></div>
+  <p class="sub">One point per seated index, at its own cell. Labelled, because there are only 18 and each one is a whole index.</p>
+  <figure class="plate">
+    <div class="v3d"><canvas id="ma3d" aria-label="the index of first-order indexes: 18 vertices at height, width and channel"></canvas></div>
+    <div class="v3dbar">
+      <button id="ma3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>K0</span><span><i style="background:var(--geometry)"></i>K1</span><span><i style="background:var(--information)"></i>K2</span><span><i style="background:var(--algebra)"></i>K3</span><span><i style="background:var(--order)"></i>K5</span><span><i style="background:var(--accent)"></i>K6</span><span><i style="background:var(--hue7)"></i>K7</span></span>
+    </div>
+    <figcaption><b>This view is the index itself, not a projection of it.</b> The chart has three coordinates and they are the three axes, so every one of the 18 cells is its own point and nothing is collapsed, summarised or dropped. Each point is a whole index — <b>the labelled dot is that index's entire chart reduced to one position</b>. Colour is K, the channel, which is also the vertical axis: the 7 sheets are the 7 channels the 18 occupy out of eight possible, and the two narrowest points are the coarsenings M's overlap ruling seated. <b>gravity's width of 112 is what stretches the box</b>, and the crowd near the origin is every small index.</figcaption>
+  </figure>
+  <script>/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * (opts.scale ?? 0.255);
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour,textOnly){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    if(!textOnly){
+      ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+      return;                       /* text is painted in a later pass */
+    }
+    ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    /* AN AXIS LABEL GETS ITS OWN GROUND.  The auto-spin passes through every
+       azimuth, so no camera keeps a label clear of a dense cloud at all of
+       them; a panel-coloured plate behind the text makes it legible at every
+       angle instead of at the opening one. */
+    const tw = ctx.measureText(label).width;
+    ctx.fillStyle = tok('--panel'); ctx.globalAlpha = 0.82;
+    ctx.fillRect(lx - tw/2 - 4, ly - 8, tw + 8, 16);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = colour;
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    /* AXIS LINES NOW, AXIS TEXT AFTER THE POINTS.  A dense cloud otherwise
+       paints over a label at half the azimuths the auto-spin passes through,
+       and the still frame is what a thumbnail and a reduced-motion reader
+       get. The lines stay behind the points, which is correct. */
+    const AX = [[[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted')],
+                [[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted')],
+                [[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted')]];
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],false);
+
+    // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
+    if(opts.edges){
+      for(const e of opts.edges){
+        const p = project(nrm(e[0],rx), nrm(e[1],ry), nrm(e[2],rz), W, H);
+        const q = project(nrm(e[3],rx), nrm(e[4],ry), nrm(e[5],rz), W, H);
+        ctx.save();
+        ctx.strokeStyle = tok(e[6]);
+        ctx.lineWidth = e[7] ? 1 : 1.6;
+        ctx.globalAlpha = e[7] ? .85 : .5;
+        if(e[7]) ctx.setLineDash([5,4]);
+        ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      if(o.p.hollow){
+        ctx.globalAlpha = 1; ctx.strokeStyle = tok(opts.colour(o.p));
+        ctx.lineWidth = 1.6; ctx.setLineDash([3,2.5]); ctx.stroke();
+        ctx.setLineDash([]);
+      } else {
+        ctx.fillStyle = tok(opts.colour(o.p));
+        ctx.globalAlpha = .35 + .65*o.sc*0.9;
+        ctx.fill();
+        if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+          ctx.lineWidth = 1; ctx.stroke(); }
+      }
+      ctx.globalAlpha = 1;
+    }
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],true);
+
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+
+  /* ADDITIVE: a handle, so a caller that changes what opts.colour returns can
+     force a repaint. The loop only redraws while spinning, so without this a
+     recolour is invisible to a reader who paused rotation or who has
+     prefers-reduced-motion set. Nothing else changes: every existing call site
+     ignores the return value. */
+  return { draw, canvas: cv, view: (a, e) => { az = a ?? az; el = e ?? el; draw(); } };
+}
+
+(function(){
+const T=["--accent", "--algebra", "--geometry", "--hue7", "--information", "--order", "--statistics"];
+const RAW=[[10,14,0,6,0,"mesons"],[10,40,0,6,0,"baryons"],[13,18,0,6,0,"terms"],[16,24,0,6,0,"channels"],[18,16,0,6,0,"ions"],[19,112,0,6,0,"gravity"],[20,13,0,6,0,"observed"],[25,7,0,6,0,"laws"],[8,5,1,2,0,"gravity_bound"],[6,4,2,4,0,"madrule"],[6,5,2,4,0,"inversion"],[7,7,2,4,0,"fundamental"],[8,9,2,4,0,"probability"],[7,6,3,1,0,"nucshell"],[26,17,3,1,0,"fibred"],[7,4,5,5,0,"baryon_isomultiplet"],[26,6,6,0,0,"madelung_slot"],[30,12,7,3,0,"madelung"]];
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
+scatter3d({id:'ma3d',points:PTS,xlab:"height  longest chain",ylab:"width  largest antichain",zlab:"K  the channel",
+  az:5.46,el:0.58,scale:0.24,height:510,r:8,labels:true,
+  xcol:'--geometry',ycol:'--order',zcol:'--information',
+  colour:p=>p.c});
+})();</script>
+</section>
+
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Its three axes were two
+  row labels and a measurement — and are now three measurements</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>axis</th>
+    <th class="num">distinct</th><th class="num">of</th>
+    <th class="num">ratio</th><th>verdict</th></tr></thead><tbody><tr><td class="name mono">K</td><td class="num">7</td><td class="num">18</td><td class="num">0.3889</td><td>measurement</td></tr><tr><td class="name mono">height</td><td class="num">12</td><td class="num">18</td><td class="num">0.6667</td><td>measurement</td></tr><tr><td class="name mono">width</td><td class="num">14</td><td class="num">18</td><td class="num">0.7778</td><td>measurement</td></tr></tbody>
+    </table><caption>The threshold is 0.9.</caption></div>
+  <div class="note warn">
+    <span class="lab">A recorded prediction, refuted by measurement</span>
+    <p>A coordinate separating 90 % or more of the members <em>groups
+    nothing</em> and multiplies the box — which is what
+    <span class="mono">overlap.py</span> exists to catch. <b>At eleven vertices
+    it caught it here</b>: height 0.909 and width perfectly injective at 1.000,
+    both LABELs, leaving K the only measurement. The reasoning filed with that
+    finding was that each index has essentially its own height and its own
+    width, so the two approach injectivity <b>by construction</b> as the figure
+    grows.</p>
+    <p><b>That reasoning is now refuted.</b> Three more vertices — the
+    coarsenings M's overlap ruling seated — made it <em>better</em>: height
+    0.909 &rarr; 0.714, width 1.000 &rarr; 0.857, and <b>no axis is a row label
+    any more</b>. The prediction assumed every new index brings a new height and
+    a new width; a <em>coarsening</em> of a seated index does not, because it
+    lands in the part of the poset its parent already occupies. The label
+    problem tracks <b>how the vertex set is built</b>, not how big it is.</p>
+    <p style="margin-bottom:0"><b>K</b> was never in doubt — a down-set of the
+    language poset, eight possible values and 7 observed at 18 vertices.
+    DOCKET 11's chart is unchanged: nothing was repaired, the figure moved, and
+    the old reading is kept beside the new one.</p></div>
+</section>
+<section>
+  <div class="shead"><span class="snum">04</span><h2>What it closes, and what
+  it is not</h2></div>
+  <div class="tablewrap"><table><thead><tr><th>language</th><th class="num">admits</th><th class="num">E</th><th>verdict</th></tr></thead><tbody><tr><td class="name">order</td><td class="num">491</td><td class="num">473</td><td><span class="no">does not close</span></td></tr><tr><td class="name">algebra</td><td class="num">491</td><td class="num">473</td><td><span class="no">does not close</span></td></tr><tr><td class="name">geometry</td><td class="num">528</td><td class="num">510</td><td><span class="no">does not close</span></td></tr><tr><td class="name">information</td><td class="num">183</td><td class="num">165</td><td><span class="no">does not close</span></td></tr><tr><td class="name">statistics</td><td class="num">21</td><td class="num">3</td><td><span class="no">does not close</span></td></tr></tbody></table><caption>Against 18 cells held.</caption></div>
+  <div class="kv" style="margin-top:22px">
+    <div><dt>closers</dt><dd>none<small>it closes in nothing; at eleven vertices it closed under statistics</small></dd></div>
+    <div><dt>E</dt><dd>165<small>reported, never a target</small></dd></div>
+    <div><dt>its own cell</dt><dd>(0, 5, 9)</dd></div>
+    <div><dt>occupied by</dt><dd class="hot">no member<small>it is not one of its own
+      first-order indexes</small></dd></div>
+  </div>
+  <p class="after"><b>E is not a target.</b> M: <em>"I don't care about closure.
+  I only care that we identify every possible first-order index."</em> It is
+  reported because it is measured, and no index seated here was built to land on
+  a demanded cell.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">05</span><h2>Dilworth on every
+  vertex</h2></div>
+  <p class="sub">|X| ≤ height × width, so the three axes are not independent and
+  the product box overstates the space — DOCKET 3's other half, by theorem
+  rather than census.</p>
+  <div class="tablewrap"><table><thead><tr><th>index</th><th class="num">|X|</th>
+    <th class="num">height</th><th class="num">width</th>
+    <th class="num">h × w</th><th></th></tr></thead><tbody><tr><td class="name">baryon_isomultiplet</td><td class="num">16</td><td class="num">7</td><td class="num">4</td><td class="num">28</td><td><span class="yes">holds</span></td></tr><tr><td class="name">baryons</td><td class="num">184</td><td class="num">10</td><td class="num">40</td><td class="num">400</td><td><span class="yes">holds</span></td></tr><tr><td class="name">channels</td><td class="num">209</td><td class="num">16</td><td class="num">24</td><td class="num">384</td><td><span class="yes">holds</span></td></tr><tr><td class="name">fibred</td><td class="num">170</td><td class="num">26</td><td class="num">17</td><td class="num">442</td><td><span class="yes">holds</span></td></tr><tr><td class="name">fundamental</td><td class="num">26</td><td class="num">7</td><td class="num">7</td><td class="num">49</td><td><span class="yes">holds</span></td></tr><tr><td class="name">gravity</td><td class="num">914</td><td class="num">19</td><td class="num">112</td><td class="num">2128</td><td><span class="yes">holds</span></td></tr><tr><td class="name">gravity_bound</td><td class="num">26</td><td class="num">8</td><td class="num">5</td><td class="num">40</td><td><span class="yes">holds</span></td></tr><tr><td class="name">inversion</td><td class="num">17</td><td class="num">6</td><td class="num">5</td><td class="num">30</td><td><span class="yes">holds</span></td></tr><tr><td class="name">ions</td><td class="num">98</td><td class="num">18</td><td class="num">16</td><td class="num">288</td><td><span class="yes">holds</span></td></tr><tr><td class="name">laws</td><td class="num">54</td><td class="num">25</td><td class="num">7</td><td class="num">175</td><td><span class="yes">holds</span></td></tr><tr><td class="name">madelung</td><td class="num">170</td><td class="num">30</td><td class="num">12</td><td class="num">360</td><td><span class="yes">holds</span></td></tr><tr><td class="name">madelung_slot</td><td class="num">82</td><td class="num">26</td><td class="num">6</td><td class="num">156</td><td><span class="yes">holds</span></td></tr><tr><td class="name">madrule</td><td class="num">13</td><td class="num">6</td><td class="num">4</td><td class="num">24</td><td><span class="yes">holds</span></td></tr><tr><td class="name">mesons</td><td class="num">66</td><td class="num">10</td><td class="num">14</td><td class="num">140</td><td><span class="yes">holds</span></td></tr><tr><td class="name">nucshell</td><td class="num">22</td><td class="num">7</td><td class="num">6</td><td class="num">42</td><td><span class="yes">holds</span></td></tr><tr><td class="name">observed</td><td class="num">98</td><td class="num">20</td><td class="num">13</td><td class="num">260</td><td><span class="yes">holds</span></td></tr><tr><td class="name">probability</td><td class="num">25</td><td class="num">8</td><td class="num">9</td><td class="num">72</td><td><span class="yes">holds</span></td></tr><tr><td class="name">terms</td><td class="num">112</td><td class="num">13</td><td class="num">18</td><td class="num">234</td><td><span class="yes">holds</span></td></tr></tbody></table>
+    <caption>No violations.</caption></div>
+</section>
+<section>
+  <div class="shead"><span class="snum">06</span><h2>What it refuses</h2></div>
+  <ul class="tight refuse">
+    <li><b>To report a growth narrative.</b> The old one was an artefact of the
+      order a contaminated set was seated in, and no clean trajectory exists
+      yet. Vertex counts are printed; trends are not.</li>
+    <li><b>To name a shape.</b> 18 vertices is what there are today —
+      <em>hexad</em>, <em>octad</em> and the rest were names for a count that
+      kept moving.</li>
+    <li><b>To treat E as a target.</b></li>
+    <li><b>To call itself complete.</b> <span class="mono">registry.COMPLETE</span>
+      is False and this file has no opinion the registry does not.</li>
+  </ul>
+</section>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/figure.py --selftest</code> — 27 fixtures<br><code>python3 research/warp-drive/figure.py</code> — the reading<br><code>python3 research/warp-drive/render/build_index_plates.py figure</code> — this plate</p></div>
+</div>

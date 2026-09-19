@@ -734,7 +734,13 @@ def check_achronality_closed():
             and rows[0]["proved"])          # and the axial case is proved, not fitted
 
 def check_turn_advantage_closed():
-    import transit
+    # turnseat.py, NOT transit.py. The travel>turn>seat instrument was written
+    # as transit.py and then OVERWRITTEN by an unrelated file of the same name
+    # (transit without traversal, the teleportation bound), which dropped its
+    # whole API without sweeping the dependents -- so this call crashed with
+    # "module 'transit' has no attribute". The original is recovered verbatim
+    # from git as turnseat.py and this points at it.
+    import turnseat as transit
     rows = []
     for y0 in (0.8, 1.0, 1.2, 1.5):
         c = transit.Conditions(y0, arrival_length=None)

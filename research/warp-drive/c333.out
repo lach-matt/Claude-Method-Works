@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/user/Claude-Method-Works/research/warp-drive/c333.py", line 2, in <module>
+    from common import *
+ModuleNotFoundError: No module named 'common'

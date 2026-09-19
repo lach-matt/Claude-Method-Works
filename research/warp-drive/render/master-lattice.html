@@ -1,0 +1,5060 @@
+<title>Master Index Lattice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#eef0f4; --panel:#f7f8fa; --sunk:#e3e7ee;
+  --line:#c6ccd8; --line-soft:#dbe0e9;
+  --fg:#161c26; --fg-mid:#4d5768; --fg-dim:#78839a;
+  --seated:#161c26; --seated-ring:#161c26;
+  --stat:#b8791a; --geom:#0f8d78; --info:#3a63bd; --ordalg:#7c4bab;
+  --warn:#b0463a;
+  --focus:#3a63bd;
+  --grid:rgba(22,28,38,.13); --grid-strong:rgba(22,28,38,.30);
+  --thread:rgba(22,28,38,.20);
+  --sh:0 1px 2px rgba(20,28,44,.07), 0 6px 18px -10px rgba(20,28,44,.22);
+}
+:root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){
+  --ground:#0d1219; --panel:#131a24; --sunk:#0a0f15;
+  --line:#2b3644; --line-soft:#1e2833;
+  --fg:#e6ebf3; --fg-mid:#98a5b8; --fg-dim:#6b7889;
+  --seated:#f2f5fa; --seated-ring:#f2f5fa;
+  --stat:#e8a33d; --geom:#3fbfa4; --info:#7aa2f7; --ordalg:#b489e0;
+  --warn:#e0705f;
+  --focus:#7aa2f7;
+  --grid:rgba(230,235,243,.13); --grid-strong:rgba(230,235,243,.32);
+  --thread:rgba(230,235,243,.22);
+  --sh:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --ground:#0d1219; --panel:#131a24; --sunk:#0a0f15;
+  --line:#2b3644; --line-soft:#1e2833;
+  --fg:#e6ebf3; --fg-mid:#98a5b8; --fg-dim:#6b7889;
+  --seated:#f2f5fa; --seated-ring:#f2f5fa;
+  --stat:#e8a33d; --geom:#3fbfa4; --info:#7aa2f7; --ordalg:#b489e0;
+  --warn:#e0705f;
+  --focus:#7aa2f7;
+  --grid:rgba(230,235,243,.13); --grid-strong:rgba(230,235,243,.32);
+  --thread:rgba(230,235,243,.22);
+  --sh:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--fg);
+  font:400 15px/1.55 "IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  padding-block:0; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:20px;padding-block:26px 64px}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.cond{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif}
+
+/* ---- nameplate ---- */
+header{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+.plate{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px}
+h1{
+  font-family:"IBM Plex Mono",monospace; font-weight:500;
+  font-size:clamp(21px,3.4vw,30px); letter-spacing:.10em; text-transform:uppercase;
+  margin:0; text-wrap:balance;
+}
+.sub{color:var(--fg-mid);font-size:14.5px;max-width:66ch;margin:9px 0 0}
+.tag{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--fg-dim);
+  border:1px solid var(--line);border-radius:2px;padding:3px 8px;white-space:nowrap;
+}
+
+/* ---- layout ---- */
+.stage{display:grid;grid-template-columns:190px minmax(0,1fr) 268px;gap:16px;align-items:start}
+@media (max-width:1080px){ .stage{grid-template-columns:minmax(0,1fr)} }
+
+.rail{display:flex;flex-direction:column;gap:16px}
+@media (max-width:1080px){ .rail{flex-direction:row;flex-wrap:wrap;gap:14px} .rail>*{flex:1 1 210px} }
+
+.grp{display:flex;flex-direction:column;gap:5px}
+.grp h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;
+  font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--fg-dim);margin:0 0 4px;
+}
+.opt{display:flex;align-items:center;gap:8px;cursor:pointer;padding:2px 0;font-size:13.5px;line-height:1.35}
+.opt input{width:14px;height:14px;accent-color:var(--focus);flex:none;margin:0;cursor:pointer}
+.opt .sw{width:9px;height:9px;border-radius:50%;flex:none}
+.opt .sw.hollow{background:none;border:1.5px solid currentColor}
+.opt .n{
+  margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+  color:var(--fg-dim);font-variant-numeric:tabular-nums;
+}
+.opt:focus-within{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+
+.views{display:flex;flex-wrap:wrap;gap:5px}
+.views button{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;
+  background:var(--panel);color:var(--fg-mid);border:1px solid var(--line);
+  border-radius:2px;padding:5px 8px;cursor:pointer;
+}
+.views button:hover{color:var(--fg);border-color:var(--fg-dim)}
+.views button[aria-pressed="true"]{background:var(--fg);color:var(--ground);border-color:var(--fg)}
+.views button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---- canvas ---- */
+.surface{
+  position:relative;background:var(--sunk);border:1px solid var(--line);
+  border-radius:3px;overflow:hidden;
+}
+canvas{display:block;width:100%;height:min(70vh,660px);touch-action:none;cursor:grab}
+canvas:active{cursor:grabbing}
+canvas:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.hint{
+  position:absolute;left:11px;bottom:9px;pointer-events:none;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+  color:var(--fg-dim);text-transform:uppercase;
+}
+
+/* ---- inspector ---- */
+.insp{
+  background:var(--panel);border:1px solid var(--line);border-radius:3px;
+  padding:14px 15px;box-shadow:var(--sh);
+}
+.insp .cell{
+  font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:500;
+  letter-spacing:.03em;margin:0 0 3px;
+}
+.status{
+  display:inline-block;font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;margin-bottom:11px;
+}
+.st-seated{background:var(--fg);color:var(--ground)}
+.st-dem{border:1px solid currentColor}
+.st-empty{border:1px dashed var(--line);color:var(--fg-dim)}
+
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0 0 12px;font-size:13px}
+dl.kv dt{color:var(--fg-dim);font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;padding-top:2px}
+dl.kv dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+  font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+
+.insp h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--fg-dim);
+  margin:14px 0 6px;padding-top:11px;border-top:1px solid var(--line-soft);
+}
+.insp h3:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.insp p{margin:0 0 8px;font-size:13px;color:var(--fg-mid)}
+.insp p.lead{color:var(--fg)}
+.pill{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  border:1px solid currentColor;border-radius:2px;padding:1px 6px;margin:0 4px 4px 0;
+}
+.idx{margin:0 0 10px}
+.idx .nm{font-weight:600;font-size:13.5px;display:block;margin-bottom:2px;color:var(--fg)}
+.idx .fg{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--fg-dim);
+  font-variant-numeric:tabular-nums}
+
+/* ---- reading ---- */
+.read{margin-top:34px;border-top:1px solid var(--line);padding-top:26px}
+.read h2{
+  font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:13px;
+  letter-spacing:.13em;text-transform:uppercase;margin:0 0 20px;color:var(--fg-mid);
+}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:24px 30px;align-items:start}
+.note h3{font-size:15.5px;font-weight:600;margin:0 0 7px;letter-spacing:-.005em;text-wrap:balance}
+.note p{margin:0 0 9px;font-size:13.8px;color:var(--fg-mid);max-width:60ch}
+.note p:last-child{margin-bottom:0}
+.note b{color:var(--fg);font-weight:600}
+.note .fig{
+  font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  color:var(--fg);font-size:13px;
+}
+.caveat{border-left:2px solid var(--warn);padding-left:13px}
+.caveat h3{color:var(--warn)}
+
+.mini{font-size:11.5px;line-height:1.4;color:var(--fg-dim);margin:6px 0 0}
+.chan{display:flex;flex-direction:column;gap:2px}
+.chan button{
+  display:flex;align-items:center;gap:6px;text-align:left;width:100%;
+  background:none;border:1px solid transparent;border-radius:2px;
+  padding:2px 4px;cursor:pointer;color:var(--fg-mid);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+}
+.chan button:hover{border-color:var(--line);color:var(--fg)}
+.chan button[aria-pressed="true"]{background:var(--sunk);border-color:var(--line);color:var(--fg)}
+.chan button:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+.chan .kk{font-weight:600;width:19px;flex:none}
+.chan .st{
+  margin-left:auto;font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-size:9px;letter-spacing:.1em;text-transform:uppercase;flex:none;
+}
+.st-SEATED{color:var(--fg-mid);font-weight:500} .st-SPECIES{color:var(--info)}
+.st-WITNESS{color:var(--ordalg)} .st-VACANT{color:var(--warn)}
+table.bands{border-collapse:collapse;width:100%;margin:2px 0 0;font-size:12.5px}
+table.bands th,table.bands td{
+  text-align:left;padding:3px 10px 3px 0;border-bottom:1px solid var(--line-soft);
+  font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+}
+table.bands th{
+  font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:600;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--fg-dim);
+}
+table.bands td:first-child{color:var(--fg-dim)}
+
+footer{margin-top:38px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--fg-dim);font-family:"IBM Plex Mono",monospace}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="plate">
+    <h1>Master Index Lattice</h1>
+    <span class="tag" id="tag-count">10 indexes &middot; 9 cells</span>
+    <span class="tag">5-D &rarr; 3-D</span>
+    <span class="tag">8 lawful channels &middot; 2 vacant</span>
+    <span class="tag" style="color:var(--warn);border-color:currentColor">demand withdrawn</span>
+    <span class="tag">refusal index seated</span>
+    <span class="tag" style="color:var(--stat);border-color:currentColor">closes at E&nbsp;=&nbsp;0</span>
+  </div>
+  <p class="sub">The index whose cells are indexes, drawn on the three coordinates that carry all of it.
+  Rotate to study the shape; the threads are the order relation, and the gaps are as much of the
+  finding as the points. <b>This is the fourth rendering, and the first in which the lattice closes
+  on its own.</b> The first showed it closed with its demand filled by the bounds index; the second
+  withdrew that fill; the third withdrew the demand itself, on a theorem about the Weyl tensor. This
+  one seats a tenth index &mdash; the <b>question index</b>, seven questions, one per language &mdash;
+  which lands on the cell the lattice demanded at eight and takes it back to <b>E&nbsp;=&nbsp;0 in
+  statistics, demanding nothing.</b> <b>Read that as a closure fact and not as the demand met:</b>
+  four separate measurements refuse the stronger reading, and the sharpest of them is a control that
+  calls the landing <i>generic</i>. They are set out below, beside the refusal index and the warp
+  obstruction, which is still not on this grid at all.</p>
+</header>
+
+<div class="stage">
+  <div class="rail">
+    <div class="grp">
+      <h2>Points</h2>
+      <label class="opt"><input type="checkbox" id="l-seated" checked><span class="sw" style="background:var(--seated)"></span>Seated<span class="n" id="n-seated">&mdash;</span></label>
+      <label class="opt" style="color:var(--stat)"><input type="checkbox" id="l-stat" checked><span class="sw hollow"></span><b>The demand</b> <s>1</s><span class="n" id="n-stat">&mdash;</span></label>
+      <label class="opt" style="color:var(--geom)"><input type="checkbox" id="l-geom" checked><span class="sw" style="background:currentColor"></span>Geometry wants<span class="n" id="n-geom">&mdash;</span></label>
+      <label class="opt" style="color:var(--info)"><input type="checkbox" id="l-info" checked><span class="sw" style="background:currentColor"></span>Information wants<span class="n" id="n-info">&mdash;</span></label>
+      <label class="opt" style="color:var(--ordalg)"><input type="checkbox" id="l-ord"><span class="sw" style="background:currentColor"></span>Order&nbsp;&equiv;&nbsp;algebra<span class="n" id="n-ord">&mdash;</span></label>
+      <label class="opt" style="color:var(--fg-dim)"><input type="checkbox" id="l-empty"><span class="sw hollow"></span>Vacant<span class="n" id="n-empty">&mdash;</span></label>
+    </div>
+    <div class="grp">
+      <h2>Scramble demands</h2>
+      <label class="opt" style="color:var(--stat)"><input type="checkbox" id="l-p1" checked><span class="sw" style="background:currentColor"></span>Para-index<span class="n" id="n-p1">&mdash;</span></label>
+      <label class="opt" style="color:var(--warn)"><input type="checkbox" id="l-p2"><span class="sw hollow"></span>Counterfactual<span class="n" id="n-p2">&mdash;</span></label>
+      <p class="mini">Cells a Rubik slice shift makes the structure demand, pulled back to this frame. Ring size is robustness across 4,000 scrambles.</p>
+      <p class="mini" id="ring-recon">&mdash;</p>
+    </div>
+    <div class="grp">
+      <h2>Threads</h2>
+      <label class="opt"><input type="checkbox" id="t-cover" checked>Order relation<span class="n" id="n-cover">&mdash;</span></label>
+      <label class="opt"><input type="checkbox" id="t-join">Joins of seated pairs<span class="n" id="n-join">&mdash;</span></label>
+      <label class="opt"><input type="checkbox" id="t-frame" checked>Lattice frame</label>
+      <label class="opt"><input type="checkbox" id="t-name" checked>Labels</label>
+    </div>
+    <div class="grp">
+      <h2>Sight line</h2>
+      <div class="views" id="views">
+        <button data-v="free" aria-pressed="true">free</button>
+        <button data-v="cd">C&times;D</button>
+        <button data-v="cr">C&times;R</button>
+        <button data-v="dr">D&times;R</button>
+      </div>
+    </div>
+    <div class="grp">
+      <h2>Lawful channels</h2>
+      <div id="chan" class="chan"></div>
+      <p class="mini">Which languages close an index. A down-set of the hierarchy law, so 8 of 32 subsets are lawful. Click to light its C-plane.</p>
+    </div>
+    <div class="grp">
+      <h2>Bands</h2>
+      <table class="bands">
+        <tr><th>D</th><th>arity</th></tr>
+        <tr><td>0</td><td>2 coords</td></tr>
+        <tr><td>1</td><td>3&ndash;4</td></tr>
+        <tr><td>2</td><td>5+</td></tr>
+      </table>
+      <table class="bands" style="margin-top:9px">
+        <tr><th>R</th><th>density</th></tr>
+        <tr><td>0</td><td>&lt;5%</td></tr>
+        <tr><td>1</td><td>5&ndash;30%</td></tr>
+        <tr><td>2</td><td>30&ndash;60%</td></tr>
+        <tr><td>3</td><td>&gt;60%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="surface">
+    <canvas id="cv" tabindex="0" aria-label="Rotatable 3-D lattice of the master index. Drag to rotate, scroll to zoom, click a point to inspect it."></canvas>
+    <div class="hint">drag &middot; rotate &nbsp;&nbsp; scroll &middot; zoom &nbsp;&nbsp; click &middot; inspect</div>
+  </div>
+
+  <aside class="insp" id="insp" aria-live="polite"></aside>
+</div>
+
+<section class="read">
+  <h2>What the shape says</h2>
+  <div class="notes">
+
+    <div class="note caveat">
+      <h3>The demand is deleted, and a theorem did it</h3>
+      <p>Every density on this grid is measured against a <b>product box</b> &mdash; the sizes of the
+      observed value sets, multiplied. A product box contains positions <b>no member could ever
+      occupy</b>, because the coordinates are logically coupled. That is a fault, and chasing it
+      ended the lattice's central device.</p>
+      <p>A Weyl tensor has <b>exactly four principal null directions</b> counted with multiplicity, so
+      the Petrov index's two curvature slots &mdash; distinct PNDs and maximum multiplicity &mdash;
+      form a partition of four. Its product box assumes 5&times;4 combinations; only five are
+      realisable.</p>
+      <table class="bands"><tr><th></th><th>product</th><th>realisable</th></tr>
+      <tr><td>Petrov box</td><td>80</td><td><b>20</b></td></tr>
+      <tr><td>density</td><td>10.0% &rarr; band 1</td><td><b>40.0% &rarr; band 2</b></td></tr></table>
+      <p>The demand's <span class="fig">(C, R) = (1, 1)</span> two-marginal had Petrov as its
+      <b>sole supplier</b>. Move Petrov and the marginal is gone: at nine indexes the lattice
+      <b>closed in statistics at E = 0 and demanded nothing.</b> Over all 256 band assignments the
+      demand survived only where Petrov stayed put; over the forty declared bandings it went from
+      demanded-in-14 to <b>demanded-in-0</b>.</p>
+      <p><span class="fig">(1,1,0,2,1)</span> survived the bounds index arriving, the bounds fill
+      being withdrawn, and Janet's replacement. It does not survive the algebra of the Weyl tensor.
+      The amber point is drawn struck through for that reason.</p>
+      <p><b>And the correction does not stay still either.</b> With the question index seated the
+      same Petrov correction now leaves the lattice demanding <span class="fig">(1,1,0,1,1)</span>
+      &mdash; a <em>different</em> cell. <b>Correcting the box moves the demand; it does not certify
+      the one it moved off.</b> Both readings are kept: <code>questions.demand_is_live()</code>
+      measures the state that <em>made</em> the demand, and <code>demand_is_live(True)</code> asks
+      the other question, because a demand tested on a state containing the thing under test is not
+      being tested.</p>
+      <p><b>But the mechanism is not empty, and I had that wrong.</b> A screening pass shows
+      <b>every demand the lattice has ever made is realisable</b> &mdash; 56 (banding, state, cell)
+      triples across the whole history, <b>zero</b> forbidden. So redefining E to count only
+      realisable cells salvages nothing, because nothing needed salvaging: it bites on order and
+      algebra alone. And Petrov-corrected, the <b>populated</b> 80-index lattice still demands
+      <span class="fig">(1,1,0,0,2)</span> &mdash; now with <span class="fig">(1,1,0,1,1)</span>
+      beside it &mdash; while the seated ten demand something in <b>23 of the 40</b> declared
+      bandings. What is deleted is this demand, at this banding, on these indexes. <span
+      class="mini">(The Petrov-corrected per-banding figure of 9 of 40 was taken at nine indexes and
+      has not been re-run at ten; the 23 is the uncorrected sweep, a different quantity.)</span></p>
+    </div>
+
+    <div class="note caveat">
+      <h3>And order and algebra demand the impossible</h3>
+      <p>At arity 2 the only pair of coordinates is the whole tuple, so the statistics operator
+      admits a cell <em>iff it is a member</em> &mdash; statistics always closes, and
+      <span class="fig">C = 0</span> cannot occur at arity band 0. Checked by exhaustion over
+      <b>74,518</b> non-degenerate two-coordinate indexes: <b>zero failures</b>.</p>
+      <p>So four cells are impossible &mdash; and <b>order and algebra each demand three of
+      them.</b> An <span class="fig">E</span> of 25 counts three cells that cannot exist; screened,
+      both fall to <b>22</b>. Geometry, information and statistics demand nothing impossible.</p>
+      <p><b>Two corrections this grid earned on the way, both against earlier claims of mine.</b>
+      First, <b>the 72-cell box is itself a product-box artefact</b>: the honest lawful box is
+      <b>84</b>, seven channel signatures rather than six. The dropped one is K1 at
+      <span class="fig">(C 1, Sc 0, Oc 0)</span>, assumed away by a map whose own status field reads
+      RECONSTRUCTED &mdash; and it is <b>reachable</b>, by the explicit witness
+      <span class="fig">{(0,0,0), (0,1,1), (1,0,1), (1,1,1)}</span>. Corrected census: <b>8 forbidden,
+      76 reachable</b>. That also kills <em>(Sc, Oc) is a strict function of C</em> as a law about
+      indexes; it survives only as a statement about this corpus, where K1 is still vacant.</p>
+      <p>Second, <b>the forbidden four are banding-dependent.</b> They are forbidden under arity
+      bandings [3,5] and [3,6], where band 0 is arity 2 alone. Under [4,5] and [4,6] &mdash; both in
+      the tree's own alternatives &mdash; band 0 admits arity 3, where C = 0 occurs, and
+      <b>nothing is forbidden at all.</b></p>
+    </div>
+
+    <div class="note">
+      <h3>The refusal index, seated beside every point</h3>
+      <p>A <b>channel set</b> is which languages <em>close</em> an index. A <b>refusal set</b> is
+      which languages <em>refuse</em> a cell of its box. Both are down-sets of the same containment
+      order, by dual arguments, so both live in the same eight positions. The refusal index of an
+      index is then <span class="fig">R(X) = { the refusal set of c : c in X's box }</span>.</p>
+      <table class="bands">
+      <tr><th>index</th><th>R(X)</th></tr>
+      <tr><td>Janet (n+&#8467;, &#8467;, k)</td><td>{0,7}</td></tr>
+      <tr><td>periodic layout 2-D</td><td>{0,4}</td></tr>
+      <tr><td>substances</td><td>{0,2,7}</td></tr>
+      <tr><td>the languages</td><td>{0,4,5,7}</td></tr>
+      <tr><td>bounds</td><td>{0,2,3,4,7}</td></tr>
+      <tr><td><b>questions</b></td><td><b>{0,2,4,5,7}</b></td></tr>
+      <tr><td>spacetimes (Petrov)</td><td>{0,3,4,5,7}</td></tr>
+      <tr><td>energy conditions</td><td>{0,2,3,4,5,7}</td></tr>
+      <tr><td>exotic mechanisms</td><td>{0,2,3,4,5,6,7}</td></tr>
+      <tr><td>periodic layout 3-D</td><td>{0,1,3,4,5,6,7}</td></tr></table>
+      <p><b>And one mechanism here does demand the impossible.</b> The scramble census names all
+      four forbidden cells among its seventeen para-indexes &mdash; at robustness 0.059, 0.049, 0.041
+      and 0.030, none in the top four. Screened, it is <b>13 para-indexes, not 17</b>. A slice move
+      can carry a C = 0 cell into arity band 0, which no index can occupy.</p>
+      <p><b>K0 is universal</b> &mdash; every index has cells nothing refuses. <b>K7 is in nine of
+      ten</b>, the exception being the densest index. Thirteen of the forty-five pairs are
+      incomparable, so this is a lattice and not a chain. <b>All ten refusal indexes are distinct</b>
+      &mdash; no two have ever coincided, across three seatings.</p>
+      <p><b>And only the refusal set survives re-charting.</b> Append a coordinate that is a function
+      of the existing ones &mdash; zero information &mdash; and the full five-coordinate profile is
+      invariant in 4 of 10, while <span class="fig">K</span> alone is invariant in <b>9 of 10</b>,
+      its one exception only growing. The other four coordinates are chart decoration.</p>
+      <p><b>A correction this table owed before the tenth index arrived.</b> The write-up claimed the
+      per-index profile sets were <em>0 of 36 comparable</em>. At ten they are <b>2 of 45</b> &mdash;
+      and only one of those two involves the new index. The other, Janet inside periodic layout 3-D,
+      followed from recoding Janet to its complete arity-3 table and was never re-measured. Stale,
+      now corrected; the instrument recomputes it every run.</p>
+    </div>
+
+    <div class="note">
+      <h3>Why the refusal index touches the language index, and it is not chance</h3>
+      <p>A refusal set is a <b>set of languages</b>. The language index is the only index whose
+      <em>members</em> are languages. So the refusal index's leading coordinate ranges over subsets
+      of the language index's own membership &mdash; a relation of type, not a coincidence of
+      coordinates.</p>
+      <p>Measured: <b>every one of the eight lawful refusal sets is a subset of the five
+      binary-returning languages</b> &mdash; order, algebra, geometry, information, statistics. The
+      other two are outside precisely because they return something else: <b>analysis returns a
+      magnitude</b> and <b>documentary returns a citation</b>. Only a language that returns a binary
+      can refuse.</p>
+    </div>
+
+    <div class="note caveat">
+      <h3>The warp cell is not on this grid, and that is correct</h3>
+      <p>It has no point here because <b>it is not an index &mdash; it is a question.</b> A cell is
+      something an index holds; a question is something asked <em>of</em> an index. With no host
+      there is no box, with no box there is no cell, and the absence is the right representation
+      rather than a gap to be filled.</p>
+      <p><b>Two variables were sharing one identifier.</b> A <em>refusal set</em> is COMPUTED &mdash;
+      <span class="fig">{L : c &notin; cl<sub>L</sub>(X)}</span> &mdash; and needs a host, a box and
+      five operators. A <em>verdict pattern</em> is DECLARED: the instrument returns the literal
+      <span class="fig">{information}</span> in three lines, with no host and no closure. Both index
+      into the same eight-element lattice, so both print as K-something.</p>
+      <p>How far apart: the same warp data reads <b>K1 declared</b> and <b>K5 computed</b>, placed as
+      a cell of the only seated box it numerically fits. And placing it there is a category error
+      &mdash; those coordinates are properties of a language, not verdicts &mdash; so K5 is not the
+      right answer either. <b>The value depends entirely on the reading.</b> That is why the two may
+      not share a name, and why nothing is drawn here for the warp cell.</p>
+    </div>
+
+    <div class="note">
+      <h3>The obstruction, named exactly</h3>
+      <p>The device needs a <b>lower bound on the integral of the energy density over a ball</b>
+      &mdash; state-independent, with no Newton constant. Placed as a cell of the bounds index's own
+      six-slot box that is
+      <span class="fig">(W 1, B 1, S 0, G 0, K 1, Z 2)</span>: a smeared <em>energy</em> density, a
+      constant bound, state-independent, non-gravitational, over a <em>spacelike region</em>.</p>
+      <p><b>It is refused by all five languages &mdash; K7, the far end of the refusal lattice.</b>
+      And not narrowly: <b>all 67</b> cells of that box which bound over a spacelike region
+      (<span class="fig">Z = 2</span>) are K7, without exception, out of 203 K7 cells in all.
+      <span class="mini">Re-derived under a stated definition, since the generator that produced the
+      earlier figure of 48 did not survive; the census runs over the <em>product</em> box, which the
+      caveat above records as holding positions no index could occupy.</span></p>
+      <p>The nearest thing the bounds family itself demands is
+      <span class="fig">(2, 1, 0, 0, 1, 2)</span> &mdash; <b>one Hamming step away</b>, and the step
+      is the <span class="fig">W</span> coordinate. The family wants an <em>entropy</em> bound; the
+      device needs an <em>energy</em> bound. <b>They are one coordinate apart and they are not the
+      same missing object.</b></p>
+      <p class="mini">A caution recorded rather than resolved: the tree reads Ford&ndash;Helfer&ndash;Roman
+      as proving no instrument of this shape can exist. Their non-existence quantifies over all
+      states and needs time dependence, and the warp requirement is <b>static</b> &mdash; for which
+      Fewster&ndash;Teo do prove observer inequalities. That would move the requirement from
+      unpriceable to priced, and the tree's own worldline instrument already prices the static case
+      <b>27&times; short</b>.</p>
+    </div>
+
+    <div class="note caveat">
+      <h3>The demand in three states: made, not filled, then occupied</h3>
+      <p>At eight indexes this lattice stopped closing and named exactly one missing cell &mdash;
+      <span class="fig">(1, 1, 0, 2, 1)</span>, <em>closed by statistics alone, five or more
+      coordinates, 5&ndash;30% density</em>. The bounds index, built to answer a different question,
+      was found to occupy it exactly, and the lattice closed again. <b>That fill is
+      withdrawn.</b></p>
+      <p>Two independent completions of the bounds family each destroy it on their own.
+      <b>A coordinate was missing</b>: Ford, Helfer and Roman prove a quantum energy inequality
+      exists for timelike and null smearing and <em>provably does not</em> for a purely spatial
+      average, and a distinction a theorem turns on is a coordinate. <b>A member was missing</b>:
+      Casini's relative-entropy bound, an entropy bounded by a modular energy &mdash; the same
+      species as Bekenstein and QNEC, both already seated. Either alone moves bounds off the
+      cell.</p>
+      <p>Two caveats were carried at the time and both were true: the demanded cell was on the
+      record before the bounds index was written, and the fill survived only 10 of 40 bandings.
+      Neither was the one that mattered. <b>The fill rested on that family being exactly eight
+      members in exactly five coordinates &mdash; fragile to membership, which is a fact about the
+      literature, not to banding, which is a choice.</b> A caveat correctly stated is not a caveat
+      correctly chosen.</p>
+      <p>At nine indexes, then, the demand stood open and nothing filled it.</p>
+      <h3 style="margin-top:14px">And at ten a second index occupies it &mdash; which is not the same
+      claim</h3>
+      <p>The <b>question index</b> is seven questions, one per language. All seven ask; only five
+      answer with a binary, which is why the channel lattice is built on five while the language
+      index has seven members &mdash; two counts of different things, never in conflict. A channel
+      set <em>is</em> the yes-set of those five questions: <b>0 mismatches</b> over the nine indexes
+      seated when that was checked. Admission to an index in this tree <em>is</em> answering them, so
+      the index whose members are the questions belongs on the grid. Coordinatised by properties of
+      the question, it lands on <span class="fig">(1, 1, 0, 2, 1)</span> and the lattice
+      <b>closes in statistics at E = 0</b>.</p>
+      <p><b>THE CLOSURE IS THE MEASUREMENT. THE FILL IS THE READING, AND FOUR THINGS REFUSE IT:</b></p>
+      <ol class="mini" style="margin:6px 0 0 18px;line-height:1.55">
+        <li><b>The demand was already deleted</b> &mdash; Petrov's realisable box, above.</li>
+        <li><b>The banding carries it.</b> The question index fills the eight-index demand in
+            <b>8 of 40</b> bandings, and the ten-index lattice closes in <b>17 of 40</b> &mdash;
+            <em>fewer</em> than the nine-index one's 20. Seating it made the closure <em>less</em>
+            banding-robust.</li>
+        <li><b>The landing rests on redundant coordinates.</b> 1 of 26 coordinate subsets lands
+            there; three of the five coordinates are determined by a fourth.</li>
+        <li><b>The control refuses it outright.</b> 20,000 random same-shaped sets in the question
+            index's own 72-cell box: <b>4,474 land on the demanded cell &mdash; 22.4%.</b> The same
+            control on the bounds box reads <b>4 in 20,000, 0.02%</b>.
+            <b>The non-generic landing belongs to the stage that was withdrawn, not to the one that
+            is seated.</b></li>
+      </ol>
+      <p style="margin-top:10px">Two more measurements point the same way. Seven of the 28 re-chartings
+      that land on this cell are the question index's own &mdash; a cell reachable seven ways from one
+      small box is an easy cell. And the cell has stopped being a <b>para-index</b> at all: a
+      para-index is by definition a cell no seated index occupies, so the scramble census's old
+      headline &mdash; <em>the demanded cell is the cell scrambles ask for most often</em> &mdash; is
+      now withdrawn twice, once by the Petrov correction and once by the definition itself.</p>
+      <p><b>So: the lattice closes, and that is exact. Nothing beyond it is claimed.</b></p>
+    </div>
+
+    <div class="note">
+      <h3>Three consequences nobody was aiming at, and two of them have since unwound</h3>
+      <p><b>The two master indexes coincided, and no longer do.</b> A second lattice was built whose
+      cells are <em>kinds of refusal</em> rather than indexes. It sits at
+      <span class="fig">(0, 0, 0, 2, 0)</span> in channel K0; this one sat at
+      <span class="fig">(1, 1, 0, 2, 0)</span> in K2, lost closure and landed on K0 beside it, and a
+      long argument followed about whether that coincidence survived correcting the box it was
+      measured in. <b>The tenth index settles it without answering that argument.</b> This lattice
+      closes again, so it is back at K2, and the two differ in <span class="fig">C</span> and
+      <span class="fig">Sc</span> &mdash; coordinates that are <em>measured</em> by running the
+      operators, which no choice of box, clause set or banding can reach. The whole dispute was about
+      <span class="fig">R</span>, the one coordinate on which they agree.</p>
+      <p><b>So the lattice is not a cell of itself either.</b> That followed from the coincidence and
+      goes with it: <span class="fig">(1,1,0,2,0)</span> is not one of the second lattice's members.</p>
+      <p><b>K1 went from one cell to three and back to one.</b> The rarest refusal in the corpus
+      &mdash; every pair of requirements jointly satisfiable, the full combination not &mdash; is
+      where the warp obstruction sits. Two instances appeared inside the bounds index and were
+      removed again when that family was completed; the one that remains is in the periodic layout,
+      and it is a convention seam. <b>One cell in 2,508.</b> The thread the rarity suggested is dead
+      at both ends, and that is recorded rather than repaired.</p>
+    </div>
+
+    <div class="note">
+      <h3>Three dimensions are the whole of it</h3>
+      <p>A master cell is five numbers &mdash; <span class="fig">(C, Sc, Oc, D, R)</span> &mdash; but
+      <b>Sc</b> and <b>Oc</b> are a strict function of <b>C</b> on every one of the 33 cells that
+      appear anywhere here. So this grid is not a projection with something hidden behind it. It is
+      the object.</p>
+      <p>And it is mostly forced rather than lucky. The set of languages that close an index is a
+      <b>down-set</b> of the hierarchy law's containments, which leaves only <b>eight</b> lawful
+      closing sets of the 32 subsets. Of the six possible values of C, five pin
+      <span class="fig">(Sc, Oc)</span> exactly. <b>Only C = 1 is ambiguous</b>: statistics alone gives
+      <span class="fig">(1, 0)</span>, information alone would give <span class="fig">(0, 0)</span>.
+      Every C = 1 cell here is statistics.</p>
+    </div>
+
+    <div class="note caveat">
+      <h3>But the finer claim is already broken</h3>
+      <p>A stronger statement would be that the closure coordinates fix <em>which</em> languages
+      close an index, not merely how many. That needs two more channels empty, and
+      <b>it fails.</b></p>
+      <p><b>K3</b> — closed by geometry and statistics — is empty among the ten and
+      <b>occupied by four of the seventy witnessed species indexes</b>. It shares
+      <span class="fig">(C 2, Sc 1, Oc 0)</span> with K4, so once the species are counted the
+      coordinates tell you the <em>size</em> of the channel set and not its membership.</p>
+      <p>I stated this the wrong way round first — that the collapse itself was conditional on three
+      empty channels. It conflated two claims. <b>The collapse is robust; the faithfulness is not,
+      and is already gone.</b></p>
+    </div>
+
+    <div class="note">
+      <h3>Six of eight channels are occupied, at three different standings</h3>
+      <p>Four by <b>seated indexes</b> (K0, K2, K4, K7), one by <b>witnessed species</b> (K3), one
+      by a <b>law witness</b> (K6 — hlaw's own <span class="fig">geom-not-order</span>, built to
+      exhibit a clause, so it shows the channel is reachable and is <em>not</em> a candidate to
+      seat). <b>K1 and K5 are occupied at none.</b></p>
+      <p>And all eight are <b>realizable</b>: an independent census over eight small boxes exhibits
+      a smallest witness for every one, machine-checks the geometry-free implications with Z3 over
+      every subset of four boxes, and finds <b>zero escapes in 40,000 hostile draws</b>. K1 and K5
+      are empty here, not impossible — which is what makes them specifications.</p>
+    </div>
+
+    <div class="note">
+      <h3>The channel order is partial, and the tree already refutes itself</h3>
+      <p>The ten seated indexes <em>do</em> form a chain — <span class="fig">{} ⊂ {S} ⊂ {I,S} ⊂
+      all five</span> — and an earlier pass read that as a nesting law. It is not one. The eight
+      lawful channels carry <b>five incomparable pairs</b>, and the counterexample is printed in the
+      tree's own law file: <span class="fig">antichain2</span> closes in {geometry, statistics} and
+      <span class="fig">geom-not-order</span> in {algebra, information, order, statistics}.
+      <b>Neither contains the other.</b></p>
+      <p>The control is what settles it: <b>three arbitrary indexes form a chain 97.4 % of the
+      time.</b> Three nested indexes were never evidence of anything.</p>
+    </div>
+
+    <div class="note">
+      <h3>Scrambling it separates law from accident</h3>
+      <p>A <b>Rubik slice shift</b> fixes one coordinate and cycles another within that slice — a
+      bijection on the box, so the cell count survives. Of 47 shifts that move only the assigned
+      bands, <b>15 break the closure and 32 leave it standing</b>.
+      <span class="mini">That census inverted when the tenth index was seated — it read 39 and 8 when
+      the lattice did not close. E is measured the same way; the ten-index arrangement is simply a far
+      more robust closure than the nine-index one. A single move still breaks it, so the arrangement
+      is still doing work.</span></p>
+      <p>Breaking it is what makes the structure speak. The amber rings mark the
+      <b>17 para-indexes</b> — cells the scrambles demand, pulled back through their own inverse
+      into this frame — scaled by how often. Nine sit at C = 1, which carries two lawful channels, so
+      <b>17 cells name 26 specifications.</b></p>
+      <p><b>This panel once led with the lattice's own demanded cell topping the census</b> &mdash;
+      <span class="fig">(1, 2, 1)</span> here, <span class="fig">(1, 1, 0, 2, 1)</span> in five
+      coordinates &mdash; at 33.4% against 16.6% for the runner-up. <b>That headline is withdrawn
+      twice over, by two independent mechanisms.</b> The Petrov correction dropped it to rank 6 at
+      7.1%; and the question index is now seated <em>on</em> that cell, so it is excluded by the
+      definition &mdash; a para-index is a cell no seated index occupies. It reads <b>rank
+      <span class="fig">None</span>, robustness 0.0</b>, against a new top para-index
+      <span class="fig">(1, 1, 0)</span> at <b>23.1%</b>.</p>
+      <p class="mini"><b>The magnitude comparison that used to survive the control goes with it</b>,
+      and it fails in the direction that refuses the reading: <b>0.0 against 0.234</b>. What remains
+      is the census itself &mdash; 17 cells the orbit asks for, none seated, none claimed to
+      exist.</p>
+      <p>And the finding it was not built for: of the 20 ordered language pairs, exactly
+      <b>7 survive every one of 3,000 scrambles — precisely the seven the law declares.</b> No
+      lawful containment breaks; no unlawful one survives. <b>This is the one result the bounds
+      correction left untouched</b>, which is the best evidence here that it is a law and not an
+      arrangement. Three escape lawfulness only barely:
+      <span class="fig">statistics ≤ information</span> breaks in <b>3 of 3,000</b>, geometry ≤ order
+      and geometry ≤ algebra in 55 each.
+      <span class="mini">That first margin has read 16, then 2, then 3, across three changes of input
+      — which is the point: a margin is a property of the seated arrangement, and only the
+      <b>seven zeros</b> are properties of the law. Those have not moved once.</span></p>
+    </div>
+
+    <div class="note">
+      <h3>The gap between 2 and 5 is a base rate, and this panel used to say otherwise</h3>
+      <p>Nothing sits at <b>C = 3</b> or <b>C = 4</b>. Three renderings of this page called that
+      &ldquo;the most conspicuous feature of the shape, and a standing question rather than a
+      result.&rdquo; <b>No control was ever run on it. Run, the control withdraws the question.</b></p>
+      <p>Two structural facts are real and come first. A channel set is a <b>down-set</b> of the
+      hierarchy law, and the law&rsquo;s down-sets by size go
+      <span class="fig">1, 2, 2, 1, 1, 1</span>: C = 1 and C = 2 each have <em>two</em> lawful
+      channels to land in, <b>C = 3 and C = 4 have exactly one</b>. The cause is a single clause
+      &mdash; <b>order and algebra are mutually lawful</b>, so they enter and leave together. From
+      <span class="fig">{statistics, information}</span> you may add geometry (C = 3) or add order
+      <em>and</em> algebra (C = 4); there is no C = 3 holding order and no C = 4 holding geometry.
+      Drop either direction of that equivalence and the profile becomes
+      <span class="fig">1, 2, 2, 2, 2, 1</span> &mdash; ten lawful channels instead of eight.</p>
+      <p>And <b>C = 3&rsquo;s channel is exactly the join of two occupied ones</b>:
+      <span class="fig">K3 = {geometry, statistics}</span> holds four witnessed species indexes,
+      <span class="fig">K4 = {information, statistics}</span> holds five, and
+      <span class="fig">K3 &or; K4 = K5</span>. The occupied channels are closed under meet and not
+      under join, and that single failure is C = 3.</p>
+      <p><b>Then the control.</b> A random index of a seated index&rsquo;s size, in that
+      index&rsquo;s own box, over 4,000 draws:</p>
+      <table class="bands">
+      <tr><th>K</th><th>rate</th><th>expected of 80</th><th>observed</th></tr>
+      <tr><td>K0</td><td>83.75%</td><td>67.00</td><td>4</td></tr>
+      <tr><td>K2</td><td>13.95%</td><td>11.16</td><td>6</td></tr>
+      <tr><td>K3</td><td>1.58%</td><td>1.26</td><td>4</td></tr>
+      <tr><td><b>K4</b></td><td><b>0.05%</b></td><td><b>0.04</b></td><td><b>5</b></td></tr>
+      <tr><td>K5 &nbsp;<span class="mini">C = 3</span></td><td>0.20%</td><td>0.16</td><td>0</td></tr>
+      <tr><td>K6 &nbsp;<span class="mini">C = 4</span></td><td>0.03%</td><td>0.02</td><td>0</td></tr>
+      <tr><td>K7</td><td>0.28%</td><td>0.22</td><td><b>61</b></td></tr></table>
+      <p>Against the eighty indexes this tree holds &mdash; ten seated and seventy witnessed species
+      &mdash; C = 3 <b>expects 0.16 occupants and C = 4 expects 0.02</b>.
+      <b>Observing zero at both is the expected observation.</b> You would see C = 3 occupied at all
+      only 15% of the time and C = 4 only 2%. There is no gap to explain.</p>
+      <p><b>And the question was pointed at the wrong cell.</b> K4 has a base rate of 0.05%, expects
+      0.04 occupants, and has <b>five</b>. The whole distribution is displaced the same way: K0
+      expects 67 and holds 4; K7 expects 0.22 and holds <b>61</b>. What wants explaining is why
+      these indexes close <em>far more</em> than chance &mdash; because a real chart of a structured
+      object is not a random point set &mdash; not why two channels are empty.</p>
+      <p class="mini"><b>One more reading refuted.</b> K5 is the only lawful channel asking for
+      geometry and information without order, and those two are this corpus&rsquo;s only
+      non-commuting operator pair &mdash; so <em>&ldquo;they do not get along&rdquo;</em> is the
+      explanation that suggests itself. It is false. Over 3,000 draws: geometry closes 2.07% of the
+      time, information 0.90%, <b>both 0.63%</b> where independence predicts 0.019%. They co-occur
+      <b>34&times; above chance</b>. C = 3 is rare because each is rare, and because when both close
+      the other three usually close too &mdash; of the 19 control draws holding both, 8 land at K5
+      and 11 at K7.</p>
+    </div>
+
+    <div class="note">
+      <h3>Statistics closes it; geometry is three cells away</h3>
+      <p><b>Statistics closes the lattice at E = 0</b>, and it is the only language that does. The
+      other four over-generate unevenly: order and algebra want <span class="fig">24</span> each
+      (<span class="fig">21</span> once the impossible cells are screened out), information
+      <span class="fig">10</span>, and <b>geometry 3</b> —
+      <span class="fig">(1,1,0,1,2)</span>, <span class="fig">(2,1,0,1,1)</span> and
+      <span class="fig">(2,1,0,1,2)</span>.</p>
+      <p>Seat indexes at the three teal points and the lattice closes in <b>geometry as well</b>.
+      There is no amber point left to seat: the cell that carried it is occupied.</p>
+      <p class="mini">The random-set control quoted here previously — 3,000 random <b>8</b>-cell sets
+      in the 192-cell box — was measured on the nine-index shape and has <b>not</b> been re-run at
+      nine cells. It is dropped rather than restated, since a control taken on the wrong shape is
+      worse than none. What <em>is</em> re-run is the population control on the 80-index lattice:
+      <b>3 hits in 400,000</b> draws, down from 14 at eight distinct cells.</p>
+    </div>
+
+    <div class="note">
+      <h3>One cell two languages agree on</h3>
+      <p>Geometry and information are incomparable everywhere else in this corpus &mdash; the only
+      non-commuting operator pair, the only incomparable pair in the nesting order. Here they want
+      overlapping sets exactly <b>once</b>: at <span class="fig">(1, 1, 0, 1, 2)</span>. The second
+      agreement this panel used to report, at <span class="fig">(1, 1, 0, 2, 1)</span>, is gone
+      because that cell is no longer demanded by anything &mdash; it is seated.</p>
+      <p>That cell is the <b>join of the substance index and the Petrov index</b>, the two
+      four-coordinate members: componentwise maximum, exactly. Their meet is
+      <span class="fig">(0, 0, 0, 1, 1)</span>, and that one is already occupied &mdash; by the
+      periodic layout in three coordinates.</p>
+    </div>
+
+    <div class="note">
+      <h3>Two indexes, one point</h3>
+      <p>The energy-condition family and the exotic-mechanism census share
+      <span class="fig">(1, 1, 0, 2, 0)</span>. Same closing set, same arity band, same density
+      band. At this level they are one object &mdash; while sharing <b>no actual cell at all</b>,
+      their own intersection being empty.</p>
+      <p><b>The lattice's own master cell is a seated point, and it is back here.</b> It sat here
+      first, on the physics index inside it; the bounds correction moved it to
+      <span class="fig">(0, 0, 0, 2, 0)</span> and the bounds index; seating the question index put
+      the lattice back on closure and the cell back to <span class="fig">(1, 1, 0, 2, 0)</span>. So
+      the index of indexes is a cell of itself again, with the original witness, and the witness has
+      changed twice without anyone aiming at any of it. A random same-shaped set self-coincides
+      <span class="fig">4.07%</span> of the time <span class="mini">(measured at 8 cells, not
+      re-run at 9)</span>, so it is exact but not rare.</p>
+    </div>
+
+    <div class="note caveat">
+      <h3>Two axes of this grid are assigned, not measured</h3>
+      <p><b>C</b> comes from running the five operators. <b>D</b> and <b>R</b> are
+      <b>bands</b>, and the edges &mdash; arity at <span class="fig">[3, 5]</span>, density at
+      <span class="fig">[.05, .3, .6]</span> &mdash; were chosen.</p>
+      <p>Swept over 4&times;10 alternative bandings, the eight-index lattice wants something in
+      <span class="fig">20 of 40</span>; the completed bounds index fills that want in
+      <span class="fig">0 of 40</span> and the question index in <span class="fig">8 of 40</span>.
+      The nine-index lattice closes in <span class="fig">20 of 40</span> and the <b>ten-index one in
+      only 17</b> &mdash; so seating the index that closes it here made the closure
+      <em>less</em> banding-robust, not more. <b>At arity band [3, 6] the want vanishes
+      entirely</b>, in all ten density choices &mdash; it exists because [3, 5] separates
+      five-coordinate indexes from six-coordinate ones.</p>
+      <p>What defends the banding is not that it is right but that it is <b>older than the
+      result</b>: fixed before the substance, Petrov, bounds and question indexes existed. Move the
+      edges and the horizontal spacing of this whole picture moves with them.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>Every figure measured from the seated instruments &middot; nothing here is asserted</footer>
+</div>
+
+<script>
+const DATA = {
+ "coords": [
+  "C",
+  "Sc",
+  "Oc",
+  "D",
+  "R"
+ ],
+ "axes": {
+  "C": {
+   "label": "C \u2014 languages that close it",
+   "vals": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "D": {
+   "label": "D \u2014 arity band",
+   "vals": [
+    0,
+    1,
+    2
+   ],
+   "names": [
+    "2 coordinates",
+    "3\u20134 coordinates",
+    "5+ coordinates"
+   ]
+  },
+  "R": {
+   "label": "R \u2014 density band",
+   "vals": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "names": [
+    "<5%",
+    "5\u201330%",
+    "30\u201360%",
+    ">60%"
+   ]
+  }
+ },
+ "collapse": {
+  "map": {
+   "0": [
+    0,
+    0
+   ],
+   "5": [
+    1,
+    1
+   ],
+   "1": [
+    1,
+    0
+   ],
+   "2": [
+    1,
+    0
+   ],
+   "3": [
+    1,
+    0
+   ],
+   "4": [
+    1,
+    1
+   ]
+  },
+  "holds": true,
+  "needs": "K1 vacant",
+  "faithful": false,
+  "broken_by": "K3, occupied by four witnessed species indexes"
+ },
+ "channels": [
+  {
+   "K": 0,
+   "set": [],
+   "standing": "SEATED",
+   "who": [
+    "periodic layout 3-D",
+    "the languages",
+    "substances (Hawking-Ellis)",
+    "bounds"
+   ],
+   "n": 4,
+   "C": 0
+  },
+  {
+   "K": 1,
+   "set": [
+    "information"
+   ],
+   "standing": "VACANT",
+   "who": [],
+   "n": 0,
+   "C": 1
+  },
+  {
+   "K": 2,
+   "set": [
+    "statistics"
+   ],
+   "standing": "SEATED",
+   "who": [
+    "energy-condition family",
+    "exotic mechanisms",
+    "spacetimes (Petrov)",
+    "questions"
+   ],
+   "n": 4,
+   "C": 1
+  },
+  {
+   "K": 3,
+   "set": [
+    "geometry",
+    "statistics"
+   ],
+   "standing": "SPECIES",
+   "who": [
+    "spectra Z=3 chg=2",
+    "spectra Z=5 chg=4",
+    "spectra Z=20 chg=9",
+    "spectra Z=22 chg=11"
+   ],
+   "n": 4,
+   "C": 2
+  },
+  {
+   "K": 4,
+   "set": [
+    "information",
+    "statistics"
+   ],
+   "standing": "SEATED",
+   "who": [
+    "periodic layout 2-D"
+   ],
+   "n": 1,
+   "C": 2
+  },
+  {
+   "K": 5,
+   "set": [
+    "geometry",
+    "information",
+    "statistics"
+   ],
+   "standing": "VACANT",
+   "who": [],
+   "n": 0,
+   "C": 3
+  },
+  {
+   "K": 6,
+   "set": [
+    "algebra",
+    "information",
+    "order",
+    "statistics"
+   ],
+   "standing": "WITNESS",
+   "who": [
+    "geom-not-order"
+   ],
+   "n": 1,
+   "C": 4
+  },
+  {
+   "K": 7,
+   "set": [
+    "algebra",
+    "geometry",
+    "information",
+    "order",
+    "statistics"
+   ],
+   "standing": "SEATED",
+   "who": [
+    "Janet (n+l, l, k)"
+   ],
+   "n": 1,
+   "C": 5
+  }
+ ],
+ "byC": {
+  "0": [
+   0
+  ],
+  "1": [
+   1,
+   2
+  ],
+  "2": [
+   3,
+   4
+  ],
+  "3": [
+   5
+  ],
+  "4": [
+   6
+  ],
+  "5": [
+   7
+  ]
+ },
+ "seated": [
+  {
+   "cell": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "indexes": [
+    "periodic layout 3-D"
+   ],
+   "detail": [
+    {
+     "cells": 80,
+     "arity": 3,
+     "box": 378,
+     "density": 21.2,
+     "closers": [],
+     "K": 0,
+     "R": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "indexes": [
+    "substances (Hawking-Ellis)"
+   ],
+   "detail": [
+    {
+     "cells": 8,
+     "arity": 4,
+     "box": 24,
+     "density": 33.3,
+     "closers": [],
+     "K": 0,
+     "R": [
+      0,
+      2,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "indexes": [
+    "bounds"
+   ],
+   "detail": [
+    {
+     "cells": 8,
+     "arity": 6,
+     "box": 216,
+     "density": 3.7,
+     "closers": [],
+     "K": 0,
+     "R": [
+      0,
+      2,
+      3,
+      4,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "indexes": [
+    "the languages"
+   ],
+   "detail": [
+    {
+     "cells": 5,
+     "arity": 5,
+     "box": 48,
+     "density": 10.4,
+     "closers": [],
+     "K": 0,
+     "R": [
+      0,
+      4,
+      5,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "indexes": [
+    "spacetimes (Petrov)"
+   ],
+   "detail": [
+    {
+     "cells": 8,
+     "arity": 4,
+     "box": 80,
+     "density": 10.0,
+     "closers": [
+      "statistics"
+     ],
+     "K": 2,
+     "R": [
+      0,
+      3,
+      4,
+      5,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "indexes": [
+    "energy-condition family",
+    "exotic mechanisms"
+   ],
+   "detail": [
+    {
+     "cells": 18,
+     "arity": 6,
+     "box": 576,
+     "density": 3.1,
+     "closers": [
+      "statistics"
+     ],
+     "K": 2,
+     "R": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      7
+     ]
+    },
+    {
+     "cells": 8,
+     "arity": 6,
+     "box": 540,
+     "density": 1.5,
+     "closers": [
+      "statistics"
+     ],
+     "K": 2,
+     "R": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "indexes": [
+    "questions"
+   ],
+   "detail": [
+    {
+     "cells": 4,
+     "arity": 5,
+     "box": 72,
+     "density": 5.6,
+     "closers": [
+      "statistics"
+     ],
+     "K": 2,
+     "R": [
+      0,
+      2,
+      4,
+      5,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "indexes": [
+    "periodic layout 2-D"
+   ],
+   "detail": [
+    {
+     "cells": 90,
+     "arity": 2,
+     "box": 126,
+     "density": 71.4,
+     "closers": [
+      "information",
+      "statistics"
+     ],
+     "K": 4,
+     "R": [
+      0,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "cell": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "indexes": [
+    "Janet (n+l, l, k)"
+   ],
+   "detail": [
+    {
+     "cells": 120,
+     "arity": 3,
+     "box": 448,
+     "density": 26.8,
+     "closers": [
+      "algebra",
+      "geometry",
+      "information",
+      "order",
+      "statistics"
+     ],
+     "K": 7,
+     "R": [
+      0,
+      7
+     ]
+    }
+   ]
+  }
+ ],
+ "demands": {
+  "order": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    3
+   ]
+  ],
+  "algebra": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    3
+   ]
+  ],
+  "geometry": [
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  "information": [
+   [
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    3
+   ]
+  ],
+  "statistics": []
+ },
+ "cover": [
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    0
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    0
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    0
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    0
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    0
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    0
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    0,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    0
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    0,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    3
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    0,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    1
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    3
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    3
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    2,
+    3
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    3
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    3
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    1,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    1,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    3
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ]
+  ],
+  [
+   [
+    5,
+    1,
+    1,
+    2,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    3
+   ]
+  ]
+ ],
+ "pairs": [
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "join": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    1,
+    2
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   "meet": [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    1,
+    3
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "join": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "join_seated": true,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    1,
+    0
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "join": [
+    2,
+    1,
+    0,
+    2,
+    3
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    0,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  },
+  {
+   "a": [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   "meet": [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": true
+  },
+  {
+   "a": [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   "b": [
+    5,
+    1,
+    1,
+    1,
+    1
+   ],
+   "join": [
+    5,
+    1,
+    1,
+    1,
+    3
+   ],
+   "meet": [
+    2,
+    1,
+    0,
+    0,
+    1
+   ],
+   "join_seated": false,
+   "meet_seated": false
+  }
+ ],
+ "rubik": {
+  "type1_break": 15,
+  "type1_hold": 32,
+  "para1": [
+   [
+    [
+     1,
+     1,
+     0
+    ],
+    0.231
+   ],
+   [
+    [
+     0,
+     1,
+     0
+    ],
+    0.1888
+   ],
+   [
+    [
+     0,
+     2,
+     2
+    ],
+    0.1557
+   ],
+   [
+    [
+     1,
+     1,
+     2
+    ],
+    0.149
+   ],
+   [
+    [
+     1,
+     1,
+     3
+    ],
+    0.0595
+   ],
+   [
+    [
+     0,
+     0,
+     3
+    ],
+    0.059
+   ],
+   [
+    [
+     0,
+     2,
+     3
+    ],
+    0.051
+   ],
+   [
+    [
+     0,
+     0,
+     1
+    ],
+    0.049
+   ],
+   [
+    [
+     0,
+     1,
+     3
+    ],
+    0.047
+   ],
+   [
+    [
+     0,
+     0,
+     0
+    ],
+    0.0413
+   ],
+   [
+    [
+     1,
+     0,
+     0
+    ],
+    0.036
+   ],
+   [
+    [
+     1,
+     0,
+     3
+    ],
+    0.033
+   ],
+   [
+    [
+     0,
+     0,
+     2
+    ],
+    0.0305
+   ],
+   [
+    [
+     1,
+     2,
+     2
+    ],
+    0.0293
+   ],
+   [
+    [
+     1,
+     0,
+     1
+    ],
+    0.0288
+   ],
+   [
+    [
+     1,
+     2,
+     3
+    ],
+    0.027
+   ],
+   [
+    [
+     1,
+     0,
+     2
+    ],
+    0.005
+   ]
+  ],
+  "para2": [
+   [
+    [
+     5,
+     2,
+     1
+    ],
+    0.1618
+   ],
+   [
+    [
+     4,
+     2,
+     1
+    ],
+    0.0808
+   ],
+   [
+    [
+     3,
+     2,
+     1
+    ],
+    0.0798
+   ],
+   [
+    [
+     2,
+     2,
+     1
+    ],
+    0.0722
+   ],
+   [
+    [
+     4,
+     1,
+     1
+    ],
+    0.0283
+   ],
+   [
+    [
+     3,
+     1,
+     1
+    ],
+    0.026
+   ],
+   [
+    [
+     2,
+     1,
+     1
+    ],
+    0.0255
+   ]
+  ],
+  "law": {
+   "pairs": 20,
+   "never": [
+    "algebra<=order",
+    "information<=algebra",
+    "information<=order",
+    "order<=algebra",
+    "statistics<=algebra",
+    "statistics<=geometry",
+    "statistics<=order"
+   ],
+   "n": 3000,
+   "margins": [
+    [
+     3,
+     "statistics<=information"
+    ],
+    [
+     55,
+     "geometry<=order"
+    ],
+    [
+     55,
+     "geometry<=algebra"
+    ],
+    [
+     1056,
+     "geometry<=information"
+    ]
+   ]
+  }
+ },
+ "counts": {
+  "indexes": 10,
+  "cells": 9,
+  "demand": {
+   "order": 24,
+   "algebra": 24,
+   "geometry": 3,
+   "information": 10,
+   "statistics": 0
+  }
+ },
+ "refusal": {
+  "Janet (n+l, l, k)": [
+   0,
+   7
+  ],
+  "bounds": [
+   0,
+   2,
+   3,
+   4,
+   7
+  ],
+  "energy-condition family": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   7
+  ],
+  "exotic mechanisms": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "periodic layout 2-D": [
+   0,
+   4
+  ],
+  "periodic layout 3-D": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "questions": [
+   0,
+   2,
+   4,
+   5,
+   7
+  ],
+  "spacetimes (Petrov)": [
+   0,
+   3,
+   4,
+   5,
+   7
+  ],
+  "substances (Hawking-Ellis)": [
+   0,
+   2,
+   7
+  ],
+  "the languages": [
+   0,
+   4,
+   5,
+   7
+  ]
+ },
+ "Rlattice": {
+  "min": [
+   "Janet (n+l, l, k)",
+   "periodic layout 2-D"
+  ],
+  "max": [
+   "exotic mechanisms",
+   "periodic layout 3-D"
+  ],
+  "incomparable": 13
+ },
+ "forbidden": [
+  [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   0,
+   0,
+   0,
+   0,
+   2
+  ],
+  [
+   0,
+   0,
+   0,
+   0,
+   3
+  ]
+ ],
+ "impossible_demands": {
+  "order": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ]
+  ],
+  "algebra": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    2
+   ]
+  ],
+  "geometry": [],
+  "information": [],
+  "statistics": []
+ },
+ "warp": {
+  "declared_K": 1,
+  "computed_K": 5,
+  "host": "the languages",
+  "verdict": {
+   "order": "ADMITS",
+   "algebra": "ADMITS",
+   "geometry": "ADMITS",
+   "information": "REFUSES",
+   "statistics": "ADMITS"
+  },
+  "master_cell": null
+ },
+ "obstruction": {
+  "needed": [
+   1,
+   1,
+   0,
+   0,
+   1,
+   2
+  ],
+  "needed_K": 7,
+  "needed_refusers": [
+   "algebra",
+   "geometry",
+   "information",
+   "order",
+   "statistics"
+  ],
+  "coords": [
+   "W",
+   "B",
+   "S",
+   "G",
+   "K",
+   "Z"
+  ],
+  "bounds_demands": [
+   [
+    2,
+    1,
+    0,
+    0,
+    1,
+    2
+   ]
+  ],
+  "k7_cells": 203,
+  "needed_is_k7": true,
+  "z2_all_K7": 67,
+  "z2_all_K7_definition": "cells of the bounds PRODUCT box refused by all five languages, Z = 2"
+ },
+ "lang": {
+  "members": [
+   "algebra",
+   "analysis",
+   "documentary",
+   "geometry",
+   "information",
+   "order",
+   "statistics"
+  ],
+  "binary": [
+   "algebra",
+   "geometry",
+   "information",
+   "order",
+   "statistics"
+  ],
+  "non_binary": [
+   "analysis",
+   "documentary"
+  ],
+  "all_refusals_subset": true,
+  "coords": [
+   "OP",
+   "BIN",
+   "STA",
+   "DEC",
+   "SPK"
+  ]
+ },
+ "petrov_fix": {
+  "product_box": 80,
+  "realisable_box": 20,
+  "density_before": 10.0,
+  "density_after": 40.0,
+  "cell_before": [
+   1,
+   1,
+   0,
+   1,
+   1
+  ],
+  "cell_after": [
+   1,
+   1,
+   0,
+   1,
+   2
+  ]
+ },
+ "corrected": {
+  "cells": [
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    1
+   ]
+  ],
+  "E": {
+   "order": 24,
+   "algebra": 24,
+   "geometry": 3,
+   "information": 9,
+   "statistics": 1
+  },
+  "closers": [],
+  "demands": [
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ]
+  ]
+ },
+ "seatedRead": {
+  "cells": [
+   [
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    2,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    0
+   ],
+   [
+    1,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    0,
+    3
+   ],
+   [
+    5,
+    1,
+    1,
+    1,
+    1
+   ]
+  ],
+  "E": {
+   "order": 24,
+   "algebra": 24,
+   "geometry": 3,
+   "information": 10,
+   "statistics": 0
+  },
+  "closers": [
+   "statistics"
+  ],
+  "demands": []
+ }
+};
+
+const LANGS = ["order","algebra","geometry","information","statistics"];
+const CV = [0,1,2,3,4,5], DV = [0,1,2], RV = [0,1,2,3];
+const key = c => c.join(",");
+const SHORT = {
+  "periodic layout 2-D":"periodic 2-D", "periodic layout 3-D":"periodic 3-D",
+  "substances (Hawking-Ellis)":"substances", "spacetimes (Petrov)":"Petrov",
+  "energy-condition family":"energy conditions", "exotic mechanisms":"exotic mechanisms",
+  "the languages":"the languages", "Janet (n+l, l, k)":"Janet",
+  "bounds":"bounds", "questions":"questions" };
+
+/* ---------- build the point population ---------- */
+const seatedMap = new Map(DATA.seated.map(s => [key(s.cell), s]));
+const wants = {};
+for (const L of LANGS) wants[L] = new Set(DATA.demands[L].map(key));
+
+const P = [];
+for (const c of CV) for (const d of DV) for (const r of RV) {
+  const sig = DATA.collapse.map[String(c)];
+  const cell = [c, sig[0], sig[1], d, r];
+  const k = key(cell);
+  const seat = seatedMap.get(k) || null;
+  const w = LANGS.filter(L => wants[L].has(k));
+  P.push({ cell, k, c, d, r, seat, wants: w,
+           kind: seat ? "seated" : (w.includes("statistics") ? "stat"
+                : w.includes("geometry") ? "geom"
+                : w.includes("information") ? "info"
+                : w.length ? "ord" : "empty") });
+}
+const byKey = new Map(P.map(p => [p.k, p]));
+/* Legend counts are DERIVED from the population, never typed. They were typed
+   once and went stale the moment a tenth index was seated. */
+for (const kind of ["seated","stat","geom","info","ord","empty"]){
+  const el = document.getElementById("n-" + kind);
+  if (el) el.textContent = String(P.filter(p => p.kind === kind).length);
+}
+{
+  const set = (id, v) => { const e = document.getElementById(id);
+                           if (e) e.textContent = String(v); };
+  set("n-p1", DATA.rubik.para1.length);
+  set("n-p2", DATA.rubik.para2.length);
+  set("n-cover", DATA.cover.length);
+  set("n-join", DATA.pairs.filter(x => x.join_seated).length);
+}
+/* The picture must reconcile against the legend: a reader counting marks has to
+   be able to reach the same total the rows add up to. A scramble ring forces its
+   cell on whatever its row says, so the rings that sit on switched-off rows are
+   the difference, and the panel states it rather than leaving it to arithmetic. */
+function reconcileRings(){
+  const el = document.getElementById("ring-recon");
+  if (!el) return;
+  const shown = P.filter(visible);
+  const forced = shown.filter(p => ((on("l-p1") && p.p1 > 0) || (on("l-p2") && p.p2 > 0))
+    && !(p.kind === "seated" ? on("l-seated") : p.kind === "stat" ? on("l-stat")
+       : p.kind === "geom" ? on("l-geom") : p.kind === "info" ? on("l-info")
+       : p.kind === "ord" ? on("l-ord") : on("l-empty")));
+  el.innerHTML = "<b>" + shown.length + " marks drawn</b> at this setting \u2014 "
+    + (shown.length - forced.length) + " from the rows above, plus <b>" + forced.length
+    + "</b> a ring forces on from a row that is switched off.";
+}
+/* the four cells no index can occupy: at arity 2 statistics always closes */
+const FORBIDDEN = new Set(DATA.forbidden.map(key));
+for (const p of P) p.forbidden = FORBIDDEN.has(p.k);
+
+/* para-indexes: cells a scramble demands, pulled back to this frame */
+const PARA1 = new Map(DATA.rubik.para1.map(([c, r]) => [c.join(","), r]));
+const PARA2 = new Map(DATA.rubik.para2.map(([c, r]) => [c.join(","), r]));
+for (const p of P){
+  const k3 = [p.c, p.d, p.r].join(",");
+  p.p1 = PARA1.get(k3) || 0;
+  p.p2 = PARA2.get(k3) || 0;
+}
+
+/* which lawful channels sit at each C */
+const CHAN = DATA.channels;
+const CH_AT = c => CHAN.filter(x => x.C === c);
+let litK = null;
+
+/* ---------- geometry of the drawing ---------- */
+const SC = 60, SD = 94, SR = 82;       // world units per band step
+const CX0 = 2.5, DX0 = 1, RX0 = 1.5;
+const w3 = p => [ (p.c - CX0) * SC, (p.d - DX0) * SD, (p.r - RX0) * SR ];
+
+const view = { yaw: -0.74, pitch: 0.30, zoom: 1.3, tx: 0, ty: 0 };
+const PRESET = { free:[-0.74,0.30], cd:[0,1.5707], cr:[0,0], dr:[-1.5707,0] };
+
+const cv = document.getElementById("cv");
+const ctx = cv.getContext("2d");
+let W = 0, H = 0, DPR = 1;
+
+function resize(){
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  const r = cv.getBoundingClientRect();
+  W = Math.max(320, r.width); H = Math.max(320, r.height);
+  cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  draw();
+}
+
+function project(p){
+  let [x, y, z] = w3(p);
+  const cy = Math.cos(view.yaw), sy = Math.sin(view.yaw);
+  const x1 = x * cy - y * sy, y1 = x * sy + y * cy;
+  const cp = Math.cos(view.pitch), sp = Math.sin(view.pitch);
+  const y2 = y1 * cp - z * sp, z2 = y1 * sp + z * cp;
+  const cam = 1150;
+  const depth = cam + y2;
+  const k = (cam * 0.86 * view.zoom) / Math.max(depth, 120);
+  return { x: W/2 + view.tx + x1 * k, y: H/2 + view.ty - z2 * k, d: depth, k };
+}
+
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function tone(){
+  return { fg:css("--fg"), dim:css("--fg-dim"), mid:css("--fg-mid"),
+    seated:css("--seated"), stat:css("--stat"), geom:css("--geom"),
+    info:css("--info"), ord:css("--ordalg"),
+    grid:css("--grid"), gridS:css("--grid-strong"), thread:css("--thread") };
+}
+const COL = k => { const t = tone();
+  return k==="seated"?t.seated : k==="stat"?t.stat : k==="geom"?t.geom
+       : k==="info"?t.info : k==="ord"?t.ord : t.dim; };
+
+const on = id => document.getElementById(id).checked;
+
+function visible(p){
+  if ((on("l-p1") && p.p1 > 0) || (on("l-p2") && p.p2 > 0)) return true;
+  if (p.kind === "seated") return on("l-seated");
+  if (p.kind === "stat")   return on("l-stat");
+  if (p.kind === "geom")   return on("l-geom");
+  if (p.kind === "info")   return on("l-info");
+  if (p.kind === "ord")    return on("l-ord");
+  return on("l-empty");
+}
+
+let picked = null, hovered = null;
+
+/* the channel rail */
+(function buildChannels(){
+  const host = document.getElementById("chan");
+  for (const ch of CHAN){
+    const b = document.createElement("button");
+    b.type = "button"; b.dataset.k = ch.K;
+    b.setAttribute("aria-pressed", "false");
+    const nm = ch.set.length ? ch.set.map(x => x[0].toUpperCase()).join("") : "\u2205";
+    b.innerHTML = `<span class="kk">K${ch.K}</span><span>${nm}</span>` +
+                  `<span class="st st-${ch.standing}">${ch.standing}</span>`;
+    b.title = (ch.set.join(", ") || "nothing closes it") +
+              (ch.who.length ? " — " + ch.who.join(", ") : "");
+    b.addEventListener("click", () => {
+      litK = (litK === ch.K) ? null : ch.K;
+      for (const q of host.querySelectorAll("button"))
+        q.setAttribute("aria-pressed", String(+q.dataset.k === litK));
+      draw();
+    });
+    host.appendChild(b);
+  }
+})();
+
+function draw(){
+  reconcileRings();
+  const t = tone();
+  ctx.clearRect(0, 0, W, H);
+
+  /* --- lattice frame: the band planes --- */
+  if (on("t-frame")){
+    ctx.lineWidth = 1;
+    const seg = [];
+    for (const d of DV) for (const r of RV)
+      seg.push([{c:CV[0],d,r},{c:CV[CV.length-1],d,r}]);
+    for (const c of CV) for (const r of RV)
+      seg.push([{c,d:DV[0],r},{c,d:DV[DV.length-1],r}]);
+    for (const c of CV) for (const d of DV)
+      seg.push([{c,d,r:RV[0]},{c,d,r:RV[RV.length-1]}]);
+    ctx.strokeStyle = t.grid;
+    ctx.beginPath();
+    for (const [a,b] of seg){
+      const A = project(a), B = project(b);
+      ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y);
+    }
+    ctx.stroke();
+  }
+
+  /* --- threads --- */
+  const drawThread = (a, b, colour, width, dash) => {
+    const A = project(a), B = project(b);
+    ctx.save();
+    ctx.setLineDash(dash || []);
+    ctx.strokeStyle = colour; ctx.lineWidth = width;
+    ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+    ctx.restore();
+  };
+
+  if (on("t-cover")){
+    for (const [a, b] of DATA.cover){
+      const pa = byKey.get(key(a)), pb = byKey.get(key(b));
+      if (!pa || !pb || !visible(pa) || !visible(pb)) continue;
+      drawThread(pa, pb, t.thread, 1.15);
+    }
+  }
+  if (on("t-join")){
+    for (const pr of DATA.pairs){
+      const pa = byKey.get(key(pr.a)), pb = byKey.get(key(pr.b));
+      const pj = byKey.get(key(pr.join));
+      if (!pa || !pb || !pj) continue;
+      const c = pr.join_seated ? t.seated : t.info;
+      ctx.globalAlpha = pr.join_seated ? .30 : .55;
+      drawThread(pa, pj, c, 1, [3, 3]);
+      drawThread(pb, pj, c, 1, [3, 3]);
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  /* --- axis rules and band labels --- */
+  if (on("t-frame")){
+    ctx.lineWidth = 1.4; ctx.strokeStyle = t.gridS;
+    const rules = [
+      [{c:CV[0],d:0,r:0},{c:5,d:0,r:0}],
+      [{c:0,d:DV[0],r:0},{c:0,d:2,r:0}],
+      [{c:0,d:0,r:RV[0]},{c:0,d:0,r:3}],
+    ];
+    ctx.beginPath();
+    for (const [a,b] of rules){ const A=project(a), B=project(b);
+      ctx.moveTo(A.x,A.y); ctx.lineTo(B.x,B.y); }
+    ctx.stroke();
+
+    ctx.font = '500 10px "IBM Plex Mono", monospace';
+    ctx.fillStyle = t.dim; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    for (const c of CV){ const q = project({c,d:0,r:0});
+      ctx.fillText("C" + c, q.x, q.y + 15); }
+    for (const d of DV){ const q = project({c:0,d,r:0});
+      ctx.fillText("D" + d, q.x - 14, q.y + 8); }
+    for (const r of RV){ const q = project({c:0,d:0,r});
+      ctx.fillText("R" + r, q.x - 17, q.y); }
+
+    ctx.font = '600 10px "IBM Plex Sans Condensed", sans-serif';
+    ctx.fillStyle = t.mid;
+    const lc = project({c:6.05,d:0,r:0}), ld = project({c:-0.5,d:2.75,r:0}),
+          lr = project({c:0,d:0,r:3.75});
+    ctx.fillText("CLOSERS", lc.x, lc.y + 14);
+    ctx.fillText("ARITY", ld.x - 16, ld.y + 6);
+    ctx.fillText("DENSITY", lr.x - 20, lr.y);
+  }
+
+  /* --- the lit channel plane --- */
+  if (litK !== null){
+    const ch = CHAN.find(x => x.K === litK);
+    ctx.save(); ctx.globalAlpha = .16;
+    ctx.fillStyle = ch.standing === "VACANT" ? t.geom : t.fg;
+    const corners = [{c:ch.C,d:0,r:0},{c:ch.C,d:2,r:0},{c:ch.C,d:2,r:3},{c:ch.C,d:0,r:3}]
+      .map(project);
+    ctx.beginPath(); ctx.moveTo(corners[0].x, corners[0].y);
+    for (const q of corners.slice(1)) ctx.lineTo(q.x, q.y);
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+
+  /* --- points, far to near --- */
+  const pts = P.filter(visible).map(p => ({ p, q: project(p) }))
+                .sort((a, b) => b.q.d - a.q.d);
+  ctx.textAlign = "left"; ctx.textBaseline = "middle";
+
+  for (const { p, q } of pts){
+    const sel = picked === p.k, hov = hovered === p.k;
+    /* A point drawn ONLY because it carries a scramble ring must still be
+       countable. At the vacant size it rendered as a 2.4 px hollow at half
+       alpha -- a ring with no centre -- so six of the thirty-five marks could
+       not be counted off the picture. `ringOnly` gives those a legible centre
+       without promoting them to the colour of a cell some language wants. */
+    const ringed = (on("l-p1") && p.p1 > 0) || (on("l-p2") && p.p2 > 0);
+    const ringOnly = ringed && !on(p.kind === "empty" ? "l-empty"
+                                : p.kind === "ord" ? "l-ord" : "l-seated")
+                     && (p.kind === "empty" || p.kind === "ord");
+    const base = p.kind === "seated" ? 6.2 : p.kind === "stat" ? 6.6
+              : p.kind === "empty" ? (ringOnly ? 3.6 : 2.0) : 4.4;
+    // the demand is WITHDRAWN -- drawn hollow and struck, not filled
+    if (p.kind === "stat") { ctx.globalAlpha = 0.55; }
+    const rad = base * q.k * 1.16 * (sel ? 1.5 : hov ? 1.22 : 1);
+    const col = COL(p.kind);
+    p._sx = q.x; p._sy = q.y; p._sr = Math.max(rad, 5);
+
+    if (p.kind === "empty"){
+      ctx.strokeStyle = col;
+      ctx.globalAlpha = ringOnly ? 1 : .5;
+      ctx.lineWidth = ringOnly ? 1.5 : 1;
+      ctx.beginPath(); ctx.arc(q.x, q.y, rad, 0, 6.2832); ctx.stroke();
+      ctx.globalAlpha = 1;
+    } else {
+      if (p.seat && p.seat.indexes.length > 1){
+        ctx.strokeStyle = col; ctx.lineWidth = 1.3;
+        ctx.beginPath(); ctx.arc(q.x, q.y, rad + 4.5, 0, 6.2832); ctx.stroke();
+      }
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(q.x, q.y, rad, 0, 6.2832); ctx.fill();
+      if (p.wants.length > 1 && p.kind !== "seated"){
+        ctx.strokeStyle = COL("info"); ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.arc(q.x, q.y, rad + 3.5, 0, 6.2832); ctx.stroke();
+      }
+    }
+    if (sel){
+      ctx.strokeStyle = t.fg; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.arc(q.x, q.y, rad + 8, 0, 6.2832); ctx.stroke();
+    }
+    /* scramble demands, as rings scaled by robustness */
+    if (on("l-p1") && p.p1 > 0){
+      ctx.strokeStyle = t.stat; ctx.lineWidth = 1.5; ctx.globalAlpha = .9;
+      ctx.beginPath();
+      ctx.arc(q.x, q.y, (4 + 46 * p.p1) * q.k * 1.16, 0, 6.2832); ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+    if (on("l-p2") && p.p2 > 0){
+      ctx.save(); ctx.setLineDash([2.5, 3]);
+      ctx.strokeStyle = css("--warn"); ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.arc(q.x, q.y, (5 + 46 * p.p2) * q.k * 1.16, 0, 6.2832); ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  /* --- names on the seated points, drawn last --- */
+  if (on("t-name")){
+    ctx.font = '500 11px "IBM Plex Mono", monospace';
+    const lab = [];
+    for (const { p, q } of pts){
+      if (p.kind !== "seated" || !p.seat) continue;
+      p.seat.indexes.forEach((n, i, all) => {
+        lab.push({ txt: SHORT[n] || n, ax: q.x, ay: q.y,
+                   y: q.y - 12 - (all.length - 1 - i) * 13, x: q.x + 11 });
+      });
+    }
+    // push apart vertically so no two labels overlap
+    lab.sort((a, b) => a.y - b.y);
+    for (let i = 1; i < lab.length; i++){
+      const prev = lab[i - 1];
+      if (Math.abs(lab[i].x - prev.x) < 128 && lab[i].y - prev.y < 13)
+        lab[i].y = prev.y + 13;
+    }
+    for (const L of lab){
+      if (Math.abs(L.y - (L.ay - 12)) > 3){
+        ctx.strokeStyle = t.thread; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(L.ax + 3, L.ay);
+        ctx.lineTo(L.x - 3, L.y); ctx.stroke();
+      }
+      ctx.save();
+      ctx.strokeStyle = css("--sunk"); ctx.lineWidth = 3.4;
+      ctx.lineJoin = "round"; ctx.strokeText(L.txt, L.x, L.y);
+      ctx.restore();
+      ctx.fillStyle = t.fg; ctx.fillText(L.txt, L.x, L.y);
+    }
+  }
+}
+
+/* ---------- inspector ---------- */
+const BANDS_D = ["2 coordinates","3–4 coordinates","5+ coordinates"];
+const BANDS_R = ["<5%","5–30%","30–60%",">60%"];
+const CLOSING = { 0:"nothing", 1:"statistics", 2:"statistics + one of information / geometry",
+                  3:"statistics, information, geometry", 4:"all but geometry", 5:"all five" };
+const esc = s => String(s).replace(/[&<>]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+
+function inspect(k){
+  const el = document.getElementById("insp");
+  const p = k ? byKey.get(k) : null;
+  if (!p){
+    el.innerHTML = `<h3>Reading</h3>
+      <p class="lead">Click any point to read its cell.</p>
+      <p>Solid points are seated indexes. Coloured points are cells a language wants and
+      nothing occupies. Hollow points are lawful positions nothing has reached.</p>
+      <h3>Population</h3>
+      <dl class="kv">
+        <dt>Indexes</dt><dd>${DATA.counts.indexes}</dd>
+        <dt>Cells</dt><dd>${DATA.counts.cells}</dd>
+        <dt>Lattice</dt><dd>6 × 3 × 4 = 72</dd>
+        <dt>Occupied</dt><dd>${DATA.counts.cells} seated, ${
+            new Set(LANGS.flatMap(L => DATA.demands[L].map(key))).size} wanted</dd>
+        <dt>Channels</dt><dd>${DATA.channels.length} lawful, ${
+            DATA.channels.filter(x => x.standing === "VACANT").length} vacant</dd>
+        <dt>Closes in</dt><dd>${LANGS.filter(L => DATA.counts.demand[L] === 0)
+            .join(", ") || "nothing"} — E = 0</dd>
+      </dl>
+      <h3>The law, tested by scrambling</h3>
+      <p>Of 20 ordered language pairs, <b>${DATA.rubik.law.never.length}</b> survive every one of
+      ${DATA.rubik.law.n.toLocaleString()} slice-shift scrambles &mdash; and they are exactly the
+      seven the hierarchy law declares.</p>`;
+    return;
+  }
+  const [c, sc, oc, d, r] = p.cell;
+  let h = `<p class="cell">(${p.cell.join(", ")})</p>`;
+  if (p.seat) h += `<span class="status st-seated">Seated</span>`;
+  else if (p.wants.length) h += `<span class="status st-dem" style="color:${
+      p.forbidden ? "var(--warn)" :
+      p.wants.includes("statistics") ? "var(--stat)" :
+      p.wants.includes("geometry") ? "var(--geom)" :
+      p.wants.includes("information") ? "var(--info)" : "var(--ordalg)"}">Wanted, unoccupied</span>`;
+  else h += `<span class="status st-empty">Vacant</span>`;
+
+  const chs = CH_AT(c);
+  h += `<dl class="kv">
+    <dt>Channel</dt><dd>${chs.map(x => "K" + x.K + " " + (x.set.length ?
+        "{" + x.set.join(", ") + "}" : "{}") + " " + x.standing).join("<br>")}</dd>
+    <dt>C closers</dt><dd>${c} &mdash; ${esc(CLOSING[c])}</dd>
+    <dt>Sc / Oc</dt><dd>${sc} / ${oc}</dd>
+    <dt>D arity</dt><dd>${d} &mdash; ${esc(BANDS_D[d])}</dd>
+    <dt>R density</dt><dd>${r} &mdash; ${esc(BANDS_R[r])}</dd>
+  </dl>`;
+
+  if (p.seat){
+    h += `<h3>${p.seat.indexes.length > 1 ? "Two indexes here" : "The index"}</h3>`;
+    p.seat.indexes.forEach((n, i) => {
+      const f = p.seat.detail[i];
+      h += `<div class="idx"><span class="nm">${esc(n)}</span>
+        <span class="fg">${f.cells} cells &middot; ${f.arity} coords &middot; box ${f.box}
+        &middot; ${f.density}%</span><br>
+        <span class="fg">closes in ${f.closers.length ? esc(f.closers.join(", ")) : "nothing"}</span></div>`;
+    });
+    if (p.seat.indexes.length > 1)
+      h += `<p>Same master cell, and their own cell sets are <b>disjoint</b>. Structurally
+        indistinguishable one level up while sharing nothing one level down.</p>`;
+  }
+  if (p.wants.length){
+    h += `<h3>Wanted by</h3><p>`;
+    for (const L of p.wants){
+      const cl = L === "statistics" ? "var(--stat)" : L === "geometry" ? "var(--geom)"
+             : L === "information" ? "var(--info)" : "var(--ordalg)";
+      h += `<span class="pill" style="color:${cl}">${L}</span>`;
+    }
+    h += `</p>`;
+    if (p.wants.includes("geometry") && p.wants.includes("information"))
+      h += `<p>The <b>only</b> cell geometry and information both want &mdash; and the join of the
+        substance and Petrov indexes, componentwise.</p>`;
+  }
+
+  if (p.p1 > 0 || p.p2 > 0){
+    h += `<h3>Scramble demands it</h3>`;
+    if (p.p1 > 0) h += `<p style="color:var(--stat)"><b>${(100*p.p1).toFixed(1)}%</b>
+      of 4,000 band-shifting scrambles demand this cell.</p>`;
+    if (p.p2 > 0) h += `<p style="color:var(--warn)"><b>${(100*p.p2).toFixed(1)}%</b>
+      of counterfactual scrambles &mdash; those that move C, which is measured
+      rather than assigned. Hypothetical.</p>`;
+    if (chs.length > 1) h += `<p>C = ${c} carries <b>two</b> lawful channels, so this
+      one cell names <b>two</b> specifications &mdash; K${chs[0].K} and K${chs[1].K}.</p>`;
+  }
+  const rel = DATA.pairs.filter(x => key(x.join) === p.k);
+  if (rel.length){
+    h += `<h3>Join of</h3>`;
+    for (const x of rel.slice(0, 4)){
+      const a = seatedMap.get(key(x.a)), b = seatedMap.get(key(x.b));
+      if (a && b) h += `<p style="font-size:12.5px">${esc(a.indexes[0])} &nbsp;&or;&nbsp; ${esc(b.indexes[0])}</p>`;
+    }
+  }
+  el.innerHTML = h;
+}
+
+/* ---------- interaction ---------- */
+let drag = null;
+cv.addEventListener("pointerdown", e => {
+  cv.setPointerCapture(e.pointerId);
+  drag = { x: e.clientX, y: e.clientY, yaw: view.yaw, pitch: view.pitch, moved: 0 };
+});
+cv.addEventListener("pointermove", e => {
+  const rect = cv.getBoundingClientRect();
+  const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+  if (drag){
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    drag.moved += Math.abs(dx) + Math.abs(dy);
+    view.yaw = drag.yaw + dx * 0.008;
+    view.pitch = Math.max(-1.45, Math.min(1.45, drag.pitch + dy * 0.006));
+    setPreset(null);
+    draw();
+    return;
+  }
+  let best = null, bd = 1e9;
+  for (const p of P){
+    if (!visible(p) || p._sx === undefined) continue;
+    const dd = Math.hypot(p._sx - mx, p._sy - my);
+    if (dd < Math.max(p._sr + 6, 11) && dd < bd){ bd = dd; best = p.k; }
+  }
+  if (best !== hovered){ hovered = best; cv.style.cursor = best ? "pointer" : "grab"; draw(); }
+});
+const endDrag = e => {
+  if (drag && drag.moved < 5 && hovered !== null){ picked = hovered; inspect(picked); }
+  else if (drag && drag.moved < 5){ picked = null; inspect(null); }
+  drag = null; draw();
+};
+cv.addEventListener("pointerup", endDrag);
+cv.addEventListener("pointercancel", () => { drag = null; });
+cv.addEventListener("wheel", e => {
+  e.preventDefault();
+  view.zoom = Math.max(0.42, Math.min(3.2, view.zoom * (e.deltaY > 0 ? 0.91 : 1.1)));
+  draw();
+}, { passive: false });
+cv.addEventListener("keydown", e => {
+  const step = 0.13;
+  if (e.key === "ArrowLeft")  { view.yaw -= step; setPreset(null); }
+  else if (e.key === "ArrowRight") { view.yaw += step; setPreset(null); }
+  else if (e.key === "ArrowUp")   { view.pitch = Math.min(1.45, view.pitch + step); setPreset(null); }
+  else if (e.key === "ArrowDown") { view.pitch = Math.max(-1.45, view.pitch - step); setPreset(null); }
+  else if (e.key === "+" || e.key === "=") view.zoom = Math.min(3.2, view.zoom * 1.12);
+  else if (e.key === "-") view.zoom = Math.max(0.42, view.zoom * 0.89);
+  else return;
+  e.preventDefault(); draw();
+});
+
+function setPreset(v){
+  for (const b of document.querySelectorAll("#views button"))
+    b.setAttribute("aria-pressed", String(b.dataset.v === v));
+}
+document.getElementById("views").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const [y, p] = PRESET[b.dataset.v];
+  view.yaw = y; view.pitch = p; view.zoom = 1.3; view.tx = view.ty = 0;
+  setPreset(b.dataset.v); draw();
+});
+for (const el of document.querySelectorAll('.rail input[type=checkbox]'))
+  el.addEventListener("change", draw);
+
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
+mq.addEventListener && mq.addEventListener("change", draw);
+new MutationObserver(draw).observe(document.documentElement,
+  { attributes: true, attributeFilter: ["data-theme"] });
+
+window.addEventListener("resize", resize);
+inspect(null);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+resize();
+</script>

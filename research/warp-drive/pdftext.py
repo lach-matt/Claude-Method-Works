@@ -17,7 +17,23 @@ def apply(m, x, y):
     a,b,c,d,e,f = m
     return (a*x + c*y + e, b*x + d*y + f)
 
-data = open(sys.argv[1], 'rb').read()
+SELFTEST = len(sys.argv) > 1 and sys.argv[1] == '--selftest'
+
+if SELFTEST:
+    # A nested page tree: catalog -> root /Pages -> two intermediate /Pages ->
+    # five /Page leaves.  This is the shape Chromium emits past ~8 pages, and
+    # the shape the old first-/Pages-object walk silently truncated.
+    data = (b'1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj'
+            b'2 0 obj<</Type/Pages/Kids[3 0 R 4 0 R]/Count 5>>endobj'
+            b'3 0 obj<</Type/Pages/Kids[5 0 R 6 0 R 7 0 R]/Count 3>>endobj'
+            b'4 0 obj<</Type/Pages/Kids[8 0 R 9 0 R]/Count 2>>endobj'
+            b'5 0 obj<</Type/Page/Contents 20 0 R>>endobj'
+            b'6 0 obj<</Type/Page/Contents 21 0 R>>endobj'
+            b'7 0 obj<</Type/Page/Contents 22 0 R>>endobj'
+            b'8 0 obj<</Type/Page/Contents 23 0 R>>endobj'
+            b'9 0 obj<</Type/Page/Contents 24 0 R>>endobj')
+else:
+    data = open(sys.argv[1], 'rb').read()
 objs = {int(m.group(1)): m.group(2)
         for m in re.finditer(rb'(\d+)\s+\d+\s+obj(.*?)endobj', data, re.S)}
 
@@ -105,16 +121,81 @@ def lay_out(glyphs, tol=1.2):
     rows.append(cur)
     return [''.join(s for _, s in sorted(r, key=lambda t: t[0])).rstrip() for r in rows]
 
-pages = next(b for b in objs.values() if re.search(rb'/Type\s*/Pages', b))
-kids = [int(k) for k in re.findall(rb'(\d+)\s+\d+\s+R',
-        re.search(rb'/Kids\s*\[(.*?)\]', pages, re.S).group(1))]
+def leaves(num, seen=None):
+    """Walk the page tree from a node to its /Page leaves, in document order.
 
-for i, pn in enumerate(kids, 1):
+    The tree is NESTED for any document Chromium paginates past ~8 pages: the
+    root /Pages holds intermediate /Pages nodes, which hold the leaves.  An
+    earlier version took the FIRST /Pages object it found and treated its kids
+    as pages, which silently reported 8 of this paper's 22 -- a verification
+    tool under-reporting without saying so."""
+    seen = set() if seen is None else seen
+    if num in seen:
+        return []
+    seen.add(num)
+    body = objs.get(num, b'')
+    if not re.search(rb'/Type\s*/Pages', body):
+        return [num]
+    kids = re.search(rb'/Kids\s*\[(.*?)\]', body, re.S)
+    if not kids:
+        return []
+    out = []
+    for k in re.findall(rb'(\d+)\s+\d+\s+R', kids.group(1)):
+        out += leaves(int(k), seen)
+    return out
+
+
+root = None
+cat = next((b for b in objs.values() if re.search(rb'/Type\s*/Catalog', b)), None)
+if cat:
+    m = re.search(rb'/Pages\s+(\d+)\s+\d+\s+R', cat)
+    if m:
+        root = int(m.group(1))
+if root is None:                      # no catalog: take the /Pages that no other /Pages claims
+    allp = [n for n, b in objs.items() if re.search(rb'/Type\s*/Pages', b)]
+    claimed = set()
+    for n in allp:
+        kids = re.search(rb'/Kids\s*\[(.*?)\]', objs[n], re.S)
+        if kids:
+            claimed |= {int(k) for k in re.findall(rb'(\d+)\s+\d+\s+R', kids.group(1))}
+    root = next((n for n in allp if n not in claimed), allp[0] if allp else None)
+
+pgs = leaves(root) if root is not None else []
+
+if SELFTEST:
+    ok = True
+
+    def eq(name, got, want):
+        global ok
+        good = got == want
+        ok &= good
+        print("  [%s] %s" % ("ok" if good else "XX", name))
+        if not good:
+            print("        got  %r\n        want %r" % (got, want))
+
+    # The bug: the old walk took the first /Pages object it found and treated
+    # its kids as pages.  Here that is object 2, whose kids are the two
+    # INTERMEDIATE nodes -- so it would have reported 2 pages out of 5, and
+    # said nothing.  On the real 22-page paper it reported 8.
+    eq("the catalog names the root", root, 2)
+    eq("all five leaves, in document order", pgs, [5, 6, 7, 8, 9])
+    eq("no intermediate node is mistaken for a page",
+       [n for n in pgs if b'/Type/Pages' in objs[n]], [])
+    print("pdftext selftest: %s" % ("PASS" if ok else "FAIL"))
+    sys.exit(0 if ok else 1)
+
+skipped = []
+for i, pn in enumerate(pgs, 1):
     body = objs.get(pn, b'')
     cref = re.search(rb'/Contents\s+(\d+)\s+\d+\s+R', body)
-    if not cref: continue
-    cs = inflate(objs.get(int(cref.group(1)), b''))
-    if not cs: continue
+    cs = inflate(objs.get(int(cref.group(1)), b'')) if cref else None
+    if not cs:
+        skipped.append(i)             # say so; never drop a page in silence
+        continue
     print('\n' + '='*74 + '\nPAGE %d\n' % i + '='*74)
     for ln in lay_out(extract(cs, font_table(body))):
         if ln.strip(): print(ln)
+print('\n' + '='*74)
+print('%d pages in the tree, %d extracted%s'
+      % (len(pgs), len(pgs) - len(skipped),
+         '' if not skipped else ', NOT extracted: %s' % skipped))

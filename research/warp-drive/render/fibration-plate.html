@@ -1,0 +1,674 @@
+<title>The Shell Fibration</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC;
+  --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --vacant:#98A2AF; --live:#137A69; --nax:#1B4B78;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453;
+    --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --vacant:#5F6A79; --live:#4CC6AF; --nax:#7FB2E5;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453;
+  --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --vacant:#5F6A79; --live:#4CC6AF; --nax:#7FB2E5;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+p{margin:0 0 1.05em}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:600px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+td.cell{color:var(--ink)}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.c7{color:var(--geometry)} .c3{color:var(--statistics)}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.5em}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.axbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:4px}
+.ax{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:15px 17px;box-shadow:var(--shadow)}
+.ax h3{margin:0 0 9px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.ax ul{margin:0;padding-left:1.1em;font-size:.92rem}
+.ax li{margin-bottom:.3em}
+
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar .hint{color:var(--faint)}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Research plate · a second index</p>
+  <h1>The Shell&nbsp;Fibration</h1>
+  <p class="dek">Every element addressed by its differentiating electron —
+  shell, subshell, slot — read as a bundle over n. It lands in a channel the
+  master index leaves empty.</p>
+  <div class="stamp">
+    <span>instrument <b>fibred.py</b></span>
+    <span>base <b>n</b></span>
+    <span>fibre <b>(l, k)</b></span>
+    <span>cells <b>170</b></span>
+    <span>channel <b>K3</b></span>
+  </div>
+</header>
+
+<div class="note" style="margin-top:26px">
+  <span class="lab">The name is open</span>
+  <p style="margin-bottom:0">This object has not been named. <em>The shell fibration</em>
+  is used here descriptively — base <span class="mono">n</span>, fibre
+  <span class="mono">(l, k)</span> — and should be replaced when ruled.</p>
+</div>
+
+<!-- ================================================= 1 -->
+<section>
+  <div class="shead"><span class="snum">01</span><h2>The address</h2></div>
+  <p class="sub">Every element has a differentiating electron — the one Madelung adds to take
+  Z−1 to Z. Give it its full address and you have the index.</p>
+
+  <div class="kv">
+    <div><dt>n</dt><dd style="font-size:.98rem">which shell<small>principal quantum number</small></dd></div>
+    <div><dt>l</dt><dd style="font-size:.98rem">which subshell<small>azimuthal quantum number</small></dd></div>
+    <div><dt>k</dt><dd style="font-size:.98rem">which slot<small>0-based; the subshell's PRIOR occupancy</small></dd></div>
+    <div><dt>elements</dt><dd>170<small>to the last complete n+ℓ shell</small></dd></div>
+    <div><dt>distinct cells</dt><dd>170<small>INJECTIVE — no collision</small></dd></div>
+  </div>
+
+  <p style="margin-top:24px">The address loses nothing: 170 elements onto 170 distinct triples,
+  one each. That matters because of what it is <em>not</em>.</p>
+
+  <div class="note warn">
+    <span class="lab">This is not Janet relabelled</span>
+    <p style="margin-bottom:0">Janet charts the <em>same electrons</em> as
+    <span class="mono">(n+ℓ, ℓ, k)</span>. This charts them as <span class="mono">(n, ℓ, k)</span>.
+    One coordinate differs and it is the one that matters — Janet's first coordinate is the
+    <strong>fill order</strong>, this one's is the <strong>shell</strong>. Same 170 elements,
+    same three-coordinate shape, and <strong>Janet closes in all five languages while this closes
+    in two</strong>. That is the chart criterion's point made once more, from the other side.</p>
+  </div>
+</section>
+
+<!-- ================================================= 2 -->
+<section>
+  <div class="shead"><span class="snum">02</span><h2>The fibres are a palindrome</h2></div>
+  <p class="sub">At each shell, the fibre is the set of (ℓ, k) that occur there. Their sizes are
+  symmetric — and the symmetry is forced by two constraints changing hands.</p>
+
+  <figure class="plate">
+    <svg viewBox="0 0 860 300" role="img" aria-label="Fibre sizes by shell, forming a palindrome">
+      <line x1="60" y1="248" x2="820" y2="248" stroke="var(--rule)" stroke-width="1"/>
+      <!-- bars: 2 8 18 32 50 32 18 8 2 ; max 50 -> 170px -->
+      <g>
+        <rect x="72"  y="241" width="60" height="7"   fill="var(--geometry)"/>
+        <rect x="156" y="221" width="60" height="27"  fill="var(--geometry)"/>
+        <rect x="240" y="187" width="60" height="61"  fill="var(--geometry)"/>
+        <rect x="324" y="139" width="60" height="109" fill="var(--geometry)"/>
+        <rect x="408" y="78"  width="60" height="170" fill="var(--geometry)"/>
+        <rect x="492" y="139" width="60" height="109" fill="var(--statistics)"/>
+        <rect x="576" y="187" width="60" height="61"  fill="var(--statistics)"/>
+        <rect x="660" y="221" width="60" height="27"  fill="var(--statistics)"/>
+        <rect x="744" y="241" width="60" height="7"   fill="var(--statistics)"/>
+      </g>
+      <!-- counts -->
+      <g font-size="11" fill="var(--ink)" text-anchor="middle" font-weight="600">
+        <text x="102" y="232">2</text><text x="186" y="212">8</text>
+        <text x="270" y="178">18</text><text x="354" y="130">32</text>
+        <text x="438" y="69">50</text><text x="522" y="130">32</text>
+        <text x="606" y="178">18</text><text x="690" y="212">8</text>
+        <text x="774" y="232">2</text>
+      </g>
+      <!-- n labels -->
+      <g font-size="11" fill="var(--muted)" text-anchor="middle">
+        <text x="102" y="266">n=1</text><text x="186" y="266">2</text>
+        <text x="270" y="266">3</text><text x="354" y="266">4</text>
+        <text x="438" y="266">5</text><text x="522" y="266">6</text>
+        <text x="606" y="266">7</text><text x="690" y="266">8</text>
+        <text x="774" y="266">9</text>
+      </g>
+      <!-- the divide -->
+      <line x1="480" y1="40" x2="480" y2="256" stroke="var(--algebra)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="470" y="34" text-anchor="end" font-size="10" fill="var(--geometry)">bounded by the ATOM'S RULE  ℓ &lt; n</text>
+      <text x="490" y="34" font-size="10" fill="var(--statistics)">bounded by the REACH  n+ℓ ≤ 9</text>
+      <text x="480" y="290" text-anchor="middle" font-size="10" fill="var(--algebra)">the constraints change hands here</text>
+      <text x="60" y="24" font-size="9.5" fill="var(--muted)" letter-spacing="1.4">CELLS IN THE FIBRE AT EACH SHELL</text>
+    </svg>
+    <figcaption><b>2m² ascending, then the mirror.</b> ℓ runs 0 … min(n−1, S−n), so the fibre holds
+    2(min+1)² cells and is symmetric about the middle shell <em>by construction</em>. The ascending
+    half — 2, 8, 18, 32, 50 — is the shell capacity 2n², and that is the atom's rule alone.
+    <b>The descending half is the reach.</b> A reader must not take the second half for a fact about
+    elements; it is a fact about where the count stopped, and stopping at a <em>complete</em> shell
+    is what makes it symmetric rather than ragged.</figcaption>
+  </figure>
+</section>
+
+
+<section id="space">
+  <div class="shead"><span class="snum">02½</span><h2>The bundle in three dimensions</h2></div>
+  <p class="sub">All 170 cells at once. The base n runs left to right, ℓ into the depth, and the
+  slot k bottom to top — so each vertical comb is one subshell and each slice across the depth is
+  one fibre. Drag to rotate.</p>
+  <figure class="plate">
+    <div class="v3d"><canvas id="sh3d" aria-label="The shell fibration: 170 cells in (n, l, k) space"></canvas></div>
+    <div class="v3dbar">
+      <button id="sh3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>ℓ=0 &nbsp;s</span><span><i style="background:var(--geometry)"></i>ℓ=1 &nbsp;p</span><span><i style="background:var(--information)"></i>ℓ=2 &nbsp;d</span><span><i style="background:var(--algebra)"></i>ℓ=3 &nbsp;f</span><span><i style="background:var(--order)"></i>ℓ=4 &nbsp;g</span></span>
+    </div>
+    <figcaption><b>What the still frame shows:</b> a comb for every subshell, each exactly
+    2(2ℓ+1) tall with no gaps — and the tall high-ℓ combs confined to the middle of the n range
+    while only short ℓ=0 combs reach the far end. <b>Rotate to face the n axis</b> and the
+    palindrome resolves: the fibres grow under the atom's rule ℓ &lt; n, then shrink under the
+    reach n+ℓ ≤ 9. The bar chart above states that profile exactly; this shows what it looks like.
+    The gaplessness of each comb is why every fibre closes in all five languages, and why all the
+    structure is in the stacking rather than the contents.</figcaption>
+  </figure>
+</section>
+<!-- ================================================= 3 -->
+<section>
+  <div class="shead"><span class="snum">03</span><h2>The sliding scale, and it is the period detector again</h2></div>
+  <p class="sub">Sweep n, take the cumulative index up to each shell, and measure which languages
+  close it. There is exactly one transition, and it lands somewhere specific.</p>
+
+  <figure class="plate">
+    <svg viewBox="0 0 860 250" role="img" aria-label="Cumulative index channel as n ascends">
+      <g font-size="10.5" fill="var(--muted)">
+        <text x="56" y="56" text-anchor="end">K7</text>
+        <text x="56" y="150" text-anchor="end">K3</text>
+      </g>
+      <text x="20" y="56" text-anchor="end" font-size="9" fill="var(--faint)"></text>
+      <line x1="66" y1="50" x2="820" y2="50" stroke="var(--rule)" stroke-dasharray="2 4"/>
+      <line x1="66" y1="144" x2="820" y2="144" stroke="var(--rule)" stroke-dasharray="2 4"/>
+      <!-- step path: K7 for n=1..5, K3 for n=6..9 -->
+      <path d="M96 50 L432 50 L432 144 L800 144" fill="none" stroke="var(--accent)" stroke-width="2.4"/>
+      <g>
+        <circle cx="96"  cy="50" r="6" fill="var(--geometry)"/>
+        <circle cx="180" cy="50" r="6" fill="var(--geometry)"/>
+        <circle cx="264" cy="50" r="6" fill="var(--geometry)"/>
+        <circle cx="348" cy="50" r="6" fill="var(--geometry)"/>
+        <circle cx="432" cy="50" r="6" fill="var(--geometry)"/>
+        <circle cx="516" cy="144" r="6" fill="var(--statistics)"/>
+        <circle cx="600" cy="144" r="6" fill="var(--statistics)"/>
+        <circle cx="684" cy="144" r="6" fill="var(--statistics)"/>
+        <circle cx="768" cy="144" r="6" fill="var(--statistics)"/>
+      </g>
+      <g font-size="10" fill="var(--muted)" text-anchor="middle">
+        <text x="96"  y="180">n≤1</text><text x="180" y="180">≤2</text>
+        <text x="264" y="180">≤3</text><text x="348" y="180">≤4</text>
+        <text x="432" y="180">≤5</text><text x="516" y="180">≤6</text>
+        <text x="600" y="180">≤7</text><text x="684" y="180">≤8</text>
+        <text x="768" y="180">≤9</text>
+      </g>
+      <g font-size="9.5" fill="var(--faint)" text-anchor="middle">
+        <text x="96"  y="196">2</text><text x="180" y="196">10</text>
+        <text x="264" y="196">28</text><text x="348" y="196">60</text>
+        <text x="432" y="196">110</text><text x="516" y="196">142</text>
+        <text x="600" y="196">160</text><text x="684" y="196">168</text>
+        <text x="768" y="196">170</text>
+      </g>
+      <text x="56" y="196" text-anchor="end" font-size="9" fill="var(--faint)">cells</text>
+      <text x="290" y="36" text-anchor="middle" font-size="10" fill="var(--geometry)">all five languages close</text>
+      <text x="640" y="166" text-anchor="middle" font-size="10" fill="var(--statistics)">only geometry and statistics</text>
+      <!-- the transition marker -->
+      <line x1="474" y1="30" x2="474" y2="160" stroke="var(--algebra)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="474" y="236" text-anchor="middle" font-size="10" fill="var(--algebra)">order, algebra and information break here — and never recover</text>
+    </svg>
+    <figcaption><b>K7 then K3, once.</b> This is <span class="mono">shells.py</span>'s period
+    detector — <em>K = 7 at reach R and K = 3 at R+1 iff R is a shell boundary</em> — firing on a
+    completely different sweep. That detector runs over Z on the Janet chart; this runs over n on
+    this one, and the same transition appears.</figcaption>
+  </figure>
+
+  <div class="note good">
+    <span class="lab">Where the transition lands</span>
+    <p><strong>On the first shrinking shell, at every reach tested — nine of nine.</strong>
+    <span class="mono">n = ⌊S/2⌋ + 2</span>, which is one past the palindrome's last peak. While the
+    fibres are still growing the cumulative index closes everything; the shell at which they
+    <em>begin to shrink</em> is the shell at which order, algebra and information break.</p>
+    <p style="margin-bottom:0"><em>A correction the selftest made.</em> This first read
+    <span class="mono">⌈(S+1)/2⌉</span> — the peak — off by one, because the number came from
+    reading the last shell still at K7 instead of the first at K3. The pin failed. It is recorded
+    because the off-by-one had a meaning: <em>peak</em> and <em>first shrink</em> are different
+    claims about what causes the break, and only the second is true.</p>
+  </div>
+</section>
+
+<!-- ================================================= 4 -->
+<section>
+  <div class="shead"><span class="snum">04</span><h2>It fills a channel the master index leaves empty</h2></div>
+  <p class="sub">The whole index closes in {geometry, statistics} — K3 — at cell
+  <span class="mono">(3, 26, 17)</span>.</p>
+
+  <div class="kv">
+    <div><dt>channel</dt><dd style="color:var(--statistics)">K3<small>= down(geometry)</small></dd></div>
+    <div><dt>master index holds</dt><dd style="font-size:1rem">K0, K2, K7<small>and nothing else</small></dd></div>
+    <div><dt>K3 there</dt><dd style="font-size:1rem;color:var(--live)">VACANT<small>this is the first occupant</small></dd></div>
+    <div><dt>Dilworth</dt><dd style="font-size:1rem;color:var(--live)">holds<small>170 ≤ 26 × 17</small></dd></div>
+  </div>
+
+  <div class="note warn" style="margin-top:26px">
+    <span class="lab">The control that had to be run</span>
+    <p>The transition sits <em>exactly</em> where the reach begins truncating the fibres. So K3
+    could have been a fact about where the count stopped rather than about the construction. That
+    is the same class of error a cap bug produced elsewhere in this tree, so it was tested rather
+    than assumed.</p>
+    <p style="margin-bottom:0"><strong>It passes.</strong> K3 holds at every complete shell reach
+    from <span class="mono">n+ℓ ≤ 3</span> through <span class="mono">n+ℓ ≤ 11</span> — nine
+    consecutive reaches, 12 cells to 292. Only the two degenerate reaches give K7, and a two-cell
+    index closes everything for want of room to fail.</p>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>reach</th><th style="text-align:right">Z ≤</th><th style="text-align:right">cells</th><th>channel</th><th style="text-align:right">transition at n</th></tr></thead>
+    <tbody>
+      <tr style="opacity:.5"><td class="cell">n+ℓ ≤ 1</td><td class="num">2</td><td class="num">2</td><td><span class="chip c7">K7</span></td><td class="num">—</td></tr>
+      <tr style="opacity:.5"><td class="cell">n+ℓ ≤ 2</td><td class="num">4</td><td class="num">4</td><td><span class="chip c7">K7</span></td><td class="num">—</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 3</td><td class="num">12</td><td class="num">12</td><td><span class="chip c3">K3</span></td><td class="num">3</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 4</td><td class="num">20</td><td class="num">20</td><td><span class="chip c3">K3</span></td><td class="num">4</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 5</td><td class="num">38</td><td class="num">38</td><td><span class="chip c3">K3</span></td><td class="num">4</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 6</td><td class="num">56</td><td class="num">56</td><td><span class="chip c3">K3</span></td><td class="num">5</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 7</td><td class="num">88</td><td class="num">88</td><td><span class="chip c3">K3</span></td><td class="num">5</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 8</td><td class="num">120</td><td class="num">120</td><td><span class="chip c3">K3</span></td><td class="num">6</td></tr>
+      <tr style="background:color-mix(in srgb,var(--statistics) 8%,transparent)"><td class="cell">n+ℓ ≤ 9</td><td class="num">170</td><td class="num">170</td><td><span class="chip c3">K3</span></td><td class="num">6</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 10</td><td class="num">220</td><td class="num">220</td><td><span class="chip c3">K3</span></td><td class="num">7</td></tr>
+      <tr><td class="cell">n+ℓ ≤ 11</td><td class="num">292</td><td class="num">292</td><td><span class="chip c3">K3</span></td><td class="num">7</td></tr>
+    </tbody>
+    <caption>The highlighted row is the seated reach. K3 is robust across an order of magnitude in
+    size, and the transition tracks ⌊S/2⌋ + 2 exactly.</caption>
+  </table>
+  </div>
+</section>
+
+<!-- ================================================= 5 -->
+<section>
+  <div class="shead"><span class="snum">05</span><h2>Are ℓ and k two different languages? No.</h2></div>
+  <p class="sub">The hypothesis was that ℓ and k might carry order and algebra respectively. Put it
+  to the test by projecting each axis out and measuring what breaks.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>chart</th><th style="text-align:right">cells</th><th>channel</th><th>closes in</th>
+      <th style="text-align:right">E order</th><th style="text-align:right">E algebra</th><th style="text-align:right">E information</th></tr></thead>
+    <tbody>
+      <tr><td class="cell">(n, ℓ, k)</td><td class="num">170</td><td><span class="chip c3">K3</span></td><td>geometry, statistics</td><td class="num">140</td><td class="num">140</td><td class="num">140</td></tr>
+      <tr style="background:color-mix(in srgb,var(--geometry) 9%,transparent)"><td class="cell">(ℓ, k) — n dropped</td><td class="num">50</td><td><span class="chip c7">K7</span></td><td>all five</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      <tr><td class="cell">(n, k) — ℓ dropped</td><td class="num">82</td><td><span class="chip c3">K3</span></td><td>geometry, statistics</td><td class="num">40</td><td class="num">40</td><td class="num">40</td></tr>
+      <tr><td class="cell">(n, ℓ) — k dropped</td><td class="num">25</td><td><span class="chip c3">K3</span></td><td>geometry, statistics</td><td class="num">10</td><td class="num">10</td><td class="num">10</td></tr>
+    </tbody>
+    <caption>E is the deficit — cells the operator generates that the index does not hold. E = 0 is
+    closure.</caption>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <span class="lab">Refuted, and here is what replaces it</span>
+    <p><strong>Order, algebra and information move as one block at every projection</strong> —
+    140/140/140, then 40/40/40, then 10/10/10. No projection separates order from algebra, so the
+    order-versus-algebra reading of ℓ against k does not survive. Order and algebra agreeing is
+    already a theorem; that <em>information</em> joins them here is the new part, and it is what
+    K3 means.</p>
+    <p><strong>The language of n is carried by n.</strong> Drop n and all five close, E = 0 across
+    the board. Drop ℓ or drop k and the verdict does not move at all. The three broken languages
+    are broken by the <em>shell</em> coordinate — ℓ and k are not two languages between them, they
+    are two ways of being inside one.</p>
+    <p style="margin-bottom:0"><strong>But ℓ and k are still not interchangeable</strong>, and the
+    asymmetry is real: dropping ℓ leaves a deficit of 40, dropping k leaves 10, on 82 cells against
+    25. The (n, k) chart is four times as far from closing. That is a genuine difference and it is
+    <em>not</em> a difference of language.</p>
+  </div>
+</section>
+
+<!-- ================================================= 6 -->
+<section>
+  <div class="shead"><span class="snum">06</span><h2>Which measurement depends on which axis</h2></div>
+  <p class="sub">Since (n, ℓ, k) is a bijection onto the elements, everything is determined by all
+  three and that fact is empty. What is not empty is the <em>minimal</em> subset.</p>
+
+  <div class="axbox">
+    <div class="ax">
+      <h3 style="color:var(--information)">ℓ alone — shape</h3>
+      <ul>
+        <li>capacity 2(2ℓ+1)</li>
+        <li>magnetic multiplicity 2ℓ+1</li>
+        <li>block</li>
+      </ul>
+    </div>
+    <div class="ax">
+      <h3 style="color:var(--algebra)">k alone — filling</h3>
+      <ul><li>occupancy k+1</li></ul>
+    </div>
+    <div class="ax">
+      <h3 style="color:var(--order)">ℓ and k — exclusion</h3>
+      <ul>
+        <li>is the subshell full?</li>
+        <li>which half of the subshell (spin)</li>
+      </ul>
+    </div>
+    <div class="ax">
+      <h3 style="color:var(--statistics)">n and ℓ — fill order</h3>
+      <ul>
+        <li>n+ℓ (Madelung)</li>
+        <li>subshell label</li>
+        <li>period</li>
+        <li>Janet cell</li>
+      </ul>
+    </div>
+    <div class="ax">
+      <h3 style="color:var(--geometry)">all three</h3>
+      <ul>
+        <li>Z</li>
+        <li>group</li>
+        <li>n₀ (register 1141)</li>
+        <li>Pauli bound B</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lab">Three things this table says</span>
+    <p><strong>The shape of a subshell is an ℓ fact, its filling is a k fact, and whether it is
+    finished needs both.</strong> That is the exclusion principle showing up as a dependence.</p>
+    <p><strong>No axis but n itself needs n alone.</strong> n never appears without ℓ — which is
+    §05's finding in table form: n carries the broken languages but never acts by itself.</p>
+    <p style="margin-bottom:0"><strong>Group needs all three; period needs only (n, ℓ).</strong>
+    The two coordinates of the drawn layout have different depths in this bundle and the layout
+    does not say so. And <span class="mono">n₀</span> needs all three <em>despite being named for
+    ℓ</em> — register 1141 defines it as "the first entirely unoccupied n <em>at this ℓ</em>", but
+    it reads the observed configuration of that particular element. <strong>A quantity's name is
+    not its dependence.</strong></p>
+  </div>
+</section>
+
+<!-- ================================================= 7 -->
+<section>
+  <div class="shead"><span class="snum">07</span><h2>What this refuses to measure</h2></div>
+  <p class="sub">Two examples were offered for the dependence question. Neither is testable here,
+  and saying so is the point.</p>
+
+  <div class="note warn">
+    <span class="lab">Gravity on the ℓ axis — not measured</span>
+    <p style="margin-bottom:0">There is no gravitational measurement per element anywhere in this
+    corpus. The G slot in <span class="mono">bounds.py</span> codes whether a <em>bound</em>
+    mentions gravity — one integer in it was re-coded under an earlier ruling — not a quantity an
+    atom has. To test this, an atomic gravitational axis would have to exist and be banked. None
+    is. <strong>Not measured, and not because the answer is no.</strong></p>
+  </div>
+
+  <div class="note warn">
+    <span class="lab">Spectra on the k axis — not measured</span>
+    <p>The spectra axis is the series limit, and <span class="mono">populate.LIMITS</span> banks
+    <strong>four</strong> of them: (Z, charge) = (3,3), (5,4), (5,5), (15,4), with three more
+    reachable through banked deficits. All are <em>ions</em> at charges 3 to 5; not one is a
+    neutral atom, and no two share an n. Four points cannot establish a functional dependence on
+    anything.</p>
+    <p style="margin-bottom:0"><strong>What would settle it:</strong> series limits banked for a
+    run of neutral atoms spanning at least two subshells at one n, and two n at one ℓ. Twelve
+    would probably do. The measurement is cheap once the data exists — it does not exist.</p>
+  </div>
+</section>
+
+<!-- ================================================= 8 -->
+<section>
+  <div class="shead"><span class="snum">08</span><h2>Same laws, checked</h2></div>
+  <p class="sub">The claim that the same mechanisms apply is not a formality — it is what makes
+  the two indexes comparable at all, so it is verified rather than assumed.</p>
+
+  <ul class="tight">
+    <li><strong>Seven lawful containments hold</strong> on the index and on every one of the nine
+    fibres. Zero broken.</li>
+    <li><strong>The channel is a lawful down-set</strong> — K3 = down(geometry), a principal
+    down-set and therefore join-irreducible.</li>
+    <li><strong>Dilworth holds:</strong> 170 ≤ 26 × 17.</li>
+  </ul>
+
+  <div class="note good">
+    <span class="lab">And one thing the check turned up</span>
+    <p style="margin-bottom:0"><strong>Every fibre closes in all five languages, without
+    exception.</strong> A fibre is a complete rectangle of slots — ℓ runs 0…L and k runs
+    0…2(2ℓ+1)−1 with nothing missing — and a complete staircase closes everything. So the fibres
+    carry no obstruction at all: <strong>every bit of this index's structure lives in how the
+    fibres stack, not in what they contain.</strong></p>
+  </div>
+</section>
+
+<footer class="foot">
+  <p style="margin-bottom:.5em">Every figure on this plate is produced by
+  <code>python3 fibred.py</code> and pinned by <code>python3 fibred.py --selftest</code>
+  (44 fixtures). It imports <code>hlaw.py</code>'s operators and <code>mi.py</code>'s chart rather
+  than reimplementing either.</p>
+  <p style="margin-bottom:0">170 elements · 9 fibres · one transition · channel K3 ·
+  two refusals recorded.</p>
+</footer>
+
+</div>
+
+
+<script>
+/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * 0.255;
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    ctx.fillStyle = colour; ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    axis(ctx,W,H,[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted'));
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      ctx.fillStyle = tok(opts.colour(o.p));
+      ctx.globalAlpha = .35 + .65*o.sc*0.9;
+      ctx.fill();
+      if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+        ctx.lineWidth = 1; ctx.stroke(); }
+      ctx.globalAlpha = 1;
+    }
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+}
+
+scatter3d({id:'sh3d',points:[{"x":1,"y":0,"z":0,"l":0},{"x":1,"y":1,"z":0,"l":0},{"x":2,"y":0,"z":0,"l":0},{"x":2,"y":1,"z":0,"l":0},{"x":2,"y":0,"z":1,"l":1},{"x":2,"y":1,"z":1,"l":1},{"x":2,"y":2,"z":1,"l":1},{"x":2,"y":3,"z":1,"l":1},{"x":2,"y":4,"z":1,"l":1},{"x":2,"y":5,"z":1,"l":1},{"x":3,"y":0,"z":0,"l":0},{"x":3,"y":1,"z":0,"l":0},{"x":3,"y":0,"z":1,"l":1},{"x":3,"y":1,"z":1,"l":1},{"x":3,"y":2,"z":1,"l":1},{"x":3,"y":3,"z":1,"l":1},{"x":3,"y":4,"z":1,"l":1},{"x":3,"y":5,"z":1,"l":1},{"x":3,"y":0,"z":2,"l":2},{"x":3,"y":1,"z":2,"l":2},{"x":3,"y":2,"z":2,"l":2},{"x":3,"y":3,"z":2,"l":2},{"x":3,"y":4,"z":2,"l":2},{"x":3,"y":5,"z":2,"l":2},{"x":3,"y":6,"z":2,"l":2},{"x":3,"y":7,"z":2,"l":2},{"x":3,"y":8,"z":2,"l":2},{"x":3,"y":9,"z":2,"l":2},{"x":4,"y":0,"z":0,"l":0},{"x":4,"y":1,"z":0,"l":0},{"x":4,"y":0,"z":1,"l":1},{"x":4,"y":1,"z":1,"l":1},{"x":4,"y":2,"z":1,"l":1},{"x":4,"y":3,"z":1,"l":1},{"x":4,"y":4,"z":1,"l":1},{"x":4,"y":5,"z":1,"l":1},{"x":4,"y":0,"z":2,"l":2},{"x":4,"y":1,"z":2,"l":2},{"x":4,"y":2,"z":2,"l":2},{"x":4,"y":3,"z":2,"l":2},{"x":4,"y":4,"z":2,"l":2},{"x":4,"y":5,"z":2,"l":2},{"x":4,"y":6,"z":2,"l":2},{"x":4,"y":7,"z":2,"l":2},{"x":4,"y":8,"z":2,"l":2},{"x":4,"y":9,"z":2,"l":2},{"x":4,"y":0,"z":3,"l":3},{"x":4,"y":1,"z":3,"l":3},{"x":4,"y":2,"z":3,"l":3},{"x":4,"y":3,"z":3,"l":3},{"x":4,"y":4,"z":3,"l":3},{"x":4,"y":5,"z":3,"l":3},{"x":4,"y":6,"z":3,"l":3},{"x":4,"y":7,"z":3,"l":3},{"x":4,"y":8,"z":3,"l":3},{"x":4,"y":9,"z":3,"l":3},{"x":4,"y":10,"z":3,"l":3},{"x":4,"y":11,"z":3,"l":3},{"x":4,"y":12,"z":3,"l":3},{"x":4,"y":13,"z":3,"l":3},{"x":5,"y":0,"z":0,"l":0},{"x":5,"y":1,"z":0,"l":0},{"x":5,"y":0,"z":1,"l":1},{"x":5,"y":1,"z":1,"l":1},{"x":5,"y":2,"z":1,"l":1},{"x":5,"y":3,"z":1,"l":1},{"x":5,"y":4,"z":1,"l":1},{"x":5,"y":5,"z":1,"l":1},{"x":5,"y":0,"z":2,"l":2},{"x":5,"y":1,"z":2,"l":2},{"x":5,"y":2,"z":2,"l":2},{"x":5,"y":3,"z":2,"l":2},{"x":5,"y":4,"z":2,"l":2},{"x":5,"y":5,"z":2,"l":2},{"x":5,"y":6,"z":2,"l":2},{"x":5,"y":7,"z":2,"l":2},{"x":5,"y":8,"z":2,"l":2},{"x":5,"y":9,"z":2,"l":2},{"x":5,"y":0,"z":3,"l":3},{"x":5,"y":1,"z":3,"l":3},{"x":5,"y":2,"z":3,"l":3},{"x":5,"y":3,"z":3,"l":3},{"x":5,"y":4,"z":3,"l":3},{"x":5,"y":5,"z":3,"l":3},{"x":5,"y":6,"z":3,"l":3},{"x":5,"y":7,"z":3,"l":3},{"x":5,"y":8,"z":3,"l":3},{"x":5,"y":9,"z":3,"l":3},{"x":5,"y":10,"z":3,"l":3},{"x":5,"y":11,"z":3,"l":3},{"x":5,"y":12,"z":3,"l":3},{"x":5,"y":13,"z":3,"l":3},{"x":5,"y":0,"z":4,"l":4},{"x":5,"y":1,"z":4,"l":4},{"x":5,"y":2,"z":4,"l":4},{"x":5,"y":3,"z":4,"l":4},{"x":5,"y":4,"z":4,"l":4},{"x":5,"y":5,"z":4,"l":4},{"x":5,"y":6,"z":4,"l":4},{"x":5,"y":7,"z":4,"l":4},{"x":5,"y":8,"z":4,"l":4},{"x":5,"y":9,"z":4,"l":4},{"x":5,"y":10,"z":4,"l":4},{"x":5,"y":11,"z":4,"l":4},{"x":5,"y":12,"z":4,"l":4},{"x":5,"y":13,"z":4,"l":4},{"x":5,"y":14,"z":4,"l":4},{"x":5,"y":15,"z":4,"l":4},{"x":5,"y":16,"z":4,"l":4},{"x":5,"y":17,"z":4,"l":4},{"x":6,"y":0,"z":0,"l":0},{"x":6,"y":1,"z":0,"l":0},{"x":6,"y":0,"z":1,"l":1},{"x":6,"y":1,"z":1,"l":1},{"x":6,"y":2,"z":1,"l":1},{"x":6,"y":3,"z":1,"l":1},{"x":6,"y":4,"z":1,"l":1},{"x":6,"y":5,"z":1,"l":1},{"x":6,"y":0,"z":2,"l":2},{"x":6,"y":1,"z":2,"l":2},{"x":6,"y":2,"z":2,"l":2},{"x":6,"y":3,"z":2,"l":2},{"x":6,"y":4,"z":2,"l":2},{"x":6,"y":5,"z":2,"l":2},{"x":6,"y":6,"z":2,"l":2},{"x":6,"y":7,"z":2,"l":2},{"x":6,"y":8,"z":2,"l":2},{"x":6,"y":9,"z":2,"l":2},{"x":6,"y":0,"z":3,"l":3},{"x":6,"y":1,"z":3,"l":3},{"x":6,"y":2,"z":3,"l":3},{"x":6,"y":3,"z":3,"l":3},{"x":6,"y":4,"z":3,"l":3},{"x":6,"y":5,"z":3,"l":3},{"x":6,"y":6,"z":3,"l":3},{"x":6,"y":7,"z":3,"l":3},{"x":6,"y":8,"z":3,"l":3},{"x":6,"y":9,"z":3,"l":3},{"x":6,"y":10,"z":3,"l":3},{"x":6,"y":11,"z":3,"l":3},{"x":6,"y":12,"z":3,"l":3},{"x":6,"y":13,"z":3,"l":3},{"x":7,"y":0,"z":0,"l":0},{"x":7,"y":1,"z":0,"l":0},{"x":7,"y":0,"z":1,"l":1},{"x":7,"y":1,"z":1,"l":1},{"x":7,"y":2,"z":1,"l":1},{"x":7,"y":3,"z":1,"l":1},{"x":7,"y":4,"z":1,"l":1},{"x":7,"y":5,"z":1,"l":1},{"x":7,"y":0,"z":2,"l":2},{"x":7,"y":1,"z":2,"l":2},{"x":7,"y":2,"z":2,"l":2},{"x":7,"y":3,"z":2,"l":2},{"x":7,"y":4,"z":2,"l":2},{"x":7,"y":5,"z":2,"l":2},{"x":7,"y":6,"z":2,"l":2},{"x":7,"y":7,"z":2,"l":2},{"x":7,"y":8,"z":2,"l":2},{"x":7,"y":9,"z":2,"l":2},{"x":8,"y":0,"z":0,"l":0},{"x":8,"y":1,"z":0,"l":0},{"x":8,"y":0,"z":1,"l":1},{"x":8,"y":1,"z":1,"l":1},{"x":8,"y":2,"z":1,"l":1},{"x":8,"y":3,"z":1,"l":1},{"x":8,"y":4,"z":1,"l":1},{"x":8,"y":5,"z":1,"l":1},{"x":9,"y":0,"z":0,"l":0},{"x":9,"y":1,"z":0,"l":0}],xlab:'n',ylab:'k',zlab:'ℓ',r:3.6,colour:p=>['--statistics','--geometry','--information','--algebra','--order'][p.l]});
+</script>

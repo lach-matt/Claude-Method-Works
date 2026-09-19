@@ -1,0 +1,410 @@
+<title>The Channel Index</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --vacant:#98A2AF; --live:#137A69;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --vacant:#5F6A79; --live:#4CC6AF;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --vacant:#5F6A79; --live:#4CC6AF;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+p{margin:0 0 1.05em}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+td.cell{color:var(--ink)}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.c7{color:var(--geometry)} .c3{color:var(--statistics)} .c6{color:var(--order)}
+.yes{color:var(--live);font-weight:600} .no{color:var(--algebra);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.note.k6{border-left-color:var(--order)} .note.k6 .lab{color:var(--order)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.5em}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.trio{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar .hint{color:var(--faint)}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+</style>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Research plate · master index seven</p>
+  <h1>The Channel&nbsp;Index</h1>
+  <p class="dek">The corpus's largest banked measurement set, which nothing had
+  indexed — and a data fault sitting in its most authoritative rows.</p>
+  <div class="stamp">
+    <span>instrument <b>spectra.py</b></span>
+    <span>source rows <b>104,832</b></span>
+    <span>members <b>209 shapes</b></span>
+    <span>channel <b>K0</b></span>
+  </div>
+</header>
+
+<section style="margin-top:34px">
+  <div class="shead"><span class="snum">01</span><h2>104,832 rows, 209 shapes</h2></div>
+  <p class="sub">A row of COORDINATES-2.13 is a spectroscopic channel: an element, a
+  charge stage, an angular momentum, a Pauli bound, a multiplicity, a quantum defect
+  and two provenance columns. What the corpus's own channel equation turns on is the
+  channel's <em>shape</em>.</p>
+  <div class="kv">
+    <div><dt>rows banked</dt><dd>104,832</dd></div>
+    <div><dt>usable</dt><dd>104,807<small>25 dropped, §03</small></dd></div>
+    <div><dt>channel shapes</dt><dd>209<small>3–3,124 rows apiece</small></dd></div>
+    <div><dt>channel</dt><dd style="color:var(--faint)">K0<small>cell (0, 16, 24)</small></dd></div>
+  </div>
+  <div class="note">
+    <span class="lab">First-order, which is why it earns a place</span>
+    <p style="margin-bottom:0">Its members are <em>channels</em> — not elements, not
+    transitions, and not functions of the seated inventory. So it is not a re-charting
+    of anything the element-address census covered, and it qualifies by the same
+    argument the ionisation ladder did: a new member set, not a new arrangement.
+    Reporting 104,832 as a cell count would be counting observations and calling them
+    channels.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">02</span><h2>The channel shapes in three dimensions</h2></div>
+  <p class="sub">Pauli bound left to right, multiplicity bottom to top, angular momentum
+  into the depth. Drag to rotate.</p>
+  <figure class="plate">
+    <div class="v3d"><canvas id="sp3d" aria-label="209 channel shapes in (B, multiplicity, angular momentum) space"></canvas></div>
+    <div class="v3dbar">
+      <button id="sp3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey">
+        <span><i style="background:var(--statistics)"></i>ℓ=0</span>
+        <span><i style="background:var(--geometry)"></i>ℓ=1</span>
+        <span><i style="background:var(--information)"></i>ℓ=2</span>
+        <span><i style="background:var(--algebra)"></i>ℓ=3</span>
+        <span><i style="background:var(--order)"></i>ℓ≥4</span>
+      </span>
+    </div>
+    <figcaption><b>The shapes stratify by angular momentum.</b> Each ℓ occupies its own
+    layer in depth, and within a layer the bound and the multiplicity spread into a
+    block. Nothing in the figure closes: the index sits at K0, meaning every one of the
+    five operators generates a channel shape the table has no row for.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Twenty-five rows carry a decimal where an integer belongs</h2></div>
+  <div class="note warn">
+    <span class="lab">And all twenty-five are the best rows in the table</span>
+    <p><span class="mono">B</span> is <span class="mono">min(p, n₀−ℓ−1)</span>, a Pauli
+    bound, and an integer in 104,807 rows. In <strong>twenty-five</strong> it holds a
+    decimal — 0.19569, 0.10803, 0.00449. <strong>Every one of them is graded
+    <em>measured</em> and <em>witnessed</em></strong>: 25 of the 358 most authoritative
+    rows the table has, seven per cent of them.</p>
+    <p class="mono" style="font-size:.85rem;margin:14px 0">B 0.19569 · delta 0.53527 · Z 5 ·
+    charge 1 · ℓ 1 · mult 2 · measured/witnessed<br>
+    <span style="color:var(--muted)">source: NIST ASD fetched 2026-08-14 … BI 2P* n=2-9, 11 members</span></p>
+    <p style="margin-bottom:0">B and delta are decimals of the same magnitude, which is
+    what a column slip looks like. <strong>Recorded, not repaired.</strong> The twenty-five
+    are dropped from the index, counted and described — the instrument does not guess what
+    the true bound was.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">04</span><h2>Two columns carrying one distinction</h2></div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>grade</th><th style="text-align:right">rows</th><th>witness</th><th style="text-align:right">rows</th></tr></thead>
+    <tbody>
+      <tr><td class="name">computed</td><td class="num">103,545</td><td class="name">unwitnessed</td><td class="num">104,474</td></tr>
+      <tr><td class="name">exact</td><td class="num">929</td><td class="name">witnessed</td><td class="num">358</td></tr>
+      <tr><td class="name">measured</td><td class="num">358</td><td></td><td></td></tr>
+    </tbody>
+    <caption>The witnessed rows are <b>exactly</b> the measured rows — the same set,
+    checked row by row, not merely the same count.</caption>
+  </table>
+  </div>
+  <div class="note good">
+    <span class="lab">A live test of the chart criterion, on a source it never saw</span>
+    <p>So <span class="mono">witness</span> is a function of <span class="mono">grade</span>
+    — computed and exact are unwitnessed, measured is witnessed — and that function is
+    <strong>monotone</strong>. The criterion says a monotone redundant coordinate cannot
+    move the channel. Measured:</p>
+    <p class="mono" style="margin:12px 0">(ℓ, grade) &nbsp;&nbsp;&nbsp;&nbsp;21 cells &nbsp; K3<br>
+    (ℓ, grade, wit) &nbsp;21 cells &nbsp; K3 &nbsp;&nbsp;— unchanged</p>
+    <p style="margin-bottom:0"><strong>The first confirmation of the chart criterion
+    outside the element address</strong>, on a source it was never fitted to.</p>
+  </div>
+  <div class="note">
+    <span class="lab">And the same source sits in two channels</span>
+    <p style="margin-bottom:0">Charted by what a channel <em>is</em> — (ℓ, B, mult) — it is
+    <strong>K0</strong>. Charted by how well it is <em>known</em> — (ℓ, grade, witness) —
+    it is <strong>K3</strong>, geometry and statistics, at cell (3, 9, 3). Neither is the
+    truer chart; they answer different questions.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <p style="margin-bottom:0">Produced by <code>python3 spectra.py</code>, pinned by
+  <code>python3 spectra.py --selftest</code> (22 fixtures). 209 shapes · channel K0 ·
+  25 malformed rows recorded, not repaired.</p>
+</footer>
+
+</div>
+<script>
+/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * (opts.scale ?? 0.255);
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    ctx.fillStyle = colour; ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    axis(ctx,W,H,[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted'));
+
+    // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
+    if(opts.edges){
+      for(const e of opts.edges){
+        const p = project(nrm(e[0],rx), nrm(e[1],ry), nrm(e[2],rz), W, H);
+        const q = project(nrm(e[3],rx), nrm(e[4],ry), nrm(e[5],rz), W, H);
+        ctx.save();
+        ctx.strokeStyle = tok(e[6]);
+        ctx.lineWidth = e[7] ? 1 : 1.6;
+        ctx.globalAlpha = e[7] ? .85 : .5;
+        if(e[7]) ctx.setLineDash([5,4]);
+        ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      if(o.p.hollow){
+        ctx.globalAlpha = 1; ctx.strokeStyle = tok(opts.colour(o.p));
+        ctx.lineWidth = 1.6; ctx.setLineDash([3,2.5]); ctx.stroke();
+        ctx.setLineDash([]);
+      } else {
+        ctx.fillStyle = tok(opts.colour(o.p));
+        ctx.globalAlpha = .35 + .65*o.sc*0.9;
+        ctx.fill();
+        if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+          ctx.lineWidth = 1; ctx.stroke(); }
+      }
+      ctx.globalAlpha = 1;
+    }
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+}
+
+scatter3d({id:'sp3d',points:[{"x":0,"y":1,"z":0,"l":0},{"x":0,"y":2,"z":0,"l":0},{"x":0,"y":3,"z":0,"l":0},{"x":0,"y":4,"z":0,"l":0},{"x":0,"y":5,"z":0,"l":0},{"x":0,"y":6,"z":0,"l":0},{"x":0,"y":7,"z":0,"l":0},{"x":0,"y":8,"z":0,"l":0},{"x":0,"y":9,"z":0,"l":0},{"x":1,"y":1,"z":0,"l":0},{"x":1,"y":2,"z":0,"l":0},{"x":1,"y":3,"z":0,"l":0},{"x":2,"y":1,"z":0,"l":0},{"x":2,"y":2,"z":0,"l":0},{"x":2,"y":3,"z":0,"l":0},{"x":2,"y":4,"z":0,"l":0},{"x":2,"y":5,"z":0,"l":0},{"x":3,"y":1,"z":0,"l":0},{"x":3,"y":2,"z":0,"l":0},{"x":3,"y":3,"z":0,"l":0},{"x":3,"y":4,"z":0,"l":0},{"x":3,"y":5,"z":0,"l":0},{"x":4,"y":1,"z":0,"l":0},{"x":4,"y":2,"z":0,"l":0},{"x":4,"y":3,"z":0,"l":0},{"x":4,"y":4,"z":0,"l":0},{"x":4,"y":5,"z":0,"l":0},{"x":4,"y":6,"z":0,"l":0},{"x":4,"y":7,"z":0,"l":0},{"x":5,"y":1,"z":0,"l":0},{"x":5,"y":2,"z":0,"l":0},{"x":5,"y":3,"z":0,"l":0},{"x":5,"y":4,"z":0,"l":0},{"x":5,"y":5,"z":0,"l":0},{"x":5,"y":6,"z":0,"l":0},{"x":5,"y":7,"z":0,"l":0},{"x":6,"y":1,"z":0,"l":0},{"x":6,"y":2,"z":0,"l":0},{"x":6,"y":3,"z":0,"l":0},{"x":6,"y":4,"z":0,"l":0},{"x":6,"y":5,"z":0,"l":0},{"x":6,"y":6,"z":0,"l":0},{"x":6,"y":7,"z":0,"l":0},{"x":6,"y":8,"z":0,"l":0},{"x":6,"y":9,"z":0,"l":0},{"x":7,"y":1,"z":0,"l":0},{"x":7,"y":2,"z":0,"l":0},{"x":7,"y":3,"z":0,"l":0},{"x":7,"y":4,"z":0,"l":0},{"x":7,"y":5,"z":0,"l":0},{"x":7,"y":6,"z":0,"l":0},{"x":7,"y":7,"z":0,"l":0},{"x":7,"y":8,"z":0,"l":0},{"x":7,"y":9,"z":0,"l":0},{"x":0,"y":1,"z":1,"l":1},{"x":0,"y":2,"z":1,"l":1},{"x":0,"y":3,"z":1,"l":1},{"x":0,"y":4,"z":1,"l":1},{"x":0,"y":5,"z":1,"l":1},{"x":0,"y":6,"z":1,"l":1},{"x":0,"y":7,"z":1,"l":1},{"x":0,"y":8,"z":1,"l":1},{"x":0,"y":9,"z":1,"l":1},{"x":1,"y":1,"z":1,"l":1},{"x":1,"y":2,"z":1,"l":1},{"x":1,"y":3,"z":1,"l":1},{"x":1,"y":4,"z":1,"l":1},{"x":1,"y":5,"z":1,"l":1},{"x":2,"y":1,"z":1,"l":1},{"x":2,"y":2,"z":1,"l":1},{"x":2,"y":3,"z":1,"l":1},{"x":2,"y":4,"z":1,"l":1},{"x":2,"y":5,"z":1,"l":1},{"x":2,"y":6,"z":1,"l":1},{"x":2,"y":7,"z":1,"l":1},{"x":3,"y":1,"z":1,"l":1},{"x":3,"y":2,"z":1,"l":1},{"x":3,"y":3,"z":1,"l":1},{"x":3,"y":4,"z":1,"l":1},{"x":3,"y":5,"z":1,"l":1},{"x":3,"y":6,"z":1,"l":1},{"x":3,"y":7,"z":1,"l":1},{"x":4,"y":1,"z":1,"l":1},{"x":4,"y":2,"z":1,"l":1},{"x":4,"y":3,"z":1,"l":1},{"x":4,"y":4,"z":1,"l":1},{"x":4,"y":5,"z":1,"l":1},{"x":4,"y":6,"z":1,"l":1},{"x":4,"y":7,"z":1,"l":1},{"x":4,"y":8,"z":1,"l":1},{"x":4,"y":9,"z":1,"l":1},{"x":5,"y":1,"z":1,"l":1},{"x":5,"y":2,"z":1,"l":1},{"x":5,"y":3,"z":1,"l":1},{"x":5,"y":4,"z":1,"l":1},{"x":5,"y":5,"z":1,"l":1},{"x":5,"y":6,"z":1,"l":1},{"x":5,"y":7,"z":1,"l":1},{"x":5,"y":8,"z":1,"l":1},{"x":5,"y":9,"z":1,"l":1},{"x":6,"y":1,"z":1,"l":1},{"x":6,"y":2,"z":1,"l":1},{"x":6,"y":3,"z":1,"l":1},{"x":6,"y":4,"z":1,"l":1},{"x":6,"y":5,"z":1,"l":1},{"x":0,"y":1,"z":2,"l":2},{"x":0,"y":2,"z":2,"l":2},{"x":0,"y":3,"z":2,"l":2},{"x":0,"y":4,"z":2,"l":2},{"x":0,"y":5,"z":2,"l":2},{"x":0,"y":6,"z":2,"l":2},{"x":0,"y":7,"z":2,"l":2},{"x":0,"y":8,"z":2,"l":2},{"x":0,"y":9,"z":2,"l":2},{"x":1,"y":1,"z":2,"l":2},{"x":1,"y":2,"z":2,"l":2},{"x":1,"y":3,"z":2,"l":2},{"x":1,"y":4,"z":2,"l":2},{"x":1,"y":5,"z":2,"l":2},{"x":1,"y":6,"z":2,"l":2},{"x":1,"y":7,"z":2,"l":2},{"x":2,"y":1,"z":2,"l":2},{"x":2,"y":2,"z":2,"l":2},{"x":2,"y":3,"z":2,"l":2},{"x":2,"y":4,"z":2,"l":2},{"x":2,"y":5,"z":2,"l":2},{"x":2,"y":6,"z":2,"l":2},{"x":2,"y":7,"z":2,"l":2},{"x":2,"y":8,"z":2,"l":2},{"x":2,"y":9,"z":2,"l":2},{"x":3,"y":1,"z":2,"l":2},{"x":3,"y":2,"z":2,"l":2},{"x":3,"y":3,"z":2,"l":2},{"x":3,"y":4,"z":2,"l":2},{"x":3,"y":5,"z":2,"l":2},{"x":3,"y":6,"z":2,"l":2},{"x":3,"y":7,"z":2,"l":2},{"x":3,"y":8,"z":2,"l":2},{"x":3,"y":9,"z":2,"l":2},{"x":4,"y":1,"z":2,"l":2},{"x":4,"y":2,"z":2,"l":2},{"x":4,"y":3,"z":2,"l":2},{"x":4,"y":4,"z":2,"l":2},{"x":4,"y":5,"z":2,"l":2},{"x":4,"y":6,"z":2,"l":2},{"x":4,"y":7,"z":2,"l":2},{"x":0,"y":1,"z":3,"l":3},{"x":0,"y":2,"z":3,"l":3},{"x":0,"y":3,"z":3,"l":3},{"x":0,"y":4,"z":3,"l":3},{"x":0,"y":5,"z":3,"l":3},{"x":0,"y":6,"z":3,"l":3},{"x":0,"y":7,"z":3,"l":3},{"x":0,"y":8,"z":3,"l":3},{"x":0,"y":9,"z":3,"l":3},{"x":1,"y":1,"z":3,"l":3},{"x":1,"y":2,"z":3,"l":3},{"x":1,"y":3,"z":3,"l":3},{"x":1,"y":4,"z":3,"l":3},{"x":1,"y":5,"z":3,"l":3},{"x":1,"y":6,"z":3,"l":3},{"x":1,"y":7,"z":3,"l":3},{"x":1,"y":8,"z":3,"l":3},{"x":1,"y":9,"z":3,"l":3},{"x":2,"y":1,"z":3,"l":3},{"x":2,"y":2,"z":3,"l":3},{"x":2,"y":3,"z":3,"l":3},{"x":2,"y":4,"z":3,"l":3},{"x":2,"y":5,"z":3,"l":3},{"x":2,"y":6,"z":3,"l":3},{"x":2,"y":7,"z":3,"l":3},{"x":2,"y":8,"z":3,"l":3},{"x":2,"y":9,"z":3,"l":3},{"x":0,"y":1,"z":4,"l":4},{"x":0,"y":2,"z":4,"l":4},{"x":0,"y":3,"z":4,"l":4},{"x":0,"y":4,"z":4,"l":4},{"x":0,"y":5,"z":4,"l":4},{"x":0,"y":6,"z":4,"l":4},{"x":0,"y":7,"z":4,"l":4},{"x":0,"y":8,"z":4,"l":4},{"x":0,"y":9,"z":4,"l":4},{"x":0,"y":1,"z":5,"l":4},{"x":0,"y":2,"z":5,"l":4},{"x":0,"y":3,"z":5,"l":4},{"x":0,"y":4,"z":5,"l":4},{"x":0,"y":5,"z":5,"l":4},{"x":0,"y":6,"z":5,"l":4},{"x":0,"y":7,"z":5,"l":4},{"x":0,"y":8,"z":5,"l":4},{"x":0,"y":9,"z":5,"l":4},{"x":0,"y":1,"z":6,"l":4},{"x":0,"y":2,"z":6,"l":4},{"x":0,"y":3,"z":6,"l":4},{"x":0,"y":4,"z":6,"l":4},{"x":0,"y":5,"z":6,"l":4},{"x":0,"y":6,"z":6,"l":4},{"x":0,"y":7,"z":6,"l":4},{"x":0,"y":8,"z":6,"l":4},{"x":0,"y":9,"z":6,"l":4},{"x":0,"y":1,"z":7,"l":4},{"x":0,"y":2,"z":7,"l":4},{"x":0,"y":3,"z":7,"l":4},{"x":0,"y":4,"z":7,"l":4},{"x":0,"y":5,"z":7,"l":4},{"x":0,"y":6,"z":7,"l":4},{"x":0,"y":7,"z":7,"l":4},{"x":0,"y":8,"z":7,"l":4},{"x":0,"y":9,"z":7,"l":4}],xlab:'B',ylab:'multiplicity',zlab:'ℓ',r:3.6,height:470,scale:0.215,colour:p=>['--statistics','--geometry','--information','--algebra','--order'][p.l]});
+</script>
