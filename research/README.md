@@ -541,11 +541,17 @@ reviews `drive/The Method Materials/warp drive theory.pdf` — the design delive
 mirror by `drive_sync.py --adopt` at status `ok-adopted` — against the same physics, and computes
 every claim in it that is computable.
 
-`pdftext.py` beside them is not an audit instrument and takes no selftest: it is a PDF text extractor
-written because this container has neither poppler nor `pypdf`, and because the producer of that file
-puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte hex through
-`/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never inserts a space
-heuristically.
+`pdftext.py` beside them is not an audit instrument, but it now **does** take a `--selftest`: it is a
+PDF text extractor written because this container has neither poppler nor `pypdf`, and because the
+producer of that file puts page layout in `q`/`cm`/`Q` graphics transforms, encodes glyphs as two-byte
+hex through `/ToUnicode`, and emits spaces as explicit glyphs. It tracks the full CTM and never
+inserts a space heuristically. **It acquired a selftest on 2026-09-13 because it was under-reporting
+in silence** — it took the first `/Pages` object it found and treated that node's kids as the pages,
+which is right only for a flat page tree. Chromium nests the tree past about eight pages, so on the
+22-page hierarchy-law PDF it printed **8 pages and no warning**. It now walks from the catalog's root
+to the leaves, and names any page it could not extract instead of dropping it. The selftest's fixture
+is a synthetic nested tree — catalog → root → two intermediates → five leaves — on which the old walk
+would have found two.
 
 The fourteen papers run in order. `WARP-DRIVE.md` places the object and gives the buildable
 specification. `ENGINE-ASSESSMENT.md` reviews M's design deliverable against it.
@@ -7971,6 +7977,2828 @@ on its face** — a *sanity check on the order*, the only detector that works th
 `membrane.py` hit** with `atanh(e→1)`. Both forms kept; the stable route factorises the ratio so
 `η_comp = η₁+η₂` **manifestly**, and composes 40 ⊕ 40 = 80.000000.
 
+## Machine checking — `prover.py`, `machinecheck.py`, and how to get a proof assistant here
+
+**There is a proof assistant available and finding it was the hard part.** Lean and Coq cannot be
+installed — `elan` and `opam` both need github, which the egress proxy refuses with a 403 — but
+**pypi is on the allowlist**, so `pip install z3-solver` works. See **`PROOF-ASSISTANT.md`** for the
+whole route, and check `curl -sS "$HTTPS_PROXY/__agentproxy/status"` if it ever stops working.
+
+- **`prover.py`** — the reusable harness. Start here for a new claim.
+- **`machinecheck.py`** — the 21 obligations behind `paper/THE-HIERARCHY-LAW.md`, all discharged.
+- **`lawfigures.py`** — not a prover: recomputes every *number* the paper states, and exits 1 on drift.
+- **`hlaw.py`** — the law as an instrument. Hand it an index and it reports what the law says about
+  *that* index: the five closures and their residuals, the seven lawful containments each checked
+  against the clause that proves it, the other thirteen marked `INDEX-ONLY` where they merely happen
+  to hold, and the partial order with every incomparable pair named as such. **Exit 1 is a refutation
+  of a proved clause, not a bug report.** `--sweep N` tries to break the law over N random indexes and
+  says plainly that a clean run corroborates and does not prove. Its refusals are the paper's own
+  withdrawn mistakes turned into properties of the program: it never prints a total ranking (Clause E),
+  never reports a size comparison as a containment, and never promotes a containment to a law because
+  it held once. `--selftest` is fixtured on the paper's printed numbers — including the
+  energy-condition index's `|geometry| = 29` against `|information| = 156`, incomparable. See
+  `HLAW.md`.
+
+- **`postselect.py`** — prices the Janus door. Kawamoto–Maeda–Nakamura–Takayanagi
+  (arXiv:2502.03531) build a traversable AdS₃ wormhole with **no coupling between the two CFTs**,
+  which is how it evades the past-horizon obstruction that made Gao–Jafferis–Wall decline a standing
+  coupling — but it is a **post-selection**, and they do not quantify the success probability. Both
+  states are Gaussian, so the overlap is a determinant and the probability is exact. **The answer
+  inverts the expectation: there is no exp(−S) penalty.** Normalizability caps the deformation at
+  `δ ≈ 0.81/S` (the *softest* mode binds, at `δ < βE/4`), and at any fixed fraction of that cap the
+  success probability is **flat in S at ≈ 0.884**. What collapses is the causal opening, which goes
+  like `δ²` — so `≈ 0.39/S²`, or `3.5 × 10⁻¹⁵⁵` for a solar mass. **The cost is geometric, not
+  probabilistic.** Past the cap the instrument returns `None`, never a number: the norm goes
+  imaginary there, which means the target is not a state, not that it is unlikely.
+
+  **Can a coefficient buy a discount? Three no's and one qualified yes.** The cap is `δ ≈ 0.81/S`
+  and the opening goes like `δ²`, so anything that multiplies the admissible `δ` is worth two of
+  itself. (1) **A uniform coefficient buys nothing** — the admissibility bracket is homogeneous of
+  degree 2, so scaling both columns by `c` is exactly scaling `λ` by `c`; verified to twelve digits.
+  (2) **The columns are priced 1:4 and the content cannot move** — at fixed total weight an all-`u`
+  deformation costs 1 and an all-`v` one costs 4, but the Janus family lies exactly on the hyperbola
+  `|u|² − |v|² = 1`, and `|v| = sinh δ` **is** the deformation; reducing it is not reweighting, it is
+  not deforming. (3) **The bill is not the columns anyway — it is the phase between them.** Of the
+  δ-dependent terms, `4|Im(v̄u)|` carries **99.9 % at δ = 0.001** and still 90.9 % at δ = 0.1, so a
+  coefficient on the columns attacks a tenth of a percent. The thing to attack is the phase, and that
+  is not a coefficient — it is the in-phase branch `reslice.py` derives. (4) **A mode-dependent `δ` is
+  a real gain, and the naive version of it is a truncation artefact.** The uniform cap is set by the
+  *softest* mode; averaging the per-mode caps flat gives ×109.8, ×259.2, ×438.0, ×886.2 at four
+  successive truncations — it **tracks the mode count**, because it is dominated by thermally dead
+  modes whose cap grows like `−ln λ` and whose occupation is zero. **Weighted by occupation it is
+  5.109128 at all four, stable to seven digits.** That one is real. Its growth is **not a power law**:
+  a fit over a decade reads `S^0.75`, but the local slope drifts monotonically 0.57 → 0.83 and is
+  still climbing, and a drifting slope is not an exponent; against `S/ln S` the ratio is flat to 13 %
+  over two decades, which is what the tower predicts. **A budget gain is not an opening gain, and the
+  file will not convert one into the other** — the opening is a function of the bulk `γ`, identified
+  with a *single* marginal `δ` common to every mode, and a per-mode `δ_n` is a normalizable Gaussian
+  state but is not that deformation. What is priced is how much deformation the bound allows; what it
+  opens is not measured.
+
+- **`reslice.py`** — the bridge, and how much of it is derived. **Half one is a theorem**: the
+  deformation matrix `M = [[2v,u],[u,−2v]]` has `M†M = [[P, 4iI],[−4iI, P]]` with `P = |u|²+4|v|²`
+  and `I = Im(v̄u)`, so its singular values² are `P ± 4|I|` and the exact admissibility criterion is
+  `λ²(|u|² + 4|v|² + 4|Im(v̄u)|) < 1`. **The splitting between the two singular values is `8|Im(v̄u)|`**
+  — the relative phase of the two columns is not one obstruction among several, it *is* the
+  anisotropy, and in-phase means the singular values are **degenerate**. This corrects an earlier
+  determinant test that was necessary and not sufficient (a determinant is the *product*, so both
+  values can exceed 1 and leave it positive); a Fock-truncation convergence check caught it.
+  **Half two is measured**: on the index the step path `φ_ij` is flat where no direction is singled
+  out and jumps where one is. Of eight candidate re-slicings, six leave it flat; **inverse M** gives
+  two jumps (null→timelike→causal) and the diagonal `V+M` gives one. The arrow between the halves is
+  **assumed, not proved**, and the file says what dictionary would make it a theorem and why this
+  tree has none. Also verifies Clause F against a re-slicing it did not know about — `statistics`
+  unmoved, `order` and `information` moved, and `geometry` unmoved *because a reversal is a
+  reflection and the convex hull is reflection-invariant*, which is a refinement of the clause, not
+  a violation of it. The forgery is invariant under the re-slicing: still 12 cells, still zero at the
+  space/time intersection.
+
+  **The Clause F refinement, and it is a correction to a published clause.** Clause F says four of
+  the five languages need an order on each coordinate and `statistics` does not. That is true and it
+  is coarse — **"relabelling" is three operations, and the four that "need the order" do not need the
+  same thing.** Over 600 random indexes:
+
+  | | full reversal | one reversal | permutation |
+  |---|---|---|---|
+  | `order` / `algebra` | **600/600** | 135/600 | 165/600 |
+  | `geometry` | 591/600 | 597/600 | 278/600 |
+  | `information` | 121/600 | 128/600 | 151/600 |
+  | `statistics` | **600/600** | **600/600** | **600/600** |
+
+  Every entry is explained, and the explanation is the finding: **each language is invariant under a
+  group, the four groups differ, and they form a strict chain that is not the containment
+  hierarchy.** `statistics` has the full symmetric group — it reads no order at all, and 600/600 is a
+  theorem showing up as a count. `geometry` has the **reversal hypercube** `{id,rev}^d`: the hull
+  commutes with any *affine* relabelling, and a rank reversal is affine exactly when the coordinate's
+  observed values are equally spaced — all nine of its misses have a non-equally-spaced box and none
+  has an equally-spaced one, and restricted to those it is 400/400 under both reversals and
+  **1952/1952 under every mixed pattern**. `order` and `algebra` have only the **diagonal** pair
+  `{id, rev}`: the full reversal is an order-*anti*automorphism that swaps meet with join, and the
+  sublattice hull closes under both — 600/600 on the diagonal against 350 of 1952 on the mixed.
+  `information` has the **trivial** group: it is the join-closure, and the dual turns it into the
+  meet-closure, a different operator. So
+
+  > symmetric ⊃ hypercube `{id,rev}^d` ⊃ diagonal `{id,rev}` ⊃ trivial
+  > `statistics` — `geometry` — `order` = `algebra` — `information`
+
+  and Clause F is the claim that the first of those four groups is proper. True, and the weakest of
+  four separate facts. It does not say the other four behave alike: `geometry` survives a reversal
+  `order` cannot, and `information` survives neither.
+
+- **`orbit.py`** — **if everything oscillates, what is the residue?** An index read once is a
+  *snapshot*; if the system moves, the snapshot is part of an orbit and the cells a language admits
+  without having observed them stop being fiction. Tested by hiding part of the seated index and
+  asking what the closure of what remains recovers, scored on **both** recall (how much of the orbit
+  is anticipated) and precision (how much of what is admitted is real) — either alone inverts the
+  conclusion, and the file refuses to print one without the other. At 14 of 17 cells against a raw
+  snapshot's 82 %: `order`/`algebra` recall **93 % at 10 % precision**, `geometry` **91 % at 61 %**,
+  `information` 87 % at 13 %, `statistics` 86 % at **100 %**. So **every language beats the raw
+  snapshot on recall — the residue really does overlap the orbit — and only `geometry` is right about
+  it**; `order` anticipates by admitting nearly everything. `statistics` sits at precision 1 **by
+  theorem, not measurement**: it is monotone and `E = 0` on the orbit, so `statistics(X_t) ⊆
+  statistics(X) = X`, and it cannot over-claim — nor can it anticipate much, being a language that
+  admits only what it saw. **The mimic band and the anticipation band are the same band**: `geometry`
+  was the only language whose residue sits in `0 < E/|X| < 1`, and it is the only one whose residue is
+  mostly real orbit. Two different measurements landing on one operator. What it refuses: it does not
+  claim the closure *is* the orbit — at 14 of 17 the best case recovers the whole in 60 of 200 draws —
+  and it does not claim to model an oscillation, since hiding cells at random is a stand-in for a
+  cycle and has neither an order nor a period.
+
+- **`barter.py`** — **what can be traded for cost, and what cannot.** Two questions that are the
+  same question. **Time is barterable; the cap is not.** Crossing the deformation in `N` steps is a
+  different protocol — it post-selects `N` times, priced with the two-parameter overlap, because
+  after the first step the bra is no longer the undeformed TFD. At 99 % of the cap a single jump
+  succeeds **15.5 %** of the time and 4,096 increments succeed **99.7 %**: the Zeno shape, each step
+  losing at second order in its own size so `N` steps lose `O(1/N)`, and the gain is largest exactly
+  at the edge where one jump nearly always fails. **But the cap does not move** — at 1.001, 1.05, 1.5
+  and 3.0 times `δ_max` the path is refused at `N` = 1, 8, 64 and 512 alike. Stated at its real size:
+  the probability was never the binding cost, and what time buys is the right to work at the *top* of
+  the cap instead of halfway up — `(0.99/0.50)² = 3.9×` in the opening. **A factor of four, and the
+  `1/S²` scaling is untouched because the cap that sets it is untouched.**
+
+  **The receipt can be forged, and the reflection is half of how.** An accountant reading `L` cannot
+  see `X`, only `L(X)`, so any `X'` with `L(X') = L(X)` settles the account. Every generating set
+  contains the **forced** cells — those `x` with `x ∉ L(X \ {x})` — so enumerating the rest gives the
+  exact minimum rather than an estimate:
+
+  | accountant reads | minimum receipt | discount | distinct minima |
+  |---|---|---|---|
+  | `order` / `algebra` | **8 of 17** | 53 % | 6 |
+  | `geometry` | 9 of 17 | 47 % | 1 |
+  | `information` | 11 of 17 | 35 % | 1 |
+  | `statistics` | 12 of 17 | 29 % | 1 |
+
+  **The more a language admits, the cheaper it is to fool** — `order` admits 192 cells and 8 convince
+  it, `statistics` admits 17 and needs 12. The discount runs inversely to discrimination. `order`'s 8
+  is exhaustive within `X` and an *upper* bound on the unrestricted minimum, since a forged receipt
+  need not be a subset of what was observed; the lower bound is 5, because a sublattice of a product
+  of chains is distributive and the free distributive lattice on 4 generators has 166 elements
+  against `|order(X)| = 192`. Bracket **[5, 8]**, not closed, and the 5 is a floor from what is
+  computable here — `FD` is brute force and `n = 5` is 2³² candidates.
+
+  **The inverse reflection.** A wormhole has two ends and the dual is what swaps them:
+  `L(dual(X')) = dual(L(X')) = dual(L(X)) = L(dual(X))` whenever `L` commutes with the dual, so
+  `dual(X')` settles the far account whenever `X'` settles this one. Measured: **`order`, `algebra`,
+  `geometry` and `statistics` YES; `information` NO.** **One receipt and a reflection pays both ends,
+  for four of the five** — and the one that catches it is the one whose invariance group is trivial.
+  **That is the Clause F refinement read as a list of who can be fooled: the invariance group is the
+  forgery group.** The weaker same-side forgery — passing a dual receipt off for `X` itself — needs
+  `L(X)` setwise dual-fixed, which this index is not, so it fails here for all five; over 300 random
+  indexes it holds 126, 126, 89, 70 and 76 times, and restricted to self-dual indexes it is automatic
+  for four of the five (60/60) and *still* fails for `information` (42/60). What the file refuses:
+  it does not call the probability gain a cost reduction, does not report a minimum it did not
+  exhaust, **does not claim a cell is a unit of cost**, and does not claim the physical reflection
+  is free.
+
+- **`entail.py`** — **the inequality of inequalities, and the equality of inequalities.** Every cell
+  of the index *is* an inequality, so two relations exist between the cells that the index has never
+  carried, and neither is the coordinate order. **The equality:** exactly one pair among the seated
+  cells is one statement written twice — the Einstein and Ricci NECs, identical because
+  `G_kk − R_kk = −(R/2)g_kk` and `g_kk = 0` on a null vector. **17 cells, 16 statements**; the corpus
+  already recorded this as a quotient rather than a collision, and what is added is the count.
+
+  **The inequality:** entailment, decided by logic alone and only within a fixed tensor and regime — a
+  different tensor is a different statement, not a weaker one. Three ladders, and they do not run the
+  same way: `V` is stronger for a *larger* direction set, while `M` (pointwise → smeared → averaged →
+  achronal) and `B` (`≥ 0` → `≥` a negative bound) are stronger *lower*. That gives 22 entailments
+  among the 17 — and asking which encoding makes entailment coincide with the coordinate order, exactly
+  four sign vectors work and all four agree: **`+V −M −B`. Two of the five slots are encoded
+  backwards.** `T` and `Q` come out free because no entailment crosses a tensor or a regime, which is
+  the comparability rule restated rather than an ambiguity. A step-path search had already picked
+  `inverse M` from eight candidates on purely structural grounds; it looked only at the `V`–`M` pair,
+  so the `B` flip was outside its reach, and within the pair it could see it recovered the correct
+  flip — a convergence, reported as nothing more.
+
+  **The payment.** If `a ⟹ b`, verifying `a` discharges `b` free, so the receipt is the set of
+  `⟹`-maximal cells — **exact rather than searched**: necessary, since nothing entails a maximal cell,
+  and sufficient, since they reach all seventeen. **Six of seventeen discharge the whole index.** But
+  the six is not unconditional, and that is the honest half:
+
+  | assumptions accepted | receipt |
+  |---|---|
+  | the measure ladder only (set restriction) | 12 of 17 |
+  | + the larger-direction-set steps | 10 |
+  | + the negative-bound step | 8 |
+  | + the continuity step | 7 |
+  | all of them | **6** |
+
+  **So the two routes are priced in different currencies.** A forged receipt costs 8 cells for an
+  `order`-reading account and assumes *no physics* — it is a fact about closure operators. Entailment
+  costs 6 and assumes two steps, or 12 and assumes almost none. Cheaper in cells is dearer in
+  assumptions, and neither table dominates the other.
+
+  **And the correct encoding collapses the over-generation.** Flipping `M` and `B` is a *mixed*
+  reversal, so Clause F.2 predicts who survives — `order`/`algebra` break, `geometry` survives by
+  affine-invariance, `statistics` by reading only membership. The prediction was available before the
+  measurement and it held; the size of it was not predicted: `order` 192 (E 175) → **58** (E 41),
+  `information` 156 → **39**, `geometry` and `statistics` unmoved. **Most of the residue those
+  languages reported was the encoding.** And `statistics` returns **E = 0 in both** — the one headline
+  the index rests on does not depend on a slot's direction. Every count is a floor on the entailment
+  relation and therefore a ceiling on the receipt; nothing is repaired.
+
+  **And the largest banknote in that receipt is counterfeit.** The six are not six equal notes: the
+  one discharging the most — 5 of the other 16 — is `(matter T, timelike, pointwise, semiclassical,
+  ≥ 0)`, the **semiclassical WEC**, which the index records as **false**, the Casimir vacuum having
+  measured negative energy density in a timelike frame. The index is right to seat it, since an index
+  enumerates citations and not truths; the *receipt* is what was wrong, because **entailment from a
+  false premise is vacuous** — a refuted cell discharges nothing. Priced against truth rather than
+  citation the receipt is **8 of 17, not 6 — exactly what the forgery costs.** The entailment route's
+  whole apparent advantage over forging was one refuted condition doing the work, and both numbers now
+  print side by side.
+
+  **What is man-made here is the counterfeit.** The Casimir effect is man-made, measured, and it *is*
+  the failure of the receipt's largest note — the family's one contact with a laboratory is not a note
+  you can spend but the note nature had already forged. The negation is a genuine resource, and its
+  size is capped by quantum energy inequalities, which in this index is the **B slot** — the same
+  structure that makes the opening small.
+
+- **`synth.py`** — **the negative-energy census as an index, and the Casimir sign.** The magnitude
+  verdict is settled elsewhere and is a hard no: every known mechanism obeys Ford–Roman, the
+  requirement misses by **65 orders at metre scale**, and the gap *widens* with size. Nothing here
+  reopens it. The open question was whether the census is **complete** — "we looked and found nothing"
+  is weak, "the structure says there is nothing to find" is strong, and the closure languages can make
+  that statement. Eight mechanisms (static Casimir, squeezed vacuum, vacuum polarisation, dynamical
+  Casimir, Hawking/Unruh, static radial EM, minimal scalar VEV, non-minimal ξ) over six ordinal slots —
+  `T` and `Q` reused from the seated energy-condition axes, `S`/`E`/`G` constructed here and labelled
+  **RECONSTRUCTED** against `T`/`Q`/`D`'s **RECOVERED**:
+
+  | language | admits | E |
+  |---|---|---|
+  | order / algebra | 59 | 51 |
+  | geometry | 21 | 13 |
+  | information | 19 | 11 |
+  | **statistics** | **8** | **0** |
+
+  **The census is exactly generated by its pairwise marginals** — the same language that closed the
+  energy-condition family closes this one, and here it **demands nothing**: no ninth mechanism is being
+  asked for. **(Narrowed by `arity.py`: `E = 0` is a non-over-generation certificate, not a
+  completeness one. The measurement and its control stand exactly as made; what it establishes is that
+  the eight admit no ninth *within the values they already span*.)** **And it is not a cheap zero,** which is the only reason it is worth printing. Controls on
+  random sets of the same shape: an 8-cell set closes at E = 0 in **0.5 %**, a 7-cell set in **1.8 %**,
+  an 8-cell set with one axis dropped in **0.8 %** — against which the census holds at E = 0 in **all
+  15 conditions** (full seating, six drop-one-axis projections, eight leave-one-mechanism-out). The
+  closure is a property of the census, not of its size. It does **not** say no further mechanism
+  exists; it says the eight known ones are closed, so the index is not asking for a ninth, and a
+  mechanism outside these six axes would be invisible to it.
+
+  **On mitigating or eliminating the Casimir effect: eliminating it is not a slot move.** The Casimir
+  energy is the shift in a quantized field's zero-point spectrum caused by boundaries; boundaries
+  change the mode structure, and there is no configuration with boundaries and no shift. Suppression by
+  geometry and material is real and worth orders. Sign reversal is real under two sharp conditions —
+  **Kenneth–Klich** (reflection positivity forces a mirror-symmetric pair to *attract*, so parity
+  breaking is **necessary**, a no-go rather than a difficulty) and **Munday–Capasso–Parsegian**
+  (*Nature* **457**, 2009), who measured repulsion in gold–bromobenzene–silica by breaking symmetry
+  with the *medium*, under `ε₁ > ε₃ > ε₂` across the relevant frequency range. **That ordering is a
+  spectral query, and it is the one place a spectral index bites on this problem** — not on magnitude,
+  which Ford–Roman caps and Casimir saturates, but on the sign. **The sting: repulsion is the wrong
+  direction.** A repulsive Casimir–Lifshitz configuration has *positive* interaction energy, so
+  mitigating the effect spends the only man-made negative energy density in the census to buy it. Real
+  technique, real measurement, orthogonal to a throat — it is anti-stiction for small mechanical
+  devices. **Can it be mitigated: yes. Should it be, here: no — the thing being mitigated is the asset.**
+
+- **`limitaxis.py`** — **extending the periodic index to exotic matter, and the one axis it turns out
+  to be missing.** Eight negative-energy mechanisms were put to the 25 periodic axes — seated,
+  measured, then attacked by two hostile lenses each, 28 agents, no errors. **Zero of eight survived
+  both lenses**, which is reported before anything else: what follows is what remained after every
+  proposed seating broke. What broke was almost always the *magnitude*; what held was the
+  *classification*.
+
+  **No mechanism takes a row, and the refusal is mechanical** — 24 of the (then) 25 axes are functions of
+  `(Z, charge, n, l)`, and the instrument raises rather than degrades. The static Casimir null is
+  **exact, not small**: of the measured spectra table's **104,832 rows, zero** carry a boundary,
+  cavity, plate or separation token; every row is a free atom or ion, a free atom sits at infinite
+  separation, and the density goes as the inverse fourth power.
+
+  **The ladder is the exact comparison that was asked for**, run through the one axis with a published
+  resolution — the measured quantum defect, finest recorded step `1e-05`: vacuum polarisation `~1e-04`
+  at high Z (**above**), Casimir–Polder `2.5e-06` at 10 nm (**below**; above at 6.3 nm), static Casimir **exactly 0**, squeezed
+  vacuum and dynamical Casimir **no axis at all**, Hawking/Unruh at 1 g `~1e-24`, non-minimal scalar
+  `~1e-29`, minimal scalar VEV `~1e-69` relative. **The index boundary runs between the two Casimir
+  mechanisms** — static Casimir survives removing every electron, so it is off-index; Casimir–Polder's
+  coefficient contains an electronic-structure moment, so it is *on* the index and clears the resolution
+  at **six** nanometres — see the correction below.
+
+  **The missing axis.** The one measurably present mechanism is vacuum polarisation — and it is not on
+  the defect axis, because the corpus already ruled where QED sits. Register 3253, quoted from the
+  seated member: *"the QED was real and it was in the LIMIT, not in the levels."* Li III's limit was
+  recorded as the bare Coulomb `Z²R = 987,635.841`; fitted from the series it is
+  **987,662.29 ± 0.36, higher by 26.45**, and the compendia add that the limit **must be measured, not
+  computed** and that a shift of even 0.2 changes the defect's behaviour in `n` — against which 26.45
+  is 132× the stated tolerance. **And the series limit was not one of the 25 axes; the word did not
+  occur in the instrument at all.** So the extension asked for is not a row and not a mechanism
+  column — **it is a 26th axis: the measured series limit, with its uncertainty.** **It has since been
+  seated**: `READ` where a source printed the value, `FITTED` where a run recovered it, `None` where
+  neither — four stages banked out of every stage of every element, an absent limit meaning
+  levels-only rather than a guess, per register 2469's withdrawal of ten channels built on an invented
+  one. `populate.py` now carries 26 axes and 103 selftest fixtures, up from 25 and 77.
+
+  **And the number that was to clinch it is withdrawn.** The seating pass decomposed the 26.45 into
+  four terms with no free parameter, summing to +26.13 against +26.45 — 1.2 % agreement, read as
+  vacuum polarisation being quantitatively seated. **An independent recomputation does not reproduce
+  it**: reduced mass (−77.22 vs −77.27) and Dirac 1s (+118.33, exact) replicate, but self-energy
+  (+7.76 vs −15.52) and vacuum polarisation (−0.29 vs +0.59) differ in **both sign and magnitude**,
+  and the independent sum of +48.58 misses the banked deficit by 84 %. Neither decomposition is
+  banked — **and then the withdrawal was itself withdrawn, because the check was wrong and the
+  decomposition was right.** The recomputation used prefactors `4/(3π)` and `4/(15π)`; with
+  `mc² = 2R∞/α²` the correct ones are **`8/(3π)` and `8/(15π)`** — a factor of two. Corrected, every
+  term lands where it was first reported (self-energy −15.52, vacuum polarisation +0.59, sum +26.19
+  against the corpus's 26.45, **1.0 %**), and it is **anchored outside the tree**: the same expression
+  gives the hydrogen 1s vacuum-polarisation shift as **−217.0 MHz against a literature −217 MHz**,
+  where a factor of two would have shown up at once. It is also consistent with register 3353's
+  two-term form against the reduced-mass baseline — Lamb = 14.93, Dirac − Lamb = 103.39 against the
+  banked 103.94, ratio 0.8738 against 0.8849, the 1.3 % being higher-order Lamb terms. **A correct
+  result was withdrawn on a broken check and the withdrawal was published**; that is recorded rather
+  than smoothed, and the selftest now pins the corrected prefactors against the external anchor.
+  Status **RESOLVED**.
+
+  **The mechanisms populated against the new axis.** Every banked species is a *free ion*, which
+  decides seven of eight immediately — static Casimir needs boundaries, Casimir–Polder a surface,
+  squeezed vacuum a prepared state, dynamical Casimir boundaries in motion, Hawking/Unruh proper
+  acceleration, and the EM and scalar cases saturate with no level shift. **All exactly zero.** One is
+  not:
+
+  | species | Z | VP (cm⁻¹) | fitted σ | VP/σ |
+  |---|---|---|---|---|
+  | Li III | 3 | 0.5864 | 0.36 | **1.63** |
+  | B V | 5 | 4.5246 | 1.95 | **2.32** |
+
+  **And the significance grows with Z**, because the shift goes as `Z⁴` while the fit uncertainty does
+  not. Dropping vacuum polarisation moves the predicted limit by more than the error bar on the
+  measurement, at both banked species and more so at the heavier. **Exotic matter is present in the
+  periodic index at exactly one place, in one mechanism, at a stated significance — and it is present
+  in the limit, which is why it was invisible while the limit was not an axis.** The structural finding does not depend on it — the ruling is quoted
+  from the member, the deficit is the corpus's own banked number, and the absence of the limit from
+  the axes is a fact about the instrument.
+
+- **`twoindex.py`** — **are they two indices, and do they oscillate into each other?** Two indices
+  cannot be intersected until they share coordinates, and a forced embedding manufactures whichever
+  answer it is pointed at — so the axes are only those both sides genuinely carry, and every one was
+  established by earlier measurement rather than invented here: `L` enters the ionisation limit, `Q`
+  regime, `E` evidential directness, `S` scaling with nuclear charge. Four axes, a 36-cell box. **That
+  thinness is the measurement, not a defect**: there were no further genuinely shared axes to use.
+
+  **The intersection is empty.** Nine mechanisms collapse to 5 distinct cells, seven periodic entries
+  to 3, and **no cell is shared** — no control needed. *The first half is answered yes: they are two
+  indices.*
+
+  **They interact under closure — and so would any two sets.** Closing the union admits cells that
+  closing each part does not (order 24 vs 13, geometry 20 vs 10, statistics 11 vs 9). But over 600
+  random disjoint 5+3 splits of the same box, a statistics interaction term of **≥ 2 occurs 81.7 % of
+  the time with a mean of 4.16** — so the measured 2 is *below* the random average, and ≤ 2 is itself
+  unremarkable at 30.7 %. **The test does not decide, and is reported as not deciding**; an
+  interaction term in a shared product box is generic, and reading one as a physical coupling would be
+  reading the box.
+
+  **The oscillation test is a clean no.** If two indices are one oscillating system, the closure of
+  either should *anticipate* cells of the other. Hide one, close the other: **0 of 5 and 0 of 3, in
+  both directions, under all five languages.** And the control is worse than zero for the claim — a
+  random three-cell set recovers exotic cells at a mean of 0.55 under `order`, so **an arbitrary set
+  anticipates the exotic index better than the periodic index does.** *The second half is answered no.*
+
+  **And the two results are one result.** Every exotic mechanism but one contributes exactly zero to a
+  free ion's limit — boundaries, prepared states, moving mirrors and proper acceleration are all
+  absent from a free atom — so the whole contact between the indices is **one mechanism touching one
+  quantity**. **A one-dimensional intersection is a contact, not a coupling**: there is no second point
+  to define a direction with, so there is nothing for an oscillation to run along, and the zero is what
+  a single point of contact *must* look like under any test of this shape. **What would change it:** a
+  second genuine contact. Casimir–Polder touches electronic structure through the static polarisability
+  and clears the defect resolution at six nanometres — but it is zero on a *free* ion, and every banked
+  species is free. **A bound system held near a surface would populate a second point, and two points
+  admit a direction.** That is a capture, not a calculation.
+
+- **`twoway.py`** — **how the two indices talk, and in which language.** The anticipation test returned
+  zero both ways; this asks the weaker and more useful question. A language **closes** an index when
+  `L(X) = X` — it says exactly what is there and nothing more — so a language that over-generates
+  cannot carry a claim about that index without importing cells the index denies. **The languages that
+  close an index are its available channels.**
+
+  | index | order | algebra | geometry | information | statistics |
+  |---|---|---|---|---|---|
+  | exotic mechanisms (8) | 51 | 51 | 13 | 11 | **0** |
+  | periodic layout (90) | 36 | 36 | 36 | **0** | **0** |
+  | Janet `(n+ℓ, ℓ)` (19) | **0** | **0** | **0** | **0** | **0** |
+
+  The channel sets are **strictly nested**: `closes(exotic) = {statistics} ⊊ closes(layout) =
+  {statistics, information} ⊊ closes(Janet) = all five`. **And it is not a cheap result** — over 300
+  random sets of the same size in the same box, drawn per index, **every single one was closed by
+  exactly one language, 300/300, both boxes, never two and never five.**
+
+  **`statistics` is the only two-way channel**, against either periodic index. `information` is
+  one-way (periodic only). **And nothing is exotic-only** — there is no language that closes the
+  exotic index and fails to close a periodic one, so the asymmetry runs one way without exception.
+  **The exotic index is the harder of the two to speak about**: anything sayable about it without
+  over-claiming is also sayable about the periodic table, and not the reverse.
+
+  **A second ordering, on indexes rather than languages.** The nesting orders three indexes by how many
+  languages close them — 1, 2, 5. The hierarchy law orders *operators on a fixed index*; this orders
+  *indexes by which operators they admit*. Different objects, and the second does not follow from the
+  first — the law says nothing about which index any operator will close. **And the Janet layout is the
+  maximally agreeable index**: all five languages exactly generate it, at a control rate of 0 in 300.
+  The corpus already records `(n+ℓ, ℓ)` at `E = 0`; what is added is that this holds in *every*
+  language, where the drawn eighteen-column layout misses by 36 cells in three of the five.
+
+- **`arity.py`** — **the index has no arity coordinate, and one seated cell is mis-named because of
+  it.** Found while testing whether reported flight signatures suggest anything about the index: two of
+  seven hypotheses survived three hostile lenses each, and both arrived independently at the same
+  structural fault, which is not about flight at all.
+
+  The index declares one shape — `T_mn v^m v^n ≥ B`, **one** vector twice. **DEC is bilinear on an
+  ordered pair**, `T_mn v^m w^n ≥ 0` for all future-causal `v, w`, and a quadratic form cannot express
+  it. So `V = 2` ("causal, both"), read under the declared form, says `T_vv ≥ 0` for every causal
+  `v` — which is **WEC ∧ NEC, not DEC**. Verified independently at `ρ = 1, p = 2`: the quadratic
+  reading's minimum over future-causal directions is `+1.0` (**cell holds**), while `v = (1,1,0,0)` and
+  `w = (1,−1,0,0)`, both future null, give `T(v,v) = +3`, `T(w,w) = +3`, **`T(v,w) = −1`** (**DEC
+  fails**). Textbook agrees with the second: DEC needs `ρ ≥ |p|`, and `1 ≥ 2` is false, while WEC
+  holds. **The cell is WEC wearing DEC's name.**
+
+  **And the tree already held the contradiction.** A seated instrument codes
+  `(NEC, WEC, SEC, DEC) = (1+w ≥ 0, 1+w ≥ 0, 1+3w ≥ 0, 1 ≥ |w|)` — a *bilinear* DEC — and returns
+  **DEC False** at `w = 2`, where the index cell of the same name returns **True**. Two seated readings
+  of DEC, disagreeing on a case both can evaluate, unrecorded until now.
+
+  **Why the closure never demanded it, and what `E = 0` certifies.** *An admitted cell bears only
+  coordinate values the index already bears* — the ambient box **is** the product of the observed value
+  sets, so a cell needing an unborne value is not in the box to be admitted. Machine-checked over
+  2³⁶/2²⁷/2³⁶ subsets by the pass that found it, and independently sampled here at **0 violations over
+  400 random indexes, all five languages**. **So `E = 0` is a non-over-generation certificate, not a
+  completeness one** — a missing condition needing a new arity, tensor or measure is invisible to it by
+  construction. That narrows every `E = 0` in this tree, including the ones seated today; the
+  measurements and their controls stand exactly as made, the *readings* narrow.
+
+  **This has since been repaired on instruction.** The arity coordinate `A` is now seated
+  (`0` quadratic, `1` bilinear, starting at 0 so cypher's re-ranking stays the identity — the drift the
+  module itself warns about was live here). The mis-named cell is **kept and renamed
+  `causal-quadratic`** rather than deleted, and the true bilinear `DEC` seated beside it — the same
+  treatment the `G = R` identity already gets, where two cells stand and the identification is recorded
+  as a **quotient**, not a collision. A second quotient is now recorded with it: at `A = 0` the `V`
+  coordinate is not faithful between 1 and 2, since for a continuous tensor `T_vv ≥ 0` over all
+  timelike `v` already gives it over all causal `v`.
+
+  **What moved:** 17 cells → **18**, box 288 → **576**, order/algebra 192 → **256**, geometry 29 →
+  **30**, information 156 → **208**. **`statistics` still closes the family at `E = 0`**, and
+  `geometry`/`information` are **still incomparable** — both structural results survive the correction.
+  Downstream: `entail.py` gained a real arity ladder (bilinear entails quadratic, never the reverse),
+  and with it **entailment now beats forgery, 8 against 9, where before the arity fix the two were
+  tied at 8**. `barter.py` and `reslice.py` were made dimension-agnostic rather than re-pinned. The
+  paper's one affected row moved 29/156 → 30/208 with its **INCOMPARABLE** verdict and the direction of
+  the size difference both unchanged.
+
+- **`xigate.py`** — **the T = 1 gate is an exchange rate, not a wall.** The non-minimal route is the
+  only door in this tree that *overshoots* on magnitude (~1200×), and its gate was recorded as the
+  hierarchy problem: `ξ_required = (v/M_red)⁻² = 9.78 × 10³¹` at the Higgs VEV, 10²⁷ above what Higgs
+  inflation uses. True, and not the whole statement. **`ξ_required = (M_red/φ)²` falls as the square of
+  the field scale, and the Higgs VEV is simply small** — at the GUT scale the required coupling is
+  **1.48 × 10⁴, one and a half times a value already in the cosmology literature.** The 10²⁷ shortfall
+  belongs to the Higgs, not to the route.
+
+  **But the throat closes at the same place, and the relation is exact.** At the gate `ξφ² = M_red²`,
+  so the effective Planck scale *is* the field scale and the geometry is modified at the field's own
+  Compton length:
+
+  | field scale | ξ required | throat | in ℓ_P |
+  |---|---|---|---|
+  | Higgs VEV | 9.78e31 | 8.0e−19 m | 5.0e16 |
+  | see-saw | 5.93e14 | 2.0e−27 m | 1.2e8 |
+  | **GUT scale** | **1.48e4** | 9.9e−33 m | **610** |
+  | reduced Planck | 1.00 | 8.1e−35 m | 5.0 |
+
+  > **`ξ_required = (throat / ℓ_P)² / 8π`** — verified at five scales spanning sixteen orders, ratio
+  > 1.000000 at each. The `8π` is `M_Planck²/M_red²`, not a fit.
+
+  **So the gate is an exchange rate.** A reachable coupling is buyable and the price is throat size,
+  one for one, at a fixed rate — and it cannot be paid down, because `ξ` and the throat are the same
+  function of `φ`. **The route is not blocked by the hierarchy problem; it is blocked because its two
+  requirements are the same requirement seen twice.** At the only field scale where the coupling is
+  ordinary, the throat is 610 Planck lengths. **This is `scale.py`'s theorem arriving from a new
+  direction** — that file proved every route crosses within two orders of `ℓ_P` and proved the
+  convergence *inevitable*; T = 1 was the one candidate that overshot, and pushing it reproduces the
+  crossing with an exact coefficient instead of a coincidence. What would move it — a gate that is not
+  `φ² > κ/ξ`, a throat set by a second scale the single-field ansatz lacks, or a way to *localise* a
+  high-scale VEV — is in each case a different model, not a number.
+
+- **`master.py`** — **the index whose cells are indexes.** A wide table laying every index's own axes
+  side by side cannot be built honestly: indexes with no shared coordinate cannot be intersected, and a
+  forced embedding manufactures its answer. So this is built one level up — **cells are the indexes**,
+  coordinates are properties every index has: how many of the five languages close it (`C`), whether
+  `statistics` does (`Sc`), whether `order` does (`Oc`), arity band, density band. **The language index
+  enters as `C`, `Sc`, `Oc`** — the only structure every index shares, which is why it is vital rather
+  than an appendage.
+
+  | index | cells | arity | box | density | closes | master cell |
+  |---|---|---|---|---|---|---|
+  | energy-condition family | 18 | 6 | 576 | 3.1 % | statistics | (1,1,0,2,0) |
+  | exotic mechanisms | 8 | 6 | 540 | 1.5 % | statistics | (1,1,0,2,0) |
+  | periodic layout 2-D | 90 | 2 | 126 | 71.4 % | information, statistics | (2,1,0,0,3) |
+  | periodic layout 3-D | 80 | 3 | 378 | 21.2 % | **nothing** | (0,0,0,1,1) |
+  | Janet `(n+ℓ, ℓ, k)` | 120 | 3 | 448 | 26.8 % | all five | (5,1,1,1,1) |
+  | the languages | 5 | 5 | 48 | 10.4 % | **nothing** | (0,0,0,2,1) |
+  | substances (Hawking–Ellis) | 8 | 4 | 24 | 33.3 % | **nothing** | (0,0,0,1,2) |
+  | spacetimes (Petrov) | 8 | 4 | 80 | 10.0 % | statistics | (1,1,0,1,1) |
+  | bounds | 8 | 6 | 216 | 3.7 % | **nothing** | (0,0,0,2,0) |
+  | **questions** | **4** | **5** | **72** | **5.6 %** | **statistics** | **(1,1,0,2,1)** |
+
+  **Ten indexes, nine distinct master cells, and the master index CLOSES in `statistics` at E = 0.**
+  Two rows moved after this table was first written and neither moved by a re-reading: DOCKET 1(a)
+  replaced Janet's arity-2 `(n+ℓ, ℓ)` coarsening with the complete 120-cell `(n+ℓ, ℓ, k)` table, and
+  DOCKET 8 seated `questions`. The question index lands on **(1,1,0,2,1)** — the cell the master index
+  demanded at eight — and returns it to closure. **That is a closure fact and not the demand met**:
+  DOCKET 5 had already deleted the demand as a prediction, the fill holds in only 8 of 40 bandings, and
+  a random same-shaped set in the question index's own box lands on that cell **22.4 %** of the time
+  against **0.02 %** for bounds. Four qualifications, all pinned in `master.py --selftest`; DOCKET 8's
+  closing section states them together.
+
+  **Five candidates were adjudicated against `necindex`'s bar — a family of named members sharing one
+  declared form over ordinal slots — and none is an index.** Two are coordinates, three are quantities,
+  and each names where it *already lives*, which is more useful than an absence:
+  **velocity** (quantity — the *argument* the energy-condition family is evaluated at; twelve named
+  velocities over six physical dimensions, and the `V` slot is **causal character, not velocity**: the
+  form is homogeneous of degree 2 and blind to `|v|`, 0 sign changes in 6,000 exact-rational draws
+  against a direction control flipping 633/2,000), **electromagnetic** (coordinate — the algebraic
+  classification of `F_μν` by its two invariants), **radiation** (coordinate — Hawking–Ellis **Type
+  II**, one value on the algebraic-type axis of `T^μ_ν`), **magnitude** and **amplitude** (quantities,
+  entering seated indexes only as bounds and dimensionless rows). **So the master index does not grow.**
+  One candidate surfaced while ruling radiation out — the **Hawking–Ellis algebraic type** (I, II, III,
+  IV) is a real named family, but by the same bar it is one ordinal axis with nothing beside it, whose
+  natural home is a further axis on the energy-condition family rather than a new index. Recorded, not
+  built.
+
+  **Four of the nine seated indexes close in nothing, and `statistics` therefore does not always
+  close** — refuting the open question directly. In two coordinates the periodic layout closes in two
+  languages; **add the block coordinate and every language over-generates.** And **the language index
+  closes in no language**: not one of the five operators returns it exactly. *The languages cannot
+  exactly describe themselves.* The substances close in nothing, and since the correction **the bounds
+  index closes in nothing either** — it was two when this was first written and the count has moved
+  twice. The channel sets are still totally ordered here — `{}` ⊂ `{statistics}` ⊂
+  `{statistics, information}` ⊂ all five — but the bottom of the chain is **empty**, not `{statistics}`.
+
+  **`statistics` came closest to closing the master index and no longer does** — at eight indexes
+  E = 1, and after the bounds correction still **E = 1** (`statistics` 9 against 8 cells; `geometry`
+  E = 5, `information` E = 11, `order` and `algebra` E = 22 each). It is the tightest by a wide margin
+  and the only one that ever reached E = 0 here. And one identification falls out: the
+  **energy-condition family and the exotic mechanisms occupy the same master cell** — same channel set,
+  arity band and density band. *At this level they are one object, while sharing no cell at all.*
+
+  **It closed at six, demanded at eight, was reported closed again at nine — and that ninth closure is
+  withdrawn.** Seating the substance and Petrov indexes took it from E = 0 to **E = 1**: it stopped
+  closing and began *demanding*, which is the mechanism firing, since a demand needs its values borne
+  first and a sparse master index cannot demand at all. Seating the bounds index *as first written*
+  took it back to E = 0. Completing the bounds family — one missing coordinate, one missing member —
+  moves that index off the demanded cell, and the master index is back at **E = 1 with the same demand
+  outstanding**. Nine indexes, eight distinct master cells. See *the demand was filled, and the fill is
+  withdrawn*, below.
+
+  **The one meet between "independent" indexes is spurious, and finding that is the point.** Of the
+  equal-arity pairs, `periodic layout 2-D` and `Janet` share **nine tuples** — but `(period, group)` and
+  `(n+ℓ, ℓ)` are different coordinate systems that happen to be pairs of small integers. The true
+  relation is a **reindexing**, a bijection on the same elements, not an overlap of cells. Looking for
+  meets found one and inspecting it found the exact failure mode the construction exists to avoid.
+
+  **Space and time enter one cell at a time, with one pairwise bond.** Spacetime is not a cell here — it
+  is already inside one indexed index, as `V` (which directions are quantified over) and `M` (the
+  measure along a geodesic), and nowhere else. `V = 0` null and `V = 1` timelike are single cells;
+  **`V = 2` causal is both — a pairwise bond.** And the bond is **arity-dependent**: at `A = 0`
+  (quadratic) it *collapses*, since over a continuous tensor the timelike condition already gives the
+  causal one; at `A = 1` (bilinear) it *stands*, DEC over an ordered causal pair being strictly
+  stronger. No three-way bond is seated — nothing quantifies over an ordered triple.
+
+  **Populated: the spectra index is seventy indexes, not one.** On the *full* spectra table the split
+  is degenerate — the `(l, mult)` grid is complete for all **7,260** species, so every one is a product
+  box and closes in all five for no reason but shape. On the **358 rows graded `measured` and marked
+  `witnessed`** — the sourced seed, with the rest of the table computed from it — it is informative:
+  **70 species with ≥2 witnessed channels, and their channel sets vary** (all five: 60; `{geometry,
+  statistics}`: 4; `{information, statistics}`: 4; `{statistics}` alone: 2).
+
+  Seating them takes the master index to **79 indexes over 11 distinct cells**, box 192, density 5.7 %
+  — and after the bounds correction it is **`statistics` E = 1 there too**, the same deficit the seated
+  master index carries. *(Before the correction it closed, E = 0. The populated reading tracks the
+  seated one and is not an independent check on it.)*
+
+  **And the same control failed the same way twice, which is worth more than the number it produced.**
+  An early pass ran it at **200 draws**, read 0 %, and concluded closure *dies* as the master index
+  populates: the true rate at that box was 0.90 %, and **the control was wrong, not just the conclusion
+  drawn from it.** Seating the bounds index widened the populated box from 132 cells to 192, and at
+  **2,000 draws the control read zero again** — the identical reading, now on a rarer event. Resolved
+  at 400,000 draws it is **14 hits, 3.5 × 10⁻⁵** — about one in twenty-eight thousand. *A zero is an upper bound,
+  never a rate*, and the draw count that resolves a control is a property of the box, not a constant
+  you can carry forward.
+
+- **`bounds.py`** — **the bounds index: the right-hand sides, as a family.** Every member of the
+  energy-condition family has a right-hand side, and the `B` slot orders those by how much negativity
+  each licenses. That slot is a **coordinate** of that index. The bounds themselves are a **family**,
+  with their own members and their own slots, and this is it — **nine named bounds over six slots,
+  giving eight distinct cells in a box of 216**: what is bounded (`W`: pointwise density / smeared or
+  averaged / entropy), the bound's value (`B`: zero / a negative constant / a state functional),
+  whether the RHS is state-dependent (`S`), whether gravity enters (`G`), whether it is known
+  saturated (`K`), and **what the smearing runs over (`Z`: pointwise / timelike or null / spacelike or
+  region)**. `B` deliberately **reuses the energy-condition family's own bound ladder** rather than
+  inventing a coding, so the two indexes agree where they overlap.
+
+  | bound | W | B | S | G | K | Z | |
+  |---|---|---|---|---|---|---|---|
+  | zero (the NEC's RHS) | 0 | 0 | 0 | 0 | 0 | 0 | saturated by the vacuum and by EM |
+  | ANEC | 1 | 0 | 0 | 0 | 0 | 1 | averaged, RHS zero |
+  | SNEC | 1 | 1 | 0 | 0 | 1 | 1 | smeared null |
+  | Ford–Roman QI | 1 | 1 | 0 | 0 | 0 | 1 | **Casimir saturates it** |
+  | Fewster–Osterbrink QEI | 1 | 1 | 0 | 0 | 1 | 1 | state-independent; shares SNEC's cell |
+  | QNEC | 0 | 2 | 1 | 0 | 1 | 0 | entropy variation on the RHS |
+  | **Casini (relative entropy)** | 2 | 2 | 1 | 0 | 1 | 2 | `ΔS_A ≤ Δ⟨H_A⟩`; **seated late, and it costs this file four claims** |
+  | Bekenstein | 2 | 1 | 0 | 1 | 0 | 2 | saturated by black holes |
+  | Bousso covariant | 2 | 1 | 0 | 1 | 1 | 2 | lightsheets |
+
+  **The `Z` slot is there because a theorem turns on it.** Ford, Helfer and Roman prove a quantum
+  energy inequality *exists* for timelike and null smearing and **provably does not exist** for a purely
+  spatial average. The `W` slot says what is bounded and says nothing about what the average runs over,
+  so a distinction the literature settles by theorem was invisible here. It splits the nine **two /
+  four / three** — pointwise `{zero, QNEC}`, timelike-or-null `{ANEC, SNEC, Ford–Roman,
+  Fewster–Osterbrink}`, spacelike-or-region `{Casini, Bekenstein, Bousso}` — and that third group is
+  exactly the set for which no QEI is available. **A ball integral is a `Z = 2` object**, and that is
+  the whole content of the requirement's collision with the quantum inequalities: it is not that a ball
+  integral evades the bounds, it is that the only bounds that reach it are the entropy bounds.
+
+  Two things the slot table makes visible that the `B` slot alone cannot. **The gravity split:** two of
+  the nine have gravity in them and seven do not — the seven are statements about quantum field theory
+  on a fixed background, the two about spacetime, and that division is invisible from inside the
+  energy-condition family where every bound is just a value of `B`. **And saturation is a property of
+  the bound, not of the condition:** four of the nine are known saturated — zero by the vacuum and by
+  the electromagnetic field, ANEC by the vacuum along a complete null geodesic, **Ford–Roman by
+  Casimir**, Bekenstein by black holes. That is which walls have already been reached, and it is the
+  difference between a bound that is a *limit* and one that is an *estimate*. It is also the sharpest
+  statement of why the negative-energy census comes out as it does: **Casimir is the Ford–Roman bound
+  saturated, not an exception to it**, which is why no material choice crosses it. *(The saturated count
+  was written as three on the first pass, omitting ANEC; the table was right and the sentence was wrong,
+  and the selftest is what caught it.)*
+
+  One collision survives: **SNEC and Fewster–Osterbrink occupy the same cell.** **The index is closed by
+  nothing** — `statistics` and `information` are the tightest at `E = 2`, `order` and `algebra` at
+  `E = 6` — and it demands two cells, `(2,1,0,0,0,2)` and `(2,1,0,0,1,2)`: *a non-gravitational entropy
+  bound with a constant RHS on a spacelike region.*
+
+  **Seating Casini costs this file four of its own claims**, and every one of them was a coincidence of
+  the family being exactly eight members:
+
+  | claim, as first written | now |
+  |---|---|
+  | every entropy bound is gravitational | **false** — Casini has no `G` |
+  | the two gravitational bounds are exactly the two entropy bounds | **false** — there are three entropy bounds |
+  | only QNEC has a state-dependent RHS | **false** — Casini too |
+  | `statistics` closes the bounds index | **false** — `E = 2`, and nothing closes it |
+
+### The demand was filled, and the fill is withdrawn
+
+**At eight indexes the master index stopped closing and named exactly one missing cell. The ninth index
+seated occupied it exactly, the master index closed again — and that result does not survive completing
+the bounds family.**
+
+The demand was `(C, Sc, Oc, D, R) = (1, 1, 0, 2, 1)` — *closed by one language and that language
+`statistics`, not `order`; five or more coordinates; density between 5 % and 30 %.* Nothing seated
+occupied it, and **none of the 78 indexes reachable once the witnessed spectra are sliced per species
+occupied it either.** It was recorded as falsifiable: an index with those properties either exists and
+has not been seated, or does not exist and the structure is over-reaching.
+
+**The bounds index as first written occupied it exactly** — eight bounds, seven cells, five
+coordinates, box 72, density 9.7 %, closed by `statistics` and nothing else. That was reported with two
+caveats: the demanded cell was measured and printed *before* the bounds index was written, so it was
+never a sealed envelope; and the fill held in only 10 of 40 arity × density bandings.
+
+**Both caveats were true. Neither was the one that mattered.**
+
+Completing the family destroys the fill, and **two independent completions each suffice on their own**:
+
+- **A coordinate was missing** — the `Z` smearing signature above. Adding it alone, with the same eight
+  members, the family still closes under `statistics` but its master cell moves to `(1, 1, 0, 2, 0)`:
+  the density falls out of the band. **The demand is no longer filled.**
+- **A member was missing** — Casini's relative-entropy bound (arXiv:0804.2182; Blanco and Casini,
+  PRL **111** 221601), an entropy bounded by a modular energy, the same species as Bekenstein and QNEC
+  which were already seated. It was simply not there. Adding *it* alone, without the `Z` slot, the
+  family **stops closing** (`E = 2` under `statistics`) and the master cell moves to `(0, 0, 0, 2, 1)`.
+  **The demand is not filled either way.**
+
+**So the fill rested on that family being exactly eight members in exactly five coordinates — fragile
+to MEMBERSHIP, which is a fact about the literature, and not merely to banding, which is a choice.**
+The caveat that was carried was not the caveat that killed it. *A caveat correctly stated is not a
+caveat correctly chosen.*
+
+**The state now, measured:** nine indexes, eight distinct cells; `order` 30 (`E` 22), `algebra` 30
+(`E` 22), `geometry` 13 (`E` 5), `information` 19 (`E` 11), **`statistics` 9 (`E` 1)**. The master
+index **does not close, and it still demands `(1, 1, 0, 2, 1)`.** Four indexes now close in no
+language — bounds has joined periodic 3-D, the substances and the languages. Populated, 79 indexes over
+11 cells, still `E = 1`. Over the forty bandings the demand exists in **23** and the bounds index fills
+it in **0**. The master cell of the completed bounds index is `(0, 0, 0, 2, 0)`.
+
+**What survives, and it is not nothing.** The demand itself is untouched and still open: *an index
+closed by `statistics` alone, five or more coordinates, 5–30 % density* — a falsifiable prediction that
+nothing in this corpus currently occupies. What is withdrawn is the claim that something already did.
+And the closure-signature statistic that made the original hit interesting was measured on the
+seven-cell box and is not transferable: against 20,000 random 7-cell sets drawn from the same 72-cell
+box the signature `C = 1, Sc = 1, Oc = 0` came out **1.06 %** of the time, and 211 of the 212 that
+matched also matched the density band. That number described a landing that has since moved off the
+cell; it is recorded as what was measured, not as support for anything now.
+
+**What the episode is worth** is the failure mode, which is the one this tree keeps finding in its own
+work: a result that rested on a family being complete when it was not. The banding caveat was correctly
+stated, prominently carried, and irrelevant. It is also the reason `bounds.py` now pins its own
+membership and arity in a selftest — the withdrawal was found by adding a member, and the pins are what
+make the next addition report rather than pass silently.
+
+### The channel lattice has two readings, and they disagree
+
+M, on the atomic obstruction: *"it suggests another unidentified axis, or even an overlap
+interaction with another master index. And the cell connects the two, creating the same value, same
+languages, but different shape obstruction in two indexes."* **That is right, and `duality.py` is the
+measurement.**
+
+A **channel set** — which languages *close* an index — is a down-set because closure propagates
+downward. **There is a second reading of the same eight positions, forced for the dual reason.** Say
+`L` **refuses** a cell `c` when `c ∉ cl_L(X)`. If `cl(a) ⊆ cl(b)` and `c` escapes `cl(b)`, it escapes
+`cl(a)` too — **refusal propagates downward as well**, so a **refusal set** is a down-set of the very
+same order. Measured over every cell of every seated index: **0 violations.**
+
+Two kinds of object, one lattice, and **the cell is what joins them** — a cell lives in an index, the
+index carries the channel reading, the cell carries the refusal reading.
+
+**And the readings disagree about which positions exist.**
+
+| K | channel set | as a channel | as a refusal |
+|---|---|---|---|
+| K0 | `{}` | seated ×4 | 257 cells |
+| **K1** | `{information}` | **vacant** | **3 cells** |
+| K2 | `{statistics}` | seated ×3 | 10 |
+| K3 | `{geometry, statistics}` | species ×4 | 248 |
+| K4 | `{information, statistics}` | seated ×1 | 208 |
+| **K5** | `{geometry, information, statistics}` | **vacant** | 87 |
+| K6 | `{algebra, information, order, statistics}` | witness | 7 |
+| K7 | all five | seated ×1 | 1200 |
+
+**Six of eight are occupied as channel sets; all eight as refusal sets.** The two nothing occupies as
+a channel are both reached by cells. And the shape differs exactly as predicted: an index carries an
+**arity and a density**, a cell decision carries **neither**. *Same value, same languages, different
+shape.*
+
+**K1 is the rarest thing in the corpus — three cells in 2,020, 0.15 % — and the warp obstruction is at
+it.** *(One cell in 1,876 before the bounds correction; completing that family added the other two, and
+it stays the rarest of the eight by a factor of three.)*
+
+**And all three name the same shape.** The two new ones are in the **bounds index**, at
+`(2,1,0,0,0,2)` and `(2,1,0,0,1,2)` — *a non-gravitational entropy bound with a constant RHS on a
+spacelike region*, which is what the completed bounds family asks for and does not have. They are
+exactly what that index's **tightest** languages demand: `information` and `statistics`, at `E = 2`
+each. *(Stated at its true strength: this is not everything the index demands — the union over all
+five languages is six cells. And it is half true by construction, since a K1 refusal is refused by
+`information` and admitted by the rest, so the tightest demand and the K1 set coincide whenever
+`information` is tightest. What is measured, and could have gone otherwise, is that it **is** tightest
+there.)* Neither cell was put there; both fell out of seating Casini and the `Z` slot.
+
+**The original instance is the one that names the shape most legibly.** It is `(period 4, group 11,
+s-block)` in the periodic layout read in three coordinates, and no element sits there. Every *pair* of
+its coordinates is present:
+
+- period 4 + group 11 → **copper**, at the d-block
+- period 4 + s-block → potassium, calcium
+- group 11 + s-block → **silver**, at period 5
+
+**Every pair exists. The triple does not.** `statistics` admits the cell because every 2-marginal is
+present; `information` is the **join** closure and refuses because the join of available things is not
+itself available.
+
+> **A K1 refusal is: every pair of requirements is jointly satisfiable, and the full combination is
+> not.**
+
+That is a statement about the warp obstruction nothing in this tree had made. `expand.py` said *what
+is missing is a value, not a structure*; this says **the value is missing in the shape of a join** —
+the refusal is not a missing ingredient and not a bad pair.
+
+**And the atomicity is real, not an artefact of the coordinates.** `information` and `statistics` are
+the **two minimal elements** of the containment order — nothing is lawfully below either — so a
+refusal at one has nothing smaller to fall back to. It points at a missing **containment**, not a
+missing axis: if `statistics` were below `information`, `{information}` would not be a lawful down-set
+at all. **Statistics admits, so the warp cell is a live witness that `statistics ≤ information` is not
+a law** — the same containment `rubik.py` measures failing in **2 of 3,000** scrambles, the tightest of
+the thirteen non-laws. *The device sits in the seven hundredths of a per cent where the hierarchy's tightest near-law
+fails.*
+
+**The second master index, constructed.** `M2`'s cells are **kinds of refusal**, coordinatised by
+what every pair `(X, c)` has: `K` the refusal set *(shared with M1's channel reading)*, `W` marginal
+completeness, `H` Hamming distance to the nearest member, `J` join/meet status, and `A` the **host's**
+arity band, inherited. Over 2,020 pairs: **46 distinct profiles**, arity 5, box 1152, density 4.0 %,
+and **closed by nothing**.
+
+| | cells are | master cell | channel |
+|---|---|---|---|
+| **M1** | indexes | (0, 0, 0, 2, 0) | K0 |
+| **M2** | kinds of refusal | (0, 0, 0, 2, 0) | K0 |
+
+**The two master indexes coincide** — same channel, same arity band, same density band. An index whose
+cells are indexes and an index whose cells are kinds of refusal land on **one cell**.
+
+**That is not what was first reported here, and the change is the bounds correction rather than a
+re-reading.** As first written: M1 at `(1, 1, 0, 2, 0)` channel K2, M2 at `(0, 0, 0, 2, 0)` channel K0
+— *they differ in the channel coordinates and in nothing else*, with M2's cell one that **order and
+algebra already demanded** of M1. Completing the bounds family stopped the bounds index closing, which
+stopped the master index closing, which moved M1 from K2 to K0 — **onto M2's cell**. The coincidence
+is a *consequence* of the withdrawal, reached by a route that had nothing to do with M2, and that is
+the only reason it is worth anything.
+
+**And the cell is occupied — by the bounds index, whose own master cell is also `(0, 0, 0, 2, 0)`. So
+M1 is a cell of itself:** the master index's own master cell is one of its nine members. Recorded, not
+interpreted. Nothing here says self-membership is meaningful; it says the arithmetic produced it, and
+a reader treating M1 as an index of things other than itself should know.
+
+*The construction is not forced, and that is recorded rather than resolved.* `W = 2` exactly when
+statistics admits — 0 disagreements in 2,020 pairs — so it adds nothing where statistics admits and
+one bit where it refuses. Drop it and M2 becomes 44 profiles at arity 4, landing on **(0, 0, 0, 1, 1)
+— which is occupied, by the periodic layout in three coordinates**, the one index carrying the only
+K1 cell. **So M2 sits on an occupied cell either way**, and the choice is *which* index it lands on:
+with `W`, the bounds index; without `W`, the layout carrying the warp obstruction's kind. Both are
+reported; neither is preferred here.
+
+**The corridor, defined.** A **corridor is a pair `(X, c)`** — an index and a cell of its box. Its
+endpoint in M1 is `X`'s master cell; its endpoint in M2 is the refusal profile; and **what they share
+is the channel, and only the channel.** Neither endpoint determines the other: a refusal profile
+cannot be computed from the index alone *(that is the channel set, a different object)* nor from the
+cell alone *(a bare tuple)*. **It exists only on the pair** — which is `turnseat.py`'s condition that
+both sets of coordinates be known at the onset, satisfied structurally rather than by stipulation.
+
+**And the warp cell is a corridor with one endpoint declared.** Its refusal set is K1 and it has **no
+`W`, `H`, `J` or `A`**, because `expand.py` treats TRANSITION-POSSIBLE as a standalone binary and
+there is **no host index** for it to be a cell *of*. Four of five coordinates are undefined. That is
+`turnseat.py`'s failure mode exactly — *part 2 fails when the input does not provide enough for part
+3*. What would complete it: **declare the index that TRANSITION-POSSIBLE is a cell of.** Not another
+bound, not another instrument — a host.
+
+**And what a K1 refusal is.** statistics admits ⟺ every 2-marginal present; geometry admits ⟹ inside
+the hull; algebra admits ⟹ in the meet-and-join closure; information refuses ⟺ **not in the join
+closure**. So:
+
+> **A K1 cell is a meet and not a join, with every marginal present.**
+
+The corpus's one instance carries both witnesses, and they are different elements: the **pair**
+witness, why statistics admits, is **silver** at (5, 11, s); the **meet** witness, why algebra admits,
+is **copper ∧ zinc = (4, 11, 0)**. *The absent cell is the meet of copper and zinc.*
+
+Read onto the device: the transition is reachable by **restricting** what you have, not by
+**combining** it. Meets are available and the join is not. A statement about the shape of the
+requirement, not a claim that any restriction achieves it.
+
+Nothing here moves the magnitude.
+
+### The statistics row, run at last — and the device has an optimum
+
+`expand.py` has expanded TRANSITION-POSSIBLE through the languages for twenty-odd passes with
+**four rows recomputed every time and a fifth that nobody ever went back for**: *statistics — no
+measure over configurations has been declared here. NOT-RUN.* That was honest. It was also
+declarable.
+
+**`statrow.py` declares one** — uniform on the core mass over `[-2.0e-2, 8.0e-2]` at the seated
+defaults — and sweeps it. Three findings, two of them new:
+
+- **A lower edge, known in outline.** Below `m = 3.5e-3` the corridor ray leads but does not seat.
+- **An upper edge, and it is new.** `apply.py`'s table ran to `+1.5e-2`; nobody swept past `3.0e-2`.
+  **The lead does not weaken, it reverses** — the relative delay crosses zero between `4.00e-2`
+  (−3e-06) and `4.25e-2` (+1.1e-04). Beyond it the ray arrives **late**: the device becomes a lag.
+- **An interior optimum, which is the useful one. More exotic matter is not better.** The lead peaks
+  at **m ≈ 0.0195, relative = −5.96e-4**, and declines on both sides. *(And the value this tree has
+  used as its default throughout — `2.0e-2` — sits on the optimum. Recorded as a coincidence, since
+  no file says it was chosen for that.)*
+
+**The row admits.** The working set is an **interval of positive measure**, 3.5e-3 to 4.05e-2, with
+both edges located and an interior optimum — about 39 % of the swept range. **The device is not
+fine-tuned.** *(A one-dimensional slice: shell radius, core scale and baseline held fixed, and the
+file says so.)*
+
+**E is still 1.** A fifth admitting row does not change a count of refusals. **What changes is the
+channel, and that is why the row mattered.**
+
+Because `cl_a ⊆ cl_b` for each lawful containment, whatever `a` admits `b` admits — so the
+**admitting set is an up-set and the refusing set is a down-set**, and the down-sets are exactly the
+eight lawful channels. *Five binaries would be 32 patterns; the law allows eight.* `expand.py` never
+checked that, and now does. With statistics NOT-RUN the refusing set was undetermined between
+`{information}` = **K1** and `{information, statistics}` = **K4**. **Running the row decides it: K1**
+— one of only two channels nothing in this corpus occupies, and the rarest of the eight in hostile
+sampling at 111 draws in 40,000. K4 is occupied.
+
+**And the obstruction is atomic.** The only lawful down-set strictly below `{information}` is the
+empty one, so there is no pattern between *information refuses* and *nothing refuses*. **No partial
+credit: the obstruction cannot be reduced, only removed.** It can move *sideways* — `{statistics}`
+and `{geometry, statistics}` are both lawful and both incomparable to it — but that is a different
+obstruction, not a smaller one.
+
+Nothing here touches the magnitude, and `statrow.py` says so in its own text.
+
+### The channel relation, seated — and the collapse claim corrected
+
+**A channel set is which of the five languages close an index, and it is not an arbitrary subset.**
+If `a ⊆ b` is a lawful containment and `b` closes `X`, then `cl(a)` sits between `X` and `cl(b) = X`,
+so `a` closes `X` too. **The channel set is a down-set of the hierarchy law**, which cuts the 32
+subsets to **exactly eight**.
+
+**Six of the eight are occupied, at three standings that must not be flattened:**
+
+| | channel | standing | who |
+|---|---|---|---|
+| K0 | `{}` | seated | periodic 3-D, the languages, substances |
+| K1 | `{information}` | **vacant** | — |
+| K2 | `{statistics}` | seated | energy conditions, exotic, Petrov, bounds |
+| K3 | `{geometry, statistics}` | **species** | four witnessed spectra indexes |
+| K4 | `{information, statistics}` | seated | periodic 2-D |
+| K5 | `{geometry, information, statistics}` | **vacant** | — |
+| K6 | `{algebra, information, order, statistics}` | **witness** | hlaw's `geom-not-order` |
+| K7 | all five | seated | Janet |
+
+A **law witness** is built to exhibit a clause and fails `necindex.py`'s bar — no named members, no
+declared form — so K6 counts as *reachable*, not as an index to seat. **And all eight are
+realizable**: an independent census over eight small boxes exhibits a smallest witness for each,
+machine-checks the geometry-free implications with Z3 over *every* subset of four boxes, and finds
+**zero escapes in 40,000 hostile draws**. K1 and K5 are vacant here, not impossible.
+
+**The relation is a partial order, and the tree refutes itself.** The nine seated indexes do form a
+chain, and an earlier pass read that as a nesting law. The eight lawful channels carry **five
+incomparable pairs**, and the counterexample is printed in `hlaw.py`'s own witnesses: `antichain2`
+at K3 against `geom-not-order` at K6, neither containing the other. The control settles it —
+**three arbitrary indexes form a chain 97.4 % of the time**, so three nested ones were never
+evidence. `twoway.py` §3 said the law *"says nothing about which index any operator will close"*;
+that is **too strong and is corrected** — the law does not determine the channel set but confines it
+to a quarter of the space.
+
+**AND A CORRECTION TO THE COLLAPSE CLAIM, WHICH I FIRST STATED THE WRONG WAY ROUND.** There are two
+claims, not one:
+
+- **The collapse** — `(Sc, Oc)` a strict function of `C`, so five master coordinates carry three
+  dimensions — needs **only K1 vacant**. K1 is vacant on the nine *and* on the seventy witnessed
+  species, so **the collapse holds on both populations.** Robust.
+- **The finer claim** — that the closure coordinates fix *which* languages close an index, not merely
+  how many — needs K3 and K5 vacant too. **It already fails.** K3 is vacant among the nine and
+  **occupied by four witnessed species indexes**, and shares `(2, 1, 0)` with K4. With the species
+  seated, `Gc` stops being a function of `C` at `C = 2`.
+
+The first statement here made the collapse itself conditional on all three vacant channels. That
+conflated the two. **The collapse is robust; the faithfulness is not, and is already broken.**
+
+**Crossed against the rubik shifts:** the 18 type-1 para-indexes sit only at `C = 0` and `C = 1`, and
+`C = 1` carries two lawful channels — so **18 cells name 27 specifications**, nine of them at the
+vacant channel K1. Type-2 (counterfactual) moves shift `C` and reach K3, K5 and K6 as well.
+
+### The arity repair's blast radius, closed
+
+**Seating the arity coordinate took the energy-condition family from five coordinates to six and
+from 17 cells to 18. Sixteen instruments were measuring against the old shape and were not swept at
+the time.** Four crashed outright; twelve reported five-coordinate figures against a six-coordinate
+index. Every one is now re-measured, and the sweep runs clean. Recorded here because a stale pin that
+still passes is worse than one that fails, and three of these did not fail — they were caught only by
+running everything.
+
+**The mechanism, and it is one fault repeated.** Four files carried the box as a hardcoded literal
+`(4, 3, 4, 2, 3)` and so did not follow the index when it grew; nine sliced a family row as `r[1:6]`
+and silently dropped the new coordinate. Both are now **derived from the index rather than copied** —
+`SIZES = tuple(len(necindex.VALUE_ORDER[c]) for c in necindex.COORDS)` — which is the tree's own rule
+that *an instrument imports a seated member and never copies one*, applied where it had not been.
+
+**Three findings retract, and none of them quietly.**
+
+- **The licensed family's one-line definition is two lines.** The derived closure was *a bound below
+  zero is permitted exactly when the regime is quantum* — 192 cells of 288. At six coordinates that
+  clause alone over-generates: the closure is **256 of 576**, and it is that rule **and** *a bilinear
+  condition is permitted exactly over an ordered causal pair*. **The second clause is the arity/causal
+  coupling the DEC repair established from the other end, reached here by five closure operators that
+  were told nothing about causal cones.** Two independent derivations of one coupling, neither built
+  from the other. The same missing conjunct made the *corrected* family (with the published eq. (86)
+  seated) stop equalling its own closure — 480 posited against 320 derived — and restoring it makes
+  them coincide exactly again.
+- **The NEC is no longer singular.** The licensed pass reported that each named condition generates
+  one to four cells alone and that **the NEC alone** closes to itself, read as a structural version of
+  Barceló–Visser's *it is the weakest one*. At six coordinates **all nineteen** close to themselves.
+  One more coordinate leaves every single cell too little to interpolate from; the distinction was a
+  property of the box. **Withdrawn.**
+- **No sampled transition is invisible to all five languages.** Exactly one of 300 nested pairs was,
+  and that lone case was the only witness that a transition can be invisible to the whole hierarchy at
+  once. Now none is. **Withdrawn on this sample** — 300 pairs cannot show no such position exists,
+  only that none was drawn.
+
+**And one is the file's own thesis firing live.** The algebra closure budget of 200 was enough at 192
+cells and is not at 256, so `algebra` now goes **SILENT** where it used to speak — the same
+mathematics, a parameter that became inadequate because the box grew. That is precisely what that
+instrument exists to say.
+
+**Everything else moved and nothing else changed shape.** Across the canonical transition, order,
+algebra and geometry still give *identical* answers at both ends and information and statistics still
+differ; the closure is still superadditive, and more so (48 + 24 against 256, so **184 cells are owed
+to the coexistence** rather than 96); the ladder still collapses in one expansion, there is still no
+attractor, and exactly one operator pair still fails to commute.
+
+### Two filename collisions, and two instruments recovered
+
+**Found while closing the sweep, and unrelated to the arity work: two files were overwritten by
+unrelated files of the same name, and their dependents were never swept.** Four instruments crashed
+on APIs that no longer existed.
+
+- **`transit.py`** held *travel > turn > seat* — the three-part gated structure with both endpoints
+  declared at onset. It was replaced by an unrelated file of the same name (*transit without
+  traversal*, the teleportation bound), which dropped `Conditions` and `part2`. Three instruments
+  called them. Recovered verbatim from git as **`turnseat.py`**; it runs and its selftest passes.
+- **`corridor.py`** held *the two readings of a vacuum corridor*, compared. It was replaced by *the
+  parity theorem is the relation between the two mouths*, dropping `casimir_seat_crossing`. Recovered
+  as **`vacuumcorridor.py`**.
+
+A third instance of the same fault needed no recovery: `currency.py` defined `ONE_STATEMENT` and a
+later rewrite of that file's whole subject dropped it, leaving three files citing a constant that was
+gone. The statement's home is where it was corrected, and the pin now checks it there.
+
+**The fault is one thing in three places: a file's whole subject was replaced under its own name, and
+nothing swept its dependents.** The tree already names it — *a file's DEPENDENTS are not swept* — and
+committed it on its own example.
+
+- **`rubik.py`** — **forcing non-closure by slice moves, and what the structure says when you break
+  it.** M: *"we can force measurements and additional para-indexes by forcing non-closure through
+  rubik axis shifts, scrambling the index."* The master index collapses to three coordinates without
+  loss, so it is a **6 × 3 × 4 cuboid**, and a cuboid has moves. A **slice move** fixes one
+  coordinate at one value and cyclically shifts a second within that slice — the legal move of a
+  cuboid puzzle, a bijection on the box, so the cell count is preserved exactly. **82 moves exist.**
+
+  **Two kinds, and they do not carry the same weight.** `C` is measured by running the operators;
+  `D` and `R` are bands whose edges were chosen. So **47 type-1 moves** shift only `D` or `R` and ask
+  a legitimate question — *how much was the closure resting on where the bands fell?* — while
+  **35 type-2 moves** shift `C` and are **counterfactual**, labelled as such, and nothing derived
+  from one is a statement about the seated corpus.
+
+  **The arrangement is not rigid — and after the bounds correction it is barely rigid at all.** Of
+  the 47 type-1 moves, **42 break the closure and 5 leave it intact.** *(It was 14 and 33 while the
+  bounds index still closed the lattice; the withdrawal moved the master index to `E = 1`, and almost
+  any shift now costs it.)* One move suffices to break it.
+
+  **The para-indexes: 18 of them.** When a move breaks closure the operator over-generates, and the
+  cells it adds are *specifications* — an index closed by this many languages, at this arity, at this
+  density, that would have to exist. **Breaking the closure is what makes the structure speak.**
+
+  **And the most persistent request is the master index's own demanded cell.** Across 4,000
+  scrambles `(C 1, D 2, R 1)` — *closed by one language, five or more coordinates, 5–30 % density*,
+  which is `(1, 1, 0, 2, 1)` in five coordinates — is demanded **32.8 % of the time**, against
+  **16.6 %** for the runner-up. It tops the type-2 census too, at 25.6 % against 11.2 %. It was **not
+  eligible** before the bounds correction: the bounds index sat on that cell, and a seated cell
+  cannot be a para-index.
+
+  **The control cuts against the easy reading, and it is pinned beside the result.** Refill the
+  demand by fiat — the world the withdrawn report described — and rerun: the cell leaves the census
+  entirely and `(C 1, D 1, R 0)` tops it at **20.3 %**. *So this is not an independent confirmation
+  of the demand; the two measurements share a cause.*
+
+  **AND THE HEADLINE IS NOW WITHDRAWN TWICE OVER, BY TWO INDEPENDENT MECHANISMS.** DOCKET 5 corrected
+  the frame and dropped the cell from rank 1 at 33.4 % to rank 6 at 7.1 %. DOCKET 8 then seated the
+  question index **on** that cell — and a para-index is *by definition* a cell no seated index
+  occupies, so it is excluded by the definition itself: **rank `None`, robustness 0.0**, against a new
+  top para-index `(C 1, D 1, R 0)` at 23.4 %. The surviving magnitude comparison goes with it: 0.0
+  against 0.234, which fails in the direction that refuses the reading. What remains is the census —
+  17 para-indexes, none seated, none claimed to exist.
+  *The frame is the whole difficulty:* each scramble demands cells in its own coordinates, so every
+  demand is **pulled back through its own inverse scramble** before being counted. A first pass
+  skipped that, summed across incompatible frames, and found zero — an artefact of adding numbers
+  that were not in the same units.
+
+  **And the finding it was not built for: the orbit separates law from accident, exactly.** The
+  hierarchy law declares **7** of the 20 ordered language pairs lawful; the other 13 may happen to
+  hold on any one index without being lawful, and `hlaw.py`'s `index_only` can only ever answer
+  *"here"*. Over 3,000 scrambles, `E(a) ≤ E(b)` **never fails for 7 pairs and fails at least once for
+  the other 13** — and **the seven are exactly the seven the law declares.** No lawful containment is
+  broken by any scramble; no unlawful one survives the orbit.
+
+  **The margins are the sharp part.** Three of the thirteen escape lawfulness only barely —
+  `statistics ≤ information` breaks in **3 of 3,000** (0.10 %), `geometry ≤ order` and
+  `geometry ≤ algebra` in **55** (1.83 %) — while the rest break in a third to all of the orbit.
+  *(The `statistics ≤ information` margin went 16 → 2 under the bounds correction and 2 → 3 under the
+  question seating. **That it moves at all is the point:** a margin is a property of the seated
+  arrangement, and only the SEVEN ZEROS are properties of the law — and those have not moved once
+  across three changes of input.)* Those three are very nearly laws and are not. Clause E says there is no total ranking; the orbit is where
+  that stops being an assertion.
+
+  **The hazard this file exists under is H97**, where a measurement taken on a re-coordinated index
+  was read as a property of the object and was a property of the coordinate system. So **a single
+  scramble proves nothing and is never quoted**: every figure here is a count over the orbit or a
+  frequency across it.
+
+- **`questions.py`** — **the question index: seven questions, one per language.** *M: "There are seven
+  languages, and likely 7 distinct, formalized, universal questions that can only be asked in that
+  language."* The roster stays **data** — `--roster five|seven`, nothing asserted in code, and this
+  rules nothing on the corpus's own docket 20x-04/20x-09. All seven **ask**; only five **answer with a
+  binary**, which reconciles a discrepancy this tree had carried unexamined: the channel lattice is
+  built on five because register 1173 admits a language only if it returns a binary, while the language
+  index has seven members. The two counts were never in conflict.
+
+  | language | asks — one thing, generally | an answer is |
+  |---|---|---|
+  | order | is there an admissible precedence? | binary |
+  | algebra | is it closed under its operation? | binary |
+  | geometry | does it embed? | binary |
+  | information | does it need an unavailable coordinate? | binary |
+  | statistics | is it drawn from a distribution? | binary |
+  | **analysis** | is there a continuous law? | **magnitude** |
+  | **documentary** | is it recorded, and by what? | **citation** |
+
+  **Coordinatised by properties of the QUESTION** — not of the language, or the index would be the
+  language index relabelled — and the construction returns a negative, which is the useful part:
+  **`RET` determines `OPR`, `RUN` and `SPK`; only `DECL` is independent of it, so seven questions
+  collapse to FOUR distinct cells.** As far as this tree can measure them, the seven questions differ
+  only in what kind of answer they return, refined once by whether roster 1173 declared them.
+
+  **A channel set IS the yes-set of the five binary questions** — 0 mismatches over the nine indexes
+  seated when that was checked. Admission to any index in this tree *is* answering those questions,
+  which is why the index is seated: `master.inventory()["questions"]`, ten indexes, nine distinct
+  master cells, and the master index **closes in `statistics` at E = 0** for the first time since the
+  eighth index was seated.
+
+  **The seating is a closure fact. It is NOT the demand met**, and four measurements say so — DOCKET 5
+  had already deleted the demand; the fill holds in **8 of 40** bandings and the ten-index closure in
+  **17 of 40**, *fewer* than the nine-index one's 20; the landing rests on redundant coordinates
+  (1 of 26 subsets); and the control refuses it outright — **22.4 %** of random same-shaped sets in the
+  question index's own 72-cell box land on that cell, against **0.02 %** for bounds. *The non-generic
+  landing belongs to the stage that was withdrawn, not to the one that is seated.* DOCKET 8 states all
+  four together, and `master.py --selftest` pins them.
+
+### Deferred proposal — transport in nine gates
+
+**Recorded for the return to the warp-transport work, and nothing in it has been done.** The proposal:
+pay for transport in **installments rather than in one expensive gate** — **eight gates measuring the
+base and computing destination bounds, and a ninth that does the seating** on the calculation the
+first eight have already performed.
+
+It has two existing homes in this tree, and they say different things about it:
+
+- **The installment structure is already measured, and it works — for one of the two costs.**
+  Crossing the deformation in `N` steps rather than one is exactly installment payment, and at 99 % of
+  the cap a single jump succeeds **15.5 %** of the time against **99.7 %** for 4,096 increments. But
+  the cap itself **does not move**: at 1.001, 1.05, 1.5 and 3.0 times `δ_max` the path is refused at
+  every `N`. **Installments buy probability, not budget.** So if the expense being split is the
+  *geometric* cost, this is already answered and the answer is no.
+- **The compute-then-seat split is exactly the entailment receipt.** Establishing the `⟹`-maximal
+  cells and letting entailment discharge the rest *is* "the gates that do the work, and then the
+  seating for free" — and the receipt is necessary and sufficient, not searched.
+
+**Two numerical coincidences, flagged as coincidences and not findings.** The truth-priced entailment
+receipt is **8**, and after the arity fix the forged receipt is **9**. The proposal's own count is
+eight-plus-one. Nothing connects these yet and the resemblance may be nothing; it is written down so
+that if a connection is found later it is not mistaken for a prediction made in advance.
+
+### Correction — the Casimir–Polder figure, and the second contact confirmed
+
+An independent derivation of the second contact, verified here, **found an error in a figure this tree
+had seated.** `limitaxis.py` carried Casimir–Polder at `2.2e-05` for potassium at ten nanometres,
+above the defect resolution. **That number reproduces only by using the principal quantum number
+`n = 4` where the quantum defect requires the effective `n* = 1.77`.** The rule is
+
+> `|Δδ| = (n*)³ |ΔE| / (2R)`
+
+and the seated text stated its **inverse**, which is also dimensionally wrong (energy²). Correctly, K
+at ten nanometres shifts the defect by **2.54e-06 — below resolution** — and clears `1e-05` at
+**6.33 nm** instead. **The contact is still real; it is real at six nanometres, not ten.**
+
+**A second correction, to the mechanism rather than the number.** `C₃` does *not* contain the static
+polarisability. It contains `S(−1)`, the zeroth moment of the polarisability along the imaginary axis;
+`α(0) = S(−2)` is a different moment and enters the **retarded** `C₄`. The non-retarded and retarded
+regimes touch electronic structure through *two different quantities* — and the periodic index carries
+**neither**, so a second contact needs a **27th axis** exactly as the first needed the 26th.
+
+**And the second contact is confirmed as genuinely independent, which was the whole requirement.**
+Contact one goes as `Z⁴`. Contact two's coefficient rises only from 1.52 to 4.27 across Li → Cs while
+`Z` rises 3 → 55 — **an effective exponent of 0.36.** Two contacts that are not collinear, which is
+what a direction needs. Nothing in the run survived both hostile lenses, so no seating is claimed from
+it; the corrections above are what it produced and they are verified here independently.
+
+- **`substance.py`** — **the Hawking–Ellis type, seated where it discriminates — and the index demands
+  the design target.** It **cannot** be an axis of the condition family, and the reason is measured:
+  every member there is a universal quantification applied to whatever tensor it is handed, so the type
+  is a property of the tensor handed *in*. **0 of 19 conditions name a type; a constant type column
+  leaves the box at 576 and every closure identical.** A constant column is not an axis — the same
+  category error that disqualified velocity, recorded rather than seated.
+
+  Classify **substances** instead and the type is the spine. Four slots, none constant: `H` Hawking–Ellis
+  type (I → IV by increasing departure from having a rest frame), `N` NEC satisfied, `E` evidential
+  directness, `K` **metric-first or matter-first**. Ten members, all READ from the tree — ordinary
+  matter, EM field, Casimir vacuum, scalar VEV, squeezed vacuum, radiation/null dust, photon-rocket
+  exterior, warpshell, the non-minimal scalar, and **the Alcubierre drive**.
+
+  **The index did not close. It demanded two cells, both Type I, NEC-violating, derived-only.** The
+  matter-first one was **already held and unseated** — the non-minimal scalar (a scalar has a rest frame;
+  violating the NEC is the whole purpose of ξ > 0; never measured). Seating it drops `E` from 2 to 1,
+  exactly as the semiclassical WEC did for the condition family.
+
+  > **The one that remains is the design target, and the index asked for it unprompted:**
+  > **Type I, NEC-violating, derived, metric-first.**
+
+  Read against the three metric-first rows: the **Alcubierre drive** is metric-first and NEC-violating
+  but **Type IV** — a class with no known members, measured at every point tested. **Warpshell** is
+  metric-first and **Type I** but **NEC-satisfying**, so it opens nothing. **The demanded cell is the
+  one that is both** — physically classed *and* throat-opening. The index is not describing a substance
+  anyone has; **it is stating the specification.** Nothing is seated for it: a demanded cell is a
+  candidate for a name, never a claim that the thing exists.
+
+- **`petrov.py`** — **the gravity index**, and the exact counterpart of the substance index:
+  Hawking–Ellis classifies the *matter* tensor by eigenvalue structure, Petrov classifies the
+  *curvature* tensor by the multiplicity of its principal null directions. **The ladder is not a chain,
+  which is why it takes two slots** — `D` and `III` are both specialisations of `II` and **neither
+  specialises the other**, so one ordinal coordinate would invent a comparison the geometry does not
+  make. Carried as `P` (distinct principal null directions) and `X` (maximum multiplicity): `D` is
+  `(2,2)`, `III` is `(2,3)` — agreeing on `P`, differing on `X`, which is exactly how they differ. Nine
+  spacetimes, eight cells, closed by `statistics`. **One row is measured rather than derived** — the
+  far-field gravitational wave, Type N, which is what a detector detects. **Type III has no member**,
+  and neither has it in the substance index — two classifications with a hole at the same name,
+  recorded because it is striking and *not* offered as meaning anything. No Petrov type is assigned to
+  the warp metrics: none is computed anywhere in this tree, and their absence is an absence, not a zero.
+
+**And with both seated the master index reached eight indexes — and stopped closing.**
+`statistics` closed it at six; at eight, `E = 1`. **It demands a cell:** `(1, 1, 0, 2, 1)` — an index of
+**5+ coordinates at 5–30 % density, closed by `statistics` alone and by nothing else.** The nearest
+seated neighbour is the energy-condition family, which matches on every coordinate but density (3.1 %,
+one band low). **That is the mechanism firing exactly as predicted** — a demand needs its values
+*borne*, six indexes did not bear enough and eight do. The prediction is falsifiable: such an index
+either exists unseated, or does not exist and the structure is over-reaching. **Nothing is seated for
+it.** *(The bounds index was reported as filling it and that report is withdrawn — completing the
+family moves it off the cell. See* the demand was filled, and the fill is withdrawn*, above. The demand
+itself is untouched and still open.)*
+
+**A machine-check here is not enumeration.** Each claim is a formula whose variables range over
+**every** subset of a finite box; the negation is asserted and Z3 returns `unsat`. At 3×3×3 that is
+**2²⁷ = 134,217,728 subsets**, well past the enumeration frontier of `|X| ≤ 5` in the same document.
+
+Two encodings make it decidable — `max`/`φ` eliminated in favour of a witness, and `⟨X⟩` encoded as the
+intersection of all closed supersets rather than as a least fixed point. **And two guards must run
+first**: a hypothesis that is unsatisfiable makes the implication vacuously true, and an encoding that
+is not the operator you meant proves something else. `machinecheck.py` runs both and refuses to report
+if either fails. **Do not skip them** — a green run with an unchecked encoding looks like evidence and
+is not.
+
+**Z3 is not vendored** (~53 MB installed); this is a document corpus and the install is one command.
+
+---
+
+
+## `law.py` — the hierarchy law, proved. It is the structure, not the order.
+
+> M: *"Novelty is not my pursuit. My goal is the hierarchy law proven so we can continue the warp
+> theory work."*
+
+**Then the prior art is a gift, not a loss.** Queyranne & Tardella prove the hard half in print — worth
+more than novelty for a claim that has to be true, because the theorem now rests on a refereed
+publication instead of on us.
+
+**THE LAW.** For finite non-empty `X`, `d ≥ 2`, each `A_i = π_i(X)` a finite chain:
+
+| | clause | status |
+|---|---|---|
+| **A** | every admitted language is a closure operator — extensive, monotone, idempotent | PROVED |
+| **B** | `op_order(X) = op_algebra(X) = ⟨X⟩`, the sublattice hull | **PRIOR ART, READ** |
+| **C** | `op_information` is the join-closure, so `information ⊆ algebra` | OURS, PROVED |
+| **D** | 2-determined **iff** pair-definable — four are, `information` is not | OURS, PROVED |
+| **E** | the **ranking** of the five is not part of the law | OURS, **REFUTATION** |
+
+**Clause B is theirs, and they solved by construction what we patched by hypothesis.** Their
+**Proposition 1** (`π_J LQ = L π_J Q`) is our `L4`; **Theorem 9(ii)** (chains) is our `L3`; **Theorem
+11** is our `T1`; **Example 10** is our `N2`. Their `δ^Q_ij(h) = ⋁{x_i : x ∈ Q, x_j ≤ h}` *is* `φ_ij`
+— and their *proper* boundary epigraph (`k ≥ δ` where attained, `k > δ` where not) **is exactly the
+attainment case our observed-alphabet hypothesis existed to avoid.** `H110c`'s order-convexity was a
+weaker patch on a problem their formulation doesn't have. Behind them: **Topkis**, then **Veinott**.
+Three deep. Text at `refs/QUEYRANNE-TARDELLA-2008.md` (partial, OCR — read its header before quoting a
+formula).
+
+**Clause C**, by induction on `|{y ∈ X : y < x}|`: every `x` is a join of join-irreducibles, so
+`op_information = J(X)`, and a sublattice is join-closed, so `J(X) ⊆ ⟨X⟩`. **200/200.**
+
+**Clause D in two lines.** A pair-defined `L` satisfies `π_ij(L(X)) ⊆ C_ij`, so the rebuild from its
+own projections sits inside `L(X)`; the reverse is free. `order`, `geometry`, `statistics` are defined
+that way — **their 2-determinacy was never in doubt and measuring it measured nothing.** `algebra` is
+not pair-defined; its 2-determinacy *is* Theorem 11. `information` is neither, and fails on
+`X = {(0,0,0),(0,1,1),(1,0,1)}` — the pairwise rebuild **invents `(0,0,1)`** — because a
+join-semilattice has **no majority term**.
+
+**Clause E is the one that is false.** 14 orderings over 400 worlds; ours fourth at 42/400;
+`statistics` the **maximum** in 128 against minimum in 106; and the NEC and periodic-3-D indexes
+already disagree. **The ladder was a property of one index.**
+
+**And what it does not do.** It does not advance the corridor and no version of it can — the
+obstruction is `persist.py`'s **69.03 orders** and `higgs.py`'s **ξ ≥ 9.78×10³¹**, and neither is
+touched. What it gives is a licence the thread lacked this morning: **the cypher's verdicts are backed
+by a published theorem** rather than by agreement across five operators, two of which are one operator.
+**That makes the cypher citable. It does not make the corridor closer.**
+
+### Seated
+- `law.py` — new, with `--law`. `refs/QUEYRANNE-TARDELLA-2008.md` — new, third-party, partial OCR
+  reconstruction, marked as such. `index3.py` — **746 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H111**, with `H109b`'s provenance marker settled.
+
+---
+
+
+## `decomposable.py` — our own formalization, and a provenance ledger whose headline is that the theorem is not ours.
+
+> M: *"The formalization will be entirely our own then, because the proof we are currently working could
+> indeed be novel. The formalization will be supported by the provenance of the pieces within that are
+> attributed to other art."*
+
+**The formalization is ours. The theorem probably is not, and that is the first thing the ledger has to
+say.** A prior-art search returned, as the *stated central subject* of a published paper:
+
+> Maurice Queyranne and Fabio Tardella, **"Sublattices of product spaces: Hulls, representations and
+> counting"**, *Discrete Mathematics* **308**(9) (2008), 1508–1523 — *"sufficient conditions … for [the
+> sublattice hull of Q] to be entirely defined by the sublattice hulls of the two-dimensional projections of
+> Q"*, treating *"the case of a finite product of finite chains"* in detail.
+
+Same question, same setting, **including the fact that it needs hypotheses**. **The paper was not read** —
+ScienceDirect, HAL and Semantic Scholar are all egress-blocked here and it is not on arXiv. **STATUS:
+PRIOR-ART-PROBABLE, UNREAD — not novel.** Baker–Pixley is likewise **CITED-UNREAD**; two naming corrections
+came with it: the property is **k-decomposability**, not "near-unanimity" (that names the *term*) and not
+"skew-free" (Fraser–Horn, same textbook section); and the **factors need not be finite** — the *number of
+factors* must be.
+
+**The theorem.** `R(X) = ⟨X⟩` for finite non-empty `X`, `d ≥ 2`. `L1` φ total and monotone · `L2` `R(X)` a
+sublattice containing `X`, so `⟨X⟩ ⊆ R(X)` free · `L3` at `d = 2`, four witnesses give `α ∧ γ = (a,b)` ·
+`L4` projection commutes with generation · `L5` the lift, Baker–Pixley. **`L5` is where the prior art does
+the work; at `d = 2` it isn't needed at all.** `L6` monotonicity is a **corollary** — a referee was right
+that it was never proved, and `H109a`'s measurement of it was measuring the wrong thing. `L7`
+`op_information` is the plain join-closure, so **`information ⊆ algebra` is a theorem**.
+
+**The necessity table corrects this thread twice.** `H109`'s claim that the observed alphabet is *necessary*
+was wrong. The weaker sufficient condition is **order-convexity** — no *interior* gap; values above the max
+or below the min are harmless. Over declared boxes: **convex → 1,853 hold, 0 fail.** And convexity is itself
+**not necessary** — **632 gapped worlds still hold**. **Chains are necessary and the failure is
+one-directional:** off the chains the staircase never over-generates (`staircase > sublattice` is **0** across
+M3×M3, N5×N5, M3×chain, N5×chain) — it *under*-generates, 1,900 of 2,600 for M3×M3.
+
+**The 2-determinacy partition is three-quarters trivial, and `H109` over-credited it.** Any `L` defined by
+pair conditions is 2-determined in two lines, and `op_order`, `op_geometry`, `op_statistics` are each defined
+that way. The content is `op_algebra` (that *is* `L5`) and `op_information`'s failure — minimal witness
+`X = {(0,0,0),(0,1,1),(1,0,1)}`, where the pairwise rebuild **invents `(0,0,1)`** and all four other
+operators are 2-determined on the same `X`.
+
+**And the bridge is no longer a reading.** Every definition is implemented **from the mathematics, importing
+nothing from `cypher.py`**, then compared against the running operators: **400 indexes, 400 agree.**
+
+> **Frontier, all pinned by the selftest:** T1 exhaustive **36,252 cases, 0 failures** · `L3`'s construction
+> **built** on **54,392 cells, 0 failures** · `L5` direct on **4,128** sublattices, **0** exceptions ·
+> bridge **400/400**. **Nothing is machine-checked** — no Lean toolchain, no route to one; the `d = 2` lemma
+> is written in Lean 4 and general-`d` carries a `sorry` at Baker–Pixley. **PROVED-HERE**, **EXHAUSTIVE**
+> and **CITED-UNREAD** are kept apart, and none of them is MACHINE-CHECKED.
+
+### Seated
+- `decomposable.py` — new, with `--provenance`. `index3.py` — **743 findings**, 16 occupied cells,
+  `E(X) = 0`. `paper/CLAIMS.md` — **H110**, with **H109b corrected in place**. `tools/cypher.py` — **read
+  here, not touched.**
+
+---
+
+
+## `induce.py` — let the observations dictate it. Two things survive; the ladder is not one of them.
+
+> M: *"I suspect all my hierarchy law assertions are true. We are trying to dictate it based on our
+> observations, but let's let our observations dictate it instead."*
+
+**So the method changed.** Every cypher measurement in this thread was made inside **one** index — 17 energy
+conditions in a 288-cell box, five coordinates we chose. A law read off one object is a description of that
+object. This pass runs the same five operators over **four other indexes the corpus itself seats** and over
+**hundreds of random worlds**, and keeps only what survives.
+
+**SURVIVES — the closure theorem, and it is no longer index-local.** Over **300 random worlds** (random
+dimension, random alphabets, random cell sets, value order pinned so the `Index`'s re-ranking is the
+identity): **extensive 300/300 · idempotent 300/300 · monotone 300/300, all five.** The law holds in 300
+indexes that have nothing to do with energy conditions.
+
+**SURVIVES, AND IT IS NEW — `order` and `algebra` are the same operator.** Not "agree on `E`" — **identical
+as sets**: NEC 192=192 · Janet 22=22 · periodic 2-D 126=126 · periodic 3-D 190=190 · Λ 976=976, plus
+**400/400** random worlds, **1,379** in the selftest's sweep and **1,188** in a wider one. **No
+counterexample anywhere.**
+
+> **The cypher has four distinct closures on these objects, not five.** Candidate explanation, **not
+> verified**: Baker–Pixley — a majority term (lattices have the median) makes subalgebras of a product
+> determined by their two-fold projections, and the staircase condition is exactly that. **A lead, filed as
+> one.** Docket 20x-04/20x-09 is **not** resolved and `tools/cypher.py` is **not** touched.
+
+**DOES NOT SURVIVE — the ladder.** **14 distinct orderings** in 400 worlds; ours
+(`statistics < geometry < information < algebra < order`) is the **fourth most common, 42 of 400**. And the
+corpus's own indexes already disagreed:
+
+> **NEC index:** statistics < **geometry** < **information** < algebra = order
+> **periodic 3-D:** statistics < **information** < **geometry** < algebra = order
+
+**Geometry and information swap between two seated indexes** — available the whole time, never looked at.
+`statistics` is the **minimum in 106** of 400 and the **MAXIMUM in 128**: more often the largest than the
+smallest. *"The top rung, the most restrictive, the centre of the corridor"* is a property of the
+energy-condition family, not of the language.
+
+**"Order is the substrate" survives as 398 of 400** — a strong tendency, not a law. Both exceptions are
+geometry, and both are *incomparability*: world 286 has order at 32 and geometry at 22, **smaller and still
+not inside it**.
+
+**And the fifth instance of the harness channel, caught inside this pass.** The first run reported
+**extensivity failing 26 of 200** — a refutation of the whole theorem. **It was the harness:** `Index`
+re-ranks observed values to dense ordinals, so raw tuples were compared against recoded ones. Pinned, every
+count is 300/300. `H97` · `H100` · `H102` · `H106` · **and now this** — and **this time the number looked
+like a refutation**, which is the harder direction to doubt.
+
+### Seated
+- `induce.py` — new, with `--wide`. `index3.py` — **739 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H109**, with **H107a narrowed in place**. `tools/cypher.py`, `hierarchylaw.py`,
+  `necindex.py` — **read here, unchanged**.
+
+---
+
+
+## `singularity.py` — truncate at geometry and *this* transition vanishes. But "singularity" is `box = |X|`, not `E = 0`.
+
+> M: *"Without the hierarchy, transition in spacetime would not exist. All math would stop at geometry
+> because there would be only one statistical position for all existence. The hierarchy would no longer be
+> the mechanism of transition, but instead a complete exact definition of singularity."*
+
+**Four clauses, and they do not all land the same way.**
+
+**The first is exactly right for the transition this thread is about.** `hierarchylaw.py` measured it and
+did not read it this way: **order, algebra and geometry give identical answers at both ends.** A hierarchy
+that stops at geometry **cannot tell the two positions apart** — without the rungs above geometry, the
+canonical transition does not exist as an event.
+
+**But 88% of transitions survive the truncation.** 300 random nested pairs:
+
+> **263 distinguished at or below geometry** · 37 invisible below it · **36 of those visible only above** ·
+> 1 invisible to all five. **Twelve per cent.** The upper hierarchy makes *some* transitions visible; it
+> does not make transition exist.
+
+**"Only one statistical position" is false as a count.** Distinct closures over 260 subsets — how many
+positions each language tells apart: `order 159` · `algebra 159` · `geometry 195` · `information 223` ·
+`statistics 233`. **Resolution rises monotonically up the ladder**, which is the claim's direction and is
+worth having. But **geometry alone resolves 195 of 260**, not one. Coarser, not blind.
+
+**And the singularity clause is true, provable, and about a different object.** A complete exact definition
+is not `E = 0` — it is **`box = |X|`**. When the ambient box equals the object, every operator is the
+identity: each is extensive, and returns a subset of the ambient, so `X ⊆ L(X) ⊆ box = X` forces
+`L(X) = X`. **`E = 0` in all five, in one line, with nothing measured — and nowhere to go**, because the
+licensed set *is* the object.
+
+> **57 such positions up to size five:** 17 of 17 singletons (box 1) · 26 of 136 pairs · 7 of 680 triples ·
+> 7 of 2,380 quadruples · **0 of 6,188 quintuples**.
+
+**The converse fails, which is why the two must not be conflated.** Of the **41** pairs closing exactly in
+every language, only **26** have box 2; **11 have box 4, 3 have box 8, 1 has box 16.** **Fifteen positions
+are completely and exactly defined and are not singularities.** The hierarchy closing on a position says the
+position is *licensed*, not that it is *alone*.
+
+**And the word not tested is "spacetime".** Every count is over subsets of a 17-cell index inside a 288-cell
+box. **The clause "transition in spacetime would not exist" is NOT TESTED and cannot be tested here.**
+`persist.py`'s **69.03 orders** and `higgs.py`'s **ξ ≥ 9.782907×10³¹** are unmoved.
+
+### Seated
+- `singularity.py` — new. `index3.py` — **735 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H108**. `hierarchylaw.py`, `canonical.py`, `necindex.py` — **read here, unchanged**.
+
+---
+
+
+## `hierarchylaw.py` — the law is derivable and it is a closure theorem. Backward fails at exactly one rung.
+
+> M: *"Can we now derive the hierarchy law? … Transition can be defined iff the language is present in both
+> positions. Forward the geometry is constant … backwards the hierarchy law is constant."*
+
+**Derivable: yes, and smaller than the name.** A law here can only be a property every admitted language
+has, and there is one — each of the five is a **Moore closure operator** on the index:
+
+| axiom | result |
+|---|---|
+| extensive `X ⊆ L(X)` | 37/37 subsets |
+| idempotent `L(L(X)) = L(X)` | 37/37 subsets |
+| monotone `X ⊆ Y ⟹ L(X) ⊆ L(Y)` | 936/936 chain pairs **and** 3,000/3,000 random nested pairs |
+
+**No counterexample in 3,936 nested pairs, all five.** The law: *the admitted languages are extensive,
+monotone, idempotent closure operators, and the hierarchy is the partial order of their closures under
+inclusion.* Admission is the binary criterion; `documentary` is SILENT and `analysis` has **no operator at
+all**, both checked as negative controls.
+
+**A measurement, not a proof** — `op_information` extracts a join-irreducible seed and re-closes it, and
+seed extraction is not obviously monotone. **And not multiversal:** every quantity lives inside a 288-cell
+box built from five coordinates we chose.
+
+**The *iff* is true and it bites.** At `d = 5` all five speak. Project onto `(T, V)` and **statistics goes
+SILENT at both ends** — max-entropy on the order-`k` marginals needs `d > k`. The other four still speak,
+so the silence is statistics' precondition, not the projection.
+
+**Forward is a tautology.** Geometry constant across the canonical transition **is the rule `canonical.py`
+selected the state by**. The finding is the thing next to it:
+
+| | at object+state | at object | |
+|---|---|---|---|
+| order | 192 | 192 | **IDENTICAL** |
+| algebra | 192 | 192 | **IDENTICAL** |
+| geometry | 29 | 29 | IDENTICAL *(by construction)* |
+| information | 156 | 85 | differs |
+| statistics | 17 | 13 | differs |
+
+**Three languages are blind to the transition and two see it** — `decompose.py`'s object/conditions split
+from a second direction.
+
+**Backward is half true, and the failing half is the interesting one.** The nesting **order** is identical
+at both ends; the **structure** is not — strict inclusions **8 → 7** (the one lost: `statistics ⊂
+information`), incomparable pairs **1 → 2** (the new one: `information ↔ statistics`).
+
+> **The ladder detaches at the bottom rung, and the bottom rung is statistics** — `throat.py`'s extremum,
+> the rung named as the centre of the corridor.
+
+**And statistics does not only detach — it regrows the conditions.** `E(statistics)` **0 → 4**, and all four
+re-admitted cells are **in the removed state**, all pointwise (`M = 0`) with the zero bound (`B = 0`):
+**NEC · semiclassical-NEC · WEC · semiclassical-WEC.**
+
+> **Four of the eight removed cells come back by themselves.** `E = 0` is a property of
+> **object-plus-conditions**; the object alone cannot hold it.
+
+**What it does not do:** no theorem about closure operators on a 17-cell index moves **69.03 orders** or
+**ξ ≥ 9.782907×10³¹**, and none of these measurements was computed from a field equation.
+
+### Seated
+- `hierarchylaw.py` — new. `index3.py` — **735 findings**. `paper/CLAIMS.md` — **H107**.
+  `canonical.py`, `necindex.py`, `tools/cypher.py` — **read here, unchanged**.
+
+---
+
+
+## `canonical.py` — the canonical decomposition exists, and the two irreducibles have names.
+
+> M: *"The canonical decomposition is a transition itself."* · *"It is a transition to a position that
+> cannot accept it."* · *"Acceptance is determined by … which satisfied NECs can replace the ones that are
+> not satisfied."*
+
+**All three hold, and the first overturns `decompose.py`.** That pass reported *"not unique — 6, 7 or 8"* —
+**a greedy search.** Removability is **downward closed** (geometry is monotone), so no removable set can
+contain a cell that isn't removable alone: the search is `2¹⁰` and exhaustible. Run exhaustively:
+
+> **440 faces · 6 facets (6, 6, 7, 7, 7, 8) · maximum 8 · exactly ONE set achieves it · leaving 9.**
+> **The canonical decomposition exists.** "Not unique" reported the search's dead ends, not the structure's.
+> **Fourth time this session a property of the method was read as a property of the object.**
+
+**And the dead ends are exactly what was named.** Five facets are maximal but not maximum — two strand 2
+short, three strand 1. Over **200 random walks: 70 reach the maximum, 130 strand.** **Only 35% arrive.**
+*"A transition to a position that cannot accept it"* is a description, not a metaphor.
+
+**Acceptance is covering — Carathéodory, exactly.** A cell is removable **iff it is not extreme**, i.e. its
+position in every shadow is a convex combination of the others. **6 ordered conflicts of 90**, forming
+**three mutually exclusive pairs**: SNEC ↔ QEI · semiclassical-WEC ↔ QEI · BV-effective-NEC ↔
+BV-effective-ANEC. **Two cells that cover each other cannot both go.** The maximum is the complement of a
+**minimum vertex cover of size 2** — QEI in two pairs, BV-effective-ANEC in one, none covering all three.
+
+> **The two the maximum must leave behind: the QEI (Ford–Roman / Fewster–Osterbrink) and
+> BV-effective-ANEC** — `persist.py`'s wall and `higgs.py`'s ξ escape, the **one door** `necindex.py` found.
+> **The two conditions the index cannot do without are the two this thread has run on, and nothing was
+> looking for them.** A convergence, not a theorem.
+
+**And the equation holds with both sides named:** `|Object − state| = object`, state = the unique maximum
+removable set (8), object = the 9 survivors. **True exactly**, no longer one cell at a time.
+
+### Seated
+- `canonical.py` — new. `index3.py` — **729 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H106**, with H105c withdrawn in place. `decompose.py`, `necindex.py` — **read here, unchanged**.
+
+---
+
+
+## `decompose.py` — object and conditions, and the equation that holds per cell and fails as a set.
+
+> M: *"The first half describes the object. The second half describes the environment/conditions."* And:
+> *"|Object − state − transition| = object."*
+
+**Two perturbations — adding an interior cell, adding a hull-extending one:**
+
+| | interior | extending | |
+|---|---|---|---|
+| order, algebra | 0/12 | 0/40 | **coarse — notice neither** |
+| **geometry** | **0/12** | **40/40** | **extent only** |
+| information | 10/12 | 5/40 | **inverted** |
+| **statistics** | **12/12** | **40/40** | **every cell** |
+
+> **Geometry sees extent, statistics sees every cell — that pair IS object and conditions, measured.** But
+> order and algebra don't move at all, and information is the only **inverted** profile. **Third anomaly on
+> information** (after the only non-commuting pair and the only incomparable pair). And it explains
+> `regress.py`'s incomparability without geometry being constant: **boundary-determined vs
+> content-determined**, two reductions of one set, neither refining the other.
+
+**The equation, measured.** Removing each cell in turn, geometry is moved by 7 of 17 — so **10 cells are
+individually removable and it does not notice.** *The equation holds, one cell at a time.*
+
+**And fails as a set.** Remove all ten and geometry **changes** — a hull is fixed by its extreme points, so
+removing one non-extreme point is free, **but once enough are gone, interior points become extreme.**
+
+> **And the decomposition is not unique, which is worse than failing.** Greedy strips **8**, leaving 9; over
+> six random orders the strip is **6, 7 or 8**. **There is no canonical state to subtract** — different
+> orders leave different objects, and nothing in the operator picks one. **What would be needed is a
+> canonical decomposition**, and geometry's hull does not supply one.
+
+**One hollow test caught:** a check reading `geom(X) == geom(X)` — a call against itself. Replaced.
+
+### Seated
+- `decompose.py` — new. `index3.py` — **726 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H105**. `regress.py`, `alpha.py`, `throat.py` — **read here, unchanged**.
+
+---
+
+
+## `regress.py` — does the ladder eliminate *why*? A partial ladder, a terminus, and no self-account.
+
+> M: *"A hierarchy law works because it eliminates all why questions at any given position, and instead
+> always supplies the how on the next rung."*
+
+**Three checkable consequences.**
+
+**The refinement ladder is real and partial.** statistics (17) ⊆ geometry (29); geometry **⊄** information
+(156); information ⊆ order (192) = algebra. **Eight of twenty ordered pairs are strict inclusions, breaking
+at exactly one place** — geometry holds 10 information lacks, information holds 137 geometry lacks, sharing
+19. **A chain with one break** — not a total order, not a flat set.
+
+> **And the break lands on the same language twice.** `alpha.py`: the only **non-commuting** pair is
+> information ↔ statistics. Here: the only **incomparable** pair is information ↔ geometry. **Information is
+> the endpoint of both structural anomalies** — the mirror of statistics, which is distinguished by being
+> exact and invariant.
+
+**It terminates.** *"The next rung"* needs a next rung — terminus, loop, or regress. **Measured: terminus.**
+The ladder stops at `d = 3` with statistics and nothing sits above it on any measure. **So the top rung's
+why has no rung above to supply its how.** And that **refutes the earlier closed-loop proposal by the same
+measurement** — the two are not both available.
+
+> **But the strongest form survives:** at the terminus statistics is **exact, E = 0**. **The ladder does not
+> end in an unanswered question — it ends in a fixed point.** The last rung needs no how from above because
+> it does not move.
+
+**And it does not account for itself.** The index whose cells *are* the languages: `order 5 · algebra 5 ·
+geometry 2 · information 1 · statistics 1`. **Not one closes it.** *(The same operators close the object
+index at 0 — the failure is the self-index's.)*
+
+> **What is eliminated is the why AT a position inside the index. What is not eliminated is the why OF the
+> index.**
+
+**Scorecard: PARTIAL** (the ladder, with one break) · **SETTLED** (terminus, not loop) · **SURVIVES** (the
+terminus is a fixed point) · **FAILS** (no self-account).
+
+### Seated
+- `regress.py` — new. `index3.py` — **723 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H104**. `alpha.py`, `staircase.py`, `selfindex.py` — **read here, unchanged**.
+
+---
+
+
+## `throat.py` — statistics is an order after all, and it is the index's extremum, not its centre.
+
+> M: *"Statistics is the center of the corridor where the sign needs to change … Statistics is still an
+> order, it's an order of all possible positions of the witnessed geometric shape."*
+
+**The second clause is right and it corrects `substrate.py`.** Two orders are in play and only one leaves
+statistics alone: **value order — invariant, 0 of 23 permutations. Marginal order `k` — dependent**, and
+`op_statistics`'s own option is literally named `statistics_order`:
+
+| k = 1 | k = 2 | k = 3 | k = 4 |
+|---|---|---|---|
+| admits **288**, E = **271** | 17, **E = 0** | 17, 0 | 17, 0 |
+
+**At order one it says nothing; at order two it is exact.** And M's description is `op_statistics` line by
+line: *"all possible positions"* = `ix.ambient()`; *"the witnessed geometric shape"* = the observed
+k-marginals, the **shadows**; *"an order of"* = **k**. `op_geometry` takes the **hull** of those same
+shadows where statistics takes their **support** — same shadows, two readings.
+
+**The transition is real.** E against dimension: order and algebra diverge to **175**, information to 139,
+geometry to 12 — **statistics is SILENT, SILENT, then 0, 0, 0.** Four diverge strictly; one is flat. **The
+closest thing in this index to a throat, and unique.**
+
+**But "centre" is not measured** — statistics is an endpoint or extremum on all five distinctions, never a
+midpoint. **And the sign change is impossible**: `E = |op(X) \ X|` with every operator extensive, so
+**E ≥ 0 by construction.** There is no negative side to cross to — only a floor.
+
+> **The analogy is better than its wording.** A Morris–Thorne throat is *also* not a midpoint — it is the
+> **minimum** of the radius, where `b(r₀) = r₀` and flare-out holds. **So statistics being an extremum makes
+> it more throat-like, not less.** What does not carry is the sign: in the corridor `ρ₀c² + p_r =
+> (b′−1)τ₀ < 0` is measured and real; in the index the only quantity on offer is bounded below by zero.
+> **The corridor has an extremum and a sign change. The index has the extremum and cannot have the sign.**
+
+### Seated
+- `throat.py` — new. `index3.py` — **720 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H103**. `substrate.py`, `staircase.py`, `pressure.py` — **read here, unchanged**.
+
+---
+
+
+## `substrate.py` — order is the substrate, and one language does not stand on it.
+
+> M: *"Order is the organization, algebra needs an order to exist."*
+
+**Correct, and it breaks an inference from one pass ago.** `staircase.py` concluded from `op_algebra`
+having no dimension precondition that **algebra is available strictly earlier, not downstream of order.**
+*That does not follow.* `tools/cypher.py`, in a comment in `Index.__init__`: *"R is order-dependent … so
+**every coordinate needs a declared or inferable value order**"* — and with none declared it falls back and
+**warns**. Handed `[('p','q'),('r','s')]`, the index holds `[(0,0),(1,1)]`: **`ix.cells` are ranks.**
+
+> **An index cannot exist without a value order.** Algebra never runs order-free because nothing does — join
+> and meet are lattice operations, and a lattice is a poset.
+
+**Measured, not merely definitional.** Same cells, only the declared order permuted, decoded back for
+comparison, 23 non-identity permutations:
+
+| order | algebra | geometry | information | **statistics** |
+|---|---|---|---|---|
+| 23/23 | **23/23** | 23/23 | 23/23 | **0/23** |
+
+**Withdrawn:** `H101b`'s inference — the availability ladder **cannot speak to dependency**, because every
+language gets the order free from the Index. **Third time this session a property of the harness was read as
+a property of the object** (`H97`'s re-ranking, `H100`'s budget, now this). **Stands:** every dimension
+number `staircase.py` measured, unchanged.
+
+**And statistics is the only order-invariant language** — it reads which tuples occur, not how they rank.
+**The fourth independent measurement to single out the same one:** it alone closes the family at `E = 0`
+(`necindex.py`); it is admitted for returning a binary while undeclared (`alpha.py`); it is last on the
+ladder and exact from `d = 3` up (`staircase.py`); and now, it alone is independent of the order.
+
+> **If order is the substrate, the one language that does not stand on it is the one that closes the
+> index.** Four routes, one language, none of them looking for it. **Recorded as a convergence, not a
+> mechanism.**
+
+### Seated
+- `substrate.py` — new. `index3.py` — **717 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H102**, with H101b's inference marked withdrawn in place. `tools/cypher.py`, `staircase.py`,
+  `licensed.py` — **read here, unchanged**.
+
+---
+
+
+## `staircase.py` — the ladder is real. It counts coordinates, and algebra comes first.
+
+**A different claim from the last one, and it finds what the last measurement missed.** `selfindex.py`
+tested directedness **by composition** — nine of ten pairs commute. This claims directedness **by
+availability**. Untested, and **the answer is yes.**
+
+**The ladder is in the cypher's own preconditions**, verbatim: `op_order` *"R needs at least two
+coordinates"*; `op_geometry` the same; `op_statistics` *"needs more than {k} coordinates at order {k} (reg
+1175)"*. `op_algebra` and `op_information` have **no dimension precondition at all.**
+
+| d = 1 | d = 2 | d = 3 |
+|---|---|---|
+| algebra, information (E = 0) | + order, geometry | + statistics |
+
+> **Three rungs — and the two answers are compatible.** Languages **commute once available** and **become
+> available at different dimensions**: a set of commuting operators that switch on at different dimensions.
+> **A step function**, not a chain and not a flat set.
+
+**But it counts coordinates, not objects.** At `d = 5`, all five speak at **1 cell** — and at 2, 3, 4, 6, 10
+and 17. **No object-count threshold anywhere.** The ladder counts how many things can be said *about* an
+object. *(Negative control: the dimension threshold is real in the same harness.)*
+
+**And the first step inverts.** First availability: **algebra 1 · information 1 · geometry 2 · order 2 ·
+statistics 3.** **Algebra needs nothing; order needs two** — algebra is strictly earlier, not downstream.
+And **order and geometry switch on together.** Algebra at `d = 1` is not vacuous: it admits exactly its four
+cells, **E = 0**.
+
+**The triangle is exact, and one language over.** `_hull2`'s own docstring: *"returns 1, 2 or ≥3 points"* —
+verified: point, segment, **TRIANGLE**. Caratheodory at `d = 2`, cited in the source. **A threshold *of*
+geometry, not a demand *for* it.**
+
+**Statistics last, more sharply than claimed:** silent below `d = 3`, then **E = 0 at 3, 4 and 5**, while
+every other language gets *worse* with dimension (order and algebra at E = 175 by `d = 5`). **No
+intermediate regime.**
+
+> **Scorecard: three confirmed, three refuted** — the ladder exists, the triangle is right, statistics is
+> last; it is not indexed by objects, algebra is not after order, and order/geometry are not sequential.
+> **Three and three, against nought and three last round.**
+
+### Seated
+- `staircase.py` — new. `index3.py` — **714 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H101**. `tools/cypher.py`, `selfindex.py`, `alpha.py` — **read here, unchanged**.
+
+---
+
+
+## `selfindex.py` — the chain, the budget, and the cypher run on itself.
+
+**Three measurable claims, three negatives. The fourth is declined on a measurement.**
+
+**The chain has no direction.** For `order → algebra → geometry → statistics` to mean anything, the order of
+application must matter. **All three of its own links COMMUTE on every seed.** The hierarchy does have
+exactly one directed pair — `information` vs `statistics`, 9 of 16 seeds — **but it is not in the chain, and
+`information` is not in the chain at all.** *The one place the hierarchy has a direction is the one place
+the chain does not go.* A ladder whose every rung commutes is a set. (Negative control: the directed pair
+exists, so commuting is not vacuous.)
+
+**Encodability is not decidability, and the cypher shows it itself.** Any *finite string* encodes to binary
+— that is not being *determined by* an operator on binary. `op_algebra` carries a budget and **returns
+`None`**: measured, the same index that closes at budget 200000 and 200 **goes SILENT at 10.** And every
+operator enumerates a finite `ambient()` — 288 cells, and 48 for the language box. **A law that holds
+because its domain is finite is not a law about mathematics.**
+
+**Run on itself, the hierarchy fails its own test.** An index whose cells are the seven roster-1173
+languages, described by the corpus's own admission properties:
+
+> **Seven languages, five cells** — `algebra`, `geometry` and `information` collapse onto `(1,1,1,1,1)`,
+> indistinguishable under the criteria that admit them. And **it does not close in any language that
+> speaks**: `order 5 · algebra 5 · geometry 2 · information 1 · statistics 1`, over a 48-cell box holding 5.
+> *"K.langclose holds: languages disagree and E > 0."*
+
+Negative control: the same operators close the energy-condition family at `E = 0`, so the failure is this
+index's, not the tools'. The coordinates are a choice and it is carried.
+
+**The multiverse claim is declined — on a measurement, not a preference.** `adjudicate.py` ran the closure
+against the field equations and **it certified a family excluding a published condition**, at `E = 0` in all
+five languages. **A criterion that certified a false family is not a candidate for a cosmic constant.**
+
+What survives: every language here is a closure operator and membership is granted iff it returns a binary
+— **true, proved, and true by the admission criterion.** A theorem about a construction of ours. **The
+distance from that to a multiverse constant is the whole of the claim.**
+
+### Seated
+- `selfindex.py` — new. `index3.py` — **711 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H100**. `alpha.py`, `adjudicate.py`, `revoke.py`, `licensed.py` — **read here, unchanged**.
+
+---
+
+
+## `adjudicate.py` — the cypher against the field equations. M's protocol, run.
+
+> M: *"The proof is provided by verifying answers given by the cypher against the outputs of the applied
+> field equations."*
+
+**Well posed, and my refusal was too broad.** It needed a **bridge**: the cypher answers *which cells a
+language admits*, the field equations answer *what `T_μν` is and whether the condition holds*. One
+comparison is well defined — **the field equations name a condition; does the certified family contain its
+cell?** Binary, checkable, falsifying.
+
+**And it had already run once.** `revoke.py`'s cypher certified the 192 at `E = 0` in all five languages;
+eq. (86) is classical, smeared, negative-bounded, and **the 192 excludes it.** One example, certification
+gone.
+
+**The decisive case, computed here rather than quoted.** In flat space along a null geodesic two of eq.
+(86)'s three terms vanish identically, leaving `∫ T_kk f² ≥ −2ξ ∫ (f′)² φ²`. For constant `φ₀` and a
+normalised Gaussian of width `σ`:
+
+> **BOUND = −ξ φ₀²/σ²** — checked against Simpson quadrature to `1e-6`; exactly `−1/6` at conformal
+> coupling, unit field, unit width. **Negative for every ξ > 0, classical, no ħ**, and going as `1/σ²`:
+> halving the width quadruples it, exactly. **The smearing width IS the broken scale.** Negative control:
+> at `ξ = 0` the bound is **exactly zero**, so the negativity is the non-minimal coupling.
+
+**The score.** Nine conditions this tree *computes* — `higgs.py`'s scalar NEC, `emtension.py`'s Maxwell NEC
+built from `F`, `pressure.py`'s throat tension, `persist.py`'s Ford–Roman, `qei.py`'s Fewster–Osterbrink
+`QA`, `anec.py`'s QNEC, `nullbound.py`'s SNEC, the Barceló–Visser effective NEC, and eq. (86):
+
+> **240: nine of nine. 192: eight of nine** — missing the only computed condition that is classical with a
+> bound below zero, which is the only one that could ever have discriminated.
+
+**What it proves: refutation.** One disagreement ends a family; agreements only leave it standing. **The 192
+is refuted; the 240 is not yet.** **What it cannot prove:** the universal — no tally reaches a
+quantification over an unbounded domain. That would need the structure of the languages, not a case count.
+
+**And the narrow universal IS proved:** every language in the hierarchy is a closure operator, and
+membership is granted iff it returns a binary. **"Everything in the hierarchy obeys the closure law" — true,
+by the admission criterion.** A theorem about the construction, not about mathematics.
+
+### Seated
+- `adjudicate.py` — new. `index3.py` — **707 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H99**. `revoke.py`, `licensed.py`, `alpha.py` — **read here, unchanged**.
+
+---
+
+
+## `revoke.py` — prior art in full, nothing to prove, and it revokes `licensed.py`'s law.
+
+> M: *"Are these already predefined energy conditions? … yes is preferred because it comes with its own
+> provenance."*
+
+**Yes.** Fifteen agents, ten sources, four skeptics instructed to **refute** novelty — the bias set against
+us on purpose. **All four claims refuted at HIGH confidence.** Every axis is prior art: the tensor axis is
+Capozziello–Lobo–Mimoso's *"The classification of energy conditions"* (attributed to Hawking–Ellis 1973);
+`T_eff` is Visser–Barceló 2000; `V`, `M`, `Q` and `B` are all explicit organising dimensions inside
+**Kontou–Sanders 2020** alone. The only unclaimed thing is the five-way crossed table — **the novelty of a
+spreadsheet.**
+
+**And the sweep found more than provenance.** `licensed.py`'s law is **half prior art and half false.**
+Kontou–Sanders 2003.01815, **read from source by this thread:**
+
+> **Proposition 2.1** (p. 11): *"Let S_ab be any rank 2 tensor and Γ a set of pairs of vectors **that is
+> invariant under positive rescaling**. If S_ab η^a ξ^b is bounded from below … then the greatest lower
+> bound is zero."* — and immediately after: *"restrict attention to normalized time-like vectors, **which
+> removes the scale invariance … In this case the existence of a lower bound does not imply that the lower
+> bound is non-negative.**"*
+
+**The mechanism is scale invariance of the quantifier set, not the regime** — the forward half is Tipler
+1978, generalised at Prop. 2.1. **And the converse is refuted by their eq. (86):** a **classical**, smeared
+inequality with a negative RHS for the non-minimally coupled scalar. *"Although the lower bound may be
+negative…"* No ħ.
+
+> **The 192-cell family excludes it. The family that closed every language excludes a published energy
+> condition.**
+
+**Add that one cell and the closure detonates** — `E` from `(0,0,0,0,0)` to `(47,47,47,23,47)`. Close it
+again: **240 cells**, and a one-line definition of its own —
+
+> **NOT (classical AND state-dependent bound).** All 48 excluded cells are `Q=0, B=2`, nothing else. In
+> words: **a state-dependent bound requires a quantum state** — nearly a tautology, since an entropy
+> variation is an entanglement entropy's second variation. **A negative state-independent bound requires
+> nothing of the kind.**
+
+The 240 closes all five at `E = 0`, contains all eighteen named conditions **and** eq. (86), and has the
+192 as a subset. **It is the family `licensed.py` should have found.**
+
+**And the meta-finding is the one that matters.** Both close at `E = 0` in all five languages; one is
+wrong. Measured: all four named conditions with a negative bound are *both* quantum *and*
+scale-broken-or-state-dependent, so the two rules agree on **every named cell** while disagreeing on **96
+cells of the box.**
+
+> **A family can close every language and exclude published physics.** What separated them was not any
+> operator. **It was reading a paper.**
+
+Fourth instance of these instruments being recorders rather than adjudicators — after `necindex.py`,
+`licensed.py` and `hierarchy.py`.
+
+**The proof burden: nothing.** Every axis, every member, the regime split and the forward half are
+published and citable; the converse needed refuting, not proving, and the literature had done it. **There
+is no new family to prove, because there is no new family.**
+
+### Seated
+- `revoke.py` — new. `index3.py` — **704 findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` —
+  **H98**, with H94a marked **revoked** in place. `provenance.py` — **26 sources, 33 attributions**;
+  Kontou–Sanders **VERIFIED**, Tipler **NAMED-NOT-READ** (paywalled), and a new status **READ-BY-SWEEP** for
+  the four a subagent read with page-level quotes but this thread did not.
+
+---
+
+
+## `necindex.pinned_index` — an instrument was silently re-coordinating its input.
+
+**`cypher.Index` re-ranks each coordinate's observed values to dense ordinals.** On the full family that is
+the identity — the eighteen named conditions happen to use every value of every slot. **On any subset that
+does not, the operator's output comes back in a different coordinate system from its input.** Nothing
+errors; the numbers come back plausible; they measure something else.
+
+A new fault kind here: not a typed digit, not a hollow test, not a bad tolerance — **a test that ran
+correctly on an object the harness had quietly replaced.** Found only because a commutation check reported
+all five operators failing *extensivity*, which is impossible for a closure operator and impossible in the
+same way for all five at once.
+
+**Sound, and why:** every result taken on the full named family used a spanning seed. `necindex.py` entire;
+`licensed.py`'s **192 cells, `B ≤ 2Q`, five languages at E = 0, 96 excluded, `T`/`V`/`M` free**;
+`hierarchy.py` entire; `alpha.py`'s admission criterion, endomorphism types and idempotence.
+
+**Wrong, corrected:**
+
+| | published | corrected |
+|---|---|---|
+| single conditions | *"none closes past 4 cells"* | **every one closes to itself — all 18** |
+| uniqueness | *"the NEC alone is a closed family"* | **false — all eighteen are** |
+| superadditivity | 48 + 48, coexistence demands 96 | **36 + 24, coexistence demands 132** |
+| joint closure | *"up to four expansions — it climbs"* | **max 2; 38 of 40 in one — it collapses** |
+
+> **Two corrections make the result stronger and one reverses a verdict.** Closure is **entirely an
+> interaction effect** — no condition demands anything alone, and the coexistence gap widens from 96 to
+> **132 of 192**. And `alpha.py` had told M the collapse clause was half false; **pinned, it holds.** What
+> fails is only *"collapse to one place"*: 34 distinct terminals from 40 seeds. **Fast, and not
+> convergent.**
+
+**One new result, unaffected by the correction.** Nine of ten operator pairs **commute**; **`information`
+and `statistics` do not**, disagreeing on 9 of 16 seeds — **the loop's one directed edge**, and the only
+place where "which language first" changes the answer.
+
+**The fix is structural.** `necindex.pinned_index()` declares the full value order per coordinate, making
+the coding the identity. `licensed.py` and `alpha.py` construct every index through it, and
+`cypher.Index` is called directly nowhere in this tree.
+
+### Seated
+- `necindex.py` — `pinned_index()` added. `licensed.py`, `alpha.py` — rerouted, fixtures corrected.
+  `index3.py` — **701 findings**. `paper/CLAIMS.md` — **H97**, with H94b and H96b marked superseded in
+  place. `tools/cypher.py` — **read here, unchanged**.
+
+---
+
+
+## `alpha.py` — binary is the admission criterion, not the first rung.
+
+> M: *"Binary is the alpha language, top of the hierarchy because it both starts and ends the hierarchy."*
+
+**The first clause is the corpus's own admission criterion, reached independently.** documentary *"returns
+a citation, **not a binary**"* → SILENT. analysis *"returns a magnitude rather than a **cell decision**"* →
+NOT-RUN. statistics *"**returns a binary** and is in"* — and it is in *despite* roster 1173 not declaring it
+operator-bearing.
+
+> **Membership in the hierarchy iff the language returns a binary.** Binary is not the first step of the
+> ladder — **it is the test for being on the ladder at all.**
+
+**And every language is a self-map on it**, verified by type: input a collection of tuples, output a set of
+tuples, **no operator changing the type of its argument.** Domain = codomain = the binary. **There is
+nowhere to climb to.**
+
+**Which sharpens the list against itself:** it has binary as the first rung *and* as the alpha that starts
+and ends. Those cannot both hold. Measured, binary is **not in the list — it is what the list is made of.**
+
+**The collapse is half true, and the failing half is the point.** All five operators are **idempotent** —
+one application and you have landed; you cannot climb a ladder of idempotents. **But jointly the closure
+iterates.** Over 40 random seeds: 26 needed one expansion, 7 two, 6 three, **1 four.**
+
+> **The hierarchy does climb, just not far.** `licensed.py`'s named family settled in one — and reading
+> "collapse" off that would have been **reading the modal case as a law**, since 14 of 40 seeds
+> needed more. **Nor is there one terminus:** 34 distinct fixed points from 40 seeds, 12 cells
+> to 288. **Each language collapses; the ladder of them does not.**
+
+**Two things recorded, not ruled.** *"Logic is not a language — it is the mechanism by which any language
+answers"*, and its output is a binary, so *"logic is a citation of binary"* points at something real — **but
+"citation" is already the corpus's word for the one row that is NOT a binary.** A hazard, named. And the
+proposed roster names **three** the tree has no operator for and drops **three** roster 1173 carries:
+**docket 20x-04/20x-09, recorded as a candidate and not seated.** Every measurement here is
+roster-independent.
+
+**A prose-fixture mismatch was caught:** a check labelled *"names two"* returned three **and passed** — the
+fixture right, the label wrong.
+
+### Seated
+- `alpha.py` — new, imports `necindex.py`/`tools/cypher.py`. `index3.py` — **698 findings**, 16 occupied
+  cells, `E(X) = 0`. `paper/CLAIMS.md` — **H96**. `tools/cypher.py`, `necladder.py`, `licensed.py` — **read
+  here, unchanged**; docket 20x-04/20x-09 left open.
+
+---
+
+
+## `hierarchy.py` — a hierarchy of languages is not a hierarchy of scales.
+
+> M: *"This hierarchy problem is directly solvable using a hierarchy tool … the language cypher."*
+
+**No — and the corpus says why in its own source.** The cypher *is* a hierarchy tool: a hierarchy **of
+languages**. The hierarchy problem is a hierarchy **of scales**. **The fifth time this thread has found one
+word holding two things** (after `antigravity.py`, `sign.py`, `mouth.py`, `pressure.py`).
+
+**The type argument is checkable.** All five runnable operators return a `set` of `tuple`s — 192, 192, 156,
+29, 17, each a subset of the 288-cell box. **None returns a magnitude**, and no composition of maps into a
+finite set of tuples produces `1.0110e-16`.
+
+**And the one language that would answer it has no operator.** `tools/cypher.py`, verbatim:
+
+> *"analysis is not an admission operator: it asks whether a continuous law exists … must be declared with
+> a witness"* — `"`**is there a continuous law here?**` declare with a witness (an R^2, or a reason none
+> exists)"`
+
+**That question is the hierarchy problem stated exactly**, and it is the one language roster 1173 calls
+operator-bearing for which the tree supplies no operator. Measured: absent from ADMISSION's 6
+entries, present in `DECLARED_ONLY`, declared operator-bearing — while **statistics runs without being
+declared.** `CLAUDE.md` already recorded that swap from Λ; `necindex.py` found it again on the
+energy-condition index. **Same swap, second index, unsought.**
+
+> **The witness for analysis IS the continuous law.** You must supply one to run the cypher, so you cannot
+> obtain one by running it. **The cypher is downstream of the answer.** Third instance of this thread's
+> instruments being recorders rather than producers — `necindex.py` enumerates citations not truths,
+> `licensed.py` hands back candidates not objects.
+
+**The fit was run so it could be refused with a number.** 412608 expressions over `{Λ, π, e, 2, 3, 5, 7}`:
+**1** within 1%, **0** within 0.1%. The sole near-miss is `(10Λ)⁻⁸ = 1.0140871864e-16`, relative
+error `3.019e-03` — against a target known to `1.125e-05` (G dominates at `2.247e-05`). **It misses by
+268 measurement widths.**
+
+> **`(10Λ)⁻⁸` is named so it is on record as REFUSED** — the exact shape that gets written up as a
+> discovery, with no derivation and 268 widths of error. **Naming a trap is worth more than the fit.**
+
+The sweep finds a planted target exactly, so the empty result is a measurement not a broken search; the
+absence is over one finite family and is recorded as a **weak** negative witness. **The docket
+(20x-04/20x-09) is named and left open** per `CLAUDE.md`; what is discharged is the target itself.
+
+**A units slip was caught** — G's uncertainty entered as `1.5e-4` against `6.6743e-11`, a relative
+uncertainty above one. The fixture caught it, the prose did not.
+
+### Seated
+- `hierarchy.py` — new, imports `necindex.py`/`tools/cypher.py` and `higgs.py`. `index3.py` — **695
+  findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H95**. `tools/cypher.py` — **read here,
+  unchanged**; docket 20x-04/20x-09 left open.
+
+---
+
+
+## `licensed.py` — the family that closes every language, and it was derived, not invented.
+
+> M: *"We need to theorize/define a new family of energy conditions — the family of ECs that solves the
+> cypher, closing all its languages to E = 0."*
+
+**It was not necessary to invent one.** `necindex.py`'s five slots and seventeen named cells already
+determine it: the five operator-bearing languages are extensive and monotone, so iterating all five jointly
+from the named family converges to the **least family containing them that every language closes.** One
+step, **192 cells of 288**, and the cypher's own criterion fires: *"K.langclose holds: languages agree
+and E = 0"* — against the named family's `175, 175, 12, 139, 0`.
+
+> ### THE LICENSED ENERGY CONDITIONS
+> For any `Θ ∈ {T, T_eff, G, R}`, any direction set, any measure:
+> **classical** `Θ_μν u^μu^ν ≥ 0`; **semiclassical** `⟨Θ_μν⟩u^μu^ν ≥ 𝔅`, with `𝔅` zero, a negative
+> state-independent bound, or an entropy variation. **192 members, seventeen named.**
+
+The one-line definition, coding-free: **a bound below zero is permitted exactly when the regime is
+quantum.** Nobody put that in. A classical theory has no `ħ` to scale a negative bound and no entanglement
+entropy to vary, so `≥ 0` is the only right-hand side it can write — and five closure operators run on
+seventeen historically-accumulated conditions **reconstructed that and nothing else**: all 96
+excluded cells are classical, all carry a non-zero bound, nothing else is excluded.
+
+**The operators do real work** — the box is a fixed point of anything extensive, so this had to be shown.
+No single named condition closes past **4** cells, and **the NEC closes to itself**: one cell,
+every language, the *only* condition that is a closed family alone. A structural reading of
+Barceló–Visser's *"it is the weakest one"* the tree did not have.
+
+**And the closure is superadditive:** classical rows alone → **48**, semiclassical rows alone →
+**48**, together → **192**. **96 cells exist only because both regimes sit in one index.**
+
+**The constraint lands entirely on `(Q, B)`. `['T', 'V', 'M']` are free** — and `T` is the slot every opener moves,
+four of four. **So the closure is blind to the only door:** no language on this roster can see the
+difference between a condition on matter and the same condition on curvature.
+
+Four limits: a cell is a **citation, not a truth**, so the **175 unnamed cells are candidates for a
+name** and nothing more; **"all languages" is five of seven** — `analysis` stays NOT-RUN (no witness
+declared, register 1172) and `documentary` SILENT by construction, and neither can be closed by anything;
+**192 is the *least* such family**, the box closes trivially; and **the slots are ours.**
+
+### Seated
+- `licensed.py` — new, imports `necindex.py` and through it `tools/cypher.py`. `index3.py` — **692
+  findings**, 16 occupied cells, `E(X) = 0`. `paper/CLAIMS.md` — **H94**. `necindex.py` — **read here,
+  unchanged**.
+
+---
+
+
+## `necindex.py` — the family is an index, statistics closes it, and every opener moves one slot.
+
+> M: *"NECs are derived from statistically probable positions … This changes the question from satisfying
+> current conditions, to ask **what current conditions need to be changed, and to what?**"*
+
+**Mechanically right, not rhetorically.** Every named condition has the identical form —
+`[TENSOR]_μν [VECTOR]^μ[VECTOR]^ν ≥ [BOUND]`, under `[MEASURE]`, in `[REGIME]` — differing **only in slot
+values.** So the family is an **index over five ordinal coordinates**, and `M`/`V` are M's first clause
+exactly: pointwise is a Dirac measure on the direction set, averaged is uniform along a geodesic. **There
+is no `T_kk` without a `k`** — the condition is never a property of matter alone. **18 conditions,
+17 cells.**
+
+Handed to `tools/cypher.py` at roster 1173 — **imported, not reimplemented** — the languages answered
+unsteered:
+
+| order | algebra | information | geometry | **statistics** |
+|---|---|---|---|---|
+| E = 175 | E = 175 | E = 139 | E = 12 | **E = 0** |
+
+> **Generated exactly by its pairwise marginals, in one language of five, over-generated by every other
+> from twelve cells to a hundred and seventy-five.** M said *"statistically probable positions"* before
+> the measurement was taken.
+
+**And the route to E = 0 is the finding.** Seventeen conditions were seated first; statistics returned
+`E = 1`, **demanding a cell nobody had listed** — `(matter T, timelike, pointwise, semiclassical, ≥0)`, the
+**semiclassical WEC**. Seating it closed the index. **That condition is false** — Casimir, measured, exactly
+as its null partner is — which is why no textbook lists it. **The index demanded it anyway, because an
+index enumerates citations and not truths.**
+
+> **The family closes only when the refuted members are seated beside the standing ones. These are reports,
+> not gates.**
+
+**Which are interchangeable.** `G_μν k^μk^ν = R_μν k^μk^ν − (R/2)g_μν k^μk^ν`, collapsing exactly when
+`R·g_kk = 0`. At null they are **the same statement, no field equation used** — 2,000 exact-rational draws,
+zero disagreements. **This file first said "one cell" and its own selftest refused:** two cells, and the
+identity is a **quotient** — **`T` is not faithful at `V=0`** and faithful everywhere else, where the same
+difference is WEC-on-Einstein against **SEC**. At unit timelike, `G_vv − R_vv = +R/2` exactly. The second
+identification, matter `T` ≡ Einstein `G`, holds **only in general relativity**.
+
+**The census:** of 8 escape routes in this tree, **4 open a throat and every one moves `T`**;
+the other four move `M` or `B` and grade without opening. **None moves `V`. None relaxes `≥`.**
+
+> **The corridor does not need matter that violates the NEC. It needs the tensor that sources the curvature
+> not to be the tensor whose energy condition we check.** One door, five names.
+
+### Seated
+- `necindex.py` — new, imports `tools/cypher.py`. `index3.py` — **689 findings**, 16 occupied cells,
+  `E(X) = 0`. `paper/CLAIMS.md` — **H93**. `necladder.py`, `anecscope.py`, `anec.py`, `emtension.py`,
+  `higgs.py`, `qei.py`, `persist.py`, `currency.py` — **read here, files unchanged**.
+
+---
+
+
+## `higgs.py` — right object, right magnitude, wrong side of a line the field cannot leave.
+
+> M: *"The Higgs boson. We need to build a Higgs field."*
+
+**A minimally coupled scalar satisfies the NEC identically, and the potential does not enter.** Contracting
+`T_μν = ∂_μφ ∂_νφ − g_μν[½(∂φ)² + V]` with a null `k` kills the whole bracket — `g_μν k^μ k^ν` is zero by
+definition — leaving `T_kk = (k^μ∂_μφ)² ≥ 0`. **The Mexican hat is irrelevant.** Barceló–Visser eq. (2.6),
+*read from source*: *"This condition is clearly satisfied by minimally coupled scalars."*
+
+**Verified over exact rationals**, `proofs.py`'s house method: 4,000 rational gradients × random potentials
+to `1e15` × twelve exactly-null Pythagorean-quadruple directions — **zero mismatches, zero negatives**, and
+`V` from `−1e30` to `+1e30` changing the answer **not at all**.
+
+**And a VEV is a constant field, so it saturates:** `ρ = V`, `p = −V`, **`w = −1` exactly, `ρ + p = 0`
+exactly.** A genuine isotropic tension — exactly what the proposal reaches for, and it beats EM's `w = +1`
+in every way except the only one that counts.
+
+> **The field sits precisely on the line it would have to cross** — `emtension.py`'s sentence, and the
+> **second field to land on it**, for one structural reason by two mechanisms. And every knob turns the
+> wrong way: a gradient makes `T_kk` *strictly* positive.
+
+**BUT THE MAGNITUDE IS THERE, AND IT IS THE FIRST OVERSHOOT IN THE THREAD.** `V_min = −m_h²v²/8 =
+-1.187857e+08 GeV⁴` = **`2.476937e+45 J/m³`** against `pressure.py`'s `2.073325e+42 Pa` — **1195× more than the
+throat needs**, with the sign of `ρ` right as well. `amps.py` fell short by seventeen orders,
+`kugelblitz.py` by fifty-six, `persist.py` by sixty-nine. **This one overshoots.**
+
+Two caveats, neither small: the **absolute normalisation of `V` is not measured** — the figure is the
+electroweak contribution to `Λ` under `V(0)=0`, exceeding the observed vacuum energy by **54.62 orders,
+which is the cosmological constant problem**; and **it is uniform**, so it does not localise. **A resource
+you cannot put somewhere is not a resource.**
+
+**THE ESCAPE IS ξ, AND THE GATE ON IT IS THE HIERARCHY PROBLEM.** Barceló–Visser find *"an entire branch of
+traversable wormholes for every ξ > 0"* — but pointwise NEC violation is cheap and **ANEC is not**: their
+case 2 has ANEC satisfied whenever `φ² < κ/ξ` everywhere. Their gate, in their words: *"the scalar field
+has to reach absolute values above ~ m_p/√ξ."* At the Higgs VEV that needs
+
+        ξ > (M_red/v)² = 9.782907e+31        against Higgs inflation's ~1.7e+04 — 27.76 orders short
+
+and `v/M_red = 1.011e-16`. **Barceló–Visser's threshold is the Planck scale, and the hierarchy problem is
+the statement that `v` sits sixteen orders below it** — squared to thirty-two by `ξ` coupling `φ²`, an
+**exact identity** to `1e-12`, not a resemblance.
+
+> **The single most famous fine-tuning in particle physics is exactly the quantity standing between the
+> Higgs and a traversable throat.**
+
+What *does* violate the NEC is a **phantom** (`T_kk = −(k·∂φ)² ≤ 0`), exhibited as a negative control — and
+it is not the Higgs. **Three faults caught:** two were `sign.py`'s cancellation channel appearing in a
+*test* (float nulls + a large `V` printed a false `VIOLATED`), fixed by exact nulls and exact rationals;
+the third was `k_μ` where `T_μν k^μ k^ν` needs `k^μ` — both perfect squares, so only the exactness found it.
+
+### Seated
+- `higgs.py` — new. `index3.py` — **686 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H92**. `provenance.py` — Barceló–Visser added as **VERIFIED**.
+  `emtension.py`, `pressure.py`, `persist.py` — **read here, unchanged**.
+
+---
+
+
+## `pressure.py` — yes as a pressure. No as compression, and there is nothing there to squeeze.
+
+> M: *"This is all atmospheric pressure density that must be applied to the singularity to cause the
+> singularity to open its mouth?"*
+
+**The dimensional reading is right and it is worth more than `persist.py`'s own framing.** `1 J/m³` is
+`1 Pa` exactly, so every number that pass produced reads as a pressure with no conversion — and reading it
+that way produces an exact result the density framing hid.
+
+Morris–Thorne's throat tension is `τ₀ = c⁴/(8πG r₀²)` — **the whole requirement in pascals, with nothing
+else in it.** At `r₀ = 1.524 m`: **`2.073325e+42 Pa`**, `2.046212e+37` atmospheres, `4.1466e+07` × a neutron-star
+core. And it is **exactly one third** of `persist.py`'s `6.219974e+42 J/m³` — ratio `3.000000000000`. The 3 is
+arithmetic, not a physical identity, but **the pressure reading is not a rescaling of the problem.**
+
+**AND THE PRESSURE READING FINDS WHAT THE DENSITY READING COULD NOT.** Integrate over the mouth:
+
+> **τ₀ × 4πr₀² = c⁴/(2G) = `6.051278e+43 N`, and r₀ cancels** — verified `r₀`-free to `1e-12` across sixty
+> orders. **Half the Planck force**, to `0.500000000000`; the exact sibling of `kugelblitz.py`'s `c⁵/(2G)`,
+> half the Planck power. **Half the Planck power to assemble it; half the Planck force to hold it open.**
+
+Against **Gibbons hep-th/0210109** *(read from source)*, eq. (1) `F_g = c⁴/(4G) = 3.025639e+43 N`, ours is
+**exactly twice it**. **Logged as an analogy, not a derived violation** — he bounds a force between two
+*bodies*, ours is a stress over a *2-sphere*; he himself writes *"the number 4 … may be subject to
+revision"*; and it is a principle, not a theorem. **Recorded from the source, not repaired:** his eq. (2)
+prints `3.250000e+43 N` where his eq. (1) evaluates to `3.025639e+43 N` — **the paper disagrees with itself by
+7.4153%** (OCR'd extraction; the caveat travels with the finding).
+
+**Three things in the sentence are wrong and each correction is sharper than the error.**
+
+- **The sign.** `τ = −p_r` — the wall is *pulled*. And squeezing is **quadratically self-defeating**: a
+  static source gravitates as `ρ + 3p`, so pressure raises the effective mass, which raises `r_s`, and the
+  gap goes as `R²`. **GAP → GAP × (1 + 3p/ρc²)²** — 4× at radiation stiffness, 16× at the
+  causal limit. **Compression is the operation that makes a black hole.**
+- **There is nothing there to squeeze.** A traversable throat has *no horizon and no singularity* by
+  construction. You are building a wall where a horizon would be, out of a material that does not exist.
+  And flare-out `b′(r₀) < 1` **is** the radial NEC violation — one inequality, not two, verified as an iff.
+- **The magnitude is not what fails.** At `b′(r₀) = −1` the required tension equals `|ρc²|` exactly, so the
+  demand sits **on** the causal boundary `|p| ≤ ρc²`, not past it. **The sign of ρ is what is exotic.**
+
+### Seated
+- `pressure.py` — new. `index3.py` — **683 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H91**. `provenance.py` — **18 sources, 25 attributions**; Gibbons added as
+  **VERIFIED**, Morris–Thorne stays `NAMED-NOT-READ`. `persist.py` — **read here, unchanged**.
+
+---
+
+
+## `persist.py` — the bound forbids the duration, not the density.
+
+> M: *"Continue."*
+
+`antigravity.py` closed on *"the corridor needs the integral negative, not the integrand"*; `qei.py` had
+found the proved bound's **state-independent** piece scaling as `τ⁻⁴`. **Neither asked the question the two
+of them together make obvious**, and it had been unasked in this tree from the start.
+
+> A quantum energy inequality does not bound negative energy. **It bounds negative energy by how long it
+> lasts.** And a corridor needs its negative mass to *last* — at least the light-crossing time of its own
+> mouth. **Those are the same quantity, and they had never been compared.**
+
+At `mouth.py`'s ten-foot doorway, `R = 1.524 m`, mass `1.026102e+27 kg` (171.81 Earth masses),
+energy density `6.219974e+42 J/m³`:
+
+| | |
+|---|---|
+| must hold for `R/c` | `5.083517e-09 s` |
+| Ford–Roman permits | `2.816478e-26 s` (`5.2242e+17` Planck times) |
+| **too short by** | **`1.804920e+17`** |
+| permitted mass at one light crossing | `9.668500e-43 kg` |
+| required | `1.026102e+27 kg` |
+| **deficit** | **`1.061284e+69` — 69.03 orders** |
+
+**AND THE TWO DEFICITS ARE ONE DEFICIT, EXACTLY.** Both masses occupy the same volume, so their ratio is
+the ratio of the densities, and `ρ_allowed ∝ T⁻⁴`. Hence `GAP_MASS = GAP_DURATION⁴` as an **identity** —
+`1.061284e+69` against `1.061284e+69`, relative disagreement `1.8e-16`, holding at every decade of `R` from
+`1e-10` to `1e5`. That fixes both exponents at once:
+
+        GAP_DURATION ∝ R^(1/2)      GAP_MASS = 3R²/(8π ℓ_P²) = 4.569426e+68 per m²
+
+**THE FIRST WALL IN THIS THREAD THAT PUNISHES SIZE OUTRIGHT.** `closeout.py`'s `Λ/2` is scale-invariant to
+`1e-15` over sixteen orders; `kugelblitz.py`'s `E×R` is scale-free; `mouth.py`'s shrink bought a smaller
+price only by buying a shorter reach. **Here a bigger installation is quadratically further away.**
+
+The crossover is `R = √(8π/3) ℓ_P = 2.894405 ℓ_P = 4.678097e-35 m` — **the fourth crossover in this thread that
+exists and is never reached.** **And Λ is not in it**: `M = Δd c²/(GΛ)` with `Δd = ΛR/2` gives `M = Rc²/(2G)`
+and **Λ cancels** — verified through the ladder at `Λ = 1e-6, 1, 9.9825, 1e6`, giving `1.026102e+27 kg` each time.
+
+**Scope, kept narrow because the number is large.** *(a)* This is the Ford–Roman **scaling** form, not
+`qei.py`'s proved Theorem 4.3, and it carries no `ξ` — **this pass does not close the state-dependent
+escape**; it prices the hole that escape must fill, at `1.0613e+69`. *(b)* Treating a static shell's
+volume-integrated mass as a geodesic sample is a **heuristic** — the wormhole literature's own, and still a
+heuristic. *(c)* `qei.py`'s `QC[f]` term is again absent and again does not vanish. **Against that, the
+deficit is a floor**: the coefficient `3/(32π²) = 9.4989e-03` was dropped *in the corridor's favour*, and
+restoring it costs `1.0528e+02` more.
+
+> **The one open escape is unchanged, and is now priced.**
+
+### Seated
+- `persist.py` — new. `index3.py` — **680 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H90**. `qei.py`, `antigravity.py`, `mouth.py`, `closeout.py` — **read here, files
+  unchanged**.
+
+---
+
+
+## `antigravity.py` — a sign in the interaction, not a sign in the source.
+
+> M: *"We need to harness antigravity."*
+
+`sign.py` made the requirement unambiguous — **negative mass, 22.59 Earth masses per metre.** The answer to
+this is a **category statement, not a magnitude.**
+
+**ANTIMATTER FALLS DOWN, AND THE TREE DID NOT HOLD THE RESULT.** ALPHA-g:
+`a(antihydrogen) = (0.75 ± 0.13 ± 0.16) g` — **downward**, consistent with full `g` within two sigma
+*(Anderson et al., Nature 621, 2023, read from source)*. **A grep finds no mention of ALPHA-g or
+antihydrogen anywhere in this tree** — the most direct experiment on the question was simply absent.
+
+**AND FULL ANTIGRAVITY WOULD NOT MAKE IT FALL UP EITHER.** Binding energy acts gravitationally as *matter*
+(MICROSCOPE: η < 1.5×10⁻¹⁵), and **two-thirds of an antinucleon's mass is gluonic binding energy.**
+
+| | f̄ | a/g |
+|---|---|---|
+| pure antimatter (naive) | 1.00 | −1.00 (UP) |
+| **antihydrogen** | **0.33** | **+0.34 (DOWN)** |
+| positronium | 0.50 | hovers |
+| muonium | 0.995 | −0.99 (UP) |
+
+**Even under antigravity, antihydrogen falls down.** Antinucleon–antinucleon force would be **1/9** of
+matter–matter — reduced attraction, never strong repulsion. The measurement **disfavours antigravity at
+1.57 σ and does not close it.**
+
+**AND HERE IS WHY NONE OF IT HELPS.** Villata's antigravity, in his own words: *"all masses are and remain
+**positive definite** … the minus sign comes from the PT-oddness of either `dx^μ` or `Γ`."*
+
+> **Antigravity is a sign in the interaction. The corridor needs a sign in the source.**
+
+`certify.py`'s condition is on the **Misner–Sharp mass**, `m(r) = 4π∫ρr²dr`, and a sign in the geodesic
+equation does not enter it. **At the theoretical maximum — an object that genuinely falls up at −g — the ρ
+in that integral is still positive.** Antigravity supplies **0.0 kg** against a requirement of **−22.59
+Earth masses per metre.**
+
+**SO IT IS NOT "TOO WEAK". IT IS THE WRONG QUANTITY.** `amps.py` was wrong by seventeen orders,
+`kugelblitz.py` by fifty-six, `ladder.py` by galaxies, `mouth.py` by a proportion — **all magnitudes to be
+chased. This one is not on the same axis at all.** A magnitude invites another attempt; **a category error
+ends a search.**
+
+> And "antigravity" was hiding two things inside one word — **the third time this thread has found that
+> shape.** What produces negative energy *density* is still Casimir, already priced and sub-Planckian.
+> **The corridor needs the integral negative, not the integrand.**
+
+### Seated
+- `antigravity.py` — new. `index3.py` — **677 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H89**. `sign.py`, `certify.py`, `candidates.py`, `magnitude.py` — **read here,
+  files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
+## `sign.py` — Δd is the excess. Positive mass buys a detour.
+
+> M: *"give me a simple concise example of what this is precisely within our model."*
+
+**THE EXAMPLE, AS SMALL AS IT GOES.** Walk from 10⁹ m to 2×10⁹ m and measure the **proper** distance,
+`∫dr/√(1 − 2GM/rc²)`:
+
+| mass | excess Δd | |
+|---|---|---|
+| **+1 Earth** | **+3.074143×10⁻³ m** | **LONGER** |
+| **−1 Earth** | **−3.074143×10⁻³ m** | **SHORTER** |
+
+> **Positive mass makes the walk longer; negative mass makes it shorter.** `dichotomy.py` recorded this
+> already as `BH-IS-WRONG-SIGN`. **The pricing passes did not carry it through.**
+
+**SO THE PRICES ARE THE RIGHT SIZE AND THE WRONG WAY ROUND.** A shortcut needs `Δd < 0`, hence `M < 0`.
+22.59 Earth masses per metre, 171.81 for a ten-foot mouth, 2.7254×10¹² M☉ for Proxima — **all correct as
+magnitudes of proper-length change, all quoted as buying a shortcut. At positive mass they buy a detour.**
+
+**AND THE WEAK FIELD MAKES Λ CONCRETE.** `Δd = (GM/c²)·ln(r₂/r₁)`, verified against the exact integral to
+**1.1×10⁻¹⁰** across fifteen orders of mass and both signs. **Λ sits where `ln(r₂/r₁)` sits: Λ = 9.982529 is
+a radius ratio of 21645.0.** The rate is per e-fold — which is why it is logarithmically stiff, doubling the
+span adding only `ln 2`.
+
+**WHICH COLLAPSES `mouth.py`'S ESCAPE INTO ONE CONDITION.** Its aspect-ratio bound **is a horizon**, and
+horizons exist **only at M > 0** — the detour sign. A negative mass has no radius where `1 − 2GM/rc²`
+vanishes, **because the term adds rather than subtracts.**
+
+> **The escape and the requirement are the same condition.**
+
+**THE LEDGER GETS SHORTER, NOT WORSE.** It was never two masses. **Improves:** the aspect ratio is not a
+wall for a real corridor — **a ten-foot mouth is not forbidden by that argument**. **Does not:** the
+requirement is now unambiguously **exotic matter**, 22.59 Earth masses per metre.
+
+**THREE FAULTS, ALL CAUGHT, AND A KIND NOT SEEN BEFORE** — not a wrong claim, not a wrong test, but a
+**numerically unstable implementation**: 10⁹ − 10⁹ to get 10⁻³ left three good digits and disagreed with the
+weak field by **58 %**; the fix cancelled again at `f = 1 − 10⁻¹⁵`; the identity
+`x/(√(1−x)(1+√(1−x)))` removed both. And `exp(Λ)` was typed 21681 against a computed **21645.0**.
+
+### Seated
+- `sign.py` — new. `index3.py` — **674 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H88**. `mouth.py`, `ladder.py` — **corrected here, files unchanged**.
+  `dichotomy.py` — **read here, unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
+## `field.py` — no source pays a mass bill, and one of our own walls doesn't exist.
+
+> M: *"their math is right, but their conjecture is wrong. We have to use field equations as well … Can we
+> hook this thing up to a nuclear and utilize the reactor's entire output?"*
+
+**THE REACTOR IS CLOSED BY A THEOREM, NOT A NUMBER.**
+
+> **Every energy source converts mass at efficiency ≤ 1, and the bill is stated as a mass.**
+
+A reactor doesn't *make* energy, it *converts mass* — so `E = mc²` makes the fuel requirement **at best
+equal to the bill itself.** Verified as an identity (10⁻¹² against both `mouth.py` and `ladder.py`).
+
+| | universe ages to accumulate |
+|---|---|
+| one 3 GW reactor | **7.0587×10¹⁶** |
+| every reactor on Earth | 1.7647×10¹⁴ |
+| world primary energy | 1.0779×10¹³ |
+
+**A 3 GW reactor running every second since the Big Bang delivers 1.3065×10²⁷ J against a bill of
+9.2221×10⁴³ J.** Fuel: **171.81 Earth masses at perfect matter–antimatter conversion**, 1.88×10⁵ by fission,
+4.30×10⁴ by fusion. **A bill in mass cannot be paid by finding a better converter of mass.**
+
+**AND THE FIELD EQUATIONS FIND A FAULT IN OUR OWN WORK.** The Schwinger rate depends on the **invariant**
+electric field from `S = E² − c²B²` and `P = E·(cB)` — **not on |B|**:
+
+| configuration | invariant E | rate |
+|---|---|---|
+| pure electric at `E_S` | 1.323285×10¹⁸ | 4.32×10⁻² |
+| **pure magnetic at `B_QED`** | **0.000000** | **0** |
+| **pure magnetic, ×10⁹ `B_QED`** | **0.000000** | **0** |
+| counter-prop (Page) | 0 | 0 |
+
+**Magnetars prove it: ~10¹¹ T against `B_QED = 4.414×10⁹ T` — 22.7× critical, persisting for thousands of
+years.**
+
+> **`amps.py` is wrong** where it says the magnetic route is *"stopped by BOTH… BREAKDOWN FIRST, below ~720
+> km."* **Exceeding `B_QED` is not breakdown.** **One of the two walls that pass reported does not exist.**
+> Corrected, not edited.
+
+**WHICH IS WHY PAGE'S ESCAPE WORKS, AND IT GENERALISES.** `E² − c²B² < 0` with `E·B = 0` **is** invariant
+E = 0; a pure magnetic field is the simplest member of that family. **M's reading is right in a specific
+way:** agmp24's arithmetic isn't in question — we confirmed one of their constants to `0.0×10⁰` — but their
+*conclusion* assumes a nonzero invariant E, and the field equations make that **a choice, not a necessity.**
+The magnetic route needs **B = 3.953796×10¹⁸ T**, eight orders above the strongest field in nature, **with
+no breakdown mechanism in the way.**
+
+**THE HONEST NET: ONE WALL REMOVED, THE BINDING ONE STANDS.** Removed: the breakdown wall — ours, and wrong.
+Stands: the **4.292537×10²⁴ A** current bill, untouched, **because it is about how much energy the field
+carries, not about what the vacuum does in response.**
+
+> **What would actually move this is neither a bigger power source nor a cleverer field configuration, but
+> `mouth.py`'s open sign question.** Everything else has now been measured, and every measurement has come
+> back the same way.
+
+### Seated
+- `field.py` — new. `index3.py` — **671 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H87**. `amps.py` — **corrected here, file unchanged**.
+  `kugelblitz.py`, `mouth.py`, `ladder.py` — **read here, files unchanged**. `obstruct.py` — **unchanged**.
+
+---
+
+
+## `kugelblitz.py` — the proposal has a name and a live fight, and high voltage is the wrong end of it.
+
+> M: *"the next step is figuring out how to produce miniature black hole in a vacuum, entirely with EM
+> manipulation, with extremely high voltage."*
+
+**FOUR SOURCES READ FROM SOURCE.** Álvarez-Domínguez, Garay, Martín-Martínez & Polo-Gómez, *"No black holes
+from light"*, **Phys. Rev. Lett. 133, 041401 (2024)** (arXiv:2405.02389) — Schwinger dissipation prevents
+kugelblitze for `10⁻²⁹ ≤ R ≤ 10⁸ m`. **Don Page**, arXiv:2505.16202 — rebuttal, possible in principle to
+near the Planck mass. Plus Loeb's comment (2408.06714) with reply (2408.11097), and Blas–Cardoso–Ezquiaga
+(PRD 111, 044049).
+
+**The dispute is not adjudicated here.** This pass puts *our* object inside it — and **our 1.524 m mouth is
+squarely inside the no-go's range.**
+
+**AND OUR OWN FIELD NUMBER IS CONFIRMED INDEPENDENTLY, TO THE LAST DIGIT.**
+
+| route | value |
+|---|---|
+| ours, from an energy density | `E = 1.185318×10²⁷ V/m` → **`E·R = 1.806425×10²⁷ V`** |
+| theirs, eq. (8): `φ = √(3c⁴/4πε₀G)` | **`1.806425×10²⁷ V`** |
+
+> **Agreeing to `0.0×10⁰`** by two unrelated derivations. **The best independent check this project has had
+> on a number of its own.**
+
+**"EXTREMELY HIGH VOLTAGE" HAS A NUMBER: 1.8064×10²⁷ volts across the mouth** — 8.96×10⁸ × Schwinger,
+1.2×10⁸ × a magnetar (the strongest field in nature), and **1.2×10¹² × the best field ever made.**
+
+**THE BARE ASSEMBLY POWER IS `c⁵/2G`** — `P = Mc³/r` with `r = 2GM/c²` gives **1.814127×10⁵² W exactly, M
+cancels**, verified mass-independent over fifteen orders and equal to **0.500000000000** of the Planck
+power. **Recorded as ELEMENTARY, not claimed** — agmp24's eq. (13) carries the same combination.
+
+**AND SCHWINGER ADDS THIRTY-TWO MORE ORDERS**: 1.524×10⁸⁴ W against the bare 1.814×10⁵² W; in intensity
+10⁸³ W/m² against a laser record of 10²⁷ — **fifty-six orders.** *The naive light-crossing estimate is not
+the wall; the vacuum's response is.*
+
+**AND THE ONE KNOWN ESCAPE IS THE EXACT OPPOSITE OF HIGH VOLTAGE.** Page uses counter-propagating
+**antiparallel-polarised** pulses with `E² − B² < 0` and `E·B = 0` everywhere — **no frame has a purely
+electric field**, so the LCFA gives **zero** pair production.
+
+> **High voltage is precisely the configuration that maximises pair production.** The one known way through
+> works by arranging the invariants so that **voltage does not exist in any frame.**
+
+It sits beside `voltage.py` without overlapping: that found the electric route stopped by **conservation**
+(marginal field 1041 *below* Schwinger); this finds it stopped by **breakdown**. Two independent objections
+to one clause, three passes apart.
+
+**PAGE'S OWN SCOPE, QUOTED**: *"probably never actually occurring in our universe either naturally or by
+human intervention."* **His paper is about principle, not engineering** — he reaches near the Planck mass,
+**34 orders below** what `mouth.py` needs.
+
+**What this settles:** a named, live research question rather than a novel idea; our field figure right to
+the last digit against a PRL; and **the high-voltage clause specifically is the wrong end of it.** **Not
+settled:** the dispute, and whether such a hole opens a throat at all.
+
+### Seated
+- `kugelblitz.py` — new. `index3.py` — **668 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H86**. `mouth.py`, `voltage.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
+## `mouth.py` — ten feet buys seven metres. A buildable mouth buys a useless corridor.
+
+> M: *"let's assume the size of the mouth only needs to be 10 feet in diameter."*
+
+**Now decidable, because `closeout.py` fixed the aspect ratio exactly** — and it decides against, but the
+*way* it fails is the finding.
+
+**FIXING THE MOUTH FIXES THE REACH.** `r = 2Δd/Λ` inverts to `Δd = Λr/2`, so a 1.524 m radius gives
+
+> **Δd = 7.606687 m.** Not four light years. **Seven and a half metres.**
+
+**AND IT STILL COSTS 171.81 EARTH MASSES** — `M = rc²/2G = 1.026102×10²⁷ kg`, **0.5406 Jupiter masses**,
+9.222147×10⁴³ J — cross-checked against the 22.59 Earth-masses-per-metre rate by an independent route,
+**agreeing to 0.0×10⁰**.
+
+> **Half a Jupiter to move something seven metres.** The price did not come down when the mouth did —
+> **only the product came down.** Halving the mouth halves *both* the reach and the mass, to 10⁻¹⁵.
+
+**THE DENSITY SAYS WHAT THE OBJECT IS**: 6.920654×10²⁵ kg/m³, **3.0090×10⁸ times nuclear** — which is what
+`2GM/c² = 1.524 m` describes. **A half-Jupiter mass with a metre-and-a-half gravitational radius is a small
+black hole, and the ten-foot mouth is its horizon.**
+
+**SO THE QUESTION INVERTS.**
+
+| reach | mouth diameter | Earth masses |
+|---|---|---|
+| **7.6 m (ten-foot mouth)** | **3.048 m** | 1.7181×10² |
+| one kilometre | **400.7 m** | 2.2587×10⁴ |
+| Earth to Moon | 1.540291×10⁸ m | 8.6825×10⁹ |
+| Proxima, 4.2 ly | **1.702 light years** | 9.0744×10¹⁷ |
+
+Keeping ten feet while reaching Proxima needs the mass packed **5.2815×10¹⁵ times inside its own
+gravitational radius** — not compressed, **inside its horizon.**
+
+> **Ten feet is not viable, and it fails for a reason not available before: not cost, which scales down
+> honestly with the mouth, but *reach*, which scales down with it too.** Every earlier wall here was a
+> **magnitude**; this one is a **proportion**, so it does not yield to engineering.
+
+**THE ONE ESCAPE, AND IT IS THE SAME WALL.** The bound `r ≥ 2G|M|/c²` is a theorem **only for positive
+mass**, where that radius is a horizon. For **negative** mass there is none — and `certify.py`'s contraction
+condition is exactly `m < 0`.
+
+> **The escape from the aspect ratio is the negative mass this project has never been able to source** —
+> which says the aspect ratio and the exotic-matter requirement **are the same constraint, not two.**
+
+**AND ONE THING IS RECORDED OPEN.** This tree prices the transition with a **positive M** while
+`certify.py` requires a **negative m**. Whether those are one M with a sign convention between them or two
+different masses **is not resolved here and not assumed.** The magnitudes survive the question; **the
+escape depends entirely on its answer** — making the sign bookkeeping **the most load-bearing open item
+this thread holds.**
+
+### Seated
+- `mouth.py` — new. `index3.py` — **665 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H85**. `closeout.py`, `ladder.py`, `certify.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
+## `closeout.py` — the two open rows. Hawking is moot here by 103 orders; N was never load-bearing.
+
+> M: *"let's handle these and then we can look at the viability of a build."*
+
+**HAWKING: NOT RESOLVED, BUT SHOWN NOT TO MATTER.** `chronology.py` marks the Cauchy-horizon divergence
+NOT-RUN because **the literature dispute is unresolved** — Kim–Thorne say quantum gravity cuts it off at
+the Planck scale, Hawking says it does not. **That is not resolved here and cannot be.** What was never
+asked is whether it is *load-bearing*.
+
+A field on a CTC spacetime sees infinitely many images of itself, each contributing to `⟨T⟩` as `1/ℓ⁴` —
+**forced by dimensions, not recalled.** The image sum is `2ζ(4) = π⁴/45 = 2.164646467422`, converging to
+twelve places by 2×10⁶ terms and **diverging as the loop closes**.
+
+**Now grant Kim–Thorne everything.** The pileup stops at **1.002869×10¹¹⁴ J/m³**, against the corridor's
+own operating density at its own throat scale:
+
+| shortcut | corridor ρ (J/m³) | pileup / ρ |
+|---|---|---|
+| one metre | 3.598982×10⁴⁴ | 2.79×10⁶⁹ |
+| **Proxima, 4.2 ly** | 2.229811×10¹¹ | **4.4976×10¹⁰²** |
+
+> **103 orders, on the assumption most favourable to the time machine.** It does not matter whether the
+> divergence is cut off, because **the cut-off value alone is a hundred orders past anything this geometry
+> holds.**
+
+Row moves **NOT-RUN → MOOT-FOR-THIS-OBJECT**. `chronology.py` is left **unchanged**, because the dispute it
+names really is open. *Limits:* dimensional analysis, not a computed stress tensor; both positions
+**RECALLED and not read**; and a hundred-order margin is what makes a dimensional argument sufficient.
+
+**N: A FAULT OF MINE, NOT A FINDING.** I said `OBJECTS_PER_EVENT` "could still move the crossover verdict."
+**It cannot** — the crossover compares **total** against **total**, and slicing the payload changes neither
+side (verified: k pieces of m/k cost what one piece of m costs, to 10⁻¹², at k up to 10⁹). N sets cost *per
+traveller*, an economic question.
+
+**BUT THE QUESTION PRODUCED AN EXACT RESULT THE TREE DID NOT HAVE.**
+
+> `r_s = 2GM/c²` with `M = Δd c²/(GΛ)` gives **`r_s = 2Δd/Λ`** — **G and c cancel completely** — so
+> **`Δd/r_s = Λ/2 = 4.991265`**, identical to 10⁻¹⁵ at every scale from one metre to Proxima.
+
+**A corridor is never much longer than it is wide.** A shortcut to Proxima has a throat **0.8508 ly in
+radius** — an object **1.702 ly across** lying between here and there, against a 4.2465 ly journey. **It is
+not a tunnel. It is very nearly a bridge as wide as it is long, and Λ forces it.**
+
+That also supplied the density above — the corridor now has its **own** natural volume rather than an
+assumed one (`ρ = 3Λ²c⁴/32πGΔd²`, agreeing to 10⁻¹²). And N finally has a geometric bound: **8.1414×10³²**
+objects of one square metre. **A bound, recorded, and it moves nothing.**
+
+**FOUR TEST-CONSTRUCTION FAULTS IN ONE FILE** — a hollow check comparing one call to itself (**third**
+instance); an **absolute** tolerance against a ratio of order 10⁴; one that **passed by luck** with the same
+flaw; and an **inverted expected value**. **The test was right and my assertion was wrong** — the opposite
+of the Morris–Thorne case, and the reason both must be diagnosed rather than trusted by reflex.
+
+### Seated
+- `closeout.py` — new. `index3.py` — **662 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H84**. `oneway.py` — **corrected here, file unchanged**.
+  `chronology.py` — **read here, deliberately unchanged at NOT-RUN**. `obstruct.py` — **unchanged**.
+
+---
+
+
+## `oneway.py` — the transition is one-way, and that is where the paradox lives.
+
+> M: *"We don't need a price both ways. The transition is only 1 way. The return is a separate trip
+> reinitiated at the time of return."*
+
+**THE CORRECTION IS MINE.** `ladder.py` closed by saying the corridor buys *"everyone, permanently, any
+mass, both ways."* **"Both ways" was never measured** — a grep finds it in three files in unrelated senses
+and in no instrument — so **nothing computed changes**; corrected here rather than edited. **And
+"permanently" goes with it:** a transition that must be *reinitiated* is an **event**, not a standing
+structure, and an event cannot be amortised.
+
+**WHAT SURVIVES IS STRUCTURAL AND REAL.** In `Δd = (G/c²)MΛ` the **M is the geometry, not the payload** —
+the corridor column is **constant at 4.871×10⁵⁹ J** across payloads from 10² to 10⁴² kg while the ticket
+column runs over forty orders. **Cost is per metre of shortcut, not per kilogram**, and that means **a
+crossover mass exists** rather than the comparison being hopeless at every scale. M's narrowing exposed it.
+
+**AND THE CROSSOVER IS NEVER REACHED, AT ANY SPEED**, against a deliberately generous ticket — the **ideal
+floor** `2(γ−1)mc²`, an external beam with no propellant carried.
+
+| γ | 1.05 | 2 | 10 | 100 | 10⁶ |
+|---|---|---|---|---|---|
+| crossover (M☉) | 2.725×10¹³ | **1.363×10¹²** | 1.514×10¹¹ | 1.376×10¹⁰ | 1.363×10⁶ |
+
+**A hundred tonnes would need γ = 2.7097×10³⁷ — not a speed, a misprint.**
+
+**ONE WAY TO AN UNEQUIPPED DESTINATION IS ONE WAY PERMANENTLY.** If the return is reinitiated at the far
+end, the far end must already hold the same capability — **2.7254×10¹² solar masses, assembled there.**
+
+> **The corridor is not transport. It is emigration.** A change of category rather than of price, and a
+> two-way ledger hid it because a round trip silently assumes the far end is equipped.
+
+**AND THE PARADOX MOVES TO THE RETURN — the real finding.** `transit.py`: a single transition carries no
+signalling advantage. `roundtrip.py`: two hops can close a loop. **M's correction makes the return an
+independently initiated second hop — the antitelephone configuration exactly.**
+
+**And the frame velocity is not something anyone arranges.** Proxima's own radial motion (~22.2 km/s,
+RECALLED) is `u = 7.405123×10⁻⁵`, and inverting `roundtrip.py`'s own threshold gives
+
+> **v = 27008.329513 c. Any transition faster than that, between the Sun and Proxima, closes the loop.**
+
+Measured against the instrument's `t_return`: **+1.99×10⁻²** at 100c, **+2.00×10⁻⁹** at the threshold, and
+**−5.41×10⁻⁵** and **−7.40×10⁻⁵** at 10⁵c and 10⁹c. A corridor whose whole purpose is to *arrive without
+traversing* is past that by many orders.
+
+> **The one-way trip is the safe one. The return is the paradox.** And **the stars supply the boost** —
+> `chronology.py`'s route needed "two devices plus a boost"; **this needs only two stars.**
+
+*Limits held:* nothing shows a corridor **can** be built, so this constrains a hypothetical; and
+`chronology.py`'s `HAWKING` row is **still NOT-RUN**, so chronology protection is **OPEN**.
+
+**AND ONE PARAMETER IS RECORDED OPEN RATHER THAN GUESSED.** How many objects pass per transition event is
+established **nowhere** — `OBJECTS_PER_EVENT = None`, not 1, not unbounded. **It is the one number that
+could still move the crossover verdict.**
+
+**TWENTY-SEVENTH FAULT, SECOND OF THE HOLLOW-TEST SHAPE** (after `corridor.py`'s involution): a check
+labelled "a comoving far end does not close the loop" evaluated a condition that was always true and
+**tested nothing.** It now tests what it says.
+
+### Seated
+- `oneway.py` — new. `index3.py` — **659 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H83**. `ladder.py` — **corrected here, file unchanged**.
+  `roundtrip.py`, `transit.py`, `chronology.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
+## `ladder.py` — invert the bill. 22.6 Earth masses per metre; Proxima costs two Milky Ways.
+
+`amps.py` priced one metre. **The inverse is the more useful question — and it is M's own test**: *"if we
+can't do it faster and cheap then there is no point to this thread."*
+
+**A FIFTH DENOMINATION, AND THE MOST LEGIBLE YET.** `Δd = (G/c²)MΛ` inverts to `M/Δd = c²/(GΛ)`:
+
+> **1.348948×10²⁶ kg per metre — 22.59 Earth masses per metre of shortcut.**
+
+No engineering model is used; it is the transition equation read backwards, and it is **linear**. Five
+denominations now stand for one wall — ENERGY 1.212374×10⁴³ J/m, **MASS 1.348948×10²⁶ kg/m**, LENGTH
+5.106580×10⁻³⁵ m, FREQUENCY 5.870709×10⁴² Hz, and CURRENT ~10²⁴ A, the only one that is not linear.
+
+**THE LADDER IS THE FINDING.**
+
+| source *(RECALLED)* | Δd (m) | in ℓ_P |
+|---|---|---|
+| a NIF laser shot | 1.690898×10⁻³⁷ | 0.0105 |
+| **the Z machine, stored** | **1.649656×10⁻³⁶** | **0.1021** |
+| both LHC beams | 5.971756×10⁻³⁵ | 3.69 |
+| Tsar Bomba (50 Mt) | 1.723891×10⁻²⁶ | 1.07×10⁹ |
+| world annual primary energy | 5.113935×10⁻²³ | 3.16×10¹² |
+| the Sun's output for a year | 9.964130×10⁻¹⁰ | 6.16×10²⁵ |
+| **the Sun, entire rest mass** | **1.474090×10⁴ — 14.74 km** | 9.12×10³⁸ |
+| **the Milky Way, entire rest mass** | **2.211135×10¹⁶ — 2.337 ly** | 1.37×10⁵¹ |
+
+> **Every energy this civilisation can point at anything is sub-Planckian or barely above.**
+
+**AND THE TICKET PRICE.** Proxima Centauri: **5.4194×10⁴² kg = 2.7254×10¹² solar masses — about 1.8 Milky
+Ways.** Earth to the Moon, 2.61×10⁴ solar masses; Earth to Mars, 3.70×10⁶; the galactic centre, 1.71×10¹⁶.
+**And one metre costs 22.59 Earth masses**, which is the whole bill in one sentence a person can check.
+
+**THE TRADE IS `Δd ∝ I²R`, WHICH IS `amps.py` FROM THE OTHER END.** Doubling the current *quadruples* the
+purchase; doubling the size only *doubles* it — **so current is the strongest lever there is**, and it is
+the **same quadratic** that made the gap look half as bad as it is.
+
+> **One fact, two readings, each misleading without the other: the exponent that flatters the gap is the
+> exponent that rewards the lever.**
+
+The loop model is crude and used **only for the exponent**; every rung above uses a measured stored
+energy.
+
+**ONE COINCIDENCE, MEASURED AND REFUSED.** The Z machine's purchase is 0.032 of `√Λ ℓ_P` — tempting and
+**not a relation**, since `Δd = EGΛ/c⁴` carries no ħ while the quantum does. The ratio is proportional to
+the machine's energy (1.17 at the LHC): a fact about Sandia, not about physics.
+
+**AND M'S CRITERION, ANSWERED.**
+
+> **The corridor is infrastructure priced in galaxies** — not expensive, but *the wrong order of object
+> to be costing at all.* **Relativistic travel is a ticket priced in payload**, and `perception.py` found
+> it in the same equations: a round trip at one ship-year each way returns you to an Earth **8.724 years
+> older having aged two.**
+
+**For getting a payload there, the corridor loses and it is not close.** What it buys that a ticket cannot
+is *everyone, permanently, any mass, both ways* — a different purchase, priced here for the first time in
+a denomination anyone can check.
+
+**TWENTY-SIXTH FAULT, AND THE FIRST FIX THAT HAS HELD.** Four fixtures carried hand-arithmetic digits, all
+caught, none affecting a verdict — fourth instance of the tally channel. The response was not to retype
+them but to **generate** them: replaced by values computed from the module and written in by a script.
+**A digit I do not type is a digit I cannot get wrong.**
+
+### Seated
+- `ladder.py` — new. `index3.py` — **656 findings**, 16 occupied cells, `E(X) = 0`.
+  `paper/CLAIMS.md` — **H82**. `amps.py`, `perception.py` — **read here, files unchanged**.
+  `obstruct.py` — **unchanged**.
+
+---
+
+
 ## `amps.py` — the bill in current. A square-root denomination; the wall did not move.
 
 > M: *"Now that we have the math we can go back to the bill. And my first guess is going to be amps of EM."*
@@ -8961,3 +11789,626 @@ most easily skipped when a number looks familiar.
   one-line failure instead of a thousand-name diff — and it earned itself immediately, catching the
   roster change from this pass in one line). `paper/CLAIMS.md` — **H37** with seven sub-sections and five
   additions to the not-claimed list. `obstruct.py` — **unchanged**.
+
+
+---
+
+### The render pipeline, and why it now has a guard
+
+`render_pdf.py` turns `paper/THE-HIERARCHY-LAW.md` into the print HTML that Chromium prints; there is
+no pandoc and no LaTeX here, so this is the only route to the PDF. It is stdlib-only and its docstring
+carries the two commands.
+
+**It has now shipped four silent corruptions of the deliverable**, every one of them caught by reading
+the output rather than by any check:
+
+| what it did | the case that exposed it |
+|---|---|
+| split table rows on `\|` inside a cell, inventing a column | a cell containing a literal pipe |
+| ended bold at an escaped asterisk | `**Lemma N1\* holds**` |
+| let an escaped asterisk **open** an emphasis span | `Lemma N1\*` then the next real `*italic*` — the span ran between them, swallowing a sentence and leaving a stray `*` in the PDF |
+| refuse bold that contains italic, leaking literal `**` | `**N4 · finiteness — it is the *number of factors* that Lemma 7 needs**` |
+
+The last two were found on 2026-09-13 by scanning the rendered text for asterisks that survived. **A
+renderer with no guard is the worst place for one to be missing** — it is the last step before the
+thing a reader actually sees, and its failures are invisible in the source. `python3 render_pdf.py
+--selftest` now runs 12 cases: the four bugs above as fixtures, plus the ordinary forms, so a future
+fix cannot trade one for another. Each of the four was confirmed to *fail* against the pre-fix code
+before being seated.
+
+Six asterisks remain in the rendered text of the paper and all six are correct: `Lemma N1*` is the
+lemma's name, written `N1\*` in the source so it is not read as markup.
+
+---
+
+## The index work of 2026-09-15, WITHDRAWN
+
+Four sections stood here describing a classification built from **thirty indexes**. They are removed,
+and the removal is the finding.
+
+**The subject is the periodic elements.** A member of an index of it is an electron, a subshell, a
+transition, a channel or a series — something carrying quantum numbers. **Nothing enforced that**, and
+thirteen filing-system indexes were seated as vertices of the figure: mirrored files, BUILD snapshots,
+conversations, archives, artefact names, handoff documents, numbering gaps, and this tree's own
+dockets. Beside them went three indexes of warp-drive obstructions and four re-charts of the seated
+indexes.
+
+**E ran from 9 to 133 on that mixture, and every one of the twelve disruptive vertices was repository
+metadata. Not one was an element.** The explosion was the contamination. It was reported as a finding
+about the closure programme — that building every first-order index and reaching E = 0 or 1 pull in
+opposite directions — and that claim is **withdrawn**.
+
+Deleted: `store.py`, `obstruction.py`, `filled.py`, `cross.py`, `density.py`, `occupy.py`, `hexad.py`.
+Withdrawn with them: `hexad.py`'s three published findings — the channel not stable under growth, the
+diagonals equalling the deficit only at six, the self-seating cycle at eight. All three were measured
+on the contaminated set, and a measurement on the wrong member set is not a measurement of the right
+one with an error bar.
+
+What stands is in `research/warp-drive/registry.py`, which now **enforces** the criterion instead of
+describing it: every registered index names the quantum numbers its members carry, and a selftest
+fails if any module in the tree exposes an index that is neither registered nor explicitly excused.
+Seven stood at the cleanup; the eighth is below. See DOCKET 16.
+
+
+---
+
+## The gravity index, derived from the elements — `gravity.py`
+
+**M ruled it in, and named the reason:** *"The gravity index does belong because it is derived from
+the elements themselves. I am aware the Petrov is spacetime, but specifically gravity is a force that
+cannot exist outside spacetime, otherwise it would no longer be relative."*
+
+**`petrov.py` is not withdrawn and is not this.** Three facts about that file, not opinions about it:
+its members are spacetimes and none carries a quantum number; **it is a D = 4 theorem and its own
+first line says so** — "a Weyl tensor has four principal null directions counted with multiplicity" is
+the factorisation of the Weyl *spinor*, available in four dimensions and nowhere else, while above
+four the classification is the CMPP alignment type and a *generic* Weyl tensor has no aligned null
+direction at all (type G, no 4D analogue), so a generic higher-dimensional vacuum read through
+`petrov.py`'s (P, X) = (0, 0) prints as **flat**; and read against elements it is maximally degenerate,
+since Schwarzschild, Kerr and Reissner–Nordström are the only three rows an atom could occupy and it
+puts all three at (2, 2). That is the "particular reason" M asked about. `gravity.py` is the index
+those three facts ask for.
+
+- **`gravity.py`** — **the gravity index.** A member is `(Z, N, A, q, Ne, 2Je, L, D)`: a nuclide in a
+  charge state, read in a spacetime dimension, with `L` saying whether the level it was read at is
+  the table's ground. **3,394 members over 8 dimensions — 27,152 rows, 914 cells, box 3,840, cell
+  `(0, 19, 112)`, K0.** M from AME2020 Table I (3,558 nuclides; the mass path is
+  checked against the scale's own zero — carbon 12 banks mass excess 0.0 keV and the expression
+  returns exactly 12 u, as a fixture); q from the capture's spectroscopic numeral; 2Je from the NIST
+  ASD levels in `recovered/` — 149 captures, **118 species, all of them members**: 87 read at the
+  table's ground and **31 at an excited level**, each named with the level it was read at.
+  Electron binding is neglected and the neglect is *bounded*: worst 5.1e-5 of Mc² at Z = 90, A = 208,
+  three orders below the decade resolution of the chart.
+
+  **The 31 excited-level species were excluded in the first build and should not have been.** The
+  premise was right and the conclusion did not follow: reading an excited level's J *as a ground J*
+  would be an error, but an excited level is a real state of a real ion with a real angular momentum
+  and a banked energy, and its exterior field is as real as the ground state's. What the level *is*
+  and whether it is the ground are two different things — the first is the measurement, the second a
+  status — so the status became the coordinate `L`, and the excitation energy goes into M exactly
+  (worst 5.4e-8 of Mc², included **because it is banked**, where electron binding is bounded instead
+  because it is not). Members 2,696 → **3,394**, arity 6 → **7**, cells 524 → **914**. `L` is neither
+  constant, nor determined by the other six, nor a LABEL — measured, not argued. **And one claim
+  about the 31 was withdrawn by its own fixture**: the alphabet gains exactly one angular momentum
+  the grounds never reach, J = 5/2 on 19 members, not the two first written — 2J = 2 was already
+  seated on 29 grounds and rises to 346.
+
+  **Two angular-momentum facts, and neither needs a nuclear datum.** AME2020 banks no nuclear spin.
+  *Forced*: Je is half-odd-integer iff Ne is odd and I is half-odd-integer iff A is odd, so F is
+  half-odd-integer iff **A + Ne is odd** — and a half-odd-integer angular momentum is never zero.
+  **1,697 of 3,394 members, with no knowledge of I whatever**, and it is independent of `L`. *Vanishing*: even-Z even-N nuclei have
+  ground-state spin zero — the pairing rule, carried as `PAIRING_RULE_STATUS = "EMPIRICAL-RULE"` and
+  never flattened — which with 2Je = 0 gives F = 0 exactly: 365 members, **236 distinct nuclides whose
+  exterior field is exactly Schwarzschild.**
+
+  **The dimension changes the answer, not the arithmetic.** Singly-rotating Myers–Perry has a horizon
+  where `f(r) = r^(D-3) + a² r^(D-5) = μ`. At D = 4 that needs μ ≥ 2a (the Kerr bound); at D = 5,
+  μ ≥ a²; at **D ≥ 6, D−5 ≥ 1 so f(0) = 0 and f rises without limit — a root for every μ > 0 and every
+  a, no bound at all.** The ultraspinning regime, and it never uses the value of G_D, which nothing
+  here measures: it says a root *exists*, not where. **607 members are bound at D ≤ 5 and unbound at
+  D ≥ 6.** Charge is not relieved the same way — static charged Tangherlini's roots exist iff
+  μ² ≥ 4Q², a bound in every dimension, carried by 129 members at every D.
+
+  **`B` is a table of exact solutions, not a judgement.** Each branch names the metric it rests on, and
+  where none is known the value is *undetermined* and stays undetermined: the general charged
+  **rotating** Einstein–Maxwell solution is not known in closed form for D ≥ 5.
+
+  **Two findings, recorded and not repaired.** *(A)* Fix D and chart the other six slots: **109 cells
+  at D = 4, 115 at every D ≥ 5, and the cell is `(0, 11, 22)` at all eight.** The four extra are exactly
+  the undetermined rows — **so what the dimension adds to this index is an ignorance class, not a
+  geometry class**, and the admissible chart cannot see it. *(B)* 607 members lose their bound at
+  D = 6 and the cell does not move: a chart reporting (K, height, width) would report the ultraspinning
+  transition as nothing at all. A limit of the chart, stated so nobody reads the invariance as a
+  finding about gravity.
+
+  **What it costs the figure, reported and not softened:** vertices 7 → **8**, E 14 → **19**. Gravity
+  is *disruptive* — it raises the demand rather than filling it. M: *"I don't care about closure. I
+  only care that we identify every possible first-order index."*
+
+  **Refused:** to call 2Je the member's spin (it is the electronic part; the nuclear part is not
+  banked); to call an excited level a ground state (`L` carries it on every member); to chart more
+  than one level per species (that would multiply the same nuclides by their own spectra); to put a number on a horizon above D = 4 (G_D is fixed by nothing measured here); to read
+  the pairing rule as a theorem; to extend the 87 species by Hund's rules (a computation, not a
+  capture); to assign the warp metrics anything; to claim completeness — `registry.COMPLETE` stays
+  False.
+
+  **Rendering:** `research/warp-drive/render/gravity-plate.html`, regenerated by
+  `render/build_gravity_plate.py` — every figure on the plate is read from the instrument at build
+  time, never retyped, and `scatter3d.js` is inlined at build time so plate and runtime cannot
+  drift. **It carries a 3-D view, and which three axes it uses was measured rather than chosen:**
+  all 35 projections of the 914 chart cells were charted, and the best (D/X/Y) keeps 128 points, an
+  86 % collapse, with 44 of them carrying mixed colour. The member space **(N−Z, Z, q) is injective
+  on all 3,394 members with zero impure points at every dimension**, because the horizon-bound class
+  is a function of the plotted point. The reader picks the dimension and **607 points change colour
+  between 5 and 6**. `scatter3d.js` gained two additive changes for it — a returned `{draw}` handle,
+  since the loop only repaints while spinning, and axis text painted after the points, since a dense
+  cloud otherwise buries a label at half the azimuths. **Standing note, not acted on:** M — *"gravity may be a potential solution for
+  warp transition theory"* — recorded for when the warp work resumes. See DOCKET 17.
+
+
+---
+
+## Every seated index now has a rendering, and every rendering has a 3-D view
+
+M: *"We'll need renderings with 3d representation as well for all of them."*
+
+**`research/warp-drive/render/plate.py` is the shared scaffold**, and it exists because the
+interesting part of a plate is not its prose. It holds one copy of the house stylesheet, and two
+things that must be *measured* rather than chosen:
+
+- **The axis choice.** An arity-3 index is plotted **exactly** — three coordinates, three axes, one
+  point per cell, nothing collapsed — and the caption says so instead of leaving a reader to assume
+  it. An index of higher arity must be projected, and all C(arity, 3) projections are charted for
+  how many points survive and how many would carry **more than one colour**. A point with two
+  colours is a lie; the count is printed whether it is zero or not.
+- **The camera.** Swept, not picked, under three constraints: the whole cube stays on canvas at
+  *every* azimuth the auto-spin passes through rather than only the opening one; all three axes
+  project to at least 30 % of the longest, so the view is actually three-dimensional; and the still
+  frame keeps its labels clear. Legibility itself is not the camera's job — see below.
+
+**Seven plates were built or rebuilt on it:** `fibred`, `madelung`, `channels`, `ions`, `laws`,
+`probability`, `inversion`. The first four had plates already — `fibration-plate`, `janet-plate`,
+`ions-plate`, `spectra-plate` — but each **froze its own copy of the runtime** and three generations
+have since diverged, and `spectra-plate` still attributes the channel index to `spectra.py`, the
+module it had before it was reseated as `channels.py`. **The old plates are not deleted**: they are
+the record of what was rendered before, and DOCKET 14 says superseded material is kept. The new
+plates inline `scatter3d.js` **at build time**, so a plate cannot drift from the runtime because it
+does not carry a copy of one.
+
+**Six of the eight indexes are arity 3, so their 3-D view is the index itself** — `fibred`,
+`madelung`, `channels`, `laws`, `probability`, `inversion`. Only `ions` (arity 7) and `gravity`
+(arity 7) are projections, and both plates say so and give the measured cost: `ions` keeps **95 of
+98 cells with 0 mixed**, against a widest projection of 97 with 1 mixed that was therefore not used.
+
+**Two more additive changes to `scatter3d.js`**, on top of the two the gravity plate needed:
+
+- **An axis label is painted on its own ground** — a panel-coloured plate behind the text. The spin
+  passes through every azimuth, so no camera can keep a label clear of a dense cloud at all of them;
+  a camera constraint could only ever fix the opening frame. This fixes every frame.
+- **Axis text is painted after the points**, the lines still before them.
+
+Both were forced by looking at the rendered output: the first camera sweep tried to solve
+legibility geometrically, five of seven plates then satisfied no angle at all, and the constraint
+was the wrong tool.
+
+
+---
+
+## Three more first-order indexes, and six candidates rejected
+
+Nine candidates from the corpus hunt were **re-adjudicated against the current registry** — the hunt
+ran before `gravity` existed, and `gravity` has since absorbed all 3,558 AME2020 nuclides and the
+levels of 118 species, so a candidate distinct then may be a duplicate now. **Three built, six
+rejected, each rejection carrying the number that decides it:** COORDINATES.tsv is 98.8 % formula on
+a chosen grid against DOCKET 11's observed box; SPECTRA-DATA.tsv *is* `laws.py`'s own source file
+(596 rows, Jaccard 0.98); the AME2020 index is `gravity`'s mass source at row overlap 1.000 with
+(Z, N) perfectly injective; the charge radii are 23/23 contained in AME2020 with an injective
+`R_fm`; the X-ray Ritz closure has 81 of 165 theory members closing to exactly zero.
+
+- **`nucshell.py`** — **22 nuclear single-particle subshells** on `(nr, l, sigma)`. **22 cells, box
+  42, cell `(3, 7, 6)`, and it closes under geometry AND statistics** — the only arity-3 index here
+  to reach that channel. **The only non-atomic member type in the tree**: no seated index carries a
+  single-particle half-integer j.
+
+  **A test everyone trusts turns out to be null here.** Two banked orders disagree at 8 of 22
+  positions, and order A's header calls itself *"CORRECTED ... verified to close at 2, 8, 20, 28, 50,
+  82, 126"*. It does — **and so does B**, both hitting all seven. The first explanation written for
+  that was wrong and its fixture caught it; the true statement is stronger: **the seven blocks have
+  identical membership in both orders**, so they differ only by permutations *inside* blocks, and a
+  block's closing sum is a sum over a set. **The magic numbers verify the block partition and say
+  nothing about sequence.** What decides it is corroboration, and it is one-sided: three files match
+  A on all 22 and **a seated member of The Method matches it on all 16 it carries**, while every one
+  of them matches B on exactly 11 — the common prefix. B is not called wrong: RECOVERED /
+  UNCORROBORATED / SUPERSEDED is what is measured. `delta` is a real measurement that still never
+  goes on an axis — appending it takes the index from closing two languages to closing **nothing**.
+  And the cell tuples **do** collide with five seated indexes; they are homographs at full arity,
+  which is exactly why `overlap.py` calls `cell_overlap` the weak test.
+
+- **`terms.py`** — **5,132 Russell–Saunders terms over 122 spectra**, 112 cells, box 270, cell
+  `(0, 13, 18)`, K0. **Two candidates folded into one**: a Landé triple lies inside exactly one term,
+  so seating both would put one body of rows on two vertices — and neither precedent licenses it
+  (`periodic layout 2-D` was a strict *projection* and was withdrawn; `madelung` is a strict
+  *coarsening* and stayed; Landé is a **refinement of the member granularity**).
+
+  **The gate fired.** The interval verdict carries a declared tolerance, so it was gated before the
+  numbers were seen: the five-coordinate cell count runs 152, 162, 174, **177**, 172, 163 across
+  tolerances 0.01 to 0.50 — it moves, its cell moves, and it is **not even monotone** — while the
+  four-coordinate count is 112 at every one. So `interval` drops to the ledger, banked per triple
+  over 1,269 rows with an untuned band and **18 degenerate intervals refused rather than banded to
+  zero**. **It does not test Russell–Saunders coupling**, and the measurement says so: MIXED occurs
+  on **exactly one member of 5,132**. And **194 files were found where the candidate's list held
+  43** — the other 151 differ only in whether their header is capitalised, which is a filing fact.
+
+- **`madrule.py`** — **the 20 elements the Madelung rule misses**, charted by the transfer that
+  separates observed from predicted. 13 cells, box 96, cell `(2, 6, 4)`, closes in statistics alone.
+  Members are **elements**, a type no seated index has. It is not `inversion`: **17 of inversion's 20
+  pairs carry no exception**, so an inversion is necessary and nowhere near sufficient. But it sits
+  **one width-unit from `inversion`** at the same channel and height — recorded, and *not* ruled on.
+  The half-filled story is counted rather than told: 2 half-filled, 4 filled, **14 neither**.
+
+**The figure: 8 vertices → 11, E 19 → 39.** All three are disruptive and none was built to land
+anywhere. `registry.COMPLETE` stays False. Every one has a plate with a 3-D view, built on the same
+scaffold. See DOCKET 18.
+
+
+---
+
+## The overlap ruling — when an overlapping chart may be seated
+
+M: *"They can be seated with overlaps so long as it is not an overlap of same information. An
+overlap of values in two different languages should tell us two parts of definition contained in
+that overlapped position. Information is information. But its relative position in this index is
+information about an object."*
+
+**The four empty channels were one fact, not four.** The eleven occupied K0, K2, K3 and K7. The
+four they left empty — K1, K4, K5, K6 — are **exactly the information-bearing channels other than
+K7**. Reading `hlaw.LAWFUL`, the law leaves two languages free to close alone, `information` and
+`statistics`; the corpus used that freedom for statistics (6 of 11 indexes) and never for
+information, which closed on exactly one index and only alongside all four others.
+
+`overlaprule.py` is the ruling as a runnable instrument — `python3 overlaprule.py`, `--census`,
+`--selftest`.
+
+**The reading is `novel channel`, and that is arithmetic rather than preference.** Six readings of
+"not an overlap of same information" were charted against all 272 proper sub-charts of the eleven:
+
+| reading | admits |
+|---|---|
+| R1 channel differs from its own parent | 109 |
+| R2 cell differs from its own parent | 254 |
+| R3 cell occupied by no seated vertex | 252 |
+| **R4 channel occupied by no seated vertex** | **6** |
+
+R3 admits 252, **117 of them coarsenings of `gravity` alone** — the explosion `overlap.py` exists to
+prevent, arrived at through the front door. R4 admits six. And R4 is what M's words say: the ruling
+names **languages**, and the channel is the set of languages that close a chart. The text and the
+arithmetic pick the same reading, which is the only reason to trust either. *(An independent pass
+reproduced all four counts.)*
+
+**The other two grounds are DOCKET 2's, already ruled.** DOCKET 2 withdrew `periodic layout 2-D`
+and not on bare overlap — it gave four grounds, two of which are about *sameness* and survive
+untouched: **bijection** (a chart with as many cells as its parent is the parent relabelled) and
+**the channel moved** (2-D closed `{information, statistics}` at ninety cells and `{statistics}`
+alone at its own construction's reach). All six candidates clear the bijection ground. The reach
+ground has teeth.
+
+**The reach gate**, in the shape of the two failures this tree has already seen — DOCKET 2's moving
+channel and `terms.py`'s non-monotone cell count: **(a)** no late arrival, **(b)** no oscillation,
+**(c)** a majority of reaches. Swept over each parent's own *data* reach, never over an independent
+variable.
+
+| candidate | K | gate | verdict |
+|---|---|---|---|
+| `madelung` (n+l, k) | K6 | 7/7 | **seated** |
+| `nucshell` (l, σ) | K5 | 6/7 | **seated** |
+| `gravity` (B, F, X) | K1 | 6/6 | **seated** |
+| `gravity` (B, F, X, E) | K1 | oscillates K1→K0→K1 | refused |
+| `ions` (sl, tl) | K4 | K2 at five reaches, K4 only at the terminal one | refused |
+| `madrule` (S_a, l_d) | K4 | 2 of 7 | refused |
+
+**So K1, K5 and K6 became occupied and K4 did not.** Seven of the eight channels are now reached.
+K4's only two candidates both failed on the reach — that is two failures, not a theorem, and the
+file refuses to call K4 unreachable.
+
+**And K4 being the one that stayed empty is not an accident.** `statistics` is
+`D.kdet(S, box, 2)`, whose first two lines are `if k >= d: return True` — so **every arity-2 chart
+closes statistics whatever it contains**. Measured over all 283 charts: **72 of 72 arity-2 charts
+close it and none fails to**, against 41 of 82 at arity 3 and 0 of 14 at arity 6. An arity-2 chart
+cannot be K0 at all; its channel floor is K2.
+
+Now look at which channels the law protects from that free pass. `hlaw.LAWFUL` contains
+(statistics, geometry), (statistics, algebra) and (statistics, order) — so if geometry closes,
+statistics must, and likewise for the order/algebra block. **At K5 and K6 the statistics bit is
+forced by law**, and those two seatings stand on geometry and on the order/algebra block, which
+arity buys nobody.
+
+**K4 = {information, statistics} is the one channel with neither protection.** Nothing in the law
+forces statistics from information. It is the only channel above K1 whose extra content is exactly
+the bit an arity-2 chart gets free — and **both charts that reached it are arity 2**, `ions` (sl, tl)
+at 7 cells and `madrule` (S_a, l_d) at 6. **No chart of arity 3 or more, anywhere in the 272, reaches
+K4.** So neither candidate ever demonstrated statistics as a property of its object; both were handed
+it by their coordinate count, and what they actually showed is join-closure, which is K1.
+
+That is not a proof K4 is unreachable, and none is offered: an arity-3-or-more chart that is
+join-closed and genuinely 2-determined, and neither hull-complete nor meet-closed, would sit in K4
+having earned every bit of it. None exists here. **"K4 is empty" is therefore a sharper statement
+than two candidates failing a gate — the only two that reached it did so at the one arity where half
+the channel is free.**
+
+**And the two K4 refusals are not the same refusal.** Taking "holds its channel at its widest two
+reaches" as the test M's open-upper-bound ruling implies — *"until we can prove that no more elements
+are left to discover or synthesize, the upper bound of the periodic table is open"* (`mi.py` §3) —
+all three seated charts pass, and of the refused **only `ions` fails**: K4 appears at Z ≤ 108 and at
+nothing before, which is the DOCKET 2 shape. `madrule` holds K4 at both Z ≤ 103 and Z ≤ 108 and is
+refused on the majority condition alone, its other five reaches holding 1 to 5 cells — sizes at which
+every language closes for free. **`madrule` is the likeliest thing here to be re-adjudicated.**
+
+**The order of the two tests is load-bearing.** A maximality clause also applies — if a super-chart
+of the same parent reaches the same channel, the smaller chart repeats its language set and carries
+nothing more. Applied *before* the gate it picks `gravity (B,F,X,E)`, which the gate then kills, and
+**K1 ends up empty**. Applied *after*, the gate kills the oscillator and `(B,F,X)` survives as the
+only K1 chart of that parent, and **K1 ends up occupied**. Soundness before redundancy; a chart that
+fails the gate has no channel verdict to be maximal about. `order_matters()` measures both.
+
+**Two parts of the definition, named as physics** — the ruling's middle term, which a differing
+channel does not supply on its own:
+
+- **madelung.** The parent gives all 170 electrons a unique `(n+l, l, k)` address and closes in all
+  five languages — which a complete rectangle does for free. Forget the subshell and the 170
+  collapse onto 82 positions closing order, algebra, information and statistics but **not geometry**.
+  A K7 parent says yes to everything, so **the collapse is the only way to ask which of its five
+  closures the structure earns.** `madelung.py` §4 measured this in 2026-09 and declined to seat it
+  in terms: *"WHETHER TO SEAT IT IS A RULING AND NOT A MEASUREMENT. This file does not seat it."*
+  This is that ruling.
+- **nucshell.** Forget the radial node count and the realised (ℓ, σ) pairs **gain** join-closure:
+  any two realised orbital-angular-momentum/spin-orbit combinations have a realised combination
+  above both, while the full three-coordinate address does not. **nr is what breaks join-closure in
+  the nuclear shell sequence.**
+- **gravity.** The full seven-coordinate chart closes in nothing — ragged in every language. The
+  (bound class, forced J, spin decade) triple closes information alone: **0 join counterexamples and
+  32 meet counterexamples in 325 unordered pairs**, a join-semilattice that is not a lattice. So
+  **the raggedness of the full chart lives in D, Y, L and E and not in the bound structure** — which
+  is the part a warp-metric reading would need.
+
+**And the dimension sweep threw off a better finding than the gate it is not part of.** Sweeping
+gravity's D — its *independent variable*, so no part of any gate:
+
+```
+(B, F, X)   D <= 5  K7 (21 cells)    D <= 6 .. 11  K1 (26 cells)
+```
+
+Read in four and five dimensions the bound structure of nuclear matter **closes in all five
+languages**; admit the sixth and four of the five break at once, leaving information alone, and it
+never moves again through D = 11. **D = 6 is exactly where singly-rotating Myers–Perry loses its
+horizon bound** — D = 4 gives the Kerr bound μ ≥ 2a, D = 5 gives μ ≥ a², and from D = 6 the
+ultraspinning branch has none. **The ultraspinning threshold is visible in the closure algebra, at
+the dimension the theorem names, without the closure operators being told anything about
+dimension.** One threshold, in one index, found by sweeping rather than predicted, and no mechanism
+is offered for why losing a bound should cost four languages and not three. Recorded, not explained.
+
+**What the ruling does not do.** It does not reopen DOCKET 2 — `periodic layout 2-D` fails the
+bijection ground *and* the reach ground. It does not revive anything deleted for the criterion
+(`store.py`, `obstruction.py`, `cross.py`, `density.py`, `occupy.py` went because their members are
+not elements). It cannot be run twice for more: `seated_channels()` excludes the ruling's own rows,
+because "novel" means novel against the index the ruling was handed, and a second pass sees the same
+four empty channels and the same six candidates.
+
+**What it is not verified on.** A seventeen-agent verification run was launched — three adversarial
+lenses per candidate plus precedent, consequence and synthesis passes. **One returned before the
+account hit a weekly quota**; it is the one that reproduced the reading counts and contributed the
+maximality clause. The per-witness physics above is therefore *this tree's own reading*,
+corroborated by `madelung.py` §3 for the madelung row and by nothing outside this tree for the other
+two. It is stated as a claim and is not stated as verified.
+
+### What the ruling leaves open, stated as dockets
+
+**DOCKET 22 — CLOSED-WITH-CORRECTIONS. The verification unseated one of the ruling's own rows.**
+Nine adversarial agents, three lenses on each of the three seatings. Two survived everything. One did
+not, and the decisive measurement was re-run here before anything was acted on:
+
+| address of the **same 22 members** | cells | K | closers |
+|---|---|---|---|
+| `nucshell (l, sigma)` | 12 | 5 | geometry + information + statistics |
+| `nucshell (l, 2j)` | 12 | **7** | **all five** |
+| `nucshell (2j, sigma)` | 12 | **7** | **all five** |
+
+The fibres are **identical** under `(l, sigma)` and `(l, 2j)` — verified, not assumed. K7 is occupied,
+so under either alternative `ground_novel_channel` returns false and the chart **was never a
+candidate**. And **2j is the banked primitive**: `nucshell.order_a()` stores `(nr, l, Fraction(j))`
+and `sigma` is *derived* from it. nucshell.py's own stated reason for preferring `sigma` — *"j is
+determined by (l, sigma)"* — holds verbatim with the roles swapped, at identical LABEL ratios of
+0.3182. **The K5 was a fact about which name was written down.**
+
+**The fourth ground came out of the fall.** `ground_coordinate_forced`: two addresses inducing the
+identical partition of the identical members are one chart written twice. It was checked on the
+survivors *before* the unseating — madelung's partition is identical under `(k,S)`, `(k,S+k)` and
+`(S,S+k)`, **all K6**; gravity's rank and raw-decade encodings give identical partitions, **both K1**.
+The parent is untouched: `(nr,l,sigma)` and `(nr,l,2j)` are both K3, so no pre-ruling vertex moves.
+
+**Cost:** the figure goes 14 → 13 vertices, E 81 → 59, own cell (0,5,6) → (0,5,5), K5 empty again —
+and **both resolution axes stay measurements**, so §1b's gain was not carried by the vertex that fell.
+
+**Ten corrections, every one to something this tree had asserted.** §5's *"a complete rectangle, which
+closes everything for free"* — the parent is 170 cells in an 810-cell box, **density 0.2099**, not even
+a down-set. *"The fill-order base carries order and algebra and not geometry"* — **the base does not
+decide it**; paired with `l` the same base is K7, and the parent's three projections are K7 / K6 / K7,
+which is the real argument. The channel is **weakly discriminating**: 398 of 400 random monotone
+staircases of that shape are also K6 — recorded against interest. madelung's *"gate 7/7"* is at
+complete shell reaches; with the two degenerate reaches it is 7/9, and still passes. gravity's *"the
+raggedness is NOT in the bound structure"* is true operatively (256 join failures against 0) and
+**false in its strong reading** — 509 of 96,372 parent join failures are witnessed inside the bound
+triple, cross-block. *"Dimension-blind"* is false: B varies with D in four branch classes. The
+ultraspinning reading is off **cumulative** sweeps; per single dimension D=4 is K7, D=5 is K1, and
+D=6…11 are **each K0**. nucshell.py said its parent closes *"K7 … the only seated index of arity 3 to
+reach it"* — **both halves false**: it is K3, and `fibred.index` is a second arity-3 K3. And
+nucshell's part B (*"the radial node count is what breaks join-closure"*) was independently false —
+`(nr, sigma)` is 6 cells, K7, **zero** join counterexamples.
+
+**`boxinvariance.py` — written the same day — was itself wrong.** It declared madelung *"ENUMERATED,
+not generated by a rule over an alphabet"*. All 170 reproduce exactly from
+`{1≤n≤12, 0≤l<n, n+l≤9, 0≤k<2(2l+1)}` — set equality. Its own *"strictly stronger"* test was
+applicable to a seated row and had been **declared inapplicable instead of run**. Run now (§2b):
+**madelung passes** — eight variations of the generating rule, and the channel **moves**, K6 → K7 the
+moment the `l < n` rule is dropped. A pass strengthens the seating and localizes the physics: the
+geometry the collapse loses is lost to the **hydrogenic constraint**, not to fill order. `applies_to`
+was a declared boolean, not a measurement, and a declared exemption is exactly the shape of mistake
+that file exists to catch.
+
+**Still open, and belonging in a new docket rather than this one:** `fibred.address` is built on an
+aufbau table **Register 1306 withdrew**; 25 of 108 addresses differ from the banked observed ground
+configurations, 62 of the 170 lie beyond Z = 108, and at two matched reaches the **parent** falls
+K7 → K0 while the coarsening holds K6 → K2. That is a question about two **pre-ruling** seated
+vertices.
+
+*Superseded — the original docket text follows:*
+
+**DOCKET 22 — the per-witness physics is unverified.** A seventeen-agent adversarial run (three
+lenses on each of the six candidates, plus precedent, consequence and synthesis) returned **one
+agent** before the account hit a weekly quota. That one reproduced the reading counts of section 01
+and contributed the maximality clause; it checked nothing else. The two-parts-of-the-definition
+statements for `gravity (B,F,X)` and `nucshell (l,σ)` rest on this tree's own reading alone;
+`madelung (n+l,k)` is corroborated by `madelung.py` §3. **What would settle it:** re-run the same
+three lenses per witness and see whether any refutes. The run is scripted and resumable.
+
+**DOCKET 23 — CLOSED, and not as "wait for new elements".** The question was whether `madrule`
+could reach K4 at an arity where `statistics` has to be *earned* rather than handed over free by
+§3c. Its own full chart answers badly — **`(S_a, l_d, occ)` at arity 3 is K2, not K4**: add the
+third coordinate it already has and `information` stops closing.
+
+But `madrule.table()` measures more than `madrule.index()` charts — every exception carries a full
+`(n, l)` for both acceptor and donor, giving ten quantities. Over **all 120 arity-3 charts** of those
+ten: K0 16, K2 57, K3 32, **K4 3**, K5 3, K6 1, K7 8. **Three reach K4 at arity 3** —
+`(S_a, l_d, S_d)`, `(S_a, l_d, dn)` and `(l_d, S_d, dn)`, six cells each — and at arity 3 `kdet` is
+not trivial, so those three **earn** their statistics.
+
+**And not one of them may be seated, because of how they were found.** This pass went looking for K4
+and searched 120 charts until three landed there. `inversion.py` and `probability.py` both state the
+rule that breaks: *"an index built to land on a cell `demand.py` wants would be fitted, and a fitted
+vertex closes nothing."* The search is on the record in `overlaprule.madrule_arity3()` precisely so
+that none of the three can later be presented as a discovery.
+
+**What would make one seatable, stated so it can be done properly.** A coordinate justified from the
+corpus *before* the chart is run. One such justification exists and this pass will not use it: a
+Madelung exception is a **transfer between two subshells**, and the seated row charts the acceptor by
+its `n+l` and the donor by its `l` — an asymmetry nothing requires. The symmetric chart is
+`(S_a, l_d, S_d)`, which is one of the three. **That argument is sound and it was formed after seeing
+the answer**, which is exactly the order that makes it inadmissible here.
+
+So: `madrule (S_a, l_d)` stays refused on the majority condition, and §3c stands — it could never
+earn K4 at arity 2 however many elements arrive. What is **withdrawn** is the stronger reading that
+K4 needs an arity `madrule` cannot reach. It can, three ways, and the obstacle is **provenance, not
+arithmetic**.
+
+*Superseded — the original docket text follows:*
+
+**DOCKET 23 — `madrule (S_a, l_d)` is the likeliest refusal to be overturned.** It holds K4 at both
+Z ≤ 103 and Z ≤ 108, so it passes the open-upper-bound test that `ions` fails; it is refused on the
+majority condition alone, with five earlier reaches of 1–5 cells. **What would settle it:** new
+elements. Its 20 exceptions saturate at Z = 103, and a handful of new synthesised elements would
+either give it a majority or move it off K4. Note also §3c — being arity 2, half of K4 is free to it
+either way, so overturning the count would not by itself earn the channel.
+
+**DOCKET 24 — CLOSED. The lead was real, it is reproduced, and it is refused as a theorem.**
+`U4` is not a module or an ion: it is a **corpus section label**, §29.12 U4, and
+`method/members/r2-ch19a.py` §2 names the object exactly — `T = {|2L − 2S| ≤ 2J ≤ 2L + 2S}`,
+join-closed and meet-broken, checked at caps 6, 8, 10, 12 on [0, cap]³. Re-measured independently,
+**the corpus's own four figures come back exactly — 0 joins and 2,862 / 12,489 / 40,887 / 110,229**
+(printed at §29.12 U4 L8289–L8290 and again at §12.11.2 L3387) — and the channel is **K1 at all four
+caps**. The two earlier reconstructions missed it because the object is the *allowed* region itself,
+not the observed triples (K0) nor the allowed-minus-observed residual (K2 then K0).
+
+**And it still does not seat**, on a ground nothing here has been refused on before. `boxinvariance.py`
+hands the same predicate ten different boxes — the observed alphabet, three caps, even-only L, a tiny
+box, a two-valued S, a sparse L, a sparse J, a singleton S, equal L and S alphabets. **K1 at nine of
+ten**, cells running 15 → 1,105 and meets 24 → 110,229 without the channel moving; the tenth is the
+singleton-S box, degenerate because one coordinate takes one value, which makes the chart arity 2 in
+substance and hands it geometry and statistics free (§3c above).
+
+**A channel that does not depend on the data is a property of the rule, not of the elements.** This is
+strictly stronger than the reach gate: that asks whether the channel depends on *where the
+construction stopped*; this asks whether it depends on the data *at all*. T passes the reach gate
+trivially — it passes everywhere — and fails here. Seat it and the index of first-order indexes gains
+a vertex that would sit exactly where it sits in a universe with no atoms in it.
+
+**The test applies to predicate-defined charts only**, and that limit is load-bearing.
+`madelung`'s 170 electrons, `nucshell`'s 22 subshells and `gravity`'s 3,394 nuclide-charge states are
+*enumerated*; there is no other box to hand them, so `applies_to` returns False and the report says
+**NOT-APPLICABLE, which is not a pass**. The reach gate remains their only reach test. What is *not*
+claimed: that T is uninteresting — it is the K1 shape in its purest form, the same join-semilattice
+that `gravity (B, F, X)` is — nor that every predicate-defined chart fails; one whose channel moved
+with the box would seat, and the selftest's vacuity guard shows a different rule giving a different
+channel.
+
+*Superseded — the original docket text follows, kept because it is what the closure answers:*
+
+**DOCKET 24 — an unreproduced K1 candidate over a new member set.** A hunt agent, before dying on
+the same quota, reported *"K1 — one of the four empty channels, stable across four caps"* on the
+U3/U4 allowed sets, having measured the 5,132 LS terms down to **100 distinct observed (2L, 2S, 2J)
+triples, 99 of which satisfy the triangle rule** (the one exception being terms.py's own known Al I
+MIXED member). Its exact construction died with it. **Two reconstructions were tried and neither
+reproduces K1**: the observed triples on (2L, 2S, 2J) land at **K0** `(0, 18, 9)`, and the
+allowed-minus-observed residual lands at **K2** at cap 6 and **K0** at caps 8–16. This is recorded as
+a lead, not a result. **What would settle it:** the agent named "U3/U4", which does not match the
+triangle-rule reading either reconstruction used — identifying what it meant is the whole of the
+work. Unlike the six coarsenings, this would be a **new member set** and would need no overlap
+ruling at all.
+
+**DOCKET 25 — the unseated-chart sweep is partial.** Every chart-shaped accessor in the research
+tree is being charted, looking for first-order indexes that already exist here as functions and have
+never been seated. Twelve found so far; the five that are seated chart as expected, and the seven
+that are not — `axes.index`, `bounds.cells`, `channels.provenance_chart`,
+`channels.grade_only_chart`, `entropy.index`, `figure.figure`, `figure.index` — all land in
+**already-occupied channels** (K0, K2, K3), and most are excused by `registry.NOT_AN_INDEX` anyway
+because their members are axes, bounds, refusals or the seated indexes themselves. **Yield so far is
+zero new indexes.** The sweep is expensive because importing a module runs its report; it is capped
+and will not cover the whole tree in one pass.
+
+## The index of first-order indexes, rebuilt — and what the rebuild found
+
+M: *"Rebuild the index of first-order indexes please."*
+
+**`mi.py`'s master index is built on a hardcoded list of nine, and not one of them is a seated index
+of the periodic elements.** Energy conditions, warp-drive mechanisms, the withdrawn 2-D periodic
+layout, the five languages, Hawking–Ellis substances, Petrov spacetimes, bounds and questions.
+**The intersection with the registry's fourteen is empty.**
+
+That is **DOCKET 16's contamination in a file the cleanup did not reach**. `hexad.py` and `store.py`
+were withdrawn for seating filing-system indexes as vertices; `mi.py` survived because
+`registry.NOT_AN_INDEX` excuses it as *"members are the seated indexes"* — which is true of its
+**type** and says nothing about **which**. The excuse was accurate and it deflected the audit that
+mattered. **`mi.py` is not deleted and its charting machinery is not touched**: `mi.cell`,
+`mi.height`, `mi.width`, `mi.K` and `mi.channels` are correct and are what the rebuild measures
+with. Superseded are the four that depend on the nine, and `figure.superseded_mi()` returns the
+comparison so the finding is re-measurable rather than narrated.
+
+- **`figure.py`** — **the index of first-order indexes.** It asks `registry.rows()` and holds no
+  list of its own, so it cannot drift from the registry. **14 vertices, 14 distinct cells — no two
+  seated indexes share one** — it closes in **nothing**, E = 81. **Its own cell is `(0, 5, 6)` and
+  no member occupies it**: the index of first-order indexes is not one of its own. Dilworth holds
+  on every vertex, no violations.
+
+  **Three of the fourteen were seated by M's overlap ruling** — see the section below. At eleven it
+  was 11 cells, closed under `statistics` alone, E = 39, own cell `(2, 4, 5)`.
+
+  **And at eleven, two of its three axes were row labels — at fourteen, none are.**
+  `overlap.resolution()` on the figure itself, then and now:
+
+  | | 11 vertices | 14 vertices |
+  |---|---|---|
+  | K | 0.364 measurement | 0.500 measurement |
+  | height | 0.909 **LABEL** | **0.714 measurement** |
+  | width | 1.000 **LABEL** | **0.857 measurement** |
+
+  The reasoning recorded at eleven was that each index has essentially its own height and width, so
+  those two approach injectivity **by construction** as the figure grows. **That reasoning is now
+  refuted by measurement**: three more vertices made it better, not worse, because a *coarsening* of
+  a seated index lands in the part of the poset its parent already occupies and so groups where
+  every previous addition separated. What the argument really showed is that the label problem
+  tracks **how the vertex set is built**, not how big it is. The old text is kept in `figure.py`
+  §2 because it is what the later measurement tested. DOCKET 11's chart is unchanged.
+
+  **Rendering:** `render/masterindex-plate.html`, with an **exact** 3-D view — one labelled point per
+  index, nothing collapsed. Wiring it exposed a defect in the shared scaffold: `plate.view3d`
+  accepted a label in its point tuple and **silently dropped it**, so a caption promising labelled
+  dots would have shipped with none. `render/mi-plate.html` is kept as the record of what the master
+  index looked like when it was the nine. See DOCKET 19.

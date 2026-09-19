@@ -205,9 +205,17 @@ def selftest():
     near("in Planck lengths", u / L_PLANCK, 0.0934, 1e-2)
     chk("sub-Planckian, so never in the regime the framework covers",
         u < L_PLANCK, True)
-    import corridor, achievable
-    near("corridor.py's Casimir crossing, in l_P", corridor.casimir_seat_crossing()
-         / L_PLANCK, 0.1321, 1e-3)
+    # vacuumcorridor.py, NOT corridor.py. The vacuum-corridor comparison was
+    # written as corridor.py and then OVERWRITTEN by an unrelated file of the
+    # same name (the parity theorem for the two mouths), dropping its whole API
+    # without sweeping the dependents -- so this crashed with "module 'corridor'
+    # has no attribute 'casimir_seat_crossing'". Recovered verbatim from git as
+    # vacuumcorridor.py. SECOND instance of the same filename collision in this
+    # tree; the first is transit.py -> turnseat.py.
+    import vacuumcorridor as corridor
+    import achievable
+    near("the vacuum corridor's Casimir crossing, in l_P",
+         corridor.casimir_seat_crossing() / L_PLANCK, 0.1321, 1e-3)
     near("achievable.py's core crossing, in l_P",
          achievable.crossing_radius() * achievable.A_OVER_B / L_PLANCK, 4.09, 1e-2)
     print("       Four unrelated calculations, all landing at the Planck scale.")

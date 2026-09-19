@@ -1,0 +1,370 @@
+<title>The Hall Quasiparticles</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --bound:#B86A12; --free:#137A69; --undet:#7C8796;
+  --hue7:#8A6D3B; --hue8:#4A5A8C; --hue9:#9C4A6E;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+    --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.06rem;font-weight:600;margin:34px 0 12px;letter-spacing:-.006em}
+p{margin:0 0 1.05em}
+p.after{margin-top:18px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sm{font-size:.82em}
+.eqn{font-size:1.16rem;color:var(--ink);background:var(--sunk);border:1px solid var(--rule);
+  border-radius:3px;padding:15px 18px;letter-spacing:.02em;margin:0 0 22px;overflow-x:auto}
+.hot{color:var(--algebra)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+.tablewrap.tall{max-height:560px;overflow-y:auto}
+.tablewrap.tall thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+th.num{text-align:right}
+td.cell{color:var(--ink)}
+td.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.chip.b0{color:var(--free)} .chip.b1{color:var(--bound)} .chip.b2{color:var(--undet)}
+.yes{color:var(--geometry);font-weight:600} .no{color:var(--muted);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+rect.b0{fill:var(--free)} rect.b1{fill:var(--bound)} rect.b2{fill:var(--undet)}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.key span{display:flex;align-items:center;gap:7px}
+.key i.k{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+.key i.b0{background:var(--free)} .key i.b1{background:var(--bound)} .key i.b2{background:var(--undet)}
+svg text.tb0{fill:var(--free)} svg text.tb1{fill:var(--bound)} svg text.tb2{fill:var(--undet)}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd.hot{color:var(--algebra)}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.7em}
+ul.refuse li b{color:var(--ink)}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.trio,.duo{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3dbar .hint{color:var(--faint)}
+.v3dbar .dims{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.v3dbar .dims button{padding:3px 8px;min-width:30px}
+.v3dbar .dims button.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.v3dbar .now{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+@media (prefers-reduced-motion: reduce){.v3d canvas{}}
+</style>
+<div class="wrap">
+<header class="mast"><p class="eyebrow">Research plate · an index of quantum objects · DOCKET 30</p><h1>The Hall&nbsp;Quasiparticles</h1><p class="dek">The quasiparticles of the fractional quantum Hall states &mdash; excitations carrying a FRACTION of the electron charge, in a system built only from electrons, and obeying neither Bose nor Fermi statistics.</p><div class="stamp"><span>instrument <b>fqh.py</b></span><span>members <b>168 quasiparticles</b></span><span>states <b>12 Laughlin</b></span><span>arity <b>4</b></span><span>cells <b>30</b></span><span>cell <b>(0,&nbsp;15,&nbsp;4)</b></span><span>channel <b>K0</b></span></div></header>
+<div class="note warn"><span class="lab">DOCKET 28 refused an anyon chart. This is not that chart, and that refusal still stands</span><p style="margin-bottom:0">DOCKET 28 charted the anyons of SU(2)<sub>k</sub> <em>for every k up to a cap</em>. Each k is a different topological order &mdash; a different physical system &mdash; so its &ldquo;box&rdquo; was never a reach. It was a choice of <b>how many universes to include</b>, and nothing about the data was being varied, so of course the channel never moved. <b>The test was right and the object was wrong.</b> This plate charts a REACH instead: one family of one kind of system, indexed by a measured filling fraction. Section 03 is the difference, in one table.</p></div>
+<section><div class="shead"><span class="snum">01</span><h2>A member is a quasiparticle, and it carries a fraction of an electron</h2></div><p class="sub">The Laughlin state at filling &nu;&nbsp;=&nbsp;1/m has exactly m of them, labelled j&nbsp;=&nbsp;0&hellip;m&minus;1, with j&nbsp;=&nbsp;0 the vacuum.</p><p class="eqn mono">electric charge&nbsp;&nbsp;Q = j/m&nbsp;&nbsp;(units of e)<br>exchange phase&nbsp;&nbsp;&theta;/&pi; = j&sup2;/m</p><p>Both are computed as exact fractions, never floats, because <b>the whole content of this index is that these quantities are rational</b>.</p><div class="tablewrap"><table><thead><tr><th class="num">j</th><th class="num">Q / e</th><th class="num">&theta; / &pi;</th><th>statistics</th></tr></thead><tbody><tr><td class="num mono">0</td><td class="num mono">0</td><td class="num mono">0</td><td>boson</td></tr><tr><td class="num mono">1</td><td class="num mono">1/3</td><td class="num mono">1/3</td><td><b>ANYON</b></td></tr><tr><td class="num mono">2</td><td class="num mono">2/3</td><td class="num mono">4/3</td><td><b>ANYON</b></td></tr></tbody></table><caption>The &nu;&nbsp;=&nbsp;1/3 state in full. <b>The charge-e/3 quasiparticle is not a prediction of this file</b> &mdash; its fractional charge was measured directly by shot noise in 1997.</caption></div><div class="note"><span class="lab">Three of the twelve states are observed; the rest are the sequence&rsquo;s own continuation</span><p style="margin-bottom:0">&nu;&nbsp;=&nbsp;1/3 carries e/3, &nu;&nbsp;=&nbsp;1/5 carries e/5, &nu;&nbsp;=&nbsp;1/7 carries e/7. The reach runs to m&nbsp;&le;&nbsp;25 and is <em>declared</em>, not claimed as observed &mdash; the same shape as <span class="mono">fibred</span> charting 170 electrons where 118 elements are known.</p></div></section>
+<section>
+  <div class="shead"><span class="snum">02</span><h2>The index, projected</h2></div>
+  <p class="sub">One point per cell of the chart, at its own coordinates.</p>
+  <figure class="plate">
+    <div class="v3d"><canvas id="h3d" aria-label="the FQH quasiparticle index"></canvas></div>
+    <div class="v3dbar">
+      <button id="h3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>STAT = 0</span><span><i style="background:var(--geometry)"></i>STAT = 2</span></span>
+    </div>
+    <figcaption><b>This view is a projection, and what it costs is measured.</b> The chart has 4 coordinates; all 4 three-coordinate projections were charted and this one keeps <b>30 of 30 cells</b> as distinct points, a 0% collapse, with <b>0</b> carrying more than one colour. Colour is the statistics class. The inverse filling fraction is an axis because it is the most directly MEASURED number here &mdash; 1/m is the quantised Hall conductance.</figcaption>
+  </figure>
+  <script>/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * (opts.scale ?? 0.255);
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour,textOnly){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    if(!textOnly){
+      ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+      return;                       /* text is painted in a later pass */
+    }
+    ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    /* AN AXIS LABEL GETS ITS OWN GROUND.  The auto-spin passes through every
+       azimuth, so no camera keeps a label clear of a dense cloud at all of
+       them; a panel-coloured plate behind the text makes it legible at every
+       angle instead of at the opening one. */
+    const tw = ctx.measureText(label).width;
+    ctx.fillStyle = tok('--panel'); ctx.globalAlpha = 0.82;
+    ctx.fillRect(lx - tw/2 - 4, ly - 8, tw + 8, 16);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = colour;
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    /* AXIS LINES NOW, AXIS TEXT AFTER THE POINTS.  A dense cloud otherwise
+       paints over a label at half the azimuths the auto-spin passes through,
+       and the still frame is what a thumbnail and a reduced-motion reader
+       get. The lines stay behind the points, which is correct. */
+    const AX = [[[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted')],
+                [[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted')],
+                [[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted')]];
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],false);
+
+    // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
+    if(opts.edges){
+      for(const e of opts.edges){
+        const p = project(nrm(e[0],rx), nrm(e[1],ry), nrm(e[2],rz), W, H);
+        const q = project(nrm(e[3],rx), nrm(e[4],ry), nrm(e[5],rz), W, H);
+        ctx.save();
+        ctx.strokeStyle = tok(e[6]);
+        ctx.lineWidth = e[7] ? 1 : 1.6;
+        ctx.globalAlpha = e[7] ? .85 : .5;
+        if(e[7]) ctx.setLineDash([5,4]);
+        ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      if(o.p.hollow){
+        ctx.globalAlpha = 1; ctx.strokeStyle = tok(opts.colour(o.p));
+        ctx.lineWidth = 1.6; ctx.setLineDash([3,2.5]); ctx.stroke();
+        ctx.setLineDash([]);
+      } else {
+        ctx.fillStyle = tok(opts.colour(o.p));
+        ctx.globalAlpha = .35 + .65*o.sc*0.9;
+        ctx.fill();
+        if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+          ctx.lineWidth = 1; ctx.stroke(); }
+      }
+      ctx.globalAlpha = 1;
+    }
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],true);
+
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+
+  /* ADDITIVE: a handle, so a caller that changes what opts.colour returns can
+     force a repaint. The loop only redraws while spinning, so without this a
+     recolour is invisible to a reader who paused rotation or who has
+     prefers-reduced-motion set. Nothing else changes: every existing call site
+     ignores the return value. */
+  return { draw, canvas: cv, view: (a, e) => { az = a ?? az; el = e ?? el; draw(); } };
+}
+
+(function(){
+const T=["--geometry", "--statistics"];
+const RAW=[[0,1,3,1,0],[0,1,5,1,0],[0,1,7,1,0],[0,1,9,1,0],[0,1,11,1,0],[0,1,13,1,0],[0,1,15,1,0],[0,1,17,1,0],[0,1,19,1,0],[0,1,21,1,0],[0,1,23,1,0],[0,1,25,1,0],[0,3,9,1,0],[0,5,25,1,0],[2,3,3,0,0],[2,3,15,0,0],[2,3,21,0,0],[2,5,5,0,0],[2,5,15,0,0],[2,7,7,0,0],[2,7,21,0,0],[2,9,9,0,0],[2,11,11,0,0],[2,13,13,0,0],[2,15,15,0,0],[2,17,17,0,0],[2,19,19,0,0],[2,21,21,0,0],[2,23,23,0,0],[2,25,25,0,0]];
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
+scatter3d({id:'h3d',points:PTS,xlab:"STAT  boson / anyon",ylab:"CHORD  order of the charge",zlab:"M  inverse filling fraction",
+  az:3.06,el:0.7,scale:0.24,height:510,r:6,
+  xcol:'--geometry',ycol:'--order',zcol:'--information',
+  colour:p=>p.c});
+})();</script>
+</section>
+
+
+<section><div class="shead"><span class="snum">03</span><h2>Why this one seats where DOCKET 28&rsquo;s did not</h2></div><p class="sub">A chart whose membership is a predicate over a box can be handed a different box. If the channel never moves, the channel is a property of the rule and not of the data. Here it moves.</p><div class="tablewrap"><table><thead><tr><th>box</th><th class="num">cells</th><th class="num">channel</th><th>closes</th></tr></thead><tbody><tr><td class="mono">m &lt;= 5</td><td class="num">4</td><td class="num">K2</td><td>statistics</td></tr><tr><td class="mono">m &lt;= 7</td><td class="num">6</td><td class="num">K2</td><td>statistics</td></tr><tr><td class="mono">m &lt;= 9</td><td class="num">9</td><td class="num">K0</td><td>nothing</td></tr><tr><td class="mono">m &lt;= 11</td><td class="num">11</td><td class="num">K0</td><td>nothing</td></tr><tr><td class="mono">m &lt;= 13</td><td class="num">13</td><td class="num">K0</td><td>nothing</td></tr><tr><td class="mono">m &lt;= 15</td><td class="num">17</td><td class="num">K0</td><td>nothing</td></tr><tr><td class="mono">m &lt;= 19</td><td class="num">21</td><td class="num">K0</td><td>nothing</td></tr><tr><td class="mono">m &lt;= 25</td><td class="num">30</td><td class="num">K0</td><td>nothing</td></tr></tbody></table><caption>K2 at the two smallest reaches, K0 from m&nbsp;&le;&nbsp;9 onward. <b>The channel moves with the box.</b></caption></div><div class="note good"><span class="lab">SEAT</span><p style="margin-bottom:0">the channel moves with the box: [0, 2] &mdash; and <span class="mono">boxinvariance.verdict_of()</span> is the tree&rsquo;s own test, imported and not reimplemented. Run against DOCKET 28&rsquo;s chart the same function still returns <b>REFUSE-AS-THEOREM</b>. Two objects, two verdicts, both on the record.</p></div></section>
+<section><div class="shead"><span class="snum">04</span><h2>Not one of them is a fermion, and that is forced</h2></div><p class="sub">150 anyons, 18 bosons, and <b>0 fermions</b>. 89% of the members are neither &mdash; which cannot happen in three dimensions.</p><p>The zero is not an observation about this reach. &theta;/&pi;&nbsp;=&nbsp;j&sup2;/m is a half-integer only if m divides 2j&sup2;, and <b>m is odd</b>, so m divides j&sup2; and the phase comes out a whole integer instead. <b>There is no third case</b>: a Laughlin quasiparticle is a boson or an anyon. The fixture proves it over the whole reach rather than quoting the argument.</p><div class="note"><span class="lab">What is refused as a coordinate</span><p style="margin-bottom:0">The label <span class="mono">j</span> is the anyon&rsquo;s ADDRESS within its state, and charting an address is a relabelling. Q and &theta; themselves are refused too: they are near-injective over the members, and <span class="mono">overlap.py</span> calls a near-injective coordinate a row label. Their ORDERS are charted instead, which is the part that says what kind of thing the quasiparticle is.</p></div></section>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/fqh.py --selftest</code> — 27 fixtures<br><code>python3 research/warp-drive/fqh.py</code> — the reading<br><code>python3 research/warp-drive/render/build_index_plates.py fqh</code> — this plate</p></div>
+</div>

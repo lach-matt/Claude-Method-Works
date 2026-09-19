@@ -1,0 +1,409 @@
+<title>The Provenance Index</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --vacant:#98A2AF; --live:#137A69;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --vacant:#5F6A79; --live:#4CC6AF;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --vacant:#5F6A79; --live:#4CC6AF;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+p{margin:0 0 1.05em}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+td.cell{color:var(--ink)}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.c7{color:var(--geometry)} .c3{color:var(--statistics)} .c6{color:var(--order)}
+.yes{color:var(--live);font-weight:600} .no{color:var(--algebra);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.note.k6{border-left-color:var(--order)} .note.k6 .lab{color:var(--order)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.5em}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.trio{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar .hint{color:var(--faint)}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+</style>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Research plate · master index five</p>
+  <h1>The Provenance&nbsp;Index</h1>
+  <p class="dek">Twenty-six measurements as members, charted by where each value
+  comes from and how much you must know to fix it. The only index here whose
+  members are ways of knowing.</p>
+  <div class="stamp">
+    <span>instrument <b>axes.py</b></span>
+    <span>members <b>26 axes</b></span>
+    <span>cells <b>14</b></span>
+    <span>channel <b>K0</b></span>
+  </div>
+</header>
+
+<section style="margin-top:34px">
+  <div class="shead"><span class="snum">01</span><h2>Four coordinates, and one of them is mine</h2></div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>coordinate</th><th>what it is</th><th>provenance</th></tr></thead>
+    <tbody>
+      <tr><td class="name">status</td><td>READ / DERIVED / PINNED / RECONSTRUCTED</td><td><b style="color:var(--algebra)">GIVEN, ordering RECONSTRUCTED</b></td></tr>
+      <tr><td class="name">args</td><td>how many arguments fix the value: 0, 1, 2</td><td class="yes">MEASURED</td></tr>
+      <tr><td class="name">reg</td><td>the description cites a Register entry</td><td class="yes">MEASURED</td></tr>
+      <tr><td class="name">sec</td><td>the description cites a volume section</td><td class="yes">MEASURED</td></tr>
+    </tbody>
+    <caption>Three of four are measured. The fourth is not, and it is named.</caption>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <span class="lab">The ordering I supplied, and what depends on it</span>
+    <p>The four provenance words are given by the corpus, but a closure operator
+    needs an <em>order</em> on them and the corpus states none. The order used —
+    READ &lt; DERIVED &lt; PINNED &lt; RECONSTRUCTED, read as distance from the
+    observed data — is <strong>RECONSTRUCTED</strong>.
+    <span class="mono">STATUS_ORDER_IS_RECONSTRUCTED</span> is True in the
+    instrument, and a reader who rejects the ordering should reject the channel
+    with it.</p>
+    <p style="margin-bottom:0"><strong><span class="mono">args</span> needs no such
+    apology, because it is a count.</strong> 0 &lt; 1 &lt; 2 is the ordering of the
+    integers. And it is measured rather than read off the names: the probe calls
+    <span class="mono">populate</span> over eight elements and five charge stages
+    and asks which keys actually move. An early version probed iron against cobalt
+    and reported <em>period</em> and <em>block</em> constant — they are not, the two
+    elements simply share them.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">02</span><h2>The census of provenance</h2></div>
+  <figure class="plate">
+    <svg viewBox="0 0 860 210" role="img" aria-label="Provenance census of the 26 axes">
+      <text x="24" y="20" font-size="9.5" fill="var(--muted)" letter-spacing="1.4">STATUS — WHAT KIND OF KNOWLEDGE</text>
+      <g font-size="11">
+        <text x="24" y="52" fill="var(--statistics)">READ</text>
+        <rect x="140" y="43" width="279" height="12" rx="2" fill="var(--statistics)"/><text x="429" y="53" font-size="10" fill="var(--body)">9</text>
+        <text x="24" y="80" fill="var(--geometry)">DERIVED</text>
+        <rect x="140" y="71" width="279" height="12" rx="2" fill="var(--geometry)"/><text x="429" y="81" font-size="10" fill="var(--body)">9</text>
+        <text x="24" y="108" fill="var(--information)">PINNED</text>
+        <rect x="140" y="99" width="155" height="12" rx="2" fill="var(--information)"/><text x="305" y="109" font-size="10" fill="var(--body)">5</text>
+        <text x="24" y="136" fill="var(--algebra)">RECONSTRUCTED</text>
+        <rect x="140" y="127" width="93" height="12" rx="2" fill="var(--algebra)"/><text x="243" y="137" font-size="10" fill="var(--body)">3</text>
+      </g>
+      <text x="470" y="20" font-size="9.5" fill="var(--muted)" letter-spacing="1.4">ARGUMENTS THAT FIX THE VALUE</text>
+      <g font-size="11">
+        <text x="470" y="52" fill="var(--body)">0 constant</text>
+        <rect x="600" y="43" width="31" height="12" rx="2" fill="var(--faint)"/><text x="641" y="53" font-size="10" fill="var(--body)">2</text>
+        <text x="470" y="80" fill="var(--body)">1 element</text>
+        <rect x="600" y="71" width="232" height="12" rx="2" fill="var(--faint)"/><text x="700" y="81" font-size="10" fill="var(--panel)">15</text>
+        <text x="470" y="108" fill="var(--body)">2 element + one more</text>
+        <rect x="600" y="99" width="139" height="12" rx="2" fill="var(--faint)"/><text x="749" y="109" font-size="10" fill="var(--body)">9</text>
+      </g>
+      <line x1="24" y1="158" x2="836" y2="158" stroke="var(--rule)"/>
+      <text x="24" y="180" font-size="11" fill="var(--body)">cites a Register: <tspan font-weight="600">7 of 26</tspan></text>
+      <text x="260" y="180" font-size="11" fill="var(--body)">cites a section: <tspan font-weight="600">3 of 26</tspan></text>
+      <text x="470" y="180" font-size="11" fill="var(--algebra)" font-weight="600">cites neither: 16 of 26</text>
+      <text x="24" y="200" font-size="9.5" fill="var(--faint)">the table records what KIND of knowledge an axis is far more often than WHERE it comes from</text>
+    </svg>
+    <figcaption><b>Sixteen of twenty-six cite neither</b>, and that is not an
+    accusation — an axis like <span class="mono">Z</span> or
+    <span class="mono">occupancy</span> needs no citation, being the input or a
+    definition. It does mean the provenance record is thin.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>The index in three dimensions</h2></div>
+  <p class="sub">Status left to right, argument count bottom to top, citation
+  pattern into the depth. Fourteen cells for twenty-six axes. Drag to rotate.</p>
+  <figure class="plate">
+    <div class="v3d"><canvas id="ax3d" aria-label="26 axes on 14 provenance cells"></canvas></div>
+    <div class="v3dbar">
+      <button id="ax3d-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey">
+        <span><i style="background:var(--statistics)"></i>READ</span>
+        <span><i style="background:var(--geometry)"></i>DERIVED</span>
+        <span><i style="background:var(--information)"></i>PINNED</span>
+        <span><i style="background:var(--algebra)"></i>RECONSTRUCTED</span>
+      </span>
+    </div>
+    <figcaption><b>A label of the form "Z +2" is a cell holding three axes.</b>
+    Six cells hold more than one, and between them they hold eighteen of the
+    twenty-six.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">04</span><h2>The coarseness is the finding</h2></div>
+  <div class="note">
+    <span class="lab">Twenty-six axes, fourteen cells, no injective chart</span>
+    <p><strong>Six cells hold more than one axis and between them they hold
+    eighteen of the twenty-six</strong>, the largest holding four. There is no
+    injective chart in these coordinates and there cannot be — the box is
+    4 × 3 × 2 × 2 = 48 and the coordinates simply do not separate. Two axes with
+    the same status, argument count and citation pattern are
+    <em>indistinguishable</em> to this index.</p>
+    <p style="margin-bottom:0">That is a true statement about the corpus's
+    provenance record rather than a defect of the chart. And it
+    <strong>closes nothing — K0</strong>: every one of the five operators generates
+    a provenance cell the corpus has no axis for.</p>
+  </div>
+  <div class="note warn">
+    <span class="lab">The coordinate I refused to add</span>
+    <p style="margin-bottom:0">Adding each axis's <em>position</em> in the table
+    would make the index injective at a stroke. That is exactly why it is not
+    added: position is an identifier, not a property, and an index charted on its
+    own row numbers measures nothing. A first draft also harvested "mentions None"
+    and "says see" from the descriptions by regex — both are artefacts of how a
+    sentence was written, and both were withdrawn.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <p style="margin-bottom:0">Produced by <code>python3 axes.py</code>, pinned by
+  <code>python3 axes.py --selftest</code>. 26 axes · 14 cells · channel K0 ·
+  one coordinate ordering RECONSTRUCTED and named.</p>
+</footer>
+
+</div>
+<script>
+/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * (opts.scale ?? 0.255);
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    ctx.fillStyle = colour; ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    axis(ctx,W,H,[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted'));
+    axis(ctx,W,H,[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted'));
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      ctx.fillStyle = tok(opts.colour(o.p));
+      ctx.globalAlpha = .35 + .65*o.sc*0.9;
+      ctx.fill();
+      if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+        ctx.lineWidth = 1; ctx.stroke(); }
+      ctx.globalAlpha = 1;
+    }
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+}
+
+scatter3d({id:'ax3d',points:[{"x":0,"y":1,"z":0,"l":0,"n":"Z +2"},{"x":0,"y":1,"z":2,"l":0,"n":"symbol"},{"x":0,"y":2,"z":0,"l":0,"n":"charge +3"},{"x":0,"y":2,"z":2,"l":0,"n":"series limit"},{"x":1,"y":1,"z":0,"l":1,"n":"group +2"},{"x":1,"y":1,"z":1,"l":1,"n":"period"},{"x":1,"y":2,"z":0,"l":1,"n":"n +3"},{"x":1,"y":2,"z":2,"l":1,"n":"n+l"},{"x":2,"y":0,"z":1,"l":2,"n":"caps"},{"x":2,"y":0,"z":2,"l":2,"n":"delta equation"},{"x":2,"y":2,"z":1,"l":2,"n":"capacity"},{"x":2,"y":2,"z":2,"l":2,"n":"p +1"},{"x":3,"y":1,"z":2,"l":3,"n":"C(Z)"},{"x":3,"y":2,"z":0,"l":3,"n":"n0 +1"}],xlab:'status',ylab:'args',zlab:'cites',r:8,height:470,scale:0.225,stroke:true,labels:true,colour:p=>['--statistics','--geometry','--information','--algebra','--order'][p.l]});
+</script>

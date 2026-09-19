@@ -137,7 +137,10 @@ instruments run over the store — `tools/cypher.py` (the cypher analysis of §3
 index), `tools/arith.py` (the arithmetic of every ratio, percentage and equation the volumes state
 about themselves), `tools/pointers.py` (every pointer resolved across the volumes and the
 companion), `tools/buildtrace.py` (when a figure entered the books, from the BUILD series) and
-`tools/populate.py` (an element, and every ion of it, on every axis of every index — both halves
+`tools/populate.py` (an element, and every ion of it, on every axis of every index — **26 axes since
+the series limit was seated**, the measured ionisation limit being `READ`/`FITTED` and never computed,
+and its deficit against the reduced-mass baseline being where QED enters the index per register 3253 —
+both halves
 of the method equation, per register 1206), `tools/orderideal.py` (register 66's downward-closure
 test, run against the seated observed configurations; it imports `LW1-ground.py`, offers no verdict,
 and files its measurement for R3 — see `docs/ORDER-IDEAL.md`), **`tools/mucf.py`** (the
@@ -189,6 +192,31 @@ statistics — C(5,2) = 10, all ten agreeing. That is register 1173's count with
 membership: `statistics` returns a binary and is in; `analysis` does not and is out, joining
 `documentary` as a special row. The two are special differently — documentary has no mechanism at
 all, analysis has one but returns a magnitude rather than a cell decision.
+
+## `research/` is original work produced **from** the corpus, never **into** it
+
+`research/warp-drive/` holds ~200 stdlib-only instruments and `paper/`, a formal research tree that
+reads the corpus and never writes to it. It is **not** part of the corpus and none of the rules above
+about mirrored content apply to it. Its own `research/README.md` is the index.
+
+**There is a proof assistant available in this environment, and finding it was not obvious.** Lean and
+Coq cannot be installed — `elan` and `opam` both need github, which the egress proxy refuses with a 403
+— but **pypi is on the proxy allowlist**, so:
+
+```
+pip install z3-solver
+```
+
+`research/warp-drive/hlaw.py` is the hierarchy law as a runnable instrument — hand it an index and
+it checks the seven lawful containments against it, exits 1 on a refutation, and refuses to print a
+total ranking because Clause E says there isn't one (`HLAW.md`).
+`research/warp-drive/prover.py` is a reusable harness for machine-checking finite claims about
+lattices, orders and closure operators; `machinecheck.py` is a worked set of 21 discharged
+obligations; `PROOF-ASSISTANT.md` documents the route, the two encodings that make such claims
+decidable, and the two guards (vacuity, encoding drift) that must run before any result is believed.
+**Z3 is not vendored** — ~53 MB installed, and this is a document corpus. A machine-check there
+quantifies over *every* subset of a finite box, which is stronger than enumeration but still a
+statement about that box.
 
 ## Files under `drive/` are mirrored content
 

@@ -137,7 +137,11 @@ NOT-RUNs.  Everything remaining is one of exactly three kinds:
     OUTSIDE GR        f(R), noncommutative geometry -- the DEC and the positive
                       mass theorem are theorems OF general relativity with
                       matter, and neither applies unchanged there.
-                      wormhole.py leaves this as M's scope decision, UNCHOSEN.
+                      wormhole.py left this as M's scope decision and IT WAS
+                      MADE on 2026-09-11: modified gravity counts. That turns
+                      this door from a prohibition into a bill, and it
+                      licenses nothing already seated -- everything derived
+                      before that date was derived in GR and stays GR.
 
     NOT AN ENERGY     order, causal structure, chronology protection.  GJW's
     QUESTION          path; Kim-Thorne against Hawking past dt > D/c.  The
@@ -305,7 +309,15 @@ def open_rows_from_the_ledger():
 
 
 def scope_is_chosen():
-    """wormhole.py leaves the modified-gravity scope to M.  Still unchosen."""
+    """wormhole.py's modified-gravity scope flag. CHOSEN on 2026-09-11.
+
+    This read "Still unchosen" and pinned False for as long as the flag was
+    None. The decision was made -- SCOPE_CHOSEN_HERE = "modified gravity
+    counts" -- and this file was not swept, so the pin went on asserting the
+    open state of a question that had been answered. It licenses nothing
+    already seated: results derived before that date were derived in GR and
+    stay GR.
+    """
     import wormhole
     return wormhole.SCOPE_CHOSEN_HERE is not None
 
@@ -401,7 +413,8 @@ def selftest():
     chk("doors", len(DOORS), 3)
     chk("obstruct.py's remaining OPEN rows", open_rows_from_the_ledger(),
         ["TYPE-IV"])
-    chk("and the modified-gravity scope is chosen", scope_is_chosen(), False)
+    chk("and the modified-gravity scope IS chosen, 2026-09-11",
+        scope_is_chosen(), True)
     print("       Every other route is now closed by a THEOREM rather than by a")
     print("       MAGNITUDE.  That is a better place to stand.  It is not a")
     print("       better answer.")

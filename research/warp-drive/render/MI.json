@@ -1,0 +1,408 @@
+{
+ "langs": [
+  "algebra",
+  "geometry",
+  "information",
+  "order",
+  "statistics"
+ ],
+ "lawful": [
+  [
+   "algebra",
+   "order"
+  ],
+  [
+   "information",
+   "algebra"
+  ],
+  [
+   "information",
+   "order"
+  ],
+  [
+   "order",
+   "algebra"
+  ],
+  [
+   "statistics",
+   "algebra"
+  ],
+  [
+   "statistics",
+   "geometry"
+  ],
+  [
+   "statistics",
+   "order"
+  ]
+ ],
+ "channels": [
+  {
+   "k": 0,
+   "set": []
+  },
+  {
+   "k": 1,
+   "set": [
+    "information"
+   ]
+  },
+  {
+   "k": 2,
+   "set": [
+    "statistics"
+   ]
+  },
+  {
+   "k": 3,
+   "set": [
+    "geometry",
+    "statistics"
+   ]
+  },
+  {
+   "k": 4,
+   "set": [
+    "information",
+    "statistics"
+   ]
+  },
+  {
+   "k": 5,
+   "set": [
+    "geometry",
+    "information",
+    "statistics"
+   ]
+  },
+  {
+   "k": 6,
+   "set": [
+    "algebra",
+    "information",
+    "order",
+    "statistics"
+   ]
+  },
+  {
+   "k": 7,
+   "set": [
+    "algebra",
+    "geometry",
+    "information",
+    "order",
+    "statistics"
+   ]
+  }
+ ],
+ "covers": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2
+  ],
+  [
+   1,
+   4
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   5,
+   7
+  ],
+  [
+   6,
+   7
+  ]
+ ],
+ "indexes": [
+  {
+   "name": "the languages",
+   "K": 0,
+   "height": 3,
+   "width": 2,
+   "cells": 5,
+   "arity": 5,
+   "closers": [],
+   "demand": {
+    "languages": 5,
+    "union": 5,
+    "unanimous": 1
+   }
+  },
+  {
+   "name": "substances (Hawking-Ellis)",
+   "K": 0,
+   "height": 4,
+   "width": 3,
+   "cells": 8,
+   "arity": 4,
+   "closers": [],
+   "demand": {
+    "languages": 5,
+    "union": 5,
+    "unanimous": 1
+   }
+  },
+  {
+   "name": "bounds",
+   "K": 0,
+   "height": 5,
+   "width": 3,
+   "cells": 8,
+   "arity": 6,
+   "closers": [],
+   "demand": {
+    "languages": 5,
+    "union": 5,
+    "unanimous": 1
+   }
+  },
+  {
+   "name": "periodic layout",
+   "K": 0,
+   "height": 19,
+   "width": 12,
+   "cells": 108,
+   "arity": 3,
+   "closers": [],
+   "demand": {
+    "languages": 5,
+    "union": 283,
+    "unanimous": 9
+   }
+  },
+  {
+   "name": "questions",
+   "K": 2,
+   "height": 3,
+   "width": 2,
+   "cells": 4,
+   "arity": 5,
+   "closers": [
+    "statistics"
+   ],
+   "demand": {
+    "languages": 4,
+    "union": 4,
+    "unanimous": 0
+   }
+  },
+  {
+   "name": "exotic mechanisms",
+   "K": 2,
+   "height": 3,
+   "width": 4,
+   "cells": 8,
+   "arity": 6,
+   "closers": [
+    "statistics"
+   ],
+   "demand": {
+    "languages": 4,
+    "union": 52,
+    "unanimous": 0
+   }
+  },
+  {
+   "name": "spacetimes (Petrov)",
+   "K": 2,
+   "height": 3,
+   "width": 4,
+   "cells": 8,
+   "arity": 4,
+   "closers": [
+    "statistics"
+   ],
+   "demand": {
+    "languages": 4,
+    "union": 22,
+    "unanimous": 0
+   }
+  },
+  {
+   "name": "energy-condition family",
+   "K": 2,
+   "height": 5,
+   "width": 8,
+   "cells": 18,
+   "arity": 6,
+   "closers": [
+    "statistics"
+   ],
+   "demand": {
+    "languages": 4,
+    "union": 238,
+    "unanimous": 0
+   }
+  },
+  {
+   "name": "Janet (n+l, l, k)",
+   "K": 7,
+   "height": 30,
+   "width": 12,
+   "cells": 170,
+   "arity": 3,
+   "closers": [
+    "algebra",
+    "geometry",
+    "information",
+    "order",
+    "statistics"
+   ],
+   "demand": {
+    "languages": 0,
+    "union": 0,
+    "unanimous": 0
+   }
+  }
+ ],
+ "self": {
+  "n_indexes": 9,
+  "n_cells": 8,
+  "E": {
+   "order": 11,
+   "algebra": 11,
+   "geometry": 13,
+   "information": 5,
+   "statistics": 0
+  },
+  "closers": [
+   "statistics"
+  ],
+  "demands": [],
+  "own_cell": [
+   2,
+   5,
+   2
+  ],
+  "own_cell_occupied": [],
+  "dilworth_violations": [],
+  "cells": [
+   [
+    0,
+    3,
+    2
+   ],
+   [
+    0,
+    4,
+    3
+   ],
+   [
+    0,
+    5,
+    3
+   ],
+   [
+    0,
+    19,
+    12
+   ],
+   [
+    2,
+    3,
+    2
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    2,
+    5,
+    8
+   ],
+   [
+    7,
+    30,
+    12
+   ]
+  ],
+  "demand": {
+   "languages": 4,
+   "union": 13,
+   "unanimous": 0
+  }
+ },
+ "phase": [
+  {
+   "geometry": false,
+   "ordalg": false,
+   "channels": [
+    0,
+    1,
+    2,
+    4
+   ]
+  },
+  {
+   "geometry": false,
+   "ordalg": true,
+   "channels": [
+    6
+   ]
+  },
+  {
+   "geometry": true,
+   "ordalg": false,
+   "channels": [
+    3,
+    5
+   ]
+  },
+  {
+   "geometry": true,
+   "ordalg": true,
+   "channels": [
+    7
+   ]
+  }
+ ],
+ "calibrated": {
+  "the languages": [
+   1,
+   0,
+   2,
+   1,
+   0
+  ],
+  "substances (Hawking-Ellis)": [
+   0,
+   1,
+   2,
+   1
+  ],
+  "bounds": [
+   2,
+   1,
+   0,
+   0,
+   1,
+   2
+  ]
+ }
+}

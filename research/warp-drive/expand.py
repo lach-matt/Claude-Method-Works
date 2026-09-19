@@ -46,15 +46,28 @@ This file does it the stated way.
                the magnitude required.  achievable.py, charge.py.
                                                                 REFUSES
 
-  STATISTICS   are the configurations drawn from a distribution?  No measure
-               over configurations has been declared here.       NOT-RUN
+  STATISTICS   are the configurations drawn from a distribution?  RUN at last,
+               by declaring one: uniform on the core mass at the seated
+               defaults.  The working set is an INTERVAL of positive measure,
+               3.5e-3 to 4.05e-2, with both edges located and an interior
+               optimum at 2.0e-2.  The device is not fine-tuned.  statrow.py.
+                                                                ADMITS
 
   ANALYSIS     is there a continuous law?  Yes, and it returns 4.387e71 D^2 --
                A MAGNITUDE.  By register 1173 it earns NO ROW.   (no row)
 
 -- THE LOGIC EXPANSION: THE PAIRS --------------------------------------------
-Four languages hold rows, so C(4,2) = 6 pairs.  Three agree with each other and
-one dissents from all three, so THREE PAIRS AGREE AND THREE DISAGREE.
+FIVE languages now hold rows, so C(5,2) = 10 pairs.  Four agree with each other
+and one dissents from all four, so SIX PAIRS AGREE AND FOUR DISAGREE.
+
+AND THE PATTERN OF ROWS IS NOT FREE.  Because cl_a is contained in cl_b for each
+lawful containment, whatever a admits b admits: THE ADMITTING SET IS AN UP-SET
+and the REFUSING SET IS A DOWN-SET, and the down-sets are exactly the eight
+lawful channel sets of master.py section 6b.  Five binaries would be 32
+patterns; the law allows EIGHT.  This file never checked that, and now does.
+The refusing set {information} is K1 -- one of only two channels nothing in this
+corpus occupies -- and had statistics refused it would have been K4, which is
+occupied.  RUNNING THE ROW DECIDED WHICH.
 
 -- THE REDUCTION: BACK TO ONE BINARY OF THE SAME SHAPE ------------------------
 Register 1176: E(X) = 0 IF AND ONLY IF THE LANGUAGES AGREE.  They do not.
@@ -68,8 +81,15 @@ disappointment.  THE VALUE OF DOING IT THIS WAY IS WHERE THE DISSENT SITS.
     of the silent language names the kind of object."
 
     THE DISSENT IS IN INFORMATION ALONE.  Order admits, geometry admits, algebra
-    admits.  The causal structure is fine, the geometry embeds, the junction
-    closes and the shell holds.  WHAT IS MISSING IS A VALUE, NOT A STRUCTURE.
+    admits, and statistics now admits too.  The causal structure is fine, the
+    geometry embeds, the junction closes, the shell holds, and the working
+    configurations are an interval rather than a point.  WHAT IS MISSING IS A
+    VALUE, NOT A STRUCTURE.
+
+    AND THE OBSTRUCTION IS ATOMIC.  The only lawful down-set strictly below
+    {information} is the empty one, so there is no refusal pattern between
+    "information refuses" and "nothing refuses".  No partial credit: the
+    obstruction cannot be reduced, only removed.
 
 -- WHAT THAT DOES AND DOES NOT LICENSE ---------------------------------------
 DOES: it localises the obstruction exactly, and it says the three things a
@@ -145,8 +165,15 @@ def information_row():
 
 
 def statistics_row():
-    """No measure over configurations has been declared."""
-    return NOT_RUN
+    """RUN, 2026-09-13. statrow.py declares a measure and sweeps it.
+
+    Uniform on the core mass over [-2.0e-2, 8.0e-2] at the seated defaults: the
+    working set is an INTERVAL of positive measure with both edges located and
+    an interior optimum, so the device is not a measure-zero accident.
+    ADMITS. A one-dimensional slice, and statrow.py says so.
+    """
+    import statrow
+    return ADMITS if statrow.VERDICT == "ADMITS" else REFUSES
 
 
 def analysis_row():
@@ -215,17 +242,25 @@ def selftest():
     chk("geometry admits", st["geometry"], ADMITS)
     chk("algebra admits", st["algebra"], ADMITS)
     chk("information REFUSES", st["information"], REFUSES)
-    chk("statistics was never run, and is not called silent", st["statistics"], NOT_RUN)
+    # RUN at last, 2026-09-13. It was NOT-RUN for twenty-odd passes because no
+    # measure had been declared, which was honest; declaring one runs it.
+    chk("statistics is RUN now, and admits", st["statistics"], ADMITS)
+    chk("and it is the row that decided the channel -- K1, not K4",
+        __import__("statrow").channel_of_refusal(), 1)
     chk("analysis earns NO ROW -- it returns a magnitude (register 1173)",
         st["analysis"], NO_ROW)
 
     print("\nTHE LOGIC EXPANSION: the pairs")
     pr = pairs(st)
-    chk("languages holding a row", len(rows_with_a_row(st)), 4)
-    chk("so C(4,2) pairs", len(pr), 6)
+    chk("languages holding a row", len(rows_with_a_row(st)), 5)
+    chk("so C(5,2) pairs", len(pr), 10)
     agree = sum(1 for _a, _b, s in pr if s)
-    chk("pairs that agree", agree, 3)
-    chk("pairs that disagree", len(pr) - agree, 3)
+    chk("pairs that agree", agree, 6)
+    chk("pairs that disagree", len(pr) - agree, 4)
+    # AND THE PATTERN IS LAWFUL, which this file never checked before.
+    import statrow
+    chk("the refusing set is a lawful DOWN-SET of the hierarchy law",
+        statrow.refusal_pattern_is_lawful(), True)
     for a, b, s in pr:
         print("     %-12s %-12s %s" % (a, b, "agree" if s else "DISAGREE"))
 
