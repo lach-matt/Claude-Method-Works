@@ -92,11 +92,30 @@ keeps the x-positions of the columns so the band-number column can be told
 from a page number by POSITION rather than by shape, makes this table
 parseable and this docket closeable.
 
-That is not available here: arXiv is 403 through this egress proxy, exactly as
-ENSDF is, and the connector that reached the content returns this same
-extraction.  The docket is OPEN ON AN INPUT, not on an idea -- which is a
-different thing from the four closed routes `subpop.py` records, and is why it
-is written down rather than retried.
+That is not available here, and that was checked rather than assumed --
+THREE ROUTES, ALL MEASURED:
+
+    THE BYTES.  arXiv is 403 through the egress proxy, exactly as ENSDF is.
+    The proxy's own status endpoint lists what bypasses it, and the whole list
+    is package registries: pypi, npm, crates, the Go proxy.  No arXiv mirror
+    is reachable, so there is no second extraction to fetch.
+
+    THE CONNECTOR.  Both of its tools -- the whole-paper read and the
+    page-query read -- return THIS extraction.  There is no layout-preserving
+    mode to ask for.
+
+    THE DATA'S OTHER HOME.  The paper says its level energies come from ENSDF
+    and XUNDL, so the data exists outside the PDF.  pypi IS directly
+    reachable, and was probed properly this time: `nucleardatapy` 1.0.2 (the
+    package an earlier route record mis-named `nucleardata` and wrote off as
+    non-existent) is real, and carries binding energies, charge radii, neutron
+    skin and ISGMR -- NO LEVEL SCHEMES.  `pyne` on pypi is an unrelated
+    package that took the name.  Closed on CONTENT, which is a better closure
+    than the wrong-name one it replaces.
+
+The docket is OPEN ON AN INPUT, not on an idea -- which is a different thing
+from the four closed routes `subpop.py` records, and is why it is written down
+rather than retried.
 """
 
 import os

@@ -342,7 +342,11 @@ NUCLEAR_ROUTES = (
                        "CONNECT tunnel"),
     ("pypi radioactivedecay", "CLOSED -- installs; decay data only, no level "
                               "energies, no J^P per level, no bandhead K"),
-    ("pypi nucleardata", "CLOSED -- no such distribution"),
+    ("pypi nucleardata", "CLOSED -- no such distribution, AND THE NAME WAS "
+                        "WRONG: `nucleardatapy` does exist and was probed "
+                        "later (DOCKET 36). It carries binding energies, "
+                        "charge radii, neutron skin and ISGMR -- no level "
+                        "schemes. Closed on CONTENT, not on absence."),
     ("the corpus", "CLOSED -- zero hits for ENSDF / NuDat / NUBASE across "
                    "MANIFEST.tsv, extracted/LEDGER.tsv, recovered/LEDGER.tsv"),
     ("the paper database", "OPEN, AND WALKED -- arXiv:2303.13849 is captured "
