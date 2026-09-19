@@ -185,6 +185,48 @@ DOCKETS = (
      "DOCKET 28's chart stays refused -- this is a different object, not an "
      "overrule, and both verdicts are on the record. The non-abelian states "
      "(Moore-Read, Read-Rezayi) are a further member set and are not here."),
+    ("31", "CLOSED",
+     "M: \"almost nothing -- but not nothing ... it is a sub index/sublattice "
+     "of bosons.\"",
+     "DOCKET 28 wrote \"almost nothing\" and then treated it as nothing. Low "
+     "resolution is not none -- overlap.py's LABEL threshold is 0.9 and these "
+     "coordinates do not meet it. The ruling also NAMES the object, which "
+     "DOCKET 28 never found: a SUBLATTICE OF THE BOSONS. bosonqp.py places 11 "
+     "bosonic collective excitations in the frame the tree's own bosons share, "
+     "(2J, Q3), which the ruling forces rather than leaves to be chosen. THE "
+     "FINDING IS THE RELATION: the tree's bosons are 15 cells and already a "
+     "sublattice, the quasiparticles are 3 cells and a sublattice, they are "
+     "NOT a subset, and the one cell outside is the COOPER PAIR at charge -2e "
+     "-- a charge no meson and no gauge boson reaches. The union is 16 cells "
+     "and still a sublattice, so the extension is exactly one cell wide. The "
+     "K7 is NOT a finding and the file says so first: three cells in a 2x2 box "
+     "is a chain, and z3 proves over every subset of that box that a chain is "
+     "closed under meet and join, with a vacuity guard and a contrast.",
+     "The member list is DECLARED from physics, not captured, and that is the "
+     "weak point -- registry.py now carries DECLARED as its own provenance "
+     "kind so it cannot hide among the computed ones. The gap coordinate is "
+     "refused as fitted and its price is recorded."),
+    ("32", "CLOSED",
+     "The non-abelian Hall states -- Moore-Read at nu=5/2 and Read-Rezayi at "
+     "12/5 -- named as a further member set by DOCKET 30 and left open.",
+     "SEATED. readrezayi.py charts the Z_k parafermion primaries of the "
+     "Read-Rezayi series; Moore-Read IS RR_2, not a separate construction. 363 "
+     "members over eleven levels, 78 cells, K0. k is a genuine REACH because "
+     "RR_k sits at nu = 2 + k/(k+2), so each k names a plateau -- which is "
+     "exactly what DOCKET 28's SU(2)_k union lacked -- and the channel MOVES "
+     "K2 to K0, so the same test seats it. THE WEIGHTS ARE VALIDATED AGAINST "
+     "THE LITERATURE: the closed form returns {0, 1/16, 1/2} at k=2, exactly "
+     "the Ising category, and 2/5 at k=3, the Fibonacci tau; charges e/4 and "
+     "e/5 as published. TWO NEGATIVE FINDINGS. First, the Majorana bounds "
+     "DOCKET 30's theorem: fqh proved no Laughlin quasiparticle is ever a "
+     "fermion, and this series has six, the first being the Ising psi at "
+     "h = 1/2 -- so that theorem was about the ABELIAN ones. Second, NEITHER "
+     "index nests in the other: 15 cells against 57 on their shared "
+     "coordinates, 8 in common, neither containing the other and neither a "
+     "sublattice, which is the negative counterpart of DOCKET 31.",
+     "It also closes DOCKET 28's trap: SU(2)_2 carries h = 3/16 and the real "
+     "Moore-Read state carries 1/16, so that chart had the wrong PHYSICS as "
+     "well as the wrong shape."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a

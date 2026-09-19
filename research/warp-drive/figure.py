@@ -57,9 +57,9 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    20 vertices, 20 distinct cells -- no two seated indexes share a cell
+    21 vertices, 21 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 249
+    E = 292
 
 **ITS OWN CELL IS (0, 5, 10), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
@@ -170,6 +170,24 @@ because it cut both ways and a one-sided report would be a lie by selection.
     sublattice, they are NOT a subset of the tree's bosons, and the one cell
     outside is the COOPER PAIR at charge -2e, which no meson and no gauge
     boson reaches.  The union is still a sublattice, one cell wider.
+
+    AND TWENTY-ONE.  DOCKET 32 seated `readrezayi` -- the NON-ABELIAN Hall
+    quasiparticles, 363 parafermion primaries over eleven Read-Rezayi states,
+    K0.  At twenty-one: E 292, own cell (0, 5, 10), resolutions
+    0.333 / 0.667 / 0.762, channels still seven of eight.
+
+    IT SEATS BY THE SAME TEST THAT REFUSED DOCKET 28, and for the reason
+    DOCKET 30 identified: RR_k sits at nu = 2 + k/(k+2), so k names an
+    OBSERVED PLATEAU and the box is a reach.  The channel moves K2 to K0.
+
+    AND IT BOUNDS DOCKET 30's THEOREM.  `fqh` proved no Laughlin quasiparticle
+    is ever a fermion.  This series has six, the first being the Ising psi at
+    h = 1/2 -- the neutral Majorana of the Moore-Read state -- so that theorem
+    was about the ABELIAN Hall quasiparticles and this is exactly where the
+    two families part.  Neither index nests in the other either: they share
+    eight cells on their three common coordinates and neither contains the
+    other, which is the negative counterpart of DOCKET 31's nesting and is
+    reported so that one positive result is not read as a pattern.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
@@ -512,8 +530,9 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at twenty it closes in NOTHING -- the ruling cost it its closure "
-        "at fourteen and nothing since has given it back", closers(), [])
+    chk("at twenty-one it closes in NOTHING -- the ruling cost it its "
+        "closure at fourteen and nothing since has given it back",
+        closers(), [])
     own, occ = self_cell()
     chk("it has its own cell", own, (0, 5, 10))
     chk("SEVEN of the eight channels are occupied; only K4 is not -- "
@@ -528,9 +547,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.7))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.75))
+        (res["width"][1], res["width"][0]), ("measurement", 0.7619))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

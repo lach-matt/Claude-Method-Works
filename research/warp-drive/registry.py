@@ -216,6 +216,15 @@ REGISTERED = (
     ("bosonqp", "index", "TABLE",
      "11 bosonic collective excitations, placed in the tree's own boson frame",
      "2J, Q3"),
+    # ---- DOCKET 32.  M: "the non-abelian Hall states are a further member
+    # set and are not in this index -- we do this next."  The other kind of
+    # Hall quasiparticle: exchange rotates the state inside a degenerate space
+    # rather than multiplying it by a phase.  Moore-Read IS RR_2.  Same
+    # coordinate frame as `fqh` on purpose, so the two can be compared -- and
+    # neither turns out to nest in the other.
+    ("readrezayi", "index", "TABLE",
+     "363 parafermion primaries of eleven Read-Rezayi states, two observed",
+     "statistics class, order of the twist, order of the charge, level"),
 )
 
 NOT_AN_INDEX = {
@@ -504,8 +513,8 @@ def selftest():
     chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
-        "quasiparticles, and DOCKET 31's boson sublattice",
-        len(REGISTERED), 20)
+        "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
+        "non-abelian states", len(REGISTERED), 21)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED
