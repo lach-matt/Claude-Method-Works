@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#030712">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f5f1">
 <title>The Method Index</title>
-<meta name="description" content="The Method 1.6, read as an index: every element on every axis, every ion, every channel, every measured cell, each value carrying the status the corpus gives it.">
+<meta name="description" content="The Method Index: every element on every axis, every ion, every channel, every measured cell, each value carrying the status the data gives it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%274%27 fill=%27%23030712%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%279%27 fill=%27none%27 stroke=%27%2338bdf8%27 stroke-width=%272%27 stroke-dasharray=%273 2%27/%3E%3Ccircle cx=%2716%27 cy=%2717%27 r=%273%27 fill=%27%23fb923c%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%273%27 fill=%27%231f4e8c%27/%3E%3Ctext x=%2716%27 y=%2722%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-size=%2717%27 font-weight=%27600%27 fill=%27%23ffffff%27%3EM%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,14 +20,24 @@
   <header id="topbar">
     <div id="brand">
       <h1 id="site-title">The Method Index</h1>
-      <p id="site-subtitle">The Method 1.6 · every element on every axis of every index</p>
+      <p id="site-subtitle">Every element on every axis of every index, each value carrying the status the data gives it.<span id="edition"></span></p>
     </div>
     <nav id="views" aria-label="Views">
       <div class="seg" role="group" aria-label="Layout">
-        <button type="button" id="layout-table" class="seg-btn is-on" data-layout="table" title="Section 6: period × group">Period × group</button>
-        <button type="button" id="layout-janet" class="seg-btn" data-layout="janet" title="Register 1188: (n+ℓ, ℓ)">Janet (n+ℓ, ℓ)</button>
+        <button type="button" id="layout-table" class="seg-btn is-on" data-layout="table" title="The drawn layout: period × group">Period × group</button>
+        <button type="button" id="layout-janet" class="seg-btn" data-layout="janet" title="Janet: (n+ℓ, ℓ)">Janet (n+ℓ, ℓ)</button>
+        <button type="button" id="layout-lattice" class="seg-btn" data-layout="lattice" title="Λ_spectra as a lattice: element across, ionisation stage up, ℓ into the page">Lattice (Z · stage · ℓ)</button>
       </div>
+      <div class="seg" role="group" aria-label="Element view" id="elview">
+        <button type="button" class="seg-btn is-on" data-elview="lattice" title="An element as its slab of the lattice: stage up, ℓ into the page, one cube per cell; drag to rotate, wheel or pinch to zoom">3D</button>
+        <button type="button" class="seg-btn" data-elview="nest" title="An element as nested circles: ions, then channels, then cells">Nest</button>
+      </div>
+      <button type="button" id="btn-papers" class="ghost" title="The released papers, read here">Papers</button>
+      <button type="button" id="btn-figures" class="ghost" title="Figures drawn from the data at build">Figures</button>
+      <button type="button" id="btn-particles" class="ghost" title="The particle indexes: the fundamental particles, the mesons and the baryons of the PDG table, every member with its statuses">Particles</button>
+      <button type="button" id="btn-references" class="ghost" title="Every outward identifier the sources cite: NIST ASD, arXiv, DOI">References</button>
       <button type="button" id="btn-provenance" class="ghost">Provenance</button>
+      <button type="button" id="btn-glossary" class="ghost" title="Every term and mark the site uses, defined">Glossary</button>
       <button type="button" id="btn-help" class="ghost">Help</button>
       <button type="button" id="btn-theme" class="ghost" aria-label="Toggle light or dark theme" title="Toggle theme">◐</button>
     </nav>
@@ -43,12 +53,16 @@
   </section>
 
   <main id="main">
-    <!-- 3. canvas viewport -->
-    <section id="canvas-wrap" aria-label="Zoomable index">
-      <canvas id="canvas" aria-label="Zoomable index of The Method 1.6. With the canvas focused: Esc up one level, H the whole index, + and − zoom, arrow keys pan" role="img" tabindex="0"></canvas>
+    <!-- 3. canvas: the path and the caption above it, the drawing below -->
+    <div id="canvas-col">
+    <div id="canvas-bar">
       <nav id="crumbs" aria-label="Path"></nav>
-      <div id="legend" aria-label="Legend" data-color="grade">
-        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Cells by</button>
+      <div id="canvas-caption" aria-live="polite"></div>
+    </div>
+    <section id="canvas-wrap" aria-label="Zoomable index">
+      <canvas id="canvas" aria-label="Zoomable index of the elements. With the canvas focused: Esc up one level, H the whole index, + and − zoom, arrow keys pan" role="img" tabindex="0"></canvas>
+      <div id="legend" aria-label="Key" data-color="grade">
+        <button type="button" class="legend-title" id="legend-toggle" aria-expanded="true" aria-controls="legend-rows">Key</button>
         <div id="legend-rows">
         <div class="legend-seg" role="group" aria-label="Colour cells by">
           <button type="button" class="is-on" data-color="grade">grade</button>
@@ -60,11 +74,13 @@
         <div class="legend-row"><span class="sw sw-computed"></span> computed <span class="legend-n" id="n-computed"></span></div>
         </div>
         <div class="legend-limit" id="legend-limit-rows"></div>
-        <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held (E)</div>
+        <div class="legend-row"><span class="sw sw-ghost"></span> admitted, not held: forbidden by ℓ ≤ n−1</div>
+        <div class="legend-row"><span class="sw sw-ghost-def"></span> admitted, not held: deferred</div>
         <div class="legend-row"><span class="sw sw-csv"></span> spectra rows only (Z &gt; 108)</div>
         <div class="legend-row"><span class="sw sw-ladder"></span> Λ₈ ionisation ladder</div>
         <div class="legend-row"><span class="sw sw-rel"></span> displaced at c → ∞ (relativistic limit)</div>
         <div class="legend-row"><span class="sw sw-walk"></span> displaced at c → ∞ in the reconstructed walk</div>
+        <div class="legend-row legend-lattice" id="legend-lattice" hidden>Lattice: stage up, ℓ into the page. Drag rotates, wheel or pinch zooms, Shift-drag or two fingers pan, tap a node.</div>
         </div>
       </div>
       <div id="zoomctl" role="group" aria-label="Zoom">
@@ -74,6 +90,7 @@
       </div>
       <div id="loading" role="status" hidden>loading …</div>
     </section>
+    </div>
 
     <div id="side">
       <!-- the one live region: a line naming the selection, so a screen reader is not read every table -->
@@ -90,19 +107,30 @@
         <div id="inspector-body"></div>
       </section>
 
-      <!-- 5. assistant panel -->
-      <section id="assistant" class="plate" aria-label="Query the index">
+      <!-- 5. console -->
+      <section id="assistant" class="plate" aria-label="Console">
         <div class="plate-head">
-          <h2>Query the index</h2>
+          <h2>Console</h2>
           <span class="assist-mode" id="assist-mode">console</span>
         </div>
         <label for="assist-q" class="visually-hidden">Question or console command</label>
         <textarea id="assist-q" class="term" rows="4" placeholder="help · go Fe II d 3 · closure · measured Fe · residuals Fe · B Pd · ladder Fe" spellcheck="false" autocapitalize="off"></textarea>
         <div class="assist-row">
-          <button type="button" id="assist-run" class="btn is-primary">Query Web AI Agent</button>
+          <button type="button" id="assist-run" class="btn is-primary">Ask</button>
           <button type="button" id="assist-stop" class="btn" hidden>Stop</button>
           <button type="button" id="assist-clear" class="btn">Clear</button>
         </div>
+        <details id="ask-settings" class="ask-settings">
+          <summary>Ask a model, with a machine check</summary>
+          <p class="note">With a key, <em>Ask</em> also sends the question to Claude with web search on: the model searches for context and method, applies it to the data this page has loaded, and the page then checks its answer — every figure it cites against the index, every computation against the page's own library, every chemical equation for conservation of atoms and charge. The key stays in this browser and is sent only to the API address below.</p>
+          <div class="ask-grid">
+            <label>API key <input id="ask-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-…"></label>
+            <label>model <select id="ask-model"><option value="claude-opus-5">claude-opus-5</option><option value="claude-sonnet-5">claude-sonnet-5</option><option value="claude-fable-5-1">claude-fable-5-1</option></select></label>
+            <label>API address <input id="ask-proxy" type="url" placeholder="https://api.anthropic.com (or your proxy)" spellcheck="false"></label>
+            <label class="ask-check"><input id="ask-search" type="checkbox" checked> web search, up to <input id="ask-searches" type="number" min="0" max="10" value="5" class="ask-small"> searches</label>
+          </div>
+          <div class="assist-row"><button type="button" id="ask-save" class="btn">Save in this browser</button><button type="button" id="ask-forget" class="btn">Forget the key</button><span class="note" id="ask-state"></span></div>
+        </details>
         <div id="assist-out" class="resp" aria-live="polite"></div>
       </section>
 
@@ -114,20 +142,116 @@
         </div>
         <div id="solver-body"></div>
       </section>
+      <footer id="side-foot" class="foot" aria-label="About this index"></footer>
     </div>
   </main>
+  <footer id="foot" aria-label="About this index"></footer>
 
   <dialog id="dlg-provenance" aria-labelledby="dlg-provenance-title">
     <div class="dlg-head"><h2 id="dlg-provenance-title">Provenance</h2><button type="button" class="ghost dlg-close" data-close="dlg-provenance" aria-label="Close">✕</button></div>
     <div id="provenance-body" class="dlg-body"></div>
   </dialog>
 
+  <dialog id="dlg-particles" aria-labelledby="dlg-particles-title">
+    <div class="dlg-head"><h2 id="dlg-particles-title">Particles and binders</h2><button type="button" class="ghost dlg-close" data-close="dlg-particles" aria-label="Close">✕</button></div>
+    <div id="particles-body" class="dlg-body"></div>
+  </dialog>
+
+  <dialog id="dlg-papers" aria-labelledby="dlg-papers-title" class="dlg-wide">
+    <div class="dlg-head"><h2 id="dlg-papers-title">Papers</h2><button type="button" class="ghost dlg-close" data-close="dlg-papers" aria-label="Close">✕</button></div>
+    <div id="papers-body" class="dlg-body"></div>
+  </dialog>
+
+  <dialog id="dlg-figures" aria-labelledby="dlg-figures-title" class="dlg-wide">
+    <div class="dlg-head"><h2 id="dlg-figures-title">Figures from the data</h2><button type="button" class="ghost dlg-close" data-close="dlg-figures" aria-label="Close">✕</button></div>
+    <div id="figures-body" class="dlg-body"></div>
+  </dialog>
+
+  <dialog id="dlg-glossary" aria-labelledby="dlg-glossary-title">
+    <div class="dlg-head"><h2 id="dlg-glossary-title">Glossary and keys</h2><button type="button" class="ghost dlg-close" data-close="dlg-glossary" aria-label="Close">✕</button></div>
+    <div class="dlg-body glossary">
+      <p class="note">Every term the site uses, in the site's own words. A definition here is a reading aid; the value it describes carries its own status wherever it appears.</p>
+      <h3>Statuses</h3>
+      <dl>
+        <dt><span class="badge st-READ">READ</span></dt><dd>A value taken as recorded from a source table or paper: a measured level, an observed configuration, a stated figure. Nothing was computed to produce it.</dd>
+        <dt><span class="badge st-PINNED">PINNED</span></dt><dd>A standing definition stated at the precision a program needs: the channel equation's coefficients, the Pauli bound, the order operator, the standing caps.</dd>
+        <dt><span class="badge st-DERIVED">DERIVED</span></dt><dd>Arithmetic on READ or PINNED quantities with nothing added: a count, a difference, a classification by a stated rule.</dd>
+        <dt><span class="badge st-RECOVERED">RECOVERED</span></dt><dd>A form stated nowhere in a program's terms, measured out of the index's own computed column and consistent with what is said of it qualitatively. The collapse ramp C(Z, ℓ) is the one such object here.</dd>
+        <dt><span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span></dt><dd>An object whose behaviour is stated but not the form a program needs, rebuilt here and kept marked so a later decision can move it: the ionisation-ladder mapping, the reading of n₀, and the whole of the reconstructed walk.</dd>
+        <dt>a status is never flattened</dt><dd>A value keeps the weakest status of anything it depends on. A DERIVED count over RECONSTRUCTED rows is shown RECONSTRUCTED, and a solver's result carries the status of its weakest input.</dd>
+      </dl>
+      <h3>Cells and channels</h3>
+      <dl>
+        <dt>channel</dt><dd>One ion at one orbital angular momentum ℓ: the series of levels an electron in that ion runs through as its principal quantum number n rises. A channel is addressed as element, ionisation stage, ℓ; for example <code>Fe II d</code>.</dd>
+        <dt>cell</dt><dd>One row of the spectra index: a channel at one multiplicity, carrying its quantum defect δ, its grade and its bound. Some channels hold several cells because the series splits by multiplicity.</dd>
+        <dt>ionisation stage</dt><dd>The ion's charge plus one, in spectroscopic Roman numerals: Fe I is the neutral atom, Fe II has lost one electron. The lattice draws the stage upward.</dd>
+        <dt>quantum defect, δ</dt><dd>How far a series departs from the hydrogenic ladder: the levels sit at −1/(2(n − δ)²) rather than −1/(2n²). A one-electron channel has δ = 0 exactly, by symmetry.</dd>
+        <dt>grade: measured, exact, computed</dt><dd><em>Measured</em>: δ read from levels in a compilation, chiefly NIST ASD. <em>Exact</em>: a one-electron channel, δ = 0 by symmetry. <em>Computed</em>: δ from the channel equation, where no measurement is held.</dd>
+        <dt>witnessed</dt><dd>A cell whose measured δ has an independent second reading in the source data. Drawn with a ring in the lattice.</dd>
+        <dt>bound, and its kind</dt><dd>The note the spectra index records on each cell about where the series ends or why it cannot be keyed. The note is READ; its kind is DERIVED by a stated rule into eight: series limit printed · series unresolved · nuclear (no isotope or nuclide) · not keyable (no single 2S+1) · open-shell core · no analysis located · δ = 0 by symmetry · no note.</dd>
+        <dt>multiplicity</dt><dd>2S+1, the spin multiplicity of the term the series belongs to. It is the fourth coordinate of a cell after Z, charge and ℓ.</dd>
+      </dl>
+      <h3>The channel equation and its terms</h3>
+      <dl>
+        <dt>the channel equation</dt><dd>The one equation that predicts δ for every channel from the ion's own configuration, in two branches: one where the core holds electrons at this ℓ (p &gt; 0) and one where it does not (p = 0). Its five constants A, K, H, E₀ and E₁ are PINNED. Solver mode 1 evaluates it term by term.</dd>
+        <dt>p</dt><dd>The number of orbitals the ion's core already holds at this ℓ, read from the observed ground configuration.</dd>
+        <dt>n₀</dt><dd>The first principal quantum number at this ℓ that the core leaves entirely unoccupied. Its reading is RECONSTRUCTED; the helium s series settles it.</dd>
+        <dt>B, the Pauli bound</dt><dd>B = min(p, n₀ − ℓ − 1): how many core orbitals at this ℓ lie below the series, and so how many nodes exclusion forces on the running electron. Solver mode 2.</dd>
+        <dt>C(Z, ℓ), the collapse coordinate</dt><dd>A ramp from 0 to 1 across the eight elements where the ℓ-orbital collapses into the core (opening at Sc for d, at La for f), carried by the p = 0 branch. Its form is RECOVERED from the computed column. Solver mode 3.</dd>
+        <dt>Nₑ and the exponent</dt><dd>Nₑ is the ion's electron count; the equation's exponent falls as e(Nₑ) = E₀ − E₁ ln Nₑ. At Nₑ = 1 the (Nₑ − 1)/Nₑ factor vanishes and the equation returns 0 exactly.</dd>
+        <dt>residual</dt><dd>δ measured minus δ from the equation, on a measured cell. The Figures dialog draws every residual; the rms over all measured channels is a fixture the solver selftest checks.</dd>
+      </dl>
+      <h3>Layouts and closure</h3>
+      <dl>
+        <dt>the drawn periodic layout</dt><dd>The eighteen-column table, period down and group across, with helium at group 18 and the lanthanides and actinides set aside below. Ninety main-table cells are held.</dd>
+        <dt>ℛ, the order operator</dt><dd>A cell is <em>admitted</em> when every cell below it on every axis is held: the downward closure of the held set. It is PINNED and computed in the closure solver (mode 4).</dd>
+        <dt>held, admitted, E</dt><dd>Held: the cells the layout draws. Admitted: the cells ℛ reaches from them. E = admitted − held: the cells the operator admits and the table does not hold. On the periodic layout E = 36; on the Janet layout E = 0.</dd>
+        <dt>ghost cell</dt><dd>One of the thirty-six, drawn tinted in the gaps of the short periods. Tap one for its definition: 1d, 1p and 2d are forbidden by ℓ ≤ n − 1 (lighter tint), 3d and helium's vacated slot are deferred (fuller tint).</dd>
+        <dt>the priced alternative</dt><dd>Helium drawn at group 2 above beryllium, where its configuration puts it. E falls from 36 to 20, and the plate offers the toggle.</dd>
+        <dt>set aside</dt><dd>The twenty-eight lanthanides and actinides, drawn below the main table and not counted among its held cells.</dd>
+        <dt>Janet cell, (n+ℓ, ℓ)</dt><dd>Each element placed by the n+ℓ and ℓ of its differentiating electron: the left-step table. On it the closure is exact, E = 0.</dd>
+      </dl>
+      <h3>The lattice</h3>
+      <dl>
+        <dt>Λ_spectra</dt><dd>The spectra index seen as a lattice: every element a slab at its Z, ionisation stage up, ℓ into the page, one node per cell. Rotate by dragging, zoom by wheel or pinch, pan with Shift-drag or two fingers.</dd>
+        <dt>node marks</dt><dd>A filled sphere is a measured cell, ringed when witnessed; a disc with a green ring is an exact cell; a small grey dot is a computed cell; the selected cell carries the accent ring. Colour by grade or by limit kind from the key.</dd>
+        <dt>Λ₈ and the ionisation ladder</dt><dd>The eight-coordinate cell (n, ℓ, k, q, e, f, g, 2S) an ion occupies, with seven constraints and standing caps (n, e, ℓ, k, f) = (3, 3, 1, 3, 1). The ladder is the sequence of Λ₈ cells an element's ions step through; the mapping is RECONSTRUCTED. Solver mode 5 tests a cell.</dd>
+        <dt>the tower</dt><dd>The layers above Λ₈ that the index is indexed by; a source table the site reads for its coordinates.</dd>
+      </dl>
+      <h3>The relativistic limit and the walk</h3>
+      <dl>
+        <dt>the Löwdin paper</dt><dd>The released paper that derives the periodic table's filling order from the many-electron equation with one constant, and shows that at c → ∞ eleven elements are misplaced. Read it under Papers.</dd>
+        <dt>the eleven</dt><dd>The elements the paper's construction displaces when the speed of light is sent to infinity: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf. Marked on the table by the relativistic colouring.</dd>
+        <dt>entrant</dt><dd>The channel the chain adds an electron to on the step from Z − 1 to Z: the deepest unfilled channel in the frozen field of the ion. The walk's entrant is compared with the observed gain from the configurations table.</dd>
+        <dt>displaced</dt><dd>An element whose entrant differs between the two settings, c = 137.035999 and c → ∞.</dd>
+        <dt>margin</dt><dd>The energy gap, in hartree, between the entrant and its runner-up. A small margin is a contested row.</dd>
+        <dt>the walk, reconstructed</dt><dd>The paper's own chain run here in two fields, the paper's average-of-configuration Hartree–Fock field with non-local exchange and a local-exchange field beside it, at both settings, into a 476-row table. Every value of it is RECONSTRUCTED and it is placed beside the paper's result, never in its place. Solver mode 7.</dd>
+        <dt>converged</dt><dd>Whether the self-consistent field of a row settled to 10⁻⁷. Three Hartree–Fock rows at c = 137.035999 (Ts, Og, Ubn) settled to 10⁻⁶ instead, and the table says so on the row.</dd>
+      </dl>
+      <h3>The site</h3>
+      <dl>
+        <dt>edition</dt><dd>The commit the data was built from, shown after the subtitle and in every citation line. The Provenance panel lists every edition.</dd>
+        <dt>the explorer computes nothing</dt><dd>Every value the explorer shows was serialised at build from the generator; the browser reads and draws. Only the solver suite computes, and each solver carries a selftest against exported numbers.</dd>
+        <dt>machine check</dt><dd>What the page does to a model's answer: resolves every cited path against the loaded data, repeats every stated computation with its own library, tallies every chemical equation for conservation of atoms and charge, and counts the numbers left unmarked. A mismatch is reported beside the model's words and never corrected.</dd>
+        <dt>⟦path⟧, ⟪f(args) = v⟫, ⦃equation⦄</dt><dd>The three markers a model is instructed to use so the page can check it: a citation of a figure by its path in the data, a computation the page can repeat, and a chemical equation the page can balance-check.</dd>
+        <dt>reading an ion</dt><dd>Charges are read in any usual notation: Fe3+, Fe^3+, Fe(3+), Fe+3, Fe³⁺, Fe(III); MnO4-, SO4^2-, SO4-2, SO₄²⁻. One form is ambiguous on its face, a plain digit and sign after a single element symbol: Fe3+ is iron(III), but N3- is azide and I3- triiodide. The chemistry modes read it as a charge, show every reading they made, and where that reading cannot balance and the other can, use the other and say so. The caret or superscript form is never ambiguous.</dd>
+        <dt>the algebraic balance</dt><dd>How the tenth solver balances an equation: each element and the charge gives one conservation equation over the species' coefficients, and the solutions of that system, found exactly, are every balance the species admit. One solution is the balance; none means the species cannot balance; more than one means they admit more than one reaction, and the mode shows the basis rather than choosing.</dd>
+        <dt>a finding is recorded, never repaired</dt><dd>Where two sources disagree, both values are shown with their statuses; the site does not choose.</dd>
+      </dl>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-references" aria-labelledby="dlg-references-title">
+    <div class="dlg-head"><h2 id="dlg-references-title">References</h2><button type="button" class="ghost dlg-close" data-close="dlg-references" aria-label="Close">✕</button></div>
+    <div id="references-body" class="dlg-body"></div>
+  </dialog>
+
   <dialog id="dlg-help" aria-labelledby="dlg-help-title">
     <div class="dlg-head"><h2 id="dlg-help-title">Reading this index</h2><button type="button" class="ghost dlg-close" data-close="dlg-help" aria-label="Close">✕</button></div>
     <div class="dlg-body">
-      <p>The top level is the drawn periodic layout of section 6: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as dashed ghosts. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
-      <p>Zoom into an element and its ions appear inside it, in spectroscopic order (I is neutral), joined by the glowing Λ₈ ionisation ladder — one line per step of the record's ladder, nothing invented. Zoom into an ion and its eight ℓ channels appear; into a channel and its cells, one per multiplicity, coloured by grade. Every cell is a row of COORDINATES-2.13.</p>
-      <p>Every value in the detail plate carries a status badge. <span class="badge st-READ">READ</span> is a measurement from a member or the mirror; <span class="badge st-PINNED">PINNED</span> the corpus defines it at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the corpus states the object but not the form a program needs. A status is never flattened.</p>
+      <p>The top level is the drawn periodic layout: <span data-fill="held">…</span> cells held, <span data-fill="admitted">…</span> admitted by ℛ, and the <span data-fill="E">…</span> the operator admits but the table does not hold drawn as ghosts, each labelled with its subshell — 1d, 1p and 2d forbidden by ℓ ≤ n−1 (the lighter tint), 3d and helium's vacated slot deferred (the fuller tint). Tap one for its definition, and the plate offers the priced alternative: helium drawn at group 2, where E = 20. Switch to the Janet layout to see the same elements on (n+ℓ, ℓ), where E = <span data-fill="janetE">…</span>. (These figures are filled from <code>data/index.js</code>, not typed here.)</p>
+      <p>Tap an element and it opens as its slab of the lattice in three dimensions, the way the source figure draws Λ_spectra: ionisation stage up, ℓ into the page, one node per cell, side by side along the third axis where a site holds two multiplicities; a node carries the same mark as in the nested view — a filled sphere for a measured cell, a ringed disc for an exact one, a small grey dot for a computed one; the glowing Λ₈ ionisation ladder climbs the front edge, one rung per step of the record's ladder, nothing invented. Drag to rotate, wheel or pinch to zoom, Shift-drag or a two-finger drag to pan, tap a node for its cell, a numeral for its ion. The third layout, <em>Lattice</em>, is the whole solid: every element a slab, Z across, the measured wedge at low Z and low ℓ. <em>Nest</em> shows the same element as the nested circles instead: ions in spectroscopic order (I is neutral) joined by the ladder, each ion opening into its eight ℓ channels, each channel into its cells. Every cell is a row of COORDINATES-2.13.</p>
+      <p>Every value in the detail plate carries a status badge. <span class="badge st-READ">READ</span> is a value read from a source table or paper; <span class="badge st-PINNED">PINNED</span> a definition stated at the precision a program needs; <span class="badge st-DERIVED">DERIVED</span> arithmetic on those, nothing added; <span class="badge st-RECOVERED">RECOVERED</span> measured out of the index's own computed column; <span class="badge st-RECONSTRUCTED">RECONSTRUCTED</span> the sources state the object but not the form a program needs. A status is never flattened.</p>
       <h3>Navigation</h3>
       <ul>
         <li>Scroll or pinch to zoom, drag to pan, tap a node to fly to it; the detail plate follows the selection.</li>
@@ -137,6 +261,10 @@
       </ul>
       <h3>Query the index</h3>
       <p>The console answers deterministically from the loaded data: <code>help</code>, <code>go Fe II d 3</code>, <code>axes</code>, <code>closure</code>, <code>sources</code>, <code>caveats</code>, <code>count</code>, <code>measured Fe</code>, <code>residuals Fe</code>, <code>B Pd</code>, <code>ladder Fe</code>. When the page runs as a claude.ai artifact a second answerer, Claude, is offered beside it and is always labelled; it is instructed to answer only from the selected record and to name the status of every number it quotes.</p>
+      <h3>Ask a model, with a machine check</h3>
+      <p>The console answers only from the loaded data. With an API key saved under <em>Ask a model</em>, the same button also sends the question to Claude with web search on. The model is told to search for context and method, to apply them to the data the page hands it, and to mark its work: every figure it takes from the index as <code>⟦path⟧</code>, every computation as <code>⟪function(args) = value⟫</code>, every chemical equation as <code>⦃equation⦄</code>. The page then checks the answer rather than trusting it — each citation is resolved against the loaded data and its value compared, each computation is repeated with the page's own solver library, each equation is tallied for conservation of atoms and charge with every element linked to its record — and the count of numbers the model stated with no marker is reported as unverified. A mismatch is shown beside the model's words, never corrected. The console command <code>check</code> runs the same checker over any pasted text. The ninth solver mode checks a chemical equation on its own, and the tenth balances one exactly by the algebraic method — conservation of every element and of charge solved in rational arithmetic, with acidic or basic media for redox reactions in water and e⁻ for half-reactions — refusing to invent a species or choose between reactions the species leave open. Nothing here writes a laboratory procedure, by decision.</p>
+      <h3>Particles and references</h3>
+      <p><em>Particles</em> opens the three indexes of the particles that are not periodic atoms — the 30 fundamental particles of the Standard Model, the 250 mesons and the 292 baryons of the Particle Data Group's 2026 table, read at build from the instruments that seat them: every member with its coordinates and their statuses, the cells and the closure channel, the collisions, antimatter measured as the conjugation map, every refused coordinate with the measurement that refuses it, the accounting of the whole table (6,506 = 5,880 nuclei + 54 status-4 + 572 kept), and the quasiparticle finding, in progress. Where this build carries it, the dialog then opens what the sources state of the binders and particles beyond the electron — the muon and its window [119, 918] mₑ with the paper's energy balance as an instrument, the pion, tau, kaon, antiproton and Σ⁻ it excludes, antimatter and the exotic atoms by CPT and reduced mass, antiprotonic helium's worked cell, the photon's single restored cell, the 27 constants of Λ_phys, and the terms counted absent from the sources — every figure read from the passage that states it, with its status, and none of them a lattice figure, because the lattice carries configuration and not scale. The eighth solver mode runs the muon energy balance over sticking, density and the production cost, and refuses below the kinematic floor. <em>References</em> lists every outward identifier the sources cite — NIST ASD with its DOI, and the arXiv and DOI identifiers, each quoted only from a paper released to the site — and links them by construction; a compilation named without an identifier is cited as a string. A measured cell's plate links its source the same way, and no target is invented.</p>
       <h3>What computes and what does not</h3>
       <p>The explorer computes nothing; the solver suite does, and every solver carries a selftest against the instrument's own numbers. Every value the explorer shows is <code>tools/populate.py</code>'s, serialised by <code>tools/webindex.py</code>. A finding is recorded, never repaired: where the spectra index disagrees with the observed configurations, both values are shown.</p>
     </div>

@@ -50,10 +50,12 @@ from __future__ import annotations
 
 import argparse
 import ast
+import bisect
 import contextlib
 import csv
 import datetime as _dt
 import hashlib
+import importlib.util
 import inspect
 import io
 import json
@@ -81,7 +83,8 @@ ELEMENT_PREFIX = ("window.__mi = window.__mi || {}; "
 WRAP_SUFFIX = ";\n"
 
 SITE_TITLE = "The Method Index"
-SITE_SUBTITLE = "The Method 1.6 · every element on every axis of every index"
+SITE_SUBTITLE = ("Every element on every axis of every index, each value carrying "
+                 "the status the data gives it")
 
 # IUPAC names, for search and labels only. They are not a corpus figure and the
 # site labels them as such; the corpus carries symbols (register 1306).
@@ -123,32 +126,133 @@ SYMBOLS_ABOVE_108 = {
     115: "Mc", 116: "Lv", 117: "Ts", 118: "Og", 119: "Uue", 120: "Ubn",
 }
 
+# ---------------------------------------------------------------------------
+# the public build -- the site cites nothing from the unpublished books
+# ---------------------------------------------------------------------------
+# The books this index is drawn from are unpublished and not peer reviewed, and
+# the author's ruling is that the public site references none of them: no
+# register numbers, section numbers, member file names, line references or
+# passages. The data, the statuses and the instruments stay; provenance outward
+# is the public sources (NIST ASD, arXiv, DOI) and the papers the author has
+# released to the site. PUBLIC_PAPERS names those; PRIVATE_PATTERNS is what may
+# not appear in any string the site ships, and the selftest walks every string
+# of index.js and every element file against it. Blocks drawn from papers not
+# yet released (the muon material) build only behind --with-particles.
+PUBLIC_PAPERS = {
+    "THE-LOWDIN-SOLUTION-2.md": "the Löwdin paper",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "the three-body paper",
+}
+PRIVATE_PATTERNS = [
+    r"\b[Rr]egisters?\s+\d", r"\b[Ss]ections?\s+\d", r"§\s?\d", r"\bchapters?\s+\d",
+    r"[A-Za-z0-9_\-]+\.md\b", r"\bL\d{2,5}\b(?![.\d])", r"The Method 1\.6", r"\bcorpus\b",
+    r"\bCompendium\b", r"PROSE-ONLY", r"\bdockets?\b", r"\brulings?\b", r"\bseated members?\b",
+    r"\bbundles?\b", r"method/members", r"\brecovered/", r"(?<![\w-])drive/", r"LW1-", r"r2-scf",
+    r"tower-2\.py", r"\.tsv\b", r"rclose\.py", r"\bsessions?\s+\d", r"\bchats?\s+\d",
+    r"\bhandoffs?\b", r"\bfaults?\s+\d",
+]
+_PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
+# names the site may print that a pattern would otherwise catch: the walk table
+# is this repository's own reconstruction, not one of the books, and the two
+# captures are public tables (PDG, spglib) written with their provenance
+PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
+                "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture"}
+
+
+def private_hits(text):
+    """The private patterns a string matches, with the paper titles allowed."""
+    if not isinstance(text, str):
+        return []
+    t = text
+    for fn, title in list(PUBLIC_PAPERS.items()) + list(PUBLIC_NAMES.items()):
+        t = t.replace(fn, title)
+    return [rx.pattern for rx in _PRIVATE_RX if rx.search(t)]
+
+
+def private_strings(obj, path="index", out=None, limit=40):
+    """Every string in a JSON object that cites the private books, with its path."""
+    out = [] if out is None else out
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            k = str(k)
+            if private_hits(k):
+                out.append((path + "." + k, "(key) " + k))
+            private_strings(v, path + "." + k, out, limit)
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            private_strings(v, path + "[%d]" % i, out, limit)
+    elif isinstance(obj, str) and private_hits(obj):
+        out.append((path, obj[:120]))
+    return out
+
+
+def public_text(s):
+    """The narrow rewrites a data string needs to be public: the coordinates
+    table's own source column names a register, and a walk note names a
+    member. Everything else is written public at its source."""
+    if not isinstance(s, str):
+        return s
+    s = re.sub(r"read from (\S+) levels, R 1627", r"read from the species' own level files", s)
+    s = s.replace("NIST ASD fetched 2026-08-14 (session 1.8 queue)", "NIST ASD fetched 2026-08-14")
+    s = s.replace("LW1-ground.py", "the observed configurations table")
+    s = re.sub(r"\bregister 1706's eleven\b", "the Löwdin paper's eleven", s)
+    s = re.sub(r"\bregister 1706\b", "the Löwdin paper", s)
+    return s
+
+
+def public_obj(obj):
+    """public_text over every string of a JSON object, keys included."""
+    if isinstance(obj, dict):
+        return {public_text(k): public_obj(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [public_obj(v) for v in obj]
+    return public_text(obj)
+
+
+def redact_source(py):
+    """An instrument's source for the public site: its code entire, its
+    docstrings and comments kept only where they cite nothing private."""
+    def fix_doc(m):
+        body = m.group(2)
+        if private_hits(body):
+            return m.group(1) + "(docstring withheld on the public site: it cites the author's unpublished notes)" + m.group(1)
+        return m.group(0)
+    py = re.sub(r'(""")(.*?)(""")', lambda m: fix_doc(m), py, flags=re.S)
+    out = []
+    for ln in py.split("\n"):
+        if "#" in ln:
+            code, _, comment = ln.partition("#")
+            if private_hits(comment):
+                ln = code.rstrip() + ("  # (comment withheld)" if code.strip() else "# (comment withheld)")
+        out.append(ln)
+    return "\n".join(out)
+
+
 STATUS_LEGEND = {
-    "READ": "a measurement, taken from a member or the mirror",
-    "PINNED": "the corpus defines it at the precision a program needs",
+    "READ": "a measurement, taken as recorded from the source data",
+    "PINNED": "a standing definition, stated at the precision a program needs",
     "DERIVED": "arithmetic on a READ or PINNED quantity, nothing added",
-    "RECOVERED": "not stated in any member, but recovered by measurement from "
-                 "the index's own computed column and consistent with what the "
-                 "registers say about it qualitatively",
-    "RECONSTRUCTED": "the corpus states the object and its behaviour but not "
-                     "the form a program needs; reconstructed here, measured, "
-                     "and kept as such so a later ruling can move it",
+    "RECOVERED": "not stated anywhere in a program's form, but recovered by "
+                 "measurement from the index's own computed column and consistent "
+                 "with what is said of it qualitatively",
+    "RECONSTRUCTED": "the object and its behaviour are stated but not the form a "
+                     "program needs; reconstructed here, measured, and kept as "
+                     "such so a later decision can move it",
 }
 
 # The site's own caveats, drawn from docs/POPULATE.md's "Known gaps" and
 # "Two findings". They are shown on every page, not buried in a footnote.
 CAVEATS = [
     {"id": "above-108",
-     "text": "Elements above Z = 108 are not populated. LW1-ground.py stops at "
-             "108 because measurement does. COORDINATES-2.13 carries rows to "
-             "Z = 120 and those are shown READ from the CSV with no "
-             "configuration, equation or derived value behind them."},
+     "text": "Elements above Z = 108 are not populated. The observed configurations "
+             "stop at 108 because measurement does. COORDINATES-2.13 carries rows to "
+             "Z = 120 and those are shown READ from the CSV with no configuration, "
+             "equation or derived value behind them."},
     {"id": "b-aufbau",
-     "text": "The spectra index's B column was built on a withdrawn "
-             "configuration table (aufbau, patched by hand). Register 1306 "
-             "corrected the configurations and COORDINATES-2.13 was never "
-             "rebuilt on them. Where the observed table gives a different Pauli "
-             "bound the site shows both and marks the disagreement."},
+     "text": "The spectra index's B column was built on a withdrawn configuration "
+             "table (aufbau, patched by hand). The configurations were later corrected "
+             "and COORDINATES-2.13 was never rebuilt on them. Where the observed table "
+             "gives a different Pauli bound the site shows both and marks the "
+             "disagreement."},
     {"id": "b-overloaded",
      "text": "25 measured rows carry a float in the B column: a dispersion of "
              "the median defect, not a bound. The site says 'B column is not a "
@@ -157,8 +261,8 @@ CAVEATS = [
     {"id": "lambda8-mapping",
      "text": "A Λ₈ cell is a transition, so an element is not a cell. "
              "The mapping shown is the element's own ionisation ladder read off "
-             "the observed configurations. Nothing in the store fixes this "
-             "mapping; it is RECONSTRUCTED and a later ruling can move it."},
+             "the observed configurations. Nothing fixes this mapping; it is "
+             "RECONSTRUCTED and a later decision can move it."},
     {"id": "equation-domain",
      "text": "The channel equation is validated in its stated domain and "
              "extrapolated outside it. A residual on a channel outside that "
@@ -166,21 +270,17 @@ CAVEATS = [
     {"id": "relativistic-not-held",
      "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
              "Hartree\u2013Fock at c = 137) and its repetition at c \u2192 \u221e "
-             "are not held: the L\u00f6wdin delivery records objects 1, 2, 4\u20138 "
-             "and 10 as pending bank and object 11 as not held, because session "
-             "104 was never sealed. The eleven displaced elements are READ from "
-             "THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and "
-             "never withdrawn (r2-scf), and the site cannot recompute them."},
+             "are not held: the code behind the L\u00f6wdin paper never arrived. "
+             "The eleven displaced elements are READ from the paper's own statement "
+             "and the site cannot recompute them."},
     {"id": "walk-reconstructed",
-     "text": "The walk shown beside the record is a RECONSTRUCTION "
-             "(tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's "
-             "construction rebuilt from its statement and run in two fields, "
-             "a local-exchange one and the record's own average-of-"
-             "configuration Hartree\u2013Fock with non-local exchange, "
-             "neither of them the record's code, which never arrived. Where it "
-             "agrees with the record that is a measurement; where it disagrees "
-             "that is a measurement too. It is never the record's number, and "
-             "the record's \u039b_chain and \u039b_cinf stay unheld."},
+     "text": "The walk shown beside the paper is a RECONSTRUCTION "
+             "(tools/lowdin_walk.py): the paper's construction rebuilt from its "
+             "statement and run in two fields, a local-exchange one and the paper's "
+             "own average-of-configuration Hartree\u2013Fock with non-local exchange, "
+             "neither of them the paper's code, which never arrived. Where it "
+             "agrees with the paper that is a measurement; where it disagrees "
+             "that is a measurement too. It is never the paper's number."},
     {"id": "limit-kind",
      "text": "A limit kind is a classification of the csv's own bound note by "
              "the stated rule: the note is READ, the kind is DERIVED, and the "
@@ -188,10 +288,10 @@ CAVEATS = [
              "itself says, not a bound on existence; a series limit is printed "
              "as the csv prints it, with no unit added."},
     {"id": "n0-reading",
-     "text": "n₀'s reading is RECONSTRUCTED. Register 1141 names the terms "
-             "of B = min(p, n₀ − ℓ − 1) but not whether a "
-             "partially filled subshell counts; 'first entirely unoccupied n' "
-             "matches the column at 97.7 % and He I settles it."},
+     "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) "
+             "names its terms but not whether a partially filled subshell counts; "
+             "'first entirely unoccupied n' matches the column at 97.7 % and He I "
+             "settles it."},
 ]
 
 
@@ -317,19 +417,16 @@ def relativistic():
                    for sym in symbols],
         "thorium": thorium["text"] if thorium else None,
         "sources": {
-            "paper": {"file": "method/members/" + paper, "eleven_line": eleven_s["line"],
+            "paper": {"title": PUBLIC_PAPERS[paper], "eleven_line": eleven_s["line"],
+                      "eleven_text": eleven_s["text"],
                       "construction_line": c137["line"] if c137 else None,
                       "thorium_line": thorium["line"] if thorium else None},
-            "register": {"entry": 1706, "text": body},
-            "scf_audit": {"file": "method/members/r2-scf.out",
-                          "count": count_line.strip(), "entrants": entrants},
+            "scf_audit": {"entrants": entrants},
         },
         "instrument": {
             "held": False,
             "note": "the scalar-relativistic construction and its c -> inf "
-                    "repetition are not held; the figures are record-carried",
-            "readme_rows": held_rows,
-            "budget": budget.strip(),
+                    "repetition are not held; the figures are the paper's own",
         },
     }
 
@@ -409,7 +506,7 @@ def walk_instruments():
     for name, fn_name, source in WALK_INSTRUMENTS:
         fn = getattr(lw, fn_name)
         lines, start = inspect.getsourcelines(fn)
-        out[name] = {"python": "".join(lines), "file": "tools/lowdin_walk.py",
+        out[name] = {"python": redact_source("".join(lines)), "file": "tools/lowdin_walk.py",
                      "line": start, "status": populate.RECON, "source": source}
     return out
 
@@ -444,6 +541,18 @@ def walk_rows_by_z(rows):
     return per_z
 
 
+def _public_walk_summary(summary):
+    """The walk's summary as the site carries it: the paper's eleven under the
+    key 'eleven', not under the number of the note that lists them."""
+    def fix(o):
+        if isinstance(o, dict):
+            return {("eleven" if k == "eleven_1706" else k): fix(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [fix(v) for v in o]
+        return o
+    return fix(summary)
+
+
 def walk_block():
     """The reconstruction of the walk -- tools/lowdin_walk.py over
     LOWDIN-WALK.tsv -- as the site carries it: the table's md5, the summary the
@@ -463,7 +572,7 @@ def walk_block():
     with open(WALK_TSV, "rb") as fh:
         blob = fh.read()
     grid = lw.Grid()
-    summary = lw.summarise(rows)
+    summary = _public_walk_summary(lw.summarise(rows))
     field_names = {
         "lx": "Koelling-Harmon scalar-relativistic radial equation in a "
               "local-exchange (Kohn-Sham, V_x = -(3 rho/pi)^(1/3)) "
@@ -544,6 +653,762 @@ def _manifest_row(suffix):
     return None
 
 
+SITE_URL = "https://lach-matt.github.io/Claude-Method-Works/"
+SITE_AUTHOR = "Lach, M."
+PAPERS_JS = "papers.js"
+PAPERS_PREFIX = "window.__mi = window.__mi || {}; window.__mi.papers = "
+# where each released paper's figures live, as extracted/LEDGER.tsv names the
+# archive: the paper cites `figures/<name>` and more than one archive holds a
+# file of that name, so the paper's own delivery is named here
+PAPER_FIGURE_ARCHIVES = {
+    "THE-LOWDIN-SOLUTION-2.md": "The_Method_1_6_figures.zip",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "THREEBODY-DELIVERY-1/THREEBODY-DELIVERY-1.zip",
+}
+PAPER_SLUGS = {
+    "THE-LOWDIN-SOLUTION-2.md": "lowdin",
+    "The_Three_Body_Problem_for_Unknown_Masses_Lach-2.md": "three-body",
+}
+# papers the author has named as released to the site but whose file is not
+# in the repository: a slot on the site, held: false, never a fabricated body
+PAPER_SLOTS = [
+    {"slug": "languages", "title": "The hierarchy of mathematical languages", "held": False,
+     "note": "named by the author as released to the site; the paper's file is not yet "
+             "in the repository, so the site lists it and shows nothing in its place"},
+]
+# the edition history the site shows: the commits that changed public/ or the
+# generator, each with a note written for the site (the commit subjects are
+# git's record, not the site's, and are not shipped)
+EDITION_NOTES = {
+    "745414d": "first page",
+    "a4cd621": "interactive index, first pass",
+    "ef7b325": "touch-first site; data as script files; solver suite; coefficient calculator",
+    "86276a0": "the relativistic limit as a seventh mode; the bounds facet",
+    "d415284": "mode 7 asserts both directions, thorium the null-difference control",
+    "0360a25": "the Löwdin delivery's reply cited from the store",
+    "e9b77f6": "the Löwdin walk reconstructed beside the paper, at both settings",
+    "5755759": "a Hartree-Fock field with non-local exchange, in progress",
+    "ab7a374": "the walk in the paper's own Hartree-Fock field, 476 rows",
+    "5e55930": "the thirty-six cells carry their definitions; helium's placement offered",
+    "fc8bcdb": "the lattice in three dimensions: every element its slab, rotatable and zoomable",
+    "81bd08e": "particles and binders; references linked by construction; the muon balance as a mode",
+    "3f71e96": "set like a reference work: type, palette, frame",
+    "337b922": "the index's cells drawn as a table, not a grid",
+    "3c1abef": "the lattice drawn as a figure: fitted, grounded, labelled",
+    "07f9ff7": "the lattice's cells as nodes",
+    "2d0d5e3": "the public build: the site cites nothing from the unpublished books",
+}
+
+
+def _git_history():
+    """The commits that changed the site, oldest first: date, short hash and
+    the number of files each touched under public/ or the generator."""
+    try:
+        out = subprocess.run(["git", "log", "--date=short", "--format=%H%x09%h%x09%ad", "--",
+                              "public/", "tools/webindex.py"],
+                             cwd=REPO, capture_output=True, text=True, check=True)
+    except Exception:  # noqa: BLE001 -- provenance is best effort
+        return []
+    rows = []
+    for ln in out.stdout.strip().split("\n"):
+        if not ln.strip():
+            continue
+        full, short, date = ln.split("\t")
+        try:
+            files = subprocess.run(["git", "show", "--format=", "--name-only", full, "--",
+                                    "public/", "tools/webindex.py"],
+                                   cwd=REPO, capture_output=True, text=True, check=True).stdout.split()
+        except Exception:  # noqa: BLE001
+            files = []
+        rows.append({"date": date, "commit": short, "files": len(files),
+                     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/" + full,
+                     "note": next((n for k, n in EDITION_NOTES.items() if short.startswith(k)), None)})
+    rows.reverse()
+    return rows
+
+
+def cite_block(head):
+    year = _dt.datetime.now(_dt.timezone.utc).year
+    return {"author": SITE_AUTHOR, "title": SITE_TITLE, "year": year, "url": SITE_URL,
+            "commit": head,
+            "text": "%s (%d). %s, edition %s. %s" % (SITE_AUTHOR, year, SITE_TITLE, head or "?", SITE_URL),
+            "bibtex": "@misc{lach%d_method_index,\n  author = {Lach, M.},\n  title = {%s},\n"
+                      "  year = {%d},\n  howpublished = {\\url{%s}},\n  note = {edition %s}\n}"
+                      % (year, SITE_TITLE, year, SITE_URL, head or "?")}
+
+
+# --- a small Markdown renderer for the released papers -----------------------
+_MD_INLINE = [
+    (re.compile(r"!\[([^\]]*)\]\(([^)]+)\)"), lambda m, ctx: ctx["img"](m.group(1), m.group(2))),
+    (re.compile(r"\[([^\]]+)\]\(([^)]+)\)"), lambda m, ctx: '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(2), m.group(1))),
+    (re.compile(r"`([^`]+)`"), lambda m, ctx: "<code>%s</code>" % m.group(1)),
+    (re.compile(r"\*\*\*(.+?)\*\*\*"), lambda m, ctx: "<b><i>%s</i></b>" % m.group(1)),
+    (re.compile(r"\*\*(.+?)\*\*"), lambda m, ctx: "<b>%s</b>" % m.group(1)),
+    (re.compile(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])"), lambda m, ctx: "<i>%s</i>" % m.group(1)),
+]
+
+
+def _md_inline(text, ctx):
+    text = html_escape(text)
+    # identifiers first, so a link's own URL is not re-linked inside a tag
+    text = ARXIV_NEW.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
+    text = ARXIV_OLD.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
+    text = re.sub(r"(?<![/\w])(10\.\d{4,9}/[^\s\"'<>,;)\]]+)", lambda m: '<a href="https://doi.org/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1).rstrip("."), m.group(1)), text)
+    for rx, fn in _MD_INLINE:
+        text = rx.sub(lambda m, fn=fn: fn(m, ctx), text)
+    return text
+
+
+def html_escape(t):
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _slugify(t):
+    t = re.sub(r"<[^>]+>", "", t)
+    t = re.sub(r"[^A-Za-z0-9]+", "-", t).strip("-").lower()
+    return t[:60] or "s"
+
+
+def md_to_html(text, ctx):
+    """Headings, paragraphs, lists, blockquotes, fenced code, pipe tables,
+    rules and images, with the inline forms above. Not a Markdown engine; the
+    two released papers use no more than this, and the selftest asserts the
+    render carries every heading of the source."""
+    out, headings = [], []
+    lines = text.split("\n")
+    i, n = 0, len(lines)
+    para = []
+
+    def flush():
+        if para:
+            out.append("<p>%s</p>" % _md_inline(" ".join(x.strip() for x in para), ctx))
+            para.clear()
+    while i < n:
+        ln = lines[i]
+        st = ln.strip()
+        if st.startswith("```"):
+            flush()
+            j = i + 1
+            code = []
+            while j < n and not lines[j].strip().startswith("```"):
+                code.append(lines[j]); j += 1
+            out.append("<pre><code>%s</code></pre>" % html_escape("\n".join(code)))
+            i = j + 1
+            continue
+        m = re.match(r"^(#{1,6})\s+(.*)$", st)
+        if m:
+            flush()
+            lvl, txt = len(m.group(1)), _md_inline(m.group(2).strip(), ctx)
+            hid = "h-%d-%s" % (len(headings) + 1, _slugify(m.group(2)))
+            headings.append({"level": lvl, "text": re.sub(r"<[^>]+>", "", txt), "id": hid})
+            out.append('<h%d id="%s">%s</h%d>' % (lvl, hid, txt, lvl))
+            i += 1
+            continue
+        if re.match(r"^(-{3,}|\*{3,}|_{3,})$", st):
+            flush(); out.append("<hr>"); i += 1; continue
+        if st.startswith("|") and i + 1 < n and re.match(r"^\|?\s*:?-{2,}", lines[i + 1].strip()):
+            flush()
+            hdr = [c.strip() for c in st.strip("|").split("|")]
+            j = i + 2
+            body = []
+            while j < n and lines[j].strip().startswith("|"):
+                body.append([c.strip() for c in lines[j].strip().strip("|").split("|")]); j += 1
+            out.append('<div class="tbl-wrap"><table class="t"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>' % (
+                "".join("<th>%s</th>" % _md_inline(c, ctx) for c in hdr),
+                "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % _md_inline(c, ctx) for c in r) for r in body)))
+            i = j
+            continue
+        if st.startswith(">"):
+            flush()
+            q = []
+            while i < n and lines[i].strip().startswith(">"):
+                q.append(lines[i].strip()[1:].strip()); i += 1
+            out.append("<blockquote>%s</blockquote>" % "".join("<p>%s</p>" % _md_inline(x, ctx) for x in " ".join(q).split("  ") if x.strip()))
+            continue
+        lm = re.match(r"^(\s*)([-*]|\d+[.)])\s+(.*)$", ln)
+        if lm:
+            flush()
+            ordered = lm.group(2)[0].isdigit()
+            items = []
+            while i < n:
+                lm2 = re.match(r"^(\s*)([-*]|\d+[.)])\s+(.*)$", lines[i])
+                if lm2:
+                    items.append(lm2.group(3)); i += 1
+                elif lines[i].strip() and lines[i].startswith("  ") and items:
+                    items[-1] += " " + lines[i].strip(); i += 1
+                else:
+                    break
+            tag = "ol" if ordered else "ul"
+            out.append("<%s>%s</%s>" % (tag, "".join("<li>%s</li>" % _md_inline(x, ctx) for x in items), tag))
+            continue
+        if not st:
+            flush(); i += 1; continue
+        para.append(ln)
+        i += 1
+    flush()
+    return "\n".join(out), headings
+
+
+def _ledger_figure(name, archive_hint):
+    """The extracted figure a paper cites by `figures/<name>`, from the ledger
+    row of the paper's own archive; None when the ledger holds no such row."""
+    with open(os.path.join(REPO, "extracted", "LEDGER.tsv"), encoding="utf-8") as fh:
+        rows = [r for r in csv.DictReader(fh, delimiter="\t")
+                if os.path.basename(r["member"]) == name and r["disposition"] in ("EXTRACTED", "DUP-OF-EXTRACTED")]
+    rows = [r for r in rows if archive_hint in r["source"]] or rows
+    for r in rows:
+        path = os.path.join(REPO, r["target_path"])
+        if os.path.exists(path):
+            return {"path": path, "md5_recorded": r["md5"], "bytes": int(r["size_bytes"])}
+    return None
+
+
+def papers_block(out_dir=OUT, write=True, log=print):
+    """The released papers as the site reads them: each rendered to HTML at
+    build from its seated text (the text is the author's own and is shipped as
+    written), its headings as a table of contents, its figures copied from the
+    extracted tree with their ledger md5, and every arXiv or DOI identifier it
+    prints. Written to data/papers.js, loaded on demand."""
+    papers = []
+    for fn, short in PUBLIC_PAPERS.items():
+        path = os.path.join(MEMBERS, fn)
+        with open(path, "rb") as fh:
+            raw = fh.read()
+        text = raw.decode("utf-8")
+        slug = PAPER_SLUGS[fn]
+        figs = []
+        figdir = os.path.join(out_dir, "papers", slug, "figures")
+
+        def img(alt, src, _slug=slug, _figs=figs, _figdir=figdir, _fn=fn):
+            name = os.path.basename(src)
+            f = _ledger_figure(name, PAPER_FIGURE_ARCHIVES[_fn])
+            rel = "papers/%s/figures/%s" % (_slug, name)
+            if f is None:
+                _figs.append({"ref": src, "file": None, "held": False})
+                return '<span class="fig-missing">[figure %s: not held in the extracted tree]</span>' % html_escape(name)
+            with open(f["path"], "rb") as fh:
+                blob = fh.read()
+            md5 = hashlib.md5(blob).hexdigest()
+            if write:
+                os.makedirs(_figdir, exist_ok=True)
+                with open(os.path.join(_figdir, name), "wb") as fh:
+                    fh.write(blob)
+            _figs.append({"ref": src, "file": rel, "held": True, "bytes": len(blob), "md5": md5,
+                          "md5_recorded": f["md5_recorded"], "ok": md5 == f["md5_recorded"]})
+            alt = re.sub(r"[*_]", "", alt).strip()
+            return '<img src="data/%s" alt="%s" loading="lazy">' % (rel, html_escape(alt))
+        body, headings = md_to_html(text, {"img": img})
+        h1 = next((h for h in headings if h["level"] == 1), None)
+        h2 = next((h for h in headings if h["level"] == 2), None)
+        arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        row = _member_row(fn)
+        papers.append({
+            "slug": slug, "short": short,
+            "title": (h1 or {}).get("text") or short,
+            "subtitle": (h2 or {}).get("text") if h2 and headings.index(h2) == 1 else None,
+            "author": SITE_AUTHOR,
+            "held": True,
+            "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
+            "md5_recorded": row["md5"] if row else None,
+            "words": len(text.split()),
+            "headings": headings,
+            "figures": figs,
+            "arxiv": arx, "doi": dois,
+            "html": body,
+            "note": "the paper as the author wrote it, rendered at build; nothing in it is edited "
+                    "for the site, and its own citations are its own",
+        })
+    for slot in PAPER_SLOTS:
+        papers.append(dict(slot, author=SITE_AUTHOR))
+    blob = (PAPERS_PREFIX + json.dumps(papers, ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
+    if write:
+        with open(os.path.join(out_dir, PAPERS_JS), "wb") as fh:
+            fh.write(blob)
+    summary = [{k: p.get(k) for k in ("slug", "title", "subtitle", "author", "held", "bytes", "md5",
+                                        "md5_recorded", "words", "note")}
+               | {"headings": len(p.get("headings", [])), "figures": len(p.get("figures", [])),
+                  "figures_ok": all(f.get("ok") for f in p.get("figures", []) if f.get("held")),
+                  "arxiv": len(p.get("arxiv", [])), "doi": len(p.get("doi", []))}
+               for p in papers]
+    return {"file": "data/" + PAPERS_JS, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
+            "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
+            "papers": summary}
+
+
+def equation_points(spectra):
+    """Every measured channel with its measured delta and the equation's, for
+    the figure the page draws: [Z, charge, l, delta_measured, delta_equation].
+    The same rows equation_figures scores, so the two cannot disagree."""
+    pts = []
+    for r in spectra.rows:
+        if r["grade"] != "measured":
+            continue
+        Z, c, l = int(r["Z"]), int(r["charge"]), int(r["l"])
+        if (Z - c) >= 1 and (Z - c) not in populate.LW1.GROUND:
+            continue
+        eq = populate.channel_delta(Z, c, l, "observed")
+        if eq is None:
+            continue
+        pts.append([Z, c, l, float(r["delta"]), round(eq, 6)])
+    return {"status": populate.PINNED, "rows": pts,
+            "columns": ["Z", "charge", "l", "delta_measured", "delta_equation"],
+            "source": "COORDINATES-2.13's measured rows (delta READ) against the channel "
+                      "equation as populate.channel_delta computes it (PINNED)"}
+
+
+# ---------------------------------------------------------------------------
+# the particle indexes -- DOCKET 27 and 28 of research/warp-drive/
+# ---------------------------------------------------------------------------
+# The other session's tree seats three indexes of the particles that are not
+# periodic atoms -- the 30 fundamental particles, the 250 mesons and the 292
+# baryons of the PDG 2026 table, captured once with its provenance -- and a
+# docket-28 finding on quasiparticles. The site imports those instruments by
+# path and ships what they report: every member with its coordinates, each
+# value carrying a status; the cells, the channel, the collisions; every
+# refused coordinate with the measurement that refuses it. Nothing here is
+# retyped: a figure the instruments do not return is not on the site.
+WARP_ROOT = os.path.join(REPO, "research", "warp-drive")
+PARTICLES_JS = "particles.js"
+PARTICLES_PREFIX = "window.__mi = window.__mi || {}; window.__mi.particle_index = "
+_WARP = {}
+
+
+def warp_modules(root):
+    """The particle instruments imported from the warp tree at `root`, once.
+    They import each other by bare name and reach the repository's tools/ two
+    levels up, so the tree's own directory goes on sys.path and nothing is
+    copied."""
+    root = os.path.abspath(root)
+    if root in _WARP:
+        return _WARP[root]
+    if not os.path.isfile(os.path.join(root, "fundamental.py")):
+        _WARP[root] = None
+        return None
+    import importlib
+    # the root stays on sys.path: registry imports the other instruments lazily by name
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    mods = {n: importlib.import_module(n)
+            for n in ("pdgcapture", "fundamental", "mesons", "baryons", "docket27", "registry")}
+    try:
+        mods["fqh"] = importlib.import_module("fqh")
+    except Exception as e:  # noqa: BLE001 -- DOCKET 30 may not be in an older tree
+        mods["fqh"] = None
+        mods["fqh_error"] = repr(e)
+    try:
+        mods["particlesweep"] = importlib.import_module("particlesweep")
+    except Exception as e:  # noqa: BLE001 -- DOCKET 29 may not be in an older tree
+        mods["particlesweep"] = None
+        mods["particlesweep_error"] = repr(e)
+    try:
+        mods["quasiparticle"] = importlib.import_module("quasiparticle")
+    except Exception as e:  # noqa: BLE001 -- the docket is in progress on the other session
+        mods["quasiparticle"] = None
+        mods["quasiparticle_error"] = repr(e)
+    mods["root"] = root
+    _WARP[root] = mods
+    return mods
+
+
+def _warp_commit(root):
+    try:
+        with open(os.path.join(root, "STATE.json"), encoding="utf-8") as fh:
+            return json.load(fh).get("commit")
+    except Exception:  # noqa: BLE001
+        return None
+
+
+PARTICLE_COORDS = {
+    "fundamental": [
+        {"name": "2J", "meaning": "spin, doubled so it is an integer", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds, so a quark's is an integer", "status": "READ"},
+        {"name": "COL", "meaning": "the dimension of the colour representation: 3 for a quark, 8 for the gluon, 1 otherwise; not in the capture, assigned from the Standard Model's definition and the assignment printed", "status": "PINNED"},
+        {"name": "GEN", "meaning": "generation, 1 to 3 for a fermion and 0 for a boson, derived from the PDG id", "status": "DERIVED"},
+    ],
+    "mesons": [
+        {"name": "2J", "meaning": "spin, doubled", "status": "READ"},
+        {"name": "P", "meaning": "parity", "status": "READ"},
+        {"name": "2I", "meaning": "isospin, doubled", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds", "status": "READ"},
+    ],
+    "baryons": [
+        {"name": "2J", "meaning": "spin, doubled", "status": "READ"},
+        {"name": "P", "meaning": "parity", "status": "READ"},
+        {"name": "2I", "meaning": "isospin, doubled", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds", "status": "READ"},
+        {"name": "S", "meaning": "strangeness, from the quark content by the pinned case convention", "status": "DERIVED"},
+        {"name": "C", "meaning": "charm, likewise", "status": "DERIVED"},
+        {"name": "B", "meaning": "beauty, likewise", "status": "DERIVED"},
+    ],
+}
+PARTICLE_TITLES = {
+    "fundamental": "The fundamental particles of the Standard Model",
+    "mesons": "The mesons",
+    "baryons": "The baryons",
+}
+
+
+def _antimatter(D27, F):
+    """Antimatter counted rather than implied, and the three particles the
+    author asked for by name, resolved by name with their cells."""
+    rows, tot = D27.antimatter()
+    _m, charted, _u = D27.charted()
+    names = {t[0]: t for t in F.rows()}
+    named = []
+    for what, where, cell in D27.named_by_hand():
+        sym = {"photon": "gamma", "muon": "mu-", "antimuon": "mu+"}[what]
+        named.append({"what": what, "name": sym, "index": where.split(".")[0], "cell": list(cell),
+                      "coordinates": dict(zip(F.NAMES, cell))})
+    return {
+        "antimatter": {"by_index": [{"index": a, "antiparticles": b, "members": c} for a, b, c in rows],
+                       "total": tot, "of_charted": charted, "share": round(tot / float(charted), 2),
+                       "note": "an antiparticle is a member in its own right, never a footnote on the particle: the positron's charge is not the electron's, and a chart that merged them would be charting an equivalence class it had not declared",
+                       "status": "DERIVED"},
+        "named": {"rows": named, "status": "READ",
+                  "note": "a total can be right while a named member is missing, so the three the author asked for are resolved by name; the photon shares its cell with the Z, because no quantum number separates them"},
+    }
+
+
+def _sweep(PS):
+    """DOCKET 29 as the site carries it: every chart the three member sets
+    admit, swept; the seating, the two refusals, and the measurements."""
+    OR = PS.OR
+    census = PS.census()
+    honest = PS.honest_occupancy()
+    current = PS.current_occupancy()
+    ruling = OR.seated_channels()
+    hits_r = PS.hits()
+    hits_h = PS.hits(honest)
+    parent, cols, chan = PS.SEATED
+    X = OR.baryon_isomultiplet()
+    K, h, w = PS.mi.cell(X)
+    grounds = OR.grounds(parent, cols)
+    ok, nhit, ntot, late, osc, maj, reach = OR.ground_reach_stable(parent, cols)
+    missing, outside = PS.corners_outside_hull()
+    refused_why = {
+        ("baryons", ("P", "2I", "Q3")): "K1 is already held by a seated row of the overlap rule; that rule's own census leaves its rows out because novelty there means novel against the index the rule was handed, and that exclusion does not transfer to a new parent",
+        ("fundamental", ("Q3", "GEN")): "arity 2: the statistics language closes every arity-2 chart in the tree for free (105 of 105), so what the chart shows is join-closure, which is K1, and K1 is occupied; it is the third arity-2 chart to reach K4 and the third refused",
+    }
+    return {
+        "status_note": "every sub-chart of every particle member set, each subset of its declared columns of size two or more, enumerated and adjudicated against the index as it stands; a census, not a search. The sweep is the other session's; the site reads its record",
+        "census": {p: len(v) for p, v in census.items()},
+        "charts": sum(len(v) for v in census.values()),
+        "by_channel": {p: sorted(((list(c), n, k) for c, n, k in v), key=lambda t: (t[2], -t[1])) for p, v in census.items()},
+        "occupancy": {"before_this_sweep": sorted(honest), "now": sorted(current), "by_the_overlap_rules_own_census": sorted(ruling),
+                      "gap": PS.occupancy_gap(),
+                      "note": "the honest occupancy counts the overlap rule's seated rows and leaves out the row this sweep itself seated; the rule's own census leaves its rows out, which is right for its question and not for this one"},
+        "hits": {"against_the_overlap_rules_census": [{"parent": a, "cols": list(b), "cells": c, "channel": d} for a, b, c, d in hits_r],
+                 "against_the_honest_occupancy": [{"parent": a, "cols": list(b), "cells": c, "channel": d} for a, b, c, d in hits_h]},
+        "seated": {"parent": parent, "cols": list(cols), "channel": chan, "cells": len(X),
+                   "cell": {"channel": K, "height": h, "width": w},
+                   "registered_as": "baryon_isomultiplet: the same 278 baryons, isospin against charge with flavour dropped",
+                   "grounds": grounds, "grounds_note": "the overlap rule's four grounds, each measured",
+                   "reach": {"passes": ok, "hits": nhit, "cuts": ntot, "late": late, "oscillates": osc, "majority": maj,
+                             "sweep": [{"cut": a, "cells": b, "channel": c} for a, b, c in reach]},
+                   "rows": [{"I2": i, "Q3": q} for i, q in PS.isomultiplet_rows()],
+                   "corners_not_held": [list(m) for m in missing], "corners_outside_hull": outside,
+                   "reading": "a multiplet's charge span widens with its isospin, steeply enough to cut the corners off; the chart is that widening and nothing else. Geometry is hull-completeness on coordinate pairs, and the four box points the chart does not hold fall outside the convex hull of the sixteen it does",
+                   "why_arity_2_does_not_reach_it": "at K5 the statistics bit is forced by law from geometry, so the free pass changes nothing and the seating stands on geometry, which 31 of the 105 arity-2 charts fail",
+                   "status": "DERIVED", "verdict_status": "READ"},
+        "refused": [{"parent": a, "cols": list(b), "channel": c, "why": refused_why.get((a, b), d),
+                     "cells": next((n for cc, n, k in census[a] if cc == b), None), "verdict": "REFUSED", "status": "READ"}
+                    for a, b, c, d in PS.REFUSED],
+        "arity2_freeness": {L: {"closes": a, "charts": b} for L, (a, b) in PS.arity2_freeness().items()},
+        "claimed": "over the three particle member sets, every chart their declared columns admit has been enumerated and adjudicated: one seated, two refused with reasons, and the rest reach an occupied channel",
+        "not_claimed": ["a chart on a coordinate none of the three modules declares (C-parity, G-parity, lepton number, mass) is not in this census; each was refused in its own module for a stated reason, and reaching for one after seeing which channels are short would be a fitted move",
+                        "the registry does not claim completeness: this is a census over three member sets, not over member sets nobody has thought of"],
+        "channels_note": "seven of the eight closure channels are now occupied; only K4 is empty, and every chart that ever reached it was arity 2",
+    }
+
+
+def _fqh(FQ):
+    """DOCKET 30 as the site carries it: the quasiparticles of the Laughlin
+    states, computed from the closed form, indexed by a measured filling."""
+    rows = FQ.rows()
+    K, h, w = FQ.cell()
+    verdict, why = FQ.verdict()
+    anyons, fermions, bosons = FQ.anyon_fraction()
+    return {
+        "id": "fqh", "title": "The quasiparticles of the fractional quantum Hall states",
+        "member": "a quasiparticle of the Laughlin state at filling 1/m, m odd; the state has exactly m of them, j = 0 to m − 1, and j = 0 is the vacuum",
+        "source": FQ.SOURCE[0], "source_status": "PINNED",
+        "source_note": "computed from a closed form, not read from a table; every coordinate is an exact rational",
+        "reach": FQ.REACH, "states": len(FQ.states()), "members": len(rows), "charted": len(rows),
+        "observed": [{"m": m, "filling": f, "fundamental_charge": q} for m, f, q in FQ.observed_states()],
+        "observed_note": "three of the twelve states have a reported plateau; the rest are the sequence's own continuation, declared as such because a rule's continuation is not a measurement",
+        "coordinates": [
+            {"name": "STAT", "meaning": "0 boson, 1 fermion, 2 anyon, from the exchange phase θ/π = j²/m mod 1", "status": "DERIVED"},
+            {"name": "ORD", "meaning": "the order of the exchange phase: the denominator of θ/π", "status": "DERIVED"},
+            {"name": "CHORD", "meaning": "the order of the charge: the denominator of Q = j/m", "status": "DERIVED"},
+            {"name": "M", "meaning": "the inverse filling fraction; 1/m is the quantised Hall conductance in units of e²/h, the number the experiment reads off the plateau", "status": "READ"},
+        ],
+        "refused": [{"coordinate": "j, Q, θ", "verdict": "REFUSED", "status": "READ",
+                     "why": "j is the quasiparticle's address within its state, and charting it would be a relabelling; Q and θ are near-injective rationals, which the overlap rule calls row labels; their orders are charted instead"}],
+        "cells": len(FQ.index()), "cell": {"channel": K, "height": h, "width": w}, "closers": FQ.closers(FQ.index()),
+        "rows": [{"m": m, "j": j, "Q": _frac(Q), "theta": _frac(t), "coords": [st, o, c, m], "observed": m in FQ.OBSERVED}
+                 for m, j, Q, t, st, o, c in rows],
+        "sweep": [{"box": a, "cells": b, "channel": c, "closers": d, "degenerate": g} for a, b, c, d, _e, _f, g in FQ.sweep()],
+        "verdict": verdict, "why": why, "verdict_status": "READ",
+        "verdict_note": "the box is a reach over one kind of system, more of the same thing further out, and the channel moves with it, K2 then K0; the earlier anyon chart varied which theories were included rather than how much data there was",
+        "statistics": {"anyons": anyons, "fermions": fermions, "bosons": bosons, "status": "DERIVED",
+                       "note": "not one of the members is a fermion, and it is forced: θ/π = j²/m is a half-integer only if m divides 2j², and m is odd, so the phase is a whole integer instead"},
+        "fractional_charges": [{"m": m, "denominators": d} for m, d in FQ.fractional_charges()],
+        "e_over_3": {"text": "the e/3 quasiparticle is not a prediction: its fractional charge was measured directly by shot noise in 1997, in a system built only from electrons", "status": "READ"},
+        "not_here": "the non-abelian states (Moore–Read, Read–Rezayi) are a further member set and are not here",
+        "in_progress": True,
+    }
+
+
+def _frac(x):
+    return "%d/%d" % (x.numerator, x.denominator) if x.denominator != 1 else str(x.numerator)
+
+
+WARP_COMMIT = None   # the commit the warp tree at --warp-root is at, when the caller knows it
+_PBLOCK = {}         # the block once per (root, commit) in a process: the sweep costs a minute
+
+
+def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
+    """The three particle indexes and the quasiparticle finding as the site
+    carries them: a summary for index.js and the member tables for
+    data/particles.js. None when the warp tree is not in the repository."""
+    mods = warp_modules(root)
+    if mods is None:
+        return None, None
+    key = (os.path.abspath(root), commit or WARP_COMMIT)
+    if key in _PBLOCK:
+        summary, full = _PBLOCK[key]
+        if write:
+            blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
+            with open(os.path.join(out_dir, PARTICLES_JS), "wb") as fh:
+                fh.write(blob)
+        return summary, full
+    F, M, Bn, D27, R, PC = (mods[k] for k in ("fundamental", "mesons", "baryons", "docket27", "registry", "pdgcapture"))
+    PS = mods.get("particlesweep")
+    Q = mods.get("quasiparticle")
+    FQ = mods.get("fqh")
+    if commit is None and WARP_COMMIT is None and os.path.abspath(root) == os.path.abspath(WARP_ROOT):
+        commit = _git_head()   # the tree is the repository's own, so its commit is the repository's
+    cap = {int(r["pdgid"]): r for r in PC.read()}
+    src = R.sources()
+    header = PC.header()
+
+    def extra(pid):
+        r = cap[pid]
+        return {"family": r["family"], "quarks": r["quarks"] or None,
+                "anti": int(r["anti"]),
+                "C": None if r["C"] == "?" else int(r["C"]),
+                "G": None if r["G"] == "?" else int(r["G"]),
+                "mass_MeV": None if r["mass_MeV"] == "?" else float(r["mass_MeV"]),
+                "width_MeV": None if r["width_MeV"] == "?" else float(r["width_MeV"]),
+                "status": r["status"], "rank": r["rank"]}
+
+    def refusal(coord, why, measurement, status="DERIVED"):
+        return {"coordinate": coord, "verdict": "REFUSED", "why": why,
+                "measurement": measurement, "status": status}
+
+    indexes = []
+    # --- fundamental --------------------------------------------------------
+    rows = [{"name": n, "pdgid": pid, "coords": [j, q, c, g], "extra": extra(pid)}
+            for n, pid, j, q, c, g in F.rows()]
+    d, n, ratio, verdict = F.mass_is_not_a_label()
+    have, lack, lacking = F.mass_is_not_total()
+    now, with_L, left = F.what_L_would_do()
+    K, h, w = F.cell()
+    indexes.append({
+        "id": "fundamental", "title": PARTICLE_TITLES["fundamental"],
+        "member": "a fundamental particle of the Standard Model; antiparticles are separate members because they carry different quantum numbers",
+        "coordinates": PARTICLE_COORDS["fundamental"],
+        "members": len(rows), "charted": len(rows), "unplaced": [],
+        "cells": len(F.index()), "cell": {"channel": K, "height": h, "width": w},
+        "closers": F.closers(),
+        "rows": rows,
+        "colour_rule": [{"what": a, "dimension": b} for a, b in F.colour_rule()],
+        "by_generation": {str(k): v for k, v in F.by_generation().items()},
+        "charge_multiplet": {str(k): v for k, v in F.charge_multiplet().items()},
+        "collisions": [{"cell": list(k), "members": v} for k, v in F.collisions()],
+        "collisions_note": "four cells hold two members: three neutrino/antineutrino pairs, which only lepton number separates, and the photon against the Z, which no additive quantum number separates",
+        "refused": [
+            refusal("mass", "not total: six of the thirty carry no mass in the table (the neutrinos, for which PDG publishes limits and not values), and a coordinate undefined on a fifth of the membership cannot chart it. The usual refusal, that a near-injective coordinate is a row label, is withdrawn here and the withdrawal measured: CPT doubles every mass",
+                    {"distinct": d, "members": n, "ratio": round(ratio, 4), "label_verdict": verdict,
+                     "with_mass": have, "without": lack, "without_names": lacking}),
+            refusal("lepton number, baryon number", "derivable from the PDG id and not declared before the chart was run; adopting them because the chart collided would be fitted. The price is measured",
+                    {"cells_now": now, "cells_with_L": with_L, "still_colliding": left}),
+            refusal("weak isospin, hypercharge", "properties of a chiral field, and the table lists particles, not chiral components; charting one T3 against a particle would choose a chirality the data does not name", None, "READ"),
+        ],
+        "masses": [{"name": a, "mass_MeV": b} for a, b in F.masses()],
+    })
+    # --- mesons -------------------------------------------------------------
+    allm = {p: (C, G, k) for n, p, j, P, i, q, C, G, k in M.all_rows()}
+    rows = [{"name": n, "pdgid": pid, "coords": [j, P, i, q], "extra": extra(pid)}
+            for n, pid, j, P, i, q in M.rows()]
+    unplaced_rows = [{"name": n, "pdgid": pid, "coords": [j, None, i, q], "extra": extra(pid)}
+                     for n, pid, j, P, i, q, _c, _g, _k in M.all_rows() if P is None]
+    c_ok, c_bad = M.c_is_defined_iff()
+    g_ok, g_bad = M.g_is_defined_iff()
+    pairs, same, split, qs_same, qs_split = M.conjugation()
+    ce_cells, ce_cell, ce_closers = M.ceigen_chart()
+    K, h, w = M.cell()
+    indexes.append({
+        "id": "mesons", "title": PARTICLE_TITLES["mesons"],
+        "member": "a meson of the PDG table; antiparticles separate",
+        "coordinates": PARTICLE_COORDS["mesons"],
+        "members": len(M.all_rows()), "charted": len(rows), "unplaced": M.unplaced(),
+        "unplaced_why": "PDG prints no parity for them, so a chart carrying P cannot place them; a gap in the table, not in physics",
+        "cells": len(M.index()), "cell": {"channel": K, "height": h, "width": w},
+        "closers": M.closers(),
+        "rows": rows + unplaced_rows,
+        "conjugation": {"pairs": pairs, "collided": same, "split": split,
+                        "charges_collided": qs_same, "charges_split": qs_split,
+                        "note": "conjugation leaves 2J, P and 2I alone and flips only Q3, so the chart separates a pair if and only if the meson is charged"},
+        "refused": [
+            refusal("C-parity", "not total, and by a theorem: C is printed for exactly the mesons that are their own antiparticle, with two exceptions, K(L)0 and K(S)0, which are strangeness mixtures and so CP eigenstates rather than C eigenstates",
+                    {"printed_iff_self_conjugate": c_ok, "exceptions": [{"name": a, "self_conjugate": b, "has_C": c} for a, b, c in c_bad],
+                     "kaon_exceptions": [{"name": a, "quarks": b, "self_conjugate": c, "has_C": d} for a, b, c, d in M.kaon_exceptions()],
+                     "without_C": sum(1 for v in allm.values() if v[0] is None), "members": len(allm)}),
+            refusal("G-parity", "printed for exactly the flavour-neutral mesons, and most are not flavour-neutral",
+                    {"printed_iff_flavour_neutral": g_ok, "exceptions": [{"name": a, "flavour": list(b), "has_G": c} for a, b, c in g_bad],
+                     "without_G": sum(1 for v in allm.values() if v[1] is None)}),
+            refusal("strangeness (and charm, beauty)", "a quark content that is a mixture carries no readable strangeness, and two members are not strangeness eigenstates at all",
+                    {"unparsed": len(M.unparsed()), "unparsed_examples": [{"name": a, "quarks": b} for a, b in M.unparsed()[:12]]}),
+            refusal("the I^G(J^PC) chart over the 82 with a C", "computed, not seated: it charts a subset the table itself selects",
+                    {"cells": ce_cells, "cell": {"channel": ce_cell[0], "height": ce_cell[1], "width": ce_cell[2]}, "closers": ce_closers}),
+        ],
+        "case_convention": [{"name": a, "quarks": b, "flavour": list(c) if c else None, "expected": list(dd)} for a, b, c, dd in M.case_convention()],
+        "case_note": "in this capture lowercase is the quark and uppercase the antiquark: the proton is uud; pinned against six named states",
+    })
+    # --- baryons ------------------------------------------------------------
+    rows = [{"name": t[0], "pdgid": t[1], "coords": list(t[2:]), "extra": extra(t[1])} for t in Bn.rows()]
+    unplaced_rows = [{"name": t[0], "pdgid": t[1], "coords": [t[2], None] + list(t[4:]), "extra": extra(t[1])}
+                     for t in Bn.all_rows() if t[3] is None]
+    nb, nc, ng = Bn.cg_absent()
+    a_ok, a_bad = Bn.baryon_number_is_the_sign()
+    pairs, same, split, mech = Bn.conjugation()
+    K, h, w = Bn.cell()
+    indexes.append({
+        "id": "baryons", "title": PARTICLE_TITLES["baryons"],
+        "member": "a baryon of the PDG table; antibaryons separate",
+        "coordinates": PARTICLE_COORDS["baryons"],
+        "members": len(Bn.all_rows()), "charted": len(rows), "unplaced": Bn.unplaced(),
+        "unplaced_why": "PDG prints no parity for them; a gap in the table, not in physics",
+        "cells": len(Bn.index()), "cell": {"channel": K, "height": h, "width": w},
+        "closers": Bn.closers(),
+        "rows": rows + unplaced_rows,
+        "axis_contributions": [{"dropped": a, "cells": b} for a, b in Bn.axis_contributions()],
+        "conjugation": {"pairs": pairs, "collided": same, "split": split,
+                        "mechanism": [{"coordinate": a, "under_conjugation": b} for a, b in mech]},
+        "refused": [
+            refusal("C-parity, G-parity", "the table prints neither for any baryon: eigenvalues of operations under which no baryon is invariant",
+                    {"baryons": nb, "with_C": nc, "with_G": ng}),
+            refusal("baryon number", "it is the sign of the PDG id, so charting it would relabel; measured from the quark content independently of the id",
+                    {"agrees": a_ok, "disagreements": [{"pdgid": a, "quarks": b, "A": c} for a, b, c in a_bad]}),
+        ],
+    })
+    # --- the accounting (docket 27) -----------------------------------------
+    total, nuclei, st4, kept = D27.census()
+    members, charted, unplaced = D27.charted()
+    accounting = {
+        "table_total": total, "composite_nuclei": nuclei, "status_4": st4, "kept": kept,
+        "members": members, "charted": charted, "unplaced": unplaced,
+        "identity": "%d = %d + %d + %d" % (total, nuclei, st4, kept),
+        "note": "every one of the kept entries is a member of one of the three indexes; the composite nuclei are the periodic elements and are the subject of the rest of this site; the status-4 entries are the fourth generation and the diquarks, excluded on PDG's own flag",
+        "unplaced_list": [{"index": a, "name": b} for a, b in D27.unplaced()],
+        **(_antimatter(D27, F) if hasattr(D27, "antimatter") else {}),
+        "not_indexed": [
+            {"what": "hypothetical particles", "why": "supersymmetric partners, axions, dark-matter candidates: none is in the table as an observed state, and a member must carry measured quantum numbers"},
+            {"what": "quasiparticles", "why": "phonons, magnons, excitons, Cooper pairs carry quantum numbers and are not in this table; see the quasiparticle finding"},
+            {"what": "the periodic atoms", "why": "the subject of the rest of this site"},
+        ],
+        "status": "DERIVED",
+    }
+    # --- quasiparticles (docket 28) -----------------------------------------
+    quasi = None
+    if Q is not None:
+        verdict, why = Q.verdict()
+        sg, pg, ac = Q.host_carries_it()
+        kinds, distinct = Q.universal_is_almost_nothing()
+        anyons = []
+        for k in range(1, 5):
+            for J in Q.anyons(k):
+                hh = Q.spin(J, k)
+                anyons.append({"k": k, "J": J, "h": _frac(hh), "h_float": float(hh),
+                               "d": round(Q.dim(J, k), 9), "fusion_JxJ": Q.fuse(J, J, k),
+                               "coords": list(Q.coords(J, k))})
+        quasi = {
+            "status_note": "the one gap the particle indexes left open, closed by the other session with two refusals, both measured; carried here as its instrument reports it and marked in progress",
+            "in_progress": True,
+            "no_table": {"claim": "there is no particle table for quasiparticles, and the reason is structural: what distinguishes one phonon mode from another is the host crystal's symmetry, so the member set would be (material, mode), a materials database",
+                         "space_groups": sg, "point_groups": pg, "arithmetic_classes": ac, "status": "READ",
+                         "universal": {"kinds": kinds, "distinct_cells": distinct,
+                                       "list": [{"kind": a, "spin": b} for a, b in Q.UNIVERSAL]}},
+            "anyons": {"claim": "one family is exactly specified with no fetch: the anyons of SU(2)_k, whose topological spin, quantum dimension and fusion follow from k and J in closed form",
+                       "coordinates": [{"name": "STAT", "meaning": "0 boson, 1 fermion, 2 anyon, from h mod 1", "status": "DERIVED"},
+                                       {"name": "ORD", "meaning": "the order of the topological twist, the denominator of h", "status": "DERIVED"},
+                                       {"name": "NSELF", "meaning": "how many distinct outcomes J x J has", "status": "DERIVED"},
+                                       {"name": "AB", "meaning": "abelian (d = 1) or not", "status": "DERIVED"}],
+                       "rows": anyons, "rows_status": "PINNED",
+                       "spot_checks": [{"what": a, "computed": _frac(b) if hasattr(b, "numerator") else b, "expected": _frac(c) if hasattr(c, "numerator") else c} for a, b, c in Q.spot_checks()],
+                       "not_ising": Q.NOT_ISING,
+                       "sweep": [{"box": a, "cells": b, "channel": c, "closers": d} for a, b, c, d, _e, _f, _g in Q.sweep()],
+                       "verdict": verdict, "why": why, "verdict_status": "READ"},
+            "reopens": "a materials database of phonon modes over a fixed set of crystals, each mode with its symmetry label and frequency, is a legitimate member set; it needs a real fetch and is named so the door is visibly open",
+        }
+        if FQ is not None:
+            quasi["seated"] = _fqh(FQ)
+            quasi["status_note"] = ("the gap the particle indexes left open, closed twice by the other session: first with two measured refusals, "
+                                    "then, on re-examination, with a seating of a different object, the quasiparticles of the Laughlin states; "
+                                    "both verdicts stay on the record, and the work is still in progress there")
+        elif mods.get("fqh_error"):
+            quasi["seated"] = {"absent": True, "note": "the Hall quasiparticle instrument did not import: " + mods["fqh_error"][:200]}
+    elif mods.get("quasiparticle_error"):
+        quasi = {"in_progress": True, "status_note": "the quasiparticle instrument is present but did not import: " + mods["quasiparticle_error"][:200]}
+    # --- provenance ---------------------------------------------------------
+    srow = src.get("fundamental.index") or {}
+    census_line = next((l for l in header if "census" in l), None)
+    prov = {
+        "citation": "Review of Particle Physics, Particle Data Group, Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026)",
+        "doi": "10.1142/S0217751X26300111",
+        "via": "the scikit-hep particle package, version 1.0.1; the capture records the md5 of what it read",
+        "capture": [{"path": d["path"], "bytes": d["bytes"], "md5": d["md5"], "exists": d["exists"]} for d in srow.get("paths", [])],
+        "header": [l.lstrip("# ").strip() for l in header],
+        "quantum_numbers_note": "the masses are the 2026 edition's; the quantum numbers the indexes chart reach the package from a 2008 file and a maintainers' extension, and nine spot-checks against canonical values are the instrument's fixtures",
+        "tree": {"root": "research/warp-drive", "commit": commit or WARP_COMMIT,
+                 "state_commit": _warp_commit(root),
+                 "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
+    }
+    sweep = None
+    if PS is not None:
+        sweep = _sweep(PS)
+        prov["tree"]["instruments"].append("particlesweep.py")
+    elif mods.get("particlesweep_error"):
+        sweep = {"absent": True, "note": "the particle sweep instrument did not import: " + mods["particlesweep_error"][:200]}
+    full = {
+        "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
+        "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi,
+    }
+    blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
+    if write:
+        with open(os.path.join(out_dir, PARTICLES_JS), "wb") as fh:
+            fh.write(blob)
+    summary = {
+        "file": "data/" + PARTICLES_JS, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
+        "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
+        "status_note": full["status_note"],
+        "source": {"citation": prov["citation"], "doi": prov["doi"], "capture": prov["capture"], "tree": prov["tree"]},
+        "accounting": {k: accounting[k] for k in ("table_total", "composite_nuclei", "status_4", "kept", "members", "charted", "unplaced", "identity")},
+        "indexes": [{k: ix[k] for k in ("id", "title", "members", "charted", "cells", "cell", "closers")}
+                    | {"coordinates": [c["name"] for c in ix["coordinates"]], "unplaced": len(ix["unplaced"])}
+                    for ix in indexes],
+        "quasiparticles": ({"in_progress": True, "verdict": (quasi.get("anyons") or {}).get("verdict"),
+                            "seated": ("fqh: %d quasiparticles of %d Laughlin states, %d cells, K%d" % (quasi["seated"]["members"], quasi["seated"]["states"], quasi["seated"]["cells"], quasi["seated"]["cell"]["channel"])
+                                       if quasi.get("seated") and not quasi["seated"].get("absent") else None)} if quasi else None),
+        "antimatter": ({"total": accounting["antimatter"]["total"], "of_charted": accounting["antimatter"]["of_charted"]} if "antimatter" in accounting else None),
+        "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
+                   "refused": len(sweep["refused"]), "occupied_now": sweep["occupancy"]["now"]} if sweep and not sweep.get("absent") else None),
+    }
+    _PBLOCK[key] = (summary, full)
+    return summary, full
+
+
 def _git_head():
     try:
         out = subprocess.run(["git", "rev-parse", "--short=12", "HEAD"],
@@ -563,17 +1428,17 @@ def sources():
         row = _member_row(member)
         path = os.path.join(populate.MEMBERS, member)
         out.append({
-            "file": "method/members/" + member,
+            "file": {"LW1-ground.py": "the observed configurations table",
+                     "tower-2.py": "the tower"}[member],
             "role": {"LW1-ground.py": "observed ground configurations, "
-                                      "Z = 1 to 108 (register 1306, NIST ASD 5.12)",
+                                      "Z = 1 to 108 (NIST ASD 5.12)",
                      "tower-2.py": "the tower above Λ₈"}[member],
             "md5_recorded": row["md5"] if row else None,
             "md5_measured": _md5(path) if os.path.exists(path) else None,
-            "bundle": row["bundle"] if row else None,
         })
     row = _manifest_row("COORDINATES-2_13.csv")
     out.append({
-        "file": "drive/The Method Materials/COORDINATES-2_13.csv",
+        "file": "COORDINATES-2.13 (csv)",
         "role": "the spectra index: (Z, charge, ℓ, mult) → a channel",
         "md5_recorded": row["md5"] if row else None,
         "md5_measured": (_md5(populate.DEFAULT_SPECTRA)
@@ -596,32 +1461,46 @@ def sources():
 # solvers show this source beside their result and re-derive nothing from it.
 INSTRUMENTS = [
     ("channel_delta", populate.channel_delta, "tools/populate.py", populate.PINNED,
-     "the channel equation, final form (register 1205); its p = 0 branch "
+     "the channel equation, final form; its p = 0 branch "
      "carries the RECOVERED collapse ramp C(Z)"),
     ("collapse_C", populate.collapse_C, "tools/populate.py", populate.RECOVERED,
      "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's "
-     "computed column (registers 1188 to 1190); no member states its form"),
+     "computed column; no source states its form"),
     ("pauli_bound", populate.pauli_bound, "tools/populate.py", populate.PINNED,
-     "B = min(p, n0 - l - 1), the Pauli bound (register 1141)"),
+     "B = min(p, n0 - l - 1), the Pauli bound"),
     ("core_p", populate.core_p, "tools/populate.py", populate.PINNED,
      "p, the core's orbital count at this l, from the observed ground "
-     "configuration of the core (registers 1141, 1306)"),
+     "configuration of the core"),
     ("n0_of", populate.n0_of, "tools/populate.py", populate.RECON,
-     "n0, the first entirely unoccupied n at this l; register 1141 names the "
+     "n0, the first entirely unoccupied n at this l; the source names the "
      "term but not the reading, and He I ns settles it"),
     ("lambda_constraints", populate.lambda_constraints, "tools/populate.py",
-     populate.PINNED, "section 7.1's seven constraints, four origins"),
+     populate.PINNED, "the seven constraints on Lambda_8, of four origins"),
     ("caps_needed", populate.caps_needed, "tools/populate.py", populate.PINNED,
-     "the caps a Lambda_8 cell needs, read against section 7.4's "
+     "the caps a Lambda_8 cell needs, read against the standing "
      "(n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the "
      "RECONSTRUCTED ionisation-ladder mapping and carries its own status"),
     ("within_caps", populate.within_caps, "tools/populate.py", populate.PINNED,
-     "section 7.4's standing caps; a cell outside them is reported OUTSIDE, "
+     "the standing caps; a cell outside them is reported OUTSIDE, "
      "never truncated"),
     ("op_order", cypher.op_order, "tools/cypher.py", cypher.PINNED,
-     "R, the order operator of section 32.4.1; matches the seated instrument "
-     "rclose.py"),
+     "R, the order operator: a cell is admitted when every cell below it on "
+     "every axis is held"),
 ]
+
+
+PUBLIC_AXIS_SOURCES = {
+    "symbol": "NIST ASD 5.12, through the observed configurations table",
+    "capacity": "2(2l+1), Pauli exclusion",
+    "n+l": "the Madelung/Janet coordinate",
+    "period": "the drawn eighteen-column layout",
+    "p": "the core's orbital count at this l, from the Pauli bound's definition",
+    "B": "min(p, n0-l-1), the Pauli bound",
+    "delta equation": "the channel equation, final form",
+    "C(Z)": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column; see collapse_C",
+    "caps": "the standing caps (n,e,l,k,f) = (3,3,1,3,1)",
+    "series limit": "the measured ionisation limit, read as printed or fitted from the series, never computed; none where not held",
+}
 
 
 def instruments():
@@ -631,7 +1510,7 @@ def instruments():
     out = {}
     for name, fn, rel, status, source in INSTRUMENTS:
         lines, start = inspect.getsourcelines(fn)
-        out[name] = {"python": "".join(lines), "file": rel, "line": start,
+        out[name] = {"python": redact_source("".join(lines)), "file": rel, "line": start,
                      "status": status, "source": source}
     return out
 
@@ -683,9 +1562,9 @@ def equation_figures(spectra, grades=("measured",), table="observed"):
             "median_abs_error": med, "by_l": by_l,
             "status": populate.PINNED,
             "note": "populate.equation_report over COORDINATES-2.13's measured "
-                    "rows; register 1205 records rms 0.1610, R2 0.9741 on a "
-                    "different sample of 284 channels, so the figures are not "
-                    "expected to match it exactly"}
+                    "rows; the equation's published fit (rms 0.1610, R2 0.9741) was "
+                    "made on a different sample of 284 channels, so the figures are "
+                    "not expected to match it exactly"}
 
 
 def _decoded_closure(name, coords, cells):
@@ -720,6 +1599,561 @@ def janet_closure_cypher_fixture():
                              for c in ix.cells])
 
 
+def l_by_group(g):
+    """Transitions.md L368 (READ): l is fully determined by group -- s at 1-2,
+    d at 3-12, p at 13-18 -- and non-monotone in g, which is why no envelope
+    over (period, group) can refuse the thirty-six."""
+    return 0 if g <= 2 else (2 if g <= 12 else 1)
+
+
+def denied_cell_definitions(denied):
+    """Section 6.1.1 names every one of the thirty-six (The_Method_1_6-2.md
+    L1555-1570, ruled by Register 448): each is a subshell of the row it sits
+    in, read off the group's l, and the hydrogenic bound l <= n-1 (section 7.1)
+    splits them -- 1d (10), 1p (5) and 2d (10) forbidden, 25; 3d (10) real but
+    deferred by the Madelung order, and period 1 group 2, the slot helium
+    vacates, deferred rather than forbidden because l = 0 satisfies the bound
+    there, 11. The class is DERIVED from the PINNED bound; the totals are READ
+    and the selftest asserts the derivation reproduces them."""
+    out = []
+    for p, g in denied:
+        n, l = p, l_by_group(g)
+        letter = "spdf"[l]
+        if l > n - 1:
+            cls = "forbidden"
+            sub = "%d%s" % (n, letter)
+            reason = ("forbidden by l <= n-1, the hydrogenic radial solution: "
+                      "a %d%s orbital cannot exist" % (n, letter))
+        elif (p, g) == (1, 2):
+            cls = "deferred"
+            sub = "1s, the slot helium vacates"
+            reason = ("deferred, not forbidden: l = 0 satisfies l <= n-1 here; "
+                      "helium is drawn at group 18, and 1p contributes five "
+                      "cells rather than six because of it")
+        else:
+            cls = "deferred"
+            sub = "%d%s" % (n, letter)
+            reason = ("real but deferred by the Madelung order: %d%s fills "
+                      "after %ds and is drawn in period %d" % (n, letter, n + 1, n + 1))
+        out.append({"p": p, "g": g, "n": n, "l": l, "subshell": sub,
+                    "class": cls, "reason": reason})
+    return out
+
+
+def helium_placement():
+    """Register 448 (READ): E is placement-sensitive -- 36 with helium at
+    group 18, 20 with helium at group 2, because phi(group | period <= 1)
+    drops from 18 to 2 and the whole first row of gaps disappears; E prices
+    the choice at sixteen cells. Both closures are computed here with
+    cypher's own R over the ninety cells, helium moved and nothing else."""
+    held, admitted = populate.layout_closure()
+    if (1, 18) not in held:
+        raise RuntimeError("helium is not at (1, 18) in the drawn layout")
+    alt = sorted((held - {(1, 18)}) | {(1, 2)})
+    h2, a2, _box = _decoded_closure("periodic table, helium at group 2",
+                                    ["period", "group"], alt)
+    return {
+        "status": populate.READ,
+        "source": "the author's standing rule on helium's placement",
+        "helium_at_18": {"held": len(held), "admitted": len(admitted),
+                         "E": len(admitted) - len(held),
+                         "denied": [list(c) for c in sorted(admitted - held)]},
+        "helium_at_2": {"held": len(h2), "admitted": len(a2),
+                        "E": len(a2) - len(h2),
+                        "denied": [list(c) for c in sorted(a2 - h2)]},
+        "priced": (len(admitted) - len(held)) - (len(a2) - len(h2)),
+        "note": "IUPAC draws helium at 18, the left-step and quantum-chemical "
+                "case at 2; E prices the choice at sixteen cells, a number that "
+                "argument does not have",
+    }
+
+
+def lattice_block(spectra):
+    """Lambda_spectra as the record draws it -- Index of Indices Figure 6: element
+    across, l into the page, ionisation stage up -- carried compactly for the site's
+    whole-index 3-D view. The slab of every element is charge 1..Z by l 0..7 (the
+    selftest asserts 58,080 sites = 8 * sum Z), so only the known cells travel:
+    every measured or exact row as [Z, charge, l, mult, grade], grade 1 measured
+    and 2 exact. The axes are READ from the record's own caption; the drawing is
+    DERIVED from the same rows the plane draws, and nothing is computed."""
+    known = sorted(([int(r["Z"]), int(r["charge"]), int(r["l"]), int(r["mult"]),
+                     1 if r["grade"] == "measured" else 2]
+                    for r in spectra.rows if r["grade"] in ("measured", "exact")))
+    sites = {(int(r["Z"]), int(r["charge"]), int(r["l"])) for r in spectra.rows}
+    zs = sorted({int(r["Z"]) for r in spectra.rows})
+    return {
+        "index": "Lambda_spectra as a lattice: element across, l into the page, "
+                 "ionisation stage up",
+        "axes": {"x": "Z, the element", "y": "charge, the ionisation stage (1 is neutral)",
+                 "z": "l, the channel (0 to 7: s p d f g h i k)"},
+        "status": populate.READ,
+        "source": "the author's own three-dimensional drawing of the index (element "
+                  "across, l into the page, ionisation stage up; the Löwdin paper's "
+                  "Figure 1(b) draws the same solid), whose renderer used cubes of "
+                  "edge 0.86 for a known cell and 0.30 for an unmeasured one",
+        "drawing": populate.DERIVED,
+        "slab": "every element's slab is charge 1..Z by l 0..7; a site holds one cell "
+                "per multiplicity, side by side",
+        "sites": len(sites),
+        "Z_max": zs[-1],
+        "known": known,
+        "counts": {"measured": sum(1 for k in known if k[4] == 1),
+                   "exact": sum(1 for k in known if k[4] == 2),
+                   "known_sites": len({(k[0], k[1], k[2]) for k in known})},
+        "cube": {"known": 0.86, "faint": 0.30,
+                 "note": "the archived renderer's own edge lengths; a known cell is a "
+                         "full cube, an unmeasured one a faint small cube"},
+    }
+
+
+# ---------------------------------------------------------------------------
+# particles -- what the corpus itself says of the binders and particles beyond the
+# electron, every value parsed out of the passage that states it, never typed here
+# ---------------------------------------------------------------------------
+
+MEMBERS = os.path.join(REPO, "method", "members")
+PAPERS = os.path.join(REPO, "papers")
+MUCF_PY = os.path.join(TOOLS, "mucf.py")
+COLLECTOR_PY = os.path.join(TOOLS, "collector.py")
+PROSE_ONLY = os.path.join(REPO, "PROSE-ONLY.tsv")
+
+
+def _lines(rel):
+    with open(os.path.join(REPO, rel), encoding="utf-8") as fh:
+        return fh.read().splitlines()
+
+
+def _find(rel, pattern, flags=0):
+    """The first passage of `rel` matching `pattern`: (line number, match, text).
+    The file is searched flowed -- line breaks read as spaces, so a sentence the
+    member wraps still matches -- and the line reported is the one the match
+    starts on; the text is that line and the next where the match runs on. A
+    passage the corpus no longer states is a build failure, not a silent
+    default."""
+    lines = _lines(rel)
+    text = "\n".join(lines)
+    m = re.compile(pattern, flags | re.MULTILINE).search(text)
+    if m:
+        line = text.count("\n", 0, m.start()) + 1
+        end_line = text.count("\n", 0, m.end()) + 1
+        return line, m, " ".join(ln.strip() for ln in lines[line - 1:end_line])
+    # flowed: each line stripped of its indent and joined by one space, with the
+    # offset at which each line starts so the match maps back to a line number
+    starts, parts, pos = [], [], 0
+    for ln in lines:
+        t = ln.strip()
+        starts.append(pos)
+        parts.append(t)
+        pos += len(t) + 1
+    flowed = " ".join(parts)
+    m = re.compile(pattern, flags).search(flowed)
+    if not m:
+        raise RuntimeError("%s: no passage matches %r" % (rel, pattern))
+    line = bisect.bisect_right(starts, m.start())
+    end_line = bisect.bisect_right(starts, max(m.start(), m.end() - 1))
+    return line, m, " ".join(parts[line - 1:end_line])
+
+
+def _plain(text):
+    """A passage as prose: the members' markdown emphasis, blockquote marks and
+    list numbers dropped, the words untouched."""
+    t = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
+    t = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\1", t)
+    t = re.sub(r"^(?:>\s*)+", "", t)
+    t = re.sub(r"^\d+\.\s+", "", t)
+    return t.replace("**", "").strip()
+
+
+def _site(rel, line, quote=None):
+    d = {"file": rel, "line": line}
+    if quote is not None:
+        q = _plain(quote)
+        d["quote"] = q if len(q) <= 600 else q[:597] + "..."
+    return d
+
+
+def _tool_module(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _mucf_status_table():
+    """mucf.py's own header table 'INPUTS AND THEIR STATUS -- never flattened',
+    read out of the file: name, value, status, note."""
+    out = []
+    rx = re.compile(r"^\s{4}(\w+)?\s*=?\s*(.+?)\s{2,}(MEASURED|PINNED|PROJECTED|EXTRAPOLATED|PROSE-ONLY)\s+(.*)$")
+    name = None
+    for ln in _lines("tools/mucf.py"):
+        m = rx.match(ln)
+        if not m:
+            continue
+        if m.group(1):
+            name = m.group(1)
+        out.append({"name": name, "value": m.group(2).strip(), "status": m.group(3),
+                    "note": m.group(4).strip()})
+    if len(out) < 10:
+        raise RuntimeError("mucf.py: the status table was not found (%d rows)" % len(out))
+    return out
+
+
+def _prose_only(ids):
+    out = []
+    with open(PROSE_ONLY, encoding="utf-8", newline="") as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["id"] in ids:
+                q = _plain(r["quote"].strip())
+                out.append({"id": r["id"], "category": r["category"], "label": r["label"],
+                            "quote": q if len(q) <= 700 else q[:697] + "...",
+                            "confidence": r["confidence"], "status": "PROSE-ONLY"})
+    found = {r["id"] for r in out}
+    missing = [i for i in ids if i not in found]
+    if missing:
+        raise RuntimeError("PROSE-ONLY.tsv: rows missing: %s" % ", ".join(missing))
+    order = {i: k for k, i in enumerate(ids)}
+    return sorted(out, key=lambda r: order[r["id"]])
+
+
+def _absent_terms(terms):
+    """Which particle names occur nowhere in method/members or papers/ -- the
+    corpus, not the repository's own documentation of this site, which names
+    the absences -- counted at build (DERIVED), so 'absent' is measured and
+    never assumed."""
+    files = []
+    for d in (MEMBERS, PAPERS):
+        files += [os.path.join(d, f) for f in sorted(os.listdir(d)) if f.endswith(".md")]
+    out = {}
+    for t in terms:
+        rx = re.compile(r"\b" + re.escape(t) + r"s?\b", re.IGNORECASE)
+        n, first = 0, None
+        for f in files:
+            with open(f, encoding="utf-8") as fh:
+                for i, ln in enumerate(fh, 1):
+                    if rx.search(ln):
+                        n += 1
+                        if first is None:
+                            first = _site(os.path.relpath(f, REPO), i, ln.strip()[:200])
+        out[t] = {"occurrences": n, "first": first}
+    return out
+
+
+def particles_block():
+    paper = "papers/Muon_Catalysed_Fusion_v1.1.md"
+    main = "method/members/The_Method_1_6-2.md"
+    reg = "method/members/The_Method_1_6___The_Register-2.md"
+    mc = "method/members/The_Method_1_6___Mathematical_Compendium-2.md"
+    pc = "method/members/The_Method_1_6___The_Physics_Compendium-2.md"
+    partk = "recovered/structural-results.md"
+    ch14f = "recovered/READ-ch14f.md"
+
+    # -- the muon paper: the window, its occupants, the exclusions, the frame
+    ln_w, m_w, q_w = _find(paper, r"The structural window is \[(\d+), (\d+)\] mₑ")
+    window = [int(m_w.group(1)), int(m_w.group(2))]
+    ln_o, m_o, q_o = _find(paper, r"the muon \((\d+) mₑ\) and the pion \((\d+) mₑ\)")
+    ln_i, m_i, q_i = _find(paper, r"interior to the window by ([\d.]+)× and ([\d.]+)×")
+    ln_mb, _, q_mb = _find(paper, r"occupies \*\*the same cell\*\* as its electronic twin")
+    ln_fr, _, q_fr = _find(paper, r"The lattice supplies the frame; it does not supply")
+    ln_b, _, q_b = _find(paper, r"\*\*A binder\*\* — negatively charged, leptonic")
+    ln_st, _, q_st = _find(paper, r"It is not a member of either live bundle")
+    ln_re, _, q_re = _find(paper, r"\*\*Reclassified in v1\.1:\*\* E_μ = 5 GeV per muon")
+    ln_ex, _, _ = _find(paper, r"^## 6\. What the definition excludes")
+    excl = []
+    for i, ln in enumerate(_lines(paper)[ln_ex:], ln_ex + 1):
+        m = re.match(r"^\| (.+?) \| (.+?) \|$", ln)
+        if m and not m.group(1).startswith("excluded") and not m.group(1).startswith("---"):
+            excl.append({"excluded": m.group(1).replace("**", ""), "grounds": m.group(2).replace("**", ""), "line": i})
+        elif excl and not ln.startswith("|"):
+            break
+    if len(excl) < 8:
+        raise RuntimeError("%s: the exclusion table was not parsed (%d rows)" % (paper, len(excl)))
+
+    # -- the main volume: the bracket with one occupant, the antiprotonic-helium cell
+    ln_n, m_n, q_n = _find(main, r"Recomputed here: N_states of ([\d.]+), ([\d.]+) and ([\d.]+) for electron, muon and tau")
+    ln_br, _, q_br = _find(main, r"\*\*A bracket with one occupant is a derivation\.\*\*")
+    ln_ah, m_ah, q_ah = _find(main, r"Antiprotonic helium, cell \((\d+),(\d+)\):")
+    ln_r1, m_r1, _ = _find(main, r"\| measured directly \| ([\d,]+\.\d) ± ([\d.]+) MHz \|")
+    ln_r2, m_r2, _ = _find(main, r"\| two-photon minus a different single-photon \| ([\d,]+\.\d) ± ([\d.]+) MHz \|")
+    ln_ag, m_ag, q_ag = _find(main, r"\*\*Agreement at ([\d.]+)σ, with no shared measurement\.\*\*")
+
+    # -- the register: the dimensional obstruction
+    ln_do, _, q_do = _find(reg, r"THE DIMENSIONAL OBSTRUCTION: THE LATTICE PRODUCES PURE NUMBERS")
+    q_do = q_do.split("Deuteron")[0].strip()
+
+    # -- the photon: the one cell R restores, and the claim that is false
+    ln_ph, _, ln_text = _find(mc, r"the photon's unit of angular momentum")
+    q_ph = re.search(r"The defect is E = 1.*?the photon's odd parity\.", ln_text).group(0)
+    ln_ph2, _, ln_text2 = _find(mc, r"the claim is false")
+    q_ph2 = re.search(r"[^.]*the claim is false[^.]*\.", ln_text2).group(0).strip()
+
+    # -- the constants register, Lambda_phys: every heading of the form '### name -- `value`'
+    consts = []
+    for i, ln in enumerate(_lines(pc), 1):
+        m = re.match(r"^### (.+?) — `(.+?)`(.*)$", ln)
+        if m:
+            consts.append({"name": m.group(1).strip(), "value": m.group(2).strip(),
+                           "note": m.group(3).strip(" ,"), "line": i,
+                           "withdrawn": "WITHDRAWN" in m.group(3)})
+    if len(consts) != 27:
+        raise RuntimeError("%s: expected 27 constants, parsed %d" % (pc, len(consts)))
+
+    # -- PART K, antimatter and exotic atoms (recovered, unbundled)
+    ln_cpt, _, q_cpt = _find(partk, r"\*\*Λ is CPT-invariant\.\*\*")
+    ln_alpha, m_alpha, _ = _find(partk, r"ALPHA measures antihydrogen 1S–2S agreeing with\s*$|agreeing with")
+    q_alpha_ln = _find(partk, r"hydrogen at (2 × 10⁻¹²)")
+    ln_rm, _, q_rm = _find(partk, r"\*\*The real second axis is reduced mass\*\*")
+    exotic = []
+    for i, ln in enumerate(_lines(partk), 1):
+        m = re.match(r"^\| (positronium|hydrogen, antihydrogen|muonic hydrogen|antiprotonic helium) \| ([\d.,]+) \| ([\d.]+) \|$", ln)
+        if m:
+            exotic.append({"system": m.group(1), "mu_over_me": float(m.group(2).replace(",", "")),
+                           "radius_A": float(m.group(3)), "line": i})
+    if len(exotic) != 4:
+        raise RuntimeError("%s: expected the four exotic systems, parsed %d" % (partk, len(exotic)))
+    ln_ab, _, q_ab = _find(partk, r"\*\*Antiprotonic helium is the only antimatter system with")
+    ln_nb, _, q_nb = _find(partk, r"\*\*The bracket cannot help antihydrogen\.\*\*")
+
+    # -- the muon mass, pinned nowhere but in a numbered fault
+    ln_pdg, m_pdg, q_pdg = _find(ch14f, r"muon (206\.7683) \(PDG\)")
+    ln_f, _, q_f = _find(ch14f, r"internal-closure failure, not a wrong value")
+
+    # -- the instruments
+    mucf = _tool_module("mucf", MUCF_PY)
+    coll = _tool_module("collector", COLLECTOR_PY)
+    status_table = _mucf_status_table()
+    sticking = {k: {"omega_s": v[0], "status": v[1]} for k, v in mucf.STICKING.items()}
+    mucf_consts = {
+        "lambda_0": mucf.LAMBDA_0, "lambda_c": mucf.LAMBDA_C, "transfer": list(mucf.TRANSFER),
+        "Q_fus_MeV": mucf.Q_FUS_MEV, "E_mu_achieved_GeV": mucf.E_MU_ACHIEVED,
+        "E_mu_floor_GeV": mucf.E_MU_FLOOR, "E_mu_delivered_TeV": mucf.E_MU_DELIVERED_TEV,
+        "collection_factor": mucf.COLLECTION_FACTOR, "f_work": mucf.F_WORK,
+        "f_alpha": mucf.F_ALPHA, "carnot_800": mucf.CARNOT_800,
+        "phi_measured_max": mucf.PHI_MEASURED_MAX, "omega_measured_min": mucf.OMEGA_MEASURED_MIN,
+        "sticking": sticking, "reservation_j1": mucf.RESERVATION_J1,
+    }
+    fixtures = {"table_5_1": [{"omega_s": w, "Q": list(row)} for w, row in mucf.TABLE_5_1.items()],
+                "phis": [1.2, 2.0, 3.0], "E_mu": 5.0,
+                "breakeven_5_1": [{"phi": p, "omega_s": w} for p, w in mucf.BREAKEVEN_5_1.items()],
+                "note": "the paper's own Table 5.1 and section 5.1 thresholds, read from tools/mucf.py "
+                        "whose selftest asserts them; the 0.234 % row is a recorded divergence (the "
+                        "row is computed at the transfer rate 2.7e8 rather than the pinned saturation "
+                        "2.6e8) and is NOTED, not repaired"}
+    collector = {
+        "status": "SOURCED",
+        "source": "tools/collector.py; papers/Muon_Collection_Budget_v1.0.md",
+        "MuSIC_mu_minus_per_W": [coll.MUSIC_MU_MINUS_PER_W, coll.MUSIC_MU_MINUS_ERR],
+        "MuSIC_all_mu_per_W": coll.MUSIC_ALL_MU_PER_W,
+        "MuSIC_proton_GeV": coll.MUSIC_PROTON_GEV,
+        "Mu2e_stopped_per_p": coll.MU2E_STOPPED_PER_P,
+        "COMET_captured_per_p": [coll.COMET_CAPTURED_LO, coll.COMET_CAPTURED_HI],
+        "pion_threshold_GeV": coll.PION_THRESHOLD_GEV,
+        "paper_assumed_GeV": coll.PAPER_ASSUMED_GEV,
+        "work_breakeven_GeV": coll.WORK_BREAKEVEN_GEV,
+        "heat_breakeven_GeV": coll.HEAT_BREAKEVEN_GEV,
+        "arxiv": {"MuSIC": "1610.07850", "Mu2e": "1211.7019", "COMET": "1812.09018"},
+    }
+    for key, aid in collector["arxiv"].items():
+        _find("papers/Muon_Collection_Budget_v1.0.md", r"arXiv:" + re.escape(aid))
+
+    prose = _prose_only(["PO-0896", "PO-0893", "PO-0415", "PO-0341", "PO-0897", "PO-0898",
+                         "PO-0411", "PO-0412", "PO-0279", "PO-0682"])
+    absent = _absent_terms(["neutrino", "gluon", "Higgs", "muonium", "protonium", "kaon", "positronium"])
+
+    return {
+        "status_note": "every figure below is READ from the passage that states it, parsed at build; "
+                       "an instrument's figures carry the instrument's own status vocabulary "
+                       "(MEASURED / PINNED / PROJECTED / EXTRAPOLATED / PROSE-ONLY, and REFUSED below "
+                       "the kinematic floor); a PROSE-ONLY row is held in the chat export and in no "
+                       "file; ABSENT is counted, not assumed. Nothing here is a lattice figure: the "
+                       "lattice carries configuration, not scale.",
+        "scope": [
+            {"name": "the lattice carries no scale", "status": populate.READ,
+             "site": _site(paper, ln_mb, q_mb)},
+            {"name": "the lattice supplies the frame, not the rates", "status": populate.READ,
+             "site": _site(paper, ln_fr, q_fr)},
+            {"name": "the dimensional obstruction", "status": populate.READ,
+             "site": _site(reg, ln_do, q_do)},
+            {"name": "the paper is not a member of either bundle (docket C-8 open)", "status": populate.READ,
+             "site": _site(paper, ln_st, q_st)},
+        ],
+        "window": {"m_e": window, "status": populate.READ, "site": _site(paper, ln_w, q_w),
+                   "occupants": {"muon": int(m_o.group(1)), "pion": int(m_o.group(2)), "site": _site(paper, ln_o, q_o)},
+                   "interior": {"below": float(m_i.group(1)), "above": float(m_i.group(2)), "site": _site(paper, ln_i, q_i)},
+                   "N_states": {"electron": float(m_n.group(1)), "muon": float(m_n.group(2)), "tau": float(m_n.group(3)),
+                                "status": populate.READ, "site": _site(main, ln_n, q_n)},
+                   "bracket": _site(main, ln_br, q_br)},
+        "binder": _site(paper, ln_b, q_b),
+        "exclusions": {"status": populate.READ, "file": paper, "rows": excl},
+        "muon": {
+            "mass_m_e": {"printed": int(m_o.group(1)), "PDG": float(m_pdg.group(1)), "status": populate.READ,
+                         "site": _site(ch14f, ln_pdg, q_pdg), "fault": "14f-04",
+                         "fault_note": _site(ch14f, ln_f, q_f)},
+            "instrument": {"file": "tools/mucf.py", "status_table": status_table,
+                           "constants": mucf_consts, "fixtures": fixtures,
+                           "reclassified": _site(paper, ln_re, q_re)},
+            "collection": collector,
+        },
+        "antimatter": {
+            "status": populate.RECOVERED,
+            "note": "PART K of recovered/structural-results.md -- recovered from the chat export, "
+                    "not a member of either bundle, with no instrument",
+            "cpt": _site(partk, ln_cpt, q_cpt),
+            "alpha": {"value": q_alpha_ln[1].group(1), "site": _site(partk, q_alpha_ln[0], q_alpha_ln[2])},
+            "reduced_mass": {"site": _site(partk, ln_rm, q_rm), "systems": exotic},
+            "antihydrogen": _site(partk, ln_nb, q_nb),
+            "antiprotonic_only": _site(partk, ln_ab, q_ab),
+        },
+        "antiprotonic_helium": {
+            "status": populate.READ,
+            "cell": [int(m_ah.group(1)), int(m_ah.group(2))], "site": _site(main, ln_ah, q_ah),
+            "routes": [{"route": "measured directly", "MHz": m_r1.group(1), "pm": float(m_r1.group(2)), "line": ln_r1},
+                       {"route": "two-photon minus a different single-photon", "MHz": m_r2.group(1), "pm": float(m_r2.group(2)), "line": ln_r2}],
+            "agreement_sigma": float(m_ag.group(1)), "agreement_site": _site(main, ln_ag, q_ag),
+            "scope": "PO-0279: enters as a scope statement, not as cells",
+        },
+        "photon": {"status": populate.READ, "E": 1,
+                   "site": _site(mc, ln_ph, q_ph), "claim": _site(mc, ln_ph2, q_ph2)},
+        "constants": {"status": populate.PINNED, "file": pc, "count": len(consts), "rows": consts,
+                      "note": "Lambda_phys, the 27 declared parameters of the Physics Compendium, each "
+                              "with kind, value, domain and provenance in the record; one is WITHDRAWN "
+                              "and stays listed as such"},
+        "prose_only": prose,
+        "absent": {"status": populate.DERIVED, "terms": absent,
+                   "note": "occurrences counted over method/members and papers/ at build; a "
+                           "term with none is absent from the corpus, not a cell of it"},
+    }
+
+
+MUCF_INSTRUMENTS = [
+    ("mucf_cycles", "cycles", "N, catalytic cycles per muon (paper section 5.1)"),
+    ("mucf_gain", "gain", "Q, raw energy out over muon production cost in"),
+    ("mucf_e_mu_for", "e_mu_for", "the muon production cost at which Q reaches a target, GeV"),
+    ("mucf_e_mu_for_work", "e_mu_for_work", "E_mu at which WORK out reaches the target; only f_work of the fusion heat is convertible"),
+    ("mucf_status_of", "status_of", "the weakest status among the inputs, with the reason; REFUSED below the kinematic floor"),
+    ("mucf_band", "band", "Q across the transfer-rate uncertainty"),
+    ("mucf_muons_for", "muons_for", "the muon rate a fusion power needs"),
+]
+
+
+def mucf_instruments():
+    mod = _tool_module("mucf", MUCF_PY)
+    out = {}
+    for name, fn_name, source in MUCF_INSTRUMENTS:
+        lines, start = inspect.getsourcelines(getattr(mod, fn_name))
+        out[name] = {"python": redact_source("".join(lines)), "file": "tools/mucf.py", "line": start,
+                     "status": populate.PINNED,
+                     "source": source + " -- the paper's own model, computed for it (PINNED); "
+                                        "each result carries the weakest status of its inputs in "
+                                        "mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, "
+                                        "EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"}
+    return out
+
+
+# ---------------------------------------------------------------------------
+# references -- every outward identifier the corpus prints, with the line that cites it
+# ---------------------------------------------------------------------------
+
+ARXIV_NEW = re.compile(r"arXiv[: ]?(\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE)
+ARXIV_OLD = re.compile(r"\b((?:hep-th|hep-ph|hep-ex|hep-lat|math-ph|alg-geom|physics|quant-ph|cond-mat|astro-ph|nucl-th|nucl-ex|gr-qc|math|cs)(?:\.[A-Za-z]{2})?/\d{7})\b")
+DOI_RX = re.compile(r"\b(10\.\d{4,9}/[^\s\"'<>,;)\]]+)")
+URL_RX = re.compile(r"https?://[^\s)\]>\"']+")
+
+
+def references_block():
+    files = []
+    for d, tag in ((MEMBERS, "method/members"), (PAPERS, "papers")):
+        files += [(os.path.join(d, f), tag + "/" + f) for f in sorted(os.listdir(d)) if f.endswith(".md")]
+    arxiv, doi, urls = {}, {}, {}
+
+    def add(store, key, rel, i, ln):
+        # the identifier is public; the line that cites it is quoted only
+        # from a paper the author has released to the site
+        e = store.setdefault(key, {"id": key, "cites": []})
+        e["n"] = e.get("n", 0) + 1
+        paper = PUBLIC_PAPERS.get(os.path.basename(rel))
+        if paper is None:
+            return
+        text = _plain(ln.strip())
+        if len(text) > 320:
+            text = text[:317] + "..."
+        if len(e["cites"]) < 6:
+            e["cites"].append({"paper": paper, "text": text})
+
+    for path, rel in files:
+        with open(path, encoding="utf-8") as fh:
+            for i, ln in enumerate(fh, 1):
+                for m in ARXIV_NEW.finditer(ln):
+                    add(arxiv, m.group(1), rel, i, ln)
+                for m in ARXIV_OLD.finditer(ln):
+                    add(arxiv, m.group(1), rel, i, ln)
+                for m in DOI_RX.finditer(ln):
+                    add(doi, m.group(1).rstrip(".)"), rel, i, ln)
+                for m in URL_RX.finditer(ln):
+                    u = m.group(0).rstrip(".),;")
+                    if "doi.org/" in u or "arxiv.org/" in u:
+                        continue
+                    add(urls, u, rel, i, ln)
+    for e in arxiv.values():
+        e["url"] = "https://arxiv.org/abs/" + e["id"]
+    for e in doi.values():
+        e["url"] = "https://doi.org/" + e["id"]
+    for e in urls.values():
+        e["url"] = e["id"]
+    # the one data source the index links itself, and the spectra compilations by species
+    _find("method/members/The_Method_1_6-2.md", r"https://physics\.nist\.gov/asd")
+    _find("method/members/LW1-ground.py", r"NIST ASD ver\. 5\.12")
+    return {
+        "note": "identifiers the index's sources cite, found at build by pattern and linked by "
+                "construction; a compilation named without an identifier is cited as a string "
+                "and not linked, because the target would be invented. A citing line is quoted "
+                "only from a paper released to the site.",
+        "quoted_from": sorted(PUBLIC_PAPERS.values()),
+        "arxiv": sorted(arxiv.values(), key=lambda e: e["id"]),
+        "doi": sorted(doi.values(), key=lambda e: e["id"]),
+        "urls": sorted(urls.values(), key=lambda e: e["id"]),
+        "nist_asd": {"name": "NIST Atomic Spectra Database (ver. 5.12), Kramida, Ralchenko, Reader and NIST ASD Team (2024)",
+                     "url": "https://physics.nist.gov/asd", "doi": "10.18434/T4W30F",
+                     "doi_url": "https://doi.org/10.18434/T4W30F",
+                     "cited_for": ["the observed ground configurations, Z = 1 to 108",
+                                   "the measured levels of the spectra index"],
+                     "query_not_held": "no query string or URL behind the level tables is stored "
+                                       "anywhere; the query itself is NOT HELD -- the database is "
+                                       "linkable, the query is not"},
+        "spectra_sources": spectra_sources(),
+    }
+
+
+def spectra_sources():
+    """Section B.1 of the Spectra Compendium: which compilation each measured
+    species' levels were drawn from, parsed from the table as printed."""
+    rel = "method/members/The_Method_1_6___Spectra_Compendium-2.md"
+    lines = _lines(rel)
+    start, _, _ = _find(rel, r"^## B\.1 Sources")
+    rows = []
+    for i in range(start, len(lines)):
+        ln = lines[i]
+        if i > start and (ln.startswith("##") or ln.strip().startswith("**Additional")):
+            break
+        if not ln.startswith("  ") or ln.strip() == "" or ln.strip().startswith("compilation"):
+            continue
+        name, species = ln[2:30].strip(), ln[30:].strip()
+        if name and species:
+            rows.append({"compilation": name, "species": species})
+        elif name and rows:
+            rows[-1]["compilation"] += " " + name
+        elif species and rows:
+            rows[-1]["species"] += " " + species
+    by_species = {}
+    for r in rows:
+        for sp in [s.strip() for s in r["species"].split(",") if s.strip()]:
+            by_species[sp] = {"compilation": r["compilation"],
+                              "url": "https://physics.nist.gov/asd" if r["compilation"].startswith("NIST ASD") else None}
+    if len(by_species) < 20:
+        raise RuntimeError("%s: B.1 parsed %d species, expected about 26" % (rel, len(by_species)))
+    return {"source": "the spectra index's own table of compilations by species",
+            "rows": rows, "by_species": by_species}
+
+
 def fixtures(spectra):
     """Numbers the browser-side solver selftests must reproduce, every one
     computed here with populate.py's own functions and none typed in."""
@@ -752,12 +2186,15 @@ def fixtures(spectra):
                 "these must say so rather than print a result",
         "equation_report": equation_figures(spectra),
         "closure": {
-            "operator": "cypher.op_order, R (section 32.4.1)",
+            "operator": "cypher.op_order, R, the order operator",
             "status": populate.PINNED,
             "periodic": {"held": len(held), "admitted": len(admitted),
                          "E": len(admitted) - len(held),
-                         "index": "periodic table (period x group), section 6, "
-                                  "the ninety main-table cells"},
+                         "index": "periodic table (period x group), the ninety "
+                                  "main-table cells"},
+            "helium_at_2": dict(helium_placement()["helium_at_2"],
+                                index="the ninety cells with helium moved to "
+                                      "(1, 2); the author's rule records E = 20"),
             "janet": {"held": len(jh), "admitted": len(ja),
                       "E": len(ja) - len(jh), "box": jbox,
                       "cells": [list(c) for c in sorted(jh)],
@@ -776,10 +2213,10 @@ def fixtures(spectra):
         "hydrogenic_zero": {"Z": 1, "charge": 1, "l": 0,
                             "delta_equation": populate.channel_delta(1, 1, 0),
                             "status": populate.PINNED,
-                            "source": "register 5193: at Ne = 1 the (Ne-1)/Ne "
+                            "source": "the one-electron identity: at Ne = 1 the (Ne-1)/Ne "
                                       "factor vanishes identically"},
         "pauli": {"status": populate.PINNED,
-                  "source": "register 1141; populate.selftest's own pair",
+                  "source": "the Pauli bound's definition; populate.selftest's own pair",
                   "rows": [{"label": "He I ns", "Z": 2, "charge": 1, "l": 0,
                             "B": populate.pauli_bound(2, 1, 0)},
                            {"label": "Be I ns", "Z": 4, "charge": 1, "l": 0,
@@ -853,7 +2290,7 @@ def _csv_only_element(Z, spectra):
         "channels": [chans[k] for k in sorted(chans)],
         "lambda8": [],
         "populated": False,
-        "note": "COORDINATES-2.13 rows only; LW1-ground.py stops at Z = 108",
+        "note": "COORDINATES-2.13 rows only; the observed configurations stop at Z = 108",
     }
 
 
@@ -879,7 +2316,7 @@ def _counts(rec):
     }
 
 
-def build(spectra, out_dir=OUT, write=True, log=print):
+def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, warp_root=WARP_ROOT):
     held, admitted = populate.layout_closure()
     relb = relativistic()
     rel_z = {e["Z"] for e in relb["eleven"]}
@@ -897,15 +2334,26 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                         "md5": hashlib.md5(blob).hexdigest(),
                         "md5_recorded": fig["md5_recorded"],
                         "ok": hashlib.md5(blob).hexdigest() == fig["md5_recorded"],
-                        "archive": fig["archive"],
-                        "caption": "Figure 5 of THE-LOWDIN-SOLUTION-2.md: the "
-                                   "derived table at c = 137 against c -> inf",
+                        "caption": "Figure 5 of the Löwdin paper: the derived "
+                                   "table at c = 137 against c -> inf",
                         "status": populate.READ})
         if write:
             os.makedirs(os.path.join(out_dir, "figures"), exist_ok=True)
             with open(os.path.join(out_dir, "figures", FIGURE), "wb") as fh:
                 fh.write(blob)
     denied = sorted(admitted - held)
+    denied_cells = denied_cell_definitions(denied)
+    papers = papers_block(out_dir, write, log)
+    pindex, _pfull = particle_index_block(warp_root, write, out_dir)
+    walk_copy = None
+    if walk and os.path.exists(WALK_TSV):
+        with open(WALK_TSV, "rb") as fh:
+            wblob = fh.read()
+        if write:
+            with open(os.path.join(out_dir, "LOWDIN-WALK.tsv"), "wb") as fh:
+                fh.write(wblob)
+        walk_copy = {"file": "data/LOWDIN-WALK.tsv", "bytes": len(wblob), "md5": hashlib.md5(wblob).hexdigest(),
+                     "what": "the reconstructed walk, 476 rows, RECONSTRUCTED; the table the site reads"}
     layout = []
     manifest = []
     totals = {"rows": 0, "measured": 0, "exact": 0, "computed": 0,
@@ -917,6 +2365,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
     for Z in zs:
         rec = element_record(Z, spectra)
         rec["walk"] = walk_rows.get(Z)
+        rec = public_obj(rec)
         counts = _counts(rec)
         lim = _limit_counts(rec)
         for k in ("rows", "measured", "exact", "computed", "witnessed"):
@@ -949,7 +2398,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
         log("  Z=%3d %-3s %7d B  rows %5d  measured %3d" % (
             Z, rec["symbol"], len(blob), counts["rows"], counts["measured"]))
 
-    axes = [{"axis": a, "status": s, "source": d} for a, s, d in populate.AXES]
+    axes = [{"axis": a, "status": s, "source": PUBLIC_AXIS_SOURCES.get(a, d)} for a, s, d in populate.AXES]
     index = {
         "meta": {
             "title": SITE_TITLE,
@@ -958,22 +2407,50 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "commit": _git_head(),
             "generator": "tools/webindex.py over tools/populate.py",
             "names_note": "Element names are IUPAC labels for search only; "
-                          "they are not a corpus figure. The corpus carries "
-                          "symbols (register 1306).",
+                          "they are not a figure of the index, which carries "
+                          "symbols.",
+            "url": SITE_URL,
+            "cite": cite_block(_git_head()),
+            "history": _git_history(),
         },
+        "papers": papers,
+        "downloads": [d for d in [
+            {"file": "data/index.js", "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"},
+            {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
+            {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
+            {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"} if pindex else None,
+            walk_copy,
+            {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
+        ] if d],
         "sources": sources(),
         "status_legend": STATUS_LEGEND,
         "axes": axes,
         "caps": populate.CAPS,
         "lambda_coords": populate.LAMBDA_COORDS,
         "lambda_meaning": populate.LAMBDA_MEANING,
+        "lattice": lattice_block(spectra),
+        "particles": particles_block() if with_particles else None,
+        "particle_index": pindex,
+        "references": references_block(),
         "closure": {
-            "index": "periodic table (period × group), section 6",
-            "operator": "ℛ, the PINNED order operator of section 32.4.1 "
-                        "(tools/cypher.py)",
+            "index": "the eighteen-column periodic layout (period × group)",
+            "operator": "ℛ, the PINNED order operator (tools/cypher.py)",
             "held": len(held), "admitted": len(admitted),
             "E": len(admitted) - len(held),
             "denied": [list(c) for c in denied],
+            "denied_cells": denied_cells,
+            "decomposition": {
+                "status": populate.READ,
+                "source": "the author's standing account of the thirty-six",
+                "forbidden": sum(1 for d in denied_cells if d["class"] == "forbidden"),
+                "deferred": sum(1 for d in denied_cells if d["class"] == "deferred"),
+                "by_subshell": {k: sum(1 for d in denied_cells if d["subshell"] == k)
+                                for k in sorted({d["subshell"] for d in denied_cells})},
+                "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (READ); class by "
+                        "l <= n-1 (PINNED); the split 25 + 11 is the author's own (READ) "
+                        "and the derivation is asserted against it",
+            },
+            "placement": helium_placement(),
             "set_aside": 28,
         },
         "collapse": {"Z0": populate.COLLAPSE_Z, "width": populate.COLLAPSE_WIDTH,
@@ -985,24 +2462,22 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                      "form": _equation_form(),
                      "exponent": "e(Ne) = E0 - E1 ln Ne",
                      "status": populate.PINNED,
-                     "source": "register 1205, final form"},
-        "instruments": dict(instruments(), **(walk_instruments() if walk else {}), lowdin_construction={
+                     "source": "the channel equation's final form"},
+        "instruments": dict(instruments(), **(walk_instruments() if walk else {}),
+                            **(mucf_instruments() if with_particles else {}), lowdin_construction={
             "python": None,
-            "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+            "file": PUBLIC_PAPERS["THE-LOWDIN-SOLUTION-2.md"],
             "status": populate.READ,
             "held": False,
             "source": "the scalar-relativistic construction is not held; the "
-                      "paper's own statement, register 1706 and the SCF audit "
-                      "are shown in its place",
+                      "paper's own statement is shown in its place",
             "text": "\n\n".join(t for t in [
-                relb["statement"], relb["construction"], relb["thorium"],
-                "Register 1706: " + relb["sources"]["register"]["text"],
-                "r2-scf.out: " + relb["sources"]["scf_audit"]["count"],
-                relb["instrument"]["budget"]] if t)}),
+                relb["statement"], relb["construction"], relb["thorium"]] if t)}),
         "relativistic": relb,
         "limits": lim_block,
         "figures": figures,
         "fixtures": fixtures(spectra),
+        "figure_data": {"equation": equation_points(spectra)},
         "caveats": CAVEATS,
         "totals": totals,
         "layout": layout,
@@ -1015,6 +2490,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
             "encoding": "utf-8",
         },
     }
+    index = public_obj(index)
     if write:
         text = json.dumps(index, ensure_ascii=False, indent=1, allow_nan=False)
         with open(os.path.join(out_dir, "index.js"), "w", encoding="utf-8") as fh:
@@ -1044,7 +2520,7 @@ def _remove_json_outputs(out_dir, log=print):
 # selftest and verify
 # ---------------------------------------------------------------------------
 
-def selftest():
+def selftest(warp_root=WARP_ROOT):
     spectra = populate.Spectra(populate.DEFAULT_SPECTRA)
     fails = []
     ran = []
@@ -1057,7 +2533,91 @@ def selftest():
             fails.append(name)
 
     print("webindex selftest")
-    index = build(spectra, write=False, log=lambda *_a, **_k: None)
+    index = build(spectra, write=False, log=lambda *_a, **_k: None, warp_root=warp_root)
+    # the public guard: no string of the public build cites the unpublished books
+    hits = private_strings(index)
+    for Z in sorted(set(populate.LW1.GROUND) | set(spectra.by_z)):
+        rec = public_obj(element_record(Z, spectra))
+        private_strings(rec, "elements/%d" % Z, hits)
+    if index["particle_index"] is not None:
+        private_strings(particle_index_block(warp_root, write=False)[1], "particles", hits)
+    for path, text in hits[:12]:
+        print("    private: %s: %s" % (path, text))
+    check("public build: no string cites the unpublished books", len(hits), 0)
+    check("public build: the particles block is off without --with-particles", index["particles"], None)
+    check("public build: the muon balance's instruments are off without --with-particles",
+          [n for n in index["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}], [])
+    full = build(spectra, write=False, log=lambda *_a, **_k: None, with_particles=True, warp_root=warp_root)
+    check("with particles: the muon balance's seven instruments follow the walk's",
+          [n for n in full["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}],
+          [n for n, *_ in MUCF_INSTRUMENTS])
+    px = index["particle_index"]
+    if px is None:
+        print("  (the particle indexes are not built: %s holds no research/warp-drive tree; pass --warp-root)" % warp_root)
+        check("particle indexes: absent from this build, and the index says so", px, None)
+    else:
+        _ps, pfull = particle_index_block(warp_root, write=False)
+        private_strings(pfull, "particles", hits)
+        check("particle indexes: three, in order", [x["id"] for x in px["indexes"]], ["fundamental", "mesons", "baryons"])
+        check("particle indexes: members 30, 250, 292", [x["members"] for x in px["indexes"]], [30, 250, 292])
+        check("particle indexes: charted 30, 242, 278", [x["charted"] for x in px["indexes"]], [30, 242, 278])
+        check("particle indexes: cells 26, 66, 184", [x["cells"] for x in px["indexes"]], [26, 66, 184])
+        check("particle indexes: channels K2, K0, K0", [x["cell"]["channel"] for x in px["indexes"]], [2, 0, 0])
+        check("particle indexes: the accounting identity 6506 = 5880 + 54 + 572", px["accounting"]["identity"], "6506 = 5880 + 54 + 572")
+        check("particle indexes: 572 members, 550 charted, 22 unplaced", [px["accounting"][k] for k in ("members", "charted", "unplaced")], [572, 550, 22])
+        check("particle indexes: every member row carries a status on every coordinate",
+              all(all(c["status"] in STATUS_LEGEND for c in ix["coordinates"]) for ix in pfull["indexes"]), True)
+        check("particle indexes: every row of every index is in the file",
+              [len(ix["rows"]) for ix in pfull["indexes"]], [30, 250, 292])
+        check("particle indexes: the fundamental collisions are four", len(pfull["indexes"][0]["collisions"]), 4)
+        check("particle indexes: the capture's md5 is recorded", bool(px["source"]["capture"] and px["source"]["capture"][0]["md5"]), True)
+        if "antimatter" in pfull["accounting"]:
+            am = pfull["accounting"]["antimatter"]
+            check("antimatter: 231 of the 550 charted members, 13 + 79 + 139", ([r["antiparticles"] for r in am["by_index"]], am["total"]), ([13, 79, 139], 231))
+            check("named by hand: the photon, the muon and the antimuon resolve with their cells",
+                  [(r["what"], r["cell"]) for r in pfull["accounting"]["named"]["rows"]],
+                  [("photon", [2, 0, 1, 0]), ("muon", [1, -3, 1, 2]), ("antimuon", [1, 3, 1, 2])])
+        sw = pfull.get("sweep")
+        if sw and not sw.get("absent"):
+            check("sweep: 142 charts, 11 + 11 + 120", (sw["charts"], sw["census"]), (142, {"fundamental": 11, "mesons": 11, "baryons": 120}))
+            check("sweep: three hits against the ruling's census, two against the honest occupancy",
+                  (len(sw["hits"]["against_the_overlap_rules_census"]), len(sw["hits"]["against_the_honest_occupancy"])), (3, 2))
+            check("sweep: the seating is baryons (2I, Q3) at K5, 16 cells, cell (5, 7, 4)",
+                  (sw["seated"]["parent"], sw["seated"]["cols"], sw["seated"]["channel"], sw["seated"]["cells"], sw["seated"]["cell"]),
+                  ("baryons", ["2I", "Q3"], 5, 16, {"channel": 5, "height": 7, "width": 4}))
+            check("sweep: all four grounds hold for the seating", all(sw["seated"]["grounds"].values()), True)
+            check("sweep: the four corners not held lie outside the hull", (sw["seated"]["corners_not_held"], sw["seated"]["corners_outside_hull"]),
+                  ([[0, -6], [0, 6], [1, -6], [1, 6]], True))
+            check("sweep: statistics is free at arity 2, 105 of 105; geometry is earned, 74", (sw["arity2_freeness"]["statistics"]["closes"], sw["arity2_freeness"]["geometry"]["closes"]), (105, 74))
+            check("sweep: seven channels occupied, only K4 empty", sw["occupancy"]["now"], [0, 1, 2, 3, 5, 6, 7])
+        fq = (pfull.get("quasiparticles") or {}).get("seated")
+        if fq and not fq.get("absent"):
+            check("quasiparticles seated: 168 members of 12 states, 30 cells, cell (0, 15, 4)", (fq["members"], fq["states"], fq["cells"], fq["cell"]), (168, 12, 30, {"channel": 0, "height": 15, "width": 4}))
+            check("quasiparticles seated: the box-invariance verdict is SEAT", fq["verdict"], "SEAT")
+            check("quasiparticles seated: 150 anyons, 0 fermions, 18 bosons", [fq["statistics"][k] for k in ("anyons", "fermions", "bosons")], [150, 0, 18])
+            check("quasiparticles seated: the observed states are 1/3, 1/5, 1/7", [o["m"] for o in fq["observed"]], [3, 5, 7])
+            check("quasiparticles seated: every row carries four coordinates and its charge as a fraction", all(len(r["coords"]) == 4 and "/" in r["Q"] or r["j"] == 0 for r in fq["rows"]), True)
+        if pfull["quasiparticles"] and pfull["quasiparticles"].get("anyons"):
+            qa = pfull["quasiparticles"]["anyons"]
+            check("quasiparticles: the anyon chart is refused as a theorem", qa["verdict"], "REFUSE-AS-THEOREM")
+            check("quasiparticles: the semion's h is 1/4", next(r["h"] for r in qa["rows"] if r["k"] == 1 and r["J"] == 1), "1/4")
+            check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
+                  [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
+    pp = index["papers"]["papers"]
+    check("papers: the two released papers and the one slot", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
+    check("papers: the slot is not held", pp[2]["held"], False)
+    check("papers: every held paper's md5 is the store's", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"]), True)
+    check("papers: every figure a held paper cites is carried with its ledger md5", all(p["figures_ok"] for p in pp if p["held"]), True)
+    check("papers: the three-body paper cites 3 figures, the Löwdin paper 3 or more",
+          (pp[1]["figures"], pp[0]["figures"] >= 3), (3, True))
+    html_l, heads_l = md_to_html(open(os.path.join(MEMBERS, "THE-LOWDIN-SOLUTION-2.md"), encoding="utf-8").read(), {"img": lambda a, b: ""})
+    src_heads = [ln.lstrip("#").strip() for ln in open(os.path.join(MEMBERS, "THE-LOWDIN-SOLUTION-2.md"), encoding="utf-8") if ln.startswith("#")]
+    check("papers: the render carries every heading of the Löwdin paper", len(heads_l), len(src_heads))
+    check("papers: no raw markdown heading survives the render", "\n#" in html_l, False)
+    fd = index["figure_data"]["equation"]
+    check("figure data: one point per scored measured channel", len(fd["rows"]), index["fixtures"]["equation_report"]["channels"])
+    check("meta: cite line names the author, the title and the edition", (SITE_AUTHOR in index["meta"]["cite"]["text"], SITE_TITLE in index["meta"]["cite"]["text"]), (True, True))
+    check("meta: the edition history is carried, oldest first, every row with a date", all(r["date"] for r in index["meta"]["history"]) and len(index["meta"]["history"]) >= 1, True)
     t = index["totals"]
     check("elements populated (LW1-ground.py)", t["populated"], 108)
     check("elements CSV-only (Z = 109 to 120)", t["csv_only"], 12)
@@ -1068,11 +2628,51 @@ def selftest():
           sum(1 for r in spectra.rows if r["grade"] == "exact"))
     check("witnessed rows", t["witnessed"],
           sum(1 for r in spectra.rows if r["witness"] == "witnessed"))
+    pt = full["particles"]
+    check("particles: the structural window is [119, 918] m_e (paper section 2)", pt["window"]["m_e"], [119, 918])
+    check("particles: the window's occupants, muon and pion, in m_e", [pt["window"]["occupants"]["muon"], pt["window"]["occupants"]["pion"]], [207, 273])
+    check("particles: the muon mass PDG 206.7683 from fault 14f-04", pt["muon"]["mass_m_e"]["PDG"], 206.7683)
+    check("particles: 27 constants of Lambda_phys parsed", pt["constants"]["count"], 27)
+    check("particles: mucf.py's status table read (rows)", len(pt["muon"]["instrument"]["status_table"]) >= 10, True)
+    check("particles: the four exotic systems of PART K", [x["system"] for x in pt["antimatter"]["reduced_mass"]["systems"]],
+          ["positronium", "hydrogen, antihydrogen", "muonic hydrogen", "antiprotonic helium"])
+    check("particles: antiprotonic helium's cell (35, 33)", pt["antiprotonic_helium"]["cell"], [35, 33])
+    check("particles: ten PROSE-ONLY rows carried", len(pt["prose_only"]), 10)
+    check("particles: neutrino, gluon, Higgs are absent from the corpus",
+          [pt["absent"]["terms"][t]["occurrences"] for t in ("neutrino", "gluon", "Higgs")], [0, 0, 0])
+    rf = index["references"]
+    check("references: the NIST ASD DOI is the corpus's own", rf["nist_asd"]["doi"], "10.18434/T4W30F")
+    check("references: arXiv identifiers found (at least 40)", len(rf["arxiv"]) >= 40, True)
+    check("references: DOIs found (at least 6)", len(rf["doi"]) >= 6, True)
+    check("references: B.1 maps at least 24 species to a compilation", len(rf["spectra_sources"]["by_species"]) >= 24, True)
+    lat = index["lattice"]
+    check("lattice: sites = 8 * sum Z (charge 1..Z by l 0..7 for every element)",
+          lat["sites"], 8 * sum(range(1, lat["Z_max"] + 1)))
+    check("lattice: known cells = measured + exact rows", len(lat["known"]),
+          sum(1 for r in spectra.rows if r["grade"] in ("measured", "exact")))
+    check("lattice: measured cells", lat["counts"]["measured"],
+          sum(1 for r in spectra.rows if r["grade"] == "measured"))
     c = index["closure"]
     check("closure held (section 6)", c["held"], 90)
     check("closure admitted", c["admitted"], 126)
     check("closure E", c["E"], 36)
     check("denied cells listed", len(c["denied"]), 36)
+    d = c["decomposition"]
+    check("the thirty-six decompose 25 forbidden (section 6.1.1)", d["forbidden"], 25)
+    check("the thirty-six decompose 11 deferred (section 6.1.1)", d["deferred"], 11)
+    check("by subshell: 1d 10, 1p 5, 2d 10, 3d 10, helium's slot 1",
+          d["by_subshell"], {"1d": 10, "1p": 5, "2d": 10, "3d": 10,
+                             "1s, the slot helium vacates": 1})
+    check("every denied cell carries a definition",
+          sorted((x["p"], x["g"]) for x in c["denied_cells"]),
+          sorted(tuple(x) for x in c["denied"]))
+    pl = c["placement"]
+    check("E with helium at group 18 (Register 448)", pl["helium_at_18"]["E"], 36)
+    check("E with helium at group 2 (Register 448)", pl["helium_at_2"]["E"], 20)
+    check("E prices the placement at sixteen cells", pl["priced"], 16)
+    check("helium at group 2: the twenty are the 2d and 3d rows",
+          pl["helium_at_2"]["denied"],
+          [[2, g] for g in range(3, 13)] + [[3, g] for g in range(3, 13)])
     check("axes carry a status", all(a["status"] in STATUS_LEGEND
                                     for a in index["axes"]), True)
     # one status per quantity: the axis table's C(Z) is the instrument's own
@@ -1105,8 +2705,8 @@ def selftest():
           [e["symbol"] for e in rel["eleven"]])
     check("relativistic: every one of the eleven carries an entrant channel",
           all("entrant" in e for e in rel["eleven"]), True)
-    check("relativistic: register 1706 names the same eleven",
-          all(e["symbol"] in rel["sources"]["register"]["text"] for e in rel["eleven"]), True)
+    check("relativistic: the paper's eleven line names the same eleven",
+          all(e["symbol"] in rel["sources"]["paper"]["eleven_text"] for e in rel["eleven"]), True)
     check("relativistic: thorium sentence read", bool(rel["thorium"]), True)
     check("relativistic: instrument recorded as not held", rel["instrument"]["held"], False)
     check("relativistic: layout flags exactly eleven",
@@ -1144,7 +2744,7 @@ def selftest():
             disp = [e["symbol"] for e in ents if e["displaced"]]
             cp = walk["summary"]["fields"][fld]
             check(f"walk {fld}: displaced set is the summary's", disp, [d["symbol"] for d in cp["displaced"]])
-            check(f"walk {fld}: the summary's eleven are register 1706's", cp["eleven_1706"], lw.ELEVEN_1706)
+            check(f"walk {fld}: the summary's eleven are the paper's", cp["eleven"], lw.ELEVEN_1706)
             check(f"walk {fld}: in/not-in/missing partition the record's eleven and the displaced",
                   (sorted(cp["in_eleven"] + cp["eleven_not_displaced"]),
                    sorted(cp["in_eleven"] + cp["not_in_eleven"])),
@@ -1363,6 +2963,16 @@ def verify(out_dir=OUT):
             print("  MISMATCH %s  index %s  on disk %s" % (walk["table"]["file"], walk["table"]["md5"], got))
         else:
             print("  %-52s ok (the walk table the index was built from)" % walk["table"]["file"])
+    for d in index.get("downloads", []):
+        if not d.get("md5"):
+            continue
+        p = os.path.join(out_dir, d["file"][len("data/"):] if d["file"].startswith("data/") else d["file"])
+        got = _md5(p) if os.path.exists(p) else None
+        if got != d["md5"]:
+            bad += 1
+            print("  MISMATCH %s  index %s  on disk %s" % (d["file"], d["md5"], got))
+        else:
+            print("  %-52s ok (download, md5 as the index records it)" % d["file"])
     for f in index.get("figures", []):
         p = os.path.join(out_dir, f["file"])
         got = _md5(p) if os.path.exists(p) else None
@@ -1380,13 +2990,24 @@ def main(argv=None):
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--warp-root", default=WARP_ROOT,
+                    help="the research/warp-drive tree the particle indexes are read from "
+                         "(default: the repository's own); absent, the site carries none")
+    ap.add_argument("--warp-commit", default=None,
+                    help="the commit the tree at --warp-root is at, recorded in the index "
+                         "beside the commit its own STATE.json stamps")
+    ap.add_argument("--with-particles", action="store_true",
+                    help="build the Particles block and the muon balance's instruments; "
+                         "off by default because the paper they read is not released")
     args = ap.parse_args(argv)
+    global WARP_COMMIT
+    WARP_COMMIT = args.warp_commit
     if args.selftest:
-        return selftest()
+        return selftest(args.warp_root)
     if args.verify:
         return verify(args.out)
     spectra = populate.Spectra(populate.DEFAULT_SPECTRA)
-    index = build(spectra, out_dir=args.out)
+    index = build(spectra, out_dir=args.out, with_particles=args.with_particles, warp_root=args.warp_root)
     t = index["totals"]
     print("wrote %s: %d elements (%d populated, %d CSV-only), %d rows, "
           "%d measured" % (args.out, len(index["layout"]), t["populated"],

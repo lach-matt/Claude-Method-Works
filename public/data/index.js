@@ -1,31 +1,272 @@
 window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
-  "subtitle": "The Method 1.6 · every element on every axis of every index",
-  "built": "2026-09-19T02:31:39+00:00",
-  "commit": "68c2d27eff39",
+  "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
+  "built": "2026-09-19T05:51:47+00:00",
+  "commit": "720e6bba8ede",
   "generator": "tools/webindex.py over tools/populate.py",
-  "names_note": "Element names are IUPAC labels for search only; they are not a corpus figure. The corpus carries symbols (register 1306)."
+  "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
+  "url": "https://lach-matt.github.io/Claude-Method-Works/",
+  "cite": {
+   "author": "Lach, M.",
+   "title": "The Method Index",
+   "year": 2026,
+   "url": "https://lach-matt.github.io/Claude-Method-Works/",
+   "commit": "720e6bba8ede",
+   "text": "Lach, M. (2026). The Method Index, edition 720e6bba8ede. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 720e6bba8ede}\n}"
+  },
+  "history": [
+   {
+    "date": "2026-09-17",
+    "commit": "745414d",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/745414d310e11b6eed9fd45e4c985f1be5746cab",
+    "note": "first page"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "a4cd621",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a4cd621ca4da021e81541072e64cbac98c42de4e",
+    "note": "interactive index, first pass"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "ef7b325",
+    "files": 125,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ef7b325d5e5b995bd8f6dbe9a84a007e5fae2138",
+    "note": "touch-first site; data as script files; solver suite; coefficient calculator"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "86276a0",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/86276a0156ea96dafa602250ec6fecc1833dd0fb",
+    "note": "the relativistic limit as a seventh mode; the bounds facet"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "d415284",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d41528441103cb380cfa510c1cbc3472a7fd258a",
+    "note": "mode 7 asserts both directions, thorium the null-difference control"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "0360a25",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0360a2553588d77d7fc56c72e61cf60d32c2d50e",
+    "note": "the Löwdin delivery's reply cited from the store"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "e9b77f6",
+    "files": 125,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/e9b77f6fa39028830e34cf81de03a3e1d0b2ba7d",
+    "note": "the Löwdin walk reconstructed beside the paper, at both settings"
+   },
+   {
+    "date": "2026-09-18",
+    "commit": "5755759",
+    "files": 122,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/575575964f5eeeef2208e51a95d1f51a0c0ca008",
+    "note": "a Hartree-Fock field with non-local exchange, in progress"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "ab7a374",
+    "files": 121,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab7a3742aaf6bfd10921f4131cfd3093a3cd07f6",
+    "note": "the walk in the paper's own Hartree-Fock field, 476 rows"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "5e55930",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5e5593054009768846b3a71edd0a055427a57ff0",
+    "note": "the thirty-six cells carry their definitions; helium's placement offered"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "fc8bcdb",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fc8bcdb8e459165ac48fea60f18e23174958c542",
+    "note": "the lattice in three dimensions: every element its slab, rotatable and zoomable"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "81bd08e",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/81bd08ede450f54b59a4f9f032b28fb50877a257",
+    "note": "particles and binders; references linked by construction; the muon balance as a mode"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "3f71e96",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/3f71e96eaf2d796bc3ebe7373fdef021f3e3589e",
+    "note": "set like a reference work: type, palette, frame"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "337b922",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/337b9226e1f238708590f97941255bdbd60eda1e",
+    "note": "the index's cells drawn as a table, not a grid"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "3c1abef",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/3c1abef14024112146e92434ea3601485de13998",
+    "note": "the lattice drawn as a figure: fitted, grounded, labelled"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "07f9ff7",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/07f9ff7ebe9bd4b4359ba8b325432e1c00528f81",
+    "note": "the lattice's cells as nodes"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "2d0d5e3",
+    "files": 28,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2d0d5e3340fdf12de1eca5bf013895ce5342149c",
+    "note": "the public build: the site cites nothing from the unpublished books"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "7612e56",
+    "files": 16,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/7612e562bdb17f87ee6ab4063a453c9a6b394fe5",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "229a595",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/229a5950d6d91c4159953d39f265fdd168bc1fdb",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "4832489",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/48324891e26ea5276c3adc7729196742f9c8db15",
+    "note": null
+   }
+  ]
  },
+ "papers": {
+  "file": "data/papers.js",
+  "bytes": 75290,
+  "md5": "290fd4eb9de42ebea0f88a804a89978d",
+  "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
+  "papers": [
+   {
+    "slug": "lowdin",
+    "title": "THE LÖWDIN SOLUTION",
+    "subtitle": "Deriving the Structure of the Periodic Table from the Many-Electron Schrödinger Equation",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 38040,
+    "md5": "4a06e8930b9f7a7a8226dca2db39e35c",
+    "md5_recorded": "4a06e8930b9f7a7a8226dca2db39e35c",
+    "words": 5859,
+    "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
+    "headings": 25,
+    "figures": 6,
+    "figures_ok": true,
+    "arxiv": 1,
+    "doi": 5
+   },
+   {
+    "slug": "three-body",
+    "title": "The Three-Body Problem for Unknown Masses",
+    "subtitle": "A Closed Index of Families",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 23022,
+    "md5": "f2adca041b5d95d941b40a6e7dfae64c",
+    "md5_recorded": "f2adca041b5d95d941b40a6e7dfae64c",
+    "words": 3636,
+    "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
+    "headings": 16,
+    "figures": 3,
+    "figures_ok": true,
+    "arxiv": 2,
+    "doi": 0
+   },
+   {
+    "slug": "languages",
+    "title": "The hierarchy of mathematical languages",
+    "subtitle": null,
+    "author": "Lach, M.",
+    "held": false,
+    "bytes": null,
+    "md5": null,
+    "md5_recorded": null,
+    "words": null,
+    "note": "named by the author as released to the site; the paper's file is not yet in the repository, so the site lists it and shows nothing in its place",
+    "headings": 0,
+    "figures": 0,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 0
+   }
+  ]
+ },
+ "downloads": [
+  {
+   "file": "data/index.js",
+   "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"
+  },
+  {
+   "file": "data/elements/<Z>.js",
+   "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"
+  },
+  {
+   "file": "data/papers.js",
+   "bytes": 75290,
+   "md5": "290fd4eb9de42ebea0f88a804a89978d",
+   "what": "the released papers, rendered"
+  },
+  {
+   "file": "data/particles.js",
+   "bytes": 173238,
+   "md5": "19944962334e6c3bd1dbec8da780a726",
+   "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
+  },
+  {
+   "file": "data/LOWDIN-WALK.tsv",
+   "bytes": 200468,
+   "md5": "dcbc40204fe066ae46044be3d8029c86",
+   "what": "the reconstructed walk, 476 rows, RECONSTRUCTED; the table the site reads"
+  },
+  {
+   "file": "figures/FIG6relativisticvsnonrelativistic.png",
+   "what": "Figure 5 of the Löwdin paper, with its ledger md5"
+  }
+ ],
  "sources": [
   {
-   "file": "method/members/LW1-ground.py",
-   "role": "observed ground configurations, Z = 1 to 108 (register 1306, NIST ASD 5.12)",
+   "file": "the observed configurations table",
+   "role": "observed ground configurations, Z = 1 to 108 (NIST ASD 5.12)",
    "md5_recorded": "236975ac23aa29960d4f7c2a4d200cd6",
    "md5_measured": "236975ac23aa29960d4f7c2a4d200cd6",
-   "bundle": "BUILD180_compendia",
    "ok": true
   },
   {
-   "file": "method/members/tower-2.py",
+   "file": "the tower",
    "role": "the tower above Λ₈",
    "md5_recorded": "c0bce27abe23ad939d297ac1022a01d7",
    "md5_measured": "c0bce27abe23ad939d297ac1022a01d7",
-   "bundle": "BUILD180_compendia",
    "ok": true
   },
   {
-   "file": "drive/The Method Materials/COORDINATES-2_13.csv",
+   "file": "COORDINATES-2.13 (csv)",
    "role": "the spectra index: (Z, charge, ℓ, mult) → a channel",
    "md5_recorded": "906d08be19630b6f824ec0164de11773",
    "md5_measured": "906d08be19630b6f824ec0164de11773",
@@ -34,11 +275,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   }
  ],
  "status_legend": {
-  "READ": "a measurement, taken from a member or the mirror",
-  "PINNED": "the corpus defines it at the precision a program needs",
+  "READ": "a measurement, taken as recorded from the source data",
+  "PINNED": "a standing definition, stated at the precision a program needs",
   "DERIVED": "arithmetic on a READ or PINNED quantity, nothing added",
-  "RECOVERED": "not stated in any member, but recovered by measurement from the index's own computed column and consistent with what the registers say about it qualitatively",
-  "RECONSTRUCTED": "the corpus states the object and its behaviour but not the form a program needs; reconstructed here, measured, and kept as such so a later ruling can move it"
+  "RECOVERED": "not stated anywhere in a program's form, but recovered by measurement from the index's own computed column and consistent with what is said of it qualitatively",
+  "RECONSTRUCTED": "the object and its behaviour are stated but not the form a program needs; reconstructed here, measured, and kept as such so a later decision can move it"
  },
  "axes": [
   {
@@ -49,7 +290,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "symbol",
    "status": "READ",
-   "source": "NIST ASD 5.12 via LW1-ground.py (register 1306)"
+   "source": "NIST ASD 5.12, through the observed configurations table"
   },
   {
    "axis": "configuration",
@@ -79,17 +320,17 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "capacity",
    "status": "PINNED",
-   "source": "2(2l+1), Pauli exclusion (section 7.1)"
+   "source": "2(2l+1), Pauli exclusion"
   },
   {
    "axis": "n+l",
    "status": "DERIVED",
-   "source": "the Madelung/Janet coordinate (register 1188)"
+   "source": "the Madelung/Janet coordinate"
   },
   {
    "axis": "period",
    "status": "DERIVED",
-   "source": "the drawn eighteen-column layout (section 6)"
+   "source": "the drawn eighteen-column layout"
   },
   {
    "axis": "group",
@@ -119,7 +360,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "p",
    "status": "PINNED",
-   "source": "the core's orbital count at this l (register 1141)"
+   "source": "the core's orbital count at this l, from the Pauli bound's definition"
   },
   {
    "axis": "n0",
@@ -129,7 +370,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "B",
    "status": "PINNED",
-   "source": "min(p, n0-l-1), the Pauli bound (register 1141)"
+   "source": "min(p, n0-l-1), the Pauli bound"
   },
   {
    "axis": "delta measured",
@@ -139,12 +380,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "delta equation",
    "status": "PINNED",
-   "source": "the channel equation, final form (register 1205)"
+   "source": "the channel equation, final form"
   },
   {
    "axis": "C(Z)",
    "status": "RECOVERED",
-   "source": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188-1190); see collapse_C"
+   "source": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column; see collapse_C"
   },
   {
    "axis": "witness",
@@ -164,7 +405,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "axis": "caps",
    "status": "PINNED",
-   "source": "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"
+   "source": "the standing caps (n,e,l,k,f) = (3,3,1,3,1)"
+  },
+  {
+   "axis": "series limit",
+   "status": "READ",
+   "source": "the measured ionisation limit, read as printed or fitted from the series, never computed; none where not held"
   }
  ],
  "caps": {
@@ -194,9 +440,9739 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "g": "target occupancy",
   "2S": "multiplicity"
  },
+ "lattice": {
+  "index": "Lambda_spectra as a lattice: element across, l into the page, ionisation stage up",
+  "axes": {
+   "x": "Z, the element",
+   "y": "charge, the ionisation stage (1 is neutral)",
+   "z": "l, the channel (0 to 7: s p d f g h i k)"
+  },
+  "status": "READ",
+  "source": "the author's own three-dimensional drawing of the index (element across, l into the page, ionisation stage up; the Löwdin paper's Figure 1(b) draws the same solid), whose renderer used cubes of edge 0.86 for a known cell and 0.30 for an unmeasured one",
+  "drawing": "DERIVED",
+  "slab": "every element's slab is charge 1..Z by l 0..7; a site holds one cell per multiplicity, side by side",
+  "sites": 58080,
+  "Z_max": 120,
+  "known": [
+   [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    1,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    2,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    3,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    4,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    5,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    6,
+    2,
+    2
+   ],
+   [
+    1,
+    1,
+    7,
+    2,
+    2
+   ],
+   [
+    2,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    0,
+    3,
+    1
+   ],
+   [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    2,
+    1,
+    3,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    4,
+    1,
+    1
+   ],
+   [
+    2,
+    2,
+    0,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    1,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    3,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    4,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    5,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    6,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    7,
+    2,
+    2
+   ],
+   [
+    3,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    3,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    3,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    3,
+    2,
+    0,
+    1,
+    1
+   ],
+   [
+    3,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    3,
+    2,
+    1,
+    1,
+    1
+   ],
+   [
+    3,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    3,
+    2,
+    2,
+    1,
+    1
+   ],
+   [
+    3,
+    2,
+    2,
+    3,
+    1
+   ],
+   [
+    3,
+    2,
+    3,
+    1,
+    1
+   ],
+   [
+    3,
+    2,
+    3,
+    3,
+    1
+   ],
+   [
+    3,
+    2,
+    4,
+    1,
+    1
+   ],
+   [
+    3,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    3,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    3,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    3,
+    3,
+    3,
+    2,
+    1
+   ],
+   [
+    3,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    3,
+    3,
+    5,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    6,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    7,
+    2,
+    2
+   ],
+   [
+    4,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    4,
+    1,
+    0,
+    3,
+    1
+   ],
+   [
+    4,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    4,
+    1,
+    1,
+    3,
+    1
+   ],
+   [
+    4,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    4,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    4,
+    1,
+    3,
+    3,
+    1
+   ],
+   [
+    4,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    4,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    4,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    4,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    4,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    4,
+    3,
+    0,
+    1,
+    1
+   ],
+   [
+    4,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    4,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    4,
+    3,
+    2,
+    1,
+    1
+   ],
+   [
+    4,
+    3,
+    2,
+    3,
+    1
+   ],
+   [
+    4,
+    3,
+    3,
+    1,
+    1
+   ],
+   [
+    4,
+    3,
+    4,
+    1,
+    1
+   ],
+   [
+    4,
+    4,
+    0,
+    2,
+    1
+   ],
+   [
+    4,
+    4,
+    1,
+    2,
+    1
+   ],
+   [
+    4,
+    4,
+    2,
+    2,
+    1
+   ],
+   [
+    4,
+    4,
+    3,
+    2,
+    1
+   ],
+   [
+    4,
+    4,
+    4,
+    2,
+    1
+   ],
+   [
+    4,
+    4,
+    5,
+    2,
+    2
+   ],
+   [
+    4,
+    4,
+    6,
+    2,
+    2
+   ],
+   [
+    4,
+    4,
+    7,
+    2,
+    2
+   ],
+   [
+    5,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    5,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    5,
+    2,
+    0,
+    1,
+    1
+   ],
+   [
+    5,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    5,
+    2,
+    1,
+    1,
+    1
+   ],
+   [
+    5,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    5,
+    2,
+    2,
+    1,
+    1
+   ],
+   [
+    5,
+    2,
+    2,
+    3,
+    1
+   ],
+   [
+    5,
+    2,
+    3,
+    3,
+    1
+   ],
+   [
+    5,
+    2,
+    4,
+    3,
+    1
+   ],
+   [
+    5,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    5,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    5,
+    3,
+    3,
+    2,
+    1
+   ],
+   [
+    5,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    5,
+    4,
+    0,
+    1,
+    1
+   ],
+   [
+    5,
+    4,
+    0,
+    3,
+    1
+   ],
+   [
+    5,
+    4,
+    1,
+    1,
+    1
+   ],
+   [
+    5,
+    4,
+    1,
+    3,
+    1
+   ],
+   [
+    5,
+    4,
+    2,
+    1,
+    1
+   ],
+   [
+    5,
+    4,
+    2,
+    3,
+    1
+   ],
+   [
+    5,
+    4,
+    3,
+    1,
+    1
+   ],
+   [
+    5,
+    4,
+    4,
+    1,
+    1
+   ],
+   [
+    5,
+    5,
+    0,
+    2,
+    1
+   ],
+   [
+    5,
+    5,
+    1,
+    2,
+    1
+   ],
+   [
+    5,
+    5,
+    2,
+    2,
+    1
+   ],
+   [
+    5,
+    5,
+    3,
+    2,
+    1
+   ],
+   [
+    5,
+    5,
+    4,
+    2,
+    1
+   ],
+   [
+    5,
+    5,
+    5,
+    2,
+    2
+   ],
+   [
+    5,
+    5,
+    6,
+    2,
+    2
+   ],
+   [
+    5,
+    5,
+    7,
+    2,
+    2
+   ],
+   [
+    6,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    6,
+    1,
+    0,
+    3,
+    1
+   ],
+   [
+    6,
+    1,
+    1,
+    3,
+    1
+   ],
+   [
+    6,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    6,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    6,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    6,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    6,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    6,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    6,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    6,
+    3,
+    0,
+    1,
+    1
+   ],
+   [
+    6,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    6,
+    3,
+    1,
+    1,
+    1
+   ],
+   [
+    6,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    6,
+    3,
+    2,
+    1,
+    1
+   ],
+   [
+    6,
+    3,
+    2,
+    3,
+    1
+   ],
+   [
+    6,
+    3,
+    3,
+    3,
+    1
+   ],
+   [
+    6,
+    3,
+    4,
+    3,
+    1
+   ],
+   [
+    6,
+    5,
+    0,
+    1,
+    1
+   ],
+   [
+    6,
+    5,
+    0,
+    3,
+    1
+   ],
+   [
+    6,
+    5,
+    1,
+    1,
+    1
+   ],
+   [
+    6,
+    5,
+    1,
+    3,
+    1
+   ],
+   [
+    6,
+    5,
+    2,
+    1,
+    1
+   ],
+   [
+    6,
+    5,
+    2,
+    3,
+    1
+   ],
+   [
+    6,
+    5,
+    3,
+    1,
+    1
+   ],
+   [
+    6,
+    5,
+    3,
+    3,
+    1
+   ],
+   [
+    6,
+    5,
+    4,
+    1,
+    1
+   ],
+   [
+    6,
+    5,
+    4,
+    3,
+    1
+   ],
+   [
+    6,
+    6,
+    0,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    1,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    2,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    3,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    4,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    5,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    6,
+    2,
+    2
+   ],
+   [
+    6,
+    6,
+    7,
+    2,
+    2
+   ],
+   [
+    7,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    7,
+    1,
+    0,
+    4,
+    1
+   ],
+   [
+    7,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    7,
+    1,
+    1,
+    4,
+    1
+   ],
+   [
+    7,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    7,
+    1,
+    2,
+    4,
+    1
+   ],
+   [
+    7,
+    2,
+    0,
+    1,
+    1
+   ],
+   [
+    7,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    7,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    7,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    7,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    7,
+    3,
+    3,
+    2,
+    1
+   ],
+   [
+    7,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    7,
+    4,
+    0,
+    1,
+    1
+   ],
+   [
+    7,
+    4,
+    1,
+    1,
+    1
+   ],
+   [
+    7,
+    4,
+    2,
+    1,
+    1
+   ],
+   [
+    7,
+    7,
+    0,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    1,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    2,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    3,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    4,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    5,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    6,
+    2,
+    2
+   ],
+   [
+    7,
+    7,
+    7,
+    2,
+    2
+   ],
+   [
+    8,
+    3,
+    0,
+    1,
+    1
+   ],
+   [
+    8,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    8,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    8,
+    3,
+    2,
+    1,
+    1
+   ],
+   [
+    8,
+    3,
+    2,
+    3,
+    1
+   ],
+   [
+    8,
+    4,
+    0,
+    2,
+    1
+   ],
+   [
+    8,
+    4,
+    1,
+    2,
+    1
+   ],
+   [
+    8,
+    4,
+    2,
+    2,
+    1
+   ],
+   [
+    8,
+    4,
+    3,
+    2,
+    1
+   ],
+   [
+    8,
+    4,
+    4,
+    2,
+    1
+   ],
+   [
+    8,
+    8,
+    0,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    1,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    2,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    3,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    4,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    5,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    6,
+    2,
+    2
+   ],
+   [
+    8,
+    8,
+    7,
+    2,
+    2
+   ],
+   [
+    9,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    9,
+    1,
+    0,
+    4,
+    1
+   ],
+   [
+    9,
+    1,
+    1,
+    4,
+    1
+   ],
+   [
+    9,
+    1,
+    2,
+    4,
+    1
+   ],
+   [
+    9,
+    9,
+    0,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    1,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    2,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    3,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    4,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    5,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    6,
+    2,
+    2
+   ],
+   [
+    9,
+    9,
+    7,
+    2,
+    2
+   ],
+   [
+    10,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    10,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    10,
+    2,
+    0,
+    4,
+    1
+   ],
+   [
+    10,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    10,
+    2,
+    1,
+    4,
+    1
+   ],
+   [
+    10,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    10,
+    2,
+    2,
+    4,
+    1
+   ],
+   [
+    10,
+    10,
+    0,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    1,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    2,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    3,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    4,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    5,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    6,
+    2,
+    2
+   ],
+   [
+    10,
+    10,
+    7,
+    2,
+    2
+   ],
+   [
+    11,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    11,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    11,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    11,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    11,
+    1,
+    4,
+    2,
+    1
+   ],
+   [
+    11,
+    1,
+    5,
+    2,
+    1
+   ],
+   [
+    11,
+    11,
+    0,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    1,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    2,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    3,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    4,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    5,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    6,
+    2,
+    2
+   ],
+   [
+    11,
+    11,
+    7,
+    2,
+    2
+   ],
+   [
+    12,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    12,
+    1,
+    0,
+    3,
+    1
+   ],
+   [
+    12,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    12,
+    1,
+    1,
+    3,
+    1
+   ],
+   [
+    12,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    12,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    12,
+    1,
+    3,
+    1,
+    1
+   ],
+   [
+    12,
+    1,
+    3,
+    3,
+    1
+   ],
+   [
+    12,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    12,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    12,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    12,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    12,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    12,
+    12,
+    0,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    1,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    2,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    3,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    4,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    5,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    6,
+    2,
+    2
+   ],
+   [
+    12,
+    12,
+    7,
+    2,
+    2
+   ],
+   [
+    13,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    13,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    13,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    13,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    13,
+    1,
+    4,
+    2,
+    1
+   ],
+   [
+    13,
+    2,
+    0,
+    1,
+    1
+   ],
+   [
+    13,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    13,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    13,
+    2,
+    2,
+    1,
+    1
+   ],
+   [
+    13,
+    2,
+    2,
+    3,
+    1
+   ],
+   [
+    13,
+    2,
+    3,
+    3,
+    1
+   ],
+   [
+    13,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    13,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    13,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    13,
+    3,
+    3,
+    2,
+    1
+   ],
+   [
+    13,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    13,
+    13,
+    0,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    1,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    2,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    3,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    4,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    5,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    6,
+    2,
+    2
+   ],
+   [
+    13,
+    13,
+    7,
+    2,
+    2
+   ],
+   [
+    14,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    14,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    14,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    14,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    14,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    14,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    14,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    14,
+    3,
+    0,
+    1,
+    1
+   ],
+   [
+    14,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    14,
+    3,
+    1,
+    1,
+    1
+   ],
+   [
+    14,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    14,
+    3,
+    2,
+    1,
+    1
+   ],
+   [
+    14,
+    3,
+    2,
+    3,
+    1
+   ],
+   [
+    14,
+    3,
+    3,
+    1,
+    1
+   ],
+   [
+    14,
+    3,
+    3,
+    3,
+    1
+   ],
+   [
+    14,
+    3,
+    4,
+    1,
+    1
+   ],
+   [
+    14,
+    3,
+    4,
+    3,
+    1
+   ],
+   [
+    14,
+    4,
+    0,
+    2,
+    1
+   ],
+   [
+    14,
+    4,
+    1,
+    2,
+    1
+   ],
+   [
+    14,
+    4,
+    2,
+    2,
+    1
+   ],
+   [
+    14,
+    4,
+    3,
+    2,
+    1
+   ],
+   [
+    14,
+    4,
+    4,
+    2,
+    1
+   ],
+   [
+    14,
+    14,
+    0,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    1,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    2,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    3,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    4,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    5,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    6,
+    2,
+    2
+   ],
+   [
+    14,
+    14,
+    7,
+    2,
+    2
+   ],
+   [
+    15,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    15,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    15,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    15,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    15,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    15,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    15,
+    4,
+    0,
+    1,
+    1
+   ],
+   [
+    15,
+    4,
+    0,
+    3,
+    1
+   ],
+   [
+    15,
+    4,
+    1,
+    1,
+    1
+   ],
+   [
+    15,
+    4,
+    1,
+    3,
+    1
+   ],
+   [
+    15,
+    4,
+    2,
+    1,
+    1
+   ],
+   [
+    15,
+    4,
+    2,
+    3,
+    1
+   ],
+   [
+    15,
+    4,
+    3,
+    3,
+    1
+   ],
+   [
+    15,
+    15,
+    0,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    1,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    2,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    3,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    4,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    5,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    6,
+    2,
+    2
+   ],
+   [
+    15,
+    15,
+    7,
+    2,
+    2
+   ],
+   [
+    16,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    16,
+    4,
+    0,
+    2,
+    1
+   ],
+   [
+    16,
+    4,
+    1,
+    2,
+    1
+   ],
+   [
+    16,
+    4,
+    2,
+    2,
+    1
+   ],
+   [
+    16,
+    5,
+    0,
+    1,
+    1
+   ],
+   [
+    16,
+    5,
+    0,
+    3,
+    1
+   ],
+   [
+    16,
+    5,
+    1,
+    1,
+    1
+   ],
+   [
+    16,
+    5,
+    1,
+    3,
+    1
+   ],
+   [
+    16,
+    5,
+    2,
+    1,
+    1
+   ],
+   [
+    16,
+    5,
+    2,
+    3,
+    1
+   ],
+   [
+    16,
+    5,
+    3,
+    1,
+    1
+   ],
+   [
+    16,
+    5,
+    3,
+    3,
+    1
+   ],
+   [
+    16,
+    6,
+    0,
+    2,
+    1
+   ],
+   [
+    16,
+    6,
+    1,
+    2,
+    1
+   ],
+   [
+    16,
+    6,
+    2,
+    2,
+    1
+   ],
+   [
+    16,
+    6,
+    3,
+    2,
+    1
+   ],
+   [
+    16,
+    6,
+    4,
+    2,
+    1
+   ],
+   [
+    16,
+    16,
+    0,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    1,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    2,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    3,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    4,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    5,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    6,
+    2,
+    2
+   ],
+   [
+    16,
+    16,
+    7,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    0,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    1,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    2,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    3,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    4,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    5,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    6,
+    2,
+    2
+   ],
+   [
+    17,
+    17,
+    7,
+    2,
+    2
+   ],
+   [
+    18,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    18,
+    2,
+    0,
+    4,
+    1
+   ],
+   [
+    18,
+    2,
+    2,
+    4,
+    1
+   ],
+   [
+    18,
+    18,
+    0,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    1,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    2,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    3,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    4,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    5,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    6,
+    2,
+    2
+   ],
+   [
+    18,
+    18,
+    7,
+    2,
+    2
+   ],
+   [
+    19,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    19,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    19,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    19,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    19,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    19,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    19,
+    19,
+    0,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    1,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    2,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    3,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    4,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    5,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    6,
+    2,
+    2
+   ],
+   [
+    19,
+    19,
+    7,
+    2,
+    2
+   ],
+   [
+    20,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    20,
+    1,
+    0,
+    3,
+    1
+   ],
+   [
+    20,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    20,
+    1,
+    1,
+    3,
+    1
+   ],
+   [
+    20,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    20,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    20,
+    1,
+    3,
+    1,
+    1
+   ],
+   [
+    20,
+    1,
+    3,
+    3,
+    1
+   ],
+   [
+    20,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    20,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    20,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    20,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    20,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    20,
+    4,
+    0,
+    2,
+    1
+   ],
+   [
+    20,
+    4,
+    1,
+    2,
+    1
+   ],
+   [
+    20,
+    4,
+    2,
+    2,
+    1
+   ],
+   [
+    20,
+    9,
+    0,
+    3,
+    1
+   ],
+   [
+    20,
+    9,
+    1,
+    1,
+    1
+   ],
+   [
+    20,
+    9,
+    2,
+    1,
+    1
+   ],
+   [
+    20,
+    9,
+    3,
+    1,
+    1
+   ],
+   [
+    20,
+    10,
+    0,
+    2,
+    1
+   ],
+   [
+    20,
+    10,
+    2,
+    2,
+    1
+   ],
+   [
+    20,
+    20,
+    0,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    1,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    2,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    3,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    4,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    5,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    6,
+    2,
+    2
+   ],
+   [
+    20,
+    20,
+    7,
+    2,
+    2
+   ],
+   [
+    21,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    21,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    21,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    21,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    21,
+    3,
+    3,
+    2,
+    1
+   ],
+   [
+    21,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    21,
+    21,
+    0,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    1,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    2,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    3,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    4,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    5,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    6,
+    2,
+    2
+   ],
+   [
+    21,
+    21,
+    7,
+    2,
+    2
+   ],
+   [
+    22,
+    3,
+    0,
+    1,
+    1
+   ],
+   [
+    22,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    22,
+    3,
+    1,
+    1,
+    1
+   ],
+   [
+    22,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    22,
+    3,
+    2,
+    1,
+    1
+   ],
+   [
+    22,
+    3,
+    2,
+    3,
+    1
+   ],
+   [
+    22,
+    4,
+    0,
+    2,
+    1
+   ],
+   [
+    22,
+    4,
+    1,
+    2,
+    1
+   ],
+   [
+    22,
+    4,
+    2,
+    2,
+    1
+   ],
+   [
+    22,
+    4,
+    3,
+    2,
+    1
+   ],
+   [
+    22,
+    11,
+    0,
+    1,
+    1
+   ],
+   [
+    22,
+    11,
+    0,
+    3,
+    1
+   ],
+   [
+    22,
+    11,
+    1,
+    1,
+    1
+   ],
+   [
+    22,
+    11,
+    3,
+    1,
+    1
+   ],
+   [
+    22,
+    22,
+    0,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    1,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    2,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    3,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    4,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    5,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    6,
+    2,
+    2
+   ],
+   [
+    22,
+    22,
+    7,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    0,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    1,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    2,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    3,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    4,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    5,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    6,
+    2,
+    2
+   ],
+   [
+    23,
+    23,
+    7,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    0,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    1,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    2,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    3,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    4,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    5,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    6,
+    2,
+    2
+   ],
+   [
+    24,
+    24,
+    7,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    0,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    1,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    2,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    3,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    4,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    5,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    6,
+    2,
+    2
+   ],
+   [
+    25,
+    25,
+    7,
+    2,
+    2
+   ],
+   [
+    26,
+    8,
+    1,
+    2,
+    1
+   ],
+   [
+    26,
+    8,
+    2,
+    2,
+    1
+   ],
+   [
+    26,
+    8,
+    3,
+    2,
+    1
+   ],
+   [
+    26,
+    15,
+    1,
+    1,
+    1
+   ],
+   [
+    26,
+    15,
+    2,
+    3,
+    1
+   ],
+   [
+    26,
+    15,
+    3,
+    1,
+    1
+   ],
+   [
+    26,
+    15,
+    3,
+    3,
+    1
+   ],
+   [
+    26,
+    16,
+    0,
+    2,
+    1
+   ],
+   [
+    26,
+    16,
+    1,
+    2,
+    1
+   ],
+   [
+    26,
+    16,
+    2,
+    2,
+    1
+   ],
+   [
+    26,
+    16,
+    3,
+    2,
+    1
+   ],
+   [
+    26,
+    26,
+    0,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    1,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    2,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    3,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    4,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    5,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    6,
+    2,
+    2
+   ],
+   [
+    26,
+    26,
+    7,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    0,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    1,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    2,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    3,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    4,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    5,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    6,
+    2,
+    2
+   ],
+   [
+    27,
+    27,
+    7,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    0,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    1,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    2,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    3,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    4,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    5,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    6,
+    2,
+    2
+   ],
+   [
+    28,
+    28,
+    7,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    0,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    1,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    2,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    3,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    4,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    5,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    6,
+    2,
+    2
+   ],
+   [
+    29,
+    29,
+    7,
+    2,
+    2
+   ],
+   [
+    30,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    30,
+    1,
+    1,
+    3,
+    1
+   ],
+   [
+    30,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    30,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    30,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    30,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    30,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    30,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    30,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    30,
+    30,
+    0,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    1,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    2,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    3,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    4,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    5,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    6,
+    2,
+    2
+   ],
+   [
+    30,
+    30,
+    7,
+    2,
+    2
+   ],
+   [
+    31,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    31,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    31,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    31,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    31,
+    2,
+    0,
+    1,
+    1
+   ],
+   [
+    31,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    31,
+    2,
+    2,
+    1,
+    1
+   ],
+   [
+    31,
+    2,
+    2,
+    3,
+    1
+   ],
+   [
+    31,
+    2,
+    3,
+    1,
+    1
+   ],
+   [
+    31,
+    2,
+    3,
+    3,
+    1
+   ],
+   [
+    31,
+    31,
+    0,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    1,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    2,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    3,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    4,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    5,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    6,
+    2,
+    2
+   ],
+   [
+    31,
+    31,
+    7,
+    2,
+    2
+   ],
+   [
+    32,
+    3,
+    0,
+    1,
+    1
+   ],
+   [
+    32,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    32,
+    3,
+    2,
+    1,
+    1
+   ],
+   [
+    32,
+    3,
+    2,
+    3,
+    1
+   ],
+   [
+    32,
+    3,
+    4,
+    3,
+    1
+   ],
+   [
+    32,
+    32,
+    0,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    1,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    2,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    3,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    4,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    5,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    6,
+    2,
+    2
+   ],
+   [
+    32,
+    32,
+    7,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    0,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    1,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    2,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    3,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    4,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    5,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    6,
+    2,
+    2
+   ],
+   [
+    33,
+    33,
+    7,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    0,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    1,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    2,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    3,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    4,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    5,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    6,
+    2,
+    2
+   ],
+   [
+    34,
+    34,
+    7,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    0,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    1,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    2,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    3,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    4,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    5,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    6,
+    2,
+    2
+   ],
+   [
+    35,
+    35,
+    7,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    0,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    1,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    2,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    3,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    4,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    5,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    6,
+    2,
+    2
+   ],
+   [
+    36,
+    36,
+    7,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    0,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    1,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    2,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    3,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    4,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    5,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    6,
+    2,
+    2
+   ],
+   [
+    37,
+    37,
+    7,
+    2,
+    2
+   ],
+   [
+    38,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    38,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    38,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    38,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    38,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    38,
+    38,
+    0,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    1,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    2,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    3,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    4,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    5,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    6,
+    2,
+    2
+   ],
+   [
+    38,
+    38,
+    7,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    0,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    1,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    2,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    3,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    4,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    5,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    6,
+    2,
+    2
+   ],
+   [
+    39,
+    39,
+    7,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    0,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    1,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    2,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    3,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    4,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    5,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    6,
+    2,
+    2
+   ],
+   [
+    40,
+    40,
+    7,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    0,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    1,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    2,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    3,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    4,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    5,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    6,
+    2,
+    2
+   ],
+   [
+    41,
+    41,
+    7,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    0,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    1,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    2,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    3,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    4,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    5,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    6,
+    2,
+    2
+   ],
+   [
+    42,
+    42,
+    7,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    0,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    1,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    2,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    3,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    4,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    5,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    6,
+    2,
+    2
+   ],
+   [
+    43,
+    43,
+    7,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    0,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    1,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    2,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    3,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    4,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    5,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    6,
+    2,
+    2
+   ],
+   [
+    44,
+    44,
+    7,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    0,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    1,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    2,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    3,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    4,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    5,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    6,
+    2,
+    2
+   ],
+   [
+    45,
+    45,
+    7,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    0,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    1,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    2,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    3,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    4,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    5,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    6,
+    2,
+    2
+   ],
+   [
+    46,
+    46,
+    7,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    0,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    1,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    2,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    3,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    4,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    5,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    6,
+    2,
+    2
+   ],
+   [
+    47,
+    47,
+    7,
+    2,
+    2
+   ],
+   [
+    48,
+    1,
+    0,
+    1,
+    1
+   ],
+   [
+    48,
+    1,
+    0,
+    3,
+    1
+   ],
+   [
+    48,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    48,
+    1,
+    1,
+    3,
+    1
+   ],
+   [
+    48,
+    1,
+    2,
+    1,
+    1
+   ],
+   [
+    48,
+    1,
+    2,
+    3,
+    1
+   ],
+   [
+    48,
+    1,
+    3,
+    3,
+    1
+   ],
+   [
+    48,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    48,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    48,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    48,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    48,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    48,
+    48,
+    0,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    1,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    2,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    3,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    4,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    5,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    6,
+    2,
+    2
+   ],
+   [
+    48,
+    48,
+    7,
+    2,
+    2
+   ],
+   [
+    49,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    49,
+    49,
+    0,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    1,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    2,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    3,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    4,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    5,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    6,
+    2,
+    2
+   ],
+   [
+    49,
+    49,
+    7,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    0,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    1,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    2,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    3,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    4,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    5,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    6,
+    2,
+    2
+   ],
+   [
+    50,
+    50,
+    7,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    0,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    1,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    2,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    3,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    4,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    5,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    6,
+    2,
+    2
+   ],
+   [
+    51,
+    51,
+    7,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    0,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    1,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    2,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    3,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    4,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    5,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    6,
+    2,
+    2
+   ],
+   [
+    52,
+    52,
+    7,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    0,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    1,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    2,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    3,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    4,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    5,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    6,
+    2,
+    2
+   ],
+   [
+    53,
+    53,
+    7,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    0,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    1,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    2,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    3,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    4,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    5,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    6,
+    2,
+    2
+   ],
+   [
+    54,
+    54,
+    7,
+    2,
+    2
+   ],
+   [
+    55,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    55,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    55,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    55,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    55,
+    1,
+    4,
+    2,
+    1
+   ],
+   [
+    55,
+    55,
+    0,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    1,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    2,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    3,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    4,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    5,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    6,
+    2,
+    2
+   ],
+   [
+    55,
+    55,
+    7,
+    2,
+    2
+   ],
+   [
+    56,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    56,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    56,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    56,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    56,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    56,
+    56,
+    0,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    1,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    2,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    3,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    4,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    5,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    6,
+    2,
+    2
+   ],
+   [
+    56,
+    56,
+    7,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    0,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    1,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    2,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    3,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    4,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    5,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    6,
+    2,
+    2
+   ],
+   [
+    57,
+    57,
+    7,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    0,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    1,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    2,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    3,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    4,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    5,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    6,
+    2,
+    2
+   ],
+   [
+    58,
+    58,
+    7,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    0,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    1,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    2,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    3,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    4,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    5,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    6,
+    2,
+    2
+   ],
+   [
+    59,
+    59,
+    7,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    0,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    1,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    2,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    3,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    4,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    5,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    6,
+    2,
+    2
+   ],
+   [
+    60,
+    60,
+    7,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    0,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    1,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    2,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    3,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    4,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    5,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    6,
+    2,
+    2
+   ],
+   [
+    61,
+    61,
+    7,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    0,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    1,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    2,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    3,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    4,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    5,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    6,
+    2,
+    2
+   ],
+   [
+    62,
+    62,
+    7,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    0,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    1,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    2,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    3,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    4,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    5,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    6,
+    2,
+    2
+   ],
+   [
+    63,
+    63,
+    7,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    0,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    1,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    2,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    3,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    4,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    5,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    6,
+    2,
+    2
+   ],
+   [
+    64,
+    64,
+    7,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    0,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    1,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    2,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    3,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    4,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    5,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    6,
+    2,
+    2
+   ],
+   [
+    65,
+    65,
+    7,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    0,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    1,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    2,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    3,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    4,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    5,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    6,
+    2,
+    2
+   ],
+   [
+    66,
+    66,
+    7,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    0,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    1,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    2,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    3,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    4,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    5,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    6,
+    2,
+    2
+   ],
+   [
+    67,
+    67,
+    7,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    0,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    1,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    2,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    3,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    4,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    5,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    6,
+    2,
+    2
+   ],
+   [
+    68,
+    68,
+    7,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    0,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    1,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    2,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    3,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    4,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    5,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    6,
+    2,
+    2
+   ],
+   [
+    69,
+    69,
+    7,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    0,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    1,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    2,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    3,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    4,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    5,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    6,
+    2,
+    2
+   ],
+   [
+    70,
+    70,
+    7,
+    2,
+    2
+   ],
+   [
+    71,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    71,
+    71,
+    0,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    1,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    2,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    3,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    4,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    5,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    6,
+    2,
+    2
+   ],
+   [
+    71,
+    71,
+    7,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    0,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    1,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    2,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    3,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    4,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    5,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    6,
+    2,
+    2
+   ],
+   [
+    72,
+    72,
+    7,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    0,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    1,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    2,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    3,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    4,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    5,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    6,
+    2,
+    2
+   ],
+   [
+    73,
+    73,
+    7,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    0,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    1,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    2,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    3,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    4,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    5,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    6,
+    2,
+    2
+   ],
+   [
+    74,
+    74,
+    7,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    0,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    1,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    2,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    3,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    4,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    5,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    6,
+    2,
+    2
+   ],
+   [
+    75,
+    75,
+    7,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    0,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    1,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    2,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    3,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    4,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    5,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    6,
+    2,
+    2
+   ],
+   [
+    76,
+    76,
+    7,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    0,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    1,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    2,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    3,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    4,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    5,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    6,
+    2,
+    2
+   ],
+   [
+    77,
+    77,
+    7,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    0,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    1,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    2,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    3,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    4,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    5,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    6,
+    2,
+    2
+   ],
+   [
+    78,
+    78,
+    7,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    0,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    1,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    2,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    3,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    4,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    5,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    6,
+    2,
+    2
+   ],
+   [
+    79,
+    79,
+    7,
+    2,
+    2
+   ],
+   [
+    80,
+    2,
+    0,
+    2,
+    1
+   ],
+   [
+    80,
+    2,
+    1,
+    2,
+    1
+   ],
+   [
+    80,
+    2,
+    2,
+    2,
+    1
+   ],
+   [
+    80,
+    2,
+    3,
+    2,
+    1
+   ],
+   [
+    80,
+    2,
+    4,
+    2,
+    1
+   ],
+   [
+    80,
+    80,
+    0,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    1,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    2,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    3,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    4,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    5,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    6,
+    2,
+    2
+   ],
+   [
+    80,
+    80,
+    7,
+    2,
+    2
+   ],
+   [
+    81,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    81,
+    1,
+    2,
+    2,
+    1
+   ],
+   [
+    81,
+    1,
+    3,
+    2,
+    1
+   ],
+   [
+    81,
+    81,
+    0,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    1,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    2,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    3,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    4,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    5,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    6,
+    2,
+    2
+   ],
+   [
+    81,
+    81,
+    7,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    0,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    1,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    2,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    3,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    4,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    5,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    6,
+    2,
+    2
+   ],
+   [
+    82,
+    82,
+    7,
+    2,
+    2
+   ],
+   [
+    83,
+    3,
+    0,
+    2,
+    1
+   ],
+   [
+    83,
+    3,
+    1,
+    2,
+    1
+   ],
+   [
+    83,
+    3,
+    2,
+    2,
+    1
+   ],
+   [
+    83,
+    3,
+    4,
+    2,
+    1
+   ],
+   [
+    83,
+    83,
+    0,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    1,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    2,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    3,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    4,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    5,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    6,
+    2,
+    2
+   ],
+   [
+    83,
+    83,
+    7,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    0,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    1,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    2,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    3,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    4,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    5,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    6,
+    2,
+    2
+   ],
+   [
+    84,
+    84,
+    7,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    0,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    1,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    2,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    3,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    4,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    5,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    6,
+    2,
+    2
+   ],
+   [
+    85,
+    85,
+    7,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    0,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    1,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    2,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    3,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    4,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    5,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    6,
+    2,
+    2
+   ],
+   [
+    86,
+    86,
+    7,
+    2,
+    2
+   ],
+   [
+    87,
+    1,
+    0,
+    2,
+    1
+   ],
+   [
+    87,
+    1,
+    1,
+    2,
+    1
+   ],
+   [
+    87,
+    87,
+    0,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    1,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    2,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    3,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    4,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    5,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    6,
+    2,
+    2
+   ],
+   [
+    87,
+    87,
+    7,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    0,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    1,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    2,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    3,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    4,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    5,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    6,
+    2,
+    2
+   ],
+   [
+    88,
+    88,
+    7,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    0,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    1,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    2,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    3,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    4,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    5,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    6,
+    2,
+    2
+   ],
+   [
+    89,
+    89,
+    7,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    0,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    1,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    2,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    3,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    4,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    5,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    6,
+    2,
+    2
+   ],
+   [
+    90,
+    90,
+    7,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    0,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    1,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    2,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    3,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    4,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    5,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    6,
+    2,
+    2
+   ],
+   [
+    91,
+    91,
+    7,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    0,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    1,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    2,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    3,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    4,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    5,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    6,
+    2,
+    2
+   ],
+   [
+    92,
+    92,
+    7,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    0,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    1,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    2,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    3,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    4,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    5,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    6,
+    2,
+    2
+   ],
+   [
+    93,
+    93,
+    7,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    0,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    1,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    2,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    3,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    4,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    5,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    6,
+    2,
+    2
+   ],
+   [
+    94,
+    94,
+    7,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    0,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    1,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    2,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    3,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    4,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    5,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    6,
+    2,
+    2
+   ],
+   [
+    95,
+    95,
+    7,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    0,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    1,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    2,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    3,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    4,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    5,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    6,
+    2,
+    2
+   ],
+   [
+    96,
+    96,
+    7,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    0,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    1,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    2,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    3,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    4,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    5,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    6,
+    2,
+    2
+   ],
+   [
+    97,
+    97,
+    7,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    0,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    1,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    2,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    3,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    4,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    5,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    6,
+    2,
+    2
+   ],
+   [
+    98,
+    98,
+    7,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    0,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    1,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    2,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    3,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    4,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    5,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    6,
+    2,
+    2
+   ],
+   [
+    99,
+    99,
+    7,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    0,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    1,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    2,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    3,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    4,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    5,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    6,
+    2,
+    2
+   ],
+   [
+    100,
+    100,
+    7,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    0,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    1,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    2,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    3,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    4,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    5,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    6,
+    2,
+    2
+   ],
+   [
+    101,
+    101,
+    7,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    0,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    1,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    2,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    3,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    4,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    5,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    6,
+    2,
+    2
+   ],
+   [
+    102,
+    102,
+    7,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    0,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    1,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    2,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    3,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    4,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    5,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    6,
+    2,
+    2
+   ],
+   [
+    103,
+    103,
+    7,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    0,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    1,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    2,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    3,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    4,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    5,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    6,
+    2,
+    2
+   ],
+   [
+    104,
+    104,
+    7,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    0,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    1,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    2,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    3,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    4,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    5,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    6,
+    2,
+    2
+   ],
+   [
+    105,
+    105,
+    7,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    0,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    1,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    2,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    3,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    4,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    5,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    6,
+    2,
+    2
+   ],
+   [
+    106,
+    106,
+    7,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    0,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    1,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    2,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    3,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    4,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    5,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    6,
+    2,
+    2
+   ],
+   [
+    107,
+    107,
+    7,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    0,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    1,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    2,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    3,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    4,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    5,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    6,
+    2,
+    2
+   ],
+   [
+    108,
+    108,
+    7,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    0,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    1,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    2,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    3,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    4,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    5,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    6,
+    2,
+    2
+   ],
+   [
+    109,
+    109,
+    7,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    0,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    1,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    2,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    3,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    4,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    5,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    6,
+    2,
+    2
+   ],
+   [
+    110,
+    110,
+    7,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    0,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    1,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    2,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    3,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    4,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    5,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    6,
+    2,
+    2
+   ],
+   [
+    111,
+    111,
+    7,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    0,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    1,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    2,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    3,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    4,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    5,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    6,
+    2,
+    2
+   ],
+   [
+    112,
+    112,
+    7,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    0,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    1,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    2,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    3,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    4,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    5,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    6,
+    2,
+    2
+   ],
+   [
+    113,
+    113,
+    7,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    0,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    1,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    2,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    3,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    4,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    5,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    6,
+    2,
+    2
+   ],
+   [
+    114,
+    114,
+    7,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    0,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    1,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    2,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    3,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    4,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    5,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    6,
+    2,
+    2
+   ],
+   [
+    115,
+    115,
+    7,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    0,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    1,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    2,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    3,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    4,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    5,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    6,
+    2,
+    2
+   ],
+   [
+    116,
+    116,
+    7,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    0,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    1,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    2,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    3,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    4,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    5,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    6,
+    2,
+    2
+   ],
+   [
+    117,
+    117,
+    7,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    0,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    1,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    2,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    3,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    4,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    5,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    6,
+    2,
+    2
+   ],
+   [
+    118,
+    118,
+    7,
+    2,
+    2
+   ]
+  ],
+  "counts": {
+   "measured": 358,
+   "exact": 929,
+   "known_sites": 1211
+  },
+  "cube": {
+   "known": 0.86,
+   "faint": 0.3,
+   "note": "the archived renderer's own edge lengths; a known cell is a full cube, an unmeasured one a faint small cube"
+  }
+ },
+ "particles": null,
+ "particle_index": {
+  "file": "data/particles.js",
+  "bytes": 173238,
+  "md5": "19944962334e6c3bd1dbec8da780a726",
+  "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
+  "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
+  "source": {
+   "citation": "Review of Particle Physics, Particle Data Group, Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026)",
+   "doi": "10.1142/S0217751X26300111",
+   "capture": [
+    {
+     "path": "research/warp-drive/captures/PDG-2026.tsv",
+     "bytes": 33555,
+     "md5": "53a5b67b4dfe12c782635191ca9e1fd0",
+     "exists": true
+    }
+   ],
+   "tree": {
+    "root": "research/warp-drive",
+    "commit": "720e6bba8ede",
+    "state_commit": "87a16d22769c",
+    "instruments": [
+     "pdgcapture.py",
+     "fundamental.py",
+     "mesons.py",
+     "baryons.py",
+     "docket27.py",
+     "quasiparticle.py",
+     "particlesweep.py"
+    ]
+   }
+  },
+  "accounting": {
+   "table_total": 6506,
+   "composite_nuclei": 5880,
+   "status_4": 54,
+   "kept": 572,
+   "members": 572,
+   "charted": 550,
+   "unplaced": 22,
+   "identity": "6506 = 5880 + 54 + 572"
+  },
+  "indexes": [
+   {
+    "id": "fundamental",
+    "title": "The fundamental particles of the Standard Model",
+    "members": 30,
+    "charted": 30,
+    "cells": 26,
+    "cell": {
+     "channel": 2,
+     "height": 7,
+     "width": 7
+    },
+    "closers": [
+     "statistics"
+    ],
+    "coordinates": [
+     "2J",
+     "Q3",
+     "COL",
+     "GEN"
+    ],
+    "unplaced": 0
+   },
+   {
+    "id": "mesons",
+    "title": "The mesons",
+    "members": 250,
+    "charted": 242,
+    "cells": 66,
+    "cell": {
+     "channel": 0,
+     "height": 10,
+     "width": 14
+    },
+    "closers": [],
+    "coordinates": [
+     "2J",
+     "P",
+     "2I",
+     "Q3"
+    ],
+    "unplaced": 8
+   },
+   {
+    "id": "baryons",
+    "title": "The baryons",
+    "members": 292,
+    "charted": 278,
+    "cells": 184,
+    "cell": {
+     "channel": 0,
+     "height": 10,
+     "width": 40
+    },
+    "closers": [],
+    "coordinates": [
+     "2J",
+     "P",
+     "2I",
+     "Q3",
+     "S",
+     "C",
+     "B"
+    ],
+    "unplaced": 14
+   }
+  ],
+  "quasiparticles": {
+   "in_progress": true,
+   "verdict": "REFUSE-AS-THEOREM",
+   "seated": "fqh: 168 quasiparticles of 12 Laughlin states, 30 cells, K0"
+  },
+  "antimatter": {
+   "total": 231,
+   "of_charted": 550
+  },
+  "sweep": {
+   "charts": 142,
+   "seated": "baryons (2I, Q3) at K5, 16 cells",
+   "refused": 2,
+   "occupied_now": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ]
+  }
+ },
+ "references": {
+  "note": "identifiers the index's sources cite, found at build by pattern and linked by construction; a compilation named without an identifier is cited as a string and not linked, because the target would be invented. A citing line is quoted only from a paper released to the site.",
+  "quoted_from": [
+   "the Löwdin paper",
+   "the three-body paper"
+  ],
+  "arxiv": [
+   {
+    "id": "0706.3134",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/0706.3134"
+   },
+   {
+    "id": "0801.4676",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/0801.4676"
+   },
+   {
+    "id": "0904.1212",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/0904.1212"
+   },
+   {
+    "id": "0906.4065",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/0906.4065"
+   },
+   {
+    "id": "0908.1668",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/0908.1668"
+   },
+   {
+    "id": "0910.5751",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/0910.5751"
+   },
+   {
+    "id": "1105.3445",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1105.3445"
+   },
+   {
+    "id": "1110.6134",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/1110.6134"
+   },
+   {
+    "id": "1203.5425",
+    "cites": [],
+    "n": 4,
+    "url": "https://arxiv.org/abs/1203.5425"
+   },
+   {
+    "id": "1204.0603",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/1204.0603"
+   },
+   {
+    "id": "1206.4932",
+    "cites": [
+     {
+      "paper": "the Löwdin paper",
+      "text": "Hantsch, F. (2014). \"Existence of minimizers in restricted Hartree–Fock theory.\" Electron. J. Diff. Equ. 2014(44), 1–16; arXiv:1206.4932."
+     }
+    ],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1206.4932"
+   },
+   {
+    "id": "1211.7019",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1211.7019"
+   },
+   {
+    "id": "1304.4330",
+    "cites": [],
+    "n": 4,
+    "url": "https://arxiv.org/abs/1304.4330"
+   },
+   {
+    "id": "1308.1017",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1308.1017"
+   },
+   {
+    "id": "1308.1711",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1308.1711"
+   },
+   {
+    "id": "1310.1284",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/1310.1284"
+   },
+   {
+    "id": "1402.0841",
+    "cites": [
+     {
+      "paper": "the three-body paper",
+      "text": "Montgomery, R. (2014). The three-body problem and the shape sphere. arXiv:1402.0841; Amer. Math. Monthly 122 (2015), 299–321."
+     }
+    ],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1402.0841"
+   },
+   {
+    "id": "1406.4094",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1406.4094"
+   },
+   {
+    "id": "1406.4550",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1406.4550"
+   },
+   {
+    "id": "1412.0011",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1412.0011"
+   },
+   {
+    "id": "1507.00297",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1507.00297"
+   },
+   {
+    "id": "1610.07850",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1610.07850"
+   },
+   {
+    "id": "1706.06237",
+    "cites": [],
+    "n": 3,
+    "url": "https://arxiv.org/abs/1706.06237"
+   },
+   {
+    "id": "1807.04726",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1807.04726"
+   },
+   {
+    "id": "1809.05160",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1809.05160"
+   },
+   {
+    "id": "1812.04683",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1812.04683"
+   },
+   {
+    "id": "1812.09018",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1812.09018"
+   },
+   {
+    "id": "1907.02776",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1907.02776"
+   },
+   {
+    "id": "1909.00233",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/1909.00233"
+   },
+   {
+    "id": "2008.07942",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2008.07942"
+   },
+   {
+    "id": "2012.11569",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2012.11569"
+   },
+   {
+    "id": "2207.06441",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2207.06441"
+   },
+   {
+    "id": "2211.08524",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/2211.08524"
+   },
+   {
+    "id": "2309.03871",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2309.03871"
+   },
+   {
+    "id": "2312.07646",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2312.07646"
+   },
+   {
+    "id": "2402.02609",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/2402.02609"
+   },
+   {
+    "id": "2403.18937",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2403.18937"
+   },
+   {
+    "id": "2405.00847",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/2405.00847"
+   },
+   {
+    "id": "2406.18416",
+    "cites": [],
+    "n": 2,
+    "url": "https://arxiv.org/abs/2406.18416"
+   },
+   {
+    "id": "2502.20961",
+    "cites": [],
+    "n": 4,
+    "url": "https://arxiv.org/abs/2502.20961"
+   },
+   {
+    "id": "2507.10683",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2507.10683"
+   },
+   {
+    "id": "2508.06733",
+    "cites": [],
+    "n": 4,
+    "url": "https://arxiv.org/abs/2508.06733"
+   },
+   {
+    "id": "2601.07915",
+    "cites": [],
+    "n": 6,
+    "url": "https://arxiv.org/abs/2601.07915"
+   },
+   {
+    "id": "2605.00028",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/2605.00028"
+   },
+   {
+    "id": "alg-geom/9310003",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/alg-geom/9310003"
+   },
+   {
+    "id": "gr-qc/0401004",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/gr-qc/0401004"
+   },
+   {
+    "id": "gr-qc/9409043",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/gr-qc/9409043"
+   },
+   {
+    "id": "hep-ph/9306225",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/hep-ph/9306225"
+   },
+   {
+    "id": "hep-th/0002240",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/hep-th/0002240"
+   },
+   {
+    "id": "hep-th/9707220",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/hep-th/9707220"
+   },
+   {
+    "id": "math-ph/0608060",
+    "cites": [
+     {
+      "paper": "the three-body paper",
+      "text": "Hsiang, W.-Y. & Straume, E. (2006). Kinematic geometry of triangles and the study of the three-body problem. arXiv:math-ph/0608060."
+     }
+    ],
+    "n": 2,
+    "url": "https://arxiv.org/abs/math-ph/0608060"
+   },
+   {
+    "id": "physics/0504154",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/physics/0504154"
+   },
+   {
+    "id": "quant-ph/0608088",
+    "cites": [],
+    "n": 1,
+    "url": "https://arxiv.org/abs/quant-ph/0608088"
+   }
+  ],
+  "doi": [
+   {
+    "id": "10.1007/978-3-642-99147-9_1",
+    "cites": [],
+    "n": 1,
+    "url": "https://doi.org/10.1007/978-3-642-99147-9_1"
+   },
+   {
+    "id": "10.1063/1.1670299",
+    "cites": [
+     {
+      "paper": "the Löwdin paper",
+      "text": "Gerratt, J. & Mills, I. M. (1968). \"Force Constants and Dipole-Moment Derivatives of Molecules from Perturbed Hartree–Fock Calculations. I.\" J. Chem. Phys. 49, 1719–1729. DOI 10.1063/1.1670299."
+     }
+    ],
+    "n": 1,
+    "url": "https://doi.org/10.1063/1.1670299"
+   },
+   {
+    "id": "10.1063/1.1747632",
+    "cites": [
+     {
+      "paper": "the Löwdin paper",
+      "text": "Löwdin, P.-O. (1950). \"On the Non-Orthogonality Problem Connected with the Use of Atomic Wave Functions in the Theory of Molecules and Crystals.\" J. Chem. Phys. 18(3), 365–375. DOI 10.1063/1.1747632."
+     }
+    ],
+    "n": 1,
+    "url": "https://doi.org/10.1063/1.1747632"
+   },
+   {
+    "id": "10.1088/0022-3700/20/7/009",
+    "cites": [
+     {
+      "paper": "the Löwdin paper",
+      "text": "Dzuba, V. A., Flambaum, V. V., Silvestrov, P. G. & Sushkov, O. P. (1987). \"Correlation potential method for the calculation of energy levels, hyperfine structure and E1 transition amplitudes in atoms with one unpaired electron.\" J. Phys. B 20, 1399–1412. DOI 10.1088/0022-3700/20/7/009. [the second-order correlation ..."
+     }
+    ],
+    "n": 1,
+    "url": "https://doi.org/10.1088/0022-3700/20/7/009"
+   },
+   {
+    "id": "10.1103/PhysRev.177.62",
+    "cites": [
+     {
+      "paper": "the Löwdin paper",
+      "text": "Griffin, D. C., Andrew, K. L. & Cowan, R. D. (1969). \"Theoretical Calculations of the d-, f-, and g-Electron Transition Series.\" Phys. Rev. 177, 62. DOI 10.1103/PhysRev.177.62."
+     }
+    ],
+    "n": 1,
+    "url": "https://doi.org/10.1103/PhysRev.177.62"
+   },
+   {
+    "id": "10.1103/PhysRevLett.72.2981",
+    "cites": [
+     {
+      "paper": "the Löwdin paper",
+      "text": "Bach, V., Lieb, E. H., Loss, M. & Solovej, J. P. (1994). \"There are no unfilled shells in unrestricted Hartree–Fock theory.\" Phys. Rev. Lett. 72, 2981–2983. DOI 10.1103/PhysRevLett.72.2981. [the well-posedness condition]"
+     }
+    ],
+    "n": 1,
+    "url": "https://doi.org/10.1103/PhysRevLett.72.2981"
+   },
+   {
+    "id": "10.18434/T4W30F",
+    "cites": [],
+    "n": 1,
+    "url": "https://doi.org/10.18434/T4W30F"
+   }
+  ],
+  "urls": [
+   {
+    "id": "https://physics.nist.gov/asd",
+    "cites": [],
+    "n": 1,
+    "url": "https://physics.nist.gov/asd"
+   }
+  ],
+  "nist_asd": {
+   "name": "NIST Atomic Spectra Database (ver. 5.12), Kramida, Ralchenko, Reader and NIST ASD Team (2024)",
+   "url": "https://physics.nist.gov/asd",
+   "doi": "10.18434/T4W30F",
+   "doi_url": "https://doi.org/10.18434/T4W30F",
+   "cited_for": [
+    "the observed ground configurations, Z = 1 to 108",
+    "the measured levels of the spectra index"
+   ],
+   "query_not_held": "no query string or URL behind the level tables is stored anywhere; the query itself is NOT HELD -- the database is linkable, the query is not"
+  },
+  "spectra_sources": {
+   "source": "the spectra index's own table of compilations by species",
+   "rows": [
+    {
+     "compilation": "Kaufman & Martin 1991, JPCRD 20, 775",
+     "species": "Al I, Al II"
+    },
+    {
+     "compilation": "Kramida & Martin 1997, JPCRD 26, 1185",
+     "species": "Be I"
+    },
+    {
+     "compilation": "NIST ASD",
+     "species": "Ar II, Be II, Bi I, C II, Ca II, Cd II, Ga I, He I, He II, Hg II, K II, Li I, Li II, Mg II, N II, Na II, Ne I (³⁄₂), Ne I (¹⁄₂), Si I, Si II, Zn II"
+    },
+    {
+     "compilation": "Sansonetti 2008, JPCRD 37, 1659",
+     "species": "Na I"
+    },
+    {
+     "compilation": "Sansonetti 2008, JPCRD 37, 7",
+     "species": "K I"
+    }
+   ],
+   "by_species": {
+    "Al I": {
+     "compilation": "Kaufman & Martin 1991, JPCRD 20, 775",
+     "url": null
+    },
+    "Al II": {
+     "compilation": "Kaufman & Martin 1991, JPCRD 20, 775",
+     "url": null
+    },
+    "Be I": {
+     "compilation": "Kramida & Martin 1997, JPCRD 26, 1185",
+     "url": null
+    },
+    "Ar II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Be II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Bi I": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "C II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Ca II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Cd II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Ga I": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "He I": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "He II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Hg II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "K II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Li I": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Li II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Mg II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "N II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Na II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Ne I (³⁄₂)": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Ne I (¹⁄₂)": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Si I": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Si II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Zn II": {
+     "compilation": "NIST ASD",
+     "url": "https://physics.nist.gov/asd"
+    },
+    "Na I": {
+     "compilation": "Sansonetti 2008, JPCRD 37, 1659",
+     "url": null
+    },
+    "K I": {
+     "compilation": "Sansonetti 2008, JPCRD 37, 7",
+     "url": null
+    }
+   }
+  }
+ },
  "closure": {
-  "index": "periodic table (period × group), section 6",
-  "operator": "ℛ, the PINNED order operator of section 32.4.1 (tools/cypher.py)",
+  "index": "the eighteen-column periodic layout (period × group)",
+  "operator": "ℛ, the PINNED order operator (tools/cypher.py)",
   "held": 90,
   "admitted": 126,
   "E": 36,
@@ -346,6 +10322,590 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     12
    ]
   ],
+  "denied_cells": [
+   {
+    "p": 1,
+    "g": 2,
+    "n": 1,
+    "l": 0,
+    "subshell": "1s, the slot helium vacates",
+    "class": "deferred",
+    "reason": "deferred, not forbidden: l = 0 satisfies l <= n-1 here; helium is drawn at group 18, and 1p contributes five cells rather than six because of it"
+   },
+   {
+    "p": 1,
+    "g": 3,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 4,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 5,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 6,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 7,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 8,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 9,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 10,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 11,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 12,
+    "n": 1,
+    "l": 2,
+    "subshell": "1d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1d orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 13,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 14,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 15,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 16,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
+   },
+   {
+    "p": 1,
+    "g": 17,
+    "n": 1,
+    "l": 1,
+    "subshell": "1p",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 1p orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 3,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 4,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 5,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 6,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 7,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 8,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 9,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 10,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 11,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 2,
+    "g": 12,
+    "n": 2,
+    "l": 2,
+    "subshell": "2d",
+    "class": "forbidden",
+    "reason": "forbidden by l <= n-1, the hydrogenic radial solution: a 2d orbital cannot exist"
+   },
+   {
+    "p": 3,
+    "g": 3,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 4,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 5,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 6,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 7,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 8,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 9,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 10,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 11,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   },
+   {
+    "p": 3,
+    "g": 12,
+    "n": 3,
+    "l": 2,
+    "subshell": "3d",
+    "class": "deferred",
+    "reason": "real but deferred by the Madelung order: 3d fills after 4s and is drawn in period 4"
+   }
+  ],
+  "decomposition": {
+   "status": "READ",
+   "source": "the author's standing account of the thirty-six",
+   "forbidden": 25,
+   "deferred": 11,
+   "by_subshell": {
+    "1d": 10,
+    "1p": 5,
+    "1s, the slot helium vacates": 1,
+    "2d": 10,
+    "3d": 10
+   },
+   "rule": "l by group: s at 1-2, d at 3-12, p at 13-18 (READ); class by l <= n-1 (PINNED); the split 25 + 11 is the author's own (READ) and the derivation is asserted against it"
+  },
+  "placement": {
+   "status": "READ",
+   "source": "the author's standing rule on helium's placement",
+   "helium_at_18": {
+    "held": 90,
+    "admitted": 126,
+    "E": 36,
+    "denied": [
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      1,
+      6
+     ],
+     [
+      1,
+      7
+     ],
+     [
+      1,
+      8
+     ],
+     [
+      1,
+      9
+     ],
+     [
+      1,
+      10
+     ],
+     [
+      1,
+      11
+     ],
+     [
+      1,
+      12
+     ],
+     [
+      1,
+      13
+     ],
+     [
+      1,
+      14
+     ],
+     [
+      1,
+      15
+     ],
+     [
+      1,
+      16
+     ],
+     [
+      1,
+      17
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      2,
+      11
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      3,
+      8
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      3,
+      12
+     ]
+    ]
+   },
+   "helium_at_2": {
+    "held": 90,
+    "admitted": 110,
+    "E": 20,
+    "denied": [
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      2,
+      11
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      3,
+      8
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      3,
+      12
+     ]
+    ]
+   },
+   "priced": 16,
+   "note": "IUPAC draws helium at 18, the left-step and quantum-chemical case at 2; E prices the choice at sixteen cells, a number that argument does not have"
+  },
   "set_aside": 28
  },
  "collapse": {
@@ -370,71 +10930,71 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   ],
   "exponent": "e(Ne) = E0 - E1 ln Ne",
   "status": "PINNED",
-  "source": "register 1205, final form"
+  "source": "the channel equation's final form"
  },
  "instruments": {
   "channel_delta": {
-   "python": "def channel_delta(Z, charge, l, table=\"observed\"):\n    \"\"\"delta for a Rydberg channel, register 1205's standing form.\n\n        delta = a p^e(Ne) Ne^k ln(c+1)/c                  where p > 0\n        delta = h C(Z) ((Ne-1)/Ne) Ne^k ln(c+1)/c         where p = 0\n\n    Ne is the electron count of the ION and c its spectroscopic charge, so a\n    neutral atom is c = 1 and the core it presents is singly charged.\n\n    Register 5193 records that at Ne = 1 the (Ne-1)/Ne factor vanishes\n    identically for every charge and every C(Z), which is what makes a\n    one-electron ion return exactly zero -- the hydrogenic case, and not a\n    fitted one.\"\"\"\n    Ne = Z - charge + 1\n    c = charge\n    if Ne < 1 or c < 1:\n        return None\n    core = Ne - 1\n    p = core_p(core, l, table) if core >= 1 else 0\n    if p is None:\n        return None\n    charge_factor = math.log(c + 1) / c\n    if p > 0:\n        e = E0 - E1 * math.log(Ne)\n        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor\n    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)\n            * (Ne ** K_COEFF) * charge_factor)\n",
+   "python": "def channel_delta(Z, charge, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    Ne = Z - charge + 1\n    c = charge\n    if Ne < 1 or c < 1:\n        return None\n    core = Ne - 1\n    p = core_p(core, l, table) if core >= 1 else 0\n    if p is None:\n        return None\n    charge_factor = math.log(c + 1) / c\n    if p > 0:\n        e = E0 - E1 * math.log(Ne)\n        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor\n    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)\n            * (Ne ** K_COEFF) * charge_factor)\n",
    "file": "tools/populate.py",
-   "line": 300,
+   "line": 317,
    "status": "PINNED",
-   "source": "the channel equation, final form (register 1205); its p = 0 branch carries the RECOVERED collapse ramp C(Z)"
+   "source": "the channel equation, final form; its p = 0 branch carries the RECOVERED collapse ramp C(Z)"
   },
   "collapse_C": {
-   "python": "def collapse_C(Z, l):\n    \"\"\"C(Z), the collapse coordinate across the Janet boundary.\n\n        C(Z, l) = clamp( 0.5 + (Z - Z0(l)) / 8, 0, 1 )\n\n    RECOVERED, not reconstructed. No member states the form: register 1190 says\n    only that it is \"read off the periodic table, not fitted -- one lookup\".\n    But COORDINATES-2.13's own computed column is generated by this equation,\n    so C can be INVERTED out of it, and it comes back exact:\n\n        l = 2:  C = 0.125, 0.250, 0.375, 0.500, 0.625, 0.750, 0.875, 1.000\n                at Z =  18,   19,    20,    21,    22,    23,    24,    25\n        l = 3:  the same eight values at Z = 54 to 61\n        l = 1:  the same eight values at Z =  2 to  9\n\n    A linear ramp eight wide, reaching exactly 0.5 at the Janet boundary and\n    saturating four beyond it. That is register 1189 in closed form -- \"the\n    collapse is a rapid transition, NOT A STEP\" -- and it is why Ca I nd is\n    0.908 at Z = 20, below the threshold: C(20, 2) = 0.375, already a third of\n    the way up the ramp. An indicator would have made it zero.\n\n    Above l = 3 there is no collapse and C is zero, which the index agrees\n    with: every l >= 4 channel inverts to C = 0 exactly.\"\"\"\n    z0 = COLLAPSE_Z.get(l)\n    if z0 is None:\n        return 0.0\n    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))\n",
+   "python": "def collapse_C(Z, l):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    z0 = COLLAPSE_Z.get(l)\n    if z0 is None:\n        return 0.0\n    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))\n",
    "file": "tools/populate.py",
-   "line": 271,
+   "line": 288,
    "status": "RECOVERED",
-   "source": "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188 to 1190); no member states its form"
+   "source": "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's computed column; no source states its form"
   },
   "pauli_bound": {
-   "python": "def pauli_bound(Z, charge, l, config=None):\n    \"\"\"B = min(p, n0 - l - 1). Register 1141, Pauli 1925, Janet 1929.\"\"\"\n    core = Z - charge\n    if core < 1:\n        return 0\n    if config is not None:\n        occ = {(n, ll): o for n, ll, o in config}\n        p = sum(1 for n, ll, o in config if ll == l and o > 0)\n        n = l + 1\n        while occ.get((n, l), 0) > 0:\n            n += 1\n    else:\n        p = core_p(core, l)\n        n = n0_of(core, l)\n        if p is None or n is None:\n            return None\n    return max(0, min(p, n - l - 1))\n",
+   "python": "def pauli_bound(Z, charge, l, config=None):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    core = Z - charge\n    if core < 1:\n        return 0\n    if config is not None:\n        occ = {(n, ll): o for n, ll, o in config}\n        p = sum(1 for n, ll, o in config if ll == l and o > 0)\n        n = l + 1\n        while occ.get((n, l), 0) > 0:\n            n += 1\n    else:\n        p = core_p(core, l)\n        n = n0_of(core, l)\n        if p is None or n is None:\n            return None\n    return max(0, min(p, n - l - 1))\n",
    "file": "tools/populate.py",
-   "line": 234,
+   "line": 251,
    "status": "PINNED",
-   "source": "B = min(p, n0 - l - 1), the Pauli bound (register 1141)"
+   "source": "B = min(p, n0 - l - 1), the Pauli bound"
   },
   "core_p": {
-   "python": "def core_p(core_Ne, l, table=\"observed\"):\n    \"\"\"p, the core's orbital count at this l, from the OBSERVED ground\n    configuration of the core (register 1306).\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)\n",
+   "python": "def core_p(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)\n",
    "file": "tools/populate.py",
-   "line": 206,
+   "line": 223,
    "status": "PINNED",
-   "source": "p, the core's orbital count at this l, from the observed ground configuration of the core (registers 1141, 1306)"
+   "source": "p, the core's orbital count at this l, from the observed ground configuration of the core"
   },
   "n0_of": {
-   "python": "def n0_of(core_Ne, l, table=\"observed\"):\n    \"\"\"n0, the first Pauli-allowed n.\n\n    RECONSTRUCTED. Register 1141 states the bound and names its two terms; it\n    does not say whether a PARTIALLY filled subshell counts as allowed. Both\n    readings were measured against COORDINATES-2.13's own B column: \"first n\n    with room\" matches 87.0% of 102,871 rows, \"first ENTIRELY UNOCCUPIED n\"\n    matches 97.7%. He I ns settles it -- the core is 1s(1), the CSV gives B = 1,\n    and only the second reading returns 1.\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    occ = {(n, ll): o for n, ll, o in cfg}\n    n = l + 1\n    while occ.get((n, l), 0) > 0:\n        n += 1\n    return n\n",
+   "python": "def n0_of(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    occ = {(n, ll): o for n, ll, o in cfg}\n    n = l + 1\n    while occ.get((n, l), 0) > 0:\n        n += 1\n    return n\n",
    "file": "tools/populate.py",
-   "line": 215,
+   "line": 232,
    "status": "RECONSTRUCTED",
-   "source": "n0, the first entirely unoccupied n at this l; register 1141 names the term but not the reading, and He I ns settles it"
+   "source": "n0, the first entirely unoccupied n at this l; the source names the term but not the reading, and He I ns settles it"
   },
   "lambda_constraints": {
-   "python": "def lambda_constraints(cell):\n    \"\"\"Section 7.1's seven constraints, four origins. PINNED.\"\"\"\n    n, l, k, q, e, f, g, S2 = cell\n    return [\n        (\"l <= n-1\", l <= n - 1, \"hydrogenic radial solution\"),\n        (\"k <= 2(2l+1)\", k <= 2 * (2 * l + 1), \"Pauli exclusion\"),\n        (\"q <= k\", q <= k, \"counting\"),\n        (\"f <= e-1\", f <= e - 1, \"hydrogenic radial solution\"),\n        (\"g <= 2(2f+1)\", g <= 2 * (2 * f + 1), \"Pauli exclusion\"),\n        (\"g <= q\", g <= q, \"counting\"),\n        (\"2S <= k\", S2 <= k, \"vector coupling (an envelope)\"),\n    ]\n",
+   "python": "def lambda_constraints(cell):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    n, l, k, q, e, f, g, S2 = cell\n    return [\n        (\"l <= n-1\", l <= n - 1, \"hydrogenic radial solution\"),\n        (\"k <= 2(2l+1)\", k <= 2 * (2 * l + 1), \"Pauli exclusion\"),\n        (\"q <= k\", q <= k, \"counting\"),\n        (\"f <= e-1\", f <= e - 1, \"hydrogenic radial solution\"),\n        (\"g <= 2(2f+1)\", g <= 2 * (2 * f + 1), \"Pauli exclusion\"),\n        (\"g <= q\", g <= q, \"counting\"),\n        (\"2S <= k\", S2 <= k, \"vector coupling (an envelope)\"),\n    ]\n",
    "file": "tools/populate.py",
-   "line": 384,
+   "line": 401,
    "status": "PINNED",
-   "source": "section 7.1's seven constraints, four origins"
+   "source": "the seven constraints on Lambda_8, of four origins"
   },
   "caps_needed": {
    "python": "def caps_needed(cell):\n    n, l, k, q, e, f, g, _S2 = cell\n    return dict(n=n, e=e, l=l, f=f, k=k)\n",
    "file": "tools/populate.py",
-   "line": 398,
+   "line": 415,
    "status": "PINNED",
-   "source": "the caps a Lambda_8 cell needs, read against section 7.4's (n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the RECONSTRUCTED ionisation-ladder mapping and carries its own status"
+   "source": "the caps a Lambda_8 cell needs, read against the standing (n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the RECONSTRUCTED ionisation-ladder mapping and carries its own status"
   },
   "within_caps": {
    "python": "def within_caps(cell, caps=CAPS):\n    need = caps_needed(cell)\n    return {ax: need[ax] <= caps[ax] for ax in caps}\n",
    "file": "tools/populate.py",
-   "line": 403,
+   "line": 420,
    "status": "PINNED",
-   "source": "section 7.4's standing caps; a cell outside them is reported OUTSIDE, never truncated"
+   "source": "the standing caps; a cell outside them is reported OUTSIDE, never truncated"
   },
   "op_order": {
-   "python": "def op_order(ix, opts):\n    \"\"\"R, §32.4.1. R(X) = {x in box : x_i <= phi_ij(x_j) for all i != j},\n    phi_ij(a) = max{y_i : y in X, y_j <= a}. Matches the seated instrument rclose.py.\"\"\"\n    if ix.d < 2:\n        return None, \"R needs at least two coordinates\"\n    X, D = ix.cells, ix.d\n    phi = {}\n    for i in range(D):\n        for j in range(D):\n            if i == j:\n                continue\n            for a in ix.alphabets[j]:\n                cand = [y[i] for y in X if y[j] <= a]\n                phi[(i, j, a)] = max(cand) if cand else None\n    out = set()\n    for x in ix.ambient():\n        good = True\n        for i in range(D):\n            for j in range(D):\n                if i == j:\n                    continue\n                p = phi[(i, j, x[j])]\n                if p is None or x[i] > p:\n                    good = False\n                    break\n            if not good:\n                break\n        if good:\n            out.add(x)\n    return out, \"staircase closure over the ambient product\"\n",
+   "python": "def op_order(ix, opts):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    if ix.d < 2:\n        return None, \"R needs at least two coordinates\"\n    X, D = ix.cells, ix.d\n    phi = {}\n    for i in range(D):\n        for j in range(D):\n            if i == j:\n                continue\n            for a in ix.alphabets[j]:\n                cand = [y[i] for y in X if y[j] <= a]\n                phi[(i, j, a)] = max(cand) if cand else None\n    out = set()\n    for x in ix.ambient():\n        good = True\n        for i in range(D):\n            for j in range(D):\n                if i == j:\n                    continue\n                p = phi[(i, j, x[j])]\n                if p is None or x[i] > p:\n                    good = False\n                    break\n            if not good:\n                break\n        if good:\n            out.add(x)\n    return out, \"staircase closure over the ambient product\"\n",
    "file": "tools/cypher.py",
    "line": 119,
    "status": "PINNED",
-   "source": "R, the order operator of section 32.4.1; matches the seated instrument rclose.py"
+   "source": "R, the order operator: a cell is admitted when every cell below it on every axis is held"
   },
   "walk_integrate": {
    "python": "def integrate(field, l, eps, c, sign=1.0):\n    \"\"\"one shot at energy eps.  Returns (nodes, mismatch, p_match, norm_r, s_out, s_in,\n    p_out list, ok) -- or None when eps is not bracketed by the potential on the grid.\n    sign flips the relativistic term (the demonstrable failure mode); it is 1.0 in use.\"\"\"\n    g = field.grid\n    r, r2, V, dV, r2V = g.r, g.r2, field.V, field.dVdx, field.r2V\n    n = g.n\n    H = 2 * g.h\n    ll = l * (l + 1)\n    rel = c is not None\n    inv2c2 = 1.0 / (2 * c * c) if rel else 0.0\n\n    # coefficient arrays for this eps\n    A = [0.0] * n\n    B = [0.0] * n\n    if rel:\n        for i in range(n):\n            M = 1.0 + (eps - V[i]) * inv2c2\n            if M <= 0.0:\n                return None              # ε below −2c²: no such state\n            A[i] = -sign * dV[i] * inv2c2 / M\n            B[i] = ll + 2.0 * M * (r2V[i] - eps * r2[i])\n    else:\n        for i in range(n):\n            B[i] = ll + 2.0 * (r2V[i] - eps * r2[i])\n\n    # matching point: the outermost index where B < 0 (classically allowed), stepping by 2\n    m = -1\n    for i in range(n - 1, -1, -1):\n        if B[i] < 0.0:\n            m = i\n            break\n    if m < 4:\n        return None                      # eps below the potential everywhere: too low\n    if m >= n - 4:\n        return None                      # allowed region reaches the grid edge: too high\n    if m % 2:\n        m -= 1\n\n    # outward: the r^γ series at the nucleus\n    Z = field.Z\n    if rel:\n        g2 = ll + 1.0 - (Z / c) ** 2 * sign\n        gam = math.sqrt(g2) if g2 > 0 else 0.5\n    else:\n        gam = l + 1.0\n    p = 1.0\n    s = gam\n    pout = [0.0] * (m + 1)\n    pout[0] = p\n    nodes = 0\n    scale_shift = 0\n    for i in range(0, m, 2):\n        a0, b0 = A[i], B[i]\n        a1, b1 = A[i + 1], B[i + 1]\n        a2, b2 = A[i + 2], B[i + 2]\n        k1p = s\n        k1s = s + a0 * (s - p) + b0 * p\n        p1 = p + 0.5 * H * k1p\n        s1 = s + 0.5 * H * k1s\n        k2p = s1\n        k2s = s1 + a1 * (s1 - p1) + b1 * p1\n        p2 = p + 0.5 * H * k2p\n        s2 = s + 0.5 * H * k2s\n        k3p = s2\n        k3s = s2 + a1 * (s2 - p2) + b1 * p2\n        p3 = p + H * k3p\n        s3 = s + H * k3s\n        k4p = s3\n        k4s = s3 + a2 * (s3 - p3) + b2 * p3\n        pn = p + H / 6.0 * (k1p + 2 * k2p + 2 * k3p + k4p)\n        sn = s + H / 6.0 * (k1s + 2 * k2s + 2 * k3s + k4s)\n        if pn * p < 0.0:\n            nodes += 1\n        p, s = pn, sn\n        if abs(p) > 1e100:\n            p *= 1e-100\n            s *= 1e-100\n            pout = [v * 1e-100 for v in pout]\n        pout[i + 1] = 0.0                # midpoints are not carried\n        pout[i + 2] = p\n    p_out, s_out = p, s\n    # fill the midpoints of the outward solution by a second pass is unnecessary: the\n    # norm uses the even points only (Simpson on the coarse step H).\n\n    # inward: WKB tail from the last point\n    bN = B[n - 1]\n    p = 1e-30\n    s = -math.sqrt(bN) * p if bN > 0 else -p\n    pin = {}\n    pin[n - 1] = p\n    for i in range(n - 1, m, -2):\n        a0, b0 = A[i], B[i]\n        a1, b1 = A[i - 1], B[i - 1]\n        a2, b2 = A[i - 2], B[i - 2]\n        hh = -H\n        k1p = s\n        k1s = s + a0 * (s - p) + b0 * p\n        p1 = p + 0.5 * hh * k1p\n        s1 = s + 0.5 * hh * k1s\n        k2p = s1\n        k2s = s1 + a1 * (s1 - p1) + b1 * p1\n        p2 = p + 0.5 * hh * k2p\n        s2 = s + 0.5 * hh * k2s\n        k3p = s2\n        k3s = s2 + a1 * (s2 - p2) + b1 * p2\n        p3 = p + hh * k3p\n        s3 = s + hh * k3s\n        k4p = s3\n        k4s = s3 + a2 * (s3 - p3) + b2 * p3\n        p = p + hh / 6.0 * (k1p + 2 * k2p + 2 * k3p + k4p)\n        s = s + hh / 6.0 * (k1s + 2 * k2s + 2 * k3s + k4s)\n        if abs(p) > 1e100:\n            p *= 1e-100\n            s *= 1e-100\n            for k in pin:\n                pin[k] *= 1e-100\n        pin[i - 2] = p\n    p_in, s_in = p, s\n    if p_out == 0.0 or p_in == 0.0:\n        return None\n\n    # scale the inward branch onto the outward one at m\n    f = p_out / p_in\n    s_in *= f\n    for k in pin:\n        pin[k] *= f\n\n    # the full function on the coarse (even) points, and its norm ∫P² dr = ∫ p² r dx\n    P = [0.0] * n\n    for i in range(0, m + 1, 2):\n        P[i] = pout[i]\n    for i in range(m, n, 2):\n        P[i] = pin.get(i, 0.0)\n    f2 = [P[i] * P[i] * r[i] for i in range(0, n, 2)]\n    norm = integral(f2, H)\n    mismatch = (s_out - s_in) / r[m]     # (dP/dr)_out − (dP/dr)_in at the match, P(m) = p_out\n    # Hartree's correction: Δε = P(m) [P'_out − P'_in] / (2 ∫P² dr)\n    deps = p_out * mismatch / (2.0 * norm)\n    return nodes, deps, P, norm, m\n",
@@ -508,11 +11068,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   "lowdin_construction": {
    "python": null,
-   "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+   "file": "the Löwdin paper",
    "status": "READ",
    "held": false,
-   "source": "the scalar-relativistic construction is not held; the paper's own statement, register 1706 and the SCF audit are shown in its place",
-   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.\n\nRegister 1706: **ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese and zinc, 5s for 4d at silver and cadmium, 5d for 4f across four lanthanides, 6s for 5d at mercury, the heavy actinides wrongly altogether. The relativistic walk scores 107/107, so all eleven are errors of the equation-without-light against nature; the thorium competition inverts besides, though its entrant survives by path.* **The wall chart is not a solution of the non-relativistic Schrödinger equation. Quarantine standing: Λ_cinf is contrast, never data.**\n\nr2-scf.out: 1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11\n\nUNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120"
+   "source": "the scalar-relativistic construction is not held; the paper's own statement is shown in its place",
+   "text": "Executed across the entire table with the inverse fine-structure constant c = 137.035999 as the only number supplied, the construction reproduces the observed filling order at all 107 elements for which ground configurations are known (Z = 2–108), locates the three genuine exceptions to the secondary rule exactly where nature has them and derives them from the physics of orbital collapse, proves that no g block exists anywhere below Z = 121, and shows that the observed table is irreducibly relativistic: with the speed of light taken to infinity, the same construction misplaces eleven elements, silver and mercury among them.\n\nFinally, one physical constant is admitted, because the atom itself admits it: the speed of light, entering through the scalar-relativistic reduction of the Dirac equation as c = 137.035999 in Hartree atomic units.\n\n*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides."
   }
  },
  "relativistic": {
@@ -591,18 +11151,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "thorium": "*(Relativistic clause.) The law is scalar-relativistic in an essential way: repeating the entire construction with c → ∞ changes the entrant channel at eleven elements, and inverts the underlying channel competition at thorium besides.",
   "sources": {
    "paper": {
-    "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
+    "title": "the Löwdin paper",
     "eleven_line": 156,
+    "eleven_text": "They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf.",
     "construction_line": 27,
     "thorium_line": 45
    },
-   "register": {
-    "entry": 1706,
-    "text": "**ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows) disagrees with Λ_chain at Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf — 4s for 3d at manganese and zinc, 5s for 4d at silver and cadmium, 5d for 4f across four lanthanides, 6s for 5d at mercury, the heavy actinides wrongly altogether. The relativistic walk scores 107/107, so all eleven are errors of the equation-without-light against nature; the thorium competition inverts besides, though its entrant survives by path.* **The wall chart is not a solution of the non-relativistic Schrödinger equation. Quarantine standing: Λ_cinf is contrast, never data.**"
-   },
    "scf_audit": {
-    "file": "method/members/r2-scf.out",
-    "count": "1706 / L9773 eleven elements listed: 11 | 1706's groups 2 (Mn, Zn) + 2 (Ag, Cd) + 4 lanthanides (Nd, Pm, Sm, Lu) + 1 (Hg) + 2 heavy actinides (Lr, Rf) = 11",
     "entrants": [
      {
       "symbol": "Mn",
@@ -675,14 +11230,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   "instrument": {
    "held": false,
-   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are record-carried",
-   "readme_rows": [
-    "| 1, 2, 4, 5, 6, 7, 8, 10 | PENDING BANK | LOWDIN-HANDOFF-103.tgz (sha256 05ea7bd5…, 1870 sealed files, root c6bcdd21) — the last sealed archive; awaiting upload to the Löwdin chat |",
-    "| 9 (1707–1711) | PENDING BANK (packs 93–103) + NOT HELD (S104 restatement w104.py) | see note on S104 |",
-    "| 11 six figures | NOT HELD as files unless M supplies S104 outputs | fig1–6.py and the PNGs were archived in pack104, never sealed (see note) |",
-    "  the query itself is NOT HELD. The file's own fields are: ground shells as printed, ground level,"
-   ],
-   "budget": "UNREPRODUCIBLE with that budget (record-carried, never withdrawn): 107/107 · 65/70/57/28 · +1.33 +1.24 +2.6 [2.57-2.73] +2.2 [1.92-3.32] +2.16 · >= 26x · the eleven · 0.058-0.264 · 0.083 · 2.6e-15 · 0.999992 · 1.000103 · +1.7e-7 · +6.1e-9 · 0.98 · 1.00 · Z = 91 sign · Dirac-Fock to 120"
+   "note": "the scalar-relativistic construction and its c -> inf repetition are not held; the figures are the paper's own"
   },
   "walk": {
    "status": "RECONSTRUCTED",
@@ -4267,7 +14815,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
        "entrant_cinf": "7d"
       }
      ],
-     "eleven_1706": [
+     "eleven": [
       "Mn",
       "Zn",
       "Ag",
@@ -4510,7 +15058,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
         "entrant_cinf": "6f"
        }
       ],
-      "eleven_1706": [
+      "eleven": [
        "Mn",
        "Zn",
        "Ag",
@@ -4741,7 +15289,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
         "entrant_cinf": "7d"
        }
       ],
-      "eleven_1706": [
+      "eleven": [
        "Mn",
        "Zn",
        "Ag",
@@ -6257,8 +16805,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "md5": "7a328342a38f01358a160fc164047bf9",
    "md5_recorded": "7a328342a38f01358a160fc164047bf9",
    "ok": true,
-   "archive": "drive/The Method Materials/The_Method_1_6_figures.zip",
-   "caption": "Figure 5 of THE-LOWDIN-SOLUTION-2.md: the derived table at c = 137 against c -> inf",
+   "caption": "Figure 5 of the Löwdin paper: the derived table at c = 137 against c -> inf",
    "status": "READ"
   }
  ],
@@ -6307,16 +16854,104 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     }
    ],
    "status": "PINNED",
-   "note": "populate.equation_report over COORDINATES-2.13's measured rows; register 1205 records rms 0.1610, R2 0.9741 on a different sample of 284 channels, so the figures are not expected to match it exactly"
+   "note": "populate.equation_report over COORDINATES-2.13's measured rows; the equation's published fit (rms 0.1610, R2 0.9741) was made on a different sample of 284 channels, so the figures are not expected to match it exactly"
   },
   "closure": {
-   "operator": "cypher.op_order, R (section 32.4.1)",
+   "operator": "cypher.op_order, R, the order operator",
    "status": "PINNED",
    "periodic": {
     "held": 90,
     "admitted": 126,
     "E": 36,
-    "index": "periodic table (period x group), section 6, the ninety main-table cells"
+    "index": "periodic table (period x group), the ninety main-table cells"
+   },
+   "helium_at_2": {
+    "held": 90,
+    "admitted": 110,
+    "E": 20,
+    "denied": [
+     [
+      2,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      2,
+      11
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      3,
+      8
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      3,
+      12
+     ]
+    ],
+    "index": "the ninety cells with helium moved to (1, 2); the author's rule records E = 20"
    },
    "janet": {
     "held": 19,
@@ -6401,7 +17036,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
       3
      ]
     ],
-    "index": "Janet (n+l x l): the distinct cells of the 108 elements LW1-ground.py carries"
+    "index": "Janet (n+l x l): the distinct cells of the 108 elements the observed configurations table carries"
    },
    "janet_cypher_fixture": {
     "held": 22,
@@ -6549,11 +17184,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "l": 0,
    "delta_equation": 0.0,
    "status": "PINNED",
-   "source": "register 5193: at Ne = 1 the (Ne-1)/Ne factor vanishes identically"
+   "source": "the one-electron identity: at Ne = 1 the (Ne-1)/Ne factor vanishes identically"
   },
   "pauli": {
    "status": "PINNED",
-   "source": "register 1141; populate.selftest's own pair",
+   "source": "the Pauli bound's definition; populate.selftest's own pair",
    "rows": [
     {
      "label": "He I ns",
@@ -6716,14 +17351,2535 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    ]
   }
  },
+ "figure_data": {
+  "equation": {
+   "status": "PINNED",
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     0.1392,
+     0.36827
+    ],
+    [
+     2,
+     1,
+     1,
+     -0.0133,
+     0.033043
+    ],
+    [
+     2,
+     1,
+     2,
+     0.0007,
+     0.0
+    ],
+    [
+     2,
+     1,
+     3,
+     -0.001,
+     0.0
+    ],
+    [
+     2,
+     1,
+     4,
+     -0.0014,
+     0.0
+    ],
+    [
+     2,
+     1,
+     0,
+     0.2965,
+     0.36827
+    ],
+    [
+     2,
+     1,
+     2,
+     0.0014,
+     0.0
+    ],
+    [
+     3,
+     1,
+     0,
+     0.40455,
+     0.449977
+    ],
+    [
+     3,
+     1,
+     1,
+     0.0783,
+     0.107663
+    ],
+    [
+     3,
+     1,
+     2,
+     0.0021,
+     0.0
+    ],
+    [
+     3,
+     2,
+     0,
+     0.0744,
+     0.291847
+    ],
+    [
+     3,
+     2,
+     1,
+     -0.0144,
+     0.052371
+    ],
+    [
+     3,
+     2,
+     2,
+     0.0011,
+     0.0
+    ],
+    [
+     3,
+     2,
+     3,
+     0.0,
+     0.0
+    ],
+    [
+     3,
+     2,
+     4,
+     0.0,
+     0.0
+    ],
+    [
+     3,
+     2,
+     0,
+     0.1814,
+     0.291847
+    ],
+    [
+     3,
+     2,
+     1,
+     0.0539,
+     0.052371
+    ],
+    [
+     3,
+     2,
+     2,
+     0.0027,
+     0.0
+    ],
+    [
+     3,
+     2,
+     3,
+     0.0006,
+     0.0
+    ],
+    [
+     3,
+     3,
+     0,
+     0.0003,
+     0.0
+    ],
+    [
+     3,
+     3,
+     1,
+     0.00035,
+     0.0
+    ],
+    [
+     3,
+     3,
+     2,
+     0.00025,
+     0.0
+    ],
+    [
+     3,
+     3,
+     3,
+     0.00025,
+     0.0
+    ],
+    [
+     3,
+     3,
+     4,
+     0.0003,
+     0.0
+    ],
+    [
+     4,
+     1,
+     0,
+     0.6774,
+     0.845554
+    ],
+    [
+     4,
+     1,
+     1,
+     0.359,
+     0.209438
+    ],
+    [
+     4,
+     1,
+     2,
+     -0.1152,
+     0.0
+    ],
+    [
+     4,
+     1,
+     0,
+     0.791,
+     0.845554
+    ],
+    [
+     4,
+     1,
+     1,
+     0.3773,
+     0.209438
+    ],
+    [
+     4,
+     1,
+     2,
+     0.1109,
+     0.0
+    ],
+    [
+     4,
+     1,
+     3,
+     0.0305,
+     0.0
+    ],
+    [
+     4,
+     2,
+     0,
+     0.2623,
+     0.356598
+    ],
+    [
+     4,
+     2,
+     1,
+     0.0491,
+     0.127981
+    ],
+    [
+     4,
+     2,
+     2,
+     0.0021,
+     0.0
+    ],
+    [
+     4,
+     2,
+     3,
+     0.0001,
+     0.0
+    ],
+    [
+     4,
+     2,
+     4,
+     -0.0001,
+     0.0
+    ],
+    [
+     4,
+     3,
+     0,
+     0.0508,
+     0.245513
+    ],
+    [
+     4,
+     3,
+     2,
+     0.0008,
+     0.0
+    ],
+    [
+     4,
+     3,
+     3,
+     0.0002,
+     0.0
+    ],
+    [
+     4,
+     3,
+     4,
+     0.0002,
+     0.0
+    ],
+    [
+     4,
+     3,
+     0,
+     0.1302,
+     0.245513
+    ],
+    [
+     4,
+     3,
+     1,
+     0.0429,
+     0.066085
+    ],
+    [
+     4,
+     3,
+     2,
+     0.0023,
+     0.0
+    ],
+    [
+     4,
+     4,
+     0,
+     0.0004,
+     0.0
+    ],
+    [
+     4,
+     4,
+     1,
+     0.0004,
+     0.0
+    ],
+    [
+     4,
+     4,
+     2,
+     0.0002,
+     0.0
+    ],
+    [
+     4,
+     4,
+     3,
+     0.0001,
+     0.0
+    ],
+    [
+     4,
+     4,
+     4,
+     0.0001,
+     0.0
+    ],
+    [
+     5,
+     1,
+     1,
+     0.53527,
+     0.332594
+    ],
+    [
+     5,
+     1,
+     2,
+     0.0392,
+     0.0
+    ],
+    [
+     5,
+     1,
+     3,
+     0.01382,
+     0.0
+    ],
+    [
+     5,
+     2,
+     0,
+     0.4303,
+     0.670086
+    ],
+    [
+     5,
+     2,
+     1,
+     0.3284,
+     0.2213
+    ],
+    [
+     5,
+     2,
+     2,
+     -0.0323,
+     0.0
+    ],
+    [
+     5,
+     2,
+     0,
+     0.5211,
+     0.670086
+    ],
+    [
+     5,
+     2,
+     1,
+     0.2231,
+     0.2213
+    ],
+    [
+     5,
+     2,
+     2,
+     0.0772,
+     0.0
+    ],
+    [
+     5,
+     2,
+     3,
+     0.0397,
+     0.0
+    ],
+    [
+     5,
+     2,
+     4,
+     -0.0401,
+     0.0
+    ],
+    [
+     5,
+     3,
+     0,
+     0.1959,
+     0.299985
+    ],
+    [
+     5,
+     3,
+     1,
+     0.0437,
+     0.143551
+    ],
+    [
+     5,
+     3,
+     2,
+     0.0023,
+     0.0
+    ],
+    [
+     5,
+     3,
+     3,
+     0.0003,
+     0.0
+    ],
+    [
+     5,
+     3,
+     4,
+     0.0001,
+     0.0
+    ],
+    [
+     5,
+     4,
+     0,
+     0.0392,
+     0.213774
+    ],
+    [
+     5,
+     4,
+     1,
+     -0.0096,
+     0.076722
+    ],
+    [
+     5,
+     4,
+     2,
+     0.0007,
+     0.0
+    ],
+    [
+     5,
+     4,
+     3,
+     0.0004,
+     0.0
+    ],
+    [
+     5,
+     4,
+     4,
+     0.0002,
+     0.0
+    ],
+    [
+     5,
+     4,
+     0,
+     0.1011,
+     0.213774
+    ],
+    [
+     5,
+     4,
+     1,
+     0.035,
+     0.076722
+    ],
+    [
+     5,
+     4,
+     2,
+     0.0021,
+     0.0
+    ],
+    [
+     5,
+     5,
+     0,
+     0.0008,
+     0.0
+    ],
+    [
+     5,
+     5,
+     1,
+     0.0008,
+     0.0
+    ],
+    [
+     5,
+     5,
+     2,
+     0.0005,
+     0.0
+    ],
+    [
+     5,
+     5,
+     3,
+     0.0004,
+     0.0
+    ],
+    [
+     5,
+     5,
+     4,
+     0.0003,
+     0.0
+    ],
+    [
+     6,
+     1,
+     0,
+     1.0532,
+     1.00735
+    ],
+    [
+     6,
+     1,
+     2,
+     0.032,
+     0.0
+    ],
+    [
+     6,
+     1,
+     0,
+     1.0925,
+     1.00735
+    ],
+    [
+     6,
+     1,
+     1,
+     0.67087,
+     0.633811
+    ],
+    [
+     6,
+     1,
+     2,
+     0.0638,
+     0.0
+    ],
+    [
+     6,
+     2,
+     0,
+     0.66195,
+     0.737866
+    ],
+    [
+     6,
+     2,
+     1,
+     0.4244,
+     0.329468
+    ],
+    [
+     6,
+     2,
+     2,
+     0.08013,
+     0.0
+    ],
+    [
+     6,
+     2,
+     3,
+     0.022,
+     0.0
+    ],
+    [
+     6,
+     2,
+     4,
+     0.0054,
+     0.0
+    ],
+    [
+     6,
+     3,
+     0,
+     0.3819,
+     0.563703
+    ],
+    [
+     6,
+     3,
+     1,
+     0.1806,
+     0.232708
+    ],
+    [
+     6,
+     3,
+     2,
+     0.0067,
+     0.0
+    ],
+    [
+     6,
+     3,
+     0,
+     0.3993,
+     0.563703
+    ],
+    [
+     6,
+     3,
+     1,
+     0.1856,
+     0.232708
+    ],
+    [
+     6,
+     3,
+     2,
+     0.0816,
+     0.0
+    ],
+    [
+     6,
+     3,
+     3,
+     0.0127,
+     0.0
+    ],
+    [
+     6,
+     3,
+     4,
+     0.0126,
+     0.0
+    ],
+    [
+     6,
+     5,
+     0,
+     0.0399,
+     0.190393
+    ],
+    [
+     6,
+     5,
+     1,
+     0.0002,
+     0.085414
+    ],
+    [
+     6,
+     5,
+     2,
+     0.0108,
+     0.0
+    ],
+    [
+     6,
+     5,
+     3,
+     0.0092,
+     0.0
+    ],
+    [
+     6,
+     5,
+     4,
+     0.0152,
+     0.0
+    ],
+    [
+     6,
+     5,
+     0,
+     0.0927,
+     0.190393
+    ],
+    [
+     6,
+     5,
+     1,
+     0.0384,
+     0.085414
+    ],
+    [
+     6,
+     5,
+     2,
+     0.0122,
+     0.0
+    ],
+    [
+     6,
+     5,
+     3,
+     0.0092,
+     0.0
+    ],
+    [
+     6,
+     5,
+     4,
+     0.0153,
+     0.0
+    ],
+    [
+     7,
+     1,
+     0,
+     1.104,
+     1.076686
+    ],
+    [
+     7,
+     1,
+     1,
+     0.6233,
+     0.683982
+    ],
+    [
+     7,
+     1,
+     2,
+     0.0273,
+     0.0
+    ],
+    [
+     7,
+     1,
+     0,
+     1.1697,
+     1.076686
+    ],
+    [
+     7,
+     1,
+     1,
+     0.75215,
+     0.683982
+    ],
+    [
+     7,
+     1,
+     2,
+     0.02775,
+     0.0
+    ],
+    [
+     7,
+     2,
+     0,
+     0.7325,
+     0.798306
+    ],
+    [
+     7,
+     2,
+     0,
+     0.77037,
+     0.798306
+    ],
+    [
+     7,
+     3,
+     0,
+     0.566,
+     0.620722
+    ],
+    [
+     7,
+     3,
+     1,
+     0.2917,
+     0.332594
+    ],
+    [
+     7,
+     3,
+     2,
+     0.0737,
+     0.0
+    ],
+    [
+     7,
+     3,
+     3,
+     0.0281,
+     0.0
+    ],
+    [
+     7,
+     3,
+     4,
+     0.0022,
+     0.0
+    ],
+    [
+     7,
+     4,
+     0,
+     0.2948,
+     0.490829
+    ],
+    [
+     7,
+     4,
+     1,
+     0.1782,
+     0.243149
+    ],
+    [
+     7,
+     4,
+     2,
+     0.0335,
+     0.0
+    ],
+    [
+     8,
+     3,
+     0,
+     0.5852,
+     0.671567
+    ],
+    [
+     8,
+     3,
+     2,
+     0.1196,
+     0.0
+    ],
+    [
+     8,
+     3,
+     0,
+     0.625,
+     0.671567
+    ],
+    [
+     8,
+     3,
+     1,
+     0.4221,
+     0.42254
+    ],
+    [
+     8,
+     3,
+     2,
+     0.10405,
+     0.0
+    ],
+    [
+     8,
+     4,
+     0,
+     0.4408,
+     0.540477
+    ],
+    [
+     8,
+     4,
+     1,
+     0.2462,
+     0.337864
+    ],
+    [
+     8,
+     4,
+     2,
+     0.0681,
+     0.0
+    ],
+    [
+     8,
+     4,
+     3,
+     0.0408,
+     0.0
+    ],
+    [
+     8,
+     4,
+     4,
+     -0.0028,
+     0.0
+    ],
+    [
+     9,
+     1,
+     0,
+     1.1857,
+     1.200106
+    ],
+    [
+     9,
+     1,
+     0,
+     1.28,
+     1.200106
+    ],
+    [
+     9,
+     1,
+     1,
+     0.8308,
+     0.774433
+    ],
+    [
+     9,
+     1,
+     2,
+     0.0236,
+     0.0
+    ],
+    [
+     10,
+     1,
+     1,
+     0.8409,
+     0.815825
+    ],
+    [
+     10,
+     2,
+     0,
+     0.9454,
+     0.951062
+    ],
+    [
+     10,
+     2,
+     1,
+     0.5985,
+     0.613724
+    ],
+    [
+     10,
+     2,
+     2,
+     0.05387,
+     0.0
+    ],
+    [
+     10,
+     2,
+     0,
+     0.9433,
+     0.951062
+    ],
+    [
+     10,
+     2,
+     1,
+     0.63246,
+     0.613724
+    ],
+    [
+     10,
+     2,
+     2,
+     0.07082,
+     0.0
+    ],
+    [
+     11,
+     1,
+     0,
+     1.34857,
+     1.308737
+    ],
+    [
+     11,
+     1,
+     1,
+     0.85615,
+     0.855172
+    ],
+    [
+     11,
+     1,
+     2,
+     0.01488,
+     0.0
+    ],
+    [
+     11,
+     1,
+     3,
+     0.0016,
+     0.0
+    ],
+    [
+     11,
+     1,
+     4,
+     0.00042,
+     0.0
+    ],
+    [
+     11,
+     1,
+     5,
+     0.00013,
+     0.0
+    ],
+    [
+     12,
+     1,
+     0,
+     1.5331,
+     1.737368
+    ],
+    [
+     12,
+     1,
+     1,
+     1.0135,
+     0.892747
+    ],
+    [
+     12,
+     1,
+     2,
+     0.4034,
+     0.0
+    ],
+    [
+     12,
+     1,
+     3,
+     0.0413,
+     0.0
+    ],
+    [
+     12,
+     1,
+     0,
+     1.6603,
+     1.737368
+    ],
+    [
+     12,
+     1,
+     1,
+     1.2051,
+     0.892747
+    ],
+    [
+     12,
+     1,
+     2,
+     0.1701,
+     0.0
+    ],
+    [
+     12,
+     1,
+     3,
+     0.0413,
+     0.0
+    ],
+    [
+     12,
+     2,
+     0,
+     1.07775,
+     1.03715
+    ],
+    [
+     12,
+     2,
+     1,
+     0.7146,
+     0.677708
+    ],
+    [
+     12,
+     2,
+     2,
+     0.03637,
+     0.0
+    ],
+    [
+     12,
+     2,
+     3,
+     0.003,
+     0.0
+    ],
+    [
+     12,
+     2,
+     4,
+     0.0007,
+     0.0
+    ],
+    [
+     13,
+     1,
+     0,
+     1.767,
+     1.793223
+    ],
+    [
+     13,
+     1,
+     1,
+     1.3365,
+     0.92877
+    ],
+    [
+     13,
+     1,
+     2,
+     0.0248,
+     0.0
+    ],
+    [
+     13,
+     1,
+     3,
+     0.03474,
+     0.0
+    ],
+    [
+     13,
+     1,
+     4,
+     0.00841,
+     0.0
+    ],
+    [
+     13,
+     2,
+     0,
+     1.2028,
+     1.376832
+    ],
+    [
+     13,
+     2,
+     2,
+     0.0603,
+     0.0
+    ],
+    [
+     13,
+     2,
+     0,
+     1.2711,
+     1.376832
+    ],
+    [
+     13,
+     2,
+     1,
+     0.8982,
+     0.707485
+    ],
+    [
+     13,
+     2,
+     2,
+     0.2024,
+     0.0
+    ],
+    [
+     13,
+     2,
+     3,
+     0.014,
+     0.0
+    ],
+    [
+     13,
+     3,
+     0,
+     0.9049,
+     0.872492
+    ],
+    [
+     13,
+     3,
+     1,
+     0.6056,
+     0.570115
+    ],
+    [
+     13,
+     3,
+     2,
+     0.0644,
+     0.0
+    ],
+    [
+     13,
+     3,
+     3,
+     0.0044,
+     0.0
+    ],
+    [
+     13,
+     3,
+     4,
+     0.001,
+     0.0
+    ],
+    [
+     14,
+     1,
+     2,
+     0.09803,
+     0.0
+    ],
+    [
+     14,
+     1,
+     2,
+     0.2722,
+     0.0
+    ],
+    [
+     14,
+     2,
+     0,
+     1.3944,
+     1.421095
+    ],
+    [
+     14,
+     2,
+     1,
+     1.0227,
+     0.736032
+    ],
+    [
+     14,
+     2,
+     2,
+     0.22895,
+     0.0
+    ],
+    [
+     14,
+     2,
+     3,
+     0.0846,
+     0.0
+    ],
+    [
+     14,
+     2,
+     4,
+     0.0174,
+     0.0
+    ],
+    [
+     14,
+     3,
+     0,
+     1.0185,
+     1.158245
+    ],
+    [
+     14,
+     3,
+     1,
+     0.7576,
+     0.595165
+    ],
+    [
+     14,
+     3,
+     2,
+     0.0507,
+     0.0
+    ],
+    [
+     14,
+     3,
+     3,
+     0.024,
+     0.0
+    ],
+    [
+     14,
+     3,
+     4,
+     0.0266,
+     0.0
+    ],
+    [
+     14,
+     3,
+     0,
+     1.0646,
+     1.158245
+    ],
+    [
+     14,
+     3,
+     1,
+     0.7563,
+     0.595165
+    ],
+    [
+     14,
+     3,
+     2,
+     0.1977,
+     0.0
+    ],
+    [
+     14,
+     3,
+     3,
+     0.02237,
+     0.0
+    ],
+    [
+     14,
+     3,
+     4,
+     0.02807,
+     0.0
+    ],
+    [
+     14,
+     4,
+     0,
+     0.7845,
+     0.759699
+    ],
+    [
+     14,
+     4,
+     1,
+     0.5262,
+     0.496412
+    ],
+    [
+     14,
+     4,
+     2,
+     0.0802,
+     0.0
+    ],
+    [
+     14,
+     4,
+     3,
+     0.0054,
+     0.0
+    ],
+    [
+     14,
+     4,
+     4,
+     0.0011,
+     0.0
+    ],
+    [
+     15,
+     2,
+     0,
+     1.5468,
+     1.463345
+    ],
+    [
+     15,
+     2,
+     1,
+     1.167,
+     1.150981
+    ],
+    [
+     15,
+     3,
+     0,
+     1.1692,
+     1.195482
+    ],
+    [
+     15,
+     3,
+     1,
+     0.8886,
+     0.61918
+    ],
+    [
+     15,
+     3,
+     2,
+     0.2754,
+     0.0
+    ],
+    [
+     15,
+     3,
+     4,
+     0.0197,
+     0.0
+    ],
+    [
+     15,
+     4,
+     0,
+     0.9018,
+     1.008511
+    ],
+    [
+     15,
+     4,
+     1,
+     0.6991,
+     0.518224
+    ],
+    [
+     15,
+     4,
+     2,
+     0.1991,
+     0.0
+    ],
+    [
+     15,
+     4,
+     0,
+     0.9498,
+     1.008511
+    ],
+    [
+     15,
+     4,
+     1,
+     0.6699,
+     0.518224
+    ],
+    [
+     15,
+     4,
+     2,
+     0.2312,
+     0.0
+    ],
+    [
+     15,
+     4,
+     3,
+     0.0597,
+     0.0
+    ],
+    [
+     16,
+     3,
+     0,
+     1.2846,
+     1.231023
+    ],
+    [
+     16,
+     4,
+     0,
+     1.0264,
+     1.040933
+    ],
+    [
+     16,
+     4,
+     1,
+     0.7607,
+     0.539134
+    ],
+    [
+     16,
+     4,
+     2,
+     0.2649,
+     0.0
+    ],
+    [
+     16,
+     5,
+     0,
+     0.8043,
+     0.898206
+    ],
+    [
+     16,
+     5,
+     1,
+     0.59,
+     0.461544
+    ],
+    [
+     16,
+     5,
+     2,
+     0.1819,
+     0.0
+    ],
+    [
+     16,
+     5,
+     3,
+     0.0002,
+     0.0
+    ],
+    [
+     16,
+     5,
+     0,
+     0.8428,
+     0.898206
+    ],
+    [
+     16,
+     5,
+     1,
+     0.6221,
+     0.461544
+    ],
+    [
+     16,
+     5,
+     2,
+     0.217,
+     0.0
+    ],
+    [
+     16,
+     5,
+     3,
+     0.0637,
+     0.0
+    ],
+    [
+     16,
+     6,
+     0,
+     0.6242,
+     0.612348
+    ],
+    [
+     16,
+     6,
+     1,
+     0.4228,
+     0.400128
+    ],
+    [
+     16,
+     6,
+     2,
+     0.0925,
+     0.0
+    ],
+    [
+     16,
+     6,
+     3,
+     0.0074,
+     0.0
+    ],
+    [
+     16,
+     6,
+     4,
+     0.001,
+     0.0
+    ],
+    [
+     18,
+     2,
+     0,
+     1.6533,
+     1.580086
+    ],
+    [
+     18,
+     2,
+     0,
+     1.71767,
+     1.580086
+    ],
+    [
+     18,
+     2,
+     2,
+     0.67193,
+     0.141932
+    ],
+    [
+     19,
+     1,
+     0,
+     2.1912,
+     2.083473
+    ],
+    [
+     19,
+     1,
+     1,
+     1.7268,
+     1.657101
+    ],
+    [
+     19,
+     1,
+     2,
+     0.246,
+     0.380928
+    ],
+    [
+     19,
+     1,
+     3,
+     0.0112,
+     0.0
+    ],
+    [
+     19,
+     3,
+     0,
+     1.6589,
+     1.329231
+    ],
+    [
+     19,
+     3,
+     1,
+     1.211,
+     1.052929
+    ],
+    [
+     20,
+     1,
+     0,
+     2.3548,
+     2.497873
+    ],
+    [
+     20,
+     1,
+     1,
+     1.8902,
+     1.694214
+    ],
+    [
+     20,
+     1,
+     2,
+     0.9084,
+     0.587689
+    ],
+    [
+     20,
+     1,
+     3,
+     0.0654,
+     0.0
+    ],
+    [
+     20,
+     1,
+     0,
+     2.4639,
+     2.497873
+    ],
+    [
+     20,
+     1,
+     1,
+     2.0672,
+     1.694214
+    ],
+    [
+     20,
+     1,
+     2,
+     0.8917,
+     0.587689
+    ],
+    [
+     20,
+     1,
+     3,
+     0.0893,
+     0.0
+    ],
+    [
+     20,
+     2,
+     0,
+     1.8265,
+     1.651113
+    ],
+    [
+     20,
+     2,
+     1,
+     1.4775,
+     1.313221
+    ],
+    [
+     20,
+     2,
+     2,
+     0.6341,
+     0.452817
+    ],
+    [
+     20,
+     2,
+     3,
+     0.0248,
+     0.0
+    ],
+    [
+     20,
+     2,
+     4,
+     0.0048,
+     0.0
+    ],
+    [
+     20,
+     4,
+     0,
+     1.328,
+     1.157392
+    ],
+    [
+     20,
+     4,
+     1,
+     1.0703,
+     0.916809
+    ],
+    [
+     20,
+     4,
+     2,
+     0.5526,
+     0.311891
+    ],
+    [
+     20,
+     9,
+     1,
+     0.4121,
+     0.329516
+    ],
+    [
+     20,
+     9,
+     2,
+     0.1572,
+     0.162609
+    ],
+    [
+     20,
+     9,
+     3,
+     0.0124,
+     0.0
+    ],
+    [
+     20,
+     9,
+     0,
+     0.5725,
+     0.641268
+    ],
+    [
+     20,
+     10,
+     0,
+     0.44,
+     0.452749
+    ],
+    [
+     20,
+     10,
+     2,
+     0.093,
+     0.144785
+    ],
+    [
+     21,
+     2,
+     1,
+     1.5485,
+     1.342633
+    ],
+    [
+     21,
+     3,
+     0,
+     1.5848,
+     1.388982
+    ],
+    [
+     21,
+     3,
+     1,
+     1.2838,
+     1.104734
+    ],
+    [
+     21,
+     3,
+     2,
+     0.65335,
+     0.507904
+    ],
+    [
+     21,
+     3,
+     3,
+     0.045,
+     0.0
+    ],
+    [
+     21,
+     3,
+     4,
+     0.0073,
+     0.0
+    ],
+    [
+     22,
+     3,
+     0,
+     1.6726,
+     1.665249
+    ],
+    [
+     22,
+     3,
+     1,
+     1.4159,
+     1.129476
+    ],
+    [
+     22,
+     3,
+     2,
+     0.7987,
+     0.652988
+    ],
+    [
+     22,
+     3,
+     0,
+     1.6901,
+     1.665249
+    ],
+    [
+     22,
+     3,
+     1,
+     1.39975,
+     1.129476
+    ],
+    [
+     22,
+     3,
+     2,
+     0.7899,
+     0.652988
+    ],
+    [
+     22,
+     4,
+     0,
+     1.4153,
+     1.209418
+    ],
+    [
+     22,
+     4,
+     1,
+     1.1506,
+     0.961917
+    ],
+    [
+     22,
+     4,
+     2,
+     0.6202,
+     0.552805
+    ],
+    [
+     22,
+     4,
+     3,
+     0.0774,
+     0.0
+    ],
+    [
+     22,
+     11,
+     0,
+     0.4738,
+     0.566218
+    ],
+    [
+     22,
+     11,
+     1,
+     0.3273,
+     0.290951
+    ],
+    [
+     22,
+     11,
+     3,
+     0.0129,
+     0.0
+    ],
+    [
+     22,
+     11,
+     0,
+     0.4983,
+     0.566218
+    ],
+    [
+     26,
+     8,
+     1,
+     0.8,
+     0.656611
+    ],
+    [
+     26,
+     8,
+     2,
+     0.4,
+     0.603757
+    ],
+    [
+     26,
+     8,
+     3,
+     0.12,
+     0.0
+    ],
+    [
+     26,
+     15,
+     1,
+     0.2872,
+     0.238066
+    ],
+    [
+     26,
+     15,
+     3,
+     -0.2367,
+     0.0
+    ],
+    [
+     26,
+     15,
+     2,
+     0.1278,
+     0.313282
+    ],
+    [
+     26,
+     15,
+     3,
+     0.0371,
+     0.0
+    ],
+    [
+     26,
+     16,
+     0,
+     0.3174,
+     0.334338
+    ],
+    [
+     26,
+     16,
+     1,
+     0.2233,
+     0.218468
+    ],
+    [
+     26,
+     16,
+     2,
+     0.075,
+     0.285116
+    ],
+    [
+     26,
+     16,
+     3,
+     0.0116,
+     0.0
+    ],
+    [
+     30,
+     1,
+     1,
+     2.0966,
+     2.018401
+    ],
+    [
+     30,
+     1,
+     2,
+     1.2232,
+     1.404076
+    ],
+    [
+     30,
+     1,
+     1,
+     2.4109,
+     2.018401
+    ],
+    [
+     30,
+     1,
+     2,
+     1.09353,
+     1.404076
+    ],
+    [
+     30,
+     2,
+     0,
+     2.2084,
+     2.270775
+    ],
+    [
+     30,
+     2,
+     1,
+     1.8386,
+     1.576299
+    ],
+    [
+     30,
+     2,
+     2,
+     0.9583,
+     1.094216
+    ],
+    [
+     30,
+     2,
+     3,
+     0.0172,
+     0.0
+    ],
+    [
+     30,
+     2,
+     4,
+     0.0038,
+     0.0
+    ],
+    [
+     31,
+     1,
+     0,
+     2.8013,
+     2.936874
+    ],
+    [
+     31,
+     1,
+     1,
+     2.27785,
+     2.047183
+    ],
+    [
+     31,
+     1,
+     2,
+     1.31599,
+     1.427014
+    ],
+    [
+     31,
+     1,
+     3,
+     0.02587,
+     0.0
+    ],
+    [
+     31,
+     2,
+     0,
+     2.261,
+     2.299394
+    ],
+    [
+     31,
+     2,
+     2,
+     0.8475,
+     1.112704
+    ],
+    [
+     31,
+     2,
+     3,
+     0.0598,
+     0.0
+    ],
+    [
+     31,
+     2,
+     0,
+     2.3228,
+     2.299394
+    ],
+    [
+     31,
+     2,
+     2,
+     1.063,
+     1.112704
+    ],
+    [
+     31,
+     2,
+     3,
+     0.0617,
+     0.0
+    ],
+    [
+     32,
+     3,
+     0,
+     2.0116,
+     1.934341
+    ],
+    [
+     32,
+     3,
+     2,
+     0.882,
+     0.93605
+    ],
+    [
+     32,
+     3,
+     0,
+     2.0576,
+     1.934341
+    ],
+    [
+     32,
+     3,
+     2,
+     1.0025,
+     0.93605
+    ],
+    [
+     32,
+     3,
+     4,
+     0.0181,
+     0.0
+    ],
+    [
+     38,
+     2,
+     0,
+     2.7113,
+     2.484629
+    ],
+    [
+     38,
+     2,
+     1,
+     2.3501,
+     2.148834
+    ],
+    [
+     38,
+     2,
+     2,
+     1.4577,
+     1.234217
+    ],
+    [
+     38,
+     2,
+     3,
+     0.0618,
+     0.0
+    ],
+    [
+     38,
+     2,
+     4,
+     0.0098,
+     0.0
+    ],
+    [
+     48,
+     1,
+     0,
+     3.5926,
+     3.843042
+    ],
+    [
+     48,
+     1,
+     1,
+     3.0515,
+     3.005392
+    ],
+    [
+     48,
+     1,
+     2,
+     2.1886,
+     2.472577
+    ],
+    [
+     48,
+     1,
+     0,
+     3.6677,
+     3.843042
+    ],
+    [
+     48,
+     1,
+     1,
+     3.1814,
+     3.005392
+    ],
+    [
+     48,
+     1,
+     2,
+     2.0898,
+     2.472577
+    ],
+    [
+     48,
+     1,
+     3,
+     0.0346,
+     0.0
+    ],
+    [
+     48,
+     2,
+     0,
+     3.1175,
+     2.714215
+    ],
+    [
+     48,
+     2,
+     1,
+     2.7444,
+     2.361976
+    ],
+    [
+     48,
+     2,
+     2,
+     1.8942,
+     1.941738
+    ],
+    [
+     48,
+     2,
+     3,
+     0.0489,
+     0.0
+    ],
+    [
+     48,
+     2,
+     4,
+     0.0076,
+     0.0
+    ],
+    [
+     49,
+     1,
+     3,
+     0.0394,
+     0.0
+    ],
+    [
+     55,
+     1,
+     0,
+     4.0512,
+     4.030225
+    ],
+    [
+     55,
+     1,
+     1,
+     3.59251,
+     3.629732
+    ],
+    [
+     55,
+     1,
+     2,
+     2.46643,
+     2.622283
+    ],
+    [
+     55,
+     1,
+     3,
+     0.03254,
+     0.667548
+    ],
+    [
+     55,
+     1,
+     4,
+     0.00667,
+     0.0
+    ],
+    [
+     56,
+     2,
+     0,
+     3.5984,
+     3.193878
+    ],
+    [
+     56,
+     2,
+     1,
+     3.2408,
+     2.876495
+    ],
+    [
+     56,
+     2,
+     2,
+     2.4147,
+     2.07811
+    ],
+    [
+     56,
+     2,
+     3,
+     0.7559,
+     0.793528
+    ],
+    [
+     56,
+     2,
+     4,
+     0.0185,
+     0.0
+    ],
+    [
+     71,
+     1,
+     3,
+     1.12064,
+     2.14926
+    ],
+    [
+     80,
+     2,
+     0,
+     4.185,
+     3.924798
+    ],
+    [
+     80,
+     2,
+     1,
+     3.8196,
+     3.288231
+    ],
+    [
+     80,
+     2,
+     2,
+     2.8758,
+     2.900233
+    ],
+    [
+     80,
+     2,
+     3,
+     1.0622,
+     1.795533
+    ],
+    [
+     80,
+     2,
+     4,
+     0.0053,
+     0.0
+    ],
+    [
+     81,
+     1,
+     0,
+     4.75066,
+     4.993941
+    ],
+    [
+     81,
+     1,
+     2,
+     3.11838,
+     3.696037
+    ],
+    [
+     81,
+     1,
+     3,
+     1.03131,
+     2.293879
+    ],
+    [
+     83,
+     3,
+     0,
+     3.9869,
+     3.329294
+    ],
+    [
+     83,
+     3,
+     1,
+     3.657,
+     2.791858
+    ],
+    [
+     83,
+     3,
+     2,
+     2.8691,
+     2.464025
+    ],
+    [
+     83,
+     3,
+     4,
+     0.03805,
+     0.0
+    ],
+    [
+     87,
+     1,
+     0,
+     5.07221,
+     5.11418
+    ],
+    [
+     87,
+     1,
+     1,
+     4.59521,
+     4.730475
+    ]
+   ],
+   "columns": [
+    "Z",
+    "charge",
+    "l",
+    "delta_measured",
+    "delta_equation"
+   ],
+   "source": "COORDINATES-2.13's measured rows (delta READ) against the channel equation as populate.channel_delta computes it (PINNED)"
+  }
+ },
  "caveats": [
   {
    "id": "above-108",
-   "text": "Elements above Z = 108 are not populated. LW1-ground.py stops at 108 because measurement does. COORDINATES-2.13 carries rows to Z = 120 and those are shown READ from the CSV with no configuration, equation or derived value behind them."
+   "text": "Elements above Z = 108 are not populated. The observed configurations stop at 108 because measurement does. COORDINATES-2.13 carries rows to Z = 120 and those are shown READ from the CSV with no configuration, equation or derived value behind them."
   },
   {
    "id": "b-aufbau",
-   "text": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand). Register 1306 corrected the configurations and COORDINATES-2.13 was never rebuilt on them. Where the observed table gives a different Pauli bound the site shows both and marks the disagreement."
+   "text": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand). The configurations were later corrected and COORDINATES-2.13 was never rebuilt on them. Where the observed table gives a different Pauli bound the site shows both and marks the disagreement."
   },
   {
    "id": "b-overloaded",
@@ -6731,7 +19887,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "lambda8-mapping",
-   "text": "A Λ₈ cell is a transition, so an element is not a cell. The mapping shown is the element's own ionisation ladder read off the observed configurations. Nothing in the store fixes this mapping; it is RECONSTRUCTED and a later ruling can move it."
+   "text": "A Λ₈ cell is a transition, so an element is not a cell. The mapping shown is the element's own ionisation ladder read off the observed configurations. Nothing fixes this mapping; it is RECONSTRUCTED and a later decision can move it."
   },
   {
    "id": "equation-domain",
@@ -6739,11 +19895,11 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "relativistic-not-held",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) and its repetition at c → ∞ are not held: the Löwdin delivery records objects 1, 2, 4–8 and 10 as pending bank and object 11 as not held, because session 104 was never sealed. The eleven displaced elements are READ from THE-LOWDIN-SOLUTION-2.md and register 1706, record-carried and never withdrawn (r2-scf), and the site cannot recompute them."
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) and its repetition at c → ∞ are not held: the code behind the Löwdin paper never arrived. The eleven displaced elements are READ from the paper's own statement and the site cannot recompute them."
   },
   {
    "id": "walk-reconstructed",
-   "text": "The walk shown beside the record is a RECONSTRUCTION (tools/lowdin_walk.py over LOWDIN-WALK.tsv): the record's construction rebuilt from its statement and run in two fields, a local-exchange one and the record's own average-of-configuration Hartree–Fock with non-local exchange, neither of them the record's code, which never arrived. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the record's number, and the record's Λ_chain and Λ_cinf stay unheld."
+   "text": "The walk shown beside the paper is a RECONSTRUCTION (tools/lowdin_walk.py): the paper's construction rebuilt from its statement and run in two fields, a local-exchange one and the paper's own average-of-configuration Hartree–Fock with non-local exchange, neither of them the paper's code, which never arrived. Where it agrees with the paper that is a measurement; where it disagrees that is a measurement too. It is never the paper's number."
   },
   {
    "id": "limit-kind",
@@ -6751,7 +19907,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "id": "n0-reading",
-   "text": "n₀'s reading is RECONSTRUCTED. Register 1141 names the terms of B = min(p, n₀ − ℓ − 1) but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
+   "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) names its terms but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
   }
  ],
  "totals": {
@@ -11147,962 +24303,962 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 1,
    "file": "elements/1.js",
-   "bytes": 3912,
-   "md5": "3cb6a36cd2e84c84a45ef5d1c68a4f31",
-   "payload_bytes": 3832,
-   "payload_md5": "bca5cba3621e034e2007adb8863b3474"
+   "bytes": 3953,
+   "md5": "dc2cfa904d55e67d3d24bb44b5579e61",
+   "payload_bytes": 3873,
+   "payload_md5": "992794d98fdfef8069956d22d91a09ae"
   },
   {
    "Z": 2,
    "file": "elements/2.js",
-   "bytes": 14645,
-   "md5": "639efd8a2371674b61a0ab31b8c3bcc9",
-   "payload_bytes": 14565,
-   "payload_md5": "fc3fc6238e19eedf4e9cc22a259e3c07"
+   "bytes": 14686,
+   "md5": "cb4064b07d90eba2c46492eeb927f9ca",
+   "payload_bytes": 14606,
+   "payload_md5": "6a6a851a6a6b42f73c8c566fc552bd69"
   },
   {
    "Z": 3,
    "file": "elements/3.js",
-   "bytes": 18038,
-   "md5": "16888a8940ded9935df876145f202f86",
-   "payload_bytes": 17958,
-   "payload_md5": "9df06abaccdf8780566563c42103a400"
+   "bytes": 18079,
+   "md5": "0948aebb249822e882bf735dc2adfeed",
+   "payload_bytes": 17999,
+   "payload_md5": "257d628cecfe47c8c546b53c35ef243f"
   },
   {
    "Z": 4,
    "file": "elements/4.js",
-   "bytes": 23835,
-   "md5": "393fbfa10457e4a0dd0267b976148952",
-   "payload_bytes": 23755,
-   "payload_md5": "114d51e3cc184466aca68200aad90065"
+   "bytes": 23876,
+   "md5": "1025c14b8b5cf90b097840bbe5f31f5f",
+   "payload_bytes": 23796,
+   "payload_md5": "26ae14434651e4895b376f20ba7c9496"
   },
   {
    "Z": 5,
    "file": "elements/5.js",
-   "bytes": 27906,
-   "md5": "2cab6a04c3f80c61a786bba22175fda0",
-   "payload_bytes": 27826,
-   "payload_md5": "e724ee8e30f7880674649679698fc265"
+   "bytes": 27887,
+   "md5": "d85c913ebb0af6235659d16d84582486",
+   "payload_bytes": 27807,
+   "payload_md5": "585ceece693bd139e1f3242ee7c83237"
   },
   {
    "Z": 6,
    "file": "elements/6.js",
-   "bytes": 33731,
-   "md5": "0e87cb286d401652a2d74f17d7d51d30",
-   "payload_bytes": 33651,
-   "payload_md5": "a2ec242f67ec659c3a297b1e58e9be36"
+   "bytes": 33772,
+   "md5": "21e47dd44541ef743c53a09bb383d996",
+   "payload_bytes": 33692,
+   "payload_md5": "647ff85e58c2617b5af4ff0e070debde"
   },
   {
    "Z": 7,
    "file": "elements/7.js",
-   "bytes": 40520,
-   "md5": "b7e4cf49a92cb9b074fe2e9611a8583a",
-   "payload_bytes": 40440,
-   "payload_md5": "76dddef2d8c24f1afd36fc224a040fa3"
+   "bytes": 40561,
+   "md5": "dad463d4adc635fdd8566d7627ecd76d",
+   "payload_bytes": 40481,
+   "payload_md5": "c03f82bcb320915fe97c63860ea44452"
   },
   {
    "Z": 8,
    "file": "elements/8.js",
-   "bytes": 46586,
-   "md5": "2a5d1c1df6a5a49a254cef2431a44e3a",
-   "payload_bytes": 46506,
-   "payload_md5": "d6a44574f449a00a3d881672d8fffff3"
+   "bytes": 46627,
+   "md5": "0fb2156d098d5f088896a8318eddecf3",
+   "payload_bytes": 46547,
+   "payload_md5": "69769ed62c6c39c990f5390e2a0d6175"
   },
   {
    "Z": 9,
    "file": "elements/9.js",
-   "bytes": 52868,
-   "md5": "a78694c3b861c503c6018ffc54b22ba2",
-   "payload_bytes": 52788,
-   "payload_md5": "5560d09c5e05e6e90e528b4098674ca9"
+   "bytes": 52909,
+   "md5": "5cc5dfab5159b15968533feb7b7ea4e7",
+   "payload_bytes": 52829,
+   "payload_md5": "7b3499f6e35c81b7e0899e3bdb281fe9"
   },
   {
    "Z": 10,
    "file": "elements/10.js",
-   "bytes": 58956,
-   "md5": "63822ea8178ccad4aa8740aed48ffeb3",
-   "payload_bytes": 58875,
-   "payload_md5": "2e0ed691e9faf2d954bb6ce8f673922a"
+   "bytes": 58997,
+   "md5": "3ee359865c316819828c50c4df164689",
+   "payload_bytes": 58916,
+   "payload_md5": "9fdac28654cb6e0feaa051ffbf0ee199"
   },
   {
    "Z": 11,
    "file": "elements/11.js",
-   "bytes": 63672,
-   "md5": "1b7c2169d7776e07d49d54494a72e2f5",
-   "payload_bytes": 63591,
-   "payload_md5": "5485fc6760ed82fdf35cbba41f90fed7"
+   "bytes": 63593,
+   "md5": "43e2e80941bd088cb99885130b1370fc",
+   "payload_bytes": 63512,
+   "payload_md5": "77ef5b1d809c94c28ef22141fa62ef5d"
   },
   {
    "Z": 12,
    "file": "elements/12.js",
-   "bytes": 68677,
-   "md5": "ead56e5992b466ae133a99676df79551",
-   "payload_bytes": 68596,
-   "payload_md5": "dec7a83710786003a00da831bc8a2bfa"
+   "bytes": 68718,
+   "md5": "0f83bd63bf3075c9466fa104c913a5d5",
+   "payload_bytes": 68637,
+   "payload_md5": "0c694607584e020e354b979216293eea"
   },
   {
    "Z": 13,
    "file": "elements/13.js",
-   "bytes": 72864,
-   "md5": "e637ea66effe0cfb7816b78ed885d977",
-   "payload_bytes": 72783,
-   "payload_md5": "c2bf8b5f6328d3063eaa02c305a55366"
+   "bytes": 72865,
+   "md5": "36dfef93e2e80b7a77e8bf36031b5e8e",
+   "payload_bytes": 72784,
+   "payload_md5": "1f6890a657448c592d4db782414a9022"
   },
   {
    "Z": 14,
    "file": "elements/14.js",
-   "bytes": 78475,
-   "md5": "14fc7ed4434597239a2c8c2c196b357b",
-   "payload_bytes": 78394,
-   "payload_md5": "9220dfd58797164c5375848c979150da"
+   "bytes": 78516,
+   "md5": "bb735492c7c9df1d7f1ee059d1686edb",
+   "payload_bytes": 78435,
+   "payload_md5": "cc756d388e581c58a692b530614174da"
   },
   {
    "Z": 15,
    "file": "elements/15.js",
-   "bytes": 84881,
-   "md5": "9ba9864f3d1d7b8fee148400b67dfbb2",
-   "payload_bytes": 84800,
-   "payload_md5": "01a9d766716a03263c495d8406adffc3"
+   "bytes": 84922,
+   "md5": "b5fe97fb7b8de6ad8b2024cee53227e5",
+   "payload_bytes": 84841,
+   "payload_md5": "8fe8506931fe375a137133be5f12b8ec"
   },
   {
    "Z": 16,
    "file": "elements/16.js",
-   "bytes": 90556,
-   "md5": "8242bd0012675d7bf9482c77e4517b11",
-   "payload_bytes": 90475,
-   "payload_md5": "58dd88d75ce6192ddab422f4c1a2e684"
+   "bytes": 90597,
+   "md5": "1fa5564993bb7e659f4d354afe7e4e04",
+   "payload_bytes": 90516,
+   "payload_md5": "2159d29684ca6798fc01610c9a419a03"
   },
   {
    "Z": 17,
    "file": "elements/17.js",
-   "bytes": 97465,
-   "md5": "457a4d6bdf1fff86e09ce50905e5d84c",
-   "payload_bytes": 97384,
-   "payload_md5": "ae239d1244d551e1cc3d313b6bed7f3f"
+   "bytes": 97506,
+   "md5": "5bcb396d515ef083909e9eea1780f56b",
+   "payload_bytes": 97425,
+   "payload_md5": "bdd392c828fdb884c05964ba44da0548"
   },
   {
    "Z": 18,
    "file": "elements/18.js",
-   "bytes": 104576,
-   "md5": "4dd7142c02f962368c58e2f7e8965fb9",
-   "payload_bytes": 104495,
-   "payload_md5": "2cbbff628e008bde597c100b83f24779"
+   "bytes": 104617,
+   "md5": "14a4fa0592aaa9e869d0b8228fe8f792",
+   "payload_bytes": 104536,
+   "payload_md5": "88c65a2a129ccbe22c9de05e297f3eb9"
   },
   {
    "Z": 19,
    "file": "elements/19.js",
-   "bytes": 108375,
-   "md5": "3c04480be46f2bef070b2620ccc6d6a7",
-   "payload_bytes": 108294,
-   "payload_md5": "746bfd0128ee36c3f6d40244b11fedae"
+   "bytes": 108416,
+   "md5": "45bbedb08ea6bc2f2bcf4d3ca9e8ff86",
+   "payload_bytes": 108335,
+   "payload_md5": "4b90bc7ad49d0f7fde40e0ca44789038"
   },
   {
    "Z": 20,
    "file": "elements/20.js",
-   "bytes": 113784,
-   "md5": "d8e365f3a454ed83ee7150b55897b818",
-   "payload_bytes": 113703,
-   "payload_md5": "7e4d3bbf411c840bfef9c7261dbe9728"
+   "bytes": 113831,
+   "md5": "80fee7cc31348bafb0098db1f468ecdb",
+   "payload_bytes": 113750,
+   "payload_md5": "146bf8f6173f868c2d6b9fe61d6a8b21"
   },
   {
    "Z": 21,
    "file": "elements/21.js",
-   "bytes": 118439,
-   "md5": "e96d256d616a579c59c58ce85de70b6a",
-   "payload_bytes": 118358,
-   "payload_md5": "650084d974d3cccdc9cbd8e5de35cc7f"
+   "bytes": 118485,
+   "md5": "0692da71261c8119759c42ad44ca8716",
+   "payload_bytes": 118404,
+   "payload_md5": "119420e1b0f43c22e2d9d506ae81b68d"
   },
   {
    "Z": 22,
    "file": "elements/22.js",
-   "bytes": 124521,
-   "md5": "593fe1152c50c26679a903a06fec93ab",
-   "payload_bytes": 124440,
-   "payload_md5": "5ab216c2462f0eecd1a4d0ce3fd384f3"
+   "bytes": 124562,
+   "md5": "4a99be8743f0df277047489cb61cc4d1",
+   "payload_bytes": 124481,
+   "payload_md5": "7b2df8c8c191baac63e97834b66d723d"
   },
   {
    "Z": 23,
    "file": "elements/23.js",
-   "bytes": 131405,
-   "md5": "12d4fc33a2d1f59b6eba805af26bcc51",
-   "payload_bytes": 131324,
-   "payload_md5": "e68fbb8275d26625c236043709447630"
+   "bytes": 131446,
+   "md5": "3a1f015af6d2df11b9613875949eef17",
+   "payload_bytes": 131365,
+   "payload_md5": "8cc76e0970ff6dbc10f34864d4e2d9fb"
   },
   {
    "Z": 24,
    "file": "elements/24.js",
-   "bytes": 137404,
-   "md5": "e6b6409c5721721504827c63528cf9b1",
-   "payload_bytes": 137323,
-   "payload_md5": "f89e00c11a3be03f005ee37137620e7e"
+   "bytes": 137445,
+   "md5": "d6a6518eb2aee7dac4535f0cc780f62b",
+   "payload_bytes": 137364,
+   "payload_md5": "8e058053107bda25a5a48491576ddd46"
   },
   {
    "Z": 25,
    "file": "elements/25.js",
-   "bytes": 143282,
-   "md5": "2037efb0d4c983dbbbf76c94fbe3e140",
-   "payload_bytes": 143201,
-   "payload_md5": "28b9dbd1f0610f5276818e805ce7f28f"
+   "bytes": 143323,
+   "md5": "518afba83af8e092c3493ca7604f97af",
+   "payload_bytes": 143242,
+   "payload_md5": "d346d4bfab0d3e5351841751bc986bb8"
   },
   {
    "Z": 26,
    "file": "elements/26.js",
-   "bytes": 148728,
-   "md5": "855c8d9f4aecce2e03734087383809b5",
-   "payload_bytes": 148647,
-   "payload_md5": "2af9ef2d594ce34c7377c8a247ed00a6"
+   "bytes": 148769,
+   "md5": "adb77c171f318326b8cfe6d762cc7dfc",
+   "payload_bytes": 148688,
+   "payload_md5": "0d5f2accebd59c9a8e0e3690e583ecdc"
   },
   {
    "Z": 27,
    "file": "elements/27.js",
-   "bytes": 155243,
-   "md5": "71188e00e30160bd252cfe60b8daf1e5",
-   "payload_bytes": 155162,
-   "payload_md5": "42ba52b182e2ddc5d207d6c82bc6c6c8"
+   "bytes": 155284,
+   "md5": "c72e294539ba0a45448c411a830c9337",
+   "payload_bytes": 155203,
+   "payload_md5": "35d7d1c752eea0499ce4afe8fa23520d"
   },
   {
    "Z": 28,
    "file": "elements/28.js",
-   "bytes": 161189,
-   "md5": "c2629c1c15383695f166eddf2e22c11d",
-   "payload_bytes": 161108,
-   "payload_md5": "48be7a0cb45728be1f4041bdb9228f59"
+   "bytes": 161230,
+   "md5": "be83449ebdc6273fa74027eff1009d1a",
+   "payload_bytes": 161149,
+   "payload_md5": "2fcc85d40e8a6792d673e9e6afceb6a6"
   },
   {
    "Z": 29,
    "file": "elements/29.js",
-   "bytes": 167223,
-   "md5": "a5458341b2fef892fca76d5fb0aa6c9b",
-   "payload_bytes": 167142,
-   "payload_md5": "7de79b404604fae58c4608a5ee170a83"
+   "bytes": 167264,
+   "md5": "15c63fc4b3897f9a8f4c91f22ad1cfeb",
+   "payload_bytes": 167183,
+   "payload_md5": "b71e3897d4da8d28940508da75cedd37"
   },
   {
    "Z": 30,
    "file": "elements/30.js",
-   "bytes": 173077,
-   "md5": "75d124f64fa056f2c19f53f106efc41b",
-   "payload_bytes": 172996,
-   "payload_md5": "ac391957e15238c1b200ae99c6db0147"
+   "bytes": 173124,
+   "md5": "f4ac3f2fc2f1113273101c239c909097",
+   "payload_bytes": 173043,
+   "payload_md5": "bf823ee8329d64d4c76c216c7dd2e649"
   },
   {
    "Z": 31,
    "file": "elements/31.js",
-   "bytes": 177135,
-   "md5": "cdfc96ed61a5162b466c17deb026c8c9",
-   "payload_bytes": 177054,
-   "payload_md5": "d46824c05629e4953440f577342c2bec"
+   "bytes": 177136,
+   "md5": "c16bf60bc63704e65345642631e11d6e",
+   "payload_bytes": 177055,
+   "payload_md5": "0bb9d8f81d9ad3bad824f2229e08d199"
   },
   {
    "Z": 32,
    "file": "elements/32.js",
-   "bytes": 183222,
-   "md5": "290580ff04a8b8b8ec30380dcc7e782f",
-   "payload_bytes": 183141,
-   "payload_md5": "64d02ddf35cd855d811c205d98b07388"
+   "bytes": 183263,
+   "md5": "e2bc3ca174eefd4d1c8cd2b75d263ff9",
+   "payload_bytes": 183182,
+   "payload_md5": "b13a25d25a44a8d8a56c8c9a74150383"
   },
   {
    "Z": 33,
    "file": "elements/33.js",
-   "bytes": 189797,
-   "md5": "cee46adaf4b4350edb4eddd82c0542a2",
-   "payload_bytes": 189716,
-   "payload_md5": "d58efab6ccb121fea66bfa9822005d10"
+   "bytes": 189838,
+   "md5": "a5489b401299e21fb270a06141df4129",
+   "payload_bytes": 189757,
+   "payload_md5": "7cd7908058c2eb944690022bddfad4af"
   },
   {
    "Z": 34,
    "file": "elements/34.js",
-   "bytes": 195752,
-   "md5": "f06c3f833cb350c5f76991bdfdec5633",
-   "payload_bytes": 195671,
-   "payload_md5": "4df98c058ab6b0daf4c06041eafced4f"
+   "bytes": 195793,
+   "md5": "bb2f60caad0cb57df57e2057aa812a15",
+   "payload_bytes": 195712,
+   "payload_md5": "dbb1bfdd1a14fed23be415764e2e4eb7"
   },
   {
    "Z": 35,
    "file": "elements/35.js",
-   "bytes": 201701,
-   "md5": "d81148e06ebf75f6e3755a120f23d94d",
-   "payload_bytes": 201620,
-   "payload_md5": "3b8ea40afeb331f98dc9961ac1aed281"
+   "bytes": 201742,
+   "md5": "de9ba56fee0c069fa328fcba9158c7ac",
+   "payload_bytes": 201661,
+   "payload_md5": "61ec1d75e6b7bd1eec2fd9136d70ed72"
   },
   {
    "Z": 36,
    "file": "elements/36.js",
-   "bytes": 207969,
-   "md5": "3e80b4ea78777fb6978288e1b2469078",
-   "payload_bytes": 207888,
-   "payload_md5": "760e013ac38363d24152085e969f56b3"
+   "bytes": 208010,
+   "md5": "069c277d986c87c98927dd69d1be7485",
+   "payload_bytes": 207929,
+   "payload_md5": "2d86f5d42cc0e942f57061dfd5501e0e"
   },
   {
    "Z": 37,
    "file": "elements/37.js",
-   "bytes": 212008,
-   "md5": "db26940e928585527046062ff095072d",
-   "payload_bytes": 211927,
-   "payload_md5": "d6cdff3ca1a04b5b8360efa730ac1e05"
+   "bytes": 212049,
+   "md5": "95a8d7d4d2fb8ae146828fd95538aa3e",
+   "payload_bytes": 211968,
+   "payload_md5": "36ce1472f5fe3949f5378880dc93279b"
   },
   {
    "Z": 38,
    "file": "elements/38.js",
-   "bytes": 218038,
-   "md5": "a9c11acf78524a57a5a0ec917d1c8523",
-   "payload_bytes": 217957,
-   "payload_md5": "e1cc5191ff20bdd35649f40e198d55c3"
+   "bytes": 218079,
+   "md5": "8b06965f7476f4797f85ae175f60c48b",
+   "payload_bytes": 217998,
+   "payload_md5": "0fc7af6f1b9c0d6f81fc7bc78ed90894"
   },
   {
    "Z": 39,
    "file": "elements/39.js",
-   "bytes": 222175,
-   "md5": "e9bce05e9ba444180f67b3db2c39ae61",
-   "payload_bytes": 222094,
-   "payload_md5": "e4dd57a989c9183440b0647ac7918134"
+   "bytes": 222216,
+   "md5": "047326d7747ad81b0e722ac9d4ce90b5",
+   "payload_bytes": 222135,
+   "payload_md5": "7bddd5748760a1faf171c52339ab917f"
   },
   {
    "Z": 40,
    "file": "elements/40.js",
-   "bytes": 228706,
-   "md5": "089b29afd37612cf51125bbd9565a509",
-   "payload_bytes": 228625,
-   "payload_md5": "c3c78143055967537cd26f31b210fc55"
+   "bytes": 228747,
+   "md5": "7986163406b4854db4cd409d1f23e41a",
+   "payload_bytes": 228666,
+   "payload_md5": "51f084fb506e66a6895f5001e720d787"
   },
   {
    "Z": 41,
    "file": "elements/41.js",
-   "bytes": 234711,
-   "md5": "34cc47eb9f0605dc64ebe60417925fe6",
-   "payload_bytes": 234630,
-   "payload_md5": "d93886dbfa2619567b5ccb332e151847"
+   "bytes": 234752,
+   "md5": "4c03dc869a8e2807ad929816d2641811",
+   "payload_bytes": 234671,
+   "payload_md5": "43b5b7407922baf9b1e4dac62dbf88de"
   },
   {
    "Z": 42,
    "file": "elements/42.js",
-   "bytes": 240671,
-   "md5": "fc70d1c158773ec47d1ef2b2985e853e",
-   "payload_bytes": 240590,
-   "payload_md5": "f5c3f50089127b3fab8cd743833cd652"
+   "bytes": 240712,
+   "md5": "300baa6b66e72a7a553c8e79b1740bbf",
+   "payload_bytes": 240631,
+   "payload_md5": "412abcdd7a55515b20a66779de0a8569"
   },
   {
    "Z": 43,
    "file": "elements/43.js",
-   "bytes": 246284,
-   "md5": "acf06c358e09bc1748cec7be706068bf",
-   "payload_bytes": 246203,
-   "payload_md5": "0fb586b6daac72b8467a93af7b5f22bd"
+   "bytes": 246325,
+   "md5": "0ec06404d605fc7e55f2cf0103158375",
+   "payload_bytes": 246244,
+   "payload_md5": "101385f186644c346b0d5f381b1488d2"
   },
   {
    "Z": 44,
    "file": "elements/44.js",
-   "bytes": 252392,
-   "md5": "efee4e085e51a84f5f1f37a2ba35ecf9",
-   "payload_bytes": 252311,
-   "payload_md5": "55aac2283276855b369dceb60a17da7d"
+   "bytes": 252433,
+   "md5": "488e074add4233dc609749eebb7c9ecb",
+   "payload_bytes": 252352,
+   "payload_md5": "4590c70e4ea7d7bb5ebd238ec5817777"
   },
   {
    "Z": 45,
    "file": "elements/45.js",
-   "bytes": 258343,
-   "md5": "834de1cd38a11eb642f568d20168651b",
-   "payload_bytes": 258262,
-   "payload_md5": "f84610b646dbdcfb2bdcdc380303ea64"
+   "bytes": 258384,
+   "md5": "3e235a0625b62251bd03888f420ba022",
+   "payload_bytes": 258303,
+   "payload_md5": "59c0efa4c836cf2b50dffe570b2fc0ad"
   },
   {
    "Z": 46,
    "file": "elements/46.js",
-   "bytes": 264218,
-   "md5": "a9630c7731e23554edb5d0d366b0a002",
-   "payload_bytes": 264137,
-   "payload_md5": "881e75069813e5430df4c22b19edbebd"
+   "bytes": 264259,
+   "md5": "a90e59673f572e15ef59e8a2cbc787e3",
+   "payload_bytes": 264178,
+   "payload_md5": "8bc9cdb9f87533497304128ebd0d7023"
   },
   {
    "Z": 47,
    "file": "elements/47.js",
-   "bytes": 270240,
-   "md5": "f998d310d91c8dbd7e34168b2c236903",
-   "payload_bytes": 270159,
-   "payload_md5": "052ec74471f3e6f660fb7d6b523f7af5"
+   "bytes": 270281,
+   "md5": "2813b3d88b8f878bc74996655fc008fe",
+   "payload_bytes": 270200,
+   "payload_md5": "aae3263c5f9b8f7ca66006ddb48a92a0"
   },
   {
    "Z": 48,
    "file": "elements/48.js",
-   "bytes": 275926,
-   "md5": "7495a320b9e6db24219fcb03bb8b5712",
-   "payload_bytes": 275845,
-   "payload_md5": "5760be8f13840ceb71790e8803730213"
+   "bytes": 275967,
+   "md5": "fe06dfdbf7c3692924db34a9516b7c19",
+   "payload_bytes": 275886,
+   "payload_md5": "38f0b323abb0eabad3ea0a935e2c78ac"
   },
   {
    "Z": 49,
    "file": "elements/49.js",
-   "bytes": 280702,
-   "md5": "9c9f9a5fefcb477229880c081544f29e",
-   "payload_bytes": 280621,
-   "payload_md5": "e5f79cc3b5cdbad272c0d2c4f38f1d9e"
+   "bytes": 280723,
+   "md5": "d659af0d81aa291c318c2b71fa624867",
+   "payload_bytes": 280642,
+   "payload_md5": "225f90c2b661820dac206f134947ec51"
   },
   {
    "Z": 50,
    "file": "elements/50.js",
-   "bytes": 287223,
-   "md5": "900336e99d03473566cde621cde0d62f",
-   "payload_bytes": 287142,
-   "payload_md5": "7069582deaf833367db48cd0d999854d"
+   "bytes": 287264,
+   "md5": "e64a59ebf65d09a8c1bbe78ce4760e08",
+   "payload_bytes": 287183,
+   "payload_md5": "78a91e4b1c868589ab7d57cd74dbedba"
   },
   {
    "Z": 51,
    "file": "elements/51.js",
-   "bytes": 293151,
-   "md5": "ce62c0a84e0ee068752c3f321b6109bc",
-   "payload_bytes": 293070,
-   "payload_md5": "2c83179a9ba8173c1315649972b0b802"
+   "bytes": 293192,
+   "md5": "fc23c343cb02c632889cdec64813fc3d",
+   "payload_bytes": 293111,
+   "payload_md5": "6492b9edfd81a2e2983d08f1595ba3c1"
   },
   {
    "Z": 52,
    "file": "elements/52.js",
-   "bytes": 299121,
-   "md5": "5f5c45be47fc44d282ea932ded900410",
-   "payload_bytes": 299040,
-   "payload_md5": "6244bc23998d4833a5bdb3842b1e1871"
+   "bytes": 299162,
+   "md5": "504d2bcc1307dac67f123f4c580f646e",
+   "payload_bytes": 299081,
+   "payload_md5": "bfa8150e687a5eda1f921babf08572db"
   },
   {
    "Z": 53,
    "file": "elements/53.js",
-   "bytes": 305057,
-   "md5": "f2ff7a92887171ffa7f676b62d1f192a",
-   "payload_bytes": 304976,
-   "payload_md5": "25e4fae7ca86cb10f69e786680bc5c7d"
+   "bytes": 305098,
+   "md5": "656965562a0c915e50e53a508522e99c",
+   "payload_bytes": 305017,
+   "payload_md5": "39310da7d44dad17f307d3ef663d5ac0"
   },
   {
    "Z": 54,
    "file": "elements/54.js",
-   "bytes": 314480,
-   "md5": "408e8282aa1d65f99e3edca64ad1c711",
-   "payload_bytes": 314399,
-   "payload_md5": "ad8ef89383d10ddc57d5cc48125d840c"
+   "bytes": 314521,
+   "md5": "f4aa4795c27a37b8f45ca51724ad6e2c",
+   "payload_bytes": 314440,
+   "payload_md5": "12ab48c679206524fc9008f93d368c57"
   },
   {
    "Z": 55,
    "file": "elements/55.js",
-   "bytes": 318905,
-   "md5": "d5ff7c54ef475a7157c391b2969b75e6",
-   "payload_bytes": 318824,
-   "payload_md5": "59319d14619b49f0c15144751b9dd46c"
+   "bytes": 318846,
+   "md5": "44ccf7e399274c0294f8efe9f88b87b0",
+   "payload_bytes": 318765,
+   "payload_md5": "bab4cf3640f0d026f4947e5e2dc5b9b0"
   },
   {
    "Z": 56,
    "file": "elements/56.js",
-   "bytes": 324644,
-   "md5": "5df7fb39ae8400eb221d95703faf8d38",
-   "payload_bytes": 324563,
-   "payload_md5": "10527d7f0fb40bebb1da6ae6f5a09921"
+   "bytes": 324685,
+   "md5": "f73b2c59570889e448626b117ef59d73",
+   "payload_bytes": 324604,
+   "payload_md5": "effc84eafdfee69c618b9f3f22a7f5aa"
   },
   {
    "Z": 57,
    "file": "elements/57.js",
-   "bytes": 328789,
-   "md5": "531f8085d528eeab0e37dad139794f2d",
-   "payload_bytes": 328708,
-   "payload_md5": "162787098d7751fbca44703dc8493269"
+   "bytes": 328830,
+   "md5": "552c85a0ec7d56f82d3b05a0ec987786",
+   "payload_bytes": 328749,
+   "payload_md5": "ea11ed3bd3b0e149d21e6af3e8d2115a"
   },
   {
    "Z": 58,
    "file": "elements/58.js",
-   "bytes": 335568,
-   "md5": "26f745dda256be5dd3fbce01d06f4ffd",
-   "payload_bytes": 335487,
-   "payload_md5": "824c7a174f8944bc5fceeaab2685461f"
+   "bytes": 335609,
+   "md5": "f349e1ed0b22de2555862581ef18acb5",
+   "payload_bytes": 335528,
+   "payload_md5": "d4fb5a701c668c1805171d658e3320f4"
   },
   {
    "Z": 59,
    "file": "elements/59.js",
-   "bytes": 341483,
-   "md5": "ebf0584e1bb85033971c36578d74ab71",
-   "payload_bytes": 341402,
-   "payload_md5": "8c9bab918cf110778194e6264118dec6"
+   "bytes": 341524,
+   "md5": "5413c235041696265b63937d089e20d3",
+   "payload_bytes": 341443,
+   "payload_md5": "7436236e8fb10dd43359af63fa45ced9"
   },
   {
    "Z": 60,
    "file": "elements/60.js",
-   "bytes": 347599,
-   "md5": "4613f900144efa110a96e814b6c3b83f",
-   "payload_bytes": 347518,
-   "payload_md5": "6f37f2bbc4853b80def0e18b418cbae0"
+   "bytes": 347640,
+   "md5": "af1d928edf63231b14fce9e05b546012",
+   "payload_bytes": 347559,
+   "payload_md5": "4f6e71169ae23e4bd24ec5b64e4154e4"
   },
   {
    "Z": 61,
    "file": "elements/61.js",
-   "bytes": 353456,
-   "md5": "1e5a3947286495b5562f416d8c8917fc",
-   "payload_bytes": 353375,
-   "payload_md5": "c41f8c844429dcfe6a1ec292cff1f48c"
+   "bytes": 353497,
+   "md5": "6d28a5e496ea5e3cbdd94d94aadcba42",
+   "payload_bytes": 353416,
+   "payload_md5": "dcbac992371db21e8b59cc073b7bf2f3"
   },
   {
    "Z": 62,
    "file": "elements/62.js",
-   "bytes": 359505,
-   "md5": "8064b52c5e349fc411b475e0284944ee",
-   "payload_bytes": 359424,
-   "payload_md5": "8f01d59aa41a84b50db372c1fba73cc7"
+   "bytes": 359546,
+   "md5": "d33868cbd1f2bc3af18d1c657a3c5954",
+   "payload_bytes": 359465,
+   "payload_md5": "f9d41dfd6fec20ab008fcd3fa8f45217"
   },
   {
    "Z": 63,
    "file": "elements/63.js",
-   "bytes": 365500,
-   "md5": "8b4c2e80b204eb1b89d48a2350dc9146",
-   "payload_bytes": 365419,
-   "payload_md5": "7ff5e629d8706749ca586cfca2dce03a"
+   "bytes": 365541,
+   "md5": "e5f4e60ee5586d00a41e9bfa4f3710dd",
+   "payload_bytes": 365460,
+   "payload_md5": "1c5645ae19375e5be4f5a918cb84b365"
   },
   {
    "Z": 64,
    "file": "elements/64.js",
-   "bytes": 371694,
-   "md5": "0b32997da775a94b97006c0737218a7a",
-   "payload_bytes": 371613,
-   "payload_md5": "4b3b9235a471ca512990826fc505ec94"
+   "bytes": 371735,
+   "md5": "65df56b18528265df8c577bdd53f5776",
+   "payload_bytes": 371654,
+   "payload_md5": "8985c087913f5ce1f87f25f2c6a4c5b9"
   },
   {
    "Z": 65,
    "file": "elements/65.js",
-   "bytes": 377640,
-   "md5": "ec599c1fb0372a3dbf6c34406f1fec8e",
-   "payload_bytes": 377559,
-   "payload_md5": "e6f3ab591a87e8b3f75af48dbdce5d76"
+   "bytes": 377681,
+   "md5": "f35a5bea710be012dac5a6e9ff914f07",
+   "payload_bytes": 377600,
+   "payload_md5": "747dca31b70f73523a9ca87e16ce709a"
   },
   {
    "Z": 66,
    "file": "elements/66.js",
-   "bytes": 383709,
-   "md5": "50dd6f9da4489b803ad1404101e2ccc4",
-   "payload_bytes": 383628,
-   "payload_md5": "719b9ba480aebd4de1f7cd85ff1f9ca0"
+   "bytes": 383750,
+   "md5": "eacad6e6ce208de793d22599a9f45f58",
+   "payload_bytes": 383669,
+   "payload_md5": "e48f3a775a182cb38a072c76a8856743"
   },
   {
    "Z": 67,
    "file": "elements/67.js",
-   "bytes": 389698,
-   "md5": "e83f4176c2fcfdfd31eb3066e5ca127c",
-   "payload_bytes": 389617,
-   "payload_md5": "fbbfe5411848636dca248143c257b32c"
+   "bytes": 389739,
+   "md5": "3888af98415193850d05eddc89841f31",
+   "payload_bytes": 389658,
+   "payload_md5": "885fda4999ed330e6deaf3b790035c37"
   },
   {
    "Z": 68,
    "file": "elements/68.js",
-   "bytes": 395703,
-   "md5": "393289fe39ebf7809fb05fed00097c4e",
-   "payload_bytes": 395622,
-   "payload_md5": "74937ed05a4968643af2ed90fa7c519c"
+   "bytes": 395744,
+   "md5": "92f55ad0faea4b41aac2479b79cba788",
+   "payload_bytes": 395663,
+   "payload_md5": "61fcf1d955834be7d09673e5498d9016"
   },
   {
    "Z": 69,
    "file": "elements/69.js",
-   "bytes": 401784,
-   "md5": "4879262fad5227ddf78417da34d569f2",
-   "payload_bytes": 401703,
-   "payload_md5": "c89c6b597ec6b461b913a05a596c7184"
+   "bytes": 401825,
+   "md5": "ae021c7fe5f153c9c9f2501888b488fd",
+   "payload_bytes": 401744,
+   "payload_md5": "1f26ba8696672fd13a7b20e253829641"
   },
   {
    "Z": 70,
    "file": "elements/70.js",
-   "bytes": 408116,
-   "md5": "17f9b0f6bb1cbc6821676ffd8cde1da8",
-   "payload_bytes": 408035,
-   "payload_md5": "5360012cb7568738e2c888f937a780f0"
+   "bytes": 408157,
+   "md5": "96dfc2be34a278539847051cd18d52e6",
+   "payload_bytes": 408076,
+   "payload_md5": "a63d1e2a6660abdcc10a11e2c1307792"
   },
   {
    "Z": 71,
    "file": "elements/71.js",
-   "bytes": 412337,
-   "md5": "0c6b6a4586923bd9b1b638df847429cf",
-   "payload_bytes": 412256,
-   "payload_md5": "f3503b9e69f2de241d8d5e2eb86d3133"
+   "bytes": 412358,
+   "md5": "8199216e927e21103f10cff8bef47b8d",
+   "payload_bytes": 412277,
+   "payload_md5": "75dac08997f606218bffd478a96157a9"
   },
   {
    "Z": 72,
    "file": "elements/72.js",
-   "bytes": 418629,
-   "md5": "1b9125a24a327fe97fc9e14b573e9175",
-   "payload_bytes": 418548,
-   "payload_md5": "28a102f58d4744f8edb8d36dd1ad92ff"
+   "bytes": 418670,
+   "md5": "6e6a5a9e94942078707638147c7d199b",
+   "payload_bytes": 418589,
+   "payload_md5": "4751e7518262e648b03a7d4a33f7ad76"
   },
   {
    "Z": 73,
    "file": "elements/73.js",
-   "bytes": 424590,
-   "md5": "3b32061ed0cf74ef2738c2576c0f090b",
-   "payload_bytes": 424509,
-   "payload_md5": "5a459f7dad1a85c3a6498b21696d3242"
+   "bytes": 424631,
+   "md5": "e5b44d03262e55c3a006b288781803b5",
+   "payload_bytes": 424550,
+   "payload_md5": "8170dcd647f4ec044e43a990f5b53252"
   },
   {
    "Z": 74,
    "file": "elements/74.js",
-   "bytes": 430552,
-   "md5": "e57fc3c670cf5c9642053e747aedbe71",
-   "payload_bytes": 430471,
-   "payload_md5": "e90a41cc9f133b0dd18d08e5bd1f8e71"
+   "bytes": 430593,
+   "md5": "9fe1373a3beb39000accb162e7c4cabf",
+   "payload_bytes": 430512,
+   "payload_md5": "a8abbacf3cb85540d9f9e03e542f0123"
   },
   {
    "Z": 75,
    "file": "elements/75.js",
-   "bytes": 436466,
-   "md5": "b6ff91747fa00fee86654457755cb1cb",
-   "payload_bytes": 436385,
-   "payload_md5": "a3385ea59644404fa80533f43724ec06"
+   "bytes": 436507,
+   "md5": "82c01c0f8745ee6e1238a70d3debb774",
+   "payload_bytes": 436426,
+   "payload_md5": "e4b8cd46efc38968663181a6c4b22d96"
   },
   {
    "Z": 76,
    "file": "elements/76.js",
-   "bytes": 442328,
-   "md5": "ed4ad3fb17f995c4ce4aa24a38abcdd0",
-   "payload_bytes": 442247,
-   "payload_md5": "23c9dcadb86fb712047082f80af7b5d6"
+   "bytes": 442369,
+   "md5": "7fca6e790af77742bcbec75aae50b577",
+   "payload_bytes": 442288,
+   "payload_md5": "220c46c0db2cc0678364445e6126c52e"
   },
   {
    "Z": 77,
    "file": "elements/77.js",
-   "bytes": 448459,
-   "md5": "f1d6c6b3efdbf190a6977ff7abe8a910",
-   "payload_bytes": 448378,
-   "payload_md5": "b0ee6278cf242cc23a576607ab99a216"
+   "bytes": 448500,
+   "md5": "f2c845dae7eec2a93108bef5699aeb25",
+   "payload_bytes": 448419,
+   "payload_md5": "626afd2acd00b73b73fe6ea230c9dfe1"
   },
   {
    "Z": 78,
    "file": "elements/78.js",
-   "bytes": 454559,
-   "md5": "e4dbac86e6d51607624a388e41de7acb",
-   "payload_bytes": 454478,
-   "payload_md5": "f1fc06ed49da77c18e5dfe27a1eb9123"
+   "bytes": 454600,
+   "md5": "3e6a94fb656a9ee0831ba04d9e98553c",
+   "payload_bytes": 454519,
+   "payload_md5": "f0e7c34b224d6e1d793c21648e3859d0"
   },
   {
    "Z": 79,
    "file": "elements/79.js",
-   "bytes": 460582,
-   "md5": "09d18d38e7a5eeccba94fa7c4c2b66aa",
-   "payload_bytes": 460501,
-   "payload_md5": "94ce45cad6e1d8dd45636af6f8e8b2de"
+   "bytes": 460623,
+   "md5": "dbed94108483ce2bc51de1af511f711f",
+   "payload_bytes": 460542,
+   "payload_md5": "0180f9866b99a0540de9e15ebfd2217d"
   },
   {
    "Z": 80,
    "file": "elements/80.js",
-   "bytes": 466669,
-   "md5": "68bf530a3dc73bae03b16288f5d30fb9",
-   "payload_bytes": 466588,
-   "payload_md5": "c4d036c6338f633608ea809b1979cd94"
+   "bytes": 466710,
+   "md5": "723d3873a12486f7d6feee3971b7aaee",
+   "payload_bytes": 466629,
+   "payload_md5": "afafcd4b55522655965630fbd6483129"
   },
   {
    "Z": 81,
    "file": "elements/81.js",
-   "bytes": 471140,
-   "md5": "7346c4711968f71ec0114b206aada88b",
-   "payload_bytes": 471059,
-   "payload_md5": "02816ed2a8f5257dafd13cb53bb366b5"
+   "bytes": 471121,
+   "md5": "645b2ec04dd3e965161714075fe61471",
+   "payload_bytes": 471040,
+   "payload_md5": "7ad0e8f75892d0b049b4fd545e5bf4dd"
   },
   {
    "Z": 82,
    "file": "elements/82.js",
-   "bytes": 477517,
-   "md5": "74a011ab5f0cba3b168a967bdeb4dc1a",
-   "payload_bytes": 477436,
-   "payload_md5": "ebb00918813dd064fe469498cd662b02"
+   "bytes": 477558,
+   "md5": "b860cb94f8d842ac4eb1fb9acb4bbf83",
+   "payload_bytes": 477477,
+   "payload_md5": "37100ba43608d97681375f9cfe906e43"
   },
   {
    "Z": 83,
    "file": "elements/83.js",
-   "bytes": 483307,
-   "md5": "5eda4c8feb46be68e6ff179ff28711a4",
-   "payload_bytes": 483226,
-   "payload_md5": "91e5168188b1d92f234ed7d1d0fa6dfe"
+   "bytes": 483348,
+   "md5": "a2a39f6900ce0b5bf0b07761bea78e19",
+   "payload_bytes": 483267,
+   "payload_md5": "a971e1bc07ad777a28e296ba0eace0a8"
   },
   {
    "Z": 84,
    "file": "elements/84.js",
-   "bytes": 489573,
-   "md5": "60a436fd9da7f174545a16151d5209e0",
-   "payload_bytes": 489492,
-   "payload_md5": "99831264c57bbb600f9e591abfb6ecbb"
+   "bytes": 489614,
+   "md5": "253610a52016b0de4e75bfa18b123376",
+   "payload_bytes": 489533,
+   "payload_md5": "ed49518c40bfb761d84a319b70009cca"
   },
   {
    "Z": 85,
    "file": "elements/85.js",
-   "bytes": 495556,
-   "md5": "5c87310f846d165ac272a99ce016350a",
-   "payload_bytes": 495475,
-   "payload_md5": "adeae9a18a3bc62df67cf6bf10ba98d3"
+   "bytes": 495597,
+   "md5": "10772d1ab067b84996d0191bedcdea0c",
+   "payload_bytes": 495516,
+   "payload_md5": "9059aaa77dab9f7f9024f9012813dd29"
   },
   {
    "Z": 86,
    "file": "elements/86.js",
-   "bytes": 501975,
-   "md5": "12986efdc27a9d2f3d7b4d4db166d786",
-   "payload_bytes": 501894,
-   "payload_md5": "e8643a1246452326e8a41fccc9bcb0b2"
+   "bytes": 502016,
+   "md5": "6b4821a24c1382874a2d05802917c438",
+   "payload_bytes": 501935,
+   "payload_md5": "c6fdbbd619b18988c469c3ad3c932f6f"
   },
   {
    "Z": 87,
    "file": "elements/87.js",
-   "bytes": 506173,
-   "md5": "d3465e51f403d7f1abbf5f9780da3fe4",
-   "payload_bytes": 506092,
-   "payload_md5": "a5905a999330561c9714d415e1806014"
+   "bytes": 506174,
+   "md5": "9e93372ee6c7cfbd99a3bec593d5ed50",
+   "payload_bytes": 506093,
+   "payload_md5": "5005ff8c8c60e9af41b26bb0c2dad6fe"
   },
   {
    "Z": 88,
    "file": "elements/88.js",
-   "bytes": 512432,
-   "md5": "812975fa0d3c4bc9bb50df0702b0ae99",
-   "payload_bytes": 512351,
-   "payload_md5": "317efe520d2f42766956bbaff6d45211"
+   "bytes": 512473,
+   "md5": "da8818875115523e066fd12176809ff7",
+   "payload_bytes": 512392,
+   "payload_md5": "3aa6df06e889bffd62bedc4e32e2c879"
   },
   {
    "Z": 89,
    "file": "elements/89.js",
-   "bytes": 516448,
-   "md5": "3916104c956410ae9c9b6b0a65ea240b",
-   "payload_bytes": 516367,
-   "payload_md5": "d88f41b9db183635eabcfc451476ce7c"
+   "bytes": 516489,
+   "md5": "09781cbe919896a453f150427efb1a2a",
+   "payload_bytes": 516408,
+   "payload_md5": "d85dd00a20e3fa579931ab701f0e87c3"
   },
   {
    "Z": 90,
    "file": "elements/90.js",
-   "bytes": 522942,
-   "md5": "1d4e63abe2e31d7dd7ea64f5005d6c98",
-   "payload_bytes": 522861,
-   "payload_md5": "3cff1085623f7beb10b1b74d30615a0e"
+   "bytes": 522983,
+   "md5": "9b3174c829a62aa6eda715cdacb055ae",
+   "payload_bytes": 522902,
+   "payload_md5": "c58f8d4c91aeca10f78119cbbde03cd7"
   },
   {
    "Z": 91,
    "file": "elements/91.js",
-   "bytes": 529087,
-   "md5": "ae24fc931241b2da33f0a4004598ed75",
-   "payload_bytes": 529006,
-   "payload_md5": "036d7d0d049b72e6ebae0aebf4855f82"
+   "bytes": 529128,
+   "md5": "03478fe98cb35df257fa6d175dce567e",
+   "payload_bytes": 529047,
+   "payload_md5": "c1742a5bb73c65ebdfaf65b54d624ead"
   },
   {
    "Z": 92,
    "file": "elements/92.js",
-   "bytes": 535094,
-   "md5": "be2ced8afea803ff0935351a66732966",
-   "payload_bytes": 535013,
-   "payload_md5": "cc4ad2c30eb017b33b5b5366b72ca50e"
+   "bytes": 535135,
+   "md5": "19f8ffc27b5d71ab31c067e210c00d77",
+   "payload_bytes": 535054,
+   "payload_md5": "5f645ae87aca152c01609b7b8744d4b5"
   },
   {
    "Z": 93,
    "file": "elements/93.js",
-   "bytes": 541207,
-   "md5": "1cd4692061eb514b3f8b9942941ae749",
-   "payload_bytes": 541126,
-   "payload_md5": "7de271fe166c54a4930aa34f5c534573"
+   "bytes": 541248,
+   "md5": "0ef5728c9f723b460c75bc431da39780",
+   "payload_bytes": 541167,
+   "payload_md5": "809e39f765b06956dc644aa0d727e513"
   },
   {
    "Z": 94,
    "file": "elements/94.js",
-   "bytes": 547030,
-   "md5": "13ca17aca580ce03feb710d4aba55d54",
-   "payload_bytes": 546949,
-   "payload_md5": "dc7737e646b6e0a08e861c2180eb3b51"
+   "bytes": 547071,
+   "md5": "0f06d3d8a522120200f09d7def03b05e",
+   "payload_bytes": 546990,
+   "payload_md5": "07b8a612592e5e7361088a8a14d1d3cf"
   },
   {
    "Z": 95,
    "file": "elements/95.js",
-   "bytes": 553137,
-   "md5": "522311104048cd6e334b14981d9d4cc4",
-   "payload_bytes": 553056,
-   "payload_md5": "7c5b656ee0d7bf3ce784474e2d55a351"
+   "bytes": 553178,
+   "md5": "b519ed4848d03e361f2a3c0f55ac321a",
+   "payload_bytes": 553097,
+   "payload_md5": "f4b5d855550f2676d2a0eb104c7cf3c0"
   },
   {
    "Z": 96,
    "file": "elements/96.js",
-   "bytes": 559204,
-   "md5": "b5e3f2f463c623dfec599df7d72fc272",
-   "payload_bytes": 559123,
-   "payload_md5": "2792d37106e8f9070683c10060df87c9"
+   "bytes": 559245,
+   "md5": "b27ad6d3f28d6adfc41210e8cc5acf44",
+   "payload_bytes": 559164,
+   "payload_md5": "8a2cd94d8713a3d6407dfa506620bb62"
   },
   {
    "Z": 97,
    "file": "elements/97.js",
-   "bytes": 565209,
-   "md5": "cd135945f2b7c9a2595c016533813627",
-   "payload_bytes": 565128,
-   "payload_md5": "ac34b68ed9504e42314c69ce625c52d4"
+   "bytes": 565250,
+   "md5": "0ddcd5c48e36e0d13fe6943363ecedd2",
+   "payload_bytes": 565169,
+   "payload_md5": "aeced8a17dd208c50047482d8e3fac41"
   },
   {
    "Z": 98,
    "file": "elements/98.js",
-   "bytes": 571214,
-   "md5": "be28459cb78aa1a8123b93d25a814e3f",
-   "payload_bytes": 571133,
-   "payload_md5": "3025b9a75d7c3bb2100d4e483e65fe6f"
+   "bytes": 571255,
+   "md5": "2d893a5e92d63312310b3b97f37cf818",
+   "payload_bytes": 571174,
+   "payload_md5": "228353b1971491994dfdeff32bfb9303"
   },
   {
    "Z": 99,
    "file": "elements/99.js",
-   "bytes": 577199,
-   "md5": "b96a03b19920edb5f9717d73ee563f0d",
-   "payload_bytes": 577118,
-   "payload_md5": "364b1ca0f1e3d2ec64af5369944973ba"
+   "bytes": 577240,
+   "md5": "e984cb0120da495e2dc9be81c6569e22",
+   "payload_bytes": 577159,
+   "payload_md5": "993c57b282f434632b31936ff23c34de"
   },
   {
    "Z": 100,
    "file": "elements/100.js",
-   "bytes": 583296,
-   "md5": "daa46ecede80200d9ba7b48cc16c47be",
-   "payload_bytes": 583214,
-   "payload_md5": "38b2e809c9c5f1d9d1590c56126f82c6"
+   "bytes": 583337,
+   "md5": "7e6edc77f1faeb1188f7bf8776097a0f",
+   "payload_bytes": 583255,
+   "payload_md5": "46c84d43e94a273663da249a2c9216a8"
   },
   {
    "Z": 101,
    "file": "elements/101.js",
-   "bytes": 589330,
-   "md5": "1c8560cc22c6f0164dd6fa3611ccfaa2",
-   "payload_bytes": 589248,
-   "payload_md5": "bfccdb3e04520ec0c6ec257b136435ea"
+   "bytes": 589371,
+   "md5": "1b81eb3a155deff8f0f6a073f0d2f73f",
+   "payload_bytes": 589289,
+   "payload_md5": "5e9d28e2e33f4364659af9152aaf5dd3"
   },
   {
    "Z": 102,
    "file": "elements/102.js",
-   "bytes": 595765,
-   "md5": "71346f9024238c999656f7e8c6408089",
-   "payload_bytes": 595683,
-   "payload_md5": "0668e4dab6c64840432d730b0fbbfdb6"
+   "bytes": 595806,
+   "md5": "d04484662b655a2f5aba0376e0ee4520",
+   "payload_bytes": 595724,
+   "payload_md5": "2bea7e24bb3a1587b0ebd5bd10ab719c"
   },
   {
    "Z": 103,
    "file": "elements/103.js",
-   "bytes": 600016,
-   "md5": "8728745af6804f91093f8c8bdfb4a3f4",
-   "payload_bytes": 599934,
-   "payload_md5": "7215c307d19a9856ef0c3ab6ef5f02e3"
+   "bytes": 600057,
+   "md5": "17aee091158248621835059305e0195a",
+   "payload_bytes": 599975,
+   "payload_md5": "0c756c64ce26105990499eb575a61864"
   },
   {
    "Z": 104,
    "file": "elements/104.js",
-   "bytes": 570865,
-   "md5": "5d086b593e9a6ec9ec0bc2f5eb67d1cf",
-   "payload_bytes": 570783,
-   "payload_md5": "d8b686fc5db6b96c1768e8dbd346bb1d"
+   "bytes": 570906,
+   "md5": "a4383e725d179ce5a92a249833fd187d",
+   "payload_bytes": 570824,
+   "payload_md5": "2b09634ff8d7cfdbe0e517360a6d4ddd"
   },
   {
    "Z": 105,
    "file": "elements/105.js",
-   "bytes": 576660,
-   "md5": "0027ddb125aadbeaed9954728837ea14",
-   "payload_bytes": 576578,
-   "payload_md5": "0763f6453bf1ee74967a272dc31e67c7"
+   "bytes": 576701,
+   "md5": "a887ec00e2c8e78cd423ac36a6f40ae3",
+   "payload_bytes": 576619,
+   "payload_md5": "2a2e8ee195976953c38ce489947c3adf"
   },
   {
    "Z": 106,
    "file": "elements/106.js",
-   "bytes": 582436,
-   "md5": "dbddb29f77fd84137ceee1373b4c1b87",
-   "payload_bytes": 582354,
-   "payload_md5": "c71d2a1f44d5e5755bb1551616505eb5"
+   "bytes": 582477,
+   "md5": "8649bc456c036e51e2f4a11bc4a9bac8",
+   "payload_bytes": 582395,
+   "payload_md5": "1829cb57f6ff61c9b410658ef1a17742"
   },
   {
    "Z": 107,
    "file": "elements/107.js",
-   "bytes": 588274,
-   "md5": "66fb94495a576214b68c5b5552ad8d12",
-   "payload_bytes": 588192,
-   "payload_md5": "73af501d77697efab5f52fedbb7e679b"
+   "bytes": 588315,
+   "md5": "1ab915fcfbed07d23f71db767800c91f",
+   "payload_bytes": 588233,
+   "payload_md5": "d49338024f356e8687ae9e8d7ca5f3b3"
   },
   {
    "Z": 108,
    "file": "elements/108.js",
-   "bytes": 594047,
-   "md5": "35a7214f1af1bb191f4f4a10c15cc926",
-   "payload_bytes": 593965,
-   "payload_md5": "bea013897e24a503a605cb294c0ffee9"
+   "bytes": 594088,
+   "md5": "7ac1da3cbe86054071b68a6224d1407f",
+   "payload_bytes": 594006,
+   "payload_md5": "a79bfae5059971e643a266439a1d2f48"
   },
   {
    "Z": 109,
    "file": "elements/109.js",
-   "bytes": 511767,
-   "md5": "8984014330c305e24efadf6ffa1774ef",
-   "payload_bytes": 511685,
-   "payload_md5": "314ae8335a829f5f67a9239db3220206"
+   "bytes": 511780,
+   "md5": "7b3f1da32b7b124d4b43861fd4d8c3a5",
+   "payload_bytes": 511698,
+   "payload_md5": "2630ef19dce441e20459e36433977447"
   },
   {
    "Z": 110,
    "file": "elements/110.js",
-   "bytes": 516740,
-   "md5": "80b337c10eecb57e141b7a136d01497f",
-   "payload_bytes": 516658,
-   "payload_md5": "77e01b0b71db50b16915f28857599898"
+   "bytes": 516753,
+   "md5": "95d03edb05f6e1c0e680371ebf66d5d0",
+   "payload_bytes": 516671,
+   "payload_md5": "98302c73140fc4f790de85133955a6ea"
   },
   {
    "Z": 111,
    "file": "elements/111.js",
-   "bytes": 521672,
-   "md5": "3dc13e2969647e331319296c1df31291",
-   "payload_bytes": 521590,
-   "payload_md5": "048525077e7b9cd87252c9ef3b68236f"
+   "bytes": 521685,
+   "md5": "4c703adaf0e5cbbf0f1df52c0e2ad983",
+   "payload_bytes": 521603,
+   "payload_md5": "3ca012f0d5483aec7b9b00c0e84e3283"
   },
   {
    "Z": 112,
    "file": "elements/112.js",
-   "bytes": 526689,
-   "md5": "578c46f339155b5c0c038e7f7e1425dd",
-   "payload_bytes": 526607,
-   "payload_md5": "2c0842aa0d26584e44a93991866b7a8d"
+   "bytes": 526702,
+   "md5": "5a9bd8c35b8c878002c0af3ce2432dc3",
+   "payload_bytes": 526620,
+   "payload_md5": "6ad2954931dc9074412a9cdfba165a9e"
   },
   {
    "Z": 113,
    "file": "elements/113.js",
-   "bytes": 529685,
-   "md5": "f94fee402d445faa1e921f55f180e112",
-   "payload_bytes": 529603,
-   "payload_md5": "6d9448b4bc8a0b1915f457d27d50ae6b"
+   "bytes": 529698,
+   "md5": "1454e85c014cc7e4e31f61cf50906418",
+   "payload_bytes": 529616,
+   "payload_md5": "9853cf7d5fb02e707ea97037c744161b"
   },
   {
    "Z": 114,
    "file": "elements/114.js",
-   "bytes": 534741,
-   "md5": "e0d2e51a85d1dd4239342fea3ec2907c",
-   "payload_bytes": 534659,
-   "payload_md5": "b999d1d2c21afc5f2e3687173bd19c90"
+   "bytes": 534754,
+   "md5": "e23fd1c8af11a9a734758ce9be93fded",
+   "payload_bytes": 534672,
+   "payload_md5": "ef06b6473f9588d766973837c5fb321b"
   },
   {
    "Z": 115,
    "file": "elements/115.js",
-   "bytes": 539799,
-   "md5": "659b8ff877ab402af8d0b66bfccf9216",
-   "payload_bytes": 539717,
-   "payload_md5": "0bf0e4dcb1d86d76c2e9dc1693c809c9"
+   "bytes": 539812,
+   "md5": "2205894ab004b20e9943c76cfc722043",
+   "payload_bytes": 539730,
+   "payload_md5": "a1b716bb9efbae10d9a4f64a30ae63fe"
   },
   {
    "Z": 116,
    "file": "elements/116.js",
-   "bytes": 544735,
-   "md5": "41c299f7292d12efe22713d6666a1306",
-   "payload_bytes": 544653,
-   "payload_md5": "e8d2859340c7e57e1df14fb91ac5420e"
+   "bytes": 544748,
+   "md5": "ca49b55f6edc83867ef99b7b26bbb6a2",
+   "payload_bytes": 544666,
+   "payload_md5": "22ee501c0d972802dbc2e9a61fcbce11"
   },
   {
    "Z": 117,
    "file": "elements/117.js",
-   "bytes": 549741,
-   "md5": "e6792ca839010608c39e234115df70e7",
-   "payload_bytes": 549659,
-   "payload_md5": "5b5698810b7ffc1acd88e50c87f2131d"
+   "bytes": 549754,
+   "md5": "6552134344947fa941dbf4938e7c84f1",
+   "payload_bytes": 549672,
+   "payload_md5": "b9a3791aa307e0a583e534ac1e4dc2b7"
   },
   {
    "Z": 118,
    "file": "elements/118.js",
-   "bytes": 554734,
-   "md5": "b6c2b246c8b7f8f2832b7b635a7336aa",
-   "payload_bytes": 554652,
-   "payload_md5": "ddc5a841720d34cdd06da021322234fb"
+   "bytes": 554747,
+   "md5": "dd0be236183be44569f5b3ee6cca8da9",
+   "payload_bytes": 554665,
+   "payload_md5": "d0d645bee67f991eb11fc7c7afefb6bc"
   },
   {
    "Z": 119,
    "file": "elements/119.js",
-   "bytes": 676199,
-   "md5": "0ab5d51ba5aff8791199341e463e8c78",
-   "payload_bytes": 676117,
-   "payload_md5": "f1373c2d089c9f334f753016a049fb5d"
+   "bytes": 676212,
+   "md5": "90fd1dd091183c621f83ab31ee081fc5",
+   "payload_bytes": 676130,
+   "payload_md5": "7d9a5f29a2b7f57bdf59d1cd0ec6059c"
   },
   {
    "Z": 120,
    "file": "elements/120.js",
-   "bytes": 721006,
-   "md5": "e3d4497d17778c57b4a7f4a0e05ffc80",
-   "payload_bytes": 720924,
-   "payload_md5": "dca2558da850cff7fff25d34468cb51b"
+   "bytes": 721019,
+   "md5": "d17a312f6414e9578b3161b65c622f23",
+   "payload_bytes": 720937,
+   "payload_md5": "4619712bcf499b6e094252bccbf5f1ff"
   }
  ],
  "protocol": {

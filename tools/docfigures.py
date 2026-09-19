@@ -110,6 +110,29 @@ def _is_finding(site):
     return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
+def _site_index():
+    """public/data/index.js, the generated site index, read as data: the file is
+    `window.__mi = ...; window.__mi.index = {...};` and the object is JSON."""
+    blob = (ROOT / "public" / "data" / "index.js").read_text(encoding="utf-8")
+    start = blob.index("window.__mi.index = ") + len("window.__mi.index = ")
+    end = blob.rstrip().rstrip(";")
+    return json.loads(end[start:])
+
+
+_PARTICLES = {}
+
+
+def _particles():
+    """The site's Particles block, which the public build does not carry (the
+    paper it reads is not released), built on demand by the generator's own
+    function so the figures the doc states about it are still measured."""
+    if "block" not in _PARTICLES:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import webindex
+        _PARTICLES["block"] = webindex.particles_block()
+    return _PARTICLES["block"]
+
+
 def _walk_summary():
     return _tool_json("lowdin_walk.py", ["--report", str(ROOT / "LOWDIN-WALK.tsv"), "--json"])
 
@@ -225,6 +248,53 @@ def checks():
          len((_walk_summary().get("fields_compare") or {}).get("entrants_differ", []))),
         ("docs/LOWDIN-WALK.md", "walk: rows not converged (three hf rows at c = 137.035999)", 3,
          sum(len(v.get("not_converged", [])) for v in _walk_summary().get("settings", {}).values())),
+        # the thirty-six of section 6, as the site carries them (webindex.py over cypher's R)
+        ("docs/WEB-INDEX.md", "site closure: the thirty-six forbidden by l <= n-1", 25,
+         _site_index()["closure"]["decomposition"]["forbidden"]),
+        ("docs/WEB-INDEX.md", "site closure: the thirty-six deferred", 11,
+         _site_index()["closure"]["decomposition"]["deferred"]),
+        ("docs/WEB-INDEX.md", "site closure: E with helium at group 2 (Register 448)", 20,
+         _site_index()["closure"]["placement"]["helium_at_2"]["E"]),
+        ("docs/WEB-INDEX.md", "site closure: E prices helium's placement at", 16,
+         _site_index()["closure"]["placement"]["priced"]),
+        ("docs/WEB-INDEX.md", "site lattice: sites, charge 1..Z by l 0..7 over Z = 1..120", 58080,
+         _site_index()["lattice"]["sites"]),
+        ("docs/WEB-INDEX.md", "site lattice: known cells (measured + exact)", 1287,
+         len(_site_index()["lattice"]["known"])),
+        ("docs/WEB-INDEX.md", "site references: arXiv identifiers the corpus prints", 53,
+         len(_site_index()["references"]["arxiv"])),
+        ("docs/WEB-INDEX.md", "site references: DOIs the corpus prints", 7,
+         len(_site_index()["references"]["doi"])),
+        ("docs/WEB-INDEX.md", "site references: B.1 species mapped to a compilation", 26,
+         len(_site_index()["references"]["spectra_sources"]["by_species"])),
+        ("docs/WEB-INDEX.md", "site papers: released papers held", 2,
+         sum(1 for x in _site_index()["papers"]["papers"] if x["held"])),
+        ("docs/WEB-INDEX.md", "site papers: slots not yet held", 1,
+         sum(1 for x in _site_index()["papers"]["papers"] if not x["held"])),
+        ("docs/WEB-INDEX.md", "site figure data: measured channels the equation figure draws", 358,
+         len(_site_index()["figure_data"]["equation"]["rows"])),
+        ("docs/WEB-INDEX.md", "site particle indexes: members 30, 250, 292", [30, 250, 292],
+         [x["members"] for x in ((_site_index()["particle_index"] or {}).get("indexes") or [])]),
+        ("docs/WEB-INDEX.md", "site particle indexes: cells 26, 66, 184", [26, 66, 184],
+         [x["cells"] for x in ((_site_index()["particle_index"] or {}).get("indexes") or [])]),
+        ("docs/WEB-INDEX.md", "site particle indexes: the accounting 6506 = 5880 + 54 + 572", "6506 = 5880 + 54 + 572",
+         ((_site_index()["particle_index"] or {}).get("accounting") or {}).get("identity")),
+        ("docs/WEB-INDEX.md", "site particle indexes: 550 charted of 572, 22 unplaced", [572, 550, 22],
+         [((_site_index()["particle_index"] or {}).get("accounting") or {}).get(k) for k in ("members", "charted", "unplaced")]),
+        ("docs/WEB-INDEX.md", "site particle sweep: 142 charts", 142,
+         ((_site_index()["particle_index"] or {}).get("sweep") or {}).get("charts")),
+        ("docs/WEB-INDEX.md", "site particle sweep: the seating, baryons (2I, Q3) at K5, 16 cells", "baryons (2I, Q3) at K5, 16 cells",
+         ((_site_index()["particle_index"] or {}).get("sweep") or {}).get("seated")),
+        ("docs/WEB-INDEX.md", "site particle indexes: antimatter 231 of 550", [231, 550],
+         [(((_site_index()["particle_index"] or {}).get("antimatter") or {}).get(k)) for k in ("total", "of_charted")]),
+        ("docs/WEB-INDEX.md", "site quasiparticles seated: 168 of twelve Laughlin states, 30 cells, K0", "fqh: 168 quasiparticles of 12 Laughlin states, 30 cells, K0",
+         (((_site_index()["particle_index"] or {}).get("quasiparticles") or {}).get("seated"))),
+        ("docs/WEB-INDEX.md", "site particles: absent from the public build (None)", None,
+         _site_index()["particles"]),
+        ("docs/WEB-INDEX.md", "site particles: constants of Lambda_phys (--with-particles)", 27,
+         _particles()["constants"]["count"]),
+        ("docs/WEB-INDEX.md", "site particles: the muon window in electron masses (--with-particles)", [119, 918],
+         _particles()["window"]["m_e"]),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY conversations", 194,
