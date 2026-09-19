@@ -169,6 +169,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "captures", "arxiv-2508.05447.txt")
+ENTRIES_TSV = os.path.join(HERE, "captures", "DEFORMED-entries.tsv")
+LEVELS_TSV = os.path.join(HERE, "captures", "DEFORMED-levels.tsv")
 
 PAPER = ("arXiv:2508.05447 -- Pinky, Kumar, Singh & Jain, Features of "
          "Two-Quasiparticle Rotational Bands in Deformed Odd-Odd Nuclei")
@@ -195,10 +197,19 @@ ATTEMPTS = (
 
 SY = {"Ho", "Er", "Tm", "Yb", "Lu", "Dy", "Tb", "Gd"}
 PARITY = re.compile(r'^[\(\)]*[+−-][\)\(]*$')
-ENER = (r'\(?(?:[A-Za-z]\s*\+\s*)?\d+(?:\.\d+)?(?:\s*\+\s*[A-Za-z])?\)?'
+# EVERY SPELLING THE SOURCE ACTUALLY PRINTS FOR A LEVEL ENERGY.  Each was
+# added because a row was being dropped for a mechanical reason, and each is
+# pointed at a printed form rather than chosen to move a count:
+#   558.579(4)   an uncertainty in parentheses      (the largest group by far)
+#   595.841(50   the same, with the closing paren wrapped away
+#   X+266.5      label-first, when the bandhead energy is unknown
+#   266.5+X      offset-first, the same thing the other way round
+#   118.0 or     an ambiguous energy, first value taken
+ENER = (r'\(?(?:[A-Za-z]\s*\+\s*)?\d+(?:\.\d+)?(?:\(\d+\)?)?'
+        r'(?:\s*\+\s*[A-Za-z])?\)?'
         r'|\(?[A-Za-z]\)?|\(A[<>]\d+\)\?')
 SPIN = r'\(?\d{1,2}(?:/2)?[\(\)]*[+−-]?[\(\)]*\)?'
-ROW = re.compile(r'^(%s)\s+(%s)(\s|$)' % (ENER, SPIN))
+ROW = re.compile(r'^(%s)(?:\s+or)?\s+(%s)(\s|$)' % (ENER, SPIN))
 
 _C = {}
 
@@ -366,6 +377,87 @@ def levels():
     return _C["l"]
 
 
+def two_i(tok):
+    """2I from an I^pi cell, doubled so half-integers stay integers."""
+    t = re.sub(r'[()+\u2212\-\s]', "", tok)
+    if not t:
+        return None
+    return int(t[:-2]) if t.endswith("/2") else 2 * int(t)
+
+
+def entries():
+    """[{no, levels, nuclide}] -- the table segmented into its entries.
+
+    Boundaries from `segment()`, levels from the rows between them.  This is
+    the capture the retracted refusal said could not exist.
+    """
+    if "e" not in _C:
+        lines = _rejoin(table())
+        out, exp, cur = [], 1, None
+        Z = N = None
+        for j, s in enumerate(lines):
+            t = s.strip()
+            if t in SY:
+                prev = [lines[k].strip() for k in range(j - 1, max(j - 6, -1), -1)
+                        if lines[k].strip()][:2]
+                nums = []
+                for pv in prev:
+                    if re.fullmatch(r'[\d ]+', pv):
+                        nums += [int(x) for x in re.findall(r'\d+', pv)]
+                zz = [x for x in nums if 60 <= x <= 75]
+                nn = [x for x in nums if 80 <= x <= 115]
+                if zz and nn:
+                    Z, N = zz[0], nn[0]
+            m = SEG.match(t)
+            if m:
+                v = int(m.group(1))
+                if v == exp or (v == 1 and exp > 1):
+                    cur = {"no": v, "Z": Z, "N": N,
+                           "A": (Z + N) if (Z and N) else None, "levels": []}
+                    out.append(cur)
+                    exp = v + 1 if v == exp else 2
+                    rest = t[m.end():].strip()
+                    if rest:
+                        r = _is_row(rest)
+                        if r:
+                            cur["levels"].append(r)
+                    continue
+            if cur is not None:
+                r = _is_row(t)
+                if r:
+                    cur["levels"].append(r)
+        _C["e"] = out
+    return _C["e"]
+
+
+def census2():
+    """(entries, bands, bandhead states) measured, against STATED."""
+    E = entries()
+    return (len(E),
+            sum(1 for e in E if len(e["levels"]) >= 2),
+            sum(1 for e in E if len(e["levels"]) <= 1))
+
+
+def discontinuities():
+    """[(index, no, spins, drop)] -- entries whose spin sequence FALLS.
+
+    A rotational band's spins ascend.  A fall inside one entry means TWO bands
+    were merged because a band-number line was not recognised.  This is the
+    structural check that says the capture is NOT yet total, and it is
+    reported rather than repaired: splitting both of these would give 235
+    entries against the paper's 234, so something here is not yet understood
+    and forcing the number would be fitting.
+    """
+    out = []
+    for i, e in enumerate(entries()):
+        sp = [two_i(x[1]) for x in e["levels"]]
+        sp = [x for x in sp if x is not None]
+        dr = [(a, b) for a, b in zip(sp, sp[1:]) if b < a]
+        if dr:
+            out.append((i, e["no"], sp, dr))
+    return out
+
+
 def verdict():
     """(blank-row delimiter absent?, entries recoverable another way, why)."""
     req, blanks, page, hdr, avail = separators()
@@ -375,6 +467,43 @@ def verdict():
             "number under a sequence-with-reset rule, so the earlier conclusion "
             "that none were is RETRACTED"
             % (req, avail, len(segment()), STATED["entries"]))
+
+
+def write():
+    """Write the capture AS IT STANDS -- short, and labelled short.
+
+    It is not seated and the files say so in their own header, so nobody
+    downstream can mistake 233 of 234 for a finished census.
+    """
+    c = census2()
+    hdr = ("# %s\n"
+           "# INCOMPLETE CAPTURE -- NOT SEATED.  %d entries against the "
+           "paper's %d;\n"
+           "# %d bands against %d; bandhead states %d against %d (exact).\n"
+           "# Two entries carry a falling spin sequence and are merged bands;\n"
+           "# splitting both would give %d against %d, so the gap is NOT\n"
+           "# forced.  See deformed.discontinuities().\n"
+           % (PAPER, c[0], STATED["entries"], c[1], STATED["bands"],
+              c[2], STATED["bandheads"], c[0] + 2, STATED["entries"]))
+    with open(ENTRIES_TSV, "w", encoding="utf-8") as f:
+        f.write(hdr)
+        f.write("seq\tno\tA\tZ\tN\tlevels\tkind\tspin_falls\n")
+        bad = {i for i, _n, _s, _d in discontinuities()}
+        for i, e in enumerate(entries()):
+            f.write("%d\t%d\t%s\t%s\t%s\t%d\t%s\t%s\n"
+                    % (i, e["no"], e["A"] or "", e["Z"] or "", e["N"] or "",
+                       len(e["levels"]),
+                       "band" if len(e["levels"]) >= 2 else "bandhead",
+                       "YES" if i in bad else ""))
+    with open(LEVELS_TSV, "w", encoding="utf-8") as f:
+        f.write(hdr)
+        f.write("seq\tA\tZ\tN\tE\t2I\n")
+        for i, e in enumerate(entries()):
+            for (en, sp) in e["levels"]:
+                f.write("%d\t%s\t%s\t%s\t%s\t%s\n"
+                        % (i, e["A"] or "", e["Z"] or "", e["N"] or "", en,
+                           "" if two_i(sp) is None else two_i(sp)))
+    return c
 
 
 def selftest():
@@ -426,6 +555,26 @@ def selftest():
 
     chk("what IS recoverable is measured too, not just the failure",
         len(levels()) > 1500, True)
+
+    # -- THE CAPTURE THE RETRACTED REFUSAL SAID COULD NOT EXIST
+    c = census2()
+    chk("the capture stands at 233 entries, 172 bands, 61 bandhead states",
+        c, (233, 172, 61))
+    chk("and the BANDHEAD STATES are exactly the paper's figure",
+        (c[2], STATED["bandheads"]), (61, 61))
+    chk("entries and bands are each ONE short, and that is not rounded away",
+        (STATED["entries"] - c[0], STATED["bands"] - c[1]), (1, 1))
+    chk("every entry carries its nuclide",
+        sum(1 for e in entries() if e["A"]), 233)
+    chk("levels attached", sum(len(e["levels"]) for e in entries()), 1964)
+
+    # -- AND WHY IT IS NOT FORCED THE REST OF THE WAY
+    d = discontinuities()
+    chk("TWO entries have a falling spin sequence -- merged bands",
+        [(i, no) for i, no, _s, _d in d], [(33, 5), (206, 4)])
+    chk("but splitting BOTH would give 235 against a stated 234, so the "
+        "capture is left short rather than fitted",
+        c[0] + len(d) > STATED["entries"], True)
     chk("the four forward attempts are recorded with their numbers",
         [n for _w, n, _y in ATTEMPTS], [154, 176, 160, 195])
     chk("and none of them reached the stated census",
@@ -491,9 +640,33 @@ def report():
     print("   impossibility: it is that 233 of 234 is not 234, and a capture")
     print("   is not seated until its totality is demonstrated.")
     print()
-    print("6. WHAT REMAINS BEFORE ANYTHING IS SEATED.")
-    print("   ONE ENTRY of the 234, and the totality argument that follows")
-    print("   from finding it.  The paper offers an unusually rich fixture set")
+    print("6. THE CAPTURE, BUILT ON THAT SEGMENTATION -- AND STILL SHORT.")
+    c = census2()
+    print("     %-22s %-10s %s" % ("", "paper", "captured"))
+    print("     %-22s %-10d %d%s" % ("entries", STATED["entries"], c[0],
+                                     "" if c[0] == STATED["entries"] else "   SHORT BY %d" % (STATED["entries"] - c[0])))
+    print("     %-22s %-10d %d%s" % ("bands (>=2 levels)", STATED["bands"], c[1],
+                                     "" if c[1] == STATED["bands"] else "   SHORT BY %d" % (STATED["bands"] - c[1])))
+    print("     %-22s %-10d %d%s" % ("bandhead states", STATED["bandheads"], c[2],
+                                     "   EXACT" if c[2] == STATED["bandheads"] else ""))
+    print("     %-22s %-10s %d" % ("levels attached", "-",
+                                   sum(len(e["levels"]) for e in entries())))
+    print()
+    print("   AND IT IS LEFT SHORT RATHER THAN FITTED.  Two entries carry a")
+    print("   FALLING spin sequence, which a rotational band cannot do, so")
+    print("   each is two bands merged where a number line was not read:")
+    for i, no, sp, dr in discontinuities():
+        print("     entry %-4d no=%-3d %d levels, falls %s -> %s"
+              % (i, no, len(sp), dr[0][0], dr[0][1]))
+    print("   Splitting BOTH would give %d against the paper's %d.  One of"
+          % (c[0] + len(discontinuities()), STATED["entries"]))
+    print("   them is therefore not what it looks like, and until that is")
+    print("   settled the capture stays at %d and NOTHING IS SEATED." % c[0])
+    print()
+    print("7. WHAT REMAINS BEFORE ANYTHING IS SEATED.")
+    print("   ADJUDICATING THE TWO DISCONTINUITIES, which decides whether the")
+    print("   count is 233, 234 or 235, and the totality argument that follows.")
+    print("   The paper offers an unusually rich fixture set")
     print("   to check a finished capture against -- 234 = 173 bands + 61")
     print("   bandhead states, 63 GM doublets, 76 with signature splitting, 29")
     print("   with inversion, 10 band crossings, 58 bandheads with half-lives.")
@@ -508,4 +681,9 @@ def report():
 if __name__ == "__main__":
     if "--selftest" in sys.argv:
         sys.exit(0 if selftest() else 1)
+    if "--write" in sys.argv:
+        c = write()
+        print("wrote DEFORMED-entries.tsv and DEFORMED-levels.tsv "
+              "(%d entries, %d bands, %d bandheads) -- NOT SEATED" % c)
+        sys.exit(0)
     sys.exit(report())
