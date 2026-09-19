@@ -287,26 +287,42 @@ def applies_to(predicate_defined):
     return bool(predicate_defined)
 
 
-def invariant():
+def channels_of(rows):
     """(invariant?, channels at the live boxes, channels at every box).
 
-    The third is reported beside the second so a degenerate box that moves the
-    channel is visible rather than silently dropped.
+    THE TEST ITSELF, over any sweep, so a caller with a different predicate
+    runs THIS rule rather than reimplementing it -- `quasiparticle.py` is the
+    second caller and must not carry its own copy.  `rows` is
+    [(name, cells, K, ...)] with an optional trailing DEGENERATE flag; a
+    degenerate box is one the predicate empties or trivialises, and it is
+    excluded from the verdict but still reported, so a box that moves the
+    channel only by collapsing is visible rather than silently decisive.
     """
-    rows = box_sweep()
-    live = sorted({k for _n, _c, k, _cl, _j, _m, deg in rows if not deg})
-    allk = sorted({k for _n, _c, k, _cl, _j, _m, _d in rows})
+    def deg(r):
+        return bool(r[-1]) if len(r) >= 7 else False
+    live = sorted({r[2] for r in rows if not deg(r)})
+    allk = sorted({r[2] for r in rows})
     return len(live) == 1, live, allk
 
 
-def verdict():
-    """('SEAT'|'REFUSE-AS-THEOREM', why)."""
-    inv, live, allk = invariant()
+def verdict_of(rows):
+    """('SEAT'|'REFUSE-AS-THEOREM', why) for any sweep.  See `channels_of`."""
+    inv, live, allk = channels_of(rows)
     if inv:
         return ("REFUSE-AS-THEOREM",
                 "the channel is K%d at every non-degenerate box, so it is a "
                 "property of the predicate and not of the elements" % live[0])
     return ("SEAT", "the channel moves with the box: %s" % allk)
+
+
+def invariant():
+    """The section 1 triangle set's own reading.  See `channels_of`."""
+    return channels_of(box_sweep())
+
+
+def verdict():
+    """('SEAT'|'REFUSE-AS-THEOREM', why) for the triangle set."""
+    return verdict_of(box_sweep())
 
 
 # ---------------------------------------------------------------------------
