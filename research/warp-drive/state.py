@@ -202,10 +202,22 @@ DOCKETS = (
      "K7 is NOT a finding and the file says so first: three cells in a 2x2 box "
      "is a chain, and z3 proves over every subset of that box that a chain is "
      "closed under meet and join, with a vacuity guard and a contrast.",
-     "The member list is DECLARED from physics, not captured, and that is the "
-     "weak point -- registry.py now carries DECLARED as its own provenance "
-     "kind so it cannot hide among the computed ones. The gap coordinate is "
-     "refused as fitted and its price is recorded."),
+     "REOPENED AND REBUILT BY A SECOND RULING. M: \"Do not add declared. "
+     "Nothing less than computed or measured. Declared still requires proof.\" "
+     "The first draft listed eleven kinds with their spins and charges written "
+     "out from textbook knowledge and called it DECLARED provenance; "
+     "registry.py had grown a whole category for it. Both are gone. A member "
+     "is now defined by WHAT IT IS MADE OF and every number is COMPUTED -- "
+     "charge additive, spin by angular-momentum addition, the electron read "
+     "from the seated fundamental index. 7 members over 3 composites, 5 cells. "
+     "The trion EXCLUDES ITSELF by composing to half-integer spin. The cost is "
+     "real and recorded: the collective modes (phonon, magnon, plasmon, "
+     "polariton, roton, phason, amplitude mode, magnon-polaron) are NOT "
+     "composites, so they cannot be computed and are no longer seated. The "
+     "finding survived and strengthened -- the extension is now TWO cells "
+     "wide, both Cooper pair spin states -- and the K7 is no longer free "
+     "because the chart is no longer a chain: of the six subsets its own size "
+     "in its own box, only two close all five."),
     ("32", "CLOSED",
      "The non-abelian Hall states -- Moore-Read at nu=5/2 and Read-Rezayi at "
      "12/5 -- named as a further member set by DOCKET 30 and left open.",

@@ -1,115 +1,117 @@
 #!/usr/bin/env python3
 r"""
-bosonqp.py -- THE BOSONIC QUASIPARTICLES, AS A SUBLATTICE OF THE BOSONS.
-DOCKET 31.
+bosonqp.py -- THE COMPOSITE BOSONIC EXCITATIONS, AS A SUBLATTICE OF THE
+BOSONS.  DOCKET 31.
 
     python3 bosonqp.py             the reading
     python3 bosonqp.py --selftest  fixtures
     python3 bosonqp.py --prove     the z3 pass (needs `pip install z3-solver`)
 
 ===============================================================================
-0. M'S RULING, AND WHAT IT CORRECTED
+0. TWO RULINGS, AND THE SECOND THREW OUT THE FIRST DRAFT
 ===============================================================================
 
-M: "The universal quantum numbers of the textbook kinds are almost nothing --
-but not nothing, which means measurable by the z3 machine checker and thus it
-is indexable.  1 - it is a sub index/sublattice of bosons."
+M, first: "The universal quantum numbers of the textbook kinds are almost
+nothing -- but not nothing, which means measurable ... it is a sub index/
+sublattice of bosons."
 
-    DOCKET 28 WROTE "ALMOST NOTHING" AND TREATED IT AS NOTHING.  That was the
-    error.  Two coordinates that put eleven kinds on three cells are a
-    measurement with low resolution, and `overlap.py` has a name for the case
-    where a coordinate says nothing -- LABEL, at 0.9 or above -- which these
-    do not meet.  Low resolution is not no resolution.
+    That corrected DOCKET 28, which wrote "almost nothing" and then treated it
+    as nothing.  Low resolution is not no resolution: `overlap.py` calls a
+    coordinate a LABEL at 0.9 and these do not reach it.
 
-    AND THE RULING NAMES THE OBJECT, which is the part DOCKET 28 never found.
-    Not "an index of quasiparticles" floating free, but A SUBLATTICE OF THE
-    BOSONS -- the quasiparticles placed in the frame the tree's own bosons
-    already live in, and the question being whether they sit inside it closed.
-    That is a checkable claim about a relation, and it is what this file
-    measures.
+M, second: "Do not add declared.  Nothing less than computed or measured.
+Declared still requires proof."
 
-===============================================================================
-1. THE MEMBERS, AND WHY THE FERMIONIC ONES ARE NOT HERE
-===============================================================================
+    THE FIRST DRAFT OF THIS FILE LISTED ELEVEN KINDS WITH THEIR SPINS AND
+    CHARGES WRITTEN OUT FROM TEXTBOOK KNOWLEDGE, and called that provenance
+    DECLARED.  It was a table of assertions with reasons attached, which is
+    not the same thing as a derivation, and `registry.py` had grown a whole
+    provenance category to accommodate it.  Both are gone.
 
-One member is a BOSONIC collective excitation.  Eleven of them, each with the
-spin and charge every textbook gives it.
-
-    THE LIST IS DECLARED, NOT CAPTURED, and that is the honest weak point of
-    this index.  There is no Particle Data Group for quasiparticles --
-    DOCKET 28 established that and it still stands -- so `KINDS` is a table
-    written from physics rather than read from a file, in the way
-    `fundamental.colour_rule()` assigns the colour dimension the PDG table
-    does not carry.  Every row carries its reason.  A reader who disputes a
-    row disputes one line, not the construction.
-
-    THE FERMIONIC QUASIPARTICLES ARE EXCLUDED BY THE RULING ITSELF, not by
-    judgement: a sublattice of the BOSONS cannot contain a fermion.  The
-    polaron (a dressed electron, spin 1/2), the spinon and the Bogoliubov
-    quasiparticle are named in `FERMIONIC` so the exclusion is visible and so
-    nobody reads their absence as an oversight.  They are a different index
-    and this file does not build it.
+    NOTHING HERE IS WRITTEN DOWN AS A VALUE.  A member is defined by WHAT IT
+    IS MADE OF, and every quantum number is COMPUTED from that by the two
+    rules below, with the constituent's own numbers read out of a seated
+    index.  The only input is the composition, which is the definition of the
+    object rather than a measurement of it.
 
 ===============================================================================
-2. THE COORDINATES COME FROM THE RULING, NOT FROM A SEARCH
+1. THE TWO RULES, AND THE ONE CONSTITUENT
 ===============================================================================
 
-    2J   spin, doubled -- 0 for a scalar mode, 2 for a vector one
-    Q3   electric charge in thirds, the same column the quark chart uses
+    CHARGE IS ADDITIVE.  Q(composite) = sum of the constituents' Q.
+    SPIN COMBINES.  Two spins s1, s2 give every S from |s1 - s2| to s1 + s2 in
+    integer steps, and a composite of n spins is that rule applied n-1 times.
 
-These are exactly the two coordinates the tree's own bosons share: every gauge
-boson, the Higgs and all 250 mesons carry a 2J and a Q3, and nothing else is
-common to all of them.  So the frame is FORCED by "a sublattice of the bosons"
-rather than chosen, which is the reason this chart is not fitted.
+Every constituent here is one particle and one anti-particle-like absence:
 
-    WHAT IS REFUSED.  The gap -- whether the mode is gapless (a Goldstone
-    mode: phonon, magnon, phason) or gapped (plasmon, exciton, Cooper pair) --
-    is a real, measured, total property and it is NOT charted.  It would raise
-    the index from three cells to five.  It was not named by the ruling, and
-    reaching for it after seeing that three cells is a small index is exactly
-    DOCKET 23's fitted move.  `gap_would_give()` measures the price so the
-    refusal is on the record with its cost.
+    the ELECTRON, read from `fundamental.rows()` -- 2J = 1, Q3 = -3, which is
+        the PDG capture's value and this file does not restate it
+    a HOLE, the absence of an electron from a filled band: charge NEGATED,
+        spin magnitude unchanged.  That is the definition of a hole, and the
+        negation is arithmetic on the seated value rather than a new one.
 
-===============================================================================
-3. THE FINDING: IT IS A SUBLATTICE, AND IT EXTENDS THE BOSONS BY ONE CELL
-===============================================================================
-
-    the tree's bosons on (2J, Q3)    15 cells, and ALREADY a sublattice
-    the bosonic quasiparticles        3 cells, and a sublattice
-    is the second a SUBSET of the first?   NO
-    what lies outside                 (0, -6) -- THE COOPER PAIR
-    the union                        16 cells, and STILL a sublattice
-
-THE COOPER PAIR CARRIES CHARGE -2e, AND NOTHING ELSE IN THE INDEX DOES.  Every
-meson is charged -1, 0 or +1; every gauge boson likewise.  A charge of two
-electron charges on a spin-0 boson is a cell no elementary or composite boson
-in this tree reaches, and it is reached by a bound pair of electrons in a
-metal.  That is the whole content of the ruling, made exact: the
-quasiparticles are a sublattice of the bosons ONLY ONCE THE LATTICE IS
-EXTENDED TO HOLD THEM, and the extension is one cell wide.
+A MEMBER IS A COMPOSITE IN ONE OF ITS ALLOWED SPIN STATES.  The spin states
+are not listed either -- they come out of the addition rule, so the biexciton
+contributing three members and the exciton two is a computed fact.
 
 ===============================================================================
-4. THE CHANNEL IS NOT THE CONTENT, AND THE PROVER SAYS SO
+2. WHAT IS NOT HERE, AND BOTH EXCLUSIONS ARE FORCED RATHER THAN CHOSEN
 ===============================================================================
 
-The chart lands at K7 -- all five languages close.  DO NOT QUOTE THAT AS A
-FINDING.  Three cells in a 2x2 box is a chain, and a chain closes almost
-everything by being a chain:
+    THE TRION EXCLUDES ITSELF.  Two electrons and a hole compose to 2J in
+    {1, 3} -- half-integer spin, a FERMION -- and a sublattice of the bosons
+    holds no fermion.  Nothing in this file decides that; the addition rule
+    returns it.  `excluded()` shows the computation.
 
-    measured over the tree's own small charts, 91% of six-cell charts and
-    75% of four-cell charts already close all five
+    THE COLLECTIVE MODES ARE NOT MEMBERS, and this is the cost of the second
+    ruling.  A phonon, a plasmon, a roton, a phason, a magnon, a polariton and
+    an amplitude mode are all real bosonic excitations and all were in the
+    first draft.  THEY ARE NOT COMPOSITES OF CONSTITUENTS, so their quantum
+    numbers cannot be computed the way these are -- they would have to be
+    written down, which is exactly what the ruling forbids.  They are named in
+    `NOT_COMPOSITE` so their absence is visible, and seating them needs a
+    derivation nobody here has.
 
-    and `--prove` puts it beyond a sample: z3 shows that over this box EVERY
-    chain is closed under both meet and join, quantified over all 2^|box|
-    subsets rather than over the handful this tree happens to hold
+===============================================================================
+3. THE FINDING: A SUBLATTICE THAT EXTENDS THE BOSONS BY TWO CELLS
+===============================================================================
 
-So the K7 here is a fact about the size and shape of the chart, not about
-quasiparticles.  The sublattice relation in section 3 is the finding; the
-channel is recorded and disclaimed.  This is the same shape of caution as
-`overlaprule.py` section 3c's arity-2 free pass, and it is stated in the same
-place for the same reason -- before anyone reads the number.
+    the tree's own bosons on (2J, Q3)    15 cells, and ALREADY a sublattice
+    the composite excitations             5 cells, and a sublattice
+    is the second a SUBSET of the first?  NO
+    what lies outside                     (0, -6) and (2, -6) -- BOTH COOPER
+                                          PAIR SPIN STATES
+    the union                            17 cells, and STILL a sublattice
+
+THE COOPER PAIR CARRIES CHARGE -2e AND NOTHING ELSE IN THE TREE DOES.  Every
+meson and every gauge boson is charged -1, 0 or +1.  Two electrons bound in a
+metal reach a charge no elementary or composite boson here reaches, in BOTH
+the singlet and the triplet spin state -- the second being the p-wave pairing
+of helium-3 and the candidate triplet superconductors.  So the composites are
+a sublattice of the bosons only once the lattice is extended to hold them, and
+the extension is two cells wide.
+
+===============================================================================
+4. THE CHANNEL IS K7, AND THIS TIME IT IS NOT FREE
+===============================================================================
+
+The first draft was a three-cell CHAIN, and a chain closes almost everything
+by being one -- that draft said so and proved it with z3.  THIS CHART IS NOT A
+CHAIN: it is five cells at width 2, and the measurement changes with it.
+
+    over the 3x2 box this chart lives in, of the 6 five-cell subsets only 2
+    close all five languages, and of all 57 subsets only 31 do
+
+So K7 here is earned by two-thirds of the alternatives failing, not handed
+over by shape.  `--prove` runs the same z3 pass as before, and the chain
+theorem it proves is now a statement about what this chart ISN'T.
+
+    IT IS STILL FIVE CELLS.  That is a small index and the channel should be
+    read with that in mind.  The sublattice relation in section 3 is the
+    finding; the channel is a measurement beside it.
 """
 
+import itertools
 import sys
 
 import decomposable as D
@@ -119,111 +121,143 @@ import mesons
 import mi
 
 SOURCE = (
-    "DECLARED from textbook physics, not captured -- there is no particle "
-    "table for quasiparticles and DOCKET 28 established that.  Every row of "
-    "KINDS carries its own reason.  The BOSON frame it is placed in is read "
-    "from the seated fundamental and mesons indexes.",
+    "COMPUTED.  Charge is additive and spin combines by angular-momentum "
+    "addition; the electron's own 2J and Q3 are read from the seated "
+    "`fundamental` index, which reads the PDG capture.  No quantum number is "
+    "written down in this file.  The BOSON frame is read from the seated "
+    "`fundamental` and `mesons` indexes.",
     (),
 )
 
 NAMES = ("2J", "Q3")
 ARITY = len(NAMES)
 
-# (name, 2J, Q3, why those two numbers).  DECLARED -- section 1.
-KINDS = (
-    ("phonon", 0, 0, "quantised lattice vibration; scalar, neutral"),
-    ("magnon", 2, 0, "quantised spin wave; carries one unit of spin, neutral"),
-    ("plasmon", 0, 0, "collective charge-density oscillation; scalar, and the "
-                      "MODE is neutral though the medium is charged"),
-    ("exciton (singlet)", 0, 0, "bound electron-hole pair, spins antiparallel; "
-                                "neutral because the pair is"),
-    ("exciton (triplet)", 2, 0, "the same pair with spins parallel"),
-    ("Cooper pair", 0, -6, "two electrons bound in the s-wave singlet: spin 0, "
-                           "and CHARGE -2e, which is Q3 = -6"),
-    ("polariton", 2, 0, "photon hybridised with a dipolar mode; inherits the "
-                        "photon's spin 1"),
-    ("roton", 0, 0, "the short-wavelength minimum of the helium-II dispersion; "
-                    "scalar, neutral"),
-    ("phason", 0, 0, "Goldstone mode of a density wave's phase; scalar, "
-                     "neutral"),
-    ("amplitude (Higgs) mode", 0, 0, "amplitude oscillation of an order "
-                                     "parameter; scalar, neutral"),
-    ("magnon-polaron", 2, 0, "hybridised magnon and phonon; spin follows the "
-                             "magnon"),
+# A composite is its CONSTITUENT MULTISET.  That is the definition of the
+# object; every number below is computed from it.  "hole" is the absence of an
+# electron from a filled band -- charge negated, spin magnitude unchanged.
+COMPOSITES = (
+    ("Cooper pair", ("e-", "e-")),
+    ("exciton", ("e-", "hole")),
+    ("biexciton", ("e-", "e-", "hole", "hole")),
 )
 
-# NOT members, and excluded BY THE RULING rather than by judgement: a
-# sublattice of the BOSONS cannot hold a fermion.  Section 1.
-FERMIONIC = (
-    ("polaron", "a dressed electron -- spin 1/2, charge -e"),
-    ("spinon", "the spin half of a spin-charge separated electron"),
-    ("holon", "the charge half; a boson in some treatments, and the "
-              "disagreement is why it is left out rather than argued over"),
-    ("Bogoliubov quasiparticle", "a superposition of electron and hole; "
-                                 "fermionic"),
+# Composed here too, and EXCLUDED BY THE COMPUTATION rather than by choice.
+CANDIDATES_EXCLUDED = (
+    ("trion", ("e-", "e-", "hole")),
 )
 
-# The gap, measured and REFUSED as a coordinate -- section 2.  1 = gapped.
-GAP = {"phonon": 0, "magnon": 0, "phason": 0, "plasmon": 1,
-       "exciton (singlet)": 1, "exciton (triplet)": 1, "Cooper pair": 1,
-       "polariton": 1, "roton": 1, "amplitude (Higgs) mode": 1,
-       "magnon-polaron": 1}
+# Real bosonic excitations that are NOT composites of constituents, so their
+# quantum numbers cannot be computed the way these are.  Section 2.
+NOT_COMPOSITE = ("phonon", "magnon", "plasmon", "polariton", "roton",
+                 "phason", "amplitude (Higgs) mode", "magnon-polaron")
+
+_C = {}
+
+
+def electron():
+    """(2J, Q3) for the electron, READ from the seated index."""
+    for n, _p, j, q, _c, _g in fundamental.rows():
+        if n == "e-":
+            return (j, q)
+    raise AssertionError("the seated fundamental index has no electron")
+
+
+def constituent(name):
+    """(2J, Q3) of one constituent.  A hole negates the electron's charge."""
+    j, q = electron()
+    return (j, q) if name == "e-" else (j, -q)
+
+
+def compose(parts):
+    """(Q3, [2J]) -- charge added, spin combined.  Section 1's two rules."""
+    Q = sum(constituent(p)[1] for p in parts)
+    tot = {0}
+    for p in parts:
+        s = constituent(p)[0]
+        tot = {abs(t - s) for t in tot} | {t + s for t in tot}
+    return Q, sorted(tot)
 
 
 def rows():
-    """[(name, 2J, Q3, why)] -- the eleven."""
-    return list(KINDS)
+    """[(name, parts, 2J, Q3)] -- a member is a composite in one spin state."""
+    if "r" not in _C:
+        out = []
+        for nm, parts in COMPOSITES:
+            Q, spins = compose(parts)
+            for j in spins:
+                out.append((nm, parts, j, Q))
+        _C["r"] = out
+    return _C["r"]
+
+
+def excluded():
+    """[(name, parts, [2J], why)] -- the computation that refuses them."""
+    out = []
+    for nm, parts in CANDIDATES_EXCLUDED:
+        Q, spins = compose(parts)
+        odd = [j for j in spins if j % 2]
+        out.append((nm, parts, spins,
+                    "half-integer spin %s -- a FERMION, and a sublattice of "
+                    "the bosons holds none" % odd if odd else "boson"))
+    return out
 
 
 def index():
-    """The quasiparticle sublattice, as a cell set."""
-    return frozenset((j, q) for _n, j, q, _w in KINDS)
+    return frozenset((j, q) for _n, _p, j, q in rows())
 
 
 def boson_frame():
-    """The cells the tree's OWN bosons occupy on (2J, Q3).
-
-    Read from the seated indexes, never retyped: every integer-spin member of
-    `fundamental` and every meson.  This is the lattice the ruling places the
-    quasiparticles in.
-    """
+    """The cells the tree's OWN bosons occupy on (2J, Q3).  Read, never typed."""
     B = {(j, q) for _n, _p, j, q, _c, _g in fundamental.rows() if j % 2 == 0}
     B |= {(j, q) for _n, _p, j, _P, _i, q in mesons.rows()}
     return frozenset(B)
 
 
 def is_sublattice(S):
-    """Closed under componentwise min and max?  `decomposable.gen` is the hull
-    and a set is a sublattice exactly when it is its own hull."""
     S = frozenset(S)
     return D.gen(S) == S
 
 
 def relation():
-    """The whole of section 3, as one measurement.
-
-    (boson cells, qp cells, boson is a sublattice, qp is a sublattice,
-     qp subset of boson, what lies outside, union cells, union is a sublattice)
-    """
+    """(boson cells, qp cells, boson sub, qp sub, subset, outside, union,
+    union sub) -- the whole of section 3."""
     B, Q = boson_frame(), index()
     return (len(B), len(Q), is_sublattice(B), is_sublattice(Q), Q <= B,
             sorted(Q - B), len(B | Q), is_sublattice(B | Q))
 
 
 def outside():
-    """[(cell, [the kinds that sit there])] -- what the bosons do not hold."""
+    """[(cell, [members there])] -- what the tree's bosons do not hold."""
     B = boson_frame()
     out = {}
-    for n, j, q, _w in KINDS:
+    for nm, _p, j, q in rows():
         if (j, q) not in B:
-            out.setdefault((j, q), []).append(n)
-    return [(k, sorted(v)) for k, v in sorted(out.items())]
+            out.setdefault((j, q), []).append(nm)
+    return [(k, sorted(set(v))) for k, v in sorted(out.items())]
 
 
-def gap_would_give():
-    """(cells now, cells with the gap appended) -- section 2's refused price."""
-    wide = {(j, q, GAP[n]) for n, j, q, _w in KINDS}
-    return (len(index()), len(wide))
+def box_freeness():
+    """(all subsets, closing all five, five-cell subsets, of those closing).
+
+    SECTION 4, measured over the chart's own box rather than over the tree's
+    sample.  The first draft was a chain and its K7 was free; this one is not,
+    and the difference is measured rather than asserted.
+    """
+    X = index()
+    Js = sorted({j for j, _q in X})
+    Qs = sorted({q for _j, q in X})
+    box = [(j, q) for j in Js for q in Qs]
+    tot = full = n5 = f5 = 0
+    for r in range(2, len(box) + 1):
+        for S in itertools.combinations(box, r):
+            cl, _b = hlaw.closures(frozenset(S))
+            ok = all(len(cl[L]) == len(S) for L in hlaw.LANGS)
+            tot += 1
+            full += ok
+            if r == len(X):
+                n5 += 1
+                f5 += ok
+    return (tot, full, n5, f5)
 
 
 def closers(X=None):
@@ -237,120 +271,109 @@ def cell():
 
 
 def is_chain(X=None):
-    """Width 1 -- every pair comparable.  Section 4's caution."""
     return mi.cell(index() if X is None else X)[2] == 1
 
 
 def prove():
-    """z3, over EVERY subset of the chart's own box -- section 4.
+    """z3 over every subset of the chart's box -- section 4.
 
-    THE PROVER IS POINTED AT THIS FILE'S OWN RESULT, not in support of it.
-    The claim is that a chain is closed under meet and join whatever it
-    contains, which is what makes the K7 in section 4 a fact about shape
-    rather than about quasiparticles.
+    THE CHAIN THEOREM IS NOW A STATEMENT ABOUT WHAT THIS CHART IS NOT.  The
+    first draft was a chain and leaned on this to disclaim its own channel;
+    this one has width 2, so the same proof says the free pass does not reach
+    it.
     """
-    import itertools
     try:
         import z3
     except ImportError:
         return [("z3 is not installed -- pip install z3-solver", None)]
-
-    Q = index()
-    Js = sorted({j for j, _q in Q})
-    Qs = sorted({q for _j, q in Q})
+    X = index()
+    Js = sorted({j for j, _q in X})
+    Qs = sorted({q for _j, q in X})
     box = [(j, q) for j in Js for q in Qs]
     V = {c: z3.Bool("c_%d_%d" % c) for c in box}
-
-    def meet(a, b):
-        return (min(a[0], b[0]), min(a[1], b[1]))
-
-    def join(a, b):
-        return (max(a[0], b[0]), max(a[1], b[1]))
-
-    comparable = []
+    mt = lambda a, b: (min(a[0], b[0]), min(a[1], b[1]))
+    jn = lambda a, b: (max(a[0], b[0]), max(a[1], b[1]))
+    comparable, closed = [], []
     for a, b in itertools.combinations(box, 2):
         comparable.append(z3.Implies(
             z3.And(V[a], V[b]),
             z3.Or(z3.And(a[0] <= b[0], a[1] <= b[1]),
                   z3.And(b[0] <= a[0], b[1] <= a[1]))))
-    closed = []
-    for a, b in itertools.combinations(box, 2):
         closed.append(z3.Implies(z3.And(V[a], V[b]),
-                                 z3.And(V[meet(a, b)], V[join(a, b)])))
-
+                                 z3.And(V[mt(a, b)], V[jn(a, b)])))
     out = []
-    # 1. the claim: over this box, EVERY chain is a sublattice
     s = z3.Solver()
     s.add(z3.Not(z3.Implies(z3.And(*comparable), z3.And(*closed))))
-    out.append(("every chain in the box is closed under meet and join",
+    out.append(("every chain in the box is closed -- so a chain's K7 is free",
                 s.check() == z3.unsat))
-    # 2. the VACUITY GUARD -- a chain of three must actually exist in the box,
-    #    or the implication above is empty and unsat proves nothing.
     g = z3.Solver()
     g.add(z3.And(*comparable))
     g.add(z3.Sum([z3.If(V[c], 1, 0) for c in box]) == 3)
-    out.append(("and a three-element chain EXISTS here, so that is not vacuous",
+    out.append(("and chains exist here, so that is not vacuous",
                 g.check() == z3.sat))
-    # 3. the contrast: NOT every subset is closed, so the box is not trivial
     t = z3.Solver()
     t.add(z3.Not(z3.And(*closed)))
-    out.append(("while some subset of the box is NOT closed -- the box is not "
-                "trivially a lattice", t.check() == z3.sat))
+    out.append(("some subset is NOT closed -- the box is not trivially a "
+                "lattice", t.check() == z3.sat))
+    # AND THE ONE THAT MATTERS FOR THIS CHART
+    w = z3.Solver()
+    for c in box:
+        w.add(V[c] if c in X else z3.Not(V[c]))
+    w.add(z3.Not(z3.And(*comparable)))
+    out.append(("THIS chart is NOT a chain, so the free pass does not reach it",
+                w.check() == z3.sat))
     return out
 
 
 def report():
     X = index()
     print("=" * 74)
-    print("THE BOSONIC QUASIPARTICLES -- a sublattice of the bosons.  DOCKET 31")
+    print("THE COMPOSITE BOSONIC EXCITATIONS -- a sublattice.  DOCKET 31")
     print("=" * 74)
     print()
-    print("M: \"almost nothing -- but not nothing ... it is a sub index/")
-    print("sublattice of bosons.\"")
+    print("M: \"Do not add declared.  Nothing less than computed or measured.\"")
+    print("NOTHING BELOW IS WRITTEN DOWN AS A VALUE.  A member is defined by")
+    print("what it is made of; every number is computed from that.")
     print()
-    print("1. THE MEMBERS: %d bosonic collective excitations.  DECLARED." % len(KINDS))
-    print("   %-24s %-4s %-5s %s" % ("kind", "2J", "Q3", "why"))
-    for n, j, q, w in KINDS:
-        print("   %-24s %-4d %-5d %s" % (n, j, q, w))
+    print("   the electron, READ from the seated index: 2J = %d, Q3 = %d"
+          % electron())
     print()
-    print("   EXCLUDED BY THE RULING -- a sublattice of the bosons holds no")
-    print("   fermion:")
-    for n, w in FERMIONIC:
-        print("     %-26s %s" % (n, w))
+    print("1. THE MEMBERS: %d, over %d composites." % (len(rows()), len(COMPOSITES)))
+    print("   %-14s %-26s %-5s %s" % ("composite", "made of", "2J", "Q3"))
+    for nm, parts, j, q in rows():
+        print("   %-14s %-26s %-5d %d" % (nm, "+".join(parts), j, q))
+    print()
+    print("2. EXCLUDED BY THE COMPUTATION, not by choice.")
+    for nm, parts, spins, why in excluded():
+        print("   %-10s %-22s 2J in %s" % (nm, "+".join(parts), spins))
+        print("              %s" % why)
+    print()
+    print("   NOT COMPOSITES, so not computable here and therefore not seated:")
+    print("   %s" % ", ".join(NOT_COMPOSITE))
+    print("   Real excitations, and seating them needs a derivation nobody")
+    print("   here has.  The first draft wrote their numbers down; the ruling")
+    print("   forbids that.")
     print()
     nb, nq, bsub, qsub, subset, out, nu, usub = relation()
-    print("2. THE FINDING.")
-    print("   the tree's bosons on (2J, Q3)   %2d cells, sublattice: %s"
-          % (nb, bsub))
-    print("   the bosonic quasiparticles      %2d cells, sublattice: %s"
-          % (nq, qsub))
+    print("3. THE FINDING.")
+    print("   the tree's bosons on (2J, Q3)   %2d cells, sublattice: %s" % (nb, bsub))
+    print("   the composite excitations       %2d cells, sublattice: %s" % (nq, qsub))
     print("   is the second inside the first? %s" % subset)
-    print("   what lies outside               %s" % out)
     for k, ns in outside():
-        print("     %s  %s" % (k, ", ".join(ns)))
-    print("   the union                       %2d cells, sublattice: %s"
-          % (nu, usub))
+        print("     outside: %s  %s" % (k, ", ".join(ns)))
+    print("   the union                       %2d cells, sublattice: %s" % (nu, usub))
+    print("   so the extension is %d cells wide." % (nu - nb))
     print()
-    print("   THE COOPER PAIR CARRIES CHARGE -2e AND NOTHING ELSE HERE DOES.")
-    print("   Every meson and every gauge boson is charged -1, 0 or +1.  The")
-    print("   quasiparticles are a sublattice of the bosons only once the")
-    print("   lattice is EXTENDED to hold them, and it is one cell wide.")
+    print("   THE COOPER PAIR CARRIES -2e AND NOTHING ELSE HERE DOES, in both")
+    print("   spin states -- the triplet being helium-3's p-wave pairing.")
     print()
-    print("3. THE CHANNEL, RECORDED AND DISCLAIMED.")
-    print("   cells %d   cell %s   closes %s"
-          % (len(X), cell(), ", ".join(closers()) or "NOTHING"))
-    print("   chain (width 1): %s" % is_chain())
-    print("   DO NOT QUOTE THE K7.  Three cells in a 2x2 box is a chain, and a")
-    print("   chain closes almost everything by being one.  --prove shows it")
-    print("   over every subset of the box rather than over a sample.")
-    print()
-    now, wide = gap_would_give()
-    print("4. THE GAP, REFUSED AS A COORDINATE.")
-    print("   gapless (Goldstone): %s"
-          % ", ".join(n for n in GAP if GAP[n] == 0))
-    print("   appending it would take %d cells to %d." % (now, wide))
-    print("   It was not named by the ruling, and reaching for it after seeing")
-    print("   three cells is DOCKET 23's fitted move.  Recorded, not adopted.")
+    tot, full, n5, f5 = box_freeness()
+    print("4. THE CHANNEL: %s, cell %s." % (", ".join(closers()), cell()))
+    print("   chain? %s   (the first draft was, and its K7 was free)" % is_chain())
+    print("   over this chart's own box: %d of %d subsets close all five," % (full, tot))
+    print("   and of the %d subsets its own size, only %d do." % (n5, f5))
+    print("   So the K7 is earned here.  It is still five cells, and the")
+    print("   sublattice in section 3 is the finding.")
     return 0
 
 
@@ -364,55 +387,70 @@ def selftest():
         print("  [%s] %-58s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    chk("eleven bosonic kinds", len(KINDS), 11)
-    chk("every one carries a reason, not just numbers",
-        [n for n, _j, _q, w in KINDS if not w.strip()], [])
-    chk("every one is a BOSON -- 2J even, no exception",
-        sorted({j % 2 for _n, j, _q, _w in KINDS}), [0])
-    chk("four fermionic kinds are named as excluded, not omitted",
-        len(FERMIONIC), 4)
-    chk("and the gap is declared for every member",
-        sorted(GAP) == sorted(n for n, _j, _q, _w in KINDS), True)
+    # -- nothing is written down: the electron comes from the seated index
+    chk("the electron is READ from the seated fundamental index, not typed",
+        electron(), (1, -3))
+    chk("and a hole is its charge negated, spin unchanged",
+        constituent("hole"), (1, 3))
 
-    # the individual physics, one line each so a dispute is one line
-    by = {n: (j, q) for n, j, q, _w in KINDS}
-    chk("the phonon is a neutral scalar", by["phonon"], (0, 0))
-    chk("the magnon carries one unit of spin", by["magnon"], (2, 0))
-    chk("THE COOPER PAIR CARRIES CHARGE -2e -- Q3 = -6",
-        by["Cooper pair"], (0, -6))
-    chk("and it is the only member that is charged at all",
-        sorted(n for n, _j, q, _w in KINDS if q != 0), ["Cooper pair"])
+    # -- the two rules
+    chk("charge is additive: two electrons carry -2e, which is Q3 = -6",
+        compose(("e-", "e-"))[0], -6)
+    chk("two spin-halves combine to spin 0 or 1 -- 2J in {0, 2}",
+        compose(("e-", "e-"))[1], [0, 2])
+    chk("an exciton is neutral because the hole cancels the electron",
+        compose(("e-", "hole"))[0], 0)
+    chk("four spin-halves give 2J in {0, 2, 4}",
+        compose(("e-", "e-", "hole", "hole"))[1], [0, 2, 4])
 
-    # section 3, the ruling checked
+    R = rows()
+    chk("seven members over three composites", (len(R), len(COMPOSITES)),
+        (7, 3))
+    chk("and the member count is COMPUTED -- the biexciton contributes three",
+        sorted((nm, len([1 for n2, _p, _j, _q in R if n2 == nm]))
+               for nm in {n for n, _p, _j, _q in R}),
+        [("Cooper pair", 2), ("biexciton", 3), ("exciton", 2)])
+
+    # -- section 2: both exclusions forced
+    E = excluded()
+    chk("the trion composes to half-integer spin and excludes itself",
+        [(nm, spins) for nm, _p, spins, _w in E], [("trion", [1, 3])])
+    chk("every seated member is a boson -- 2J even, by computation",
+        sorted({j % 2 for _n, _p, j, _q in R}), [0])
+    chk("eight real excitations are named as not-composites, not omitted",
+        len(NOT_COMPOSITE), 8)
+
+    # -- section 3: the finding
     nb, nq, bsub, qsub, subset, out, nu, usub = relation()
-    chk("the tree's own bosons are 15 cells and ALREADY a sublattice",
+    chk("the tree's bosons are 15 cells and already a sublattice",
         (nb, bsub), (15, True))
-    chk("THE QUASIPARTICLES ARE A SUBLATTICE -- M's ruling, measured",
-        (nq, qsub), (3, True))
+    chk("THE COMPOSITES ARE A SUBLATTICE -- M's first ruling, measured",
+        (nq, qsub), (5, True))
     chk("but they are NOT a subset of the bosons", subset, False)
-    chk("and what lies outside is exactly the Cooper pair's cell",
-        (out, outside()), ([(0, -6)], [((0, -6), ["Cooper pair"])]))
-    chk("the union is 16 cells and is STILL a sublattice", (nu, usub),
-        (16, True))
-    chk("so the extension is exactly one cell wide", nu - nb, 1)
+    chk("and what lies outside is BOTH Cooper pair spin states",
+        (out, [n for _k, ns in outside() for n in ns]),
+        ([(0, -6), (2, -6)], ["Cooper pair", "Cooper pair"]))
+    chk("the union is 17 cells and STILL a sublattice", (nu, usub), (17, True))
+    chk("so the extension is two cells wide", nu - nb, 2)
 
-    # section 4, the disclaimer held to
+    # -- section 4: the channel, and the disclaimer that no longer applies
     X = index()
     chk("arity 2", len(next(iter(X))), 2)
     chk("it closes all five -- K7", closers(),
         ["algebra", "geometry", "information", "order", "statistics"])
-    chk("AND IT IS A CHAIN, which is why that is not a finding", is_chain(),
-        True)
-    chk("the file says so before anyone reads the number",
-        "DO NOT QUOTE THAT AS A FINDING" in " ".join(__doc__.split()), True)
+    chk("AND IT IS NOT A CHAIN, unlike the first draft", is_chain(), False)
+    tot, full, n5, f5 = box_freeness()
+    chk("over its own box only 31 of 57 subsets close all five",
+        (full, tot), (31, 57))
+    chk("and of the six subsets its own size, only two do -- so K7 is earned",
+        (f5, n5), (2, 6))
     import overlap
-    chk("no coordinate is a row LABEL -- low resolution is not none",
+    chk("no coordinate is a row LABEL", 
         [a for a, _d, _n, _r, v in overlap.resolution(X) if v == "LABEL"], [])
 
-    # section 2's refusal
-    chk("the gap would raise three cells to five, and is refused",
-        gap_would_give(), (3, 5))
-    chk("and it is not among the coordinates", "GAP" in NAMES, False)
+    # -- the ruling itself
+    chk("the source is COMPUTED, and the word DECLARED appears nowhere in it",
+        ("COMPUTED" in SOURCE[0], "DECLARED" in SOURCE[0]), (True, False))
 
     print("bosonqp selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

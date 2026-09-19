@@ -210,11 +210,14 @@ REGISTERED = (
     # overlap.py's LABEL threshold is the test these coordinates pass.  The
     # ruling also NAMES the object, which DOCKET 28 never found: not an index
     # of quasiparticles floating free but a SUBLATTICE of the bosons.  The
-    # member list is DECLARED from physics, not captured -- there is no
-    # particle table for quasiparticles and that part of DOCKET 28 stands --
-    # so every row of KINDS carries its own reason.
+    # first draft LISTED eleven kinds with their spins and charges written out
+    # from textbook knowledge.  M then ruled: "Do not add declared.  Nothing
+    # less than computed or measured."  Rewritten -- a member is now defined by
+    # WHAT IT IS MADE OF and every number is computed from the seated
+    # electron by charge addition and angular-momentum addition.  The
+    # collective modes left with it, because they are not composites.
     ("bosonqp", "index", "TABLE",
-     "11 bosonic collective excitations, placed in the tree's own boson frame",
+     "7 composite bosonic excitations, computed from the seated electron",
      "2J, Q3"),
     # ---- DOCKET 32.  M: "the non-abelian Hall states are a further member
     # set and are not in this index -- we do this next."  The other kind of
@@ -497,19 +500,19 @@ def selftest():
         sorted({tuple(d["path"] for d in sources()["%s.index" % m]["paths"])
                 for m in ("fundamental", "mesons", "baryons")}),
         [("research/warp-drive/captures/PDG-2026.tsv",)])
-    # FOUR KINDS OF SOURCE WITH NO FILE, and they are not equally strong.
-    # COMPUTED is a rule, INLINE is a transcription in the module, Inherited
-    # is a parent's, and DECLARED is a human writing values from physics
-    # knowledge -- the weakest, and the one that must never hide among the
-    # others.
-    NOFILE = ("COMPUTED", "INLINE", "Inherited", "DECLARED", "recovered/")
+    # M: "Do not add declared.  Nothing less than computed or measured.
+    # Declared still requires proof."  A source with no file must be one of
+    # these three, and DECLARED -- a human writing values out of knowledge --
+    # is NOT among them.  It was briefly a fourth category to accommodate
+    # bosonqp's first draft; that draft was rewritten to compute its numbers
+    # instead, and the category is gone.
+    NOFILE = ("COMPUTED", "INLINE", "Inherited", "recovered/")
     chk("an index with no file declares which kind of source it has instead",
         [nm for nm, v in sources().items()
          if not v["paths"] and not any(k in v["why"] for k in NOFILE)], [])
-    chk("and exactly one row is DECLARED -- the weakest provenance here, kept "
-        "visible rather than folded into COMPUTED",
+    chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
-        ["bosonqp.index"])
+        [])
     chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
