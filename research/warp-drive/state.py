@@ -74,6 +74,32 @@ SCHEMA = 2
 # THE ONE HAND-MAINTAINED TABLE.  A docket is a question, a status and what
 # would settle it; the selftest refuses a row missing any of the three.
 DOCKETS = (
+    ("36", "REFUSED-ON-THE-INPUT",
+     "Can arXiv:2508.05447's Table 3 -- the DEFORMED two-quasiparticle "
+     "rotational bands, the candidate subpop.py actually named -- be captured "
+     "total and seated?",
+     "NO, and deformed.py PROVES it rather than reporting a parser that gave "
+     "up. Four forward parses came up short (154, 176, 160, 195 against the "
+     "stated 234) and each fix moved the number without explaining the gap -- "
+     "fitting a parser to a target, the fault DOCKET 23 refused. Working "
+     "BACKWARDS explains all four at once: the paper's own Explanation of "
+     "Table 3 says 'A single blank row separates the entries for each band', "
+     "and that delimiter is ABSENT from this extraction. 234 entries over 24 "
+     "nuclide sections need 210 separators; the file holds 71 blank lines, 22 "
+     "at page breaks, so AT MOST 49 -- four times short -- and the 156-Ho "
+     "entry 1->2 boundary carries none at all. The PDF-to-text conversion "
+     "collapsed them. What IS recoverable: the 24 nuclide sections with Z and "
+     "N (Ho x8, Tm x11, Lu x5) and the level rows, once the wrapped parity is "
+     "rejoined and RELATIVE energies (A+134.27, 1135.7+y) are admitted. What "
+     "is not is which levels belong to which band -- exactly what the lost "
+     "delimiter carried -- and the census that would show a capture total is "
+     "a census of BANDS. THIS IS A THIRD KIND OF REFUSAL: not the criterion, "
+     "not box invariance, but the INPUT.",
+     "An extraction that preserves layout -- blank rows, or the column "
+     "x-positions so the band-number column is told from a page number by "
+     "POSITION rather than by shape. Not available here: arXiv is 403 through "
+     "this proxy exactly as ENSDF is, and the connector returns this same "
+     "extraction. The docket is open on an INPUT, not on an idea."),
     ("22", "CLOSED-WITH-CORRECTIONS",
      "Were the ruling's per-witness physics claims ever independently checked?",
      "Nine adversarial agents, three lenses on each of three seatings. Two "

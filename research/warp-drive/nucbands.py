@@ -143,14 +143,15 @@ NOT_INDEXED = (
      "two-quasiparticle rotational bands in DEFORMED odd-odd nuclei, "
      "Z 67-71, N 89-97 -- 234 bands/states, of which the paper says 173 are "
      "bands and 61 are bandhead states",
-     "TWO PARSE ATTEMPTS, BOTH SHORT, AND NEITHER SEATED.  Table 3 interleaves "
-     "free prose into the data columns -- reaction strings that contain "
-     "nuclide names and spins, comment lists numbered 1., 2., 3. -- so a "
-     "nuclide header and a comment marker are not distinguishable by shape "
-     "alone.  Segmenting on the symbol/'S.No.' header pair found 20 sections "
-     "and 154 entries; tracking S.No. as one stream across page breaks found "
-     "176.  The paper says 234, and the 173/61 split reproduces under neither "
-     "reading.  A capture that cannot be shown total is not seated."),
+     "REFUSED WITH A PROOF, IN deformed.py (DOCKET 36).  Four forward "
+     "parses came up short -- 154, 176, 160, 195 against the stated 234 -- "
+     "and working BACKWARDS explains all four at once.  The paper's own "
+     "Explanation of Table 3 says 'A single blank row separates the entries "
+     "for each band'; the table needs 210 such separators and this extraction "
+     "holds 71 blank lines, 22 of them page breaks, so AT MOST 49.  The "
+     "delimiter was collapsed in the PDF-to-text conversion, and no regex "
+     "recovers a delimiter that is not there.  What would settle it is a "
+     "layout-preserving extraction, not another pattern."),
 )
 
 # MEASURED by --sweep over the seated member set.  Every superset of (2I, pi)
@@ -325,10 +326,19 @@ def selftest():
 
     chk("the second paper is named as NOT indexed, not quietly dropped",
         [n for n, _w, _y in NOT_INDEXED], ["arxiv-2508.05447.txt"])
-    chk("and its two failed parse attempts are recorded with their numbers, "
-        "so nobody repeats them",
-        [n for n, _w, why in NOT_INDEXED if "154" in why and "176" in why],
+    chk("all four failed parse attempts are recorded with their numbers",
+        [n for n, _w, why in NOT_INDEXED
+         if all(x in why for x in ("154", "176", "160", "195"))],
         ["arxiv-2508.05447.txt"])
+    chk("and the refusal points at deformed.py, where it is PROVED",
+        [n for n, _w, why in NOT_INDEXED if "deformed.py" in why],
+        ["arxiv-2508.05447.txt"])
+    # The proof itself lives in deformed.py and is re-run here, so this file
+    # cannot go on citing a refusal that has stopped holding.
+    import deformed
+    settled, _why = deformed.verdict()
+    chk("and deformed.py still proves it on the file as it stands",
+        settled, True)
 
     # Re-MEASURE the cheapest arity-3 row rather than trusting the table.
     # The other two are 997 and 1,247 cells and belong in --sweep.

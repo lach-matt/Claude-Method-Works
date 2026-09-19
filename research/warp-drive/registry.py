@@ -254,6 +254,14 @@ REGISTERED = (
 )
 
 NOT_AN_INDEX = {
+    # DOCKET 36.  Not a refusal on the criterion -- the members WOULD
+    # carry quantum numbers.  It is a refusal on the INPUT: the paper's
+    # own entry delimiter was collapsed by the PDF-to-text extraction,
+    # and deformed.py proves it (210 separators required, at most 49
+    # present).  A capture that cannot be shown total is not seated.
+    "deformed": "the deformed two-quasiparticle rotational bands -- "
+                "REFUSED ON THE INPUT, with a proof in deformed.py, "
+                "not on the criterion",
     "mi": "members are the seated indexes -- and NINE OF THEM ARE NOT "
           "REGISTERED ONES; figure.superseded_mi() measures it",
     "figure": "the index of first-order indexes: its members ARE the seated "
@@ -563,11 +571,18 @@ def selftest():
         sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
         ["baryon_isomultiplet", "gravity_bound", "madelung_slot"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
-    chk("seven modules are excused, with reasons", len(NOT_AN_INDEX), 7)
-    chk("and SIX of the seven are excused by the criterion -- quasiparticle "
+    chk("eight modules are excused, with reasons", len(NOT_AN_INDEX), 8)
+    chk("and SIX of the eight are excused by the criterion -- quasiparticle "
         "is the one excused by BOX INVARIANCE instead",
         sorted(k for k, v in NOT_AN_INDEX.items() if "criterion passes" in v),
         ["quasiparticle"])
+    # DOCKET 36 adds a THIRD KIND of excuse, and it is worth naming as its own
+    # thing: not the criterion, not box invariance, but THE INPUT.  The members
+    # would carry quantum numbers; the file that should carry them lost the
+    # delimiter that segments the table, and deformed.py proves it.
+    chk("and ONE is excused on the INPUT rather than on the object",
+        sorted(k for k, v in NOT_AN_INDEX.items() if "REFUSED ON THE INPUT" in v),
+        ["deformed"])
     chk("every excuse is non-empty",
         [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])
     chk("mi is excused, not registered",

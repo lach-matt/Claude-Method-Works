@@ -12496,12 +12496,37 @@ pattern in six is not a measurement of the seventh.**
 
 The same join returned **arXiv:2508.05447** — two-quasiparticle bands in **deformed** odd-odd nuclei,
 which is the object `subpop.py` actually named, and a *different mechanism* from the shears rotation
-of near-spherical nuclei above. Its text is seated in `captures/`. **It is not indexed, after two
-parse attempts that reached 154 and 176 of its stated 234 entries**, and the 173/61 band-versus-
-bandhead split reproduces under neither reading. Its Table 3 interleaves free prose into the data
-columns — reaction strings carrying nuclide names and spins, comment lists numbered 1., 2., 3. — so a
-nuclide header and a comment marker are not separable by shape alone. **A capture that cannot be
-shown total is not seated**, and the attempt is recorded with its numbers so nobody repeats it.
+of near-spherical nuclei above. Its text is seated in `captures/`. **It is not indexed, and `deformed.py`
+(DOCKET 36) proves that is the right answer for this input.**
+
+Four forward parses came up short — 154, 176, 160, 195 entries against the stated 234 — and each fix
+was a better guess at the line shapes that moved the number without explaining the gap. That is
+fitting a parser to a target, which is the fault DOCKET 23 refused. **Working backwards explains all
+four at once.** The paper's own *Explanation of Table 3* states its delimiter:
+
+> *"A single blank row separates the entries for each band. The number in the first column indicates
+> the band number."*
+
+**The delimiter is a blank row, and it is not in this file.** 234 entries over 24 nuclide sections
+need **210** separators; the extraction holds **71** blank lines, **22** of them at page breaks, so
+**at most 49** — four times short. Checked directly at the 156-Ho entry 1 → 2 boundary, where the
+specification requires a blank row: **there is none.** The PDF-to-text conversion collapsed them, and
+no regex recovers a delimiter that is not there — which is why all four parses failed and why a fifth
+would too.
+
+What *is* recoverable is not nothing: the **24 nuclide sections** resolve cleanly with Z and N for
+every one (Ho ×8, Tm ×11, Lu ×5), and the level rows come out once the wrapped parity is rejoined and
+*relative* energies are admitted — this table writes bandheads as `A+134.27` and `1135.7+y`, which no
+absolute-energy token matches. But **which levels belong to which band is exactly what the lost
+delimiter carried**, and the census that would show a capture total is a census of bands. So nothing
+is seated.
+
+**What would settle it is an extraction that preserves layout** — blank rows, or the column
+x-positions so the band-number column is told from a page number by *position* rather than by shape.
+Not available here: arXiv is 403 through the egress proxy exactly as ENSDF is, and the connector
+returns this same extraction. **The docket is open on an input, not on an idea**, which is a
+different thing from the four closed routes `subpop.py` records. `python3 research/warp-drive/deformed.py
+--selftest` — 13 fixtures, the proof.
 
 **Reproduce:** `python3 research/warp-drive/nbcapture.py --selftest` (12 fixtures, the paper's own
 census and its own selection rule), `python3 research/warp-drive/nucbands.py --selftest`,
