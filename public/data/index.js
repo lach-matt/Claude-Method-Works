@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T06:50:54+00:00",
-  "commit": "adbbcd4e4bd4",
+  "built": "2026-09-19T13:31:34+00:00",
+  "commit": "79e920e0f57a",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "adbbcd4e4bd4",
-   "text": "Lach, M. (2026). The Method Index, edition adbbcd4e4bd4. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition adbbcd4e4bd4}\n}"
+   "commit": "79e920e0f57a",
+   "text": "Lach, M. (2026). The Method Index, edition 79e920e0f57a. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 79e920e0f57a}\n}"
   },
   "history": [
    {
@@ -184,6 +184,41 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/adbbcd4e4bd46f33e99471801e04620ad646d635",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "327f552",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/327f552fda1d85e0225ab37a44ccf9fff5199b71",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "110e0bd",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/110e0bde1799191d5570aa172692863e8491f5b2",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "8215d64",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8215d646876ca45029e281082b191ea4ecfa4c24",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "de0b829",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/de0b829ef3cb85f2478bae159328c423986c74c4",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "79e920e",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/79e920e0f57a3e5acfb97709824c4ca9e7cfada2",
+    "note": null
    }
   ]
  },
@@ -263,8 +298,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/particles.js",
-   "bytes": 217973,
-   "md5": "d314a20b9bdc744fb9d6312e3c56ca86",
+   "bytes": 231619,
+   "md5": "c2b87b65e1d38f7051b5095ba3f0936f",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
@@ -9506,10 +9541,10 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 217973,
-  "md5": "d314a20b9bdc744fb9d6312e3c56ca86",
+  "bytes": 231619,
+  "md5": "c2b87b65e1d38f7051b5095ba3f0936f",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
-  "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
+  "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
    "citation": "Review of Particle Physics, Particle Data Group, Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026)",
    "doi": "10.1142/S0217751X26300111",
@@ -9523,8 +9558,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    ],
    "tree": {
     "root": "research/warp-drive",
-    "commit": "7bcfece",
-    "state_commit": "ae72544f7950",
+    "commit": "c5135e7",
+    "state_commit": "561fea909b1b",
     "instruments": [
      "pdgcapture.py",
      "fundamental.py",
@@ -9532,6 +9567,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "baryons.py",
      "docket27.py",
      "quasiparticle.py",
+     "spin4.py",
+     "subpop.py",
      "particlesweep.py"
     ]
    }
@@ -9611,6 +9648,28 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "B"
     ],
     "unplaced": 14
+   },
+   {
+    "id": "spin4",
+    "title": "The spin-4 mesons",
+    "members": 10,
+    "charted": 10,
+    "cells": 9,
+    "cell": {
+     "channel": 4,
+     "height": 5,
+     "width": 3
+    },
+    "closers": [
+     "information",
+     "statistics"
+    ],
+    "coordinates": [
+     "P",
+     "2I",
+     "Q3"
+    ],
+    "unplaced": 0
    }
   ],
   "quasiparticles": {
@@ -9624,6 +9683,19 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "total": 231,
    "of_charted": 550
   },
+  "spin4": "spin4: 10 spin-4 mesons, 9 cells, K4 (K5 on the established states)",
+  "subpop": {
+   "tested": 306,
+   "closed_sets": 143,
+   "hits": 2,
+   "exhaustive_chains": [
+    5,
+    7,
+    6,
+    14
+   ],
+   "lattices": 3
+  },
   "sweep": {
    "charts": 142,
    "seated": "baryons (2I, Q3) at K5, 16 cells",
@@ -9633,6 +9705,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     1,
     2,
     3,
+    4,
     5,
     6,
     7

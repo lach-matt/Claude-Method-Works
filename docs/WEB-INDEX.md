@@ -450,6 +450,53 @@ the tree with `rows()`, `index()` and `cell()`, coordinates declared before the 
 its block to `particle_index_block`, and its figures to the selftest — and, for the explorer, a
 row in `PAXES` naming which of its coordinates go on the axes, or it draws the first three.
 
+### The spin-4 mesons and the member sub-population sweep
+
+Two more of the other session's instruments are read at build when the tree carries them.
+**`spin4.py`** seats **the spin-4 mesons** as a fourth index: the ten mesons of the table with
+2J = 8, a sub-population of the meson index with the spin held constant (so it carries no
+information and is not a coordinate; the effective arity is 3), charted on (P, 2I, Q3) — 10
+members on 9 cells, cell (4, 5, 3), closed by information and statistics, **K4**, the tree's only
+K4 and the last of the eight closure channels to be occupied. It is seated on the table's own
+**status** flag as its reach, which is total where mass is not (two members, K(4)(2500)±, have no
+printed mass and are charted anyway): the channel moves with the reach — K5 on the established
+states alone, K4 once the status-2 states are admitted — so the box-invariance test seats it, and
+**both readings are carried** (`reach.established`), the K4 always quoted with its condition. The
+overlap rule's reach gate would read the same movement as a late arrival; the block records that
+the two tests disagree rather than choosing. `_spin4` writes it in the shape of the other three
+indexes plus `parent`, `held_constant`, `massless`, `reach`, `arity`, `tests` and `channels`, so
+the Particles dialog and the explorer carry it with no special case beyond a `PAXES` row (charge
+across, isospin up, parity into the page, coloured by the PDG status) and a plate section; a
+member's plate links the same row in the meson index.
+
+**`subpop.py`** is **the member sub-population sweep**: every earlier sweep varied a chart's
+columns, this one varies its members — one coordinate held to one value over every index with
+declared coordinates — and asks whether the sub-population is closed and which channel it reaches.
+`_subpop` carries its census (143 closed sets, 2 reaching a channel no index occupied, both at K4:
+one at effective arity 2 where statistics is free, and the spin-4 mesons at arity 3), the spin-4
+population under the parent's mass reach (K5 at every cut, never K4 — the refusal the seating
+answered on a different reach; both statements stand), which indexes are lattices at all (three;
+for the rest the sweep tests closure in the ambient box, and the block says so), the recursion
+determination (within the family, chain 2 over 14 containments; the three lattices peeled one
+element at a time with every intermediate re-checked, two exact and one a verified lower bound;
+exhaustively over every subset of the four indexes small enough, chains 5, 7, 6 and 14), the
+indexes too large to determine, named, and the candidates run and not seated — the chiral
+Goldstones (a full box, so free), the electroweak eaten Goldstones (a relabelling), and the
+nuclear rotational bands, whose five routes are listed with their states and whose two sources,
+reached by a join over a paper database after four meets failed, are linked by arXiv identifier
+and distinguished (one the candidate, one a different object). Occupancy in the census is measured
+as it stood before the sweep's own finding was seated, or the finding would erase itself; the
+block carries that note. The sweep costs a few minutes at build and is memoised with the rest.
+
+That join-over-meet correction is also the retrieval law the released three-body paper's closure
+measurement gives, and the Ask prompt now carries it as clause (g) of the retrieval method: a
+failed narrow search is a meet, and its retry is a join over a larger index, never the same meet
+again.
+
+Neither instrument is on `main` yet: a plain build from the repository tree carries three indexes
+and no sweep, and the fixtures and pins are conditional on their presence; the shipped data was
+built with `--warp-root` on the warp branch at c5135e7.
+
 ### Each particle index as an index of the explorer
 
 Every particle index the build carries is also a first-class index of the explorer, beside the
@@ -459,7 +506,8 @@ quasiparticles (`fqh`), the bosonic excitations (`bosonqp`) and the Read–Rezay
 (`readrezayi`), each with its rows as `{name, key, coords, extra}`, the key unique within the
 index (a duplicated name in the bosonic index, the Cooper pair at two spins, is keyed by its 2J).
 An index opens as a lattice (`buildParticleScene`): three of its declared coordinates on the axes
-and a fourth as colour, by the `PAXES` table — charge across, spin up, generation or isospin into
+and a fourth as colour (a coordinate, or as `extra:<field>` a field the row carries beside them,
+such as the PDG status), by the `PAXES` table — charge across, spin up, generation or isospin into
 the page for the PDG indexes; the inverse filling or the level across and the two orders on the
 other axes for the Hall indexes — with **one node per charted member at the rank of its values**,
 so a charge of −1, 0, +1 and a spin of 0, ½, 1, 3/2 draw at even spacing. A drawn position can

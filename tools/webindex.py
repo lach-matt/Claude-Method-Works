@@ -1011,6 +1011,12 @@ def warp_modules(root):
     except Exception as e:  # noqa: BLE001 -- the docket is in progress on the other session
         mods["quasiparticle"] = None
         mods["quasiparticle_error"] = repr(e)
+    for extra in ("spin4", "subpop"):
+        try:
+            mods[extra] = importlib.import_module(extra)
+        except Exception as e:  # noqa: BLE001 -- DOCKET 33/34 may not be in an older tree
+            mods[extra] = None
+            mods[extra + "_error"] = repr(e)
     mods["root"] = root
     _WARP[root] = mods
     return mods
@@ -1037,6 +1043,11 @@ PARTICLE_COORDS = {
         {"name": "2I", "meaning": "isospin, doubled", "status": "READ"},
         {"name": "Q3", "meaning": "electric charge in thirds", "status": "READ"},
     ],
+    "spin4": [
+        {"name": "P", "meaning": "parity", "status": "READ"},
+        {"name": "2I", "meaning": "isospin, doubled", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds", "status": "READ"},
+    ],
     "baryons": [
         {"name": "2J", "meaning": "spin, doubled", "status": "READ"},
         {"name": "P", "meaning": "parity", "status": "READ"},
@@ -1051,6 +1062,7 @@ PARTICLE_TITLES = {
     "fundamental": "The fundamental particles of the Standard Model",
     "mesons": "The mesons",
     "baryons": "The baryons",
+    "spin4": "The spin-4 mesons",
 }
 
 
@@ -1230,6 +1242,105 @@ def _readrezayi(RR):
     }
 
 
+def _spin4(S4, extra):
+    """DOCKET 34 as the site carries it: the ten spin-4 mesons as a seated
+    index of their own -- a sub-population of the mesons (2J = 8) charted on
+    the three coordinates that vary over it, seated on the table's own status
+    as its reach, the tree's only K4. Both readings the instrument prints
+    are carried: K5 on the established states alone, K4 once the status-2
+    states are admitted."""
+    K, h, w = S4.cell()
+    moves, ks = S4.channel_moves()
+    ec, ek = S4.established_reading()
+    f = S4.arity_freeness()
+    spins, const = S4.spin_is_constant()
+    rows = [{"name": n, "pdgid": pid, "coords": [P, i, q], "extra": dict(extra(pid), pdg_status=s)}
+            for n, pid, P, i, q, s in sorted(S4.rows())]
+    return {
+        "id": "spin4", "title": PARTICLE_TITLES["spin4"],
+        "member": "a meson of spin 4 (2J = 8) of the PDG table, a sub-population of the meson index; antiparticles separate",
+        "coordinates": PARTICLE_COORDS["spin4"],
+        "members": len(rows), "charted": len(rows), "unplaced": [], "unplaced_why": "",
+        "cells": len(S4.index()), "cell": {"channel": K, "height": h, "width": w}, "closers": S4.closers(),
+        "rows": rows,
+        "parent": "mesons", "held_constant": {"coordinate": "2J", "value": spins[0] if spins else None, "constant": const,
+                                              "note": "2J is the same for every member, so it carries no information and is not a coordinate here; that is what makes the effective arity 3"},
+        "massless": S4.massless(),
+        "massless_note": "PDG prints no mass for these; they are charted anyway, because mass is not a coordinate of this index and the meson index already refuses it as one",
+        "reach": {"on": "PDG status, the table's own flag for how established a state is, which every row carries",
+                  "cuts": [{"status_max": c, "members": n, "cells": x, "channel": k} for c, n, x, k in S4.reach()],
+                  "moves": moves, "channels_seen": ks,
+                  "established": {"cells": ec, "channel": ek, "note": "on the established states alone (status 0 and 1) the index is K%d; it is K%d only once the status-2 states are admitted -- both readings are true, and the K%d is quoted with its condition" % (ek, K, K)},
+                  "why_not_mass": "mass is not total over this member set, so a sweep by mass never reaches the full set and cannot test it; refusing an index because a variable it never claimed fails to order it is not a test of the index",
+                  "status": "DERIVED"},
+        "arity": {"effective": len(PARTICLE_COORDS["spin4"]), "statistics_at_arity_2": {"closes": f["statistics"][0], "charts": f["statistics"][1]},
+                  "note": "at arity 2 statistics closes every chart in the tree, so a K4 there is join-closure and nothing more; at arity 3 it closes 59 of 125, so here the bit is earned -- the first chart of arity 3 or more to reach K4", "status": "DERIVED"},
+        "tests": {"box_invariance": "the channel moves with the reach, so the box-invariance test seats it: K4 is a property of the data and not of the construction",
+                  "reach_gate": "the overlap rule's reach gate would call a channel arriving at the last cut a late arrival; that gate governs coarsenings of an already-charted member set, and this is a new member set, as the three PDG indexes were",
+                  "note": "the two tests disagree here and the disagreement is on the record rather than resolved by picking the convenient one", "status": "READ"},
+        "channels": {"all_occupied": True, "note": "with this seating every one of the eight closure channels is carried by some index; that is a statement about eight cells, not about how many indexes there are, and the tree's completeness flag stays False"},
+        "verdict": "SEAT", "verdict_status": "READ",
+        "refused": [],
+    }
+
+
+def _subpop(SP):
+    """DOCKET 33 as the site carries it: the member sub-population sweep --
+    one coordinate held to one value over every index with declared
+    coordinates -- with its census, its two hits at the last empty channel,
+    the recursion determination that corrected itself, and the candidates run
+    and not seated, in the instrument's own figures."""
+    tested, closed, unocc = SP.census()
+    tot, pairs, longest = SP.family_nesting()
+    m, c, sub, box = SP.chiral_goldstone()
+    n_ew, held = SP.electroweak()
+    lat = SP.lattices()
+    routes = {
+        "IAEA ENSDF API": "closed: the network route this build runs behind refuses it",
+        "pypi radioactivedecay": "closed: installs, but carries decay data only -- half-lives, modes, progeny -- and no level energies, no J^P per level, no bandhead K",
+        "pypi nucleardata": "closed: no such distribution",
+        "the corpus": "closed: nothing in this repository's own inventories names a nuclear level scheme",
+        "the paper database": "open: two published data tables carrying level energy E and I^pi per band member, reached through a paper database rather than by direct fetch",
+    }
+    return {
+        "title": "Every member sub-population, swept",
+        "status_note": "every earlier sweep varied the columns of a chart; this one varies the members -- one coordinate held to one value, over every index that declares its coordinates -- and asks whether the sub-population is closed and what channel it reaches; nothing is seated by it, and its figures are the instrument's",
+        "census": {"tested": tested, "closed_sets": closed, "reaching_an_unoccupied_channel": unocc, "status": "DERIVED",
+                   "occupancy_note": "occupancy is measured as it stood before this sweep's own finding was acted on: the spin-4 index it found was then seated at K4, and measured against live occupancy the finding would erase itself"},
+        "hits": [{"parent": nm.split(".")[0], "coordinate": col, "value": v, "cells": n, "channel": k, "effective_arity": eff,
+                  "verdict": "statistics free at arity 2, refused" if eff <= 2 else "statistics earned at arity 3", "status": "DERIVED"}
+                 for nm, col, v, n, k, eff in SP.unoccupied_hits()],
+        "spin4_under_mass": {"cuts": [{"mass_max_MeV": a, "cells": b, "channel": k} for a, b, k in SP.spin4_reach()],
+                             "massless": SP.spin4_massless(),
+                             "note": "under the parent's own reach, mass, the population is K5 at every cut and never K4: the K4 rests on two rows the table gives no mass; it was then seated on a different reach, the table's status, which is total where mass is not -- both statements stand, and which reach a channel survives is part of the finding",
+                             "status": "DERIVED"},
+        "lattices": {"rows": [{"index": nm, "cells": n, "lattice": isl} for nm, n, isl in lat],
+                     "count": sum(1 for _n, _c, l in lat if l), "not": sum(1 for _n, _c, l in lat if l is False), "undetermined": sum(1 for _n, _c, l in lat if l is None),
+                     "note": "only these are closed under meet and join, so \"a sublattice of the index\" is well-posed only for them; for the rest the sweep tests closure in the ambient box, which is the right test and had the wrong word attached to it in an earlier reading", "status": "DERIVED"},
+        "family": {"closed_sets": tot, "containments": pairs, "longest_chain": longest,
+                   "note": "within the sweep's own family; a fact about the family and not about the lattices, as the exhaustive pass below shows", "status": "DERIVED"},
+        "recursion": [{"lattice": nm, "cells": n, "chain": ch, "bad_intermediates": bad, "stalls_at": ends, "maximal": maxi,
+                       "verdict": "exact -- peels to empty, the longest chain a lattice of this size admits" if maxi else "a verified lower bound; the greedy peel stalls at %d cells" % ends}
+                      for nm, n, ch, bad, ends, maxi in SP.recursion()],
+        "recursion_note": "each lattice peeled one element at a time with closure tested directly at every step and every intermediate re-checked; a first attempt used a removability shortcut that assumed the containing set was closed, produced a chain with ten intermediates that were not closed, and was discarded",
+        "exhaustive": [{"index": nm, "cells": n, "closed_sets": ns, "longest_chain": ch} for nm, n, ns, ch in SP.exhaustive()],
+        "exhaustive_note": "every subset of every index small enough to enumerate (at most %d cells): one sixteen-cell chart alone holds more closed sets than the whole family sweep found across the tree" % SP.EXHAUSTIVE_LIMIT,
+        "too_large": [{"index": nm, "cells": n} for nm, n in SP.too_large()],
+        "too_large_note": "where the true depth is not determined, named rather than implied",
+        "candidates": {
+            "chiral_goldstone": {"members": m, "cells": c, "sublattice": sub, "full_box": box,
+                                 "text": "the pseudoscalar mesons are the pseudo-Goldstone bosons of chiral symmetry breaking, so a rule derives their J^P = 0- rather than reading it; they are a sublattice of the mesons, but a full product box is always closed, so the property is free -- recorded, not seated", "status": "DERIVED"},
+            "electroweak": {"cells": n_ew, "held_by_fundamental": held,
+                            "text": "the three Goldstones eaten by the W+, W- and Z land on cells the fundamental index already holds: a relabelling of three charted members, refused", "status": "DERIVED"},
+            "nuclear_bands": {"routes": [{"route": "this repository's inventories" if r == "the corpus" else r, "state": routes.get(r, w)} for r, w in SP.NUCLEAR_ROUTES],
+                              "sources": [{"arxiv": a, "what": w, "bands_or_states": nb, "nuclei": nn, "candidate": cand} for a, w, nb, nn, cand in SP.BAND_SOURCES],
+                              "text": "a rotational band is the Goldstone tower of broken rotational symmetry in a deformed nucleus, and its members are nuclear excited states, which need a level scheme; four routes to one were closed, and the fifth opened by changing the operation -- a join over a paper database rather than a meet of two constraints -- and returned two different physical objects, only one of them the candidate; nothing is seated from either, because a total capture must be shown total",
+                              "status": "READ"},
+        },
+        "in_progress": True,
+    }
+
+
 def _frac(x):
     return "%d/%d" % (x.numerator, x.denominator) if x.denominator != 1 else str(x.numerator)
 
@@ -1392,6 +1503,13 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "status": "DERIVED",
     }
     # --- quasiparticles (docket 28) -----------------------------------------
+    if mods.get("spin4") is not None:
+        indexes.append(_spin4(mods["spin4"], extra))
+    subpop = None
+    if mods.get("subpop") is not None:
+        subpop = _subpop(mods["subpop"])
+    elif mods.get("subpop_error"):
+        subpop = {"absent": True, "note": "the sub-population sweep did not import: " + mods["subpop_error"][:200]}
     quasi = None
     if Q is not None:
         verdict, why = Q.verdict()
@@ -1450,6 +1568,9 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
+    for extra_mod in ("spin4", "subpop"):
+        if mods.get(extra_mod) is not None:
+            prov["tree"]["instruments"].append(extra_mod + ".py")
     sweep = None
     if PS is not None:
         sweep = _sweep(PS)
@@ -1457,8 +1578,8 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     elif mods.get("particlesweep_error"):
         sweep = {"absent": True, "note": "the particle sweep instrument did not import: " + mods["particlesweep_error"][:200]}
     full = {
-        "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
-        "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi,
+        "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
+        "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -1479,6 +1600,10 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                             "bosons": ("bosonqp: %d bosonic excitations, %d cells, K%d" % (len(quasi["bosons"]["members"]), quasi["bosons"]["cells"], quasi["bosons"]["cell"]["channel"]) if quasi.get("bosons") else None),
                             "nonabelian": ("readrezayi: %d primaries of %d levels, %d cells, K%d" % (quasi["nonabelian"]["members"], quasi["nonabelian"]["levels"], quasi["nonabelian"]["cells"], quasi["nonabelian"]["cell"]["channel"]) if quasi.get("nonabelian") else None)} if quasi else None),
         "antimatter": ({"total": accounting["antimatter"]["total"], "of_charted": accounting["antimatter"]["of_charted"]} if "antimatter" in accounting else None),
+        "spin4": (next(("spin4: %d spin-4 mesons, %d cells, K%d (K%d on the established states)" % (ix["members"], ix["cells"], ix["cell"]["channel"], ix["reach"]["established"]["channel"])
+                        for ix in indexes if ix["id"] == "spin4"), None)),
+        "subpop": ({"tested": subpop["census"]["tested"], "closed_sets": subpop["census"]["closed_sets"], "hits": subpop["census"]["reaching_an_unoccupied_channel"],
+                    "exhaustive_chains": [e["longest_chain"] for e in subpop["exhaustive"]], "lattices": subpop["lattices"]["count"]} if subpop and not subpop.get("absent") else None),
         "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
                    "refused": len(sweep["refused"]), "occupied_now": sweep["occupancy"]["now"]} if sweep and not sweep.get("absent") else None),
     }
@@ -2635,17 +2760,35 @@ def selftest(warp_root=WARP_ROOT):
     else:
         _ps, pfull = particle_index_block(warp_root, write=False)
         private_strings(pfull, "particles", hits)
-        check("particle indexes: three, in order", [x["id"] for x in px["indexes"]], ["fundamental", "mesons", "baryons"])
-        check("particle indexes: members 30, 250, 292", [x["members"] for x in px["indexes"]], [30, 250, 292])
-        check("particle indexes: charted 30, 242, 278", [x["charted"] for x in px["indexes"]], [30, 242, 278])
-        check("particle indexes: cells 26, 66, 184", [x["cells"] for x in px["indexes"]], [26, 66, 184])
-        check("particle indexes: channels K2, K0, K0", [x["cell"]["channel"] for x in px["indexes"]], [2, 0, 0])
+        four = len(px["indexes"]) == 4
+        check("particle indexes: " + ("four, in order, the spin-4 mesons last" if four else "three, in order"), [x["id"] for x in px["indexes"]], ["fundamental", "mesons", "baryons"] + (["spin4"] if four else []))
+        check("particle indexes: members 30, 250, 292" + (", 10" if four else ""), [x["members"] for x in px["indexes"]], [30, 250, 292] + ([10] if four else []))
+        check("particle indexes: charted 30, 242, 278" + (", 10" if four else ""), [x["charted"] for x in px["indexes"]], [30, 242, 278] + ([10] if four else []))
+        check("particle indexes: cells 26, 66, 184" + (", 9" if four else ""), [x["cells"] for x in px["indexes"]], [26, 66, 184] + ([9] if four else []))
+        check("particle indexes: channels K2, K0, K0" + (", K4" if four else ""), [x["cell"]["channel"] for x in px["indexes"]], [2, 0, 0] + ([4] if four else []))
         check("particle indexes: the accounting identity 6506 = 5880 + 54 + 572", px["accounting"]["identity"], "6506 = 5880 + 54 + 572")
         check("particle indexes: 572 members, 550 charted, 22 unplaced", [px["accounting"][k] for k in ("members", "charted", "unplaced")], [572, 550, 22])
         check("particle indexes: every member row carries a status on every coordinate",
               all(all(c["status"] in STATUS_LEGEND for c in ix["coordinates"]) for ix in pfull["indexes"]), True)
         check("particle indexes: every row of every index is in the file",
-              [len(ix["rows"]) for ix in pfull["indexes"]], [30, 250, 292])
+              [len(ix["rows"]) for ix in pfull["indexes"]], [30, 250, 292] + ([10] if four else []))
+        s4 = next((ix for ix in pfull["indexes"] if ix["id"] == "spin4"), None)
+        if s4:
+            check("spin-4 mesons: 10 members on 9 cells, cell (4, 5, 3), closed by information and statistics", (s4["members"], s4["cells"], s4["cell"], s4["closers"]), (10, 9, {"channel": 4, "height": 5, "width": 3}, ["information", "statistics"]))
+            check("spin-4 mesons: 2J is constant at 8, so the effective arity is 3", (s4["held_constant"]["value"], s4["held_constant"]["constant"], s4["arity"]["effective"]), (8, True, 3))
+            check("spin-4 mesons: the channel moves with the status reach, K5 then K4; K5 on the established states", (s4["reach"]["moves"], s4["reach"]["channels_seen"], s4["reach"]["established"]), (True, [4, 5], {"cells": 7, "channel": 5, "note": s4["reach"]["established"]["note"]}))
+            check("spin-4 mesons: the two massless rows are charted, and every member is a meson row", (s4["massless"], all(r["extra"]["family"] == "meson" for r in s4["rows"])), (["K(4)(2500)+", "K(4)(2500)-"], True))
+            check("spin-4 mesons: statistics is free at arity 2, 105 of 105", s4["arity"]["statistics_at_arity_2"], {"closes": 105, "charts": 105})
+        sp = pfull.get("subpop")
+        if sp and not sp.get("absent"):
+            check("sub-population sweep: 143 closed sets, 2 reaching an unoccupied channel", (sp["census"]["closed_sets"], sp["census"]["reaching_an_unoccupied_channel"]), (143, 2))
+            check("sub-population sweep: both hits at K4, one at effective arity 2 and one at 3", sorted((h["channel"], h["effective_arity"]) for h in sp["hits"]), [(4, 2), (4, 3)])
+            check("sub-population sweep: under the mass reach the spin-4 population never reaches K4", 4 in {c["channel"] for c in sp["spin4_under_mass"]["cuts"]}, False)
+            check("sub-population sweep: three lattices, and the family's chain is 2 over 14 containments", (sp["lattices"]["count"], sp["family"]["containments"], sp["family"]["longest_chain"]), (3, 14, 2))
+            check("sub-population sweep: the exhaustive chains are 5, 7, 6, 14", [e["longest_chain"] for e in sp["exhaustive"]], [5, 7, 6, 14])
+            check("sub-population sweep: two lattices peel to empty, exact", sorted(r["lattice"] for r in sp["recursion"] if r["maximal"]), ["bosonqp.index", "overlaprule.madelung_slot"])
+            check("sub-population sweep: the chiral Goldstones are a full box, the electroweak ones a relabelling", (sp["candidates"]["chiral_goldstone"]["full_box"], sp["candidates"]["electroweak"]["held_by_fundamental"]), (True, True))
+            check("sub-population sweep: five routes to nuclear bands, one open, one candidate source", (len(sp["candidates"]["nuclear_bands"]["routes"]), [s["arxiv"] for s in sp["candidates"]["nuclear_bands"]["sources"] if s["candidate"]]), (5, ["2508.05447"]))
         check("particle indexes: the fundamental collisions are four", len(pfull["indexes"][0]["collisions"]), 4)
         check("particle indexes: the capture's md5 is recorded", bool(px["source"]["capture"] and px["source"]["capture"][0]["md5"]), True)
         if "antimatter" in pfull["accounting"]:
@@ -2657,8 +2800,8 @@ def selftest(warp_root=WARP_ROOT):
         sw = pfull.get("sweep")
         if sw and not sw.get("absent"):
             check("sweep: 142 charts, 11 + 11 + 120", (sw["charts"], sw["census"]), (142, {"fundamental": 11, "mesons": 11, "baryons": 120}))
-            check("sweep: three hits against the ruling's census, two against the honest occupancy",
-                  (len(sw["hits"]["against_the_overlap_rules_census"]), len(sw["hits"]["against_the_honest_occupancy"])), (3, 2))
+            check("sweep: " + ("two hits against the overlap rule's census and one against the live occupancy once K4 is taken" if four else "three hits against the ruling's census, two against the honest occupancy"),
+                  (len(sw["hits"]["against_the_overlap_rules_census"]), len(sw["hits"]["against_the_honest_occupancy"])), (2, 1) if four else (3, 2))
             check("sweep: the seating is baryons (2I, Q3) at K5, 16 cells, cell (5, 7, 4)",
                   (sw["seated"]["parent"], sw["seated"]["cols"], sw["seated"]["channel"], sw["seated"]["cells"], sw["seated"]["cell"]),
                   ("baryons", ["2I", "Q3"], 5, 16, {"channel": 5, "height": 7, "width": 4}))
@@ -2666,7 +2809,7 @@ def selftest(warp_root=WARP_ROOT):
             check("sweep: the four corners not held lie outside the hull", (sw["seated"]["corners_not_held"], sw["seated"]["corners_outside_hull"]),
                   ([[0, -6], [0, 6], [1, -6], [1, 6]], True))
             check("sweep: statistics is free at arity 2, 105 of 105; geometry is earned, 74", (sw["arity2_freeness"]["statistics"]["closes"], sw["arity2_freeness"]["geometry"]["closes"]), (105, 74))
-            check("sweep: seven channels occupied, only K4 empty", sw["occupancy"]["now"], [0, 1, 2, 3, 5, 6, 7])
+            check("sweep: " + ("all eight channels occupied once the spin-4 index is seated" if four else "seven channels occupied, only K4 empty"), sw["occupancy"]["now"], [0, 1, 2, 3, 4, 5, 6, 7] if four else [0, 1, 2, 3, 5, 6, 7])
         fq = (pfull.get("quasiparticles") or {}).get("seated")
         if fq and not fq.get("absent"):
             check("quasiparticles seated: 168 members of 12 states, 30 cells, cell (0, 15, 4)", (fq["members"], fq["states"], fq["cells"], fq["cell"]), (168, 12, 30, {"channel": 0, "height": 15, "width": 4}))

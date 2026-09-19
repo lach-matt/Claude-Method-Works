@@ -2056,11 +2056,12 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     mesons: { x: 'Q3', y: '2J', z: '2I', colour: 'P' },
     baryons: { x: 'Q3', y: '2J', z: '2I', colour: 'S' },
     fqh: { x: 'M', y: 'ORD', z: 'CHORD', colour: 'STAT' },
-    bosonqp: { x: 'Q3', y: '2J', z: null, colour: 'kind' },
+    bosonqp: { x: 'Q3', y: '2J', z: null, colour: 'extra:kind' },
     readrezayi: { x: 'K', y: 'ORD', z: 'CHORD', colour: 'STAT' },
+    spin4: { x: 'Q3', y: '2I', z: 'P', colour: 'extra:pdg_status' },
   };
-  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries' };
-  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', kind: 'kind' };
+  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries' };
+  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status' };
   const half = (v) => (v % 2 ? `${v}/2` : String(v / 2));
   const third = (v) => (v % 3 === 0 ? String(v / 3) : `${v}/3`).replace('-', '−');
   // a coordinate's value read out in its own units: the doubled spin as J, the charge in thirds as Q
@@ -2103,7 +2104,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         members: ix.members, charted: ix.charted, cells: ix.cells, cell: ix.cell, closers: ix.closers || [], refused: ix.refused || [], unplaced: ix.unplaced || [], unplaced_why: ix.unplaced_why || '',
         source: { text: src.citation || '', doi: src.doi || null, status: 'READ', note: 'the review the capture reads' },
         rows: ix.rows.map((r, i) => ({ i, name: r.name, key: r.name, coords: r.coords, extra: r.extra, pdgid: r.pdgid })),
-        colour_rule: ix.colour_rule || null, conjugation: ix.conjugation || null, collisions: ix.collisions || null, collisions_note: ix.collisions_note || '' });
+        colour_rule: ix.colour_rule || null, conjugation: ix.conjugation || null, collisions: ix.collisions || null, collisions_note: ix.collisions_note || '', raw: ix, in_progress: false });
     }
     const q = P.quasiparticles || {};
     const fq = q.seated;
@@ -2180,12 +2181,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const names = px.coordinates.map((c) => c.name);
     const ax = px.axes;
     const idx = (n) => (n === null || n === undefined ? -1 : names.indexOf(n));
-    const xi = idx(ax.x), yi = idx(ax.y), zi = idx(ax.z), ci = ax.colour === 'kind' ? -2 : idx(ax.colour);
+    // the colour may be a coordinate or, as 'extra:<field>', a field the row carries beside its coordinates
+    const ck = ax.colour && ax.colour.startsWith('extra:') ? ax.colour.slice(6) : null;
+    const xi = idx(ax.x), yi = idx(ax.y), zi = idx(ax.z), ci = ck ? -2 : idx(ax.colour);
     const rows = px.rows.filter((r) => r.coords.every((v) => v !== null && v !== undefined));
     const uniq = (k) => (k < 0 ? [0] : [...new Set(rows.map((r) => r.coords[k]))].sort((a, b) => a - b));
     const xs = uniq(xi), ys = uniq(yi), zs = uniq(zi);
-    const cval = (r) => (ci === -2 ? r.extra.kind : ci < 0 ? null : r.coords[ci]);
-    const cvals = ci === -2 ? [...new Set(rows.map((r) => r.extra.kind))] : ci < 0 ? [] : [...new Set(rows.map((r) => r.coords[ci]))].sort((a, b) => a - b);
+    const cval = (r) => (ck ? (r.extra || {})[ck] : ci < 0 ? null : r.coords[ci]);
+    const cvals = ck ? [...new Set(rows.map((r) => cval(r)))].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0)) : ci < 0 ? [] : [...new Set(rows.map((r) => r.coords[ci]))].sort((a, b) => a - b);
     const C = state.colors;
     const colourOf = (r) => (ci === -1 ? C.measured : L_COLOR[Math.max(0, cvals.indexOf(cval(r))) % L_COLOR.length]);
     const pos = new Map();
@@ -2211,7 +2214,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const centre = [(ext.x0 + ext.x1) / 2, (ext.y0 + ext.y1) / 2, (ext.z0 + ext.z1) / 2];
     const R = Math.hypot(ext.x1 - ext.x0, ext.y1 - ext.y0, ext.z1 - ext.z0) / 2;
     return { kind: 'particles', id, px, cubes, slabs: [], ions: [], ladder: [], ext, centre, R, ax, xs, ys, zs, cvals, ci, drawn: rows.length, positions: pos.size, fanned,
-      key: cvals.map((v) => ({ v, label: ci === -2 ? String(v) : coordTick(ax.colour, v), colour: L_COLOR[cvals.indexOf(v) % L_COLOR.length] })) };
+      key: cvals.map((v) => ({ v, label: ck ? String(v) : coordTick(ax.colour, v), colour: L_COLOR[cvals.indexOf(v) % L_COLOR.length] })) };
   }
   function drawParticleAxes(scene, cam) {
     const C = state.colors, ex = scene.ext, ax = scene.ax;
@@ -2295,6 +2298,17 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (px.id === 'fqh') extra = section('The states', `<div class="fields">${row('observed states', px.observed.map((o) => `ν = ${esc(o.filling)} (fundamental charge ${esc(o.fundamental_charge)})`).join(' · '), 'READ', esc(px.observed_note), true)}${px.statistics ? row('statistics', `${px.statistics.anyons} anyons, ${px.statistics.fermions} fermions, ${px.statistics.bosons} bosons`, px.statistics.status, esc(px.statistics.note || ''), true) : ''}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}</div>${px.not_here ? `<p class="note"><b>Not here:</b> ${esc(px.not_here)}</p>` : ''}`);
     else if (px.id === 'readrezayi') extra = section('The levels', `<div class="fields">${row('observed levels', px.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}${row('validated', px.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes', true)}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}${row('fermions', `${px.fermions.length}`, 'DERIVED', esc(px.fermions_note), true)}</div>`);
     else if (px.id === 'bosonqp') extra = section('The three rules', `<div class="fields">${px.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}${px.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}${px.relation ? row('the relation', `${px.relation.qp_subset_of_bosons ? 'a subset of the bosons' : 'not a subset of the bosons'}; ${px.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}`, px.relation.status, esc(px.relation.note || ''), true) : ''}</div>`);
+    else if (px.id === 'spin4' && px.raw && px.raw.reach) { const s = px.raw; extra = section('A sub-population, seated on its own reach', `<p class="note">The ten mesons of spin 4: a sub-population of <button type="button" class="pchip" data-pgo="mesons">the meson index</button> with ${esc(s.held_constant.coordinate)} = ${s.held_constant.value} held constant, so it is not a coordinate here and the effective arity is ${s.arity.effective}. ${badge('DERIVED', esc(s.held_constant.note))}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>status ≤</th><th>members</th><th>cells</th><th>channel</th></tr></thead><tbody>${s.reach.cuts.map((c) => `<tr><td>${c.status_max}</td><td>${c.members}</td><td>${c.cells}</td><td>${c.channel === null ? '—' : 'K' + c.channel}</td></tr>`).join('')}</tbody></table></div>
+      <div class="fields">
+        ${row('the reach', esc(s.reach.on), 'READ', esc(s.reach.why_not_mass), true)}
+        ${row('the channel moves', `${s.reach.moves ? 'yes' : 'no'} — K${s.reach.channels_seen.join(', K')}`, s.reach.status, 'so the box-invariance test seats it: K4 is a property of the data and not of the construction', true)}
+        ${row('the other true reading', `${s.reach.established.cells} cells at K${s.reach.established.channel} on the established states alone`, s.reach.status, esc(s.reach.established.note), true)}
+        ${row('no printed mass', esc(s.massless.join(', ')), 'READ', esc(s.massless_note), true)}
+        ${row('why this K4 is different', `at arity 2 statistics closes ${s.arity.statistics_at_arity_2.closes} of ${s.arity.statistics_at_arity_2.charts} charts, free; this chart is arity ${s.arity.effective}`, s.arity.status, esc(s.arity.note), true)}
+        ${row('the two tests', esc(s.tests.note), s.tests.status, esc(s.tests.box_invariance + ' — ' + s.tests.reach_gate), true)}
+        ${row('every channel occupied', s.channels.all_occupied ? 'yes' : 'no', 'DERIVED', esc(s.channels.note), true)}
+      </div>`); }
     else if (px.id === 'fundamental' && px.colour_rule) extra = section('The colour assignment', `<p class="note">Not in the capture: ${px.colour_rule.map((c) => `${esc(c.what)} → ${c.dimension}`).join(' · ')} ${badge('PINNED', 'the Standard Model\'s definition, printed rather than hidden')}</p>${px.collisions ? `<p class="note"><b>${px.collisions.length} cells hold two members</b> — ${esc(px.collisions_note)} ${badge('DERIVED')}</p>` : ''}`);
     else if (px.conjugation) extra = section('Antimatter, measured rather than seated', `<p class="note">${px.conjugation.pairs} particle–antiparticle pairs, ${px.conjugation.split} split by the chart and ${px.conjugation.collided} collided${px.conjugation.note ? '; ' + esc(px.conjugation.note) : ''}. ${badge('DERIVED')}</p>`);
     return `<div class="kind">a particle index${px.in_progress ? ' · in progress' : ''}</div>
@@ -2364,6 +2378,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${section('Coordinates', `<div class="fields">${px.coordinates.map((c, k) => row(c.name, r.coords[k] === null || r.coords[k] === undefined ? '<span class="muted">not printed — no cell</span>' : `${r.coords[k]} <span class="muted">· ${esc(coordText(c.name, r.coords[k]))}</span>`, r.coords[k] === null ? null : c.status, esc(c.meaning), true)).join('')}</div>`)}
       ${section('Its cell', r.coords.some((v) => v === null) ? `<p class="note">No cell: a coordinate is not printed, so the member is set aside by name and drawn nowhere.</p>` : `<p class="note">cell (${r.coords.join(', ')}) ${mates.length ? `holds ${mates.length + 1} members: ${mates.map((o) => pchip(px, o)).join(' ')}` : 'holds this member alone'} ${badge('DERIVED', 'the cell is the full coordinate tuple; the count is over the members')}</p>`)}
       ${printed}
+      ${px.id === 'spin4' && pindexOf('mesons') && pindexOf('mesons').byName.get(r.name.toLowerCase()) ? `<p class="note">The same row in the meson index, on its four coordinates: ${pchip(pindexOf('mesons'), pindexOf('mesons').byName.get(r.name.toLowerCase()))}</p>` : ''}
       <div class="pnav">${prev ? pchip(px, prev) : ''}<span class="muted">${r.i + 1} of ${px.rows.length}</span>${next ? pchip(px, next) : ''}</div>
       ${actions(node, record)}`;
   }
@@ -2373,7 +2388,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     // members on (Q3 across, 2J up), one mark per member, jittered within the cell by index,
     // coloured by the third coordinate; the cell count under the figure is the index's own
     const names = ix.coordinates.map((c) => c.name);
-    const qi = names.indexOf('Q3'), ji = names.indexOf('2J');
+    const yName = names.indexOf('2J') >= 0 ? '2J' : '2I';
+    const qi = names.indexOf('Q3'), ji = names.indexOf(yName);
     const ci = ix.id === 'fundamental' ? names.indexOf('GEN') : names.indexOf('P');
     const rows = ix.rows.filter((r) => r.coords[qi] !== null && r.coords[ji] !== null);
     const qs = [...new Set(rows.map((r) => r.coords[qi]))].sort((a, b) => a - b), js = [...new Set(rows.map((r) => r.coords[ji]))].sort((a, b) => a - b);
@@ -2382,7 +2398,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const svg = figFrame(W, H);
     qs.forEach((q, i) => svg.appendChild(svgEl('text', { x: m.l + (i + 0.5) * cw, y: H - m.b + 16, 'text-anchor': 'middle', class: 'tick' }, ix.id === 'fundamental' ? `${q}/3` : String(q / 3))));
     svg.appendChild(svgEl('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'text-anchor': 'middle', class: 'lab' }, 'electric charge Q' + (ix.id === 'fundamental' ? ' (thirds)' : '')));
-    js.forEach((j, i) => svg.appendChild(svgEl('text', { x: m.l - 8, y: m.t + (js.length - i - 0.5) * ch + 4, 'text-anchor': 'end', class: 'tick' }, `J = ${j % 2 ? j + '/2' : j / 2}`)));
+    js.forEach((j, i) => svg.appendChild(svgEl('text', { x: m.l - 8, y: m.t + (js.length - i - 0.5) * ch + 4, 'text-anchor': 'end', class: 'tick' }, `${yName === '2J' ? 'J' : 'I'} = ${j % 2 ? j + '/2' : j / 2}`)));
     qs.forEach((q, i) => js.forEach((j, k) => svg.appendChild(svgEl('rect', { x: m.l + i * cw, y: m.t + (js.length - k - 1) * ch, width: cw, height: ch, fill: 'none', class: 'ax', 'stroke-opacity': 0.35 }))));
     const cvals = [...new Set(rows.map((r) => r.coords[ci]))].sort((a, b) => a - b);
     const bucket = new Map();
@@ -2400,6 +2416,27 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     });
     cvals.forEach((v, i) => { svg.appendChild(svgEl('circle', { cx: m.l + 10 + i * 96, cy: m.t - 6, r: 4, fill: L_COLOR[i % L_COLOR.length] })); svg.appendChild(svgEl('text', { x: m.l + 18 + i * 96, y: m.t - 2, class: 'tick' }, `${names[ci]} ${v === null ? 'not printed' : '= ' + v}`)); });
     return svg;
+  }
+  function renderSubpop(sp) {
+    const cand = sp.candidates, nb = cand.nuclear_bands;
+    return `<h3>${esc(sp.title)} <span class="muted">(in progress on the other session)</span></h3><p class="note">${esc(sp.status_note)}</p>
+      <div class="fields">
+        ${row('the census', `${sp.census.tested} sub-populations tested, ${sp.census.closed_sets} closed sets, ${sp.census.reaching_an_unoccupied_channel} reaching a channel no index occupied`, sp.census.status, esc(sp.census.occupancy_note), true)}
+        ${sp.hits.map((h) => row(`${esc(h.parent)} at ${esc(h.coordinate)} = ${h.value}`, `${h.cells} cells, K${h.channel}, effective arity ${h.effective_arity} — ${esc(h.verdict)}`, h.status, null, true)).join('')}
+        ${row('the spin-4 population under the mass reach', sp.spin4_under_mass.cuts.map((c) => `mass ≤ ${c.mass_max_MeV} → ${c.cells} cells, ${c.channel === null ? '—' : 'K' + c.channel}`).join('; ') + `; no printed mass for ${esc(sp.spin4_under_mass.massless.join(', '))}`, sp.spin4_under_mass.status, esc(sp.spin4_under_mass.note), true)}
+        ${row('which indexes are lattices', `${sp.lattices.count} of ${sp.lattices.rows.length}: ${sp.lattices.rows.filter((r) => r.lattice).map((r) => `<span class="mono">${esc(r.index)}</span> (${r.cells} cells)`).join(', ')}; ${sp.lattices.not} are not${sp.lattices.undetermined ? `, ${sp.lattices.undetermined} too large to test` : ''}`, sp.lattices.status, esc(sp.lattices.note), true)}
+        ${row('within the family', `${sp.family.closed_sets} closed sets, ${sp.family.containments} strict containments, longest chain ${sp.family.longest_chain}`, sp.family.status, esc(sp.family.note), true)}
+        ${sp.recursion.map((r) => row(`peeled: ${esc(r.lattice)}`, `${r.cells} cells, chain ${r.chain}, ${r.bad_intermediates} bad intermediates — ${esc(r.verdict)}`, 'DERIVED', esc(sp.recursion_note), true)).join('')}
+      </div>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>index, exhaustively</th><th>cells</th><th>closed sets</th><th>longest chain</th></tr></thead><tbody>${sp.exhaustive.map((e) => `<tr><td class="mono">${esc(e.index)}</td><td>${e.cells}</td><td>${e.closed_sets.toLocaleString()}</td><td>${e.longest_chain} ${badge('DERIVED')}</td></tr>`).join('')}</tbody></table></div>
+      <p class="note">${esc(sp.exhaustive_note)} Not determined for ${sp.too_large.length} indexes too large to enumerate (${sp.too_large.map((x) => `<span class="mono">${esc(x.index)}</span> ${x.cells}`).join(', ')}): ${esc(sp.too_large_note)}.</p>
+      <h3>The candidates, all run and none seated</h3>
+      <div class="fields">
+        ${row('chiral Goldstone bosons', `${cand.chiral_goldstone.members} members on ${cand.chiral_goldstone.cells} cells, ${cand.chiral_goldstone.sublattice ? 'a sublattice' : 'not a sublattice'}, ${cand.chiral_goldstone.full_box ? 'a full product box' : 'not a full box'}`, cand.chiral_goldstone.status, esc(cand.chiral_goldstone.text), true)}
+        ${row('electroweak eaten Goldstones', `${cand.electroweak.cells} cells, ${cand.electroweak.held_by_fundamental ? 'already held by the fundamental index' : 'not held'}`, cand.electroweak.status, esc(cand.electroweak.text), true)}
+        ${row('nuclear rotational bands', nb.routes.map((r) => `<b>${esc(r.route)}</b>: ${esc(r.state)}`).join('<br>'), nb.status, esc(nb.text), true)}
+        ${nb.sources.map((s) => row(s.candidate ? 'the candidate source' : 'a different object', `${ext('https://arxiv.org/abs/' + s.arxiv, 'arXiv:' + s.arxiv)} — ${esc(s.what)}; ${s.bands_or_states} bands or states${s.nuclei ? `, ${s.nuclei} nuclei` : ', a Z/N window rather than a census'}`, 'READ', 'read through a paper database; nothing seated from it', true)).join('')}
+      </div>`;
   }
   function renderParticleIndex(host, px) {
     const src = px.source, ac = px.accounting;
@@ -2432,6 +2469,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           ${ix.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td></tr>`).join('')}
         </tbody></table></div>
         <figure class="data-fig" id="pfig-${esc(ix.id)}"></figure>
+        ${ix.reach ? `<p class="note"><b>A sub-population of the mesons</b> — ${esc(ix.held_constant.coordinate)} = ${ix.held_constant.value} held constant, effective arity ${ix.arity.effective}; seated on ${esc(ix.reach.on)}: ${ix.reach.cuts.map((c) => `status ≤ ${c.status_max} → ${c.cells} cells, ${c.channel === null ? '—' : 'K' + c.channel}`).join('; ')}. ${esc(ix.reach.established.note)} No printed mass for ${esc(ix.massless.join(', '))}, charted anyway. ${esc(ix.tests.note)} ${badge(ix.reach.status)}</p>` : ''}
         ${ix.colour_rule ? `<p class="note">The colour assignment, which is not in the capture: ${ix.colour_rule.map((c) => `${esc(c.what)} → ${c.dimension}`).join(' · ')} ${badge('PINNED', 'the Standard Model\'s definition, printed rather than hidden')}</p>` : ''}
         ${ix.collisions ? `<p class="note"><b>${ix.collisions.length} cells hold two members</b> — ${esc(ix.collisions_note)}: ${ix.collisions.map((c) => `(${c.cell.join(', ')}) ${esc(c.members.join(' / '))}`).join('; ')} ${badge('DERIVED')}</p>` : ''}
         ${ix.conjugation ? `<p class="note"><b>Antimatter, measured rather than seated:</b> ${ix.conjugation.pairs} particle–antiparticle pairs, ${ix.conjugation.split} split by the chart and ${ix.conjugation.collided} collided${ix.conjugation.note ? '; ' + esc(ix.conjugation.note) : ''}${ix.conjugation.mechanism ? '; under conjugation ' + ix.conjugation.mechanism.map((m) => `${esc(m.coordinate)} ${esc(m.under_conjugation)}`).join(', ') : ''}. ${badge('DERIVED')}</p>` : ''}
@@ -2467,6 +2505,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         <div class="fields">${sw.refused.map((r) => row(`${esc(r.parent)} (${r.cols.join(', ')}) → K${r.channel}${r.cells ? ', ' + r.cells + ' cells' : ''}`, `<b>${esc(r.verdict)}</b> — ${esc(r.why)}`, r.status, null, true)).join('')}</div>
         <p class="note"><b>Claimed:</b> ${esc(sw.claimed)} <b>Not claimed:</b> ${sw.not_claimed.map(esc).join(' ')} ${esc(sw.channels_note)}.</p>`;
     }
+    const sp = px.subpop;
+    if (sp && !sp.absent) html += renderSubpop(sp);
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
@@ -2583,7 +2623,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       const fig = host.querySelector('#pfig-' + ix.id);
       if (!fig) return;
       fig.appendChild(particleFigure(ix));
-      const cap = document.createElement('figcaption'); cap.innerHTML = `${ix.charted} charted members by electric charge and spin, one mark per member, coloured by ${esc(ix.id === 'fundamental' ? 'generation' : 'parity')}; hover a mark for its coordinates. ${badge('DERIVED', 'drawn from the member table; the cells are the instrument\'s')}`; fig.appendChild(cap);
+      const cap = document.createElement('figcaption'); cap.innerHTML = `${ix.charted} charted members by electric charge and ${ix.coordinates.some((c) => c.name === '2J') ? 'spin' : 'isospin'}, one mark per member, coloured by ${esc(ix.id === 'fundamental' ? 'generation' : 'parity')}; hover a mark for its coordinates. ${badge('DERIVED', 'drawn from the member table; the cells are the instrument\'s')}`; fig.appendChild(cap);
     });
   }
 
@@ -3752,7 +3792,7 @@ QUESTION: ${question}`;
   }
   function askSystem() {
     return `You answer questions about chemistry and physics for readers of The Method Index, a public research site whose data you are handed below as cited lines. Method:
-1. Use web search first for context and method: definitions, standard procedures, published values, the way a question of this kind is normally solved. Search the way this site retrieves: (a) before searching, enumerate the target facts the question needs; (b) for each target list the routes that could carry it, by type — primary paper, preprint, review, compilation or table, citing paper, deposit or archive, database — and try the open routes first, since a paywall blocks a route and not a fact, and a compilation can carry a better figure than the primary; (c) read each retrieved source for the sources it names and follow them before searching afresh; (d) when a route is blocked move to the next route, never re-attempt the same one; (e) a fact confirmed on two independent routes closes, a fact on one route is fragile and must be marked so, and a fact you could not retrieve is a stated gap with the routes you tried, never an unexplained absence; (f) ask for a source as a catalogue entry (a DOI, an arXiv number, an archive identifier, a database record), not only as a text string, because a source has an index and it is rarely the one with a search box. Every figure you take from the web is followed by its source in the marker ⟨⟨url⟩⟩, one marker per route that carried it.
+1. Use web search first for context and method: definitions, standard procedures, published values, the way a question of this kind is normally solved. Search the way this site retrieves: (a) before searching, enumerate the target facts the question needs; (b) for each target list the routes that could carry it, by type — primary paper, preprint, review, compilation or table, citing paper, deposit or archive, database — and try the open routes first, since a paywall blocks a route and not a fact, and a compilation can carry a better figure than the primary; (c) read each retrieved source for the sources it names and follow them before searching afresh; (d) when a route is blocked move to the next route, never re-attempt the same one; (e) a fact confirmed on two independent routes closes, a fact on one route is fragile and must be marked so, and a fact you could not retrieve is a stated gap with the routes you tried, never an unexplained absence; (f) ask for a source as a catalogue entry (a DOI, an arXiv number, an archive identifier, a database record), not only as a text string, because a source has an index and it is rarely the one with a search box; (g) navigate by join, never by meet: when a search fails, do not narrow two constraints against each other (a database AND an access route, a topic AND a file type) — widen instead, asking a broad index for everything on the target and reading what returns, because on this site's own closure measurement certainty survives combining brackets and dies refining them; a failed narrow search is a meet, and its retry is a join over a larger index, never the same meet again. Every figure you take from the web is followed by its source in the marker ⟨⟨url⟩⟩, one marker per route that carried it.
 2. Then apply that method to the DATA lines: every figure you take from them must be followed by its path in the marker ⟦path⟧, copied exactly. Do not invent paths. If the data lacks what you need, say "not in the index" for that part and continue with what web sources give, marked as theirs.
 3. Every calculation you perform with the site's own instruments must be written as ⟪function(args) = value⟫ so the page can repeat it. Available: channel_delta(Z, charge, l), pauli_bound(p, n0, l), collapse_C(Z, l), core_p(Z_core, l), n0_of(Z_core, l), closure_E(). Other arithmetic: show it in plain text.
 4. Every chemical equation you write goes on its own line inside ⦃ ⦄, with spaces around + signs, charges as Fe3+ or SO4^2- or e-, and the arrow → . The page will tally atoms and charge.
