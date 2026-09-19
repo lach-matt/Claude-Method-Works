@@ -74,6 +74,53 @@ light, no library, so the page still opens from a plain file on a phone. The ele
 "The lattice" section names the axes with their source and counts the cubes drawn, and the console
 answers `lattice`.
 
+**Particles and binders.** The lattice is electrons-only by construction — its coordinates carry
+configuration and not scale, so a muonic atom occupies the same cell as its electronic twin
+(`Muon_Catalysed_Fusion_v1.1.md` §2.1) and the lattice produces pure numbers and no rate (Register
+L421, the dimensional obstruction). What the corpus states of the particles beyond the electron is
+therefore not a set of cells but a set of passages, and the *Particles* dialog carries them with
+their statuses, each figure parsed at build out of the passage that states it (`webindex.py`
+`particles_block`; a passage the corpus no longer states fails the build rather than defaulting):
+the binder window [119, 918] mₑ with its occupants, the muon (207 mₑ printed, 206.7683 PDG in fault
+14f-04) and the pion (273), the muon interior by 1.74× and 4.44×, and the molecular bound-state
+counts 60.6, 4.21 and 1.03 for electron, muon and tau; the paper's exclusion table (the pion, kaon,
+antiproton and Σ⁻ by nuclear absorption, the tau by index degeneracy); the energy balance's own
+header table of inputs and statuses, read from `tools/mucf.py` (MEASURED, PINNED, PROJECTED,
+EXTRAPOLATED, PROSE-ONLY), with v1.1's reclassification of the 5 GeV figure as aspirational and the
+collection budget's machine figures from `tools/collector.py` (MuSIC, Mu2e, COMET, each with its
+arXiv identifier); PART K of `recovered/structural-results.md` — Λ CPT-invariant, antimatter cell for
+cell, ALPHA's antihydrogen at 2 × 10⁻¹², and the reduced-mass table of positronium, hydrogen and
+antihydrogen, muonic hydrogen and antiprotonic helium — RECOVERED, unbundled, with no instrument;
+antiprotonic helium's worked cell (35, 33) with its two disjoint routes agreeing at 0.09σ and the
+prose-only ruling that it enters as a scope statement, not as cells; the photon's single restored
+cell, E = 1, the one checkable claim of that index, and false; the 27 constants of Λ_phys, the
+withdrawn one struck through; ten PROSE-ONLY rows; and the terms counted absent from the corpus at
+build (neutrino, gluon, Higgs, muonium, protonium, kaon by name, positronium outside `recovered/`),
+so that "absent" is measured and never assumed. **The eighth solver mode runs the muon energy
+balance** — N = φλ_c/(λ₀ + ω_s φλ_c), Q, the production cost at which Q reaches a target under the
+heat and the work conventions, Q across the transfer-rate band, the breakeven sticking by bisection
+and the muon rate a fusion power needs — ported term for term from `tools/mucf.py`, whose seven
+functions travel as `mucf_*` instruments; every input carries the paper's status and the result the
+weakest of them, and below the 0.30 GeV kinematic floor the mode refuses. Its selftest reproduces
+the paper's Table 5.1 (the 0.234 % row at the unrounded transfer rate, the instrument's own recorded
+finding, NOTED and not repaired), the section 5.1 breakeven thresholds, the composed lever, the
+sticking ceiling and the status rules, from fixtures the build read out of the instrument. The
+console answers `particles`, `particle <term>` and `references [term]`.
+
+**References, linked by construction.** The corpus links one data source itself — NIST ASD ver.
+5.12 at `physics.nist.gov/asd`, DOI 10.18434/T4W30F, cited for the ground configurations of
+`LW1-ground.py` and for the dated retrieval 25 measured cells name — and prints identifiers for the
+rest: `webindex.py` finds every arXiv and DOI identifier over `method/members` and `papers/` at
+build (53 arXiv, 7 DOI) with the line that cites each, and the *References* dialog links them
+(`arxiv.org/abs/<id>`, `doi.org/<doi>`) beside the citing text. Section B.1 of the Spectra
+Compendium is parsed into a species → compilation table (26 species), so a measured cell's plate
+resolves its `source` column: a dated NIST retrieval or a B.1 species drawn from NIST ASD links to
+the database and its DOI; Kaufman & Martin, Kramida & Martin and Sansonetti are cited as strings,
+because the corpus prints no identifier for them and a target would be invented; a computed cell
+links nowhere. The element plate's References section carries the NIST link for the ground
+configuration and the sources of the element's measured cells. The query itself is not held
+(`LW1-README.md`), so the database is linked and the query is not.
+
 Elements 109 to 120 are drawn apart, dashed, because `LW1-ground.py` stops at 108 and
 COORDINATES-2.13 does not. Their rows are shown `READ` from the csv with no configuration,
 equation or derived value behind them, and the panel says so.

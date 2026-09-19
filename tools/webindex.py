@@ -50,10 +50,12 @@ from __future__ import annotations
 
 import argparse
 import ast
+import bisect
 import contextlib
 import csv
 import datetime as _dt
 import hashlib
+import importlib.util
 import inspect
 import io
 import json
@@ -828,6 +830,446 @@ def lattice_block(spectra):
     }
 
 
+# ---------------------------------------------------------------------------
+# particles -- what the corpus itself says of the binders and particles beyond the
+# electron, every value parsed out of the passage that states it, never typed here
+# ---------------------------------------------------------------------------
+
+MEMBERS = os.path.join(REPO, "method", "members")
+PAPERS = os.path.join(REPO, "papers")
+MUCF_PY = os.path.join(TOOLS, "mucf.py")
+COLLECTOR_PY = os.path.join(TOOLS, "collector.py")
+PROSE_ONLY = os.path.join(REPO, "PROSE-ONLY.tsv")
+
+
+def _lines(rel):
+    with open(os.path.join(REPO, rel), encoding="utf-8") as fh:
+        return fh.read().splitlines()
+
+
+def _find(rel, pattern, flags=0):
+    """The first passage of `rel` matching `pattern`: (line number, match, text).
+    The file is searched flowed -- line breaks read as spaces, so a sentence the
+    member wraps still matches -- and the line reported is the one the match
+    starts on; the text is that line and the next where the match runs on. A
+    passage the corpus no longer states is a build failure, not a silent
+    default."""
+    lines = _lines(rel)
+    text = "\n".join(lines)
+    m = re.compile(pattern, flags | re.MULTILINE).search(text)
+    if m:
+        line = text.count("\n", 0, m.start()) + 1
+        end_line = text.count("\n", 0, m.end()) + 1
+        return line, m, " ".join(ln.strip() for ln in lines[line - 1:end_line])
+    # flowed: each line stripped of its indent and joined by one space, with the
+    # offset at which each line starts so the match maps back to a line number
+    starts, parts, pos = [], [], 0
+    for ln in lines:
+        t = ln.strip()
+        starts.append(pos)
+        parts.append(t)
+        pos += len(t) + 1
+    flowed = " ".join(parts)
+    m = re.compile(pattern, flags).search(flowed)
+    if not m:
+        raise RuntimeError("%s: no passage matches %r" % (rel, pattern))
+    line = bisect.bisect_right(starts, m.start())
+    end_line = bisect.bisect_right(starts, max(m.start(), m.end() - 1))
+    return line, m, " ".join(parts[line - 1:end_line])
+
+
+def _plain(text):
+    """A passage as prose: the members' markdown emphasis, blockquote marks and
+    list numbers dropped, the words untouched."""
+    t = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
+    t = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\1", t)
+    t = re.sub(r"^(?:>\s*)+", "", t)
+    t = re.sub(r"^\d+\.\s+", "", t)
+    return t.replace("**", "").strip()
+
+
+def _site(rel, line, quote=None):
+    d = {"file": rel, "line": line}
+    if quote is not None:
+        q = _plain(quote)
+        d["quote"] = q if len(q) <= 600 else q[:597] + "..."
+    return d
+
+
+def _tool_module(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _mucf_status_table():
+    """mucf.py's own header table 'INPUTS AND THEIR STATUS -- never flattened',
+    read out of the file: name, value, status, note."""
+    out = []
+    rx = re.compile(r"^\s{4}(\w+)?\s*=?\s*(.+?)\s{2,}(MEASURED|PINNED|PROJECTED|EXTRAPOLATED|PROSE-ONLY)\s+(.*)$")
+    name = None
+    for ln in _lines("tools/mucf.py"):
+        m = rx.match(ln)
+        if not m:
+            continue
+        if m.group(1):
+            name = m.group(1)
+        out.append({"name": name, "value": m.group(2).strip(), "status": m.group(3),
+                    "note": m.group(4).strip()})
+    if len(out) < 10:
+        raise RuntimeError("mucf.py: the status table was not found (%d rows)" % len(out))
+    return out
+
+
+def _prose_only(ids):
+    out = []
+    with open(PROSE_ONLY, encoding="utf-8", newline="") as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["id"] in ids:
+                q = _plain(r["quote"].strip())
+                out.append({"id": r["id"], "category": r["category"], "label": r["label"],
+                            "quote": q if len(q) <= 700 else q[:697] + "...",
+                            "confidence": r["confidence"], "status": "PROSE-ONLY"})
+    found = {r["id"] for r in out}
+    missing = [i for i in ids if i not in found]
+    if missing:
+        raise RuntimeError("PROSE-ONLY.tsv: rows missing: %s" % ", ".join(missing))
+    order = {i: k for k, i in enumerate(ids)}
+    return sorted(out, key=lambda r: order[r["id"]])
+
+
+def _absent_terms(terms):
+    """Which particle names occur nowhere in method/members or papers/ -- the
+    corpus, not the repository's own documentation of this site, which names
+    the absences -- counted at build (DERIVED), so 'absent' is measured and
+    never assumed."""
+    files = []
+    for d in (MEMBERS, PAPERS):
+        files += [os.path.join(d, f) for f in sorted(os.listdir(d)) if f.endswith(".md")]
+    out = {}
+    for t in terms:
+        rx = re.compile(r"\b" + re.escape(t) + r"s?\b", re.IGNORECASE)
+        n, first = 0, None
+        for f in files:
+            with open(f, encoding="utf-8") as fh:
+                for i, ln in enumerate(fh, 1):
+                    if rx.search(ln):
+                        n += 1
+                        if first is None:
+                            first = _site(os.path.relpath(f, REPO), i, ln.strip()[:200])
+        out[t] = {"occurrences": n, "first": first}
+    return out
+
+
+def particles_block():
+    paper = "papers/Muon_Catalysed_Fusion_v1.1.md"
+    main = "method/members/The_Method_1_6-2.md"
+    reg = "method/members/The_Method_1_6___The_Register-2.md"
+    mc = "method/members/The_Method_1_6___Mathematical_Compendium-2.md"
+    pc = "method/members/The_Method_1_6___The_Physics_Compendium-2.md"
+    partk = "recovered/structural-results.md"
+    ch14f = "recovered/READ-ch14f.md"
+
+    # -- the muon paper: the window, its occupants, the exclusions, the frame
+    ln_w, m_w, q_w = _find(paper, r"The structural window is \[(\d+), (\d+)\] mₑ")
+    window = [int(m_w.group(1)), int(m_w.group(2))]
+    ln_o, m_o, q_o = _find(paper, r"the muon \((\d+) mₑ\) and the pion \((\d+) mₑ\)")
+    ln_i, m_i, q_i = _find(paper, r"interior to the window by ([\d.]+)× and ([\d.]+)×")
+    ln_mb, _, q_mb = _find(paper, r"occupies \*\*the same cell\*\* as its electronic twin")
+    ln_fr, _, q_fr = _find(paper, r"The lattice supplies the frame; it does not supply")
+    ln_b, _, q_b = _find(paper, r"\*\*A binder\*\* — negatively charged, leptonic")
+    ln_st, _, q_st = _find(paper, r"It is not a member of either live bundle")
+    ln_re, _, q_re = _find(paper, r"\*\*Reclassified in v1\.1:\*\* E_μ = 5 GeV per muon")
+    ln_ex, _, _ = _find(paper, r"^## 6\. What the definition excludes")
+    excl = []
+    for i, ln in enumerate(_lines(paper)[ln_ex:], ln_ex + 1):
+        m = re.match(r"^\| (.+?) \| (.+?) \|$", ln)
+        if m and not m.group(1).startswith("excluded") and not m.group(1).startswith("---"):
+            excl.append({"excluded": m.group(1).replace("**", ""), "grounds": m.group(2).replace("**", ""), "line": i})
+        elif excl and not ln.startswith("|"):
+            break
+    if len(excl) < 8:
+        raise RuntimeError("%s: the exclusion table was not parsed (%d rows)" % (paper, len(excl)))
+
+    # -- the main volume: the bracket with one occupant, the antiprotonic-helium cell
+    ln_n, m_n, q_n = _find(main, r"Recomputed here: N_states of ([\d.]+), ([\d.]+) and ([\d.]+) for electron, muon and tau")
+    ln_br, _, q_br = _find(main, r"\*\*A bracket with one occupant is a derivation\.\*\*")
+    ln_ah, m_ah, q_ah = _find(main, r"Antiprotonic helium, cell \((\d+),(\d+)\):")
+    ln_r1, m_r1, _ = _find(main, r"\| measured directly \| ([\d,]+\.\d) ± ([\d.]+) MHz \|")
+    ln_r2, m_r2, _ = _find(main, r"\| two-photon minus a different single-photon \| ([\d,]+\.\d) ± ([\d.]+) MHz \|")
+    ln_ag, m_ag, q_ag = _find(main, r"\*\*Agreement at ([\d.]+)σ, with no shared measurement\.\*\*")
+
+    # -- the register: the dimensional obstruction
+    ln_do, _, q_do = _find(reg, r"THE DIMENSIONAL OBSTRUCTION: THE LATTICE PRODUCES PURE NUMBERS")
+    q_do = q_do.split("Deuteron")[0].strip()
+
+    # -- the photon: the one cell R restores, and the claim that is false
+    ln_ph, _, ln_text = _find(mc, r"the photon's unit of angular momentum")
+    q_ph = re.search(r"The defect is E = 1.*?the photon's odd parity\.", ln_text).group(0)
+    ln_ph2, _, ln_text2 = _find(mc, r"the claim is false")
+    q_ph2 = re.search(r"[^.]*the claim is false[^.]*\.", ln_text2).group(0).strip()
+
+    # -- the constants register, Lambda_phys: every heading of the form '### name -- `value`'
+    consts = []
+    for i, ln in enumerate(_lines(pc), 1):
+        m = re.match(r"^### (.+?) — `(.+?)`(.*)$", ln)
+        if m:
+            consts.append({"name": m.group(1).strip(), "value": m.group(2).strip(),
+                           "note": m.group(3).strip(" ,"), "line": i,
+                           "withdrawn": "WITHDRAWN" in m.group(3)})
+    if len(consts) != 27:
+        raise RuntimeError("%s: expected 27 constants, parsed %d" % (pc, len(consts)))
+
+    # -- PART K, antimatter and exotic atoms (recovered, unbundled)
+    ln_cpt, _, q_cpt = _find(partk, r"\*\*Λ is CPT-invariant\.\*\*")
+    ln_alpha, m_alpha, _ = _find(partk, r"ALPHA measures antihydrogen 1S–2S agreeing with\s*$|agreeing with")
+    q_alpha_ln = _find(partk, r"hydrogen at (2 × 10⁻¹²)")
+    ln_rm, _, q_rm = _find(partk, r"\*\*The real second axis is reduced mass\*\*")
+    exotic = []
+    for i, ln in enumerate(_lines(partk), 1):
+        m = re.match(r"^\| (positronium|hydrogen, antihydrogen|muonic hydrogen|antiprotonic helium) \| ([\d.,]+) \| ([\d.]+) \|$", ln)
+        if m:
+            exotic.append({"system": m.group(1), "mu_over_me": float(m.group(2).replace(",", "")),
+                           "radius_A": float(m.group(3)), "line": i})
+    if len(exotic) != 4:
+        raise RuntimeError("%s: expected the four exotic systems, parsed %d" % (partk, len(exotic)))
+    ln_ab, _, q_ab = _find(partk, r"\*\*Antiprotonic helium is the only antimatter system with")
+    ln_nb, _, q_nb = _find(partk, r"\*\*The bracket cannot help antihydrogen\.\*\*")
+
+    # -- the muon mass, pinned nowhere but in a numbered fault
+    ln_pdg, m_pdg, q_pdg = _find(ch14f, r"muon (206\.7683) \(PDG\)")
+    ln_f, _, q_f = _find(ch14f, r"internal-closure failure, not a wrong value")
+
+    # -- the instruments
+    mucf = _tool_module("mucf", MUCF_PY)
+    coll = _tool_module("collector", COLLECTOR_PY)
+    status_table = _mucf_status_table()
+    sticking = {k: {"omega_s": v[0], "status": v[1]} for k, v in mucf.STICKING.items()}
+    mucf_consts = {
+        "lambda_0": mucf.LAMBDA_0, "lambda_c": mucf.LAMBDA_C, "transfer": list(mucf.TRANSFER),
+        "Q_fus_MeV": mucf.Q_FUS_MEV, "E_mu_achieved_GeV": mucf.E_MU_ACHIEVED,
+        "E_mu_floor_GeV": mucf.E_MU_FLOOR, "E_mu_delivered_TeV": mucf.E_MU_DELIVERED_TEV,
+        "collection_factor": mucf.COLLECTION_FACTOR, "f_work": mucf.F_WORK,
+        "f_alpha": mucf.F_ALPHA, "carnot_800": mucf.CARNOT_800,
+        "phi_measured_max": mucf.PHI_MEASURED_MAX, "omega_measured_min": mucf.OMEGA_MEASURED_MIN,
+        "sticking": sticking, "reservation_j1": mucf.RESERVATION_J1,
+    }
+    fixtures = {"table_5_1": [{"omega_s": w, "Q": list(row)} for w, row in mucf.TABLE_5_1.items()],
+                "phis": [1.2, 2.0, 3.0], "E_mu": 5.0,
+                "breakeven_5_1": [{"phi": p, "omega_s": w} for p, w in mucf.BREAKEVEN_5_1.items()],
+                "note": "the paper's own Table 5.1 and section 5.1 thresholds, read from tools/mucf.py "
+                        "whose selftest asserts them; the 0.234 % row is a recorded divergence (the "
+                        "row is computed at the transfer rate 2.7e8 rather than the pinned saturation "
+                        "2.6e8) and is NOTED, not repaired"}
+    collector = {
+        "status": "SOURCED",
+        "source": "tools/collector.py; papers/Muon_Collection_Budget_v1.0.md",
+        "MuSIC_mu_minus_per_W": [coll.MUSIC_MU_MINUS_PER_W, coll.MUSIC_MU_MINUS_ERR],
+        "MuSIC_all_mu_per_W": coll.MUSIC_ALL_MU_PER_W,
+        "MuSIC_proton_GeV": coll.MUSIC_PROTON_GEV,
+        "Mu2e_stopped_per_p": coll.MU2E_STOPPED_PER_P,
+        "COMET_captured_per_p": [coll.COMET_CAPTURED_LO, coll.COMET_CAPTURED_HI],
+        "pion_threshold_GeV": coll.PION_THRESHOLD_GEV,
+        "paper_assumed_GeV": coll.PAPER_ASSUMED_GEV,
+        "work_breakeven_GeV": coll.WORK_BREAKEVEN_GEV,
+        "heat_breakeven_GeV": coll.HEAT_BREAKEVEN_GEV,
+        "arxiv": {"MuSIC": "1610.07850", "Mu2e": "1211.7019", "COMET": "1812.09018"},
+    }
+    for key, aid in collector["arxiv"].items():
+        _find("papers/Muon_Collection_Budget_v1.0.md", r"arXiv:" + re.escape(aid))
+
+    prose = _prose_only(["PO-0896", "PO-0893", "PO-0415", "PO-0341", "PO-0897", "PO-0898",
+                         "PO-0411", "PO-0412", "PO-0279", "PO-0682"])
+    absent = _absent_terms(["neutrino", "gluon", "Higgs", "muonium", "protonium", "kaon", "positronium"])
+
+    return {
+        "status_note": "every figure below is READ from the passage that states it, parsed at build; "
+                       "an instrument's figures carry the instrument's own status vocabulary "
+                       "(MEASURED / PINNED / PROJECTED / EXTRAPOLATED / PROSE-ONLY, and REFUSED below "
+                       "the kinematic floor); a PROSE-ONLY row is held in the chat export and in no "
+                       "file; ABSENT is counted, not assumed. Nothing here is a lattice figure: the "
+                       "lattice carries configuration, not scale.",
+        "scope": [
+            {"name": "the lattice carries no scale", "status": populate.READ,
+             "site": _site(paper, ln_mb, q_mb)},
+            {"name": "the lattice supplies the frame, not the rates", "status": populate.READ,
+             "site": _site(paper, ln_fr, q_fr)},
+            {"name": "the dimensional obstruction", "status": populate.READ,
+             "site": _site(reg, ln_do, q_do)},
+            {"name": "the paper is not a member of either bundle (docket C-8 open)", "status": populate.READ,
+             "site": _site(paper, ln_st, q_st)},
+        ],
+        "window": {"m_e": window, "status": populate.READ, "site": _site(paper, ln_w, q_w),
+                   "occupants": {"muon": int(m_o.group(1)), "pion": int(m_o.group(2)), "site": _site(paper, ln_o, q_o)},
+                   "interior": {"below": float(m_i.group(1)), "above": float(m_i.group(2)), "site": _site(paper, ln_i, q_i)},
+                   "N_states": {"electron": float(m_n.group(1)), "muon": float(m_n.group(2)), "tau": float(m_n.group(3)),
+                                "status": populate.READ, "site": _site(main, ln_n, q_n)},
+                   "bracket": _site(main, ln_br, q_br)},
+        "binder": _site(paper, ln_b, q_b),
+        "exclusions": {"status": populate.READ, "file": paper, "rows": excl},
+        "muon": {
+            "mass_m_e": {"printed": int(m_o.group(1)), "PDG": float(m_pdg.group(1)), "status": populate.READ,
+                         "site": _site(ch14f, ln_pdg, q_pdg), "fault": "14f-04",
+                         "fault_note": _site(ch14f, ln_f, q_f)},
+            "instrument": {"file": "tools/mucf.py", "status_table": status_table,
+                           "constants": mucf_consts, "fixtures": fixtures,
+                           "reclassified": _site(paper, ln_re, q_re)},
+            "collection": collector,
+        },
+        "antimatter": {
+            "status": populate.RECOVERED,
+            "note": "PART K of recovered/structural-results.md -- recovered from the chat export, "
+                    "not a member of either bundle, with no instrument",
+            "cpt": _site(partk, ln_cpt, q_cpt),
+            "alpha": {"value": q_alpha_ln[1].group(1), "site": _site(partk, q_alpha_ln[0], q_alpha_ln[2])},
+            "reduced_mass": {"site": _site(partk, ln_rm, q_rm), "systems": exotic},
+            "antihydrogen": _site(partk, ln_nb, q_nb),
+            "antiprotonic_only": _site(partk, ln_ab, q_ab),
+        },
+        "antiprotonic_helium": {
+            "status": populate.READ,
+            "cell": [int(m_ah.group(1)), int(m_ah.group(2))], "site": _site(main, ln_ah, q_ah),
+            "routes": [{"route": "measured directly", "MHz": m_r1.group(1), "pm": float(m_r1.group(2)), "line": ln_r1},
+                       {"route": "two-photon minus a different single-photon", "MHz": m_r2.group(1), "pm": float(m_r2.group(2)), "line": ln_r2}],
+            "agreement_sigma": float(m_ag.group(1)), "agreement_site": _site(main, ln_ag, q_ag),
+            "scope": "PO-0279: enters as a scope statement, not as cells",
+        },
+        "photon": {"status": populate.READ, "E": 1,
+                   "site": _site(mc, ln_ph, q_ph), "claim": _site(mc, ln_ph2, q_ph2)},
+        "constants": {"status": populate.PINNED, "file": pc, "count": len(consts), "rows": consts,
+                      "note": "Lambda_phys, the 27 declared parameters of the Physics Compendium, each "
+                              "with kind, value, domain and provenance in the record; one is WITHDRAWN "
+                              "and stays listed as such"},
+        "prose_only": prose,
+        "absent": {"status": populate.DERIVED, "terms": absent,
+                   "note": "occurrences counted over method/members and papers/ at build; a "
+                           "term with none is absent from the corpus, not a cell of it"},
+    }
+
+
+MUCF_INSTRUMENTS = [
+    ("mucf_cycles", "cycles", "N, catalytic cycles per muon (paper section 5.1)"),
+    ("mucf_gain", "gain", "Q, raw energy out over muon production cost in"),
+    ("mucf_e_mu_for", "e_mu_for", "the muon production cost at which Q reaches a target, GeV"),
+    ("mucf_e_mu_for_work", "e_mu_for_work", "E_mu at which WORK out reaches the target; only f_work of the fusion heat is convertible"),
+    ("mucf_status_of", "status_of", "the weakest status among the inputs, with the reason; REFUSED below the kinematic floor"),
+    ("mucf_band", "band", "Q across the transfer-rate uncertainty"),
+    ("mucf_muons_for", "muons_for", "the muon rate a fusion power needs"),
+]
+
+
+def mucf_instruments():
+    mod = _tool_module("mucf", MUCF_PY)
+    out = {}
+    for name, fn_name, source in MUCF_INSTRUMENTS:
+        lines, start = inspect.getsourcelines(getattr(mod, fn_name))
+        out[name] = {"python": "".join(lines), "file": "tools/mucf.py", "line": start,
+                     "status": populate.PINNED,
+                     "source": source + " -- the paper's own model, computed for it (PINNED); "
+                                        "each result carries the weakest status of its inputs in "
+                                        "mucf.py's vocabulary: MEASURED, PINNED, PROJECTED, "
+                                        "EXTRAPOLATED, PROSE-ONLY, and REFUSED below the floor"}
+    return out
+
+
+# ---------------------------------------------------------------------------
+# references -- every outward identifier the corpus prints, with the line that cites it
+# ---------------------------------------------------------------------------
+
+ARXIV_NEW = re.compile(r"arXiv[: ]?(\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE)
+ARXIV_OLD = re.compile(r"\b((?:hep-th|hep-ph|hep-ex|hep-lat|math-ph|alg-geom|physics|quant-ph|cond-mat|astro-ph|nucl-th|nucl-ex|gr-qc|math|cs)(?:\.[A-Za-z]{2})?/\d{7})\b")
+DOI_RX = re.compile(r"\b(10\.\d{4,9}/[^\s\"'<>,;)\]]+)")
+URL_RX = re.compile(r"https?://[^\s)\]>\"']+")
+
+
+def references_block():
+    files = []
+    for d, tag in ((MEMBERS, "method/members"), (PAPERS, "papers")):
+        files += [(os.path.join(d, f), tag + "/" + f) for f in sorted(os.listdir(d)) if f.endswith(".md")]
+    arxiv, doi, urls = {}, {}, {}
+
+    def add(store, key, rel, i, ln):
+        e = store.setdefault(key, {"id": key, "cites": []})
+        text = ln.strip()
+        if len(text) > 320:
+            text = text[:317] + "..."
+        if len(e["cites"]) < 6:
+            e["cites"].append({"file": rel, "line": i, "text": text})
+        e["n"] = e.get("n", 0) + 1
+
+    for path, rel in files:
+        with open(path, encoding="utf-8") as fh:
+            for i, ln in enumerate(fh, 1):
+                for m in ARXIV_NEW.finditer(ln):
+                    add(arxiv, m.group(1), rel, i, ln)
+                for m in ARXIV_OLD.finditer(ln):
+                    add(arxiv, m.group(1), rel, i, ln)
+                for m in DOI_RX.finditer(ln):
+                    add(doi, m.group(1).rstrip(".)"), rel, i, ln)
+                for m in URL_RX.finditer(ln):
+                    u = m.group(0).rstrip(".),;")
+                    if "doi.org/" in u or "arxiv.org/" in u:
+                        continue
+                    add(urls, u, rel, i, ln)
+    for e in arxiv.values():
+        e["url"] = "https://arxiv.org/abs/" + e["id"]
+    for e in doi.values():
+        e["url"] = "https://doi.org/" + e["id"]
+    for e in urls.values():
+        e["url"] = e["id"]
+    # the one data source the corpus links itself, and the spectra compilations by species
+    nist_line, _, nist_text = _find("method/members/The_Method_1_6-2.md", r"https://physics\.nist\.gov/asd")
+    lw_line, _, lw_text = _find("method/members/LW1-ground.py", r"NIST ASD ver\. 5\.12")
+    return {
+        "note": "identifiers the corpus prints, found at build by pattern over method/members and "
+                "papers/ and linked by construction; a compilation named without an identifier is "
+                "cited as a string and not linked, because the target would be invented",
+        "arxiv": sorted(arxiv.values(), key=lambda e: e["id"]),
+        "doi": sorted(doi.values(), key=lambda e: e["id"]),
+        "urls": sorted(urls.values(), key=lambda e: e["id"]),
+        "nist_asd": {"name": "NIST Atomic Spectra Database (ver. 5.12), Kramida, Ralchenko, Reader and NIST ASD Team (2024)",
+                     "url": "https://physics.nist.gov/asd", "doi": "10.18434/T4W30F",
+                     "doi_url": "https://doi.org/10.18434/T4W30F",
+                     "cited_for": [_site("method/members/The_Method_1_6-2.md", nist_line, nist_text),
+                                   _site("method/members/LW1-ground.py", lw_line, lw_text)],
+                     "query_not_held": "LW1-README.md: no query string or URL is stored in the file or "
+                                       "anywhere in the bank; the query itself is NOT HELD -- the database "
+                                       "is linkable, the query is not"},
+        "spectra_sources": spectra_sources(),
+    }
+
+
+def spectra_sources():
+    """Section B.1 of the Spectra Compendium: which compilation each measured
+    species' levels were drawn from, parsed from the table as printed."""
+    rel = "method/members/The_Method_1_6___Spectra_Compendium-2.md"
+    lines = _lines(rel)
+    start, _, _ = _find(rel, r"^## B\.1 Sources")
+    rows = []
+    for i in range(start, len(lines)):
+        ln = lines[i]
+        if i > start and (ln.startswith("##") or ln.strip().startswith("**Additional")):
+            break
+        if not ln.startswith("  ") or ln.strip() == "" or ln.strip().startswith("compilation"):
+            continue
+        name, species = ln[2:30].strip(), ln[30:].strip()
+        if name and species:
+            rows.append({"compilation": name, "species": species, "line": i + 1})
+        elif name and rows:
+            rows[-1]["compilation"] += " " + name
+        elif species and rows:
+            rows[-1]["species"] += " " + species
+    by_species = {}
+    for r in rows:
+        for sp in [s.strip() for s in r["species"].split(",") if s.strip()]:
+            by_species[sp] = {"compilation": r["compilation"], "line": r["line"],
+                              "url": "https://physics.nist.gov/asd" if r["compilation"].startswith("NIST ASD") else None}
+    if len(by_species) < 20:
+        raise RuntimeError("%s: B.1 parsed %d species, expected about 26" % (rel, len(by_species)))
+    return {"file": rel, "rows": rows, "by_species": by_species}
+
+
 def fixtures(spectra):
     """Numbers the browser-side solver selftests must reproduce, every one
     computed here with populate.py's own functions and none typed in."""
@@ -1080,6 +1522,8 @@ def build(spectra, out_dir=OUT, write=True, log=print):
         "lambda_coords": populate.LAMBDA_COORDS,
         "lambda_meaning": populate.LAMBDA_MEANING,
         "lattice": lattice_block(spectra),
+        "particles": particles_block(),
+        "references": references_block(),
         "closure": {
             "index": "periodic table (period × group), section 6",
             "operator": "ℛ, the PINNED order operator of section 32.4.1 "
@@ -1117,7 +1561,7 @@ def build(spectra, out_dir=OUT, write=True, log=print):
                      "exponent": "e(Ne) = E0 - E1 ln Ne",
                      "status": populate.PINNED,
                      "source": "register 1205, final form"},
-        "instruments": dict(instruments(), **(walk_instruments() if walk else {}), lowdin_construction={
+        "instruments": dict(instruments(), **(walk_instruments() if walk else {}), **mucf_instruments(), lowdin_construction={
             "python": None,
             "file": "method/members/THE-LOWDIN-SOLUTION-2.md",
             "status": populate.READ,
@@ -1199,6 +1643,23 @@ def selftest():
           sum(1 for r in spectra.rows if r["grade"] == "exact"))
     check("witnessed rows", t["witnessed"],
           sum(1 for r in spectra.rows if r["witness"] == "witnessed"))
+    pt = index["particles"]
+    check("particles: the structural window is [119, 918] m_e (paper section 2)", pt["window"]["m_e"], [119, 918])
+    check("particles: the window's occupants, muon and pion, in m_e", [pt["window"]["occupants"]["muon"], pt["window"]["occupants"]["pion"]], [207, 273])
+    check("particles: the muon mass PDG 206.7683 from fault 14f-04", pt["muon"]["mass_m_e"]["PDG"], 206.7683)
+    check("particles: 27 constants of Lambda_phys parsed", pt["constants"]["count"], 27)
+    check("particles: mucf.py's status table read (rows)", len(pt["muon"]["instrument"]["status_table"]) >= 10, True)
+    check("particles: the four exotic systems of PART K", [x["system"] for x in pt["antimatter"]["reduced_mass"]["systems"]],
+          ["positronium", "hydrogen, antihydrogen", "muonic hydrogen", "antiprotonic helium"])
+    check("particles: antiprotonic helium's cell (35, 33)", pt["antiprotonic_helium"]["cell"], [35, 33])
+    check("particles: ten PROSE-ONLY rows carried", len(pt["prose_only"]), 10)
+    check("particles: neutrino, gluon, Higgs are absent from the corpus",
+          [pt["absent"]["terms"][t]["occurrences"] for t in ("neutrino", "gluon", "Higgs")], [0, 0, 0])
+    rf = index["references"]
+    check("references: the NIST ASD DOI is the corpus's own", rf["nist_asd"]["doi"], "10.18434/T4W30F")
+    check("references: arXiv identifiers found (at least 40)", len(rf["arxiv"]) >= 40, True)
+    check("references: DOIs found (at least 6)", len(rf["doi"]) >= 6, True)
+    check("references: B.1 maps at least 24 species to a compilation", len(rf["spectra_sources"]["by_species"]) >= 24, True)
     lat = index["lattice"]
     check("lattice: sites = 8 * sum Z (charge 1..Z by l 0..7 for every element)",
           lat["sites"], 8 * sum(range(1, lat["Z_max"] + 1)))
@@ -1360,9 +1821,10 @@ def selftest():
 
     # --- the instruments -----------------------------------------------------
     ins = index["instruments"]
-    check("instruments: the nine with python, then the walk's ten, in order",
+    check("instruments: the nine with python, then the walk's ten, then the muon balance's seven, in order",
           [n for n, r in ins.items() if r.get("python")],
-          [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else []))
+          [n for n, *_ in INSTRUMENTS] + ([n for n, *_ in WALK_INSTRUMENTS] if walk else [])
+          + [n for n, *_ in MUCF_INSTRUMENTS])
     check("instruments: the tenth is the unheld construction, text only",
           (ins.get("lowdin_construction", {}).get("python"),
            ins.get("lowdin_construction", {}).get("held"),

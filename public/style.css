@@ -253,6 +253,17 @@ section.blk > h3 .h-note { text-transform: none; letter-spacing: 0; font-weight:
 .st-RECOVERED { color: var(--st-recovered); }
 .st-RECONSTRUCTED { color: var(--st-reconstructed); }
 .st-NONE { color: var(--muted); border-style: dashed; }
+/* the muon instrument's own vocabulary (tools/mucf.py), and the collection budget's */
+.st-MEASURED { color: var(--st-read); }
+.st-PROJECTED { color: var(--st-recovered); }
+.st-EXTRAPOLATED { color: var(--lim-nuclear); }
+.st-PROSE-ONLY { color: var(--st-reconstructed); border-style: dashed; }
+.st-REFUSED { color: var(--lim-nuclear); border-style: double; }
+.st-SOURCED { color: var(--st-read); }
+blockquote.q { margin: 8px 0; padding: 6px 10px; border-left: 2px solid var(--line-strong); color: var(--ink); font-size: 12.5px; max-width: 76ch; }
+.cite-inline { color: var(--muted); font-size: 11px; }
+tr.is-withdrawn td { text-decoration: line-through; color: var(--muted); }
+.dlg-body a, .fields a, .note a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
 .tbl-wrap { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
 table.t { border-collapse: collapse; width: 100%; font-size: 12px; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }

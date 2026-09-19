@@ -1612,7 +1612,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
           }).join('')}
           </tbody></table></div>`, badge('RECONSTRUCTED', (axisStatus('Lambda_8 cell') || {}).source));
       }
-      html += relSection(e, rec) + limitsSection(e);
+      html += relSection(e, rec) + limitsSection(e) + elementReferences(e, rec);
       html += actions(node, { ...rec, channels: `${rec.channels.length} channels — see the ion nodes` });
     } else {
       html += loadNote();
@@ -1719,12 +1719,162 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     html += section('Witness', `<div class="fields">
       ${axRow('witness', esc(m.witness), 'witness', true)}
       ${row('source', esc(m.source), 'READ', 'COORDINATES-2.13, source column', true)}
+      ${(() => { const L = cellSourceLink(node, m); if (!L) return ''; const v = (L.url ? ext(L.url, L.text) : esc(L.text)) + (L.doi ? ' · ' + ext(L.doi, 'DOI') : ''); return row('resolved to', v, L.status, L.note, true); })()}
       ${axRow('bound note', esc(m.bound_note), 'bound', true)}
       ${(() => { const k = limitKind(m.bound_note); const r = limitRule(k); return row('limit kind', k ? `<span class="dot dot-lim-${k}"></span>${esc(LIMIT_LABEL[k] || k)}` : '—', k ? 'DERIVED' : null, r ? `rule ${esc(r.regex)}: ${esc(r.meaning)}` : 'no rule matched'); })()}
       ${(() => { const mm = /^limit ([0-9.]+);/.exec(m.bound_note); return mm ? row('series limit, as printed', mm[1], 'READ', 'COORDINATES-2.13, bound column; no unit is carried and none is added') : ''; })()}
     </div>`);
     html += actions(node, { Z: node.Z, charge: node.charge, l: node.l, ...m, delta_equation: ch.delta_equation, B_computed: ch.B_computed });
     return html;
+  }
+
+  // ---------------------------------------------------------------- particles and references
+  // What the corpus itself states of the binders and particles beyond the electron, and every
+  // outward identifier it prints. Both blocks are read from data/index.js, where the generator
+  // parsed each figure out of the passage that states it; the page prints them with their
+  // statuses and links only what an identifier the corpus prints resolves to.
+  const siteText = (s) => s ? `${(s.file || '').split('/').pop()} L${s.line}` : '';
+  const quoteBlock = (s) => s && s.quote ? `<blockquote class="q">${esc(s.quote)} <span class="cite-inline">${esc(siteText(s))}</span></blockquote>` : '';
+  const ext = (url, text) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`;
+
+  function renderParticles() {
+    const pt = state.index.particles, rf = state.index.references || {};
+    if (!pt) { $('#particles-body').innerHTML = '<p class="note">data/index.js carries no particles block.</p>'; return; }
+    const w = pt.window, mu = pt.muon, am = pt.antimatter, ah = pt.antiprotonic_helium, ph = pt.photon;
+    const inst = mu.instrument, cc = mu.collection, arx = (id) => ext('https://arxiv.org/abs/' + id, 'arXiv:' + id);
+    let html = `<p class="note">${esc(pt.status_note)}</p>`;
+    html += `<h3>What the lattice says of them</h3><div class="fields">${pt.scope.map((s) => row(esc(s.name), esc(s.site.quote), s.status, siteText(s.site), true)).join('')}</div>`;
+    html += `<h3>The binder window</h3>
+      <div class="fields">
+        ${row('structural window', `[${w.m_e[0]}, ${w.m_e[1]}] mₑ`, w.status, siteText(w.site))}
+        ${row('its occupants', `muon ${w.occupants.muon} mₑ · pion ${w.occupants.pion} mₑ`, 'READ', siteText(w.occupants.site))}
+        ${row('the muon, interior by', `${w.interior.below}× below · ${w.interior.above}× above`, 'READ', siteText(w.interior.site))}
+        ${row('molecular bound states', `electron ${w.N_states.electron} · muon ${w.N_states.muon} · tau ${w.N_states.tau}`, w.N_states.status, siteText(w.N_states.site))}
+        ${row('a binder', esc(pt.binder.quote), 'READ', siteText(pt.binder), true)}
+      </div>${quoteBlock(w.bracket)}`;
+    html += `<h3>The muon</h3>
+      <div class="fields">
+        ${row('mass, as printed', `${mu.mass_m_e.printed} mₑ`, 'READ', siteText(w.occupants.site))}
+        ${row('mass, PDG, in fault ' + esc(mu.mass_m_e.fault), `${mu.mass_m_e.PDG} mₑ`, mu.mass_m_e.status, siteText(mu.mass_m_e.site))}
+        ${row('the fault', esc(mu.mass_m_e.fault_note.quote), 'READ', siteText(mu.mass_m_e.fault_note), true)}
+      </div>
+      <p class="note">The energy balance is an instrument, <code>tools/mucf.py</code>, and its inputs carry the paper's own statuses, never flattened; the eighth solver mode runs it here. Its header table, read from the instrument:</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>input</th><th>value</th><th>status</th><th>note</th></tr></thead><tbody>
+        ${inst.status_table.map((r) => `<tr><td>${esc(r.name)}</td><td>${esc(r.value)}</td><td>${badge(r.status, 'mucf.py\'s own vocabulary')}</td><td class="wrap">${esc(r.note)}</td></tr>`).join('')}
+      </tbody></table></div>
+      <div class="callout is-finding">${esc(inst.reclassified.quote)} <span class="cite-inline">${esc(siteText(inst.reclassified))}</span></div>
+      <p class="note">The collection budget (<code>tools/collector.py</code>, ${badge('SOURCED', 'each stage sourced to a published machine figure; a stage it cannot source is not filled')}): MuSIC ${cc.MuSIC_mu_minus_per_W[0].toExponential(1)} ± ${cc.MuSIC_mu_minus_per_W[1].toExponential(1)} μ⁻ s⁻¹ W⁻¹ (${arx(cc.arxiv.MuSIC)}); Mu2e ${cc.Mu2e_stopped_per_p} stopped μ⁻ per 8 GeV proton (${arx(cc.arxiv.Mu2e)}); COMET ${cc.COMET_captured_per_p[0]}–${cc.COMET_captured_per_p[1]} captured π⁻ + μ⁻ per proton (${arx(cc.arxiv.COMET)}); the kinematic floor ${cc.pion_threshold_GeV} GeV; the paper prices its binder at ${cc.paper_assumed_GeV} GeV, work-breakeven at ${cc.work_breakeven_GeV} GeV and heat-breakeven at ${cc.heat_breakeven_GeV} GeV.</p>
+      <div class="actions"><button type="button" data-act="mucf-mode">Run the energy balance (solver suite, mode 8)</button></div>`;
+    html += `<h3>What the definition excludes</h3>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>excluded</th><th>grounds</th></tr></thead><tbody>
+        ${pt.exclusions.rows.map((r) => `<tr><td>${esc(r.excluded)}</td><td class="wrap">${esc(r.grounds)} <span class="cite-inline">L${r.line}</span></td></tr>`).join('')}
+      </tbody></table></div><p class="note">${badge(pt.exclusions.status)} ${esc(pt.exclusions.file.split('/').pop())} §6: the pion, kaon, antiproton and Σ⁻ by nuclear absorption; the tau because the molecular index degenerates.</p>`;
+    html += `<h3>Antimatter and the exotic atoms</h3>
+      <p class="note">${badge(am.status, am.note)} ${esc(am.note)}.</p>
+      ${quoteBlock(am.cpt)}
+      <div class="fields">${row('antihydrogen 1S–2S against hydrogen (ALPHA)', esc(am.alpha.value), 'RECOVERED', siteText(am.alpha.site))}</div>
+      ${quoteBlock(am.reduced_mass.site)}
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>system</th><th class="num">μ / mₑ</th><th class="num">radius / Å</th></tr></thead><tbody>
+        ${am.reduced_mass.systems.map((x) => `<tr><td>${esc(x.system)}</td><td class="num">${x.mu_over_me}</td><td class="num">${x.radius_A}</td></tr>`).join('')}
+      </tbody></table></div>
+      ${quoteBlock(am.antihydrogen)}${quoteBlock(am.antiprotonic_only)}`;
+    html += `<h3>Antiprotonic helium, the worked cell</h3>
+      <div class="fields">
+        ${row('cell', `(${ah.cell[0]}, ${ah.cell[1]})`, ah.status, siteText(ah.site))}
+        ${ah.routes.map((r) => row(esc(r.route), `${esc(r.MHz)} ± ${r.pm} MHz`, 'READ', `L${r.line}`)).join('')}
+        ${row('agreement', `${ah.agreement_sigma}σ, with no shared measurement`, 'READ', siteText(ah.agreement_site))}
+        ${row('scope', esc(ah.scope), 'PROSE-ONLY', 'PROSE-ONLY.tsv PO-0279', true)}
+      </div>`;
+    html += `<h3>The photon</h3>
+      <div class="fields">${row('E over the dipole selection index', ph.E, ph.status, siteText(ph.site))}</div>
+      ${quoteBlock(ph.site)}${quoteBlock(ph.claim)}`;
+    html += `<h3>Λ_phys, the ${pt.constants.count} constants</h3>
+      <p class="note">${badge(pt.constants.status)} ${esc(pt.constants.note)}.</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>parameter</th><th>value</th><th>note</th></tr></thead><tbody>
+        ${pt.constants.rows.map((c) => `<tr${c.withdrawn ? ' class="is-withdrawn"' : ''}><td>${esc(c.name)}</td><td><code>${esc(c.value)}</code></td><td class="wrap">${esc(c.note)} <span class="cite-inline">L${c.line}</span></td></tr>`).join('')}
+      </tbody></table></div>`;
+    html += `<h3>Held in prose only</h3>
+      <p class="note">Rows of PROSE-ONLY.tsv: statements the chat export holds and no file does. A row is a candidate for a home, not a figure of the corpus.</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>id</th><th>kind</th><th>label</th><th>confidence</th></tr></thead><tbody>
+        ${pt.prose_only.map((r) => `<tr><td>${esc(r.id)}</td><td>${esc(r.category)}</td><td class="wrap">${esc(r.label)}<div class="note" style="margin-top:4px">${esc(r.quote)}</div></td><td>${esc(r.confidence)}</td></tr>`).join('')}
+      </tbody></table></div>`;
+    const ab = pt.absent.terms;
+    html += `<h3>Counted absent</h3>
+      <p class="note">${badge(pt.absent.status)} ${esc(pt.absent.note)}: ${Object.keys(ab).map((t) => `<b>${esc(t)}</b> ${ab[t].occurrences}${ab[t].first ? ` (first at ${esc(siteText(ab[t].first))})` : ''}`).join(' · ')}.</p>`;
+    if (rf.nist_asd) html += `<p class="note">Outward: ${ext(rf.nist_asd.url, 'NIST ASD')} · ${ext(rf.nist_asd.doi_url, 'DOI ' + rf.nist_asd.doi)} · the References dialog lists every arXiv and DOI identifier the corpus prints.</p>`;
+    const body = $('#particles-body');
+    body.innerHTML = html;
+    body.querySelectorAll('[data-act="mucf-mode"]').forEach((b) => b.addEventListener('click', () => { $('#dlg-particles').close(); openSolver('mucf'); }));
+  }
+
+  function renderReferences() {
+    const rf = state.index.references;
+    if (!rf) { $('#references-body').innerHTML = '<p class="note">data/index.js carries no references block.</p>'; return; }
+    const n = rf.nist_asd, ss = rf.spectra_sources || { rows: [], by_species: {} };
+    const cites = (e) => e.cites.map((c) => `<div class="note"><span class="cite-inline">${esc(c.file.split('/').pop())} L${c.line}</span> ${esc(c.text)}</div>`).join('');
+    let html = `<p class="note">${esc(rf.note)}</p>`;
+    html += `<h3>The data source the corpus links itself</h3>
+      <div class="fields">
+        ${row('database', ext(n.url, n.name), 'READ', 'the citation as the main volume prints it', true)}
+        ${row('DOI', ext(n.doi_url, n.doi), 'READ', 'as printed', true)}
+        ${row('the query', esc(n.query_not_held), null, 'LW1-README.md', true)}
+      </div>${n.cited_for.map(quoteBlock).join('')}`;
+    html += `<h3>The spectra compilations, by species (B.1)</h3>
+      <p class="note">Which compilation each measured species' levels were drawn from, as section B.1 of the Spectra Compendium prints it. Only NIST ASD carries an identifier the corpus prints, so only it is linked.</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>compilation</th><th>spectra drawn</th></tr></thead><tbody>
+        ${ss.rows.map((r) => `<tr><td>${r.compilation.startsWith('NIST ASD') ? ext(n.url, r.compilation) : esc(r.compilation)}</td><td class="wrap">${esc(r.species)} <span class="cite-inline">L${r.line}</span></td></tr>`).join('')}
+      </tbody></table></div>`;
+    html += `<h3>arXiv identifiers (${rf.arxiv.length})</h3>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>identifier</th><th>cited at</th></tr></thead><tbody>
+        ${rf.arxiv.map((e) => `<tr><td>${ext(e.url, e.id)}<div class="note">${e.n} site${e.n === 1 ? '' : 's'}</div></td><td class="wrap">${cites(e)}</td></tr>`).join('')}
+      </tbody></table></div>`;
+    html += `<h3>DOIs (${rf.doi.length})</h3>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>DOI</th><th>cited at</th></tr></thead><tbody>
+        ${rf.doi.map((e) => `<tr><td>${ext(e.url, e.id)}<div class="note">${e.n} site${e.n === 1 ? '' : 's'}</div></td><td class="wrap">${cites(e)}</td></tr>`).join('')}
+      </tbody></table></div>`;
+    if (rf.urls.length) html += `<h3>Other addresses printed (${rf.urls.length})</h3><div class="fields">${rf.urls.map((e) => row(ext(e.url, e.id), cites(e), 'READ', 'as printed', true)).join('')}</div>`;
+    $('#references-body').innerHTML = html;
+  }
+
+  // the source behind a measured cell, linked only where the corpus prints the target
+  function cellSourceLink(node, m) {
+    const rf = state.index.references || {};
+    const n = rf.nist_asd, bs = (rf.spectra_sources || {}).by_species || {};
+    const src = m.source || '';
+    if (/^NIST ASD/.test(src) && n) return { text: `NIST ASD (ver. 5.12) — the retrieval the source column names`, url: n.url, doi: n.doi_url, status: 'READ', note: 'the corpus prints the database and its DOI; the query itself is not held' };
+    if (src === 'captured levels') {
+      const key = `${symbolOf(node.Z)} ${roman(node.charge)}`;
+      const hit = Object.keys(bs).find((k) => k === key || k.startsWith(key + ' ('));
+      if (hit) return { text: `${bs[hit].compilation} (B.1: ${hit})`, url: bs[hit].url, doi: bs[hit].url && n ? n.doi_url : null, status: 'READ', note: `Spectra Compendium B.1 L${bs[hit].line}` };
+      return { text: 'captured levels — the compilation is not named for this species in B.1', url: null, status: null, note: 'no target is invented' };
+    }
+    if (/Theodosiou/.test(src)) return { text: 'Theodosiou, Manson & Inokuti 1986, PRA 34, 943 — a journal reference, no identifier printed', url: null, status: 'READ', note: 'cited as a string' };
+    if (/R 1627/.test(src)) return { text: 'read from the species\' own level files at register 1627', url: null, status: 'READ', note: 'the record\'s own files' };
+    if (/by symmetry/.test(src)) return { text: 'one electron, δ = 0 by symmetry — no external source', url: null, status: 'READ', note: 'exact' };
+    if (/channel equation/.test(src)) return { text: 'the channel equation — computed, no external source', url: null, status: null, note: 'a computed cell links nowhere' };
+    return null;
+  }
+  function elementReferences(e, rec) {
+    const rf = state.index.references || {};
+    const n = rf.nist_asd;
+    if (!n) return '';
+    const kinds = new Map();
+    if (rec) for (const ch of rec.channels) for (const m of ch.measured) if (m.grade === 'measured') {
+      const k = /^NIST ASD/.test(m.source) ? 'NIST ASD, the dated retrieval' : m.source;
+      kinds.set(k, (kinds.get(k) || 0) + 1);
+    }
+    return section('References', `<div class="fields">
+      ${row('ground configuration', `${ext(n.url, 'NIST ASD ver. 5.12')} · ${ext(n.doi_url, 'DOI ' + n.doi)}`, 'READ', 'LW1-ground.py (register 1306): read, not computed; the query itself is not held', true)}
+      ${kinds.size ? row('measured cells\' sources', [...kinds].map(([k, v]) => `${esc(k)} (${v})`).join(' · '), 'READ', 'COORDINATES-2.13, source column; each cell\'s plate resolves its compilation', true) : ''}
+    </div>`);
+  }
+  function openSolver(id) {
+    const sel = document.querySelector('#solver-body select');
+    if (!sel) return;
+    const reg = window.MI && Array.isArray(window.MI.solvers) ? window.MI.solvers : [];
+    const i = reg.findIndex((m) => m.id === id);
+    if (i >= 0 && i < sel.options.length) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change')); }
+    try { $('#solvers').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); } catch (err) { /* no scroll */ }
   }
 
   // ---------------------------------------------------------------- provenance
@@ -1957,6 +2107,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     legend.querySelectorAll('.legend-seg button').forEach((b) => b.addEventListener('click', () => setCellColor(b.dataset.color)));
     if (isPhone()) setLegend(false);
     $('#btn-provenance').addEventListener('click', () => $('#dlg-provenance').showModal());
+    $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
+    $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
     document.querySelectorAll('.dlg-close').forEach((b) => b.addEventListener('click', () => $('#' + b.dataset.close).close()));
     document.querySelectorAll('dialog').forEach((d) => d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); }));
@@ -2008,6 +2160,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
   relativistic        the eleven elements displaced at c → ∞ (READ; the construction is not held), and the reconstruction beside them
   walk <El>           the element in the reconstructed walk at both settings (RECONSTRUCTED; tools/lowdin_walk.py)
   lattice             the whole index as a lattice: sites, known cells, the axes and their source
+  particles           what the corpus states of the binders and particles beyond the electron
+  particle <term>     one of them: muon, pion, tau, antimatter, positronium, antiprotonic, photon, quark, boson, neutrino …
+  references [term]   every arXiv and DOI identifier the corpus prints, or those whose citing line mentions <term>
 <El> is a symbol, a Z or a name; the element is loaded if it is not yet. An unknown input prints this text.`;
 
   function findElement(tok) {
@@ -2040,6 +2195,53 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     const ax = (name) => { const a = axisStatus(name); return a ? a.status : '—'; };
     switch (cmd) {
       case 'help': return HELP;
+      case 'particles': {
+        const pt = ix.particles; if (!pt) return 'no particles block in data/index.js';
+        const w = pt.window;
+        return [`${pt.status_note}`,
+          `  window [${w.m_e[0]}, ${w.m_e[1]}] m_e ${st(w.status)}; occupants muon ${w.occupants.muon}, pion ${w.occupants.pion}; the muon interior by ${w.interior.below}x and ${w.interior.above}x`,
+          `  muon: mass ${pt.muon.mass_m_e.printed} m_e printed, ${pt.muon.mass_m_e.PDG} PDG (fault ${pt.muon.mass_m_e.fault}); instrument tools/mucf.py, ${pt.muon.instrument.status_table.length} inputs with statuses; solver mode 8`,
+          `  excluded (${pt.exclusions.rows.length} rows): ` + pt.exclusions.rows.map((r) => r.excluded).join(' | '),
+          `  antimatter ${st(pt.antimatter.status)}: ${pt.antimatter.cpt.quote}`,
+          `  reduced mass: ` + pt.antimatter.reduced_mass.systems.map((x) => `${x.system} ${x.mu_over_me} (${x.radius_A} A)`).join('; '),
+          `  antiprotonic helium: cell (${pt.antiprotonic_helium.cell.join(', ')}), ${pt.antiprotonic_helium.routes.map((r) => r.route + ' ' + r.MHz + ' +/- ' + r.pm + ' MHz').join('; ')}, ${pt.antiprotonic_helium.agreement_sigma} sigma ${st('READ')}`,
+          `  photon: E = ${pt.photon.E} over the dipole selection index; ${pt.photon.claim.quote}`,
+          `  constants: ${pt.constants.count} of Lambda_phys ${st(pt.constants.status)}`,
+          `  prose-only: ` + pt.prose_only.map((r) => r.id + ' ' + r.label).join('; '),
+          `  absent ${st(pt.absent.status)}: ` + Object.keys(pt.absent.terms).map((t) => `${t} ${pt.absent.terms[t].occurrences}`).join(', '),
+          `  scope: ` + pt.scope.map((x) => x.name).join('; ')].join('\n');
+      }
+      case 'particle': {
+        const pt = ix.particles; if (!pt) return 'no particles block in data/index.js';
+        const term = toks.slice(1).join(' ').toLowerCase();
+        if (!term) return 'name a particle: muon, pion, tau, kaon, antiproton, positron, antihydrogen, positronium, antiprotonic helium, photon, boson, quark, neutrino, gluon, Higgs';
+        const flat = JSON.stringify(pt, null, 1);
+        const out = [];
+        const w = pt.window;
+        if (/muon/.test(term)) out.push(`muon: ${w.occupants.muon} m_e printed (PDG ${pt.muon.mass_m_e.PDG}, fault ${pt.muon.mass_m_e.fault}); the window's one occupant, interior by ${w.interior.below}x and ${w.interior.above}x ${st('READ')}; molecular bound states ${w.N_states.muon}; a muonic atom occupies the same lattice cell as its electronic twin (the lattice carries no scale); the balance is solver mode 8`);
+        if (/pion/.test(term)) out.push(`pion: ${w.occupants.pion} m_e, inside the window and excluded — nuclear absorption preempts catalysis ${st('READ')}`);
+        if (/tau/.test(term)) out.push(`tau: above ${w.m_e[1]} m_e; the molecular index degenerates to ${w.N_states.tau} bound states, no edge cell ${st('READ')}`);
+        if (/kaon|antiproton|sigma|Σ/.test(term)) out.push(`π⁻, K⁻, p̄, Σ⁻: excluded, nuclear absorption preempts catalysis (paper section 6) ${st('READ')}; the antiproton also appears bound in antiprotonic helium, cell (${pt.antiprotonic_helium.cell.join(', ')})`);
+        if (/positron|antimatter|antihydrogen|anti/.test(term)) out.push(`antimatter ${st(pt.antimatter.status)}: ${pt.antimatter.cpt.quote} ALPHA: antihydrogen 1S-2S agrees with hydrogen at ${pt.antimatter.alpha.value}. ${pt.antimatter.antihydrogen.quote}`);
+        if (/positronium|muonic hydrogen|exotic|reduced/.test(term)) out.push(`reduced mass ${st(pt.antimatter.status)}: ` + pt.antimatter.reduced_mass.systems.map((x) => `${x.system} mu/m_e ${x.mu_over_me}, radius ${x.radius_A} A`).join('; '));
+        if (/antiprotonic|helium/.test(term)) out.push(`antiprotonic helium ${st('READ')}: cell (${pt.antiprotonic_helium.cell.join(', ')}); ${pt.antiprotonic_helium.routes.map((r) => r.route + ' ' + r.MHz + ' +/- ' + r.pm + ' MHz').join('; ')}; agreement ${pt.antiprotonic_helium.agreement_sigma} sigma with no shared measurement; ${pt.antiprotonic_helium.scope}`);
+        if (/photon|gamma/.test(term)) out.push(`photon ${st('READ')}: ${pt.photon.site.quote} ${pt.photon.claim.quote}`);
+        if (/boson|quark|decuplet/.test(term)) out.push(pt.prose_only.filter((r) => /boson|decuplet|quark/i.test(r.label + r.quote)).map((r) => `${r.id} ${st('PROSE-ONLY')} ${r.label}: ${r.quote}`).join('\n') || 'no row');
+        if (/electron/.test(term)) out.push(`electron: the lattice's own binder — every cell of the index; below the window (geometry, ${w.N_states.electron} molecular bound states) ${st('READ')}`);
+        if (/proton|nucle/.test(term)) out.push(`proton: m_p/m_e = ${(pt.constants.rows.find((c) => /mass ratio/.test(c.name)) || {}).value} in Lambda_phys ${st('PINNED')}; nuclear supply 37 rows (Angeli & Marinova 2013; AME2020) — see the References dialog`);
+        Object.keys(pt.absent.terms).forEach((t) => { if (term.includes(t.toLowerCase())) { const a = pt.absent.terms[t]; out.push(`${t}: ${a.occurrences ? a.occurrences + ' occurrences, first at ' + a.first.file + ' L' + a.first.line : 'absent from the corpus — counted at build, not a cell of the lattice'} ${st(pt.absent.status)}`); } });
+        return out.length ? out.join('\n') : `nothing in the particles block matches "${term}"` + (flat.toLowerCase().includes(term) ? ' by name, though the term occurs in a passage; open Particles' : '');
+      }
+      case 'references': case 'refs': {
+        const rf = ix.references; if (!rf) return 'no references block in data/index.js';
+        const term = toks.slice(1).join(' ').toLowerCase();
+        const pick = (list) => list.filter((e) => !term || e.id.toLowerCase().includes(term) || e.cites.some((c) => c.text.toLowerCase().includes(term) || c.file.toLowerCase().includes(term)));
+        const ax = pick(rf.arxiv), dx = pick(rf.doi);
+        const line = (e) => `  ${e.url}  (${e.n} site${e.n === 1 ? '' : 's'}; ${e.cites[0].file.split('/').pop()} L${e.cites[0].line})`;
+        return [`NIST ASD ${rf.nist_asd.url}  DOI ${rf.nist_asd.doi_url} ${st('READ')} — the one data source the corpus links itself; the query is not held`,
+          `arXiv (${ax.length}${term ? ' matching' : ''}):`, ...ax.map(line), `DOI (${dx.length}${term ? ' matching' : ''}):`, ...dx.map(line),
+          `B.1 compilations by species: ${Object.keys(rf.spectra_sources.by_species).length} species; only NIST ASD is linked`].join('\n');
+      }
       case 'lattice': { const lat = ix.lattice; if (!lat) return 'no lattice block in data/index.js'; return `${lat.index} ${st(lat.status)}\n  axes: x ${lat.axes.x}; y ${lat.axes.y}; z ${lat.axes.z}\n  ${lat.sites.toLocaleString()} sites (${lat.slab}); ${lat.known.length.toLocaleString()} known cells: ${lat.counts.measured} measured, ${lat.counts.exact} exact, over ${lat.counts.known_sites} sites\n  drawing ${st(lat.drawing)}: ${lat.cube.note}\n  source: ${lat.source}`; }
       case 'go': {
         const it = suggestions(toks.slice(1).join(' '))[0];
@@ -4313,7 +4515,126 @@ var SOLVERS, LIB;
     }
   };
 
-  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC];
+  // 8. the muon energy balance ----------------------------------------------
+  // tools/mucf.py's model over its three free axes, ported term for term; every input carries
+  // the paper's own status and the result the weakest of them, REFUSED below the kinematic
+  // floor. The fixtures are the paper's Table 5.1 and section 5.1 thresholds, read from the
+  // instrument at build (index.particles.muon.instrument.fixtures), never typed here.
+  function mucfConsts(ctx) {
+    var pt = ctx.index && ctx.index.particles;
+    return pt && pt.muon && pt.muon.instrument ? pt.muon.instrument.constants : null;
+  }
+  function mucfCycles(k, omega_s, phi, lambda_c) { lambda_c = lambda_c === undefined ? k.lambda_c : lambda_c; return phi * lambda_c / (k.lambda_0 + omega_s * phi * lambda_c); }
+  function mucfGain(k, omega_s, phi, e_mu, lambda_c) { return mucfCycles(k, omega_s, phi, lambda_c) * k.Q_fus_MeV / (e_mu * 1000.0); }
+  function mucfEmuFor(k, omega_s, phi, target, lambda_c) { return mucfCycles(k, omega_s, phi, lambda_c) * k.Q_fus_MeV / (target * 1000.0); }
+  function mucfEmuForWork(k, omega_s, phi, target, lambda_c) { return mucfEmuFor(k, omega_s, phi, target, lambda_c) * k.f_work; }
+  function mucfStatusOf(k, omega_s, phi, e_mu) {
+    var worst = 'MEASURED', why = [];
+    if (phi > k.phi_measured_max) { worst = 'EXTRAPOLATED'; why.push('phi=' + phi + ' exceeds the scanned record (<= ' + k.phi_measured_max + ' LHD)'); }
+    var projected = false;
+    Object.keys(k.sticking).forEach(function (name) { var s = k.sticking[name]; if (Math.abs(s.omega_s - omega_s) < 1e-9 && s.status === 'PROJECTED') projected = true; });
+    if (projected || omega_s < k.omega_measured_min) { if (worst !== 'EXTRAPOLATED') worst = 'PROJECTED'; why.push('sticking below the measured floor requires an undemonstrated lever'); }
+    if (e_mu < k.E_mu_achieved_GeV) { if (worst === 'MEASURED') worst = 'PROJECTED'; why.push('E_mu=' + e_mu + ' GeV is below the achieved ' + k.E_mu_achieved_GeV + ' GeV'); }
+    if (e_mu < k.E_mu_floor_GeV) { worst = 'REFUSED'; why.push('E_mu=' + e_mu + ' GeV is below the ' + k.E_mu_floor_GeV + ' GeV kinematic floor'); }
+    return { status: worst, why: why.length ? why.join('; ') : 'all inputs within the measured record' };
+  }
+  function mucfBand(k, omega_s, phi, e_mu) {
+    var c = k.transfer[0], u = k.transfer[1], scale = k.lambda_c / c;
+    return [-1, 0, 1].map(function (s) { return mucfGain(k, omega_s, phi, e_mu, (c + s * u) * scale); });
+  }
+  function mucfMuonsFor(k, power_w, omega_s, phi) { return power_w / (k.Q_fus_MeV * 1.602e-13) / mucfCycles(k, omega_s, phi); }
+  function mucfBisectSticking(k, phi, e_mu, target) {
+    var lo = 1e-5, hi = 0.02;
+    for (var i = 0; i < 200; i++) { var mid = (lo + hi) / 2; if (mucfGain(k, mid, phi, e_mu) > target) lo = mid; else hi = mid; }
+    return lo;
+  }
+  var MODE_MUCF = {
+    id: 'mucf',
+    title: 'The muon energy balance',
+    status: PINNED,
+    statusNote: 'The paper\'s own model (papers/Muon_Catalysed_Fusion_v1.1.md section 5, tools/mucf.py), computed for it; every input carries the paper\'s status — MEASURED, PINNED, PROJECTED, EXTRAPOLATED, PROSE-ONLY — and the result the weakest of them. Below the 0.30 GeV kinematic floor the mode refuses. Not a lattice figure: the lattice supplies the frame, not the rates.',
+    description: 'N = φλ_c / (λ₀ + ω_s φλ_c) catalytic cycles per muon, Q = N · Q_fus / E_μ, and the production cost at which Q reaches a target under the heat convention and, with only f_work of the fusion heat convertible, the work convention; Q across the transfer-rate band; the muon rate a fusion power needs. Sticking ω_s, density φ (liquid-hydrogen density units) and E_μ (GeV) are the three free axes.',
+    inputs: [
+      { name: 'sticking', label: 'sticking case', type: 'select', default: 'sin',
+        options: [{ value: 'sin', label: 'SIN, 0.45 % measured' }, { value: 'psi', label: 'PSI, 0.56 % measured' },
+                  { value: 'pol', label: 'dual polarisation, 0.34 % projected' }, { value: 'j1', label: 'J=1,v=0, 0.31 % projected (reserved)' },
+                  { value: 'both', label: 'both levers composed, 0.234 % projected' }, { value: 'custom', label: 'typed below' }] },
+      { name: 'omega_s', label: 'ω_s (fraction)', type: 'number', default: '', help: 'used when the case is "typed": net sticking loss per fusion, e.g. 0.0045' },
+      { name: 'phi', label: 'φ (LHD)', type: 'number', default: 1.2, help: 'density in liquid-hydrogen units; the scanned record is 0.01 to 1.5' },
+      { name: 'e_mu', label: 'E_μ (GeV per muon)', type: 'number', default: 5, help: 'the paper prices its binder at 5; the kinematic floor is 0.30; below it the mode refuses' },
+      { name: 'target', label: 'target Q', type: 'number', default: 1, help: '1 is scientific breakeven, the paper\'s convention, not a plant that feeds itself' },
+      { name: 'power', label: 'fusion power (W, optional)', type: 'number', default: '', help: 'if given, the muon rate it needs' },
+    ],
+    source: { instrument: 'mucf_gain', file: 'tools/mucf.py',
+              also: ['mucf_cycles', 'mucf_e_mu_for', 'mucf_e_mu_for_work', 'mucf_status_of', 'mucf_band', 'mucf_muons_for'] },
+    run: async function (values, ctx) {
+      var k = mucfConsts(ctx);
+      if (!k) return fail('data/index.js carries no muon instrument block (index.particles.muon.instrument)');
+      var rows = [];
+      var caseName = values.sticking || 'sin', omega_s, oStatus, oNote;
+      if (caseName === 'custom') { omega_s = num(values.omega_s); if (omega_s === null || omega_s <= 0) return fail('type ω_s as a positive fraction, or pick a case'); oStatus = null; oNote = 'typed, not a corpus figure'; }
+      else { var sc = k.sticking[caseName]; if (!sc) return fail('unknown sticking case ' + caseName); omega_s = sc.omega_s; oStatus = sc.status; oNote = 'mucf.py STICKING["' + caseName + '"]' + (caseName === 'j1' ? '; ' + k.reservation_j1 : ''); }
+      var phi = num(values.phi), e_mu = num(values.e_mu), target = num(values.target), power = num(values.power);
+      if (phi === null || phi <= 0) return fail('φ must be a positive density in LHD units');
+      if (e_mu === null || e_mu <= 0) return fail('E_μ must be a positive cost in GeV');
+      if (target === null || target <= 0) target = 1;
+      var st = mucfStatusOf(k, omega_s, phi, e_mu);
+      rows.push(row('ω_s', omega_s, oStatus, oNote));
+      rows.push(row('φ', phi + ' LHD', phi <= k.phi_measured_max ? 'MEASURED' : 'EXTRAPOLATED', phi <= k.phi_measured_max ? 'within the scanned record (PSI 0.01–1.5 LHD)' : 'beyond the scanned record'));
+      rows.push(row('E_μ', e_mu + ' GeV', e_mu >= k.E_mu_achieved_GeV ? 'MEASURED' : (e_mu >= k.E_mu_floor_GeV ? 'PROJECTED' : 'REFUSED'), 'the paper\'s 5 GeV is reclassified aspirational in v1.1; the best published figure is 5 TeV per stopped muon (collection budget)'));
+      rows.push(row('λ₀', k.lambda_0.toExponential(3) + ' s⁻¹', 'MEASURED', 'bound-muon disappearance'));
+      rows.push(row('λ_c', k.lambda_c.toExponential(2) + ' s⁻¹', 'PINNED', 'cycle saturation, the harmonic sum (section 3.3); its parent the transfer rate (' + k.transfer[0].toExponential(1) + ' ± ' + k.transfer[1].toExponential(1) + ') MEASURED'));
+      rows.push(row('Q_fus', k.Q_fus_MeV + ' MeV', 'MEASURED', 'd + t'));
+      if (st.status === 'REFUSED') {
+        rows.push(row('status', 'REFUSED', 'REFUSED', st.why));
+        return { rows: rows, ok: false, message: 'refused: ' + st.why + '. Nothing is computed below the kinematic floor; a perfect collector costs 0.30 GeV per muon.' };
+      }
+      var N = mucfCycles(k, omega_s, phi), Q = mucfGain(k, omega_s, phi, e_mu), b = mucfBand(k, omega_s, phi, e_mu);
+      rows.push(row('N, cycles per muon', fmt(N, 1), st.status, 'φλ_c / (λ₀ + ω_s φλ_c)'));
+      rows.push(row('Q, heat convention', fmt(Q, 3), st.status, 'N · Q_fus / E_μ; ' + st.why));
+      rows.push(row('Q across the transfer band', fmt(b[0], 3) + ' … ' + fmt(b[2], 3), st.status, 'λ_c inherits its parent\'s ±' + k.transfer[1].toExponential(1) + ' band, scaled by 2.6/2.7'));
+      rows.push(row('E_μ for Q = ' + target + ', heat', fmt(mucfEmuFor(k, omega_s, phi, target), 3) + ' GeV', st.status, 'the cost at which heat out reaches the target'));
+      rows.push(row('E_μ for Q = ' + target + ', work', fmt(mucfEmuForWork(k, omega_s, phi, target), 3) + ' GeV', 'PROSE-ONLY', 'only f_work = ' + k.f_work + ' of the fusion heat is convertible (alpha share ' + k.f_alpha + ', blanket at 800 K ' + k.carnot_800 + '); PROSE-ONLY'));
+      rows.push(row('sticking ceiling', fmt(1 / omega_s, 0) + ' turns', 'DERIVED', 'the asymptote 1/ω_s, omitting decay'));
+      rows.push(row('breakeven sticking at this φ and E_μ', (mucfBisectSticking(k, phi, e_mu, target) * 100).toFixed(3) + ' %', st.status, 'the ω_s at which Q reaches the target, by bisection'));
+      if (power !== null && power > 0) rows.push(row('muons per second for ' + power + ' W', mucfMuonsFor(k, power, omega_s, phi).toExponential(2) + ' s⁻¹', st.status, 'power / (Q_fus · N); against ~10⁸ /s at PSI today and ~10¹⁰ /s planned (PO-0898)'));
+      rows.push(row('the collection chain', k.E_mu_delivered_TeV + ' TeV per muon delivered; gap ' + k.collection_factor.toExponential(2) + '×', 'PROSE-ONLY', 'a real beamline delivers one muon per 874 TeV of driver energy; the two gaps of section 5 are one chain read at two thresholds'));
+      return { rows: rows, ok: true };
+    },
+    selftest: async function (ctx) {
+      var ck = new Checker();
+      var k = mucfConsts(ctx), fx = ctx.index && ctx.index.particles && ctx.index.particles.muon.instrument.fixtures;
+      if (!k || !fx) { ck.ok('muon instrument block present in data/index.js', false, 'absent', 'present'); return ck.result(); }
+      var diverge = [];
+      fx.table_5_1.forEach(function (r) {
+        r.Q.forEach(function (want, i) {
+          var got = mucfGain(k, r.omega_s, fx.phis[i], fx.E_mu);
+          if (Math.abs(got - want) <= 0.006) ck.ok('Table 5.1: ω_s=' + r.omega_s + ' φ=' + fx.phis[i] + ' Q=' + want, true, got.toFixed(3), want);
+          else diverge.push({ r: r, i: i, got: got, want: want });
+        });
+      });
+      // the recorded divergence: the 0.234 % row reproduces at the unrounded transfer rate 2.7e8, not the pinned 2.6e8 (mucf.py --selftest, [1b]); NOTED, not repaired
+      diverge.forEach(function (d) {
+        var at27 = mucfGain(k, d.r.omega_s, fx.phis[d.i], fx.E_mu, k.transfer[0]);
+        ck.ok('Table 5.1: ω_s=' + d.r.omega_s + ' φ=' + fx.phis[d.i] + ' diverges at λ_c=2.6e8 (' + d.got.toFixed(3) + ' vs ' + d.want + ') and reproduces at the transfer rate 2.7e8 — the instrument\'s recorded finding', Math.abs(at27 - d.want) <= 0.006, at27.toFixed(3), d.want);
+      });
+      ck.ok('the divergent cells are all in one row, ω_s = 0.234 %', diverge.every(function (d) { return Math.abs(d.r.omega_s - 0.00234) < 1e-9; }), diverge.length, 'one row');
+      fx.breakeven_5_1.forEach(function (b) {
+        var got = mucfBisectSticking(k, b.phi, fx.E_mu, 1.0);
+        ck.near('breakeven sticking at φ=' + b.phi + ' (section 5.1)', got, b.omega_s, 2e-5);
+      });
+      ck.near('the composed lever 0.34 % · 0.31/0.45 = 0.234 %', 0.0034 * 0.31 / 0.45, 0.00234, 5e-6);
+      ck.near('sticking ceiling ~222 turns at 0.45 %', 1 / 0.0045, 222, 1.0);
+      ck.eq('status: measured inputs at 5 GeV, φ = 1.2', mucfStatusOf(k, k.sticking.sin.omega_s, 1.2, 5.0).status, 'MEASURED');
+      ck.eq('status: a projected lever is PROJECTED', mucfStatusOf(k, k.sticking.pol.omega_s, 1.2, 5.0).status, 'PROJECTED');
+      ck.eq('status: φ beyond the scanned record is EXTRAPOLATED', mucfStatusOf(k, k.sticking.sin.omega_s, 2.0, 5.0).status, 'EXTRAPOLATED');
+      ck.eq('status: below the kinematic floor is REFUSED', mucfStatusOf(k, k.sticking.sin.omega_s, 1.2, 0.2).status, 'REFUSED');
+      ck.ok('the band brackets the central value', (function () { var b = mucfBand(k, 0.0045, 1.2, 5.0); return b[0] < b[1] && b[1] < b[2]; })(), 'ordered', 'ordered');
+      return ck.result();
+    },
+  };
+
+  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF];
   LIB = {
     channelDelta: channelDelta, channelTerms: channelTerms, collapseC: collapseC, pauliBound: pauliBound,
     coreP: coreP, n0Of: n0Of, orderClosure: orderClosure, lambdaConstraints: lambdaConstraints,
