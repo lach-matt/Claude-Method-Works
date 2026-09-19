@@ -533,3 +533,7 @@ tr.is-current td { background: var(--accent-soft, rgba(31, 78, 140, 0.08)); }
   .glossary dl { grid-template-columns: 1fr; gap: 2px 0; }
   .glossary dd { margin-bottom: 8px; }
 }
+.particle-table td { white-space: nowrap; }
+.particle-table tr.is-unplaced td { color: var(--muted); }
+.muted { color: var(--muted); }
+details > summary { cursor: pointer; font-weight: 600; margin: 10px 0 6px; }

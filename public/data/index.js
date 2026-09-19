@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T05:00:23+00:00",
-  "commit": "2d0d5e3340fd",
+  "built": "2026-09-19T05:17:20+00:00",
+  "commit": "7612e562bdb1",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "2d0d5e3340fd",
-   "text": "Lach, M. (2026). The Method Index, edition 2d0d5e3340fd. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 2d0d5e3340fd}\n}"
+   "commit": "7612e562bdb1",
+   "text": "Lach, M. (2026). The Method Index, edition 7612e562bdb1. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 7612e562bdb1}\n}"
   },
   "history": [
    {
@@ -135,6 +135,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 28,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2d0d5e3340fdf12de1eca5bf013895ce5342149c",
     "note": "the public build: the site cites nothing from the unpublished books"
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "7612e56",
+    "files": 16,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/7612e562bdb17f87ee6ab4063a453c9a6b394fe5",
+    "note": null
    }
   ]
  },
@@ -211,6 +218,12 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "bytes": 75290,
    "md5": "290fd4eb9de42ebea0f88a804a89978d",
    "what": "the released papers, rendered"
+  },
+  {
+   "file": "data/particles.js",
+   "bytes": 143107,
+   "md5": "0996b1d87f14c05975723161c6abff74",
+   "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
    "file": "data/LOWDIN-WALK.tsv",
@@ -9444,6 +9457,119 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   }
  },
  "particles": null,
+ "particle_index": {
+  "file": "data/particles.js",
+  "bytes": 143107,
+  "md5": "0996b1d87f14c05975723161c6abff74",
+  "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
+  "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
+  "source": {
+   "citation": "Review of Particle Physics, Particle Data Group, Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026)",
+   "doi": "10.1142/S0217751X26300111",
+   "capture": [
+    {
+     "path": "research/warp-drive/captures/PDG-2026.tsv",
+     "bytes": 33555,
+     "md5": "53a5b67b4dfe12c782635191ca9e1fd0",
+     "exists": true
+    }
+   ],
+   "tree": {
+    "root": "research/warp-drive",
+    "commit": "8120edd",
+    "state_commit": "4c45ead1226d",
+    "instruments": [
+     "pdgcapture.py",
+     "fundamental.py",
+     "mesons.py",
+     "baryons.py",
+     "docket27.py",
+     "quasiparticle.py"
+    ]
+   }
+  },
+  "accounting": {
+   "table_total": 6506,
+   "composite_nuclei": 5880,
+   "status_4": 54,
+   "kept": 572,
+   "members": 572,
+   "charted": 550,
+   "unplaced": 22,
+   "identity": "6506 = 5880 + 54 + 572"
+  },
+  "indexes": [
+   {
+    "id": "fundamental",
+    "title": "The fundamental particles of the Standard Model",
+    "members": 30,
+    "charted": 30,
+    "cells": 26,
+    "cell": {
+     "channel": 2,
+     "height": 7,
+     "width": 7
+    },
+    "closers": [
+     "statistics"
+    ],
+    "coordinates": [
+     "2J",
+     "Q3",
+     "COL",
+     "GEN"
+    ],
+    "unplaced": 0
+   },
+   {
+    "id": "mesons",
+    "title": "The mesons",
+    "members": 250,
+    "charted": 242,
+    "cells": 66,
+    "cell": {
+     "channel": 0,
+     "height": 10,
+     "width": 14
+    },
+    "closers": [],
+    "coordinates": [
+     "2J",
+     "P",
+     "2I",
+     "Q3"
+    ],
+    "unplaced": 8
+   },
+   {
+    "id": "baryons",
+    "title": "The baryons",
+    "members": 292,
+    "charted": 278,
+    "cells": 184,
+    "cell": {
+     "channel": 0,
+     "height": 10,
+     "width": 40
+    },
+    "closers": [],
+    "coordinates": [
+     "2J",
+     "P",
+     "2I",
+     "Q3",
+     "S",
+     "C",
+     "B"
+    ],
+    "unplaced": 14
+   }
+  ],
+  "quasiparticles": {
+   "in_progress": true,
+   "verdict": "REFUSE-AS-THEOREM"
+  }
+ },
  "references": {
   "note": "identifiers the index's sources cite, found at build by pattern and linked by construction; a compilation named without an identifier is cited as a string and not linked, because the target would be invented. A citing line is quoted only from a paper released to the site.",
   "quoted_from": [

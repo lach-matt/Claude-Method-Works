@@ -1829,9 +1829,136 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   const quoteBlock = (s) => s && s.quote ? `<blockquote class="q">${esc(s.quote)} <span class="cite-inline">${esc(siteText(s))}</span></blockquote>` : '';
   const ext = (url, text) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`;
 
+
+  // ---------------------------------------------------------------- the particle indexes
+  // data/particles.js sets window.__mi.particle_index: the three indexes of the particles
+  // that are not periodic atoms, read at build from the other session's instruments. Every
+  // member carries its coordinates with their statuses; every refused coordinate carries
+  // the measurement that refuses it. Loaded on demand; the summary is index.particle_index.
+  function ensureParticleIndex() {
+    if (state.particleIndex) return Promise.resolve(state.particleIndex);
+    if (window.__mi && window.__mi.particle_index) { state.particleIndex = window.__mi.particle_index; return Promise.resolve(state.particleIndex); }
+    return new Promise((resolve, reject) => {
+      const sc = document.createElement('script');
+      sc.src = `${DATA}particles.js`; sc.async = true;
+      sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.particle_index) { state.particleIndex = window.__mi.particle_index; resolve(state.particleIndex); } else reject(new Error('data/particles.js loaded but set no window.__mi.particle_index')); };
+      sc.onerror = () => { sc.remove(); reject(new Error('data/particles.js could not be loaded; it is written by python3 tools/webindex.py when the particle instruments are in the tree')); };
+      document.head.appendChild(sc);
+    });
+  }
+  const fmtV = (v) => v === null || v === undefined ? '—' : (typeof v === 'number' && !Number.isInteger(v) ? String(+v.toPrecision(7)) : String(v));
+  function particleFigure(ix) {
+    // members on (Q3 across, 2J up), one mark per member, jittered within the cell by index,
+    // coloured by the third coordinate; the cell count under the figure is the index's own
+    const names = ix.coordinates.map((c) => c.name);
+    const qi = names.indexOf('Q3'), ji = names.indexOf('2J');
+    const ci = ix.id === 'fundamental' ? names.indexOf('GEN') : names.indexOf('P');
+    const rows = ix.rows.filter((r) => r.coords[qi] !== null && r.coords[ji] !== null);
+    const qs = [...new Set(rows.map((r) => r.coords[qi]))].sort((a, b) => a - b), js = [...new Set(rows.map((r) => r.coords[ji]))].sort((a, b) => a - b);
+    const W = 640, H = 60 + js.length * 44, m = { l: 54, r: 16, t: 16, b: 40 };
+    const cw = (W - m.l - m.r) / qs.length, ch = (H - m.t - m.b) / js.length;
+    const svg = figFrame(W, H);
+    qs.forEach((q, i) => svg.appendChild(svgEl('text', { x: m.l + (i + 0.5) * cw, y: H - m.b + 16, 'text-anchor': 'middle', class: 'tick' }, ix.id === 'fundamental' ? `${q}/3` : String(q / 3))));
+    svg.appendChild(svgEl('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'text-anchor': 'middle', class: 'lab' }, 'electric charge Q' + (ix.id === 'fundamental' ? ' (thirds)' : '')));
+    js.forEach((j, i) => svg.appendChild(svgEl('text', { x: m.l - 8, y: m.t + (js.length - i - 0.5) * ch + 4, 'text-anchor': 'end', class: 'tick' }, `J = ${j % 2 ? j + '/2' : j / 2}`)));
+    qs.forEach((q, i) => js.forEach((j, k) => svg.appendChild(svgEl('rect', { x: m.l + i * cw, y: m.t + (js.length - k - 1) * ch, width: cw, height: ch, fill: 'none', class: 'ax', 'stroke-opacity': 0.35 }))));
+    const cvals = [...new Set(rows.map((r) => r.coords[ci]))].sort((a, b) => a - b);
+    const bucket = new Map();
+    rows.forEach((r) => { const k = r.coords[qi] + '|' + r.coords[ji]; if (!bucket.has(k)) bucket.set(k, []); bucket.get(k).push(r); });
+    bucket.forEach((rs, k) => {
+      const [q, j] = k.split('|').map(Number), x0 = m.l + qs.indexOf(q) * cw, y0 = m.t + (js.length - js.indexOf(j) - 1) * ch;
+      const n = rs.length, cols = Math.ceil(Math.sqrt(n * cw / ch)), rws = Math.ceil(n / cols);
+      rs.forEach((r, i) => {
+        const cx = x0 + ((i % cols) + 0.5) * cw / cols, cy = y0 + (Math.floor(i / cols) + 0.5) * ch / rws;
+        const col = L_COLOR[Math.max(0, cvals.indexOf(r.coords[ci])) % L_COLOR.length];
+        const c = svgEl('circle', { cx, cy, r: Math.max(1.6, Math.min(4, cw / cols / 2.6)), fill: col, 'fill-opacity': 0.8 });
+        c.append(svgEl('title', {}, `${r.name}: ${names.map((nm, t) => nm + ' = ' + fmtV(r.coords[t])).join(', ')}${r.extra && r.extra.mass_MeV !== null ? '; mass ' + r.extra.mass_MeV + ' MeV' : ''}`));
+        svg.appendChild(c);
+      });
+    });
+    cvals.forEach((v, i) => { svg.appendChild(svgEl('circle', { cx: m.l + 10 + i * 96, cy: m.t - 6, r: 4, fill: L_COLOR[i % L_COLOR.length] })); svg.appendChild(svgEl('text', { x: m.l + 18 + i * 96, y: m.t - 2, class: 'tick' }, `${names[ci]} ${v === null ? 'not printed' : '= ' + v}`)); });
+    return svg;
+  }
+  function renderParticleIndex(host, px) {
+    const src = px.source, ac = px.accounting;
+    let html = `<p class="note">${esc(px.status_note)}</p>
+      <h3>The accounting</h3>
+      <div class="fields">
+        ${row('the table', `${ac.table_total.toLocaleString()} entries in the Particle Data Group's 2026 table`, 'READ', 'the capture\'s own header', true)}
+        ${row('composite nuclei', ac.composite_nuclei.toLocaleString(), 'READ', 'the periodic elements: the subject of the rest of this site', true)}
+        ${row('status 4', ac.status_4, 'READ', 'the fourth generation and the diquarks, excluded on PDG\'s own flag', true)}
+        ${row('kept', ac.kept, 'READ', `${esc(ac.identity)}; every one a member of one of the three indexes`, true)}
+        ${row('charted', `${ac.charted} of ${ac.members}`, 'DERIVED', `${ac.unplaced} members carry no printed parity and land on no cell; a gap in the table, not in physics`, true)}
+      </div>
+      <p class="note">${esc(ac.note)}</p>
+      <h3>Where the data comes from</h3>
+      <div class="fields">
+        ${row('citation', `${esc(src.citation)} · ${ext('https://doi.org/' + src.doi, 'DOI ' + src.doi)}`, 'READ', 'the review the capture reads', true)}
+        ${row('via', esc(src.via), 'READ', null, true)}
+        ${src.capture.map((c) => row('capture', `${esc(c.path)} · ${c.bytes.toLocaleString()} bytes · md5 <span class="mono">${esc(c.md5)}</span>`, 'READ', 'declared beside the code that reads it and hashed at build', true)).join('')}
+        ${row('note', esc(src.quantum_numbers_note), null, null, true)}
+        ${row('instruments', `${esc(src.tree.root)}: ${src.tree.instruments.map((i) => `<span class="mono">${esc(i)}</span>`).join(', ')}${src.tree.commit ? ` · tree at <span class="mono">${esc(String(src.tree.commit).slice(0, 12))}</span>` : ''}`, null, 'imported at build, never copied', true)}
+      </div>`;
+    px.indexes.forEach((ix) => {
+      const names = ix.coordinates.map((c) => c.name);
+      html += `<h3>${esc(ix.title)}</h3>
+        <p class="note">One member is ${esc(ix.member)}. ${ix.members} members, ${ix.charted} charted on ${ix.cells} cells${ix.unplaced.length ? `, ${ix.unplaced.length} set aside by name (${esc(ix.unplaced.join(', '))}) because ${esc(ix.unplaced_why || '')}` : ''}. Closure channel K${ix.cell.channel} (height ${ix.cell.height}, width ${ix.cell.width}); closed by ${ix.closers.length ? esc(ix.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement over the members')}</p>
+        <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>
+          ${ix.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td></tr>`).join('')}
+        </tbody></table></div>
+        <figure class="data-fig" id="pfig-${esc(ix.id)}"></figure>
+        ${ix.colour_rule ? `<p class="note">The colour assignment, which is not in the capture: ${ix.colour_rule.map((c) => `${esc(c.what)} → ${c.dimension}`).join(' · ')} ${badge('PINNED', 'the Standard Model\'s definition, printed rather than hidden')}</p>` : ''}
+        ${ix.collisions ? `<p class="note"><b>${ix.collisions.length} cells hold two members</b> — ${esc(ix.collisions_note)}: ${ix.collisions.map((c) => `(${c.cell.join(', ')}) ${esc(c.members.join(' / '))}`).join('; ')} ${badge('DERIVED')}</p>` : ''}
+        ${ix.conjugation ? `<p class="note"><b>Antimatter, measured rather than seated:</b> ${ix.conjugation.pairs} particle–antiparticle pairs, ${ix.conjugation.split} split by the chart and ${ix.conjugation.collided} collided${ix.conjugation.note ? '; ' + esc(ix.conjugation.note) : ''}${ix.conjugation.mechanism ? '; under conjugation ' + ix.conjugation.mechanism.map((m) => `${esc(m.coordinate)} ${esc(m.under_conjugation)}`).join(', ') : ''}. ${badge('DERIVED')}</p>` : ''}
+        ${ix.axis_contributions ? `<p class="note">Cells with one axis dropped: ${ix.axis_contributions.map((a) => `${a.dropped === null ? 'all seven' : 'without ' + esc(a.dropped)} ${a.cells}`).join(' · ')} ${badge('DERIVED')}</p>` : ''}
+        <details><summary>Refused coordinates, each with its measurement (${ix.refused.length})</summary>
+          <div class="fields">${ix.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div>
+        </details>
+        <details><summary>Every member (${ix.rows.length})</summary>
+          <div class="tbl-wrap"><table class="t particle-table"><thead><tr><th>name</th><th class="hide-narrow">pdgid</th>${names.map((n) => `<th>${esc(n)}</th>`).join('')}<th>mass (MeV)</th><th class="hide-narrow">width (MeV)</th><th class="hide-narrow">quarks</th></tr></thead><tbody>
+            ${ix.rows.map((r) => `<tr${r.coords.some((v) => v === null) ? ' class="is-unplaced"' : ''}><td>${esc(r.name)}</td><td class="hide-narrow mono">${r.pdgid}</td>${r.coords.map((v, i) => `<td>${v === null ? '<span class="muted">not printed</span>' : esc(String(v))} ${badge(ix.coordinates[i].status)}</td>`).join('')}<td>${r.extra.mass_MeV === null ? '<span class="muted">limit only</span>' : esc(fmtV(r.extra.mass_MeV)) + ' ' + badge('READ')}</td><td class="hide-narrow">${r.extra.width_MeV === null ? '—' : esc(fmtV(r.extra.width_MeV))}</td><td class="hide-narrow mono">${esc(r.extra.quarks || '')}</td></tr>`).join('')}
+          </tbody></table></div>
+        </details>`;
+    });
+    const q = px.quasiparticles;
+    if (q) {
+      html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
+      if (q.no_table) html += `<div class="fields">
+          ${row('no table', esc(q.no_table.claim), q.no_table.status, `${q.no_table.space_groups} space groups, ${q.no_table.point_groups} point groups, ${q.no_table.arithmetic_classes} arithmetic crystal classes: the host's, not the quasiparticle's`, true)}
+          ${row('the universal numbers', `${q.no_table.universal.list.map((u) => `${esc(u.kind)} (spin ${u.spin})`).join(', ')}: ${q.no_table.universal.kinds} kinds on ${q.no_table.universal.distinct_cells} cells`, 'DERIVED', 'a chart with that resolution reports on bosons', true)}
+        </div>`;
+      if (q.anyons) html += `<p class="note">${esc(q.anyons.claim)}</p>
+        <div class="fields">${row('verdict', `<b>${esc(q.anyons.verdict)}</b> — ${esc(q.anyons.why)}`, q.anyons.verdict_status, 'the box-invariance test, imported and not reimplemented: ' + q.anyons.sweep.map((b) => `${esc(b.box)} → ${b.cells} cells, K${b.channel}`).join('; '), true)}</div>
+        <div class="tbl-wrap"><table class="t"><thead><tr><th>k</th><th>J</th><th>h</th><th>d</th><th>J × J</th>${q.anyons.coordinates.map((c) => `<th title="${esc(c.meaning)}">${esc(c.name)}</th>`).join('')}</tr></thead><tbody>
+          ${q.anyons.rows.map((r) => `<tr><td>${r.k}</td><td>${r.J}</td><td>${esc(r.h)} ${badge(q.anyons.rows_status)}</td><td>${esc(fmtV(r.d))}</td><td class="mono">${r.fusion_JxJ.join(' ')}</td>${r.coords.map((v) => `<td>${v} ${badge('DERIVED')}</td>`).join('')}</tr>`).join('')}
+        </tbody></table></div>
+        <p class="note">Spot checks: ${q.anyons.spot_checks.map((c) => `${esc(c.what)} = ${esc(String(c.computed))} (expected ${esc(String(c.expected))})`).join(' · ')}. ${esc(q.anyons.not_ising)}</p>`;
+      if (q.reopens) html += `<p class="note"><b>What would reopen it:</b> ${esc(q.reopens)}</p>`;
+    }
+    host.innerHTML = html;
+    px.indexes.forEach((ix) => {
+      const fig = host.querySelector('#pfig-' + ix.id);
+      if (!fig) return;
+      fig.appendChild(particleFigure(ix));
+      const cap = document.createElement('figcaption'); cap.innerHTML = `${ix.charted} charted members by electric charge and spin, one mark per member, coloured by ${esc(ix.id === 'fundamental' ? 'generation' : 'parity')}; hover a mark for its coordinates. ${badge('DERIVED', 'drawn from the member table; the cells are the instrument\'s')}`; fig.appendChild(cap);
+    });
+  }
+
   function renderParticles() {
     const pt = state.index.particles, rf = state.index.references || {};
-    if (!pt) { $('#particles-body').innerHTML = '<p class="note">data/index.js carries no particles block.</p>'; return; }
+    const host = $('#particles-body');
+    if (state.index.particle_index) {
+      host.innerHTML = '<p class="note">loading the particle indexes…</p>';
+      ensureParticleIndex().then((px) => {
+        renderParticleIndex(host, px);
+        if (pt) { const more = document.createElement('div'); more.id = 'particles-muon'; host.appendChild(more); renderMuonBlock(more, pt, rf); }
+      }).catch((err) => { host.innerHTML = `<p class="note">${esc(err.message)}</p>`; });
+      return;
+    }
+    if (!pt) { host.innerHTML = '<p class="note">this build carries no particles block.</p>'; return; }
+    renderMuonBlock(host, pt, rf);
+  }
+  function renderMuonBlock(host, pt, rf) {
     const w = pt.window, mu = pt.muon, am = pt.antimatter, ah = pt.antiprotonic_helium, ph = pt.photon;
     const inst = mu.instrument, cc = mu.collection, arx = (id) => ext('https://arxiv.org/abs/' + id, 'arXiv:' + id);
     let html = `<p class="note">${esc(pt.status_note)}</p>`;
@@ -1894,7 +2021,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     html += `<h3>Counted absent</h3>
       <p class="note">${badge(pt.absent.status)} ${esc(pt.absent.note)}: ${Object.keys(ab).map((t) => `<b>${esc(t)}</b> ${ab[t].occurrences}${ab[t].first ? ` (first at ${esc(siteText(ab[t].first))})` : ''}`).join(' · ')}.</p>`;
     if (rf.nist_asd) html += `<p class="note">Outward: ${ext(rf.nist_asd.url, 'NIST ASD')} · ${ext(rf.nist_asd.doi_url, 'DOI ' + rf.nist_asd.doi)} · the References dialog lists every arXiv and DOI identifier the sources cite.</p>`;
-    const body = $('#particles-body');
+    const body = host;
     body.innerHTML = html;
     body.querySelectorAll('[data-act="mucf-mode"]').forEach((b) => b.addEventListener('click', () => { $('#dlg-particles').close(); openSolver('mucf'); }));
   }
@@ -2445,7 +2572,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     try { keyOpen = localStorage.getItem('key') === 'open'; } catch (e) { /* none */ }
     setLegend(keyOpen && !isPhone());
     $('#btn-provenance').addEventListener('click', () => $('#dlg-provenance').showModal());
-    if (state.index.particles) $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
+    if (state.index.particles || state.index.particle_index) $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
     else $('#btn-particles').hidden = true;
     $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });
     $('#btn-papers').addEventListener('click', () => { if (!$('#papers-body').innerHTML) renderPapers(); $('#dlg-papers').showModal(); });
@@ -2561,7 +2688,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     switch (cmd) {
       case 'help': return HELP;
       case 'particles': {
-        const pt = ix.particles; if (!pt) return 'this build of the index carries no particles block';
+        const pt = ix.particles; if (!pt) return ix.particle_index ? `the particle indexes: ${ix.particle_index.indexes.map((x) => x.title + ' (' + x.members + ' members, ' + x.cells + ' cells, K' + x.cell.channel + ')').join('; ')}; ${ix.particle_index.accounting.identity}. Open Particles for every member with its statuses.` : 'this build of the index carries no particles block';
         const w = pt.window;
         return [`${pt.status_note}`,
           `  window [${w.m_e[0]}, ${w.m_e[1]}] m_e ${st(w.status)}; occupants muon ${w.occupants.muon}, pion ${w.occupants.pion}; the muon interior by ${w.interior.below}x and ${w.interior.above}x`,
@@ -2577,7 +2704,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           `  scope: ` + pt.scope.map((x) => x.name).join('; ')].join('\n');
       }
       case 'particle': {
-        const pt = ix.particles; if (!pt) return 'this build of the index carries no particles block';
+        const pt = ix.particles; if (!pt) return ix.particle_index ? `the particle indexes: ${ix.particle_index.indexes.map((x) => x.title + ' (' + x.members + ' members, ' + x.cells + ' cells, K' + x.cell.channel + ')').join('; ')}; ${ix.particle_index.accounting.identity}. Open Particles for every member with its statuses.` : 'this build of the index carries no particles block';
         const term = toks.slice(1).join(' ').toLowerCase();
         if (!term) return 'name a particle: muon, pion, tau, kaon, antiproton, positron, antihydrogen, positronium, antiprotonic helium, photon, boson, quark, neutrino, gluon, Higgs';
         const flat = JSON.stringify(pt, null, 1);

@@ -146,14 +146,16 @@ PRIVATE_PATTERNS = [
     r"\b[Rr]egisters?\s+\d", r"\b[Ss]ections?\s+\d", r"§\s?\d", r"\bchapters?\s+\d",
     r"[A-Za-z0-9_\-]+\.md\b", r"\bL\d{2,5}\b(?![.\d])", r"The Method 1\.6", r"\bcorpus\b",
     r"\bCompendium\b", r"PROSE-ONLY", r"\bdockets?\b", r"\brulings?\b", r"\bseated members?\b",
-    r"\bbundles?\b", r"method/members", r"\brecovered/", r"\bdrive/", r"LW1-", r"r2-scf",
+    r"\bbundles?\b", r"method/members", r"\brecovered/", r"(?<![\w-])drive/", r"LW1-", r"r2-scf",
     r"tower-2\.py", r"\.tsv\b", r"rclose\.py", r"\bsessions?\s+\d", r"\bchats?\s+\d",
     r"\bhandoffs?\b", r"\bfaults?\s+\d",
 ]
 _PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
 # names the site may print that a pattern would otherwise catch: the walk table
-# is this repository's own reconstruction, not one of the books
-PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table"}
+# is this repository's own reconstruction, not one of the books, and the two
+# captures are public tables (PDG, spglib) written with their provenance
+PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
+                "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture"}
 
 
 def private_hits(text):
@@ -952,6 +954,305 @@ def equation_points(spectra):
             "columns": ["Z", "charge", "l", "delta_measured", "delta_equation"],
             "source": "COORDINATES-2.13's measured rows (delta READ) against the channel "
                       "equation as populate.channel_delta computes it (PINNED)"}
+
+
+# ---------------------------------------------------------------------------
+# the particle indexes -- DOCKET 27 and 28 of research/warp-drive/
+# ---------------------------------------------------------------------------
+# The other session's tree seats three indexes of the particles that are not
+# periodic atoms -- the 30 fundamental particles, the 250 mesons and the 292
+# baryons of the PDG 2026 table, captured once with its provenance -- and a
+# docket-28 finding on quasiparticles. The site imports those instruments by
+# path and ships what they report: every member with its coordinates, each
+# value carrying a status; the cells, the channel, the collisions; every
+# refused coordinate with the measurement that refuses it. Nothing here is
+# retyped: a figure the instruments do not return is not on the site.
+WARP_ROOT = os.path.join(REPO, "research", "warp-drive")
+PARTICLES_JS = "particles.js"
+PARTICLES_PREFIX = "window.__mi = window.__mi || {}; window.__mi.particle_index = "
+_WARP = {}
+
+
+def warp_modules(root):
+    """The particle instruments imported from the warp tree at `root`, once.
+    They import each other by bare name and reach the repository's tools/ two
+    levels up, so the tree's own directory goes on sys.path and nothing is
+    copied."""
+    root = os.path.abspath(root)
+    if root in _WARP:
+        return _WARP[root]
+    if not os.path.isfile(os.path.join(root, "fundamental.py")):
+        _WARP[root] = None
+        return None
+    import importlib
+    # the root stays on sys.path: registry imports the other instruments lazily by name
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    mods = {n: importlib.import_module(n)
+            for n in ("pdgcapture", "fundamental", "mesons", "baryons", "docket27", "registry")}
+    try:
+        mods["quasiparticle"] = importlib.import_module("quasiparticle")
+    except Exception as e:  # noqa: BLE001 -- the docket is in progress on the other session
+        mods["quasiparticle"] = None
+        mods["quasiparticle_error"] = repr(e)
+    mods["root"] = root
+    _WARP[root] = mods
+    return mods
+
+
+def _warp_commit(root):
+    try:
+        with open(os.path.join(root, "STATE.json"), encoding="utf-8") as fh:
+            return json.load(fh).get("commit")
+    except Exception:  # noqa: BLE001
+        return None
+
+
+PARTICLE_COORDS = {
+    "fundamental": [
+        {"name": "2J", "meaning": "spin, doubled so it is an integer", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds, so a quark's is an integer", "status": "READ"},
+        {"name": "COL", "meaning": "the dimension of the colour representation: 3 for a quark, 8 for the gluon, 1 otherwise; not in the capture, assigned from the Standard Model's definition and the assignment printed", "status": "PINNED"},
+        {"name": "GEN", "meaning": "generation, 1 to 3 for a fermion and 0 for a boson, derived from the PDG id", "status": "DERIVED"},
+    ],
+    "mesons": [
+        {"name": "2J", "meaning": "spin, doubled", "status": "READ"},
+        {"name": "P", "meaning": "parity", "status": "READ"},
+        {"name": "2I", "meaning": "isospin, doubled", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds", "status": "READ"},
+    ],
+    "baryons": [
+        {"name": "2J", "meaning": "spin, doubled", "status": "READ"},
+        {"name": "P", "meaning": "parity", "status": "READ"},
+        {"name": "2I", "meaning": "isospin, doubled", "status": "READ"},
+        {"name": "Q3", "meaning": "electric charge in thirds", "status": "READ"},
+        {"name": "S", "meaning": "strangeness, from the quark content by the pinned case convention", "status": "DERIVED"},
+        {"name": "C", "meaning": "charm, likewise", "status": "DERIVED"},
+        {"name": "B", "meaning": "beauty, likewise", "status": "DERIVED"},
+    ],
+}
+PARTICLE_TITLES = {
+    "fundamental": "The fundamental particles of the Standard Model",
+    "mesons": "The mesons",
+    "baryons": "The baryons",
+}
+
+
+def _frac(x):
+    return "%d/%d" % (x.numerator, x.denominator) if x.denominator != 1 else str(x.numerator)
+
+
+WARP_COMMIT = None   # the commit the warp tree at --warp-root is at, when the caller knows it
+
+
+def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
+    """The three particle indexes and the quasiparticle finding as the site
+    carries them: a summary for index.js and the member tables for
+    data/particles.js. None when the warp tree is not in the repository."""
+    mods = warp_modules(root)
+    if mods is None:
+        return None, None
+    F, M, Bn, D27, R, PC = (mods[k] for k in ("fundamental", "mesons", "baryons", "docket27", "registry", "pdgcapture"))
+    Q = mods.get("quasiparticle")
+    cap = {int(r["pdgid"]): r for r in PC.read()}
+    src = R.sources()
+    header = PC.header()
+
+    def extra(pid):
+        r = cap[pid]
+        return {"family": r["family"], "quarks": r["quarks"] or None,
+                "anti": int(r["anti"]),
+                "C": None if r["C"] == "?" else int(r["C"]),
+                "G": None if r["G"] == "?" else int(r["G"]),
+                "mass_MeV": None if r["mass_MeV"] == "?" else float(r["mass_MeV"]),
+                "width_MeV": None if r["width_MeV"] == "?" else float(r["width_MeV"]),
+                "status": r["status"], "rank": r["rank"]}
+
+    def refusal(coord, why, measurement, status="DERIVED"):
+        return {"coordinate": coord, "verdict": "REFUSED", "why": why,
+                "measurement": measurement, "status": status}
+
+    indexes = []
+    # --- fundamental --------------------------------------------------------
+    rows = [{"name": n, "pdgid": pid, "coords": [j, q, c, g], "extra": extra(pid)}
+            for n, pid, j, q, c, g in F.rows()]
+    d, n, ratio, verdict = F.mass_is_not_a_label()
+    have, lack, lacking = F.mass_is_not_total()
+    now, with_L, left = F.what_L_would_do()
+    K, h, w = F.cell()
+    indexes.append({
+        "id": "fundamental", "title": PARTICLE_TITLES["fundamental"],
+        "member": "a fundamental particle of the Standard Model; antiparticles are separate members because they carry different quantum numbers",
+        "coordinates": PARTICLE_COORDS["fundamental"],
+        "members": len(rows), "charted": len(rows), "unplaced": [],
+        "cells": len(F.index()), "cell": {"channel": K, "height": h, "width": w},
+        "closers": F.closers(),
+        "rows": rows,
+        "colour_rule": [{"what": a, "dimension": b} for a, b in F.colour_rule()],
+        "by_generation": {str(k): v for k, v in F.by_generation().items()},
+        "charge_multiplet": {str(k): v for k, v in F.charge_multiplet().items()},
+        "collisions": [{"cell": list(k), "members": v} for k, v in F.collisions()],
+        "collisions_note": "four cells hold two members: three neutrino/antineutrino pairs, which only lepton number separates, and the photon against the Z, which no additive quantum number separates",
+        "refused": [
+            refusal("mass", "not total: six of the thirty carry no mass in the table (the neutrinos, for which PDG publishes limits and not values), and a coordinate undefined on a fifth of the membership cannot chart it. The usual refusal, that a near-injective coordinate is a row label, is withdrawn here and the withdrawal measured: CPT doubles every mass",
+                    {"distinct": d, "members": n, "ratio": round(ratio, 4), "label_verdict": verdict,
+                     "with_mass": have, "without": lack, "without_names": lacking}),
+            refusal("lepton number, baryon number", "derivable from the PDG id and not declared before the chart was run; adopting them because the chart collided would be fitted. The price is measured",
+                    {"cells_now": now, "cells_with_L": with_L, "still_colliding": left}),
+            refusal("weak isospin, hypercharge", "properties of a chiral field, and the table lists particles, not chiral components; charting one T3 against a particle would choose a chirality the data does not name", None, "READ"),
+        ],
+        "masses": [{"name": a, "mass_MeV": b} for a, b in F.masses()],
+    })
+    # --- mesons -------------------------------------------------------------
+    allm = {p: (C, G, k) for n, p, j, P, i, q, C, G, k in M.all_rows()}
+    rows = [{"name": n, "pdgid": pid, "coords": [j, P, i, q], "extra": extra(pid)}
+            for n, pid, j, P, i, q in M.rows()]
+    unplaced_rows = [{"name": n, "pdgid": pid, "coords": [j, None, i, q], "extra": extra(pid)}
+                     for n, pid, j, P, i, q, _c, _g, _k in M.all_rows() if P is None]
+    c_ok, c_bad = M.c_is_defined_iff()
+    g_ok, g_bad = M.g_is_defined_iff()
+    pairs, same, split, qs_same, qs_split = M.conjugation()
+    ce_cells, ce_cell, ce_closers = M.ceigen_chart()
+    K, h, w = M.cell()
+    indexes.append({
+        "id": "mesons", "title": PARTICLE_TITLES["mesons"],
+        "member": "a meson of the PDG table; antiparticles separate",
+        "coordinates": PARTICLE_COORDS["mesons"],
+        "members": len(M.all_rows()), "charted": len(rows), "unplaced": M.unplaced(),
+        "unplaced_why": "PDG prints no parity for them, so a chart carrying P cannot place them; a gap in the table, not in physics",
+        "cells": len(M.index()), "cell": {"channel": K, "height": h, "width": w},
+        "closers": M.closers(),
+        "rows": rows + unplaced_rows,
+        "conjugation": {"pairs": pairs, "collided": same, "split": split,
+                        "charges_collided": qs_same, "charges_split": qs_split,
+                        "note": "conjugation leaves 2J, P and 2I alone and flips only Q3, so the chart separates a pair if and only if the meson is charged"},
+        "refused": [
+            refusal("C-parity", "not total, and by a theorem: C is printed for exactly the mesons that are their own antiparticle, with two exceptions, K(L)0 and K(S)0, which are strangeness mixtures and so CP eigenstates rather than C eigenstates",
+                    {"printed_iff_self_conjugate": c_ok, "exceptions": [{"name": a, "self_conjugate": b, "has_C": c} for a, b, c in c_bad],
+                     "kaon_exceptions": [{"name": a, "quarks": b, "self_conjugate": c, "has_C": d} for a, b, c, d in M.kaon_exceptions()],
+                     "without_C": sum(1 for v in allm.values() if v[0] is None), "members": len(allm)}),
+            refusal("G-parity", "printed for exactly the flavour-neutral mesons, and most are not flavour-neutral",
+                    {"printed_iff_flavour_neutral": g_ok, "exceptions": [{"name": a, "flavour": list(b), "has_G": c} for a, b, c in g_bad],
+                     "without_G": sum(1 for v in allm.values() if v[1] is None)}),
+            refusal("strangeness (and charm, beauty)", "a quark content that is a mixture carries no readable strangeness, and two members are not strangeness eigenstates at all",
+                    {"unparsed": len(M.unparsed()), "unparsed_examples": [{"name": a, "quarks": b} for a, b in M.unparsed()[:12]]}),
+            refusal("the I^G(J^PC) chart over the 82 with a C", "computed, not seated: it charts a subset the table itself selects",
+                    {"cells": ce_cells, "cell": {"channel": ce_cell[0], "height": ce_cell[1], "width": ce_cell[2]}, "closers": ce_closers}),
+        ],
+        "case_convention": [{"name": a, "quarks": b, "flavour": list(c) if c else None, "expected": list(dd)} for a, b, c, dd in M.case_convention()],
+        "case_note": "in this capture lowercase is the quark and uppercase the antiquark: the proton is uud; pinned against six named states",
+    })
+    # --- baryons ------------------------------------------------------------
+    rows = [{"name": t[0], "pdgid": t[1], "coords": list(t[2:]), "extra": extra(t[1])} for t in Bn.rows()]
+    unplaced_rows = [{"name": t[0], "pdgid": t[1], "coords": [t[2], None] + list(t[4:]), "extra": extra(t[1])}
+                     for t in Bn.all_rows() if t[3] is None]
+    nb, nc, ng = Bn.cg_absent()
+    a_ok, a_bad = Bn.baryon_number_is_the_sign()
+    pairs, same, split, mech = Bn.conjugation()
+    K, h, w = Bn.cell()
+    indexes.append({
+        "id": "baryons", "title": PARTICLE_TITLES["baryons"],
+        "member": "a baryon of the PDG table; antibaryons separate",
+        "coordinates": PARTICLE_COORDS["baryons"],
+        "members": len(Bn.all_rows()), "charted": len(rows), "unplaced": Bn.unplaced(),
+        "unplaced_why": "PDG prints no parity for them; a gap in the table, not in physics",
+        "cells": len(Bn.index()), "cell": {"channel": K, "height": h, "width": w},
+        "closers": Bn.closers(),
+        "rows": rows + unplaced_rows,
+        "axis_contributions": [{"dropped": a, "cells": b} for a, b in Bn.axis_contributions()],
+        "conjugation": {"pairs": pairs, "collided": same, "split": split,
+                        "mechanism": [{"coordinate": a, "under_conjugation": b} for a, b in mech]},
+        "refused": [
+            refusal("C-parity, G-parity", "the table prints neither for any baryon: eigenvalues of operations under which no baryon is invariant",
+                    {"baryons": nb, "with_C": nc, "with_G": ng}),
+            refusal("baryon number", "it is the sign of the PDG id, so charting it would relabel; measured from the quark content independently of the id",
+                    {"agrees": a_ok, "disagreements": [{"pdgid": a, "quarks": b, "A": c} for a, b, c in a_bad]}),
+        ],
+    })
+    # --- the accounting (docket 27) -----------------------------------------
+    total, nuclei, st4, kept = D27.census()
+    members, charted, unplaced = D27.charted()
+    accounting = {
+        "table_total": total, "composite_nuclei": nuclei, "status_4": st4, "kept": kept,
+        "members": members, "charted": charted, "unplaced": unplaced,
+        "identity": "%d = %d + %d + %d" % (total, nuclei, st4, kept),
+        "note": "every one of the kept entries is a member of one of the three indexes; the composite nuclei are the periodic elements and are the subject of the rest of this site; the status-4 entries are the fourth generation and the diquarks, excluded on PDG's own flag",
+        "unplaced_list": [{"index": a, "name": b} for a, b in D27.unplaced()],
+        "not_indexed": [
+            {"what": "hypothetical particles", "why": "supersymmetric partners, axions, dark-matter candidates: none is in the table as an observed state, and a member must carry measured quantum numbers"},
+            {"what": "quasiparticles", "why": "phonons, magnons, excitons, Cooper pairs carry quantum numbers and are not in this table; see the quasiparticle finding"},
+            {"what": "the periodic atoms", "why": "the subject of the rest of this site"},
+        ],
+        "status": "DERIVED",
+    }
+    # --- quasiparticles (docket 28) -----------------------------------------
+    quasi = None
+    if Q is not None:
+        verdict, why = Q.verdict()
+        sg, pg, ac = Q.host_carries_it()
+        kinds, distinct = Q.universal_is_almost_nothing()
+        anyons = []
+        for k in range(1, 5):
+            for J in Q.anyons(k):
+                hh = Q.spin(J, k)
+                anyons.append({"k": k, "J": J, "h": _frac(hh), "h_float": float(hh),
+                               "d": round(Q.dim(J, k), 9), "fusion_JxJ": Q.fuse(J, J, k),
+                               "coords": list(Q.coords(J, k))})
+        quasi = {
+            "status_note": "the one gap the particle indexes left open, closed by the other session with two refusals, both measured; carried here as its instrument reports it and marked in progress",
+            "in_progress": True,
+            "no_table": {"claim": "there is no particle table for quasiparticles, and the reason is structural: what distinguishes one phonon mode from another is the host crystal's symmetry, so the member set would be (material, mode), a materials database",
+                         "space_groups": sg, "point_groups": pg, "arithmetic_classes": ac, "status": "READ",
+                         "universal": {"kinds": kinds, "distinct_cells": distinct,
+                                       "list": [{"kind": a, "spin": b} for a, b in Q.UNIVERSAL]}},
+            "anyons": {"claim": "one family is exactly specified with no fetch: the anyons of SU(2)_k, whose topological spin, quantum dimension and fusion follow from k and J in closed form",
+                       "coordinates": [{"name": "STAT", "meaning": "0 boson, 1 fermion, 2 anyon, from h mod 1", "status": "DERIVED"},
+                                       {"name": "ORD", "meaning": "the order of the topological twist, the denominator of h", "status": "DERIVED"},
+                                       {"name": "NSELF", "meaning": "how many distinct outcomes J x J has", "status": "DERIVED"},
+                                       {"name": "AB", "meaning": "abelian (d = 1) or not", "status": "DERIVED"}],
+                       "rows": anyons, "rows_status": "PINNED",
+                       "spot_checks": [{"what": a, "computed": _frac(b) if hasattr(b, "numerator") else b, "expected": _frac(c) if hasattr(c, "numerator") else c} for a, b, c in Q.spot_checks()],
+                       "not_ising": Q.NOT_ISING,
+                       "sweep": [{"box": a, "cells": b, "channel": c, "closers": d} for a, b, c, d, _e, _f, _g in Q.sweep()],
+                       "verdict": verdict, "why": why, "verdict_status": "READ"},
+            "reopens": "a materials database of phonon modes over a fixed set of crystals, each mode with its symmetry label and frequency, is a legitimate member set; it needs a real fetch and is named so the door is visibly open",
+        }
+    elif mods.get("quasiparticle_error"):
+        quasi = {"in_progress": True, "status_note": "the quasiparticle instrument is present but did not import: " + mods["quasiparticle_error"][:200]}
+    # --- provenance ---------------------------------------------------------
+    srow = src.get("fundamental.index") or {}
+    census_line = next((l for l in header if "census" in l), None)
+    prov = {
+        "citation": "Review of Particle Physics, Particle Data Group, Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026)",
+        "doi": "10.1142/S0217751X26300111",
+        "via": "the scikit-hep particle package, version 1.0.1; the capture records the md5 of what it read",
+        "capture": [{"path": d["path"], "bytes": d["bytes"], "md5": d["md5"], "exists": d["exists"]} for d in srow.get("paths", [])],
+        "header": [l.lstrip("# ").strip() for l in header],
+        "quantum_numbers_note": "the masses are the 2026 edition's; the quantum numbers the indexes chart reach the package from a 2008 file and a maintainers' extension, and nine spot-checks against canonical values are the instrument's fixtures",
+        "tree": {"root": "research/warp-drive", "commit": commit or WARP_COMMIT,
+                 "state_commit": _warp_commit(root),
+                 "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
+    }
+    full = {
+        "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
+        "source": prov, "accounting": accounting, "indexes": indexes, "quasiparticles": quasi,
+    }
+    blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
+    if write:
+        with open(os.path.join(out_dir, PARTICLES_JS), "wb") as fh:
+            fh.write(blob)
+    summary = {
+        "file": "data/" + PARTICLES_JS, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
+        "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
+        "status_note": full["status_note"],
+        "source": {"citation": prov["citation"], "doi": prov["doi"], "capture": prov["capture"], "tree": prov["tree"]},
+        "accounting": {k: accounting[k] for k in ("table_total", "composite_nuclei", "status_4", "kept", "members", "charted", "unplaced", "identity")},
+        "indexes": [{k: ix[k] for k in ("id", "title", "members", "charted", "cells", "cell", "closers")}
+                    | {"coordinates": [c["name"] for c in ix["coordinates"]], "unplaced": len(ix["unplaced"])}
+                    for ix in indexes],
+        "quasiparticles": ({"in_progress": True, "verdict": (quasi.get("anyons") or {}).get("verdict")} if quasi else None),
+    }
+    return summary, full
 
 
 def _git_head():
@@ -1860,7 +2161,7 @@ def _counts(rec):
     }
 
 
-def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
+def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, warp_root=WARP_ROOT):
     held, admitted = populate.layout_closure()
     relb = relativistic()
     rel_z = {e["Z"] for e in relb["eleven"]}
@@ -1888,6 +2189,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
     denied = sorted(admitted - held)
     denied_cells = denied_cell_definitions(denied)
     papers = papers_block(out_dir, write, log)
+    pindex, _pfull = particle_index_block(warp_root, write, out_dir)
     walk_copy = None
     if walk and os.path.exists(WALK_TSV):
         with open(WALK_TSV, "rb") as fh:
@@ -1961,6 +2263,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
             {"file": "data/index.js", "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"},
             {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
             {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
+            {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"} if pindex else None,
             walk_copy,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
         ] if d],
@@ -1972,6 +2275,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False):
         "lambda_meaning": populate.LAMBDA_MEANING,
         "lattice": lattice_block(spectra),
         "particles": particles_block() if with_particles else None,
+        "particle_index": pindex,
         "references": references_block(),
         "closure": {
             "index": "the eighteen-column periodic layout (period × group)",
@@ -2061,7 +2365,7 @@ def _remove_json_outputs(out_dir, log=print):
 # selftest and verify
 # ---------------------------------------------------------------------------
 
-def selftest():
+def selftest(warp_root=WARP_ROOT):
     spectra = populate.Spectra(populate.DEFAULT_SPECTRA)
     fails = []
     ran = []
@@ -2074,22 +2378,50 @@ def selftest():
             fails.append(name)
 
     print("webindex selftest")
-    index = build(spectra, write=False, log=lambda *_a, **_k: None)
+    index = build(spectra, write=False, log=lambda *_a, **_k: None, warp_root=warp_root)
     # the public guard: no string of the public build cites the unpublished books
     hits = private_strings(index)
     for Z in sorted(set(populate.LW1.GROUND) | set(spectra.by_z)):
         rec = public_obj(element_record(Z, spectra))
         private_strings(rec, "elements/%d" % Z, hits)
+    if index["particle_index"] is not None:
+        private_strings(particle_index_block(warp_root, write=False)[1], "particles", hits)
     for path, text in hits[:12]:
         print("    private: %s: %s" % (path, text))
     check("public build: no string cites the unpublished books", len(hits), 0)
     check("public build: the particles block is off without --with-particles", index["particles"], None)
     check("public build: the muon balance's instruments are off without --with-particles",
           [n for n in index["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}], [])
-    full = build(spectra, write=False, log=lambda *_a, **_k: None, with_particles=True)
+    full = build(spectra, write=False, log=lambda *_a, **_k: None, with_particles=True, warp_root=warp_root)
     check("with particles: the muon balance's seven instruments follow the walk's",
           [n for n in full["instruments"] if n in {m[0] for m in MUCF_INSTRUMENTS}],
           [n for n, *_ in MUCF_INSTRUMENTS])
+    px = index["particle_index"]
+    if px is None:
+        print("  (the particle indexes are not built: %s holds no research/warp-drive tree; pass --warp-root)" % warp_root)
+        check("particle indexes: absent from this build, and the index says so", px, None)
+    else:
+        _ps, pfull = particle_index_block(warp_root, write=False)
+        private_strings(pfull, "particles", hits)
+        check("particle indexes: three, in order", [x["id"] for x in px["indexes"]], ["fundamental", "mesons", "baryons"])
+        check("particle indexes: members 30, 250, 292", [x["members"] for x in px["indexes"]], [30, 250, 292])
+        check("particle indexes: charted 30, 242, 278", [x["charted"] for x in px["indexes"]], [30, 242, 278])
+        check("particle indexes: cells 26, 66, 184", [x["cells"] for x in px["indexes"]], [26, 66, 184])
+        check("particle indexes: channels K2, K0, K0", [x["cell"]["channel"] for x in px["indexes"]], [2, 0, 0])
+        check("particle indexes: the accounting identity 6506 = 5880 + 54 + 572", px["accounting"]["identity"], "6506 = 5880 + 54 + 572")
+        check("particle indexes: 572 members, 550 charted, 22 unplaced", [px["accounting"][k] for k in ("members", "charted", "unplaced")], [572, 550, 22])
+        check("particle indexes: every member row carries a status on every coordinate",
+              all(all(c["status"] in STATUS_LEGEND for c in ix["coordinates"]) for ix in pfull["indexes"]), True)
+        check("particle indexes: every row of every index is in the file",
+              [len(ix["rows"]) for ix in pfull["indexes"]], [30, 250, 292])
+        check("particle indexes: the fundamental collisions are four", len(pfull["indexes"][0]["collisions"]), 4)
+        check("particle indexes: the capture's md5 is recorded", bool(px["source"]["capture"] and px["source"]["capture"][0]["md5"]), True)
+        if pfull["quasiparticles"] and pfull["quasiparticles"].get("anyons"):
+            qa = pfull["quasiparticles"]["anyons"]
+            check("quasiparticles: the anyon chart is refused as a theorem", qa["verdict"], "REFUSE-AS-THEOREM")
+            check("quasiparticles: the semion's h is 1/4", next(r["h"] for r in qa["rows"] if r["k"] == 1 and r["J"] == 1), "1/4")
+            check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
+                  [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
     check("papers: the two released papers and the one slot", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
     check("papers: the slot is not held", pp[2]["held"], False)
@@ -2477,16 +2809,24 @@ def main(argv=None):
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--warp-root", default=WARP_ROOT,
+                    help="the research/warp-drive tree the particle indexes are read from "
+                         "(default: the repository's own); absent, the site carries none")
+    ap.add_argument("--warp-commit", default=None,
+                    help="the commit the tree at --warp-root is at, recorded in the index "
+                         "beside the commit its own STATE.json stamps")
     ap.add_argument("--with-particles", action="store_true",
                     help="build the Particles block and the muon balance's instruments; "
                          "off by default because the paper they read is not released")
     args = ap.parse_args(argv)
+    global WARP_COMMIT
+    WARP_COMMIT = args.warp_commit
     if args.selftest:
-        return selftest()
+        return selftest(args.warp_root)
     if args.verify:
         return verify(args.out)
     spectra = populate.Spectra(populate.DEFAULT_SPECTRA)
-    index = build(spectra, out_dir=args.out, with_particles=args.with_particles)
+    index = build(spectra, out_dir=args.out, with_particles=args.with_particles, warp_root=args.warp_root)
     t = index["totals"]
     print("wrote %s: %d elements (%d populated, %d CSV-only), %d rows, "
           "%d measured" % (args.out, len(index["layout"]), t["populated"],

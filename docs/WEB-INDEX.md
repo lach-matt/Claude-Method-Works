@@ -350,6 +350,45 @@ beside them; a printed series limit is shown as printed, with no unit added. The
 by kind, and the console answers `limits <El>`. The exporter's selftest asserts every note is
 classified and every count sums to the rows.
 
+## The particle indexes
+
+**The particles that are not periodic atoms come from the other session's tree.** Under
+`research/warp-drive/` (the warp-drive branch; merged to `main` on the author's decision) DOCKET 27
+seats three indexes over the PDG 2026 table — `fundamental.py` (the 30 Standard Model particles on
+2J, Q3, colour dimension, generation), `mesons.py` (250 mesons on 2J, P, 2I, Q3; 8 set aside for
+want of a printed parity) and `baryons.py` (292 baryons on 2J, P, 2I, Q3, S, C, B; 14 set aside) —
+read from `captures/PDG-2026.tsv`, which `pdgcapture.py` wrote once from the scikit-hep `particle`
+package with the md5 of what it read, and `docket27.py` accounts for the whole table:
+6,506 = 5,880 composite nuclei (the periodic elements, this site's subject) + 54 PDG status-4
+(the fourth generation and the diquarks, on PDG's own flag) + 572 kept, every one a member of one
+of the three; 550 land on a cell and the 22 that do not are named. DOCKET 28, `quasiparticle.py`,
+is the one gap closed with two measured refusals — there is no particle table for quasiparticles
+because the labels are the host crystal's (230 space groups, 32 point groups, 73 arithmetic classes,
+from `sgcapture.py`), and the one exactly specified family, the anyons of SU(2)_k, charts to a
+channel that never moves with the box and is refused as a theorem — and is carried marked *in
+progress*, because the other session is still working on it.
+
+**`webindex.py` imports those instruments by path and retypes nothing.** `particle_index_block`
+puts the warp tree's directory on `sys.path` (its modules import each other by bare name and reach
+`tools/cypher.py` two levels up), calls `rows()`, `index()`, `cell()`, `closers()`, the refusal
+measurements and `docket27.census()`, and writes `data/particles.js` (loaded on demand) with every
+member's coordinates, each coordinate carrying a status — READ where the capture prints it, PINNED
+for the colour assignment the Standard Model's definition fixes, DERIVED for generation from the
+PDG id and for the flavour numbers read off the quark content by the pinned case convention —
+beside the mass and width (READ), the cells, the closure channel, the collisions, the conjugation
+measurement (antimatter, measured rather than seated), and every refused coordinate with the
+measurement that refuses it. `index.particle_index` carries the summary; the Particles dialog draws
+each index by charge and spin, lists every member with its badges, and appends the muon material
+after it where a `--with-particles` build carries that block. The public-build guard runs over
+`particles.js` as it does over the index. The tree is located by `--warp-root` (default
+`research/warp-drive`); when it is absent the site carries no particle indexes and says so, and the
+selftest checks that too. The channel closures take about thirty seconds per build.
+
+**Incorporating the next index the other session seats** is the same contract: an instrument in
+the tree with `rows()`, `index()` and `cell()`, coordinates declared before the chart is run, a
+`SOURCE` beside the code, and a status for every value. Add its coordinates to `PARTICLE_COORDS`,
+its block to `particle_index_block`, and its figures to the selftest.
+
 ## The public build
 
 The books the index is drawn from are unpublished and not peer reviewed, and the author's ruling
