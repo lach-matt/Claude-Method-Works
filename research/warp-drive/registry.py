@@ -33,6 +33,31 @@ quantum numbers.
     refused.  A criterion in a docstring is what let the filing cabinet in.
 
 ===============================================================================
+0b. DOCKET 27 -- THE SUBJECT WIDENS, THE CRITERION DOES NOT
+===============================================================================
+
+M: "This is a valid exception to the registry criteria.  These are legitimate
+particles and can and must be accepted."  And, setting the task: "we are
+essentially filling in the rest of the space in the master index."
+
+    THE CRITERION IS UNTOUCHED.  A member must still carry quantum numbers,
+    `QUANTUM` is still a column, and `enforce()` still refuses a row that names
+    none.  That guard caught a real contamination once and it is not relaxed.
+
+    WHAT WIDENS IS THE SUBJECT.  It was the periodic elements, because that is
+    what the project had.  It is now QUANTUM OBJECTS: a muon carries spin and
+    charge and lepton number, and the only thing keeping it out was a noun in a
+    docstring.  Every one of the rows seated before this ruling still passes --
+    an electron, a subshell, a transition, a term and a nuclide-charge state
+    are all quantum objects -- so the widening ADDS and retracts nothing.
+
+    THE BOUNDARY THAT REMAINS.  Composite nuclei stay out of the particle
+    capture, because they ARE the periodic elements and `gravity` already seats
+    3,394 nuclide-charge states.  `nucshell` was already the exception that
+    proved the old subject too narrow: its members are nuclear, not atomic, and
+    it was seated with a note saying so.
+
+===============================================================================
 1. WHAT IS AN INDEX HERE, AND WHAT IS NOT
 ===============================================================================
 
