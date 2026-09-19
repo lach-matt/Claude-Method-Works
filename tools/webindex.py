@@ -155,7 +155,8 @@ _PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
 # is this repository's own reconstruction, not one of the books, and the two
 # captures are public tables (PDG, spglib) written with their provenance
 PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
-                "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture"}
+                "PDG-2026.tsv": "the PDG capture", "SPACEGROUPS-spglib.tsv": "the space-group capture",
+                "THE-HIERARCHY-LAW.md": "the hierarchy law paper"}
 
 
 def private_hits(text):
@@ -670,11 +671,18 @@ PAPER_SLUGS = {
 }
 # papers the author has named as released to the site but whose file is not
 # in the repository: a slot on the site, held: false, never a fabricated body
-PAPER_SLOTS = [
-    {"slug": "languages", "title": "The hierarchy of mathematical languages", "held": False,
-     "note": "named by the author as released to the site; the paper's file is not yet "
-             "in the repository, so the site lists it and shows nothing in its place"},
-]
+PAPER_SLOTS = []
+# papers released to the site from the research tree rather than the store: the
+# author's own text, in the repository under research/, with no ledger row to
+# check against -- so the md5 is measured at build and the file's last commit
+# recorded beside it, and a PDF beside the text is carried as a download
+_OWN_SECTION_MARKS = {r"\b[Ss]ections?\s+\d", r"§\s?\d"}
+RESEARCH_PAPERS = {
+    "research/warp-drive/paper/THE-HIERARCHY-LAW.md": {
+        "slug": "languages", "short": "the hierarchy law paper",
+        "pdf": "research/warp-drive/paper/pdf/THE-HIERARCHY-LAW.pdf",
+    },
+}
 # the edition history the site shows: the commits that changed public/ or the
 # generator, each with a note written for the site (the commit subjects are
 # git's record, not the site's, and are not shipped)
@@ -918,6 +926,59 @@ def papers_block(out_dir=OUT, write=True, log=print):
             "note": "the paper as the author wrote it, rendered at build; nothing in it is edited "
                     "for the site, and its own citations are its own",
         })
+    for rel, spec in RESEARCH_PAPERS.items():
+        path = os.path.join(REPO, rel)
+        if not os.path.isfile(path):
+            papers.append({"slug": spec["slug"], "short": spec["short"], "title": spec["short"], "held": False, "author": SITE_AUTHOR,
+                           "note": "named by the author as released; its file is not in this tree, so the site lists it and shows nothing in its place"})
+            continue
+        with open(path, "rb") as fh:
+            raw = fh.read()
+        text = raw.decode("utf-8")
+        slug = spec["slug"]
+        figs = []
+
+        def img_r(alt, src, _figs=figs):
+            _figs.append({"ref": src, "file": None, "held": False})
+            return '<span class="fig-missing">[figure %s: not carried]</span>' % html_escape(os.path.basename(src))
+        body, headings = md_to_html(text, {"img": img_r})
+        h1 = next((h for h in headings if h["level"] == 1), None)
+        arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        pdf = None
+        if spec.get("pdf") and os.path.isfile(os.path.join(REPO, spec["pdf"])):
+            with open(os.path.join(REPO, spec["pdf"]), "rb") as fh:
+                pblob = fh.read()
+            prel = "papers/%s/%s" % (slug, os.path.basename(spec["pdf"]))
+            if write:
+                os.makedirs(os.path.join(out_dir, "papers", slug), exist_ok=True)
+                with open(os.path.join(out_dir, prel), "wb") as fh:
+                    fh.write(pblob)
+            pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": _git_last_commit(spec["pdf"])}
+        papers.append({
+            "slug": slug, "short": spec["short"],
+            "title": (h1 or {}).get("text") or spec["short"],
+            "subtitle": _paper_byline(text),
+            "author": SITE_AUTHOR,
+            "held": True,
+            "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
+            "md5_recorded": None,
+            "tree": {"path": rel, "commit": _git_last_commit(rel)},
+            "words": len(text.split()),
+            "headings": headings,
+            "figures": figs,
+            "arxiv": arx, "doi": dois,
+            "pdf": pdf,
+            "html": body,
+            # the guard as a measurement over the paper's text: the section-number patterns are
+            # excluded because the paper numbers its own sections with § and "Section n", which
+            # are its own marks and not citations of the books; every other pattern counts
+            "book_citations": [h for h in private_hits(text) if h not in _OWN_SECTION_MARKS],
+            "own_section_marks": [h for h in private_hits(text) if h in _OWN_SECTION_MARKS],
+            "note": "the paper as the author wrote it, from the repository's research tree rather than the store: "
+                    "no ledger row records its md5, so the md5 is measured at build and the file's last commit "
+                    "is recorded beside it; nothing in it is edited for the site",
+        })
     for slot in PAPER_SLOTS:
         papers.append(dict(slot, author=SITE_AUTHOR))
     blob = (PAPERS_PREFIX + json.dumps(papers, ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
@@ -925,7 +986,7 @@ def papers_block(out_dir=OUT, write=True, log=print):
         with open(os.path.join(out_dir, PAPERS_JS), "wb") as fh:
             fh.write(blob)
     summary = [{k: p.get(k) for k in ("slug", "title", "subtitle", "author", "held", "bytes", "md5",
-                                        "md5_recorded", "words", "note")}
+                                        "md5_recorded", "words", "note", "tree", "pdf")}
                | {"headings": len(p.get("headings", [])), "figures": len(p.get("figures", [])),
                   "figures_ok": all(f.get("ok") for f in p.get("figures", []) if f.get("held")),
                   "arxiv": len(p.get("arxiv", [])), "doi": len(p.get("doi", []))}
@@ -933,6 +994,24 @@ def papers_block(out_dir=OUT, write=True, log=print):
     return {"file": "data/" + PAPERS_JS, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
             "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
             "papers": summary}
+
+
+def _git_last_commit(rel):
+    """The short hash of the last commit that touched `rel`, or None."""
+    try:
+        return subprocess.run(["git", "log", "-1", "--format=%h", "--", rel], cwd=REPO,
+                              capture_output=True, text=True, check=True).stdout.strip() or None
+    except Exception:  # noqa: BLE001 -- not a git checkout
+        return None
+
+
+def _paper_byline(text):
+    """The bold byline of a research paper (author · affiliation · date), or None."""
+    for ln in text.split("\n")[1:12]:
+        s = ln.strip()
+        if s.startswith("**") and "·" in s:
+            return re.sub(r"[*_]", "", s).strip()
+    return None
 
 
 def equation_points(spectra):
@@ -2620,6 +2699,8 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             {"file": "data/index.js", "what": "the index: layout, closure, lattice, references, instruments, fixtures, manifest"},
             {"file": "data/elements/<Z>.js", "what": "one element's record, every ion and channel, with statuses; md5 per file in the manifest"},
             {"file": papers["file"], "bytes": papers["bytes"], "md5": papers["md5"], "what": "the released papers, rendered"},
+            *[{"file": "data/" + p["pdf"]["file"], "bytes": p["pdf"]["bytes"], "md5": p["pdf"]["md5"], "what": "%s, as a PDF; md5 measured at build, commit %s" % (p["title"], p["pdf"]["commit"] or "?")}
+              for p in papers["papers"] if p.get("pdf")],
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"} if pindex else None,
             walk_copy,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
@@ -2835,9 +2916,19 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
                   [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
-    check("papers: the two released papers and the one slot", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
-    check("papers: the slot is not held", pp[2]["held"], False)
-    check("papers: every held paper's md5 is the store's", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"]), True)
+    check("papers: the three released papers, in order", [p["slug"] for p in pp], ["lowdin", "three-body", "languages"])
+    check("papers: all three are held", [p["held"] for p in pp], [True, True, True])
+    check("papers: every paper from the store carries the store's md5", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"] and p["md5_recorded"]), True)
+    check("papers: the hierarchy law paper comes from the research tree with its commit, and its PDF with an md5",
+          (pp[2]["tree"]["path"], bool(pp[2]["tree"]["commit"]), bool(pp[2]["pdf"] and pp[2]["pdf"]["md5"])),
+          ("research/warp-drive/paper/THE-HIERARCHY-LAW.md", True, True))
+    check("papers: the hierarchy law paper is over ten thousand words and opens with the law", (pp[2]["words"] > 10000, pp[2]["title"]), (True, "The Hierarchy Law of Mathematical Languages"))
+    full_papers = json.loads(open(os.path.join(OUT, PAPERS_JS), encoding="utf-8").read()[len(PAPERS_PREFIX):-len(WRAP_SUFFIX)]) if os.path.isfile(os.path.join(OUT, PAPERS_JS)) else []
+    lang = next((p for p in full_papers if p["slug"] == "languages"), None)
+    if lang:
+        check("papers: the hierarchy law paper cites nothing from the books, measured by the guard with its own section marks excluded",
+              (lang["book_citations"], sorted(lang["own_section_marks"])), ([], sorted(_OWN_SECTION_MARKS)))
+        check("papers: its render carries every heading of the source", len(lang["headings"]), sum(1 for ln in open(os.path.join(REPO, "research/warp-drive/paper/THE-HIERARCHY-LAW.md"), encoding="utf-8") if ln.startswith("#")))
     check("papers: every figure a held paper cites is carried with its ledger md5", all(p["figures_ok"] for p in pp if p["held"]), True)
     check("papers: the three-body paper cites 3 figures, the Löwdin paper 3 or more",
           (pp[1]["figures"], pp[0]["figures"] >= 3), (3, True))

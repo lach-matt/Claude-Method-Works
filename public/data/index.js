@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T13:31:34+00:00",
-  "commit": "79e920e0f57a",
+  "built": "2026-09-19T14:22:58+00:00",
+  "commit": "d0021529ab9c",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "79e920e0f57a",
-   "text": "Lach, M. (2026). The Method Index, edition 79e920e0f57a. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 79e920e0f57a}\n}"
+   "commit": "d0021529ab9c",
+   "text": "Lach, M. (2026). The Method Index, edition d0021529ab9c. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition d0021529ab9c}\n}"
   },
   "history": [
    {
@@ -219,13 +219,34 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/79e920e0f57a3e5acfb97709824c4ca9e7cfada2",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "2cb6bc3",
+    "files": 5,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2cb6bc38c01d53ba6dc18a0c0373a64ff393f20c",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "fdf00d5",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fdf00d522c29fc61abd2389735a10780282b0022",
+    "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "d002152",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d0021529ab9c91b0eb353a2f921b80526196046b",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 75290,
-  "md5": "290fd4eb9de42ebea0f88a804a89978d",
+  "bytes": 165542,
+  "md5": "05514ad75a7282ccf971e1af2a4bafb0",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -239,6 +260,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "md5_recorded": "4a06e8930b9f7a7a8226dca2db39e35c",
     "words": 5859,
     "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
+    "tree": null,
+    "pdf": null,
     "headings": 25,
     "figures": 6,
     "figures_ok": true,
@@ -256,6 +279,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "md5_recorded": "f2adca041b5d95d941b40a6e7dfae64c",
     "words": 3636,
     "note": "the paper as the author wrote it, rendered at build; nothing in it is edited for the site, and its own citations are its own",
+    "tree": null,
+    "pdf": null,
     "headings": 16,
     "figures": 3,
     "figures_ok": true,
@@ -264,20 +289,30 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    {
     "slug": "languages",
-    "title": "The hierarchy of mathematical languages",
-    "subtitle": null,
+    "title": "The Hierarchy Law of Mathematical Languages",
+    "subtitle": "Matthew Lach · Independent Researcher · 12 September 2026",
     "author": "Lach, M.",
-    "held": false,
-    "bytes": null,
-    "md5": null,
+    "held": true,
+    "bytes": 67223,
+    "md5": "0907ff3d5aa8fb1a4bb4b199a341271c",
     "md5_recorded": null,
-    "words": null,
-    "note": "named by the author as released to the site; the paper's file is not yet in the repository, so the site lists it and shows nothing in its place",
-    "headings": 0,
+    "words": 11350,
+    "note": "the paper as the author wrote it, from the repository's research tree rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "research/warp-drive/paper/THE-HIERARCHY-LAW.md",
+     "commit": "5bdadaa"
+    },
+    "pdf": {
+     "file": "papers/languages/THE-HIERARCHY-LAW.pdf",
+     "bytes": 1021231,
+     "md5": "1ea3368e06a444b6acdd78eaa3397b31",
+     "commit": "5bdadaa"
+    },
+    "headings": 29,
     "figures": 0,
     "figures_ok": true,
     "arxiv": 0,
-    "doi": 0
+    "doi": 1
    }
   ]
  },
@@ -292,9 +327,15 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 75290,
-   "md5": "290fd4eb9de42ebea0f88a804a89978d",
+   "bytes": 165542,
+   "md5": "05514ad75a7282ccf971e1af2a4bafb0",
    "what": "the released papers, rendered"
+  },
+  {
+   "file": "data/papers/languages/THE-HIERARCHY-LAW.pdf",
+   "bytes": 1021231,
+   "md5": "1ea3368e06a444b6acdd78eaa3397b31",
+   "what": "The Hierarchy Law of Mathematical Languages, as a PDF; md5 measured at build, commit 5bdadaa"
   },
   {
    "file": "data/particles.js",

@@ -642,7 +642,7 @@ public object — with no citing line.
 
 ## Papers, figures, glossary
 
-**Papers.** The two released papers are read on the site, not linked out of it: `papers_block`
+**Papers.** The three released papers are read on the site, not linked out of it: `papers_block`
 renders each from its seated text at build with a small stdlib Markdown renderer (headings,
 paragraphs, lists, blockquotes, fenced code, pipe tables, rules, images; arXiv and DOI identifiers
 linked by pattern), records its md5 against the store's, copies every figure it cites out of the
@@ -651,11 +651,19 @@ archives hold a `fig1_shape_sphere.png` and only one is the paper's) with the le
 measured one, and writes the lot to `data/papers.js`, loaded on demand (`ensurePapers`). The reader
 carries a table of contents, the figures inline, a cite line per paper and the md5. The text is the
 author's own and is shipped as written — the public-build guard is not run over `papers.js`, and
-the three-body paper's own citations of the books stay its own. **The hierarchy of mathematical
-languages paper is a slot** (`PAPER_SLOTS`, `held: false`): the author named it as released, its
-file is not in the repository, and the site lists it and shows nothing in its place. The selftest
-asserts the two papers and the slot, every held paper's md5 against the store, every figure's md5
-against the ledger, and that the render carries every heading of the Löwdin paper.
+the three-body paper's own citations of the books stay its own. **The hierarchy law paper is the third**, and
+it comes from the research tree rather than the store (`RESEARCH_PAPERS`:
+`research/warp-drive/paper/THE-HIERARCHY-LAW.md`, "The Hierarchy Law of Mathematical Languages",
+11,350 words by the generator's count, no figures, a provenance ledger and a verification record of its own). No ledger row
+records its md5, so the md5 is measured at build and the file's last commit is recorded beside it
+(`tree.commit`), the paper card and the reader say so, and the PDF beside it in the tree is copied
+to `data/papers/languages/` and offered as a download with its md5, on the card, in the reader and
+in Provenance. The guard is run over its text as a measurement (`book_citations`, with the two section-number
+patterns excluded and recorded apart as `own_section_marks`, because the paper numbers its own
+sections with § and "Section n"), and the selftest asserts that it cites nothing from the books; the slot mechanism (`PAPER_SLOTS`) stays
+for a paper named before its file arrives. The selftest asserts the three papers in order, every
+store paper's md5 against the store, every figure's md5 against the ledger, the research paper's
+commit and PDF, and that the render carries every heading of the Löwdin paper and of this one.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,
