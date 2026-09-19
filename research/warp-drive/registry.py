@@ -195,6 +195,16 @@ NOT_AN_INDEX = {
     "entropy": "members are the seated indexes",
     "rindex": "members are refusals",
     "necindex": "members are energy conditions",
+    # DOCKET 28.  This one DOES chart quantum objects -- anyons carry
+    # topological charge, spin and quantum dimension -- and it is still not
+    # seated, for a reason that has nothing to do with the criterion:
+    # boxinvariance.verdict_of() returns REFUSE-AS-THEOREM, because the
+    # channel is K2 at every box from k <= 4 to k <= 24.  It is here so the
+    # completeness guard accounts for it rather than being silenced.
+    "quasiparticle": "members ARE quantum objects and the criterion passes -- "
+                     "the chart is refused by BOX INVARIANCE instead, the "
+                     "channel being K2 at every box, so it is a theorem about "
+                     "the SU(2)_k construction and not an index of anyons",
 }
 
 
@@ -475,7 +485,11 @@ def selftest():
         sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
         ["gravity_bound", "madelung_slot"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
-    chk("six modules are excused, with reasons", len(NOT_AN_INDEX), 6)
+    chk("seven modules are excused, with reasons", len(NOT_AN_INDEX), 7)
+    chk("and SIX of the seven are excused by the criterion -- quasiparticle "
+        "is the one excused by BOX INVARIANCE instead",
+        sorted(k for k, v in NOT_AN_INDEX.items() if "criterion passes" in v),
+        ["quasiparticle"])
     chk("every excuse is non-empty",
         [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])
     chk("mi is excused, not registered",
