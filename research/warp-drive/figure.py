@@ -57,9 +57,9 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    18 vertices, 18 distinct cells -- no two seated indexes share a cell
+    19 vertices, 19 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 165
+    E = 193
 
 **ITS OWN CELL IS (0, 5, 9), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
@@ -142,6 +142,20 @@ because it cut both ways and a one-sided report would be a lie by selection.
     whose extra content is exactly the free bit, so all three showed
     join-closure and nothing more.  No chart of arity 3 or more has ever
     reached it here.
+
+    AND NINETEEN.  DOCKET 30 seated `fqh` -- 168 quasiparticles of twelve
+    Laughlin states, K0 -- after M asked why the quasiparticles were not
+    seated.  DOCKET 28 had refused an anyon chart on box invariance, and the
+    re-examination found the TEST was right and the OBJECT was wrong: that
+    chart took SU(2)_k for every k, which is a union over theories and not a
+    reach over data, so nothing about the data was being varied and of course
+    the channel held.  Charted as a reach instead -- one family of one kind of
+    system, indexed by a MEASURED filling fraction -- the channel MOVES, K2 to
+    K0, and the same test seats it.  At nineteen: E 193, own cell (0, 5, 9),
+    resolutions 0.368 / 0.684 / 0.737, channels unchanged at seven of eight.
+
+    DOCKET 28's CHART IS STILL REFUSED and this did not overturn it.  Two
+    different objects, two different verdicts, both on the record.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
@@ -484,9 +498,8 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at eighteen it closes in NOTHING -- the ruling cost it its closure "
-        "at fourteen and neither DOCKET 27's three nor DOCKET 29's one gave "
-        "it back", closers(), [])
+    chk("at nineteen it closes in NOTHING -- the ruling cost it its closure "
+        "at fourteen and nothing since has given it back", closers(), [])
     own, occ = self_cell()
     chk("it has its own cell", own, (0, 5, 9))
     chk("SEVEN of the eight channels are occupied; only K4 is not -- "
@@ -501,9 +514,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6842))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7778))
+        (res["width"][1], res["width"][0]), ("measurement", 0.7368))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

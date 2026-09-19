@@ -141,9 +141,12 @@ DOCKETS = (
      "fetch, the anyons of SU(2)_k, charts but is REFUSED BY BOX INVARIANCE: "
      "the channel is K2 at every box from k<=4 to k<=24 while the cell moves "
      "at every box, so it is a theorem about the construction.",
-     "A materials database of phonon modes with each mode's irrep IS a "
-     "legitimate member set. It needs a real fetch and is not what DOCKET 27 "
-     "asked for."),
+     "PARTLY SUPERSEDED BY DOCKET 30, and the half that stands is the first: "
+     "there is still no particle table for the textbook quasiparticles. What "
+     "DOCKET 30 overturned is the SCOPE of the second -- the anyon refusal was "
+     "of the wrong object, not of anyons. A materials database of phonon modes "
+     "with each mode's irrep remains a legitimate member set nobody has "
+     "fetched."),
     ("29", "CLOSED",
      "Has every index the particle member sets admit been found, or only "
      "every particle been made a member?",
@@ -162,6 +165,26 @@ DOCKETS = (
      "empty, and all three charts that ever reached K4 were arity 2.",
      "A chart of arity 3 or more reaching K4 would fill the last channel. "
      "None exists anywhere in this tree."),
+    ("30", "CLOSED",
+     "M: \"And they need to be seated. Why were the indexes not seated?\"",
+     "TWO REASONS, AND ONLY ONE WAS A JUDGEMENT CALL. The textbook "
+     "quasiparticles have no member set of the right shape and that is "
+     "unchanged -- four kinds on two cells, every distinguishing number the "
+     "host's. The ANYON refusal was re-examined and DOCKET 28 HAD REFUSED THE "
+     "WRONG OBJECT: it charted SU(2)_k for every k, which is a UNION OVER "
+     "THEORIES and not a reach over data, so the box varied which universes "
+     "were included rather than how much data there was, and of course the "
+     "channel never moved. The test was right; the object was wrong. Rebuilt "
+     "as a reach -- fqh.py, the quasiparticles of the Laughlin states, indexed "
+     "by a MEASURED filling fraction -- THE CHANNEL MOVES (K2 then K0) and "
+     "boxinvariance.verdict_of() returns SEAT. 168 members over twelve states, "
+     "30 cells, cell (0, 15, 4). Three of the twelve states are observed and "
+     "the e/3 quasiparticle's charge was measured by shot noise in 1997. A "
+     "theorem fell out: NOT ONE of the 168 is a fermion, forced because "
+     "theta/pi = j^2/m is a half only if m divides 2j^2 and m is odd.",
+     "DOCKET 28's chart stays refused -- this is a different object, not an "
+     "overrule, and both verdicts are on the record. The non-abelian states "
+     "(Moore-Read, Read-Rezayi) are a further member set and are not here."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a

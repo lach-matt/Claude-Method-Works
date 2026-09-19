@@ -192,6 +192,18 @@ REGISTERED = (
     ("overlaprule", "baryon_isomultiplet", "TABLE",
      "the same 278 baryons, isospin against charge with flavour dropped",
      "2I, Q3"),
+    # ---- DOCKET 30.  M: "And they need to be seated.  Why were the indexes
+    # not seated?"  DOCKET 28 refused an anyon chart on box invariance and the
+    # refusal was sound FOR THE CHART IT RAN ON -- which charted SU(2)_k for
+    # every k, a UNION OVER THEORIES rather than a reach over data.  fqh.py
+    # charts a reach instead: the quasiparticles of the Laughlin states,
+    # indexed by a MEASURED filling fraction.  The channel MOVES with the box
+    # (K2 then K0), so boxinvariance.verdict_of() returns SEAT.  DOCKET 28's
+    # chart stays refused; this is a different object, not an overrule.
+    ("fqh", "index", "TABLE",
+     "168 quasiparticles of twelve Laughlin states, three of them observed",
+     "statistics class, order of the exchange phase, order of the charge, "
+     "inverse filling fraction"),
 )
 
 NOT_AN_INDEX = {
@@ -472,8 +484,8 @@ def selftest():
          and "recovered/" not in v["why"]], [])
     chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
-        "27's three particle indexes, and DOCKET 29's K5",
-        len(REGISTERED), 18)
+        "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
+        "quasiparticles", len(REGISTERED), 19)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED
