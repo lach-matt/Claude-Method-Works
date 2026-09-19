@@ -120,6 +120,17 @@
           <button type="button" id="assist-stop" class="btn" hidden>Stop</button>
           <button type="button" id="assist-clear" class="btn">Clear</button>
         </div>
+        <details id="ask-settings" class="ask-settings">
+          <summary>Ask a model, with a machine check</summary>
+          <p class="note">With a key, <em>Ask</em> also sends the question to Claude with web search on: the model searches for context and method, applies it to the data this page has loaded, and the page then checks its answer — every figure it cites against the index, every computation against the page's own library, every chemical equation for conservation of atoms and charge. The key stays in this browser and is sent only to the API address below.</p>
+          <div class="ask-grid">
+            <label>API key <input id="ask-key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-…"></label>
+            <label>model <select id="ask-model"><option value="claude-opus-5">claude-opus-5</option><option value="claude-sonnet-5">claude-sonnet-5</option><option value="claude-fable-5-1">claude-fable-5-1</option></select></label>
+            <label>API address <input id="ask-proxy" type="url" placeholder="https://api.anthropic.com (or your proxy)" spellcheck="false"></label>
+            <label class="ask-check"><input id="ask-search" type="checkbox" checked> web search, up to <input id="ask-searches" type="number" min="0" max="10" value="5" class="ask-small"> searches</label>
+          </div>
+          <div class="assist-row"><button type="button" id="ask-save" class="btn">Save in this browser</button><button type="button" id="ask-forget" class="btn">Forget the key</button><span class="note" id="ask-state"></span></div>
+        </details>
         <div id="assist-out" class="resp" aria-live="polite"></div>
       </section>
 
@@ -221,6 +232,8 @@
       <dl>
         <dt>edition</dt><dd>The commit the data was built from, shown after the subtitle and in every citation line. The Provenance panel lists every edition.</dd>
         <dt>the explorer computes nothing</dt><dd>Every value the explorer shows was serialised at build from the generator; the browser reads and draws. Only the solver suite computes, and each solver carries a selftest against exported numbers.</dd>
+        <dt>machine check</dt><dd>What the page does to a model's answer: resolves every cited path against the loaded data, repeats every stated computation with its own library, tallies every chemical equation for conservation of atoms and charge, and counts the numbers left unmarked. A mismatch is reported beside the model's words and never corrected.</dd>
+        <dt>⟦path⟧, ⟪f(args) = v⟫, ⦃equation⦄</dt><dd>The three markers a model is instructed to use so the page can check it: a citation of a figure by its path in the data, a computation the page can repeat, and a chemical equation the page can balance-check.</dd>
         <dt>a finding is recorded, never repaired</dt><dd>Where two sources disagree, both values are shown with their statuses; the site does not choose.</dd>
       </dl>
     </div>
@@ -246,6 +259,8 @@
       </ul>
       <h3>Query the index</h3>
       <p>The console answers deterministically from the loaded data: <code>help</code>, <code>go Fe II d 3</code>, <code>axes</code>, <code>closure</code>, <code>sources</code>, <code>caveats</code>, <code>count</code>, <code>measured Fe</code>, <code>residuals Fe</code>, <code>B Pd</code>, <code>ladder Fe</code>. When the page runs as a claude.ai artifact a second answerer, Claude, is offered beside it and is always labelled; it is instructed to answer only from the selected record and to name the status of every number it quotes.</p>
+      <h3>Ask a model, with a machine check</h3>
+      <p>The console answers only from the loaded data. With an API key saved under <em>Ask a model</em>, the same button also sends the question to Claude with web search on. The model is told to search for context and method, to apply them to the data the page hands it, and to mark its work: every figure it takes from the index as <code>⟦path⟧</code>, every computation as <code>⟪function(args) = value⟫</code>, every chemical equation as <code>⦃equation⦄</code>. The page then checks the answer rather than trusting it — each citation is resolved against the loaded data and its value compared, each computation is repeated with the page's own solver library, each equation is tallied for conservation of atoms and charge with every element linked to its record — and the count of numbers the model stated with no marker is reported as unverified. A mismatch is shown beside the model's words, never corrected. The console command <code>check</code> runs the same checker over any pasted text. The ninth solver mode checks a chemical equation on its own. Nothing here writes a laboratory procedure, by decision.</p>
       <h3>Particles and references</h3>
       <p><em>Particles</em> opens the three indexes of the particles that are not periodic atoms — the 30 fundamental particles of the Standard Model, the 250 mesons and the 292 baryons of the Particle Data Group's 2026 table, read at build from the instruments that seat them: every member with its coordinates and their statuses, the cells and the closure channel, the collisions, antimatter measured as the conjugation map, every refused coordinate with the measurement that refuses it, the accounting of the whole table (6,506 = 5,880 nuclei + 54 status-4 + 572 kept), and the quasiparticle finding, in progress. Where this build carries it, the dialog then opens what the sources state of the binders and particles beyond the electron — the muon and its window [119, 918] mₑ with the paper's energy balance as an instrument, the pion, tau, kaon, antiproton and Σ⁻ it excludes, antimatter and the exotic atoms by CPT and reduced mass, antiprotonic helium's worked cell, the photon's single restored cell, the 27 constants of Λ_phys, and the terms counted absent from the sources — every figure read from the passage that states it, with its status, and none of them a lattice figure, because the lattice carries configuration and not scale. The eighth solver mode runs the muon energy balance over sticking, density and the production cost, and refuses below the kinematic floor. <em>References</em> lists every outward identifier the sources cite — NIST ASD with its DOI, and the arXiv and DOI identifiers, each quoted only from a paper released to the site — and links them by construction; a compilation named without an identifier is cited as a string. A measured cell's plate links its source the same way, and no target is invented.</p>
       <h3>What computes and what does not</h3>

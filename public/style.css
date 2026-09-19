@@ -537,3 +537,24 @@ tr.is-current td { background: var(--accent-soft, rgba(31, 78, 140, 0.08)); }
 .particle-table tr.is-unplaced td { color: var(--muted); }
 .muted { color: var(--muted); }
 details > summary { cursor: pointer; font-weight: 600; margin: 10px 0 6px; }
+
+/* ---- ask a model, with a machine check ---- */
+.ask-settings { margin-top: 10px; border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 12px 10px; font-size: 12.5px; }
+.ask-settings > summary { font-weight: 600; cursor: pointer; }
+.ask-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin: 8px 0 4px; }
+.ask-grid label { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); }
+.ask-grid input, .ask-grid select { font: inherit; font-size: 12.5px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); }
+.ask-grid label.ask-check { flex-direction: row; align-items: center; gap: 6px; grid-column: 1 / -1; }
+.ask-small { width: 54px; }
+.resp-who.is-model .tag { color: var(--st-recovered); }
+.chk { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; padding: 0 5px; border-radius: 3px; border: 1px solid currentColor; margin: 0 2px; vertical-align: baseline; }
+.chk-ok { color: var(--st-derived, #3a7d44); }
+.chk-bad { color: #b3261e; }
+.chk-warn { color: #b5651d; }
+.chk-none { color: var(--muted); }
+.resp-answer { padding: 8px 10px; font-size: 13px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; max-height: 520px; overflow: auto; }
+.resp-checks { padding: 6px 10px 10px; border-top: 1px solid var(--line); font-size: 12px; }
+.resp-checks table { width: 100%; }
+.resp-sources { padding: 6px 10px 10px; border-top: 1px solid var(--line); font-size: 12px; }
+.resp-sources a { color: var(--accent); }
+@media (max-width: 720px) { .ask-grid { grid-template-columns: 1fr; } }

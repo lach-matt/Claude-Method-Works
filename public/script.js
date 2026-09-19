@@ -2736,6 +2736,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   cite                the site's cite line at this edition
   history             every edition of the site
   glossary            where the terms are defined
+  check <text>        the machine check over pasted text with the markers ⟦path⟧ ⟪f(args) = v⟫ ⦃equation⦄
 <El> is a symbol, a Z or a name; the element is loaded if it is not yet. An unknown input prints this text.`;
 
   function findElement(tok) {
@@ -2804,6 +2805,17 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         if (/proton|nucle/.test(term)) out.push(`proton: m_p/m_e = ${(pt.constants.rows.find((c) => /mass ratio/.test(c.name)) || {}).value} in Lambda_phys ${st('PINNED')}; nuclear supply 37 rows (Angeli & Marinova 2013; AME2020) — see the References dialog`);
         Object.keys(pt.absent.terms).forEach((t) => { if (term.includes(t.toLowerCase())) { const a = pt.absent.terms[t]; out.push(`${t}: ${a.occurrences ? a.occurrences + ' occurrences, first at ' + a.first.file + ' L' + a.first.line : 'absent from the sources — counted at build, not a cell of the lattice'} ${st(pt.absent.status)}`); } });
         return out.length ? out.join('\n') : `nothing in the particles block matches "${term}"` + (flat.toLowerCase().includes(term) ? ' by name, though the term occurs in a passage; open Particles' : '');
+      }
+      case 'check': {
+        const text = q.slice(5).trim(); if (!text) return 'check <text>: runs the machine check over any pasted text that uses the markers ⟦path⟧, ⟪f(args) = v⟫ and ⦃equation⦄';
+        const L = window.MI && window.MI.solverLib; if (!L || !L.checkAnswer) return 'the solver module is not loaded';
+        const zs = new Set(); let mm; const erx = /⟦el\/(\d+)\//g; while ((mm = erx.exec(text)) !== null) zs.add(+mm[1]);
+        await Promise.allSettled([...zs].map((Z) => ensureElement(Z)));
+        if (/⟦pi\//.test(text) && ix.particle_index) await ensureParticleIndex().catch(() => null);
+        const r = L.checkAnswer(text, askResolve, askCompute);
+        return [r.summary, ...r.citations.map((c) => `  ⟦${c.path}⟧ ${c.verdict}${c.value !== null && c.value !== undefined ? ' — index: ' + JSON.stringify(c.value) + (c.status ? ' [' + c.status + ']' : '') : ''}`),
+          ...r.computations.map((c) => `  ⟪${c.name}(${c.args.join(', ')})⟫ ${c.verdict}${typeof c.value === 'number' ? ' — page: ' + c.value : ''}`),
+          ...r.equations.map((e) => `  ⦃${e.text}⦄ ${e.verdict}${e.result.atoms ? ' — ' + e.result.atoms.map((a) => a.element + ' ' + a.left + '→' + a.right).join(', ') + '; charge ' + e.result.charge.left + '→' + e.result.charge.right : ''}`)].join('\n');
       }
       case 'papers': {
         const pp = (ix.papers || {}).papers || []; if (!pp.length) return 'this build carries no papers block';
@@ -3038,6 +3050,171 @@ ${cav}
 QUESTION: ${question}`;
   }
 
+
+  // ---------------------------------------------------------------- ask a model, with a machine check
+  // The page never answers a question itself. With a key saved in this browser it sends the
+  // question to Claude with web search on, hands the model the data it has loaded as cited
+  // lines, and then CHECKS the answer with the solver module's checker: every ⟦path⟧ resolved
+  // against the data, every ⟪computation⟫ repeated with the page's own library, every
+  // ⦃equation⦄ tallied for conservation. A mismatch is shown, never corrected.
+  const ASK_KEY = 'ask.settings';
+  function askSettings() {
+    let s = {};
+    try { s = JSON.parse(localStorage.getItem(ASK_KEY) || '{}') || {}; } catch (e) { s = {}; }
+    return { key: s.key || '', model: s.model || 'claude-opus-5', proxy: s.proxy || '', search: s.search !== false, searches: Number.isFinite(+s.searches) ? +s.searches : 5 };
+  }
+  function saveAskSettings(s) { try { localStorage.setItem(ASK_KEY, JSON.stringify(s)); } catch (e) { /* storage unavailable */ } }
+  const ASK_STATUS = {
+    delta: 'READ', delta_equation: 'PINNED', p: 'PINNED', n0: 'RECONSTRUCTED', B_computed: 'PINNED', B: 'PINNED', limit: 'READ', residual: 'DERIVED',
+    shells_as_printed: 'READ', configuration: 'READ', level: 'READ', symbol: 'READ', electron_count: 'DERIVED', E: 'PINNED', held: 'PINNED', admitted: 'PINNED',
+    A: 'PINNED', K: 'PINNED', H: 'PINNED', E0: 'PINNED', E1: 'PINNED', mass_MeV: 'READ', width_MeV: 'READ',
+  };
+  function askStatusFor(path, container, key) {
+    if (container && typeof container === 'object' && container.status && typeof container.status === 'string') return container.status;
+    return ASK_STATUS[key] || null;
+  }
+  // the data the model may cite, as "path = value [STATUS]" lines; every path resolves in askResolve
+  function contextLines(question) {
+    const ix = state.index, lines = [], q = question || '';
+    const push = (path, value, status) => { if (value === null || value === undefined) return; lines.push(`${path} = ${typeof value === 'object' ? JSON.stringify(value) : value}${status ? ' [' + status + ']' : ''}`); };
+    const c = ix.closure || {};
+    push('index/closure/held', c.held, 'PINNED'); push('index/closure/admitted', c.admitted, 'PINNED'); push('index/closure/E', c.E, 'PINNED');
+    const eq = ix.equation || {};
+    ['A', 'K', 'H', 'E0', 'E1'].forEach((k) => push('index/equation/' + k, eq[k], 'PINNED'));
+    if (eq.form) push('index/equation/form', eq.form, 'PINNED');
+    const rep = (ix.fixtures || {}).equation_report;
+    if (rep) { push('index/fixtures/equation_report/rms', rep.rms, 'DERIVED'); push('index/fixtures/equation_report/R2', rep.R2, 'DERIVED'); push('index/fixtures/equation_report/channels', rep.channels, 'DERIVED'); }
+    // elements the question names
+    const zs = new Set();
+    (ix.layout || []).forEach((e) => {
+      if (new RegExp('(^|[^A-Za-z])' + e.symbol + '(?![a-z])').test(q)) zs.add(e.Z);
+      if (e.name && new RegExp('\\b' + e.name + '\\b', 'i').test(q)) zs.add(e.Z);
+    });
+    let m; const zrx = /\bZ\s*=\s*(\d{1,3})\b/g; while ((m = zrx.exec(q)) !== null) zs.add(+m[1]);
+    if (!zs.size && state.selected && state.selected.Z) zs.add(state.selected.Z);
+    const elements = [...zs].slice(0, 6).map((Z) => state.elements.get(Z)).filter(Boolean);
+    elements.forEach((rec) => {
+      const b = `el/${rec.Z}`; let n = 0;
+      push(b + '/symbol', rec.symbol, 'READ'); push(b + '/shells_as_printed', rec.shells_as_printed, 'READ'); push(b + '/level', rec.level, 'READ');
+      push(b + '/electron_count', rec.electron_count, 'DERIVED'); push(b + '/period', rec.period, 'DERIVED'); push(b + '/group', rec.group, 'DERIVED');
+      if (rec.closure) push(b + '/closure/cell_held', rec.closure.cell_held, 'PINNED');
+      if (rec.series_limit) { push(b + '/series_limit/value', rec.series_limit.value, rec.series_limit.status); }
+      (rec.channels || []).forEach((ch, i) => {
+        if (n > 90) return;
+        const cb = `${b}/channels/${i}`;
+        push(cb + '/charge', ch.charge, 'READ'); push(cb + '/l', ch.l, 'READ'); push(cb + '/p', ch.p, 'PINNED'); push(cb + '/n0', ch.n0, 'RECONSTRUCTED'); push(cb + '/B_computed', ch.B_computed, 'PINNED'); push(cb + '/delta_equation', ch.delta_equation, 'PINNED'); n += 6;
+        (ch.measured || []).forEach((mr, j) => { push(`${cb}/measured/${j}/mult`, mr.mult, 'READ'); push(`${cb}/measured/${j}/delta`, mr.delta, 'READ'); if (mr.limit !== null && mr.limit !== undefined) push(`${cb}/measured/${j}/limit`, mr.limit, 'READ'); n += 3; });
+      });
+      (rec.lambda8 || []).slice(0, 12).forEach((st, i) => push(`${b}/lambda8/${i}`, { charge: st.charge, from: st.from, to: st.to, cell: st.cell }, 'RECONSTRUCTED'));
+    });
+    // particles the question names
+    const pi = state.particleIndex;
+    if (pi) {
+      const want = /\b(muon|pion|kaon|proton|neutron|antiproton|positron|electron|neutrino|photon|gluon|higgs|quark|lepton|meson|baryon|hadron|boson|fermion|anyon|quasiparticle|laughlin|hall)\b/i.test(q);
+      const named = [];
+      pi.indexes.forEach((ixp) => ixp.rows.forEach((r) => { if (q.toLowerCase().includes(r.name.toLowerCase().replace(/[()~*]/g, '')) && r.name.length > 1) named.push([ixp, r]); }));
+      if (want || named.length) {
+        push('pi/accounting/identity', pi.accounting.identity, 'READ'); push('pi/accounting/charted', pi.accounting.charted, 'DERIVED');
+        pi.indexes.forEach((ixp) => { push(`pi/${ixp.id}/members`, ixp.members, 'READ'); push(`pi/${ixp.id}/cells`, ixp.cells, 'DERIVED'); push(`pi/${ixp.id}/coordinates`, ixp.coordinates.map((c) => c.name), 'PINNED'); });
+        const rows = named.length ? named : [];
+        if (!rows.length && want) { const f = pi.indexes[0]; f.rows.forEach((r) => rows.push([f, r])); }
+        rows.slice(0, 40).forEach(([ixp, r]) => { const i = ixp.rows.indexOf(r); ixp.coordinates.forEach((cd, k) => push(`pi/${ixp.id}/rows/${i}/coords/${k}`, r.coords[k], cd.status)); push(`pi/${ixp.id}/rows/${i}/name`, r.name, 'READ'); push(`pi/${ixp.id}/rows/${i}/extra/mass_MeV`, r.extra.mass_MeV, 'READ'); });
+        const fq = pi.quasiparticles && pi.quasiparticles.seated;
+        if (fq && /anyon|quasiparticle|laughlin|hall/i.test(q)) { push('pi/fqh/members', fq.members, 'DERIVED'); push('pi/fqh/cells', fq.cells, 'DERIVED'); fq.rows.slice(0, 40).forEach((r, i) => push(`pi/fqh/rows/${i}`, { m: r.m, j: r.j, Q: r.Q, theta: r.theta, coords: r.coords }, 'DERIVED')); }
+      }
+    }
+    return { lines: lines.slice(0, 700), elements: elements.map((r) => r.Z) };
+  }
+  // the resolver the checker uses: a path from the context lines back to the loaded value
+  function askResolve(path) {
+    const parts = String(path).split('/').filter(Boolean);
+    let root = null, i = 0;
+    if (parts[0] === 'index') { root = state.index; i = 1; }
+    else if (parts[0] === 'el') { root = state.elements.get(+parts[1]) || null; i = 2; }
+    else if (parts[0] === 'pi') {
+      const pi = state.particleIndex; if (!pi) return null;
+      if (parts[1] === 'accounting') { root = pi.accounting; i = 2; }
+      else if (parts[1] === 'fqh') { root = pi.quasiparticles && pi.quasiparticles.seated; i = 2; }
+      else { root = pi.indexes.find((x) => x.id === parts[1]) || null; i = 2; if (root && parts[2] === 'coordinates') return { value: root.coordinates.map((c) => c.name), status: 'PINNED' }; }
+    }
+    if (!root) return null;
+    let cur = root, parent = null, key = null;
+    for (; i < parts.length; i++) { if (cur === null || typeof cur !== 'object') return null; parent = cur; key = parts[i]; cur = Array.isArray(cur) ? cur[+key] : cur[key]; if (cur === undefined) return null; }
+    let status = askStatusFor(path, cur, key);
+    if (parts[0] === 'pi' && parts[2] === 'rows' && parts[4] === 'coords' && root.coordinates) status = (root.coordinates[+parts[5]] || {}).status || status;
+    return { value: cur, status: status };
+  }
+  function askCompute(name, args) {
+    const L = window.MI && window.MI.solverLib; if (!L) return null;
+    const num = (v) => (typeof v === 'number' ? v : null);
+    if (name === 'channel_delta') { const rec = state.elements.get(num(args[0])); if (!rec) return null; const ch = (rec.channels || []).find((c) => c.charge === num(args[1]) && c.l === num(args[2])); return ch ? ch.delta_equation : null; }
+    if (name === 'pauli_bound') return (args.length === 3 && args.every((a) => typeof a === 'number')) ? L.pauliBound(args[0], args[1], args[2]) : null;
+    if (name === 'collapse_C') return (args.length === 2) ? L.collapseC(args[0], args[1], L.collapseParams(state.index)) : null;
+    if (name === 'core_p' || name === 'n0_of') { const rec = state.elements.get(num(args[0])); if (!rec || !rec.configuration) return null; return name === 'core_p' ? L.coreP(rec.configuration, args[1]) : L.n0Of(rec.configuration, args[1]); }
+    if (name === 'closure_E') return (state.index.closure || {}).E;
+    return undefined;
+  }
+  function askSystem() {
+    return `You answer questions about chemistry and physics for readers of The Method Index, a public research site whose data you are handed below as cited lines. Method:
+1. Use web search first for context and method: definitions, standard procedures, published values, the way a question of this kind is normally solved. Cite what you used.
+2. Then apply that method to the DATA lines: every figure you take from them must be followed by its path in the marker ⟦path⟧, copied exactly. Do not invent paths. If the data lacks what you need, say "not in the index" for that part and continue with what web sources give, marked as theirs.
+3. Every calculation you perform with the site's own instruments must be written as ⟪function(args) = value⟫ so the page can repeat it. Available: channel_delta(Z, charge, l), pauli_bound(p, n0, l), collapse_C(Z, l), core_p(Z_core, l), n0_of(Z_core, l), closure_E(). Other arithmetic: show it in plain text.
+4. Every chemical equation you write goes on its own line inside ⦃ ⦄, with spaces around + signs, charges as Fe3+ or SO4^2- or e-, and the arrow → . The page will tally atoms and charge.
+5. Never say the page verified, confirmed or validated anything: the page checks your answer after you write it, and you do not know the result. Do not claim a status for a value; the page attaches statuses.
+6. Do not write laboratory procedures or safety instructions.
+Plain prose, at most 350 words, then a line "Sources:" with the web sources you used.`;
+  }
+  async function askModel(question, context, settings, signal) {
+    const base = (settings.proxy || 'https://api.anthropic.com').replace(/\/+$/, '');
+    const body = {
+      model: settings.model, max_tokens: 3000, system: askSystem(),
+      messages: [{ role: 'user', content: `DATA (path = value [STATUS]):\n${context.lines.join('\n')}\n\nQUESTION: ${question}` }],
+    };
+    if (settings.search && settings.searches > 0) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: settings.searches }];
+    const res = await fetch(base + '/v1/messages', {
+      method: 'POST', signal,
+      headers: { 'content-type': 'application/json', 'x-api-key': settings.key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify(body),
+    });
+    const j = await res.json().catch(() => null);
+    if (!res.ok) throw new Error(`${res.status} ${(j && j.error && j.error.message) || res.statusText}`);
+    const text = (j.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('');
+    const sources = new Map();
+    (j.content || []).forEach((b) => {
+      if (b.type === 'web_search_tool_result' && Array.isArray(b.content)) b.content.forEach((r) => { if (r.url) sources.set(r.url, r.title || r.url); });
+      if (b.type === 'text' && Array.isArray(b.citations)) b.citations.forEach((c) => { if (c.url) sources.set(c.url, c.title || c.url); });
+    });
+    return { text, sources: [...sources.entries()].map(([url, title]) => ({ url, title })), usage: j.usage || null, searches: (j.usage && j.usage.server_tool_use && j.usage.server_tool_use.web_search_requests) || 0 };
+  }
+  function chk(cls, text, tip) { return `<span class="chk chk-${cls}" title="${esc(tip || '')}">${esc(text)}</span>`; }
+  function renderChecked(host, text, sources, ctx) {
+    const L = window.MI && window.MI.solverLib;
+    if (!L || !L.checkAnswer) { host.innerHTML = `<div class="resp-answer">${esc(text)}</div><div class="resp-checks">the solver module is not loaded, so this answer is unchecked</div>`; return null; }
+    const r = L.checkAnswer(text, askResolve, askCompute);
+    const marks = [];
+    r.citations.forEach((c) => marks.push({ at: c.at, len: c.len, html: c.verdict === 'matches' ? chk('ok', '✓ ' + c.path.split('/').slice(-2).join('/') + (c.status ? ' · ' + c.status : ''), `index value ${c.value}`) : c.verdict === 'cited' ? chk('ok', '✓ cited' + (c.status ? ' · ' + c.status : ''), `index value ${JSON.stringify(c.value)}`) : c.verdict === 'DIFFERS' ? chk('bad', '✗ index says ' + c.value + (c.status ? ' · ' + c.status : ''), c.path) : c.verdict === 'not in the index' ? chk('bad', '✗ not in the index', c.path) : chk('warn', '? ' + c.verdict, c.path) }));
+    r.computations.forEach((c) => marks.push({ at: c.at, len: c.len, html: c.verdict === 'agrees' ? chk('ok', `✓ ${c.name} = ${typeof c.value === 'number' ? +c.value.toFixed(6) : c.value}`, 'repeated by the page') : c.verdict === 'DIFFERS' ? chk('bad', `✗ ${c.name}: the page gets ${typeof c.value === 'number' ? +c.value.toFixed(6) : c.value}, the model wrote ${c.stated}`) : chk('warn', `? ${c.name}: ${c.verdict}`) }));
+    r.equations.forEach((e) => marks.push({ at: e.at, len: e.len, html: `<span class="mono">${esc(e.text)}</span> ` + (e.verdict === 'balanced' ? chk('ok', '✓ balanced', e.result.atoms.map((a) => `${a.element} ${a.left}→${a.right}`).join(', ')) : e.verdict === 'NOT balanced' ? chk('bad', '✗ not balanced', e.result.atoms.filter((a) => !a.ok).map((a) => `${a.element} ${a.left}→${a.right}`).concat(e.result.charge.ok ? [] : [`charge ${e.result.charge.left}→${e.result.charge.right}`]).join(', ')) : chk('warn', '? unreadable', e.result.error || e.result.errors.join('; '))) }));
+    marks.sort((a, b) => a.at - b.at);
+    let html = '', pos = 0;
+    marks.forEach((mk) => { html += esc(text.slice(pos, mk.at)) + mk.html; pos = mk.at + mk.len; });
+    html += esc(text.slice(pos));
+    const eqRows = r.equations.map((e) => `<tr><td class="mono wrap">${esc(e.text)}</td><td>${e.verdict}</td><td class="wrap">${e.result.atoms ? e.result.atoms.map((a) => `${a.element}${a.Z ? ' (Z ' + a.Z + ')' : ''} ${a.left}→${a.right}`).join(', ') + `; charge ${e.result.charge.left}→${e.result.charge.right}` : esc(e.result.error || '')}</td></tr>`).join('');
+    host.innerHTML = `<div class="resp-answer">${html}</div>
+      <div class="resp-checks"><b>Machine check:</b> ${esc(r.summary)}.${eqRows ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>equation</th><th>verdict</th><th>tally</th></tr></thead><tbody>${eqRows}</tbody></table></div>` : ''}</div>
+      ${sources && sources.length ? `<div class="resp-sources"><b>Web sources the model used:</b> ${sources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title || s.url)}</a>`).join(' · ')}</div>` : ''}`;
+    return r;
+  }
+  function setupAsk() {
+    const s = askSettings();
+    $('#ask-key').value = s.key; $('#ask-model').value = s.model; $('#ask-proxy').value = s.proxy; $('#ask-search').checked = s.search; $('#ask-searches').value = s.searches;
+    const stateEl = $('#ask-state');
+    const show = () => { const cur = askSettings(); stateEl.textContent = cur.key ? `key saved · ${cur.model}${cur.search ? ' · web search on' : ''}` : 'no key: the console answers alone'; $('#assist-run').textContent = cur.key ? 'Ask · console + model, checked' : RUN_LABEL.console; };
+    $('#ask-save').addEventListener('click', () => { saveAskSettings({ key: $('#ask-key').value.trim(), model: $('#ask-model').value, proxy: $('#ask-proxy').value.trim(), search: $('#ask-search').checked, searches: +$('#ask-searches').value || 0 }); show(); });
+    $('#ask-forget').addEventListener('click', () => { const cur = askSettings(); cur.key = ''; saveAskSettings(cur); $('#ask-key').value = ''; show(); });
+    show();
+  }
+
   function respBlock(who, cls) {
     const out = $('#assist-out');
     const b = document.createElement('div');
@@ -3055,7 +3232,9 @@ QUESTION: ${question}`;
       const c = respBlock('console', 'is-console');
       c.note.textContent = 'deterministic, from the loaded data';
       c.body.textContent = '…';
-      try { c.body.textContent = await consoleAnswer(q); } catch (err) { c.body.textContent = `console error: ${err.message}`; }
+      const isCommand = /^(help|go|axes|closure|sources|caveats|count|measured|residuals|B|ladder|limits|relativistic|walk|lattice|particles|particle|references|refs|papers|figures|cite|history|editions|glossary|check)\b/i.test(q.trim());
+      if (!isCommand && q.trim() && askSettings().key) c.body.textContent = 'not a console command; the question goes to the model below (type help for the commands)';
+      else { try { c.body.textContent = await consoleAnswer(q); } catch (err) { c.body.textContent = `console error: ${err.message}`; } }
       if (claude.fn && q.trim()) {
         const k = respBlock('Claude', 'is-claude');
         k.note.textContent = 'claude.ai artifact runtime · instructed to answer only from the selected record; not checked by the page';
@@ -3072,6 +3251,31 @@ QUESTION: ${question}`;
           else if (code === 'rate_limited') k.body.textContent = 'Claude: rate limited — too many calls; try again later.';
           else if (code === 'cancelled') k.body.textContent = (e.text || '') + '\n[stopped]';
           else k.body.textContent = `${e && e.text ? e.text + '\n' : ''}Claude: ${code || 'error'}${e && e.message ? ` — ${e.message}` : ''}`;
+        } finally { stop.hidden = true; run.disabled = false; claude.ctl = null; }
+      }
+      const settings = askSettings();
+      if (settings.key && q.trim() && !/^(help|go|axes|closure|sources|caveats|count|measured|residuals|B|ladder|limits|relativistic|walk|lattice|particles|particle|references|refs|papers|figures|cite|history|editions|glossary|check)\b/i.test(q.trim())) {
+        const k = respBlock('model', 'is-model');
+        k.note.textContent = `${settings.model}${settings.search ? ' with web search' : ''} · grounded on the loaded data · checked by the page after it answers`;
+        const bodyHost = k.body; bodyHost.textContent = 'Loading the records the question names …';
+        claude.ctl = new AbortController();
+        stop.hidden = false; run.disabled = true;
+        try {
+          const ix = state.index;
+          const zs = new Set();
+          (ix.layout || []).forEach((e) => { if (new RegExp('(^|[^A-Za-z])' + e.symbol + '(?![a-z])').test(q) || (e.name && new RegExp('\\b' + e.name + '\\b', 'i').test(q))) zs.add(e.Z); });
+          let mm; const zrx = /\bZ\s*=\s*(\d{1,3})\b/g; while ((mm = zrx.exec(q)) !== null) zs.add(+mm[1]);
+          if (state.selected && state.selected.Z) zs.add(state.selected.Z);
+          await Promise.allSettled([...zs].slice(0, 6).map((Z) => ensureElement(Z)));
+          if (ix.particle_index) await ensureParticleIndex().catch(() => null);
+          const context = contextLines(q);
+          bodyHost.textContent = `Asking ${settings.model}${settings.search ? ' (web search on)' : ''} with ${context.lines.length} data lines …`;
+          const res = await askModel(q, context, settings, claude.ctl.signal);
+          const host = document.createElement('div'); bodyHost.replaceWith(host);
+          renderChecked(host, res.text, res.sources);
+          k.note.textContent += ` · ${res.searches || 0} searches · ${res.usage ? (res.usage.input_tokens + res.usage.output_tokens).toLocaleString() + ' tokens' : ''}`;
+        } catch (e) {
+          bodyHost.textContent = e.name === 'AbortError' ? '[stopped]' : `model: ${e.message}`;
         } finally { stop.hidden = true; run.disabled = false; claude.ctl = null; }
       }
     };
@@ -3279,7 +3483,7 @@ QUESTION: ${question}`;
     buildFrames();
     resize();
     renderProvenance();
-    setupSearch(); setupPointer(); setupKeys(); setupChrome(); setupAssistant(); setupClaude(); setupSolvers(); setupEdition();
+    setupSearch(); setupPointer(); setupKeys(); setupChrome(); setupAssistant(); setupClaude(); setupAsk(); setupSolvers(); setupEdition();
     state.cam = homeCam();
     state.lastHash = null;
     if (location.hash && location.hash !== '#/') await applyHash(true, 0, false);
@@ -5223,7 +5427,217 @@ var SOLVERS, LIB;
     },
   };
 
-  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF];
+
+  // ----------------------------------- chemistry: formulas and equations, checked not written
+  // The page writes no chemistry. It checks a chemical equation another author wrote -- a
+  // model's answer, or one typed here -- for conservation of every element and of charge,
+  // and links every element in it to its record. Everything here is deterministic and the
+  // selftest holds it to fixtures.
+  var ELEMENT_SYMBOLS = ('H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr ' +
+    'Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn ' +
+    'Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og').split(' ');
+  var SYMBOL_Z = {};
+  ELEMENT_SYMBOLS.forEach(function (sy, i) { SYMBOL_Z[sy] = i + 1; });
+  var SUB = { '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9' };
+  var SUP = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁺': '+', '⁻': '-' };
+  function normaliseFormula(s) {
+    return String(s).replace(/[₀₁₂₃₄₅₆₇₈₉]/g, function (c) { return SUB[c]; }).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]/g, function (c) { return SUP[c]; })
+      .replace(/[−–]/g, '-').replace(/\s+/g, '');
+  }
+  function parseFormula(text) {
+    // {counts: {El: n}, charge, phase, errors: []}; D and T count as H and are noted
+    var out = { counts: {}, charge: 0, phase: null, errors: [], notes: [] };
+    var f = normaliseFormula(text);
+    var ph = f.match(/\((s|l|g|aq|cr|am)\)$/i);
+    if (ph) { out.phase = ph[1].toLowerCase(); f = f.slice(0, -ph[0].length); }
+    var ch = f.match(/(?:\^)?(?:\{)?(\d*)([+-])(?:\})?$/);
+    if (ch) { out.charge = (ch[1] ? parseInt(ch[1], 10) : 1) * (ch[2] === '+' ? 1 : -1); f = f.slice(0, -ch[0].length); }
+    if (f === 'e' || f === '') { if (f === 'e') { if (!ch) out.errors.push('an electron needs its charge, e-'); } else out.errors.push('empty formula'); return out; }
+    var parts = f.split(/[·*]/);
+    parts.forEach(function (part, pi) {
+      var mult = 1;
+      if (pi > 0) { var m = part.match(/^(\d+)/); if (m) { mult = parseInt(m[1], 10); part = part.slice(m[1].length); } }
+      var stack = [{}], i = 0;
+      while (i < part.length) {
+        var c = part[i];
+        if (c === '(' || c === '[') { stack.push({}); i += 1; continue; }
+        if (c === ')' || c === ']') {
+          i += 1; var n = part.slice(i).match(/^\d+/); var k = n ? parseInt(n[0], 10) : 1; if (n) i += n[0].length;
+          var top = stack.pop(); if (!stack.length) { out.errors.push('unbalanced bracket'); return; }
+          Object.keys(top).forEach(function (el) { stack[stack.length - 1][el] = (stack[stack.length - 1][el] || 0) + top[el] * k; });
+          continue;
+        }
+        var em = part.slice(i).match(/^([A-Z][a-z]?)(\d*)/);
+        if (!em) { out.errors.push('cannot read "' + part.slice(i, i + 4) + '"'); return; }
+        var el = em[1], cnt = em[2] ? parseInt(em[2], 10) : 1;
+        if (el === 'D' || el === 'T') { out.notes.push(el + ' counted as H'); el = 'H'; }
+        if (!SYMBOL_Z[el]) { out.errors.push('unknown element symbol ' + el); }
+        stack[stack.length - 1][el] = (stack[stack.length - 1][el] || 0) + cnt;
+        i += em[0].length;
+      }
+      if (stack.length !== 1) { out.errors.push('unbalanced bracket'); return; }
+      Object.keys(stack[0]).forEach(function (el) { out.counts[el] = (out.counts[el] || 0) + stack[0][el] * mult; });
+    });
+    return out;
+  }
+  function parseSide(text) {
+    return text.split(/\s\+\s|\s\+$|^\+\s/).map(function (t) { return t.trim(); }).filter(Boolean).map(function (t) {
+      var m = t.match(/^(\d+(?:\.\d+)?|\d+\/\d+)\s*(.*)$/), coef = 1, formula = t;
+      if (m && m[2]) { coef = m[1].indexOf('/') >= 0 ? parseInt(m[1].split('/')[0], 10) / parseInt(m[1].split('/')[1], 10) : parseFloat(m[1]); formula = m[2]; }
+      var f = parseFormula(formula);
+      return { coef: coef, formula: formula, counts: f.counts, charge: f.charge, phase: f.phase, errors: f.errors, notes: f.notes };
+    });
+  }
+  function parseEquation(text) {
+    var t = String(text).trim().replace(/\s+/g, ' ');
+    var arrow = t.match(/\s(→|⟶|->|—>|⇌|⇄|<=>|↔|⟷|=)\s/);
+    if (!arrow) return { error: 'no arrow found: write reactants → products (→, ->, = or ⇌), with spaces around + signs' };
+    var idx = t.indexOf(arrow[0]);
+    return { arrow: arrow[1], reactants: parseSide(t.slice(0, idx)), products: parseSide(t.slice(idx + arrow[0].length)) };
+  }
+  function checkEquation(text) {
+    var eq = parseEquation(text);
+    if (eq.error) return { ok: false, error: eq.error, text: text };
+    var tally = {}, chargeL = 0, chargeR = 0, errors = [], notes = [];
+    function add(side, sign) {
+      side.forEach(function (sp) {
+        errors = errors.concat(sp.errors.map(function (e) { return sp.formula + ': ' + e; })); notes = notes.concat(sp.notes);
+        Object.keys(sp.counts).forEach(function (el) { tally[el] = tally[el] || [0, 0]; tally[el][sign] += sp.coef * sp.counts[el]; });
+        if (sign === 0) chargeL += sp.coef * sp.charge; else chargeR += sp.coef * sp.charge;
+      });
+    }
+    add(eq.reactants, 0); add(eq.products, 1);
+    var atoms = Object.keys(tally).sort().map(function (el) { return { element: el, Z: SYMBOL_Z[el] || null, left: tally[el][0], right: tally[el][1], ok: Math.abs(tally[el][0] - tally[el][1]) < 1e-9 }; });
+    var balancedAtoms = atoms.every(function (a) { return a.ok; }), balancedCharge = Math.abs(chargeL - chargeR) < 1e-9;
+    return { ok: errors.length === 0, text: text, arrow: eq.arrow, reactants: eq.reactants, products: eq.products, atoms: atoms,
+      charge: { left: chargeL, right: chargeR, ok: balancedCharge }, balanced: errors.length === 0 && balancedAtoms && balancedCharge,
+      errors: errors, notes: notes.filter(function (n, i, a) { return a.indexOf(n) === i; }) };
+  }
+
+  // ------------------------------------- the machine check over a model's answer
+  // Three markers the model is instructed to use: ⟦path⟧ cites a figure of the loaded data by
+  // its path; ⟪fn(args) = value⟫ states a computation the page's own library can repeat;
+  // ⦃equation⦄ wraps a chemical equation. The checker resolves, recomputes and balances, and
+  // it never repairs: a mismatch is reported beside the model's own words.
+  var NUM_RX = /[-−]?\d+(?:[.,]\d+)?(?:\s?[×x]\s?10\^?[-−]?\d+|e[-−]?\d+)?/g;
+  function parseNum(s) {
+    if (s === null || s === undefined) return null;
+    var t = String(s).trim().replace(/−/g, '-').replace(/,/g, '').replace(/\s?[×x]\s?10\^?/, 'e');
+    var v = parseFloat(t);
+    return isNaN(v) ? null : v;
+  }
+  function numbersAgree(a, b) {
+    if (a === null || b === null) return false;
+    var tol = Math.max(5e-4, 1e-3 * Math.abs(b));
+    return Math.abs(a - b) <= tol;
+  }
+  function lastNumberBefore(text, at) {
+    var win = text.slice(Math.max(0, at - 60), at), m, last = null;
+    NUM_RX.lastIndex = 0;
+    while ((m = NUM_RX.exec(win)) !== null) last = m[0];
+    return last;
+  }
+  function checkAnswer(text, resolve, compute) {
+    // resolve(path) -> {value, status} | null;  compute(name, args) -> number | null (not computable) | undefined (unknown)
+    var out = { citations: [], computations: [], equations: [], numbers: 0, unverified: 0 };
+    var claimed = [];
+    var m, rx = /⟦([^⟧]+)⟧/g;
+    while ((m = rx.exec(text)) !== null) {
+      var path = m[1].trim(), got = resolve(path), stated = lastNumberBefore(text, m.index), verdict;
+      if (!got) verdict = 'not in the index';
+      else if (typeof got.value === 'number') {
+        var sv = parseNum(stated);
+        verdict = sv === null ? 'cited, no figure beside it' : (numbersAgree(sv, got.value) ? 'matches' : 'DIFFERS');
+      } else verdict = 'cited';
+      out.citations.push({ path: path, stated: stated, value: got ? got.value : null, status: got ? got.status : null, verdict: verdict, at: m.index, len: m[0].length });
+      if (stated !== null) claimed.push(m.index);
+    }
+    rx = /⟪([A-Za-z_][A-Za-z0-9_]*)\(([^)]*)\)\s*=\s*([^⟫]+)⟫/g;
+    while ((m = rx.exec(text)) !== null) {
+      var name = m[1], args = m[2].split(',').map(function (a) { return a.trim(); }).filter(Boolean).map(function (a) { var v = parseNum(a); return v === null ? a : v; });
+      var stated2 = parseNum(m[3]), val = compute(name, args), verdict2;
+      if (val === undefined) verdict2 = 'unknown function';
+      else if (val === null) verdict2 = 'not computable from the loaded data';
+      else verdict2 = numbersAgree(stated2, val) ? 'agrees' : 'DIFFERS';
+      out.computations.push({ name: name, args: args, stated: m[3].trim(), value: val, verdict: verdict2, at: m.index, len: m[0].length });
+    }
+    rx = /⦃([^⦄]+)⦄/g;
+    while ((m = rx.exec(text)) !== null) {
+      var eq = checkEquation(m[1]);
+      out.equations.push({ text: m[1].trim(), result: eq, verdict: eq.error ? 'unreadable' : (eq.errors.length ? 'unreadable' : (eq.balanced ? 'balanced' : 'NOT balanced')), at: m.index, len: m[0].length });
+    }
+    // numbers the model states that no marker covers
+    var stripped = text.replace(/⟦[^⟧]*⟧|⟪[^⟫]*⟫|⦃[^⦄]*⦄/g, function (x) { return ' '.repeat(x.length); });
+    NUM_RX.lastIndex = 0;
+    var total = 0, covered = 0;
+    while ((m = NUM_RX.exec(stripped)) !== null) {
+      if (m.index > 0 && /[A-Za-z]/.test(stripped[m.index - 1])) continue;   // a subscript in a formula, not a figure
+      total += 1;
+      var end = m.index + m[0].length, after = text.slice(end, end + 40);
+      if (/^[^⟦⟪⦃]{0,30}[⟦⟪]/.test(after)) covered += 1;
+    }
+    out.numbers = total; out.unverified = total - covered;
+    out.summary = out.citations.length + ' citation' + (out.citations.length === 1 ? '' : 's') + ' (' +
+      out.citations.filter(function (c) { return c.verdict === 'matches' || c.verdict === 'cited'; }).length + ' verified, ' +
+      out.citations.filter(function (c) { return c.verdict === 'DIFFERS'; }).length + ' differing, ' +
+      out.citations.filter(function (c) { return c.verdict === 'not in the index'; }).length + ' not found); ' +
+      out.computations.length + ' computation' + (out.computations.length === 1 ? '' : 's') + ' (' + out.computations.filter(function (c) { return c.verdict === 'agrees'; }).length + ' agree); ' +
+      out.equations.length + ' equation' + (out.equations.length === 1 ? '' : 's') + ' (' + out.equations.filter(function (e) { return e.verdict === 'balanced'; }).length + ' balanced); ' +
+      out.unverified + ' of ' + out.numbers + ' numbers left unverified (the model\'s own)';
+    return out;
+  }
+
+  var MODE_CHEM = {
+    id: 'equation-check',
+    title: 'Chemical equation check',
+    status: DERIVED,
+    statusNote: 'Deterministic: conservation of every element and of charge, checked over an equation another author wrote; each element linked to its record. The page writes no chemistry.',
+    description: 'Paste a chemical equation (→, ->, = or ⇌; spaces around + signs; charges as Fe3+, SO4^2-, e-; hydrates with ·). The mode tallies every element on each side and the charge, says whether the equation balances, and links each element to its record in the index. It does not balance the equation for you: a finding is recorded, never repaired.',
+    inputs: [{ name: 'equation', label: 'equation', type: 'textarea', default: '2 H2 + O2 → 2 H2O', help: 'one equation' }],
+    source: { instrument: 'checkEquation', file: 'public/script.js' },
+    run: async function (values, ctx) {
+      var r = checkEquation(values.equation || '');
+      if (r.error) return fail(r.error);
+      var rows = [];
+      r.atoms.forEach(function (a) {
+        var e = ctx.index && ctx.index.layout ? ctx.index.layout.find(function (x) { return x.Z === a.Z; }) : null;
+        rows.push(row(a.element + ' (Z = ' + (a.Z || '?') + ')', a.left + ' → ' + a.right + (a.ok ? '' : '  UNBALANCED'), DERIVED, e ? 'in the index: ' + (e.name || e.symbol) + (e.populated ? ', populated' : ', spectra rows only') : 'not an element of the index'));
+      });
+      rows.push(row('charge', r.charge.left + ' → ' + r.charge.right + (r.charge.ok ? '' : '  UNBALANCED'), DERIVED));
+      rows.push(row('verdict', r.errors.length ? 'UNREADABLE: ' + r.errors.join('; ') : (r.balanced ? 'balanced' : 'NOT balanced'), DERIVED, r.notes.length ? r.notes.join('; ') : undefined));
+      return { rows: rows, ok: true, text: r.balanced ? 'balanced' : 'not balanced' };
+    },
+    selftest: async function () {
+      var ck = new Checker();
+      ck.eq('2 H2 + O2 → 2 H2O balances', checkEquation('2 H2 + O2 → 2 H2O').balanced, true);
+      ck.eq('Fe + Cl2 -> FeCl3 does not', checkEquation('Fe + Cl2 -> FeCl3').balanced, false);
+      ck.eq('2 Fe + 3 Cl2 -> 2 FeCl3 does', checkEquation('2 Fe + 3 Cl2 -> 2 FeCl3').balanced, true);
+      ck.eq('Ca(OH)2 + 2 HCl = CaCl2 + 2 H2O: brackets', checkEquation('Ca(OH)2 + 2 HCl = CaCl2 + 2 H2O').balanced, true);
+      ck.eq('CuSO4·5H2O → CuSO4 + 5 H2O: hydrate', checkEquation('CuSO4·5H2O → CuSO4 + 5 H2O').balanced, true);
+      ck.eq('Fe3+ + e- → Fe2+: charge balances', checkEquation('Fe3+ + e- → Fe2+').balanced, true);
+      ck.eq('Fe3+ → Fe2+: charge does not', checkEquation('Fe3+ → Fe2+').charge.ok, false);
+      ck.eq('Zn + 2 H+ → Zn2+ + H2 with unicode charges', checkEquation('Zn + 2 H⁺ → Zn²⁺ + H₂').balanced, true);
+      ck.eq('MnO4^- + 8 H+ + 5 Fe2+ → Mn2+ + 5 Fe3+ + 4 H2O', checkEquation('MnO4^- + 8 H+ + 5 Fe2+ → Mn2+ + 5 Fe3+ + 4 H2O').balanced, true);
+      ck.eq('an unknown symbol is an error, not a guess', checkEquation('Xx + O2 → XxO2').errors.length > 0, true);
+      ck.eq('phase labels are read and dropped', checkEquation('NaCl(aq) → Na+(aq) + Cl-(aq)').balanced, true);
+      ck.eq('no arrow is refused', !!checkEquation('H2 + O2 H2O').error, true);
+      ck.eq('the elements of an equation are listed with Z', checkEquation('2 H2 + O2 → 2 H2O').atoms.map(function (a) { return a.element + a.Z; }).join(','), 'H1,O8');
+      // the answer checker, over fixtures
+      var data = { 'el/26/symbol': { value: 'Fe', status: 'READ' }, 'el/26/channels/0/delta_equation': { value: 1.3456, status: 'PINNED' }, 'index/closure/E': { value: 36, status: 'PINNED' } };
+      var resolve = function (p) { return data[p] || null; };
+      var compute = function (name, args) { if (name === 'pauli_bound') return pauliBound(args[0], args[1], args[2]); if (name === 'nothing') return null; return undefined; };
+      var r = checkAnswer('Iron ⟦el/26/symbol⟧ has E = 36 ⟦index/closure/E⟧ and δ = 1.346 ⟦el/26/channels/0/delta_equation⟧, not 2.0 ⟦el/26/channels/9/delta_equation⟧; B: ⟪pauli_bound(3, 4, 0) = 3⟫, wrong ⟪pauli_bound(3, 4, 0) = 2⟫, ⟪nothing(1) = 1⟫, ⟪unknown(1) = 1⟫; ⦃2 H2 + O2 → 2 H2O⦄ and the model\'s own 42.', resolve, compute);
+      ck.eq('citations: string cited, two numeric matches, one not found', r.citations.map(function (c) { return c.verdict; }).join('|'), 'cited|matches|matches|not in the index');
+      ck.eq('a differing figure is reported, not repaired', checkAnswer('E = 35 ⟦index/closure/E⟧', resolve, compute).citations[0].verdict, 'DIFFERS');
+      ck.eq('computations: agrees, differs, not computable, unknown', r.computations.map(function (c) { return c.verdict; }).join('|'), 'agrees|DIFFERS|not computable from the loaded data|unknown function');
+      ck.eq('equations: balanced', r.equations[0].verdict, 'balanced');
+      ck.eq('the model\'s own number is counted unverified, and a formula\'s subscript is not a number', r.unverified, 1);
+      ck.eq('a number within 30 characters before a citation counts as covered', checkAnswer('E is 36 (thirty-six) ⟦index/closure/E⟧', resolve, compute).unverified, 0);
+      return ck.result();
+    }
+  };
+
+  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF, MODE_CHEM];
   LIB = {
     channelDelta: channelDelta, channelTerms: channelTerms, collapseC: collapseC, pauliBound: pauliBound,
     coreP: coreP, n0Of: n0Of, orderClosure: orderClosure, lambdaConstraints: lambdaConstraints,
@@ -5232,7 +5646,8 @@ var SOLVERS, LIB;
     coefficients: coefficients, collapseParams: collapseParams, channelRows: channelRows,
     measuredRowsAll: measuredRowsAll, presetCells: presetCells, cellsText: cellsText, parseCells: parseCells,
     janetCypherFixture: janetCypherFixture, lambdaCypherFixture: lambdaCypherFixture,
-    label: label, roman: roman, FALLBACK_COEF: FALLBACK_COEF, COEF_NAMES: COEF_NAMES
+    label: label, roman: roman, FALLBACK_COEF: FALLBACK_COEF, COEF_NAMES: COEF_NAMES,
+    parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, SYMBOL_Z: SYMBOL_Z
   };
 
 if (typeof window !== 'undefined') { window.MI = window.MI || {}; window.MI.solvers = SOLVERS; window.MI.solverLib = LIB; }

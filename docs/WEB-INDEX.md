@@ -414,6 +414,37 @@ the tree with `rows()`, `index()` and `cell()`, coordinates declared before the 
 `SOURCE` beside the code, and a status for every value. Add its coordinates to `PARTICLE_COORDS`,
 its block to `particle_index_block`, and its figures to the selftest.
 
+## Ask a model, with a machine check
+
+**The page never answers a question itself, and it never trusts the model that does.** The
+console answers deterministically from the loaded data. With an API key saved in the browser
+(`Ask a model` under the console; the key is kept in `localStorage` and sent only to the API
+address given, `api.anthropic.com` by default or a proxy the reader names), the same *Ask* button
+also sends the question to Claude with the web search tool on. The system prompt fixes the method:
+search first for context and method, then apply it to the DATA lines the page hands over — every
+figure of the loaded data the question names, as `path = value [STATUS]` lines built by
+`contextLines` (the closure and equation figures, every channel and measured row of the elements
+the question mentions, the particle rows it names) — and mark the work with three markers:
+`⟦path⟧` after every figure taken from the data, `⟪function(args) = value⟫` for every calculation
+the page's own library can repeat (the channel equation, the Pauli bound, the collapse ramp, the
+core's p and n₀, E), and `⦃equation⦄` around every chemical equation. It is told never to claim
+the page verified anything, and not to write laboratory procedures.
+
+**The machine check is the solver module's `checkAnswer`, selftested.** It resolves every cited
+path back to the loaded value (`askResolve`) and compares the figure the model wrote beside it
+(matches, DIFFERS with the index's value shown, not in the index); repeats every computation with
+the library (`askCompute`: agrees, DIFFERS with the page's value, not computable, unknown
+function); tallies every equation for conservation of every element and of charge with each
+element linked to its Z (`checkEquation`: balanced, NOT balanced with the unbalanced tallies,
+unreadable); and counts the numbers the model stated with no marker within reach as *unverified,
+the model's own*. Marks are drawn inline beside the model's words and a summary line follows; a
+mismatch is never corrected. Web sources the API reports are listed under the answer. The console
+command `check <text>` runs the same checker over any pasted text, so the check can be exercised
+without a key, and the ninth solver mode, *Chemical equation check*, runs the equation part on its
+own with a selftest over eleven fixtures (brackets, hydrates, ionic charges in three notations,
+phase labels, an unknown symbol refused, no arrow refused). The page writes no chemistry and no
+procedure: it checks what another author wrote.
+
 ## The public build
 
 The books the index is drawn from are unpublished and not peer reviewed, and the author's ruling
