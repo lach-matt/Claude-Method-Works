@@ -991,6 +991,11 @@ def warp_modules(root):
     mods = {n: importlib.import_module(n)
             for n in ("pdgcapture", "fundamental", "mesons", "baryons", "docket27", "registry")}
     try:
+        mods["fqh"] = importlib.import_module("fqh")
+    except Exception as e:  # noqa: BLE001 -- DOCKET 30 may not be in an older tree
+        mods["fqh"] = None
+        mods["fqh_error"] = repr(e)
+    try:
         mods["particlesweep"] = importlib.import_module("particlesweep")
     except Exception as e:  # noqa: BLE001 -- DOCKET 29 may not be in an older tree
         mods["particlesweep"] = None
@@ -1116,6 +1121,44 @@ def _sweep(PS):
     }
 
 
+def _fqh(FQ):
+    """DOCKET 30 as the site carries it: the quasiparticles of the Laughlin
+    states, computed from the closed form, indexed by a measured filling."""
+    rows = FQ.rows()
+    K, h, w = FQ.cell()
+    verdict, why = FQ.verdict()
+    anyons, fermions, bosons = FQ.anyon_fraction()
+    return {
+        "id": "fqh", "title": "The quasiparticles of the fractional quantum Hall states",
+        "member": "a quasiparticle of the Laughlin state at filling 1/m, m odd; the state has exactly m of them, j = 0 to m − 1, and j = 0 is the vacuum",
+        "source": FQ.SOURCE[0], "source_status": "PINNED",
+        "source_note": "computed from a closed form, not read from a table; every coordinate is an exact rational",
+        "reach": FQ.REACH, "states": len(FQ.states()), "members": len(rows), "charted": len(rows),
+        "observed": [{"m": m, "filling": f, "fundamental_charge": q} for m, f, q in FQ.observed_states()],
+        "observed_note": "three of the twelve states have a reported plateau; the rest are the sequence's own continuation, declared as such because a rule's continuation is not a measurement",
+        "coordinates": [
+            {"name": "STAT", "meaning": "0 boson, 1 fermion, 2 anyon, from the exchange phase θ/π = j²/m mod 1", "status": "DERIVED"},
+            {"name": "ORD", "meaning": "the order of the exchange phase: the denominator of θ/π", "status": "DERIVED"},
+            {"name": "CHORD", "meaning": "the order of the charge: the denominator of Q = j/m", "status": "DERIVED"},
+            {"name": "M", "meaning": "the inverse filling fraction; 1/m is the quantised Hall conductance in units of e²/h, the number the experiment reads off the plateau", "status": "READ"},
+        ],
+        "refused": [{"coordinate": "j, Q, θ", "verdict": "REFUSED", "status": "READ",
+                     "why": "j is the quasiparticle's address within its state, and charting it would be a relabelling; Q and θ are near-injective rationals, which the overlap rule calls row labels; their orders are charted instead"}],
+        "cells": len(FQ.index()), "cell": {"channel": K, "height": h, "width": w}, "closers": FQ.closers(FQ.index()),
+        "rows": [{"m": m, "j": j, "Q": _frac(Q), "theta": _frac(t), "coords": [st, o, c, m], "observed": m in FQ.OBSERVED}
+                 for m, j, Q, t, st, o, c in rows],
+        "sweep": [{"box": a, "cells": b, "channel": c, "closers": d, "degenerate": g} for a, b, c, d, _e, _f, g in FQ.sweep()],
+        "verdict": verdict, "why": why, "verdict_status": "READ",
+        "verdict_note": "the box is a reach over one kind of system, more of the same thing further out, and the channel moves with it, K2 then K0; the earlier anyon chart varied which theories were included rather than how much data there was",
+        "statistics": {"anyons": anyons, "fermions": fermions, "bosons": bosons, "status": "DERIVED",
+                       "note": "not one of the members is a fermion, and it is forced: θ/π = j²/m is a half-integer only if m divides 2j², and m is odd, so the phase is a whole integer instead"},
+        "fractional_charges": [{"m": m, "denominators": d} for m, d in FQ.fractional_charges()],
+        "e_over_3": {"text": "the e/3 quasiparticle is not a prediction: its fractional charge was measured directly by shot noise in 1997, in a system built only from electrons", "status": "READ"},
+        "not_here": "the non-abelian states (Moore–Read, Read–Rezayi) are a further member set and are not here",
+        "in_progress": True,
+    }
+
+
 def _frac(x):
     return "%d/%d" % (x.numerator, x.denominator) if x.denominator != 1 else str(x.numerator)
 
@@ -1142,6 +1185,9 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     F, M, Bn, D27, R, PC = (mods[k] for k in ("fundamental", "mesons", "baryons", "docket27", "registry", "pdgcapture"))
     PS = mods.get("particlesweep")
     Q = mods.get("quasiparticle")
+    FQ = mods.get("fqh")
+    if commit is None and WARP_COMMIT is None and os.path.abspath(root) == os.path.abspath(WARP_ROOT):
+        commit = _git_head()   # the tree is the repository's own, so its commit is the repository's
     cap = {int(r["pdgid"]): r for r in PC.read()}
     src = R.sources()
     header = PC.header()
@@ -1306,6 +1352,13 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                        "verdict": verdict, "why": why, "verdict_status": "READ"},
             "reopens": "a materials database of phonon modes over a fixed set of crystals, each mode with its symmetry label and frequency, is a legitimate member set; it needs a real fetch and is named so the door is visibly open",
         }
+        if FQ is not None:
+            quasi["seated"] = _fqh(FQ)
+            quasi["status_note"] = ("the gap the particle indexes left open, closed twice by the other session: first with two measured refusals, "
+                                    "then, on re-examination, with a seating of a different object, the quasiparticles of the Laughlin states; "
+                                    "both verdicts stay on the record, and the work is still in progress there")
+        elif mods.get("fqh_error"):
+            quasi["seated"] = {"absent": True, "note": "the Hall quasiparticle instrument did not import: " + mods["fqh_error"][:200]}
     elif mods.get("quasiparticle_error"):
         quasi = {"in_progress": True, "status_note": "the quasiparticle instrument is present but did not import: " + mods["quasiparticle_error"][:200]}
     # --- provenance ---------------------------------------------------------
@@ -1345,7 +1398,9 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "indexes": [{k: ix[k] for k in ("id", "title", "members", "charted", "cells", "cell", "closers")}
                     | {"coordinates": [c["name"] for c in ix["coordinates"]], "unplaced": len(ix["unplaced"])}
                     for ix in indexes],
-        "quasiparticles": ({"in_progress": True, "verdict": (quasi.get("anyons") or {}).get("verdict")} if quasi else None),
+        "quasiparticles": ({"in_progress": True, "verdict": (quasi.get("anyons") or {}).get("verdict"),
+                            "seated": ("fqh: %d quasiparticles of %d Laughlin states, %d cells, K%d" % (quasi["seated"]["members"], quasi["seated"]["states"], quasi["seated"]["cells"], quasi["seated"]["cell"]["channel"])
+                                       if quasi.get("seated") and not quasi["seated"].get("absent") else None)} if quasi else None),
         "antimatter": ({"total": accounting["antimatter"]["total"], "of_charted": accounting["antimatter"]["of_charted"]} if "antimatter" in accounting else None),
         "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
                    "refused": len(sweep["refused"]), "occupied_now": sweep["occupancy"]["now"]} if sweep and not sweep.get("absent") else None),
@@ -1444,6 +1499,7 @@ PUBLIC_AXIS_SOURCES = {
     "delta equation": "the channel equation, final form",
     "C(Z)": "the collapse coordinate, inverted out of COORDINATES-2.13's computed column; see collapse_C",
     "caps": "the standing caps (n,e,l,k,f) = (3,3,1,3,1)",
+    "series limit": "the measured ionisation limit, read as printed or fitted from the series, never computed; none where not held",
 }
 
 
@@ -2534,6 +2590,13 @@ def selftest(warp_root=WARP_ROOT):
                   ([[0, -6], [0, 6], [1, -6], [1, 6]], True))
             check("sweep: statistics is free at arity 2, 105 of 105; geometry is earned, 74", (sw["arity2_freeness"]["statistics"]["closes"], sw["arity2_freeness"]["geometry"]["closes"]), (105, 74))
             check("sweep: seven channels occupied, only K4 empty", sw["occupancy"]["now"], [0, 1, 2, 3, 5, 6, 7])
+        fq = (pfull.get("quasiparticles") or {}).get("seated")
+        if fq and not fq.get("absent"):
+            check("quasiparticles seated: 168 members of 12 states, 30 cells, cell (0, 15, 4)", (fq["members"], fq["states"], fq["cells"], fq["cell"]), (168, 12, 30, {"channel": 0, "height": 15, "width": 4}))
+            check("quasiparticles seated: the box-invariance verdict is SEAT", fq["verdict"], "SEAT")
+            check("quasiparticles seated: 150 anyons, 0 fermions, 18 bosons", [fq["statistics"][k] for k in ("anyons", "fermions", "bosons")], [150, 0, 18])
+            check("quasiparticles seated: the observed states are 1/3, 1/5, 1/7", [o["m"] for o in fq["observed"]], [3, 5, 7])
+            check("quasiparticles seated: every row carries four coordinates and its charge as a fraction", all(len(r["coords"]) == 4 and "/" in r["Q"] or r["j"] == 0 for r in fq["rows"]), True)
         if pfull["quasiparticles"] and pfull["quasiparticles"].get("anyons"):
             qa = pfull["quasiparticles"]["anyons"]
             check("quasiparticles: the anyon chart is refused as a theorem", qa["verdict"], "REFUSE-AS-THEOREM")

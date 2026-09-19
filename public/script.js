@@ -1947,6 +1947,30 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
+      const fq = q.seated;
+      if (fq && !fq.absent) {
+        html += `<h3>${esc(fq.title)}</h3>
+          <p class="note">One member is ${esc(fq.member)}. Reach m ≤ ${fq.reach}: ${fq.states} states, ${fq.members} members on ${fq.cells} cells; closure channel K${fq.cell.channel} (height ${fq.cell.height}, width ${fq.cell.width}); closed by ${fq.closers.length ? esc(fq.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'the cells and the channel are the instrument\'s own measurement')}</p>
+          <div class="fields">
+            ${row('source', esc(fq.source), fq.source_status, esc(fq.source_note), true)}
+            ${row('observed states', fq.observed.map((o) => `ν = ${esc(o.filling)} (fundamental charge ${esc(o.fundamental_charge)})`).join(' · '), 'READ', esc(fq.observed_note), true)}
+            ${row('the e/3 quasiparticle', esc(fq.e_over_3.text), fq.e_over_3.status, null, true)}
+            ${row('statistics', `${fq.statistics.anyons} anyons, ${fq.statistics.fermions} fermions, ${fq.statistics.bosons} bosons`, fq.statistics.status, esc(fq.statistics.note), true)}
+            ${row('verdict', `<b>${esc(fq.verdict)}</b> — ${esc(fq.why)}`, fq.verdict_status, esc(fq.verdict_note) + '; the sweep: ' + fq.sweep.map((b) => `${esc(b.box)} → ${b.cells} cells, K${b.channel}${b.degenerate ? ' (degenerate)' : ''}`).join('; '), true)}
+          </div>
+          <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>
+            ${fq.coordinates.map((c) => `<tr><td class="mono">${esc(c.name)}</td><td class="wrap">${esc(c.meaning)}</td><td>${badge(c.status)}</td></tr>`).join('')}
+          </tbody></table></div>
+          <figure class="data-fig" id="pfig-fqh"></figure>
+          <details><summary>Refused coordinates (${fq.refused.length})</summary><div class="fields">${fq.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}`, r.status, null, true)).join('')}</div></details>
+          <details><summary>Every member (${fq.rows.length})</summary>
+            <div class="tbl-wrap"><table class="t particle-table"><thead><tr><th>m</th><th>j</th><th>Q (e)</th><th>θ/π</th>${fq.coordinates.map((c) => `<th>${esc(c.name)}</th>`).join('')}<th class="hide-narrow">state</th></tr></thead><tbody>
+              ${fq.rows.map((r) => `<tr><td>${r.m}</td><td>${r.j}</td><td>${esc(r.Q)} ${badge('DERIVED')}</td><td>${esc(r.theta)} ${badge('DERIVED')}</td>${r.coords.map((v, i) => `<td>${v} ${badge(fq.coordinates[i].status)}</td>`).join('')}<td class="hide-narrow">${r.observed ? 'observed plateau' : '<span class="muted">continuation</span>'}</td></tr>`).join('')}
+            </tbody></table></div>
+          </details>
+          <p class="note"><b>Not here:</b> ${esc(fq.not_here)}</p>
+          <h3>The earlier chart, still on the record</h3>`;
+      }
       if (q.no_table) html += `<div class="fields">
           ${row('no table', esc(q.no_table.claim), q.no_table.status, `${q.no_table.space_groups} space groups, ${q.no_table.point_groups} point groups, ${q.no_table.arithmetic_classes} arithmetic crystal classes: the host's, not the quasiparticle's`, true)}
           ${row('the universal numbers', `${q.no_table.universal.list.map((u) => `${esc(u.kind)} (spin ${u.spin})`).join(', ')}: ${q.no_table.universal.kinds} kinds on ${q.no_table.universal.distinct_cells} cells`, 'DERIVED', 'a chart with that resolution reports on bosons', true)}
@@ -1960,6 +1984,21 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       if (q.reopens) html += `<p class="note"><b>What would reopen it:</b> ${esc(q.reopens)}</p>`;
     }
     host.innerHTML = html;
+    const fqFig = host.querySelector('#pfig-fqh');
+    if (fqFig && q && q.seated && q.seated.rows) {
+      const fq = q.seated, ms = [...new Set(fq.rows.map((r) => r.m))].sort((a, b) => a - b), jmax = Math.max(...fq.rows.map((r) => r.j));
+      const W = 640, H = 300, m = { l: 48, r: 16, t: 26, b: 40 };
+      const sx = (mm) => m.l + (ms.indexOf(mm) + 0.5) / ms.length * (W - m.l - m.r), sy = (j) => H - m.b - j / jmax * (H - m.t - m.b);
+      const svg = figFrame(W, H);
+      ms.forEach((mm) => svg.appendChild(svgEl('text', { x: sx(mm), y: H - m.b + 16, 'text-anchor': 'middle', class: 'tick', 'font-weight': fq.observed.some((o) => o.m === mm) ? '700' : '400' }, `1/${mm}`)));
+      svg.appendChild(svgEl('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'text-anchor': 'middle', class: 'lab' }, 'filling fraction ν = 1/m (bold: observed plateau)'));
+      axisY(svg, m.l, H - m.b, m.t, niceTicks(0, jmax, 5).map((v) => [sy(v), v]), (v) => String(v), 'j');
+      const cols = { 0: '#3a7d44', 1: '#b5651d', 2: '#1f4e8c' }, lab = { 0: 'boson', 1: 'fermion', 2: 'anyon' };
+      fq.rows.forEach((r) => { const c = svgEl('circle', { cx: sx(r.m), cy: sy(r.j), r: 3.4, fill: cols[r.coords[0]], 'fill-opacity': 0.85 }); c.append(svgEl('title', {}, `m = ${r.m}, j = ${r.j}: Q = ${r.Q} e, θ/π = ${r.theta}, ${lab[r.coords[0]]}, ORD ${r.coords[1]}, CHORD ${r.coords[2]}`)); svg.appendChild(c); });
+      [2, 0, 1].forEach((k, i) => { svg.appendChild(svgEl('circle', { cx: m.l + 10 + i * 90, cy: m.t - 12, r: 4, fill: cols[k] })); svg.appendChild(svgEl('text', { x: m.l + 18 + i * 90, y: m.t - 8, class: 'tick' }, `${lab[k]} (${fq.statistics[lab[k] + 's']})`)); });
+      fqFig.appendChild(svg);
+      const cap = document.createElement('figcaption'); cap.innerHTML = `The ${fq.members} quasiparticles of the ${fq.states} Laughlin states, j against the filling fraction, coloured by statistics class; hover a mark for its charge and exchange phase. No member is a fermion. ${badge('DERIVED', 'drawn from the member table')}`; fqFig.appendChild(cap);
+    }
     const isoFig = host.querySelector('#pfig-isomultiplet');
     if (isoFig && sw && sw.seated) {
       const st = sw.seated, Is = st.rows.map((r) => r.I2), Qs = [...new Set(st.rows.flatMap((r) => r.Q3).concat(st.corners_not_held.map((c) => c[1])))].sort((a, b) => a - b);

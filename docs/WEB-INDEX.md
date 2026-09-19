@@ -353,7 +353,7 @@ classified and every count sums to the rows.
 ## The particle indexes
 
 **The particles that are not periodic atoms come from the other session's tree.** Under
-`research/warp-drive/` (the warp-drive branch; merged to `main` on the author's decision) DOCKET 27
+`research/warp-drive/` (the warp-drive branch, merged to `main` as PR #34 on 2026-09-19) DOCKET 27
 seats three indexes over the PDG 2026 table — `fundamental.py` (the 30 Standard Model particles on
 2J, Q3, colour dimension, generation), `mesons.py` (250 mesons on 2J, P, 2I, Q3; 8 set aside for
 want of a printed parity) and `baryons.py` (292 baryons on 2J, P, 2I, Q3, S, C, B; 14 set aside) —
@@ -375,6 +375,16 @@ K1 is held, and `fundamental (Q3, GEN)` at K4 because at arity 2 the statistics 
 every chart for free (105 of 105) and what it shows is join-closure. Seven of the eight channels are
 now occupied. `docket27.py` also counts antimatter rather than implying it — 231 of the 550 charted
 members, 42 % — and resolves the photon, the muon and the antimuon by name with their cells.
+DOCKET 30, `fqh.py`, re-examines DOCKET 28 and finds it refused the wrong object: the anyon chart
+was a union over theories (SU(2)_k for every k), not a reach over data. Rebuilt as a reach — the
+quasiparticles of the Laughlin states at filling 1/m, indexed by a measured filling fraction — the
+channel moves with the box (K2 then K0) and the box-invariance test returns SEAT: **168
+quasiparticles of twelve states, 30 cells, cell (0, 15, 4)**, three states observed (1/3, 1/5,
+1/7), the e/3 charge measured by shot noise in 1997, and not one member a fermion, which is forced.
+Both verdicts stay on the record; the non-abelian states are named as not here. The site carries
+the seated index with every member (m, j, Q, θ/π as exact fractions, the four coordinates with
+their statuses), a figure of j against the filling, the sweep and its verdict, and the earlier
+refusal after it; the quasiparticle work is still in progress on the other session.
 
 **`webindex.py` imports those instruments by path and retypes nothing.** `particle_index_block`
 puts the warp tree's directory on `sys.path` (its modules import each other by bare name and reach
@@ -389,13 +399,15 @@ measurement that refuses it. The block also carries the antimatter count, the th
 whole of the sweep: the census, the occupancy before and after, the hits, the seating with its
 grounds, reach sweep, cells and corners, the two refusals, and the arity-2 freeness table. The
 sweep's occupancy is measured over the whole registry, so the instruments need the warp tree's own
-`tools/populate.py` beside them (its Madelung list runs further than main's); a build takes about
-two minutes with it, and the block is computed once per process. `index.particle_index` carries the summary; the Particles dialog draws
+`tools/populate.py` beside them (its Madelung list runs further than the earlier one; the merge
+brought it to `main`); a build takes about two minutes with it, and the block is computed once per
+process. `index.particle_index` carries the summary; the Particles dialog draws
 each index by charge and spin, lists every member with its badges, and appends the muon material
 after it where a `--with-particles` build carries that block. The public-build guard runs over
 `particles.js` as it does over the index. The tree is located by `--warp-root` (default
-`research/warp-drive`); when it is absent the site carries no particle indexes and says so, and the
-selftest checks that too. The channel closures take about thirty seconds per build.
+`research/warp-drive`, now in the repository, so a plain build carries the indexes and records the
+repository's own commit); when it is absent the site carries no particle indexes and says so, and
+the selftest checks that too. The channel closures take about thirty seconds per build.
 
 **Incorporating the next index the other session seats** is the same contract: an instrument in
 the tree with `rows()`, `index()` and `cell()`, coordinates declared before the chart is run, a

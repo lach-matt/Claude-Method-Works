@@ -287,6 +287,8 @@ def checks():
          ((_site_index()["particle_index"] or {}).get("sweep") or {}).get("seated")),
         ("docs/WEB-INDEX.md", "site particle indexes: antimatter 231 of 550", [231, 550],
          [(((_site_index()["particle_index"] or {}).get("antimatter") or {}).get(k)) for k in ("total", "of_charted")]),
+        ("docs/WEB-INDEX.md", "site quasiparticles seated: 168 of twelve Laughlin states, 30 cells, K0", "fqh: 168 quasiparticles of 12 Laughlin states, 30 cells, K0",
+         (((_site_index()["particle_index"] or {}).get("quasiparticles") or {}).get("seated"))),
         ("docs/WEB-INDEX.md", "site particles: absent from the public build (None)", None,
          _site_index()["particles"]),
         ("docs/WEB-INDEX.md", "site particles: constants of Lambda_phys (--with-particles)", 27,
