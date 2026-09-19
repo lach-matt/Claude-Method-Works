@@ -147,6 +147,17 @@ import hlaw
 import mi
 import overlap
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    'A seated member of The Method, imported by path and never copied.',
+    (
+        'method/members/r2-ch16e.py',
+    ),
+)
+
+
 ROOT = "/home/user/Claude-Method-Works"
 SRC_A = os.path.join(ROOT, "extracted/archives/restore-point-2-13/"
                            "nuclear_corridor.py")

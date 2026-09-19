@@ -139,6 +139,15 @@ import mi
 sys.path.insert(0, "/home/user/Claude-Method-Works/tools")
 import populate as _pop          # noqa: E402  -- the seated member, imported
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    "COMPUTED from the Madelung construction through charts3.py; the reach Z <= 108 is LW1-ground.py's table.",
+    (),
+)
+
+
 RAW_ARITY = 8
 ARITY = 7
 NAMES = ("sn", "sl", "k", "q", "tn", "tl", "g")

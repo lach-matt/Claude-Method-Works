@@ -130,6 +130,15 @@ import mi
 sys.path.insert(0, "/home/user/Claude-Method-Works/tools")
 import populate as _pop          # noqa: E402  -- the seated member, imported
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    'INLINE in this file: spectroscopic channel shapes transcribed from NIST ASD captures, each row carrying its own grade and witness.',
+    (),
+)
+
+
 GRADE = ("computed", "exact", "measured")
 WITNESS = ("unwitnessed", "witnessed")
 SHAPE = ("l", "B", "mult")

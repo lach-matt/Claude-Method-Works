@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "e617aa82362e",
+ "commit": "031d0e414c44",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 14,
+  "rows": 17,
   "indexes": [
    {
     "name": "fibred.index",
@@ -25,7 +25,11 @@
      "geometry",
      "statistics"
     ],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED from the Madelung rule through shells.py; no table is read.  The reach Z <= 108 is LW1-ground.py's.",
+     "paths": []
+    }
    },
    {
     "name": "madelung.janet",
@@ -49,7 +53,11 @@
      "order",
      "statistics"
     ],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED from the Madelung rule, the same construction fibred.py projects; no table is read.",
+     "paths": []
+    }
    },
    {
     "name": "ions.index",
@@ -67,7 +75,11 @@
     ],
     "channel": 0,
     "languages": [],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED from the Madelung construction through charts3.py; the reach Z <= 108 is LW1-ground.py's table.",
+     "paths": []
+    }
    },
    {
     "name": "channels.index",
@@ -85,7 +97,11 @@
     ],
     "channel": 0,
     "languages": [],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "INLINE in this file: spectroscopic channel shapes transcribed from NIST ASD captures, each row carrying its own grade and witness.",
+     "paths": []
+    }
    },
    {
     "name": "laws.index",
@@ -103,7 +119,20 @@
     ],
     "channel": 0,
     "languages": [],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "Rydberg-Ritz series read from the corpus's own spectra table.",
+     "paths": [
+      {
+       "path": "extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 58622,
+       "files": 1,
+       "md5": "e1866b4a293541ef0fbcfc15a0322e83"
+      }
+     ]
+    }
    },
    {
     "name": "probability.index",
@@ -123,7 +152,11 @@
     "languages": [
      "statistics"
     ],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED from fibred.py's Madelung construction; no table is read.",
+     "paths": []
+    }
    },
    {
     "name": "inversion.index",
@@ -143,7 +176,11 @@
     "languages": [
      "statistics"
     ],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "COMPUTED from fibred.py's Madelung construction; no table is read.",
+     "paths": []
+    }
    },
    {
     "name": "gravity.index",
@@ -161,7 +198,28 @@
     ],
     "channel": 0,
     "languages": [],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "AME2020 Table I for the nuclides, and the NIST ASD level captures in recovered/ for the charge states.",
+     "paths": [
+      {
+       "path": "extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 102826,
+       "files": 1,
+       "md5": "9540ebcd3ef5b9801ca1e859bff46629"
+      },
+      {
+       "path": "recovered",
+       "kind": "dir",
+       "exists": true,
+       "bytes": 16003853,
+       "files": 3174,
+       "md5": "df451e424a0dc2ec36b0871030f31bde"
+      }
+     ]
+    }
    },
    {
     "name": "nucshell.index",
@@ -182,7 +240,20 @@
      "geometry",
      "statistics"
     ],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "A seated member of The Method, imported by path and never copied.",
+     "paths": [
+      {
+       "path": "method/members/r2-ch16e.py",
+       "kind": "file",
+       "exists": true,
+       "bytes": 18228,
+       "files": 1,
+       "md5": "dd5b6fe7d9f56f7cc5a4e19f68d9daa2"
+      }
+     ]
+    }
    },
    {
     "name": "madrule.index",
@@ -202,7 +273,20 @@
     "languages": [
      "statistics"
     ],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "Register 1306's banked observed ground configurations, against the Madelung prediction.",
+     "paths": [
+      {
+       "path": "method/members/LW1-ground.py",
+       "kind": "file",
+       "exists": true,
+       "bytes": 6472,
+       "files": 1,
+       "md5": "236975ac23aa29960d4f7c2a4d200cd6"
+      }
+     ]
+    }
    },
    {
     "name": "terms.index",
@@ -220,7 +304,20 @@
     ],
     "channel": 0,
     "languages": [],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "The NIST ASD level tables held in recovered/, read as a directory; four files are refused by name and one skipped as a duplicate.",
+     "paths": [
+      {
+       "path": "recovered",
+       "kind": "dir",
+       "exists": true,
+       "bytes": 16003853,
+       "files": 3174,
+       "md5": "df451e424a0dc2ec36b0871030f31bde"
+      }
+     ]
+    }
    },
    {
     "name": "observed.index",
@@ -238,7 +335,20 @@
     ],
     "channel": 0,
     "languages": [],
-    "seated_by_overlap_ruling": false
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "Register 1306's banked observed ground configurations, a seated member loaded by path.",
+     "paths": [
+      {
+       "path": "method/members/LW1-ground.py",
+       "kind": "file",
+       "exists": true,
+       "bytes": 6472,
+       "files": 1,
+       "md5": "236975ac23aa29960d4f7c2a4d200cd6"
+      }
+     ]
+    }
    },
    {
     "name": "overlaprule.gravity_bound",
@@ -258,7 +368,11 @@
     "languages": [
      "information"
     ],
-    "seated_by_overlap_ruling": true
+    "seated_by_overlap_ruling": true,
+    "source": {
+     "why": "Inherited: every row here is a coarsening of a parent index and reads exactly what that parent reads.",
+     "paths": []
+    }
    },
    {
     "name": "overlaprule.madelung_slot",
@@ -281,21 +395,120 @@
      "order",
      "statistics"
     ],
-    "seated_by_overlap_ruling": true
+    "seated_by_overlap_ruling": true,
+    "source": {
+     "why": "Inherited: every row here is a coarsening of a parent index and reads exactly what that parent reads.",
+     "paths": []
+    }
+   },
+   {
+    "name": "fundamental.index",
+    "module": "fundamental",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "fundamental",
+    "members": "30 Standard Model particles -- 12 quarks, 12 leptons, 6 gauge/Higgs",
+    "quantum": "2J, Q3, colour dimension, generation",
+    "cells": 26,
+    "cell": [
+     2,
+     7,
+     7
+    ],
+    "channel": 2,
+    "languages": [
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "\"Review of Particle Physics\", Particle Data Group, Int. J. Mod. Phys. A 41, 2630011 (2026), via the `particle` package -- see pdgcapture.py",
+     "paths": [
+      {
+       "path": "research/warp-drive/captures/PDG-2026.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 33481,
+       "files": 1,
+       "md5": "59564437bdaf327433f2786c566e805e"
+      }
+     ]
+    }
+   },
+   {
+    "name": "mesons.index",
+    "module": "mesons",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "mesons",
+    "members": "242 mesons of the PDG table, 8 set aside for want of a printed parity",
+    "quantum": "2J, P, 2I, Q3",
+    "cells": 66,
+    "cell": [
+     0,
+     10,
+     14
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "\"Review of Particle Physics\", Particle Data Group, Int. J. Mod. Phys. A 41, 2630011 (2026), via the `particle` package -- see pdgcapture.py",
+     "paths": [
+      {
+       "path": "research/warp-drive/captures/PDG-2026.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 33481,
+       "files": 1,
+       "md5": "59564437bdaf327433f2786c566e805e"
+      }
+     ]
+    }
+   },
+   {
+    "name": "baryons.index",
+    "module": "baryons",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "baryons",
+    "members": "278 baryons of the PDG table, 14 set aside for want of a printed parity",
+    "quantum": "2J, P, 2I, Q3, strangeness, charm, beauty",
+    "cells": 184,
+    "cell": [
+     0,
+     10,
+     40
+    ],
+    "channel": 0,
+    "languages": [],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "\"Review of Particle Physics\", Particle Data Group, Int. J. Mod. Phys. A 41, 2630011 (2026), via the `particle` package -- see pdgcapture.py",
+     "paths": [
+      {
+       "path": "research/warp-drive/captures/PDG-2026.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 33481,
+       "files": 1,
+       "md5": "59564437bdaf327433f2786c566e805e"
+      }
+     ]
+    }
    }
   ]
  },
  "figure": {
-  "vertices": 14,
-  "distinct_cells": 14,
+  "vertices": 17,
+  "distinct_cells": 17,
   "closers": [],
   "own_cell": [
    0,
    5,
-   6
+   8
   ],
   "own_cell_occupied_by": [],
-  "E": 84,
+  "E": 126,
   "channels_occupied": [
    0,
    1,
@@ -311,20 +524,20 @@
   "resolution": {
    "K": {
     "distinct": 6,
-    "of": 14,
-    "ratio": 0.4286,
+    "of": 17,
+    "ratio": 0.3529,
     "verdict": "measurement"
    },
    "height": {
-    "distinct": 11,
-    "of": 14,
-    "ratio": 0.7857,
+    "distinct": 12,
+    "of": 17,
+    "ratio": 0.7059,
     "verdict": "measurement"
    },
    "width": {
-    "distinct": 12,
-    "of": 14,
-    "ratio": 0.8571,
+    "distinct": 14,
+    "of": 17,
+    "ratio": 0.8235,
     "verdict": "measurement"
    }
   },

@@ -161,6 +161,17 @@ import hlaw
 import mi
 import overlap
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    'The NIST ASD level tables held in recovered/, read as a directory; four files are refused by name and one skipped as a duplicate.',
+    (
+        'recovered',
+    ),
+)
+
+
 ROOT = "/home/user/Claude-Method-Works"
 ASD = os.path.join(ROOT, "recovered")
 AME = os.path.join(ROOT, "extracted/archives/restore-point-2-13/captures/"

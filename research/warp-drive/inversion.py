@@ -92,6 +92,15 @@ import fibred
 import hlaw
 import mi
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    "COMPUTED from fibred.py's Madelung construction; no table is read.",
+    (),
+)
+
+
 REACH = fibred.REACH                        # 170
 
 

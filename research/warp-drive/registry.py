@@ -104,12 +104,14 @@ To excuse a module silently.  A module exposing an `index()` that is neither
 registered nor listed in `NOT_AN_INDEX` fails the selftest.
 """
 
+import hashlib
 import importlib
 import os
 import sys
 
 COMPLETE = False
 HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
 
 METHODS = ("TABLE", "FIBRATION", "RESIDUAL")
 
@@ -255,6 +257,77 @@ def short_is_unique():
     return bad
 
 
+def sources():
+    """{row name: {"why": ..., "paths": [{"path", "exists", "bytes", "md5"}]}}.
+
+    THE PROVENANCE IS A CHECKED FACT, NOT A SENTENCE.  Each index module
+    declares `SOURCE = (why, paths)` beside the code that reads the data, and
+    this function resolves every path against the repository root, records
+    whether it is there, and hashes it.  `state.py` writes the result into
+    STATE.json, so anyone downstream gets the source and its digest from the
+    tree rather than from a chat message -- which is the whole point: a
+    provenance held only in prose has to be recovered later.
+
+    A module whose data is COMPUTED rather than read declares an empty path
+    tuple and says so in `why`.  That is a source too, and an empty tuple is
+    not a missing declaration -- `undeclared()` reports those separately.
+    """
+    out = {}
+    for nm, mod, _a, _me, _w, _q in rows():
+        S = getattr(_mod(mod), "SOURCE", None)
+        if S is None:
+            out[nm] = {"why": None, "paths": []}
+            continue
+        why, paths = S
+        ps = []
+        for rel in paths:
+            ps.append(_digest(rel))
+        out[nm] = {"why": why, "paths": ps}
+    return out
+
+
+def _digest(rel):
+    """{path, kind, exists, bytes, md5, files} for one declared source path.
+
+    A DIRECTORY IS A SOURCE TOO and is hashed as one: `terms` and `gravity`
+    read `recovered/` as a directory rather than naming each table, so the
+    digest is taken over the sorted (name, md5) list of the files in it.  A
+    file added or changed there moves the digest, which is the property that
+    makes this worth writing down.
+    """
+    full = os.path.join(REPO, rel)
+    if os.path.isfile(full):
+        b = open(full, "rb").read()
+        return {"path": rel, "kind": "file", "exists": True, "bytes": len(b),
+                "files": 1, "md5": hashlib.md5(b).hexdigest()}
+    if os.path.isdir(full):
+        h = hashlib.md5()
+        n = tot = 0
+        for fn in sorted(os.listdir(full)):
+            fp = os.path.join(full, fn)
+            if not os.path.isfile(fp):
+                continue
+            b = open(fp, "rb").read()
+            h.update(fn.encode("utf-8"))
+            h.update(hashlib.md5(b).digest())
+            n += 1
+            tot += len(b)
+        return {"path": rel, "kind": "dir", "exists": True, "bytes": tot,
+                "files": n, "md5": h.hexdigest()}
+    return {"path": rel, "kind": None, "exists": False}
+
+
+def undeclared():
+    """[row name] with no SOURCE at all.  MUST BE EMPTY."""
+    return sorted(nm for nm, v in sources().items() if v["why"] is None)
+
+
+def missing_source_files():
+    """[(row, path)] a SOURCE names that is not on disk.  MUST BE EMPTY."""
+    return sorted((nm, d["path"]) for nm, v in sources().items()
+                  for d in v["paths"] if not d["exists"])
+
+
 def index_of(name):
     for nm, mod, acc, _me, _w, _q in rows():
         if nm == name:
@@ -364,6 +437,21 @@ def selftest():
                                    got if good else "%s != %s" % (got, want)))
 
     chk("THE CRITERION HOLDS ON EVERY REGISTERED ROW", enforce(), [])
+    # PROVENANCE.  Asked for by the session building on this work: "it writes
+    # the file with the statuses and sources in it, rather than in its chat.
+    # Everything held only in prose has to be recovered later."
+    chk("EVERY ROW DECLARES WHERE ITS DATA COMES FROM", undeclared(), [])
+    chk("and every path a SOURCE names is on disk", missing_source_files(), [])
+    chk("the three DOCKET 27 rows all cite the same PDG capture",
+        sorted({tuple(d["path"] for d in sources()["%s.index" % m]["paths"])
+                for m in ("fundamental", "mesons", "baryons")}),
+        [("research/warp-drive/captures/PDG-2026.tsv",)])
+    chk("a computed index declares an empty path tuple, which is a source "
+        "and not a gap",
+        [nm for nm, v in sources().items()
+         if not v["paths"] and "COMPUTED" not in v["why"]
+         and "INLINE" not in v["why"] and "Inherited" not in v["why"]
+         and "recovered/" not in v["why"]], [])
     chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes", len(REGISTERED), 17)

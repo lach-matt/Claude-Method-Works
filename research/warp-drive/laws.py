@@ -145,6 +145,17 @@ import sys
 import hlaw
 import mi
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    "Rydberg-Ritz series read from the corpus's own spectra table.",
+    (
+        'extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv',
+    ),
+)
+
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 TABLE = "extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv"
 TOL = 0.05                       # one unit in the last place nstar prints

@@ -533,6 +533,15 @@ import hlaw
 import mi
 import registry
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    'Inherited: every row here is a coarsening of a parent index and reads exactly what that parent reads.',
+    (),
+)
+
+
 # The coordinate order of each seated index's cell tuple.  Five modules declare
 # NAMES; the other six do not, and their order is read from the accessor's own
 # docstring -- fibred "the shell fibration", madelung.janet "(n+l, l, k)",

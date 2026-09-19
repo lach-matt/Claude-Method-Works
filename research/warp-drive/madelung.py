@@ -178,6 +178,15 @@ import fibred
 import hlaw
 import mi
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    'COMPUTED from the Madelung rule, the same construction fibred.py projects; no table is read.',
+    (),
+)
+
+
 REACH = fibred.REACH                        # 170
 JANET_FIBRES = (2, 2, 8, 8, 18, 18, 32, 32, 50)
 SHELL_FIBRES = fibred.FIBRE_SIZES           # the palindrome, for comparison

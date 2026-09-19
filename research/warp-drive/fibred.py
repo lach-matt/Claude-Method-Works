@@ -237,6 +237,15 @@ import hlaw
 import master
 import mi
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    "COMPUTED from the Madelung rule through shells.py; no table is read.  The reach Z <= 108 is LW1-ground.py's.",
+    (),
+)
+
+
 # The last complete n+l shell, matching mi.JANET_REACH so the two charts are
 # built over exactly the same elements and the comparison in section 0 is fair.
 REACH = mi.JANET_REACH                      # 170

@@ -352,6 +352,18 @@ import hlaw
 import mi
 import overlap
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    'AME2020 Table I for the nuclides, and the NIST ASD level captures in recovered/ for the charge states.',
+    (
+        'extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv',
+        'recovered',
+    ),
+)
+
+
 ROOT = "/home/user/Claude-Method-Works"
 AME = os.path.join(ROOT, "extracted/archives/restore-point-2-13/captures/"
                          "AME2020-TableI.tsv")

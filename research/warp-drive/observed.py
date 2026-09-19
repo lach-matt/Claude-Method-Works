@@ -132,6 +132,17 @@ import sys
 import hlaw
 import mi
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    "Register 1306's banked observed ground configurations, a seated member loaded by path.",
+    (
+        'method/members/LW1-ground.py',
+    ),
+)
+
+
 LW1 = "/home/user/Claude-Method-Works/method/members/LW1-ground.py"
 REACH = 108
 NAMES = ("n", "l", "k")

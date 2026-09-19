@@ -57,11 +57,11 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    14 vertices, 14 distinct cells -- no two seated indexes share a cell
+    17 vertices, 17 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 84
+    E = 126
 
-**ITS OWN CELL IS (0, 5, 6), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 8), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
 
@@ -98,6 +98,25 @@ because it cut both ways and a one-sided report would be a lie by selection.
     `nucshell.order_a()` banks -- land at K7, which is occupied, so the chart
     had no novel channel at all.  See `overlaprule.py` section 3e.  At fourteen
     the figures were E 81, own cell (0, 5, 6), resolutions 0.500/0.714/0.857.
+
+    AND SEVENTEEN, WHEN DOCKET 27 WIDENED THE SUBJECT.  M: "produce indexes
+    and plates for all particles other than periodic atoms."  `fundamental`
+    (30 Standard Model particles, K2), `mesons` (242, K0) and `baryons` (278,
+    K0) seated together.  None is a coarsening and none is a new member set
+    over old objects -- they are the first indexes here of objects that are
+    not atomic at all, so neither the overlap ruling nor DOCKET 26's reading
+    governs them.  At seventeen: E 126, own cell (0, 5, 8), resolutions
+    0.353 / 0.706 / 0.824, channels UNCHANGED at six of eight.
+
+    THE RESOLUTIONS FELL AGAIN AND THAT IS THE SAME EFFECT, NOT A NEW ONE.
+    `fundamental` lands at width 7 and `mesons` at width 14, both already
+    held; only `baryons` at width 40 was new.  Height 10 was new and is now
+    shared by two of them.  So the three additions group more than they
+    separate, which is what drove height and width out of LABEL at fourteen
+    and drives them further from it here.  E rose 84 to 126 -- again, anyone
+    reading E as progress should read that as a step backwards, and the
+    channel census did not move at all: K4 and K5 are still empty after
+    three whole new families of matter were charted.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
@@ -440,10 +459,11 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at fourteen it closes in NOTHING -- the ruling cost it its closure",
+    chk("at seventeen it closes in NOTHING -- the ruling cost it its closure "
+        "at fourteen and DOCKET 27's three did not give it back",
         closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 6))
+    chk("it has its own cell", own, (0, 5, 8))
     chk("six of the eight channels are occupied; K4 and K5 are not",
         sorted({c[0] for c in figure()}), [0, 1, 2, 3, 6, 7])
     chk("AND NO MEMBER OCCUPIES IT -- it is not one of its own", occ, [])
@@ -455,9 +475,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.7857))
+        (res["height"][1], res["height"][0]), ("measurement", 0.7059))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.8571))
+        (res["width"][1], res["width"][0]), ("measurement", 0.8235))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

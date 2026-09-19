@@ -100,6 +100,17 @@ import hlaw
 import mi
 import pdgcapture
 
+# WHERE THE DATA COMES FROM.  registry.sources() reads this, checks every
+# path exists and hashes it, and state.py writes the result into STATE.json --
+# so provenance is a checked fact in the tree and not a sentence in a chat.
+SOURCE = (
+    '"Review of Particle Physics", Particle Data Group, Int. J. Mod. Phys. A 41, 2630011 (2026), via the `particle` package -- see pdgcapture.py',
+    (
+        'research/warp-drive/captures/PDG-2026.tsv',
+    ),
+)
+
+
 NAMES = ("2J", "Q3", "COL", "GEN")
 ARITY = len(NAMES)
 FAMILIES = ("quark", "lepton", "gauge")

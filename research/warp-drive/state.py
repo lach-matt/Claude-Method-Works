@@ -218,6 +218,7 @@ def state():
 
     cells = registry.cells()
     ch = mi.channels()
+    src = registry.sources()
     rows = []
     for nm, mod, acc, meth, what, q in registry.rows():
         c = cells[nm]
@@ -229,6 +230,7 @@ def state():
             "channel": c[0] if c != "UNMEASURED" else None,
             "languages": sorted(ch[c[0]]) if c != "UNMEASURED" else None,
             "seated_by_overlap_ruling": mod == OR.SELF,
+            "source": src[nm],
         })
     F = figure.figure()
     occupied = sorted({c[0] for c in F})
@@ -319,6 +321,27 @@ def to_markdown(S):
                  % (r["label"], r["members"], r["quantum"], r["cells"],
                     tuple(r["cell"]) if r["cell"] else "unmeasured",
                     r["channel"]))
+    L.append("")
+    L.append("## Where each index's data comes from")
+    L.append("")
+    L.append("Declared as `SOURCE` beside the code that reads it, resolved "
+             "against the repository root and hashed here, so the provenance "
+             "travels in the tree rather than in a chat. An empty path list "
+             "means the index is COMPUTED from a rule and reads no table -- "
+             "that is a source, not a gap.")
+    L.append("")
+    L.append("| index | provenance | files (md5, bytes) |")
+    L.append("|---|---|---|")
+    for r in S["registry"]["indexes"]:
+        src = r["source"]
+        fs = "; ".join(
+            ("`%s/` — %d files, %s B, digest %s"
+             % (d["path"], d["files"], d["bytes"], d["md5"][:12])
+             if d["kind"] == "dir" else
+             "`%s` (%s, %s B)" % (d["path"], d["md5"][:12], d["bytes"]))
+            if d["exists"] else "`%s` **MISSING**" % d["path"]
+            for d in src["paths"]) or "*computed -- no table read*"
+        L.append("| `%s` | %s | %s |" % (r["label"], src["why"], fs))
     L.append("")
     L.append("## The overlap ruling")
     L.append("")
