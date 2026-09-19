@@ -366,7 +366,15 @@ is the one gap closed with two measured refusals — there is no particle table 
 because the labels are the host crystal's (230 space groups, 32 point groups, 73 arithmetic classes,
 from `sgcapture.py`), and the one exactly specified family, the anyons of SU(2)_k, charts to a
 channel that never moves with the box and is refused as a theorem — and is carried marked *in
-progress*, because the other session is still working on it.
+progress*, because the other session is still working on it. DOCKET 29, `particlesweep.py`,
+reopens the census over the three new member sets — every sub-chart of their declared columns,
+142 charts (11 + 11 + 120) — and finds one seating and two refusals: `baryons (2I, Q3)`, isospin
+against charge with flavour dropped, 16 cells at cell (5, 7, 4), **the tree's only K5**, on all four
+of the overlap ruling's grounds and at every mass cut; refused, `baryons (P, 2I, Q3)` at K1 because
+K1 is held, and `fundamental (Q3, GEN)` at K4 because at arity 2 the statistics language closes
+every chart for free (105 of 105) and what it shows is join-closure. Seven of the eight channels are
+now occupied. `docket27.py` also counts antimatter rather than implying it — 231 of the 550 charted
+members, 42 % — and resolves the photon, the muon and the antimuon by name with their cells.
 
 **`webindex.py` imports those instruments by path and retypes nothing.** `particle_index_block`
 puts the warp tree's directory on `sys.path` (its modules import each other by bare name and reach
@@ -377,7 +385,12 @@ for the colour assignment the Standard Model's definition fixes, DERIVED for gen
 PDG id and for the flavour numbers read off the quark content by the pinned case convention —
 beside the mass and width (READ), the cells, the closure channel, the collisions, the conjugation
 measurement (antimatter, measured rather than seated), and every refused coordinate with the
-measurement that refuses it. `index.particle_index` carries the summary; the Particles dialog draws
+measurement that refuses it. The block also carries the antimatter count, the three named particles, and the
+whole of the sweep: the census, the occupancy before and after, the hits, the seating with its
+grounds, reach sweep, cells and corners, the two refusals, and the arity-2 freeness table. The
+sweep's occupancy is measured over the whole registry, so the instruments need the warp tree's own
+`tools/populate.py` beside them (its Madelung list runs further than main's); a build takes about
+two minutes with it, and the block is computed once per process. `index.particle_index` carries the summary; the Particles dialog draws
 each index by charge and spin, lists every member with its badges, and appends the muon material
 after it where a `--with-particles` build carries that block. The public-build guard runs over
 `particles.js` as it does over the index. The tree is located by `--warp-root` (default

@@ -1891,6 +1891,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('charted', `${ac.charted} of ${ac.members}`, 'DERIVED', `${ac.unplaced} members carry no printed parity and land on no cell; a gap in the table, not in physics`, true)}
       </div>
       <p class="note">${esc(ac.note)}</p>
+      ${ac.named ? `<h3>The three asked for by name</h3><div class="fields">${ac.named.rows.map((r) => row(esc(r.what), `<span class="mono">${esc(r.name)}</span> — a member of the ${esc(r.index)} index, at cell (${r.cell.join(', ')}): ${Object.entries(r.coordinates).map(([k, v]) => `${esc(k)} = ${v}`).join(', ')}`, ac.named.status, null, true)).join('')}</div><p class="note">${esc(ac.named.note)}</p>` : ''}
+      ${ac.antimatter ? `<h3>Antimatter, counted rather than implied</h3><div class="fields">${ac.antimatter.by_index.map((r) => row(esc(r.index), `${r.antiparticles} of ${r.members} charted members are antiparticles`, 'DERIVED', null, true)).join('')}${row('in all', `${ac.antimatter.total} of ${ac.antimatter.of_charted} charted members, ${Math.round(ac.antimatter.share * 100)} %`, ac.antimatter.status, null, true)}</div><p class="note">${esc(ac.antimatter.note)}</p>` : ''}
       <h3>Where the data comes from</h3>
       <div class="fields">
         ${row('citation', `${esc(src.citation)} · ${ext('https://doi.org/' + src.doi, 'DOI ' + src.doi)}`, 'READ', 'the review the capture reads', true)}
@@ -1920,6 +1922,28 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           </tbody></table></div>
         </details>`;
     });
+    const sw = px.sweep;
+    if (sw && !sw.absent) {
+      const st = sw.seated;
+      html += `<h3>Every chart the member sets admit, swept</h3><p class="note">${esc(sw.status_note)}</p>
+        <div class="fields">
+          ${row('the census', `${sw.charts} charts: ${Object.entries(sw.census).map(([k, v]) => `${esc(k)} ${v}`).join(', ')}`, 'DERIVED', 'every subset of the declared columns of size two or more, the parent included', true)}
+          ${row('channels occupied', `before this docket K${sw.occupancy.before_this_sweep.join(', K')}; now K${sw.occupancy.now.join(', K')}`, 'DERIVED', esc(sw.occupancy.note), true)}
+          ${row('reaching an empty channel', `${sw.hits.against_the_honest_occupancy.map((h) => `${esc(h.parent)} (${h.cols.join(', ')}) → K${h.channel}, ${h.cells} cells`).join('; ')}`, 'DERIVED', `against the overlap rule's own census a third does: ${sw.hits.against_the_overlap_rules_census.map((h) => `${esc(h.parent)} (${h.cols.join(', ')}) → K${h.channel}`).join('; ')}`, true)}
+        </div>
+        <h3>The seating: the only K5</h3>
+        <p class="note"><b>${esc(st.parent)} (${st.cols.join(', ')})</b> — ${esc(st.registered_as)}: ${st.cells} cells, cell (${st.cell.channel}, ${st.cell.height}, ${st.cell.width}), channel K${st.channel}. ${badge(st.verdict_status, 'the seating is the sweep\'s verdict; every ground below is measured')}</p>
+        <figure class="data-fig" id="pfig-isomultiplet"></figure>
+        <div class="fields">
+          ${Object.entries(st.grounds).map(([g, v]) => row(esc(g), v ? '<span class="ok">holds</span>' : '<span class="bad">fails</span>', 'DERIVED', g === 'reach stable' ? `K${st.channel} at every mass cut: ${st.reach.sweep.map((r) => `${esc(r.cut)} → ${r.cells} cells, K${r.channel}`).join('; ')}` : null, true)).join('')}
+          ${row('the cells', st.rows.map((r) => `2I = ${r.I2}: Q3 in {${r.Q3.join(', ')}}`).join(' · '), 'DERIVED', esc(st.reading), true)}
+          ${row('the corners', `${st.corners_not_held.map((c) => `(${c.join(', ')})`).join(', ')} not held, ${st.corners_outside_hull ? 'all outside the convex hull' : 'NOT all outside the hull'}`, 'DERIVED', null, true)}
+          ${row('why arity 2 does not reach it', esc(st.why_arity_2_does_not_reach_it), 'DERIVED', `arity-2 freeness over the tree: ${Object.entries(sw.arity2_freeness).map(([L, f]) => `${esc(L)} ${f.closes} of ${f.charts}`).join(', ')}`, true)}
+        </div>
+        <h3>The two refusals</h3>
+        <div class="fields">${sw.refused.map((r) => row(`${esc(r.parent)} (${r.cols.join(', ')}) → K${r.channel}${r.cells ? ', ' + r.cells + ' cells' : ''}`, `<b>${esc(r.verdict)}</b> — ${esc(r.why)}`, r.status, null, true)).join('')}</div>
+        <p class="note"><b>Claimed:</b> ${esc(sw.claimed)} <b>Not claimed:</b> ${sw.not_claimed.map(esc).join(' ')} ${esc(sw.channels_note)}.</p>`;
+    }
     const q = px.quasiparticles;
     if (q) {
       html += `<h3>Quasiparticles ${q.in_progress ? '<span class="muted">(in progress on the other session)</span>' : ''}</h3><p class="note">${esc(q.status_note || '')}</p>`;
@@ -1936,6 +1960,24 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       if (q.reopens) html += `<p class="note"><b>What would reopen it:</b> ${esc(q.reopens)}</p>`;
     }
     host.innerHTML = html;
+    const isoFig = host.querySelector('#pfig-isomultiplet');
+    if (isoFig && sw && sw.seated) {
+      const st = sw.seated, Is = st.rows.map((r) => r.I2), Qs = [...new Set(st.rows.flatMap((r) => r.Q3).concat(st.corners_not_held.map((c) => c[1])))].sort((a, b) => a - b);
+      const W = 420, H = 60 + Is.length * 40, m = { l: 60, r: 16, t: 14, b: 40 }, cw = (W - m.l - m.r) / Qs.length, ch = (H - m.t - m.b) / Is.length;
+      const svg = figFrame(W, H);
+      Qs.forEach((q, i) => svg.appendChild(svgEl('text', { x: m.l + (i + 0.5) * cw, y: H - m.b + 16, 'text-anchor': 'middle', class: 'tick' }, String(q / 3))));
+      svg.appendChild(svgEl('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'text-anchor': 'middle', class: 'lab' }, 'electric charge Q'));
+      Is.forEach((i, k) => svg.appendChild(svgEl('text', { x: m.l - 8, y: m.t + (Is.length - k - 0.5) * ch + 4, 'text-anchor': 'end', class: 'tick' }, `I = ${i % 2 ? i + '/2' : i / 2}`)));
+      const held = new Set(st.rows.flatMap((r) => r.Q3.map((q) => r.I2 + '|' + q))), miss = new Set(st.corners_not_held.map((c) => c.join('|')));
+      Is.forEach((i, k) => Qs.forEach((q, j) => {
+        const key = i + '|' + q, x = m.l + j * cw, y = m.t + (Is.length - k - 1) * ch;
+        const r = svgEl('rect', { x: x + 2, y: y + 2, width: cw - 4, height: ch - 4, rx: 3, fill: held.has(key) ? '#1f4e8c' : (miss.has(key) ? 'none' : 'none'), 'fill-opacity': 0.75, stroke: miss.has(key) ? '#b5651d' : 'var(--line)', 'stroke-dasharray': miss.has(key) ? '4 3' : 'none' });
+        r.append(svgEl('title', {}, `2I = ${i}, Q3 = ${q}: ${held.has(key) ? 'held' : (miss.has(key) ? 'a box point not held, outside the hull' : 'no such box point')}`));
+        svg.appendChild(r);
+      }));
+      isoFig.appendChild(svg);
+      const cap = document.createElement('figcaption'); cap.innerHTML = `The ${st.cells} cells of baryons (2I, Q3), isospin up and charge across; the dashed corners are the four box points the chart does not hold, which lie outside the convex hull of the sixteen. ${badge('DERIVED', 'drawn from the seated chart\'s rows')}`; isoFig.appendChild(cap);
+    }
     px.indexes.forEach((ix) => {
       const fig = host.querySelector('#pfig-' + ix.id);
       if (!fig) return;

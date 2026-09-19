@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Method Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T05:17:20+00:00",
-  "commit": "7612e562bdb1",
+  "built": "2026-09-19T05:38:13+00:00",
+  "commit": "229a5950d6d9",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Method Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "7612e562bdb1",
-   "text": "Lach, M. (2026). The Method Index, edition 7612e562bdb1. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 7612e562bdb1}\n}"
+   "commit": "229a5950d6d9",
+   "text": "Lach, M. (2026). The Method Index, edition 229a5950d6d9. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 229a5950d6d9}\n}"
   },
   "history": [
    {
@@ -142,6 +142,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 16,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/7612e562bdb17f87ee6ab4063a453c9a6b394fe5",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "229a595",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/229a5950d6d91c4159953d39f265fdd168bc1fdb",
+    "note": null
    }
   ]
  },
@@ -221,8 +228,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/particles.js",
-   "bytes": 143107,
-   "md5": "0996b1d87f14c05975723161c6abff74",
+   "bytes": 153173,
+   "md5": "320e33d13a7c22e3d61a6b19583f1d17",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
@@ -9459,8 +9466,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 143107,
-  "md5": "0996b1d87f14c05975723161c6abff74",
+  "bytes": 153173,
+  "md5": "320e33d13a7c22e3d61a6b19583f1d17",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9476,15 +9483,16 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    ],
    "tree": {
     "root": "research/warp-drive",
-    "commit": "8120edd",
-    "state_commit": "4c45ead1226d",
+    "commit": "c7cc60f",
+    "state_commit": "6dd0a47d9735",
     "instruments": [
      "pdgcapture.py",
      "fundamental.py",
      "mesons.py",
      "baryons.py",
      "docket27.py",
-     "quasiparticle.py"
+     "quasiparticle.py",
+     "particlesweep.py"
     ]
    }
   },
@@ -9568,6 +9576,24 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "quasiparticles": {
    "in_progress": true,
    "verdict": "REFUSE-AS-THEOREM"
+  },
+  "antimatter": {
+   "total": 231,
+   "of_charted": 550
+  },
+  "sweep": {
+   "charts": 142,
+   "seated": "baryons (2I, Q3) at K5, 16 cells",
+   "refused": 2,
+   "occupied_now": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ]
   }
  },
  "references": {

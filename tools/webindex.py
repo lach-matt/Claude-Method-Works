@@ -991,6 +991,11 @@ def warp_modules(root):
     mods = {n: importlib.import_module(n)
             for n in ("pdgcapture", "fundamental", "mesons", "baryons", "docket27", "registry")}
     try:
+        mods["particlesweep"] = importlib.import_module("particlesweep")
+    except Exception as e:  # noqa: BLE001 -- DOCKET 29 may not be in an older tree
+        mods["particlesweep"] = None
+        mods["particlesweep_error"] = repr(e)
+    try:
         mods["quasiparticle"] = importlib.import_module("quasiparticle")
     except Exception as e:  # noqa: BLE001 -- the docket is in progress on the other session
         mods["quasiparticle"] = None
@@ -1038,11 +1043,85 @@ PARTICLE_TITLES = {
 }
 
 
+def _antimatter(D27, F):
+    """Antimatter counted rather than implied, and the three particles the
+    author asked for by name, resolved by name with their cells."""
+    rows, tot = D27.antimatter()
+    _m, charted, _u = D27.charted()
+    names = {t[0]: t for t in F.rows()}
+    named = []
+    for what, where, cell in D27.named_by_hand():
+        sym = {"photon": "gamma", "muon": "mu-", "antimuon": "mu+"}[what]
+        named.append({"what": what, "name": sym, "index": where.split(".")[0], "cell": list(cell),
+                      "coordinates": dict(zip(F.NAMES, cell))})
+    return {
+        "antimatter": {"by_index": [{"index": a, "antiparticles": b, "members": c} for a, b, c in rows],
+                       "total": tot, "of_charted": charted, "share": round(tot / float(charted), 2),
+                       "note": "an antiparticle is a member in its own right, never a footnote on the particle: the positron's charge is not the electron's, and a chart that merged them would be charting an equivalence class it had not declared",
+                       "status": "DERIVED"},
+        "named": {"rows": named, "status": "READ",
+                  "note": "a total can be right while a named member is missing, so the three the author asked for are resolved by name; the photon shares its cell with the Z, because no quantum number separates them"},
+    }
+
+
+def _sweep(PS):
+    """DOCKET 29 as the site carries it: every chart the three member sets
+    admit, swept; the seating, the two refusals, and the measurements."""
+    OR = PS.OR
+    census = PS.census()
+    honest = PS.honest_occupancy()
+    current = PS.current_occupancy()
+    ruling = OR.seated_channels()
+    hits_r = PS.hits()
+    hits_h = PS.hits(honest)
+    parent, cols, chan = PS.SEATED
+    X = OR.baryon_isomultiplet()
+    K, h, w = PS.mi.cell(X)
+    grounds = OR.grounds(parent, cols)
+    ok, nhit, ntot, late, osc, maj, reach = OR.ground_reach_stable(parent, cols)
+    missing, outside = PS.corners_outside_hull()
+    refused_why = {
+        ("baryons", ("P", "2I", "Q3")): "K1 is already held by a seated row of the overlap rule; that rule's own census leaves its rows out because novelty there means novel against the index the rule was handed, and that exclusion does not transfer to a new parent",
+        ("fundamental", ("Q3", "GEN")): "arity 2: the statistics language closes every arity-2 chart in the tree for free (105 of 105), so what the chart shows is join-closure, which is K1, and K1 is occupied; it is the third arity-2 chart to reach K4 and the third refused",
+    }
+    return {
+        "status_note": "every sub-chart of every particle member set, each subset of its declared columns of size two or more, enumerated and adjudicated against the index as it stands; a census, not a search. The sweep is the other session's; the site reads its record",
+        "census": {p: len(v) for p, v in census.items()},
+        "charts": sum(len(v) for v in census.values()),
+        "by_channel": {p: sorted(((list(c), n, k) for c, n, k in v), key=lambda t: (t[2], -t[1])) for p, v in census.items()},
+        "occupancy": {"before_this_sweep": sorted(honest), "now": sorted(current), "by_the_overlap_rules_own_census": sorted(ruling),
+                      "gap": PS.occupancy_gap(),
+                      "note": "the honest occupancy counts the overlap rule's seated rows and leaves out the row this sweep itself seated; the rule's own census leaves its rows out, which is right for its question and not for this one"},
+        "hits": {"against_the_overlap_rules_census": [{"parent": a, "cols": list(b), "cells": c, "channel": d} for a, b, c, d in hits_r],
+                 "against_the_honest_occupancy": [{"parent": a, "cols": list(b), "cells": c, "channel": d} for a, b, c, d in hits_h]},
+        "seated": {"parent": parent, "cols": list(cols), "channel": chan, "cells": len(X),
+                   "cell": {"channel": K, "height": h, "width": w},
+                   "registered_as": "baryon_isomultiplet: the same 278 baryons, isospin against charge with flavour dropped",
+                   "grounds": grounds, "grounds_note": "the overlap rule's four grounds, each measured",
+                   "reach": {"passes": ok, "hits": nhit, "cuts": ntot, "late": late, "oscillates": osc, "majority": maj,
+                             "sweep": [{"cut": a, "cells": b, "channel": c} for a, b, c in reach]},
+                   "rows": [{"I2": i, "Q3": q} for i, q in PS.isomultiplet_rows()],
+                   "corners_not_held": [list(m) for m in missing], "corners_outside_hull": outside,
+                   "reading": "a multiplet's charge span widens with its isospin, steeply enough to cut the corners off; the chart is that widening and nothing else. Geometry is hull-completeness on coordinate pairs, and the four box points the chart does not hold fall outside the convex hull of the sixteen it does",
+                   "why_arity_2_does_not_reach_it": "at K5 the statistics bit is forced by law from geometry, so the free pass changes nothing and the seating stands on geometry, which 31 of the 105 arity-2 charts fail",
+                   "status": "DERIVED", "verdict_status": "READ"},
+        "refused": [{"parent": a, "cols": list(b), "channel": c, "why": refused_why.get((a, b), d),
+                     "cells": next((n for cc, n, k in census[a] if cc == b), None), "verdict": "REFUSED", "status": "READ"}
+                    for a, b, c, d in PS.REFUSED],
+        "arity2_freeness": {L: {"closes": a, "charts": b} for L, (a, b) in PS.arity2_freeness().items()},
+        "claimed": "over the three particle member sets, every chart their declared columns admit has been enumerated and adjudicated: one seated, two refused with reasons, and the rest reach an occupied channel",
+        "not_claimed": ["a chart on a coordinate none of the three modules declares (C-parity, G-parity, lepton number, mass) is not in this census; each was refused in its own module for a stated reason, and reaching for one after seeing which channels are short would be a fitted move",
+                        "the registry does not claim completeness: this is a census over three member sets, not over member sets nobody has thought of"],
+        "channels_note": "seven of the eight closure channels are now occupied; only K4 is empty, and every chart that ever reached it was arity 2",
+    }
+
+
 def _frac(x):
     return "%d/%d" % (x.numerator, x.denominator) if x.denominator != 1 else str(x.numerator)
 
 
 WARP_COMMIT = None   # the commit the warp tree at --warp-root is at, when the caller knows it
+_PBLOCK = {}         # the block once per (root, commit) in a process: the sweep costs a minute
 
 
 def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
@@ -1052,7 +1131,16 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     mods = warp_modules(root)
     if mods is None:
         return None, None
+    key = (os.path.abspath(root), commit or WARP_COMMIT)
+    if key in _PBLOCK:
+        summary, full = _PBLOCK[key]
+        if write:
+            blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
+            with open(os.path.join(out_dir, PARTICLES_JS), "wb") as fh:
+                fh.write(blob)
+        return summary, full
     F, M, Bn, D27, R, PC = (mods[k] for k in ("fundamental", "mesons", "baryons", "docket27", "registry", "pdgcapture"))
+    PS = mods.get("particlesweep")
     Q = mods.get("quasiparticle")
     cap = {int(r["pdgid"]): r for r in PC.read()}
     src = R.sources()
@@ -1178,6 +1266,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "identity": "%d = %d + %d + %d" % (total, nuclei, st4, kept),
         "note": "every one of the kept entries is a member of one of the three indexes; the composite nuclei are the periodic elements and are the subject of the rest of this site; the status-4 entries are the fourth generation and the diquarks, excluded on PDG's own flag",
         "unplaced_list": [{"index": a, "name": b} for a, b in D27.unplaced()],
+        **(_antimatter(D27, F) if hasattr(D27, "antimatter") else {}),
         "not_indexed": [
             {"what": "hypothetical particles", "why": "supersymmetric partners, axions, dark-matter candidates: none is in the table as an observed state, and a member must carry measured quantum numbers"},
             {"what": "quasiparticles", "why": "phonons, magnons, excitons, Cooper pairs carry quantum numbers and are not in this table; see the quasiparticle finding"},
@@ -1233,9 +1322,15 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
+    sweep = None
+    if PS is not None:
+        sweep = _sweep(PS)
+        prov["tree"]["instruments"].append("particlesweep.py")
+    elif mods.get("particlesweep_error"):
+        sweep = {"absent": True, "note": "the particle sweep instrument did not import: " + mods["particlesweep_error"][:200]}
     full = {
         "status_note": "three indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
-        "source": prov, "accounting": accounting, "indexes": indexes, "quasiparticles": quasi,
+        "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -1251,7 +1346,11 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                     | {"coordinates": [c["name"] for c in ix["coordinates"]], "unplaced": len(ix["unplaced"])}
                     for ix in indexes],
         "quasiparticles": ({"in_progress": True, "verdict": (quasi.get("anyons") or {}).get("verdict")} if quasi else None),
+        "antimatter": ({"total": accounting["antimatter"]["total"], "of_charted": accounting["antimatter"]["of_charted"]} if "antimatter" in accounting else None),
+        "sweep": ({"charts": sweep["charts"], "seated": "%s (%s) at K%d, %d cells" % (sweep["seated"]["parent"], ", ".join(sweep["seated"]["cols"]), sweep["seated"]["channel"], sweep["seated"]["cells"]),
+                   "refused": len(sweep["refused"]), "occupied_now": sweep["occupancy"]["now"]} if sweep and not sweep.get("absent") else None),
     }
+    _PBLOCK[key] = (summary, full)
     return summary, full
 
 
@@ -2416,6 +2515,25 @@ def selftest(warp_root=WARP_ROOT):
               [len(ix["rows"]) for ix in pfull["indexes"]], [30, 250, 292])
         check("particle indexes: the fundamental collisions are four", len(pfull["indexes"][0]["collisions"]), 4)
         check("particle indexes: the capture's md5 is recorded", bool(px["source"]["capture"] and px["source"]["capture"][0]["md5"]), True)
+        if "antimatter" in pfull["accounting"]:
+            am = pfull["accounting"]["antimatter"]
+            check("antimatter: 231 of the 550 charted members, 13 + 79 + 139", ([r["antiparticles"] for r in am["by_index"]], am["total"]), ([13, 79, 139], 231))
+            check("named by hand: the photon, the muon and the antimuon resolve with their cells",
+                  [(r["what"], r["cell"]) for r in pfull["accounting"]["named"]["rows"]],
+                  [("photon", [2, 0, 1, 0]), ("muon", [1, -3, 1, 2]), ("antimuon", [1, 3, 1, 2])])
+        sw = pfull.get("sweep")
+        if sw and not sw.get("absent"):
+            check("sweep: 142 charts, 11 + 11 + 120", (sw["charts"], sw["census"]), (142, {"fundamental": 11, "mesons": 11, "baryons": 120}))
+            check("sweep: three hits against the ruling's census, two against the honest occupancy",
+                  (len(sw["hits"]["against_the_overlap_rules_census"]), len(sw["hits"]["against_the_honest_occupancy"])), (3, 2))
+            check("sweep: the seating is baryons (2I, Q3) at K5, 16 cells, cell (5, 7, 4)",
+                  (sw["seated"]["parent"], sw["seated"]["cols"], sw["seated"]["channel"], sw["seated"]["cells"], sw["seated"]["cell"]),
+                  ("baryons", ["2I", "Q3"], 5, 16, {"channel": 5, "height": 7, "width": 4}))
+            check("sweep: all four grounds hold for the seating", all(sw["seated"]["grounds"].values()), True)
+            check("sweep: the four corners not held lie outside the hull", (sw["seated"]["corners_not_held"], sw["seated"]["corners_outside_hull"]),
+                  ([[0, -6], [0, 6], [1, -6], [1, 6]], True))
+            check("sweep: statistics is free at arity 2, 105 of 105; geometry is earned, 74", (sw["arity2_freeness"]["statistics"]["closes"], sw["arity2_freeness"]["geometry"]["closes"]), (105, 74))
+            check("sweep: seven channels occupied, only K4 empty", sw["occupancy"]["now"], [0, 1, 2, 3, 5, 6, 7])
         if pfull["quasiparticles"] and pfull["quasiparticles"].get("anyons"):
             qa = pfull["quasiparticles"]["anyons"]
             check("quasiparticles: the anyon chart is refused as a theorem", qa["verdict"], "REFUSE-AS-THEOREM")
