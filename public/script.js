@@ -3268,6 +3268,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       if (remember) { try { localStorage.setItem('key', open ? 'open' : 'closed'); } catch (e) { /* private window */ } }
     };
     legendBtn.addEventListener('click', () => setLegend(legend.classList.contains('is-collapsed'), true));
+    // the key is a popup over the drawing: it closes by its own button, and on a phone, where it
+    // covers the table, by a tap on the drawing or Esc
+    $('#legend-close').addEventListener('click', () => setLegend(false, true));
+    canvas.addEventListener('pointerdown', () => { if (isPhone() && !legend.classList.contains('is-collapsed')) setLegend(false, false); }, { passive: true });
+    window.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && !legend.classList.contains('is-collapsed') && !document.querySelector('dialog[open]')) { setLegend(false, false); ev.stopImmediatePropagation(); } }, true);
     legend.querySelectorAll('.legend-seg button').forEach((b) => b.addEventListener('click', () => setCellColor(b.dataset.color)));
     // the key folds by default so the table and the lattice stand clear; a reader's choice is kept
     let keyOpen = false;
