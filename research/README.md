@@ -12716,3 +12716,62 @@ adjective.
 
 **Reproduce:** `python3 research/warp-drive/ghosts.py --selftest` (the whole table is re-measured from
 the tree, not sampled) and `python3 research/warp-drive/ghosts.py` for the reading.
+
+## The master-index paper, brought current — and the eight channels are all occupied
+
+`paper/THE-MASTER-INDEX.md` had gone stale by nine vertices. It was generated on **14** seated
+indexes and the registry now holds **23**; every figure in it is substituted from an instrument at
+build time, so the staleness was in the *file* and not in the generator. Regenerating it changed the
+vertex count, the seating table, the self-chart, the arity census and the channel occupancy line. Of
+those, one is a result and one was a bug.
+
+**The result: every one of the eight lawful channels is now occupied by a seated index.** Theorem 1
+proves at most 8 of the 32 subsets of the five closure languages can occur and characterises them as
+the down-sets of the hierarchy law; its converse half was proved *by exhibition* — a set of cells
+built for each down-set. That is now superseded by something stronger: **each down-set is realised by
+a chart of real atomic, nuclear or particle data whose members carry quantum numbers.** The bound is
+tight from nature, not only by construction.
+
+| channel | closes | held by |
+|---|---|---|
+| K0 | — | ions, channels, laws, gravity, terms, observed, mesons, baryons, fqh, readrezayi |
+| K1 | information | gravity_bound |
+| K2 | statistics | probability, inversion, madrule, fundamental, nucbands |
+| K3 | geometry, statistics | fibred, nucshell |
+| K4 | information, statistics | **spin4** |
+| K5 | geometry, information, statistics | baryon_isomultiplet |
+| K6 | order, algebra, information, statistics | madelung_slot |
+| K7 | all five | madelung, bosonqp |
+
+**And K4 fell in the way that makes it a measurement.** §6's Theorem 2 — 2-determinacy is vacuous at
+arity 2, so statistics closes *every* arity-2 chart — is why K4 was the hard channel: the law protects
+K5 and K6 from the free pass (geometry closing forces statistics, and so does the order/algebra
+block), while K4 = {information, statistics} has no such protection, so its extra content is exactly
+the bit an arity-2 chart is given. For a long stretch the only charts reaching K4 were arity 2.
+**`spin4` is arity 3** — (P, 2I, Q3) — where 2-determinacy is not vacuous and statistics has to be
+earned. The section's heading changes from *"why one channel stays empty"* to *"why one channel was
+the last to fall"*, and the explanation survives as an explanation of the difficulty rather than of
+an absence.
+
+**The bug: with no empty channels the sentence rendered as `K0…K7. &nbsp; are empty.`** A template
+that could not say "none" said nothing and left the verb. Fixed at the source, and §5 now prints the
+occupancy table above.
+
+**Two claims were inaccurate and are corrected rather than quietly dropped.** §1 said *"the subject is
+the periodic elements"*; the subject was widened by ruling to quantum objects generally, and the
+seated set now includes mesons, baryons, quasiparticles and nuclear excited states. The subtitle said
+the paper settles *"why one channel has proved unreachable"*; no channel is unreachable.
+
+**A new §9 carries DOCKET 39 in full** — the demand per seated index, Theorems 3, 4 and 5 with their
+proofs, Gell-Mann–Nishijima re-derived from the source's own quark strings, the capture fault it
+found, the operator-relativity correction, and the FORBIDDEN / UNPLACED / OPEN table. Sections 9–11
+renumber to 10–12.
+
+**The substitution guard is now a test rather than a record.** `mipaper.py`'s selftest forbids a
+four-digit literal surviving in the prose, and its allow-list was hand-kept — a list of numbers
+someone had noticed, which grows every time a figure is added and never catches anything again. It
+now admits a numeral only if **some instrument actually produced it**: every integer reachable in the
+`facts()` dict is collected recursively and compared against the rendered text. A typed number no
+instrument computes is still caught, and a real one no longer needs to be remembered.
+
+**Reproduce:** `python3 research/warp-drive/paper/mipaper.py --selftest`, then `--md` and `--pdf`.
