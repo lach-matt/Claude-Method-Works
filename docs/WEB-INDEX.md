@@ -142,7 +142,13 @@ a masthead with the title, a one-line statement and the edition (the data's comm
 from `index.js`'s own meta), the path and the caption in a bar above the canvas rather than painted
 into it, a compact key, a footer that names the generator and the edition, and a print stylesheet
 that prints the plates and dialogs in full width with outward links spelled out. The Λ₈ ladder is
-one quiet line per rung and the lattice's cubes are lit softly. None of this changes a value or a
+one quiet line per rung and the lattice's cubes are lit softly. **The index's cells** are drawn
+inset from their frames so the gutters make the grid, with soft corners, the block tint as the fill
+and the same tint one tone deeper as the edge; a spectra-only element carries its colour on the edge
+instead of a dash; the record's displaced elements and the walk's are dot markers at the top right,
+filled and hollow; a mouse hover rings the cell; the key folds by default (a reader's choice is
+kept) as a chip at the bottom left, with the zoom controls at the bottom right, so the table and
+the lattice stand clear. None of this changes a value or a
 status; `tools/webindex.py` is untouched by it except for the site's subtitle.
 
 ## The data format

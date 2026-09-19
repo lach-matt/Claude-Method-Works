@@ -33,6 +33,7 @@
     pending: new Map(),             // Z -> promise
     loadErrors: new Map(),          // Z -> message
     selected: null,                 // node
+    hover: null, hoverKey: '',      // the node under a mouse pointer on the plane
     cam: { k: 1, tx: 0, ty: 0 },
     anim: null,
     view: 'plane',                  // 'plane' (the zoomable layout) or 'lattice' (three dimensions)
@@ -90,6 +91,22 @@
 
   // canvas type: mono for numerals and identifiers, sans for labels, serif for symbols
   const F = (px, role = 'mono', weight = '') => `${weight ? weight + ' ' : ''}${px}px ${(state.fonts || {})[role] || 'monospace'}`;
+
+  // a cell of the index: inset from its frame so the gutters draw the grid, with soft corners
+  function cellRect(p, s) {
+    const g = Math.max(1, s * 0.045), r = Math.max(1.5, s * 0.075);
+    return { x: p.x + g, y: p.y + g, w: s - 2 * g, h: s - 2 * g, r };
+  }
+  function roundRectPath(x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
 
   // ---------------------------------------------------------------- the limits facet
   // A bound note in COORDINATES-2.13 is READ; its kind is DERIVED by the rules data/index.js
@@ -466,15 +483,16 @@
         const p = toScreen(g.x, g.y);
         if (p.x + s < 0 || p.y + s < 0 || p.x > W() || p.y > H()) continue;
         const deferred = g.def && g.def.class === 'deferred';
+        const R = cellRect(p, s);
+        const isHoverG = state.hover && state.hover.kind === 'ghost' && state.hover.p === g.p && state.hover.g === g.g;
         // a tint, not a dash: the lighter one forbidden by l <= n-1, the fuller one a cell that
-        // could hold an element and does not; a hairline edge on both
-        ctx.fillStyle = C.ghost; ctx.globalAlpha = deferred ? 0.42 : 0.18;
-        ctx.fillRect(p.x + s * 0.06, p.y + s * 0.06, s * 0.88, s * 0.88);
-        ctx.globalAlpha = 1;
-        ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
-        ctx.strokeRect(p.x + s * 0.06 + 0.5, p.y + s * 0.06 + 0.5, s * 0.88 - 1, s * 0.88 - 1);
+        // could hold an element and does not; no edge, the gutters draw the grid
+        roundRectPath(R.x, R.y, R.w, R.h, R.r);
+        ctx.fillStyle = C.ghost; ctx.globalAlpha = deferred ? 0.4 : 0.16;
+        ctx.fill(); ctx.globalAlpha = 1;
+        if (isHoverG) { ctx.strokeStyle = C.accent; ctx.globalAlpha = 0.6; ctx.lineWidth = 1.25; ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 1; }
         if (s >= 30) {
-          ctx.fillStyle = C.muted;
+          ctx.fillStyle = C.faint;
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
           const sub = g.def ? (g.def.p === 1 && g.def.g === 2 ? 'He' : g.def.subshell) : 'E';
           ctx.font = F(Math.max(9, s * 0.16));
@@ -485,8 +503,8 @@
           }
         }
         if (state.selected && state.selected.kind === 'ghost' && state.selected.p === g.p && state.selected.g === g.g) {
-          ctx.strokeStyle = C.accent; ctx.lineWidth = 2;
-          ctx.strokeRect(p.x + 1, p.y + 1, s - 2, s - 2);
+          roundRectPath(R.x - 1, R.y - 1, R.w + 2, R.h + 2, R.r + 1);
+          ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.stroke(); ctx.lineWidth = 1;
         }
       }
     }
@@ -504,16 +522,17 @@
     const C = state.colors;
     if (s < 14) return;
     ctx.fillStyle = C.muted;
-    ctx.font = F(Math.max(9, Math.min(12, s * 0.15)), 'sans');
+    ctx.fillStyle = C.faint;
+    ctx.font = F(Math.max(9, Math.min(11.5, s * 0.14)), 'sans');
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     if (state.layout === 'table') {
       for (let g = 1; g <= 18; g++) {
-        const p = toScreen((g - 0.5) * CELL, -0.35 * CELL);
+        const p = toScreen((g - 0.5) * CELL, -0.42 * CELL);
         ctx.fillText(String(g), p.x, p.y);
       }
       ctx.textAlign = 'right';
       for (let per = 1; per <= 7; per++) {
-        const p = toScreen(-0.25 * CELL, (per - 0.5) * CELL);
+        const p = toScreen(-0.32 * CELL, (per - 0.5) * CELL);
         ctx.fillText(String(per), p.x, p.y);
       }
       ctx.textAlign = 'left';
@@ -521,7 +540,7 @@
       let p = toScreen(2.8 * CELL, 9 * CELL); ctx.fillText('58–71', p.x, p.y);
       p = toScreen(2.8 * CELL, 10 * CELL); ctx.fillText('90–103', p.x, p.y);
       ctx.textAlign = 'right';
-      p = toScreen(-0.25 * CELL, 7.5 * CELL); ctx.fillText('8', p.x, p.y);
+      p = toScreen(-0.32 * CELL, 7.5 * CELL); ctx.fillText('8', p.x, p.y);
     } else {
       ctx.textAlign = 'right';
       for (let nl = 1; nl <= 8; nl++) {
@@ -542,41 +561,41 @@
     const C = state.colors;
     const sel = state.selected;
     const isSel = sel && sel.kind === 'element' && sel.Z === e.Z;
-    ctx.fillStyle = e.populated ? (C.blk[e.block] || C.blk.none) : C.bg;
-    ctx.fillRect(p.x, p.y, s, s);
+    const isHover = !isSel && state.hover && state.hover.kind === 'element' && state.hover.Z === e.Z;
+    const R = cellRect(p, s);
+    const tint = e.populated ? (C.blk[e.block] || C.blk.none) : C.blk.none;
+    roundRectPath(R.x, R.y, R.w, R.h, R.r);
+    ctx.fillStyle = tint;
+    ctx.fill();
+    // the edge is the tint itself, one tone deeper; a spectra-only element carries its colour there
     ctx.lineWidth = 1;
-    if (e.populated) {
-      ctx.strokeStyle = C.grid;
-      ctx.strokeRect(p.x + 0.5, p.y + 0.5, s - 1, s - 1);
-    } else {
-      ctx.setLineDash([Math.max(2, s * 0.06), Math.max(2, s * 0.05)]);
-      ctx.strokeStyle = C.csv;
-      ctx.strokeRect(p.x + 0.5, p.y + 0.5, s - 1, s - 1);
-      ctx.setLineDash([]);
+    ctx.strokeStyle = e.populated ? shade(tint, effectiveTheme() === 'dark' ? 1.35 : 0.9) : shade(C.csv, 1, 0.55);
+    ctx.stroke();
+    if (isHover || isSel) {
+      roundRectPath(R.x - 1, R.y - 1, R.w + 2, R.h + 2, R.r + 1);
+      ctx.strokeStyle = C.accent; ctx.lineWidth = isSel ? 2 : 1.25;
+      if (isHover) ctx.globalAlpha = 0.6;
+      ctx.stroke(); ctx.globalAlpha = 1; ctx.lineWidth = 1;
     }
-    if (isSel) { ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.strokeRect(p.x + 1, p.y + 1, s - 2, s - 2); }
-    if (e.relativistic && s >= 8) {
-      // one of the eleven the paper's construction displaces at c → ∞ (READ): a corner mark
-      const t = Math.max(4, s * 0.16);
-      ctx.fillStyle = C.rel;
-      ctx.beginPath(); ctx.moveTo(p.x + s - 1, p.y + s - 1); ctx.lineTo(p.x + s - 1 - t, p.y + s - 1); ctx.lineTo(p.x + s - 1, p.y + s - 1 - t); ctx.closePath(); ctx.fill();
-      if (s >= 150) {
-        ctx.fillStyle = C.rel; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
-        ctx.font = F(s * 0.05, 'sans');
-        ctx.fillText('displaced at c → ∞', p.x + s - t - s * 0.02, p.y + s * 0.985);
+    // the markers: a filled dot for one of the eleven the record displaces at c → ∞ (READ), a
+    // hollow one for a displacement in the reconstructed walk (RECONSTRUCTED), top right
+    if (s >= 14 && (e.relativistic || e.walk_displaced)) {
+      const d = Math.max(2, s * 0.045);
+      let mx = R.x + R.w - d * 1.8, my = R.y + d * 1.8;
+      if (e.relativistic) {
+        ctx.beginPath(); ctx.arc(mx, my, d, 0, Math.PI * 2); ctx.fillStyle = C.rel; ctx.fill();
+        mx -= d * 2.8;
       }
-    }
-    if (e.walk_displaced && s >= 8) {
-      // displaced at c → ∞ in the reconstructed walk (RECONSTRUCTED, tools/lowdin_walk.py): a
-      // hollow corner at the top right, apart from the record's filled one below it
-      const t = Math.max(4, s * 0.16);
-      ctx.strokeStyle = C.walk; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(p.x + s - 1 - t, p.y + 1); ctx.lineTo(p.x + s - 1, p.y + 1); ctx.lineTo(p.x + s - 1, p.y + 1 + t); ctx.closePath(); ctx.stroke();
-      ctx.lineWidth = 1;
+      if (e.walk_displaced) {
+        ctx.beginPath(); ctx.arc(mx, my, d * 0.9, 0, Math.PI * 2); ctx.strokeStyle = C.walk; ctx.lineWidth = Math.max(1, d * 0.45); ctx.stroke(); ctx.lineWidth = 1;
+      }
       if (s >= 150) {
-        ctx.fillStyle = C.walk; ctx.textAlign = 'right'; ctx.textBaseline = 'top';
-        ctx.font = F(s * 0.032, 'sans');
-        ctx.fillText('reconstructed walk', p.x + s - t - s * 0.02, p.y + s * 0.025);
+        ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.font = F(s * 0.032, 'sans');
+        const parts = [];
+        if (e.relativistic) parts.push('displaced at c → ∞');
+        if (e.walk_displaced) parts.push('reconstructed walk');
+        ctx.fillStyle = C.muted;
+        ctx.fillText(parts.join(' · '), R.x + R.w - d * 6, R.y + d * 0.9);
       }
     }
 
@@ -592,17 +611,17 @@
       ctx.fillStyle = C.muted;
       ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.font = F(s * 0.1);
-      ctx.fillText(String(e.Z), p.x + s * 0.06, p.y + s * 0.05);
+      ctx.fillText(String(e.Z), p.x + s * 0.085, p.y + s * 0.075);
       if (e.name) {
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
         ctx.font = F(s * 0.08, 'sans');
-        ctx.fillText(e.name, p.x + s / 2, p.y + s * 0.96);
+        ctx.fillText(e.name, p.x + s / 2, p.y + s * 0.935);
       }
       if (e.counts) {
         ctx.textAlign = 'right'; ctx.textBaseline = 'top';
         ctx.font = F(s * 0.075);
         ctx.fillStyle = e.counts.measured ? C.measured : C.muted;
-        ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.94, p.y + s * 0.06);
+        ctx.fillText(e.counts.measured ? `${e.counts.measured} m` : `${e.counts.rows}`, p.x + s * 0.915, p.y + s * 0.075 + (s >= 150 && (e.relativistic || e.walk_displaced) ? s * 0.04 : 0));
       }
     }
     if (s >= 150) {
@@ -2006,10 +2025,20 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
       }
       canvas.classList.add('is-dragging');
     });
+    const hoverKey = (n) => n ? `${n.kind}:${n.Z || ''}:${n.p || ''}:${n.g || ''}:${n.charge || ''}:${n.l === undefined ? '' : n.l}:${n.mult || ''}` : '';
     canvas.addEventListener('pointermove', (ev) => {
-      if (!pts.has(ev.pointerId)) return;
-      pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
       const rect = canvas.getBoundingClientRect();
+      if (!pts.has(ev.pointerId)) {
+        // no button down: a hover, for the plane's cells and ghosts
+        if (ev.pointerType === 'mouse') {
+          const n = state.view === 'lattice' ? null : hit(ev.clientX - rect.left, ev.clientY - rect.top);
+          const key = hoverKey(n);
+          if (key !== state.hoverKey) { state.hoverKey = key; state.hover = n; requestDraw(); }
+          canvas.style.cursor = n ? 'pointer' : (state.view === 'lattice' ? 'grab' : 'grab');
+        }
+        return;
+      }
+      pts.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
       if (pts.size === 2 && pinch) {
         const [a, b] = [...pts.values()];
         const d = Math.hypot(a.x - b.x, a.y - b.y);
@@ -2047,6 +2076,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     };
     canvas.addEventListener('pointerup', up);
     canvas.addEventListener('pointercancel', up);
+    canvas.addEventListener('pointerleave', () => { if (state.hover) { state.hover = null; state.hoverKey = ''; requestDraw(); } });
     canvas.addEventListener('wheel', (ev) => {
       ev.preventDefault();
       const rect = canvas.getBoundingClientRect();
@@ -2105,10 +2135,16 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the record\'
     $('#btn-up').addEventListener('click', goUp);
     $('#btn-canvas').addEventListener('click', revealCanvas);
     const legend = $('#legend'), legendBtn = $('#legend-toggle');
-    const setLegend = (open) => { legend.classList.toggle('is-collapsed', !open); legendBtn.setAttribute('aria-expanded', String(open)); };
-    legendBtn.addEventListener('click', () => setLegend(legend.classList.contains('is-collapsed')));
+    const setLegend = (open, remember) => {
+      legend.classList.toggle('is-collapsed', !open); legendBtn.setAttribute('aria-expanded', String(open));
+      if (remember) { try { localStorage.setItem('key', open ? 'open' : 'closed'); } catch (e) { /* private window */ } }
+    };
+    legendBtn.addEventListener('click', () => setLegend(legend.classList.contains('is-collapsed'), true));
     legend.querySelectorAll('.legend-seg button').forEach((b) => b.addEventListener('click', () => setCellColor(b.dataset.color)));
-    if (isPhone()) setLegend(false);
+    // the key folds by default so the table and the lattice stand clear; a reader's choice is kept
+    let keyOpen = false;
+    try { keyOpen = localStorage.getItem('key') === 'open'; } catch (e) { /* none */ }
+    setLegend(keyOpen && !isPhone());
     $('#btn-provenance').addEventListener('click', () => $('#dlg-provenance').showModal());
     $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
     $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });

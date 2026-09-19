@@ -210,9 +210,9 @@ h1, h2, h3, h4 { margin: 0; }
 .sw-measured { background: var(--measured); }
 .sw-exact { background: transparent; border-color: var(--exact); }
 .sw-computed { background: var(--computed); }
-.sw-ghost { border-radius: 2px; border-color: var(--line-strong); background: color-mix(in srgb, var(--ghost) 30%, transparent); }
-.sw-ghost-def { border-radius: 2px; border-color: var(--line-strong); background: color-mix(in srgb, var(--ghost) 70%, transparent); }
-.sw-csv { border-radius: 2px; border: 1.5px dashed var(--csv); }
+.sw-ghost { border-radius: 2px; border-color: transparent; background: color-mix(in srgb, var(--ghost) 30%, transparent); }
+.sw-ghost-def { border-radius: 2px; border-color: transparent; background: color-mix(in srgb, var(--ghost) 70%, transparent); }
+.sw-csv { border-radius: 2px; border: 1.5px solid color-mix(in srgb, var(--csv) 55%, transparent); background: var(--blk-none); }
 .sw-ladder { border-radius: 1px; height: 2px; width: 12px; background: var(--accent); }
 .legend-seg { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 3px; overflow: hidden; margin: 2px 0 6px; }
 .legend-seg button { border: 0; background: transparent; color: var(--muted); padding: 2px 8px; font-size: 11px; min-height: 22px; }
@@ -228,7 +228,7 @@ h1, h2, h3, h4 { margin: 0; }
 #zoomctl button:hover { color: var(--ink); }
 #zoomctl #z-home { font-size: 11.5px; }
 #loading {
-  position: absolute; top: 10px; right: 16px; font-size: 12px; color: var(--muted);
+  position: absolute; top: 10px; left: 16px; font-size: 12px; color: var(--muted);
   background: var(--surface); border: 1px solid var(--line); padding: 3px 8px; border-radius: 3px;
 }
 
@@ -444,8 +444,8 @@ dialog::backdrop { background: var(--backdrop); }
 }
 
 /* ---- markers, limits facet ---- */
-.sw-rel { border-radius: 2px; background: var(--rel); }
-.sw-walk { border-radius: 2px; background: transparent; border: 1.5px solid var(--walk); box-sizing: border-box; }
+.sw-rel { border-radius: 50%; background: var(--rel); width: 8px; height: 8px; margin: 0 1px; }
+.sw-walk { border-radius: 50%; background: transparent; border: 1.5px solid var(--walk); box-sizing: border-box; width: 8px; height: 8px; margin: 0 1px; }
 .walk-tag { background: var(--walk); }
 .sw-lim-ionisation-limit { background: var(--lim-ionisation-limit); }
 .sw-lim-unresolved { background: var(--lim-unresolved); }
