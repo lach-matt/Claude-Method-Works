@@ -44,10 +44,18 @@ paragraph you land on may be the one that was corrected three sections later.
     This is not a claim to have found every first-order index; it is a list of
     the ones that have been found and survived their tests.
 
-    DO NOT READ AN EMPTY CHANNEL AS A THEOREM.  K4 and K5 are unoccupied.  For
-    K4 that is two candidates having failed on reach plus an arity argument;
-    for K5 it is a seating that was made and then RETRACTED.  Neither is a
-    proof that nothing can sit there.
+    DO NOT READ AN EMPTY CHANNEL AS A THEOREM.  SEVEN OF THE EIGHT ARE NOW
+    OCCUPIED AND ONLY K4 IS EMPTY -- DOCKET 29 filled K5 with `baryons
+    (2I, Q3)`, which is not the chart DOCKET 22 retracted.  For K4 the state
+    is three candidates reached it and all three were arity 2, where
+    `statistics` closes for free (105 of 105, measured); no chart of arity 3
+    or more has ever reached it here.  That is an argument, not a proof, and
+    the file does not offer one.
+
+    A DOCKET'S OWN FIGURES ARE AS MEASURED WHEN IT WAS RULED and are left
+    alone -- DOCKET 25 and DOCKET 27 both say K4 and K5 are empty, and both
+    were right when written.  DOCKET 29 supersedes them, and the generated
+    part above is always current.
 
     READ `retractions` BEFORE QUOTING ANYTHING.  Things this tree asserted and
     later measured to be false are listed there with what replaced them.  They
@@ -120,6 +128,40 @@ DOCKETS = (
      "of matter.",
      "Quasiparticles are the one honest gap -- they would pass the criterion "
      "and are simply not in this table. Indexing them needs another source."),
+    ("28", "CLOSED",
+     "Can the quasiparticles DOCKET 27 left out be indexed?",
+     "NO, and for two separate measured reasons rather than a failed fetch. "
+     "There is no PDG for quasiparticles because the quantum numbers are not "
+     "the quasiparticle's: the four textbook kinds land on TWO cells of their "
+     "universal numbers and every one is a boson, while everything that "
+     "distinguishes one mode from another is the HOST'S -- 230 space groups, "
+     "32 point groups, 73 arithmetic crystal classes, banked in sgcapture.py "
+     "from spglib. The member set would be (material, mode), a materials "
+     "database and not a particle table. And the one family that needs no "
+     "fetch, the anyons of SU(2)_k, charts but is REFUSED BY BOX INVARIANCE: "
+     "the channel is K2 at every box from k<=4 to k<=24 while the cell moves "
+     "at every box, so it is a theorem about the construction.",
+     "A materials database of phonon modes with each mode's irrep IS a "
+     "legitimate member set. It needs a real fetch and is not what DOCKET 27 "
+     "asked for."),
+    ("29", "CLOSED",
+     "Has every index the particle member sets admit been found, or only "
+     "every particle been made a member?",
+     "The DOCKET 25 census reopened over the three new member sets, exactly "
+     "as its ruling said a new member set would. All 142 sub-charts swept. "
+     "Three reach a channel the ruling's census calls empty; two are refused "
+     "and ONE IS SEATED. Refused: baryons (P, 2I, Q3) at K1, because K1 is "
+     "held by gravity_bound and the ruling's self-exclusion does not transfer "
+     "to a new parent; and fundamental (Q3, GEN) at K4, because it is arity 2 "
+     "and statistics closes 105 of 105 arity-2 charts for free, so what it "
+     "shows is join-closure, which is K1. SEATED: baryons (2I, Q3) at K5, the "
+     "tree's ONLY K5 -- isospin against charge, 16 cells, all four grounds, "
+     "K5 at every mass cut. It stands on GEOMETRY, which is earned (74 of "
+     "105) and which the law forces statistics from, so the arity-2 free pass "
+     "cannot reach it. SEVEN OF EIGHT CHANNELS ARE NOW OCCUPIED; only K4 is "
+     "empty, and all three charts that ever reached K4 were arity 2.",
+     "A chart of arity 3 or more reaching K4 would fill the last channel. "
+     "None exists anywhere in this tree."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a

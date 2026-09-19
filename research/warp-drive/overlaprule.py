@@ -560,6 +560,11 @@ COORDS = {
     "nucshell":    ("nr", "l", "sigma"),
     "madrule":     ("S_a", "l_d", "occ"),
     "terms":       ("mult", "L", "parity", "completeness"),
+    # DOCKET 29.  The three particle parents DOCKET 27 seated.  Added so the
+    # ruling's own machinery reaches them; `particlesweep.py` is the caller.
+    "fundamental": ("2J", "Q3", "COL", "GEN"),
+    "mesons":      ("2J", "P", "2I", "Q3"),
+    "baryons":     ("2J", "P", "2I", "Q3", "S", "C", "B"),
 }
 
 # The six candidates R4 admits.  PINNED so the default report runs in a second;
@@ -572,6 +577,11 @@ CANDIDATES = (
     ("madrule",  ("S_a", "l_d"),            4),
     ("nucshell", ("l", "sigma"),            5),
     ("madelung", ("n+l", "k"),              6),
+    # DOCKET 29.  From the exhaustive sub-chart census of the three particle
+    # parents DOCKET 27 seated -- 142 charts, three reaching a channel the
+    # census called unoccupied, two refused.  `particlesweep.py` is the
+    # census and states both refusals.
+    ("baryons",  ("2I", "Q3"),              5),
 )
 
 # How each parent's DATA reach is varied.  Every sweep uses the parent's own
@@ -585,6 +595,15 @@ SWEEPS = {
     "madrule":  ("Z", (36, 54, 72, 86, 100, 103, 108)),
     "nucshell": ("subshells", (8, 11, 14, 16, 18, 20, 22)),
     "madelung": ("electrons", (12, 20, 38, 56, 88, 120, 170)),
+    # DOCKET 29.  A PARTICLE TABLE'S OWN REACH IS MASS: it grew by reaching
+    # higher mass, the way the element tables grew by reaching higher Z, and
+    # every one of the 292 baryons carries a mass so the cut is total.  The
+    # cuts span the tabled range 938..6046 MeV.  `fundamental` is swept by
+    # GENERATION instead -- six of its thirty carry no mass at all, so a mass
+    # cut there would not be total, and generation is the axis that table
+    # actually grew along.
+    "baryons":  ("MeV", (1200, 1600, 2000, 2500, 3000, 5000, 6100)),
+    "fundamental": ("generations", (1, 2, 3)),
 }
 
 DIM_SWEEP = (5, 6, 7, 8, 9, 10, 11)
@@ -635,6 +654,20 @@ def at_reach(parent, cols, r):
                          for m, c in rows if m[0] <= r)
     if parent == "ions":
         return _mod("ions").subchart(tuple(cols), r)
+    if parent in ("baryons", "mesons"):
+        mod = _mod(parent)
+        by = {int(x["pdgid"]): x["mass_MeV"]
+              for x in _mod("pdgcapture").read()}
+        keep = []
+        for t in mod.rows():
+            m = by[t[1]]
+            if m != "?" and float(m) <= r:
+                keep.append(t[2:])
+        return frozenset(tuple(c[i] for i in idx) for c in keep)
+    if parent == "fundamental":
+        mod = _mod("fundamental")
+        keep = [t[2:] for t in mod.rows() if t[5] <= r]
+        return frozenset(tuple(c[i] for i in idx) for c in keep)
     if parent == "madrule":
         full = _mod("madrule").index(r)
     elif parent == "madelung":
@@ -887,6 +920,9 @@ def refused():
 SEATED_ROWS = {
     "gravity_bound":   ("gravity",  ("B", "F", "X")),
     "madelung_slot":   ("madelung", ("n+l", "k")),
+    # DOCKET 29.  THE TREE'S ONLY K5, and the first since DOCKET 22 retracted
+    # the other one.  See `baryon_isomultiplet()`.
+    "baryon_isomultiplet": ("baryons", ("2I", "Q3")),
 }
 
 # UNSEATED BY DOCKET 22, and kept here so the accessor still resolves for
@@ -926,6 +962,63 @@ def gravity_bound():
     them.  DOCKET 22, correction G.
     """
     return project(*SEATED_ROWS["gravity_bound"])
+
+
+def baryon_isomultiplet():
+    """baryons (2I, Q3) -- isospin against charge, flavour dropped.  K5.
+
+    DOCKET 29.  THE TREE'S ONLY K5.  The one DOCKET 22 retracted was
+    `nucshell (l, sigma)`, and this is not that mistake repeated: that chart's
+    K5 was a fact about writing the second coordinate as sigma, and an
+    identical partition under (l, 2j) landed at K7.  This one is measured, its
+    channel holds at every reach point of the parent's own data, and the bit
+    that puts it at K5 rather than K2 is EARNED.
+
+    WHY THE ARITY-2 FREE PASS DOES NOT REACH IT.  Section 3c: `statistics`
+    closes for every arity-2 chart whatever it contains -- measured again for
+    this docket at 105 of 105 across the tree -- so an arity-2 K4 shows only
+    join-closure wearing a free bit.  K5 is protected from exactly that: the
+    law forces statistics FROM geometry (Clause G.3), so the free pass changes
+    nothing and the seating stands on geometry, which no arity buys.  And
+    geometry is not free either -- 74 of 105 arity-2 charts close it, so 31 do
+    not.  `arity2_freeness()` is that measurement.
+
+    WHAT IT SAYS ABOUT BARYONS.  The cells are four isospins against the
+    charges each reaches: 2I = 0 and 1 span Q3 in {-3, 0, 3}, 2I = 2 and 3
+    span {-6, -3, 0, 3, 6}.  Geometry is hull-completeness on coordinate
+    pairs, and the four box points the chart does not hold -- the corners
+    (0, +-6) and (1, +-6) -- fall OUTSIDE the hull of the sixteen it does.
+    That is the isospin multiplet structure: A MULTIPLET'S CHARGE SPAN WIDENS
+    WITH ITS ISOSPIN, and widens steeply enough that the corners are cut off.
+    The chart is that widening, and nothing else.
+    """
+    return project(*SEATED_ROWS["baryon_isomultiplet"])
+
+
+def arity2_freeness():
+    """{language: (closes, charts)} over every arity-2 sub-chart in the tree.
+
+    SECTION 3c's CLAIM, RE-MEASURED FOR DOCKET 29 rather than quoted.  If
+    geometry were free at arity 2 the way statistics is, the K5 seated above
+    would be an artefact of coordinate count and nothing else.
+    """
+    import itertools
+    out = {L: [0, 0] for L in hlaw.LANGS}
+    for nm, mod, _a, _me, _w, _q in registry.rows():
+        if mod == SELF:
+            continue
+        cols = COORDS.get(mod)
+        if not cols:
+            continue
+        X = registry.index_of(nm)
+        for pair in itertools.combinations(range(len(cols)), 2):
+            P = frozenset(tuple(c[i] for i in pair) for c in X)
+            cl, _b = hlaw.closures(P)
+            for L in hlaw.LANGS:
+                out[L][1] += 1
+                if len(cl[L]) == len(P):
+                    out[L][0] += 1
+    return {L: tuple(v) for L, v in out.items()}
 
 
 def nucshell_lsigma():
@@ -1190,12 +1283,13 @@ def selftest():
                & {SELF}) == [SELF]
         and sorted(seated_channels()) == [0, 2, 3, 7],
         True)
-    chk("a second pass finds the same six -- nothing compounds",
+    chk("a second pass finds the same seven -- nothing compounds",
         len([c for c in CANDIDATES
-             if ground_novel_channel(c[0], c[1])]), 6)
+             if ground_novel_channel(c[0], c[1])]), 7)
     chk("four channels are empty",
         [k for k in range(8) if k not in seated_channels()], [1, 4, 5, 6])
-    chk("six candidates", len(CANDIDATES), 6)
+    chk("seven candidates -- six, and DOCKET 29's from the particle sweep",
+        len(CANDIDATES), 7)
     chk("every candidate has a novel channel",
         [c for c in CANDIDATES if not ground_novel_channel(c[0], c[1])], [])
     chk("NONE is a relabelling -- DOCKET 2's bijection ground",
@@ -1236,12 +1330,12 @@ def selftest():
     chk("but (B/F/X) does NOT clear it among ALL candidates",
         ground_maximal("gravity", ("B", "F", "X"),
                        [(p, tuple(c)) for p, c, _k in CANDIDATES]), False)
-    chk("so the order decides: gate-first K1/K6, maximality-first K6 alone",
-        order_matters(), ([1, 6], [6]))
+    chk("so the order decides: gate-first K1/K5/K6, maximality-first K5/K6",
+        order_matters(), ([1, 5, 6], [5, 6]))
 
     # what seats, and where
     seats = admissible()
-    chk("two seat", len(seats), 2)
+    chk("three seat", len(seats), 3)
     chk("SEATED_ROWS agrees with what the gate admits",
         sorted((p, c) for p, c, _k, _n in seats),
         sorted(SEATED_ROWS.values()))
@@ -1250,9 +1344,20 @@ def selftest():
          if not holds_members_of("%s.%s" % (SELF, a), parent_of(a))], [])
     chk("and holds_members_of does NOT claim a row of another parent",
         holds_members_of("overlaprule.nucshell_lsigma", "gravity"), False)
-    chk("they occupy K1 and K6", sorted(k for _p, _c, k, _n in seats), [1, 6])
-    chk("K5 is empty again -- DOCKET 22 unseated its only occupant",
-        5 in {k for _p, _c, k, _n in seats}, False)
+    chk("they occupy K1, K5 and K6",
+        sorted(k for _p, _c, k, _n in seats), [1, 5, 6])
+    # K5's HISTORY IN ONE FIXTURE.  The ruling first seated `nucshell
+    # (l, sigma)` there; DOCKET 22 unseated it, because an identical partition
+    # written (l, 2j) landed at K7 and the K5 was a fact about the spelling.
+    # DOCKET 29 refilled K5 with a DIFFERENT chart over a different parent,
+    # both of whose coordinates the PDG table prints, so there is no
+    # alternative spelling for it to fall to.
+    chk("K5 is occupied again, and by a different chart than the one DOCKET "
+        "22 unseated",
+        (sorted((p, c) for p, c, k, _n in seats if k == 5),
+         UNSEATED_ROWS["nucshell_lsigma"] in
+         [(p, c) for p, c, _k, _n in seats]),
+        ([("baryons", ("2I", "Q3"))], False))
     chk("K4 is reached by two candidates and seated by neither",
         sorted(c[2] for c in CANDIDATES if c[2] == 4), [4, 4])
     chk("K4 stays empty", 4 in {k for _p, _c, k, _n in seats}, False)

@@ -57,11 +57,11 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    17 vertices, 17 distinct cells -- no two seated indexes share a cell
+    18 vertices, 18 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 126
+    E = 165
 
-**ITS OWN CELL IS (0, 5, 8), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 9), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
 
@@ -117,6 +117,31 @@ because it cut both ways and a one-sided report would be a lie by selection.
     reading E as progress should read that as a step backwards, and the
     channel census did not move at all: K4 and K5 are still empty after
     three whole new families of matter were charted.
+
+    AND EIGHTEEN, AND THE CHANNEL CENSUS FINALLY MOVED.  DOCKET 25 had closed
+    with "a new member set would reopen it"; DOCKET 27 seated three, so
+    DOCKET 29 reopened the census over exactly those three and swept all 142
+    sub-charts their columns admit.  One survived: `baryons (2I, Q3)` at
+    **K5**, isospin against charge, 16 cells.  At eighteen: E 165, own cell
+    (0, 5, 9), resolutions 0.389 / 0.667 / 0.778.
+
+    **SEVEN OF THE EIGHT CHANNELS ARE NOW OCCUPIED AND ONLY K4 IS EMPTY.**
+    That is the first movement in the census since the ruling, and it took a
+    new subject to get it -- the three new families seated at DOCKET 27 moved
+    nothing, and the SUB-CHARTS of those families moved it.  K5 had been empty
+    since DOCKET 22 retracted `nucshell (l, sigma)`, and what fills it now is
+    not that mistake repeated: both of this chart's coordinates are printed by
+    the PDG table, so there is no alternative spelling for it to fall to.
+
+    K4 IS LEFT, AND SECTION 3c OF `overlaprule.py` SAYS WHY IT IS THE HARD
+    ONE.  Three charts have now reached K4 -- `ions (sl, tl)`,
+    `madrule (S_a, l_d)` and DOCKET 29's `fundamental (Q3, GEN)` -- and all
+    three are arity 2, where `statistics` closes for free.  Re-measured for
+    that docket: 105 of 105 arity-2 charts close statistics and none fails to,
+    while geometry manages only 74 of 105.  K4 is the one channel above K1
+    whose extra content is exactly the free bit, so all three showed
+    join-closure and nothing more.  No chart of arity 3 or more has ever
+    reached it here.
 
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
@@ -459,13 +484,14 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at seventeen it closes in NOTHING -- the ruling cost it its closure "
-        "at fourteen and DOCKET 27's three did not give it back",
-        closers(), [])
+    chk("at eighteen it closes in NOTHING -- the ruling cost it its closure "
+        "at fourteen and neither DOCKET 27's three nor DOCKET 29's one gave "
+        "it back", closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 8))
-    chk("six of the eight channels are occupied; K4 and K5 are not",
-        sorted({c[0] for c in figure()}), [0, 1, 2, 3, 6, 7])
+    chk("it has its own cell", own, (0, 5, 9))
+    chk("SEVEN of the eight channels are occupied; only K4 is not -- "
+        "DOCKET 29 filled K5", sorted({c[0] for c in figure()}),
+        [0, 1, 2, 3, 5, 6, 7])
     chk("AND NO MEMBER OCCUPIES IT -- it is not one of its own", occ, [])
 
     # -- section 2, the finding growth exposed
@@ -475,9 +501,9 @@ def selftest():
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.7059))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.8235))
+        (res["width"][1], res["width"][0]), ("measurement", 0.7778))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

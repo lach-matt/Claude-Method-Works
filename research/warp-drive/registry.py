@@ -184,6 +184,14 @@ REGISTERED = (
     ("baryons", "index", "TABLE",
      "278 baryons of the PDG table, 14 set aside for want of a printed parity",
      "2J, P, 2I, Q3, strangeness, charm, beauty"),
+    # ---- DOCKET 29.  THE TREE'S ONLY K5.  DOCKET 25 closed with "a new
+    # member set would reopen it", and DOCKET 27 seated three.  The reopened
+    # census -- `particlesweep.py`, 142 sub-charts -- found one seating and two
+    # refusals.  Seated in overlaprule.py because it is a coarsening of a row
+    # above and the ruling's four grounds are what admitted it.
+    ("overlaprule", "baryon_isomultiplet", "TABLE",
+     "the same 278 baryons, isospin against charge with flavour dropped",
+     "2I, Q3"),
 )
 
 NOT_AN_INDEX = {
@@ -464,16 +472,18 @@ def selftest():
          and "recovered/" not in v["why"]], [])
     chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
-        "27's three particle indexes", len(REGISTERED), 17)
+        "27's three particle indexes, and DOCKET 29's K5",
+        len(REGISTERED), 18)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED
                if m in ("fundamental", "mesons", "baryons")),
         ["baryons", "fundamental", "mesons"])
-    chk("exactly two came from the ruling, and they agree with it",
+    chk("exactly three came from the ruling, and they agree with it",
         sorted((m, a) for m, a, _me, _w, _q in REGISTERED
                if m == "overlaprule"),
-        [("overlaprule", "gravity_bound"), ("overlaprule", "madelung_slot")])
+        [("overlaprule", "baryon_isomultiplet"),
+         ("overlaprule", "gravity_bound"), ("overlaprule", "madelung_slot")])
     chk("every one names its quantum numbers",
         [n for n, *_r in rows() if not _r[4].strip()], [])
     chk("every method is known",
@@ -481,9 +491,9 @@ def selftest():
     chk("names are unique", len({n for n, *_r in rows()}), len(rows()))
     chk("SHORT labels are unique too -- three rows share one module now",
         short_is_unique(), [])
-    chk("and the two that do are labelled by their accessor",
+    chk("and the three that do are labelled by their accessor",
         sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
-        ["gravity_bound", "madelung_slot"])
+        ["baryon_isomultiplet", "gravity_bound", "madelung_slot"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
     chk("seven modules are excused, with reasons", len(NOT_AN_INDEX), 7)
     chk("and SIX of the seven are excused by the criterion -- quasiparticle "
