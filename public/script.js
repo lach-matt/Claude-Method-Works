@@ -3014,7 +3014,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         await Promise.allSettled([...zs].map((Z) => ensureElement(Z)));
         if (/⟦pi\//.test(text) && ix.particle_index) await ensureParticleIndex().catch(() => null);
         const r = L.checkAnswer(text, askResolve, askCompute);
-        return [r.summary, ...r.citations.map((c) => `  ⟦${c.path}⟧ ${c.verdict}${c.value !== null && c.value !== undefined ? ' — index: ' + JSON.stringify(c.value) + (c.status ? ' [' + c.status + ']' : '') : ''}`),
+        return [r.summary, ...(r.retrieval.present ? r.retrieval.targets.map((t) => `  retrieval ${t.target}: ρ = ${t.rho}, ${t.verdict} (${t.routes.join(', ')})`) : []),
+          ...r.sources.map((c) => `  ⟨⟨${c.text}⟩⟩ ${c.verdict}`), ...r.citations.map((c) => `  ⟦${c.path}⟧ ${c.verdict}${c.value !== null && c.value !== undefined ? ' — index: ' + JSON.stringify(c.value) + (c.status ? ' [' + c.status + ']' : '') : ''}`),
           ...r.computations.map((c) => `  ⟪${c.name}(${c.args.join(', ')})⟫ ${c.verdict}${typeof c.value === 'number' ? ' — page: ' + c.value : ''}`),
           ...r.equations.map((e) => `  ⦃${e.text}⦄ ${e.verdict}${e.result.atoms ? ' — ' + e.result.atoms.map((a) => a.element + ' ' + a.left + '→' + a.right).join(', ') + '; charge ' + e.result.charge.left + '→' + e.result.charge.right : ''}`)].join('\n');
       }
@@ -3357,14 +3358,16 @@ QUESTION: ${question}`;
   }
   function askSystem() {
     return `You answer questions about chemistry and physics for readers of The Method Index, a public research site whose data you are handed below as cited lines. Method:
-1. Use web search first for context and method: definitions, standard procedures, published values, the way a question of this kind is normally solved. Cite what you used.
+1. Use web search first for context and method: definitions, standard procedures, published values, the way a question of this kind is normally solved. Search the way this site retrieves: (a) before searching, enumerate the target facts the question needs; (b) for each target list the routes that could carry it, by type — primary paper, preprint, review, compilation or table, citing paper, deposit or archive, database — and try the open routes first, since a paywall blocks a route and not a fact, and a compilation can carry a better figure than the primary; (c) read each retrieved source for the sources it names and follow them before searching afresh; (d) when a route is blocked move to the next route, never re-attempt the same one; (e) a fact confirmed on two independent routes closes, a fact on one route is fragile and must be marked so, and a fact you could not retrieve is a stated gap with the routes you tried, never an unexplained absence; (f) ask for a source as a catalogue entry (a DOI, an arXiv number, an archive identifier, a database record), not only as a text string, because a source has an index and it is rarely the one with a search box. Every figure you take from the web is followed by its source in the marker ⟨⟨url⟩⟩, one marker per route that carried it.
 2. Then apply that method to the DATA lines: every figure you take from them must be followed by its path in the marker ⟦path⟧, copied exactly. Do not invent paths. If the data lacks what you need, say "not in the index" for that part and continue with what web sources give, marked as theirs.
 3. Every calculation you perform with the site's own instruments must be written as ⟪function(args) = value⟫ so the page can repeat it. Available: channel_delta(Z, charge, l), pauli_bound(p, n0, l), collapse_C(Z, l), core_p(Z_core, l), n0_of(Z_core, l), closure_E(). Other arithmetic: show it in plain text.
 4. Every chemical equation you write goes on its own line inside ⦃ ⦄, with spaces around + signs, charges as Fe3+ or SO4^2- or e-, and the arrow → . The page will tally atoms and charge.
 5. Never say the page verified, confirmed or validated anything: the page checks your answer after you write it, and you do not know the result. Do not claim a status for a value; the page attaches statuses.
 6. Do not write laboratory procedures or safety instructions.
 7. If you balance an equation, write the balanced form inside ⦃ ⦄; the page has its own exact balancer (solver mode 10) and will tally yours.
-Plain prose, at most 350 words, then a line "Sources:" with the web sources you used.`;
+Plain prose, at most 350 words. Then a line RETRIEVAL and one line per (target, route) you tried, pipe-separated:
+target | route type | source: url or identifier | result: open, blocked, untried or empty | value found
+List a blocked or empty route as honestly as an open one; the page counts the open routes per target and marks a target carried by one route as fragile.`;
   }
   async function askModel(question, context, settings, signal) {
     const base = (settings.proxy || 'https://api.anthropic.com').replace(/\/+$/, '');
@@ -3389,11 +3392,14 @@ Plain prose, at most 350 words, then a line "Sources:" with the web sources you 
     return { text, sources: [...sources.entries()].map(([url, title]) => ({ url, title })), usage: j.usage || null, searches: (j.usage && j.usage.server_tool_use && j.usage.server_tool_use.web_search_requests) || 0 };
   }
   function chk(cls, text, tip) { return `<span class="chk chk-${cls}" title="${esc(tip || '')}">${esc(text)}</span>`; }
-  function renderChecked(host, text, sources, ctx) {
+  const hostOfUrl = (u) => { try { return new URL(u).host.replace(/^www\./, ''); } catch (e) { return null; } };
+  function renderChecked(host, text, sources, ctx, searchedUrls) {
     const L = window.MI && window.MI.solverLib;
     if (!L || !L.checkAnswer) { host.innerHTML = `<div class="resp-answer">${esc(text)}</div><div class="resp-checks">the solver module is not loaded, so this answer is unchecked</div>`; return null; }
-    const r = L.checkAnswer(text, askResolve, askCompute);
+    const r = L.checkAnswer(text, askResolve, askCompute, searchedUrls === undefined ? null : searchedUrls);
     const marks = [];
+    r.sources.forEach((c) => marks.push({ at: c.at, len: c.len, html: c.identifier ? `<a href="${esc(c.identifier.url)}" target="_blank" rel="noopener noreferrer" class="chk ${/NOT/.test(c.verdict) ? 'chk-warn' : /among/.test(c.verdict) ? 'chk-ok' : 'chk-none'}" title="${esc(c.verdict)}">${/NOT/.test(c.verdict) ? '? ' : /among/.test(c.verdict) ? '✓ ' : '· '}${esc(c.identifier.kind === 'url' ? (hostOfUrl(c.identifier.url) || c.identifier.id) : c.identifier.kind + ' ' + c.identifier.id)}</a>` : chk('bad', '✗ no identifier', c.text) }));
+    if (r.retrieval.present) marks.push({ at: r.retrieval.at, len: text.length - r.retrieval.at, html: '' });
     r.citations.forEach((c) => marks.push({ at: c.at, len: c.len, html: c.verdict === 'matches' ? chk('ok', '✓ ' + c.path.split('/').slice(-2).join('/') + (c.status ? ' · ' + c.status : ''), `index value ${c.value}`) : c.verdict === 'cited' ? chk('ok', '✓ cited' + (c.status ? ' · ' + c.status : ''), `index value ${JSON.stringify(c.value)}`) : c.verdict === 'DIFFERS' ? chk('bad', '✗ index says ' + c.value + (c.status ? ' · ' + c.status : ''), c.path) : c.verdict === 'not in the index' ? chk('bad', '✗ not in the index', c.path) : chk('warn', '? ' + c.verdict, c.path) }));
     r.computations.forEach((c) => marks.push({ at: c.at, len: c.len, html: c.verdict === 'agrees' ? chk('ok', `✓ ${c.name} = ${typeof c.value === 'number' ? +c.value.toFixed(6) : c.value}`, 'repeated by the page') : c.verdict === 'DIFFERS' ? chk('bad', `✗ ${c.name}: the page gets ${typeof c.value === 'number' ? +c.value.toFixed(6) : c.value}, the model wrote ${c.stated}`) : chk('warn', `? ${c.name}: ${c.verdict}`) }));
     r.equations.forEach((e) => marks.push({ at: e.at, len: e.len, html: `<span class="mono">${esc(e.text)}</span> ` + (e.verdict === 'balanced' ? chk('ok', '✓ balanced', e.result.atoms.map((a) => `${a.element} ${a.left}→${a.right}`).join(', ')) : e.verdict === 'NOT balanced' ? chk('bad', '✗ not balanced', e.result.atoms.filter((a) => !a.ok).map((a) => `${a.element} ${a.left}→${a.right}`).concat(e.result.charge.ok ? [] : [`charge ${e.result.charge.left}→${e.result.charge.right}`]).join(', ')) : chk('warn', '? unreadable', e.result.error || e.result.errors.join('; '))) }));
@@ -3402,8 +3408,12 @@ Plain prose, at most 350 words, then a line "Sources:" with the web sources you 
     marks.forEach((mk) => { html += esc(text.slice(pos, mk.at)) + mk.html; pos = mk.at + mk.len; });
     html += esc(text.slice(pos));
     const eqRows = r.equations.map((e) => `<tr><td class="mono wrap">${esc(e.text)}</td><td>${e.verdict}</td><td class="wrap">${e.result.atoms ? e.result.atoms.map((a) => `${a.element}${a.Z ? ' (Z ' + a.Z + ')' : ''} ${a.left}→${a.right}`).join(', ') + `; charge ${e.result.charge.left}→${e.result.charge.right}` : esc(e.result.error || '')}</td></tr>`).join('');
+    const rt = r.retrieval;
+    const rtRows = rt.present ? rt.rows.map((row) => `<tr><td class="wrap">${esc(row.target)}</td><td>${esc(row.route)}</td><td class="wrap">${row.identifier ? `<a href="${esc(row.identifier.url)}" target="_blank" rel="noopener noreferrer">${esc(row.identifier.kind === 'url' ? (hostOfUrl(row.identifier.url) || row.identifier.id) : row.identifier.kind + ' ' + row.identifier.id)}</a>` : esc(row.source || '—')}</td><td>${/NOT|no identifier/.test(row.verdict) ? chk('warn', row.verdict) : row.result === 'open' ? chk('ok', row.verdict) : chk('none', row.verdict)}</td><td class="wrap">${esc(row.value)}</td></tr>`).join('') : '';
+    const rtTargets = rt.present ? rt.targets.map((t) => `<li><b>${esc(t.target)}</b>: ρ = ${t.rho} — ${t.rho >= 2 ? chk('ok', t.verdict) : t.rho === 1 ? chk('warn', t.verdict) : chk('bad', t.verdict)} (${t.routes.join(', ')})</li>`).join('') : '';
     host.innerHTML = `<div class="resp-answer">${html}</div>
-      <div class="resp-checks"><b>Machine check:</b> ${esc(r.summary)}.${eqRows ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>equation</th><th>verdict</th><th>tally</th></tr></thead><tbody>${eqRows}</tbody></table></div>` : ''}</div>
+      <div class="resp-checks"><b>Machine check:</b> ${esc(r.summary)}.${eqRows ? `<div class="tbl-wrap"><table class="t"><thead><tr><th>equation</th><th>verdict</th><th>tally</th></tr></thead><tbody>${eqRows}</tbody></table></div>` : ''}
+      ${rt.present ? `<h4 class="resp-h">Retrieval: the routes tried, and the redundancy of each target</h4><ul class="resp-targets">${rtTargets}</ul><div class="tbl-wrap"><table class="t"><thead><tr><th>target</th><th>route</th><th>source</th><th>result</th><th>value</th></tr></thead><tbody>${rtRows}</tbody></table></div><p class="note">ρ counts the open routes per target: two survive the loss of either, one is fragile, none is a stated gap with the routes tried. A source is checked against the searches the API reported this session; one it never returned is flagged, not trusted.</p>` : `<p class="note">the model gave no retrieval table, so no route or redundancy could be checked</p>`}</div>
       ${sources && sources.length ? `<div class="resp-sources"><b>Web sources the model used:</b> ${sources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title || s.url)}</a>`).join(' · ')}</div>` : ''}`;
     return r;
   }
@@ -3474,7 +3484,7 @@ Plain prose, at most 350 words, then a line "Sources:" with the web sources you 
           bodyHost.textContent = `Asking ${settings.model}${settings.search ? ' (web search on)' : ''} with ${context.lines.length} data lines …`;
           const res = await askModel(q, context, settings, claude.ctl.signal);
           const host = document.createElement('div'); bodyHost.replaceWith(host);
-          renderChecked(host, res.text, res.sources);
+          renderChecked(host, res.text, res.sources, null, res.sources.map((x) => x.url));
           k.note.textContent += ` · ${res.searches || 0} searches · ${res.usage ? (res.usage.input_tokens + res.usage.output_tokens).toLocaleString() + ' tokens' : ''}`;
         } catch (e) {
           bodyHost.textContent = e.name === 'AbortError' ? '[stopped]' : `model: ${e.message}`;
@@ -5828,9 +5838,69 @@ var SOLVERS, LIB;
     while ((m = NUM_RX.exec(win)) !== null) last = m[0];
     return last;
   }
-  function checkAnswer(text, resolve, compute) {
+  var ROUTE_TYPES = ['primary', 'preprint', 'review', 'compilation', 'citing', 'deposit', 'database'];
+  function routeType(t) {
+    var s = String(t || '').toLowerCase();
+    for (var i = 0; i < ROUTE_TYPES.length; i++) if (s.indexOf(ROUTE_TYPES[i]) >= 0) return ROUTE_TYPES[i];
+    if (/table|handbook|codata|compend/.test(s)) return 'compilation';
+    if (/arxiv|eprint/.test(s)) return 'preprint';
+    if (/archive|repositor|scan|hathi|gallica/.test(s)) return 'deposit';
+    if (/nist|pdg|database|db\b/.test(s)) return 'database';
+    return null;
+  }
+  function identifierOf(src) {
+    var t = String(src || '');
+    var m = t.match(/10\.\d{4,9}\/[^\s"'<>,;)\]]+/); if (m) return { kind: 'doi', id: m[0].replace(/[.)]+$/, ''), url: 'https://doi.org/' + m[0].replace(/[.)]+$/, '') };
+    m = t.match(/arXiv[: ]?(\d{4}\.\d{4,5}(?:v\d+)?)/i) || t.match(/arxiv\.org\/abs\/([^\s)]+)/i); if (m) return { kind: 'arxiv', id: m[1], url: 'https://arxiv.org/abs/' + m[1] };
+    m = t.match(/ark:\/\d{5}\/[A-Za-z0-9]+/); if (m) return { kind: 'ark', id: m[0], url: 'https://gallica.bnf.fr/' + m[0] };
+    m = t.match(/https?:\/\/[^\s)\]>"']+/); if (m) return { kind: 'url', id: m[0].replace(/[.,;)]+$/, ''), url: m[0].replace(/[.,;)]+$/, '') };
+    return null;
+  }
+  function hostOf(u) { try { return new URL(u).host.replace(/^www\./, ''); } catch (e) { return null; } }
+  function checkRetrieval(text, searched) {
+    // the RETRIEVAL table at the end of an answer, one row per (target, route), against the
+    // sources the search tool actually returned: a source the searches never returned is
+    // flagged, an open route with no identifier is flagged, and the open routes per target
+    // are counted -- one route is fragile, two survive the loss of either
+    var out = { rows: [], targets: [], present: false };
+    var at = text.search(/^\s*RETRIEVAL\s*$/mi);
+    if (at < 0) return out;
+    out.present = true; out.at = at;
+    var hosts = {}; (searched || []).forEach(function (u) { var h = hostOf(u); if (h) hosts[h] = true; hosts[u] = true; });
+    var lines = text.slice(at).split('\n').slice(1);
+    var byTarget = {};
+    lines.forEach(function (ln) {
+      if (!/\|/.test(ln)) return;
+      var c = ln.split('|').map(function (x) { return x.trim(); });
+      if (c.length < 4) return;
+      if (/^target$/i.test(c[0]) && /^route/i.test(c[1])) return;   // a header the model echoed
+      var id = identifierOf(c[2]), res = String(c[3] || '').toLowerCase();
+      var result = /open|found|retriev/.test(res) ? 'open' : /block|paywall|closed/.test(res) ? 'blocked' : /untried|not tried/.test(res) ? 'untried' : /empty|none|no /.test(res) ? 'empty' : res || '?';
+      var searchedHere = id && id.url ? (hosts[id.url] || hosts[hostOf(id.url)] || false) : false;
+      var row = { target: c[0], route: routeType(c[1]) || c[1] || '?', source: c[2], identifier: id, result: result, value: c[4] || '',
+        verdict: result !== 'open' ? result : (!id ? 'open, no identifier' : (searched === null ? 'open, unverifiable here' : (searchedHere ? 'open, among this session\'s searches' : 'open, NOT among this session\'s searches'))) };
+      out.rows.push(row);
+      var t = byTarget[row.target] || (byTarget[row.target] = { target: row.target, routes: [], open: 0, blocked: 0, untried: 0, empty: 0 });
+      t.routes.push(row.route); t[result === 'open' || result === 'blocked' || result === 'untried' || result === 'empty' ? result : 'empty'] += 1;
+    });
+    out.targets = Object.keys(byTarget).map(function (k) { var t = byTarget[k]; t.rho = t.open; t.verdict = t.open >= 2 ? 'closes on two routes' : t.open === 1 ? 'FRAGILE: one route' : 'not retrieved: a stated gap'; return t; });
+    return out;
+  }
+  function checkAnswer(text, resolve, compute, searched) {
     // resolve(path) -> {value, status} | null;  compute(name, args) -> number | null (not computable) | undefined (unknown)
-    var out = { citations: [], computations: [], equations: [], numbers: 0, unverified: 0 };
+    // searched: the URLs the search tool returned this session, or null when not known
+    var out = { citations: [], computations: [], equations: [], numbers: 0, unverified: 0, sources: [] };
+    var body = text, retrieval = checkRetrieval(text, searched === undefined ? null : searched);
+    if (retrieval.present) body = text.slice(0, retrieval.at);
+    out.retrieval = retrieval;
+    var hostsS = {}; (searched || []).forEach(function (u) { var h = hostOf(u); if (h) hostsS[h] = true; hostsS[u] = true; });
+    var mm, srx = /⟨⟨([^⟩]+)⟩⟩/g;
+    while ((mm = srx.exec(body)) !== null) {
+      var idm = identifierOf(mm[1]);
+      out.sources.push({ text: mm[1].trim(), identifier: idm, at: mm.index, len: mm[0].length,
+        verdict: !idm ? 'no identifier' : (searched === undefined || searched === null ? 'unverifiable here' : (hostsS[idm.url] || hostsS[hostOf(idm.url)] ? 'among this session\'s searches' : 'NOT among this session\'s searches')) });
+    }
+    text = body;
     var claimed = [];
     var m, rx = /⟦([^⟧]+)⟧/g;
     while ((m = rx.exec(text)) !== null) {
@@ -5858,14 +5928,14 @@ var SOLVERS, LIB;
       out.equations.push({ text: m[1].trim(), result: eq, verdict: eq.error ? 'unreadable' : (eq.errors.length ? 'unreadable' : (eq.balanced ? 'balanced' : 'NOT balanced')), at: m.index, len: m[0].length });
     }
     // numbers the model states that no marker covers
-    var stripped = text.replace(/⟦[^⟧]*⟧|⟪[^⟫]*⟫|⦃[^⦄]*⦄/g, function (x) { return ' '.repeat(x.length); });
+    var stripped = text.replace(/⟦[^⟧]*⟧|⟪[^⟫]*⟫|⦃[^⦄]*⦄|⟨⟨[^⟩]*⟩⟩/g, function (x) { return ' '.repeat(x.length); });
     NUM_RX.lastIndex = 0;
     var total = 0, covered = 0;
     while ((m = NUM_RX.exec(stripped)) !== null) {
       if (m.index > 0 && /[A-Za-z]/.test(stripped[m.index - 1])) continue;   // a subscript in a formula, not a figure
       total += 1;
       var end = m.index + m[0].length, after = text.slice(end, end + 40);
-      if (/^[^⟦⟪⦃]{0,30}[⟦⟪]/.test(after)) covered += 1;
+      if (/^[^⟦⟪⦃⟨]{0,30}(?:[⟦⟪]|⟨⟨)/.test(after)) covered += 1;   // cited from the index, computed, or attributed to a web route
     }
     out.numbers = total; out.unverified = total - covered;
     out.summary = out.citations.length + ' citation' + (out.citations.length === 1 ? '' : 's') + ' (' +
@@ -5874,7 +5944,9 @@ var SOLVERS, LIB;
       out.citations.filter(function (c) { return c.verdict === 'not in the index'; }).length + ' not found); ' +
       out.computations.length + ' computation' + (out.computations.length === 1 ? '' : 's') + ' (' + out.computations.filter(function (c) { return c.verdict === 'agrees'; }).length + ' agree); ' +
       out.equations.length + ' equation' + (out.equations.length === 1 ? '' : 's') + ' (' + out.equations.filter(function (e) { return e.verdict === 'balanced'; }).length + ' balanced); ' +
-      out.unverified + ' of ' + out.numbers + ' numbers left unverified (the model\'s own)';
+      out.unverified + ' of ' + out.numbers + ' numbers left unverified (the model\'s own)' +
+      (out.sources.length ? '; ' + out.sources.length + ' web source' + (out.sources.length === 1 ? '' : 's') + ' cited (' + out.sources.filter(function (x) { return /among this session/.test(x.verdict) && !/NOT/.test(x.verdict); }).length + ' among the searches)' : '') +
+      (retrieval.present ? '; retrieval: ' + retrieval.targets.length + ' target' + (retrieval.targets.length === 1 ? '' : 's') + ', ' + retrieval.targets.filter(function (t) { return t.rho >= 2; }).length + ' closing on two routes, ' + retrieval.targets.filter(function (t) { return t.rho === 1; }).length + ' fragile, ' + retrieval.targets.filter(function (t) { return t.rho === 0; }).length + ' not retrieved' : '');
     return out;
   }
 
@@ -6116,6 +6188,16 @@ var SOLVERS, LIB;
       ck.eq('equations: balanced', r.equations[0].verdict, 'balanced');
       ck.eq('the model\'s own number is counted unverified, and a formula\'s subscript is not a number', r.unverified, 1);
       ck.eq('a number within 30 characters before a citation counts as covered', checkAnswer('E is 36 (thirty-six) ⟦index/closure/E⟧', resolve, compute).unverified, 0);
+      var ans = 'The frequency is 2.7 GHz ⟨⟨https://arxiv.org/abs/1203.5425⟩⟩ ⟨⟨https://doi.org/10.1038/nature10260⟩⟩ and 5 ⟨⟨no source given⟩⟩.\nRETRIEVAL\ntarget | route type | source | result | value\nfrequency | primary | Nature 475, 484 (2011) doi 10.1038/nature10260 | blocked | \nfrequency | compilation | arXiv:1203.5425 Table XII | open | 2.7 GHz\nfrequency | citing paper | https://arxiv.org/abs/1308.1711 | open | 2.7 GHz\nmass | database | https://physics.nist.gov/asd | open | 5\nEdlen 1964 | review | | untried | ';
+      var rr = checkAnswer(ans, resolve, compute, ['https://arxiv.org/abs/1203.5425', 'https://arxiv.org/abs/1308.1711']);
+      ck.eq('web sources: a DOI and an arXiv id are identifiers, a bare phrase is not', rr.sources.map(function (x) { return x.identifier ? x.identifier.kind : 'none'; }).join(','), 'arxiv,doi,none');
+      ck.eq('web sources: one among the searches, one not, one without identifier', rr.sources.map(function (x) { return x.verdict; }).join(' | '), 'among this session\'s searches | NOT among this session\'s searches | no identifier');
+      ck.eq('retrieval: five rows parsed, the header skipped', rr.retrieval.rows.length, 5);
+      ck.eq('retrieval: route types read from the words', rr.retrieval.rows.map(function (r) { return r.route; }).join(','), 'primary,compilation,citing,database,review');
+      ck.eq('retrieval: the frequency closes on two open routes, the mass is fragile, the review is not retrieved', rr.retrieval.targets.map(function (t) { return t.target + ':' + t.rho + ':' + t.verdict; }).join(' | '), 'frequency:2:closes on two routes | mass:1:FRAGILE: one route | Edlen 1964:0:not retrieved: a stated gap');
+      ck.eq('retrieval: an open route not among the searches is flagged', rr.retrieval.rows[3].verdict, 'open, NOT among this session\'s searches');
+      ck.eq('retrieval: the table is not counted as unverified numbers', rr.unverified <= 1, true);
+      ck.eq('without a search list the sources are unverifiable here, not wrong', checkAnswer('x ⟨⟨https://example.org⟩⟩', resolve, compute).sources[0].verdict, 'unverifiable here');
       return ck.result();
     }
   };

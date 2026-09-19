@@ -465,6 +465,24 @@ the page's own library can repeat (the channel equation, the Pauli bound, the co
 core's p and n₀, E), and `⦃equation⦄` around every chemical equation. It is told never to claim
 the page verified anything, and not to write laboratory procedures.
 
+**It searches the way the index retrieves.** The system prompt carries the retrieval procedure the
+work states for itself, in the site's own words: enumerate the target facts before searching; for
+each target list the routes that could carry it by type — primary, preprint, review, compilation,
+citing paper, deposit, database — and try the open ones first, since a paywall blocks a route and
+not a fact and a compilation can carry a better figure than the primary; read every retrieved source
+for the sources it names before searching afresh; move along the route set when a route is
+blocked rather than re-attempting it; a fact on two independent routes closes, a fact on one is
+fragile and marked so, and a fact not retrieved is a stated gap with the routes tried; and ask for
+a source as a catalogue entry (DOI, arXiv number, archive identifier, database record), not only as
+a text string. Two more markers carry the attribution: `⟨⟨url⟩⟩` after every figure taken from the
+web, one per route that carried it, and a `RETRIEVAL` table at the end, one line per (target,
+route) with its type, source, result and value. `checkRetrieval` parses the table, reads the route
+type from the words, resolves each source to an identifier (DOI, arXiv, ark, URL), counts the open
+routes per target as its redundancy ρ (two close, one is fragile, none is a stated gap), and checks
+every source — inline or in the table — against the URLs the search tool actually returned in the
+API response, so a source the searches never produced is flagged rather than trusted. Fixtures in
+the ninth mode cover the parser, the identifiers, the redundancy verdicts and the flag.
+
 **The machine check is the solver module's `checkAnswer`, selftested.** It resolves every cited
 path back to the loaded value (`askResolve`) and compares the figure the model wrote beside it
 (matches, DIFFERS with the index's value shown, not in the index); repeats every computation with
