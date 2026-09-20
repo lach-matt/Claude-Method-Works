@@ -336,20 +336,26 @@ def document(f):
         "requires and no member occupies, %s of them -- and adjudicate it. Three theorems decide "
         "most of that adjudication before any physics is brought: the demand invents no "
         "coordinate value; a bound monotone in the coordinates can never forbid a demanded cell; "
-        "and the quark model forbids no cell of the meson chart. One bound in the register is "
-        "non-monotone, and it empties %d of the %d demanded baryon cells. The remainder splits "
-        "%d UNPLACED, %s OPEN and %d UNDECIDED by a source-completeness rule, and the three bins "
-        "are not interchangeable: they separate what nature forbids from what a source failed to "
-        "record from what is genuinely predicted. THE CLASSIFICATION, THE INVARIANT AND THE TWO "
+        "and the quark model forbids no cell of the meson chart. TWO of the eight derived bounds "
+        "are non-monotone and only those two forbid anything, exactly as the theorem requires; "
+        "between them they empty %s of the %s demanded cells. The strongest of the two is not a "
+        "physical bound at all but a statement about the chart: its coordinates are FUNCTIONS of "
+        "a nuclide, an ionisation stage and an angular momentum, so the coordinate map has an "
+        "IMAGE, and a demanded cell outside it cannot be occupied by construction. That argument "
+        "has no hypotheses to attack, and its one free parameter is removed by saturation. The "
+        "remainder splits %d UNPLACED, %s OPEN and %d UNDECIDED by a source-completeness rule, "
+        "and the bins are not interchangeable: they separate what nature forbids from what a "
+        "source failed to record from what is genuinely predicted -- and for one index every "
+        "OPEN cell is exhibited with a construction that realises it, so OPEN there means BUILT "
+        "and not merely unforbidden. THE CLASSIFICATION, THE INVARIANT AND THE TWO "
         "VACUITY THEOREMS ARE THE CONTRIBUTION AND THE REGISTER IS AN EXHIBIT OF THEM. In "
         "particular: whether a physical constraint can rule anything out of a table is decidable "
         "FROM THE SHAPE OF THE CONSTRAINT ALONE, before any data is gathered, and for most "
         "constraints the answer is no. Every figure here is read from a runnable instrument at "
         "build time and no figure is typed."
         % (f["nchannels"], f["nsubsets"], f["vertices"], f["distinct"],
-           n(f["E_total"]), f["adj"]["baryons.index"][1],
-           f["adj"]["baryons.index"][0], f["adj_tot"][2], n(f["adj_tot"][3]),
-           f["adj_tot"][4]))))
+           n(f["E_total"]), n(f["adj_tot"][1]), n(f["adj_tot"][0]),
+           f["adj_tot"][2], n(f["adj_tot"][3]), f["adj_tot"][4]))))
 
     # ---------------------------------------------------------------- §0
     A(("h1", "0. The two questions"))
