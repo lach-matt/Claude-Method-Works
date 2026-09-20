@@ -62,3 +62,44 @@ that plate states as a finding, showing up in the rendering.
 Each particle plate also carries a provenance block read from `registry.sources()`: the declared
 `SOURCE` beside the code that reads the data, the file it names, its size and its md5. A provenance
 held only in prose has to be recovered later.
+
+## The two legacy builders, and the inputs that were missing
+
+`build_plates.py` and `build_plates8.py` predate `plate.py` and are **not** on the shared scaffold:
+each inlines its own frozen copy of the pre-`scatter3d.js` widget. Both **raised
+`FileNotFoundError` at import** — they read `style.css`, `w3d.js` and a points file at module level
+and none of the four had ever been committed. Nothing in the tree said so.
+
+    python3 build_plates.py              ion.html, axs.html, rid.html
+    python3 build_plates8.py             spx.html, ent.html, oct.html
+    python3 build_plates.py  --selftest  14 fixtures
+    python3 build_plates8.py --selftest  17 fixtures
+
+**The inputs were RECOVERABLE, and are restored by extraction from the plates themselves** — a
+plate inlines its stylesheet, its widget and its points, so it is a complete record of what built
+it. Git history has never held any of the four (`--diff-filter=D` and `--diff-filter=A` both
+empty); the two other `style.css` the search turns up were each checked and neither is this one —
+`recovered/style.css`, on disk, is 700 bytes of unrelated DejaVu print CSS, and `public/style.css`,
+in history only, is the website's own sheet, whose 16 committed versions were hashed and none
+matches.
+
+| file | bytes | md5 | recovered from |
+|---|---|---|---|
+| `style.css` | 7,280 | `bfec0696c0e551145759a290ad5d500a` | identical in all seven plates here |
+| `w3d-r1.js` | 5,753 | `f9348be9b963d26e2c63240fc974e060` | `ions`, `axes`, `rindex` plates |
+| `w3d-r2.js` | 6,542 | `4154dde8161ec3e0dc154fadab88e7dd` | `spectra`, `entropy`, `octad`, `hexad` |
+| `new_pts.json` | 4,715 | `7b827facb5d6d2dc9a0c63293034c159` | the three `scatter3d(...)` calls |
+| `oct_pts.json` | 8,544 | `604eb92e920b965623cc531e11fdbb08` | the three calls, plus the octad's 28 edges |
+
+**`w3d.js` is re-pinned to two files because one name held two contents.** `plate.py` records the
+count from the other side — "three generations have since diverged" — and these are those three:
+r1, r2 (r1 plus the `opts.edges` pass and the hollow-point branch, which is why only the octad can
+draw its threads) and `scatter3d.js` at 7,975 bytes. The ambiguous name is retired rather than
+given one of its two meanings, and `scatter3d.js` is **not** a substitute: a plate built against it
+is a different plate.
+
+**All six rebuilt pages are byte-identical to the plates in the tree** — `ion.html` ==
+`ions-plate.html` and so on, the `-plate` names being a rename that happened outside these
+programs. Each selftest rebuilds its three in memory and compares md5s, so the pairing cannot
+quietly stop holding. Inputs now resolve against the file's own directory; outputs still land in
+the working directory, unchanged.

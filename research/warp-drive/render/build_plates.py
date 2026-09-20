@@ -1,10 +1,109 @@
 #!/usr/bin/env python3
-"""Write the three new plates, sharing the style and the 3-D widget."""
-import json
+r"""
+build_plates.py -- the ionisation, provenance and refusal plates.
 
-STYLE = open('style.css').read()
-W3D = open('w3d.js').read()
-PTS = json.load(open('new_pts.json'))
+Write the three new plates, sharing the style and the 3-D widget.
+
+    python3 build_plates.py             writes ion.html, axs.html, rid.html
+    python3 build_plates.py --selftest  fixtures
+
+===============================================================================
+0. IT COULD NOT RUN AT ALL, AND THE FOUR INPUTS ARE RESTORED BY EXTRACTION
+===============================================================================
+
+**THIS FILE RAISED `FileNotFoundError` AT IMPORT.**  Its four inputs --
+`style.css`, `w3d.js`, `new_pts.json` and (for the sibling) `oct_pts.json` --
+were never committed, and nothing in the tree said so.  They are RECOVERABLE
+and are now restored, because `page()` INLINES every one of them into the
+plate it writes: the plate is a complete record of its own inputs.
+
+WHAT WAS SEARCHED, and found nothing:
+
+    git log --all --diff-filter=D -- 'research/warp-drive/render/style.css'
+    git log --all -- 'research/warp-drive/render/*.css' \
+                     'research/warp-drive/render/*.js'
+    git log --all --diff-filter=A --name-only --pretty=format: \
+        | grep -E '(style\.css|w3d\.js|new_pts\.json|oct_pts\.json)$'
+    find . -name style.css -o -name w3d.js -o -name new_pts.json \
+                                          -o -name oct_pts.json
+
+NO PATH UNDER `render/` HAS EVER HELD ANY OF THE FOUR -- both `--diff-filter=D`
+and `--diff-filter=A` come back empty.  Two other `style.css` turn up and NEITHER IS
+THIS ONE, checked rather than assumed: `recovered/style.css`, on disk, 700
+bytes, md5 0c191a7d011a80a8fac20db3560615a8, a DejaVu print stylesheet out of an
+unrelated chat; and `public/style.css`, in history only and not on disk now, the
+website's own sheet, whose 16 committed versions were each hashed against
+bfec0696c0e551145759a290ad5d500a and none matches.  No
+file anywhere is named `w3d.js`, `new_pts.json` or `oct_pts.json`, and nothing
+in the tree references those names but these two programs.  So the plates are
+the only source, and extraction is the only route.
+
+HOW EACH INPUT WAS RECOVERED, from the shape `page()` writes:
+
+    line 1          <title>
+    line 2          the Google-Fonts <link>
+    lines 3..N      STYLE            -> style.css      (no trailing newline:
+                                        page() supplies the \n, and the plates
+                                        have no blank line before the wrap div)
+    <div class="wrap"> ... </div>     the body, per plate
+    <script>
+      W3D                             -> w3d-r?.js     (keeps its trailing \n)
+      <blank>
+      scatter3d({...});               -> the points, and the octad's edges
+    </script>
+
+`style.css` is IDENTICAL in all seven plates in this directory -- md5
+bfec0696c0e551145759a290ad5d500a, 7,280 bytes -- so it is one file and not a
+per-plate copy.  The points are the JSON literal in each plate's single
+`scatter3d(...)` call, read back out by bracket matching.
+
+===============================================================================
+1. `w3d.js` IS RE-PINNED TO `w3d-r1.js`, BECAUSE ONE NAME HELD TWO FILES
+===============================================================================
+
+**THE NAME `w3d.js` CANNOT BE RESTORED, BECAUSE IT DENOTED TWO DIFFERENT
+CONTENTS AND THIS FILE'S PLATES PIN THE EARLIER ONE.**  Measured off the
+plates, not argued:
+
+    generation   bytes   md5                                inlined by
+    r1           5,753   f9348be9b963d26e2c63240fc974e060   ion, axs, rid
+    r2           6,542   4154dde8161ec3e0dc154fadab88e7dd   spx, ent, oct, hexad
+    scatter3d.js 7,975   07ceeb670663d6228b839648f4c915f4   every later plate
+
+r2 adds the `opts.edges` pass and the hollow-point branch; `scatter3d.js` adds
+the two-pass axis paint and the label ground.  Each is a superset of the last,
+so this file WOULD run against r2 -- and would then write a plate that is not
+the one in the tree.  `plate.py` already records the count from the other side:
+"The older plates each froze their own copy and THREE GENERATIONS have since
+diverged."  These are those three.
+
+RE-PINNED, NOT LOOSENED: this file reads `w3d-r1.js` and the sibling reads
+`w3d-r2.js`.  The ambiguous name is retired rather than given one of its two
+meanings.  `scatter3d.js` is the living runtime and is NOT a substitute here --
+a plate built against it is a different plate.
+
+WHAT IS VERIFIED: all three pages this file writes are BYTE-IDENTICAL to the
+plates already in the tree (`ion.html` == `ions-plate.html` and so on; the
+`-plate` names are a rename that happened outside this program).  The selftest
+below rebuilds all three in memory and compares md5s; run it before trusting
+any edit here.
+
+INPUTS RESOLVE AGAINST THIS FILE'S OWN DIRECTORY, not the working directory,
+which is new -- `open('style.css')` only worked when run from inside `render/`.
+Outputs are unchanged and still land in the working directory.
+"""
+import hashlib
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+STYLE = open(os.path.join(HERE, 'style.css')).read()
+# RE-PINNED from 'w3d.js' -- see section 1.  That name held two generations of
+# the widget and these three plates inline the first of them.
+W3D = open(os.path.join(HERE, 'w3d-r1.js')).read()
+PTS = json.load(open(os.path.join(HERE, 'new_pts.json')))
 COLJS = ("colour:p=>['--statistics','--geometry','--information',"
          "'--algebra','--order'][p.l]")
 
@@ -463,19 +562,89 @@ RIDX = """
 </footer>
 """
 
-for fn, title, body, sid, pk, xl, yl, zl, r, lab in (
+PLATES = (
     ('ion.html', 'The Ionisation Ladder', IONS, 'io3d', 'ions',
      'source n', 'occupancy k', 'source ℓ', 3.6, False),
     ('axs.html', 'The Provenance Index', AXES, 'ax3d', 'axes',
      'status', 'args', 'cites', 8, True),
     ('rid.html', 'The Refusal Index', RIDX, 'ri3d', 'rindex',
      'index', 'refusal kind', '|R|', 5, False),
-):
+)
+
+# THE PLATE EACH ONE IS THE SOURCE OF, under the name the tree keeps it by.
+# The rename happened outside this program; the selftest pins the pairing so it
+# cannot quietly stop holding.
+ARCHIVED = {'ion.html': 'ions-plate.html',
+            'axs.html': 'axes-plate.html',
+            'rid.html': 'rindex-plate.html'}
+
+
+def render(spec):
+    """Build one plate in memory.  Returns (filename, page text)."""
+    fn, title, body, sid, pk, xl, yl, zl, r, lab = spec
     col = (COLJS if pk != 'rindex' else
            "colour:p=>(p.y===0||p.y===7)?'--faint':'--accent'")
     script = ("scatter3d({id:'%s',points:%s,xlab:'%s',ylab:'%s',zlab:'%s',"
               "r:%s,height:470,scale:0.225,%s%s});"
               % (sid, json.dumps(PTS[pk], separators=(',', ':')), xl, yl, zl,
                  r, ("stroke:true,labels:true," if lab else ""), col))
-    open(fn, 'w').write(page(title, body, script))
-    print("wrote", fn)
+    return fn, page(title, body, script)
+
+
+def build():
+    for spec in PLATES:
+        fn, out = render(spec)
+        open(fn, 'w').write(out)
+        print("wrote", fn)
+
+
+def md5(b):
+    return hashlib.md5(b if isinstance(b, bytes) else b.encode()).hexdigest()
+
+
+def selftest():
+    """Every figure here was MEASURED by running this file, never chosen."""
+    ok = True
+
+    def chk(lab, got, want):
+        nonlocal ok
+        good = got == want
+        ok &= good
+        print("  [%s] %-52s %s" % ("ok" if good else "XX", lab,
+                                   got if good else "%s != %s" % (got, want)))
+
+    # THE INPUTS, pinned by md5 -- these are the bytes extracted from the
+    # plates, and a plate is only reproducible if they are exactly these.
+    for name, want, size in (('style.css', 'bfec0696c0e551145759a290ad5d500a', 7280),
+                             ('w3d-r1.js', 'f9348be9b963d26e2c63240fc974e060', 5753),
+                             ('new_pts.json', '7b827facb5d6d2dc9a0c63293034c159', 4715)):
+        b = open(os.path.join(HERE, name), 'rb').read()
+        chk("%s is present, %d bytes" % (name, size), len(b), size)
+        chk("%s md5" % name, md5(b), want)
+
+    # style.css CARRIES NO TRAILING NEWLINE, because page() supplies the one
+    # separator and the plates have no blank line before the wrap div.
+    chk("style.css ends without a newline", STYLE.endswith('\n'), False)
+    chk("w3d-r1.js ends with one", W3D.endswith('\n'), True)
+
+    # THE POINT SETS, measured off the restored file.
+    chk("ions points", len(PTS['ions']), 98)
+    chk("axes points", len(PTS['axes']), 14)
+    chk("rindex points", len(PTS['rindex']), 42)
+
+    # THE WHOLE CLAIM: each page is byte-identical to the plate in the tree.
+    for spec in PLATES:
+        fn, out = render(spec)
+        arch = os.path.join(HERE, ARCHIVED[fn])
+        want = open(arch, 'rb').read()
+        chk("%s reproduces %s byte for byte" % (fn, ARCHIVED[fn]),
+            (len(out.encode()), md5(out)), (len(want), md5(want)))
+
+    print("build_plates selftest: %s" % ("PASS" if ok else "FAIL"))
+    return ok
+
+
+if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        sys.exit(0 if selftest() else 1)
+    build()

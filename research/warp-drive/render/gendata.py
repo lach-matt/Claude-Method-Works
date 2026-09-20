@@ -10,11 +10,32 @@ import master, hlaw, rubik, duality, bounds
 import questions as _q
 # The question index is SEATED IN master.py now (DOCKET 8) -- no monkeypatch.
 assert "questions" in master.inventory(), "master.py has not seated questions"
-assert len(master.inventory()) == 10
+# WITHDRAWN 2026-09-20 -- the pin `assert len(master.inventory()) == 10`.
+# It was written at b870af6 (2026-09-14 08:26), when the inventory held ten,
+# and it has raised AssertionError since fc4c06b (2026-09-14 17:35), DOCKET 2,
+# which unseated "periodic layout 2-D" -- ruled a coarsening of the 3-D chart,
+# in exact bijection with it at equal reach -- and took the inventory to nine.
+# A generator that cannot run writes nothing, so DATA.json has been the
+# 2026-09-14 file ever since: a TRANSCRIPTION, which is exactly what
+# render/README.md says a deliverable must never be.
+#
+# THE COUNT WAS NEVER THE PROPERTY THIS FILE NEEDS.  `inv` is read by NAME and
+# only by name (`X = inv[n]` below, over the names master_index() seats), so
+# what has to hold is that the inventory and the master index agree on WHICH
+# indexes are seated -- not on how many.  A count pinned against a population
+# that seats and unseats rows is a pin on a moving object; it goes stale on the
+# next docket either way.  The property below cannot: it is silent when an
+# eleventh index lands and it still fires the instant a name in one is missing
+# from the other, which is the failure that would actually corrupt the render.
+_inv, _mi = master.inventory(), master.master_index()
+assert _inv, "master.py seats no indexes at all"
+assert set(_inv) == set(_mi), (
+    "inventory and master index disagree on which indexes are seated: %r"
+    % (sorted(set(_inv) ^ set(_mi)),))
 
 LANGS = list(hlaw.LANGS)
-inv = master.inventory()
-mi = master.master_index()
+inv = _inv
+mi = _mi
 CELLS = frozenset(mi.values())
 cl, _ = hlaw.closures(CELLS)
 
@@ -81,6 +102,17 @@ for a, b in itertools.combinations(sorted(CELLS), 2):
 br, hd, _rows = rubik.single_move_census(kind="1")
 p1 = rubik.para_indexes(kind="1")
 p2 = rubik.para_indexes(kind="2")
+# RECORDED 2026-09-20, not repaired: `law_separation` is the SAMPLED
+# discriminator, and rubik.py supersedes it with `law_separation_exact` -- its
+# own docstring records that after DOCKET 2 withdrew the densest index the
+# sample became under-powered and read two unlawful pairs as lawful at n=1500,
+# seed-dependently. At the seed and n this render uses the two survive by a
+# margin of ONE scramble in 3,000. The figure the page actually prints is
+# `never.length`, and it is confirmed NOT by luck: the complete radius-3 ball
+# (6,933 states, no seed, measured 2026-09-20) gives the same seven pairs, with
+# those two breaking 10 times each -- 0.14 % of the orbit. Left sampled because
+# the page also prints `law.n` as a scramble count; switching the reading is a
+# change to a published figure, not this repair.
 viol, n_scr = rubik.law_separation()
 never = sorted("%s<=%s" % (a, b) for (a, b), k in viol.items() if k == 0)
 lawful = sorted("%s<=%s" % (a, b) for a, b in hlaw.lawful_pairs()) \

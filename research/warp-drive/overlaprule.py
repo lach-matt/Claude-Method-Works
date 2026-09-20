@@ -247,19 +247,36 @@ reintroduces.  THE DECLARED POINTS ARE CHOSEN REACHES -- complete n+l shells,
 Z decades -- NOT SAMPLES OF A CONTINUUM.  So the dense sweep is filed as a
 FINDING and is deliberately NOT wired into `grounds()`.
 
-WHAT IS LEFT STANDING, AND WHY.  By the gate as written `admissible()` returns
-gravity (B,F,X,E), madelung (n+l,k) and baryons (2I,Q3), while `SEATED_ROWS`
-still seats gravity (B,F,X).  The fixture "SEATED_ROWS agrees with what the
-gate admits" FAILS, IT IS NOT LOOSENED, and `seating_divergence()` pins the
-disagreement to exactly that one row so it cannot widen unnoticed.
+WHAT IS LEFT STANDING, AND WHY.  HISTORICAL -- THE RULING HAS SINCE BEEN MADE
+AND THIS PARAGRAPH RECORDS THE STATE IT WAS MADE FROM.  By the gate as written
+`admissible()` returned gravity (B,F,X,E), madelung (n+l,k) and baryons
+(2I,Q3), while `SEATED_ROWS` still seated gravity (B,F,X).  The fixture
+"SEATED_ROWS agrees with what the gate admits" FAILED, IT WAS NOT LOOSENED, and
+`seating_divergence()` pinned the disagreement to exactly that one row so it
+could not widen unnoticed.  IT IS NOW EMPTY: the row is re-seated on
+(B,F,X,E), the fixture passes, and the pin stays so a NEW divergence cannot
+hide behind a healed one.  Section 3f-bis below is the ruling itself.
 
     THIS PASS DOES NOT RE-SEAT, AND THAT IS A SCOPE DECISION RATHER THAN A
-    VERDICT ON THE CHART.  Moving K1's occupant is a RULING on this file's own
-    precedent -- DOCKET 22 unseated one row and took a docket, nine agents and
-    three lenses to do it.  It also reaches outside this file: `registry.py`
-    pins `overlaprule.gravity_bound` at 26 cells, `figure.py` reads its width,
-    and THE PUBLISHED PAPER prints K1's single occupant as 26 cells at
-    (1, 8, 5).  A pass repairing a fixture does not get to move that silently.
+    VERDICT ON THE CHART.  -- SUPERSEDED BY 3f-bis; the scope decision was
+    reversed by the owner, not overturned by a new measurement.  Moving K1's
+    occupant is a RULING on this file's own precedent -- DOCKET 22 unseated one
+    row and took a docket, nine agents and three lenses to do it.  It also
+    reaches outside this file: `registry.py` pins `overlaprule.gravity_bound`
+    at 26 cells and `figure.py` reads its width -- both now re-pinned, 3f-bis.
+
+        AND THIS CLAUSE WAS FALSE WHEN IT WAS WRITTEN.  It read "and THE
+        PUBLISHED PAPER prints K1's single occupant as 26 cells at (1, 8, 5)".
+        WITHDRAWN.  The paper prints BOTH readings and always did: its ruling
+        table (THE-INDEX-OF-FIRST-ORDER-INDEXES.md line 319, generated from
+        `OR.admissible()`) already prints `gravity (B, F, X, E) | K1 | 52 |
+        SEATED` with `gravity (B, F, X)` beneath it as "refused: maximal",
+        while its registry table (line 215, generated from `registry.rows()`)
+        prints `gravity_bound ... 26 | (1, 8, 5) | 3`.  So the divergence this
+        section found inside the instrument was ALREADY IN PRINT across two
+        tables of one document, and the thing a re-seating moves is not the
+        paper's verdict but its internal agreement.  Measured by grep, not
+        inferred; the paper is finalised and was not edited.
 
     AND THE RULING IS NOT OBVIOUS, WHICH IS THE BETTER REASON.  The coordinate
     that would newly enter a seated chart is `E`, and gravity.py's own gloss
@@ -277,6 +294,55 @@ disagreement to exactly that one row so it cannot widen unnoticed.
     coordinate that records the EVIDENCE FOR a member rather than a property OF
     one, which refuses (B,F,X,E) and leaves every figure where it is.  Both are
     rulings.  Neither is a repair, and this pass made neither.
+
+===============================================================================
+3f-bis. THE RULING, AND EVERYTHING IT MOVED
+===============================================================================
+
+M ruled BOTH of the two honest repairs 3f named, and ruled the order: RESEAT
+FIRST, THEN RESAMPLE.  This section is the reseat.  It takes route (a) above --
+the six declared reaches are the reach the gate reads -- and it does NOT take
+route (b): no ruling is made here on whether `E`, "mass evidence (0 measured,
+1 estimated)", is a property of a member or a record about one.  THAT QUESTION
+IS LEFT OPEN AND IS NOT ANSWERED BY SEATING THE CHART.
+
+    WHAT THE RESEAT IS.  `SEATED_ROWS["gravity_bound"]` goes ("B","F","X") ->
+    ("B","F","X","E").  Nothing else in the gate changes; no ground is
+    weakened, no sample widened, no threshold moved.  The gate had already
+    measured this and the ruling had not followed it.
+
+    THE CASCADE, MEASURED ROW BY ROW RATHER THAN ASSUMED LOCAL.
+
+        overlaprule.gravity_bound   26 cells  -> 52 cells
+        its cell (K, height, width) (1, 8, 5) -> (1, 9, 10)
+        its arity                          3 -> 4
+        its channel                       K1 -> K1              unmoved
+        gravity.index                914 cells, (0, 19, 112), K0, arity 7
+                                                              ALL UNMOVED
+        figure.py  the figure's vertex count      27 -> 27      unmoved
+                   distinct cells                 27 -> 27      unmoved
+                   K resolution         8/27 = 0.2963           unmoved
+                   height resolution   18/27 = 0.6667 -> 19/27 = 0.7037
+                   width  resolution   17/27 = 0.6296 -> 18/27 = 0.6667
+                   labelled axes                  none -> none  unmoved
+        master.py  gravity is in NO row of `master.inventory()` and master.py
+                   imports neither registry nor overlaprule -- the "gravity"
+                   in that file is the G coordinate of the master index, a
+                   different object.  Nothing there can move and nothing did.
+
+    AND THE THING THE MOVE COST THE FIGURE, WHICH IS NOT NOTHING.  Both of
+    figure.py section 1b's resolution axes RISE, height 0.667 -> 0.704 and
+    width 0.630 -> 0.667, because gravity_bound leaves a height and a width
+    the figure already held for two it did not.  Section 1b's reading was that
+    the seated coarsenings "group where every previous addition separated";
+    for this one that is now FALSE -- it separates.  Recorded, not repaired,
+    and figure.py's own docstring carries the correction.
+
+    WHAT THE RESEAT DOES NOT SETTLE, RESTATED SO IT IS NOT LOST.  Densely,
+    (B,F,X,E) is off-channel at Z <= 35 and Z <= 36 and (B,F,X) is off-channel
+    nowhere.  On the declared six that is invisible.  The second ruled pass
+    resamples those six; this file's `dense_off_channel()` is the measurement
+    it has to answer, and `SWEEPS` is where the answer goes.
 
 ===============================================================================
 3c. WHY K4 IS THE HARD ONE, AND IT IS NOT AN ACCIDENT
@@ -406,6 +472,20 @@ none of the grounds above asks for.
     which is `gravity.encoding_sensitivity()`'s question asked of the
     coarsening.
 
+        EXTENDED TO THE CHART SECTION 3f-bis SEATED, because a ground that was
+        only ever measured on the chart that lost is not a ground for the one
+        that won.  `gravity (B, F, X, E)`: both encodings give 52 fibres at
+        (1, 9, 10) and both land at K1 -- measured, not carried over.
+        `encoding_shift()` is the measurement and a fixture pins it.
+
+        AND `recoordinatisations("gravity", ...)` DOES NOT TEST EITHER OF
+        THEM.  Over `ALT_COORDS["gravity"]` it returns the chart alone for
+        (B,F,X) and for (B,F,X,E) -- no other combination of D,B,F,X,Y,L,E
+        induces the same partition -- so `ground_coordinate_forced` passes
+        both for want of an alternative, which is a pass and not evidence.
+        The raw-decade encoding is the only alternative address gravity banks,
+        and it is the one measured above.
+
     THE PARENT IS UNTOUCHED.  (nr, l, sigma) and (nr, l, 2j) are both K3, so
     no pre-ruling vertex moves.  The fault was the coarsening's alone.
 
@@ -425,25 +505,50 @@ none of the grounds above asks for.
 
     SEATED, three.  RE-PINNED FROM "two": DOCKET 29 seated the baryon row and
     this list was never extended with it.  `SEATED_ROWS` holds three and
-    `admissible()` MEASURES three; what they disagree about is the gravity row,
-    and that is section 3f.
+    `admissible()` MEASURES three.  RE-PINNED AGAIN, SECTION 3f-bis: they
+    disagreed about the gravity row, and they no longer do -- the row is
+    re-seated on what the gate admits and `seating_divergence()` is empty.
 
     madelung (n+l, k)     K6    82 cells    gate 7/7    parent K7 at (n+l,l,k)
-    gravity  (B, F, X)    K1    26 cells    gate 6/6    parent K0 at seven
+    gravity  (B,F,X,E)    K1    52 cells    gate 6/6    parent K0 at seven
     baryons  (2I, Q3)     K5    16 cells    gate 7/7    DOCKET 29, section 3c
+
+    RE-PINNED, SECTION 3f-bis: the gravity row read `(B, F, X)  K1  26 cells`
+    until the ruling followed the gate.  The channel and the gate score are
+    unmoved; the chart, the cell count and the arity are not.
 
     madelung's "7/7" IS AT COMPLETE n+l SHELL REACHES, which is the schedule
     `SWEEPS` samples.  The two unsampled degenerate reaches (2 and 4 electrons)
     are K7; over all nine it is 7/9 and still passes.  Quoted with its schedule
     because 7/7 reads like seven independent checks and is not.
 
-    REFUSED, four, each recorded so it can be re-adjudicated:
+    REFUSED, four, each recorded so it can be re-adjudicated.  RE-PINNED,
+    SECTION 3f-bis: the membership changed and the count did not.  Gravity
+    (B,F,X,E) left this list for the seated one above and gravity (B,F,X)
+    took its place -- and NOT ON THE SAME KIND OF GROUND.  The other three
+    fail a SOUNDNESS ground; (B,F,X) clears all four and is dropped by
+    MAXIMALITY, for being contained in a sound chart of the same parent in the
+    same channel.  `refused()` reports the ground, and reading the two as one
+    verdict is the error this note exists to prevent.
+
+    gravity (B, F, X)  K1   MAXIMAL, NOT UNSOUND.  26 cells at (1, 8, 5),
+                       K1 at all six declared reaches, and off-channel at NONE
+                       of the 39 dense ones -- which is a better reach record
+                       than the chart that displaced it.  It is dropped
+                       because (B,F,X,E) is sound and contains it, so the two
+                       carry the same language set and the smaller adds
+                       nothing but a second vertex.  Section 3b.  IF THE
+                       RESAMPLE REFUSES (B,F,X,E), THIS IS THE CHART THAT
+                       COMES BACK, and its numbers are kept here for that.
 
     nucshell (l, sigma) K5  COORDINATE NOT FORCED.  SEATED AND THEN UNSEATED --
                        section 3e.  The identical partition under (l, 2j) is
                        K7, which is occupied, and 2j is the banked primitive.
 
-    gravity (B,F,X,E)  K1   THIS REFUSAL IS WITHDRAWN -- SECTION 3f.  It read
+    gravity (B,F,X,E)  K1   THIS REFUSAL IS WITHDRAWN -- SECTION 3f, AND THE
+                       CHART IS NOW SEATED -- SECTION 3f-bis.  The entry is
+                       kept because a withdrawal that deletes itself is not a
+                       record.  It read
                        "OSCILLATES.  K1, K0, K1, K1, K1, K1 across
                        Z <= 20/40/60/80/100/118.  The arity-4 extension of a
                        chart that passes; the gate refuses the extension and
@@ -457,7 +562,9 @@ none of the grounds above asks for.
                        is left standing rather than repaired here.  Densely the
                        chart is still off-channel at Z <= 35 and Z <= 36, so
                        the refusal lapsed as a fact about the SAMPLE and not as
-                       a fact about the chart.
+                       a fact about the chart.  THE SEATING RESTS ON THE
+                       SAMPLE, THEN, AND SAYS SO: route (a) of 3f, with the
+                       resample ruled to follow it.
     ions (sl, tl)      K4   LATE ARRIVAL.  K2 at Z <= 36, 54, 72, 86, 100 and
                        K4 only at the terminal 108.  This is DOCKET 2's own
                        failure shape, in the same direction.
@@ -951,10 +1058,12 @@ def dense_off_channel(parent, cols):
 def seating_divergence():
     """[(row, what SEATED_ROWS holds, what the gate admits)] -- section 3f.
 
-    EMPTY IS THE HEALTHY ANSWER and it is not empty.  The fixture
-    "SEATED_ROWS agrees with what the gate admits" fails and is left failing;
-    this pins the disagreement to its exact extent so that a second divergence
-    cannot hide behind the first.
+    EMPTY IS THE HEALTHY ANSWER AND IT IS NOW EMPTY -- section 3f-bis
+    re-seated the gravity row on (B,F,X,E) and the fixture "SEATED_ROWS agrees
+    with what the gate admits" passes.  KEPT, NOT DELETED: what it was built
+    for was stopping a second divergence hiding behind the first, and that job
+    does not end when the first one is healed.  It read, before the ruling:
+    "EMPTY IS THE HEALTHY ANSWER and it is not empty."
     """
     seats = {p: tuple(c) for p, c, _k, _n in admissible()}
     out = []
@@ -1071,6 +1180,28 @@ def recoordinatisations(parent, cols):
     return out
 
 
+def encoding_shift(cols):
+    """gravity's coarsening under BOTH encodings: ((cells, cell) x2, agree?).
+
+    SECTION 3e, EXTENDED BY 3f-bis.  `recoordinatisations` finds no alternative
+    address for either gravity coarsening inside `ALT_COORDS`, so the
+    coordinate-forced ground passes them for want of an alternative.  The one
+    alternative gravity actually banks is the RAW-DECADE encoding of its spin
+    rank -- `gravity.rows(raw_decades=True)` -- and this asks the coarsening
+    the question `gravity.encoding_sensitivity()` asks the parent.
+
+    A PASS HERE IS EVIDENCE; the ground's own pass on these two is not.
+    """
+    import gravity as _g
+    NB = {"D": 0, "B": 1, "F": 2, "X": 3, "Y": 4, "L": 5, "E": 6}
+    ix = [NB[c] for c in cols]
+    out = []
+    for raw in (False, True):
+        P = frozenset(tuple(c[i] for i in ix) for _m, c in _g.rows(raw))
+        out.append((len(P), mi.cell(P)))
+    return tuple(out) + (out[0] == out[1],)
+
+
 def ground_coordinate_forced(parent, cols):
     """Does the novel channel survive a faithful RE-COORDINATISATION?
 
@@ -1152,7 +1283,23 @@ def refused():
 # fixture has to exclude a coarsening of nucshell without excluding anything
 # else, and the row's MODULE no longer says whose members it holds.
 SEATED_ROWS = {
-    "gravity_bound":   ("gravity",  ("B", "F", "X")),
+    # RE-SEATED (B,F,X) -> (B,F,X,E).  26 cells -> 52, cell (1,8,5) ->
+    # (1,9,10), arity 3 -> 4, channel K1 -> K1.  THE RULING SECTION 3f ASKED
+    # FOR, MADE, AND HERE IS THE WHOLE OF WHY.  DOCKET 49b (b28abdc) widened
+    # gravity's capture reader -- 118 species -> 126, 3,394 member rows ->
+    # 3,663 -- and on the SIX DECLARED REACHES this gate samples that made
+    # (B,F,X,E) sound: the oscillation ground stopped firing, and maximality,
+    # which section 3b had called inert, then dropped the arity-3 chart it
+    # contains.  The seating is being brought into line with what the gate
+    # measures; `admissible()` has returned (B,F,X,E) since that commit.
+    #   WHAT THE RE-SEATING DOES NOT CLAIM.  The oscillation did not lapse, it
+    # moved below the sample.  Densely, inside the span `SWEEPS` already
+    # declares, (B,F,X,E) is off-channel at 2 of 39 reaches -- Z <= 35 and
+    # Z <= 36 -- and (B,F,X) at 0 of 39; `dense_off_channel()` measures both.
+    # A second pass, ruled together with this one, resamples the declared
+    # reaches so the schedule catches where the dip now sits.  Until it lands,
+    # the six-point schedule is what the gate reads and this row follows it.
+    "gravity_bound":   ("gravity",  ("B", "F", "X", "E")),
     "madelung_slot":   ("madelung", ("n+l", "k")),
     # DOCKET 29.  THE TREE'S ONLY K5, and the first since DOCKET 22 retracted
     # the other one.  See `baryon_isomultiplet()`.
@@ -1188,7 +1335,13 @@ def holds_members_of(name, parent):
 
 
 def gravity_bound():
-    """gravity (B, F, X) -- the bound structure with D dropped.  K1.
+    """gravity (B, F, X, E) -- the bound structure with D dropped.  K1.
+
+    RE-SEATED FROM (B, F, X), section 3f-bis.  52 cells at (1, 9, 10),
+    measured.
+    The arity-3 chart it contains is 26 cells at (1, 8, 5) and is now refused
+    by MAXIMALITY -- it clears every ground and is dropped for being contained
+    -- which is a different refusal from the four in section 4.
 
     NOT "dimension-blind", which an earlier docstring claimed: B is a function
     of (D, q, F, Jzero) and its profile differs at D = 4, at D = 5 and at
@@ -1523,10 +1676,18 @@ def report(do_census=False):
     print("   D = 6 is where singly-rotating Myers-Perry loses its horizon")
     print("   bound.  The closure algebra sees it without being told.")
     print()
+    # SEATED FIRST, section 3f-bis.  It printed only (B/F/X), which is no
+    # longer the seated chart; both are printed because section 5's recipe is
+    # written on the arity-3 one and the shape is what that section reads.
+    jn4, mt4, pr4 = semilattice("gravity", ("B", "F", "X", "E"))
     jn, mt, pr = semilattice("gravity", ("B", "F", "X"))
-    print("7. THE K1 SHAPE.  gravity (B/F/X): %d join counterexamples, %d meet,"
-          % (jn, mt))
-    print("   in %d unordered pairs -- a join-semilattice, not a lattice." % pr)
+    print("7. THE K1 SHAPE.  gravity (B/F/X/E), SEATED: %d join "
+          "counterexamples," % jn4)
+    print("   %d meet, in %d unordered pairs." % (mt4, pr4))
+    print("   the arity-3 chart it contains, gravity (B/F/X): %d join "
+          "counterexamples," % jn)
+    print("   %d meet, in %d unordered pairs -- a join-semilattice, not a "
+          "lattice." % (mt, pr))
     if do_census:
         print()
         print("8. THE CENSUS, re-derived over every proper sub-chart "
@@ -1637,6 +1798,8 @@ def selftest():
                != [mi.K(project(p, c))] * 2), ["ions"])
     chk("gravity (B/F/X) passes at every one of its six reaches",
         ground_reach_stable("gravity", ("B", "F", "X"))[1:3], (6, 6))
+    chk("and so does the SEATED (B/F/X/E) -- which is what re-seated it",
+        ground_reach_stable("gravity", ("B", "F", "X", "E"))[1:3], (6, 6))
     chk("nucshell (l/sigma) passes at six of seven",
         ground_reach_stable("nucshell", ("l", "sigma"))[1:3], (6, 7))
     chk("madelung (n+l/k) passes at all seven",
@@ -1664,18 +1827,18 @@ def selftest():
     # what seats, and where
     seats = admissible()
     chk("three seat", len(seats), 3)
-    # LEFT FAILING ON PURPOSE, AND NOT LOOSENED -- SECTION 3f.  The gate admits
-    # gravity (B,F,X,E); SEATED_ROWS seats (B,F,X).  Re-seating K1 is a RULING,
-    # not a repair: it moves registry.py's pin of 26 cells, figure.py's width
-    # and a figure the published paper prints, and the coordinate it would add
-    # is `E`, gravity's "mass evidence (0 measured, 1 estimated)".  The fixture
-    # below pins the divergence to exactly one row so it cannot widen unseen.
+    # NOW PASSING -- SECTION 3f-bis.  It was LEFT FAILING ON PURPOSE while the
+    # gate admitted gravity (B,F,X,E) and SEATED_ROWS seated (B,F,X); the
+    # ruling has since followed the gate and the row is re-seated.  NOT
+    # LOOSENED TO GET HERE: the comparison is the same one, both sides are
+    # still measured, and the divergence fixture below is kept rather than
+    # deleted so a SECOND divergence cannot hide behind a healed first.
     chk("SEATED_ROWS agrees with what the gate admits",
         sorted((p, c) for p, c, _k, _n in seats),
         sorted(SEATED_ROWS.values()))
-    chk("and the disagreement is exactly one row, and it is gravity's",
-        seating_divergence(),
-        [("gravity_bound", ("B", "F", "X"), ("B", "F", "X", "E"))])
+    # RE-PINNED [one row] -> [], SECTION 3f-bis.  It read
+    # [("gravity_bound", ("B","F","X"), ("B","F","X","E"))].
+    chk("and there is no divergence left to pin", seating_divergence(), [])
     chk("every seated row names the parent whose members it holds",
         [a for a in SEATED_ROWS
          if not holds_members_of("%s.%s" % (SELF, a), parent_of(a))], [])
@@ -1698,7 +1861,15 @@ def selftest():
     chk("K4 is reached by two candidates and seated by neither",
         sorted(c[2] for c in CANDIDATES if c[2] == 4), [4, 4])
     chk("K4 stays empty", 4 in {k for _p, _c, k, _n in seats}, False)
-    chk("gravity (B/F/X) is 26 cells", len(gravity_bound()), 26)
+    # RE-PINNED 26 -> 52, SECTION 3f-bis: `gravity_bound` IS (B,F,X,E) now.
+    # The arity-3 chart is pinned beside it because it is what comes back if
+    # the resample refuses the arity-4 one, and an unpinned fallback is not
+    # a fallback.
+    chk("gravity_bound is (B/F/X/E) and is 52 cells", len(gravity_bound()), 52)
+    chk("and its cell is (1, 9, 10)", mi.cell(gravity_bound()), (1, 9, 10))
+    chk("the arity-3 chart it contains is still 26 cells at (1, 8, 5)",
+        (len(project("gravity", ("B", "F", "X"))),
+         mi.cell(project("gravity", ("B", "F", "X")))), (26, (1, 8, 5)))
     chk("the UNSEATED nucshell (l/sigma) is still 12 cells and still K5",
         (len(nucshell_lsigma()), mi.K(nucshell_lsigma())), (12, 5))
     chk("madelung (n+l/k) is 82 cells", len(madelung_slot()), 82)
@@ -1711,7 +1882,10 @@ def selftest():
         (sorted(set(mi.channels()[6]) | set(mi.channels()[3])),
          sorted(set(mi.channels()[6]) & set(mi.channels()[3]))),
         (sorted(hlaw.LANGS), ["statistics"]))
-    chk("gravity (B/F/X) lands at K1", mi.K(gravity_bound()), 1)
+    chk("gravity_bound lands at K1", mi.K(gravity_bound()), 1)
+    chk("and so does the arity-3 chart it displaced -- same channel, which is "
+        "why maximality and not a ground decides between them",
+        mi.K(project("gravity", ("B", "F", "X"))), 1)
     # SECTION 3e.  The ground that unseated it, and that the other two pass.
     chk("nucshell (l/sigma) FAILS coordinate-forced -- the identical partition "
         "under (l, 2j) is K7", ground_coordinate_forced("nucshell",
@@ -1725,15 +1899,35 @@ def selftest():
                                                        ("n+l", "k"))}), [6])
     chk("gravity (B/F/X) passes it", ground_coordinate_forced(
         "gravity", ("B", "F", "X")), True)
+    chk("and so does the seated (B/F/X/E)", ground_coordinate_forced(
+        "gravity", ("B", "F", "X", "E")), True)
+    # SECTION 3e, EXTENDED BY 3f-bis.  BOTH of those passes are for want of an
+    # alternative address -- pinned here so the pass is not read as evidence.
+    chk("recoordinatisations offers NEITHER gravity chart an alternative "
+        "address -- the ground passes both vacuously",
+        [len(recoordinatisations("gravity", c))
+         for c in (("B", "F", "X"), ("B", "F", "X", "E"))], [1, 1])
+    # THE NON-VACUOUS CHECK, and it is the one the seating rests on.
+    chk("the raw-decade encoding gives the SAME 52 cells at (1, 9, 10)",
+        encoding_shift(("B", "F", "X", "E")),
+        ((52, (1, 9, 10)), (52, (1, 9, 10)), True))
+    chk("and the same 26 at (1, 8, 5) for the arity-3 chart",
+        encoding_shift(("B", "F", "X")),
+        ((26, (1, 8, 5)), (26, (1, 8, 5)), True))
     chk("the parent is untouched: (nr,l,sigma) and (nr,l,2j) are both K3",
         sorted({mi.K(project("nucshell", ("nr", "l", "sigma")))}), [3])
     chk("madelung (n+l/k) lands at K6", mi.K(madelung_slot()), 6)
 
-    # the K1 shape, which is the recipe section 5 names
+    # the K1 shape, which is the recipe section 5 names.  SECTION 3f-bis adds
+    # the seated chart's shape; the arity-3 pins are NOT replaced, because
+    # section 5's recipe is written on that chart and still reads it.
     jn, mt, pr = semilattice("gravity", ("B", "F", "X"))
     chk("gravity (B/F/X) has NO join counterexample", jn, 0)
     chk("gravity (B/F/X) has 32 meet counterexamples, unordered", mt, 32)
     chk("325 pairs", pr, 325)
+    chk("and the SEATED (B/F/X/E) has the same shape at twice the size -- "
+        "0 join counterexamples, 128 meet, 1,326 pairs",
+        semilattice("gravity", ("B", "F", "X", "E")), (0, 128, 1326))
 
     # the dimension finding
     dim = dict((tuple(c), s) for c, s in dimension_finding())

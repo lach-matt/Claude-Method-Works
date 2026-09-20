@@ -51,13 +51,6 @@
     1
    ],
    [
-    2,
-    1,
-    0,
-    0,
-    3
-   ],
-   [
     5,
     1,
     1,
@@ -66,13 +59,14 @@
    ]
   ],
   "E": {
-   "order": 24,
-   "algebra": 24,
-   "geometry": 3,
-   "information": 10,
+   "order": 8,
+   "algebra": 8,
+   "geometry": 0,
+   "information": 6,
    "statistics": 0
   },
   "closers": [
+   "geometry",
    "statistics"
   ],
   "demands": []
@@ -129,13 +123,6 @@
     1
    ],
    [
-    2,
-    1,
-    0,
-    0,
-    3
-   ],
-   [
     5,
     1,
     1,
@@ -144,10 +131,10 @@
    ]
   ],
   "E": {
-   "order": 24,
-   "algebra": 24,
-   "geometry": 3,
-   "information": 9,
+   "order": 8,
+   "algebra": 8,
+   "geometry": 1,
+   "information": 5,
    "statistics": 1
   },
   "closers": [],
@@ -293,41 +280,11 @@
    ]
   },
   {
-   "name": "periodic layout 2-D",
-   "cells": 90,
-   "arity": 2,
-   "box": 126,
-   "density": 71.4,
-   "closers": [
-    "information",
-    "statistics"
-   ],
-   "K": 4,
-   "cell": [
-    2,
-    1,
-    0,
-    0,
-    3
-   ],
-   "cell_corrected": [
-    2,
-    1,
-    0,
-    0,
-    3
-   ],
-   "R": [
-    0,
-    4
-   ]
-  },
-  {
    "name": "periodic layout 3-D",
-   "cells": 80,
+   "cells": 92,
    "arity": 3,
-   "box": 378,
-   "density": 21.2,
+   "box": 576,
+   "density": 16.0,
    "closers": [],
    "K": 0,
    "cell": [
@@ -346,7 +303,6 @@
    ],
    "R": [
     0,
-    1,
     3,
     4,
     5,
@@ -492,7 +448,6 @@
     "bounds",
     "energy-condition family",
     "exotic mechanisms",
-    "periodic layout 2-D",
     "periodic layout 3-D",
     "questions",
     "spacetimes (Petrov)",
@@ -507,9 +462,7 @@
    ],
    "standing": "VACANT",
    "who": [],
-   "carries": [
-    "periodic layout 3-D"
-   ]
+   "carries": []
   },
   {
    "K": 2,
@@ -558,15 +511,17 @@
     "information",
     "statistics"
    ],
-   "standing": "SEATED",
+   "standing": "SPECIES",
    "who": [
-    "periodic layout 2-D"
+    "spectra Z=6 chg=1",
+    "spectra Z=8 chg=3",
+    "spectra Z=13 chg=2",
+    "spectra Z=26 chg=15"
    ],
    "carries": [
     "bounds",
     "energy-condition family",
     "exotic mechanisms",
-    "periodic layout 2-D",
     "periodic layout 3-D",
     "questions",
     "spacetimes (Petrov)",
@@ -636,14 +591,12 @@
  ],
  "lattice": {
   "min": [
-   "Janet (n+l, l, k)",
-   "periodic layout 2-D"
+   "Janet (n+l, l, k)"
   ],
   "max": [
-   "exotic mechanisms",
-   "periodic layout 3-D"
+   "exotic mechanisms"
   ],
-  "incomparable": 13
+  "incomparable": 10
  },
  "forbidden": [
   [
@@ -676,52 +629,8 @@
   ]
  ],
  "impossible_demands": {
-  "order": [
-   [
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   [
-    0,
-    0,
-    0,
-    0,
-    1
-   ],
-   [
-    0,
-    0,
-    0,
-    0,
-    2
-   ]
-  ],
-  "algebra": [
-   [
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   [
-    0,
-    0,
-    0,
-    0,
-    1
-   ],
-   [
-    0,
-    0,
-    0,
-    0,
-    2
-   ]
-  ],
+  "order": [],
+  "algebra": [],
   "geometry": [],
   "information": [],
   "statistics": []

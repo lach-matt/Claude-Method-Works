@@ -59,8 +59,14 @@ the registry, because it does not hold a copy of it.
 
     27 vertices, 27 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 570
+    E = 555
     ALL EIGHT CHANNELS OCCUPIED
+
+    RE-PINNED E 570 -> 555 WITH NO ROW SEATED OR UNSEATED.  The overlap
+    ruling re-seated its gravity row on (B,F,X,E) -- `overlaprule.py` section
+    3f-bis -- and that one vertex moved from (1, 8, 5) to (1, 9, 10).  The
+    vertex COUNT is unmoved at 27 and so is the distinct-cell count; what
+    moved is where one of them sits, and the figure's demand with it.
 
 **ITS OWN CELL IS (0, 7, 11), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
@@ -109,6 +115,14 @@ measured by `self_cell()` and is not offered as meaning anything.
     already, so both resolutions fall on the larger denominator while the two
     axes stay separated.  The channel census does not move: all eight were
     occupied at twenty-four and `corepdex` lands in K0, which was held.
+        AND THEN TWENTY-SEVEN MOVED WITHOUT A TWENTY-EIGHTH.  The overlap
+    ruling re-seated `gravity_bound` from (B,F,X) to (B,F,X,E), so the vertex
+    at (1, 8, 5) became a vertex at (1, 9, 10): E 570 -> 555, resolutions
+    0.296 / 0.704 / 0.667, own cell (0, 7, 11) UNMOVED and still unoccupied,
+    closers still none, all eight channels still occupied.  Recorded as its
+    own stage because the narrative above reads each stage as a row arriving,
+    and this one is a row CHANGING -- the first time that has happened here.
+    `overlaprule.py` section 3f-bis.
 
 ===============================================================================
 1b. WHAT THE OVERLAP RULING COST AND WHAT IT BOUGHT -- BOTH, MEASURED
@@ -272,6 +286,19 @@ because it cut both ways and a one-sided report would be a lie by selection.
     addition separated.  THE UNSEATED THIRD HAD WIDTH 2, WHICH WAS NEW: the
     claim was false while it was seated, and DOCKET 22's correction J caught
     that independently of the unseating.
+
+        HALF OF THAT IS NOW WITHDRAWN, AND BY THE RULING RATHER THAN BY AN
+        AUDIT.  `overlaprule.py` section 3f-bis re-seated the gravity row on
+        (B,F,X,E); its cell went (1, 8, 5) -> (1, 9, 10), and NEITHER 9 NOR 10
+        was a height or a width the figure held.  So the seated gravity
+        coarsening now SEPARATES where the sentence above says it groups, and
+        both resolutions ROSE on it -- height 18/27 = 0.6667 -> 19/27 =
+        0.7037, width 17/27 = 0.6296 -> 18/27 = 0.6667.  The sentence stays
+        TRUE of madelung_slot, which is unmoved at width 6, and the
+        measurement is what changed under it, not the reading.
+        NOT A GROUND FOR OR AGAINST THE RE-SEATING, and it was not offered as
+        one: the paragraph below already says this file's resolution is never
+        why a row is seated.
 
     THAT WAS NOT THE REASON FOR SEATING THEM and it is not offered as one --
     `overlaprule.py` seats on a novel channel, a non-bijection and a reach
@@ -631,6 +658,19 @@ def selftest():
     # vertex and NEITHER a new height nor a new width -- its cell is (0, 6, 3)
     # and the figure already held 6 and 3.
     #
+    # REPINNED A FIFTH TIME, AND THE FIRST TIME WITH NO ROW ADDED.
+    # `overlaprule.py` section 3f-bis re-seated the ruling's gravity row from
+    # (B,F,X) to (B,F,X,E) and that vertex moved (1, 8, 5) -> (1, 9, 10).
+    # Both 9 and 10 are NEW to the figure and the 8 and 5 it vacated are both
+    # still held elsewhere, so the numerators rise on an unchanged
+    # denominator: 19/27 = 0.7037 against 18/27 = 0.6667.  BOTH ROSE, where
+    # every previous repin here recorded a fall.  Measured after the reseat,
+    # never before it -- which is the lesson the two withdrawals below teach.
+    #   AND 0.7037 IS NOT THE 0.7037 WITHDRAWN BELOW.  That one was height
+    # read against a candidate row 27 that was never seated; this one is
+    # height read against the seated 27 after one of them moved.  Same
+    # number, different measurement, and they are not to be conflated.
+    #
     # AN INTERMEDIATE READING OF ROW 27 SAID 0.7037, AND IT IS WITHDRAWN.  It
     # was measured against a version of that index whose cell was (0, 11, 6),
     # height 11 being new to the figure.  That version was over-representing --
@@ -649,9 +689,16 @@ def selftest():
     # taken against a candidate that was not seated is not a reading of this
     # index at all.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
+        (res["height"][1], res["height"][0]), ("measurement", 0.7037))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.6296))
+        (res["width"][1], res["width"][0]), ("measurement", 0.6667))
+    # THE RESEAT'S OWN FIXTURE, so that the vertex which moved is pinned where
+    # it moved TO and not only in the two ratios it shifted.
+    chk("the ruling's gravity row sits at (1, 9, 10) since the reseat -- "
+        "52 cells on (B,F,X,E), overlaprule.py section 3f-bis",
+        cells()["gravity_bound"], (1, 9, 10))
+    chk("and the figure's own cell did NOT move with it",
+        self_cell(), ((0, 7, 11), []))
     chk("the height/width tie BROKE at 25 and has NOT re-formed",
         res["height"][0] != res["width"][0], True)
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
