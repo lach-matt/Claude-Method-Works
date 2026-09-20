@@ -49,6 +49,7 @@ def registry_short_of(f, full):
 
 def _lonely_channels():
     """[(K, the one index there)] for every channel with exactly one occupant."""
+    import figure
     byk = {}
     for nm, cell in figure.cells().items():
         byk.setdefault(cell[0], []).append(nm)
