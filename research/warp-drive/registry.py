@@ -264,6 +264,35 @@ REGISTERED = (
      "156 <= A <= 168 and its table does not, 132 levels sitting above 168; "
      "56 levels refused for carrying a spin and no parity",
      "2I, parity"),
+    # ---- THE PHONON INDEX.  M: "Do we have an index of phonons?  Or do we
+    # need to build one?" then "if it can accurately be a realized index, then
+    # we have an obligation to build it."  DOCKET 28 had closed the
+    # quasiparticle gap by finding that "the quasiparticles" is not a member
+    # set the way "the particles" is -- everything distinguishing one phonon
+    # mode from another is the HOST's.  quasiparticle.py section 3 left the
+    # door open with a spec: the mode tables of a fixed set of crystals, each
+    # mode's irrep, "it needs a real fetch."
+    #
+    # ONE LEVEL DEEPER THE FETCH DISAPPEARS.  A material's Gamma content is the
+    # SUM over its occupied site orbits, and each orbit's contribution depends
+    # only on its SITE-SYMMETRY TYPE.  So the member is (space group, site
+    # type) and that is the GENERATING TABLE from which every material follows
+    # by addition -- finite, exhaustive, no database.  1,120 members over all
+    # 230 space groups, every number COMPUTED: spglib for the operations,
+    # transformed to the primitive basis; Burnside's class-algebra method for
+    # the character tables, validated before use; chi = N_fixed tr(R)
+    # decomposed by orthogonality.  NO textbook character table and no Wyckoff
+    # table is read, which is bosonqp.py's ruling applied to a new index.
+    #
+    # THE GRANULARITY IS FORCED.  ITA lists P-1's eight inversion centres as
+    # 1a..1h; all eight contribute identically, so seating them separately
+    # would be over-representation.  This index seats P-1 with two members.
+    ("phonondex", "index", "TABLE",
+     "1,120 site-symmetry types over all 230 space groups -- the Gamma-point "
+     "phonon symmetry content of every distinct crystallographic site, from "
+     "which any material's content follows by addition",
+     "site-symmetry order, number of distinct irreps, maximum irrep dimension "
+     "(the mode's degeneracy)"),
 )
 
 NOT_AN_INDEX = {
@@ -571,12 +600,12 @@ def selftest():
     chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
         [])
-    chk("twenty-four indexes registered -- eleven, two the overlap ruling seated "
+    chk("twenty-five indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
         "non-abelian states, DOCKET 34's K4, DOCKET 35's nuclear rotational "
-        "levels and DOCKET 36b's deformed ones", len(REGISTERED), 24)
+        "levels and DOCKET 36b's deformed ones, and THE PHONON INDEX", len(REGISTERED), 25)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED

@@ -13041,3 +13041,40 @@ Nₑ's parity, when 2Jₑ is odd exactly when Nₑ is odd — the same fact `for
 +42 where the true figure is +128). The fixture that caught it is kept.
 
 **Reproduce:** `python3 research/warp-drive/nspin.py --selftest` — 18 fixtures, stdlib only.
+
+---
+
+## The phonon index, seated — and what it did to the master index
+
+`phonondex.py` is now **registry row 25**, cell **(0, 12, 16)** — K0, height 12,
+width 16. 1,120 site-symmetry types over all 230 space groups, every number
+computed: spglib for the operations, transformed to the primitive basis;
+**Burnside's class-algebra method** for the character tables, validated before
+use; `χ(R,t) = N_fixed·tr(R)` decomposed by orthogonality. **No textbook
+character table and no Wyckoff table is read** — which is `bosonqp.py`'s ruling
+applied to a new index.
+
+**A member is (space group, site-symmetry type), not a material.** A material's
+Γ content is the *sum* over its occupied site orbits, so this is the generating
+table from which every material follows by addition — finite, exhaustive, no
+database. Verified six for six: diamond T2g+T1u, rocksalt 2T1u, zincblende 2T2,
+fluorite T2g+2T1u, perovskite 4T1u+T2u, CsCl 2T1u.
+
+**The granularity was forced, not chosen.** ITA lists P-1's eight inversion
+centres as 1a…1h; all eight contribute identically, so seating them separately
+would be over-representation. This index seats P-1 with **two** members, and the
+coarsening is a finding: the phonon representation cannot see the difference.
+
+**Seating it moved the master index, which is the point.** `figure.py` measures
+how well each coordinate resolves the seated indexes. At 24 rows height and
+width were **tied** at 17 distinct apiece, 17/24 = 0.7083. The 25th row breaks
+the tie — height now resolves 18 of 25, width still 17, so **0.72 against
+0.68**. Both pins were repinned with the reason recorded beside them.
+
+**Reproduce:** `python3 research/warp-drive/phonondex.py --selftest` — 24
+fixtures, stdlib against the banked capture; `--derive` rebuilds it and needs
+numpy and spglib, neither vendored.
+
+One pre-existing failure is *not* this index's: `index3.py` reports `STATE.md`
+has no cell, and it had none before this pass. Verified by stashing. Recorded,
+not repaired.

@@ -145,7 +145,8 @@ component in the wrong layer, and the pattern is now worth naming.
     Fe-57 Mossbauer                Q = 7.390e11
 
 **AND stock.py GIVES THAT A JOB.**  A transition requires the destination to
-hold specific elements -- phosphorus binds at 1.7167e3 against stellar material.
+hold specific elements -- phosphorus binds at 1.9105e3 against stellar material,
+with LITHIUM co-binding at 1.090x behind it.
 Confirming that a remote site holds the right stock, and addressing the
 particular species once there, is a SPECTROSCOPIC operation, and spectroscopy is
 resonance.  The corpus's index IS the table those measurements read against.

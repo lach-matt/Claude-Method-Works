@@ -595,10 +595,18 @@ def selftest():
     # tie at 17 distinct apiece.  The RATIO is repinned rather than loosened,
     # because the point of the fixture is that the verdict is a measurement of
     # a moving object and not a constant someone wrote down.
+    #
+    # REPINNED AGAIN when THE PHONON INDEX was seated as the 25th row.  The two
+    # were tied at 17/24 = 0.7083; at 25 they SEPARATE -- height resolves 18 of
+    # 25 and width still 17, so 0.72 against 0.68.  That is the fixture doing
+    # its job: a 25th member broke a tie two coordinates had held, and neither
+    # number was carried forward.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.7083))
+        (res["height"][1], res["height"][0]), ("measurement", 0.72))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7083))
+        (res["width"][1], res["width"][0]), ("measurement", 0.68))
+    chk("and seating the 25th index BROKE the height/width tie at 17/24",
+        res["height"][0] != res["width"][0], True)
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

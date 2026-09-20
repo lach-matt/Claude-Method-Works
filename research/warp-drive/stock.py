@@ -62,30 +62,52 @@ the tree's other indexes make it hard.
 
 For a 70 kg human against raw stellar or gas-giant material:
 
-    binding element    P       1.7167e3 kg processed per kg of payload
-    runner-up          K       1.3049e3          -- only 1.32x behind
-    then               Ca      2.3381e2
-    a 70 kg human                             120.2 TONNES of source material
+    binding element    P       1.9105e3 kg processed per kg of payload
+    runner-up          Li      1.7531e3          -- only 1.090x behind
+    then               K       6.518e2           -- 2.93x behind
+    a 70 kg human                             133.7 TONNES of source material
 
-**THE RUNNER-UP MATTERS.**  Potassium is within a factor of 1.32 of phosphorus,
-so this is not one freak element: two independent scarcities sit at the same
-scale, and a destination that fixed phosphorus alone would move the bill by 32 %
-and no further.
+**THE RUNNER-UP MATTERS, AND IT IS NOT THE ONE THIS FILE FIRST NAMED.**  The
+superseded draft reported potassium at 1.32x on a table that carried TWICE the
+reference adult's potassium.  On ICRP's datum potassium falls to 2.93x and the
+"two scarcities at the same scale" reading fails with it.  **The true co-binder
+is LITHIUM, at 1.090x** -- and section 3a says why that is astrophysics rather
+than a coincidence.
+
+===============================================================================
+2a. AND WHY LITHIUM
+===============================================================================
+
+Asplund gives lithium photospheric 1.05 against meteoritic 3.26: a 2.21-dex gap,
+a factor of 162, the largest disagreement in the table.  **It is not a
+disagreement.**  The Sun's convective envelope reaches 2.5 MK, where lithium
+burns, so the photosphere really is 162x poorer in lithium than the material the
+solar system condensed from.  Both numbers are right about different reservoirs.
+
+    SO A DESTINATION'S PROCESSING FACTOR IS NOT A FUNCTION OF ITS ELEMENTS.  IT
+    IS A FUNCTION OF ITS THERMAL HISTORY.
+
+A star has burned its lithium; a chondrite has not.  `SOURCES["lithium"]` carries
+the caution, and `stockgate.py` section 4 works the consequence out in full.
 
 ===============================================================================
 3. AND THE DESTINATION TYPE DOMINATES EVERYTHING
 ===============================================================================
 
     source                              binding   factor      70 kg human
-    stellar / gas giant  (Asplund 09)   P         1.7167e3    120.2  tonnes
-    Earth continental crust (R&G 03)    N         5.3333e2     37.3  tonnes
-    CI carbonaceous chondrite (L 03)    N         1.0063e1      0.70 tonnes
+    stellar / gas giant  (Asplund 09)   P         1.9105e3    133.7  tonnes
+    Earth continental crust (R&G 03)    N         4.2805e2     30.0  tonnes
+    CI carbonaceous chondrite (L 03)    P         1.0701e1      0.75 tonnes
 
-**A CARBONACEOUS CHONDRITE BEATS RAW COSMIC GAS BY 171x AND A ROCKY CRUST BY
-53x**, and the reason is that a planet differentiates.  Earth's crust is a
+**A CARBONACEOUS CHONDRITE BEATS RAW COSMIC GAS BY 178.5x AND A ROCKY CRUST BY
+40.0x**, and the reason is that a planet differentiates.  Earth's crust is a
 silicate residue that outgassed its volatiles: its binding element is NITROGEN
-at 533, six hundred times worse than the crust's phosphorus.  A chondrite never
-differentiated, so it still holds C, N, H, P and S together.
+at 428, **40.4 times worse than the crust's own phosphorus** -- a superseded
+draft of this file said "six hundred times", which was wrong by an order of
+magnitude and is corrected here.  A chondrite never differentiated, so it still
+holds C, N, H, P and S together, and **binds on PHOSPHORUS, not nitrogen**; the
+old reading of nitrogen came from a payload table carrying N 1.25x high and P
+1.11x low.
 
     THE OPTIMAL ARRIVAL NODE IS AN ASTEROID, NOT A PLANET.
 
@@ -107,7 +129,7 @@ FILE RECORDS IT AS A FINDING.**  Nothing requires the destination stock to have
 come from the origin.  Galactic chemical evolution puts carbon, nitrogen and
 phosphorus into every enriched star system by nucleosynthesis and accretion, and
 `stock_need_not_travel()` gives the counterexample with a number: a CI chondrite
-at the destination supplies a human payload at a processing factor of 10.06, and
+at the destination supplies a human payload at a processing factor of 10.70, and
 no part of it was shipped from anywhere.
 
 The weaker true statement is: **the stock must EXIST, ASSEMBLED AND ACCESSIBLE,
@@ -176,27 +198,37 @@ SOURCES = {
 }
 
 #: Asplund 2009 photospheric abundances, log eps with H = 12.
-A09 = {"H": 12.00, "He": 10.93, "C": 8.43, "N": 7.83, "O": 8.69, "Ne": 7.93,
+A09 = {"H": 12.00, "He": 10.93, "Li": 1.05, "C": 8.43, "N": 7.83, "O": 8.69,
+       "Ne": 7.93,
        "Na": 6.24, "Mg": 7.60, "Al": 6.45, "Si": 7.51, "P": 5.41, "S": 7.12,
        "Cl": 5.50, "K": 5.03, "Ca": 6.34, "Fe": 7.50, "Zn": 4.56}
 
-ATOMIC_MASS = {"H": 1.008, "He": 4.003, "C": 12.011, "N": 14.007, "O": 15.999,
+ATOMIC_MASS = {"H": 1.008, "He": 4.003, "Li": 6.94, "C": 12.011, "N": 14.007, "O": 15.999,
                "Ne": 20.180, "Na": 22.990, "Mg": 24.305, "Al": 26.982,
                "Si": 28.085, "P": 30.974, "S": 32.06, "Cl": 35.45,
                "K": 39.098, "Ca": 40.078, "Fe": 55.845, "Zn": 65.38}
 
 CRUST = {"O": 0.461, "Si": 0.282, "Al": 0.0823, "Fe": 0.0563, "Ca": 0.0415,
          "Na": 0.0236, "Mg": 0.0233, "K": 0.0209, "H": 0.0014, "P": 0.00105,
-         "C": 0.002, "S": 0.00035, "Cl": 0.00017, "N": 0.00006, "Zn": 0.00007}
+         "C": 0.002, "S": 0.00035, "Cl": 0.00017, "N": 0.00006,
+         "Zn": 0.00007, "Li": 1.6e-5}
 
 CHONDRITE = {"O": 0.464, "Fe": 0.185, "Si": 0.107, "Mg": 0.0965, "S": 0.0541,
              "C": 0.0350, "H": 0.0202, "Ca": 0.00911, "Al": 0.00860,
              "Na": 0.00500, "N": 0.00318, "P": 0.00104, "K": 0.000555,
-             "Cl": 0.000698, "Zn": 0.000312}
+             "Cl": 0.000698, "Zn": 0.000312, "Li": 1.5e-6}
 
-HUMAN = {"O": 0.650, "C": 0.185, "H": 0.095, "N": 0.032, "Ca": 0.015,
-         "P": 0.010, "K": 0.0040, "S": 0.0030, "Na": 0.0015, "Cl": 0.0015,
-         "Mg": 0.0005, "Fe": 0.00006, "Zn": 0.00003}
+#: REPAIRED 2026-09-20 to ICRP Reference Man, after stockgate.py's audit.  The
+#: superseded row was O .650 C .185 H .095 N .032 Ca .015 P .010 K .0040
+#: S .0030 Na .0015 Cl .0015 Mg .0005 Fe .00006 Zn .00003 -- whose POTASSIUM
+#: was 280 g in a 70 kg adult against ICRP's 140 g, TWICE HIGH, and whose N and
+#: P were off by 1.25x and 1.11x in opposite directions, which flipped the
+#: chondrite's binding element.  LITHIUM is added because it is the true
+#: runner-up and omitting it is what let the old file name potassium.
+HUMAN = {"O": 0.613533, "C": 0.228291, "H": 0.099877, "N": 0.025683,
+         "Ca": 0.014268, "P": 0.011129, "K": 0.001998, "S": 0.001998,
+         "Na": 0.001427, "Cl": 0.001355, "Mg": 0.000271, "Fe": 0.000060,
+         "Zn": 0.000033, "Li": 9.988e-08}
 
 #: 1 proton/cm^3, the warm neutral medium, as arrival.py uses.
 RHO_ISM = 1.0e6 * 1.67262192e-27
@@ -420,14 +452,25 @@ def selftest():
     chk("helium next", float("%.4g" % c["He"]), 0.2493)
     chk("and phosphorus is the scarce one of the biogenic set",
         min(("C", "N", "O", "P", "S"), key=lambda e: c[e]), "P")
-    chk("human fractions sum to ~1", round(sum(HUMAN.values()), 4), 0.9976)
+    chk("but LITHIUM is scarcer still in a photosphere, by 1.02e5",
+        float("%.3g" % (c["P"] / c["Li"])), 102000.0)
+    chk("human fractions sum to ~1", round(sum(HUMAN.values()), 4), 0.9999)
 
     # -- the constraint is a MAX, not a sum -----------------------------------
     chk("binding element against stellar material is P", binding_element()[0], "P")
-    chk("at this factor", float("%.5g" % binding_element()[1]), 1716.7)
-    chk("K is the runner-up within 1.32x",
-        float("%.3g" % (binding_element()[1]
-                        / sorted(processing_factors().values())[-2])), 1.32)
+    chk("at this factor", float("%.5g" % binding_element()[1]), 1910.5)
+    chk("LITHIUM is the runner-up, within 1.09x -- not potassium",
+        (sorted(processing_factors(), key=lambda e: -processing_factors()[e])[1],
+         float("%.3g" % (binding_element()[1]
+                         / sorted(processing_factors().values())[-2]))),
+        ("Li", 1.09))
+    chk("and potassium, repaired to ICRP, falls to third at 2.93x",
+        (sorted(processing_factors(), key=lambda e: -processing_factors()[e])[2],
+         float("%.3g" % (binding_element()[1]
+                         / sorted(processing_factors().values())[-3]))),
+        ("K", 2.93))
+    chk("the repaired potassium is 140 g in a 70 kg adult, not 280",
+        int(round(HUMAN["K"] * 70 * 1000)), 140)
     chk("the factor is the MAX, not the sum -- doubling an ABUNDANT element "
         "changes nothing",
         binding_element(dict(HUMAN, H=HUMAN["H"] * 2))[1],
@@ -445,15 +488,24 @@ def selftest():
         "stellar / gas giant")
     chk("the best is a carbonaceous chondrite", r[-1][0],
         "CI carbonaceous chondrite")
-    chk("a crust's binding element is NITROGEN, not phosphorus",
-        binding_element(HUMAN, CRUST)[0], "N")
+    chk("a crust's binding element is NITROGEN", binding_element(HUMAN, CRUST)[0],
+        "N")
+    chk("but a CHONDRITE binds on PHOSPHORUS -- the repaired element",
+        binding_element(HUMAN, CHONDRITE)[0], "P")
+    chk("nitrogen is second there, at 1.33x behind",
+        float("%.3g" % (binding_element(HUMAN, CHONDRITE)[1]
+                        / sorted(processing_factors(HUMAN, CHONDRITE).values())[-2])),
+        1.32)
     chk("because differentiation outgassed the volatiles: crust N is scarcer "
         "than crust P", CRUST["N"] < CRUST["P"], True)
-    chk("chondrite beats cosmic by 171x",
-        int(round(r[0][2] / r[-1][2])), 171)
-    chk("and beats a crust by 53x", int(round(r[1][2] / r[-1][2])), 53)
+    chk("chondrite beats cosmic by 178.5x",
+        float("%.4g" % (r[0][2] / r[-1][2])), 178.5)
+    chk("and beats a crust by 40x", int(round(r[1][2] / r[-1][2])), 40)
     chk("a 70 kg human at a chondrite, in tonnes",
-        float("%.3g" % r[-1][3]), 0.704)
+        float("%.3g" % r[-1][3]), 0.749)
+    chk("the crust's nitrogen is 40.4x its own phosphorus, NOT six hundred",
+        float("%.3g" % (processing_factors(HUMAN, CRUST)["N"]
+                        / processing_factors(HUMAN, CRUST)["P"])), 40.4)
 
     # -- the ISM fails on concentration, not composition ----------------------
     v, rad = ism_sweep_volume()
@@ -467,7 +519,7 @@ def selftest():
 
     # -- the finding against CLAIMS.md ----------------------------------------
     chk("a chondrite supplies a human without anything having travelled",
-        float("%.4g" % stock_need_not_travel()[0]), 10.06)
+        float("%.4g" % stock_need_not_travel()[0]), 10.7)
 
     # -- scale: not a barrier --------------------------------------------------
     chk("the stock bill is 25+ orders below the Fuchs shell",

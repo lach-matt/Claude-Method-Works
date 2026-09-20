@@ -144,17 +144,40 @@ fixture are stdlib against the banked capture.  That is `sgcapture.py`'s pattern
 and its reason -- this is a document corpus.
 
 ===============================================================================
-6. SEATING INTO THE MASTER INDEX
+6. SEATED.  THE 25th REGISTERED INDEX
 ===============================================================================
 
-NOT DONE HERE.  This file builds and validates the index; entering it into
-`registry.py` and charting it for (K, height, width) is a separate pass over
-`registry.py`, `index3.py` / `mi.py` and the README, and it is not begun.
-`seating_would_touch()` names them.
+DONE.  `registry.py` carries it as the twenty-fifth row, its `SOURCE` declares
+the capture and the derivation script, and `enforce()` accepts it because a
+member carries quantum numbers.  Its cell is
+
+    phonondex.index      (0, 12, 16)      K0, height 12, width 16
+
+**AND SEATING IT MOVED THE MASTER INDEX, WHICH IS THE POINT OF SEATING.**
+`figure.py` measures how well each coordinate resolves the seated indexes.  At
+24 rows height and width were TIED at 17 distinct apiece, 17/24 = 0.7083.  The
+25th row breaks the tie: height now resolves 18 of 25 and width still 17, so
+**0.72 against 0.68**.  Two pins were repinned there, with the reason recorded
+beside them rather than the numbers quietly updated.
+
+One failure in `index3.py` is NOT this index's: `STATE.md` has no cell, and it
+had none before this pass.  Verified by stashing.  Recorded, not repaired.
 """
 
 import os
 import sys
+
+SOURCE = (
+    'COMPUTED end to end from the 230 crystallographic space groups: spglib '
+    'supplies the operations, they are transformed to the primitive basis, and '
+    "the character tables come from Burnside's class-algebra method. No "
+    'textbook character table and no Wyckoff table is read. The derivation is '
+    'banked beside the capture and re-runnable with --derive.',
+    (
+        'research/warp-drive/captures/PHONON-SITES.tsv',
+        'research/warp-drive/captures/phonon_sites_derive.py',
+    ),
+)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BANK = os.path.join(HERE, "captures", "PHONON-SITES.tsv")
@@ -274,8 +297,46 @@ def wyckoff_coarsening():
     return len(rows), [r[3] for r in rows]
 
 
-def seating_would_touch():
-    return ("registry.py", "index3.py / mi.py", "README")
+def max_dim(dec):
+    """The largest irrep dimension a site contributes -- its maximum DEGENERACY."""
+    return max(d for _m, d in parse(dec))
+
+
+def index():
+    """The seated member set, as cells.
+
+    COORDINATES, and each is a quantum number of the mode content rather than a
+    fact about the host:
+
+        site_order  the order of the SITE-SYMMETRY group the modes transform
+                    under -- the local symmetry, not the crystal's
+        n_irreps    how many distinct symmetry SPECIES the site contributes
+        max_dim     the largest irrep dimension present, i.e. the maximum
+                    DEGENERACY of a mode at that site
+
+    `multiplicity` and `pg_order` are deliberately NOT coordinates: their
+    product is fixed by orbit-stabiliser and they describe the host's cell
+    rather than the modes, which is the distinction `charts.py` exists to draw.
+    """
+    return frozenset((r[3], r[6], max_dim(r[7])) for r in read())
+
+
+def cell_population():
+    """(members, distinct cells) -- how far the chart compresses the member set."""
+    return len(read()), len(index())
+
+
+#: The cell measured after seating.  Pinned so a later change to the chart
+#: cannot move it silently.
+SEATED_CELL = (0, 12, 16)
+
+
+def seating_touched():
+    """The files the seating actually changed, and what moved in each."""
+    return (("registry.py", "the 25th row, with its SOURCE and quantum numbers"),
+            ("figure.py", "two pins repinned: height 0.72, width 0.68, the "
+                          "17/24 tie broken"),
+            ("README.md", "the finding"))
 
 
 def report():
@@ -322,8 +383,9 @@ def report():
     for b in BUGS:
         print("   - %s" % b)
     print()
-    print("   seating into the master index would touch: %s"
-          % ", ".join(seating_would_touch()))
+    print("   SEATED as registry row 25.  cell %s" % (SEATED_CELL,))
+    for f, what in seating_touched():
+        print("      %-14s %s" % (f, what))
 
 
 def selftest():
@@ -382,8 +444,9 @@ def selftest():
         os.path.exists(DERIVE), True)
     chk("the development bugs are recorded (4 entries, 5 bugs -- the second "
         "entry names two)", len(BUGS), 4)
-    chk("seating is named as a separate pass, not performed",
-        len(seating_would_touch()), 3)
+    chk("the seating is recorded with what each file gave up",
+        len(seating_touched()), 3)
+    chk("and the seated cell is pinned", SEATED_CELL, (0, 12, 16))
 
     print("\n%d failure(s)" % len(bad))
     return 1 if bad else 0

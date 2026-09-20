@@ -147,7 +147,7 @@ here rather than buried.  `CONCATENATION_STATUS` carries it in the code.
 ===============================================================================
 
 `stock.py` costs the destination stock constraint M raised: a 70 kg payload
-needs 1.7167e3 kg of stellar feedstock per kg, or 10.06 at a carbonaceous
+needs 1.9105e3 kg of stellar feedstock per kg, or 10.70 at a carbonaceous
 chondrite.  That cost is LOCAL by construction -- the destination processes its
 own matter, and nothing is shipped.
 
