@@ -52,11 +52,15 @@ like a coefficient because it was written as one.
               at l_UV = sqrt(Lambda) l_P and nothing says that is the cutoff.
               NO CLOSED FORM AND NO MEASUREMENT.
 
-    the 2     ASSERTED, in A = 2(p.p')^2 - p^2 p'^2, taken on four confirming
-              cases.  THIS ONE IS DECIDABLE and it is the first target: four
-              cases is not a proof, and a finite algebraic identity is exactly
-              what sympy and z3 settle.  Until it is settled it is an
-              assumption wearing a digit.
+    the 2     SETTLED, DOCKET 41 -- and it was never the right target.
+              `propagator.py` derives A by contracting the de Donder graviton
+              propagator against two point sources: the leading 2 is the number
+              of index pairings of a SYMMETRIC rank-2 source, the same in every
+              dimension, and (alpha, beta) = (2, -1) is UNIQUE given that ratio
+              and the Newtonian normalisation.  THE DIGIT THAT WAS ACTUALLY
+              CONTINGENT IS THE SILENT 1 ON p^2 p'^2: it is 2/(D-2), and it is
+              1 only in four dimensions.  A coefficient hides best when it is
+              written as a 1 and therefore not written at all.
 
     AND ONE MORE THE PROVENANCE CENSUS NEVER HELD, because it is not in the
     framework but in the measurement: the ceiling 0.0218 c of MEASURED.md is a
@@ -159,13 +163,24 @@ ROWS = [
 ]
 
 # Named, not silently omitted.  Nothing here may be used as a number.
+# SETTLED, DOCKET 41.  Kept beside the open ones because a list that quietly
+# drops what it resolves is a list nobody can audit.
+SETTLED = (
+    ("2 in A", "THEOREM", "propagator.py derives A from the de Donder graviton "
+     "propagator: the leading 2 is the number of index pairings of a SYMMETRIC "
+     "rank-2 source, the same in every dimension.  (alpha, beta) = (2, -1) is "
+     "UNIQUE given the propagator's ratio and the Newtonian normalisation, and "
+     "z3 finds no counterexample to either identity over the reals.  AND THE "
+     "CENSUS FLAGGED THE WRONG DIGIT: the silent 1 on p^2 p'^2 is 2/(D-2), "
+     "which is 1 only at D = 4."),
+)
+
 NOT_EXACT = (
     ("xi", "UNDEFINED", "non-minimal coupling; framework needs xi > 0 and "
      "fixes no value.  No closed form, no measurement."),
     ("l_UV", "UNDEFINED", "the EFT cutoff of Fliss et al.  Closes the "
      "shortfall at sqrt(Lambda) l_P and nothing says that is the cutoff."),
-    ("2 in A", "ASSERTED", "A = 2(p.p')^2 - p^2 p'^2, taken on four "
-     "confirming cases.  DECIDABLE, and the first target."),
+
     ("0.0218 c", "FITTED", "MEASURED.md's ceiling: a LEAST-SQUARES ZERO of "
      "the null minimum in its linear regime, two grids agreeing to 0.1 %.  A "
      "measurement with a spread, never a derived number."),
@@ -385,6 +400,8 @@ def web():
         },
         "not_exact": [{"name": n, "status": st, "why": w}
                       for n, st, w in NOT_EXACT],
+        "settled": [{"name": n, "status": st, "why": w}
+                    for n, st, w in SETTLED],
         "round_trip": {"checked": len(js_round_trips()),
                        "failures": [n for n, okk in js_round_trips() if not okk]},
     }
@@ -403,7 +420,11 @@ def selftest():
     chk("every closed form reproduces the decimal the tree quotes",
         disagreements(), [])
     chk("sixteen rows carry a closed form", len(ROWS), 16)
-    chk("and four numbers do not, each named", len(NOT_EXACT), 4)
+    chk("and three numbers still do not, each named", len(NOT_EXACT), 3)
+    chk("one was settled and is kept rather than dropped",
+        [n for n, _s, _w in SETTLED], ["2 in A"])
+    chk("the settled one is a THEOREM now, not an assertion",
+        [s2 for _n, s2, _w in SETTLED], ["THEOREM"])
 
     # THE TWO THE PROVENANCE CENSUS CALLED MEASURED ARE SURDS, NOT MEASUREMENTS.
     chk("X is a surd, not a decimal", sp.simplify(X.subs(SEAT)),
@@ -460,7 +481,7 @@ def selftest():
     W = web()
     chk("the export carries forms, derivatives and the refusals",
         (len(W["forms"]), len(W["derivatives"]), len(W["not_exact"])),
-        (16, 3, 4))
+        (16, 3, 3))
     chk("the leverage ratios are rationals, not decimals",
         W["leverage_ratios"],
         {"b_over_R_s": "500000/2501", "b_over_a": "50", "a_over_R_s": "10000/2501"})

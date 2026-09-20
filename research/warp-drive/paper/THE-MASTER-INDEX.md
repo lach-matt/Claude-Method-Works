@@ -6,7 +6,7 @@
 
 ---
 
-**Abstract.** A first-order index here is a finite set of cells charting some body of atomic, nuclear or particle data, and its members must carry quantum numbers. Five closure operators -- order, algebra, geometry, information and statistics -- act on such a set, and which of them close it is a property of the set rather than of the operators. We show that only 8 of the 32 subsets of the five can occur, characterise them as the down-sets of a seven-relation law, and use the resulting triple (channel, height, width) as an admissible chart. Charting every index this project seats gives a second-order object of 23 vertices on 23 distinct cells. We prove that 2-determinacy is vacuous at arity 2 and derive from it that an arity-2 chart can never occupy the two lowest channels, which explains why one channel was the last to be reached; all eight are now occupied by charts of real data, so the bound of the first theorem is tight from nature and not only by construction. We give a ruling admitting overlapping charts when they carry different information, four grounds on which it is tested, and a census over 232 modules establishing that no unseated index exists in the tree. Of five adjudications reported here, four are refusals and one is a retraction of a seating this paper's own method had previously accepted. Finally we adjudicate the DEMAND -- the cells the seated indexes' own closure asks for and no member occupies. We prove that the demand invents no coordinate value, and that a bound monotone in the coordinates can never forbid a demanded cell, which empties at a stroke every hydrogenic and Pauli constraint one might bring to it; we prove that the quark model forbids no cell of the meson chart, and locate the cost in a coordinate that chart had refused for totality; and we exhibit the one bound in the tree that does forbid, which empties more than half of the largest prediction set in the register.
+**Abstract.** A first-order index here is a finite set of cells charting some body of atomic, nuclear or particle data, and its members must carry quantum numbers. Five closure operators -- order, algebra, geometry, information and statistics -- act on such a set, and which of them close it is a property of the set rather than of the operators. We show that only 8 of the 32 subsets of the five can occur, characterise them as the down-sets of a seven-relation law, and use the resulting triple (channel, height, width) as an admissible chart. Charting every index this project seats gives a second-order object of 24 vertices on 24 distinct cells. We prove that 2-determinacy is vacuous at arity 2 and derive from it that an arity-2 chart can never occupy the two lowest channels, which explains why one channel was the last to be reached; all eight are now occupied by charts of real data, so the bound of the first theorem is tight from nature and not only by construction. We give a ruling admitting overlapping charts when they carry different information, four grounds on which it is tested, and a census over 232 modules establishing that no unseated index exists in the tree. Of five adjudications reported here, four are refusals and one is a retraction of a seating this paper's own method had previously accepted. Finally we adjudicate the DEMAND -- the cells the seated indexes' own closure asks for and no member occupies. We prove that the demand invents no coordinate value, and that a bound monotone in the coordinates can never forbid a demanded cell, which empties at a stroke every hydrogenic and Pauli constraint one might bring to it; we prove that the quark model forbids no cell of the meson chart, and locate the cost in a coordinate that chart had refused for totality; and we exhibit the one bound in the tree that does forbid, which empties more than half of the largest prediction set in the register.
 
 ---
 
@@ -16,7 +16,7 @@ A first-order index here is a finite set of tuples -- cells -- obtained by chart
 
 > **Note.** The criterion is a function and not a paragraph, and the reason is historical. When it was a paragraph, thirteen filing-system indexes were seated as vertices -- mirrored files, conversations, archives, handoff documents -- beside indexes whose members are electrons. Every one of the disruptive vertices was repository metadata and not one was an element. The explosion in demand that followed was reported as a finding; it was contamination, and it is withdrawn.
 
-23 indexes satisfy the criterion and are seated.
+24 indexes satisfy the criterion and are seated.
 
 | index | method | one member is | quantum numbers | cells | cell |
 |---|---|---|---|---|---|
@@ -43,6 +43,7 @@ A first-order index here is a finite set of tuples -- cells -- obtained by chart
 | readrezayi | TABLE | 363 parafermion primaries of eleven Read-Rezayi states, two observed | statistics class, order of the twist, order of the charge, level | 78 | (0, 19, 11) |
 | spin4 | TABLE | 10 spin-4 mesons, two of them without a printed mass | P, 2I, Q3 | 9 | (4, 5, 3) |
 | nucbands | TABLE | 2,145 nuclear excited states in magnetic and antimagnetic rotational bands; 27 bands and 93 levels refused for carrying no quantum number | 2I, parity | 121 | (2, 63, 2) |
+| deformedbands | TABLE | 1,904 excited states in two-quasiparticle rotational bands of deformed odd-odd nuclei, 156 <= A <= 168; 59 levels refused for carrying a spin and no parity | 2I, parity | 96 | (2, 49, 2) |
 
 ## 2. Five languages and a law
 
@@ -81,27 +82,27 @@ An index is charted by the triple (K, h, w): its channel, the length of the long
 
 ## 4. The index of first-order indexes
 
-Charting each seated index and taking its cell as a member gives a second-order object. It has 23 vertices on 23 distinct cells -- no two seated indexes share a cell -- it closes in nothing, its demand E is 430, and its own cell is (0, 5, 11), which no member occupies.
+Charting each seated index and taking its cell as a member gives a second-order object. It has 24 vertices on 24 distinct cells -- no two seated indexes share a cell -- it closes in nothing, its demand E is 512, and its own cell is (0, 5, 11), which no member occupies.
 
 Applying the chart to itself is a test the object can fail. A coordinate whose distinct values number 90 percent or more of its members separates everything and therefore groups nothing: it is a row identifier wearing a measurement's clothes.
 
 | axis | distinct | of | ratio | verdict |
 |---|---|---|---|---|
-| K | 8 | 23 | 0.3478 | measurement |
-| height | 16 | 23 | 0.6957 | measurement |
-| width | 17 | 23 | 0.7391 | measurement |
+| K | 8 | 24 | 0.3333 | measurement |
+| height | 17 | 24 | 0.7083 | measurement |
+| width | 17 | 24 | 0.7083 | measurement |
 
 No axis is a row label. At eleven vertices two of the three were row labels -- height at 0.909 and width perfectly injective at 1.000 -- and the reading filed with that finding was that each index brings its own height and width, so the two approach injectivity by construction as the object grows. That reading is refuted by the table above: the object grew and the labels became measurements. The prediction failed because a COARSENING of a seated index does not bring a new height and width; it lands in the part of the poset its parent already occupies. What the argument really showed is that the defect tracks how the vertex set is built, not how large it is.
 
 ## 5. Channel occupancy -- the bound of Theorem 1 is tight
 
-The 23 vertices occupy K0, K1, K2, K3, K4, K5, K6, K7, and EVERY ONE OF THE EIGHT LAWFUL CHANNELS IS OCCUPIED.
+The 24 vertices occupy K0, K1, K2, K3, K4, K5, K6, K7, and EVERY ONE OF THE EIGHT LAWFUL CHANNELS IS OCCUPIED.
 
 | channel | languages that close | seated indexes there |
 |---|---|---|
 | K0 | (none) | baryons, channels, fqh, gravity, ions, laws, mesons, observed, readrezayi, terms |
 | K1 | information | gravity_bound |
-| K2 | statistics | fundamental, inversion, madrule, nucbands, probability |
+| K2 | statistics | deformedbands, fundamental, inversion, madrule, nucbands, probability |
 | K3 | geometry+statistics | fibred, nucshell |
 | K4 | information+statistics | spin4 |
 | K5 | geometry+information+statistics | baryon_isomultiplet |
@@ -184,7 +185,7 @@ The sharpest difference is one neither chart shows alone. 12 elements -- Cr, Cu,
 
 ## 9. What the register predicts, and the law that bounds it
 
-Write J(X) for the closure of an index under coordinatewise join and E(X) for the number of cells in J(X) that X does not hold. The corpus reads E as the number of predictions an index can make. Measured over every seated index small enough to close -- one, at 914 cells, is not, and it is named rather than dropped -- the register demands 3,206 cells it does not hold. 16 indexes predict; 6 are complete.
+Write J(X) for the closure of an index under coordinatewise join and E(X) for the number of cells in J(X) that X does not hold. The corpus reads E as the number of predictions an index can make. Measured over every seated index small enough to close -- one, at 914 cells, is not, and it is named rather than dropped -- the register demands 3,209 cells it does not hold. 17 indexes predict; 6 are complete.
 
 | index | E |
 |---|---|
@@ -204,6 +205,7 @@ Write J(X) for the closure of an index under coordinatewise join and E(X) for th
 | mesons | 15 |
 | nucshell | 14 |
 | nucbands | 5 |
+| deformedbands | 3 |
 
 > **Note.** The partition is exact -- every E = 0 index closes under information and every E > 0 index does not -- and it is close to definitional, since E is the join deficit and the information closer is the join closer. It is said so that it is not mistaken for a result. The result is the numbers, and they say the register is overwhelmingly incomplete.
 
@@ -277,11 +279,12 @@ The strength condition is the whole rule. A source row missing one coordinate na
 | mesons | 15 | 0 | 3 | 12 | 0 |
 | nucshell | 14 | 0 | 0 | 14 | 0 |
 | nucbands | 5 | 0 | 2 | 3 | 0 |
-| TOTAL | 3206 | 593 | 36 | 2479 | 98 |
+| deformedbands | 3 | 0 | 0 | 3 | 0 |
+| TOTAL | 3209 | 593 | 36 | 2482 | 98 |
 
-593 cells are FORBIDDEN and every one of them is a baryon cell. 36 are UNPLACED, in four charts, and the count of CELLS is deliberately kept apart from the count of OBJECTS: in one chart 3 cells are pinned by 2 objects, because a state lacking only its parity pins both parities and will fill exactly one of them. 2,479 are OPEN. 98 are UNDECIDED, and the reason is exact rather than a shrug -- the loader of that chart discards a refused row without banking its term key, so the tree cannot ask whether any term lost ALL of its levels, and such a term would pin a cell at precisely the required strength. Banking those keys would settle it.
+593 cells are FORBIDDEN and every one of them is a baryon cell. 36 are UNPLACED, in four charts, and the count of CELLS is deliberately kept apart from the count of OBJECTS: in one chart 3 cells are pinned by 2 objects, because a state lacking only its parity pins both parities and will fill exactly one of them. 2,482 are OPEN. 98 are UNDECIDED, and the reason is exact rather than a shrug -- the loader of that chart discards a refused row without banking its term key, so the tree cannot ask whether any term lost ALL of its levels, and such a term would pin a cell at precisely the required strength. Banking those keys would settle it.
 
-> **Note.** What the OPEN column is and is not. For the 7 indexes carrying a derived bound it is FINAL AGAINST EVERY MONOTONE BOUND, by Theorem 4 -- a proof and not a survey. For the 8 carrying none it is open against nothing at all, and a bound found tomorrow may empty any of them. The two situations are different and are not summed into one adjective. Neither is a count of undiscovered objects.
+> **Note.** What the OPEN column is and is not. For the 7 indexes carrying a derived bound it is FINAL AGAINST EVERY MONOTONE BOUND, by Theorem 4 -- a proof and not a survey. For the 9 carrying none it is open against nothing at all, and a bound found tomorrow may empty any of them. The two situations are different and are not summed into one adjective. Neither is a count of undiscovered objects.
 
 ## 10. The census
 
