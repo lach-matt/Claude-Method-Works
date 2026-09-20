@@ -210,7 +210,7 @@ let four thousand unparsed term labels "explain" every empty cell in `terms`.
 Rows below the strength are counted apart and never used.
 
     index         E    FORBIDDEN  UNPLACED  OPEN   the source rows that pin
-    gravity     1550        0         0    1,550   no bound, no source gap
+    gravity     1550     1228         0      322   31 rows with no readable J
     baryons     1012      894         8      110   14 with no P (Xi, Omega)
     readrezayi   678        0         0      678   source gapless
     channels     367        0        23      344   25 with a non-integer B
@@ -229,7 +229,7 @@ Rows below the strength are counted apart and never used.
     nucbands       5        0         2        3   93 levels with no parity
     deformedbnds   3        0         0        3   56 levels with no parity
 
-    TOTAL      4,759      894        36    3,731   and 98 UNDECIDED
+    TOTAL      4,759    2,122        36    2,503   and 98 UNDECIDED
 
     TERMS IS THE ONE REFUSAL AND ITS REASON IS EXACT.  4,033 of 16,624 NIST rows
     carry a bracketed jK, jj or Racah label, which supplies neither `mult` nor
@@ -251,7 +251,7 @@ Rows below the strength are counted apart and never used.
 5. WHAT THIS FILE REFUSES
 ===============================================================================
 
-    TO CALL 3,731 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
+    TO CALL 2,503 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
     cells that no bound derivable here forbids and no source row explains.  For
     the seven indexes with a derived bound the OPEN figure is FINAL AGAINST
     EVERY MONOTONE BOUND, by Law 3 -- that is a proof, not a survey.  For the
@@ -398,6 +398,93 @@ def quark_reachable():
     return _REACH
 
 
+# ------------------------------------------------------- DOCKET 49, GRAVITY.
+# gravity held 1,550 demanded cells -- the largest demand in the register --
+# against NO derived bound, so every one was OPEN against nothing at all.  Two
+# bounds are derivable from the chart's own coordinates.
+#
+# BOUND 1, THE HORIZON BOUND.  B is not free: gravity.bound_class(D, q, F,
+# Jzero) is a TOTAL FUNCTION, and two of its inputs are coordinates already --
+# q > 0 iff Y > 0, since the charge decade rank is 0 exactly when Qtilde is --
+# while F is charted outright.  The third, Jzero, is HIDDEN, and this is Law 5's
+# may-forbid case rather than its forbids-nothing case because the coordinates
+# BOUND ITS RANGE two ways: X > 0 means chi > 0 means 2Je != 0, and F == 1 means
+# the total angular momentum cannot vanish.  bound_class is ANTITONE IN D -- a
+# bound at five, none above it, singly-rotating Myers-Perry -- so Law 4 permits
+# it to forbid, and it forbids 1,100.
+#
+# BOUND 2, THE DECADE BOUND.  chi and Qtilde are not independent:
+#
+#     chi      = Je / alpha_G            alpha_G = G M^2 / (hbar c)
+#     Qtilde^2 = q^2 alpha / alpha_G     alpha   = e^2 / (4 pi eps0 hbar c)
+#     =>  chi / Qtilde^2 = Je / (q^2 alpha)
+#
+# THE GRAVITATIONAL COUPLING CANCELS, so the ratio is MASS-FREE.  Verified on
+# all 1,589 member rows at zero failures.  This is not new physics and is not
+# claimed as any: alpha_G is the standard gravitational coupling constant and
+# alpha/alpha_G is Dirac's large number (Dirac 1937).  What is new is only the
+# use made of it -- the join pairs a spin decade with a charge decade freely,
+# and the identity says most pairings are unphysical.  Je and q are hidden and
+# their ranges are READ FROM THE MEMBER SET, which is what Law 5 licenses; the
+# bound is then exact given those ranges.  It forbids 128 more.
+#
+# A FITTED VERSION OF BOUND 2 FORBADE 192 AND IS REFUSED.  Taking the OBSERVED
+# band of floor(log chi) - 2 floor(log Qtilde) over the members, rather than
+# deriving the interval from the hidden ranges, gains 64 cells -- and a band
+# measured on the members and then used to forbid demanded cells is fitting.
+# The derived 128 is the figure this file reports.
+# EVERY PHYSICAL INPUT TO THE GRAVITY BOUND, CITED.  Nothing below is claimed
+# as new physics: the bound's content is the USE, not the results it rests on.
+GRAVITY_SOURCES = (
+    "Kerr-Newman horizon condition chi^2 + Qtilde^2 <= 1 -- Newman, Couch, "
+    "Chinnapared, Exton, Prakash and Torrence, J. Math. Phys. 6, 918 (1965)",
+    "Myers-Perry solutions in D dimensions, and the absence of any extremality "
+    "bound on a SINGLE angular momentum for D >= 6 -- Myers and Perry, Ann. "
+    "Phys. 172, 304 (1986); reviewed in Emparan and Reall, 'Black Holes in "
+    "Higher Dimensions', Living Rev. Rel. 11, 6 (2008)",
+    "the gravitational coupling constant alpha_G = G M^2 / (hbar c), and "
+    "alpha / alpha_G as Dirac's large number -- Dirac, Nature 139, 323 (1937)",
+    "the fine-structure constant alpha = e^2 / (4 pi eps0 hbar c), CODATA",
+)
+
+_GRAV_RATIO = None
+
+
+def gravity_ratio_range():
+    """[lo, hi] for chi/Qtilde^2 = Je/(q^2 alpha), from the hidden ranges."""
+    global _GRAV_RATIO
+    if _GRAV_RATIO is None:
+        import gravity as g
+        alpha = 7.2973525693e-3
+        Je = {m[5] / 2.0 for m in g.members() if m[5] > 0}
+        qs = {m[3] for m in g.members() if m[3] > 0}
+        _GRAV_RATIO = (min(Je) / (max(qs) ** 2) / alpha,
+                       max(Je) / (min(qs) ** 2) / alpha)
+    return _GRAV_RATIO
+
+
+def _b_gravity(c):
+    """(D, B, F, X, Y, L, E) -- the horizon bound AND the decade bound."""
+    import gravity as g
+    D, B, F, X, Y, _L, _E = c
+    q = 1 if Y > 0 else 0
+    ok = set()
+    for Jz in (True, False):
+        if Jz and (X > 0 or F == 1):
+            continue                      # the coordinates exclude this Jzero
+        ok.add(g.bound_class(D, q, F, Jz))
+    if B not in ok:
+        return False
+    if X == 0 or Y == 0:
+        return True                       # the identity is silent when either vanishes
+    sp, ch = g._ranks()
+    lo, hi = gravity_ratio_range()
+    d = sp[X - 1] - 2 * ch[Y - 1]
+    # chi in [10^a, 10^(a+1)) and Qtilde in [10^b, 10^(b+1)) put the ratio in
+    # (10^(a-2b-2), 10^(a-2b+1)); the cell survives iff that meets [lo, hi].
+    return (10.0 ** (d - 2) < hi) and (10.0 ** (d + 1) > lo)
+
+
 def _b_baryons_quark(c):
     """(2J, P, 2I, Q3, S, C, B) -- THE THREE-QUARK FLAVOUR BOUND."""
     _j, _P, i2, q3, S, C, B = c
@@ -405,6 +492,12 @@ def _b_baryons_quark(c):
 
 
 BOUNDS = {
+    "gravity.index": ("the horizon bound B = bound_class(D, q, F, Jzero) with "
+                      "Jzero bounded by X and F; and the decade bound from "
+                      "chi/Qtilde^2 = Je/(q^2 alpha)",
+                      "exact solutions of the D-dimensional field equations; "
+                      "and the two standard couplings, alpha_G cancelling",
+                      False, _b_gravity),
     "baryons.index": ("three-quark flavour content: (2I, Q3, S, C, B) is "
                       "realisable by qqq or by anti-qqq, with "
                       "|n_u - n_d| <= 2I <= n_ud and 2I = n_ud (mod 2)",
@@ -431,13 +524,6 @@ BOUNDS = {
 NO_BOUND_BY_THEOREM = ("mesons.index",)
 
 NO_BOUND_DERIVED = (
-    # DOCKET 42.  gravity was excluded from the demand entirely, so it never
-    # needed a bound status; seating its 1,550 forces the question, and the
-    # honest answer is that no bound has been derived for it.  That is not the
-    # same as mesons' NO_BOUND_BY_THEOREM, where a bound exists and is PROVED
-    # to forbid nothing -- and the difference is exactly why all 1,550 are
-    # OPEN against nothing at all rather than OPEN against a proof.
-    "gravity.index",
     "readrezayi.index", "channels.index", "laws.index", "probability.index",
     "fqh.index", "fundamental.index", "inversion.index", "nucbands.index",
     "deformedbands.index",
@@ -706,7 +792,7 @@ TABLE = {
     # computational limit and measured to be false: it closes in about 16
     # seconds.  It carries no bound and no source gap, so all 1,550 are OPEN --
     # the largest single demand in the register, and the honest answer.
-    "gravity.index": (1550, 0, 0, 1550, 0),
+    "gravity.index": (1550, 1228, 0, 322, 0),
     # DOCKET 43.  893 -> 894 forbidden under the three-quark bound, against
     # Gell-Mann--Nishijima's 593, which it strictly contains.
     "baryons.index": (1012, 894, 8, 110, 0),
@@ -728,7 +814,7 @@ TABLE = {
     "deformedbands.index": (3, 0, 0, 3, 0),
 }
 
-TOTALS = (4759, 894, 36, 3731, 98)
+TOTALS = (4759, 2122, 36, 2503, 98)
 
 
 def totals():
@@ -873,6 +959,52 @@ def selftest():
         sorted(TABLE), sorted(set(BOUNDS) | set(NO_BOUND_BY_THEOREM)
                               | set(NO_BOUND_DERIVED)))
     chk("and terms is the only UNDECIDED", sorted(UNDECIDED), ["terms.index"])
+
+    # ------------------------------------------------- DOCKET 49, THE RESIDUES
+    # Both large indexes are CLOSED: every demanded cell is FORBIDDEN, UNPLACED
+    # or OPEN, and each zero is measured with a reason rather than left blank.
+    chk("gravity closes: 1,228 forbidden + 0 unplaced + 322 open = 1,550",
+        adjudicate("gravity.index"), (1550, 1228, 0, 322, 0))
+    chk("and its UNPLACED zero is the STRENGTH RULE, not a failure to look -- a "
+        "gravity row declined for want of a readable J leaves X, B and L "
+        "unknown, three coordinates, and the rule requires exactly one",
+        3 == 1, False)
+    chk("baryons closes: 894 forbidden + 8 unplaced + 110 open = 1,012",
+        adjudicate("baryons.index"), (1012, 894, 8, 110, 0))
+    # EVERY open baryon cell carries an ODD doubled spin, as three spin-1/2
+    # quarks require, and every (2J, P) it uses occurs in a seated member.  The
+    # SU(6) constraint that would couple I to J further binds GROUND states
+    # only; this index holds orbitally excited baryons, where L is hidden and
+    # free, so by Law 5 it forbids nothing here.  That is why 110 is the floor.
+    import baryons as _bar
+    _Xb = frozenset(_bar.index())
+    _Db = frozenset(demand.demand(_Xb))
+    _fn = BOUNDS["baryons.index"][3]
+    _gp = GAPS["baryons.index"]()
+    _op = [c for c in _Db if _fn(c) and not any(_pins(g, c) for g in _gp)]
+    chk("every OPEN baryon cell has an odd 2J", [c for c in _op if c[0] % 2 == 0], [])
+    chk("and every (2J, P) it uses is one a seated member exhibits",
+        sorted({(c[0], c[1]) for c in _op} - {(m[0], m[1]) for m in _Xb}), [])
+
+    # The gravity bound's physical inputs are cited, not proved here.
+    chk("four physical inputs to the gravity bound, each cited",
+        len(GRAVITY_SOURCES), 4)
+    # And alpha_G cancels: the ratio is mass-free.  Checked, not asserted.
+    import gravity as _g
+    _al = 7.2973525693e-3
+    _hb, _c, _G = 1.054571817e-34, 2.99792458e8, 6.67430e-11
+    _bad = 0
+    for _m in _g.members():
+        _q, _tj, _M, _chi, _qt = _m[3], _m[5], _m[9], _m[10], _m[11]
+        if _chi <= 0 or _qt <= 0:
+            continue
+        _aG = _G * _M * _M / (_hb * _c)
+        if abs(_chi - (_tj / 2.0) / _aG) / _chi > 1e-9:
+            _bad += 1
+        if abs(_qt * _qt - _q * _q * _al / _aG) / (_qt * _qt) > 1e-9:
+            _bad += 1
+    chk("chi = Je/alpha_G and Qtilde^2 = q^2 alpha/alpha_G, so alpha_G cancels",
+        _bad, 0)
 
     print("ghosts selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

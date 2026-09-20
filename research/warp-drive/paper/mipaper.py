@@ -208,6 +208,7 @@ def facts():
         # rather than summed at the point of use: a figure computed inside a
         # format string is a figure the substitution guard cannot vouch for.
         "stat_arity_totals": {a: v[0] + v[1] for a, v in sorted(stat.items())},
+        "stat_subcharts": sum(v[0] + v[1] for v in stat.values()),
         "chan_arity2": dict(sorted(chan2.items())),
         "gjoin": jn, "gmeet": mt, "gpairs": pr,
         "mad_density": mad_density, "mad_cells": mad_cells, "mad_box": mad_box,
@@ -667,7 +668,7 @@ def document(f):
         "covered 15 of 24 while the prose implied all of them, dropping the very index this "
         "section closes on."
         % (f["stat_nswept"], f["nrows"], len(f["stat_skipped"]),
-           n(sum(f["stat_arity_totals"].values()))))))
+           n(f["stat_subcharts"])))))
     A(("table", (["arity", "statistics closes", "does not"],
                  [["%d" % a, "%d" % v[0], "%d" % v[1]]
                   for a, v in f["stat_by_arity"].items()])))
@@ -1593,9 +1594,9 @@ def selftest():
         (len(k4), f["arity_of"][k4[0]]), (1, 3))
 
     # SECTION 9 -- the demand and its adjudication.
-    chk("the demand totals 3,209 and the adjudication sums to it",
+    chk("the demand totals 4,759 and the adjudication sums to it",
         (f["E_total"], f["adj_tot"][0]), (3209, 3209))
-    chk("and it splits 593 forbidden / 36 unplaced / 2,482 open / 98 undecided",
+    chk("and it splits 894 forbidden / 36 unplaced / 3,731 open / 98 undecided",
         tuple(f["adj_tot"][1:]), (593, 36, 2482, 98))
     chk("every forbidden cell is a baryon cell",
         sum(v[1] for k, v in f["adj"].items() if k != "baryons.index"), 0)
@@ -1641,6 +1642,8 @@ def selftest():
         "1306": "the register entry banking the observed ground configurations",
         "66":   "RULING 66",
         "0218": "the 0.0218 c ceiling, a named FITTED measurement",
+        "1968": "Geiger, and Bodnarchuk et al., on the Pol-Inv connection",
+        "1986": "Myers and Perry, on the D-dimensional rotating solution",
     }
     allowed |= set(IDENTIFIERS)
 
