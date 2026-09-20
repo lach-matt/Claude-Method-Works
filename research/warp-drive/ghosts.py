@@ -210,7 +210,7 @@ let four thousand unparsed term labels "explain" every empty cell in `terms`.
 Rows below the strength are counted apart and never used.
 
     index         E    FORBIDDEN  UNPLACED  OPEN   the source rows that pin
-    gravity     1550     1228         0      322   source gapless
+    gravity     1550     1080         0      470   source gapless
     baryons     1012      894         8      110   14 with no P (Xi, Omega)
     readrezayi   678        0         0      678   source gapless
     channels     367        0        23      344   25 with a non-integer B
@@ -229,7 +229,7 @@ Rows below the strength are counted apart and never used.
     nucbands       5        0         2        3   93 levels with no parity
     deformedbnds   3        0         0        3   56 levels with no parity
 
-    TOTAL      4,759    2,122        36    2,503   and 98 UNDECIDED
+    TOTAL      4,759    1,974        36    2,651   and 98 UNDECIDED
 
     TERMS IS THE ONE REFUSAL AND ITS REASON IS EXACT.  4,033 of 16,624 NIST rows
     carry a bracketed jK, jj or Racah label, which supplies neither `mult` nor
@@ -251,7 +251,7 @@ Rows below the strength are counted apart and never used.
 5. WHAT THIS FILE REFUSES
 ===============================================================================
 
-    TO CALL 2,503 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
+    TO CALL 2,651 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
     cells that no bound derivable here forbids and no source row explains.  For
     the seven indexes with a derived bound the OPEN figure is FINAL AGAINST
     EVERY MONOTONE BOUND, by Law 3 -- that is a proof, not a survey.  For the
@@ -497,26 +497,121 @@ def gravity_ratio_range():
     return _GRAV_RATIO
 
 
-def _b_gravity(c):
-    """(D, B, F, X, Y, L, E) -- the horizon bound AND the decade bound."""
+_GIMAGE = None
+GRAVITY_JCUT = 32          # saturation is reached by 16; see gravity_image_saturates()
+
+
+def gravity_image(jcut=None):
+    """Every cell the chart's COORDINATE MAP can produce, exhausted.
+
+    THIS REPLACES TWO SEPARATE BOUNDS WITH ONE, AND REMOVES THEIR ASSUMPTIONS.
+    The horizon bound and the decade bound each asked "does physics permit this
+    cell"; both needed a range for a hidden variable, and the decade bound took
+    Je's range from the OBSERVED members -- which forbade 148 cells the
+    parameter space actually reaches, Zr-113 at q = 1 and 2Je = 15 among them.
+
+    The question this asks instead is exact and needs no range: B, F, X and Y
+    are all FUNCTIONS of (nuclide, q, 2Je), so the map has an IMAGE, and a
+    demanded cell outside it cannot be occupied by construction -- not because
+    physics forbids it, but because no parameter point maps there.  The only
+    free parameter, the cutoff on 2Je, is removed by SATURATION: the image stops
+    growing at 2Je = 16 and is identical at 32 and 64.
+
+    It also disposes of an objection to the old horizon bound, that it leaned on
+    `bound_class` returning "undetermined" -- 980 of its 1,228.  Here there is
+    no epistemic step at all: whatever B the map assigns, it assigns, and a cell
+    carrying a different B is simply not in the image.
+    """
+    global _GIMAGE
+    if jcut is None and _GIMAGE is not None:
+        return _GIMAGE
+    import math
     import gravity as g
-    D, B, F, X, Y, _L, _E = c
-    q = 1 if Y > 0 else 0
-    ok = set()
-    for Jz in (True, False):
-        if Jz and (X > 0 or F == 1):
-            continue                      # the coordinates exclude this Jzero
-        ok.add(g.bound_class(D, q, F, Jz))
-    if B not in ok:
-        return False
-    if X == 0 or Y == 0:
-        return True                       # the identity is silent when either vanishes
+    cut = GRAVITY_JCUT if jcut is None else jcut
+    alpha = 7.2973525693e-3
+    hbar, c_, gn = 1.054571817e-34, g.C_SI, 6.67430e-11
     sp, ch = g._ranks()
-    lo, hi = gravity_ratio_range()
-    d = sp[X - 1] - 2 * ch[Y - 1]
-    # chi in [10^a, 10^(a+1)) and Qtilde in [10^b, 10^(b+1)) put the ratio in
-    # (10^(a-2b-2), 10^(a-2b+1)); the cell survives iff that meets [lo, hi].
-    return (10.0 ** (d - 2) < hi) and (10.0 ** (d + 1) > lo)
+    spi = {d: i + 1 for i, d in enumerate(sp)}
+    chi = {d: i + 1 for i, d in enumerate(ch)}
+    seeds = set()
+    for Z, N, A, _sym, dm, _qual in g.nuclides():
+        base = A * g.U_KG + dm * g.KEV_J / c_ ** 2
+        for q in range(0, Z + 1):
+            M = base - q * g.M_E
+            if M <= 0:
+                continue
+            aG = gn * M * M / (hbar * c_)
+            Y = 0
+            if q > 0:
+                Y = chi.get(math.floor(math.log10(math.sqrt(q * q * alpha / aG))))
+                if Y is None:
+                    continue
+            F = (A + (Z - q)) % 2
+            for tj in range(0, cut + 1):
+                if tj == 0:
+                    X = 0
+                else:
+                    X = spi.get(math.floor(math.log10((tj / 2.0) / aG)))
+                    if X is None:
+                        continue
+                seeds.add((F, X, Y, (Z % 2 == 0 and N % 2 == 0 and tj == 0),
+                           1 if q > 0 else 0))
+    out = {(D, g.bound_class(D, qp, F, Jz), F, X, Y, L, E)
+           for (F, X, Y, Jz, qp) in seeds
+           for D in range(4, 12) for L in (0, 1) for E in (0, 1)}
+    if jcut is None:
+        _GIMAGE = out
+    return out
+
+
+def gravity_image_saturates():
+    """[(cutoff, image size)] -- the cutoff is not a free parameter."""
+    return [(k, len(gravity_image(k))) for k in (8, 16, 32, 64)]
+
+
+def gravity_superseded():
+    """(what the old pair forbade, how many of those the image REACHES).
+
+    The first pass derived two bounds -- a horizon bound from the exact
+    solutions, and a decade bound whose range for Je was taken from the
+    OBSERVED members.  They are kept here, not in prose, so the comparison the
+    paper draws is reproducible: the second was too strong, and these are the
+    cells it forbade that the parameter space actually reaches.
+    """
+    import math
+    import gravity as g
+    import registry
+    sp, ch = g._ranks()
+    alpha = 7.2973525693e-3
+    Je = {m[5] / 2.0 for m in g.members() if m[5] > 0}
+    qs = {m[3] for m in g.members() if m[3] > 0}
+    lo = min(Je) / (max(qs) ** 2) / alpha
+    hi = max(Je) / (min(qs) ** 2) / alpha
+
+    def old(c):
+        D, B, F, X, Y, _L, _E = c
+        q = 1 if Y > 0 else 0
+        ok = set()
+        for Jz in (True, False):
+            if Jz and (X > 0 or F == 1):
+                continue
+            ok.add(g.bound_class(D, q, F, Jz))
+        if B not in ok:
+            return False
+        if X == 0 or Y == 0:
+            return True
+        d = sp[X - 1] - 2 * ch[Y - 1]
+        return (10.0 ** (d - 2) < hi) and (10.0 ** (d + 1) > lo)
+
+    dm = frozenset(demand.demand(frozenset(registry.index_of("gravity.index"))))
+    img = gravity_image()
+    forb = [c for c in dm if not old(c)]
+    return len(forb), len([c for c in forb if c in img])
+
+
+def _b_gravity(c):
+    """(D, B, F, X, Y, L, E) -- is this cell in the coordinate map's image?"""
+    return c in gravity_image()
 
 
 # ------------------------------------- DOCKET 49b, THE OPEN BARYON CELLS, BUILT
@@ -580,11 +675,11 @@ def _b_baryons_quark(c):
 
 
 BOUNDS = {
-    "gravity.index": ("the horizon bound B = bound_class(D, q, F, Jzero) with "
-                      "Jzero bounded by X and F; and the decade bound from "
-                      "chi/Qtilde^2 = Je/(q^2 alpha)",
-                      "exact solutions of the D-dimensional field equations; "
-                      "and the two standard couplings, alpha_G cancelling",
+    "gravity.index": ("the cell lies in the IMAGE of the coordinate map, "
+                      "exhausted over every nuclide, every ionisation stage "
+                      "and every 2Je to saturation",
+                      "exact solutions of the D-dimensional field equations, "
+                      "and chi = Je/alpha_G with Qtilde^2 = q^2 alpha/alpha_G",
                       False, _b_gravity),
     "baryons.index": ("three-quark flavour content: (2I, Q3, S, C, B) is "
                       "realisable by qqq or by anti-qqq, with "
@@ -881,7 +976,7 @@ TABLE = {
     # computational limit and measured to be false: it closes in about 16
     # seconds.  It carries no bound and no source gap, so all 1,550 are OPEN --
     # the largest single demand in the register, and the honest answer.
-    "gravity.index": (1550, 1228, 0, 322, 0),
+    "gravity.index": (1550, 1080, 0, 470, 0),
     # DOCKET 43.  893 -> 894 forbidden under the three-quark bound, against
     # Gell-Mann--Nishijima's 593, which it strictly contains.
     "baryons.index": (1012, 894, 8, 110, 0),
@@ -903,7 +998,7 @@ TABLE = {
     "deformedbands.index": (3, 0, 0, 3, 0),
 }
 
-TOTALS = (4759, 2122, 36, 2503, 98)
+TOTALS = (4759, 1974, 36, 2651, 98)
 
 
 def totals():
@@ -1053,8 +1148,16 @@ def selftest():
     # ------------------------------------------------- DOCKET 49, THE RESIDUES
     # Both large indexes are CLOSED: every demanded cell is FORBIDDEN, UNPLACED
     # or OPEN, and each zero is measured with a reason rather than left blank.
-    chk("gravity closes: 1,228 forbidden + 0 unplaced + 322 open = 1,550",
-        adjudicate("gravity.index"), (1550, 1228, 0, 322, 0))
+    chk("gravity closes: 1,080 forbidden + 0 unplaced + 470 open = 1,550",
+        adjudicate("gravity.index"), (1550, 1080, 0, 470, 0))
+    # THE CUTOFF IS NOT A FREE PARAMETER.  The image stops growing at 2Je = 16
+    # and is identical at 32 and 64, so the figure does not depend on where the
+    # sweep is stopped -- which is what removes the last fitted range from this
+    # bound.  An earlier version capped Je at the OBSERVED maximum and forbade
+    # 148 cells the parameter space reaches, Zr-113 at q = 1, 2Je = 15 among
+    # them.  Saturation is checked, not assumed.
+    chk("and the image SATURATES, so the 2Je cutoff is not a parameter",
+        [n for _k, n in gravity_image_saturates()[1:]], [1416, 1416, 1416])
     # THE GAP WAS A COUNTING ERROR AND IS WITHDRAWN.  A first version reported
     # 31 declined species "with no readable J"; their J columns parse perfectly
     # and they are duplicate FILES for species already charted.  gravity's

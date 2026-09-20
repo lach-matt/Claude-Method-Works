@@ -47,6 +47,16 @@ def registry_short_of(f, full):
     return f["short"].get(full, full)
 
 
+def _grav_box():
+    """The OBSERVED box of the gravity chart: the product of its alphabets."""
+    import registry
+    X = registry.index_of("gravity.index")
+    box = 1
+    for i in range(len(next(iter(X)))):
+        box *= len({c[i] for c in X})
+    return box
+
+
 def _lonely_channels():
     """[(K, the one index there)] for every channel with exactly one occupant."""
     import figure
@@ -179,6 +189,15 @@ def facts():
         "adm_n": len(charts.population()),
         # Section 4.2a: what K is and is not preserved by, measured.
         "kmove": charts.k_invariance(),
+        # Section 10.6: the chart's box, the coordinate map's image, and what
+        # the index occupies -- the three numbers that answer "are decade ranks
+        # too coarse to discriminate?"  If they were, the image would fill the
+        # box.
+        "grav_image": len(ghosts.gravity_image()),
+        "grav_cells": len(registry.index_of("gravity.index")),
+        "grav_box": _grav_box(),
+        "grav_saturates": ghosts.gravity_image_saturates(),
+        "grav_superseded": ghosts.gravity_superseded(),
         # Section 3.1: K1's occupancy depends on the spacetime dimensions
         # admitted, which the paper's own instrument has always pinned.
         "dimsweep": [tuple(t) for t in OR.dimension_finding()[0][1]],
@@ -1111,19 +1130,39 @@ def document(f):
     A(("p", (
         "It began with NO derived bound at all, so the whole demand sat OPEN against nothing - "
         "the largest prediction set in the register held by the index the machinery had least to "
-        "say about. Two bounds are derivable, and both from the chart's own coordinates.")))
+        "say about. It is now adjudicated by a single bound, and the form of that bound is the "
+        "part worth carrying away.")))
+    A(("quote", (
+        "**The image bound.** B, F, X and Y are all FUNCTIONS of a nuclide, an ionisation stage "
+        "and a doubled electronic angular momentum. So the coordinate map has an IMAGE, and a "
+        "demanded cell outside it cannot be occupied BY CONSTRUCTION - not because physics "
+        "forbids it, but because no parameter point maps there.")))
     A(("p", (
-        "THE HORIZON BOUND. B is not free: it is a total function of the dimension, the charge, "
-        "the forced angular momentum and whether the angular momentum vanishes. Two of those are "
-        "coordinates already - the charge decade rank is zero exactly when the charge is, and F "
-        "is charted outright. The third is HIDDEN, and this is where Law 5 earns its place: a "
-        "hidden variable free to range forbids nothing, but the coordinates BOUND this one, since "
-        "a non-zero spin decade forces the angular momentum non-zero and so does F = 1. The "
-        "function is ANTITONE IN D - there is an extremality bound on a single rotation at five "
-        "dimensions and none above it - so Theorem 4 permits it to forbid, and it does.")))
+        "That is a different kind of argument from a physical bound and a stronger one, because "
+        "it has no hypotheses to attack. The image is EXHAUSTED - every nuclide of the mass "
+        "table, every ionisation stage from neutral to fully stripped, every doubled angular "
+        "momentum - and the one free parameter, where to stop the angular-momentum sweep, is "
+        "removed by SATURATION: the image stops growing at 2Je = 16 and is identical at 32 and "
+        "at 64. Every seated member is verified inside it.")))
+    A(("note", (
+        "THIS REPLACED TWO WEAKER BOUNDS AND COST 148 CELLS, WHICH IS THE POINT. The first pass "
+        "derived two separate bounds - a horizon bound from the exact solutions, and a decade "
+        "bound from the identity below - and both needed a RANGE for a hidden variable. The "
+        "decade bound took its range for Je from the OBSERVED members, and that forbade %d "
+        "cells the parameter space actually reaches; one of them is reached by Zr-113 at a "
+        "single ionisation with 2Je = 15. The horizon bound had a second weakness: four fifths "
+        "of what it forbade leaned on the solution table returning UNDETERMINED, so most of the "
+        "result rested on the present state of exact solutions in five dimensions and above. The "
+        "image bound has neither problem, and it forbids FEWER: %s against the pair's %s. A "
+        "smaller figure with no assumptions is worth more than a larger one with two, and the "
+        "superseded pair is kept in the instrument so this comparison can be re-run rather than "
+        "taken on trust."
+        % (f["grav_superseded"][1], n(f["adj"]["gravity.index"][1]),
+           n(f["grav_superseded"][0])))))
     A(("p", (
-        "THE DECADE BOUND, WHICH IS THE ONE WORTH READING. The dimensionless spin and the "
-        "dimensionless charge are not independent quantities:")))
+        "THE IDENTITY BEHIND IT IS STILL THE THING TO READ, because it is why the map's image is "
+        "so much smaller than its box. The dimensionless spin and the dimensionless charge are "
+        "not independent:")))
     A(("eq", [
         "chi      = Je / alpha_G            alpha_G = G M^2 / (hbar c)",
         "Qtilde^2 = q^2 alpha / alpha_G     alpha   = e^2 / (4 pi eps0 hbar c)",
@@ -1131,19 +1170,15 @@ def document(f):
         "    =>   chi / Qtilde^2  =  Je / (q^2 alpha)",
     ]))
     A(("p", (
-        "THE GRAVITATIONAL COUPLING CANCELS AND THE RATIO IS MASS-FREE. Verified on every member "
-        "row of the source at zero failures. NONE OF THIS IS NEW PHYSICS and none of it is "
-        "claimed as such - alpha_G is the standard gravitational coupling and alpha/alpha_G is "
-        "Dirac's large number - but the join operator does not know it. The join pairs a spin "
-        "decade with a charge decade freely, and the identity says most of those pairings are "
-        "unphysical. That is the whole content: a sixty-year-old relation, applied to a question "
-        "nobody had asked of it, empties cells.")))
-    A(("note", (
-        "AND A FITTED VERSION OF THE SAME BOUND IS REFUSED. Reading the OBSERVED band of the "
-        "decade difference off the members, instead of deriving the interval from the hidden "
-        "ranges, forbids 64 cells more. A band measured on the members and then used to forbid "
-        "demanded cells is fitting, which section 8.2's gate exists to prevent. The smaller, "
-        "derived figure is the one reported, and the refusal is recorded in the instrument.")))
+        "THE GRAVITATIONAL COUPLING CANCELS AND THE RATIO IS MASS-FREE, verified on every member "
+        "row at zero failures. NONE OF THIS IS NEW PHYSICS and none of it is claimed as such - "
+        "alpha_G is the standard gravitational coupling and alpha/alpha_G is Dirac's large "
+        "number - but the join operator does not know it, and pairs a spin decade with a charge "
+        "decade freely. The chart's observed box holds %s cells; the map reaches %s of them; the "
+        "index occupies %d. A chart too coarse to discriminate would have an image filling its "
+        "box, and this one fills rather more than a third."
+        % (n(f["grav_box"]), n(f["grav_image"]), f["grav_cells"]))))
+
     A(("quote", (
         "**BARYONS: %s demanded, %s FORBIDDEN, %d UNPLACED, %d OPEN** - and %d is a FLOOR with a "
         "reason, not a stopping point."
