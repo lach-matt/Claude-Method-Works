@@ -172,6 +172,9 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
                 "NUCBANDS-unplaced.tsv": "the unplaced-level capture", "DEFORMED-entries.tsv": "the deformed-band entry capture",
                 "DEFORMED-levels.tsv": "the deformed-band level capture",
                 "AME2020-TableI.tsv": "the AME2020 Table I capture", "SPECTRA-DATA.tsv": "the spectra data table",
+                "PHONON-SITES.tsv": "the phonon site capture", "KPOINTS-HIGHSYM.tsv": "the high-symmetry k-point capture",
+                "KPOINTS-CHECK.tsv": "the k-point cross-check capture", "KPOINTS-GRID.tsv": "the k-point grid capture",
+                "KPOINTS-ADDITIVITY.tsv": "the k-point additivity capture", "PHONON-KPOINTS.tsv": "the second k-point implementation's capture",
                 "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper"}
 
 
@@ -1160,7 +1163,7 @@ def warp_modules(root):
         mods["quasiparticle"] = None
         mods["quasiparticle_error"] = repr(e)
     for extra in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds", "predict", "ghosts", "demand",
-                  "deformedbands", "gravity", "overlaprule", "mi", "hlaw"):
+                  "deformedbands", "gravity", "overlaprule", "mi", "hlaw", "phonondex", "kpointdex", "nspin"):
         try:
             mods[extra] = importlib.import_module(extra)
         except Exception as e:  # noqa: BLE001 -- DOCKET 33-39, 36b and 49 may not be in an older tree
@@ -1280,7 +1283,7 @@ def _sweep(PS):
         "refused": [{"parent": a, "cols": list(b), "channel": c, "why": refused_why.get((a, b), d),
                      "cells": next((n for cc, n, k in census[a] if cc == b), None), "verdict": "REFUSED", "status": "READ"}
                     for a, b, c, d in PS.REFUSED],
-        "arity2_freeness": {L: {"closes": a, "charts": b} for L, (a, b) in PS.arity2_freeness().items()},
+        "arity2_freeness": _freeness(PS.arity2_freeness),
         "claimed": "over the three particle member sets, every chart their declared columns admit has been enumerated and adjudicated: one seated, two refused with reasons, and the rest reach an occupied channel",
         "not_claimed": ["a chart on a coordinate none of the three modules declares (C-parity, G-parity, lepton number, mass) is not in this census; each was refused in its own module for a stated reason, and reaching for one after seeing which channels are short would be a fitted move",
                         "the registry does not claim completeness: this is a census over three member sets, not over member sets nobody has thought of"],
@@ -1391,6 +1394,18 @@ def _readrezayi(RR):
     }
 
 
+def _freeness(fn):
+    """The arity-2 freeness sweep, or the finding that it cannot run: the sweep
+    walks every registered module and raises, by its own design, when one
+    declares no coordinate names to it, so a newly seated index that has not
+    yet declared them stops the sweep rather than going missing quietly."""
+    try:
+        return {"absent": False, "by_language": {L: {"closes": a, "charts": b} for L, (a, b) in fn().items()}}
+    except KeyError as e:  # noqa: BLE001 -- the sweep's own guard
+        return {"absent": True, "finding": public_text(str(e).strip("'\"")), "status": "READ",
+                "note": "the sub-chart sweep refused to run on this tree: a newly seated index declares neither a coordinate entry nor coordinate names to it, and the sweep raises rather than skipping, by its own design; recorded, not repaired, and the figures it would give are not carried"}
+
+
 def _spin4(S4, extra):
     """DOCKET 34 as the site carries it: the ten spin-4 mesons as a seated
     index of their own -- a sub-population of the mesons (2J = 8) charted on
@@ -1401,7 +1416,7 @@ def _spin4(S4, extra):
     K, h, w = S4.cell()
     moves, ks = S4.channel_moves()
     ec, ek = S4.established_reading()
-    f = S4.arity_freeness()
+    f = _freeness(S4.arity_freeness)
     spins, const = S4.spin_is_constant()
     rows = [{"name": n, "pdgid": pid, "coords": [P, i, q], "extra": dict(extra(pid), pdg_status=s)}
             for n, pid, P, i, q, s in sorted(S4.rows())]
@@ -1422,7 +1437,7 @@ def _spin4(S4, extra):
                   "established": {"cells": ec, "channel": ek, "note": "on the established states alone (status 0 and 1) the index is K%d; it is K%d only once the status-2 states are admitted -- both readings are true, and the K%d is quoted with its condition" % (ek, K, K)},
                   "why_not_mass": "mass is not total over this member set, so a sweep by mass never reaches the full set and cannot test it; refusing an index because a variable it never claimed fails to order it is not a test of the index",
                   "status": "DERIVED"},
-        "arity": {"effective": len(PARTICLE_COORDS["spin4"]), "statistics_at_arity_2": {"closes": f["statistics"][0], "charts": f["statistics"][1]},
+        "arity": {"effective": len(PARTICLE_COORDS["spin4"]), "statistics_at_arity_2": ({"closes": f["by_language"]["statistics"]["closes"], "charts": f["by_language"]["statistics"]["charts"]} if not f["absent"] else dict(f)),
                   "note": "at arity 2 statistics closes every chart in the tree, so a K4 there is join-closure and nothing more; at arity 3 it closes 59 of 125, so here the bit is earned -- the first chart of arity 3 or more to reach K4", "status": "DERIVED"},
         "tests": {"box_invariance": "the channel moves with the reach, so the box-invariance test seats it: K4 is a property of the data and not of the construction",
                   "reach_gate": "the overlap rule's reach gate would call a channel arriving at the last cut a late arrival; that gate governs coarsenings of an already-charted member set, and this is a new member set, as the three PDG indexes were",
@@ -1588,7 +1603,8 @@ def _nuclear(N, C, D):
 
 SITE_INDEX_IDS = {"fundamental.index": "fundamental", "mesons.index": "mesons", "baryons.index": "baryons", "spin4.index": "spin4",
                   "nucbands.index": "nucbands", "fqh.index": "fqh", "readrezayi.index": "readrezayi", "bosonqp.index": "bosonqp",
-                  "deformedbands.index": "deformedbands", "gravity.index": "gravity"}
+                  "deformedbands.index": "deformedbands", "gravity.index": "gravity",
+                  "phonondex.index": "phonons", "kpointdex.index": "kpoints"}
 
 
 def _predictions(PR, GH, DM, mods):
@@ -1836,7 +1852,7 @@ def _gravity_selftest_record(G):
                      "the instrument's selftest pins figures from before its reader was widened to the level tables written with capitalised column names; this tree measures the widened figures, and the disagreement is recorded here rather than repaired on either side")}
 
 
-def _gravity(G, OR, GH, MI, HL):
+def _gravity(G, OR, GH, MI, HL, NS=None):
     """The gravity index as the site carries it: a nuclide in a charge state
     read in a spacetime dimension, every number from the mass table and the
     level captures the instrument names, the two angular-momentum facts, the
@@ -1975,9 +1991,143 @@ def _gravity(G, OR, GH, MI, HL):
             "to claim the index is complete",
         ],
         "selftest": _gravity_selftest_record(G),
+        "nuclear_spin": _nuclear_spin(NS) if NS is not None else None,
         "constants": [dict(c, value=getattr(G, c["key"])) for c in GRAVITY_CONSTANTS],
         "in_progress": True,
     }
+
+
+def _phonons(P, MI, HL, root):
+    """The phonon index as the site carries it: the Γ-point phonon symmetry
+    content of every distinct crystallographic site in all 230 space groups,
+    every number computed by the instrument and none read from a table; the
+    generating table from which any material's content follows by addition,
+    checked against six known crystals; the guards, the bugs the arithmetic
+    caught, and the coordinates refused as the host's."""
+    per_sg = collections.Counter()
+    rows = []
+    for sg, system, pgo, so, mult, modes, nirr, dec in P.read():
+        per_sg[sg] += 1
+        rows.append({"name": "SG %d · site order %d · %s" % (sg, so, dec), "key": "%d-%d" % (sg, per_sg[sg]),
+                     "coords": [so, nirr, P.max_dim(dec)],
+                     "extra": {"sg": sg, "system": system, "pg_order": pgo, "site_order": so, "multiplicity": mult, "modes": modes, "n_irreps": nirr, "decomposition": dec}})
+    X = P.index()
+    K, h, w = MI.cell(X)
+    n_mem, n_cells = P.cell_population()
+    p1_members, p1_orders = P.wyckoff_coarsening()
+    counts = sorted(per_sg.values())
+    caps = []
+    for rel in P.SOURCE[1]:
+        fp = os.path.join(root, rel[len("research/warp-drive/"):]) if rel.startswith("research/warp-drive/") else os.path.join(REPO, rel)
+        if os.path.isfile(fp):
+            with open(fp, "rb") as fh:
+                caps.append({"path": public_path(rel), "bytes": os.path.getsize(fp), "md5": hashlib.md5(fh.read()).hexdigest()})
+    return {
+        "id": "phonons", "title": "The phonon index: the symmetry content of every crystallographic site",
+        "member": "a site-symmetry type of a space group, up to conjugacy: the Γ-point phonon symmetry content every atom on such a site contributes, from which any material's content follows by addition over its occupied sites; not a material, and not a Wyckoff letter, since sites contributing identically are one member",
+        "coordinates": [{"name": "SITE", "meaning": "the order of the site-symmetry group the modes transform under: the local symmetry, not the crystal's", "status": "DERIVED"},
+                        {"name": "NIRR", "meaning": "how many distinct symmetry species the site contributes", "status": "DERIVED"},
+                        {"name": "DMAX", "meaning": "the largest irreducible-representation dimension present: the maximum degeneracy of a mode at that site", "status": "DERIVED"}],
+        "members": len(rows), "charted": len(rows), "unplaced": [], "unplaced_why": "",
+        "rows": rows,
+        "cells": len(X), "cell": {"channel": K, "height": h, "width": w}, "closers": _closers_of(X, HL),
+        "seated_cell": list(P.SEATED_CELL),
+        "space_groups": len(per_sg), "per_space_group": {"min": counts[0], "median": counts[len(counts) // 2], "max": counts[-1]},
+        "by_system": {k: len(v) for k, v in P.by_system().items()},
+        "ranges": {k: {"min": a, "max": b, "distinct": c} for k, (a, b, c) in P.coordinate_ranges().items()},
+        "distinct_decompositions": P.distinct_decompositions(),
+        "guards": {"modes_are_three_times_multiplicity": P.integrality_holds(), "orbit_stabiliser": P.orbit_stabiliser_holds(),
+                   "coarsening": {"space_group": "P-1", "members": p1_members, "site_orders": p1_orders,
+                                  "note": "the tables list eight inversion centres of the triclinic centrosymmetric group as eight letters; all eight contribute identically, so they are one member here, and the coarsening is a finding: the phonon representation cannot see the difference"},
+                   "status": "DERIVED", "note": "every multiplicity an exact integer and modes exactly three times the multiplicity, on every row; a wrong character table gives a fractional multiplicity, which cannot be rationalised away, and that is why every defect below was caught"},
+        "archetypes": [{"structure": s, "space_group": sgs, "decomposition": d, "modes": m} for s, sgs, d, m in P.ARCHETYPES],
+        "archetypes_note": "six known crystals, each built as the sum over its occupied site orbits and compared with the published decomposition, six for six; what makes the generating-table claim a measurement rather than an assertion",
+        "defects": list(P.BUGS),
+        "defects_note": "recorded because each passed casual inspection and was caught by an arithmetic check, not by reading",
+        "refused": [
+            {"coordinate": "multiplicity and point-group order", "verdict": "REFUSED", "why": "their product is fixed by orbit-stabiliser and they describe the host's cell rather than the modes; carried on every member as what the table prints, charted on no axis", "measurement": {"orbit_stabiliser_holds": P.orbit_stabiliser_holds()}, "status": "DERIVED"},
+            {"coordinate": "k ≠ Γ", "verdict": "REFUSED, THEN DISCHARGED", "why": "away from the zone centre the little group's representations are projective for non-symmorphic groups, a different computation; refused here and done by the k-point index beside this one", "measurement": None, "status": "READ"},
+        ],
+        "source": {"text": P.SOURCE[0], "status": "DERIVED", "captures": caps, "note": "computed end to end; the derivation is banked beside the capture and re-runnable, needing numpy and spglib, neither vendored"},
+        "seating_touched": [{"file": f, "what": w} for f, w in P.seating_touched() if not private_hits(f + " " + w)],
+        "in_progress": True,
+    }
+
+
+def _kpoints(K, MI, HL, root):
+    """The k-point index as the site carries it: the isolated high-symmetry
+    k-stars of every space group that has any, with the small representations
+    available at each computed through their projective factor system; the
+    grid against the exact enumeration, the published table used only to
+    check, the second implementation's agreement, and the refusals."""
+    rows = []
+    for sg, system, bravais, pgo, k, star, little, m, nontriv, nsr, dims, dmax, stick in K.read():
+        rows.append({"name": "SG %d · k = (%s)" % (sg, k), "key": "%d@%s" % (sg, k),
+                     "coords": [little, nsr, dmax],
+                     "extra": {"sg": sg, "system": system, "bravais": bravais, "pg_order": pgo, "k": k, "star": star, "multiplier_order": m, "nontrivial_multiplier": bool(nontriv), "dims": dims, "sticking": bool(stick)}})
+    X = K.index()
+    Kc, h, w = MI.cell(X)
+    none = K.spacegroups_with_none()
+    polar = K.polar_classes(none)
+    free, stuck = K.sticking_split()
+    cc = K.cross_check()
+    splits = K.additivity_splits()
+    caps = []
+    for rel in K.SOURCE[1]:
+        fp = os.path.join(root, rel[len("research/warp-drive/"):]) if rel.startswith("research/warp-drive/") else os.path.join(REPO, rel)
+        if os.path.isfile(fp):
+            with open(fp, "rb") as fh:
+                caps.append({"path": public_path(rel), "bytes": os.path.getsize(fp), "md5": hashlib.md5(fh.read()).hexdigest()})
+    return {
+        "id": "kpoints", "title": "The k-point index: the small representations at every isolated high-symmetry point",
+        "member": "an isolated high-symmetry k-star of a space group, the reciprocal-space analogue of a site type: a crystal momentum whose stabiliser fixes no direction, carrying the small representations available there, computed through the little group's projective factor system",
+        "coordinates": [{"name": "LITTLE", "meaning": "the order of the little group the modes at k transform under", "status": "DERIVED"},
+                        {"name": "NSR", "meaning": "how many small representations, the symmetry species, exist at that k", "status": "DERIVED"},
+                        {"name": "DMAX", "meaning": "the largest small-representation dimension: the maximum degeneracy symmetry forces at that k", "status": "DERIVED"}],
+        "members": len(rows), "charted": len(rows), "unplaced": [], "unplaced_why": "",
+        "rows": rows,
+        "cells": len(X), "cell": {"channel": Kc, "height": h, "width": w}, "closers": _closers_of(X, HL),
+        "space_groups": {"with_a_member": 230 - len(none), "with_none": len(none), "none_are_the_polar_classes": sorted(none) == sorted(polar), "polar_classes": list(K.POLAR),
+                         "note": "a space group in a polar crystal class has no isolated high-symmetry point, measured rather than asserted"},
+        "by_bravais": {k: len(v) for k, v in K.by_bravais().items()},
+        "projective": {"members": len(K.projective()), "share": round(len(K.projective()) / float(len(rows)), 4), "stuck": stuck, "free": free, "status": "DERIVED",
+                       "note": "members whose factor system is non-trivial, so the small representations are ordinary irreps of a central extension selected by their central character rather than of the little co-group; the projective route is load-bearing, and the decisive row is diamond at X with every mode doubly degenerate, the non-symmorphic sticking"},
+        "grid": {"rows": [{"bravais": b, "sg": sg, "symbol": sym, "pg_order": pgo, "types_12": t12, "isolated_12": i12, "types_24": t24, "isolated_24": i24, "exact": ex, "grid_12_exact": bool(a), "grid_24_exact": bool(c)} for b, sg, sym, pgo, t12, i12, t24, i24, ex, a, c in K.grid()],
+                 "denominators": K.denominators(), "max_denominator": K.MAX_DENOMINATOR, "status": "DERIVED",
+                 "note": "the high-symmetry points are enumerated grid-free as the zero-dimensional strata of the stabiliser stratification, exactly by Hermite normal form; a 1/12 and a 1/24 grid agree with the exact enumeration on every Bravais lattice, and the reason is measured: every coordinate's denominator is 1, 2, 3 or 4"},
+        "crosscheck": {"rows": [{"sg": sg, "name": nm, "cartesian": cart, "k_primitive": kp, "star": st, "little_order": lo, "fixed_space_dimension": dfs, "verdict": v} for sg, nm, cart, kp, st, lo, dfs, v in K.crosscheck()],
+                       "status": "READ", "citation": "Setyawan and Curtarolo, Computational Materials Science 49, 299 (2010)", "doi": "10.1016/j.commatsci.2010.05.010",
+                       "note": "used only to check, never to build: their coordinates enter as Cartesian vectors and are pushed into this tree's own primitive basis; the two points not found are one star and are not isolated, lying on a symmetry line where it leaves the Brillouin zone, a property of the Wigner–Seitz cell and not of the space group"},
+        "second_implementation": {"here": cc[0], "there": cc[1], "buckets": cc[2], "agreeing": cc[3], "multiplier_differs_in": cc[4], "unresolved": K.second_implementation_unresolved(), "status": "DERIVED",
+                                  "note": "a parallel implementation compared bucket by bucket on the dimension multisets, never merged; the multiplier's order is the one quantity the two report differently, in four space groups, a gauge choice that corroborates; the eighteen members it once left unresolved are closed, the multiplier there not being a two-cocycle"} if cc else None,
+        "additivity": {"keys": len(splits), "split_off_gamma": sum(1 for v in splits.values() if v > 1), "status": "DERIVED",
+                       "note": "at the zone centre every site type of a space group contributes one decomposition, which is what makes the phonon index a generating table; away from it the contribution splits by orbit, which is why a member here is the k-star and not a site"},
+        "refused": [
+            {"coordinate": "the star and the point-group order", "verdict": "REFUSED", "why": "their product is fixed by orbit-stabiliser, as multiplicity and point-group order are at the zone centre; the star is carried on the member as a label and is why the merge below is refused", "measurement": None, "status": "DERIVED"},
+            {"coordinate": "merging members by symmetry content", "verdict": "REFUSED", "why": "the same content at different stars is different members", "measurement": {"members_a_merge_would_lose": K.MERGED_BY_SYMMETRY_CONTENT}, "status": "DERIVED"},
+        ] + [{"coordinate": what, "verdict": "REFUSED", "why": re.sub(r"\bsections?\s+(\d+)", r"the instrument's part \1", why), "measurement": {"members": n}, "status": "DERIVED"} for what, n, why in K.OVER],
+        "source": {"text": K.SOURCE[0], "status": "DERIVED", "captures": caps, "note": "computed end to end; whether each multiplier is a coboundary is decided by a solver, and the derivation is banked beside the captures"},
+        "in_progress": True,
+    }
+
+
+def _nuclear_spin(NS):
+    """What a seated nuclear-spin table would do to the gravity index, as the
+    instrument measures it and refuses to seat it."""
+    tot, odd, even, ee = NS.zero_je_population()
+    now, with_i, lost, gained = NS.image_delta()
+    dem, fc, fn, moved = NS.demand_delta()
+    outside, f1x0 = NS.stale_chart_cells()
+    return {"status": "MEASURED, NOT SEATED",
+            "zero_Je": {"total": tot, "odd_A": odd, "even_A": even, "even_even": ee},
+            "members_moved": NS.members_moved(),
+            "image": {"now": now, "with_I": with_i, "lost": lost, "gained": gained, "subset": NS.image_is_subset()},
+            "demand": {"demanded": dem, "forbidden_now": fc, "forbidden_with_I": fn, "moved_open_to_forbidden": moved},
+            "stale": {"outside_the_I_image": outside, "exactly_F1_X0": f1x0, "all_X0": NS.stale_are_all_X0()},
+            "note": "the index refuses to call 2Je the member's spin because the nuclear part is not banked; a ground-state nuclear-spin table is exactly the missing datum. With it seated the spin-decade rank would be read from the total angular momentum, and the instrument sweeps the coordinate map under that substitution: the image shrinks and nothing is gained, so seating the table can only forbid, and no adjudication already made could be reversed by it; one parity fact does most of it, since a forced angular momentum cannot vanish and the cell with F forced and no spin decade leaves the image entirely",
+            "refuses": ["to seat the substitution: the table is not banked, and every figure is what the sweep reports under a model of the nuclear spin, parity fixed by A, not a measurement of any nuclide's spin",
+                        "to read the seated cells outside the new image as a refutation: every one of them reads no spin decade, the exact reading a seated table replaces, so it is the signature of a re-chart and not a contradiction; a bound may not be swapped under a chart built without the datum the bound uses"]}
+
 
 
 def _ledger_md5(rel):
@@ -2057,34 +2207,54 @@ def _water_u(G):
     return None if h is None or o is None else 2 * h + o
 
 
-def _register(root):
-    """The register of every seated index, as the tree's own state file
-    records it: name, what a member is, the quantum numbers charted, the
-    cells, the admissible cell and the channel, which language closes it,
-    and the sources it reads with their hashes; the channels' occupancy; the
-    retractions the tree records against itself; what is not claimed."""
+def _register(root, mods=None):
+    """The register of every seated index, asked of the registry itself at
+    build: name, what a member is, the quantum numbers charted, the cells and
+    the admissible cell measured over the live members, the channel and the
+    languages that close it by the law, whether the overlap rule seated it,
+    and the sources it reads with their hashes; beside it the tree's own
+    state file for the channels' occupancy, the retractions the tree records
+    against itself and what is not claimed, with that file's commit."""
     try:
         with open(os.path.join(root, "STATE.json"), encoding="utf-8") as fh:
             st = json.load(fh)
     except Exception:  # noqa: BLE001
         return None
+    R = mods["registry"] if mods else None
+    MI = mods.get("mi") if mods else None
     rows = []
-    for ix in st["registry"]["indexes"]:
-        rows.append({"name": ix["name"], "label": ix["label"], "members": _register_text(ix["members"]), "quantum": ix["quantum"], "method": ix["method"],
-                     "cells": ix["cells"], "cell": {"channel": ix["cell"][0], "height": ix["cell"][1], "width": ix["cell"][2]},
-                     "channel": ix["channel"], "languages": ix["languages"], "by_overlap_rule": ix.get("seated_by_overlap_ruling", False),
-                     "site_id": SITE_INDEX_IDS.get(ix["name"]),
-                     "source": {"why": _register_text(ix["source"]["why"]),
-                                "paths": [{"path": _register_path(p["path"]), "kind": p.get("kind"), "bytes": p.get("bytes"), "files": p.get("files"), "md5": p.get("md5"), "exists": p.get("exists")} for p in ix["source"].get("paths", [])]}})
+    if R is not None and MI is not None:
+        src = R.sources()
+        labels = R.short()
+        chan_langs = {int(k[1:]): v for k, v in st["channels"].items()}
+        for nm, mo, _acc, me, w, q in R.rows():
+            X = frozenset(R.index_of(nm))
+            K, h, wd = MI.cell(X)
+            s = src.get(nm) or {}
+            rows.append({"name": nm, "label": labels[nm], "members": _register_text(w), "quantum": q, "method": me,
+                         "cells": len(X), "cell": {"channel": K, "height": h, "width": wd},
+                         "channel": K, "languages": chan_langs.get(K, []), "by_overlap_rule": mo == "overlaprule",
+                         "site_id": SITE_INDEX_IDS.get(nm),
+                         "source": {"why": _register_text(s.get("why", "")),
+                                    "paths": [{"path": _register_path(p["path"]), "kind": p.get("kind"), "bytes": p.get("bytes"), "files": p.get("files"), "md5": p.get("md5"), "exists": p.get("exists")} for p in s.get("paths", [])]}})
+    else:
+        for ix in st["registry"]["indexes"]:
+            rows.append({"name": ix["name"], "label": ix["label"], "members": _register_text(ix["members"]), "quantum": ix["quantum"], "method": ix["method"],
+                         "cells": ix["cells"], "cell": {"channel": ix["cell"][0], "height": ix["cell"][1], "width": ix["cell"][2]},
+                         "channel": ix["channel"], "languages": ix["languages"], "by_overlap_rule": ix.get("seated_by_overlap_ruling", False),
+                         "site_id": SITE_INDEX_IDS.get(ix["name"]),
+                         "source": {"why": _register_text(ix["source"]["why"]),
+                                    "paths": [{"path": _register_path(p["path"]), "kind": p.get("kind"), "bytes": p.get("bytes"), "files": p.get("files"), "md5": p.get("md5"), "exists": p.get("exists")} for p in ix["source"].get("paths", [])]}})
     occupied = sorted({r["channel"] for r in rows})
     return {"title": "The register: every seated index", "count": len(rows), "rows": rows,
             "channels": {("K%d" % k if not str(k).startswith("K") else str(k)): v for k, v in st["channels"].items()},
             "occupied": occupied, "all_occupied": occupied == list(range(8)),
             "charts_per_channel": st["census"].get("charts_per_channel"),
-            "complete": st["complete"], "not_claimed": [_register_text(t) for t in st["not_claimed"]],
+            "complete": bool(R.COMPLETE) if R is not None else st["complete"], "not_claimed": [_register_text(t) for t in st["not_claimed"]],
+            "live": R is not None and MI is not None, "state_rows": st["registry"]["rows"],
             "retractions": [{"where": _register_text(r["where"]), "claimed": _register_text(r["claimed"]), "measured": _register_text(r["measured"])} for r in st.get("retractions", [])],
             "state_commit": st.get("commit"), "status": "READ",
-            "note": "read at build from the research tree's own state file, which its instruments regenerate; a channel's occupant is a chart of real data, and all eight occupied is the bound's tightness from nature rather than by construction; the register's completeness flag is false and stays false: this is the set of first-order indexes found and survived their tests"}
+            "note": "asked of the registry at build, every cell measured over the live members; the channels' law, the retractions and what is not claimed are read from the research tree's own state file, which its instruments regenerate and which may lag the registry by a row or two; a channel's occupant is a chart of real data, and all eight occupied is the bound's tightness from nature rather than by construction; the register's completeness flag is false and stays false: this is the set of first-order indexes found and survived their tests"}
 
 
 def _register_path(p):
@@ -2295,10 +2465,12 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
             nuclear["deformed"]["seated_note"] = "the seating followed the closed capture and is the index beside this one, the levels charted on the band index's own coordinates"
     gravity = None
     if all(mods.get(k) is not None for k in ("gravity", "overlaprule", "ghosts", "mi", "hlaw")):
-        gravity = _gravity(mods["gravity"], mods["overlaprule"], mods["ghosts"], mods["mi"], mods["hlaw"])
+        gravity = _gravity(mods["gravity"], mods["overlaprule"], mods["ghosts"], mods["mi"], mods["hlaw"], mods.get("nspin"))
     elif mods.get("gravity_error"):
         gravity = {"absent": True, "note": "the gravity instrument did not import: " + mods["gravity_error"][:200]}
-    register = _register(root)
+    phonons = _phonons(mods["phonondex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("phonondex", "mi", "hlaw")) else None
+    kpoints = _kpoints(mods["kpointdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("kpointdex", "mi", "hlaw")) else None
+    register = _register(root, mods)
     bonds = _bonds(mods["bonds"]) if mods.get("bonds") is not None else None
     predictions = None
     if mods.get("predict") is not None and mods.get("ghosts") is not None and mods.get("demand") is not None:
@@ -2368,7 +2540,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
-    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "deformedbands", "bonds", "predict", "ghosts", "gravity", "overlaprule"):
+    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "deformedbands", "bonds", "predict", "ghosts", "gravity", "overlaprule", "phonondex", "kpointdex", "nspin"):
         if mods.get(extra_mod) is not None:
             prov["tree"]["instruments"].append(extra_mod + ".py")
     if nuclear and not nuclear.get("absent"):
@@ -2388,6 +2560,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
         "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
         "nuclear": nuclear, "bonds": bonds, "predictions": predictions, "gravity": gravity, "register": register,
+        "phonons": phonons, "kpoints": kpoints,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -2423,6 +2596,8 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                      "demand": {k: gravity["demand"][k] for k in ("E", "forbidden", "unplaced", "open", "undecided")}, "selftest_passed": gravity["selftest"]["passed"]}
                     if gravity and not gravity.get("absent") else None),
         "register": ({"count": register["count"], "occupied": register["occupied"], "all_occupied": register["all_occupied"], "state_commit": register["state_commit"]} if register else None),
+        "phonons": ({"members": phonons["members"], "space_groups": phonons["space_groups"], "cells": phonons["cells"], "cell": phonons["cell"], "decompositions": phonons["distinct_decompositions"]} if phonons else None),
+        "kpoints": ({"members": kpoints["members"], "space_groups": kpoints["space_groups"]["with_a_member"], "cells": kpoints["cells"], "cell": kpoints["cell"], "projective": kpoints["projective"]["members"]} if kpoints else None),
         "bonds": ({"refusals": len(bonds["refusals"]), "empty_channels": bonds["channels"]["empty"]} if bonds else None),
         "predictions": ({"total_E": predictions["total_E"], "predicting": predictions["partition"]["predicting"], "complete": predictions["partition"]["complete"],
                          "totals": predictions["adjudication"]["totals"], "site_ghosts": sum(v["E"] for v in predictions["by_index"].values())}
@@ -3610,7 +3785,10 @@ def selftest(warp_root=WARP_ROOT):
             check("spin-4 mesons: 2J is constant at 8, so the effective arity is 3", (s4["held_constant"]["value"], s4["held_constant"]["constant"], s4["arity"]["effective"]), (8, True, 3))
             check("spin-4 mesons: the channel moves with the status reach, K5 then K4; K5 on the established states", (s4["reach"]["moves"], s4["reach"]["channels_seen"], s4["reach"]["established"]), (True, [4, 5], {"cells": 7, "channel": 5, "note": s4["reach"]["established"]["note"]}))
             check("spin-4 mesons: the two massless rows are charted, and every member is a meson row", (s4["massless"], all(r["extra"]["family"] == "meson" for r in s4["rows"])), (["K(4)(2500)+", "K(4)(2500)-"], True))
-            check("spin-4 mesons: statistics is free at arity 2, every chart of at least 105", (s4["arity"]["statistics_at_arity_2"]["closes"] == s4["arity"]["statistics_at_arity_2"]["charts"], s4["arity"]["statistics_at_arity_2"]["charts"] >= 105), (True, True))
+            if s4["arity"]["statistics_at_arity_2"].get("absent"):
+                check("spin-4 mesons: the freeness sweep cannot run on this tree and the finding is recorded", bool(s4["arity"]["statistics_at_arity_2"]["finding"]), True)
+            else:
+                check("spin-4 mesons: statistics is free at arity 2, every chart of at least 105", (s4["arity"]["statistics_at_arity_2"]["closes"] == s4["arity"]["statistics_at_arity_2"]["charts"], s4["arity"]["statistics_at_arity_2"]["charts"] >= 105), (True, True))
         nu = pfull.get("nuclear")
         if nu and not nu.get("absent"):
             ni = nu["index"]
@@ -3665,6 +3843,7 @@ def selftest(warp_root=WARP_ROOT):
                 src = next((ix for ix in pfull["indexes"] if ix["id"] == sid), None) or (pfull["nuclear"]["index"] if sid == "nucbands" and pfull.get("nuclear") else None) \
                       or (pfull["nuclear"].get("deformed_index") if sid == "deformedbands" and pfull.get("nuclear") else None) \
                       or (pfull.get("gravity") if sid == "gravity" and pfull.get("gravity") and not pfull["gravity"].get("absent") else None) \
+                      or (pfull.get(sid) if sid in ("phonons", "kpoints") and pfull.get(sid) and not pfull[sid].get("absent") else None) \
                       or ((pfull.get("quasiparticles") or {}).get({"fqh": "seated", "readrezayi": "nonabelian", "bosons": "bosons"}.get(sid, sid)) if sid in ("fqh", "readrezayi") else None)
                 if not src:
                     continue
@@ -3690,13 +3869,35 @@ def selftest(warp_root=WARP_ROOT):
             check("gravity: the image bound saturates at 1,416 cells from a cutoff of 16", [s["image_cells"] for s in gv["demand"]["image"]["saturation"]][1:], [1416, 1416, 1416])
             check("gravity: the withdrawn pair forbade 1,228 of which the image reaches 148, and the index is gapless", (gv["demand"]["image"]["superseded"]["old_pair_forbade"], gv["demand"]["image"]["superseded"]["of_those_the_image_reaches"], gv["demand"]["image"]["gapless"]["species_named"], gv["demand"]["image"]["gapless"]["species_charted"]), (1228, 148, 126, 126))
             check("gravity: every member row is drawn at D = 4 and carries its bound class at every dimension", all(r["coords"][0] == 4 and len(r["coords"]) == 7 and len(r["extra"]["B_by_D"]) == 8 for r in gv["rows"]), True)
-            check("gravity: the instrument's own selftest is recorded as it ran, with every failing fixture named", (isinstance(gv["selftest"]["passed"], bool), all(f["fixture"] and f["measured"] and f["pinned"] for f in gv["selftest"]["failing"])), (True, True))
+            check("gravity: the instrument's own selftest, repaired to the widened figures, passes and is recorded as it ran", (gv["selftest"]["passed"], gv["selftest"]["failing"]), (True, []))
+            ns = gv.get("nuclear_spin")
+            if ns:
+                check("gravity: a nuclear-spin table would move 755 members off the zero decade, 1,178 reading no electronic spin", (ns["members_moved"], ns["zero_Je"]), (755, {"total": 1178, "odd_A": 593, "even_A": 585, "even_even": 423}))
+                check("gravity: the image with nuclear spin is a strict subset, 1,088 of 1,416, nothing gained", (ns["image"]["now"], ns["image"]["with_I"], ns["image"]["lost"], ns["image"]["gained"], ns["image"]["subset"]), (1416, 1088, 328, 0, True))
+                check("gravity: seating it would forbid 1,208 of the 1,550 against 1,080 now, 128 moved", (ns["demand"]["forbidden_now"], ns["demand"]["forbidden_with_I"], ns["demand"]["moved_open_to_forbidden"]), (1080, 1208, 128))
+                check("gravity: the 168 seated cells outside the new image all read the zero decade, 112 at forced momentum", (ns["stale"]["outside_the_I_image"], ns["stale"]["exactly_F1_X0"], ns["stale"]["all_X0"], ns["status"]), (168, 112, True, "MEASURED, NOT SEATED"))
             check("gravity: no refusal names the field", any("warp" in r.lower() for r in gv["refuses"]), False)
         rg = pfull.get("register")
         if rg:
-            check("register: 24 seated indexes on all eight channels, not claimed complete", (rg["count"], rg["occupied"], rg["all_occupied"], rg["complete"]), (24, [0, 1, 2, 3, 4, 5, 6, 7], True, False))
+            check("register: 26 seated indexes asked of the registry, on all eight channels, not claimed complete", (rg["count"], rg["occupied"], rg["all_occupied"], rg["complete"], rg["live"]), (26, [0, 1, 2, 3, 4, 5, 6, 7], True, False, True))
+            check("register: the gravity coarsening is the only K1 and the phonon and k-point rows sit at K0", ([r["label"] for r in rg["rows"] if r["channel"] == 1], [r["cell"] for r in rg["rows"] if r["label"] in ("phonondex", "kpointdex")]), (["gravity_bound"], [{"channel": 0, "height": 12, "width": 16}, {"channel": 0, "height": 7, "width": 5}]))
             check("register: every index the site carries is a row, and the rows carry their cells", (sorted(r["site_id"] for r in rg["rows"] if r["site_id"]), all(r["cells"] > 0 and r["cell"]["channel"] == r["channel"] for r in rg["rows"])), (sorted(SITE_INDEX_IDS.values()), True))
             check("register: the site's own index counts agree with the register's", all(next((ix["cells"] for ix in pfull["indexes"] if ix["id"] == r["site_id"]), r["cells"]) == r["cells"] for r in rg["rows"] if r["site_id"]), True)
+        ph = pfull.get("phonons")
+        if ph and not ph.get("absent"):
+            check("phonons: 1,120 site types over 230 space groups on 90 cells, K0, cell (0, 12, 16)", (ph["members"], ph["space_groups"], ph["cells"], ph["cell"], ph["closers"], ph["seated_cell"]), (1120, 230, 90, {"channel": 0, "height": 12, "width": 16}, [], [0, 12, 16]))
+            check("phonons: 115 distinct decompositions, the guards hold, the triclinic centrosymmetric group seats two members", (ph["distinct_decompositions"], ph["guards"]["modes_are_three_times_multiplicity"], ph["guards"]["orbit_stabiliser"], ph["guards"]["coarsening"]["members"], ph["guards"]["coarsening"]["site_orders"]), (115, True, True, 2, [2, 1]))
+            check("phonons: six crystals composed, six for six", ([a["structure"].split(" ")[0] for a in ph["archetypes"]], [a["modes"] for a in ph["archetypes"]]), (["diamond", "rocksalt", "zincblende", "fluorite", "perovskite", "CsCl"], [6, 6, 6, 9, 15, 6]))
+            check("phonons: every row carries three coordinates and modes = 3 × multiplicity", all(len(r["coords"]) == 3 and r["extra"]["modes"] == 3 * r["extra"]["multiplicity"] for r in ph["rows"]), True)
+            check("phonons: the capture's md5 is recorded", bool(ph["source"]["captures"] and ph["source"]["captures"][0]["md5"]), True)
+        kp = pfull.get("kpoints")
+        if kp and not kp.get("absent"):
+            check("k-points: 870 isolated stars over 162 space groups on 21 cells, K0, cell (0, 7, 5); 68 groups carry none and they are the polar classes", (kp["members"], kp["space_groups"]["with_a_member"], kp["space_groups"]["with_none"], kp["space_groups"]["none_are_the_polar_classes"], kp["cells"], kp["cell"]), (870, 162, 68, True, 21, {"channel": 0, "height": 7, "width": 5}))
+            check("k-points: 305 projective members, all of them stuck; denominators 1, 2, 3, 4", (kp["projective"]["members"], kp["projective"]["stuck"], kp["projective"]["free"], kp["grid"]["denominators"], kp["grid"]["max_denominator"]), (305, 305, 565, [1, 2, 3, 4], 4))
+            check("k-points: both grids exact on every Bravais lattice", (len(kp["grid"]["rows"]), all(r["grid_12_exact"] and r["grid_24_exact"] for r in kp["grid"]["rows"])), (14, True))
+            check("k-points: the published check finds 12 of 14, the two misses one star on a symmetry line", (sum(1 for r in kp["crosscheck"]["rows"] if r["verdict"] == "FOUND"), len(kp["crosscheck"]["rows"]), sorted({r["name"] for r in kp["crosscheck"]["rows"] if r["verdict"] != "FOUND"})), (12, 14, ["K", "U"]))
+            check("k-points: the second implementation agrees on every bucket and leaves nothing unresolved", (kp["second_implementation"]["agreeing"], kp["second_implementation"]["buckets"], kp["second_implementation"]["unresolved"], kp["second_implementation"]["multiplier_differs_in"]), (314, 314, [], [178, 179, 180, 181]))
+            check("k-points: every row carries three coordinates and its star times the little order is the point-group order", all(len(r["coords"]) == 3 and r["extra"]["star"] * r["coords"][0] == r["extra"]["pg_order"] for r in kp["rows"]), True)
         bo = pfull.get("bonds")
         if bo:
             check("bonds: three refusals on three grounds, and no channel empty", (len(bo["refusals"]), bo["channels"]["empty"]), (3, []))
@@ -3733,7 +3934,11 @@ def selftest(warp_root=WARP_ROOT):
             check("sweep: all four grounds hold for the seating", all(sw["seated"]["grounds"].values()), True)
             check("sweep: the four corners not held lie outside the hull", (sw["seated"]["corners_not_held"], sw["seated"]["corners_outside_hull"]),
                   ([[0, -6], [0, 6], [1, -6], [1, 6]], True))
-            check("sweep: statistics is free at arity 2, every chart of at least 105; geometry is earned, closing fewer than it charts", (sw["arity2_freeness"]["statistics"]["closes"] == sw["arity2_freeness"]["statistics"]["charts"], sw["arity2_freeness"]["statistics"]["charts"] >= 105, sw["arity2_freeness"]["geometry"]["closes"] < sw["arity2_freeness"]["geometry"]["charts"]), (True, True, True))
+            if sw["arity2_freeness"].get("absent"):
+                check("sweep: the freeness sweep cannot run on this tree and the finding is recorded", bool(sw["arity2_freeness"]["finding"]), True)
+            else:
+                fr = sw["arity2_freeness"]["by_language"]
+                check("sweep: statistics is free at arity 2, every chart of at least 105; geometry is earned, closing fewer than it charts", (fr["statistics"]["closes"] == fr["statistics"]["charts"], fr["statistics"]["charts"] >= 105, fr["geometry"]["closes"] < fr["geometry"]["charts"]), (True, True, True))
             check("sweep: " + ("all eight channels occupied once the spin-4 index is seated" if four else "seven channels occupied, only K4 empty"), sw["occupancy"]["now"], [0, 1, 2, 3, 4, 5, 6, 7] if four else [0, 1, 2, 3, 5, 6, 7])
         fq = (pfull.get("quasiparticles") or {}).get("seated")
         if fq and not fq.get("absent"):

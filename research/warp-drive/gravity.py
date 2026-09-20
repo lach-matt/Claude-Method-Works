@@ -64,8 +64,22 @@ Every slot is a quantum number, a count of them, or the status of the level the
 other slots were read at.  The criterion `registry.enforce()` applies is met by
 construction, not by exemption.
 
-    **3,394 members, over 8 dimensions: 27,152 charted rows.**
-    118 species (element + charge state), Z from 3 to 90, q from 0 to 15.
+    **3,663 members, over 8 dimensions: 29,304 charted rows.**
+    126 species (element + charge state), Z from 3 to 90, q from 0 to 15.
+
+    THE READER WAS WIDENED AFTER THIS FILE FIRST SEALED ITS FIGURES, and the
+    figures moved a second time.  `captures()` demanded the column names
+    `config` and `level_cm1` literally, so 39 level tables written
+    `Configuration / Term / J / Level_cm-1` were invisible to it -- a defect
+    in the reader, not a gap in the source (see `_COL` below).  Admitting them
+    took species 118 -> 126 (ground 87 -> 93, excited 31 -> 33), members
+    3,394 -> 3,663, rows 27,152 -> 29,304, F forced 1,697 -> 1,831, F = 0
+    established 365 -> 423, undetermined 1,332 -> 1,409, exactly-Schwarzschild
+    nuclides 236 -> 294, members relieved at D = 6 607 -> 684, and 2Je = 2
+    from 346 to 362 members.  The chart did not move: 914 cells, K0,
+    (0, 19, 112), and 109 / 115 cells per dimension.  The pins in `selftest()`
+    are the widened figures; the earlier ones stand in section 2 as the
+    history of the L correction, which they were.
 
 ===============================================================================
 2. L IS A COORDINATE AND NOT AN EXCLUSION, AND THAT IS A CORRECTION
@@ -86,8 +100,7 @@ that reading an excited level's J as a GROUND J is an error.
 
     SO THE STATUS IS A COORDINATE.  `L` = 0 where the capture banks a level at
     0.00 exactly, 1 where the lowest it banks is excited.  Nothing is dropped
-    and nothing is relabelled as a ground it is not.  `excited_species()` names
-    all 31 with the level each was read at.
+    and nothing is relabelled as a ground it is not.  `excited_species()` names all 33 with the level each was read at.
 
     AND THE EXCITATION ENERGY GOES INTO THE MASS, EXACTLY.  A level at nu~ cm-1
     carries h*c*(100*nu~)/c^2 of mass, so M gains `lv * CM1_KG`.  It is small --
@@ -153,9 +166,9 @@ that reading an excited level's J as a GROUND J is an error.
         format and not an inference about the data.  No lowest level in the 118
         is bracketed or otherwise not a plain number, which is checked.
 
-        149 captures name a species and carry a level table: **118 distinct
-        species**, all of them members.  **87 are read at the table's ground
-        (L = 0) and 31 at an excited level (L = 1).**
+        149 captures name a species and carry a level table: **126 distinct
+        species**, all of them members.  **93 are read at the table's ground
+        (L = 0) and 33 at an excited level (L = 1).**
 
     D   NOT MEASURED.  It is the index's independent variable, and carrying it
         is the whole point of the file.  4 to 11: four is observed; five and
@@ -180,7 +193,7 @@ rests on them rather than on a guess at I.
             (A + Ne) odd   ==>   F >= 1/2 > 0,
 
     with no knowledge of I whatever.  That is the coordinate `F`, it is exact
-    arithmetic on two banked integers, and it holds for **1,697 of the 3,394
+    arithmetic on two banked integers, and it holds for **1,831 of the 3,663
     members.**  IT IS INDEPENDENT OF L: the integer-or-half-integer character of
     Je is fixed by the electron count, not by which level the electrons are in.
 
@@ -188,15 +201,15 @@ rests on them rather than on a guess at I.
     even-N nucleus has ground-state spin zero; this is the pairing rule, it is
     exceptionless over measured ground states, and it is an EMPIRICAL RULE, not
     a theorem.  Its status is carried as `PAIRING_RULE_STATUS` and is never
-    flattened.  Where it applies and 2Je = 0 as well, F = 0 exactly: **365
-    members**, of which **236 distinct nuclides are neutral** and therefore
+    flattened.  Where it applies and 2Je = 0 as well, F = 0 exactly: **423
+    members**, of which **294 distinct nuclides are neutral** and therefore
     have an exterior field that is EXACTLY SCHWARZSCHILD.  Electronic
     excitation does not touch this: the pairing rule is about the NUCLEAR
     ground state, and the nucleus of an electronically excited atom is in it.
 
     The two are mutually exclusive, and the selftest checks that rather than
     assuming it: F = 0 established needs Ne even, while A + Ne odd with A even
-    needs Ne odd.  **1,332 members are neither**, and those are the ones whose
+    needs Ne odd.  **1,409 members are neither**, and those are the ones whose
     bound class is UNDETERMINED above four dimensions.
 
 ===============================================================================
@@ -221,7 +234,7 @@ A singly-rotating Myers-Perry black hole in D dimensions has a horizon where
     experiment cannot reach -- and the statement above never uses it.  It says
     a root EXISTS, not where.
 
-    **607 of the 3,394 members are bound at D <= 5 and unbound at D >= 6.**
+    **684 of the 3,663 members are bound at D <= 5 and unbound at D >= 6.**
 
     CHARGE IS NOT RELIEVED THE SAME WAY.  The static charged Tangherlini
     function is f(r) = 1 - mu/x + Q^2/x^2 with x = r^(D-3); its roots are the
@@ -274,7 +287,7 @@ rather than assumed away.**
 7. WHAT IT MEASURES
 ===============================================================================
 
-    3,394 members x 8 dimensions   27,152 rows
+    3,663 members x 8 dimensions   29,304 rows
     distinct cells                 914          box 3,840
     no constant coordinate, no coordinate the others determine, no LABEL --
     and that is re-measured with L in, which is how L earned its slot
@@ -314,7 +327,7 @@ Kerr parameter and nothing more.  Section 4's two facts are the only
 total-angular-momentum statements made here, and neither needs I.
 
 **TO CALL AN EXCITED LEVEL A GROUND STATE.**  `L` carries the distinction on
-every member, `excited_species()` names all 31 with the level each was read at,
+every member, `excited_species()` names all 33 with the level each was read at,
 and no summary collapses the two.
 
 **TO PUT A NUMBER ON A HORIZON ABOVE FOUR DIMENSIONS.**  G_D is fixed by
@@ -329,7 +342,7 @@ every member whose F = 0 rests on it.
 charting them would multiply the same nuclides by their own spectra, and that
 is over-representation rather than reach.
 
-**TO EXTEND THE 118 SPECIES BY INFERENCE.**  Hund's rules would give a ground J
+**TO EXTEND THE 126 SPECIES BY INFERENCE.**  Hund's rules would give a ground J
 for every element in the table, and that is a computation, not a capture.
 
 **TO ASSIGN THE WARP METRICS ANYTHING.**  The same refusal petrov.py makes, for
@@ -439,6 +452,49 @@ def _two_J(text):
     return None
 
 
+# A CAPTURE'S COLUMNS ARE SPELLED SEVERAL WAYS AND THE PHYSICS IS THE SAME.
+# `captures()` demanded `config` and `level_cm1` literally, so 39 level tables
+# written `Configuration / Term / J / Level_cm-1` were invisible to it -- and
+# with them eight species the index charts nowhere else.  That is a defect in
+# the READER, not a gap in the source: a header's capitalisation is not a fact
+# about an atom.  The alternatives are listed rather than matched loosely, so a
+# genuinely unknown column still fails instead of being guessed at.
+_COL = {
+    "config": ("config", "configuration"),
+    "term":   ("term",),
+    "J":      ("j",),
+    "level":  ("level_cm1", "level_cm-1", "level", "e_cm-1", "e_cm1",
+               "energy_cm-1"),
+}
+
+
+def _columns(header):
+    """{role: index} for a header line, or None if a role is unfilled."""
+    cols = [c.strip().lower() for c in header.lstrip("# ").split("\t")]
+    out = {}
+    for role, names in _COL.items():
+        hit = next((i for i, c in enumerate(cols) if c in names), None)
+        if hit is None:
+            return None
+        out[role] = hit
+    return out
+
+
+def _species_of_filename(fn):
+    """(symbol, numeral) from a capture's FILENAME, e.g. 'SrII.tsv'.
+
+    Only used where the header carries no species comment.  The symbol must be
+    a real element and the numeral a real Roman stage, so a file named for
+    anything else is still refused rather than guessed at.
+    """
+    m = re.match(r"([A-Z][a-z]?)([IVX]+)(?:[._]|$)", fn)
+    if not m:
+        return None
+    if m.group(1) not in symbol_to_Z() or m.group(2) not in ROMAN:
+        return None
+    return (m.group(1), m.group(2))
+
+
 def _species_of(lines):
     """(symbol, numeral) from a capture's header comments, or None."""
     s2z = symbol_to_Z()
@@ -467,22 +523,24 @@ def captures():
         with open(os.path.join(ASD, fn), encoding="utf-8",
                   errors="replace") as fh:
             txt = fh.read()
-        if "level_cm1" not in txt:
-            continue
         lines = txt.split("\n")
-        sp = _species_of(lines)
-        if sp is None:
-            continue
-        hi = next((i for i, l in enumerate(lines)
-                    if l.startswith("config\t")
-                    or l.lstrip("# ").startswith("config\t")), None)
+        hi = ix = None
+        for i, l in enumerate(lines[:40]):
+            ix = _columns(l)
+            if ix is not None:
+                hi = i
+                break
         if hi is None:
             continue
-        cols = lines[hi].lstrip("# ").split("\t")
+        sp = _species_of(lines)
+        if sp is None:
+            sp = _species_of_filename(fn)
+        if sp is None:
+            continue
         try:
-            ij, il = cols.index("J"), cols.index("level_cm1")
-            ic, it = cols.index("config"), cols.index("term")
-        except ValueError:
+            ij, il = ix["J"], ix["level"]
+            ic, it = ix["config"], ix["term"]
+        except (KeyError, TypeError):
             continue
         for l in lines[hi + 1:]:
             if not l.strip() or l.startswith("#"):
@@ -1071,11 +1129,11 @@ def selftest():
 
     chk("captures naming a species and carrying a level table",
         capture_files(), 149)
-    chk("distinct species among them", len(captures()), 118)
+    chk("distinct species among them", len(captures()), 126)
     chk("EVERY ONE OF THEM IS A MEMBER -- none is excluded",
         len(grounds()) + len(excited_species()), len(captures()))
-    chk("read at the table's ground, L = 0", len(grounds()), 87)
-    chk("read at an excited level, L = 1", len(excited_species()), 31)
+    chk("read at the table's ground, L = 0", len(grounds()), 93)
+    chk("read at an excited level, L = 1", len(excited_species()), 33)
     chk("no L = 0 species is excited",
         [s2 for s2, lv, *_r in excited_species() if lv == 0.0], [])
     chk("every excited level is above the ground",
@@ -1086,12 +1144,12 @@ def selftest():
 
     # -- the members
     ms = members()
-    chk("members (species x nuclide)", len(ms), 3394)
-    chk("rows (x 8 dimensions)", len(rows()), 3394 * 8)
+    chk("members (species x nuclide)", len(ms), 3663)
+    chk("rows (x 8 dimensions)", len(rows()), 3663 * 8)
     chk("ONE LEVEL PER SPECIES -- no body is charted twice",
         len({(m[0], m[3], m[1]) for m in ms}), len(ms))
     chk("L splits them", sorted(collections.Counter(m[6] for m in ms).items()),
-        [(0, 2696), (1, 698)])
+        [(0, 2920), (1, 743)])
     chk("every member has Ne >= 1", min(m[4] for m in ms) >= 1, True)
     chk("every member has A = Z + N",
         all(m[2] == m[0] + m[1] for m in ms), True)
@@ -1101,8 +1159,8 @@ def selftest():
                - {m[5] for m in ms if m[6] == 0}), [5])
     chk("and it is the ONLY value they add -- 2 was already on 29 grounds",
         sum(1 for m in ms if m[6] == 0 and m[5] == 2), 29)
-    chk("which the excited levels raise to 346, not introduce",
-        sum(1 for m in ms if m[5] == 2), 346)
+    chk("which the excited levels raise to 362, not introduce",
+        sum(1 for m in ms if m[5] == 2), 362)
     chk("2Je = 3 and 8 are seated only by grounds",
         sorted({m[5] for m in ms if m[6] == 0}
                - {m[5] for m in ms if m[6] == 1}), [3, 8])
@@ -1131,19 +1189,19 @@ def selftest():
         [m for m in ms if forced(m[2], m[4]) and vanishes(m[0], m[1], m[5])],
         [])
     chk("members with F forced nonzero", sum(1 for m in ms
-                                             if forced(m[2], m[4])), 1697)
+                                             if forced(m[2], m[4])), 1831)
     chk("members with F established zero",
-        sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 365)
+        sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 423)
     chk("members that are neither -- the undetermined class",
         len(ms) - sum(1 for m in ms if forced(m[2], m[4]))
-        - sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 1332)
+        - sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 1409)
     chk("FORCED IS INDEPENDENT OF L -- it reads the electron count, not a level",
         sorted({forced(m[2], m[4]) for m in ms if m[6] == 1}), [0, 1])
     chk("vanishes needs even Z, even N and 2Je = 0",
         [vanishes(20, 20, 0), vanishes(20, 21, 0), vanishes(19, 20, 0),
          vanishes(20, 20, 1)], [True, False, False, False])
     chk("nuclides whose exterior field is EXACTLY Schwarzschild",
-        len(schwarzschild_members()), 236)
+        len(schwarzschild_members()), 294)
     chk("PAIRING_RULE_STATUS is not flattened to a proof",
         PAIRING_RULE_STATUS, "EMPIRICAL-RULE")
 
@@ -1176,7 +1234,7 @@ def selftest():
 
     # -- the transition is at SIX, counted over the members
     rel = relieved()
-    chk("members bound at D<=5 and unbound at D>=6", len(rel), 607)
+    chk("members bound at D<=5 and unbound at D>=6", len(rel), 684)
     chk("every one of them is neutral and forced",
         [m for m in rel if m[3] != 0 or not forced(m[2], m[4])], [])
     chk("none is relieved at D = 5",
