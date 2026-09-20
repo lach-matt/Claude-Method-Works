@@ -62,7 +62,7 @@ the registry, because it does not hold a copy of it.
     E = 512
     ALL EIGHT CHANNELS OCCUPIED
 
-**ITS OWN CELL IS (0, 5, 11), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 12), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
 
@@ -79,7 +79,7 @@ measured by `self_cell()` and is not offered as meaning anything.
     not a recharting of `nucbands`: the two share ZERO nuclides, which
     `deformedbands.disjoint_from_nucbands()` measures rather than asserts, so
     the overlap ruling has no subject.  At twenty-four: E 512, own cell
-    (0, 5, 11), resolutions 0.333 / 0.708 / 0.708, and the channel census does
+    (0, 5, 12), resolutions 0.333 / 0.692 / 0.692, and the channel census does
     not move because all eight were already occupied.  HEIGHT AND WIDTH NOW
     TIE at 17 distinct apiece, which is the first time the two axes have
     agreed, and it is a coincidence of this vertex set rather than a finding.
@@ -578,7 +578,7 @@ def selftest():
         "closure at fourteen and nothing since has given it back",
         closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 11))
+    chk("it has its own cell", own, (0, 5, 12))
     chk("ALL EIGHT CHANNELS ARE OCCUPIED -- DOCKET 34 filled the last",
         sorted({c[0] for c in figure()}), [0, 1, 2, 3, 4, 5, 6, 7])
     chk("and none is empty", [k for k in range(8)
@@ -596,17 +596,23 @@ def selftest():
     # because the point of the fixture is that the verdict is a measurement of
     # a moving object and not a constant someone wrote down.
     #
-    # REPINNED AGAIN when THE PHONON INDEX was seated as the 25th row.  The two
-    # were tied at 17/24 = 0.7083; at 25 they SEPARATE -- height resolves 18 of
-    # 25 and width still 17, so 0.72 against 0.68.  That is the fixture doing
-    # its job: a 25th member broke a tie two coordinates had held, and neither
-    # number was carried forward.
+    # REPINNED TWICE MORE, and the second time REVERSED the first's reading.
+    # At 24 rows height and width were tied at 17/24 = 0.7083.  Seating THE
+    # PHONON INDEX as the 25th SEPARATED them -- 18/25 = 0.72 against 17/25 =
+    # 0.68 -- and a fixture was added here asserting the tie was broken.
+    # Seating its k-POINT EXTENSION as the 26th RE-FORMED it: both now resolve
+    # 18 of 26, 0.6923 apiece.
+    #
+    # THAT ASSERTION IS THEREFORE WITHDRAWN, and it is worth keeping the
+    # history: a tie between two coordinates is not a structural fact about
+    # them, it is a fact about the population, and it came back.  The fixture
+    # that claimed otherwise lasted exactly one index.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.72))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6923))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.68))
-    chk("and seating the 25th index BROKE the height/width tie at 17/24",
-        res["height"][0] != res["width"][0], True)
+        (res["width"][1], res["width"][0]), ("measurement", 0.6923))
+    chk("the height/width tie BROKE at 25 and RE-FORMED at 26",
+        res["height"][0] == res["width"][0], True)
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

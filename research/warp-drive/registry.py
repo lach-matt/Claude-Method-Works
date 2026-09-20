@@ -293,6 +293,33 @@ REGISTERED = (
      "which any material's content follows by addition",
      "site-symmetry order, number of distinct irreps, maximum irrep dimension "
      "(the mode's degeneracy)"),
+    # ---- THE k-POINT EXTENSION.  M: "Now seat and push the k-point extension
+    # for the high-symmetry points."  phonondex.py section 5 REFUSED k != Gamma
+    # and named the obstruction: the little group's representations are
+    # PROJECTIVE for non-symmorphic groups.  Discharged for 852 of 870 members.
+    #
+    # High-symmetry k are the reciprocal-space analogue of Wyckoff positions --
+    # stabiliser types keyed by the STAR, keeping those whose stabiliser FIXES
+    # NO DIRECTION, which is the analogue of a position with no free parameter.
+    # No k-point table is read; the standard fcc/sc/bcc/hex sets are reproduced
+    # afterwards as a check.  The small representations are ordinary irreps of
+    # the CENTRAL EXTENSION by the factor system omega(R1,R2) =
+    # exp(-2 pi i g1 . v2), selected by their central character.
+    #
+    # 45.9 % of members have a non-trivial factor system, so the projective
+    # route is load-bearing.  The decisive row is diamond at X: dims [2,2,2,2],
+    # every mode doubly degenerate -- the non-symmorphic sticking, which an
+    # ordinary-rep implementation gets visibly wrong.
+    #
+    # EIGHTEEN MEMBERS ARE SEATED UNRESOLVED, in nine cubic non-symmorphic
+    # groups, where Burnside's randomised search does not converge.  They carry
+    # every quantity except the dimensions.  A status is never flattened.
+    ("kpointdex", "index", "TABLE",
+     "870 isolated high-symmetry k-point types over the 162 space groups that "
+     "have any -- the small representations available at each, computed "
+     "through their projective factor system; 18 seated UNRESOLVED",
+     "crystal momentum k (as the star), little-group order, factor-system "
+     "order, maximum small-representation dimension (the mode's degeneracy)"),
 )
 
 NOT_AN_INDEX = {
@@ -600,12 +627,12 @@ def selftest():
     chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
         [])
-    chk("twenty-five indexes registered -- eleven, two the overlap ruling seated "
+    chk("twenty-six indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
         "non-abelian states, DOCKET 34's K4, DOCKET 35's nuclear rotational "
-        "levels and DOCKET 36b's deformed ones, and THE PHONON INDEX", len(REGISTERED), 25)
+        "levels and DOCKET 36b's deformed ones, THE PHONON INDEX and its k-POINT EXTENSION", len(REGISTERED), 26)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED

@@ -1,0 +1,15 @@
+bravais	sg	symbol	pg_order	types12	iso12	types24	iso24	exact_iso	grid12_exact	grid24_exact
+aP	2	P-1	2	2	8	2	8	8	1	1
+mP	10	P2/m	4	4	8	4	8	8	1	1
+mS	12	C2/m	4	5	6	5	6	6	1	1
+oP	47	Pmmm	8	8	8	8	8	8	1	1
+oS	65	Cmmm	8	10	6	10	6	6	1	1
+oF	69	Fmmm	8	9	5	9	5	5	1	1
+oI	71	Immm	8	15	6	15	6	6	1	1
+tP	123	P4/mmm	16	10	6	10	6	6	1	1
+tI	139	I4/mmm	16	13	5	13	5	5	1	1
+hR	166	R-3m	12	6	4	6	4	4	1	1
+hP	191	P6/mmm	24	12	6	12	6	6	1	1
+cP	221	Pm-3m	48	9	4	9	4	4	1	1
+cF	225	Fm-3m	48	12	4	12	4	4	1	1
+cI	229	Im-3m	48	10	4	10	4	4	1	1
