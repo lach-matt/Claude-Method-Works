@@ -685,6 +685,15 @@ chemistry of its own: the species are the reader's or the model's.
 
 ## The public build
 
+**The label, and the field that is not named.** The site is titled "The Method Research" (`SITE_TITLE`,
+which the page, the cite line and the console footer read from `meta`), by the author's decision of
+2026-09-20: the website and its indexes exist to carry the work forward, and nothing in the field the
+research tree is named for is published. So the tree's own name is a private pattern in the guard
+(`(?i)\bwarp\b`, `warp-drive`), every path the site prints from that tree is rewritten by
+`public_path()` to `research/…`, its root is printed as "the research tree", and the selftest walks
+every paper's non-body fields as well as the index and the particle file for it.
+
+
 The books the index is drawn from are unpublished and not peer reviewed, and the author's ruling
 (2026-09-19) is that **the public site references none of them**: no register numbers, section
 numbers, member file names, line references or quoted passages, and no search over the corpus.

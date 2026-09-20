@@ -1,20 +1,20 @@
 window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
-  "title": "The Method Index",
+  "title": "The Method Research",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-19T21:58:50+00:00",
-  "commit": "ac7fb3170664",
+  "built": "2026-09-20T04:52:40+00:00",
+  "commit": "a5e4978cf7f7",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
   "cite": {
    "author": "Lach, M.",
-   "title": "The Method Index",
+   "title": "The Method Research",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "ac7fb3170664",
-   "text": "Lach, M. (2026). The Method Index, edition ac7fb3170664. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition ac7fb3170664}\n}"
+   "commit": "a5e4978cf7f7",
+   "text": "Lach, M. (2026). The Method Research, edition a5e4978cf7f7. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Method Research},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition a5e4978cf7f7}\n}"
   },
   "history": [
    {
@@ -261,13 +261,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ac7fb3170664b4fcc906621c860a04a3c2e4e53c",
     "note": null
+   },
+   {
+    "date": "2026-09-19",
+    "commit": "a5e4978",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a5e4978cf7f775291036af54383a0460245f3bb0",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 165542,
-  "md5": "05514ad75a7282ccf971e1af2a4bafb0",
+  "bytes": 165531,
+  "md5": "149fe090b4d00e4225c4789b8b133c93",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -320,7 +327,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "words": 11350,
     "note": "the paper as the author wrote it, from the repository's research tree rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
-     "path": "research/warp-drive/paper/THE-HIERARCHY-LAW.md",
+     "path": "research/paper/THE-HIERARCHY-LAW.md",
      "commit": "5bdadaa"
     },
     "pdf": {
@@ -348,8 +355,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 165542,
-   "md5": "05514ad75a7282ccf971e1af2a4bafb0",
+   "bytes": 165531,
+   "md5": "149fe090b4d00e4225c4789b8b133c93",
    "what": "the released papers, rendered"
   },
   {
@@ -360,8 +367,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/particles.js",
-   "bytes": 856442,
-   "md5": "4ed5e6adea5e835c2b0f384b7b138f68",
+   "bytes": 856385,
+   "md5": "6cae6e64ef7f0a28c633cf52cef081f8",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses"
   },
   {
@@ -9603,8 +9610,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 856442,
-  "md5": "4ed5e6adea5e835c2b0f384b7b138f68",
+  "bytes": 856385,
+  "md5": "6cae6e64ef7f0a28c633cf52cef081f8",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9612,38 +9619,38 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "doi": "10.1142/S0217751X26300111",
    "capture": [
     {
-     "path": "research/warp-drive/captures/PDG-2026.tsv",
+     "path": "research/captures/PDG-2026.tsv",
      "bytes": 33555,
      "md5": "53a5b67b4dfe12c782635191ca9e1fd0",
      "exists": true
     },
     {
-     "path": "research/warp-drive/captures/NUCBANDS-levels.tsv",
+     "path": "research/captures/NUCBANDS-levels.tsv",
      "bytes": 61455,
      "md5": "d182668ff0192a3ed8d29c7f9a2b0ef8",
      "exists": true
     },
     {
-     "path": "research/warp-drive/captures/NUCBANDS-bands.tsv",
+     "path": "research/captures/NUCBANDS-bands.tsv",
      "bytes": 11560,
      "md5": "74d2217998e555c4362f021820b45af7",
      "exists": true
     },
     {
-     "path": "research/warp-drive/captures/NUCBANDS-unplaced.tsv",
+     "path": "research/captures/NUCBANDS-unplaced.tsv",
      "bytes": 636,
      "md5": "a5bafe0b78cb766967af0ff3deb8b171",
      "exists": true
     },
     {
-     "path": "research/warp-drive/captures/arxiv-2303.13849.txt",
+     "path": "research/captures/arxiv-2303.13849.txt",
      "bytes": 214530,
      "md5": "1847412451a8fff4d81f4dfde0fc07d9",
      "exists": true
     }
    ],
    "tree": {
-    "root": "research/warp-drive",
+    "root": "the research tree",
     "commit": "d264df1",
     "state_commit": "bfa413696718",
     "instruments": [

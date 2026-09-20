@@ -83,7 +83,7 @@ ELEMENT_PREFIX = ("window.__mi = window.__mi || {}; "
                   "(window.__mi.el = window.__mi.el || {})[%d] = ")
 WRAP_SUFFIX = ";\n"
 
-SITE_TITLE = "The Method Index"
+SITE_TITLE = "The Method Research"
 SITE_SUBTITLE = ("Every element on every axis of every index, each value carrying "
                  "the status the data gives it")
 
@@ -150,7 +150,17 @@ PRIVATE_PATTERNS = [
     r"\bbundles?\b", r"method/members", r"\brecovered/", r"(?<![\w-])drive/", r"LW1-", r"r2-scf",
     r"tower-2\.py", r"\.tsv\b", r"rclose\.py", r"\bsessions?\s+\d", r"\bchats?\s+\d",
     r"\bhandoffs?\b", r"\bfaults?\s+\d",
+    # the research tree's own name is not published either, by the author's decision (2026-09-20):
+    # the site carries its indexes under the label The Method Research and names no field
+    r"(?i)\bwarp\b", r"warp-drive",
 ]
+# the research tree as the site names it: its directory is not published, and every path
+# the site prints from it is rewritten by public_path()
+PUBLIC_TREE = "research"
+
+
+def public_path(path):
+    return re.sub(r"^research/warp-drive(/|$)", PUBLIC_TREE + r"\1", path)
 _PRIVATE_RX = [re.compile(x) for x in PRIVATE_PATTERNS]
 # names the site may print that a pattern would otherwise catch: the walk table
 # is this repository's own reconstruction, not one of the books, and the two
@@ -967,7 +977,7 @@ def papers_block(out_dir=OUT, write=True, log=print):
             "held": True,
             "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
             "md5_recorded": None,
-            "tree": {"path": rel, "commit": _git_last_commit(rel)},
+            "tree": {"path": public_path(rel), "commit": _git_last_commit(rel)},
             "words": len(text.split()),
             "headings": headings,
             "figures": figs,
@@ -1890,10 +1900,10 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "citation": "Review of Particle Physics, Particle Data Group, Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026)",
         "doi": "10.1142/S0217751X26300111",
         "via": "the scikit-hep particle package, version 1.0.1; the capture records the md5 of what it read",
-        "capture": [{"path": d["path"], "bytes": d["bytes"], "md5": d["md5"], "exists": d["exists"]} for d in srow.get("paths", [])],
+        "capture": [{"path": public_path(d["path"]), "bytes": d["bytes"], "md5": d["md5"], "exists": d["exists"]} for d in srow.get("paths", [])],
         "header": [l.lstrip("# ").strip() for l in header],
         "quantum_numbers_note": "the masses are the 2026 edition's; the quantum numbers the indexes chart reach the package from a 2008 file and a maintainers' extension, and nine spot-checks against canonical values are the instrument's fixtures",
-        "tree": {"root": "research/warp-drive", "commit": commit or WARP_COMMIT,
+        "tree": {"root": "the research tree", "commit": commit or WARP_COMMIT,
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
@@ -1905,7 +1915,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
             fp = os.path.join(root, path)
             if os.path.isfile(fp):
                 with open(fp, "rb") as fh:
-                    prov["capture"].append({"path": "research/warp-drive/" + path, "bytes": os.path.getsize(fp), "md5": hashlib.md5(fh.read()).hexdigest(), "exists": True})
+                    prov["capture"].append({"path": public_path("research/warp-drive/" + path), "bytes": os.path.getsize(fp), "md5": hashlib.md5(fh.read()).hexdigest(), "exists": True})
     sweep = None
     if PS is not None:
         sweep = _sweep(PS)
@@ -3238,7 +3248,8 @@ def selftest(warp_root=WARP_ROOT):
     check("papers: every paper from the store carries the store's md5", all(p["md5"] == p["md5_recorded"] for p in pp if p["held"] and p["md5_recorded"]), True)
     check("papers: the hierarchy law paper comes from the research tree with its commit, and its PDF with an md5",
           (pp[2]["tree"]["path"], bool(pp[2]["tree"]["commit"]), bool(pp[2]["pdf"] and pp[2]["pdf"]["md5"])),
-          ("research/warp-drive/paper/THE-HIERARCHY-LAW.md", True, True))
+          ("research/paper/THE-HIERARCHY-LAW.md", True, True))
+
     check("papers: the hierarchy law paper is over ten thousand words and opens with the law", (pp[2]["words"] > 10000, pp[2]["title"]), (True, "The Hierarchy Law of Mathematical Languages"))
     full_papers = json.loads(open(os.path.join(OUT, PAPERS_JS), encoding="utf-8").read()[len(PAPERS_PREFIX):-len(WRAP_SUFFIX)]) if os.path.isfile(os.path.join(OUT, PAPERS_JS)) else []
     lang = next((p for p in full_papers if p["slug"] == "languages"), None)
@@ -3246,6 +3257,9 @@ def selftest(warp_root=WARP_ROOT):
         check("papers: the hierarchy law paper cites nothing from the books, measured by the guard with its own section marks excluded",
               (lang["book_citations"], sorted(lang["own_section_marks"])), ([], sorted(_OWN_SECTION_MARKS)))
         check("papers: its render carries every heading of the source", len(lang["headings"]), sum(1 for ln in open(os.path.join(REPO, "research/warp-drive/paper/THE-HIERARCHY-LAW.md"), encoding="utf-8") if ln.startswith("#")))
+    check("papers: no path or note the site prints names the research tree's directory or a field",
+          [(p["slug"], private_hits(json.dumps({k: v for k, v in p.items() if k != "html"}))) for p in full_papers if p.get("held")],
+          [(p["slug"], []) for p in full_papers if p.get("held")])
     check("papers: every figure a held paper cites is carried with its ledger md5", all(p["figures_ok"] for p in pp if p["held"]), True)
     check("papers: the three-body paper cites 3 figures, the Löwdin paper 3 or more",
           (pp[1]["figures"], pp[0]["figures"] >= 3), (3, True))
