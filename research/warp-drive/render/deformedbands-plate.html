@@ -1,0 +1,158 @@
+<title>The Deformed Two-Quasiparticle Levels</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --bound:#B86A12; --free:#137A69; --undet:#7C8796;
+  --hue7:#8A6D3B; --hue8:#4A5A8C; --hue9:#9C4A6E;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+    --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.06rem;font-weight:600;margin:34px 0 12px;letter-spacing:-.006em}
+p{margin:0 0 1.05em}
+p.after{margin-top:18px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sm{font-size:.82em}
+.eqn{font-size:1.16rem;color:var(--ink);background:var(--sunk);border:1px solid var(--rule);
+  border-radius:3px;padding:15px 18px;letter-spacing:.02em;margin:0 0 22px;overflow-x:auto}
+.hot{color:var(--algebra)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+.tablewrap.tall{max-height:560px;overflow-y:auto}
+.tablewrap.tall thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+th.num{text-align:right}
+td.cell{color:var(--ink)}
+td.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.chip.b0{color:var(--free)} .chip.b1{color:var(--bound)} .chip.b2{color:var(--undet)}
+.yes{color:var(--geometry);font-weight:600} .no{color:var(--muted);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+rect.b0{fill:var(--free)} rect.b1{fill:var(--bound)} rect.b2{fill:var(--undet)}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.key span{display:flex;align-items:center;gap:7px}
+.key i.k{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+.key i.b0{background:var(--free)} .key i.b1{background:var(--bound)} .key i.b2{background:var(--undet)}
+svg text.tb0{fill:var(--free)} svg text.tb1{fill:var(--bound)} svg text.tb2{fill:var(--undet)}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd.hot{color:var(--algebra)}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.7em}
+ul.refuse li b{color:var(--ink)}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.trio,.duo{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3dbar .hint{color:var(--faint)}
+.v3dbar .dims{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.v3dbar .dims button{padding:3px 8px;min-width:30px}
+.v3dbar .dims button.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.v3dbar .now{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+@media (prefers-reduced-motion: reduce){.v3d canvas{}}
+</style>
+<div class="wrap">
+<header class="mast"><p class="eyebrow">Research plate &middot; an index of quantum objects &middot; DOCKET 36b</p><h1>The Deformed Two-Quasiparticle&nbsp;Levels</h1><p class="dek">1,907 excited states in two-quasiparticle rotational bands of deformed odd-odd nuclei &mdash; a deformed rotor&rsquo;s tower, beside <code>nucbands</code>&rsquo; shears mechanism, sharing not one nuclide with it.</p><div class="stamp"><span>instrument <b>deformedbands.py</b></span><span>members <b>1,907 levels</b></span><span>bands <b>173</b></span><span>arity <b>2</b></span><span>cells <b>96</b></span><span>cell <b>(2,&nbsp;49,&nbsp;2)</b></span><span>channel <b>K2</b></span></div></header>
+<section><div class="shead"><span class="snum">01</span><h2>A member is one level, and it is not the other nuclear index&rsquo;s</h2></div><p class="sub">A nuclear excited state in a two-quasiparticle rotational band of a deformed odd-odd nucleus, Z&nbsp;67&ndash;71. It carries spin I and parity exactly as a particle carries J and P, so the quantum numbers are <b>the level&rsquo;s own</b> &mdash; not its band&rsquo;s and not its nuclide&rsquo;s.</p><p><code>nucbands</code> holds the levels of MAGNETIC and ANTIMAGNETIC rotational bands &mdash; the shears mechanism in weakly-deformed and near-spherical nuclei. These are a DEFORMED ROTOR&rsquo;s tower: a different mechanism, in different nuclei, from a different paper. The disjointness is measured rather than asserted &mdash; <b>23 nuclides here, 123 there, 0 in common</b>.</p></section>
+<div class="note warn"><span class="lab">WITHDRAWN in the instrument, and the plate carries the corrected ground rather than the first one</span><p style="margin-bottom:0">The zero above was first explained by saying the two mass ranges are disjoint. <b>They are not.</b> <code>nucbands</code> spans A&nbsp;58&ndash;205 and <em>contains</em> this index&rsquo;s A&nbsp;156&ndash;174 entirely. The separation survives anyway, and is sharper than the ranges suggest: of this index&rsquo;s <b>10</b> distinct mass numbers, <b>0</b> occur in <code>nucbands</code> at all. But that is a measured fact about which nuclides each paper happens to tabulate, not a consequence of where they sit on the chart &mdash; a weaker ground, and the true one.</p></div>
+<div class="note"><span class="lab">The source&rsquo;s title overclaims, and the index reports the table</span><p style="margin-bottom:0">The paper is titled &ldquo;&hellip; Deformed Odd-Odd Nuclei, 156&nbsp;&le;&nbsp;A&nbsp;&le;&nbsp;168&rdquo;, and its Table&nbsp;3 does not respect that: <b>132</b> of the 1,907 seated levels sit above A&nbsp;=&nbsp;168, up to A&nbsp;=&nbsp;<b>174</b>. This index describes what the table holds, not what the title claims, and the discrepancy is recorded rather than smoothed.</p></div>
+<section><div class="shead"><span class="snum">02</span><h2>The two coordinates</h2></div><div class="tablewrap"><table><thead><tr><th>slot</th><th>what it measures</th><th>alphabet</th><th class="num">values</th><th class="num">distinct/cells</th><th>verdict</th></tr></thead><tbody><tr><td class="name mono">2I</td><td>spin, doubled, so a half-integer spin stays an integer &mdash; READ from the I<sup>&pi;</sup> cell of Table&nbsp;3</td><td class="mono sm">0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, …</td><td class="num">51</td><td class="num">0.531</td><td>measurement</td></tr><tr><td class="name mono">parity</td><td>+1 or &minus;1, READ from the same cell</td><td class="mono sm">-1, 1</td><td class="num">2</td><td class="num">0.021</td><td>measurement</td></tr></tbody></table><caption>A coordinate separating 90% or more of the members is a row label, not a measurement. None here is.</caption></div></section>
+<section><div class="shead"><span class="snum">03</span><h2>Three refusals, each measured rather than asserted</h2></div><ul class="tight refuse"><li><b>The energy is not a coordinate.</b> It is a magnitude, not a quantum number. It is also not even a number for much of this table: <b>61</b> bandheads are printed as <span class="mono">A+134.27</span> or <span class="mono">1135.7+y</span>, relative to an unknown offset. Both reasons hold and the second is peculiar to this source.</li><li><b>The band number is not a coordinate</b> &mdash; it is the table&rsquo;s row label. Measured against <code>figure.py</code>&rsquo;s rule that a coordinate separating 90&nbsp;% or more of its members groups nothing: <b>234 distinct band numbers over 234 entries, a ratio of 1.00</b>. It separates every entry and groups none.</li><li><b>Z and N are not coordinates</b>, and this one is a judgement rather than a rule, so it is charted anyway and refused against a number. (2I, parity, Z, N) would be <b>853 cells at K0, cell (0,&nbsp;52,&nbsp;40)</b>. They are properties of the HOST nuclide, not of the level, which is DOCKET 28&rsquo;s trap exactly.</li></ul></section>
+<section><div class="shead"><span class="snum">04</span><h2>The chart, drawn flat</h2></div><p class="sub">Arity 2, so there is no three-axis view to build and none is padded into one.</p><figure class="plate"><svg viewBox="0 0 1164 156" role="img" aria-label="the deformed two-quasiparticle chart: 96 cells over 51 spins and two parities" style="max-width:100%;height:auto"><text x="58" y="49" text-anchor="end" font-size="14" font-family="IBM Plex Mono,monospace" fill="var(--muted)">&#960; = +</text><rect x="68" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="89" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="110" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="131" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="152" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="173" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="194" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="215" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="236" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="257" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="278" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="299" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="320" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="341" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="362" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="383" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="404" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="425" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="446" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="467" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="488" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="509" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="530" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="551" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="572" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="593" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="614" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="635" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="656" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="677" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="698" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="719" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="740" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="761" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="782" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="803" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="824" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="845" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="866" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="887" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="908" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="929" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="950" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="971" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="992" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="1013" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="1034" y="38" width="13" height="13" rx="2" fill="none" stroke="var(--algebra)" stroke-width="1.4" stroke-dasharray="2 2"/><rect x="1055" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="1076" y="38" width="13" height="13" rx="2" fill="none" stroke="var(--algebra)" stroke-width="1.4" stroke-dasharray="2 2"/><rect x="1097" y="38" width="13" height="13" rx="2" fill="var(--geometry)"/><rect x="1118" y="38" width="13" height="13" rx="2" fill="none" stroke="var(--algebra)" stroke-width="1.4" stroke-dasharray="2 2"/><text x="58" y="107" text-anchor="end" font-size="14" font-family="IBM Plex Mono,monospace" fill="var(--muted)">&#960; = &#8722;</text><rect x="68" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="89" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="110" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="131" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="152" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="173" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="194" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="215" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="236" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="257" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="278" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="299" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="320" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="341" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="362" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="383" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="404" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="425" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="446" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="467" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="488" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="509" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="530" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="551" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="572" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="593" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="614" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="635" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="656" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="677" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="698" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="719" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="740" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="761" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="782" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="803" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="824" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="845" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="866" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="887" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="908" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="929" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="950" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="971" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="992" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="1013" y="96" width="13" height="13" rx="2" fill="none" stroke="var(--algebra)" stroke-width="1.4" stroke-dasharray="2 2"/><rect x="1034" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="1055" y="96" width="13" height="13" rx="2" fill="none" stroke="var(--algebra)" stroke-width="1.4" stroke-dasharray="2 2"/><rect x="1076" y="96" width="13" height="13" rx="2" fill="var(--order)"/><rect x="1097" y="96" width="13" height="13" rx="2" fill="none" stroke="var(--algebra)" stroke-width="1.4" stroke-dasharray="2 2"/><rect x="1118" y="96" width="13" height="13" rx="2" fill="var(--order)"/><text x="74" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">0</text><text x="179" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">10</text><text x="284" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">20</text><text x="389" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">30</text><text x="494" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">40</text><text x="599" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">50</text><text x="704" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">60</text><text x="809" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">70</text><text x="914" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">80</text><text x="1019" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">90</text><text x="1124" y="136" text-anchor="middle" font-size="12" font-family="IBM Plex Mono,monospace" fill="var(--faint)">100</text><text x="599" y="144" text-anchor="middle" font-size="12" letter-spacing="1.4" font-family="IBM Plex Mono,monospace" fill="var(--muted)">2I &#8212; SPIN, DOUBLED</text></svg><div class="key"><span><i class="k" style="background:var(--geometry)"></i>&pi; = +1 held</span><span><i class="k" style="background:var(--order)"></i>&pi; = &minus;1 held</span><span><i class="k" style="border:1.4px dashed var(--algebra)"></i>in the box, not in the chart</span></div><figcaption><b>This view is the index itself, not a projection of it.</b> The chart has two coordinates and they are the two rows, so every one of the <b>96</b> cells is its own square and nothing is collapsed. The box is 51&nbsp;&times;&nbsp;2 = <b>102</b>, so <b>6</b> positions are empty &mdash; and they are not scattered. Both parities are held at every 2I from 0 to <b>88</b>; above that only one parity survives at each spin, and the survivor alternates: 2I&nbsp;=&nbsp;90&nbsp;+, 2I&nbsp;=&nbsp;92&nbsp;&minus;, 2I&nbsp;=&nbsp;94&nbsp;+, 2I&nbsp;=&nbsp;96&nbsp;&minus;, 2I&nbsp;=&nbsp;98&nbsp;+, 2I&nbsp;=&nbsp;100&nbsp;&minus;.</figcaption></figure></section>
+<section><div class="shead"><span class="snum">05</span><h2>What it measures</h2></div><div class="kv"><div><dt>cells</dt><dd>96</dd></div><div><dt>box</dt><dd>102<small>what charting cost tracks</small></dd></div><div><dt>cell</dt><dd>(2, 49, 2)<small>K, height, width</small></dd></div><div><dt>members</dt><dd>1,907<small>levels, charted into 96 cells</small></dd></div></div><div class="tablewrap"><table><thead><tr><th>language</th><th class="num">admits</th><th class="num">E</th><th>verdict</th></tr></thead><tbody><tr><td class="name">order</td><td class="num">102</td><td class="num">6</td><td><span class="no">does not close</span></td></tr><tr><td class="name">algebra</td><td class="num">102</td><td class="num">6</td><td><span class="no">does not close</span></td></tr><tr><td class="name">geometry</td><td class="num">101</td><td class="num">5</td><td><span class="no">does not close</span></td></tr><tr><td class="name">information</td><td class="num">99</td><td class="num">3</td><td><span class="no">does not close</span></td></tr><tr><td class="name">statistics</td><td class="num">96</td><td class="num">0</td><td><span class="yes">closes</span></td></tr></tbody></table><caption>Against 96 cells held.</caption></div><p class="after"><b>And its K2 is the free one.</b> At arity 2 there is exactly one 2-subset of the coordinates, so <code>kdet</code> returns True for every set whatever and statistics closes vacuously &mdash; measured, not assumed: <span class="mono">arity 2 &le; 2</span>, so the closer is vacuous. <b>This index really closes in NOTHING</b>, which is where <code>mesons</code>, <code>baryons</code> and <code>nucbands</code> sit. It is said rather than banked.</p></section>
+<div class="note good"><span class="lab">The cell, against the register</span><p style="margin-bottom:0">Measured, not assumed: <b>(2,&nbsp;49,&nbsp;2)</b> is held by <b>no other seated index</b>.</p></div>
+<div class="note"><span class="lab">56 levels are REFUSED, and counted apart</span><p style="margin-bottom:0">They carry a spin and no parity. That is the same kind of gap <code>nucbands</code> reports and it is counted separately for the same reason: &ldquo;no parity printed&rdquo; and &ldquo;no spin printed&rdquo; are different facts about the source, and flattening them would lose one. The capture itself is total against three of the paper&rsquo;s own numbers &mdash; <b>234 entries, 173 bands, 61 bandhead states</b>, all exact.</p></div>
+<div class="note"><span class="lab">Where the data comes from</span><p>Charted from deformed.entries(), which segments captures/arxiv-2508.05447.txt &mdash; Pinky, Kumar, Singh &amp; Jain, &#x27;Features of Two-Quasiparticle Rotational Bands in Deformed Odd-Odd Nuclei, 156 &lt;= A &lt;= 168&#x27;.  The capture is total against three of the paper&#x27;s own numbers: 234 entries, 173 bands, 61 bandhead states, all exact.  Nothing is written down by hand.</p><ul><li><span class="mono">research/warp-drive/captures/arxiv-2508.05447.txt</span> — one file, 117313 bytes, md5 <span class="mono">423927db57250ab47c410335a384f2f6</span></li><li><span class="mono">research/warp-drive/captures/DEFORMED-entries.tsv</span> — one file, 6548 bytes, md5 <span class="mono">48be2d7add0f497060300ddf8d0e10df</span></li><li><span class="mono">research/warp-drive/captures/DEFORMED-levels.tsv</span> — one file, 47888 bytes, md5 <span class="mono">692de07f3daa5dd94d175d9295dc7854</span></li></ul><p style="margin-bottom:0">Declared as <span class="mono">SOURCE</span> in <span class="mono">deformedbands.py</span> beside the code that reads it, and hashed into <span class="mono">STATE.json</span> by <span class="mono">state.py</span>. A provenance held only in prose has to be recovered later.</p></div>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/deformedbands.py --selftest</code> &mdash; 22 fixtures<br><code>python3 research/warp-drive/deformedbands.py</code> &mdash; the reading<br><code>python3 research/warp-drive/render/build_particle_plates.py deformedbands</code> &mdash; this plate</p></div>
+</div>

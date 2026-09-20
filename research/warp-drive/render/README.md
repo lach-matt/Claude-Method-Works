@@ -37,11 +37,22 @@ One plate per seated index, all on the shared scaffold in `plate.py`, so the sty
 measured axis choice, the swept camera and the inlined runtime are one implementation rather than
 one per plate.
 
+> **WITHDRAWN, and then re-earned.** That first sentence was *false* when it was written and stayed
+> false for four registry rows: the register held 27 rows and **23 of them had a rendering**.
+> `deformedbands` (row 24), `phonondex` (25), `kpointdex` (26) and `corepdex` (27) had **none at
+> all**. Rows 13, 14 and 18 are the `overlaprule` sub-charts and *are*
+> rendered, in `overlaprule-plate.html`, under the chart's own name — `gravity (B, F, X)`,
+> `madelung (n+l, k)`, `baryons (2I, Q3)` — rather than under the registry key, which is why a grep
+> for `gravity_bound` finds nothing there. With the four below built, the sentence is true: **27
+> rows, 27 renderings.**
+
     python3 build_index_plates.py              the periodic-element indexes
     python3 build_particle_plates.py           DOCKET 27's three particle indexes,
-                                               and DOCKET 30/31/32/34/35's
-    python3 build_particle_plates.py nucbands  the one plate with NO 3-D view:
-                                               its index is arity 2, and every
+                                               and DOCKET 30/31/32/34/35/36b's
+    python3 build_crystal_plates.py            the crystal-symmetry chain:
+                                               phonondex, kpointdex, corepdex
+    python3 build_particle_plates.py nucbands  one of the two plates with NO 3-D
+                                               view: its index is arity 2, and every
                                                third axis is a DIFFERENT chart at K0
     python3 build_particle_plates.py mesons    just one
 
@@ -62,6 +73,23 @@ that plate states as a finding, showing up in the rendering.
 Each particle plate also carries a provenance block read from `registry.sources()`: the declared
 `SOURCE` beside the code that reads the data, the file it names, its size and its md5. A provenance
 held only in prose has to be recovered later.
+
+`build_crystal_plates.py` writes `phonondex-plate.html`, `kpointdex-plate.html` and
+`corepdex-plate.html`. They are **one chain and not three unrelated indexes**, and each plate names
+the refusal the next one discharges: `phonondex` declines k ≠ Γ because the little group's
+representations are projective there, `kpointdex` discharges exactly that and records a second
+obstruction it does not repair, and `corepdex` discharges that one. **All three are arity 3, so
+each 3-D view is the index itself** — nothing projected, nothing collapsed, and
+`plate.exactness()` says so in the caption. The phonon plate's camera sweep finds no angle
+satisfying every constraint and falls back to the house default, printing that it did; three
+earlier plates already do the same.
+
+`build_particle_plates.py deformedbands` writes the fourth. Its index is arity 2, so like
+`nucbands` it gets **no 3-D view and none is padded into one**: `parity_ladder_svg()` draws the
+(2I, parity) chart flat, one square per cell, with the six positions in the box that the chart does
+*not* hold drawn open and dashed. Those six are not scattered — both parities are held at every 2I
+from 0 to 88, and above that a single parity survives at each spin, alternating. The picture is
+read from `deformedbands.index()`; the caption's counts are recomputed from it at build time.
 
 ## The two legacy builders, and the inputs that were missing
 

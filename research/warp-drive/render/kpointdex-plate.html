@@ -1,0 +1,373 @@
+<title>The k-Point Index</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --bound:#B86A12; --free:#137A69; --undet:#7C8796;
+  --hue7:#8A6D3B; --hue8:#4A5A8C; --hue9:#9C4A6E;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+    --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.06rem;font-weight:600;margin:34px 0 12px;letter-spacing:-.006em}
+p{margin:0 0 1.05em}
+p.after{margin-top:18px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sm{font-size:.82em}
+.eqn{font-size:1.16rem;color:var(--ink);background:var(--sunk);border:1px solid var(--rule);
+  border-radius:3px;padding:15px 18px;letter-spacing:.02em;margin:0 0 22px;overflow-x:auto}
+.hot{color:var(--algebra)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+.tablewrap.tall{max-height:560px;overflow-y:auto}
+.tablewrap.tall thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+th.num{text-align:right}
+td.cell{color:var(--ink)}
+td.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.chip.b0{color:var(--free)} .chip.b1{color:var(--bound)} .chip.b2{color:var(--undet)}
+.yes{color:var(--geometry);font-weight:600} .no{color:var(--muted);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+rect.b0{fill:var(--free)} rect.b1{fill:var(--bound)} rect.b2{fill:var(--undet)}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.key span{display:flex;align-items:center;gap:7px}
+.key i.k{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+.key i.b0{background:var(--free)} .key i.b1{background:var(--bound)} .key i.b2{background:var(--undet)}
+svg text.tb0{fill:var(--free)} svg text.tb1{fill:var(--bound)} svg text.tb2{fill:var(--undet)}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd.hot{color:var(--algebra)}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.7em}
+ul.refuse li b{color:var(--ink)}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.trio,.duo{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3dbar .hint{color:var(--faint)}
+.v3dbar .dims{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.v3dbar .dims button{padding:3px 8px;min-width:30px}
+.v3dbar .dims button.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.v3dbar .now{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+@media (prefers-reduced-motion: reduce){.v3d canvas{}}
+</style>
+<div class="wrap">
+<header class="mast"><p class="eyebrow">Research plate &middot; an index of quantum objects &middot; registry row&nbsp;26</p><h1>The k&#8209;Point&nbsp;Index</h1><p class="dek">870 isolated high-symmetry k-stars over the 162 space groups that carry one &mdash; with the projective small representations <code>phonondex</code> refused to compute.</p><div class="stamp"><span>instrument <b>kpointdex.py</b></span><span>members <b>870 k-stars</b></span><span>space groups <b>162 of 230</b></span><span>arity <b>3</b></span><span>cells <b>21</b></span><span>cell <b>(0,&nbsp;7,&nbsp;5)</b></span><span>channel <b>K0</b></span></div></header>
+<div class="note good"><span class="lab">A refusal discharged, not waived</span><p style="margin-bottom:0"><code>phonondex</code> &sect;5 declined k&nbsp;&ne;&nbsp;&Gamma; because &ldquo;at a general k the little group&rsquo;s representations are <b>PROJECTIVE</b> for non-symmorphic groups, which is a different computation and is not done here.&rdquo; It is done here: the multiplier is decided rather than guessed, and <b>305 of the 870 members (35.1&thinsp;%) carry a non-trivial one</b> &mdash; so the obstruction was real and it is behind us.</p></div>
+<section><div class="shead"><span class="snum">01</span><h2>What separates a point from the line it sits on</h2></div><p class="sub">The stabiliser of k is constant along a whole symmetry line or plane, and a grid reports those on exactly the same footing. The missing ingredient is a dimension.</p><p class="eqn mono">k is a high-symmetry POINT&nbsp;&nbsp;iff&nbsp;&nbsp;rank[R &minus; I : R &isin; G<sub>k</sub>] = 3</p><p>&mdash; the fixed-point set of k&rsquo;s own stabiliser is 0-dimensional. That test is grid-free and exact, and once it is written down the grid can be thrown away: rank grows by at least one per element added, so some subset of G<sub>k</sub> of size at most 3 already reaches rank 3, and the k it fixes are enumerated exactly by Hermite normal form. <b>Sweeping every subset of size &le;&nbsp;3 therefore gives a finite, provably complete superset of the high-symmetry points, with no grid and no convergence question.</b></p><p>The grid is reported anyway, because the question was asked and a grid-dependent answer would have been a red flag. Measured on the holohedral space group of each of the <b>14</b> Bravais lattices, 1/12 against 1/24 against the exact enumeration &mdash; and the agreement is not luck. The coordinate denominators that occur across all 230 space groups are <b>1, 2, 3, 4 and nothing else</b>, and their lowest common multiple is <b>12</b>, so a 1/12 grid is exactly sufficient and any finer grid must agree.</p></section>
+<section><div class="shead"><span class="snum">02</span><h2>The three coordinates</h2></div><p class="sub"><code>star</code> and <code>pg_order</code> are <b>not</b> coordinates: their product is fixed by orbit&ndash;stabiliser, exactly as <code>multiplicity</code> and <code>pg_order</code> are excluded at &Gamma;. The star is a label the member carries, not an axis of the chart.</p><div class="tablewrap"><table><thead><tr><th>slot</th><th>what it measures</th><th>alphabet</th><th class="num">values</th><th class="num">distinct/cells</th><th>verdict</th></tr></thead><tbody><tr><td class="name mono">little_order</td><td>the order of the group the modes at k transform under</td><td class="mono sm">2, 4, 6, 8, 12, 16, 24, 48</td><td class="num">8</td><td class="num">0.381</td><td>measurement</td></tr><tr><td class="name mono">n_smallreps</td><td>how many symmetry species exist at that k</td><td class="mono sm">1, 2, 3, 4, 5, 6, 8, 10, 12</td><td class="num">9</td><td class="num">0.429</td><td>measurement</td></tr><tr><td class="name mono">max_dim</td><td>the largest small-representation dimension at that k</td><td class="mono sm">1, 2, 3, 4, 6</td><td class="num">5</td><td class="num">0.238</td><td>measurement</td></tr></tbody></table><caption>A coordinate separating 90% or more of the members is a row label, not a measurement. None here is.</caption></div></section>
+<div class="note warn"><span class="lab">WITHDRAWN in the instrument, and repeated here so the plate does not restore it</span><p style="margin-bottom:0"><code>max_dim</code>&rsquo;s gloss once read &ldquo;i.e. the maximum degeneracy symmetry forces at that k&rdquo;. That is <b>false</b> wherever time reversal doubles a level: the antiunitary obstruction is not in the little group and no small-rep dimension can see it. The <em>coordinate</em> is unchanged and correct &mdash; it is the largest small-representation dimension, which is what it computes; only the degeneracy reading is struck. The degeneracy is <code>corepdex</code>&rsquo;s <code>corep_dim</code>, the 27th row.</p></div>
+<section>
+  <div class="shead"><span class="snum">03</span><h2>The index, plotted exactly</h2></div>
+  <p class="sub">One point per cell of the chart, at its own coordinates.</p>
+  <figure class="plate">
+    <div class="v3d"><canvas id="v-kpointdex" aria-label="Three-dimensional scatter of the k-point index: 21 cells at little-group order, number of small representations and maximum small-representation dimension."></canvas></div>
+    <div class="v3dbar">
+      <button id="v-kpointdex-spin" type="button">pause rotation</button>
+      <span class="hint">drag to rotate</span>
+      <span class="v3dkey"><span><i style="background:var(--statistics)"></i>max_dim = 1</span><span><i style="background:var(--geometry)"></i>max_dim = 2</span><span><i style="background:var(--information)"></i>max_dim = 3</span><span><i style="background:var(--algebra)"></i>max_dim = 4</span><span><i style="background:var(--order)"></i>max_dim = 6</span></span>
+    </div>
+    <figcaption><b>This view is the index itself, not a projection of it.</b> The chart has three coordinates and they are the three axes, so every one of the 21 cells is its own point and nothing is collapsed, summarised or dropped. Colour is max_dim, which is also an axis.</figcaption>
+  </figure>
+  <script>/* A small 3-D scatter on a 2-D canvas. No library: the artifact CSP admits
+   cdnjs, but a hand-rolled projector is ~120 lines and cannot fail to load. */
+function scatter3d(opts){
+  const cv = document.getElementById(opts.id);
+  if(!cv) return;
+  const wrap = cv.parentElement;
+  const css = getComputedStyle(document.documentElement);
+  const tok = n => css.getPropertyValue(n).trim() || '#888';
+  let az = opts.az ?? 0.62, el = opts.el ?? 0.26;
+  let spin = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let drag = null;
+
+  const pts = opts.points;
+  const rng = a => { const v = pts.map(p=>p[a]); return [Math.min(...v), Math.max(...v)]; };
+  const rx = opts.rx || rng('x'), ry = opts.ry || rng('y'), rz = opts.rz || rng('z');
+  const nrm = (v,r) => r[1]===r[0] ? 0 : (v - r[0])/(r[1]-r[0])*2 - 1;
+
+  function project(x,y,z,W,H){
+    const ca=Math.cos(az), sa=Math.sin(az), ce=Math.cos(el), se=Math.sin(el);
+    const x1 =  x*ca - z*sa;
+    const z1 =  x*sa + z*ca;
+    const y2 =  y*ce - z1*se;
+    const z2 =  y*se + z1*ce;
+    const d = 3.4, s = d/(d + z2);
+    const k = Math.min(W,H) * (opts.scale ?? 0.255);
+    return [W/2 + x1*s*k, H/2 - y2*s*k, z2, s];
+  }
+
+  function axis(ctx,W,H,a,b,label,colour,textOnly){
+    const p = project(...a,W,H), q = project(...b,W,H);
+    if(!textOnly){
+      ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+      return;                       /* text is painted in a later pass */
+    }
+    ctx.font = '600 11px "IBM Plex Mono", monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    const dx = q[0]-p[0], dy = q[1]-p[1], L = Math.hypot(dx,dy)||1;
+    const lx = Math.max(16, Math.min(W-16, q[0]+dx/L*20));
+    const ly = Math.max(12, Math.min(H-10, q[1]+dy/L*16));
+    /* AN AXIS LABEL GETS ITS OWN GROUND.  The auto-spin passes through every
+       azimuth, so no camera keeps a label clear of a dense cloud at all of
+       them; a panel-coloured plate behind the text makes it legible at every
+       angle instead of at the opening one. */
+    const tw = ctx.measureText(label).width;
+    ctx.fillStyle = tok('--panel'); ctx.globalAlpha = 0.82;
+    ctx.fillRect(lx - tw/2 - 4, ly - 8, tw + 8, 16);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = colour;
+    ctx.fillText(label, lx, ly);
+  }
+
+  function draw(){
+    const W = wrap.clientWidth, H = opts.height || 420;
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    if(cv.width !== W*dpr || cv.height !== H*dpr){
+      cv.width = W*dpr; cv.height = H*dpr;
+      cv.style.width = W+'px'; cv.style.height = H+'px';
+    }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,W,H);
+
+    // the box, drawn faintly so the rotation is legible
+    ctx.strokeStyle = tok('--rule'); ctx.lineWidth = 1;
+    const C = [];
+    for(const sx of [-1,1]) for(const sy of [-1,1]) for(const sz of [-1,1])
+      C.push([sx,sy,sz]);
+    const E = [[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+    ctx.globalAlpha = .5;
+    for(const [i,j] of E){
+      const p = project(...C[i],W,H), q = project(...C[j],W,H);
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    /* AXIS LINES NOW, AXIS TEXT AFTER THE POINTS.  A dense cloud otherwise
+       paints over a label at half the azimuths the auto-spin passes through,
+       and the still frame is what a thumbnail and a reduced-motion reader
+       get. The lines stay behind the points, which is correct. */
+    const AX = [[[-1,-1,-1],[1,-1,-1], opts.xlab, tok(opts.xcol||'--muted')],
+                [[-1,-1,-1],[-1,1,-1], opts.ylab, tok(opts.ycol||'--muted')],
+                [[-1,-1,-1],[-1,-1,1], opts.zlab, tok(opts.zcol||'--muted')]];
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],false);
+
+    // edges: [ax,ay,az, bx,by,bz, colour token, dashed?]
+    if(opts.edges){
+      for(const e of opts.edges){
+        const p = project(nrm(e[0],rx), nrm(e[1],ry), nrm(e[2],rz), W, H);
+        const q = project(nrm(e[3],rx), nrm(e[4],ry), nrm(e[5],rz), W, H);
+        ctx.save();
+        ctx.strokeStyle = tok(e[6]);
+        ctx.lineWidth = e[7] ? 1 : 1.6;
+        ctx.globalAlpha = e[7] ? .85 : .5;
+        if(e[7]) ctx.setLineDash([5,4]);
+        ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    const S = pts.map(p => {
+      const [sx,sy,sz,sc] = project(nrm(p.x,rx), nrm(p.y,ry), nrm(p.z,rz), W, H);
+      return {p, sx, sy, sz, sc};
+    }).sort((a,b) => b.sz - a.sz);
+
+    // points first, labels second: a near point must never paint over a
+    // label already placed for a farther one.
+    for(const o of S){
+      const r = (opts.r || 4) * o.sc;
+      ctx.beginPath(); ctx.arc(o.sx, o.sy, r, 0, 6.2832);
+      if(o.p.hollow){
+        ctx.globalAlpha = 1; ctx.strokeStyle = tok(opts.colour(o.p));
+        ctx.lineWidth = 1.6; ctx.setLineDash([3,2.5]); ctx.stroke();
+        ctx.setLineDash([]);
+      } else {
+        ctx.fillStyle = tok(opts.colour(o.p));
+        ctx.globalAlpha = .35 + .65*o.sc*0.9;
+        ctx.fill();
+        if(opts.stroke){ ctx.globalAlpha=1; ctx.strokeStyle = tok('--panel');
+          ctx.lineWidth = 1; ctx.stroke(); }
+      }
+      ctx.globalAlpha = 1;
+    }
+    for(const a of AX) axis(ctx,W,H,a[0],a[1],a[2],a[3],true);
+
+    if(opts.labels){
+      const placed = [];
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      ctx.textAlign='left'; ctx.textBaseline='middle';
+      for(const o of S.slice().reverse()){
+        if(!o.p.n) continue;
+        const r = (opts.r || 4) * o.sc;
+        const w = ctx.measureText(o.p.n).width, lx = o.sx + r + 6;
+        let ly = o.sy;
+        for(let t=0; t<14; t++){
+          const clash = placed.some(q => Math.abs(q.y-ly) < 13 &&
+                                         lx < q.x+q.w+8 && q.x < lx+w+8);
+          if(!clash) break;
+          ly = o.sy + (t%2 ? 1 : -1) * 13 * Math.ceil((t+1)/2);
+        }
+        placed.push({x:lx, y:ly, w});
+        if(Math.abs(ly-o.sy) > 2){
+          ctx.strokeStyle = tok('--rule-hard'); ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(o.sx + r + 1, o.sy);
+          ctx.lineTo(lx - 2, ly); ctx.stroke();
+        }
+        ctx.fillStyle = tok('--body');
+        ctx.fillText(o.p.n, lx, ly);
+      }
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    if(spin && !drag){ az += 0.0032; draw(); }
+    raf = requestAnimationFrame(loop);
+  }
+
+  cv.addEventListener('pointerdown', e => {
+    drag = {x:e.clientX, y:e.clientY, az, el};
+    cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing';
+  });
+  cv.addEventListener('pointermove', e => {
+    if(!drag) return;
+    az = drag.az + (e.clientX - drag.x)*0.0075;
+    el = Math.max(-1.35, Math.min(1.35, drag.el + (e.clientY - drag.y)*0.0075));
+    draw();
+  });
+  const stop = e => { if(drag){ drag=null; cv.style.cursor='grab'; } };
+  cv.addEventListener('pointerup', stop);
+  cv.addEventListener('pointercancel', stop);
+  cv.style.cursor = 'grab';
+  cv.style.touchAction = 'none';
+
+  const btn = document.getElementById(opts.id + '-spin');
+  if(btn){
+    const sync = () => btn.textContent = spin ? 'pause rotation' : 'resume rotation';
+    sync();
+    btn.addEventListener('click', () => { spin = !spin; sync(); draw(); });
+  }
+
+  new ResizeObserver(draw).observe(wrap);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+  draw();
+  loop();
+
+  /* ADDITIVE: a handle, so a caller that changes what opts.colour returns can
+     force a repaint. The loop only redraws while spinning, so without this a
+     recolour is invisible to a reader who paused rotation or who has
+     prefers-reduced-motion set. Nothing else changes: every existing call site
+     ignores the return value. */
+  return { draw, canvas: cv, view: (a, e) => { az = a ?? az; el = e ?? el; draw(); } };
+}
+
+(function(){
+const T=["--algebra", "--geometry", "--information", "--order", "--statistics"];
+const RAW=[[2,2,1,4,0],[4,1,2,1,0],[4,4,1,4,0],[6,3,2,1,0],[6,6,1,4,0],[8,2,2,1,0],[8,5,2,1,0],[8,8,1,4,0],[12,3,2,1,0],[12,4,3,2,0],[12,6,2,1,0],[12,12,1,4,0],[16,4,2,1,0],[16,10,2,1,0],[24,3,4,0,0],[24,5,3,2,0],[24,6,2,1,0],[24,8,3,2,0],[24,12,2,1,0],[48,4,6,3,0],[48,10,3,2,0]];
+const PTS=RAW.map(a=>({x:a[0],y:a[1],z:a[2],c:T[a[3]],hollow:a[4]||0,n:a[5]}));
+scatter3d({id:'v-kpointdex',points:PTS,xlab:"little_order  |G_k|",ylab:"n_smallreps  species at k",zlab:"max_dim  largest small-rep dimension",
+  az:5.4,el:0.62,scale:0.24,height:510,r:5.4,
+  xcol:'--geometry',ycol:'--order',zcol:'--information',
+  colour:p=>p.c});
+})();</script>
+</section>
+
+
+<section><div class="shead"><span class="snum">04</span><h2>What it measures</h2></div><div class="kv"><div><dt>cells</dt><dd>21</dd></div><div><dt>box</dt><dd>360<small>what charting cost tracks</small></dd></div><div><dt>cell</dt><dd>(0, 7, 5)<small>K, height, width</small></dd></div><div><dt>members</dt><dd>870<small>k-stars, charted into 21 cells</small></dd></div><div><dt>projective</dt><dd>305<small>35.1% carry a non-trivial multiplier</small></dd></div></div><div class="tablewrap"><table><thead><tr><th>language</th><th class="num">admits</th><th class="num">E</th><th>verdict</th></tr></thead><tbody><tr><td class="name">order</td><td class="num">106</td><td class="num">85</td><td><span class="no">does not close</span></td></tr><tr><td class="name">algebra</td><td class="num">106</td><td class="num">85</td><td><span class="no">does not close</span></td></tr><tr><td class="name">geometry</td><td class="num">96</td><td class="num">75</td><td><span class="no">does not close</span></td></tr><tr><td class="name">information</td><td class="num">66</td><td class="num">45</td><td><span class="no">does not close</span></td></tr><tr><td class="name">statistics</td><td class="num">31</td><td class="num">10</td><td><span class="no">does not close</span></td></tr></tbody></table><caption>Against 21 cells held.</caption></div></section>
+<section><div class="shead"><span class="snum">05</span><h2>The guards, and the 68 space groups that carry no member at all</h2></div><p class="sub">Each is measured over the whole capture, not sampled.</p><div class="tablewrap"><table><thead><tr><th>guard</th><th>verdict</th></tr></thead><tbody><tr><td class="name">|G<sub>k</sub>| &times; |star| = |point group| on every row</td><td class="mono"><span class="yes">holds</span></td></tr><tr><td class="name">Burnside: the small-rep dimensions square-sum to the factor-group order</td><td class="mono"><span class="yes">holds</span></td></tr><tr><td class="name">the grid method and the exact enumeration agree</td><td class="mono"><span class="yes">holds</span></td></tr><tr><td class="name">the little-group orders agree with the second implementation</td><td class="mono"><span class="yes">holds</span> &mdash; <span class="mono">0</span> disagreements</td></tr></tbody><caption>Measured over all 870 members.</caption></table></div><p class="after"><b>68 of the 230 space groups carry no isolated high-symmetry k-star whatever</b>, and 162 + 68 = 230, so every space group is accounted for. The instrument identifies those 68 as the space groups of the <b>10 polar crystal classes</b> and names them in <code>POLAR</code>. <b>That identification is the derivation&rsquo;s, not this reading&rsquo;s:</b> naming a point group needs spglib, which <code>--derive</code> has and the stdlib reading does not. What is measured here is the 68 itself &mdash; 230 less the space groups the capture covers.</p><p><b>305 members have bands forced to stick together and 565 do not</b>, which is the physical content the factor system carries.</p></section>
+<div class="note"><span class="lab">Where the data comes from</span><p>COMPUTED end to end from the 230 crystallographic space groups. The high-symmetry k-points are enumerated GRID-FREE as the 0-dimensional strata of the stabiliser stratification of the Brillouin torus, exactly by Hermite normal form; the little groups&#x27; PROJECTIVE small representations come from a central extension whose ordinary character table is built by Burnside&#x27;s class-algebra method, and whether each multiplier is a coboundary is DECIDED by z3. No k-point table and no representation table is read. Setyawan &amp; Curtarolo (2010) is used to check and never to build.</p><ul><li><span class="mono">research/warp-drive/captures/KPOINTS-HIGHSYM.tsv</span> — one file, 47774 bytes, md5 <span class="mono">6bba9109e340810130101a9b614f8c23</span></li><li><span class="mono">research/warp-drive/captures/KPOINTS-CHECK.tsv</span> — one file, 739 bytes, md5 <span class="mono">8027524e737e4485bc787b2b9e92b976</span></li><li><span class="mono">research/warp-drive/captures/KPOINTS-GRID.tsv</span> — one file, 504 bytes, md5 <span class="mono">8dcf1a5e2eec3f7748483ee94337be3a</span></li><li><span class="mono">research/warp-drive/captures/KPOINTS-ADDITIVITY.tsv</span> — one file, 2858 bytes, md5 <span class="mono">8b8e38b4ef6790e91060bcf1ef282d27</span></li><li><span class="mono">research/warp-drive/captures/kpoint_derive.py</span> — one file, 29272 bytes, md5 <span class="mono">fcb40eb3b3b57937fb004ed106786a91</span></li></ul><p style="margin-bottom:0">Declared as <span class="mono">SOURCE</span> in <span class="mono">kpointdex.py</span> beside the code that reads it, and hashed into <span class="mono">STATE.json</span> by <span class="mono">state.py</span>. A provenance held only in prose has to be recovered later.</p></div>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/kpointdex.py --selftest</code> &mdash; 63 fixtures<br><code>python3 research/warp-drive/kpointdex.py</code> &mdash; the reading<br><code>python3 research/warp-drive/render/build_crystal_plates.py kpointdex</code> &mdash; this plate</p></div>
+</div>

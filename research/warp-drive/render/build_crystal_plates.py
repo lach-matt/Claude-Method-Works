@@ -35,6 +35,7 @@ Nothing is retyped.
 """
 
 import html
+import math
 import os
 import sys
 
@@ -216,16 +217,16 @@ def build_phonondex():
         "no Wyckoff table is read &mdash; so the guards are arithmetic, not "
         "inspection.",
         simple_table(
-            [("guard", "name"), ("on every one of the %d rows" % len(rows),
-                                 "mono")],
+            [("guard", "name"),
+             ("on every one of the {:,} rows".format(len(rows)), "mono")],
             [["modes = 3 &times; multiplicity, and the decomposition sums "
               "to it", yn(P.integrality_holds())],
              ["|site symmetry| &times; |orbit| = |point group|",
               yn(P.orbit_stabiliser_holds())]],
             "A wrong character table does not give a wrong-looking answer; it "
             "gives a fractional multiplicity, and that cannot be rationalised "
-            "away. All %d development bugs below were found this way and none "
-            "by reading." % len(P.BUGS))
+            "away. The %d KINDS of development bug below were all found that "
+            "way, and none by reading." % len(P.BUGS))
         + '<ul class="tight" style="margin-top:22px">%s</ul>'
         % "".join("<li>%s</li>" % E(b) for b in P.BUGS)))
 
@@ -260,7 +261,6 @@ def build_kpointdex():
     nproj = len(K.projective())
     free, stuck = K.sticking_split()
     none_sg = K.spacegroups_with_none()
-    polar = K.polar_classes(none_sg)
     dens = K.denominators()
     grid = K.grid()
 
@@ -317,8 +317,7 @@ def build_kpointdex():
         "all 230 space groups are <b>%s and nothing else</b>, and their "
         "lowest common multiple is <b>%d</b>, so a 1/12 grid is exactly "
         "sufficient and any finer grid must agree.</p>"
-        % (len(grid), ", ".join(str(d) for d in dens),
-           __import__("math").lcm(*dens))))
+        % (len(grid), ", ".join(str(d) for d in dens), math.lcm(*dens))))
 
     h.append(sec(
         "02", "The three coordinates",
@@ -383,13 +382,18 @@ def build_kpointdex():
                  len(K.little_orders_agree()))]],
             "Measured over all %s members." % "{:,}".format(len(rows)))
         + "<p class=\"after\"><b>%d of the 230 space groups carry no isolated "
-        "high-symmetry k-star whatever, and they are not an accident:</b> they "
-        "are exactly the %d space groups of the ten polar crystal classes. "
-        "That is measured against the class list, not asserted &mdash; the two "
-        "sets agree on every member.</p>"
+        "high-symmetry k-star whatever</b>, and %d + %d = %d, so every space "
+        "group is accounted for. The instrument identifies those %d as the "
+        "space groups of the <b>%d polar crystal classes</b> and names them in "
+        "<code>POLAR</code>. <b>That identification is the derivation&rsquo;s, "
+        "not this reading&rsquo;s:</b> naming a point group needs spglib, "
+        "which <code>--derive</code> has and the stdlib reading does not. What "
+        "is measured here is the %d itself &mdash; 230 less the space groups "
+        "the capture covers.</p>"
         "<p><b>%s members have bands forced to stick together and %s do "
         "not</b>, which is the physical content the factor system carries.</p>"
-        % (len(none_sg), len(polar),
+        % (len(none_sg), nsg, len(none_sg), nsg + len(none_sg), len(none_sg),
+           len(K.POLAR), len(none_sg),
            "{:,}".format(stuck), "{:,}".format(free))))
 
     h.append(sourceline("kpointdex"))
@@ -410,10 +414,15 @@ def build_corepdex():
     bc = C.by_case()
     small = C.small_rep_total()
     ndoubled = len(C.doubled())
-    nx = len(C.type_x())
     nstars = len(C.stars())
     touched = C.spacegroups_touched()
     anti, proj, both, neither = C.mechanism_split()
+    # THE SPLIT IS BY SPACE GROUP, NOT BY STAR: `mechanism_split` partitions
+    # `{r[0] for r in read()}`, and r[0] is the space group.  Measured here so
+    # the plate cannot misname the population -- the four bins sum to the
+    # number of space groups that seat a star, and the assert says so.
+    nsg_corep = len({r[0] for r in rows})
+    assert anti + proj + both + neither == nsg_corep
     sa, sb, ga, gb, lv, sr = C.against_kpointdex()
     WHAT = {"a": "no doubling", "b": "DOUBLED &mdash; two copies of one irrep",
             "c": "DOUBLED &mdash; two conjugate irreps fuse",
@@ -444,12 +453,12 @@ def build_corepdex():
              'dimension is an integer. <b>It is simply INCOMPLETE, and nothing '
              'inside it says so.</b> Time reversal is antiunitary; it is not '
              'an element of the little group, and no amount of care with the '
-             'little group will find it. Measured over the %s seated stars, '
-             'the two mechanisms split <b>%d antiunitary only, %d projective '
-             'only, %d both, %d neither</b> &mdash; so there is a population '
-             'the earlier index is wrong about and its own integrality checks '
-             'do not notice.</p></div>'
-             % ("{:,}".format(nstars), anti, proj, both, neither))
+             'little group will find it. Measured over the %d space groups '
+             'that seat a star, the two mechanisms split <b>%d antiunitary '
+             'only, %d projective only, %d both, %d neither</b> &mdash; so '
+             'there is a population the earlier index is wrong about and its '
+             'own integrality checks do not notice.</p></div>'
+             % (nsg_corep, anti, proj, both, neither))
 
     h.append(sec(
         "01", "A member is a level, not a star",
@@ -468,12 +477,12 @@ def build_corepdex():
             [[("type (x)" if c == "x" else "case (%s)" % c), WHAT[c],
                ", ".join(C.doubling_table()[c]), "{:,}".format(bc[c])]
              for c in C.CASES],
-            "%s small representations, less the %d case-(c) that fuse in "
-            "pairs and the %d type-(x) that fuse in pairs, gives "
-            "%s &minus; %d &minus; %d = <b>%s</b> corepresentations, and that "
-            "is the whole accounting."
-            % ("{:,}".format(small), bc["c"], nx // 2,
-               "{:,}".format(small), bc["c"], nx // 2,
+            "%s small representations. The %d case-(c) members are each a "
+            "fusion of two small reps, and so are the %d type-(x) members, so "
+            "%s &minus; %d &minus; %d = <b>%s</b> corepresentations &mdash; "
+            "and that is the whole accounting."
+            % ("{:,}".format(small), bc["c"], bc["x"],
+               "{:,}".format(small), bc["c"], bc["x"],
                "{:,}".format(len(rows))))
         + "<p class=\"after\"><b>Type (x) is not a case (c), and the "
         "normalised form has a defect there.</b> With the conjugating set "

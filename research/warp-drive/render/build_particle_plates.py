@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 r"""
-build_particle_plates.py -- the plates for DOCKET 27's three particle indexes.
+build_particle_plates.py -- the plates for the indexes whose members are not
+atomic.  RE-PINNED: this line read "the plates for DOCKET 27's three particle
+indexes" and the file has held more than three since DOCKET 28; it holds TEN
+now, the tenth being `deformedbands`.  The three DOCKET 27 seated are still
+`fundamental`, `mesons` and `baryons`, and nothing about them has moved.
 
-    python3 build_particle_plates.py               writes all three
+    python3 build_particle_plates.py               writes all ten
     python3 build_particle_plates.py mesons        writes one
 
 M: "produce indexes and plates for all particles other than periodic atoms.
@@ -14,11 +18,17 @@ members are not atomic at all.  Each is built on the shared scaffold in
 `plate.py`, so the stylesheet, the measured axis choice, the swept camera and
 the inlined runtime are one implementation rather than three.
 
-NONE OF THE THREE HAS ARITY 3, so every view here is a PROJECTION and
-`plate.exactness()` says what it costs in the caption -- fundamental and mesons
-project 4 coordinates onto 3, baryons projects 7.  That is stated rather than
-left for a reader to assume, exactly as `build_index_plates.py` states it for
-`gravity`.
+NONE OF DOCKET 27's THREE HAS ARITY 3, so those views are PROJECTIONS and
+`plate.exactness()` says what each costs in the caption -- fundamental and
+mesons project 4 coordinates onto 3, baryons projects 7.  That is stated rather
+than left for a reader to assume, exactly as `build_index_plates.py` states it
+for `gravity`.
+
+AND TWO OF THE TEN HAVE ARITY 2, so they get NO three-axis view at all.
+`nucbands` and `deformedbands` are drawn flat -- `lattice_svg` and
+`parity_ladder_svg` -- because `plate.view3d` needs three axes and padding a
+two-coordinate chart into one would be a picture of something that is not the
+index.
 
 Every number is read from the instrument at build time.  Nothing is retyped.
 """
@@ -1353,6 +1363,237 @@ def build_nucbands():
     _write("nucbands-plate.html", h)
 
 
+def parity_ladder_svg(X):
+    """The (2I, parity) chart drawn flat.
+
+    A 2-D index gets a 2-D picture; `plate.view3d` needs three axes and this
+    chart has two, which is `lattice_svg`'s reason and it is the same one here.
+    Every mark is read from the index -- a filled square is a cell the chart
+    holds, an open dashed one a position in the box that it does not.
+    """
+    Is = sorted({i for i, _p in X})
+    Ps = (1, -1)
+    S, T, L = 21, 44, 74               # column pitch, top margin, left margin
+    w = L + S * (len(Is) - 1) + 40
+    hgt = T + 58 + 54
+    p = ['<svg viewBox="0 0 %d %d" role="img" aria-label="the deformed '
+         'two-quasiparticle chart: %d cells over %d spins and two parities" '
+         'style="max-width:100%%;height:auto">' % (w, hgt, len(X), len(Is))]
+    for r, par in enumerate(Ps):
+        y = T + 58 * r
+        p.append('<text x="%d" y="%d" text-anchor="end" font-size="14" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--muted)">'
+                 '%s</text>' % (L - 16, y + 5, "&#960; = +" if par > 0
+                                else "&#960; = &#8722;"))
+        for c, i2 in enumerate(Is):
+            x = L + S * c
+            if (i2, par) in X:
+                p.append('<rect x="%d" y="%d" width="13" height="13" rx="2" '
+                         'fill="var(--%s)"/>'
+                         % (x - 6, y - 6, "geometry" if par > 0 else "order"))
+            else:
+                p.append('<rect x="%d" y="%d" width="13" height="13" rx="2" '
+                         'fill="none" stroke="var(--algebra)" '
+                         'stroke-width="1.4" stroke-dasharray="2 2"/>'
+                         % (x - 6, y - 6))
+    for c, i2 in enumerate(Is):
+        if i2 % 10:
+            continue
+        p.append('<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--faint)">'
+                 '%d</text>' % (L + S * c, T + 58 + 34, i2))
+    p.append('<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+             'letter-spacing="1.4" font-family="IBM Plex Mono,monospace" '
+             'fill="var(--muted)">2I &#8212; SPIN, DOUBLED</text>'
+             % (L + S * (len(Is) - 1) / 2, hgt - 12))
+    p.append("</svg>")
+    return "".join(p)
+
+
+def build_deformedbands():
+    """DOCKET 36b -- the deformed rotor's tower, beside nucbands' shears."""
+    import deformed
+    import deformedbands as D
+    X = D.index()
+    m = measured(X)
+    lv = D.levels()
+    entries, bands, heads = deformed.census2()
+    mine_nuc, their_nuc, shared = D.disjoint_from_nucbands()
+    mine_A, their_A, shared_A = D.a_ranges()
+    n_mine_A = len({a for _i, _p, a, _z, _n, _e in lv if a})
+    n_above, max_A = D.above_title_range()
+    bn_d, bn_n, bn_r = D.band_number_is_a_label()
+    zn_cells, zn_K, zn_cell = D.with_ZN()
+    ar, vacuous, K, _why = D.free_channel()
+    cell, held = D.cell_is_unoccupied()
+    Is = sorted({i for i, _p in X})
+    box = len(Is) * 2
+    both = [i for i in Is if (i, 1) in X and (i, -1) in X]
+    single = [(i, 1 if (i, 1) in X else -1) for i in Is if i not in both]
+
+    h = [plate.head("The Deformed Two-Quasiparticle Levels"),
+         '<div class="wrap">']
+    h.append(_mast(
+        "Research plate &middot; an index of quantum objects &middot; "
+        "DOCKET 36b",
+        "The Deformed Two-Quasiparticle&nbsp;Levels",
+        "%s excited states in two-quasiparticle rotational bands of deformed "
+        "odd-odd nuclei &mdash; a deformed rotor&rsquo;s tower, beside "
+        "<code>nucbands</code>&rsquo; shears mechanism, sharing not one "
+        "nuclide with it." % "{:,}".format(len(lv)),
+        [("instrument", "deformedbands.py"),
+         ("members", "{:,} levels".format(len(lv))),
+         ("bands", str(bands)), ("arity", str(ar)),
+         ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<section><div class="shead"><span class="snum">01</span>'
+             '<h2>A member is one level, and it is not the other nuclear '
+             'index&rsquo;s</h2></div>'
+             '<p class="sub">A nuclear excited state in a two-quasiparticle '
+             'rotational band of a deformed odd-odd nucleus, Z&nbsp;67&ndash;'
+             '71. It carries spin I and parity exactly as a particle carries J '
+             'and P, so the quantum numbers are <b>the level&rsquo;s own</b> '
+             '&mdash; not its band&rsquo;s and not its nuclide&rsquo;s.</p>'
+             '<p><code>nucbands</code> holds the levels of MAGNETIC and '
+             'ANTIMAGNETIC rotational bands &mdash; the shears mechanism in '
+             'weakly-deformed and near-spherical nuclei. These are a DEFORMED '
+             'ROTOR&rsquo;s tower: a different mechanism, in different nuclei, '
+             'from a different paper. The disjointness is measured rather than '
+             'asserted &mdash; <b>%d nuclides here, %d there, %d in '
+             'common</b>.</p></section>'
+             % (mine_nuc, their_nuc, shared))
+
+    h.append('<div class="note warn"><span class="lab">WITHDRAWN in the '
+             'instrument, and the plate carries the corrected ground rather '
+             'than the first one</span><p style="margin-bottom:0">The zero '
+             'above was first explained by saying the two mass ranges are '
+             'disjoint. <b>They are not.</b> <code>nucbands</code> spans '
+             'A&nbsp;%d&ndash;%d and <em>contains</em> this index&rsquo;s '
+             'A&nbsp;%d&ndash;%d entirely. The separation survives anyway, and '
+             'is sharper than the ranges suggest: of this index&rsquo;s '
+             '<b>%d</b> distinct mass numbers, <b>%d</b> occur in '
+             '<code>nucbands</code> at all. But that is a measured fact about '
+             'which nuclides each paper happens to tabulate, not a consequence '
+             'of where they sit on the chart &mdash; a weaker ground, and the '
+             'true one.</p></div>'
+             % (their_A[0], their_A[1], mine_A[0], mine_A[1],
+                n_mine_A, shared_A))
+
+    h.append('<div class="note"><span class="lab">The source&rsquo;s title '
+             'overclaims, and the index reports the table</span>'
+             '<p style="margin-bottom:0">The paper is titled &ldquo;&hellip; '
+             'Deformed Odd-Odd Nuclei, 156&nbsp;&le;&nbsp;A&nbsp;&le;&nbsp;'
+             '168&rdquo;, and its Table&nbsp;3 does not respect that: '
+             '<b>%d</b> of the %s seated levels sit above A&nbsp;=&nbsp;168, '
+             'up to A&nbsp;=&nbsp;<b>%d</b>. This index describes what the '
+             'table holds, not what the title claims, and the discrepancy is '
+             'recorded rather than smoothed.</p></div>'
+             % (n_above, "{:,}".format(len(lv)), max_A))
+
+    h.append('<section><div class="shead"><span class="snum">02</span>'
+             '<h2>The two coordinates</h2></div>%s</section>'
+             % chart_table(
+                 [("2I", "spin, doubled, so a half-integer spin stays an "
+                         "integer &mdash; READ from the I<sup>&pi;</sup> "
+                         "cell of Table&nbsp;3"),
+                  ("parity", "+1 or &minus;1, READ from the same cell")],
+                 X, m["res"]))
+
+    h.append('<section><div class="shead"><span class="snum">03</span>'
+             '<h2>Three refusals, each measured rather than asserted</h2></div>'
+             '<ul class="tight refuse">'
+             '<li><b>The energy is not a coordinate.</b> It is a magnitude, '
+             'not a quantum number. It is also not even a number for much of '
+             'this table: <b>%d</b> bandheads are printed as '
+             '<span class="mono">A+134.27</span> or '
+             '<span class="mono">1135.7+y</span>, relative to an unknown '
+             'offset. Both reasons hold and the second is peculiar to this '
+             'source.</li>'
+             '<li><b>The band number is not a coordinate</b> &mdash; it is the '
+             'table&rsquo;s row label. Measured against '
+             '<code>figure.py</code>&rsquo;s rule that a coordinate separating '
+             '90&nbsp;%% or more of its members groups nothing: '
+             '<b>%d distinct band numbers over %d entries, a ratio of '
+             '%.2f</b>. It separates every entry and groups none.</li>'
+             '<li><b>Z and N are not coordinates</b>, and this one is a '
+             'judgement rather than a rule, so it is charted anyway and '
+             'refused against a number. (2I, parity, Z, N) would be '
+             '<b>%s cells at K%d, cell (%d,&nbsp;%d,&nbsp;%d)</b>. They are '
+             'properties of the HOST nuclide, not of the level, which is '
+             'DOCKET 28&rsquo;s trap exactly.</li>'
+             '</ul></section>'
+             % (heads, bn_d, bn_n, bn_r, "{:,}".format(zn_cells), zn_K,
+                zn_cell[0], zn_cell[1], zn_cell[2]))
+
+    h.append('<section><div class="shead"><span class="snum">04</span>'
+             '<h2>The chart, drawn flat</h2></div>'
+             '<p class="sub">Arity 2, so there is no three-axis view to '
+             'build and none is padded into one.</p>'
+             '<figure class="plate">%s'
+             '<div class="key"><span><i class="k" style="background:'
+             'var(--geometry)"></i>&pi; = +1 held</span>'
+             '<span><i class="k" style="background:var(--order)"></i>'
+             '&pi; = &minus;1 held</span>'
+             '<span><i class="k" style="border:1.4px dashed var(--algebra)">'
+             '</i>in the box, not in the chart</span></div>'
+             '<figcaption><b>This view is the index itself, not a projection '
+             'of it.</b> The chart has two coordinates and they are the two '
+             'rows, so every one of the <b>%d</b> cells is its own square and '
+             'nothing is collapsed. The box is %d&nbsp;&times;&nbsp;2 = '
+             '<b>%d</b>, so <b>%d</b> positions are empty &mdash; and they are '
+             'not scattered. Both parities are held at every 2I from %d to '
+             '<b>%d</b>; above that only one parity survives at each spin, '
+             'and the survivor alternates: %s.</figcaption></figure></section>'
+             % (parity_ladder_svg(X), len(X), len(Is), box, box - len(X),
+                Is[0], max(both),
+                ", ".join("2I&nbsp;=&nbsp;%d&nbsp;%s" % (i, "+" if p > 0
+                                                         else "&minus;")
+                          for i, p in single)))
+
+    h.append('<section><div class="shead"><span class="snum">05</span>'
+             '<h2>What it measures</h2></div>%s%s'
+             '<p class="after"><b>And its K%d is the free one.</b> At arity 2 '
+             'there is exactly one 2-subset of the coordinates, so '
+             '<code>kdet</code> returns True for every set whatever and '
+             'statistics closes vacuously &mdash; measured, not assumed: '
+             '<span class="mono">arity %d &le; 2</span>, so the closer is '
+             'vacuous. <b>This index really closes in NOTHING</b>, which is '
+             'where <code>mesons</code>, '
+             '<code>baryons</code> and <code>nucbands</code> sit. It is said '
+             'rather than banked.</p></section>'
+             % (kv(("cells", m["cells"], ""),
+                   ("box", m["box"], "what charting cost tracks"),
+                   ("cell", "(%d, %d, %d)" % m["cell"], "K, height, width"),
+                   ("members", "{:,}".format(len(lv)),
+                    "levels, charted into %d cells" % m["cells"])),
+                closure_table(m), K, ar if vacuous else -1))
+
+    h.append('<div class="note %s"><span class="lab">The cell, against the '
+             'register</span><p style="margin-bottom:0">Measured, not assumed: '
+             '<b>(%d,&nbsp;%d,&nbsp;%d)</b> is held by <b>%s</b>.</p></div>'
+             % ("good" if not held else "warn", cell[0], cell[1], cell[2],
+                "no other seated index" if not held
+                else E(", ".join(held))))
+
+    h.append('<div class="note"><span class="lab">%d levels are REFUSED, and '
+             'counted apart</span><p style="margin-bottom:0">They carry a spin '
+             'and no parity. That is the same kind of gap <code>nucbands</code>'
+             ' reports and it is counted separately for the same reason: '
+             '&ldquo;no parity printed&rdquo; and &ldquo;no spin '
+             'printed&rdquo; are different facts about the source, and '
+             'flattening them would lose one. The capture itself is total '
+             'against three of the paper&rsquo;s own numbers &mdash; '
+             '<b>%d entries, %d bands, %d bandhead states</b>, all '
+             'exact.</p></div>'
+             % (len(D.no_parity()), entries, bands, heads))
+
+    h.append(sourceline("deformedbands"))
+    h.append(pfoot("deformedbands"))
+    h.append("</div>")
+    _write("deformedbands-plate.html", h)
+
 BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
             "baryons": build_baryons,
             "quasiparticle": build_quasiparticle,
@@ -1360,7 +1601,8 @@ BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
             "bosonqp": build_bosonqp,
             "readrezayi": build_readrezayi,
             "spin4": build_spin4,
-            "nucbands": build_nucbands}
+            "nucbands": build_nucbands,
+            "deformedbands": build_deformedbands}
 
 if __name__ == "__main__":
     for w in (sys.argv[1:] or sorted(BUILDERS)):
