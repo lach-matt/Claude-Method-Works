@@ -1664,11 +1664,20 @@ def selftest():
 
     # SECTION 9 -- the demand and its adjudication.
     chk("the demand totals 4,759 and the adjudication sums to it",
-        (f["E_total"], f["adj_tot"][0]), (3209, 3209))
+        (f["E_total"], f["adj_tot"][0]), (4759, 4759))
     chk("and it splits 894 forbidden / 36 unplaced / 3,731 open / 98 undecided",
-        tuple(f["adj_tot"][1:]), (593, 36, 2482, 98))
-    chk("every forbidden cell is a baryon cell",
-        sum(v[1] for k, v in f["adj"].items() if k != "baryons.index"), 0)
+        tuple(f["adj_tot"][1:]), (2122, 36, 2503, 98))
+    # WAS "every forbidden cell is a baryon cell", and DOCKET 49 made that
+    # false: gravity now forbids 1,228 of its own.  The fixture that matters is
+    # that forbidding is confined to the indexes carrying a non-monotone bound,
+    # which Theorem 4 requires -- so it is stated that way instead of repaired
+    # to a second hardcoded name.
+    _mono = {nm: m for nm, _sh, _lab, _law, m in f["bounds"]}
+    chk("only indexes with a NON-MONOTONE bound forbid anything",
+        sorted(k for k, v in f["adj"].items()
+               if v[1] > 0 and _mono.get(k, True)), [])
+    chk("and both of the non-monotone bounds do forbid",
+        sorted(k for k, m in _mono.items() if not m and f["adj"][k][1] == 0), [])
     chk("Theorem 5 holds to J = 12", f["qqbar"], (True, []))
     chk("Gell-Mann--Nishijima is clean on all 292 baryon rows",
         f["gmn_baryon"][:5] + (f["gmn_baryon"][5],),
@@ -1680,8 +1689,8 @@ def selftest():
         f["bs2"][0] == f["bs2"][1], True)
     chk("the element precedent is an ORDER deficit, not a join one",
         f["precedent"], (90, 0, 36, 25, 0))
-    chk("six of the seven derived bounds are monotone",
-        (f["nbounds"], f["nbounds_mono"]), (7, 6))
+    chk("six of the eight derived bounds are monotone",
+        (f["nbounds"], f["nbounds_mono"]), (8, 6))
     # DOCKET 36b seated a 24th index.  The vertex count is a PROPERTY here, not
     # a pinned number, so the guard that matters is that a seating cannot land
     # without its ledger rows: every registry row either carries an E entry or

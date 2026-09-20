@@ -316,10 +316,10 @@ Of 7 candidates, 3 seat and 4 are refused.
 
 | chart | channel | cells | verdict / ground failed |
 |---|---|---|---|
-| gravity (B, F, X) | K1 | 26 | SEATED |
+| gravity (B, F, X, E) | K1 | 52 | SEATED |
 | madelung (n+l, k) | K6 | 82 | SEATED |
 | baryons (2I, Q3) | K5 | 16 | SEATED |
-| gravity (B, F, X, E) |  |  | refused: reach stable |
+| gravity (B, F, X) |  |  | refused: maximal |
 | ions (sl, tl) |  |  | refused: novel channel, reach stable |
 | madrule (S_a, l_d) |  |  | refused: novel channel, reach stable |
 | nucshell (l, sigma) |  |  | refused: coordinate forced |
