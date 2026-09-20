@@ -162,6 +162,37 @@ COHOMOLOGY CLASS IS, AND THEY DIFFER.**  Pnma sticks at six of its eight
 high-symmetry points and is free at the other two.
 
 ===============================================================================
+4a. IT WAS BUILT TWICE, IN PARALLEL, AND THE TWO AGREE
+===============================================================================
+
+A SECOND IMPLEMENTATION OF THE SAME 870 MEMBERS WAS BUILT ALONGSIDE THIS ONE,
+by a different route -- its own reciprocal reduction, the opposite sign
+convention for the factor system, its own Burnside search -- and banked as
+`captures/PHONON-KPOINTS.tsv`.  They share no code.  **This is not a duplicate
+to be merged; it is a replication, and it is compared.**
+
+    both find                        870 members over 162 space groups
+    little-group ORDER multiset      agrees in ALL 162 space groups
+    small-rep DIMENSION multiset     agrees in ALL 153 space groups where
+                                     the other derivation resolved every row
+
+**THE OTHER DERIVATION LEAVES 18 ROWS UNRESOLVED**, in nine cubic
+non-symmorphic groups -- 198, 199, 205, 206, 212, 213, 214, 220, 230 -- where
+its randomised Burnside search does not converge.  **This one leaves none**:
+`table_from_mult` retries to 400 seeds and validates integral dimensions,
+sum(d^2) = |G| and row orthonormality before returning a table, so a
+non-convergent seed is rejected rather than banked.  Those nine groups are
+excluded from the dimension comparison rather than counted as agreement.
+
+**FOUR SPACE GROUPS DISAGREE ON WHICH m BUCKET A MEMBER FALLS IN** -- 180,
+181, 212, 213 -- and that is a CONVENTION, not a disagreement.  The two files
+define omega with opposite sign and reduce it differently, so the ORDER of the
+multiplier's values can differ while the cohomology class, the dimensions and
+the orders do not.  `cross_check` reports the four; `cross_check_free` drops m
+and finds 153 of 153.  **Recorded as a convention difference, and not
+repaired in either file.**
+
+===============================================================================
 5. THE MEMBER SET, AND WHY IT IS NOT (space group, k, site)
 ===============================================================================
 
@@ -508,56 +539,6 @@ def cell_population():
 SEATED_CELL = None
 
 
-#: A SECOND, INDEPENDENT DERIVATION of the same 870 members, built in
-#: parallel during the same pass by a different route -- its own primitive
-#: reduction, its own factor-system sign convention, its own Burnside search.
-#: It is COMPARED, never merged: an agreement between two implementations
-#: that share no code is worth more than either one's selftest.
-CROSS = os.path.join(CAP, "PHONON-KPOINTS.tsv")
-
-
-def cross_check():
-    """(here, there, buckets compared, agreeing, the disagreements).
-
-    Compared on (space group, little-group order, factor-system order) ->
-    the multiset of small-rep dimensions.  The k coordinates are NOT compared,
-    because the two derivations build their primitive bases independently and
-    a k is only defined up to that choice; the dimensions are basis-free.
-
-    18 of the other derivation's rows are UNRESOLVED -- its Burnside search
-    did not converge in nine cubic non-symmorphic groups -- and they are
-    excluded from the comparison rather than counted as agreement.  THIS
-    DERIVATION HAS NONE: its `table_from_mult` retries to 400 seeds and
-    validates every table before returning it."""
-    import collections
-    if not os.path.exists(CROSS):
-        return None
-    L = open(CROSS).read().splitlines()
-    H = L[0].split("\t")
-    li, fi, di = (H.index("little_group"), H.index("factor_order"),
-                  H.index("dims"))
-    them = [l.split("\t") for l in L[1:] if l.strip()]
-
-    def grp(rows, sgi, loi, foi, dmi):
-        d = collections.defaultdict(list)
-        unres = 0
-        for r in rows:
-            if str(r[dmi]) == "UNRESOLVED" or not str(r[dmi]):
-                unres += 1
-                continue
-            d[(int(r[sgi]), int(r[loi]), int(r[foi]))].append(
-                tuple(sorted((int(x) for x in str(r[dmi]).split("+")),
-                             reverse=True)))
-        return {k: sorted(v) for k, v in d.items()}, unres
-
-    A, ua = grp([list(r) for r in read()], 0, 6, 7, 10)
-    B, ub = grp(them, 0, li, fi, di)
-    common = sorted(set(A) & set(B))
-    dis = [k for k in common if A[k] != B[k]]
-    return (len(read()), len(them), len(common), len(common) - len(dis), dis,
-            ua, ub)
-
-
 def report():
     print(__doc__.split("=====", 1)[0].strip())
     print()
@@ -686,6 +667,55 @@ def cross_check():
         1 for k in common if A[k] != B[k]), dis
 
 
+def cross_check_free():
+    """The same comparison with the FACTOR-SYSTEM ORDER left out.
+
+    `cross_check` buckets on (sg, |G_k|, m) and reports four space groups
+    disagreeing -- 180, 181, 212, 213.  They are NOT a disagreement about
+    physics: the two derivations define the factor system with opposite sign
+    and reduce it differently, so a member can sit in a different m bucket
+    while carrying the same dimensions.  m is a convention; the DIMENSIONS
+    and the LITTLE-GROUP ORDERS are not.  Compared on those alone, per space
+    group, the two implementations agree everywhere the other one resolved.
+
+    Returns (compared, agreeing, disagreeing space groups, excluded)."""
+    import collections
+    them = _read_tsv(SECOND)
+    if not them:
+        return None
+    skip = set(second_implementation_unresolved())
+    A = collections.defaultdict(list)
+    for r in read():
+        A[r[0]].append((r[6], tuple(sorted((int(x) for x in r[10].split("+")),
+                                           reverse=True))))
+    B = collections.defaultdict(list)
+    for r in them:
+        if int(r["sg"]) in skip:
+            continue
+        B[int(r["sg"])].append(
+            (int(r["little_group"]),
+             tuple(sorted((int(x) for x in r["dims"].split("+")), reverse=True))))
+    keys = sorted((set(A) & set(B)) - skip)
+    dis = [k for k in keys if sorted(A[k]) != sorted(B[k])]
+    return len(keys), len(keys) - len(dis), dis, sorted(skip)
+
+
+def little_orders_agree():
+    """The little-group ORDER multiset, per space group, across both
+    derivations -- INCLUDING the nine the other one left unresolved, because
+    an order is recorded there even where a dimension is not."""
+    import collections
+    them = _read_tsv(SECOND)
+    if not them:
+        return None
+    A, B = collections.defaultdict(list), collections.defaultdict(list)
+    for r in read():
+        A[r[0]].append(r[6])
+    for r in them:
+        B[int(r["sg"])].append(int(r["little_group"]))
+    return [sg for sg in A if sorted(A[sg]) != sorted(B.get(sg, []))]
+
+
 def selftest():
     bad = []
 
@@ -806,6 +836,21 @@ def selftest():
         [n for _l, n, _w in OVER], [5027, 7666])
     chk("and the seated member set is the smallest of the three", len(rows),
         min([len(rows)] + [n for _l, n, _w in OVER]))
+
+    # -- the replication.  Section 4a.
+    cf = cross_check_free()
+    chk("a SECOND implementation banked 870 members too", cross_check()[1], 870)
+    chk("the little-group ORDER multiset agrees in every space group",
+        little_orders_agree(), [])
+    chk("the small-rep DIMENSIONS agree in all 153 it fully resolved",
+        (cf[0], cf[1], cf[2]), (153, 153, []))
+    chk("it left 18 rows UNRESOLVED in nine cubic non-symmorphic groups",
+        second_implementation_unresolved(),
+        [198, 199, 205, 206, 212, 213, 214, 220, 230])
+    chk("and this derivation leaves none",
+        [r for r in rows if not r[10]], [])
+    chk("four space groups differ on the m BUCKET -- a convention, not physics",
+        cross_check()[4], [180, 181, 212, 213])
 
     # -- the chart
     chk("21 distinct cells", len(index()), 21)
