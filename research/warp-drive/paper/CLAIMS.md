@@ -2497,9 +2497,19 @@ Drop `Φ` entirely. Any static spherically symmetric spacetime, in areal radius 
 Proper radial distance is `dl = dr/√(1 − 2m/r)`, so it is shorter than flat exactly when `m(r) < 0`.
 
 > **THEOREM. In any static spherically symmetric spacetime, proper distance is contracted at `r` if and
-> only if the enclosed Misner–Sharp mass — the volume integral of `ρ` — is negative.**
+> only if the enclosed Misner–Sharp mass `m(r)` is negative.**
 >
 > No ansatz. No `Φ`. A definition and one integral.
+
+> **COROLLARY, and it carries a hypothesis.** `m(r)` is *the volume integral of* `ρ` — so that
+> contraction is equivalent to negative enclosed **energy** — only where the centre is **regular**,
+> `m(0) = 0`. That boundary condition is what turns `dm/dr = 4πr²ρ` into `m(r) = ∫₀ʳ`. Integrate from a
+> non-regular centre and the constant of integration survives. **The paper already holds the
+> counterexample**: **H72b**'s Reissner–Nordström has `m(r) = M − Q²/(2r) < 0` for `r < Q²/(2M)` with the
+> field energy density positive everywhere. That refutes the **corollary** inside this section's own
+> stated scope and leaves the **theorem** — which never mentions `ρ` — untouched. **DOCKET 52**;
+> `drivensource.py` §3 derives the hypothesis and machine-checks the RN region, and **H72c**'s exposure
+> identity is why the break buys nothing: `r_c ≤ a` for every charged body of non-negative mass.
 
 **This removes the MODEL status from the central requirement**, which is precisely what **H39a** asked for.
 It constrains a **different quantity** from the one the quantum inequalities bound: Ford–Roman bounds a
@@ -2516,13 +2526,21 @@ neighbour. Its value is that it is **ansatz-free**. Scope: **static and spherica
 Alcubierre drive is neither, and D1–D5 place *this* construction inside the theorem's reach. The
 certification is finite-difference, quoted against a *measured* floor.
 
+**The staticity half of that scope line was tested and held.** **DOCKET 52** drops staticity: for the
+general spherically symmetric metric the exact condition becomes `2m/R < e^{−2Φ}Ṙ²`, so `m < 0` is
+**sufficient and no longer necessary**. The loophole is real and it is empty — wherever the areal radius
+is momentarily stationary the identity returns `m < 0` exactly (the *anchor lemma*), and a destination
+whose areal radius is moving is not a destination. The theorem was never about static **spacetimes**; it
+is about stationary **areal radii**, of which staticity is a sufficient condition and not the content.
+Neither kill uses an energy condition. `nonstatic.py`.
+
 > **The construction is still a MODEL. This proves the requirement, not the design.** H39b's asymmetry is
 > unchanged and **sharpened**: the obstruction was the last piece of the NO resting on an ansatz, and now
 > it does not.
 
 | | `certify.py` |
 |---|---|
-| status | **THEOREM-HERE** (the Misner–Sharp result) + **MEASURED** (validated pipeline; four radii, three conditions) + **PRIOR-ART** (Pfenning–Ford) + **CORRECTION** (seat/lead split; my own over-broad sign claim) |
+| status | **THEOREM-HERE** (the Misner–Sharp result) + **MEASURED** (validated pipeline; four radii, three conditions) + **PRIOR-ART** (Pfenning–Ford) + **CORRECTION** (seat/lead split; my own over-broad sign claim) + **NARROWED** (the corollary's regular-centre hypothesis, DOCKET 52) |
 | new? | not the theorem — the *certification*, and the demotion of the seat/lead split |
 | **not** claimed | novelty for the theorem; scope beyond static spherical symmetry; that the construction is certified — it is refuted |
 

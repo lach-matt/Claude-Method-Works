@@ -28,8 +28,29 @@ The verdict, stated so it can be attacked:
                     radial distance is contracted at r if and only if the
                     Misner-Sharp mass m(r) is negative.   [certify.py, THEOREM]
 
+                    L1 IS TWO DOORS AND THIS FILE ONLY EVER NAMED ONE.  Section
+                    2 below reads L1 as the SPHERICITY link and attacks it
+                    there; the STATICITY half is a separate hypothesis and was
+                    never argued here.  nonstatic.py (DOCKET 52) opened it --
+                    dropping staticity gives contraction <=> 2m/R < e^{-2Phi}
+                    Rdot^2, so m < 0 is sufficient and NOT necessary -- and
+                    then closed it, twice and without any energy condition.
+                    SPHERICITY HALF: still OPEN, exactly as section 2 says.
+
     L2  SOURCE.     m(r) = 4 pi int_0^r rho r'^2 dr' -- the geometry's mass
                     IS the matter's energy -- because G_munu = 8 pi T_munu.
+
+                    L2 IS BROKEN, AND THE BREAK IS EMPTY.  It needs a REGULAR
+                    CENTRE for that integral's lower limit; a point charge
+                    supplies none, and Reissner-Nordstrom has m(r) < 0 for
+                    r < Q^2/2M with rho > 0 everywhere.  So negative m(r)
+                    demonstrably does NOT require negative matter energy, which
+                    is precisely what "break L2" was supposed to buy -- and it
+                    buys nothing, because the classical radius r_c = Q^2/2M
+                    of any body of charge Q and mass M >= 0 satisfies
+                    r_c <= a, its own radius, for every charged body that
+                    exists.  The region is inside the source.  drivensource.py
+                    section 3 derives it and machine-checks both halves.
 
     L3  RATE.       The distance bought per unit of that negative mass is
                     Delta d = |m| ln(r2/r1) -- the logarithm -- which is why
@@ -232,6 +253,17 @@ being a requirement on matter at all.
 
     STATUS: OPEN BY DECISION, AWAITING M.  This file does not change the flag.
 
+    THAT IS THE MODIFIED-GRAVITY BREAK AND IT IS STILL THE ONE AWAITING M.
+    DOCKET 52 found a SECOND break of L2, inside general relativity and needing
+    no scope decision at all: the integral m(r) = 4 pi int_0^r rho r'^2 dr'
+    presumes a REGULAR CENTRE, and Reissner-Nordstrom has none.  There m(r) < 0
+    for r < Q^2/2M with rho > 0 everywhere -- negative geometric mass, positive
+    matter energy, in ordinary Einstein gravity.  L2 is therefore BROKEN as
+    stated, and it is EMPTY: the radius Q^2/2M is inside every charged body
+    that exists.  Two breaks of one link, and neither is a route.  See the
+    LINKS table below, drivensource.py section 3, and the COROLLARY note in
+    certify.py.
+
 ===============================================================================
 5. L4, THE MAGNITUDE -- THE ONLY LINK THAT TOUCHES THE BILL
 ===============================================================================
@@ -279,7 +311,13 @@ THE ONE CANDIDATE WHOSE EXPONENT MATCHES is candidate D, non-minimal coupling:
 ===============================================================================
 
     L1  SCOPE      OPEN     quasi-local mass beyond spherical symmetry
-    L2  SOURCE     OPEN     modified gravity -- M's decision, never made
+                            -- the SPHERICITY half.  The STATICITY half was a
+                            second door this file never named; DOCKET 52
+                            opened and closed it.
+    L2  SOURCE     BROKEN   by a point charge, and the break is EMPTY:
+                   -EMPTY   r_c = Q^2/2M <= a for every charged body.  The
+                            modified-gravity break is a different one and is
+                            still OPEN BY DECISION, awaiting M.
     L3  RATE       CLOSED   against us, in this pass; the log is the best case
     L4  MAGNITUDE  OPEN     a non-minimal QEI with the right exponent
 
@@ -287,6 +325,12 @@ One link closed this pass and it closed the wrong way.  Two of the three
 famous no-gos turn out not to apply.  Three links remain, and NONE of them
 is engineering -- every one is mathematics, two of them open in the
 literature rather than merely open here.
+
+    WHAT DOCKET 52 DID TO THIS TABLE, AND WHAT IT DID NOT.  It broke L2 and
+    left the verdict standing, which is the whole point of enumerating a chain:
+    a link can fall without the conclusion falling, and you only find that out
+    by naming the links first.  L4 remains the sole load-bearing obstruction
+    and nothing here touches it.
 
     THE ANSWER TO M'S QUESTION IS THEREFORE SHORT AND IT IS NOT DISCOURAGING:
 
@@ -308,6 +352,14 @@ import sys
 
 OPEN, CLOSED = "OPEN", "CLOSED"
 
+# A third status, and it is not a synonym for either.  A link is BROKEN-EMPTY
+# when the thing that would break it exists and reverses nothing: the chain no
+# longer holds there, and the verdict is unmoved.  Introduced by DOCKET 52 for
+# L2, which "break L2 and negative m(r) no longer needs negative energy" turned
+# out to describe exactly, at a radius that is always inside the body.  Calling
+# it CLOSED would claim the link holds; calling it OPEN would claim a route.
+BROKEN_EMPTY = "BROKEN-EMPTY"
+
 LINKS = [
     # (id, name, what breaking it would do, status, what would break it)
     ("L1", "SCOPE",
@@ -317,9 +369,12 @@ LINKS = [
      "controls proper distance (Hawking / Geroch-IMCF / Bartnik)"),
     ("L2", "SOURCE",
      "negative m(r) would not require negative matter energy",
-     OPEN,
-     "modified gravity: G = 8 pi T_matter + T_effective, with T_effective "
-     "negative where T_matter is not -- wormhole.py SCOPE_CHOSEN_HERE"),
+     BROKEN_EMPTY,
+     "BROKEN by a point charge: Reissner-Nordstrom has m(r) < 0 for "
+     "r < Q^2/2M with rho > 0 everywhere, because the integral's lower "
+     "limit needs a regular centre.  EMPTY because r_c = Q^2/2M <= a for "
+     "every charged body with mass >= 0 -- the region is inside the "
+     "source.  drivensource.py section 3, machine-checked."),
     ("L3", "RATE",
      "the same |m| would buy more distance",
      CLOSED,

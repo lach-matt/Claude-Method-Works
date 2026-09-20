@@ -125,10 +125,24 @@ spheres is SHORTER than its flat value exactly when
         1 - 2m(r)/r  >  1        <=>        m(r)  <  0.
 
     THEOREM.  IN ANY STATIC SPHERICALLY SYMMETRIC SPACETIME, PROPER DISTANCE IS
-    CONTRACTED AT r IF AND ONLY IF THE ENCLOSED MISNER-SHARP MASS IS NEGATIVE
-    -- AND THEREFORE IF AND ONLY IF THE ENCLOSED ENERGY IS NEGATIVE.
+    CONTRACTED AT r IF AND ONLY IF THE ENCLOSED MISNER-SHARP MASS IS NEGATIVE.
 
     No ansatz.  No Phi.  A definition and one integral.
+
+    COROLLARY, AND IT CARRIES A HYPOTHESIS THIS FILE ONCE USED WITHOUT WRITING
+    IT DOWN.  "-- and therefore if and only if the enclosed ENERGY is negative"
+    follows only where the centre is REGULAR, m(0) = 0, because that is the
+    boundary condition that turns dm/dr = 4 pi r^2 rho into m(r) = int_0^r.
+    Integrate the same equation from a non-regular centre and the constant of
+    integration survives: Reissner-Nordstrom has m(r) = M - Q^2/2r, which is
+    negative for r < Q^2/2M with rho = Q^2/8 pi r^4 > 0 everywhere.  That is a
+    counterexample to the COROLLARY inside this file's own stated scope, and
+    none at all to the THEOREM, which never mentions rho.  NARROWED, not
+    repaired: the hypothesis was always in force and was simply unwritten.
+    drivensource.py section 3 derives it and machine-checks the RN region;
+    nonstatic.py's anchor lemma shows the THEOREM was never about static
+    SPACETIMES but about stationary AREAL RADII, of which staticity is a
+    sufficient condition and not the content.
 
 WHAT THAT DOES TO THE PROJECT:
 
@@ -505,7 +519,10 @@ def report():
   Second, and this is the result, without any ansatz at all: in any static
   spherically symmetric spacetime, written with an areal radius and the
   Misner-Sharp mass, proper distance is contracted at r IF AND ONLY IF the
-  enclosed mass m(r) is negative -- and m(r) is the volume integral of rho.
+  enclosed mass m(r) is negative -- and, where the centre is regular so
+  that m(0) = 0, m(r) is the volume integral of rho.  (Reissner-Nordstrom
+  is the counterexample to that second clause and not to the first; see
+  the COROLLARY above and drivensource.py section 3.)
   No Phi, no Plummer, no shell; a definition and one integral.  That
   converts the obstruction from MODEL to THEOREM, which is what the audit
   asked for, and it constrains a quantity no quantum inequality bounds,
