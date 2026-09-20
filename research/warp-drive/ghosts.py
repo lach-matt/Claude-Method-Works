@@ -450,6 +450,27 @@ GRAVITY_SOURCES = (
 _GRAV_RATIO = None
 
 
+def _gravity_declined():
+    """How many ASD captures yield no species for want of a readable J.
+
+    That is gravity's source gap, and it is counted rather than asserted so the
+    UNPLACED zero rests on a measurement.
+    """
+    import os
+    import gravity as g
+    got = {v[4] for v in g.captures().values()}
+    n = 0
+    for fn in sorted(os.listdir(g.ASD)):
+        if not fn.endswith(".tsv") or fn in got:
+            continue
+        with open(os.path.join(g.ASD, fn), encoding="utf-8",
+                  errors="replace") as fh:
+            txt = fh.read()
+        if "level_cm1" in txt and g._species_of(txt.split("\n")) is not None:
+            n += 1
+    return n
+
+
 def gravity_ratio_range():
     """[lo, hi] for chi/Qtilde^2 = Je/(q^2 alpha), from the hidden ranges."""
     global _GRAV_RATIO
@@ -965,10 +986,20 @@ def selftest():
     # or OPEN, and each zero is measured with a reason rather than left blank.
     chk("gravity closes: 1,228 forbidden + 0 unplaced + 322 open = 1,550",
         adjudicate("gravity.index"), (1550, 1228, 0, 322, 0))
-    chk("and its UNPLACED zero is the STRENGTH RULE, not a failure to look -- a "
-        "gravity row declined for want of a readable J leaves X, B and L "
-        "unknown, three coordinates, and the rule requires exactly one",
-        3 == 1, False)
+    # NOT A TAUTOLOGY.  A first version of this fixture asserted `3 == 1` and
+    # so tested nothing at all -- the very defect an audit of this tree had just
+    # finished removing.  It now BUILDS the partial row a declined species
+    # yields and counts what it leaves unknown, and it drives `_pins` with it.
+    _dec = _gravity_declined()
+    _partial = (4, None, 0, None, 1, None, 0)   # D, B?, F, X?, Y, L?, E
+    chk("gravity's source gap is the species with no readable J",
+        _dec > 0, True)
+    chk("and such a row leaves THREE coordinates unknown, not one",
+        sum(1 for v in _partial if v is None), 3)
+    chk("so the strength rule refuses it -- it pins no cell of the demand",
+        any(_pins(_partial, c)
+            for c in demand.demand(frozenset(
+                registry.index_of("gravity.index")))), False)
     chk("baryons closes: 894 forbidden + 8 unplaced + 110 open = 1,012",
         adjudicate("baryons.index"), (1012, 894, 8, 110, 0))
     # EVERY open baryon cell carries an ODD doubled spin, as three spin-1/2

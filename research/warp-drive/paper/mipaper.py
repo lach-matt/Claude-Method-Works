@@ -1097,10 +1097,79 @@ def document(f):
         "field that has more than one standard way to lay out its objects - and most do - has "
         "been making this choice without knowing it was one.")))
 
-    A(("h2", "10.6 The theorems have already caught errors in published sources"))
+    A(("h2", "10.6 Two indexes adjudicated to the floor, and what that buys"))
     A(("p", (
-        "This section is evidence that the mathematics bites, not the argument for it. Each of "
-        "these came out of a theorem being applied, not out of proofreading.")))
+        "The strongest thing this object does is not catch errors. It is to take a table's own "
+        "demand and drive it down to a residue that cannot be reduced further BY A STATED "
+        "ARGUMENT rather than by exhaustion of ideas. Two indexes are carried to that point here, "
+        "and both were chosen because they were the register's worst cases.")))
+    A(("quote", (
+        "**GRAVITY: %s demanded, %s FORBIDDEN, %d UNPLACED, %d OPEN.** Every nuclide-charge "
+        "state read as a would-be black hole, on (D, B, F, X, Y, L, E)."
+        % (n(f["adj"]["gravity.index"][0]), n(f["adj"]["gravity.index"][1]),
+           f["adj"]["gravity.index"][2], f["adj"]["gravity.index"][3]))))
+    A(("p", (
+        "It began with NO derived bound at all, so the whole demand sat OPEN against nothing - "
+        "the largest prediction set in the register held by the index the machinery had least to "
+        "say about. Two bounds are derivable, and both from the chart's own coordinates.")))
+    A(("p", (
+        "THE HORIZON BOUND. B is not free: it is a total function of the dimension, the charge, "
+        "the forced angular momentum and whether the angular momentum vanishes. Two of those are "
+        "coordinates already - the charge decade rank is zero exactly when the charge is, and F "
+        "is charted outright. The third is HIDDEN, and this is where Law 5 earns its place: a "
+        "hidden variable free to range forbids nothing, but the coordinates BOUND this one, since "
+        "a non-zero spin decade forces the angular momentum non-zero and so does F = 1. The "
+        "function is ANTITONE IN D - there is an extremality bound on a single rotation at five "
+        "dimensions and none above it - so Theorem 4 permits it to forbid, and it does.")))
+    A(("p", (
+        "THE DECADE BOUND, WHICH IS THE ONE WORTH READING. The dimensionless spin and the "
+        "dimensionless charge are not independent quantities:")))
+    A(("eq", [
+        "chi      = Je / alpha_G            alpha_G = G M^2 / (hbar c)",
+        "Qtilde^2 = q^2 alpha / alpha_G     alpha   = e^2 / (4 pi eps0 hbar c)",
+        "",
+        "    =>   chi / Qtilde^2  =  Je / (q^2 alpha)",
+    ]))
+    A(("p", (
+        "THE GRAVITATIONAL COUPLING CANCELS AND THE RATIO IS MASS-FREE. Verified on every member "
+        "row of the source at zero failures. NONE OF THIS IS NEW PHYSICS and none of it is "
+        "claimed as such - alpha_G is the standard gravitational coupling and alpha/alpha_G is "
+        "Dirac's large number - but the join operator does not know it. The join pairs a spin "
+        "decade with a charge decade freely, and the identity says most of those pairings are "
+        "unphysical. That is the whole content: a sixty-year-old relation, applied to a question "
+        "nobody had asked of it, empties cells.")))
+    A(("note", (
+        "AND A FITTED VERSION OF THE SAME BOUND IS REFUSED. Reading the OBSERVED band of the "
+        "decade difference off the members, instead of deriving the interval from the hidden "
+        "ranges, forbids 64 cells more. A band measured on the members and then used to forbid "
+        "demanded cells is fitting, which section 8.2's gate exists to prevent. The smaller, "
+        "derived figure is the one reported, and the refusal is recorded in the instrument.")))
+    A(("quote", (
+        "**BARYONS: %s demanded, %s FORBIDDEN, %d UNPLACED, %d OPEN** - and %d is a FLOOR with a "
+        "reason, not a stopping point."
+        % (n(f["adj"]["baryons.index"][0]), n(f["adj"]["baryons.index"][1]),
+           f["adj"]["baryons.index"][2], f["adj"]["baryons.index"][3],
+           f["adj"]["baryons.index"][3]))))
+    A(("p", (
+        "Every open cell carries an ODD doubled spin, as three spin-half quarks require, and "
+        "every spin-parity pair it uses occurs in a seated member: the residue is not junk the "
+        "bound failed to reach. What would reduce it further is the SU(6) argument that couples "
+        "isospin to spin through the symmetry of the three-quark wavefunction - and that binds "
+        "GROUND states only. This index holds orbitally excited baryons, where the orbital "
+        "angular momentum is hidden and free, so by Law 5 it forbids nothing here. THE FLOOR IS "
+        "STATED, NOT REACHED BY GIVING UP.")))
+    A(("note", (
+        "WHY THIS IS THE ARGUMENT FOR THE OBJECT. A table with a bounded, adjudicated demand can "
+        "say which of its gaps are closed questions and which are places to look - and can say "
+        "WHY it cannot say more. Neither of these two residues was reduced by finding better "
+        "physics; both were reduced by asking, of physics already sixty years old, a question the "
+        "closure operator had forced into view. That is transferable to any table whose members "
+        "carry quantum numbers, and it is the whole of what is on offer.")))
+    A(("h2", "10.6a The theorems have also caught errors in published sources"))
+    A(("p", (
+        "A lesser claim, kept separate because it is evidence that the mathematics bites rather "
+        "than the argument for it. Each came out of a theorem being applied, not out of "
+        "proofreading.")))
     A(("bullet", [
         "The consistency leg of the Gell-Mann-Nishijima derivation found TWO ROWS of the 2026 "
         "Review of Particle Physics whose stated isospin contradicts their own quark content, "
