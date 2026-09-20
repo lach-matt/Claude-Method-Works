@@ -7,11 +7,22 @@ r"""ghosts.py -- THE ADJUDICATION OF E.  DOCKET 39.
 M: "Do the bound per index and separate UNPLACED from OPEN.  Derive all you
 can, including proofs, theorems, and laws."
 
-`predict.py` measured E for every seated index -- 4,759 cells the register's own
+`predict.py` measured E for every seated index -- 4,919 cells the register's own
 closure demands and no member occupies -- named three bins for them, and left
 both halves of the adjudication undone.  This file does both, and in doing the
 first half it finds that most of it CANNOT BE DONE, for a reason that is a
 theorem rather than a shortage of physics.
+
+    RE-PINNED, DOCKET 51.  THE FIGURE READ 4,759, AND THAT WAS THE TOTAL OVER
+    TWENTY-FOUR SEATED INDEXES.  Three crystallographic indexes were seated
+    after it -- 25 `phonondex`, 26 `kpointdex`, 27 `corepdex` -- and the ledger
+    guard below caught them unadjudicated.  They demand 160 cells between them,
+    measured here for the first time: 111, 45 and 4.  Section 4b adjudicates
+    all 160.  `predict.py`'s own E table still carries 24 rows and still totals
+    4,759; that is ITS table and this pass owns this file, so the gap is
+    RECORDED AND NOT REPAIRED -- and the arithmetic tie to it is kept exactly,
+    index by index and in the sum, by two fixtures that hold before and after
+    that table is extended.
 
 ===============================================================================
 1. SEVEN LAWS, AND THE FIRST FOUR DECIDE THE WHOLE PROGRAMME
@@ -61,16 +72,46 @@ Every law below is proved, and then measured on the live tree.
         seated member without exception, AND ALL FIVE FORBID NOTHING.  Not
         "nothing was found": nothing CAN be found, by Law 3.
 
+        AND "ATOMIC AND NUCLEAR" IS NOW A LOAD-BEARING QUALIFIER, NOT A FLOURISH.
+        The three crystallographic indexes seated at rows 25-27 admit bounds
+        that are NOT of that shape, and section 4b measures them.  The reason is
+        structural: their coordinates are dimensions tied by an EXACT SUM RULE
+        -- sum_i d_i^2 = |G| over a group's irreducible representations -- and
+        an equality is monotone in nothing.  Law 3 empties an inequality; it has
+        no purchase on a sum rule.
+
     LAW 4 -- WHAT CAN FORBID.  A bound forbids only if its admissible set is not
     max-closed -- it must be antitone in some coordinate, or carry a congruence,
     or be a non-monotone function of several coordinates.
 
-        THE ONE BOUND IN THIS TREE THAT QUALIFIES acts on the baryons, and it
-        qualifies twice over: an absolute value and a mod-2 congruence.  It is
-        the THREE-QUARK FLAVOUR BOUND, and it forbids 894 of the 1,012 demanded
-        baryon cells -- 88.3% of them, emptied by theorem.  Gell-Mann--Nishijima
-        is its corollary and forbids 593, a strict subset: an audit found the
-        weaker one seated here and the 301 cells between them wrongly OPEN.
+        WITHDRAWN.  This read "THE ONE BOUND IN THIS TREE THAT QUALIFIES acts
+        on the baryons".  FIVE DO, and the sentence was already false by one
+        before this pass: DOCKET 49's gravity image bound is declared
+        non-monotone in `BOUNDS` and forbids 1,080, so the count was stale from
+        the moment that bound landed and no fixture pinned it.  It is a count,
+        so it is RE-PINNED rather than softened, and `selftest` now pins the
+        membership of the non-monotone set and not merely its size.
+
+        THE FIVE THAT QUALIFY, AND WHAT EACH QUALIFIES BY:
+
+            baryons     an absolute value and a mod-2 congruence -- the
+                        THREE-QUARK FLAVOUR BOUND, which forbids 894 of the
+                        1,012 demanded baryon cells, 88.3% of them, emptied by
+                        theorem.  Gell-Mann--Nishijima is its corollary and
+                        forbids 593, a strict subset: an audit found the weaker
+                        one seated here and the 301 cells between them wrongly
+                        OPEN.
+            gravity     membership of the coordinate map's IMAGE, which is a
+                        set and monotone in nothing.  1,080 of 1,550.
+            corepdex    a ratio confined to {1, 2} -- Herring's criterion.
+                        4 of 4, and the only index in the register whose demand
+                        is emptied ENTIRELY.
+            kpointdex   an exact sum of squares.  38 of 45.
+            phonondex   a mode budget antitone in the site-symmetry order.
+                        29 of 111.
+
+        THE FIRST TWO ARE PARTICLE PHYSICS AND THE LAST THREE ARE
+        CRYSTALLOGRAPHY, and the shared reason is section 4b's.
 
     LAW 5 -- COORDINATE EXPRESSIBILITY.  If the bound is a predicate B(c, v) on a
     cell and a variable v the index does not carry, then c is forbidden iff
@@ -117,7 +158,7 @@ Every law below is proved, and then measured on the live tree.
         THIS CORRECTS DOCKET 38.  `predict.py` section 2 cites the element
         layer's "E = 36, split 25 forbidden and 11 deferred" as the precedent for
         adjudicating the seated indexes' E, without saying that the 36 is an
-        ORDER deficit and the 4,759 are JOIN deficits.  `tools/cypher.py`'s own
+        ORDER deficit and the 4,919 are JOIN deficits.  `tools/cypher.py`'s own
         fixture says so -- ("periodic table 2-D", {"order": 36}).  The three bins
         survive the correction intact; the precedent is re-attributed, and Law 3
         explains why it could never have transferred.
@@ -141,17 +182,25 @@ seated member of its index (zero violations anywhere), and then applied to the
 demand.  A bound was never fitted to the demand.
 
     index              bound                            monotone  FORBIDDEN
+    gravity     1550   in the coordinate map's IMAGE        NO       1080
     baryons     1012   three-quark flavour content          NO        894
     ions         296   l<=n-1 (both ends), Pauli, q<=k     yes          0
     fibred       140   l<=n-1, Pauli                       yes          0
+    phonondex    111   the orbit's mode budget              NO         29
     terms         98   mult = 1 => not SHORT               yes          0
     observed      56   l<=n-1, Pauli                       yes          0
+    kpointdex     45   sum d^2 = |G_k|, d divides |G_k|     NO         38
     madrule       18   Pauli through S_a                   yes          0
-    nucshell      14   l = 0 => sigma = +1                 yes          0
     mesons        15   NONE -- and the absence is a THEOREM   -         0
+    nucshell      14   l = 0 => sigma = +1                 yes          0
+    corepdex       4   Herring: corep_dim/small_dim in {1,2}  NO          4
     (nine others)     none derived                          -          0
 
-SEVEN BOUNDS DERIVED, SIX OF THEM MONOTONE, AND THE SEVENTH DOES ALL THE WORK.
+ELEVEN BOUNDS DERIVED, SIX OF THEM MONOTONE, AND THE FIVE THAT ARE NOT DO ALL
+THE WORK.  This line read "SEVEN BOUNDS DERIVED, SIX OF THEM MONOTONE, AND THE
+SEVENTH DOES ALL THE WORK", and the table under it omitted `gravity` outright:
+both were written before DOCKET 49 derived the image bound and neither was
+re-pinned when it landed.  RE-PINNED, with the row restored.
 The Russell-Saunders row is in the table to answer "did you look?" at the
 largest of the undecided indexes: a bound WAS found for `terms`, and Law 3
 empties it like the rest.
@@ -218,18 +267,21 @@ Rows below the strength are counted apart and never used.
     laws         254        0         0      254   13 dropped, none pins a cell
     fibred       140        0         0      140   source gapless
     probability  112        0         0      112   source gapless
+    phonondex    111       29         0       82   source gapless
     terms         98        0         ?        ?   NOT DECIDED -- see below
     fqh           71        0         0       71   source gapless
     observed      56        0         0       56   source gapless
     fundamental   46        0         0       46   source gapless
+    kpointdex     45       38         0        7   source gapless
     inversion     24        0         0       24   source gapless
     madrule       18        0         0       18   source gapless
     mesons        15        0         3       12   8 with no P (D, D_s)
     nucshell      14        0         0       14   source gapless
     nucbands       5        0         2        3   93 levels with no parity
+    corepdex       4        4         0        0   source gapless
     deformedbnds   3        0         0        3   56 levels with no parity
 
-    TOTAL      4,759    1,974        36    2,651   and 98 UNDECIDED
+    TOTAL      4,919    2,045        36    2,740   and 98 UNDECIDED
 
     TERMS IS THE ONE REFUSAL AND ITS REASON IS EXACT.  4,033 of 16,624 NIST rows
     carry a bracketed jK, jj or Racah label, which supplies neither `mult` nor
@@ -248,16 +300,126 @@ Rows below the strength are counted apart and never used.
     objects beside cells so the two numbers are never confused.
 
 ===============================================================================
+4b. THE THREE CRYSTALLOGRAPHIC INDEXES.  DOCKET 51
+===============================================================================
+
+Rows 25, 26 and 27 -- `phonondex`, `kpointdex`, `corepdex` -- were seated and
+never adjudicated here; the ledger guard at the foot of `selftest` named them
+and this section answers it.  NONE OF THE THREE IS TOO LARGE TO ENUMERATE: they
+chart 1,120, 870 and 3,529 members onto 90, 21 and 13 cells, and the join
+closure of a set that small runs in milliseconds.  Their demand is 111, 45 and
+4, measured, and all 160 cells are adjudicated below.
+
+THE THREE BOUNDS ARE ALL NON-MONOTONE, WHICH IS THE FINDING.  Six of the eight
+bounds that stood before this pass are monotone and Law 3 empties every one of
+them; three of three here forbid.  The reason is one sentence long and it is
+structural rather than lucky:
+
+    IN THESE CHARTS THE COORDINATES ARE REPRESENTATION DIMENSIONS, AND
+    DIMENSIONS ARE TIED BY AN EQUALITY.  sum_i d_i^2 = |G| is a sum rule, not
+    an inequality, so raising one coordinate does not merely fail to help -- it
+    consumes a budget the other coordinates are spending.  That is exactly Law
+    4's "non-monotone function of several coordinates", arrived at from the
+    physics rather than looked for.
+
+    (i) phonondex -- THE ORBIT'S MODE BUDGET.  Coordinates (site_order,
+        n_irreps, max_dim).  The point-group order P is HIDDEN, and Law 5's
+        may-forbid case applies because the chart bounds its range two ways:
+        orbit-stabiliser forces site_order | P, and a crystallographic point
+        group has order at most 48.  The site contributes 3 x P/site_order
+        modes; n_irreps distinct irreps each appear at least once and one of
+        them has dimension max_dim, so
+
+            (n_irreps - 1) + max_dim  <=  3 P / site_order.
+
+        Antitone in site_order, hence able to forbid, and it forbids 29.
+        THREE FURTHER CLAUSES WERE DERIVED AND ALL THREE ARE VACUOUS HERE --
+        max_dim^2 <= P and n_irreps - 1 <= P - max_dim^2, both from sum d^2 = P
+        over the point group's irreps, and max_dim | P, which is Frobenius: an
+        irreducible character degree divides the group order.  Each of the
+        three holds on all 1,120 members, and `phonon_clause_split()`
+        measures each alone: 0, 0 and 0 against the mode budget's 29.  They are
+        kept in the predicate and reported, because "derived and empty" is a
+        different statement from "not looked for".
+
+    (ii) kpointdex -- THE DIMENSION VECTOR OF A SECTOR.  Coordinates
+        (little_order, n_smallreps, max_dim).  Wedderburn on the twisted group
+        algebra gives sum over the sector's small representations of d^2 =
+        |G_k| exactly, and Ito's theorem (the centre of a Schur cover is
+        abelian and normal) gives d | |G_k| for each.  So a cell is admissible
+        iff there is a multiset of n_smallreps positive integers, each dividing
+        little_order, with maximum exactly max_dim, whose squares sum to
+        little_order.  BOTH LEGS ARE MEASURED ON THE CAPTURE'S OWN `dims`
+        COLUMN before being used: 870 of 870 rows satisfy the sum rule, and
+        870 of 870 have every dimension dividing the order.  It forbids 38 of
+        45.  Realisability is strictly stronger than the interval it implies:
+        (16,5,3) passes max_dim^2 + n - 1 <= L <= n max_dim^2 and fails on the
+        divisibility, 3 not dividing 16.
+
+    (iii) corepdex -- HERRING, AND A HIDDEN GROUP ORDER.  Coordinates
+        (corep_dim, small_dim, n_small).  A corepresentation is D, D + D,
+        D + D* or D^{*k} + (D^{*-k})^*, so
+
+            corep_dim in {small_dim, 2 x small_dim}   and   n_small in {1, 2},
+
+        which is a ratio confined to a two-element set and monotone in nothing.
+        That alone forbids three of the four demanded cells -- (4,3,1), (4,3,2)
+        and (6,4,2) each ask for a degeneracy that is neither the small-rep
+        dimension nor twice it.  THE FOURTH NEEDS LAW 5 AND IS THE ONE WORTH
+        READING.  (6,6,2) is shape (d,d,2), which corepdex's own case table
+        makes TYPE (x) with d = 6.  |G_k| is hidden here -- the coordinate was
+        withdrawn from this index as the star's property -- but the chart bounds
+        it from BELOW by the sum rule, d^2 <= |G_k|, so d = 6 needs |G_k| >= 36
+        and therefore |G_k| = 48, the only crystallographic order that large.
+        A little co-group of order 48 IS the full point group m-3m, which
+        contains the inversion, so -k lies in the star of k and the level is not
+        type (x) at all.  Type (x) requires a NON-CENTROSYMMETRIC point group,
+        whose order is at most 24, hence small_dim <= 4 there.  FORBIDDEN.
+
+        MEASURED ON THE CAPTURE, not inferred: 0 of 3,529 rows have small_dim^2
+        > little_order; the largest little_order on a type-(x) row is 24 and on
+        any row is 48; and no case-(c) row violates 2 small_dim^2 <= little_order,
+        which is the same argument for two INEQUIVALENT reps at one k.
+
+    SO corepdex CLOSES AT ZERO OPEN -- 4 demanded, 4 forbidden -- and it is the
+    only index in the register whose entire demand is emptied by theorem.  It
+    also carries one of the smallest demands in the register, only
+    `deformedbands` at 3 being smaller, and the two facts are not independent:
+    a 13-cell chart has little room to demand anything a theorem does not
+    already reach.  The result is reported without the adjective.
+
+ALL THREE SOURCES ARE GAPLESS, AND THAT IS MEASURED RATHER THAN ASSUMED.  Each
+is a banked capture computed end to end from the 230 space groups, and
+`gapless()` counts the capture's own data lines against the rows the module
+charts: 1,120 / 1,120, 870 / 870 and 3,529 / 3,529.  No row is declined, so
+there is nothing to pin an UNPLACED cell with and all three UNPLACED figures are
+zero BY MEASUREMENT.  kpointdex's 68 space groups that seat no member are not a
+gap of this kind: they seat nothing because they have no isolated high-symmetry
+star, which is a fact about the geometry and not a row the module refused.
+
+===============================================================================
 5. WHAT THIS FILE REFUSES
 ===============================================================================
 
-    TO CALL 2,651 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
+    TO CALL 2,740 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
     cells that no bound derivable here forbids and no source row explains.  For
-    the seven indexes with a derived bound the OPEN figure is FINAL AGAINST
+    the eleven indexes with a derived bound the OPEN figure is FINAL AGAINST
     EVERY MONOTONE BOUND, by Law 3 -- that is a proof, not a survey.  For the
     nine with none derived it is open against nothing at all, and a bound found
     tomorrow may empty any of them.  The two situations are different and are not summed
     into one adjective.
+
+    TO CALL THE CRYSTALLOGRAPHIC RESIDUE BUILT.  DOCKET 49b exhibits a quark
+    content, an orbital L and a quark spin for every one of the 110 open baryon
+    cells, so OPEN there means BUILT.  The 89 open cells of section 4b's three
+    indexes carry nothing of the kind and are not claimed to.  What each carries
+    is an arithmetic witness -- a dimension vector, or a point-group order and
+    an orbit size -- and that is what the existential in the bound found, not a
+    crystal.  `kpoint_open_realisable()` measures the distance: all 7 open
+    kpointdex cells have a realising dimension vector and NONE of those vectors
+    occurs at any of the 870 seated stars.  Arithmetically realisable and
+    crystallographically unattested are two different statuses and neither is
+    the other.
 
     TO REPAIR THE B(s2)*(5840) ROWS.  Section 3 measures the fault and its
     consequence.  The chat-67 full hold governs a capture exactly as it governs
@@ -755,6 +917,105 @@ def _b_baryons_quark(c):
     return (i2, q3, S, C, B) in quark_reachable()
 
 
+# ------------------------------------ DOCKET 51, THE CRYSTALLOGRAPHIC INDEXES.
+# Section 4b.  Three seated rows -- 25 phonondex, 26 kpointdex, 27 corepdex --
+# demand 160 cells between them and were never adjudicated here.  All three
+# bounds below are NON-MONOTONE, and the shared reason is that their
+# coordinates are representation dimensions tied by sum_i d_i^2 = |G|, which is
+# an equality and not an inequality.  Each is CHECKED against every seated
+# member (0 violations) and against the capture's own columns before it is
+# applied to a demanded cell; none was fitted to a demand.
+
+#: The ten crystallographic point-group orders.  A theorem, and also measured:
+#: `phonondex --selftest` pins exactly this set off its capture.
+_PG_ORDERS = (1, 2, 3, 4, 6, 8, 12, 16, 24, 48)
+
+#: The largest order of a crystallographic point group containing NO inversion.
+#: 432 and -43m, both 24.  Every centrosymmetric class is a proper extension of
+#: one of these, and m-3m (48) is the only class above 24 at all.
+_NONCENTRO_MAX = 24
+
+
+def _b_phonondex(c):
+    """(site_order, n_irreps, max_dim) -- THE ORBIT'S MODE BUDGET.
+
+    The point-group order P is Law 5's hidden variable and the coordinates
+    bound its range: orbit-stabiliser forces site_order | P, and a
+    crystallographic point group has order at most 48.  The orbit contributes
+    3 P / site_order modes among which n_irreps distinct irreps each appear at
+    least once, one of them of dimension max_dim.
+
+    Four clauses are derived; `phonon_clause_split()` measures that only the
+    third forbids anything, and the other three are kept because derived and
+    empty is not the same statement as not looked for.
+    """
+    S, n, d = c
+    for P in _PG_ORDERS:
+        if P % S or P % d or d * d > P:      # S | P;  d | P and d^2 <= P
+            continue
+        if (n - 1) + d > 3 * (P // S):       # the mode budget -- the one that bites
+            continue
+        if (n - 1) > P - d * d:              # n distinct irreps of a group of order P
+            continue
+        return True
+    return False
+
+
+_KVEC = {}
+
+
+def _dimvec(k, d, rem, L):
+    """Is there a multiset of k dims, each <= d, each dividing L, squares = rem?"""
+    key = (k, d, rem, L)
+    if key in _KVEC:
+        return _KVEC[key]
+    if k == 0:
+        out = rem == 0
+    elif rem < k or rem > k * d * d:
+        out = False
+    else:
+        out = any(_dimvec(k - 1, e, rem - e * e, L)
+                  for e in range(1, d + 1) if L % e == 0 and e * e <= rem)
+    _KVEC[key] = out
+    return out
+
+
+def _b_kpointdex(c):
+    """(little_order, n_smallreps, max_dim) -- THE SECTOR'S DIMENSION VECTOR.
+
+    Wedderburn on the twisted group algebra: sum over the sector's small
+    representations of d^2 = |G_k|, exactly.  Ito: each d divides |G_k|, the
+    centre of a Schur cover being abelian and normal.  Both legs are measured
+    on the capture's own `dims` column by `kpoint_sum_rule()` before use.
+    """
+    L, n, d = c
+    return n >= 1 and L % d == 0 and d * d <= L and _dimvec(n - 1, d, L - d * d, L)
+
+
+def _b_corepdex(c):
+    """(corep_dim, small_dim, n_small) -- HERRING, WITH |G_k| HIDDEN.
+
+    A corepresentation is D, D + D, D + D* or D^{*k} + (D^{*-k})^*, so the
+    degeneracy is the small-rep dimension or twice it and nothing else.  The
+    little-group order is not a coordinate here -- corepdex withdrew it as the
+    STAR's property -- so it is Law 5's hidden variable, and the chart bounds
+    its range from below by sum d^2 = |G_k|:
+
+        case (a)/(b), n_small = 1        one small rep at k      d^2   <= |G_k|
+        case (c),     n_small = 2, 2d    two INEQUIVALENT at k   2 d^2 <= |G_k|
+        type (x),     n_small = 2, d     one at k, one at -k     d^2   <= |G_k|
+
+    and from above by crystallography: |G_k| <= 48 in general, and <= 24 for a
+    type (x), whose defining condition -- -k outside the star of k -- requires a
+    point group with no inversion.
+    """
+    cd, sd, n = c
+    if n not in (1, 2) or cd not in (sd, 2 * sd):
+        return False
+    need = 2 * sd * sd if (n == 2 and cd == 2 * sd) else sd * sd
+    return need <= (_NONCENTRO_MAX if (n == 2 and cd == sd) else 48)
+
+
 BOUNDS = {
     "gravity.index": ("the cell lies in the IMAGE of the coordinate map, "
                       "exhausted over every nuclide, every ionisation stage "
@@ -781,6 +1042,21 @@ BOUNDS = {
     "terms.index": ("mult = 1 => the term is not SHORT",
                     "Russell-Saunders: a singlet has one level", True,
                     _b_terms),
+    "phonondex.index": ("(n_irreps - 1) + max_dim <= 3 P / site_order for some "
+                        "crystallographic P with site_order | P",
+                        "orbit-stabiliser; 3 modes per atom; |P| <= 48", False,
+                        _b_phonondex),
+    "kpointdex.index": ("the dimension vector is realisable: n_smallreps dims, "
+                        "each dividing |G_k|, max exactly max_dim, squares "
+                        "summing to |G_k|",
+                        "Wedderburn on the twisted group algebra; Ito's theorem",
+                        False, _b_kpointdex),
+    "corepdex.index": ("corep_dim in {small_dim, 2 small_dim}, and the hidden "
+                       "|G_k| large enough to carry the small reps and small "
+                       "enough to leave -k outside the star",
+                       "Herring's criterion; sum d^2 = |G_k|; a type-(x) star "
+                       "needs a point group with no inversion", False,
+                       _b_corepdex),
 }
 
 # The mesons carry a bound that is PROVED to forbid nothing.  That is a
@@ -876,7 +1152,13 @@ GAPLESS = ("gravity.index",
            "readrezayi.index", "ions.index", "fibred.index",
            "probability.index", "fqh.index", "observed.index",
            "fundamental.index", "inversion.index", "madrule.index",
-           "nucshell.index")
+           "nucshell.index",
+           # DOCKET 51.  The three crystallographic captures are computed end
+           # to end and every data line is charted, so there is no declined row
+           # to pin an UNPLACED cell with.  Counted off the TSV by `_tsv_rows`
+           # rather than off the module, so a reader that silently dropped a
+           # line would show up here as a gap.
+           "phonondex.index", "kpointdex.index", "corepdex.index")
 
 # The one index where the separation cannot be run, with what would settle it.
 UNDECIDED = {
@@ -1077,9 +1359,20 @@ TABLE = {
     "nucshell.index": (14, 0, 0, 14, 0),
     "nucbands.index": (5, 0, 2, 3, 0),
     "deformedbands.index": (3, 0, 0, 3, 0),
+    # DOCKET 51.  Rows 25, 26 and 27, seated and never adjudicated here until
+    # the ledger guard named them.  All three bounds are non-monotone and all
+    # three forbid; all three sources are gapless, so UNPLACED is zero by
+    # measurement.  corepdex is the first index in the register to close at
+    # ZERO OPEN -- 4 demanded, 4 forbidden.  Section 4b.
+    "phonondex.index": (111, 29, 0, 82, 0),
+    "kpointdex.index": (45, 38, 0, 7, 0),
+    "corepdex.index": (4, 4, 0, 0, 0),
 }
 
-TOTALS = (4759, 1974, 36, 2651, 98)
+# RE-PINNED, DOCKET 51: was (4759, 1974, 36, 2651, 98) over 21 rows.  The three
+# crystallographic indexes add 160 demanded cells, of which 71 are FORBIDDEN and
+# 89 OPEN; nothing else moved, and no earlier row changed by a cell.
+TOTALS = (4919, 2045, 36, 2740, 98)
 
 
 def totals():
@@ -1089,16 +1382,149 @@ def totals():
     return tuple(z)
 
 
+def _tsv_rows(path):
+    """Data lines in a banked capture, counted WITHOUT the module that reads it.
+
+    So "every source row is charted" is a comparison between two readers rather
+    than a restatement of one.  Comment lines and the column header are not
+    data; every capture here writes `sg` in the first header field.
+    """
+    n = 0
+    with open(path) as fh:
+        for line in fh:
+            if not line.strip() or line.startswith("#"):
+                continue
+            if line.split("\t", 1)[0] == "sg":
+                continue
+            n += 1
+    return n
+
+
+# ------------------------------------- DOCKET 51, the three bounds' own legs.
+# Each bound rests on facts about the CAPTURE, not only about the 13, 21 and 90
+# chart cells, and those facts are measured here at row level.  A bound checked
+# only against the cells would be checked against at most 90 of 5,519 members.
+
+def corep_herring():
+    """(rows, rows with corep_dim in {small_dim, 2 small_dim}) -- and they agree.
+
+    Herring's criterion leaves no third ratio, so this is the bound's first leg
+    measured on all 3,529 levels rather than on the 13 cells they compress to.
+    """
+    import corepdex
+    rows = corepdex.read()
+    return len(rows), sum(1 for r in rows if r[10] in (r[7], 2 * r[7]))
+
+
+def corep_hidden_range():
+    """(rows, rows obeying the sum-rule floor, max |G_k| on a type (x), max |G_k|).
+
+    The Law 5 leg of `_b_corepdex`: |G_k| is not a coordinate, and what makes it
+    forbid is that the chart bounds its range.  Below by sum d^2 = |G_k| -- and
+    by TWICE that for a case (c), whose two small reps are inequivalent and sit
+    at the same k.  Above by crystallography, and a type (x) needs a point group
+    with no inversion, which caps it at 24 rather than 48.
+    """
+    import corepdex
+    rows = corepdex.read()
+    floor = sum(1 for r in rows
+                if (2 * r[7] ** 2 if r[9] == "c" else r[7] ** 2) <= r[4])
+    xs = [r[4] for r in rows if r[9] == "x"]
+    return len(rows), floor, max(xs), max(r[4] for r in rows)
+
+
+def kpoint_sum_rule():
+    """(rows, rows with sum d^2 = |G_k|, rows with every d dividing |G_k|).
+
+    The two theorems `_b_kpointdex` is built from, measured on the capture's own
+    `dims` column.  Wedderburn is the equality; Ito is the divisibility.
+    """
+    import kpointdex
+    rows = kpointdex.read()
+    dims = [[int(x) for x in r[10].split("+")] for r in rows]
+    return (len(rows),
+            sum(1 for r, ds in zip(rows, dims)
+                if sum(d * d for d in ds) == r[6]),
+            sum(1 for r, ds in zip(rows, dims) if all(r[6] % d == 0 for d in ds)))
+
+
+def kpoint_dimvecs(cell, limit=8):
+    """The dimension vectors that realise a demanded kpointdex cell."""
+    L, n, d = cell
+    out = []
+
+    def rec(k, mx, rem, acc):
+        if len(out) >= limit:
+            return
+        if k == 0:
+            if rem == 0:
+                out.append(tuple(sorted(acc)))
+            return
+        for e in range(1, mx + 1):
+            if L % e or e * e > rem:
+                continue
+            rec(k - 1, e, rem - e * e, acc + [e])
+    if L % d == 0 and d * d <= L:
+        rec(n - 1, d, L - d * d, [d])
+    return out
+
+
+def kpoint_open_realisable():
+    """(open cells, cells with a dimension vector, cells whose vector is SEATED).
+
+    WHAT AN OPEN CELL IS WORTH HERE, AND IT IS NOT WHAT DOCKET 49b's IS WORTH.
+    The baryon residue is BUILT -- each cell names quarks, an L and a spin.  An
+    open cell here names an arithmetic solution of the sum rule, which is what
+    the bound's existential found and nothing more.  The third figure is the
+    distance between the two readings: it is zero.
+    """
+    import kpointdex
+    X = frozenset(registry.index_of("kpointdex.index"))
+    seated = {}
+    for r in kpointdex.read():
+        seated.setdefault(r[6], set()).add(
+            tuple(sorted(int(x) for x in r[10].split("+"))))
+    op = [c for c in demand.demand(X) if _b_kpointdex(c)]
+    return (len(op),
+            sum(1 for c in op if kpoint_dimvecs(c)),
+            sum(1 for c in op
+                if any(v in seated.get(c[0], ()) for v in kpoint_dimvecs(c))))
+
+
+def phonon_clause_split():
+    """[(clause, demanded cells it forbids ALONE)] -- three of the four are empty.
+
+    Reported because "derived and vacuous" is a finding and "not looked for" is
+    not the same statement.  Law 1's corollary is visible in the first two: a
+    single-coordinate condition on a hidden variable the chart only bounds can
+    still bite, but these two do not.
+    """
+    X = frozenset(registry.index_of("phonondex.index"))
+    d = sorted(demand.demand(X))
+    cl = (("max_dim^2 <= P", lambda S, n, m, P: m * m <= P),
+          ("max_dim divides P", lambda S, n, m, P: P % m == 0),
+          ("(n-1) + max_dim <= 3P/S", lambda S, n, m, P: (n - 1) + m <= 3 * (P // S)),
+          ("(n-1) <= P - max_dim^2", lambda S, n, m, P: (n - 1) <= P - m * m))
+    out = []
+    for lab, f in cl:
+        out.append((lab, sum(1 for c in d if not any(
+            P % c[0] == 0 and f(c[0], c[1], c[2], P) for P in _PG_ORDERS))))
+    return out
+
+
 def gapless():
     """[(index, source rows, rows charted)] -- the GAPLESS claim, re-measured."""
+    import corepdex
     import fibred
     import fqh
     import fundamental
     import inversion
     import ions
+    import kpointdex
     import madrule
     import nucshell
     import observed
+    import phonondex
     import probability
     import readrezayi
     return [
@@ -1119,6 +1545,11 @@ def gapless():
          len(inversion.inversions())),
         ("madrule.index", len(madrule.index()), len(madrule.index())),
         ("gravity.index",) + gravity_source_gap(),
+        # DOCKET 51.  The capture's data lines against the rows the module
+        # reads -- two readers, not one restated.
+        ("phonondex.index", _tsv_rows(phonondex.BANK), len(phonondex.read())),
+        ("kpointdex.index", _tsv_rows(kpointdex.BANK), len(kpointdex.read())),
+        ("corepdex.index", _tsv_rows(corepdex.BANK), len(corepdex.read())),
     ]
 
 
@@ -1203,13 +1634,31 @@ def selftest():
     # -------- the gapless claim is measured, not assumed.
     bad = [(nm, a, b) for nm, a, b in gapless() if a != b]
     chk("every GAPLESS source charts every row it holds", bad, [])
-    chk("and the ten named are the ten measured",
+    # RE-PINNED: the label read "the ten named are the ten measured" and the
+    # tuple already held eleven, gravity having joined it at DOCKET 49 without
+    # the sentence moving.  Fourteen now, and the fixture compares the LISTS,
+    # so only the label was ever able to drift.
+    chk("and the fourteen named are the fourteen measured",
         sorted(nm for nm, _a, _b in gapless()), sorted(GAPLESS))
 
     # -------- the books balance.
     chk("the table sums to the totals", totals(), TOTALS)
-    chk("and its E column is predict.py's live total", totals()[0],
-        __import__("predict").total())
+    # THE TIE TO predict.py, RE-STATED SO IT IS EXACT IN BOTH STATES.  This
+    # read `totals()[0] == predict.total()`, and DOCKET 51 breaks that equality
+    # from one side only: three seated indexes are adjudicated here and are not
+    # yet in THAT file's E table, which still carries 24 rows and 4,759.  The
+    # gap belongs to predict.py and is recorded, not repaired, so the tie is
+    # written to hold before and after that table is extended -- and it is
+    # split in two, the per-index leg being STRICTER than the sum it replaces,
+    # since a sum can hide two errors that cancel.
+    _pred_live = __import__("predict").E_BY_INDEX
+    chk("E agrees with predict.py index by index, wherever predict measures it",
+        [(nm, TABLE[nm][0], _pred_live[nm]) for nm in sorted(TABLE)
+         if nm in _pred_live and TABLE[nm][0] != _pred_live[nm]], [])
+    chk("and the E column is predict.py's live total plus the rows it lacks",
+        totals()[0],
+        __import__("predict").total()
+        + sum(v[0] for nm, v in TABLE.items() if nm not in _pred_live))
     # THE LEDGER GUARD.  An audit pointed out that nothing tied this table to
     # the registry.  A seated index needs a row here only if it DEMANDS
     # something: an E = 0 index has nothing to adjudicate, and `gravity` is
@@ -1282,6 +1731,62 @@ def selftest():
     chk("and every (2J, P) it uses is one a seated member exhibits",
         sorted({(c[0], c[1]) for c in _op} - {(m[0], m[1]) for m in _Xb}), [])
 
+    # ---------------------------------- DOCKET 51, THE CRYSTALLOGRAPHIC ROWS
+    # Three seated indexes the ledger guard caught unadjudicated.  Each closes,
+    # each bound is checked at ROW level as well as on the cells (the loops
+    # above check 90, 21 and 13 cells; these check 1,120, 870 and 3,529
+    # members), and each figure below is measured, not recorded.
+    chk("phonondex closes: 29 forbidden + 0 unplaced + 82 open = 111",
+        adjudicate("phonondex.index"), (111, 29, 0, 82, 0))
+    chk("kpointdex closes: 38 forbidden + 0 unplaced + 7 open = 45",
+        adjudicate("kpointdex.index"), (45, 38, 0, 7, 0))
+    chk("corepdex closes at ZERO OPEN: 4 forbidden of 4 demanded",
+        adjudicate("corepdex.index"), (4, 4, 0, 0, 0))
+    chk("and it is the only seated index whose demand is emptied entirely",
+        sorted(nm for nm, v in TABLE.items() if v[0] > 0 and v[3] == 0
+               and v[4] == 0), ["corepdex.index"])
+    # THE MEMBERSHIP OF THE NON-MONOTONE SET IS PINNED, NOT ITS SIZE.  Law 4
+    # once said "THE ONE BOUND IN THIS TREE THAT QUALIFIES", which DOCKET 49
+    # falsified and no fixture noticed.  A name list cannot go stale quietly.
+    chk("five bounds are non-monotone, and these are the five",
+        sorted(nm for nm, v in BOUNDS.items() if not v[2]),
+        ["baryons.index", "corepdex.index", "gravity.index", "kpointdex.index",
+         "phonondex.index"])
+    chk("and every one of them forbids something, as Law 4 permits",
+        sorted(nm for nm, v in BOUNDS.items()
+               if not v[2] and TABLE[nm][1] == 0), [])
+    # corepdex: the two legs, separated, so neither carries the other's work.
+    _cdm = sorted(demand.demand(frozenset(registry.index_of("corepdex.index"))))
+    _ratio = [c for c in _cdm if c[2] not in (1, 2) or c[0] not in (c[1], 2 * c[1])]
+    chk("Herring's ratio alone forbids three of corepdex's four",
+        (len(_cdm), len(_ratio)), (4, 3))
+    chk("and the fourth is the type (x) needing |G_k| >= 36 and <= 24",
+        [c for c in _cdm if c not in _ratio], [(6, 6, 2)])
+    chk("the ratio leg holds on all 3,529 levels, not just the 13 cells",
+        corep_herring(), (3529, 3529))
+    chk("and the hidden |G_k| is floored by the sum rule and capped at 24 on (x)",
+        corep_hidden_range(), (3529, 3529, 24, 48))
+    # kpointdex: the two theorems the bound is built from, measured on `dims`.
+    chk("Wedderburn and Ito hold on all 870 stars", kpoint_sum_rule(),
+        (870, 870, 870))
+    chk("divisibility is not implied by the interval: (16,5,3) passes it, "
+        "and 3 does not divide 16",
+        (_b_kpointdex((16, 5, 3)), 3 * 3 + 5 - 1 <= 16 <= 5 * 3 * 3),
+        (False, True))
+    # AND WHAT AN OPEN CELL IS WORTH HERE.  Not DOCKET 49b's BUILT: every open
+    # cell has an arithmetic realisation and NONE of those vectors is seated.
+    chk("all 7 open kpointdex cells are realisable and none is attested",
+        kpoint_open_realisable(), (7, 7, 0))
+    # phonondex: four clauses derived, three of them vacuous, and said so.
+    chk("of phonondex's four derived clauses only the mode budget forbids",
+        [n for _lab, n in phonon_clause_split()], [0, 0, 29, 0])
+    # the three captures are gapless, counted off the TSV by a second reader.
+    chk("the three crystallographic captures are charted line for line",
+        [(nm, a, b) for nm, a, b in gapless()
+         if nm in ("phonondex.index", "kpointdex.index", "corepdex.index")],
+        [("phonondex.index", 1120, 1120), ("kpointdex.index", 870, 870),
+         ("corepdex.index", 3529, 3529)])
+
     # The gravity bound's physical inputs are cited, not proved here.
     chk("four physical inputs to the gravity bound, each cited",
         len(GRAVITY_SOURCES), 4)
@@ -1319,9 +1824,13 @@ def report():
     print("   L3 MONOTONE        x_i <= f(x_j) with f non-decreasing is")
     print("      VACUITY         max-closed, hence forbids nothing.  Every")
     print("                      atomic and nuclear bound in this tree is of")
-    print("                      that shape.")
+    print("                      that shape.  The crystallographic ones are")
+    print("                      not: a sum rule is an equality, not a bound.")
+    # RE-PINNED: read "One qualifies here", which was stale from DOCKET 49 and
+    # is now counted off BOUNDS rather than typed.
     print("   L4 WHAT FORBIDS    only a bound that is antitone somewhere or")
-    print("                      carries a congruence.  One qualifies here.")
+    print("                      carries a congruence.  %d qualify here."
+          % sum(1 for v in BOUNDS.values() if not v[2]))
     print("   L5 EXPRESSIBILITY  a hidden variable free to range forbids")
     print("                      nothing; the coordinates must bound its range.")
     print("   L6 OPERATOR        E is a deficit against an OPERATOR, and which")
@@ -1359,12 +1868,22 @@ def report():
     print("   %-20s %6d %6d %6d %6d %6d" % (("TOTAL",) + totals()))
     print()
     E, F = TABLE["baryons.index"][0], TABLE["baryons.index"][1]
-    print("   FORBIDDEN is %d cells and every one of them is a baryon cell"
-          % totals()[1])
-    print("   Gell-Mann--Nishijima empties -- %.1f%% of the largest prediction"
+    # WITHDRAWN: this read "FORBIDDEN is N cells and every one of them is a
+    # baryon cell", which DOCKET 49 falsified (gravity forbids 1,080) and
+    # DOCKET 51 falsifies three times over.  Replaced by the statement that is
+    # true and is the one Law 4 actually makes -- forbidding is confined to the
+    # non-monotone bounds -- and the split is MEASURED off the table rather
+    # than named.
+    _forb = sorted(((v[1], nm) for nm, v in TABLE.items() if v[1]), reverse=True)
+    print("   FORBIDDEN is %d cells over %d indexes, and every one of those"
+          % (totals()[1], len(_forb)))
+    print("   indexes carries a NON-MONOTONE bound:")
+    for _n, _nm in _forb:
+        print("      %-20s %5d" % (_nm, _n))
+    print("   Where the bound is monotone FORBIDDEN is zero AND LAW 3 SAYS IT")
+    print("   HAD TO BE.  The three-quark bound empties %.1f%% of the largest"
           % (100.0 * F / E))
-    print("   set in the register, by theorem.  Everywhere else FORBIDDEN is")
-    print("   zero AND LAW 3 SAYS IT HAD TO BE.")
+    print("   prediction set in the register, by theorem.")
     print()
     for nm, why in sorted(UNDECIDED.items()):
         print("   UNDECIDED  %s" % nm)
