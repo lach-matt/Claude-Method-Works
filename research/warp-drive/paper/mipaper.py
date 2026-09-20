@@ -1438,7 +1438,8 @@ def document(f):
                   ["Are decade ranks too coarse a coordinate to mean anything?",
                    "section 10.6, measured: the observed box holds %s cells, the coordinate "
                    "map reaches %s, the index occupies %d. Too coarse and the image would "
-                   "fill the box"],
+                   "fill the box"
+                   % (n(f["grav_box"]), n(f["grav_image"]), f["grav_cells"])],
                   ["Does Theorem 1a's 'from nature' smuggle in unobserved objects?",
                    "section 3.1 states the admission criterion outright -- mathematically "
                    "established beyond doubt, observed or not -- and discloses that K1's sole "
@@ -1857,6 +1858,12 @@ def selftest():
     stray = sorted({n for n in re.findall(r"(?<![.,\d])\d{3,}(?![.\d])", body)}
                    - {str(x) for x in f["bi_corpus"]} - allowed)
     chk("no unexplained three-or-more-digit literal survives in the prose", stray, [])
+    # AN UNSUBSTITUTED PLACEHOLDER IS INVISIBLE TO THE DIGIT GUARD, because it
+    # carries no digits.  One reached the rendered page: section 15 promised
+    # three measured figures and printed "%s cells ... %s ... %d".  Nothing
+    # caught it but reading the output, so the check exists now.
+    chk("no unsubstituted format specifier survives anywhere in the document",
+        sorted(set(re.findall(r"%[-0-9.]*[sdfgr]", md))), [])
     chk("the filename is derived from the title, not set beside it",
         stem(), re.sub(r"[^A-Z0-9]+", "-", TITLE.upper()).strip("-"))
     chk("and the rendered document's h1 IS that title",
