@@ -1,0 +1,11 @@
+# Gamma-point phonon symmetry content of six archetypal structures.
+# COMPUTED: spglib 2.7.0 for the operations, Burnside's class-algebra method
+# for the character tables.  NO textbook character table is read.
+# spglib is installed, NOT vendored -- sgcapture.py's pattern and its reason.
+structure	spacegroup	pg_order	classes	irrep_dims	decomposition	modes
+diamond (Si)	Fd-3m	48	10	1,1,1,1,2,2,3,3,3,3	1 x (dim 3, u) + 1 x (dim 3, g)	6
+rocksalt (NaCl)	Fm-3m	48	10	1,1,1,1,2,2,3,3,3,3	2 x (dim 3, u)	6
+zincblende (GaAs)	F-43m	24	5	1,1,2,3,3	2 x (dim 3, u)	6
+fluorite (CaF2)	Fm-3m	48	10	1,1,1,1,2,2,3,3,3,3	2 x (dim 3, u) + 1 x (dim 3, g)	9
+perovskite (SrTiO3)	Pm-3m	48	10	1,1,1,1,2,2,3,3,3,3	1 x (dim 3, u) + 4 x (dim 3, u)	15
+CsCl	Pm-3m	48	10	1,1,1,1,2,2,3,3,3,3	2 x (dim 3, u)	6
