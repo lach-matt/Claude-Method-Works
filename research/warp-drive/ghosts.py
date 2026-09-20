@@ -609,6 +609,81 @@ def gravity_superseded():
     return len(forb), len([c for c in forb if c in img])
 
 
+def gravity_superseded_witness():
+    """(symbol, A, q, 2Je) -- one cell the withdrawn bound forbade and the
+    parameter space reaches, with the nuclide that reaches it.
+
+    The paper names this witness.  A NAMED NUCLIDE IS A CLAIM, so it is found
+    rather than typed: an earlier draft wrote "Zr-113" into the prose and the
+    substitution guard caught the bare 113, which is the guard working.
+    """
+    import math
+    import gravity as g
+    import registry
+    sp, ch = g._ranks()
+    alpha = 7.2973525693e-3
+    hbar, c_, gn = 1.054571817e-34, g.C_SI, 6.67430e-11
+    spi = {d: i + 1 for i, d in enumerate(sp)}
+    chi = {d: i + 1 for i, d in enumerate(ch)}
+    n_forb, _reach = gravity_superseded()
+    dm = frozenset(demand.demand(frozenset(registry.index_of("gravity.index"))))
+    img = gravity_image()
+    Je = {m[5] / 2.0 for m in g.members() if m[5] > 0}
+    qs = {m[3] for m in g.members() if m[3] > 0}
+    lo = min(Je) / (max(qs) ** 2) / alpha
+    hi = max(Je) / (min(qs) ** 2) / alpha
+
+    def old_ok(c):
+        D, B, F, X, Y, _L, _E = c
+        q = 1 if Y > 0 else 0
+        ok = set()
+        for Jz in (True, False):
+            if Jz and (X > 0 or F == 1):
+                continue
+            ok.add(g.bound_class(D, q, F, Jz))
+        if B not in ok:
+            return False
+        if X == 0 or Y == 0:
+            return True
+        d = sp[X - 1] - 2 * ch[Y - 1]
+        return (10.0 ** (d - 2) < hi) and (10.0 ** (d + 1) > lo)
+
+    wrong = sorted(c for c in dm if not old_ok(c) and c in img)
+    if not wrong:
+        return None
+    target = wrong[0]
+    for Z, N, A, sym, dmx, _q in g.nuclides():
+        base = A * g.U_KG + dmx * g.KEV_J / c_ ** 2
+        for q in range(0, Z + 1):
+            M = base - q * g.M_E
+            if M <= 0:
+                continue
+            aG = gn * M * M / (hbar * c_)
+            Y = 0
+            if q > 0:
+                Y = chi.get(math.floor(math.log10(math.sqrt(q * q * alpha / aG))))
+                if Y is None:
+                    continue
+            if Y != target[4]:
+                continue
+            F = (A + (Z - q)) % 2
+            if F != target[2]:
+                continue
+            for tj in range(0, GRAVITY_JCUT + 1):
+                if tj == 0:
+                    X = 0
+                else:
+                    X = spi.get(math.floor(math.log10((tj / 2.0) / aG)))
+                    if X is None:
+                        continue
+                if X != target[3]:
+                    continue
+                Jz = (Z % 2 == 0 and N % 2 == 0 and tj == 0)
+                if g.bound_class(target[0], 1 if q > 0 else 0, F, Jz) == target[1]:
+                    return (sym, A, q, tj)
+    return None
+
+
 def _b_gravity(c):
     """(D, B, F, X, Y, L, E) -- is this cell in the coordinate map's image?"""
     return c in gravity_image()

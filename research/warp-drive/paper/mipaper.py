@@ -198,6 +198,7 @@ def facts():
         "grav_box": _grav_box(),
         "grav_saturates": ghosts.gravity_image_saturates(),
         "grav_superseded": ghosts.gravity_superseded(),
+        "grav_witness": ghosts.gravity_superseded_witness(),
         # Section 3.1: K1's occupancy depends on the spacetime dimensions
         # admitted, which the paper's own instrument has always pinned.
         "dimsweep": [tuple(t) for t in OR.dimension_finding()[0][1]],
@@ -1155,16 +1156,16 @@ def document(f):
         "derived two separate bounds - a horizon bound from the exact solutions, and a decade "
         "bound from the identity below - and both needed a RANGE for a hidden variable. The "
         "decade bound took its range for Je from the OBSERVED members, and that forbade %d "
-        "cells the parameter space actually reaches; one of them is reached by Zr-113 at a "
-        "single ionisation with 2Je = 15. The horizon bound had a second weakness: four fifths "
+        "cells the parameter space actually reaches; one of them is reached by %s-%d at charge "
+        "%d with 2Je = %d. The horizon bound had a second weakness: four fifths "
         "of what it forbade leaned on the solution table returning UNDETERMINED, so most of the "
         "result rested on the present state of exact solutions in five dimensions and above. The "
         "image bound has neither problem, and it forbids FEWER: %s against the pair's %s. A "
         "smaller figure with no assumptions is worth more than a larger one with two, and the "
         "superseded pair is kept in the instrument so this comparison can be re-run rather than "
         "taken on trust."
-        % (f["grav_superseded"][1], n(f["adj"]["gravity.index"][1]),
-           n(f["grav_superseded"][0])))))
+        % ((f["grav_superseded"][1],) + tuple(f["grav_witness"])
+           + (n(f["adj"]["gravity.index"][1]), n(f["grav_superseded"][0]))))))
     A(("p", (
         "THE IDENTITY BEHIND IT IS STILL THE THING TO READ, because it is why the map's image is "
         "so much smaller than its box. The dimensionless spin and the dimensionless charge are "
@@ -1754,8 +1755,8 @@ def selftest():
     # SECTION 9 -- the demand and its adjudication.
     chk("the demand totals 4,759 and the adjudication sums to it",
         (f["E_total"], f["adj_tot"][0]), (4759, 4759))
-    chk("and it splits 894 forbidden / 36 unplaced / 3,731 open / 98 undecided",
-        tuple(f["adj_tot"][1:]), (2122, 36, 2503, 98))
+    chk("and it splits 1,974 forbidden / 36 unplaced / 2,651 open / 98 undecided",
+        tuple(f["adj_tot"][1:]), (1974, 36, 2651, 98))
     # WAS "every forbidden cell is a baryon cell", and DOCKET 49 made that
     # false: gravity now forbids 1,228 of its own.  The fixture that matters is
     # that forbidding is confined to the indexes carrying a non-monotone bound,
