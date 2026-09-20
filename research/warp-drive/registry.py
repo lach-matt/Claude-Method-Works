@@ -296,7 +296,7 @@ REGISTERED = (
     # ---- THE k-POINT EXTENSION.  M: "Now seat and push the k-point extension
     # for the high-symmetry points."  phonondex.py section 5 REFUSED k != Gamma
     # and named the obstruction: the little group's representations are
-    # PROJECTIVE for non-symmorphic groups.  Discharged for 852 of 870 members.
+    # PROJECTIVE for non-symmorphic groups.  DISCHARGED FOR ALL 870.
     #
     # High-symmetry k are the reciprocal-space analogue of Wyckoff positions --
     # stabiliser types keyed by the STAR, keeping those whose stabiliser FIXES
@@ -311,15 +311,67 @@ REGISTERED = (
     # every mode doubly degenerate -- the non-symmorphic sticking, which an
     # ordinary-rep implementation gets visibly wrong.
     #
-    # EIGHTEEN MEMBERS ARE SEATED UNRESOLVED, in nine cubic non-symmorphic
-    # groups, where Burnside's randomised search does not converge.  They carry
-    # every quantity except the dimensions.  A status is never flattened.
+    # EIGHTEEN MEMBERS WERE FIRST SEATED UNRESOLVED and that is now CLOSED.
+    # The reason given for them -- that Burnside's randomised search does not
+    # converge in nine cubic non-symmorphic groups -- was WRONG three times
+    # over.  The cross-check implementation's multiplier g = R^-T k - k is a
+    # reciprocal lattice vector but NOT a 2-cocycle (deviation exactly 1/2), so
+    # its extension was not a group and Burnside was right to refuse it.
+    # Corrected to K = k - R^T k, all 870 resolve.  See kpointdex.py section 5a,
+    # which records the withdrawal in full.
     ("kpointdex", "index", "TABLE",
      "870 isolated high-symmetry k-point types over the 162 space groups that "
      "have any -- the small representations available at each, computed "
-     "through their projective factor system; 18 seated UNRESOLVED",
+     "through their projective factor system",
      "crystal momentum k (as the star), little-group order, factor-system "
      "order, maximum small-representation dimension (the mode's degeneracy)"),
+    # ---- THE TIME-REVERSAL EXTENSION.  M: "Now seat the time-reversal
+    # extension for the antiunitary obstruction."  kpointdex discharged the
+    # PROJECTIVE obstruction; its own derivation recorded that doing so is
+    # NECESSARY AND NOT SUFFICIENT, because a second and independent one --
+    # TIME REVERSAL, acting ANTIUNITARILY -- degenerates levels the unitary
+    # calculation reports as separate, "and its integrality checks do not
+    # notice".  That clause is the difficulty: the unitary answer is internally
+    # consistent, sum d^2 = |G_k| and all, and simply INCOMPLETE.
+    #
+    # THE MEMBER IS A LEVEL, NOT A STAR, which is why this is an extension and
+    # not a recharting.  kpointdex's 870 stars carry 3,529 corepresentations --
+    # the physically irreducible objects, what a spectrum shows as one
+    # multiplet.  309 of them are DOUBLED at k by time reversal, across 86
+    # space groups, and no unitary quantity sees it.  3,908 small
+    # representations become 3,529 levels: 594 case-(c) reps fuse in conjugate
+    # pairs at one k, and 164 type-(x) reps fuse across CONJUGATE k.
+    #
+    # A FIRST VERSION SEATED 3,611 AND WAS OVER-REPRESENTING.  A type-(x)
+    # corepresentation spans the star of k AND the star of -k, both of which
+    # are seated, so a row at each arm names one member twice; the 42 type-(x)
+    # stars form 21 conjugate pairs and 164 rows named 82 objects.  Folded to
+    # one row with the partner in `k2` -- phonondex's P-1 ruling, applied
+    # again.  Its chart also carried `little_order`, which is CONSTANT on every
+    # star and is already kpointdex's first coordinate; struck.  See
+    # corepdex.py sections 2b and 5, which record both withdrawals.
+    #
+    # IT SITS ON kpointdex's OWN STARS AND THAT IS PROVED SET-WISE, not assumed:
+    # the 1/12 mesh here and kpoint_derive's grid-free Hermite-normal-form
+    # enumeration give IDENTICAL SETS of fractional k-vectors on 230 of 230
+    # space groups.  A side effect worth keeping: that upgrades the mesh from
+    # "converged" to proved.
+    #
+    # FOUR INDEPENDENT VALIDATIONS, none of them the code checking itself: a
+    # SIGNED sum rule derived from the omega-twisted regular character, whose
+    # right-hand side touches no character table (holds on all 828 stars with
+    # an antiunitary coset); the case-(c) pairing proved fixed-point-free; 230
+    # of 230 agreement with an implementation sharing no convention, no basis
+    # and no projective machinery; and the published literature, including the
+    # Dirac point MEASURED at 15.3 kHz in space group 230.
+    ("corepdex", "index", "TABLE",
+     "3,529 corepresentations over the 870 isolated high-symmetry k-stars -- "
+     "the physically irreducible phonon levels once TIME REVERSAL is admitted, "
+     "309 of them doubled by it and invisible to the unitary calculation; "
+     "spinless (T^2 = +1) and nonmagnetic, and refusing both extensions",
+     "crystal momentum k (as the star, and for type (x) the conjugate pair of "
+     "stars), the DEGENERACY time reversal forces, the small-representation "
+     "dimension under it, and how many symmetry species the level contains"),
 )
 
 NOT_AN_INDEX = {
@@ -627,12 +679,13 @@ def selftest():
     chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
         [])
-    chk("twenty-six indexes registered -- eleven, two the overlap ruling seated "
-        "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
-        "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
+    chk("twenty-seven indexes registered -- eleven, two the overlap ruling "
+        "seated after DOCKET 22 unseated a third, one DOCKET 26 added, and "
+        "DOCKET 27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
         "non-abelian states, DOCKET 34's K4, DOCKET 35's nuclear rotational "
-        "levels and DOCKET 36b's deformed ones, THE PHONON INDEX and its k-POINT EXTENSION", len(REGISTERED), 26)
+        "levels and DOCKET 36b's deformed ones, THE PHONON INDEX, its k-POINT "
+        "EXTENSION, and its TIME-REVERSAL EXTENSION", len(REGISTERED), 27)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED

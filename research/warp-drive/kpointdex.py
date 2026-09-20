@@ -592,8 +592,17 @@ def index():
 
         little_order   the order of the group the modes at k transform under
         n_smallreps    how many symmetry SPECIES exist at that k
-        max_dim        the largest small-rep dimension, i.e. the maximum
-                       DEGENERACY symmetry forces at that k
+        max_dim        the largest SMALL-REPRESENTATION dimension at that k
+
+    THE SECOND HALF OF THAT LINE IS WITHDRAWN.  It read "i.e. the maximum
+    DEGENERACY symmetry forces at that k", and that is FALSE wherever TIME
+    REVERSAL doubles a level -- the antiunitary obstruction is not in the
+    little group and no small-rep dimension can see it.  MEASURED against
+    `corepdex`, the 27th row: at 118 of the (space group, |G_k|, star) groups
+    here, over 93 space groups, the true maximum degeneracy EXCEEDS `max_dim`.
+    The COORDINATE is unchanged and correct -- it is the largest small-rep
+    dimension, which is what it computes; only the gloss claiming it is the
+    degeneracy is struck.  The degeneracy is `corepdex`'s `corep_dim`.
 
     `star` and `pg_order` are NOT coordinates: their product is fixed by
     orbit-stabiliser, exactly as `multiplicity` and `pg_order` are excluded at
@@ -607,8 +616,11 @@ def cell_population():
     return len(read()), len(index())
 
 
-#: Pinned after seating so a later change cannot move it silently.
-SEATED_CELL = None
+#: Pinned after seating so a later change cannot move it silently.  IT WAS
+#: LEFT AT None BY THE ROW-26 PASS -- declared and never filled, with no
+#: fixture to notice.  Filled and fixtured when the TIME-REVERSAL EXTENSION
+#: was seated as row 27, which is when the omission was found.
+SEATED_CELL = (0, 7, 5)
 
 
 def report():
@@ -941,6 +953,10 @@ def selftest():
         (cross_check()[3], cross_check()[2]), (314, 314))
 
     # -- the chart
+    import mi
+    chk("its own cell is the one pinned at seating -- the pin was LEFT EMPTY "
+        "by the row-26 pass and filled at row 27", mi.cell(index()),
+        SEATED_CELL)
     chk("21 distinct cells", len(index()), 21)
     chk("and every cell is a 3-tuple", {len(c) for c in index()}, {3})
     chk("little-group orders are divisors of the crystallographic orders",

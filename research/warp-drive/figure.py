@@ -57,12 +57,12 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    24 vertices, 24 distinct cells -- no two seated indexes share a cell
+    27 vertices, 27 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 512
+    E = 570
     ALL EIGHT CHANNELS OCCUPIED
 
-**ITS OWN CELL IS (0, 6, 11), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 7, 11), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
 
@@ -79,10 +79,36 @@ measured by `self_cell()` and is not offered as meaning anything.
     not a recharting of `nucbands`: the two share ZERO nuclides, which
     `deformedbands.disjoint_from_nucbands()` measures rather than asserts, so
     the overlap ruling has no subject.  At twenty-four: E 512, own cell
-    (0, 6, 11), resolutions 0.333 / 0.692 / 0.654, and the channel census does
+    (0, 6, 11), resolutions 0.333 / 0.708 / 0.708, and the channel census does
     not move because all eight were already occupied.  HEIGHT AND WIDTH NOW
     TIE at 17 distinct apiece, which is the first time the two axes have
     agreed, and it is a coincidence of this vertex set rather than a finding.
+
+    THIS PARAGRAPH PRINTED "0.692 / 0.654" UNTIL ROW 27 WAS SEATED, and those
+    are the TWENTY-SIX-row figures -- 18/26 and 17/26 -- pasted into a sentence
+    about twenty-four.  Its own next clause gave it away: a tie at 17 apiece
+    out of 24 is 0.708 and 0.708, which is what it now says.  Recorded rather
+    than silently corrected, because it is the exact failure `docfigures.py`
+    exists to catch and it happened inside the file that warns about it.
+
+    AND TWENTY-FIVE, TWENTY-SIX, TWENTY-SEVEN -- THE PHONON RUN.  Three rows
+    seated in one line of descent, each discharging a refusal the one before it
+    wrote down.  `phonondex` seated the Gamma-point content of every
+    crystallographic site (1,120 members, cell (0, 12, 16)) and REFUSED k != 0
+    because the little group's representations are projective.  `kpointdex`
+    discharged that and seated 870 isolated high-symmetry k-stars
+    (cell (0, 7, 5)), and recorded that discharging it is NECESSARY AND NOT
+    SUFFICIENT.  `corepdex` discharges the second obstruction -- TIME REVERSAL,
+    antiunitary, invisible to every unitary check -- and seats the 3,611
+    LEVELS those stars carry (cell (0, 11, 6)), 309 of them degenerate for a
+    reason no unitary calculation can see.
+        At twenty-seven: E 570, resolutions 0.296 / 0.667 / 0.630, and the
+    figure's OWN CELL MOVES for the first time in three rows, (0, 6, 11) to
+    (0, 7, 11) -- still unoccupied.  `corepdex` contributes NEITHER a new
+    height nor a new width; its cell is (0, 6, 3) and the figure held 6 and 3
+    already, so both resolutions fall on the larger denominator while the two
+    axes stay separated.  The channel census does not move: all eight were
+    occupied at twenty-four and `corepdex` lands in K0, which was held.
 
 ===============================================================================
 1b. WHAT THE OVERLAP RULING COST AND WHAT IT BOUGHT -- BOTH, MEASURED
@@ -578,7 +604,7 @@ def selftest():
         "closure at fourteen and nothing since has given it back",
         closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 6, 11))
+    chk("it has its own cell", own, (0, 7, 11))
     chk("ALL EIGHT CHANNELS ARE OCCUPIED -- DOCKET 34 filled the last",
         sorted({c[0] for c in figure()}), [0, 1, 2, 3, 4, 5, 6, 7])
     chk("and none is empty", [k for k in range(8)
@@ -596,10 +622,24 @@ def selftest():
     # because the point of the fixture is that the verdict is a measurement of
     # a moving object and not a constant someone wrote down.
     #
-    # REPINNED TWICE MORE.  At 24 rows height and width were TIED at
+    # REPINNED THREE TIMES MORE.  At 24 rows height and width were TIED at
     # 17/24 = 0.7083.  Seating THE PHONON INDEX as the 25th SEPARATED them:
     # 18/25 = 0.72 against 17/25 = 0.68.  Seating its k-POINT EXTENSION as the
     # 26th leaves them separated: 18/26 = 0.6923 against 17/26 = 0.6538.
+    # Seating its TIME-REVERSAL EXTENSION as the 27th leaves them separated:
+    # 18/27 = 0.6667 against 17/27 = 0.6296.  Both fall, because the row adds a
+    # vertex and NEITHER a new height nor a new width -- its cell is (0, 6, 3)
+    # and the figure already held 6 and 3.
+    #
+    # AN INTERMEDIATE READING OF ROW 27 SAID 0.7037, AND IT IS WITHDRAWN.  It
+    # was measured against a version of that index whose cell was (0, 11, 6),
+    # height 11 being new to the figure.  That version was over-representing --
+    # it seated each type-(x) corepresentation twice, once at each arm of a
+    # conjugate star pair, and carried `little_order`, which is constant on a
+    # star and already kpointdex's -- and the corrected one is (0, 6, 3).  This
+    # is the SECOND time a resolution here was read against a candidate that
+    # was not what got seated, and the lesson is the one already written at
+    # row 26: measure after seating, never before.
     #
     # AN INTERMEDIATE READING SAID THE TIE RE-FORMED AT 26, AND IT IS WRONG.
     # It was measured against a DIFFERENT candidate instrument for row 26,
@@ -609,9 +649,9 @@ def selftest():
     # taken against a candidate that was not seated is not a reading of this
     # index at all.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6923))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.6538))
+        (res["width"][1], res["width"][0]), ("measurement", 0.6296))
     chk("the height/width tie BROKE at 25 and has NOT re-formed",
         res["height"][0] != res["width"][0], True)
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "

@@ -13177,3 +13177,212 @@ group-axiom test on every extension; `--check` rebuilds the capture and asserts
 it byte-identical (**verified: 870 rows, 0 failures, IDENTICAL**). Both
 derivations need numpy and spglib, neither vendored, and both **import**
 `phonon_derive` rather than copying it.
+
+---
+
+## The time-reversal extension, seated — the obstruction no unitary check can see
+
+`corepdex.py` is **registry row 27**, cell **(0, 6, 3)** — **3,529
+corepresentations** over kpointdex's own 870 isolated high-symmetry k-stars.
+
+`kpointdex` discharged the **projective** obstruction. Its own derivation wrote
+down why that is not the end of it, and the last clause is the whole difficulty:
+
+> *"Discharging the projective refusal is NECESSARY AND NOT SUFFICIENT. A second,
+> independent obstruction — TIME REVERSAL, via Herring's criterion — degenerates
+> levels at 126 space groups' TRIMs against the projective mechanism's 108, and
+> 56 space groups are touched by the antiunitary obstruction ALONE. An
+> implementation that discharges only the projective refusal is wrong at those 56
+> **and its integrality checks do not notice.**"*
+
+They cannot. The unitary answer is internally consistent — Σd² = |G_k| holds, the
+character table is orthogonal, every dimension is an integer — and simply
+incomplete. Time reversal is **antiunitary**: it is not an element of the little
+group, and no amount of care with the little group will find it.
+
+### THE MEMBER IS A LEVEL, NOT A STAR
+
+That is why this is an extension and not a recharting. kpointdex's member is a
+k-star; this one's is a single degenerate level at a star — a corepresentation,
+the physically irreducible object, what a spectrum shows as one multiplet.
+
+| | measured |
+|---|---|
+| corepresentations | **3,529** |
+| small representations behind them | 3,908 |
+| case (a) real / (b) pseudoreal / (c) complex pair / (x) | 3,138 / 12 / 297 / 82 |
+| **levels DOUBLED at k by time reversal** | **309** (8.8%) |
+| space groups carrying one | **86** |
+| stars where −k is outside its own star (type x) | 42, in 21 conjugate pairs |
+| distinct chart cells | 13 |
+
+594 case-(c) small reps fuse in conjugate pairs at one k into 297 levels, and 164
+type-(x) reps fuse across *conjugate* k into 82: **3,908 − 297 − 82 = 3,529**, and
+that is the whole accounting. **Case (b) is rare and not redundant:** twelve levels
+in the whole crystallographic catalogue double by pairing an irrep *with itself*.
+Under a T-breaking field a case-(b) level splits into two copies of the same
+character, a case-(c) level into two conjugate ones.
+
+### AN ADVERSARIAL REVIEW CAUGHT THIS INDEX OVER-REPRESENTING, AND IT WAS RIGHT
+
+A first version seated **3,611** members on a **37-cell, arity-4** chart. Both
+figures are withdrawn, for two separate faults a judge panel found and I then
+measured myself:
+
+- **A type-(x) corepresentation was seated twice.** It is `D^{*k} ⊕ (D^{*−k})^*` —
+  *one* object spanning the star of k **and** the star of −k, and both stars are
+  seated here. Measured: the 42 type-(x) stars form exactly **21 conjugate pairs**,
+  none self-conjugate, none with an unseated partner — so 164 rows named **82**
+  objects. Now emitted once, at the lexicographically smaller star, with the
+  partner in a `k2` column. This is `phonondex`'s P-1 ruling applied again.
+- **`little_order` was a coordinate and should not have been.** It is **constant on
+  every one of the 870 stars** (measured: 0 stars carry two values), so it is the
+  star's property, not the level's — and it is already `kpointdex.index()`'s first
+  coordinate. The first version excluded `factor_order` and `n_smallreps` on exactly
+  that ground and then carried `little_order` anyway.
+
+Correcting the second fault also fixed a caveat the first version had to write: with
+type (x) counted as containing **two** small reps (it does — one at each conjugate
+star, exactly as case (c) contains two at one k), the three remaining coordinates
+determine the reality type with **no exception at all**:
+
+| | corep_dim | small_dim | n_small |
+|---|---|---|---|
+| (a) real | d | d | 1 |
+| (b) pseudoreal | 2d | d | 1 |
+| (c) complex pair | 2d | d | 2 |
+| (x) conjugate stars | d | d | 2 |
+
+### IT SITS ON kpointdex's OWN STARS, AND THAT IS PROVED SET-WISE
+
+Not assumed and not merely counted: the 1/12 mesh this derivation sweeps and
+`kpoint_derive.candidates`'s grid-free Hermite-normal-form enumeration give
+**identical sets of fractional k-vectors on 230 of 230 space groups**. A side
+effect worth keeping — that upgrades the mesh from "converged" to *proved*, which
+is more than either file claimed before.
+
+### FIVE INDEPENDENT VALIDATIONS, NONE OF THEM THE CODE CHECKING ITSELF
+
+**(i) A signed sum rule, derived rather than quoted.** The textbook twisted
+Frobenius–Schur rule `Σ d_r ν_r = #{a ∈ A : a² = e}` is **false here**, and that
+was found by measuring, not by reading: the unsigned count gives 4 where the
+truth is −2 at the R point of sg 19, and 10 against 4 at P in sg 230. Summing the
+central extension's own twisted indicator over a central-character-ζ sector brings
+in `Σ_c ζ^{2c}`, which vanishes for n > 2. Derived directly from the ω-twisted
+regular character instead:
+
+```
+Σ_r d_r W_r  ==  Σ over q ∈ Q with R_q² = I of  exp(−2πi k·(R_q T_q + T_q))
+```
+
+The right-hand side **touches no character table** — it is pure space-group
+arithmetic, which is what makes it a check and not a restatement. **Holds on all
+828 stars** that have an antiunitary coset.
+
+**(ii) The case-(c) pairing is fixed-point-free** — every case-(c) rep has exactly
+one partner and never itself; every (a) and (b) rep is its own. 0 failures on 828.
+
+**(iii) Against an implementation sharing no convention.** `phonon_kpoint_derive`
+computes the same indicator in the *row* convention, on a cell built by spglib's
+`standardize_cell` rather than `hnf_basis`, through Herring's Ĝ rather than a
+central extension. Compared over the 7 non-Γ TRIMs of all 230 space groups, as
+multisets per group: **230 of 230 agree.**
+
+**(iv) Against the published literature, including a measured spectrum.**
+
+| sg | k | published | agrees |
+|---|---|---|---|
+| 19 | R | case (b), 2→4 — a charge-2 Dirac point (Yu et al., *Sci. Bull.* **67**, 375) | ✓ |
+| 19 | X, Y, Z | the *same* 2-dim irrep, case (a), no doubling | ✓ |
+| 230 | P | "two inequivalent 2-dim irreps stuck with time-reversal symmetry" beside a 4-dim irrep that needs none — **observed at 15.3 kHz** in a 3D-printed phononic crystal (Cai et al., *Light Sci. Appl.* **9**, 38) | ✓ |
+| 227 | X | diamond: four 2-fold levels, **none** doubled — the discriminator | ✓ |
+| 144, 76 | Γ | the classic ¹E/²E pair of vibrational spectroscopy | ✓ |
+
+**(v) Against an actual spectrum, with time reversal as the control.** No
+character theory on this route at all: a random force-constant tensor is projected
+onto the space-group-invariant subspace, the dynamical matrix diagonalised, and
+the degeneracies read off the eigenvalues. Then again with a **complex Hermitian**
+tensor, which keeps every unitary symmetry and breaks only time reversal.
+
+| sg | small | corep | Φ real (T on) | Φ Hermitian (T off) |
+|---|---|---|---|---|
+| 19 | 1 | 2 | 6×**2** | 12×**1** |
+| 19 | 2 | 4 | 3×**4** | 6×**2** |
+| 198 | 2 | 4 | 9×**4** | 18×**2** |
+| 198 | 1 | 2 | 18×**2** | 36×**1** |
+| 11, 212, 213 | = | = | unchanged | unchanged |
+
+**21 stars, 0 mismatches.** The control is what makes the first column evidence:
+the unitary group is identical in both runs, so the difference is time reversal's
+and nothing else's. sg 198, 212 and 213 are primitive cubic and non-symmorphic —
+three of the nine groups whose small representations were hardest to get right.
+
+### ONE REPAIR IT FORCED IN kpointdex
+
+`kpointdex.index()` documented `max_dim` as *"the largest small-rep dimension, i.e.
+the maximum DEGENERACY symmetry forces at that k"*. The second clause is **false**
+wherever time reversal doubles a level: measured against this index, at **118** of
+kpointdex's (space group, |G_k|, star) groups over **93** space groups the true
+maximum degeneracy exceeds `max_dim`. The coordinate is unchanged and correct — it
+is the largest small-rep dimension, which is what it computes. Only the gloss is
+struck.
+
+### WHAT IT REFUSES
+
+**Half-integer spin.** Everything here is T² = +1. For a spinor the whole sum
+changes sign and (a) and (b) exchange their physical readings — and two standard
+references put that sign in different places, so they **disagree in print** for
+double-valued irreps. Bilbao's own worked pair pins it: the double-valued P̄₇ of
+Ia-3 (206) is *real* and doubles, while the double-valued P̄₇ of I4₁32 (214) is
+*pseudoreal* and does not. Nothing here may be quoted for electrons with
+spin–orbit coupling. Also refused: magnetic space groups, any claim that a
+degeneracy is *observed* rather than symmetry-forced, the symmetry lines and
+planes, and frequencies.
+
+### WHAT SEATING IT DID TO THE MASTER INDEX
+
+The figure's own cell moves for the first time in three rows, **(0, 6, 11) →
+(0, 7, 11)**, and is still unoccupied. Resolutions: K 8/27, height **18/27**,
+width **17/27** — both fall, because `corepdex`'s cell (0, 6, 3) contributes
+*neither* a new height nor a new width; the figure already held 6 and 3. The
+height/width tie, broken at 25, stays broken.
+
+**And one property of the figure stopped being true.** `shifts.py` asserted
+*"the figure is sparse — most slices hold one cell"* (`occ[1] >= len(G)`), which
+held from eleven vertices to twenty-six. At twenty-seven it is **26 against 27**:
+the vertex count rose and the singleton-slice count did not, for exactly the same
+reason the two resolutions fell. Nothing is wrong — a true claim stopped being
+true — so the measured relation is pinned in its place and the transition is
+recorded rather than the fixture loosened.
+
+*An intermediate reading of row 27 said height 0.7037 and is withdrawn:* it was
+measured against the over-representing version whose cell was (0, 11, 6). That is
+the **second** time a resolution here was read against a candidate that was not
+what got seated — the lesson `figure.py` already wrote at row 26 is to measure
+after seating, never before.
+
+### FOUR FAULTS FOUND IN THE NEIGHBOURING IMPLEMENTATION, RECORDED NOT REPAIRED
+
+`phonon_kpoint_derive.herring()` itself was attacked four ways and **not broken**.
+Around it: `sectors()` picks the ω = −1 sector, right only for N = 2 and silently
+wrong for N ≥ 3 (unreachable from `main()`, so no capture is affected); there is
+**no integrality guard on W anywhere**; `PHONON-KGROUND.tsv`'s header claims a
+cross-validation of its antiunitary columns that the file does not perform (the
+claim is true — checked externally at 1610/1610 — but the file does not establish
+it); and `W is None` is flattened to `W = +1` by both callers, live in the capture
+at chiral α-quartz. See `corepdex.py` §6b.
+
+Separately: `overlaprule.coords()` raises for `phonondex` and `kpointdex`, which
+declare neither a COORDS entry nor `NAMES` — so `overlaprule --selftest` fails that
+fixture and `particlesweep --selftest` **crashes outright**. Measured as
+pre-existing by running HEAD in a detached worktree: identical there, and
+overlaprule's five failing fixtures are the same five before and after this pass.
+`corepdex` declares `NAMES` so it does not join them. Repairing the other two
+moves other indexes' figures and is a separate pass.
+
+**Reproduce:** `python3 research/warp-drive/corepdex.py --selftest` — stdlib
+against the banked capture. `python3 captures/corep_derive.py --selftest` runs the
+sum rule, the pairing, the published rows and the dynamical-matrix check;
+`--check` rebuilds the capture and asserts it byte-identical. Both need numpy and
+spglib, neither vendored, and the derivation **imports** `phonon_derive` and
+`phonon_kpoints_derive` rather than copying them.

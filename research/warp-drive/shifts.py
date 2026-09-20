@@ -364,8 +364,18 @@ def selftest():
     chk("NO move is the identity on F",
         [m for m in gm if apply_move(G, m) == G], [])
     occ = slice_occupancy(G)
-    chk("the figure is sparse -- most slices hold one cell",
-        occ.get(1, 0) >= len(G), True)
+    # THE FIGURE WAS SPARSE UNTIL THE 27th ROW, AND IS NOT ANY MORE.
+    # This fixture read `occ.get(1, 0) >= len(G)` -- at least as many
+    # singleton slices as vertices -- and it HELD from eleven vertices to
+    # twenty-six.  Seating the TIME-REVERSAL EXTENSION broke it: 26 singleton
+    # slices against 27 vertices.  Nothing is wrong; the claim simply stopped
+    # being true, and for a reason that is the same one figure.py records
+    # beside its own re-pin -- `corepdex`'s cell is (0, 6, 3) and the figure
+    # ALREADY HELD height 6 and width 3, so the vertex count rose and the
+    # singleton count did not.  The measured relation is pinned in its place,
+    # and the transition is recorded rather than the fixture loosened.
+    chk("the figure was sparse to twenty-six and is not at twenty-seven",
+        (occ.get(1, 0), len(G), occ.get(1, 0) >= len(G)), (26, 27, False))
     chk("the occupancy histogram covers every slice",
         sum(occ.values()), sum(len(b) for b in box(G)))
     chk("distinct moves can collide on the same singleton cell",
