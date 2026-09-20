@@ -175,13 +175,13 @@ SOURCE = (
     'banked beside the capture and re-runnable with --derive.',
     (
         'research/warp-drive/captures/PHONON-SITES.tsv',
-        'research/warp-drive/captures/phonon_sites_derive.py',
+        'research/warp-drive/captures/phonon_derive.py',
     ),
 )
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BANK = os.path.join(HERE, "captures", "PHONON-SITES.tsv")
-DERIVE = os.path.join(HERE, "captures", "phonon_sites_derive.py")
+DERIVE = os.path.join(HERE, "captures", "phonon_derive.py")
 
 #: The six crystals section 3 checks against, with their published Gamma
 #: decompositions.  Used ONLY to check; nothing is read from them.
@@ -454,6 +454,6 @@ def selftest():
 
 if __name__ == "__main__":
     if "--derive" in sys.argv:
-        raise SystemExit(os.system("cd %s && python3 phonon_sites_derive.py"
+        raise SystemExit(os.system("cd %s && python3 phonon_derive.py"
                                    % os.path.join(HERE, "captures")))
     sys.exit(selftest() if "--selftest" in sys.argv else (report() or 0))
