@@ -1731,6 +1731,70 @@ SUPPORT = [
  ("DUP-ID-CAUGHT","obstruct.py",     "this pass's obstruction row was first written as LIGHT-AS-THE-SOURCE, a name the ledger already held for light.py's row. Every count assertion passed and the report printed the name twice, because nothing in the file keyed on the id. Renamed LIGHT-AS-THE-SUPPLY -- light.py closes light as the LEAD by a theorem, lightbuild.py closes it as the SUPPLY by a number -- and a uniqueness assert added"),
 ]
 
+# -- Documents MEASURED on the three directives and found silent on all three --
+#
+# A .md in this tree that no cell cites is one of two things: a findings paper
+# nobody seated -- the fault the coverage guard exists to catch -- or a
+# document that bears on none of the three directives.  The second kind is
+# MEASURED here rather than named on an exemption list.  Each row carries the
+# triple that reading the document returns, axis by axis, and the row excuses
+# that document ONLY BECAUSE THE TRIPLE IS NULL.  Put a non-zero coordinate in
+# one of these rows and it stops excusing anything: it has become a finding and
+# must be seated in FINDINGS.  The selftest enforces that, so the exemption is
+# conditioned on the measurement and not on the filename.
+#
+# THESE ARE NOT FINDINGS AND THEY ARE NOT IN THE LATTICE.  NULL is the lattice
+# bottom -- defect() excludes it by declaration -- so a row seated at NULL in
+# FINDINGS would make "this document bears on nothing" a claim the index holds,
+# and this index holds claims about spacetime.  Measuring a document at NULL and
+# seating a finding at NULL are different acts and only the first is done here.
+#
+# WITHDRAWN: the note this table replaces said that "giving them (0, 0, 0) to
+# satisfy this guard would assert a bearing they do not have."  THAT REASON IS
+# FALSE.  (0, 0, 0) asserts NO bearing on any axis -- that is what a zero is
+# for, and the index carries 671 of them, measured.  The conclusion it was
+# offered for stands and only its evidence falls: what a row in FINDINGS
+# asserts is that the document holds A FINDING, and that is the thing these
+# documents do not.  The corrected reason is the paragraph above.
+#
+# (document, x, y, z, what it is, why each axis reads zero)
+NULL_PAPERS = [
+ ("HLAW.md", 0, 0, 0,
+  "instrument documentation: the hierarchy law as a thing you can point at an index",
+  "it documents a TOOL.  It identifies no warp energy, decides no drive and "
+  "derives no spec; the law it runs is about indexes, not about spacetime"),
+ ("PROOF-ASSISTANT.md", 0, 0, 0,
+  "instrument documentation: the Z3 route, its two encodings and its two guards",
+  "it documents a TOOL, and a general-purpose one -- how to machine-check a "
+  "finite claim here.  It makes no claim about warp energy, a drive or a spec"),
+ ("REFUSAL.md", 0, 0, 0,
+  "instrument documentation: the refusal index, seated as an extension of the master index",
+  "it documents a TOOL whose members are refusals.  A refusal is a record of "
+  "what was not concluded, so it answers no directive by construction"),
+ ("DOCKET.md", 0, 0, 0,
+  "governance: this tree's open questions and the rulings on them",
+  "it documents DECISIONS.  A docket states a question and what would settle "
+  "it; the settlement, when it comes, is seated as a finding in its own paper"),
+ # STATE.md.  Measured 2026-09-20 rather than excused, because it is not the
+ # same kind of document as the four above: it is neither a tool note nor a
+ # ruling but a findings report -- of a DIFFERENT project, on DIFFERENT axes.
+ # The master-index work shares this directory and shares nothing else, and
+ # sharing a directory is not sharing a subject.  Read in full; the three
+ # readings below are what the reading returned.
+ ("STATE.md", 0, 0, 0,
+  "the generated current state of the MASTER INDEX work, written by state.py",
+  "its subject is which charts of atomic, nuclear and particle data are "
+  "first-order indexes: 23 vertices, eight occupied channels, a docket table "
+  "and a retraction list.  X = 0: it names no energy and no stress tensor.  "
+  "Y = 0: every verdict in it decides whether a member set is an index, never "
+  "whether a device can be built.  Z = 0: its numbers are cells, channels and "
+  "member counts -- not one length, mass, speed or field of any object.  Its "
+  "one crossing into this project's subject runs the OTHER WAY -- DOCKET 33 "
+  "APPLIES NAVIGATION.md's retrieval law to a literature search, which spends "
+  "a warp finding rather than making one.  All 8 occurrences of 'warp' in it "
+  "are the string 'research/warp-drive' in a provenance column, measured"),
+]
+
 TRIPLE_COUNT, TRIPLE_DIGEST = 289, '7026e44abbd4'
 AFFIRM_COUNT, AFFIRM_DIGEST = 171, 'b2318da70e64'
 
@@ -1870,31 +1934,50 @@ def selftest():
     print("\nCoverage -- the guard against looping")
     here = os.path.dirname(os.path.abspath(__file__))
     cited = {f[4] for f in FINDINGS} | {s[1] for s in SUPPORT}
-    # INSTRUMENT DOCUMENTATION AND GOVERNANCE, not findings papers, and
-    # therefore not cells. Every other .md here reports a result that bears on
-    # one of the three axes. These document a TOOL or a DECISION: HLAW.md is the
-    # hierarchy law as a runnable instrument, PROOF-ASSISTANT.md is the Z3 route
-    # and its two guards, REFUSAL.md is the refusal index instrument, and
-    # DOCKET.md is this tree's open questions and the rulings on them. None
-    # identifies warp energy, says whether a drive is possible, or derives a
-    # spec, so none has a cell -- and giving them (0, 0, 0) to satisfy this
-    # guard would assert a bearing they do not have. Exempted BY NAME so the
-    # guard still fires on any findings paper that goes unindexed.
+    # A .md here is accounted for in exactly one of two ways: a cell cites it,
+    # or NULL_PAPERS carries its measurement on the three directives and that
+    # measurement is NULL.  There is no third way and no list of names -- the
+    # exemption is the MEASUREMENT, so a row that stops reading (0, 0, 0) stops
+    # excusing its document and the guard fires again.
     #
-    # THE GUARD CAUGHT THESE TWO LATE AND THAT IS THE GUARD WORKING. REFUSAL.md
-    # and DOCKET.md were both written after this list was fixed, and index3
+    # THE GUARD CAUGHT REFUSAL.md AND DOCKET.md LATE AND THAT IS THE GUARD
+    # WORKING. Both were written after the exemption list was fixed, and index3
     # went unrun between; the first full sweep of the tree's selftests failed
-    # here. The exemption is the right answer and the delay is recorded, not
+    # here. The exemption was the right answer and the delay is recorded, not
     # tidied away: a guard that only fires when someone runs it is only as good
     # as the sweep.
-    NOT_FINDINGS_PAPERS = {"HLAW.md", "PROOF-ASSISTANT.md",
-                           "REFUSAL.md", "DOCKET.md"}
+    #
+    # AND IT CAUGHT STATE.md, WHICH SAT FAILING. research/README.md recorded it
+    # as "a pre-existing failure ... Recorded, not repaired" and it is repaired
+    # here by MEASUREMENT: read in full, STATE.md returns (0, 0, 0), which is
+    # NULL, which is declared not a finding. The reason is in its NULL_PAPERS
+    # row and the row is what excuses it. Nothing was special-cased and no cell
+    # was invented to make a guard go quiet.
+    measured = {n: (x, y, z) for n, x, y, z, _k, _w in NULL_PAPERS}
+    silent = {n for n, c in measured.items() if c == NULL}
     papers = sorted(os.path.basename(q) for q in glob.glob(os.path.join(here, "*.md")))
-    uncited = [d for d in papers if d not in cited and d not in NOT_FINDINGS_PAPERS]
+    uncited = [d for d in papers if d not in cited and d not in silent]
     ok &= (uncited == [])
     print("  %-58s %14s" % ("papers with no cell (must be empty)", uncited if uncited else "[]"))
     print("  %-58s %14s %14s  %s" % ("every paper is indexed", not uncited, True,
                                      "ok" if not uncited else "FAIL"))
+    # The exemption has to be earned, and these are the tests that make it so.
+    notnull = sorted(n for n, c in measured.items() if c != NULL)
+    chk("a NULL_PAPERS row that is not NULL excuses nothing", notnull, [])
+    chk("no document is both cited and measured silent",
+        sorted(set(measured) & cited), [])
+    chk("every measured-silent document is a file here",
+        sorted(n for n in measured if n not in papers), [])
+    chk("every row says what the document is and why each axis is zero",
+        [n for n, _x, _y, _z, k, w in NULL_PAPERS if not k.strip() or not w.strip()], [])
+    chk("documents measured silent on all three", len(NULL_PAPERS), 5)
+    # RE-PINNED: 4 -> 5. STATE.md was the fifth and was not measured at all --
+    # it was the standing failure of this guard, not an exemption. The four
+    # before it are tool notes and a docket; STATE.md is the generated state of
+    # the master-index work, a findings report of another project on other axes.
+    chk("papers in the tree", len(papers), 27)
+    chk("  cited by a cell", len([d for d in papers if d in cited]), 22)
+    chk("  measured and silent", len([d for d in papers if d in silent]), 5)
     print("""  A finding the index does not hold cannot be predicted by its own closure.
   E(X) = 0 over an incomplete X measures the bookkeeping, not the knowledge --
   which is exactly how ROTATING-SHELL's J result was walked past and rederived.""")
@@ -1978,6 +2061,12 @@ def report():
     print("\n-- Support points (correct other cells; answer no directive) ----------------")
     for s in SUPPORT:
         print("   %-12s %s" % (s[0], s[2]))
+
+    print("\n-- Documents measured on the three directives and found NULL ----------------")
+    print("   Not findings: NULL is the lattice bottom, and a document measured at the")
+    print("   bottom is excused from the coverage guard BY THAT MEASUREMENT, not by name.")
+    for n, x, y, z, kind, _why in NULL_PAPERS:
+        print("   %-20s (%+d,%+d,%+d)  %s" % (n, x, y, z, kind))
     return 0
 
 if __name__ == "__main__":
