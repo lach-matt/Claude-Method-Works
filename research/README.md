@@ -13078,3 +13078,102 @@ numpy and spglib, neither vendored.
 One pre-existing failure is *not* this index's: `index3.py` reports `STATE.md`
 has no cell, and it had none before this pass. Verified by stashing. Recorded,
 not repaired.
+
+---
+
+## The k-point extension, seated — and the bug the cross-check earned its keep by finding
+
+`kpointdex.py` is **registry row 26**, cell **(0, 7, 5)** — **870 isolated
+high-symmetry k-stars** over the 162 space groups that have any (68 have none).
+It discharges the refusal `phonondex.py` section 5 wrote down verbatim: *"at a
+general k the little group's representations are PROJECTIVE for non-symmorphic
+groups, which is a different computation."* It is a different computation, and
+it is now done.
+
+**The enumeration is the reciprocal-space analogue of a Wyckoff position.**
+A star is kept when its stabiliser fixes no direction — the analogue of a
+position with no free parameter — and k is taken modulo a reciprocal lattice
+vector, which direct space never had to handle. `kpoint_derive.py` finds them
+**grid-free**: k is isolated iff the stacked matrix `[R − I : R ∈ G_k]` has rank
+3, so some subset of size ≤ 3 already does, and each such subset's lattice is
+enumerated exactly by Hermite normal form. No k-point table is read.
+
+**Two independent implementations, and they do not share code.**
+`captures/kpoint_derive.py` writes `KPOINTS-HIGHSYM.tsv`;
+`captures/phonon_kpoints_derive.py` writes `PHONON-KPOINTS.tsv` from a 1/12 mesh
+instead of the HNF argument. Both were run to completion and compared, never
+merged.
+
+### THE CROSS-CHECK FOUND A REAL BUG, AND THREE WRONG DIAGNOSES BEFORE THE RIGHT ONE
+
+The second implementation first left **eighteen members UNRESOLVED** in nine
+cubic non-symmorphic groups. Commit `a4175cb` reported that as a convergence
+failure of Burnside's randomised eigenvector search, with a deterministic
+Dixon–Schneider diagonalisation as the remedy. **All of that is withdrawn.**
+
+| diagnosis | verdict |
+|---|---|
+| "the randomised eigenvector search does not converge" | **withdrawn** — reseeding did nothing |
+| "a real random combination cannot split a conjugate pair" | **withdrawn** — a complex one did nothing either |
+| "Dixon–Schneider is the remedy" | **withdrawn** — written, and it failed *identically* |
+
+Dixon–Schneider recovered **fewer irreps than conjugacy classes**, which is
+impossible for a finite group. That impossibility is what pointed at the input
+rather than the algorithm. The multiplier was `g = R₁⁻ᵀk − k`, which *is* a
+reciprocal lattice vector for R₁ in the little group — so every integrality
+check it met passed — but **is not a 2-cocycle**. Tested against
+`φ(a,b) + φ(ab,c) ≡ φ(b,c) + φ(a,bc) (mod 1)` at space groups 199, 212 and 230
+it deviates by **exactly 1/2**, and the "central extension" it built was not a
+group: associativity and inverses both fail, measured directly.
+
+| convention | 2-cocycle | worst deviation |
+|---|---|---|
+| `g = R₁⁻ᵀk − k` | **no** | **0.5** |
+| `K = k − R₁ᵀk` | yes | 0 |
+| `K = R₁ᵀk − k` | yes | 0 |
+| `g = k − R₁⁻ᵀk` | **no** | **0.5** |
+
+Burnside was correctly refusing malformed input. Corrected to `K₁ = k − R₁ᵀk`
+— which is the convention `kpoint_derive.py` had reached independently — every
+extension tests as a valid group and **all 870 resolve, with Σd² = |G_k| on
+every row of both files.**
+
+### CORRECTED, THE AGREEMENT IS TOTAL
+
+|  | measured |
+|---|---|
+| members | 870 and 870 |
+| UNRESOLVED | 0 and 0 |
+| (space group, \|G_k\|, star) multisets | identical |
+| dimension buckets | **314 of 314 agree** |
+| diamond at \|G_k\| = 16 | 2+2+2+2 from both |
+
+**A second figure is withdrawn with it.** This tree once reported "445 of 447
+buckets agree". That came from keying the comparison bucket on the multiplier's
+order — the one quantity the two are known to report differently — so wherever
+they disagreed the keys failed to intersect and those rows fell *out* of the
+comparison rather than into it. Keyed on `(space group, |G_k|, star)`, which is
+what a bucket should be, the agreement is total.
+
+### THE ONE REMAINING DIFFERENCE IS A GAUGE CHOICE, AND IT CORROBORATES
+
+At four hexagonal screw groups — 178, 179, 180, 181 — at one star each,
+k = (½,½,½) with |G_k| = 4 and 3 arms, the reported multiplier order differs by
+exactly three: **6 against 2** at 178/179, **3 against 1** at 180/181. Every
+other bucket in those groups agrees exactly. The order of ω's values is **not an
+invariant**: rescaling Γ(R) → λ(R)Γ(R) multiplies ω by a coboundary, which can
+change the values' order while leaving the cohomology class fixed. The class is
+the invariant, and the two agree on it everywhere — at 180/181 `kpoint_derive`'s
+z3 test already reports `nontrivial_multiplier = 0`, and the other
+implementation's n = 1 says the same in the sharpest form available: it landed
+in a gauge where ω is identically 1, **confirming the coboundary verdict without
+a solver**. Recorded as a difference in what is being counted; neither file is
+changed to match the other.
+
+**Reproduce:** `python3 research/warp-drive/kpointdex.py --selftest` — stdlib
+against the banked captures. `python3 captures/phonon_kpoints_derive.py
+--selftest` runs the cocycle test above at sg199/212/230 and a direct
+group-axiom test on every extension; `--check` rebuilds the capture and asserts
+it byte-identical (**verified: 870 rows, 0 failures, IDENTICAL**). Both
+derivations need numpy and spglib, neither vendored, and both **import**
+`phonon_derive` rather than copying it.

@@ -177,20 +177,26 @@ to be merged; it is a replication, and it is compared.**
                                      the other derivation resolved every row
 
 **THE OTHER DERIVATION LEAVES 18 ROWS UNRESOLVED**, in nine cubic
-non-symmorphic groups -- 198, 199, 205, 206, 212, 213, 214, 220, 230 -- where
-its randomised Burnside search does not converge.  **This one leaves none**:
-`table_from_mult` retries to 400 seeds and validates integral dimensions,
-sum(d^2) = |G| and row orthonormality before returning a table, so a
-non-convergent seed is rejected rather than banked.  Those nine groups are
-excluded from the dimension comparison rather than counted as agreement.
+non-symmorphic groups -- 198, 199, 205, 206, 212, 213, 214, 220, 230.  **THAT
+WAS A BUG IN IT, NOT A HARD CASE, AND IT IS NOW CLOSED.**  Its multiplier
+g = R^{-T}k - k is a reciprocal lattice vector but NOT A 2-COCYCLE (deviation
+exactly 1/2), so its extension was not a group and Burnside was right to refuse
+it.  Corrected to K = k - R^T k -- this file's own convention, an exact cocycle
+-- it resolves all 870.  Section 5a records the withdrawal in full, including
+that a deterministic Dixon-Schneider routine written to "fix the convergence"
+failed identically, which is what located the bug.
 
-**FOUR SPACE GROUPS DISAGREE ON WHICH m BUCKET A MEMBER FALLS IN** -- 180,
-181, 212, 213 -- and that is a CONVENTION, not a disagreement.  The two files
-define omega with opposite sign and reduce it differently, so the ORDER of the
-multiplier's values can differ while the cohomology class, the dimensions and
-the orders do not.  `cross_check` reports the four; `cross_check_free` drops m
-and finds 153 of 153.  **Recorded as a convention difference, and not
-repaired in either file.**
+**FOUR SPACE GROUPS STILL DIFFER ON THE ORDER OF THE MULTIPLIER'S VALUES** --
+178, 179, 180 and 181, the hexagonal screw groups, at one star each -- and that
+one IS a gauge choice, not an error.  omega is fixed only up to a coboundary, so
+the ORDER OF ITS VALUES IS NOT AN INVARIANT; the cohomology class is, and the
+two agree on the class everywhere.  At 180 and 181 this file's z3 test already
+reports the multiplier a COBOUNDARY, and the other file's n = 1 confirms it
+without a solver by landing in a gauge where omega is identically 1.
+Dimensions, little groups, stars and sum d^2 = |G_k| match at all four.
+`cross_check` keyed on (sg, |G_k|, star) finds **314 of 314**, and
+`cross_check_free` per space group finds **162 of 162**.  **Recorded as a
+difference in what is counted, and not repaired in either file.**
 
 ===============================================================================
 5. THE MEMBER SET, AND WHY IT IS NOT (space group, k, site)
@@ -252,31 +258,97 @@ would seat two members instead of four, Gamma merging with R and X with M.
 485 is recorded as the measured symmetry-content coarsening; 870 is seated.
 
 ===============================================================================
-5a. A SECOND IMPLEMENTATION WAS BUILT IN PARALLEL, AND IT AGREES
+5a. THE SECOND IMPLEMENTATION, AND THE BUG IT TOOK TO FIND
 ===============================================================================
 
 `captures/PHONON-KPOINTS.tsv` is an INDEPENDENT computation of the same object,
-written separately during this pass with its own enumeration, its own central
-extension and its own Burnside pass.  It is kept because a cross-check that is
-thrown away is not a cross-check:
+written separately with its own enumeration, central extension and Burnside
+pass.  It is kept because a cross-check that is thrown away is not a
+cross-check -- and here it earned its keep by being WRONG in a way that was
+worth finding.
+
+**THREE CLAIMS MADE ABOUT IT ARE WITHDRAWN.**  An earlier version of this
+section, and commit a4175cb, reported that it left EIGHTEEN members UNRESOLVED
+because "Burnside's randomised eigenvector search does not converge" for nine
+cubic non-symmorphic groups, and that the remedy was a deterministic
+Dixon-Schneider simultaneous diagonalisation.  All three are false:
+
+  1.  IT WAS NOT A CONVERGENCE FAILURE.  That implementation used the multiplier
+      g = R1^{-T} k - k.  For R1 in the little group that IS a reciprocal
+      lattice vector, which is why it survived every check put on it -- but it
+      is NOT A 2-COCYCLE.  Tested against
+          phi(a,b) + phi(ab,c) == phi(b,c) + phi(a,bc)   (mod 1)
+      it deviates by exactly 1/2, so the group it built was not a group:
+      associativity failed and elements lacked inverses, measured directly.
+      Burnside was correctly refusing malformed input.
+
+  2.  DIXON-SCHNEIDER WAS NOT THE REMEDY.  It was written, and it failed
+      identically -- recovering FEWER IRREPS THAN CONJUGACY CLASSES, which is
+      impossible for a finite group and is what finally located the bug.  No
+      amount of determinism fixes a non-group.
+
+  3.  "NEITHER IMPLEMENTATION IS ADOPTED" GAVE A BROKEN MULTIPLIER EQUAL
+      STANDING WITH A CORRECT ONE.  This file's K1 = k - R1^T k is an EXACT
+      cocycle (deviation 0, tested at sg199, sg212, sg230).  It was right; the
+      cross-check was wrong.
+
+**CORRECTED, THE TWO NOW AGREE ON EVERY PHYSICAL QUANTITY.**
 
     members                          870 and 870
-    (space group, |G_k|) multisets   IDENTICAL
-    dimension multisets, where both
-      resolve the same bucket        431 of 435 agree
-    diamond at |G_k| = 16            2+2+2+2 from BOTH
+    UNRESOLVED                       0 and 0
+    (space group, |G_k|, star)       IDENTICAL multisets
+    dimension buckets                314 of 314 AGREE -- all of them
+    sum d^2 = |G_k|                  holds on every row of both
+    diamond at |G_k| = 16            2+2+2+2 from both
 
-**AND THE DISAGREEMENTS ARE INSTRUCTIVE IN BOTH DIRECTIONS.**  That second
-implementation leaves EIGHTEEN members UNRESOLVED -- its Burnside search is
-randomised and does not converge for nine cubic non-symmorphic groups -- where
-this file resolves all 870, including its 212 and 213.  Going the other way,
-the two place a different count in the factor-order-1 bucket at 180 and 181,
-which is exactly the coboundary distinction section 4 draws: **the order of the
-multiplier is not the cohomology class**, and the second implementation tests
-the former where this one decides the latter with z3.
+A FIGURE PREVIOUSLY REPORTED HERE IS ALSO WITHDRAWN.  This section once said
+"445 of 447 buckets agree".  That came from keying the comparison bucket on the
+MULTIPLIER'S ORDER -- the one quantity the two are known to report differently
+-- so wherever they disagreed the keys failed to intersect and those rows fell
+OUT of the comparison rather than into it.  Keyed on (space group, |G_k|, star)
+instead, which is what a bucket should be, the agreement is TOTAL: 314 of 314.
+`cross_check()` now measures it that way and returns the multiplier difference
+separately.
 
-Neither capture is merged into the other.  `cross_check()` reports the
-comparison, and `second_implementation_unresolved()` names the eighteen.
+**THE ONE REMAINING DIFFERENCE IS A GAUGE CHOICE, AND IT CORROBORATES.**  At
+four hexagonal screw groups -- 178 (P6_122), 179 (P6_522), 180 (P6_222) and
+181 (P6_422) -- and at ONE star in each, k = (1/2, 1/2, 1/2) with |G_k| = 4 and
+3 arms, the reported multiplier order differs by exactly a factor of three:
+
+    sg 178, 179     this file  m = 6      the other  n = 2    dims 2 both
+    sg 180, 181     this file  m = 3      the other  n = 1    dims 1+1+1+1 both
+
+Every other bucket in those four groups -- |G_k| = 12 at Gamma and at
+(0,0,1/2), |G_k| = 6 at (1/3,1/3,1/2) -- agrees exactly, m for m.
+
+THE ORDER OF omega'S VALUES IS NOT AN INVARIANT.  omega is fixed only up to a
+coboundary: rescaling Gamma(R) -> lambda(R) Gamma(R) multiplies omega(R1,R2) by
+lambda(R1) lambda(R2) / lambda(R1 R2), which can change the ORDER of the values
+while leaving the cohomology class untouched.  The class is the invariant, and
+the two agree on it everywhere:
+
+  *  At 180 and 181 this file's z3 test already reports
+     `nontrivial_multiplier = 0` -- the multiplier is a COBOUNDARY.  The other
+     implementation's n = 1 says the same thing in the sharpest available form:
+     it landed in a gauge where omega is identically 1.  The disagreement is a
+     SECOND, INDEPENDENT CONFIRMATION of the coboundary verdict, reached without
+     a solver.
+  *  At 178 and 179 the class is nontrivial on both sides -- this file's
+     `nontrivial_multiplier = 1`, the other's n = 2 > 1 -- and both return the
+     single 2-dimensional small rep that a nontrivial class forces.
+
+So the two differ on a gauge-dependent number and agree on every gauge-invariant
+one.  RECORDED AS A DIFFERENCE IN WHAT IS BEING COUNTED, and neither is changed
+to match the other.
+
+**THE SECOND IMPLEMENTATION IS BANKED.**  `captures/phonon_kpoints_derive.py`
+rebuilds `captures/PHONON-KPOINTS.tsv` and carries its own `--selftest`,
+including the cocycle test above at sg199, sg212 and sg230 and a direct group-
+axiom test on every extension it builds.  It was not banked when the capture was
+first seated, and banking it is what surfaced the bug: the repository held the
+numbers and not the route to them.
+
+`cross_check()` reports the comparison.
 
 ===============================================================================
 6. WHAT THIS FILE REFUSES
@@ -638,9 +710,18 @@ def second_implementation_unresolved():
 
 
 def cross_check():
-    """(here, there, buckets compared, agreeing, disagreeing space groups).
+    """(here, there, dimension buckets, agreeing, sgs where the MULTIPLIER differs).
 
     Compared against captures/PHONON-KPOINTS.tsv, never merged -- section 5a.
+
+    A bucket is keyed on (space group, |G_k|, star size) and holds the sorted
+    list of small-representation dimension multisets.  IT IS DELIBERATELY NOT
+    KEYED ON THE MULTIPLIER'S ORDER.  An earlier version was, and that is the
+    one quantity the two implementations are known to report differently: where
+    they disagreed the keys simply failed to intersect, so those rows dropped
+    OUT of the comparison instead of showing up in it, and the 447/445 it
+    reported was an artefact of its own key.  The honest figure is 314 of 314.
+    The multiplier difference is returned separately, as its own list.
     """
     import collections
     them = _read_tsv(SECOND)
@@ -648,23 +729,29 @@ def cross_check():
         return None
     mine = _read_tsv(os.path.join(HERE, "captures", "KPOINTS-HIGHSYM.tsv"))
 
-    def grp(rows, lo, fo, dm):
+    def dims(v):
+        return tuple(sorted((int(x) for x in v.replace("+", " ").split()),
+                            reverse=True))
+
+    def grp(rows, lo, val):
         d = collections.defaultdict(list)
         for r in rows:
-            v = r.get(dm, "")
+            v = r.get("dims", "")
             if not v or v == "UNRESOLVED":
                 continue
-            d[(int(r["sg"]), int(r[lo]), int(r[fo]))].append(
-                tuple(sorted((int(x) for x in v.replace("+", " ").split()),
-                             reverse=True)))
+            d[(int(r["sg"]), int(r[lo]), int(r["star"]))].append(val(r))
         return {k: sorted(v) for k, v in d.items()}
 
-    A = grp(mine, "little_order", "m", "dims")
-    B = grp(them, "little_group", "factor_order", "dims")
-    common = set(A) & set(B)
-    dis = sorted({k[0] for k in common if A[k] != B[k]})
-    return len(mine), len(them), len(common), len(common) - sum(
-        1 for k in common if A[k] != B[k]), dis
+    A = grp(mine, "little_order", lambda r: dims(r["dims"]))
+    B = grp(them, "little_group", lambda r: dims(r["dims"]))
+    keys = set(A) | set(B)
+    agree = sum(1 for k in keys if A.get(k) == B.get(k))
+
+    Am = grp(mine, "little_order", lambda r: int(r["m"]))
+    Bm = grp(them, "little_group", lambda r: int(r["factor_order"]))
+    mdis = sorted({k[0] for k in set(Am) | set(Bm) if Am.get(k) != Bm.get(k)})
+
+    return len(mine), len(them), len(keys), agree, mdis
 
 
 def cross_check_free():
@@ -842,15 +929,16 @@ def selftest():
     chk("a SECOND implementation banked 870 members too", cross_check()[1], 870)
     chk("the little-group ORDER multiset agrees in every space group",
         little_orders_agree(), [])
-    chk("the small-rep DIMENSIONS agree in all 153 it fully resolved",
-        (cf[0], cf[1], cf[2]), (153, 153, []))
-    chk("it left 18 rows UNRESOLVED in nine cubic non-symmorphic groups",
-        second_implementation_unresolved(),
-        [198, 199, 205, 206, 212, 213, 214, 220, 230])
+    chk("the small-rep DIMENSIONS agree in all 162 -- every bucket",
+        (cf[0], cf[1], cf[2]), (162, 162, []))
+    chk("its eighteen UNRESOLVED rows are CLOSED -- see section 5a",
+        second_implementation_unresolved(), [])
     chk("and this derivation leaves none",
         [r for r in rows if not r[10]], [])
-    chk("four space groups differ on the m BUCKET -- a convention, not physics",
-        cross_check()[4], [180, 181, 212, 213])
+    chk("FOUR space groups differ on the MULTIPLIER'S ORDER -- a gauge, "
+        "not physics", cross_check()[4], [178, 179, 180, 181])
+    chk("and the dimension buckets agree in ALL of them -- 314 of 314",
+        (cross_check()[3], cross_check()[2]), (314, 314))
 
     # -- the chart
     chk("21 distinct cells", len(index()), 21)
@@ -871,10 +959,15 @@ def selftest():
     if c:
         chk("a second implementation is banked and found 870 too", (c[0], c[1]),
             (870, 870))
-        chk("431 of 435 comparable buckets agree", (c[3], c[2]), (431, 435))
-        chk("they differ at 180, 181, 212 and 213", c[4], [180, 181, 212, 213])
-        chk("212 and 213 are among the eighteen IT could not resolve",
-            {212, 213} <= set(second_implementation_unresolved()), True)
+        chk("314 of 314 dimension buckets agree -- every one", (c[3], c[2]),
+            (314, 314))
+        chk("the eighteen UNRESOLVED are CLOSED",
+            second_implementation_unresolved(), [])
+        chk("what remains differs only at the four hexagonal screw groups",
+            c[4], [178, 179, 180, 181])
+        chk("the second implementation is banked and runnable",
+            os.path.exists(os.path.join(HERE, "captures",
+                                        "phonon_kpoints_derive.py")), True)
         chk("and this file resolves all 870",
             len([r for r in read() if r.get("dims") == "UNRESOLVED"])
             if read() and isinstance(read()[0], dict) else 0, 0)
