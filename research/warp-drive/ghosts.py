@@ -344,10 +344,69 @@ def _b_baryons(c):
     return False
 
 
+# ---------------------------------------------------- DOCKET 43, the stronger
+# bound.  GELL-MANN--NISHIJIMA IS A COROLLARY, AND IT UNDER-FORBIDS BY 301.
+# `_b_baryons` quantifies over a hidden baryon number Bn in {+1, -1} and asks
+# only that SOME Bn make the weight condition close.  That is weaker than the
+# quark model the capture already carries: it never asks whether the flavour
+# numbers are SIMULTANEOUSLY realisable by three quarks, or by three
+# antiquarks, at all.  The demanded cell (2J,P,2I,Q3,S,C,B) = (1,-1,0,3,1,1,1)
+# needs an anti-strange, a charm AND an anti-bottom quark in one baryon -- a
+# mixed state, not a baryon -- and GMN passes it because at Bn = -1 the
+# arithmetic happens to close.
+#
+# Measured: the three-quark bound forbids 894 of the 1012 demanded baryon
+# cells against GMN's 593, holds on all 184 seated members without exception,
+# and every one of GMN's 593 is among the 894 -- a strict containment, so
+# nothing GMN forbade is released.
+_QUARKS = {"u": (2, 0, 0, 0), "d": (-1, 0, 0, 0), "s": (-1, -1, 0, 0),
+           "c": (2, 0, 1, 0), "b": (-1, 0, 0, -1)}       # (Q3, S, C, B)
+_REACH = None
+
+
+def quark_reachable():
+    """{(2I, Q3, S, C, B)} realisable by three quarks OR three antiquarks.
+
+    Flavour fixes five of the seven coordinates and says nothing about 2J or
+    P, which orbital and radial excitation reach freely -- so this is a bound
+    on a five-coordinate projection and is silent on the other two.
+
+    2I is bounded BOTH WAYS.  Above by the light-quark count n_ud, with the
+    same parity; below by |n_u - n_d|, because I3 must be a weight of the
+    isospin-I representation.  THE LOWER BOUND IS NOT DECORATION: without it
+    uuu is admitted at I = 1/2, which is not a state -- Delta++ is I = 3/2
+    only -- and the count comes out 890 instead of 894.
+    """
+    global _REACH
+    if _REACH is None:
+        out = set()
+        for combo in itertools.combinations_with_replacement("udscb", 3):
+            q3 = sum(_QUARKS[q][0] for q in combo)
+            S = sum(_QUARKS[q][1] for q in combo)
+            C = sum(_QUARKS[q][2] for q in combo)
+            B = sum(_QUARKS[q][3] for q in combo)
+            nu = combo.count("u")
+            nd = combo.count("d")
+            nud = nu + nd
+            for i2 in range(max(abs(nu - nd), nud % 2), nud + 1, 2):
+                out.add((i2, q3, S, C, B))
+                out.add((i2, -q3, -S, -C, -B))
+        _REACH = frozenset(out)
+    return _REACH
+
+
+def _b_baryons_quark(c):
+    """(2J, P, 2I, Q3, S, C, B) -- THE THREE-QUARK FLAVOUR BOUND."""
+    _j, _P, i2, q3, S, C, B = c
+    return (i2, q3, S, C, B) in quark_reachable()
+
+
 BOUNDS = {
-    "baryons.index": ("Gell-Mann--Nishijima: |2I3| <= 2I, 2I = 2I3 (mod 2)",
-                      "SU(2) isospin weights + the quark charges", False,
-                      _b_baryons),
+    "baryons.index": ("three-quark flavour content: (2I, Q3, S, C, B) is "
+                      "realisable by qqq or by anti-qqq, with "
+                      "|n_u - n_d| <= 2I <= n_ud and 2I = n_ud (mod 2)",
+                      "the quark model, on the capture's own quark strings",
+                      False, _b_baryons_quark),
     "ions.index": ("l <= n-1 at both ends; Pauli on k and g; q <= k",
                    "radial node count; Pauli exclusion", True, _b_ions),
     "fibred.index": ("l <= n-1; k <= 2(2l+1) - 1",

@@ -47,6 +47,14 @@ def registry_short_of(f, full):
     return f["short"].get(full, full)
 
 
+def _lonely_channels():
+    """[(K, the one index there)] for every channel with exactly one occupant."""
+    byk = {}
+    for nm, cell in figure.cells().items():
+        byk.setdefault(cell[0], []).append(nm)
+    return sorted((k, v[0]) for k, v in byk.items() if len(v) == 1)
+
+
 def sp_simplify_safe(e):
     import sympy as _sp
     try:
@@ -59,6 +67,9 @@ def sp_simplify_safe(e):
 
 def facts():
     """Every number the paper states, asked of the instrument that owns it."""
+    # ONE call: reading_counts() is a full sub-chart sweep and was being run
+    # twice by the dict literal below.
+    _readings = dict(OR.reading_counts())
     import itertools
     import demand
     import figure
@@ -100,10 +111,22 @@ def facts():
     # seated index -- recomputed, not read from a cached census
     stat = {}
     chan2 = {}
+    # ASK, AND DO NOT SKIP A MISS.  This read `OR.COORDS.get(mod)` and
+    # `continue`d on None, which silently swept 15 of the 24 seated indexes
+    # while the prose said it had swept them all -- and spin4, the K4 occupant
+    # that section 6's closing paragraph is entirely about, was one of the nine
+    # dropped.  OR.coords() raises on a miss now, and the three coarsenings are
+    # excluded BY NAME, for the stated reason, rather than by accident.
+    _swept, _skipped = [], []
     for nm, mod, acc, _me, _w, _q in registry.rows():
-        names = OR.COORDS.get(mod)
-        if names is None:
+        if mod == OR.SELF:
+            # A coarsening's sub-charts are sub-charts of its parent, already
+            # counted there.  Excluded to avoid double-counting, not because
+            # it cannot be reached.
+            _skipped.append(registry.short(nm))
             continue
+        names = OR.coords(mod)
+        _swept.append(registry.short(nm))
         X = OR.parent_chart(mod)
         for r in range(2, len(names) + 1):
             for combo in itertools.combinations(names, r):
@@ -145,10 +168,25 @@ def facts():
         "labelled": sorted(figure.labelled_axes()),
         "dilworth_bad": [d[0] for d in figure.dilworth() if not d[5]],
         "n_candidates": len(OR.CANDIDATES),
+        # Section 7's readings, MEASURED.  All five were typed, taken when the
+        # register held eleven indexes, and never moved as it grew to 24.
+        "readings": _readings,
+        "reading_share": tuple(OR.reading_share()),
+        "subcharts": OR.subchart_total(),
+        # WHICH channels rest on one seating.  Section 14's hedge said "one of
+        # the eight" and was typed; it never moved when three more
+        # single-occupant channels appeared.  Computed from the same cells the
+        # section 3.1 table is built from.
+        "lonely": _lonely_channels(),
         "seated": [(p, list(c), k, n) for p, c, k, n in OR.admissible()],
         "refused": [(p, list(c), w) for p, c, w in OR.refused()],
         "grounds": ["novel channel", "not a relabelling", "reach stable",
                     "coordinate forced"],
+        # WHICH indexes the sweep covered, so the prose can state it rather
+        # than imply "all of them".
+        "stat_swept": sorted(_swept),
+        "stat_skipped": sorted(_skipped),
+        "stat_nswept": len(_swept),
         "stat_by_arity": {a: tuple(v) for a, v in sorted(stat.items())},
         # The per-arity TOTAL is a number the prose states, so it is banked
         # rather than summed at the point of use: a figure computed inside a
@@ -251,8 +289,10 @@ def document(f):
         "%d distinct cells, and ALL EIGHT CHANNELS ARE OCCUPIED BY CHARTS OF REAL DATA, so the "
         "bound is tight from nature and not only by construction. We prove that 2-determinacy is "
         "vacuous at arity 2 and derive that an arity-2 chart cannot occupy the two lowest "
-        "channels, which explains why one channel was the last reached and why its occupant had "
-        "to be arity 3. We then take the register's own DEMAND -- the cells its join-closure "
+        "channels, which accounts for the difficulty of the channel that was last reached. Its "
+        "occupant is arity 3, where 2-determinacy is not vacuous and statistics must be EARNED; "
+        "that is a measured fact about the occupant and not a consequence of the corollary, which "
+        "does not reach that channel. We then take the register's own DEMAND -- the cells its join-closure "
         "requires and no member occupies, %s of them -- and adjudicate it. Three theorems decide "
         "most of that adjudication before any physics is brought: the demand invents no "
         "coordinate value; a bound monotone in the coordinates can never forbid a demanded cell; "
@@ -521,6 +561,15 @@ def document(f):
         "X's. At arity 2 there is exactly one 2-subset of the coordinates - the whole of them - "
         "so the projection is the identity and the reconstruction returns X itself. Hence "
         "S_2(X) = X for every X whatever. []")))
+    A(("p", (
+        "Measured over every coordinate subset of every seated index the sweep reaches - %d of "
+        "the %d, the %d coarsenings being excluded because their sub-charts are sub-charts of "
+        "their parents and are counted there - %s sub-charts in all. THE POPULATION IS STATED "
+        "BECAUSE IT WAS ONCE WRONG: the sweep skipped a missing coordinate list silently and "
+        "covered 15 of 24 while the prose implied all of them, dropping the very index this "
+        "section closes on."
+        % (f["stat_nswept"], f["nrows"], len(f["stat_skipped"]),
+           n(sum(f["stat_arity_totals"].values()))))))
     A(("table", (["arity", "statistics closes", "does not"],
                  [["%d" % a, "%d" % v[0], "%d" % v[1]]
                   for a, v in f["stat_by_arity"].items()])))
@@ -558,12 +607,23 @@ def document(f):
         "position in this index is information about an object.")))
     A(("p", (
         "A COARSENING - the same members charted on fewer coordinates - overlaps its parent "
-        "totally. Six readings of the ruling were charted against all proper sub-charts of the "
-        "seated indexes: 'channel differs from its parent' admits 109, 'cell differs from its "
-        "parent' 254, 'cell no seated vertex holds' 252, and 'CHANNEL no seated vertex holds' "
-        "admits 6. The third admits 117 coarsenings of a single index; the fourth is bounded, and "
-        "it is what the ruling says, since the ruling names LANGUAGES and the channel is the set "
-        "of languages that close a chart. Text and arithmetic select the same reading.")))
+        "totally. Four readings of the ruling were charted against all %s proper sub-charts of "
+        "the %d non-coarsening seated indexes: 'channel differs from its parent' admits %s, "
+        "'cell differs from its parent' %s, 'cell no seated vertex holds' %s, and 'CHANNEL no "
+        "seated vertex holds' admits %d. The third admits %d coarsenings of %s alone; the fourth "
+        "is bounded, and it is what the ruling says, since the ruling names LANGUAGES and the "
+        "channel is the set of languages that close a chart. Text and arithmetic select the same "
+        "reading."
+        % (n(f["subcharts"]), f["stat_nswept"], n(f["readings"]["R1"]),
+           n(f["readings"]["R2"]), n(f["readings"]["R3"]), f["readings"]["R4"],
+           f["reading_share"][1], f["reading_share"][0]))))
+    A(("note", (
+        "THESE FIVE FIGURES WERE TYPED AND ALL FIVE HAD GONE STALE. They were measured when the "
+        "register held eleven indexes and never moved as it grew to %d; the instrument that "
+        "produced four of them could not even be run, raising on the first seated index missing "
+        "from its coordinate table, and the fifth was computed by no function at all. They are "
+        "read from the instrument now, and the reading the ruling selects is unchanged - R4 is "
+        "still far the most bounded." % f["nrows"])))
     A(("p", "Four grounds are tested and a candidate must clear all four:"))
     A(("bullet", [
         "**NOVEL CHANNEL** - the chart reaches a channel no seated index reaches.",
@@ -1013,8 +1073,10 @@ def document(f):
            ", ".join("%d" % c2 for c2 in f["bi_caps"])),
         "A channel was shown reachable at arity 3, where statistics must be earned, by three "
         "charts of an index's own measured quantities. All three were REFUSED: they were found by "
-        "searching 120 charts for that channel, which is fitting, and a chart selected because it "
-        "lands somewhere cannot be evidence that it lands there.",
+        "SEARCHING for that channel, which is fitting, and a chart selected because it lands "
+        "somewhere cannot be evidence that it lands there. (The size of that search was quoted "
+        "here as a figure; no instrument records it, so it is withdrawn rather than repeated. "
+        "The ground does not depend on it.)",
         "Two further coarsenings were REFUSED on the reach ground - one oscillating between "
         "channels as the element reach grew, one reaching its channel only at the terminal reach, "
         "which is the failure mode that withdrew an earlier chart of this project.",
@@ -1086,8 +1148,9 @@ def document(f):
         "all.",
         "That occupying all eight channels closes the subject. It makes the bound of Theorem 1 "
         "tight and nothing more. It does not say the eight are the right coordinates, that no "
-        "further index exists, or that any channel is held by the best chart of it - and one of "
-        "the eight is held by a single index, so its occupancy rests on one seating.",
+        "further index exists, or that any channel is held by the best chart of it - and %d of "
+        "the eight are held by a SINGLE index each (%s), so each of those occupancies rests on "
+        "one seating." % (len(f["lonely"]), ", ".join("K%d %s" % kv for kv in f["lonely"])),
         "That the demand E measures progress. It is reported because it is measured. No index "
         "here was built to land on a cell the demand wanted, and one that was would be fitted.",
         "That the OPEN column is a discovery list. It is the count of demanded cells that no "
@@ -1136,7 +1199,7 @@ def document(f):
         "python3 registry.py --selftest -- the criterion, enforced on every row",
         "python3 figure.py --selftest -- the second-order object and its chart",
         "python3 overlaprule.py --selftest -- the ruling, the four grounds, the refusals",
-        "python3 overlaprule.py --census -- re-derives the six candidates",
+        "python3 overlaprule.py --census -- re-derives the %d candidates" % f["n_candidates"],
         "python3 boxinvariance.py --selftest -- the refused theorem, and the test run properly",
         "python3 observed.py --selftest -- the observed fibration against the predicted",
         "python3 subpop.py --selftest -- the sub-population sweep and the containment structure",
@@ -1434,9 +1497,20 @@ def selftest():
     # when its instrument moved, which is the whole failure this file avoids.
     md = render_md(f)
     body = "\n".join(l for l in md.split("\n") if not l.startswith("|"))
-    allowed = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
-               "0", "90", "109", "254", "252", "117", "120", "108", "1306",
-               "66", "0218", "6"}
+    # THE EXEMPTION LIST WAS THE HOLE.  It carried 109, 117, 120 and 272 --
+    # produced by NO instrument -- and those were exactly section 7's reading
+    # counts and section 12's chart-search figure, every one of which had gone
+    # stale by the register growing from eleven indexes to twenty-four. An
+    # exemption is a promise not to check, so the list now holds only things
+    # that CANNOT drift: the small counts English uses as words, and
+    # identifiers that name a thing rather than measure one.
+    allowed = {str(i) for i in range(13)}
+    IDENTIFIERS = {
+        "1306": "the register entry banking the observed ground configurations",
+        "66":   "RULING 66",
+        "0218": "the 0.0218 c ceiling, a named FITTED measurement",
+    }
+    allowed |= set(IDENTIFIERS)
 
     # AND EVERY NUMBER THE FACTS DICT ACTUALLY HOLDS.  The old allow list was
     # hand-kept, which made the guard a record of what had been noticed rather

@@ -526,7 +526,9 @@ Sweeping gravity's D -- its independent variable, not its reach:
     any channel, and `--census` re-derives the six rather than trusting them.
 """
 
+import importlib
 import itertools
+import math
 import sys
 
 import hlaw
@@ -573,6 +575,45 @@ COORDS = {
 # The six candidates R4 admits.  PINNED so the default report runs in a second;
 # `--census` re-derives them from all 272 proper sub-charts and asserts this
 # tuple, and the selftest runs that assertion.
+def coords(mod):
+    """The coordinate names of a module's chart -- ASKED, never copied.
+
+    COORDS below was hand-kept, and it stopped at the eleven-index era: six
+    seated indexes (observed, fqh, bosonqp, readrezayi, spin4, deformedbands)
+    were added later and never got an entry.  Every consumer used
+    `COORDS.get(mod)` and skipped a miss SILENTLY, so section 6 of the paper
+    swept 15 of 24 seated indexes and said it had swept them all -- and the
+    one it most needed, spin4, the K4 occupant, was among the nine dropped.
+
+    Each of those six declares its own NAMES.  This resolves COORDS first (so
+    nothing already measured moves: all eight modules that declare both agree,
+    and seven declare only COORDS), then the module's NAMES, and RAISES rather
+    than returning None, so a future index cannot go missing quietly.
+    """
+    if mod in COORDS:
+        return tuple(COORDS[mod])
+    m = importlib.import_module(mod)
+    n = getattr(m, "NAMES", None)
+    if n:
+        return tuple(n)
+    raise KeyError(
+        "%s holds a seated index but declares neither a COORDS entry nor "
+        "NAMES; the sub-chart sweeps cannot reach it" % mod)
+
+
+def coords_reach():
+    """[] unless some seated index is unreachable by `coords`."""
+    bad = []
+    for nm, mod, _a, _me, _w, _q in registry.rows():
+        if mod == SELF:
+            continue
+        try:
+            coords(mod)
+        except Exception as e:
+            bad.append((registry.short(nm), mod, str(e)[:40]))
+    return bad
+
+
 CANDIDATES = (
     ("gravity",  ("B", "F", "X"),           1),
     ("gravity",  ("B", "F", "X", "E"),      1),
@@ -640,7 +681,7 @@ def project(parent, cols, chart=None):
     key = (parent, tuple(cols))
     if chart is None and key in _PROJ:
         return _PROJ[key]
-    idx = [COORDS[parent].index(c) for c in cols]
+    idx = [coords(parent).index(c) for c in cols]
     X = parent_chart(parent) if chart is None else chart
     P = frozenset(tuple(x[i] for i in idx) for x in X)
     if chart is None:
@@ -650,7 +691,7 @@ def project(parent, cols, chart=None):
 
 def at_reach(parent, cols, r):
     """The same sub-chart, at one point of the parent's own data reach."""
-    idx = [COORDS[parent].index(c) for c in cols]
+    idx = [coords(parent).index(c) for c in cols]
     if parent == "gravity":
         rows = _mod("gravity").rows()
         return frozenset(tuple(c[i] for i in idx)
@@ -1015,9 +1056,7 @@ def arity2_freeness():
     for nm, mod, _a, _me, _w, _q in registry.rows():
         if mod == SELF:
             continue
-        cols = COORDS.get(mod)
-        if not cols:
-            continue
+        cols = coords(mod)
         X = registry.index_of(nm)
         for pair in itertools.combinations(range(len(cols)), 2):
             P = frozenset(tuple(c[i] for i in pair) for c in X)
@@ -1061,7 +1100,7 @@ def census():
     for nm, mod, _acc, _me, _w, _q in registry.rows():
         if mod == SELF:
             continue                      # a coarsening is not re-coarsened
-        names = COORDS[mod]
+        names = coords(mod)
         X = parent_chart(mod)
         for r in range(2, len(names)):
             for combo in itertools.combinations(names, r):
@@ -1082,7 +1121,7 @@ def reading_counts():
     for nm, mod, _acc, _me, _w, _q in registry.rows():
         if mod == SELF:
             continue
-        names = COORDS[mod]
+        names = coords(mod)
         X = parent_chart(mod)
         pcell = mi.cell(X)
         for r in range(2, len(names)):
@@ -1097,6 +1136,47 @@ def reading_counts():
                 n["R3b"] += (c not in seated_cells) and not rel
                 n["R4b"] += (c[0] not in seated_K) and not rel
     return n
+
+
+def subchart_total():
+    """How many PROPER sub-charts the readings are measured over.
+
+    Pure combinatorics -- sum over the non-coarsening seated indexes of
+    C(arity, r) for r = 2 .. arity-1 -- so it needs no projection and states
+    the population the four readings in section 7 are counted against.
+    """
+    t = 0
+    for nm, mod, _a, _me, _w, _q in registry.rows():
+        if mod == SELF:
+            continue
+        d = len(coords(mod))
+        for r in range(2, d):
+            t += math.comb(d, r)
+    return t
+
+
+def reading_share():
+    """(index, count) -- the largest single-index share of reading R3.
+
+    The paper says "the third admits N coarsenings of a single index", and N
+    was TYPED: no function computed it, so it survived the register growing
+    from eleven indexes to twenty-four and the substitution guard could not
+    see it, the figure being on a hand-kept exemption list.
+    """
+    seated_cells = frozenset(c for nm, c in registry.cells().items()
+                             if c != "UNMEASURED"
+                             and not nm.startswith(SELF + "."))
+    per = {}
+    for nm, mod, _acc, _me, _w, _q in registry.rows():
+        if mod == SELF:
+            continue
+        names = coords(mod)
+        X = parent_chart(mod)
+        for r in range(2, len(names)):
+            for combo in itertools.combinations(names, r):
+                if mi.cell(project(mod, combo, X)) not in seated_cells:
+                    per[registry.short(nm)] = per.get(registry.short(nm), 0) + 1
+    return max(per.items(), key=lambda kv: (kv[1], kv[0])) if per else ("", 0)
 
 
 def dimension_finding():
@@ -1322,6 +1402,13 @@ def selftest():
         [c for c in CANDIDATES if not ground_not_relabelling(c[0], c[1])], [])
 
     # the gate, and that it REFUSES -- a rule that admits everything is none
+    # THE SWEEPS MUST REACH EVERY SEATED INDEX.  They did not: COORDS stopped
+    # at the eleven-index era and every consumer skipped a miss silently, so
+    # nine of 24 were dropped from the paper's section 6 -- spin4, the K4
+    # occupant, among them.  A miss is now a failure, not a shrug.
+    chk("every seated index is reachable by the sub-chart sweeps",
+        coords_reach(), [])
+
     chk("FOUR of the six are refused, after DOCKET 22", len(refused()), 4)
     chk("it refuses gravity (B/F/X/E) for oscillation",
         ground_reach_stable("gravity", ("B", "F", "X", "E"))[4], True)
