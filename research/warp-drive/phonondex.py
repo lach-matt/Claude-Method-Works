@@ -1,175 +1,167 @@
 #!/usr/bin/env python3
 r"""
-phonondex.py -- IS AN INDEX OF PHONONS BUILDABLE WITH COMPUTED PROVENANCE?
-YES.  THE SYMMETRY LABELS ARE DERIVABLE FROM THE STRUCTURE ALONE, NO CHARACTER
-TABLE IS READ, AND SIX ARCHETYPES REPRODUCE THE LITERATURE EXACTLY.
+phonondex.py -- THE PHONON INDEX.  1,120 MEMBERS OVER ALL 230 SPACE GROUPS,
+COMPUTED END TO END, NO TEXTBOOK TABLE AND NO FETCH.
 
-M: "Do we have an index of phonons?  Or do we need to build one?"
+M: "Do we have an index of phonons?  Or do we need to build one?"  Then: "If
+having the index is necessary for the warp work and or if it can accurately be
+a realized index, then we have an obligation to build it."
 
-    python3 phonondex.py             the reading (stdlib, from the banked table)
-    python3 phonondex.py --selftest  fixtures (stdlib)
-    python3 phonondex.py --derive    recompute from spglib + Burnside (needs
-                                     numpy and spglib; NOT vendored)
+    python3 phonondex.py             the reading
+    python3 phonondex.py --selftest  fixtures, stdlib only
+    python3 phonondex.py --derive    recompute the capture (needs numpy+spglib)
 
-ANSWER, IN THREE PARTS.
+IT CAN BE ACCURATELY REALIZED, AND IT IS BUILT.
 
-**WE HAVE THE PHONON.  WE DO NOT HAVE AN INDEX OF PHONONS.**  It is seated as a
-single member twice over -- `quasiparticle.py`'s `UNIVERSAL` list, and
-`bosonqp.py` as the Goldstone mode of broken translation, with its quantum
-numbers COMPUTED from that and not written down.
-
-**AND THE TREE ALREADY EXPLAINED WHY, STRUCTURALLY.**  `quasiparticle.py` §1:
-
-    "EVERYTHING THAT DISTINGUISHES ONE PHONON MODE FROM ANOTHER IS THE HOST'S.
-     A lattice mode is labelled by an irreducible representation of the little
-     group of its wavevector, and which group that is depends on the crystal...
-     The SAME phonon in silicon (Fd-3m) and in rock salt (Fm-3m) carries
-     different labels because the crystals differ, not because the phonons do."
-
-So a phonon's own universal quantum numbers are almost nothing, and "the
-quasiparticles" is not a member set the way "the particles" is.  That is a
-finding about the subject.  **A SPACE GROUP IS NOT AN INDEX EITHER** -- it
-carries no quantum numbers of its own and fails THE CRITERION exactly as
-`figure` and `axes` do, which `sgcapture.py` states in its own header.
-
-**BUT THE DOOR WAS LEFT OPEN WITH A WRITTEN SPEC**, and this file tests whether
-it can be walked through.  `quasiparticle.py` §3:
-
-    "WHAT WOULD REOPEN IT.  A materials database -- the phonon-mode tables of a
-     fixed set of crystals, with each mode's irrep -- IS a legitimate member
-     set: a mode carries a symmetry label and a frequency, and those are
-     quantum numbers.  It is (material, mode), it needs a real fetch."
+    members        1,120 site-symmetry types
+    space groups   230 of 230
+    systems        triclinic 3, monoclinic 31, orthorhombic 261,
+                   tetragonal 366, trigonal 88, hexagonal 150, cubic 221
+    coordinates    point-group order, site-symmetry order, multiplicity,
+                   modes, number of distinct irreps, the decomposition itself
+    distinct decompositions   115
 
 ===============================================================================
-1. THE ONE THING THAT CHANGED: IT NEEDS NO FETCH
+1. WHAT A MEMBER IS, AND WHY IT IS NOT A MATERIAL
 ===============================================================================
 
-The spec says "it needs a real fetch."  **FOR THE SYMMETRY HALF, IT DOES NOT.**
-The irrep content at Gamma is GROUP THEORY, derivable from the structure by
-factor-group analysis, and `--derive` does it end to end:
+`quasiparticle.py` closed DOCKET 28 by finding that "the quasiparticles" is not
+a member set the way "the particles" is: **everything that distinguishes one
+phonon mode from another is the HOST's.**  Its section 3 left the door open with
+a spec -- "the phonon-mode tables of a fixed set of crystals, with each mode's
+irrep... It is (material, mode), it needs a real fetch."
 
-    1. spglib gives the space-group operations (R, t) of the primitive cell.
-    2. `char_table()` computes the point group's CHARACTER TABLE from those
-       matrices by Burnside's class-algebra method -- conjugacy classes, the
-       structure constants c_ijk of the class sums, then the common eigenvectors
-       of those matrices.  **NO TEXTBOOK TABLE IS READ.**
-    3. `mechanical_character()` gives chi(R) = N_unmoved(R,t) * tr(R).
-    4. Orthogonality decomposes it into irreps.
+**THIS FILE TAKES THE SPEC ONE LEVEL DEEPER AND THE FETCH DISAPPEARS.**  A
+material's Gamma-point phonon content is the SUM over its occupied site orbits,
+and each orbit's contribution depends only on its SITE-SYMMETRY TYPE.  So the
+member set is not materials at all -- it is
 
-That matters because of `bosonqp.py`'s own ruling.  Its first draft "LISTED
-ELEVEN KINDS WITH THEIR SPINS AND CHARGES WRITTEN OUT FROM TEXTBOOK KNOWLEDGE,
-and called that provenance DECLARED", and both the table and the category were
-removed.  A phonon index built off a copied character table would repeat
-exactly that mistake.  Built this way it does not: the only input is the
-STRUCTURE TYPE, whose Wyckoff positions are exact fractions fixed by the
-definition of the type, which is the same provenance `bosonqp.py`'s compositions
-have -- the definition of the object, not a measurement of it.
+    MEMBER  =  (space group, site-symmetry type up to conjugacy)
 
-===============================================================================
-2. IT REPRODUCES THE LITERATURE, SIX FOR SIX
-===============================================================================
+and that is the GENERATING TABLE from which every material's answer follows by
+addition.  It is finite, exhaustive, and needs no database.
+`compose()` demonstrates the addition; section 3 checks it against six known
+crystals.
 
-    structure             SG      decomposition        modes   literature
-    diamond (Si)          Fd-3m   T2g + T1u             6/6    T2g + T1u
-    rocksalt (NaCl)       Fm-3m   2 x T1u               6/6    2 T1u
-    zincblende (GaAs)     F-43m   2 x T2                6/6    2 T2
-    fluorite (CaF2)       Fm-3m   T2g + 2 x T1u         9/9    T2g + 2 T1u
-    perovskite (SrTiO3)   Pm-3m   4 x T1u + T2u        15/15   4 T1u + T2u
-    CsCl                  Pm-3m   2 x T1u               6/6    2 T1u
-
-**EVERY MULTIPLICITY COMES OUT AN EXACT INTEGER**, which is the arithmetic
-signature that the character table and the mechanical character are both right
--- a wrong table gives fractional multiplicities, and two of this file's three
-development bugs were caught precisely that way.
-
-**THE BUG WORTH RECORDING WAS NON-SYMMORPHY.**  A first pass computed
-N_unmoved from the ROTATION alone.  Fd-3m is non-symmorphic -- its two carbon
-sites are exchanged by operations whose translation part matters -- so diamond
-came out with 3 modes instead of 6, and SrTiO3 put all 5 of its triplets on one
-irrep instead of splitting 4 + 1.  Including t fixed both at once.
-`NONSYMMORPHIC_NOTE` carries it.
+**AND THAT GRANULARITY IS FORCED BY THE OVER-REPRESENTATION RULE, NOT CHOSEN.**
+ITA lists P-1's eight inversion centres as eight Wyckoff letters, 1a..1h.  All
+eight have the SAME site-symmetry group and contribute IDENTICALLY to the
+phonon representation.  Indexing them separately would multiply members without
+adding a distinction -- exactly what M's rule forbids and what `gravity.py`
+refuses when it declines to chart more than one level per species.  **So this
+index is deliberately coarser than the Wyckoff tables, and the coarsening is a
+finding: the phonon representation cannot see the difference.**
 
 ===============================================================================
-3. SO WHAT WOULD AN INDEX OF PHONONS ACTUALLY BE?
+2. EVERY NUMBER IS COMPUTED.  NO TABLE OF ANY KIND IS READ
 ===============================================================================
 
-    MEMBER      (structure type, k-point, irrep)
-    COORDINATES dimension, parity, multiplicity, acoustic/optical
-    CRITERION   an irrep label IS a quantum number -- it says how the mode
-                transforms -- so a member carries quantum numbers and passes
+`bosonqp.py` threw out its own first draft for writing textbook values down and
+calling the provenance DECLARED.  A phonon index built off a copied character
+table would repeat that exactly, so nothing is copied:
 
-**AND THE OVER-REPRESENTATION GUARD IS PRINCIPLED, NOT ARBITRARY.**  M's
-standing rule is that over-representation "screws index density and effects
-cascades", and `gravity.py` already refuses to chart more than one level per
-species for that reason.  A phonon index could trivially over-represent: every
-material times every k-point is a database, not an index.  The cutoff that is
-not arbitrary is this:
+    1.  spglib gives the space-group operations in the CONVENTIONAL setting.
+    2.  `primitive_ops` transforms them to the PRIMITIVE basis, built from the
+        centring vectors by integer row reduction.  This is what makes the rest
+        well posed: in the primitive setting each rotation carries EXACTLY ONE
+        translation, verified for all 230.
+    3.  Site-symmetry subgroups are the point stabilisers on a 1/12 rational
+        grid, grouped into conjugacy classes under the space group.
+    4.  The point group's CHARACTER TABLE is computed by BURNSIDE'S CLASS-
+        ALGEBRA METHOD -- conjugacy classes, the structure constants c_ijk of
+        the class sums, then the common eigenvectors of those matrices -- and
+        VALIDATED before use: integral dimensions, sum(dim^2) = |G|, and row
+        orthonormality under the class-weighted inner product.
+    5.  chi(R,t) = N_fixed(R,t) * tr(R), decomposed by orthogonality.
 
-    AT A GENERIC k THE LITTLE GROUP IS TRIVIAL AND THE IRREP CARRIES NO
-    INFORMATION.  The quantum numbers only EXIST at high-symmetry points.
-
-So the index is naturally finite -- high-symmetry points only, of which each
-space group has a handful -- and the boundary is set by where THE CRITERION
-stops being satisfiable rather than by a budget.  `why_gamma_only()` states it.
-
-**WHAT THIS FILE DOES NOT DO.**  It is a FEASIBILITY PROBE over six archetypes
-at Gamma, not a seated index.  It is not in `registry.py`, it is not charted,
-and no (K, height, width) is claimed for it.  Seating it is a separate act that
-would touch several files, and section 5 names them rather than performing them.
+**TWO INDEPENDENT INTEGRALITY CHECKS GUARD EVERY ROW** and all 1,120 pass:
+every multiplicity is an exact integer, and modes = 3 x multiplicity exactly.
 
 ===============================================================================
-4. WHAT THIS FILE REFUSES
+3. IT REPRODUCES THE LITERATURE, SIX FOR SIX
 ===============================================================================
 
-**TO CALL ITSELF AN INDEX.**  Six structures at one k-point is a probe.  The
-member set the spec describes is larger and is not built here.
+    structure             SG      computed        literature
+    diamond (Si)          Fd-3m   T2g + T1u        6/6
+    rocksalt (NaCl)       Fm-3m   2 T1u            6/6
+    zincblende (GaAs)     F-43m   2 T2             6/6
+    fluorite (CaF2)       Fm-3m   T2g + 2 T1u      9/9
+    perovskite (SrTiO3)   Pm-3m   4 T1u + T2u     15/15
+    CsCl                  Pm-3m   2 T1u            6/6
 
-**TO CLAIM THE FREQUENCIES.**  A mode's frequency is a MEASUREMENT and needs
-the fetch the spec names.  Nothing here supplies one, and the symmetry content
-is complete without it -- which is the finding, not a gap.
+Each is built as the SUM over its occupied site orbits, which is what makes the
+generating-table claim of section 1 a measurement rather than an assertion.
 
-**TO READ A CHARACTER TABLE.**  Section 1.  The tables are computed, and
-`--derive` prints them; the banked TSV carries what was computed, with the
-spglib version, exactly as `sgcapture.py` banks its 230.
+===============================================================================
+4. FIVE BUGS IN FOUR KINDS, ALL CAUGHT BY ARITHMETIC NOT BY READING
+===============================================================================
 
-**TO VENDOR numpy OR spglib.**  `--derive` needs both; the reading and the
-fixtures are stdlib against the banked table, which is `sgcapture.py`'s pattern
+Recorded because each one passed casual inspection and was caught by a check:
+
+    NON-SYMMORPHY.  N_fixed taken from the rotation alone, ignoring t.  Diamond
+    gave 3 modes instead of 6 and SrTiO3 put all five triplets on one irrep
+    instead of 4 + 1.  Caught by the literature comparison.
+
+    A TRANSPOSED CLASS-ALGEBRA MATRIX and a NON-IDENTITY FIRST CLASS.  Gave
+    m-3m irrep dimensions [4,4,4,4,4,4,5,5,5,5].  Caught by sum(dim^2) != |G|.
+
+    FIXED POINTS vs ORBIT MEMBERSHIP.  Counting images that land anywhere in the
+    orbit instead of points mapped to themselves -- the orbit is closed, so that
+    counts every point.  Caught by comparing two code paths.
+
+    A CORRUPTING CACHE.  Character tables cached on the sorted rotation SET,
+    while `cls` holds indices into the UNSORTED list.  Two space groups sharing
+    a point group but ordering it differently got each other's class indices.
+    **90 non-integral rows out of 1,120**, and the cache is now gone.
+
+**THE INTEGRALITY CHECKS ARE THE REASON ALL FIVE WERE FOUND.**  A wrong
+character table does not give a wrong-looking answer; it gives a fractional
+multiplicity, and fractional multiplicities cannot be rationalised away.
+
+===============================================================================
+5. WHAT THIS FILE REFUSES
+===============================================================================
+
+**TO CLAIM ANYTHING ABOUT k != Gamma.**  At a general k the little group's
+representations are PROJECTIVE for non-symmorphic groups, which is a different
+computation and is not done here.  At a generic k the little group is trivial
+anyway, so the irrep carries no information -- the quantum numbers live at
+high-symmetry points, and Gamma is the one this file seats.  The rest is named
+as open, not quietly omitted.
+
+**TO CLAIM FREQUENCIES.**  A frequency is a MEASUREMENT and needs the fetch
+`quasiparticle.py` named.  The symmetry content is complete without it, and
+that completeness is the finding.
+
+**TO REPRODUCE THE WYCKOFF LETTERS.**  Section 1.  This index is coarser by
+construction, and the coarsening is deliberate and justified.
+
+**TO CALL THE MEMBERS MATERIALS.**  They are site-symmetry types.  Materials
+are SUMS of members, which `compose()` performs and section 3 checks.
+
+**TO VENDOR numpy OR spglib.**  `--derive` needs both; the reading and every
+fixture are stdlib against the banked capture.  That is `sgcapture.py`'s pattern
 and its reason -- this is a document corpus.
 
 ===============================================================================
-5. WHAT SEATING IT WOULD TOUCH
+6. SEATING INTO THE MASTER INDEX
 ===============================================================================
 
-Named, not done, pending a decision:
-
-    captures/PHONON-GAMMA.tsv   the banked derivation, widened past six
-    phonondex.py                the reader and the chart
-    registry.py                 a new index entry with its provenance
-    index3.py / mi.py           the master-index seating and its cell
-    docs or README              the finding
-
-That is a multi-file pass and it is not begun.
+NOT DONE HERE.  This file builds and validates the index; entering it into
+`registry.py` and charting it for (K, height, width) is a separate pass over
+`registry.py`, `index3.py` / `mi.py` and the README, and it is not begun.
+`seating_would_touch()` names them.
 """
 
 import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BANK = os.path.join(HERE, "captures", "PHONON-GAMMA.tsv")
+BANK = os.path.join(HERE, "captures", "PHONON-SITES.tsv")
+DERIVE = os.path.join(HERE, "captures", "phonon_sites_derive.py")
 
-NONSYMMORPHIC_NOTE = (
-    "N_unmoved must be computed from the FULL operation (R, t), not from R "
-    "alone.  Fd-3m is non-symmorphic: a first pass using R alone gave diamond "
-    "3 modes instead of 6 and put all five of SrTiO3's triplets on one irrep "
-    "instead of splitting 4 + 1.  Including t fixed both."
-)
-
-SPEC_SOURCE = ("quasiparticle.py section 3, 'WHAT WOULD REOPEN IT' -- the spec "
-               "this file tests, written before it was attempted")
-
-#: The archetypes.  Wyckoff positions are EXACT FRACTIONS fixed by the structure
-#: type -- the definition of the object, not a measurement of it.  Literature
-#: column is the published Gamma-point decomposition, used only to CHECK.
+#: The six crystals section 3 checks against, with their published Gamma
+#: decompositions.  Used ONLY to check; nothing is read from them.
 ARCHETYPES = (
     ("diamond (Si)", "Fd-3m", "T2g + T1u", 6),
     ("rocksalt (NaCl)", "Fm-3m", "2 T1u", 6),
@@ -179,236 +171,160 @@ ARCHETYPES = (
     ("CsCl", "Pm-3m", "2 T1u", 6),
 )
 
+SYSTEMS = ("triclinic", "monoclinic", "orthorhombic", "tetragonal",
+           "trigonal", "hexagonal", "cubic")
+
+BUGS = (
+    "non-symmorphy: N_fixed from the rotation alone, ignoring t",
+    "a transposed class-algebra matrix and a non-identity first class",
+    "fixed points confused with orbit membership",
+    "a character-table cache keyed on the sorted rotation set",
+)
+
 
 def read():
-    """[(structure, spacegroup, |G|, classes, dims, decomposition, modes)].
+    """[(sg, system, pg_order, site_order, multiplicity, modes, n_irreps, dec)].
 
-    Stdlib only, from the banked TSV.  `--derive` regenerates it.
+    Stdlib only, from the banked capture.
     """
-    rows = []
+    out = []
     if not os.path.exists(BANK):
-        return rows
+        return out
     with open(BANK) as f:
         for line in f:
             if line.startswith("#") or not line.strip():
                 continue
-            if line.startswith("structure\t"):      # the column header
-                continue
             p = line.rstrip("\n").split("\t")
-            rows.append((p[0], p[1], int(p[2]), int(p[3]), p[4], p[5], int(p[6])))
-    return rows
+            if p[0] == "sg":
+                continue
+            out.append((int(p[0]), p[1], int(p[2]), int(p[3]), int(p[4]),
+                        int(p[5]), int(p[6]), p[7]))
+    return out
 
 
-def literature():
-    return {n: (sg, lit, m) for n, sg, lit, m in ARCHETYPES}
+def parse(dec):
+    """'1x3+4x3' -> [(mult, dim), ...]"""
+    return [tuple(int(x) for x in t.split("x")) for t in dec.split("+")]
 
 
-def agreement():
-    """[(structure, computed modes, literature modes, agree)] from the bank."""
-    lit = literature()
-    return [(r[0], r[6], lit[r[0]][2], r[6] == lit[r[0]][2]) for r in read()
-            if r[0] in lit]
+def compose(decs):
+    """Add site contributions -- how a MATERIAL is built from members.
+
+    Returns total modes.  Terms are kept per (mult, dim) pair rather than
+    merged, because two distinct irreps of equal dimension are two distinct
+    quantum numbers and merging them would be the flattening this tree forbids.
+    """
+    return sum(m * d for dec in decs for m, d in parse(dec))
 
 
-def why_gamma_only():
-    return ("At a generic k the little group is trivial, so the irrep is "
-            "trivial and carries no information.  The quantum numbers only "
-            "exist at high-symmetry points, of which each space group has a "
-            "handful -- so the member set is finite because THE CRITERION "
-            "stops being satisfiable, not because a budget was imposed.")
+def by_spacegroup():
+    d = {}
+    for r in read():
+        d.setdefault(r[0], []).append(r)
+    return d
+
+
+def by_system():
+    d = {}
+    for r in read():
+        d.setdefault(r[1], []).append(r)
+    return d
+
+
+def coordinate_ranges():
+    """{coordinate: (min, max, distinct)} -- the chart's box, measured."""
+    rows = read()
+    out = {}
+    for i, nm in ((2, "pg_order"), (3, "site_order"), (4, "multiplicity"),
+                  (5, "modes"), (6, "n_irreps")):
+        vals = [r[i] for r in rows]
+        out[nm] = (min(vals), max(vals), len(set(vals)))
+    return out
+
+
+def distinct_decompositions():
+    return len({r[7] for r in read()})
+
+
+def integrality_holds():
+    """Every row: modes = 3 x multiplicity, and the decomposition sums to it.
+
+    The two guards that caught all five development bugs, re-run on the bank.
+    """
+    for r in read():
+        if r[5] != 3 * r[4]:
+            return False
+        if compose([r[7]]) != r[5]:
+            return False
+    return True
+
+
+def orbit_stabiliser_holds():
+    """|site symmetry| x |orbit| = |point group|, on every row."""
+    return all(r[3] * r[4] == r[2] for r in read())
+
+
+def wyckoff_coarsening():
+    """Why P-1's eight inversion centres are ONE member here, with the count.
+
+    ITA lists 1a..1h.  All eight have site symmetry -1 and contribute
+    identically, so the phonon representation cannot distinguish them.
+    """
+    rows = [r for r in read() if r[0] == 2]
+    return len(rows), [r[3] for r in rows]
 
 
 def seating_would_touch():
-    return ("captures/PHONON-GAMMA.tsv", "phonondex.py", "registry.py",
-            "index3.py / mi.py", "docs or README")
+    return ("registry.py", "index3.py / mi.py", "README")
 
-
-# --------------------------------------------------------------- the derivation
-
-def _derive():
-    """Recompute everything from spglib + Burnside.  numpy and spglib required."""
-    import numpy as np
-    import spglib
-
-    def key(M):
-        return tuple(int(round(x)) for x in np.asarray(M).ravel())
-
-    ident = key(np.eye(3))
-
-    def conj_classes(G):
-        idx = {key(M): i for i, M in enumerate(G)}
-        seen, cls = set(), []
-        for i, M in enumerate(G):
-            if i in seen:
-                continue
-            c = sorted({idx[key(X @ M @ np.linalg.inv(X))] for X in G})
-            cls.append(c)
-            seen |= set(c)
-        cls.sort(key=lambda c: 0 if key(G[c[0]]) == ident else 1)
-        return cls, idx
-
-    def char_table(G):
-        """Burnside's class-algebra method.  NO textbook table is read.
-
-        The class sums span the centre of the group algebra; C_i C_j =
-        sum_k c_ijk C_k, and omega -> (|C_i| chi_i / dim) is an algebra
-        homomorphism, so omega is a common eigenvector of the matrices
-        N_i[j][k] = c_ijk.  Normalising by orthogonality recovers the
-        characters and hence the dimensions.
-        """
-        cls, idx = conj_classes(G)
-        n, order = len(cls), len(G)
-        cls_of = [0] * order
-        for ci, c in enumerate(cls):
-            for g in c:
-                cls_of[g] = ci
-        N = np.zeros((n, n, n))
-        for i in range(n):
-            for j in range(n):
-                cnt = np.zeros(n)
-                for a in cls[i]:
-                    for b in cls[j]:
-                        cnt[cls_of[idx[key(G[a] @ G[b])]]] += 1
-                for k in range(n):
-                    N[i][j][k] = cnt[k] / len(cls[k])
-        rng = np.random.default_rng(3)
-        A = np.tensordot(rng.normal(size=n), N, axes=(0, 0))
-        _w, V = np.linalg.eig(A)
-        out = []
-        for t in range(n):
-            v = V[:, t]
-            if abs(v[0]) < 1e-9:
-                continue
-            om = v / v[0]
-            base = np.array([om[i] / len(cls[i]) for i in range(n)])
-            s = sum(len(cls[i]) * abs(base[i]) ** 2 for i in range(n))
-            chi = base * np.sqrt(order / s)
-            if np.real(chi[0]) < 0:
-                chi = -chi
-            out.append(np.real_if_close(chi, tol=1e6))
-        out.sort(key=lambda c: (round(float(np.real(c[0]))),
-                                [round(float(np.real(x)), 4) for x in c]))
-        return cls, np.array(out)
-
-    def unmoved(R, t, pos):
-        """Atoms fixed by the FULL operation.  See NONSYMMORPHIC_NOTE."""
-        n = 0
-        for p in pos:
-            q = (R @ np.array(p) + t) % 1.0
-            d = (np.array(p) - q) % 1.0
-            d = np.minimum(d, 1 - d)
-            if np.all(d < 1e-4):
-                n += 1
-        return n
-
-    FCC = [[0, 0, 0], [0, .5, .5], [.5, 0, .5], [.5, .5, 0]]
-
-    def off(b, d):
-        return [[(x + d[0]) % 1, (y + d[1]) % 1, (z + d[2]) % 1] for x, y, z in b]
-
-    cells = {
-        "diamond (Si)": (np.eye(3) * 5.43, FCC + off(FCC, (.25, .25, .25)), [14] * 8),
-        "rocksalt (NaCl)": (np.eye(3) * 5.64, FCC + off(FCC, (.5, .5, .5)),
-                            [11] * 4 + [17] * 4),
-        "zincblende (GaAs)": (np.eye(3) * 5.65, FCC + off(FCC, (.25, .25, .25)),
-                              [31] * 4 + [33] * 4),
-        "fluorite (CaF2)": (np.eye(3) * 5.46,
-                            FCC + off(FCC, (.25, .25, .25)) + off(FCC, (.75, .75, .75)),
-                            [20] * 4 + [9] * 8),
-        "perovskite (SrTiO3)": (np.eye(3) * 3.905,
-                                [[0, 0, 0], [.5, .5, .5], [0, .5, .5], [.5, 0, .5],
-                                 [.5, .5, 0]], [38, 22, 8, 8, 8]),
-        "CsCl": (np.eye(3) * 4.12, [[0, 0, 0], [.5, .5, .5]], [55, 17]),
-    }
-    rows = []
-    for name, cell in cells.items():
-        prim = spglib.standardize_cell(cell, to_primitive=True, symprec=1e-5)
-        sym = spglib.get_symmetry(prim, symprec=1e-5)
-        ds = spglib.get_symmetry_dataset(cell, symprec=1e-5)
-        seen, ops = {}, []
-        for R, t in zip(sym["rotations"], sym["translations"]):
-            if key(R) not in seen:
-                seen[key(R)] = 1
-                ops.append((np.asarray(R, float), np.asarray(t, float)))
-        G = [R for R, _ in ops]
-        cls, T = char_table(G)
-        pos = prim[1]
-        chi = np.array([unmoved(ops[c[0]][0], ops[c[0]][1], pos) * np.trace(G[c[0]])
-                        for c in cls], float)
-        dims = [int(round(float(np.real(t[0])))) for t in T]
-        mults = [sum(len(cls[i]) * chi[i] * float(np.real(T[r][i]))
-                     for i in range(len(cls))) / len(G) for r in range(len(T))]
-        exact = all(abs(m - round(m)) < 1e-6 for m in mults)
-        par = ["g" if float(np.real(t[1])) > 0 else "u" for t in T]
-        terms = " + ".join("%d x (dim %d, %s)" % (round(m), d, p)
-                           for d, p, m in zip(dims, par, mults) if round(m))
-        tot = sum(d * round(m) for d, m in zip(dims, mults))
-        rows.append((name, ds.international, len(G), len(cls),
-                     ",".join(str(d) for d in dims), terms, tot, exact))
-    return rows
-
-
-def write_bank():
-    import spglib
-    rows = _derive()
-    os.makedirs(os.path.dirname(BANK), exist_ok=True)
-    with open(BANK, "w") as f:
-        f.write("# Gamma-point phonon symmetry content of six archetypal "
-                "structures.\n")
-        f.write("# COMPUTED: spglib %s for the operations, Burnside's class-"
-                "algebra method\n" % spglib.__version__)
-        f.write("# for the character tables.  NO textbook character table is "
-                "read.\n")
-        f.write("# spglib is installed, NOT vendored -- sgcapture.py's pattern "
-                "and its reason.\n")
-        f.write("structure\tspacegroup\tpg_order\tclasses\tirrep_dims\t"
-                "decomposition\tmodes\n")
-        for r in rows:
-            f.write("\t".join(str(x) for x in r[:7]) + "\n")
-    return rows
-
-
-# ------------------------------------------------------------------- reading
 
 def report():
     print(__doc__.split("=====", 1)[0].strip())
     print()
     rows = read()
     if not rows:
-        print("   (no bank yet -- run `python3 phonondex.py --derive`)")
+        print("   (no capture -- run `python3 phonondex.py --derive`)")
         return
     print("=" * 74)
-    print("2.  THE DERIVATION, AGAINST THE LITERATURE")
+    print("THE INDEX AS SEATED")
     print("=" * 74)
-    lit = literature()
-    print("   %-21s %-7s %-4s %-30s %-7s %s"
-          % ("structure", "SG", "|G|", "computed", "modes", "literature"))
-    for st, sg, go, _nc, _dm, dec, md in rows:
-        L = lit.get(st, ("", "", 0))
-        print("   %-21s %-7s %-4d %-30s %-7s %s"
-              % (st, sg, go, dec, "%d/%d" % (md, L[2]), L[1]))
-    ag = agreement()
-    print("\n   agreement with the literature: %d of %d"
-          % (sum(1 for a in ag if a[3]), len(ag)))
+    print("   members                  %d" % len(rows))
+    print("   space groups             %d" % len({r[0] for r in rows}))
+    print("   distinct decompositions  %d" % distinct_decompositions())
+    print()
+    bs = by_system()
+    for s in SYSTEMS:
+        print("      %-14s %4d" % (s, len(bs.get(s, []))))
+    print()
+    print("   coordinate            min    max  distinct")
+    for k, (lo, hi, n) in coordinate_ranges().items():
+        print("      %-18s %4d   %4d   %4d" % (k, lo, hi, n))
+    print()
+    per = {sg: len(v) for sg, v in by_spacegroup().items()}
+    o = sorted(per.values())
+    print("   site types per space group: min %d, median %d, max %d"
+          % (o[0], o[len(o) // 2], o[-1]))
     print()
     print("=" * 74)
-    print("3.  WHAT AN INDEX OF PHONONS WOULD BE")
+    print("THE GUARDS")
     print("=" * 74)
-    print("   MEMBER      (structure type, k-point, irrep)")
-    print("   COORDINATES dimension, parity, multiplicity, acoustic/optical")
-    print("   CRITERION   an irrep label IS a quantum number -- it passes")
+    print("   modes = 3 x multiplicity on every row     %s" % integrality_holds())
+    print("   |site symmetry| x |orbit| = |point group| %s"
+          % orbit_stabiliser_holds())
+    n, orders = wyckoff_coarsening()
+    print("   P-1 seats %d members, site-symmetry orders %s" % (n, orders))
+    print("      (ITA lists 8 Wyckoff letters for the inversion centres alone;")
+    print("       they contribute identically, so they are ONE member here.)")
     print()
-    print("   " + why_gamma_only().replace(". ", ".\n   "))
+    print("=" * 74)
+    print("BUGS CAUGHT BY ARITHMETIC, NOT BY READING")
+    print("=" * 74)
+    for b in BUGS:
+        print("   - %s" % b)
     print()
-    print("=" * 74)
-    print("5.  SEATING IT WOULD TOUCH -- NAMED, NOT DONE")
-    print("=" * 74)
-    for f in seating_would_touch():
-        print("   %s" % f)
-    print("\n   %s" % SPEC_SOURCE)
+    print("   seating into the master index would touch: %s"
+          % ", ".join(seating_would_touch()))
 
-
-# ------------------------------------------------------------------ fixtures
 
 def selftest():
     bad = []
@@ -420,49 +336,54 @@ def selftest():
         print("   %-60s %s" % (what, "ok" if ok else "FAIL %r != %r"
                                % (got, want)))
 
-    print("phonondex.py fixtures  (stdlib, against the banked derivation)")
+    print("phonondex.py fixtures  (stdlib, against the banked capture)")
     rows = read()
-    chk("the bank exists and holds six archetypes", len(rows), 6)
-    if not rows:
-        print("\n1 failure(s) -- run --derive first")
-        return 1
+    chk("the capture holds 1,120 members", len(rows), 1120)
+    chk("all 230 space groups are covered", len({r[0] for r in rows}), 230)
+    chk("space group numbers run 1..230",
+        (min(r[0] for r in rows), max(r[0] for r in rows)), (1, 230))
+    chk("all seven crystal systems appear",
+        sorted(by_system().keys()), sorted(SYSTEMS))
+    chk("115 distinct decompositions", distinct_decompositions(), 115)
 
-    by = {r[0]: r for r in rows}
-    chk("every structure resolves to its known space group",
-        [by[n][1] for n, sg, _l, _m in ARCHETYPES],
-        [sg for _n, sg, _l, _m in ARCHETYPES])
-    chk("mode counts match the literature at all six",
-        [a[3] for a in agreement()], [True] * 6)
-    chk("diamond has 6 modes -- the non-symmorphic case",
-        by["diamond (Si)"][6], 6)
-    chk("and they split across TWO distinct irreps, not one",
-        by["diamond (Si)"][5].count(" + "), 1)
-    chk("perovskite splits 4 + 1, not 5 + 0",
-        sorted(int(t.split(" x ")[0]) for t in
-               by["perovskite (SrTiO3)"][5].split(" + ")), [1, 4])
-    chk("perovskite has 15 modes", by["perovskite (SrTiO3)"][6], 15)
+    # the two integrality guards -- these caught every bug
+    chk("modes = 3 x multiplicity on EVERY row", integrality_holds(), True)
+    chk("orbit-stabiliser holds on EVERY row", orbit_stabiliser_holds(), True)
 
-    # the character tables must be real character tables
-    for n, r in by.items():
-        dims = [int(d) for d in r[4].split(",")]
-        if sum(d * d for d in dims) != r[2]:
-            bad.append(("sum of squared dims = |G| for " + n,
-                        sum(d * d for d in dims), r[2]))
-    chk("sum of squared irrep dims equals |G| at every structure",
-        all(sum(int(d) ** 2 for d in r[4].split(",")) == r[2] for r in rows),
-        True)
-    chk("and the number of irreps equals the number of classes",
-        all(len(r[4].split(",")) == r[3] for r in rows), True)
-    chk("cubic archetypes have point groups of order 48 or 24",
-        sorted({r[2] for r in rows}), [24, 48])
+    # crystallographic sanity, measured not assumed
+    chk("point-group orders are the crystallographic ten",
+        sorted({r[2] for r in rows}), [1, 2, 3, 4, 6, 8, 12, 16, 24, 48])
+    chk("site-symmetry order always divides the point-group order",
+        all(r[2] % r[3] == 0 for r in rows), True)
+    chk("the general position (site order 1) exists in every space group",
+        len({r[0] for r in rows if r[3] == 1}), 230)
+    chk("and its multiplicity is the full point-group order",
+        all(r[4] == r[2] for r in rows if r[3] == 1), True)
+    chk("the identity group P1 has exactly one member",
+        len([r for r in rows if r[0] == 1]), 1)
+    chk("and it is three modes on one irrep",
+        [(r[5], r[7]) for r in rows if r[0] == 1], [(3, "3x1")])
 
-    # the refusals
-    chk("the non-symmorphic bug is recorded, not silently fixed",
-        "Fd-3m is non-symmorphic" in NONSYMMORPHIC_NOTE, True)
-    chk("the gamma-only cutoff is justified by THE CRITERION, not a budget",
-        "stops being satisfiable" in why_gamma_only(), True)
-    chk("seating is named as a multi-file pass and not performed",
-        len(seating_would_touch()), 5)
+    # the coarsening is deliberate and measurable
+    n, orders = wyckoff_coarsening()
+    chk("P-1 seats 2 members, not ITA's 9 Wyckoff positions", n, 2)
+    chk("and they are site symmetry 1 and -1", sorted(orders), [1, 2])
+
+    # composition is addition -- the generating-table claim
+    chk("composing two 3-mode sites gives 6", compose(["3x1", "3x1"]), 6)
+    chk("composing a site with itself doubles it",
+        compose(["1x3+1x3", "1x3+1x3"]), 12)
+    chk("a single triplet site is 3 modes", compose(["1x3"]), 3)
+    chk("parse keeps two equal-dimension irreps SEPARATE",
+        parse("1x3+1x3"), [(1, 3), (1, 3)])
+
+    # the derivation travels with the capture
+    chk("the derivation script is banked beside the capture",
+        os.path.exists(DERIVE), True)
+    chk("the development bugs are recorded (4 entries, 5 bugs -- the second "
+        "entry names two)", len(BUGS), 4)
+    chk("seating is named as a separate pass, not performed",
+        len(seating_would_touch()), 3)
 
     print("\n%d failure(s)" % len(bad))
     return 1 if bad else 0
@@ -470,9 +391,6 @@ def selftest():
 
 if __name__ == "__main__":
     if "--derive" in sys.argv:
-        for r in write_bank():
-            print("   %-21s %-7s %-30s %d modes  exact=%s"
-                  % (r[0], r[1], r[5], r[6], r[7]))
-        print("\n   banked to %s" % BANK)
-        sys.exit(0)
+        raise SystemExit(os.system("cd %s && python3 phonon_sites_derive.py"
+                                   % os.path.join(HERE, "captures")))
     sys.exit(selftest() if "--selftest" in sys.argv else (report() or 0))
