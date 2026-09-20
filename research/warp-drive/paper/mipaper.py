@@ -1401,29 +1401,69 @@ def document(f):
 
     # ---------------------------------------------------------------- §15
     A(("h1", "15. Questions a reader should press, and where they are answered"))
+    A(("p", (
+        "The list is ordered by how much it would cost the paper if the answer went the other "
+        "way. The first four have all, at some point in this work, gone the other way.")))
     A(("table", (["question", "where"],
-                 [["Is the box observed or declared, and does it matter?",
+                 [["Is K an invariant of the containment order?",
+                   "NO, and section 4.2a proves it -- an order-isomorphic append moves K on "
+                   "most of the register. Section 4.2's criterion tests order invariance and "
+                   "K was never a candidate for it. Lemma 4.2 says what K IS invariant under"],
+                  ["Then what is K, in language outside this project?",
+                   "section 4.2b - a fragment of the POLYMORPHISM CLONE, placing it in the "
+                   "Pol-Inv Galois connection; physically, the arity at which the selection "
+                   "rules act"],
+                  ["Is the gravity bound fitted to the data it adjudicates?",
+                   "an earlier one WAS, and section 10.6 withdraws it: it took a hidden "
+                   "variable's range from the observed members and forbade cells the "
+                   "parameter space reaches. The bound seated now exhausts the parameter "
+                   "space and has no free parameter, its one cutoff removed by saturation"],
+                  ["Are decade ranks too coarse a coordinate to mean anything?",
+                   "section 10.6, measured: the observed box holds %s cells, the coordinate "
+                   "map reaches %s, the index occupies %d. Too coarse and the image would "
+                   "fill the box"],
+                  ["Does Theorem 1a's 'from nature' smuggle in unobserved objects?",
+                   "section 3.1 states the admission criterion outright -- mathematically "
+                   "established beyond doubt, observed or not -- and discloses that K1's sole "
+                   "occupant is K1 only at spacetime dimension six and above"],
+                  ["Is OPEN just a synonym for 'we found no bound'?",
+                   "not for baryons: section 10.6 gives every open cell a CONSTRUCTIVE "
+                   "witness, a quark content and an orbital state that builds it"],
+                  ["Is the box observed or declared, and does it matter?",
                    "sections 1 and 9, Lemma N1"],
                   ["Could the criterion be gamed by renaming a label a quantum number?",
-                   "section 2, Lemma 2.1 - the test is whether two members of one container differ"],
-                  ["Is Theorem 1's converse proved, or just asserted?",
-                   "section 3.1 - by exhibition, and now by nature"],
+                   "section 2, Lemma 2.1 - the test is whether two members of one container "
+                   "differ"],
                   ["Why three coordinates and not the original five?",
-                   "section 4.2 - the monotone-redundant-coordinate criterion"],
+                   "section 4.2 for the order invariants, 4.2a for why K is not one of them"],
                   ["Is K4's occupancy an artefact of the free statistics bit?",
                    "section 6 - its occupant is arity 3, where statistics is earned"],
                   ["Does the overlap ruling let a chart in twice under two names?",
                    "section 7, the four grounds, one seating retracted by the fourth"],
                   ["Is E a prediction count?",
-                   "sections 8 and 8.6 - it is an upper bound, and the adjudication is the paper"],
-                  ["Why does almost no bound forbid anything?",
-                   "section 8.2, Theorem 4 - monotone bounds cannot, and nearly all are monotone"],
+                   "sections 8 and 8.6 - it is an upper bound, and the adjudication is the "
+                   "paper"],
+                  ["Which bounds forbid, and why so few?",
+                   "section 8.2, Theorem 4 - a monotone bound CANNOT, and six of the eight "
+                   "are monotone. The two that forbid are both non-monotone, as the theorem "
+                   "requires"],
                   ["Is the 8-channel result sensitive to the choice of five languages?",
-                   "the companion paper, Clauses A to H; this paper takes the containments as given"],
+                   "the companion paper, Clauses A to H; this paper takes the containments "
+                   "as given"],
                   ["Has anyone checked this work adversarially?",
-                   "section 13 - yes, more than once, and what they found is listed there "
-                   "rather than summarised"],
+                   "section 13 - repeatedly, and what they found is listed there rather than "
+                   "summarised. Four of the findings were claims pointing the wrong way, not "
+                   "arithmetic"],
                   ])))
+    A(("note", (
+        "THE FOUR THAT WENT THE OTHER WAY ARE THE REASON THIS LIST IS ORDERED THIS WAY. K did "
+        "fail the criterion it was presented under. The gravity bound was fitted, and forbade "
+        "cells that are reachable. Theorem 1a's tightest channel did rest on an undisclosed "
+        "dimensional assumption. And a coordinate refused for totality was said to cost "
+        "adjudication power when it concealed a member set's true nature. Each was found by "
+        "someone attacking the paper rather than by its own fixtures, and each is repaired in "
+        "the open rather than quietly."
+        )))
 
     # ---------------------------------------------------------------- appendix
     A(("h1", "Appendix. Reproduction"))
@@ -1444,6 +1484,14 @@ def document(f):
         "python3 ghosts.py --selftest -- the seven laws, the bounds, the adjudication",
         "python3 exact.py --selftest -- the closed forms, with no tolerance",
         "python3 propagator.py --selftest -- the one z3-checked result",
+        "python3 charts.py --selftest -- the admissibility sweep, and what K is NOT "
+        "invariant under",
+        "python3 -c 'import ghosts; print(ghosts.gravity_image_saturates())' -- that the "
+        "gravity bound's one cutoff is not a free parameter",
+        "python3 -c 'import ghosts; print(ghosts.gravity_superseded())' -- the two bounds "
+        "this paper withdrew, and how many cells the fitted one wrongly forbade",
+        "python3 -c 'import ghosts; print(ghosts.baryon_open_built())' -- that every open "
+        "baryon cell carries a constructive witness",
         "python3 state.py --check -- the state file against every instrument",
         "python3 paper/mipaper.py --selftest -- that no figure in this paper is typed",
     ]))
