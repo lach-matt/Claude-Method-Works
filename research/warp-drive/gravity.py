@@ -439,6 +439,49 @@ def _two_J(text):
     return None
 
 
+# A CAPTURE'S COLUMNS ARE SPELLED SEVERAL WAYS AND THE PHYSICS IS THE SAME.
+# `captures()` demanded `config` and `level_cm1` literally, so 39 level tables
+# written `Configuration / Term / J / Level_cm-1` were invisible to it -- and
+# with them eight species the index charts nowhere else.  That is a defect in
+# the READER, not a gap in the source: a header's capitalisation is not a fact
+# about an atom.  The alternatives are listed rather than matched loosely, so a
+# genuinely unknown column still fails instead of being guessed at.
+_COL = {
+    "config": ("config", "configuration"),
+    "term":   ("term",),
+    "J":      ("j",),
+    "level":  ("level_cm1", "level_cm-1", "level", "e_cm-1", "e_cm1",
+               "energy_cm-1"),
+}
+
+
+def _columns(header):
+    """{role: index} for a header line, or None if a role is unfilled."""
+    cols = [c.strip().lower() for c in header.lstrip("# ").split("\t")]
+    out = {}
+    for role, names in _COL.items():
+        hit = next((i for i, c in enumerate(cols) if c in names), None)
+        if hit is None:
+            return None
+        out[role] = hit
+    return out
+
+
+def _species_of_filename(fn):
+    """(symbol, numeral) from a capture's FILENAME, e.g. 'SrII.tsv'.
+
+    Only used where the header carries no species comment.  The symbol must be
+    a real element and the numeral a real Roman stage, so a file named for
+    anything else is still refused rather than guessed at.
+    """
+    m = re.match(r"([A-Z][a-z]?)([IVX]+)(?:[._]|$)", fn)
+    if not m:
+        return None
+    if m.group(1) not in symbol_to_Z() or m.group(2) not in ROMAN:
+        return None
+    return (m.group(1), m.group(2))
+
+
 def _species_of(lines):
     """(symbol, numeral) from a capture's header comments, or None."""
     s2z = symbol_to_Z()
@@ -467,22 +510,24 @@ def captures():
         with open(os.path.join(ASD, fn), encoding="utf-8",
                   errors="replace") as fh:
             txt = fh.read()
-        if "level_cm1" not in txt:
-            continue
         lines = txt.split("\n")
-        sp = _species_of(lines)
-        if sp is None:
-            continue
-        hi = next((i for i, l in enumerate(lines)
-                    if l.startswith("config\t")
-                    or l.lstrip("# ").startswith("config\t")), None)
+        hi = ix = None
+        for i, l in enumerate(lines[:40]):
+            ix = _columns(l)
+            if ix is not None:
+                hi = i
+                break
         if hi is None:
             continue
-        cols = lines[hi].lstrip("# ").split("\t")
+        sp = _species_of(lines)
+        if sp is None:
+            sp = _species_of_filename(fn)
+        if sp is None:
+            continue
         try:
-            ij, il = cols.index("J"), cols.index("level_cm1")
-            ic, it = cols.index("config"), cols.index("term")
-        except ValueError:
+            ij, il = ix["J"], ix["level"]
+            ic, it = ix["config"], ix["term"]
+        except (KeyError, TypeError):
             continue
         for l in lines[hi + 1:]:
             if not l.strip() or l.startswith("#"):

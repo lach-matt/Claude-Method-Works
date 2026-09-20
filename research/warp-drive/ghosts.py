@@ -470,9 +470,15 @@ def gravity_source_gap():
         with open(os.path.join(g.ASD, fn), encoding="utf-8",
                   errors="replace") as fh:
             txt = fh.read()
-        if "level_cm1" not in txt:
+        lines = txt.split("\n")
+        # THE SAME COLUMN TEST captures() USES.  An earlier version of this
+        # asked the narrow question ("level_cm1" in txt) while captures() had
+        # been widened to accept `Level_cm-1` and the rest, so it reported 118
+        # named against 126 charted -- more charted than named, which is not a
+        # gap in either direction but two readers disagreeing.
+        if not any(g._columns(l) for l in lines[:40]):
             continue                      # a mass table, not a level table
-        sp = g._species_of(txt.split("\n"))
+        sp = g._species_of(lines) or g._species_of_filename(fn)
         if sp is not None:
             named.add(sp)
     return len(named), len(g.captures())
@@ -511,6 +517,60 @@ def _b_gravity(c):
     # chi in [10^a, 10^(a+1)) and Qtilde in [10^b, 10^(b+1)) put the ratio in
     # (10^(a-2b-2), 10^(a-2b+1)); the cell survives iff that meets [lo, hi].
     return (10.0 ** (d - 2) < hi) and (10.0 ** (d + 1) > lo)
+
+
+# ------------------------------------- DOCKET 49b, THE OPEN BARYON CELLS, BUILT
+# An OPEN cell says only that no bound forbids it.  These say more: each names a
+# quark content, an orbital L and a quark spin that REALISES it, so the residue
+# is constructively open rather than merely unforbidden.
+#
+# TWO ERRORS WERE MADE HERE AND BOTH WERE CAUGHT BY THE INDEX ITSELF.  A first
+# version enumerated only baryons and not antibaryons -- the seated bound has
+# both -- and reported 77 cells unreachable that are reached by an antibaryon.
+# A second added a symmetry rule: three IDENTICAL quarks have symmetric flavour,
+# so spin-cross-space must be symmetric, which was taken to mean Sq = 3/2 with L
+# even, forbidding negative parity.  THE SEATED MEMBERS REFUTE IT: uuu-flavour
+# states are charted at 2J = 1, 3 and 5 with P = -1, which is Delta(1620) 1/2-,
+# Delta(1700) 3/2- and a 5/2-.  Three identical quarks reach odd L through mixed
+# spatial x mixed spin symmetry, and no such rule is imposed.
+_QFLAV = {"u": (2, 0, 0, 0), "d": (-1, 0, 0, 0), "s": (-1, -1, 0, 0),
+          "c": (2, 0, 1, 0), "b": (-1, 0, 0, -1)}
+
+
+def baryon_witness(cell, lmax=8):
+    """(quarks, is antibaryon, L, 2Sq) realising this cell, or None.
+
+    P = (-1)^L for three quarks, and J couples L to Sq in {1/2, 3/2}.
+    """
+    j2, P, i2, q3, S, C, B = cell
+    for combo in itertools.combinations_with_replacement("udscb", 3):
+        v = [sum(_QFLAV[x][k] for x in combo) for k in range(4)]
+        nu, nd = combo.count("u"), combo.count("d")
+        nud = nu + nd
+        if i2 not in range(max(abs(nu - nd), nud % 2), nud + 1, 2):
+            continue
+        for anti in (False, True):
+            sg = -1 if anti else 1
+            if (sg * v[0], sg * v[1], sg * v[2], sg * v[3]) != (q3, S, C, B):
+                continue
+            for L in range(lmax + 1):
+                if (-1) ** L != P:
+                    continue
+                for s2 in (1, 3):
+                    if abs(2 * L - s2) <= j2 <= 2 * L + s2:
+                        return (combo, anti, L, s2)
+    return None
+
+
+def baryon_open_built():
+    """(open cells, how many carry a witness) -- and they are equal."""
+    import baryons
+    X = frozenset(baryons.index())
+    d = frozenset(demand.demand(X))
+    fn = BOUNDS["baryons.index"][3]
+    gap = GAPS["baryons.index"]()
+    op = [c for c in d if fn(c) and not any(_pins(g, c) for g in gap)]
+    return len(op), sum(1 for c in op if baryon_witness(c) is not None)
 
 
 def _b_baryons_quark(c):
@@ -1019,6 +1079,22 @@ def selftest():
     _gp = GAPS["baryons.index"]()
     _op = [c for c in _Db if _fn(c) and not any(_pins(g, c) for g in _gp)]
     chk("every OPEN baryon cell has an odd 2J", [c for c in _op if c[0] % 2 == 0], [])
+    # DOCKET 49b.  Every open cell is CONSTRUCTIVELY realisable, not merely
+    # unforbidden -- each names a quark content, an L and a quark spin.
+    _nopen, _nbuilt = baryon_open_built()
+    chk("and every OPEN baryon cell is BUILT by the quark model",
+        (_nopen, _nbuilt), (110, 110))
+    # The witness test must also pass on every SEATED member, or it is too
+    # loose to mean anything.
+    chk("and the same witness test reaches every seated member",
+        [m for m in _Xb if baryon_witness(m) is None], [])
+    # THE RULE THE INDEX REFUTED.  Three identical quarks DO reach negative
+    # parity; a symmetry rule forbidding it would have declared these
+    # impossible, and they are seated.
+    chk("uuu-flavour states are seated at negative parity, so no such rule",
+        sorted(c[0] for c in _Xb
+               if (c[2], c[3], c[4], c[5], c[6]) == (3, 6, 0, 0, 0)
+               and c[1] == -1), [1, 3, 5])
     chk("and every (2J, P) it uses is one a seated member exhibits",
         sorted({(c[0], c[1]) for c in _op} - {(m[0], m[1]) for m in _Xb}), [])
 

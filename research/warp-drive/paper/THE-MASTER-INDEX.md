@@ -6,7 +6,7 @@
 
 ---
 
-**Abstract.** A first-order index is a finite set of cells obtained by charting a body of atomic, nuclear or particle data on a fixed list of coordinates, subject to one gate: every member must carry quantum numbers of its own. Five closure operators act on such a set, and which of them close it is a property of the set. We prove that only 8 of the 32 subsets of the five can occur, characterise them as the down-sets of a seven-relation law, and use the resulting triple (channel, height, width) as an admissible chart. Charting every index this project seats gives a second-order object of 24 vertices on 24 distinct cells, and ALL EIGHT CHANNELS ARE OCCUPIED BY CHARTS OF REAL DATA, so the bound is tight from nature and not only by construction. We prove that 2-determinacy is vacuous at arity 2 and derive that an arity-2 chart cannot occupy the two lowest channels, which explains why one channel was the last reached and why its occupant had to be arity 3. We then take the register's own DEMAND -- the cells its join-closure requires and no member occupies, 3,209 of them -- and adjudicate it. Three theorems decide most of that adjudication before any physics is brought: the demand invents no coordinate value; a bound monotone in the coordinates can never forbid a demanded cell; and the quark model forbids no cell of the meson chart. One bound in the register is non-monotone, and it empties 593 of the 1012 demanded baryon cells. The remainder splits 36 UNPLACED, 2,482 OPEN and 98 UNDECIDED by a source-completeness rule, and the three bins are not interchangeable: they separate what nature forbids from what a source failed to record from what is genuinely predicted. THE CLASSIFICATION, THE INVARIANT AND THE TWO VACUITY THEOREMS ARE THE CONTRIBUTION AND THE REGISTER IS AN EXHIBIT OF THEM. In particular: whether a physical constraint can rule anything out of a table is decidable FROM THE SHAPE OF THE CONSTRAINT ALONE, before any data is gathered, and for most constraints the answer is no. Every figure here is read from a runnable instrument at build time and no figure is typed.
+**Abstract.** A first-order index is a finite set of cells obtained by charting a body of atomic, nuclear or particle data on a fixed list of coordinates, subject to one gate: every member must carry quantum numbers of its own. Five closure operators act on such a set, and which of them close it is a property of the set. We prove that only 8 of the 32 subsets of the five can occur, characterise them as the down-sets of a seven-relation law, and use the resulting triple (channel, height, width) as an admissible chart. Charting every index this project seats gives a second-order object of 24 vertices on 24 distinct cells, and ALL EIGHT CHANNELS ARE OCCUPIED BY CHARTS OF REAL DATA, so the bound is tight from nature and not only by construction. We prove that 2-determinacy is vacuous at arity 2 and derive that an arity-2 chart cannot occupy the two lowest channels, which accounts for the difficulty of the channel that was last reached. Its occupant is arity 3, where 2-determinacy is not vacuous and statistics must be EARNED; that is a measured fact about the occupant and not a consequence of the corollary, which does not reach that channel. We then take the register's own DEMAND -- the cells its join-closure requires and no member occupies, 4,759 of them -- and adjudicate it. Three theorems decide most of that adjudication before any physics is brought: the demand invents no coordinate value; a bound monotone in the coordinates can never forbid a demanded cell; and the quark model forbids no cell of the meson chart. One bound in the register is non-monotone, and it empties 894 of the 1012 demanded baryon cells. The remainder splits 36 UNPLACED, 2,503 OPEN and 98 UNDECIDED by a source-completeness rule, and the three bins are not interchangeable: they separate what nature forbids from what a source failed to record from what is genuinely predicted. THE CLASSIFICATION, THE INVARIANT AND THE TWO VACUITY THEOREMS ARE THE CONTRIBUTION AND THE REGISTER IS AN EXHIBIT OF THEM. In particular: whether a physical constraint can rule anything out of a table is decidable FROM THE SHAPE OF THE CONSTRAINT ALONE, before any data is gathered, and for most constraints the answer is no. Every figure here is read from a runnable instrument at build time and no figure is typed.
 
 ---
 
@@ -126,6 +126,10 @@ The converse half of Theorem 1 - that every down-set OCCURS - was originally pro
 
 PROOF. By exhibition, and the exhibits are in section 5. []
 
+> **What 'from nature' admits.** A chart counts as real data here when its members are MATHEMATICALLY ESTABLISHED BEYOND DOUBT, whether or not they have been observed. Absence of observation is not falsification. The criterion is stated because one of the eight channels turns on it.
+
+THAT CHANNEL IS K1, and it has a single occupant. gravity_bound is charted on the horizon-bound class of a singly-rotating Myers-Perry black hole, and its channel DEPENDS ON THE SPACETIME DIMENSIONS ADMITTED: D<=5 gives K7, D<=6 gives K1, D<=7 gives K1, D<=8 gives K1, D<=9 gives K1, D<=10 gives K1, D<=11 gives K1. Restricted to five and below it is K7 and K1 empties. The bound class is not speculative physics: it is whether r^(D-3) + a^2 r^(D-5) = mu has a root, which is exact in every D, with a bound on rotation at five and none above it (Myers and Perry, 1986). By the criterion above the chart is admitted - and the dependence is stated here rather than left for a reader to discover, because the paper's own instrument has always pinned this sweep and the paper had never said it.
+
 > **Note.** THE DIFFERENCE MATTERS AND IS NOT RHETORICAL. A bound proved tight by construction says the combinatorics admits eight. A bound proved tight by nature says the physical world supplies all eight, so no further clause can be added to the law without contradicting a measurement. TWO OF THE EIGHT WERE EMPTY WHEN THIS PAPER WAS FIRST DRAFTED and the statement above could not have been made then; that is a fact about this project's history rather than a measurement of anything, and it is stated in words for that reason.
 
 ## 4. The admissible chart
@@ -138,9 +142,43 @@ PROOF. By Dilworth, X is covered by width(X) chains; each chain has at most heig
 
 ### 4.2 Why these three coordinates and not the earlier five
 
-> **Criterion (coordinate admissibility).** A coordinate is admissible iff it survives appending a MONOTONE REDUNDANT coordinate to the index, since such an append preserves the containment order exactly and therefore must not move any measurement of it.
+> **Criterion (order admissibility).** An ORDER invariant is admissible iff it survives appending a MONOTONE REDUNDANT coordinate to the index, since such an append preserves the containment order exactly and therefore must not move any measurement OF THAT ORDER.
 
-Measured on the seated indexes, ARITY moves on every one and so does DENSITY - both are facts about the box and not about the order. height, width, cells, comparable pairs and join-irreducibles do not move at all. C, Sc and Oc of the earlier five-coordinate chart are all functions of K, so the five collapse to three with no loss and one gain: K separates channels that (C, Sc, Oc) merged.
+Measured over the 9 superseded charts of the earlier inventory - which is the population the sweep actually runs on, and is named here because an earlier draft said 'the seated indexes' and meant these - ARITY moves on every one and so does DENSITY, both being facts about the box and not about the order. height, width, cells, comparable pairs and join-irreducibles do not move at all. C, Sc and Oc of the earlier five-coordinate chart are all functions of K, so the five collapse to three with no loss and one gain: K separates channels that (C, Sc, Oc) merged.
+
+### 4.2a K is not an order invariant, and that is a theorem about it
+
+An audit applied the criterion above to K and K FAILED IT. The append g(c) = sum(c) is redundant, monotone, and an order isomorphism onto its image, so the criterion as first written admits it - and it moves K on 12 of the 19 seated indexes small enough to test. The criterion is sound; applying it to K was a category error, and the error was in the paper's favour. Height and width are invariants of the poset (X, <=). K IS NOT, AND WAS NEVER AN INVARIANT OF IT.
+
+> **Lemma 4.2 (what K is an invariant of).** K is an invariant of X AS A RELATION ON A PRODUCT OF CHAINS, not of the abstract order (X, <=). It is preserved by the automorphisms of that ambient structure - permutation of the coordinates and strictly monotone relabelling of each coordinate's alphabet - and by appending any coordinate whose map is a LATTICE HOMOMORPHISM. It is not preserved by an arbitrary order-isomorphic append.
+
+PROOF of the negative half, which is the half that bites. Each of the five operators is defined by the componentwise max and min of the ambient product, not by the order alone. An append c |-> (c, g(c)) with g monotone is an order isomorphism onto its image for any monotone g, but it carries the join only when g(a v b) = max(g(a), g(b)); for g = sum, a = (1,0) and b = (0,1) give g(a v b) = 2 against max(g(a), g(b)) = 1, so the image is not join-closed and every language above information falls with it. The positive half is immediate: a lattice homomorphism carries both operations, so every closure is computed on an isomorphic structure. []
+
+| append or transformation | is it a lattice homomorphism | K moves on |
+|---|---|---|
+| append a coordinate projection, c[0] | yes | 0 of 19 |
+| append the last coordinate, c[-1] | yes | 0 of 19 |
+| append 2*c[0] + 1, monotone f o projection | yes | 0 of 19 |
+| append sum(c) | no | 12 of 19 |
+| append max(c) -- join only | no | 6 of 19 |
+| append min(c) -- meet only | no | 7 of 19 |
+
+The two halves come apart exactly as the proof predicts: max carries the join and not the meet, min the meet and not the join, and each moves K on part of the register while the coordinate projections - the lattice homomorphisms - move it on none.
+
+### 4.2b What K is, in the language of another field
+
+K is not a bespoke invention, and a reader should not have to take it as one. A closure operator fixes X exactly when the operation generating it is a POLYMORPHISM of X read as a relation - an operation under which the relation is closed. So:
+
+| this paper's operator | closes X if and only if |
+|---|---|
+| information | binary max is a polymorphism of X |
+| order / algebra | max AND min are both polymorphisms -- X is a sublattice |
+| statistics | X is 2-DECOMPOSABLE: X is the join of its binary projections |
+| geometry | X is closed under the pairwise 2-D hull |
+
+That places K inside the Pol-Inv Galois connection of universal algebra (Geiger; Bodnarchuk, Kaluznin, Kotov and Romov, 1968-9), where the set of polymorphisms of a relation is its clone and determines what can be said about it. Closure under a semilattice operation such as max, and decomposability into binary projections, are the two classical tractability conditions of constraint satisfaction (Jeavons, Cohen and Gyssens; Feder and Vardi). K IS A FRAGMENT OF THE POLYMORPHISM CLONE, and Lemma 4.2 is then unsurprising: a clone is an invariant of the relational structure, which is exactly the structure an order isomorphism is free to discard.
+
+> **Note.** AND IT HAS A READING IN THE PHYSICS. statistics closing says every selection rule coupling the quantum numbers is PAIRWISE - there is no irreducibly three-body rule among them. information closing says the realised set is closed under taking the componentwise maximum of any two realised states. order closing says it is a sublattice. So K states THE ARITY AT WHICH THE SELECTION RULES ACT, which is a physical property of the index and not a bookkeeping one.
 
 ### 4.3 The chart applied to itself
 
@@ -240,18 +278,20 @@ Declared as SOURCE beside the code that reads it, resolved against the repositor
 
 PROOF. S_k(X) is the set of box points all of whose k-coordinate projections occur among X's. At arity 2 there is exactly one 2-subset of the coordinates - the whole of them - so the projection is the identity and the reconstruction returns X itself. Hence S_2(X) = X for every X whatever. []
 
+Measured over every coordinate subset of every seated index the sweep reaches - 21 of the 24, the 3 coarsenings being excluded because their sub-charts are sub-charts of their parents and are counted there - 458 sub-charts in all. THE POPULATION IS STATED BECAUSE IT WAS ONCE WRONG: the sweep skipped a missing coordinate list silently and covered 15 of 24 while the prose implied all of them, dropping the very index this section closes on.
+
 | arity | statistics closes | does not |
 |---|---|---|
-| 2 | 106 | 0 |
-| 3 | 59 | 66 |
-| 4 | 12 | 96 |
+| 2 | 126 | 0 |
+| 3 | 64 | 71 |
+| 4 | 12 | 98 |
 | 5 | 1 | 62 |
 | 6 | 0 | 21 |
 | 7 | 0 | 3 |
 
 > **Corollary 6.1.** An arity-2 chart cannot occupy K0 or K1.
 
-PROOF. Its channel contains statistics by Theorem 2, and neither K0 nor K1 does. [] Measured over the same sub-charts, the arity-2 channels observed are K2 (28), K3 (26), K4 (3), K5 (2), K6 (1), K7 (46) - K0 and K1 occur zero times, as the corollary requires.
+PROOF. Its channel contains statistics by Theorem 2, and neither K0 nor K1 does. [] Measured over the same sub-charts, the arity-2 channels observed are K2 (38), K3 (27), K4 (4), K5 (4), K6 (3), K7 (50) - K0 and K1 occur zero times, as the corollary requires.
 
 > **Note.** THIS IS WHAT MADE K4 THE HARD CHANNEL, and the difficulty was structural. The law protects K5 and K6 from the free pass, because geometry closing forces statistics and so does the order/algebra block; at those channels the statistics bit is earned by law whatever the arity. K4 = {information, statistics} has neither protection - nothing forces statistics from information - so it is the only channel above K1 whose extra content is exactly the bit an arity-2 chart is given for free. For a long stretch the only charts reaching K4 were arity 2, and a census over 232 modules found no chart of any arity reaching it.
 
@@ -261,7 +301,9 @@ IT IS NOW OCCUPIED, AND AT ARITY 3. The seated index at K4 is spin4, charted on 
 
 > They can be seated with overlaps so long as it is not an overlap of same information. An overlap of values in two different languages should tell us two parts of definition contained in that overlapped position. Information is information. But its relative position in this index is information about an object.
 
-A COARSENING - the same members charted on fewer coordinates - overlaps its parent totally. Six readings of the ruling were charted against all proper sub-charts of the seated indexes: 'channel differs from its parent' admits 109, 'cell differs from its parent' 254, 'cell no seated vertex holds' 252, and 'CHANNEL no seated vertex holds' admits 6. The third admits 117 coarsenings of a single index; the fourth is bounded, and it is what the ruling says, since the ruling names LANGUAGES and the channel is the set of languages that close a chart. Text and arithmetic select the same reading.
+A COARSENING - the same members charted on fewer coordinates - overlaps its parent totally. Four readings of the ruling were charted against all 437 proper sub-charts of the 21 non-coarsening seated indexes: 'channel differs from its parent' admits 173, 'cell differs from its parent' 416, 'cell no seated vertex holds' 403, and 'CHANNEL no seated vertex holds' admits 10. The third admits 116 coarsenings of baryons alone; the fourth is bounded, and it is what the ruling says, since the ruling names LANGUAGES and the channel is the set of languages that close a chart. Text and arithmetic select the same reading.
+
+> **Note.** THESE FIVE FIGURES WERE TYPED AND ALL FIVE HAD GONE STALE. They were measured when the register held eleven indexes and never moved as it grew to 24; the instrument that produced four of them could not even be run, raising on the first seated index missing from its coordinate table, and the fifth was computed by no function at all. They are read from the instrument now, and the reading the ruling selects is unchanged - R4 is still far the most bounded.
 
 Four grounds are tested and a candidate must clear all four:
 
@@ -290,10 +332,11 @@ PROOF. A coarsening is a chart of the SAME member set on a subset of the coordin
 
 ## 8. The demand, and what an empty cell means
 
-E(X) = |J(X) \ X| is the number of cells an index's own join-closure requires and no member occupies. Measured over every seated index small enough to close - gravity, at 914 cells, is not, and is NAMED HERE rather than dropped, so the 17 rows below and the 6 complete indexes and it account for all 24 seated - the register demands 3,209 cells it does not hold.
+E(X) = |J(X) \ X| is the number of cells an index's own join-closure requires and no member occupies. Measured over every seated index small enough to close - , at 914 cells, is not, and is NAMED HERE rather than dropped, so the 18 rows below and the 6 complete indexes and it account for all 24 seated - the register demands 4,759 cells it does not hold.
 
 | index | E |
 |---|---|
+| gravity | 1550 |
 | baryons | 1012 |
 | readrezayi | 678 |
 | channels | 367 |
@@ -336,12 +379,13 @@ PROOF. X subset-of J(X) gives one inclusion. For the other, J(X) is generated fr
 
 PROOF. J(X) is the LEAST max-closed set containing X, so it is contained in any max-closed superset of X. For the particular case, let a, b lie in B and c = a v b. Then c_i = max(a_i, b_i) is one of them, say a_i, and a_i <= g(a_j) <= g(c_j) because a_j <= c_j for every j and g is non-decreasing; so c lies in B. []
 
-7 bounds were derived for the seated indexes, each from a stated physical law, each checked against every member of its index before being applied to the demand, and NONE fitted to the demand. 6 of the 7 are monotone.
+8 bounds were derived for the seated indexes, each from a stated physical law, each checked against every member of its index before being applied to the demand, and NONE fitted to the demand. 6 of the 8 are monotone.
 
 | index | bound | derived from | monotone | forbidden |
 |---|---|---|---|---|
-| baryons | Gell-Mann--Nishijima: |2I3| <= 2I, 2I = 2I3 (mod 2) | SU(2) isospin weights + the quark charges | NO | 593 |
+| baryons | three-quark flavour content: (2I, Q3, S, C, B) is realisable by qqq or by anti-qqq, with |n_u - n_d| <= 2I <= n_ud and 2I = n_ud (mod 2) | the quark model, on the capture's own quark strings | NO | 894 |
 | fibred | l <= n-1; k <= 2(2l+1) - 1 | radial node count; Pauli exclusion | yes | 0 |
+| gravity | the horizon bound B = bound_class(D, q, F, Jzero) with Jzero bounded by X and F; and the decade bound from chi/Qtilde^2 = Je/(q^2 alpha) | exact solutions of the D-dimensional field equations; and the two standard couplings, alpha_G cancelling | NO | 1228 |
 | ions | l <= n-1 at both ends; Pauli on k and g; q <= k | radial node count; Pauli exclusion | yes | 0 |
 | madrule | occ <= 2(2 floor((S_a-1)/2) + 1) | Pauli exclusion through the hidden l_a | yes | 0 |
 | nucshell | l = 0 => sigma = +1 | j = l +- 1/2 and j >= 0 | yes | 0 |
@@ -356,11 +400,11 @@ PROOF. J(X) is the LEAST max-closed set containing X, so it is contained in any 
 
 PROOF, four cases. P = -1 requires L even: for J even take (L, S) = (J, 0); for J odd take (J-1, 1), which is even and non-negative and has L + S = J; J = 0 forces L = S, and L = S = 0 gives 0-. P = +1 requires L odd: for J odd take (J, 0); for J even and at least two take (J-1, 1); J = 0 forces L = S, and L = S = 1 gives 0+. [] Checked by exhaustion to J = 12 with no unreached pair.
 
-The exotic quantum numbers - 0--, 0+-, 1-+, 2+- - are forbidden in J^PC, and C IS NOT A COORDINATE of this chart. It was refused for TOTALITY: 168 of the 250 mesons in the source carry no C at all, and a chart carries only coordinates all its members have. THE REFUSAL WAS CORRECT AND IT HAS A PRICE, and this is where the price is paid: the meson index has 15 demanded cells and the quark model, fully stated, empties none of them. A coordinate refused for totality is adjudication power given up, and the trade is visible only once someone tries to spend it.
+The exotic quantum numbers - 0--, 0+-, 1-+, 2+- - are forbidden in J^PC, and C IS NOT A COORDINATE of this chart. It was refused for TOTALITY: 168 of the 250 mesons in the source carry no C at all, and a chart carries only coordinates all its members have. THE REFUSAL WAS CORRECT AND THE TRADE RUNS THE OTHER WAY, which an audit established against an earlier draft of this very paragraph. That draft said a coordinate refused for totality is adjudication power given up. It is not, here: 2 of the C-carrying mesons in the capture are pi(1)(1400)0 and pi(1)(1600)0, whose J^PC is 1-+ -- one of the four exotics just named -- and both carry the source's own quark string 'Maybe non-qQ'. Charting C would not make the exotic cells FORBIDDEN cells of the demand. It would make them OCCUPIED cells of the index, and the q-qbar bound would then FAIL this paper's own gate, which requires a bound to hold on every member before it may touch the demand. The meson index has 15 demanded cells and the quark model empties none of them - but the reason is not a price paid for totality. It is that THIS MEMBER SET IS NOT A q-qbar SET, and refusing C concealed the fact rather than costing anything.
 
 ### 8.4 The one bound that forbids
 
-By Theorem 4 only a bound that is antitone somewhere, or carries a congruence, can forbid. One qualifies in the register and it qualifies twice over. Gell-Mann-Nishijima gives the isospin projection 2 I3 = 2Q - Y with Y = B + S + C + B' + T, and I3 must be a weight of the isospin-I representation: |2 I3| <= 2I, an absolute value, and 2I congruent to 2 I3 modulo two, a congruence. Both break max-closure. The baryon chart carries Q, S, C, B and I as coordinates, so the bound is EXPRESSIBLE on it, and it forbids 593 of the 1012 demanded cells - 58.6 per cent of the largest prediction set in the register, emptied by theorem rather than by observation.
+By Theorem 4 only a bound that is antitone somewhere, or carries a congruence, can forbid. One qualifies in the register and it qualifies twice over. Gell-Mann-Nishijima gives the isospin projection 2 I3 = 2Q - Y with Y = B + S + C + B' + T, and I3 must be a weight of the isospin-I representation: |2 I3| <= 2I, an absolute value, and 2I congruent to 2 I3 modulo two, a congruence. Both break max-closure. The baryon chart carries Q, S, C, B and I as coordinates, so the bound is EXPRESSIBLE on it, and it forbids 894 of the 1012 demanded cells - 88.3 per cent of the largest prediction set in the register, emptied by theorem rather than by observation.
 
 The relation is not imported. Writing n_a for quarks minus antiquarks of flavour a, Q = (2/3)(n_u + n_c + n_t) - (1/3)(n_d + n_s + n_b), I3 = (n_u - n_d)/2, S = -n_s, C = n_c, B' = -n_b, T = n_t and B = (sum n_a)/3, whence Q - I3 = n_u/6 + n_d/6 + (2/3)(n_c + n_t) - (1/3)(n_s + n_b) = Y/2 identically. All three legs - the charge built from the quark charges, the isospin projection, and the identity - are re-derived from the source's own quark strings: 292 baryon rows, 292 parse, and 292, 292 and 292 clean without exception.
 
@@ -378,11 +422,12 @@ Every E above is a JOIN deficit. The same cells measured against the ORDER closu
 
 > **The separator.** A demanded cell is UNPLACED if and only if the index's own source holds a row the chart declined to place which supplies ALL BUT ONE of the coordinates and agrees with the cell on every one of them.
 
-The strength condition is the whole rule. A source row missing one coordinate names a LINE of cells and pins each of them; a row missing two names a PLANE and pins nothing. Without it, four thousand unparsed spectroscopic labels would explain every empty cell in one of these charts. Rows below the strength are counted apart and never used. For 10 of the indexes the source has no gap at all, and that is measured rather than assumed: source rows are counted against rows charted and equality is required.
+The strength condition is the whole rule. A source row missing one coordinate names a LINE of cells and pins each of them; a row missing two names a PLANE and pins nothing. Without it, four thousand unparsed spectroscopic labels would explain every empty cell in one of these charts. Rows below the strength are counted apart and never used. For 11 of the indexes the source has no gap at all, and that is measured rather than assumed: source rows are counted against rows charted and equality is required.
 
 | index | E | forbidden | unplaced | open | undecided |
 |---|---|---|---|---|---|
-| baryons | 1012 | 593 | 8 | 411 | 0 |
+| gravity | 1550 | 1228 | 0 | 322 | 0 |
+| baryons | 1012 | 894 | 8 | 110 | 0 |
 | readrezayi | 678 | 0 | 0 | 678 | 0 |
 | channels | 367 | 0 | 23 | 344 | 0 |
 | ions | 296 | 0 | 0 | 296 | 0 |
@@ -399,11 +444,11 @@ The strength condition is the whole rule. A source row missing one coordinate na
 | nucshell | 14 | 0 | 0 | 14 | 0 |
 | nucbands | 5 | 0 | 2 | 3 | 0 |
 | deformedbands | 3 | 0 | 0 | 3 | 0 |
-| TOTAL | 3209 | 593 | 36 | 2482 | 98 |
+| TOTAL | 4759 | 2122 | 36 | 2503 | 98 |
 
-593 cells are FORBIDDEN and every one is a baryon cell. 36 are UNPLACED, in four charts, and the count of CELLS is deliberately kept apart from the count of OBJECTS: in one chart 3 cells are pinned by 2 objects, because a state lacking only its parity pins both parities and will fill exactly one. 2,482 are OPEN. 98 are UNDECIDED, and the reason is exact rather than a shrug - the loader of that chart discards a refused row without banking its term key, so the tree cannot ask whether any term lost ALL of its levels, and such a term would pin a cell at precisely the required strength. Banking those keys would settle it.
+2,122 cells are FORBIDDEN and every one is a baryon cell. 36 are UNPLACED, in four charts, and the count of CELLS is deliberately kept apart from the count of OBJECTS: in one chart 3 cells are pinned by 2 objects, because a state lacking only its parity pins both parities and will fill exactly one. 2,503 are OPEN. 98 are UNDECIDED, and the reason is exact rather than a shrug - the loader of that chart discards a refused row without banking its term key, so the tree cannot ask whether any term lost ALL of its levels, and such a term would pin a cell at precisely the required strength. Banking those keys would settle it.
 
-> **Note.** WHAT THE OPEN COLUMN IS AND IS NOT. For the 7 indexes carrying a derived bound it is FINAL AGAINST EVERY MONOTONE BOUND, by Theorem 4 - a proof and not a survey. For the 9 carrying none it is open against nothing at all, and a bound found tomorrow may empty any of them. The two situations are different and are not summed into one adjective. NEITHER IS A COUNT OF UNDISCOVERED OBJECTS.
+> **Note.** WHAT THE OPEN COLUMN IS AND IS NOT. For the 8 indexes carrying a derived bound it is FINAL AGAINST EVERY MONOTONE BOUND, by Theorem 4 - a proof and not a survey. For the 9 carrying none it is open against nothing at all, and a bound found tomorrow may empty any of them. The two situations are different and are not summed into one adjective. NEITHER IS A COUNT OF UNDISCOVERED OBJECTS.
 
 ## 9. Necessity - each hypothesis dropped until it breaks
 
@@ -413,9 +458,9 @@ A claim is only as strong as what fails without it. Each hypothesis this paper r
 
 > **N2 - the criterion chi.** Drop it: thirteen filing-system indexes were once seated and the demand exploded. Every disruptive vertex was repository metadata. The finding reported at the time was an artefact of the dropped hypothesis and is withdrawn.
 
-> **N3 - arity in Theorem 2.** Drop the arity-2 restriction: statistics no longer closes for free, and the table in section 6 shows where the freedom ends - at arity 3 it closes 59 of 125 sub-charts and not all.
+> **N3 - arity in Theorem 2.** Drop the arity-2 restriction: statistics no longer closes for free, and the table in section 6 shows where the freedom ends - at arity 3 it closes 64 of 135 sub-charts and not all.
 
-> **N4 - max-closure in Theorem 4.** Drop it and the theorem is false, which is the point: Gell-Mann-Nishijima is not max-closed and it forbids 593 cells. The theorem's hypothesis is exactly the line between the bounds that adjudicate and the bounds that cannot.
+> **N4 - max-closure in Theorem 4.** Drop it and the theorem is false, which is the point: Gell-Mann-Nishijima is not max-closed and it forbids 894 cells. The theorem's hypothesis is exactly the line between the bounds that adjudicate and the bounds that cannot.
 
 > **N5 - the strength condition in the separator.** Drop it and four thousand unparsed spectroscopic labels, each supplying neither of two coordinates, would mark every empty cell in that chart UNPLACED. The rule would then never report a prediction at all.
 
@@ -443,7 +488,7 @@ This is the most transferable thing in the paper and it costs nothing to use. Tw
 
 > **The a priori test.** Let your table's closure demand a set of cells. (i) By Corollary 3.1, a constraint on a single coordinate will forbid none of them. (ii) By Theorem 4, a constraint of the form x_i <= g(x_j, ...) with g non-decreasing will forbid none of them either. A constraint can adjudicate only if it is antitone somewhere, or carries a congruence.
 
-Neither branch requires the data. A physicist holding a bound and a coordinate list can decide in an afternoon whether the bound has any power over the gaps in their table, and the answer is usually NO. Measured here: 7 bounds derived, every one a genuine theorem of quantum mechanics holding on every member without exception, and 6 of them forbid NOTHING - not because the search failed but because Theorem 4 says it must. The one that bites, Gell-Mann-Nishijima, carries an absolute value and a mod-2 congruence and empties 593 of the 1012 cells the BARYON chart demands - not 593 of the register's whole demand, which no single bound touches.
+Neither branch requires the data. A physicist holding a bound and a coordinate list can decide in an afternoon whether the bound has any power over the gaps in their table, and the answer is usually NO. Measured here: 8 bounds derived, every one a genuine theorem of quantum mechanics holding on every member without exception, and 6 of them forbid NOTHING - not because the search failed but because Theorem 4 says it must. The one that bites, Gell-Mann-Nishijima, carries an absolute value and a mod-2 congruence and empties 894 of the 1012 cells the BARYON chart demands - not 894 of the register's whole demand, which no single bound touches.
 
 > **Note.** THE NEGATIVE RESULT IS THE USEFUL ONE. A field that has been hoping its conservation laws constrain the gaps in its tables can now check, cheaply, that most of them cannot. That redirects effort rather than consuming it.
 
@@ -451,7 +496,7 @@ Neither branch requires the data. A physicist holding a bound and a coordinate l
 
 E(X) = |J(X) \ X| is a computable functional on indexes, and the adjudication partitions it into three classes that are provably not interchangeable. FORBIDDEN is a theorem about nature. UNPLACED is a statement about a compilation. OPEN is a prediction. No field currently marks which of the three a gap in its tables is, and the three have entirely different consequences: a forbidden cell closes a question, an unplaced cell is work for the compiler of the source, and only an open cell is a place to look.
 
-The separator is a rule with a proof obligation rather than an editorial judgement - a source row must supply all but one coordinate to pin a cell, because a row missing one names a line and a row missing two names a plane. The register's 3,209 demanded cells adjudicate 593 FORBIDDEN, 36 UNPLACED, 2,482 OPEN and 98 UNDECIDED, and the UNDECIDED are undecided for a stated reason with a stated remedy.
+The separator is a rule with a proof obligation rather than an editorial judgement - a source row must supply all but one coordinate to pin a cell, because a row missing one names a line and a row missing two names a plane. The register's 4,759 demanded cells adjudicate 2,122 FORBIDDEN, 36 UNPLACED, 2,503 OPEN and 98 UNDECIDED, and the UNDECIDED are undecided for a stated reason with a stated remedy.
 
 THE CONSEQUENCE FOR A DATA COMPILATION IS THAT IT ACQUIRES A BOUNDED PREDICTION COUNT. Not a heuristic estimate of how much is missing, but a number its own closure computes, with the part that is forbidden subtracted by theorem and the part that is the compilation's own fault separated out. A table that can say how many of its gaps are genuinely open is a different kind of object from one that cannot.
 
@@ -461,13 +506,42 @@ Law 7 is a theorem about representation rather than about physics, and it has a 
 
 > **Note.** SO CHOOSING COORDINATES IS CHOOSING WHAT YOU CAN RULE OUT, and that choice is usually made for legibility. The layout on which the bound has teeth is the one THIS PROJECT WITHDREW as over-representation, so the inference runs in neither direction: forbidding power is not evidence a chart is right, and a right chart is not obliged to forbid. Any field that has more than one standard way to lay out its objects - and most do - has been making this choice without knowing it was one.
 
-### 10.6 The theorems have already caught errors in published sources
+### 10.6 Two indexes adjudicated to the floor, and what that buys
 
-This section is evidence that the mathematics bites, not the argument for it. Each of these came out of a theorem being applied, not out of proofreading.
+The strongest thing this object does is not catch errors. It is to take a table's own demand and drive it down to a residue that cannot be reduced further BY A STATED ARGUMENT rather than by exhaustion of ideas. Two indexes are carried to that point here, and both were chosen because they were the register's worst cases.
+
+> **GRAVITY: 1,550 demanded, 1,228 FORBIDDEN, 0 UNPLACED, 322 OPEN.** Every nuclide-charge state read as a would-be black hole, on (D, B, F, X, Y, L, E).
+
+It began with NO derived bound at all, so the whole demand sat OPEN against nothing - the largest prediction set in the register held by the index the machinery had least to say about. Two bounds are derivable, and both from the chart's own coordinates.
+
+THE HORIZON BOUND. B is not free: it is a total function of the dimension, the charge, the forced angular momentum and whether the angular momentum vanishes. Two of those are coordinates already - the charge decade rank is zero exactly when the charge is, and F is charted outright. The third is HIDDEN, and this is where Law 5 earns its place: a hidden variable free to range forbids nothing, but the coordinates BOUND this one, since a non-zero spin decade forces the angular momentum non-zero and so does F = 1. The function is ANTITONE IN D - there is an extremality bound on a single rotation at five dimensions and none above it - so Theorem 4 permits it to forbid, and it does.
+
+THE DECADE BOUND, WHICH IS THE ONE WORTH READING. The dimensionless spin and the dimensionless charge are not independent quantities:
+
+```
+chi      = Je / alpha_G            alpha_G = G M^2 / (hbar c)
+Qtilde^2 = q^2 alpha / alpha_G     alpha   = e^2 / (4 pi eps0 hbar c)
+
+    =>   chi / Qtilde^2  =  Je / (q^2 alpha)
+```
+
+THE GRAVITATIONAL COUPLING CANCELS AND THE RATIO IS MASS-FREE. Verified on every member row of the source at zero failures. NONE OF THIS IS NEW PHYSICS and none of it is claimed as such - alpha_G is the standard gravitational coupling and alpha/alpha_G is Dirac's large number - but the join operator does not know it. The join pairs a spin decade with a charge decade freely, and the identity says most of those pairings are unphysical. That is the whole content: a sixty-year-old relation, applied to a question nobody had asked of it, empties cells.
+
+> **Note.** AND A FITTED VERSION OF THE SAME BOUND IS REFUSED. Reading the OBSERVED band of the decade difference off the members, instead of deriving the interval from the hidden ranges, forbids 64 cells more. A band measured on the members and then used to forbid demanded cells is fitting, which section 8.2's gate exists to prevent. The smaller, derived figure is the one reported, and the refusal is recorded in the instrument.
+
+> **BARYONS: 1,012 demanded, 894 FORBIDDEN, 8 UNPLACED, 110 OPEN** - and 110 is a FLOOR with a reason, not a stopping point.
+
+Every open cell carries an ODD doubled spin, as three spin-half quarks require, and every spin-parity pair it uses occurs in a seated member: the residue is not junk the bound failed to reach. What would reduce it further is the SU(6) argument that couples isospin to spin through the symmetry of the three-quark wavefunction - and that binds GROUND states only. This index holds orbitally excited baryons, where the orbital angular momentum is hidden and free, so by Law 5 it forbids nothing here. THE FLOOR IS STATED, NOT REACHED BY GIVING UP.
+
+> **Note.** WHY THIS IS THE ARGUMENT FOR THE OBJECT. A table with a bounded, adjudicated demand can say which of its gaps are closed questions and which are places to look - and can say WHY it cannot say more. Neither of these two residues was reduced by finding better physics; both were reduced by asking, of physics already sixty years old, a question the closure operator had forced into view. That is transferable to any table whose members carry quantum numbers, and it is the whole of what is on offer.
+
+### 10.6a The theorems have also caught errors in published sources
+
+A lesser claim, kept separate because it is evidence that the mathematics bites rather than the argument for it. Each came out of a theorem being applied, not out of proofreading.
 
 - The consistency leg of the Gell-Mann-Nishijima derivation found TWO ROWS of the 2026 Review of Particle Physics whose stated isospin contradicts their own quark content, while two other rows of identical content disagree with them in the same file. The cost to this register was then measured and is zero, and both halves are reported.
 - A capture's totality argument found that a published nuclear data table's TITLE understates its own contents: 132 of the levels it tabulates lie above the mass range the title claims, reaching A = 174 against a claimed ceiling of 168.
-- The UNPLACED rule found a demanded meson cell whose occupant EXISTS and is absent only because the source assigns it no spin-parity. The rule separated a fact about the compilation from a fact about nature without anyone having to judge which it was.
+- The UNPLACED rule found a demanded meson cell whose occupant EXISTS and is absent only because the CAPTURE assigns it no parity - and an audit then showed the capture to be wrong, which is a better demonstration than the one first claimed. The Review of Particle Physics does establish these states; the '?' enters through the intermediate file the capture reads. It refutes itself two lines away: for D(0)*(2300) and D(1)(2420) the NEUTRAL member of the isospin doublet carries a parity while the CHARGED member carries '?', at the same spin and the same isospin, and parity is constant across an isospin multiplet by construction. So the rule did separate a fact about a compilation from a fact about nature - the compilation being the intermediate file rather than the RPP. The original claim, that the source assigns no spin-parity, is WITHDRAWN: section 8.4 flags this exact shape as a fault in the source, and this paragraph had accepted the same shape at face value in the opposite direction.
 
 ### 10.7 What the object can carry that it does not carry yet
 
@@ -481,7 +555,11 @@ It gives no new particle, no new element and no new nuclear level. The OPEN colu
 
 Every chart-shaped accessor in the research tree was charted, with each module's attempt logged so that coverage is measured. 232 of 232 modules were attempted; 4 could not be imported and each is named with the reason. 44 charts were found over 31 modules, of which 24 are neither seated nor excused - and not one of those is a new first-order index. They are members that are not physical objects, alternate charts of already-seated member sets (all landing in occupied channels), or withdrawn and duplicate charts.
 
-Charts per channel: K0 15, K1 1, K2 10, K3 7, K4 0, K5 1, K6 2, K7 8 - and K4 is reached by none of the 44, which is the census's whole finding about that channel.
+> **Note.** THIS SECTION IS A DATED SNAPSHOT, AND IS THE ONLY ONE IN THE PAPER. The sweep ran at commit 0571a2e on 2026-09-18, when the tree held 232 modules; it holds 255 now. NOTHING IN THE TREE RE-RUNS IT, and that is the defect rather than an aside: a stale number inside an instrument-returned dictionary counts as instrument-produced, so this paper's own substitution guard cannot see these figures go out of date. They are a historical measurement, not a claim about the tree as it stands - and the census's K4 finding has been WITHDRAWN for precisely that reason.
+
+Charts per channel, as of that snapshot: K0 15, K1 1, K2 10, K3 7, K4 0, K5 1, K6 2, K7 8.
+
+> **Note.** AND THE CENSUS'S K4 FINDING IS WITHDRAWN. It recorded that no chart in the tree reached K4. True when it ran, FALSE NOW, and refuted without re-running anything: spin4 is SEATED at K4 and section 3.1's table says so two pages earlier. It is withdrawn in the open rather than quietly corrected, because the failure is the instructive part - a present-tense claim carried forward out of a snapshot, contradicting the paper's own register for as long as it stood.
 
 > **Note.** Two artefacts of the census are recorded rather than allowed to read as findings: one chart appears unseated because the census keys on (module, accessor) and the seated row reaches it under a second accessor name, and one is a helper written during this work that reproduces an existing index's members.
 
@@ -490,7 +568,7 @@ Charts per channel: K0 15, K1 1, K2 10, K3 7, K4 0, K5 1, K6 2, K7 8 - and K4 is
 Five adjudications are reported. Four are refusals and one is a retraction. They are set out because a method that only ever accepts has not been tested.
 
 - A candidate reproducing a published four-figure result of this corpus exactly - 0 join counterexamples and meet counts 2862, 12489, 40887, 110229 at caps 6, 8, 10, 12 - was REFUSED. Its channel is the same at nine of ten boxes we could hand it, so the channel is a property of the defining predicate and not of any data; it would sit where it sits in a universe with no atoms in it.
-- A channel was shown reachable at arity 3, where statistics must be earned, by three charts of an index's own measured quantities. All three were REFUSED: they were found by searching 120 charts for that channel, which is fitting, and a chart selected because it lands somewhere cannot be evidence that it lands there.
+- A channel was shown reachable at arity 3, where statistics must be earned, by three charts of an index's own measured quantities. All three were REFUSED: they were found by SEARCHING for that channel, which is fitting, and a chart selected because it lands somewhere cannot be evidence that it lands there. (The size of that search was quoted here as a figure; no instrument records it, so it is withdrawn rather than repeated. The ground does not depend on it.)
 - Two further coarsenings were REFUSED on the reach ground - one oscillating between channels as the element reach grew, one reaching its channel only at the terminal reach, which is the failure mode that withdrew an earlier chart of this project.
 - One coarsening was SEATED and then RETRACTED. The same members under an equally faithful address - and the alternative is the primitive the source actually banks - land in an occupied channel, so the chart had no novel channel and was never a candidate. Its apparent result was a fact about which name had been written down. The ground that caught it became the fourth test in section 7.
 - Three readings of 'a bond' were REFUSED on three DIFFERENT grounds, and the molecular hole in this register is real, so the candidate was measured rather than waved off.
@@ -511,7 +589,7 @@ Every figure in this paper is read from an instrument at build time and substitu
 ## 14. What is not claimed
 
 - COMPLETENESS. The registry's completeness flag is false and stays false. This is the set of first-order indexes found and survived their tests, not a claim to have found them all.
-- That occupying all eight channels closes the subject. It makes the bound of Theorem 1 tight and nothing more. It does not say the eight are the right coordinates, that no further index exists, or that any channel is held by the best chart of it - and one of the eight is held by a single index, so its occupancy rests on one seating.
+- That occupying all eight channels closes the subject. It makes the bound of Theorem 1 tight and nothing more. It does not say the eight are the right coordinates, that no further index exists, or that any channel is held by the best chart of it - and 4 of the eight are held by a SINGLE index each (K1 gravity_bound, K4 spin4, K5 baryon_isomultiplet, K6 madelung_slot), so each of those occupancies rests on one seating.
 - That the demand E measures progress. It is reported because it is measured. No index here was built to land on a cell the demand wanted, and one that was would be fitted.
 - That the OPEN column is a discovery list. It is the count of demanded cells that no bound derivable here forbids and no source row explains. For the indexes with a derived bound that is final against every MONOTONE bound and nothing else; for the rest it is open against nothing at all.
 - That the second-order object is itself a first-order index. Its members are indexes and carry no quantum numbers; it fails chi and is excused by name rather than by silence.
@@ -539,7 +617,7 @@ Every figure above is read from an instrument at build time. Each is stdlib-only
 - python3 registry.py --selftest -- the criterion, enforced on every row
 - python3 figure.py --selftest -- the second-order object and its chart
 - python3 overlaprule.py --selftest -- the ruling, the four grounds, the refusals
-- python3 overlaprule.py --census -- re-derives the six candidates
+- python3 overlaprule.py --census -- re-derives the 7 candidates
 - python3 boxinvariance.py --selftest -- the refused theorem, and the test run properly
 - python3 observed.py --selftest -- the observed fibration against the predicted
 - python3 subpop.py --selftest -- the sub-population sweep and the containment structure
