@@ -130,14 +130,24 @@ E_BY_INDEX = {
     "observed.index": 56, "fundamental.index": 46, "inversion.index": 24,
     "madrule.index": 18, "mesons.index": 15, "nucshell.index": 14,
     "nucbands.index": 5, "deformedbands.index": 3,
+    "gravity.index": 1550,
     "madelung.janet": 0, "overlaprule.gravity_bound": 0,
     "overlaprule.madelung_slot": 0, "overlaprule.baryon_isomultiplet": 0,
     "bosonqp.index": 0, "spin4.index": 0,
 }
 
-# gravity is 914 cells and its closure is not computed here.  Named, not
-# silently omitted.
-TOO_LARGE = ("gravity.index",)
+# NOTHING IS TOO LARGE, AND THE CLAIM THAT ONE WAS IS WITHDRAWN.  This read
+# "gravity is 914 cells and its closure is not computed here" and excluded it,
+# which removed a third of the register's demand from every headline figure the
+# paper printed.  The ground was false: `demand.E(registry.index_of(
+# "gravity.index"))` returns 1550 in about 16 seconds.  It was a decision
+# written as a limit, and a referee who checks finds the largest index dropped
+# from the one column the adjudication machinery has nothing to say about.
+#
+# gravity carries no entry in ghosts.BOUNDS and none in ghosts.GAPS, so all
+# 1,550 adjudicate OPEN.  That is the honest answer and it is a worse-looking
+# one, which is the point.
+TOO_LARGE = ()
 
 # The element layer's own adjudication, from docs/WEB-INDEX.md and register 448.
 # The precedent this file generalises.
@@ -198,9 +208,17 @@ def selftest():
         print("  [%s] %-58s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    chk("twenty-three indexes measured, one too large to close",
-        (len(E_BY_INDEX), len(TOO_LARGE)), (23, 1))
-    chk("and the one left out is named", list(TOO_LARGE), ["gravity.index"])
+    chk("every seated index is measured and none is left out",
+        (len(E_BY_INDEX), len(TOO_LARGE)), (24, 0))
+    # gravity's exclusion was justified as a computational limit and was not
+    # one.  The fixture that used to pin the exclusion now pins the REFUTATION,
+    # so the claim cannot come back: if this ever takes minutes, that is a
+    # finding about the tree and not a licence to drop the index.
+    import time as _t
+    _t0 = _t.time()
+    _g = demand.E(frozenset(registry.index_of("gravity.index")))
+    chk("gravity closes, and closes quickly -- the exclusion was false",
+        (_g, _t.time() - _t0 < 120), (1550, True))
 
     info_zero, noinfo_pos, nzero, npos = partition()
     chk("every E = 0 index closes under INFORMATION", info_zero, True)

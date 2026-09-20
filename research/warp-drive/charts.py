@@ -37,10 +37,10 @@ need not.  That is the whole criterion.
 2. WHAT IT DISQUALIFIES, AND IT IS THE TWO AXES THIS TREE CHOSE FIRST
 ===============================================================================
 
-Over the ten seated indexes:
+Over the nine charts of the SUPERSEDED inventory (NOT the register):
 
-    arity   -- the D axis        MOVES ON 10 OF 10
-    density -- the R axis        MOVES ON 10 OF 10
+    arity   -- the D axis        MOVES ON 9 OF 9
+    density -- the R axis        MOVES ON 9 OF 9
     cells                        invariant
     height  (longest chain)      invariant
     width   (largest antichain)  invariant
@@ -225,6 +225,101 @@ def admissibility(g=None):
     return out
 
 
+def population():
+    """The charts `admissibility` sweeps -- NAMED, because it is not the register.
+
+    `master.inventory()` is the SUPERSEDED inventory of nine charts, and
+    `figure.superseded_mi()` reports it disjoint from the seated register.  The
+    paper said "measured on the seated indexes" about this sweep for several
+    drafts.  It is not them, and saying which it is costs one function.
+    """
+    return dict(master.inventory())
+
+
+def seated_admissibility(g=None):
+    """{coordinate: how many of the SEATED indexes it moves on}.
+
+    The same test as `admissibility`, over the register rather than over the
+    superseded inventory, so the paper can state the sweep it actually means.
+    """
+    import registry
+    g = MONOTONE if g is None else g
+    Xs = []
+    for nm, *_r in registry.rows():
+        try:
+            Xs.append(frozenset(registry.index_of(nm)))
+        except Exception:
+            continue
+    out = {}
+    for nm, f in CANDIDATES:
+        out[nm] = sum(1 for X in Xs if f(X) != f(recharted(X, g)))
+    return out, len(Xs)
+
+
+# ------------------------------------------------- K is not an order invariant
+# An audit applied the admissibility criterion to K and K FAILED it: the append
+# g(c) = sum(c) is redundant, monotone and an order isomorphism onto its image,
+# and it moves K on most of the register.  The criterion is sound; applying it
+# to K was a category error.  Height and width are invariants of (X, <=); K is
+# an invariant of X AS A RELATION ON A PRODUCT OF CHAINS, and an order
+# isomorphism is free to discard exactly that structure.
+#
+# An append carries K iff its map is a LATTICE HOMOMORPHISM.  For g = sum,
+# a = (1,0) and b = (0,1) give g(a v b) = 2 against max(g(a), g(b)) = 1, so the
+# image is not join-closed and every language above `information` falls.
+K_APPENDS = (
+    ("append a coordinate projection, c[0]",      "yes", lambda c: c[0]),
+    ("append the last coordinate, c[-1]",         "yes", lambda c: c[-1]),
+    ("append 2*c[0] + 1, monotone f o projection", "yes", lambda c: 2 * c[0] + 1),
+    ("append sum(c)",                             "no",  sum),
+    ("append max(c) -- join only",                "no",  max),
+    ("append min(c) -- meet only",                "no",  min),
+)
+
+
+def k_invariance(cap=130):
+    """What K is and is not preserved by, measured over the register.
+
+    Returns {"n", "rows": [(label, is a lattice homomorphism, K moved on)],
+    "sum", "perm", "relabel"}.  Indexes above `cap` cells are skipped for time
+    and the population is reported, never implied.
+    """
+    import random
+    import registry
+    import mi
+    Xs = []
+    for nm, *_r in registry.rows():
+        try:
+            X = frozenset(registry.index_of(nm))
+        except Exception:
+            continue
+        if 0 < len(X) <= cap:
+            Xs.append(X)
+    rows = []
+    for lab, hom, g in K_APPENDS:
+        rows.append((lab, hom, sum(1 for X in Xs
+                                   if mi.K(X) != mi.K(recharted(X, g)))))
+    rnd = random.Random(7)
+    perm = relab = 0
+    for X in Xs:
+        d = len(next(iter(X)))
+        order = list(range(d))
+        rnd.shuffle(order)
+        Y = frozenset(tuple(c[i] for i in order) for c in X)
+        if mi.K(X) != mi.K(Y):
+            perm += 1
+        maps = []
+        for i in range(d):
+            vals = sorted({c[i] for c in X})
+            maps.append({v: 10 * k + 3 for k, v in enumerate(vals)})
+        Z = frozenset(tuple(m[v] for m, v in zip(maps, c)) for c in X)
+        if mi.K(X) != mi.K(Z):
+            relab += 1
+    return {"n": len(Xs), "rows": rows, "cap": cap,
+            "sum": dict((r[0], r[2]) for r in rows)["append sum(c)"],
+            "perm": perm, "relabel": relab}
+
+
 def cell(X):
     """The master cell on measured axes: (K, height, width)."""
     return (channel(X), height(X), width(X))
@@ -281,12 +376,15 @@ def report():
     print("   which. For a MONOTONE one the containment order is preserved")
     print("   EXACTLY, so every invariant of that order survives by proof.")
     print()
-    print("2. WHAT MOVES, over the ten seated indexes:")
+    print("2. WHAT MOVES, over the %d charts of the SUPERSEDED inventory:"
+          % len(population()))
     mono, non = admissibility(MONOTONE), admissibility(NON_MONOTONE)
     print("   %-24s %10s %14s" % ("coordinate", "monotone", "non-monotone"))
     for nm, _f in CANDIDATES:
         tag = "  ADMISSIBLE" if mono[nm] == 0 else ""
-        print("   %-24s %6d/10 %10d/10%s" % (nm, mono[nm], non[nm], tag))
+        _n = len(population())
+        print("   %-24s %6d/%-3d %8d/%-3d%s"
+              % (nm, mono[nm], _n, non[nm], _n, tag))
     print()
     print("   D AND R FAIL ON EVERY INDEX. They are the two axes this tree")
     print("   chose first, and both are facts about the BOX, not the index.")

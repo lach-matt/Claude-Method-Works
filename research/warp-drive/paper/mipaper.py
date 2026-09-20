@@ -71,6 +71,7 @@ def facts():
     # twice by the dict literal below.
     _readings = dict(OR.reading_counts())
     import itertools
+    import charts
     import demand
     import figure
     import hlaw
@@ -170,6 +171,13 @@ def facts():
         "n_candidates": len(OR.CANDIDATES),
         # Section 7's readings, MEASURED.  All five were typed, taken when the
         # register held eleven indexes, and never moved as it grew to 24.
+        # Section 4.2: the admissibility sweep, and WHICH charts it runs on --
+        # the nine of the superseded inventory, not the register.  Naming it
+        # is the repair; an earlier draft said "the seated indexes".
+        "adm": dict(charts.admissibility()),
+        "adm_n": len(charts.population()),
+        # Section 4.2a: what K is and is not preserved by, measured.
+        "kmove": charts.k_invariance(),
         "readings": _readings,
         "reading_share": tuple(OR.reading_share()),
         "subcharts": OR.subchart_total(),
@@ -477,15 +485,77 @@ def document(f):
         % len(f["dilworth_bad"]))))
     A(("h2", "4.2 Why these three coordinates and not the earlier five"))
     A(("quote", (
-        "**Criterion (coordinate admissibility).** A coordinate is admissible iff it survives "
+        "**Criterion (order admissibility).** An ORDER invariant is admissible iff it survives "
         "appending a MONOTONE REDUNDANT coordinate to the index, since such an append preserves "
-        "the containment order exactly and therefore must not move any measurement of it.")))
+        "the containment order exactly and therefore must not move any measurement OF THAT "
+        "ORDER.")))
     A(("p", (
-        "Measured on the seated indexes, ARITY moves on every one and so does DENSITY - both are "
-        "facts about the box and not about the order. height, width, cells, comparable pairs and "
-        "join-irreducibles do not move at all. C, Sc and Oc of the earlier five-coordinate chart "
-        "are all functions of K, so the five collapse to three with no loss and one gain: K "
-        "separates channels that (C, Sc, Oc) merged.")))
+        "Measured over the %d superseded charts of the earlier inventory - which is the "
+        "population the sweep actually runs on, and is named here because an earlier draft said "
+        "'the seated indexes' and meant these - ARITY moves on every one and so does DENSITY, "
+        "both being facts about the box and not about the order. height, width, cells, "
+        "comparable pairs and join-irreducibles do not move at all. C, Sc and Oc of the earlier "
+        "five-coordinate chart are all functions of K, so the five collapse to three with no "
+        "loss and one gain: K separates channels that (C, Sc, Oc) merged." % f["adm_n"])))
+
+    A(("h2", "4.2a K is not an order invariant, and that is a theorem about it"))
+    A(("p", (
+        "An audit applied the criterion above to K and K FAILED IT. The append g(c) = sum(c) is "
+        "redundant, monotone, and an order isomorphism onto its image, so the criterion as first "
+        "written admits it - and it moves K on %d of the %d seated indexes small enough to test. "
+        "The criterion is sound; applying it to K was a category error, and the error was in the "
+        "paper's favour. Height and width are invariants of the poset (X, <=). K IS NOT, AND WAS "
+        "NEVER AN INVARIANT OF IT."
+        % (f["kmove"]["sum"], f["kmove"]["n"]))))
+    A(("quote", (
+        "**Lemma 4.2 (what K is an invariant of).** K is an invariant of X AS A RELATION ON A "
+        "PRODUCT OF CHAINS, not of the abstract order (X, <=). It is preserved by the "
+        "automorphisms of that ambient structure - permutation of the coordinates and strictly "
+        "monotone relabelling of each coordinate's alphabet - and by appending any coordinate "
+        "whose map is a LATTICE HOMOMORPHISM. It is not preserved by an arbitrary "
+        "order-isomorphic append.")))
+    A(("p", (
+        "PROOF of the negative half, which is the half that bites. Each of the five operators is "
+        "defined by the componentwise max and min of the ambient product, not by the order alone. "
+        "An append c |-> (c, g(c)) with g monotone is an order isomorphism onto its image for any "
+        "monotone g, but it carries the join only when g(a v b) = max(g(a), g(b)); for g = sum, "
+        "a = (1,0) and b = (0,1) give g(a v b) = 2 against max(g(a), g(b)) = 1, so the image is "
+        "not join-closed and every language above information falls with it. The positive half is "
+        "immediate: a lattice homomorphism carries both operations, so every closure is computed "
+        "on an isomorphic structure. []")))
+    A(("table", (["append or transformation", "is it a lattice homomorphism", "K moves on"],
+                 [[lab, hom, "%d of %d" % (mv, f["kmove"]["n"])]
+                  for lab, hom, mv in f["kmove"]["rows"]])))
+    A(("p", (
+        "The two halves come apart exactly as the proof predicts: max carries the join and not "
+        "the meet, min the meet and not the join, and each moves K on part of the register while "
+        "the coordinate projections - the lattice homomorphisms - move it on none.")))
+    A(("h2", "4.2b What K is, in the language of another field"))
+    A(("p", (
+        "K is not a bespoke invention, and a reader should not have to take it as one. A closure "
+        "operator fixes X exactly when the operation generating it is a POLYMORPHISM of X read as "
+        "a relation - an operation under which the relation is closed. So:")))
+    A(("table", (["this paper's operator", "closes X if and only if"],
+                 [["information", "binary max is a polymorphism of X"],
+                  ["order / algebra", "max AND min are both polymorphisms -- X is a sublattice"],
+                  ["statistics", "X is 2-DECOMPOSABLE: X is the join of its binary projections"],
+                  ["geometry", "X is closed under the pairwise 2-D hull"]])))
+    A(("p", (
+        "That places K inside the Pol-Inv Galois connection of universal algebra (Geiger; "
+        "Bodnarchuk, Kaluznin, Kotov and Romov, 1968-9), where the set of polymorphisms of a "
+        "relation is its clone and determines what can be said about it. Closure under a "
+        "semilattice operation such as max, and decomposability into binary projections, are the "
+        "two classical tractability conditions of constraint satisfaction (Jeavons, Cohen and "
+        "Gyssens; Feder and Vardi). K IS A FRAGMENT OF THE POLYMORPHISM CLONE, and Lemma 4.2 is "
+        "then unsurprising: a clone is an invariant of the relational structure, which is exactly "
+        "the structure an order isomorphism is free to discard.")))
+    A(("note", (
+        "AND IT HAS A READING IN THE PHYSICS. statistics closing says every selection rule "
+        "coupling the quantum numbers is PAIRWISE - there is no irreducibly three-body rule among "
+        "them. information closing says the realised set is closed under taking the componentwise "
+        "maximum of any two realised states. order closing says it is a sublattice. So K states "
+        "THE ARITY AT WHICH THE SELECTION RULES ACT, which is a physical property of the index "
+        "and not a bookkeeping one.")))
     A(("h2", "4.3 The chart applied to itself"))
     A(("p", (
         "Applying the chart to the object it produces is a test that object can fail. A "

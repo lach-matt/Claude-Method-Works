@@ -7,7 +7,7 @@ r"""ghosts.py -- THE ADJUDICATION OF E.  DOCKET 39.
 M: "Do the bound per index and separate UNPLACED from OPEN.  Derive all you
 can, including proofs, theorems, and laws."
 
-`predict.py` measured E for every seated index -- 3,209 cells the register's own
+`predict.py` measured E for every seated index -- 4,759 cells the register's own
 closure demands and no member occupies -- named three bins for them, and left
 both halves of the adjudication undone.  This file does both, and in doing the
 first half it finds that most of it CANNOT BE DONE, for a reason that is a
@@ -65,10 +65,12 @@ Every law below is proved, and then measured on the live tree.
     max-closed -- it must be antitone in some coordinate, or carry a congruence,
     or be a non-monotone function of several coordinates.
 
-        THE ONE BOUND IN THIS TREE THAT QUALIFIES is GELL-MANN--NISHIJIMA on the
-        baryons, and it qualifies twice over: an absolute value and a mod-2
-        congruence.  It forbids 593 of the 1,012 demanded baryon cells -- 58.6%
-        of the largest prediction set in the register, emptied by theorem.
+        THE ONE BOUND IN THIS TREE THAT QUALIFIES acts on the baryons, and it
+        qualifies twice over: an absolute value and a mod-2 congruence.  It is
+        the THREE-QUARK FLAVOUR BOUND, and it forbids 894 of the 1,012 demanded
+        baryon cells -- 88.3% of them, emptied by theorem.  Gell-Mann--Nishijima
+        is its corollary and forbids 593, a strict subset: an audit found the
+        weaker one seated here and the 301 cells between them wrongly OPEN.
 
     LAW 5 -- COORDINATE EXPRESSIBILITY.  If the bound is a predicate B(c, v) on a
     cell and a variable v the index does not carry, then c is forbidden iff
@@ -115,7 +117,7 @@ Every law below is proved, and then measured on the live tree.
         THIS CORRECTS DOCKET 38.  `predict.py` section 2 cites the element
         layer's "E = 36, split 25 forbidden and 11 deferred" as the precedent for
         adjudicating the seated indexes' E, without saying that the 36 is an
-        ORDER deficit and the 3,209 are JOIN deficits.  `tools/cypher.py`'s own
+        ORDER deficit and the 4,759 are JOIN deficits.  `tools/cypher.py`'s own
         fixture says so -- ("periodic table 2-D", {"order": 36}).  The three bins
         survive the correction intact; the precedent is re-attributed, and Law 3
         explains why it could never have transferred.
@@ -139,7 +141,7 @@ seated member of its index (zero violations anywhere), and then applied to the
 demand.  A bound was never fitted to the demand.
 
     index              bound                            monotone  FORBIDDEN
-    baryons     1012   Gell-Mann--Nishijima                 NO        593
+    baryons     1012   three-quark flavour content          NO        894
     ions         296   l<=n-1 (both ends), Pauli, q<=k     yes          0
     fibred       140   l<=n-1, Pauli                       yes          0
     terms         98   mult = 1 => not SHORT               yes          0
@@ -208,7 +210,8 @@ let four thousand unparsed term labels "explain" every empty cell in `terms`.
 Rows below the strength are counted apart and never used.
 
     index         E    FORBIDDEN  UNPLACED  OPEN   the source rows that pin
-    baryons     1012      593         8      411   14 with no P (Xi, Omega)
+    gravity     1550        0         0    1,550   no bound, no source gap
+    baryons     1012      894         8      110   14 with no P (Xi, Omega)
     readrezayi   678        0         0      678   source gapless
     channels     367        0        23      344   25 with a non-integer B
     ions         296        0         0      296   source gapless
@@ -226,7 +229,7 @@ Rows below the strength are counted apart and never used.
     nucbands       5        0         2        3   93 levels with no parity
     deformedbnds   3        0         0        3   56 levels with no parity
 
-    TOTAL      3,209      593        36    2,482   and 98 UNDECIDED
+    TOTAL      4,759      894        36    3,731   and 98 UNDECIDED
 
     TERMS IS THE ONE REFUSAL AND ITS REASON IS EXACT.  4,033 of 16,624 NIST rows
     carry a bracketed jK, jj or Racah label, which supplies neither `mult` nor
@@ -248,7 +251,7 @@ Rows below the strength are counted apart and never used.
 5. WHAT THIS FILE REFUSES
 ===============================================================================
 
-    TO CALL 2,482 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
+    TO CALL 3,731 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
     cells that no bound derivable here forbids and no source row explains.  For
     the seven indexes with a derived bound the OPEN figure is FINAL AGAINST
     EVERY MONOTONE BOUND, by Law 3 -- that is a proof, not a survey.  For the
@@ -428,6 +431,13 @@ BOUNDS = {
 NO_BOUND_BY_THEOREM = ("mesons.index",)
 
 NO_BOUND_DERIVED = (
+    # DOCKET 42.  gravity was excluded from the demand entirely, so it never
+    # needed a bound status; seating its 1,550 forces the question, and the
+    # honest answer is that no bound has been derived for it.  That is not the
+    # same as mesons' NO_BOUND_BY_THEOREM, where a bound exists and is PROVED
+    # to forbid nothing -- and the difference is exactly why all 1,550 are
+    # OPEN against nothing at all rather than OPEN against a proof.
+    "gravity.index",
     "readrezayi.index", "channels.index", "laws.index", "probability.index",
     "fqh.index", "fundamental.index", "inversion.index", "nucbands.index",
     "deformedbands.index",
@@ -692,7 +702,14 @@ def unplaced_objects(nm):
 # Recorded so the default report does not re-close twenty-two indexes; the
 # selftest RE-MEASURES a sample rather than trusting the table.
 TABLE = {
-    "baryons.index": (1012, 593, 8, 411, 0),
+    # DOCKET 42.  gravity was excluded from the demand on a ground stated as a
+    # computational limit and measured to be false: it closes in about 16
+    # seconds.  It carries no bound and no source gap, so all 1,550 are OPEN --
+    # the largest single demand in the register, and the honest answer.
+    "gravity.index": (1550, 0, 0, 1550, 0),
+    # DOCKET 43.  893 -> 894 forbidden under the three-quark bound, against
+    # Gell-Mann--Nishijima's 593, which it strictly contains.
+    "baryons.index": (1012, 894, 8, 110, 0),
     "readrezayi.index": (678, 0, 0, 678, 0),
     "channels.index": (367, 0, 23, 344, 0),
     "ions.index": (296, 0, 0, 296, 0),
@@ -711,7 +728,7 @@ TABLE = {
     "deformedbands.index": (3, 0, 0, 3, 0),
 }
 
-TOTALS = (3209, 593, 36, 2482, 98)
+TOTALS = (4759, 894, 36, 3731, 98)
 
 
 def totals():
