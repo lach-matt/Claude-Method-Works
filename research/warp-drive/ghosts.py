@@ -210,7 +210,7 @@ let four thousand unparsed term labels "explain" every empty cell in `terms`.
 Rows below the strength are counted apart and never used.
 
     index         E    FORBIDDEN  UNPLACED  OPEN   the source rows that pin
-    gravity     1550     1228         0      322   31 rows with no readable J
+    gravity     1550     1228         0      322   source gapless
     baryons     1012      894         8      110   14 with no P (Xi, Omega)
     readrezayi   678        0         0      678   source gapless
     channels     367        0        23      344   25 with a non-integer B
@@ -450,25 +450,32 @@ GRAVITY_SOURCES = (
 _GRAV_RATIO = None
 
 
-def _gravity_declined():
-    """How many ASD captures yield no species for want of a readable J.
+def gravity_source_gap():
+    """(species named by a level capture, species charted) -- and they agree.
 
-    That is gravity's source gap, and it is counted rather than asserted so the
-    UNPLACED zero rests on a measurement.
+    AN EARLIER VERSION OF THIS COUNTED FILES AND CALLED THEM SPECIES.
+    `captures()` is keyed by SPECIES and records the one file that won, so every
+    other file for the same species looked declined.  That gave a "gap" of 31
+    species "with no readable J" -- and their J columns parse perfectly; they
+    are duplicate captures of species already charted from another file.  The
+    real figure is zero: every species any level table names is charted, so
+    gravity is GAPLESS and its UNPLACED zero needs no strength-rule argument.
     """
     import os
     import gravity as g
-    got = {v[4] for v in g.captures().values()}
-    n = 0
+    named = set()
     for fn in sorted(os.listdir(g.ASD)):
-        if not fn.endswith(".tsv") or fn in got:
+        if not fn.endswith(".tsv"):
             continue
         with open(os.path.join(g.ASD, fn), encoding="utf-8",
                   errors="replace") as fh:
             txt = fh.read()
-        if "level_cm1" in txt and g._species_of(txt.split("\n")) is not None:
-            n += 1
-    return n
+        if "level_cm1" not in txt:
+            continue                      # a mass table, not a level table
+        sp = g._species_of(txt.split("\n"))
+        if sp is not None:
+            named.add(sp)
+    return len(named), len(g.captures())
 
 
 def gravity_ratio_range():
@@ -629,7 +636,8 @@ GAPS = {
 # Sources with no gap at all: every source row is charted, so UNPLACED is zero
 # by construction and not by a failure to look.  The count each name carries is
 # (source rows, rows charted), re-measured by `gapless()`.
-GAPLESS = ("readrezayi.index", "ions.index", "fibred.index",
+GAPLESS = ("gravity.index",
+           "readrezayi.index", "ions.index", "fibred.index",
            "probability.index", "fqh.index", "observed.index",
            "fundamental.index", "inversion.index", "madrule.index",
            "nucshell.index")
@@ -874,6 +882,7 @@ def gapless():
         ("inversion.index", len(inversion.inversions()),
          len(inversion.inversions())),
         ("madrule.index", len(madrule.index()), len(madrule.index())),
+        ("gravity.index",) + gravity_source_gap(),
     ]
 
 
@@ -986,20 +995,16 @@ def selftest():
     # or OPEN, and each zero is measured with a reason rather than left blank.
     chk("gravity closes: 1,228 forbidden + 0 unplaced + 322 open = 1,550",
         adjudicate("gravity.index"), (1550, 1228, 0, 322, 0))
-    # NOT A TAUTOLOGY.  A first version of this fixture asserted `3 == 1` and
-    # so tested nothing at all -- the very defect an audit of this tree had just
-    # finished removing.  It now BUILDS the partial row a declined species
-    # yields and counts what it leaves unknown, and it drives `_pins` with it.
-    _dec = _gravity_declined()
-    _partial = (4, None, 0, None, 1, None, 0)   # D, B?, F, X?, Y, L?, E
-    chk("gravity's source gap is the species with no readable J",
-        _dec > 0, True)
-    chk("and such a row leaves THREE coordinates unknown, not one",
-        sum(1 for v in _partial if v is None), 3)
-    chk("so the strength rule refuses it -- it pins no cell of the demand",
-        any(_pins(_partial, c)
-            for c in demand.demand(frozenset(
-                registry.index_of("gravity.index")))), False)
+    # THE GAP WAS A COUNTING ERROR AND IS WITHDRAWN.  A first version reported
+    # 31 declined species "with no readable J"; their J columns parse perfectly
+    # and they are duplicate FILES for species already charted.  gravity's
+    # source is gapless, so UNPLACED is zero because there is nothing to place,
+    # not because declined rows are too weak to pin.
+    _named, _charted = gravity_source_gap()
+    chk("gravity's source is GAPLESS -- every species named is charted",
+        _named == _charted and _named > 0, True)
+    chk("so it is declared gapless rather than given a gap function",
+        ("gravity.index" in GAPLESS, "gravity.index" in GAPS), (True, False))
     chk("baryons closes: 894 forbidden + 8 unplaced + 110 open = 1,012",
         adjudicate("baryons.index"), (1012, 894, 8, 110, 0))
     # EVERY open baryon cell carries an ODD doubled spin, as three spin-1/2
