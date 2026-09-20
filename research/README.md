@@ -12992,3 +12992,52 @@ runs to **A = 174**, with **132 levels above the claimed ceiling**. Recorded, no
 **Reproduce:** the fixtures are in the instruments they defend —
 `python3 research/warp-drive/deformed.py --selftest`, `deformedbands.py --selftest`,
 `exact.py --selftest`, and `paper/mipaper.py --selftest` for the paper's own figures.
+
+---
+
+## `nspin.py` — magnetic resonance: not a drive, but a datum
+
+Two questions were asked together and they have opposite answers.
+
+**As propulsion, a resonant rotating electromagnet fails by eighteen orders of magnitude.** Gravity
+couples to stress-energy, so a rotating field drags frames exactly as hard as its stored energy
+*weighs* — and at the world continuous-field record of **45 T** a half-metre rig stores **422 MJ**
+whose mass-equivalent is **4.7 nanograms**. Its gravitomagnetic field is **1.04 × 10⁻¹⁸ of Earth's**,
+and a test mass moving at 1 m/s inside it feels **3.6 × 10⁻³³ g**. Resonance is the right instinct and
+it is not enough: a cavity multiplies stored energy by Q, so the shortfall *is* a Q requirement, and
+it is **9.6 × 10¹⁷**. The idea also has a falsification on the record — Tajmar and de Matos predicted
+an enhanced gravitomagnetic London moment from a rotating superconductor and reported a signal;
+**Graham *et al.* (2008) got a null result within 1σ**, bounding any effect at ≥ 21× smaller than
+predicted. And `ROTATING-SHELL.md` already says the shape is wrong: a *single* rotating shell carries
+ADM angular momentum, so its exterior is Kerr, which destroys the exactly-Schwarzschild exterior the
+Fuchs construction is built on. Counter-rotation sets J = 0 exactly.
+
+**As index data, a ground-state nuclear-spin table is a real input, and it makes the gravity bound
+stronger.** `gravity.py` §8 refuses to call 2Jₑ the member's spin — *"the nuclear part is not
+banked"* — and that refusal names the missing datum. Nuclear spin I enters the chart today through
+one function, `forced(A, Ne) = (A + Ne) % 2`, which reads I's **parity** and never its value; the X
+axis is built from Jₑ alone. Read X from the total **F = Jₑ + I** instead:
+
+| | now (Jₑ only) | with I seated |
+|---|---|---|
+| image | **1,416** cells | **1,088** — 328 lost, **none gained** |
+| demanded 1,550 | FORBIDDEN 1,080, OPEN 470 | FORBIDDEN **1,208**, OPEN **342** |
+
+**Nothing is gained, which is the strongest form the answer could take.** The I-image is a *strict
+subset* of the present one, so seating I can only forbid — no adjudication already recorded can be
+reversed by it. One parity fact does the work: F = 1 means exactly one of I and Jₑ is
+half-odd-integer, so their sum cannot vanish, so **(F = 1, X = 0) leaves the image entirely**. 755
+seated members move off X = 0. `vanishes()`, which today rests on the pairing rule that
+`PAIRING_RULE_STATUS` marks an empirical rule and not a theorem, becomes **READ**.
+
+**Nothing is seated.** I is a *model* here — parity fixed by A, 2I to 16 — and the file says so. 168
+currently-seated cells fall outside the I-image and **every one of them reads X = 0**, which is the
+signature of a re-chart rather than a contradiction: X = 0 is precisely the reading a seated I
+replaces. A bound may not be swapped under a chart built without the datum the bound uses.
+
+**One defect, caught by the fixtures rather than by reading.** The first sweep let 2Jₑ range free of
+Nₑ's parity, when 2Jₑ is odd exactly when Nₑ is odd — the same fact `forced()` uses. That admitted
+2F = 0 at 34 cells the parity forbids and **understated the effect by 86 demanded cells** (reported
++42 where the true figure is +128). The fixture that caught it is kept.
+
+**Reproduce:** `python3 research/warp-drive/nspin.py --selftest` — 18 fixtures, stdlib only.
