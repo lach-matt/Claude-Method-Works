@@ -522,9 +522,16 @@ def gravity_image(jcut=None):
     no epistemic step at all: whatever B the map assigns, it assigns, and a cell
     carrying a different B is simply not in the image.
     """
+    # MEMOISED PER CUTOFF.  Only the default call was cached, so the saturation
+    # check re-exhausted the parameter space four more times -- five sweeps of
+    # about eight million points per build, which is why rendering this paper
+    # took a quarter of an hour.  Results unchanged; only the waiting.
     global _GIMAGE
-    if jcut is None and _GIMAGE is not None:
-        return _GIMAGE
+    if _GIMAGE is None:
+        _GIMAGE = {}
+    key = GRAVITY_JCUT if jcut is None else jcut
+    if key in _GIMAGE:
+        return _GIMAGE[key]
     import math
     import gravity as g
     cut = GRAVITY_JCUT if jcut is None else jcut
@@ -559,8 +566,7 @@ def gravity_image(jcut=None):
     out = {(D, g.bound_class(D, qp, F, Jz), F, X, Y, L, E)
            for (F, X, Y, Jz, qp) in seeds
            for D in range(4, 12) for L in (0, 1) for E in (0, 1)}
-    if jcut is None:
-        _GIMAGE = out
+    _GIMAGE[key] = out
     return out
 
 
