@@ -3,8 +3,8 @@ r"""
 mipaper.py -- THE MASTER-INDEX PAPER, GENERATED FROM THE INSTRUMENTS.
 
     python3 paper/mipaper.py            print the facts it would use
-    python3 paper/mipaper.py --md       write paper/THE-MASTER-INDEX.md
-    python3 paper/mipaper.py --pdf      write paper/pdf/THE-MASTER-INDEX.pdf
+    python3 paper/mipaper.py --md       write paper/<TITLE>.md
+    python3 paper/mipaper.py --pdf      write paper/pdf/<TITLE>.pdf
     python3 paper/mipaper.py --selftest fixtures
 
 NO FIGURE IN THE PAPER IS TYPED.  `facts()` asks the instruments -- registry,
@@ -33,6 +33,16 @@ SUBTITLE = ("An admissible chart for indexes of the periodic elements, "
 AUTHOR = "Matthew Lach"
 BYLINE = ("Independent Researcher, with a computing collaborator, "
           "under the protocols of The Method v1.6")
+
+
+def stem():
+    """The output filename, DERIVED FROM THE TITLE rather than set beside it.
+
+    The file was called THE-MASTER-INDEX while the paper was called "The Index
+    of First-Order Indexes" -- two names for one document, and the sort of
+    drift this whole file exists to prevent.  A fixture asserts they agree.
+    """
+    return re.sub(r"[^A-Z0-9]+", "-", TITLE.upper()).strip("-")
 
 
 def registry_short_of(f, full):
@@ -1847,6 +1857,10 @@ def selftest():
     stray = sorted({n for n in re.findall(r"(?<![.,\d])\d{3,}(?![.\d])", body)}
                    - {str(x) for x in f["bi_corpus"]} - allowed)
     chk("no unexplained three-or-more-digit literal survives in the prose", stray, [])
+    chk("the filename is derived from the title, not set beside it",
+        stem(), re.sub(r"[^A-Z0-9]+", "-", TITLE.upper()).strip("-"))
+    chk("and the rendered document's h1 IS that title",
+        md.split("\n")[0], "# " + TITLE)
     chk("the markdown renders", len(md) > 6000, True)
     print("mipaper selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
@@ -1857,12 +1871,12 @@ if __name__ == "__main__":
         sys.exit(0 if selftest() else 1)
     F = facts()
     if "--md" in sys.argv:
-        p = os.path.join(HERE, "THE-MASTER-INDEX.md")
+        p = os.path.join(HERE, stem() + ".md")
         open(p, "w", encoding="utf-8").write(render_md(F))
         print("wrote %s" % p)
     if "--pdf" in sys.argv:
         os.makedirs(os.path.join(HERE, "pdf"), exist_ok=True)
-        p = os.path.join(HERE, "pdf", "THE-MASTER-INDEX.pdf")
+        p = os.path.join(HERE, "pdf", stem() + ".pdf")
         render_pdf(F, p)
         print("wrote %s (%d bytes)" % (p, os.path.getsize(p)))
     if "--md" not in sys.argv and "--pdf" not in sys.argv:

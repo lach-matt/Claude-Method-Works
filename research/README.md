@@ -12719,7 +12719,7 @@ the tree, not sampled) and `python3 research/warp-drive/ghosts.py` for the readi
 
 ## The master-index paper, brought current — and the eight channels are all occupied
 
-`paper/THE-MASTER-INDEX.md` had gone stale by nine vertices. It was generated on **14** seated
+`paper/THE-MASTER-INDEX.md` had gone stale by nine vertices. *(The paper is now `paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md`, renamed to match its own title; the old name is kept in this sentence because it is what the file was called when the sentence was true.)* It was generated on **14** seated
 indexes and the registry now holds **23**; every figure in it is substituted from an instrument at
 build time, so the staleness was in the *file* and not in the generator. Regenerating it changed the
 vertex count, the seating table, the self-chart, the arity census and the channel occupancy line. Of
@@ -12857,7 +12857,7 @@ from **1,907 levels** carrying both quantum numbers. **56 levels carry a spin an
 refused apart** — refused, not dropped, and counted where anyone can see them.
 
 **The cell was held by nobody**, and that is the whole of the novelty argument. The other three
-grounds of the overlap ruling are not argued, because Lemma 7.1 of `paper/THE-MASTER-INDEX.md`
+grounds of the overlap ruling are not argued, because Lemma 7.1 of `paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md`
 says they have no subject here:
 this member set shares **zero nuclides** with `nucbands`, the only other index on those two
 coordinate names, so there is no parent to coarsen and "strictly fewer cells than its parent" is
