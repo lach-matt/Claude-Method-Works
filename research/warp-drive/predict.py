@@ -13,28 +13,43 @@ file does that, and then does the harder half: says what an E cell is actually
 worth.
 
 ===============================================================================
-1. E PER SEATED INDEX -- SEVENTEEN PREDICT, SIX DO NOT
+1. E PER SEATED INDEX -- TWENTY-ONE PREDICT, SIX DO NOT
 ===============================================================================
 
 E(X) = |J(X) \ X|: the cells the index's own join-closure DEMANDS and no member
-occupies.  Measured over every seated index small enough to close (gravity, at
-914 cells, is not):
+occupies.  Measured over EVERY seated index.  The clause that used to qualify
+that sentence -- "small enough to close (gravity, at 914 cells, is not)" -- is
+WITHDRAWN, with the exclusion it excused; gravity closes in about 16 seconds and
+its 1,550 are seated in the table below.  See TOO_LARGE.
 
-    baryons 1012   readrezayi 678   channels 367   ions 296   laws 254
-    fibred 140     probability 112  terms 98       fqh 71     observed 56
-    fundamental 46 inversion 24     madrule 18     mesons 15  nucshell 14
-    nucbands 5     deformedbands 3
+    gravity 1550   baryons 1012   readrezayi 678  channels 367  ions 296
+    laws 254       fibred 140     probability 112 phonondex 111 terms 98
+    fqh 71         observed 56    fundamental 46  kpointdex 45  inversion 24
+    madrule 18     mesons 15      nucshell 14     nucbands 5    corepdex 4
+    deformedbands 3
 
     janet 0   gravity_bound 0   madelung_slot 0   baryon_isomultiplet 0
     bosonqp 0   spin4 0
+
+THE LAST THREE ROWS TO ARRIVE ARE THE PHONON CHAIN, and they arrived here late:
+phonondex (90 cells, E = 111), its k-point extension kpointdex (21 cells,
+E = 45) and its time-reversal extension corepdex (13 cells, E = 4) were seated
+in the registry by DOCKET 50 and were NOT measured into this table, so the
+ledger guard below -- which exists for exactly that failure -- fired on all
+three.  Measured now, and note the shape: corepdex carries 3,529 members on 13
+cells and demands 4, while phonondex carries 1,120 on 90 and demands 111.  The
+demand tracks the CHART, not the population.
 
 THE PARTITION IS EXACT AND IT IS NOT A DISCOVERY.  Every index that closes
 under INFORMATION has E = 0; every index that does not has E > 0; no
 exceptions.  That is close to definitional -- E is the join-closure deficit and
 the information closer IS the join closer -- and it is stated here so nobody
 mistakes it for a result.  THE RESULT IS THE NUMBERS, and the numbers say the
-register is overwhelmingly INCOMPLETE: seventeen of twenty-three measurable indexes
-demand cells they do not hold.
+register is overwhelmingly INCOMPLETE: twenty-one of twenty-seven seated indexes
+demand cells they do not hold.  ("seventeen of twenty-three measurable" stood
+here; both halves moved -- gravity ended the word "measurable" and the phonon
+chain added three -- and a count written as a WORD goes stale invisibly, which
+is why the fixture below now pins the numeral and the word together.)
 
 ===============================================================================
 2. AND AN E CELL IS NOT A PREDICTION UNTIL IT IS ADJUDICATED
@@ -105,10 +120,22 @@ number are unplaced, and the remainder -- only the remainder -- are open.
     above was found exactly that way and took one query.
 
 BOTH ARE DONE IN `ghosts.py`, DOCKET 39, and the first came back mostly negative
-for a reason that is a theorem: 593 of the 1,012 baryon cells are FORBIDDEN by
-Gell-Mann--Nishijima, and every other bound derivable in this tree is MONOTONE
-and therefore forbids nothing whatever.  The separation gives 36 UNPLACED, 2,482
-OPEN and 98 UNDECIDED.
+for a reason that is a theorem: a bound MONOTONE in the coordinates can never
+forbid a demanded cell, so only a non-monotone one forbids anything at all.
+
+    THE SPLIT THIS PASSAGE USED TO PRINT IS WITHDRAWN, TWICE OVER.  It read
+    "593 of the 1,012 baryon cells are FORBIDDEN by Gell-Mann--Nishijima ...
+    36 UNPLACED, 2,482 OPEN and 98 UNDECIDED".  DOCKET 43 replaced GMN with
+    the three-quark flavour bound, and DOCKET 42 seated gravity's 1,550, so
+    both the attribution and the arithmetic are superseded -- the old four
+    bins sum to 3,209, which is this table's PRE-GRAVITY total and is how the
+    staleness is visible without leaving the file.
+
+    NO REPLACEMENT NUMBER IS PINNED HERE ON PURPOSE.  The split is
+    `ghosts.py`'s measurement, not this file's, and a figure copied across a
+    file boundary is exactly what went stale.  Ask `ghosts.totals()`, which
+    returns (demand, FORBIDDEN, UNPLACED, OPEN, UNDECIDED) and whose first
+    element is `predict.total()` by construction.
 
 Neither is done here.  This file measures E, names the three bins, and proves
 by one worked case that the bins are not empty of each other.
@@ -131,6 +158,13 @@ E_BY_INDEX = {
     "madrule.index": 18, "mesons.index": 15, "nucshell.index": 14,
     "nucbands.index": 5, "deformedbands.index": 3,
     "gravity.index": 1550,
+    # DOCKET 50's phonon chain, measured into this table here.  They were
+    # seated in `registry.py` and never measured; the ledger guard at the
+    # bottom of the selftest caught all three, which is the one thing it was
+    # written to do.  Cells / E: phonondex 90 / 111, kpointdex 21 / 45,
+    # corepdex 13 / 4.  All three are K0 and none closes under INFORMATION,
+    # so all three land on the E > 0 side and the exact partition survives.
+    "phonondex.index": 111, "kpointdex.index": 45, "corepdex.index": 4,
     "madelung.janet": 0, "overlaprule.gravity_bound": 0,
     "overlaprule.madelung_slot": 0, "overlaprule.baryon_isomultiplet": 0,
     "bosonqp.index": 0, "spin4.index": 0,
@@ -208,8 +242,10 @@ def selftest():
         print("  [%s] %-58s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
+    # RE-PINNED 24 -> 27: DOCKET 50's phonon chain (phonondex, kpointdex,
+    # corepdex) was seated in the registry and measured into E_BY_INDEX here.
     chk("every seated index is measured and none is left out",
-        (len(E_BY_INDEX), len(TOO_LARGE)), (24, 0))
+        (len(E_BY_INDEX), len(TOO_LARGE)), (27, 0))
     # gravity's exclusion was justified as a computational limit and was not
     # one.  The fixture that used to pin the exclusion now pins the REFUTATION,
     # so the claim cannot come back: if this ever takes minutes, that is a
@@ -223,16 +259,46 @@ def selftest():
     info_zero, noinfo_pos, nzero, npos = partition()
     chk("every E = 0 index closes under INFORMATION", info_zero, True)
     chk("and every E > 0 index does not -- no exceptions", noinfo_pos, True)
-    chk("seventeen predict, six are complete", (npos, nzero), (17, 6))
+    # RE-PINNED 17 -> 21, and THE WORD IN THE LABEL WITH IT.  This label read
+    # "seventeen predict" while the tuple pinned 17, so the prose and the
+    # numeral could only ever drift together -- but a reader greps the word.
+    # 17 -> 18 when gravity's exclusion was withdrawn (DOCKET 42) and 18 -> 21
+    # when the phonon chain was measured in.  Six complete is unmoved: no new
+    # row closes under INFORMATION.
+    chk("twenty-one predict, six are complete", (npos, nzero), (21, 6))
 
-    # RE-MEASURE a sample rather than trusting the recorded table.
-    for nm in ("mesons.index", "nucbands.index", "spin4.index"):
+    # RE-MEASURE a sample rather than trusting the recorded table.  The three
+    # newest rows are IN the sample, because a row that has never been
+    # re-measured is a row nobody has checked twice.
+    for nm in ("mesons.index", "nucbands.index", "spin4.index",
+               "phonondex.index", "kpointdex.index", "corepdex.index"):
         X = frozenset(registry.index_of(nm))
         chk("re-measured E(%s)" % nm, demand.E(X), E_BY_INDEX[nm])
 
     # 3,206, not the 3,241 I first typed -- the sum is measured, not added up
     # by hand, and the fixture caught the hand arithmetic.
-    chk("the register demands 3,209 cells it does not hold", total(), 3209)
+    #
+    # RE-PINNED 3,209 -> 4,919, AND THE MOVE DECOMPOSES EXACTLY.  It is two
+    # separate seatings, not one, and only the second is this pass's:
+    #
+    #     3,209   the 23-index table as it stood, gravity EXCLUDED
+    #   + 1,550   gravity, once DOCKET 42 withdrew "too large to close".
+    #             THIS is where the fixture actually went stale -- the
+    #             exclusion was withdrawn, TOO_LARGE was emptied and
+    #             gravity.index was written into the table, and the pin that
+    #             totals the table was not moved with it.  The three new rows
+    #             had nothing to do with it; the pin was already reading
+    #             4,759 before they existed.
+    #   +   160   DOCKET 50's phonon chain: phonondex 111 + kpointdex 45
+    #             + corepdex 4, measured in above.
+    #   = 4,919
+    #
+    # The intermediate 4,759 is therefore a REAL figure and not a typo -- it
+    # is the correct total for the 24-row table, and the paper prints it.  See
+    # the note beside TOO_LARGE, and PAPER IMPACT in this pass's report.
+    chk("the register demands 4,919 cells it does not hold", total(), 4919)
+    chk("and that total decomposes 3,209 + 1,550 gravity + 160 phonon chain",
+        (total() - 1550 - 111 - 45 - 4, 1550, 111 + 45 + 4), (3209, 1550, 160))
 
     # THE LEDGER GUARD.  An audit pointed out that nothing tied this table back
     # to the registry: a 25th seated index with E > 0 would pass every fixture
