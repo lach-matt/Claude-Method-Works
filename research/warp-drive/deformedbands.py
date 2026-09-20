@@ -280,9 +280,9 @@ def selftest():
     chk("the index is READ from the capture -- shrink the capture, it shrinks",
         (_shrunk < len(levels()), _shrunk > 0), (True, True))
 
-    chk("1,904 levels carry both quantum numbers", len(levels()), 1904)
-    chk("59 carry a spin and no parity, and are refused apart",
-        len(no_parity()), 59)
+    chk("1,907 levels carry both quantum numbers", len(levels()), 1907)
+    chk("56 carry a spin and no parity, and are refused apart",
+        len(no_parity()), 56)
     # NOT A TAUTOLOGY.  The earlier form recomputed the right-hand side the same
     # way the left was computed, so it passed with most of the capture deleted.
     # Pinned against the capture's OWN level count instead, with the two spin-
@@ -333,6 +333,20 @@ def selftest():
         [nm for nm, *_r in registry.rows()], True)
     chk("and registry no longer excuses it", "deformed" in registry.NOT_AN_INDEX
         and "deformedbands" in registry.NOT_AN_INDEX, False)
+
+    # A REGISTRY DESCRIPTION IS PROSE, AND PROSE GOES STALE.  That entry quotes
+    # three figures this instrument measures; it went stale on two of them when
+    # a capture fix moved the level count, and nothing caught it, because no
+    # fixture read the sentence.  One does now.
+    _d = next(w for m, _a, _me, w, _q in registry.REGISTERED
+              if m == "deformedbands")
+    chk("the registry entry quotes THIS instrument's level count",
+        ("{:,} excited states".format(len(levels())) in _d, _d.split()[0]),
+        (True, "{:,}".format(len(levels()))))
+    chk("and its refusal count",
+        "%d levels refused" % len(no_parity()) in _d, True)
+    chk("and its above-the-title count",
+        "%d levels sitting above" % above_title_range()[0] in _d, True)
 
     print("deformedbands selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok

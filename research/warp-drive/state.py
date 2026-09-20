@@ -383,7 +383,13 @@ CENSUS = {
     "new_first_order_indexes": 0,
     "charts_per_channel": {"K0": 15, "K1": 1, "K2": 10, "K3": 7, "K4": 0,
                            "K5": 1, "K6": 2, "K7": 8},
-    "K4_reached_by": "nothing in the tree -- 0 of 44 charts over 231 modules",
+    # THE MODULE COUNT WAS STALE INSIDE A BANKED SENTENCE.  This read "0 of 44
+    # charts over 231 modules" while `modules_attempted` above read 232 -- the
+    # phrase was banked one sweep earlier and nothing compared the two, because
+    # a figure inside a string is invisible to a check on the dict.  The count
+    # was redundant with `modules_attempted` anyway; what K4 needs is the chart
+    # total, which is `charts_found` in this same dict.
+    "K4_reached_by": "nothing in the tree -- 0 of the 44 charts the census found",
     "K5_reached_by": "exactly one chart, overlaprule.nucshell_lsigma, which "
                      "DOCKET 22 retracted",
     "artifacts_of_the_census": [

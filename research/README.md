@@ -12835,7 +12835,9 @@ is the paper's business. **Recorded, not repaired.**
 ### Measured, not seated
 
 On (2I, parity) — `nucbands.py`'s coordinates — these levels give **96 cells, K2, cell (2, 49, 2)**,
-from 1,904 levels carrying both quantum numbers and 60 carrying no parity. That cell is held by no
+from **1,907** levels carrying both quantum numbers and **56** carrying no parity. *(Those two
+figures read 1,904 and 60 when this section was written, and both moved under later audits — see
+DOCKET 36b and the audit section below. The cell and the channel did not move.)* That cell is held by no
 seated index, and the member set is a new one: deformed odd-odd nuclei at 156 ≤ A ≤ 168, not the
 near-spherical shears bands `nucbands` already seats. **So it is a seating candidate.** A capture is
 not an index, seating is a ruling, and `deformed.py` does not make it — `docket36_chart()` reports
@@ -12846,3 +12848,147 @@ scheme — the whole of it came out of the text already in hand. **The docket is
 and open on seating.**
 
 **Reproduce:** `python3 research/warp-drive/deformed.py --selftest` (29 fixtures), then `--write`.
+
+## DOCKET 36b — the deformed two-quasiparticle levels, seated as the 24th index
+
+The capture closed; the seating is a separate ruling and this is it. `deformedbands.py` charts
+`deformed.entries()` on **(2I, parity)** and the result is **96 cells, channel K2, cell (2, 49, 2)**,
+from **1,907 levels** carrying both quantum numbers. **56 levels carry a spin and no parity and are
+refused apart** — refused, not dropped, and counted where anyone can see them.
+
+**The cell was held by nobody**, and that is the whole of the novelty argument. The other three
+grounds of the overlap ruling are not argued, because Lemma 7.1 of `paper/THE-MASTER-INDEX.md`
+says they have no subject here:
+this member set shares **zero nuclides** with `nucbands`, the only other index on those two
+coordinate names, so there is no parent to coarsen and "strictly fewer cells than its parent" is
+undefined. **Sharing a coordinate's name is not sharing information.**
+
+### What is refused, each against a number
+
+| candidate coordinate | measured | verdict |
+|---|---|---|
+| band number | 234 distinct over 234 entries, ratio **1.0000** | a row label, refused |
+| energy | a magnitude, and 61 bandheads are printed against an unknown offset | refused |
+| Z and N | the **host nuclide's**, not the level's — Lemma 2.1 | refused, and charted anyway: 853 cells, K0, (0, 52, 40) |
+
+The Z/N refusal paid for itself. A later audit found **35 of 234 entries booked to the wrong
+nuclide**; because Z and N were not coordinates, the defect could not reach the chart. A refusal
+that costs nothing is not evidence; one that catches a real defect is.
+
+**Its K2 is the free one.** Arity 2, so `kdet` is vacuous by Theorem 2 and this index really closes
+in nothing — stated rather than left for a reader to infer from the channel.
+
+**Reproduce:** `python3 research/warp-drive/deformedbands.py --selftest`, then the plain run for
+the reading.
+
+## DOCKET 40 — no coefficients, exact calculations only
+
+A standing rule arrived mid-project: *no coefficients, exact calculations only, now that we have the
+ability to calculate and machine check any coefficient.* `exact.py` discharges it over the warp
+tree's own numbers. **Sixteen closed forms, none disagreeing with the decimal the tree quotes.**
+
+**The two the provenance census graded `MEASURED` are surds, and nothing was fitted:**
+
+```
+X       = 20000*sqrt(2501)/2501          = 399.920023992
+Lambda  = -2 + log(400000000/2501)       =   9.98252917419
+```
+
+They looked like coefficients because they had been *written* as coefficients. **Three quantities
+have no closed form and may not be used as numbers** — `xi` (the framework needs ξ > 0 and fixes no
+value), `l_UV` (an EFT cutoff nothing pins), and `0.0218 c`, which is `FITTED`: a least-squares zero
+of the null minimum, a measurement with a spread and never a derived number.
+
+### What exactness buys: the design derivatives
+
+```
+dLambda/dR_s = 2/R_s                = 1/100     at the seat
+dLambda/da   = -2a/(a^2 + b^2)      = -100/2501 at the seat
+dLambda/db   = -2b/(a^2 + b^2)      = -5000/2501 at the seat
+```
+
+**The ray parameter b is the strongest lever on the bill, by exactly 500000/2501 over R_s and
+exactly 50 over a.** Those are ratios of exact rationals, not a numerical comparison. And the sign
+threshold is a monotonicity argument rather than a scan: `dLambda/dX = 2/X > 0`, so Λ > 0 **iff**
+`R_s / sqrt(b^2 + a^2) > e/2`, and the seat sits at X = 399.92, strictly above.
+
+### A tolerance is itself a coefficient
+
+The census had quoted `3/(32π²)` as **0.009495**; the true value is **0.00949886**, wrong in the
+fourth significant digit, and the tolerance that should have caught it was a decade too loose.
+Tightening it then rejected three *correct* roundings — wrong in both directions. It was replaced by
+a comparison of **significant digits**, with no free parameter at all.
+
+**Reproduce:** `python3 research/warp-drive/exact.py --selftest`, then plain for the reading, or
+`--json` for the website's calculator. Needs `sympy`.
+
+## DOCKET 41 — the asserted 2 is a theorem, and the census flagged the wrong digit
+
+`A = 2(p·p′)² − p²p′²` carried an asserted **2**. It is not asserted. `propagator.py` builds the de
+Donder numerator in general D,
+
+```
+P = 1/2 ( eta_ma eta_nb + eta_mb eta_na - 2/(D-2) eta_mn eta_ab )
+```
+
+contracts `p^m p^n P p'^a p'^b` over all 4⁴ index assignments, and the explicit sum minus the closed
+form is **0**. **The leading 2 is the two pairings of a symmetric rank-2 source** — a count, not a
+fit, and the same in every dimension.
+
+**And the census flagged the wrong digit.** Writing `A = α(p·p′)² + β p²p′²`, the propagator fixes
+`β/α = -1/(D-2)` and Newton fixes the scale; solving gives **(α, β) = (2, −1), unique**. The 2 is
+dimension-free. **The silent 1 on `p²p′²` is `2/(D−2)`, and it is 1 only at D = 4.** A coefficient
+hides best when it is written as a 1 and therefore not written at all.
+
+| source | test | ratio in D | D = 4 |
+|---|---|---|---|
+| mass | mass | 1 | 1 |
+| mass | photon | (D−2)/(D−3) | **2** |
+| photon | photon ∥ | 0 | **0** |
+| photon | photon anti-∥ | 4(D−2)/(D−3) | **8** |
+
+**The zero is a theorem in every dimension** — co-propagating nulls have p·p′ = 0 identically and
+both squares vanish. **The 2 and the 8 are statements about four dimensions**: at D = 5 they are 3/2
+and 6, at D = 11 they are 9/8 and 9/2. What is removed is the impression that 8 falls out of the
+algebra alone; it falls out of the algebra *and* the dimension.
+
+**Machine-checked over the reals.** z3 returns `unsat` on both identities — no counterexample exists,
+which is stronger than a sample. It is a check on the **algebra**, not the physics: that the de
+Donder numerator is the right propagator and that a point source is `p^m p^n` are inputs, cited and
+not proved here.
+
+**Reproduce:** `python3 research/warp-drive/propagator.py --selftest`, then the plain run for the
+reading. Needs `sympy` and, for the machine-check leg, `z3-solver` — `machine_check()` imports z3
+directly and raises without it rather than reporting a pass it did not earn.
+
+## The audits, and what they found in this work
+
+Two adversarial passes were run over the seating and the paper. They found real defects and every
+one is fixed with a regression fixture, so they are listed here rather than smoothed over.
+
+**In the captures.** 35 of 234 entries were booked to the wrong nuclide. A table header was parsed as
+a nuclear level. **A printed parity that shared its line with the next row's isotope number was
+dropped at three sites** — `+ 164`, `+ 167`, `- 167` — so three parities were lost and their levels
+were counted among the refusals; that moved the seated member count 1,904 → **1,907** and the refusal
+count 59 → **56**. The split is admitted narrowly: exactly three lines in the table have the shape
+*sign, whitespace, content*, and an energy like `+x` has no whitespace and is untouched.
+
+**In the checks — the instructive half.** Two fixtures were **tautologies**: one recomputed its
+right-hand side the same way it computed the left and passed with three quarters of its capture
+deleted; another grepped the file's own source and was satisfied by a docstring. A third read a key
+its subject does not carry, so it compared two empty sets and was **vacuously true**. All three now
+test behaviour — shrink the capture and the index must shrink — and the vacuous one asserts both sets
+are non-empty before comparing them.
+
+**In the prose.** A quoted decimal was wrong in its fourth significant digit (DOCKET 40 above). A
+**false ground was given for a true claim**: the two nuclear indexes were said to occupy disjoint
+mass ranges, when in fact one spans A 58–205 and *contains* the other's 156–174 entirely. The zero
+overlap is a fact about which nuclides each source happens to tabulate, not about where they sit. The
+weaker, true ground replaces the stronger, false one — **and the claim it supported did not change.**
+
+**And a source overclaims its own title.** arXiv:2508.05447 is titled for `156 ≤ A ≤ 168`; its table
+runs to **A = 174**, with **132 levels above the claimed ceiling**. Recorded, not repaired.
+
+**Reproduce:** the fixtures are in the instruments they defend —
+`python3 research/warp-drive/deformed.py --selftest`, `deformedbands.py --selftest`,
+`exact.py --selftest`, and `paper/mipaper.py --selftest` for the paper's own figures.

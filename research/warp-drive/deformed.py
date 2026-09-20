@@ -422,7 +422,31 @@ def boundary_has_no_blank():
     return not any(not s.strip() for s in window)
 
 
+# A WRAPPED PARITY THAT DID NOT GET A LINE OF ITS OWN.  At three sites the
+# extraction put the superscript on the same line as the NEXT row's isotope
+# number -- `+ 164`, `+ 167`, `- 167` -- and `PARITY` requires the sign to be
+# alone, so three printed parities were dropped and their levels were counted
+# among the no-parity refusals.  EXACTLY THREE LINES IN THE TABLE MATCH THIS
+# SHAPE, which is why the split is safe: a sign, whitespace, then content.  An
+# energy like `+x` has no whitespace and is untouched.
+WRAPPED = re.compile(r'^([+−-])\s+(\S.*)$')
+
+
+def _presplit(lines):
+    """Split `<sign> <content>` into the sign and the content, in order."""
+    out = []
+    for s in lines:
+        m = WRAPPED.match(s.strip())
+        if m:
+            out.append(m.group(1))
+            out.append(m.group(2))
+        else:
+            out.append(s)
+    return out
+
+
 def _rejoin(lines):
+    lines = _presplit(lines)
     out, i = [], 0
     while i < len(lines):
         s = lines[i].strip()
@@ -790,6 +814,15 @@ def selftest():
              if (en, sp) in _pairs]
     chk("no nuclide header survives as a level", _hdrs, [])
 
+    # THIRD, from the same audit: a wrapped parity that shared its line with the
+    # NEXT row's isotope number.  PARITY wanted the sign alone, so three printed
+    # parities were dropped and their levels were filed among the refusals.
+    chk("exactly three lines carry a sign then content, and all three split",
+        [t.strip() for t in table() if WRAPPED.match(t.strip())],
+        ["+ 164", "+ 167", "- 167"])
+    chk("and after the split no rejoined line still holds one",
+        [t for t in _rejoin(table()) if WRAPPED.match(t.strip())], [])
+
     # -- THE ONE REMAINING DISCONTINUITY IS THE SOURCE'S, NOT A MISSED LINE
     d = discontinuities()
     chk("ONE entry has a falling spin sequence, and it is 164-Lu band 4",
@@ -814,7 +847,7 @@ def selftest():
     cells, K, cell, n, nopar = docket36_chart()
     chk("the chart these levels would give is measured", (cells, K, cell),
         (96, 2, (2, 49, 2)))
-    chk("on 1,904 levels, with 59 carrying no parity", (n, nopar), (1904, 59))
+    chk("on 1,907 levels, with 56 carrying no parity", (n, nopar), (1907, 56))
     chk("and NOTHING IS SEATED HERE -- seating is a ruling",
         "docket36_chart" in open(__file__, encoding="utf-8").read()
         and "NOT SEATED" in open(__file__, encoding="utf-8").read(), True)
