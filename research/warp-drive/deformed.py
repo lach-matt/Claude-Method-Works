@@ -491,25 +491,39 @@ def entries():
     """
     if "e" not in _C:
         lines = _rejoin(table())
+        secs = sections()
         out, exp, cur = [], 1, None
-        Z = N = None
+        blk = -1
         for j, s in enumerate(lines):
             t = s.strip()
-            if t in SY:
-                prev = [lines[k].strip() for k in range(j - 1, max(j - 6, -1), -1)
-                        if lines[k].strip()][:2]
-                nums = []
-                for pv in prev:
-                    if re.fullmatch(r'[\d ]+', pv):
-                        nums += [int(x) for x in re.findall(r'\d+', pv)]
-                zz = [x for x in nums if 60 <= x <= 75]
-                nn = [x for x in nums if 80 <= x <= 115]
-                if zz and nn:
-                    Z, N = zz[0], nn[0]
+            # A NUCLIDE HEADER IS NOT A LEVEL.  Three of the 24 print Z and N
+            # on ONE line -- "67 89", "69 105", "71 93", named in section 3 --
+            # and `_is_row` reads such a pair as an energy and a spin: `71 93`
+            # became a level of 2I = 186 in 160Lu, which is the whole reason
+            # this guard exists.  The discriminator is structural rather than a
+            # cap on spin: a header is followed by the nuclide SYMBOL.
+            nxt = next((lines[k].strip() for k in range(j + 1, len(lines))
+                        if lines[k].strip()), "")
+            if nxt in SY and re.fullmatch(r'[\d ]+', t):
+                continue
             m = SEG.match(t) or SEGDOT.match(t)
             if m:
                 v = int(m.group(1))
                 if v == exp or (v == 1 and exp > 1):
+                    # WHICH NUCLIDE, BY THE CORRESPONDENCE THE CAPTURE PROVES.
+                    # An earlier version tracked (Z, N) by scanning for a bare
+                    # symbol and updating a running pair.  The extraction puts
+                    # the NEXT page's header before the tail entries of the
+                    # current nuclide, so the pair flipped early: 35 of 234
+                    # entries were booked to the wrong nuclide and FOUR of the
+                    # 24 received none at all.  `blocks()` and `sections()` are
+                    # both 24 in document order and every block is contiguous
+                    # 1..n -- which the selftest already pins -- so block i IS
+                    # section i, and that is used here instead of the scan.
+                    if v == 1 or not out:
+                        blk += 1
+                    Z, N = (secs[blk][2], secs[blk][3]) if blk < len(secs) \
+                        else (None, None)
                     cur = {"no": v, "Z": Z, "N": N,
                            "A": (Z + N) if (Z and N) else None, "levels": []}
                     out.append(cur)
@@ -743,7 +757,38 @@ def selftest():
         c[1] + c[2], c[0])
     chk("every entry carries its nuclide",
         sum(1 for e in entries() if e["A"]), 234)
-    chk("levels attached", sum(len(e["levels"]) for e in entries()), 1964)
+    chk("levels attached", sum(len(e["levels"]) for e in entries()), 1963)
+
+    # TWO DEFECTS AN ADVERSARIAL AUDIT FOUND AFTER THE CAPTURE WAS CALLED
+    # TOTAL, both in how an entry is furnished rather than in how the table is
+    # segmented -- which is why the census above never moved.
+    #
+    # FIRST: the nuclide.  (Z, N) was tracked by scanning for a bare symbol and
+    # updating a running pair, and the extraction puts the NEXT page's header
+    # before the tail entries of the current nuclide, so the pair flipped
+    # early.  35 of 234 entries were booked to the wrong nuclide and FOUR of
+    # the 24 received none.  The fixture is the correspondence, not the count.
+    E, B, S2 = entries(), blocks(), sections()
+    _i, _bad = 0, 0
+    for _bi, _blk in enumerate(B):
+        for _v in _blk:
+            if (E[_i]["Z"], E[_i]["N"]) != (S2[_bi][2], S2[_bi][3]):
+                _bad += 1
+            _i += 1
+    chk("every entry carries ITS OWN block's nuclide -- 35 did not", _bad, 0)
+    chk("and all 24 nuclides receive entries -- four received none",
+        len({(e["Z"], e["N"]) for e in E}), 24)
+
+    # SECOND: a nuclide header is not a level.  Three headers print Z and N on
+    # ONE line, and `71 93` was read as an energy and a spin -- a level of
+    # 2I = 186.  THE FIXTURE IS STRUCTURAL AND NOT A CAP ON SPIN: a cap would
+    # be a coefficient, and the first one tried was wrong anyway, since real
+    # levels here reach 2I = 100.  What a header IS, is a pair that equals a
+    # nuclide section's own (Z, N).
+    _pairs = {(str(z), str(n)) for _l, _sy, z, n in S2}
+    _hdrs = [(e["no"], en, sp) for e in E for en, sp in e["levels"]
+             if (en, sp) in _pairs]
+    chk("no nuclide header survives as a level", _hdrs, [])
 
     # -- THE ONE REMAINING DISCONTINUITY IS THE SOURCE'S, NOT A MISSED LINE
     d = discontinuities()
@@ -769,7 +814,7 @@ def selftest():
     cells, K, cell, n, nopar = docket36_chart()
     chk("the chart these levels would give is measured", (cells, K, cell),
         (96, 2, (2, 49, 2)))
-    chk("on 1,904 levels, with 60 carrying no parity", (n, nopar), (1904, 60))
+    chk("on 1,904 levels, with 59 carrying no parity", (n, nopar), (1904, 59))
     chk("and NOTHING IS SEATED HERE -- seating is a ruling",
         "docket36_chart" in open(__file__, encoding="utf-8").read()
         and "NOT SEATED" in open(__file__, encoding="utf-8").read(), True)

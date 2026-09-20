@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "commit": "3d9774312b98",
+ "commit": "90f059bddcc5",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
@@ -683,7 +683,7 @@
     "accessor": "index",
     "method": "TABLE",
     "label": "deformedbands",
-    "members": "1,904 excited states in two-quasiparticle rotational bands of deformed odd-odd nuclei, 156 <= A <= 168; 60 levels refused for carrying a spin and no parity",
+    "members": "1,904 excited states in two-quasiparticle rotational bands of deformed odd-odd nuclei, 156 <= A <= 168; 59 levels refused for carrying a spin and no parity",
     "quantum": "2I, parity",
     "cells": 96,
     "cell": [
@@ -711,17 +711,17 @@
        "path": "research/warp-drive/captures/DEFORMED-entries.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 6550,
+       "bytes": 6548,
        "files": 1,
-       "md5": "7225e2782b66550b131f39b3f5960836"
+       "md5": "48be2d7add0f497060300ddf8d0e10df"
       },
       {
        "path": "research/warp-drive/captures/DEFORMED-levels.tsv",
        "kind": "file",
        "exists": true,
-       "bytes": 47944,
+       "bytes": 47888,
        "files": 1,
-       "md5": "110cb9f095691b81275dc924f105b8aa"
+       "md5": "692de07f3daa5dd94d175d9295dc7854"
       }
      ]
     }

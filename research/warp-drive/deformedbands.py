@@ -232,8 +232,8 @@ def selftest():
         "deformed.entries" in open(__file__, encoding="utf-8").read(), True)
 
     chk("1,904 levels carry both quantum numbers", len(levels()), 1904)
-    chk("60 carry a spin and no parity, and are refused apart",
-        len(no_parity()), 60)
+    chk("59 carry a spin and no parity, and are refused apart",
+        len(no_parity()), 59)
     chk("which is every level of the capture", 
         len(levels()) + len(no_parity()),
         sum(1 for e in deformed.entries() for _en, s in e["levels"]
@@ -248,8 +248,12 @@ def selftest():
 
     # THE REFUSALS, EACH MEASURED.
     d, n, r = band_number_is_a_label()
-    chk("the band number separates 219 of 234 entries -- a row label at 0.9359",
-        (d, n, r >= 0.9), (219, 234, True))
+    # Once every entry carries its own nuclide the band number is PERFECTLY
+    # injective: 234 of 234.  It read 219 while 35 entries were booked to the
+    # wrong nuclide, and pinning 219 would have baked that defect into a
+    # fixture -- which it briefly did.
+    chk("the band number separates every entry -- a row label at 1.0",
+        (d, n, r), (234, 234, 1.0))
     chk("the refused (2I, parity, Z, N) chart is reported, not hidden",
         with_ZN()[0] > len(X), True)
 
@@ -257,6 +261,8 @@ def selftest():
     mine, theirs, common = disjoint_from_nucbands()
     chk("no nuclide is shared with nucbands -- a different member set",
         common, 0)
+    chk("and 23 of the 24 nuclides carry a level with BOTH numbers",
+        mine, 23)
     chk("and both sets are non-empty, so the zero means something",
         (mine > 0, theirs > 0), (True, True))
 

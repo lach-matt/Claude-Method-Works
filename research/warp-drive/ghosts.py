@@ -224,7 +224,7 @@ Rows below the strength are counted apart and never used.
     mesons        15        0         3       12   8 with no P (D, D_s)
     nucshell      14        0         0       14   source gapless
     nucbands       5        0         2        3   93 levels with no parity
-    deformedbnds   3        0         0        3   60 levels with no parity
+    deformedbnds   3        0         0        3   59 levels with no parity
 
     TOTAL      3,209      593        36    2,482   and 98 UNDECIDED
 

@@ -260,7 +260,7 @@ REGISTERED = (
     # asserts.  Its K2 is the free one, exactly as nucbands' is.
     ("deformedbands", "index", "TABLE",
      "1,904 excited states in two-quasiparticle rotational bands of deformed "
-     "odd-odd nuclei, 156 <= A <= 168; 60 levels refused for carrying a spin "
+     "odd-odd nuclei, 156 <= A <= 168; 59 levels refused for carrying a spin "
      "and no parity",
      "2I, parity"),
 )
