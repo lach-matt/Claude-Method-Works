@@ -251,6 +251,18 @@ REGISTERED = (
      "2,145 nuclear excited states in magnetic and antimagnetic rotational "
      "bands; 27 bands and 93 levels refused for carrying no quantum number",
      "2I, parity"),
+    # DOCKET 36b.  The other nuclear paper, seated once its capture could be
+    # SHOWN total -- 234 entries, 173 bands, 61 bandhead states, all exact
+    # against the paper's own numbers.  A NEW MEMBER SET and not a recharting
+    # of nucbands: that index is the shears mechanism in near-spherical nuclei
+    # and this is a deformed rotor's tower, and the two share ZERO nuclides,
+    # which deformedbands.disjoint_from_nucbands() measures rather than
+    # asserts.  Its K2 is the free one, exactly as nucbands' is.
+    ("deformedbands", "index", "TABLE",
+     "1,904 excited states in two-quasiparticle rotational bands of deformed "
+     "odd-odd nuclei, 156 <= A <= 168; 60 levels refused for carrying a spin "
+     "and no parity",
+     "2I, parity"),
 )
 
 NOT_AN_INDEX = {
@@ -269,11 +281,13 @@ NOT_AN_INDEX = {
     # own entry delimiter was collapsed by the PDF-to-text extraction,
     # and deformed.py proves it (210 separators required, at most 49
     # present).  A capture that cannot be shown total is not seated.
-    "deformed": "the deformed two-quasiparticle rotational bands -- NOT "
-                "SEATED because the capture is 233 of 234 entries, not "
-                "because the object fails the criterion.  An earlier "
-                "REFUSED-ON-THE-INPUT ruling here was RETRACTED under audit: "
-                "see deformed.py",
+    "deformed": "the CAPTURE of the deformed two-quasiparticle bands, not an "
+                "index -- the levels it segments are seated as "
+                "`deformedbands`.  TWO refusals were RETRACTED here under "
+                "audit: first the claim that no parse could recover the "
+                "entries, then the 233-of-234 shortfall that held up the "
+                "seating.  The 234th was a band-number line printed with a "
+                "trailing full stop.  See deformed.py",
     "mi": "members are the seated indexes -- and NINE OF THEM ARE NOT "
           "REGISTERED ONES; figure.superseded_mi() measures it",
     "figure": "the index of first-order indexes: its members ARE the seated "
@@ -556,12 +570,12 @@ def selftest():
     chk("NO ROW IS DECLARED -- nothing less than computed or measured",
         sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
         [])
-    chk("twenty-three indexes registered -- eleven, two the overlap ruling seated "
+    chk("twenty-four indexes registered -- eleven, two the overlap ruling seated "
         "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
         "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
         "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
-        "non-abelian states, DOCKET 34's K4 and DOCKET 35's nuclear "
-        "rotational levels", len(REGISTERED), 23)
+        "non-abelian states, DOCKET 34's K4, DOCKET 35's nuclear rotational "
+        "levels and DOCKET 36b's deformed ones", len(REGISTERED), 24)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED
@@ -588,14 +602,16 @@ def selftest():
         "is the one excused by BOX INVARIANCE instead",
         sorted(k for k, v in NOT_AN_INDEX.items() if "criterion passes" in v),
         ["quasiparticle"])
-    # DOCKET 36 adds a THIRD KIND of excuse, and it is worth naming as its own
-    # thing: not the criterion, not box invariance, but THE INPUT.  The members
-    # would carry quantum numbers; the file that should carry them lost the
-    # delimiter that segments the table, and deformed.py proves it.
-    chk("and ONE is excused for an INCOMPLETE CAPTURE rather than on the "
-        "object -- its earlier input-refusal was retracted",
-        sorted(k for k, v in NOT_AN_INDEX.items() if "RETRACTED" in v),
-        ["deformed"])
+    # DOCKET 36 added a THIRD KIND of excuse -- not the criterion, not box
+    # invariance, but THE INPUT -- and DOCKET 36b RETIRED it by closing the
+    # capture.  The entry stays, because the capture file really is not an
+    # index; what changed is the reason, and the reason is now that its levels
+    # are seated elsewhere.
+    chk("the one excused ON THE INPUT is retired: its levels are now seated",
+        [k for k, v in NOT_AN_INDEX.items() if "RETRACTED" in v], ["deformed"])
+    chk("and the excuse now points at the seating, not at a refusal",
+        ("seated as" in NOT_AN_INDEX["deformed"],
+         "NOT SEATED" in NOT_AN_INDEX["deformed"]), (True, False))
     chk("every excuse is non-empty",
         [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])
     chk("mi is excused, not registered",

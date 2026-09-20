@@ -57,13 +57,32 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    22 vertices, 22 distinct cells -- no two seated indexes share a cell
+    24 vertices, 24 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 348
+    E = 512
+    ALL EIGHT CHANNELS OCCUPIED
 
-**ITS OWN CELL IS (0, 5, 10), AND NO MEMBER OCCUPIES IT.**  The index of
+**ITS OWN CELL IS (0, 5, 11), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
+
+    THESE FIGURES MOVE EVERY TIME A ROW IS SEATED and this block has been
+    stale before, so it is worth saying where they come from: every one is
+    read from `registry.rows()` at call time and none is stored here.  The
+    narrative below keeps each earlier stage rather than overwriting it, which
+    is why the numbers in it disagree with these -- that is the record, not a
+    contradiction.
+
+    AND TWENTY-FOUR, WITH THE DEFORMED BANDS.  DOCKET 36b seated
+    `deformedbands` -- 1,904 two-quasiparticle levels of deformed odd-odd
+    nuclei on (2I, parity), 96 cells at (2, 49, 2), K2.  A NEW MEMBER SET and
+    not a recharting of `nucbands`: the two share ZERO nuclides, which
+    `deformedbands.disjoint_from_nucbands()` measures rather than asserts, so
+    the overlap ruling has no subject.  At twenty-four: E 512, own cell
+    (0, 5, 11), resolutions 0.333 / 0.708 / 0.708, and the channel census does
+    not move because all eight were already occupied.  HEIGHT AND WIDTH NOW
+    TIE at 17 distinct apiece, which is the first time the two axes have
+    agreed, and it is a coincidence of this vertex set rather than a finding.
 
 ===============================================================================
 1b. WHAT THE OVERLAP RULING COST AND WHAT IT BOUGHT -- BOTH, MEASURED
@@ -572,10 +591,14 @@ def selftest():
     # SECTION 1b.  Both of these were LABELs at eleven vertices -- height
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
+    # DOCKET 36b's seating moved both: 24 vertices, and height and width now
+    # tie at 17 distinct apiece.  The RATIO is repinned rather than loosened,
+    # because the point of the fixture is that the verdict is a measurement of
+    # a moving object and not a constant someone wrote down.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6957))
+        (res["height"][1], res["height"][0]), ("measurement", 0.7083))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7391))
+        (res["width"][1], res["width"][0]), ("measurement", 0.7083))
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

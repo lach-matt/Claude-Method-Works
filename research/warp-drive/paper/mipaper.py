@@ -944,10 +944,10 @@ def selftest():
         (len(k4), f["arity_of"][k4[0]]), (1, 3))
 
     # SECTION 9 -- the demand and its adjudication.
-    chk("the demand totals 3,206 and the adjudication sums to it",
-        (f["E_total"], f["adj_tot"][0]), (3206, 3206))
-    chk("and it splits 593 forbidden / 36 unplaced / 2,479 open / 98 undecided",
-        tuple(f["adj_tot"][1:]), (593, 36, 2479, 98))
+    chk("the demand totals 3,209 and the adjudication sums to it",
+        (f["E_total"], f["adj_tot"][0]), (3209, 3209))
+    chk("and it splits 593 forbidden / 36 unplaced / 2,482 open / 98 undecided",
+        tuple(f["adj_tot"][1:]), (593, 36, 2482, 98))
     chk("every forbidden cell is a baryon cell",
         sum(v[1] for k, v in f["adj"].items() if k != "baryons.index"), 0)
     chk("Theorem 5 holds to J = 12", f["qqbar"], (True, []))
@@ -963,6 +963,18 @@ def selftest():
         f["precedent"], (90, 0, 36, 25, 0))
     chk("six of the seven derived bounds are monotone",
         (f["nbounds"], f["nbounds_mono"]), (7, 6))
+    # DOCKET 36b seated a 24th index.  The vertex count is a PROPERTY here, not
+    # a pinned number, so the guard that matters is that a seating cannot land
+    # without its ledger rows: every registry row either carries an E entry or
+    # is named as too large to close.  A seating that skipped predict.py would
+    # otherwise show up only as a quiet hole in section 9's table.
+    import predict as _pred
+    _seated = {nm for nm, *_r in registry.rows()}
+    _accounted = set(_pred.E_BY_INDEX) | set(_pred.TOO_LARGE)
+    chk("every seated index is accounted for in the demand table",
+        sorted(_seated - _accounted), [])
+    chk("and the demand table invents no index the registry does not seat",
+        sorted(_accounted - _seated), [])
 
     # THE SUBSTITUTION GUARD.  A figure typed into the prose would not move
     # when its instrument moved, which is the whole failure this file avoids.

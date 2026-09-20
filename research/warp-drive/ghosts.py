@@ -224,8 +224,9 @@ Rows below the strength are counted apart and never used.
     mesons        15        0         3       12   8 with no P (D, D_s)
     nucshell      14        0         0       14   source gapless
     nucbands       5        0         2        3   93 levels with no parity
+    deformedbnds   3        0         0        3   60 levels with no parity
 
-    TOTAL      3,206      593        36    2,479   and 98 UNDECIDED
+    TOTAL      3,209      593        36    2,482   and 98 UNDECIDED
 
     TERMS IS THE ONE REFUSAL AND ITS REASON IS EXACT.  4,033 of 16,624 NIST rows
     carry a bracketed jK, jj or Racah label, which supplies neither `mult` nor
@@ -247,7 +248,7 @@ Rows below the strength are counted apart and never used.
 5. WHAT THIS FILE REFUSES
 ===============================================================================
 
-    TO CALL 2,479 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
+    TO CALL 2,482 A COUNT OF UNDISCOVERED OBJECTS.  It is the count of demanded
     cells that no bound derivable here forbids and no source row explains.  For
     the seven indexes with a derived bound the OPEN figure is FINAL AGAINST
     EVERY MONOTONE BOUND, by Law 3 -- that is a proof, not a survey.  For the
@@ -370,6 +371,7 @@ NO_BOUND_BY_THEOREM = ("mesons.index",)
 NO_BOUND_DERIVED = (
     "readrezayi.index", "channels.index", "laws.index", "probability.index",
     "fqh.index", "fundamental.index", "inversion.index", "nucbands.index",
+    "deformedbands.index",
 )
 
 
@@ -399,6 +401,17 @@ def _gap_nucbands():
             if r["status"] == "NO-SPIN"]
     out += [(None, None) for _r in nucbands.unplaced_rows()]
     return out
+
+
+def _gap_deformed():
+    """Levels of the deformed bands carrying a spin and no parity.
+
+    DOCKET 36b.  Measured rather than left out: they pin nothing, because the
+    spins they carry top out well below the three demanded cells.  A zero that
+    was looked for is a different thing from a zero nobody measured.
+    """
+    import deformedbands
+    return [(i2, None) for i2, _A, _Z, _N, _e in deformedbands.no_parity()]
 
 
 def _gap_channels():
@@ -434,6 +447,7 @@ GAPS = {
     "nucbands.index": _gap_nucbands,
     "channels.index": _gap_channels,
     "laws.index": _gap_laws,
+    "deformedbands.index": _gap_deformed,
 }
 
 # Sources with no gap at all: every source row is charted, so UNPLACED is zero
@@ -635,9 +649,10 @@ TABLE = {
     "mesons.index": (15, 0, 3, 12, 0),
     "nucshell.index": (14, 0, 0, 14, 0),
     "nucbands.index": (5, 0, 2, 3, 0),
+    "deformedbands.index": (3, 0, 0, 3, 0),
 }
 
-TOTALS = (3206, 593, 36, 2479, 98)
+TOTALS = (3209, 593, 36, 2482, 98)
 
 
 def totals():
@@ -765,7 +780,8 @@ def selftest():
 
     # -------- the books balance.
     chk("the table sums to the totals", totals(), TOTALS)
-    chk("and its E column is DOCKET 38's 3,206", totals()[0], 3206)
+    chk("and its E column is predict.py's live total", totals()[0],
+        __import__("predict").total())
     chk("every index with E > 0 is adjudicated exactly once",
         sorted(TABLE), sorted(set(BOUNDS) | set(NO_BOUND_BY_THEOREM)
                               | set(NO_BOUND_DERIVED)))

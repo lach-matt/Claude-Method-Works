@@ -107,9 +107,12 @@ it by monotonicity rather than by sampling.
     first is queued as decidable.  A finding is recorded, never repaired.
 """
 
+import json
+import math
 import sys
 
 import sympy as sp
+from sympy.printing.jscode import jscode
 
 # The design inputs.  SYMBOLS, never floats -- section 4's first refusal.
 a, Rs, b, m = sp.symbols("a R_s b m", positive=True)
@@ -229,6 +232,164 @@ def seated_above_threshold():
     return (sp.nsimplify(Xv), sp.E, bool(sp.simplify(Xv - sp.E) > 0))
 
 
+# --------------------------------------------------------------- the export
+#
+# The website reads this tree's instruments at build time.  It needs two things
+# a decimal cannot give it: a form to RENDER, and a form to EVALUATE, so its
+# calculator can move the design point rather than quote one.  Both are
+# GENERATED from the sympy expression -- hand-writing a JavaScript string beside
+# a formula is exactly the transcription error this rule exists to stop, and
+# `js_round_trips()` evaluates every emitted string back against sympy.
+
+DESIGN_MEANING = {
+    "a": "core radius parameter of the chosen Phi",
+    "R_s": "shell radius",
+    "b": "ray parameter",
+    "m": "core mass parameter; sets Phi(0) = m/a and does NOT enter Lambda",
+}
+
+class _JSMath(object):
+    """Python's math under JavaScript's spelling, for the round-trip check.
+
+    jscode emits `Math.PI`, which Python's math module spells `pi`; mapping
+    `Math` straight to `math` therefore threw on every form containing pi --
+    six of the sixteen -- and the round-trip fixture is what caught it.  The
+    names JavaScript capitalises are listed rather than guessed.
+    """
+    PI = math.pi
+    E = math.e
+    LN2 = math.log(2)
+    LN10 = math.log(10)
+    SQRT2 = math.sqrt(2)
+
+    def __getattr__(self, name):
+        return getattr(math, name)
+
+
+_JS_ENV = {"Math": _JSMath()}
+
+
+def _js_eval(src, env):
+    """Evaluate an emitted JS expression under Python's math, for the fixture.
+
+    jscode emits Math.log / Math.sqrt / Math.pow / Math.PI, every one of which
+    Python's math module provides under the same name, so the string can be
+    checked rather than trusted.  A restricted namespace, no builtins.
+    """
+    return eval(src, {"__builtins__": {}}, dict(_JS_ENV, **env))
+
+
+def forms():
+    """[{name, status, latex, js, sympy, exact_at_seat, value, note}]."""
+    out = []
+    for nm, e, q, d, st, w in ROWS:
+        ex = sp.simplify(e.subs(SEAT)) if e.free_symbols else sp.simplify(e)
+        out.append({
+            "name": nm, "status": st, "note": w,
+            "latex": sp.latex(e), "js": jscode(e), "sympy": sp.srepr(e),
+            "expr": str(e), "exact_at_seat": str(ex),
+            "value": float(value(e, 20)), "quoted_by_the_tree": q,
+            "free_inputs": sorted(str(x) for x in e.free_symbols),
+        })
+    return out
+
+
+def derivatives():
+    """The design derivatives, in every form the site needs."""
+    out = []
+    for sym in (Rs, a, b):
+        d = sp.simplify(sp.diff(LAM, sym))
+        at = sp.nsimplify(d.subs(SEAT), rational=True)
+        out.append({
+            "of": "Lambda", "wrt": str(sym),
+            "meaning": DESIGN_MEANING[str(sym)],
+            "latex": sp.latex(d), "js": jscode(d), "expr": str(d),
+            "exact_at_seat": str(at), "value_at_seat": float(at),
+            "abs_value_at_seat": float(abs(at)),
+        })
+    return out
+
+
+def leverage_ratios():
+    """Exact ratios of |dLambda/dx|, so the ranking is a rational not a float."""
+    lev = leverage()
+    out = {}
+    for x, y in (("b", "R_s"), ("b", "a"), ("a", "R_s")):
+        out["%s_over_%s" % (x, y)] = str(
+            sp.Rational(abs(lev[x][1]), abs(lev[y][1])))
+    return out
+
+
+def js_round_trips():
+    """[(name, agrees?)] -- every emitted JS string evaluated against sympy.
+
+    THE POINT OF THE EXPORT IS THAT THE SITE CAN COMPUTE, so the string it will
+    compute with is checked here rather than shipped on trust.
+    """
+    env = {str(k): float(v) for k, v in SEAT.items()}
+    out = []
+    for r in forms() + derivatives():
+        nm = r["name"] if "name" in r else "dLambda/d%s" % r["wrt"]
+        try:
+            got = _js_eval(r["js"], env)
+            want = r["value"] if "value" in r else r["value_at_seat"]
+            ok = abs(got - want) <= 1e-9 * max(1.0, abs(want))
+        except Exception:
+            ok = False
+        out.append((nm, bool(ok)))
+    return out
+
+
+def web():
+    """The whole export, as the site's build step should read it."""
+    d, root, halfe = threshold()
+    Xv, _e, above = seated_above_threshold()
+    return {
+        "title": "Exact forms: no coefficients",
+        "rule": ("a number may enter only as an exact calculation -- closed "
+                 "form, rational or symbolic -- or as a measurement with "
+                 "provenance.  No fitted constant and no prefactor."),
+        "status_note": ("every form below is generated from sympy and "
+                        "evaluated to thirty digits against the decimal this "
+                        "tree quotes; the JavaScript is generated too and "
+                        "round-tripped, never hand-written beside the formula"),
+        "design_inputs": [
+            {"symbol": str(k), "meaning": DESIGN_MEANING[str(k)],
+             "seat_exact": str(v), "seat_value": float(v),
+             "status": "FREE INPUT of the chosen ansatz, not a coefficient"}
+            for k, v in sorted(SEAT.items(), key=lambda kv: str(kv[0]))],
+        "constants": [
+            {"symbol": "G", "exact": str(G), "value": float(G),
+             "status": "EMPIRICAL", "source": "CODATA 2018"},
+            {"symbol": "c", "exact": str(c), "value": float(c),
+             "status": "EXACT BY DEFINITION", "source": "SI"},
+            {"symbol": "hbar", "exact": str(hbar), "value": float(hbar),
+             "status": "EMPIRICAL", "source": "CODATA 2018"},
+        ],
+        "forms": forms(),
+        "derivatives": derivatives(),
+        "leverage_ratios": leverage_ratios(),
+        "leverage_finding": (
+            "the ray parameter b is the strongest lever on the bill: |dLambda/db| "
+            "is 500000/2501 times |dLambda/dR_s| and exactly 50 times "
+            "|dLambda/da|.  A float census cannot say that."),
+        "threshold": {
+            "statement": "Lambda > 0 -- a contraction rather than a dilation",
+            "condition": "X > e, i.e. R_s / sqrt(b^2 + a^2) > e/2",
+            "proof": "dLambda/dX = %s > 0, so Lambda is strictly increasing in "
+                     "X; proved by monotonicity, not sampled" % d,
+            "e_over_2": float(sp.N(halfe, 20)),
+            "X_at_seat": float(sp.N(Xv, 20)),
+            "seat_is_above": bool(above),
+            "js": jscode(X),
+        },
+        "not_exact": [{"name": n, "status": st, "why": w}
+                      for n, st, w in NOT_EXACT],
+        "round_trip": {"checked": len(js_round_trips()),
+                       "failures": [n for n, okk in js_round_trips() if not okk]},
+    }
+
+
 def selftest():
     ok = True
 
@@ -288,6 +449,22 @@ def selftest():
     chk("and the two undefined ones are still undefined",
         sorted(n for n, s, _w in NOT_EXACT if s == "UNDEFINED"),
         ["l_UV", "xi"])
+
+    # THE EXPORT.  The site will COMPUTE with the emitted JavaScript, so the
+    # strings are evaluated here rather than shipped on trust.
+    rt = js_round_trips()
+    chk("every emitted JavaScript form round-trips against sympy",
+        [n for n, okk in rt if not okk], [])
+    chk("and there are nineteen of them -- sixteen forms, three derivatives",
+        len(rt), 19)
+    W = web()
+    chk("the export carries forms, derivatives and the refusals",
+        (len(W["forms"]), len(W["derivatives"]), len(W["not_exact"])),
+        (16, 3, 4))
+    chk("the leverage ratios are rationals, not decimals",
+        W["leverage_ratios"],
+        {"b_over_R_s": "500000/2501", "b_over_a": "50", "a_over_R_s": "10000/2501"})
+    chk("and it serialises", isinstance(json.dumps(W), str), True)
 
     print("exact selftest: %s" % ("PASS" if ok else "FAIL"))
     return ok
@@ -349,4 +526,7 @@ def report():
 if __name__ == "__main__":
     if "--selftest" in sys.argv:
         sys.exit(0 if selftest() else 1)
+    if "--json" in sys.argv:
+        print(json.dumps(web(), indent=1, sort_keys=False))
+        sys.exit(0)
     sys.exit(report())

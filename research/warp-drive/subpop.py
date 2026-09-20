@@ -623,8 +623,8 @@ def selftest():
     # WHAT DID NOT MOVE IS THE FINDING -- still exactly two sub-populations
     # reach an unoccupied channel, still madrule at l_d=0 and the spin-4
     # mesons, and the containment structure below is untouched at 14 and 2.
-    chk("203 of them are sublattices -- 143 before DOCKET 35 seated nucbands",
-        sl, 203)
+    chk("203 of them are sublattices -- 143 before DOCKET 35 seated nucbands, "
+        "and UNMOVED by DOCKET 36b's seating", sl, 203)
     chk("and exactly two reach a channel the index lacks", un, 2)
 
     H = unoccupied_hits()
@@ -654,8 +654,14 @@ def selftest():
     chk("ONLY THREE INDEXES ARE LATTICES -- the rest are merely charts",
         sorted(nm for nm, _c, isl in L if isl),
         ["bosonqp.index", "madelung.janet", "overlaprule.madelung_slot"])
-    chk("and nineteen are NOT, so 'sublattice of the index' is ill-posed "
-        "for them", sum(1 for _n, _c, isl in L if isl is False), 19)
+    # DOCKET 36b seated deformedbands and it is a CHART, not a lattice, so this
+    # count moves 19 -> 20.  NOTHING ELSE IN THIS FILE MOVED: 203 sublattices,
+    # 14 containments, chain 2, and the same two unoccupied-channel hits.  The
+    # sweep grew from 203 tested sub-populations to 366 and contributed not one
+    # new sublattice, which is a fact about the deformed chart and is recorded
+    # here rather than absorbed.
+    chk("and twenty are NOT, so 'sublattice of the index' is ill-posed "
+        "for them", sum(1 for _n, _c, isl in L if isl is False), 20)
 
     tot, pairs, longest = family_nesting()
     chk("within the family: 203 CLOSED SETS, 14 containments, chain 2 -- "

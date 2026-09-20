@@ -1,10 +1,10 @@
 {
  "schema": 2,
- "commit": "bfa413696718",
+ "commit": "3d9774312b98",
  "regenerate": "python3 research/warp-drive/state.py --json",
  "complete": false,
  "registry": {
-  "rows": 23,
+  "rows": 24,
   "indexes": [
    {
     "name": "fibred.index",
@@ -676,12 +676,61 @@
       }
      ]
     }
+   },
+   {
+    "name": "deformedbands.index",
+    "module": "deformedbands",
+    "accessor": "index",
+    "method": "TABLE",
+    "label": "deformedbands",
+    "members": "1,904 excited states in two-quasiparticle rotational bands of deformed odd-odd nuclei, 156 <= A <= 168; 60 levels refused for carrying a spin and no parity",
+    "quantum": "2I, parity",
+    "cells": 96,
+    "cell": [
+     2,
+     49,
+     2
+    ],
+    "channel": 2,
+    "languages": [
+     "statistics"
+    ],
+    "seated_by_overlap_ruling": false,
+    "source": {
+     "why": "Charted from deformed.entries(), which segments captures/arxiv-2508.05447.txt -- Pinky, Kumar, Singh & Jain, 'Features of Two-Quasiparticle Rotational Bands in Deformed Odd-Odd Nuclei, 156 <= A <= 168'.  The capture is total against three of the paper's own numbers: 234 entries, 173 bands, 61 bandhead states, all exact.  Nothing is written down by hand.",
+     "paths": [
+      {
+       "path": "research/warp-drive/captures/arxiv-2508.05447.txt",
+       "kind": "file",
+       "exists": true,
+       "bytes": 117313,
+       "files": 1,
+       "md5": "423927db57250ab47c410335a384f2f6"
+      },
+      {
+       "path": "research/warp-drive/captures/DEFORMED-entries.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 6550,
+       "files": 1,
+       "md5": "7225e2782b66550b131f39b3f5960836"
+      },
+      {
+       "path": "research/warp-drive/captures/DEFORMED-levels.tsv",
+       "kind": "file",
+       "exists": true,
+       "bytes": 47944,
+       "files": 1,
+       "md5": "110cb9f095691b81275dc924f105b8aa"
+      }
+     ]
+    }
    }
   ]
  },
  "figure": {
-  "vertices": 23,
-  "distinct_cells": 23,
+  "vertices": 24,
+  "distinct_cells": 24,
   "closers": [],
   "own_cell": [
    0,
@@ -689,7 +738,7 @@
    11
   ],
   "own_cell_occupied_by": [],
-  "E": 430,
+  "E": 512,
   "channels_occupied": [
    0,
    1,
@@ -704,20 +753,20 @@
   "resolution": {
    "K": {
     "distinct": 8,
-    "of": 23,
-    "ratio": 0.3478,
+    "of": 24,
+    "ratio": 0.3333,
     "verdict": "measurement"
    },
    "height": {
-    "distinct": 16,
-    "of": 23,
-    "ratio": 0.6957,
+    "distinct": 17,
+    "of": 24,
+    "ratio": 0.7083,
     "verdict": "measurement"
    },
    "width": {
     "distinct": 17,
-    "of": 23,
-    "ratio": 0.7391,
+    "of": 24,
+    "ratio": 0.7083,
     "verdict": "measurement"
    }
   },

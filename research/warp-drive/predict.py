@@ -23,7 +23,7 @@ occupies.  Measured over every seated index small enough to close (gravity, at
     baryons 1012   readrezayi 678   channels 367   ions 296   laws 254
     fibred 140     probability 112  terms 98       fqh 71     observed 56
     fundamental 46 inversion 24     madrule 18     mesons 15  nucshell 14
-    nucbands 5
+    nucbands 5     deformedbands 3
 
     janet 0   gravity_bound 0   madelung_slot 0   baryon_isomultiplet 0
     bosonqp 0   spin4 0
@@ -33,7 +33,7 @@ under INFORMATION has E = 0; every index that does not has E > 0; no
 exceptions.  That is close to definitional -- E is the join-closure deficit and
 the information closer IS the join closer -- and it is stated here so nobody
 mistakes it for a result.  THE RESULT IS THE NUMBERS, and the numbers say the
-register is overwhelmingly INCOMPLETE: sixteen of twenty-two measurable indexes
+register is overwhelmingly INCOMPLETE: seventeen of twenty-three measurable indexes
 demand cells they do not hold.
 
 ===============================================================================
@@ -129,7 +129,7 @@ E_BY_INDEX = {
     "probability.index": 112, "terms.index": 98, "fqh.index": 71,
     "observed.index": 56, "fundamental.index": 46, "inversion.index": 24,
     "madrule.index": 18, "mesons.index": 15, "nucshell.index": 14,
-    "nucbands.index": 5,
+    "nucbands.index": 5, "deformedbands.index": 3,
     "madelung.janet": 0, "overlaprule.gravity_bound": 0,
     "overlaprule.madelung_slot": 0, "overlaprule.baryon_isomultiplet": 0,
     "bosonqp.index": 0, "spin4.index": 0,
@@ -198,14 +198,14 @@ def selftest():
         print("  [%s] %-58s %s" % ("ok" if good else "XX", lab,
                                    got if good else "%s != %s" % (got, want)))
 
-    chk("twenty-two indexes measured, one too large to close",
-        (len(E_BY_INDEX), len(TOO_LARGE)), (22, 1))
+    chk("twenty-three indexes measured, one too large to close",
+        (len(E_BY_INDEX), len(TOO_LARGE)), (23, 1))
     chk("and the one left out is named", list(TOO_LARGE), ["gravity.index"])
 
     info_zero, noinfo_pos, nzero, npos = partition()
     chk("every E = 0 index closes under INFORMATION", info_zero, True)
     chk("and every E > 0 index does not -- no exceptions", noinfo_pos, True)
-    chk("sixteen predict, six are complete", (npos, nzero), (16, 6))
+    chk("seventeen predict, six are complete", (npos, nzero), (17, 6))
 
     # RE-MEASURE a sample rather than trusting the recorded table.
     for nm in ("mesons.index", "nucbands.index", "spin4.index"):
@@ -214,7 +214,7 @@ def selftest():
 
     # 3,206, not the 3,241 I first typed -- the sum is measured, not added up
     # by hand, and the fixture caught the hand arithmetic.
-    chk("the register demands 3,206 cells it does not hold", total(), 3206)
+    chk("the register demands 3,209 cells it does not hold", total(), 3209)
 
     chk("the element layer's 36 ghosts were adjudicated 25 + 11, not announced",
         (ELEMENT_GHOSTS["forbidden"] + ELEMENT_GHOSTS["deferred"],
