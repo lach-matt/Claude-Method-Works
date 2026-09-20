@@ -20,7 +20,12 @@ the bottom is for.
 ===============================================================================
 
 A member is ONE NUCLEAR EXCITED STATE in a two-quasiparticle rotational band of
-a deformed odd-odd nucleus, 156 <= A <= 168, Z 67-71.  It carries spin I and
+a deformed odd-odd nucleus, Z 67-71, A 156-174.
+
+    THE SOURCE'S TITLE SAYS 156 <= A <= 168 AND ITS TABLE 3 DOES NOT.  132 of
+    the 1,904 seated levels sit above A = 168, up to A = 174.  This file
+    describes what the table holds, not what the title claims, and the
+    discrepancy is recorded rather than smoothed: `a_ranges()` measures it.  It carries spin I and
 parity exactly as a particle carries J and P, so it meets the criterion the
 register enforces: THE QUANTUM NUMBERS ARE THE LEVEL'S OWN, not its band's and
 not its nuclide's.  DOCKET 28's trap is the reason that sentence is here.
@@ -30,8 +35,15 @@ not its nuclide's.  DOCKET 28's trap is the reason that sentence is here.
     shears mechanism in weakly-deformed and near-spherical nuclei.  These are a
     DEFORMED ROTOR's tower, a different mechanism in different nuclei from a
     different paper.  `disjoint_from_nucbands()` measures the overlap of the two
-    member sets rather than asserting they are different: it is ZERO nuclides in
-    common, because one paper's range is A 58-146 and this one's is 156-168.
+    member sets rather than asserting it: ZERO nuclides in common.
+
+    AND THE GROUND FIRST GIVEN FOR THAT ZERO WAS FALSE.  This file said the two
+    mass ranges are disjoint.  THEY ARE NOT: `nucbands` spans A 58-205 and
+    CONTAINS this one's 156-174 entirely.  The zero is a measured fact about
+    which nuclides each paper happens to tabulate, not a consequence of where
+    they sit on the chart -- a weaker ground, and the true one.  An audit
+    caught it; `a_ranges()` now reports both spans so the claim cannot be made
+    again without the numbers beside it.
 
     SO THE OVERLAP RULING DOES NOT APPLY.  Its four grounds test a COARSENING --
     the same members on fewer coordinates.  Two indexes with no member in common
@@ -185,6 +197,26 @@ def with_ZN():
     return (len(X), mi.K(X), mi.cell(X))
 
 
+def a_ranges():
+    """((min A, max A) here, (min A, max A) in nucbands, A values shared).
+
+    Section 1's corrected ground.  The ranges OVERLAP -- nucbands contains this
+    one -- so the zero nuclide overlap is a fact about the tabulations and not
+    about the mass numbers.
+    """
+    import nucbands
+    mine = {a for _i, _p, a, _z, _n, _e in levels() if a}
+    theirs = {int(r["A"]) for r in nucbands.members() if r.get("A")}
+    return ((min(mine), max(mine)), (min(theirs), max(theirs)),
+            len(mine & theirs))
+
+
+def above_title_range():
+    """(levels above A = 168, the largest A) -- the source's own overclaim."""
+    hi = [a for _i, _p, a, _z, _n, _e in levels() if a and a > 168]
+    return (len(hi), max(a for _i, _p, a, _z, _n, _e in levels() if a))
+
+
 def disjoint_from_nucbands():
     """(nuclides here, nuclides there, in common) -- section 1, measured."""
     import nucbands
@@ -228,16 +260,36 @@ def selftest():
     # THE CAPTURE IT STANDS ON.  If deformed.py moves, this fires first.
     chk("the capture is total against the paper's own census",
         deformed.census2(), (234, 173, 61))
-    chk("and this index is built from it, not from a table in this file",
-        "deformed.entries" in open(__file__, encoding="utf-8").read(), True)
+    # A REAL TEST OF "IMPORTS ITS CAPTURE".  Grepping this file's own source for
+    # a function name is satisfied by the docstring alone -- an audit pointed
+    # that out.  The test that bites is that the index MOVES when the capture
+    # moves: drop a nuclide from the capture and the chart must change.
+    _saved = dict(_C)
+    try:
+        _C.clear()
+        _orig = deformed.entries
+        deformed.entries = lambda: [e for e in _orig() if e["Z"] != 67]
+        _shrunk = len(levels())
+    finally:
+        deformed.entries = _orig
+        _C.clear()
+        _C.update(_saved)
+    # THE MEMBERS shrink; the CELLS need not, because the nuclides overlap on
+    # (2I, parity) -- which is itself worth knowing and is why this fixture
+    # tests the member count and not the chart.
+    chk("the index is READ from the capture -- shrink the capture, it shrinks",
+        (_shrunk < len(levels()), _shrunk > 0), (True, True))
 
     chk("1,904 levels carry both quantum numbers", len(levels()), 1904)
     chk("59 carry a spin and no parity, and are refused apart",
         len(no_parity()), 59)
-    chk("which is every level of the capture", 
-        len(levels()) + len(no_parity()),
-        sum(1 for e in deformed.entries() for _en, s in e["levels"]
-            if deformed.two_i(s) is not None))
+    # NOT A TAUTOLOGY.  The earlier form recomputed the right-hand side the same
+    # way the left was computed, so it passed with most of the capture deleted.
+    # Pinned against the capture's OWN level count instead, with the two spin-
+    # less rows named rather than absorbed.
+    _allrows = sum(len(e["levels"]) for e in deformed.entries())
+    chk("placed + refused = every level the capture holds, less the spinless",
+        (len(levels()) + len(no_parity()), _allrows), (1963, 1963))
 
     X = index()
     chk("96 cells on (2I, parity)", len(X), 96)
@@ -263,6 +315,14 @@ def selftest():
         common, 0)
     chk("and 23 of the 24 nuclides carry a level with BOTH numbers",
         mine, 23)
+    # THE GROUND FOR THE ZERO, CORRECTED.  The ranges are NOT disjoint.
+    (lo, hi), (tlo, thi), shared_A = a_ranges()
+    chk("the two mass ranges OVERLAP -- nucbands contains this one",
+        (tlo <= lo and hi <= thi), True)
+    chk("so the zero is about the tabulations, not the ranges: 0 shared A",
+        shared_A, 0)
+    chk("and the source's title understates its own table: 132 levels above 168",
+        above_title_range(), (132, 174))
     chk("and both sets are non-empty, so the zero means something",
         (mine > 0, theirs > 0), (True, True))
 

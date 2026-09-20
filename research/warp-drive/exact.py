@@ -82,9 +82,10 @@ closed forms too, and they were never stated in this tree:
 
 At the seated point that is 1/100, -100/2501 and -5000/2501 exactly:
 
-    THE RAY PARAMETER b IS THE STRONGEST LEVER ON THE BILL BY TWO ORDERS OF
-    MAGNITUDE -- |dLambda/db| is 199.92 times |dLambda/dR_s| and 50 times
-    |dLambda/da|.  A float census cannot say that; three exact derivatives say
+    AT THE SEATED POINT THE RAY PARAMETER b IS THE STRONGEST LEVER ON THE BILL
+    BY TWO ORDERS OF MAGNITUDE -- |dLambda/db| is 199.92 times |dLambda/dR_s|
+    and 50 times |dLambda/da|.  THE RATIO IS b R_s/(b^2+a^2), NOT A CONSTANT:
+    it is a fact about where the design sits, and it moves with the design.  A float census cannot say that; three exact derivatives say
     it in one line.  `leverage()` computes them and `--selftest` pins them as
     rationals, not as decimals.
 
@@ -146,7 +147,11 @@ ROWS = [
     ("4", sp.Integer(4), "4", 1, "THEOREM", "bisector.py"),
     ("120 deg", sp.Integer(120), "120", 3, "THEOREM", "bisector.py, exactly 2 pi/3"),
     ("1/2", sp.Rational(1, 2), "0.5", 2, "THEOREM", "teardown.py"),
-    ("3/(32 pi^2)", 3 / (32 * sp.pi**2), "0.009495", 4, "THEOREM", "candidates.py"),
+    # THE TREE QUOTED 0.009495 AND THE FORM GIVES 0.00949886.  Found by the
+    # tightened `agrees()` above; the closed form is the record and the decimal
+    # is corrected here and in coefficients.py rather than carried wrong.
+    ("3/(32 pi^2)", 3 / (32 * sp.pi**2), "0.0094989", 5, "THEOREM",
+     "candidates.py; the tree's 0.009495 was wrong in its 4th digit"),
     ("pi^2/720", sp.pi**2 / 720, "0.013708", 5, "THEOREM", "candidates.py"),
     ("X", X, "399.920024", 9, "EXACT", "20000 sqrt(2501)/2501, a surd"),
     ("Lambda", LAM, "9.982529174194637", 16, "EXACT",
@@ -195,17 +200,35 @@ def value(expr, digits=30):
     return sp.N(expr.subs(SEAT) if expr.free_symbols else expr, digits)
 
 
-def agrees(expr, quoted, digits):
-    """Does the closed form reproduce the quoted decimal TO ITS OWN PRECISION?
+def _sigdigits(x, n):
+    """(digit string, decimal exponent, sign) -- x to n significant figures.
 
-    The tree printed these at limited width, so equality is the wrong test and
-    would fail honestly-rounded rows.  The test is agreement to the number of
-    significant digits actually printed.
+    NO TOLERANCE.  A tolerance is itself a coefficient, and both the ones tried
+    here were wrong: 10^-(digits-1) admitted a decimal wrong in its last digit,
+    and 10^-digits rejected three that were correctly rounded.  Rounding both
+    sides to the same number of significant figures and comparing the DIGITS
+    has no free parameter and cannot be tuned.
     """
-    got, want = value(expr, digits + 8), sp.Float(quoted, digits + 8)
-    if want == 0:
-        return abs(got) < sp.Float(10) ** (-digits)
-    return abs(got - want) / abs(want) < sp.Float(10) ** (-(digits - 1))
+    m = sp.N(x, n + 10)
+    if m == 0:
+        return ("0" * n, 0, 0)
+    e = int(sp.floor(sp.log(abs(m), 10)))
+    d = sp.Integer(sp.floor(abs(m) / sp.Float(10)**(e - n + 1)
+                            + sp.Rational(1, 2)))
+    if len(str(d)) > n:                     # the rounding carried: 999 -> 1000
+        d, e = d // 10, e + 1
+    return (str(d), e, 1 if m > 0 else -1)
+
+
+def agrees(expr, quoted, digits):
+    """Does the closed form round to the decimal the tree quotes?
+
+    The tree printed these at limited width, so equality is the wrong test.
+    The right one is agreement to the number of significant figures actually
+    printed, decided by comparing digits rather than by a tolerance.
+    """
+    return _sigdigits(expr.subs(SEAT) if expr.free_symbols else expr,
+                      digits) == _sigdigits(sp.Rational(quoted), digits)
 
 
 def audit():
@@ -277,8 +300,21 @@ class _JSMath(object):
     LN10 = math.log(10)
     SQRT2 = math.sqrt(2)
 
+    # AN ALLOWLIST, NOT A PASSTHROUGH.  Forwarding any name to Python's math
+    # would let the round-trip pass on a string JavaScript cannot evaluate --
+    # `Math.gamma` exists in Python and not in JS -- so the guard would be
+    # checking Python rather than the emitted JavaScript.  These are the names
+    # ECMAScript's Math actually provides.
+    _JS_NAMES = frozenset((
+        "abs fabs acos acosh asin asinh atan atan2 atanh cbrt ceil cos cosh "
+        "exp expm1 floor hypot log log1p log2 log10 max min pow sin sinh "
+        "sqrt tan tanh trunc").split())
+
     def __getattr__(self, name):
-        return getattr(math, name)
+        if name not in self._JS_NAMES:
+            raise AttributeError(
+                "Math.%s is not an ECMAScript Math member" % name)
+        return getattr(math, "fabs" if name == "abs" else name)
 
 
 _JS_ENV = {"Math": _JSMath()}
@@ -385,9 +421,12 @@ def web():
         "derivatives": derivatives(),
         "leverage_ratios": leverage_ratios(),
         "leverage_finding": (
-            "the ray parameter b is the strongest lever on the bill: |dLambda/db| "
-            "is 500000/2501 times |dLambda/dR_s| and exactly 50 times "
-            "|dLambda/da|.  A float census cannot say that."),
+            "AT THE SEATED DESIGN POINT the ray parameter b is the strongest "
+            "lever on the bill: |dLambda/db| is 500000/2501 times "
+            "|dLambda/dR_s| and exactly 50 times |dLambda/da|.  THE RATIO IS "
+            "NOT A CONSTANT -- it is b R_s/(b^2+a^2) and a/b respectively, so "
+            "it is a fact about where the design sits and not about the form. "
+            "A float census cannot say either, which is the point."),
         "threshold": {
             "statement": "Lambda > 0 -- a contraction rather than a dilation",
             "condition": "X > e, i.e. R_s / sqrt(b^2 + a^2) > e/2",

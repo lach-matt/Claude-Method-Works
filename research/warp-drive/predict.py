@@ -13,7 +13,7 @@ file does that, and then does the harder half: says what an E cell is actually
 worth.
 
 ===============================================================================
-1. E PER SEATED INDEX -- SIXTEEN PREDICT, SIX DO NOT
+1. E PER SEATED INDEX -- SEVENTEEN PREDICT, SIX DO NOT
 ===============================================================================
 
 E(X) = |J(X) \ X|: the cells the index's own join-closure DEMANDS and no member
@@ -107,7 +107,7 @@ number are unplaced, and the remainder -- only the remainder -- are open.
 BOTH ARE DONE IN `ghosts.py`, DOCKET 39, and the first came back mostly negative
 for a reason that is a theorem: 593 of the 1,012 baryon cells are FORBIDDEN by
 Gell-Mann--Nishijima, and every other bound derivable in this tree is MONOTONE
-and therefore forbids nothing whatever.  The separation gives 36 UNPLACED, 2,479
+and therefore forbids nothing whatever.  The separation gives 36 UNPLACED, 2,482
 OPEN and 98 UNDECIDED.
 
 Neither is done here.  This file measures E, names the three bins, and proves
@@ -215,6 +215,15 @@ def selftest():
     # 3,206, not the 3,241 I first typed -- the sum is measured, not added up
     # by hand, and the fixture caught the hand arithmetic.
     chk("the register demands 3,209 cells it does not hold", total(), 3209)
+
+    # THE LEDGER GUARD.  An audit pointed out that nothing tied this table back
+    # to the registry: a 25th seated index with E > 0 would pass every fixture
+    # above while silently missing from the demand.  It cannot now.
+    _seated = {nm for nm, *_r in registry.rows()}
+    chk("every seated index is measured here or named too large",
+        sorted(_seated - (set(E_BY_INDEX) | set(TOO_LARGE))), [])
+    chk("and this table invents no index the registry does not seat",
+        sorted((set(E_BY_INDEX) | set(TOO_LARGE)) - _seated), [])
 
     chk("the element layer's 36 ghosts were adjudicated 25 + 11, not announced",
         (ELEMENT_GHOSTS["forbidden"] + ELEMENT_GHOSTS["deferred"],

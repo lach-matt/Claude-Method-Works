@@ -7,7 +7,7 @@ r"""ghosts.py -- THE ADJUDICATION OF E.  DOCKET 39.
 M: "Do the bound per index and separate UNPLACED from OPEN.  Derive all you
 can, including proofs, theorems, and laws."
 
-`predict.py` measured E for every seated index -- 3,206 cells the register's own
+`predict.py` measured E for every seated index -- 3,209 cells the register's own
 closure demands and no member occupies -- named three bins for them, and left
 both halves of the adjudication undone.  This file does both, and in doing the
 first half it finds that most of it CANNOT BE DONE, for a reason that is a
@@ -115,7 +115,7 @@ Every law below is proved, and then measured on the live tree.
         THIS CORRECTS DOCKET 38.  `predict.py` section 2 cites the element
         layer's "E = 36, split 25 forbidden and 11 deferred" as the precedent for
         adjudicating the seated indexes' E, without saying that the 36 is an
-        ORDER deficit and the 3,206 are JOIN deficits.  `tools/cypher.py`'s own
+        ORDER deficit and the 3,209 are JOIN deficits.  `tools/cypher.py`'s own
         fixture says so -- ("periodic table 2-D", {"order": 36}).  The three bins
         survive the correction intact; the precedent is re-attributed, and Law 3
         explains why it could never have transferred.
@@ -147,7 +147,7 @@ demand.  A bound was never fitted to the demand.
     madrule       18   Pauli through S_a                   yes          0
     nucshell      14   l = 0 => sigma = +1                 yes          0
     mesons        15   NONE -- and the absence is a THEOREM   -         0
-    (eight others)     none derived                          -          0
+    (nine others)     none derived                          -          0
 
 SEVEN BOUNDS DERIVED, SIX OF THEM MONOTONE, AND THE SEVENTH DOES ALL THE WORK.
 The Russell-Saunders row is in the table to answer "did you look?" at the
@@ -252,7 +252,7 @@ Rows below the strength are counted apart and never used.
     cells that no bound derivable here forbids and no source row explains.  For
     the seven indexes with a derived bound the OPEN figure is FINAL AGAINST
     EVERY MONOTONE BOUND, by Law 3 -- that is a proof, not a survey.  For the
-    eight with none derived it is open against nothing at all, and a bound found
+    nine with none derived it is open against nothing at all, and a bound found
     tomorrow may empty any of them.  The two situations are different and are not summed
     into one adjective.
 
@@ -782,6 +782,17 @@ def selftest():
     chk("the table sums to the totals", totals(), TOTALS)
     chk("and its E column is predict.py's live total", totals()[0],
         __import__("predict").total())
+    # THE LEDGER GUARD.  An audit pointed out that nothing tied this table to
+    # the registry.  A seated index needs a row here only if it DEMANDS
+    # something: an E = 0 index has nothing to adjudicate, and `gravity` is
+    # named too large to close.  So the partition must be exact three ways.
+    import predict as _pred
+    _seated = {nm for nm, *_r in registry.rows()}
+    _zero = {n for n, e in _pred.E_BY_INDEX.items() if e == 0}
+    chk("every seated index is adjudicated, complete, or named too large",
+        sorted(_seated - (set(TABLE) | _zero | set(_pred.TOO_LARGE))), [])
+    chk("and the three groups do not overlap",
+        sorted((set(TABLE) & _zero) | (set(TABLE) & set(_pred.TOO_LARGE))), [])
     chk("every index with E > 0 is adjudicated exactly once",
         sorted(TABLE), sorted(set(BOUNDS) | set(NO_BOUND_BY_THEOREM)
                               | set(NO_BOUND_DERIVED)))

@@ -248,7 +248,7 @@ COEFFICIENTS = [
      "2 s^2 (3 - 2 s) = 0 at s = 3/2, exact in Fraction arithmetic"),
     ("1/2", "0.5", THEOREM, "teardown.py",
      "the CTC window tau/loop = R/(2D) <= 1/2"),
-    ("3/(32 pi^2)", "0.009495", THEOREM, "candidates.py",
+    ("3/(32 pi^2)", "0.0094989", THEOREM, "candidates.py",
      "Ford-Roman, cited: |rho| <= 3 hbar c/(32 pi^2 L^4)"),
     ("pi^2/720", "0.013708", THEOREM, "candidates.py",
      "Casimir, cited: pi^2 hbar c/(720 d^4)"),
