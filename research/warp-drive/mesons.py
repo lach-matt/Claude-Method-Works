@@ -491,3 +491,46 @@ if __name__ == "__main__":
     if "--selftest" in sys.argv:
         sys.exit(0 if selftest() else 1)
     sys.exit(report())
+
+def exotic_members():
+    """[name] -- members whose J^PC is one of the four q-qbar-forbidden sets.
+
+    DOCKET 47.  The paper said refusing C for totality cost adjudication power.
+    It did not: these members SIT IN THE INDEX, so charting C would make the
+    exotic cells occupied rather than forbidden, and the q-qbar bound would
+    fail the gate that requires a bound to hold on every member.  The refusal
+    concealed that this member set is not a q-qbar set.
+    """
+    import pdgcapture
+    EXOTIC = {(0, -1, -1), (0, 1, -1), (2, -1, 1), (4, 1, -1)}   # (2J, P, C)
+    out = []
+    for r in pdgcapture.read():
+        if r["family"] != "meson":
+            continue
+        try:
+            j2, P, C = int(r["J2"]), int(r["P"]), int(r["C"])
+        except (ValueError, TypeError, KeyError):
+            continue
+        if (j2, P, C) in EXOTIC:
+            out.append(r["name"])
+    return sorted(out)
+
+
+def parity_split_in_a_multiplet():
+    """[base name] -- isospin multiplets where one member has P and another '?'.
+
+    DOCKET 48.  Parity is constant across an isospin multiplet by construction,
+    so a multiplet split on P is a defect of the capture, not a fact about the
+    states.  Section 10.6 built its flagship UNPLACED finding on one of these.
+    """
+    import collections
+    import pdgcapture
+    import re as _re
+    by = collections.defaultdict(set)
+    for r in pdgcapture.read():
+        if r["family"] != "meson":
+            continue
+        base = _re.sub(r"[+~0-]*$", "", r["name"])
+        by[(base, r.get("J2"), r.get("I2"))].add(r.get("P"))
+    return sorted({k[0] for k, v in by.items()
+                   if "?" in v and len(v) > 1})

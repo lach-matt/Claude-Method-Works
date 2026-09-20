@@ -67,9 +67,6 @@ def sp_simplify_safe(e):
 
 def facts():
     """Every number the paper states, asked of the instrument that owns it."""
-    # ONE call: reading_counts() is a full sub-chart sweep and was being run
-    # twice by the dict literal below.
-    _readings = dict(OR.reading_counts())
     import itertools
     import charts
     import demand
@@ -83,6 +80,9 @@ def facts():
     import registry
     import boxinvariance as BI
 
+    # ONE call: reading_counts() is a full sub-chart sweep and was being run
+    # twice by the dict literal below.
+    _readings = dict(OR.reading_counts())
     ch = mi.channels()
     F = figure.figure()
     cells = registry.cells()
@@ -178,6 +178,13 @@ def facts():
         "adm_n": len(charts.population()),
         # Section 4.2a: what K is and is not preserved by, measured.
         "kmove": charts.k_invariance(),
+        # Section 3.1: K1's occupancy depends on the spacetime dimensions
+        # admitted, which the paper's own instrument has always pinned.
+        "dimsweep": [tuple(t) for t in OR.dimension_finding()[0][1]],
+        # Sections 8.3 and 10.6, both of which had the argument backwards.
+        "exotics": __import__("mesons").exotic_members(),
+        "parity_split": " and ".join(
+            __import__("mesons").parity_split_in_a_multiplet()),
         "readings": _readings,
         "reading_share": tuple(OR.reading_share()),
         "subcharts": OR.subchart_total(),
@@ -219,6 +226,10 @@ def facts():
         "bi_corpus": list(BI.CORPUS_MEETS), "bi_caps": list(BI.CORPUS_CAPS),
         "mad_sweep_k": sorted({k for _n, _c, k in BI.madelung_sweep()}),
         "census": __import__("state").CENSUS,
+        # Section 11 is the paper's one dated snapshot, so it must SAY the date
+        # and say how far the tree has moved since.
+        "census_asof": tuple(__import__("state").CENSUS_AS_OF),
+        "modules_now": len([q for q in os.listdir(WD) if q.endswith(".py")]),
         "retractions": len(__import__("state").RETRACTIONS),
 
         # Section 9 -- the demand and its adjudication.  Every figure is asked
@@ -461,6 +472,22 @@ def document(f):
                    ", ".join(f["by_channel"][k]) or "--"] for k in range(8)])))
     A(("p", (
         "PROOF. By exhibition, and the exhibits are in section 5. []")))
+    A(("quote", (
+        "**What 'from nature' admits.** A chart counts as real data here when its members are "
+        "MATHEMATICALLY ESTABLISHED BEYOND DOUBT, whether or not they have been observed. Absence "
+        "of observation is not falsification. The criterion is stated because one of the eight "
+        "channels turns on it.")))
+    A(("p", (
+        "THAT CHANNEL IS K1, and it has a single occupant. %s is charted on the horizon-bound "
+        "class of a singly-rotating Myers-Perry black hole, and its channel DEPENDS ON THE "
+        "SPACETIME DIMENSIONS ADMITTED: %s. Restricted to five and below it is K7 and K1 empties. "
+        "The bound class is not speculative physics: it is whether r^(D-3) + a^2 r^(D-5) = mu has "
+        "a root, which is exact in every D, with a bound on rotation at five and none above it "
+        "(Myers and Perry, 1986). By the criterion above the chart is admitted - and the "
+        "dependence is stated here rather than left for a reader to discover, because the paper's "
+        "own instrument has always pinned this sweep and the paper had never said it."
+        % (", ".join(nm for k, nm in f["lonely"] if k == 1),
+           ", ".join("D<=%d gives K%d" % (d, k) for d, _c, k in f["dimsweep"])))))
     A(("note", (
         "THE DIFFERENCE MATTERS AND IS NOT RHETORICAL. A bound proved tight by construction says "
         "the combinatorics admits eight. A bound proved tight by nature says the physical world "
@@ -822,11 +849,19 @@ def document(f):
         "The exotic quantum numbers - 0--, 0+-, 1-+, 2+- - are forbidden in J^PC, and C IS NOT A "
         "COORDINATE of this chart. It was refused for TOTALITY: %d of the %d mesons in the source "
         "carry no C at all, and a chart carries only coordinates all its members have. THE "
-        "REFUSAL WAS CORRECT AND IT HAS A PRICE, and this is where the price is paid: the meson "
-        "index has %d demanded cells and the quark model, fully stated, empties none of them. A "
-        "coordinate refused for totality is adjudication power given up, and the trade is visible "
-        "only once someone tries to spend it."
-        % (f["meson_noC"], f["meson_rows"], f["adj"]["mesons.index"][0]))))
+        "REFUSAL WAS CORRECT AND THE TRADE RUNS THE OTHER WAY, which an audit established against "
+        "an earlier draft of this very paragraph. That draft said a coordinate refused for "
+        "totality is adjudication power given up. It is not, here: %d of the C-carrying mesons "
+        "in the capture are %s, whose J^PC is 1-+ -- one of the four exotics just named -- and "
+        "both carry the source's own quark string 'Maybe non-qQ'. Charting C would not make the "
+        "exotic cells FORBIDDEN cells of the demand. It would make them OCCUPIED cells of the "
+        "index, and the q-qbar bound would then FAIL this paper's own gate, which requires a "
+        "bound to hold on every member before it may touch the demand. The meson index has %d "
+        "demanded cells and the quark model empties none of them - but the reason is not a price "
+        "paid for totality. It is that THIS MEMBER SET IS NOT A q-qbar SET, and refusing C "
+        "concealed the fact rather than costing anything."
+        % (f["meson_noC"], f["meson_rows"], len(f["exotics"]),
+           " and ".join(f["exotics"]), f["adj"]["mesons.index"][0]))))
     A(("h2", "8.4 The one bound that forbids"))
     A(("p", (
         "By Theorem 4 only a bound that is antitone somewhere, or carries a congruence, can "
@@ -1073,8 +1108,18 @@ def document(f):
         "understates its own contents: %d of the levels it tabulates lie above the mass range the "
         "title claims, reaching A = %d against a claimed ceiling of 168." % f["above_title"],
         "The UNPLACED rule found a demanded meson cell whose occupant EXISTS and is absent only "
-        "because the source assigns it no spin-parity. The rule separated a fact about the "
-        "compilation from a fact about nature without anyone having to judge which it was.",
+        "because the CAPTURE assigns it no parity - and an audit then showed the capture to be "
+        "wrong, which is a better demonstration than the one first claimed. The Review of "
+        "Particle Physics does establish these states; the '?' enters through the intermediate "
+        "file the capture reads. It refutes itself two lines away: for %s the NEUTRAL member of "
+        "the isospin doublet carries a parity while the CHARGED member carries '?', at the same "
+        "spin and the same isospin, and parity is constant across an isospin multiplet by "
+        "construction. So the rule did separate a fact about a compilation from a fact about "
+        "nature - the compilation being the intermediate file rather than the RPP. The original "
+        "claim, that the source assigns no spin-parity, is WITHDRAWN: section 8.4 flags this "
+        "exact shape as a fault in the source, and this paragraph had accepted the same shape at "
+        "face value in the opposite direction."
+        % f["parity_split"],
     ]))
 
     A(("h2", "10.7 What the object can carry that it does not carry yet"))
@@ -1112,16 +1157,32 @@ def document(f):
         "seated member sets (all landing in occupied channels), or withdrawn and duplicate charts."
         % (c["modules_attempted"], c["modules_in_tree"], len(c["unimportable"]),
            c["charts_found"], c["modules_with_a_chart"], c["unseated_not_excused"]))))
+    A(("note", (
+        "THIS SECTION IS A DATED SNAPSHOT, AND IS THE ONLY ONE IN THE PAPER. The sweep ran at "
+        "commit %s on %s, when the tree held %d modules; it holds %d now. NOTHING IN THE TREE "
+        "RE-RUNS IT, and that is the defect rather than an aside: a stale number inside an "
+        "instrument-returned dictionary counts as instrument-produced, so this paper's own "
+        "substitution guard cannot see these figures go out of date. They are a historical "
+        "measurement, not a claim about the tree as it stands - and the census's K4 finding has "
+        "been WITHDRAWN for precisely that reason."
+        % (f["census_asof"][0], f["census_asof"][1], c["modules_in_tree"],
+           f["modules_now"]))))
     # THE BANKED PHRASE IS NOT QUOTED.  state.py holds K4's result as a
     # sentence fragment -- "nothing in the tree -- 0 of 44 charts over 231
     # modules" -- which rendered here as a subjectless sentence AND carried a
     # module count from an earlier sweep, disagreeing with the attempted count
     # in the paragraph above it.  The same fact is stated from the per-channel
     # census and the chart total, both current, both in this same dict.
-    A(("p", "Charts per channel: %s - and K4 is reached by none of the %d, "
-            "which is the census's whole finding about that channel."
-        % (", ".join("%s %d" % (k2, v) for k2, v in c["charts_per_channel"].items()),
-           c["charts_found"])))
+    A(("p", "Charts per channel, as of that snapshot: %s."
+        % ", ".join("%s %d" % (k2, v) for k2, v in c["charts_per_channel"].items())))
+    A(("note", (
+        "AND THE CENSUS'S K4 FINDING IS WITHDRAWN. It recorded that no chart in the tree reached "
+        "K4. True when it ran, FALSE NOW, and refuted without re-running anything: %s is SEATED "
+        "at K4 and section 3.1's table says so two pages earlier. It is withdrawn in the open "
+        "rather than quietly corrected, because the failure is the instructive part - a "
+        "present-tense claim carried forward out of a snapshot, contradicting the paper's own "
+        "register for as long as it stood."
+        % ", ".join(nm for k, nm in f["lonely"] if k == 4))))
     A(("note", (
         "Two artefacts of the census are recorded rather than allowed to read as findings: one "
         "chart appears unseated because the census keys on (module, accessor) and the seated row "

@@ -368,6 +368,15 @@ DOCKETS = (
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
 # census that hides its own double-counts is not a census.
+# A SNAPSHOT, AND LABELLED AS ONE.  These figures were measured at commit
+# 0571a2e on 2026-09-18, when the tree held 232 .py modules; it holds more now,
+# and four indexes (spin4, nucbands, deformedbands and the quasiparticle
+# charts) were seated AFTER the sweep.  Nothing in the tree re-runs it, which
+# is why a stale figure inside this dict could be printed as a current
+# measurement and the paper's substitution guard could not see it -- a number
+# inside an instrument-returned dict counts as instrument-produced.
+CENSUS_AS_OF = ("0571a2e", "2026-09-18")
+
 CENSUS = {
     "modules_in_tree": 232,
     "modules_attempted": 232,
@@ -389,7 +398,13 @@ CENSUS = {
     # a figure inside a string is invisible to a check on the dict.  The count
     # was redundant with `modules_attempted` anyway; what K4 needs is the chart
     # total, which is `charts_found` in this same dict.
-    "K4_reached_by": "nothing in the tree -- 0 of the 44 charts the census found",
+    # WITHDRAWN, AND REFUTED BY THE REGISTER RATHER THAN BY A RE-SWEEP.  This
+    # read "nothing in the tree", which was true when the census was taken and
+    # is now false: `spin4` is SEATED at K4 and the paper says so two sections
+    # earlier.  A census is a snapshot, and a snapshot quoted as a present-tense
+    # claim is how this went wrong -- so the field now says what it is.
+    "K4_reached_by": "WITHDRAWN -- true at the census, false now: spin4 is "
+                     "seated at K4",
     "K5_reached_by": "exactly one chart, overlaprule.nucshell_lsigma, which "
                      "DOCKET 22 retracted",
     "artifacts_of_the_census": [
