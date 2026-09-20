@@ -302,6 +302,18 @@ def max_dim(dec):
     return max(d for _m, d in parse(dec))
 
 
+#: The coordinate names, in `index()`'s order.  `overlaprule.coords()` resolves
+#: a seated module's axes through its COORDS table first and a module-level
+#: NAMES second, and RAISES rather than skipping when it finds neither -- "so a
+#: future index cannot go missing quietly".  This index declared neither, so
+#: `overlaprule --selftest` failed its reachability fixture and
+#: `particlesweep.py` and `spin4.py` CRASHED on the KeyError.  corepdex.py
+#: section 6 recorded that as a gap rather than repairing it; this is the
+#: repair, and the names are read off `index()`'s own docstring, not invented.
+#: `multiplicity` and `pg_order` are NOT here, for the reason index() gives.
+NAMES = ("site_order", "n_irreps", "max_dim")
+
+
 def index():
     """The seated member set, as cells.
 
@@ -447,6 +459,15 @@ def selftest():
     chk("the seating is recorded with what each file gave up",
         len(seating_touched()), 3)
     chk("and the seated cell is pinned", SEATED_CELL, (0, 12, 16))
+    # corepdex.py section 6 recorded this index's missing coordinate NAMES as a
+    # gap and left it: `overlaprule.coords()` RAISES on a module that declares
+    # neither a COORDS entry nor NAMES, so `overlaprule --selftest` failed its
+    # reachability fixture and `particlesweep.py` and `spin4.py` crashed on the
+    # KeyError.  NAMES is now declared, and fixtured here rather than merely
+    # written down -- which is how SEATED_CELL got left at None next door.
+    chk("it declares its coordinate NAMES, so overlaprule can resolve it",
+        (NAMES, len(NAMES)),
+        (("site_order", "n_irreps", "max_dim"), len(next(iter(index())))))
 
     print("\n%d failure(s)" % len(bad))
     return 1 if bad else 0

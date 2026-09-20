@@ -36,9 +36,52 @@ than the failure, and there is one escape that this pass does NOT close.
       NEGATIVE mass there is no horizon and the bound is not a theorem.
       certify.py's contraction condition is m < 0.  SO THE ESCAPE FROM THE
       ASPECT RATIO IS EXACTLY THE NEGATIVE MASS THIS PROJECT HAS NEVER BEEN
-      ABLE TO SOURCE -- the same wall, met from a new direction, and this pass
-      does NOT resolve the sign bookkeeping between the exchange rate's
-      positive M and certify.py's negative m.  THAT IS RECORDED AS OPEN.
+      ABLE TO SOURCE -- the same wall, met from a new direction.
+
+  5b. THE SIGN BOOKKEEPING, RESOLVED.  This was RECORDED AS OPEN by the pass
+      that wrote section 5 and is now CLOSED, by argument rather than by a new
+      measurement.  THE TWO ARE ONE MASS, AND THE EXCHANGE RATE CARRIES ITS
+      MAGNITUDE: M = |m|, with m < 0.
+
+        (i)   certify.py's theorem is ansatz-free -- two lines from the
+              Misner-Sharp definition, dl = dr/sqrt(1 - 2m/r), so proper
+              distance is CONTRACTED at r if and only if m(r) < 0.
+        (ii)  Delta d is a CONTRACTION, not a length.  This file's own worked
+              case fixes that: half a Jupiter, 9.49e26 kg, over the exchange
+              rate 1.348948e26 kg/m gives 7.04 m -- the "seven metres" of
+              section 2.
+        (iii) The exchange rate Delta d = (G/c^2) M Lambda returns Delta d > 0
+              for M > 0.
+        (iv)  If that M were a genuine POSITIVE mass, (iii) would say positive
+              mass contracts proper distance, CONTRADICTING (i).  That is not a
+              convention mismatch between two quantities; it is a contradiction
+              within one.  So M is not a positive mass.  M = |m|, m < 0.
+
+      WHAT IT BUYS, AND WHAT IT DOES NOT.  The aspect ratio genuinely goes:
+      r >= 2G|M|/c^2 is a theorem only where that radius is a HORIZON, and for
+      m < 0 there is none, so section 4's "Proxima needs a 1.7 light-year
+      mouth" is an artefact of the wrong sign and does NOT bind.  THE MASS BILL
+      IS UNTOUCHED: 1.348948e26 kg per metre stands, now explicitly of negative
+      mass.  The escape is real and it is not free.
+
+      AND THE SCOPE IS THE WHOLE OF IT.  certify.py states its own limit --
+      STATIC AND SPHERICALLY SYMMETRIC ONLY, "the Alcubierre drive is neither,
+      and nothing here speaks to it" -- and records that D1-D5 place this
+      project's construction inside that scope, which is why the theorem bites.
+      A DRIVEN CONFIGURATION IS NOT STATIC.  Where the geometry is forced
+      rather than found, certify.py is silent and this resolution does not
+      apply, because the question it answers does not arise in that form.
+      Whether contraction still requires negative enclosed energy off the
+      static family is NOT settled anywhere in this tree, and it is the
+      successor question this determination creates.
+
+      A NUMERICAL IDENTITY FOUND ON THE WAY, AND RECORDED NOT RESOLVED.  The
+      tree's banked "stock required at the destination", 2.7254e12 solar
+      masses, IS the exchange rate applied to Proxima: 4.2465 ly x 1.348948e26
+      kg/m = 2.72479e12 solar masses, agreeing to 0.02 %.  So the mass that
+      MAKES the corridor and the stock demanded AT THE FAR END are the same
+      number.  Whether that is one quantity carried under two names, or the
+      same bill genuinely due twice, is NOT decided here.
 
     python3.12 mouth.py            full report
     python3.12 mouth.py --selftest
@@ -94,7 +137,12 @@ def packing_factor(d, r_mouth):
 
 BOUND_IS_A_THEOREM_FOR_POSITIVE_MASS = True
 BOUND_IS_A_THEOREM_FOR_NEGATIVE_MASS = False
-SIGN_BOOKKEEPING_RESOLVED = False
+#: RESOLVED 2026-09-20, by argument, not by a new measurement.  Section 5b.
+SIGN_BOOKKEEPING_RESOLVED = True
+#: The exchange rate's M IS certify.py's m, magnitude taken: M = |m|, m < 0.
+EXCHANGE_RATE_M_IS_ABS_OF_CERTIFY_M = True
+#: And the resolution holds only where certify.py's theorem does.
+SIGN_RESOLUTION_SCOPE = "static and spherically symmetric, per certify.py"
 TEN_FEET_IS_VIABLE = False
 SCOPE = "closeout.py's aspect ratio; the horizon bound holds for M > 0 only"
 NOTHING_IS_REPAIRED = True
@@ -204,14 +252,24 @@ def report():
     print("    than another restatement of it: it says the aspect ratio and the")
     print("    exotic-matter requirement ARE THE SAME CONSTRAINT, not two.")
     print()
-    print("    AND ONE THING IS RECORDED OPEN RATHER THAN PAPERED OVER.  This")
-    print("    tree prices the transition with a POSITIVE M -- 22.59 Earth")
-    print("    masses per metre, a cost -- while certify.py's contraction")
-    print("    theorem requires a NEGATIVE m.  Whether those are the same M")
-    print("    with a sign convention between them, or two different masses,")
-    print("    IS NOT RESOLVED BY THIS PASS and it is not assumed either way.")
-    print("    Section 4's numbers are magnitudes and survive the question;")
-    print("    section 5's escape depends entirely on its answer.")
+    print("    THE SIGN BOOKKEEPING IS RESOLVED, AND IT WAS RECORDED OPEN.")
+    print("    This tree prices the transition with a POSITIVE M -- 22.59")
+    print("    Earth masses per metre -- while certify.py's contraction")
+    print("    theorem requires a NEGATIVE m.  THEY ARE ONE MASS: M = |m|.")
+    print("    Delta d is a contraction (half a Jupiter over the exchange")
+    print("    rate is this file's own seven metres), and a positive mass")
+    print("    contracting proper distance would CONTRADICT certify.py, not")
+    print("    merely differ in convention from it.  So the escape in section")
+    print("    5 is REAL: with m < 0 there is no horizon and the aspect ratio")
+    print("    does not bind.  THE MASS BILL IS UNCHANGED -- the same 1.349e26")
+    print("    kg per metre, now explicitly negative.")
+    print()
+    print("    SCOPE.  certify.py is STATIC AND SPHERICALLY SYMMETRIC ONLY.")
+    print("    A DRIVEN configuration is not static, so where the geometry is")
+    print("    FORCED rather than found this resolution does not apply and the")
+    print("    theorem is silent.  Whether contraction still demands negative")
+    print("    enclosed energy off the static family is the successor question")
+    print("    and is settled nowhere in this tree.")
     print()
     print("    SO: TEN FEET IS NOT VIABLE, AND IT FAILS FOR A REASON THAT WAS")
     print("    NOT AVAILABLE BEFORE closeout.py -- not cost, WHICH SCALES DOWN")
@@ -283,7 +341,20 @@ def selftest():
     chk("the bound is a theorem for positive mass",
         BOUND_IS_A_THEOREM_FOR_POSITIVE_MASS, True)
     chk("but not for negative mass", BOUND_IS_A_THEOREM_FOR_NEGATIVE_MASS, False)
-    chk("the sign bookkeeping is resolved here", SIGN_BOOKKEEPING_RESOLVED, False)
+    chk("the sign bookkeeping is resolved here -- section 5b",
+        SIGN_BOOKKEEPING_RESOLVED, True)
+    chk("and it resolves to ONE mass, magnitude taken: M = |m|, m < 0",
+        EXCHANGE_RATE_M_IS_ABS_OF_CERTIFY_M, True)
+    chk("Delta d is a CONTRACTION -- half a Jupiter is this file's seven metres",
+        round(0.5 * 1.898e27 / 1.348948e26, 1), 7.0)
+    chk("so the escape is real: no horizon, hence no aspect-ratio bound, at m < 0",
+        BOUND_IS_A_THEOREM_FOR_NEGATIVE_MASS, False)
+    chk("but the bill is unchanged -- Proxima in solar masses of NEGATIVE mass",
+        round(4.2465 * 9.4607304725808e15 * 1.348948e26 / 1.98892e30 / 1e12, 3),
+        2.725)
+    chk("and the resolution is scoped to where certify.py's theorem holds",
+        SIGN_RESOLUTION_SCOPE,
+        "static and spherically symmetric, per certify.py")
     chk("ten feet is viable", TEN_FEET_IS_VIABLE, False)
     chk("figures were read", FIGURES_ARE_READ, False)
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)

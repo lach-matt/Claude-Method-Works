@@ -585,6 +585,21 @@ def additivity_splits():
     return {key: len(v) for key, v in d.items()}
 
 
+#: The coordinate names, in `index()`'s order.  `overlaprule.coords()` resolves
+#: a seated module's axes through its COORDS table first and a module-level
+#: NAMES second, and RAISES rather than skipping when it finds neither -- "so a
+#: future index cannot go missing quietly".  This index declared neither, so
+#: `overlaprule --selftest` failed its reachability fixture and
+#: `particlesweep.py` and `spin4.py` CRASHED on the KeyError.  corepdex.py
+#: section 6 recorded that as a gap rather than repairing it; this is the
+#: repair, and the names are read off `index()`'s own docstring, not invented.
+#: `max_dim` KEEPS ITS NAME AND LOSES ITS GLOSS -- see index(), where the
+#: "maximum degeneracy" reading is withdrawn.  It is the largest SMALL-
+#: REPRESENTATION dimension, which is what the axis computes.  `star` and
+#: `pg_order` are NOT here, for the reason index() gives.
+NAMES = ("little_order", "n_smallreps", "max_dim")
+
+
 def index():
     """The seated member set, as cells.
 
@@ -987,6 +1002,16 @@ def selftest():
         chk("and this file resolves all 870",
             len([r for r in read() if r.get("dims") == "UNRESOLVED"])
             if read() and isinstance(read()[0], dict) else 0, 0)
+
+    # corepdex.py section 6 recorded this index's missing coordinate NAMES as a
+    # gap and left it: `overlaprule.coords()` RAISES on a module that declares
+    # neither a COORDS entry nor NAMES, so `overlaprule --selftest` failed its
+    # reachability fixture and `particlesweep.py` and `spin4.py` crashed on the
+    # KeyError.  NAMES is now declared, and fixtured here rather than merely
+    # written down -- which is how SEATED_CELL got left at None above.
+    chk("it declares its coordinate NAMES, so overlaprule can resolve it",
+        (NAMES, len(NAMES)),
+        (("little_order", "n_smallreps", "max_dim"), len(next(iter(index())))))
 
     print("\n%d failure(s)" % len(bad))
     return 1 if bad else 0

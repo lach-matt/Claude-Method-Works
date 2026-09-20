@@ -53,7 +53,7 @@ essentially filling in the rest of the space in the master index."
 
     THE BOUNDARY THAT REMAINS.  Composite nuclei stay out of the particle
     capture, because they ARE the periodic elements and `gravity` already seats
-    3,394 nuclide-charge states.  `nucshell` was already the exception that
+    3,663 nuclide-charge states.  `nucshell` was already the exception that
     proved the old subject too narrow: its members are nuclear, not atomic, and
     it was seated with a note saying so.
 
@@ -68,7 +68,7 @@ essentially filling in the rest of the space in the master index."
     laws          584 series             n range, l, quantum defect
     probability   25 subshells           n, l
     inversion     20 inversions          pairs of (n, l)
-    gravity       3,394 nuclide-charge   Z, N, A, q, Ne, 2J, level status
+    gravity       3,663 nuclide-charge   Z, N, A, q, Ne, 2J, level status
                   states, read in 8
                   spacetime dimensions
     nucshell      22 NUCLEAR subshells   nr, l, j -- the only non-atomic
@@ -130,8 +130,15 @@ REGISTERED = (
     ("probability", "index", "TABLE", "25 subshells", "n, l"),
     ("inversion", "index", "TABLE", "20 fill-order/shell-order inversions",
      "pairs of (n, l)"),
+    # RE-PINNED 2026-09-20: 3,394 -> 3,663 nuclide-charge states, and the
+    # source did not grow.  DOCKET 49b (b28abdc) widened gravity's capture
+    # reader to the `Configuration / Term / J / Level_cm-1` header spelling and
+    # reached eight level tables already on disk -- Fr I, N IV, Ni X, Ra I,
+    # Rn I, Sr II, Ti IV, Xe I -- for +269 members.  The commit reported the
+    # new total and left this row at the old one.  The chart is unmoved: 914
+    # cells, (0, 19, 112), K0.  gravity.py sections 1 and 3a.
     ("gravity", "index", "TABLE",
-     "3,394 nuclide-charge states x 8 dimensions",
+     "3,663 nuclide-charge states x 8 dimensions",
      "Z, N, A, q, Ne, 2J, level status"),
     ("nucshell", "index", "TABLE", "22 nuclear single-particle subshells",
      "nr, l, j (nuclear)"),

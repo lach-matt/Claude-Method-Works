@@ -160,14 +160,23 @@ added a clause this file had missed:
     gravity (B,F,X) AND gravity (B,F,X,E) ARE EXACTLY THAT PAIR.  Both K1.  So
     maximality says keep the arity-4 one.
 
-    AND THE REACH GATE SAYS THE ARITY-4 ONE IS NOT SOUND -- it oscillates, K1
-    then K0 then K1 across the Z sweep.
+    AND THE REACH GATE SAID THE ARITY-4 ONE WAS NOT SOUND -- it oscillated, K1
+    then K0 then K1 across the Z sweep.  THAT IS NO LONGER WHAT THE SWEEP
+    MEASURES, and section 3f is the measurement that moved it: DOCKET 49b
+    widened gravity's capture reader (member rows 3,394 -> 3,663, species
+    118 -> 126) and the Z <= 40 reach went 48 cells at K0 to 50 cells at K1.
+    All six reaches now read K1, the oscillation ground does not fire, and
+    (B,F,X,E) is SOUND.
 
-    SO THE ORDER DECIDES THE ANSWER.  Maximality first picks (B,F,X,E), the gate
-    then kills it, and K1 ENDS UP EMPTY -- the seating list is K6 alone.  Gate
-    first kills (B,F,X,E), leaving (B,F,X) the only surviving K1 chart of that
-    parent -- maximal among what survived -- and the list is K1 and K6.
-    `order_matters()` returns exactly that pair and a fixture pins it.
+        WITHDRAWN, and the withdrawal is the point of keeping it: "SO THE ORDER
+        DECIDES THE ANSWER.  Maximality first picks (B,F,X,E), the gate then
+        kills it, and K1 ENDS UP EMPTY -- the seating list is K6 alone.  Gate
+        first kills (B,F,X,E), leaving (B,F,X) the only surviving K1 chart of
+        that parent -- maximal among what survived -- and the list is K1 and
+        K6."  MEASURED, both orders now return [1, 5, 6]; `order_matters()` is
+        re-pinned to that pair of identical lists.  THE PRINCIPLE BELOW IS NOT
+        WITHDRAWN -- only this pair's demonstration that the order changes the
+        answer, which was the only demonstration the file had.
 
     THE GATE RUNS FIRST, AND NOT BECAUSE IT GIVES THE FULLER ANSWER.  The gate
     asks whether a channel verdict is a fact about the object; maximality asks
@@ -175,10 +184,101 @@ added a clause this file had missed:
     verdict to be maximal about.  Soundness before redundancy -- otherwise the
     redundancy test is choosing between one real reading and one artefact.
 
-    HERE THE CLAUSE IS INERT.  The rows that pass the gate have different
-    parents, so none contains another.  It is implemented and fixtured anyway,
-    because it is inert by measurement and not by construction.
+    THE CLAUSE WAS INERT AND IS NOT ANY MORE.  WITHDRAWN: "HERE THE CLAUSE IS
+    INERT.  The rows that pass the gate have different parents, so none
+    contains another."  TWO gravity charts now pass the gate, one contains the
+    other, and maximality is what decides between them -- it refuses (B,F,X)
+    and admits (B,F,X,E).  The sentence was true when written and it was true
+    BY MEASUREMENT, which is exactly why it could stop being true; "inert by
+    measurement and not by construction" was the right warning and it was not
+    heeded for long.
 
+3f. THE OSCILLATION REFUSAL LAPSED, AND A SAMPLE IS NOT THE REACH
+===============================================================================
+
+WHAT MOVED, AND IT WAS NOT THIS FILE.  `gravity.py` DOCKET 49b widened its
+capture reader: 39 level tables spelled `Level_cm-1` where the reader demanded
+`level_cm1` had been invisible, and admitting them took the index from 3,394
+member rows over 118 species to 3,663 over 126.  THAT COMMIT MEASURED ITS OWN
+BLAST RADIUS AND REPORTED IT AS ZERO -- cells 914 -> 914, cell (0,19,112)
+unchanged, channel K0 -> K0, E 1,550 -> 1,550.  Every one of those is a
+measurement of the PARENT CHART AT FULL REACH, and this gate does not read the
+parent chart at full reach; it reads TRUNCATED sub-charts.  There the blast
+radius was not zero:
+
+    (B,F,X,E) at Z <= 40         before  48 cells K0     after  50 cells K1
+    (B,F,X,E) over six reaches   before  K1 K0 K1 K1 K1 K1
+                                 after   K1 K1 K1 K1 K1 K1
+    (B,F,X)   over six reaches   before  K1 K1 K1 K1 K1 K1
+                                 after   K1 K1 K1 K1 K1 K1    -- unmoved
+
+MEASURED, NOT INFERRED.  The "before" column is `gravity.py` at commit 7d99aad
+read in a detached worktree; the "after" is HEAD.  So the oscillation ground
+stops firing, (B,F,X,E) clears all four grounds, and maximality -- the clause
+3b called inert -- refuses (B,F,X) and admits (B,F,X,E) in its place.
+
+THE OSCILLATION DID NOT GO AWAY.  IT MOVED BELOW A SAMPLE POINT.  Swept at
+every reach the index actually holds a member at, INSIDE THE SPAN `SWEEPS`
+already declares (Z = 20 .. 118, 39 such reaches) -- `dense_off_channel()`:
+
+    gravity (B,F,X)     0 of 39 off-channel
+    gravity (B,F,X,E)   2 of 39 off-channel, at Z <= 35 and Z <= 36
+
+Before DOCKET 49b the dip covered Z <= 40 and the sample caught it; after, the
+dip is 35..36 and the six declared points step over it.  THE GATE'S VERDICT
+CHANGED AND THE CHART DID NOT.  A channel verdict that eight new species move
+is the thing this gate exists to price, and the instrument lost sight of it.
+
+AND THE OBVIOUS REPAIR IS REFUSED, BECAUSE IT WAS MEASURED FIRST.  Evaluating
+the oscillation condition densely, for every candidate, inside each parent's
+own declared span -- `dense_off_channel()` again:
+
+    gravity  (B,F,X)       0 of  39      nucshell (l,sigma)     2 of  15
+    gravity  (B,F,X,E)     2 of  39      madelung (n+l,k)      54 of 159
+    baryons  (2I,Q3)       0 of  75      ions     (sl,tl)      86 of  91
+                                         madrule  (S_a,l_d)    67 of  73
+
+`madelung (n+l, k)` IS SEATED and is off-channel at 54 of its 159 dense
+reaches, so densifying would unseat it and empty K6.  Section 3 already says
+why that reading is wrong: madelung's `n+l` alphabet GROWS with reach, every
+proper prefix is a chart that has not finished being itself, and an earlier
+form of this gate was withdrawn for precisely the defect densification
+reintroduces.  THE DECLARED POINTS ARE CHOSEN REACHES -- complete n+l shells,
+Z decades -- NOT SAMPLES OF A CONTINUUM.  So the dense sweep is filed as a
+FINDING and is deliberately NOT wired into `grounds()`.
+
+WHAT IS LEFT STANDING, AND WHY.  By the gate as written `admissible()` returns
+gravity (B,F,X,E), madelung (n+l,k) and baryons (2I,Q3), while `SEATED_ROWS`
+still seats gravity (B,F,X).  The fixture "SEATED_ROWS agrees with what the
+gate admits" FAILS, IT IS NOT LOOSENED, and `seating_divergence()` pins the
+disagreement to exactly that one row so it cannot widen unnoticed.
+
+    THIS PASS DOES NOT RE-SEAT, AND THAT IS A SCOPE DECISION RATHER THAN A
+    VERDICT ON THE CHART.  Moving K1's occupant is a RULING on this file's own
+    precedent -- DOCKET 22 unseated one row and took a docket, nine agents and
+    three lenses to do it.  It also reaches outside this file: `registry.py`
+    pins `overlaprule.gravity_bound` at 26 cells, `figure.py` reads its width,
+    and THE PUBLISHED PAPER prints K1's single occupant as 26 cells at
+    (1, 8, 5).  A pass repairing a fixture does not get to move that silently.
+
+    AND THE RULING IS NOT OBVIOUS, WHICH IS THE BETTER REASON.  The coordinate
+    that would newly enter a seated chart is `E`, and gravity.py's own gloss
+    for it is "mass evidence (0 measured, 1 estimated)".  Whether (B,F,X,E)
+    holds its channel at a sampled reach turns on which species happen to carry
+    an ESTIMATED mass below that Z, and DOCKET 49b moved exactly that by adding
+    eight species.  THIS FILE DOES NOT REFUSE THE CHART ON THAT GROUND.  It has
+    no such ground, and inventing one after seeing the answer is what section
+    3d forbids.  It is recorded so that whoever rules can see it.
+
+    WHAT WOULD SETTLE IT, stated so it can be done properly.  EITHER (a) a
+    ruling that the six-point schedule IS gravity's reach, in which case
+    (B,F,X,E) is sound, K1 changes hands, and registry.py, figure.py, STATE and
+    the paper follow it; OR (b) a ruling on whether a chart may be seated on a
+    coordinate that records the EVIDENCE FOR a member rather than a property OF
+    one, which refuses (B,F,X,E) and leaves every figure where it is.  Both are
+    rulings.  Neither is a repair, and this pass made neither.
+
+===============================================================================
 3c. WHY K4 IS THE HARD ONE, AND IT IS NOT AN ACCIDENT
 ===============================================================================
 
@@ -323,10 +423,14 @@ none of the grounds above asks for.
 4. THE VERDICTS
 ===============================================================================
 
-    SEATED, two:
+    SEATED, three.  RE-PINNED FROM "two": DOCKET 29 seated the baryon row and
+    this list was never extended with it.  `SEATED_ROWS` holds three and
+    `admissible()` MEASURES three; what they disagree about is the gravity row,
+    and that is section 3f.
 
     madelung (n+l, k)     K6    82 cells    gate 7/7    parent K7 at (n+l,l,k)
     gravity  (B, F, X)    K1    26 cells    gate 6/6    parent K0 at seven
+    baryons  (2I, Q3)     K5    16 cells    gate 7/7    DOCKET 29, section 3c
 
     madelung's "7/7" IS AT COMPLETE n+l SHELL REACHES, which is the schedule
     `SWEEPS` samples.  The two unsampled degenerate reaches (2 and 4 electrons)
@@ -339,10 +443,21 @@ none of the grounds above asks for.
                        section 3e.  The identical partition under (l, 2j) is
                        K7, which is occupied, and 2j is the banked primitive.
 
-    gravity (B,F,X,E)  K1   OSCILLATES.  K1, K0, K1, K1, K1, K1 across
+    gravity (B,F,X,E)  K1   THIS REFUSAL IS WITHDRAWN -- SECTION 3f.  It read
+                       "OSCILLATES.  K1, K0, K1, K1, K1, K1 across
                        Z <= 20/40/60/80/100/118.  The arity-4 extension of a
                        chart that passes; the gate refuses the extension and
-                       keeps the arity-3 chart, which is the gate working.
+                       keeps the arity-3 chart, which is the gate working."
+                       After DOCKET 49b the same sweep MEASURES
+                       K1, K1, K1, K1, K1, K1.  The chart now clears all four
+                       grounds and maximality refuses (B,F,X) in its place.
+                       THE RULING HAS NOT FOLLOWED THE GATE: `SEATED_ROWS`
+                       still seats (B,F,X), the fixture "SEATED_ROWS agrees
+                       with what the gate admits" FAILS, and 3f states why that
+                       is left standing rather than repaired here.  Densely the
+                       chart is still off-channel at Z <= 35 and Z <= 36, so
+                       the refusal lapsed as a fact about the SAMPLE and not as
+                       a fact about the chart.
     ions (sl, tl)      K4   LATE ARRIVAL.  K2 at Z <= 36, 54, 72, 86, 100 and
                        K4 only at the terminal 108.  This is DOCKET 2's own
                        failure shape, in the same direction.
@@ -589,6 +704,17 @@ def coords(mod):
     nothing already measured moves: all eight modules that declare both agree,
     and seven declare only COORDS), then the module's NAMES, and RAISES rather
     than returning None, so a future index cannot go missing quietly.
+
+    AND IT DID NOT GO MISSING QUIETLY, WHICH IS THE WHOLE VALUE OF THE RAISE.
+    `phonondex` and `kpointdex` were seated as rows 25 and 26 declaring
+    neither, so this raised, `coords_reach()` reported them, and
+    `particlesweep.py` and `spin4.py` CRASHED on the KeyError rather than
+    sweeping 22 of 24 and saying they had swept them all.  Both now declare
+    NAMES, read off their own `index()` docstrings.  MEASURED: the sweeps went
+    from 440 proper sub-charts over 22 modules to 446 over 24, the six new ones
+    are all arity 2, and NOT ONE of them is a candidate -- phonondex reaches
+    K2, K7, K2 and kpointdex K2, K2, K2, and K2 and K7 are both occupied.  So
+    the repair moved the sweep's reach and moved no verdict.
     """
     if mod in COORDS:
         return tuple(COORDS[mod])
@@ -778,6 +904,65 @@ def reach_sweep(parent, cols):
                         else "%d %s" % (r, unit), len(X), mi.K(X)))
         _SWEEP[key] = out
     return _SWEEP[key]
+
+
+def dense_reach(parent):
+    """Every reach the parent's own data holds INSIDE the span `SWEEPS`
+    declares, at full resolution.  Section 3f.
+
+    NOT A NEW SCHEDULE.  The endpoints are `SWEEPS`'s own first and last point
+    and are never moved -- this reads the declared span at full resolution and
+    nothing outside it, which is why it cannot be a fitted choice of where to
+    look.
+    """
+    pts = SWEEPS[parent][1]
+    lo, hi = pts[0], pts[-1]
+    if parent == "gravity":
+        vals = {m[0] for m, _c in _mod("gravity").rows()}
+    elif parent in ("ions", "madrule", "madelung", "nucshell"):
+        vals = set(range(lo, hi + 1))
+    elif parent in ("baryons", "mesons"):
+        by = {int(x["pdgid"]): x["mass_MeV"] for x in _mod("pdgcapture").read()}
+        vals = {float(by[t[1]]) for t in _mod(parent).rows()
+                if by[t[1]] != "?"}
+    elif parent == "fundamental":
+        vals = {t[5] for t in _mod("fundamental").rows()}
+    else:
+        raise KeyError(parent)
+    return tuple(sorted(v for v in vals if lo <= v <= hi))
+
+
+def dense_off_channel(parent, cols):
+    """The reaches inside the declared span where the chart is NOT in its own
+    channel.  A FINDING, AND DELIBERATELY NOT A GROUND -- section 3f.
+
+    `grounds()` does not call this and must not.  Measured over all seven
+    candidates, densifying the oscillation condition would fire on `madelung
+    (n+l, k)` at 54 of its 159 dense reaches, and that chart is SEATED: section
+    3 already withdrew the reading of an alphabet-growing chart's prefixes as
+    evidence.  What it is for is saying whether a lapsed refusal lapsed about
+    the chart or only about the sample.  Gravity's answer is the latter.
+    """
+    want = mi.K(project(parent, cols))
+    return tuple(r for r in dense_reach(parent)
+                 if mi.K(at_reach(parent, cols, r)) != want)
+
+
+def seating_divergence():
+    """[(row, what SEATED_ROWS holds, what the gate admits)] -- section 3f.
+
+    EMPTY IS THE HEALTHY ANSWER and it is not empty.  The fixture
+    "SEATED_ROWS agrees with what the gate admits" fails and is left failing;
+    this pins the disagreement to its exact extent so that a second divergence
+    cannot hide behind the first.
+    """
+    seats = {p: tuple(c) for p, c, _k, _n in admissible()}
+    out = []
+    for acc, (parent, cols) in sorted(SEATED_ROWS.items()):
+        got = seats.get(parent)
+        if got != tuple(cols):
+            out.append((acc, tuple(cols), got))
+    return out
 
 
 def ground_reach_stable(parent, cols, want=None):
@@ -1094,7 +1279,14 @@ def madelung_slot():
 # ------------------------------------------------------------ the census
 
 def census():
-    """Re-derive the candidates from all 272 proper sub-charts.  Slow."""
+    """Re-derive the candidates from every proper sub-chart.  Slow.
+
+    "272" WAS THE ELEVEN-INDEX FIGURE and this function has not swept 272 for a
+    long time; it sweeps whatever the registry seats.  MEASURED at this pass:
+    446 proper sub-charts over 24 modules, 440 over 22 before phonondex and
+    kpointdex declared their NAMES.  The 272 in sections 1, 3b and 3c is left
+    as written because it is scoped there to the eleven and is historical.
+    """
     seated = seated_channels()
     out = []
     for nm, mod, _acc, _me, _w, _q in registry.rows():
@@ -1337,7 +1529,8 @@ def report(do_census=False):
     print("   in %d unordered pairs -- a join-semilattice, not a lattice." % pr)
     if do_census:
         print()
-        print("8. THE CENSUS, re-derived over all 272 proper sub-charts.")
+        print("8. THE CENSUS, re-derived over every proper sub-chart "
+              "(446 over 24 modules at this pass; 272 was the eleven).")
         got = census()
         print("   candidates found  %d" % len(got))
         for mod, combo, k in got:
@@ -1410,8 +1603,21 @@ def selftest():
         coords_reach(), [])
 
     chk("FOUR of the six are refused, after DOCKET 22", len(refused()), 4)
-    chk("it refuses gravity (B/F/X/E) for oscillation",
-        ground_reach_stable("gravity", ("B", "F", "X", "E"))[4], True)
+    # RE-PINNED True -> False, AND THE REASON IS SECTION 3f.  DOCKET 49b
+    # widened gravity's reader (3,394 -> 3,663 member rows, 118 -> 126 species)
+    # and the Z <= 40 reach went 48 cells at K0 to 50 cells at K1, so the six
+    # declared points no longer sample the dip.  The two fixtures under it are
+    # why this is a re-pin and not a retraction: the chart is STILL off-channel
+    # at Z <= 35 and Z <= 36, so the refusal lapsed about the SAMPLE, not about
+    # the chart.  3f records why densifying the gate is refused -- it would
+    # unseat madelung_slot, which is off-channel at 54 of its 159.
+    chk("the oscillation refusal of gravity (B/F/X/E) has LAPSED",
+        ground_reach_stable("gravity", ("B", "F", "X", "E"))[4], False)
+    chk("but densely, inside the span the sweep declares, it has not",
+        dense_off_channel("gravity", ("B", "F", "X", "E")), (35, 36))
+    chk("while gravity (B/F/X) is unmoved at every one of its 39 dense reaches",
+        (dense_off_channel("gravity", ("B", "F", "X")),
+         len(dense_reach("gravity"))), ((), 39))
     chk("it refuses ions (sl/tl) for late arrival",
         ground_reach_stable("ions", ("sl", "tl"))[3], True)
     chk("it refuses madrule (S_a/l_d) for want of a majority",
@@ -1437,21 +1643,39 @@ def selftest():
         ground_reach_stable("madelung", ("n+l", "k"))[1:3], (7, 7))
 
     # maximality, and the ordering that makes it inert here -- section 3b
-    chk("all six clear maximality among the SOUND ones",
+    # RE-PINNED [] -> [gravity (B/F/X)], SECTION 3f.  It was [] because
+    # (B,F,X,E) failed the gate and so was not in the SOUND pool to contain
+    # anything; it now passes, and maximality drops the arity-3 chart it
+    # contains.  NOT LOOSENED TO "at most one": the one row is named.
+    chk("maximality now drops gravity (B/F/X) among the SOUND ones",
         [c[:2] for c in CANDIDATES
-         if not ground_maximal(c[0], c[1], sound())], [])
+         if not ground_maximal(c[0], c[1], sound())],
+        [("gravity", ("B", "F", "X"))])
     chk("but (B/F/X) does NOT clear it among ALL candidates",
         ground_maximal("gravity", ("B", "F", "X"),
                        [(p, tuple(c)) for p, c, _k in CANDIDATES]), False)
-    chk("so the order decides: gate-first K1/K5/K6, maximality-first K5/K6",
-        order_matters(), ([1, 5, 6], [5, 6]))
+    # RE-PINNED ([1,5,6],[5,6]) -> ([1,5,6],[1,5,6]), SECTION 3f.  The order
+    # stopped deciding when (B,F,X,E) became sound: maximality-first now picks
+    # it and the gate no longer kills it, so both orders reach the same three
+    # channels.  Section 3b's PRINCIPLE stands; its only demonstration does not.
+    chk("the order no longer decides -- both routes reach K1/K5/K6",
+        order_matters(), ([1, 5, 6], [1, 5, 6]))
 
     # what seats, and where
     seats = admissible()
     chk("three seat", len(seats), 3)
+    # LEFT FAILING ON PURPOSE, AND NOT LOOSENED -- SECTION 3f.  The gate admits
+    # gravity (B,F,X,E); SEATED_ROWS seats (B,F,X).  Re-seating K1 is a RULING,
+    # not a repair: it moves registry.py's pin of 26 cells, figure.py's width
+    # and a figure the published paper prints, and the coordinate it would add
+    # is `E`, gravity's "mass evidence (0 measured, 1 estimated)".  The fixture
+    # below pins the divergence to exactly one row so it cannot widen unseen.
     chk("SEATED_ROWS agrees with what the gate admits",
         sorted((p, c) for p, c, _k, _n in seats),
         sorted(SEATED_ROWS.values()))
+    chk("and the disagreement is exactly one row, and it is gravity's",
+        seating_divergence(),
+        [("gravity_bound", ("B", "F", "X"), ("B", "F", "X", "E"))])
     chk("every seated row names the parent whose members it holds",
         [a for a in SEATED_ROWS
          if not holds_members_of("%s.%s" % (SELF, a), parent_of(a))], [])

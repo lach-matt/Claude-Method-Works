@@ -64,14 +64,26 @@ Every slot is a quantum number, a count of them, or the status of the level the
 other slots were read at.  The criterion `registry.enforce()` applies is met by
 construction, not by exemption.
 
-    **3,394 members, over 8 dimensions: 27,152 charted rows.**
-    118 species (element + charge state), Z from 3 to 90, q from 0 to 15.
+    **3,663 members, over 8 dimensions: 29,304 charted rows.**
+    126 species (element + charge state), Z from 3 to 90, q from 0 to 15.
+
+    RE-PINNED 2026-09-20, AND THE CAUSE IS NOT THE ONE THAT WAS GUESSED AT.
+    Every figure below was re-measured after DOCKET 49b widened `captures()`
+    to accept the `Configuration / Term / J / Level_cm-1` header spelling --
+    commit b28abdc, which reported the new totals in its message and left this
+    docstring and the fixtures standing at the old ones.  The SOURCE did not
+    move: no `.tsv` has entered `recovered/` since 2026-09-04, and the eight
+    capture files the widening reached have been on disk, unread, since then.
+    **THE READER MOVED, NOT THE DATA**, which is the opposite of an index
+    tracking a growing source, and the eight species are named in section 3a.
 
 ===============================================================================
 2. L IS A COORDINATE AND NOT AN EXCLUSION, AND THAT IS A CORRECTION
 ===============================================================================
 
-**AN EARLIER BUILD OF THIS FILE DROPPED 31 SPECIES AND IT WAS WRONG TO.**  Their
+**AN EARLIER BUILD OF THIS FILE DROPPED THE EXCITED-LEVEL SPECIES AND IT WAS
+WRONG TO.**  There are 33 of them now and there were 31 when that build ran --
+the other two are N IV and Ti IV, which the reader could not see then.  Their
 captures bank no level at 0.00 cm-1 -- they are series or high-l captures whose
 lowest banked level is an excited one -- and they were excluded on the grounds
 that reading an excited level's J as a GROUND J is an error.
@@ -87,7 +99,10 @@ that reading an excited level's J as a GROUND J is an error.
     SO THE STATUS IS A COORDINATE.  `L` = 0 where the capture banks a level at
     0.00 exactly, 1 where the lowest it banks is excited.  Nothing is dropped
     and nothing is relabelled as a ground it is not.  `excited_species()` names
-    all 31 with the level each was read at.
+    all 33 with the level each was read at.  **The figure was 31 when this
+    paragraph was written and the set is 33 now**: two of the eight species the
+    widened reader reached, N IV and Ti IV, bank no level at 0.00 either.  The
+    correction is unchanged by that -- it was never a claim about a count.
 
     AND THE EXCITATION ENERGY GOES INTO THE MASS, EXACTLY.  A level at nu~ cm-1
     carries h*c*(100*nu~)/c^2 of mass, so M gains `lv * CM1_KG`.  It is small --
@@ -96,29 +111,39 @@ that reading an excited level's J as a GROUND J is an error.
     bounded rather than included because it is NOT banked, and the two are
     treated differently for that reason and no other.
 
-    WHAT IT BOUGHT, MEASURED RATHER THAN ASSERTED.  Members 2,696 -> 3,394;
-    species 87 -> 118.  The angular momentum alphabet gained EXACTLY ONE value
+    WHAT IT BOUGHT, RE-MEASURED RATHER THAN RESCALED.  Members 2,920 -> 3,663;
+    species 93 -> 126.  The angular momentum alphabet gained EXACTLY ONE value
     it did not have: **2Je = 5, that is J = 5/2, on 19 members, and no ground
-    level among the 87 supplies it.**  The first draft of this paragraph
+    level among the 93 supplies it.**  The first draft of this paragraph
     claimed two new values, 2 and 5; that was wrong -- 2Je = 2 was already
-    seated on 29 ground members, and the excited levels raise it to 346 rather
+    seated on 29 ground members, and the excited levels raise it to 362 rather
     than introducing it.  The selftest now pins which values are exclusive to
     L = 1, so the claim cannot drift again.
 
         2Je     0     1     2     3     4     5     8
-        L = 0   921   938    29   539   228     0    41
-        L = 1   140   150   317     0    72    19     0
+        L = 0  1038  1010    29   574   228     0    41
+        L = 1   140   179   333     0    72    19     0
 
-    Nuclides with an exactly Schwarzschild exterior rose 228 -> 236, and members
-    relieved by dimension 536 -> 607.  The 31 are not simply more of the same:
+    Nuclides with an exactly Schwarzschild exterior rose 286 -> 294, and members
+    relieved by dimension 613 -> 684.  The 33 are not simply more of the same:
     they reach one state the ground levels do not, and they move the weight of
     the alphabet substantially where they overlap it.
 
-    ONE MEMBER PER (SPECIES, NUCLIDE), STILL.  Each species contributes its
-    LOWEST banked level and no other, so no body is charted twice and the
-    member set carries no duplication.  Charting every banked level of every
-    species would multiply the same nuclides by their level tables, and that is
-    over-representation rather than reach.
+    **THE PREVIOUS PRINTING OF THIS PARAGRAPH IS WITHDRAWN, NOT RESCALED.**  It
+    read 2,696 -> 3,394, 87 -> 118, 346, 228 -> 236 and 536 -> 607, over a 2Je
+    table of (921, 938, 29, 539, 228, 0, 41) and (140, 150, 317, 0, 72, 19, 0).
+    Every one of those was correct for the 118 species the narrow reader could
+    see and none of them is arithmetic away from the figure beside it: the
+    ground-only baseline moved too, because six of the eight new species are
+    read at 0.00.  Each figure above was measured by running the code.
+
+    ONE MEMBER PER (SPECIES, NUCLIDE), STILL.  Each species contributes the ONE
+    level it is read at and no other, so no body is charted twice and the
+    member set carries no duplication.  (For 117 of the 126 that level is the
+    lowest the capture banks; section 3b names the nine where it is not, and
+    that is a finding about the reader, not a second member.)  Charting every
+    banked level of every species would multiply the same nuclides by their
+    level tables, and that is over-representation rather than reach.
 
 ===============================================================================
 3. WHERE EVERY NUMBER COMES FROM
@@ -148,20 +173,101 @@ that reading an excited level's J as a GROUND J is an error.
 
     2Je the NIST ASD level captures in `recovered/`, columns
         `config  term  J  level_cm1`, taking the LOWEST row the capture banks
-        with a readable J.  57 of the captures carry that header commented out;
+        with a readable J.  56 of the captures carry that header commented out;
         the parser accepts both spellings, which is a fact about the capture
-        format and not an inference about the data.  No lowest level in the 118
+        format and not an inference about the data.  No lowest level in the 126
         is bracketed or otherwise not a plain number, which is checked.
 
-        149 captures name a species and carry a level table: **118 distinct
-        species**, all of them members.  **87 are read at the table's ground
-        (L = 0) and 31 at an excited level (L = 1).**
+        194 captures name a species and carry a level table: **126 distinct
+        species**, all of them members.  **93 are read at the table's ground
+        (L = 0) and 33 at an excited level (L = 1).**
+
+        RE-PINNED.  These read 57, 118, 149, 118, 87 and 31.  `capture_files()`
+        was still counting with the PRE-49b test -- a literal `level_cm1` and a
+        species named in a header comment -- while the species figure beside it
+        came from the widened `captures()`, so the sentence paired two readers
+        and was false as a sentence however true each half was.  It uses
+        `_columns()` and `_species_of_filename()` now, and both halves are one
+        reader: 194 files, 126 species.  The commented-header count fell 57 ->
+        56 for the same reason and not because a file changed.
 
     D   NOT MEASURED.  It is the index's independent variable, and carrying it
         is the whole point of the file.  4 to 11: four is observed; five and
         six are where the horizon structure changes (section 5); ten and eleven
         are the string and M-theory dimensions, and eleven is Nahm's ceiling on
         supergravity.
+
+===============================================================================
+3a. THE EIGHT SPECIES THE WIDENED READER REACHED, NAMED
+===============================================================================
+
+They are verified rather than inferred: the pre-49b reader and the present one
+were both run over the same `recovered/`, and the difference is exactly these
+eight, with NOTHING DROPPED and no species read at a different level.  Every
+one is a NIST ASD level capture fetched 2026-08-14 and on disk since the
+2026-09-04 recovery, so not one of them is new content.
+
+    species   Z    q   read at cm-1   2Je   L   capture file
+    Fr I      87   0          0.00      1   0   FrI.tsv
+    N IV       7   3     377284.80      2   1   NIV.tsv
+    Ni X      28   9          0.00      3   0   NiX.tsv
+    Ra I      88   0          0.00      0   0   RaI.tsv
+    Rn I      86   0          0.00      0   0   RnI.tsv
+    Sr II     38   1          0.00      1   0   SrII.tsv
+    Ti IV     22   3      80388.92      1   1   TiIV.tsv
+    Xe I      54   0          0.00      0   0   XeI.tsv
+
+    NONE IS A DUPLICATE AND NONE IS A DOUBLE COUNT.  No (Z, q) among the eight
+    was already seated, and five of the atomic numbers -- 28, 54, 86, 87, 88 --
+    had no member in the index at all.  Each contributes exactly the AME2020
+    nuclides at its Z and no more: 37 + 16 + 35 + 35 + 39 + 35 + 29 + 43 = 269,
+    which is 3,663 - 3,394 exactly.  Six are read at 0.00 and two above it,
+    which is 93 - 87 and 33 - 31.  `ONE MEMBER PER (SPECIES, NUCLIDE)` still
+    holds over all 3,663, and the selftest checks it rather than asserting it.
+
+    AND 37 SPECIES CHANGED PROVENANCE WITHOUT CHANGING A MEASUREMENT.  Where a
+    title is duplicated, `recovered/` holds a plain-named file and a
+    `__<md5>`-suffixed twin; the plain name now parses and sorts first, so
+    `captures()` records `TlI.tsv` where it recorded `TlI__cbda33db.tsv`.
+    Level, 2J, config and term are byte-identical in all 37.  Nothing to repair
+    and nothing to re-pin: it is named here so a provenance diff is not read as
+    a data change.
+
+===============================================================================
+3b. RECORDED, NOT REPAIRED: NINE SPECIES ARE NOT READ AT THEIR LOWEST LEVEL
+===============================================================================
+
+**`captures()` TAKES THE FIRST PARSEABLE ROW OF A CAPTURE, NOT THE MINIMUM OVER
+ITS ROWS**, and for 117 of the 126 those are the same row because an ASD table
+comes back ordered by energy.  Nine captures are grouped BY SERIES instead --
+all the ns, then all the np, then all the nd -- and for those the first row is
+not the lowest.  Measured, not supposed:
+
+    species   read at cm-1   2Je      lowest banked cm-1   2Je
+    B V        2439199.6934    1           2439195.6667      1
+    Be IV      1560902.3163    1           1560900.5281      1
+    Ca IX       774480.00      0            760538.00        2
+    P III       117835.95      1            116874.56         5
+    S III       146697.37      0            104159.70         4
+    S IV        181448.20      1            152133.20         3
+    Si III      153377.05      2            142943.74         6
+    Ti IV        80388.92      1               382.10         5
+    Ti XI      1065780.00      0           1050850.00         2
+
+    **WHAT IT DOES NOT TOUCH.**  All nine are L = 1 read and L = 1 true, so the
+    93/33 split, every ground level and the L coordinate itself are unaffected.
+    Eight of the nine were already among the 118 and read the same way then, so
+    this is not something the widening introduced and not something the re-pin
+    caused.
+
+    **WHAT IT WOULD TOUCH, AND WHY IT IS LEFT ALONE HERE.**  Seven of the nine
+    would change 2Je, and one of those values -- Si III at 2Je = 6 -- is not in
+    the alphabet at all, so the fix would move the spin decades, the X rank and
+    possibly the cell.  That is a different repair with a different blast
+    radius from re-pinning a stale fixture, and it is not made in the same pass
+    as one.  **IT IS A FINDING AND IT IS RECORDED**; the selftest pins all nine
+    so it cannot be lost, and `captures()` no longer claims to return a lowest
+    level it does not return.
 
 ===============================================================================
 4. THE TWO ANGULAR-MOMENTUM FACTS, AND THEY NEED NO NUCLEAR DATUM
@@ -180,7 +286,7 @@ rests on them rather than on a guess at I.
             (A + Ne) odd   ==>   F >= 1/2 > 0,
 
     with no knowledge of I whatever.  That is the coordinate `F`, it is exact
-    arithmetic on two banked integers, and it holds for **1,697 of the 3,394
+    arithmetic on two banked integers, and it holds for **1,831 of the 3,663
     members.**  IT IS INDEPENDENT OF L: the integer-or-half-integer character of
     Je is fixed by the electron count, not by which level the electrons are in.
 
@@ -188,15 +294,15 @@ rests on them rather than on a guess at I.
     even-N nucleus has ground-state spin zero; this is the pairing rule, it is
     exceptionless over measured ground states, and it is an EMPIRICAL RULE, not
     a theorem.  Its status is carried as `PAIRING_RULE_STATUS` and is never
-    flattened.  Where it applies and 2Je = 0 as well, F = 0 exactly: **365
-    members**, of which **236 distinct nuclides are neutral** and therefore
+    flattened.  Where it applies and 2Je = 0 as well, F = 0 exactly: **423
+    members**, of which **294 distinct nuclides are neutral** and therefore
     have an exterior field that is EXACTLY SCHWARZSCHILD.  Electronic
     excitation does not touch this: the pairing rule is about the NUCLEAR
     ground state, and the nucleus of an electronically excited atom is in it.
 
     The two are mutually exclusive, and the selftest checks that rather than
     assuming it: F = 0 established needs Ne even, while A + Ne odd with A even
-    needs Ne odd.  **1,332 members are neither**, and those are the ones whose
+    needs Ne odd.  **1,409 members are neither**, and those are the ones whose
     bound class is UNDETERMINED above four dimensions.
 
 ===============================================================================
@@ -221,7 +327,7 @@ A singly-rotating Myers-Perry black hole in D dimensions has a horizon where
     experiment cannot reach -- and the statement above never uses it.  It says
     a root EXISTS, not where.
 
-    **607 of the 3,394 members are bound at D <= 5 and unbound at D >= 6.**
+    **684 of the 3,663 members are bound at D <= 5 and unbound at D >= 6.**
 
     CHARGE IS NOT RELIEVED THE SAME WAY.  The static charged Tangherlini
     function is f(r) = 1 - mu/x + Q^2/x^2 with x = r^(D-3); its roots are the
@@ -274,7 +380,7 @@ rather than assumed away.**
 7. WHAT IT MEASURES
 ===============================================================================
 
-    3,394 members x 8 dimensions   27,152 rows
+    3,663 members x 8 dimensions   29,304 rows
     distinct cells                 914          box 3,840
     no constant coordinate, no coordinate the others determine, no LABEL --
     and that is re-measured with L in, which is how L earned its slot
@@ -298,7 +404,7 @@ THE CELL COUNT.**  Fix D and chart the remaining six coordinates:
     -- and the admissible chart cannot see it, because (K, height, width) is
     invariant under it.  Recorded, not repaired.
 
-**FINDING B: THE RELIEF AT SIX IS IN THE MEMBERS AND NOT IN THE CELL.**  607
+**FINDING B: THE RELIEF AT SIX IS IN THE MEMBERS AND NOT IN THE CELL.**  684
 members lose their bound at D = 6, and the cell does not move.  A chart that
 reports (K, height, width) would report the ultraspinning transition as nothing
 at all.  That is a limit of the chart, stated here so nobody reads the
@@ -314,7 +420,7 @@ Kerr parameter and nothing more.  Section 4's two facts are the only
 total-angular-momentum statements made here, and neither needs I.
 
 **TO CALL AN EXCITED LEVEL A GROUND STATE.**  `L` carries the distinction on
-every member, `excited_species()` names all 31 with the level each was read at,
+every member, `excited_species()` names all 33 with the level each was read at,
 and no summary collapses the two.
 
 **TO PUT A NUMBER ON A HORIZON ABOVE FOUR DIMENSIONS.**  G_D is fixed by
@@ -329,7 +435,7 @@ every member whose F = 0 rests on it.
 charting them would multiply the same nuclides by their own spectra, and that
 is over-representation rather than reach.
 
-**TO EXTEND THE 118 SPECIES BY INFERENCE.**  Hund's rules would give a ground J
+**TO EXTEND THE 126 SPECIES BY INFERENCE.**  Hund's rules would give a ground J
 for every element in the table, and that is a computation, not a capture.
 
 **TO ASSIGN THE WARP METRICS ANYTHING.**  The same refusal petrov.py makes, for
@@ -495,11 +601,23 @@ def _species_of(lines):
 
 
 def captures():
-    """{(symbol, numeral): (lowest banked level, 2J, config, term, file)}.
+    """{(symbol, numeral): (the level read, 2J, config, term, file)}.
 
-    The LOWEST level each capture banks with a readable J -- which is the
-    ground level only where it is 0.00.  `grounds()` keeps those; the rest are
-    named by `excluded_species()` with the level that disqualified them.
+    THE FIRST row each capture banks with a readable J, and across several
+    captures of one species the lowest of those firsts.  L = 0 where that level
+    is 0.00 exactly; `grounds()` keeps those and `excited_species()` names the
+    rest with the level each was read at.
+
+    **"THE LOWEST LEVEL EACH CAPTURE BANKS WITH A READABLE J" IS WITHDRAWN.**
+    That is what this docstring said and it is not what the loop does: it reads
+    the first parseable row and breaks.  The two agree for 117 of the 126
+    species, because an ASD table comes back ordered by energy.  They do not
+    agree for the nine captures grouped by series instead -- Ti IV banks
+    3p6.3d at 382.1 cm-1 below the 3p6.4s at 80388.92 it is read at.  Section
+    3b names all nine with both levels, `non_minimum_reads()` measures them and
+    the selftest pins them.  RECORDED, NOT REPAIRED: seven of the nine would
+    change 2Je and one would add a value to the alphabet, which is a different
+    repair from the one this pass made.
     """
     if "cap" in _CACHE:
         return _CACHE["cap"]
@@ -579,19 +697,102 @@ def excited_species():
 
 
 def capture_files():
-    """How many recovered captures carry a level table AND name a species."""
+    """How many recovered captures carry a level table AND name a species.
+
+    RE-PINNED 149 -> 194, AND THE FILES DID NOT MOVE.  This counted with the
+    pre-49b test -- a literal `level_cm1` somewhere in the text and a species
+    named in a header comment -- while `captures()` had been widened to
+    `_columns()` and `_species_of_filename()`.  Section 3 then printed 149
+    files against 126 species, which is two readers in one sentence.  It asks
+    exactly what `captures()` asks now, so the file count and the species count
+    are the same census: 194 files, 126 species.
+    """
     n = 0
     for fn in sorted(os.listdir(ASD)):
         if not fn.endswith(".tsv"):
             continue
         with open(os.path.join(ASD, fn), encoding="utf-8",
                   errors="replace") as fh:
-            txt = fh.read()
-        if "level_cm1" not in txt:
+            lines = fh.read().split("\n")
+        if not any(_columns(l) is not None for l in lines[:40]):
             continue
-        if _species_of(txt.split("\n")) is not None:
+        if _species_of(lines) is None and _species_of_filename(fn) is None:
+            continue
+        n += 1
+    return n
+
+
+def commented_headers():
+    """Captures whose column header line is commented out with a leading #."""
+    n = 0
+    for fn in sorted(os.listdir(ASD)):
+        if not fn.endswith(".tsv"):
+            continue
+        with open(os.path.join(ASD, fn), encoding="utf-8",
+                  errors="replace") as fh:
+            lines = fh.read().split("\n")
+        hi = next((i for i, l in enumerate(lines[:40])
+                   if _columns(l) is not None), None)
+        if hi is None:
+            continue
+        if _species_of(lines) is None and _species_of_filename(fn) is None:
+            continue
+        if lines[hi].startswith("#"):
             n += 1
     return n
+
+
+def non_minimum_reads():
+    """[(species, level read, 2J read, lowest banked, its 2J)] -- SECTION 3b.
+
+    THE NINE CAPTURES GROUPED BY SERIES RATHER THAN BY ENERGY.  `captures()`
+    takes the first parseable row, so for these the level it records is not the
+    lowest the capture banks.  A FINDING, RECORDED AND NOT REPAIRED: all nine
+    are L = 1 either way, so the 93/33 split does not move, but seven would
+    change 2Je and Si III would add 2Je = 6 to an alphabet that has no 6.  This
+    measures it so it cannot be lost, and the selftest pins the result.
+    """
+    seen = {}
+    for fn in sorted(os.listdir(ASD)):
+        if not fn.endswith(".tsv"):
+            continue
+        with open(os.path.join(ASD, fn), encoding="utf-8",
+                  errors="replace") as fh:
+            lines = fh.read().split("\n")
+        hi = ix = None
+        for i, l in enumerate(lines[:40]):
+            ix = _columns(l)
+            if ix is not None:
+                hi = i
+                break
+        if hi is None:
+            continue
+        sp = _species_of(lines) or _species_of_filename(fn)
+        if sp is None:
+            continue
+        for l in lines[hi + 1:]:
+            if not l.strip() or l.startswith("#"):
+                continue
+            p = l.split("\t")
+            if len(p) <= max(ix.values()):
+                continue
+            try:
+                lv = float(p[ix["level"]].replace("[", "").replace("]", "")
+                           .replace("+x", "").strip())
+            except ValueError:
+                continue
+            tj = _two_J(p[ix["J"]])
+            if tj is None:
+                continue
+            prev = seen.get(sp)
+            if prev is None or lv < prev[0]:
+                seen[sp] = (lv, tj)
+    out = []
+    for sp, (lo, lotj) in seen.items():
+        read = captures()[sp]
+        if abs(read[0] - lo) > 1e-9:
+            out.append(("%s %s" % sp, read[0], read[1], lo, lotj))
+    return sorted(out)
 
 
 def carbon12():
@@ -925,7 +1126,8 @@ def report():
     if line.strip():
         print(line)
     print()
-    print("   WHAT THE 31 BOUGHT, MEASURED. The 2Je alphabet by level status:")
+    print("   WHAT THE %d BOUGHT, MEASURED. The 2Je alphabet by level status:"
+          % len(excited_species()))
     g0 = collections.Counter(m[5] for m in ms if m[6] == 0)
     g1 = collections.Counter(m[5] for m in ms if m[6] == 1)
     only1 = sorted(set(g1) - set(g0))
@@ -940,7 +1142,18 @@ def report():
           ", ".join(_j_str(j) for j in only1))
     print("   seated ONLY by a ground level:   %s" %
           ", ".join(_j_str(j) for j in only0))
-    print("   The 31 add one J the grounds never reach and re-weight the rest.")
+    print("   The %d add one J the grounds never reach and re-weight the rest."
+          % len(excited_species()))
+    nm = non_minimum_reads()
+    print()
+    print("   RECORDED, NOT REPAIRED (section 3b): %d of %d captures are"
+          % (len(nm), len(captures())))
+    print("   grouped by series, so the level read is not the lowest banked.")
+    for sp, rd, rtj, lo, ltj in nm:
+        print("        %-8s read %14.4f  2J %-2d   lowest %14.4f  2J %-2d"
+              % (sp, rd, rtj, lo, ltj))
+    print("   All %d are L = 1 either way, so the %d/%d split does not move."
+          % (len(nm), len(grounds()), len(excited_species())))
     print()
     print("-" * 74)
     print("2. THE TWO ANGULAR-MOMENTUM FACTS, WITH NO NUCLEAR DATUM.")
@@ -1114,13 +1327,35 @@ def selftest():
     chk("carbon 12 banks mass excess 0.0 keV, by definition", dm12, 0.0)
     chk("SO THE MASS PATH MUST RETURN EXACTLY 12 u FOR IT", m12, 12.0)
 
+    # RE-PINNED 2026-09-20.  149 -> 194, 118 -> 126, 87 -> 93, 31 -> 33, and
+    # the SOURCE DID NOT GROW: no .tsv has entered recovered/ since 2026-09-04.
+    # DOCKET 49b (b28abdc) widened captures() to the Configuration/Term/J/
+    # Level_cm-1 spelling and reached eight capture files that had been on disk
+    # and unread -- Fr I, N IV, Ni X, Ra I, Rn I, Sr II, Ti IV, Xe I, section
+    # 3a.  The reader moved, not the data.  capture_files() asks the widened
+    # question now, so 194 and 126 are one census and not two.
     chk("captures naming a species and carrying a level table",
-        capture_files(), 149)
-    chk("distinct species among them", len(captures()), 118)
+        capture_files(), 194)
+    chk("...of which the column header is commented out", commented_headers(),
+        56)
+    chk("distinct species among them", len(captures()), 126)
     chk("EVERY ONE OF THEM IS A MEMBER -- none is excluded",
         len(grounds()) + len(excited_species()), len(captures()))
-    chk("read at the table's ground, L = 0", len(grounds()), 87)
-    chk("read at an excited level, L = 1", len(excited_species()), 31)
+    chk("read at the table's ground, L = 0", len(grounds()), 93)
+    chk("read at an excited level, L = 1", len(excited_species()), 33)
+    chk("THE EIGHT DOCKET 49b REACHED, AND NO OTHER",
+        sorted("%s %s" % sp for sp in captures()
+               if sp in {("Fr", "I"), ("N", "IV"), ("Ni", "X"), ("Ra", "I"),
+                         ("Rn", "I"), ("Sr", "II"), ("Ti", "IV"),
+                         ("Xe", "I")}),
+        ["Fr I", "N IV", "Ni X", "Ra I", "Rn I", "Sr II", "Ti IV", "Xe I"])
+    chk("...six read at the ground and two above it, which is 93-87 and 33-31",
+        (sum(1 for sp, v in captures().items()
+             if v[0] == 0.0 and sp in {("Fr", "I"), ("Ni", "X"), ("Ra", "I"),
+                                       ("Rn", "I"), ("Sr", "II"), ("Xe", "I"),
+                                       ("N", "IV"), ("Ti", "IV")}),
+         sum(1 for sp, v in captures().items()
+             if v[0] != 0.0 and sp in {("N", "IV"), ("Ti", "IV")})), (6, 2))
     chk("no L = 0 species is excited",
         [s2 for s2, lv, *_r in excited_species() if lv == 0.0], [])
     chk("every excited level is above the ground",
@@ -1129,14 +1364,34 @@ def selftest():
         [s2 for s2, lv, *_r in excited_species()
          if not isinstance(lv, float)], [])
 
+    # -- SECTION 3b, RECORDED AND NOT REPAIRED: nine captures are grouped by
+    # series rather than energy, so the level read is not the lowest banked.
+    nm = non_minimum_reads()
+    chk("captures read at a level that is NOT their lowest banked", len(nm), 9)
+    chk("...and they are these nine", [r[0] for r in nm],
+        ["B V", "Be IV", "Ca IX", "P III", "S III", "S IV", "Si III",
+         "Ti IV", "Ti XI"])
+    chk("EVERY ONE IS L = 1 BOTH WAYS -- the 93/33 split does not move",
+        [r[0] for r in nm if r[1] == 0.0 or r[3] == 0.0], [])
+    chk("...and the lowest banked is genuinely below the level read",
+        [r[0] for r in nm if not r[3] < r[1]], [])
+    chk("SEVEN OF THE NINE WOULD CHANGE 2Je -- why it is a finding, not a tidy",
+        sorted(r[0] for r in nm if r[2] != r[4]),
+        ["Ca IX", "P III", "S III", "S IV", "Si III", "Ti IV", "Ti XI"])
+    chk("...and Si III would add a 2Je the alphabet has no value for",
+        sorted({r[4] for r in nm} - {m[5] for m in members()}), [6])
+
     # -- the members
     ms = members()
-    chk("members (species x nuclide)", len(ms), 3394)
-    chk("rows (x 8 dimensions)", len(rows()), 3394 * 8)
+    # RE-PINNED 2026-09-20 with the census above: the eight species of section
+    # 3a contribute exactly the AME2020 nuclides at their Z, 37+16+35+35+39+35
+    # +29+43 = 269, and 3,394 + 269 = 3,663.  MEASURED, not rescaled.
+    chk("members (species x nuclide)", len(ms), 3663)
+    chk("rows (x 8 dimensions)", len(rows()), 3663 * 8)
     chk("ONE LEVEL PER SPECIES -- no body is charted twice",
         len({(m[0], m[3], m[1]) for m in ms}), len(ms))
     chk("L splits them", sorted(collections.Counter(m[6] for m in ms).items()),
-        [(0, 2696), (1, 698)])
+        [(0, 2920), (1, 743)])            # RE-PINNED from [(0,2696),(1,698)]
     chk("every member has Ne >= 1", min(m[4] for m in ms) >= 1, True)
     chk("every member has A = Z + N",
         all(m[2] == m[0] + m[1] for m in ms), True)
@@ -1146,8 +1401,8 @@ def selftest():
                - {m[5] for m in ms if m[6] == 0}), [5])
     chk("and it is the ONLY value they add -- 2 was already on 29 grounds",
         sum(1 for m in ms if m[6] == 0 and m[5] == 2), 29)
-    chk("which the excited levels raise to 346, not introduce",
-        sum(1 for m in ms if m[5] == 2), 346)
+    chk("which the excited levels raise to 362, not introduce",
+        sum(1 for m in ms if m[5] == 2), 362)      # RE-PINNED from 346
     chk("2Je = 3 and 8 are seated only by grounds",
         sorted({m[5] for m in ms if m[6] == 0}
                - {m[5] for m in ms if m[6] == 1}), [3, 8])
@@ -1175,20 +1430,22 @@ def selftest():
     chk("FORCED and VANISHES are mutually exclusive, measured not assumed",
         [m for m in ms if forced(m[2], m[4]) and vanishes(m[0], m[1], m[5])],
         [])
+    # RE-PINNED from 1,697 / 365 / 1,332 -- the same arithmetic over 3,663
+    # members instead of 3,394.  Each was measured by running the code.
     chk("members with F forced nonzero", sum(1 for m in ms
-                                             if forced(m[2], m[4])), 1697)
+                                             if forced(m[2], m[4])), 1831)
     chk("members with F established zero",
-        sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 365)
+        sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 423)
     chk("members that are neither -- the undetermined class",
         len(ms) - sum(1 for m in ms if forced(m[2], m[4]))
-        - sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 1332)
+        - sum(1 for m in ms if vanishes(m[0], m[1], m[5])), 1409)
     chk("FORCED IS INDEPENDENT OF L -- it reads the electron count, not a level",
         sorted({forced(m[2], m[4]) for m in ms if m[6] == 1}), [0, 1])
     chk("vanishes needs even Z, even N and 2Je = 0",
         [vanishes(20, 20, 0), vanishes(20, 21, 0), vanishes(19, 20, 0),
          vanishes(20, 20, 1)], [True, False, False, False])
     chk("nuclides whose exterior field is EXACTLY Schwarzschild",
-        len(schwarzschild_members()), 236)
+        len(schwarzschild_members()), 294)        # RE-PINNED from 236
     chk("PAIRING_RULE_STATUS is not flattened to a proof",
         PAIRING_RULE_STATUS, "EMPIRICAL-RULE")
 
@@ -1221,7 +1478,7 @@ def selftest():
 
     # -- the transition is at SIX, counted over the members
     rel = relieved()
-    chk("members bound at D<=5 and unbound at D>=6", len(rel), 607)
+    chk("members bound at D<=5 and unbound at D>=6", len(rel), 684)
     chk("every one of them is neutral and forced",
         [m for m in rel if m[3] != 0 or not forced(m[2], m[4])], [])
     chk("none is relieved at D = 5",
