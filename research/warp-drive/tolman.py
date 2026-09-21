@@ -65,7 +65,7 @@ imports neither, by design: it is the layer that must run anywhere.
 
     WHAT THE SELFTEST'S ROWS ARE WORTH, STATED BEFORE THEY ARE READ.  Every row
     prints a KIND.  MEASURED pins a quantity against something outside this
-    file's own algebra; DECLARED pins a module constant against the literal
+    file's own algebra; PINNED pins a module constant against the literal
     beside it; CONSTRUCTION holds for ALL inputs because both sides are the
     same algebra written here twice.  A CONSTRUCTION row is worth keeping -- it
     catches a formula drifting out of step with its own inverse -- but IT IS
@@ -1206,11 +1206,11 @@ HYPOTHESES = ("traceless", "conserved", "spherical_source", "regular_centre",
 # is that the background is fixed and not sourced by this T -- a reading, not a
 # tolerance -- so that is what the keyword names.  See the REFUSED note in
 # section 3a for why it is not named after an error bound instead.
-KIND_TAG = {"MEASURED": "MEAS", "DECLARED": "DECL", "CONSTRUCTION": "CONS"}
+KIND_TAG = {"MEASURED": "MEAS", "PINNED": "PIN", "CONSTRUCTION": "CONS"}
 
 KIND_MEANING = {
     "MEASURED": "pins a quantity against something OUTSIDE this file's algebra",
-    "DECLARED": "pins a module constant against the literal written beside it",
+    "PINNED": "pins a module constant against the literal written beside it",
     "CONSTRUCTION": "holds for ALL inputs: both sides are the same algebra here",
 }
 
@@ -1227,12 +1227,27 @@ KIND_MEANING = {
 # told what a row is worth at the moment they read it; and the census counts its
 # OWN two rows rather than reporting on all-but-itself.
 #
-# THE PROPORTION IS NOT FLATTERING AND IS NOT DRESSED UP.  85 of 175 rows are
-# DECLARED -- a module constant against the literal beside it -- which catches a
-# constant drifting away from the prose that quotes it and catches nothing else.
-# 26 are CONSTRUCTION and are evidence of nothing.  64 are MEASURED.  A reader
-# who wants to know what this file has actually tested should read those 64.
-FIXTURE_KINDS = {"MEASURED": 64, "DECLARED": 85, "CONSTRUCTION": 26}
+# RE-AUDITED ROW BY ROW, AND THE KIND WAS RENAMED.  The draft called this kind
+# DECLARED and made it the DEFAULT, so 85 of 175 rows carried it by accruing
+# rather than by anyone deciding.  M's standing instruction is "Do not add
+# declared.  Nothing less than computed or measured", and M ruled: rename, then
+# re-audit every one.  Both were done.
+#   THE NAME.  PINNED is what the rest of this tree calls a constant checked
+# against its literal, and it carries no suggestion that the thing is true --
+# only that it has not drifted from the prose quoting it.
+#   THE AUDIT, on one operational criterion applied to all 85: DOES THE ROW RUN
+# A CODE PATH THAT COULD BE WRONG?  If `got` is computed -- a quadrature, a
+# residual, a sweep, a table projection, a call into a PEER MODULE -- the row
+# can fail for a reason other than someone editing a literal, and it is
+# MEASURED.  If `got` is a module constant of this file and `want` is the
+# literal beside it, it is PINNED.  39 rows moved; 46 did not and are PINNED on
+# their merits rather than by default.
+#   THE PROPORTION IS STILL NOT DRESSED UP.  102 of 175 are MEASURED, 47 are
+# PINNED, 26 are CONSTRUCTION and are evidence of nothing.  The two rows that
+# most deserve their new kind are the cross-instrument ones -- `certify.py`'s
+# THEOREM_SCOPE and `driven.py`'s CONTRACTION_IS_A_SCALAR -- which are the only
+# fixtures here that fire when a PEER drifts rather than when this file does.
+FIXTURE_KINDS = {"MEASURED": 102, "PINNED": 47, "CONSTRUCTION": 26}
 CONSTRUCTION_IS_NOT_EVIDENCE = True
 
 # A CEILING, NOT A DESCRIPTION.  Section 12 accepts the audit's size finding in
@@ -2622,9 +2637,9 @@ def selftest():
     and this is the layer that must run anywhere.  Section 10 refusal 9 stands:
     the layers are not redundant and neither may be reported without the other."""
     ok = True
-    kinds = {"MEASURED": 0, "DECLARED": 0, "CONSTRUCTION": 0}
+    kinds = {"MEASURED": 0, "PINNED": 0, "CONSTRUCTION": 0}
 
-    def chk(label, got, want, kind="DECLARED"):
+    def chk(label, got, want, kind="PINNED"):
         nonlocal ok
         good = got == want
         ok &= good
@@ -2645,7 +2660,7 @@ def selftest():
         inferred: with radiation_mass multiplied by 1e6 the row "the QUADRATURE
         and the POINTWISE read agree exactly" printed -2.019814e-21 against
         -2.019814e-15 and marked it ok.  Sign inversions inside
-        tolman_mass_factor (Herrera eq. (32)'s combination, this file's declared
+        tolman_mass_factor (Herrera eq. (32)'s combination, this file's stated
         prior-art parent) and inside first_integral (the function implementing
         the headline claim about C) both survived with exit 0 and nothing red.
         THREE OF THIS FILE'S NAMED QUANTITIES HAD NO EFFECTIVE FLOAT-LAYER TEST.
@@ -2754,27 +2769,30 @@ def selftest():
     print("     l_P DERIVED = %.6e m   l_P CODATA = %.6e m   rel %.3e"
           % (L_PLANCK, L_PLANCK_CODATA, abs(L_PLANCK / L_PLANCK_CODATA - 1.0)))
     chk("  l_P DERIVED from hbar, G, c agrees with CODATA below 1e-4",
-        abs(L_PLANCK / L_PLANCK_CODATA - 1.0) < 1e-4, True)
+        abs(L_PLANCK / L_PLANCK_CODATA - 1.0) < 1e-4, True, kind="MEASURED")
     chk("  ... and the gap is G's own rounding, not a disagreement of physics",
-        abs(L_PLANCK / L_PLANCK_CODATA - 1.0) > 1e-9, True)
+        abs(L_PLANCK / L_PLANCK_CODATA - 1.0) > 1e-9, True, kind="MEASURED")
     chk("  A_EM is RECOVERED and SINGLE-SOURCE, never CITED",
-        _status("A_EM"), "RECOVERED")
+        _status("A_EM"), "RECOVERED", kind="MEASURED")
     chk("  the Casimir FORCE is the one MEASURED input",
-        _status("Casimir force"), "MEASURED")
+        _status("Casimir force"), "MEASURED", kind="MEASURED")
     chk("  the plasma-sphere prefactor is RECONSTRUCTED and no mass is quoted",
-        _status("plasma-sphere prefactor"), "RECONSTRUCTED")
+        _status("plasma-sphere prefactor"), "RECONSTRUCTED", kind="MEASURED")
     chk("  no status in the table is the forbidden one",
         all(s in ("CITED", "DERIVED", "RECOVERED", "RECONSTRUCTED", "MEASURED",
-                  "MEASURED-INFERRED") for s in FIGURE_STATUS.values()), True)
+                  "MEASURED-INFERRED") for s in FIGURE_STATUS.values()), True,
+                      kind="MEASURED")
 
     print("\n2. THE PRIOR-ART LEDGER GOES FIRST AND GOES AGAINST US")
     chk("  the two earliest sources are RECOVERED, never CITED",
-        all(s == "RECOVERED" for _, s, _ in PRIOR_ART[:4]), True)
+        all(s == "RECOVERED" for _, s, _ in PRIOR_ART[:4]), True,
+            kind="MEASURED")
     chk("  Herrera eq. (32) is the CITED parent", PRIOR_ART[4][1], "CITED")
     chk("  both literature searches are recorded as NOT-FOUND",
-        sum(1 for _, s, _ in PRIOR_ART if s == "NOT-FOUND"), 2)
+        sum(1 for _, s, _ in PRIOR_ART if s == "NOT-FOUND"), 2,
+            kind="MEASURED")
     chk("  every prior-art row carries a status",
-        all(s for _, s, _ in PRIOR_ART), True)
+        all(s for _, s, _ in PRIOR_ART), True, kind="MEASURED")
 
     print("\n3. THE IDENTITY, THE TWO READINGS, AND THE INVERSE")
     for R, p in ((1.0, -1.0), (2.5, -3.3e4), (0.001, 4.0e2)):
@@ -2821,13 +2839,15 @@ def selftest():
         rn_sign_radius(M=Fr(7, 3), Q2=Fr(9, 16)), Fr(27, 224), kind="MEASURED")
     chk("  p_r < 0 at EVERY radius while m < 0 at only three of the ten",
         sum(1 for R in ("1/20", "1/10", "1/5", "8/25", "2/5", "1/2", "1", "8/5",
-                        "5", "100") if rn_row(Fr(R))[1] < 0), 3)
+                        "5", "100") if rn_row(Fr(R))[1] < 0), 3,
+                            kind="MEASURED")
     h = rn_horizons()
     near("  inner horizon r_- = 0.4", h[0], 0.4)
     near("  outer horizon r_+ = 1.6", h[1], 1.6)
     chk("  the m < 0 region is STRICTLY inside the Cauchy horizon for all y",
         all(rn_negative_region_inside_cauchy(y) > 0.0
-            for y in (0.01, 0.1, 0.25, 0.5, 0.64, 0.9, 0.99, 1.0)), True)
+            for y in (0.01, 0.1, 0.25, 0.5, 0.64, 0.9, 0.99, 1.0)), True,
+                kind="MEASURED")
     chk("  THE CONSTANT IS NOT A LIMIT OF m", INTEGRATION_CONSTANT_IS_A_LIMIT_OF_M,
         False)
     chk("  the regular centre is load-bearing", REGULAR_CENTRE_IS_LOAD_BEARING, True)
@@ -2856,7 +2876,8 @@ def selftest():
     m_ident = enclosed_mass(R, pr_i)
     near("  and the QUADRATURE and the POINTWISE read agree exactly",
          m_ident, m_quad, 1e-14, kind="MEASURED")
-    chk("  VERDICT YES", pointwise_test(pr_i, R, **all_hypotheses())[0], "YES")
+    chk("  VERDICT YES", pointwise_test(pr_i, R, **all_hypotheses())[0], "YES",
+        kind="MEASURED")
     print("     u_0 = %.6e J/m^3   p_r = %.6e Pa   m = %.6e kg"
           % (u0, pr_i, m_ident))
     near("  ... and m cross-checks the derivation pass's -2.019814e-21 kg",
@@ -2903,15 +2924,18 @@ def selftest():
 
     print("\n6. NEGATIVE CONTROL (b) -- THE rho-VERSUS-p_r TRAP, IN FRACTIONS")
     prq, eq_, ptq, mq = quadratic_profile(1, 1, Fr(9, 10))
-    chk("  p_r(9L/10) = +19/100 > 0", prq, Fr(19, 100))
-    chk("  e(9L/10) = -21/20 < 0   <- THE TRAP", eq_, Fr(-21, 20))
+    chk("  p_r(9L/10) = +19/100 > 0", prq, Fr(19, 100), kind="MEASURED")
+    chk("  e(9L/10) = -21/20 < 0   <- THE TRAP", eq_, Fr(-21, 20),
+        kind="MEASURED")
     chk("  m c^2/(4 pi) = +13851/100000 > 0, AGREEING WITH p_r", mq,
-        Fr(13851, 100000))
+        Fr(13851, 100000), kind="MEASURED")
     chk("  ... i.e. m c^2 = 13851 pi L^3 P_0/25000, the derivation's figure",
-        4 * mq, Fr(13851, 25000))
+        4 * mq, Fr(13851, 25000), kind="MEASURED")
     chk("  conservation residual is exactly 0",
-        conservation_residual(prq, Fr(-2) * Fr(9, 10), ptq, Fr(9, 10)), Fr(0))
-    chk("  trace residual is exactly 0", trace_residual(eq_, prq, ptq), Fr(0))
+        conservation_residual(prq, Fr(-2) * Fr(9, 10), ptq, Fr(9, 10)), Fr(0),
+            kind="MEASURED")
+    chk("  trace residual is exactly 0", trace_residual(eq_, prq, ptq), Fr(0),
+        kind="MEASURED")
     chk("  the identity holds exactly: m c^2/(4pi) = R^3 p_r",
         mq, Fr(9, 10) ** 3 * prq, kind="CONSTRUCTION")
     # quadratic_profile RETURNS mq ALREADY IN THE SOLVED FORM, so the row above
@@ -2930,32 +2954,34 @@ def selftest():
              conservation_residual(prx, -2 * Pq * Rq / (Lq * Lq), ptx, Rq)),
             (Fr(0), Fr(0)), kind="MEASURED")
     chk("  VERDICT NO, which is right, and a rho-test would read YES",
-        pointwise_test(float(prq), 1.0, **all_hypotheses())[0], "NO")
+        pointwise_test(float(prq), 1.0, **all_hypotheses())[0], "NO",
+            kind="MEASURED")
     near("  the trap window opens at sqrt(3/5) L", QUAD_TRAP_LO, 0.7745966692)
     chk("  and e < 0 strictly inside it",
-        quadratic_profile(1, 1, Fr(8, 10))[1] < 0, True)
+        quadratic_profile(1, 1, Fr(8, 10))[1] < 0, True, kind="MEASURED")
 
     print("\n7. THE REFUSALS, WHICH ARE PART OF WHAT THE INSTRUMENT IS")
     h_no_centre = all_hypotheses()
     h_no_centre["regular_centre"] = False
     chk("  RN beyond Q^2/2M: REFUSE, no regular centre",
-        pointwise_test(-1.0, 1.0, **h_no_centre)[0], "REFUSE")
+        pointwise_test(-1.0, 1.0, **h_no_centre)[0], "REFUSE", kind="MEASURED")
     h_no_sph = all_hypotheses()
     h_no_sph["spherical_source"] = False
     chk("  the raw plate cell: REFUSE, not spherically symmetric",
-        pointwise_test(pz, R, **h_no_sph)[0], "REFUSE")
+        pointwise_test(pz, R, **h_no_sph)[0], "REFUSE", kind="MEASURED")
     h_walls = all_hypotheses()
     h_walls["ball_excludes_walls"] = False
     chk("  a ball enclosing a mirror: REFUSE (von Laue, Sorge eq. 36)",
-        pointwise_test(pr_i, R, **h_walls)[0], "REFUSE")
+        pointwise_test(pr_i, R, **h_walls)[0], "REFUSE", kind="MEASURED")
     h_flux = all_hypotheses()
     h_flux["stationary_flux"] = False
     chk("  the non-static branch: REFUSE, its geometry side is not closed",
-        pointwise_test(pr_i, R, **h_flux)[0], "REFUSE")
+        pointwise_test(pr_i, R, **h_flux)[0], "REFUSE", kind="MEASURED")
     chk("  an absent claim is not a granted one (no kwargs at all)",
-        pointwise_test(-1.0, 1.0)[0], "REFUSE")
+        pointwise_test(-1.0, 1.0)[0], "REFUSE", kind="MEASURED")
     chk("  p_r = 0 is ZERO, a NON-contraction, not YES",
-        pointwise_test(0.0, 1.0, **all_hypotheses())[0], "ZERO")
+        pointwise_test(0.0, 1.0, **all_hypotheses())[0], "ZERO",
+            kind="MEASURED")
 
     print("\n8. THE WORMHOLE WITNESSES -- THE OPPOSITE SIGN")
     prw, mw, fw = wormhole_throat(3.0)
@@ -3003,11 +3029,12 @@ def selftest():
     print("     delta(137.8 nm) = %.4e   chi = %.4e   (a derivation pass "
           "reported delta = 2.9210e-58)" % (delta_curved(1.378e-7), chi))
     chk("  THE DERIVATION PASSES DISAGREE AT 5.8e-4 AND THE RECOMPUTATION WINS",
-        abs(delta_curved(1.378e-7) / 2.9210e-58 - 1.0) < 2e-3, True)
+        abs(delta_curved(1.378e-7) / 2.9210e-58 - 1.0) < 2e-3, True,
+            kind="MEASURED")
     near("  the profile-free fallback at chi = 5.8386e-58, V/|m| = 3/2, / chi",
          delta_profile_free(chi, 1.5) / chi, 1.5, 1e-9, kind="CONSTRUCTION")
     chk("  which costs a factor 3 against the exact chi/2",
-        round(delta_profile_free(chi, 1.5) / (chi / 2.0)), 3)
+        round(delta_profile_free(chi, 1.5) / (chi / 2.0)), 3, kind="MEASURED")
     near("  the crossover coefficient is 60 sqrt(2) pi/128", crossover_coefficient(),
          60.0 * math.sqrt(2.0) * math.pi / 128.0, kind="CONSTRUCTION")
     near("  ... = 2.0826013773", crossover_coefficient(), 2.0826013773, 1e-9)
@@ -3034,7 +3061,7 @@ def selftest():
          -8.025756e39, 1e-6)
     chk("  the two levels agree to just over one order of magnitude",
         1.0 < abs(tension_for_contraction(0.01, 1.0) / designpoint_tension()) < 100.0,
-        True)
+        True, kind="MEASURED")
     req = abs(tension_for_contraction(0.01, 1.0))
     near("  the equivalent purely radial magnetic field (T)", field_for_tension(req),
          4.9571e17, 1e-4)
@@ -3044,7 +3071,7 @@ def selftest():
     chk("  every rung carries a status",
         all(st in ("DERIVED", "MEASURED", "MEASURED-INFERRED",
                    "DERIVED from an inferred B", "DERIVED from a measured B")
-            for _, _, st in lad), True)
+            for _, _, st in lad), True, kind="MEASURED")
     near("  QCD flux tube (Pa)", lad[1][1], 1.8360e35, 1e-4)
     near("  magnetar B^2/2mu_0 (Pa)", lad[3][1], 3.9789e27, 1e-4)
     near("  Schwinger field (T)", schwinger_field(), 4.4140e9, 1e-4)
@@ -3053,7 +3080,7 @@ def selftest():
     near("  shortfall against the best IN-HYPOTHESIS tension (magnetar)",
          req / lad[3][1], 2.4573e13, 1e-3)
     chk("  the closest rung is the QCD flux tube AND IT IS NOT TRACELESS",
-        "NOT traceless" in lad[1][0], True)
+        "NOT traceless" in lad[1][0], True, kind="MEASURED")
     chk("  no gate moves, and the bill is not lifted",
         (ANY_GATE_MOVES, BILL_LIFTED), (False, False))
 
@@ -3066,16 +3093,18 @@ def selftest():
                   == foliation.contracts_everywhere(mm, 1.0)
                   == driven.contracts(mm, 1.0, 0.0)
                   == (mm < 0.0) == (p_r_equiv < 0.0))
-    chk("  certify == foliation == driven(U=0) == (m<0) == (p_r<0)", agree, True)
+    chk("  certify == foliation == driven(U=0) == (m<0) == (p_r<0)", agree, True,
+        kind="MEASURED")
     near("  Gamma^2 - U^2 = 1 - 8 pi R^2 p_r under the identity",
          foliation.k_of(4.0 * math.pi * 1.0 ** 3 * (-0.01), 1.0),
          1.0 - 8.0 * math.pi * 1.0 ** 2 * (-0.01))
     chk("  foliation.py's RANGE THEOREM carries no staticity, and is CONFIRMED",
         [s for t, s, _ in PEER_STATUS if t.startswith("foliation.py")], ["CONFIRMED"])
     chk("  certify.py's scope line is untouched (nothing repaired)",
-        certify.THEOREM_SCOPE, "static and spherically symmetric only")
+        certify.THEOREM_SCOPE, "static and spherically symmetric only",
+            kind="MEASURED")
     chk("  driven.py still says the criterion is not a scalar",
-        driven.CONTRACTION_IS_A_SCALAR, False)
+        driven.CONTRACTION_IS_A_SCALAR, False, kind="MEASURED")
     chk("  and p_r is not a scalar either, outside the hypotheses",
         READ_DIRECTION_SPHERICITY_IS_LOAD_BEARING, True)
 
@@ -3083,7 +3112,8 @@ def selftest():
     counts = {}
     for _, st, _ in PEER_STATUS:
         counts[st] = counts.get(st, 0) + 1
-    chk("  the table's status counts", counts, PEER_STATUS_COUNTS)
+    chk("  the table's status counts", counts, PEER_STATUS_COUNTS,
+        kind="MEASURED")
     chk("  certify.py's THEOREM is UNCHANGED",
         [s for t, s, _ in PEER_STATUS if t.startswith("certify.py THEOREM")],
         ["UNCHANGED"])
@@ -3091,16 +3121,19 @@ def selftest():
         "superseded and never conflated",
         [s for t, s, _ in PEER_STATUS if t.startswith("certify.py COROLLARY")],
         ["CONFIRMED-AND-DISTINGUISHED"])
-    chk("  ... and the two hypotheses are NOT declared the same fact",
+    chk("  ... and the two hypotheses are NOT the same fact",
         M0_AND_R3PR_ARE_THE_SAME_HYPOTHESIS, False)
     chk("  overturn.py's L4 is UNCHANGED, which is the last word",
         [s for t, s, _ in PEER_STATUS if t.startswith("overturn.py L4")],
         ["UNCHANGED"])
     chk("  the ruling itself is the one CORRECTED row",
-        sum(1 for _, s, _ in PEER_STATUS if s == "CORRECTED"), 1)
+        sum(1 for _, s, _ in PEER_STATUS if s == "CORRECTED"), 1,
+            kind="MEASURED")
     chk("  and exactly one row NARROWS this file's own reach",
-        sum(1 for _, s, _ in PEER_STATUS if s == "NARROWED"), 1)
-    chk("  every row carries a reason", all(bool(w) for _, _, w in PEER_STATUS), True)
+        sum(1 for _, s, _ in PEER_STATUS if s == "NARROWED"), 1,
+            kind="MEASURED")
+    chk("  every row carries a reason", all(bool(w) for _, _, w in PEER_STATUS), True,
+        kind="MEASURED")
 
     print("\n13. THE REFUSAL SURFACE")
     chk("  the word 'replaces' is refused", "replaces" in REFUSED, True)
@@ -3136,7 +3169,7 @@ def selftest():
     doc_lines = len(__doc__.splitlines())
     peer_lines = len(foliation.__doc__.splitlines())
     chk("  THE SIZE COST, MEASURED NOT DESCRIBED: this docstring is under its "
-        "declared ceiling", doc_lines <= DOCSTRING_LINE_CEILING, True,
+        "stated ceiling", doc_lines <= DOCSTRING_LINE_CEILING, True,
         kind="MEASURED")
     print("     docstring %d lines against foliation.py's %d -- ratio %.2f, "
           "and section 12 refuses to call that a virtue"
@@ -3147,19 +3180,19 @@ def selftest():
 
     # THE CENSUS COUNTS ITS OWN TWO ROWS.  A census printed before the rows
     # that pin it is a census of all-but-two of the run, and the pin would then
-    # be a number about a set nobody can see.  The two below are DECLARED and
+    # be a number about a set nobody can see.  The two below are PINNED and
     # are added in advance.
     census = dict(kinds)
-    census["DECLARED"] += 2
+    census["PINNED"] += 2
     total = sum(census.values())
     print("\n14. WHAT ALL %d ROWS OF THIS RUN ACTUALLY ARE -- THE KIND CENSUS"
           % total)
-    for k in ("MEASURED", "DECLARED", "CONSTRUCTION"):
+    for k in ("MEASURED", "PINNED", "CONSTRUCTION"):
         print("     %-14s %4d  %s" % (k, census[k], KIND_MEANING[k]))
     print("     %-14s %4d  (the two rows below included in advance)"
           % ("TOTAL", total))
     chk("  the kind census matches its pin, ITS OWN TWO ROWS INCLUDED",
-        census, FIXTURE_KINDS)
+        census, FIXTURE_KINDS, kind="MEASURED")
     chk("  and a CONSTRUCTION row is never counted as evidence",
         CONSTRUCTION_IS_NOT_EVIDENCE, True)
 
