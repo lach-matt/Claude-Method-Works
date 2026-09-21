@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>$title$</title>
+<style>
+@page { size: A4; margin: 22mm 20mm 22mm 20mm;
+  @bottom-center { content: counter(page); font-family: "Liberation Serif", serif; font-size: 9pt; color: #333; }
+  @top-center { content: string(runhead); font-family: "Liberation Serif", serif; font-size: 8.5pt; color: #666; letter-spacing: .03em; } }
+@page :first { @top-center { content: none; } }
+html { font-family: "Liberation Serif", "Times New Roman", serif; }
+body { font-size: 10.5pt; line-height: 1.42; color: #000; margin: 0; hyphens: auto; }
+h1 { hyphens: none; font-size: 21pt; font-weight: 700; margin: 0 0 8pt; line-height: 1.2; string-set: runhead content(text); }
+h1 + p { font-size: 11.5pt; }
+h2 { hyphens: none; font-size: 13.5pt; margin: 20pt 0 7pt; page-break-after: avoid; line-height: 1.25; border-bottom: .5pt solid #999; padding-bottom: 2pt; }
+h3 { hyphens: none; font-size: 11.5pt; margin: 13pt 0 5pt; page-break-after: avoid; }
+h4, h5, h6 { font-size: 10.5pt; margin: 10pt 0 4pt; page-break-after: avoid; }
+p { margin: 0 0 6pt; orphans: 3; widows: 3; text-align: justify; }
+blockquote { margin: 7pt 0 7pt 12pt; padding-left: 9pt; border-left: 2px solid #bbb; color: #222; }
+pre { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 8.4pt; line-height: 1.35; white-space: pre-wrap; word-wrap: break-word;
+      background: #f7f7f5; border: .5pt solid #ddd; padding: 4pt 6pt; margin: 6pt 0; page-break-inside: avoid; }
+code { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 9pt; }
+table { border-collapse: collapse; font-size: 8.5pt; margin: 7pt 0; width: 100%; page-break-inside: avoid; }
+th, td { border: .5pt solid #bbb; padding: 2pt 4pt; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { background: #efefec; font-weight: 700; }
+img { max-width: 100%; page-break-inside: avoid; display: block; margin: 8pt auto 4pt; }
+figure { margin: 8pt 0 10pt; page-break-inside: avoid; }
+figcaption, p.caption { font-size: 9pt; color: #222; text-align: left; }
+hr { border: 0; border-top: .5pt solid #bbb; margin: 10pt 0; }
+</style></head><body>
+$body$
+</body></html>
