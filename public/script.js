@@ -2085,9 +2085,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     gravity: { x: 'X', y: 'Y', z: 'F', colour: 'B' },
     phonons: { x: 'SITE', y: 'NIRR', z: 'DMAX', colour: 'extra:system' },
     kpoints: { x: 'LITTLE', y: 'NSR', z: 'DMAX', colour: 'extra:bravais' },
+    coreps: { x: 'CDIM', y: 'SDIM', z: 'NSM', colour: 'extra:case' },
   };
-  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries', deformedbands: 'Deformed band levels', gravity: 'Gravity index', phonons: 'Phonon sites', kpoints: 'k-points' };
-  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)', 'extra:el': 'nuclide', X: 'spin decade (rank)', Y: 'charge decade (rank)', F: 'forced angular momentum', B: 'horizon-bound class', L: 'level status', E: 'mass evidence', D: 'dimension', SITE: 'site-symmetry order', NIRR: 'distinct irreps', DMAX: 'maximum degeneracy', LITTLE: 'little-group order', NSR: 'small representations', 'extra:system': 'crystal system', 'extra:bravais': 'Bravais lattice' };
+  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries', deformedbands: 'Deformed band levels', gravity: 'Gravity index', phonons: 'Phonon sites', kpoints: 'k-points', coreps: 'Corepresentations' };
+  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)', 'extra:el': 'nuclide', X: 'spin decade (rank)', Y: 'charge decade (rank)', F: 'forced angular momentum', B: 'horizon-bound class', L: 'level status', E: 'mass evidence', D: 'dimension', SITE: 'site-symmetry order', NIRR: 'distinct irreps', DMAX: 'maximum degeneracy', LITTLE: 'little-group order', NSR: 'small representations', 'extra:system': 'crystal system', 'extra:bravais': 'Bravais lattice', CDIM: 'degeneracy (corep dimension)', SDIM: 'small-representation dimension', NSM: 'species fusing', 'extra:case': 'Herring case' };
   const half = (v) => (v % 2 ? `${v}/2` : String(v / 2));
   const axisLabel = (px, name) => (px && (px.id === 'nucbands' || px.id === 'deformedbands') && name === '2I' ? 'spin I' : (PLABEL[name] || name));
   const third = (v) => (v % 3 === 0 ? String(v / 3) : `${v}/3`).replace('-', '−');
@@ -2169,7 +2170,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         raw: gv, in_progress: !!gv.in_progress,
         rows: gv.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
     }
-    for (const [id, blk] of [['phonons', P.phonons], ['kpoints', P.kpoints]]) {
+    for (const [id, blk] of [['phonons', P.phonons], ['kpoints', P.kpoints], ['coreps', P.coreps]]) {
       if (!blk || blk.absent || !blk.rows) continue;
       out.push({ id, family: 'crystal', title: blk.title, short: PSHORT[id], member: blk.member, coordinates: blk.coordinates,
         members: blk.members, charted: blk.charted, cells: blk.cells, cell: blk.cell, closers: blk.closers || [], refused: blk.refused || [], unplaced: [], unplaced_why: '',
@@ -2413,6 +2414,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     else if (px.id === 'gravity') extra = renderGravityPlate(px);
     else if (px.id === 'phonons') extra = renderPhononPlate(px);
     else if (px.id === 'kpoints') extra = renderKpointPlate(px);
+    else if (px.id === 'coreps') extra = renderCorepPlate(px);
     else if (px.id === 'readrezayi') extra = section('The levels', `<div class="fields">${row('observed levels', px.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}${row('validated', px.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes', true)}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}${row('fermions', `${px.fermions.length}`, 'DERIVED', esc(px.fermions_note), true)}</div>`);
     else if (px.id === 'bosonqp') extra = section('The three rules', `<div class="fields">${px.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}${px.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}${px.relation ? row('the relation', `${px.relation.qp_subset_of_bosons ? 'a subset of the bosons' : 'not a subset of the bosons'}; ${px.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}`, px.relation.status, esc(px.relation.note || ''), true) : ''}</div>`);
     else if (px.id === 'spin4' && px.raw && px.raw.reach) { const s = px.raw; extra = section('A sub-population, seated on its own reach', `<p class="note">The ten mesons of spin 4: a sub-population of <button type="button" class="pchip" data-pgo="mesons">the meson index</button> with ${esc(s.held_constant.coordinate)} = ${s.held_constant.value} held constant, so it is not a coordinate here and the effective arity is ${s.arity.effective}. ${badge('DERIVED', esc(s.held_constant.note))}</p>
@@ -2554,6 +2556,17 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('the source', esc(k.source.text), k.source.status, esc(k.source.note) + (k.source.captures.length ? '; captures ' + k.source.captures.map((c) => `${esc(c.path)} (md5 ${esc(c.md5.slice(0, 12))})`).join(', ') : ''), true)}
       </div>`);
   }
+  function renderCorepPlate(px) {
+    const c = px.raw, ac = c.accounting, mc = c.mechanisms, ak = c.against_kpoints, ov = c.over_representation;
+    return section('The reading', `<div class="fields">
+        ${row('the four cases', ['a', 'b', 'c', 'x'].map((k) => `(${k}) ${c.cases[k].members.toLocaleString()} — ${esc(c.cases[k].meaning)}, shape ${esc(c.cases[k].shape)}`).join('; '), 'DERIVED', esc(c.cases.note), true)}
+        ${row('the accounting', `${ac.small_reps.toLocaleString()} small representations − ${c.cases.c.members} fused at one k − ${c.cases.x.members} fused across conjugate stars = ${ac.corepresentations.toLocaleString()} levels; ${ac.doubled_at_k} doubled at k by time reversal (${(ac.doubled_at_k / ac.corepresentations * 100).toFixed(1)} %) over ${ac.space_groups_with_a_doubled_level} space groups`, ac.status, esc(ac.note), true)}
+        ${row('the two obstructions over the seated stars', `${mc.antiunitary_only} space groups touched by time reversal alone, ${mc.projective_only} by the projective mechanism alone, ${mc.both} by both, ${mc.neither} by neither`, mc.status, esc(mc.note), true)}
+        ${row('on the k-point index\'s own stars', `${ak.stars_here} stars here, ${ak.stars_there} there; ${ak.space_groups_agreeing} of ${ak.space_groups_compared} space groups agree on the label-free comparison; ${ak.labels_in_common} of the labels coincide`, ak.status, esc(ak.note), true)}
+        ${row('what an adversarial review withdrew', `${ov.withdrawn_members.toLocaleString()} members on ${ov.withdrawn_cells} cells at arity ${ov.withdrawn_arity}`, ov.status, esc(ov.note), true)}
+        ${row('the source', esc(c.source.text), c.source.status, esc(c.source.note) + (c.source.captures.length ? '; captures ' + c.source.captures.map((x) => `${esc(x.path)} (md5 ${esc(x.md5.slice(0, 12))})`).join(', ') : ''), true)}
+      </div>`);
+  }
   function demandSection(px) {
     const d = px.demand, P = state.particleIndex.predictions || {};
     const bins = ['FORBIDDEN', 'UNPLACED', 'OPEN', 'UNDECIDED'].filter((b) => d.cells.some((g) => g.bin === b));
@@ -2659,6 +2672,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('k, in the primitive reciprocal basis', `<span class="mono">(${esc(x.k)})</span> · star of ${x.star}`, 'DERIVED', 'a representative of the star; the star size times the little-group order is the point-group order (${x.pg_order})', true)}
         ${row('factor system', x.nontrivial_multiplier ? `non-trivial, of order ${x.multiplier_order}: the small representations are projective` : 'trivial: ordinary representations of the little co-group', 'DERIVED', 'whether the multiplier is a coboundary is decided by a solver, not guessed', true)}
         ${row('small-representation dimensions', `<span class="mono">${esc(x.dims)}</span>${x.sticking ? ' — bands stuck together by the multiplier' : ''}`, 'DERIVED', null, true)}
+      </div>`);
+    } else if (px.id === 'coreps') {
+      printed = section('The level', `<div class="fields">
+        ${row('space group', `${x.sg} (${esc(x.system)})`, 'READ', 'the international number', true)}
+        ${row('k, in the primitive reciprocal basis', `<span class="mono">(${esc(x.k)})</span> · star of ${x.star} · little-group order ${x.little_order}${x.k2 ? ` · conjugate star <span class="mono">(${esc(x.k2)})</span>` : ''}`, 'DERIVED', 'the star\'s properties, which are the k-point index\'s; refused as coordinates here', true)}
+        ${row('Herring case', `(${esc(x.case)}) — ${esc((px.raw.cases[x.case] || {}).meaning || '')}; doubling ${esc(x.doubling)}`, 'DERIVED', 'determined by the three coordinates with no exception', true)}
+        ${row('factor system', x.factor_order > 1 ? `non-trivial, of order ${x.factor_order}` : 'trivial', 'DERIVED', null, true)}
       </div>`);
     } else if (px.id === 'bosonqp') {
       printed = section('How it is made', `<div class="fields">
@@ -2803,7 +2823,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     return `<h3>${esc(blk.title)} ${openIx(id)} <span class="muted">(in progress on the other session)</span></h3>
       <p class="note">One member is ${esc(blk.member)}. ${blk.members.toLocaleString()} members on ${blk.cells} cells; closure channel K${blk.cell.channel} (height ${blk.cell.height}, width ${blk.cell.width}), closed by ${blk.closers.length ? esc(blk.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'every number computed by the instrument; no table is read')}</p>
       <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>${blk.coordinates.map((x) => `<tr><td class="mono">${esc(x.name)}</td><td class="wrap">${esc(x.meaning)}</td><td>${badge(x.status)}</td></tr>`).join('')}</tbody></table></div>
-      ${px ? (id === 'phonons' ? renderPhononPlate(px) : renderKpointPlate(px)) : ''}
+      ${px ? (id === 'phonons' ? renderPhononPlate(px) : id === 'kpoints' ? renderKpointPlate(px) : renderCorepPlate(px)) : ''}
       <details><summary>Refused coordinates, each with its ground (${blk.refused.length})</summary><div class="fields">${blk.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div></details>`;
   }
   function renderBonds(b) {
@@ -2916,6 +2936,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (px.gravity && !px.gravity.absent) html += renderGravity(px.gravity, openIx);
     if (px.phonons && !px.phonons.absent) html += renderCrystalIndex(px.phonons, 'phonons', openIx);
     if (px.kpoints && !px.kpoints.absent) html += renderCrystalIndex(px.kpoints, 'kpoints', openIx);
+    if (px.coreps && !px.coreps.absent) html += renderCrystalIndex(px.coreps, 'coreps', openIx);
     if (px.bonds) html += renderBonds(px.bonds);
     if (px.predictions && !px.predictions.absent) html += renderPredictions(px.predictions);
     const q = px.quasiparticles;

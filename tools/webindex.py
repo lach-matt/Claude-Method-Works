@@ -175,6 +175,7 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
                 "PHONON-SITES.tsv": "the phonon site capture", "KPOINTS-HIGHSYM.tsv": "the high-symmetry k-point capture",
                 "KPOINTS-CHECK.tsv": "the k-point cross-check capture", "KPOINTS-GRID.tsv": "the k-point grid capture",
                 "KPOINTS-ADDITIVITY.tsv": "the k-point additivity capture", "PHONON-KPOINTS.tsv": "the second k-point implementation's capture",
+                "COREPS-HIGHSYM.tsv": "the corepresentation capture",
                 "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper"}
 
 
@@ -1163,7 +1164,7 @@ def warp_modules(root):
         mods["quasiparticle"] = None
         mods["quasiparticle_error"] = repr(e)
     for extra in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "bonds", "predict", "ghosts", "demand",
-                  "deformedbands", "gravity", "overlaprule", "mi", "hlaw", "phonondex", "kpointdex", "nspin"):
+                  "deformedbands", "gravity", "overlaprule", "mi", "hlaw", "phonondex", "kpointdex", "nspin", "corepdex"):
         try:
             mods[extra] = importlib.import_module(extra)
         except Exception as e:  # noqa: BLE001 -- DOCKET 33-39, 36b and 49 may not be in an older tree
@@ -1604,7 +1605,7 @@ def _nuclear(N, C, D):
 SITE_INDEX_IDS = {"fundamental.index": "fundamental", "mesons.index": "mesons", "baryons.index": "baryons", "spin4.index": "spin4",
                   "nucbands.index": "nucbands", "fqh.index": "fqh", "readrezayi.index": "readrezayi", "bosonqp.index": "bosonqp",
                   "deformedbands.index": "deformedbands", "gravity.index": "gravity",
-                  "phonondex.index": "phonons", "kpointdex.index": "kpoints"}
+                  "phonondex.index": "phonons", "kpointdex.index": "kpoints", "corepdex.index": "coreps"}
 
 
 def _predictions(PR, GH, DM, mods):
@@ -1621,7 +1622,7 @@ def _predictions(PR, GH, DM, mods):
         {"law": "L1 projection", "text": "the join-closure never invents a coordinate value, so no single-coordinate bound can forbid a demanded cell; measured, none of the demanded baryon cells carries an even 2J"},
         {"law": "L2 max-stability", "text": "a bound whose admissible set is closed under componentwise max forbids nothing"},
         {"law": "L3 monotone vacuity", "text": "a bound of the form x_i ≤ f(x_j) with f non-decreasing is max-closed, so it forbids nothing; every atomic and nuclear bound in the tree has that shape, holds on every member, and forbids nothing, not because nothing was found but because nothing can be"},
-        {"law": "L4 what can forbid", "text": "only a bound that is antitone in some coordinate, carries a congruence, or is a non-monotone function of several coordinates; two such bounds are derived here, Gell-Mann–Nishijima on the baryons and the image of the coordinate map on the gravity index, and only those two forbid anything, exactly as the law requires"},
+        {"law": "L4 what can forbid", "text": "only a bound that is antitone in some coordinate, carries a congruence, or is a non-monotone function of several coordinates; the non-monotone bounds derived here are %s, and only those forbid anything, exactly as the law requires" % ", ".join(sorted(nm.split(".")[0] for nm, v in GH.BOUNDS.items() if not v[2]))},
         {"law": "L5 coordinate expressibility", "text": "a bound on a variable the index does not carry forbids a cell only if no value of that variable satisfies it; the quark model forbids no cell of the meson index, because every (J, P) is realised by some (L, S), and the exotic combinations need C, a coordinate the meson index refused for totality"},
         {"law": "L6 relativity to the operator", "text": "E is a deficit against an operator: the element layout's 36 ghosts are an order deficit while these are join deficits, and on the same 90 cells the join deficit is zero"},
         {"law": "L7 forbidding power is the chart's", "text": "the same bound forbids 25 cells on (period, group) and none on (n, l, k); a chart that can forbid is not thereby a better chart"},
@@ -2083,7 +2084,7 @@ def _kpoints(K, MI, HL, root):
         "member": "an isolated high-symmetry k-star of a space group, the reciprocal-space analogue of a site type: a crystal momentum whose stabiliser fixes no direction, carrying the small representations available there, computed through the little group's projective factor system",
         "coordinates": [{"name": "LITTLE", "meaning": "the order of the little group the modes at k transform under", "status": "DERIVED"},
                         {"name": "NSR", "meaning": "how many small representations, the symmetry species, exist at that k", "status": "DERIVED"},
-                        {"name": "DMAX", "meaning": "the largest small-representation dimension: the maximum degeneracy symmetry forces at that k", "status": "DERIVED"}],
+                        {"name": "DMAX", "meaning": "the largest small-representation dimension at that k; the instrument withdrew the gloss that this is the maximum degeneracy, because time reversal doubles a level at 118 of its groups and no small-representation dimension can see it: the degeneracy is the time-reversal extension's", "status": "DERIVED"}],
         "members": len(rows), "charted": len(rows), "unplaced": [], "unplaced_why": "",
         "rows": rows,
         "cells": len(X), "cell": {"channel": Kc, "height": h, "width": w}, "closers": _closers_of(X, HL),
@@ -2127,6 +2128,67 @@ def _nuclear_spin(NS):
             "note": "the index refuses to call 2Je the member's spin because the nuclear part is not banked; a ground-state nuclear-spin table is exactly the missing datum. With it seated the spin-decade rank would be read from the total angular momentum, and the instrument sweeps the coordinate map under that substitution: the image shrinks and nothing is gained, so seating the table can only forbid, and no adjudication already made could be reversed by it; one parity fact does most of it, since a forced angular momentum cannot vanish and the cell with F forced and no spin decade leaves the image entirely",
             "refuses": ["to seat the substitution: the table is not banked, and every figure is what the sweep reports under a model of the nuclear spin, parity fixed by A, not a measurement of any nuclide's spin",
                         "to read the seated cells outside the new image as a refutation: every one of them reads no spin decade, the exact reading a seated table replaces, so it is the signature of a re-chart and not a contradiction; a bound may not be swapped under a chart built without the datum the bound uses"]}
+
+
+
+def _coreps(C, MI, HL, root):
+    """The time-reversal extension as the site carries it: the corepresentations
+    at every isolated high-symmetry k-star, the levels where the k-point index
+    seats the stars, each carrying the degeneracy a spectrum measures, how much
+    of it the unitary group accounts for, and how many species fuse; Herring's
+    criterion in a stated convention, the four cases, the over-representation an
+    adversarial review caught and the repair, the validations, and the refusals."""
+    per = collections.Counter()
+    rows = []
+    for sg, system, k, k2, little, star, forder, sdim, nsm, case, cdim, doubling in C.read():
+        per[(sg, k)] += 1
+        rows.append({"name": "SG %d · k = (%s) · level %d" % (sg, k, per[(sg, k)]), "key": "%d@%s#%d" % (sg, k, per[(sg, k)]),
+                     "coords": [cdim, sdim, nsm],
+                     "extra": {"sg": sg, "system": system, "k": k, "k2": None if k2 == "-" else k2, "little_order": little, "star": star, "factor_order": forder,
+                               "small_dim": sdim, "n_small": nsm, "case": case, "corep_dim": cdim, "doubling": doubling}})
+    X = C.index()
+    K, h, w = MI.cell(X)
+    bc = C.by_case()
+    au, pj, both, neither = C.mechanism_split()
+    ak = C.against_kpointdex()
+    lc, lh, lt = C.label_disagreement()
+    caps = []
+    for rel in C.SOURCE[1]:
+        fp = os.path.join(root, rel[len("research/warp-drive/"):]) if rel.startswith("research/warp-drive/") else os.path.join(REPO, rel)
+        if os.path.isfile(fp):
+            with open(fp, "rb") as fh:
+                caps.append({"path": public_path(rel), "bytes": os.path.getsize(fp), "md5": hashlib.md5(fh.read()).hexdigest()})
+    return {
+        "id": "coreps", "title": "The time-reversal extension: the corepresentations at every isolated high-symmetry point",
+        "member": "a corepresentation at an isolated high-symmetry k-star of a space group: a single degenerate level, the physically irreducible object a spectrum shows as one multiplet, where the k-point index's member is the star; a level doubled across conjugate stars is one member, seated at the smaller star with its partner named",
+        "coordinates": [{"name": "CDIM", "meaning": "the corepresentation's dimension: the degeneracy a spectrum measures", "status": "DERIVED"},
+                        {"name": "SDIM", "meaning": "the small-representation dimension: how much of the degeneracy the unitary little group accounts for, so that their ratio is the antiunitary obstruction", "status": "DERIVED"},
+                        {"name": "NSM", "meaning": "how many distinct species fuse, 1 or 2, separating two copies of one character from a conjugate pair", "status": "DERIVED"}],
+        "members": len(rows), "charted": len(rows), "unplaced": [], "unplaced_why": "",
+        "rows": rows,
+        "cells": len(X), "cell": {"channel": K, "height": h, "width": w}, "closers": _closers_of(X, HL),
+        "seated_cell": list(C.SEATED_CELL),
+        "cases": {"a": {"members": bc.get("a", 0), "meaning": "real: the corepresentation is the small representation, no doubling", "shape": "(d, d, 1)"},
+                  "b": {"members": bc.get("b", 0), "meaning": "pseudoreal: two copies of one irreducible representation fuse, doubled at k", "shape": "(2d, d, 1)"},
+                  "c": {"members": bc.get("c", 0), "meaning": "complex: two conjugate irreducible representations fuse, doubled at k", "shape": "(2d, d, 2)"},
+                  "x": {"members": bc.get("x", 0), "meaning": "conjugate stars: −k lies outside the star of k and the level spans both, doubled in the zone and not at k", "shape": "(d, d, 2)"},
+                  "note": "the three coordinates determine the case with no exception, so the case letter is not a coordinate; the criterion is Herring's, reported in the normalised convention of the Bilbao server's representations, and a number without its convention is not a measurement"},
+        "accounting": {"small_reps": C.small_rep_total(), "corepresentations": len(rows), "doubled_at_k": len(C.doubled()), "type_x": len(C.type_x()), "space_groups_with_a_doubled_level": len(C.spacegroups_touched()), "status": "DERIVED",
+                       "note": "the small representations behind the levels less the pairs that fuse at one k less the pairs that fuse across conjugate stars is the member count, and that is the whole accounting; case (b) is rare and not redundant, twelve levels in the whole catalogue doubling by pairing an irreducible representation with itself"},
+        "mechanisms": {"antiunitary_only": au, "projective_only": pj, "both": both, "neither": neither, "status": "DERIVED",
+                       "note": "over the seated stars, which space groups the antiunitary obstruction touches alone, which the projective one, which both and which neither; a different population from the time-reversal-invariant momenta of all 230 groups, and not to be quoted as that figure"},
+        "against_kpoints": {"stars_here": ak[0], "stars_there": ak[1], "space_groups_agreeing": ak[2], "space_groups_compared": ak[3], "levels": ak[4], "small_reps": ak[5],
+                            "labels_in_common": lc, "status": "DERIVED",
+                            "note": "the stars are the k-point index's own, proved identical as sets on all 230 space groups by the derivation and compared here label-free on the multiset of little-group order and star size per space group; the two captures label a star by different arms of it, so a join on the label undercounts and nothing downstream may do it"},
+        "over_representation": {"withdrawn_members": 3611, "withdrawn_cells": 37, "withdrawn_arity": 4, "status": "READ",
+                                "note": "an adversarial review caught a first version seating a conjugate-star level twice, once at each arm, and carrying the little-group order as a coordinate although it is constant on every star and already the k-point index's; both withdrawn, the member emitted once at the smaller star with its partner named"},
+        "refused": [
+            {"coordinate": "the little-group order, the star, the factor-system order and the point-group order", "verdict": "REFUSED", "why": "properties of the star, which are the k-point index's; the little-group order is constant on every one of the 870 stars, measured", "measurement": None, "status": "DERIVED"},
+            {"coordinate": "the case letter", "verdict": "REFUSED", "why": "the three coordinates determine it with no exception", "measurement": {"shapes": {"a": "(d, d, 1)", "b": "(2d, d, 1)", "c": "(2d, d, 2)", "x": "(d, d, 2)"}}, "status": "DERIVED"},
+        ],
+        "source": {"text": C.SOURCE[0], "status": "DERIVED", "captures": caps, "note": "computed end to end; the derivation is banked beside the capture and re-runnable, needing numpy and spglib"},
+        "in_progress": True,
+    }
 
 
 
@@ -2470,6 +2532,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         gravity = {"absent": True, "note": "the gravity instrument did not import: " + mods["gravity_error"][:200]}
     phonons = _phonons(mods["phonondex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("phonondex", "mi", "hlaw")) else None
     kpoints = _kpoints(mods["kpointdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("kpointdex", "mi", "hlaw")) else None
+    coreps = _coreps(mods["corepdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("corepdex", "mi", "hlaw")) else None
     register = _register(root, mods)
     bonds = _bonds(mods["bonds"]) if mods.get("bonds") is not None else None
     predictions = None
@@ -2540,7 +2603,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
                  "state_commit": _warp_commit(root),
                  "instruments": ["pdgcapture.py", "fundamental.py", "mesons.py", "baryons.py", "docket27.py"] + (["quasiparticle.py"] if Q else [])},
     }
-    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "deformedbands", "bonds", "predict", "ghosts", "gravity", "overlaprule", "phonondex", "kpointdex", "nspin"):
+    for extra_mod in ("spin4", "subpop", "nucbands", "nbcapture", "deformed", "deformedbands", "bonds", "predict", "ghosts", "gravity", "overlaprule", "phonondex", "kpointdex", "nspin", "corepdex"):
         if mods.get(extra_mod) is not None:
             prov["tree"]["instruments"].append(extra_mod + ".py")
     if nuclear and not nuclear.get("absent"):
@@ -2560,7 +2623,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
         "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
         "nuclear": nuclear, "bonds": bonds, "predictions": predictions, "gravity": gravity, "register": register,
-        "phonons": phonons, "kpoints": kpoints,
+        "phonons": phonons, "kpoints": kpoints, "coreps": coreps,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -2598,6 +2661,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "register": ({"count": register["count"], "occupied": register["occupied"], "all_occupied": register["all_occupied"], "state_commit": register["state_commit"]} if register else None),
         "phonons": ({"members": phonons["members"], "space_groups": phonons["space_groups"], "cells": phonons["cells"], "cell": phonons["cell"], "decompositions": phonons["distinct_decompositions"]} if phonons else None),
         "kpoints": ({"members": kpoints["members"], "space_groups": kpoints["space_groups"]["with_a_member"], "cells": kpoints["cells"], "cell": kpoints["cell"], "projective": kpoints["projective"]["members"]} if kpoints else None),
+        "coreps": ({"members": coreps["members"], "cells": coreps["cells"], "cell": coreps["cell"], "doubled_at_k": coreps["accounting"]["doubled_at_k"], "cases": {k: v["members"] for k, v in coreps["cases"].items() if k in ("a", "b", "c", "x")}} if coreps else None),
         "bonds": ({"refusals": len(bonds["refusals"]), "empty_channels": bonds["channels"]["empty"]} if bonds else None),
         "predictions": ({"total_E": predictions["total_E"], "predicting": predictions["partition"]["predicting"], "complete": predictions["partition"]["complete"],
                          "totals": predictions["adjudication"]["totals"], "site_ghosts": sum(v["E"] for v in predictions["by_index"].values())}
@@ -3824,10 +3888,11 @@ def selftest(warp_root=WARP_ROOT):
                 check("deformed index: the member count is the row count", len(di["rows"]), di["members"])
         pr = pfull.get("predictions")
         if pr and not pr.get("absent"):
-            check("predictions: 4,759 demanded cells over 24 indexes, 18 predicting and 6 complete, none too large", (pr["total_E"], len(pr["E_by_index"]), pr["partition"]["predicting"], pr["partition"]["complete"], pr["too_large"]), (4759, 24, 18, 6, []))
+            check("predictions: 4,919 demanded cells over 27 indexes, 21 predicting and 6 complete, none too large", (pr["total_E"], len(pr["E_by_index"]), pr["partition"]["predicting"], pr["partition"]["complete"], pr["too_large"]), (4919, 27, 21, 6, []))
             check("predictions: the partition is exact, E = 0 iff the index closes under information", (pr["partition"]["zero_close_information"], pr["partition"]["positive_do_not"]), (True, True))
-            check("predictions: adjudicated 1,974 forbidden by two bounds, 36 unplaced, 2,651 open, 98 undecided", pr["adjudication"]["totals"], {"E": 4759, "forbidden": 1974, "unplaced": 36, "open": 2651, "undecided": 98})
-            check("predictions: exactly two bounds are non-monotone and only those forbid", (sorted(b["index"] for b in pr["bounds"] if not b["monotone"]), all(b["forbidden"] == 0 for b in pr["bounds"] if b["monotone"])), (["baryons", "gravity"], True))
+            check("predictions: adjudicated 2,045 forbidden by the non-monotone bounds, 36 unplaced, 2,740 open, 98 undecided", pr["adjudication"]["totals"], {"E": 4919, "forbidden": 2045, "unplaced": 36, "open": 2740, "undecided": 98})
+            check("predictions: five bounds are non-monotone and only those forbid", (sorted(b["index"] for b in pr["bounds"] if not b["monotone"]), all(b["forbidden"] == 0 for b in pr["bounds"] if b["monotone"])), (["baryons", "corepdex", "gravity", "kpointdex", "phonondex"], True))
+            check("predictions: the phonon chain adjudicated, 29 of 111, 38 of 45 and 4 of 4 forbidden, the last closing at zero open", [[pr["by_index"][k][j] for j in ("E", "forbidden", "unplaced", "open")] for k in ("phonons", "kpoints", "coreps")], [[111, 29, 0, 82], [45, 38, 0, 7], [4, 4, 0, 0]])
             check("predictions: the gravity index's 1,550 are 1,080 forbidden by the image bound, 0 unplaced, 470 open, cell by cell", [pr["by_index"]["gravity"][k] for k in ("E", "forbidden", "unplaced", "open")], [1550, 1080, 0, 470])
             check("predictions: the deformed index's three are all open", [pr["by_index"]["deformedbands"][k] for k in ("E", "forbidden", "unplaced", "open")], [3, 0, 0, 3])
             check("predictions: the mesons' fifteen are 0 forbidden, 3 unplaced, 12 open, cell by cell", [pr["by_index"]["mesons"][k] for k in ("E", "forbidden", "unplaced", "open")], [15, 0, 3, 12])
@@ -3843,7 +3908,7 @@ def selftest(warp_root=WARP_ROOT):
                 src = next((ix for ix in pfull["indexes"] if ix["id"] == sid), None) or (pfull["nuclear"]["index"] if sid == "nucbands" and pfull.get("nuclear") else None) \
                       or (pfull["nuclear"].get("deformed_index") if sid == "deformedbands" and pfull.get("nuclear") else None) \
                       or (pfull.get("gravity") if sid == "gravity" and pfull.get("gravity") and not pfull["gravity"].get("absent") else None) \
-                      or (pfull.get(sid) if sid in ("phonons", "kpoints") and pfull.get(sid) and not pfull[sid].get("absent") else None) \
+                      or (pfull.get(sid) if sid in ("phonons", "kpoints", "coreps") and pfull.get(sid) and not pfull[sid].get("absent") else None) \
                       or ((pfull.get("quasiparticles") or {}).get({"fqh": "seated", "readrezayi": "nonabelian", "bosons": "bosons"}.get(sid, sid)) if sid in ("fqh", "readrezayi") else None)
                 if not src:
                     continue
@@ -3879,8 +3944,8 @@ def selftest(warp_root=WARP_ROOT):
             check("gravity: no refusal names the field", any("warp" in r.lower() for r in gv["refuses"]), False)
         rg = pfull.get("register")
         if rg:
-            check("register: 26 seated indexes asked of the registry, on all eight channels, not claimed complete", (rg["count"], rg["occupied"], rg["all_occupied"], rg["complete"], rg["live"]), (26, [0, 1, 2, 3, 4, 5, 6, 7], True, False, True))
-            check("register: the gravity coarsening is the only K1 and the phonon and k-point rows sit at K0", ([r["label"] for r in rg["rows"] if r["channel"] == 1], [r["cell"] for r in rg["rows"] if r["label"] in ("phonondex", "kpointdex")]), (["gravity_bound"], [{"channel": 0, "height": 12, "width": 16}, {"channel": 0, "height": 7, "width": 5}]))
+            check("register: 27 seated indexes asked of the registry, on all eight channels, not claimed complete", (rg["count"], rg["occupied"], rg["all_occupied"], rg["complete"], rg["live"]), (27, [0, 1, 2, 3, 4, 5, 6, 7], True, False, True))
+            check("register: the gravity coarsening is the only K1 and the phonon chain sits at K0", ([r["label"] for r in rg["rows"] if r["channel"] == 1], [r["cell"] for r in rg["rows"] if r["label"] in ("phonondex", "kpointdex", "corepdex")]), (["gravity_bound"], [{"channel": 0, "height": 12, "width": 16}, {"channel": 0, "height": 7, "width": 5}, {"channel": 0, "height": 6, "width": 3}]))
             check("register: every index the site carries is a row, and the rows carry their cells", (sorted(r["site_id"] for r in rg["rows"] if r["site_id"]), all(r["cells"] > 0 and r["cell"]["channel"] == r["channel"] for r in rg["rows"])), (sorted(SITE_INDEX_IDS.values()), True))
             check("register: the site's own index counts agree with the register's", all(next((ix["cells"] for ix in pfull["indexes"] if ix["id"] == r["site_id"]), r["cells"]) == r["cells"] for r in rg["rows"] if r["site_id"]), True)
         ph = pfull.get("phonons")
@@ -3892,12 +3957,18 @@ def selftest(warp_root=WARP_ROOT):
             check("phonons: the capture's md5 is recorded", bool(ph["source"]["captures"] and ph["source"]["captures"][0]["md5"]), True)
         kp = pfull.get("kpoints")
         if kp and not kp.get("absent"):
-            check("k-points: 870 isolated stars over 162 space groups on 21 cells, K0, cell (0, 7, 5); 68 groups carry none and they are the polar classes", (kp["members"], kp["space_groups"]["with_a_member"], kp["space_groups"]["with_none"], kp["space_groups"]["none_are_the_polar_classes"], kp["cells"], kp["cell"]), (870, 162, 68, True, 21, {"channel": 0, "height": 7, "width": 5}))
+            check("k-points: 870 isolated stars over 162 space groups on 21 cells, K0, cell (0, 7, 5), the cell pinned at seating; 68 groups carry none and they are the polar classes", (kp["members"], kp["space_groups"]["with_a_member"], kp["space_groups"]["with_none"], kp["space_groups"]["none_are_the_polar_classes"], kp["cells"], kp["cell"]), (870, 162, 68, True, 21, {"channel": 0, "height": 7, "width": 5}))
             check("k-points: 305 projective members, all of them stuck; denominators 1, 2, 3, 4", (kp["projective"]["members"], kp["projective"]["stuck"], kp["projective"]["free"], kp["grid"]["denominators"], kp["grid"]["max_denominator"]), (305, 305, 565, [1, 2, 3, 4], 4))
             check("k-points: both grids exact on every Bravais lattice", (len(kp["grid"]["rows"]), all(r["grid_12_exact"] and r["grid_24_exact"] for r in kp["grid"]["rows"])), (14, True))
             check("k-points: the published check finds 12 of 14, the two misses one star on a symmetry line", (sum(1 for r in kp["crosscheck"]["rows"] if r["verdict"] == "FOUND"), len(kp["crosscheck"]["rows"]), sorted({r["name"] for r in kp["crosscheck"]["rows"] if r["verdict"] != "FOUND"})), (12, 14, ["K", "U"]))
             check("k-points: the second implementation agrees on every bucket and leaves nothing unresolved", (kp["second_implementation"]["agreeing"], kp["second_implementation"]["buckets"], kp["second_implementation"]["unresolved"], kp["second_implementation"]["multiplier_differs_in"]), (314, 314, [], [178, 179, 180, 181]))
             check("k-points: every row carries three coordinates and its star times the little order is the point-group order", all(len(r["coords"]) == 3 and r["extra"]["star"] * r["coords"][0] == r["extra"]["pg_order"] for r in kp["rows"]), True)
+        cr = pfull.get("coreps")
+        if cr and not cr.get("absent"):
+            check("coreps: 3,529 levels on 13 cells, K0, cell (0, 6, 3), on the k-point index's own 870 stars", (cr["members"], cr["cells"], cr["cell"], cr["closers"], cr["seated_cell"], cr["against_kpoints"]["stars_here"], cr["against_kpoints"]["stars_there"], cr["against_kpoints"]["space_groups_agreeing"]), (3529, 13, {"channel": 0, "height": 6, "width": 3}, [], [0, 6, 3], 870, 870, 162))
+            check("coreps: the accounting 3,908 − 297 − 82 = 3,529, by case 3,138 / 12 / 297 / 82, 309 doubled at k over 86 groups", (cr["accounting"]["small_reps"], [cr["cases"][k]["members"] for k in "abcx"], cr["accounting"]["doubled_at_k"], cr["accounting"]["space_groups_with_a_doubled_level"], cr["accounting"]["small_reps"] - cr["cases"]["c"]["members"] - cr["cases"]["x"]["members"]), (3908, [3138, 12, 297, 82], 309, 86, 3529))
+            check("coreps: the three coordinates determine the case with no exception", all({"a": (r["extra"]["corep_dim"] == r["extra"]["small_dim"] and r["extra"]["n_small"] == 1), "b": (r["extra"]["corep_dim"] == 2 * r["extra"]["small_dim"] and r["extra"]["n_small"] == 1), "c": (r["extra"]["corep_dim"] == 2 * r["extra"]["small_dim"] and r["extra"]["n_small"] == 2), "x": (r["extra"]["corep_dim"] == r["extra"]["small_dim"] and r["extra"]["n_small"] == 2)}[r["extra"]["case"]] for r in cr["rows"]), True)
+            check("coreps: every conjugate-star member names its partner and no other does", all((r["extra"]["k2"] is not None) == (r["extra"]["case"] == "x") for r in cr["rows"]), True)
         bo = pfull.get("bonds")
         if bo:
             check("bonds: three refusals on three grounds, and no channel empty", (len(bo["refusals"]), bo["channels"]["empty"]), (3, []))
@@ -3911,7 +3982,7 @@ def selftest(warp_root=WARP_ROOT):
             check("sub-population sweep: under the mass reach the spin-4 population never reaches K4", 4 in {c["channel"] for c in sp["spin4_under_mass"]["cuts"]}, False)
             check("sub-population sweep: three lattices, and the family's chain is 2 over 14 containments", (sp["lattices"]["count"], sp["family"]["containments"], sp["family"]["longest_chain"]), (3, 14, 2))
             check("sub-population sweep: the not-lattices and the one too large to test are counted apart", (sp["lattices"]["not"] >= 18, sp["lattices"]["undetermined"] <= 1), (True, True))
-            check("sub-population sweep: the exhaustive chains are 5, 7, 6, 14", [e["longest_chain"] for e in sp["exhaustive"]], [5, 7, 6, 14])
+            check("sub-population sweep: the exhaustive chains are 5, 7, 6, 8, 14 once the corepresentation index is small enough to enumerate", [e["longest_chain"] for e in sp["exhaustive"]], [5, 7, 6, 8, 14])
             check("sub-population sweep: two lattices peel to empty, exact", sorted(r["lattice"] for r in sp["recursion"] if r["maximal"]), ["bosonqp.index", "overlaprule.madelung_slot"])
             check("sub-population sweep: the chiral Goldstones are a full box, the electroweak ones a relabelling", (sp["candidates"]["chiral_goldstone"]["full_box"], sp["candidates"]["electroweak"]["held_by_fundamental"]), (True, True))
             check("sub-population sweep: five routes to nuclear bands, one open, one candidate source", (len(sp["candidates"]["nuclear_bands"]["routes"]), [s["arxiv"] for s in sp["candidates"]["nuclear_bands"]["sources"] if s["candidate"]]), (5, ["2508.05447"]))

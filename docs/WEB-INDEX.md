@@ -511,7 +511,7 @@ twenty-three, nineteen not and one too large to test; for the rest the sweep tes
 ambient box, and the block says so), the recursion
 determination (within the family, chain 2 over 14 containments; the three lattices peeled one
 element at a time with every intermediate re-checked, two exact and one a verified lower bound;
-exhaustively over every subset of the four indexes small enough, chains 5, 7, 6 and 14), the
+exhaustively over every subset of the five indexes small enough, chains 5, 7, 6, 8 and 14, the corepresentation index the fifth at 27dd39c), the
 indexes too large to determine, named, and the candidates run and not seated — the chiral
 Goldstones (a full box, so free), the electroweak eaten Goldstones (a relabelling), and the
 nuclear rotational bands, whose five routes are listed with their states and whose two sources,
@@ -647,13 +647,13 @@ dialog held the particle indexes alone); the dialog's element id and the build's
 unchanged.
 
 **The register** (`_register`) is asked of the research tree's registry at build: every seated
-first-order index — **26** at the build this page describes, on **all eight** closure channels —
+first-order index — **27** at the build this page describes, on **all eight** closure channels —
 with its label, what a member is, the quantum numbers charted, the cells and the admissible cell
 (channel, height, width) measured over the live members (about 35 s, the gravity index's 914 cells
 the slowest), the languages that close it by the channel law, whether the overlap rule seated it as
 a coarsening, and the sources it reads with their hashes (a path into the store is withheld and
 its kind named instead). Beside them the tree's own `STATE.json`, which its instruments regenerate
-and which may lag the registry by a row or two (it held 24 rows when the registry held 26), supplies
+and which may lag the registry by a row or two (it held 24 rows when the registry held 27), supplies
 the channel map, the tree's retractions of its earlier claims (`retractions`, its instrument section
 marks written out as "part n" because they are not the books'), what is not claimed, and its commit;
 the block records which it read live. The Indexes dialog opens with it as a table, each row the site carries in
@@ -703,12 +703,12 @@ charge-decade rank and F, coloured by the bound class, with the bound class at e
 the mass, χ, Q̃, the level read and a button into the gravity mode on the member's plate; of its
 1,550 demanded cells the ones at D = 4 are drawn as ghosts and all are counted.
 
-**The gravity instrument's selftest is repaired on this branch.** It pinned the figures from before
-its own reader was widened (118 species, 3,394 members), and this tree measures 126 and 3,663;
-`research/warp-drive/gravity.py` on this branch carries the widened figures in its pins and the
-history of both moves in its docstring, and passes. The repair belongs to the research branch and
-is carried here until it lands there; the site records the selftest as it ran, and it now runs
-clean.
+**The gravity instrument's selftest was re-pinned by the research branch itself.** It pinned the
+figures from before its own reader was widened (118 species, 3,394 members) while the tree measured
+126 and 3,663; this branch carried a repair for one commit, and the research branch then re-pinned
+the instrument at its own head (sections 3a and 3b of the file name the eight species the widened
+reader reached and the nine not read at their lowest level), so the copy here is withdrawn in favour
+of theirs and the site records the selftest as it ran: it passes.
 
 **A nuclear-spin table, measured and not seated** (`_nuclear_spin`, from the `nspin` instrument's
 index half): the gravity index refuses to call the electronic angular momentum the member's spin
@@ -749,16 +749,39 @@ in four space groups as a gauge choice, its eighteen once-unresolved members clo
 point-group order refused as the host's, a merge by symmetry content refused (485 members it would
 lose) and two over-representations refused with their counts. The ninth index of the explorer
 (`kpoints`: little-group order across, small representations up, maximum degeneracy into the page,
-coloured by Bravais lattice). Neither index is yet in the prediction instrument's table; their
-demand is computed here cell by cell with no bound derived.
+coloured by Bravais lattice). Both were measured into the prediction instrument's table at 27dd39c with a bound each.
 
-**One finding in the research tree, recorded and not repaired.** Its sub-chart sweep
-(`overlaprule.arity2_freeness`) walks every registered module and, by its own design, raises
-rather than skipping when one declares neither a coordinate entry nor coordinate names to it; the
-two newest indexes declare neither, so at 40ad1e4 the sweep stops on the phonon index. The site
-carries that as `arity2_freeness.absent` with the sweep's own message (`_freeness`), on the spin-4
-index's plate and in the sweep block, and its fixtures check the finding is recorded rather than
-pin figures the sweep did not give.
+**A finding the research tree then repaired.** Its sub-chart sweep (`overlaprule.arity2_freeness`)
+walks every registered module and, by its own design, raises rather than skipping when one declares
+neither a coordinate entry nor coordinate names to it; at 40ad1e4 the two newest indexes declared
+neither and the sweep stopped on the phonon index. The site carried that as
+`arity2_freeness.absent` with the sweep's own message (`_freeness`), and keeps the path: a build
+on a tree where the sweep raises records the finding on the spin-4 index's plate and in the sweep
+block, and the fixtures check whichever the tree gives. At 27dd39c both instruments declare their
+names and the sweep runs.
+
+**The time-reversal extension** (`_coreps`, from the `corepdex` instrument, registry row 27): a
+member is a corepresentation at an isolated high-symmetry k-star, a single degenerate level where
+the k-point index's member is the star — **3,529** on the k-point index's own 870 stars (proved
+identical as sets on all 230 space groups by the derivation, compared label-free here), on **13**
+cells, **K0, cell (0, 6, 3)**; the degeneracy, the small-representation dimension and the number of
+species fusing as coordinates, which determine Herring's case with no exception (3,138 real, 12
+pseudoreal, 297 complex pairs, 82 across conjugate stars); the accounting 3,908 − 297 − 82; **309**
+levels doubled at k by time reversal over 86 space groups; which obstruction touches which of the
+seated stars; the over-representation an adversarial review caught (3,611 members on 37 cells at
+arity 4, withdrawn: a conjugate-star level seated twice and the little-group order carried as a
+coordinate) and the repair; the star's properties refused as the k-point index's. The tenth index
+of the explorer (`coreps`: degeneracy across, small-representation dimension up, species fusing into
+the page, coloured by case). The k-point index's third coordinate loses its gloss with it: it is the
+largest small-representation dimension and not the degeneracy, which time reversal exceeds at 118
+of its groups.
+
+**The predictions block** at 27dd39c spans 27 indexes: **4,919** demanded, **2,045** forbidden by
+five non-monotone bounds (the three-quark flavour bound, the gravity image, and one each for the
+phonon chain: a mode budget antitone in the site-symmetry order forbidding 29 of 111, a sum-of-squares
+rule forbidding 38 of 45, and Herring's criterion forbidding all 4 of the corepresentation index's
+demand, the first index in the register to close at zero open), 36 unplaced, 2,740 open, 98
+undecided; law L4 now names the non-monotone bounds from the instrument's own table.
 
 **`data/nuclides.js`** (`nuclides_block`) carries what the two new solver modes compute over: the
 3,558 nuclides with mass excess and quality flag (the file's md5 against the ledger's), the

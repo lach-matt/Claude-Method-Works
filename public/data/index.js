@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-20T20:56:03+00:00",
-  "commit": "17332cbe4626",
+  "built": "2026-09-21T03:05:41+00:00",
+  "commit": "484bc2108932",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "17332cbe4626",
-   "text": "Lach, M. (2026). The Master Index, edition 17332cbe4626. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 17332cbe4626}\n}"
+   "commit": "484bc2108932",
+   "text": "Lach, M. (2026). The Master Index, edition 484bc2108932. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 484bc2108932}\n}"
   },
   "history": [
    {
@@ -282,13 +282,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 7,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/17332cbe46269c06b7996f52dce510e5bdba73d3",
     "note": null
+   },
+   {
+    "date": "2026-09-20",
+    "commit": "484bc21",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/484bc21089322407d05035cb734571cbbdc9b2f9",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
   "bytes": 261745,
-  "md5": "de3b3236af672e5e66610782eb0d4b57",
+  "md5": "15f38c03c80fc9474bc0eac96cd329fe",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -346,13 +353,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's research tree rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "research/paper/THE-HIERARCHY-LAW.md",
-     "commit": "40ad1e4"
+     "commit": "27dd39c"
     },
     "pdf": {
      "file": "papers/languages/THE-HIERARCHY-LAW.pdf",
      "bytes": 1021231,
      "md5": "1ea3368e06a444b6acdd78eaa3397b31",
-     "commit": "40ad1e4"
+     "commit": "27dd39c"
     },
     "pdf_note": null,
     "masked": [],
@@ -369,13 +376,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "author": "Lach, M.",
     "held": true,
     "bytes": 76627,
-    "md5": "80ba0206252ca8e686775ef17dc82245",
+    "md5": "d1961364f10d665f843bf219db1c4915",
     "md5_recorded": null,
     "words": 14051,
     "note": "the paper as the author wrote it, from the repository's research tree, its md5 measured at build on the text as written and its last commit recorded; 8 citations of unpublished material are masked at build, each with a visible mark, because the site cites nothing from the books, and nothing else in it is edited",
     "tree": {
      "path": "research/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md",
-     "commit": "40ad1e4"
+     "commit": "27dd39c"
     },
     "pdf": null,
     "pdf_note": "the PDF is the paper as written and carries the citations masked above, so it is not carried until the author reissues it",
@@ -417,19 +424,19 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "file": "data/papers.js",
    "bytes": 261745,
-   "md5": "de3b3236af672e5e66610782eb0d4b57",
+   "md5": "15f38c03c80fc9474bc0eac96cd329fe",
    "what": "the released papers, rendered"
   },
   {
    "file": "data/papers/languages/THE-HIERARCHY-LAW.pdf",
    "bytes": 1021231,
    "md5": "1ea3368e06a444b6acdd78eaa3397b31",
-   "what": "The Hierarchy Law of Mathematical Languages, as a PDF; md5 measured at build, commit 40ad1e4"
+   "what": "The Hierarchy Law of Mathematical Languages, as a PDF; md5 measured at build, commit 27dd39c"
   },
   {
    "file": "data/particles.js",
-   "bytes": 3112176,
-   "md5": "1fbd46b97fde563c7e6c86071d1cc8c8",
+   "bytes": 4200960,
+   "md5": "6813256c27d85af86d119dae4e593b49",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"
   },
   {
@@ -9677,8 +9684,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 3112176,
-  "md5": "1fbd46b97fde563c7e6c86071d1cc8c8",
+  "bytes": 4200960,
+  "md5": "6813256c27d85af86d119dae4e593b49",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9736,7 +9743,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    ],
    "tree": {
     "root": "the research tree",
-    "commit": "40ad1e4",
+    "commit": "27dd39c",
     "state_commit": "90f059bddcc5",
     "instruments": [
      "pdgcapture.py",
@@ -9759,6 +9766,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
      "phonondex.py",
      "kpointdex.py",
      "nspin.py",
+     "corepdex.py",
      "particlesweep.py"
     ]
    }
@@ -9924,7 +9932,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "selftest_passed": true
   },
   "register": {
-   "count": 26,
+   "count": 27,
    "occupied": [
     0,
     1,
@@ -9960,22 +9968,38 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    },
    "projective": 305
   },
+  "coreps": {
+   "members": 3529,
+   "cells": 13,
+   "cell": {
+    "channel": 0,
+    "height": 6,
+    "width": 3
+   },
+   "doubled_at_k": 309,
+   "cases": {
+    "a": 3138,
+    "b": 12,
+    "c": 297,
+    "x": 82
+   }
+  },
   "bonds": {
    "refusals": 3,
    "empty_channels": []
   },
   "predictions": {
-   "total_E": 4759,
-   "predicting": 18,
+   "total_E": 4919,
+   "predicting": 21,
    "complete": 6,
    "totals": {
-    "E": 4759,
-    "forbidden": 1974,
+    "E": 4919,
+    "forbidden": 2045,
     "unplaced": 36,
-    "open": 2651,
+    "open": 2740,
     "undecided": 98
    },
-   "site_ghosts": 3536
+   "site_ghosts": 3540
   },
   "subpop": {
    "tested": 366,
@@ -9985,6 +10009,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     5,
     7,
     6,
+    8,
     14
    ],
    "lattices": 3
