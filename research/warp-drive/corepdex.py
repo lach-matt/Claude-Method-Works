@@ -339,14 +339,27 @@ NOT, and none is repaired here.
 AND ONE GAP THAT IS NOT THIS INDEX'S EITHER.  `overlaprule.coords()` resolves a
 seated module's axes through a COORDS table or a module-level NAMES, and RAISES
 when it finds neither, "so a future index cannot go missing quietly".
-`phonondex` and `kpointdex` declare neither.  So `overlaprule --selftest` fails
-that fixture and `particlesweep --selftest` CRASHES OUTRIGHT with a KeyError on
-`phonondex`.  MEASURED AS PRE-EXISTING, not inferred: both were run against
-HEAD in a detached worktree and fail identically there, and `overlaprule`'s
-five failing fixtures are the same five before and after this pass.  THIS INDEX
-DECLARES `NAMES` so it does not join them.  Repairing the other two means
-giving them coordinate names and re-measuring what the sub-chart sweeps then
-reach, which moves other indexes' figures -- a separate pass, not this one.
+`phonondex` and `kpointdex` declared neither.  So `overlaprule --selftest`
+failed that fixture and `particlesweep --selftest` CRASHED OUTRIGHT with a
+KeyError on `phonondex`.  MEASURED AS PRE-EXISTING, not inferred: both were run
+against HEAD in a detached worktree and failed identically there, and
+`overlaprule`'s five failing fixtures were the same five before and after this
+pass.  THIS INDEX DECLARES `NAMES` so it did not join them.
+
+    REPAIRED SINCE, AND THIS PARAGRAPH IS PAST TENSE FOR THAT REASON.  DOCKET
+    51 gave both modules their `NAMES`, read off each `index()` rather than
+    invented -- `phonondex` is `(site_order, n_irreps, max_dim)` and
+    `kpointdex` is `(little_order, n_smallreps, max_dim)` -- each with a
+    fixture, because a declaration without one is exactly how `kpointdex`'s
+    `SEATED_CELL` was left at `None`.  Both crashes cleared.
+        WHAT IT MOVED, MEASURED: the proper sub-chart sweep went 440 charts
+    over 22 modules to 446 over 24.  All six new charts are arity 2 and NOT ONE
+    IS A CANDIDATE -- `phonondex` reaches K2/K7/K2 and `kpointdex` K2/K2/K2,
+    and both channels are occupied.  So `seated_channels()` is unchanged at
+    [0, 2, 3, 4, 7], the empty channels are still [1, 5, 6], and `CANDIDATES`
+    is still seven.  The prediction above that repairing them "moves other
+    indexes' figures" was right about the sweep's reach and wrong about the
+    seating: nothing was seated or unseated by it.
 
 ===============================================================================
 7. SEATED.  THE 27th REGISTERED INDEX

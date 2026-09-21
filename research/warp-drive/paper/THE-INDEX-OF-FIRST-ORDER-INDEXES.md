@@ -207,12 +207,12 @@ The second-order object has 24 vertices on 24 distinct cells - no two seated ind
 | laws | RESIDUAL | 584 series against Rydberg-Ritz | n range, l, quantum defect | 54 | (0, 25, 7) | 3 |
 | probability | TABLE | 25 subshells | n, l | 25 | (2, 8, 9) | 3 |
 | inversion | TABLE | 20 fill-order/shell-order inversions | pairs of (n, l) | 17 | (2, 6, 5) | 3 |
-| gravity | TABLE | 3,394 nuclide-charge states x 8 dimensions | Z, N, A, q, Ne, 2J, level status | 914 | (0, 19, 112) | 7 |
+| gravity | TABLE | 3,663 nuclide-charge states x 8 dimensions | Z, N, A, q, Ne, 2J, level status | 914 | (0, 19, 112) | 7 |
 | nucshell | TABLE | 22 nuclear single-particle subshells | nr, l, j (nuclear) | 22 | (3, 7, 6) | 3 |
 | madrule | RESIDUAL | 20 Madelung exceptions, by their transfer | n+l of the acceptor, l of the donor, occupancy | 13 | (2, 6, 4) | 3 |
 | terms | TABLE | 5,132 Russell-Saunders terms over 122 spectra | 2S+1, L, parity, the banked J set | 112 | (0, 13, 18) | 4 |
 | observed | FIBRATION | 108 observed differentiating electrons, register 1306 | n, l, k (observed) | 98 | (0, 20, 13) | 3 |
-| gravity_bound | TABLE | the same 3,394 nuclide-charge states, on the bound structure alone | horizon-bound class, forced angular momentum, spin-decade rank | 26 | (1, 8, 5) | 3 |
+| gravity_bound | TABLE | the same 3,663 nuclide-charge states, on the bound structure alone | horizon-bound class, forced angular momentum, spin-decade rank | 26 | (1, 8, 5) | 3 |
 | madelung_slot | FIBRATION | the same 170 electrons, subshell-blind | n+l, k | 82 | (6, 26, 6) | 2 |
 | fundamental | TABLE | 30 Standard Model particles -- 12 quarks, 12 leptons, 6 gauge/Higgs | 2J, Q3, colour dimension, generation | 26 | (2, 7, 7) | 4 |
 | mesons | TABLE | 242 mesons of the PDG table, 8 set aside for want of a printed parity | 2J, P, 2I, Q3 | 66 | (0, 10, 14) | 4 |

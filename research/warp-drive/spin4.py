@@ -307,8 +307,13 @@ def selftest():
 
     # section 4, the thing that makes it matter
     f = arity_freeness()
+    # RE-PINNED 105 -> 135.  Thirty arity-2 charts arrived since this was
+    # pinned; six of them are DOCKET 51's, from declaring NAMES on `phonondex`
+    # and `kpointdex`.  THE READING IS UNMOVED -- statistics still closes every
+    # one, which is the whole of what this fixture is for, and the next line's
+    # conclusion about K4 at arity 2 stands on that unchanged fact.
     chk("statistics closes every arity-2 chart in the tree -- free",
-        f["statistics"], (105, 105))
+        f["statistics"], (135, 135))
     chk("so K4 at arity 2 shows join-closure only; THIS is arity 3",
         (ARITY >= 3, f["statistics"][0] == f["statistics"][1]), (True, True))
 
