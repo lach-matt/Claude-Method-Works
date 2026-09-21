@@ -169,9 +169,16 @@ anywhere in the work and neither is a result; the paper says so in §10.
 
 ## Figures
 
-All four are computed by `figures.py` from `check.py`'s own reference implementation, which
-`figures.py` imports by path. `FIGURES.tsv` records the file, the paper's figure number, what it
-shows, the function that made it and the md5. No plate was taken from elsewhere: the audited plates
-in `method/PROOF-FIGURES.tsv` that bear on this material are the periodic-table defect pictures,
-which illustrate one worked example rather than the law, and the paper's four figures each carry a
-result instead.
+Five figures. **Figure 2 is an audited plate taken unmodified** — row 33 of
+`method/PROOF-FIGURES.tsv`, graded NAMED-GENERATION against caption 6.2, sourced from
+`extracted/archives/the-method-1-6-figures-build8/figures/figure-6.2.png`, md5
+`b383daa6351d7fb140a7055651649f1f`, copied into `figures/fig-periodic-table.png` with the same md5.
+Its four checkable facts — 90 held, 36 admitted and denied, 126 in all, and the red pattern at
+period 1 groups 2–17 and periods 2–3 groups 3–12 — are all produced by `check.py`'s periodic-table
+row, so the paper's caption prints nothing the check does not.
+
+The other four are computed by `figures.py` from `check.py`'s own reference implementation, which
+`figures.py` imports by path. `FIGURES.tsv` records for each the file, the paper's figure number,
+what it shows, how it was made and the md5. The second audited plate that bears on this material
+(row 32, caption 6.1 — the external definition cost of seven indices) is not used: four of its seven
+indices are outside this paper, and its two that are inside are already printed as numbers in §2.
