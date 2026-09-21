@@ -177,7 +177,7 @@ def check_stages():
         n = len(L[d])
         DATA["pairs"][d] = n * (n - 1) // 2
     ob("EXHAUSTIVE", "pair counts at Λ_12 and Λ_13 (not pair-tested; the sweep decides them)",
-       DATA["pairs"][12] == 2513724560 and DATA["pairs"][13] == 19826278385,
+       DATA["pairs"][12] == 70905 * 70904 // 2 == 2513724060 and DATA["pairs"][13] == 199130 * 199129 // 2 == 19826278885,
        "%d and %d" % (DATA["pairs"][12], DATA["pairs"][13]))
 
 
@@ -323,7 +323,8 @@ def check_cylinder():
        "%d cells, product %d, defect %d = %.1f%%" % (len(L13u), p13, p13 - len(L13u), 100 * (p13 - len(L13u)) / p13))
     r12u, _ = staircase_sweep(L12u)
     DATA["tightK"]["E12"] = r12u - len(L12u)
-    ob("EXHAUSTIVE", "tight K at stage 12: ℛ-defect E = |ℛ(X)| − |X|", True, "E = %d" % (r12u - len(L12u)))
+    ob("REFUTATION", "tight K at stage 12 is not closed either: ℛ-defect E = |ℛ(X)| − |X|",
+       r12u - len(L12u) == 12675, "E = %d" % (r12u - len(L12u)))
     # the exact triangle at axis 12: |2J_c − 2f| <= 2K <= 2J_c + 2f, 2K ≡ 2J_c (mod 2)
     L12t = [c + (K,) for c in L11 for K in range(0, c[10] + 2 * c[5] + 1)
             if abs(c[10] - 2 * c[5]) <= K and (K - c[10]) % 2 == 0]

@@ -109,7 +109,7 @@ The set is non-empty for every v ∈ Âⱼ(X), since some cell realises the valu
 
 The first three classes have exactly one core level. The last two have more, and only for those can a label that omits the parent fail to name a channel.
 
-**D9 (p, the core's orbital count at ℓ).** For a channel of orbital angular momentum ℓ, p is the number of electrons' worth of occupied subshells of that same ℓ in the core's ground configuration, counted as subshells: p = 0 says the core holds no orbital of the channel's ℓ, so the channel's orbital has no filled counterpart to be orthogonal to and no penetration of that symmetry.
+**D9 (p, the core's orbital count at ℓ).** For a channel of orbital angular momentum ℓ, p is the number of occupied subshells of that same ℓ in the core's ground configuration. p = 0 says the core holds no orbital of the channel's ℓ at all, so the outer orbital has no filled counterpart of its own symmetry.
 
 ---
 
@@ -194,7 +194,7 @@ The same computation run directly, as a staircase closure over the ambient produ
 
 Status: EXHAUSTIVE over the 36 cells.
 
-![Figure 2](figures/fig3-thirty-six.png)
+![Figure 2](figures/fig2-thirty-six.png)
 
 *Figure 2. Left: the thirty-six coloured by the subshell each slot would hold — 25 red where no orbital of that ℓ exists at that n, 11 gold where one exists and is occupied later. Right: the same ninety cells with helium drawn at group 2. The entire first row of gaps disappears and E falls to 20, the twenty being periods 2 and 3, groups 3–12.*
 
@@ -210,7 +210,7 @@ The difference, 36 − 20 = 16, is what it costs a reader to be told where heliu
 
 ## §4 · The same elements on (n + ℓ, Z)
 
-Order the subshells by n + ℓ, and within one value of n + ℓ by n, and let r(Z) be the value of n + ℓ of the last subshell to receive an electron at atomic number Z. The cells are the pairs (r(Z), Z) for Z = 1 … 118. They fall into eight rows of lengths
+Order the subshells by n + ℓ, and within one value of n + ℓ by n. Filling them in that order, with capacity 2(2ℓ + 1) each, partitions the atomic numbers 1 … 118 into eight contiguous blocks, one per value of n + ℓ; write r(Z) for the value of n + ℓ of the block containing Z. The cells are the pairs (r(Z), Z). The rows have lengths
 
 > 2, 2, 8, 8, 18, 18, 32, 30
 
@@ -220,7 +220,7 @@ Order the subshells by n + ℓ, and within one value of n + ℓ by n, and let r(
 
 and end at Z = 2, 4, 12, 20, 38, 56, 88, 118.
 
-![Figure 3](figures/fig2-two-presentations.png)
+![Figure 3](figures/fig3-two-presentations.png)
 
 *Figure 3. The same elements on two presentations. Left: (period, group), 90 cells in a box of 126, E = 36, with the thirty-six admitted cells in orange. Right: (n + ℓ, Z), 118 cells in a box of 944, E = 0, drawn as its eight rows with their lengths. The box on the right is more than seven times larger and the index denies nothing in it.*
 
@@ -238,7 +238,7 @@ Both routes were also run numerically: the staircase closure and an independent 
 
 **Closure follows the shape, not the count.** Appending a further cell that preserves the chain — for instance (3, 13), a hypothetical thirteenth member of the third row — leaves 119 cells and E = 0. Moving one element to the wrong row instead — deleting (5, 30) and inserting (2, 30) — breaks the chain and takes E to 54. E is a measurement of arrangement.
 
-**The row coordinate is the configuration's own.** For every Z from 1 to 108 the largest value of n + ℓ over the occupied subshells of the tabulated ground configuration equals the row of Z: 108 agreements, 0 exceptions (EXHAUSTIVE over the 108 configurations). Read instead from the *differentiating* electron alone — the one subshell whose occupancy rises from Z − 1 to Z — the identification fails at exactly six elements, Z = 25, 30, 43, 47, 48 and 80, each the successor of an s-to-d rearrangement in which the added electron lands in the s subshell that the previous element had emptied. The row coordinate is a property of the whole configuration.
+**The row coordinate is the configuration's own, but only when the whole configuration is read.** For every Z from 1 to 108 the largest value of n + ℓ over the occupied subshells of the tabulated ground configuration equals the row of Z: 108 agreements, 0 exceptions (EXHAUSTIVE over the 108 configurations). Read instead from the *differentiating* electron alone — the one subshell whose occupancy rises from Z − 1 to Z — the identification fails at exactly six elements, Z = 25, 30, 43, 47, 48 and 80, each the successor of an s-to-d rearrangement in which the added electron lands in the s subshell that the previous element had emptied. The row is a property of the whole configuration and not of the electron most recently added.
 
 **Chainhood is sufficient, not necessary.** The subshells themselves, indexed by (n + ℓ, ℓ) for n ≤ 7 and ℓ ≤ 3, give 22 cells in a box of 40 with E = 0; its recovered bounds are ℓ ≤ min(⌊(n + ℓ − 1)/2⌋, 3) and (n + ℓ) ≤ 7 + ℓ, both isotone, so Theorem 2 applies. It is not a chain: (n + ℓ, ℓ) = (4, 1) and (5, 0) are incomparable. Theorem 2 covers cases Theorem 1 does not.
 
@@ -246,9 +246,9 @@ Both routes were also run numerically: the staircase closure and an independent 
 
 ## §5 · Where the rows open, and what the spectra do there
 
-The three highest row openings of the (n + ℓ, Z) index are Z = 21, 57 and 89. They are also the atomic numbers at which the 3d, 4f and 5f orbitals contract from a diffuse outer orbital into a compact core orbital — orbital collapse (Goeppert-Mayer 1941; Griffin, Andrew and Cowan 1969). The coincidence is exact and is not a fit: the numbers are read off the index.
+The three highest row openings of the (n + ℓ, Z) index are Z = 21, 57 and 89. They are also the atomic numbers at which the 3d, 4f and 5f orbitals are taken to contract from diffuse outer orbitals into compact core ones — orbital collapse (Goeppert-Mayer 1941; Griffin, Andrew and Cowan 1969). The three thresholds used below are therefore **read off the index and not fitted to the spectra**; that is the whole of their claim to independence.
 
-Taken from the tabulated ground configurations, 3d is first occupied at Z = 21, 4f at Z = 58 — lanthanum at 57 takes 5d — and 5f at Z = 91, actinium and thorium at 89 and 90 taking 6d. So the block openings and the first occupations agree at ℓ = 2 and differ by one and two at ℓ = 3 for the known tie-break exceptions (EXHAUSTIVE over Z = 2 … 108).
+They are close to, and not identical with, the first occupation of the orbital in a tabulated ground configuration. 3d is first occupied at Z = 21, which is the opening exactly; 4f at Z = 58, one past the opening at 57, because lanthanum at 57 takes 5d; and 5f at Z = 91, two past the opening at 89, because actinium and thorium take 6d (EXHAUSTIVE over Z = 2 … 108, first occupation recorded for every subshell).
 
 **Proposition 2 (the defect separates across the openings).** Among the 148 measured d and f channels of the quantum-defect index, 128 have p = 0 — the core holds no orbital of the channel's ℓ. Seven of the 128 sit at or past the opening of the corresponding row (21 for ℓ = 2, 57 for ℓ = 3) and 121 below it. The medians are 0.6202 and 0.0335. A two-sided Mann–Whitney test on the two groups gives U = 74, z = −3.66 and p = 2.5 × 10⁻⁴.
 
@@ -311,9 +311,9 @@ The sufficiency direction is a statement about the data, not about physics: a sp
 | no parent written | `nd 2D J=3/2` | 457 |
 | **carrying a parent** | | **139** |
 
-A census taken with the first pattern alone — a dotted configuration followed by a parenthesised group — sees 80 of those 139 and reports 59 rows as parentless that are not. **The conventions have to be read off the material before a parent is counted**, and the margin between the narrowest and the widest reading is 43 % of the answer.
+A census taken with the first pattern alone — a dotted configuration followed by a parenthesised group — sees 80 of those 139 and reports 59 rows as parentless that are not. **The conventions have to be read off the material before a parent is counted**, and the margin between the narrowest and the widest reading is 59 rows of the 139.
 
-**The core census.** For each of the 70 species the core is the ion at one fewer electron, in its ground configuration; its class (D8) is decided by counting the terms of its open subshells with Theorem 6. Three ions whose ground configuration is not the configuration the electron count alone would give are taken from their published ground levels: Ti III's core Ti IV is 3d ²D₃/₂, Zn II's core Zn III is 3d¹⁰ ¹S₀, and Hg II's core Hg III is 5d¹⁰ ¹S₀ (CITED, NIST ASD). The result is the table of §0, repeated here with the split by whether the row's label names a parent:
+**The core census.** For each of the 70 species the core is the ion at one fewer electron, in its ground configuration; its class (D8) is decided by counting the terms of its open subshell with Theorem 6. **No core in the compilation has more than one open subshell** — the six open shapes present are s¹, p¹, p², p⁴, p⁵ and d¹ (EXHAUSTIVE over the 70 species) — so a term count here is a single-subshell count and Theorem 6 gives it exactly, with no recoupling of two open shells to consider. Three ions whose ground configuration is not the configuration the electron count alone would give are taken from their published ground levels: Ti III's core Ti IV is 3d ²D₃/₂, Zn II's core Zn III is 3d¹⁰ ¹S₀, and Hg II's core Hg III is 5d¹⁰ ¹S₀ (CITED, NIST ASD). The result is the table of §0, repeated here with the split by whether the row's label names a parent:
 
 | core | rows | parent named | not named |
 |---|---|---|---|
@@ -346,7 +346,7 @@ All separations are computed in exact rational arithmetic from the printed value
 
 **The ceiling.** No species in the compilation has a core with more than one level above spectrum number IV, and IV is reached once, by Al IV, whose core is 2p⁵ ²P°. The two highest-charge species present are Fe XV, whose core is a one-level 3s ²S₁/₂, and Fe XVI, whose core is closed. The compilation reaches charge 16 and stops at charge 4 for multi-level cores, which is what Corollary 2 predicts of a collection of *extractable* defects rather than of published levels.
 
-**And the same ceiling appears in what can be measured at all.** Of the 104,832 cells of the quantum-defect index, 61,152 have Z ≤ 92; of those 11,416 also have core charge ≤ 10; of those 4,395 also have ℓ ≤ 4, where series resolve; and of those **1,755 also have a core with a single term.** The last cut is the wall, and it removes 60 % of what survives the first three.
+**And the same ceiling appears in what can be measured at all.** Of the 104,832 cells of the quantum-defect index, 61,152 have Z ≤ 92; of those 11,416 also have core charge ≤ 10; of those 4,395 also have ℓ ≤ 4, where series resolve; and of those **1,755 also have a core with a single term.** The last cut is the wall, and it removes 2,640 of the 4,395 cells that survive the first three.
 
 ---
 
@@ -382,7 +382,7 @@ The general form of the point is this. **An index may bracket a quantity only al
 
 ## §10 · Verification record
 
-The machine checks behind this paper discharge 97 obligations, all passing, and a self-test adds four negative controls, each of which must be and is refuted. Every number printed in this paper is produced there.
+The machine checks behind this paper discharge 100 obligations, all passing, and a self-test adds four negative controls, each of which must be and is refuted. Every number printed in this paper is produced there.
 
 | object | status | family or box | count |
 |---|---|---|---|
@@ -396,7 +396,7 @@ The machine checks behind this paper discharge 97 obligations, all passing, and 
 | Theorem 5, E(n + ℓ, Z) = 0, both routes | PROVED + EXHAUSTIVE | 6,903 pairs; the 8 × 118 grid | — |
 | row coordinate from the ground configurations | EXHAUSTIVE | 108 configurations | — |
 | Theorem 6, the terms of ℓ^k | PROVED + EXHAUSTIVE | 17,476 Slater determinants | — |
-| the channel census (§7) | EXHAUSTIVE | 596 rows, 70 species | — |
+| the channel census (§7), and that no core has two open subshells | EXHAUSTIVE | 596 rows, 70 species | — |
 | Proposition 4, no ambiguous row | EXHAUSTIVE | 93 rows, 13 species | — |
 | the four two-limit species, limits in exact arithmetic | EXHAUSTIVE | 99 rows | — |
 | the repeats of §8, and the one outer label at two limits | EXHAUSTIVE | 596 rows under four keys | — |

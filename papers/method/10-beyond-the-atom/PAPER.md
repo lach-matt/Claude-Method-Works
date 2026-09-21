@@ -65,6 +65,8 @@ Throughout `d ≥ 1` is finite and `X` is a finite non-empty set of `d`-tuples o
 
 > `ℛ(X) := { x ∈ Box(X) : x_i ≤ φ_ij(x_j) for all i ≠ j }`,  `E(X) := |ℛ(X)| − |X|`.
 
+ℛ is a closure operator in the sense of Moore (1910); Theorem 1 establishes that below.
+
 `X` is **closed** when `E(X) = 0`. A cell of `ℛ(X) \ X` is **admitted and absent**. For `d = 1` the condition is empty and `ℛ(X) = Box(X) = X`.
 
 **D5 (fibration).** A **fibration** of `X` is a partition of `X` into non-empty parts. Fibring **by coordinate 1** is the partition `X_v := { x ∈ X : x_1 = v }` for `v ∈ A_1(X)`. The **fibred defect** of a fibration `{X_v}` is `Σ_v E(X_v)`, each fibre closed in its own box.
@@ -168,17 +170,21 @@ Fourteen indexes are built and closed. Each is defined here by its coordinates a
 
 Λ has eight integer coordinates `(n, ℓ, k, q, e, f, g, 2S)`. A cell is a one-electron transfer: `q` electrons are taken from the subshell `(n, ℓ)`, which holds `k` of them, and `g` of them are placed in the subshell `(e, f)`; `2S` is twice the source total spin. The membership rule is eight inequalities, none of them introduced here:
 
-> `ℓ ≤ n − 1`  (the hydrogenic bound), `k ≤ 4ℓ + 2` and `k ≥ 1` (the subshell capacity, made exclusive by the Pauli principle), `q ≤ k`, `f ≤ e − 1`, `g ≤ 4f + 2`, `g ≤ q`, `2S ≤ k` (the capacity with Hund's first rule).
+> `ℓ ≤ n − 1` (the hydrogenic bound, Bohr 1913), `k ≤ 4ℓ + 2` and `k ≥ 1` (Stoner's subshell capacity of 1924, made exclusive by Pauli 1925), `q ≤ k`, `f ≤ e − 1`, `g ≤ 4f + 2`, `g ≤ q`, `2S ≤ k` (the capacity with Hund's first rule, 1925).
+
+The constraints are not introduced here; the index assembles them.
 
 At the caps `n, e ∈ {1,2,3}`, `ℓ, f ∈ {0,1}`, `k, q, g, 2S ∈ {0,…,3}` this gives **976 cells in a box of 6,912, E = 0**. Λ₉ adjoins the target multiplicity `2S′` with `2S′ ≤ g`: **1,654 cells in a box of 27,648, E = 0**. Λ₁₀ adjoins the seniority `v` with `2S′ ≤ v ≤ g`: **2,535 cells in a box of 110,592, E = 0**.
 
 ### 3.2 The same 118 elements, twice
 
-**The periodic table**, coordinates (period, group), one cell per element of the eighteen-column arrangement with the f-block detached: **90 cells in a box of 126, E = 36**. The 36 admitted-and-absent cells are exactly period 1 groups 2 to 17, period 2 groups 3 to 12 and period 3 groups 3 to 12 — the gaps of the short periods, every one of them (Figure 1). They are supplied to a reader from outside the table; that is what the defect counts.
+**The periodic table** (Mendeleev 1869; the eighteen-column arrangement is one of the thousand-odd periodic systems published since — Scerri 2016), coordinates (period, group), one cell per element of the arrangement with the f-block detached: **90 cells in a box of 126, E = 36**. The 36 admitted-and-absent cells are exactly period 1 groups 2 to 17, period 2 groups 3 to 12 and period 3 groups 3 to 12 — the gaps of the short periods, every one of them (Figure 1). They are supplied to a reader from outside the table; that is what the defect counts.
 
 The 36 are placement-sensitive. Drawing helium at group 2 instead of group 18, on the same 90 elements, gives **E = 20**. The mechanism is the envelope: `φ(group | period ≤ 1)` is 18 under the standard placement and 2 under the alternative, so the whole first row of admitted-and-absent cells exists only under the first. The difference of sixteen cells is the cost of specifying that choice.
 
-**Janet's left-step ordering**, coordinates (n + ℓ, Z), the same 118 elements ordered on the Madelung sum: **118 cells in a box of 944, E = 0**. The two indexes have the same subject and different defects. That is Theorem 3 demonstrated on one object rather than argued.
+**Janet's left-step ordering** (Janet 1929, the table first published in 1928), coordinates (n + ℓ, Z), the same 118 elements ordered on the Madelung sum: **118 cells in a box of 944, E = 0**. The two indexes have the same subject and different defects. That is Theorem 3 demonstrated on one object rather than argued.
+
+![**Figure 1.** The eighteen-column periodic table as an index on (period, group). Blue: the 90 cells the table holds. Red: the 36 its own coordinates admit and it denies — period 1 groups 2 to 17, period 2 groups 3 to 12, period 3 groups 3 to 12. A reader given only the occupied cells would reconstruct all 126.](figures/figure-1-periodic-table.png)
 
 ### 3.3 Convention, order, and a full product
 
@@ -204,11 +210,11 @@ The nuclide chart has coordinates `(Z, N)`. Two different populations are indexe
 
 The nine admitted-and-absent cells at `Z ≤ 7` are **He-5, He-7, Li-10, Be-8, Be-13, B-9, B-16, B-18, C-21**. Every cell named at one cutoff persists at every larger one, and none is added after `Z ≤ 7`: the defect is a property of the measurement, not of the window. Each of the nine is a known unbound nuclide interior to the region its own neighbours define. Be-8 is unbound because it is two alpha particles; He-5, He-7, Li-10 and Be-13 are unbound by one neutron against an even-paired core. `(Z, N)` records how many protons and neutrons a nuclide has and cannot record that four of them prefer to be an alpha particle, or that the last neutron is unpaired. Reading the nine as the pairing and clustering terms of the semi-empirical mass formula is an interpretation of the cells, and is marked as such.
 
-**The AME2020 evaluation, Table I** — 3,558 rows, `Z` from 0 to 118, of which 2,550 carry a measured mass and 1,008 an extrapolated one — gives 3,558 distinct `(Z, N)` cells and **E = 2** at every cutoff `Z ≤ 20, 50, 82, 92, 118`. The two admitted-and-absent cells are `(0, 0)`, which is empty, and `(2, 0)`, the diproton, which is unbound and is the textbook failure of the pairing term. The number is 2 and not 9 because the population is different: the AME2020 set is not the particle-bound set, and includes unbound and extrapolated species that fill most of the region the smaller chart leaves open. The stability across cutoffs, the nameability of the cells and their reading as a pairing failure survive on both populations; the count does not transfer between them, and the two rows of Table 1 are two different indexes.
+**The AME2020 evaluation (Wang, Huang, Kondev, Audi and Naimi 2021), Table I** — 3,558 rows, `Z` from 0 to 118, of which 2,550 carry a measured mass and 1,008 an extrapolated one — gives 3,558 distinct `(Z, N)` cells and **E = 2** at every cutoff `Z ≤ 20, 50, 82, 92, 118`. The two admitted-and-absent cells are `(0, 0)`, which is empty, and `(2, 0)`, the diproton, which is unbound and is the textbook failure of the pairing term. The number is 2 and not 9 because the population is different: the AME2020 set is not the particle-bound set, and includes unbound and extrapolated species that fill most of the region the smaller chart leaves open. The stability across cutoffs, the nameability of the cells and their reading as a pairing failure survive on both populations; the count does not transfer between them, and the two rows of Table 1 are two different indexes.
 
 ### 3.5 The Kreuzer–Skarke frontier
 
-Coordinates `(h¹¹, h²¹)`, the two Hodge numbers of a Calabi–Yau threefold. The complete list of reflexive four-dimensional polytopes was not read here. One slice of it is stated exactly in the literature: Candelas, de la Ossa, He and Szendrői (2008) record that the points with Euler characteristic `χ = 2(h¹¹ − h²¹) = ±6` have Hodge numbers `(h, h+3)` and `(h+3, h)` for `13 ≤ h ≤ 128`, with the exclusions `h = 102, 103, 115, 117` and `119` to `126`. That is **208 cells in a box of 12,544**, and
+Coordinates `(h¹¹, h²¹)`, the two Hodge numbers of a Calabi–Yau threefold. The complete list of reflexive four-dimensional polytopes is that of Kreuzer and Skarke (2002), whose construction rests on Batyrev's polar duality (1994); the list itself was not read here. One slice of it is stated exactly in the literature: Candelas, de la Ossa, He and Szendrői (2008) record that the points with Euler characteristic `χ = 2(h¹¹ − h²¹) = ±6` have Hodge numbers `(h, h+3)` and `(h+3, h)` for `13 ≤ h ≤ 128`, with the exclusions `h = 102, 103, 115, 117` and `119` to `126`. That is **208 cells in a box of 12,544**, and
 
 > **E = 540**, from 498 join failures and 498 meet failures among the 21,528 pairs.
 
@@ -218,7 +224,7 @@ Four consistency tests against the published characterisation of the catalogue a
 
 ### 3.6 The string partition function
 
-The transverse oscillators of the bosonic string give an index with multiplicity: a cell is an occupation vector over the modes `(n, i)`, `n ≥ 1`, `i ∈ {1,…,24}`, graded by `N = Σ n · occ(n, i)`. The degeneracy at level `N` is the coefficient of `q^N` in `∏_{n≥1} (1 − q^n)^{−24}`. The coefficients are computed two ways and agreed for `N ≤ 16`: by expanding the product, and by the Euler-type recurrence `d(N) = (24/N) Σ_{k=1}^{N} σ(k) d(N−k)` with `σ` the sum of divisors. They give `d(1) = 24`, `d(2) = 324`, `d(3) = 3,200`, `d(14) = 156,883,829,400`.
+The transverse oscillators of the bosonic string give an index with multiplicity: a cell is an occupation vector over the modes `(n, i)`, `n ≥ 1`, `i ∈ {1,…,24}`, graded by `N = Σ n · occ(n, i)`. The degeneracy at level `N` is the coefficient of `q^N` in `∏_{n≥1} (1 − q^n)^{−24}` (Green, Schwarz and Witten 1987). The coefficients are computed two ways and agreed for `N ≤ 16`: by expanding the product, and by the Euler-type recurrence `d(N) = (24/N) Σ_{k=1}^{N} σ(k) d(N−k)` with `σ` the sum of divisors. They give `d(1) = 24`, `d(2) = 324`, `d(3) = 3,200`, `d(14) = 156,883,829,400`.
 
 The set of admissible occupation vectors is a **full product**: each oscillator's occupancy is free of every other's. By Theorem 2 it closes, `E = 0`, and the closure adds nothing. A finite instance is computed as a check — three independent oscillators capped at occupancy 3, `E = 0`. This is the degenerate end of the phenomenon: Λ closes because its coordinates couple only along a tree, and the string's modes close because they do not couple at all.
 
@@ -249,13 +255,11 @@ Coordinates `(Z, core charge, ℓ)`. Each cell is a Rydberg channel — a fixed 
 
 ![**Figure 2.** The closure defect of eleven of the indexes of Table 1, cells beside each label. The three closed at zero with a box far exceeding their cells — Janet at 118 in 944, the box ordering at 35 in 125, Λ at 976 in 6,912 — carry information; the chessboard at 64 in 64 does not, because its box is its cells. The largest defect is the Kreuzer–Skarke slice's 540, which arises because the slice is two parallel lines and their join is the diagonal between them.](figures/figure-2-defects.png)
 
-![**Figure 1.** The eighteen-column periodic table as an index on (period, group). Blue: the 90 cells the table holds. Red: the 36 its own coordinates admit and it denies — period 1 groups 2 to 17, period 2 groups 3 to 12, period 3 groups 3 to 12. A reader given only the occupied cells would reconstruct all 126.](figures/figure-1-periodic-table.png)
-
 ### 3.9 What a defect costs to transmit
 
 The bit cost of D10 puts the defects on a common scale: it is the length of the message a reader needs beside the coordinates in order to recover the index exactly.
 
-| index | ℛ(X) | E | bit cost |
+| index | \|ℛ(X)\| | E | bit cost |
 |---|---|---|---|
 | the AME2020 nuclides | 3,560 | 2 | 22.6 |
 | particle-bound nuclides, Z ≤ 7 | 61 | 9 | 34.0 |
@@ -339,7 +343,7 @@ On Λ₉, write
 
 > `Δℓ(c) := f − ℓ`,  `ΔS(c) := 2S′ − 2S`.
 
-Both are differences of two coordinates of the index. On Λ₉ at these caps `ℓ` and `f` take only 0 and 1, so `|Δℓ| ∈ {0, 1}`: the multipole assignment `|Δℓ| = 0 → M1`, `|Δℓ| = 1 → E1` covers every cell, and the two classes hold **814 and 840 cells** of the 1,654.
+Both are differences of two coordinates of the index. On Λ₉ at these caps `ℓ` and `f` take only 0 and 1, so `|Δℓ| ∈ {0, 1}`: the multipole assignment `|Δℓ| = 0 → M1`, `|Δℓ| = 1 → E1` (Condon and Shortley 1935) covers every cell, and the two classes hold **814 and 840 cells** of the 1,654.
 
 **Lemma 3 (the interval property).** Let `g(x) = x_i − x_j` for coordinates `i ≠ j`. For any two cells `a, b`, both `g(a ∨ b)` and `g(a ∧ b)` lie in the closed interval between `g(a)` and `g(b)`.
 
@@ -407,11 +411,11 @@ All 1,654 cells map somewhere, and the image is the full 2 × 4 box. Its defect 
 
 Adjoining `|Δℓ|` alone gives `E = 1,654`; adjoining `|ΔS|` alone gives `E = 3,812`. Corollary 3 accounts for all three: by Lemma 3, `Δℓ` of a join lies *between* the two values, and Refutation 3 exhibits a pair where it is strictly between, so `Δℓ` — and a fortiori `|Δℓ|` — does not preserve the join on Λ₉. A selection rule divides an index; it does not extend one, and the difference between the two readings is 9,278 cells.
 
-**A second, independent measurement on the same cells.** Whether a cell is dipole-allowed (`|Δℓ| = 1` and `ΔS = 0`: **264** of the 1,654) and whether it is followable in the sense of D9 (**1,169** of the 1,654) are almost unrelated. The binary entropy of "allowed" is `H = 0.633` bits, and the mutual information between "allowed" and "followable" is **0.0004 bits** — six parts in ten thousand of what is available. Selection and composition are separate structures on the same index.
+**A second, independent measurement on the same cells.** Whether a cell is dipole-allowed (`|Δℓ| = 1` and `ΔS = 0`: **264** of the 1,654) and whether it is followable in the sense of D9 (**1,169** of the 1,654) are almost unrelated. The binary entropy of "allowed" is `H = 0.633` bits, and the mutual information (Shannon 1948) between "allowed" and "followable" is **0.0004 bits** — six parts in ten thousand of what is available. Selection and composition are separate structures on the same index.
 
 ### 5.5 The crossing
 
-The measurement that follows is on a different population, built from the observed ground configurations of all **118 elements**. A cell is a move between two distinct occupied subshells of one element: `(Z, n, ℓ, k, q, e, f, g)`, where the subshell `(n, ℓ)` of element `Z` holds `k` electrons, `q` of them are taken, and `g ≤ min(q, 4f+2)` are placed in the occupied subshell `(e, f)`. There are **4,325** such cells, all distinct.
+The measurement that follows is on a different population, built from the observed ground configurations of all **118 elements**, as tabulated by NIST (Kramida, Ralchenko, Reader and the NIST ASD Team 2024). A cell is a move between two distinct occupied subshells of one element: `(Z, n, ℓ, k, q, e, f, g)`, where the subshell `(n, ℓ)` of element `Z` holds `k` electrons, `q` of them are taken, and `g ≤ min(q, 4f+2)` are placed in the occupied subshell `(e, f)`. There are **4,325** such cells, all distinct.
 
 A move is **followable** when its target — the subshell `(e, f)` at the occupancy `g` it delivers — is itself the source subshell, at that occupancy, of some move in the population. Two scopes are measured: *within one element*, where the matching move must belong to the same `Z`; and *across the table*, where it may belong to any of the 118.
 
@@ -440,10 +444,10 @@ An index can be closed in more than one sense, and the senses are the formal lan
 **D11 (the five operators).** For a finite index `X` over `d ≥ 2` ordered coordinates:
 
 - **order**: `ℛ(X)`, the staircase of D4.
-- **algebra**: `⟨X⟩`, the smallest subset of `Box(X)` containing `X` and closed under `∧` and `∨`.
-- **geometry**: `{ x ∈ Box(X) : (x_i, x_j) ∈ conv(π_ij X) for all i < j }`, where `π_ij` is the projection onto coordinates `i` and `j` and `conv` the convex hull in the plane.
+- **algebra**: `⟨X⟩`, the smallest subset of `Box(X)` containing `X` and closed under `∧` and `∨` — the generated sublattice (Birkhoff 1940).
+- **geometry**: `{ x ∈ Box(X) : (x_i, x_j) ∈ conv(π_ij X) for all i < j }`, where `π_ij` is the projection onto coordinates `i` and `j` and `conv` the convex hull in the plane (Carathéodory 1911; Schrijver 1986).
 - **information**: the join-irreducible elements of `X`, closed under `∨`.
-- **statistics**: `{ x ∈ Box(X) : π_ij(x) ∈ π_ij(X) for all i < j }`, the support of the maximum-entropy distribution on the order-2 marginals.
+- **statistics**: `{ x ∈ Box(X) : π_ij(x) ∈ π_ij(X) for all i < j }`, the support of the maximum-entropy distribution on the order-2 marginals, which iterative proportional fitting sends to zero exactly when a pairwise projection is unobserved (Deming and Stephan 1940).
 
 Each returns a superset of `X`, and each has its own defect `|L(X)| − |X|`. The languages **agree** on `X` when all five return the same set.
 

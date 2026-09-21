@@ -8,7 +8,7 @@
 
 ## Abstract
 
-Let `X` be a finite non-empty set of `d`-tuples whose coordinates take values in finite chains. Two things can be read off `X` without any outside knowledge: the set of values it realises at each coordinate, and, for each ordered pair of coordinates `(i, j)`, the monotone bound `φ_ij(a) = max{ y_i : y ∈ X, y_j ≤ a }`. The cells admitted by those two readings form a set `ℛ(X) ⊇ X`, and the difference `E(X) = |ℛ(X)| − |X|` is the index's **closure defect**. This paper establishes what `ℛ` is. It is a closure operator — extensive, monotone and idempotent — whose image is always a sublattice of the product of chains, and it is the *smallest* such sublattice containing `X`: `ℛ(X) = ⟨X⟩`. Consequently `X` is closed under coordinatewise minimum and maximum exactly when `E(X) = 0`, which identifies a combinatorial defect with a lattice-theoretic property. The identification rests on a classical theorem — a sublattice of a finite product of lattices is determined by its two-fold projections, the double-projection theorem of Bergman, itself a consequence of Baker and Pixley's interpolation theorem for algebras with a majority term — and the paper says exactly which step is imported and which is proved here. Six consequences follow and are developed in full: the boundary functions are the pointwise least isotone bound system representing `X`, so a closed index carries a canonical system of inequalities; the closed subsets of a fixed ambient form a Moore family whose own defect is exactly `2^|U| − |Cl(U)|`, so the family of closed indexes is itself maximally open, its own closure being the entire power set; projections of closed sets are closed and the converse fails; adjoining a derived coordinate never repairs closure, the graph of a map being closed precisely when the map is a lattice homomorphism, which excludes every coordinate difference; the bands `|a − b| ≤ k` are sublattices while the triangle region `|L − S| ≤ J ≤ L + S` is join-closed and meet-broken, with explicit witnesses; and the minimum generating set of a closed index is an exact minimum set cover, with closed-form laws for the ordered simplex and for the full box. Every decidable claim is machine-checked by an SMT solver over every subset of a named finite box, or decided exhaustively over a stated finite family: 53 machine-checked obligations, 44 exhaustive families, 6 refutations by explicit witness, and 6 results taken from the literature.
+Let `X` be a finite non-empty set of `d`-tuples whose coordinates take values in finite chains. Two things can be read off `X` without any outside knowledge: the set of values it realises at each coordinate, and, for each ordered pair of coordinates `(i, j)`, the monotone bound `φ_ij(a) = max{ y_i : y ∈ X, y_j ≤ a }`. The cells admitted by those two readings form a set `ℛ(X) ⊇ X`, and the difference `E(X) = |ℛ(X)| − |X|` is the index's **closure defect**. This paper establishes what `ℛ` is. It is a closure operator — extensive, monotone and idempotent — whose image is always a sublattice of the product of chains, and it is the *smallest* such sublattice containing `X`: `ℛ(X) = ⟨X⟩`. Consequently `X` is closed under coordinatewise minimum and maximum exactly when `E(X) = 0`, which identifies a combinatorial defect with a lattice-theoretic property. The identification rests on a classical theorem — a sublattice of a finite product of lattices is determined by its two-fold projections, the double-projection theorem of Bergman, itself a consequence of Baker and Pixley's interpolation theorem for algebras with a majority term — and the paper says exactly which step is imported and which is proved here. Six consequences follow and are developed in full: the boundary functions are the pointwise least isotone bound system representing `X`, so a closed index carries a canonical system of inequalities; the closed subsets of a fixed ambient form a Moore family whose own defect is exactly `2^|U| − |Cl(U)|`, so the family of closed indexes is itself maximally open, its own closure being the entire power set; projections of closed sets are closed and the converse fails; adjoining a derived coordinate never repairs closure, the graph of a map being closed precisely when the map is a lattice homomorphism, which excludes every coordinate difference; the bands `|a − b| ≤ k` are sublattices while the triangle region `|a − b| ≤ c ≤ a + b` is join-closed and meet-broken, with explicit witnesses; and the minimum generating set of a closed index is an exact minimum set cover, with closed-form laws for the ordered simplex and for the full box. Every decidable claim is machine-checked by an SMT solver over every subset of a named finite box, or decided exhaustively over a stated finite family: 53 machine-checked obligations, 44 exhaustive families, 6 refutations by explicit witness, and 6 results taken from the literature.
 
 ---
 
@@ -161,7 +161,7 @@ All four of `y, u, z, w` lie in `X`. ∎ **PROVED**, and **EXHAUSTIVE**: the con
 
 *Case `d = 2`.* Let `x ∈ ℛ(X)`. Lemma 5 exhibits `y, u, z, w ∈ X` with `x = (y ∨ u) ∧ (z ∨ w)`. All four lie in `T`, and `T` is closed under `∨` and `∧`, so `x ∈ T`.
 
-*Case `d ≥ 3`.* Fix `x ∈ ℛ(X)` and `i < j`.
+*Case `d ≥ 3`.* Fix `x ∈ ℛ(X)`, and let `i < j` be any pair of coordinates.
 
 > **Step 1: `π_ij(x) ∈ ℛ(π_ij X)`.** The set `π_ij(X)` is an index on two coordinates, and its own data are inherited: its observed alphabets are `A_i` and `A_j`, and its boundary functions are `φ^X_ij` and `φ^X_ji`, because the condition `y_j ≤ a` and the value `y_i` both depend on `y` only through the two coordinates kept. Now `x ∈ Box(X)` gives `π_ij(x) ∈ A_i × A_j = Box(π_ij X)`, and `x ∈ ℛ(X)` gives `x_i ≤ φ^X_ij(x_j)` and `x_j ≤ φ^X_ji(x_i)`, which are the two conditions of D5 in dimension two. So `π_ij(x) ∈ ℛ(π_ij X)`.
 >
@@ -205,21 +205,21 @@ So among all isotone bound systems that cut `X` out of its box, `φ` is the poin
 
 > `ℛ(X) = { x ∈ Box(X) : x_i ≤ min_{j ≠ i} φ_ij(x_j) for every i }`,
 
-which is D5 rearranged, and the minimum is genuinely pointwise — which bound binds at a given cell varies from cell to cell, and the recovered system is in general far more redundant than whatever system was used to define the index. Second, the map from a presentation to its normal form runs one way only: `ℛ` recovers the bounds but not the order in which they were imposed, so many presentations share a normal form.
+which is D5 rearranged, and the minimum is genuinely pointwise: which of the `d − 1` bounds on a coordinate is the binding one may differ from cell to cell, so the recovered system carries a bound for every ordered pair whether or not the presentation did. Second, the map from a presentation to its normal form runs one way only: `ℛ` recovers the bounds but not the order in which they were imposed, so many presentations share a normal form.
 
-**Theorem 5 (closed sets at `d = 2` are bands).** Let `d = 2` and `S ⊆ A_0 × A_1` with observed alphabets `A_0, A_1`. For `s ∈ A_0` write `F(s) = { t : (s, t) ∈ S }`. Then `S` is closed if and only if there are functions `L, U : A_0 → A_1` with `L ≤ U`, both isotone, such that
+**Theorem 5 (closed sets at `d = 2` are bands).** Let `d = 2`, write `A_1, A_2` for the observed alphabets of a set `S ⊆ A_1 × A_2`, and for `s ∈ A_1` write `F(s) = { t : (s, t) ∈ S }`. Then `S` is closed if and only if there are isotone functions `L, U : A_1 → A_2` with `L ≤ U` such that
 
-> `S = { (s, t) ∈ A_0 × A_1 : L(s) ≤ t ≤ U(s) }`;
+> `S = { (s, t) ∈ A_1 × A_2 : L(s) ≤ t ≤ U(s) }`;
 
 and in that case `L(s) = min F(s)` and `U(s) = max F(s)`.
 
-**Proof.** *Necessity.* Let `S` be closed, so every `F(s)` for `s ∈ A_0` is non-empty; put `L(s) = min F(s)`, `U(s) = max F(s)`.
+**Proof.** *Necessity.* Let `S` be closed, so every `F(s)` for `s ∈ A_1` is non-empty; put `L(s) = min F(s)`, `U(s) = max F(s)`.
 
-Take `t ∈ A_1` with `L(s) ≤ t ≤ U(s)`; we show `(s, t) ∈ S`. Since `t ∈ A_1` there is `s' ∈ A_0` with `(s', t) ∈ S`. If `s' ≤ s`, then `(s, L(s)) ∨ (s', t) = (s, max(L(s), t)) = (s, t)`, which lies in `S` by closure. If `s' > s`, then `(s, U(s)) ∧ (s', t) = (s, min(U(s), t)) = (s, t)`, again in `S`. So `S` contains the whole band, and it is contained in it by the definitions of `L` and `U`.
+Fix `s ∈ A_1` and take `t ∈ A_2` with `L(s) ≤ t ≤ U(s)`; we show `(s, t) ∈ S`. Since `t ∈ A_2` there is `s' ∈ A_1` with `(s', t) ∈ S`. If `s' ≤ s`, then `(s, L(s)) ∨ (s', t) = (s, max(L(s), t)) = (s, t)`, which lies in `S` by closure. If `s' > s`, then `(s, U(s)) ∧ (s', t) = (s, min(U(s), t)) = (s, t)`, again in `S`. So `S` contains the whole band, and it is contained in it by the definitions of `L` and `U`.
 
-Isotonicity: take `s < s'` in `A_0`. Then `(s, U(s)) ∨ (s', L(s')) = (s', max(U(s), L(s')))` lies in `S`, so `max(U(s), L(s')) ≤ U(s')`, and since the maximum is at least `U(s)` this gives `U(s) ≤ U(s')`. For `L`, split on the comparison. If `U(s) ≤ L(s')` then `L(s) ≤ U(s) ≤ L(s')`. Otherwise `min(U(s), L(s')) = L(s')`, and `(s, U(s)) ∧ (s', L(s')) = (s, L(s'))` lies in `S`, so `L(s') ≥ L(s)` by the definition of `L(s)`. Either way `L(s) ≤ L(s')`.
+Isotonicity: take `s < s'` in `A_1`. Then `(s, U(s)) ∨ (s', L(s')) = (s', max(U(s), L(s')))` lies in `S`, so `max(U(s), L(s')) ≤ U(s')`, and since the maximum is at least `U(s)` this gives `U(s) ≤ U(s')`. For `L`, split on the comparison. If `U(s) ≤ L(s')` then `L(s) ≤ U(s) ≤ L(s')`. Otherwise `min(U(s), L(s')) = L(s')`, and `(s, U(s)) ∧ (s', L(s')) = (s, L(s'))` lies in `S`, so `L(s') ≥ L(s)` by the definition of `L(s)`. Either way `L(s) ≤ L(s')`.
 
-*Sufficiency.* Let `L ≤ U` be isotone and `T` the band they define. Take `(s, t), (s', t') ∈ T` with `s ≤ s'`. The join is `(s', max(t, t'))`. Lower: `L(s') ≤ t' ≤ max(t, t')`. Upper: `t ≤ U(s) ≤ U(s')` and `t' ≤ U(s')`, so `max(t, t') ≤ U(s')`. The meet is `(s, min(t, t'))`. Lower: `L(s) ≤ t` and `L(s) ≤ L(s') ≤ t'`, so `L(s) ≤ min(t, t')`. Upper: `min(t, t') ≤ t ≤ U(s)`. Both lie in `T`. ∎ **PROVED**, **MACHINE-CHECKED** in both directions over every subset of `3×3`, `4×4` and `3×5`, and **EXHAUSTIVE** on all 3,713 closed subsets of a `4×4` and a `3×5` box, with 0 failures.
+*Sufficiency.* Let `L ≤ U` be isotone and `W` the band they define. Take `(s, t), (s', t') ∈ W` with `s ≤ s'`. The join is `(s', max(t, t'))`. Lower: `L(s') ≤ t' ≤ max(t, t')`. Upper: `t ≤ U(s) ≤ U(s')` and `t' ≤ U(s')`, so `max(t, t') ≤ U(s')`. The meet is `(s, min(t, t'))`. Lower: `L(s) ≤ t` and `L(s) ≤ L(s') ≤ t'`, so `L(s) ≤ min(t, t')`. Upper: `min(t, t') ≤ t ≤ U(s)`. Both lie in `W`. ∎ **PROVED**, **MACHINE-CHECKED** in both directions over every subset of `3×3`, `4×4` and `3×5`, and **EXHAUSTIVE** on all 3,713 closed subsets of a `4×4` and a `3×5` box, with 0 failures.
 
 ### The algebra, written out
 
@@ -257,7 +257,7 @@ That `Cl(U)` is a Moore family is the standard fact about any closure operator (
 | `2×2×3` | 12 | 320 | 319 | 51,040 / 51,040 | 25,147 / 51,040 (49.3%) | 17 | 3,776 |
 | `2×2×2×2` | 16 | 732 | 731 | 267,546 / 267,546 | 87,612 / 267,546 (32.7%) | 20 | 64,804 |
 
-**Table 1.** Every unordered pair of distinct members of `Cl(U)` tested under intersection and under union. Intersection never escapes; union escapes on between 9% and 67% of pairs, and the escape rate grows with the ambient. Restricted to the non-empty members the union rates are 89.4%, 81.1%, 64.4%, 68.3%, 58.0%, 49.0% and 32.6%. Meet-irreducible counts the members that are not the intersection of the members strictly above them; the count is roughly 1.25 per cell of the ambient, where the family it generates is exponential.
+**Table 1.** Every unordered pair of distinct members of `Cl(U)` tested under intersection and under union. Intersection never escapes. Union does, on the complement of the fraction shown — from 9.0% of pairs at the smallest ambient to 67.3% at the largest — and the escape rate grows with the ambient. Restricted to the non-empty members the union rates are 89.4%, 81.1%, 64.4%, 68.3%, 58.0%, 49.0% and 32.6%. Meet-irreducible counts the members that are not the intersection of the members strictly above them: a Moore family is generated under intersection by those members alone, and the count grows linearly in the ambient where the family it generates does not.
 
 ![Figure 3](figures/fig3-moore-family.png)
 
@@ -279,7 +279,7 @@ That `Cl(U)` is a Moore family is the standard fact about any closure operator (
 
 By Proposition 2 there is a closed `S` with `p ∈ S` and `q ∉ S`, so this maximum is `1`. And `φ_{pq}(1) = 1` likewise, `φ` being isotone and bounded by 1. So every boundary function is constant at `1`, every constraint `x_p ≤ φ_{pq}(x_q)` reads `x_p ≤ 1` and is vacuous, and `ℛ(Cl(U))` is the whole box `{0,1}^U`. The defect is then `2^{|U|} − |Cl(U)|` by D7. ∎ **PROVED**, and **EXHAUSTIVE** at all seven ambients of Table 1, the column `E(Cl(U))` computed independently of the identity and found equal to it in every case.
 
-Theorem 7 sharpens the previous paragraph into a statement with no slack in it. Every member of `Cl(U)` has `E = 0`, by Theorem 3. The family itself has the largest defect its ambient permits: an operator all of whose bounds are trivial admits everything, so the family's closure is not merely bigger than the family, it is the entire power set. At sixteen cells that is 64,804 admitted cells against 732 members. The family of closed indexes is the one index of this kind whose statement costs more than its content, and it is the family every closed index belongs to.
+Theorem 7 sharpens the previous paragraph into a statement with no slack in it. Every member of `Cl(U)` has `E = 0`, by Theorem 3. The family itself has the largest defect its ambient permits: an operator all of whose bounds are trivial admits everything, so the family's closure is not merely bigger than the family, it is the entire power set. At sixteen cells that is 64,804 admitted cells against 732 members. So the family of closed indexes is itself an open index, and maximally so — and it is the family every closed index belongs to.
 
 ---
 
@@ -291,7 +291,7 @@ Theorem 7 sharpens the previous paragraph into a statement with no slack in it. 
 
 > `π_F(x' ∨ y') = π_F(x') ∨ π_F(y') = x ∨ y`,
 
-which therefore lies in `π_F(X)`. The same argument with `∧` throughout gives the meet. ∎ **PROVED**, **MACHINE-CHECKED** for the two-fold projections `(0,1)` and `(0,2)` of every fixed point over the boxes `2×2×2`, `3×3×3` and `2×3×4`, and **EXHAUSTIVE** over all 438 projections of every closed subset of a `2×2×2` box onto every proper set of coordinates.
+which therefore lies in `π_F(X)`. The same argument with `∧` throughout gives the meet. ∎ **PROVED**, **MACHINE-CHECKED** for the projection of every fixed point onto its first two coordinates and onto its first and third, over the boxes `2×2×2`, `3×3×3` and `2×3×4`, and **EXHAUSTIVE** over all 438 projections of every closed subset of a `2×2×2` box onto every proper set of coordinates.
 
 **The converse fails, and it fails often.**
 
@@ -305,7 +305,7 @@ which therefore lies in `π_F(X)`. The same argument with `∧` throughout gives
 >
 > The witness is not isolated. Of the subsets of `{0,1}³` with at least two cells whose three two-fold projections are all closed, there are **117**, and **52 of them — 44.4% — are not closed**. **EXHAUSTIVE** over that family.
 
-Closure is a `d`-dimensional condition. No projection of it serves as a criterion — not per coordinate, not per pair. This is the exact point at which Theorem 2's route through two-fold projections is *not* reversible as a membership test for an arbitrary set: the two-fold projections determine a **sublattice** (Baker and Pixley's theorem, applied in Theorem 2 to `T = ⟨X⟩`, which is a sublattice by hypothesis), and they do not determine whether an arbitrary set *is* one.
+Closure is a `d`-dimensional condition. No projection of it serves as a criterion — not per coordinate, not per pair. This is the exact point at which Theorem 2's route through two-fold projections is *not* reversible as a membership test for an arbitrary set: the two-fold projections determine a **sublattice** (Baker and Pixley's theorem, applied in Theorem 2 to `T = ⟨X⟩`, which is a sublattice by construction), and they do not determine whether an arbitrary set *is* one.
 
 ---
 
@@ -338,23 +338,23 @@ So the repair routes for an open index are the ones that move cells or relabel t
 
 Projections, minima, maxima and constants are lattice homomorphisms and so are admissible by Theorem 9. Sums, products and differences are not. The difference is the case worth stating exactly, because it is the one a reader is most likely to want.
 
-**Proposition 3 (a coordinate difference is inadmissible).** Let `h(x) = x₀ − x₁`, and order cells by the two coordinates `h` reads: `x ⊑ y` iff `x₀ ≤ y₀` and `x₁ ≤ y₁`. Then `h` is a lattice homomorphism on a set `S` if and only if `S` is a `⊑`-chain and `h` is `⊑`-isotone on `S`.
+**Proposition 3 (a coordinate difference is inadmissible).** Let `h(x) = x₁ − x₂`, and order cells by the two coordinates `h` reads: `x ⊑ y` iff `x₁ ≤ y₁` and `x₂ ≤ y₂`. Then `h` is a lattice homomorphism on a set `S` if and only if `S` is a `⊑`-chain and `h` is `⊑`-isotone on `S`.
 
-**Proof.** *Sufficiency.* Let `S` be a `⊑`-chain with `h` isotone, and take `x, y ∈ S`, say `x ⊑ y`. Then `(x ∨ y)₀ = y₀` and `(x ∨ y)₁ = y₁`, so `h(x ∨ y) = h(y) = max(h(x), h(y))` by isotonicity; and `(x ∧ y)₀ = x₀`, `(x ∧ y)₁ = x₁`, so `h(x ∧ y) = h(x) = min(h(x), h(y))`.
+**Proof.** *Sufficiency.* Let `S` be a `⊑`-chain with `h` isotone, and take `x, y ∈ S`, say `x ⊑ y`. Then `(x ∨ y)₁ = y₁` and `(x ∨ y)₂ = y₂`, so `h(x ∨ y) = h(y) = max(h(x), h(y))` by isotonicity; and `(x ∧ y)₁ = x₁`, `(x ∧ y)₂ = x₂`, so `h(x ∧ y) = h(x) = min(h(x), h(y))`.
 
-*Necessity.* Suppose `x, y ∈ S` are `⊑`-incomparable; without loss of generality `x₀ > y₀` and `x₁ < y₁`. Then
+*Necessity.* Suppose `x, y ∈ S` are `⊑`-incomparable; without loss of generality `x₁ > y₁` and `x₂ < y₂`. Then
 
-> `h(x ∨ y) = max(x₀, y₀) − max(x₁, y₁) = x₀ − y₁ < x₀ − x₁ = h(x)`,
+> `h(x ∨ y) = max(x₁, y₁) − max(x₂, y₂) = x₁ − y₂ < x₁ − x₂ = h(x)`,
 
-the inequality because `y₁ > x₁`. Hence `h(x ∨ y) < h(x) ≤ max(h(x), h(y))`, so `h` is not a join-homomorphism on `S`. Therefore `S` is a `⊑`-chain; and then for `x ⊑ y` the join identity reads `h(y) = max(h(x), h(y))`, which is `h(x) ≤ h(y)`. ∎ **PROVED**, and **MACHINE-CHECKED** as a biconditional over every subset of `3×3`, `4×4` and `3×3×3`.
+the inequality because `y₂ > x₂`. Hence `h(x ∨ y) < h(x) ≤ max(h(x), h(y))`, so `h` is not a join-homomorphism on `S`. Therefore `S` is a `⊑`-chain; and then for `x ⊑ y` the join identity reads `h(y) = max(h(x), h(y))`, which is `h(x) ≤ h(y)`. ∎ **PROVED**, and **MACHINE-CHECKED** as a biconditional over every subset of `3×3`, `4×4` and `3×3×3`.
 
 A difference is therefore admissible as a coordinate only on a chain. It fails on anything wider because at a join the two terms take their maxima independently, and the difference of the maxima need not be the maximum of the differences. What survives is weaker and still useful.
 
-**Remark (a difference is an interval map).** For `h(x) = x₀ − x₁` and any cells `a, b`,
+**Remark (a difference is an interval map).** For `h(x) = x₁ − x₂` and any cells `a, b`,
 
 > `min(h(a), h(b)) ≤ h(a ∨ b) ≤ max(h(a), h(b))`,  and the same for `a ∧ b`.
 
-**Proof.** `h(a ∨ b) = max(a₀, b₀) − max(a₁, b₁)`; take `a₀ ≥ b₀`. If `a₁ ≥ b₁` then `h(a ∨ b) = a₀ − a₁ = h(a)`. Otherwise `h(a ∨ b) = a₀ − b₁`, and `a₀ − b₁ ≤ a₀ − a₁ = h(a)` while `a₀ − b₁ ≥ b₀ − b₁ = h(b)`. For the meet, `h(a ∧ b) = min(a₀, b₀) − min(a₁, b₁)`; take `a₀ ≤ b₀`. If `a₁ ≤ b₁` then `h(a ∧ b) = h(a)`. Otherwise `h(a ∧ b) = a₀ − b₁`, and `a₀ − b₁ ≥ a₀ − a₁ = h(a)` while `a₀ − b₁ ≤ b₀ − b₁ = h(b)`. In every case the value lies between `h(a)` and `h(b)`. ∎ **PROVED.**
+**Proof.** `h(a ∨ b) = max(a₁, b₁) − max(a₂, b₂)`; take `a₁ ≥ b₁`. If `a₂ ≥ b₂` then `h(a ∨ b) = a₁ − a₂ = h(a)`. Otherwise `h(a ∨ b) = a₁ − b₂`, and `a₁ − b₂ ≤ a₁ − a₂ = h(a)` while `a₁ − b₂ ≥ b₁ − b₂ = h(b)`. For the meet, `h(a ∧ b) = min(a₁, b₁) − min(a₂, b₂)`; take `a₁ ≤ b₁`. If `a₂ ≤ b₂` then `h(a ∧ b) = h(a)`. Otherwise `h(a ∧ b) = a₁ − b₂`, and `a₁ − b₂ ≥ a₁ − a₂ = h(a)` while `a₁ − b₂ ≤ b₁ − b₂ = h(b)`. In every case the value lies between `h(a)` and `h(b)`. ∎ **PROVED.**
 
 The image of a join under a difference is not determined; it is bracketed. That is strictly weaker than a homomorphism and strictly stronger than nothing, and it is what closure leaves of a quantity an index cannot carry as a coordinate.
 
@@ -385,37 +385,37 @@ Two regions defined by absolute-value inequalities recur wherever a coupling is 
 
 **Proof.** Take `(a₁, b₁), (a₂, b₂) ∈ B_k`. Write `M_a = max(a₁, a₂) = a_p` and `M_b = max(b₁, b₂) = b_q`, for indices `p, q ∈ {1, 2}`. Then
 
-> `M_a − M_b = a_p − b_q ≤ a_p − b_p ≤ k`, since `b_q ≥ b_p`;
-> `M_b − M_a = b_q − a_p ≤ b_q − a_q ≤ k`, since `a_p ≥ a_q`.
+> `M_a − M_b = a_p − b_q ≤ a_p − b_p ≤ |a_p − b_p| ≤ k`, since `b_q ≥ b_p`;
+> `M_b − M_a = b_q − a_p ≤ b_q − a_q ≤ |a_q − b_q| ≤ k`, since `a_p ≥ a_q`.
 
-So `|M_a − M_b| ≤ k` and the join lies in `B_k`. For the meet write `m_a = min(a₁, a₂) = a_p` and `m_b = min(b₁, b₂) = b_q`; then `m_a − m_b = a_p − b_q ≤ a_q − b_q ≤ k` since `a_p ≤ a_q`, and `m_b − m_a = b_q − a_p ≤ b_p − a_p ≤ k` since `b_q ≤ b_p`. ∎ **PROVED**, **MACHINE-CHECKED** over all integers `a₁, b₁, a₂, b₂, k` simultaneously, the hypothesis checked satisfiable, and **EXHAUSTIVE** as a fixed point of `ℛ` on a `6 × 6` box for `k = 0` through `5`.
+So `|M_a − M_b| ≤ k` and the join lies in `B_k`. For the meet write `m_a = min(a₁, a₂) = a_p` and `m_b = min(b₁, b₂) = b_q`; then `m_a − m_b = a_p − b_q ≤ a_q − b_q ≤ |a_q − b_q| ≤ k` since `a_p ≤ a_q`, and `m_b − m_a = b_q − a_p ≤ b_p − a_p ≤ |a_p − b_p| ≤ k` since `b_q ≤ b_p`. ∎ **PROVED**, **MACHINE-CHECKED** over all integers `a₁, b₁, a₂, b₂, k` simultaneously, the hypothesis checked satisfiable, and **EXHAUSTIVE** as a fixed point of `ℛ` on a `6 × 6` box for `k = 0` through `5`.
 
 **Theorem 11 (the triangle region is join-closed and meet-broken).** Let
 
-> `T = { (L, S, J) ∈ ℤ³ : |L − S| ≤ J ≤ L + S }`.
+> `Δ = { (a, b, c) ∈ ℤ³ : |a − b| ≤ c ≤ a + b }`
 
-Then `T` is closed under coordinatewise maximum, and it is **not** closed under coordinatewise minimum.
+— the triangle inequality, as it constrains a third quantity formed by combining two others. Then `Δ` is closed under coordinatewise maximum, and it is **not** closed under coordinatewise minimum.
 
-**Proof of join-closure.** Take `(L₁,S₁,J₁), (L₂,S₂,J₂) ∈ T` and write `M_L = max(L₁,L₂)`, `M_S = max(S₁,S₂)`, `M_J = max(J₁,J₂)`.
+**Proof of join-closure.** Take `(a₁, b₁, c₁), (a₂, b₂, c₂) ∈ Δ` and write `M_a = max(a₁, a₂)`, `M_b = max(b₁, b₂)`, `M_c = max(c₁, c₂)`.
 
-*Upper bound.* `M_J = J_k` for some `k ∈ {1,2}`, and `J_k ≤ L_k + S_k ≤ M_L + M_S`.
+*Upper bound.* `M_c = c_k` for some `k ∈ {1, 2}`, and `c_k ≤ a_k + b_k ≤ M_a + M_b`.
 
-*Lower bound.* `M_L = L_k` for some `k`, so `M_L − M_S ≤ L_k − S_k ≤ |L_k − S_k| ≤ J_k ≤ M_J`. Exchanging the roles of `L` and `S` gives `M_S − M_L ≤ M_J`. Together, `|M_L − M_S| ≤ M_J`.
+*Lower bound.* `M_a = a_k` for some `k`, so `M_a − M_b ≤ a_k − b_k ≤ |a_k − b_k| ≤ c_k ≤ M_c`, the first step because `M_b ≥ b_k`. Exchanging the roles of `a` and `b` gives `M_b − M_a ≤ M_c`. Together, `|M_a − M_b| ≤ M_c`.
 
-Both inequalities hold, so the join lies in `T`. ∎ **PROVED**, and **MACHINE-CHECKED** over all integers.
+Both inequalities hold, so the join lies in `Δ`. ∎ **PROVED**, and **MACHINE-CHECKED** over all integers.
 
 > **REFUTATION (the meet).** Two witnesses, one for each inequality.
 >
-> > `(0,1,1) ∧ (1,0,1) = (0,0,1)`: `|0 − 0| = 0 ≤ 1`, but `1 ≤ 0 + 0` fails — the upper bound breaks, and the meet manufactures a total where its parts have none.
-> > `(4,0,4) ∧ (2,2,0) = (2,0,0)`: `|2 − 0| = 2 ≤ 0` fails — the lower bound breaks.
+> > `(0,1,1) ∧ (1,0,1) = (0,0,1)`: here `|0 − 0| = 0 ≤ 1`, but `1 ≤ 0 + 0` fails — the upper bound breaks, and the meet manufactures a combined quantity where neither part has any.
+> > `(4,0,4) ∧ (2,2,0) = (2,0,0)`: here `|2 − 0| = 2 ≤ 0` fails — the lower bound breaks.
 >
-> Both source cells satisfy both inequalities. **REFUTATION**, re-verified, and confirmed by a solver over all integers, which reports the meet condition satisfiably violated.
+> Both source cells of each pair satisfy both inequalities. **REFUTATION**, re-verified, and confirmed by a solver over all integers, which reports the meet condition satisfiably violated.
 
 The asymmetry has a reading. The maximum is the operation that can only move a coordinate toward the side each bound is slack on, so certainty survives upward and dies downward.
 
-**The same asymmetry with a coordinate in place of the constant.** The three-variable region `C = { (a, b, c) ∈ ℤ³ : |a − b| ≤ c }` is join-closed and is not a sublattice.
+**The same asymmetry with the constant replaced by a coordinate.** Drop the upper bound and keep the lower: the region `C = { (a, b, c) ∈ ℤ³ : |a − b| ≤ c }` is join-closed and is still not a sublattice.
 
-**Proof of join-closure.** With `M_a, M_b, M_c` the coordinatewise maxima and `M_a = a_p`: `M_a − M_b ≤ a_p − b_p ≤ c_p ≤ M_c`, and symmetrically `M_b − M_a ≤ M_c`. ∎ **PROVED**, **MACHINE-CHECKED** over all integers.
+**Proof of join-closure.** With `M_a, M_b, M_c` the coordinatewise maxima and `M_a = a_k`: `M_a − M_b ≤ a_k − b_k ≤ |a_k − b_k| ≤ c_k ≤ M_c`, and symmetrically `M_b − M_a ≤ M_c`. ∎ **PROVED**, **MACHINE-CHECKED** over all integers.
 
 Meet-closure fails, and the failures are dense:
 
@@ -471,7 +471,7 @@ Minimum set cover is NP-complete — **Karp (1972)**, CITED — so `seed` is not
 
 **Proof.** A single cell `g` has one value at each coordinate, so for a fixed `i` it covers exactly one slot `(i, g_i)`. The `|A_i|` slots at coordinate `i` therefore need at least `|A_i|` distinct cells. ∎ **PROVED**, and **EXHAUSTIVE** over all 219 closed subsets of a `3×3` and a `2×2×2` box, 0 violations.
 
-The natural guess for a second lower bound comes from convexity. In a convexity space the **Carathéodory number** is the least `c` such that any point of the hull of a set lies in the hull of at most `c` of its members; for a semilattice with its subsemilattices as convex sets the Carathéodory number is the **breadth**, and the breadth of a product of `d` chains is `d` (Queyranne and Tardella 2008, CITED). It is tempting to read that as `seed ≥ d`. It is not that.
+The natural guess for a second lower bound comes from convexity. In a convexity space the **Carathéodory number** is the least `κ` such that any point of the hull of a set lies in the hull of at most `κ` of its members; for a semilattice with its subsemilattices as convex sets the Carathéodory number is the **breadth**, and the breadth of a product of `d` chains is `d` (Queyranne and Tardella 2008, CITED). It is tempting to read that as `seed ≥ d`. It is not that.
 
 > **REFUTATION (`seed ≥ d`).** The two-element chain `{(0,0,0), (1,1,1)}` is a closed subset of `{0,1}³`, with `d = 3`, and it is generated by both of its cells: `seed = 2 < d`. **REFUTATION**, re-verified.
 >
@@ -493,11 +493,11 @@ For `d ≥ 2` and `c ≥ 2` let `D(d, c) = { x ∈ {0, …, c−1}^d : x_1 ≥ x
 
 The full box behaves differently, and the difference is where a plausible linear law fails.
 
-**Theorem 15 (the box seed law).** Let `c ≥ 2`, `d ≥ 2`, and let `Box(c, d) = {0, …, c−1}^d`. Put `m(d) := min { m : C(m, ⌊m/2⌋) ≥ d }`. Then
+**Theorem 15 (the box seed law).** Let `c ≥ 2`, `d ≥ 2`, and let `Q(c, d) = {0, …, c−1}^d`. Put `m(d) := min { m : C(m, ⌊m/2⌋) ≥ d }`. Then
 
-> `seed(Box(c, d)) = c − 2 + m(d)`.
+> `seed(Q(c, d)) = c − 2 + m(d)`.
 
-Equivalently, `k` cells generate `Box(c, d)` for `d` as large as `C(k − c + 2, ⌊(k − c + 2)/2⌋)` and no larger.
+Equivalently, some `k` cells generate `Q(c, d)` for `d` as large as `C(k − c + 2, ⌊(k − c + 2)/2⌋)`, and no `k` cells generate it for any larger `d`.
 
 **Proof.** Present a candidate `G` of `k` cells as a `k × d` matrix whose rows are the cells; column `j` is then a vector `v_j ∈ {0,…,c−1}^k` recording what the `j`-th coordinate does across `G`.
 
@@ -505,7 +505,9 @@ Equivalently, `k` cells generate `Box(c, d)` for `d` as large as `C(k − c + 2,
 
 *Upper bound.* For each column `j` set `A_j = { r : v_j[r] = c−1 }` and `B_j = { r : v_j[r] = 0 }`. These are disjoint, since `c ≥ 2`. Surjectivity forces `A_j` and `B_j` non-empty and forces at least one further row for each of the `c − 2` intermediate values, so
 
-> `|A_j| + |B_j| ≤ k − (c − 2) =: m`.
+> `|A_j| + |B_j| ≤ k − (c − 2) =: m`,
+
+and `m ≥ 2`, since `k ≥ c` by Proposition 5, the largest alphabet of `Q(c, d)` being `c`.
 
 The step condition for the ordered pair `(i, j)` says exactly `A_i ∩ B_j ≠ ∅`, for every `i ≠ j`. The family `(A_j, B_j)_{j=1}^d` therefore satisfies the hypotheses of the **set-pair inequality of Bollobás (1965)** — CITED — which gives
 
@@ -517,27 +519,27 @@ Every term is at least `1 / C(m, ⌊m/2⌋)`, because `C(n, a) ≤ C(m, ⌊m/2�
 
 > `v[r] = c − 1` for `r ∈ A`; `v[r] = 0` for `r ∈ {1,…,m} ∖ A`; `v[r_t] = t` for `t = 1, …, c−2`.
 
-Each such column is surjective onto `{0, …, c−1}`, since `A` and its complement in `{1,…,m}` are both non-empty for `m ≥ 2`. For two distinct `A, A' ∈ 𝓐`, equal cardinality forces `A ⊄ A'`, so some row lies in `A ∖ A'`, where the first column is `c−1` and the second is `0`; symmetrically for the other order. So every ordered pair of columns satisfies its step condition, and the `k` rows generate a box of any `d ≤ C(m, ⌊m/2⌋)` coordinates, columns being repeated only if `d` exceeds the family — which it does not.
+Each such column is surjective onto `{0, …, c−1}`, since `A` and its complement in `{1,…,m}` are both non-empty for `m ≥ 2`. For two distinct `A, A' ∈ 𝓐`, equal cardinality forces `A ⊄ A'`, so some row lies in `A ∖ A'`, where the first column reads `c−1` and the second reads `0`; symmetrically for the other order. Every ordered pair of columns therefore satisfies its step condition. Choosing any `d ≤ C(m, ⌊m/2⌋)` of these columns gives a matrix of `m + c − 2 = k` rows whose set of rows generates `Q(c, d)`, so `seed(Q(c, d)) ≤ k`.
 
-*Conclusion.* The least `k` with `C(k − c + 2, ⌊(k − c + 2)/2⌋) ≥ d` is `k = c − 2 + m(d)`, since `C(m, ⌊m/2⌋)` is increasing in `m`. ∎ **PROVED**, and **EXHAUSTIVE** on two fronts: the seed is confirmed by direct closure — every subset of size below the stated value fails and one of that size generates — at `2²`, `3²`, `2³`, `3³`, `2⁴`, `2⁵` and `4²`, with the generating set printed in each case; and the clique count `C(k − c + 2, ⌊·⌋)` is confirmed by exact maximum-clique search on the compatibility graph at `c = 2` for `k = 2,…,7` (values 2, 3, 6, 10, 20, 35), at `c = 3` for `k = 3,…,6` (2, 3, 6, 10) and at `c = 4` for `k = 4,…,6` (2, 3, 6).
+*Conclusion.* The least `k` with `C(k − c + 2, ⌊(k − c + 2)/2⌋) ≥ d` is `k = c − 2 + m(d)`, since `C(m, ⌊m/2⌋)` is increasing in `m`. ∎ **PROVED**, and **EXHAUSTIVE** on two fronts: the seed is confirmed by direct closure — every subset of size below the stated value fails and one of that size generates — at `2²`, `3²`, `2³`, `3³`, `2⁴`, `2⁵` and `4²`, with the generating set printed in each case; and the clique count `C(k − c + 2, ⌊·⌋)` is confirmed by exact maximum-clique search on the compatibility graph at `c = 2` for `k = 2,…,7` (largest `d` = 2, 3, 6, 10, 20, 35), at `c = 3` for `k = 3,…,6` (2, 3, 6, 10) and at `c = 4` for `k = 4,…,6` (2, 3, 6) — thirteen counts in all, each equal to `C(k − c + 2, ⌊·⌋)`.
 
 At `c = 2` the construction and the bound are Sperner's theorem: the columns correspond to subsets of the row set, the step condition says two subsets are incomparable, a generating set is an antichain, and the largest antichain in a Boolean lattice has `C(k, ⌊k/2⌋) `members — **Sperner (1928)**, CITED, of which Bollobás's inequality is the generalisation used above.
 
-> **REFUTATION (the linear law).** `seed(Box(c, d)) = d + c − 2` holds for small `d` — it agrees with Theorem 15 at `d = 2, 3, 4` for every `c`, since `m(2) = 2`, `m(3) = 3` and `m(4) = 4` — and **fails from `d = 5`**: the box `{0,1}⁵` is generated by **four** cells, where `d + c − 2 = 5`. The four are `(0,0,0,1,1)`, `(0,1,1,0,0)`, `(1,0,1,0,1)`, `(1,1,0,1,0)` — the five columns being five of the six two-element subsets of a four-element row set, an antichain, as Theorem 15 requires. **REFUTATION**, re-verified by direct closure: no three cells generate `{0,1}⁵`.
+> **REFUTATION (the linear law).** `seed(Q(c, d)) = d + c − 2` holds for small `d` — it agrees with Theorem 15 at `d = 2, 3, 4` for every `c`, since `m(2) = 2`, `m(3) = 3` and `m(4) = 4` — and **fails from `d = 5`**: the box `{0,1}⁵` is generated by **four** cells, where `d + c − 2 = 5`. The four are `(0,0,0,1,1)`, `(0,1,1,0,0)`, `(1,0,1,0,1)`, `(1,1,0,1,0)` — the five columns being five of the six two-element subsets of a four-element row set, an antichain, as Theorem 15 requires. **REFUTATION**, re-verified by direct closure: no three cells generate `{0,1}⁵`.
 
 ![Figure 4](figures/fig4-seed-law.png)
 
-**Figure 4.** The seed of the full box against the number of coordinates, at alphabet sizes `c = 2` and `c = 3`. The exact law `c − 2 + m(d)` of Theorem 15 (solid, stepped) grows like `log d`; the linear guess `d + c − 2` (dashed, drawn at `c = 2`) agrees at `d = 2, 3, 4` and diverges from `d = 5` on. Circles mark the seven instances confirmed by direct closure.
+**Figure 4.** The seed of the full box against the number of coordinates, at alphabet sizes `c = 2` and `c = 3`. The exact law `c − 2 + m(d)` of Theorem 15 (solid, stepped) grows like `log d`; the linear guess `d + c − 2` (dashed, drawn at `c = 2`) agrees at `d = 2, 3, 4` and diverges from `d = 5` on. Circles mark the six instances at `c = 2` and `c = 3` confirmed by direct closure; a seventh, at `c = 4`, lies off both curves.
 
 The two laws pull in opposite directions and both are exact. A down-set of `c` values in `d` coordinates needs `d + c − 1` cells, linear in the dimension; a full box of the same alphabet needs `c − 2 + m(d)`, which is logarithmic in it. The difference is the number of boundary steps each family carries: the down-set has a step at every value of every ordered pair, the full box has one per pair and a trivial one at that.
 
-**A note on scope.** A particular closed index arising from the electron-configuration lattice has a seed far smaller than either law would suggest for an object of its size; that index and its seed belong to a companion paper and are not developed here.
+**A note on scope.** The electron-configuration lattice is a closed index of this kind, and its own seed is the subject of a companion paper; it is not developed here.
 
 ---
 
 ## §10 · Verification record
 
-Every number printed above is recomputed by the machine checks, or marked CITED. The checks are **53 machine-checked obligations**, **44 exhaustive families**, **6 refutations** and **6 cited results**, discharged behind **17 guards**, with 0 failures. Guards are reported first and no obligation is reported if a guard fails.
+Every number printed above is recomputed by the machine checks, or marked CITED. The checks are **53 machine-checked obligations**, **44 exhaustive families**, **6 refutations** and **6 cited results**, discharged behind **17 guards**, with 0 failures. Guards are reported first and no obligation is reported if a guard fails. The table below is one row per result; the boxes named in it are the 53 machine-checked obligations, and the families named after it are the 44 exhaustive ones.
 
 | object | PROVED | MACHINE-CHECKED (boxes) | EXHAUSTIVE (family) | other |
 |---|---|---|---|---|
@@ -559,7 +561,7 @@ Every number printed above is recomputed by the machine checks, or marked CITED.
 | union of closed sets | — | — | — | **REFUTATION**, `2 × 2` witness |
 | Proposition 2, separation | ✓ | — | seven ambients, every ordered pair | — |
 | **Theorem 7**, `E(Cl(U)) = 2^{\|U\|} − \|Cl(U)\|` | ✓ | — | seven ambients (Table 1) | — |
-| **Theorem 8**, projections | ✓ | **`2×2×2`, `3×3×3`, `2×3×4`**, pairs (0,1) and (0,2) | 438 projections | — |
+| **Theorem 8**, projections | ✓ | **`2×2×2`, `3×3×3`, `2×3×4`**, two pairs each | 438 projections | — |
 | the converse of Theorem 8 | — | — | 117 subsets of `2×2×2`, 52 open | **REFUTATION**, six-cell witness |
 | **Theorem 9**, graph criterion | ✓ | **`3×3`, `2×2×2`** | — | — |
 | Corollary 1, adjunction never repairs | ✓ | — | — | — |
@@ -568,14 +570,15 @@ Every number printed above is recomputed by the machine checks, or marked CITED.
 | **Proposition 4**, product rule | ✓ | **`2×2×2`, `3×3×3`, `2×3×4`** | 945 pairs | — |
 | **Theorem 10**, band `\|a−b\| ≤ k` | ✓ | **all integers** | `6 × 6`, `k = 0…5` | — |
 | **Theorem 11**, triangle join-closed | ✓ | **all integers** | — | — |
-| the triangle's meets | — | **all integers** (satisfiable) | — | **REFUTATION**, two witnesses |
+| the triangle's meets, by solver | — | — | — | **REFUTATION**: `sat` over all integers |
+| the triangle's meets, by witness | — | — | — | **REFUTATION**, two explicit witnesses |
 | region `\|a−b\| ≤ c` | ✓ (join) | **all integers** (join) | three caps (Table 2) | meets fail, counted |
 | **Theorem 12**, generation criterion | ✓ | **`3×3`, `2×2×2`** | — | — |
 | **Theorem 13**, seed = set cover | ✓ | — | 5,111 pairs `(G, X)` | Karp 1972 for hardness |
 | **Proposition 5**, alphabet bound | ✓ | — | 219 closed sets | — |
 | `seed ≥ d` | — | — | — | **REFUTATION**, three-coordinate chain |
 | **Theorem 14**, `seed(D(d,c)) = d+c−1` | ✓ | — | nine simplices | — |
-| **Theorem 15**, `seed(c^d) = c−2+m(d)` | ✓ | — | seven boxes + 14 clique counts | Sperner 1928, Bollobás 1965 |
+| **Theorem 15**, `seed(c^d) = c−2+m(d)` | ✓ | — | seven boxes + 13 clique counts | Sperner 1928, Bollobás 1965 |
 | `seed(c^d) = d + c − 2` | — | — | — | **REFUTATION**, `{0,1}⁵` in four cells |
 
 **The exhausted families, named.** EXHAUSTIVE means a decision procedure visited every case in a stated finite family, so the families are named rather than left as counts.
@@ -592,16 +595,16 @@ Every number printed above is recomputed by the machine checks, or marked CITED.
 - **5,111 pairs `(G, X)`** — every closed subset `X` of a `3×3` or `2×2×2` box against every non-empty `G ⊆ X`.
 - **219 closed sets** — every closed subset of a `3×3` or a `2×2×2` box, each with its exact minimum cover computed.
 - **Nine simplices** — `D(2,2)`, `D(2,3)`, `D(3,2)`, `D(3,3)`, `D(2,4)`, `D(3,4)`, `D(4,3)`, `D(4,4)`, `D(5,3)`.
-- **Seven boxes + 14 clique counts** — full boxes `2²`, `3²`, `2³`, `3³`, `2⁴`, `2⁵`, `4²` by direct closure; maximum cliques at `c = 2`, `k = 2…7`, `c = 3`, `k = 3…6`, and `c = 4`, `k = 4…6`.
+- **Seven boxes + 13 clique counts** — full boxes `2²`, `3²`, `2³`, `3³`, `2⁴`, `2⁵`, `4²` by direct closure; maximum cliques at `c = 2`, `k = 2…7`, at `c = 3`, `k = 3…6`, and at `c = 4`, `k = 4…6`.
 - **The four worked defects of §2** — 365 calendar cells; 90 periodic-table cells at each of two placements of helium; 56 ordered triples.
 
-**What the machine checks buy that enumeration cannot.** Each obligation is a quantified formula whose variables range over *every* subset of the named box — and, where the hull appears, over every closed superset as well. The solver returns `unsat` on the negation. Over a `3×3×3` box that is `2²⁷ = 134,217,728` subsets, well past the enumeration frontier; over a `2×2×2×2` box with a second quantified subset it is `2¹⁶` against `2¹⁶`. Two encodings make it decidable. The maximum and `φ` are eliminated by Lemma 2 — membership is the existence of a witness. And the hull is encoded without a least fixed point, as the intersection of all closed supersets, so "`ℛ(X) ⊆ ⟨X⟩`" becomes "`ℛ(X) ⊆ S` for every closed `S ⊇ X`", which is first-order. The four integer obligations — Theorems 10 and 11 and the join-closure of `|a − b| ≤ c` — quantify over all integers and are not restricted to a box at all.
+**What the machine checks buy that enumeration cannot.** Each obligation is a quantified formula whose variables range over *every* subset of the named box — and, where the hull appears, over every closed superset as well. The solver returns `unsat` on the negation. Over a `3×3×3` box that is `2²⁷ = 134,217,728` subsets, well past the enumeration frontier; over a `2×2×2×2` box, with a second subset quantified over beside the first, it is `2¹⁶ × 2¹⁶` assignments. Two encodings make it decidable. The maximum and `φ` are eliminated by Lemma 2 — membership is the existence of a witness. And the hull is encoded without a least fixed point, as the intersection of all closed supersets, so "`ℛ(X) ⊆ ⟨X⟩`" becomes "`ℛ(X) ⊆ S` for every closed `S ⊇ X`", which is first-order. The four integer obligations — Theorems 10 and 11 and the join-closure of `|a − b| ≤ c` — quantify over all integers and are not restricted to a box at all.
 
-**The two guards, and an `unsat` means nothing without them.** *Encoding fidelity*: the predicate the solver reasons about must be the operator. It is evaluated concretely on **2,919 cells** of the declared boxes against the operator under test, with 0 disagreements; and a fresh independent implementation of D1–D5 is compared against the same operator on **400 random instances** over six box shapes, with 0 disagreements. Both carry a **negative control** that must fail: a deliberately wrong reference — the join-closure in place of the staircase — disagrees on 24 of 50 instances, and the witness form *without* the box conjunct, which is a different operator, disagrees on 73 of 2,851 cells. A check that merely restated the formula would confirm a transcription and not an encoding. The hull encoding is checked the same way: for 60 instances the intersection of all closed supersets is computed by brute force and compared against the generated sublattice, 0 disagreements. *Non-vacuity*: an unsatisfiable hypothesis makes an implication vacuously true, so each of the four hypothesis shapes used below — `X ⊆ S` with `S` closed and proper; two distinct proper fixed points; `X` strictly inside `Y`; `G` strictly inside a closed `X` with `ℛ(G) = X` — is checked satisfiable, and satisfiable non-trivially, at each of `3×3`, `2×2×2` and `3×3×3`. Twelve such checks, all passed.
+**The two guards, and an `unsat` means nothing without them.** *Encoding fidelity*: the predicate the solver reasons about must be the operator. It is evaluated concretely on **2,919 cells** of the declared boxes against the operator under test, with 0 disagreements; and a fresh independent implementation of D1–D5 is compared against the same operator on **400 random instances** over six box shapes, with 0 disagreements. Both carry a **negative control** that must fail: a deliberately wrong reference — the join-closure in place of the staircase — disagrees on 24 of 50 instances, and the witness form *without* the box conjunct, which is a different operator, disagrees on 73 of 2,851 cells. A check that merely restated the formula would confirm a transcription and not an encoding. The hull encoding is checked the same way: for 60 instances the intersection of all closed supersets is computed by brute force and compared against the generated sublattice, 0 disagreements. *Non-vacuity*: an unsatisfiable hypothesis makes an implication vacuously true, so each of the four hypothesis shapes used above — `X ⊆ S` with `S` closed and proper; two distinct proper fixed points; `X` strictly inside `Y`; `G` strictly inside a closed `X` with `ℛ(G) = X` — is checked satisfiable, and satisfiable non-trivially, at each of `3×3`, `2×2×2` and `3×3×3`. Twelve such checks, all passed.
 
 **The negative controls on the whole run.** Three deliberately false claims are submitted and must be reported as refuted: `ℛ(X) ⊆ X`, which the solver refutes with a counterexample over `3×3`; that the family of closed sets is union-closed, refuted by 14 failing pairs in a `2 × 2` box; and `seed(c^d) = d + c − 2`, refuted at `(c, d) = (2, 5)`. All three are refuted, so a clean run is evidence and not a restatement.
 
-**What is not machine-checked, and why.** Theorem 2's lift above `d = 2` is cited, not checked in general: it is a theorem about a variety of algebras and is not of the shape a finite-box obligation has. The machine checks cover it over the five named boxes and no further, and §0 says so. Lemmas 1, 2, 3, Proposition 1, Corollary 1, Proposition 2, Theorems 7, 14 and 15 carry written proofs and are confirmed over the exhaustive families named above rather than by a solver — Theorems 14 and 15 quantify over `d` and `c`, which no finite box bounds, and Theorem 7 quantifies over an ambient. Theorem 13's hardness clause is cited. The statement that the seed problem is NP-complete is not re-derived here.
+**What is not machine-checked, and why.** Theorem 2's lift above `d = 2` is cited, not checked in general: it is a theorem about a variety of algebras and is not of the shape a finite-box obligation has. The machine checks cover it over the five named boxes and no further, and §0 says so. Lemmas 1, 2, 3, Proposition 1, Corollary 1, Proposition 2, Theorems 7, 14 and 15 carry written proofs and are confirmed over the exhaustive families named above rather than by a solver — Theorems 14 and 15 quantify over `d` and `c`, which no finite box bounds, and Theorem 7 quantifies over an ambient. Theorem 13's hardness clause — that minimum set cover is NP-complete — is cited and not re-derived. The two soundness guards are the only SAMPLED figures anywhere in this paper, and neither is a result.
 
 ---
 

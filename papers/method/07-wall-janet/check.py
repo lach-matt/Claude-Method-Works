@@ -786,6 +786,17 @@ def section_channels():
     rec("EXHAUSTIVE", "rows whose core has a single level (371) need no parent in the label; 7 of them carry one anyway",
         cen["bare"] + cen["closed"] + cen["one-term-1J"] == 371
         and named[("closed", True)] + named[("one-term-1J", True)] + named[("bare", True)] == 7)
+    # core_terms multiplies per-subshell term counts, which is the configuration's term count only
+    # when at most ONE subshell is open.  That holds on every species here, so the census is exact.
+    nopen = {s: len([1 for n, l, o in core_config(s)[2] if 0 < o < 2 * (2 * l + 1)]) for s in set(sp)}
+    num("max_open_subshells", max(nopen.values()))
+    num("open_shapes", sorted({(core_config(s)[2][-1][1], core_config(s)[2][-1][2])
+                               for s in set(sp) if nopen[s] == 1}))
+    rec("EXHAUSTIVE", "no core in the table has more than one open subshell, so a term count is a "
+        "single-subshell count; the open shapes present are s1, p1, p2, p4, p5 and d1",
+        max(nopen.values()) == 1
+        and NUMBERS["open_shapes"] == [(0, 1), (1, 1), (1, 2), (1, 4), (1, 5), (2, 1)],
+        "%s" % NUMBERS["open_shapes"])
     # the multi-term cores present are all three-term p^2 / p^4 cores
     mt = {s for s in set(sp) if cls[s] == "multi"}
     rec("EXHAUSTIVE", "every several-term core in the table is a p^2 or p^4 core (3 LS terms): %s" % ", ".join(sorted(mt)),
@@ -1048,6 +1059,14 @@ def section_exact():
         sum(JANET_ROWS_118) == 118 and sum(JANET_ROWS_120) == 120)
     rec("EXHAUSTIVE", "the Janet row lengths are 2(k')^2 with k' = 1,1,2,2,3,3,4,4",
         JANET_ROWS_120 == [2 * kk * kk for kk in (1, 1, 2, 2, 3, 3, 4, 4)])
+    rec("EXHAUSTIVE", "the single-term cut removes 4,395 - 1,755 = 2,640 cells, and 139 - 80 = 59 rows "
+        "separate the widest from the narrowest parent census",
+        NUMBERS["chain"][2] - NUMBERS["chain"][3] == 2640
+        and NUMBERS["paren_rows"] - NUMBERS["label_forms"]["dotted"] == 59)
+    rec("EXHAUSTIVE", "the three parent-count obstacles cover 9,756 + 11,605 + 5,280 = 26,641 cells",
+        dict(NUMBERS["bounds"])["open-shell core, 3 parents"]
+        + dict(NUMBERS["bounds"])["open-shell core, 16 parents"]
+        + dict(NUMBERS["bounds"])["open-shell core, 119 parents"] == 26641)
 
 
 # =============================================================================================

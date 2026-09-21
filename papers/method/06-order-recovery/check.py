@@ -573,6 +573,60 @@ def section_closure():
     put("closure_equivalence", rows)
 
 
+#  The worked example the figures draw: a 13-cell index in the box 5x4, scrambled and recovered.
+EX_LO = [0, 0, 0, 1, 2]
+EX_HI = [1, 2, 2, 3, 3]
+EX_PERM0 = [3, 0, 4, 2, 1]        # new label of the old value v, axis 0
+EX_PERM1 = [2, 0, 3, 1]           # ... and axis 1
+
+
+def example_index():
+    return sorted((u, b) for u in range(5) for b in range(EX_LO[u], EX_HI[u] + 1))
+
+
+def section_example():
+    """The worked example: built, scrambled, and recovered, with every count the figures print."""
+    print("\nB2. The worked example in the box 5x4: built, scrambled, recovered")
+    X = example_index()
+    d = 2
+    scr = sorted((EX_PERM0[u], EX_PERM1[b]) for (u, b) in X)
+    # brute force: every ordering of both alphabets under which the SCRAMBLED set is closed
+    adm = []
+    for p0 in itertools.permutations(range(5)):
+        for p1 in itertools.permutations(range(4)):
+            ranks = [{v: r for r, v in enumerate(p0)}, {v: r for r, v in enumerate(p1)}]
+            if closed_under(scr, ranks):
+                adm.append((p0, p1))
+    # the algorithm: enumerate orders of axis 1, decide axis 0 by Theorem 1
+    found = None
+    tried = 0
+    for p1 in itertools.permutations(range(4)):
+        tried += 1
+        ranks1 = {v: r for r, v in enumerate(p1)}
+        vals, P = P_relation(scr, 0, [{v: v for v in range(5)}, ranks1])
+        if total_preorder(vals, P):
+            found = (canonical_extension(vals, P), p1, vals, P)
+            break
+    ok = found is not None and closed_under(
+        scr, [{v: r for r, v in enumerate(found[0])}, {v: r for r, v in enumerate(found[1])}])
+    # the may-precede relation on axis 0 at the recovered order of axis 1, as the figure draws it
+    vals, P = (found[2], found[3]) if found else ([], {})
+    ties = sorted({tuple(sorted((u, v))) for u in vals for v in vals
+                   if u != v and P[(u, v)] and P[(v, u)]})
+    put("example", dict(lo=EX_LO, hi=EX_HI, perm0=EX_PERM0, perm1=EX_PERM1,
+                        cells=[list(c) for c in X], scrambled=[list(c) for c in scr],
+                        n_cells=len(X), box=20, admissible=len(adm),
+                        recovered0=list(found[0]) if found else None,
+                        recovered1=list(found[1]) if found else None,
+                        axis1_orders_tried=tried,
+                        P=[[int(P[(u, v)]) for v in vals] for u in vals], vals=list(vals),
+                        ties=[list(t) for t in ties]))
+    report("EXHAUSTIVE", "example: 13 cells of the box 5x4; 4 of the 2,880 orderings admit it; recovery returns one",
+           len(X) == 13 and len(adm) == 4 and ok and len(ties) == 1,
+           "cells=%d admissible=%d of %d; axis-1 orders tried=%d; ties on axis 0=%s"
+           % (len(X), len(adm), 120 * 24, tried, ties))
+
+
 def section_diagnostic():
     print("\nC. The diagnostic on two coordinatisations of the same 118 elements")
     per = cypher._periodic()
@@ -1255,6 +1309,7 @@ def main():
         return 1
     cells, L216, TREE, A = section_lambda()
     section_closure()
+    section_example()
     section_diagnostic()
     section_one_axis()
     section_interval_characterisation()

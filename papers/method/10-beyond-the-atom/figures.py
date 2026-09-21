@@ -57,10 +57,10 @@ rows = [
     ("Janet (n+ℓ, Z)", V["jan_cells"], V["jan_box"], V["jan_E"]),
     ("Λ (eight coordinates)", V["lam_cells"], V["lam_box"], V["lam_E"]),
     ("Λ₉ (nine coordinates)", V["L9_cells"], V["L9_box"], 0),
-    ("EM image (|Δℓ|, |ΔS|)", 8, 8, 0),
+    ("dipole image (|Δℓ|, |ΔS|)", 8, 8, 0),
     ("AME2020 nuclides (Z, N)", V["ame_cells"], None, V["ame_E"]),
     ("calendar (month, day)", V["cal_cells"], V["cal_box"], V["cal_E"]),
-    ("bound nuclides Z ≤ 7 (Z, N)", V["nuc_cells"], None, V["nuc_E"]),
+    ("particle-bound nuclides Z ≤ 7 (Z, N)", V["nuc_cells"], None, V["nuc_E"]),
     ("periodic table (period, group)", V["pt_cells"], V["pt_box"], V["pt_E"]),
     ("Kreuzer–Skarke χ = ±6 slice", V["ks_cells"], V["ks_box"], V["ks_E"]),
 ]

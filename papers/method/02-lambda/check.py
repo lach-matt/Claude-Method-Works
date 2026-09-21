@@ -375,8 +375,8 @@ def construction():
     allpos = all(v > 0 for v in marg.values()) and floor > 0
     ok &= allpos
     row("EXHAUSTIVE", "no bound is redundant",
-        "marginal exclusions " + ", ".join("%s %d" % (k.split()[0], v) for k, v in marg.items())
-        + ", k>=1 %d" % floor, allpos)
+        "marginal exclusions " + ", ".join("%s: %d" % (k, v) for k, v in marg.items())
+        + ", k >= 1: %d" % floor, allpos)
 
     nocoup = [x for x in itertools.product(*ranges(CAPS))
               if all(x[i] <= f(x[j]) for nm, i, j, f in CONSTRAINTS if nm != "g <= 4f+2")]
@@ -1239,17 +1239,18 @@ def selftest():
                 bad += 1
     res.append(bad > 0)
     row("SELFTEST", "'mu = (-1)^|y \\ x| always' is false",
-        "%d comparable pairs in the sweep have a non-antichain difference and mu = 0"
-        % bad, bad > 0)
+        "%d pairs in the sweep have a non-antichain difference, where the true value is 0 "
+        "and the unconditional formula gives +-1" % bad, bad > 0)
 
-    # (4) the union of two closed sets need not be closed
-    S = set(LAM)
-    a, b = LAM[0], LAM[-1]
-    dn_a = {x for x in LAM if le(x, a)} | {x for x in LAM if le(x, LAM[5])}
-    escapes = sum(1 for u in dn_a for v in dn_a if join(u, v) not in dn_a)
+    # (4) the union of two sublattices need not be a sublattice
+    ga = GCELL[GNAME.index("n >= 2")]
+    gb = GCELL[GNAME.index("e >= 2")]
+    U = {x for x in LAM if le(x, ga)} | {x for x in LAM if le(x, gb)}
+    escapes = sum(1 for u in U for v in U if join(u, v) not in U)
     res.append(escapes > 0)
     row("SELFTEST", "a union of sublattices is not a sublattice",
-        "%d escaping joins in a union of two principal down-sets" % escapes, escapes > 0)
+        "%d escaping joins in the union of two principal down-sets at incomparable "
+        "generators" % escapes, escapes > 0)
 
     # (5) no six cells generate
     _, sz, _, _, _, _, _ = SEEDRES

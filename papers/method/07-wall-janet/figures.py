@@ -54,8 +54,8 @@ def cell(ax, x, y, col, w=0.86, h=0.86):
     ax.add_patch(Rectangle((x - w / 2, y - h / 2), w, h, facecolor=col, edgecolor="none"))
 
 
-# ---------------------------------------------------------------- figure 2
-def fig2():
+# ------------------------------------------------- figure 3 (the two presentations)
+def fig_two_presentations():
     """The same elements on two presentations, with the defect each carries."""
     X = check.periodic_cells()
     S, E = check.E_of(X, ["period", "group"])
@@ -106,12 +106,12 @@ def fig2():
     a.legend(loc="lower center", bbox_to_anchor=(0.5, -0.42), ncol=2, fontsize=8.5,
              handletextpad=0.4, columnspacing=1.4)
     fig.tight_layout()
-    fig.savefig(os.path.join(OUT, "fig2-two-presentations.png"), dpi=200)
+    fig.savefig(os.path.join(OUT, "fig3-two-presentations.png"), dpi=200)
     plt.close(fig)
 
 
-# ---------------------------------------------------------------- figure 3
-def fig3():
+# ------------------------------------------------- figure 2 (the thirty-six)
+def fig_thirty_six():
     """The thirty-six identified, and what helium's placement costs."""
     X = check.periodic_cells()
     S, E = check.E_of(X, ["period", "group"])
@@ -175,12 +175,12 @@ def fig3():
     b.legend(loc="lower center", bbox_to_anchor=(0.0, -0.44), ncol=2, fontsize=8.5,
              handletextpad=0.4, columnspacing=1.4)
     fig.tight_layout()
-    fig.savefig(os.path.join(OUT, "fig3-thirty-six.png"), dpi=200)
+    fig.savefig(os.path.join(OUT, "fig2-thirty-six.png"), dpi=200)
     plt.close(fig)
 
 
-# ---------------------------------------------------------------- figure 4
-def fig4():
+# ------------------------------------------------- figure 4 (the rows, and the collapse)
+def fig_janet_rows():
     """The rows of the (n+ℓ, Z) index, and the measured defects across their openings."""
     J = check.janet_cells(check.JANET_ROWS_118)
     rows = check.JANET_ROWS_118
@@ -237,8 +237,8 @@ def fig4():
     plt.close(fig)
 
 
-# ---------------------------------------------------------------- figure 5
-def fig5():
+# ------------------------------------------------- figure 5 (the parent census)
+def fig_parent_census():
     """The parent census: who needs a parent written, who has one, and the two-limit species."""
     hdr, data = check.channel_rows()
     for l in range(4):
@@ -318,9 +318,9 @@ def fig5():
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    fig2()
-    fig3()
-    fig4()
-    fig5()
+    fig_thirty_six()
+    fig_two_presentations()
+    fig_janet_rows()
+    fig_parent_census()
     for f in sorted(os.listdir(OUT)):
         print("  figures/%s" % f)

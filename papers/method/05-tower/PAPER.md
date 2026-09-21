@@ -152,8 +152,8 @@ Each stage is the extension of the one below by a single new coordinate, and the
 | Λ₉ | `2S′` | `0 ≤ 2S′ ≤ g` | 1,654 | 27,648 | 5.98% | 1,367,031 |
 | Λ₁₀ | `v` | `2S′ ≤ v ≤ g` | 2,535 | 110,592 | 2.29% | 3,211,845 |
 | Λ₁₁ | `2J_c` | `0 ≤ 2J_c ≤ φ̂(k)` | 13,585 | 663,552 | 2.05% | 92,269,320 |
-| Λ₁₂ | `2K` | `0 ≤ 2K ≤ 2J_c + 2f_max` | 70,905 | 5,308,416 | 1.34% | 2,513,724,560 |
-| Λ₁₃ | `2J` | `\|2J − 2K\| ≤ 1` | 199,130 | 47,775,744 | 0.42% | 19,826,278,385 |
+| Λ₁₂ | `2K` | `0 ≤ 2K ≤ 2J_c + 2f_max` | 70,905 | 5,308,416 | 1.34% | 2,513,724,060 |
+| Λ₁₃ | `2J` | `\|2J − 2K\| ≤ 1` | 199,130 | 47,775,744 | 0.42% | 19,826,278,885 |
 
 ![Figure 1](figures/stages.png)
 
@@ -180,3 +180,169 @@ Each of the five extensions has both of its bounds monotone in a single coordina
 **Proposition 3 (strict fill decay).** The fill `|Λ_D| / |Box(Λ_D)|` is strictly decreasing in `D` over the six stages: 14.12%, 5.98%, 2.29%, 2.05%, 1.34%, 0.42%. **EXHAUSTIVE** at these caps.
 
 The fill decay has a reason that does not depend on the caps. Adjoining a coordinate multiplies the box by the size of the new alphabet and multiplies the object by the mean size of the new fibre. A bounded coordinate has mean fibre strictly below its alphabet size unless every cell below it admits every value — that is, unless the bound is vacuous. So a coordinate that constrains anything lowers the fill. This is a statement about the construction, not a measurement, and it says nothing about the limit of a sequence continued past thirteen.
+
+---
+
+## §3 · What the coupling axes must carry
+
+The last three coordinates are angular momenta, and their exact content is not a matter of choice: it is fixed by the theory of equivalent electrons. This section computes that content, and shows why it cannot be carried as it stands.
+
+**The terms of a subshell.** `terms(ℓ^k)` is computed by microstate enumeration (D12). The construction is standard and is CITED to Condon and Shortley (1935), ch. VII; it is reproduced here because every bound below is read off its output and the paper recomputes what it prints. The first three cases of the p shell come out as
+
+> `terms(p¹) = { (1, 2) }`,  `terms(p²) = { (0, 0), (0, 4), (2, 2) }`,  `terms(p³) = { (1, 2), (1, 4), (3, 0) }`,
+
+which are `²P`; `¹S`, `¹D`, `³P`; and `²P`, `²D`, `⁴S` — the textbook anchors, EXHAUSTIVE over the enumeration.
+
+**Proposition 4 (particle–hole symmetry).** `terms(p^k) = terms(p^{6−k})` for `k = 1, 2`. **EXHAUSTIVE.** The multiset of terms of a subshell and of its complement agree, which is the complementary-shell theorem of Racah (1943), CITED; it is verified here on the shells the caps admit rather than assumed.
+
+**Proposition 5 (the two realised maxima are not monotone).** With `σ` and `μ` as in D12,
+
+| `k` | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| `σ(1, k)` = max 2S of `p^k` | 1 | 2 | 3 | 2 | 1 | 0 |
+| `μ(1, k)` = max 2J of `p^k` | 3 | 4 | 5 | 4 | 3 | 0 |
+
+and `σ(0, 1) = 1`, `σ(0, 2) = 0`, `μ(0, 1) = 1`, `μ(0, 2) = 0`. Both rows rise to half filling and fall to zero at closure. **EXHAUSTIVE**, over the eight subshells the caps admit.
+
+Neither row is monotone, and that is the obstruction. A bound `x_i ≤ β(x_j)` preserves the sublattice property when β is monotone (Theorem 1) and can fail when it is not (§4, the negative control). So the exact ceiling cannot be carried as a bound. What can be carried is its monotone envelope, and Theorem 2 says which one.
+
+**Proposition 6 (the envelope of the realised maximum).** The running maximum of `μ(1, ·)` is 3, 4, 5, 5, 5, 5. It dominates `μ(1, ·)` everywhere and strictly exceeds it at `k = 4, 5, 6`. **EXHAUSTIVE.** At the caps of D11 only `k ≤ 3` occurs, where the realised maximum is already monotone; there `φ̂ = {1 ↦ 3, 2 ↦ 4, 3 ↦ 5}` coincides with the realised maximum exactly. **That coincidence is a property of the caps and not of the bound**, and Proposition 6 is the demonstration: extend the caps by one electron of occupancy and the envelope separates from the extent.
+
+**The spin ceiling, in closed form.** The exact spin ceiling of a subshell holding `g` electrons of orbital angular momentum `f` is `min(g, 4f + 2 − g)` — rising while the shell fills, falling once past half — and this reproduces `σ(f, g)` at every `(f, g)` the caps admit. **EXHAUSTIVE.** It is symmetric about half filling, hence non-monotone, hence not carriable; the construction carries `2S′ ≤ g`, which dominates it since `min(g, 4f+2−g) ≤ g`.
+
+**The core–orbit range.** At the caps, `f_max = 1`, so the twelfth bound reads `2K ≤ 2J_c + 2`, and over the construction `max { 2K : 2J_c = j } = j + 2` for every `j = 0, …, 5`: the bound is attained and is not slack as a range. **EXHAUSTIVE.**
+
+### §3.1 · What the envelope costs, axis by axis
+
+The envelope admits cells the exact physics does not. That gap is a count, and it is the quantity Theorem 2 makes into a definition. For each axis, the **admissible fibre** at a cell of the stage below is the interval the bound of D10 allows, and the **exact fibre** is the set vector coupling realises there. Summing both over the stage below gives Table 2.
+
+**Table 2. The exact fibre against the admissible one.** The *admitted* column is the stage's own cell count, since the stage is the sum of the admissible fibres. All at the caps of D11.
+
+| axis | coordinate | admissible fibre | exact fibre | admitted | realised | realised share |
+|---|---|---|---|---|---|---|
+| 9 | `2S′` | `[0, g]` | the `2S` values of `terms(f^g)` | 1,654 | 1,054 | 63.7% |
+| 10 | `v` | `[2S′, g]` | the occupancies at which a term of spin `2S′` first appears | 2,535 | 1,132 | 44.7% |
+| 11 | `2J_c` | `[0, φ̂(k)]` | the `2J` of the terms of `ℓ^k` carrying the cell's own `2S` | 13,585 | 2,310 | 17.0% |
+| 11 (wider) | `2J_c` | `[0, φ̂(k)]` | `[0, μ(ℓ, k)]`, the largest `2J` any term of `ℓ^k` carries | 13,585 | 10,585 | 77.9% |
+| 12 | `2K` | `[0, 2J_c + 2f_max]` | `\|2J_c − 2f\| ≤ 2K ≤ 2J_c + 2f`, `2K ≡ 2J_c` (mod 2) | 70,905 | 22,275 | 31.4% |
+| 13 | `2J` | `[max(0, 2K−1), 2K+1]` | `2J = 2K ± 1` | 199,130 | 128,225 | 64.4% |
+
+Every entry is EXHAUSTIVE over the stage below, and the exact fibre is never larger than the admissible one at any axis — which it cannot be, since Theorem 2 makes the admissible fibre contain the exact one by construction. Two rows are given for the eleventh axis because two different sets deserve the name *exact* there: the set of `2J` the core can carry given the cell's own parent spin, and the set it can carry given only the parent configuration. The first is the stricter and gives 17.0%; the second is the one that matches the bound's own shape — an interval `[0, μ(ℓ, k)]` — and gives 77.9%. The paper prints both and prefers neither.
+
+The thirteenth row is the one to read against the thesis. Its exact fibre is a doublet, `2J = 2K ± 1`, everywhere except at `2K = 0` where it is a singleton — 13,585 cells, one for each cell of the eleventh stage. The admissible fibre is a triplet, `{2K−1, 2K, 2K+1}` intersected with the non-negative integers. So even at the axis whose bound is carried exactly, the realised share is 64.4% and not 100%: the loss is not this axis's, it is inherited through `2K`, whose own range is already an envelope.
+
+---
+
+## §4 · The theorems
+
+Everything in this section is stated for arbitrary chains, arbitrary bounds and arbitrary caps, and proved. Each is then machine-checked over the **unbounded integers**, so that the machine check is not a check at one setting of the caps: the solver is asked for a counterexample among all integer values of every variable and returns `unsat`. Two guards run first and the obligations are not reported unless both pass; §10 states them.
+
+**Lemma 1 (the staircase produces a sublattice).** For any finite non-empty `X`, `ℛ(X)` is a sublattice of `Box(X)` containing `X`, and `φ_ij` is monotone.
+
+*Proof.* Monotonicity of `φ_ij` first: if `a ≤ a′` then `{y ∈ X : y_j ≤ a} ⊆ {y ∈ X : y_j ≤ a′}`, so the maximum over the second set is at least the maximum over the first. Containment: for `x ∈ X` and `i ≠ j`, `x` itself is a member of `{y ∈ X : y_j ≤ x_j}`, so `φ_ij(x_j) ≥ x_i`; and `x ∈ Box(X)` by D1. Now take `x, y ∈ ℛ(X)` and fix `i ≠ j`.
+
+*Join.* Let `z = x ∨ y` and suppose `z_i = x_i`. Then `z_i = x_i ≤ φ_ij(x_j) ≤ φ_ij(max(x_j, y_j)) = φ_ij(z_j)` by monotonicity.
+
+*Meet.* Let `w = x ∧ y`. Suppose `w_i = x_i`, so `x_i ≤ y_i`. If `w_j = x_j` then `w_i = x_i ≤ φ_ij(x_j) = φ_ij(w_j)`. If `w_j = y_j` then `w_i = x_i ≤ y_i ≤ φ_ij(y_j) = φ_ij(w_j)`. The case `w_i = y_i` is symmetric.
+
+Both operations stay inside `Box(X)` because `min` and `max` of two members of a chain are members of it. ∎ **PROVED.**
+
+> **Corollary.** If `ℛ(X) = X` then `X` is a sublattice of `Box(X)`, and `E(X) = 0`. This is why the upper stages of §2 are decided by a sweep of the ambient box rather than by testing pairs: at the thirteenth stage the sweep is 47.8 million cells and the pair test 19.8 billion. The converse is not claimed and is not used.
+
+**Theorem 1 (a coordinate whose every bound has arity 1).** Let `S` be a sublattice of `Box(S)` on coordinates `1, …, d`. Let `j` and `j′` be coordinate indices, not necessarily distinct, and let
+
+> `lo : A_j → ℤ`  and  `hi : A_{j′} → ℤ`
+
+be monotone with `lo(x_j) ≤ hi(x_{j′})` for every `x ∈ S`. Then
+
+> `S⁺ := { (x, y) : x ∈ S, lo(x_j) ≤ y ≤ hi(x_{j′}) }`
+
+is a sublattice of `Box(S⁺)`.
+
+*Proof.* `S⁺` is non-empty because each fibre is non-empty. Take `(x, y)` and `(x′, y′)` in `S⁺`.
+
+*Join.* Its join is `(x ∨ x′, max(y, y′))`, and `x ∨ x′ ∈ S` because `S` is a sublattice. For the upper bound, `y ≤ hi(x_{j′})` and `y′ ≤ hi(x′_{j′})`, so
+
+> `max(y, y′) ≤ max( hi(x_{j′}), hi(x′_{j′}) ) = hi( max(x_{j′}, x′_{j′}) ) = hi( (x ∨ x′)_{j′} )`,
+
+the middle equality being D4 applied to the monotone `hi` on the chain `A_{j′}`. For the lower bound, D4 applied to `lo` gives
+
+> `lo( (x ∨ x′)_j ) = lo( max(x_j, x′_j) ) = max( lo(x_j), lo(x′_j) ) ≤ max(y, y′)`,
+
+since `lo(x_j) ≤ y` and `lo(x′_j) ≤ y′`.
+
+*Meet.* Its meet is `(x ∧ x′, min(y, y′))` with `x ∧ x′ ∈ S`, and the two displays run the other way: `min(y, y′) ≥ min(lo(x_j), lo(x′_j)) = lo(min(x_j, x′_j)) = lo((x ∧ x′)_j)` and `min(y, y′) ≤ min(hi(x_{j′}), hi(x′_{j′})) = hi((x ∧ x′)_{j′})`.
+
+So both lie in `S⁺`. ∎ **PROVED**, and **MACHINE-CHECKED** twice: over the unbounded integers, with the monotonicity hypothesis stated at the two points where it is used and no bound on any variable; and in finite-box form over every one of the `2⁹` subsets of a `3 × 3` box that is closed, against every monotone `h` with values in `{−1, 0, 1, 2}`.
+
+> **Where the hypothesis bites.** Monotonicity is not decoration. Drop it and the conclusion is false: the negative control asks the solver whether `max(y, y′) ≤ h(x)` at the larger `x` follows from `y ≤ h(x)`, `y′ ≤ h(x′)` alone, and the solver returns a model. This is the reason §3's realised ceilings, which rise and then fall, cannot be carried as bounds.
+
+> **Two parents, one per bound.** In Theorem 1 `j` and `j′` may differ. The tenth coordinate is exactly that case: `2S′ ≤ v ≤ g` has two parents and each of its two bounds has arity 1, so the theorem applies and the stage closes. What the second parent costs is a cycle in the constraint graph (§5) and nothing else. The cost that closure notices is a single bound of arity 2, and that is Theorem 3.
+
+**Theorem 2 (the monotone envelope, existence and uniqueness).** Let `S` be a sublattice, `j` a coordinate, and `F` a map assigning to each `a ∈ A_j` a finite non-empty set `F(a) ⊆ ℤ`; write `S ⋉ F := { (x, y) : x ∈ S, y ∈ F(x_j) }`. Let `𝔈` be the family of all sets `S ⋉ [l, h] := { (x, y) : x ∈ S, l(x_j) ≤ y ≤ h(x_j) }` with `l, h : A_j → ℤ` monotone, that contain `S ⋉ F`. Then
+
+> (i) `𝔈` is non-empty and every member of it is a sublattice;
+> (ii) `𝔈` has a least member under inclusion, namely `S ⋉ [l*, h*]` with
+>
+> `l*(a) := min { min F(a′) : a′ ∈ A_j, a′ ≥ a }`,  `h*(a) := max { max F(a′) : a′ ∈ A_j, a′ ≤ a }`;
+>
+> (iii) `S ⋉ [l*, h*] = S ⋉ F` if and only if `F(a) = [l*(a), h*(a)] ∩ ℤ` for every `a ∈ A_j`;
+> (iv) the number of cells the envelope admits and `F` does not is `Σ_{x ∈ S} ( h*(x_j) − l*(x_j) + 1 − |F(x_j)| )`.
+
+*Proof.* (i) The constant functions `l ≡ min_a min F(a)` and `h ≡ max_a max F(a)` are monotone and their interval contains every `F(a)`, so `𝔈 ≠ ∅`; and each member is a sublattice by Theorem 1 with `j′ = j`.
+
+(ii) `l*` is monotone: as `a` increases the set `{a′ ≥ a}` shrinks, so its minimum does not decrease. `h*` is monotone: as `a` increases the set `{a′ ≤ a}` grows, so its maximum does not decrease. Taking `a′ = a` in each definition gives `l*(a) ≤ min F(a)` and `h*(a) ≥ max F(a)`, so `F(a) ⊆ [l*(a), h*(a)]` and `S ⋉ [l*, h*] ∈ 𝔈`. Now let `S ⋉ [l, h] ∈ 𝔈` be arbitrary. Containment forces `l(a) ≤ min F(a)` and `h(a) ≥ max F(a)` for every `a ∈ A_j`. For `a′ ≥ a`, monotonicity of `l` gives `l(a) ≤ l(a′) ≤ min F(a′)`; taking the minimum over all such `a′` gives `l(a) ≤ l*(a)`. Symmetrically, for `a′ ≤ a`, `h(a) ≥ h(a′) ≥ max F(a′)`, so `h(a) ≥ h*(a)`. Hence `[l*(a), h*(a)] ⊆ [l(a), h(a)]` for every `a`, and `S ⋉ [l*, h*] ⊆ S ⋉ [l, h]`. Least members of a family ordered by inclusion are unique.
+
+(iii) The two sets have the same first `d` coordinates, so they agree exactly when their fibres agree, which is the stated condition.
+
+(iv) The fibres are disjoint across cells of `S`, so the counts add. ∎ **PROVED.**
+
+> Theorem 2 is what "envelope" means in this paper, and the two clauses are what make the word do work: the envelope exists for *any* prescribed exact set, and it is the *smallest* thing of the admissible shape that contains it — so the cells in the gap are not an artefact of a sloppy bound but the unavoidable price of carrying that exact set as an interval monotone in one coordinate. Table 2 is clause (iv), evaluated at each axis.
+
+**Theorem 3 (the triangle exclusion).** Let
+
+> `T := { (a, b, c) ∈ ℤ³ : a ≥ 0, b ≥ 0, c ≥ 0, |a − b| ≤ c ≤ a + b }`.
+
+Then `T` is closed under coordinatewise maximum and is not closed under coordinatewise minimum, and each of its two inequalities is broken by an explicit meet.
+
+*Proof of join-closure.* Take `u = (a₁, b₁, c₁)` and `w = (a₂, b₂, c₂)` in `T` and write `A = max(a₁, a₂)`, `B = max(b₁, b₂)`, `C = max(c₁, c₂)`; all three are non-negative.
+
+*Upper.* `C = c_t` for some `t ∈ {1, 2}`, and `c_t ≤ a_t + b_t ≤ A + B`.
+
+*Lower.* `A = a_t` for some `t`. Then `A − B ≤ a_t − b_t ≤ |a_t − b_t| ≤ c_t ≤ C`. Exchanging the roles of `a` and `b` gives `B − A ≤ C`. Hence `|A − B| ≤ C`. So `(A, B, C) ∈ T`. ∎
+
+*Refutation of meet-closure.* Both inequalities fail, and one witness is exhibited for each.
+
+> `(0, 1, 1) ∧ (1, 0, 1) = (0, 0, 1)` — both operands lie in `T`; the meet has `c = 1 > 0 = a + b`, so the **upper** bound fails: a total angular momentum manufactured from two zeros.
+>
+> `(4, 0, 4) ∧ (2, 2, 0) = (2, 0, 0)` — both operands lie in `T`; the meet has `|a − b| = 2 > 0 = c`, so the **lower** bound fails.
+
+∎ **PROVED**; **MACHINE-CHECKED** (join-closure, over the unbounded integers, all caps at once); **REFUTATION** (meet-closure, the solver returning a model, and the two witnesses above verified independently).
+
+> **Why max survives and min does not.** `T` is cut out by one upper bound on `c` and one lower bound on `c`, and the coordinatewise maximum moves every coordinate in the direction each bound is slack on: raising `a` and `b` can only loosen `c ≤ a + b`, and raising `c` can only loosen `|a − b| ≤ c`, while the competing movement is dominated by the argument above. The coordinatewise minimum does the opposite on both, and there is no compensation, because the minimum takes `a` from one operand and `c` from the other and so forgets that `c` was built from that operand's own `a` and `b`.
+
+**Theorem 4 (the bands).** For an integer constant `k ≥ 0` let `B_k := { (a, b) ∈ ℤ²_{≥0} : |a − b| ≤ k }`, and let `C := { (a, b, c) ∈ ℤ³_{≥0} : |a − b| ≤ c }`. Then
+
+> (i) `B_k` is a sublattice, for every `k ≥ 0`;
+> (ii) `C` is closed under coordinatewise maximum;
+> (iii) `C` is **not** closed under coordinatewise minimum.
+
+*Proof of (i).* `B_k` is cut out by `a ≤ b + k` and `b ≤ a + k`, each a bound of arity 1 whose right-hand side is monotone in its single parent, so Theorem 1 applies in both directions. The direct argument is four lines. Write `A = max(a₁, a₂)` and `B = max(b₁, b₂)`. Choose `t` with `A = a_t`; then `B ≥ b_t`, so `A − B ≤ a_t − b_t ≤ |a_t − b_t| ≤ k`. Exchanging the roles of `a` and `b` gives `B − A ≤ k`, so `|A − B| ≤ k` and the join lies in `B_k`. For the meet write `A′ = min(a₁, a₂)`, `B′ = min(b₁, b₂)`, choose `t` with `B′ = b_t`; then `A′ ≤ a_t`, so `A′ − B′ ≤ a_t − b_t ≤ k`, and the exchanged argument gives `B′ − A′ ≤ k`. Non-negativity is preserved by both operations. ∎
+
+*Proof of (ii).* This is the *Lower* half of Theorem 3's join argument, which used only `|a − b| ≤ c` and not `c ≤ a + b`. ∎
+
+*Refutation of (iii).* `(2, 0, 2)` and `(2, 2, 0)` both lie in `C`; their meet is `(2, 0, 0)`, and `|2 − 0| = 2 > 0`. ∎ **PROVED**; (i) and (ii) **MACHINE-CHECKED** over the unbounded integers, (i) with `k` itself a free integer variable so that the claim is decided for every constant at once; (iii) **REFUTATION**, the solver returning a model and the witness above verified independently.
+
+> **The difference between `B_k` and `C` is the difference between a constant and a coordinate.** In `B_k` the second side of the band is a number, so `a ≤ b + k` is monotone in `b`; in `C` it is a free coordinate, so `|a − b| ≤ c` is a single bound of arity 2 and Theorem 1 does not apply. The same sentence, read in the other direction, is why the thirteenth axis of the tower is exact: `|2J − 2K| ≤ 1` is `B₁`, and the `1` is a constant because the outer electron's spin is one half whatever else the cell holds.
+
+**Theorem 5 (the dichotomy).** Let `S` be a sublattice and let a new coordinate `y` carry an exact set `F(x)`.
+
+> (i) If `F(x) = [lo(x_j), hi(x_{j′})] ∩ ℤ` for monotone `lo`, `hi` of one coordinate each, then `S ⋉ F` is a sublattice: the axis closes exactly.
+> (ii) If `F(x) = { y : |x_a − x_b| ≤ y ≤ x_a + x_b }` for two coordinates `a ≠ b` of `S`, and `S` realises the coordinate patterns of Theorem 3's two witnesses, then `S ⋉ F` is join-closed and is not meet-closed; the smallest sublattice extension of the shape (i) containing it is the monotone envelope of Theorem 2, and it is strictly larger.
+> (iii) If in (ii) `x_b` is replaced by a constant `k`, then `F(x) = { y : |x_a − y| ≤ k }` is the band `B_k` about `x_a`, which is of the shape (i), and the axis closes exactly.
+
+*Proof.* (i) is Theorem 1. (ii): join-closure and the failure of meet-closure are Theorem 3 transported along the inclusion `(x, y) ↦ (x_a, x_b, y)`, which sends meets to meets and joins to joins because both are coordinatewise; the hypothesis that `S` realises the witness patterns is what makes the two witnesses of Theorem 3 lift to cells of `S ⋉ F`, and §6 exhibits such a pair. The envelope claim is Theorem 2 applied to `F`, and it is strictly larger because `S ⋉ F` is not a sublattice while `S ⋉ [l*, h*]` is. (iii): the two inequalities are `y ≤ x_a + k` and `x_a ≤ y + k`, each monotone of arity 1, so Theorem 1 applies with `j = j′ = a`. ∎ **PROVED.**
+
+**Corollary 1 (the tower's dichotomy).** Of the thirteen bounds of D10, every one is of the shape (i) or the shape (iii) of Theorem 5, so every stage closes (Proposition 2). Of the three bounds whose exact physical content is a coupling condition, the ninth and the eleventh carry a non-monotone realised ceiling (Proposition 5) and so are carried as its envelope; the twelfth's exact content is a triangle of arity 2 and by Theorem 5(ii) cannot be carried at all, so it too is carried as an envelope; and the thirteenth's is `B₁` and is carried exactly. **There is no fourth case in this construction.** **EXHAUSTIVE** over the thirteen bounds.
+
+> **A coordinate cannot be smuggled in as a derived quantity.** Adjoining a function `h` of the existing coordinates keeps the object a sublattice only if the graph `{(x, h(x))}` is one, and taking joins there forces `h(x ∨ x′) = max(h(x), h(x′))` — `h` must be a join homomorphism. A difference of two coordinates is not one. On the first stage, `h = e − q` has `h(x ∨ x′) = 0` at `x = (1,0,1,0,1,0,0,0)` and `x′ = (1,0,1,1,1,0,0,0)`, while `max(h(x), h(x′)) = 1`. **REFUTATION**, by that witness. Every coordinate above the eighth therefore has to enter as a *bounded axis* and pay the price Theorem 2 names; there is no cheaper door.
