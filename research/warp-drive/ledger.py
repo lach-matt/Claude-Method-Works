@@ -326,18 +326,6 @@ SUPPLY = [
 # ---------------------------------------------------------------------------
 
 OPEN_ROWS = [
-    ("O4",
-     "Does the contraction criterion survive the change from a CENTRE to an "
-     "AXIS?  D14 says the priced object cannot have a destination, and a "
-     "corridor has an axis rather than a centre.  The Misner-Sharp mass is "
-     "DEFINED by the areal radius of a round 2-sphere; the static cylindrical "
-     "throat has a genuine axial contraction factor Gamma_z = e^{-Psi}, "
-     "governed by a second-order elliptic equation WITH NO FIRST INTEGRAL, "
-     "which is why a sphere was priced and it never was",
-     "price the static cylindrical throat.  It is unpriced in ANY geometry and "
-     "it is the only one of the three objects in play with both an axis and a "
-     "contraction factor"),
-
     ("O5",
      "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
      "at all?  Fewster & Teo bound the NORMAL-ORDERED density relative to the "
@@ -391,6 +379,24 @@ OPEN_ROWS = [
 # ---------------------------------------------------------------------------
 
 CLOSED_ROWS = [
+    ("O4",
+     "Does the contraction criterion survive the change from a CENTRE to an "
+     "AXIS?  The priced object cannot have a destination (D14) and a corridor "
+     "has an axis; the static cylindrical throat was unpriced in any geometry",
+     "CLOSED, AND THE AXIS DOES NOT ESCAPE THE SIGN.  axial.py, six sympy "
+     "residuals all 0.  In the Lambda = 0 gauge -- a FULL gauge fixing -- "
+     "8 pi u W = -(W Psi')' - W Psi'^2 - W''.  On a regular axis (W(0) = 0, "
+     "W'(0) = 1) and asymptotically flat (W -> r, W Psi' -> 0) both boundary "
+     "terms vanish and INT 8 pi u W dr = -INT W Psi'^2 dr <= 0, with equality "
+     "IFF Psi' == 0.  ANY axial contraction forces u < 0 somewhere.  NO ENERGY "
+     "CONDITION IS USED -- geometry and two boundary conditions.  Phi is absent "
+     "from u, so redshift buys nothing, which closes the S - 2u escape that "
+     "looked real for one pass.  Same shape as certify.py's: a square carrying "
+     "a minus sign, here -W Psi'^2 under an integral.  The one term with the "
+     "other sign is a conical ANGLE EXCESS, W'(0) > 1, contributing exactly "
+     "(W'(0) - 1) -- measured to nine places at four defects -- and an angle "
+     "excess is the deficit of a NEGATIVE linear mass density, so it restates "
+     "the requirement rather than avoiding it"),
     ("O1",
      "The nonminimally coupled scalar admits no state-independent QEI, so the "
      "sharpest limb of DOCKET 55 has a hole exactly where the project's "
@@ -764,10 +770,12 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 11, NARROWED: 1, MEASURED: 2, SURVEY: 1, OPEN: 7,
-         WITHDRAWN: 8, REFUSED: 4})
-    chk("O1 left OPEN by being ANSWERED, and is kept rather than deleted",
-        [r[0] for r in CLOSED_ROWS], ["O1"])
+        {THEOREM: 11, NARROWED: 1, MEASURED: 2, SURVEY: 1, OPEN: 6,
+         WITHDRAWN: 8, REFUSED: 5})
+    # O4 joins O1: OPEN 7 -> 6, REFUSED 4 -> 5.  axial.py answered it in the
+    # negative -- the axis costs the same sign the sphere does.
+    chk("rows that left OPEN by being ANSWERED, kept rather than deleted",
+        sorted(r[0] for r in CLOSED_ROWS), ["O1", "O4"])
     chk("and no id appears in two lists at once",
         len(set([r[0] for r in OPEN_ROWS] + [r[0] for r in CLOSED_ROWS])),
         len(OPEN_ROWS) + len(CLOSED_ROWS))

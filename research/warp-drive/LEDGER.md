@@ -57,12 +57,6 @@ established and refuted so far, not a census of what is establishable.
 
 ## Open, and what would answer each
 
-### O4
-
-Does the contraction criterion survive the change from a CENTRE to an AXIS? D14 says the priced object cannot have a destination, and a corridor has an axis rather than a centre. The Misner-Sharp mass is DEFINED by the areal radius of a round 2-sphere; the static cylindrical throat has a genuine axial contraction factor Gamma_z = e^{-Psi}, governed by a second-order elliptic equation WITH NO FIRST INTEGRAL, which is why a sphere was priced and it never was
-
-**Would be answered by:** price the static cylindrical throat. It is unpriced in ANY geometry and it is the only one of the three objects in play with both an axis and a contraction factor
-
 ### O5
 
 Does a self-consistent static semiclassical solution with m(r) < 0 exist at all? Fewster & Teo bound the NORMAL-ORDERED density relative to the static vacuum, so the bound is on rho_ren - rho_vac and not on rho_ren
@@ -97,6 +91,7 @@ Whether ANY braneworld shortcut yields a closed timelike curve. Every published 
 
 | id | what was open | how it closed |
 |---|---|---|
+| O4 | Does the contraction criterion survive the change from a CENTRE to an AXIS? The priced object cannot have a destination (D14) and a corridor has an axis; the static cylindrical throat was unpriced in any geometry | CLOSED, AND THE AXIS DOES NOT ESCAPE THE SIGN. axial.py, six sympy residuals all 0. In the Lambda = 0 gauge -- a FULL gauge fixing -- 8 pi u W = -(W Psi')' - W Psi'^2 - W''. On a regular axis (W(0) = 0, W'(0) = 1) and asymptotically flat (W -> r, W Psi' -> 0) both boundary terms vanish and INT 8 pi u W dr = -INT W Psi'^2 dr <= 0, with equality IFF Psi' == 0. ANY axial contraction forces u < 0 s... |
 | O1 | The nonminimally coupled scalar admits no state-independent QEI, so the sharpest limb of DOCKET 55 has a hole exactly where the project's most-favoured route sits | CLOSED, AND REFUSED. Both answers the row itself named are supplied, and it was S4 counted a second time -- this file's own note very nearly said so. The compensating positive energy IS the enclosed-mass problem returning: E_pos/|E_neg| = 3 pi/(32 f xi c0^3) >= 1039.13 at xi = 1/4 and >= 1803.55 at xi = 1/6, from Fewster & Osterbrink's own construction. LAMBDA CANCELS AND L CANCELS -- the overh... |
 
 ## Withdrawn -- asserted by this project, then refuted by it
@@ -123,9 +118,9 @@ a corpus forgets it was ever wrong.
 | THEOREM-NARROWED | 1 |
 | MEASURED | 2 |
 | SURVEY | 1 |
-| OPEN | 7 |
+| OPEN | 6 |
 | WITHDRAWN | 8 |
-| REFUSED | 4 |
+| REFUSED | 5 |
 
 Rows whose owner is a paper rather than a module, and which this
 file therefore cannot ask: **D5, D6, D12, D13**.
