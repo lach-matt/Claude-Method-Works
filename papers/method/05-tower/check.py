@@ -261,6 +261,17 @@ def check_rank_and_chains():
     ob("EXHAUSTIVE", "maximal chains of Λ_8 = linear extensions of P (DP over covers)",
        chains[top] == 1113045672, "%d, bottom %s top %s" % (chains[top], bot, top))
     ob("EXHAUSTIVE", "every maximal chain has length 17 = rank(top) − rank(bot)", rank(top) - rank(bot) == 17)
+    cmin = tuple(min(c[i] for c in L[8]) for i in range(8))
+    cmax = tuple(max(c[i] for c in L[8]) for i in range(8))
+    ob("EXHAUSTIVE", "the coordinatewise extremes of Λ_8 are cells, so bottom and top are these",
+       cmin in X and cmax in X and (cmin, cmax) == (bot, top) and (rank(cmin), rank(cmax)) == (3, 20),
+       "%s at rank 3, %s at rank 20" % (cmin, cmax))
+    ob("EXHAUSTIVE", "the rank sequence of Λ_8, ranks 3..20",
+       seq8 == [1, 5, 15, 34, 59, 87, 108, 121, 122, 115, 100, 79, 57, 37, 21, 10, 4, 1] and sum(seq8) == 976,
+       " ".join(map(str, seq8)))
+    ob("EXHAUSTIVE", "the alphabet sizes of Λ_8 sum to 25 and Σ(|A_i| − 1) = 17",
+       [len(a) for a in alph] == [3, 2, 3, 4, 3, 2, 4, 4] and sum(len(a) for a in alph) == 25,
+       str([len(a) for a in alph]))
 
 
 # ----------------------------------------------------------------------------- the cylinder
@@ -467,6 +478,35 @@ def check_graph():
             stack += list(adj[x])
         ok &= seen == Bn
     ob("EXHAUSTIVE", "q is a cut vertex: deleting it leaves the B side {e f g 2S′ v} as one component", ok)
+    # and exactly two components, so the rest is the parent block in one piece
+    two_comp = True
+    no_cross = True
+    for i, s in enumerate(STAGES):
+        V = {v for e in rows[i]["E"] for v in e} - {"q"}
+        adj = collections.defaultdict(set)
+        for a, b in rows[i]["E"]:
+            if "q" in (a, b):
+                continue
+            adj[a].add(b)
+            adj[b].add(a)
+        seen, comps = set(), 0
+        for v in sorted(V):
+            if v in seen:
+                continue
+            comps += 1
+            stack = [v]
+            while stack:
+                x = stack.pop()
+                if x in seen:
+                    continue
+                seen.add(x)
+                stack += list(adj[x])
+        two_comp &= comps == 2
+        Bn = {COORDS[t] for t in B_SIDE if t < s}
+        no_cross &= not any(({a, b} & Bn) and ({a, b} - Bn - {"q"}) and "q" not in (a, b)
+                            for a, b in rows[i]["E"])
+    ob("EXHAUSTIVE", "no edge joins the parent block to the target block, at any stage", no_cross)
+    ob("EXHAUSTIVE", "deleting q leaves exactly two components at every stage", two_comp)
     two = graph_rows(two_parent=True)
     DATA["graph_two_parent"] = two
     print("      (with the cell's own f as a second parent of K the graph would have %d edges and cycle rank %s)"
@@ -949,16 +989,32 @@ def check_seed():
             reg = r == len(X) and stair_py(G, alph) >= set(G)
             reg = r == len(X)
         ob("EXHAUSTIVE", "ℛ(seed) = Λ_%d under the independent staircase" % d, reg)
-        # minimality by Z3: no cover of size seed−1 among ALL distinct signatures
-        v = [z3.Bool("s%d" % k) for k in range(len(fam))]
+        # minimality by Z3, over the signatures MAXIMAL under inclusion.  That is not a weakening:
+        # a cover using a signature contained in another may replace it by the larger without
+        # growing, so a minimum cover may always be taken among the maximal ones.  The reduction
+        # is checked here rather than assumed: every non-maximal signature is exhibited inside a
+        # maximal one.  (Over all 808 signatures the same query is not decided in 300 s.)
+        domset = set(dom)
+        red = all(any(t <= u for u in domset) for t in fam)
+        ob("GUARD", "every covering signature of Λ_%d sits inside a maximal one (%d of %d maximal)" % (d, len(dom), len(fam)), red)
+        v = [z3.Bool("s%d" % k) for k in range(len(dom))]
         s = z3.Solver()
         for k in range(len(st)):
-            s.add(z3.Or([v[m] for m, t in enumerate(fam) if k in t]))
+            s.add(z3.Or([v[m] for m, t in enumerate(dom) if k in t]))
         s.add(z3.AtMost(*v, len(best) - 1))
         t0 = time.time()
         r = s.check()
-        ob("MACHINE-CHECKED", "no %d cells cover the steps of Λ_%d (every subset of the %d signatures)" % (len(best) - 1, d, len(fam)),
-           r == z3.unsat, "%s, %.0fs" % (r, time.time() - t0))
+        ob("MACHINE-CHECKED", "no %d cells cover the steps of Λ_%d (every subset of the %d maximal signatures)" % (len(best) - 1, d, len(dom)),
+           r == z3.unsat and red, "%s, %.0fs" % (r, time.time() - t0))
+    # the requirement count, stage by stage: envelope steps plus alphabet values
+    req = {}
+    for d in (8, 9, 10):
+        a, st = envelope_steps(L[d])
+        req[d] = (len(st), sum(len(x) for x in a))
+    DATA["requirements"] = req
+    ob("EXHAUSTIVE", "envelope steps and alphabet values per stage",
+       req == {8: (77, 25), 9: (105, 29), 10: (138, 33)},
+       "; ".join("Λ_%d: %d steps + %d values = %d" % (d, a, b, a + b) for d, (a, b) in sorted(req.items())))
     # fidelity guard for the cover reading, on Λ_8: covering all steps <=> ℛ(G) = X, and the
     # negative control: a seed less one cell fails both
     X = L[8]

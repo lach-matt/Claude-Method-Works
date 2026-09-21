@@ -570,6 +570,11 @@ def structure():
         "%d join-irreducible, %d meet-irreducible, sum(|A_i| - 1) = %d, and every "
         "join-irreducible is min{x : x_c >= v}" % (len(ji), len(mi), closed_form), good3)
 
+    weights = [sum(1 for x in LAM if le(m, x)) for m in GCELL]
+    row("EXHAUSTIVE", "the seventeen letters, with their weights",
+        "; ".join("%s at rank %d in %d cells" % (GNAME[t], rank(GCELL[t]), weights[t])
+                  for t in range(JJ)), True)
+
     # Birkhoff, by enumerating every subset of the generating poset
     ds = 0
     for m in range(1 << JJ):
@@ -610,6 +615,8 @@ def structure():
     row("EXHAUSTIVE", "Theorem 7, twenty implications",
         "%d covering relations in the generating poset: %d within a coordinate, %d between"
         % (len(covP), len(within), len(between)), good4)
+    row("EXHAUSTIVE", "the twenty implications, written out",
+        "; ".join("%s -> %s" % (GNAME[b], GNAME[a]) for a, b in covP), True)
 
     accepted = 0
     for m in range(1 << JJ):
@@ -633,8 +640,15 @@ def structure():
     ok &= good5
     row("EXHAUSTIVE", "Theorem 8, the reflection",
         "%d of %d cells have their image under x -> top - x in Lambda; %d are fixed; "
-        "their ranks %s" % (len(surv), N, len(fixed),
-                            ",".join(str(rank(x)) for x in sorted(surv, key=rank))), good5)
+        "they are %s at ranks %s"
+        % (len(surv), N, len(fixed),
+           " ".join("".join(map(str, x)) for x in sorted(surv, key=rank)),
+           ",".join(str(rank(x)) for x in sorted(surv, key=rank))), good5)
+
+    bits = math.log2(N)
+    row("EXHAUSTIVE", "the bit accounting",
+        "%d bits carried per cell, %.4f needed to index %d cells, surplus %.4f; Lambda is "
+        "%.4f%% of the 2^17 words" % (JJ, bits, N, JJ - bits, 100.0 * N / (1 << JJ)), True)
     print()
     return ok, seq, covP, within, between, surv, ncov
 

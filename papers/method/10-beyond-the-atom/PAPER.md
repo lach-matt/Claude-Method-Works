@@ -77,7 +77,7 @@ Throughout `d ≥ 1` is finite and `X` is a finite non-empty set of `d`-tuples o
 
 **D8 (extension, quotient).** Let `h : X → C` map an index into a finite chain. The **extension of `X` by `h`** is `X^h := { (x, h(x)) : x ∈ X }`, an index on `d + 1` coordinates. The **quotient of `X` by `h`** is the image `h(X) ⊆ C`. More generally for `h : X → C_1 × ⋯ × C_m` the quotient is the image index on `m` coordinates. An extension keeps every cell of `X` distinct; a quotient identifies cells `h` cannot separate.
 
-**D9 (composability).** In an index whose cells are **moves** — a cell carrying a source state and a target state — a cell is **followable** when its target state is the source state of some cell of the index. A cell that is not followable ends where nothing begins. The relevant source and target states are named where each such index is defined (§3.3, §5.5).
+**D9 (composability).** In an index whose cells are **moves** — a cell carrying a source state and a target state — a cell is **followable** when its target state is the source state of some cell of the index. A cell that is not followable ends where nothing begins. The relevant source and target states are named where each such index is defined (§3.1, §5.5).
 
 **D10 (bit cost).** For `E > 0` the **bit cost** of an index is `log₂ C(|ℛ(X)|, E)`, the number of bits needed to name which `E` of the admitted cells are the absent ones. It measures how much must travel alongside an index for a reader to reconstruct it from its coordinates.
 
@@ -109,7 +109,9 @@ Throughout `d ≥ 1` is finite and `X` is a finite non-empty set of `d`-tuples o
 
 **Corollary 1.** If `E(X) = 0` then `X` is a sublattice of `Box(X)`. Consequently, if `X` is **not** a sublattice then `E(X) > 0`. ∎
 
-The converse of Corollary 1 is false: a sublattice may still have a positive defect, and §5.4 measures one that does not and one that does.
+**Proposition 1 (the converse, measured).** Over every non-empty subset of the boxes 3 × 3 and 2 × 2 × 2 — **766** sets in all — `X` is a sublattice of `Box(X)` **if and only if** `E(X) = 0`, and more strongly `ℛ(X)` equals the sublattice hull `⟨X⟩` cell for cell, with no exception. The same equality holds on three larger indexes computed here: the periodic table (126 cells), the Kreuzer–Skarke slice (748) and the parity set of §5.3 (1,590). **EXHAUSTIVE** on the stated families.
+
+That `ℛ(X) = ⟨X⟩` on any finite product of chains is established in *The Hierarchy Law of Mathematical Languages* (Lach 2026) and is **CITED**; only the easy inclusion `⟨X⟩ ⊆ ℛ(X)` is proved here, as Lemma 2. Nothing below depends on the cited direction: every use is of Corollary 1, which is proved.
 
 **Theorem 2 (a full box closes).** If `X = Box(X)` then `ℛ(X) = X` and `E(X) = 0`. In particular every singleton and every Cartesian product of chains is closed.
 
@@ -172,9 +174,10 @@ Fourteen indexes are built and closed. Each is defined here by its coordinates a
 
 > `ℓ ≤ n − 1` (the hydrogenic bound, Bohr 1913), `k ≤ 4ℓ + 2` and `k ≥ 1` (Stoner's subshell capacity of 1924, made exclusive by Pauli 1925), `q ≤ k`, `f ≤ e − 1`, `g ≤ 4f + 2`, `g ≤ q`, `2S ≤ k` (the capacity with Hund's first rule, 1925).
 
-The constraints are not introduced here; the index assembles them.
 
 At the caps `n, e ∈ {1,2,3}`, `ℓ, f ∈ {0,1}`, `k, q, g, 2S ∈ {0,…,3}` this gives **976 cells in a box of 6,912, E = 0**. Λ₉ adjoins the target multiplicity `2S′` with `2S′ ≤ g`: **1,654 cells in a box of 27,648, E = 0**. Λ₁₀ adjoins the seniority `v` with `2S′ ≤ v ≤ g`: **2,535 cells in a box of 110,592, E = 0**.
+
+Λ is an index of **moves**, so D9 applies to it. A cell's **source end** is `(n, ℓ, k, 2S)` — the subshell electrons leave, its occupancy and the source spin — and its **target end** is `(e, f, g, 2S′)`, the subshell they arrive in, how many arrive and the target spin. A cell is followable when its target end equals the source end of some cell of the index. On Λ₈ **no cell is followable**, and necessarily so: Λ₈ has no `2S′`, so its target end carries three components against the source end's four and the two can never be equal. Λ₉ supplies the missing component, and **1,169 of its 1,654 cells (70.7%)** become followable; Λ₁₀ gives **2,050 of 2,535 (80.9%)**. The state indexes of §3.2 and §3.3 cannot have the property at all: a cell there is one position, and there is nothing to compose.
 
 ### 3.2 The same 118 elements, twice
 
@@ -188,7 +191,7 @@ The 36 are placement-sensitive. Drawing helium at group 2 instead of group 18, o
 
 ### 3.3 Convention, order, and a full product
 
-**The Gregorian calendar**, coordinates (month, day), the 365 cells of a common year: **365 cells in a box of 372, E = 7**. The seven admitted-and-absent cells are (2, 29), (2, 30), (2, 31), (4, 31), (6, 31), (9, 31) and (11, 31) — February's three missing days and the four thirty-day months' thirty-firsts. The defect fails for one reason: the number of days is not monotone in the month index. Relabelling the months in order of length repairs it exactly (Theorem 3(b)), and produces a calendar no one can use. The seven is the price of keeping January first.
+**The Gregorian calendar**, coordinates (month, day), the 365 cells of a common year: **365 cells in a box of 372, E = 7**. The seven admitted-and-absent cells are (2, 29), (2, 30), (2, 31), (4, 31), (6, 31), (9, 31) and (11, 31) — February's three missing days and the four thirty-day months' thirty-firsts. The index fails to close for one reason: the number of days is not monotone in the month index. Relabelling the months in order of length repairs it exactly (Theorem 3(b)), and produces a calendar no one can use. The seven is the price of keeping January first.
 
 **A box ordering**, coordinates `(l, w, h)` with `l ≥ w ≥ h` over five values: **35 cells in a box of 125, E = 0**. A genuine constraint that still closes.
 
@@ -367,7 +370,7 @@ because `s_m ≥ s_n`. So `g(a ∨ b)` is at most one of the two values `g(a), g
 
 > the spin rule imposed on Λ₉ keeps **526 cells at E = 0**.
 
-Being a sublattice does not by itself force `E = 0` (Corollary 1 runs the other way), so the 526 at zero is a measurement and not a consequence of Corollary 4.
+Corollary 1 runs the other way, so the 526 at zero is a measurement and not a consequence of Corollary 4; under the identity of Proposition 1 the two statements are the same one, and that direction is cited rather than proved here.
 
 ### 5.3 The parity rule does not, and here is the witness
 
@@ -492,6 +495,7 @@ The verification program runs **95 obligations** and all pass; in self-test mode
 | Lemma 1, the envelope | ✓ | — | — | — |
 | Theorem 1, closure operator | ✓ | ✓ 3 obligations: every subset of 3×3, 2×2×2, 3×3×3 | — | — |
 | Lemma 2, ℛ(X) a sublattice | ✓ | — | — | — |
+| Proposition 1, the converse | — | — | **766 subsets** of 3×3 and 2×2×2; 3 larger indexes | the general identity **CITED** |
 | Theorem 2, a full box closes | ✓ | — | **84 boxes**, 1 ≤ d ≤ 3, sides 1–4 | — |
 | Theorem 3, coordinatisation | ✓ (a) | — | (b) the calendar, 365 cells twice; 2 rectangles | — |
 | Theorem 4, fibration | ✓ | ✓ 3 obligations, same three boxes | — | — |
@@ -513,7 +517,7 @@ The verification program runs **95 obligations** and all pass; in self-test mode
 | §5.5, the crossing | — | — | all 4,325 moves, five classes, two scopes | ground configurations **CITED** |
 | §6, the five languages | — | — | four indexes at d ≥ 3, ten pairs each | — |
 
-**The exhausted families, named.** 84 boxes: every shape with `1 ≤ d ≤ 3` and every side in 1 to 4. 1,367,031 pairs: every unordered pair of distinct cells of Λ₉. 21,528 pairs: every unordered pair of the 208 Kreuzer–Skarke cells. 4,325 moves: every ordered pair of distinct occupied subshells of every one of the 118 ground configurations, with every admissible `(q, g)`. The closures of Table 1 are computed cell by cell over the full ambient box in every case.
+**The exhausted families, named.** 84 boxes: every shape with `1 ≤ d ≤ 3` and every side in 1 to 4. 766 subsets: every non-empty subset of 3 × 3 (511) and of 2 × 2 × 2 (255). 1,367,031 pairs: every unordered pair of distinct cells of Λ₉. 21,528 pairs: every unordered pair of the 208 Kreuzer–Skarke cells. 4,325 moves: every ordered pair of distinct occupied subshells of every one of the 118 ground configurations, with every admissible `(q, g)`. The closures of Table 1 are computed cell by cell over the full ambient box in every case.
 
 **The two guards on every machine check.** *Non-vacuity*: the hypothesis of each obligation is shown satisfiable before the obligation is reported — for Theorem 1(b) that `X` lies strictly inside `S` which lies strictly inside the box; for Theorems 5 and 6 that a closed graph with `S` proper and `h` non-constant exists. *Encoding fidelity*: the Z3 formula for membership in ℛ, evaluated concretely on 3,087 cells drawn from random instances over four shapes, agrees with the operator under test in every case; and that operator, on 300 further random instances over five shapes, agrees cell for cell with an independent implementation of D3 and D4 written from the definitions. An obligation is not reported if either guard fails.
 

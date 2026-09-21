@@ -118,8 +118,9 @@ def fig2(out):
     XMIN, XMAX = -0.35, 5.35
     for g0, g1 in spans:
         ax.axvspan(g0, g1, color=ORANGE, alpha=0.16, lw=0, zorder=0)
+    ax.grid(axis="x", visible=False)
     for e in ends:
-        ax.axvline(e, color=GRID, lw=1, zorder=1)
+        ax.axvline(e, color="#c4c2bd", lw=0.9, zorder=1)
     for Z in check.STEPS:
         lo, hi, _ = cor[Z]
         L = XMIN if lo is None else float(check.val(lo))
@@ -150,6 +151,7 @@ def fig2(out):
 def fig3(out):
     """The walk: the corridor band, the carried slope, the real moves and the touches."""
     TR = out["TR"]
+    BELOW = {58: (0, -17, "center"), 80: (-4, -17, "right"), 91: (2, -17, "left")}
     real = {t[0] for t in check.NUM["real_sites"]}
     touch = {t[0] for t in check.NUM["touch_sites"]}
     fig, ax = plt.subplots(figsize=(9.0, 4.4))
@@ -162,8 +164,9 @@ def fig3(out):
     for t in TR:
         if t["Z"] in real:
             ax.plot([t["Z"]], [t["a"]], "o", ms=8, color=ORANGE, mec=SURFACE, mew=1.6, zorder=5)
-            ax.annotate(check.G.GROUND[t["Z"]][0], (t["Z"], t["a"]), xytext=(0, 9),
-                        textcoords="offset points", fontsize=8, color=ORANGE, ha="center")
+            dx, dy, ha = BELOW.get(t["Z"], (0, 9, "center"))
+            ax.annotate(check.G.GROUND[t["Z"]][0], (t["Z"], t["a"]), xytext=(dx, dy),
+                        textcoords="offset points", fontsize=8, color=ORANGE, ha=ha)
         elif t["Z"] in touch:
             ax.plot([t["Z"]], [t["a"]], "o", ms=5.5, color=SURFACE, mec=ORANGE, mew=1.6, zorder=5)
     ax.set_xlim(2, 109)

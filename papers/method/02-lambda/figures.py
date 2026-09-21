@@ -73,38 +73,39 @@ def fig_poset():
             and not any(chk.GBELOW[a][c] and chk.GBELOW[c][b] for c in range(chk.JJ))]
     rank = [chk.rank(m) for m in chk.GCELL]
     weight = [sum(1 for x in chk.LAM if chk.le(m, x)) for m in chk.GCELL]
-    byr = defaultdict(list)
-    for t in range(chk.JJ):
-        byr[rank[t]].append(t)
-    order = {4: ["n >= 2", "k >= 2", "q >= 1", "e >= 2", "2S >= 1"],
-             5: ["l >= 1", "n >= 3", "g >= 1", "f >= 1", "e >= 3"],
-             6: ["q >= 2", "2S >= 2"], 7: ["k >= 3"], 8: ["g >= 2"],
-             10: ["q >= 3", "2S >= 3"], 15: ["g >= 3"]}
-    pos = {}
-    for r, names in order.items():
-        idx = [chk.GNAME.index(nm) for nm in names]
-        n = len(idx)
-        for j, t in enumerate(idx):
-            pos[t] = ((j - (n - 1) / 2) * 2.05, r)
-    fig, ax = plt.subplots(figsize=(7.6, 5.4))
+    # laid out by LAYER (the seven ranks the generators occupy), evenly spaced, with the
+    # rank printed on the axis; x chosen by hand to keep the twenty edges legible.
+    layout = {"n >= 2": (-4.4, 0), "k >= 2": (-2.0, 0), "q >= 1": (0.4, 0),
+              "e >= 2": (2.6, 0), "2S >= 1": (4.8, 0),
+              "n >= 3": (-5.2, 1), "l >= 1": (-3.4, 1), "g >= 1": (0.4, 1),
+              "f >= 1": (2.2, 1), "e >= 3": (3.8, 1),
+              "q >= 2": (-1.0, 2), "2S >= 2": (3.4, 2),
+              "k >= 3": (-3.0, 3), "g >= 2": (-0.4, 4),
+              "q >= 3": (-1.6, 5), "2S >= 3": (2.4, 5), "g >= 3": (0.0, 6)}
+    layers = [4, 5, 6, 7, 8, 10, 15]
+    pos = {chk.GNAME.index(k): (v[0], v[1]) for k, v in layout.items()}
+    fig, ax = plt.subplots(figsize=(8.2, 5.6))
     for a, b in covP:
         same = chk.GORDER[a][0][0] == chk.GORDER[b][0][0]
-        ax.plot([pos[a][0], pos[b][0]], [pos[a][1], pos[b][1]],
-                color=(WARM if same else COOL), lw=1.5 if same else 1.0,
-                ls="-" if same else "--", zorder=1, alpha=0.9)
+        ax.annotate("", xy=pos[a], xytext=pos[b],
+                    arrowprops=dict(arrowstyle="-", color=(WARM if same else COOL),
+                                    lw=1.5 if same else 1.0,
+                                    ls="-" if same else "--",
+                                    shrinkA=20, shrinkB=20, alpha=0.9), zorder=1)
     for t in range(chk.JJ):
         x, y = pos[t]
-        s = 90 + weight[t] * 0.5
-        ax.scatter([x], [y], s=s, color="white", edgecolor=INK, zorder=2, linewidths=1.2)
-        ax.text(x, y - 0.55, chk.GNAME[t].replace(">=", "≥"), ha="center", va="top",
-                fontsize=8, color=INK)
-        ax.text(x, y + 0.42, str(weight[t]), ha="center", va="bottom",
-                fontsize=7, color=GREY)
+        ax.text(x, y, chk.GNAME[t].replace(">=", "≥").replace("l ≥", "ℓ ≥"),
+                ha="center", va="center",
+                fontsize=8, color=INK, zorder=3,
+                bbox=dict(boxstyle="round,pad=0.30", fc="white", ec=INK, lw=1.0))
+        ax.text(x, y - 0.26, str(weight[t]), ha="center", va="top",
+                fontsize=7, color=GREY, zorder=3)
     ax.set_ylabel("rank in Λ")
-    ax.set_yticks(sorted(order))
+    ax.set_yticks(range(len(layers)))
+    ax.set_yticklabels([str(r) for r in layers])
     ax.set_xticks([])
-    ax.set_xlim(-6.2, 6.2)
-    ax.set_ylim(2.6, 16.4)
+    ax.set_xlim(-6.4, 6.2)
+    ax.set_ylim(-0.85, 6.7)
     for sp in ("top", "right", "bottom"):
         ax.spines[sp].set_visible(False)
     ax.legend(handles=[Line2D([], [], color=WARM, lw=1.5,
@@ -113,7 +114,7 @@ def fig_poset():
                               label="between coordinates (11)")],
               loc="upper left", frameon=False, fontsize=8)
     ax.set_title("The seventeen generators and their twenty implications\n"
-                 "area is the number of the 976 cells the generator lies under",
+                 "the grey number is how many of the 976 cells the generator lies under",
                  fontsize=9.5, color=INK)
     fig.tight_layout()
     p = os.path.join(OUT, "fig2-generating-poset.png")
@@ -151,37 +152,40 @@ def fig_void():
         prod *= v / pairs
     joint = free / pairs
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.4, 3.5))
+    def pretty(n):
+        return (n.replace("<=", "≤").replace("4l+2", "4ℓ+2").replace("n-1", "n−1")
+                 .replace("e-1", "e−1").replace("l ≤", "ℓ ≤"))
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.6, 3.6))
     names = sorted(marg, key=lambda k: -marg[k])
-    lab = [n.replace("<=", "≤").replace("4l+2", "4ℓ+2").replace("n-1", "n−1")
-            .replace("e-1", "e−1").replace("l <=", "ℓ ≤") for n in names]
     ax1.barh(range(len(names)), [marg[n] for n in names], color=COOL, edgecolor=INK, lw=0.5)
     for t, n in enumerate(names):
-        ax1.text(marg[n] + 8, t, str(marg[n]), va="center", fontsize=8, color=INK)
+        ax1.text(marg[n] + 10, t, str(marg[n]), va="center", fontsize=8, color=INK)
     ax1.set_yticks(range(len(names)))
-    ax1.set_yticklabels(lab, fontsize=8)
+    ax1.set_yticklabels([pretty(n) for n in names], fontsize=8)
     ax1.invert_yaxis()
     ax1.set_xlabel("box points excluded by this bound alone")
-    ax1.set_xlim(0, 760)
+    ax1.set_xlim(0, 790)
     ax1.set_title("(a) no bound is redundant", fontsize=9.5, color=INK)
     for sp in ("top", "right"):
         ax1.spines[sp].set_visible(False)
 
     rn = sorted(rates, key=lambda k: -rates[k])
     ax2.bar(range(len(rn)), [rates[n] / pairs for n in rn], color=COOL,
-            edgecolor=INK, lw=0.5)
+            edgecolor=INK, lw=0.5, width=0.62)
     ax2.axhline(joint, color=WARM, lw=1.6)
     ax2.axhline(prod, color=GREY, lw=1.2, ls="--")
-    ax2.text(len(rn) - 0.4, joint + 0.015, "joint %.4f" % joint, ha="right",
-             fontsize=8, color=WARM)
-    ax2.text(len(rn) - 0.4, prod - 0.045, "product %.4f" % prod, ha="right",
-             fontsize=8, color=GREY)
+    ax2.text(-0.45, joint + 0.03, "all seven together %.4f" % joint, ha="left",
+             fontsize=8, color=WARM, zorder=6,
+             bbox=dict(boxstyle="square,pad=0.14", fc="white", ec="none"))
+    ax2.text(-0.45, prod - 0.11, "their product %.4f" % prod, ha="left",
+             fontsize=8, color=GREY, zorder=6,
+             bbox=dict(boxstyle="square,pad=0.14", fc="white", ec="none"))
     ax2.set_xticks(range(len(rn)))
-    ax2.set_xticklabels([n.split()[0].replace("l", "ℓ") if n.startswith("l") else n.split()[0]
-                         for n in rn], fontsize=8)
+    ax2.set_xticklabels([pretty(n) for n in rn], fontsize=7.5, rotation=40, ha="right")
     ax2.set_ylabel("fraction of the 475,800 pairs")
-    ax2.set_ylim(0, 1.05)
-    ax2.set_title("(b) the seven containment events, and their lift %.4f" % (joint / prod),
+    ax2.set_ylim(0, 1.12)
+    ax2.set_title("(b) the seven containment events, lift %.4f" % (joint / prod),
                   fontsize=9.5, color=INK)
     for sp in ("top", "right"):
         ax2.spines[sp].set_visible(False)

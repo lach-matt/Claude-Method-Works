@@ -101,13 +101,17 @@ Lemma 2 is what makes every claim below decidable by a solver: it removes both t
 
 > (2, 29) · (2, 30) · (2, 31) · (4, 31) · (6, 31) · (9, 31) · (11, 31)
 
-and they are exactly the content of the rhyme every speaker of English is taught beside the calendar. The mechanism is a single failure of monotonicity: month length is not monotone in month number, because February is short and stands second, so `φ_{day,month}` — the longest day reachable at or before month `m` — is already 31 at `m = 1` and stays there. Relabelling the months in order of length drops `E` to 0 over the same 365 cells; the relabelled calendar is self-defining and unusable. `E = 7` is the price of keeping January first.
+and they are exactly the content of the rhyme every speaker of English is taught beside the calendar. The mechanism is a single failure of monotonicity: month length is not monotone in month number, because February is short and stands second, so `φ_{day,month}` — the longest day reachable at or before month `m` — is already 31 at `m = 1` and stays there. Relabel the months in increasing order of length and the day-fibre extremes become isotone — the lower extreme is constantly 1 and the upper is the month length — so by Theorem 5 the relabelled index is closed and `E` is 0 over the same 365 cells. The relabelled calendar is self-defining and unusable. `E = 7` is the price of keeping January first.
 
 **The periodic table.** Take the eighteen-column table with the f block set aside: 90 cells on the coordinates (period, group), helium in group 18. Then `|ℛ(X)| = 126` and `E(X) = 36`. The thirty-six are exactly the gaps in the short periods — period 1 groups 2 to 17, sixteen cells, and periods 2 and 3 groups 3 to 12, twenty cells. They are not a defect in chemistry. Period and group locate an element; they do not encode why period 1 holds two elements and period 4 holds eighteen, and that information travels alongside the table rather than in it.
 
 The same 90 cells with helium drawn in group 2 give `E = 20`. The mechanism is visible in one boundary function: `φ_{group,period}(1)`, the largest group reachable in period 1, is 18 under the standard placement and 2 under the alternative, so the whole first row of gaps exists only under the first. Helium's position is the most argued question in periodic-table design, and `E` prices the two answers: the difference is sixteen cells.
 
-**An ordered box.** Take the triples `(l, w, h)` with `6 ≥ l ≥ w ≥ h ≥ 1`: 56 cells, `E = 0`. The index is closed, and the reason is visible in its presentation: each of the two inequalities bounds one coordinate by a monotone function of one other, which is exactly the shape D5 cuts with, so the recovered bounds reproduce the defining ones and nothing is added. §4 makes that observation a theorem.
+![Figure 2](figures/fig-periodic-table.png)
+
+**Figure 2.** The eighteen-column table on the coordinates (period, group), f block detached. Blue: the 90 cells the table holds. Red: the 36 its own coordinates admit and it denies — period 1 groups 2 to 17, and periods 2 and 3 groups 3 to 12. A reader given only the occupied cells would reconstruct all 126.
+
+**An ordered box.** Take the triples `(l, w, h)` with `6 ≥ l ≥ w ≥ h ≥ 1`: 56 cells, `E = 0`. The index is closed, and the reason is visible in its presentation: each of the two inequalities bounds one coordinate by a monotone function of one other, which is exactly the shape D5 cuts with, so the recovered bounds reproduce the defining ones and nothing is added. This is the ordered simplex `D(3, 6)` of §9 up to a shift of values, and Theorem 14 proves its closure for every `d` and `c`.
 
 > **EXHAUSTIVE.** All four measurements are recomputed cell by cell: 365 cells and the seven named; 90 cells, `|ℛ| = 126`, the 36 named as two blocks; the same 90 with helium at group 2, `E = 20`; 56 cells, `E = 0`.
 
@@ -229,9 +233,9 @@ Theorem 5 says that at `d = 2` a closed index *is* a system of two inequalities,
 
 The cells are `(0,0)`, `(1,0)`, `(1,1)`, `(2,1)`, `(2,2)`, `(3,1)`, `(3,2)`, `(3,3)`, `(3,4)` — nine, with `E = 0`. Reading the fibre extremes back off those nine cells returns `L = (0, 0, 1, 1)` and `U = (0, 1, 2, 4)`, which are `⌊s/2⌋` and `s + ⌊s/3⌋` at `s = 0, 1, 2, 3`; and the boundary function `φ_{ts}` recovered by D4 equals `U` at every `s`. The two floor expressions are not asserted to exist and then left: they are what the reconstruction returns.
 
-![Figure 2](figures/fig2-staircase-algebra.png)
+![Figure 3](figures/fig2-staircase-algebra.png)
 
-**Figure 2.** The nine-cell staircase between `L(s) = ⌊s/2⌋` (dashed) and `U(s) = s + ⌊s/3⌋` (solid). Both are isotone and `L ≤ U`, so by Theorem 5 the band is closed; `E = 0`, and the fibre extremes read off the nine cells are `L = (0, 0, 1, 1)` and `U = (0, 1, 2, 4)`.
+**Figure 3.** The nine-cell staircase between `L(s) = ⌊s/2⌋` (dashed) and `U(s) = s + ⌊s/3⌋` (solid). Both are isotone and `L ≤ U`, so by Theorem 5 the band is closed; `E = 0`, and the fibre extremes read off the nine cells are `L = (0, 0, 1, 1)` and `U = (0, 1, 2, 4)`.
 
 ---
 
@@ -259,9 +263,9 @@ That `Cl(U)` is a Moore family is the standard fact about any closure operator (
 
 **Table 1.** Every unordered pair of distinct members of `Cl(U)` tested under intersection and under union. Intersection never escapes. Union does, on the complement of the fraction shown — from 9.0% of pairs at the smallest ambient to 67.3% at the largest — and the escape rate grows with the ambient. Restricted to the non-empty members the union rates are 89.4%, 81.1%, 64.4%, 68.3%, 58.0%, 49.0% and 32.6%. Meet-irreducible counts the members that are not the intersection of the members strictly above them: a Moore family is generated under intersection by those members alone, and the count grows linearly in the ambient where the family it generates does not.
 
-![Figure 3](figures/fig3-moore-family.png)
+![Figure 4](figures/fig3-moore-family.png)
 
-**Figure 3.** The thirteen closed subsets of the `2 × 2` box, ordered by inclusion; each member is drawn as the box with its cells filled. Twelve are non-empty. The two ringed members are the witness of the union refutation: both are closed, their union is not, their intersection is.
+**Figure 4.** The thirteen closed subsets of the `2 × 2` box, ordered by inclusion; each member is drawn as the box with its cells filled. Twelve are non-empty. The two ringed members are the witness of the union refutation: both are closed, their union is not, their intersection is.
 
 **Proposition 2 (the closed sets separate the cells).** For any two distinct cells `p ≠ q` of `U` there is a member of `Cl(U)` containing `p` and not `q`.
 
@@ -527,9 +531,9 @@ At `c = 2` the construction and the bound are Sperner's theorem: the columns cor
 
 > **REFUTATION (the linear law).** `seed(Q(c, d)) = d + c − 2` holds for small `d` — it agrees with Theorem 15 at `d = 2, 3, 4` for every `c`, since `m(2) = 2`, `m(3) = 3` and `m(4) = 4` — and **fails from `d = 5`**: the box `{0,1}⁵` is generated by **four** cells, where `d + c − 2 = 5`. The four are `(0,0,0,1,1)`, `(0,1,1,0,0)`, `(1,0,1,0,1)`, `(1,1,0,1,0)` — the five columns being five of the six two-element subsets of a four-element row set, an antichain, as Theorem 15 requires. **REFUTATION**, re-verified by direct closure: no three cells generate `{0,1}⁵`.
 
-![Figure 4](figures/fig4-seed-law.png)
+![Figure 5](figures/fig4-seed-law.png)
 
-**Figure 4.** The seed of the full box against the number of coordinates, at alphabet sizes `c = 2` and `c = 3`. The exact law `c − 2 + m(d)` of Theorem 15 (solid, stepped) grows like `log d`; the linear guess `d + c − 2` (dashed, drawn at `c = 2`) agrees at `d = 2, 3, 4` and diverges from `d = 5` on. Circles mark the six instances at `c = 2` and `c = 3` confirmed by direct closure; a seventh, at `c = 4`, lies off both curves.
+**Figure 5.** The seed of the full box against the number of coordinates, at alphabet sizes `c = 2` and `c = 3`. The exact law `c − 2 + m(d)` of Theorem 15 (solid, stepped) grows like `log d`; the linear guess `d + c − 2` (dashed, drawn at `c = 2`) agrees at `d = 2, 3, 4` and diverges from `d = 5` on. Circles mark the six instances at `c = 2` and `c = 3` confirmed by direct closure; a seventh, at `c = 4`, lies off both curves.
 
 The two laws pull in opposite directions and both are exact. A down-set of `c` values in `d` coordinates needs `d + c − 1` cells, linear in the dimension; a full box of the same alphabet needs `c − 2 + m(d)`, which is logarithmic in it. The difference is the number of boundary steps each family carries: the down-set has a step at every value of every ordered pair, the full box has one per pair and a trivial one at that.
 

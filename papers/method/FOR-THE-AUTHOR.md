@@ -98,3 +98,39 @@ sources, they can be filled in.
 **5 · The fill is not unique.** The source presents one change as the answer that closes the index.
 There is a second single change that closes it equally. The paper states both, and says the evidence
 for preferring the one made is a single table.
+
+---
+
+## The Parent-Term Wall and the Janet Collapse
+
+**1 · The collapse statistic does not reproduce, and the paper prints what it measured.** Both
+compendia state the sample as 116 cells with a collapsed median of 0.637 against 0.036, at a
+significance of about one in a thousand. Recomputed from the coordinate index the sample is 128
+cells, the medians are 0.6202 and 0.0335, and the significance is about one in four thousand — a
+stronger result on a larger sample, not a weaker one. Nothing was adjusted to reach it; the paper
+prints the measured figures and records the stated ones beside them.
+
+**2 · The open-shell charge ceiling does not reproduce under either reading.** The source says the
+compilation holds no open-shell ion above charge six. Counting a core as open only when it carries
+more than one level, the ceiling is the fourth spectrum, reached once. Counting any unfilled
+subshell instead, one iron species pushes it to the fifteenth. Neither reading gives six. The paper
+prints the measured statement and names the species, so a reader can see which reading is in force.
+Which reading you intend is yours to settle.
+
+**3 · One census is omitted because it cannot be checked here.** The claim concerns an iron spectrum
+whose channel rows are absent from the table entirely and whose level data is not in the tree. Only
+its arithmetic reproduces, and the paper puts in its place two things it can verify: the
+compilation's own ceiling, and three parent-count obstacles each shown equal to the maximum term
+count of its block.
+
+**4 · A negative control in the inherited check was not a control.** It appended a cell to the index
+and asserted the defect becomes positive. The defect stays zero — appending that cell leaves the
+index a chain, and a chain is closed by the paper's own first theorem, so the construction perturbed
+nothing. The control now moves a cell rather than appending one, which breaks the chain and is duly
+refuted, and the accidental fact is kept as a result in its own right: closure follows the shape,
+not the count. This is the case for running the selftest and not only the check.
+
+**5 · One of the two audited plates was read and rejected.** Its bars carry defect values for a
+calendar, a chessboard, a box ordering and the nuclide chart — objects outside this paper, whose
+numbers its checks do not produce. A caption number that no check carries is not allowed, so the
+plate is not used.

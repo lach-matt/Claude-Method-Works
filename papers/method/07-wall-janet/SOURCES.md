@@ -2,8 +2,8 @@
 
 Paper: `PAPER.md`, "The Parent-Term Wall and the Janet Collapse". Drafted 2026-09-21, resuming a
 `check.py` left complete at 90 obligations by an earlier run. Every number in the paper is produced
-by `check.py` — **97 of 97 obligations pass** (EXHAUSTIVE 81, GUARD 3, MACHINE-CHECKED 13);
-`python3 check.py --selftest` adds four negative controls, all refuted, for 101 — or is CITED.
+by `check.py` — **101 of 101 obligations pass** (EXHAUSTIVE 85, GUARD 3, MACHINE-CHECKED 13);
+`python3 check.py --selftest` adds four negative controls, all refuted, for 105 — or is CITED.
 
 Run it with `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH` first; it takes about
 six minutes, most of it the 7×18 Z3 obligation.
@@ -22,7 +22,7 @@ section C ("appending (3, 13) leaves a chain of 119 cells and E stays 0"), and t
 in §4 as *closure follows the shape, not the count*. Nothing was weakened to make a discrepancy
 vanish: the assertion the control makes is strictly stronger than before.
 
-Six further obligations were added for material the paper needed:
+Ten further obligations were added for material the paper needed:
 
 | added obligation | why |
 |---|---|
@@ -33,6 +33,9 @@ Six further obligations were added for material the paper needed:
 | the four two-limit species carry 99 rows, split per limit | Figure 5 and §7's table |
 | exactly two outer labels are printed at two limits, one of them a parent case | the witness for Proposition 3's necessity direction — Ba III `nd 2[3/2]* J=2` at both limits |
 | the highest spectrum number with a multi-level core is IV (Al IV), once | §7's ceiling paragraph (see the discrepancy below) |
+| no core in the table has more than one open subshell; the six open shapes are s¹, p¹, p², p⁴, p⁵, d¹ | `core_terms` multiplies per-subshell term counts, which is the configuration's count only when at most one subshell is open — this is the obligation that makes the census exact rather than approximate |
+| each Si I identical-key pair differs in exactly two of eleven columns | §8's third kind of repeat, stated with its numbers |
+| 4,395 − 1,755 = 2,640 and 139 − 80 = 59; 9,756 + 11,605 + 5,280 = 26,641 | three arithmetic facts the paper prints |
 
 ## Where each section draws from
 

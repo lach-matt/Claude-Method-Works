@@ -529,6 +529,24 @@ def check_operator():
             ok &= E(cells_of(shape)) == 0
     rec("EXHAUSTIVE", "T2", "Theorem 2: E(full box) = 0 on every box with 1 <= d <= 3 and sides 1..4: %d boxes" % fam, ok,
         t2_boxes=fam)
+    # Proposition 1: on small boxes, sublattice <=> closed, and R is the sublattice hull
+    tot = badA = badB = 0
+    for shape in ((3, 3), (2, 2, 2)):
+        cells = cells_of(shape)
+        n = len(cells)
+        for mask in range(1, 1 << n):
+            X = [cells[i] for i in range(n) if mask >> i & 1]
+            S = set(X)
+            tot += 1
+            sub = all(tuple(map(min, a, b)) in S and tuple(map(max, a, b)) in S for a in S for b in S)
+            badA += sub != (E(X) == 0)
+            badB += R(X) != hull(X)
+    eq("EXHAUSTIVE", "T3", "Proposition 1: over every non-empty subset of 3x3 and 2x2x2, X is a sublattice iff E(X) = 0, and R(X) = the sublattice hull: subsets, failures of each",
+       (tot, badA, badB), (766, 0, 0), prop1_subsets=766)
+    big = [("the periodic table", periodic_cells()), ("the Kreuzer-Skarke slice", ks_cells()),
+           ("the parity set of Lambda_9", [c for c in tw.L9() if abs(c[5] - c[1]) == 1])]
+    eq("EXHAUSTIVE", "T3b", "R(X) = the sublattice hull on three larger indexes: sizes and disagreements",
+       tuple((len(R(X)), R(X) == hull(X)) for _, X in big), ((126, True), (748, True), (1590, True)))
     # Theorem 5 (adjunction never repairs) and Theorem 6 (homomorphism criterion)
     for oid, shape, H in (("T5a", (3, 3), 3), ("T5b", (2, 2, 2), 2)):
         r, nv, cv = adjunction_obligation(shape, H)

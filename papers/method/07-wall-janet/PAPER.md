@@ -49,7 +49,7 @@ Measured on a compilation of 596 channel rows across 70 species and 28 elements:
 
 371 rows have a core with a single level and need no parent; 225 have a core with more than one, of which 132 name the parent and 93 do not. **Every one of the 93 belongs to one of thirteen species that prints exactly one limit**, so the compilation contains no ambiguous row — a measurement about this compilation, not a theorem about labels. Four species print two or more limits a wavenumber or more apart (Ba III, Ne I, Ne II, Si I, 99 rows between them), and in all four every row names its parent, one parent per limit, distinct parents at distinct limits.
 
-*The census depends on the pattern it is taken with.* A parent may be written in five conventions, and they are counted separately (Table 4): a dotted core configuration with the parent level parenthesised (80 rows), the same run together without dots (9), the parent term alone in parentheses (20), and a jj pair (j_core, j) in which the first entry is the parent (30); 457 rows write no parent. A census that recognises only the first convention reports 80 rows of the 139 that carry one, an undercount of 59.
+*The census depends on the pattern it is taken with.* A parent may be written in five conventions, and they are counted separately (Table 2): a dotted core configuration with the parent level parenthesised (80 rows), the same run together without dots (9), the parent term alone in parentheses (20), and a jj pair (j_core, j) in which the first entry is the parent (30); 457 rows write no parent. A census that recognises only the first convention reports 80 rows of the 139 that carry one, an undercount of 59.
 
 *Where the two halves meet.* The rows of the (n + ℓ, Z) index open at Z = 1, 3, 5, 13, 21, 39, 57, 89. The three openings at 21, 57 and 89 are the atomic numbers at which the 3d, 4f and 5f orbitals first contract into the core, and on the 128 measured d and f channels whose core holds no orbital of the channel's ℓ the defect separates across them: median 0.6202 at or past the opening against 0.0335 below it, Mann–Whitney U = 74, z = −3.66, two-sided p = 2.5 × 10⁻⁴ (Proposition 2, MEASURED). The threshold is read from the index and not fitted.
 
@@ -270,7 +270,9 @@ The same structure appears in the index's own account of which of its 104,832 ce
 
 The number of parents is a term count, and term counts are finite and computable.
 
-**Theorem 6 (the terms of ℓ^k).** Enumerating every Slater determinant of ℓ^k — every k-subset of the 2(2ℓ + 1) spin-orbitals — and peeling the resulting (M_L, M_S) table from its highest entry gives the LS terms exactly. Over ℓ = 0, 1, 2, 3 and all k from 0 to 4ℓ + 2, this is 17,476 determinants; the term counts are
+**Theorem 6 (the terms of ℓ^k).** Enumerating every Slater determinant of ℓ^k — every k-subset of the 2(2ℓ + 1) spin-orbitals — and peeling the resulting (M_L, M_S) table from its highest entry gives the LS terms exactly. Over ℓ = 0, 1, 2, 3 and all k from 0 to 4ℓ + 2, this is 17,476 determinants, and the term counts are these.
+
+**Table 1 — the number of LS terms of ℓ^k.**
 
 | ℓ^k | k = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | k = 11 … 14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -300,7 +302,7 @@ The sufficiency direction is a statement about the data, not about physics: a sp
 
 **The data.** A compilation of measured Rydberg channels: 596 rows under an eleven-column header, 119 of them two-member channels, across 70 species and 28 elements, 3,342 levels and 2,269 interior cells; the levels are drawn from the NIST Atomic Spectra Database and from the published compilations of Kaufman and Martin (1991), Kramida and Martin (1997) and Sansonetti (2008a, 2008b). Each row carries the species, the series label, the range of n, the level and interior-cell counts, a containment column, the range of effective quantum number, the mean defect and its spread, the core charge and the series limit in cm⁻¹. Every count below is recomputed from the table itself; the row count was checked against an independent reader of the same table (EXHAUSTIVE, 596 rows, row indices identical).
 
-**Table 4 — the five conventions in which a parent is written.**
+**Table 2 — the five conventions in which a parent is written.**
 
 | convention | example | rows |
 |---|---|---|
@@ -313,7 +315,9 @@ The sufficiency direction is a statement about the data, not about physics: a sp
 
 A census taken with the first pattern alone — a dotted configuration followed by a parenthesised group — sees 80 of those 139 and reports 59 rows as parentless that are not. **The conventions have to be read off the material before a parent is counted**, and the margin between the narrowest and the widest reading is 59 rows of the 139.
 
-**The core census.** For each of the 70 species the core is the ion at one fewer electron, in its ground configuration; its class (D8) is decided by counting the terms of its open subshell with Theorem 6. **No core in the compilation has more than one open subshell** — the six open shapes present are s¹, p¹, p², p⁴, p⁵ and d¹ (EXHAUSTIVE over the 70 species) — so a term count here is a single-subshell count and Theorem 6 gives it exactly, with no recoupling of two open shells to consider. Three ions whose ground configuration is not the configuration the electron count alone would give are taken from their published ground levels: Ti III's core Ti IV is 3d ²D₃/₂, Zn II's core Zn III is 3d¹⁰ ¹S₀, and Hg II's core Hg III is 5d¹⁰ ¹S₀ (CITED, NIST ASD). The result is the table of §0, repeated here with the split by whether the row's label names a parent:
+**The core census.** For each of the 70 species the core is the ion at one fewer electron, in its ground configuration; its class (D8) is decided by counting the terms of its open subshell with Theorem 6. **No core in the compilation has more than one open subshell** — the six open shapes present are s¹, p¹, p², p⁴, p⁵ and d¹ (EXHAUSTIVE over the 70 species) — so a term count here is a single-subshell count and Theorem 6 gives it exactly, with no recoupling of two open shells to consider. Three ions whose ground configuration is not the configuration the electron count alone would give are taken from their published ground levels: Ti III's core Ti IV is 3d ²D₃/₂, Zn II's core Zn III is 3d¹⁰ ¹S₀, and Hg II's core Hg III is 5d¹⁰ ¹S₀ (CITED, NIST ASD). The result is the table of §0, split here by whether the row's label names a parent.
+
+**Table 3 — the 596 rows by core class and by whether a parent is written.**
 
 | core | rows | parent named | not named |
 |---|---|---|---|
@@ -333,7 +337,9 @@ Status: **EXHAUSTIVE**, 93 rows and 13 species, every row's limit compared.
 
 *Figure 5. Left: the 596 rows by what the ionic core carries, with the part of each class whose label names a parent in blue. Right: the four species printing two or more limits, with the parent at each limit and the number of rows converging on it.*
 
-**The four species with more than one limit.** Seven species print more than one value in the limit column. Three of the seven differ by less than a wavenumber — Ca II by 0.010, Li I by 0.036, Zn I by 0.020 cm⁻¹ — and are one limit written at two roundings, not two parents; they are excluded on that ground and not on any judgement about the physics. The remaining four are
+**The four species with more than one limit.** Seven species print more than one value in the limit column. Three of the seven differ by less than a wavenumber — Ca II by 0.010, Li I by 0.036, Zn I by 0.020 cm⁻¹ — and are one limit written at two roundings, not two parents; they are excluded on that ground and not on any judgement about the physics. The remaining four are these.
+
+**Table 4 — the four species printing two or more limits, and the parent at each.**
 
 | species | limits (cm⁻¹) | separation | rows at each | parent |
 |---|---|---|---|---|
@@ -362,9 +368,9 @@ The genuine repeats in the same table are of three kinds, and each was identifie
 
 *One channel fitted in two adjacent windows of n.* Keying on (species, series, limit), Ba III holds two repeats, and in each the two rows' n-ranges are adjacent and disjoint: 5–7 with 8–22, and 6–8 with 9–23. Both halves of each pair carry the same parent. These are one channel fitted twice, at low n and at high n (EXHAUSTIVE).
 
-*Two rows nothing printed separates.* Keying on (species, series, n-range) over the raw labels, the table holds exactly two repeated keys, both Si I: `nd (3/2,3/2)* J=1` at n = 20–50 and `nd (3/2,5/2)* J=3` at n = 20–56. Each pair agrees in every printed column except the containment column and the fourth decimal of δ. The key cannot separate them because nothing printed does.
+*Two rows nothing printed separates.* Keying on (species, series, n-range) over the raw labels, the table holds exactly two repeated keys, both Si I: `nd (3/2,3/2)* J=1` at n = 20–50 and `nd (3/2,5/2)* J=3` at n = 20–56. Each pair differs in exactly two of the eleven printed columns — the containment column, and the fourth decimal of δ: +0.0126 against +0.0129, and +0.0570 against +0.0573 (EXHAUSTIVE). The key cannot separate them because nothing printed does.
 
-The moral is narrow and worth stating. **A duplicate is a reading, not a pattern match.** The four notation pairs, the two window pairs, the two unseparated Si I pairs and the Ba III parent pair have the same shape under a key that ignores the limit, and four different dispositions once the limit and the core's term structure are read.
+The moral is narrow and worth stating. **A duplicate is a reading, not a pattern match.** The four notation pairs, the two window pairs, the two unseparated Si I pairs and the Ba III parent pair all look alike to a key that ignores the limit and the parent, and they have four different dispositions once the limit and the core's term structure are read.
 
 ---
 
@@ -382,7 +388,7 @@ The general form of the point is this. **An index may bracket a quantity only al
 
 ## §10 · Verification record
 
-The machine checks behind this paper discharge 100 obligations, all passing, and a self-test adds four negative controls, each of which must be and is refuted. Every number printed in this paper is produced there.
+The machine checks behind this paper discharge 101 obligations, all passing, and a self-test adds four negative controls, each of which must be and is refuted. Every number printed in this paper is produced there.
 
 | object | status | family or box | count |
 |---|---|---|---|
@@ -399,7 +405,7 @@ The machine checks behind this paper discharge 100 obligations, all passing, and
 | the channel census (§7), and that no core has two open subshells | EXHAUSTIVE | 596 rows, 70 species | — |
 | Proposition 4, no ambiguous row | EXHAUSTIVE | 93 rows, 13 species | — |
 | the four two-limit species, limits in exact arithmetic | EXHAUSTIVE | 99 rows | — |
-| the repeats of §8, and the one outer label at two limits | EXHAUSTIVE | 596 rows under four keys | — |
+| the repeats of §8, and the one outer label printed at two limits | EXHAUSTIVE | 596 rows under four keys | — |
 | the index's obstacle counts as term counts (§5) | EXHAUSTIVE | 26,641 cells carrying the three strings | — |
 | Proposition 2, the collapse | MEASURED | 128 channels, split fixed by the index | — |
 | term tables of p^k, d^k, f^k | CITED | Condon and Shortley (1935) | — |
@@ -407,9 +413,9 @@ The machine checks behind this paper discharge 100 obligations, all passing, and
 
 **The two guards.** No machine-checked obligation is reported unless both pass. *Encoding fidelity*: the witness form of ℛ used by the solver is evaluated concretely against the closure computed from the definition, on 300 pseudorandom subsets of five box shapes, seed 7 — 3,578 cell decisions, 0 disagreements. The same comparison run against a deliberately altered operator (strict inequality in place of ≤) disagrees on 2,007 of the 3,578, so the guard can fail and does when it should. *Non-vacuity*: the chain, corner and bi-monotone hypotheses are each shown satisfiable by a subset that is neither the whole box nor smaller than two cells, so a refuted negation is not a refuted emptiness.
 
-**The negative controls.** "E(period, group) = 35" is refuted, the value being 36. "The index with one element moved to the wrong row is still closed" is refuted, E being 54 — the control was rewritten after a first version, which *appended* a cell rather than moving one, failed to be refuted: appending (3, 13) preserves the chain, so Theorem 1 keeps E at 0 and the construction was no control at all. "d⁴ carries 15 terms" is refuted, the count being 16. And "every subset of the 3 × 3 box that realises every coordinate value is ℛ-closed" is refuted by the solver, which returns `sat` with an explicit witness.
+**The negative controls, each a REFUTATION.** "E(period, group) = 35" is refuted, the value being 36. "The index with one element moved to the wrong row is still closed" is refuted, E being 54; the control *moves* a cell rather than appending one, and the distinction is the content of Theorem 1 — appending (3, 13) preserves the chain, so E stays 0 and an appended cell would be no control at all. "d⁴ carries 15 terms" is refuted, the count being 16. And "every subset of the 3 × 3 box that realises every coordinate value is ℛ-closed" is refuted by the solver, which returns `sat` with an explicit witness.
 
-**What is not machine-checked, and why.** The channel census, the term enumeration and the two elemental indices are decided by exhaustive enumeration over finite families whose sizes are printed above; an SMT encoding would add nothing, since there is no quantifier over an unknown set. Proposition 2 is a statistic on a sample of 128 and is marked MEASURED, never EXHAUSTIVE: its class sizes are 7 and 121, its split is fixed in advance by the index rather than chosen to maximise the separation, and a rank test on seven values is reported with its U, its z and its p and with no claim beyond them.
+**What is not machine-checked, and why.** The channel census, the term enumeration and the elemental indices are decided by exhaustive enumeration over finite families whose sizes are printed above; an SMT encoding would add nothing, since there is no quantifier over an unknown set. Proposition 2 is a statistic on a sample of 128 and is marked MEASURED, never EXHAUSTIVE: its class sizes are 7 and 121, its split is fixed in advance by the index rather than chosen to maximise the separation, and a rank test on seven values is reported with its U, its z and its p and with no claim beyond them.
 
 ---
 

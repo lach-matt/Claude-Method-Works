@@ -86,7 +86,7 @@ def fig_graph():
         rim = ORANGE if v in envelope else BLUE
         ax.add_patch(Circle((x, y), 0.235, facecolor=SURF, edgecolor=rim, lw=2.2, zorder=2))
         ax.text(x, y, v, ha="center", va="center", fontsize=8.5, color=INK, zorder=3)
-    ax.annotate("q is the only cut vertex", xy=(2.2, 1.05), xytext=(0.15, 0.62),
+    ax.annotate("every parent\u2013target path runs through q", xy=(2.2, 1.05), xytext=(-0.4, 0.5),
                 fontsize=8, color=INK2, ha="left",
                 arrowprops=dict(arrowstyle="->", color=INK2, lw=1.0, shrinkB=12))
     ax.text(0.0, 2.75, "parent side", fontsize=8.5, color=INK2, ha="left", style="italic")

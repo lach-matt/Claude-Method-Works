@@ -760,6 +760,16 @@ def section_channels():
     num("identical_key_pairs", sorted((kk[0], kk[1], kk[2]) for kk in d3))
     rec("EXHAUSTIVE", "(species, series, n-range) repeats exactly twice, both Si I (20-50 and 20-56)",
         sorted((kk[0], kk[2]) for kk in d3) == [("Si I", "20–50"), ("Si I", "20–56")])
+    cols = {}
+    for kk, idxs in d3.items():
+        v = [c for i, c in data if (c[0], c[1], c[2]) == kk]
+        cols[kk[1]] = sorted(j for j in range(11) if len({x[j] for x in v}) > 1)
+    num("identical_key_diff_columns", {kk: [hdr[1][j] for j in v] for kk, v in cols.items()})
+    rec("EXHAUSTIVE", "each Si I pair differs in exactly two of the eleven columns, the bracket and the "
+        "fourth decimal of delta (+0.0126/+0.0129 and +0.0570/+0.0573)",
+        all(v == [5, 7] for v in cols.values())
+        and {tuple(sorted(x[7] for i, x in data if (x[0], x[1], x[2]) == kk)) for kk in d3}
+        == {("+0.0126", "+0.0129"), ("+0.0570", "+0.0573")}, "%s" % NUMBERS["identical_key_diff_columns"])
     # the core-class census
     cls = {}
     for s in set(sp):

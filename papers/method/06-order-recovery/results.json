@@ -91,6 +91,87 @@
   "failures": 0
  },
  "lambda_216": 216,
+ "closure_equivalence": [
+  {
+   "box": [
+    3,
+    3
+   ],
+   "subsets": 502,
+   "disagreements": 0,
+   "bpc_failures": 0,
+   "defective": 365,
+   "pair_fault_only": 142,
+   "median_only": 0,
+   "both": 223,
+   "neither": 0,
+   "seconds": 0.1
+  },
+  {
+   "box": [
+    2,
+    4
+   ],
+   "subsets": 247,
+   "disagreements": 0,
+   "bpc_failures": 0,
+   "defective": 152,
+   "pair_fault_only": 72,
+   "median_only": 0,
+   "both": 80,
+   "neither": 0,
+   "seconds": 0.0
+  },
+  {
+   "box": [
+    2,
+    2,
+    2
+   ],
+   "subsets": 247,
+   "disagreements": 0,
+   "bpc_failures": 0,
+   "defective": 182,
+   "pair_fault_only": 92,
+   "median_only": 52,
+   "both": 38,
+   "neither": 0,
+   "seconds": 0.1
+  },
+  {
+   "box": [
+    2,
+    2,
+    3
+   ],
+   "subsets": 4083,
+   "disagreements": 0,
+   "bpc_failures": 0,
+   "defective": 3776,
+   "pair_fault_only": 734,
+   "median_only": 805,
+   "both": 2237,
+   "neither": 0,
+   "seconds": 1.0
+  },
+  {
+   "box": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "subsets": 65519,
+   "disagreements": 0,
+   "bpc_failures": 0,
+   "defective": 64804,
+   "pair_fault_only": 3438,
+   "median_only": 38768,
+   "both": 22598,
+   "neither": 0,
+   "seconds": 24.8
+  }
+ ],
  "periodic_E": 36,
  "periodic_cells": 90,
  "janet_E": 0,
@@ -142,7 +223,7 @@
      2
     ]
    ],
-   "seconds": 0.1
+   "seconds": 0.2
   },
   {
    "box": [
@@ -218,7 +299,7 @@
      3
     ]
    ],
-   "seconds": 0.7
+   "seconds": 1.0
   },
   {
    "box": [
@@ -291,7 +372,7 @@
      2
     ]
    ],
-   "seconds": 0.1
+   "seconds": 0.2
   },
   {
    "box": [
@@ -305,33 +386,43 @@
    "refutation_witness": [
     [
      0,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     2,
+     2
+    ],
+    [
+     1,
      0,
      0
     ],
     [
-     0,
-     0,
-     1
-    ],
-    [
-     0,
-     0,
-     2
-    ],
-    [
-     0,
-     1,
-     2
-    ],
-    [
      1,
      0,
      1
     ],
     [
      1,
-     0,
-     2
+     1,
+     0
+    ],
+    [
+     1,
+     1,
+     1
     ],
     [
      1,
@@ -341,22 +432,32 @@
     [
      1,
      2,
+     0
+    ],
+    [
+     1,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
      2
     ],
     [
      2,
-     0,
+     1,
      1
     ],
     [
      2,
-     0,
+     1,
      2
     ],
     [
      2,
-     1,
-     2
+     2,
+     1
     ],
     [
      2,
@@ -364,7 +465,7 @@
      2
     ]
    ],
-   "seconds": 1.0
+   "seconds": 1.5
   }
  ],
  "fibre_z3": [
@@ -390,7 +491,7 @@
     5
    ],
    "ok": true,
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "box": [
@@ -398,7 +499,7 @@
     4
    ],
    "ok": true,
-   "seconds": 0.1
+   "seconds": 0.2
   }
  ],
  "interval_family": {
@@ -503,7 +604,7 @@
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 15,
    "three_quarters": null,
-   "seconds": 0.9
+   "seconds": 1.2
   },
   {
    "box": [
@@ -554,7 +655,7 @@
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 16,
    "three_quarters": null,
-   "seconds": 1.1
+   "seconds": 1.6
   },
   {
    "box": [
@@ -610,7 +711,7 @@
    ],
    "instances": 2161,
    "agree": 2161,
-   "seconds": 0.3
+   "seconds": 0.6
   },
   {
    "box": [
@@ -619,7 +720,7 @@
    ],
    "instances": 41503,
    "agree": 41503,
-   "seconds": 50.3
+   "seconds": 75.3
   }
  ],
  "tree_exhaustive": [
@@ -635,7 +736,7 @@
    "closed": 175,
    "scrambles": 4200,
    "scrambles_recovered": 4200,
-   "seconds": 0.5
+   "seconds": 0.6
   },
   {
    "box": [
@@ -649,7 +750,7 @@
    "closed": 4819,
    "scrambles": 346968,
    "scrambles_recovered": 346968,
-   "seconds": 59.2
+   "seconds": 91.9
   },
   {
    "box": [
@@ -664,7 +765,7 @@
    "closed": 343,
    "scrambles": 5488,
    "scrambles_recovered": 5488,
-   "seconds": 1.3
+   "seconds": 2.6
   },
   {
    "box": [
@@ -679,7 +780,7 @@
    "closed": 343,
    "scrambles": 5488,
    "scrambles_recovered": 5488,
-   "seconds": 1.2
+   "seconds": 2.7
   }
  ],
  "lambda_recovery": [
@@ -690,7 +791,7 @@
    "exact_or_dual": 3,
    "admissible_orderings": 16,
    "root_orders_tried_max": 2,
-   "seconds": 25.2
+   "seconds": 47.5
   },
   {
    "cells": 216,
@@ -699,7 +800,7 @@
    "exact_or_dual": 0,
    "admissible_orderings": 16,
    "root_orders_tried_max": 1,
-   "seconds": 1.2
+   "seconds": 1.7
   }
  ],
  "lambda_sum_fact": 94,
@@ -712,7 +813,7 @@
    ],
    "pairs": 36,
    "failures": 0,
-   "seconds": 1.2
+   "seconds": 1.5
   },
   {
    "box": [
@@ -722,7 +823,7 @@
    ],
    "pairs": 27,
    "failures": 0,
-   "seconds": 0.7
+   "seconds": 1.3
   },
   {
    "box": [
@@ -732,7 +833,7 @@
    ],
    "pairs": 54,
    "failures": 0,
-   "seconds": 3.1
+   "seconds": 6.2
   }
  ],
  "max_sublattice_z3": [
@@ -762,16 +863,23 @@
    "bound": 24,
    "attained": true,
    "exceeded": false,
-   "seconds": 0.2
+   "seconds": 0.4
   },
   {
    "d": 6,
    "bound": 48,
    "attained": true,
    "exceeded": false,
-   "seconds": 0.9
+   "seconds": 1.7
   }
  ],
+ "boolean_step_at_box": {
+  "2": 1,
+  "3": 2,
+  "4": 4,
+  "5": 8,
+  "6": 16
+ },
  "arity_census": [
   {
    "box": [
@@ -845,7 +953,7 @@
      "bijunctive": 73
     }
    },
-   "seconds": 17.8
+   "seconds": 32.4
   }
  ],
  "bijunctive_exact": {
@@ -865,31 +973,6 @@
    "relations_containing_zero": 32768,
    "bijunctive": 1442
   }
- },
- "one_in_three_arises": false,
- "one_in_three": {
-  "relation": [
-   [
-    0,
-    0,
-    0
-   ],
-   [
-    1,
-    0,
-    1
-   ],
-   [
-    1,
-    1,
-    0
-   ]
-  ],
-  "majority": [
-   1,
-   0,
-   0
-  ]
  },
  "one_in_three_witness_set": [
   [
@@ -929,6 +1012,74 @@
    1
   ]
  ],
+ "one_in_three": {
+  "relation": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    0,
+    1
+   ]
+  ],
+  "majority": [
+   0,
+   0,
+   1
+  ],
+  "size": 3,
+  "majority_closed": false
+ },
+ "one_in_three_translation": {
+  "t": [
+   1,
+   1,
+   0
+  ],
+  "translated": [
+   [
+    0,
+    1,
+    1
+   ],
+   [
+    1,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0
+   ]
+  ],
+  "equals_two_of_three": true,
+  "complement": [
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    0,
+    0
+   ]
+  ]
+ },
  "rank_lemma_sampled": {
   "maps": 60,
   "ok": 60,
@@ -6881,11 +7032,10 @@
   ]
  },
  "counts": {
-  "EXHAUSTIVE": 36,
-  "MACHINE-CHECKED": 28,
+  "EXHAUSTIVE": 48,
+  "MACHINE-CHECKED": 29,
   "REFUTATION": 6,
-  "SAMPLED": 3,
-  "FAIL": 1
+  "SAMPLED": 3
  },
- "seconds": 270.8
+ "seconds": 410.8
 }
