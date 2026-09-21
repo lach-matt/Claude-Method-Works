@@ -59,14 +59,24 @@ the registry, because it does not hold a copy of it.
 
     27 vertices, 27 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 555
+    E = 570
     ALL EIGHT CHANNELS OCCUPIED
 
-    RE-PINNED E 570 -> 555 WITH NO ROW SEATED OR UNSEATED.  The overlap
-    ruling re-seated its gravity row on (B,F,X,E) -- `overlaprule.py` section
-    3f-bis -- and that one vertex moved from (1, 8, 5) to (1, 9, 10).  The
-    vertex COUNT is unmoved at 27 and so is the distinct-cell count; what
-    moved is where one of them sits, and the figure's demand with it.
+    RE-PINNED E 570 -> 555 -> 570 WITH NO ROW SEATED OR UNSEATED IN EITHER
+    DIRECTION, AND BOTH MOVES ARE KEPT.  The overlap ruling re-seated its
+    gravity row on (B,F,X,E) -- `overlaprule.py` section 3f-bis -- and that one
+    vertex moved from (1, 8, 5) to (1, 9, 10).  Then the RESAMPLE that the same
+    ruling ordered second -- section 3f-ter -- replaced the six declared
+    reaches the gate reads with every reach gravity's own data holds, the gate
+    saw the Z <= 35/36 dip it had been stepping over, refused (B,F,X,E) on
+    oscillation, and the vertex went back to (1, 8, 5).  The vertex COUNT was
+    unmoved at 27 throughout and so was the distinct-cell count.
+        THAT IS NOT A WASTED PAIR OF PASSES AND IT IS NOT A CIRCLE.  What this
+    figure held before the pair was a reading that agreed with a blind sample
+    by accident; what it holds after is the same reading measured against every
+    reach the data has.  A number that returns to where it started by a route
+    that measured every step is not the same object as a number that never
+    moved, and the difference is the whole of why the pair was ordered.
 
 **ITS OWN CELL IS (0, 7, 11), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
@@ -123,6 +133,26 @@ measured by `self_cell()` and is not offered as meaning anything.
     own stage because the narrative above reads each stage as a row arriving,
     and this one is a row CHANGING -- the first time that has happened here.
     `overlaprule.py` section 3f-bis.
+        AND THEN IT MOVED BACK, WHICH IS THE SECOND HALF OF ONE RULING RATHER
+    THAN A SECOND RULING.  M ordered both repairs and ordered them RESEAT
+    FIRST, THEN RESAMPLE.  `overlaprule.py` section 3f-ter is the resample: the
+    six declared reaches the gate read were faulty three ways -- three of the
+    six name no member, and two of those three are past the last member
+    (Z = 100 and Z = 118 are the PERIODIC TABLE's reach carried onto a nuclide
+    index whose members stop at Z = 90; Z = 60 falls in a gap), four of the six
+    are the
+    same chart (the last distinct reach is Z = 49, so the majority condition
+    carried 4/6 of its weight on one measurement and section 3's widest-two
+    test was a tautology here), and the dip sits below all of them.  Swept over
+    all 39 reaches gravity's data holds, (B,F,X,E) is off-channel at Z <= 35
+    and Z <= 36, fails the oscillation ground, and is refused.  So the vertex
+    returned to (1, 8, 5): E 555 -> 570, resolutions 0.296 / 0.667 / 0.630,
+    own cell (0, 7, 11) unmoved through both moves, closers still none, all
+    eight channels still occupied.
+        THE FIGURE WAS RIGHT BEFORE AND IS RIGHT NOW FOR A BETTER REASON, and
+    that is the only thing either pass bought here.  It is worth one line
+    because this file's business is measurement drift, and a value that leaves
+    and returns is the one shape a stale-figure audit cannot see.
 
 ===============================================================================
 1b. WHAT THE OVERLAP RULING COST AND WHAT IT BOUGHT -- BOTH, MEASURED
@@ -287,15 +317,21 @@ because it cut both ways and a one-sided report would be a lie by selection.
     claim was false while it was seated, and DOCKET 22's correction J caught
     that independently of the unseating.
 
-        HALF OF THAT IS NOW WITHDRAWN, AND BY THE RULING RATHER THAN BY AN
-        AUDIT.  `overlaprule.py` section 3f-bis re-seated the gravity row on
-        (B,F,X,E); its cell went (1, 8, 5) -> (1, 9, 10), and NEITHER 9 NOR 10
-        was a height or a width the figure held.  So the seated gravity
-        coarsening now SEPARATES where the sentence above says it groups, and
-        both resolutions ROSE on it -- height 18/27 = 0.6667 -> 19/27 =
-        0.7037, width 17/27 = 0.6296 -> 18/27 = 0.6667.  The sentence stays
-        TRUE of madelung_slot, which is unmoved at width 6, and the
-        measurement is what changed under it, not the reading.
+        HALF OF THAT WAS WITHDRAWN AND IS NOW REINSTATED, AND BOTH HALVES OF
+        THAT HISTORY ARE KEPT.  `overlaprule.py` section 3f-bis re-seated the
+        gravity row on (B,F,X,E); its cell went (1, 8, 5) -> (1, 9, 10), and
+        NEITHER 9 NOR 10 was a height or a width the figure held.  So for the
+        duration of that seating the gravity coarsening SEPARATED where the
+        sentence above says it groups, and both resolutions ROSE on it --
+        height 18/27 = 0.6667 -> 19/27 = 0.7037, width 17/27 = 0.6296 ->
+        18/27 = 0.6667.  Section 3f-ter's resample refused (B,F,X,E) and the
+        cell is (1, 8, 5) again, both of whose coordinates the figure holds, so
+        the sentence is TRUE once more and the resolutions are back at 0.6667
+        and 0.6296.
+            A CLAIM THAT WAS FALSE FOR ONE PASS AND IS TRUE AGAIN IS NOT THE
+        SAME AS A CLAIM THAT WAS NEVER TESTED, which is why the withdrawal is
+        recorded here rather than deleted.  The sentence was always TRUE of
+        madelung_slot, unmoved at width 6 throughout.
         NOT A GROUND FOR OR AGAINST THE RE-SEATING, and it was not offered as
         one: the paragraph below already says this file's resolution is never
         why a row is seated.
@@ -666,6 +702,20 @@ def selftest():
     # denominator: 19/27 = 0.7037 against 18/27 = 0.6667.  BOTH ROSE, where
     # every previous repin here recorded a fall.  Measured after the reseat,
     # never before it -- which is the lesson the two withdrawals below teach.
+    #
+    # AND REPINNED A SIXTH TIME, BACK TO THE FIFTH'S STARTING VALUES, BY THE
+    # SECOND HALF OF THE SAME RULING.  `overlaprule.py` section 3f-ter
+    # resampled the reach schedule the gate reads -- three of gravity's six
+    # declared reaches named a Z it holds no member at, two of those past its
+    # last member, and four were the same chart -- and
+    # over all 39 reaches its data holds, (B,F,X,E) is off-channel at Z <= 35
+    # and Z <= 36.  Refused on oscillation, the row is (B,F,X) again and the
+    # vertex is (1, 8, 5) again: 18/27 = 0.6667 against 17/27 = 0.6296.
+    #   THE FIFTH REPIN IS NOT DELETED AND WAS NOT WRONG.  It measured the
+    # seating that was in force when it was written.  What changed is the
+    # sample the gate reads, not the chart and not this file's arithmetic, and
+    # a repin that reverses an earlier repin is exactly as much a measurement
+    # as one that does not.
     #   AND 0.7037 IS NOT THE 0.7037 WITHDRAWN BELOW.  That one was height
     # read against a candidate row 27 that was never seated; this one is
     # height read against the seated 27 after one of them moved.  Same
@@ -689,14 +739,14 @@ def selftest():
     # taken against a candidate that was not seated is not a reading of this
     # index at all.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.7037))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.6667))
-    # THE RESEAT'S OWN FIXTURE, so that the vertex which moved is pinned where
-    # it moved TO and not only in the two ratios it shifted.
-    chk("the ruling's gravity row sits at (1, 9, 10) since the reseat -- "
-        "52 cells on (B,F,X,E), overlaprule.py section 3f-bis",
-        cells()["gravity_bound"], (1, 9, 10))
+        (res["width"][1], res["width"][0]), ("measurement", 0.6296))
+    # THE RULING'S OWN FIXTURE, so that the vertex which moved twice is pinned
+    # where it ENDED and not only in the two ratios it shifted and unshifted.
+    chk("the ruling's gravity row sits at (1, 8, 5) after the resample -- "
+        "26 cells on (B,F,X), overlaprule.py section 3f-ter",
+        cells()["gravity_bound"], (1, 8, 5))
     chk("and the figure's own cell did NOT move with it",
         self_cell(), ((0, 7, 11), []))
     chk("the height/width tie BROKE at 25 and has NOT re-formed",

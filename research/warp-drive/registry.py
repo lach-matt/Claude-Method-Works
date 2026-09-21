@@ -163,20 +163,35 @@ REGISTERED = (
     ("observed", "index", "FIBRATION",
      "108 observed differentiating electrons, register 1306",
      "n, l, k (observed)"),
-    # RE-PINNED 2026-09-20, TWICE OVER, and the two are different faults.
+    # RE-PINNED 2026-09-20/21, THREE TIMES OVER, AND THEY ARE NOT ALL THE SAME
+    # FAULT.  Two of the three are corrections; the third is a correction of
+    # the second, and it is kept rather than folded away.
     #   (1) MEMBER COUNT 3,394 -> 3,663.  DOCKET 49b (b28abdc) widened
     # gravity's capture reader and this coarsening reads the SAME members as
     # its parent, whose row above was re-pinned for the same reason; this one
-    # was missed.  The source did not grow.
+    # was missed.  The source did not grow.  THIS ONE STANDS -- it is DOCKET
+    # 49b's correction and nothing below touches it.
     #   (2) COORDINATES (B,F,X) -> (B,F,X,E), 26 cells -> 52, cell (1,8,5) ->
-    # (1,9,10), arity 3 -> 4, channel K1 -> K1.  The widening made (B,F,X,E)
-    # sound on the six reaches `overlaprule`'s gate samples, the gate has
-    # admitted it since, and the ruling has now followed the gate.
-    # `overlaprule.py` section 3f-bis is the ruling and the cascade.
+    # (1,9,10), arity 3 -> 4.  The widening made (B,F,X,E) sound on the six
+    # reaches `overlaprule`'s gate sampled and the ruling followed the gate --
+    # `overlaprule.py` section 3f-bis.
+    #   (3) AND BACK: COORDINATES (B,F,X,E) -> (B,F,X), 52 cells -> 26, cell
+    # (1,9,10) -> (1,8,5), arity 4 -> 3.  `overlaprule.py` section 3f-ter is
+    # the RESAMPLE the same ruling ordered second.  Gravity's six declared
+    # reaches were measured against gravity's own data and named three Z it
+    # holds no member at -- two of them past the last member, Z = 90 -- while
+    # giving one chart four times; swept over all 39 reaches the data does
+    # hold, (B,F,X,E) is K0 at Z <= 35 and Z <= 36 and is refused on
+    # oscillation.  THE ROW FOLLOWED THE GATE BOTH TIMES.  The channel has been
+    # K1 throughout and the member count has been 3,663 since (1).
+    #   SO THE QUANTUM-NUMBER GLOSS LOSES `mass evidence` AGAIN, and that is
+    # the part of this row a reader most easily gets wrong: E is not refused
+    # for being evidence-about-a-member rather than a property-of-one -- that
+    # question is open and `overlaprule.py` 3f route (b) is where it sits.  It
+    # is refused because the chart oscillates on the reaches the data has.
     ("overlaprule", "gravity_bound", "TABLE",
      "the same 3,663 nuclide-charge states, on the bound structure alone",
-     "horizon-bound class, forced angular momentum, spin-decade rank, "
-     "mass evidence"),
+     "horizon-bound class, forced angular momentum, spin-decade rank"),
     # UNSEATED BY DOCKET 22.  ("overlaprule", "nucshell_lsigma", ...) sat here.
     # The same 22 members under (l, 2j) -- an IDENTICAL partition, and 2j is
     # what order_a() actually banks -- land at K7, which is occupied, so the
@@ -765,10 +780,16 @@ def selftest():
     chk("terms seats 112 distinct cells", sz["terms.index"], 112)
     chk("DOCKET 26's observed fibration seats 98 distinct cells",
         sz["observed.index"], 98)
-    # RE-PINNED 26 -> 52: the ruling re-seated the row on (B,F,X,E).
-    # overlaprule.py section 3f-bis.
-    chk("the ruling's gravity coarsening seats 52",
-        sz["overlaprule.gravity_bound"], 52)
+    # RE-PINNED 26 -> 52 -> 26, AND BOTH MOVES ARE KEPT.  3f-bis re-seated the
+    # row on (B,F,X,E) because the gate admitted it on six declared reaches;
+    # 3f-ter resampled those six -- three named a Z gravity holds no member at,
+    # two of those past its last member, and four gave the same chart -- and
+    # the gate, able to see the Z <= 35/36 dip at last,
+    # refused (B,F,X,E) on oscillation.  The row is (B,F,X) again.  The number
+    # returned to where it started by a route that measured every step, which
+    # is not the same thing as never having moved.
+    chk("the ruling's gravity coarsening seats 26",
+        sz["overlaprule.gravity_bound"], 26)
     chk("the ruling's madelung coarsening seats 82",
         sz["overlaprule.madelung_slot"], 82)
     chk("completeness is not claimed", COMPLETE, False)
