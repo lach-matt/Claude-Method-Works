@@ -272,13 +272,13 @@ The number of parents is a term count, and term counts are finite and computable
 
 **Theorem 6 (the terms of ℓ^k).** Enumerating every Slater determinant of ℓ^k — every k-subset of the 2(2ℓ + 1) spin-orbitals — and peeling the resulting (M_L, M_S) table from its highest entry gives the LS terms exactly. Over ℓ = 0, 1, 2, 3 and all k from 0 to 4ℓ + 2, this is 17,476 determinants; the term counts are
 
-| ℓ^k | k = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | … |
+| ℓ^k | k = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | k = 11 … 14 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | p^k | 1 | 1 | 3 | 3 | 3 | 1 | 1 | | | | | |
 | d^k | 1 | 1 | 5 | 8 | 16 | 16 | 16 | 8 | 5 | 1 | 1 | |
 | f^k | 1 | 1 | 7 | 17 | 47 | 73 | 119 | 119 | 119 | 73 | 47 | 17, 7, 1, 1 |
 
-**Proof.** The determinants of ℓ^k are in bijection with the k-subsets of the 2(2ℓ + 1) spin-orbitals (m_ℓ, m_s), and every such determinant is an eigenvector of M_L = Σ m_ℓ and M_S = Σ m_s. The multiplicity table N(M_L, M_S) counting them is therefore exact. A term ²ˢ⁺¹L contributes exactly one determinant to each (M_L, M_S) with |M_L| ≤ L and |M_S| ≤ S, in steps of 1 and 2 respectively, so repeatedly taking the entry of largest M_S and then largest M_L that is still positive, recording a term with L = M_L and S = M_S, and subtracting its full rectangle, removes one term per pass and terminates with the table identically zero. The subtraction never goes negative at any step of the run — asserted at every decrement — so the peel is valid and the multiset of terms is the configuration's. The table is the standard construction (Condon and Shortley 1935, ch. VII). ∎
+**Proof.** The determinants of ℓ^k are in bijection with the k-subsets of the 2(2ℓ + 1) spin-orbitals (m_ℓ, m_s), and every such determinant is an eigenvector of M_L = Σ m_ℓ and M_S = Σ m_s. The multiplicity table N(M_L, M_S) counting them is therefore exact. A term ²ˢ⁺¹L contributes exactly one determinant to each (M_L, M_S) with |M_L| ≤ L and |M_S| ≤ S, both running in unit steps, so repeatedly taking the entry of largest M_S and then largest M_L that is still positive, recording a term with L = M_L and S = M_S, and subtracting its full rectangle, removes one term per pass and terminates with the table identically zero. The subtraction never goes negative at any step of the run — asserted at every decrement — so the peel is valid and the multiset of terms is the configuration's. The table is the standard construction (Condon and Shortley 1935, ch. VII). ∎
 
 Status: **EXHAUSTIVE** over 17,476 determinants; the three rows are the published term tables and agree with them (CITED, Condon and Shortley 1935).
 

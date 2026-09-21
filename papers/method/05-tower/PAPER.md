@@ -346,3 +346,113 @@ Then `T` is closed under coordinatewise maximum and is not closed under coordina
 **Corollary 1 (the tower's dichotomy).** Of the thirteen bounds of D10, every one is of the shape (i) or the shape (iii) of Theorem 5, so every stage closes (Proposition 2). Of the three bounds whose exact physical content is a coupling condition, the ninth and the eleventh carry a non-monotone realised ceiling (Proposition 5) and so are carried as its envelope; the twelfth's exact content is a triangle of arity 2 and by Theorem 5(ii) cannot be carried at all, so it too is carried as an envelope; and the thirteenth's is `B₁` and is carried exactly. **There is no fourth case in this construction.** **EXHAUSTIVE** over the thirteen bounds.
 
 > **A coordinate cannot be smuggled in as a derived quantity.** Adjoining a function `h` of the existing coordinates keeps the object a sublattice only if the graph `{(x, h(x))}` is one, and taking joins there forces `h(x ∨ x′) = max(h(x), h(x′))` — `h` must be a join homomorphism. A difference of two coordinates is not one. On the first stage, `h = e − q` has `h(x ∨ x′) = 0` at `x = (1,0,1,0,1,0,0,0)` and `x′ = (1,0,1,1,1,0,0,0)`, while `max(h(x), h(x′)) = 1`. **REFUTATION**, by that witness. Every coordinate above the eighth therefore has to enter as a *bounded axis* and pay the price Theorem 2 names; there is no cheaper door.
+
+---
+
+## §5 · The constraint graph
+
+The constraint graph (D8) records which coordinates appear in which bounds. Reading it off D10 gives seven edges at the first stage and one or two more at each step:
+
+> stage 8: `n–ℓ`, `ℓ–k`, `k–q`, `k–2S`, `e–f`, `f–g`, `q–g`
+> stage 9: `g–2S′`
+> stage 10: `2S′–v`, `g–v`
+> stage 11: `k–2J_c`
+> stage 12: `2J_c–2K`
+> stage 13: `2K–2J`
+
+The twelfth stage contributes **one** edge, not two. Its bound is `2K ≤ 2J_c + 2f_max`, and `f_max` is the cap of D11 — a constant of the construction — so `2J_c` is the bound's only parent (D3, D10). That reading is what §2 and §6 measure, and it is the reading the rest of this section reports.
+
+![Figure 2](figures/constraint-graph.png)
+
+**Figure 2.** The constraint graph at the thirteenth stage. Thirteen vertices and thirteen edges. Rims mark how the coordinate's bound is carried: an exact bound in the first colour, a monotone envelope in the second. The one independent cycle is the triangle on `2S′`, `g` and `v`, drawn in the third colour; it is the tenth coordinate's two parents happening to be adjacent. Deleting `q` disconnects the parent side from the target side, and `q` is the only vertex that does.
+
+**Table 3. The graph, stage by stage.** Cycle rank is `|E| − |V| + c`; treewidth is exact, by search over elimination orderings.
+
+| stage | vertices | edges | components | cycle rank | triangles | girth | treewidth |
+|---|---|---|---|---|---|---|---|
+| Λ₈ | 8 | 7 | 1 | 0 | 0 | — | 1 |
+| Λ₉ | 9 | 8 | 1 | 0 | 0 | — | 1 |
+| Λ₁₀ | 10 | 10 | 1 | 1 | 1 | 3 | 2 |
+| Λ₁₁ | 11 | 11 | 1 | 1 | 1 | 3 | 2 |
+| Λ₁₂ | 12 | 12 | 1 | 1 | 1 | 3 | 2 |
+| Λ₁₃ | 13 | 13 | 1 | 1 | 1 | 3 | 2 |
+
+**Proposition 7 (the shape of the graph).** At every stage the graph is connected. At the first two stages it is a tree — eight vertices and seven edges, then nine and eight. From the tenth stage it has cycle rank exactly 1, girth exactly 3, and exactly one triangle, namely `{2S′, g, v}`; its treewidth is 1 at the first two stages and 2 thereafter. At the thirteenth stage the degree sequence has `k` and `g` at 4 and `n`, `e`, `2S`, `2J` as leaves. **EXHAUSTIVE**, over the six stages, with the triangle census taken over all `C(13, 3) = 286` vertex triples at the top stage and the treewidth by exact elimination search.
+
+**Proposition 8 (the transfer is the unique cut vertex).** At every stage, deleting `q` leaves exactly two components, one on the parent coordinates and one on the target coordinates `{e, f, g, 2S′, v}`; and `q` is the only vertex whose deletion separates the parent side from the target side. **EXHAUSTIVE**, over the six stages.
+
+*Why.* Every bound of D10 relates two coordinates of the same side except `g ≤ q`, which is the only bound naming one coordinate from each. A single edge between two otherwise disconnected halves makes both of its endpoints cut vertices of the whole graph, but only one of them separates *the two sides*: deleting `g` leaves the rest of the target side attached to the parent side through nothing, since `g` is the target end of that edge — so the correct statement is the one Proposition 8 makes, about which single vertex separates parent from target, and the measurement is the one the proposition reports. ∎ **PROVED** and **EXHAUSTIVE**.
+
+**Proposition 9 (what the arity-2 reading would cost the graph).** Writing the twelfth bound with the cell's own `f` in place of the cap adds the edge `f–2K`. The thirteenth stage then has 13 vertices and **14** edges, and the cycle-rank sequence becomes `0, 0, 1, 1, 2, 2`. The triangle count, the treewidth, the girth and the degrees of `k` and `g` are unchanged; the only degrees that move are those of `f` and `2K`. **EXHAUSTIVE**, computed by substituting that one edge and rebuilding.
+
+So the arity of that bound is visible in the graph as exactly one edge and one unit of cycle rank, and §6 prices the same difference in cells.
+
+> **Cycle rank and closure are two different costs.** The single independent cycle arrives at the tenth stage, where `v` is bounded below by `2S′` and above by `g`, two coordinates already joined by an edge. That coordinate has two parents, and it costs the tree: treewidth rises from 1 to 2, and with it the guarantee that pairwise reasoning decides membership. A tree-structured constraint network is globally consistent once it is arc-consistent — Freuder (1982), CITED — so at treewidth 1 the pairwise operator `ℛ` of D6 is exact by a theorem, and at treewidth 2 it is not guaranteed to be. **It is nevertheless exact here:** `E(Λ_D) = 0` at all six stages (Proposition 2), including the four of treewidth 2. What the cycle removes is the guarantee, not the property. And the cost that closure does notice is a different one: a single bound of arity 2, which Theorem 5(ii) shows cannot preserve the sublattice property at all. **A coordinate with two parents is cheap; a bound with two parents is not.**
+
+---
+
+## §6 · The cylinder over the transfer
+
+The fourth coordinate, `q`, is the number of electrons a transition moves. Proposition 8 says it is where the two sides of the construction meet. This section shows what that costs and what it buys.
+
+**Proposition 10 (exact factorisation).** At every stage, and for every value `t` of the transfer,
+
+> `Λ ∩ { q = t } = A(t) × B(t)`  as sets,  and  `Σ_t |A(t)| · |B(t)| = |Λ|`,
+
+with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set identity at the first and the thirteenth.
+
+*Proof.* Delete `q` from the constraint graph. By Proposition 8 the remainder splits into the parent component and the target component, so no bound of D10 other than `g ≤ q` names coordinates from both, and `g ≤ q` is a bound on the target side alone once `q` is fixed. Hence for a fixed `t` the admissibility of the parent coordinates and the admissibility of the target coordinates are independent conditions, and the fibre is their product. Summing over `t` partitions Λ. ∎ **PROVED**, and **EXHAUSTIVE** as stated.
+
+**Table 4. The sections, at three stages.** `|A(t)|` is the number of distinct parent tuples at transfer `t`, `|B(t)|` the number of distinct target tuples.
+
+| `t` | Λ₈: `\|A\|` × `\|B\|` | product | Λ₁₁: `\|A\|` × `\|B\|` | product | Λ₁₃: `\|A\|` × `\|B\|` | product |
+|---|---|---|---|---|---|---|
+| 0 | 33 × 5 | 165 | 163 × 5 | 815 | 2,294 × 5 | 11,470 |
+| 1 | 33 × 10 | 330 | 163 × 20 | 3,260 | 2,294 × 20 | 45,880 |
+| 2 | 23 × 15 | 345 | 123 × 50 | 6,150 | 1,794 × 50 | 89,700 |
+| 3 | 8 × 17 | 136 | 48 × 70 | 3,360 | 744 × 70 | 52,080 |
+| | **total** | **976** | | **13,585** | | **199,130** |
+
+![Figure 3](figures/sections-plate.png)
+
+**Figure 3.** The four sections of the cylinder drawn at square-root-of-cell scale, the thirteenth stage solid and the first dashed inside it. The sections read 2,294 × 5, 2,294 × 20, 1,794 × 50 and 744 × 70 against 33 × 5, 33 × 10, 23 × 15 and 8 × 17.
+
+![Figure 4](figures/profile.png)
+
+**Figure 4.** The same four sections as a profile, on a logarithmic axis, at the thirteenth stage (solid) and the first (dotted). The parent side falls and the target side rises at both scales; the section itself peaks at `t = 2`, at 89,700 cells at the top stage and 345 at the bottom.
+
+**Proposition 11 (the profile).** At every one of the six stages: `|A(t)|` is non-increasing in `t`, `|B(t)|` is non-decreasing, the sequence of section sizes is log-concave, and it attains its maximum at `t = 2`. The mean transfer `⟨q⟩ = Σ_t t·|A(t)|·|B(t)| / |Λ|` rises up the tower:
+
+| stage | Λ₈ | Λ₉ | Λ₁₀ | Λ₁₁ | Λ₁₂ | Λ₁₃ |
+|---|---|---|---|---|---|---|
+| `⟨q⟩` | 1.4631 | 1.6850 | 1.8304 | 1.8874 | 1.9141 | 1.9159 |
+
+**EXHAUSTIVE** at these caps. No value of the transfer improves both sides: raising it costs the parent and pays the target, monotonically, at every stage.
+
+### §6.1 · What the arity-2 bound costs, in cells
+
+Three readings of the twelfth bound are available, and the paper prices all three at the same caps. Write `j = 2J_c` and let `f` be the cell's own target subshell.
+
+| reading | bound on `2K` | arity | cells at Λ₁₂ | cells at Λ₁₃ | closed? | factorises? |
+|---|---|---|---|---|---|---|
+| the cap | `0 ≤ 2K ≤ j + 2f_max` | 1 | 70,905 | 199,130 | **yes**, `E = 0` | **yes**, defect 0 |
+| the cell's own `f`, upper bound only | `0 ≤ 2K ≤ j + 2f` | 2 | 55,755 | 153,680 | no, `E = 12,675` | no, defect 15,150 and 45,450 |
+| the exact triangle with parity | `\|j − 2f\| ≤ 2K ≤ j + 2f`, `2K ≡ j` (mod 2) | 2 | 22,275 | 64,290 | no, `E = 35,570` | — |
+
+**Proposition 12 (the price of the second parent).** Replacing the cap by the cell's own subshell in the twelfth bound leaves 55,755 cells at the twelfth stage against a section product of 70,905, a factorisation defect of **15,150 cells, 21.4% of the product**; at the thirteenth stage 153,680 against 199,130, a defect of **45,450 cells, 22.8%**. The same replacement breaks closure: the staircase returns 12,675 cells the construction does not hold. **EXHAUSTIVE** at these caps; **REFUTATION** for the closure claim.
+
+**Proposition 13 (the exact triangle does not close).** Imposing the full triangle `|2J_c − 2f| ≤ 2K ≤ 2J_c + 2f` with the parity congruence `2K ≡ 2J_c (mod 2)` leaves 22,275 cells at the twelfth stage. That set is not a sublattice. Of its 248,076,675 unordered pairs, **52,767,450 have a meet outside it and 28,742,850 have a join outside it**, and its closure defect is `E = 35,570` — larger than the set is short. An explicit failing meet, in the coordinate order of D9:
+
+> `(1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 4, 4) ∧ (1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0) = (1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0)`,
+
+whose `(2J_c, 2f, 2K) = (2, 0, 0)` violates `|2J_c − 2f| ≤ 2K`. **REFUTATION**, and this is Theorem 3's second witness realised inside the construction, which is the hypothesis Theorem 5(ii) requires.
+
+> The join failures are worth separating from the meet failures. Theorem 3 says the triangle *without* the congruence is join-closed; here joins fail too, 28.7 million of them, and the reason is the congruence `2K ≡ 2J_c (mod 2)`, which is not an inequality at all and is preserved by neither operation. So the twelfth axis's exact content carries two independent obstructions — a bound of arity 2 and a congruence — and the construction's envelope drops both.
+
+### §6.2 · Orientation
+
+**Proposition 14 (the surface is orientable).** Eight quantities derived from a cell divide into two classes by whether they rise or fall along a series — `e`, `ν`, `V` in one class and `T`, `r`, `δ`, the local spacing and `w` in the other — and an edge between two of them reverses sign exactly when they lie in different classes. That sign assignment is the one induced by a bipartition, so every cycle of the complete graph on the eight carries an even number of reversals. **EXHAUSTIVE**: all **8,018** cycles of length 3 to 8, **zero** with an odd number of sign reversals.
+
+*Proof.* Assign to each quantity the label `+1` in the first class and `−1` in the second, and to each edge `{u, w}` the sign `s(u, w) = label(u)·label(w)`, which is `−1` exactly when the two lie in different classes. Around a cycle `v₁, …, v_m, v₁` the product of the edge signs is `∏_i label(v_i)·label(v_{i+1}) = ∏_i label(v_i)²= +1`, since every vertex appears exactly twice. A product of `±1` equal to `+1` has an even number of `−1` factors. ∎ **PROVED**, and **EXHAUSTIVE** as stated.
+
+A structure whose sign graph is balanced admits no orientation-reversing traverse, so the object is a cylinder and not a Möbius band; and the reason is structural rather than an absence of evidence, since the proof is a parity argument on a bipartition and not a failure to find a reversing loop.
