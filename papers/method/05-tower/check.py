@@ -187,7 +187,7 @@ def rank(c):
 
 
 def check_rank_and_chains():
-    section("§5  RANK, GENERATORS AND MAXIMAL CHAINS OF Λ_8")
+    section("§7  RANK, GENERATORS AND MAXIMAL CHAINS OF Λ_8")
     L = stages()
     prof = {}
     for d in STAGES:
@@ -275,7 +275,7 @@ def sections_of(cells):
 
 
 def check_cylinder():
-    section("§5  THE CYLINDER OVER THE TRANSFER — sections, the tight bridge, orientation")
+    section("§6  THE CYLINDER OVER THE TRANSFER — sections, the tight bridge, orientation")
     L = stages()
     secs = {d: sections_of(L[d]) for d in STAGES}
     DATA["sections"] = secs
@@ -424,7 +424,7 @@ def graph_rows(two_parent=False):
 
 
 def check_graph():
-    section("§4  THE CONSTRAINT GRAPH — vertices, edges, cycle rank, treewidth")
+    section("§5  THE CONSTRAINT GRAPH — vertices, edges, cycle rank, treewidth")
     rows = graph_rows()
     DATA["graph"] = rows
     mine = {}
@@ -474,7 +474,7 @@ def check_graph():
 
 # ----------------------------------------------------------------------------- the bracket system
 def check_brackets():
-    section("§6  THE BRACKET SYSTEM χ(Λ_13) → … → χ(Λ_8)")
+    section("§8  THE BRACKET SYSTEM r(Λ_13) → … → r(Λ_8)")
     L = stages()
     br = {}
     branching = {}
@@ -562,6 +562,86 @@ def check_physics_bounds():
        all(min(g, 4 * f + 2 - g) == max(S2 for S2, L2 in terms(f, g)) for f in (0, 1) for g in range(1, 4 * f + 3)))
     ob("EXHAUSTIVE", "the instrument's f_max = 1 and 2K ranges over 0..2J_c + 2", T.FMAX == 1 and
        all(max(c[11] for c in stages()[12] if c[10] == jc) == jc + 2 for jc in range(6)))
+
+
+# ----------------------------------------------------------------------------- the envelope gap
+def spin_set(f, g):
+    """The 2S values terms(f^g) carries — the exact fibre of axis 9."""
+    return {S2 for S2, L2 in terms(f, g)} if g else {0}
+
+
+def new_at(f, v, S2):
+    """Is a term of spin 2S' NEW at occupancy v — present in terms(f^v) and not carried up from
+    terms(f^(v-2))?  That is Racah's seniority, read as a multiset difference."""
+    a = collections.Counter(terms(f, v)) if v else collections.Counter({(0, 0): 1})
+    if v >= 2:
+        a.subtract(collections.Counter(terms(f, v - 2)))
+    return any(S == S2 and c > 0 for (S, L), c in a.items())
+
+
+def core_J(l, k, S2):
+    """The 2J values of the terms of l^k that carry the cell's own multiplicity 2S."""
+    out = set()
+    for S, L2 in terms(l, k):
+        if S == S2:
+            out |= set(range(abs(L2 - S), L2 + S + 1, 2))
+    return out
+
+
+def check_envelope_gap():
+    section("§3  THE ENVELOPE GAP — the exact fibre against the admissible one, axis by axis")
+    L = stages()
+    rows = {}
+    # axis 9: 2S' in [0, g] against the spin set of f^g
+    ok9 = all(spin_set(f, g) == {S for S, _ in terms(f, g)} for f in (0, 1) for g in range(1, 4 * f + 3))
+    e9 = sum(len(spin_set(c[5], c[6])) for c in L[8])
+    rows[9] = (e9, len(L[9]))
+    # axis 10: v in [2S', g] against the seniorities at which the cell's own 2S' is new
+    e10 = sum(sum(1 for v in range(c[8], c[6] + 1) if v <= 4 * c[5] + 2 and v % 2 == c[6] % 2
+                  and new_at(c[5], v, c[8])) for c in L[9])
+    rows[10] = (e10, len(L[10]))
+    # axis 11, two readings
+    mu = {(l, k): max(S + L2 for S, L2 in terms(l, k)) for l in (0, 1) for k in range(1, 4 * l + 3)}
+    e11w = sum(mu[(c[1], c[2])] + 1 for c in L[10])
+    e11s = sum(len(core_J(c[1], c[2], c[7])) for c in L[10])
+    rows[11] = (e11s, len(L[11]))
+    # axis 12: the exact triangle with the cell's own f and the parity congruence
+    e12 = sum(1 for c in L[11] for K in range(0, c[10] + 2 * c[5] + 1)
+              if abs(c[10] - 2 * c[5]) <= K and (K - c[10]) % 2 == 0)
+    rows[12] = (e12, len(L[12]))
+    # axis 13: 2J = 2K +/- 1 exactly, so the fibre is a doublet except at 2K = 0
+    n0 = sum(1 for c in L[12] if c[11] == 0)
+    e13 = 2 * len(L[12]) - n0
+    rows[13] = (e13, len(L[13]))
+    DATA["envelope_gap"] = dict(rows=rows, e11_wide=e11w, K0=n0, ok9=ok9)
+    pct = lambda a, b: "%.1f" % (100.0 * a / b)
+    ob("EXHAUSTIVE", "the exact fibre equals the microstate spin set at axis 9", ok9)
+    ob("EXHAUSTIVE", "axis 9: exact 1,054 of 1,654 admitted = 63.7 %",
+       rows[9] == (1054, 1654) and pct(*rows[9]) == "63.7", "%d / %d" % rows[9])
+    ob("EXHAUSTIVE", "axis 10: exact 1,132 of 2,535 = 44.7 %",
+       rows[10] == (1132, 2535) and pct(*rows[10]) == "44.7", "%d / %d" % rows[10])
+    ob("EXHAUSTIVE", "axis 11: exact 2,310 of 13,585 = 17.0 % (terms at the cell's own 2S)",
+       rows[11] == (2310, 13585) and pct(*rows[11]) == "17.0", "%d / %d" % rows[11])
+    ob("EXHAUSTIVE", "axis 11, the wider reading: 10,585 of 13,585 = 77.9 % (largest 2J of any term)",
+       e11w == 10585 and pct(e11w, 13585) == "77.9", "%d / 13585" % e11w)
+    ob("EXHAUSTIVE", "axis 12: exact 22,275 of 70,905 = 31.4 % (the triangle with the cell's own f)",
+       rows[12] == (22275, 70905) and pct(*rows[12]) == "31.4", "%d / %d" % rows[12])
+    ob("EXHAUSTIVE", "axis 13: exact 128,225 of 199,130 = 64.4 %; the fibre is a doublet but at 2K = 0",
+       rows[13] == (128225, 199130) and pct(*rows[13]) == "64.4" and n0 == 13585,
+       "%d / %d, %d cells at 2K = 0" % (rows[13] + (n0,)))
+    ob("EXHAUSTIVE", "the exact fibre is never larger than the admissible one, at any axis",
+       all(a <= b for a, b in rows.values()))
+    # the monotone envelope of a non-monotone realised maximum
+    m = [max(S + L2 for S, L2 in terms(1, k)) for k in range(1, 7)]
+    env, run = [], -1
+    for x in m:
+        run = max(run, x)
+        env.append(run)
+    DATA["mu_envelope"] = (m, env)
+    ob("EXHAUSTIVE", "max 2J over p^k is not monotone; its monotone envelope is 3 4 5 5 5 5",
+       m == [3, 4, 5, 4, 3, 0] and env == [3, 4, 5, 5, 5, 5] and all(e >= x for e, x in zip(env, m))
+       and sum(1 for e, x in zip(env, m) if e > x) == 3,
+       "realised %s, envelope %s, strict at k = 4, 5, 6" % (m, env))
 
 
 # ----------------------------------------------------------------------------- Z3, over the integers
@@ -750,7 +830,7 @@ def guard_vacuity():
 
 
 def check_z3():
-    section("§3  THE THEOREMS, MACHINE-CHECKED OVER THE INTEGERS (every cap at once)")
+    section("§4  THE THEOREMS, MACHINE-CHECKED OVER THE INTEGERS (every cap at once)")
     print("  Z3 %s; guards first, obligations only if both pass" % z3.get_version_string())
     g1 = guard_vacuity()
     g2 = guard_encoding()
@@ -840,7 +920,7 @@ def min_cover(S, nel):
 
 
 def check_seed():
-    section("§7  THE SEED — a minimum cover of the envelope steps")
+    section("§9  THE SEED — a minimum cover of the envelope steps")
     L = stages()
     want = {8: 7, 9: 9, 10: 9}
     DATA["seed"] = {}
@@ -957,6 +1037,7 @@ def main(argv=None):
     else:
         check_stages()
         check_physics_bounds()
+        check_envelope_gap()
         check_z3()
         check_graph()
         check_cylinder()

@@ -3,9 +3,11 @@
 
 Every number the paper prints is produced here, and every decidable claim is decided here.
 Exact arithmetic throughout: a corridor endpoint is a rational combination of square roots of
-squarefree integers, held as {m: Fraction} and compared by that representation; a sign decision
-that the representation does not settle is taken from a 60-digit evaluation and the smallest
-non-zero magnitude ever so decided is printed as the gap guard.
+squarefree integers, held as {m: Fraction}.  Equality is decided by that representation, which is
+faithful because square roots of distinct squarefree integers are linearly independent over Q; a
+non-zero sign is decided by a rational enclosure of the sum refined until it excludes 0.  No sign
+is ever decided in floating point.  Floating point appears only in the epsilon-walk of section 5
+and the coverage sweep of section 6, both of which are themselves rules stated with a tolerance.
 
     python3 check.py              every obligation, one line each, a summary; exit 1 on any failure
     python3 check.py --selftest   the same, plus three negative controls that must be REFUTED
@@ -24,6 +26,7 @@ import collections
 import contextlib
 import importlib.util
 import io
+import functools
 import itertools
 import math
 import os
@@ -87,7 +90,12 @@ STEPS = list(range(3, 109))
 # ----------------------------------------------------------------------------- exact surds
 # A number is held as {m: c}: the sum of c*sqrt(m) over squarefree m (m = 1 is the rational part).
 
-MINGAP = [None]     # the smallest non-zero magnitude ever decided numerically
+# The sign of a non-zero surd is decided EXACTLY, by rational enclosure of each radical
+# refined until the enclosure of the sum excludes 0.  Termination rests on the linear
+# independence over Q of {sqrt(m) : m squarefree} together with 1 (Besicovitch 1940):
+# a non-empty representation is a non-zero number, so some finite precision separates it.
+MINBOUND = [None]   # a certified rational lower bound on the smallest |value| ever decided
+MAXPREC = [0]       # the deepest enclosure ever needed, in decimal digits
 
 
 def sqfree(N):
@@ -138,17 +146,66 @@ def key(a):
     return tuple(sorted(a.items()))
 
 
-def sign(a):
-    """-1, 0, +1.  Zero is decided exactly by the representation; a non-zero sign by 60 digits."""
+_SQB = {}
+
+
+def sqrt_bounds(m, k):
+    """Rationals L <= sqrt(m) <= U with U - L <= 10^-k, exactly, for an integer m >= 0."""
+    hit = _SQB.get((m, k))
+    if hit is not None:
+        return hit
+    if m <= 1:
+        out = (Fr(m), Fr(m))
+    else:
+        d = 10 ** k
+        a = math.isqrt(m * d * d)
+        out = (Fr(a, d), Fr(a + 1, d))
+    _SQB[(m, k)] = out
+    return out
+
+
+def decide(a):
+    """(sign, L) with L a rational lower bound on |a|, both exact.  Zero is decided by the representation: a sum of rational
+    multiples of square roots of distinct squarefree integers (1 among them) vanishes
+    only when every coefficient vanishes.  A non-zero sign is decided by a rational
+    enclosure of the sum, refined until it excludes 0; the same theorem guarantees that
+    some finite precision does.  No floating point enters the decision."""
     if not a:
-        return 0
-    v = val(a)
-    mag = abs(v)
-    if MINGAP[0] is None or mag < MINGAP[0]:
-        MINGAP[0] = mag
-    if mag < Decimal("1e-40"):
-        raise AssertionError("gap guard: magnitude %s below the decision floor" % mag)
-    return 1 if v > 0 else -1
+        return 0, Fr(0)
+    k = 24
+    while True:
+        lo = hi = Fr(0)
+        for m, c in a.items():
+            L, U = sqrt_bounds(m, k)
+            if c > 0:
+                lo += c * L
+                hi += c * U
+            else:
+                lo += c * U
+                hi += c * L
+        if lo > 0:
+            mag, out = lo, 1
+            break
+        if hi < 0:
+            mag, out = -hi, -1
+            break
+        k *= 2
+        if k > 8192:
+            raise AssertionError("sign: no separation at 8192 digits for %r" % (a,))
+    if k > MAXPREC[0]:
+        MAXPREC[0] = k
+    if MINBOUND[0] is None or mag < MINBOUND[0]:
+        MINBOUND[0] = mag
+    return out, mag
+
+
+def sign(a):
+    return decide(a)[0]
+
+
+def gap(a, b):
+    """A rational lower bound on |a - b|, exact.  Zero only when a = b."""
+    return decide(add(a, neg(b)))[1]
 
 
 def less(a, b):
@@ -156,7 +213,7 @@ def less(a, b):
 
 
 def dec7(a):
-    return str(val(a).quantize(Decimal("0.0000001"), rounding=ROUND_HALF_UP))
+    return "%.7f" % val(a).quantize(Decimal("0.0000001"), rounding=ROUND_HALF_UP)
 
 
 def closed(a):
@@ -350,11 +407,15 @@ FAILS = []
 NUM = {}            # every number the paper prints
 
 
+QUIET = [False]
+
+
 def rep(status, label, ok, detail=""):
     LINES.append((status, label, ok, detail))
     if not ok:
         FAILS.append(label)
-    print("  [%s] %-70s %s" % (("ok  " if ok else "FAIL"), label, detail))
+    if not QUIET[0]:
+        print("  [%s] %-70s %s" % (("ok  " if ok else "FAIL"), label, detail))
 
 
 def compute(quiet=False):
@@ -481,12 +542,14 @@ def compute(quiet=False):
             if hi is not None:
                 ends[key(hi)]["nU"] += 1
                 ends[key(hi)]["Z"].append(Z)
-        lst = sorted(ends.items(), key=lambda kv: val(dict(kv[0])))
-        # distinctness: consecutive values separated by a gap far above the evaluation error
-        gaps = [val(dict(lst[i + 1][0])) - val(dict(lst[i][0])) for i in range(len(lst) - 1)]
+        lst = sorted(ends.items(), key=functools.cmp_to_key(
+            lambda A, B: sign(add(dict(A[0]), neg(dict(B[0]))))))
+        # distinctness: every consecutive gap is bounded below by an exact rational
+        gaps = [gap(dict(lst[i + 1][0]), dict(lst[i][0])) for i in range(len(lst) - 1)]
         mingap = min(gaps)
-        rep("EXHAUSTIVE", "form %s: distinct endpoints over the 106 corridors" % form, True, "%d, min gap %.4g" % (len(lst), mingap))
-        rep("EXHAUSTIVE", "form %s: consecutive distinct endpoints are separated by > 1e-6 (evaluation error < 1e-50)" % form, mingap > Decimal("1e-6"))
+        rep("EXHAUSTIVE", "form %s: distinct endpoints over the 106 corridors" % form, True, "%d, min gap %.4g" % (len(lst), float(mingap)))
+        rep("EXHAUSTIVE", "form %s: consecutive endpoints are separated by more than 1/10000, exactly" % form,
+            mingap > Fr(1, 10000), "certified lower bound %.4g" % float(mingap))
         NUM["ends_" + form] = len(lst)
         out["ends"][form] = [(dict(k), v) for k, v in lst]
     NUM["ends_p_list"] = [(closed(d), dec7(d), v["nL"], v["nU"]) for d, v in out["ends"]["p"]]
@@ -950,6 +1013,7 @@ def main():
     ap.add_argument("--no-z3", action="store_true")
     a = ap.parse_args()
     if a.table:
+        QUIET[0] = True
         out = compute(quiet=True)
         LINES.clear()
         table(out)
@@ -963,8 +1027,14 @@ def main():
     if a.selftest:
         print("\n10 NEGATIVE CONTROLS")
         negative_controls()
-    print("\n  gap guard: smallest non-zero magnitude decided numerically = %s" % (MINGAP[0].normalize() if MINGAP[0] is not None else None))
-    NUM["mingap"] = str(MINGAP[0].quantize(Decimal("1e-6")))
+    rep("EXHAUSTIVE", "every sign in the geometry decided by exact rational enclosure, none in floating point",
+        MAXPREC[0] > 0 and MINBOUND[0] > 0,
+        "deepest %d digits, smallest certified magnitude >= %.6g" % (MAXPREC[0], float(MINBOUND[0])))
+    print("\n  exact-sign record: deepest enclosure %d decimal digits; smallest certified "
+          "non-zero magnitude >= %s (no sign decided in floating point)"
+          % (MAXPREC[0], float(MINBOUND[0]) if MINBOUND[0] is not None else None))
+    NUM["maxprec"] = MAXPREC[0]
+    NUM["minbound"] = float(MINBOUND[0]) if MINBOUND[0] is not None else None
     counts = collections.Counter(st for st, _, ok, _ in LINES)
     print("\n  obligations: " + ", ".join("%s %d" % (k, v) for k, v in sorted(counts.items())))
     print("  %d of %d passed" % (sum(1 for l in LINES if l[2]), len(LINES)))

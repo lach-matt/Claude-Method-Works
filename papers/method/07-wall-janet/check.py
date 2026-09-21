@@ -714,6 +714,17 @@ def section_channels():
             ("Si I", "65,747.760"): (["2P*"], ["1/2"]), ("Si I", "66,035.000"): (["2P*"], ["3/2"])}
     rec("EXHAUSTIVE", "in those four species every row names its parent, one parent per limit, distinct parents at distinct limits",
         bij_ok and limit_parent == want, "" if limit_parent == want else "%s" % limit_parent)
+    # the outer label, with the parent prefix stripped, printed at two limits of one species:
+    # the witness that the outer label does NOT determine the parent
+    strip = collections.defaultdict(set)
+    for i, c in data:
+        strip[(species_of(c), normalise(c[1]))].add(c[10])
+    amb = {kk: sorted(v) for kk, v in strip.items() if len(v) > 1}
+    num("outer_label_two_limits", sorted((kk[0], kk[1], v) for kk, v in amb.items()))
+    rec("EXHAUSTIVE", "exactly two outer labels are printed at two limits of one species, and only one is a "
+        "parent case: Ba III nd 2[3/2]* J=2 at both its limits (the other is Ca II's 0.010 rounding)",
+        len(amb) == 2 and sorted(kk[0] for kk in amb) == ["Ba III", "Ca II"]
+        and amb[("Ba III", "nd 2[3/2]* J=2")] == ["289,100.000", "306,650.000"], "%s" % sorted(amb))
     rowcount = collections.Counter(species_of(c) for i, c in data)
     bylim = {s: dict(collections.Counter(c[10] for i, c in data if species_of(c) == s))
              for s in ("Ba III", "Ne I", "Ne II", "Si I")}

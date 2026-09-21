@@ -659,9 +659,10 @@ def check_catalogue():
     rec("EXHAUSTIVE", "C14b", "composable fractions %s and %s" % (pct(VALUES["comp9_frac"]), pct(VALUES["comp10_frac"])), True)
     # the spectra survey grid
     grid, held, Zs, Cs, Ls = spectra_grid()
-    eq("EXHAUSTIVE", "C15", "channel survey grid (Z, charge, l): elements, charges, l values, cells, E, held cells in grid",
-       (len(Zs), Cs, len(Ls), len(grid), E(grid), len(held & set(grid))), (28, [1, 2, 3, 4, 5, 6, 9, 11, 15, 16], 8, 1744, 0, 285),
-       sp_cells=1744, sp_held=285, sp_elements=28)
+    eq("EXHAUSTIVE", "C15", "channel survey grid (Z, charge, l): elements, charges, l values, cells, box, E, held cells in grid",
+       (len(Zs), Cs, len(Ls), len(grid), len(Zs) * len(Cs) * len(Ls), E(grid), len(held & set(grid))),
+       (28, [1, 2, 3, 4, 5, 6, 9, 11, 15, 16], 8, 1744, 2240, 0, 285),
+       sp_cells=1744, sp_box=2240, sp_held=285, sp_elements=28)
     # bit costs
     bits = {}
     for key, Rn, En in (("pt", 126, 36), ("cal", 372, 7), ("nuc", 61, 9), ("ks", 748, 540), ("ame", 3560, 2)):

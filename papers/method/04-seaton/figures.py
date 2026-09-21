@@ -75,8 +75,9 @@ def fig1(rows, st):
         b.plot(r["p"], r["rho"], "o", ms=8, color=BLUE, mec=SURFACE, mew=2, zorder=3, label="p = 0" if r is p0[0] else None)
     for r in p1:
         b.plot(r["p"], r["rho"], "o", ms=8, color=ORANGE, mec=SURFACE, mew=2, zorder=3, label="p ≥ 1" if r is p1[0] else None)
-    for r in p0:
-        b.annotate(r["name"], (r["p"], r["rho"]), xytext=(6, -2), textcoords="offset points", fontsize=7.5, color=TEXT2)
+    for r in sorted(p0, key=lambda r: r["rho"]):
+        dy = {0: -11, 1: 6, 2: -4}[sorted(p0, key=lambda q: q["rho"]).index(r)]
+        b.annotate(r["name"], (r["p"], r["rho"]), xytext=(9, dy), textcoords="offset points", fontsize=7.5, color=TEXT2)
     b.text(-0.3, st["p0_median"] + st["p0_sd"] + 0.03, "median %.3f, sd %.3f" % (st["p0_median"], st["p0_sd"]), fontsize=7.5, color=TEXT2, va="bottom")
     b.text(3.6, st["p1_median"] + st["p1_sd"] + 0.03, "median %.3f, sd %.3f" % (st["p1_median"], st["p1_sd"]), fontsize=7.5, color=TEXT2, va="bottom", ha="right")
     b.set_xlim(-0.5, 4.8)
@@ -97,12 +98,13 @@ def fig2(rows, st):
                ("p ≥ 1, ℓ ≥ 1", ORANGE, st["p1_rho"], st["p1_median"], st["p1_sd"])]
     for i, (lab, col, vals, med, sd) in enumerate(classes):
         y = i
-        ax.axvspan(med - sd, med + sd, ymin=(y + 0.65) / 2.5, ymax=(y + 1.35) / 2.5, color=col, alpha=0.10, lw=0)
+        ax.axvspan(med - sd, med + sd, ymin=(y + 0.30) / 2.5, ymax=(y + 0.90) / 2.5, color=col, alpha=0.10, lw=0)
         ax.plot([med, med], [y + 0.7, y + 1.3], color=col, lw=2, solid_capstyle="round", zorder=2)
-        jitter = [-0.08, 0.0, 0.08, -0.16, 0.16, 0.24][:len(vals)]
+        k = len(vals)
+        jitter = [(i - (k - 1) / 2) * 0.09 for i in range(k)]
         for v, j in zip(sorted(vals), jitter):
             ax.plot(v, y + 1 + j, "o", ms=8, color=col, mec=SURFACE, mew=2, zorder=3)
-        ax.text(med, y + 1.40, "median %.3f, sd %.3f, %d series" % (med, sd, len(vals)), ha="center", fontsize=7.5, color=TEXT2)
+        ax.text(med, y + 1.46, "median %.3f, sd %.3f, %d series" % (med, sd, len(vals)), ha="center", fontsize=7.5, color=TEXT2)
     ax.axvline(1.0, color=TEXT2, lw=1)
     ax.text(1.02, 2.72, "ρ = 1", ha="left", fontsize=7.5, color=TEXT2)
     ax.axvline(0.0, color=TEXT2, lw=1)

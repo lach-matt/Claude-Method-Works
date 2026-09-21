@@ -121,7 +121,7 @@ and for every ν > 1,
 
 **Corollary 2 (the bound in the silence).** If the bracket holds at a cell whose neighbours are unperturbed, the displacement of the level satisfies |Δ| ≤ max(g₋, g₊) = g₋ < w, where w = g₋ + g₊ is the width of the interval. The half-width w/2 is exactly h·(2A/ν³)/(1 − h²/ν²)² for step h (I24) and exceeds 2A/ν³. So each held cell bounds its own local perturbation by half the width of its bracket, computed from the two measured neighbours, with no fit, no expansion and no smoothness assumption. ∎ **PROVED.**
 
-**Definition (critical depth).** A perturbation of size |Δ| can reorder a cell only where the local gap has fallen to |Δ|. Taking the derivative 2Z²R/ν³ for the gap, the critical depth is ν_fail := (2Z²R/|Δ|)^{1/3}.
+**D11 (critical depth).** A perturbation of size |Δ| can reorder a cell only where the local gap has fallen to |Δ|. Taking the derivative 2Z²R/ν³ for the gap, the critical depth is ν_fail := (2Z²R/|Δ|)^{1/3}.
 
 | |Δ| (cm⁻¹) | ν_fail, Z = 1 | ν_fail, Z = 2 |
 |---|---|---|
@@ -130,7 +130,7 @@ and for every ν > 1,
 | 100 | 13.0 | 20.6 |
 | 10 | 28.0 | 44.4 |
 
-*Table 1. The critical depth ν_fail = (2Z²R/|Δ|)^{1/3}. By Lemma 3 the true gap above the cell is smaller than 2Z²R/ν³ and the gap below is larger, so ν_fail is between the two exact thresholds.*
+*Table 1. The critical depth ν_fail = (2Z²R/|Δ|)^{1/3}. By Lemma 3 the true gap above the cell is smaller than 2Z²R/ν³ and the gap below is larger, so ν_fail (D11) is between the two exact thresholds.*
 
 **An observation, not a theorem.** Large perturbations of a Rydberg series arise from configuration interaction with core-excited states, which lie low in the spectrum, while deep series live at high ν where the gaps are small. The two conditions of Theorem 3 — a large Δ and a small gap — therefore tend not to coincide in measured spectra. That is a statement about atoms and is offered as one; nothing below depends on it.
 
@@ -158,7 +158,7 @@ which is positive since h < ν, so the middle term lies below the chord and the 
 
 an identity of rational functions (I6, exact on a grid). The denominator is positive. In the second factor each of r₁², r₁r₂ and r₂² is at most r₁²r₂², because r₂² ≥ 1, r₁r₂ ≥ 1 and r₁² ≥ 1 respectively, with equality in all three only at r₁ = r₂ = 1; so the factor is positive whenever r₁, r₂ ≥ 1 are not both 1. The difference therefore has the sign of r₂ − r₁. The floor follows at r = 2, where V = 32/11. ∎ **PROVED**; the minimum over every (ν, h) with h = 1…4 and ν = 2h…400 is 32/11, **EXHAUSTIVE** (1,584 cases, I10).
 
-The hypothesis ν ≥ 2h is the statement that the lower neighbour exists at ν − h ≥ h. Among the cells tested in §7 it holds at all but one: the smallest interior effective quantum number in that collection is 1.99993, at n = 2 of the Li III ns series, where the departure of the threshold from 9R (§8) carries ν seven parts in 10⁵ below 2; every other cell has ν ≥ 2 (D11). At integer ν with h = 1 the price is rational: 32/11, 54/13, 256/47, 250/37 at ν = 2, 3, 4, 5 and 4000/299 at ν = 10 (I9).
+The hypothesis ν ≥ 2h is the statement that the lower neighbour exists at ν − h ≥ h. Among the cells tested in §7 it holds at all but one: the smallest interior effective quantum number in that collection is 1.99993, at n = 2 of the Li III ns series — a hydrogenic ion whose threshold exceeds the Coulomb value 9R by the relativistic term of §8, which depresses ν at that cell just below 2; V there falls below 32/11 by less than a part in 10⁴. Every other cell has ν ≥ 2 (E11). At integer ν with h = 1 the price is rational: 32/11, 54/13, 256/47, 250/37 at ν = 2, 3, 4, 5 and 4000/299 at ν = 10 (I9).
 
 **Corollary 4 (the asymptote, with its remainder).** V(r) = 4r/3 + 4/(9r) + 4/(9r(3r² − 1)) exactly (I5). At ν = 2 the two-term asymptote gives 26/9, low by 0.694 %; at ν = 10 the remainder is 4/26,910 = 1.49 × 10⁻⁴, so the asymptote is exact to three decimals there and not to four. The floor 32/11 belongs to the exact expression; the asymptote has no floor. ∎ **PROVED.**
 
@@ -170,7 +170,7 @@ The hypothesis ν ≥ 2h is the statement that the lower neighbour exists at ν 
 
 **Proof.** Put d₀ = y₁ − y₀ > 0 and d₁ = y₂ − y₁ > 0. Then w = d₀ + d₁ and e = |d₀ − d₁|/2, so V = 2(d₀ + d₁)/|d₀ − d₁|. Since both steps are positive, |d₀ − d₁| < d₀ + d₁, which is V > 2. Writing the smaller step as t times the larger, V = 2(1 + t)/(1 − t), which runs from 2 (as t → 0, one step vanishing) to ∞ (as t → 1, the interpolant exact). ∎ **PROVED**; **MACHINE-CHECKED** (M2, over all positive reals d₀ ≠ d₁); and V > 2 is **EXHAUSTIVE** over every integer power law p ∈ [−8, 29] ∖ {0, 1} at x = 2…40, h = 1 (1,404 cases, I31).
 
-So the interval a bracket returns is always more than twice the error of the crudest estimate built from the same two numbers, and the floor 2 is approached only as one step of the series vanishes against the other. The Rydberg floor 32/11 is the tighter of the two, and the difference between them is what the ν⁻² form contributes.
+So the interval a bracket returns is always more than twice the error of the crudest estimate built from the same two numbers, and the floor 2 is approached only as one step of the series vanishes against the other. Read on a convex sampled function the same inequality is the statement that the chord lies above the curve (Jensen 1906; CITED). The Rydberg floor 32/11 is the tighter of the two, and the difference between them is what the ν⁻² form contributes.
 
 **Theorem 7 (width and price move oppositely in the step).** Let y be differentiable and strictly convex on [x − H, x + H] with y′ > 0 there. For 0 < h < H let w(h) = y(x+h) − y(x−h) and e(h) = ½(y(x+h) + y(x−h)) − y(x). Then w is strictly increasing in h and V = w/e is strictly decreasing in h. The same holds with y′ < 0 (apply the result to −y, which leaves w, e and V unchanged).
 
@@ -224,6 +224,8 @@ and their ratio is V. **Proof.** Divide the closed forms of Theorem 4 by T = A/�
 
 **Proposition 1 (the optimal step, to leading order).** For a preference αw + βV with α, β > 0, the leading-order forms w ≈ 2|y′|h and V ≈ 4|y′|/(|y″|h) give a unique interior minimum at h* = √(2β/(α|y″|)). **Proof.** d/dh [2α|y′|h + 4β|y′|/(|y″|h)] = 2α|y′| − 4β|y′|/(|y″|h²) vanishes at h² = 2β/(α|y″|), and the second derivative 8β|y′|/(|y″|h³) is positive. ∎ **PROVED** at leading order only; the formula presumes h* ≪ x and is not claimed beyond it.
 
+**Prior art.** The question §4 asks — by how much a guaranteed enclosure exceeds the quantity it encloses — is the *excess width* of interval analysis, named and studied since Moore (1966) and required of conforming implementations by IEEE Std 1788-2015 (CITED). That framing is not new here, and it is stated in terms of function ranges and rounding. What is computed here is the same ratio for a measured monotone sequence bracketed by interpolation from its own two neighbours: the exact value 4ν³/(h(3ν² − h²)), the floor 32/11, the pole at p = 1, and the identification of the leading-order width–price product with the Newton decrement (§5).
+
 ---
 
 ## §5 · The price is a Newton decrement
@@ -236,7 +238,7 @@ The decrement is the standard measure of proximity to the minimiser in interior-
 
 **Theorem 11 (self-concordance).** T(ν) = A/ν² is self-concordant on ν > 0 exactly where ν² ≤ 3A/2, that is ν ≤ (√6/2)·Z√R.
 
-**Proof.** |T‴| = 24A/ν⁵ and 2(T″)^{3/2} = 2(6A)^{3/2}/ν⁶; both sides are positive, so the condition |T‴| ≤ 2(T″)^{3/2} is equivalent to its square, (T‴)² ≤ 4(T″)³. The difference is the exact identity 4(T″)³ − (T‴)² = (576A²/ν¹²)(3A/2 − ν²) (I19), non-negative exactly when ν² ≤ 3A/2. ∎ **PROVED.** At Z = 1, 2 and 6 the bound is ν ≤ 405.7, 811.4 and 2,434.3 respectively (I20); the ratio |T‴|/(2(T″)^{3/2}) is 0.0049 at ν = 2 and 0.1356 at ν = 55 (I20). Over the cells of §7 the largest value the ratio attains is 0.1651, at the deepest cell of that collection, ν = 66.99 in a neutral series (D11). The term function is self-concordant across the whole measured range with a margin of 6.06, so the decrement carries its meaning there.
+**Proof.** |T‴| = 24A/ν⁵ and 2(T″)^{3/2} = 2(6A)^{3/2}/ν⁶; both sides are positive, so the condition |T‴| ≤ 2(T″)^{3/2} is equivalent to its square, (T‴)² ≤ 4(T″)³. The difference is the exact identity 4(T″)³ − (T‴)² = (576A²/ν¹²)(3A/2 − ν²) (I19), non-negative exactly when ν² ≤ 3A/2. ∎ **PROVED.** At Z = 1, 2 and 6 the bound is ν ≤ 405.7, 811.4 and 2,434.3 respectively (I20); the ratio |T‴|/(2(T″)^{3/2}) is 0.0049 at ν = 2 and 0.1356 at ν = 55 (I20). Over the cells of §7 the largest value the ratio attains is 0.1651, at the deepest cell of that collection, ν = 66.99 in a neutral series (E11). The term function is self-concordant across the whole measured range with a margin of 6.06, so the decrement carries its meaning there.
 
 **Theorem 12 (Aitken's Δ² on a Rydberg series).** Let Â(n) := T(n−1) − (T(n) − T(n−1))² / (T(n+1) − 2T(n) + T(n−1)) be Aitken's extrapolant on the triple (n−1, n, n+1). For T(n) = A/n², exactly
 
@@ -275,7 +277,7 @@ after the numerator 2(m+1)²(3m²+6m+2) − (2m+1)²(m+2)² = 2m⁴ + 4m³ + m²
 
 **Lemma 5 (what a difference can resolve).** If each level carries an error at most σ, the (k+1)-th difference carries an error at most 2^{k+1}σ. **Proof.** Δ^{k+1} is the signed sum Σᵢ (−1)^{k+1−i} C(k+1, i) T(n+i), and Σᵢ C(k+1, i) = 2^{k+1}. ∎ **PROVED**; **EXHAUSTIVE** for k = 0…11 (I35).
 
-**Definition (admissibility at order k).** With σ = q the quotation floor, a run of k + 2 consecutive measured members is resolved at order k when |Δ^{k+1}T| > 5·2^{k+1}q; the case k = 1 is D7's rule r_adm ≥ 5 applied to the second difference rather than the first. A resolved run whose difference has the wrong sign (Lemma 4) is refused: it is a perturbation detected by sign alone, with no fit. The resolution bound ν_V on the curvature follows from the leading-order second difference 3A/ν⁴ (Theorem 9 with h = 1): 3Z²R/ν⁴ > 5q ⟺ ν < ν_V := (3Z²R/(5q))^{1/4}, which is 160.2, 90.1 and 50.7 at q = 10⁻⁴, 10⁻³ and 10⁻² for Z = 1 (I26). Curvature washes out as ν⁻⁴ before separation does as ν⁻³.
+**D12 (resolution at order k).** With σ = q the quotation floor, a run of k + 2 consecutive measured members is resolved at order k when |Δ^{k+1}T| > 5·2^{k+1}q; the case k = 1 is D7's rule r_adm ≥ 5 applied to the second difference rather than the first. A resolved run whose difference has the wrong sign (Lemma 4) is refused: it is a perturbation detected by sign alone, with no fit. The resolution bound ν_V on the curvature follows from the leading-order second difference 3A/ν⁴ (Theorem 9 with h = 1): 3Z²R/ν⁴ > 5q ⟺ ν < ν_V := (3Z²R/(5q))^{1/4}, which is 160.2, 90.1 and 50.7 at q = 10⁻⁴, 10⁻³ and 10⁻² for Z = 1 (I26). Curvature washes out as ν⁻⁴ before separation does as ν⁻³.
 
 Higher order buys a narrower interval, not a cheaper one: the bracket and the estimate at order k are built from different node sets, so no inequality between them is implied and Theorem 6's floor applies to the classical first-order pair alone.
 
@@ -283,9 +285,9 @@ Higher order buys a narrower interval, not a cheaper one: the bracket and the es
 
 ## §7 · The data, and the test
 
-**The data.** The levels are measured atomic energy levels, in cm⁻¹, from the NIST Atomic Spectra Database, version 5.12 (Kramida, Ralchenko, Reader and the NIST ASD Team; CITED) and from the critical compilations it draws on — Kaufman and Martin (1991) for Al I and Al II, Sansonetti (2008) for Na I and K I among them — held as 86 tables, one per spectrum, each with its ionisation threshold. A level the database marks as derived from a series formula rather than observed is excluded: such a value is generated by the law the bracket assumes and cannot falsify it. Nine further tables and 57 of a later intake carry no threshold and are not used. The threshold enters only through ν and δ, never through the containment of D4 (Theorem 2).
+**The data.** The levels are measured atomic energy levels, in cm⁻¹, from the NIST Atomic Spectra Database (Kramida, Ralchenko, Reader and the NIST ASD Team; CITED) — version 5.12 in every table that names a version, with four spectra re-retrieved from the database in August 2026 — and from the critical compilations it draws on — Kaufman and Martin (1991) for Al I and Al II, Sansonetti (2008a) for Na I and Sansonetti (2008b) for K I among them — held as 86 tables, one per spectrum, each with its ionisation threshold. A level the database marks as derived from a series formula rather than observed is excluded: such a value is generated by the law the bracket assumes and cannot falsify it. Nine further tables and 57 of a later intake carry no threshold and are not used. The threshold enters only through ν and δ, never through the containment of D4 (Theorem 2).
 
-**The two runs.** Run A tests a fixed list of 285 series whose membership — parent term, term, J and the range of n — was assigned in advance, with the strict rule D8 and the levels taken member for member from the tables. Run B tests every series in the 86 tables that holds three consecutive measured members below its threshold, under the same rule: 395 series across 74 spectra. In both, the object under test is the sealed implementation of D8 and an independent implementation is run beside it as a guard; the two agree cell for cell on every series (D1).
+**The two runs.** Run A tests a fixed list of 285 series whose membership — parent term, term, J and the range of n — was assigned in advance, with the strict rule D8 and the levels taken member for member from the tables. Run B tests every series in the 86 tables that holds three consecutive measured members below its threshold, under the same rule: 395 series across 74 spectra. In both, the object under test is the sealed implementation of D8 and an independent implementation is run beside it as a guard; the two agree cell for cell on every series (E1).
 
 | run | series | cells | pass | fail | refused | pass rate |
 |---|---|---|---|---|---|---|
@@ -293,25 +295,25 @@ Higher order buys a narrower interval, not a cheaper one: the bracket and the es
 | B, every series in the tables | 395 | 1,551 | 1,145 | 406 | 0 | 73.8 % |
 | B, the containment statement D4 on the same cells | 395 | 1,551 | 1,551 | 0 | — | 100 % |
 
-*Table 4. The strict test (D8) and the containment statement (D4) on the measured levels. Run A decomposes as 658 of 813 on 250 series and 75 of 81 on 35 series. No cell was refused: at every cell the admissibility ratio of D7 exceeds 5, that is, the local derivative 2Z²R/ν³ exceeds five times the quotation floor. Refusals are counted as their own class and are not folded into either pass or fail. (D2–D4.) MEASURED.*
+*Table 4. The strict test (D8) and the containment statement (D4) on the measured levels. Run A decomposes as 658 of 813 on 250 series and 75 of 81 on 35 series. No cell was refused: at every cell the admissibility ratio of D7 exceeds 5, that is, the local derivative 2Z²R/ν³ exceeds five times the quotation floor. Refusals are counted as their own class and are not folded into either pass or fail. (E2–E4.) MEASURED.*
 
-Three things are read from Table 4. The containment statement passes every cell, as Corollary 1 says it must on ordered levels; the number carries no information beyond the order. The defect bracket fails at a quarter of the cells; a failure is a triple across which the implied quantum defect is not monotone, which is what a local perturber, a change of coupling scheme along a series, or an interleaving second series produces. And no cell was refused, so the failures are decided at the floor of the quotation and are not artefacts of coarse printing. The series that fail most completely are short ones in the ions — C II, Ca IX, Al IV, P II, C I, with two cells or fewer each, all failing (D4).
+Three things are read from Table 4. The containment statement passes every cell, as Corollary 1 says it must on ordered levels; the number carries no information beyond the order. The defect bracket fails at a quarter of the cells; a failure is a triple across which the implied quantum defect is not monotone, which is what a local perturber, a change of coupling scheme along a series, or an interleaving second series produces. And no cell was refused, so the failures are decided at the floor of the quotation and are not artefacts of coarse printing. The series that fail most completely are short ones in the ions — C II, Ca IX, Al IV, P II and C I, with two cells or fewer each and no cell passing (E4b).
 
-**The price, measured.** For each triple (n − h, n, n + h) of measured levels with h = 1 or 2, w and e are formed from the measured terms and compared with Theorem 4 at r = ν/h, keeping the triples whose curvature is resolved at the floor (e ≥ 10q). The median deviation from 4r³/(3r² − 1) is 0.84 % over 1,490 triples at h = 1, 0.51 % over 842 at h = 2, and 0.71 % over all (D5). The h = 2 triples bracket from neighbours two principal quantum numbers away and obey the same law, as Corollary 3 says they must.
+**The price, measured.** For each triple (n − h, n, n + h) of measured levels with h = 1 or 2, w and e are formed from the measured terms and compared with Theorem 4 at r = ν/h, keeping the triples whose curvature is resolved at the floor (e ≥ 10q). The median deviation from 4r³/(3r² − 1) is 0.84 % over 1,490 triples at h = 1, 0.51 % over 842 at h = 2, and 0.71 % over all (E5). The h = 2 triples bracket from neighbours two principal quantum numbers away and obey the same law, as Corollary 3 says they must.
 
 ![Figure 3](figures/fig4-v-measured.png)
 
-*Figure 3. V = w/e on 2,332 triples of measured levels, h = 1 and h = 2, against the exact 4r³/(3r² − 1) and the floor 32/11. The median deviation is 0.71 %. (D5.) MEASURED.*
+*Figure 3. V = w/e on 2,332 triples of measured levels, h = 1 and h = 2, against the exact 4r³/(3r² − 1) and the floor 32/11. The median deviation is 0.71 %. (E5.) MEASURED.*
 
-**The gaps, measured.** At the 1,551 cells the measured gap below the cell divided by 2Z²R/ν³ has median 1.264 and the gap above has median 0.818 (D6): the derivative lies between the two gaps, as Lemma 3 says.
+**The gaps, measured.** At the 1,551 cells the measured gap below the cell divided by 2Z²R/ν³ has median 1.264 and the gap above has median 0.818 (E6): the derivative lies between the two gaps, as Lemma 3 says.
 
-**The bound in the silence.** Each of the 1,145 held cells bounds its own local displacement by half its bracket's width (Corollary 2). The tightest is 0.925 cm⁻¹, at Ga I 4s²np, n = 66, ν = 63.8, where 2Z²R/ν³ is 0.844 cm⁻¹; the median over the held cells is 4,308 cm⁻¹, because most of the collection sits at low ν (D7). Deeper series give tighter bounds, and a bound of this kind is falsifiable in the ordinary way: a perturbation larger than the stated bound at that cell would refute it.
+**The bound in the silence.** Each of the 1,145 held cells bounds its own local displacement by half its bracket's width (Corollary 2). The tightest is 0.925 cm⁻¹, at Ga I 4s²np, n = 66, ν = 63.8, where 2Z²R/ν³ is 0.844 cm⁻¹; the median over the held cells is 4,308 cm⁻¹, because most of the collection sits at low ν (E7). Deeper series give tighter bounds, and a bound of this kind is falsifiable in the ordinary way: a perturbation larger than the stated bound at that cell would refute it.
 
 ![Figure 4](figures/fig3-bounds.png)
 
-*Figure 4. The 1,145 held cells, each at the bound w/2 its containment implies, against ν; the curves are 2Z²R/ν³ at Z = 1 and 2. Cells at Z ≥ 3 sit above the Z = 2 curve. The tightest bound is 0.93 cm⁻¹ at ν = 63.8. (D7.) MEASURED.*
+*Figure 4. The 1,145 held cells, each at the bound w/2 its containment implies, against ν; the curves are 2Z²R/ν³ at Z = 1 and 2. Cells at Z ≥ 3 sit above the Z = 2 curve. The tightest bound is 0.93 cm⁻¹ at ν = 63.8. (E7.) MEASURED.*
 
-**Higher order, on the data.** Every run of k + 2 consecutive measured members is classified at order k by the admissibility rule of §6: unresolved when |Δ^{k+1}T| ≤ 5·2^{k+1}q, refused when its sign is wrong, admitted otherwise.
+**Higher order, on the data.** Every run of k + 2 consecutive measured members is classified at order k by D12: unresolved when |Δ^{k+1}T| ≤ 5·2^{k+1}q, refused when its sign is wrong, admitted otherwise.
 
 | order k | runs | admitted | wrong sign | unresolved |
 |---|---|---|---|---|
@@ -322,7 +324,7 @@ Three things are read from Table 4. The containment statement passes every cell,
 | 5 | 495 | 232 | 55 | 208 |
 | 6 | 391 | 147 | 43 | 201 |
 
-*Table 5. The order-k census on the measured levels. (D8.) MEASURED.*
+*Table 5. The order-k census on the measured levels. (E8.) MEASURED.*
 
 ![Figure 5](figures/fig5-order-census.png)
 
@@ -330,7 +332,7 @@ Three things are read from Table 4. The containment statement passes every cell,
 
 **Two synthetic controls.** On a series T(n) = R/(n − δ)² with n = 4…14 and δ = 0, 0.35, 1.35 and 2.65, containment holds at all 36 interior cells while the energies run from 559.9 to 6,858.6 cm⁻¹ at δ = 0 and from 851.8 to 60,212.5 cm⁻¹ at δ = 2.65 (I36): the defect stretches the series ninefold and containment does not notice, because it needs only monotonicity in n. And the bracket does not extrapolate. At δ = 0.35 the widths at n = 5…11 are 4,799, 2,594, 1,562, 1,015, 697, 499 and 370 cm⁻¹ with successive ratios 0.540, 0.602, 0.650, 0.687, 0.716 and 0.741; presuming the next width from the last ratio gives 274.1 against a true 281.7, low by 2.72 % (I37). A good estimate and not a bound. The law gives the ratio ((ν)/(ν+1))³ = 0.764 at that step, derived rather than fitted.
 
-**A worked deduction.** Where a series has two measured members at n = 4 and 5 and the defect is assumed to decrease along it, the bracket runs on the defect. With δ(4s) = 1.0057, δ(5s) = 0.9812, threshold 892,700 cm⁻¹ and Z = 6 (the ⁴S° ns series of Sc VI, levels and threshold from the database), the two-point Ritz solve δ = δ_∞ + δ₂/n² is exactly determined: δ₂ = 1.0889, δ_∞ = 0.9376, δ(6s) = 0.9679, so E(6s) = 736,688 cm⁻¹. Monotone decrease bounds δ(6s) on both sides, δ_∞ < δ(6s) < δ(5s), which is the interval [735,860, 738,547] cm⁻¹, 2,687 wide; convexity of δ in 1/n² adds δ(6s) ≥ 2δ(5s) − δ(4s) = 0.9567 and narrows the upper edge to 737,380 cm⁻¹, an interval 1,520 wide that lies inside the first (I38). The lower edge tests monotonicity and the upper edge tests convexity, so a measurement between the two upper edges would refute the second and leave the first standing. This is a deduction conditional on the two stated order properties, both of which the data of Table 4 show can fail in a given series.
+**A worked deduction.** Where a series has two measured members at n = 4 and 5 and the defect is assumed to decrease along it, the bracket runs on the defect. With δ(4s) = 1.0057, δ(5s) = 0.9812, threshold 892,700 cm⁻¹ and Z = 6 (the ⁴S° ns series of Sc VI, levels and threshold from the database), the two-point Ritz solve δ = δ_∞ + δ₂/n² is exactly determined: δ₂ = 1.0889, δ_∞ = 0.9376, δ(6s) = 0.9679, so E(6s) = 736,688 cm⁻¹. Monotone decrease bounds δ(6s) on both sides, δ_∞ < δ(6s) < δ(5s), which is the interval [735,860, 738,547] cm⁻¹, 2,687 wide; convexity of δ in 1/n² adds δ(6s) ≥ 2δ(5s) − δ(4s) = 0.9567 and narrows the upper edge to 737,380 cm⁻¹, an interval 1,520 wide that lies inside the first (I38). The threshold itself carries a quoted uncertainty of ±400 cm⁻¹ (CITED), which is to be added at both edges of either interval; it shifts both edges together and does not change their separation. The lower edge tests monotonicity and the upper edge tests convexity, so a measurement between the two upper edges would refute the second and leave the first standing. This is a deduction conditional on the two stated order properties, both of which the data of Table 4 show can fail in a given series.
 
 **What the counts do not show.** Cells within a series share neighbours, so 1,551 cells are not 1,551 independent tests; the count of series, 395, is the conservative figure. A failure of the defect bracket is not a fault of a level: it is a triple across which δ is not monotone. And the containment statement's 1,551 of 1,551 is the order of the levels restated, not a validation.
 
@@ -346,9 +348,9 @@ The threshold of a hydrogenic ion is not Z²R. Against the reduced-mass baseline
 | Be IV | 328.66 | 373.97 | 0.879 |
 | B V | 815.22 | 913.03 | 0.893 |
 
-*Table 6. The deficit of each threshold against the Coulomb value, and the leading relativistic term. (D9.) MEASURED, from thresholds that are themselves derived from calculated levels (Yerokhin and Shabaev 2015; CITED).*
+*Table 6. The deficit of each threshold against the Coulomb value, and the leading relativistic term. (E9.) MEASURED, from thresholds that are themselves derived from calculated levels (Yerokhin and Shabaev 2015; CITED).*
 
-The ratio is 0.88–0.89 at all three charges; the remainder has the sign and the Z⁴ scaling of the 1s Lamb shift, which raises the level and reduces the binding (Eides, Grotch and Shelyuto 2001; CITED), and is not pursued here. The practical point is the size: a threshold written as 9R for Li III is low by 26.45 cm⁻¹ (D9), which appears in every quantum defect of that ion as a spurious −0.005 growing as n³. The defect bracket of D5 and the price V both inherit that error. The bracket of D4 does not: by Theorem 2 it never sees the threshold. Relativity enters this subject at one place, the value of I, and the containment statement is defined so that I is not in it.
+The ratio is 0.88–0.89 at all three charges; the remainder has the sign and the Z⁴ scaling of the 1s Lamb shift, which raises the level and reduces the binding (Eides, Grotch and Shelyuto 2001; CITED), and is not pursued here. The practical point is the size: a threshold written as 9R for Li III is low by 26.45 cm⁻¹ (E9), which appears in every quantum defect of that ion as a spurious −0.005 growing as n³. The defect bracket of D5 and the price V both inherit that error. The bracket of D4 does not: by Theorem 2 it never sees the threshold. Relativity enters this subject at one place, the value of I, and the containment statement is defined so that I is not in it.
 
 ---
 
@@ -356,7 +358,7 @@ The ratio is 0.88–0.89 at all three charges; the remainder has the sign and th
 
 **Lemma 6 (the assembly rule).** An observable built as ⟨r⟩ᵃ/(ΔE)ᵇ from the hydrogenic scalings ⟨r⟩ ∝ ν² and ΔE ∝ ν⁻³ (Bethe and Salpeter 1957; Gallagher 1994; CITED) scales as ν^{2a+3b}. **Proof.** (ν²)ᵃ/(ν⁻³)ᵇ = ν^{2a+3b}. ∎ **PROVED.** The second scaling is Theorem 4's w to leading order. It gives p = 2 for ⟨r⟩, 4 for C₃, 7 for the polarisability (a = 2, b = 1) and 11 for C₆ (a = 4, b = 1); C₆ is four single-atom dipole factors over one single-atom denominator, assembled from ν and nothing else.
 
-**Lemma 7 (rank one).** For quantities qᵢ(ν) = cᵢ ν^{pᵢ}, the matrix of log qᵢ(νⱼ) with each row centred has rank one. **Proof.** log qᵢ(νⱼ) = log cᵢ + pᵢ log νⱼ; centring each row over j removes log cᵢ and the mean of pᵢ log νⱼ, leaving pᵢ·(log νⱼ − mean), the outer product of the vector (pᵢ) with one row vector. ∎ **PROVED.** Numerically, for fifteen exponents over forty values of ν, σ₁ = 83.69 and σ₂/σ₁ = 2.1 × 10⁻¹⁶ (D10): every Rydberg property is one dimension seen at a different exponent, and Table 2 is that dimension priced.
+**Lemma 7 (rank one).** For quantities qᵢ(ν) = cᵢ ν^{pᵢ}, the matrix of log qᵢ(νⱼ) with each row centred has rank one. **Proof.** log qᵢ(νⱼ) = log cᵢ + pᵢ log νⱼ; centring each row over j removes log cᵢ and the mean of pᵢ log νⱼ, leaving pᵢ·(log νⱼ − mean), the outer product of the vector (pᵢ) with one row vector. ∎ **PROVED.** Numerically, for fifteen exponents over forty values of ν, σ₁ = 83.69 and σ₂/σ₁ = 2.1 × 10⁻¹⁶ (E10): every Rydberg property is one dimension seen at a different exponent, and Table 2 is that dimension priced.
 
 **Remark (three names for one quantity).** V is the measure of what the bracket admits over what the estimate carries: an ambient over an actual. Theorem 6 says that ratio never reaches 1 for an inference from two points; the pole of Theorem 8 says it is unbounded where the function does not turn. In the currency of §5's remark the first is "never less than one bit", and the Rydberg series charges 1.54.
 
@@ -364,14 +366,16 @@ The ratio is 0.88–0.89 at all three charges; the remainder has the sign and th
 
 ## §10 · Verification record
 
+Throughout the paper a tag in parentheses names the obligation that discharges the statement beside it. `I` marks an identity checked in exact rational arithmetic on a grid above its degree, or a decision procedure run over a finite family; `M` an obligation discharged by the SMT solver; `G` a guard; `E` a measurement on the level tables of §7. Tags of the form `Dn` are the numbered definitions, not obligations.
+
 | object | PROVED | EXHAUSTIVE | MACHINE-CHECKED (Z3) | MEASURED |
 |---|---|---|---|---|
 | Theorem 1, Corollary 1 | ✓ | — | ✓ M4, all real triples | — |
 | Theorem 2 | ✓ | — | ✓ M1, all real (I, a, b, c) | — |
 | Lemma 2 | ✓ | — | — | — |
 | Theorem 3 | ✓ | — | ✓ M3, all real (a, b, c, Δ) | — |
-| Lemma 3, Corollary 2 | ✓ (I21, I24 exact) | 796 values of ν (I22–I23) | — | gaps at 1,551 cells (D6) |
-| Theorem 4, Corollary 3 | ✓ (I1–I4, I13 exact) | — | — | 2,332 triples (D5) |
+| Lemma 3, Corollary 2 | ✓ (I21, I24 exact) | 796 values of ν (I22–I23) | — | gaps at 1,551 cells (E6) |
+| Theorem 4, Corollary 3 | ✓ (I1–I4, I13 exact) | — | — | 2,332 triples (E5) |
 | Theorem 5, Corollary 4 | ✓ (I5–I6, I9, I11–I12 exact) | 1,584 pairs (ν, h) (I10) | — | — |
 | Theorem 6 | ✓ | 1,404 power-law cases (I31) | ✓ M2, all positive reals d₀ ≠ d₁ | — |
 | Theorem 7 | ✓ | — | — | — |
@@ -379,21 +383,21 @@ The ratio is 0.88–0.89 at all three charges; the remainder has the sign and th
 | Theorem 9 | ✓ (I7–I8 exact, I14) | — | — | — |
 | Proposition 1 | ✓ leading order | — | — | — |
 | Theorem 10 | ✓ (I16–I17 exact, I18) | — | — | — |
-| Theorem 11 | ✓ (I19 exact, I20) | — | — | the ratio over 1,551 cells (D11) |
+| Theorem 11 | ✓ (I19 exact, I20) | — | — | the ratio over 1,551 cells (E11) |
 | Theorem 12, Table 3 | ✓ (I27 exact, I28) | — | — | — |
 | Lemma 4 | ✓ | 1,393 differences (I33) | — | — |
 | Theorem 13 | ✓ (remainder cited) | 2,800 sign checks, 560 brackets (I34) | — | — |
-| Lemma 5, ν_V | ✓ (I35, I26) | k = 0…11 | — | order census, 1,551 runs at k = 1 down to 391 at k = 6 (D8) |
+| Lemma 5, ν_V | ✓ (I35, I26) | k = 0…11 | — | order census, 1,551 runs at k = 1 down to 391 at k = 6 (E8) |
 | Table 1 | arithmetic (I25) | — | — | — |
-| Table 4 | — | — | — | ✓ 1,551 cells / 395 series (D2, D3), 894 cells / 285 series (D4), with guard D1 |
-| Corollary 2 on data, Figure 4 | — | — | — | ✓ 1,145 held cells (D7) |
+| Table 4 | — | — | — | ✓ 1,551 cells / 395 series (E2, E3), 894 cells / 285 series (E4), per-species breakdown (E4b), with guard E1 |
+| Corollary 2 on data, Figure 4 | — | — | — | ✓ 1,145 held cells (E7) |
 | synthetic controls, worked deduction | ✓ (I36–I38) | 36 cells | — | — |
-| Table 6 | — | — | — | ✓ 3 hydrogenic thresholds (D9) |
-| Lemmas 6, 7 | ✓ | — | — | 15 exponents × 40 values of ν (D10) |
+| Table 6 | — | — | — | ✓ 3 hydrogenic thresholds (E9) |
+| Lemmas 6, 7 | ✓ | — | — | 15 exponents × 40 values of ν (E10) |
 
-**The obligation count.** 55 obligations in the main run: 30 PROVED (every identity among them exact on a rational grid above its degree, Fraction arithmetic, no floating point), 9 EXHAUSTIVE with the family named beside each, 4 MACHINE-CHECKED, 9 MEASURED and 3 guards; 0 failed. The self-test adds 5 negative controls, each of which must be reported as refuted: a wrong rational identity on the grid, a false Z3 claim (V > 3) returned with a witness, a wrong concrete reference caught by the encoding guard, a displaced level leaving its interval, and a coarsely quoted cell refused rather than passed.
+**The obligation count.** 56 obligations in the main run: 30 PROVED (every identity among them exact on a rational grid above its degree, Fraction arithmetic, no floating point), 9 EXHAUSTIVE with the family named beside each, 4 MACHINE-CHECKED, 10 MEASURED and 3 guards; 0 failed. The self-test adds 5 negative controls, each of which must be reported as refuted: a wrong rational identity on the grid, a false Z3 claim (V > 3) returned with a witness, a wrong concrete reference caught by the encoding guard, a displaced level leaving its interval, and a coarsely quoted cell refused rather than passed.
 
-**The two guards.** Every Z3 obligation runs after two checks. *Non-vacuity*: each hypothesis is shown satisfiable with all variables distinct, so `unsat` on the negation is not an empty implication. *Encoding fidelity*: the solver's containment predicate is evaluated on 400 random rational triples against an independent implementation (sort the two ends, compare), with 0 disagreements, and a deliberately wrong reference (strict inequalities) produces 84, so the guard detects what it is meant to detect. The obligations range over linear real arithmetic, for which Z3's decision procedure is complete, so each `unsat` is a proof over every real assignment rather than over a finite box.
+**The two guards.** Every Z3 obligation runs after two checks. *Non-vacuity*: each hypothesis is shown satisfiable with all variables distinct, so `unsat` on the negation is not an empty implication. *Encoding fidelity*: the solver's containment predicate is evaluated on 400 random rational triples against an independent implementation (sort the two ends, compare), with 0 disagreements, and a deliberately wrong reference (strict inequalities) produces 84, so the guard detects what it is meant to detect. The obligations range over linear real arithmetic, for which the solver's decision procedure is complete (Z3; de Moura and Bjørner 2008; CITED), so each `unsat` is a proof over every real assignment rather than over a finite box.
 
 **What is not machine-checked, and why.** Theorems 4–13 are identities and inequalities of rational functions in real variables; they are proved in the text and their identities are checked exactly on grids, which is a proof of each identity. The monotonicity statements (Theorems 5 and 7) are proved by the difference identity and by the integral argument respectively and are not encoded for Z3, whose real arithmetic is linear. The measured figures of §7 are measurements and carry no proof status; their guard is the agreement of two implementations of the one rule.
 
@@ -415,6 +419,8 @@ Eides, M. I., Grotch, H. and Shelyuto, V. A. (2001). Theory of light hydrogenlik
 
 Gallagher, T. F. (1994). *Rydberg Atoms*. Cambridge University Press, Cambridge.
 
+IEEE (2015). *IEEE Standard for Interval Arithmetic*. IEEE Std 1788-2015. Institute of Electrical and Electronics Engineers, New York.
+
 Jensen, J. L. W. V. (1906). Sur les fonctions convexes et les inégalités entre les valeurs moyennes. *Acta Mathematica* 30, 175–193.
 
 Kaufman, V. and Martin, W. C. (1991). Wavelengths and energy level classifications for the spectra of aluminum (Al I through Al XIII). *Journal of Physical and Chemical Reference Data* 20, 775–858.
@@ -431,9 +437,9 @@ Ritz, W. (1903). Zur Theorie der Serienspektren. *Annalen der Physik* 317, 264�
 
 Rydberg, J. R. (1890). Recherches sur la constitution des spectres d'émission des éléments chimiques. *Kungliga Svenska Vetenskaps-Akademiens Handlingar* 23 (11), 1–155.
 
-Sansonetti, J. E. (2008). Wavelengths, transition probabilities, and energy levels for the spectra of sodium (Na I–Na XI). *Journal of Physical and Chemical Reference Data* 37, 1659–1763.
+Sansonetti, J. E. (2008a). Wavelengths, transition probabilities, and energy levels for the spectra of sodium (Na I–Na XI). *Journal of Physical and Chemical Reference Data* 37, 1659–1763.
 
-Sansonetti, J. E. (2008). Wavelengths, transition probabilities, and energy levels for the spectra of potassium (K I through K XIX). *Journal of Physical and Chemical Reference Data* 37, 7–96.
+Sansonetti, J. E. (2008b). Wavelengths, transition probabilities, and energy levels for the spectra of potassium (K I through K XIX). *Journal of Physical and Chemical Reference Data* 37, 7–96.
 
 Seaton, M. J. (1983). Quantum defect theory. *Reports on Progress in Physics* 46, 167–257.
 

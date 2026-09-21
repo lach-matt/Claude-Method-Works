@@ -585,7 +585,7 @@ def series_rows():
 
 
 def part5(results):
-    print("\n5. THE DATA -- the strict test on the level tables held here")
+    print("\n5. THE DATA -- the strict test on the level tables held here (obligations E*)")
     LIM = load_limits()
     # ---- the store: every table with a threshold on hand
     store = []      # (label, species, key, members, lim, Z)
@@ -626,14 +626,14 @@ def part5(results):
             triv_n += 1
             if byn[cnum - 1] <= E <= byn[cnum + 1]:
                 triv_ok += 1
-    ob("D1", "GUARD", agree, "the seated instrument and the independent reference agree cell for cell on every series", "%d cells" % len(cells_all))
+    ob("E1", "GUARD", agree, "the seated instrument and the independent reference agree cell for cell on every series", "%d cells" % len(cells_all))
     tot = P + Fl + Rf
     num("B_series", nser); num("B_cells", tot); num("B_pass", P); num("B_fail", Fl); num("B_refused", Rf)
     num("B_pass_pct", 100.0 * P / (P + Fl)); num("B_species", len({c["species"] for c in cells_all}))
-    ob("D2", "MEASURED", tot > 0, "whole store, strict test: %d series, %d cells: %d pass, %d fail, %d refused (%.1f%% of tested pass)"
+    ob("E2", "MEASURED", tot > 0, "whole store, strict test: %d series, %d cells: %d pass, %d fail, %d refused (%.1f%% of tested pass)"
        % (nser, tot, P, Fl, Rf, NUMS["B_pass_pct"]))
     num("B_triv_ok", triv_ok); num("B_triv_n", triv_n)
-    ob("D3", "MEASURED", triv_ok == triv_n, "the T-bracket (containment between neighbours) on the same cells: %d of %d" % (triv_ok, triv_n))
+    ob("E3", "MEASURED", triv_ok == triv_n, "the T-bracket (containment between neighbours) on the same cells: %d of %d" % (triv_ok, triv_n))
     # ---- Run A: the 285 tabulated series with cells, member for member
     rows = series_rows()
     keys = []
@@ -668,11 +668,14 @@ def part5(results):
     A = [agg["A250"][i] + agg["A45"][i] for i in range(4)]
     num("A_pass", A[0]); num("A_fail", A[1]); num("A_refused", A[2]); num("A_series", A[3]); num("A_cells", A[0] + A[1] + A[2])
     num("A_pass_pct", 100.0 * A[0] / (A[0] + A[1]))
-    ob("D4", "MEASURED", agg["A250"] == [658, 155, 0, 250] and agg["A45"] == [75, 6, 0, 35],
+    ob("E4", "MEASURED", agg["A250"] == [658, 155, 0, 250] and agg["A45"] == [75, 6, 0, 35],
        "tabulated series, member for member: %d + %d = %d series, %d cells: %d pass, %d fail, %d refused (%.1f%%)"
        % (agg["A250"][3], agg["A45"][3], A[3], A[0] + A[1] + A[2], A[0], A[1], A[2], NUMS["A_pass_pct"]))
     worst = sorted(byspecies.items(), key=lambda kv: kv[1][0] / max(1, sum(kv[1])))[:6]
     num("A_worst", worst)
+    ob("E4b", "MEASURED", worst[0][1][0] == 0,
+       "the six species with the lowest pass rate in the tabulated run (pass/cells): "
+       + ", ".join("%s %d/%d" % (sp, v[0], v[0] + v[1]) for sp, v in worst))
     # ---- V on measured cells (h = 1 and h = 2)
     def vcells(h):
         out = []
@@ -696,7 +699,7 @@ def part5(results):
     medall = statistics.median(abs(a / b - 1) for a, b, *_ in v1 + v2) * 100
     num("V_pairs_h1", len(v1)); num("V_pairs_h2", len(v2)); num("V_med_h1", med1); num("V_med_h2", med2); num("V_med_all", medall)
     num("V_pairs_all", len(v1) + len(v2))
-    ob("D5", "MEASURED", len(v1) > 0 and len(v2) > 0, "V measured against 4r^3/(3r^2-1): %d pairs at h = 1 (median deviation %.2f%%), %d at h = 2 (%.2f%%), %d in all (%.2f%%)"
+    ob("E5", "MEASURED", len(v1) > 0 and len(v2) > 0, "V measured against 4r^3/(3r^2-1): %d pairs at h = 1 (median deviation %.2f%%), %d at h = 2 (%.2f%%), %d in all (%.2f%%)"
        % (len(v1), med1, len(v2), med2, len(v1) + len(v2), medall))
     results["vpairs"] = [(a, b, nu, r, h) for h, vv in ((1, v1), (2, v2)) for a, b, nu, r, sp in vv]
     # ---- the yardstick: measured gaps against 2 Z^2 R / nu^3
@@ -707,7 +710,7 @@ def part5(results):
         D = 2 * c["Z"] ** 2 * R_FLOAT / c["nu"] ** 3
         lower.append((c["E"] - c["Em"]) / D); upper.append((c["Ep"] - c["E"]) / D)
     num("gap_lower_med", statistics.median(lower)); num("gap_upper_med", statistics.median(upper)); num("gap_pairs", len(lower))
-    ob("D6", "MEASURED", NUMS["gap_lower_med"] > 1 > NUMS["gap_upper_med"],
+    ob("E6", "MEASURED", NUMS["gap_lower_med"] > 1 > NUMS["gap_upper_med"],
        "measured gaps over 2Z^2R/nu^3 at %d cells: lower gap median %.3f, upper gap median %.3f (the derivative lies between)"
        % (len(lower), NUMS["gap_lower_med"], NUMS["gap_upper_med"]))
     # ---- the bound in the silence: w/2 per held cell
@@ -717,7 +720,7 @@ def part5(results):
             bounds.append(((c["Ep"] - c["Em"]) / 2, 2 * c["Z"] ** 2 * R_FLOAT / c["nu"] ** 3, c["nu"], c["Z"], c["species"], c["series"], c["n"]))
     bounds.sort()
     num("bound_cells", len(bounds)); num("bound_tightest", bounds[:5]); num("bound_median", statistics.median(b[0] for b in bounds))
-    ob("D7", "MEASURED", len(bounds) > 0, "%d held cells each bound their own perturbation by w/2; tightest %.3f cm^-1 (%s %s n=%d, nu = %.1f); median %.1f"
+    ob("E7", "MEASURED", len(bounds) > 0, "%d held cells each bound their own perturbation by w/2; tightest %.3f cm^-1 (%s %s n=%d, nu = %.1f); median %.1f"
        % (len(bounds), bounds[0][0], bounds[0][4], bounds[0][5], bounds[0][6], bounds[0][2], NUMS["bound_median"]))
     results["bounds"] = bounds
     # ---- order-k census with the admissibility rule
@@ -742,7 +745,7 @@ def part5(results):
                     adm += 1
         census[k] = (adm, ref, unres)
     num("order_census", census)
-    ob("D8", "MEASURED", census[1][0] > 0, "order-k census (admitted / wrong sign / unresolved): " + "; ".join("k=%d %d/%d/%d" % (k, *census[k]) for k in census))
+    ob("E8", "MEASURED", census[1][0] > 0, "order-k census (admitted / wrong sign / unresolved): " + "; ".join("k=%d %d/%d/%d" % (k, *census[k]) for k in census))
     results["cells"] = cells_all
     # ---- the hydrogenic thresholds: Dirac term against the deficit
     alpha = 7.2973525693e-3; me_u = 5.48579909065e-4
@@ -756,7 +759,7 @@ def part5(results):
         rel[sp] = (deficit, dirac, deficit / dirac, lim - Z * Z * R_FLOAT)
     num("relativity", rel)
     ratios = [v[2] for v in rel.values()]
-    ob("D9", "MEASURED", all(0.85 < x < 0.92 for x in ratios),
+    ob("E9", "MEASURED", all(0.85 < x < 0.92 for x in ratios),
        "hydrogenic thresholds against Z^2 R_M: deficit/Dirac = " + ", ".join("%s %.3f" % (k, v[2]) for k, v in rel.items())
        + "; Li III against 9 R_inf is %.2f cm^-1" % rel["Li III"][3])
     # ---- rank one across power laws (fifteen exponents)
@@ -768,7 +771,7 @@ def part5(results):
     import numpy as np
     sv = np.linalg.svd(np.array(M), compute_uv=False)
     num("sv1", float(sv[0])); num("sv2", float(sv[1]))
-    ob("D10", "PROVED", sv[1] / sv[0] < 1e-12, "centred log-matrix of 15 power laws over 40 values of nu: sigma1 = %.2f, sigma2/sigma1 = %.1e" % (sv[0], sv[1] / sv[0]))
+    ob("E10", "PROVED", sv[1] / sv[0] < 1e-12, "centred log-matrix of 15 power laws over 40 values of nu: sigma1 = %.2f, sigma2/sigma1 = %.1e" % (sv[0], sv[1] / sv[0]))
     # ---- the depth of the collection, and self-concordance across it
     def sc_ratio(Z, nu):
         A = Z * Z * R_FLOAT
@@ -781,10 +784,11 @@ def part5(results):
     num("cells_below_2", [(c["species"], c["series"], c["n"], c["nu"], c["Z"]) for c in below2])
     num("sc_worst", sc_worst); num("sc_margin", 1 / sc_worst)
     num("sc_worst_where", (worst["species"], worst["series"], worst["n"], worst["nu"], worst["Z"]))
-    ob("D11", "MEASURED", sc_worst < 1 and len(below2) <= 1,
-       "depth of the tested cells: nu from %.5f to %.2f; %d cell(s) below nu = 2 (%s n=%d); largest self-concordance ratio |T'''|/2(T'')^1.5 over the collection %.4f at nu = %.2f, Z = %d (margin %.2f)"
+    ob("E11", "MEASURED", sc_worst < 1 and len(below2) <= 1,
+       "depth of the tested cells: nu from %.5f to %.2f; %d cell(s) below nu = 2 (%s n=%d); largest self-concordance ratio |T'''|/2(T'')^1.5 over the collection %.4f at nu = %.2f, Z = %d (margin %.2f); V at the shallowest cell is below 32/11 by %.1e"
        % (nu_min, nu_max, len(below2), below2[0]["species"] if below2 else "-", below2[0]["n"] if below2 else 0,
-          sc_worst, worst["nu"], worst["Z"], 1 / sc_worst))
+          sc_worst, worst["nu"], worst["Z"], 1 / sc_worst,
+          num("V_deficit_shallowest", 1 - V_exact(nu_min) / float(F(32, 11)))))
 
 
 # =============================================================================

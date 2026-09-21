@@ -443,7 +443,7 @@ def section_lambda():
 
 
 def section_amplification(cells):
-    print("\nB. The cost of one fabricated cell, over every ambient non-cell (reference closure: op_order)")
+    print("\nM. The cost of one fabricated cell, over every ambient non-cell (reference closure: op_order)")
     t = time.time()
     d = 8
     L = set(cells)
@@ -465,8 +465,116 @@ def section_amplification(cells):
     print("     (%.1f s)" % (time.time() - t))
 
 
+def R_local(X, d):
+    """A fast local implementation of the staircase closure, used for the exhaustive sweeps.
+    Guarded against cypher.op_order, which stays the reference; never a copy of it -- op_order
+    builds an Index and encodes its alphabets, this evaluates the envelopes directly."""
+    A = alphabets(X, d)
+    phi = {}
+    for i in range(d):
+        for j in range(d):
+            if i == j:
+                continue
+            for v in A[j]:
+                cand = [x[i] for x in X if x[j] <= v]
+                phi[(i, j, v)] = max(cand) if cand else None
+    out = set()
+    for x in itertools.product(*A):
+        good = True
+        for i in range(d):
+            for j in range(d):
+                if i == j:
+                    continue
+                p = phi[(i, j, x[j])]
+                if p is None or x[i] > p:
+                    good = False
+                    break
+            if not good:
+                break
+        if good:
+            out.add(x)
+    return out
+
+
+def BPC_local(X, d):
+    """The binary-projection closure: every ambient point whose every pair-projection is in X's."""
+    A = alphabets(X, d)
+    pr = {(i, j): {(x[i], x[j]) for x in X} for i in range(d) for j in range(i + 1, d)}
+    return {x for x in itertools.product(*A)
+            if all((x[i], x[j]) in pr[(i, j)] for i in range(d) for j in range(i + 1, d))}
+
+
+def median3(a, b, c):
+    return tuple(max(min(p, q), min(q, r), min(p, r)) for p, q, r in zip(a, b, c))
+
+
+def median_witness(X):
+    """A triple of X whose coordinatewise median is not in X, or None."""
+    Xs = set(X)
+    for a in X:
+        for b in X:
+            for c in X:
+                m = median3(a, b, c)
+                if m not in Xs:
+                    return (a, b, c, m)
+    return None
+
+
+def pair_fault(X, d):
+    """A pair (i, j) whose projection of X is not a sublattice of A_i x A_j, or None."""
+    for i in range(d):
+        for j in range(i + 1, d):
+            pr = sorted({(x[i], x[j]) for x in X})
+            if not closed_under(pr, natural(pr, 2)):
+                return (i, j)
+    return None
+
+
+def section_closure():
+    """The closure theorem and the diagnostic split, over EVERY subset of each box."""
+    print("\nB. Closure and its defect: R-fixed = sublattice, and the diagnostic split")
+    rows = []
+    for shape in [(3, 3), (2, 4), (2, 2, 2), (2, 2, 3), (2, 2, 2, 2)]:
+        t = time.time()
+        cells = cells_of(shape)
+        N = len(cells)
+        d = len(shape)
+        tot = disagree = 0
+        bpc_bad = 0
+        defect = pfonly = mwonly = both = neither = 0
+        for m in range(1, 1 << N):
+            X = [cells[i] for i in range(N) if m >> i & 1]
+            if len(X) < 2:
+                continue
+            tot += 1
+            Xs = set(X)
+            fixed = R_local(X, d) == Xs
+            lat = closed_under(X, natural(X, d))
+            disagree += fixed != lat
+            if fixed:
+                bpc_bad += BPC_local(X, d) != Xs
+            else:
+                defect += 1
+                pf = pair_fault(X, d) is not None
+                mw = median_witness(X) is not None
+                both += pf and mw
+                pfonly += pf and not mw
+                mwonly += mw and not pf
+                neither += not pf and not mw
+        rows.append(dict(box=list(shape), subsets=tot, disagreements=disagree, bpc_failures=bpc_bad,
+                         defective=defect, pair_fault_only=pfonly, median_only=mwonly, both=both,
+                         neither=neither, seconds=round(time.time() - t, 1)))
+        report("EXHAUSTIVE", "box %s: E(X) = 0 <=> X a sublattice, on all %d subsets; E = 0 => X = BPC(X)"
+               % ("x".join(map(str, shape)), tot), disagree == 0 and bpc_bad == 0,
+               "disagreements=%d bpc-failures=%d" % (disagree, bpc_bad))
+        report("EXHAUSTIVE", "box %s: every defective subset has a pair fault or a median witness"
+               % "x".join(map(str, shape)), neither == 0,
+               "defective=%d pair-only=%d median-only=%d both=%d neither=%d" % (defect, pfonly, mwonly, both, neither))
+    put("closure_equivalence", rows)
+
+
 def section_diagnostic():
-    print("\nC. The diagnostic: the defect is a property of the coordinatisation")
+    print("\nC. The diagnostic on two coordinatisations of the same 118 elements")
     per = cypher._periodic()
     jan = cypher._janet()
     adm_p, _ = cypher.op_order(per, {})
@@ -545,6 +653,17 @@ def guards():
         bad3 += closed_under(Xs, natural(Xs, d)) != (R_index(Xs) == set(Xs))
     ok &= bad3 == 0
     print("  [%s] closed_under(natural) == (op_order adds nothing): %d instances, %d disagreements" % ("ok" if bad3 == 0 else "XX", tot3, bad3))
+    # (c2) the fast local closure used by the exhaustive sweep, against the reference op_order
+    tot4 = bad4 = 0
+    for _ in range(120):
+        shape = rnd.choice([(3, 3), (2, 4), (2, 2, 2), (2, 2, 3), (3, 3, 3), (2, 2, 2, 2)])
+        cells = cells_of(shape)
+        d = len(shape)
+        Xs = frozenset(rnd.sample(cells, rnd.randint(2, min(len(cells), 10))))
+        tot4 += 1
+        bad4 += R_local(sorted(Xs), d) != R_index(Xs)
+    ok &= bad4 == 0
+    print("  [%s] R_local == cypher.op_order, cell for cell: %d instances, %d disagreements" % ("ok" if bad4 == 0 else "XX", tot4, bad4))
     # (d) negative control on the fidelity guard: a wrong reference must be caught
     wrong = 0
     for _ in range(20):
@@ -902,6 +1021,14 @@ def section_removal():
         report("MACHINE-CHECKED", "2^%d: every proper sublattice has <= %d cells, and %d is attained" % (d, bound, bound),
                (not sat_above) and sat_at, "2^%d subsets" % len(cells))
     put("max_sublattice_z3", rows)
+    # the step AT THE FULL BOOLEAN BOX follows from the bound above and the flip symmetry: a
+    # relabelling of a binary axis is a flip, flips fix the box, so the largest proper reorderable
+    # subset equals the largest proper sublattice.  This is the only reach to d = 5 and d = 6.
+    steps = {r["d"]: 2 ** r["d"] - r["bound"] for r in rows}
+    put("boolean_step_at_box", steps)
+    report("MACHINE-CHECKED", "step at the full box 2^d = 2^d - 3.2^(d-2) = 2^(d-2) for d = 2..6",
+           all(steps[k] == 2 ** (k - 2) for k in steps) and steps[5] == 8 and steps[6] == 16,
+           "; ".join("d=%d: %d" % (k, steps[k]) for k in sorted(steps)))
 
 
 def section_arity():
@@ -1127,6 +1254,7 @@ def main():
         print("GUARDS FAILED -- obligations not reported")
         return 1
     cells, L216, TREE, A = section_lambda()
+    section_closure()
     section_diagnostic()
     section_one_axis()
     section_interval_characterisation()

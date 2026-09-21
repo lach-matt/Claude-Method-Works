@@ -575,7 +575,7 @@ def main(selftest=False):
     okp, same, table = ob_p_table()
     allok &= report("EXHAUSTIVE", "D3: p for the four cores from the ground configurations", okp,
                     "; ".join("%s %s" % (sp, [table[sp][l] for l in range(4)]) for sp in table))
-    allok &= report("EXHAUSTIVE", "on these cores p = 0 iff l = 3", same, "16 (core, l) cells")
+    allok &= report("EXHAUSTIVE", "on these cores p = 0 iff l >= 3, over l in {0,1,2,3}", same, "16 (core, l) cells")
     ar_d, kr_d, nf = ob_separating_cores()
     allok &= report("EXHAUSTIVE", "cores that WOULD separate p = 0 from l >= 3 exist, and none is here",
                     ar_d == 0 and kr_d == 1 and nf > 0,

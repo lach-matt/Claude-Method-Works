@@ -428,7 +428,8 @@
 69,
 66.98880219019178,
 1
-]
+],
+"V_deficit_shallowest": 2.7992243831209684e-05
 },
 "rows": [
 [
@@ -740,80 +741,87 @@ true,
 "Z3 unsat on the negation, 3 real variables, linear real arithmetic (complete)"
 ],
 [
-"D1",
+"E1",
 "GUARD",
 true,
 "the seated instrument and the independent reference agree cell for cell on every series",
 "1551 cells"
 ],
 [
-"D2",
+"E2",
 "MEASURED",
 true,
 "whole store, strict test: 395 series, 1551 cells: 1145 pass, 406 fail, 0 refused (73.8% of tested pass)",
 ""
 ],
 [
-"D3",
+"E3",
 "MEASURED",
 true,
 "the T-bracket (containment between neighbours) on the same cells: 1551 of 1551",
 ""
 ],
 [
-"D4",
+"E4",
 "MEASURED",
 true,
 "tabulated series, member for member: 250 + 35 = 285 series, 894 cells: 733 pass, 161 fail, 0 refused (82.0%)",
 ""
 ],
 [
-"D5",
+"E4b",
+"MEASURED",
+true,
+"the six species with the lowest pass rate in the tabulated run (pass/cells): C II 0/2, Ca IX 0/2, Al IV 0/1, P II 0/1, C I 0/2, P IV 2/8",
+""
+],
+[
+"E5",
 "MEASURED",
 true,
 "V measured against 4r^3/(3r^2-1): 1490 pairs at h = 1 (median deviation 0.84%), 842 at h = 2 (0.51%), 2332 in all (0.71%)",
 ""
 ],
 [
-"D6",
+"E6",
 "MEASURED",
 true,
 "measured gaps over 2Z^2R/nu^3 at 1551 cells: lower gap median 1.264, upper gap median 0.818 (the derivative lies between)",
 ""
 ],
 [
-"D7",
+"E7",
 "MEASURED",
 true,
 "1145 held cells each bound their own perturbation by w/2; tightest 0.925 cm^-1 (GaI 4s2. p 2P* 1/2 n=66, nu = 63.8); median 4308.2",
 ""
 ],
 [
-"D8",
+"E8",
 "MEASURED",
 true,
 "order-k census (admitted / wrong sign / unresolved): k=1 1478/12/61; k=2 967/43/138; k=3 612/62/176; k=4 393/58/198; k=5 232/55/208; k=6 147/43/201",
 ""
 ],
 [
-"D9",
+"E9",
 "MEASURED",
 true,
 "hydrogenic thresholds against Z^2 R_M: deficit/Dirac = Li III 0.876, Be IV 0.879, B V 0.893; Li III against 9 R_inf is 26.45 cm^-1",
 ""
 ],
 [
-"D10",
+"E10",
 "PROVED",
 true,
 "centred log-matrix of 15 power laws over 40 values of nu: sigma1 = 83.69, sigma2/sigma1 = 2.1e-16",
 ""
 ],
 [
-"D11",
+"E11",
 "MEASURED",
 true,
-"depth of the tested cells: nu from 1.99993 to 66.99; 1 cell(s) below nu = 2 (LiIII n=2); largest self-concordance ratio |T'''|/2(T'')^1.5 over the collection 0.1651 at nu = 66.99, Z = 1 (margin 6.06)",
+"depth of the tested cells: nu from 1.99993 to 66.99; 1 cell(s) below nu = 2 (LiIII n=2); largest self-concordance ratio |T'''|/2(T'')^1.5 over the collection 0.1651 at nu = 66.99, Z = 1 (margin 6.06); V at the shallowest cell is below 32/11 by 2.8e-05",
 ""
 ]
 ],
