@@ -19,6 +19,14 @@ first (§4, §5, §8, §10 bind the audit). The audit is written to `<dir>/AUDIT
    MACHINE-CHECKED for a box the check does not cover is a finding.
 4. Read every figure (the image itself, with the Read tool) against its caption and the text.
 5. Run `python3 papers/method/lint.py <dir>`.
+6. **Typography in the rendered PDF, not in the source.** Render the paper, screenshot the pages
+   (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome --headless --disable-gpu --no-sandbox
+   --screenshot=<out>.png --window-size=1000,1400 --hide-scrollbars file://<abs path to the .html>`)
+   and read them. Check: subscripts and superscripts are Unicode throughout and never fall back to
+   an underscore or a caret in prose (δ₀ not delta_0, α_d written with a real subscript); no literal
+   asterisks, backslashes or stray markup on the page; every table fits its column and no cell is
+   clipped; every figure appears, is legible at print size, and sits with its caption; no heading is
+   orphaned at a page foot. A defect visible on the page is a finding even when the source is clean.
 
 ## Part B — reader audits, three points of view, each written in the first person as that reader
 
