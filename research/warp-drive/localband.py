@@ -20,7 +20,9 @@ matters for a drive:
 
 Needs sympy and z3-solver (pypi is on the proxy allowlist; see
 PROOF-ASSISTANT.md).  Run under python3 (3.11).  Imports nonstatic.py and
-prover.py rather than copying either.
+prover.py rather than copying either.  The report takes about 40 s and the
+selftest about 110 s: both evolve a spherical dust slice and push a null
+geodesic across it, which is the whole point and is not cached.
 
 ===============================================================================
 0.  THE ANSWER, IN FOUR LINES
@@ -168,7 +170,7 @@ THE METRIC, also written out:
 
     ANEC, AND THIS IS THE PART THAT REFUSES TO OBLIGE.  On the band R' = 1 and
     phi is constant, and the band's own contribution to the ANEC integral has
-    a closed form, derived by parts and confirmed by quadrature to 3e-8:
+    a closed form, derived by parts and confirmed by quadrature to 2e-7:
 
         Delta ANEC(band)  =  -(phi/4 pi) integral (W - 1) |dR| / R^2   <  0
 
@@ -237,19 +239,26 @@ against the trip you would have made anyway, T/D = 1/sqrt(W^2-1), so AT ANY
 CONTRACTION STRONGER THAN W = sqrt(2) THE CORRIDOR DIES BEFORE LIGHT WOULD HAVE
 ARRIVED WITHOUT IT.
 
-AND THE MEASURED NUMBER IS WORSE THAN THE BOUND.  Witness A is run at a series
-of W_max and asked the only question that matters -- does a light ray get
-across the band before the band stops existing?  The dust develops a
-shell-crossing singularity (R' -> 0) on the band's outer edge, and
+AND THE MEASURED NUMBER IS WORSE THAN THE BOUND.  Witness A is dust, and dust
+tears: the band's outer shells outrun the ones ahead of them and R' reaches
+zero.  Asked the only question that matters -- does a light ray get across the
+band before the band stops existing --
 
-        W_max <= 1.211  the ray clears the band          (saving <= 17.4 %)
-        W_max >  1.211  THE RAY IS CAUGHT BY THE SINGULARITY
+        W_max <= 1.20   the ray clears the band          (saving <= 16.7 %)
+        W_max >= 1.25   THE RAY IS CAUGHT BY THE SINGULARITY (saving >= 20.0 %)
 
-The threshold is SCALE-INVARIANT: rescaling sigma, M, r_b and r_c together
-leaves N = t_crossing / t_light unchanged to four decimals, so this is a shape
-fact about the band and not a tuning.  It is also a statement about DUST: a
-shell-crossing singularity is gravitationally weak and is the standard artefact
-of zero pressure.  RECORDED, NOT REPAIRED, AND NOT GENERALISED.
+and the smooth indicator N = (time to the first shell crossing)/(time for light
+to cross the band) passes 1 at W_max = 1.1336 +/- 0.001, an 11.8 % saving.  THE RAY TEST
+IS REPORTED AS A BRACKET AND NOT BISECTED: at the threshold the ray and the
+crossing locus are nearly tangent and the verdict stops being monotone in the
+band strength at a fixed grid, which an earlier pass of this file did not
+notice.  N is bisected instead, because it is smooth.
+
+N is SCALE-INVARIANT: rescaling sigma, M, r_b and r_c together leaves it
+unchanged to four decimals, so this is a shape fact about the band and not a
+tuning.  It is also a statement about DUST: a shell-crossing singularity is
+gravitationally weak and is the standard artefact of zero pressure.  RECORDED,
+NOT REPAIRED, AND NOT GENERALISED.
 
 ===============================================================================
 6.  WHAT THIS FILE REFUSES
@@ -280,7 +289,7 @@ import sys
 
 # The instrument imports the seated instruments; it never copies one.
 import nonstatic
-from nonstatic import C, G, LY, M_SUN, PROXIMA_LY, general_einstein
+from nonstatic import C, LY, PROXIMA_LY, general_einstein
 
 
 # ------------------------------------------------------------------ profiles
@@ -579,18 +588,37 @@ def witness_A_ray(w0, r_launch=2.0, r_target=4.0, dt=0.002, n_t=4000,
                 first_cross=first_cross, w0=w0)
 
 
-def witness_A_threshold(lo=0.02, hi=0.40, rounds=7):
-    """Bisect for the largest band a light ray can still cross."""
+def witness_A_scan(w0s=(0.05, 0.10, 0.18, 0.22, 0.25, 0.50), fine=False):
+    """The ray test across a series of band strengths.  A SCAN, not a
+    bisection: right at the threshold the ray and the shell-crossing locus are
+    nearly tangent, the predicate stops being monotone at a fixed resolution,
+    and bisecting it would report a number the grid invented.  RECORDED."""
+    rows = []
+    for w0 in w0s:
+        a = witness_A_ray(w0)
+        row = dict(w0=w0, W=1 + w0, S=saving(1 + w0), fate=a["fate"],
+                   t=a["t"], anec=a["anec"])
+        if fine:
+            row["fate_fine"] = witness_A_ray(w0, dt=0.001, n_t=8000,
+                                             n_r=801)["fate"]
+        rows.append(row)
+    return rows
+
+
+def witness_A_N1(lo=0.05, hi=0.40, rounds=14):
+    """Bisect the SMOOTH indicator instead: the band strength at which the
+    first shell crossing coincides with one light crossing of the band."""
     for _ in range(rounds):
         mid = (lo + hi) / 2
-        if witness_A_ray(mid).get("fate") == "CLEARS":
+        if witness_A_ratio(mid)[2] > 1.0:
             lo = mid
         else:
             hi = mid
-    return lo, hi
+    return (lo + hi) / 2
 
 
-def witness_A_ratio(w0, sigma=None, mass_scale=1.0, length_scale=1.0):
+def witness_A_ratio(w0, sigma=None, mass_scale=1.0, length_scale=1.0,
+                    n_shells=81, step=0.02):
     """N = (time to the first shell crossing) / (time for light to cross the
     band).  Both scale linearly in the length, so N is scale-invariant; the
     scale arguments exist so the selftest can demonstrate that."""
@@ -601,20 +629,23 @@ def witness_A_ratio(w0, sigma=None, mass_scale=1.0, length_scale=1.0):
     try:
         Ecal, dEcal = _A_funcs(w0)
         t_cross = float("inf")
-        for i in range(41):
-            r = max(0.05, R_C - 2 * SIGMA) + i * (4 * SIGMA / 40.0)
-            R, Rp, t, h = r, 1.0, 0.0, 0.01 * length_scale
-            while t < 80.0 * length_scale:
+        for i in range(n_shells):
+            r = max(0.05, R_C - 2 * SIGMA) + i * (4 * SIGMA / (n_shells - 1.0))
+            R, Rp, t, h = r, 1.0, 0.0, step * length_scale
+            while t < 30.0 * length_scale:
                 a = _A_rhs(r, R, Rp, Ecal, dEcal)
                 b = _A_rhs(r, R + h / 2 * a[0], Rp + h / 2 * a[1], Ecal, dEcal)
                 c = _A_rhs(r, R + h / 2 * b[0], Rp + h / 2 * b[1], Ecal, dEcal)
                 d = _A_rhs(r, R + h * c[0], Rp + h * c[1], Ecal, dEcal)
                 R += h / 6 * (a[0] + 2 * b[0] + 2 * c[0] + d[0])
-                Rp += h / 6 * (a[1] + 2 * b[1] + 2 * c[1] + d[1])
+                Rp_new = Rp + h / 6 * (a[1] + 2 * b[1] + 2 * c[1] + d[1])
                 t += h
-                if Rp <= 0.0:
-                    t_cross = min(t_cross, t)
+                if Rp_new <= 0.0:
+                    # linear refinement of the zero of R', so the answer is set
+                    # by the shell sampling and not by the time step
+                    t_cross = min(t_cross, t - h * Rp_new / (Rp_new - Rp))
                     break
+                Rp = Rp_new
         n = 2000
         a0, b0 = R_C - SIGMA, R_C + SIGMA
         hh = (b0 - a0) / n
@@ -811,21 +842,23 @@ STATUS = [
     ("WITNESS A: ANEC > 0 on the band-crossing ray", "MEASURED", "affine quadrature"),
     ("WITNESS B: rho+p_r = d_r(2m/R)/(8 pi R R'); SEC combination = 0", "DERIVED", "sympy, residual 0"),
     ("WITNESS B: NEC, WEC, DEC violated on the band's rising edge", "MEASURED", "grid"),
-    ("WITNESS B: band ANEC = -(phi/4pi) int (W-1)|dR|/R^2", "DERIVED", "by parts; quadrature agrees to 3e-8"),
+    ("WITNESS B: band ANEC = -(phi/4pi) int (W-1)|dR|/R^2", "DERIVED", "by parts; quadrature agrees to 2e-7 relative"),
     ("WITNESS B: complete-geodesic ANEC > 0", "MEASURED", "quadrature, both legs"),
     ("X1-X5, the corridor arithmetic", "MACHINE-CHECKED", "z3 over the reals, unsat"),
     ("the continuity step of the exhaustion argument", "DERIVED-BY-HAND", "IVT; z3 cannot state it"),
-    ("shell-crossing threshold W_max ~ 1.211", "MEASURED", "bisection on this profile family"),
+    ("ray-test bracket: clears at W_max <= 1.20, caught at >= 1.25", "MEASURED", "scan at two resolutions"),
+    ("N = 1 at W_max = 1.1336 +/- 0.001 (11.8 % saving)", "MEASURED", "bisection on a smooth indicator"),
+    ("the ray predicate is non-monotone AT the threshold", "RECORDED", "why it is a bracket, not a number"),
     ("scale-invariance of N = t_cross/t_light", "MEASURED", "four decimals under a joint rescaling"),
-    ("H83d's 2.7254e12 solar masses", "READ", "paper/CLAIMS.md, via nonstatic.py"),
 ]
 
 REFUSALS = [
     "The loophole is NOT declared illusory: witness A satisfies every energy condition.",
     "ANEC is NOT claimed to close it: the one negative contribution sits on a geodesic whose total is positive.",
-    "The 17.4 % shell-crossing threshold is this profile family's, for DUST, and is not generalised.",
+    "The shell-crossing bracket (16.7-20.0 %) is this profile family's, for DUST, and is not generalised.",
     "Nothing non-spherical is touched; the Alcubierre family is outside this file exactly as it is outside certify.py's.",
     "Whether a fluid WITH pressure fails differently is NOT MEASURED.",
+    "The ray-test threshold is a BRACKET, not a number: the predicate is not monotone at a fixed grid.",
     "Nothing is repaired and nothing is seated elsewhere; no file outside this one was written.",
 ]
 
@@ -880,6 +913,11 @@ def selftest():
     chk_true("every band sample satisfies 2m/R < Rdot^2 (= W > 1)",
              all(2 * r["m"] / r["R"] < r["U"] ** 2 + 1e-12 for r in band))
     chk_true("every band sample has rho > 0 strictly", all(r["rho"] > 0 for r in band))
+    chk_true("no trapped surface anywhere sampled: 2m/R < 1",
+             all(2 * r["m"] / r["R"] < 1.0 for r in rows))
+    chk_true("the exterior is vacuum with W = 1 (Schwarzschild, PG slicing)",
+             all(abs(r["W"] - 1.0) < 1e-15 and r["rho"] == 0.0
+                 for r in witness_A_slice(0.10, [7.0, 9.0], t=0.0)))
 
     print("D6  witness A: the ray, and ANEC")
     a10 = witness_A_ray(0.10)
@@ -935,15 +973,24 @@ def selftest():
              all(crossings(a) > crossings(b) for a, b in
                  ((1.1, 1.2), (1.2, 2.0), (2.0, 10.0), (10.0, 100.0))))
 
-    print("D10 the measured shell-crossing threshold, and its scale invariance")
-    lo, hi = witness_A_threshold(0.05, 0.30, 5)
-    chk_true("the bisected threshold bracket [%.5f, %.5f] contains 0.2110" % (lo, hi),
-             lo <= 0.2110 <= hi)
+    print("D10 the measured shell-crossing scale, and its scale invariance")
     n1 = witness_A_ratio(0.25)[2]
     n2 = witness_A_ratio(0.25, mass_scale=2.0, length_scale=2.0)[2]
     chk("N is scale-invariant under a joint rescaling", n1, n2, 1e-4)
-    chk_true("N < 1 at W_max = 1.25 -- light does not get across", n1 < 1.0)
-    chk_true("N > 1 at W_max = 1.05 -- light does", witness_A_ratio(0.05)[2] > 1.0)
+    chk_true("N < 1 at W_max = 1.25", n1 < 1.0)
+    chk_true("N > 1 at W_max = 1.05", witness_A_ratio(0.05)[2] > 1.0)
+    chk("N = 1 at w0 (81 shells; converges to 0.1326 as the sampling refines)",
+        witness_A_N1(0.05, 0.40, 12), 0.13361, 1e-3)
+    chk("and the time step does not set it: 0.02 and 0.005 agree",
+        witness_A_ratio(0.20, step=0.02)[2], witness_A_ratio(0.20, step=0.005)[2], 1e-6)
+    scan = {r["w0"]: r for r in witness_A_scan((0.05, 0.18, 0.25, 0.50))}
+    chk_true("the ray CLEARS well below the threshold (W_max = 1.05, 1.18)",
+             scan[0.05]["fate"] == "CLEARS" and scan[0.18]["fate"] == "CLEARS")
+    chk_true("the ray is CAUGHT well above it (W_max = 1.25, 1.50)",
+             scan[0.25]["fate"] == "CAUGHT" and scan[0.50]["fate"] == "CAUGHT")
+    chk_true("and the same four verdicts survive a doubled resolution",
+             all(witness_A_ray(w, dt=0.001, n_t=8000, n_r=801)["fate"]
+                 == scan[w]["fate"] for w in (0.05, 0.18, 0.25, 0.50)))
 
     print()
     if fails:
@@ -991,6 +1038,10 @@ positive.  No energy condition decides this.  What does is a clock.
 
 DERIVED from the Einstein tensor (residual 0): W = sqrt(1+2Ecal), independent
 of t; j = 0 identically; p_r = p_T = 0; rho = mass'/(4 pi R^2 R'); m_MS = mass.
+mass(0) = 0, so the centre is regular; Ecal = 0 and mass = M past r = 6, so the
+exterior is Schwarzschild in a marginally bound (Painleve-Gullstrand) slicing,
+W = 1 exactly, and the spacetime is asymptotically flat.  No trapped surface:
+max 2m/R on the sampled slice is well below 1.
 """ % W0A)
     print("   r      W       m      2m/R     U      rho        NEC  WEC  SEC  DEC   band")
     for row in witness_A_slice(W0A, [0.5, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 8.0], 0.0):
@@ -1105,21 +1156,33 @@ of t; j = 0 identically; p_r = p_T = 0; rho = mass'/(4 pi R^2 R'); m_MS = mass.
     reaches zero.  Asked the only question that matters -- does light get
     across before the band stops existing --
 """)
-    print("    W_max    saving     t_cross   t_light      N      ray")
-    for w0 in (0.05, 0.10, 0.20, 0.25, 0.50):
-        tc, tl, n = witness_A_ratio(w0)
-        fate = witness_A_ray(w0)["fate"]
-        print("   %6.3f  %8.4f  %8.4f  %8.4f  %7.4f   %s"
-              % (1 + w0, saving(1 + w0), tc, tl, n, fate))
-    lo, hi = witness_A_threshold(0.05, 0.30, 6)
+    print("    W_max    saving     t_cross   t_light      N       ray      ray (2x res)")
+    for row in witness_A_scan((0.05, 0.10, 0.18, 0.20, 0.22, 0.25, 0.50)):
+        tc, tl, n = witness_A_ratio(row["w0"])
+        fine = (witness_A_ray(row["w0"], dt=0.001, n_t=8000, n_r=801)["fate"]
+                if row["w0"] in (0.20, 0.22, 0.25) else "-")
+        print("   %6.3f  %8.4f  %8.4f  %8.4f  %7.4f   %-8s  %s"
+              % (row["W"], row["S"], tc, tl, n, row["fate"], fine))
+    n1 = witness_A_N1()
     print("""
-    THRESHOLD: w0 in [%.4f, %.4f], W_max ~ %.3f, saving ~ %.1f %%.  Above it the
-    ray is caught by the shell-crossing singularity.  N is scale-invariant to
-    four decimals under a joint rescaling of sigma, M, r_b and r_c, so this is
-    a shape fact and not a tuning.  It is also a statement about DUST: a
-    shell-crossing singularity is gravitationally weak and is the standard
-    artefact of zero pressure.  RECORDED, NOT REPAIRED, NOT GENERALISED.
-""" % (lo, hi, 1 + (lo + hi) / 2, 100 * saving(1 + (lo + hi) / 2)))
+    N = 1 -- the first shell crossing arrives exactly one band light-crossing
+    after t = 0 -- at W_max = %.4f, a saving of %.2f %%, converging to
+    W_max = 1.133 as the shell sampling refines.  That indicator is smooth,
+    is insensitive to the time step, and is bisected.  THE RAY TEST ITSELF IS
+    NOT BISECTED: right at its threshold the ray and the crossing locus are nearly tangent, the verdict
+    stops being monotone in w0 at a fixed grid, and the two resolutions above
+    disagree at W_max = 1.22.  The honest statement is a BRACKET: the ray
+    clears at W_max <= 1.20 and is caught at W_max >= 1.25 at both resolutions,
+    so the threshold saving lies between 16.7 %% and 20.0 %%.  An earlier pass of
+    this file bisected that predicate and reported 17.4 %%; the number was in
+    the bracket but the method was invalid, and it is withdrawn as a method.
+
+    N is scale-invariant to four decimals under a joint rescaling of sigma, M,
+    r_b and r_c, so this is a shape fact and not a tuning.  It is also a
+    statement about DUST: a shell-crossing singularity is gravitationally weak
+    and is the standard artefact of zero pressure.  RECORDED, NOT REPAIRED,
+    NOT GENERALISED.
+""" % (1 + n1, 100 * saving(1 + n1)))
 
     _rule("5.  STATUSES, NEVER FLATTENED")
     for name, st, how in STATUS:
