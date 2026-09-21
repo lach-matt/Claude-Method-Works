@@ -33,7 +33,8 @@ established and refuted so far, not a census of what is establishable.
 | D10 | **THEOREM** | Sustaining contraction does NOT force rho < 0. Witnesses hold it for all time with rho = 0 exactly and with rho > 0 exactly, NEC satisfied and not saturated. What kills the driven route is kinematics, not an energy condition | `nonstatic.SUSTAINING_FORCES_NEGATIVE_RHO` | nothing; it is why D7 and not an energy condition is the obstruction |
 | D11 | **MEASURED** | The exchange rate: kg of negative enclosed mass per metre of contraction, from the method equation's own coefficient | `overturn.LAMBDA` | a re-ruling of LAMBDA, which is a corpus question and not a physics one |
 | D12 | **SURVEY** | NO-IN-PRACTICE on the geometric route: four limbs, each proved inside its own hypotheses. THE CONJUNCTION IS A SURVEY AND NOT A THEOREM, because limb one quantifies over ONE field and nothing proves the four hypotheses exhaust the matter... | `*(a paper -- see the note)*` | a matter model outside all four sets of hypotheses would break it without refuting any single limb |
-| D13 | **THEOREM** | Classical information travels at <= c, and the no-communication theorem closes the entangled variant. The reconstruction route is EMIGRATION WITHOUT SPEED | `*(a paper -- see the note)*` | nothing; and it is why D14 is a price rather than a shortcut |
+| D13 | **THEOREM-NARROWED** | Classical information travels at <= c IN THE METRIC ITS CARRIER PROPAGATES IN, and the no-communication theorem closes the entangled variant. For a BRANE-CONFINED carrier that metric is the induced metric and the reconstruction route is ... | `*(a paper -- see the note)*` | nothing further -- limb 2 was always intact and limb 1 is now stated over the class it was proved for. It is why S5 is a price rather than a shortcut FOR A BRANE-CONFINED CARRIER, which is the only... |
+| D14 | **THEOREM** | A static spherically symmetric device has NO PARAMETER IN WHICH A DESTINATION CAN BE WRITTEN: the solution data is (Phi, m) as functions of r alone, no entry of either is a function of direction, and the contraction it certifies is ident... | `certify.THEOREM_SCOPE` | nothing; dL/dtheta = dL/dphi = 0 is machine-checked. What it costs is O4: the whole demand side prices an object that cannot have a destination |
 
 ## Right -- the supply
 
@@ -42,8 +43,8 @@ established and refuted so far, not a census of what is establishable.
 | S1 | **REFUSED** | negative effective mass (band curvature) | STRUCK on KIND: m* is a dispersion curvature, not T_00. It does not gravitate and will not source a metric |
 | S2 | **REFUSED** | Casimir between ideal plates | STRUCK three ways by DOCKET 54 and once more by DOCKET 53. The sign INVERTS for any real mirror at a_c = 0.480 x skin depth, materials-independent; 2G|m|/(ac^2) is a-INDEPENDENT so building it bigger buys nothing; and the plate outweighs its own Casimir ene... |
 | S3 | **MEASURED** | squeezed vacuum | THE LEAST-DEAD ROUTE and the only survivor of the four. Passes KIND and DEADLINE, fails MAGNITUDE. Untouched by DOCKET 54, because the parity argument bites boundary conditions and squeezing is a state |
-| S4 | **REFUSED** | non-minimal coupling | STRUCK on the EFT field cutoff -- but see O1, which is the same field from the other side and is OPEN rather than struck |
-| S5 | **MEASURED** | the reconstruction route: specification, not mass | THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL. No mass traverses, so the demand rows D1-D4 and D7 are not instantiated and go silent. Bounded by D13 and therefore not a shortcut |
+| S4 | **REFUSED** | non-minimal coupling | STRUCK on the EFT field cutoff -- and see O1, which is the same field from the other side and is STRUCK THERE TOO, at the same inequality. The draft of this row ended 'and is OPEN rather than struck', four words that counted one refusal as an opening and in... |
+| S5 | **OPEN** | the reconstruction route: specification, not mass | THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL. No mass traverses, so the demand rows D1-D4 and D7 are not instantiated and go silent. Bounded by D13 FOR A BRANE-CONFINED CARRIER and therefore not a shortcut ON THE BRANE; a bulk carrier is n... |
 
 ## The balance
 
@@ -56,11 +57,29 @@ established and refuted so far, not a census of what is establishable.
 
 ## Open, and what would answer each
 
-### O1
+### O4
 
-The NONMINIMALLY COUPLED SCALAR admits no state-independent QEI, and Fewster records that it sustains arbitrarily negative energy density over arbitrarily large spacetime volumes. D7's limb is exactly where this field is not covered, so the project's most-favoured route sits in the sharpest limb's blind spot
+Does the contraction criterion survive the change from a CENTRE to an AXIS? D14 says the priced object cannot have a destination, and a corridor has an axis rather than a centre. The Misner-Sharp mass is DEFINED by the areal radius of a round 2-sphere; the static cylindrical throat has a genuine axial contraction factor Gamma_z = e^{-Psi}, governed by a second-order elliptic equation WITH NO FIRST INTEGRAL, which is why a sphere was priced and it never was
 
-**Would be answered by:** a state-independent QEI for xi > 0, or a proof that its absence does not help because the compensating positive energy is the enclosed-mass problem returning
+**Would be answered by:** price the static cylindrical throat. It is unpriced in ANY geometry and it is the only one of the three objects in play with both an axis and a contraction factor
+
+### O5
+
+Does a self-consistent static semiclassical solution with m(r) < 0 exist at all? Fewster & Teo bound the NORMAL-ORDERED density relative to the static vacuum, so the bound is on rho_ren - rho_vac and not on rho_ren
+
+**Would be answered by:** a self-consistent solve of G_ab = 8 pi <T_ab> on the negative-mass corridor, rather than a bound evaluated on an assumed background
+
+### O6
+
+THE BRANE-BULK TRANSDUCER. DOCKET 61's intersection is structurally intact -- the two refusals genuinely cancel -- and dies on a coupling: neither GKLP paper states a coupling constant, a source model or an emission rate, and 2208.09014 has none in sixteen pages. DOCKET 57's confinement ruling forces the available bulk fields to be gravitational
+
+**Would be answered by:** a transducer that writes a specification into a bulk mode at one end and reads it at the other with brane-confined apparatus. The energy-per-bit estimate spans 50 ORDERS AND STRADDLES ZERO, so its SIGN is unsettled and no figure may be seated from it
+
+### O7
+
+OUR OWN BOOST RELATIVE TO THE PREFERRED BRANE FRAME. The bulk saving is Delta_tau = (L/Gamma^2)[1/(1-B) - 1/(gamma-B)]: 94 ns at B ~ 0, and THE FULL LIGHT TIME as B approaches 1/beta. B cannot be purchased, because buying it means boosting the fabricator out of the destination's rest frame and forfeiting the destination-supplied atoms that are the premise
+
+**Would be answered by:** a measurement of Earth's velocity relative to the preferred brane frame, if one exists. The only preferred-frame velocity ever measured is the CMB dipole at 370 km/s, Gamma - 1 = 7.6e-7, which is what gives 94 ns
 
 ### O2
 
@@ -73,6 +92,12 @@ Fewster & Teo give an EXACT static-spacetime QEI with no curvature cap, TIGHTER 
 Whether ANY braneworld shortcut yields a closed timelike curve. Every published 'no' is a one-extra-dimension or flat-bulk result; the single 'yes' needs two extra dimensions and two inequivalent preferred frames
 
 **Would be answered by:** a general result at codimension two, or an explicit CTC at codimension one. The split in the literature tracks codimension and nobody has closed it
+
+## Closed -- was open, now answered
+
+| id | what was open | how it closed |
+|---|---|---|
+| O1 | The nonminimally coupled scalar admits no state-independent QEI, so the sharpest limb of DOCKET 55 has a hole exactly where the project's most-favoured route sits | CLOSED, AND REFUSED. Both answers the row itself named are supplied, and it was S4 counted a second time -- this file's own note very nearly said so. The compensating positive energy IS the enclosed-mass problem returning: E_pos/|E_neg| = 3 pi/(32 f xi c0^3) >= 1039.13 at xi = 1/4 and >= 1803.55 at xi = 1/6, from Fewster & Osterbrink's own construction. LAMBDA CANCELS AND L CANCELS -- the overh... |
 
 ## Withdrawn -- asserted by this project, then refuted by it
 
@@ -87,17 +112,20 @@ a corpus forgets it was ever wrong.
 | W4 | tolman.py: Phi' = 0 is an exactness route, and the class is smaller | Under the computed G^r_r it forces 4 pi r^3 p_r = -m, which with the identity gives m == 0. It does not restrict the class, it EMPTIES it |
 | W5 | tolman.py: the regular-centre hypothesis here and DOCKET 52's are 'one fact seen twice' | A separating witness holds certify.py's m(0) = 0 while C = 4 pi A != 0. Two hypotheses, not one |
 | W6 | the corridor shortfall is 18.5 orders | That figure is vacuumcorridor.py's ratio of two POSITIVE masses answering a domain-of-validity question. It is not a supply against a demand, and quoting it understated the real shortfall by 52.1 orders |
+| W7 | DOCKET 61 pass A: the directional crack is closed by observation, because at Gamma = 1.89e6 the GKLP forward direction is supercritical | ARITHMETICALLY WRONG BY A FACTOR OF 14.1. Supercriticality needs Gamma >= 1/beta = 2.6726124e7, and 1.894565e6 is SUBcritical. The crack is closed instead by a sky-fraction coincidence of prior 2.6e-7 plus an unmeasured cosmological boost -- a residual, recorded as one, not a proof |
+| W8 | DOCKET 61 pass D: the unbounded saving needs endpoints in common relativistic motion while the route needs the receiver at rest in the destination's atoms, so the two premises are jointly unsatisfiable | B is the COMMON boost of both endpoints relative to the PREFERRED BRANE FRAME, not relative to Proxima. Earth and Proxima are comoving to about one part in 1e4, so a receiver at rest in Proxima's atoms automatically shares Earth's B whatever B is. No contradiction, and the closure does not stand |
 
 ## Status census
 
 | status | rows |
 |---|---|
 | THEOREM | 11 |
-| MEASURED | 3 |
+| THEOREM-NARROWED | 1 |
+| MEASURED | 2 |
 | SURVEY | 1 |
-| OPEN | 3 |
-| WITHDRAWN | 6 |
-| REFUSED | 3 |
+| OPEN | 7 |
+| WITHDRAWN | 8 |
+| REFUSED | 4 |
 
 Rows whose owner is a paper rather than a module, and which this
 file therefore cannot ask: **D5, D6, D12, D13**.

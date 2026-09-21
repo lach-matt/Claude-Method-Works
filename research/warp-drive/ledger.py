@@ -114,7 +114,13 @@ import tolman
 THEOREM, MEASURED, SURVEY, OPEN, WITHDRAWN, REFUSED = (
     "THEOREM", "MEASURED", "SURVEY", "OPEN", "WITHDRAWN", "REFUSED")
 
-STATUSES = (THEOREM, MEASURED, SURVEY, OPEN, WITHDRAWN, REFUSED)
+#: A THEOREM whose SCOPE was stated wider than it was proved.  The theorem
+#: stands; what was wrong was the class it was applied to.  DOCKET 61 needed
+#: this and the five statuses had nowhere to put it: WITHDRAWN says the claim
+#: fell, and it did not.
+NARROWED = "THEOREM-NARROWED"
+
+STATUSES = (THEOREM, NARROWED, MEASURED, SURVEY, OPEN, WITHDRAWN, REFUSED)
 
 # CONSTANTS ASKED, NEVER RETYPED.  Each is read from the module that owns it so
 # that a peer moving underneath this file is a --check failure rather than a
@@ -240,11 +246,30 @@ DEMAND = [
      "without refuting any single limb"),
 
     ("D13",
-     "Classical information travels at <= c, and the no-communication theorem "
-     "closes the entangled variant.  The reconstruction route is EMIGRATION "
-     "WITHOUT SPEED",
-     THEOREM, None,
-     "nothing; and it is why D14 is a price rather than a shortcut"),
+     "Classical information travels at <= c IN THE METRIC ITS CARRIER "
+     "PROPAGATES IN, and the no-communication theorem closes the entangled "
+     "variant.  For a BRANE-CONFINED carrier that metric is the induced metric "
+     "and the reconstruction route is EMIGRATION WITHOUT SPEED.  THE ROW IS "
+     "NOT A STATEMENT ABOUT A BULK CARRIER: on a brane moving through a "
+     "compact extra dimension, bulk null geodesics join brane points the "
+     "induced metric calls spacelike, and GKLP's field commutator on M4 x S1 "
+     "is non-zero across them",
+     NARROWED, None,
+     "nothing further -- limb 2 was always intact and limb 1 is now stated "
+     "over the class it was proved for.  It is why S5 is a price rather than "
+     "a shortcut FOR A BRANE-CONFINED CARRIER, which is the only case it "
+     "covers"),
+
+    ("D14",
+     "A static spherically symmetric device has NO PARAMETER IN WHICH A "
+     "DESTINATION CAN BE WRITTEN: the solution data is (Phi, m) as functions "
+     "of r alone, no entry of either is a function of direction, and the "
+     "contraction it certifies is identical in every direction.  Addressing "
+     "is not un-answered on the priced object, it is UNDEFINED on it",
+     THEOREM, ("certify", "THEOREM_SCOPE"),
+     "nothing; dL/dtheta = dL/dphi = 0 is machine-checked.  What it costs is "
+     "O4: the whole demand side prices an object that cannot have a "
+     "destination"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -273,13 +298,27 @@ SUPPLY = [
      "argument bites boundary conditions and squeezing is a state"),
 
     ("S4", "non-minimal coupling", REFUSED, None,
-     "STRUCK on the EFT field cutoff -- but see O1, which is the same field "
-     "from the other side and is OPEN rather than struck"),
+     "STRUCK on the EFT field cutoff -- and see O1, which is the same field "
+     "from the other side and is STRUCK THERE TOO, at the same inequality.  "
+     "The draft of this row ended 'and is OPEN rather than struck', four "
+     "words that counted one refusal as an opening and inflated the open "
+     "count by one"),
 
-    ("S5", "the reconstruction route: specification, not mass", MEASURED, None,
+    ("S5", "the reconstruction route: specification, not mass", OPEN, None,
      "THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL.  No mass "
      "traverses, so the demand rows D1-D4 and D7 are not instantiated and go "
-     "silent.  Bounded by D13 and therefore not a shortcut"),
+     "silent.  Bounded by D13 FOR A BRANE-CONFINED CARRIER and therefore not a "
+     "shortcut ON THE BRANE; a bulk carrier is not bounded by it, which is O6. "
+     " STATUS DOWNGRADED FROM MEASURED, AND THE REASON IS THIS FILE'S OWN "
+     "DISCIPLINE TURNED ON ITSELF: the figures this row was seated on -- "
+     "8.041537e23 s.J, 6.000728e15 J, 4.870712e59 J, 43.909 orders -- OCCUR IN "
+     "NO FILE IN THIS TREE.  Measured by grep this pass, all four absent.  "
+     "They came from a docket's scratch computation, the scratch died with a "
+     "container restart, and no instrument can re-derive or check them.  A "
+     "number nobody can re-run is not MEASURED however carefully it was once "
+     "computed, and seating it here was the exact fault section 0 of this file "
+     "says it exists to prevent.  Re-seating it needs an instrument, not a "
+     "citation"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -287,15 +326,45 @@ SUPPLY = [
 # ---------------------------------------------------------------------------
 
 OPEN_ROWS = [
-    ("O1",
-     "The NONMINIMALLY COUPLED SCALAR admits no state-independent QEI, and "
-     "Fewster records that it sustains arbitrarily negative energy density over "
-     "arbitrarily large spacetime volumes.  D7's limb is exactly where this "
-     "field is not covered, so the project's most-favoured route sits in the "
-     "sharpest limb's blind spot",
-     "a state-independent QEI for xi > 0, or a proof that its absence does not "
-     "help because the compensating positive energy is the enclosed-mass "
-     "problem returning"),
+    ("O4",
+     "Does the contraction criterion survive the change from a CENTRE to an "
+     "AXIS?  D14 says the priced object cannot have a destination, and a "
+     "corridor has an axis rather than a centre.  The Misner-Sharp mass is "
+     "DEFINED by the areal radius of a round 2-sphere; the static cylindrical "
+     "throat has a genuine axial contraction factor Gamma_z = e^{-Psi}, "
+     "governed by a second-order elliptic equation WITH NO FIRST INTEGRAL, "
+     "which is why a sphere was priced and it never was",
+     "price the static cylindrical throat.  It is unpriced in ANY geometry and "
+     "it is the only one of the three objects in play with both an axis and a "
+     "contraction factor"),
+
+    ("O5",
+     "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
+     "at all?  Fewster & Teo bound the NORMAL-ORDERED density relative to the "
+     "static vacuum, so the bound is on rho_ren - rho_vac and not on rho_ren",
+     "a self-consistent solve of G_ab = 8 pi <T_ab> on the negative-mass "
+     "corridor, rather than a bound evaluated on an assumed background"),
+
+    ("O6",
+     "THE BRANE-BULK TRANSDUCER.  DOCKET 61's intersection is structurally "
+     "intact -- the two refusals genuinely cancel -- and dies on a coupling: "
+     "neither GKLP paper states a coupling constant, a source model or an "
+     "emission rate, and 2208.09014 has none in sixteen pages.  DOCKET 57's "
+     "confinement ruling forces the available bulk fields to be gravitational",
+     "a transducer that writes a specification into a bulk mode at one end and "
+     "reads it at the other with brane-confined apparatus.  The energy-per-bit "
+     "estimate spans 50 ORDERS AND STRADDLES ZERO, so its SIGN is unsettled "
+     "and no figure may be seated from it"),
+
+    ("O7",
+     "OUR OWN BOOST RELATIVE TO THE PREFERRED BRANE FRAME.  The bulk saving is "
+     "Delta_tau = (L/Gamma^2)[1/(1-B) - 1/(gamma-B)]: 94 ns at B ~ 0, and THE "
+     "FULL LIGHT TIME as B approaches 1/beta.  B cannot be purchased, because "
+     "buying it means boosting the fabricator out of the destination's rest "
+     "frame and forfeiting the destination-supplied atoms that are the premise",
+     "a measurement of Earth's velocity relative to the preferred brane frame, "
+     "if one exists.  The only preferred-frame velocity ever measured is the "
+     "CMB dipole at 370 km/s, Gamma - 1 = 7.6e-7, which is what gives 94 ns"),
 
     ("O2",
      "Fewster & Teo give an EXACT static-spacetime QEI with no curvature cap, "
@@ -314,6 +383,29 @@ OPEN_ROWS = [
      "one.  The split in the literature tracks codimension and nobody has "
      "closed it"),
 ]
+
+# ---------------------------------------------------------------------------
+# WHAT WAS OPEN AND IS NOW ANSWERED.  KEPT, NEVER DELETED, for the reason the
+# withdrawn rows are kept: an open question that closes and leaves no trace is
+# indistinguishable from one nobody ever asked.
+# ---------------------------------------------------------------------------
+
+CLOSED_ROWS = [
+    ("O1",
+     "The nonminimally coupled scalar admits no state-independent QEI, so the "
+     "sharpest limb of DOCKET 55 has a hole exactly where the project's "
+     "most-favoured route sits",
+     "CLOSED, AND REFUSED.  Both answers the row itself named are supplied, "
+     "and it was S4 counted a second time -- this file's own note very nearly "
+     "said so.  The compensating positive energy IS the enclosed-mass problem "
+     "returning: E_pos/|E_neg| = 3 pi/(32 f xi c0^3) >= 1039.13 at xi = 1/4 "
+     "and >= 1803.55 at xi = 1/6, from Fewster & Osterbrink's own "
+     "construction.  LAMBDA CANCELS AND L CANCELS -- the overhead is a PURE "
+     "NUMBER, which is WORSE than a power law: a growing penalty could in "
+     "principle be outrun by building small, and a scale-free factor of 10^3 "
+     "cannot be outrun at all"),
+]
+
 
 # ---------------------------------------------------------------------------
 # WHAT THIS PROJECT ASSERTED AND THEN REFUTED.  Kept, never deleted.
@@ -349,6 +441,22 @@ WITHDRAWN_ROWS = [
      "That figure is vacuumcorridor.py's ratio of two POSITIVE masses answering "
      "a domain-of-validity question.  It is not a supply against a demand, and "
      "quoting it understated the real shortfall by 52.1 orders"),
+    ("W7", "DOCKET 61 pass A: the directional crack is closed by observation, "
+     "because at Gamma = 1.89e6 the GKLP forward direction is supercritical",
+     "ARITHMETICALLY WRONG BY A FACTOR OF 14.1.  Supercriticality needs "
+     "Gamma >= 1/beta = 2.6726124e7, and 1.894565e6 is SUBcritical.  The crack "
+     "is closed instead by a sky-fraction coincidence of prior 2.6e-7 plus an "
+     "unmeasured cosmological boost -- a residual, recorded as one, not a "
+     "proof"),
+
+    ("W8", "DOCKET 61 pass D: the unbounded saving needs endpoints in common "
+     "relativistic motion while the route needs the receiver at rest in the "
+     "destination's atoms, so the two premises are jointly unsatisfiable",
+     "B is the COMMON boost of both endpoints relative to the PREFERRED BRANE "
+     "FRAME, not relative to Proxima.  Earth and Proxima are comoving to about "
+     "one part in 1e4, so a receiver at rest in Proxima's atoms automatically "
+     "shares Earth's B whatever B is.  No contradiction, and the closure does "
+     "not stand"),
 ]
 
 
@@ -401,6 +509,10 @@ def statuses():
         c[r[2]] += 1
     c[OPEN] += len(OPEN_ROWS)
     c[WITHDRAWN] += len(WITHDRAWN_ROWS)
+    # A CLOSED row counts as REFUSED, not as OPEN.  O1 closed by being refused,
+    # and leaving it in the OPEN tally would report an opening this tree does
+    # not have -- which is the exact inflation S4's four wrong words caused.
+    c[REFUSED] += len(CLOSED_ROWS)
     return c
 
 
@@ -466,6 +578,11 @@ def report():
     for rid, claim, answer in OPEN_ROWS:
         print("  %-4s %s" % (rid, _one_line(claim, 100)))
         print("       would be answered by: %s" % _one_line(answer, 96))
+
+    print("\nCLOSED -- WAS OPEN, NOW ANSWERED")
+    for rid, claim, answer in CLOSED_ROWS:
+        print("  %-4s %s" % (rid, _one_line(claim, 100)))
+        print("       %s" % _one_line(answer, 100))
 
     print("\nWITHDRAWN -- ASSERTED BY THIS PROJECT, THEN REFUTED BY IT")
     for rid, claim, why in WITHDRAWN_ROWS:
@@ -533,7 +650,13 @@ def to_markdown():
         L += ["### %s" % rid, "", _one_line(claim, 600), "",
               "**Would be answered by:** %s" % _one_line(answer, 400), ""]
 
-    L += ["## Withdrawn -- asserted by this project, then refuted by it", "",
+    L += ["## Closed -- was open, now answered", "",
+          "| id | what was open | how it closed |", "|---|---|---|"]
+    for rid, claim, answer in CLOSED_ROWS:
+        L.append("| %s | %s | %s |"
+                 % (rid, _one_line(claim, 220), _one_line(answer, 400)))
+
+    L += ["", "## Withdrawn -- asserted by this project, then refuted by it", "",
           "Kept, never deleted. A withdrawn figure that leaves no trace is how",
           "a corpus forgets it was ever wrong.", "",
           "| id | what was claimed | why it fell |", "|---|---|---|"]
@@ -600,7 +723,10 @@ def selftest():
         if owner is not None:
             ask(owner)                       # raises if the peer dropped it
             asked += 1
-    chk("every owned row's attribute still exists on its peer", asked, 10)
+    # RE-PINNED 10 -> 11: D14 (the addressing theorem, DOCKET 60) is asked of
+    # certify.THEOREM_SCOPE, because the scope line IS the claim -- a device
+    # specified by (Phi, m) of r alone has no parameter for a destination.
+    chk("every owned row's attribute still exists on its peer", asked, 11)
 
     print("\n2. THE PEERS STILL SAY WHAT THE ROWS SAY THEY SAY")
     chk("certify.py's scope is unmoved",
@@ -629,9 +755,24 @@ def selftest():
 
     print("\n4. THE LEDGER'S OWN SHAPE")
     c = statuses()
+    # RE-PINNED BY DOCKETS 60 AND 61, and every move is a row this file got
+    # wrong or a row a docket answered -- not growth.
+    #   THEOREM 11 -> 11: D14 arrives, D13 leaves for THEOREM-NARROWED.
+    #   MEASURED 3 -> 2: S5 downgraded, because the four figures it was seated
+    #     on occur in NO file in this tree.  Measured by grep, all four absent.
+    #   OPEN 3 -> 7: O1 closes (refused), O4-O7 arrive, and S5 joins as open.
+    #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
+    #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 11, MEASURED: 3, SURVEY: 1, OPEN: 3, WITHDRAWN: 6,
-         REFUSED: 3})
+        {THEOREM: 11, NARROWED: 1, MEASURED: 2, SURVEY: 1, OPEN: 7,
+         WITHDRAWN: 8, REFUSED: 4})
+    chk("O1 left OPEN by being ANSWERED, and is kept rather than deleted",
+        [r[0] for r in CLOSED_ROWS], ["O1"])
+    chk("and no id appears in two lists at once",
+        len(set([r[0] for r in OPEN_ROWS] + [r[0] for r in CLOSED_ROWS])),
+        len(OPEN_ROWS) + len(CLOSED_ROWS))
+    chk("every closed row says how it closed",
+        all(bool(r[2]) for r in CLOSED_ROWS), True)
     chk("every status used is one of the five plus REFUSED",
         set(r[2] for r in DEMAND + SUPPLY) <= set(STATUSES), True)
     chk("every demand row names what would move it",
