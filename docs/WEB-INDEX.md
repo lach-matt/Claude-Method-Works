@@ -266,7 +266,7 @@ Three blocks exist so that a browser can compute without inventing:
 
 ## The solvers
 
-Six modes sit beside the index, each a browser-side mirror of one instrument and each carrying that
+Twelve modes sit beside the index, each a browser-side mirror of one instrument and each carrying that
 instrument's headline status and its own selftest against the fixtures above: the **channel
 equation** (register 1205, `PINNED`), δ for a channel from (Z, charge, ℓ) with its two branches
 shown; the **Pauli bound** (register 1141, `PINNED`, with n₀'s reading `RECONSTRUCTED`),
@@ -289,6 +289,31 @@ an overdetermined element is held on the log-form residual it minimises, and the
 typed-p case asserts n₀ read from the record keeps `RECONSTRUCTED`. The assistant's run button is
 labelled by what answers — `Query` for the console alone, `Query console + Claude` only once the
 artifact runtime has granted the second answerer.
+
+**The eleventh mode, relative gravity** (`MODE_GRAVITY`), is the gravity instrument's member
+arithmetic over `data/nuclides.js`: a body written as a formula with its isotopes and charge
+(`^56Fe2+`, `U-238`, `D2O`, `^1H2^16O`) or as a particle of the indexes by name; its mass from
+the table (A·u + mass excess − q·mₑ + the level's energy, electron binding neglected and
+bounded), Schwarzschild radius, χ = J ħ c / (G M²) and Q̃ = q e / (M √(4π ε₀ G)) with their
+decades and ranks in the index's alphabet, χ² + Q̃² against 1, F by the parity of A + Ne, F = 0
+by the pairing rule where it applies, the horizon-bound class at every dimension from the exact
+solutions, the body's cell in the index where it is a charted member, and every quantity as a
+ratio against a reference body (the field at equal distance scales as M). The angular momentum is
+the banked lowest level of a single species (READ), typed (no status) or refused — a molecule's is
+never inferred — and a mass with no isotope is refused, because no atomic-weight table is held.
+Its selftest recomputes the index's own figures from the rows: the member count, the decade
+alphabets, the forced and vanishing counts, the 914 cells and the cells per dimension, the 684
+relieved, the 294 Schwarzschild nuclides, the two bounds, a sample of members against their
+exported χ, Q̃ and cells, and the mass of ¹H₂¹⁶O against the generator's own arithmetic.
+
+**The twelfth mode, the builder** (`MODE_BUILDER`), reads an atom, ion or molecule with the same
+reader into its atoms, electrons, protons and nucleons, its exact mass where every isotope is
+given, each atom's record (the neutral ground configuration and level, the channels and ions the
+index holds, the banked lowest level of the species where one is held) as chips into the explorer,
+the Λ₈ cell of a single ion from its element's ladder (RECONSTRUCTED), and the same gravitational
+quantities, with a button into the gravity mode. **It draws no bond and defines none**: the finding
+on the site is that a bond cannot be indexed, and the row that would carry a bond order carries
+that refusal instead. Everything not derivable from what is held is refused by name.
 
 ## The relativistic limit and the bounds facet
 
@@ -486,7 +511,7 @@ twenty-three, nineteen not and one too large to test; for the rest the sweep tes
 ambient box, and the block says so), the recursion
 determination (within the family, chain 2 over 14 containments; the three lattices peeled one
 element at a time with every intermediate re-checked, two exact and one a verified lower bound;
-exhaustively over every subset of the four indexes small enough, chains 5, 7, 6 and 14), the
+exhaustively over every subset of the five indexes small enough, chains 5, 7, 6, 8 and 14, the corepresentation index the fifth at 27dd39c), the
 indexes too large to determine, named, and the candidates run and not seated — the chiral
 Goldstones (a full box, so free), the electroweak eaten Goldstones (a relabelling), and the
 nuclear rotational bands, whose five routes are listed with their states and whose two sources,
@@ -615,6 +640,160 @@ layout button while a particle index is open returns to the elements. A smoke te
 index and a member of each by hash, taps a node, follows a chip, climbs with `Esc`, searches,
 uses the picker and the dialog's button, and drags to rotate, on desktop and phone viewports.
 
+### The register, the deformed levels seated, and the gravity index
+
+The toolbar button that opens this dialog is labelled **Indexes** (it was *Particles* while the
+dialog held the particle indexes alone); the dialog's element id and the build's block names are
+unchanged.
+
+**The register** (`_register`) is asked of the research tree's registry at build: every seated
+first-order index — **27** at the build this page describes, on **all eight** closure channels —
+with its label, what a member is, the quantum numbers charted, the cells and the admissible cell
+(channel, height, width) measured over the live members (about 35 s, the gravity index's 914 cells
+the slowest), the languages that close it by the channel law, whether the overlap rule seated it as
+a coarsening, and the sources it reads with their hashes (a path into the store is withheld and
+its kind named instead). Beside them the tree's own `STATE.json`, which its instruments regenerate
+and which may lag the registry by a row or two (it held 24 rows when the registry held 27), supplies
+the channel map, the tree's retractions of its earlier claims (`retractions`, its instrument section
+marks written out as "part n" because they are not the books'), what is not claimed, and its commit;
+the block records which it read live. The Indexes dialog opens with it as a table, each row the site carries in
+full with an *open →* button. The register's completeness flag is false and is shown false.
+
+**The deformed two-quasiparticle band levels are seated** (`_deformed_index`, from the
+`deformedbands` instrument over the closed `deformed` capture): **1,907** levels carrying both
+spin and parity, on the band index's own two coordinates, **96 cells at K2, cell (2, 49, 2)**, the
+K2 said to be the free one; **56** levels with a spin and no parity refused apart and named on the
+ghost plates they pin; the band number (234 distinct over 234, a row label), the energy (a
+magnitude against an unknown offset) and the host's Z and N (charted anyway: 853 cells at K0, and
+still refused) each refused against a number; and the seating's ground measured — the cell held by
+nobody else, **zero nuclides shared** with the band index (23 here, 123 there) although the band
+index's mass range 58–205 contains this one's 156–174 entirely, so the earlier "disjoint ranges"
+ground is replaced by the weaker true one; the source's title overclaims (132 levels above A =
+168, up to 174). The site walks the capture itself in the instrument's order and asserts its count
+equals the instrument's. It is the sixth index of the explorer (`deformedbands`, spin across,
+parity up, coloured by nuclide) and the capture block's verdict reads `CAPTURED IN FULL, SEATED`.
+
+**The gravity index** (`_gravity`, from the `gravity` instrument with `overlaprule`, `ghosts`,
+`mi` and `hlaw`): a nuclide in a charge state, read at the lowest level its NIST ASD level table
+banks with a readable J, in a spacetime dimension 4 to 11 — `(Z, N, A, q, Ne, 2Je, L, D)`, every
+slot a quantum number, a count of them, or the status of the level the rest were read at. The
+build reads every number: **3,558** nuclides of AME2020 Table I (carbon 12 reconstructing to
+exactly 12 u from the table's own zero, a fixture), **126** species (93 at the table's ground
+level, 33 at an excited level, members with L = 1 rather than exclusions), **3,663** members,
+**29,304** charted rows on **914** cells in a box of 3,840, **K0, cell (0, 19, 112)**; the two
+angular-momentum facts (F forced non-zero on 1,831 members by the parity of A + Ne, established
+zero on 423 by the pairing rule carried as `EMPIRICAL-RULE`, 1,409 neither; 294 neutral nuclides
+exactly Schwarzschild); the horizon-bound table of exact solutions (Kerr–Newman at D = 4,
+Tangherlini and singly-rotating Myers–Perry above, no bound on rotation from D = 6, charge bound in
+every dimension, no exact charged rotating solution above four so `B = 2`); the two findings (the
+dimension invisible to the chart and visible in the cell count, 109 cells at D = 4 and 115 from
+D = 5 at the same cell; **684** members relieved of their bound at D = 6 with the cell unmoved);
+the coarsening (B, F, X) the overlap rule seated at **K1, 26 cells**, with its channel by the
+dimensions admitted (K7 at D ≤ 5, K1 from D ≤ 6) and per single dimension (K7, K1, then K0);
+the **image bound** that empties most of its demand (E = **1,550**: 1,080 forbidden because the
+coordinate map's image, exhausted over every nuclide, stage and 2Je to saturation at 1,416 cells,
+does not reach them; 470 open; 0 unplaced, the index being gapless), the withdrawn pair of bounds
+it replaced (1,228 forbidden, 148 of them reachable, Zr-113 at q = 1 among them); the encoding
+sensitivity; the instrument's refusals in the site's words; and **the instrument's own selftest,
+run at build and recorded as it ran** — it pins the figures from before its reader was widened
+(118 species, 3,394 members) and this tree measures 126 and 3,663, twelve fixtures disagreeing,
+every one named with both figures, recorded and not repaired on either side. In the explorer it is
+the seventh index (`gravity`): every member drawn once at D = 4 on its spin-decade rank, its
+charge-decade rank and F, coloured by the bound class, with the bound class at every dimension,
+the mass, χ, Q̃, the level read and a button into the gravity mode on the member's plate; of its
+1,550 demanded cells the ones at D = 4 are drawn as ghosts and all are counted.
+
+**The gravity instrument's selftest was re-pinned by the research branch itself.** It pinned the
+figures from before its own reader was widened (118 species, 3,394 members) while the tree measured
+126 and 3,663; this branch carried a repair for one commit, and the research branch then re-pinned
+the instrument at its own head (sections 3a and 3b of the file name the eight species the widened
+reader reached and the nine not read at their lowest level), so the copy here is withdrawn in favour
+of theirs and the site records the selftest as it ran: it passes.
+
+**A nuclear-spin table, measured and not seated** (`_nuclear_spin`, from the `nspin` instrument's
+index half): the gravity index refuses to call the electronic angular momentum the member's spin
+because the nuclear part is not banked, and a ground-state nuclear-spin table is exactly that
+datum. The instrument sweeps the coordinate map under a model of it (parity fixed by A) and finds
+the image shrinks from 1,416 to 1,088 cells with nothing gained, so seating the table could only
+forbid — 1,208 of the 1,550 demanded cells against 1,080 now, 128 moved from open — and 755 of the
+1,178 members reading no electronic spin would leave the zero decade; the 168 seated cells outside
+the new image all read that zero decade, the signature of a re-chart and not a refutation. Carried
+on the gravity index's plate and in the dialog with its two refusals; the instrument's other half,
+a propulsion estimate, is not carried, being the field's question.
+
+**The phonon index** (`_phonons`, from the `phonondex` instrument, registry row 25): a member is a
+site-symmetry type of a space group up to conjugacy — the Γ-point phonon symmetry content every
+atom on such a site contributes, from which any material's content follows by addition over its
+occupied sites — **1,120** members over all **230** space groups on **90** cells, **K0, cell
+(0, 12, 16)**, every number computed (the operations from spglib in the primitive basis, the
+character tables by Burnside's class-algebra method, the decomposition by orthogonality) and none
+read from a table; **115** distinct decompositions; the guards (modes exactly three times the
+multiplicity, orbit-stabiliser on every row); the coarsening the over-representation rule forces
+(the triclinic centrosymmetric group's eight inversion centres are one member); six known crystals
+composed and matched six for six; the four defects the arithmetic caught; multiplicity and
+point-group order refused as the host's; the k ≠ Γ refusal recorded as discharged by the index
+beside it. The eighth index of the explorer (`phonons`: site order across, distinct species up,
+maximum degeneracy into the page, coloured by crystal system).
+
+**The k-point index** (`_kpoints`, from the `kpointdex` instrument, registry row 26): a member is
+an isolated high-symmetry k-star of a space group, the reciprocal-space analogue of a site type —
+**870** members over the **162** space groups that have any (the **68** without are exactly the
+ten polar crystal classes, measured) on **21** cells, **K0, cell (0, 7, 5)**; the points enumerated
+exactly by Hermite normal form and the 1/12 and 1/24 grids agreeing with the enumeration on all 14
+Bravais lattices because every coordinate's denominator is 1, 2, 3 or 4; the small representations
+computed through the little group's projective factor system, **305** members (35.1 %) carrying a
+non-trivial one with their bands stuck together; a published table (Setyawan and Curtarolo 2010)
+used only to check, 12 of 14 named points found and the two misses one star on a symmetry line; a
+second implementation agreeing on 314 of 314 dimension buckets with the multiplier's order differing
+in four space groups as a gauge choice, its eighteen once-unresolved members closed; the star and
+point-group order refused as the host's, a merge by symmetry content refused (485 members it would
+lose) and two over-representations refused with their counts. The ninth index of the explorer
+(`kpoints`: little-group order across, small representations up, maximum degeneracy into the page,
+coloured by Bravais lattice). Both were measured into the prediction instrument's table at 27dd39c with a bound each.
+
+**A finding the research tree then repaired.** Its sub-chart sweep (`overlaprule.arity2_freeness`)
+walks every registered module and, by its own design, raises rather than skipping when one declares
+neither a coordinate entry nor coordinate names to it; at 40ad1e4 the two newest indexes declared
+neither and the sweep stopped on the phonon index. The site carried that as
+`arity2_freeness.absent` with the sweep's own message (`_freeness`), and keeps the path: a build
+on a tree where the sweep raises records the finding on the spin-4 index's plate and in the sweep
+block, and the fixtures check whichever the tree gives. At 27dd39c both instruments declare their
+names and the sweep runs.
+
+**The time-reversal extension** (`_coreps`, from the `corepdex` instrument, registry row 27): a
+member is a corepresentation at an isolated high-symmetry k-star, a single degenerate level where
+the k-point index's member is the star — **3,529** on the k-point index's own 870 stars (proved
+identical as sets on all 230 space groups by the derivation, compared label-free here), on **13**
+cells, **K0, cell (0, 6, 3)**; the degeneracy, the small-representation dimension and the number of
+species fusing as coordinates, which determine Herring's case with no exception (3,138 real, 12
+pseudoreal, 297 complex pairs, 82 across conjugate stars); the accounting 3,908 − 297 − 82; **309**
+levels doubled at k by time reversal over 86 space groups; which obstruction touches which of the
+seated stars; the over-representation an adversarial review caught (3,611 members on 37 cells at
+arity 4, withdrawn: a conjugate-star level seated twice and the little-group order carried as a
+coordinate) and the repair; the star's properties refused as the k-point index's. The tenth index
+of the explorer (`coreps`: degeneracy across, small-representation dimension up, species fusing into
+the page, coloured by case). The k-point index's third coordinate loses its gloss with it: it is the
+largest small-representation dimension and not the degeneracy, which time reversal exceeds at 118
+of its groups.
+
+**The predictions block** at 27dd39c spans 27 indexes: **4,919** demanded, **2,045** forbidden by
+five non-monotone bounds (the three-quark flavour bound, the gravity image, and one each for the
+phonon chain: a mode budget antitone in the site-symmetry order forbidding 29 of 111, a sum-of-squares
+rule forbidding 38 of 45, and Herring's criterion forbidding all 4 of the corepresentation index's
+demand, the first index in the register to close at zero open), 36 unplaced, 2,740 open, 98
+undecided; law L4 now names the non-monotone bounds from the instrument's own table.
+
+**`data/nuclides.js`** (`nuclides_block`) carries what the two new solver modes compute over: the
+3,558 nuclides with mass excess and quality flag (the file's md5 against the ledger's), the
+constants with their statuses, the 126 species with the level each was read at, the bound table,
+the decade alphabets and the fixtures the browser recomputes.
+
+**The predictions block** now spans 24 indexes: **4,759** demanded cells, **1,974** forbidden by
+the two non-monotone bounds (894 baryon cells by the three-quark flavour bound that replaced the
+Gell-Mann–Nishijima reading, 1,080 gravity cells by the image), 36 unplaced, 2,651 open, 98
+undecided; law L4 now names both bounds; nothing is too large to close, the earlier exclusion of
+the gravity index having been withdrawn by the instrument.
+
 ## Ask a model, with a machine check
 
 **The page never answers a question itself, and it never trusts the model that does.** The
@@ -685,6 +864,15 @@ chemistry of its own: the species are the reader's or the model's.
 
 ## The public build
 
+**The label, and the field that is not named.** The site is titled "The Method Research" (`SITE_TITLE`,
+which the page, the cite line and the console footer read from `meta`), by the author's decision of
+2026-09-20: the website and its indexes exist to carry the work forward, and nothing in the field the
+research tree is named for is published. So the tree's own name is a private pattern in the guard
+(`(?i)\bwarp\b`, `warp-drive`), every path the site prints from that tree is rewritten by
+`public_path()` to `research/…`, its root is printed as "the research tree", and the selftest walks
+every paper's non-body fields as well as the index and the particle file for it.
+
+
 The books the index is drawn from are unpublished and not peer reviewed, and the author's ruling
 (2026-09-19) is that **the public site references none of them**: no register numbers, section
 numbers, member file names, line references or quoted passages, and no search over the corpus.
@@ -712,7 +900,7 @@ public object — with no citing line.
 
 ## Papers, figures, glossary
 
-**Papers.** The three released papers are read on the site, not linked out of it: `papers_block`
+**Papers.** The four released papers are read on the site, not linked out of it: `papers_block`
 renders each from its seated text at build with a small stdlib Markdown renderer (headings,
 paragraphs, lists, blockquotes, fenced code, pipe tables, rules, images; arXiv and DOI identifiers
 linked by pattern), records its md5 against the store's, copies every figure it cites out of the
@@ -734,6 +922,16 @@ sections with § and "Section n"), and the selftest asserts that it cites nothin
 for a paper named before its file arrives. The selftest asserts the three papers in order, every
 store paper's md5 against the store, every figure's md5 against the ledger, the research paper's
 commit and PDF, and that the render carries every heading of the Löwdin paper and of this one.
+**The index of first-order indexes paper is the fourth** (`RESEARCH_PAPERS`:
+`research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md`, read from the tree at
+`--warp-root` when one is given, `research_path`), the paper on the indexes this site carries. Its
+text cites unpublished material at four sites — three citations of one register entry and the
+research tree's own directory in the reproduction appendix — and the site cites nothing from the
+books, so `mask` replaces each at build with a visible mark, the count is recorded (`masked`) and
+shown on the card and in the reader, and the guard measures zero book citations afterwards; the
+PDF beside it is the paper as written and is **withheld** (`pdf_withheld`, `pdf_note`) until the
+author reissues it without them. Its last commit is the tree's commit (`--warp-commit`) where the
+file is not in this checkout.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,

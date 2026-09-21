@@ -1,4 +1,4 @@
-/* The Method Index — a zoomable reading of the index.
+/* The Master Index — a zoomable reading of the index.
  *
  * The explorer computes nothing. Every number it shows is tools/populate.py's,
  * written by tools/webindex.py into data/, and the page draws it with the
@@ -404,7 +404,7 @@
     return '#/' + parts.join('/');
   }
   function pathText(node) {
-    return pathOf(node).map((n) => n.kind === 'root' ? 'The Method Index' : n.kind === 'channel' ? `ℓ=${n.l}` : n.kind === 'cell' ? `2S+1=${n.mult}` : label(n)).join(' › ');
+    return pathOf(node).map((n) => n.kind === 'root' ? 'The Master Index' : n.kind === 'channel' ? `ℓ=${n.l}` : n.kind === 'cell' ? `2S+1=${n.mult}` : label(n)).join(' › ');
   }
 
   // ---------------------------------------------------------------- camera
@@ -1393,6 +1393,7 @@
   }
   // exposed for the browser smoke test, which reads the scene it cannot otherwise see
   window.__mi_state = state;
+  window.__mi_solverCtx = solverCtx;
   window.__mi_lat = { cam: latCamera, hit: hitLattice };
   function orbitZoom(factor) {
     const o = state.orbit || orbitHome();
@@ -1593,12 +1594,12 @@
     const m = state.index.meta || {};
     if (isParticleNode(node)) {
       const ps = (state.particleIndex || {}).source || {}, tree = ps.tree || {}, px = node.px;
-      if (!px) return `${pathText(node)}. The Method Index.`;
+      if (!px) return `${pathText(node)}. The Master Index.`;
       const src = px.family === 'pdg' ? `${ps.citation || ''}${ps.doi ? ', DOI ' + ps.doi : ''}` : (px.source.text || '');
-      return `${pathText(node)}. The Method Index, particle indexes, read at build from ${(tree.instruments || []).join(', ')}${tree.commit ? ' at ' + String(tree.commit).slice(0, 12) : ''} and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Source: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
+      return `${pathText(node)}. The Master Index, particle indexes, read at build from ${(tree.instruments || []).join(', ')}${tree.commit ? ' at ' + String(tree.commit).slice(0, 12) : ''} and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Source: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
     }
     const src = (state.index.sources || []).map((s) => `${s.file.split('/').pop()} ${s.md5_measured ? s.md5_measured.slice(0, 8) : '?'}`).join(', ');
-    return `${pathText(node)}. The Method Index, read by tools/populate.py and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Sources: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
+    return `${pathText(node)}. The Master Index, read by tools/populate.py and written by tools/webindex.py; commit ${m.commit || '?'}, built ${m.built || '?'}. Sources: ${src}. ${location.origin && location.origin !== 'null' ? location.origin : ''}${location.pathname}${hashOf(node)}`;
   }
 
   function renderInspector(node) {
@@ -1655,6 +1656,13 @@
         const dlg = el.closest('dialog'); if (dlg && dlg.open) dlg.close();
         if (el.dataset.pghost !== undefined) goToGhost(el.dataset.pgo, el.dataset.pghost);
         else goToParticle(el.dataset.pgo, el.dataset.pkey === undefined ? undefined : el.dataset.pkey);
+      });
+    });
+    root.querySelectorAll('[data-solver]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const dlg = el.closest('dialog'); if (dlg && dlg.open) dlg.close();
+        let fill = null; try { fill = el.dataset.fill ? JSON.parse(el.dataset.fill) : null; } catch (err) { fill = null; }
+        openSolver(el.dataset.solver, fill);
       });
     });
     root.querySelectorAll('[data-go]').forEach((el) => {
@@ -2073,11 +2081,16 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     readrezayi: { x: 'K', y: 'ORD', z: 'CHORD', colour: 'STAT' },
     spin4: { x: 'Q3', y: '2I', z: 'P', colour: 'extra:pdg_status' },
     nucbands: { x: '2I', y: 'P', z: null, colour: 'extra:table' },
+    deformedbands: { x: '2I', y: 'P', z: null, colour: 'extra:el' },
+    gravity: { x: 'X', y: 'Y', z: 'F', colour: 'B' },
+    phonons: { x: 'SITE', y: 'NIRR', z: 'DMAX', colour: 'extra:system' },
+    kpoints: { x: 'LITTLE', y: 'NSR', z: 'DMAX', colour: 'extra:bravais' },
+    coreps: { x: 'CDIM', y: 'SDIM', z: 'NSM', colour: 'extra:case' },
   };
-  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries' };
-  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)' };
+  const PSHORT = { fundamental: 'Fundamental particles', mesons: 'Mesons', baryons: 'Baryons', spin4: 'Spin-4 mesons', nucbands: 'Nuclear band states', fqh: 'Hall quasiparticles', bosonqp: 'Bosonic excitations', readrezayi: 'Read–Rezayi primaries', deformedbands: 'Deformed band levels', gravity: 'Gravity index', phonons: 'Phonon sites', kpoints: 'k-points', coreps: 'Corepresentations' };
+  const PLABEL = { Q3: 'charge Q', '2J': 'spin J', '2I': 'isospin I', GEN: 'generation', COL: 'colour representation', P: 'parity', S: 'strangeness', C: 'charm', B: 'beauty', STAT: 'statistics', ORD: 'order of the phase', CHORD: 'order of the charge', M: 'inverse filling 1/ν', K: 'level k', 'extra:kind': 'kind', 'extra:pdg_status': 'PDG status', 'extra:table': 'mechanism (MR ΔI = 1, AMR ΔI = 2)', 'extra:el': 'nuclide', X: 'spin decade (rank)', Y: 'charge decade (rank)', F: 'forced angular momentum', B: 'horizon-bound class', L: 'level status', E: 'mass evidence', D: 'dimension', SITE: 'site-symmetry order', NIRR: 'distinct irreps', DMAX: 'maximum degeneracy', LITTLE: 'little-group order', NSR: 'small representations', 'extra:system': 'crystal system', 'extra:bravais': 'Bravais lattice', CDIM: 'degeneracy (corep dimension)', SDIM: 'small-representation dimension', NSM: 'species fusing', 'extra:case': 'Herring case' };
   const half = (v) => (v % 2 ? `${v}/2` : String(v / 2));
-  const axisLabel = (px, name) => (px && px.id === 'nucbands' && name === '2I' ? 'spin I' : (PLABEL[name] || name));
+  const axisLabel = (px, name) => (px && (px.id === 'nucbands' || px.id === 'deformedbands') && name === '2I' ? 'spin I' : (PLABEL[name] || name));
   const third = (v) => (v % 3 === 0 ? String(v / 3) : `${v}/3`).replace('-', '−');
   // a coordinate's value read out in its own units: the doubled spin as J, the charge in thirds as Q
   function coordText(name, v) {
@@ -2092,6 +2105,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       case 'STAT': return v === 0 ? 'boson' : v === 1 ? 'fermion' : v === 2 ? 'anyon' : String(v);
       case 'M': return `ν = 1/${v}`;
       case 'K': return `k = ${v}`;
+      case 'B': return v === 0 ? 'no horizon bound' : v === 1 ? 'a horizon bound' : 'undetermined: no exact solution';
+      case 'F': return v ? 'F cannot vanish (A + Ne odd)' : 'F may vanish';
+      case 'X': return v === 0 ? 'no spin decade (J = 0)' : `spin-decade rank ${v}`;
+      case 'Y': return v === 0 ? 'neutral: no charge decade' : `charge-decade rank ${v}`;
+      case 'L': return v ? 'read at an excited level' : 'the table\'s ground level';
+      case 'E': return v ? 'mass estimated' : 'mass measured';
+      case 'D': return `D = ${v}`;
       default: return `${PLABEL[name] || name} = ${v}`;
     }
   }
@@ -2103,6 +2123,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       case 'P': return v > 0 ? '+' : '−';
       case 'STAT': return ['boson', 'fermion', 'anyon'][v] || String(v);
       case 'M': return `1/${v}`;
+      case 'B': return ['none', 'bound', 'undet.'][v] || String(v);
+      case 'F': return v ? 'forced' : 'free';
+      case 'L': return v ? 'excited' : 'ground';
+      case 'E': return v ? 'est.' : 'meas.';
       default: return String(v);
     }
   }
@@ -2129,6 +2153,29 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         source: { text: `${nu.capture.paper} (arXiv:${nu.capture.arxiv}); the capture reproduces the paper's own census exactly`, status: 'READ', note: 'read from the capture the instrument writes; nothing is written down by hand' },
         raw: ni, capture: nu.capture, deformed: nu.deformed || null, in_progress: !!ni.in_progress,
         rows: ni.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
+      const di = nu.deformed_index;
+      if (di && di.rows) {
+        out.push({ id: 'deformedbands', family: 'nuclear', title: di.title, short: PSHORT.deformedbands, member: di.member, coordinates: di.coordinates,
+          members: di.members, charted: di.charted, cells: di.cells, cell: di.cell, closers: di.closers || [], refused: di.refused || [], unplaced: [], unplaced_why: '',
+          source: { text: `${nu.deformed ? nu.deformed.paper : 'the deformed-band paper'}${nu.deformed ? ' (arXiv:' + nu.deformed.arxiv + ')' : ''}; the capture is total against three of the paper's own figures`, status: 'READ', note: 'read from the closed capture at build; nothing is written down by hand' },
+          raw: di, capture: nu.deformed || null, in_progress: !!di.in_progress,
+          rows: di.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
+      }
+    }
+    const gv = P.gravity;
+    if (gv && !gv.absent && gv.rows) {
+      out.push({ id: 'gravity', family: 'gravity', title: gv.title, short: PSHORT.gravity, member: gv.member, coordinates: gv.coordinates,
+        members: gv.members, charted: gv.charted, cells: gv.cells, cell: gv.cell, closers: gv.closers || [], refused: [], unplaced: [], unplaced_why: '',
+        source: { text: `AME2020 Table I for the nuclides and the NIST ASD level tables for the charge states: ${gv.species.count} species over ${gv.data.nuclides.toLocaleString()} nuclides, read in ${gv.dimensions.length} dimensions`, status: 'READ', note: gv.species.note },
+        raw: gv, in_progress: !!gv.in_progress,
+        rows: gv.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
+    }
+    for (const [id, blk] of [['phonons', P.phonons], ['kpoints', P.kpoints], ['coreps', P.coreps]]) {
+      if (!blk || blk.absent || !blk.rows) continue;
+      out.push({ id, family: 'crystal', title: blk.title, short: PSHORT[id], member: blk.member, coordinates: blk.coordinates,
+        members: blk.members, charted: blk.charted, cells: blk.cells, cell: blk.cell, closers: blk.closers || [], refused: blk.refused || [], unplaced: [], unplaced_why: '',
+        source: { text: blk.source.text, status: blk.source.status, note: blk.source.note }, raw: blk, in_progress: !!blk.in_progress,
+        rows: blk.rows.map((r, i) => ({ i, name: r.name, key: r.key, coords: r.coords, extra: r.extra })) });
     }
     const q = P.quasiparticles || {};
     const fq = q.seated;
@@ -2166,6 +2213,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const pred = (P.predictions && !P.predictions.absent) ? P.predictions.by_index || {} : {};
     for (const px of out) {
       px.demand = pred[px.id] || null;      // the cells its closure demands, adjudicated
+      if (px.demand && px.id === 'gravity') {   // drawn at one dimension; every demanded cell counted
+        const d0 = px.raw.drawn_at_D;
+        px.demand = Object.assign({}, px.demand, { cells: px.demand.cells.filter((g) => g.cell[0] === d0), all_cells: px.demand.cells.length, drawn_at_D: d0 });
+      }
       px.byKey = new Map(px.rows.map((r) => [r.key.toLowerCase(), r]));
       px.byName = new Map();
       for (const r of px.rows) if (!px.byName.has(r.name.toLowerCase())) px.byName.set(r.name.toLowerCase(), r);
@@ -2359,6 +2410,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const undrawn = px.coordinates.map((c) => c.name).filter((n) => onAxis(n) === '—');
     let extra = '';
     if (px.id === 'fqh') extra = section('The states', `<div class="fields">${row('observed states', px.observed.map((o) => `ν = ${esc(o.filling)} (fundamental charge ${esc(o.fundamental_charge)})`).join(' · '), 'READ', esc(px.observed_note), true)}${px.statistics ? row('statistics', `${px.statistics.anyons} anyons, ${px.statistics.fermions} fermions, ${px.statistics.bosons} bosons`, px.statistics.status, esc(px.statistics.note || ''), true) : ''}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}</div>${px.not_here ? `<p class="note"><b>Not here:</b> ${esc(px.not_here)}</p>` : ''}`);
+    else if (px.id === 'deformedbands') extra = renderDeformedPlate(px);
+    else if (px.id === 'gravity') extra = renderGravityPlate(px);
+    else if (px.id === 'phonons') extra = renderPhononPlate(px);
+    else if (px.id === 'kpoints') extra = renderKpointPlate(px);
+    else if (px.id === 'coreps') extra = renderCorepPlate(px);
     else if (px.id === 'readrezayi') extra = section('The levels', `<div class="fields">${row('observed levels', px.observed.map((o) => `k = ${o.k}: ν = ${esc(o.nu)} (${esc(o.name)})`).join(' · '), 'READ', 'named plateaux; the rest of the reach is the series\' own continuation', true)}${row('validated', px.validation.map((v) => `${esc(v.what)}: ${v.agrees ? 'agrees' : 'DISAGREES'}`).join(' · '), 'DERIVED', 'the closed form against the values the literature fixes', true)}${row('verdict', `<b>${esc(px.verdict)}</b> — ${esc(px.why)}`, px.verdict_status, null, true)}${row('fermions', `${px.fermions.length}`, 'DERIVED', esc(px.fermions_note), true)}</div>`);
     else if (px.id === 'bosonqp') extra = section('The three rules', `<div class="fields">${px.rules.map((r) => row(esc(r.rule), esc(r.text), 'DERIVED', null, true)).join('')}${px.excluded.map((x) => row('excluded: ' + esc(x.name), `${esc(x.parts.join(' + '))} → 2J in {${x.spins.join(', ')}}: ${esc(x.why)}`, 'DERIVED', 'the computation refuses it, not a choice', true)).join('')}${px.relation ? row('the relation', `${px.relation.qp_subset_of_bosons ? 'a subset of the bosons' : 'not a subset of the bosons'}; ${px.relation.qp_sublattice ? 'a sublattice' : 'not a sublattice'}`, px.relation.status, esc(px.relation.note || ''), true) : ''}</div>`);
     else if (px.id === 'spin4' && px.raw && px.raw.reach) { const s = px.raw; extra = section('A sub-population, seated on its own reach', `<p class="note">The ten mesons of spin 4: a sub-population of <button type="button" class="pchip" data-pgo="mesons">the meson index</button> with ${esc(s.held_constant.coordinate)} = ${s.held_constant.value} held constant, so it is not a coordinate here and the effective arity is ${s.arity.effective}. ${badge('DERIVED', esc(s.held_constant.note))}</p>
@@ -2368,7 +2424,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('the channel moves', `${s.reach.moves ? 'yes' : 'no'} — K${s.reach.channels_seen.join(', K')}`, s.reach.status, 'so the box-invariance test seats it: K4 is a property of the data and not of the construction', true)}
         ${row('the other true reading', `${s.reach.established.cells} cells at K${s.reach.established.channel} on the established states alone`, s.reach.status, esc(s.reach.established.note), true)}
         ${row('no printed mass', esc(s.massless.join(', ')), 'READ', esc(s.massless_note), true)}
-        ${row('why this K4 is different', `at arity 2 statistics closes ${s.arity.statistics_at_arity_2.closes} of ${s.arity.statistics_at_arity_2.charts} charts, free; this chart is arity ${s.arity.effective}`, s.arity.status, esc(s.arity.note), true)}
+        ${row('why this K4 is different', `${s.arity.statistics_at_arity_2.absent ? 'the arity-2 freeness sweep could not run on this tree (' + esc(s.arity.statistics_at_arity_2.finding) + ');' : `at arity 2 statistics closes ${s.arity.statistics_at_arity_2.closes} of ${s.arity.statistics_at_arity_2.charts} charts, free;`} this chart is arity ${s.arity.effective}`, s.arity.status, esc(s.arity.note), true)}
         ${row('the two tests', esc(s.tests.note), s.tests.status, esc(s.tests.box_invariance + ' — ' + s.tests.reach_gate), true)}
         ${row('every channel occupied', s.channels.all_occupied ? 'yes' : 'no', 'DERIVED', esc(s.channels.note), true)}
       </div>`); }
@@ -2430,11 +2486,92 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   function gchip(px, g, current) {
     return `<button type="button" class="pchip gchip-${esc(GHOST_BIN[g.bin] || 'open')}${current ? ' is-current' : ''}" data-pgo="${esc(px.id)}" data-pghost="${esc(g.cell.join(','))}" title="${esc(g.bin + ': ' + px.coordinates.map((c, k) => `${c.name} = ${g.cell[k]}`).join(', '))}">(${g.cell.join(', ')})</button>`;
   }
+  function renderDeformedPlate(px) {
+    const d = px.raw, s = d.seating;
+    return section('The seating, and what is refused', `<div class="fields">
+        ${row('refused apart', `${d.refusals.levels_no_parity} levels with a spin and no parity`, d.refusals.status, esc(d.refusals.note), true)}
+        ${row('the free channel', `arity ${d.free_channel.arity}: K${px.cell.channel} is ${d.free_channel.free ? 'the free one' : 'earned'}`, d.free_channel.status, esc(d.free_channel.note), true)}
+        ${row('the cell', `(${px.cell.channel}, ${px.cell.height}, ${px.cell.width}) held by ${s.cell_held_by.length ? esc(s.cell_held_by.join(', ')) : 'nobody else'}`, s.status, esc(s.ground), true)}
+        ${row('nuclides', `${s.nuclides.here} here, ${s.nuclides.in_the_band_index} in the band index, ${s.nuclides.shared} shared`, s.status, 'measured, not asserted: a new member set and not a recharting', true)}
+        ${row('mass ranges', `A ${s.A_ranges.here[0]}–${s.A_ranges.here[1]} here, ${s.A_ranges.band_index[0]}–${s.A_ranges.band_index[1]} in the band index, ${s.A_ranges.shared_A_values} A values shared`, s.status, esc(s.A_ranges.note), true)}
+        ${row('above the title', `${s.above_title.levels} levels above A = 168, the largest at A = ${s.above_title.max_A}`, 'READ', esc(s.above_title.note), true)}
+        ${row('the nuclide audit', esc(s.nuclide_audit), 'READ', null, true)}
+      </div>
+      <div class="fields">${px.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div>`);
+  }
+  function renderGravityPlate(px) {
+    const g = px.raw, am = g.angular_momentum, dm = g.dimension, co = g.coarsening, de = g.demand, st = g.selftest;
+    return section('The reading', `<p class="note">${esc(g.drawn_note)} ${badge('DERIVED')}</p>
+      <div class="fields">
+        ${row('species', `${g.species.count}: ${g.species.ground} read at the table's ground level, ${g.species.excited} at an excited level`, g.species.status, esc(g.species.note), true)}
+        ${row('the data', `${g.data.nuclides.toLocaleString()} nuclides; carbon 12 reconstructs to ${g.data.carbon_12.mass_u} u${g.data.carbon_12.exact ? ', exactly' : ' — NOT exact'}`, g.data.status, esc(g.data.carbon_12.note), true)}
+        ${row('the mass', esc(g.data.mass_formula), 'PINNED', `excitation included exactly, worst ${g.data.excitation_bound.worst_ratio.toExponential(2)} of M; electron binding neglected and bounded at ${g.data.binding_bound.worst_ratio.toExponential(2)} of M c², three orders below the decade resolution`, true)}
+        ${row('the two angular-momentum facts', `F cannot vanish on ${am.forced.toLocaleString()} members; F = 0 established on ${am.vanishes}; ${am.undetermined.toLocaleString()} neither`, am.status, `${esc(am.forced_note)} ${esc(am.vanishes_note)} (${esc(am.pairing_rule_status)})`, true)}
+        ${row('exactly Schwarzschild', `${am.schwarzschild.count} nuclides: ${esc(am.schwarzschild.first.join(', '))} …`, am.status, esc(am.schwarzschild.note), true)}
+        ${row('what the excited levels bought', `2Je seated only by an excited level: ${am.only_excited.length ? am.only_excited.map(half).join(', ') : 'none'}; only by a ground level: ${am.only_ground.map(half).join(', ')}`, am.status, am.alphabet_by_L.map((a) => `L = ${a.L}, J = ${half(a['2Je'])}: ${a.members}`).join('; '), true)}
+        ${row('relieved by dimension', `${dm.relieved.count} members bound at D ≤ 5 and unbound at D ≥ 6`, 'DERIVED', esc(dm.relieved.note), true)}
+        ${row('the coarsening (B, F, X)', `${co.cells} cells, K${co.channel}`, co.status, esc(co.note), true)}
+        ${row('its channel by the dimensions admitted', co.by_dimensions_admitted.map((r) => `D ≤ ${r.D_max}: K${r.channel}`).join(' · '), co.status, esc(co.dependence_note) + ' Per single dimension: ' + co.per_single_dimension.map((r) => `D = ${r.D}: K${r.channel}`).join(', '), true)}
+        ${row('the demand', `E = ${de.E.toLocaleString()}: ${de.forbidden.toLocaleString()} forbidden by the image bound, ${de.unplaced} unplaced, ${de.open} open`, de.status, esc(de.image.note), true)}
+        ${row('the image saturates', de.image.saturation.map((s) => `2Je ≤ ${s.cutoff_2Je}: ${s.image_cells.toLocaleString()} cells`).join(' · '), 'DERIVED', `the withdrawn pair forbade ${de.image.superseded.old_pair_forbade.toLocaleString()} cells of which the image reaches ${de.image.superseded.of_those_the_image_reaches}, ${de.image.superseded.witness.symbol}-${de.image.superseded.witness.A} at q = ${de.image.superseded.witness.q}, 2Je = ${de.image.superseded.witness['2Je']} among them; ${esc(de.image.superseded.note)}`, true)}
+        ${row('gapless', `${de.image.gapless.species_named} species named by a level table, ${de.image.gapless.species_charted} charted`, 'DERIVED', esc(de.image.gapless.note), true)}
+        ${row('the encoding', `rank (${g.chart.encoding.rank_cell.join(', ')}) against raw decade (${g.chart.encoding.raw_decade_cell.join(', ')}): ${g.chart.encoding.agree ? 'agree' : 'DISAGREE'}`, g.chart.encoding.status, esc(g.chart.encoding.note), true)}
+        ${row('the decades', `spin ${g.chart.decades.spin.join(', ')}; charge ${g.chart.decades.charge.join(', ')}`, 'DERIVED', esc(g.chart.decades.note), true)}
+      </div>
+      <h3>The dimension changes the answer, not the arithmetic</h3>
+      <p class="note">${esc(dm.myers_perry)} ${esc(dm.charge)} ${esc(dm.coupling_free)} ${badge(dm.status)}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>case</th><th>B</th></tr></thead><tbody>${dm.branches.map((b) => `<tr><td class="mono wrap">${esc(b.case)}</td><td>${b.B} · ${esc(coordText('B', b.B))}</td></tr>`).join('')}</tbody></table></div>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>D</th><th>cells</th><th>cell</th><th>classes present</th></tr></thead><tbody>${dm.per_D.map((r) => `<tr><td>${r.D}</td><td>${r.cells}</td><td>(${r.cell.channel}, ${r.cell.height}, ${r.cell.width})</td><td>${r.classes_present.map((b) => coordTick('B', b)).join(', ')}</td></tr>`).join('')}</tbody></table></div>
+      <div class="fields">
+        ${row('finding A', esc(dm.finding_A), 'DERIVED', 'recorded, not repaired', true)}
+        ${row('finding B', esc(dm.finding_B), 'DERIVED', 'recorded, not repaired', true)}
+        ${g.refuses.map((r) => row('refuses', esc(r), null, null, true)).join('')}
+        ${row('the instrument\'s own selftest', st.passed ? 'every fixture passes on this tree' : `${st.failing.length} fixtures pin a figure this tree measures differently: ${st.failing.map((f) => `${esc(f.fixture)} (measured ${esc(f.measured)}, pinned ${esc(f.pinned)})`).join('; ')}`, st.status, esc(st.note), true)}
+        ${g.nuclear_spin ? row('a nuclear-spin table, measured and not seated', nuclearSpinText(g.nuclear_spin), 'DERIVED', esc(g.nuclear_spin.note) + ' Refuses: ' + g.nuclear_spin.refuses.map(esc).join(' '), true) : ''}
+      </div>
+      <p class="note">The eleventh solver mode computes the same quantities for any nuclide, ion, molecule or particle from the same tables. <button type="button" class="ghost open-ix" data-solver="gravity">Open the gravity mode →</button></p>`);
+  }
+  function renderPhononPlate(px) {
+    const p = px.raw, g = p.guards;
+    return section('The reading', `<div class="fields">
+        ${row('space groups', `${p.space_groups} of 230; ${p.per_space_group.min} to ${p.per_space_group.max} site types each, median ${p.per_space_group.median}`, 'DERIVED', Object.entries(p.by_system).map(([k, v]) => `${k} ${v}`).join(', '), true)}
+        ${row('distinct decompositions', String(p.distinct_decompositions), 'DERIVED', 'the symmetry contents the sites can carry, over all members', true)}
+        ${row('the guards', `modes = 3 × multiplicity on every row: ${g.modes_are_three_times_multiplicity ? 'holds' : 'FAILS'}; |site symmetry| × |orbit| = |point group|: ${g.orbit_stabiliser ? 'holds' : 'FAILS'}`, g.status, esc(g.note), true)}
+        ${row('the coarsening', `${esc(g.coarsening.space_group)} seats ${g.coarsening.members} members, site orders ${g.coarsening.site_orders.join(', ')}`, 'DERIVED', esc(g.coarsening.note), true)}
+        ${row('six crystals, composed', p.archetypes.map((a) => `${esc(a.structure)} (${esc(a.space_group)}): ${esc(a.decomposition)}, ${a.modes} modes`).join('; '), 'DERIVED', esc(p.archetypes_note), true)}
+        ${row('defects caught by arithmetic', p.defects.map(esc).join('; '), 'READ', esc(p.defects_note), true)}
+        ${row('the source', esc(p.source.text), p.source.status, esc(p.source.note) + (p.source.captures.length ? '; captures ' + p.source.captures.map((c) => `${esc(c.path)} (md5 ${esc(c.md5.slice(0, 12))})`).join(', ') : ''), true)}
+      </div>`);
+  }
+  function renderKpointPlate(px) {
+    const k = px.raw, sg = k.space_groups, pj = k.projective, gr = k.grid, cc = k.crosscheck, si = k.second_implementation;
+    return section('The reading', `<div class="fields">
+        ${row('space groups', `${sg.with_a_member} carry a member, ${sg.with_none} carry none${sg.none_are_the_polar_classes ? ', and those are exactly the ten polar crystal classes' : ''} (${sg.polar_classes.join(', ')})`, 'DERIVED', esc(sg.note), true)}
+        ${row('by Bravais lattice', Object.entries(k.by_bravais).map(([b, n]) => `${esc(b)} ${n}`).join(' · '), 'DERIVED', null, true)}
+        ${row('projective', `${pj.members} members (${(pj.share * 100).toFixed(1)} %) carry a non-trivial factor system; ${pj.stuck} have bands stuck together by it, ${pj.free} do not`, pj.status, esc(pj.note), true)}
+        ${row('the grid against the exact enumeration', `${gr.rows.length} Bravais lattices, both grids exact on ${gr.rows.filter((r) => r.grid_12_exact && r.grid_24_exact).length}; denominators ${gr.denominators.join(', ')}, the largest ${gr.max_denominator}`, gr.status, esc(gr.note), true)}
+        ${row('the published table, as a check', `${cc.rows.filter((r) => r.verdict === 'FOUND').length} of ${cc.rows.length} named points found: ${cc.rows.map((r) => `${esc(r.name)} (SG ${r.sg}) ${r.verdict === 'FOUND' ? 'found' : esc(r.verdict.toLowerCase()) + ', fixed space of dimension ' + r.fixed_space_dimension}`).join('; ')}`, cc.status, `${esc(cc.citation)} · ${ext('https://doi.org/' + cc.doi, 'DOI ' + cc.doi)}: ${esc(cc.note)}`, true)}
+        ${si ? row('a second implementation', `${si.agreeing} of ${si.buckets} dimension buckets agree over ${si.here} and ${si.there} members; the multiplier's order differs in space groups ${si.multiplier_differs_in.join(', ')}; unresolved: ${si.unresolved.length ? si.unresolved.join(', ') : 'none'}`, si.status, esc(si.note), true) : ''}
+        ${row('additivity', `${k.additivity.split_off_gamma} of ${k.additivity.keys} (space group, k, site type) keys split into more than one decomposition off the zone centre`, k.additivity.status, esc(k.additivity.note), true)}
+        ${row('the source', esc(k.source.text), k.source.status, esc(k.source.note) + (k.source.captures.length ? '; captures ' + k.source.captures.map((c) => `${esc(c.path)} (md5 ${esc(c.md5.slice(0, 12))})`).join(', ') : ''), true)}
+      </div>`);
+  }
+  function renderCorepPlate(px) {
+    const c = px.raw, ac = c.accounting, mc = c.mechanisms, ak = c.against_kpoints, ov = c.over_representation;
+    return section('The reading', `<div class="fields">
+        ${row('the four cases', ['a', 'b', 'c', 'x'].map((k) => `(${k}) ${c.cases[k].members.toLocaleString()} — ${esc(c.cases[k].meaning)}, shape ${esc(c.cases[k].shape)}`).join('; '), 'DERIVED', esc(c.cases.note), true)}
+        ${row('the accounting', `${ac.small_reps.toLocaleString()} small representations − ${c.cases.c.members} fused at one k − ${c.cases.x.members} fused across conjugate stars = ${ac.corepresentations.toLocaleString()} levels; ${ac.doubled_at_k} doubled at k by time reversal (${(ac.doubled_at_k / ac.corepresentations * 100).toFixed(1)} %) over ${ac.space_groups_with_a_doubled_level} space groups`, ac.status, esc(ac.note), true)}
+        ${row('the two obstructions over the seated stars', `${mc.antiunitary_only} space groups touched by time reversal alone, ${mc.projective_only} by the projective mechanism alone, ${mc.both} by both, ${mc.neither} by neither`, mc.status, esc(mc.note), true)}
+        ${row('on the k-point index\'s own stars', `${ak.stars_here} stars here, ${ak.stars_there} there; ${ak.space_groups_agreeing} of ${ak.space_groups_compared} space groups agree on the label-free comparison; ${ak.labels_in_common} of the labels coincide`, ak.status, esc(ak.note), true)}
+        ${row('what an adversarial review withdrew', `${ov.withdrawn_members.toLocaleString()} members on ${ov.withdrawn_cells} cells at arity ${ov.withdrawn_arity}`, ov.status, esc(ov.note), true)}
+        ${row('the source', esc(c.source.text), c.source.status, esc(c.source.note) + (c.source.captures.length ? '; captures ' + c.source.captures.map((x) => `${esc(x.path)} (md5 ${esc(x.md5.slice(0, 12))})`).join(', ') : ''), true)}
+      </div>`);
+  }
   function demandSection(px) {
     const d = px.demand, P = state.particleIndex.predictions || {};
     const bins = ['FORBIDDEN', 'UNPLACED', 'OPEN', 'UNDECIDED'].filter((b) => d.cells.some((g) => g.bin === b));
     const LIMIT = 60;
-    return section('The cells its closure demands', `<p class="note">E = <b>${d.E}</b>: the cells this index's own join-closure demands and no member occupies, drawn as ghosts in the lattice and adjudicated cell by cell. ${d.E ? `<b>${d.forbidden}</b> forbidden, <b>${d.unplaced}</b> unplaced, <b>${d.open}</b> open${d.undecided ? `, <b>${d.undecided}</b> undecided` : ''}.` : 'None: the index is complete under its own closure.'} ${badge(d.status, 'E is an upper bound on predictions; a demanded cell is not a prediction until adjudicated')}</p>
+    return section('The cells its closure demands', `<p class="note">E = <b>${d.E.toLocaleString()}</b>: the cells this index's own join-closure demands and no member occupies, drawn as ghosts in the lattice and adjudicated cell by cell.${d.drawn_at_D ? ` Of the ${d.all_cells.toLocaleString()} across every dimension, the ${d.cells.length} at D = ${d.drawn_at_D} are drawn.` : ''} ${d.E ? `<b>${d.forbidden}</b> forbidden, <b>${d.unplaced}</b> unplaced, <b>${d.open}</b> open${d.undecided ? `, <b>${d.undecided}</b> undecided` : ''}.` : 'None: the index is complete under its own closure.'} ${badge(d.status, 'E is an upper bound on predictions; a demanded cell is not a prediction until adjudicated')}</p>
       <div class="fields">
         ${row('the bound', d.bound ? `${esc(d.bound)} — from ${esc(d.bound_from)}` : d.bound_status === 'theorem: none forbids' ? 'none, and the absence is a theorem: the quark model, fully stated, forbids no cell of this chart' : 'none derived; the open figure is open against nothing at all, and a bound found later may empty it', d.bound ? 'DERIVED' : null, d.bound ? 'derived from a stated physical law, checked against every member with no violation, then applied to the demand' : null, true)}
         ${d.recorded ? row('against the instrument\'s record', `${d.recorded.join(' / ')} (E / forbidden / unplaced / open / undecided)`, 'DERIVED', 'the cell-by-cell count here against the count the instrument records', true) : ''}
@@ -2501,6 +2638,47 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('mechanism', x.table === 'MR' ? 'MR — magnetic rotation, the shears mechanism, ΔI = 1' : 'AMR — antimagnetic rotation, ΔI = 2', 'READ', 'which of the paper\'s two tables the band is in', true)}
         ${row('band', `${x.band}${x.band_levels ? ` · ${x.band_levels} levels${x.head_E ? `, bandhead at ${esc(x.head_E)} keV` : ''}` : ''}`, 'READ', null, true)}
         ${row('excitation energy', `${esc(x.E_keV)} keV`, 'READ', 'as the table prints it', true)}
+      </div>`);
+    } else if (px.id === 'deformedbands') {
+      printed = section('The level', `<div class="fields">
+        ${row('nucleus', `${x.A}${esc(x.el)} — Z = ${x.Z}, N = ${x.N}`, 'READ', 'the host nuclide\'s numbers, refused as coordinates because they are the host\'s', true)}
+        ${row('band', `${x.band} · entry ${x.entry} of the table`, 'READ', 'the band number is a row label, refused as a coordinate', true)}
+        ${row('excitation energy', `${esc(x.E_keV)} keV`, 'READ', 'as the table prints it; a magnitude, refused as a coordinate', true)}
+        ${row('spin and parity, as printed', `<span class="mono">${esc(x.spin_parity)}</span>`, 'READ', null, true)}
+      </div>`);
+    } else if (px.id === 'gravity') {
+      const dims = px.raw.dimensions || [];
+      printed = section('The body and its field', `<div class="fields">
+        ${row('nuclide', `${x.A}${esc(x.el)} — Z = ${x.Z}, N = ${x.N}, A = ${x.A}${x.quality === 'M' ? '' : ' · mass estimated'}`, 'READ', 'AME2020 Table I; A is recomputed as Z + N, never read', true)}
+        ${row('charge state', `q = ${x.q} (${esc(x.el)} ${esc(r.name.split(' ')[1] || '')}), Ne = ${x.Ne}`, 'READ', 'from the spectroscopic numeral of the level table', true)}
+        ${row('the level read', `2Je = ${x['2Je']} (J = ${half(x['2Je'])}) at ${x.level_cm1} cm⁻¹, ${x.L ? 'an excited level: the lowest the table banks with a readable J' : 'the table\'s ground level'}`, 'READ', 'the electronic part of the angular momentum; the nuclear spin is not banked', true)}
+        ${row('mass', `${x.M_u} u`, x.quality === 'M' ? 'READ' : 'ESTIMATED', 'A·u + mass excess − q·mₑ + the level\'s energy, exactly; electron binding neglected and bounded', true)}
+        ${row('χ, the Kerr spin', x.chi === 0 ? '0 — no spin decade' : x.chi.toExponential(3), 'DERIVED', 'J ħ c / (G M²), the electronic contribution', true)}
+        ${row('Q̃, the Reissner–Nordström charge', x.Qtilde === 0 ? '0 — neutral' : x.Qtilde.toExponential(3), 'DERIVED', 'q e / (M √(4π ε₀ G))', true)}
+        ${row('F', x.F ? 'cannot vanish: A + Ne is odd' : x.F_zero ? 'zero, established by the pairing rule (an empirical rule)' : 'undetermined: neither fact applies', 'DERIVED', null, true)}
+        ${row('horizon bound by dimension', dims.map((D, i) => `D = ${D}: ${coordTick('B', x.B_by_D[i])}`).join(' · '), 'DERIVED', 'from the exact solutions only; a bound exists, not where', true)}
+      </div>
+      <p class="note"><button type="button" class="ghost open-ix" data-solver="gravity" data-fill='${esc(JSON.stringify({ species: `^${x.A}${x.el}${x.q ? x.q + '+' : ''}` }))}'>Compute this body in the gravity mode →</button></p>`);
+    } else if (px.id === 'phonons') {
+      printed = section('The site', `<div class="fields">
+        ${row('space group', `${x.sg} (${esc(x.system)})`, 'READ', 'the international number', true)}
+        ${row('point-group order · multiplicity', `${x.pg_order} · ${x.multiplicity}`, 'DERIVED', 'the host\'s: their product is fixed by orbit-stabiliser, so neither is a coordinate', true)}
+        ${row('modes', `${x.modes} = 3 × ${x.multiplicity}`, 'DERIVED', 'an integrality guard on every row', true)}
+        ${row('decomposition', `<span class="mono">${esc(x.decomposition)}</span>`, 'DERIVED', 'multiplicity × dimension for each symmetry species the site contributes', true)}
+      </div>`);
+    } else if (px.id === 'kpoints') {
+      printed = section('The k-point', `<div class="fields">
+        ${row('space group', `${x.sg} (${esc(x.system)}, ${esc(x.bravais)})`, 'READ', 'the international number and its Bravais lattice', true)}
+        ${row('k, in the primitive reciprocal basis', `<span class="mono">(${esc(x.k)})</span> · star of ${x.star}`, 'DERIVED', 'a representative of the star; the star size times the little-group order is the point-group order (${x.pg_order})', true)}
+        ${row('factor system', x.nontrivial_multiplier ? `non-trivial, of order ${x.multiplier_order}: the small representations are projective` : 'trivial: ordinary representations of the little co-group', 'DERIVED', 'whether the multiplier is a coboundary is decided by a solver, not guessed', true)}
+        ${row('small-representation dimensions', `<span class="mono">${esc(x.dims)}</span>${x.sticking ? ' — bands stuck together by the multiplier' : ''}`, 'DERIVED', null, true)}
+      </div>`);
+    } else if (px.id === 'coreps') {
+      printed = section('The level', `<div class="fields">
+        ${row('space group', `${x.sg} (${esc(x.system)})`, 'READ', 'the international number', true)}
+        ${row('k, in the primitive reciprocal basis', `<span class="mono">(${esc(x.k)})</span> · star of ${x.star} · little-group order ${x.little_order}${x.k2 ? ` · conjugate star <span class="mono">(${esc(x.k2)})</span>` : ''}`, 'DERIVED', 'the star\'s properties, which are the k-point index\'s; refused as coordinates here', true)}
+        ${row('Herring case', `(${esc(x.case)}) — ${esc((px.raw.cases[x.case] || {}).meaning || '')}; doubling ${esc(x.doubling)}`, 'DERIVED', 'determined by the three coordinates with no exception', true)}
+        ${row('factor system', x.factor_order > 1 ? `non-trivial, of order ${x.factor_order}` : 'trivial', 'DERIVED', null, true)}
       </div>`);
     } else if (px.id === 'bosonqp') {
       printed = section('How it is made', `<div class="fields">
@@ -2595,6 +2773,59 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       </div>
       <p class="note">Every demanded cell of this site's own indexes is drawn in its lattice as a ghost, adjudicated: ${Object.entries(P.by_index).map(([id, v]) => `${esc(PSHORT[id] || id)} ${v.E}`).join(' · ')}. Open an index and tap a ghost for its cell.</p>`;
   }
+  function renderRegister(rg, openIx) {
+    const langs = (ls) => (ls.length ? ls.join(', ') : 'none');
+    return `<h3>${esc(rg.title)}</h3><p class="note">${esc(rg.note)} ${badge(rg.status)}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>index</th><th>a member is</th><th class="hide-narrow">charted on</th><th>cells</th><th>cell</th><th>closed by</th><th></th></tr></thead><tbody>
+        ${rg.rows.map((r) => `<tr><td class="mono">${esc(r.label)}${r.by_overlap_rule ? ' <span class="muted">(a coarsening)</span>' : ''}</td><td class="wrap">${esc(r.members)}</td><td class="hide-narrow wrap">${esc(r.quantum)}</td><td>${r.cells.toLocaleString()}</td><td class="mono">(${r.cell.channel}, ${r.cell.height}, ${r.cell.width})</td><td class="wrap">K${r.channel}: ${esc(langs(r.languages))}</td><td>${r.site_id ? `<button type="button" class="ghost open-ix" data-pgo="${esc(r.site_id)}">open →</button>` : ''}</td></tr>`).join('')}
+      </tbody></table></div>
+      <div class="fields">
+        ${row('the channels', `occupied K${rg.occupied.join(', K')}${rg.all_occupied ? ' — all eight, by charts of real data' : ''}`, 'DERIVED', Object.entries(rg.channels).map(([k, v]) => `${k}: ${v.length ? v.join(' + ') : 'none'}`).join('; '), true)}
+        ${row('complete?', rg.complete ? 'claimed complete' : 'not claimed complete', 'READ', rg.not_claimed.map(esc).join(' '), true)}
+        ${row('the tree', `state at <span class="mono">${esc(String(rg.state_commit || '?').slice(0, 12))}</span>`, null, 'the register is read from the research tree\'s own state file, which its instruments regenerate', true)}
+      </div>
+      ${rg.retractions && rg.retractions.length ? `<details><summary>What the tree retracts of its own earlier claims (${rg.retractions.length})</summary><div class="fields">${rg.retractions.map((r) => row(esc(r.where), `<b>claimed:</b> ${esc(r.claimed)}<br><b>measured:</b> ${esc(r.measured)}`, 'READ', null, true)).join('')}</div></details>` : ''}`;
+  }
+  function renderDeformedIndex(di, cap, openIx) {
+    const s = di.seating;
+    return `<h3>${esc(di.title)} ${openIx('deformedbands')} <span class="muted">(in progress on the other session)</span></h3>
+      <p class="note">One member is ${esc(di.member)}. ${di.members.toLocaleString()} members of ${di.levels_captured.toLocaleString()} captured levels on ${di.cells} cells; closure channel K${di.cell.channel} (height ${di.cell.height}, width ${di.cell.width}) — ${esc(di.free_channel.note)} ${badge('DERIVED')}</p>
+      <div class="fields">
+        ${row('refused apart', `${di.refusals.levels_no_parity} levels with a spin and no parity`, di.refusals.status, esc(di.refusals.note), true)}
+        ${di.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}
+        ${row('the seating', `cell (${di.cell.channel}, ${di.cell.height}, ${di.cell.width}) held by ${s.cell_held_by.length ? esc(s.cell_held_by.join(', ')) : 'nobody else'}; ${s.nuclides.shared} nuclides shared with the band index of ${s.nuclides.here} here and ${s.nuclides.in_the_band_index} there`, s.status, esc(s.ground) + ' ' + esc(s.A_ranges.note), true)}
+        ${row('the source overclaims its title', `${s.above_title.levels} levels above A = 168, up to A = ${s.above_title.max_A}`, 'READ', esc(s.above_title.note), true)}
+        ${row('the nuclide audit', esc(s.nuclide_audit), 'READ', null, true)}
+      </div>`;
+  }
+  function nuclearSpinText(ns) {
+    return `<b>${esc(ns.status)}</b>: ${ns.zero_Je.total.toLocaleString()} members read no electronic spin (${ns.zero_Je.odd_A} odd-A, whose nuclear spin is half-odd; ${ns.zero_Je.even_A} even-A; ${ns.zero_Je.even_even} even-even, zeroed by the pairing rule); a seated table would move ${ns.members_moved} of them off the zero decade; the image would shrink from ${ns.image.now.toLocaleString()} to ${ns.image.with_I.toLocaleString()} cells (${ns.image.lost} lost, ${ns.image.gained} gained${ns.image.subset ? ', a strict subset' : ''}), forbidding ${ns.demand.forbidden_with_I.toLocaleString()} of the ${ns.demand.demanded.toLocaleString()} demanded cells against ${ns.demand.forbidden_now.toLocaleString()} now, ${ns.demand.moved_open_to_forbidden} moved from open; ${ns.stale.outside_the_I_image} seated cells fall outside the new image, ${ns.stale.exactly_F1_X0} of them exactly the forced-momentum, zero-decade reading${ns.stale.all_X0 ? ', and every one reads the zero decade' : ''}`;
+  }
+  function renderGravity(g, openIx) {
+    const am = g.angular_momentum, dm = g.dimension, co = g.coarsening, de = g.demand, st = g.selftest;
+    return `<h3>${esc(g.title)} ${openIx('gravity')} <span class="muted">(in progress on the other session)</span></h3>
+      <p class="note">One member is ${esc(g.member)}. ${g.members.toLocaleString()} members over ${g.dimensions.length} dimensions, ${g.rows_charted.toLocaleString()} charted rows on ${g.cells} cells in a box of ${g.box.toLocaleString()}; closure channel K${g.cell.channel} (height ${g.cell.height}, width ${g.cell.width}), closed by ${g.closers.length ? esc(g.closers.join(', ')) : 'no language'}. ${badge('DERIVED')}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>${g.coordinates.map((x) => `<tr><td class="mono">${esc(x.name)}</td><td class="wrap">${esc(x.meaning)}</td><td>${badge(x.status)}</td></tr>`).join('')}</tbody></table></div>
+      <div class="fields">
+        ${row('the data', `${g.species.count} species (${g.species.ground} at the ground level, ${g.species.excited} at an excited level) over ${g.data.nuclides.toLocaleString()} nuclides; carbon 12 reconstructs to ${g.data.carbon_12.mass_u} u${g.data.carbon_12.exact ? ' exactly' : ' — NOT exact'}`, g.data.status, esc(g.species.note), true)}
+        ${row('the two angular-momentum facts', `F cannot vanish on ${am.forced.toLocaleString()} members; F = 0 established on ${am.vanishes}; ${am.undetermined.toLocaleString()} neither; ${am.schwarzschild.count} neutral nuclides exactly Schwarzschild`, am.status, `${esc(am.forced_note)} ${esc(am.vanishes_note)} (${esc(am.pairing_rule_status)})`, true)}
+        ${row('the dimension', `D = 4: ${dm.per_D[0].cells} cells; D ≥ 5: ${dm.per_D[1].cells} cells, the same cell (${dm.per_D[0].cell.channel}, ${dm.per_D[0].cell.height}, ${dm.per_D[0].cell.width}) at every D; ${dm.relieved.count} members relieved of their bound at D = 6`, 'DERIVED', esc(dm.finding_A) + ' ' + esc(dm.finding_B), true)}
+        ${row('the coarsening (B, F, X)', `${co.cells} cells, K${co.channel}; by the dimensions admitted ${co.by_dimensions_admitted.map((r) => `D ≤ ${r.D_max}: K${r.channel}`).join(', ')}`, co.status, esc(co.dependence_note), true)}
+        ${row('the demand', `E = ${de.E.toLocaleString()}: ${de.forbidden.toLocaleString()} forbidden by the image of the coordinate map, ${de.open} open, ${de.unplaced} unplaced`, de.status, esc(de.image.note), true)}
+        ${row('the instrument\'s own selftest', st.passed ? 'every fixture passes on this tree' : `${st.failing.length} fixtures pin figures this tree measures differently`, st.status, esc(st.note), true)}
+        ${g.nuclear_spin ? row('a nuclear-spin table, measured and not seated', nuclearSpinText(g.nuclear_spin), 'DERIVED', esc(g.nuclear_spin.note), true) : ''}
+        ${g.refuses.map((r) => row('refuses', esc(r), null, null, true)).join('')}
+      </div>
+      <p class="note">Every member's plate carries its mass, χ, Q̃, F and its bound class at every dimension, and the eleventh solver mode computes the same for any body. <button type="button" class="ghost open-ix" data-solver="gravity">Open the gravity mode →</button></p>`;
+  }
+  function renderCrystalIndex(blk, id, openIx) {
+    const px = pindexOf(id);
+    return `<h3>${esc(blk.title)} ${openIx(id)} <span class="muted">(in progress on the other session)</span></h3>
+      <p class="note">One member is ${esc(blk.member)}. ${blk.members.toLocaleString()} members on ${blk.cells} cells; closure channel K${blk.cell.channel} (height ${blk.cell.height}, width ${blk.cell.width}), closed by ${blk.closers.length ? esc(blk.closers.join(', ')) : 'no language'}. ${badge('DERIVED', 'every number computed by the instrument; no table is read')}</p>
+      <div class="tbl-wrap"><table class="t"><thead><tr><th>coordinate</th><th>meaning</th><th>status</th></tr></thead><tbody>${blk.coordinates.map((x) => `<tr><td class="mono">${esc(x.name)}</td><td class="wrap">${esc(x.meaning)}</td><td>${badge(x.status)}</td></tr>`).join('')}</tbody></table></div>
+      ${px ? (id === 'phonons' ? renderPhononPlate(px) : id === 'kpoints' ? renderKpointPlate(px) : renderCorepPlate(px)) : ''}
+      <details><summary>Refused coordinates, each with its ground (${blk.refused.length})</summary><div class="fields">${blk.refused.map((r) => row(esc(r.coordinate), `<b>${esc(r.verdict)}</b> — ${esc(r.why)}${r.measurement ? `<div class="note mono" style="margin-top:4px">${esc(JSON.stringify(r.measurement))}</div>` : ''}`, r.status, null, true)).join('')}</div></details>`;
+  }
   function renderBonds(b) {
     const m = b.molecular, pw = b.particle;
     return `<h3>${esc(b.title)} <span class="muted">(in progress on the other session)</span></h3><p class="note">${esc(b.status_note)}</p>
@@ -2652,6 +2883,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('instruments', `${esc(src.tree.root)}: ${src.tree.instruments.map((i) => `<span class="mono">${esc(i)}</span>`).join(', ')}${src.tree.commit ? ` · tree at <span class="mono">${esc(String(src.tree.commit).slice(0, 12))}</span>` : ''}`, null, 'imported at build, never copied', true)}
       </div>`;
     const openIx = (id) => `<button type="button" class="ghost open-ix" data-pgo="${esc(id)}" title="Open this index in the explorer: its lattice, one node per member">Open as an index →</button>`;
+    if (px.register) html = renderRegister(px.register, openIx) + html;
     px.indexes.forEach((ix) => {
       const names = ix.coordinates.map((c) => c.name);
       html += `<h3>${esc(ix.title)} ${openIx(ix.id)}</h3>
@@ -2690,7 +2922,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           ${Object.entries(st.grounds).map(([g, v]) => row(esc(g), v ? '<span class="ok">holds</span>' : '<span class="bad">fails</span>', 'DERIVED', g === 'reach stable' ? `K${st.channel} at every mass cut: ${st.reach.sweep.map((r) => `${esc(r.cut)} → ${r.cells} cells, K${r.channel}`).join('; ')}` : null, true)).join('')}
           ${row('the cells', st.rows.map((r) => `2I = ${r.I2}: Q3 in {${r.Q3.join(', ')}}`).join(' · '), 'DERIVED', esc(st.reading), true)}
           ${row('the corners', `${st.corners_not_held.map((c) => `(${c.join(', ')})`).join(', ')} not held, ${st.corners_outside_hull ? 'all outside the convex hull' : 'NOT all outside the hull'}`, 'DERIVED', null, true)}
-          ${row('why arity 2 does not reach it', esc(st.why_arity_2_does_not_reach_it), 'DERIVED', `arity-2 freeness over the tree: ${Object.entries(sw.arity2_freeness).map(([L, f]) => `${esc(L)} ${f.closes} of ${f.charts}`).join(', ')}`, true)}
+          ${row('why arity 2 does not reach it', esc(st.why_arity_2_does_not_reach_it), 'DERIVED', sw.arity2_freeness.absent ? `arity-2 freeness over the tree: not measured on this tree — ${esc(sw.arity2_freeness.finding)}` : `arity-2 freeness over the tree: ${Object.entries(sw.arity2_freeness.by_language).map(([L, f]) => `${esc(L)} ${f.closes} of ${f.charts}`).join(', ')}`, true)}
         </div>
         <h3>The two refusals</h3>
         <div class="fields">${sw.refused.map((r) => row(`${esc(r.parent)} (${r.cols.join(', ')}) → K${r.channel}${r.cells ? ', ' + r.cells + ' cells' : ''}`, `<b>${esc(r.verdict)}</b> — ${esc(r.why)}`, r.status, null, true)).join('')}</div>
@@ -2700,6 +2932,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (sp && !sp.absent) html += renderSubpop(sp);
     const nu = px.nuclear;
     if (nu && !nu.absent) html += renderNuclear(nu, openIx);
+    if (nu && !nu.absent && nu.deformed_index) html += renderDeformedIndex(nu.deformed_index, nu.deformed, openIx);
+    if (px.gravity && !px.gravity.absent) html += renderGravity(px.gravity, openIx);
+    if (px.phonons && !px.phonons.absent) html += renderCrystalIndex(px.phonons, 'phonons', openIx);
+    if (px.kpoints && !px.kpoints.absent) html += renderCrystalIndex(px.kpoints, 'kpoints', openIx);
+    if (px.coreps && !px.coreps.absent) html += renderCrystalIndex(px.coreps, 'coreps', openIx);
     if (px.bonds) html += renderBonds(px.bonds);
     if (px.predictions && !px.predictions.absent) html += renderPredictions(px.predictions);
     const q = px.quasiparticles;
@@ -2965,12 +3202,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${kinds.size ? row('measured cells\' sources', [...kinds].map(([k, v]) => `${esc(k)} (${v})`).join(' · '), 'READ', 'COORDINATES-2.13, source column; each cell\'s plate resolves its compilation', true) : ''}
     </div>`);
   }
-  function openSolver(id) {
+  function openSolver(id, fill) {
     const sel = document.querySelector('#solver-body select');
     if (!sel) return;
     const reg = solverRegistry() || [];
     const i = reg.findIndex((m) => m.id === id);
     if (i >= 0 && i < sel.options.length) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change')); }
+    if (fill && typeof fill === 'object') Object.entries(fill).forEach(([k, v]) => { const inp = document.querySelector(`#solver-mode-body [data-name="${k}"]`); if (inp) inp.value = v; });
     try { $('#solvers').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); } catch (err) { /* no scroll */ }
   }
 
@@ -2992,7 +3230,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
   function paperCite(pp) {
     const m = state.index.meta || {}, c = m.cite || {};
-    return `${c.author || 'Lach, M.'} (${c.year || ''}). ${pp.title}. In ${c.title || 'The Method Index'}, edition ${c.commit || '?'}. ${c.url || ''}#paper=${pp.slug}`;
+    return `${c.author || 'Lach, M.'} (${c.year || ''}). ${pp.title}. In ${c.title || 'The Master Index'}, edition ${c.commit || '?'}. ${c.url || ''}#paper=${pp.slug}`;
   }
   function renderPapers(slug) {
     const host = $('#papers-body');
@@ -3003,7 +3241,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         host.innerHTML = `<p class="note">The papers the author has released to this site, as written. Each is rendered at build from its own text; its figures travel with the md5 the repository's ledger records. ${sum.papers ? badge('READ', 'the paper\'s own text; nothing in it is edited for the site') : ''}</p>
           <div class="paper-list">${papers.map((pp) => `<div class="paper-card${pp.held ? '' : ' is-slot'}">
             <h3>${esc(pp.title)}</h3>${pp.subtitle ? `<p class="paper-sub">${esc(pp.subtitle)}</p>` : ''}
-            <p class="note">${esc(pp.author || '')}${pp.held ? ` · ${(pp.words || 0).toLocaleString()} words · ${(pp.figures || []).length} figure${(pp.figures || []).length === 1 ? '' : 's'} · ${(pp.arxiv || []).length + (pp.doi || []).length} linked identifiers · md5 <span class="mono">${esc((pp.md5 || '').slice(0, 12))}</span>${pp.md5_recorded ? (pp.md5 === pp.md5_recorded ? ' <span class="ok">matches the store</span>' : ' <span class="bad">DRIFT from the store</span>') : pp.tree ? ` · from the research tree at <span class="mono">${esc(pp.tree.commit || '?')}</span>` : ''}` : ` · <b>not yet held</b> — ${esc(pp.note || '')}`}</p>
+            <p class="note">${esc(pp.author || '')}${pp.held ? ` · ${(pp.words || 0).toLocaleString()} words · ${(pp.figures || []).length} figure${(pp.figures || []).length === 1 ? '' : 's'} · ${(pp.arxiv || []).length + (pp.doi || []).length} linked identifiers · md5 <span class="mono">${esc((pp.md5 || '').slice(0, 12))}</span>${pp.md5_recorded ? (pp.md5 === pp.md5_recorded ? ' <span class="ok">matches the store</span>' : ' <span class="bad">DRIFT from the store</span>') : pp.tree ? ` · from the research tree at <span class="mono">${esc(pp.tree.commit || '?')}</span>` : ''}${pp.masked && pp.masked.length ? ` · <b>${pp.masked.reduce((n, m) => n + m.count, 0)} citations of unpublished material masked</b> at build, each with a visible mark` : ''}${pp.pdf_note ? ' · PDF withheld' : ''}` : ` · <b>not yet held</b> — ${esc(pp.note || '')}`}</p>
             ${pp.held ? `<div class="actions"><button type="button" data-paper="${esc(pp.slug)}">Read</button><button type="button" class="ghost" data-cite="${esc(pp.slug)}">Cite</button>${pp.pdf ? `<a class="ghost" href="${DATA}${esc(pp.pdf.file)}" target="_blank" rel="noopener" title="md5 ${esc(pp.pdf.md5)}">PDF · ${Math.round(pp.pdf.bytes / 1024).toLocaleString()} KB</a>` : ''}</div>` : ''}
           </div>`).join('')}</div>`;
         host.querySelectorAll('button[data-paper]').forEach((b) => b.addEventListener('click', () => renderPapers(b.dataset.paper)));
@@ -3023,7 +3261,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         <div class="paper-layout">
           <nav class="paper-toc" aria-label="Contents">${pp.headings.filter((h) => h.level >= 2 && h.level <= 3).map((h) => `<a href="#${esc(h.id)}" data-h="${esc(h.id)}" class="toc-${h.level}">${esc(h.text)}</a>`).join('')}
             <div class="note" style="margin-top:10px">${pp.figures.length ? `figures ${pp.figures.filter((f) => f.held).length} held${pp.figures.some((f) => !f.held) ? `, ${pp.figures.filter((f) => !f.held).length} not held` : ''}; every held figure's md5 ${pp.figures.every((f) => !f.held || f.ok) ? 'matches the ledger' : 'DRIFTS from the ledger'}` : 'no figures; the paper is its text and its tables'}</div>
-            <div class="note" style="margin-top:6px"><a href="#" data-act="paper-cite">cite this paper</a>${pp.pdf ? ` · <a href="${DATA}${esc(pp.pdf.file)}" target="_blank" rel="noopener" title="md5 ${esc(pp.pdf.md5)}">PDF</a>` : ''}${pp.tree ? `<div class="note" style="margin-top:6px">from the research tree, commit <span class="mono">${esc(pp.tree.commit || '?')}</span>; no ledger row, md5 measured at build</div>` : ''}</div>
+            <div class="note" style="margin-top:6px"><a href="#" data-act="paper-cite">cite this paper</a>${pp.pdf ? ` · <a href="${DATA}${esc(pp.pdf.file)}" target="_blank" rel="noopener" title="md5 ${esc(pp.pdf.md5)}">PDF</a>` : ''}${pp.tree ? `<div class="note" style="margin-top:6px">from the research tree, commit <span class="mono">${esc(pp.tree.commit || '?')}</span>; no ledger row, md5 measured at build</div>` : ''}${pp.masked && pp.masked.length ? `<div class="note" style="margin-top:6px"><b>Masked at build:</b> ${pp.masked.map((m) => `${m.count} × ${esc(m.kind)}`).join(', ')} — each site carries a visible mark, because this site cites nothing from the unpublished books; nothing else in the text is edited. ${badge('READ', 'the count the generator records')}</div>` : ''}${pp.pdf_note ? `<div class="note" style="margin-top:6px"><b>PDF withheld:</b> ${esc(pp.pdf_note)}.</div>` : ''}</div>
           </nav>
           <article class="paper" id="paper-article">${pp.html}</article>
         </div>`;
@@ -3558,7 +3796,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const commit = (m.commit || '').slice(0, 7), built = (m.built || '').slice(0, 10);
     const ed = $('#edition');
     if (ed) ed.textContent = commit ? `edition ${commit} · ${built}` : '';
-    const foot = `<span><b>The Method Index</b> — every element on every axis of every index.</span>
+    const foot = `<span><b>The Master Index</b> — every element on every axis of every index.</span>
       <span>Data generated by <span class="mono">tools/webindex.py</span> over <span class="mono">tools/populate.py</span>; every value carries the status the data gives it, and the explorer computes nothing.</span>
       ${commit ? `<span>Edition <span class="mono">${esc(commit)}</span>, built ${esc(built)}.</span>` : ''}
       <button type="button" class="ghost" data-act="open-prov">Provenance and sources</button>`;
@@ -3916,7 +4154,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const rec = recordForClaude(node);
     const axes = (state.index.axes || []).map((a) => `${a.axis} | ${a.status} | ${a.source}`).join('\n');
     const cav = (state.index.caveats || []).map((c) => `- ${c.text}`).join('\n');
-    return `You are answering a question about ONE record of The Method Index (read by tools/populate.py and serialised by tools/webindex.py). Strict rules:
+    return `You are answering a question about ONE record of The Master Index (read by tools/populate.py and serialised by tools/webindex.py). Strict rules:
 - Answer ONLY from the RECORD, the AXIS/STATUS TABLE and the CAVEATS below. Nothing else is known to you.
 - Every number you quote must be followed by its status in square brackets — READ, PINNED, DERIVED, RECOVERED or RECONSTRUCTED — as the axis table or the record gives it. If no status is given for a value, say so.
 - If the record does not carry what is asked, answer "not in the record".
@@ -4041,7 +4279,7 @@ QUESTION: ${question}`;
     return undefined;
   }
   function askSystem() {
-    return `You answer questions about chemistry and physics for readers of The Method Index, a public research site whose data you are handed below as cited lines. Method:
+    return `You answer questions about chemistry and physics for readers of The Master Index, a public research site whose data you are handed below as cited lines. Method:
 1. Use web search first for context and method: definitions, standard procedures, published values, the way a question of this kind is normally solved. Search the way this site retrieves: (a) before searching, enumerate the target facts the question needs; (b) for each target list the routes that could carry it, by type — primary paper, preprint, review, compilation or table, citing paper, deposit or archive, database — and try the open routes first, since a paywall blocks a route and not a fact, and a compilation can carry a better figure than the primary; (c) read each retrieved source for the sources it names and follow them before searching afresh; (d) when a route is blocked move to the next route, never re-attempt the same one; (e) a fact confirmed on two independent routes closes, a fact on one route is fragile and must be marked so, and a fact you could not retrieve is a stated gap with the routes you tried, never an unexplained absence; (f) ask for a source as a catalogue entry (a DOI, an arXiv number, an archive identifier, a database record), not only as a text string, because a source has an index and it is rarely the one with a search box; (g) navigate by join, never by meet: when a search fails, do not narrow two constraints against each other (a database AND an access route, a topic AND a file type) — widen instead, asking a broad index for everything on the target and reading what returns, because on this site's own closure measurement certainty survives combining brackets and dies refining them; a failed narrow search is a meet, and its retry is a join over a larger index, never the same meet again. Every figure you take from the web is followed by its source in the marker ⟨⟨url⟩⟩, one marker per route that carried it.
 2. Then apply that method to the DATA lines: every figure you take from them must be followed by its path in the marker ⟦path⟧, copied exactly. Do not invent paths. If the data lacks what you need, say "not in the index" for that part and continue with what web sources give, marked as theirs.
 3. Every calculation you perform with the site's own instruments must be written as ⟪function(args) = value⟫ so the page can repeat it. Available: channel_delta(Z, charge, l), pauli_bound(p, n0, l), collapse_C(Z, l), core_p(Z_core, l), n0_of(Z_core, l), closure_E(). Other arithmetic: show it in plain text.
@@ -4188,7 +4426,23 @@ List a blocked or empty route as honestly as an open one; the page counts the op
       element: (Z) => state.elements.get(+Z) || null,
       load: (Z) => ensureElement(+Z),
       loadAll,
+      nuclides: () => ensureNuclides(),
+      particles: () => ensureParticleIndex(),
+      particlesLoaded: () => state.particleIndex || null,
     };
+  }
+  // data/nuclides.js: the mass table and the banked levels the gravity and builder modes compute over
+  function ensureNuclides() {
+    if (state.nuclides) return Promise.resolve(state.nuclides);
+    if (window.__mi && window.__mi.nuclides) { state.nuclides = window.__mi.nuclides; return Promise.resolve(state.nuclides); }
+    if (!state.index || !state.index.nuclides) return Promise.resolve(null);
+    return new Promise((resolve, reject) => {
+      const sc = document.createElement('script');
+      sc.src = `${DATA}nuclides.js${dataVersion()}`; sc.async = true;
+      sc.onload = () => { sc.remove(); if (window.__mi && window.__mi.nuclides) { state.nuclides = window.__mi.nuclides; resolve(state.nuclides); } else reject(new Error('data/nuclides.js loaded but set no window.__mi.nuclides')); };
+      sc.onerror = () => { sc.remove(); reject(new Error('data/nuclides.js could not be loaded')); };
+      document.head.appendChild(sc);
+    });
   }
   function seriesSVG(series, yLabel) {
     const pts = series.filter((p) => Number.isFinite(+p.x) && Number.isFinite(+p.y)).map((p) => ({ x: +p.x, y: +p.y, label: p.label }));
@@ -4294,8 +4548,10 @@ List a blocked or empty route as honestly as an open one; the page counts the op
           </tbody></table></div>`;
         }
         if (res.text) html += `<pre class="out">${esc(res.text)}</pre>`;
+        if (typeof res.html === 'string') html += res.html;
         if (Array.isArray(res.series) && res.series.length) html += `<div class="tbl-wrap">${seriesSVG(res.series, res.seriesLabel)}</div>`;
         out.innerHTML = html || '<p class="note">the mode returned no rows</p>';
+        bindGo(out);
       });
       const fill = host.querySelector('[data-sv="fill"]');
       if (fill) fill.addEventListener('click', () => {
@@ -4417,7 +4673,7 @@ List a blocked or empty route as honestly as an open one; the page counts the op
  * ===================================================================== */
 (function () {
 'use strict';
-/* solvers.js -- the six browser-side solvers of The Method Index.
+/* solvers.js -- the six browser-side solvers of The Master Index.
  *
  * Faithful ports of tools/populate.py (channel_delta, collapse_C, pauli_bound,
  * core_p, n0_of, lambda_constraints, caps_needed, within_caps, equation_report)
@@ -6888,7 +7144,369 @@ var SOLVERS, LIB;
     }
   };
 
-  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF, MODE_CHEM, MODE_BALANCE];
+  // ------------------------------------------------- gravity: the elements' exterior field, for any body
+  // A faithful port of the gravity instrument's member arithmetic over data/nuclides.js: the mass
+  // from the table's mass excess, chi and Qtilde from the constants, the two angular-momentum
+  // facts, and the horizon-bound table of exact solutions. The index's own figures are recomputed
+  // by the selftest from the same rows, so the port is held to the instrument's reading.
+  var GRAV = null;
+  var ROMAN_OF = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII'];
+  function gravSetup(nb) {
+    if (GRAV && GRAV.src === nb) return GRAV;
+    var K = {}; (nb.constants || []).forEach(function (c) { K[c.key] = c.value; K['status:' + c.key] = c.status; });
+    K.CM1_KG = K.H_PLANCK * 100 / K.C_SI;
+    K.K_Q = Math.sqrt(4 * Math.PI * K.EPS0 * K.G_SI);
+    K.EV_J = K.E_CHG;
+    var byZ = {}, bySym = {}, byZA = {}, symOf = {};
+    nb.rows.forEach(function (r) { var Z = r[0], A = r[2], s = r[3]; (byZ[Z] = byZ[Z] || []).push(r); if (!bySym[s]) bySym[s] = Z; if (!symOf[Z]) symOf[Z] = s; byZA[Z + '-' + A] = r; });
+    var species = {};
+    (nb.species || []).forEach(function (s) { species[s.Z + '/' + s.q] = s; });
+    GRAV = { src: nb, K: K, byZ: byZ, bySym: bySym, byZA: byZA, symOf: symOf, species: species, dims: nb.dimensions || [4, 5, 6, 7, 8, 9, 10, 11], decades: nb.decades || { spin: [], charge: [] } };
+    return GRAV;
+  }
+  function gravMass(g, A, dmKeV, q, levelCm1) {
+    var K = g.K;
+    return A * K.U_KG + dmKeV * K.KEV_J / (K.C_SI * K.C_SI) - q * K.M_E + (levelCm1 || 0) * K.CM1_KG;
+  }
+  function gravChi(g, twoJ, M) { var K = g.K; return (twoJ / 2) * K.HBAR * K.C_SI / (K.G_SI * M * M); }
+  function gravQt(g, q, M) { var K = g.K; return q * K.E_CHG / (M * K.K_Q); }
+  function gravForced(A, Ne) { return (A + Ne) % 2; }
+  function gravVanishes(Z, N, twoJ) { return Z % 2 === 0 && N % 2 === 0 && twoJ === 0; }
+  function gravBound(D, q, F, Jzero) {
+    // B: whether an extremality bound exists, from an exact solution only (the instrument's table)
+    if (D === 4) return (q === 0 && Jzero) ? 0 : 1;
+    if (Jzero) return q > 0 ? 1 : 0;
+    if (q > 0) return 2;
+    if (F) return D === 5 ? 1 : 0;
+    return 2;
+  }
+  function gravDecade(v) { return v > 0 ? Math.floor(Math.log10(v)) : null; }
+  function gravRank(alpha, v) { var d = gravDecade(v); if (d === null) return 0; var i = alpha.indexOf(d); return i < 0 ? null : i + 1; }
+  function gravMembers(g) {
+    var out = [];
+    (g.src.species || []).forEach(function (s) {
+      var Ne = s.Z - s.q; if (Ne < 1) return;
+      var L = s.level_cm1 === 0 ? 0 : 1;
+      (g.byZ[s.Z] || []).forEach(function (r) {
+        var M = gravMass(g, r[2], r[4], s.q, s.level_cm1);
+        out.push({ Z: r[0], N: r[1], A: r[2], sym: r[3], q: s.q, Ne: Ne, tj: s['2J'], L: L, lv: s.level_cm1, qual: r[5], M: M, chi: gravChi(g, s['2J'], M), qt: gravQt(g, s.q, M) });
+      });
+    });
+    return out;
+  }
+  function gravAlphabets(ms) {
+    var sp = {}, ch = {};
+    ms.forEach(function (m) { var a = gravDecade(m.chi), b = gravDecade(m.qt); if (a !== null) sp[a] = 1; if (b !== null) ch[b] = 1; });
+    var f = function (o) { return Object.keys(o).map(Number).sort(function (a, b) { return a - b; }); };
+    return { spin: f(sp), charge: f(ch) };
+  }
+  function gravCoords(g, m, alpha, D) {
+    var F = gravForced(m.A, m.Ne), Jz = gravVanishes(m.Z, m.N, m.tj);
+    return [D, gravBound(D, m.q, F, Jz), F, gravRank(alpha.spin, m.chi), gravRank(alpha.charge, m.qt), m.L, m.qual === 'M' ? 0 : 1];
+  }
+  var ISO_H = { D: 2, T: 3 };
+  function gravSpecies(text) {
+    // a formula with a charge and, optionally, isotopes: ^56Fe2+, 56Fe, Fe-56, U-238, D2O, H2O
+    var f = normaliseFormula(text), iso = {}, notes = [];
+    f = f.replace(/\^(\d+)([A-Z][a-z]?)/g, function (_m, a, el) { iso[el] = parseInt(a, 10); return el; });
+    f = f.replace(/^(\d+)([A-Z][a-z]?)(?![a-z])/, function (_m, a, el) { iso[el] = parseInt(a, 10); return el; });
+    f = f.replace(/([A-Z][a-z]?)-(\d{2,3})(?=[^\d]|$)/g, function (_m, el, a) { iso[el] = parseInt(a, 10); return el; });
+    var parsed = parseFormula(f);
+    if (parsed.ambiguous) notes.push(f + ' read as ' + parsed.typeset + ' (' + parsed.ambiguous.readAs + '); the other reading is written ' + parsed.ambiguous.spellings[parsed.ambiguous.readAs === 'charge' ? 'subscript' : 'charge']);
+    var atoms = [];
+    Object.keys(parsed.counts).forEach(function (el) {
+      var A = iso[el] || null;
+      if (el === 'H' && !A) { var d = (text.match(/\bD\b|D(?=\d|$|[A-Z])/) || [])[0]; if (parsed.notes.some(function (n) { return /^D counted/.test(n); })) A = ISO_H.D; else if (parsed.notes.some(function (n) { return /^T counted/.test(n); })) A = ISO_H.T; }
+      atoms.push({ el: el, Z: SYMBOL_Z[el] || null, n: parsed.counts[el], A: A });
+    });
+    return { atoms: atoms, charge: parsed.charge, errors: parsed.errors, notes: parsed.notes.concat(notes), typeset: parsed.typeset, iso: iso, text: text };
+  }
+  function gravBody(g, sp, opts) {
+    // the body's numbers from the species reading: masses from the table where every isotope is
+    // given, the electron count, the total nucleon count, and the banked level for a single species
+    opts = opts || {};
+    var out = { species: sp, refused: [], notes: [], atoms: [] };
+    var Zt = 0, At = 0, allIso = true, M = 0, anyEst = false;
+    sp.atoms.forEach(function (a) {
+      var row = a.A ? g.byZA[a.Z + '-' + a.A] : null;
+      var at = { el: a.el, Z: a.Z, n: a.n, A: a.A, N: a.A ? a.A - a.Z : null, row: row, nuclides: (g.byZ[a.Z] || []).length };
+      if (a.A && !row) { out.refused.push('no nuclide ' + a.el + '-' + a.A + ' in the mass table'); allIso = false; }
+      if (!a.A) allIso = false;
+      if (row) { M += a.n * (a.A * g.K.U_KG + row[4] * g.K.KEV_J / (g.K.C_SI * g.K.C_SI)); if (row[5] !== 'M') anyEst = true; }
+      Zt += a.n * a.Z; if (a.A) At += a.n * a.A;
+      out.atoms.push(at);
+    });
+    out.Z = Zt; out.q = sp.charge; out.Ne = Zt - sp.charge; out.A = allIso ? At : null;
+    out.single = sp.atoms.length === 1 && sp.atoms[0].n === 1;
+    if (out.Ne < 0) out.refused.push('more positive charge than electrons: Ne = ' + out.Ne);
+    if (allIso) { out.M = M - sp.charge * g.K.M_E; out.massStatus = anyEst ? 'ESTIMATED' : 'READ'; }
+    else { out.M = null; out.refused.push('mass: no isotope given for ' + sp.atoms.filter(function (a) { return !a.A; }).map(function (a) { return a.el; }).join(', ') + ', and no atomic-weight table is held; write the isotope (^56Fe, U-238) for an exact mass'); }
+    // the angular momentum: the banked lowest level for a single species, typed, or refused
+    out.tj = null; out.tjStatus = null; out.level = 0;
+    var typed = opts.twoJ;
+    if (typed !== null && typed !== undefined) { out.tj = typed; out.tjStatus = null; out.tjNote = 'typed, not a figure of the index'; }
+    else if (out.single) {
+      var s = g.species[out.Z + '/' + sp.charge];
+      if (s) { out.tj = s['2J']; out.tjStatus = 'READ'; out.level = s.level_cm1; out.banked = s; out.tjNote = 'the lowest level the ' + s.symbol + ' ' + s.stage + ' level table banks with a readable J: ' + s.config + ' ' + s.term + ' at ' + s.level_cm1 + ' cm⁻¹' + (s.L ? ' (an excited level, L = 1)' : ' (the ground level)'); }
+      else out.refused.push('angular momentum: no level table is banked for ' + sp.atoms[0].el + ' ' + (ROMAN_OF[sp.charge + 1] || ('q = ' + sp.charge)) + ', so χ is not computed; type 2J to compute it');
+    } else out.refused.push('angular momentum: not banked for a molecule; type 2J to compute χ, or leave it and only the mass and charge quantities are computed');
+    if (opts.level !== null && opts.level !== undefined) out.level = opts.level;
+    if (out.M !== null && out.level) out.M += out.level * g.K.CM1_KG;
+    if (out.M !== null) {
+      out.rs = 2 * g.K.G_SI * out.M / (g.K.C_SI * g.K.C_SI);
+      out.qt = gravQt(g, sp.charge, out.M);
+      out.chi = out.tj === null ? null : gravChi(g, out.tj, out.M);
+    }
+    // the two facts
+    out.F = out.A === null ? null : gravForced(out.A, out.Ne);
+    out.Jzero = null;
+    if (out.tj !== null) out.Jzero = out.tj === 0 && (out.single ? gravVanishes(sp.atoms[0].Z, out.A - sp.atoms[0].Z, out.tj) : false);
+    if (out.single && out.A !== null && out.tj === 0 && !gravVanishes(sp.atoms[0].Z, out.A - sp.atoms[0].Z, 0)) out.Jzero = false;
+    if (out.tj !== null && out.tj > 0) out.Jzero = false;
+    return out;
+  }
+  function gravParticleBody(g, px, text) {
+    // a particle of the indexes by name: mass from MeV, charge in thirds, 2J from its coordinates
+    var t = String(text).trim().toLowerCase();
+    var hit = null, ixHit = null;
+    (px.indexes || []).forEach(function (ix) { if (hit) return; (ix.rows || []).forEach(function (r) { if (!hit && r.name.toLowerCase() === t) { hit = r; ixHit = ix; } }); });
+    if (!hit) return null;
+    var names = ixHit.coordinates.map(function (c) { return c.name; });
+    var ji = names.indexOf('2J'), qi = names.indexOf('Q3');
+    var out = { particle: hit, index: ixHit.id, refused: [], notes: [], atoms: [], single: false };
+    out.q = qi >= 0 ? hit.coords[qi] / 3 : null; out.tj = ji >= 0 ? hit.coords[ji] : null; out.tjStatus = 'READ';
+    out.tjNote = 'the table\'s own J'; out.A = null; out.Ne = null; out.Z = null;
+    if (hit.extra.mass_MeV === null || hit.extra.mass_MeV === undefined) { out.M = null; out.refused.push('mass: the table prints a limit only for ' + hit.name); }
+    else { out.M = hit.extra.mass_MeV * 1e6 * g.K.EV_J / (g.K.C_SI * g.K.C_SI); out.massStatus = 'READ'; out.rs = 2 * g.K.G_SI * out.M / (g.K.C_SI * g.K.C_SI); out.qt = gravQt(g, Math.abs(out.q), out.M); out.chi = out.tj === null ? null : gravChi(g, out.tj, out.M); }
+    out.F = out.tj === null ? null : (out.tj % 2);
+    out.Jzero = out.tj === 0;
+    return out;
+  }
+  function gravBoundRows(g, b) {
+    var qpos = b.q !== null && Math.abs(b.q) > 0 ? 1 : 0;
+    return g.dims.map(function (D) {
+      var B, note;
+      if (b.Jzero === true || b.Jzero === false) { B = gravBound(D, qpos, b.F || (b.Jzero ? 0 : 1), b.Jzero); note = null; }
+      else if (b.F === 1) { B = gravBound(D, qpos, 1, false); note = 'F forced non-zero, so the rotating branch applies'; }
+      else { B = null; note = 'whether J vanishes is not established (F not forced and no level banked), so the branch cannot be chosen'; }
+      return { D: D, B: B, note: note };
+    });
+  }
+  var B_TEXT = ['no bound', 'a bound', 'undetermined (no exact solution)'];
+  var MODE_GRAVITY = {
+    id: 'gravity',
+    requires: 'nuclides',
+    title: 'Relative gravity of a body',
+    status: DERIVED,
+    statusNote: 'The gravity index\'s own arithmetic (the research tree\'s gravity instrument) run here over the AME2020 mass table and the banked levels in data/nuclides.js: the mass, the Schwarzschild radius, the dimensionless Kerr spin χ and Reissner–Nordström charge Q̃, the two angular-momentum facts, and the horizon-bound class in every dimension from 4 to 11 from the exact solutions only. Every input carries its status; a typed J carries none; no number is put on a horizon above four dimensions.',
+    description: 'A body is a nuclide, an ion or a molecule written as a formula with its isotopes (^56Fe, ^56Fe2+, U-238, D2O, ^1H2^16O) or a particle of the indexes by name (p, e-, mu-, pi+, Lambda). M = A·u + mass excess − q·mₑ + the level\'s energy; r_s = 2GM/c²; χ = J ħ c / (G M²); Q̃ = q e / (M √(4π ε₀ G)); F cannot vanish when A + Ne is odd; F = 0 is established for an even-even nucleus with J = 0 by the pairing rule. Every quantity is set against a reference body as a ratio, which is the relative gravity: at equal distance the field scales as M. Where the angular momentum is not banked it is typed or refused, never inferred.',
+    inputs: [
+      { name: 'species', label: 'body', type: 'text', default: '^56Fe', help: 'a formula with isotopes and charge (^56Fe2+, U-238, D2O), or a particle name once the indexes are loaded (p, mu-, pi+)' },
+      { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'twice the electronic angular momentum; blank uses the banked lowest level of a single species, or refuses' },
+      { name: 'level', label: 'level (cm⁻¹, optional)', type: 'number', default: '', help: 'an excitation energy added to the mass exactly; blank uses the banked level' },
+      { name: 'reference', label: 'reference body', type: 'text', default: '^1H', help: 'the body every ratio is taken against; the same notation' },
+    ],
+    source: { instrument: 'members', file: 'the research tree\'s gravity instrument', also: ['forced', 'vanishes', 'bound_class', 'rows'] },
+    run: async function (values, ctx) {
+      var nb = await ctx.nuclides(); if (!nb) return fail('data/nuclides.js is not carried by this build');
+      var g = gravSetup(nb);
+      var px = ctx.particlesLoaded ? ctx.particlesLoaded() : null;
+      var read = async function (text) {
+        var sp = gravSpecies(text);
+        if (!sp.errors.length && sp.atoms.length) return gravBody(g, sp, { twoJ: int(values.two_j), level: num(values.level) });
+        if (!px && ctx.particles) { try { px = await ctx.particles(); } catch (err) { px = null; } }
+        var pb = px ? gravParticleBody(g, px, text) : null;
+        if (pb) return pb;
+        return { error: sp.errors.length ? sp.errors.join('; ') : 'nothing read', refused: [] };
+      };
+      var b = await read(values.species);
+      if (b.error) return fail('cannot read "' + values.species + '": ' + b.error + (px ? '' : '; particle names need the indexes, which could not be loaded'));
+      var rows = [];
+      var name = b.particle ? b.particle.name : b.species.typeset;
+      rows.push(row('body', name + (b.particle ? ' (a member of the ' + b.index + ' index)' : ''), b.particle ? 'READ' : null, b.particle ? 'mass and quantum numbers as the table prints them' : (b.species.notes.join('; ') || 'as read')));
+      if (b.atoms.length) rows.push(row('atoms', b.atoms.map(function (a) { return a.el + (a.A ? '-' + a.A : '') + (a.n > 1 ? ' ×' + a.n : ''); }).join(', '), 'READ', b.atoms.map(function (a) { return a.el + ': Z = ' + a.Z + (a.A ? ', N = ' + a.N : ', no isotope given; ' + a.nuclides + ' nuclides in the table'); }).join('; ')));
+      if (b.Z !== null && b.Z !== undefined) rows.push(row('protons, electrons, nucleons', b.Z + ', ' + b.Ne + (b.A === null ? ', A not fixed' : ', ' + b.A), 'DERIVED', 'Ne = Z − q; A only where every isotope is given'));
+      if (b.q !== null) rows.push(row('charge q', String(b.q), 'READ', b.particle ? 'in units of e, from Q in thirds' : 'from the formula'));
+      if (b.M === null) rows.push(row('mass', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^mass/.test(r); }).join('; ')));
+      else {
+        rows.push(row('mass M', (b.M / g.K.U_KG).toFixed(6) + ' u = ' + b.M.toExponential(6) + ' kg', b.massStatus, b.particle ? 'from the printed mass in MeV' : nb.mass_formula + (b.level ? '; level ' + b.level + ' cm⁻¹ included' : '') + '; electron binding neglected and bounded'));
+        rows.push(row('Schwarzschild radius r_s', b.rs.toExponential(4) + ' m', 'DERIVED', '2GM/c²; G empirical (CODATA 2018), c exact'));
+        rows.push(row('Q̃, the Reissner–Nordström charge', b.qt === 0 ? '0 (neutral)' : b.qt.toExponential(4) + (b.qt > 0 ? ' · decade ' + gravDecade(b.qt) + (gravRank(g.decades.charge, b.qt) === null ? ' (outside the index\'s alphabet)' : ', rank ' + gravRank(g.decades.charge, b.qt) + ' in the index') : ''), 'DERIVED', 'q e / (M √(4π ε₀ G))'));
+        if (b.tj === null) rows.push(row('χ, the Kerr spin', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^angular/.test(r); }).join('; ')));
+        else {
+          rows.push(row('2J', String(b.tj) + ' (J = ' + (b.tj % 2 ? b.tj + '/2' : b.tj / 2) + ')', b.tjStatus, b.tjNote));
+          rows.push(row('χ, the Kerr spin', b.chi === 0 ? '0 (J = 0)' : b.chi.toExponential(4) + ' · decade ' + gravDecade(b.chi) + (gravRank(g.decades.spin, b.chi) === null ? ' (outside the index\'s alphabet)' : ', rank ' + gravRank(g.decades.spin, b.chi) + ' in the index'), b.tjStatus === 'READ' ? 'DERIVED' : null, 'J ħ c / (G M²)' + (b.particle ? '' : ', the electronic part; the nuclear spin is not banked')));
+          rows.push(row('χ² + Q̃² against 1', (b.chi * b.chi + b.qt * b.qt).toExponential(3), b.tjStatus === 'READ' ? 'DERIVED' : null, 'a horizon exists exactly when this is ≤ 1; the excess is the ordinary statement that the body is not a black hole'));
+        }
+      }
+      if (b.particle) rows.push(row('J, the angular momentum', b.tj === null ? 'not printed' : (b.tj % 2 ? 'half-odd: cannot vanish' : (b.tj === 0 ? 'zero' : 'integer, non-zero')), b.tj === null ? 'REFUSED' : 'READ', 'the table\'s own J; a particle has no A + Ne to count'));
+      else if (b.F === null) rows.push(row('F, the total angular momentum', 'not decided: A is not fixed', 'REFUSED', 'give every isotope to fix A + Ne'));
+      else rows.push(row('F, the total angular momentum', b.F ? 'cannot vanish: A + Ne = ' + (b.A + b.Ne) + ' is odd' : (b.Jzero === true ? 'zero, established by the pairing rule' : 'may vanish: A + Ne is even' + (b.Jzero === false ? '; not zero here, J > 0' : '; whether it does is not established')), 'DERIVED', b.Jzero === true ? 'even-even nucleus with 2Je = 0: ' + nb.pairing_rule_status + ', not a theorem' : 'exact arithmetic on two integers, no nuclear datum used'));
+      gravBoundRows(g, b).forEach(function (r) { rows.push(row('horizon bound at D = ' + r.D, r.B === null ? 'undecided' : r.B + ' · ' + B_TEXT[r.B], r.B === null ? 'REFUSED' : 'DERIVED', r.note || (r.D === 4 ? 'Kerr–Newman covers every (M, Q, J) in four dimensions' : 'from an exact solution only; a root exists, not where; the D-dimensional constant is never valued'))); });
+      // the index cell, where the body is a charted member
+      if (b.single && b.A !== null && b.banked && !b.tjNote.match(/^typed/) && !num(values.level)) {
+        var ms = gravMembers(g), alpha = gravAlphabets(ms);
+        var m = { Z: b.atoms[0].Z, N: b.A - b.atoms[0].Z, A: b.A, q: b.q, Ne: b.Ne, tj: b.tj, L: b.banked.L, chi: b.chi, qt: b.qt, qual: b.atoms[0].row[5] };
+        rows.push(row('its cell in the gravity index at D = 4', '(' + gravCoords(g, m, alpha, 4).join(', ') + ')', 'DERIVED', '(D, B, F, X, Y, L, E); the same body at every dimension is on its plate in the explorer'));
+      } else if (b.single) rows.push(row('the gravity index', b.A === null ? 'no isotope: the index charts nuclides' : (b.banked ? 'not this reading: a typed J or level leaves the chart' : 'not a member: no level table is banked for this species'), null, 'the index charts every nuclide of every species a level table names, at its banked level'));
+      // the reference, and the ratios
+      var ref = await read(values.reference || '^1H');
+      if (ref.error) rows.push(row('reference', 'cannot read "' + values.reference + '": ' + ref.error, 'REFUSED', null));
+      else {
+        var rn = ref.particle ? ref.particle.name : ref.species.typeset;
+        rows.push(row('reference body', rn + (ref.M === null ? ' — no mass' : ', M = ' + (ref.M / g.K.U_KG).toFixed(6) + ' u'), ref.M === null ? 'REFUSED' : ref.massStatus, ref.refused.join('; ') || 'the body every ratio is taken against'));
+        if (b.M !== null && ref.M !== null) {
+          rows.push(row('relative gravity: M / M_ref', (b.M / ref.M).toPrecision(7), 'DERIVED', 'the field at equal distance scales as M, so this is the ratio of the two bodies\' fields there; r_s scales the same way'));
+          if (b.qt > 0 && ref.qt > 0) rows.push(row('Q̃ / Q̃_ref', (b.qt / ref.qt).toPrecision(6), 'DERIVED', null));
+          if (b.chi !== null && b.chi > 0 && ref.chi !== null && ref.chi > 0) rows.push(row('χ / χ_ref', (b.chi / ref.chi).toPrecision(6), b.tjStatus === 'READ' && ref.tjStatus === 'READ' ? 'DERIVED' : null, null));
+          else if (b.chi !== null && ref.chi === null) rows.push(row('χ / χ_ref', 'refused: the reference\'s J is not banked', 'REFUSED', null));
+        }
+      }
+      b.refused.forEach(function (r) { if (!/^(mass|angular)/.test(r)) rows.push(row('refused', r, 'REFUSED', null)); });
+      return { rows: rows, ok: true, message: 'computed for ' + name + ': the weakest status of the inputs is the status of the result' + (b.tjStatus === null && b.tj !== null ? ' (a typed J carries none)' : '') };
+    },
+    selftest: async function (ctx) {
+      var ck = new Checker();
+      var nb = await ctx.nuclides();
+      if (!nb) { ck.ok('data/nuclides.js present', false, 'absent', 'present'); return ck.result(); }
+      var g = gravSetup(nb), fx = nb.fixtures || {};
+      ck.eq('the table holds every nuclide the instrument kept', nb.rows.length, fx.nuclides);
+      var c12 = g.byZA['6-12'];
+      ck.near('carbon 12 reconstructs to exactly 12 u', gravMass(g, 12, c12[4], 0, 0) / g.K.U_KG, 12, 1e-12);
+      ck.eq('...and the table\'s own mass excess for it is zero', c12[4], 0);
+      var ms = gravMembers(g);
+      ck.eq('members: every species over every nuclide of its Z', ms.length, fx.members);
+      var alpha = gravAlphabets(ms);
+      ck.eq('the spin decades are the index\'s alphabet', alpha.spin, nb.decades.spin);
+      ck.eq('the charge decades are the index\'s alphabet', alpha.charge, nb.decades.charge);
+      var forced = 0, van = 0, cells = {}, cellsD = {}, relieved = 0, schw = {};
+      ms.forEach(function (m) {
+        var F = gravForced(m.A, m.Ne), Jz = gravVanishes(m.Z, m.N, m.tj);
+        forced += F; if (Jz) van += 1;
+        if (m.q === 0 && Jz) schw[m.Z + '-' + m.A] = 1;
+        var bs = g.dims.map(function (D) { var c = gravCoords(g, m, alpha, D); cells[c.join(',')] = 1; (cellsD[D] = cellsD[D] || {})[c.slice(1).join(',')] = 1; return c[1]; });
+        if (bs[0] === 1 && bs[1] === 1 && bs.slice(2).every(function (b) { return b === 0; })) relieved += 1;
+      });
+      ck.eq('F forced non-zero on the instrument\'s count', forced, fx.forced);
+      ck.eq('F = 0 established on the instrument\'s count', van, fx.vanishes);
+      ck.eq('and the undetermined class is the rest', ms.length - forced - van, fx.undetermined);
+      ck.eq('distinct cells over eight dimensions', Object.keys(cells).length, fx.cells);
+      ck.eq('cells per dimension', Object.keys(cellsD).reduce(function (o, D) { o[D] = Object.keys(cellsD[D]).length; return o; }, {}), fx.cells_at_D);
+      ck.eq('members relieved of their bound at D = 6', relieved, fx.relieved);
+      ck.eq('nuclides exactly Schwarzschild', Object.keys(schw).length, fx.schwarzschild);
+      var worstE = 0, worstB = 0;
+      ms.forEach(function (m) { var e = m.lv * g.K.CM1_KG / m.M; if (e > worstE) worstE = e; var b = (m.Z * m.Z * m.Z * 13.6 * g.K.EV_J) / (m.M * g.K.C_SI * g.K.C_SI); if (b > worstB) worstB = b; });
+      ck.near('the excitation mass bound', worstE, fx.excitation_bound, fx.excitation_bound * 1e-6);
+      ck.near('the neglected binding bound', worstB, fx.binding_bound, fx.binding_bound * 1e-6);
+      (fx.sample || []).forEach(function (s) {
+        var m = ms.find(function (x) { return x.A + x.sym + '-' + x.q === s.key; });
+        if (!m) { ck.ok('sample ' + s.key + ' found', false, 'absent', 'present'); return; }
+        ck.near('sample ' + s.key + ': mass', m.M / g.K.U_KG, s.M_u, 1e-6);
+        ck.near('sample ' + s.key + ': χ', m.chi, s.chi, Math.abs(s.chi) * 1e-3 + 1e-30);
+        ck.near('sample ' + s.key + ': Q̃', m.qt, s.Qtilde, Math.abs(s.Qtilde) * 1e-3 + 1e-30);
+        ck.eq('sample ' + s.key + ': cell at D = 4', gravCoords(g, m, alpha, 4), s.coords);
+        ck.eq('sample ' + s.key + ': B at every D', g.dims.map(function (D) { return gravCoords(g, m, alpha, D)[1]; }), s.B_by_D);
+      });
+      ck.eq('the bound table: D = 4 never undetermined', [gravBound(4, 0, 0, true), gravBound(4, 1, 0, true), gravBound(4, 0, 1, false)], [0, 1, 1]);
+      ck.eq('the bound table: rotation relieved from D = 6, charge never', [gravBound(5, 0, 1, false), gravBound(6, 0, 1, false), gravBound(11, 0, 1, false), gravBound(6, 1, 0, true), gravBound(6, 1, 1, false)], [1, 0, 0, 1, 2]);
+      var w = gravBody(g, gravSpecies('^1H2^16O'), {});
+      ck.near('¹H₂¹⁶O: the mass of water from the table', w.M / g.K.U_KG, fx.water_u, 1e-6);
+      ck.eq('¹H₂¹⁶O: 10 electrons, A = 18, F may vanish', [w.Ne, w.A, w.F], [10, 18, 0]);
+      var fe = gravBody(g, gravSpecies('^56Fe2+'), {});
+      ck.eq('⁵⁶Fe²⁺: Z, Ne, A, F', [fe.Z, fe.Ne, fe.A, fe.F], [26, 24, 56, 0]);
+      ck.near('⁵⁶Fe²⁺: mass = the nuclide less two electrons', fe.M / g.K.U_KG, fx.iron_56_u - 2 * g.K.M_E / g.K.U_KG, 1e-6);
+      ck.ok('a molecule\'s χ is refused rather than inferred', w.tj === null && w.refused.some(function (r) { return /^angular/.test(r); }), 'refused', 'refused');
+      ck.ok('U-238, D2O and 56Fe are read as isotopes', gravSpecies('U-238').atoms[0].A === 238 && gravSpecies('D2O').atoms.find(function (a) { return a.el === 'H'; }).A === 2 && gravSpecies('56Fe').atoms[0].A === 56, true, true);
+      return ck.result();
+    },
+  };
+
+  // --------------------------------------------- the builder: an atom, ion or molecule from a formula
+  var MODE_BUILDER = {
+    id: 'builder',
+    requires: 'nuclides',
+    title: 'Build an atom, ion or molecule',
+    status: DERIVED,
+    statusNote: 'A formula read into what the index holds of it: each atom\'s record and banked ground level where held, the electrons, protons and nucleons counted, the exact mass from the mass table where every isotope is given, and the gravitational quantities of the gravity mode. It draws no bond and defines none: the finding on this site is that a bond cannot be indexed, and the builder carries that refusal rather than inventing a bond order.',
+    description: 'Write an atom, ion or molecule: Fe, Fe3+, ^56Fe2+, H2O, D2O, SO4^2-, NH4+, U-238, ^1H2^16O. The reader is the chemistry modes\' own, with isotopes as a caret prefix, leading digits or a dash. Values it cannot derive from what is held are refused by name.',
+    inputs: [
+      { name: 'formula', label: 'atom, ion or molecule', type: 'text', default: 'H2O', help: 'a formula with charge and, optionally, isotopes' },
+      { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'for χ; blank uses the banked level of a single species, else refuses' },
+    ],
+    source: { instrument: 'parseFormula', file: 'this page\'s solver module', also: ['members'] },
+    run: async function (values, ctx) {
+      var nb = await ctx.nuclides(); if (!nb) return fail('data/nuclides.js is not carried by this build');
+      var g = gravSetup(nb);
+      var sp = gravSpecies(values.formula);
+      if (sp.errors.length) return fail('cannot read "' + values.formula + '": ' + sp.errors.join('; '));
+      if (!sp.atoms.length) return fail('no atoms read from "' + values.formula + '"');
+      var b = gravBody(g, sp, { twoJ: int(values.two_j) });
+      var rows = [], html = '';
+      var kind = b.single ? (sp.charge ? 'an ion' : 'an atom') : (sp.charge ? 'a molecular ion' : 'a molecule');
+      rows.push(row('reading', sp.typeset + ' — ' + kind + ', ' + sp.atoms.reduce(function (n, a) { return n + a.n; }, 0) + ' atoms of ' + sp.atoms.length + ' element' + (sp.atoms.length > 1 ? 's' : ''), null, sp.notes.join('; ') || 'the chemistry modes\' reader, with isotopes'));
+      rows.push(row('protons Z, electrons Ne', b.Z + ', ' + b.Ne + (b.Ne % 2 ? ' (odd)' : ' (even)'), 'DERIVED', 'Ne = Z − q'));
+      rows.push(row('nucleons A, neutrons N', b.A === null ? 'not fixed: no isotope for ' + sp.atoms.filter(function (a) { return !a.A; }).map(function (a) { return a.el; }).join(', ') : b.A + ', ' + (b.A - b.Z), b.A === null ? 'REFUSED' : 'DERIVED', 'A from the isotopes given; the table holds no abundances, so none is assumed'));
+      if (b.M === null) rows.push(row('mass', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^mass/.test(r); }).join('; ')));
+      else {
+        rows.push(row('mass M', (b.M / g.K.U_KG).toFixed(6) + ' u = ' + b.M.toExponential(6) + ' kg', b.massStatus, nb.mass_formula + ' summed over the atoms; electron binding neglected and bounded'));
+        rows.push(row('Schwarzschild radius r_s', b.rs.toExponential(4) + ' m', 'DERIVED', '2GM/c²'));
+        rows.push(row('Q̃', b.qt === 0 ? '0 (neutral)' : b.qt.toExponential(4), 'DERIVED', 'q e / (M √(4π ε₀ G))'));
+        if (b.chi !== null) rows.push(row('χ', b.chi === 0 ? '0 (J = 0)' : b.chi.toExponential(4), b.tjStatus === 'READ' ? 'DERIVED' : null, b.tjNote));
+        else rows.push(row('χ', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^angular/.test(r); }).join('; ')));
+      }
+      if (b.F !== null) rows.push(row('F, the total angular momentum', b.F ? 'cannot vanish: A + Ne is odd' : 'may vanish: A + Ne is even', 'DERIVED', 'parity of the fermion count, no other datum'));
+      // each atom's record
+      var chips = [];
+      for (var i = 0; i < b.atoms.length; i++) {
+        var a = b.atoms[i], rec = null;
+        try { rec = ctx.element(a.Z) || await ctx.load(a.Z); } catch (err) { rec = null; }
+        var iso = a.A ? (a.row ? a.el + '-' + a.A + ' (' + (a.row[5] === 'M' ? 'measured' : 'estimated') + ', N = ' + a.N + ')' : a.el + '-' + a.A + ' not in the table') : a.nuclides + ' nuclides held, none chosen';
+        var conf = rec && rec.populated ? rec.shells_as_printed + (rec.level ? ' · ' + rec.level : '') : (rec ? 'not populated (Z > 108)' : 'no record');
+        var chs = rec && rec.channels ? rec.channels.length : 0;
+        var ions = rec && rec.channels ? Object.keys(rec.channels.reduce(function (o, c) { o[c.charge] = 1; return o; }, {})).length : 0;
+        var st = b.single ? g.species[a.Z + '/' + sp.charge] : g.species[a.Z + '/0'];
+        rows.push(row(a.el + (a.n > 1 ? ' ×' + a.n : ''), 'Z = ' + a.Z + '; ' + iso + '; neutral ground configuration ' + conf + '; ' + chs + ' channels over ' + ions + ' ions in the index' + (st ? '; banked lowest level of ' + st.symbol + ' ' + st.stage + ': ' + st.config + ' ' + st.term + ', J = ' + (st['2J'] % 2 ? st['2J'] + '/2' : st['2J'] / 2) : '; no level table banked for ' + a.el + ' ' + (ROMAN_OF[(b.single ? sp.charge : 0) + 1] || '')), rec && rec.populated ? 'READ' : null, 'the element\'s record; open it for every ion and channel'));
+        chips.push('<button type="button" class="pchip" data-go="' + a.Z + '">' + a.el + ' · Z = ' + a.Z + '</button>' + (b.single && sp.charge > 0 && rec && rec.populated ? '<button type="button" class="pchip" data-go="' + a.Z + '/' + (sp.charge + 1) + '">' + a.el + ' ' + (ROMAN_OF[sp.charge + 1] || '') + '</button>' : ''));
+      }
+      if (b.single && sp.charge > 0) {
+        var rec1 = ctx.element(b.atoms[0].Z);
+        var lad = rec1 && rec1.lambda8 ? rec1.lambda8.find(function (s) { return s.charge === sp.charge + 1; }) : null;
+        if (lad) rows.push(row('Λ₈ cell of the ion', '(' + lad.cell.map(function (v) { return v === null ? '·' : v; }).join(', ') + ') — ' + lad.from + ' → ' + lad.to + (lad.constraints.every(function (c) { return c.holds; }) ? ', every constraint holds' : ', a constraint FAILS'), 'RECONSTRUCTED', 'the ionisation ladder\'s cell for this stage, as the element\'s record carries it'));
+      }
+      if (!b.single) rows.push(row('bonds', 'none drawn, none defined', 'REFUSED', 'the finding on this site is that a bond cannot be indexed: a molecular orbital is not a bond, the atomic bond is the orbital already charted, and a scattering channel is a magnitude; see the Indexes dialog, "Can a bond be indexed?"'));
+      b.refused.forEach(function (r) { if (!/^(mass|angular)/.test(r)) rows.push(row('refused', r, 'REFUSED', null)); });
+      html = '<p class="note">Records: ' + chips.join(' ') + ' <button type="button" class="pchip" data-solver="gravity" data-fill=\'' + JSON.stringify({ species: values.formula }).replace(/'/g, '&#39;') + '\'>relative gravity of this body →</button></p>';
+      return { rows: rows, html: html, ok: true, message: 'built ' + sp.typeset + ' from what the index holds; everything it does not hold is refused by name' };
+    },
+    selftest: async function (ctx) {
+      var ck = new Checker();
+      var nb = await ctx.nuclides();
+      if (!nb) { ck.ok('data/nuclides.js present', false, 'absent', 'present'); return ck.result(); }
+      var g = gravSetup(nb), fx = nb.fixtures || {};
+      var w = gravBody(g, gravSpecies('H2O'), {});
+      ck.eq('H2O: Z, Ne, A unfixed', [w.Z, w.Ne, w.A], [10, 10, null]);
+      ck.ok('H2O: mass refused without isotopes', w.M === null, 'refused', 'refused');
+      var w2 = gravBody(g, gravSpecies('^1H2^16O'), {});
+      ck.near('¹H₂¹⁶O: exact mass from the table', w2.M / g.K.U_KG, fx.water_u, 1e-6);
+      var d2o = gravSpecies('D2O');
+      ck.eq('D2O: deuterium read as H with A = 2', d2o.atoms.map(function (a) { return [a.el, a.n, a.A]; }), [['H', 2, 2], ['O', 1, null]]);
+      var so4 = gravBody(g, gravSpecies('SO4^2-'), {});
+      ck.eq('SO4^2-: Z, Ne, q', [so4.Z, so4.Ne, so4.q], [48, 50, -2]);
+      var fe = gravBody(g, gravSpecies('Fe3+'), {});
+      ck.eq('Fe3+: 23 electrons, an ion', [fe.Ne, fe.single, fe.q], [23, true, 3]);
+      var u = gravBody(g, gravSpecies('U-238'), {});
+      ck.eq('U-238: A = 238, N = 146', [u.A, u.A - u.Z], [238, 146]);
+      var c = gravBody(g, gravSpecies('^12C'), { level: 0 });
+      ck.near('¹²C at the ground level: exactly 12 u', c.M / g.K.U_KG, 12, 1e-12);
+      var cb = gravBody(g, gravSpecies('^12C'), {});
+      ck.ok('¹²C at its banked level: the excitation mass is included, above 12 u by the level\'s energy', cb.M / g.K.U_KG > 12 && cb.level > 0 && cb.banked && cb.banked.L === 1, 'included', 'included');
+      ck.ok('a molecule refuses χ and the bond', w2.tj === null, 'refused', 'refused');
+      ck.ok('an unknown symbol is an error, not a guess', gravSpecies('Xx2').errors.length > 0, 'error', 'error');
+      return ck.result();
+    },
+  };
+
+  SOLVERS = [MODE_EQUATION, MODE_PAULI, MODE_COLLAPSE, MODE_CLOSURE, MODE_LAMBDA, MODE_COEFFICIENT, MODE_RELATIVISTIC, MODE_MUCF, MODE_CHEM, MODE_BALANCE, MODE_GRAVITY, MODE_BUILDER];
   LIB = {
     channelDelta: channelDelta, channelTerms: channelTerms, collapseC: collapseC, pauliBound: pauliBound,
     coreP: coreP, n0Of: n0Of, orderClosure: orderClosure, lambdaConstraints: lambdaConstraints,
@@ -6898,7 +7516,8 @@ var SOLVERS, LIB;
     measuredRowsAll: measuredRowsAll, presetCells: presetCells, cellsText: cellsText, parseCells: parseCells,
     janetCypherFixture: janetCypherFixture, lambdaCypherFixture: lambdaCypherFixture,
     label: label, roman: roman, FALLBACK_COEF: FALLBACK_COEF, COEF_NAMES: COEF_NAMES,
-    parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, balanceEquation: balanceEquation, SYMBOL_Z: SYMBOL_Z
+    parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, balanceEquation: balanceEquation, SYMBOL_Z: SYMBOL_Z,
+    gravSpecies: gravSpecies, gravBody: gravBody, gravSetup: gravSetup, gravMembers: gravMembers, gravBound: gravBound
   };
 
 if (typeof window !== 'undefined') { window.MI = window.MI || {}; window.MI.solvers = SOLVERS; window.MI.solverLib = LIB; }
