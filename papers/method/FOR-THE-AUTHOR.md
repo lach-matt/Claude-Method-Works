@@ -516,3 +516,13 @@ target are admitted as the source admits them, unrestricted. The grading check n
 from the order alone. One real error the repair found: a box stated at 8,064 points has 9,216. All
 42 findings fixed. For you: the retitle, and whether the 715 cells the index admits without
 physical restriction should stay.
+
+**The occupation hull — repaired.** Working title now: *An Occupation Law as a Lower Convex Hull*.
+"Observed" is gone: the configurations of lawrencium and of rutherfordium through hassium are
+marked as resting on calculation, with the literature that calculated them cited. The piercing
+theorem is stated conditionally and both cases are printed with their certificates — with the
+tabulated 7p¹ at lawrencium, three slopes are necessary; with 6d¹, the aufbau expectation and the
+paper's own pick, two suffice. The paper does not choose; the choice is yours, and the seated data
+file still labels the data observed, which is recorded and not edited. The step-conditional
+Madelung score is reconciled with the standard twenty exceptions, all named. All 57 findings
+fixed, none declined. Obligations 113 to 141.

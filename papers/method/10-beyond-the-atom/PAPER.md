@@ -208,7 +208,7 @@ The proposition is the reason Table 1's zeros carry no surprise: Λ closes becau
 
 ## §3 · The catalogue
 
-Fifteen indexes are built and closed. Each is defined here by its coordinates and its membership rule; each cell count, box and defect in Table 1 is recomputed. They fall into three groups, and the group is stated before the number: **closed by theorem** (Proposition 2 or Theorem 2), **open with the admitted-and-absent cells named**, and **open by construction** (a hole in the value set of a difference, Corollary 1).
+Sixteen rows are built and closed — fifteen indexes, the particle-bound nuclides taken at two cutoffs. Each is defined here by its coordinates and its membership rule; each cell count, box and defect in Table 1 is recomputed. They fall into three groups, and the group is stated before the number: **closed by theorem** (Proposition 2 or Theorem 2), **open with the admitted-and-absent cells named**, and **open by construction** (a hole in the value set of a difference, Corollary 1).
 
 ### 3.1 The atomic lattice and its tower — closed by theorem
 

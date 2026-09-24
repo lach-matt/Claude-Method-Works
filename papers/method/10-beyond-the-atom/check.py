@@ -811,26 +811,26 @@ def check_catalogue():
         boxes[zmax] = len({z for z, _ in X}) * len({n for _, n in X})
     rec("MEASURED", "C7g", "the observed boxes of the particle-bound index: Z <= 7 %d, Z <= 10 %d (products of the observed Z and N alphabets)"
         % (boxes[7], boxes[10]), True, nuc_box=boxes[7], nuc10_box=boxes[10])
-    eq("EXHAUSTIVE", "C7a", "particle-bound nuclides derived from NUBASE2020 (Z >= 1; not p-unst; first decay mode not n, 2n, 3n, p, 2p, 3p or alpha): (cells, admitted, E) at Z <= 5, 6, 7, 8, 9, 10",
+    eq("MEASURED", "C7a", "particle-bound nuclides derived from NUBASE2020 (Z >= 1; not p-unst; first decay mode not n, 2n, 3n, p, 2p, 3p or alpha): (cells, admitted, E) at Z <= 5, 6, 7, 8, 9, 10",
        tuple(Es[z] for z in (5, 6, 7, 8, 9, 10)), ((27, 33, 6), (40, 48, 8), (52, 61, 9), (64, 73, 9), (77, 86, 9), (94, 106, 12)),
        nuc_cells=52, nuc_adm=61, nuc_E=9, nuc10_cells=94, nuc10_adm=106, nuc10_E=12, nuc_rows=tuple(Es[z] for z in (5, 6, 7, 8, 9, 10)))
-    eq("EXHAUSTIVE", "C7b", "the admitted-and-absent nuclides at Z <= 7 (nine), unchanged at Z <= 8 and 9, and the three added at Z <= 10",
+    eq("MEASURED", "C7b", "the admitted-and-absent nuclides at Z <= 7 (nine), unchanged at Z <= 8 and 9, and the three added at Z <= 10",
        (names[7], names[8] == names[7], names[9] == names[7], [x for x in names[10] if x not in names[7]]),
        (["He-5", "He-7", "Li-10", "Be-8", "Be-13", "B-9", "B-16", "B-18", "C-21"], True, True, ["F-16", "F-28", "F-30"]),
        nuc_names7=names[7], nuc_names10=names[10])
-    eq("EXHAUSTIVE", "C7c", "every cell named at a smaller cutoff persists at every larger one",
+    eq("MEASURED", "C7c", "every cell named at a smaller cutoff persists at every larger one",
        all(set(names[a]) <= set(names[b]) for a, b in ((5, 6), (6, 7), (7, 8), (8, 9), (9, 10))), True)
-    eq("EXHAUSTIVE", "C7d", "every admitted-and-absent cell at Z <= 10 is a ground state NUBASE2020 lists as particle-unbound (a named nuclide, not an unlisted cell)",
+    eq("MEASURED", "C7d", "every admitted-and-absent cell at Z <= 10 is a ground state NUBASE2020 lists as particle-unbound (a named nuclide, not an unlisted cell)",
        all(x in unb[10] for x in names[10]), True)
     # why F-16, F-28 and F-30 appear only at Z <= 10: their N is first observed in a neon isotope
     X9, _ = particle_bound(9)
     X10, _ = particle_bound(10)
-    eq("EXHAUSTIVE", "C7e", "the N values 7, 19 and 21 are absent from the observed alphabet at Z <= 9 and present at Z <= 10 (Ne-17, Ne-29, Ne-31)",
+    eq("MEASURED", "C7e", "the N values 7, 19 and 21 are absent from the observed alphabet at Z <= 9 and present at Z <= 10 (Ne-17, Ne-29, Ne-31)",
        (sorted({n for _, n in X9} & {7, 19, 21}), sorted({n for _, n in X10} & {7, 19, 21})), ([], [7, 19, 21]))
     fx = {z: sorted(n for zz, n in nuclide_fixture(10) if zz == z) for z in range(1, 11)}
     dv = {z: sorted(n for zz, n in X10 if zz == z) for z in range(1, 11)}
     diff = ["%s-%d" % (cy._ELEMENT[z], z + n) for z in range(1, 11) for n in sorted(set(dv[z]) ^ set(fx[z]))]
-    eq("EXHAUSTIVE", "C7f", "the instrument's hand-typed fixture against the derived list: identical through Z <= 8; the fixture omits seven bound nuclides at Z = 9, 10 and lists none the evaluation calls unbound",
+    eq("MEASURED", "C7f", "the instrument's hand-typed fixture against the derived list: identical through Z <= 8; the fixture omits seven bound nuclides at Z = 9, 10 and lists none the evaluation calls unbound",
        (all(fx[z] == dv[z] for z in range(1, 9)), diff, all(set(fx[z]) <= set(dv[z]) for z in range(1, 11))),
        (True, ["F-29", "F-31", "Ne-17", "Ne-29", "Ne-31", "Ne-32", "Ne-34"], True))
     ame, flags = ame2020()
@@ -839,9 +839,9 @@ def check_catalogue():
         X = [c for c in ame if c[0] <= zmax]
         Ra = R(X)
         res[zmax] = (len(X), len(Ra) - len(X), sorted(Ra - set(X)))
-    eq("EXHAUSTIVE", "C8", "AME2020 Table I as an index on (Z, N): rows, distinct cells, flags",
+    eq("MEASURED", "C8", "AME2020 Table I as an index on (Z, N): rows, distinct cells, flags",
        (sum(flags.values()), len(ame), flags["M"], flags["E"]), (3558, 3558, 2550, 1008), ame_cells=3558, ame_M=2550, ame_est=1008)
-    eq("EXHAUSTIVE", "C8b", "its E at Z <= 20, 50, 82, 92, 118 and the two cells",
+    eq("MEASURED", "C8b", "its E at Z <= 20, 50, 82, 92, 118 and the two cells",
        tuple((res[z][1], res[z][2]) for z in (20, 50, 82, 92, 118)),
        tuple((2, [(0, 0), (2, 0)]) for _ in range(5)), ame_E=2)
     rec("MEASURED", "C8c", "the AME2020 index's observed box: %d Z values x %d N values = %d"
@@ -903,7 +903,7 @@ def check_catalogue():
     rec("EXHAUSTIVE", "C14b", "composable fractions %s and %s" % (pct(VALUES["comp9_frac"]), pct(VALUES["comp10_frac"])), True)
     # the spectra survey grid
     grid, held, Zs, Cs, Ls = spectra_grid()
-    eq("EXHAUSTIVE", "C15", "channel survey grid (Z, charge, l): elements, charges, l values, cells, box, E, held cells in grid",
+    eq("MEASURED", "C15", "channel survey grid (Z, charge, l): elements, charges, l values, cells, box, E, held cells in grid",
        (len(Zs), Cs, len(Ls), len(grid), len(Zs) * len(Cs) * len(Ls), E(grid), len(held & set(grid))),
        (28, [1, 2, 3, 4, 5, 6, 9, 11, 15, 16], 8, 1744, 2240, 0, 285),
        sp_cells=1744, sp_box=2240, sp_held=285, sp_elements=28)
@@ -911,7 +911,7 @@ def check_catalogue():
     W = sorted(held & set(grid))
     RW = R(W)
     alph = [sorted({c[i] for c in W}) for i in range(3)]
-    eq("EXHAUSTIVE", "C15b", "the 285 witnessed channels as an index: cells, alphabet sizes (Z, charge, l), box, |R|, E",
+    eq("MEASURED", "C15b", "the 285 witnessed channels as an index: cells, alphabet sizes (Z, charge, l), box, |R|, E",
        (len(W), tuple(len(a) for a in alph), len(alph[0]) * len(alph[1]) * len(alph[2]), len(RW), len(RW) - len(W)),
        (285, (28, 10, 7), 1960, 1260, 975), wit_cells=285, wit_box=1960, wit_E=975)
     # bit costs
@@ -1149,48 +1149,48 @@ def check_quotient(D):
     # followability on the ground-configuration moves, on two populations
     cells, occ = crossing_population()
     X = set(cells)
-    eq("EXHAUSTIVE", "Q8", "the unfiltered population: elements, cells, distinct", (len(occ), len(cells), len(X)), (118, 4325, 4325), cr_cells=4325)
+    eq("MEASURED", "Q8", "the unfiltered population: elements, cells, distinct", (len(occ), len(cells), len(X)), (118, 4325, 4325), cr_cells=4325)
     pauli = sum(1 for c in X if target_room(c, occ) < c[7])
     full = sum(1 for c in X if target_room(c, occ) <= 0)
     multi = sum(1 for c in X if c[7] > 1)
     phys = physical_moves(cells, occ)
-    eq("EXHAUSTIVE", "Q8a", "the Pauli filter: moves whose target lacks room for the g electrons delivered; whose target is already full; moves placing more than one electron; physical one-electron moves (q = g = 1, room >= 1)",
+    eq("MEASURED", "Q8a", "the Pauli filter: moves whose target lacks room for the g electrons delivered; whose target is already full; moves placing more than one electron; physical one-electron moves (q = g = 1, room >= 1)",
        (pauli, full, multi, len(phys)), (2923, 2203, 2819, 134), cr_pauli=2923, cr_full=2203, cr_multi=2819, cr_phys=134)
     rows = followability_rows(list(X), occ)
     want = {"all": (4325, 982, 3686), "allowed": (2673, 309, 2399), "forbidden": (1652, 673, 1287),
             "parity-conserving": (606, 233, 544), "parity-changing": (3719, 749, 3142)}
     for nm in ("all", "allowed", "forbidden", "parity-conserving", "parity-changing"):
         n_, w, wr, a, ar = rows[nm]
-        eq("EXHAUSTIVE", "Q8.", "unfiltered, formal match  %-18s cells %4d  within %4d (%s)  across %4d (%s)" % (nm, n_, w, pct(wr), a, pct(ar)), (n_, w, a), want[nm])
+        eq("MEASURED", "Q8.", "unfiltered, formal match  %-18s cells %4d  within %4d (%s)  across %4d (%s)" % (nm, n_, w, pct(wr), a, pct(ar)), (n_, w, a), want[nm])
     VALUES["crossing"] = rows
-    eq("EXHAUSTIVE", "Q8b", "unfiltered, formal match: allowed within, forbidden within, allowed across, forbidden across (the four percentages the source states)",
+    eq("MEASURED", "Q8b", "unfiltered, formal match: allowed within, forbidden within, allowed across, forbidden across (the four percentages the source states)",
        (pct(rows["allowed"][2]), pct(rows["forbidden"][2]), pct(rows["allowed"][4]), pct(rows["forbidden"][4])), ("11.6%", "40.7%", "89.7%", "77.9%"))
-    eq("EXHAUSTIVE", "Q8c", "on the unfiltered population the order reverses between the scopes: allowed < forbidden within, allowed > forbidden across",
+    eq("MEASURED", "Q8c", "on the unfiltered population the order reverses between the scopes: allowed < forbidden within, allowed > forbidden across",
        (rows["allowed"][2] < rows["forbidden"][2], rows["allowed"][4] > rows["forbidden"][4]), (True, True))
     prow = followability_rows(phys, occ)
     wantp = {"all": (134, 21, 72), "allowed": (59, 7, 24), "forbidden": (75, 14, 48),
              "parity-conserving": (50, 12, 34), "parity-changing": (84, 9, 38)}
     for nm in ("all", "allowed", "forbidden", "parity-conserving", "parity-changing"):
         n_, w, wr, a, ar = prow[nm]
-        eq("EXHAUSTIVE", "Q9.", "physical, formal match    %-18s cells %4d  within %4d (%s)  across %4d (%s)" % (nm, n_, w, pct(wr), a, pct(ar)), (n_, w, a), wantp[nm])
+        eq("MEASURED", "Q9.", "physical, formal match    %-18s cells %4d  within %4d (%s)  across %4d (%s)" % (nm, n_, w, pct(wr), a, pct(ar)), (n_, w, a), wantp[nm])
     VALUES["crossing_phys"] = prow
-    eq("EXHAUSTIVE", "Q9b", "physical, formal match: allowed within, forbidden within, allowed across, forbidden across",
+    eq("MEASURED", "Q9b", "physical, formal match: allowed within, forbidden within, allowed across, forbidden across",
        (pct(prow["allowed"][2]), pct(prow["forbidden"][2]), pct(prow["allowed"][4]), pct(prow["forbidden"][4])), ("11.9%", "18.7%", "40.7%", "64.0%"))
-    eq("EXHAUSTIVE", "Q9c", "on the physical population there is NO crossing: the forbidden class leads within one element and across the table alike (allowed < forbidden in both scopes; the order does not reverse)",
+    eq("MEASURED", "Q9c", "on the physical population there is NO crossing: the forbidden class leads within one element and across the table alike (allowed < forbidden in both scopes; the order does not reverse)",
        (prow["allowed"][2] < prow["forbidden"][2], prow["allowed"][4] < prow["forbidden"][4],
         (prow["allowed"][2] < prow["forbidden"][2]) != (prow["allowed"][4] < prow["forbidden"][4])), (True, True, False))
     # the configurational reading: the target at the occupancy it holds AFTER the move
     crow = followability_rows(list(X), occ, configurational=True)
     cprow = followability_rows(phys, occ, configurational=True)
-    eq("EXHAUSTIVE", "Q10", "configurational match, within one element: zero followable moves in every class on both populations (the population holds ground-configuration sources only)",
+    eq("MEASURED", "Q10", "configurational match, within one element: zero followable moves in every class on both populations (the population holds ground-configuration sources only)",
        (all(r[1] == 0 for r in crow.values()), all(r[1] == 0 for r in cprow.values())), (True, True))
     wantc = {"all": (134, 0, 23), "allowed": (59, 0, 3), "forbidden": (75, 0, 20),
              "parity-conserving": (50, 0, 12), "parity-changing": (84, 0, 11)}
     for nm in ("all", "allowed", "forbidden", "parity-conserving", "parity-changing"):
         n_, w, wr, a, ar = cprow[nm]
-        eq("EXHAUSTIVE", "Q10.", "physical, configurational %-18s cells %4d  within %4d (%s)  across %4d (%s)" % (nm, n_, w, pct(wr), a, pct(ar)), (n_, w, a), wantc[nm])
+        eq("MEASURED", "Q10.", "physical, configurational %-18s cells %4d  within %4d (%s)  across %4d (%s)" % (nm, n_, w, pct(wr), a, pct(ar)), (n_, w, a), wantc[nm])
     VALUES["crossing_conf"] = cprow
-    eq("EXHAUSTIVE", "Q10b", "physical, configurational, across the table: allowed against forbidden; no crossing (forbidden leads, and within is 0 for both)",
+    eq("MEASURED", "Q10b", "physical, configurational, across the table: allowed against forbidden; no crossing (forbidden leads, and within is 0 for both)",
        (pct(cprow["allowed"][4]), pct(cprow["forbidden"][4]), cprow["allowed"][4] < cprow["forbidden"][4]), ("5.1%", "26.7%", True))
 
 
@@ -1223,7 +1223,7 @@ def main(argv):
     compute_all(selftest)
     by = Counter(s for s, _, _, ok in RESULTS if ok)
     print("\nsummary: %d obligations, %d failed" % (len(RESULTS), FAIL))
-    for k in ("PROVED", "MACHINE-CHECKED", "EXHAUSTIVE", "SAMPLED", "REFUTATION", "CITED", "GUARD"):
+    for k in ("PROVED", "MACHINE-CHECKED", "EXHAUSTIVE", "MEASURED", "SAMPLED", "REFUTATION", "CITED", "GUARD"):
         if by.get(k):
             print("  %-16s %d" % (k, by[k]))
     print("  %s" % ("CLEAN" if not FAIL else "FAILED"))
