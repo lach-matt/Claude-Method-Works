@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-21T03:05:41+00:00",
-  "commit": "484bc2108932",
+  "built": "2026-09-24T03:55:52+00:00",
+  "commit": "ab70960f3b54",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "484bc2108932",
-   "text": "Lach, M. (2026). The Master Index, edition 484bc2108932. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 484bc2108932}\n}"
+   "commit": "ab70960f3b54",
+   "text": "Lach, M. (2026). The Master Index, edition ab70960f3b54. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition ab70960f3b54}\n}"
   },
   "history": [
    {
@@ -289,6 +289,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/484bc21089322407d05035cb734571cbbdc9b2f9",
     "note": null
+   },
+   {
+    "date": "2026-09-21",
+    "commit": "ab70960",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab70960f3b54e7bdd07bdb6c2f37ad1ed27badbe",
+    "note": null
    }
   ]
  },
@@ -435,8 +442,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/particles.js",
-   "bytes": 4200960,
-   "md5": "6813256c27d85af86d119dae4e593b49",
+   "bytes": 5274584,
+   "md5": "5d68f98671cd526d6f78d205f64d3d8c",
    "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"
   },
   {
@@ -9684,8 +9691,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "particles": null,
  "particle_index": {
   "file": "data/particles.js",
-  "bytes": 4200960,
-  "md5": "6813256c27d85af86d119dae4e593b49",
+  "bytes": 5274584,
+  "md5": "5d68f98671cd526d6f78d205f64d3d8c",
   "protocol": "data/particles.js sets window.__mi.particle_index, loaded on demand",
   "status_note": "four indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it",
   "source": {
@@ -9987,6 +9994,25 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "bonds": {
    "refusals": 3,
    "empty_channels": []
+  },
+  "isotopes": {
+   "members": 3558,
+   "cells": 3558,
+   "cell": {
+    "channel": 4,
+    "height": 295,
+    "width": 18
+   },
+   "closers": [
+    "information",
+    "statistics"
+   ],
+   "E": 0,
+   "measured": 2550,
+   "estimated": 1008,
+   "refused": 7,
+   "site_own": true,
+   "source_ok": true
   },
   "predictions": {
    "total_E": 4919,

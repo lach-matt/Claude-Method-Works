@@ -2192,6 +2192,41 @@ def _coreps(C, MI, HL, root):
 
 
 
+def _isotopes(MI, HL):
+    """The isotope index as the site carries it: the site's own instrument
+    (tools/isotopes.py) over the one nuclear table the repository holds, its
+    height, width and join deficit measured exactly there, its channel
+    measured here by the hierarchy law's five closure operators, and the two
+    asserted to agree. It is not a row of the research tree's register and
+    the block says so."""
+    IS = _tool_module("isotopes", os.path.join(TOOLS, "isotopes.py"))
+    b = IS.block(charts=True)
+    X = frozenset(tuple(r["coords"]) for r in b["rows"])
+    own_h, own_w = b["own_cell"]["height"], b["own_cell"]["width"]
+    K, h, w, closers, sizes = None, own_h, own_w, [], {}
+    if MI is not None and HL is not None:
+        old = sys.getrecursionlimit()
+        sys.setrecursionlimit(max(old, 20000))      # the law instrument's width is a recursive augmenting path; 3,558 cells overflow the default
+        try:
+            K, h, w = MI.cell(X)
+        finally:
+            sys.setrecursionlimit(old)
+        assert (h, w) == (own_h, own_w), "the law instrument's cell (%d, %d) disagrees with the isotope instrument's (%d, %d)" % (h, w, own_h, own_w)
+        cl, _box = HL.closures(X)
+        sizes = {L: len(cl[L]) for L in HL.LANGS}
+        closers = sorted(L for L in HL.LANGS if sizes[L] == len(X))
+        assert sizes["information"] - len(X) == b["demand"]["E"], "the information closure's deficit disagrees with the instrument's E"
+    b["cell"] = {"channel": K, "height": h, "width": w}
+    b["closers"] = closers
+    b["channel"] = {"status": "DERIVED" if K is not None else "NOT MEASURED",
+                    "closure_sizes": sizes, "cells": len(X), "own_cell_agrees": (h, w) == (own_h, own_w),
+                    "note": ("the channel is measured at build by the five closure operators of the hierarchy law over the chart in its own box, the same instruments that measure every index of the register; the height and width they return agree with the instrument's own exact measurement, and the information closure's deficit is the instrument's E"
+                             if K is not None else "the law's closure operators were not available at this build, so the channel is not measured; the height, width and E are the instrument's own")}
+    b["demand"]["meet_note"] += "; the two cells it asks for are the empty nucleus (0, 0) and the diproton (2, 0), and the order and algebra closures return the same two" if b["demand"]["meet_cells"] == [[0, 0], [2, 0]] else ""
+    b["in_progress"] = False
+    return b
+
+
 def _ledger_md5(rel):
     """The md5 extracted/LEDGER.tsv records for a file it resolved to, or None."""
     path = os.path.join(REPO, "extracted", "LEDGER.tsv")
@@ -2533,6 +2568,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
     phonons = _phonons(mods["phonondex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("phonondex", "mi", "hlaw")) else None
     kpoints = _kpoints(mods["kpointdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("kpointdex", "mi", "hlaw")) else None
     coreps = _coreps(mods["corepdex"], mods["mi"], mods["hlaw"], root) if all(mods.get(k) is not None for k in ("corepdex", "mi", "hlaw")) else None
+    isotopes = _isotopes(mods.get("mi"), mods.get("hlaw"))
     register = _register(root, mods)
     bonds = _bonds(mods["bonds"]) if mods.get("bonds") is not None else None
     predictions = None
@@ -2623,7 +2659,7 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "status_note": "%s indexes of the particles that are not periodic atoms, read from the other session's instruments at build; every member carries its coordinates with their statuses, and every refused coordinate carries the measurement that refuses it" % ("four" if len(indexes) == 4 else "three"),
         "source": prov, "accounting": accounting, "indexes": indexes, "sweep": sweep, "quasiparticles": quasi, "subpop": subpop,
         "nuclear": nuclear, "bonds": bonds, "predictions": predictions, "gravity": gravity, "register": register,
-        "phonons": phonons, "kpoints": kpoints, "coreps": coreps,
+        "phonons": phonons, "kpoints": kpoints, "coreps": coreps, "isotopes": isotopes,
     }
     blob = (PARTICLES_PREFIX + json.dumps(public_obj(full), ensure_ascii=False, allow_nan=False) + WRAP_SUFFIX).encode("utf-8")
     if write:
@@ -2663,6 +2699,8 @@ def particle_index_block(root=WARP_ROOT, write=True, out_dir=OUT, commit=None):
         "kpoints": ({"members": kpoints["members"], "space_groups": kpoints["space_groups"]["with_a_member"], "cells": kpoints["cells"], "cell": kpoints["cell"], "projective": kpoints["projective"]["members"]} if kpoints else None),
         "coreps": ({"members": coreps["members"], "cells": coreps["cells"], "cell": coreps["cell"], "doubled_at_k": coreps["accounting"]["doubled_at_k"], "cases": {k: v["members"] for k, v in coreps["cases"].items() if k in ("a", "b", "c", "x")}} if coreps else None),
         "bonds": ({"refusals": len(bonds["refusals"]), "empty_channels": bonds["channels"]["empty"]} if bonds else None),
+        "isotopes": ({"members": isotopes["members"], "cells": isotopes["cells"], "cell": isotopes["cell"], "closers": isotopes["closers"], "E": isotopes["demand"]["E"],
+                      "measured": isotopes["census"]["measured"], "estimated": isotopes["census"]["estimated"], "refused": len(isotopes["refused"]), "site_own": True, "source_ok": isotopes["source"]["ok"]} if isotopes else None),
         "predictions": ({"total_E": predictions["total_E"], "predicting": predictions["partition"]["predicting"], "complete": predictions["partition"]["complete"],
                          "totals": predictions["adjudication"]["totals"], "site_ghosts": sum(v["E"] for v in predictions["by_index"].values())}
                         if predictions and not predictions.get("absent") else None),
@@ -3969,6 +4007,20 @@ def selftest(warp_root=WARP_ROOT):
             check("coreps: the accounting 3,908 − 297 − 82 = 3,529, by case 3,138 / 12 / 297 / 82, 309 doubled at k over 86 groups", (cr["accounting"]["small_reps"], [cr["cases"][k]["members"] for k in "abcx"], cr["accounting"]["doubled_at_k"], cr["accounting"]["space_groups_with_a_doubled_level"], cr["accounting"]["small_reps"] - cr["cases"]["c"]["members"] - cr["cases"]["x"]["members"]), (3908, [3138, 12, 297, 82], 309, 86, 3529))
             check("coreps: the three coordinates determine the case with no exception", all({"a": (r["extra"]["corep_dim"] == r["extra"]["small_dim"] and r["extra"]["n_small"] == 1), "b": (r["extra"]["corep_dim"] == 2 * r["extra"]["small_dim"] and r["extra"]["n_small"] == 1), "c": (r["extra"]["corep_dim"] == 2 * r["extra"]["small_dim"] and r["extra"]["n_small"] == 2), "x": (r["extra"]["corep_dim"] == r["extra"]["small_dim"] and r["extra"]["n_small"] == 2)}[r["extra"]["case"]] for r in cr["rows"]), True)
             check("coreps: every conjugate-star member names its partner and no other does", all((r["extra"]["k2"] is not None) == (r["extra"]["case"] == "x") for r in cr["rows"]), True)
+        iso = pfull.get("isotopes")
+        if iso:
+            check("isotopes: 3,558 nuclides on 3,558 cells, injective, the site's own index and not a register row", (iso["members"], iso["cells"], iso["injective"], iso["site_own"], iso["instrument"]), (3558, 3558, True, True, "tools/isotopes.py"))
+            check("isotopes: cell (4, 295, 18), closed by information and statistics, the law's cell the instrument's own", (iso["cell"], iso["closers"], iso["channel"]["own_cell_agrees"], iso["own_cell"]["height"], iso["own_cell"]["width"]), ({"channel": 4, "height": 295, "width": 18}, ["information", "statistics"], True, 295, 18))
+            check("isotopes: the five closures over 3,558 cells: order 3,560, algebra 3,560, geometry 3,962, information 3,558, statistics 3,558", iso["channel"]["closure_sizes"], {"order": 3560, "algebra": 3560, "geometry": 3962, "information": 3558, "statistics": 3558})
+            check("isotopes: E = 0, the chart join-closed; the meet-closure asks for the empty nucleus and the diproton", (iso["demand"]["E"], iso["demand"]["cells"], iso["demand"]["meet_deficit"], iso["demand"]["meet_cells"]), (0, [], 2, [[0, 0], [2, 0]]))
+            check("isotopes: the witnesses attain the cell and are a chain and an antichain", (len(iso["witness"]["chain"]), len(iso["witness"]["antichain"]), iso["witness"]["chain"][0], iso["witness"]["chain"][-1], iso["witness"]["antichain"][0], iso["witness"]["antichain"][-1]), (295, 18, [1, 0], [118, 177], [63, 107], [80, 90]))
+            check("isotopes: 2,550 measured and 1,008 estimated masses; Z 0–118, N 0–177, A 1–295; 119 elements, 178 isotone lines, 295 isobar lines", [iso["census"][k] for k in ("measured", "estimated", "Z", "N", "A", "elements", "isotone_lines", "isobar_lines")], [2550, 1008, [0, 118], [0, 177], [1, 295], 119, 178, 295])
+            check("isotopes: mercury has the most isotopes (47), N = 85 the most isotones (31), A = 128 the most isobars (18); 62Ni the most bound", (iso["census"]["most_isotopes"], iso["census"]["most_isotones"], iso["census"]["most_isobars"], iso["census"]["most_bound"]["name"]), ({"Z": 80, "count": 47}, {"N": 85, "count": 31}, {"A": 128, "count": 18}, "62Ni"))
+            check("isotopes: seven candidate coordinates refused, each against a measurement; spin, parity and half-life not held", ([r["verdict"] for r in iso["refused"]], [r["coordinate"].split(",")[0] for r in iso["refused"]][:2]), (["REFUSED"] * 6 + ["NOT HELD"], ["A", "T_z"]))
+            check("isotopes: the refused charts measured: (Z, N, A) the same cell, (Z, N, T_z) at (178, 31), (Z, N, flag) at (295, 22)", (iso["refused"][0]["measurement"]["chart_ZNA"], iso["refused"][1]["measurement"]["chart_ZN_Tz"], iso["refused"][3]["measurement"]["chart_ZN_flag"]), ({"cells": 3558, "height": 295, "width": 18}, {"cells": 3558, "height": 178, "width": 31}, {"cells": 3558, "height": 295, "width": 22}))
+            check("isotopes: separation energies undefined on 119 (S_n) and 179 (S_p), negative on 27 and 211", [iso["census"][k] for k in ("S_n_undefined", "S_p_undefined", "S_n_negative", "S_p_negative")], [119, 179, 27, 211])
+            check("isotopes: the table is the ledger's own, carbon 12 exactly 12 u, every row two READ coordinates", (iso["source"]["ok"], next(r["extra"]["M_u"] for r in iso["rows"] if r["key"] == "C-12"), all(len(r["coords"]) == 2 and r["coords"] == [r["extra"]["Z"], r["extra"]["N"]] for r in iso["rows"]), [c["status"] for c in iso["coordinates"]]), (True, 12.0, True, ["READ", "READ"]))
+            check("isotopes: 56Fe by key with its binding energy from the table's own three entries", (next(r["extra"]["B_per_A_keV"] for r in iso["rows"] if r["key"] == "Fe-56") > 8790, next(r["extra"]["S_n"] for r in iso["rows"] if r["key"] == "H-2") == next(r["extra"]["B_keV"] for r in iso["rows"] if r["key"] == "H-2")), (True, True))
         bo = pfull.get("bonds")
         if bo:
             check("bonds: three refusals on three grounds, and no channel empty", (len(bo["refusals"]), bo["channels"]["empty"]), (3, []))
@@ -4078,6 +4130,9 @@ def selftest(warp_root=WARP_ROOT):
     if nd:
         check("nuclides: 3,558 nuclides of AME2020 Table I, the file's md5 the ledger's own", (nd["nuclides"], nd["source"]["md5"] == nd["source"]["md5_recorded"], bool(nd["source"]["md5_recorded"])), (3558, True, True))
         check("nuclides: 126 species with their banked levels travel with the table", nd["species"], 126)
+    iso = (index.get("particle_index") or {}).get("isotopes")
+    if iso:
+        check("isotopes: the site's own index, 3,558 on 3,558 cells at (4, 295, 18), E = 0, the table the ledger's own", (iso["members"], iso["cells"], iso["cell"], iso["E"], iso["site_own"], iso["source_ok"], iso["refused"]), (3558, 3558, {"channel": 4, "height": 295, "width": 18}, 0, True, True, 7))
     check("meta: the edition history is carried, oldest first, every row with a date", all(r["date"] for r in index["meta"]["history"]) and len(index["meta"]["history"]) >= 1, True)
     t = index["totals"]
     check("elements populated (LW1-ground.py)", t["populated"], 108)

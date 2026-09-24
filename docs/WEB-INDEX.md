@@ -776,6 +776,36 @@ the page, coloured by case). The k-point index's third coordinate loses its glos
 largest small-representation dimension and not the degeneracy, which time reversal exceeds at 118
 of its groups.
 
+**The isotope index** (`_isotopes`, from **`tools/isotopes.py`**, this repository's own instrument
+and not one of the research tree's — it is **not a row of the register**, the register's count of 27
+does not include it, and the block and the page both say so): a member is a nuclide of AME2020
+Table I, the one nuclear table the repository holds, the neutron included, on **Z and N, both READ**
+— **3,558 members on 3,558 cells**, an injective chart, at **K4, cell (4, 295, 18)**, closed by
+information and statistics, **E = 0**: the chart of nuclides is join-closed, so the index demands
+nothing and draws no ghost. The cell is measured twice: the instrument measures height and width
+exactly on two coordinates (a chain is a non-decreasing run of N over the members sorted by (Z, N),
+an antichain a strictly decreasing one, both by patience sorting, both witnessed — the chain runs
+from (1, 0) to (118, 177) and the antichain is the eighteen nuclides from (63, 107) to (80, 90)),
+and the build measures the same chart with the hierarchy law's five closure operators (order and
+algebra 3,560, geometry 3,962, information and statistics 3,558) and asserts the two agree; the
+meet-closure asks for two cells, the empty nucleus (0, 0) and the diproton (2, 0), which is exactly
+what the order and algebra closures add. Each member carries its mass excess with its uncertainty
+and quality flag (2,550 measured, 1,008 estimated, at the status the table gives it), its mass in u
+(A + Δ/(u c²), the one constant CODATA 2018's and marked EMPIRICAL), its binding energy from three of
+the table's own entries (B = Z Δ(¹H) + N Δ(n) − Δ, the electrons cancelling exactly; ⁶²Ni the most
+bound at 8,794.555 keV per nucleon on the rounded table's rows) and its one- and two-nucleon
+separation energies where the neighbour is in the table (S_n undefined on 119, S_p on 179). Seven
+candidate coordinates are refused, each against a measurement: A (a function of the two, the chart
+on (Z, N, A) at the same cell), T_z (charted anyway, at height 178 and width 31, and refused as a
+relabelling that separates nothing new), the mass excess (a magnitude, 3,481 distinct values on
+3,558 rows), the quality flag (provenance of the value, not a property of the nuclide; charted
+anyway at (295, 22)), B and B/A, the separation energies (magnitudes, and not total), and spin,
+parity and half-life, which are **NOT HELD**: the repository holds no NUBASE table, and the
+instrument invents none. The eleventh index of the explorer (`isotopes`: N across, Z up, coloured
+by the quality flag); a member's plate opens the same nuclide in the gravity index and in the
+gravity mode. `python3 tools/isotopes.py --selftest` pins the table's census, its ledger md5 and
+the exact cell; `--charts` runs the three refused charts (about 25 s). See `docs/ISOTOPES.md`.
+
 **The predictions block** at 27dd39c spans 27 indexes: **4,919** demanded, **2,045** forbidden by
 five non-monotone bounds (the three-quark flavour bound, the gravity image, and one each for the
 phonon chain: a mode budget antitone in the site-symmetry order forbidding 29 of 111, a sum-of-squares
