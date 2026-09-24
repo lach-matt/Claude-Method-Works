@@ -973,52 +973,138 @@ def min_cover(S, nel):
     return best[0]
 
 
+def slots_of(alph):
+    return [(i, v) for i in range(len(alph)) for v in alph[i]]
+
+
+def greedy_cover(S, nel):
+    """Plain greedy set cover: an upper bound, and the algorithm behind the figures 7, 9, 9."""
+    unc, ch = set(range(nel)), []
+    while unc:
+        s = max(S, key=lambda t: len(t & unc))
+        ch.append(s)
+        unc -= s
+    return ch
+
+
+def max_packing(nel, sigs):
+    """The largest set of elements no signature contains two of, by exact branch and bound.
+    Any cover needs one set per packed element, so the packing number bounds the cover below."""
+    adj = [set() for _ in range(nel)]
+    for s in sigs:
+        for e in s:
+            adj[e] |= s
+    for e in range(nel):
+        adj[e].discard(e)
+    best = [[]]
+
+    def rec(cand, chosen):
+        if len(chosen) > len(best[0]):
+            best[0] = list(chosen)
+        cand = sorted(cand, key=lambda e: len(adj[e] & set(cand)))
+        while cand:
+            if len(chosen) + len(cand) <= len(best[0]):
+                return
+            e = cand[0]
+            rec([x for x in cand[1:] if x not in adj[e]], chosen + [e])
+            cand = cand[1:]
+    rec(sorted(range(nel), key=lambda e: len(adj[e])), [])
+    return best[0]
+
+
+def reduce_instance(nel, dom):
+    """Two exact reductions of a set-cover instance, each checked by its caller as a GUARD.
+    Element dominance: if every set covering e also covers e', then covering e covers e', so e'
+    may be dropped.  Set dominance (again, after the restriction): a set inside another may be
+    replaced by the larger without growing the cover.  Returns (kept elements, reduced family)."""
+    cov = {e: frozenset(m for m, s in enumerate(dom) if e in s) for e in range(nel)}
+    keep = []
+    for e in sorted(range(nel), key=lambda e: len(cov[e])):
+        if not any(cov[k] <= cov[e] for k in keep):
+            keep.append(e)
+    K = set(keep)
+    fam2 = list({frozenset(s & K) for s in dom})
+    dom2 = [s for s in fam2 if s and not any(s < t for t in fam2)]
+    return keep, cov, dom2
+
+
 def check_seed():
-    section("§9  THE SEED — a minimum cover of the envelope steps")
+    section("§9  THE SEED — a minimum cover of the envelope steps and alphabet slots")
     L = stages()
-    want = {8: 7, 9: 9, 10: 9}
+    want = {8: 7, 9: 8, 10: 9}            # exact, by branch and bound; the source's figures are 7, 9, 9
+    greedy_figure = {8: 7, 9: 9, 10: 9}    # what plain greedy returns on steps + slots: the source's figures
     DATA["seed"] = {}
     for d in (8, 9, 10):
         X = L[d]
         alph, st = envelope_steps(X)
+        slots = slots_of(alph)
         sig = {}
         for c in X:
             sig.setdefault(cover_signature(c, st), []).append(c)
         fam = list(sig)
         dom = [s for s in fam if not any(s < t for t in fam)]
+        # (1) the relaxation — cover the STEPS only — solved exactly by branch and bound over the
+        #     signatures maximal under inclusion.  Its optimum is a lower bound on the seed.
         t0 = time.time()
         best = min_cover(dom, len(st))
+        tb = time.time() - t0
         G = [sig[s][0] for s in best]
         realised = all({c[i] for c in G} == set(alph[i]) for i in range(d))
-        DATA["seed"][d] = dict(steps=len(st), distinct=len(fam), dominant=len(dom), size=len(best), G=G)
-        ob("EXHAUSTIVE", "seed(Λ_%d) = %d by branch and bound over %d dominant signatures" % (d, len(best), len(dom)),
-           len(best) == want[d] and realised,
-           "%d steps, %d distinct signatures, %.0fs; realises every value: %s" % (len(st), len(fam), time.time() - t0, realised))
-        # the seed regenerates the stage under the independent staircase
-        if d == 8:
-            reg = stair_py(G, alph) == set(X)
-        else:
-            r, _ = staircase_sweep(G)
-            reg = r == len(X) and stair_py(G, alph) >= set(G)
-            reg = r == len(X)
-        ob("EXHAUSTIVE", "ℛ(seed) = Λ_%d under the independent staircase" % d, reg)
-        # minimality by Z3, over the signatures MAXIMAL under inclusion.  That is not a weakening:
-        # a cover using a signature contained in another may replace it by the larger without
-        # growing, so a minimum cover may always be taken among the maximal ones.  The reduction
-        # is checked here rather than assumed: every non-maximal signature is exhibited inside a
-        # maximal one.  (Over all 808 signatures the same query is not decided in 300 s.)
+        ob("EXHAUSTIVE", "minimum cover of the %d envelope steps of Λ_%d is %d, by branch and bound over %d maximal signatures"
+           % (len(st), d, len(best), len(dom)), len(best) == want[d],
+           "%d distinct signatures, %.0fs" % (len(fam), tb))
+        # (2) the exhibited minimum cover also realises every alphabet value, so it is a seed:
+        #     the relaxation is tight and seed(Λ_d) equals its optimum.
+        ob("EXHAUSTIVE", "that cover realises every alphabet value of Λ_%d, so seed(Λ_%d) = %d exactly" % (d, d, want[d]),
+           realised and len(best) == want[d], "%d slots, all realised: %s" % (len(slots), realised))
+        # (3) the seed regenerates the stage under two independent staircases: the pure-Python one
+        #     over the FIXED box of the stage, and the numpy sweep over the seed's OWN box.
+        reg_fixed = stair_py(G, alph) == set(X)
+        r_own, box_own = staircase_sweep(G)
+        reg_own = r_own == len(X) and box_own == DATA["box"][d]
+        ob("EXHAUSTIVE", "ℛ(seed) = Λ_%d under both independent staircases (fixed box; the seed's own box)" % d,
+           reg_fixed and reg_own, "|ℛ(G)| = %d in a box of %d" % (r_own, box_own))
+        # (4) plain greedy on steps + slots returns the source's figure — an upper bound only.
+        full = [cover_signature(c, st) | frozenset(len(st) + k for k, (i, v) in enumerate(slots) if c[i] == v) for c in X]
+        gr = greedy_cover(full, len(st) + len(slots))
+        ob("EXHAUSTIVE", "greedy set cover of steps + slots at Λ_%d returns %d (an upper bound; exact %d)" % (d, greedy_figure[d], want[d]),
+           len(gr) == greedy_figure[d] and len(gr) >= want[d], "%d" % len(gr))
+        # (5) the packing lower bound: an explicit set of steps no cell witnesses two of, checked
+        #     against every cell.  It is one short of the seed at every stage.
+        P = max_packing(len(st), set(fam))
+        pack_ok = all(sum(1 for e in P if e in s) <= 1 for s in fam)
+        ob("EXHAUSTIVE", "a packing of %d steps of Λ_%d, no cell witnessing two (maximum, by exact search): seed ≥ %d" % (len(P), d, len(P)),
+           pack_ok and len(P) == want[d] - 1, "steps " + " ".join("(%s≤%d→%s=%d)" % (COORDS[j], a, COORDS[i], p) for (i, j, a, p) in (st[e] for e in P)))
+        # (6) minimality by Z3 on the dominance-reduced instance.  Two exact reductions, each
+        #     checked here as a GUARD rather than assumed: every signature sits inside a maximal one
+        #     (set dominance), and every dropped element is covered by every set that covers some
+        #     kept element (element dominance).  Over the unreduced 442 maximal signatures of Λ_9 the
+        #     same query is not decided in ten minutes; reduced, each stage takes seconds.
         domset = set(dom)
-        red = all(any(t <= u for u in domset) for t in fam)
-        ob("GUARD", "every covering signature of Λ_%d sits inside a maximal one (%d of %d maximal)" % (d, len(dom), len(fam)), red)
-        v = [z3.Bool("s%d" % k) for k in range(len(dom))]
+        red1 = all(any(t <= u for u in domset) for t in fam)
+        keep, cov, dom2 = reduce_instance(len(st), dom)
+        red2 = all(any(cov[k] <= cov[e] for k in keep) for e in range(len(st)))
+        K = set(keep)
+        red3 = all(any(frozenset(s & K) <= t for t in dom2) for s in dom)
+        ob("GUARD", "every covering signature of Λ_%d sits inside a maximal one (%d of %d maximal)" % (d, len(dom), len(fam)), red1)
+        ob("GUARD", "every one of the %d steps of Λ_%d is implied by one of %d kept steps; every restricted signature sits inside one of %d"
+           % (len(st), d, len(keep), len(dom2)), red2 and red3)
+        v = [z3.Bool("s%d" % k) for k in range(len(dom2))]
         s = z3.Solver()
-        for k in range(len(st)):
-            s.add(z3.Or([v[m] for m, t in enumerate(dom) if k in t]))
-        s.add(z3.AtMost(*v, len(best) - 1))
+        for e in keep:
+            s.add(z3.Or([v[m] for m, t in enumerate(dom2) if e in t]))
+        s.add(z3.AtMost(*v, want[d] - 1))
         t0 = time.time()
         r = s.check()
-        ob("MACHINE-CHECKED", "no %d cells cover the steps of Λ_%d (every subset of the %d maximal signatures)" % (len(best) - 1, d, len(dom)),
-           r == z3.unsat and red, "%s, %.0fs" % (r, time.time() - t0))
+        ob("MACHINE-CHECKED", "no %d cells cover the steps of Λ_%d (every subset of the %d reduced signatures against %d kept steps)"
+           % (want[d] - 1, d, len(dom2), len(keep)), r == z3.unsat and red1 and red2 and red3, "%s, %.0fs" % (r, time.time() - t0))
+        DATA["seed"][d] = dict(steps=len(st), slots=len(slots), distinct=len(fam), dominant=len(dom), size=len(best), G=G,
+                               greedy=len(gr), packing=len(P), kept=len(keep), reduced=len(dom2))
+    ob("EXHAUSTIVE", "the seeds 7, 8, 9 rise by one at each stage; the greedy figures 7, 9, 9 do not (Λ_9 is where they part)",
+       [DATA["seed"][d]["size"] for d in (8, 9, 10)] == [7, 8, 9] and [DATA["seed"][d]["greedy"] for d in (8, 9, 10)] == [7, 9, 9])
+    comp = [round(len(L[d]) / DATA["seed"][d]["size"]) for d in (8, 9, 10)]
+    DATA["compression"] = comp
+    ob("EXHAUSTIVE", "compression |Λ|/seed = 139, 207, 282 at the three stages", comp == [139, 207, 282], str(comp))
     # the requirement count, stage by stage: envelope steps plus alphabet values
     req = {}
     for d in (8, 9, 10):
@@ -1033,20 +1119,25 @@ def check_seed():
     X = L[8]
     alph, st = envelope_steps(X)
     G = DATA["seed"][8]["G"]
+    slots = slots_of(alph)
     rnd = random.Random(11)
-    agree = 0
+    agree = agree_own = 0
     tot = 0
     for _ in range(40):
         H = set(rnd.sample(X, rnd.randint(3, 12))) | set(rnd.sample(G, rnd.randint(0, 7)))
         covered = all(any(c[j] <= a and c[i] == p for c in H) for (i, j, a, p) in st)
-        regen = stair_py(H, alph) == set(X)
+        realised = all(any(c[i] == v for c in H) for (i, v) in slots)
+        regen = stair_py(H, alph) == set(X)                 # in the fixed box: steps alone decide it
+        r_own, box_own = staircase_sweep(list(H))           # in H's own box: steps AND slots decide it
+        regen_own = r_own == len(X) and box_own == DATA["box"][8]
         agree += covered == regen
+        agree_own += (covered and realised) == regen_own
         tot += 1
     minus = G[1:]
     covered = all(any(c[j] <= a and c[i] == p for c in minus) for (i, j, a, p) in st)
     regen = stair_py(minus, alph) == set(X)
-    ob("GUARD", "cover-of-steps ⇔ ℛ(G) = Λ_8 on %d random subsets; seed minus one cell fails both" % tot,
-       agree == tot and not covered and not regen, "%d/%d agree" % (agree, tot))
+    ob("GUARD", "cover-of-steps ⇔ ℛ(G) = Λ_8 in the fixed box, and cover-of-steps-and-slots ⇔ ℛ(G) = Λ_8 in G's own box, on %d random subsets; seed minus one cell fails both" % tot,
+       agree == tot and agree_own == tot and not covered and not regen, "%d/%d and %d/%d agree" % (agree, tot, agree_own, tot))
 
 
 # ----------------------------------------------------------------------------- selftest

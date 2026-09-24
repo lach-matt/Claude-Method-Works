@@ -17,7 +17,7 @@ All paths are under `/home/user/Claude-Method-Works/`.
 | §1 D1–D2, D6 (box, sublattice, ℛ, E) | main volume §6.1 lines 1537–1549 (Âᵢ, φ̂ᵢⱼ, ℛ(X), E(X) = \|ℛ(X)\| − \|X\|); §7.2–§7.3 lines 1769–1793 (every constraint is xᵢ ≤ φ(xⱼ) with φ non-decreasing; the closure proof); Appendix A.2 (cited at line 9983, proved in §14.1) |
 | §1 D9–D11 (the thirteen coordinates, their bounds, the caps) | `method/members/tower-2.py` (the object under test: the coordinate order `n ℓ k q e f g 2S \| 2S′ v 2J_c 2K 2J`, `PHI = {1:3, 2:4, 3:5}`, `FMAX = 1`, and the six stage constructors); main volume §7.1 lines 1755–1768 (the seven constraints and their four origins); §7.4 lines 1794–1812 (the standing cap convention `(n_max, e_max, ℓ_max, k_max, f_max) = (3,3,1,3,1)`); §12.11.1's axis table and §12.11.3.1's provenance table (lines 3055–3070, 3190–3215) |
 | §1 D12, §3 (terms, σ, μ, φ̂) | main volume §12.11.1's vocabulary block (`terms(ℓᵏ)` by microstate enumeration; `f_max` the cap; `φ̂` the monotone envelope and its collision with §6.1's φ̂ᵢⱼ); §12.11.2 (the three excluded forms: reflection, congruence, triangle); §12.11.0.6 (the earlier bound 2J_c ≤ k excludes physical states at every occupancy; φ̂ equals the realised maxima at every k); Mathematical Compendium §IV.T lines 1672–1840 (Racah 1943 seniority, the parent bound, the recoupling bound, the spin-half bound — each with its prior-art attribution) |
-| §1 D13, §9 (envelope steps, seed) | main volume §14.5.9 lines 3922–3960 ("elements are the envelope steps, sets are the cells, a cell covers the steps it witnesses"; seed(Λ₈) = 7 exactly by branch and bound; the spread across heuristics); §14.5.10 lines 3962–4000 (the 102 elements = envelope steps plus alphabet values; no cell is forced); Mathematical Compendium K "Constraint tightness as a count" (Deville, Barette & Van Hentenryck 1999 — read, not used, since the paper's Lemma 3 is proved directly) |
+| §1 D13, §9 (envelope steps, seed) | main volume §14.5.8 lines 3830–3836 (the tower's seeds 7, 9, 9 "under greedy set cover" and the sentence "Λ₉ and Λ₁₀ seed identically" — the claim that does not reproduce, see below) and register 511 (the same figures "under set cover"); §14.5.9 lines 3922–3960 ("elements are the envelope steps, sets are the cells, a cell covers the steps it witnesses"; seed(Λ₈) = 7 exactly by branch and bound; the spread across heuristics); §14.5.10 lines 3962–4000 (the 102 elements = envelope steps plus alphabet values; no cell is forced); Mathematical Compendium K "Constraint tightness as a count" (Deville, Barette & Van Hentenryck 1999 — read, not used, since the paper's Lemma 3 is proved directly) |
 | §1 D14, §6 (the cylinder) | main volume §12.6–§12.8.5 lines 2380–2470 (the two ends, the transfer, the section table 33×5 / 33×10 / 23×15 / 8×17, Σ_q \|A(q)\|·\|B(q)\| = 976, the Pareto frontier, log-concavity, ⟨q⟩); §12.11.5 (the sections at Λ₁₁ and Λ₁₃, the tight two-parent K and its 15,150 / 45,450 defect); §12.1 lines 2312–2326 (the bipartite sign structure and orientability) |
 | §2 | main volume §12.11.0.10's table; §12.11.1's "Every stage closed exhaustively" table (the ℛ sweep over 6,912 … 47,775,744 ambient cells); §12.10.1 lines 3016–3035 (Λ₈/Λ₉ side by side: cells, box, E, rank levels, log-concavity) |
 | §4 | Appendix A.15 lines 10160–10175 ("Two bands, and only one of them is a sublattice": B_k a sublattice for fixed k, C = {\|a−b\| ≤ c} join-closed and not; 12,654 failing meets at cap 8; "a bound by a constant is monotone in both directions, a bound by a free coordinate is not"; and the sentence the paper's thesis turns on — "What the tower relies on at axis 13 is B₁, which is a sublattice and is the reason the last coupling step is carried exactly"); Appendix A.18 lines 10177–10190 (the triangle region: the join proof in full and the two meet witnesses (0,1,1)∧(1,0,1) and (4,0,4)∧(2,2,0)); Appendix A.14, A.16, A.17 are cross-referenced at lines 9983–9989 to §12.11.2 and §12.11.3 and are read there; Appendix A.11 (a difference is not a lattice homomorphism, so ν is inadmissible as an axis) |
@@ -88,9 +88,10 @@ Reproduced exactly, by `check.py`, from the imported instrument or from first pr
 - the bracket system: gap-free intervals with monotone endpoints at all five stage projections,
   branching 4, 4, 6, 8, 9, composed bracket containing the direct one with slack ≤ 2 rank units,
   both routes covering ranks 3 to 20;
-- `seed(Λ₈) = 7`, and §14.5.10's universe of **102** requirements = 77 envelope steps + 25 alphabet
-  values. The source states no seed for Λ₉ or Λ₁₀; the paper computes 9 and 9 and marks them as its
-  own.
+- `seed(Λ₈) = 7`, exact — the value §14.5.9 states by branch and bound, and the value the companion
+  closure-law paper (`01-closure-law`) establishes; and §14.5.10's universe of **102** requirements =
+  77 envelope steps + 25 alphabet values. The source's figures for Λ₉ and Λ₁₀ do **not** reproduce
+  as seeds; see item 5 below.
 
 ## What does not reproduce, and what the paper prints instead
 
@@ -121,7 +122,50 @@ the price it prints is the recomputed 21.4% / 22.8%. Likewise the "2,475 cells" 
 remark and §12.11.3.1 is superseded in §12.11.5 by 15,150 and 45,450, and the paper prints the
 later values only.
 
-## One obligation failed, and which of the two it was
+**5. The seeds of Λ₉ and Λ₁₀.** §14.5.8's table (main volume lines 3830–3836) and register 511 print
+the tower's seeds as **7, 9, 9** "under greedy set cover" / "under set cover", and conclude that
+"Λ₉ and Λ₁₀ seed identically — so the seed does not even rise with every stage". Only the first of
+the three is stated as exact (§14.5.9, by branch and bound). Measured:
+
+| stage | Λ₈ | Λ₉ | Λ₁₀ |
+|---|---|---|---|
+| source (greedy) | 7 | 9 | 9 |
+| plain greedy on steps + slots, recomputed | 7 | 9 | 9 |
+| **exact, branch and bound over the maximal step signatures** | **7** | **8** | **9** |
+| solver: no (seed − 1)-cover of the reduced instance | unsat | unsat | unsat |
+| packing lower bound (exact search) | 6 | 7 | 8 |
+
+The greedy figures reproduce exactly — the source's algorithm gives what the source says it gives —
+but **`seed(Λ₉) = 8`, not 9**: the branch and bound finds an 8-cell step cover that also realises
+every alphabet value (so it is a seed by Lemma 3), and Z3 refutes any 7-cover. This is a claim of the
+source that does not reproduce, and it is not an arithmetic slip: greedy set cover is an
+approximation and at Λ₉ it is one above the optimum. The consequence — "Λ₉ and Λ₁₀ seed
+identically" — falls with it: the exact seeds are 7, 8, 9, one more at each stage. The paper prints
+the exact values only (Theorem 7), prints the greedy figures beside them *as* greedy figures, and
+claims no law from three points. `check.py`'s previous expectation `{9: 9, 10: 9}` was copied from
+the source and was the second obligation the previous run reported as failing; it is replaced by the
+measured values, which is what BRIEF-RESUME.md step 4 requires — a check is never changed to match a
+text, and here the check's own branch and bound is what the paper prints.
+
+Two facts the companion closure-law paper establishes are respected: `seed(Λ₈) = 7` is exact (agreed,
+by the same method and independently certified here), and the linear box law `d + c − 2` is false
+from five dimensions — the paper never states a linear law; the one place it mentions the rise 7, 8,
+9 says outright that three points fix no law.
+
+## Two obligations failed, and which of the two each was
+
+**(a) `--selftest`'s first negative control was a bug in the control.** It asserted that the region
+`{c ≤ a + b}` (the triangle with its lower bound dropped) is *closed*, so that its failure count
+(0, 0) would separate it from the triangle's (2,862, 0). The region is not closed: `(2,0,2) ∧ (0,2,2)
+= (0,0,2)` leaves it. Its true failure count at cap 6 is **(2,254, 0)**, which does separate it from
+the triangle's, and that is what the control now asserts. No result of the paper depended on this;
+it is the kind of error a selftest exists to surface, and the record of it is here.
+
+**(b) The seed expectation at Λ₉**, above: a claim of the source, recorded, with the reproduced
+value printed. (The Λ₁₀ figure, 9, coincides with the exact value and is printed as exact on the
+strength of the branch and bound and the solver, not of the source.)
+
+## An earlier obligation failed in the previous pass, and which of the two it was
 
 `check.py` as it stood before this pass reported
 
@@ -160,6 +204,26 @@ figures. No source passage states either number.
    and proved in the paper (§9, Theorem 7's proof). No number changed.
 7. Section headers renumbered to match the paper's own section numbers.
 
+Changes made in the resumption pass (2026-09-24):
+
+8. `check_seed()` rebuilt around the exact values. The expectation `{8: 7, 9: 8, 10: 9}` is the
+   branch and bound's own result; a second obligation asserts the exhibited minimum realises every
+   slot (so the step relaxation is tight); the seed is regenerated under **two** independent
+   staircases (fixed box and own box); the plain greedy cover is computed and pinned at the source's
+   7, 9, 9 as an upper bound; the maximum packing is found by exact search and pinned at 6, 7, 8.
+9. **The solver obligation now runs on a dominance-reduced instance**, because over the 442 unreduced
+   maximal signatures of Λ₉ the query `AtMost 7` was not decided in ten minutes. Two exact
+   reductions are applied — element dominance (a step witnessed by every cell that witnesses some
+   kept step is dropped) and set dominance after the restriction — and **each is checked as a GUARD
+   before the solver is asked**: every dropped step's witness family contains a kept step's, and
+   every restricted signature sits inside a maximal one. Reduced, the three queries return `unsat`
+   in 0–2 s. This is a reduction, not a relaxation: the reduced instance has the same optimum, and
+   the guards are what say so. All three stages are now MACHINE-CHECKED where before only Λ₈ was.
+10. The selftest's first negative control corrected as described above.
+11. Five pins added for numbers the prose stated but nothing computed: the pair sum 97,323,996; the
+    growth factors 204 and 6,912 and the sweep-to-pairs ratio 415; the 287,809 cells of the five
+    upper stages and C(13, 3) = 286; the compressions 139, 207, 282.
+
 Nothing else was altered, and no obligation was relaxed.
 
 ## Interpretations chosen
@@ -178,11 +242,15 @@ Nothing else was altered, and no obligation was relaxed.
    `χ(Λ₁₃) → … → χ(Λ₈)`, where χ denotes the set of rank values; the main volume uses χ at §7 for
    the indicator, a product of Heaviside steps. The paper avoids the collision entirely by writing
    `r` for the rank (D7) and naming the brackets `β_D`.
-4. **The seed's covering universe.** §14.5.10's 102 elements are 77 envelope steps plus 25 alphabet
-   values; `check.py`'s minimum cover runs over the 77 steps and then verifies separately that the
-   cover realises every alphabet value. Since covering fewer requirements can only be easier, the
-   solver's refutation of a 6-cover of the 77 steps is a valid lower bound on the seed, and the
-   exhibited 7-set satisfies both conditions — so `seed(Λ₈) = 7` exactly. The paper's Theorem 7
+4. **The seed's covering universe, and which box `ℛ(G)` is computed in.** §14.5.10's 102 elements
+   are 77 envelope steps plus 25 alphabet values, and the companion closure-law paper's Theorem 13
+   defines the seed the same way (slots and steps, `ℛ(G)` in `Box(G)`). The paper's D13 now adopts
+   that definition — the previous draft's D13 said "computed in `Box(X)`", under which the slots would
+   not be required, and its Lemma 3 carried the alphabet condition as a hypothesis rather than a
+   conclusion. Lemma 3 is restated as the biconditional (seed ⟺ every slot realised and every step
+   witnessed) and proved in both directions. `check.py`'s minimum cover runs over the steps alone,
+   which is a relaxation and hence a lower bound; the exhibited minimum turns out to realise every
+   slot at all three stages, so the relaxation is tight and the seed equals its optimum. Theorem 7
    states the argument in that order.
 5. **Which exact set is "the" exact set at axis 11.** Two readings both appear in the source and give
    different answers (17.0% and 77.9%). The paper prints both, names the definition behind each, and

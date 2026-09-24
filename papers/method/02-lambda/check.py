@@ -87,6 +87,8 @@ CONSTRAINTS = [
     ("2S <= k",     IS, IK, lambda k: k),
 ]
 CAPS = (3, 3, 1, 3, 1)          # (n_max, e_max, l_max, k_max, f_max)
+OTHER_CAPS = [((2, 2, 1, 2, 1), 216), ((3, 3, 1, 4, 1), 1636), ((4, 3, 1, 4, 1), 2394),
+              ((4, 4, 2, 4, 1), None), ((4, 4, 2, 6, 2), None)]
 
 
 def ranges(caps):
@@ -311,7 +313,7 @@ def z3_obligations():
     s3.add(z3.Not(z3.Implies(hyp, z3_member(W, caps))))
     r3 = s3.check()
     ok &= r3 == z3.unsat
-    row("MACHINE-CHECKED", "Lemma 6, seven comparisons suffice",
+    row("MACHINE-CHECKED", "Theorem 13, seven comparisons suffice",
         "lo, hi, w and 5 caps all INTEGER: %s" % r3, r3 == z3.unsat)
 
     # subset-quantified: a fixed point of R is a sublattice
@@ -350,16 +352,16 @@ def construction():
     fresh = rebuild()
     same = fresh == LAM
     ok &= same and N == 976
-    row("EXHAUSTIVE", "|Lambda| = 976",
-        "seated construction and a fresh sieve of all %d box points agree: %d cells"
-        % (BOX, N), same and N == 976)
+    row("EXHAUSTIVE", "Theorem 2, |Lambda| = 976",
+        "seated construction and a fresh sieve of all %d box points agree: %d cells, "
+        "%.2f%% of the box" % (BOX, N, 100.0 * N / BOX), same and N == 976)
 
     printed = read_printed_table()
     fwd = set(printed) - set(LAM)
     bwd = set(LAM) - set(printed)
     good = len(printed) == 976 and not fwd and not bwd
     ok &= good
-    row("EXHAUSTIVE", "the printed index, both directions",
+    row("EXHAUSTIVE", "Theorem 2, the cell list, both directions",
         "%d rows; rebuilt-not-printed %d, printed-not-rebuilt %d, order identical: %s"
         % (len(printed), len(bwd), len(fwd), printed == LAM), good)
 
@@ -374,7 +376,7 @@ def construction():
                 if admissible(x) and x[IK] == 0)
     allpos = all(v > 0 for v in marg.values()) and floor > 0
     ok &= allpos
-    row("EXHAUSTIVE", "no bound is redundant",
+    row("EXHAUSTIVE", "Table 2, no bound is redundant",
         "marginal exclusions " + ", ".join("%s: %d" % (k, v) for k, v in marg.items())
         + ", k >= 1: %d" % floor, allpos)
 
@@ -384,9 +386,35 @@ def construction():
     good2 = len(nocoup) == 1000 and len(extra) == 24 and all(
         x[IF] == 0 and x[IG] == 3 for x in extra)
     ok &= good2
-    row("EXHAUSTIVE", "the one coupling, g <= min(q, 4f+2)",
+    row("EXHAUSTIVE", "Corollary 1, the one coupling",
         "drop the Pauli half: %d cells, the %d lost all have f = 0 and g = 3"
         % (len(nocoup), len(extra)), good2)
+    # E = 0 and the closed-form generator count at further cap settings, each rebuilt fresh
+    # and run through the seated closure; the caps are named in the row.
+    parts = []
+    good3 = True
+    for caps, want in OTHER_CAPS:
+        cells = rebuild(caps)
+        ixc = cypher.Index("L", CO, cells)
+        outc, _ = cypher.op_order(ixc, {})
+        gotc = {tuple(ixc.decode[i][v] for i, v in enumerate(c)) for c in outc}
+        Ec = len(gotc) - len(cells)
+        Sc = set(cells)
+        ji = 0
+        for y in cells:
+            low = 0
+            for i in range(D):
+                z = list(y)
+                z[i] -= 1
+                if tuple(z) in Sc:
+                    low += 1
+            ji += low == 1
+        cf = sum(len({c[i] for c in cells}) - 1 for i in range(D))
+        good3 &= (want is None or len(cells) == want) and Ec == 0 and gotc == Sc and ji == cf
+        parts.append("%s: %d cells, E = %d, %d join-irreducibles = sum(|A_i| - 1) = %d"
+                     % ("".join(map(str, caps)), len(cells), Ec, ji, cf))
+    ok &= good3
+    row("EXHAUSTIVE", "Theorems 2 and 6, further cap settings", "; ".join(parts), good3)
     print()
     return ok, marg, floor
 
@@ -399,7 +427,7 @@ def closure_defect():
     E = len(got) - N
     good = got == set(LAM) and E == 0
     ok &= good
-    row("EXHAUSTIVE", "E(Lambda) = 0",
+    row("EXHAUSTIVE", "Theorem 2, E(Lambda) = 0",
         "the seated staircase closure returns %d cells, defect %d, set equality %s"
         % (len(got), E, got == set(LAM)), good)
 
@@ -407,7 +435,7 @@ def closure_defect():
     out2, _ = cypher.op_order(ix2, {})
     got2 = {tuple(ix2.decode[i][v] for i, v in enumerate(c)) for c in out2}
     ok &= got2 == set(LAM)
-    row("EXHAUSTIVE", "R is idempotent on Lambda",
+    row("EXHAUSTIVE", "Theorem 2, R is idempotent on Lambda",
         "a second application changes nothing: %s" % (got2 == set(LAM)), got2 == set(LAM))
 
     bad = 0
@@ -419,7 +447,7 @@ def closure_defect():
             if join(xa, xb) not in S or meet(xa, xb) not in S:
                 bad += 1
     ok &= bad == 0
-    row("EXHAUSTIVE", "closure on every pair",
+    row("EXHAUSTIVE", "Theorem 1, closure on every pair",
         "all %d unordered pairs: %d escapes under join or meet" % (N * (N - 1) // 2, bad),
         bad == 0)
     print()
@@ -488,7 +516,7 @@ def max_antichain(elements, below):
         if got == 0:
             break
         m += got
-    return n - m, m
+    return n - m, m, mL
 
 
 def structure():
@@ -507,7 +535,7 @@ def structure():
             if rank(join(xa, xb)) + rank(meet(xa, xb)) != ra + rank(xb):
                 bad += 1
     ok &= bad == 0
-    row("EXHAUSTIVE", "Theorem 2, rank is modular",
+    row("EXHAUSTIVE", "Theorem 4, rank is modular",
         "all %d pairs: %d violations of rank(a v b) + rank(a ^ b) = rank a + rank b"
         % (N * (N - 1) // 2, bad), bad == 0)
 
@@ -529,7 +557,7 @@ def structure():
         if meet(a, join(b, c)) != join(meet(a, b), meet(a, c)):
             bad3 += 1
     ok &= bad3 == 0
-    row("SAMPLED", "distributivity on cell triples",
+    row("SAMPLED", "Theorem 3, distributivity on cell triples",
         "%d triples, seed %d: %d failures" % (TRIPLES, SEED, bad3), bad3 == 0)
 
     # grading
@@ -539,7 +567,7 @@ def structure():
     good = (bad4 == 0 and bot == [BOTTOM] and top == [TOP]
             and rank(BOTTOM) == 3 and rank(TOP) == 20)
     ok &= good
-    row("EXHAUSTIVE", "Lemma 3, Lambda is graded",
+    row("EXHAUSTIVE", "Theorem 4, Lambda is graded",
         "%d cover relations, every one raising rank by 1; bottom %s rank 3, top %s rank 20"
         % (ncov, "".join(map(str, BOTTOM)), "".join(map(str, TOP))), good)
 
@@ -551,10 +579,10 @@ def structure():
     logc = all(seq[i] ** 2 >= seq[i - 1] * seq[i + 1] for i in range(1, len(seq) - 1))
     widest = max(seq)
     at = 3 + seq.index(widest)
-    anti, matching = max_antichain(LAM, lambda i, j: i != j and le(LAM[i], LAM[j]))
+    anti, matching, _ = max_antichain(LAM, lambda i, j: i != j and le(LAM[i], LAM[j]))
     good2 = anti == widest == 122 and at == 11 and logc and sum(seq) == 976
     ok &= good2
-    row("EXHAUSTIVE", "Theorem 4, Lambda is Sperner",
+    row("EXHAUSTIVE", "Theorem 5, Lambda is Sperner",
         "largest antichain %d (maximum matching %d, minimum chain cover %d) = largest rank "
         "level %d at rank %d; the rank sequence is log-concave: %s"
         % (anti, matching, anti, widest, at, logc), good2)
@@ -566,12 +594,12 @@ def structure():
     good3 = (len(ji) == len(mi) == closed_form == 17
              and set(ji) == set(GCELL))
     ok &= good3
-    row("EXHAUSTIVE", "Theorem 5, seventeen irreducibles",
+    row("EXHAUSTIVE", "Theorem 6, seventeen irreducibles",
         "%d join-irreducible, %d meet-irreducible, sum(|A_i| - 1) = %d, and every "
         "join-irreducible is min{x : x_c >= v}" % (len(ji), len(mi), closed_form), good3)
 
     weights = [sum(1 for x in LAM if le(m, x)) for m in GCELL]
-    row("EXHAUSTIVE", "the seventeen letters, with their weights",
+    row("EXHAUSTIVE", "Table 3, the seventeen letters",
         "; ".join("%s at rank %d in %d cells" % (GNAME[t], rank(GCELL[t]), weights[t])
                   for t in range(JJ)), True)
 
@@ -590,7 +618,7 @@ def structure():
         ds += good_m
     bij = len(set(MASK)) == N and ds == N
     ok &= bij
-    row("EXHAUSTIVE", "Theorem 6, the Birkhoff correspondence",
+    row("EXHAUSTIVE", "Theorem 7, the Birkhoff correspondence",
         "all 2^17 = %d subsets tested: %d are down-sets; cell -> down-set is a bijection "
         "onto them" % (1 << JJ, ds), bij)
 
@@ -602,7 +630,7 @@ def structure():
             if DOWN[meet(LAM[a], LAM[b])] != (MASK[a] & MASK[b]):
                 badb += 1
     ok &= badb == 0
-    row("EXHAUSTIVE", "join is OR and meet is AND",
+    row("EXHAUSTIVE", "Theorem 7, join is OR and meet is AND",
         "all %d pairs, both operations: %d failures" % (N * (N - 1) // 2, badb), badb == 0)
 
     # the implications
@@ -612,10 +640,10 @@ def structure():
     between = [(a, b) for a, b in covP if GORDER[a][0][0] != GORDER[b][0][0]]
     good4 = len(covP) == 20 and len(within) == 9 and len(between) == 11
     ok &= good4
-    row("EXHAUSTIVE", "Theorem 7, twenty implications",
+    row("EXHAUSTIVE", "Theorem 8, twenty implications",
         "%d covering relations in the generating poset: %d within a coordinate, %d between"
         % (len(covP), len(within), len(between)), good4)
-    row("EXHAUSTIVE", "the twenty implications, written out",
+    row("EXHAUSTIVE", "Theorem 8, the twenty implications written out",
         "; ".join("%s -> %s" % (GNAME[b], GNAME[a]) for a, b in covP), True)
 
     accepted = 0
@@ -623,22 +651,53 @@ def structure():
         if all(not (m >> b & 1) or (m >> a & 1) for a, b in covP):
             accepted += 1
     ok &= accepted == N
-    row("EXHAUSTIVE", "the twenty implications cut the space exactly",
+    row("EXHAUSTIVE", "Theorem 8, the twenty implications cut the space",
         "of %d seventeen-bit words, %d satisfy all twenty and nothing else is imposed"
         % (1 << JJ, accepted), accepted == N)
 
-    width, _ = max_antichain(GCELL, lambda i, j: GBELOW[i][j])
+    width, _, wm = max_antichain(GCELL, lambda i, j: GBELOW[i][j])
     ok &= width == 7
-    row("EXHAUSTIVE", "Corollary 1, order dimension 7",
+    row("EXHAUSTIVE", "Corollary 2, order dimension 7",
         "the generating poset has width %d, certified by a chain partition of the same size"
         % width, width == 7)
+    # the two certificates, written out: an antichain of seven letters and seven chains
+    anti7 = next(c for c in itertools.combinations(range(JJ), 7)
+                 if not any(GBELOW[a][b] for a in c for b in c if a != b))
+    heads = set(range(JJ)) - {wm[u] for u in range(JJ) if wm[u] != -1}
+    chains = []
+    for h in sorted(heads):
+        ch, u = [], h
+        while u != -1:
+            ch.append(u)
+            u = wm[u]
+        chains.append(ch)
+    good_c = (len(anti7) == 7 and len(chains) == 7
+              and sorted(t for ch in chains for t in ch) == list(range(JJ)))
+    ok &= good_c
+    row("EXHAUSTIVE", "Corollary 2, the two certificates",
+        "antichain {%s}; chains %s"
+        % (", ".join(GNAME[t] for t in anti7),
+           " | ".join(" < ".join(GNAME[t] for t in ch) for ch in chains)), good_c)
+
+    # maximal chains = linear extensions of P, by dynamic programming over the cells
+    ways = {BOTTOM: 1}
+    for y in sorted(LAM, key=rank):
+        if y == BOTTOM:
+            continue
+        ways[y] = sum(ways[z] for z in down[y])
+    maxch = ways[TOP]
+    good_m = maxch == 1113045672 and rank(TOP) - rank(BOTTOM) == JJ
+    ok &= good_m
+    row("EXHAUSTIVE", "Corollary 3, maximal chains",
+        "%d maximal chains, every one of %d covering steps, counted over all 976 cells"
+        % (maxch, rank(TOP) - rank(BOTTOM)), good_m)
 
     # reflection
     surv = [x for x in LAM if tuple(t - v for t, v in zip(TOP, x)) in S]
     fixed = [x for x in LAM if tuple(t - v for t, v in zip(TOP, x)) == x]
     good5 = len(surv) == 8 and len(fixed) == 0 and all(rank(x) % 2 == 0 for x in surv)
     ok &= good5
-    row("EXHAUSTIVE", "Theorem 8, the reflection",
+    row("EXHAUSTIVE", "Theorem 9, the reflection",
         "%d of %d cells have their image under x -> top - x in Lambda; %d are fixed; "
         "they are %s at ranks %s"
         % (len(surv), N, len(fixed),
@@ -646,7 +705,7 @@ def structure():
            ",".join(str(rank(x)) for x in sorted(surv, key=rank))), good5)
 
     bits = math.log2(N)
-    row("EXHAUSTIVE", "the bit accounting",
+    row("EXHAUSTIVE", "Theorem 7, the bit accounting",
         "%d bits carried per cell, %.4f needed to index %d cells, surplus %.4f; Lambda is "
         "%.4f%% of the 2^17 words" % (JJ, bits, N, JJ - bits, 100.0 * N / (1 << JJ)), True)
     print()
@@ -691,14 +750,14 @@ def metric():
             if not d1 == d2 == d3 == d4 == d5:
                 bad += 1
     ok &= bad == 0
-    row("EXHAUSTIVE", "Theorem 9, five forms of d",
+    row("EXHAUSTIVE", "Theorem 10, five forms of d",
         "all %d pairs: %d disagreements among interval count, coordinate product, "
         "two-integer, one-rational and p-adic forms" % (N * (N - 1) // 2, bad), bad == 0)
 
     badd = sum(1 for x in LAM if prod(1 for _ in range(D)) != 1 or
                prod(abs(u - u) + 1 for u in x) != 1)
     ok &= badd == 0
-    row("EXHAUSTIVE", "d(x, x) = 1", "all %d cells: %d exceptions" % (N, badd), badd == 0)
+    row("EXHAUSTIVE", "Theorem 10, d(x, x) = 1", "all %d cells: %d exceptions" % (N, badd), badd == 0)
 
     tot = badt = 0
     for i in range(D):
@@ -706,7 +765,7 @@ def metric():
             tot += 1
             badt += not (abs(a - c) + 1 <= (abs(a - b) + 1) * (abs(b - c) + 1))
     ok &= badt == 0
-    row("EXHAUSTIVE", "Lemma 4, the coordinate triangle",
+    row("EXHAUSTIVE", "Theorem 11, the coordinate triangle",
         "%d value triples over the eight alphabets: %d failures of "
         "|a-c|+1 <= (|a-b|+1)(|b-c|+1)" % (tot, badt), badt == 0)
 
@@ -722,8 +781,11 @@ def metric():
         if dd(a, c) > dd(a, b) * dd(b, c):
             bad3 += 1
     ok &= bad3 == 0
-    row("SAMPLED", "the multiplicative triangle on cell triples",
+    row("SAMPLED", "Theorem 11, the multiplicative triangle on cell triples",
         "%d triples, seed %d: %d failures" % (TR, SEED + 1, bad3), bad3 == 0)
+    row("EXHAUSTIVE", "Theorem 11, the log-distorted chain",
+        "per-axis cost log(|Delta|+1): first step log 2 = %.4f, tenth step log(11/10) = %.4f"
+        % (math.log(2), math.log(11 / 10)), True)
     print()
     return ok
 
@@ -791,10 +853,10 @@ def void():
         if box_inside(lo, hi) != (direct == vol):
             badc += 1
     ok &= bad == 0 and badc == 0
-    row("EXHAUSTIVE", "Theorem 10, the tree factorisation",
+    row("EXHAUSTIVE", "Theorem 12, the tree factorisation",
         "every one of the %d sub-boxes of the ambient box: %d disagreements with direct "
         "enumeration" % (total, bad), bad == 0)
-    row("EXHAUSTIVE", "Theorem 11, containment in seven comparisons",
+    row("EXHAUSTIVE", "Theorem 13, containment, both directions",
         "the same %d sub-boxes: %d disagreements with the enumerated count" % (total, badc),
         badc == 0)
 
@@ -802,6 +864,7 @@ def void():
     free = 0
     rates = {nm: 0 for nm, _, _, _ in CONSTRAINTS}
     neg = 0
+    comp = compbox = 0
     for a in range(N):
         xa = LAM[a]
         for b in range(a + 1, N):
@@ -813,6 +876,9 @@ def void():
                 neg += 1
             if inside == vol:
                 free += 1
+            if lo == xa or lo == xb:
+                comp += 1
+                compbox += inside == vol
             for nm, i, j, f in CONSTRAINTS:
                 if hi[i] <= f(lo[j]):
                     rates[nm] += 1
@@ -821,13 +887,20 @@ def void():
     product = prod(marg.values())
     good = neg == 0
     ok &= good
-    row("EXHAUSTIVE", "the void is non-negative",
+    row("EXHAUSTIVE", "Proposition 1, the void is non-negative",
         "all %d pairs: %d boxes hold more cells than they have points" % (pairs, neg), good)
-    row("EXHAUSTIVE", "the void-free fraction",
-        "%d of %d pairs, %.4f; the seven rates run %.4f to %.4f, their product %.4f, "
-        "the lift %.4f" % (free, pairs, float(joint), float(min(marg.values())),
-                           float(max(marg.values())), float(product),
-                           float(joint / product)), True)
+    lo_nm = min(marg, key=marg.get)
+    hi_nm = max(marg, key=marg.get)
+    row("EXHAUSTIVE", "Proposition 1, the void-free fraction",
+        "%d of %d pairs, %.4f; the seven rates run %.4f (%s) to %.4f (%s), their product "
+        "%.4f, the lift %.4f" % (free, pairs, float(joint), float(marg[lo_nm]), lo_nm,
+                                 float(marg[hi_nm]), hi_nm, float(product),
+                                 float(joint / product)), True)
+    good_cb = comp == 115162
+    ok &= good_cb
+    row("EXHAUSTIVE", "Proposition 1, comparable pairs whose interval is a box",
+        "%d of the %d strictly comparable pairs, %.4f" % (compbox, comp, compbox / comp),
+        good_cb)
 
     deg = defaultdict(int)
     for _, i, j, _f in CONSTRAINTS:
@@ -848,10 +921,24 @@ def void():
         stack.extend(adj[u])
     degs = sorted(deg.values())
     tree = edges == nodes - 1 and len(seen) == nodes
+    # the leaves removed leave a path; and oriented bounded -> bounding, no directed cycle
+    leaves = {v for v in deg if deg[v] == 1}
+    inner = [v for v in deg if v not in leaves]
+    idg = {v: sum(1 for u in adj[v] if u not in leaves) for v in inner}
+    path = sorted(idg.values()) == [1, 1] + [2] * (len(inner) - 2)
+    par = defaultdict(list)
+    for _, i, j, _f in CONSTRAINTS:
+        par[i].append(j)
+    def reaches(u, v, seen_=()):
+        return u == v or any(reaches(w, v, seen_ + (u,)) for w in par[u] if w not in seen_)
+    acyclic = not any(reaches(w, u) for u in range(D) for w in par[u])
+    tree = tree and path and acyclic
     ok &= tree
-    row("EXHAUSTIVE", "Lemma 5, the constraint graph is a caterpillar",
-        "%d nodes, %d edges, connected: a tree; degree sequence %s; removing the leaves "
-        "leaves a path" % (nodes, edges, "".join(map(str, degs))), tree)
+    row("EXHAUSTIVE", "Lemma 3, the constraint graph is a caterpillar",
+        "%d nodes, %d edges, connected: a tree; degree sequence %s; removing the %d leaves "
+        "leaves a path: %s; oriented from bounded to bounding coordinate it has no directed "
+        "cycle: %s" % (nodes, edges, "".join(map(str, degs)), len(leaves), path, acyclic),
+        tree)
     print()
     return ok, float(joint), marg, float(product), free, pairs
 
@@ -896,7 +983,7 @@ def generating_function(seq):
         direct[rank(x)] += 1
     same = F == dict(direct)
     ok &= same
-    row("EXHAUSTIVE", "Theorem 12, the nested form is the rank polynomial",
+    row("EXHAUSTIVE", "Theorem 14, the nested form is the rank polynomial",
         "coefficient by coefficient over ranks 3 to 20, exact integers: %s" % same, same)
 
     F1 = sum(F.values())
@@ -904,8 +991,9 @@ def generating_function(seq):
     mean = Fraction(sum(k * v for k, v in F.items()), F1)
     good = F1 == 976 and Fm1 == 2 and mean == Fraction(10801, 976)
     ok &= good
-    row("EXHAUSTIVE", "Corollary 2, F(1) = 976 and F(-1) = 2",
-        "exact integer evaluation; F'(1)/F(1) = %s = %.4f" % (mean, float(mean)), good)
+    row("EXHAUSTIVE", "Corollary 4, F(1) = 976 and F(-1) = 2",
+        "exact integer evaluation; F'(1)/F(1) = %s = %.4f, against the midpoint 23/2: skew "
+        "%.4f" % (mean, float(mean), float(mean - Fraction(23, 2))), good)
 
     boxp = {0: 1}
     for a in ALPHA:
@@ -915,14 +1003,14 @@ def generating_function(seq):
     evens = [CO[i] for i in range(D) if sum((-1) ** v for v in ALPHA[i]) == 0]
     good2 = b1 == BOX and bm1 == 0 and len(evens) == 5
     ok &= good2
-    row("EXHAUSTIVE", "Lemma 7, the free box vanishes at z = -1",
+    row("EXHAUSTIVE", "Theorem 15, the free box vanishes at z = -1",
         "F_box(1) = %d, F_box(-1) = %d; %d of the eight alphabets have even size (%s)"
         % (b1, bm1, len(evens), ", ".join(evens)), good2)
 
     byk = {k: sum((-1) ** rank(x) for x in LAM if x[IK] == k) for k in ALPHA[IK]}
     good3 = byk == {1: 0, 2: 2, 3: 0}
     ok &= good3
-    row("EXHAUSTIVE", "the residue localises on k = 2",
+    row("EXHAUSTIVE", "Theorem 15, the residue localises on k = 2",
         "the alternating sum splits by source occupancy as " +
         ", ".join("k=%d: %+d" % (k, v) for k, v in sorted(byk.items())), good3)
 
@@ -933,15 +1021,33 @@ def generating_function(seq):
             tot += 1
             badg += sum(z ** i for i in range(k + 1)) != (1 - z ** (k + 1)) / (1 - z)
     ok &= badg == 0
-    row("EXHAUSTIVE", "Lemma 8, the detachable leaf",
+    row("EXHAUSTIVE", "Lemma 4, the detachable leaf",
         "the geometric identity on %d exact rational points, degrees 0 to 5, %d failures"
         % (tot, badg), badg == 0)
+
+    # the seven-coordinate projection: 2S removed, each seven-cell carrying k + 1 spins
+    proj = sorted({x[:7] for x in LAM})
+    spins = defaultdict(set)
+    for x in LAM:
+        spins[x[:7]].add(x[7])
+    each = all(spins[p] == set(range(p[IK] + 1)) for p in proj)
+    ix7 = cypher.Index("L7", CO[:7], proj)
+    out7, _ = cypher.op_order(ix7, {})
+    got7 = {tuple(ix7.decode[i][v] for i, v in enumerate(c)) for c in out7}
+    E7 = len(got7) - len(proj)
+    good7 = len(proj) == 319 and each and E7 == 0 and got7 == set(proj) and \
+        sum(p[IK] + 1 for p in proj) == N
+    ok &= good7
+    row("EXHAUSTIVE", "Lemma 4, the spin projection",
+        "%d seven-coordinate cells, every one carrying exactly k + 1 values of 2S (sum %d); "
+        "the projection is closed, defect %d" % (len(proj), sum(p[IK] + 1 for p in proj), E7),
+        good7)
 
     back = seq[::-1]
     first = next(i for i in range(len(seq)) if seq[i] != back[i])
     good4 = seq != back and first == 1
     ok &= good4
-    row("EXHAUSTIVE", "Corollary 3, F is not palindromic",
+    row("EXHAUSTIVE", "Corollary 5, F is not palindromic",
         "forwards and backwards first part at rank %d, %d against %d"
         % (3 + first, seq[first], back[first]), good4)
     print()
@@ -985,7 +1091,7 @@ def moebius():
             checked += 1
             bad += s != (1 if j == i else 0)
     ok &= bad == 0
-    row("EXHAUSTIVE", "Theorem 13, the Moebius function",
+    row("EXHAUSTIVE", "Theorem 16, the Moebius function",
         "the closed form satisfies the defining recursion on all %d comparable pairs "
         "(%d strict); %d violations; values %s"
         % (checked, checked - N, bad, sorted(vals)), bad == 0)
@@ -1008,10 +1114,41 @@ def moebius():
             if (atomjoin == q) != is_anti(q) or boolean != is_anti(q):
                 badc += 1
     ok &= badc == 0
-    row("EXHAUSTIVE", "Lemma 9, the crosscut condition",
+    row("EXHAUSTIVE", "Theorem 16, the crosscut condition",
         "%d distinct intervals: the join of the atoms is the top exactly when the added "
         "generators form an antichain, and then the interval is Boolean; %d exceptions"
         % (len(seen), badc), badc == 0)
+
+    # Corollary 6: mu(x, y) != 0 iff [x, y] is a unit hypercube lying inside Lambda, and then
+    # mu = (-1)^(rank y - rank x); against the arithmetic Moebius function of N(y)/N(x)
+    nz = nzu = agree = dis = badk = 0
+    for i in range(N):
+        x = LAM[i]
+        for j in up[i]:
+            y = LAM[j]
+            m = mu(i, j)
+            unit = all(y[t] - x[t] <= 1 for t in range(D))
+            inside = unit and box_inside(x, y)
+            m_arith = (-1) ** (rank(y) - rank(x)) if unit else 0
+            if (m != 0) != inside:
+                badk += 1
+            if m != 0 and m != (-1) ** (rank(y) - rank(x)):
+                badk += 1
+            nz += m != 0
+            nzu += inside
+            if m == m_arith:
+                agree += 1
+            else:
+                dis += 1
+                if not (unit and not inside):
+                    badk += 1
+    good_k = badk == 0
+    ok &= good_k
+    row("EXHAUSTIVE", "Corollary 6, the Moebius function in coordinates",
+        "all %d comparable pairs: mu is non-zero on %d, exactly the %d void-free unit "
+        "hypercubes; it equals the arithmetic Moebius function of N(y)/N(x) on %d pairs and "
+        "differs on %d, every one a unit hypercube with a void" % (checked, nz, nzu, agree, dis),
+        good_k)
     print()
     return ok
 
@@ -1069,7 +1206,7 @@ def seed():
     nslot = sum(len(a) for a in ALPHA)
     good = M == 102 and nslot == 25
     ok &= good
-    row("EXHAUSTIVE", "the covering instance",
+    row("EXHAUSTIVE", "Theorem 17, the covering instance",
         "%d elements: %d alphabet slots and %d envelope steps; %d sets, one per cell"
         % (M, nslot, M - nslot, N), good)
 
@@ -1086,7 +1223,7 @@ def seed():
         else:
             dis += 1
     ok &= dis == 0
-    row("SAMPLED", "Theorem 14, covering is generating",
+    row("SAMPLED", "Theorem 17, covering is generating",
         "%d random subsets of size 4 to 10, seed %d: %d disagreements with the seated "
         "closure operator" % (agree + dis, SEED + 2, dis), dis == 0)
 
@@ -1142,10 +1279,10 @@ def seed():
     total = sum(prod(len(sig[x]) for x in s) for s in sols)
     good2 = size == 7 and total == 24585 and root_lb == 5
     ok &= good2
-    row("EXHAUSTIVE", "Theorem 15, seed(Lambda) = 7",
+    row("EXHAUSTIVE", "Theorem 18, seed(Lambda) = 7",
         "branch and bound over %d critical elements and %d distinct witness signatures; "
-        "lower bound %d; minimum %d; %d minimum covers"
-        % (K, len(sigs), root_lb, size, total), good2)
+        "lower bound %d; minimum %d; %d signature covers expanding to %d minimum covers; "
+        "976/7 = %.1f" % (K, len(sigs), root_lb, size, len(sols), total, N / size), good2)
 
     forced = set(range(N))
     for s in sols:
@@ -1154,13 +1291,66 @@ def seed():
         if not forced:
             break
     uniq = [k for k in range(M) if len(sup[k]) == 1]
-    good3 = len(forced) == 1 and len(uniq) == 0
+    minwit = min(len(s) for s in sup)
+    good3 = len(forced) == 1 and len(uniq) == 0 and minwit == 4
     ok &= good3
-    row("EXHAUSTIVE", "Theorem 16, one cell in every minimum cover",
+    row("EXHAUSTIVE", "Theorem 18, one cell in every minimum cover",
         "%d cell lies in all %d minimum covers -- %s -- and %d of the %d elements is "
-        "witnessed by a unique cell" % (len(forced), total,
-                                        "".join(map(str, LAM[min(forced)])) if forced else "-",
-                                        len(uniq), M), good3)
+        "witnessed by a unique cell; the smallest witness set has %d cells"
+        % (len(forced), total, "".join(map(str, LAM[min(forced)])) if forced else "-",
+           len(uniq), M, minwit), good3)
+
+    # a local account of the common cell: three elements whose witness sets meet in it alone
+    fc = min(forced)
+    cont = [k for k in range(M) if fc in supset[k]]
+    cert = None
+    for r_ in (1, 2, 3):
+        for combo in itertools.combinations(cont, r_):
+            inter = frozenset.intersection(*[supset[k] for k in combo])
+            if inter == frozenset([fc]):
+                cert = combo
+                break
+        if cert:
+            break
+
+    def ename(e):
+        if e[0] == "slot":
+            return "slot %s = %d" % (CO[e[1]], e[2])
+        return "step %s at %s <= %d, value %d" % (CO[e[1]], CO[e[2]], e[3], e[4])
+
+    good_l = cert is not None and len(cert) == 3
+    ok &= good_l
+    row("EXHAUSTIVE", "Theorem 18, a local account of the common cell",
+        "the cell witnesses %d of the %d elements; no one or two of them single it out, and "
+        "three do: %s" % (len(cont), M, "; ".join("%s (%d witnesses)" % (ename(elems[k]),
+                                                                          len(sup[k]))
+                                                   for k in cert) if cert else "none"), good_l)
+
+    # Corollary 7: what every minimum seed contains, over all covers by cell
+    props = [("null transition, q = 0", lambda x: x[IQ] == 0),
+             ("full transfer, q = k", lambda x: x[IQ] == x[IK]),
+             ("s -> p", lambda x: x[IL] == 0 and x[IF] == 1),
+             ("p -> s", lambda x: x[IL] == 1 and x[IF] == 0),
+             ("p -> p", lambda x: x[IL] == 1 and x[IF] == 1),
+             ("s -> s", lambda x: x[IL] == 0 and x[IF] == 0)]
+    fr = {}
+    for nm, P in props:
+        lacking = 0
+        for s in sols:
+            lacking += prod(sum(1 for c in sig[x] if not P(LAM[c])) for x in s)
+        fr[nm] = Fraction(total - lacking, total)
+    good_p = all(fr[nm] == 1 for nm, _ in props[:5]) and fr["s -> s"] < 1
+    ok &= good_p
+    row("EXHAUSTIVE", "Corollary 7, what every minimum seed contains",
+        "; ".join("%s in %s of %d" % (nm, fr[nm].numerator * total // fr[nm].denominator, total)
+                  for nm, _ in props), good_p)
+
+    # Corollary 8: no cell is removable -- every one of the 976 deletions still closes to Lambda
+    bad_del = sum(1 for i in range(N) if not closes(LAM[:i] + LAM[i + 1:]))
+    ok &= bad_del == 0
+    row("EXHAUSTIVE", "Corollary 8, no cell is removable",
+        "R(Lambda minus x) = Lambda for all %d cells through the seated operator, %d exceptions"
+        % (N, bad_del), bad_del == 0)
 
     # every minimum cover really closes, on a stated sample, and no six-set does
     rnd2 = random.Random(SEED + 3)
@@ -1171,7 +1361,7 @@ def seed():
         if not closes(cells):
             badm += 1
     ok &= badm == 0
-    row("SAMPLED", "the minimum covers close",
+    row("SAMPLED", "Theorem 18, the minimum covers close",
         "%d of the %d minimum covers, seed %d, run through the seated operator: %d failures"
         % (len(sample), total, SEED + 3, badm), badm == 0)
 
@@ -1183,6 +1373,15 @@ def seed():
             share = whole // mults[idx]
             for c in sig[x]:
                 counts[c] += share
+    vals = sorted(counts.values(), reverse=True)
+    med = sorted(counts.values())[len(vals) // 2]
+    good_v = len(vals) == 370 and vals[0] == total
+    ok &= good_v
+    row("EXHAUSTIVE", "Theorem 18, the covers by cell",
+        "%d of %d cells appear in a minimum cover; the median such cell in %d (%.2f%%), the "
+        "second most common in %d (%.1f%%), one in all %d"
+        % (len(vals), N, med, 100.0 * med / total, vals[1], 100.0 * vals[1] / total, total),
+        good_v)
     print()
     return ok, size, total, sorted(forced), counts, len(uniq), root_lb
 
@@ -1198,6 +1397,10 @@ def cited():
                                       "the width of the generating poset"),
         ("Rota (1964)", "the crosscut theorem for the Moebius function"),
         ("Karp (1972)", "minimum set cover is NP-complete"),
+        ("Fulkerson (1956)", "Dilworth's theorem from Koenig's: the minimum chain cover is "
+                             "n minus a maximum matching of the strict order"),
+        ("Stanley (2012)", "the maximal chains of a finite distributive lattice are the "
+                           "linear extensions of its poset of join-irreducibles"),
     ]:
         row("CITED", who.split()[0], what, True)
     print()
