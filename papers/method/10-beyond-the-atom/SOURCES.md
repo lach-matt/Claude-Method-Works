@@ -2,8 +2,10 @@
 
 Paper: `PAPER.md`, "Closure beyond the atom: the defect of an index, its zeros by theorem, and the
 electromagnetic quotient". Drafted 2026-09-21; repaired 2026-09-24 against `AUDIT.md` (132 findings).
-Every number in the paper is produced by `check.py` or is CITED. The run summary is in `AUDIT.md`'s
-repair record and in §8 below.
+Every number in the paper is produced by `check.py` or is CITED. Run of 2026-09-24: `python3 check.py`
+→ **148 obligations, 0 failed** (MACHINE-CHECKED 8, EXHAUSTIVE 74, MEASURED 35, SAMPLED 16, REFUTATION 3,
+CITED 1, GUARD 11), `CLEAN`; `python3 check.py --selftest` → **152 obligations, 0 failed**, the four negative
+controls N1–N4 each refuted (N3: 18 of 1,112 cells disagree), `CLEAN`.
 
 Run: `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH; python3 check.py --selftest`.
 
