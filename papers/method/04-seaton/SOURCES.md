@@ -1,26 +1,79 @@
 # SOURCES.md — provenance map for 04-seaton (not published)
 
-Paper: `PAPER.md`, "A Correction to Seaton's Ratio". Drafted 2026-09-21; finished and verified
-2026-09-21. Every number in the paper is produced by `check.py` (**22 of 22 obligations**;
-`--selftest` adds three negative controls, all refuted) or is CITED.
+Paper: `PAPER.md`. **Working title** (2026-09-24, for the author to settle): *"The Domain of the
+Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on
+Thirteen Rydberg Series"*. The paper was drafted 2026-09-21 as **"A Correction to Seaton's Ratio"**
+and retitled in the repair pass of 2026-09-24 (AUDIT.md R-21, A-13): the audit found that the
+n-dependent polarisation defect and its restriction to non-penetrating series are the standard
+account (Van Vleck & Whitelaw 1933; Edlén 1964; Freeman & Kleppner 1976), so the paper corrects
+nothing in the literature; that "Seaton's ratio" is the corpus's name and not the literature's; and
+that the sentence "as the spectroscopic literature attributes it" rested on a paper (Seaton 1958)
+that was never read. The new title names what the paper establishes — the p criterion as a necessary
+condition with the orbital-collapse proviso, the exact reproducible fit with its sensitivities, and
+the sign rule — and claims no priority. The corpus's own phrase "the domain restriction to p = 0 is
+this work's" (Mathematical Compendium 3737–3738) survives in the paper only as the p criterion, now
+stated as necessary and not sufficient.
 
-**What the finishing pass changed.** Four obligations were added because four numbers the paper
-printed were not produced by the check: Theorem 1's prefactor identity and its large-ℓ form
-(`ob_prefactor`, 200 values of ℓ, exact); the limit-sensitivity estimate `n*³ΔI/(2z²R_M)`
-(`ob_limit_sensitivity`, all 80 levels at ΔI = 0.01 cm⁻¹, worst relative error 5.5 × 10⁻⁶); the
-existence of cores that would separate p = 0 from ℓ ≥ 3 (`ob_separating_cores` — an argon-like core
-gives p = 0 at ℓ = 2 against 1 for the krypton-like core here, and twenty cores of 60–79 electrons
-give p = 1 at ℓ = 3); and In I nd's monotone defect rise, 2.18 at n = 5 to 2.31 at n = 10. Table 1's
-`I`, `A` and `R_M` columns, `R_∞`, `m_p/m_e` and the four cores' full ground configurations are now
-printed by `check.py` rather than only held in its data. Table 2's eighty levels were checked
-one by one against the instrument's own dictionary: an exact bijection, no level in the paper that is
-not in the data and none in the data that is not in the paper. **Nothing measured changed**; every
-figure the earlier draft printed reproduces.
+Every number in the paper is produced by `check.py` (**32 of 32 obligations**: 7 PROVED, 11 EXHAUSTIVE,
+2 MACHINE-CHECKED, 8 MEASURED, 1 CROSS-CHECK, 3 SOURCE; `--selftest` adds four negative controls, all
+refuted) or is CITED.
 
-One number was **removed** rather than checked: §0 previously read "a value such as 1.25 reported
-there". 1.25 is neither recomputed by `check.py` nor citable to public literature (see the
-unreproduced item below), so under the contract it may not be printed; the sentence now says "a
-value reported there", which carries the same argument.
+## The repair pass of 2026-09-24 (against AUDIT.md)
+
+Every finding's disposition is in `AUDIT.md` Part C and its repair record. What bears on provenance:
+
+- **Lemma 2 (A-1).** The printed rearrangement had lost a factor 2; the correct factor is
+  2(n−δ)²/(n(2n−δ)) = 1 − (3nδ − 2δ²)/(n(2n−δ)). Both identities are now exact obligations
+  (`ob_defect_rearrangement`, 121 grid points above degree) and the wrong factor is a negative
+  control. Theorem 1's first-order conclusion was never affected.
+- **The domain (A-20 / R-11).** The corpus itself splits p = 0 into uncollapsed and collapsed
+  regimes (Register 1261 regimes 3 and 4; Mathematical Compendium 3066–3070: "across 116 p = 0
+  channels at l = 2 or 3: collapsed median 0.637, uncollapsed 0.036", Ca I nd = 0.908, Ba II nf =
+  0.756; 530–534: Seaton's term fails on Ba II and Hg II "where the 4f orbital has collapsed into the
+  core and the series penetrates"). The paper's D4 now defines the class N := p = 0 and uncollapsed,
+  with the collapse account cited to Goeppert-Mayer 1941 and Griffin, Andrew & Cowan 1969 exactly as
+  Mathematical Compendium 3070 and Physics Compendium 484 print them. The four cores (Z = 37, 38,
+  48, 49) are far below the 4f onset at the lanthanides, so the three p = 0 nf series are in N and
+  **nothing measured changed**. §5.3 was re-examined: the argon-like d test (Ca II nd) the earlier
+  draft proposed is not clean — Register 1262 places the argon-core d channels across the 3d
+  threshold (y = 0.086 at K I, 0.291 at Ca I/Ca II, 0.342 at Sc III, 0.373 at Ti IV) — and the paper
+  now says so without citing that measurement.
+- **Lemma 1 (R-2)** is proved for all n through the Kramers–Pasternack recursion, CITED to
+  Pasternack 1937, with ⟨r⁻²⟩ CITED to Bethe & Salpeter 1957 §3 (Mathematical Compendium 1956);
+  `check.py` verifies the recursion at 902 (n, ℓ, s) triples, the seeds on 435 states and the algebra
+  on a rational grid. **Lemma 4** (new) derives ⟨r⁻⁵⟩ and ⟨r⁻⁶⟩ the same way, verified on 406 states,
+  and Corollary 1 machine-checks that a positive quadrupole term gives ρ > 1 (R-14); the directions of
+  the second-order dipole and residual-penetration corrections are now stated as undetermined.
+- **The Z3 obligation (A-2)** now encodes the premise (the ⟨r⁻⁴⟩ form) and lets Z3 derive the
+  ratio from two-point coefficients, with a third point for affineness; its fidelity guard compares
+  the Z3 term with the Laguerre integral (`expect_power`), which shares no formula with it. Seed 5.
+- **The independent fit (A-6)** is a float Gauss–Newton fitter in `check.py` (`gauss_newton`), 26 of 26
+  coefficients to 4 dp. `SOURCE_FIT`/`SOURCE_STAT` remain, as comparisons with the instrument's
+  printed output, and the paper now describes them as "figures previously computed for the same
+  data" on which no claim rests.
+- **Sensitivities (R-13, R-19)** are `ob_sensitivity`: lowest member out (ρ 1.051 / 1.154 / 1.623),
+  the quotation floor as a linearised sum over members of |Δρ| for half a unit in NIST's last
+  quoted digit (0.0164 / 0.0016 / 0.0020 — a different procedure from the auditor's ±0.009 propagation,
+  and stated as such), the Cd II limit's published ±0.13 cm⁻¹ (capture header; ρ 1.120–1.180) and
+  +0.1 cm⁻¹ on every limit. The In II and Sr III limit uncertainties are not held in the tree.
+- **The implied polarisabilities (R-12 / A-19).** Table 3 prints α = δ₀K(ℓ)/(6z²): 24.76 a₀³ (Cd⁺),
+  26.20 (In⁺), 10.21 (Sr²⁺). The comparison with published values is **not made** in the paper and
+  the paper says so: the auditor quoted α(Sr²⁺) = 5.8 a₀³ from Mitroy, Safronova & Clark 2010, which
+  would put the model's δ₀(Sr II nf) at 0.037 against the fitted 0.0648 — but arXiv, IOP and APS are
+  blocked by the proxy, no copy of that table is in the tree, and a number is not printed on
+  recollection. **Marked for the author**: confirm α(Sr²⁺) (and Cd⁺, In⁺ if tabulated) from that
+  review and add the sentence; if 5.8 stands, Sr II nf fails the model at the δ₀ level by a factor
+  1.8 before any ratio is taken.
+- **Table 2 (A-18)** is now printed at NIST's quoted precision, generated by `check.py` from the
+  capture strings (`quoted_levels`); the one level absent from the captures (Cd I 5p) keeps its
+  three decimals from the level dictionary.
+- **Typography (A-12).** No code span holds mathematics. α_d is now α (D5 defines α as the dipole
+  and β as the quadrupole polarisability, since Unicode has no subscript d or q); R_M is Rₘ; the
+  effective quantum number is written n∗ (U+2217) so that no markdown asterisk can pair.
+- **Declined (R-17).** A comparison of the Rb I Ritz coefficients with the millimetre-wave and EIT
+  values (Li et al. 2003; Mack et al. 2011) would calibrate what a six-member fit can say about δ₂;
+  the values are not held in the tree and could not be verified against their sources here, so
+  nothing is printed. **Marked for the author** as worth adding.
 
 ## Where each section draws from
 
@@ -133,14 +186,34 @@ anywhere in the tree are not printed in the paper**, and each is named here.
 | Seaton 1983 | *"Quantum defect theory, Rep. Prog. Phys. 46 (1983) 167-257"* — Mathematical Compendium 2968, 2850; Index of Indices 1492 | initials |
 | Born & Heisenberg 1924 | full title *"Über den Einfluss der Deformierbarkeit der Ionen auf optische und chemische Konstanten"*, *Z. Phys.* **23** (1924) 388–410 — Mathematical Compendium 2956, 3018, 3130; Physics Compendium 504 | initials **M.** and **W.** The paper expands the journal abbreviation *Z. Phys.* to *Zeitschrift für Physik*, which is the unambiguous expansion of the abbreviation the record prints |
 | Mayer & Mayer 1933 | full title *"The polarizabilities of ions from spectra"*, *Phys. Rev.* **43** (1933) 605–611 — Mathematical Compendium 3018; the volume and first page also at 2956 and Physics Compendium 504 | initials **J. E.** and **M. G.** |
-| Drake & Swainson 1991 | *"Drake & Swainson, Phys. Rev. A 44 (1991) 5448"* — Physics Compendium 524, Mathematical Compendium 532 and 3517, Spectra Compendium 1014 | **the article title**, and Swainson's initials, and whether 5448 is a first page or a full range. Drake's *G. W. F.* is held (main volume 11567, for a different work of 2023) and is printed; the title is not printed at all |
+| Drake & Swainson 1991 | *"Drake & Swainson, Phys. Rev. A 44 (1991) 5448"* — Physics Compendium 524, Mathematical Compendium 532 and 3517, Spectra Compendium 1014 | **the title and both sets of initials were verified by web search on 2026-09-24** (APS record, journals.aps.org/pra/abstract/10.1103/PhysRevA.44.5448: G. W. F. Drake and R. A. Swainson, "Quantum defects and the 1/n dependence of Rydberg energies: Second-order polarization effects") and are now printed; 5448 is printed as the first page only |
 | Bethe & Salpeter 1957 | *"Bethe & Salpeter, Quantum Mechanics of One- and Two-Electron Atoms (1957), sec. 3"* — Mathematical Compendium 1956 | publisher and city (an earlier draft printed "Springer, Berlin" from memory; **removed**), and both authors' initials. The paper now prints author, year, title and §3, which is what is held |
 | Hartree 1928 | *"Hartree, Proc. Camb. Phil. Soc. 24 (1928) 89"* — Mathematical Compendium 2908; the page range **89-110** at Physics Compendium 554 | initials **D. R.** |
 | Theodosiou, Inokuti & Manson 1986 | *"At. Data Nucl. Data Tables 35 (1986) 473-486, Hartree-Slater, for all ionisation stages of all ions with Z ≤ 50"* — Index of Indices 1492, Mathematical Compendium 3030, Spectra Compendium 1012 | initials |
 | Kramida, Ralchenko, Reader & the NIST ASD Team 2024 | the whole entry, verbatim: *"Kramida, A., Ralchenko, Yu., Reader, J. and NIST ASD Team (2024). NIST Atomic Spectra Database (ver. 5.12). https://physics.nist.gov/asd DOI 10.18434/T4W30F"* — main volume 11562 | the publisher line "National Institute of Standards and Technology, Gaithersburg" (an earlier draft printed it; **removed** — it is not in the record) |
-| Ritz 1903 | *"**Ritz, W.** (1903). The quantum-defect expansion δ = δ₀ + δ₂/n². — used for every two-point solve"* — main volume 11666. Initials **W.** held | **title, journal, volume and pages**. An earlier draft printed *"Zur Theorie der Serienspektren, Annalen der Physik 12, 264–310"*; no part of that appears anywhere in the tree (`grep -n Annalen` over the six volumes returns nothing), so it was **removed**. The entry now prints author, year and what the work is cited for |
+| Ritz 1903 | *"Ritz, Zur Theorie der Serienspektren, Ann. Phys. 12 (1903) 264-310"* — **Mathematical Compendium 780 and Physics Compendium 464**; initials **W.** at main volume 11666 | nothing. **Correction (A-13):** the first finishing pass stripped this entry to a description on the ground that "no part of the citation appears anywhere in the tree" — the grep was for "Annalen" and the tree abbreviates to "Ann. Phys.". The entry is restored exactly as the two sites print it, with the journal expanded (see the expansions below) |
 
-**The central attribution, stated exactly.** The relation δ₂/δ₀ = −ℓ(ℓ+1)/3 is attributed to Seaton.
+**Journal abbreviations expanded (A-15).** The tree prints MNRAS, Phys. Rev., Phys. Rev. A, Proc. Camb.
+Phil. Soc., At. Data Nucl. Data Tables, Rep. Prog. Phys., Z. Phys., Ann. Phys. and J. Phys. B; the paper
+expands each to its unambiguous full name (Monthly Notices of the Royal Astronomical Society, Physical
+Review, Physical Review A, Atomic Data and Nuclear Data Tables, Reports on Progress in Physics,
+Zeitschrift für Physik, Annalen der Physik, Journal of Physics B). Hartree 1928 is no longer cited
+(R-25: it is the self-consistent-field paper, not the penetration argument; Edlén 1964 is).
+
+**References added in the repair pass (R-22), and where each was verified.**
+
+| reference | held in the tree | verified by search (2026-09-24) |
+|---|---|---|
+| Edlén, B. (1964). Atomic spectra. *Handbuch der Physik* XXVII, 80–220 | Mathematical Compendium 188, 2814, 2826 ("Edlen, Atomic spectra, Handbuch der Physik XXVII (1964) 80-220"); initial **B.** not held, printed on the audit's record | — |
+| Goeppert-Mayer, M. (1941). Rare-earth and transuranic elements. *Phys. Rev.* 60, 184–187 | Mathematical Compendium 3070, 2862; Physics Compendium 484 (title, journal, volume, pages); initial **M.** not held, printed on the audit's record | — |
+| Griffin, D. C., Andrew, K. L. and Cowan, R. D. (1969). Theoretical calculations of the d-, f- and g-electron transition series. *Phys. Rev.* 177, 62–71 | Mathematical Compendium 3070, 3176; Physics Compendium 484; initials not held, printed on the audit's record | — |
+| Freeman, R. R. and Kleppner, D. (1976). Core polarization and quantum defects in high-angular-momentum states of alkali atoms. *Phys. Rev. A* 14, 1614 | Spectra Compendium 1016 ("Freeman & Kleppner 1976, Na I ng") only | APS record, doi 10.1103/PhysRevA.14.1614: authors, title, volume 14 issue 5 page 1614 |
+| Van Vleck, J. H. and Whitelaw, N. G. (1933). The quantum defect of nonpenetrating orbits, with special application to Al II. *Phys. Rev.* 44, 551 | not held | APS record, doi 10.1103/PhysRev.44.551: authors, title, 44, 551, October 1933; the last page was not verified and is not printed |
+| Pasternack, S. (1937). On the mean value of rˢ for Keplerian systems. *PNAS* 23, 91–94 | not held | PNAS record, doi 10.1073/pnas.23.2.91: author, title, 23(2), 91–94, 15 February 1937 |
+| Gallagher, T. F. (1994). *Rydberg Atoms*. Cambridge University Press | not held | publisher's and Internet Archive records: Cambridge Monographs on Atomic, Molecular and Chemical Physics 3, 1994, ISBN 9780521385312 |
+| Mitroy, J., Safronova, M. S. and Clark, C. W. (2010). Theory and applications of atomic and ionic polarizabilities. *J. Phys. B* 43, 202001 | not held | IOP record, doi 10.1088/0953-4075/43/20/202001; arXiv:1004.3567. The paper's text could not be fetched (proxy), so no value from its tables is printed |
+
+**The central attribution, as it stood before the repair pass (superseded by the Provenance paragraph of §2).** The relation δ₂/δ₀ = −ℓ(ℓ+1)/3 is attributed to Seaton.
 What the record supports is: (i) the relation itself — *"The ratio δ₂/δ₀ should be −ℓ(ℓ+1)/3 with the
 polarisability cancelling"* (Physics Compendium 684); (ii) that the polarisation term `3αc²/K(ℓ)`
 it comes from is credited to Seaton (1958) — Mathematical Compendium 3130, Physics Compendium 518–526,
@@ -148,10 +221,14 @@ Spectra Compendium 947 and 1014; (iii) the bibliographic record above; and (iv) 
 division of credit, *"Seaton's ratio δ₂/δ₀ = −ℓ(ℓ+1)/3 is Seaton's; the domain restriction to p = 0
 is this work's"* (Mathematical Compendium 3737–3738). **What the record does NOT support** is that
 Seaton 1958 states the ratio in that form: I could not obtain MNRAS 118, 504 through the proxy, and
-no passage in the tree quotes it. The paper therefore says, in §2's attribution paragraph, that the
-ratio "is attributed to Seaton here as it is in the spectroscopic literature" and **derives it in
-full** (Theorem 1, PROVED and MACHINE-CHECKED) rather than resting on the attribution. Nothing in the
-paper's result depends on who first wrote the ratio down. **Marked for M.**
+no passage in the tree quotes it. The earlier draft said in §2 that the ratio "is attributed to Seaton here as it is in the
+spectroscopic literature"; the audit (R-21) found that sentence unsupported, and the repair pass
+replaced it with a Provenance paragraph that attributes the polarisation formula to the literature
+that states it (Born & Heisenberg 1924, Van Vleck & Whitelaw 1933, Mayer & Mayer 1933, Edlén 1964,
+Freeman & Kleppner 1976), cites Seaton 1958 for the quantum defect method only, and claims no
+priority. Nothing in the paper's result depends on who first wrote the ratio down. The corpus's
+phrase "Seaton's ratio" is not used in the paper. **Marked for M**: whether the books' attribution of
+the ratio to Seaton 1958 should itself be revisited.
 
 ## Data provenance, verified
 
@@ -199,9 +276,11 @@ paper's result depends on who first wrote the ratio down. **Marked for M.**
 ## Interpretations chosen
 
 - **Atomic masses.** `ritz.py` uses A = 112.41, 114.82, 84.912, 87.906 with R_M = R∞/(1 + 1/(A·m_p/m_e)).
-  This treats the nuclear mass as A proton masses; the paper states the formula as used and prints
-  the four R_M values so the reader can substitute. The effect on δ is ~10⁻⁵ and on ρ far below the
-  printed precision.
+  This treats the core mass as A proton masses (A-16: the factor is m_p/m_e = 1836.15, not u/m_e =
+  1822.89, and 84.912 / 87.906 are the ⁸⁵Rb / ⁸⁸Sr isotope masses, not atomic weights); the paper now
+  says exactly that in D1 and §3 and prints the four R_M values so the reader can substitute. No R_M
+  was recomputed — the numbers did not move to fit a sentence. The effect of the convention on δ is
+  parts in 10⁷ and on ρ nil at the printed precision.
 - **The Ritz denominator.** The instrument fits δ₂/(n − δ₀)²; Seaton's relation is for the
   coefficient of n⁻² (or n*⁻²). Lemma 3 records the identity and the paper prints the 1/n² refit
   (1.175 / 0.221 and −0.040 / 0.547) beside the headline figures.
@@ -219,12 +298,18 @@ paper's result depends on who first wrote the ratio down. **Marked for M.**
   CITED, REFUTATION). The paper declares and uses **MEASURED** for a number computed from the cited
   data by a stated procedure, as `03-bracket/PAPER.md` does, and states in §6 that **no claim in it is
   SAMPLED**. The five spec words are never merged with it or with each other.
-- **The field-shift bullet.** An earlier draft read "n*⁷ (magnetic) and n*¹⁰ (electric) and begin at
-  n of order 60", which merged two distinct conditions. Physics Compendium 46–50 gives them
-  separately: n*⁷ for a magnetic field, which *"needs tens of tesla"*, and n*¹⁰ for an electric field,
-  which *"begins at n > 60"*. The paper now states them separately.
+- **The field-shift bullet.** Physics Compendium 46–50 gives n*⁷ for a magnetic field, which *"needs
+  tens of tesla"*, and n*¹⁰ for an electric field, which *"begins at n > 60"*. The audit (A-9) found
+  the two numbers printed with no check and no citation; the paper now keeps only the two powers and
+  cites Gallagher 1994 for Rydberg atoms in fields.
 
 ## Figures
+
+Regenerated in the repair pass (A-11): true minus signs in every annotation; the p ≥ 1 label of
+Figure 1(b) moved below its band at the right edge, clear of the In I d and Rb I p markers; the row
+labels of Figure 2 moved to the right edge of each row, clear of the ρ = 0 and ρ = 1 lines; panel
+(b)'s title shortened because it was clipped at the panel edge; the legend and line labels no longer
+say "Seaton". No plotted value changed. `FIGURES.tsv` carries the new md5s.
 
 All three computed by `figures.py` from `check.py`'s `run_fits()`/`stats()`; no audited plate in
 `method/PROOF-FIGURES.tsv` shows Seaton's ratio (the only hit, figure 26.1, is the ν-cost plate).
