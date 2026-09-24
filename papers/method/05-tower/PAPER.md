@@ -2,7 +2,7 @@
 
 **An index of one-electron transitions extends coordinate by coordinate through six stages, every one of them a sublattice of its own box, and what each new coordinate costs is fixed by how many already-present coordinates appear inside a single one of its bounds: one coordinate per bound closes exactly, two inside one bound — the angular-momentum triangle — closes only as a monotone envelope, and the band |a − b| ≤ 1 is a sublattice for every constant, which is why the last step of the tower is carried exactly.**
 
-**Matthew Lach** · Independent Researcher · 21 September 2026
+**Matthew Lach⋆* · Independent Researcher · 21 September 2026
 
 ---
 
@@ -20,7 +20,7 @@ Three further structures are computed exactly. The constraint graph of the thirt
 
 **A coordinate's cost in this construction is the arity of its bounds, not the arity of the coordinate.**
 
-Λ is a finite set of integer tuples. Each of its defining constraints has the shape `x_i ≤ φ(x_j)` with φ non-decreasing, and a set cut out by constraints of that shape is a sublattice of the product of chains it lives in: coordinatewise maximum and minimum of two members are again members. That is elementary and it is where the construction begins. The question this paper answers is what happens when the construction is continued — when the angular-momentum labels a spectroscopist would attach to the same transition are adjoined as further coordinates.
+Λ is a finite set of integer tuples. Each of its defining constraints has the shape xᵢ ≤ φ(xⱼ) with φ non-decreasing, and a set cut out by constraints of that shape is a sublattice of the product of chains it lives in: coordinatewise maximum and minimum of two members are again members. That is elementary and it is where the construction begins. The question this paper answers is what happens when the construction is continued — when the angular-momentum labels a spectroscopist would attach to the same transition are adjoined as further coordinates.
 
 Five are adjoined, in the order the physics forces: the target's total spin, the seniority of the target subshell, the total angular momentum of the parent core, the resultant of that momentum with the target's orbital momentum, and the total angular momentum of the whole. Each extension is exact or it is not, and which of the two it is turns out to be decided by a purely combinatorial feature of the bound, not by whether the coordinate is a count or a coupling.
 
@@ -34,7 +34,7 @@ Five are adjoined, in the order the physics forces: the target's total spin, the
 
 4. **The cylinder.** At every stage Λ ∩ {q = t} is exactly a product A(t) × B(t), and Σ_t |A(t)|·|B(t)| = |Λ| with defect zero. The parent sections fall and the target sections rise at every stage, the section sequence is log-concave and peaks at t = 2 at every stage, and the mean transfer rises from 1.4631 to 1.9159 up the tower. Two departures are priced: writing the core–orbit bound with the cell's own subshell rather than the cap costs 15,150 cells of factorisation at the twelfth stage and 45,450 at the thirteenth, 21.4% and 22.8% of the product; imposing the exact triangle there instead leaves 22,275 cells and breaks closure, with a closure defect of 35,570 and explicit failing meets.
 
-5. **Rank, generators and chains.** The first stage is graded by the coordinate sum, with 18 rank values from 3 to 20, widest level 122 at rank 11, and |Λ| exactly eight times that level. Its seventeen join-irreducibles are exactly the seventeen cells min{x : x_c ≥ v}, one for each coordinate value above that coordinate's minimum; they carry twenty covering relations, and the number of down-sets of the resulting poset is 976, which is the Birkhoff correspondence verified rather than invoked. The number of maximal chains is **1,113,045,672**, computed by dynamic programming over the cover relations of the lattice itself, and every maximal chain has length 17.
+5. **Rank, generators and chains.** The first stage is graded by the coordinate sum, with 18 rank values from 3 to 20, widest level 122 at rank 11, and |Λ| exactly eight times that level. Its seventeen join-irreducibles are exactly the seventeen cells min{x : x_i ≥ v}, one for each coordinate value above that coordinate's minimum; they carry twenty covering relations, and the number of down-sets of the resulting poset is 976, which is the Birkhoff correspondence verified rather than invoked. The number of maximal chains is **1,113,045,672**, computed by dynamic programming over the cover relations of the lattice itself, and every maximal chain has length 17.
 
 6. **The bracket system.** For each of the five stage-to-stage projections, the set of ranks below a given rank above is a gap-free interval with both endpoints monotone, with maximum branching 4, 4, 6, 8 and 9. Composing the five brackets contains the direct bracket from the top stage to the first at every rank, with a slack of at most two rank units, and both routes cover the whole rank spectrum {3, …, 20} of the first stage.
 
@@ -57,86 +57,86 @@ Five are adjoined, in the order the physics forces: the target's total spin, the
 
 ## §1 · Definitions
 
-Throughout, `d ≥ 2` is finite and all coordinates take values in ℤ.
+Throughout, d ≥ 2 is finite and all coordinates take values in ℤ.
 
-**D1 (chain, box).** A **chain** is a finite non-empty totally ordered set of integers. For a finite non-empty set `X` of `d`-tuples, `A_i := { x_i : x ∈ X }` is its **alphabet** at coordinate `i`, and
+**D1 (chain, box).** A **chain** is a finite non-empty totally ordered set of integers. For a finite non-empty set X of d-tuples, Aᵢ := { xᵢ : x ∈ X } is its **alphabet** at coordinate i, and
 
-> `Box(X) := A_1 × A_2 × ⋯ × A_d`
+> Box(X) := ∏ᵢ Aᵢ,  the product of the alphabets over all d coordinates,
 
-is its **box**. Under coordinatewise `∧ = min` and `∨ = max`, `Box(X)` is a lattice, since a subset of a chain is closed under min and max of its own elements.
+is its **box**. Under coordinatewise ∧ = min and ∨ = max, Box(X) is a lattice, since a subset of a chain is closed under min and max of its own elements.
 
-**D2 (meet, join, sublattice).** For tuples `x`, `y`, write `x ∧ y := (min(x_i, y_i))_i` and `x ∨ y := (max(x_i, y_i))_i`. A set `S ⊆ Box(S)` is a **sublattice** if `x ∧ y ∈ S` and `x ∨ y ∈ S` for all `x, y ∈ S`. The paper says **closed** for this and for nothing else.
+**D2 (meet, join, sublattice).** For tuples x, y, write x ∧ y := (min(xᵢ, yᵢ))ᵢ and x ∨ y := (max(xᵢ, yᵢ))ᵢ. A set S ⊆ Box(S) is a **sublattice** if x ∧ y ∈ S and x ∨ y ∈ S for all x, y ∈ S. The paper says **closed** for this and for nothing else.
 
-**D3 (bound, parent, arity).** A **bound** on coordinate `i` is an inequality of the form `x_i ≤ β(x)` or `x_i ≥ β(x)` where β is a function of the remaining coordinates. The **parents of the bound** are the coordinates β actually depends on, and its **arity** is their number; a bound of arity 0 is a constant bound. The **parents of a coordinate** are the union of the parents of its bounds. The distinction between the arity of a bound and the number of parents of a coordinate is the subject of §4 and §5, and it is not a distinction without a difference: a coordinate can have two parents and every bound of arity 1.
+**D3 (bound, parent, arity).** A **bound** on coordinate i is an inequality of the form xᵢ ≤ β(x) or xᵢ ≥ β(x) where β is a function of the remaining coordinates. The **parents of the bound** are the coordinates β actually depends on, and its **arity** is their number; a bound of arity 0 is a constant bound. The **parents of a coordinate** are the union of the parents of its bounds. The distinction between the arity of a bound and the number of parents of a coordinate is the subject of §4 and §5, and it is not a distinction without a difference: a coordinate can have two parents and every bound of arity 1.
 
-**D4 (monotone).** A function `φ : A → ℤ` on a chain is **monotone** if `a ≤ a′` implies `φ(a) ≤ φ(a′)`. For a chain `A`, a monotone φ satisfies `φ(max(a, a′)) = max(φ(a), φ(a′))` and `φ(min(a, a′)) = min(φ(a), φ(a′))`: it is a homomorphism for both operations. This one-line observation is the engine of Theorem 1.
+**D4 (monotone).** A function φ : A → ℤ on a chain is **monotone** if a ≤ a′ implies φ(a) ≤ φ(a′). For a chain A, a monotone φ satisfies φ(max(a, a′)) = max(φ(a), φ(a′)) and φ(min(a, a′)) = min(φ(a), φ(a′)): it is a homomorphism for both operations. This one-line observation is the engine of Theorem 1.
 
-**D5 (extension by an axis).** Let `S` be a set of `d`-tuples and let `F` assign to each `x ∈ S` a finite non-empty set `F(x) ⊆ ℤ`. The **extension of S by F** is
+**D5 (extension by an axis).** Let S be a set of d-tuples and let F assign to each x ∈ S a finite non-empty set F(x) ⊆ ℤ. The **extension of S by F** is
 
-> `S ⋉ F := { (x_1, …, x_d, y) : x ∈ S, y ∈ F(x) }`,
+> S ⋉ F := { (x, y) : x ∈ S, y ∈ F(x) },
 
-a set of `(d+1)`-tuples. Every stage of the tower is the extension of the one below by one such `F`.
+a set of (d+1)-tuples. Every stage of the tower is the extension of the one below by one such F.
 
-**D6 (the staircase and the defect).** For `i ≠ j` and `a ∈ A_j` put
+**D6 (the staircase and the defect).** For i ≠ j and a ∈ Aⱼ put
 
-> `φ_ij(a) := max { y_i : y ∈ X, y_j ≤ a }`,  undefined when that set is empty,
+> φᵢⱼ(a) := max { yᵢ : y ∈ X, yⱼ ≤ a },  undefined when that set is empty,
 
 and
 
-> `ℛ(X) := { x ∈ Box(X) : x_i ≤ φ_ij(x_j) for all i ≠ j }`,  `E(X) := |ℛ(X)| − |X|`.
+> ℛ(X) := { x ∈ Box(X) : xᵢ ≤ φᵢⱼ(xⱼ) for all i ≠ j },  E(X) := |ℛ(X)| − |X|.
 
-`ℛ(X)` is what the pairwise extents of `X` admit: every cell of the box whose value at each coordinate is within reach of its value at each other. `E(X)` counts the cells the extents admit and `X` does not. `E(X) = 0` says the extents describe `X` exactly.
+ℛ(X) is what the pairwise extents of X admit: every cell of the box whose value at each coordinate is within reach of its value at each other. E(X) counts the cells the extents admit and X does not. E(X) = 0 says the extents describe X exactly.
 
-**D7 (rank).** For an integer tuple `x`, `r(x) := Σ_i x_i`. Where the set under study is graded by `r` — every cover raising `r` by 1 — `r` is a rank function in the order-theoretic sense; §7 verifies this for the first stage.
+**D7 (rank).** For an integer tuple x, r(x) := Σᵢ xᵢ. Where the set under study is graded by r — every cover raising r by 1 — r is a rank function in the order-theoretic sense; §7 verifies this for the first stage.
 
-**D8 (constraint graph).** The **constraint graph** of a construction has the coordinates as vertices and an edge `{i, j}` whenever some bound on one of them has the other among its parents. Its **cycle rank** is `|E| − |V| + c`, with `c` the number of connected components; its **girth** is the length of a shortest cycle, undefined when there is none; its **treewidth** is the least width of a tree decomposition — Robertson and Seymour (1986), CITED — computed here by exact search over elimination orderings.
+**D8 (constraint graph).** The **constraint graph⋆* of a construction has the coordinates as vertices and an edge {i, j} whenever some bound on one of them has the other among its parents. Its **cycle rank** is |E| − |V| + c, with c the number of connected components; its **girth⋆* is the length of a shortest cycle, undefined when there is none; its **treewidth⋆* is the least width of a tree decomposition — Robertson and Seymour (1986), CITED — computed here by exact search over elimination orderings.
 
 **D9 (the coordinates).** The thirteen coordinates, in the order in which they enter, with the shorthand used throughout:
 
 | # | symbol | what it labels |
 |---|---|---|
-| 1 | `n` | the parent configuration's principal quantum number |
-| 2 | `ℓ` | the parent subshell's orbital angular momentum |
-| 3 | `k` | the number of electrons occupying that parent subshell |
-| 4 | `q` | the number of electrons the transition transfers |
-| 5 | `e` | the target configuration's principal quantum number |
-| 6 | `f` | the target subshell's orbital angular momentum |
-| 7 | `g` | the number of electrons the transition places in the target subshell |
-| 8 | `2S` | twice the parent's total spin |
-| 9 | `2S′` | twice the target's total spin |
-| 10 | `v` | the seniority of the target subshell |
-| 11 | `2J_c` | twice the total angular momentum of the parent core |
-| 12 | `2K` | twice the resultant of the core's momentum with the target's orbital momentum |
-| 13 | `2J` | twice the total angular momentum |
+| 1 | n | the parent configuration's principal quantum number |
+| 2 | ℓ | the parent subshell's orbital angular momentum |
+| 3 | k | the number of electrons occupying that parent subshell |
+| 4 | q | the number of electrons the transition transfers |
+| 5 | e | the target configuration's principal quantum number |
+| 6 | f | the target subshell's orbital angular momentum |
+| 7 | g | the number of electrons the transition places in the target subshell |
+| 8 | 2S | twice the parent's total spin |
+| 9 | 2S′ | twice the target's total spin |
+| 10 | v | the seniority of the target subshell |
+| 11 | 2Jₚ | twice the total angular momentum of the parent core |
+| 12 | 2K | twice the resultant of the core's momentum with the target's orbital momentum |
+| 13 | 2J | twice the total angular momentum |
 
-All angular momenta are carried as twice their value so that every coordinate is an integer. **Λ_D** denotes the set of admissible `D`-tuples on the first `D` of these coordinates, and the six stages are `Λ_8 ⋉ … = Λ_9`, and so on to `Λ_13`.
+All angular momenta are carried as twice their value so that every coordinate is an integer. **Λₛ** denotes the set of admissible s-tuples on the first s of these coordinates, and the six stages are Λ₈ ⋉ … = Λ₉, and so on to Λ₁₃.
 
-**D10 (the bounds).** Λ_8 is the set of tuples `(n, ℓ, k, q, e, f, g, 2S)` of non-negative integers with
+**D10 (the bounds).** Λ_8 is the set of tuples (n, ℓ, k, q, e, f, g, 2S) of non-negative integers with
 
-> `1 ≤ n ≤ n_max`,  `0 ≤ ℓ ≤ min(ℓ_max, n − 1)`,  `1 ≤ k ≤ min(k_max, 4ℓ + 2)`,  `0 ≤ q ≤ k`,
-> `1 ≤ e ≤ e_max`,  `0 ≤ f ≤ min(f_max, e − 1)`,  `0 ≤ g ≤ min(4f + 2, q)`,  `0 ≤ 2S ≤ k`,
+> 1 ≤ n ≤ nₘₐₓ,  0 ≤ ℓ ≤ min(ℓₘₐₓ, n − 1),  1 ≤ k ≤ min(kₘₐₓ, 4ℓ + 2),  0 ≤ q ≤ k,
+> 1 ≤ e ≤ eₘₐₓ,  0 ≤ f ≤ min(fₘₐₓ, e − 1),  0 ≤ g ≤ min(4f + 2, q),  0 ≤ 2S ≤ k,
 
 and the five extensions are
 
-> `0 ≤ 2S′ ≤ g`,  `2S′ ≤ v ≤ g`,  `0 ≤ 2J_c ≤ φ̂(k)`,  `0 ≤ 2K ≤ 2J_c + 2f_max`,  `|2J − 2K| ≤ 1`, `2J ≥ 0`,
+> 0 ≤ 2S′ ≤ g,  2S′ ≤ v ≤ g,  0 ≤ 2Jₚ ≤ φ̂(k),  0 ≤ 2K ≤ 2Jₚ + 2fₘₐₓ,  |2J − 2K| ≤ 1, 2J ≥ 0,
 
-with `φ̂` the monotone envelope of D12 below. Two readings of the twelfth bound must be kept apart and the paper keeps them apart throughout: `f_max` is the **cap** on the sixth coordinate, a constant of the construction, and **not** the cell's own `f`. Written with the cap the bound has arity 1 — its only parent is `2J_c` — and the tower closes and factorises. Written with the cell's own `f` the same bound has arity 2, and §5 and §6 price both differences exactly.
+with φ̂ the monotone envelope of D12 below. Two readings of the twelfth bound must be kept apart and the paper keeps them apart throughout: fₘₐₓ is the **cap** on the sixth coordinate, a constant of the construction, and **not** the cell's own f. Written with the cap the bound has arity 1 — its only parent is 2Jₚ — and the tower closes and factorises. Written with the cell's own f the same bound has arity 2, and §5 and §6 price both differences exactly.
 
 **D11 (the caps).** Every cell count in this paper is at
 
-> `(n_max, e_max, ℓ_max, k_max, f_max) = (3, 3, 1, 3, 1)`,
+> (nₘₐₓ, eₘₐₓ, ℓₘₐₓ, kₘₐₓ, fₘₐₓ) = (3, 3, 1, 3, 1),
 
-so that `f_max = 1` and the twelfth bound reads `0 ≤ 2K ≤ 2J_c + 2`. Counts are cap-dependent; the theorems of §4 are not, and are proved for arbitrary bounds.
+so that fₘₐₓ = 1 and the twelfth bound reads 0 ≤ 2K ≤ 2Jₚ + 2. Counts are cap-dependent; the theorems of §4 are not, and are proved for arbitrary bounds.
 
-**D12 (terms, and the two envelopes read off them).** For a subshell of orbital angular momentum ℓ holding `k` equivalent electrons, `terms(ℓ^k)` is the multiset of pairs `(2S, 2L)` obtained by **microstate enumeration**: list every choice of `k` of the `2(2ℓ+1)` spin-orbitals, accumulate the resulting `(2M_L, 2M_S)`, and strip complete `(2S, 2L)` blocks from the largest `M_L` downward until nothing is left. Two functions are read off this multiset and used as bounds:
+**D12 (terms, and the two envelopes read off them).** For a subshell of orbital angular momentum ℓ holding k equivalent electrons, terms(ℓᵏ) is the multiset of pairs (2S, 2L) obtained by **microstate enumeration**: list every choice of k of the 2(2ℓ+1) spin-orbitals, accumulate the resulting (2Mₗ, 2Mₛ), twice the projections of the total orbital and the total spin angular momentum,, and strip complete (2S, 2L) blocks from the largest Mₗ downward until nothing is left. Two functions are read off this multiset and used as bounds:
 
-> `σ(ℓ, k) := max { 2S : (2S, 2L) ∈ terms(ℓ^k) }`,  `μ(ℓ, k) := max { 2S + 2L : (2S, 2L) ∈ terms(ℓ^k) }`,
+> σ(ℓ, k) := max { 2S : (2S, 2L) ∈ terms(ℓᵏ) },  μ(ℓ, k) := max { 2S + 2L : (2S, 2L) ∈ terms(ℓᵏ) },
 
-the largest spin and the largest total angular momentum a configuration of that shape can carry. `φ̂(k) := max { μ(ℓ, k) : ℓ ≤ ℓ_max }` is the **monotone envelope** of `μ` over the admitted parent shells; §3 computes it and §3 shows why an envelope rather than `μ` itself is what the construction can carry.
+the largest spin and the largest total angular momentum a configuration of that shape can carry. φ̂(k) := max { μ(ℓ, k) : ℓ ≤ ℓₘₐₓ } is the **monotone envelope** of μ over the admitted parent shells; §3 computes it and §3 shows why an envelope rather than μ itself is what the construction can carry.
 
-**D13 (envelope step, slot, seed).** A triple `(i, j, a)` with `i ≠ j` and `a ∈ A_j` is an **envelope step** of `X` when `φ_ij(a) ≠ φ_ij(a′)` for the predecessor `a′` of `a` in `A_j`, or when `a` is least in `A_j`. A cell `x ∈ X` **witnesses** the step `(i, j, a)` when `x_j ≤ a` and `x_i = φ_ij(a)`. A pair `(i, v)` with `v ∈ A_i` is a **slot** of `X`, and `x` **realises** it when `x_i = v`. A **seed** of `X` is a subset `G ⊆ X` with `ℛ(G) = X`, where `ℛ(G)` is computed as D6 says, in `Box(G)`; `seed(X)` is the least size of a seed. §9 shows that `G` is a seed exactly when it witnesses every step and realises every slot, and computes the least size at the first three stages.
+**D13 (envelope step, slot, seed).** A triple (i, j, a) with i ≠ j and a ∈ Aⱼ is an **envelope step** of X when φᵢⱼ(a) ≠ φᵢⱼ(a′) for the predecessor a′ of a in Aⱼ, or when a is least in Aⱼ. A cell x ∈ X **witnesses** the step (i, j, a) when xⱼ ≤ a and xᵢ = φᵢⱼ(a). A pair (i, v) with v ∈ Aᵢ is a **slot** of X, and x **realises** it when xᵢ = v. A **seed** of X is a subset G ⊆ X with ℛ(G) = X, where ℛ(G) is computed as D6 says, in Box(G); seed(X) is the least size of a seed. §9 shows that G is a seed exactly when it witnesses every step and realises every slot, and computes the least size at the first three stages.
 
-**D14 (the transfer decomposition).** Write `A(t) := { (n, ℓ, k, 2S, 2J_c, 2K, 2J) : x ∈ Λ, x_q = t }` for the **parent section** at transfer `t` and `B(t) := { (e, f, g, 2S′, v) : x ∈ Λ, x_q = t }` for the **target section**, each taken as a set of tuples and each restricted to the coordinates the stage carries. The construction **factorises over the transfer** when `Λ ∩ { q = t } = A(t) × B(t)` as sets, for every `t`.
+**D14 (the transfer decomposition).** Write A(t) := { (n, ℓ, k, 2S, 2Jₚ, 2K, 2J) : x ∈ Λ with q = t } for the **parent section** at transfer t and B(t) := { (e, f, g, 2S′, v) : x ∈ Λ with q = t } for the **target section**, each taken as a set of tuples and each restricted to the coordinates the stage carries. The construction **factorises over the transfer** when Λ ∩ { q = t } = A(t) × B(t) as sets, for every t.
 
 ---
 
@@ -144,40 +144,40 @@ the largest spin and the largest total angular momentum a configuration of that 
 
 Each stage is the extension of the one below by a single new coordinate, and the bounds are those of D10. The counts, computed by direct enumeration of the construction, are Table 1.
 
-**Table 1. The tower at the caps of D11.** *Box* is the product of the alphabet sizes of the stage. *Fill* is `|Λ_D| / |Box|`. *Pairs* is the number of unordered pairs of distinct cells; the first four were tested one by one, the last two decided by the ambient sweep instead.
+**Table 1. The tower at the caps of D11.** *Box* is the product of the alphabet sizes of the stage. *Fill⋆ is |Λₛ| / |Box|. *Pairs* is the number of unordered pairs of distinct cells; the first four were tested one by one, the last two decided by the ambient sweep instead.
 
 | stage | new coordinate | its bound | cells | box | fill | pairs |
 |---|---|---|---|---|---|---|
 | Λ₈ | — | — | 976 | 6,912 | 14.12% | 475,800 |
-| Λ₉ | `2S′` | `0 ≤ 2S′ ≤ g` | 1,654 | 27,648 | 5.98% | 1,367,031 |
-| Λ₁₀ | `v` | `2S′ ≤ v ≤ g` | 2,535 | 110,592 | 2.29% | 3,211,845 |
-| Λ₁₁ | `2J_c` | `0 ≤ 2J_c ≤ φ̂(k)` | 13,585 | 663,552 | 2.05% | 92,269,320 |
-| Λ₁₂ | `2K` | `0 ≤ 2K ≤ 2J_c + 2f_max` | 70,905 | 5,308,416 | 1.34% | 2,513,724,060 |
-| Λ₁₃ | `2J` | `\|2J − 2K\| ≤ 1` | 199,130 | 47,775,744 | 0.42% | 19,826,278,885 |
+| Λ₉ | 2S′ | 0 ≤ 2S′ ≤ g | 1,654 | 27,648 | 5.98% | 1,367,031 |
+| Λ₁₀ | v | 2S′ ≤ v ≤ g | 2,535 | 110,592 | 2.29% | 3,211,845 |
+| Λ₁₁ | 2Jₚ | 0 ≤ 2Jₚ ≤ φ̂(k) | 13,585 | 663,552 | 2.05% | 92,269,320 |
+| Λ₁₂ | 2K | 0 ≤ 2K ≤ 2Jₚ + 2fₘₐₓ | 70,905 | 5,308,416 | 1.34% | 2,513,724,060 |
+| Λ₁₃ | 2J | |2J − 2K| ≤ 1 | 199,130 | 47,775,744 | 0.42% | 19,826,278,885 |
 
 ![Figure 1](figures/stages.png)
 
 **Figure 1.** Left: the cells of each stage, on a logarithmic axis. Right: the fill, the fraction of the ambient box the stage occupies, on a logarithmic axis. The object grows by a factor of 204 across the tower and the box it is written in grows by a factor of 6,912, so the fill falls strictly at every step, 14.12% to 0.42%.
 
-**Proposition 1 (projection).** For `D = 8, …, 12`, deleting the last coordinate of `Λ_{D+1}` gives exactly `Λ_D`, as a set.
+**Proposition 1 (projection).** For s = 8, …, 12, deleting the last coordinate of Λₛ₊₁ gives exactly Λₛ, as a set.
 
-*Proof.* `Λ_{D+1} = Λ_D ⋉ F` for the `F` of D10, and every `F(x)` is a non-empty set of integers: `[0, g]`, `[2S′, g]`, `[0, φ̂(k)]`, `[0, 2J_c + 2f_max]` and `[max(0, 2K − 1), 2K + 1]` are each non-empty because in every case the lower limit is at most the upper — `2S′ ≤ g` holds in `Λ_9` by its own bound, and the other four have lower limit 0 or `2K − 1 ≤ 2K + 1`. The projection of an extension by a set-valued map with non-empty values is the set that was extended. ∎ **PROVED**, and **EXHAUSTIVE**: verified as an equality of sets at all five projections.
+*Proof.* Λₛ₊₁ = Λₛ ⋉ F for the F of D10, and every F(x) is a non-empty set of integers: [0, g], [2S′, g], [0, φ̂(k)], [0, 2Jₚ + 2fₘₐₓ] and [max(0, 2K − 1), 2K + 1] are each non-empty because in every case the lower limit is at most the upper — 2S′ ≤ g holds in Λ₉ by its own bound, and the other four have lower limit 0 or 2K − 1 ≤ 2K + 1. The projection of an extension by a set-valued map with non-empty values is the set that was extended. ∎ **PROVED**, and **EXHAUSTIVE**: verified as an equality of sets at all five projections.
 
-**Proposition 2 (closure of every stage).** Every `Λ_D`, `D = 8, …, 13`, is a sublattice of `Box(Λ_D)`, and `E(Λ_D) = 0`.
+**Proposition 2 (closure of every stage).** Every Λₛ, s = 8, …, 13, is a sublattice of Box(Λₛ), and E(Λₛ) = 0.
 
-*Proof.* Λ₈ first. Each of its constraints is either a constant bound or has the form `x_i ≤ φ(x_j)` with φ monotone: `ℓ ≤ n − 1`, `k ≤ 4ℓ + 2`, `q ≤ k`, `2S ≤ k`, `f ≤ e − 1`, `g ≤ 4f + 2`, `g ≤ q`, together with constant caps. Let `x, y ∈ Λ_8` and fix such a constraint `x_i ≤ φ(x_j)`.
+*Proof.* Λ₈ first. Each of its constraints is either a constant bound or has the form xᵢ ≤ φ(xⱼ) with φ monotone: ℓ ≤ n − 1, k ≤ 4ℓ + 2, q ≤ k, 2S ≤ k, f ≤ e − 1, g ≤ 4f + 2, g ≤ q, together with constant caps. Let x, y ∈ Λ₈ and fix such a constraint xᵢ ≤ φ(xⱼ).
 
-*Join.* Put `z = x ∨ y` and suppose `z_i = x_i` (otherwise exchange `x` and `y`). Then `z_i = x_i ≤ φ(x_j) ≤ φ(max(x_j, y_j)) = φ(z_j)`, the middle step by monotonicity.
+*Join.* Put z = x ∨ y and suppose zᵢ = xᵢ (otherwise exchange x and y). Then zᵢ = xᵢ ≤ φ(xⱼ) ≤ φ(max(xⱼ, yⱼ)) = φ(zⱼ), the middle step by monotonicity.
 
-*Meet.* Put `w = x ∧ y` and suppose `w_j = x_j` (otherwise exchange `x` and `y`; note the case split is now on `j`, not on `i`). Then `w_i = min(x_i, y_i) ≤ x_i ≤ φ(x_j) = φ(w_j)`.
+*Meet.* Put w = x ∧ y and suppose wⱼ = xⱼ (otherwise exchange x and y; note the case split is now on j, not on i). Then wᵢ = min(xᵢ, yᵢ) ≤ xᵢ ≤ φ(xⱼ) = φ(wⱼ).
 
-A constant bound `c ≤ x_i ≤ C` is preserved by both operations because `min` and `max` of two values in an interval lie in that interval. So Λ₈ is a sublattice.
+A constant bound c ≤ xᵢ ≤ C is preserved by both operations because min and max of two values in an interval lie in that interval. So Λ₈ is a sublattice.
 
-Each of the five extensions has both of its bounds monotone in a single coordinate — `0` and `g` for `2S′`; `2S′` and `g` for `v`; `0` and `φ̂(k)` for `2J_c`, `φ̂` monotone by D12; `0` and `2J_c + 2f_max` for `2K`, with `f_max` constant; `2K − 1` and `2K + 1` for `2J`, together with the constant floor 0. Theorem 1 of §4 then carries the sublattice property up each step, and the tower closes by induction. Finally `E(Λ_D) = 0`: `ℛ(Λ_D) ⊇ Λ_D` always, and a sweep of the whole ambient box found no further cell at any stage. ∎ **PROVED**; **EXHAUSTIVE** three ways — the staircase swept over 6,912, 27,648, 110,592, 663,552, 5,308,416 and 47,775,744 ambient cells, returning each stage unchanged; every unordered pair tested at the first four stages, 475,800 + 1,367,031 + 3,211,845 + 92,269,320 = 97,323,996 pairs, zero failing meets and zero failing joins; and the counts of Table 1 reproduced from the construction.
+Each of the five extensions has both of its bounds monotone in a single coordinate — 0 and g for 2S′; 2S′ and g for v; 0 and φ̂(k) for 2Jₚ, φ̂ monotone by D12; 0 and 2Jₚ + 2fₘₐₓ for 2K, with fₘₐₓ constant; 2K − 1 and 2K + 1 for 2J, together with the constant floor 0. Theorem 1 of §4 then carries the sublattice property up each step, and the tower closes by induction. Finally E(Λₛ) = 0: ℛ(Λₛ) ⊇ Λₛ always, and a sweep of the whole ambient box found no further cell at any stage. ∎ **PROVED**; **EXHAUSTIVE** three ways — the staircase swept over 6,912, 27,648, 110,592, 663,552, 5,308,416 and 47,775,744 ambient cells, returning each stage unchanged; every unordered pair tested at the first four stages, 475,800 + 1,367,031 + 3,211,845 + 92,269,320 = 97,323,996 pairs, zero failing meets and zero failing joins; and the counts of Table 1 reproduced from the construction.
 
-> **Remark.** The two exhaustive routes are not the same check. The pair test decides the sublattice property directly and costs `O(|Λ|²)`, which is 19.8 billion pairs at the top stage. The sweep decides `ℛ(Λ) = Λ`, which costs `O(|Box|)`, and Lemma 1 of §4 shows that this implies the sublattice property. At the top stage the sweep is 47.8 million cells against 19.8 billion pairs, a factor of 415, which is why the upper stages are decided that way.
+> **Remark.** The two exhaustive routes are not the same check. The pair test decides the sublattice property directly and costs O(|Λ|²), which is 19.8 billion pairs at the top stage. The sweep decides ℛ(Λ) = Λ, which costs O(|Box|), and Lemma 1 of §4 shows that this implies the sublattice property. At the top stage the sweep is 47.8 million cells against 19.8 billion pairs, a factor of 415, which is why the upper stages are decided that way.
 
-**Proposition 3 (strict fill decay).** The fill `|Λ_D| / |Box(Λ_D)|` is strictly decreasing in `D` over the six stages: 14.12%, 5.98%, 2.29%, 2.05%, 1.34%, 0.42%. **EXHAUSTIVE** at these caps.
+**Proposition 3 (strict fill decay).** The fill |Λₛ| / |Box(Λₛ)| is strictly decreasing in s over the six stages: 14.12%, 5.98%, 2.29%, 2.05%, 1.34%, 0.42%. **EXHAUSTIVE** at these caps.
 
 The fill decay has a reason that does not depend on the caps. Adjoining a coordinate multiplies the box by the size of the new alphabet and multiplies the object by the mean size of the new fibre. A bounded coordinate has mean fibre strictly below its alphabet size unless every cell below it admits every value — that is, unless the bound is vacuous. So a coordinate that constrains anything lowers the fill. This is a statement about the construction, not a measurement, and it says nothing about the limit of a sequence continued past thirteen.
 
@@ -187,30 +187,30 @@ The fill decay has a reason that does not depend on the caps. Adjoining a coordi
 
 The last three coordinates are angular momenta, and their exact content is not a matter of choice: it is fixed by the theory of equivalent electrons. This section computes that content, and shows why it cannot be carried as it stands.
 
-**The terms of a subshell.** `terms(ℓ^k)` is computed by microstate enumeration (D12). The construction is standard and is CITED to Condon and Shortley (1935), ch. VII, and Cowan (1981), ch. 4; the exclusion that makes the spin-orbitals distinct is Pauli's (1925), and the vector-coupling rule that makes `2J` run from `|2L − 2S|` to `2L + 2S` in steps of two is Wigner's (1931) and Racah's (1942), all CITED. It is reproduced here because every bound below is read off its output and the paper recomputes what it prints. The first three cases of the p shell come out as
+**The terms of a subshell.** terms(ℓᵏ) is computed by microstate enumeration (D12). The construction is standard and is CITED to Condon and Shortley (1935), ch. VII, and Cowan (1981), ch. 4; the exclusion that makes the spin-orbitals distinct is Pauli's (1925), and the vector-coupling rule that makes 2J run from |2L − 2S| to 2L + 2S in steps of two is Wigner's (1931) and Racah's (1942), all CITED. It is reproduced here because every bound below is read off its output and the paper recomputes what it prints. The first three cases of the p shell come out as
 
-> `terms(p¹) = { (1, 2) }`,  `terms(p²) = { (0, 0), (0, 4), (2, 2) }`,  `terms(p³) = { (1, 2), (1, 4), (3, 0) }`,
+> terms(p¹) = { (1, 2) },  terms(p²) = { (0, 0), (0, 4), (2, 2) },  terms(p³) = { (1, 2), (1, 4), (3, 0) },
 
-which are `²P`; `¹S`, `¹D`, `³P`; and `²P`, `²D`, `⁴S` — the textbook anchors, EXHAUSTIVE over the enumeration.
+which are ²P; ¹S, ¹D, ³P; and ²P, ²D, ⁴S — the textbook anchors, EXHAUSTIVE over the enumeration.
 
-**Proposition 4 (particle–hole symmetry).** `terms(p^k) = terms(p^{6−k})` for `k = 1, 2`. **EXHAUSTIVE.** The multiset of terms of a subshell and of its complement agree, which is the complementary-shell theorem of Racah (1943), CITED; it is verified here on the shells the caps admit rather than assumed.
+**Proposition 4 (particle–hole symmetry).** terms(pᵏ) = terms(p⁶⁻ᵏ) for k = 1, 2. **EXHAUSTIVE.** The multiset of terms of a subshell and of its complement agree, which is the complementary-shell theorem of Racah (1943), CITED; it is verified here on the shells the caps admit rather than assumed.
 
-**Proposition 5 (the two realised maxima are not monotone).** With `σ` and `μ` as in D12,
+**Proposition 5 (the two realised maxima are not monotone).** With σ and μ as in D12,
 
-| `k` | 1 | 2 | 3 | 4 | 5 | 6 |
+| k | 1 | 2 | 3 | 4 | 5 | 6 |
 |---|---|---|---|---|---|---|
-| `σ(1, k)` = max 2S of `p^k` | 1 | 2 | 3 | 2 | 1 | 0 |
-| `μ(1, k)` = max 2J of `p^k` | 3 | 4 | 5 | 4 | 3 | 0 |
+| σ(1, k) = max 2S of pᵏ | 1 | 2 | 3 | 2 | 1 | 0 |
+| μ(1, k) = max 2J of pᵏ | 3 | 4 | 5 | 4 | 3 | 0 |
 
-and `σ(0, 1) = 1`, `σ(0, 2) = 0`, `μ(0, 1) = 1`, `μ(0, 2) = 0`. Both rows rise to half filling and fall to zero at closure. **EXHAUSTIVE**, over the eight subshells the caps admit.
+and σ(0, 1) = 1, σ(0, 2) = 0, μ(0, 1) = 1, μ(0, 2) = 0. Both rows rise to half filling and fall to zero at closure. **EXHAUSTIVE**, over the eight subshells the caps admit.
 
-Neither row is monotone, and that is the obstruction. A bound `x_i ≤ β(x_j)` preserves the sublattice property when β is monotone (Theorem 1) and can fail when it is not (§4, the negative control). So the exact ceiling cannot be carried as a bound. What can be carried is its monotone envelope, and Theorem 2 says which one.
+Neither row is monotone, and that is the obstruction. A bound xᵢ ≤ β(xⱼ) preserves the sublattice property when β is monotone (Theorem 1) and can fail when it is not (§4, the negative control). So the exact ceiling cannot be carried as a bound. What can be carried is its monotone envelope, and Theorem 2 says which one.
 
-**Proposition 6 (the envelope of the realised maximum).** The running maximum of `μ(1, ·)` is 3, 4, 5, 5, 5, 5. It dominates `μ(1, ·)` everywhere and strictly exceeds it at `k = 4, 5, 6`. **EXHAUSTIVE.** At the caps of D11 only `k ≤ 3` occurs, where the realised maximum is already monotone; there `φ̂ = {1 ↦ 3, 2 ↦ 4, 3 ↦ 5}` coincides with the realised maximum exactly. **That coincidence is a property of the caps and not of the bound**, and Proposition 6 is the demonstration: extend the caps by one electron of occupancy and the envelope separates from the extent.
+**Proposition 6 (the envelope of the realised maximum).** The running maximum of μ(1, ·) is 3, 4, 5, 5, 5, 5. It dominates μ(1, ·) everywhere and strictly exceeds it at k = 4, 5, 6. **EXHAUSTIVE.** At the caps of D11 only k ≤ 3 occurs, where the realised maximum is already monotone; there φ̂ = {1 ↦ 3, 2 ↦ 4, 3 ↦ 5} coincides with the realised maximum exactly. **That coincidence is a property of the caps and not of the bound**, and Proposition 6 is the demonstration: extend the caps by one electron of occupancy and the envelope separates from the extent.
 
-**The spin ceiling, in closed form.** The exact spin ceiling of a subshell holding `g` electrons of orbital angular momentum `f` is `min(g, 4f + 2 − g)` — rising while the shell fills, falling once past half — and this reproduces `σ(f, g)` at every `(f, g)` the caps admit. **EXHAUSTIVE.** It is symmetric about half filling, hence non-monotone, hence not carriable; the construction carries `2S′ ≤ g`, which dominates it since `min(g, 4f+2−g) ≤ g`.
+**The spin ceiling, in closed form.** The exact spin ceiling of a subshell holding g electrons of orbital angular momentum f is min(g, 4f + 2 − g) — rising while the shell fills, falling once past half — and this reproduces σ(f, g) at every (f, g) the caps admit. **EXHAUSTIVE.** It is symmetric about half filling, hence non-monotone, hence not carriable; the construction carries 2S′ ≤ g, which dominates it since min(g, 4f+2−g) ≤ g.
 
-**The core–orbit range.** At the caps, `f_max = 1`, so the twelfth bound reads `2K ≤ 2J_c + 2`, and over the construction `max { 2K : 2J_c = j } = j + 2` for every `j = 0, …, 5`: the bound is attained and is not slack as a range. **EXHAUSTIVE.**
+**The core–orbit range.** At the caps, fₘₐₓ = 1, so the twelfth bound reads 2K ≤ 2Jₚ + 2, and over the construction max { 2K : 2Jₚ = j } = j + 2 for every j = 0, …, 5: the bound is attained and is not slack as a range. **EXHAUSTIVE.**
 
 ### §3.1 · What the envelope costs, axis by axis
 
@@ -220,16 +220,16 @@ The envelope admits cells the exact physics does not. That gap is a count, and i
 
 | axis | coordinate | admissible fibre | exact fibre | admitted | realised | realised share |
 |---|---|---|---|---|---|---|
-| 9 | `2S′` | `[0, g]` | the `2S` values of `terms(f^g)` | 1,654 | 1,054 | 63.7% |
-| 10 | `v` | `[2S′, g]` | the occupancies at which a term of spin `2S′` first appears | 2,535 | 1,132 | 44.7% |
-| 11 | `2J_c` | `[0, φ̂(k)]` | the `2J` of the terms of `ℓ^k` carrying the cell's own `2S` | 13,585 | 2,310 | 17.0% |
-| 11 (wider) | `2J_c` | `[0, φ̂(k)]` | `[0, μ(ℓ, k)]`, the largest `2J` any term of `ℓ^k` carries | 13,585 | 10,585 | 77.9% |
-| 12 | `2K` | `[0, 2J_c + 2f_max]` | `\|2J_c − 2f\| ≤ 2K ≤ 2J_c + 2f`, `2K ≡ 2J_c` (mod 2) | 70,905 | 22,275 | 31.4% |
-| 13 | `2J` | `[max(0, 2K−1), 2K+1]` | `2J = 2K ± 1` | 199,130 | 128,225 | 64.4% |
+| 9 | 2S′ | [0, g] | the 2S values of terms(fᵍ) | 1,654 | 1,054 | 63.7% |
+| 10 | v | [2S′, g] | the occupancies at which a term of spin 2S′ first appears | 2,535 | 1,132 | 44.7% |
+| 11 | 2Jₚ | [0, φ̂(k)] | the 2J of the terms of ℓᵏ carrying the cell's own 2S | 13,585 | 2,310 | 17.0% |
+| 11 (wider) | 2Jₚ | [0, φ̂(k)] | [0, μ(ℓ, k)], the largest 2J any term of ℓᵏ carries | 13,585 | 10,585 | 77.9% |
+| 12 | 2K | [0, 2Jₚ + 2fₘₐₓ] | |2Jₚ − 2f| ≤ 2K ≤ 2Jₚ + 2f, 2K ≡ 2Jₚ (mod 2) | 70,905 | 22,275 | 31.4% |
+| 13 | 2J | [max(0, 2K−1), 2K+1] | 2J = 2K ± 1 | 199,130 | 128,225 | 64.4% |
 
-Every entry is EXHAUSTIVE over the stage below, and the exact fibre is never larger than the admissible one at any axis — which it cannot be, since Theorem 2 makes the admissible fibre contain the exact one by construction. Two rows are given for the eleventh axis because two different sets deserve the name *exact* there: the set of `2J` the core can carry given the cell's own parent spin, and the set it can carry given only the parent configuration. The first is the stricter and gives 17.0%; the second is the one that matches the bound's own shape — an interval `[0, μ(ℓ, k)]` — and gives 77.9%. The paper prints both and prefers neither.
+Every entry is EXHAUSTIVE over the stage below, and the exact fibre is never larger than the admissible one at any axis — which it cannot be, since Theorem 2 makes the admissible fibre contain the exact one by construction. Two rows are given for the eleventh axis because two different sets deserve the name *exact* there: the set of 2J the core can carry given the cell's own parent spin, and the set it can carry given only the parent configuration. The first is the stricter and gives 17.0%; the second is the one that matches the bound's own shape — an interval [0, μ(ℓ, k)] — and gives 77.9%. The paper prints both and prefers neither.
 
-The thirteenth row is the one to read against the thesis. Its exact fibre is a doublet, `2J = 2K ± 1`, everywhere except at `2K = 0` where it is a singleton — 13,585 cells, one for each cell of the eleventh stage. The admissible fibre is a triplet, `{2K−1, 2K, 2K+1}` intersected with the non-negative integers. So even at the axis whose bound is carried exactly, the realised share is 64.4% and not 100%: the loss is not this axis's, it is inherited through `2K`, whose own range is already an envelope.
+The thirteenth row is the one to read against the thesis. Its exact fibre is a doublet, 2J = 2K ± 1, everywhere except at 2K = 0 where it is a singleton — 13,585 cells, one for each cell of the eleventh stage. The admissible fibre is a triplet, {2K−1, 2K, 2K+1} intersected with the non-negative integers. So even at the axis whose bound is carried exactly, the realised share is 64.4% and not 100%: the loss is not this axis's, it is inherited through 2K, whose own range is already an envelope.
 
 ---
 
@@ -237,115 +237,115 @@ The thirteenth row is the one to read against the thesis. Its exact fibre is a d
 
 Everything in this section is stated for arbitrary chains, arbitrary bounds and arbitrary caps, and proved. Each is then machine-checked over the **unbounded integers**, so that the machine check is not a check at one setting of the caps: the solver is asked for a counterexample among all integer values of every variable and returns `unsat`. Two guards run first and the obligations are not reported unless both pass; §10 states them.
 
-**Lemma 1 (the staircase produces a sublattice).** For any finite non-empty `X`, `ℛ(X)` is a sublattice of `Box(X)` containing `X`, and `φ_ij` is monotone.
+**Lemma 1 (the staircase produces a sublattice).** For any finite non-empty X, ℛ(X) is a sublattice of Box(X) containing X, and φᵢⱼ is monotone.
 
-*Proof.* Monotonicity of `φ_ij` first: if `a ≤ a′` then `{y ∈ X : y_j ≤ a} ⊆ {y ∈ X : y_j ≤ a′}`, so the maximum over the second set is at least the maximum over the first. Containment: for `x ∈ X` and `i ≠ j`, `x` itself is a member of `{y ∈ X : y_j ≤ x_j}`, so `φ_ij(x_j) ≥ x_i`; and `x ∈ Box(X)` by D1. Now take `x, y ∈ ℛ(X)` and fix `i ≠ j`.
+*Proof.* Monotonicity of φᵢⱼ first: if a ≤ a′ then {y ∈ X : yⱼ ≤ a} ⊆ {y ∈ X : yⱼ ≤ a′}, so the maximum over the second set is at least the maximum over the first. Containment: for x ∈ X and i ≠ j, x itself is a member of {y ∈ X : yⱼ ≤ xⱼ}, so φᵢⱼ(xⱼ) ≥ xᵢ; and x ∈ Box(X) by D1. Now take x, y ∈ ℛ(X) and fix i ≠ j.
 
-*Join.* Let `z = x ∨ y` and suppose `z_i = x_i`. Then `z_i = x_i ≤ φ_ij(x_j) ≤ φ_ij(max(x_j, y_j)) = φ_ij(z_j)` by monotonicity.
+*Join.* Let z = x ∨ y and suppose zᵢ = xᵢ. Then zᵢ = xᵢ ≤ φᵢⱼ(xⱼ) ≤ φᵢⱼ(max(xⱼ, yⱼ)) = φᵢⱼ(zⱼ) by monotonicity.
 
-*Meet.* Let `w = x ∧ y`. Suppose `w_i = x_i`, so `x_i ≤ y_i`. If `w_j = x_j` then `w_i = x_i ≤ φ_ij(x_j) = φ_ij(w_j)`. If `w_j = y_j` then `w_i = x_i ≤ y_i ≤ φ_ij(y_j) = φ_ij(w_j)`. The case `w_i = y_i` is symmetric.
+*Meet.* Let w = x ∧ y. Suppose wᵢ = xᵢ, so xᵢ ≤ yᵢ. If wⱼ = xⱼ then wᵢ = xᵢ ≤ φᵢⱼ(xⱼ) = φᵢⱼ(wⱼ). If wⱼ = yⱼ then wᵢ = xᵢ ≤ yᵢ ≤ φᵢⱼ(yⱼ) = φᵢⱼ(wⱼ). The case wᵢ = yᵢ is symmetric.
 
-Both operations stay inside `Box(X)` because `min` and `max` of two members of a chain are members of it. ∎ **PROVED.**
+Both operations stay inside Box(X) because min and max of two members of a chain are members of it. ∎ **PROVED.**
 
-> **Corollary.** If `ℛ(X) = X` then `X` is a sublattice of `Box(X)`, and `E(X) = 0`. This is why the upper stages of §2 are decided by a sweep of the ambient box rather than by testing pairs: at the thirteenth stage the sweep is 47.8 million cells and the pair test 19.8 billion. The converse is not claimed and is not used.
+> **Corollary.** If ℛ(X) = X then X is a sublattice of Box(X), and E(X) = 0. This is why the upper stages of §2 are decided by a sweep of the ambient box rather than by testing pairs: at the thirteenth stage the sweep is 47.8 million cells and the pair test 19.8 billion. The converse is not claimed and is not used.
 
-**Theorem 1 (a coordinate whose every bound has arity 1).** Let `S` be a sublattice of `Box(S)` on coordinates `1, …, d`. Let `j` and `j′` be coordinate indices, not necessarily distinct, and let
+**Theorem 1 (a coordinate whose every bound has arity 1).** Let S be a sublattice of Box(S) on coordinates 1, …, d. Let j and j′ be coordinate indices, not necessarily distinct, and let
 
-> `lo : A_j → ℤ`  and  `hi : A_{j′} → ℤ`
+> lo : Aⱼ → ℤ  and  hi : Aⱼ′ → ℤ
 
-be monotone with `lo(x_j) ≤ hi(x_{j′})` for every `x ∈ S`. Then
+be monotone with lo(xⱼ) ≤ hi(xⱼ′) for every x ∈ S. Then
 
-> `S⁺ := { (x, y) : x ∈ S, lo(x_j) ≤ y ≤ hi(x_{j′}) }`
+> S⁺ := { (x, y) : x ∈ S, lo(xⱼ) ≤ y ≤ hi(xⱼ′) }
 
-is a sublattice of `Box(S⁺)`.
+is a sublattice of Box(S⁺).
 
-*Proof.* `S⁺` is non-empty because each fibre is non-empty. Take `(x, y)` and `(x′, y′)` in `S⁺`.
+*Proof.* S⁺ is non-empty because each fibre is non-empty. Take (x, y) and (u, w) in S⁺.
 
-*Join.* Its join is `(x ∨ x′, max(y, y′))`, and `x ∨ x′ ∈ S` because `S` is a sublattice. For the upper bound, `y ≤ hi(x_{j′})` and `y′ ≤ hi(x′_{j′})`, so
+*Join.* Its join is (x ∨ u, max(y, w)), and x ∨ u ∈ S because S is a sublattice. For the upper bound, y ≤ hi(xⱼ′) and w ≤ hi(uⱼ′), so
 
-> `max(y, y′) ≤ max( hi(x_{j′}), hi(x′_{j′}) ) = hi( max(x_{j′}, x′_{j′}) ) = hi( (x ∨ x′)_{j′} )`,
+> max(y, w) ≤ max( hi(xⱼ′), hi(uⱼ′) ) = hi( max(xⱼ′, uⱼ′) ) = hi( (x ∨ u)ⱼ′ ),
 
-the middle equality being D4 applied to the monotone `hi` on the chain `A_{j′}`. For the lower bound, D4 applied to `lo` gives
+the middle equality being D4 applied to the monotone hi on the chain Aⱼ′. For the lower bound, D4 applied to lo gives
 
-> `lo( (x ∨ x′)_j ) = lo( max(x_j, x′_j) ) = max( lo(x_j), lo(x′_j) ) ≤ max(y, y′)`,
+> lo( (x ∨ u)ⱼ ) = lo( max(xⱼ, uⱼ) ) = max( lo(xⱼ), lo(uⱼ) ) ≤ max(y, w),
 
-since `lo(x_j) ≤ y` and `lo(x′_j) ≤ y′`.
+since lo(xⱼ) ≤ y and lo(uⱼ) ≤ w.
 
-*Meet.* Its meet is `(x ∧ x′, min(y, y′))` with `x ∧ x′ ∈ S`, and the two displays run the other way: `min(y, y′) ≥ min(lo(x_j), lo(x′_j)) = lo(min(x_j, x′_j)) = lo((x ∧ x′)_j)` and `min(y, y′) ≤ min(hi(x_{j′}), hi(x′_{j′})) = hi((x ∧ x′)_{j′})`.
+*Meet.* Its meet is (x ∧ u, min(y, w)) with x ∧ u ∈ S, and the two displays run the other way: min(y, w) ≥ min(lo(xⱼ), lo(uⱼ)) = lo(min(xⱼ, uⱼ)) = lo((x ∧ u)ⱼ) and min(y, w) ≤ min(hi(xⱼ′), hi(uⱼ′)) = hi((x ∧ u)ⱼ′).
 
-So both lie in `S⁺`. ∎ **PROVED**, and **MACHINE-CHECKED** twice: over the unbounded integers, with the monotonicity hypothesis stated at the two points where it is used and no bound on any variable; and in finite-box form over every one of the `2⁹` subsets of a `3 × 3` box that is closed, against every monotone `h` with values in `{−1, 0, 1, 2}`.
+So both lie in S⁺. ∎ **PROVED**, and **MACHINE-CHECKED** twice: over the unbounded integers, with the monotonicity hypothesis stated at the two points where it is used and no bound on any variable; and in finite-box form over every one of the 2⁹ subsets of a 3 × 3 box that is closed, against every monotone h with values in {−1, 0, 1, 2}.
 
-> **Where the hypothesis bites.** Monotonicity is not decoration. Drop it and the conclusion is false: the negative control asks the solver whether `max(y, y′) ≤ h(x)` at the larger `x` follows from `y ≤ h(x)`, `y′ ≤ h(x′)` alone, and the solver returns a model. This is the reason §3's realised ceilings, which rise and then fall, cannot be carried as bounds.
+> **Where the hypothesis bites.** Monotonicity is not decoration. Drop it and the conclusion is false: the negative control asks the solver whether max(y, y′) ≤ h(x) at the larger x follows from y ≤ h(x), y′ ≤ h(x′) alone, and the solver returns a model. This is the reason §3's realised ceilings, which rise and then fall, cannot be carried as bounds.
 
-> **Two parents, one per bound.** In Theorem 1 `j` and `j′` may differ. The tenth coordinate is exactly that case: `2S′ ≤ v ≤ g` has two parents and each of its two bounds has arity 1, so the theorem applies and the stage closes. What the second parent costs is a cycle in the constraint graph (§5) and nothing else. The cost that closure notices is a single bound of arity 2, and that is Theorem 3.
+> **Two parents, one per bound.** In Theorem 1 j and j′ may differ. The tenth coordinate is exactly that case: 2S′ ≤ v ≤ g has two parents and each of its two bounds has arity 1, so the theorem applies and the stage closes. What the second parent costs is a cycle in the constraint graph (§5) and nothing else. The cost that closure notices is a single bound of arity 2, and that is Theorem 3.
 
-**Theorem 2 (the monotone envelope, existence and uniqueness).** Let `S` be a sublattice, `j` a coordinate, and `F` a map assigning to each `a ∈ A_j` a finite non-empty set `F(a) ⊆ ℤ`; write `S ⋉ F := { (x, y) : x ∈ S, y ∈ F(x_j) }`. Let `𝔈` be the family of all sets `S ⋉ [l, h] := { (x, y) : x ∈ S, l(x_j) ≤ y ≤ h(x_j) }` with `l, h : A_j → ℤ` monotone, that contain `S ⋉ F`. Then
+**Theorem 2 (the monotone envelope, existence and uniqueness).** Let S be a sublattice, j a coordinate, and F a map assigning to each a ∈ Aⱼ a finite non-empty set F(a) ⊆ ℤ; write S ⋉ F := { (x, y) : x ∈ S, y ∈ F(xⱼ) }. Let 𝔈 be the family of all sets S ⋉ [l, h] := { (x, y) : x ∈ S, l(xⱼ) ≤ y ≤ h(xⱼ) } with l, h : Aⱼ → ℤ monotone, that contain S ⋉ F. Then
 
-> (i) `𝔈` is non-empty and every member of it is a sublattice;
-> (ii) `𝔈` has a least member under inclusion, namely `S ⋉ [l*, h*]` with
+> (i) 𝔈 is non-empty and every member of it is a sublattice;
+> (ii) 𝔈 has a least member under inclusion, namely S ⋉ [l⋆, h⋆] with
 >
-> `l*(a) := min { min F(a′) : a′ ∈ A_j, a′ ≥ a }`,  `h*(a) := max { max F(a′) : a′ ∈ A_j, a′ ≤ a }`;
+> l⋆(a) := min { min F(a′) : a′ ∈ Aⱼ, a′ ≥ a },  h⋆(a) := max { max F(a′) : a′ ∈ Aⱼ, a′ ≤ a };
 >
-> (iii) `S ⋉ [l*, h*] = S ⋉ F` if and only if `F(a) = [l*(a), h*(a)] ∩ ℤ` for every `a ∈ A_j`;
-> (iv) the number of cells the envelope admits and `F` does not is `Σ_{x ∈ S} ( h*(x_j) − l*(x_j) + 1 − |F(x_j)| )`.
+> (iii) S ⋉ [l⋆, h⋆] = S ⋉ F if and only if F(a) = [l⋆(a), h⋆(a)] ∩ ℤ for every a ∈ Aⱼ;
+> (iv) the number of cells the envelope admits and F does not is Σ ( h⋆(xⱼ) − l⋆(xⱼ) + 1 − |F(xⱼ)| ), the sum over x ∈ S.
 
-*Proof.* (i) The constant functions `l ≡ min_a min F(a)` and `h ≡ max_a max F(a)` are monotone and their interval contains every `F(a)`, so `𝔈 ≠ ∅`; and each member is a sublattice by Theorem 1 with `j′ = j`.
+*Proof.* (i) The constant functions l ≡ min over a of min F(a) and h ≡ max over a of max F(a) are monotone and their interval contains every F(a), so 𝔈 ≠ ∅; and each member is a sublattice by Theorem 1 with j′ = j.
 
-(ii) `l*` is monotone: as `a` increases the set `{a′ ≥ a}` shrinks, so its minimum does not decrease. `h*` is monotone: as `a` increases the set `{a′ ≤ a}` grows, so its maximum does not decrease. Taking `a′ = a` in each definition gives `l*(a) ≤ min F(a)` and `h*(a) ≥ max F(a)`, so `F(a) ⊆ [l*(a), h*(a)]` and `S ⋉ [l*, h*] ∈ 𝔈`. Now let `S ⋉ [l, h] ∈ 𝔈` be arbitrary. Containment forces `l(a) ≤ min F(a)` and `h(a) ≥ max F(a)` for every `a ∈ A_j`. For `a′ ≥ a`, monotonicity of `l` gives `l(a) ≤ l(a′) ≤ min F(a′)`; taking the minimum over all such `a′` gives `l(a) ≤ l*(a)`. Symmetrically, for `a′ ≤ a`, `h(a) ≥ h(a′) ≥ max F(a′)`, so `h(a) ≥ h*(a)`. Hence `[l*(a), h*(a)] ⊆ [l(a), h(a)]` for every `a`, and `S ⋉ [l*, h*] ⊆ S ⋉ [l, h]`. Least members of a family ordered by inclusion are unique.
+(ii) l⋆ is monotone: as a increases the set {a′ ≥ a} shrinks, so its minimum does not decrease. h⋆ is monotone: as a increases the set {a′ ≤ a} grows, so its maximum does not decrease. Taking a′ = a in each definition gives l⋆(a) ≤ min F(a) and h⋆(a) ≥ max F(a), so F(a) ⊆ [l⋆(a), h⋆(a)] and S ⋉ [l⋆, h⋆] ∈ 𝔈. Now let S ⋉ [l, h] ∈ 𝔈 be arbitrary. Containment forces l(a) ≤ min F(a) and h(a) ≥ max F(a) for every a ∈ Aⱼ. For a′ ≥ a, monotonicity of l gives l(a) ≤ l(a′) ≤ min F(a′); taking the minimum over all such a′ gives l(a) ≤ l⋆(a). Symmetrically, for a′ ≤ a, h(a) ≥ h(a′) ≥ max F(a′), so h(a) ≥ h⋆(a). Hence [l⋆(a), h⋆(a)] ⊆ [l(a), h(a)] for every a, and S ⋉ [l⋆, h⋆] ⊆ S ⋉ [l, h]. Least members of a family ordered by inclusion are unique.
 
-(iii) The two sets have the same first `d` coordinates, so they agree exactly when their fibres agree, which is the stated condition.
+(iii) The two sets have the same first d coordinates, so they agree exactly when their fibres agree, which is the stated condition.
 
-(iv) The fibres are disjoint across cells of `S`, so the counts add. ∎ **PROVED.**
+(iv) The fibres are disjoint across cells of S, so the counts add. ∎ **PROVED.**
 
 > Theorem 2 is what "envelope" means in this paper, and the two clauses are what make the word do work: the envelope exists for *any* prescribed exact set, and it is the *smallest* thing of the admissible shape that contains it — so the cells in the gap are not an artefact of a sloppy bound but the unavoidable price of carrying that exact set as an interval monotone in one coordinate. Table 2 is clause (iv), evaluated at each axis.
 
 **Theorem 3 (the triangle exclusion).** Let
 
-> `T := { (a, b, c) ∈ ℤ³ : a ≥ 0, b ≥ 0, c ≥ 0, |a − b| ≤ c ≤ a + b }`.
+> T := { (a, b, c) ∈ ℤ³ : a ≥ 0, b ≥ 0, c ≥ 0, |a − b| ≤ c ≤ a + b }.
 
-Then `T` is closed under coordinatewise maximum and is not closed under coordinatewise minimum, and each of its two inequalities is broken by an explicit meet.
+Then T is closed under coordinatewise maximum and is not closed under coordinatewise minimum, and each of its two inequalities is broken by an explicit meet.
 
-*Proof of join-closure.* Take `u = (a₁, b₁, c₁)` and `w = (a₂, b₂, c₂)` in `T` and write `A = max(a₁, a₂)`, `B = max(b₁, b₂)`, `C = max(c₁, c₂)`; all three are non-negative.
+*Proof of join-closure.* Take u = (a₁, b₁, c₁) and w = (a₂, b₂, c₂) in T and write A = max(a₁, a₂), B = max(b₁, b₂), C = max(c₁, c₂); all three are non-negative.
 
-*Upper.* `C = c_t` for some `t ∈ {1, 2}`, and `c_t ≤ a_t + b_t ≤ A + B`.
+*Upper.* C = cₜ for some t ∈ {1, 2}, and cₜ ≤ aₜ + bₜ ≤ A + B.
 
-*Lower.* `A = a_t` for some `t`. Then `A − B ≤ a_t − b_t ≤ |a_t − b_t| ≤ c_t ≤ C`. Exchanging the roles of `a` and `b` gives `B − A ≤ C`. Hence `|A − B| ≤ C`. So `(A, B, C) ∈ T`. ∎
+*Lower.* A = aₜ for some t. Then A − B ≤ aₜ − bₜ ≤ |aₜ − bₜ| ≤ cₜ ≤ C. Exchanging the roles of a and b gives B − A ≤ C. Hence |A − B| ≤ C. So (A, B, C) ∈ T. ∎
 
 *Refutation of meet-closure.* Both inequalities fail, and one witness is exhibited for each.
 
-> `(0, 1, 1) ∧ (1, 0, 1) = (0, 0, 1)` — both operands lie in `T`; the meet has `c = 1 > 0 = a + b`, so the **upper** bound fails: a total angular momentum manufactured from two zeros.
+> (0, 1, 1) ∧ (1, 0, 1) = (0, 0, 1) — both operands lie in T; the meet has c = 1 > 0 = a + b, so the **upper** bound fails: a total angular momentum manufactured from two zeros.
 >
-> `(4, 0, 4) ∧ (2, 2, 0) = (2, 0, 0)` — both operands lie in `T`; the meet has `|a − b| = 2 > 0 = c`, so the **lower** bound fails.
+> (4, 0, 4) ∧ (2, 2, 0) = (2, 0, 0) — both operands lie in T; the meet has |a − b| = 2 > 0 = c, so the **lower** bound fails.
 
 ∎ **PROVED**; **MACHINE-CHECKED** (join-closure, over the unbounded integers, all caps at once); **REFUTATION** (meet-closure, the solver returning a model, and the two witnesses above verified independently).
 
-> **Why max survives and min does not.** `T` is cut out by one upper bound on `c` and one lower bound on `c`, and the coordinatewise maximum moves every coordinate in the direction each bound is slack on: raising `a` and `b` can only loosen `c ≤ a + b`, and raising `c` can only loosen `|a − b| ≤ c`, while the competing movement is dominated by the argument above. The coordinatewise minimum does the opposite on both, and there is no compensation, because the minimum takes `a` from one operand and `c` from the other and so forgets that `c` was built from that operand's own `a` and `b`.
+> **Why max survives and min does not.** T is cut out by one upper bound on c and one lower bound on c, and the coordinatewise maximum moves every coordinate in the direction each bound is slack on: raising a and b can only loosen c ≤ a + b, and raising c can only loosen |a − b| ≤ c, while the competing movement is dominated by the argument above. The coordinatewise minimum does the opposite on both, and there is no compensation, because the minimum takes a from one operand and c from the other and so forgets that c was built from that operand's own a and b.
 
-**Theorem 4 (the bands).** For an integer constant `k ≥ 0` let `B_k := { (a, b) ∈ ℤ²_{≥0} : |a − b| ≤ k }`, and let `C := { (a, b, c) ∈ ℤ³_{≥0} : |a − b| ≤ c }`. Then
+**Theorem 4 (the bands).** For an integer constant k ≥ 0 let Bₖ := { (a, b) ∈ ℤ² : a ≥ 0, b ≥ 0, |a − b| ≤ k }, and let C := { (a, b, c) ∈ ℤ³ : a ≥ 0, b ≥ 0, c ≥ 0, |a − b| ≤ c }. Then
 
-> (i) `B_k` is a sublattice, for every `k ≥ 0`;
-> (ii) `C` is closed under coordinatewise maximum;
-> (iii) `C` is **not** closed under coordinatewise minimum.
+> (i) Bₖ is a sublattice, for every k ≥ 0;
+> (ii) C is closed under coordinatewise maximum;
+> (iii) C is **not** closed under coordinatewise minimum.
 
-*Proof of (i).* `B_k` is cut out by `a ≤ b + k` and `b ≤ a + k`, each a bound of arity 1 whose right-hand side is monotone in its single parent, so Theorem 1 applies in both directions. The direct argument is four lines. Write `A = max(a₁, a₂)` and `B = max(b₁, b₂)`. Choose `t` with `A = a_t`; then `B ≥ b_t`, so `A − B ≤ a_t − b_t ≤ |a_t − b_t| ≤ k`. Exchanging the roles of `a` and `b` gives `B − A ≤ k`, so `|A − B| ≤ k` and the join lies in `B_k`. For the meet write `A′ = min(a₁, a₂)`, `B′ = min(b₁, b₂)`, choose `t` with `B′ = b_t`; then `A′ ≤ a_t`, so `A′ − B′ ≤ a_t − b_t ≤ k`, and the exchanged argument gives `B′ − A′ ≤ k`. Non-negativity is preserved by both operations. ∎
+*Proof of (i).* Bₖ is cut out by a ≤ b + k and b ≤ a + k, each a bound of arity 1 whose right-hand side is monotone in its single parent, so Theorem 1 applies in both directions. The direct argument is four lines. Write A = max(a₁, a₂) and B = max(b₁, b₂). Choose t with A = aₜ; then B ≥ bₜ, so A − B ≤ aₜ − bₜ ≤ |aₜ − bₜ| ≤ k. Exchanging the roles of a and b gives B − A ≤ k, so |A − B| ≤ k and the join lies in Bₖ. For the meet write A′ = min(a₁, a₂), B′ = min(b₁, b₂), choose t with B′ = bₜ; then A′ ≤ aₜ, so A′ − B′ ≤ aₜ − bₜ ≤ k, and the exchanged argument gives B′ − A′ ≤ k. Non-negativity is preserved by both operations. ∎
 
-*Proof of (ii).* This is the *Lower* half of Theorem 3's join argument, which used only `|a − b| ≤ c` and not `c ≤ a + b`. ∎
+*Proof of (ii).* This is the *Lower* half of Theorem 3's join argument, which used only |a − b| ≤ c and not c ≤ a + b. ∎
 
-*Refutation of (iii).* `(2, 0, 2)` and `(2, 2, 0)` both lie in `C`; their meet is `(2, 0, 0)`, and `|2 − 0| = 2 > 0`. ∎ **PROVED**; (i) and (ii) **MACHINE-CHECKED** over the unbounded integers, (i) with `k` itself a free integer variable so that the claim is decided for every constant at once; (iii) **REFUTATION**, the solver returning a model and the witness above verified independently.
+*Refutation of (iii).* (2, 0, 2) and (2, 2, 0) both lie in C; their meet is (2, 0, 0), and |2 − 0| = 2 > 0. ∎ **PROVED**; (i) and (ii) **MACHINE-CHECKED** over the unbounded integers, (i) with k itself a free integer variable so that the claim is decided for every constant at once; (iii) **REFUTATION**, the solver returning a model and the witness above verified independently.
 
-> **The difference between `B_k` and `C` is the difference between a constant and a coordinate.** In `B_k` the second side of the band is a number, so `a ≤ b + k` is monotone in `b`; in `C` it is a free coordinate, so `|a − b| ≤ c` is a single bound of arity 2 and Theorem 1 does not apply. The same sentence, read in the other direction, is why the thirteenth axis of the tower is exact: `|2J − 2K| ≤ 1` is `B₁`, and the `1` is a constant because the outer electron's spin is one half whatever else the cell holds.
+> **The difference between Bₖ and C is the difference between a constant and a coordinate.** In Bₖ the second side of the band is a number, so a ≤ b + k is monotone in b; in C it is a free coordinate, so |a − b| ≤ c is a single bound of arity 2 and Theorem 1 does not apply. The same sentence, read in the other direction, is why the thirteenth axis of the tower is exact: |2J − 2K| ≤ 1 is B₁, and the 1 is a constant because the outer electron's spin is one half whatever else the cell holds.
 
-**Theorem 5 (the dichotomy).** Let `S` be a sublattice and let a new coordinate `y` carry an exact set `F(x)`.
+**Theorem 5 (the dichotomy).** Let S be a sublattice and let a new coordinate y carry an exact set F(x).
 
-> (i) If `F(x) = [lo(x_j), hi(x_{j′})] ∩ ℤ` for monotone `lo`, `hi` of one coordinate each, then `S ⋉ F` is a sublattice: the axis closes exactly.
-> (ii) If `F(x) = { y : |x_a − x_b| ≤ y ≤ x_a + x_b }` for two coordinates `a ≠ b` of `S`, and `S` realises the coordinate patterns of Theorem 3's two witnesses, then `S ⋉ F` is join-closed and is not meet-closed; the smallest sublattice extension of the shape (i) containing it is the monotone envelope of Theorem 2, and it is strictly larger.
-> (iii) If in (ii) `x_b` is replaced by a constant `k`, then `F(x) = { y : |x_a − y| ≤ k }` is the band `B_k` about `x_a`, which is of the shape (i), and the axis closes exactly.
+> (i) If F(x) = [lo(xⱼ), hi(xⱼ′)] ∩ ℤ for monotone lo, hi of one coordinate each, then S ⋉ F is a sublattice: the axis closes exactly.
+> (ii) If F(x) = { y : |xᵢ − xⱼ| ≤ y ≤ xᵢ + xⱼ } for two coordinates i ≠ j of S, and S realises the coordinate patterns of Theorem 3's two witnesses, then S ⋉ F is join-closed and is not meet-closed; the smallest sublattice extension of the shape (i) containing it is the monotone envelope of Theorem 2, and it is strictly larger.
+> (iii) If in (ii) xⱼ is replaced by a constant k, then F(x) = { y : |xᵢ − y| ≤ k } is the band Bₖ about xᵢ, which is of the shape (i), and the axis closes exactly.
 
-*Proof.* (i) is Theorem 1. (ii): join-closure and the failure of meet-closure are Theorem 3 transported along the inclusion `(x, y) ↦ (x_a, x_b, y)`, which sends meets to meets and joins to joins because both are coordinatewise; the hypothesis that `S` realises the witness patterns is what makes the two witnesses of Theorem 3 lift to cells of `S ⋉ F`, and §6 exhibits such a pair. The envelope claim is Theorem 2 applied to `F`, and it is strictly larger because `S ⋉ F` is not a sublattice while `S ⋉ [l*, h*]` is. (iii): the two inequalities are `y ≤ x_a + k` and `x_a ≤ y + k`, each monotone of arity 1, so Theorem 1 applies with `j = j′ = a`. ∎ **PROVED.**
+*Proof.* (i) is Theorem 1. (ii): join-closure and the failure of meet-closure are Theorem 3 transported along the inclusion (x, y) ↦ (xᵢ, xⱼ, y), which sends meets to meets and joins to joins because both are coordinatewise; the hypothesis that S realises the witness patterns is what makes the two witnesses of Theorem 3 lift to cells of S ⋉ F, and §6 exhibits such a pair. The envelope claim is Theorem 2 applied to F, and it is strictly larger because S ⋉ F is not a sublattice while S ⋉ [l⋆, h⋆] is. (iii): the two inequalities are y ≤ xᵢ + k and xᵢ ≤ y + k, each monotone of arity 1, so Theorem 1 applies with j = j′ = i. ∎ **PROVED.**
 
-**Corollary 1 (the tower's dichotomy).** Of the thirteen bounds of D10, every one is of the shape (i) or the shape (iii) of Theorem 5, so every stage closes (Proposition 2). Of the three bounds whose exact physical content is a coupling condition, the ninth and the eleventh carry a non-monotone realised ceiling (Proposition 5) and so are carried as its envelope; the twelfth's exact content is a triangle of arity 2 and by Theorem 5(ii) cannot be carried at all, so it too is carried as an envelope; and the thirteenth's is `B₁` and is carried exactly. **There is no fourth case in this construction.** **EXHAUSTIVE** over the thirteen bounds.
+**Corollary 1 (the tower's dichotomy).** Of the thirteen bounds of D10, every one is of the shape (i) or the shape (iii) of Theorem 5, so every stage closes (Proposition 2). Of the three bounds whose exact physical content is a coupling condition, the ninth and the eleventh carry a non-monotone realised ceiling (Proposition 5) and so are carried as its envelope; the twelfth's exact content is a triangle of arity 2 and by Theorem 5(ii) cannot be carried at all, so it too is carried as an envelope; and the thirteenth's is B₁ and is carried exactly. **There is no fourth case in this construction.** **EXHAUSTIVE** over the thirteen bounds.
 
-> **A coordinate cannot be smuggled in as a derived quantity.** Adjoining a function `h` of the existing coordinates keeps the object a sublattice only if the graph `{(x, h(x))}` is one, and taking joins there forces `h(x ∨ x′) = max(h(x), h(x′))` — `h` must be a join homomorphism. A difference of two coordinates is not one. On the first stage, `h = e − q` has `h(x ∨ x′) = 0` at `x = (1,0,1,0,1,0,0,0)` and `x′ = (1,0,1,1,1,0,0,0)`, while `max(h(x), h(x′)) = 1`. **REFUTATION**, by that witness. Every coordinate above the eighth therefore has to enter as a *bounded axis* and pay the price Theorem 2 names; there is no cheaper door.
+> **A coordinate cannot be smuggled in as a derived quantity.** Adjoining a function h of the existing coordinates keeps the object a sublattice only if the graph {(x, h(x))} is one, and taking joins there forces h(x ∨ x′) = max(h(x), h(x′)) — h must be a join homomorphism. A difference of two coordinates is not one. On the first stage, h = e − q has h(x ∨ x′) = 0 at x = (1,0,1,0,1,0,0,0) and x′ = (1,0,1,1,1,0,0,0), while max(h(x), h(x′)) = 1. **REFUTATION**, by that witness. Every coordinate above the eighth therefore has to enter as a *bounded axis* and pay the price Theorem 2 names; there is no cheaper door.
 
 ---
 
@@ -353,20 +353,20 @@ Then `T` is closed under coordinatewise maximum and is not closed under coordina
 
 The constraint graph (D8) records which coordinates appear in which bounds. Reading it off D10 gives seven edges at the first stage and one or two more at each step:
 
-> stage 8: `n–ℓ`, `ℓ–k`, `k–q`, `k–2S`, `e–f`, `f–g`, `q–g`
-> stage 9: `g–2S′`
-> stage 10: `2S′–v`, `g–v`
-> stage 11: `k–2J_c`
-> stage 12: `2J_c–2K`
-> stage 13: `2K–2J`
+> stage 8: n–ℓ, ℓ–k, k–q, k–2S, e–f, f–g, q–g
+> stage 9: g–2S′
+> stage 10: 2S′–v, g–v
+> stage 11: k–2Jₚ
+> stage 12: 2Jₚ–2K
+> stage 13: 2K–2J
 
-The twelfth stage contributes **one** edge, not two. Its bound is `2K ≤ 2J_c + 2f_max`, and `f_max` is the cap of D11 — a constant of the construction — so `2J_c` is the bound's only parent (D3, D10). That reading is what §2 and §6 measure, and it is the reading the rest of this section reports.
+The twelfth stage contributes **one** edge, not two. Its bound is 2K ≤ 2Jₚ + 2fₘₐₓ, and fₘₐₓ is the cap of D11 — a constant of the construction — so 2Jₚ is the bound's only parent (D3, D10). That reading is what §2 and §6 measure, and it is the reading the rest of this section reports.
 
 ![Figure 2](figures/constraint-graph.png)
 
-**Figure 2.** The constraint graph at the thirteenth stage. Thirteen vertices and thirteen edges. Rims mark how the coordinate's bound is carried: an exact bound in the first colour, a monotone envelope in the second. The one independent cycle is the triangle on `2S′`, `g` and `v`, drawn in the third colour; it is the tenth coordinate's two parents happening to be adjacent. Deleting `q` leaves exactly two connected pieces, the parent block and the target block; no edge joins the two blocks directly, so every path between them runs through `q`.
+**Figure 2.** The constraint graph at the thirteenth stage. Thirteen vertices and thirteen edges. Rims mark how the coordinate's bound is carried: an exact bound in the first colour, a monotone envelope in the second. The one independent cycle is the triangle on 2S′, g and v, drawn in the third colour; it is the tenth coordinate's two parents happening to be adjacent. Deleting q leaves exactly two connected pieces, the parent block and the target block; no edge joins the two blocks directly, so every path between them runs through q.
 
-**Table 3. The graph, stage by stage.** Cycle rank is `|E| − |V| + c`; treewidth is exact, by search over elimination orderings.
+**Table 3. The graph, stage by stage.** Cycle rank is |E| − |V| + c; treewidth is exact, by search over elimination orderings.
 
 | stage | vertices | edges | components | cycle rank | triangles | girth | treewidth |
 |---|---|---|---|---|---|---|---|
@@ -377,41 +377,41 @@ The twelfth stage contributes **one** edge, not two. Its bound is `2K ≤ 2J_c +
 | Λ₁₂ | 12 | 12 | 1 | 1 | 1 | 3 | 2 |
 | Λ₁₃ | 13 | 13 | 1 | 1 | 1 | 3 | 2 |
 
-**Proposition 7 (the shape of the graph).** At every stage the graph is connected. At the first two stages it is a tree — eight vertices and seven edges, then nine and eight. From the tenth stage it has cycle rank exactly 1, girth exactly 3, and exactly one triangle, namely `{2S′, g, v}`; its treewidth is 1 at the first two stages and 2 thereafter. At the thirteenth stage the degree sequence has `k` and `g` at 4 and `n`, `e`, `2S`, `2J` as leaves. **EXHAUSTIVE**, over the six stages, with the triangle census taken over all `C(13, 3) = 286` vertex triples at the top stage and the treewidth by exact elimination search.
+**Proposition 7 (the shape of the graph).** At every stage the graph is connected. At the first two stages it is a tree — eight vertices and seven edges, then nine and eight. From the tenth stage it has cycle rank exactly 1, girth exactly 3, and exactly one triangle, namely {2S′, g, v}; its treewidth is 1 at the first two stages and 2 thereafter. At the thirteenth stage the degree sequence has k and g at 4 and n, e, 2S, 2J as leaves. **EXHAUSTIVE**, over the six stages, with the triangle census taken over all C(13, 3) = 286 vertex triples at the top stage and the treewidth by exact elimination search.
 
-**Proposition 8 (the transfer is the cut).** Partition the coordinates into the **parent block** `P = {n, ℓ, k, 2S, 2J_c, 2K, 2J}`, the **target block** `T = {e, f, g, 2S′, v}`, and the transfer `q` alone. Then at every stage no edge joins a vertex of `P` to a vertex of `T`, the only edges at `q` are `k–q` and `q–g`, and deleting `q` leaves exactly two components — `P` and `T`, each restricted to the coordinates the stage carries, and each connected. Every path from `P` to `T` passes through `q`.
+**Proposition 8 (the transfer is the cut).** Partition the coordinates into the **parent block** P = {n, ℓ, k, 2S, 2Jₚ, 2K, 2J}, the **target block** T = {e, f, g, 2S′, v}, and the transfer q alone. Then at every stage no edge joins a vertex of P to a vertex of T, the only edges at q are k–q and q–g, and deleting q leaves exactly two components — P and T, each restricted to the coordinates the stage carries, and each connected. Every path from P to T passes through q.
 
-*Proof.* Read the edge list. Of the thirteen bounds, twelve name two coordinates of the same block and one, `g ≤ q`, names `q` and a coordinate of `T`; the bound `q ≤ k` names `q` and a coordinate of `P`. So no edge is a `P`–`T` edge, and `q` has degree 2 with one neighbour in each block. `P` is connected at every stage: `n–ℓ–k` with `2S` pendant at `k`, and `k–2J_c–2K–2J` appended one vertex at a time from the eleventh stage. `T` is connected at every stage: `e–f–g`, with `2S′` and `v` attached to `g` from the ninth and tenth. Hence the deletion of `q` leaves those two connected pieces and nothing else, and every `P`–`T` path uses `q`. ∎ **PROVED**, and **EXHAUSTIVE**: verified at all six stages by deleting `q` and computing the component containing `e`, which is `T` exactly, every time.
+*Proof.* Read the edge list. Of the thirteen bounds, twelve name two coordinates of the same block and one, g ≤ q, names q and a coordinate of T; the bound q ≤ k names q and a coordinate of P. So no edge is a P–T edge, and q has degree 2 with one neighbour in each block. P is connected at every stage: n–ℓ–k with 2S pendant at k, and k–2Jₚ–2K–2J appended one vertex at a time from the eleventh stage. T is connected at every stage: e–f–g, with 2S′ and v attached to g from the ninth and tenth. Hence the deletion of q leaves those two connected pieces and nothing else, and every P–T path uses q. ∎ **PROVED**, and **EXHAUSTIVE**: verified at all six stages by deleting q and computing the component containing e, which is T exactly, every time.
 
-**Proposition 9 (what the arity-2 reading would cost the graph).** Writing the twelfth bound with the cell's own `f` in place of the cap adds the edge `f–2K`. The thirteenth stage then has 13 vertices and **14** edges, and the cycle-rank sequence becomes `0, 0, 1, 1, 2, 2`. The triangle count, the treewidth, the girth and the degrees of `k` and `g` are unchanged; the only degrees that move are those of `f` and `2K`. **EXHAUSTIVE**, computed by substituting that one edge and rebuilding.
+**Proposition 9 (what the arity-2 reading would cost the graph).** Writing the twelfth bound with the cell's own f in place of the cap adds the edge f–2K. The thirteenth stage then has 13 vertices and **14** edges, and the cycle-rank sequence becomes 0, 0, 1, 1, 2, 2. The triangle count, the treewidth, the girth and the degrees of k and g are unchanged; the only degrees that move are those of f and 2K. **EXHAUSTIVE**, computed by substituting that one edge and rebuilding.
 
 So the arity of that bound is visible in the graph as exactly one edge and one unit of cycle rank, and §6 prices the same difference in cells.
 
-> **Cycle rank and closure are two different costs.** The single independent cycle arrives at the tenth stage, where `v` is bounded below by `2S′` and above by `g`, two coordinates already joined by an edge. That coordinate has two parents, and it costs the tree: treewidth rises from 1 to 2, and with it the guarantee that pairwise reasoning decides membership. A tree-structured constraint network is globally consistent once it is arc-consistent — Freuder (1982), CITED, with the consistency vocabulary of Freuder (1978) and the tree-clustering view of width in Dechter and Pearl (1989), both CITED — so at treewidth 1 the pairwise operator `ℛ` of D6 is exact by a theorem, and at treewidth 2 it is not guaranteed to be. **It is nevertheless exact here:** `E(Λ_D) = 0` at all six stages (Proposition 2), including the four of treewidth 2. What the cycle removes is the guarantee, not the property. And the cost that closure does notice is a different one: a single bound of arity 2, which Theorem 5(ii) shows cannot preserve the sublattice property at all. **A coordinate with two parents is cheap; a bound with two parents is not.**
+> **Cycle rank and closure are two different costs.** The single independent cycle arrives at the tenth stage, where v is bounded below by 2S′ and above by g, two coordinates already joined by an edge. That coordinate has two parents, and it costs the tree: treewidth rises from 1 to 2, and with it the guarantee that pairwise reasoning decides membership. A tree-structured constraint network is globally consistent once it is arc-consistent — Freuder (1982), CITED, with the consistency vocabulary of Freuder (1978) and the tree-clustering view of width in Dechter and Pearl (1989), both CITED — so at treewidth 1 the pairwise operator ℛ of D6 is exact by a theorem, and at treewidth 2 it is not guaranteed to be. **It is nevertheless exact here:** E(Λₛ) = 0 at all six stages (Proposition 2), including the four of treewidth 2. What the cycle removes is the guarantee, not the property. And the cost that closure does notice is a different one: a single bound of arity 2, which Theorem 5(ii) shows cannot preserve the sublattice property at all. **A coordinate with two parents is cheap; a bound with two parents is not.**
 
 ---
 
 ## §6 · The cylinder over the transfer
 
-The fourth coordinate, `q`, is the number of electrons a transition moves. Proposition 8 says it is where the two sides of the construction meet. This section shows what that costs and what it buys.
+The fourth coordinate, q, is the number of electrons a transition moves. Proposition 8 says it is where the two sides of the construction meet. This section shows what that costs and what it buys.
 
-**Proposition 10 (exact factorisation).** At every stage, and for every value `t` of the transfer,
+**Proposition 10 (exact factorisation).** At every stage, and for every value t of the transfer,
 
-> `Λ ∩ { q = t } = A(t) × B(t)`  as sets,  and  `Σ_t |A(t)| · |B(t)| = |Λ|`,
+> Λ ∩ { q = t } = A(t) × B(t)  as sets,  and  Σₜ |A(t)| · |B(t)| = |Λ|,
 
 with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set identity at the first and the thirteenth.
 
-*Proof.* Delete `q` from the constraint graph. By Proposition 8 the remainder splits into the parent component and the target component, so no bound of D10 other than `g ≤ q` names coordinates from both, and `g ≤ q` is a bound on the target side alone once `q` is fixed. Hence for a fixed `t` the admissibility of the parent coordinates and the admissibility of the target coordinates are independent conditions, and the fibre is their product. Summing over `t` partitions Λ. ∎ **PROVED**, and **EXHAUSTIVE** as stated.
+*Proof.* Delete q from the constraint graph. By Proposition 8 the remainder splits into the parent component and the target component, so no bound of D10 other than g ≤ q names coordinates from both, and g ≤ q is a bound on the target side alone once q is fixed. Hence for a fixed t the admissibility of the parent coordinates and the admissibility of the target coordinates are independent conditions, and the fibre is their product. Summing over t partitions Λ. ∎ **PROVED**, and **EXHAUSTIVE** as stated.
 
-**Table 4. The sections, at three stages.** `|A(t)|` is the number of distinct parent tuples at transfer `t`, `|B(t)|` the number of distinct target tuples.
+**Table 4. The sections, at three stages.** |A(t)| is the number of distinct parent tuples at transfer t, |B(t)| the number of distinct target tuples.
 
-| `t` | Λ₈: `\|A\|` × `\|B\|` | product | Λ₁₁: `\|A\|` × `\|B\|` | product | Λ₁₃: `\|A\|` × `\|B\|` | product |
+| t | Λ₈: |A| × |B| | product | Λ₁₁: |A| × |B| | product | Λ₁₃: |A| × |B| | product |
 |---|---|---|---|---|---|---|
 | 0 | 33 × 5 | 165 | 163 × 5 | 815 | 2,294 × 5 | 11,470 |
 | 1 | 33 × 10 | 330 | 163 × 20 | 3,260 | 2,294 × 20 | 45,880 |
 | 2 | 23 × 15 | 345 | 123 × 50 | 6,150 | 1,794 × 50 | 89,700 |
 | 3 | 8 × 17 | 136 | 48 × 70 | 3,360 | 744 × 70 | 52,080 |
-| | **total** | **976** | | **13,585** | | **199,130** |
+| | **total⋆* | **976** | | **13,585** | | **199,130** |
 
 ![Figure 3](figures/sections-plate.png)
 
@@ -419,41 +419,41 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 
 ![Figure 4](figures/profile.png)
 
-**Figure 4.** The same four sections as a profile, on a logarithmic axis, at the thirteenth stage (solid) and the first (dotted). The parent side falls and the target side rises at both scales; the section itself peaks at `t = 2`, at 89,700 cells at the top stage and 345 at the bottom.
+**Figure 4.** The same four sections as a profile, on a logarithmic axis, at the thirteenth stage (solid) and the first (dotted). The parent side falls and the target side rises at both scales; the section itself peaks at t = 2, at 89,700 cells at the top stage and 345 at the bottom.
 
-**Proposition 11 (the profile).** At every one of the six stages: `|A(t)|` is non-increasing in `t`, `|B(t)|` is non-decreasing, the sequence of section sizes is log-concave, and it attains its maximum at `t = 2`. The mean transfer `⟨q⟩ = Σ_t t·|A(t)|·|B(t)| / |Λ|` rises up the tower:
+**Proposition 11 (the profile).** At every one of the six stages: |A(t)| is non-increasing in t, |B(t)| is non-decreasing, the sequence of section sizes is log-concave, and it attains its maximum at t = 2. The mean transfer ⟨q⟩ = Σₜ t·|A(t)|·|B(t)| / |Λ| rises up the tower:
 
 | stage | Λ₈ | Λ₉ | Λ₁₀ | Λ₁₁ | Λ₁₂ | Λ₁₃ |
 |---|---|---|---|---|---|---|
-| `⟨q⟩` | 1.4631 | 1.6850 | 1.8304 | 1.8874 | 1.9141 | 1.9159 |
+| ⟨q⟩ | 1.4631 | 1.6850 | 1.8304 | 1.8874 | 1.9141 | 1.9159 |
 
 **EXHAUSTIVE** at these caps. No value of the transfer improves both sides: raising it costs the parent and pays the target, monotonically, at every stage.
 
 ### §6.1 · What the arity-2 bound costs, in cells
 
-Three readings of the twelfth bound are available, and the paper prices all three at the same caps. Write `j = 2J_c` and let `f` be the cell's own target subshell.
+Three readings of the twelfth bound are available, and the paper prices all three at the same caps. Write j = 2Jₚ and let f be the cell's own target subshell.
 
-| reading | bound on `2K` | arity | cells at Λ₁₂ | cells at Λ₁₃ | closed? | factorises? |
+| reading | bound on 2K | arity | cells at Λ₁₂ | cells at Λ₁₃ | closed? | factorises? |
 |---|---|---|---|---|---|---|
-| the cap | `0 ≤ 2K ≤ j + 2f_max` | 1 | 70,905 | 199,130 | **yes**, `E = 0` | **yes**, defect 0 |
-| the cell's own `f`, upper bound only | `0 ≤ 2K ≤ j + 2f` | 2 | 55,755 | 153,680 | no, `E = 12,675` | no, defect 15,150 and 45,450 |
-| the exact triangle with parity | `\|j − 2f\| ≤ 2K ≤ j + 2f`, `2K ≡ j` (mod 2) | 2 | 22,275 | 64,290 | no, `E = 35,570` | — |
+| the cap | 0 ≤ 2K ≤ j + 2fₘₐₓ | 1 | 70,905 | 199,130 | **yes**, E = 0 | **yes**, defect 0 |
+| the cell's own f, upper bound only | 0 ≤ 2K ≤ j + 2f | 2 | 55,755 | 153,680 | no, E = 12,675 | no, defect 15,150 and 45,450 |
+| the exact triangle with parity | |j − 2f| ≤ 2K ≤ j + 2f, 2K ≡ j (mod 2) | 2 | 22,275 | 64,290 | no, E = 35,570 | — |
 
 **Proposition 12 (the price of the second parent).** Replacing the cap by the cell's own subshell in the twelfth bound leaves 55,755 cells at the twelfth stage against a section product of 70,905, a factorisation defect of **15,150 cells, 21.4% of the product**; at the thirteenth stage 153,680 against 199,130, a defect of **45,450 cells, 22.8%**. The same replacement breaks closure: the staircase returns 12,675 cells the construction does not hold. **EXHAUSTIVE** at these caps; **REFUTATION** for the closure claim.
 
-**Proposition 13 (the exact triangle does not close).** Imposing the full triangle `|2J_c − 2f| ≤ 2K ≤ 2J_c + 2f` with the parity congruence `2K ≡ 2J_c (mod 2)` leaves 22,275 cells at the twelfth stage. That set is not a sublattice. Of its 248,076,675 unordered pairs, **52,767,450 have a meet outside it and 28,742,850 have a join outside it**, and its closure defect is `E = 35,570` — larger than the set is short. An explicit failing meet, in the coordinate order of D9:
+**Proposition 13 (the exact triangle does not close).** Imposing the full triangle |2Jₚ − 2f| ≤ 2K ≤ 2Jₚ + 2f with the parity congruence 2K ≡ 2Jₚ (mod 2) leaves 22,275 cells at the twelfth stage. That set is not a sublattice. Of its 248,076,675 unordered pairs, **52,767,450 have a meet outside it and 28,742,850 have a join outside it**, and its closure defect is E = 35,570 — larger than the set is short. An explicit failing meet, in the coordinate order of D9:
 
-> `(1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 4, 4) ∧ (1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0) = (1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0)`,
+> (1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 4, 4) ∧ (1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0) = (1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0),
 
-whose `(2J_c, 2f, 2K) = (2, 0, 0)` violates `|2J_c − 2f| ≤ 2K`. **REFUTATION**, and this is Theorem 3's second witness realised inside the construction, which is the hypothesis Theorem 5(ii) requires.
+whose (2Jₚ, 2f, 2K) = (2, 0, 0) violates |2Jₚ − 2f| ≤ 2K. **REFUTATION**, and this is Theorem 3's second witness realised inside the construction, which is the hypothesis Theorem 5(ii) requires.
 
-> The join failures are worth separating from the meet failures. Theorem 3 says the triangle *without* the congruence is join-closed; here joins fail too, 28.7 million of them, and the reason is the congruence `2K ≡ 2J_c (mod 2)`, which is not an inequality at all and is preserved by neither operation. So the twelfth axis's exact content carries two independent obstructions — a bound of arity 2 and a congruence — and the construction's envelope drops both.
+> The join failures are worth separating from the meet failures. Theorem 3 says the triangle *without* the congruence is join-closed; here joins fail too, 28.7 million of them, and the reason is the congruence 2K ≡ 2Jₚ (mod 2), which is not an inequality at all and is preserved by neither operation. So the twelfth axis's exact content carries two independent obstructions — a bound of arity 2 and a congruence — and the construction's envelope drops both.
 
 ### §6.2 · Orientation
 
-**Proposition 14 (the surface is orientable).** Eight quantities derived from a cell divide into two classes by whether they rise or fall along a series — `e`, `ν`, `V` in one class and `T`, `r`, `δ`, the local spacing and `w` in the other — and an edge between two of them reverses sign exactly when they lie in different classes. That sign assignment is the one induced by a bipartition, so every cycle of the complete graph on the eight carries an even number of reversals. **EXHAUSTIVE**: all **8,018** cycles of length 3 to 8, **zero** with an odd number of sign reversals.
+**Proposition 14 (the surface is orientable).** Eight quantities derived from a cell divide into two classes by whether they rise or fall along a series — e, ν, V in one class and T, r, δ, the local spacing and w in the other — and an edge between two of them reverses sign exactly when they lie in different classes. That sign assignment is the one induced by a bipartition, so every cycle of the complete graph on the eight carries an even number of reversals. **EXHAUSTIVE**: all **8,018** cycles of length 3 to 8, **zero** with an odd number of sign reversals.
 
-*Proof.* Assign to each quantity the label `+1` in the first class and `−1` in the second, and to each edge `{u, w}` the sign `s(u, w) = label(u)·label(w)`, which is `−1` exactly when the two lie in different classes. Around a cycle `v₁, …, v_m, v₁` the product of the edge signs is `∏_i label(v_i)·label(v_{i+1}) = ∏_i label(v_i)²= +1`, since every vertex appears exactly twice. A product of `±1` equal to `+1` has an even number of `−1` factors. ∎ **PROVED**, and **EXHAUSTIVE** as stated.
+*Proof.* Assign to each quantity the label +1 in the first class and −1 in the second, and to each edge {u, w} the sign s(u, w) = label(u)·label(w), which is −1 exactly when the two lie in different classes. Around a cycle v₁, …, vₘ, v₁ the product of the edge signs is ∏ᵢ label(vᵢ)·label(vᵢ₊₁) = ∏ᵢ label(vᵢ)² = +1, since every vertex appears exactly twice. A product of ±1 equal to +1 has an even number of −1 factors. ∎ **PROVED**, and **EXHAUSTIVE** as stated.
 
 A structure whose sign graph is balanced admits no orientation-reversing traverse, so the object is a cylinder and not a Möbius band; and the reason is structural rather than an absence of evidence, since the proof is a parity argument on a bipartition and not a failure to find a reversing loop.
 
@@ -463,45 +463,45 @@ A structure whose sign graph is balanced admits no orientation-reversing travers
 
 This section is about the first stage as a lattice in its own right. Everything in it is at the caps of D11.
 
-**Lemma 2 (distributivity).** Every `Λ_D` is a distributive lattice.
+**Lemma 2 (distributivity).** Every Λₛ is a distributive lattice.
 
-*Proof.* A product of chains is distributive, since `min` and `max` on a totally ordered set satisfy both distributive laws and the operations on a product act coordinatewise. A sublattice of a distributive lattice is distributive, because the identities are inherited (Birkhoff 1967; Davey and Priestley 2002; Grätzer 2011, CITED for the standard facts). `Λ_D` is a sublattice of `Box(Λ_D)` by Proposition 2, and it is non-empty and finite, so it has a least and a greatest element — the coordinatewise minimum and maximum of all its cells, which lie in it by repeated meet and join. ∎ **PROVED**; the bottom and the top of the first stage are `(1,0,1,0,1,0,0,0)` at rank 3 and `(3,1,3,3,3,1,3,3)` at rank 20, **EXHAUSTIVE**.
+*Proof.* A product of chains is distributive, since min and max on a totally ordered set satisfy both distributive laws and the operations on a product act coordinatewise. A sublattice of a distributive lattice is distributive, because the identities are inherited (Birkhoff 1967; Davey and Priestley 2002; Grätzer 2011, CITED for the standard facts). Λₛ is a sublattice of Box(Λₛ) by Proposition 2, and it is non-empty and finite, so it has a least and a greatest element — the coordinatewise minimum and maximum of all its cells, which lie in it by repeated meet and join. ∎ **PROVED**; the bottom and the top of the first stage are (1,0,1,0,1,0,0,0) at rank 3 and (3,1,3,3,3,1,3,3) at rank 20, **EXHAUSTIVE**.
 
-**Proposition 15 (grading).** For every stage, the rank `r(x) = Σ_i x_i` takes its least value 3. The numbers of distinct rank values are 18, 21, 24, 29, 36 and 44 across the six stages. On the first stage the rank sequence, from rank 3 to rank 20, is
+**Proposition 15 (grading).** For every stage, the rank r(x) = Σᵢ xᵢ takes its least value 3. The numbers of distinct rank values are 18, 21, 24, 29, 36 and 44 across the six stages. On the first stage the rank sequence, from rank 3 to rank 20, is
 
 > 1, 5, 15, 34, 59, 87, 108, 121, **122**, 115, 100, 79, 57, 37, 21, 10, 4, 1,
 
-which is log-concave, and whose widest level is 122 at rank 11 — so `|Λ₈| = 976 = 8 × 122` exactly. The second stage's widest level is 185 at rank 12. **EXHAUSTIVE** at these caps.
+which is log-concave, and whose widest level is 122 at rank 11 — so |Λ₈| = 976 = 8 × 122 exactly. The second stage's widest level is 185 at rank 12. **EXHAUSTIVE** at these caps.
 
-**Definition (generator).** For a coordinate `c` and a value `v ∈ A_c` above the least value of `A_c`, the **generator** `G(c, v)` is the coordinatewise minimum of `{ x ∈ Λ₈ : x_c ≥ v }`.
+**Definition (generator).** For a coordinate i and a value v ∈ Aᵢ above the least value of Aᵢ, the **generator** G(i, v) is the coordinatewise minimum of { x ∈ Λ₈ : xᵢ ≥ v }.
 
-**Proposition 16 (the seventeen generators).** Every `G(c, v)` is a cell of `Λ₈`. Their number is
+**Proposition 16 (the seventeen generators).** Every G(i, v) is a cell of Λ₈. Their number is
 
-> `Σ_i (|A_i| − 1) = (3−1) + (2−1) + (3−1) + (4−1) + (3−1) + (2−1) + (4−1) + (4−1) = 17`,
+> Σᵢ (|Aᵢ| − 1) = (3−1) + (2−1) + (3−1) + (4−1) + (3−1) + (2−1) + (4−1) + (4−1) = 17,
 
-they are exactly the join-irreducible elements of `Λ₈` — the cells with exactly one lower cover — and the partial order they inherit has exactly **20** covering relations. For every cell `x`,
+they are exactly the join-irreducible elements of Λ₈ — the cells with exactly one lower cover — and the partial order they inherit has exactly **20** covering relations. For every cell x,
 
-> `#{ generators G with G ≤ x } = r(x) − 3`,
+> |{ G : G a generator, G ≤ x }| = r(x) − 3,
 
-so the Birkhoff map is rank-preserving and the covers of `Λ₈` are exactly its unit steps. **EXHAUSTIVE**, over all 976 cells and all 17 generators.
+so the Birkhoff map is rank-preserving and the covers of Λ₈ are exactly its unit steps. **EXHAUSTIVE**, over all 976 cells and all 17 generators.
 
-*Why `G(c, v)` is a cell.* The set `{x : x_c ≥ v}` is non-empty (since `v ∈ A_c`) and is closed under meet: if `x_c ≥ v` and `y_c ≥ v` then `(x ∧ y)_c ≥ v`. A non-empty finite meet-closed subset of `Λ₈` contains its own coordinatewise minimum. ∎ **PROVED.**
+*Why G(i, v) is a cell.* The set {x : xᵢ ≥ v} is non-empty (since v ∈ Aᵢ) and is closed under meet: if xᵢ ≥ v and yᵢ ≥ v then (x ∧ y)ᵢ ≥ v. A non-empty finite meet-closed subset of Λ₈ contains its own coordinatewise minimum. ∎ **PROVED.**
 
-**Proposition 17 (Birkhoff, verified).** The lattice of down-sets of the seventeen-element generator poset has exactly **976** elements, one for each cell of `Λ₈`. **EXHAUSTIVE**, by direct enumeration of the down-sets.
+**Proposition 17 (Birkhoff, verified).** The lattice of down-sets of the seventeen-element generator poset has exactly **976** elements, one for each cell of Λ₈. **EXHAUSTIVE**, by direct enumeration of the down-sets.
 
 This is Birkhoff's representation theorem — a finite distributive lattice is the lattice of down-sets of its poset of join-irreducibles, Birkhoff (1937), CITED — computed rather than invoked, on this lattice.
 
-**Theorem 6 (the maximal chains).** The saturated chains from the bottom of `Λ₈` to its top number exactly
+**Theorem 6 (the maximal chains).** The saturated chains from the bottom of Λ₈ to its top number exactly
 
 > **1,113,045,672**,
 
 and every one of them has length 17.
 
-*Proof.* By Proposition 16 the map `x ↦ { G : G ≤ x }` carries `Λ₈` isomorphically onto the down-sets of the generator poset `P` (Proposition 17), and it carries `r(x) − 3` to the size of the down-set. A saturated chain from bottom to top is therefore a sequence of down-sets each obtained from the last by adding one element of `P`, which is precisely a linear extension of `P` (Stanley 2012, ch. 3, CITED for the correspondence); and its length is `|P| = 17 = r(top) − r(bot) = 20 − 3`. The count is the number of paths from the bottom to the top in the Hasse diagram of `Λ₈`, which satisfies the recursion
+*Proof.* By Proposition 16 the map x ↦ { G : G ≤ x } carries Λ₈ isomorphically onto the down-sets of the generator poset P (Proposition 17), and it carries r(x) − 3 to the size of the down-set. A saturated chain from bottom to top is therefore a sequence of down-sets each obtained from the last by adding one element of P, which is precisely a linear extension of P (Stanley 2012, ch. 3, CITED for the correspondence); and its length is |P| = 17 = r(top) − r(bot) = 20 − 3. The count is the number of paths from the bottom to the top in the Hasse diagram of Λ₈, which satisfies the recursion
 
-> `c(bot) = 1`,  `c(x) = Σ { c(y) : y a lower cover of x }`,
+> c(bot) = 1,  c(x) = Σ { c(y) : y a lower cover of x },
 
-well-founded because `r` strictly decreases along lower covers. Evaluating it over all 976 cells in order of rank gives the stated number. ∎ **PROVED**, and **EXHAUSTIVE**: the recursion evaluated at every cell, with lower covers found by testing the eight unit decrements for membership. A **negative control** is reported by the selftest: counting the chains of the *ambient box* instead — the multinomial on the coordinate spans, `20!/(2!1!2!3!2!1!3!3!)` — gives a different number, so the count is not an artefact of ignoring membership.
+well-founded because r strictly decreases along lower covers. Evaluating it over all 976 cells in order of rank gives the stated number. ∎ **PROVED**, and **EXHAUSTIVE**: the recursion evaluated at every cell, with lower covers found by testing the eight unit decrements for membership. A **negative control⋆* is reported by the selftest: counting the chains of the *ambient box* instead — the multinomial on the coordinate spans, 20!/(2!1!2!3!2!1!3!3!) — gives a different number, so the count is not an artefact of ignoring membership.
 
 ---
 
@@ -509,25 +509,25 @@ well-founded because `r` strictly decreases along lower covers. Evaluating it ov
 
 The stages are related by projection (Proposition 1). The rank of D7 is defined on all of them, and this section asks what the rank of a cell at one stage says about the rank of its projection at the stage below. The answer is never a single value; it is always an interval, and the intervals compose.
 
-**Definition (the stage bracket).** For `D = 9, …, 13` and an integer `m`, let `π` delete the last coordinate and put
+**Definition (the stage bracket).** For s = 9, …, 13 and an integer m, let π delete the last coordinate and put
 
-> `β_D(m) := { r(π(x)) : x ∈ Λ_D, r(x) = m }`.
+> βₛ(m) := { r(π(x)) : x ∈ Λₛ, r(x) = m }.
 
-Its **branching** at `m` is `|β_D(m)|`.
+Its **branching** at m is |βₛ(m)|.
 
-**Proposition 18 (each stage bracket is a monotone gap-free interval).** For every `D = 9, …, 13` and every rank `m` realised at that stage, `β_D(m)` is a set of consecutive integers, and both `min β_D` and `max β_D` are non-decreasing in `m`. The largest branching is 4, 4, 6, 8 and 9 respectively — growing with height. **EXHAUSTIVE**, over all cells of all five stages: 1,654 + 2,535 + 13,585 + 70,905 + 199,130.
+**Proposition 18 (each stage bracket is a monotone gap-free interval).** For every s = 9, …, 13 and every rank m realised at that stage, βₛ(m) is a set of consecutive integers, and both min βₛ and max βₛ are non-decreasing in m. The largest branching is 4, 4, 6, 8 and 9 respectively — growing with height. **EXHAUSTIVE**, over all cells of all five stages: 1,654 + 2,535 + 13,585 + 70,905 + 199,130.
 
 ![Figure 5](figures/brackets.png)
 
-**Figure 5.** The five stage brackets and their composite. In each of the first five panels the shaded band is `[min β_D(m), max β_D(m)]` against `m`; in the sixth the shaded band is the composition of all five and the solid outline is the direct bracket from the thirteenth stage to the first. The composite contains the direct bracket everywhere, and exceeds it by at most two rank units.
+**Figure 5.** The five stage brackets and their composite. In each of the first five panels the shaded band is [min βₛ(m), max βₛ(m)] against m; in the sixth the shaded band is the composition of all five and the solid outline is the direct bracket from the thirteenth stage to the first. The composite contains the direct bracket everywhere, and exceeds it by at most two rank units.
 
-**Definition (the direct bracket).** `δ(m) := { r(x₁, …, x₈) : x ∈ Λ₁₃, r(x) = m }`, the ranks of the eight-coordinate projection of a top-stage cell of rank `m`.
+**Definition (the direct bracket).** δ(m) := { r(x₁, …, x₈) : x ∈ Λ₁₃, r(x) = m }, the ranks of the eight-coordinate projection of a top-stage cell of rank m.
 
-**Proposition 19 (composition, and its slack).** Write `β_D[a, b] := [ min_{m ∈ [a,b]} min β_D(m), max_{m ∈ [a,b]} max β_D(m) ]` for the image of an interval. Then for every rank `m` of the thirteenth stage,
+**Proposition 19 (composition, and its slack).** Write βₛ[a, b] := [ min βₛ(m), max βₛ(m) ], the minimum and the maximum taken over m ∈ [a, b], for the image of an interval. Then for every rank m of the thirteenth stage,
 
-> `δ(m) ⊆ β_9[ β_10[ β_11[ β_12[ β_13[m, m] ] ] ] ]`,
+> δ(m) ⊆ β₉[ β₁₀[ β₁₁[ β₁₂[ β₁₃[m, m] ] ] ] ],
 
-the composed bracket contains the direct one; the excess is at most **2** rank units at the lower end and **0** at the upper; `δ(m)` is itself a gap-free interval at every `m`; and both the direct image and the composed image cover the whole rank spectrum of the first stage, `{3, 4, …, 20}`. **EXHAUSTIVE**, over all 199,130 cells of the thirteenth stage.
+the composed bracket contains the direct one; the excess is at most **2** rank units at the lower end and **0** at the upper; δ(m) is itself a gap-free interval at every m; and both the direct image and the composed image cover the whole rank spectrum of the first stage, {3, 4, …, 20}. **EXHAUSTIVE**, over all 199,130 cells of the thirteenth stage.
 
 > **What the bracket system says.** Each projection loses information, and the loss has a shape: not an error, and not a single wrong value, but a resolution. The rank of a thirteen-coordinate cell determines its eight-coordinate rank only up to an interval, and composing the five one-step statements gives an interval that contains the true one and is wider by at most two units. That the composed answer contains the direct one is what makes the five statements usable as a chain; that the slack is bounded, and bounded by 2 rather than by the sum of five branchings, is what makes the chain worth composing.
 
@@ -535,33 +535,33 @@ the composed bracket contains the direct one; the excess is at most **2** rank u
 
 ## §9 · The seed
 
-How much of the first stage must one hold to recover all of it? The staircase `ℛ` of D6 answers, and the answer is seven cells.
+How much of the first stage must one hold to recover all of it? The staircase ℛ of D6 answers, and the answer is seven cells.
 
-**Lemma 3 (a seed is a cover of the steps and the slots).** Let `X` satisfy `ℛ(X) = X` and let `G ⊆ X` be non-empty. Then `ℛ(G) = X` **if and only if** `G` realises every slot of `X` and witnesses every envelope step of `X` (D13).
+**Lemma 3 (a seed is a cover of the steps and the slots).** Let X satisfy ℛ(X) = X and let G ⊆ X be non-empty; write φᵢⱼ for the boundary functions of X (D6) and φᴳᵢⱼ for those of G. Then ℛ(G) = X **if and only if** G realises every slot of X and witnesses every envelope step of X (D13).
 
-*Proof.* (⇒) Suppose `ℛ(G) = X`. Slots: `ℛ(G) ⊆ Box(G)` by D6 and `G ⊆ X`, so `Box(X) = Box(ℛ(G)) ⊆ Box(G) ⊆ Box(X)`; hence `A_i(G) = A_i(X)` for every `i`, which says every slot is realised. Steps: fix `i ≠ j` and `a ∈ A_j`. Every `x ∈ X = ℛ(G)` with `x_j ≤ a` satisfies `x_i ≤ φ^G_ij(x_j) ≤ φ^G_ij(a)`, the second step by monotonicity of `φ^G_ij` (Lemma 1); taking the maximum over such `x` gives `φ^X_ij(a) ≤ φ^G_ij(a)`, and `G ⊆ X` gives the reverse. So `φ^G_ij(a) = φ^X_ij(a)`, and the maximum defining `φ^G_ij(a)` is attained by some `g ∈ G` with `g_j ≤ a` and `g_i = φ^X_ij(a)` — a witness of `(i, j, a)`, whether or not `a` is a step.
+*Proof.* (⇒) Suppose ℛ(G) = X. Slots: ℛ(G) ⊆ Box(G) by D6 and G ⊆ X, so Box(X) = Box(ℛ(G)) ⊆ Box(G) ⊆ Box(X); hence Aᵢ(G) = Aᵢ(X) for every i, which says every slot is realised. Steps: fix i ≠ j and a ∈ Aⱼ. Every x ∈ X = ℛ(G) with xⱼ ≤ a satisfies xᵢ ≤ φᴳᵢⱼ(xⱼ) ≤ φᴳᵢⱼ(a), the second step by monotonicity of φᴳᵢⱼ (Lemma 1); taking the maximum over such x gives φᵢⱼ(a) ≤ φᴳᵢⱼ(a), and G ⊆ X gives the reverse. So φᴳᵢⱼ(a) = φᵢⱼ(a), and the maximum defining φᴳᵢⱼ(a) is attained by some g ∈ G with gⱼ ≤ a and gᵢ = φᵢⱼ(a) — a witness of (i, j, a), whether or not a is a step.
 
-(⇐) Suppose `G` realises every slot and witnesses every step. The slots give `Box(G) = Box(X)`, so `ℛ(G)` and `ℛ(X)` are cut from the same box, and it remains to show `φ^G_ij = φ^X_ij` on `A_j` for all `i ≠ j`. At a step point `a` there is `x ∈ G` with `x_j ≤ a` and `x_i = φ^X_ij(a)`, so `φ^G_ij(a) ≥ φ^X_ij(a)`; and `G ⊆ X` gives `φ^G_ij(a) ≤ φ^X_ij(a)`. Hence equality at every step point. Now take any `b ∈ A_j` and let `a ≤ b` be the largest step point at or below `b`; one exists because the least element of `A_j` is a step point by D13. By the definition of a step there is no step in `(a, b]`, so `φ^X_ij` is constant there and `φ^X_ij(b) = φ^X_ij(a)`. Both functions are non-decreasing (Lemma 1), so
+(⇐) Suppose G realises every slot and witnesses every step. The slots give Box(G) = Box(X), so ℛ(G) and ℛ(X) are cut from the same box, and it remains to show φᴳᵢⱼ = φᵢⱼ on Aⱼ for all i ≠ j. At a step point a there is x ∈ G with xⱼ ≤ a and xᵢ = φᵢⱼ(a), so φᴳᵢⱼ(a) ≥ φᵢⱼ(a); and G ⊆ X gives φᴳᵢⱼ(a) ≤ φᵢⱼ(a). Hence equality at every step point. Now take any b ∈ Aⱼ and let a ≤ b be the largest step point at or below b; one exists because the least element of Aⱼ is a step point by D13. By the definition of a step there is no step in (a, b], so φᵢⱼ is constant there and φᵢⱼ(b) = φᵢⱼ(a). Both functions are non-decreasing (Lemma 1), so
 
-> `φ^X_ij(a) = φ^G_ij(a) ≤ φ^G_ij(b) ≤ φ^X_ij(b) = φ^X_ij(a)`,
+> φᵢⱼ(a) = φᴳᵢⱼ(a) ≤ φᴳᵢⱼ(b) ≤ φᵢⱼ(b) = φᵢⱼ(a),
 
-and the two agree at `b`. Same box, same boundary functions: `ℛ(G) = ℛ(X) = X`. ∎ **PROVED**, and supported by a **GUARD**: on 40 pseudorandom subsets of `Λ₈` (seed 11), "witnesses every step" agreed with "regenerates `Λ₈` under an independently written staircase over the fixed box of `Λ₈`" in 40 of 40 cases, "witnesses every step and realises every slot" agreed with "regenerates `Λ₈` under the staircase over the subset's own box" in 40 of 40, and the exhibited seed with one cell removed failed both.
+and the two agree at b. Same box, same boundary functions: ℛ(G) = ℛ(X) = X. ∎ **PROVED**, and supported by a **GUARD**: on 40 pseudorandom subsets of Λ₈ (seed 11), "witnesses every step" agreed with "regenerates Λ₈ under an independently written staircase over the fixed box of Λ₈" in 40 of 40 cases, "witnesses every step and realises every slot" agreed with "regenerates Λ₈ under the staircase over the subset's own box" in 40 of 40, and the exhibited seed with one cell removed failed both.
 
-So `seed(X)` is the optimum of a minimum set cover: the elements are the steps and the slots, the sets are the cells, and a cell covers what it witnesses and realises. Minimum set cover is NP-complete in general — Karp (1972), CITED — and the instances here are solved exactly by branch and bound, with the minimality certified a second time by a solver.
+So seed(X) is the optimum of a minimum set cover: the elements are the steps and the slots, the sets are the cells, and a cell covers what it witnesses and realises. Minimum set cover is NP-complete in general — Karp (1972), CITED — and the instances here are solved exactly by branch and bound, with the minimality certified a second time by a solver.
 
-**Theorem 7 (the seed of the first three stages).** `seed(Λ₈) = 7`, `seed(Λ₉) = 8`, `seed(Λ₁₀) = 9`.
+**Theorem 7 (the seed of the first three stages).** seed(Λ₈) = 7, seed(Λ₉) = 8, seed(Λ₁₀) = 9.
 
 *Proof.* Two halves, an exhibit and a lower bound, at each stage.
 
 *Lower.* Drop the slots and ask only for a set of cells witnessing every step: 77 steps at the first stage, 105 at the second, 138 at the third. Any seed does this (Lemma 3), so the least such set bounds the seed below. Two cells that witness the same set of steps are interchangeable, so the instance is a set cover over the **distinct covering signatures** — 808, 1,376 and 2,111 of them — and a signature contained in another may always be replaced by the larger without growing a cover, so the optimum may be sought among the signatures **maximal under inclusion**: 264, 442 and 688. Branch and bound over those families, exact in the sense that every branch not pruned by the bound is visited, returns **7, 8 and 9**. The same optimum is certified a second time by a solver, on an instance reduced by two exact steps whose exactness the check verifies rather than assumes: a step that is witnessed by every cell witnessing some other step may be dropped, since covering the second covers the first, which leaves 27, 28 and 29 steps; and, after that restriction, signatures are again replaced by the maximal ones, leaving 59, 61 and 63. Asked whether any 6, 7 or 8 of those signatures cover the kept steps, the solver returns `unsat` at each stage. The lower bound is therefore 7, 8 and 9.
 
-*Upper.* The minimum step cover found by the branch and bound is exhibited at each stage, and it happens also to realise every slot — 25, 29 and 33 of them. By Lemma 3 it is a seed, so `seed(Λ_D)` is at most 7, 8 and 9, and the relaxation is tight. This was confirmed twice more by running two independently written staircases over the exhibited set — one over the fixed box of the stage, one over the set's own box — and comparing the output to the stage cell by cell. ∎ **EXHAUSTIVE** (branch and bound over the maximal signatures, family sizes printed) and **MACHINE-CHECKED** (the minimality, at all three stages, over every subset of the reduced signature family, both reductions checked).
+*Upper.* The minimum step cover found by the branch and bound is exhibited at each stage, and it happens also to realise every slot — 25, 29 and 33 of them. By Lemma 3 it is a seed, so seed(Λₛ) is at most 7, 8 and 9, and the relaxation is tight. This was confirmed twice more by running two independently written staircases over the exhibited set — one over the fixed box of the stage, one over the set's own box — and comparing the output to the stage cell by cell. ∎ **EXHAUSTIVE** (branch and bound over the maximal signatures, family sizes printed) and **MACHINE-CHECKED** (the minimality, at all three stages, over every subset of the reduced signature family, both reductions checked).
 
 Two further figures are reported beside the theorem because each is a bound a reader can check by hand. A **packing** is a set of steps no cell witnesses two of; a cover needs one cell per packed step, so the largest packing bounds the seed below. The largest packings, found by exact search, have **6, 7 and 8** steps — one short of the seed at every stage, so the seed is not decided by that bound and the branch and bound is doing work. And the **greedy** cover of steps and slots — take at each turn the cell covering the most uncovered elements — returns **7, 9 and 9**: at the second stage it is one above the minimum, which is the ordinary behaviour of greedy on set cover and not a property of the lattice. **EXHAUSTIVE**, both.
 
-> **What three exact values do and do not say.** The seed rises by one at each of the three stages — 7, 8, 9 — while the cell count rises 976, 1,654, 2,535, and the compression `|Λ|/seed` is 139, 207 and 282. Three points fix no law; the paper claims none. What the values do settle is that the seed at the second stage is 8 and not 9, and that a greedy figure is an upper bound and not a seed.
+> **What three exact values do and do not say.** The seed rises by one at each of the three stages — 7, 8, 9 — while the cell count rises 976, 1,654, 2,535, and the compression |Λ|/seed is 139, 207 and 282. Three points fix no law; the paper claims none. What the values do settle is that the seed at the second stage is 8 and not 9, and that a greedy figure is an upper bound and not a seed.
 
-> **Seventeen generators and seven cells are two different compressions.** The seventeen of §7 generate `Λ₈` under the lattice join, and they are forced: they are exactly the join-irreducibles, so no smaller set generates under `∨`. The seven generate it under `ℛ`, which is the stronger operator — it fills the box its own pairwise extents allow, where the join reaches only the down-set — and seven is what that stronger operator costs. Neither number bounds the other, and the two should not be read as competing measurements of the same thing.
+> **Seventeen generators and seven cells are two different compressions.** The seventeen of §7 generate Λ₈ under the lattice join, and they are forced: they are exactly the join-irreducibles, so no smaller set generates under ∨. The seven generate it under ℛ, which is the stronger operator — it fills the box its own pairwise extents allow, where the join reaches only the down-set — and seven is what that stronger operator costs. Neither number bounds the other, and the two should not be read as competing measurements of the same thing.
 
 ---
 
@@ -573,54 +573,54 @@ Every number printed above is recomputed by the paper's check program, which imp
 
 | object | status | family, domain or witness |
 |---|---|---|
-| Lemma 1, `ℛ(X)` is a sublattice | PROVED | — |
-| Lemma 2, distributivity | PROVED; EXHAUSTIVE | the coordinatewise extremes of `Λ₈` are cells: `(1,0,1,0,1,0,0,0)` at rank 3 and `(3,1,3,3,3,1,3,3)` at rank 20 |
-| Lemma 3, a seed is a cover of steps and slots | PROVED; GUARD | 40 pseudorandom subsets of `Λ₈`, seed 11: cover-of-steps ⇔ regeneration in the fixed box, 40/40; cover-of-steps-and-slots ⇔ regeneration in the subset's own box, 40/40; the seed minus one cell fails both |
-| **Theorem 1**, one coordinate per bound | PROVED; MACHINE-CHECKED ×2 | the unbounded integers, 8 free variables (`x₁, x₂, y₁, y₂, l₁, l₂, h₁, h₂`), monotonicity stated at the two points that occur, `unsat`; and the finite-box form, every closed subset of a `3 × 3` box (`2⁹` subsets) against every monotone `h` into `{−1, 0, 1, 2}` |
+| Lemma 1, ℛ(X) is a sublattice | PROVED | — |
+| Lemma 2, distributivity | PROVED; EXHAUSTIVE | the coordinatewise extremes of Λ₈ are cells: (1,0,1,0,1,0,0,0) at rank 3 and (3,1,3,3,3,1,3,3) at rank 20 |
+| Lemma 3, a seed is a cover of steps and slots | PROVED; GUARD | 40 pseudorandom subsets of Λ₈, seed 11: cover-of-steps ⇔ regeneration in the fixed box, 40/40; cover-of-steps-and-slots ⇔ regeneration in the subset's own box, 40/40; the seed minus one cell fails both |
+| **Theorem 1**, one coordinate per bound | PROVED; MACHINE-CHECKED ×2 | the unbounded integers, 8 free variables (x₁, x₂, y₁, y₂, l₁, l₂, h₁, h₂), monotonicity stated at the two points that occur, `unsat`; and the finite-box form, every closed subset of a 3 × 3 box (2⁹ subsets) against every monotone h into {−1, 0, 1, 2} |
 | **Theorem 2**, the monotone envelope | PROVED | — (not of a shape a solver decides; see below) |
-| **Theorem 3**, the triangle | PROVED; MACHINE-CHECKED (join); REFUTATION (meet) | join: the unbounded integers, 6 free variables, `unsat`; meet: the solver's model `a₁=0, b₁=4, c₁=4, a₂=1, b₂=2, c₂=3`, and the two witnesses `(0,1,1)∧(1,0,1) = (0,0,1)`, `(4,0,4)∧(2,2,0) = (2,0,0)` re-verified in ordinary arithmetic |
-| **Theorem 4**, the bands | PROVED; MACHINE-CHECKED (i), (ii); REFUTATION (iii) | (i) the unbounded integers with `k` itself a free variable, `unsat`; (ii) the unbounded integers, `unsat`; (iii) the witness `(2,0,2)∧(2,2,0) = (2,0,0)` |
+| **Theorem 3**, the triangle | PROVED; MACHINE-CHECKED (join); REFUTATION (meet) | join: the unbounded integers, 6 free variables, `unsat`; meet: the solver's model a₁=0, b₁=4, c₁=4, a₂=1, b₂=2, c₂=3, and the two witnesses (0,1,1)∧(1,0,1) = (0,0,1), (4,0,4)∧(2,2,0) = (2,0,0) re-verified in ordinary arithmetic |
+| **Theorem 4**, the bands | PROVED; MACHINE-CHECKED (i), (ii); REFUTATION (iii) | (i) the unbounded integers with k itself a free variable, `unsat`; (ii) the unbounded integers, `unsat`; (iii) the witness (2,0,2)∧(2,2,0) = (2,0,0) |
 | **Theorem 5**, the dichotomy; Corollary 1 | PROVED; EXHAUSTIVE | the thirteen bounds of D10 |
-| the derived-quantity remark of §4 | REFUTATION | `h = e − q` on `Λ₈`: `h((1,0,1,0,1,0,0,0) ∨ (1,0,1,1,1,0,0,0)) = 0 ≠ max(1, 0)` |
-| Prop. 1, projection | PROVED; EXHAUSTIVE | the five projections `Λ_{D+1} → Λ_D`, `D = 8, …, 12`, as set equalities |
+| the derived-quantity remark of §4 | REFUTATION | h = e − q on Λ₈: h((1,0,1,0,1,0,0,0) ∨ (1,0,1,1,1,0,0,0)) = 0 ≠ max(1, 0) |
+| Prop. 1, projection | PROVED; EXHAUSTIVE | the five projections Λₛ₊₁ → Λₛ, s = 8, …, 12, as set equalities |
 | **Prop. 2**, every stage closes | PROVED; EXHAUSTIVE ×2 | the staircase swept over 6,912 / 27,648 / 110,592 / 663,552 / 5,308,416 / 47,775,744 ambient cells; every unordered pair at the first four stages, 475,800 / 1,367,031 / 3,211,845 / 92,269,320 pairs, 0 failing meets and 0 failing joins; the pair counts 2,513,724,060 and 19,826,278,885 at the last two, decided by the sweep |
 | Table 1 and Figure 1 | EXHAUSTIVE | the six counts, the six boxes, the six fills, no duplicate cell at any stage; the growth factors 204 and 6,912 and the ratio 415 |
 | Prop. 3, fill decay | EXHAUSTIVE | six stages |
-| Props. 4–6, the terms and their maxima | EXHAUSTIVE; CITED | `terms(ℓ^k)` for the eight subshells the caps admit and `p^k` to `k = 6`: `terms(p¹, p², p³)`, `φ̂ = {1:3, 2:4, 3:5}`, `max 2J(p^k) = 3,4,5,4,3,0`, `max 2S(p^k) = 1,2,3,2,1,0`, `max 2S(s^k) = 1, 0`, `terms(p^k) = terms(p^{6−k})`, `min(g, 4f+2−g)` at every `(f, g)`, the envelope `3,4,5,5,5,5`; the construction of the term multiset is CITED |
-| the core–orbit range | EXHAUSTIVE | `max{2K : 2J_c = j} = j + 2` for `j = 0, …, 5` over `Λ₁₂` |
-| **Table 2**, the envelope gap | EXHAUSTIVE | every cell of the stage below at each axis: 1,054 / 1,654; 1,132 / 2,535; 2,310 / 13,585 and 10,585 / 13,585; 22,275 / 70,905; 128,225 / 199,130 with 13,585 cells at `2K = 0`; the exact fibre never larger than the admissible one |
-| Props. 7–8, the constraint graph | PROVED (8); EXHAUSTIVE | six stages: the edge list against an independent derivation from the bounds; vertices 8–13; edges 7, 8, 10, 11, 12, 13; connected; cycle rank `(0,0,1,1,1,1)`; one triangle `2S′–g–v` from the tenth stage, over all `C(13,3) = 286` triples at the top; treewidth `(1,1,2,2,2,2)` by exact elimination search; girth 3 from the tenth stage; degrees at the top; `q` a cut vertex, no parent–target edge, exactly two components after deleting `q` |
-| Prop. 9, the two-parent reading | EXHAUSTIVE | the same six graphs with the edge `f–2K` substituted: 14 edges, cycle rank `(0,0,1,1,2,2)`, triangles, treewidth, girth and the hub degrees unchanged, only `f` and `2K` moving |
-| Prop. 10, exact factorisation; Table 4; Figures 3–4 | PROVED; EXHAUSTIVE | six stages for `Σ_t |A(t)|·|B(t)| = |Λ|`; the set identity `Λ ∩ {q = t} = A(t) × B(t)` at every `t` of the first and thirteenth stages; the sections 33×5 / 33×10 / 23×15 / 8×17, 815 / 3,260 / 6,150 / 3,360 and 11,470 / 45,880 / 89,700 / 52,080 |
-| Prop. 11, the profile and `⟨q⟩` | EXHAUSTIVE | six stages, four transfers each: monotone sides, log-concave sections peaking at `t = 2`, `⟨q⟩ = 1.4631 … 1.9159` |
-| Prop. 12, the price of the second parent | EXHAUSTIVE; REFUTATION | the cell's-own-`f` construction at the twelfth and thirteenth stages: 55,755 and 153,680 cells against products 70,905 and 199,130, defects 15,150 (21.4%) and 45,450 (22.8%); its staircase defect `E = 12,675` |
-| Prop. 13, the exact triangle does not close | EXHAUSTIVE; REFUTATION | 22,275 cells, `|ℛ| = 57,845`, `E = 35,570`, 64,290 cells at the thirteenth stage; all 248,076,675 unordered pairs, 52,767,450 failing meets and 28,742,850 failing joins; the exhibited failing meet |
+| Props. 4–6, the terms and their maxima | EXHAUSTIVE; CITED | terms(ℓᵏ) for the eight subshells the caps admit and pᵏ to k = 6: terms(p¹, p², p³), φ̂ = {1:3, 2:4, 3:5}, max 2J(pᵏ) = 3,4,5,4,3,0, max 2S(pᵏ) = 1,2,3,2,1,0, max 2S(sᵏ) = 1, 0, terms(pᵏ) = terms(p⁶⁻ᵏ), min(g, 4f+2−g) at every (f, g), the envelope 3,4,5,5,5,5; the construction of the term multiset is CITED |
+| the core–orbit range | EXHAUSTIVE | max{2K : 2Jₚ = j} = j + 2 for j = 0, …, 5 over Λ₁₂ |
+| **Table 2**, the envelope gap | EXHAUSTIVE | every cell of the stage below at each axis: 1,054 / 1,654; 1,132 / 2,535; 2,310 / 13,585 and 10,585 / 13,585; 22,275 / 70,905; 128,225 / 199,130 with 13,585 cells at 2K = 0; the exact fibre never larger than the admissible one |
+| Props. 7–8, the constraint graph | PROVED (8); EXHAUSTIVE | six stages: the edge list against an independent derivation from the bounds; vertices 8–13; edges 7, 8, 10, 11, 12, 13; connected; cycle rank (0,0,1,1,1,1); one triangle 2S′–g–v from the tenth stage, over all C(13,3) = 286 triples at the top; treewidth (1,1,2,2,2,2) by exact elimination search; girth 3 from the tenth stage; degrees at the top; q a cut vertex, no parent–target edge, exactly two components after deleting q |
+| Prop. 9, the two-parent reading | EXHAUSTIVE | the same six graphs with the edge f–2K substituted: 14 edges, cycle rank (0,0,1,1,2,2), triangles, treewidth, girth and the hub degrees unchanged, only f and 2K moving |
+| Prop. 10, exact factorisation; Table 4; Figures 3–4 | PROVED; EXHAUSTIVE | six stages for Σₜ |A(t)|·|B(t)| = |Λ|; the set identity Λ ∩ {q = t} = A(t) × B(t) at every t of the first and thirteenth stages; the sections 33×5 / 33×10 / 23×15 / 8×17, 815 / 3,260 / 6,150 / 3,360 and 11,470 / 45,880 / 89,700 / 52,080 |
+| Prop. 11, the profile and ⟨q⟩ | EXHAUSTIVE | six stages, four transfers each: monotone sides, log-concave sections peaking at t = 2, ⟨q⟩ = 1.4631 … 1.9159 |
+| Prop. 12, the price of the second parent | EXHAUSTIVE; REFUTATION | the cell's-own-f construction at the twelfth and thirteenth stages: 55,755 and 153,680 cells against products 70,905 and 199,130, defects 15,150 (21.4%) and 45,450 (22.8%); its staircase defect E = 12,675 |
+| Prop. 13, the exact triangle does not close | EXHAUSTIVE; REFUTATION | 22,275 cells, |ℛ| = 57,845, E = 35,570, 64,290 cells at the thirteenth stage; all 248,076,675 unordered pairs, 52,767,450 failing meets and 28,742,850 failing joins; the exhibited failing meet |
 | Prop. 14, orientation | PROVED; EXHAUSTIVE | all 8,018 cycles of length 3 to 8 of the complete graph on the eight quantities, 0 with an odd number of reversals |
-| Props. 15–17, rank, generators, Birkhoff | EXHAUSTIVE | rank values 18, 21, 24, 29, 36, 44 with bottom rank 3 at every stage; the rank sequence of `Λ₈` and its widest level 122 at rank 11, `Λ₉`'s 185 at rank 12, log-concavity, `976 = 8 × 122`; alphabet sizes `3,2,3,4,3,2,4,4` summing to 25; every generator a cell, the 17 join-irreducibles equal to the 17 generators, `#{G ≤ x} = r(x) − 3` at all 976 cells, 20 covering relations, 976 down-sets by enumeration |
+| Props. 15–17, rank, generators, Birkhoff | EXHAUSTIVE | rank values 18, 21, 24, 29, 36, 44 with bottom rank 3 at every stage; the rank sequence of Λ₈ and its widest level 122 at rank 11, Λ₉'s 185 at rank 12, log-concavity, 976 = 8 × 122; alphabet sizes 3,2,3,4,3,2,4,4 summing to 25; every generator a cell, the 17 join-irreducibles equal to the 17 generators, |{G ≤ x}| = r(x) − 3 at all 976 cells, 20 covering relations, 976 down-sets by enumeration |
 | **Theorem 6**, 1,113,045,672 maximal chains | PROVED; EXHAUSTIVE | the recursion evaluated at all 976 cells, lower covers found by testing the eight unit decrements for membership; every chain of length 17; the negative control of the selftest (the ambient box's multinomial, 205,837,632,000, is not this number) |
-| Props. 18–19, the bracket system; Figure 5 | EXHAUSTIVE | all cells of the five upper stages, 1,654 + 2,535 + 13,585 + 70,905 + 199,130 = 287,809: gap-free monotone intervals, branching 4, 4, 6, 8, 9; all 199,130 top-stage cells for the composition: containment, slack 2 below and 0 above, the direct bracket gap-free, both routes covering `{3, …, 20}` |
+| Props. 18–19, the bracket system; Figure 5 | EXHAUSTIVE | all cells of the five upper stages, 1,654 + 2,535 + 13,585 + 70,905 + 199,130 = 287,809: gap-free monotone intervals, branching 4, 4, 6, 8, 9; all 199,130 top-stage cells for the composition: containment, slack 2 below and 0 above, the direct bracket gap-free, both routes covering {3, …, 20} |
 | **Theorem 7**, the seed 7, 8, 9 | EXHAUSTIVE; MACHINE-CHECKED | branch and bound over the 264 / 442 / 688 maximal covering signatures (808 / 1,376 / 2,111 distinct) of the 77 / 105 / 138 steps; the minimum realising all 25 / 29 / 33 slots; regeneration under two independent staircases, in the fixed box and in the seed's own box; the solver refuting a 6- / 7- / 8-cover over every subset of the reduced family, 59 / 61 / 63 signatures against 27 / 28 / 29 kept steps, `unsat` three times; the two reductions checked as GUARDs at every stage |
 | the packing and greedy figures of §9 | EXHAUSTIVE | the largest packing by exact search, 6 / 7 / 8 steps, each checked against every cell; the greedy rule on steps and slots, 7 / 9 / 9; the requirement counts 77 + 25, 105 + 29, 138 + 33; the compressions 139, 207, 282 |
 
 **The two guards, stated.** No MACHINE-CHECKED row of §4 is reported unless both pass, and the check program refuses to print any of them otherwise.
 
-*Non-vacuity.* Four satisfiability checks, each asking the solver for a model of the hypothesis alone with the degenerate cases excluded: Theorem 1's hypothesis with the new coordinate strictly inside both of its bounds at both points and the two parent values distinct; Theorem 3's with two distinct non-degenerate triples; Theorem 4's two hypotheses; and the finite-box hypothesis with the subset `S` neither empty nor the whole box and the bound `h` non-constant. All four are satisfiable, so none of the implications is vacuously true.
+*Non-vacuity.* Four satisfiability checks, each asking the solver for a model of the hypothesis alone with the degenerate cases excluded: Theorem 1's hypothesis with the new coordinate strictly inside both of its bounds at both points and the two parent values distinct; Theorem 3's with two distinct non-degenerate triples; Theorem 4's two hypotheses; and the finite-box hypothesis with the subset S neither empty nor the whole box and the bound h non-constant. All four are satisfiable, so none of the implications is vacuously true.
 
-*Encoding fidelity.* The predicates the solver is given are evaluated in ordinary arithmetic against independently written concrete implementations. The triangle region at cap 6 is built twice and the two sets are compared cell by cell; a brute-force pair scan over it finds **2,862** failing meets and **0** failing joins by both routes. The region `{|a − b| ≤ c}` at cap 8 gives **12,654** failing meets and 0 failing joins by brute force. The bands `B_k` at cap 7 for `k = 0, 1, 2, 3` are closed by brute force. And Theorem 1's construction is exercised directly: on **150** pseudorandomly generated sublattices (seed 5) of boxes of shapes `3×3`, `4×3`, `3×3×3` and `2×4×3`, each extended by a random pair of monotone bounds, a brute-force pair scan finds **0** failures; the same scan with the bounds deliberately made non-monotone catches a failure **126** times, so the guard is capable of returning a failure.
+*Encoding fidelity.* The predicates the solver is given are evaluated in ordinary arithmetic against independently written concrete implementations. The triangle region at cap 6 is built twice and the two sets are compared cell by cell; a brute-force pair scan over it finds **2,862** failing meets and **0** failing joins by both routes. The region {|a − b| ≤ c} at cap 8 gives **12,654** failing meets and 0 failing joins by brute force. The bands Bₖ at cap 7 for k = 0, 1, 2, 3 are closed by brute force. And Theorem 1's construction is exercised directly: on **150** pseudorandomly generated sublattices (seed 5) of boxes of shapes 3×3, 4×3, 3×3×3 and 2×4×3, each extended by a random pair of monotone bounds, a brute-force pair scan finds **0** failures; the same scan with the bounds deliberately made non-monotone catches a failure **126** times, so the guard is capable of returning a failure.
 
 *The seed's own guards.* The three solver obligations of Theorem 7 run on a reduced instance, and the reductions are checked before the solver is asked: every covering signature sits inside a maximal one (set dominance), and every step is witnessed by every cell that witnesses one of the kept steps (element dominance), then set dominance again on the restricted signatures. A failure of either would leave the obligation unreported.
 
-**The negative controls.** The selftest runs the guards and then five deliberately false claims, each of which must be reported as refuted, so that a clean run is evidence rather than a restatement: that the region with the upper bound only, `{c ≤ a + b}`, has the triangle's failure counts (it has 2,254 failing meets against the triangle's 2,862, so the fidelity guard separates them); that the triangle region is meet-closed; that Theorem 1 holds without the monotonicity hypothesis; that the twelfth stage under the exact triangle is closed; and that the maximal chains can be counted without testing membership. All five are refuted.
+**The negative controls.** The selftest runs the guards and then five deliberately false claims, each of which must be reported as refuted, so that a clean run is evidence rather than a restatement: that the region with the upper bound only, {c ≤ a + b}, has the triangle's failure counts (it has 2,254 failing meets against the triangle's 2,862, so the fidelity guard separates them); that the triangle region is meet-closed; that Theorem 1 holds without the monotonicity hypothesis; that the twelfth stage under the exact triangle is closed; and that the maximal chains can be counted without testing membership. All five are refuted.
 
-**What is not machine-checked, and why.** Theorem 2 is an order-theoretic statement about a family of sets indexed by two arbitrary monotone functions on an arbitrary chain; it is proved, and its content is exercised at six axes in Table 2, where the envelope is constructed and its excess counted. Theorem 6's count and Propositions 15 to 19 are enumerations over a named finite object, not decision problems, and they carry EXHAUSTIVE with the family printed. Proposition 8 is proved from the edge list and checked at all six stages, but the claim that no *other* vertex separates the two blocks is not made: `k`, `g`, `ℓ` and `f` are cut vertices of the graph too, and the proposition is about the parent–target cut alone. The branch and bound of Theorem 7 is exhaustive in the sense that every branch not pruned by a valid bound is visited; what the solver adds is a second, independent decision of the same minimality on the reduced instance.
+**What is not machine-checked, and why.** Theorem 2 is an order-theoretic statement about a family of sets indexed by two arbitrary monotone functions on an arbitrary chain; it is proved, and its content is exercised at six axes in Table 2, where the envelope is constructed and its excess counted. Theorem 6's count and Propositions 15 to 19 are enumerations over a named finite object, not decision problems, and they carry EXHAUSTIVE with the family printed. Proposition 8 is proved from the edge list and checked at all six stages, but the claim that no *other* vertex separates the two blocks is not made: k, g, ℓ and f are cut vertices of the graph too, and the proposition is about the parent–target cut alone. The branch and bound of Theorem 7 is exhaustive in the sense that every branch not pruned by a valid bound is visited; what the solver adds is a second, independent decision of the same minimality on the reduced instance.
 
-**What is at the caps, and what is not.** Every cell count, every section, every rank profile, every graph figure and every seed in this paper is at the single cap setting of D11. Theorems 1 to 5 and Lemmas 1 to 3 are at no caps: they are proved for arbitrary chains and arbitrary monotone bounds, and the three that a solver can decide are decided over the unbounded integers. Propositions 4 to 6 are at the caps as stated and are the reason the distinction matters: `φ̂` coincides with the realised maximum at these caps and separates from it one electron further up.
+**What is at the caps, and what is not.** Every cell count, every section, every rank profile, every graph figure and every seed in this paper is at the single cap setting of D11. Theorems 1 to 5 and Lemmas 1 to 3 are at no caps: they are proved for arbitrary chains and arbitrary monotone bounds, and the three that a solver can decide are decided over the unbounded integers. Propositions 4 to 6 are at the caps as stated and are the reason the distinction matters: φ̂ coincides with the realised maximum at these caps and separates from it one electron further up.
 
 ---
 
 ## References
 
-- Birkhoff, G. (1937). Rings of sets. *Duke Mathematical Journal* **3**(3), 443–454.
+- Birkhoff, G. (1937). Rings of sets. *Duke Mathematical Journal⋆ **3**(3), 443–454.
 - Birkhoff, G. (1967). *Lattice Theory*, 3rd edition. American Mathematical Society Colloquium Publications 25, Providence.
 - Condon, E. U. and Shortley, G. H. (1935). *The Theory of Atomic Spectra*. Cambridge University Press, Cambridge.
 - Cowan, R. D. (1981). *The Theory of Atomic Structure and Spectra*. University of California Press, Berkeley.
