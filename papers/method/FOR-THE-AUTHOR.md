@@ -526,3 +526,19 @@ paper's own pick, two suffice. The paper does not choose; the choice is yours, a
 file still labels the data observed, which is recorded and not edited. The step-conditional
 Madelung score is reconciled with the standard twenty exceptions, all named. All 57 findings
 fixed, none declined. Obligations 113 to 141.
+
+**Closure beyond the atom — repaired, and it now argues from theorems rather than a catalogue.**
+Working title: *Closure beyond the atom: the defect of an index, its zeros by theorem, and the
+electromagnetic quotient*. The fibring result is stated for fibring by a coordinate, which is what
+holds, with the three-cell counterexample for a general partition printed as a refutation. The
+crossing is gone: on the 134 physical one-electron moves with room in the target the forbidden
+class leads in both scopes, and the source's four percentages are shown to reproduce on a
+population two-thirds Pauli-forbidden. Every zero in the catalogue is now a theorem — a bimonotone
+cut of a sublattice is a sublattice, so Λ, its tower, the box ordering, the product grid and
+Janet's staircase close by construction — and every non-zero is either forced by a hole in a
+difference's value set or counts named cells, the nuclide counts now derived from NUBASE2020
+fetched from two independent copies. Dropped: "the catalogue separates closed from open", the
+Kreuzer–Skarke cells as predictions, the nuclide defect's stability across cutoffs (it fails at
+Z ≤ 10), the agreement law, the regression statistics, and the composability and
+mutual-information paragraphs. 118 findings fixed, one declined. Whether the paper that remains
+earns its place is yours to judge.

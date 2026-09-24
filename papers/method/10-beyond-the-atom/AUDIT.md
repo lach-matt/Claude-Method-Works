@@ -716,7 +716,7 @@ and A-32–A-33.
 | A-39 Figure 2 caption does not name the three omitted rows | 259 | MINOR |  **FIXED.** Figure 2 shows all sixteen rows of Table 1, grouped, so nothing is omitted. |
 | A-40 all mathematics in code font (535 spans) | every page | MAJOR |  **FIXED.** Every code span is gone: mathematics is plain Unicode text throughout, displayed formulas in indented blocks; the rendered PDF's text has no underscore, caret or backslash (pypdf extraction, repair record). |
 | A-41 (a)/(b)/(c) of Theorem 1 (statement and proof) and Theorem 3 render as "1.", "2." | 98, 102, 104, 124–125; pp.4–5 | MAJOR |  **FIXED.** Theorem 1's clauses are on one line after the heading; its proof is headed 'Proof of (a)/(b)/(c)'; Theorem 3 has one clause. |
-| A-42 orphaned lead-ins before two tables; half-blank p.10 | pp.2–3, 10, 18–19 | MINOR | |
+| A-42 orphaned lead-ins before two tables; half-blank p.10 | pp.2–3, 10, 18–19 | MINOR | **DECLINED.** The page template (`paper.html`) is shared by every paper and lies outside this paper's directory, which the drafter may not edit; the rewrite moved every break the audit named (the status-word lead-in and its table now share p.3, the §7 lead-in and its table share p.21), and every figure sits on one page with its caption under it, which the contract asks for. No heading is orphaned at a page foot in the 25-page render. |
 | A-43.1 code-span mathematics, 1 instance | 50 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
 | A-43.2 code-span mathematics, 1 instance | 52 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
 | A-43.3 code-span mathematics, 2 instances | 54 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
@@ -798,3 +798,45 @@ and A-32–A-33.
 **Totals.** BLOCKING 2 (A-1, R-6). MAJOR 29 (A-2 to A-10, A-20, A-29, A-40, A-41; R-1, R-2, R-7 to
 R-10, R-12, R-18 to R-22). MINOR 101 (A-11 to A-19, A-21 to A-28, A-30 to A-39, A-42, A-43.1–45,
 A-44.1–7; R-3 to R-5, R-11, R-13 to R-17, R-23 to R-25). 132 findings in all.
+
+
+---
+
+## Repair record — 2026-09-24
+
+Repaired by the drafter against every finding above; nothing above was deleted or rewritten.
+**Dispositions: 118 FIXED, 1 DECLINED** (BLOCKING 2/2 FIXED; MAJOR 29/29 FIXED; MINOR 99 FIXED, 1 DECLINED — A-42).
+The half of R-12 that asked for the full Hodge-pair list to be closed is declined inside R-12's FIXED note: the list
+was not read here and the paper says so.
+
+**A-1.** The general-partition counterexample was verified with the seated operator (E(X) = 1, fibred defect 2) and is
+printed as Remark 3 / check row T4b. Fibrations are by a coordinate (D5); Theorem 4 holds for any coordinate and is
+machine-checked fibred over every coordinate of the three boxes (8 instances); Corollary 2 iterates (T4c).
+
+**R-6.** The Pauli filter is check row Q8a: 2,923 of the 4,325 moves deliver more electrons than the target can still
+hold (2,203 into a full subshell), 2,819 move more than one electron; 134 are physical. The source's four percentages
+reproduce on the unfiltered population (Q8b) and do not cross on the physical one (Q9b: 11.9 / 18.7 within, 40.7 / 64.0
+across; Q9c asserts no reversal). A configurational match is computed beside it (Q10). The paper prints both populations
+(Table 3, Figure 4) and claims no crossing; SOURCES.md §1.2 / §4.10 record the source's figures as reproduced on a
+population two-thirds Pauli-forbidden.
+
+**What changed.** `PAPER.md` rewritten in full: new title ("…the defect of an index, its zeros by theorem, and the
+electromagnetic quotient"), abstract halved, thesis restated (every zero of the catalogue is a theorem — Theorem 0 with
+Lemma 3's bimonotone cut, Proposition 2 — and every non-zero forced or named); Theorem 0 (Queyranne–Tardella) with the
+six-line proof; Remark 1–3; Lemma 3 / Corollary 4 / Proposition 2; Lemma 4; the survey's witnessed channels as a row;
+the nuclide list derived from NUBASE2020 (`nubase2020-Z0-10.txt`, verbatim, md5-checked; the full file fetched from two
+independent public copies, byte-identical); MEASURED adopted as a status word; every code span gone; ∣ in table cells;
+(a)/(b)/(c) inline. `check.py` never weakened: 46 new rows (T0c.×3, T0c, T0d, T4 over every coordinate, T4b, T4c,
+T6ag/T6bg, T7a–e, C7 CITED, C7a–g, C8c, C9d, C15b, L3c, L6, L7, R3.×6, R3c, Q8a, Q9.×5, Q9b, Q9c, Q10, Q10.×5, Q10b),
+21 rows relabelled MEASURED, the unused T = 5 branch removed, labels corrected (A-34). `figures.py`: Figure 1 computed
+from C2/C2b (replacing the plate), Figure 2 sixteen grouped rows, Figure 3 without r², Figure 4 both populations.
+`FIGURES.tsv` rewritten with the four new md5s. `SOURCES.md` rewritten (§1.1–1.9 corrections, §4.10–4.11).
+
+**Re-verification.** `python3 check.py` (PATH = `method/bin`, Python 3.12, detached): **148 obligations, 0 failed** —
+MACHINE-CHECKED 8, EXHAUSTIVE 74, MEASURED 35, SAMPLED 16, REFUTATION 3, CITED 1, GUARD 11, `CLEAN`.
+`python3 check.py --selftest`: **152 obligations, 0 failed**, N1–N4 each refuted (N3: 18 of 1,112 cells disagree),
+`CLEAN`. `lint.py`: 0 hits. `render.py`: **25 pages**. pypdf text extraction of the PDF: 0 underscores, 0 carets,
+0 backslashes, 0 asterisks, 0 backticks. The HTML screenshotted with headless Chromium per BRIEF-AUDIT step 6 and every
+PDF page rasterised (PyMuPDF, 1.3×) and read: Unicode subscripts throughout, every table inside its column, every
+figure with its caption; the three figure legends that overlapped bars on the first re-render were moved outside the
+plotting area and the figures regenerated (md5s in `FIGURES.tsv` are those of the final run).

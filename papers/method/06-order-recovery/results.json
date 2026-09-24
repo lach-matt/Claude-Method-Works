@@ -251,7 +251,7 @@
    "median_only": 38768,
    "both": 22598,
    "neither": 0,
-   "seconds": 16.4
+   "seconds": 16.2
   }
  ],
  "example": {
@@ -598,7 +598,7 @@
      3
     ]
    ],
-   "seconds": 0.7
+   "seconds": 0.8
   },
   {
    "box": [
@@ -739,7 +739,7 @@
      2
     ]
    ],
-   "seconds": 1.1
+   "seconds": 1.3
   }
  ],
  "fibre_z3": [
@@ -765,7 +765,7 @@
     5
    ],
    "ok": true,
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "box": [
@@ -931,7 +931,7 @@
    "max_proper_reorderable": 15,
    "doubly_irreducible": 2,
    "three_quarters": null,
-   "seconds": 0.7
+   "seconds": 0.9
   },
   {
    "box": [
@@ -1008,7 +1008,7 @@
    "max_proper_reorderable": 12,
    "doubly_irreducible": 0,
    "three_quarters": false,
-   "seconds": 0.0
+   "seconds": 0.1
   }
  ],
  "projection_gap": [
@@ -1106,7 +1106,7 @@
      0
     ]
    ],
-   "seconds": 5.7
+   "seconds": 5.8
   }
  ],
  "d2_algorithm": [
@@ -1153,7 +1153,7 @@
    ],
    "instances": 41503,
    "agree": 41503,
-   "seconds": 37.1
+   "seconds": 39.5
   }
  ],
  "tree_exhaustive": [
@@ -1169,7 +1169,7 @@
    "closed": 175,
    "scrambles": 4200,
    "scrambles_recovered": 4200,
-   "seconds": 0.4
+   "seconds": 0.5
   },
   {
    "box": [
@@ -1183,7 +1183,7 @@
    "closed": 4819,
    "scrambles": 346968,
    "scrambles_recovered": 346968,
-   "seconds": 49.0
+   "seconds": 52.4
   },
   {
    "box": [
@@ -1213,7 +1213,7 @@
    "closed": 343,
    "scrambles": 5488,
    "scrambles_recovered": 5488,
-   "seconds": 1.3
+   "seconds": 1.2
   }
  ],
  "lambda_976_structure": {
@@ -1252,7 +1252,7 @@
    "exact_or_dual": 3,
    "admissible_orderings": 16,
    "root_orders_tried_max": 2,
-   "seconds": 24.3
+   "seconds": 24.1
   },
   {
    "cells": 216,
@@ -1284,7 +1284,7 @@
    ],
    "pairs": 27,
    "failures": 0,
-   "seconds": 0.6
+   "seconds": 0.7
   },
   {
    "box": [
@@ -1294,7 +1294,7 @@
    ],
    "pairs": 54,
    "failures": 0,
-   "seconds": 2.9
+   "seconds": 3.0
   }
  ],
  "max_sublattice_z3": [
@@ -1478,7 +1478,7 @@
      "bijunctive_C": 15
     }
    },
-   "seconds": 19.7
+   "seconds": 20.1
   }
  ],
  "pair_constraint_exact": {
@@ -1528,7 +1528,7 @@
    "transfer_failures": 0,
    "majority_vs_two_clause_disagreements": null,
    "construction_verified": null,
-   "seconds": 0.3
+   "seconds": 0.2
   }
  },
  "bijunctive_exact": {
@@ -8031,5 +8031,5 @@
   "REFUTATION": 8,
   "SAMPLED": 3
  },
- "seconds": 273.3
+ "seconds": 280.9
 }

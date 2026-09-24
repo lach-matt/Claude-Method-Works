@@ -55,7 +55,7 @@ ax.set_aspect("equal")
 ax.set_title("The periodic table as an index on (period, group): %d cells held, %d admitted and absent" % (len(pt), len(gaps)),
              loc="left", color=INK, fontsize=9.5, pad=8)
 ax.legend(handles=[Patch(color=BLUE, label="held (%d)" % len(pt)), Patch(color=RED, label="admitted and absent (%d)" % len(gaps))],
-          frameon=False, loc="lower left", bbox_to_anchor=(0.12, 0.02), fontsize=8.5)
+          frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=2, fontsize=8.5)
 fig.tight_layout()
 fig.savefig(os.path.join(OUT, "figure-1-periodic-table.png"))
 plt.close(fig)
@@ -97,7 +97,7 @@ ax.legend(handles=[Patch(color=COL["theorem"], label="closed by theorem (Proposi
                    Patch(color=COL["full box"], label="full box (Theorem 2)"),
                    Patch(color=COL["named"], label="open, admitted-and-absent cells named"),
                    Patch(color=COL["forced"], label="open by construction (hole in a difference)")],
-          frameon=False, loc="lower right", fontsize=8)
+          frameon=False, loc="upper right", fontsize=8)
 ax.set_title("The closure defect of the sixteen rows of Table 1", loc="left", color=INK, fontsize=10)
 fig.tight_layout()
 fig.savefig(os.path.join(OUT, "figure-2-defects.png"))
@@ -164,8 +164,8 @@ for ax, key, title in ((axes[0], "crossing", "Unfiltered population, %s moves" %
     ax.set_axisbelow(True)
     ax.set_title(title, loc="left", color=INK, fontsize=9)
 axes[0].set_ylabel("followable cells (%)")
-axes[0].legend(frameon=False, loc="upper left", fontsize=7.5)
-fig.tight_layout()
+fig.legend(*axes[0].get_legend_handles_labels(), frameon=False, loc="lower center", ncol=2, fontsize=8, bbox_to_anchor=(0.5, -0.02))
+fig.tight_layout(rect=(0, 0.06, 1, 1))
 fig.savefig(os.path.join(OUT, "figure-4-crossing.png"))
 plt.close(fig)
 print("figures written to", OUT)
