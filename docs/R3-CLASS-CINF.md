@@ -7,7 +7,7 @@ store is repaired by the corpus's own mechanic and not by hand — *a Register e
 the repair is a new appended entry citing the superseded one; volume sites are repaired in place
 under a guarded build with that entry* (`DEFERRED.md`, `docs/R3-REPAIR-PLAN.md`) — and this file is
 what that repair is, site by site, so the wording can be approved or edited once before it is
-applied. **Nothing under `method/` is changed by this commit.** `tools/r3_cinf.py` applies every
+applied. **Applied 2026-09-24 on the author's approval of the wording as put:** entry **1793**, BUILD90 → **BUILD91** (`7d056e31…`), BUILD180 → **BUILD181** (`78120e15…`), W-190 seated; `method/verify.py` passes. The superseded bundles stay in `method/` beside the live ones. `tools/r3_cinf.py` applies every
 substitution below in memory, recovers each old member's md5 and both old bundles' md5 by reverse
 guard, and prints the new members' and bundles' md5s (`docs/R3-CLASS-CINF.dryrun.txt`); with
 `--write DIR` it writes the new members, both new bundles and a `MEMBER-INDEX.tsv` for the new tree

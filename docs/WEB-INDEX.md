@@ -345,8 +345,9 @@ element plate leads with the recovered result and shows the paper's sentence ben
 superseded, with Figure 5 captioned as the comparison the paper made; the console answers
 `relativistic` from the repair block; the mode's `element` and `eleven` operations answer from it
 too, and `recompute` still refuses, because the browser computes nothing of the chain — the tables
-are the instrument's, run in the repository. The paper's own text is rendered as it stands on the
-Papers page until the author reissues it; the store's repair is specified in `docs/R3-CLASS-CINF.md`.
+are the instrument's, run in the repository. The store's repair (`docs/R3-CLASS-CINF.md`) was applied the same day as entry 1793 and BUILD91/BUILD181,
+so the Papers page renders the paper's corrected text, and `relativistic()` reads the eleven from the
+clause that withdraws them (`paper_corrected`).
 `instruments.lowdin_construction` carries the passages, not Python, and is marked held.
 
 **The request and its answer.** The site asked the Löwdin project for items 5, 2, 1, 11 and 12 of
@@ -391,6 +392,23 @@ over the chain at both settings — 96 of 107 steps at either, 73 and 76 configu
 failures swapping Rf for Th — and `repair` reads it. The reconstruction below stays as the site's
 second measurement; its Hartree–Fock displaced set (Ce, Hf, Th, Rf, Ubn) contains the recovered
 instrument's three, which `repair.reconstruction` records.
+
+**Ten papers released as PDFs.** On 2026-09-24 the author released ten research papers — *The Closure Law
+of a Finite Index*, *The Lattice of Subshell Transitions*, *The Bracket*, *The Domain of the Polarisation
+Ratio*, *The Tower over Λ*, *Order Recovery and the Reorderability Law*, *The Parent-Term Wall*, *Closing
+the Chemical Properties*, *An Occupation Law as a Lower Convex Hull* and *Closure beyond the Atom* — as
+PDFs into the Prints & Proofs folder that Ruling 56 makes the original-input witness. They are in no git
+branch and exist only as PDFs, so they came in by the mirror's own route: fetched by id through the Drive
+connector, decoded and seated by `drive_sync.py --adopt` under `drive/The Method Prints & Proofs/` with
+`ok-adopted` rows (byte counts checked against Drive's metadata; Drive supplies no checksum by that
+route). `PDF_PAPERS` in `webindex.py` names them and `pdf_paper` reads each at build with pypdf: the
+title from the PDF's own metadata, the standfirst and byline from the first page, the abstract up to §0,
+the `§n · title` lines as headings, the page and word counts, and the guard's measurement over the whole
+text (every one cites nothing from the books; their own § marks are excluded as the other research
+papers' are). Nothing is retyped: the page shows the standfirst and abstract, lists the sections, and
+carries the PDF itself inline with a download and its md5 against the manifest's. The selftest pins the
+ten titles, the manifest match, the word and page floors and the empty citation lists. `data/papers.js`
+now carries fourteen papers.
 
 **The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
 chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:

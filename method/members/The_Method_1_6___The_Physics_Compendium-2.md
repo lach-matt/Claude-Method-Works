@@ -224,7 +224,10 @@ index's claim, and stating that is scope, not weakness (register 1701).
 
 ## Λ_cinf — the twin index at c → ∞
 
-**What it indexes.** The identical walk with the one constant removed. 107 rows.
+**What it indexes.** The identical walk with the one constant removed, 119 rows.
+The 107-row table first sealed under this name had run at c = 137.035999 with
+every step restarted from the observed configuration, and is withdrawn
+(register 1793).
 
 **The quantity.** The same depths and entrants, non-relativistically.
 
@@ -232,13 +235,14 @@ index's claim, and stating that is scope, not weakness (register 1701).
 
 **Constants required.** None.
 
-**Must be measured.** Nothing; it is compared, not scored: **eleven entrants
-differ from Λ_chain** (Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf), and every
-difference is an error against nature, since the relativistic walk scores 107/107
-(register 1706).
+**Must be measured.** Nothing; it is compared, not scored: **three entrants
+differ from Λ_chain** — Th (6d → 5f, against nature), Rf (5f → 6d, the observed
+channel) and Z = 120 (8s → 7d) — and no other; register 1706's eleven were
+measured against the withdrawn table (register 1793).
 
-**What physics does.** It states that the observed periodic table is not a
-solution of the non-relativistic equation. **What it does NOT do:** serve as a
+**What physics does.** It states that the actinide opening of the observed
+periodic table is not a solution of the non-relativistic equation, and that
+the rest of the table is indifferent to c. **What it does NOT do:** serve as a
 fallback ordering anywhere; its role is the counterfactual, and it must never be
 consulted as data.
 
@@ -600,7 +604,7 @@ mathematics. **The fault ledger's two reclassifications live here.**
 
 **Where it comes from.** CODATA; the inverse fine-structure constant in Hartree atomic units.
 
-> **Where it fails.** at c → ∞ — and the failure is measured, not anticipated: the twin index Λ_cinf disagrees with Λ_chain at eleven elements, each an error against nature (register 1706).
+> **Where it fails.** at c → ∞ — and the failure is measured, not anticipated: the twin index Λ_cinf disagrees with Λ_chain at thorium, against nature, at rutherfordium, toward it, and at Z = 120, and nowhere else (register 1793).
 
 ### three-body masses — `m₁, m₂, m₃`, three positive reals
 

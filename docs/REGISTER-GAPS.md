@@ -1,6 +1,6 @@
 # REGISTER-GAPS — the Register's numbering, and what accounts for every hole
 
-The Register seats **1,660 entries** numbered 1–1792. **132 numbers in that span have no entry.**
+The Register seats **1,661 entries** numbered 1–1793 (1,660 over 1–1792 when this was measured; entry 1793 was appended on 2026-09-24 by R3 class CINF and closes no gap). **132 numbers in that span have no entry.**
 This asks what accounts for each, and the answer is mostly reassuring: **119 of the 132 are seated
 in the Working Register**, moved there on purpose. **13 are seated in neither.**
 
@@ -14,11 +14,11 @@ closes:
 
 | | entries |
 |---|---:|
-| `The_Method_1_6___The_Register-2.md` | 1,660 |
+| `The_Method_1_6___The_Register-2.md` | 1,661 |
 | `WORKING-REGISTER.md` | 119 |
 | **overlap** | **0** |
 | **sum** | **1,779** |
-| span 1–1792 | 1,792 |
+| span 1–1793 | 1,793 |
 | **unaccounted** | **13** |
 
 Every one of the 119 Working Register entries falls in a gap of The Register, and no number is

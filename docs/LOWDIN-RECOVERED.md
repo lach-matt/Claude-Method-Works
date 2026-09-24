@@ -209,8 +209,9 @@ place under a guarded build with that entry. **`docs/R3-CLASS-CINF.md` specifies
 with both texts, the draft entry, the figure — and **`tools/r3_cinf.py` executes it** as a dry run
 (count-asserted substitutions, member and bundle reverse guards recovering the old md5s, the new
 bundles' md5s printed, nothing written under `method/` without `--write`). It waits on the author's
-approval of the wording, as the withdrawn-law class did; until it is applied, the paper as seated
-still prints the eleven, and the site says so on the plate. The retraction audit's category for this
+approval of the wording, as the withdrawn-law class did — given the same day: applied as entry 1793,
+BUILD91 and BUILD181, W-190 (`docs/R3-CLASS-CINF.md`), so the paper as seated now prints the
+corrected text and the site renders it, carrying the eleven as the reading the paper first printed. The retraction audit's category for this
 is a withdrawn value asserted as current (`RETRACTION-AUDIT.tsv`, `docs/R3-REPAIR-PLAN.md`); this
 one differs in that the withdrawing record (F59.3) is the project's own and preceded the paper.
 
