@@ -126,15 +126,15 @@ def fig_arity():
             markerfacecolor="white", markeredgecolor=RED, markeredgewidth=1.2,
             label="difference relations T (auxiliary)")
     for i, (b, t) in enumerate(zip(bijC, tot)):
-        ax.text(i, 1.025, "{:,} / {:,}".format(b, t), ha="center", fontsize=7.5)
+        ax.text(i, 1.06, "{:,} / {:,}".format(b, t), ha="center", fontsize=7.5)
     ax.axvline(0.5, color=RED, ls="--", lw=1.1)
     ax.text(0.56, 0.42, "the boundary", color=RED, fontsize=8, rotation=90)
     ax.set_xticks(xs)
     ax.set_xticklabels([str(k) for k in ks])
     ax.set_xlabel("constraint arity")
     ax.set_ylabel("fraction bijunctive")
-    ax.set_ylim(0, 1.16)
-    ax.legend(loc="upper right", fontsize=7, frameon=False)
+    ax.set_ylim(0, 1.2)
+    ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.62), fontsize=7, frameon=False)
     ax.set_title("the language leaves the bijunctive class at arity 3")
 
     ax = axs[1]

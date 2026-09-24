@@ -223,7 +223,7 @@ The envelope admits cells the exact physics does not. That gap is a count, and i
 **Table 2. The exact fibre, the admissible one, and the least envelope.** *Admitted* is the count under the construction's bound, which is the stage's own cell count; *least* is the count under Theorem 2's least envelope with the same parent indices; *realised* is the summed exact fibre, and the share is realised over admitted. *Empty* counts the cells of the stage below at which the exact fibre is empty — cells the envelope one step below admitted and no term realises — which contribute 0 to *realised* and are left out of the minima and maxima that define the least envelope. All at the caps of D11.
 
 | axis | coordinate | admissible fibre | exact fibre | admitted | least | realised | share | empty |
-|---|------|---------|----------------------|------|------|------|-----|-----|
+|------|-------|---------|------------------|-------|------|-------|-----|-----|
 | 9 | 2S′ | [0, g] | the 2S values of terms(fᵍ) | 1,654 | 1,638 | 1,054 | 63.7% | 0 |
 | 10 | v | [2S′, g] | the seniorities v ≡ g (mod 2), v ≤ 4f + 2 − g, at which a term of spin 2S′ is new in fᵛ | 2,535 | 2,535 | 1,132 | 44.7% | 600 |
 | 11 | 2Jₚ | [0, φ̂(k)] | the 2J of the terms of ℓᵏ carrying the cell's own 2S | 13,585 | 12,425 | 2,310 | 17.0% | 1,305 |

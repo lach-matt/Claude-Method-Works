@@ -675,125 +675,125 @@ and A-32–A-33.
 
 | finding | line(s) | severity | disposition |
 |---|---|---|---|
-| A-1 fibring claim false for general partitions (abstract, §0, Theorem 4 title, Corollary 2) | 11, 24, 131, 137 | BLOCKING | |
-| A-2 Corollary 2's refinement step needs iteration over all coordinates | 137 | MAJOR | |
-| A-3 Proposition 1's identity misattributed to Lach 2026; prior art; six-line proof available | 112–114, 379, 510 | MAJOR | |
-| A-4 §0 merges statuses of Theorem 1, Lemma 2, Theorem 2 | 23 | MAJOR | |
-| A-5 §6's block coordinate is categorical, against l.129 and the paper's own Corollary | 129, 479–485 | MAJOR | |
-| A-6 pair counts include the order–algebra pair that agrees by theorem | 475, 485 | MAJOR | |
-| A-7 Kreuzer–Skarke slice is open by construction (hole in a difference); thesis over-reads | 3, 25, 220–226 | MAJOR | |
-| A-8 survey grid closed by construction; the witnessed 285 cells have E = 975 | 236, 250, 292, 325–337 | MAJOR | |
-| A-9 d = 3 redundancy "0%" ran no trial | 283, 317, 321 | MAJOR | |
-| A-10 particle-bound list uncited and incomplete at Z = 9, 10; stability claim fails when completed | 204–214, 255 | MAJOR | |
-| A-11 nuclide boxes withheld | 240 | MINOR | |
-| A-12 closure sizes printed as cell counts in Proposition 1 | 112 | MINOR | |
-| A-13 φ(group ∣ period ≤ 1) notation | 186 | MINOR | |
-| A-14 thirteen indexes listed for fourteen | 25 | MINOR | |
-| A-15 h's domain differs between D8/Corollary 3 and Theorems 5–6 | 78, 143–149, 159 | MINOR | |
-| A-16 vacuous clause in Corollary 3's hypothesis | 159 | MINOR | |
-| A-17 "satisfiable over every S and h" | 155 | MINOR | |
-| A-18 unnumbered, unproved "Corollary" is a remark | 129 | MINOR | |
-| A-19 Theorem 3(a) is a remark on Theorem 2 | 124 | MINOR | |
-| A-20 redundancy figures are ladder rungs; rungs unexplained; 8/10 passes marginal; unused branch | 76, 283, 291, 312–317 | MAJOR | |
-| A-21 "factor of twelve" is a ratio of rungs | 319 | MINOR | |
-| A-22 "one-electron transfer" with q ≤ 3; null and same-subshell cells | 173, 425 | MINOR | |
-| A-23 information operator undefined for non-lattice X; IPF clause needs the existence caveat | 464–465 | MINOR | |
-| A-24 "dipole-allowed" has two meanings | 429, 442 | MINOR | |
-| A-25 "parity rule" for ∣Δℓ∣ = 1 against Table 3's parity split | 381–383, 444–445 | MINOR | |
-| A-26 §3.6's object is not built; the row is a 4³ box; d(N) decorative | 228–232, 252 | MINOR | |
-| A-27 (0, 0) is the box's bottom, an artefact of indexing the neutron | 216 | MINOR | |
-| A-28 Janet reference: the 1928 work | 553 | MINOR | |
-| A-29 T5a/b, T6a/b lack the encoding-fidelity guard; §7's "two guards on every machine check" | check.py 390–456; 534 | MAJOR | |
-| A-30 non-vacuity guard on one box only; trivial hypotheses unstated; T6 has no guard line | check.py 508–511, 564–567; 534 | MINOR | |
-| A-31 T5g's non-constancy is on the box, not on S | check.py 409–411 | MINOR | |
-| A-32 "Theorem 4 … 3 obligations" is one obligation | 513 | MINOR | |
-| A-33 "Tables 2 and 3, redundancy" — Table 3 is the crossing | 526 | MINOR | |
-| A-34 check.py labels Q3 "Lemma 2", C16 "Corollary 1" | check.py 694, 826 | MINOR | |
-| A-35 Theorem 4's MACHINE-CHECKED covers the inclusion only | 135 | MINOR | |
-| A-36 per-rung counts promised, not printed (R3 logs none) | 76, 283; check.py 778 | MINOR | |
-| A-37 MEASURED absent from the status table while "measured" is used informally | 31–40, 112, 216, 433 | MINOR | |
-| A-38 Figure 1 plate title collides with row 1; no legend | Figure 1, p.8 | MINOR | |
-| A-39 Figure 2 caption does not name the three omitted rows | 259 | MINOR | |
-| A-40 all mathematics in code font (535 spans) | every page | MAJOR | |
-| A-41 (a)/(b)/(c) of Theorem 1 (statement and proof) and Theorem 3 render as "1.", "2." | 98, 102, 104, 124–125; pp.4–5 | MAJOR | |
+| A-1 fibring claim false for general partitions (abstract, §0, Theorem 4 title, Corollary 2) | 11, 24, 131, 137 | BLOCKING |  **FIXED.** D5 now defines a fibration by a coordinate (iterated for several); Theorem 4 is stated for any coordinate i and its title says so; abstract and §0 item 2 say 'fibring by a coordinate'; Remark 3 prints the audit's three-cell witness (E(X) = 1, fibred defect 2 + 0 = 2) as a REFUTATION (check.py T4b); T4 is machine-checked fibred over every coordinate of each box, 8 instances. |
+| A-2 Corollary 2's refinement step needs iteration over all coordinates | 137 | MAJOR |  **FIXED.** Corollary 2 iterates Theorem 4 over i = 1, …, d inside each part and notes the last term is the singleton partition; check.py T4c verifies the chain is non-increasing and ends at 0 on all 766 subsets of 3×3 and 2×2×2. |
+| A-3 Proposition 1's identity misattributed to Lach 2026; prior art; six-line proof available | 112–114, 379, 510 | MAJOR |  **FIXED.** Theorem 0 states ℛ(X) = ⟨X⟩ with the six-line proof (z⁽ⁱʲ⁾, w⁽ⁱ⁾, u⁽ⁱ⁾, x = ⋁ u⁽ⁱ⁾), attributed to Queyranne and Tardella 2008 (Thm 11) on Topkis 1976 and Veinott 1989, Baker–Pixley 1975 for the abstract form; Corollary 1 is an equivalence; Proposition 1 is folded into Theorem 0's EXHAUSTIVE corroboration (T3, T3b); the hierarchy-law manuscript is cited only in §6, marked Manuscript. |
+| A-4 §0 merges statuses of Theorem 1, Lemma 2, Theorem 2 | 23 | MAJOR |  **FIXED.** §0 item 1 states each status separately: Theorem 1 proved and machine-checked, Lemma 2 proved, Theorem 0 prior art with proof and corroboration, Theorem 2 proved and exhausted on 84 boxes. |
+| A-5 §6's block coordinate is categorical, against l.129 and the paper's own Corollary | 129, 479–485 | MAJOR |  **FIXED.** The third coordinate is stated as the ℓ of the column's block with the coding printed (0 for columns 1–2, 2 for 3–12, 1 for 13–18, helium carrying its column's value) and declared a choice of order (Remark 1 names it); check.py L3c verifies the instrument's coding is exactly that function of the group. The numbers are unchanged because the instrument's coding is the ℓ coding. |
+| A-6 pair counts include the order–algebra pair that agrees by theorem | 475, 485 | MAJOR |  **FIXED.** §6 discounts the order–algebra pair (agrees by Theorem 0) and reports the six pairs among the four distinct operators: 6/6 on Λ, 6/6 on the box ordering, 0/6 on the three-coordinate table, 6/6 on Λ₉ (check.py L7); the ten-pair figures are kept beside them with the one-by-theorem stated. |
+| A-7 Kreuzer–Skarke slice is open by construction (hole in a difference); thesis over-reads | 3, 25, 220–226 | MAJOR |  **FIXED.** §3.5 states the slice is open by construction: the value set of h(1,1) − h(2,1) is {−3, +3}, Corollary 4 does not apply, and the pair (13,16) ∨ (16,13) = (16,16) with difference 0 witnesses Corollary 1 (check.py C9d); the slice is in Table 1's 'open by construction' group and is out of the thesis's separating claim, which no longer exists. |
+| A-8 survey grid closed by construction; the witnessed 285 cells have E = 975 | 236, 250, 292, 325–337 | MAJOR |  **FIXED.** The row is 'the product grid', closed by Proposition 2 (its cut Z − c ≥ 1 is bimonotone; T7d); the witnessed channels are a row of their own — 285 cells, box 1,960, |ℛ| = 1,260, E = 975 (C15b) — in §3.7, Table 1 and Figure 2; §4 says the 20% and 20% → 0% are figures of the grid; 'spectroscopic survey grid' is gone from the abstract. |
+| A-9 d = 3 redundancy "0%" ran no trial | 283, 317, 321 | MAJOR |  **FIXED.** D7 states the small-|X| rule (no trial when ⌊0.05·|X|⌋ = 0, below 20 cells) and the d = 3 row prints 'below resolution, no trial: ⌊0.05 × 12⌋ = 0'; check.py R3. prints every rung log and R3c records the stop. |
+| A-10 particle-bound list uncited and incomplete at Z = 9, 10; stability claim fails when completed | 204–214, 255 | MAJOR |  **FIXED.** The list is derived from NUBASE2020 (Kondev, Wang, Huang, Naimi and Audi 2021), cited: the evaluation's file was fetched from two independent public copies (byte-identical, md5 91e92411…), its Z ≤ 10 ground-state lines are kept verbatim as nubase2020-Z0-10.txt (md5 checked, C7), and the criterion is stated in §3.4. Six cutoffs printed — 27/33/6, 40/48/8, 52/61/9, 64/73/9, 77/86/9, 94/106/12 (C7a) — with F-16, F-28, F-30 named (C7b), every absent cell an unbound ground state (C7d), and the reason they appear only with neon (C7e). The stability sentence is replaced by 'the count is not stable; the reading is'. C7f records the fixture's seven omissions. |
+| A-11 nuclide boxes withheld | 240 | MINOR |  **FIXED.** The boxes are printed for both nuclide rows and the Z ≤ 10 row (C7g, C8c: products of the observed alphabets) and the note is deleted. |
+| A-12 closure sizes printed as cell counts in Proposition 1 | 112 | MINOR |  **FIXED.** Theorem 0's status line gives cells and closures: 90 → 126, 208 → 748, 840 → 1,590. |
+| A-13 φ(group ∣ period ≤ 1) notation | 186 | MINOR |  **FIXED.** φ_group,period(1), named as the largest group reached at period 1. |
+| A-14 thirteen indexes listed for fourteen | 25 | MINOR |  **FIXED.** §0 item 3 no longer enumerates; §3 says sixteen rows, fifteen indexes with the nuclides at two cutoffs, and Table 1 lists all sixteen with their group. |
+| A-15 h's domain differs between D8/Corollary 3 and Theorems 5–6 | 78, 143–149, 159 | MINOR |  **FIXED.** Corollary 3's proof says h is extended from X to Box(X) arbitrarily, since Theorems 5 and 6 use h only on S = X. |
+| A-16 vacuous clause in Corollary 3's hypothesis | 159 | MINOR |  **FIXED.** The clause is deleted; Corollary 3's hypothesis is 'fail to preserve the meet or the join at some pair of cells of X'. |
+| A-17 "satisfiable over every S and h" | 155 | MINOR |  **FIXED.** Refutation 1 says Z3 finds an S and an h satisfying the negation of the converse; §7 likewise. |
+| A-18 unnumbered, unproved "Corollary" is a remark | 129 | MINOR |  **FIXED.** It is Remark 1, unnumbered as a result and without ∎. |
+| A-19 Theorem 3(a) is a remark on Theorem 2 | 124 | MINOR |  **FIXED.** Theorem 3(a) is Remark 2 (an instance of Theorem 2, with the two rectangles); Theorem 3 is the calendar witness alone; check.py C16a/b relabelled 'Remark 2'. |
+| A-20 redundancy figures are ladder rungs; rungs unexplained; 8/10 passes marginal; unused branch | 76, 283, 291, 312–317 | MAJOR |  **FIXED.** D7 calls the ladder, the ten trials and the 8-in-10 acceptance conventions whose only justification is that they reproduce the previously reported rungs; Table 2 and §4.3 print the rung passed, the rung failed and the trial counts from the R1. and R3. logs; the redundancy column reads '61%' as a rung and 'below 5%' where the first rung fails; the T = 5 branch is removed (ten trials always). |
+| A-21 "factor of twelve" is a ratio of rungs | 319 | MINOR |  **FIXED.** Deleted. |
+| A-22 "one-electron transfer" with q ≤ 3; null and same-subshell cells | 173, 425 | MINOR |  **FIXED.** §3.1 says a cell is a transfer type of up to three electrons, the q − g not placed untracked, and that q = g = 0 and (n, ℓ) = (e, f) are cells. |
+| A-23 information operator undefined for non-lattice X; IPF clause needs the existence caveat | 464–465 | MINOR |  **FIXED.** D11 defines the information operator via generators as the instrument computes it (with the induction that makes it extensive, Lemma 4) and states statistics as the set formula, with Ireland–Kullback 1968 for the fit and Haberman 1974 for its possible non-existence. |
+| A-24 "dipole-allowed" has two meanings | 429, 442 | MINOR |  **FIXED.** One meaning: the mutual-information paragraph that used 'dipole-allowed' for |Δℓ| = 1 and ΔS = 0 is dropped (its rows Q7/Q7b remain in check.py, unprinted); Table 3's class is '|Δℓ| = 1 (allowed)'. |
+| A-25 "parity rule" for ∣Δℓ∣ = 1 against Table 3's parity split | 381–383, 444–445 | MINOR |  **FIXED.** 'The orbital rule' throughout; Table 3's parity rows are 'Δℓ even' and 'Δℓ odd'; §5's opening attributes the parity rule to Laporte and the one-electron rule to Condon–Shortley. |
+| A-26 §3.6's object is not built; the row is a 4³ box; d(N) decorative | 228–232, 252 | MINOR |  **FIXED.** §3.6 is Theorem 2's sentence and the 4³ instance; d(N) is not printed (C10/C10b remain in check.py). |
+| A-27 (0, 0) is the box's bottom, an artefact of indexing the neutron | 216 | MINOR |  **FIXED.** §3.4 calls (0, 0) the bottom of the box, an artefact of indexing the neutron, and the diproton the one admitted-and-absent nuclide. |
+| A-28 Janet reference: the 1928 work | 553 | MINOR |  **FIXED.** Janet, C. (1928). La classification hélicoïdale des éléments chimiques. Beauvais. |
+| A-29 T5a/b, T6a/b lack the encoding-fidelity guard; §7's "two guards on every machine check" | check.py 390–456; 534 | MAJOR |  **FIXED.** check.py T0d evaluates the three Z3 predicates ('S closed', 'graph(h) closed', 'h preserves ∧, ∨ on S') under 240 random assignments of (S, h) over 3×3 and 2×2×2 against an enumerative decision (graph_truths) and T5/T6 are refused if it fails; §7's guard paragraph now describes it, so 'two guards on every machine check' is true. |
+| A-30 non-vacuity guard on one box only; trivial hypotheses unstated; T6 has no guard line | check.py 508–511, 564–567; 534 | MINOR |  **FIXED.** T0c runs on each of the three boxes (three rows), a further T0c row states that Theorem 1(a), 1(c) and Theorem 4 hypothesise only a non-empty X, and T6a/T6b carry their own guard rows T6ag/T6bg; §7 says which obligations have a hypothesis to guard. |
+| A-31 T5g's non-constancy is on the box, not on S | check.py 409–411 | MINOR |  **FIXED.** The non-constancy demand is z3.Or(And(S[a], S[b], h[a] != h[b])) — on S. |
+| A-32 "Theorem 4 … 3 obligations" is one obligation | 513 | MINOR |  **FIXED.** '1 obligation, the inclusion only, 8 instances over three boxes and every coordinate'. |
+| A-33 "Tables 2 and 3, redundancy" — Table 3 is the crossing | 526 | MINOR |  **FIXED.** The row reads 'Table 2, §4.3, §4.4, redundancy'. |
+| A-34 check.py labels Q3 "Lemma 2", C16 "Corollary 1" | check.py 694, 826 | MINOR |  **FIXED.** Q3 says Lemma 3; C16a/b say Remark 2. |
+| A-35 Theorem 4's MACHINE-CHECKED covers the inclusion only | 135 | MINOR |  **FIXED.** Theorem 4's status line: 'MACHINE-CHECKED — the inclusion ℛ(Xᵥ) ⊆ ℛ(X) only, the rest being the counting above'. |
+| A-36 per-rung counts promised, not printed (R3 logs none) | 76, 283; check.py 778 | MINOR |  **FIXED.** The per-rung counts are printed in Table 2 and §4.3 (from R1. and R3. rows, which now print every log). |
+| A-37 MEASURED absent from the status table while "measured" is used informally | 31–40, 112, 216, 433 | MINOR |  **FIXED.** MEASURED is the seventh status word in §0; check.py labels the NUBASE, AME2020, survey and followability rows MEASURED; 'measured' is no longer used as a quasi-status in a theorem title. |
+| A-38 Figure 1 plate title collides with row 1; no legend | Figure 1, p.8 | MINOR |  **FIXED.** Figure 1 is regenerated by figures.py from C2/C2b with the title above the axes and a legend; FIGURES.tsv records the new md5 and the replaced plate. |
+| A-39 Figure 2 caption does not name the three omitted rows | 259 | MINOR |  **FIXED.** Figure 2 shows all sixteen rows of Table 1, grouped, so nothing is omitted. |
+| A-40 all mathematics in code font (535 spans) | every page | MAJOR |  **FIXED.** Every code span is gone: mathematics is plain Unicode text throughout, displayed formulas in indented blocks; the rendered PDF's text has no underscore, caret or backslash (pypdf extraction, repair record). |
+| A-41 (a)/(b)/(c) of Theorem 1 (statement and proof) and Theorem 3 render as "1.", "2." | 98, 102, 104, 124–125; pp.4–5 | MAJOR |  **FIXED.** Theorem 1's clauses are on one line after the heading; its proof is headed 'Proof of (a)/(b)/(c)'; Theorem 3 has one clause. |
 | A-42 orphaned lead-ins before two tables; half-blank p.10 | pp.2–3, 10, 18–19 | MINOR | |
-| A-43.1 code-span mathematics, 1 instance | 50 | MINOR | |
-| A-43.2 code-span mathematics, 1 instance | 52 | MINOR | |
-| A-43.3 code-span mathematics, 2 instances | 54 | MINOR | |
-| A-43.4 code-span mathematics, 1 instance | 56 | MINOR | |
-| A-43.5 code-span mathematics, 1 instance | 58 | MINOR | |
-| A-43.6 code-span mathematics, 1 instance | 60 | MINOR | |
-| A-43.7 code-span mathematics, 1 instance | 62 | MINOR | |
-| A-43.8 code-span mathematics, 1 instance | 66 | MINOR | |
-| A-43.9 code-span mathematics, 4 instances | 72 | MINOR | |
-| A-43.10 code-span mathematics, 4 instances | 74 | MINOR | |
-| A-43.11 code-span mathematics, 2 instances | 78 | MINOR | |
-| A-43.12 code-span mathematics, 3 instances | 92 | MINOR | |
-| A-43.13 code-span mathematics, 3 instances | 94 | MINOR | |
-| A-43.14 code-span mathematics, 3 instances | 100 | MINOR | |
-| A-43.15 code-span mathematics, 7 instances | 102 | MINOR | |
-| A-43.16 code-span mathematics, 6 instances | 104 | MINOR | |
-| A-43.17 code-span mathematics, 6 instances | 108 | MINOR | |
-| A-43.18 code-span mathematics, 4 instances | 118 | MINOR | |
-| A-43.19 code-span mathematics, 1 instance | 129 | MINOR | |
-| A-43.20 code-span mathematics, 3 instances | 131 | MINOR | |
-| A-43.21 code-span mathematics, 1 instance | 133 | MINOR | |
-| A-43.22 code-span mathematics, 10 instances | 135 | MINOR | |
-| A-43.23 code-span mathematics, 2 instances | 143 | MINOR | |
-| A-43.24 code-span mathematics, 3 instances | 145 | MINOR | |
-| A-43.25 code-span mathematics, 1 instance | 147 | MINOR | |
-| A-43.26 code-span mathematics, 3 instances | 149 | MINOR | |
-| A-43.27 code-span mathematics, 1 instance | 151 | MINOR | |
-| A-43.28 code-span mathematics, 2 instances | 155 | MINOR | |
-| A-43.29 code-span mathematics, 1 instance | 157 | MINOR | |
-| A-43.30 code-span mathematics, 1 instance | 159 | MINOR | |
-| A-43.31 code-span mathematics, 2 instances | 161 | MINOR | |
-| A-43.32 code-span mathematics, 3 instances | 230 | MINOR | |
-| A-43.33 code-span mathematics, 2 instances | 283 | MINOR | |
-| A-43.34 code-span mathematics, 1 instance | 325 | MINOR | |
-| A-43.35 code-span mathematics, 4 instances | 337 | MINOR | |
-| A-43.36 code-span mathematics, 1 instance | 353 | MINOR | |
-| A-43.37 code-span mathematics, 4 instances | 355 | MINOR | |
-| A-43.38 code-span mathematics, 3 instances | 357 | MINOR | |
-| A-43.39 code-span mathematics, 1 instance | 359 | MINOR | |
-| A-43.40 code-span mathematics, 1 instance | 361 | MINOR | |
-| A-43.41 code-span mathematics, 1 instance | 363 | MINOR | |
-| A-43.42 code-span mathematics, 1 instance | 365 | MINOR | |
-| A-43.43 code-span mathematics, 6 instances | 367 | MINOR | |
-| A-43.44 code-span mathematics, 2 instances | 463 | MINOR | |
-| A-43.45 code-span mathematics, 1 instance | 465 | MINOR | |
-| A-44.1 `\|` in a table cell | 251 | MINOR | |
-| A-44.2 `\|` in a table cell | 265 | MINOR | |
-| A-44.3 `\|` in a table cell | 410 | MINOR | |
-| A-44.4 `\|` in a table cell | 412 | MINOR | |
-| A-44.5 `\|` in a table cell | 413 | MINOR | |
-| A-44.6 `\|` in a table cell | 442 | MINOR | |
-| A-44.7 `\|` in a table cell | 443 | MINOR | |
-| R-1 the operator is the bounds-consistency closure; fixed points are the sublattices (Queyranne–Tardella); state as Theorem 0 | 106–118 | MAJOR | |
-| R-2 "each returns a superset" unproved for information; "agree iff all E = 0" has a trivial direction and a false converse | 467, 487 | MAJOR | |
-| R-3 "binds" means non-constant | 74 | MINOR | |
-| R-4 S overloaded (superset, subset, spin) | 98, 143, 173 | MINOR | |
-| R-5 bit cost is a description length under a stated code | 82 | MINOR | |
-| R-6 crossing population is two-thirds Pauli-forbidden; on physical one-electron moves there is no crossing | 3, 11, 27, 433–451 | BLOCKING | |
-| R-7 followability matches electrons delivered against electrons held | 80, 180, 435 | MAJOR | |
-| R-8 Δℓ = 0 cells labelled M1 | 351, 410–413 | MAJOR | |
-| R-9 diproton as "failure of the pairing term" is backwards | 216 | MAJOR | |
-| R-10 particle-bound list needs NUBASE2020 and is incomplete (with A-10) | 204–214 | MAJOR | |
-| R-11 h¹¹, h²¹ read as powers | 220, 257 | MINOR | |
-| R-12 the χ = ±6 slice is not an index of anything; the 540 are cells of a region known to be dense | 29, 220–226 | MAJOR | |
-| R-13 §3.6 reduces to Theorem 2; d(N) irrelevant | 228–232 | MINOR | |
-| R-14 the quotient's content is the independence of Δℓ and ΔS; ∣ΔS∣ unmotivated | 408–415 | MINOR | |
-| R-15 Laporte's rule is parity, not Δℓ = ±1 | 343 | MINOR | |
-| R-16 ground configurations spot-checked; say NIST's assignments are used as tabulated | 433 | MINOR | |
-| R-17 survey's witnessed set is the object of interest, E = 975 | 236 | MINOR | |
-| R-18 the catalogue: seven informative rows of fourteen; thesis restated over them | 3, 25, 242–257 | MAJOR | |
-| R-19 three reconstructions chosen to reproduce printed numbers, presented as definitions | 76, 80, 298 | MAJOR | |
-| R-20 hierarchy-law citation: misattribution for the identity, no locator | 114, 487, 556 | MAJOR | |
-| R-21 r² and p on six ladder-quantised points | 300–304 | MAJOR | |
-| R-22 missing standard references (list given) | References | MAJOR | |
-| R-23 abstract length and number load | 11 | MINOR | |
-| R-24 "102 obligations" counts printed rows | 493 | MINOR | |
-| R-25 abstract's "string compactification, atomic spectroscopy" against what is delivered | 11, 25 | MINOR | |
+| A-43.1 code-span mathematics, 1 instance | 50 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.2 code-span mathematics, 1 instance | 52 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.3 code-span mathematics, 2 instances | 54 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.4 code-span mathematics, 1 instance | 56 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.5 code-span mathematics, 1 instance | 58 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.6 code-span mathematics, 1 instance | 60 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.7 code-span mathematics, 1 instance | 62 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.8 code-span mathematics, 1 instance | 66 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.9 code-span mathematics, 4 instances | 72 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.10 code-span mathematics, 4 instances | 74 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.11 code-span mathematics, 2 instances | 78 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.12 code-span mathematics, 3 instances | 92 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.13 code-span mathematics, 3 instances | 94 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.14 code-span mathematics, 3 instances | 100 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.15 code-span mathematics, 7 instances | 102 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.16 code-span mathematics, 6 instances | 104 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.17 code-span mathematics, 6 instances | 108 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.18 code-span mathematics, 4 instances | 118 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.19 code-span mathematics, 1 instance | 129 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.20 code-span mathematics, 3 instances | 131 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.21 code-span mathematics, 1 instance | 133 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.22 code-span mathematics, 10 instances | 135 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.23 code-span mathematics, 2 instances | 143 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.24 code-span mathematics, 3 instances | 145 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.25 code-span mathematics, 1 instance | 147 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.26 code-span mathematics, 3 instances | 149 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.27 code-span mathematics, 1 instance | 151 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.28 code-span mathematics, 2 instances | 155 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.29 code-span mathematics, 1 instance | 157 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.30 code-span mathematics, 1 instance | 159 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.31 code-span mathematics, 2 instances | 161 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.32 code-span mathematics, 3 instances | 230 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.33 code-span mathematics, 2 instances | 283 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.34 code-span mathematics, 1 instance | 325 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.35 code-span mathematics, 4 instances | 337 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.36 code-span mathematics, 1 instance | 353 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.37 code-span mathematics, 4 instances | 355 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.38 code-span mathematics, 3 instances | 357 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.39 code-span mathematics, 1 instance | 359 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.40 code-span mathematics, 1 instance | 361 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.41 code-span mathematics, 1 instance | 363 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.42 code-span mathematics, 1 instance | 365 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.43 code-span mathematics, 6 instances | 367 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.44 code-span mathematics, 2 instances | 463 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-43.45 code-span mathematics, 1 instance | 465 | MINOR |  **FIXED.** Rewritten in Unicode (φᵢⱼ, Aᵢ(X), xᵢ, Xᵥ, Σᵥ, Sʰ, Xʰ, Nₑ, πᵢⱼ; the envelope of a named index as φᵢⱼ[X]; the old Lemma 3 proof replaced by Lemma 3's two-line argument in xᵢ, yⱼ); the line no longer carries a code span. |
+| A-44.1 `\|` in a table cell | 251 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| A-44.2 `\|` in a table cell | 265 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| A-44.3 `\|` in a table cell | 410 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| A-44.4 `\|` in a table cell | 412 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| A-44.5 `\|` in a table cell | 413 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| A-44.6 `\|` in a table cell | 442 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| A-44.7 `\|` in a table cell | 443 | MINOR |  **FIXED.** ∣ (U+2223) in every table cell. |
+| R-1 the operator is the bounds-consistency closure; fixed points are the sublattices (Queyranne–Tardella); state as Theorem 0 | 106–118 | MAJOR |  **FIXED.** Theorem 0 (Queyranne–Tardella) with proof and attribution; the Remark after it names ℛ as a pairwise-consistency closure of a connected-row-convex network (Montanari 1974; Mackworth 1977; Freuder 1978; Deville–Barette–Van Hentenryck 1999) and cites Caspard–Monjardet 2003; §3.5 and §5.3 cite Corollary 1 and Corollary 4 where they said 'the geometry is elementary'; Lemma 3 (bimonotone cut) makes Λ's, the grid's and the box ordering's zeros theorems (Proposition 2). |
+| R-2 "each returns a superset" unproved for information; "agree iff all E = 0" has a trivial direction and a false converse | 467, 487 | MAJOR |  **FIXED.** Lemma 4 proves each operator returns a superset (information via the generator induction); §6 states the trivial direction in one line, calls the converse unproved and false in general, reports four indexes as four indexes, and 'one instance of a general law' is gone; check.py L6 verifies no operator is marked NOT EXTENSIVE. |
+| R-3 "binds" means non-constant | 74 | MINOR |  **FIXED.** D6 says 'binds when it is not the constant Mᵢ' and that a non-constant envelope need not exclude a cell. |
+| R-4 S overloaded (superset, subset, spin) | 98, 143, 173 | MINOR |  **FIXED.** Y is the superset in Theorem 1; S the subset in Theorems 5–6; Notation says 2S, 2S′ are never sets. |
+| R-5 bit cost is a description length under a stated code | 82 | MINOR |  **FIXED.** D10 says it is the length of a uniform code over the E-subsets, not an entropy, and not additive over fibres. |
+| R-6 crossing population is two-thirds Pauli-forbidden; on physical one-electron moves there is no crossing | 3, 11, 27, 433–451 | BLOCKING |  **FIXED.** check.py Q8a adds the Pauli filter as an obligation (2,923 moves without room for the g delivered, 2,203 into a full subshell, 2,819 multi-electron, 134 physical) and Q9./Q9b/Q9c print the four percentages on the physical population beside the unfiltered ones (Q8./Q8b/Q8c): allowed 11.9% against forbidden 18.7% within, 40.7% against 64.0% across — no crossing (Q9c asserts the order does not reverse). §5.5, Table 3 and Figure 4 carry both populations; the crossing left the abstract and §0 (the title never carried it) and the paper claims none; SOURCES.md §1.2/§4.10 record that the source's figures reproduce on a population two-thirds Pauli-forbidden. |
+| R-7 followability matches electrons delivered against electrons held | 80, 180, 435 | MAJOR |  **FIXED.** D9 says the match is formal — electrons delivered against electrons held, a coincidence of two integers with no physical reading — and §5.5 repeats it; a configurational match (target at k + g after the move) is computed (Q10, Q10., Q10b): zero within one element on both populations by construction, 5.1% against 26.7% across on the physical one, no crossing; the §3.1 composability paragraph and the §5.4 mutual-information paragraph are dropped (C14, Q7 rows remain in check.py, unprinted). |
+| R-8 Δℓ = 0 cells labelled M1 | 351, 410–413 | MAJOR |  **FIXED.** M1 is gone; the classes are 'Δℓ = 0 (parity conserved)' and '|Δℓ| = 1 (E1)', with the sentence that a jump between different subshells with the same ℓ is not a magnetic-dipole transition. |
+| R-9 diproton as "failure of the pairing term" is backwards | 216 | MAJOR |  **FIXED.** Rewritten: the diproton is unbound because the singlet nucleon–nucleon channel is too weak to bind (the deuteron binds only in the triplet) and the Coulomb repulsion adds to it — a failure of any smooth mass formula at A = 2, not of one term. |
+| R-10 particle-bound list needs NUBASE2020 and is incomplete (with A-10) | 204–214 | MAJOR |  **FIXED.** As A-10: NUBASE2020 cited with the file's provenance, the list derived, the seven omissions recorded (C7f), E = 12 at Z ≤ 10 printed with F-16, F-28, F-30 named. |
+| R-11 h¹¹, h²¹ read as powers | 220, 257 | MINOR |  **FIXED.** h(1,1) and h(2,1) in text and table, introduced as the Hodge numbers usually written with superscripts. |
+| R-12 the χ = ±6 slice is not an index of anything; the 540 are cells of a region known to be dense | 29, 220–226 | MAJOR |  **FIXED.** 'Predictions' and the 'four consistency tests' are gone; §3.5 states the defect is forced by the slicing (Corollary 1 with the printed pair), mentions that the region is one the published plot shows as dense and draws nothing from it, and names the three-generation reason for χ = ±6. The full Hodge-pair list is not closed here: it was not read, and the paper says so (this half of the resolving change is not taken). |
+| R-13 §3.6 reduces to Theorem 2; d(N) irrelevant | 228–232 | MINOR |  **FIXED.** As A-26. |
+| R-14 the quotient's content is the independence of Δℓ and ΔS; ∣ΔS∣ unmotivated | 408–415 | MINOR |  **FIXED.** §5.4 says the full rectangle means Δℓ and ΔS are independent on Λ₉, every combination occurring, and gives the reason |ΔS| is taken (the rules are stated on magnitudes; the sign is carried by ΔS in §5.2). |
+| R-15 Laporte's rule is parity, not Δℓ = ±1 | 343 | MINOR |  **FIXED.** §5 attributes Laporte 1924 to the parity rule and Δℓ = ±1 to the rank of the dipole operator (Condon and Shortley 1935, ch. IV; Cowan 1981). |
+| R-16 ground configurations spot-checked; say NIST's assignments are used as tabulated | 433 | MINOR |  **FIXED.** §5.5 says the configurations are as NIST tabulates them, including its assignments for the ambiguous heavy elements. |
+| R-17 survey's witnessed set is the object of interest, E = 975 | 236 | MINOR |  **FIXED.** The witnessed channels are a row: 285 / 1,960 / 975 (C15b), §3.7, Table 1, Figure 2. |
+| R-18 the catalogue: seven informative rows of fourteen; thesis restated over them | 3, 25, 242–257 | MAJOR |  **FIXED.** Table 1 is grouped (closed by theorem, Proposition 2; full box, Theorem 2; open with cells named; open by construction) and the thesis is restated: every zero is a theorem about the rule's shape, every non-zero is forced or named, and 'the catalogue separates' is withdrawn in §0 item 3 and 'what is not claimed'. Going further than the audit asked: Lemma 3 shows the box ordering, Λ and the grid close by theorem too, so no zero in the catalogue is a measurement. |
+| R-19 three reconstructions chosen to reproduce printed numbers, presented as definitions | 76, 80, 298 | MAJOR |  **FIXED.** D7 calls the protocol a convention chosen once and states why; §4.2 calls the 724-cell down-set a convention of the same standing; D9 calls the followability match formal. |
+| R-20 hierarchy-law citation: misattribution for the identity, no locator | 114, 487, 556 | MAJOR |  **FIXED.** Queyranne–Tardella 2008 (and 2006 for the bimonotone class), Topkis 1976, Veinott 1989, Baker–Pixley 1975 cited for the identity; the hierarchy-law manuscript cited in §6 only, as 'Manuscript', for the containment law and for nothing in the proofs. |
+| R-21 r² and p on six ladder-quantised points | 300–304 | MAJOR |  **FIXED.** r² and p are deleted from §4.2 and Figure 3; the rows carry the point in two sentences (check.py R2 still computes them, unprinted). |
+| R-22 missing standard references (list given) | References | MAJOR |  **FIXED.** All added with the details given, verified against the sibling papers' checked entries where they overlap (Queyranne–Tardella 2008 title corrected to 'Sublattices of product spaces: hulls, representations and counting'): Queyranne–Tardella 2006 and 2008, Topkis, Veinott, Baker–Pixley, Montanari, Mackworth, Freuder 1978, Deville–Barette–Van Hentenryck, Caspard–Monjardet, Beeri–Fagin–Maier–Yannakakis, Ireland–Kullback, Haberman, Kondev et al. 2021, Huang et al. 2021, von Weizsäcker, Madelung, Löwdin, Allen–Knight, Cowan, Birkhoff 1937. |
+| R-23 abstract length and number load | 11 | MINOR |  **FIXED.** The abstract is about 380 words and carries the headline numbers only; §0 carries the rest. |
+| R-24 "102 obligations" counts printed rows | 493 | MINOR |  **FIXED.** §7 says 'one row per obligation' and reports the program's own summary counts as rows by status. |
+| R-25 abstract's "string compactification, atomic spectroscopy" against what is delivered | 11, 25 | MINOR |  **FIXED.** The abstract names no field it does not deliver; §0 item 3 says the catalogue does not separate by measurement and what decides each row. |
 
 **Totals.** BLOCKING 2 (A-1, R-6). MAJOR 29 (A-2 to A-10, A-20, A-29, A-40, A-41; R-1, R-2, R-7 to
 R-10, R-12, R-18 to R-22). MINOR 101 (A-11 to A-19, A-21 to A-28, A-30 to A-39, A-42, A-43.1–45,

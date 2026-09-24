@@ -578,10 +578,10 @@ def section_amplification(cells):
     put("amplification", dict(noncells=len(non), min=amp_sorted[0], median=float(statistics.median(amp)),
                               max=amp_sorted[-1], mean=round(sum(amp) / len(amp), 1),
                               zero=amp.count(0), argmin=[list(c) for c in argmin], values=amp))
-    report("EXHAUSTIVE", "A(y) over all 5,936 non-cells: min 15, median 309, mean 380.9, max 1,795, none zero; the minimum at %s"
-           % (argmin,),
+    report("EXHAUSTIVE", "A(y) over all 5,936 non-cells: min 15, median 309, mean 380.9, max 1,795, none zero; the minimum at %d non-cells, first %s"
+           % (len(argmin), argmin[0]),
            len(non) == 5936 and amp_sorted[0] == 15 and statistics.median(amp) == 309 and round(sum(amp) / len(amp), 1) == 380.9
-           and amp_sorted[-1] == 1795 and amp.count(0) == 0,
+           and amp_sorted[-1] == 1795 and amp.count(0) == 0 and len(argmin) == 32 and argmin[0] == (2, 1, 3, 2, 2, 1, 3, 0),
            "n=%d min=%d median=%s max=%d mean=%.1f zero=%d" % (len(non), amp_sorted[0], statistics.median(amp), amp_sorted[-1], sum(amp) / len(amp), amp.count(0)))
     print("     (%.1f s)" % (time.time() - t))
 

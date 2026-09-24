@@ -827,8 +827,9 @@ def check_catalogue():
     # why F-16, F-28 and F-30 appear only at Z <= 10: their N is first observed in a neon isotope
     X9, _ = particle_bound(9)
     X10, _ = particle_bound(10)
-    eq("MEASURED", "C7e", "the N values 7, 19 and 21 are absent from the observed alphabet at Z <= 9 and present at Z <= 10 (Ne-17, Ne-29, Ne-31)",
-       (sorted({n for _, n in X9} & {7, 19, 21}), sorted({n for _, n in X10} & {7, 19, 21})), ([], [7, 19, 21]))
+    eq("MEASURED", "C7e", "why the three appear only with neon: N = 19 and 21 are absent from the observed alphabet at Z <= 9 and present at Z <= 10 (Ne-29, Ne-31); and the largest Z with N <= 7 is 8 at Z <= 9 and 10 at Z <= 10 (Ne-17), which admits (9, 7)",
+       (sorted({n for _, n in X9} & {19, 21}), sorted({n for _, n in X10} & {19, 21}),
+        max(z for z, n in X9 if n <= 7), max(z for z, n in X10 if n <= 7)), ([], [19, 21], 8, 10))
     fx = {z: sorted(n for zz, n in nuclide_fixture(10) if zz == z) for z in range(1, 11)}
     dv = {z: sorted(n for zz, n in X10 if zz == z) for z in range(1, 11)}
     diff = ["%s-%d" % (cy._ELEMENT[z], z + n) for z in range(1, 11) for n in sorted(set(dv[z]) ^ set(fx[z]))]

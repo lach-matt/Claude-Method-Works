@@ -542,7 +542,7 @@ Let y be an ambient non-cell of a closed X. The closure of X ∪ {y} must admit 
 
 for the number of *further* cells forced, beyond y itself. On Λ an ambient non-cell is a label the seven bounds refuse — for instance any label with a 1p source subshell, n = 1 and ℓ = 1, which violates ℓ ≤ n − 1.
 
-**EXHAUSTIVE on Λ.** Over **all 5,936** ambient non-cells at the larger cap setting: minimum **15**, median **309**, mean **380.9**, maximum **1,795**, and **not one** value is zero. The minimum is attained at ARGMINCELL. There is no ambient point of Λ's box that can be inserted without the envelopes forcing further cells.
+**EXHAUSTIVE on Λ.** Over **all 5,936** ambient non-cells at the larger cap setting: minimum **15**, median **309**, mean **380.9**, maximum **1,795**, and **not one** value is zero. The minimum is attained at 32 non-cells, the first of them (2, 1, 3, 2, 2, 1, 3, 0) — a label in which three electrons arrive at the target where two were removed, g = 3 > q = 2. There is no ambient point of Λ's box that can be inserted without the envelopes forcing further cells.
 
 ![](figures/fig5-amplification.png)
 
