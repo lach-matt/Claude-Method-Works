@@ -436,3 +436,15 @@ changes enough. Also found: a hardness remark that was false because the languag
 bound of Rival's printed backwards, an unproved cost paragraph, and a count of occupied Janet
 cells taken from a capped fixture. Everything else — the total-preorder correction, all
 twenty-nine solver encodings, the exhaustive replacements — is confirmed sound.
+
+**The tower — the thirteenth axis is carried as an envelope, not exactly.** The audit found the
+title sentence false: the band theorem for a constant does not make the last step exact, the
+thirteenth fibre fails meet-closure with an explicit witness, and the band the paper uses there is
+precisely the least envelope of the doublet, which is what the source itself grades it and what
+the paper's own table and figure show. The envelope theorem was also stated for one coordinate and
+applied to fibres of two or three, where its least envelope is not the construction's bound at two
+axes — 1,638 admitted against 1,654 and 60,320 against 70,905. The repair restates both and the
+thesis with them. The physicist's questions are yours as much as the drafter's: the thirteenth
+bound carries a spin-½ constant against the paper's own 2S′ ≤ 3, so the jK scheme is a
+one-outer-electron scheme applied formally, and which state the parent-J coordinate labels is not
+stated anywhere. The seeds 7, 8, 9, the one-parent reading and the chain count are confirmed sound.

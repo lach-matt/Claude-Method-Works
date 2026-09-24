@@ -468,59 +468,59 @@ Duplicates across readers are marked "= A-n" and counted once.
 
 | id | severity | line(s) | finding (short) | disposition |
 |---|---|---|---|---|
-| A-1 | BLOCKING | 98, 100 | Lemma 2 rearranged factor wrong by 2; expansion wrong | |
-| A-2 | MAJOR | 102, 280, 294, 296 | Z3 obligation encodes the conclusion; fidelity guard not independent | |
-| A-3 | MINOR | 19 | ⟨r⁻⁴⟩ summary omits n⁻⁵ | |
-| A-4 | MINOR | 126 | degree in δ₀ is 2 not 3 | |
-| A-5 | MINOR | 205 | scan cap mis-stated; "every scan" not printed by check | |
-| A-6 | MAJOR | 294, §6 rows | "independent implementation" is a typed transcription; third comparison mis-described | |
-| A-7 | MINOR | 205, 284–294 | EXHAUSTIVE applied to non-families | |
-| A-8 | MINOR | 102, 296 | guard seed not stated | |
-| A-9 | MINOR | 266 | "tens of tesla", "n of order 60" unchecked, uncited | |
-| A-10 | MINOR | 281 | prefactor identity holds for all ℓ; monotone checked at 3 points | |
-| A-11 | MINOR | Fig. 1(b), Fig. 2 | annotation over In I d marker; ASCII hyphen; annotation over ρ = 0 line | |
-| A-12a | MAJOR | 266 (p. 11) | `n*⁷ … n*¹⁰` rendered as italics, asterisks lost | |
-| A-12b | MAJOR | pp. 1–13 | underscore/caret subscripts in code spans and prose (α_d ×16, R_M, δ_n, E_n, V_pol, Laguerre line, r_i, w_i …) | |
-| A-12c | MINOR | Table 1 (p. 6) | R_M column wraps every value | |
-| A-12d | MINOR | pp. 5–7 | Table 1 and Table 2 captions orphaned at page feet | |
-| A-12e | MINOR | 304 (p. 13) | "⟨r^s⟩" literal caret | |
-| A-13 | MAJOR | 310; SOURCES 141 | Ritz citation stripped though the tree holds it (Ann. Phys. 12, 264–310) | |
-| A-14 | MINOR | SOURCES 136 | SOURCES says Drake initials printed; paper prints none | |
-| A-15 | MINOR | 305–313 | five journal expansions undeclared in SOURCES | |
-| A-16 | MINOR | 56, 132, Table 1 | m_p/m_e vs u/m_e; Rb isotope mass called atomic weight; printed R_M third decimal | |
-| A-17 | MINOR | 56 | "nucleus" for ion core | |
-| A-18 | MINOR | Table 2 | levels printed beyond NIST's quoted precision | |
-| A-19 | MAJOR | §0, §3, §5 | test at ℓ = 3, which the source places below Seaton's domain (ℓ ≥ 4); merged into R-12 | |
-| A-20 | BLOCKING | 17, 30, 68, 252, 256 | "non-penetrating ⇔ p = 0" contradicted by collapsed p = 0 channels the record holds (Ba II nf, Ca II nd; Register 1261 regimes 3/4) | |
-| R-1 | BLOCKING | 98, 100 | = A-1 | |
-| R-2 | MAJOR | 86–92, 280 | Lemma 1 proved only to n ≤ 30; Theorem 1 PROVED on a CITED lemma; Kramers–Pasternack proof available | |
-| R-3 | MAJOR | 102, §6 | = A-2 | |
-| R-4 | MINOR | 225, 234 | "Proposition" for a measurement | |
-| R-5 | MINOR | 62 | model undefined at ℓ = 0, not "value 0" | |
-| R-6 | MINOR | 100 | division conditions mis-stated | |
-| R-7 | MINOR | 205, 286 | "certified" → "scan-certified" | |
-| R-8 | MINOR | 19 | = A-3 | |
-| R-9 | MINOR | 126 | = A-4 | |
-| R-10 | MINOR | 292 | = A-7 | |
-| R-11 | BLOCKING | 17, 68, 252, 256 | = A-20 (physicist's statement) | |
-| R-12 | MAJOR | 30, 254, §3 | nf is the marginal case; model's own δ₀ prediction from α_d not checked (Sr²⁺: 0.037 predicted vs 0.0648 fitted); includes A-19 | |
-| R-13 | MAJOR | §4, Table 3, §5.4 | no per-series uncertainty; leave-lowest-out moves ρ by 0.05–0.10 | |
-| R-14 | MAJOR | 30, 254 | direction of the three corrections asserted; only the quadrupole's is derivable (and it is) | |
-| R-15 | MINOR | 56, 132 | = A-16, A-17 | |
-| R-16 | MINOR | Table 2 | = A-18 | |
-| R-17 | MINOR | Table 3 | compare Rb fits with published Rydberg–Ritz coefficients | |
-| R-18 | MINOR | 266 | = A-9 | |
-| R-19 | MINOR | 264 | Cd II limit ±0.13 cm⁻¹ exceeds the Cd I f rms; propagate into ρ | |
-| R-20 | MINOR | 30 | "Seaton's derivation" → "the derivation" | |
-| R-21 | MAJOR | title, 1, 3, 17, 104, 311 | "Seaton's ratio" / "as the literature attributes it" unsupported; retitle and restate the contribution | |
-| R-22 | MAJOR | References | missing standard references (Edlén 1964, Ritz 1903, Goeppert-Mayer 1941, Griffin–Andrew–Cowan 1969, Freeman–Kleppner 1976, Van Vleck–Whitelaw 1933, Gallagher 1994; conditionally Pasternack 1937, Li et al. 2003, Mack et al. 2011, Mitroy–Safronova–Clark 2010); Drake–Swainson title | |
-| R-23 | MAJOR | §6 | = A-2, A-6, A-7 | |
-| R-24 | MINOR | Abstract | "derives it exactly" vs cited Lemma 1 (= R-2 consequence) | |
-| R-25 | MINOR | 252, 307 | Hartree 1928 is the wrong citation for the penetration argument | |
-| R-26 | MINOR | 310 | = A-13 | |
-| R-27 | MINOR | 132, 308 | retrieval date in the NIST reference entry | |
-| R-28 | MINOR | 256 | "sixty to seventy-nine" window arbitrary | |
-| R-29 | MINOR | 132 | "independent retrieval" overstates | |
+| A-1 | BLOCKING | 98, 100 | Lemma 2 rearranged factor wrong by 2; expansion wrong |  FIXED — Lemma 2 now prints δ = −(n³/z²)ΔE·2(n−δ)²/(n(2n−δ)) and 2(n−δ)²/(n(2n−δ)) = 1 − (3nδ−2δ²)/(n(2n−δ)); both are exact obligations on grids above degree (121 points) and the factor without the 2 is a negative control. Theorem 1 unaffected |
+| A-2 | MAJOR | 102, 280, 294, 296 | Z3 obligation encodes the conclusion; fidelity guard not independent |  FIXED — Z3 now receives the premise D(n) = (α/2)z²n³·4(3n²−L)/(n⁵K) and derives the ratio from the two-point coefficients, with a third point for affineness; the fidelity guard compares D(n) with the Laguerre integral; seed 5 printed |
+| A-3 | MINOR | 19 | ⟨r⁻⁴⟩ summary omits n⁻⁵ |  FIXED — "(3n² − ℓ(ℓ+1))/n⁵ times a function of ℓ alone, and the defect is n³ times the energy shift" |
+| A-4 | MINOR | 126 | degree in δ₀ is 2 not 3 |  FIXED — degree 2 in δ₀, in the paper and in the check's docstring |
+| A-5 | MINOR | 205 | scan cap mis-stated; "every scan" not printed by check |  FIXED — cap stated as n − ½ for the first member's n; the check prints min and max local minima (1 and 1) |
+| A-6 | MAJOR | 294, §6 rows | "independent implementation" is a typed transcription; third comparison mis-described |  FIXED — a float Gauss–Newton fitter added to the check (26 of 26 coefficients to 4 dp); §4 and §6 call it a cross-check; the three prior-figure comparisons are described as such, with the Cd I d row named as one mean defect, and no claim rests on them |
+| A-7 | MINOR | 205, 284–294 | EXHAUSTIVE applied to non-families |  FIXED — EXHAUSTIVE kept for the 902/435/406/2,280/200/16-cell/108-core families, the 80 captures and the sign counts; loading, the fit, class sizes, the monotone fraction and the sensitivities are MEASURED; the count sentence rewritten (7 PROVED, 11 EXHAUSTIVE, 2 MACHINE-CHECKED, 8 MEASURED, 1 cross-check, 3 comparisons) |
+| A-8 | MINOR | 102, 296 | guard seed not stated |  FIXED — seed 5 stated in Theorem 1, Corollary 1 and §6 |
+| A-9 | MINOR | 266 | "tens of tesla", "n of order 60" unchecked, uncited |  FIXED — the two numbers dropped; the powers n∗⁷ and n∗¹⁰ kept, with Gallagher 1994 cited |
+| A-10 | MINOR | 281 | prefactor identity holds for all ℓ; monotone checked at 3 points |  FIXED — the prefactor identity stated as degree 5 in ℓ (PROVED at 200 values); monotonicity now checked at every consecutive pair in 1..200 |
+| A-11 | MINOR | Fig. 1(b), Fig. 2 | annotation over In I d marker; ASCII hyphen; annotation over ρ = 0 line |  FIXED — p ≥ 1 label below its band at the right edge (Fig. 1b); row labels at the right edge (Fig. 2); true minus signs via fmt(); panel (b) title shortened (it was clipped); figures regenerated, FIGURES.tsv md5s updated |
+| A-12a | MAJOR | 266 (p. 11) | `n*⁷ … n*¹⁰` rendered as italics, asterisks lost |  FIXED — the effective quantum number is written n∗ (U+2217) throughout, so no markdown asterisk can pair |
+| A-12b | MAJOR | pp. 1–13 | underscore/caret subscripts in code spans and prose (α_d ×16, R_M, δ_n, E_n, V_pol, Laguerre line, r_i, w_i …) |  FIXED — every code span removed from mathematics; α_d → α (D5 defines α dipole, β quadrupole); R_M → Rₘ, E_n → Eₙ, δ_n → δₙ, r_i/w_i/δ_i/n_i → rᵢ/wᵢ/δᵢ/nᵢ; the Laguerre line rewritten in words with rˡ and (n/2)ᵏ⁺¹; displayed formulas as plain blockquote text |
+| A-12c | MINOR | Table 1 (p. 6) | R_M column wraps every value |  FIXED — the core column prints the ion symbol; the configurations are in the text above the table |
+| A-12d | MINOR | pp. 5–7 | Table 1 and Table 2 captions orphaned at page feet |  FIXED — captions now follow their tables (as figure captions do), so none can be stranded; the shared template has since also been changed to let tables break |
+| A-12e | MINOR | 304 (p. 13) | "⟨r^s⟩" literal caret |  FIXED — ⟨rˢ⟩ |
+| A-13 | MAJOR | 310; SOURCES 141 | Ritz citation stripped though the tree holds it (Ann. Phys. 12, 264–310) |  FIXED — Ritz restored exactly as Mathematical Compendium 780 / Physics Compendium 464 give it (Zur Theorie der Serienspektren, Annalen der Physik 12, 264–310); SOURCES.md corrected |
+| A-14 | MINOR | SOURCES 136 | SOURCES says Drake initials printed; paper prints none |  FIXED — Drake's and Swainson's initials and the title verified against the APS record and printed; SOURCES.md aligned |
+| A-15 | MINOR | 305–313 | five journal expansions undeclared in SOURCES |  FIXED — SOURCES.md declares every expansion |
+| A-16 | MINOR | 56, 132, Table 1 | m_p/m_e vs u/m_e; Rb isotope mass called atomic weight; printed R_M third decimal |  FIXED — D1 states A·m_p/m_e with the core mass as A proton masses, names the standard atomic weights of Cd and In and the ⁸⁵Rb and ⁸⁸Sr isotope masses, and says the convention moves δ by parts in 10⁷; no Rₘ recomputed |
+| A-17 | MINOR | 56 | "nucleus" for ion core |  FIXED — "the electron and the ion core" |
+| A-18 | MINOR | Table 2 | levels printed beyond NIST's quoted precision |  FIXED — Table 2 printed at NIST's quoted precision, generated by the check from the capture strings |
+| A-19 | MAJOR | §0, §3, §5 | test at ℓ = 3, which the source places below Seaton's domain (ℓ ≥ 4); merged into R-12 |  FIXED (with R-12) — §0 and §5.2 say ℓ = 3 is the lowest ℓ available on these cores and the marginal case, and that departures of 10–56% are of the size expected at nf |
+| A-20 | BLOCKING | 17, 30, 68, 252, 256 | "non-penetrating ⇔ p = 0" contradicted by collapsed p = 0 channels the record holds (Ba II nf, Ca II nd; Register 1261 regimes 3/4) |  FIXED — D3 makes p ≥ 1 "penetrating"; D4 defines N := p = 0 and uncollapsed with the collapse account (Goeppert-Mayer 1941; Griffin, Andrew & Cowan 1969, as the tree prints them); abstract, thesis, §0, §5.1, §5.3, §5.5 rewritten, a collapse bullet added; §5.3 re-examined (the argon-like d test is not clean; ℓ = 4 has p = 0 on every core); the obligation over the whole configuration table added |
+| R-1 | BLOCKING | 98, 100 | = A-1 |  FIXED — = A-1 |
+| R-2 | MAJOR | 86–92, 280 | Lemma 1 proved only to n ≤ 30; Theorem 1 PROVED on a CITED lemma; Kramers–Pasternack proof available |  FIXED — Lemma 1 proved for all n from the Kramers–Pasternack recursion (Pasternack 1937, CITED, verified by search) and ⟨r⁻²⟩ (Bethe & Salpeter 1957, CITED); the check verifies the recursion at 902 triples, the seeds on 435 states and the algebra on a rational grid; the 435-state computation kept as corroboration; Theorem 1's PROVED stands |
+| R-3 | MAJOR | 102, §6 | = A-2 |  FIXED — = A-2 |
+| R-4 | MINOR | 225, 234 | "Proposition" for a measurement |  FIXED — Measurement 1, Measurement 2 |
+| R-5 | MINOR | 62 | model undefined at ℓ = 0, not "value 0" |  FIXED — D6: the formal value is 0, the model does not apply (K(0) = 0, ⟨r⁻⁴⟩ diverges) |
+| R-6 | MINOR | 100 | division conditions mis-stated |  FIXED — "provided n ≠ δ and 2n ≠ δ" |
+| R-7 | MINOR | 205, 286 | "certified" → "scan-certified" |  FIXED — "scan-certified" in §4 and §6 |
+| R-8 | MINOR | 19 | = A-3 |  FIXED — = A-3 |
+| R-9 | MINOR | 126 | = A-4 |  FIXED — = A-4 |
+| R-10 | MINOR | 292 | = A-7 |  FIXED — = A-7 |
+| R-11 | BLOCKING | 17, 68, 252, 256 | = A-20 (physicist's statement) |  FIXED — = A-20; D3 now says p is the count of radial nodes forced by orthogonality and that "penetrating" is the paper's label for p ≥ 1 |
+| R-12 | MAJOR | 30, 254, §3 | nf is the marginal case; model's own δ₀ prediction from α_d not checked (Sr²⁺: 0.037 predicted vs 0.0648 fitted); includes A-19 |  FIXED — an "α implied" column (24.76, 26.20, 10.21 a₀³, from the check) and the marginal-ℓ statement added; the comparison with a published Sr²⁺ value is stated in §5.2 as NOT made and why (no published value could be verified against its source — arXiv, IOP and APS are blocked by the proxy); Mitroy, Safronova & Clark 2010 cited as where to make it; recorded for the author in SOURCES.md |
+| R-13 | MAJOR | §4, Table 3, §5.4 | no per-series uncertainty; leave-lowest-out moves ρ by 0.05–0.10 |  FIXED — leave-lowest-out ρ (1.051 / 1.154 / 1.623), quotation-floor sums (0.016 / 0.002 / 0.002, by a linearised procedure stated in §4), Cd limit ±0.13 (1.120–1.180) and +0.1 cm⁻¹ sensitivities all in the check and in §4; Cd I stated as the range 1.05–1.15 |
+| R-14 | MAJOR | 30, 254 | direction of the three corrections asserted; only the quadrupole's is derivable (and it is) |  FIXED — Lemma 4 derives ⟨r⁻⁵⟩ and ⟨r⁻⁶⟩ by the recursion (406 states, grid) and Corollary 1 machine-checks that a positive quadrupole term gives ρ > 1 at the coefficient level; the other two directions stated as undetermined; the q₄/n⁴ term named as unaccounted |
+| R-15 | MINOR | 56, 132 | = A-16, A-17 |  FIXED — = A-16, A-17 |
+| R-16 | MINOR | Table 2 | = A-18 |  FIXED — = A-18 |
+| R-17 | MINOR | Table 3 | compare Rb fits with published Rydberg–Ritz coefficients |  DECLINED — the published Rb coefficients (Li et al. 2003; Mack et al. 2011) are not held in the tree and could not be verified against their sources here, and the paper prints no number on recollection; recorded in SOURCES.md for the author as a calibration worth adding |
+| R-18 | MINOR | 266 | = A-9 |  FIXED — = A-9 |
+| R-19 | MINOR | 264 | Cd II limit ±0.13 cm⁻¹ exceeds the Cd I f rms; propagate into ρ |  FIXED — ±0.13 cm⁻¹ propagated through the fit: ρ(Cd I f) 1.120–1.180; §5.5 names it the largest single sensitivity after the choice of members |
+| R-20 | MINOR | 30 | "Seaton's derivation" → "the derivation" |  FIXED — "the derivation" |
+| R-21 | MAJOR | title, 1, 3, 17, 104, 311 | "Seaton's ratio" / "as the literature attributes it" unsupported; retitle and restate the contribution |  FIXED — retitled (working title recorded in SOURCES.md with the old title and the reason); §0 states what is established and what is not claimed; a Provenance paragraph replaces the attribution sentence; Seaton 1958 cited for the quantum defect method only; no priority claimed |
+| R-22 | MAJOR | References | missing standard references (Edlén 1964, Ritz 1903, Goeppert-Mayer 1941, Griffin–Andrew–Cowan 1969, Freeman–Kleppner 1976, Van Vleck–Whitelaw 1933, Gallagher 1994; conditionally Pasternack 1937, Li et al. 2003, Mack et al. 2011, Mitroy–Safronova–Clark 2010); Drake–Swainson title |  FIXED — Edlén 1964, Ritz 1903, Goeppert-Mayer 1941, Griffin–Andrew–Cowan 1969 (from the tree), Freeman–Kleppner 1976, Van Vleck–Whitelaw 1933, Gallagher 1994, Pasternack 1937, Mitroy–Safronova–Clark 2010 (verified by search) added with full author lists; Drake–Swainson title verified ("second-order polarization effects"); Van Vleck–Whitelaw's last page not verified and not printed; Li 2003 / Mack 2011 not added (R-17 declined) |
+| R-23 | MAJOR | §6 | = A-2, A-6, A-7 |  FIXED — = A-2, A-6, A-7 |
+| R-24 | MINOR | Abstract | "derives it exactly" vs cited Lemma 1 (= R-2 consequence) |  FIXED — abstract: "derives it from the hydrogenic expectation value ⟨r⁻⁴⟩ through the Kramers–Pasternack recursion" |
+| R-25 | MINOR | 252, 307 | Hartree 1928 is the wrong citation for the penetration argument |  FIXED — Edlén 1964 cited for the penetration account; Hartree 1928 dropped |
+| R-26 | MINOR | 310 | = A-13 |  FIXED — = A-13 |
+| R-27 | MINOR | 132, 308 | retrieval date in the NIST reference entry |  FIXED — "[retrieved August 2026]" in the entry |
+| R-28 | MINOR | 256 | "sixty to seventy-nine" window arbitrary |  FIXED — "every core from 58 electrons upward, 51 cores in the configuration table", from the check |
+| R-29 | MINOR | 132 | "independent retrieval" overstates |  FIXED — "a second capture of the same tables — a guard against transcription, not independent evidence" |
 
 **Counts (unique findings, 41).** BLOCKING 2 (A-1, A-20). MAJOR 11 (A-2, A-6, A-12a, A-12b, A-13,
 R-2, R-12 with A-19, R-13, R-14, R-21, R-22). MINOR 28 (A-3, A-4, A-5, A-7, A-8, A-9, A-10, A-11,
@@ -533,3 +533,45 @@ reproduces; Table 2 is an exact bijection with the level data; Table 3 and the f
 are correct; the fit is exact, single-basin and reproducible; lint is clean; the 3-of-10 accounting
 for ρ on the penetrating branch is right and honestly stated; the paper's prefactor 6α_d z²/K(ℓ) is
 the correct one (the source's is half of it) and `SOURCES.md` records that correctly.
+
+---
+
+## Repair record (2026-09-24)
+
+Repaired by the drafter against every finding above; the findings are unchanged and each carries its
+disposition in the table. **Dispositions:** BLOCKING 2 of 2 FIXED (A-1, A-20); MAJOR 11 of 11 FIXED
+(A-2, A-6, A-12a, A-12b, A-13, R-2, R-12 with A-19, R-13, R-14, R-21, R-22); MINOR 27 FIXED and 1
+DECLINED (R-17, with the reason in its row). Every cross-reference row carries the disposition of the
+finding it points to.
+
+**The two BLOCKING findings.** A-1: Lemma 2's rearrangement is now δ = −(n³/z²)ΔE·2(n−δ)²/(n(2n−δ)),
+with 2(n−δ)²/(n(2n−δ)) = 1 − (3nδ − 2δ²)/(n(2n−δ)); both identities are exact obligations of `check.py`
+(`ob_defect_rearrangement`, grids 4 × 4 and 7 × 5 × 3 above degree, 121 points) and the factor without the
+2 is a fourth negative control of `--selftest`, so the printed identity can no longer pass unchecked.
+Theorem 1's first-order conclusion was never affected and its status is unchanged. A-20 / R-11: the paper
+no longer identifies non-penetrating with p = 0. D3 defines p and calls p ≥ 1 penetrating; D4 defines the
+class N := p = 0 and uncollapsed, with the orbital-collapse account cited to Goeppert-Mayer 1941 and
+Griffin, Andrew & Cowan 1969 exactly as the tree prints those references; the four cores' nuclear
+charges (37, 38, 48, 49) are stated and are far below the 4f onset, so the three measured series are in N
+and no number moved. The abstract, thesis, §0, §5.1, §5.3 and §5.5 were rewritten accordingly, a
+collapse bullet added to §5.5, and §5.3's Ca II nd proposal replaced by the honest statement that the
+argon-like cores with p = 0 at ℓ = 2 sit within two units of the 3d threshold and are not a clean test,
+while ℓ = 4 has p = 0 on every core in the configuration table (a new obligation over all 108 cores).
+
+**Title.** "A Correction to Seaton's Ratio" → "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a
+Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series" — a working title,
+recorded as such in `SOURCES.md` with the old title and the reason (R-21, A-13).
+
+**Checks.** `python3 check.py`: 32 of 32 obligations discharged (7 PROVED, 11 EXHAUSTIVE, 2
+MACHINE-CHECKED in 8 + 7 instances, 8 MEASURED, 1 CROSS-CHECK, 3 SOURCE), exit 0, ~35 s; `--selftest`:
+36 of 36 with four negative controls each REFUTED. Ten obligations were added and none weakened;
+no number moved to fit a sentence. `check.py` is what now prints Table 2 at NIST's quoted precision,
+the implied polarisabilities, and every sensitivity §4 reports. Lint: 0 hits. The figures were
+regenerated and `FIGURES.tsv` carries the new md5s; no plotted value changed.
+
+**Render and typography.** RENDER_PLACEHOLDER
+
+**Still open for the author** (recorded in `SOURCES.md`): the comparison of the implied polarisabilities
+(24.76, 26.20, 10.21 a₀³) with published values — the paper says it is not made and why; the Rb I
+calibration against the millimetre-wave / EIT coefficients (R-17, declined); the prefactor question
+(the tree's 3αc²/K against the derived 6αz²/K, unchanged from the first pass); and the working title.
