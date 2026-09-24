@@ -1,0 +1,120 @@
+Z	entrant	verdict	detail
+2	1s	exact+order	the full printed row: every channel's depth and the refused set
+3	2s	exact	LCP38
+4	2s	exact	LCP38
+5	2p	exact	LCP38
+6	2p	exact	LCP38
+7	2p	exact	LCP38
+8	2p	exact	LCP38
+9	2p	exact	LCP38
+10	2p	exact	LCP38
+11	3s	exact	LCP38
+12	3s	exact	LCP38
+13	3p	exact	LCP38
+14	3p	exact	LCP38
+15	3p	exact	LCP38
+16	3p	exact	LCP38
+17	3p	exact	LCP38
+18	3p	exact	LCP38
+19	4s	entrant+depth (margin differs: F61.1)	LCP38: sealed margin 0.05411, run 0.05216
+20	4s	exact	LCP38
+21	3d	exact	LCP39
+22	3d	exact	LCP39
+23	3d	exact	LCP39
+24	3d	exact	LCP39
+25	3d	exact	LCP39
+26	3d	exact	LCP39
+27	3d	exact	LCP39
+28	3d	exact	LCP39
+29	3d	exact	LCP39
+30	3d	exact	LCP39
+31	4p	exact	LCP41
+32	4p	exact	LCP41
+33	4p	exact	LCP41
+34	4p	exact	LCP41
+35	4p	exact	LCP41
+36	4p	exact	LCP41
+37	5s	exact	LCP41
+38	5s	exact+order	the full printed row: every channel's depth and the refused set
+39	4d	exact	LCP42
+40	4d	exact	LCP42
+41	4d	exact	LCP42
+42	4d	exact	LCP42
+43	4d	exact	LCP42
+44	4d	exact	LCP42
+45	4d	exact	LCP42
+46	4d	exact	LCP42
+47	4d	exact	LCP42
+48	4d	exact	LCP42
+49	5p	exact	LCP43
+50	5p	exact	LCP43
+51	5p	exact	LCP43
+52	5p	exact	LCP43
+53	5p	exact	LCP43
+54	5p	exact	LCP43
+55	6s	exact	LCP44
+56	6s	exact	LCP44
+57	5d	exact+order	the full printed row: every channel's depth and the refused set
+58	4f	exact	LCP46
+59	4f	unwitnessed	
+60	4f	unwitnessed	
+61	4f	exact	LCP46
+62	4f	exact	LCP46
+63	4f	exact	LCP46
+64	4f	exact	LCP46
+65	4f	exact	LCP46
+66	4f	exact	LCP46
+67	4f	exact	LCP46
+68	4f	exact	LCP46
+69	4f	exact	LCP46
+70	4f	exact	LCP46
+71	4f	exact	LCP46
+72	5d	exact	LCP46
+73	5d	exact	LCP46
+74	5d	exact	LCP46
+75	5d	exact	LCP46
+76	5d	exact	LCP47
+77	5d	exact	LCP47
+78	5d	exact	LCP47
+79	5d	exact+order	the full printed row: every channel's depth and the refused set
+80	5d	exact+order	the full printed row: every channel's depth and the refused set
+81	6p	unwitnessed	
+82	6p	unwitnessed	
+83	6p	exact	LCP47
+84	6p	exact	LCP47
+85	6p	unwitnessed	
+86	6p	unwitnessed	
+87	7s	exact	LCP47
+88	7s	exact	LCP47
+89	6d	exact	LCP47
+90	6d	exact	LCP47
+91	5f	exact	LCP47
+92	5f	exact	LCP47
+93	5f	exact	LCP47
+94	5f	exact	LCP47
+95	5f	exact	LCP47
+96	5f	exact	LCP47
+97	5f	exact	LCP47
+98	5f	exact	LCP47
+99	5f	exact	LCP47
+100	5f	exact	LCP47
+101	5f	exact	LCP47
+102	5f	exact	LCP47
+103	5f	exact	LCP48
+104	5f	exact	LCP48
+105	6d	exact	LCP48
+106	6d	exact	LCP48
+107	6d	exact	LCP48
+108	6d	exact	LCP48
+109	6d	exact	LCP49
+110	6d	exact	LCP49
+111	6d	exact	LCP49
+112	6d	exact	LCP49
+113	7p	exact	LCP49
+114	7p	exact	LCP49
+115	7p	exact	LCP49
+116	7p	exact	LCP49
+117	7p	exact	LCP49
+118	7p	exact	LCP49
+119	8s	exact	LCP49
+120	8s	exact	LCP49

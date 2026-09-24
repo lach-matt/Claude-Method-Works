@@ -176,7 +176,8 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
                 "KPOINTS-CHECK.tsv": "the k-point cross-check capture", "KPOINTS-GRID.tsv": "the k-point grid capture",
                 "KPOINTS-ADDITIVITY.tsv": "the k-point additivity capture", "PHONON-KPOINTS.tsv": "the second k-point implementation's capture",
                 "COREPS-HIGHSYM.tsv": "the corepresentation capture",
-                "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper"}
+                "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper",
+                "RUNS.tsv": "the recovered walk's run table", "CHECK.tsv": "the recovered chain's check against the sealed steps"}
 
 
 def private_hits(text):
@@ -290,18 +291,32 @@ CAVEATS = [
              "domain is not a finding against the equation."},
     {"id": "relativistic-not-held",
      "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
-             "Hartree\u2013Fock at c = 137) and its repetition at c \u2192 \u221e "
-             "are not held: the code behind the L\u00f6wdin paper never arrived. "
-             "The eleven displaced elements are READ from the paper's own statement "
-             "and the site cannot recompute them."},
+             "Hartree\u2013Fock at c = 137) behind the L\u00f6wdin paper was never "
+             "banked as an archive; its code has since been RECOVERED from the "
+             "project's own conversations (every file written, edited and printed "
+             "by tool calls, rebuilt and held against every printed window) and run "
+             "here. The eleven displaced elements are READ from the paper's own "
+             "statement; what the recovered instrument returns sits beside them "
+             "with its own status, never in their place."},
+    {"id": "record-eleven",
+     "text": "The paper's eleven were computed by its own final session as the "
+             "elements where the chain's entrant differs from a second table the "
+             "project had sealed as its c \u2192 \u221e walk. The project's own "
+             "fault record F59.3, written before the paper, established that the "
+             "second table ran at c = 137 in restart mode (each step from the "
+             "observed configuration), so the eleven measure the chain's memory "
+             "against a memoryless restart at one c, not the constant. Re-derived "
+             "here, both tables reproduce and the eleven reproduce from them; at "
+             "eight of the eleven the restart entrant is the observed one. Recorded, "
+             "not repaired: the paper's statement stands as READ, and the comparison "
+             "at a genuine c \u2192 \u221e is shown beside it as RECOVERED."},
     {"id": "walk-reconstructed",
-     "text": "The walk shown beside the paper is a RECONSTRUCTION "
-             "(tools/lowdin_walk.py): the paper's construction rebuilt from its "
-             "statement and run in two fields, a local-exchange one and the paper's "
-             "own average-of-configuration Hartree\u2013Fock with non-local exchange, "
-             "neither of them the paper's code, which never arrived. Where it "
-             "agrees with the paper that is a measurement; where it disagrees "
-             "that is a measurement too. It is never the paper's number."},
+     "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own "
+             "rebuild of the paper's construction from its statement, run in two "
+             "fields, and is kept beside the record's recovered instrument as a "
+             "second measurement, not in its place. Where it agrees with the "
+             "record that is a measurement; where it disagrees that is a "
+             "measurement too. It is never the paper's number."},
     {"id": "limit-kind",
      "text": "A limit kind is a classification of the csv's own bound note by "
              "the stated rule: the note is READ, the kind is DERIVED, and the "
@@ -642,6 +657,134 @@ def walk_block():
         "summary": summary,
         # the primary field's entrants, for readers of the earlier shape
         "entrants": fields[primary]["entrants"],
+    }
+    return block, per_z
+
+
+# ---------------------------------------------------------------------------
+# the record's own walk, recovered: lowdin/ (tools/lowdin_recover.py)
+# ---------------------------------------------------------------------------
+
+LOWDIN_DIR = os.path.join(REPO, "lowdin")
+LOWDIN_CHAIN = os.path.join(LOWDIN_DIR, "chain")
+RECORD_TABLES = {
+    # file -> (key, label, what it is, the record's own run or an extension)
+    "LAMBDA-CHAIN.jsonl": ("chain", "the chain at c = 137.035999",
+                           "nlchain.py 2 120: the walk on its own configuration at every step, the record's Lambda_chain re-derived", "record"),
+    "LAMBDA-CINF-SEALED.jsonl": ("restart137", "the table the paper compared against, as sealed",
+                                 "cinf.py walk 2 108 through runsealed.py: restart rows from the observed configuration, at c = 137.035999 -- "
+                                 "the record's own fault F59.3 established that this driver's c never reached the field; the row label clight = 1e6 is the driver's, and false", "record"),
+    "LAMBDA-CINF2.jsonl": ("restart_cinf", "restart rows at c -> inf",
+                           "cinf2.py walk 2 108: the record's F59.3 remedy, c rebound where the field reads it; the record ran it on 13 rows, the other 94 are run here", "extension"),
+    "LAMBDA-CINF-CHAIN.jsonl": ("chain_cinf", "the chain at c -> inf",
+                                "nlchain.py 2 120 after cinf2's patch: the identical walk with the constant removed, which the paper describes and the record never ran chained", "extension"),
+}
+
+
+def _read_jsonl(path):
+    rows = {}
+    with open(path) as fh:
+        for ln in fh:
+            ln = ln.strip()
+            if ln:
+                r = json.loads(ln)
+                rows[r["Z"]] = r
+    return rows
+
+
+def _tsv_rows(path):
+    with open(path, encoding="utf-8") as fh:
+        head = fh.readline().rstrip("\n").split("\t")
+        return [dict(zip(head, ln.rstrip("\n").split("\t"))) for ln in fh if ln.strip()]
+
+
+def record_walk_block():
+    """The Löwdin project's own instrument, recovered from the chat export into lowdin/ by
+    tools/lowdin_recover.py, and what it returns when run here: Lambda_chain to Z = 120
+    checked step by step against every sealed step the sessions printed, the c -> inf table the
+    paper compared against (re-derived as sealed, at the c the record's own fault F59.3 found it
+    ran at), restart rows at a genuine c -> inf by the record's remedy, and the chain at c -> inf.
+    Every value RECOVERED -- computed here by the record's instrument, whose text is recovered --
+    and never flattened to READ. None when lowdin/chain is absent."""
+    if not os.path.isdir(LOWDIN_CHAIN):
+        return None, {}
+    tables = {}
+    for fn, (key, label, what, kind) in RECORD_TABLES.items():
+        p = os.path.join(LOWDIN_CHAIN, fn)
+        if os.path.exists(p):
+            with open(p, "rb") as fh:
+                blob = fh.read()
+            tables[key] = {"file": fn, "label": label, "what": what, "kind": kind, "rows": _read_jsonl(p),
+                           "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest()}
+    if "chain" not in tables:
+        return None, {}
+    runs = _tsv_rows(os.path.join(LOWDIN_CHAIN, "RUNS.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "RUNS.tsv")) else []
+    check = _tsv_rows(os.path.join(LOWDIN_CHAIN, "CHECK.tsv")) if os.path.exists(os.path.join(LOWDIN_CHAIN, "CHECK.tsv")) else []
+    ledger = _tsv_rows(os.path.join(LOWDIN_DIR, "LEDGER.tsv")) if os.path.exists(os.path.join(LOWDIN_DIR, "LEDGER.tsv")) else []
+    sym = {z: s for s, z in populate.SYMBOL_TO_Z.items()}
+    sym.update(SYMBOLS_ABOVE_108)
+    chain = tables["chain"]["rows"]
+    per_z = {}
+    for Z in sorted(chain):
+        d = {"Z": Z, "symbol": sym.get(Z, "Z%d" % Z), "settings": {}}
+        for key, t in tables.items():
+            r = t["rows"].get(Z)
+            if r is None:
+                continue
+            d["settings"][key] = {"entrant": r["ent"], "D_ent": r["D_ent"], "margin": r["margin"],
+                                  "order": [[c, v] for c, v in r["order"][:8]], "channels": len(r["order"]),
+                                  "failed": sorted(r.get("fail", {})), "iterations": r.get("it_ref"),
+                                  "rungs": r.get("rungs"), "observed": r.get("rec_ent"), "agrees": r.get("ok"),
+                                  "reference": r.get("ref_cfg")}
+        st = d["settings"]
+        d["displaced"] = {
+            "paper": (st["chain"]["entrant"] != st["restart137"]["entrant"]) if "restart137" in st else None,
+            "restart_cinf": (st["restart137"]["entrant"] != st["restart_cinf"]["entrant"]) if "restart137" in st and "restart_cinf" in st else None,
+            "chain_cinf": (st["chain"]["entrant"] != st["chain_cinf"]["entrant"]) if "chain_cinf" in st else None,
+        }
+        per_z[Z] = d
+    ck = {int(r["Z"]): r for r in check}
+    for Z in per_z:
+        if Z in ck:
+            per_z[Z]["sealed_check"] = {"verdict": ck[Z]["verdict"], "detail": ck[Z]["detail"]}
+    verdicts = {}
+    for r in check:
+        verdicts[r["verdict"]] = verdicts.get(r["verdict"], 0) + 1
+    displaced = {k: [{"Z": Z, "symbol": d["symbol"],
+                      "at_c137": d["settings"]["chain" if k != "restart_cinf" else "restart137"]["entrant"],
+                      "at_other": d["settings"]["restart137" if k == "paper" else ("restart_cinf" if k == "restart_cinf" else "chain_cinf")]["entrant"],
+                      "observed": d["settings"]["chain"]["observed"]}
+                     for Z, d in sorted(per_z.items()) if d["displaced"].get(k)]
+                 for k in ("paper", "restart_cinf", "chain_cinf")}
+    scored = [d for Z, d in per_z.items() if Z <= 108 and d["settings"]["chain"]["observed"]]
+    agree = sum(1 for d in scored if d["settings"]["chain"]["agrees"])
+    th = per_z.get(90, {}).get("settings", {})
+    summary = {
+        "rows": {k: len(t["rows"]) for k, t in tables.items()},
+        "sealed_check": verdicts,
+        "steps_agreeing_with_observed": {"agree": agree, "scored": len(scored),
+                                         "note": "the chain's entrant against the observed configurations' gain at Z <= 108, step by step; "
+                                                 "the record's ordering-clause score is nlcfg.py's, in RUNS.tsv"},
+        "displaced": {k: [x["symbol"] for x in v] for k, v in displaced.items()},
+        "displaced_detail": displaced,
+        "thorium": {k: v["entrant"] for k, v in th.items()},
+    }
+    ledger_summary = {"files": len(ledger), "statuses": {}, "sealed_matches": [r["file"] for r in ledger if "MATCH" in r.get("sealed_sha256", "")]}
+    for r in ledger:
+        ledger_summary["statuses"][r["status"]] = ledger_summary["statuses"].get(r["status"], 0) + 1
+    block = {
+        "status": populate.RECOVERED,
+        "instrument": "lowdin/rt, recovered by tools/lowdin_recover.py from the project's own conversations",
+        "note": "the code the walk ran on, read out of the export: every file written, edited and printed by the sessions' tool calls, rebuilt by "
+                "replaying the edits and held against every printed window; where the sessions printed a sealed digest it is matched",
+        "tables": {k: {kk: v[kk] for kk in ("file", "label", "what", "kind", "bytes", "md5")} | {"rows": len(v["rows"])} for k, v in tables.items()},
+        "runs": [{k: r[k] for k in r} for r in runs],
+        "ledger": ledger_summary,
+        "summary": summary,
+        "entrants": [{"Z": Z, "symbol": d["symbol"], **{k: v["entrant"] for k, v in d["settings"].items()},
+                      "displaced_paper": d["displaced"]["paper"], "displaced_chain_cinf": d["displaced"]["chain_cinf"],
+                      "displaced_restart_cinf": d["displaced"]["restart_cinf"], "sealed": (d.get("sealed_check") or {}).get("verdict")}
+                     for Z, d in sorted(per_z.items())],
     }
     return block, per_z
 
@@ -3626,6 +3769,10 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     rel_z = {e["Z"] for e in relb["eleven"]}
     walk, walk_rows = walk_block()
     relb["walk"] = walk
+    record, record_rows = record_walk_block()
+    relb["record"] = record
+    record_z = {Z for Z, d in record_rows.items() if d["displaced"].get("chain_cinf")}
+    record_paper_z = {Z for Z, d in record_rows.items() if d["displaced"].get("paper")}
     walk_z = {e["Z"] for e in (walk or {}).get("entrants", []) if e["displaced"]}
     walk_lx_z = {e["Z"] for e in ((walk or {}).get("fields", {}).get("lx", {}).get("entrants", [])) if e["displaced"]}
     lim_block = limits(spectra)
@@ -3652,6 +3799,20 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     nuclides = None
     if _pfull and _pfull.get("gravity") and not _pfull["gravity"].get("absent"):
         nuclides = nuclides_block(warp_modules(warp_root)["gravity"], _pfull["gravity"], out_dir, write)
+    record_copies = []
+    if record:
+        if write:
+            os.makedirs(os.path.join(out_dir, "lowdin"), exist_ok=True)
+        for fn in sorted(os.listdir(LOWDIN_CHAIN)):
+            if not (fn.endswith(".jsonl") or fn in ("RUNS.tsv", "CHECK.tsv")):
+                continue
+            with open(os.path.join(LOWDIN_CHAIN, fn), "rb") as fh:
+                rb = fh.read()
+            if write:
+                with open(os.path.join(out_dir, "lowdin", fn), "wb") as fh:
+                    fh.write(rb)
+            record_copies.append({"file": "data/lowdin/" + fn, "bytes": len(rb), "md5": hashlib.md5(rb).hexdigest(),
+                                  "what": "the recovered instrument's run: " + ({t["file"]: t["label"] for t in record["tables"].values()}.get(fn) or ("the run table" if fn == "RUNS.tsv" else "the chain's check against the sealed steps")) + "; RECOVERED"})
     walk_copy = None
     if walk and os.path.exists(WALK_TSV):
         with open(WALK_TSV, "rb") as fh:
@@ -3672,6 +3833,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     for Z in zs:
         rec = element_record(Z, spectra)
         rec["walk"] = walk_rows.get(Z)
+        rec["record_walk"] = record_rows.get(Z)
         rec = public_obj(rec)
         counts = _counts(rec)
         lim = _limit_counts(rec)
@@ -3700,6 +3862,8 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             "relativistic": Z in rel_z,
             "walk_displaced": Z in walk_z,
             "walk_lx_displaced": Z in walk_lx_z,
+            "record_displaced": Z in record_z,
+            "record_paper_displaced": Z in record_paper_z,
             "limits": lim,
         })
         log("  Z=%3d %-3s %7d B  rows %5d  measured %3d" % (
@@ -3730,6 +3894,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"} if pindex else None,
             {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"} if nuclides else None,
             walk_copy,
+            *record_copies,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
         ] if d],
         "sources": sources(),
@@ -4225,6 +4390,22 @@ def selftest(warp_root=WARP_ROOT):
           all(e["symbol"] in rel["sources"]["paper"]["eleven_text"] for e in rel["eleven"]), True)
     check("relativistic: thorium sentence read", bool(rel["thorium"]), True)
     check("relativistic: instrument recorded as not held", rel["instrument"]["held"], False)
+    rec = rel.get("record")
+    if rec:
+        check("record: status RECOVERED, never flattened; the instrument is lowdin/rt", (rec["status"], rec["instrument"].startswith("lowdin/rt")), (populate.RECOVERED, True))
+        check("record: four tables -- the chain to 120, the sealed comparison table and restart rows at c -> inf to 108, the chain at c -> inf to 120",
+              {k: v["rows"] for k, v in rec["tables"].items()}, {"chain": 119, "restart137": 107, "restart_cinf": 107, "chain_cinf": 119})
+        check("record: the record's runs and the extensions are labelled as such", {k: v["kind"] for k, v in rec["tables"].items()}, {"chain": "record", "restart137": "record", "restart_cinf": "extension", "chain_cinf": "extension"})
+        sm = rec["summary"]
+        check("record: the paper's eleven reproduce from the chain against the sealed comparison table", sm["displaced"]["paper"], ["Mn", "Zn", "Ag", "Cd", "Nd", "Pm", "Sm", "Lu", "Hg", "Lr", "Rf"])
+        check("record: at a genuine c -> inf the chain moves at Th, Rf and Ubn; the restart rows at Nd, Pm, Sm, Th, Lr", (sm["displaced"]["chain_cinf"], sm["displaced"]["restart_cinf"]), (["Th", "Rf", "Ubn"], ["Nd", "Pm", "Sm", "Th", "Lr"]))
+        check("record: the chain's row against every sealed step the sessions printed: 112 witnessed, 112 reproduce (5 whole rows channel by channel), 6 unwitnessed", (sm["sealed_check"].get("exact", 0) + sm["sealed_check"].get("exact+order", 0) + sm["sealed_check"].get("entrant+depth (margin differs: F61.1)", 0), sm["sealed_check"].get("exact+order", 0), sm["sealed_check"].get("unwitnessed", 0)), (113, 5, 6))
+        check("record: at eight of the eleven the sealed comparison table's entrant is the observed one", sum(1 for d in sm["displaced_detail"]["paper"] if d["at_other"] == d["observed"]), 8)
+        check("record: thorium takes 6d at c = 137.035999 in both modes and 5f at c -> inf in both", sm["thorium"], {"chain": "6d", "restart137": "6d", "restart_cinf": "5f", "chain_cinf": "5f"})
+        check("record: the chain's entrant is the observed gain at 96 of 107 steps to Z = 108, the scorer's own figure", (sm["steps_agreeing_with_observed"]["agree"], sm["steps_agreeing_with_observed"]["scored"]), (96, 107))
+        check("record: no chain row differs from a sealed step; the margins that differ are the pre-guard rows (F61.1)", (sm["sealed_check"].get("DIFFERS", 0), sm["sealed_check"].get("entrant only", 0)), (0, 0))
+        check("record: the ledger holds 28 files, one partial, and two sealed digests match", (rec["ledger"]["files"], rec["ledger"]["statuses"].get("RECOVERED-PARTIAL"), sorted(rec["ledger"]["sealed_matches"])), (28, 1, ["cinf.py", "t7b_hf.py"]))
+        check("record: a caveat carries the finding on the eleven, in the site's words", any(c["id"] == "record-eleven" for c in index["caveats"]), True)
     check("relativistic: layout flags exactly eleven",
           sum(1 for e in index["layout"] if e["relativistic"]), 11)
     check("relativistic: Th is not among the eleven", 90 in {e["Z"] for e in rel["eleven"]}, False)
@@ -4292,6 +4473,7 @@ def selftest(warp_root=WARP_ROOT):
     check("manifest names .js files only",
           all(m["file"].endswith(".js") for m in index["manifest"]), True)
     h["walk"] = walk_block()[1].get(1)      # the build attaches the walk rows before serialising
+    h["record_walk"] = record_walk_block()[1].get(1)   # and the record's own walk beside it
     body = _compact(h).encode("utf-8")
     blob = wrap_element(1, body)
     check("element wrapper opens with the protocol prefix",

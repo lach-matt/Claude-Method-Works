@@ -43,6 +43,31 @@ to; 188 MB of duplicate content became a pointer rather than a file. Regenerate 
 hand-edit it or `LEDGER.tsv`. `drive/` stays the mirror of record and is never written to by this
 pass. See `extracted/README.md` and `docs/CONSOLIDATE.md`.
 
+**`lowdin/` is a generated tree too: the Löwdin project's own walk instrument, read out of the chat
+export.** The project sealed its scalar-relativistic chain (`nlchain.py` over `hfc2.py`'s Hartree–Fock
+field, the Koelling–Harmon kernel, three C shooters, the guard, the scorer and the c → ∞ drivers) in
+`LOWDIN-HANDOFF-103.tgz`, which was never banked — `LW1-README.md` records objects 1, 2, 4–8 and 10
+as PENDING BANK — and the site carried a reconstruction in its place. The archive is in no Drive
+folder and no upload carries bytes in the export; but every runtime file was written, edited and
+printed by tool calls in the hundred `LCP` conversations, and **`tools/lowdin_recover.py`** rebuilds
+each by replaying its whole edit history in a sandbox and holding the result against every printed
+window: **28 files, 23 `RECOVERED`, 3 `RECOVERED-REPLAYED`, 1 `RECOVERED-PARTIAL`
+(`t7c_cuaudit.py`, which the chain never calls), 1 `STORE`** (`ground.py` is `LW1-ground.py`);
+**154 of 157 printed windows reproduced**; `cinf.py` and `rt/t7b_hf.py` hash to the sealed digests
+the sessions printed, and `nlchain.py` replayed to session 48 hashes to the sealed `pack40` line.
+`lowdin/LEDGER.tsv` and `WITNESS.tsv` carry the evidence per file; **regenerate, never hand-edit**;
+`--selftest` pins it, `--verify` checks the tree, `--runtime DIR` builds a runnable copy (numpy 2.4.4,
+as the sessions ran). Run here, the instrument reproduces the sealed rows the sessions printed to
+every decimal (`lowdin/chain/`, `RUNS.tsv`, `CHECK.tsv`), and where it differs — the margin at Z = 19
+— the difference is the record's own fault F61.1 (rows below Z = 57 walked before the guard). **One
+finding, recorded and not repaired:** the paper session computed register 1706's eleven displaced
+elements by comparing the sealed chain with `rt/cinf.jsonl`, the table the project's own F59.3 had
+voided six sessions earlier as a restart walk at c = 137.035999, not c → ∞; at eight of the eleven
+that table's entrant is the observed one. Both tables re-derive here and the eleven reproduce from
+them; a genuine c → ∞ is run beside them by the record's own remedy, labelled as a run the record
+did not make: the chain with the constant removed moves at Th, Rf and Ubn only, and the record's own
+scorer passes its gate over the re-derived chain (73 of 107 configurations, 96 of 107 steps). See `docs/LOWDIN-RECOVERED.md` and `lowdin/README.md`.
+
 **`papers/` holds independent application papers prepared for publication**, and is the one tree
 here that is neither mirror nor generated: `method/` and `drive/` are resource material for it and it
 never writes to them. Its shape follows the author's own standing ruling (`PROSE-ONLY.tsv` PO-0233) —
@@ -160,7 +185,7 @@ hydrogenic and Dirac levels, and it carries a demonstrable failure mode — see
 operators at build; `--selftest` pins the table's census and ledger md5 — see `docs/ISOTOPES.md`)
 and **`tools/docfigures.py`**, which
 checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 120 pinned figures, ~8 s, exits 1 on drift. The
+**Run it after any pass that changes a count** — 124 pinned figures, ~8 s, exits 1 on drift. The
 last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
@@ -168,7 +193,7 @@ because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true 
 sentence is old. See `docs/DOCFIGURES.md`. Those are real programs with a real contract — see
 `method/README.md`, `docs/DRIVE-SYNC.md`, `docs/CONSOLIDATE.md`, `docs/CYPHER.md`,
 `docs/ARITH.md`, `docs/POINTERS.md`, `docs/BUILDTRACE.md`, `docs/POPULATE.md`,
-`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/LOWDIN-WALK.md`, `docs/ISOTOPES.md` and `docs/DOCFIGURES.md`.
+`docs/COVERAGE.md`, `docs/ORDER-IDEAL.md`, `docs/MUCF-ENERGY-AXIS.md`, `docs/LOWDIN-WALK.md`, `docs/ISOTOPES.md`, `docs/LOWDIN-RECOVERED.md` and `docs/DOCFIGURES.md`.
 
 **An instrument imports a seated member; it never copies one.** `populate.py` loads
 `LW1-ground.py` (register 1306's observed ground configurations) and `tower-2.py` by path, and

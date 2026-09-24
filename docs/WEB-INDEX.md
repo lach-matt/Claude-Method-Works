@@ -353,6 +353,29 @@ displacement-only test — so the seventh mode's selftest now asserts both direc
 Hg and identity at Th. The bank did not arrive, the Löwdin project has concluded, and the author's
 ruling was that anything still needed is this repository's to build.
 
+**The walk, recovered.** The record's own instrument is now held: `tools/lowdin_recover.py` reads
+it out of the Löwdin project's hundred conversations into `lowdin/rt` (28 files, 23 RECOVERED, 3
+RECOVERED-REPLAYED, 1 RECOVERED-PARTIAL, 1 STORE; 154 of 157 printed windows reproduced; `cinf.py`
+and `rt/t7b_hf.py` at the sessions' own sealed digests — `docs/LOWDIN-RECOVERED.md`), and run here it
+returns four tables in `lowdin/chain/` that `record_walk_block` carries into `index.js` as
+`relativistic.record`, with each element's rows under every setting in its own file: the chain at
+c = 137.035999 to Z = 120 (**Λ_chain re-derived**: every sealed step the sessions printed reproduces
+to the decimal except the margins of rows below Z = 57 that the record's own F61.1 identifies as
+pre-guard, and the record's scorer `nlcfg.py` passes its own gate over it, 73 of 107 configurations
+and 96 of 107 steps); the table the paper compared against, re-derived as sealed (restart rows from
+the observed configuration at c = 137.035999 — the record's F59.3 found its driver's c never reached
+the field); restart rows at a genuine c → ∞ by the record's own remedy `cinf2.py` (the record ran 13
+of them, the other 94 are run here); and the chain at a genuine c → ∞, which the paper describes and
+the record never ran. The paper's eleven reproduce exactly from the first two (Mn, Zn, Ag, Cd, Nd,
+Pm, Sm, Lu, Hg, Lr, Rf), and at eight of them the comparison table's entrant is the observed one; at
+a genuine c → ∞ the chain moves at **Th, Rf and Ubn** only, and the restart rows at Nd, Pm, Sm, Th and Lr;
+thorium takes 6d at c = 137.035999 and 5f at c → ∞ in both modes. Every value is **RECOVERED** —
+computed here by the record's instrument — and never READ; the element plate gains *The walk,
+recovered* above the reconstruction, the relativistic-limit mode prints the recovered summary first,
+the tables are downloads (`data/lowdin/`), and two caveats say what changed: the construction is no
+longer "not held", and the eleven carry the finding above (`record-eleven`) in the site's own words.
+The reconstruction below stays as the site's second measurement.
+
 **The walk, reconstructed.** `tools/lowdin_walk.py` runs the record's own algorithm — the V^{N−1}
 chain of §II.2 with the Koelling–Harmon equation and one constant — in two fields it can build here:
 the record's own average-of-configuration Hartree–Fock field with non-local exchange, and a

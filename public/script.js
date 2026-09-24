@@ -1785,7 +1785,35 @@
   function relSection(e, rec) {
     const rel = state.index.relativistic;
     if (!rel) return '';
-    return relRecordSection(e, rel) + walkSection(e, rec, rel);
+    return relRecordSection(e, rel) + recordWalkSection(e, rec, rel) + walkSection(e, rec, rel);
+  }
+  const RECORD_SETTING_LABEL = { chain: 'the chain at c = 137.035999', restart137: 'the table the paper compared against (restart, c = 137.035999)', restart_cinf: 'restart rows at c → ∞', chain_cinf: 'the chain at c → ∞' };
+  function recordWalkSection(e, rec, rel) {
+    // the record's own instrument, RECOVERED from the project's conversations and run here (lowdin/);
+    // its rows at this Z under every setting run, the check of the chain's row against the sealed
+    // step the sessions printed, and what the four settings say about displacement
+    const R = rel.record;
+    if (!R) return '';
+    const wr = rec && rec.record_walk;
+    if (!wr || !wr.settings) return section('The walk, recovered', `<p class="note">no row at Z = ${e.Z}: the recovered chain runs Z = 2 to 120</p>`, badge('RECOVERED', R.instrument));
+    const fmtD = (v) => (v === null || v === undefined) ? '—' : v.toFixed(5);
+    const one = (k) => {
+      const r = wr.settings[k];
+      if (!r) return '';
+      const t = (R.tables || {})[k] || {};
+      return row(RECORD_SETTING_LABEL[k] || k, `<strong>${esc(r.entrant)}</strong> <span class="plain">D = ${fmtD(r.D_ent)} Ha · margin ${fmtD(r.margin)} over ${r.order[1] ? esc(r.order[1][0]) : '—'} · ${r.channels} channels${r.failed.length ? `, ${r.failed.length} refused (${esc(r.failed.join(', '))})` : ''} · ${r.iterations} iterations${r.observed ? ` · observed gain ${esc(r.observed)}, ${r.agrees ? 'agrees' : 'differs'}` : ''} · candidates: ${r.order.slice(0, 6).map((x) => `${esc(x[0])} ${x[1].toFixed(5)}`).join(' · ')}</span>`, 'RECOVERED', `${esc(t.what || '')}${t.kind === 'extension' ? ' — a run the record did not make' : ''}`, true);
+    };
+    const d = wr.displaced || {}, sc = wr.sealed_check;
+    let body = `<div class="fields">
+      ${one('chain')}${one('restart137')}${one('restart_cinf')}${one('chain_cinf')}
+      ${sc ? row('against the sealed step', `${esc(sc.verdict)}${sc.detail ? ' — ' + esc(sc.detail) : ''}`, 'RECOVERED', 'the chain\'s row here against the step the sessions printed when they sealed it; a margin that differs below Z = 57 while the entrant and its depth agree is the record\'s own fault F61.1 (rows walked before the convergence guard)', true) : ''}
+      ${d.paper !== null && d.paper !== undefined ? row('displaced as the paper counted it', d.paper ? 'yes <span class="rel-tag">chain ≠ restart at c = 137.035999</span>' : 'no', 'RECOVERED', 'the paper\'s eleven are the elements where the chain\'s entrant differs from the second table\'s; that table ran at c = 137.035999 in restart mode (the project\'s own fault F59.3)', true) : ''}
+      ${d.chain_cinf !== null && d.chain_cinf !== undefined ? row('displaced at a genuine c → ∞, chained', d.chain_cinf ? 'yes <span class="rel-tag walk-tag">entrants differ</span>' : 'no', 'RECOVERED', 'the chain at c = 137.035999 against the chain at c → ∞ by the record\'s F59.3 remedy; a run the record never made', true) : ''}
+      ${d.restart_cinf !== null && d.restart_cinf !== undefined ? row('displaced at a genuine c → ∞, restart', d.restart_cinf ? 'yes' : 'no', 'RECOVERED', 'restart rows at c = 137.035999 against restart rows at c → ∞ (the record ran 13 of these rows, the rest are run here)', true) : ''}
+      ${row('in the record', e.relativistic ? 'one of the eleven the paper displaces' : 'not among the eleven', 'READ', 'the Löwdin paper', true)}
+    </div>
+    <p class="note">${esc(caveat('record-eleven'))}</p>`;
+    return section('The walk, recovered', body, badge('RECOVERED', R.instrument));
   }
 
 const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s field, rebuilt)', lx: 'local exchange (Hartree–Fock–Slater)' };
@@ -1834,7 +1862,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${hit ? row('entrant channel', esc(hit.entrant || '—'), 'READ', 'the SCF audit: the channel the relativistic walk enters at this Z') : ''}
       ${e.Z === 90 && rel.thorium ? row('thorium', esc(rel.thorium), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.thorium_line}`, true) : ''}
       ${row('c', rel.c, 'READ', esc(rel.construction || 'the one admitted constant'))}
-      ${row('instrument', 'not held — nothing computed here', null, esc((rel.instrument && rel.instrument.note) || ''), true)}
+      ${rel.record ? row('instrument', 'recovered — the record\'s own code, read out of the project\'s conversations and run here', 'RECOVERED', esc(rel.record.note || ''), true) : row('instrument', 'not held — nothing computed here', null, esc((rel.instrument && rel.instrument.note) || ''), true)}
     </div>`;
     if (hit || e.Z === 90) {
       body += `<div class="callout is-plain">${esc(rel.statement || '')}</div>`;
@@ -4055,7 +4083,21 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         const lines = [`${rel.statement || ''} ${st('READ')}`, `source: ${paper.title || 'the Löwdin paper'} L${paper.eleven_line}; the SCF audit`, ''];
         for (const x of rel.eleven || []) lines.push(`${x.symbol.padEnd(3)} Z=${String(x.Z).padEnd(4)} ${(x.configuration || '').padEnd(24)} entrant ${x.entrant || '?'}`);
         if (rel.thorium) lines.push('', rel.thorium);
-        lines.push('', `instrument: not held — ${(rel.instrument && rel.instrument.note) || ''}`, (rel.instrument && rel.instrument.note) || '');
+        if (rel.record) {
+          const R = rel.record, sm = R.summary || {};
+          lines.push('', `the walk, recovered ${st('RECOVERED')} — ${R.instrument}`, R.note);
+          Object.entries(R.tables || {}).forEach(([k, t]) => lines.push(`  ${k}: ${t.rows} rows — ${t.label}${t.kind === 'extension' ? ' (a run the record did not make)' : ''}`));
+          if (sm.sealed_check) lines.push(`  the chain against the sealed steps the sessions printed: ${Object.entries(sm.sealed_check).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+          if (sm.steps_agreeing_with_observed) lines.push(`  entrant = observed gain at ${sm.steps_agreeing_with_observed.agree} of ${sm.steps_agreeing_with_observed.scored} steps to Z = 108`);
+          const dp = sm.displaced || {};
+          if (dp.paper) lines.push(`  displaced as the paper counted it (chain ≠ restart at c = 137.035999): ${dp.paper.length} — ${dp.paper.join(', ') || 'none'}`);
+          if (dp.chain_cinf) lines.push(`  displaced at a genuine c → ∞, chained: ${dp.chain_cinf.length} — ${dp.chain_cinf.join(', ') || 'none'}`);
+          if (dp.restart_cinf) lines.push(`  displaced at a genuine c → ∞, restart: ${dp.restart_cinf.length} — ${dp.restart_cinf.join(', ') || 'none'}`);
+          if (sm.thorium) lines.push(`  Th: ${Object.entries(sm.thorium).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+          lines.push(`  ${caveat('record-eleven')}`);
+        } else {
+          lines.push('', `instrument: not held — ${(rel.instrument && rel.instrument.note) || ''}`, (rel.instrument && rel.instrument.note) || '');
+        }
         const walk = rel.walk;
         if (walk && walk.summary && walk.summary.compare) {
           const cp = walk.summary.compare;
