@@ -413,3 +413,13 @@ set-cover instance, the simplex seed law, the refutation of the source's linear 
 reading of E as a defect. Every one of the forty findings is fixed; none is declined. One item is
 recorded for its own author rather than you: a table in Czédli's 2024 paper prints 18 where his own
 theorem and the law give 17, and the paper says so as arithmetic.
+
+**The occupation hull — the audit finds the mathematics sound and one headline resting on a
+calculated configuration.** Every number reproduces and every theorem's proof is complete. But the
+configurations of lawrencium and of rutherfordium through hassium in the NIST tables are
+calculated, not observed, and the paper called them observed. The result that three slopes are
+necessary to serve every step depends on lawrencium's calculated 7p¹; under 6d¹, which is the aufbau
+expectation and the paper's own Madelung pick at Z = 103, two slopes suffice. The repair prints both
+cases and says which configuration the claim rests on; which to adopt is yours. The audit also
+found eleven check lines that passed with a literal true, now made into real assertions, and an
+abstract sentence about frames that was false as written.
