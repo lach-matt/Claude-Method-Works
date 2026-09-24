@@ -145,7 +145,7 @@ def fig2(out):
                  "one slope can cover (%d of 106)" % best, fontsize=9.5, color=TEXT, loc="left")
     style(ax)
     fig.tight_layout()
-    fig.savefig(os.path.join(OUT, "fig2-corridors.png"), dpi=200)
+    fig.savefig(os.path.join(OUT, "fig3-corridors.png"), dpi=200)
     plt.close(fig)
 
 
@@ -179,7 +179,7 @@ def fig3(out):
                  fontsize=9.5, color=TEXT, loc="left")
     style(ax)
     fig.tight_layout()
-    fig.savefig(os.path.join(OUT, "fig3-walk-and-resets.png"), dpi=200)
+    fig.savefig(os.path.join(OUT, "fig2-walk-and-resets.png"), dpi=200)
     plt.close(fig)
 
 

@@ -522,8 +522,13 @@ def check_graph():
     ob("EXHAUSTIVE", "deleting q leaves exactly two components at every stage", two_comp)
     two = graph_rows(two_parent=True)
     DATA["graph_two_parent"] = two
-    print("      (with the cell's own f as a second parent of K the graph would have %d edges and cycle rank %s)"
-          % (two[-1]["edges"], tuple(r["rank"] for r in two)))
+    moved = sorted(v for v in two[-1]["deg"] if two[-1]["deg"][v] != rows[-1]["deg"][v])
+    ob("EXHAUSTIVE", "the two-parent reading (cell's own f): 14 edges, cycle rank (0,0,1,1,2,2); triangles, treewidth, girth, hub degrees unchanged; only f and 2K move",
+       two[-1]["edges"] == 14 and [r["rank"] for r in two] == [0, 0, 1, 1, 2, 2]
+       and [r["tris"] for r in two] == [r["tris"] for r in rows] and [r["tw"] for r in two] == [r["tw"] for r in rows]
+       and [r["girth"] for r in two] == [r["girth"] for r in rows]
+       and (two[-1]["deg"]["k"], two[-1]["deg"]["g"]) == (4, 4) and moved == ["2K", "f"],
+       "%d edges, cycle rank %s, degrees moved: %s" % (two[-1]["edges"], tuple(r["rank"] for r in two), moved))
 
 
 # ----------------------------------------------------------------------------- the bracket system

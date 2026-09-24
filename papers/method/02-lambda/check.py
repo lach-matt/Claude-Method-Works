@@ -229,7 +229,7 @@ def guards():
     tot, drift = prover.encoding_matches(ref, [(3, 3), (3, 3, 3), (4, 4)], trials=120, seed=5)
     ok &= drift == 0
     row("GUARD", "encoding fidelity, staircase",
-        "%d cells compared against the seated operator, %d disagreements, 0 skipped"
+        "%d cells compared against the closure operator under test, %d disagreements, 0 skipped"
         % (tot, drift), drift == 0)
 
     print()
@@ -353,7 +353,7 @@ def construction():
     same = fresh == LAM
     ok &= same and N == 976
     row("EXHAUSTIVE", "Theorem 2, |Lambda| = 976",
-        "seated construction and a fresh sieve of all %d box points agree: %d cells, "
+        "the construction and a fresh sieve of all %d box points agree: %d cells, "
         "%.2f%% of the box" % (BOX, N, 100.0 * N / BOX), same and N == 976)
 
     printed = read_printed_table()
@@ -428,7 +428,7 @@ def closure_defect():
     good = got == set(LAM) and E == 0
     ok &= good
     row("EXHAUSTIVE", "Theorem 2, E(Lambda) = 0",
-        "the seated staircase closure returns %d cells, defect %d, set equality %s"
+        "the staircase closure returns %d cells, defect %d, set equality %s"
         % (len(got), E, got == set(LAM)), good)
 
     ix2 = cypher.Index("R", CO, sorted(got))
@@ -1224,8 +1224,8 @@ def seed():
             dis += 1
     ok &= dis == 0
     row("SAMPLED", "Theorem 17, covering is generating",
-        "%d random subsets of size 4 to 10, seed %d: %d disagreements with the seated "
-        "closure operator" % (agree + dis, SEED + 2, dis), dis == 0)
+        "%d random subsets of size 4 to 10, seed %d: %d disagreements with the closure "
+        "operator under test" % (agree + dis, SEED + 2, dis), dis == 0)
 
     # element reduction (safe for counting: a dominated element is implied)
     keep = [a for a in range(M)
@@ -1349,7 +1349,8 @@ def seed():
     bad_del = sum(1 for i in range(N) if not closes(LAM[:i] + LAM[i + 1:]))
     ok &= bad_del == 0
     row("EXHAUSTIVE", "Corollary 8, no cell is removable",
-        "R(Lambda minus x) = Lambda for all %d cells through the seated operator, %d exceptions"
+        "R(Lambda minus x) = Lambda for all %d cells through the closure operator under test, "
+        "%d exceptions"
         % (N, bad_del), bad_del == 0)
 
     # every minimum cover really closes, on a stated sample, and no six-set does
@@ -1362,7 +1363,7 @@ def seed():
             badm += 1
     ok &= badm == 0
     row("SAMPLED", "Theorem 18, the minimum covers close",
-        "%d of the %d minimum covers, seed %d, run through the seated operator: %d failures"
+        "%d of the %d minimum covers, seed %d, run through the closure operator under test: %d failures"
         % (len(sample), total, SEED + 3, badm), badm == 0)
 
     counts = defaultdict(int)
