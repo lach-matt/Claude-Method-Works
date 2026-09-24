@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """figures.py -- regenerates every computed figure in figures/ from results.json, which
-check.py --json writes. Two further figures are audited plates copied from the tree
-(FIGURES.tsv records their source and md5); this script does not touch those.
+check.py --json writes. One further figure (Figure 2) is an audited plate copied from the tree
+(FIGURES.tsv records its source and md5); this script does not touch it.
 
     python3 check.py --json && python3 figures.py
 """
@@ -25,9 +25,57 @@ res = json.load(open(os.path.join(HERE, "results.json")))
 N = res["numbers"]
 
 
-def fig3_bounds():
-    """Every held cell bounds its own perturbation by w/2, against 2Z^2R/nu^3 at Z = 1 and 2."""
-    b = res["results"]["bounds"]                # (w/2, D, nu, Z, species, series, n)
+def V(nu, h=1.0):
+    r = nu / h
+    return 4 * r ** 3 / (3 * r * r - 1)
+
+
+def fig1_cost_exact():
+    """The exact price V = 4nu^3/(3nu^2 - 1) at h = 1 against its two-term asymptote 4nu/3 + 4/(9nu)
+    and the floor 32/11, with the marker at nu = 2 and an inset over low nu (I5, I9-I12)."""
+    nus = [2 + 0.05 * i for i in range(int((60 - 2) / 0.05) + 1)]
+    fig, ax = plt.subplots(figsize=(6.4, 3.6))
+    ax.plot(nus, [V(x) for x in nus], color="#0b0b0b", lw=1.6, label="exact  V = 4ν³/(3ν² − 1)")
+    ax.plot(nus, [4 * x / 3 + 4 / (9 * x) for x in nus], color=ORANGE, ls="--", lw=1.2, label="two-term asymptote  4ν/3 + 4/(9ν)")
+    ax.axhline(32 / 11, color=YELLOW, ls=":", lw=1.1, label="floor  32/11 = 2.909")
+    ax.plot([2], [32 / 11], "o", color=YELLOW, ms=8)
+    ax.set_xlabel("ν"); ax.set_ylabel("price of a guarantee  V")
+    ax.set_xlim(0, 62); ax.set_ylim(0, 84)
+    ax.legend(frameon=False, fontsize=8, loc="upper left")
+    ins = ax.inset_axes([0.50, 0.12, 0.46, 0.50])
+    lo = [2 + 0.02 * i for i in range(int((13 - 2) / 0.02) + 1)]
+    ins.plot(lo, [V(x) for x in lo], color="#0b0b0b", lw=1.4)
+    ins.plot(lo, [4 * x / 3 + 4 / (9 * x) for x in lo], color=ORANGE, ls="--", lw=1.1)
+    ins.plot(lo, [4 * x / 3 for x in lo], color=BLUE, ls="-.", lw=1.0, label="one-term  4ν/3")
+    ins.axhline(32 / 11, color=YELLOW, ls=":", lw=1)
+    ins.plot([2], [32 / 11], "o", color=YELLOW, ms=6)
+    ins.set_title("low ν: exact, two-term and one-term", fontsize=8)
+    ins.legend(frameon=False, fontsize=7, loc="lower right")
+    ins.tick_params(labelsize=7)
+    fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig1-cost-exact.png"), dpi=170); plt.close(fig)
+
+
+def fig3_v_measured():
+    """V measured on triples of measured levels against the exact 4r^3/(3r^2 - 1) (E5)."""
+    vp = res["results"]["vpairs"]               # (V_meas, V_exact, nu, r, h)
+    fig, ax = plt.subplots(figsize=(6.4, 3.8))
+    for h, col in ((1, BLUE), (2, ORANGE)):
+        pts = [(x[3], x[0]) for x in vp if x[4] == h]
+        ax.scatter([p[0] for p in pts], [p[1] for p in pts], s=6, color=col, alpha=0.5, linewidths=0,
+                   label="measured, h = %d (%d triples)" % (h, len(pts)))
+    rs = [1.2 * 1.04 ** i for i in range(110)]
+    ax.plot(rs, [4 * r ** 3 / (3 * r * r - 1) for r in rs], color="#0b0b0b", lw=1.2, label="4r³/(3r² − 1)")
+    ax.axhline(32 / 11, color=YELLOW, ls=":", lw=1, label="floor 32/11")
+    ax.set_xscale("log"); ax.set_yscale("log")
+    ax.set_xlabel("r = ν/h"); ax.set_ylabel("V = w/e")
+    ax.legend(frameon=False, fontsize=7.5, loc="upper left")
+    fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig3-v-measured.png"), dpi=170); plt.close(fig)
+
+
+def fig4_bounds():
+    """Every held cell bounds the displacement of its level relative to its neighbours by the larger
+    observed gap, max(E - E-, E+ - E), against 2Z^2R/nu^3 at Z = 1 and 2 (E7, Corollary 2)."""
+    b = res["results"]["bounds"]                # (max gap, D, nu, Z, species, series, n, w/2)
     fig, ax = plt.subplots(figsize=(6.4, 3.8))
     for Z, col in ((1, BLUE), (2, ORANGE)):
         pts = [(x[2], x[0]) for x in b if x[3] == Z]
@@ -43,30 +91,14 @@ def fig3_bounds():
     ax.annotate("tightest: %.2f cm⁻¹ at ν = %.1f" % (t[0], t[2]), (t[2], t[0]), xytext=(t[2] / 4, t[0] * 0.35),
                 fontsize=8, arrowprops=dict(arrowstyle="-", color=GREY, lw=0.7))
     ax.set_xscale("log"); ax.set_yscale("log")
-    ax.set_xlabel("effective quantum number ν"); ax.set_ylabel("bound on the local displacement, w/2 (cm⁻¹)")
+    ax.set_xlabel("effective quantum number ν")
+    ax.set_ylabel("bound on the relative displacement,\nmax(E − E₋, E₊ − E) (cm⁻¹)")
     ax.legend(frameon=False, fontsize=7.5, loc="upper right")
-    fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig3-bounds.png"), dpi=170); plt.close(fig)
-
-
-def fig4_v_measured():
-    """V measured on triples of measured levels against the exact 4r^3/(3r^2 - 1)."""
-    vp = res["results"]["vpairs"]               # (V_meas, V_exact, nu, r, h)
-    fig, ax = plt.subplots(figsize=(6.4, 3.8))
-    for h, col in ((1, BLUE), (2, ORANGE)):
-        pts = [(x[3], x[0]) for x in vp if x[4] == h]
-        ax.scatter([p[0] for p in pts], [p[1] for p in pts], s=6, color=col, alpha=0.5, linewidths=0,
-                   label="measured, h = %d (%d triples)" % (h, len(pts)))
-    rs = [1.2 * 1.04 ** i for i in range(110)]
-    ax.plot(rs, [4 * r ** 3 / (3 * r * r - 1) for r in rs], color="#0b0b0b", lw=1.2, label="4r³/(3r² − 1)")
-    ax.axhline(32 / 11, color=YELLOW, ls=":", lw=1, label="floor 32/11")
-    ax.set_xscale("log"); ax.set_yscale("log")
-    ax.set_xlabel("r = ν/h"); ax.set_ylabel("V = w/e")
-    ax.legend(frameon=False, fontsize=7.5, loc="upper left")
-    fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig4-v-measured.png"), dpi=170); plt.close(fig)
+    fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig4-bounds.png"), dpi=170); plt.close(fig)
 
 
 def fig5_order_census():
-    """The order-k census under the admissibility rule."""
+    """The order-k census under the admissibility rule (E8)."""
     c = res["numbers"]["order_census"]
     ks = sorted(int(k) for k in c)
     adm = [c[str(k)][0] for k in ks]; ref = [c[str(k)][1] for k in ks]; unr = [c[str(k)][2] for k in ks]
@@ -83,5 +115,9 @@ def fig5_order_census():
 
 if __name__ == "__main__":
     os.makedirs(FIG, exist_ok=True)
-    fig3_bounds(); fig4_v_measured(); fig5_order_census()
-    print("wrote fig3-bounds.png, fig4-v-measured.png, fig5-order-census.png")
+    for old in ("fig3-bounds.png", "fig4-v-measured.png"):        # the pre-repair file names, superseded
+        p = os.path.join(FIG, old)
+        if os.path.exists(p):
+            os.remove(p)
+    fig1_cost_exact(); fig3_v_measured(); fig4_bounds(); fig5_order_census()
+    print("wrote fig1-cost-exact.png, fig3-v-measured.png, fig4-bounds.png, fig5-order-census.png")

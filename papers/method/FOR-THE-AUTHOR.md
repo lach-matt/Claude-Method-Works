@@ -344,3 +344,15 @@ two-parent reading is printed as a counterfactual and pinned as an obligation, n
 
 **5 · Three items of the source are not printed**: a density row for a variant stage, five
 presentations of one region, and two prices the record has already withdrawn.
+
+**The parent-term wall and the Janet collapse — the headline contrast is an artefact of the
+coordinate choice.** The audit found that defect 36 on (period, group) against defect 0 on (n+ℓ, Z)
+compares different second coordinates. With Z as the second coordinate any contiguous row partition
+closes automatically — the paper's own first theorem proves it — so (period, Z) has defect 0 as
+well, while the left-step table on its own drawn row and column coordinates has defect 136. What
+the source presents as a property of Janet's ordering is a property of Z as a coordinate. The
+repair restates the result to exactly that, computes both tables both ways, and records the
+source's contrast as a finding. Two further blocking items: a chain of measurable-cell counts
+printed with one set of cuts reproduces only under a different set, and a proposition stated as an
+equivalence is proved in one direction only and is false in the other. This is the paper whose
+claim changes most under audit, and the retitled version is yours to judge.
