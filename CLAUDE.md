@@ -80,6 +80,22 @@ records why. Both are generated trees — regenerate, never hand-edit. **RECOVER
 export, and no recovered file is claimed byte-identical to a copy held elsewhere, nor is any of it a
 member of a bundle. See `docs/RECOVER.md`.
 
+**`papers/method/` holds the ten research papers built from the six volumes for the website, and
+it is the one tree here written *from* the store and never *into* it.** Each paper's directory holds
+its text, its machine check (`check.py`, Z3 over a named box with both guards or exact arithmetic,
+`--selftest` with negative controls that must fail), its figures with `FIGURES.tsv`, its source map
+(`SOURCES.md`, which passages each section draws on and every claim of the volumes the check could
+not reproduce, recorded beside the measured value and never repaired), and its audit (`AUDIT.md`,
+a content audit and three reader audits, every finding with its disposition). `PAPER-SPEC.md` is
+the contract they were written to, `lint.py` mirrors the site's guard against citing the books,
+`render.py` presses the review PDFs into `out/` (ignored, regenerated), and `FOR-THE-AUTHOR.md`
+lists what each paper leaves to M — four working titles among them. **The papers claim less than
+the volumes do, and `SOURCES.md` in each directory says exactly where**: a seed law that is
+Czédli's, a tower axis carried as an envelope, a closure contrast that is a coordinate artefact,
+an arity boundary at three, a crossing that fails the Pauli filter. The same directory is on the
+site's branch, `main`, where `tools/webindex.py` reads it; a change to a paper is made on one
+branch and carried to the other by hand, never on one alone. See `papers/method/PUBLISHING-NOTES.md`.
+
 ## It is a document corpus, not a software project
 
 No build, no linter, no package manager. Do not offer to add CI, and do not try to "set the project
