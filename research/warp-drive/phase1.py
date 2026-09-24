@@ -27,8 +27,18 @@ of metrics g_s on a FIXED manifold, s in [0,1], satisfying five conditions:
     D3  THE PROPER DISTANCE FALLS.  d_s(A,B), measured on the slice, is
         decreasing in s.  This is the ONLY thing the operator does.
 
-    D4  NO MOMENTUM.  T^{0i} = 0 throughout.  No thrust, no exhaust, no
-        reaction mass, no centre-of-mass motion.
+    D4  NO MOMENTUM, IN TWO PARTS (restated on M's ruling, DOCKET 64):
+        (i)  T^{0i} = 0 in EVERY CONFIGURATION g_s the device holds; and
+        (ii) ZERO NET MOMENTUM across any passage between configurations --
+             no thrust, no exhaust, no reaction mass, no centre-of-mass motion.
+        It was first written "T^{0i} = 0 throughout".  formation.py proved that
+        every passage from flat space holding areal radii fixed carries
+        T^{0r} != 0 at some instant wherever the enclosed mass is negative
+        (F1, THEOREM), radially and with zero net momentum.  Kept pointwise,
+        D4 would class FORMING the device as propulsion by this file's own
+        classifier, though nothing is pushed anywhere.  Restated, a device
+        that actually thrusts still fails D4 (ii), and Alcubierre still fails
+        D4 (i).  D4_AS_FIRST_WRITTEN keeps the original.
 
     D5  BOTH ENDPOINTS DECLARED AT ONSET.  The family is not defined until A
         AND B are both given.  (transit.py's gate, which refuses to initialise
@@ -213,18 +223,32 @@ CONDITIONS = (
      "g_s = g_0 outside a compact corridor K"),
     ("D3", "the proper distance falls",
      "d_s(A,B) decreasing in s -- the only thing the operator does"),
-    ("D4", "no momentum: T^{0i} = 0",
-     "no thrust, no exhaust, no reaction mass"),
+    ("D4", "no momentum: T^{0i} = 0 in each configuration, and zero net "
+           "momentum across a passage",
+     "no thrust, no exhaust, no reaction mass -- restated on M's ruling "
+     "(DOCKET 64): a transient flux with zero net momentum, which formation "
+     "provably requires (formation.py F1), is not propulsion"),
     ("D5", "both endpoints declared at onset",
      "transit.py's gate: part 2 will not initialise without an arrival"),
 )
 
 
+#: D4 as first written, kept so the restatement has an object (M's ruling,
+#: DOCKET 64 ruling D.2).
+D4_AS_FIRST_WRITTEN = "no momentum: T^{0i} = 0 throughout"
+D4_RESTATED_ON_M_RULING = True
+
+
 def is_transition(has_momentum_flux, endpoints_declared, distance_falls,
-                  compact, labels_fixed):
-    """D1-D5.  A construction violating D4 is PROPULSION and out of scope."""
+                  compact, labels_fixed, net_momentum=False, passage_flux=False):
+    """D1-D5, with D4 as restated on M's ruling.  has_momentum_flux is T^{0i} != 0
+    IN A CONFIGURATION the device holds -- D4 (i); net_momentum is a non-zero net
+    momentum across a passage -- D4 (ii).  Either makes the construction
+    PROPULSION.  passage_flux, a transient T^{0i} != 0 during a passage with zero
+    net momentum, is accepted and does NOT: that is what formation requires."""
     return (labels_fixed and compact and distance_falls
-            and not has_momentum_flux and endpoints_declared)
+            and not has_momentum_flux and not net_momentum
+            and endpoints_declared)
 
 
 def alcubierre_is_propulsion():
@@ -421,6 +445,15 @@ def selftest():
     chk("one with momentum flux is PROPULSION, not a transition",
         is_transition(True, True, True, True, True), False)
     chk("Alcubierre's shift is excluded by D4", alcubierre_is_propulsion(), True)
+    # D4 AS RESTATED ON M'S RULING (DOCKET 64): each row can fail.
+    chk("D4 (ii): a device with net momentum across its passage is PROPULSION",
+        is_transition(False, True, True, True, True, net_momentum=True), False)
+    chk("D4 restated: a transient passage flux with zero net momentum is NOT",
+        is_transition(False, True, True, True, True, passage_flux=True), True)
+    chk("  and the first wording is kept, and differs from the restatement",
+        (D4_AS_FIRST_WRITTEN.startswith("no momentum"),
+         D4_AS_FIRST_WRITTEN != [c for c in CONDITIONS if c[0] == "D4"][0][1]),
+        (True, True))
     chk("and one with no declared arrival is not defined at all",
         is_transition(False, False, True, True, True), False)
 

@@ -188,9 +188,10 @@ one printed here:
 Not opened, each because it is the SAME question as an existing row (a
 second row for one question is the over-representation the principle
 forbids): the curved smeared variance (O2's); Kontou's QEI on HPS (O5's);
-formation (D24's third part).  The phase1 D4 restatement is a requirement
-question for M, not a row: PENDING_RULINGS records it and phase1.py is not
-edited.
+formation (D24's third part).  The phase1 D4 restatement was a requirement
+question for M, not a row.  M RULED: restate it.  phase1.py now states D4 as
+T^{0i} = 0 in each configuration and zero net momentum across a passage, and
+RULED_BY_M records the ruling (M-D64-1).
 
 DOCKET 64's lines withdrew claims their own reports had made before seating.
 Each is kept on its owner (noise.WITHDRAWN, hpscentre.WITHDRAWN,
@@ -569,9 +570,10 @@ DEMAND = [
      "-m_1(R), the object's own enclosed negative mass, by any route at any "
      "speed; the extra outgoing radial null deficit is -(W_1 - 1)/(2 pi R) "
      "per passage, duration-independent (F2, THEOREM, adding: %s).  "
-     "T^{0r} != 0 at some instant wherever m_1 != 0, with zero net momentum "
-     "by symmetry (PHASE1_D4_POINTWISE_DURING_PASSAGE = %s -- a question for "
-     "M, recorded under PENDING_RULINGS).  Nucleation READ (%s): the neck is "
+     "T^{0r} != 0 in the Eulerian (fixed-R) frame at some instant wherever m_1 != 0, with zero net momentum "
+     "by symmetry (PHASE1_D4_POINTWISE_DURING_PASSAGE = %s) -- NOT PROPULSION "
+     "under phase1.py's D4 as RESTATED ON M'S RULING (RULED_BY_M, M-D64-1).  "
+     "Nucleation READ (%s): the neck is "
      "a recipe with free smooth functions (%s); its price has not been "
      "computed (NUCLEATION_PRICED = %s), and whether it is priceable from the "
      "source is %s"
@@ -699,10 +701,14 @@ OPENED_FROM_WAITING = [
 #: peer and changes no requirement; it records the question so the board shows
 #: it.  (id, question, why it is asked -- with the owner's computed values --,
 #: the restatement proposed, and what waits on it.)
-PENDING_RULINGS = [
+PENDING_RULINGS = []
+
+#: QUESTIONS M HAS RULED ON, same shape, kept so the ruling has its question.
+#: The last two fields now read: what M ruled, and what it unblocks.
+RULED_BY_M = [
     ("M-D64-1",
      "phase1.py's D4 (not this board's D4): restate '%s' for the process?"
-     % [c for c in phase1.CONDITIONS if c[0] == "D4"][0][1],
+     % phase1.D4_AS_FIRST_WRITTEN,
      "phase1.py classes any momentum flux as PROPULSION (is_transition with a "
      "momentum flux and every other condition met returns %s).  formation.py "
      "shows every U = 0 passage from flat space has T^{0r} != 0 at some "
@@ -712,10 +718,15 @@ PENDING_RULINGS = [
      "propulsion by phase1's own classifier"
      % (phase1.is_transition(True, True, True, True, True),
         formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
-     "DOCKET 64 ruling D.2, NOT APPLIED: (i) T^{0i} = 0 as a property of each "
-     "configuration g_s; (ii) zero NET momentum (no thrust) for the process "
-     "between them.  phase1.py is not edited",
-     "step 1a, the specification theorem, cannot state D4 until M rules"),
+     "RULED BY M: RESTATE IT, as DOCKET 64 ruling D.2 proposed -- (i) T^{0i} = 0 "
+     "in each configuration g_s; (ii) zero NET momentum (no thrust) across the "
+     "passage between them.  APPLIED in phase1.py (D4_RESTATED_ON_M_RULING = %s); "
+     "a device that thrusts still fails D4 (ii) (is_transition = %s), and a "
+     "transient flux with zero net momentum does not (is_transition = %s)"
+     % (phase1.D4_RESTATED_ON_M_RULING,
+        phase1.is_transition(False, True, True, True, True, net_momentum=True),
+        phase1.is_transition(False, True, True, True, True, passage_flux=True)),
+     "step 1a, the specification theorem, may now state D4"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -892,7 +903,7 @@ OPEN_ROWS = [
      "and is "
      "not asymptotically flat (THEOREM, 3L0 + 4 > 0, L0 != -1); for the "
      "nonlinear solutions non-flatness is %s, and their asymptotics are %s.  "
-     "m < 0 FOUND IN HPS'S SYSTEM = %s; FOUND INSIDE THE ESTABLISHED DOMAIN "
+     "m < 0 FOUND IN HPS'S SYSTEM (%s reading) = %s; FOUND INSIDE THE ESTABLISHED DOMAIN "
      "= %s -- %s.  Which system HPS integrated: %s.  Kontou's requested "
      "test: %s.  Fewster-Smith on HPS: %s.  On the throat geodesic: %s.  "
      "%d of %d self-consistent families in print REPORT m < 0 "
@@ -910,6 +921,7 @@ OPEN_ROWS = [
         hpscentre.LINEAR_CENTRE_THEOREM_SCOPE,
         hpscentre.NONLINEAR_CENTRE_NONFLATNESS,
         hpscentre.NONLINEAR_CENTRE_ASYMPTOTICS,
+        hpscentre.THROAT_M_NEGATIVE_READING.lower(),
         hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM,
         hpscentre.M_NEGATIVE_FOUND_INSIDE_DOMAIN, hpscentre.DOMAIN_WORD,
         hpscentre.HPS_INTEGRATED_THE_PRINTED_SYSTEM,
@@ -1332,7 +1344,13 @@ def report():
     for q, docket, rid, _why in OPENED_FROM_WAITING:
         print("       (was waiting: %s -- opened by %s as %s)" % (q, docket, rid))
 
-    print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED")
+    print("\nRULED BY M -- APPLIED")
+    for pid, q, why, ruling, unblocks in RULED_BY_M:
+        print("  %-8s %s" % (pid, _one_line(q, 94)))
+        print("       ruled: %s" % _one_line(ruling, 89))
+        print("       unblocks: %s" % _one_line(unblocks, 86))
+    print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
+          % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in PENDING_RULINGS:
         print("  %-8s %s" % (pid, _one_line(q, 94)))
         print("       %s" % _one_line(why, 96))
@@ -1460,6 +1478,12 @@ def to_markdown():
                  % (_cell(q, 80), docket, rid, _cell(why, W_WHY)))
     L.append("")
 
+    L += ["## Ruled by M -- applied", "",
+          "| id | question | ruling | unblocks |", "|---|---|---|---|"]
+    for pid, q, why, ruling, unblocks in RULED_BY_M:
+        L.append("| %s | %s | %s | %s |"
+                 % (pid, _cell(q, 200), _cell(ruling, W_WHY), _cell(unblocks, 200)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -1797,6 +1821,14 @@ def selftest():
                               | set(formation.APERTURE_SYNONYM_HITS)))
         in row["D25"][1], True)
     # D26, DOCKET 64: opened by the docket that built its instrument.
+    # A GREEN BOARD OVER A RED OWNER is what the ownership contract forbids
+    # (DOCKET 64 seating verifier): D26's typed flag alone cannot see linstab's
+    # scan go red.  So the board re-runs the owner's own scan, over the owners
+    # the board itself names, and requires the verdict False with nothing unread.
+    _owners = linstab.demand_owners()[0]
+    chk("linstab's scan, re-run by the board: verdict False and no unread hit",
+        linstab.semiclassical_evaluable_on_demand(
+            linstab.self_consistency_scan(_owners), _owners), (False, []))
     chk("linstab.py: D26 is OPEN because the semiclassical sector is not "
         "evaluable on any demand configuration",
         (ask(("linstab", "SEMICLASSICAL_EVALUABLE_ON_DEMAND")),
@@ -1846,14 +1878,16 @@ def selftest():
         in to_markdown(), True)
     # The phase1 D4 question (DOCKET 64 ruling D.2) is recorded for M, not
     # applied.  Its premise is computed on both owners, so it can fail.
-    chk("the phase1 D4 question is PENDING M's ruling, on computed premises",
-        ([p[0] for p in PENDING_RULINGS],
-         [c for c in phase1.CONDITIONS if c[0] == "D4"][0][1]
-         .startswith("no momentum"),
+    # M RULED on the phase1 D4 question: restate.  Each premise is computed on the
+    # owners, so a revert of phase1.py or formation.py fails here.
+    chk("the phase1 D4 question is RULED and APPLIED, on computed premises",
+        ([p[0] for p in RULED_BY_M], PENDING_RULINGS,
+         phase1.D4_RESTATED_ON_M_RULING,
          phase1.is_transition(True, True, True, True, True),
-         phase1.is_transition(False, True, True, True, True),
+         phase1.is_transition(False, True, True, True, True, net_momentum=True),
+         phase1.is_transition(False, True, True, True, True, passage_flux=True),
          formation.PHASE1_D4_POINTWISE_DURING_PASSAGE),
-        (["M-D64-1"], True, False, True, False))
+        (["M-D64-1"], [], True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)

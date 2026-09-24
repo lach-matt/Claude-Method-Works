@@ -950,6 +950,7 @@ def selftest():
     fails = []
     rows = []
     discharged = set()
+    row_hyps = []     # (label, hyp) of every passing row -- read back by section 6
 
     def chk(kind, label, got, want, tol=None, hyp=()):
         assert kind in KINDS, kind
@@ -963,6 +964,7 @@ def selftest():
         rows.append((kind, ok))
         if ok:
             discharged.update(hyp)
+            row_hyps.append((label, tuple(hyp)))
         else:
             fails.append((label, got, want))
 
@@ -1085,6 +1087,12 @@ def selftest():
         [c for c in phase1.CONDITIONS if c[0] == "D4"][0][1].startswith("no momentum"),
         True)
     d4_holds = all(v[0] == 0 for v in runs.values())
+    # M ruled (DOCKET 64 D.2): D4 is restated -- T^{0i} = 0 per configuration,
+    # zero NET momentum per passage.  Under it this passage, whose flux is
+    # transient and radial with zero net momentum, is a TRANSITION.
+    chk("control", "under D4 as restated, this passage is a transition, not propulsion",
+        phase1.is_transition(False, True, True, True, True,
+                             net_momentum=False, passage_flux=not d4_holds), True)
     chk("numeric", "INT j dtau != 0 on every profile, so D4 fails pointwise; "
         "the attribute agrees", (d4_holds, PHASE1_D4_POINTWISE_DURING_PASSAGE),
         (False, d4_holds))
@@ -1142,6 +1150,16 @@ def selftest():
     missing = [h for h in ALL_HYPOTHESES if h not in discharged]
     chk("control", "F1, F2 and transverse hypotheses without a discharging row",
         missing, [])
+    # The OTHER direction (DOCKET 64 seating verifier): a hypothesis a row USES to
+    # prove F2 must be NAMED in F2_THEOREM.  Taken from the rows, not from H_NULL,
+    # so setting F2_THEOREM = F1_THEOREM (dropping the null hypothesis) fires here.
+    f2_row_hyps = set(h for lab, hyp in row_hyps if "outgoing null" in lab for h in hyp)
+    chk("control", "every hypothesis the outgoing-null rows use is named in F2_THEOREM",
+        sorted(f2_row_hyps - set(F2_THEOREM)), [])
+    chk("control", "and F2 names every F1 hypothesis (F2 extends F1)",
+        sorted(set(F1_THEOREM) - set(F2_THEOREM)), [])
+    chk("control", "  and the outgoing-null rows do use a hypothesis F1 lacks",
+        bool(f2_row_hyps - set(F1_THEOREM)), True)
 
     print()
     counts = {k: sum(1 for kk, _ in rows if kk == k) for k in KINDS}

@@ -302,8 +302,9 @@ DOMAIN_WORD = ("established: the AHS approximation has been derived or establish
 CHANGES_A_REQUIREMENT = False
 O5_ANSWERED_BY = ("a <T_ab> established at a centre that is not asymptotically "
                   "flat, or an asymptotically flat self-consistent solution with "
-                  "m < 0; FO Thm 4.2 evaluated on HPS (needs a reference Hadamard "
-                  "state and <:Phi^2:> there; qeihps.FO_ON_HPS); the nonlinear "
+                  "m < 0; FO Thm 4.2 or FFKP Thm IV.1 (eq. 72) evaluated on HPS "
+                  "(both need a reference Hadamard state / W_0 and <:Phi^2:> there; "
+                  "qeihps.KONTOU_REQUESTED_TEST_ON_HPS); the nonlinear "
                   "regular-centre existence theorem.  Read AHS PRD 51 4337 "
                   "(NOT-REACHED)")
 #: Kept, never deleted: every claim DOCKET 64 withdrew from this line, with why.

@@ -355,7 +355,7 @@ NOTHING_IS_REPAIRED = True
 
 D26_STATUS = "OPEN"
 D26_CLAIM = ("LINEARISED STABILITY (AMM).  Classical radial sector of stability.py's "
-             "shell: THEOREM, stable for every m > 0 at every beta^2 > "
+             "shell: THEOREM under P1-P4, stable for every m > 0 at every beta^2 > "
              "beta^2_crit(u) = -(u-1)(3u^2+2u+1)/(4u^2(3u+1)) in (-1/4, 0), "
              "u = sqrt(1+2m/R) -- wall.py's closed form for the ordinary shell "
              "with s = sqrt(1-2M/R) < 1 replaced by u > 1.  "
@@ -363,7 +363,8 @@ D26_CLAIM = ("LINEARISED STABILITY (AMM).  Classical radial sector of stability.
              "defined only about a solution of the semiclassical equations (2.9) "
              "(AMM pp. 8-9), and none of the demand configurations is recorded "
              "or shown to be one; that is O5, OPEN.  GMMPS's reported Minkowski "
-             "mode (the S-sector zero on the branch through gamma = 0) exists iff "
+             "mode (the S-sector zero on the branch through gamma = 0) exists, "
+             "locally by the implicit function theorem, iff "
              "alpha~^S_1 != 0; other growing roots are set by the free "
              "fourth-order constants; the split is not adjudicated")
 D26_ANSWERED_BY = ("O5's remaining question -- a solution of the semiclassical "
@@ -387,8 +388,11 @@ POSITIVE_CONTROLS = ("throatmass", "hpscentre")
 #: selftest requires the set of owners with hits to EQUAL this set's keys: an
 #: owner that gains tokens without being read turns it red.
 READ_HITS = {
-    "fluctuation": "D22's owner: names 'THE SEMICLASSICAL DEBT' (Kuo & Ford); "
-                   "claims no solution of (2.9)",
+    # D22 was re-owned from fluctuation.py to noise.py by DOCKET 64; demand_owners()
+    # reads the ledger at run time, so the READ set follows the board, not a list.
+    "noise": "D22's owner since DOCKET 64: line ~144 'lets the semiclassical "
+             "equation carry blackbody radiation' -- a flat-space thermal remark "
+             "on the smeared fluctuation; claims no solution of (2.9)",
     "tolman": "'backreaction bound' (a magnitude bound) and, line ~947, 'STABILITY, "
               "DYNAMICS OR BACKREACTION. The identity is kinematic.' -- disclaims it",
     "excite": "'a self-consistent fermion bag' listed among DOCKET 63's OPEN "
@@ -1001,6 +1005,10 @@ def selftest():
         (len(owners) >= 10, "certify" in owners, "stockgate" in owners), (True, True, True))
     chk("CONTROL: the scan finds tokens where solutions ARE held (throatmass, hpscentre)",
         [n for n in POSITIVE_CONTROLS if scan[n] == 0], [])
+    # DOCKET 64 ruling B4 asked for hpscentre here; dropping it must fire in THIS file,
+    # not only downstream in ledger.py.  hpscentre is where m < 0 solutions are held.
+    chk("  and hpscentre, which holds the m < 0 solutions, is one of them",
+        "hpscentre" in POSITIVE_CONTROLS and hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM, True)
     hits = sorted(n for n in scanned if scan[n] > 0)
     chk("every owner with token hits was READ, and only those (READ_HITS)",
         hits, sorted(READ_HITS))
