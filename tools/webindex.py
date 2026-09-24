@@ -176,7 +176,18 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table",
                 "KPOINTS-CHECK.tsv": "the k-point cross-check capture", "KPOINTS-GRID.tsv": "the k-point grid capture",
                 "KPOINTS-ADDITIVITY.tsv": "the k-point additivity capture", "PHONON-KPOINTS.tsv": "the second k-point implementation's capture",
                 "COREPS-HIGHSYM.tsv": "the corepresentation capture",
-                "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper"}
+                "THE-INDEX-OF-FIRST-ORDER-INDEXES.md": "the index of first-order indexes paper",
+                "papers/method/01-closure-law/PAPER.md": "the closure-law paper",
+                "papers/method/02-lambda/PAPER.md": "the lattice paper",
+                "papers/method/03-bracket/PAPER.md": "the bracket paper",
+                "papers/method/04-seaton/PAPER.md": "the polarisation-ratio paper",
+                "papers/method/05-tower/PAPER.md": "the tower paper",
+                "papers/method/06-order-recovery/PAPER.md": "the order-recovery paper",
+                "papers/method/07-wall-janet/PAPER.md": "the parent-term wall paper",
+                "papers/method/08-chemical-index/PAPER.md": "the chemical-index paper",
+                "papers/method/09-occupation-hull/PAPER.md": "the occupation-law paper",
+                "papers/method/10-beyond-the-atom/PAPER.md": "the closure-beyond-the-atom paper",
+                }
 
 
 def private_hits(text):
@@ -722,6 +733,50 @@ RESEARCH_PAPERS = {
         # corpus" is the tree's own numbers, and the handoff documents are named as what was withdrawn
         "own_terms": {r"\brulings?\b", r"\bseated members?\b", r"\bcorpus\b", r"\bhandoffs?\b"},
     },
+    # the ten papers built from the books for this site (papers/method/, 2026-09): each carries its
+    # own figures in its directory, its PDF in papers/method/pdf/, and was written under the
+    # contract in papers/method/PAPER-SPEC.md, whose lint mirrors this guard; the figures are copied
+    # from the paper's directory and their md5 measured at build, there being no ledger row
+    "papers/method/01-closure-law/PAPER.md": {
+        "slug": "closure-law", "short": "the closure-law paper",
+        "pdf": "papers/method/pdf/01-closure-law.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/02-lambda/PAPER.md": {
+        "slug": "lattice", "short": "the lattice paper",
+        "pdf": "papers/method/pdf/02-lambda.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/03-bracket/PAPER.md": {
+        "slug": "bracket", "short": "the bracket paper",
+        "pdf": "papers/method/pdf/03-bracket.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/04-seaton/PAPER.md": {
+        "slug": "polarisation-ratio", "short": "the polarisation-ratio paper",
+        "pdf": "papers/method/pdf/04-seaton.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/05-tower/PAPER.md": {
+        "slug": "tower", "short": "the tower paper",
+        "pdf": "papers/method/pdf/05-tower.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/06-order-recovery/PAPER.md": {
+        "slug": "order-recovery", "short": "the order-recovery paper",
+        "pdf": "papers/method/pdf/06-order-recovery.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/07-wall-janet/PAPER.md": {
+        "slug": "parent-term-wall", "short": "the parent-term wall paper",
+        "pdf": "papers/method/pdf/07-wall-janet.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/08-chemical-index/PAPER.md": {
+        "slug": "chemical-index", "short": "the chemical-index paper",
+        "pdf": "papers/method/pdf/08-chemical-index.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/09-occupation-hull/PAPER.md": {
+        "slug": "occupation-law", "short": "the occupation-law paper",
+        "pdf": "papers/method/pdf/09-occupation-hull.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
+    "papers/method/10-beyond-the-atom/PAPER.md": {
+        "slug": "closure-beyond", "short": "the closure-beyond-the-atom paper",
+        "pdf": "papers/method/pdf/10-beyond-the-atom.pdf", "own_figures": True, "origin": "the repository's papers directory",
+    },
 }
 # the edition history the site shows: the commits that changed public/ or the
 # generator, each with a note written for the site (the commit subjects are
@@ -1003,9 +1058,27 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
         slug = spec["slug"]
         figs = []
 
-        def img_r(alt, src, _figs=figs):
-            _figs.append({"ref": src, "file": None, "held": False})
-            return '<span class="fig-missing">[figure %s: not carried]</span>' % html_escape(os.path.basename(src))
+        figdir = os.path.join(out_dir, "papers", slug, "figures")
+
+        def img_r(alt, src, _figs=figs, _slug=slug, _figdir=figdir, _dir=os.path.dirname(path), _own=spec.get("own_figures")):
+            name = os.path.basename(src)
+            f = os.path.join(_dir, src) if _own else None
+            if not (f and os.path.isfile(f)):
+                _figs.append({"ref": src, "file": None, "held": False})
+                return '<span class="fig-missing">[figure %s: not carried]</span>' % html_escape(name)
+            # the paper's own figure, beside its text: no ledger row records it, so its md5 is
+            # measured at build and the copy is the file as the paper's directory holds it
+            with open(f, "rb") as fh:
+                blob = fh.read()
+            rel = "papers/%s/figures/%s" % (_slug, name)
+            if write:
+                os.makedirs(_figdir, exist_ok=True)
+                with open(os.path.join(_figdir, name), "wb") as fh:
+                    fh.write(blob)
+            _figs.append({"ref": src, "file": rel, "held": True, "bytes": len(blob), "md5": hashlib.md5(blob).hexdigest(),
+                          "md5_recorded": None, "ok": True, "note": "the paper's own figure; md5 measured at build, no ledger row"})
+            alt = re.sub(r"[*_]", "", alt).strip()
+            return '<img src="data/%s" alt="%s" loading="lazy">' % (rel, html_escape(alt))
         body, headings = md_to_html(text, {"img": img_r})
         h1 = next((h for h in headings if h["level"] == 1), None)
         arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
@@ -1045,10 +1118,10 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
             "book_citations": [h for h in private_hits(text) if h not in _OWN_SECTION_MARKS and h not in spec.get("own_terms", set())],
             "own_section_marks": [h for h in private_hits(text) if h in _OWN_SECTION_MARKS],
             "own_terms": [h for h in private_hits(text) if h in spec.get("own_terms", set())],
-            "note": ("the paper as the author wrote it, from the repository's research tree rather than the store: "
+            "note": ("the paper as the author wrote it, from " + spec.get("origin", "the repository's research tree") + " rather than the store: "
                      "no ledger row records its md5, so the md5 is measured at build and the file's last commit "
                      "is recorded beside it; nothing in it is edited for the site" if not masked else
-                     "the paper as the author wrote it, from the repository's research tree, its md5 measured at build on the text "
+                     "the paper as the author wrote it, from " + spec.get("origin", "the repository's research tree") + ", its md5 measured at build on the text "
                      "as written and its last commit recorded; %d citation%s of unpublished material %s masked at build, each with a "
                      "visible mark, because the site cites nothing from the books, and nothing else in it is edited" % (sum(m["count"] for m in masked), "s" if sum(m["count"] for m in masked) != 1 else "", "are" if sum(m["count"] for m in masked) != 1 else "is")),
         })
@@ -4036,8 +4109,12 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
                   [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
-    check("papers: the four released papers, in order", [p["slug"] for p in pp], ["lowdin", "three-body", "languages", "indexes"])
-    check("papers: all four are held", [p["held"] for p in pp], [True, True, True, True])
+    SITE_PAPERS = ["lowdin", "three-body", "languages", "indexes"] + ["closure-law", "lattice", "bracket", "polarisation-ratio", "tower", "order-recovery", "parent-term-wall", "chemical-index", "occupation-law", "closure-beyond"]
+    check("papers: the fourteen released papers, in order", [p["slug"] for p in pp], SITE_PAPERS)
+    check("papers: all fourteen are held", [p["held"] for p in pp], [True] * 14)
+    for q in pp[4:]:
+        check("papers: %s carries every figure it cites from its own directory, and its PDF with an md5" % q["slug"],
+              (q["figures"] > 0, q["figures_ok"], bool(q["pdf"] and q["pdf"]["md5"]), q["masked"]), (True, True, True, []))
     check("papers: the index of first-order indexes paper comes from the research tree with its commit, four citations of unpublished material masked and its PDF withheld",
           (pp[3]["tree"]["path"], bool(pp[3]["tree"]["commit"]), pp[3]["pdf"], bool(pp[3]["pdf_note"]), sum(m["count"] for m in pp[3]["masked"]), sorted({m["kind"] for m in pp[3]["masked"]})),
           ("research/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", True, None, True, 8, ["a citation of an unpublished record", "a member's file name", "a path into the unpublished store", "the research tree's directory"]))
@@ -4054,6 +4131,10 @@ def selftest(warp_root=WARP_ROOT):
         check("papers: after masking, the index paper cites nothing from the books, measured by the guard with its own section marks and its own terms excluded", (idx_paper["book_citations"], sorted(idx_paper["own_terms"])), ([], sorted(RESEARCH_PAPERS["research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md"]["own_terms"])))
         check("papers: the mask leaves a visible mark at every site but the directory rewrite", idx_paper["html"].count("withheld on this site"), 7)
         check("papers: its render carries every heading of the source", len(idx_paper["headings"]), sum(1 for ln in open(research_path("research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", warp_root), encoding="utf-8") if ln.startswith("#")))
+    for q in full_papers:
+        if q.get("held") and q["slug"] in SITE_PAPERS[4:]:
+            check("papers: %s cites nothing from the books, measured by the guard with its own section marks excluded" % q["slug"],
+                  (q["book_citations"], q["own_terms"]), ([], []))
     lang = next((p for p in full_papers if p["slug"] == "languages"), None)
     if lang:
         check("papers: the hierarchy law paper cites nothing from the books, measured by the guard with its own section marks excluded",

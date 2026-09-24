@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-21T03:05:41+00:00",
-  "commit": "484bc2108932",
+  "built": "2026-09-24T14:58:45+00:00",
+  "commit": "049b3590a0a9",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "484bc2108932",
-   "text": "Lach, M. (2026). The Master Index, edition 484bc2108932. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 484bc2108932}\n}"
+   "commit": "049b3590a0a9",
+   "text": "Lach, M. (2026). The Master Index, edition 049b3590a0a9. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 049b3590a0a9}\n}"
   },
   "history": [
    {
@@ -289,13 +289,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/484bc21089322407d05035cb734571cbbdc9b2f9",
     "note": null
+   },
+   {
+    "date": "2026-09-21",
+    "commit": "ab70960",
+    "files": 6,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab70960f3b54e7bdd07bdb6c2f37ad1ed27badbe",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 261745,
-  "md5": "15f38c03c80fc9474bc0eac96cd329fe",
+  "bytes": 1222641,
+  "md5": "670b4edc0d14a91b9f78b94f76bc4d20",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -409,6 +416,296 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "figures_ok": true,
     "arxiv": 0,
     "doi": 0
+   },
+   {
+    "slug": "closure-law",
+    "title": "The Closure Law of a Finite Index",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 84129,
+    "md5": "ee64bebad45ae6f593575940957f0794",
+    "md5_recorded": null,
+    "words": 15462,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/01-closure-law/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/closure-law/01-closure-law.pdf",
+     "bytes": 362493,
+     "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 22,
+    "figures": 5,
+    "figures_ok": true,
+    "arxiv": 2,
+    "doi": 5
+   },
+   {
+    "slug": "lattice",
+    "title": "The Lattice of Subshell Transitions",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 96099,
+    "md5": "373d519616aac14cf3c2ee288255b6d2",
+    "md5_recorded": null,
+    "words": 18001,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/02-lambda/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/lattice/02-lambda.pdf",
+     "bytes": 809787,
+     "md5": "75533f2246e75ef436a7e971e35c0307",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 13,
+    "figures": 8,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 0
+   },
+   {
+    "slug": "bracket",
+    "title": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 68214,
+    "md5": "5bfabac7892086e6b6e02a700b176935",
+    "md5_recorded": null,
+    "words": 12340,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/03-bracket/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/bracket/03-bracket.pdf",
+     "bytes": 506602,
+     "md5": "69f32593a541e8a2ad03e4a2ef53eaee",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 14,
+    "figures": 5,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 0
+   },
+   {
+    "slug": "polarisation-ratio",
+    "title": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 54482,
+    "md5": "be118817877b3bc353516365610721a8",
+    "md5_recorded": null,
+    "words": 10177,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/04-seaton/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/polarisation-ratio/04-seaton.pdf",
+     "bytes": 352797,
+     "md5": "e23f997a57152db550c79aa09291ad94",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 10,
+    "figures": 3,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 1
+   },
+   {
+    "slug": "tower",
+    "title": "The Tower over Λ: from Eight Coordinates to Thirteen",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 106462,
+    "md5": "ed3c42e6f6bcbf5d8a060ddd212ed365",
+    "md5_recorded": null,
+    "words": 19511,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/05-tower/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/tower/05-tower.pdf",
+     "bytes": 606017,
+     "md5": "b1fca4f6be8027b4da414dba7a94fd17",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 16,
+    "figures": 5,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 0
+   },
+   {
+    "slug": "order-recovery",
+    "title": "Order Recovery and the Reorderability Law",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 99827,
+    "md5": "2068827c6de027a76a57325e6bb13e3a",
+    "md5_recorded": null,
+    "words": 17919,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/06-order-recovery/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/order-recovery/06-order-recovery.pdf",
+     "bytes": 527483,
+     "md5": "9f65e141cab5d77b75080870d9c96156",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 36,
+    "figures": 5,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 0
+   },
+   {
+    "slug": "parent-term-wall",
+    "title": "The Parent-Term Wall and the Cost of a Drawn Coordinate",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 76864,
+    "md5": "2e505259b494332a181c18caf6fe0620",
+    "md5_recorded": null,
+    "words": 14085,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/07-wall-janet/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/parent-term-wall/07-wall-janet.pdf",
+     "bytes": 540831,
+     "md5": "798aed4ed502b72ae2c258afe427689b",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 14,
+    "figures": 5,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 1
+   },
+   {
+    "slug": "chemical-index",
+    "title": "Closing the chemical properties: a classification index for the elements",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 84988,
+    "md5": "4a4df7636678b6535011a381a0229252",
+    "md5_recorded": null,
+    "words": 15654,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/08-chemical-index/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/chemical-index/08-chemical-index.pdf",
+     "bytes": 415381,
+     "md5": "e6357aaabac2bb74b21818fee606ad4a",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 31,
+    "figures": 3,
+    "figures_ok": true,
+    "arxiv": 1,
+    "doi": 1
+   },
+   {
+    "slug": "occupation-law",
+    "title": "An Occupation Law as a Lower Convex Hull",
+    "subtitle": "The rule that the entering electron takes the subshell of least ν = n − a·√r is the minimisation of the linear functional y − a·x over a finite point set {(√r, n)}; only a vertex of that set's lower convex hull can be chosen, the slopes that choose a given vertex are exactly the open interval between its two flanking hull-edge slopes, and along the 106 tabulated ground-configuration steps from lithium to hassium the tabulated entrant is such a vertex at every step, with no lower bound on its slope exactly when it carries no radial node.",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 75682,
+    "md5": "5d2a34875bc11b8330fec7e2d66c45be",
+    "md5_recorded": null,
+    "words": 14124,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/09-occupation-hull/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/occupation-law/09-occupation-hull.pdf",
+     "bytes": 354313,
+     "md5": "2d3b2cadef581d4c89133d8ec0bb385c",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 13,
+    "figures": 3,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 1
+   },
+   {
+    "slug": "closure-beyond",
+    "title": "Closure beyond the atom: the defect of an index, its zeros by theorem, and the electromagnetic quotient",
+    "subtitle": "Matthew Lach · Independent Researcher · 24 September 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 83493,
+    "md5": "66618a773153d9459b9cf9a17d709907",
+    "md5_recorded": null,
+    "words": 15167,
+    "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "papers/method/10-beyond-the-atom/PAPER.md",
+     "commit": "27dd39c"
+    },
+    "pdf": {
+     "file": "papers/closure-beyond/10-beyond-the-atom.pdf",
+     "bytes": 535377,
+     "md5": "55efe8bac09deaccf5832504055b0059",
+     "commit": "27dd39c"
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 33,
+    "figures": 4,
+    "figures_ok": true,
+    "arxiv": 0,
+    "doi": 1
    }
   ]
  },
@@ -423,8 +720,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 261745,
-   "md5": "15f38c03c80fc9474bc0eac96cd329fe",
+   "bytes": 1222641,
+   "md5": "670b4edc0d14a91b9f78b94f76bc4d20",
    "what": "the released papers, rendered"
   },
   {
@@ -432,6 +729,66 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "bytes": 1021231,
    "md5": "1ea3368e06a444b6acdd78eaa3397b31",
    "what": "The Hierarchy Law of Mathematical Languages, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/closure-law/01-closure-law.pdf",
+   "bytes": 362493,
+   "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
+   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/lattice/02-lambda.pdf",
+   "bytes": 809787,
+   "md5": "75533f2246e75ef436a7e971e35c0307",
+   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/bracket/03-bracket.pdf",
+   "bytes": 506602,
+   "md5": "69f32593a541e8a2ad03e4a2ef53eaee",
+   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/polarisation-ratio/04-seaton.pdf",
+   "bytes": 352797,
+   "md5": "e23f997a57152db550c79aa09291ad94",
+   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/tower/05-tower.pdf",
+   "bytes": 606017,
+   "md5": "b1fca4f6be8027b4da414dba7a94fd17",
+   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/order-recovery/06-order-recovery.pdf",
+   "bytes": 527483,
+   "md5": "9f65e141cab5d77b75080870d9c96156",
+   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/parent-term-wall/07-wall-janet.pdf",
+   "bytes": 540831,
+   "md5": "798aed4ed502b72ae2c258afe427689b",
+   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/chemical-index/08-chemical-index.pdf",
+   "bytes": 415381,
+   "md5": "e6357aaabac2bb74b21818fee606ad4a",
+   "what": "Closing the chemical properties: a classification index for the elements, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/occupation-law/09-occupation-hull.pdf",
+   "bytes": 354313,
+   "md5": "2d3b2cadef581d4c89133d8ec0bb385c",
+   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 27dd39c"
+  },
+  {
+   "file": "data/papers/closure-beyond/10-beyond-the-atom.pdf",
+   "bytes": 535377,
+   "md5": "55efe8bac09deaccf5832504055b0059",
+   "what": "Closure beyond the atom: the defect of an index, its zeros by theorem, and the electromagnetic quotient, as a PDF; md5 measured at build, commit 27dd39c"
   },
   {
    "file": "data/particles.js",
@@ -17277,7 +17634,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     {
      "l": 1,
      "n": 81,
-     "rms": 0.1956628448548384
+     "rms": 0.19566284485483842
     },
     {
      "l": 2,

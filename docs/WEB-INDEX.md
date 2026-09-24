@@ -933,6 +933,24 @@ PDF beside it is the paper as written and is **withheld** (`pdf_withheld`, `pdf_
 author reissues it without them. Its last commit is the tree's commit (`--warp-commit`) where the
 file is not in this checkout.
 
+**Ten papers built from the books are the fifth to the fourteenth** (`RESEARCH_PAPERS`:
+`papers/method/<NN>-<slug>/PAPER.md`, from the repository's own papers directory). They were
+written for this site under the contract in `papers/method/PAPER-SPEC.md` — every definition
+before use, every result proved in full, every decidable claim machine-checked by Z3 over a named
+box with both guards or by exact arithmetic, and no citation of the books, enforced by a lint that
+mirrors this guard — then audited from three points of view, repaired against every finding, and
+independently re-verified; each directory holds the text, the check, the figures, the figure record,
+the source map and the audit with its dispositions. **Their figures are carried** (`own_figures`):
+the image handler resolves each against the paper's own directory, copies it to
+`data/papers/<slug>/figures/`, and measures its md5 at build, there being no ledger row — the first
+research-tree papers had every image replaced by a placeholder, and that branch of the handler
+still does so for a paper without `own_figures`. The PDF beside each, in `papers/method/pdf/`, is the
+review render and is offered as a download with its md5. The card's note names the papers directory
+as the origin (`origin`). The selftest asserts the fourteen in order, that every one of the ten
+carries every figure it cites and its PDF, and that the guard measures zero book citations in each;
+the guard's name map (`PUBLIC_NAMES`) carries each paper's path so that the path the site prints
+resolves to the paper's short name and not to a file name.
+
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,
 each downloadable as SVG stamped with the edition: the channel equation against every measured
