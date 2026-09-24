@@ -42,7 +42,7 @@ def fig1_cost_exact():
     ax.set_xlabel("ν"); ax.set_ylabel("price of a guarantee  V")
     ax.set_xlim(0, 62); ax.set_ylim(0, 84)
     ax.legend(frameon=False, fontsize=8, loc="upper left")
-    ins = ax.inset_axes([0.50, 0.12, 0.46, 0.50])
+    ins = ax.inset_axes([0.57, 0.10, 0.40, 0.40])
     lo = [2 + 0.02 * i for i in range(int((13 - 2) / 0.02) + 1)]
     ins.plot(lo, [V(x) for x in lo], color="#0b0b0b", lw=1.4)
     ins.plot(lo, [4 * x / 3 + 4 / (9 * x) for x in lo], color=ORANGE, ls="--", lw=1.1)
