@@ -468,47 +468,92 @@ implementation. The abstract promises what the body delivers. What a referee wou
 
 | id | severity | where | finding (short) | disposition |
 |---|---|---|---|---|
-| A-1 | MAJOR | check.py 464–475; rows Thm 4 graded, Thm 6, Cor 3 | covers found by unit steps, so the grading row cannot test the grading | |
-| A-2 | MINOR | check.py 289; PAPER.md 479 | "13 variables" — the obligation has 21 | |
-| A-3 | MINOR | check.py 607, 651, 713, 791, 899, 1386 | six rows print values and pin nothing | |
-| A-4 | MINOR | PAPER.md 123, 211, 547, 553 | 8,064; 87.7 % / 1.6 %; 1.5 × 10⁸ vs 9.3 × 10⁸ have no row and count two ways | |
-| A-5 | MINOR | check.py 1219–1233; PAPER.md 426, 553 | the 80-subset sample contains no cover; tests one direction only | |
-| A-6 | MINOR | check.py 1335–1351; PAPER.md 442 | Corollary 7's per-k claim checked only as "some k" | |
-| A-7 | MINOR | PAPER.md 103 | "built twice, once by D4 and once by sieving" — D4 is the sieve | |
-| A-8 | MINOR | PAPER.md 346–350; PDF p14 | Theorem 14 display: "z to the q", mixed superscripts, wrapped block | |
-| A-9 | MINOR | figures/fig5-caterpillar.png; PAPER.md 386 | plate's superscript garbled; arrow order is not Theorem 14's nesting | |
-| A-10 | MINOR | figures/fig1, fig5; PAPER.md 135, 386 | plates label 2(2ℓ+1), text 4ℓ+2 | |
-| A-11 | MINOR | figures/fig4; PAPER.md 290, 298 | "volume" means the count in D11 and the continuous volume on the plate | |
-| A-12 | MINOR | PDF p4–6, p9–10, p23–24 | Table 1 heading orphaned; Figures 1 and 3 split from captions; a §9 row split | |
-| A-13 | MINOR | figures/, FIGURES.tsv | file numbers ≠ figure numbers | |
-| A-14 | MINOR | PAPER.md 23 | "Measured" used as a run-in heading for EXHAUSTIVE counts | |
-| R-1 | MAJOR | PAPER.md 155 | rank modularity called "the graded signature of distributivity" — it is modularity's | |
-| R-2 | MAJOR | PAPER.md 306–320 | Theorem 12's "single coordinate" statement contradicted by the g-first aside | |
-| R-3 | MAJOR | PAPER.md 39 | cap-free list wrongly includes Theorem 15, 17, Corollaries 7, 8 | |
-| R-4 | MINOR | PAPER.md 187 | injectivity step in Theorem 6 needs one line | |
-| R-5 | MINOR | PAPER.md 173, 398 | J(Λ) vs J(Q) notation clash | |
-| R-6 | MINOR | PAPER.md 410 | "eight comparisons" — fifteen | |
-| R-7 | MINOR | PAPER.md 376 | Corollary 5 is stronger than Theorem 9, not "the statement Theorem 9 makes" | |
-| R-8 | MINOR | PAPER.md 71–75 | A₄, A₇, A₈ = {0..kₘₐₓ} not stated | |
-| R-9 | MINOR | PAPER.md 332 | Chebyshev remark asserts what it does not prove | |
-| R-10 | MINOR | PAPER.md 306–310 | Theorem 12 stated as a procedure, not a formula | |
-| R-11 | MINOR | PAPER.md 452 | "at most two of those seven are slack" is meaningless once the minimum is exact | |
-| R-12 | MINOR | PAPER.md 272 | "(1 of D10) = (2)" | |
-| R-13 | MINOR | PAPER.md 163 | Sperner property used before defined; cite Stanley 1989 for unimodality | |
-| R-14 | MINOR | PAPER.md 402 | cite the crosscut corollary precisely; note the closed form is textbook | |
-| R-15 | MAJOR | title; PAPER.md 1, 11 | "one-electron" while 481 cells move two or three electrons | |
-| R-16 | MAJOR | PAPER.md 19, 57, 69 | 2S ≤ k is an envelope (503 unphysical spin labels); "nothing chosen for convenience" overstates | |
-| R-17 | MAJOR | PAPER.md 57, 63, 111–114 | semantics of g: 515 cells lose electrons, 200 have source = target; state the model | |
-| R-18 | MINOR | PAPER.md 57, 63 | 2S called "multiplicity"; multiplicity is 2S + 1 | |
-| R-19 | MINOR | PAPER.md 57 | ℓ ≤ n − 1 cited to Bohr 1913; cite Schrödinger 1926 | |
-| R-20 | MINOR | PAPER.md 57 | S ≤ k/2 is spin addition, not Hund's rule | |
-| R-21 | MINOR | abstract, §1 | say that no selection rule or spectral datum enters | |
-| R-22 | MAJOR | PAPER.md 95, 462 | "the companion paper" cited four times, no reference entry | |
-| R-23 | MINOR | PAPER.md 17–37 | say which headline results are inherited and which are new | |
-| R-24 | MINOR | References | missing: Harary–Schwenk 1973, Schrödinger 1926, Stanley 1989, Baker–Pixley 1975, Bergman 1977, Davey–Priestley 2002, Trotter 1992, Proctor–Saks–Sturtevant 1980, Stanley 1980 (Garey–Johnson 1979, HLP 1934 optional) | |
-| R-25 | MINOR | PAPER.md 468, 470 | "every number recomputed" has exceptions (A-4); "check's own label" is transliterated | |
-| R-26 | MINOR | PAPER.md 3 | thesis: "every one of which" attaches to the cells, not the sets | |
-| R-27 | MINOR | PAPER.md 39, 432 | minimum set cover is NP-hard; the decision version is NP-complete | |
-| R-28 | MINOR | PAPER.md 217, 256 | "occupancy" carries three meanings | |
+| A-1 | MAJOR | check.py 464–475; rows Thm 4 graded, Thm 6, Cor 3 | covers found by unit steps, so the grading row cannot test the grading | FIXED — `covers_of()` derives covers from the order alone (x < y, no cell between, by bitset); the graded row asserts 3,749 covers, every one a unit step and rank +1; Theorem 6 and Corollary 3 use those cover sets; the further-caps row says its unit-step covers are licensed by the proved Theorem 4 |
+| A-2 | MINOR | check.py 289; PAPER.md 479 | "13 variables" — the obligation has 21 | FIXED — label and §9 read "all 21 variables INTEGER (5 caps, 2 cells of 8)" |
+| A-3 | MINOR | check.py 607, 651, 713, 791, 899, 1386 | six rows print values and pin nothing | FIXED — all six rows pin their values (Table 3 ranks/weights, the twenty implications as a set, 17 / 9.9307 / 7.0693 / 0.7446, 0.6931 / 0.0953, 134,871 / 0.2835 / 0.6995 / 0.9806 / 0.2013 / 1.4081, median 59 and 14,492); Table 2's marginals pinned too |
+| A-4 | MINOR | PAPER.md 123, 211, 547, 553 | 8,064; 87.7 % / 1.6 %; 1.5 × 10⁸ vs 9.3 × 10⁸ have no row and count two ways | FIXED — and the row caught an error: the box extended to k = 0 has 9,216 points, not the draft's 8,064; the paper prints 9,216 (SOURCES.md records it); 87.7 % / 1.6 % printed by the Table 3 row; both SAMPLED rows name the family as 976³ = 929,714,176 ordered triples |
+| A-5 | MINOR | check.py 1219–1233; PAPER.md 426, 553 | the 80-subset sample contains no cover; tests one direction only | FIXED — the row prints "0 of them are covers"; Theorem 17's clause and §9 say the two SAMPLED rows test the two directions between them |
+| A-6 | MINOR | check.py 1335–1351; PAPER.md 442 | Corollary 7's per-k claim checked only as "some k" | FIXED — three properties q = k = 1, 2, 3 in the row; the statement's status names them |
+| A-7 | MINOR | PAPER.md 103 | "built twice, once by D4 and once by sieving" — D4 is the sieve | FIXED — "by nested enumeration in the order of Theorem 14 and by sieving the box" (the construction imported is that nested enumeration) |
+| A-8 | MINOR | PAPER.md 346–350; PDF p14 | Theorem 14 display: "z to the q", mixed superscripts, wrapped block | FIXED — a display block, one sum per line, Unicode superscripts throughout; the one letter Unicode lacks (q) is an HTML superscript, not a caret, since the rendered page must carry no caret; verified in the PDF text |
+| A-9 | MINOR | figures/fig5-caterpillar.png; PAPER.md 386 | plate's superscript garbled; arrow order is not Theorem 14's nesting | FIXED — Figure 7 is now computed by figures.py from the seven bounds: arrows in Theorem 14's nesting order from a coordinate to one whose range it bounds, leaf label (1 − zᵏ⁺¹)/(1 − z) set correctly; caption rewritten |
+| A-10 | MINOR | figures/fig1, fig5; PAPER.md 135, 386 | plates label 2(2ℓ+1), text 4ℓ+2 | FIXED — Figure 1's caption says the plate's 2(2ℓ + 1), 2(2f + 1) are 4ℓ + 2, 4f + 2; Figure 7 regenerated with 4ℓ + 2 and 4f + 2 |
+| A-11 | MINOR | figures/fig4; PAPER.md 290, 298 | "volume" means the count in D11 and the continuous volume on the plate | FIXED — D11 defines the size ∣[lo, hi]∣, the number of points; Figure 4's caption notes the plate's own title |
+| A-12 | MINOR | PDF p4–6, p9–10, p23–24 | Table 1 heading orphaned; Figures 1 and 3 split from captions; a §9 row split | FIXED in the paper without touching the template — every image is a pandoc figure with its caption as alt text (rendered as a figcaption beginning **Figure n.**, kept whole by the template's figure rule), every table carries its heading as a table caption, and Table 1 now follows D2; on the re-render every figure sits with its caption, no table heading is orphaned and no §9 row is split (the template's tr rule already holds); the residual cost is white space before a figure that moves whole to the next page (p6) |
+| A-13 | MINOR | figures/, FIGURES.tsv | file numbers ≠ figure numbers | FIXED — files renamed so figN is Figure N (fig2 rank sequence, fig3 generating poset, fig4 interval measure, fig5 void, fig7 caterpillar); figures.py and FIGURES.tsv follow |
+| A-14 | MINOR | PAPER.md 23 | "Measured" used as a run-in heading for EXHAUSTIVE counts | FIXED — "Counted, at the stated caps." |
+| R-1 | MAJOR | PAPER.md 155 | rank modularity called "the graded signature of distributivity" — it is modularity's | FIXED — the sentence now names modularity (Birkhoff 1940; Davey and Priestley 2002, CITED, with a CITED row), says distributivity is Theorem 3's, and that the pair test can refute but not establish it, with M₃ as the witness |
+| R-2 | MAJOR | PAPER.md 306–320 | Theorem 12's "single coordinate" statement contradicted by the g-first aside | FIXED — the aside is replaced by the sentence that the single-argument property belongs to a leaf order and that g eliminated with q and f live would carry two arguments; the theorem is stated as the nested formula the check computes |
+| R-3 | MAJOR | PAPER.md 39 | cap-free list wrongly includes Theorem 15, 17, Corollaries 7, 8 | FIXED — §0 lists Theorems 3, 4, 6 (form and closed count), 10, 11, 12, 13, 16 and Corollary 6 as cap-free; Theorem 17 at any setting with E = 0 (stated in the theorem too); Theorem 15 and Corollaries 7, 8 at the stated caps |
+| R-4 | MINOR | PAPER.md 187 | injectivity step in Theorem 6 needs one line | FIXED — the line is supplied in the proof |
+| R-5 | MINOR | PAPER.md 173, 398 | J(Λ) vs J(Q) notation clash | FIXED — 𝒪(Q) for down-sets; J(Λ) stays for the join-irreducibles |
+| R-6 | MINOR | PAPER.md 410 | "eight comparisons" — fifteen | FIXED — fifteen: the seven of Theorem 13 and the eight unit tests |
+| R-7 | MINOR | PAPER.md 376 | Corollary 5 is stronger than Theorem 9, not "the statement Theorem 9 makes" | FIXED — "of which Theorem 9's reflection is one instance" |
+| R-8 | MINOR | PAPER.md 71–75 | A₄, A₇, A₈ = {0..kₘₐₓ} not stated | FIXED — D3 states the alphabets at a general setting, q, g, 2S taking kₘₐₓ |
+| R-9 | MINOR | PAPER.md 332 | Chebyshev remark asserts what it does not prove | FIXED — marked "a heuristic reading, not measured here", the probability-1 and Chebyshev claims removed; Hardy–Littlewood–Pólya therefore not cited |
+| R-10 | MINOR | PAPER.md 306–310 | Theorem 12 stated as a procedure, not a formula | FIXED — Theorem 12 displays the nested sum with the two closed leaves, and the proof derives it |
+| R-11 | MINOR | PAPER.md 452 | "at most two of those seven are slack" is meaningless once the minimum is exact | FIXED — "the disjoint-witness bound certifies 5 and the search closes the gap to 7" |
+| R-12 | MINOR | PAPER.md 272 | "(1 of D10) = (2)" | FIXED |
+| R-13 | MINOR | PAPER.md 163 | Sperner property used before defined; cite Stanley 1989 for unimodality | FIXED — Sperner defined in D8 and stated in Theorem 5; Stanley 1989 cited, with a CITED row; the product-of-chains remark (Proctor–Saks–Sturtevant, Stanley 1980) says why it is computed |
+| R-14 | MINOR | PAPER.md 402 | cite the crosscut corollary precisely; note the closed form is textbook | FIXED — the corollary of the crosscut theorem cited to Rota 1964 and Stanley 2012 Corollary 3.9.5; the closed form noted as textbook (Stanley 2012 §3.9) with the instance verified |
+| R-15 | MAJOR | title; PAPER.md 1, 11 | "one-electron" while 481 cells move two or three electrons | FIXED — retitled "The Lattice of Subshell Transitions" (old title recorded in SOURCES.md and below, for the author to settle); abstract, thesis and §0 follow; §0 prints 165 / 330 / 345 / 136 cells by q and 481 moving two or three, from the new row "D1, electrons moved" |
+| R-16 | MAJOR | PAPER.md 19, 57, 69 | 2S ≤ k is an envelope (503 unphysical spin labels); "nothing chosen for convenience" overstates | FIXED — §1 states the rule 2S ≡ k (mod 2), 2S ≤ min(k, 4ℓ + 2 − k), says why neither part is a monotone bound in one coordinate, and prints 503 (413 parity, 180 particle–hole, 90 both; 473 physical = 48.5 %) from the new row "Table 1, the spin envelope"; Table 1 has a kind column, exact for six and envelope for 2S ≤ k; §0's "nothing chosen for convenience" is replaced by the exact/envelope statement |
+| R-17 | MAJOR | PAPER.md 57, 63, 111–114 | semantics of g: 515 cells lose electrons, 200 have source = target; state the model | FIXED — the physics paragraph and D1 state the model from the source's own definitions: g is the number placed, the target is taken to begin empty and the index has no coordinate for prior occupancy, so the Pauli bound reads g as the occupancy after the move; g < q (515) is removed-and-not-placed with no second destination carried; q = 0 (165) is a null transition; source = target (200) is admitted because no bound compares source and target labels; counts from the new row "D1, the model of a cell" |
+| R-18 | MINOR | PAPER.md 57, 63 | 2S called "multiplicity"; multiplicity is 2S + 1 | FIXED — "spin label 2S (multiplicity 2S + 1)" |
+| R-19 | MINOR | PAPER.md 57 | ℓ ≤ n − 1 cited to Bohr 1913; cite Schrödinger 1926 | FIXED — Schrödinger 1926 for ℓ ≤ n − 1, Bohr 1913 kept for n; reference added |
+| R-20 | MINOR | PAPER.md 57 | S ≤ k/2 is spin addition, not Hund's rule | FIXED — addition of angular momenta, Condon and Shortley; Hund 1925 removed from the references as uncited |
+| R-21 | MINOR | abstract, §1 | say that no selection rule or spectral datum enters | FIXED — in the abstract and at the end of the physics paragraph, with Δℓ = ±1 named |
+| R-22 | MAJOR | PAPER.md 95, 462 | "the companion paper" cited four times, no reference entry | FIXED — References: Lach, M. (2026). The Closure Law of a Finite Index. This collection; cited (Lach 2026) at D7 and §8, the only two places the companion is named |
+| R-23 | MINOR | PAPER.md 17–37 | say which headline results are inherited and which are new | FIXED — one paragraph in §0 separates the inherited results from the new ones |
+| R-24 | MINOR | References | missing: Harary–Schwenk 1973, Schrödinger 1926, Stanley 1989, Baker–Pixley 1975, Bergman 1977, Davey–Priestley 2002, Trotter 1992, Proctor–Saks–Sturtevant 1980, Stanley 1980 (Garey–Johnson 1979, HLP 1934 optional) | FIXED for the nine named (Harary–Schwenk, Schrödinger, Stanley 1989, Baker–Pixley, Bergman, Davey–Priestley, Trotter, Proctor–Saks–Sturtevant, Stanley 1980), each cited where used; the two optional ones DECLINED — Karp suffices for set cover and the Chebyshev sentence is gone (R-9) |
+| R-25 | MINOR | PAPER.md 468, 470 | "every number recomputed" has exceptions (A-4); "check's own label" is transliterated | FIXED — every printed number now has a row (A-4), so the sentence stands; the transliteration is stated with its list |
+| R-26 | MINOR | PAPER.md 3 | thesis: "every one of which" attaches to the cells, not the sets | FIXED — "every such set containing …" |
+| R-27 | MINOR | PAPER.md 39, 432 | minimum set cover is NP-hard; the decision version is NP-complete | FIXED — NP-hard, decision version NP-complete, in §0, Theorem 18 and the CITED row |
+| R-28 | MINOR | PAPER.md 217, 256 | "occupancy" carries three meanings | FIXED — "interval metric / interval measure" (the source's own name) for d, "density" for the bit fraction; occupancy is now only the electron count |
 
 Totals: 0 BLOCKING, 8 MAJOR (A-1, R-1, R-2, R-3, R-15, R-16, R-17, R-22), 34 MINOR; 42 findings.
+
+---
+
+## Repair record (2026-09-24, the repairing drafter)
+
+**What was run.** After the repair, with `method/bin` first on PATH (Python 3.12.3, Z3 5.1.0):
+`python3 check.py` — **77 rows, 0 failures, 66 s** (5 GUARD, 5 MACHINE-CHECKED, 54 EXHAUSTIVE, 4 SAMPLED,
+9 CITED); `python3 check.py --selftest` — **83 rows, 0 failures, 65 s**, all six negative controls refuted.
+`python3 papers/method/lint.py papers/method/02-lambda` — 0 hits. `python3 papers/method/render.py
+papers/method/02-lambda` — 29 pages, 0.77 MB. Every page was rasterised (pypdfium2) and read; a pypdf text
+extraction of the PDF contains **0 underscores, 0 carets, 0 backslashes and 0 asterisks**.
+
+**Dispositions.** 42 findings: 8 MAJOR, all FIXED; 34 MINOR, all FIXED, R-24 declining only its two
+optional references (Garey–Johnson 1979, Hardy–Littlewood–Pólya 1934). Nothing DECLINED outright. No
+finding was deleted or rewritten; the column above is the only addition to Parts A–C.
+
+**The title.** "The Lattice of One-Electron Transitions" → **"The Lattice of Subshell Transitions"**, because
+481 of the 976 cells move two or three electrons (R-15) and the cells are transfers between subshells with
+q from 0 to 3. The old title is recorded here and in SOURCES.md for the author; the retitle is his to
+settle.
+
+**check.py gained and never lost.** Three rows (D1 electrons moved; D1 the model of a cell; Table 1 the
+spin envelope), two CITED rows, order-derived covers with a unit-step assertion, pins on six previously
+unasserted rows plus Table 2, per-k properties for Corollary 7, printed family sizes for the SAMPLED rows,
+and the cover count in the Theorem 17 sample. One number changed on the page as a result: the box extended
+to k = 0 has **9,216** points, not 8,064 (A-4); the draft's figure reproduced from nothing.
+
+**What the physicist's readings resolved to.** R-16: the spin bound is declared an envelope, the exact rule
+is stated, the reason it is not imposed is the shape (a congruence is not monotone; the particle–hole
+ceiling has two parents), and the envelope's admission is counted — 503 of 976, with the split — from a
+check line, with the main volume's own 48.5 % reproduced as 473/976. R-17: the model of a cell is stated
+once, from the source's own reading (g is the number placed; the target begins empty; no coordinate for
+prior occupancy), and the three kinds of cell the reader asked about are named with their counts.
+
+**Typography.** Figures are pandoc figures (caption as alt text, rendered as a figcaption beginning
+**Figure n.**), tables carry their headings as captions, Table 1 follows D2; the one superscript Unicode
+lacks (zᵠ in Theorem 14) is an HTML superscript inside a display block. Every figure sits with its caption,
+no table heading is orphaned, no §9 row is split. The template `paper.html` was not edited.
+
+**Unresolved, for the author.** (1) Whether "The Lattice of Subshell Transitions" is the title to keep.
+(2) The 200 cells with source = target and the 515 with g < q are carried as cells of the index, as the
+source carries them; the paper says the index does not decide which cells are physical transitions, and
+does not restrict the index. (3) The site's generator must render pandoc figures and table captions for
+the typography repairs to survive publication; if it renders only the plain image syntax, the captions
+revert to the alt attribute.
