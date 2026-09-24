@@ -169,7 +169,7 @@
    "median_only": 38768,
    "both": 22598,
    "neither": 0,
-   "seconds": 13.6
+   "seconds": 13.1
   }
  ],
  "example": {
@@ -868,7 +868,7 @@
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 16,
    "three_quarters": null,
-   "seconds": 0.5
+   "seconds": 0.6
   },
   {
    "box": [
@@ -985,7 +985,7 @@
      0
     ]
    ],
-   "seconds": 4.5
+   "seconds": 4.3
   }
  ],
  "d2_algorithm": [
@@ -1032,7 +1032,7 @@
    ],
    "instances": 41503,
    "agree": 41503,
-   "seconds": 31.2
+   "seconds": 30.9
   }
  ],
  "tree_exhaustive": [
@@ -1062,7 +1062,7 @@
    "closed": 4819,
    "scrambles": 346968,
    "scrambles_recovered": 346968,
-   "seconds": 40.7
+   "seconds": 39.0
   },
   {
    "box": [
@@ -1103,7 +1103,7 @@
    "exact_or_dual": 3,
    "admissible_orderings": 16,
    "root_orders_tried_max": 2,
-   "seconds": 20.1
+   "seconds": 18.5
   },
   {
    "cells": 216,
@@ -1112,7 +1112,7 @@
    "exact_or_dual": 0,
    "admissible_orderings": 16,
    "root_orders_tried_max": 1,
-   "seconds": 1.0
+   "seconds": 1.1
   }
  ],
  "lambda_sum_fact": 94,
@@ -1125,7 +1125,7 @@
    ],
    "pairs": 36,
    "failures": 0,
-   "seconds": 0.9
+   "seconds": 1.0
   },
   {
    "box": [
@@ -1182,7 +1182,7 @@
    "bound": 48,
    "attained": true,
    "exceeded": false,
-   "seconds": 0.7
+   "seconds": 0.6
   }
  ],
  "boolean_step_at_box": {
@@ -1265,7 +1265,7 @@
      "bijunctive": 73
     }
    },
-   "seconds": 15.3
+   "seconds": 14.5
   }
  ],
  "bijunctive_exact": {
@@ -7349,5 +7349,5 @@
   "REFUTATION": 6,
   "SAMPLED": 3
  },
- "seconds": 209.4
+ "seconds": 202.9
 }

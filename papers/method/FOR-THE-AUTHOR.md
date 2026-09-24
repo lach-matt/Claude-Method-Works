@@ -293,3 +293,16 @@ rule, which gives 88 of 105 (91 when the walk is finished). The paper prints its
 
 **7 · The walk runs from Z = 3.** Every instrument excludes hydrogen and helium and no source says
 why; the paper says so rather than inventing a reason.
+
+**Seaton's ratio — the audit finds the paper corrects nothing in the literature, and its title
+must change.** The n-dependent polarisation defect and its restriction to non-penetrating channels
+are textbook (Van Vleck and Whitelaw 1933; Edlén 1964; Freeman and Kleppner 1976), and the sentence
+attributing the ratio "as the spectroscopic literature attributes it" was unsupported because the
+1958 paper is unread. The paper's real contributions are the criterion in the node count p, the
+exact reproducible fit, and the sign rule; it is being retitled to those, as a working title for
+you to settle. Two blocking faults are being repaired: a printed identity in a lemma marked proved
+was wrong by a factor of two (the conclusion survives; the identity now gets its own exact check),
+and the headline "valid at p = 0" is contradicted by the record's own orbital-collapse regime —
+p = 0 is necessary, not sufficient, and the class becomes p = 0 and uncollapsed, with the collapse
+literature the tree holds cited. And one removal was wrong: the Ritz 1903 reference the earlier
+pass stripped as unheld is held in two compendia, and is restored.

@@ -8,7 +8,7 @@
 
 ## Abstract
 
-A one-electron transition between atomic configurations is specified by eight integers: the shell, subshell and occupancy of the source, the number of electrons moved, the shell, subshell and final occupancy of the target, and the source multiplicity. Four physical facts — the hydrogenic node count, the Pauli capacity, conservation of the moved electrons, and vector coupling — cut the eight-fold product down to a set Λ, and each of them does so by one inequality of the same shape, one coordinate bounded by a non-decreasing function of one other. This paper shows what that shape buys. Λ is a sublattice of its ambient box: machine-checked with all variables integer, so the result holds at every cap and not at one. At the caps used here Λ has 976 cells in a box of 6,912, it is distributive and its rank function is modular with equality, its largest antichain equals its largest rank level, and it is the lattice of down-sets of a seventeen-element poset whose twenty covering relations are the seven bounds read a second time. The number seventeen is Σᵢ(|Aᵢ| − 1), a closed form in the alphabets. A multiplicative distance d(x, y) = ∏ᵢ(|Δᵢ| + 1) counts the box between two cells and equals a divisor count under a prime encoding; its logarithm is an ℓ¹ metric. Because the constraint graph is a tree — a caterpillar, a path of seven with one pendant — the number of cells in any coordinate box has a product form with no inclusion–exclusion, verified on all 1,944,000 sub-boxes; the whole index is one nested sum F whose coefficient function is its own membership predicate, with F(1) = 976 and F(−1) = 2. The Möbius function is (−1)^{|y∖x|} on antichain differences and zero elsewhere, verified against the defining recursion on all 116,138 comparable pairs. Its non-zero values sit exactly on the 19,079 comparable pairs whose box is a unit hypercube inside Λ, so it is decided by the same seven comparisons that decide containment, and it agrees with the number-theoretic Möbius function of N(y)/N(x) everywhere except on the 17,104 unit hypercubes that carry a void. Finally, seven cells generate the whole of Λ under the pairwise-envelope closure; an exhaustive branch-and-bound finds 24,585 minimum generating sets, exactly one cell lies in all of them, no covering obligation is met by a unique cell, no single cell can be removed from Λ without the closure restoring it, and every minimum generating set contains a null transition, a full transfer and each of the channels s → p, p → s and p → p. The closure defect and the closed-form generator count are re-measured at five further cap settings, from 216 to 19,109 cells, and hold at each.
+A one-electron transition between atomic configurations is specified by eight integers: the shell, subshell and occupancy of the source, the number of electrons moved, the shell, subshell and final occupancy of the target, and the source multiplicity. Four physical facts — the hydrogenic node count, the Pauli capacity, conservation of the moved electrons, and vector coupling — cut the eight-fold product down to a set Λ, and each of them does so by one inequality of the same shape, one coordinate bounded by a non-decreasing function of one other. This paper shows what that shape buys. Λ is a sublattice of its ambient box: machine-checked with all variables integer, so the result holds at every cap and not at one. At the caps used here Λ has 976 cells in a box of 6,912, it is distributive and its rank function is modular with equality, its largest antichain equals its largest rank level, and it is the lattice of down-sets of a seventeen-element poset whose twenty covering relations are the seven bounds read a second time. The number seventeen is Σᵢ(|Aᵢ| − 1), a closed form in the alphabets. A multiplicative distance d(x, y) = ∏ᵢ(|Δᵢ| + 1) counts the box between two cells and equals a divisor count under a prime encoding; its logarithm is an ℓ¹ metric. Because the constraint graph is a tree — a caterpillar, a path of seven with one pendant — the number of cells in any coordinate box has a product form with no inclusion–exclusion, verified on all 1,944,000 sub-boxes; the whole index is one nested sum F whose coefficient function is its own membership predicate, with F(1) = 976 and F(−1) = 2. The Möbius function is ±1 on antichain differences — the sign the parity of the number of generators added — and zero elsewhere, verified against the defining recursion on all 116,138 comparable pairs. Its non-zero values sit exactly on the 19,079 comparable pairs whose box is a unit hypercube inside Λ, so it is decided by the same seven comparisons that decide containment, and it agrees with the number-theoretic Möbius function of N(y)/N(x) everywhere except on the 17,104 unit hypercubes that carry a void. Finally, seven cells generate the whole of Λ under the pairwise-envelope closure; an exhaustive branch-and-bound finds 24,585 minimum generating sets, exactly one cell lies in all of them, no covering obligation is met by a unique cell, no single cell can be removed from Λ without the closure restoring it, and every minimum generating set contains a null transition, a full transfer and each of the channels s → p, p → s and p → p. The closure defect and the closed-form generator count are re-measured at five further cap settings, from 216 to 19,109 cells, and hold at each.
 
 ---
 
@@ -27,7 +27,7 @@ The object is a set Λ of eight-tuples of integers (§1). Nothing in the constru
 | cells, box, density | 976 · 6,912 · 14.12% | EXHAUSTIVE |
 | rank range, cover relations | 3 to 20 · 3,749 | EXHAUSTIVE |
 | largest antichain = largest rank level | **122**, at rank 11 | EXHAUSTIVE |
-| join-irreducibles = meet-irreducibles = Σᵢ(\|Aᵢ\|−1) | **17** | EXHAUSTIVE |
+| join-irreducibles = meet-irreducibles = Σᵢ(∣Aᵢ∣ − 1) | **17** | EXHAUSTIVE |
 | down-sets of the generating poset | **976** of 2¹⁷ = 131,072 subsets | EXHAUSTIVE |
 | covering relations among the generators | **20** — 9 within a coordinate, 11 between | EXHAUSTIVE |
 | F(1), F(−1), F′(1)/F(1) | 976 · 2 · 10801/976 = 11.0666 | EXHAUSTIVE, exact |
@@ -60,15 +60,15 @@ The object is a set Λ of eight-tuples of integers (§1). Nothing in the constru
 
 > x = (n, ℓ, k, q, e, f, g, 2S),
 
-read as: a source subshell (n, ℓ) holding k electrons, of which q move, into a target subshell (e, f) that ends holding g, the source carrying multiplicity 2S. The coordinates are indexed 1 to 8 in that order and `xᵢ` denotes the i-th.
+read as: a source subshell (n, ℓ) holding k electrons, of which q move, into a target subshell (e, f) that ends holding g, the source carrying multiplicity 2S. The coordinates are indexed 1 to 8 in that order and xᵢ denotes the i-th.
 
 **D2 (the bounds).** The **seven bounds** are
 
 > ℓ ≤ n − 1 · k ≤ 4ℓ + 2 · q ≤ k · f ≤ e − 1 · g ≤ 4f + 2 · g ≤ q · 2S ≤ k,
 
-together with the floors n ≥ 1, e ≥ 1, k ≥ 1 and ℓ, f, q, g, 2S ≥ 0. The floor k ≥ 1 is a definitional restriction, not a bound: a cell is a transition and a transition needs a mover. Each of the seven has the form `xᵢ ≤ φ(xⱼ)` with φ non-decreasing and with exactly two coordinates named. None is a sum and none is a difference.
+together with the floors n ≥ 1, e ≥ 1, k ≥ 1 and ℓ, f, q, g, 2S ≥ 0. The floor k ≥ 1 is a definitional restriction, not a bound: a cell is a transition and a transition needs a mover. Each of the seven has the form xᵢ ≤ φ(xⱼ) with φ non-decreasing and with exactly two coordinates named. None is a sum and none is a difference.
 
-**D3 (the caps, and the ambient box).** A **cap setting** is a tuple (n_max, e_max, ℓ_max, k_max, f_max) of positive integers. Throughout this paper the caps are **(3, 3, 1, 3, 1)** unless another setting is named. The **alphabets** are then
+**D3 (the caps, and the ambient box).** A **cap setting** is a tuple (nₘₐₓ, eₘₐₓ, ℓₘₐₓ, kₘₐₓ, fₘₐₓ) of positive integers. Throughout this paper the caps are **(3, 3, 1, 3, 1)** unless another setting is named. The **alphabets** are then
 
 > A₁ = {1,2,3} · A₂ = {0,1} · A₃ = {1,2,3} · A₄ = {0,1,2,3} · A₅ = {1,2,3} · A₆ = {0,1} · A₇ = {0,1,2,3} · A₈ = {0,1,2,3},
 
@@ -76,13 +76,13 @@ and the **ambient box** is B = A₁ × … × A₈, a product of eight chains, o
 
 **D4 (Λ).** Λ := { x ∈ B : x satisfies the seven bounds of D2 }.
 
-**D5 (the lattice operations).** For x, y ∈ B write `x ∨ y` for the coordinatewise maximum and `x ∧ y` for the coordinatewise minimum, and `x ≤ y` for the coordinatewise order. B is a lattice under these; a subset S ⊆ B is a **sublattice** when x, y ∈ S implies x ∨ y ∈ S and x ∧ y ∈ S.
+**D5 (the lattice operations).** For x, y ∈ B write x ∨ y for the coordinatewise maximum and x ∧ y for the coordinatewise minimum, and x ≤ y for the coordinatewise order. B is a lattice under these; a subset S ⊆ B is a **sublattice** when x, y ∈ S implies x ∨ y ∈ S and x ∧ y ∈ S.
 
 **D6 (rank).** rank(x) := Σᵢ xᵢ.
 
 **Theorem 1 (Λ is a sublattice).** For every cap setting and every x, y ∈ Λ, both x ∨ y and x ∧ y lie in Λ.
 
-*Proof.* Take a bound `xᵢ ≤ φ(xⱼ)` with φ non-decreasing, and let z = x ∨ y. Then zᵢ = max(xᵢ, yᵢ) is one of the two, say zᵢ = xᵢ. Since x ∈ Λ, xᵢ ≤ φ(xⱼ), and since xⱼ ≤ max(xⱼ, yⱼ) = zⱼ and φ is non-decreasing, φ(xⱼ) ≤ φ(zⱼ). Hence zᵢ ≤ φ(zⱼ). If instead zᵢ = yᵢ the same argument runs with y in place of x. For the meet, let w = x ∧ y and let the *second* coordinate decide: wⱼ = min(xⱼ, yⱼ) is one of the two, say wⱼ = xⱼ. Then wᵢ ≤ xᵢ ≤ φ(xⱼ) = φ(wⱼ). If wⱼ = yⱼ the same runs with y. The floors and caps are conditions on one coordinate at a time and each is an interval, so they survive max and min. Every one of the seven bounds is of this shape, so both z and w satisfy all seven. ∎ **PROVED**, and **MACHINE-CHECKED**: the negation of the implication, with the five caps and all sixteen cell coordinates as integer variables, is `unsat`. Both guards pass (§9), and two negative controls are refuted in §9 — the claim fails if monotonicity is dropped, and it fails if any one bound is replaced by a bound on a sum.
+*Proof.* Take a bound xᵢ ≤ φ(xⱼ) with φ non-decreasing, and let z = x ∨ y. Then zᵢ = max(xᵢ, yᵢ) is one of the two, say zᵢ = xᵢ. Since x ∈ Λ, xᵢ ≤ φ(xⱼ), and since xⱼ ≤ max(xⱼ, yⱼ) = zⱼ and φ is non-decreasing, φ(xⱼ) ≤ φ(zⱼ). Hence zᵢ ≤ φ(zⱼ). If instead zᵢ = yᵢ the same argument runs with y in place of x. For the meet, let w = x ∧ y and let the *second* coordinate decide: wⱼ = min(xⱼ, yⱼ) is one of the two, say wⱼ = xⱼ. Then wᵢ ≤ xᵢ ≤ φ(xⱼ) = φ(wⱼ). If wⱼ = yⱼ the same runs with y. The floors and caps are conditions on one coordinate at a time and each is an interval, so they survive max and min. Every one of the seven bounds is of this shape, so both z and w satisfy all seven. ∎ **PROVED**, and **MACHINE-CHECKED**: the negation of the implication, with the five caps and all sixteen cell coordinates as integer variables, is `unsat`. Both guards pass (§9), and two negative controls are refuted in §9 — the claim fails if monotonicity is dropped, and it fails if any one bound is replaced by a bound on a sum.
 
 **Lemma 1 (one monotone bound, with φ uninterpreted).** Let φ : ℤ → ℤ be non-decreasing and let R = {(a, b) ∈ ℤ² : a ≤ φ(b)}. Then R is a sublattice of ℤ².
 
@@ -90,13 +90,13 @@ and the **ambient box** is B = A₁ × … × A₈, a product of eight chains, o
 
 **D7 (the envelope, and the closure operator).** For a finite X ⊆ ℤ⁸ with alphabets Aᵢ(X) = {xᵢ : x ∈ X} and box B(X) = ∏ᵢ Aᵢ(X), the **envelope** of X is
 
-> φ̂ᵢⱼ^X(a) := max{ yᵢ : y ∈ X, yⱼ ≤ a }  for i ≠ j and a ∈ Aⱼ(X),
+> φ̂ᵢⱼ(a; X) := max{ yᵢ : y ∈ X, yⱼ ≤ a }  for i ≠ j and a ∈ Aⱼ(X),
 
-and the **staircase closure** is ℛ(X) := { x ∈ B(X) : xᵢ ≤ φ̂ᵢⱼ^X(xⱼ) for all i ≠ j }. X is **closed** when ℛ(X) = X; the **closure defect** is E(X) := |ℛ(X)| − |X|. That ℛ is a closure operator in the sense of Moore (1910) — extensive, monotone and idempotent — is established in the companion paper on the closure law and is not used below except where stated; this paper uses only the definition.
+and the **staircase closure** is ℛ(X) := { x ∈ B(X) : xᵢ ≤ φ̂ᵢⱼ(xⱼ; X) for all i ≠ j }; the set after the semicolon is dropped when it is clear. X is **closed** when ℛ(X) = X; the **closure defect** is E(X) := |ℛ(X)| − |X|. That ℛ is a closure operator in the sense of Moore (1910) — extensive, monotone and idempotent — is established in the companion paper on the closure law and is not used below except where stated; this paper uses only the definition.
 
 **Lemma 2 (a fixed point of ℛ is a sublattice).** If ℛ(X) = X then X is closed under ∨ and ∧.
 
-*Proof.* Each defining condition of ℛ(X) is a bound `xᵢ ≤ φ̂ᵢⱼ(xⱼ)` and each envelope φ̂ᵢⱼ is non-decreasing by construction, being a maximum over a set that grows with its argument. So ℛ(X) is an intersection of sets of the form of Lemma 1, restricted to a box; an intersection of sublattices of a lattice is a sublattice, and B(X) is itself a sublattice of ℤ⁸. ∎ **PROVED**, and **MACHINE-CHECKED** over the subsets of two boxes: for every one of the 2⁹ subsets of a 3 × 3 box, and every one of the 2²⁷ subsets of a 3 × 3 × 3 box, the implication "X is a fixed point of ℛ and realises every value of every coordinate ⟹ X is closed under ∨ and ∧" is `unsat` under negation.
+*Proof.* Each defining condition of ℛ(X) is a bound xᵢ ≤ φ̂ᵢⱼ(xⱼ) and each envelope φ̂ᵢⱼ is non-decreasing by construction, being a maximum over a set that grows with its argument. So ℛ(X) is an intersection of sets of the form of Lemma 1, restricted to a box; an intersection of sublattices of a lattice is a sublattice, and B(X) is itself a sublattice of ℤ⁸. ∎ **PROVED**, and **MACHINE-CHECKED** over the subsets of two boxes: for every one of the 2⁹ subsets of a 3 × 3 box, and every one of the 2²⁷ subsets of a 3 × 3 × 3 box, the implication "X is a fixed point of ℛ and realises every value of every coordinate ⟹ X is closed under ∨ and ∧" is `unsat` under negation.
 
 **Theorem 2 (the index is exactly its own closure).** At the caps of D3, |Λ| = 976, ℛ(Λ) = Λ and E(Λ) = 0; a second application of ℛ changes nothing.
 
@@ -132,7 +132,7 @@ Every entry is positive, so no bound follows from the rest, and the ranking is i
 
 ![Figure 1](figures/fig1-constraint-tree.png)
 
-*Figure 1. The constraint graph: eight coordinates, seven bounds, one edge per bound, each edge labelled with its inequality. The graph is connected with seven edges on eight nodes, so it is a tree, and its degree sequence 1,1,1,2,2,2,2,3 makes it a caterpillar — a path of seven with one pendant, 2S at k. Every consequence in §4 and §5 is a consequence of that shape.*
+**Figure 1.** The constraint graph: eight coordinates, seven bounds, one edge per bound, each edge labelled with its inequality. The graph is connected with seven edges on eight nodes, so it is a tree, and its degree sequence 1,1,1,2,2,2,2,3 makes it a caterpillar — a path of seven with one pendant, 2S at k. Every consequence in §4 and §5 is a consequence of that shape.
 
 ---
 
@@ -140,7 +140,7 @@ Every entry is positive, so no bound follows from the rest, and the ranking is i
 
 Throughout this section Λ is at the caps of D3 and the numbers are counts at those caps.
 
-**D8 (irreducibles).** In a finite lattice, `y` **covers** `x` when x < y and no z has x < z < y. A cell is **join-irreducible** when it covers exactly one cell, and **meet-irreducible** when exactly one cell covers it.
+**D8 (irreducibles).** In a finite lattice, y **covers** x when x < y and no z has x < z < y. A cell is **join-irreducible** when it covers exactly one cell, and **meet-irreducible** when exactly one cell covers it.
 
 **Theorem 3 (distributive).** Λ is a distributive lattice.
 
@@ -150,7 +150,7 @@ Throughout this section Λ is at the caps of D3 and the numbers are counts at th
 
 > rank(x ∨ y) + rank(x ∧ y) = rank(x) + rank(y).
 
-*Proof.* For integers a, b, max(a, b) + min(a, b) = a + b — one of the two is the maximum and the other the minimum. Summing that identity over the eight coordinates and using that ∨ and ∧ are coordinatewise (Theorem 1) gives the displayed equality. For the grading, the claim is that if y covers x in Λ then y − x is a unit vector. This is not true of every sublattice of a box — the two-element chain {(0,0), (1,1)} is a sublattice of {0,1}² in which (1,1) covers (0,0) at rank distance 2 — so the argument must use the shape of the bounds. Call the bounded coordinate of a bound `xᵢ ≤ φ(xⱼ)` a child of the bounding coordinate j. Let x < y in Λ and let S be the set of coordinates at which they differ. The child relation restricted to S has no directed cycle (Lemma 3), so some i ∈ S has no child in S. Put z := y − eᵢ, the cell y with coordinate i lowered by one. It lies in the ambient box, since zᵢ = yᵢ − 1 ≥ xᵢ. Every bound in which i is the bounded coordinate holds at z: zᵢ < yᵢ ≤ φ(yⱼ) = φ(zⱼ). Every bound in which i is the bounding coordinate, `x_m ≤ φ(xᵢ)` with m a child of i, also holds at z: m ∉ S, so z_m = y_m = x_m ≤ φ(xᵢ) ≤ φ(yᵢ − 1) = φ(zᵢ), because xᵢ ≤ yᵢ − 1 and φ is non-decreasing. Every other bound is unchanged. So z ∈ Λ and x ≤ z < y; if y covers x this forces z = x, that is y = x + eᵢ, and rank rises by exactly 1. The extremes are computed. ∎ **PROVED**; **EXHAUSTIVE** on all 475,800 unordered pairs, zero violations, and on all 3,749 cover relations.
+*Proof.* For integers a, b, max(a, b) + min(a, b) = a + b — one of the two is the maximum and the other the minimum. Summing that identity over the eight coordinates and using that ∨ and ∧ are coordinatewise (Theorem 1) gives the displayed equality. For the grading, the claim is that if y covers x in Λ then y − x is a unit vector. This is not true of every sublattice of a box — the two-element chain {(0,0), (1,1)} is a sublattice of {0,1}² in which (1,1) covers (0,0) at rank distance 2 — so the argument must use the shape of the bounds. Call the bounded coordinate of a bound xᵢ ≤ φ(xⱼ) a child of the bounding coordinate j. Let x < y in Λ and let S be the set of coordinates at which they differ. The child relation restricted to S has no directed cycle (Lemma 3), so some i ∈ S has no child in S. Put z := y − eᵢ, the cell y with coordinate i lowered by one. It lies in the ambient box, since zᵢ = yᵢ − 1 ≥ xᵢ. Every bound in which i is the bounded coordinate holds at z: zᵢ < yᵢ ≤ φ(yⱼ) = φ(zⱼ). Every bound in which i is the bounding coordinate, xₘ ≤ φ(xᵢ) with m a child of i, also holds at z: m ∉ S, so zₘ = yₘ = xₘ ≤ φ(xᵢ) ≤ φ(yᵢ − 1) = φ(zᵢ), because xᵢ ≤ yᵢ − 1 and φ is non-decreasing. Every other bound is unchanged. So z ∈ Λ and x ≤ z < y; if y covers x this forces z = x, that is y = x + eᵢ, and rank rises by exactly 1. The extremes are computed. ∎ **PROVED**; **EXHAUSTIVE** on all 475,800 unordered pairs, zero violations, and on all 3,749 cover relations.
 
 The equality matters. Matroid rank and entropy are *sub*modular — the left side is at most the right. Λ's rank meets the equality, which is the graded signature of distributivity, and it is also the cheaper test: modularity is a condition on pairs, O(N²), where the distributive law is a condition on triples, O(N³).
 
@@ -166,7 +166,7 @@ summing to 976, and it is log-concave at every interior rank — aᵣ² ≥ aᵣ
 
 ![Figure 2](figures/fig3-rank-sequence.png)
 
-*Figure 2. The rank sequence over all 976 cells. It is log-concave, hence unimodal, hence Sperner, with the largest level 122 at rank 11. It is not symmetric: the centre of mass 11.07 sits below the midpoint 11.5 by 0.43.*
+**Figure 2.** The rank sequence over all 976 cells. It is log-concave, hence unimodal, hence Sperner, with the largest level 122 at rank 11. It is not symmetric: the centre of mass 11.07 sits below the midpoint 11.5 by 0.43.
 
 **Theorem 6 (seventeen letters, in closed form).** Λ has exactly 17 join-irreducibles and exactly 17 meet-irreducibles, and
 
@@ -174,41 +174,41 @@ summing to 976, and it is log-concave at every interior rank — aᵣ² ≥ aᵣ
 
 Every join-irreducible has the form
 
-> j(c, v) := min{ x ∈ Λ : x_c ≥ v },
+> j(i, v) := min{ x ∈ Λ : xᵢ ≥ v },
 
-one for each coordinate c and each value v of A_c above that coordinate's minimum, and the minimum exists.
+one for each coordinate i and each value v of Aᵢ above that coordinate's minimum, and the minimum exists.
 
-*Proof.* Fix a coordinate c and a value v ∈ A_c above the minimum of A_c. The set S_v := {x ∈ Λ : x_c ≥ v} is non-empty, since every value of every alphabet is realised by some cell (Theorem 2 rebuilds Λ from the box and finds every alphabet value present), and it is closed under ∧ by Theorem 1, so it has a least element m := j(c, v), the meet of all its members. Some cell of Λ has c-coordinate exactly v; it lies in S_v, so m lies below it and m_c ≤ v; hence m_c = v.
+*Proof.* Fix a coordinate i and a value v ∈ Aᵢ above the minimum of Aᵢ. The set Sᵥ := {x ∈ Λ : xᵢ ≥ v} is non-empty, since every value of every alphabet is realised by some cell (Theorem 2 rebuilds Λ from the box and finds every alphabet value present), and it is closed under ∧ by Theorem 1, so it has a least element m := j(i, v), the meet of all its members. Some cell of Λ has i-coordinate exactly v; it lies in Sᵥ, so m lies below it and mᵢ ≤ v; hence mᵢ = v.
 
-m is join-irreducible. It is not the bottom cell, whose c-coordinate is the minimum of A_c, below v; so m covers at least one cell. Suppose m covered two distinct cells a and b. Neither lies below the other, since b < a < m would contradict b ⋖ m; so a < a ∨ b ≤ m, and a ⋖ m forces a ∨ b = m, which lies in Λ by Theorem 1. Then v = m_c = max(a_c, b_c), so one of a, b has c-coordinate v, lies in S_v and is strictly below m — contradicting the minimality of m. So m covers exactly one cell.
+m is join-irreducible. It is not the bottom cell, whose i-coordinate is the minimum of Aᵢ, below v; so m covers at least one cell. Suppose m covered two distinct cells a and b. Neither lies below the other, since b < a < m would contradict b ⋖ m; so a < a ∨ b ≤ m, and a ⋖ m forces a ∨ b = m, which lies in Λ by Theorem 1. Then v = mᵢ = max(aᵢ, bᵢ), so one of a, b has i-coordinate v, lies in Sᵥ and is strictly below m — contradicting the minimality of m. So m covers exactly one cell.
 
-Conversely let j be join-irreducible with unique lower cover j⁻. By Theorem 4, j = j⁻ + e_c for some coordinate c; put v := j_c, which lies above the minimum of A_c because j⁻_c = v − 1 is a value of A_c. Then j ∈ S_v, and j is its least element: let x ∈ S_v and suppose j ≰ x. Then z := j ∧ x lies in Λ, is strictly below j, and has z_c = min(j_c, x_c) = v. Every cell strictly below j lies below some cell that j covers — the last step of a maximal chain from z to j is a cover of j — hence z ≤ j⁻ and z_c ≤ j⁻_c = v − 1, a contradiction. So j = j(c, v).
+Conversely let j be join-irreducible with unique lower cover j⁻. By Theorem 4, j = j⁻ + eᵢ for some coordinate i; put v := jᵢ, which lies above the minimum of Aᵢ because the i-coordinate of j⁻ is v − 1, a value of Aᵢ. Then j ∈ Sᵥ, and j is its least element: let x ∈ Sᵥ and suppose j ≰ x. Then z := j ∧ x lies in Λ, is strictly below j, and has zᵢ = min(jᵢ, xᵢ) = v. Every cell strictly below j lies below some cell that j covers — the last step of a maximal chain from z to j is a cover of j — hence z ≤ j⁻ and zᵢ ≤ v − 1, a contradiction. So j = j(i, v).
 
-The map (c, v) ↦ j(c, v) is injective: j(c, v) covers only j(c, v) − e_c, so c is read off its unique lower cover and v is its c-coordinate. The join-irreducibles are therefore in bijection with the pairs (c, v), and their number is Σᵢ(|Aᵢ| − 1). The meet-irreducible count is computed and equals 17. ∎ **PROVED** for the form and the closed count; **EXHAUSTIVE** for the equality of the two counts (976 cells, both cover sets computed), and the closed count is re-verified at five further cap settings (Theorem 2).
+The map (i, v) ↦ j(i, v) is injective: j(i, v) covers only j(i, v) − eᵢ, so i is read off its unique lower cover and v is its i-coordinate. The join-irreducibles are therefore in bijection with the pairs (i, v), and their number is Σᵢ(|Aᵢ| − 1). The meet-irreducible count is computed and equals 17. ∎ **PROVED** for the form and the closed count; **EXHAUSTIVE** for the equality of the two counts (976 cells, both cover sets computed), and the closed count is re-verified at five further cap settings (Theorem 2).
 
 **Table 3 — the seventeen letters.** *rank* is rank(j); *weight* is the number of the 976 cells that lie above j; *forces* lists the letters implied by it (Theorem 8).
 
 | letter | generator | rank | weight | forces |
 |---|---|---|---|---|
-| `n ≥ 2` | (2,0,1,0,1,0,0,0) | 4 | 856 | — |
-| `k ≥ 2` | (1,0,2,0,1,0,0,0) | 4 | 826 | — |
-| `q ≥ 1` | (1,0,1,1,1,0,0,0) | 4 | 811 | — |
-| `e ≥ 2` | (1,0,1,0,2,0,0,0) | 4 | 784 | — |
-| `2S ≥ 1` | (1,0,1,0,1,0,0,1) | 4 | 657 | — |
-| `ℓ ≥ 1` | (2,1,1,0,1,0,0,0) | 5 | 616 | `n ≥ 2` |
-| `g ≥ 1` | (1,0,1,1,1,0,1,0) | 5 | 491 | `q ≥ 1` |
-| `n ≥ 3` | (3,0,1,0,1,0,0,0) | 5 | 428 | `n ≥ 2` |
-| `f ≥ 1` | (1,0,1,0,2,1,0,0) | 5 | 400 | `e ≥ 2` |
-| `e ≥ 3` | (1,0,1,0,3,0,0,0) | 5 | 392 | `e ≥ 2` |
-| `q ≥ 2` | (1,0,2,2,1,0,0,0) | 6 | 481 | `q ≥ 1`, `k ≥ 2` |
-| `2S ≥ 2` | (1,0,2,0,1,0,0,2) | 6 | 338 | `2S ≥ 1`, `k ≥ 2` |
-| `k ≥ 3` | (2,1,3,0,1,0,0,0) | 7 | 376 | `k ≥ 2`, `ℓ ≥ 1` |
-| `g ≥ 2` | (1,0,2,2,1,0,2,0) | 8 | 171 | `g ≥ 1`, `q ≥ 2` |
-| `q ≥ 3` | (2,1,3,3,1,0,0,0) | 10 | 136 | `q ≥ 2`, `k ≥ 3` |
-| `2S ≥ 3` | (2,1,3,0,1,0,0,3) | 10 | 94 | `2S ≥ 2`, `k ≥ 3` |
-| `g ≥ 3` | (2,1,3,3,2,1,3,0) | 15 | 16 | `g ≥ 2`, `q ≥ 3`, `f ≥ 1` |
+| n ≥ 2 | (2,0,1,0,1,0,0,0) | 4 | 856 | — |
+| k ≥ 2 | (1,0,2,0,1,0,0,0) | 4 | 826 | — |
+| q ≥ 1 | (1,0,1,1,1,0,0,0) | 4 | 811 | — |
+| e ≥ 2 | (1,0,1,0,2,0,0,0) | 4 | 784 | — |
+| 2S ≥ 1 | (1,0,1,0,1,0,0,1) | 4 | 657 | — |
+| ℓ ≥ 1 | (2,1,1,0,1,0,0,0) | 5 | 616 | n ≥ 2 |
+| g ≥ 1 | (1,0,1,1,1,0,1,0) | 5 | 491 | q ≥ 1 |
+| n ≥ 3 | (3,0,1,0,1,0,0,0) | 5 | 428 | n ≥ 2 |
+| f ≥ 1 | (1,0,1,0,2,1,0,0) | 5 | 400 | e ≥ 2 |
+| e ≥ 3 | (1,0,1,0,3,0,0,0) | 5 | 392 | e ≥ 2 |
+| q ≥ 2 | (1,0,2,2,1,0,0,0) | 6 | 481 | q ≥ 1, k ≥ 2 |
+| 2S ≥ 2 | (1,0,2,0,1,0,0,2) | 6 | 338 | 2S ≥ 1, k ≥ 2 |
+| k ≥ 3 | (2,1,3,0,1,0,0,0) | 7 | 376 | k ≥ 2, ℓ ≥ 1 |
+| g ≥ 2 | (1,0,2,2,1,0,2,0) | 8 | 171 | g ≥ 1, q ≥ 2 |
+| q ≥ 3 | (2,1,3,3,1,0,0,0) | 10 | 136 | q ≥ 2, k ≥ 3 |
+| 2S ≥ 3 | (2,1,3,0,1,0,0,3) | 10 | 94 | 2S ≥ 2, k ≥ 3 |
+| g ≥ 3 | (2,1,3,3,2,1,3,0) | 15 | 16 | g ≥ 2, q ≥ 3, f ≥ 1 |
 
-The alphabet is not uniform: `n ≥ 2` is set in 856 of the 976 cells and `g ≥ 3` in sixteen, so one letter carries 87.7% of the object and another 1.6%.
+The alphabet is not uniform: n ≥ 2 is set in 856 of the 976 cells and g ≥ 3 in sixteen, so one letter carries 87.7% of the object and another 1.6%.
 
 **Theorem 7 (Birkhoff, verified).** Let P be the 17-element poset of join-irreducibles ordered by ≤, and for x ∈ Λ let D(x) := { j ∈ P : j ≤ x }. Then D is a bijection from Λ onto the set of down-sets of P, and D(x ∨ y) = D(x) ∪ D(y), D(x ∧ y) = D(x) ∩ D(y).
 
@@ -216,9 +216,9 @@ The alphabet is not uniform: `n ≥ 2` is set in 856 of the 976 cells and `g ≥
 
 Writing a cell as the 17-bit word of its letters, join is bitwise OR, meet is bitwise AND, and Λ is 976 of the 131,072 available words: 17 bits carried per cell against log₂ 976 = 9.9307 needed to index them, a surplus of 7.0693 bits, and an occupancy of 0.7446% of the space the cells are written in.
 
-**Theorem 8 (twenty implications, and they are the seven bounds again).** P has exactly 20 covering relations. Nine are **within** a coordinate — `c ≥ v` forces `c ≥ v − 1`, which is the chain on Aᶜ — and eleven are **between** coordinates:
+**Theorem 8 (twenty implications, and they are the seven bounds again).** P has exactly 20 covering relations. Nine are **within** a coordinate — a letter c ≥ v forces c ≥ v − 1, which is the chain on the alphabet of c — and eleven are **between** coordinates:
 
-> `ℓ ≥ 1` → `n ≥ 2` · `f ≥ 1` → `e ≥ 2` · `g ≥ 1` → `q ≥ 1` · `k ≥ 3` → `ℓ ≥ 1` · `q ≥ 2` → `k ≥ 2` · `2S ≥ 2` → `k ≥ 2` · `g ≥ 2` → `q ≥ 2` · `q ≥ 3` → `k ≥ 3` · `2S ≥ 3` → `k ≥ 3` · `g ≥ 3` → `q ≥ 3` · `g ≥ 3` → `f ≥ 1`.
+> ℓ ≥ 1 → n ≥ 2 · f ≥ 1 → e ≥ 2 · g ≥ 1 → q ≥ 1 · k ≥ 3 → ℓ ≥ 1 · q ≥ 2 → k ≥ 2 · 2S ≥ 2 → k ≥ 2 · g ≥ 2 → q ≥ 2 · q ≥ 3 → k ≥ 3 · 2S ≥ 3 → k ≥ 3 · g ≥ 3 → q ≥ 3 · g ≥ 3 → f ≥ 1.
 
 Each is one way a bound of D2 binds at one value, and those twenty implications alone cut the 131,072 words down to exactly the 976 cells, nothing else being imposed.
 
@@ -226,11 +226,11 @@ Each is one way a bound of D2 binds at one value, and those twenty implications 
 
 ![Figure 3](figures/fig2-generating-poset.png)
 
-*Figure 3. The seventeen generators, at their ranks in Λ, with the twenty covering relations: nine within one coordinate (solid) and eleven between coordinates (dashed). The grey number below each generator is the number of the 976 cells lying above it, from 856 at `n ≥ 2` to 16 at `g ≥ 3`. Every cell of Λ is the down-set of generators beneath it, and every down-set is a cell.*
+**Figure 3.** The seventeen generators, at their ranks in Λ, with the twenty covering relations: nine within one coordinate (solid) and eleven between coordinates (dashed). The grey number below each generator is the number of the 976 cells lying above it, from 856 at n ≥ 2 to 16 at g ≥ 3. Every cell of Λ is the down-set of generators beneath it, and every down-set is a cell.
 
 **Corollary 2 (order dimension 7).** The order dimension of Λ is 7 — seven linear extensions realise the order and no six do — although Λ has eight coordinates.
 
-*Proof.* For a finite distributive lattice the order dimension equals the width of its poset of join-irreducibles (Dilworth 1950, CITED; the dimension is that of Dushnik and Miller 1941). That width is computed to be 7, certified both ways by the same matching argument as Theorem 5. The antichain is {`k ≥ 2`, `q ≥ 1`, `2S ≥ 1`, `n ≥ 3`, `ℓ ≥ 1`, `e ≥ 3`, `f ≥ 1`} — one letter from each coordinate except g — and the seven chains are `n ≥ 2` < `n ≥ 3`; `k ≥ 2` < `q ≥ 2` < `q ≥ 3`; `q ≥ 1` < `g ≥ 1` < `g ≥ 2`; `e ≥ 2` < `e ≥ 3`; `2S ≥ 1` < `2S ≥ 2` < `2S ≥ 3`; `ℓ ≥ 1` < `k ≥ 3`; `f ≥ 1` < `g ≥ 3`. Why g contributes nothing: every letter `g ≥ v` lies above the atom `q ≥ 1`, because g ≤ q, so no antichain of letters can take a g-letter together with a q-letter below it, and the coordinate q is already represented. The order pays seven dimensions for eight axes. ∎ **CITED** and **EXHAUSTIVE** (the width of a 17-element poset, by exact matching, with both certificates written out).
+*Proof.* For a finite distributive lattice the order dimension equals the width of its poset of join-irreducibles (Dilworth 1950, CITED; the dimension is that of Dushnik and Miller 1941). That width is computed to be 7, certified both ways by the same matching argument as Theorem 5. The antichain is {k ≥ 2, q ≥ 1, 2S ≥ 1, n ≥ 3, ℓ ≥ 1, e ≥ 3, f ≥ 1} — one letter from each coordinate except g — and the seven chains are n ≥ 2 < n ≥ 3; k ≥ 2 < q ≥ 2 < q ≥ 3; q ≥ 1 < g ≥ 1 < g ≥ 2; e ≥ 2 < e ≥ 3; 2S ≥ 1 < 2S ≥ 2 < 2S ≥ 3; ℓ ≥ 1 < k ≥ 3; f ≥ 1 < g ≥ 3. Why g contributes nothing: every letter g ≥ v lies above the atom q ≥ 1, because g ≤ q, so no antichain of letters can take a g-letter together with a q-letter below it, and the coordinate q is already represented. The order pays seven dimensions for eight axes. ∎ **CITED** and **EXHAUSTIVE** (the width of a 17-element poset, by exact matching, with both certificates written out).
 
 **Corollary 3 (maximal chains).** Every maximal chain of Λ runs from the bottom cell to the top cell in exactly 17 covering steps, and there are **1,113,045,672** of them.
 
@@ -251,7 +251,7 @@ So Λ is not self-dual, and the failure is by a single witness: the rank sequenc
 
 ## §3 · The occupancy metric
 
-**D9 (the prime encoding).** With pᵢ the i-th prime, N(x) := ∏ᵢ pᵢ^{xᵢ}. Then x ≤ y iff N(x) divides N(y), N(x ∨ y) = lcm(N(x), N(y)), N(x ∧ y) = gcd(N(x), N(y)), and rank(x) = Ω(N(x)), the number of prime factors of N(x) with multiplicity. So Λ is a sublattice of the divisor lattice of a single integer.
+**D9 (the prime encoding).** With pᵢ the i-th prime, N(x) is the positive integer whose exponent at pᵢ is xᵢ for every i — the product of the eight prime powers with exponents n, ℓ, k, q, e, f, g and 2S. Then x ≤ y iff N(x) divides N(y), N(x ∨ y) = lcm(N(x), N(y)), N(x ∧ y) = gcd(N(x), N(y)), and rank(x) = Ω(N(x)), the number of prime factors of N(x) with multiplicity. So Λ is a sublattice of the divisor lattice of a single integer.
 
 **D10 (the occupancy measure).** For x, y ∈ Λ,
 
@@ -265,11 +265,11 @@ with τ the divisor-counting function.
 > (2) ∏ᵢ (|xᵢ − yᵢ| + 1);
 > (3) τ( N(x)N(y) / gcd(N(x), N(y))² );
 > (4) τ(a·b), where N(x)/N(y) = a/b in lowest terms;
-> (5) ∏_p (|v_p(ρ)| + 1), where ρ = N(x)/N(y) and v_p is the p-adic valuation.
+> (5) ∏ₚ (|vₚ(ρ)| + 1), the product over the eight primes, where ρ = N(x)/N(y) and vₚ is the p-adic valuation.
 
 In particular d(x, x) = 1.
 
-*Proof.* Under D9 the exponent of pᵢ in ρ = N(x)/N(y) is exactly xᵢ − yᵢ, so |v_{pᵢ}(ρ)| = |xᵢ − yᵢ| and (5) = (2). The quotient lcm/gcd has exponent |xᵢ − yᵢ| at pᵢ, so its divisor count is ∏(|xᵢ−yᵢ|+1) and (1 of D10) = (2); the same exponent vector arises in (3) and in (4), since cancelling to lowest terms removes exactly the gcd. Finally the box interval [x ∧ y, x ∨ y] is the product of the intervals [min(xᵢ,yᵢ), max(xᵢ,yᵢ)], of lengths |xᵢ − yᵢ| + 1, so (1) = (2). With x = y every factor is 1 and the product is 1: a point has no volume, but it is one point and it counts itself. ∎ **PROVED**, and **EXHAUSTIVE** on all 475,800 pairs, zero disagreements among the five.
+*Proof.* Under D9 the exponent of pᵢ in ρ = N(x)/N(y) is exactly xᵢ − yᵢ, so the pᵢ-adic valuation of ρ has absolute value |xᵢ − yᵢ| and (5) = (2). The quotient lcm/gcd has exponent |xᵢ − yᵢ| at pᵢ, so its divisor count is ∏(|xᵢ−yᵢ|+1) and (1 of D10) = (2); the same exponent vector arises in (3) and in (4), since cancelling to lowest terms removes exactly the gcd. Finally the box interval [x ∧ y, x ∨ y] is the product of the intervals [min(xᵢ,yᵢ), max(xᵢ,yᵢ)], of lengths |xᵢ − yᵢ| + 1, so (1) = (2). With x = y every factor is 1 and the product is 1: a point has no volume, but it is one point and it counts itself. ∎ **PROVED**, and **EXHAUSTIVE** on all 475,800 pairs, zero disagreements among the five.
 
 **Theorem 11 (d is a multiplicative metric; log d is a metric).** For all x, y, z ∈ Λ: d(x,y) = d(y,x); d(x,y) ≥ 1 with equality iff x = y; and
 
@@ -287,7 +287,7 @@ Two features of the geometry follow from the form and are worth naming. A ball {
 
 ![Figure 4](figures/fig4-occupancy-measure.png)
 
-*Figure 4. The occupancy measure. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).*
+**Figure 4.** The occupancy measure. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).
 
 **Remark.** d measures the *box* between two cells, not the part of it that lies in Λ. The difference is the subject of §4.
 
@@ -311,7 +311,7 @@ is computed by eliminating the eight coordinates one at a time along the tree of
 
 *Proof.* Write the count as a sum over the box of a product of seven indicator factors, one per edge:
 
-> | [lo,hi] ∩ Λ | = Σ_{z ∈ [lo,hi]} ∏_{(i,j) ∈ E} [ zᵢ ≤ φᵢⱼ(zⱼ) ].
+> |[lo, hi] ∩ Λ| = Σ over z ∈ [lo, hi] of ∏ over edges (i, j) of [ zᵢ ≤ φᵢⱼ(zⱼ) ].
 
 Because G is a tree, it always has a leaf. Summing out a leaf coordinate touches only the single factor on its one edge, and produces a quantity that depends on the leaf's neighbour alone; deleting the leaf leaves a smaller tree, which again has a leaf. Iterating eight times consumes every coordinate, and at no step does any intermediate depend on two coordinates — the variable elimination of graphical models along a tree (Lauritzen 1996, CITED). Explicitly for Λ: 2S is a leaf at k and n a leaf at ℓ, and summing them out gives
 
@@ -321,11 +321,11 @@ each an interval clipped by a bound and each a function of one neighbour; then �
 
 The converse is the content of the statement. A constraint graph has induced width 1 if and only if it is a forest (Freuder 1982), CITED; with a cycle present, some elimination order must produce an intermediate in two coordinates, and the route back to single-coordinate counts is a Möbius sieve over the cycle's constraints, alternating in sign. An index whose constraint graph is a tree has its box counts in closed form; one with a cycle does not.
 
-**Theorem 13 (containment in seven comparisons).** A coordinate box lies entirely inside Λ if and only if, for each of the seven bounds `xᵢ ≤ φ(xⱼ)`,
+**Theorem 13 (containment in seven comparisons).** A coordinate box lies entirely inside Λ if and only if, for each of the seven bounds xᵢ ≤ φ(xⱼ),
 
 > hiᵢ ≤ φ(loⱼ).
 
-*Proof.* (⇐) Let lo ≤ w ≤ hi. For each bound, wᵢ ≤ hiᵢ ≤ φ(loⱼ) ≤ φ(wⱼ) by monotonicity, since loⱼ ≤ wⱼ. The floors and caps hold because lo and hi are in the ambient box and w lies between them. So w ∈ Λ. (⇒) Suppose some bound has hiᵢ > φ(loⱼ). The point w with wᵢ = hiᵢ, wⱼ = loⱼ and w_m = lo_m elsewhere lies in [lo, hi] and violates that bound, so it is not in Λ. ∎ **PROVED**; the sufficient direction is **MACHINE-CHECKED** with lo, hi, the test point and all five caps as integer variables (`unsat` under negation), and the equivalence is **EXHAUSTIVE** on the same 1,944,000 coordinate boxes.
+*Proof.* (⇐) Let lo ≤ w ≤ hi. For each bound, wᵢ ≤ hiᵢ ≤ φ(loⱼ) ≤ φ(wⱼ) by monotonicity, since loⱼ ≤ wⱼ. The floors and caps hold because lo and hi are in the ambient box and w lies between them. So w ∈ Λ. (⇒) Suppose some bound has hiᵢ > φ(loⱼ). The point w with wᵢ = hiᵢ, wⱼ = loⱼ and wₘ = loₘ elsewhere lies in [lo, hi] and violates that bound, so it is not in Λ. ∎ **PROVED**; the sufficient direction is **MACHINE-CHECKED** with lo, hi, the test point and all five caps as integer variables (`unsat` under negation), and the equivalence is **EXHAUSTIVE** on the same 1,944,000 coordinate boxes.
 
 **Proposition 1 (how much of the void there is, and that the seven events are positively dependent).** Over all 475,800 unordered pairs of distinct cells, the box [x ∧ y, x ∨ y] lies wholly inside Λ for **134,871** of them — a void-free fraction of **0.2835**. Among the 115,162 strictly comparable pairs, whose box is the interval [x, y], it lies inside Λ for **31,604**, a fraction of 0.2744. The seven individual containment events of Theorem 13 hold at rates from **0.6995** (g ≤ q) to **0.9806** (g ≤ 4f + 2); their product, which is what independence would give, is **0.2013**. The joint rate exceeds it by a factor of **1.4081**.
 
@@ -333,21 +333,25 @@ The converse is the content of the statement. A constraint graph has induced wid
 
 ![Figure 5](figures/fig7-void.png)
 
-*Figure 5. (a) What each bound removes on its own: the ambient points that satisfy the other six and fail only this one, from 673 for g ≤ q down to 24 for g ≤ 4f + 2. Every entry is positive, so no bound is redundant. (b) The seven containment events of Theorem 13 over all 475,800 pairs, their product 0.2013 and the joint rate 0.2835 — a lift of 1.4081.*
+**Figure 5.** (a) What each bound removes on its own: the ambient points that satisfy the other six and fail only this one, from 673 for g ≤ q down to 24 for g ≤ 4f + 2. Every entry is positive, so no bound is redundant. (b) The seven containment events of Theorem 13 over all 475,800 pairs, their product 0.2013 and the joint rate 0.2835 — a lift of 1.4081.
 
 ---
 
 ## §5 · The single expression
 
-**D12 (the rank polynomial).** F(z) := Σ_{x ∈ Λ} z^{rank(x)}, an integer polynomial.
+**D12 (the rank polynomial).** F(z) := Σᵣ aᵣ zʳ, where aᵣ is the number of cells of rank r — an integer polynomial, the sum over the cells of z raised to the rank.
 
 **Theorem 14 (Λ is one nested sum).** At the caps of D3,
 
-> F(z) = Σ_{n=1}^{3} zⁿ Σ_{ℓ=0}^{min(1, n−1)} z^ℓ Σ_{k=1}^{min(3, 4ℓ+2)} z^k · [ Σ_{2S=0}^{min(3,k)} z^{2S} ] · Σ_{q=0}^{min(3,k)} z^q Σ_{e=1}^{3} z^e Σ_{f=0}^{min(1, e−1)} z^f Σ_{g=0}^{min(3, q, 4f+2)} z^g,
+```
+F(z) = Σ over n = 1..3 of zⁿ · Σ over ℓ = 0..min(1, n−1) of zˡ · Σ over k = 1..min(3, 4ℓ+2) of zᵏ
+       · [ Σ over 2S = 0..min(3, k) of z²ˢ ] · Σ over q = 0..min(3, k) of z to the q
+       · Σ over e = 1..3 of zᵉ · Σ over f = 0..min(1, e−1) of zᶠ · Σ over g = 0..min(3, q, 4f+2) of zᵍ,
+```
 
-and this equals D12 coefficient by coefficient. Setting every exponent variable separately, the same nesting in eight variables z₁,…,z₈ has the property that the coefficient of z₁ⁿ ⋯ z₈^{2S} is 1 if that cell is in Λ and 0 if it is not: the coefficient function of the expression *is* the membership predicate.
+and this equals D12 coefficient by coefficient. Setting every exponent variable separately, the same nesting in eight variables z₁,…,z₈ has the property that the coefficient of z₁ⁿ ⋯ z₈²ˢ is 1 if that cell is in Λ and 0 if it is not: the coefficient function of the expression *is* the membership predicate.
 
-*Proof.* The nesting is the elimination order of Theorem 12 read as a generating function rather than a count: each variable's range is the interval its bounds leave given the variables already fixed, and because the constraint graph is a tree those ranges depend on one earlier variable each — except g, whose range depends on q and f, which is why exactly one bracket in the display carries a `min` of two arguments. The sum therefore enumerates every admissible tuple once and no other tuple, so its coefficient of z^r is the number of cells of rank r, and in the eight-variable form its coefficient at a monomial is the indicator of that cell. ∎ **PROVED**, and **EXHAUSTIVE**: the nested form and the direct sum agree at every rank 3 to 20, in exact integer arithmetic.
+*Proof.* The nesting is the elimination order of Theorem 12 read as a generating function rather than a count: each variable's range is the interval its bounds leave given the variables already fixed, and because the constraint graph is a tree those ranges depend on one earlier variable each — except g, whose range depends on q and f, which is why exactly one bracket in the display carries a min of two arguments. The sum therefore enumerates every admissible tuple once and no other tuple, so its coefficient of zʳ is the number of cells of rank r, and in the eight-variable form its coefficient at a monomial is the indicator of that cell. ∎ **PROVED**, and **EXHAUSTIVE**: the nested form and the direct sum agree at every rank 3 to 20, in exact integer arithmetic.
 
 > F(z) = z³ + 5z⁴ + 15z⁵ + 34z⁶ + 59z⁷ + 87z⁸ + 108z⁹ + 121z¹⁰ + 122z¹¹ + 115z¹² + 100z¹³ + 79z¹⁴ + 57z¹⁵ + 37z¹⁶ + 21z¹⁷ + 10z¹⁸ + 4z¹⁹ + z²⁰.
 
@@ -357,7 +361,7 @@ and this equals D12 coefficient by coefficient. Setting every exponent variable 
 
 **Lemma 4 (the detachable leaf).** 2S appears in exactly one bound, so its sum closes geometrically and multiplies out:
 
-> Σ_{2S=0}^{k} z^{2S} = (1 − z^{k+1}) / (1 − z).
+> Σ over 2S = 0..k of z²ˢ = (1 − zᵏ⁺¹) / (1 − z).
 
 Removing 2S projects Λ onto a set of **319** seven-coordinate cells (n, ℓ, k, q, e, f, g); each of them carries exactly k + 1 values of 2S, so that Σ (k + 1) over the 319 is 976; and the projection is itself closed, with defect 0.
 
@@ -365,9 +369,9 @@ Removing 2S projects Λ onto a set of **319** seven-coordinate cells (n, ℓ, k,
 
 Spin multiplicity is algebraically inert here: it scales the count of each seven-coordinate cell by k + 1 and changes no structure, which is what a leaf of a tree does.
 
-**Theorem 15 (why F(−1) = 2, and why it is not 0).** Let F_box(z) := ∏ᵢ Σ_{v ∈ Aᵢ} z^v be the rank polynomial of the ambient box. Then F_box(1) = 6,912 and **F_box(−1) = 0**. The residue F(−1) = 2 is therefore created by the bounds and not inherited from the box; it is carried entirely by the cells with k = 2.
+**Theorem 15 (why F(−1) = 2, and why it is not 0).** Let Φ(z) := ∏ᵢ (Σ over v ∈ Aᵢ of zᵛ) be the rank polynomial of the ambient box. Then Φ(1) = 6,912 and **Φ(−1) = 0**. The residue F(−1) = 2 is therefore created by the bounds and not inherited from the box; it is carried entirely by the cells with k = 2.
 
-*Proof.* A coordinate whose alphabet is a run of consecutive integers of **even** length contributes Σ(−1)^v = 0 to the product. Five of the eight alphabets have even size — ℓ and f with two values each, and q, g and 2S with four each — so F_box(−1) = 0, five times over. If the coordinates were free the alternating sum would vanish. They are not free: ℓ is clipped by n, f by e, k by ℓ, q by k, g by q and by f, and 2S by k, so no vanishing factor ever appears on its own and the elimination of Theorem 12 at z = −1 leaves a residue. Splitting that residue by the source occupancy gives 0 at k = 1, **+2** at k = 2 and 0 at k = 3. The mechanism is Lemma 4: the spin factor at z = −1 is Σ_{2S=0}^{k}(−1)^{2S}, which is 1 for k even and 0 for k odd, so every cell with odd k cancels against its own spin sum, and the whole of F(−1) lives on the k = 2 cells. ∎ **PROVED** and **EXHAUSTIVE** (the box polynomial and the split by k, exact integers).
+*Proof.* A coordinate whose alphabet is a run of consecutive integers of **even** length contributes Σ(−1)ᵛ = 0 to the product. Five of the eight alphabets have even size — ℓ and f with two values each, and q, g and 2S with four each — so Φ(−1) = 0, five times over. If the coordinates were free the alternating sum would vanish. They are not free: ℓ is clipped by n, f by e, k by ℓ, q by k, g by q and by f, and 2S by k, so no vanishing factor ever appears on its own and the elimination of Theorem 12 at z = −1 leaves a residue. Splitting that residue by the source occupancy gives 0 at k = 1, **+2** at k = 2 and 0 at k = 3. The mechanism is Lemma 4: the spin factor at z = −1 is Σ over 2S = 0..k of (−1)²ˢ, which is 1 for k even and 0 for k odd, so every cell with odd k cancels against its own spin sum, and the whole of F(−1) lives on the k = 2 cells. ∎ **PROVED** and **EXHAUSTIVE** (the box polynomial Φ and the split by k, exact integers).
 
 **Corollary 5 (F is not palindromic, and that is Theorem 9 again).** A graded poset is self-dual only if its rank polynomial is palindromic. Read forwards the coefficients begin 1, 5, 15, 34, 59, 87; read backwards they begin 1, 4, 10, 21, 37, 57. They part at rank 4 — five against four — and never rejoin. So Λ admits no rank-reversing automorphism, which is the statement Theorem 9 makes by exhibiting the eight cells the reflection returns and the zero it fixes.
 
@@ -375,33 +379,33 @@ Spin multiplicity is algebraically inert here: it scales the count of each seven
 
 ![Figure 6](figures/fig6-rank-polynomial.png)
 
-*Figure 6. F(z) read forwards as bars and backwards as the dashed line. They part company at the second level — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this one picture carries both the asymmetry of the rank sequence and the failure of the reflection.*
+**Figure 6.** F(z) read forwards as bars and backwards as the dashed line. They part company at the second level — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this one picture carries both the asymmetry of the rank sequence and the failure of the reflection.
 
 ![Figure 7](figures/fig5-caterpillar.png)
 
-*Figure 7. The constraint graph read as the nesting order of the expression: a path of seven with one pendant. That shape is why a single left-to-right nesting exists with one bracketed factor. The pendant 2S factors out as a geometric sum (Lemma 4); g is the only coordinate with two parents, and the min it forces — g ≤ min(q, 4f + 2) — is the one non-product term in the whole expression.*
+**Figure 7.** The constraint graph read as the nesting order of the expression: a path of seven with one pendant. That shape is why a single left-to-right nesting exists with one bracketed factor. The pendant 2S factors out as a geometric sum (Lemma 4); g is the only coordinate with two parents, and the min it forces — g ≤ min(q, 4f + 2) — is the one non-product term in the whole expression.
 
 ---
 
 ## §6 · The Möbius function
 
-**D13 (the Möbius function).** For x ≤ y in Λ, μ(x, x) := 1 and μ(x, y) := −Σ_{x ≤ z < y} μ(x, z).
+**D13 (the Möbius function).** For x ≤ y in Λ, μ(x, x) := 1 and μ(x, y) := −Σ μ(x, z), the sum over x ≤ z < y.
 
 **Theorem 16 (closed form).** For x ≤ y in Λ, write Q := D(y) ∖ D(x) for the set of generators added (D of Theorem 7). Then
 
-> μ(x, y) = (−1)^{|Q|} if Q is an antichain in P, and 0 otherwise.
+> μ(x, y) = (−1)ᵐ with m = |Q| if Q is an antichain in P, and 0 otherwise.
 
 *Proof.* By Theorem 7 the interval [x, y] of Λ is isomorphic to the interval [D(x), D(y)] of down-sets of P, which is isomorphic to the lattice J(Q) of down-sets of the induced subposet on Q: a down-set of P between D(x) and D(y) is D(x) together with a down-set of Q, and the correspondence is an order isomorphism.
 
-If Q is an antichain, every subset of Q is a down-set, so J(Q) is the Boolean lattice 2^Q, whose Möbius value from bottom to top is (−1)^{|Q|}.
+If Q is an antichain, every subset of Q is a down-set, so J(Q) is the Boolean lattice of all subsets of Q, whose Möbius value from bottom to top is (−1)ᵐ.
 
-If Q is not an antichain, the atoms of J(Q) are the principal down-sets {m} of the elements m minimal in Q, and their join is the set of minimal elements of Q. Since Q is not an antichain some element of Q lies strictly above a minimal one, so that set is a proper subset of Q: the join of the atoms is not the top. By the crosscut theorem (Rota 1964), CITED — the atoms of a finite lattice are a crosscut, and μ(0̂, 1̂) = Σ_k (−1)^k q_k with q_k the number of k-element subsets of the crosscut that span, that is, whose join is 1̂ and whose meet is 0̂ — every spanning subset of the atoms must have join 1̂; if no subset of the atoms joins to 1̂ then every q_k is zero and μ(0̂, 1̂) = 0. That is the case here, because the join of *all* the atoms already falls short of the top and joins are monotone. ∎ **PROVED** (using Birkhoff, CITED, and Rota, CITED).
+If Q is not an antichain, the atoms of J(Q) are the principal down-sets {m} of the elements m minimal in Q, and their join is the set of minimal elements of Q. Since Q is not an antichain some element of Q lies strictly above a minimal one, so that set is a proper subset of Q: the join of the atoms is not the top. By the crosscut theorem (Rota 1964), CITED — the atoms of a finite lattice are a crosscut, and μ(0̂, 1̂) = Σₖ (−1)ᵏ qₖ with qₖ the number of k-element subsets of the crosscut that span, that is, whose join is 1̂ and whose meet is 0̂ — every spanning subset of the atoms must have join 1̂; if no subset of the atoms joins to 1̂ then every qₖ is zero and μ(0̂, 1̂) = 0. That is the case here, because the join of *all* the atoms already falls short of the top and joins are monotone. ∎ **PROVED** (using Birkhoff, CITED, and Rota, CITED).
 
-**Verification.** The closed form is substituted into the defining recursion of D13 and the identity Σ_{x ≤ z ≤ y} μ(x, z) = δ_{x,y} is tested on **all 116,138 comparable pairs** of Λ — 115,162 strict and 976 with x = y — with **zero** violations. Every value is in {−1, 0, +1}. Separately, the crosscut step of the proof is checked directly on all 24,164 distinct intervals that occur: the join of the atoms equals the top exactly when Q is an antichain, and exactly then is the interval Boolean of size 2^{|Q|}. **EXHAUSTIVE**, both.
+**Verification.** The closed form is substituted into the defining recursion of D13 and the identity Σ μ(x, z) over x ≤ z ≤ y equals 1 when x = y and 0 otherwise is tested on **all 116,138 comparable pairs** of Λ — 115,162 strict and 976 with x = y — with **zero** violations. Every value is in {−1, 0, +1}. Separately, the crosscut step of the proof is checked directly on all 24,164 distinct intervals that occur: the join of the atoms equals the top exactly when Q is an antichain, and exactly then is the interval Boolean, of size 2 to the |Q|. **EXHAUSTIVE**, both.
 
-**Corollary 6 (the Möbius function in coordinates, and against arithmetic).** For x ≤ y in Λ, μ(x, y) ≠ 0 if and only if every yᵢ − xᵢ ≤ 1 and the coordinate box [x, y] lies inside Λ; and then μ(x, y) = (−1)^{rank(y) − rank(x)}. Consequently, with μ_ℤ the number-theoretic Möbius function and N the encoding of D9, μ(x, y) = μ_ℤ(N(y)/N(x)) for every comparable pair except those whose box [x, y] is a unit hypercube not contained in Λ, where μ_ℤ is ±1 and μ is 0.
+**Corollary 6 (the Möbius function in coordinates, and against arithmetic).** For x ≤ y in Λ, μ(x, y) ≠ 0 if and only if every yᵢ − xᵢ ≤ 1 and the coordinate box [x, y] lies inside Λ; and then μ(x, y) = (−1)ᵐ with m = rank(y) − rank(x). Consequently, with μℤ the number-theoretic Möbius function and N the encoding of D9, μ(x, y) = μℤ(N(y)/N(x)) for every comparable pair except those whose box [x, y] is a unit hypercube not contained in Λ, where μℤ is ±1 and μ is 0.
 
-*Proof.* Write Q = D(y) ∖ D(x) and m = rank(y) − rank(x); by Theorem 7 and Theorem 4, |Q| = m, since each covering step adds one generator and raises rank by one. By Theorem 16, μ(x, y) ≠ 0 iff Q is an antichain, iff the interval [x, y] of Λ is the Boolean lattice 2^Q — for if a < b in Q then {b} is a subset of Q that is not a down-set, so J(Q) has fewer than 2^{|Q|} elements, while an antichain has all of them. Suppose the interval is Boolean. Its atoms are the cells covering x, each of the form x + eᵢ by Theorem 4, and distinct atoms use distinct coordinates; the top y is the join of the atoms, which is coordinatewise maximum, so y = x + Σ_{i ∈ I} eᵢ for a set I of m coordinates and every yᵢ − xᵢ ≤ 1. The Boolean lattice has 2^m elements, all in [x, y] ∩ Λ, and the coordinate box [x, y] has exactly 2^m points, so the box lies inside Λ. Conversely, if every yᵢ − xᵢ ≤ 1 and the box lies inside Λ, then [x, y] ∩ Λ is the whole box, a Boolean lattice of rank m, so Q is an antichain and μ = (−1)^m. For the arithmetic statement: N(y)/N(x) = ∏ pᵢ^{yᵢ − xᵢ} is squarefree iff every yᵢ − xᵢ ≤ 1, and then μ_ℤ of it is (−1)^m, otherwise 0. So the two functions agree wherever the box is not a unit hypercube (both 0) and on every void-free unit hypercube (both (−1)^m), and differ exactly on unit hypercubes with a void. ∎ **PROVED**, and **EXHAUSTIVE** on all 116,138 comparable pairs: μ is non-zero on 19,079 of them, exactly the void-free unit hypercubes; it agrees with μ_ℤ on 99,034 and differs on 17,104, every one a unit hypercube with a void.
+*Proof.* Write Q = D(y) ∖ D(x) and m = rank(y) − rank(x); by Theorem 7 and Theorem 4, |Q| = m, since each covering step adds one generator and raises rank by one. By Theorem 16, μ(x, y) ≠ 0 iff Q is an antichain, iff the interval [x, y] of Λ is the Boolean lattice of all subsets of Q — for if a < b in Q then {b} is a subset of Q that is not a down-set, so J(Q) has fewer than 2ᵐ elements, while an antichain has all of them. Suppose the interval is Boolean. Its atoms are the cells covering x, each of the form x + eᵢ by Theorem 4, and distinct atoms use distinct coordinates; the top y is the join of the atoms, which is coordinatewise maximum, so y − x is the sum of eᵢ over a set I of m coordinates and every yᵢ − xᵢ ≤ 1. The Boolean lattice has 2ᵐ elements, all in [x, y] ∩ Λ, and the coordinate box [x, y] has exactly 2ᵐ points, so the box lies inside Λ. Conversely, if every yᵢ − xᵢ ≤ 1 and the box lies inside Λ, then [x, y] ∩ Λ is the whole box, a Boolean lattice of rank m, so Q is an antichain and μ = (−1)ᵐ. For the arithmetic statement: N(y)/N(x) has exponent yᵢ − xᵢ at pᵢ, so it is squarefree iff every yᵢ − xᵢ ≤ 1, and then μℤ of it is (−1)ᵐ, otherwise 0. So the two functions agree wherever the box is not a unit hypercube (both 0) and on every void-free unit hypercube (both (−1)ᵐ), and differ exactly on unit hypercubes with a void. ∎ **PROVED**, and **EXHAUSTIVE** on all 116,138 comparable pairs: μ is non-zero on 19,079 of them, exactly the void-free unit hypercubes; it agrees with μℤ on 99,034 and differs on 17,104, every one a unit hypercube with a void.
 
 Whether the box [x, y] lies inside Λ is the seven comparisons of Theorem 13, so μ(x, y) is decided by eight comparisons of coordinates and one parity — no recursion and no poset.
 
@@ -416,14 +420,14 @@ Whether the box [x, y] lies inside Λ is the seven comparisons of Theorem 13, so
 **Theorem 17 (generating is covering).** G ⊆ Λ is a seed of Λ if and only if
 
 > (a) for every coordinate i and every value v ∈ Aᵢ(Λ), some cell of G has xᵢ = v, and
-> (b) for every ordered pair i ≠ j and every a ∈ Aⱼ(Λ), some cell y ∈ G has yⱼ ≤ a and yᵢ = φ̂ᵢⱼ^Λ(a).
+> (b) for every ordered pair i ≠ j and every a ∈ Aⱼ(Λ), some cell y ∈ G has yⱼ ≤ a and yᵢ = φ̂ᵢⱼ(a; Λ).
 
-*Proof.* (⇒) Suppose ℛ(G) = Λ. ℛ(G) sits inside G's own box, so G realises every value Λ does, which is (a). For (b): φ̂ᵢⱼ^G(a) ≤ φ̂ᵢⱼ^Λ(a) always, since G ⊆ Λ; if the inequality were strict at some (i, j, a) then the cell of Λ attaining φ̂ᵢⱼ^Λ(a) at that argument would fail G's own bound and so lie outside ℛ(G), contradicting ℛ(G) = Λ.
+*Proof.* (⇒) Suppose ℛ(G) = Λ. ℛ(G) sits inside G's own box, so G realises every value Λ does, which is (a). For (b): φ̂ᵢⱼ(a; G) ≤ φ̂ᵢⱼ(a; Λ) always, since G ⊆ Λ; if the inequality were strict at some (i, j, a) then the cell z of Λ attaining φ̂ᵢⱼ(a; Λ) — with zⱼ ≤ a and zᵢ = φ̂ᵢⱼ(a; Λ) > φ̂ᵢⱼ(a; G) ≥ φ̂ᵢⱼ(zⱼ; G), the last step by monotonicity of the envelope in its argument — would fail G's own bound and so lie outside ℛ(G), contradicting ℛ(G) = Λ.
 (⇐) Under (a) and (b), G and Λ have the same box and the same envelopes, and ℛ depends on its argument only through those two; so ℛ(G) = ℛ(Λ), which is Λ by Theorem 2. ∎ **PROVED**; and **SAMPLED**: on 80 random subsets of sizes 4 to 10 (seed 20260923) the covering test and the staircase closure agree without exception.
 
 So seed(Λ) is a **minimum set cover**: the elements to cover are the **alphabet slots** of (a) and the **envelope steps** of (b), and a cell covers the elements it witnesses. Because each φ̂ᵢⱼ is non-decreasing in a, it is a step function, and only the least argument realising each of its values needs covering — the running maximum is constant between steps. Counting them gives **102 elements**: 25 alphabet slots and 77 envelope steps, against 976 sets.
 
-**Theorem 18 (seed(Λ) = 7).** At the caps of D3, seed(Λ) = 7. There are exactly **24,585** minimum seeds. Exactly **one** cell — (2,1,3,3,2,1,3,0), which is the generator `g ≥ 3` — lies in all of them, and **no** element of the 102 is witnessed by a unique cell: the smallest witness set has four.
+**Theorem 18 (seed(Λ) = 7).** At the caps of D3, seed(Λ) = 7. There are exactly **24,585** minimum seeds. Exactly **one** cell — (2,1,3,3,2,1,3,0), which is the generator g ≥ 3 — lies in all of them, and **no** element of the 102 is witnessed by a unique cell: the smallest witness set has four.
 
 *Proof.* By Theorem 17 the problem is exactly minimum set cover, which is NP-complete in general (Karp 1972), CITED, so the search must be exact rather than heuristic and must be shown exhaustive. Three steps.
 
@@ -437,7 +441,7 @@ So seed(Λ) is a **minimum set cover**: the elements to cover are the **alphabet
 
 **Corollary 7 (what every seed contains).** Every seed of Λ — minimum or not — contains a cell with q = 0 (a null transition), a cell with q = k for each k ∈ {1, 2, 3} (a full transfer at every occupancy), a cell with (ℓ, f) = (0, 1), one with (ℓ, f) = (1, 0) and one with (ℓ, f) = (1, 1) — the channels s → p, p → s and p → p. An s → s cell, (ℓ, f) = (0, 0), is not forced: it appears in 17,403 of the 24,585 minimum seeds.
 
-*Proof.* By Theorem 17 a seed covers every alphabet slot and every envelope step. The slot q = 0 needs a cell with q = 0. For the ordered pair (i, j) = (q, k), φ̂_{qk}(a) = max{yq : yk ≤ a} = a for a = 1, 2, 3, so every a is a step, and a cell covering it has k ≤ a and q = a, hence q = k = a, since q ≤ k. For (f, ℓ) at a = 0, φ̂_{fℓ}(0) = max{yf : yℓ ≤ 0} = 1, attained by (1,0,1,0,2,1,0,0), and 0 is the least argument so a step; a cell covering it has ℓ = 0 and f = 1. For (ℓ, f) at a = 0, φ̂_{ℓf}(0) = 1 likewise, and a covering cell has f = 0 and ℓ = 1. The slot g = 3 needs a cell with g = 3, and then q = 3 by g ≤ q, k = 3 by q ≤ k, ℓ = 1 because k ≤ 4ℓ + 2 fails at ℓ = 0, and f = 1 because g ≤ 4f + 2 fails at f = 0: a p → p cell. The count for s → s is computed over all 24,585 minimum seeds. ∎ **PROVED**, and **EXHAUSTIVE** over the 24,585 minimum seeds, where each forced kind appears in 24,585 of 24,585.
+*Proof.* By Theorem 17 a seed covers every alphabet slot and every envelope step. The slot q = 0 needs a cell with q = 0. For the ordered pair (i, j) = (q, k), the envelope at a is the largest q among cells with k ≤ a, which is a for a = 1, 2, 3; so every a is a step, and a cell covering it has k ≤ a and q = a, hence q = k = a, since q ≤ k. For the pair (f, ℓ) at a = 0, the envelope is the largest f among cells with ℓ = 0, which is 1, attained by (1,0,1,0,2,1,0,0); 0 is the least argument and so a step, and a cell covering it has ℓ = 0 and f = 1. For the pair (ℓ, f) at a = 0 the envelope is 1 likewise, and a covering cell has f = 0 and ℓ = 1. The slot g = 3 needs a cell with g = 3, and then q = 3 by g ≤ q, k = 3 by q ≤ k, ℓ = 1 because k ≤ 4ℓ + 2 fails at ℓ = 0, and f = 1 because g ≤ 4f + 2 fails at f = 0: a p → p cell. The count for s → s is computed over all 24,585 minimum seeds. ∎ **PROVED**, and **EXHAUSTIVE** over the 24,585 minimum seeds, where each forced kind appears in 24,585 of 24,585.
 
 **Corollary 8 (no cell is removable).** For every cell x ∈ Λ, ℛ(Λ ∖ {x}) = Λ.
 
@@ -449,7 +453,7 @@ The compression is the headline. 976 cells are recoverable from 7 of them, a rat
 
 ![Figure 8](figures/fig8-seed.png)
 
-*Figure 8. (a) The 370 of 976 cells that appear in at least one minimum seed, ordered by how many of the 24,585 seeds hold them; the scale is logarithmic and one cell sits at 100%. (b) The same as a distribution: the median cell appears in 0.24% of the minimum seeds and one in all of them.*
+**Figure 8.** (a) The 370 of 976 cells that appear in at least one minimum seed, ordered by how many of the 24,585 seeds hold them; the scale is logarithmic and one cell sits at 100%. (b) The same as a distribution: the median cell appears in 0.24% of the minimum seeds and one in all of them.
 
 ---
 
@@ -468,7 +472,7 @@ Every number printed above is recomputed by the accompanying checks, which disch
 | Theorem 1, Λ is a sublattice | ✓ | **✓** all 13 variables integer (5 caps, 2 cells) | 475,800 pairs, 0 escapes | — |
 | Lemma 1, one monotone bound | ✓ | **✓** φ uninterpreted, a, b integer | — | — |
 | Lemma 2, a fixed point of ℛ is a sublattice | ✓ | **✓** every subset of a 3×3 box (2⁹) and of a 3×3×3 box (2²⁷) | — | — |
-| Theorem 2, \|Λ\| = 976, E(Λ) = 0 | — | — | 6,912 box points; closure and re-closure | — |
+| Theorem 2, ∣Λ∣ = 976, E(Λ) = 0 | — | — | 6,912 box points; closure and re-closure | — |
 | Tables 1–2, no bound redundant | — | — | 6,912 + 8,064 box points | — |
 | Theorem 3, distributive | ✓ | — | 289 coordinate triples | 200,000 cell triples, seed 20260921 |
 | Theorem 4, graded and modular | ✓ | — | 475,800 pairs; 3,749 covers | — |
