@@ -218,6 +218,15 @@ xigate.xi_required = 1.48e4, and that field is 10^(4..6) times Degrassi's
 instability scale 10^(11 +- 1) GeV -- a region where lambda < 0, so not an
 excitation of our vacuum.
 
+    DIVERGENCE FROM THE RULING, RECORDED.  DOCKET 63 rulings B and D (S8)
+    print "2e4 to 2e5 times".  Computed across Degrassi's full band the ratio
+    is 2e4 (upper edge 10^12) to 2e6 (lower edge 10^10), with 2e5 at the
+    CENTRE 10^11.  The ruling's range is the upper edge to the centre: it
+    covers half of Degrassi's band (in log10), and its "2e5" is the centre,
+    not an edge.  XI_FIELD_OVER_INSTABILITY_UPPER_EDGE, _CENTRE and
+    _LOWER_EDGE expose the three values; RULING_S8_COVERS_FRACTION_OF_BAND
+    is computed.  Nothing turns on it -- every value is far above the scale.
+
 ===============================================================================
 7.  WHAT THE THREE SHARE, AND W9
 ===============================================================================
@@ -288,6 +297,7 @@ NOTHING IS REPAIRED.
 
 import inspect
 import math
+import re
 import sys
 from decimal import Decimal
 from fractions import Fraction
@@ -388,7 +398,7 @@ STATUS = {
 #: coefficient, which is exactly 1.
 CLOCK_ACCURACY_FIXTURE = 1e-18                                  # ORDER
 EPS_AT_FIXTURE = address.eps_detectable_transported(CLOCK_ACCURACY_FIXTURE)
-#: S = 0.06, address.S_SCAN's sigma_piN row -- a DECLARED SCAN there.
+#: S = 0.06, address.S_SCAN's sigma_piN row -- a scanned input (ORDER) there.
 S_MID = address.S_SCAN[1][1]
 HYPOTHESES = ("H1", "H2")
 
@@ -979,6 +989,38 @@ def xi_field_over_instability():
 
 XI_REQUIRED_AT_GUT = xigate.xi_required(xigate.GUT_SCALE_GEV)
 XI_FIELD_OVER_INSTABILITY = xi_field_over_instability()
+(XI_FIELD_OVER_INSTABILITY_UPPER_EDGE,          # at 10^(11+1) GeV: ~2e4
+ XI_FIELD_OVER_INSTABILITY_CENTRE,              # at 10^11 GeV:     ~2e5
+ XI_FIELD_OVER_INSTABILITY_LOWER_EDGE) = XI_FIELD_OVER_INSTABILITY   # ~2e6
+#: DOCKET 63 rulings B and D (S8): "2e4 to 2e5 times", READ VERBATIM.  NOT the
+#: seated range; the computed band is (upper edge, lower edge) above.
+RULING_S8_PRINTED_RANGE = ("2e4", "2e5")
+
+
+def _rounds_to_printed(x, txt):
+    """Would x, rounded to txt's last printed digit, print as txt?"""
+    d = Decimal(txt)
+    return abs(x - float(d)) <= 0.5 * float(Decimal(1).scaleb(d.as_tuple().exponent))
+
+
+def ruling_s8_matches():
+    """Which computed band point each of the ruling's two figures is."""
+    names = ("upper edge", "centre", "lower edge")
+    return tuple(tuple(nm for nm, v in zip(names, XI_FIELD_OVER_INSTABILITY)
+                       if _rounds_to_printed(v, t))
+                 for t in RULING_S8_PRINTED_RANGE)
+
+
+def ruling_s8_band_fraction():
+    """The fraction of Degrassi's band, in log10, the ruling's range spans."""
+    lo, hi = (float(Decimal(t)) for t in RULING_S8_PRINTED_RANGE)
+    return (math.log10(hi / lo)
+            / math.log10(XI_FIELD_OVER_INSTABILITY_LOWER_EDGE
+                         / XI_FIELD_OVER_INSTABILITY_UPPER_EDGE))
+
+
+RULING_S8_MATCHES = ruling_s8_matches()
+RULING_S8_COVERS_FRACTION_OF_BAND = ruling_s8_band_fraction()
 
 
 # ================================================ 7. times and lengths
@@ -1064,7 +1106,39 @@ TOTALS_ACROSS_ROLES = None                          # 9
 SEATS_A_TMP_FIGURE = False                          # 10
 CALLS_A_SOURCELESS_PROFILE_A_CORE = False           # 11
 CONVERGENCE_IS_CORROBORATION = warpfolder.CONVERGENCE_IS_CORROBORATION   # 12
-REFUSALS = 12
+#: Each refusal of section 8, by its number, and the flag(s) that carry it.
+REFUSAL_FLAGS = (
+    (1, "PRICES_AN_ADDRESS_WITH_ONE_NUMBER"),
+    (2, "SOURCE_COST_IS_A_LOWER_BOUND"),
+    (3, "CHOOSES_BETWEEN_H1_AND_H2"),
+    (4, "SAYS_RANGE_WITHOUT_QUALIFIER"),
+    (5, "METRE_FIGURE_IS_A_THEOREM"),
+    (6, "GAMMA_H_SIGNIFICANT_FIGURES"),
+    (6, "DRIVEN_CEILING_IS_A_STANDING_DISPLACEMENT"),
+    (7, "STATES_A_COLLAPSE_TIME_OTHER_THAN_SPINODAL"),
+    (8, "EPS_1E18_IS_A_CAPABILITY"),
+    (9, "TOTALS_ACROSS_ROLES"),
+    (10, "SEATS_A_TMP_FIGURE"),
+    (11, "CALLS_A_SOURCELESS_PROFILE_A_CORE"),
+    (12, "CONVERGENCE_IS_CORROBORATION"))
+#: COUNTED from the flags, not typed.
+REFUSALS = len({n for n, _ in REFUSAL_FLAGS})
+
+
+def _doc_section(n):
+    """The text of this module docstring's numbered section n."""
+    m = re.search(r"\n%d\.  [^\n]*\n=+\n(.*?)\n=+\n" % n, __doc__ or "", re.S)
+    return m.group(1) if m else ""
+
+
+def doc_refusal_numbers():
+    """The refusal numbers section 8 of the docstring enumerates."""
+    return [int(k) for k in re.findall(r"(?m)^ {2,3}(\d+)\. ", _doc_section(8))]
+
+
+def doc_tail_rate_hypotheses():
+    """The distinct (H-x) labels section 1 of the docstring enumerates."""
+    return sorted(set(re.findall(r"\(H-([a-z])\)", _doc_section(1))))
 
 # ---------------------------------------------------------------- W9
 #: The orchestrator's hypothesis, six counts, IMPORTED from its owner.
@@ -1421,7 +1495,8 @@ def selftest():
     for m in (1.0, 2.0, 3.0):
         chkrel("INT G d^3r = 1/m^2 at m = %g (Simpson)" % m,
                green_integral(m) * m * m, 1.0, 1e-9)
-    chk("and 1/m^2 exactly as Gamma(2)/m^2", math.gamma(2), 1.0)
+    # (a row "math.gamma(2) == 1" stood here: a constant, not a check; the
+    #  Simpson rows above and --verify's V7 carry INT G d^3r = 1/m^2)
     for k in (10, 1000):
         s = Fraction(1, k)
         chk("cos(x/L) response error at lambda/L = 1/%d is 1 - exact ratio" % k,
@@ -1561,6 +1636,10 @@ def selftest():
     chkrel("GUT field / instability scale, centre 10^11", mid, 2e5, 1e-12)
     chkrel("  at the upper edge 10^12", lo, 2e4, 1e-12)
     chkrel("  at the lower edge 10^10", hi, 2e6, 1e-12)
+    chk("DIVERGENCE: the ruling's '2e4 to 2e5' is (upper edge, CENTRE)",
+        RULING_S8_MATCHES, (("upper edge",), ("centre",)))
+    chkrel("  so it spans half of Degrassi's band (log10)",
+           RULING_S8_COVERS_FRACTION_OF_BAND, 0.5, 1e-12)
 
     # ------------------------------------------------ times and lengths
     print("\n11. TIMES AND LENGTHS")
@@ -1598,7 +1677,8 @@ def selftest():
         chk("ledger owner excite.%s exists" % nm, nm in globals(), True)
     chk("D18 carries its hypotheses in its value", ELECTRON_MASS_IS_A_RULER,
         "THEOREM given alpha fixed (H2) and clamped point nuclei")
-    chk("D15 names five hypotheses", len(TAIL_RATE_HYPOTHESES), 5)
+    chk("D15 carries one hypothesis per (H-x) label section 1 enumerates",
+        len(TAIL_RATE_HYPOTHESES), len(doc_tail_rate_hypotheses()))
     chk("W9 fell on four reasons", len(W9[1]), 4)
     chk("the orchestrator's hypothesis: six counts, imported from endpoint",
         (len(ORCHESTRATOR_HYPOTHESIS_FAILURES),
@@ -1610,9 +1690,15 @@ def selftest():
         (CHOOSES_BETWEEN_H1_AND_H2, address.H1_VS_H2_IS_REFUSED), (False, True))
     chk("refusal 12 is warpfolder's flag, imported",
         CONVERGENCE_IS_CORROBORATION, False)
-    chk("twelve refusals, none of them a total",
-        (REFUSALS, TOTALS_ACROSS_ROLES, PRICES_AN_ADDRESS_WITH_ONE_NUMBER,
-         SEATS_A_TMP_FIGURE), (12, None, False, False))
+    chk("every refusal section 8 enumerates carries a flag, and no other",
+        sorted({n for n, _ in REFUSAL_FLAGS}), doc_refusal_numbers())
+    chk("  REFUSALS, counted from the flags, is section 8's count",
+        REFUSALS, len(doc_refusal_numbers()))
+    chk("  every flag named exists in this module",
+        all(nm in globals() for _, nm in REFUSAL_FLAGS), True)
+    chk("recorded: none of the refusals is a total",
+        (TOTALS_ACROSS_ROLES, PRICES_AN_ADDRESS_WITH_ONE_NUMBER,
+         SEATS_A_TMP_FIGURE), (None, False, False))
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
 
     dt = time.time() - t0

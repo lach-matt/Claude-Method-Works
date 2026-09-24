@@ -37,14 +37,27 @@ record, do not over-seat.
     HPS's quoted 300 l_P = 4.849e-33 m, 32.31 orders below one metre of corridor
     and 48.92 below the Proxima span.
 
-(3) NOT-FOUND, WITH TWO CONTROLS THAT FIRE.  No self-consistent semiclassical
-    solution with m(r) < 0 or negative ADM mass, and no theorem forbidding one.
-    Control 1: m < 0 IS realised in the metric class, by Reissner-Nordstrom,
-    m = M - Q^2/(2r), with rho = Q^2/(8 pi r^4) STRICTLY POSITIVE -- because
-    m(0) = -infinity; that is D4's regular-centre hypothesis earning its place
-    (index3.py's prior finding, cited as control, NOT re-claimed).  Control 2:
-    the same search returned six self-consistent families (READ by the pass), so
-    the zero is a measurement and not a dead search.  NOT-FOUND, not NO.
+(3) NOT-FOUND, WITH ONE COMPUTED CONTROL AND ONE READ CONTROL.  No
+    self-consistent semiclassical solution with m(r) < 0 or negative ADM mass,
+    and no theorem forbidding one.  NOT-FOUND, not NO.
+    Control 1, COMPUTED (sympy, --selftest section 5): m < 0 IS realised in the
+    metric class, by Reissner-Nordstrom, m = M - Q^2/(2r), with rho =
+    Q^2/(8 pi r^4) STRICTLY POSITIVE -- because m(0) = -infinity; that is D4's
+    regular-centre hypothesis earning its place (index3.py's prior finding,
+    cited as control, NOT re-claimed).  This is the only control here that is
+    computed.
+    Control 2, READ: the same search returned self-consistent families, so the
+    zero is a measurement and not a dead search.  The families are seated
+    below as SELF_CONSISTENT_FAMILIES -- citation, how the pass reached each,
+    and whether it reports m < 0 -- transcribed from the DOCKET 62 O5 pass's
+    output in the docket's workflow journal.  Both counts (families returned,
+    families with m < 0) are DERIVED from that list, not typed; the list itself
+    is READ data and no computation here can move it.  The three throats'
+    signs are cross-checked in --selftest against the computed throat mass
+    r_0/2 at each READ r_0.  SCOPE, as the docket's adversarial reading put it:
+    this control shows the search returns SOLUTIONS; it does not show the search
+    could surface a NO-GO theorem if one existed, so it backs the first zero
+    (no m < 0 solution) and not the second (no no-go found).
 
 (4) HYPOTHESIS DISCIPLINE, KEPT.  Flanagan-Wald is NOT applied: h ~ 0.5 at the
     core surface makes eps ~ O(1) and their one-parameter perturbative family
@@ -104,10 +117,46 @@ THROAT_MASS_GRADE = "consequence of a standard definition -- not the lead result
 SERIES_RESULT = "m'(0) = 0, m''(0) = a(1 - 2 r_0 a)/2, a = r''(0)"
 SERIES_RESULT_STATUS = "THEOREM (Taylor series, sympy)"
 
-NEGATIVE_MASS_SELF_CONSISTENT_FOUND = "NOT-FOUND"   # not NO
 NO_GO_FOR_NEGATIVE_MASS_FOUND = "NOT-FOUND"
-SELF_CONSISTENT_FAMILIES_RETURNED = 6               # control 2, READ by the pass
-FAMILIES_WITH_NEGATIVE_MASS = 0
+
+#: Control 2, READ.  The self-consistent solution families the DOCKET 62 O5
+#: pass's search returned, transcribed from its output (the "SIX FAMILIES
+#: RETURNED" block of the docket's workflow journal).  Fields:
+#:   (label, citation, how the pass reached it, is-a-throat, m < 0 reported,
+#:    READ r_0 values in l_P for a throat, basis of the sign as the pass gave it)
+#: "m < 0 reported" is the pass's tally ("solutions found with m(r) < 0
+#: anywhere : 0") applied per family; it is READ, never computed here.
+SELF_CONSISTENT_FAMILIES = (
+    ("Hochberg-Popov-Sushkov", "gr-qc/9701064, PRL 78, 2050 (1997)",
+     "CITED, read in full at source", True, False, (0.02428, 300.0),
+     "throat: m = r_0/2 > 0 at the throat; HPS eq. (9) sets r''(0) = 0; the "
+     "flare-region profile is not reported (NOT-FOUND)"),
+    ("Khusnutdinov-Sushkov", "hep-th/0202068, PRD 65, 084028 (2002)",
+     "CITED", True, False, (0.0141,),
+     "throat (short-throat flat-space wormhole): m = r_0/2 > 0 at the throat"),
+    ("Garattini", "gr-qc/0501105, CQG 22, 1105 (2005)",
+     "CITED", True, False, (1.158822606, 0.4473670842),
+     "throat (graviton one loop): m = r_0/2 > 0 at the throat"),
+    ("Abdolrahimi-Page-Tzounis", "1607.05280, PRD 100, 124038",
+     "RECOVERED (seated in selfconsistent.py, not re-read)", False, False, (),
+     "evaporating Schwarzschild, first order in hbar: not static, not m < 0"),
+    ("Sanders", "2007.14311, Ann. Henri Poincare 23, 1321 (2022)",
+     "CITED, read at source", False, False, (),
+     "Einstein static universe R x S^3: covered by the pass's tally only "
+     "(m(r) < 0 anywhere: 0); no per-family sign printed"),
+    ("Pinamonti / Pinamonti-Siemssen / Meda-Pinamonti-Siemssen / "
+     "Gottschalk-Siemssen", "2011, 2015, 2020, 2021",
+     "RECOVERED from bibliographies, not read at source", False, False, (),
+     "flat FLRW existence by Banach fixed point: cosmological, not static, "
+     "not m < 0"),
+)
+
+# DERIVED from the list above -- the counts ledger.py prints.
+SELF_CONSISTENT_FAMILIES_RETURNED = len(SELF_CONSISTENT_FAMILIES)
+FAMILIES_WITH_NEGATIVE_MASS = sum(1 for f in SELF_CONSISTENT_FAMILIES if f[4])
+THROAT_FAMILIES = sum(1 for f in SELF_CONSISTENT_FAMILIES if f[3])
+NEGATIVE_MASS_SELF_CONSISTENT_FOUND = (
+    "NOT-FOUND" if FAMILIES_WITH_NEGATIVE_MASS == 0 else "FOUND")   # not NO
 
 FLANAGAN_WALD_APPLIED = False     # eps ~ O(1): their perturbative hypothesis fails
 SANDERS_51_APPLIED = False        # ultrastatic, compact, maximally symmetric only
@@ -290,16 +339,33 @@ def selftest():
     near("orders short of the Proxima span", orders_short(foliation.proxima_span_m()),
          48.92, 1e-3)
 
-    print("\n5. THE CONTROLS FIRE")
+    print("\n5. CONTROL 1 (COMPUTED) AND CONTROL 2 (READ)")
     res, rz, m0lim = rn_control(sp)
     chk("RN: m' - 4 pi r^2 rho (so rho = Q^2/8 pi r^4 > 0 sources it)", res, 0)
     chk("RN: m < 0 for r < Q^2/(2M)", rz, sp.Symbol('Q', positive=True) ** 2
         / (2 * sp.Symbol('M', positive=True)))
     chk("RN: m(0+) = -oo -- not a regular centre", m0lim, -sp.oo)
-    chk("the search returned six families (control 2 non-zero)",
+    # Control 2 is READ data: these rows re-derive the counts from the list and
+    # cross-check it against computation where computation reaches (the throats).
+    chk("control 2 (READ): the search returned a non-empty family list",
+        len(SELF_CONSISTENT_FAMILIES) > 0, True)
+    chk("  RECORD PIN: the transcribed list holds the ruling's 'six families'",
         SELF_CONSISTENT_FAMILIES_RETURNED, 6)
-    chk("with m < 0: none -- NOT-FOUND, not NO",
-        (FAMILIES_WITH_NEGATIVE_MASS, NEGATIVE_MASS_SELF_CONSISTENT_FOUND), (0, "NOT-FOUND"))
+    chk("  RECORD PIN: 'NOT ONE has m(r) < 0' -- NOT-FOUND, not NO",
+        (FAMILIES_WITH_NEGATIVE_MASS, NEGATIVE_MASS_SELF_CONSISTENT_FOUND),
+        (0, "NOT-FOUND"))
+    # Where computation reaches the READ list: section 1's residual c is
+    # m_throat - r_0/2 computed from the metric, so m_throat = r_0/2 + c; its
+    # sign at every READ throat radius must match the READ "m < 0 reported".
+    r0s = sp.Symbol('r_0', positive=True)
+    agree = all(bool(((r0s / 2 + c).subs(r0s, sp.Float(x)) < 0) == f[4])
+                for f in SELF_CONSISTENT_FAMILIES if f[3] for x in f[5])
+    chk("  every READ throat r_0 gives computed m_throat > 0, as READ",
+        agree and all(f[5] for f in SELF_CONSISTENT_FAMILIES if f[3]), True)
+    chk("  each READ throat r_0 is in the scale ledger or the HPS quartic",
+        all(any(abs(x - y) <= 1e-3 * y for y in
+                [v for _l, v in LITERATURE_THROATS] + [float(s1[0]), float(s2[0])])
+            for f in SELF_CONSISTENT_FAMILIES if f[3] for x in f[5]), True)
 
     print("\n6. THE DEMOTION AND THE ROW")
     chk("'no QEI can bound rho_ren' is refuted (Fewster & Smith)", NO_QEI_CAN_BOUND_RHO_REN, False)

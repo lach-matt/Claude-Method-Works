@@ -377,8 +377,23 @@ with its reason (WITHDRAWN, keyed by ledger row).
        -3.520e5 to -3.496e5, the optical/optical H1 row from -0.0682 to
        +0.0126.  K_alpha_as_first_written() keeps the withdrawn formula so
        the withdrawn number is reproduced, not typed.
+       THE RULING'S OWN CONSEQUENCE FIGURES DO NOT FOLLOW FROM ITS OWN
+       K_alpha, AND THIS FILE DOES NOT SEAT THEM.  DOCKET 63 ruling F7
+       printed "Th-229 H1 goes to about -3.48e5" and "the optical/optical H1
+       row goes to +0.0682".  Both are the WITHDRAWN K_alpha with its sign
+       flipped (+9.98e-3), not the ruling's own +43 alpha/(54 pi) =
+       +1.85e-3: dA x (-K_first) = +0.0682, and 1e5 (3.5 - 2 x 9.98e-3)
+       = 3.48e5, where the corrected product is dA x K = +0.0126 and
+       1e5 (3.5 - 2 K) = 3.496e5.  RULING_F7_PRINTED holds the two figures
+       as READ strings; RULING_F7_K_REQUIRED solves each, through the owning
+       function, for the K_alpha it would need; RULING_F7_FOLLOWS_FROM_ITS_
+       K_ALPHA and RULING_F7_IS_THE_SIGN_FLIP are COMPUTED by rounding each
+       candidate to the ruling's printed quantum.  The seated values are the
+       computed +0.0126331 and -3.49630e5.  A ruling-figure divergence,
+       RECORDED for M, not repaired in the ruling.
   W12  "1/(4 eps_det)" -- section 3.  SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS =
-       False; the factor between the two, 8, is computed.
+       False; the factor between the two, ~8, is computed by asking
+       source_to_field_ratio() (it is 32/(2+eps)^2, 8 only as eps -> 0).
   W13  "THE SAME OBSTRUCTION EVERY ROLE HITS" -- section 4.
        SAME_OBSTRUCTION_EVERY_ROLE = False.
   F5   The source fractions were H2 only -- sections 5 and 7.  EPS_NUCLEAR
@@ -390,6 +405,7 @@ NOTHING IS REPAIRED.
 
 import math
 import sys
+from decimal import Decimal
 from fractions import Fraction
 
 import higgs
@@ -430,8 +446,8 @@ GODUN_READ_FROM_SOURCE = True
 #: proportional to Lambda_QCD (M_p ~ 3 Lambda_QCD)" -- this project's H2.
 FLAMBAUM_READ_FROM_SOURCE = True
 
-#: The light-quark fraction S = sum_q sigma_q/m_p.  A DECLARED SCAN, not a
-#: measurement.  (label, value)
+#: The light-quark fraction S = sum_q sigma_q/m_p.  A scanned input (ORDER),
+#: not a measurement.  (label, value)
 S_SCAN = (("naive valence 2m_u+m_d", QUARK_SUM_MEV / M_P_MEV),
           ("sigma_piN ~ 56 MeV", 0.06),
           ("with strange sigma term", 0.09))
@@ -868,10 +884,58 @@ K_ALPHA_H1 = K_alpha("H1")                          # COMPUTED, +43 alpha/(54 pi
 K_ALPHA_H1_COEFFICIENT = K_alpha_coefficient("H1")  # EXACT: 43/54
 K_ALPHA_H1_AS_FIRST_WRITTEN = K_alpha_as_first_written("H1")   # WITHDRAWN value
 K_ALPHA_H1_IS_NEGATIVE = False                      # WITHDRAWN (W11)
+#: DOCKET 63 ruling F7's two printed consequence figures, READ VERBATIM from
+#: the ruling as strings so their printed precision is kept.  NOT SEATED: the
+#: ruling's own arithmetic is the withdrawn K_alpha with its sign flipped.
+RULING_F7_PRINTED = {"th229_H1": "-3.48e5", "optical_optical_H1": "+0.0682"}
+
+
+def _printed_value_and_quantum(txt):
+    """A printed figure's value and the unit of its last printed digit."""
+    d = Decimal(txt)
+    return float(d), float(Decimal(1).scaleb(d.as_tuple().exponent))
+
+
+def rounds_to_printed(x, txt):
+    """Would x, rounded to txt's last printed digit, print as txt?"""
+    v, q = _printed_value_and_quantum(txt)
+    return abs(x - v) <= 0.5 * q
+
+
+def f7_consequence(which, k):
+    """The F7 consequence at K_alpha(H1) = k, asked of the owning formula."""
+    if which == "th229_H1":
+        return th229_coefficient("H1", k_alpha=lambda h: k)
+    return (GODUN["A_E2"] - GODUN["A_E3"]) * k
+
+
+def ruling_f7_k_required(which):
+    """The K_alpha(H1) the ruling's printed figure would need.  Both
+    consequences are affine in K_alpha (the selftest checks it), so solve
+    from two evaluations.  Returns (K, the K-width of the printed quantum)."""
+    v, q = _printed_value_and_quantum(RULING_F7_PRINTED[which])
+    c0, c1 = f7_consequence(which, 0.0), f7_consequence(which, 1.0)
+    return (v - c0) / (c1 - c0), 0.5 * q / abs(c1 - c0)
+
+
+RULING_F7_K_REQUIRED = {w: ruling_f7_k_required(w) for w in RULING_F7_PRINTED}
+RULING_F7_SEATED = {w: f7_consequence(w, K_ALPHA_H1) for w in RULING_F7_PRINTED}
+RULING_F7_SIGN_FLIP = {w: f7_consequence(w, -K_ALPHA_H1_AS_FIRST_WRITTEN)
+                       for w in RULING_F7_PRINTED}
+#: COMPUTED: does the ruling's own K_alpha reproduce its printed figures?
+RULING_F7_FOLLOWS_FROM_ITS_K_ALPHA = all(
+    rounds_to_printed(RULING_F7_SEATED[w], RULING_F7_PRINTED[w])
+    for w in RULING_F7_PRINTED)
+#: COMPUTED: does the withdrawn K_alpha, sign flipped, reproduce them?
+RULING_F7_IS_THE_SIGN_FLIP = all(
+    rounds_to_printed(RULING_F7_SIGN_FLIP[w], RULING_F7_PRINTED[w])
+    for w in RULING_F7_PRINTED)
 # --- W12: the source/field ratio is 2/eps, not 1/(4 eps)
 SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS = False         # WITHDRAWN (W12)
-SOURCE_TO_FIELD_W12_FACTOR = ((2.0 / eps_det_stationary("H1"))
-                              / (1.0 / (4.0 * eps_det_stationary("H1"))))
+#: COMPUTED by asking the owner: source_to_field_ratio(eps) over the withdrawn
+#: 1/(4 eps), i.e. x 4 eps.  Exactly 32/(2+eps)^2 -- ~8, not the literal 8.
+SOURCE_TO_FIELD_W12_FACTOR = (source_to_field_ratio(eps_det_stationary("H1"))
+                              * 4.0 * eps_det_stationary("H1"))
 # --- W13: the range is not the same obstruction for every role
 SAME_OBSTRUCTION_EVERY_ROLE = False                 # WITHDRAWN (W13)
 # --- F5: the source fractions, under BOTH hypotheses
@@ -973,6 +1037,10 @@ def report():
     print("      %-34s %10.4f %12s %14s"
           % ("  WITHDRAWN first value (W11)",
              dA * K_alpha_as_first_written("H1"), "", ""))
+    print("      %-34s %10s %12s %14s"
+          % ("  ruling F7 printed (NOT SEATED)",
+             RULING_F7_PRINTED["optical_optical_H1"], "",
+             "sign flip" if RULING_F7_IS_THE_SIGN_FLIP else ""))
     print("      %-34s %10.4f %12.1e %14s"
           % ("  the same, under H2", 0.0, GODUN_RATIO_UNC, "BLIND (alpha)"))
     print("      %-34s %10.3e %12s %14s"
@@ -1550,10 +1618,21 @@ def selftest():
     chkrel("W12 source_to_field_ratio agrees with the exact form",
            source_to_field_ratio(1e-3), float(exact.subs(e_, sp.Rational(1, 1000))),
            1e-12)
-    chk("W12 the withdrawn 1/(4 eps) is low by exactly 8",
-        SOURCE_TO_FIELD_W12_FACTOR, 8.0)
-    chkrel("W12   2.5e15 against 3.1e14 at eps = 8e-16 (DOCKET 63 D)",
-           (2.0 / 8e-16) / (1.0 / (4 * 8e-16)), 8.0, 1e-15)
+    chk("W12 sympy: 4 eps x source/field -> 8 as eps -> 0",
+        sp.limit(4 * e_ * exact, e_, 0), 8)
+    # ASKS the owner: source_to_field_ratio(eps_det) x 4 eps_det = 32/(2+eps)^2
+    chkrel("W12 the withdrawn 1/(4 eps) is low by ~8 (source_to_field_ratio x 4 eps)",
+           SOURCE_TO_FIELD_W12_FACTOR, 8.0, 1e-12)
+    chk("W12   and not by the literal 8: it is 32/(2+eps)^2 < 8",
+        SOURCE_TO_FIELD_W12_FACTOR < 8.0, True)
+    s16 = source_to_field_ratio(8e-16)
+    chk("W12   2.5e15 at eps = 8e-16 (DOCKET 63 D), asked of source_to_field_ratio",
+        rounds_to_printed(s16, "2.5e15"), True)
+    w16 = 1.0 / (4.0 * 8e-16)          # the WITHDRAWN formula, evaluated
+    chk("W12   against the withdrawn 1/(4 eps) = 3.1e14 (DOCKET 63 D)",
+        rounds_to_printed(w16, "3.1e14"), True)
+    chkrel("W12   their quotient, the owner over the withdrawn form, is ~8",
+           s16 / w16, 8.0, 1e-12)
     chk("W12   recorded", SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS, False)
     chk("W13 the range is not the same obstruction for every role",
         SAME_OBSTRUCTION_EVERY_ROLE, False)
@@ -1576,6 +1655,26 @@ def selftest():
            0.0126331, 1e-5)
     chkrel("W11   withdrawn", dA_ * K_alpha_as_first_written("H1"),
            -0.0681601, 1e-5)
+    # W11 / ruling F7: the ruling's printed consequences, solved for the
+    # K_alpha they need.  Each check can fail: it rounds a COMPUTED candidate
+    # to the ruling's printed quantum.
+    for w in RULING_F7_PRINTED:
+        c0, c1 = f7_consequence(w, 0.0), f7_consequence(w, 1.0)
+        chkrel("F7 %s is affine in K_alpha (checked at K = 0.37)" % w,
+               f7_consequence(w, 0.37), c0 + 0.37 * (c1 - c0), 1e-12)
+        kreq, kw = RULING_F7_K_REQUIRED[w]
+        chk("F7 %s: ruling's %s needs K = %.4e; its own +43a/(54pi) is outside"
+            % (w, RULING_F7_PRINTED[w], kreq), abs(kreq - K_ALPHA_H1) > kw, True)
+        chk("F7 %s:   the withdrawn K sign-flipped (%.4e) is inside +-%.1e"
+            % (w, -K_ALPHA_H1_AS_FIRST_WRITTEN, kw),
+            abs(kreq + K_ALPHA_H1_AS_FIRST_WRITTEN) <= kw, True)
+    chk("F7 the ruling's figures do NOT follow from its own K_alpha",
+        RULING_F7_FOLLOWS_FROM_ITS_K_ALPHA, False)
+    chk("F7   they are the withdrawn K_alpha with its sign flipped",
+        RULING_F7_IS_THE_SIGN_FLIP, True)
+    chk("F7   and the seated rows are the computed products, not the ruling's",
+        (RULING_F7_SEATED["optical_optical_H1"] == dA_ * K_alpha("H1"),
+         RULING_F7_SEATED["th229_H1"] == th229_coefficient("H1")), (True, True))
 
     print()
     chk("H1 vs H2 is refused, not resolved", H1_VS_H2_IS_REFUSED, True)

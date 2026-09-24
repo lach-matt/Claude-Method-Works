@@ -11,6 +11,7 @@ the refusal is computed rather than asserted.
 
     python3 fewsterteo.py             the reading
     python3 fewsterteo.py --selftest  every figure re-derived; sympy + mpmath, < 1 min
+    python3 fewsterteo.py --selftest --full   adds the u = 1e5 convergence check
 
 Run from research/warp-drive (recovered/struct.py shadows stdlib struct from
 directories that can see recovered/).
@@ -20,9 +21,18 @@ directories that can see recovered/).
 ===============================================================================
 
 (a) THE PREFACTOR OF F&T (2.12)/(2.13) IS EXACTLY 1.  THEOREM, two routes, both
-    symbolic: from their legible (2.10)+(2.11) by a Leibniz identity and the
-    field equation, and from their printed Minkowski form (3.2).  The PDF text
-    layer drops it; nothing here trusts the text layer.
+    symbolic, each SOLVING for the prefactor P rather than asserting it.
+    Route 1: from their legible (2.10)+(2.11) by a Leibniz identity and the
+    field equation.  Route 2: (2.12)'s bracket  w_k^2 |U_k|^2 + (1/4) grad^2|U_k|^2
+    evaluated on Minkowski plane waves U_k = e^{ik.x}/sqrt((2 pi)^n 2 w_k)
+    (|U_k|^2 and grad^2|U_k|^2 = 0 computed, not assumed), |g_tt| = 1, and P
+    solved against their printed Minkowski form (3.2),
+    -(1/2) INT d^n k/(2 pi)^n w_k |fhat|^2.  The two routes share only the
+    reading of (2.12)'s bracket; their second inputs, (2.10)+(2.11) against
+    (3.2), are different printed equations.  Route 2 CAN return another value:
+    drop the 2 from the mode normalisation and it returns 1/2 (a selftest
+    control).  The PDF text layer drops the prefactor; nothing here trusts the
+    text layer.
 
 (b) THE 9/64 IS EXACT, AND IT MUST NOT BE APPLIED TO C_F.  F&T's flat massless
     bound with Ford-Roman's Lorentzian sampler is exactly 9/64 of Ford-Roman's
@@ -72,12 +82,15 @@ the lower limit C of (5.6), which on H^3 is the spectral gap 1/a_c.
 with Q_3(x) = 4 x^-4 INT_1^x y^2 sqrt(y^2-1) dy in closed form (F&T (3.5), n = 3,
 as READ by the DOCKET 62 O2 pass; the closed form is verified here by symbolic
 differentiation).  MEASURED here, stdlib, composite 20-point Gauss-Legendre over
-unit panels to u = 2e4, converged to 1e-10 against panel halving and u = 1e5:
+unit panels to u = 2e4.  Convergence, as --selftest tests it: halving the panels
+moves the witness ratio by < 1e-9 relative; extending to u = 1e5 moves it by
+< 1e-8 relative (--selftest --full).  C = 0 goes through the same quadrature,
+plus its 1/u^2 tail, over the Parseval total, and returns 1 to < 1e-8:
 
     C = 35.355 (witness)  0.0453939       C = 1      0.974321
     C = 10                0.165631        C = 0.1    0.999753886522
     C = 5                 0.469090        C = 0.01   0.999997542191
-                                          C = 0      1   (exactly: Q_3 -> 1)
+                                          C = 0      1   (Q_3 -> 1; to < 1e-8)
 
 THE CORRIDOR IS ASYMPTOTICALLY FLAT.  HYPOTHESIS, named: an asymptotically flat
 complete spatial slice has Laplace spectrum running continuously down to zero, so
@@ -135,14 +148,19 @@ import concentric
 O2_STATUS = "OPEN (narrowed) -- NOT CLOSED"
 O2_CLOSED = False
 
-#: (a) THEOREM, two routes; --selftest re-derives both in sympy.
+#: (a) THEOREM, two routes; --selftest SOLVES for it both ways in sympy
+#: (verify_symbolic, prefactor_route2) and compares each solution with this.
 PREFACTOR_212 = 1
 
 #: (b) THEOREM (exact rationals through F&T (6.9)); --selftest reproduces it.
 NINE_64 = (9, 64)
 NINE_64_APPLIES_TO_C_F = False          # the anti-double-counting refusal
-#: The void adjustment, COMPUTED so the refusal names its size.  NOT SEATED.
-VOID_ADJUSTMENT_ORDERS = math.log10(NINE_64[1] / NINE_64[0])
+#: The void adjustment log10(64/9) is COMPUTED ONLY INSIDE
+#: refused_void_adjustment() below, so the refusal can name its size.  It is
+#: NOT SEATED and deliberately NOT a module attribute: ledger.ask() fetches
+#: attributes, so no ledger row can ask it as an owner.  CORRECTED IN PLACE
+#: (consolidation verifier, DOCKETS 62/63): it was first exported here as
+#: VOID_ADJUSTMENT_ORDERS; that attribute is withdrawn.
 
 #: (c) the Parseval route is new; the 41-digit agreement is not a check.
 C_F_IS_FT_CONSTANT_AT_OPTIMAL_SAMPLER = True
@@ -285,10 +303,32 @@ def flat_total():
     return math.pi * _MU ** 4
 
 
+def _tail(U):
+    """INT_U^oo u^4|ghat|^2 du, from the transform's large-u form.
+
+    FT(g'')(u) -> (g''(1) e^{-iu} - g''(0))/(-iu), whose modulus squared averages
+    to (g''(0)^2 + g''(1)^2)/u^2 over the oscillation; the integral is that / U."""
+    global _N
+    if _N is None:
+        _N = _norm()
+    a, c = _sampler()
+    g2 = [sum((ck * ak * ak * cmath.exp(ak * t0)).real for ak, ck in zip(a, c))
+          for t0 in (0.0, 1.0)]
+    return (g2[0] ** 2 + g2[1] ** 2) / _N / U
+
+
 def ratio(C, u_max=2.0e4, width=1.0):
-    """|bound|_(5.6), gap C / |bound|_flat, same sampler.  C in units of 1/tau."""
-    if C <= 0.0:
-        return 1.0
+    """|bound|_(5.6), gap C / |bound|_flat, same sampler.  C in units of 1/tau.
+
+    C = 0 is NOT short-circuited.  There Q_3(u/C) -> 1 for every u > 0 (the
+    sympy limit in verify_symbolic), so (5.6) is INT_0^oo u^4|ghat|^2 du, and
+    it is evaluated by the same panels plus _tail(u_max), over flat_total()
+    = pi mu_1^4 from Parseval.  It returns 1 only if quadrature, tail,
+    normalisation and the Parseval closed form all agree."""
+    if C < 0.0:
+        raise ValueError("a spectral gap is >= 0, got C = %r" % C)
+    if C == 0.0:
+        return (_panels(u4ghat2, 0.0, u_max, width) + _tail(u_max)) / flat_total()
     d = _panels(u4ghat2, 0.0, C, width)
     d += _panels(lambda u: u4ghat2(u) * (1.0 - Q3(u / C)), C, u_max, width)
     return 1.0 - d / flat_total()
@@ -304,6 +344,14 @@ def refused_figures():
     curved = flat - math.log10(ratio(witness_gap()))
     gtt = 1.0 + 2.0 * achievable.M_OVER_B / achievable.A_OVER_B
     return flat, curved, curved - math.log10(gtt ** 2)
+
+
+def refused_void_adjustment():
+    """log10(64/9), the 64/9 adjustment to C_F that section 1(b) REFUSES.
+
+    COMPUTED HERE AND ONLY HERE so the refusal names its size; never a module
+    attribute, so no ledger row can ask it as an owner.  NOT SEATED."""
+    return math.log10(NINE_64[1] / NINE_64[0])
 
 
 # COMPUTED AT IMPORT (cheap): the witness gap and the flat figure that stands.
@@ -338,10 +386,13 @@ def verify_symbolic(sp):
     b212 = W2 * M2 + LAP / 4
     P = sp.Rational(1, 2) * sp.simplify(b210 / b212)
     rows.append(("(a) route 1: prefactor of (2.12)", P, PREFACTOR_212))
-    # route 2 -- the printed Minkowski (3.2) carries -(1/2) INT w_k/(2pi)^n,
-    # and (2.12) with |U_k|^2 = 1/((2pi)^n 2 w_k) gives -(P/2) of the same.
-    rows.append(("(a) route 2: prefactor from printed (3.2)",
-                 sp.Rational(1, 2) / sp.Rational(1, 2), PREFACTOR_212))
+    # route 2 -- (2.12)'s bracket on Minkowski plane waves, P SOLVED against
+    # the printed (3.2).  Same bracket expression b212 as route 1.
+    rows.append(("(a) route 2: prefactor solved against printed (3.2)",
+                 prefactor_route2(sp, b212, W2, M2, LAP), PREFACTOR_212))
+    rows.append(("(a) route 2 CONTROL: mode norm 1/((2pi)^n w_k) solves to 1/2",
+                 prefactor_route2(sp, b212, W2, M2, LAP, norm=1),
+                 sp.Rational(1, 2)))
 
     # (b) the 9/64, exact rationals through F&T (6.9) at alpha = 5/2
     t0 = sp.Symbol('t_0', positive=True)
@@ -402,6 +453,34 @@ def verify_symbolic(sp):
     return rows
 
 
+def prefactor_route2(sp, b212, W2, M2, LAP, norm=2):
+    """Solve F&T (2.12)'s prefactor P against their printed Minkowski (3.2).
+
+    (2.12) is read as  -P INT dmu(k) S_k [w_k^2 |U_k|^2 + (1/4) grad^2|U_k|^2]
+    / |g_tt|^e, with b212 the bracket (route 1's expression, W2/M2/LAP its
+    symbols) and S_k the sampler factor |fhat|^2 common to (3.2).  The weight
+    exponent e is left SYMBOLIC: at |g_tt| = 1 it cannot reach P, and the solve
+    shows it.  The modes are Minkowski plane waves in n = 3 coordinates,
+    U_k = e^{i k.x} / sqrt((2 pi)^n norm w_k); |U_k|^2 and its Laplacian are
+    COMPUTED from them.  The printed (3.2) is -(1/2) INT d^n k/(2 pi)^n w_k S_k.
+    Returns the unique solution P (raises if there is not exactly one)."""
+    n = sp.Symbol('n', positive=True, integer=True)
+    P, w, S, gtt, e = sp.symbols('P omega_k S g_tt e', positive=True)
+    X = sp.symbols('x1:4', real=True)
+    Kv = sp.symbols('k1:4', real=True)
+    U = sp.exp(sp.I * sum(k * x for k, x in zip(Kv, X))) \
+        / sp.sqrt((2 * sp.pi) ** n * norm * w)
+    mod2 = sp.simplify(sp.expand(U * sp.conjugate(U)))
+    lap = sp.simplify(sum(sp.diff(mod2, x, 2) for x in X))
+    bracket = b212.subs({W2: w ** 2, M2: mod2, LAP: lap})
+    lhs = (-P * bracket * S / gtt ** e).subs(gtt, 1)
+    rhs = -sp.Rational(1, 2) * w / (2 * sp.pi) ** n * S
+    sol = sp.solve(sp.Eq(lhs, rhs), P)
+    if len(sol) != 1:
+        raise ValueError("route 2: expected one solution for P, got %r" % (sol,))
+    return sp.simplify(sol[0])
+
+
 def ft69_quadrature(mp):
     """F&T (6.9) against direct quadrature of INT u^(2a-1) K_0(u)^2, 30 dps.
     `mp` is the mpmath MODULE; precision lives on its context, mp.mp."""
@@ -439,13 +518,14 @@ def report():
     print("\n71.256 STANDS:        flat shortfall at 1 m  = %.6f orders (achievable.py)" % flat)
     print("REFUSED, NOT SEATED:  witness-gap shortfall  = %.6f" % c1)
     print("REFUSED, NOT SEATED:  ... less |g_tt|^2      = %.6f" % c2)
-    print("REFUSED, NOT SEATED:  64/9 adjustment        = %.7f orders" % VOID_ADJUSTMENT_ORDERS)
+    print("REFUSED, NOT SEATED:  64/9 adjustment        = %.7f orders"
+          % refused_void_adjustment())
     print("\nO2: %s" % O2_STATUS)
     print("RESTATED: %s" % O2_ANSWERED_BY)
     return 0
 
 
-def selftest():
+def selftest(full=False):
     ok = True
 
     def chk(label, got, want):
@@ -479,8 +559,11 @@ def selftest():
     for av, rel in ft69_quadrature(mp):
         chk("F&T (6.9) matches quadrature at alpha = %.1f (rel < 1e-20)" % av,
             rel < 1e-20, True)
-    near("the void adjustment log10(64/9), COMPUTED", VOID_ADJUSTMENT_ORDERS,
-         0.8519374645, 1e-9)
+    near("the void adjustment log10(64/9), COMPUTED (ruling prints 0.8519374645)",
+         refused_void_adjustment(), 0.8519374645, 1e-9)
+    chk("and it is not a module attribute any ledger row could ask",
+        any(isinstance(v, float) and abs(v - refused_void_adjustment()) < 1e-12
+            for v in vars(sys.modules[__name__]).values()), False)
     chk("and it is NOT applied to C_F", NINE_64_APPLIES_TO_C_F, False)
 
     print("\n3. THE PARSEVAL ROUTE, NUMERICALLY -- AND WHY IT IS NOT A CHECK")
@@ -490,12 +573,11 @@ def selftest():
     near("(5.6) at C=0: pi mu_1^4/(16 pi^3) against achievable.FEWSTER_C",
          flat_total() / (16 * math.pi ** 3), achievable.FEWSTER_C, 1e-13)
     part = _panels(u4ghat2, 0.0, 2.0e4)
-    a, c = _sampler()
-    g2 = [sum((ck * ak * ak * cmath.exp(ak * t0)).real
-              for ak, ck in zip(a, c)) for t0 in (0.0, 1.0)]
-    tail = (g2[0] ** 2 + g2[1] ** 2) / _N / 2.0e4        # INT_U^oo avg/u^2
+    tail = _tail(2.0e4)                                  # INT_U^oo avg/u^2
     near("Parseval: INT_0^oo |FT g''|^2 du (quadrature + 1/u^2 tail) = pi mu^4",
-         part + tail, flat_total(), 1e-5)
+         part + tail, flat_total(), 1e-8)
+    chk("CONTROL: without the tail the Parseval check fails at 1e-8",
+        abs(part - flat_total()) / flat_total() > 1e-8, True)
     chk("the 41-digit agreement is NOT independent (one closed form, twice)",
         C_F_AGREEMENT_IS_INDEPENDENT, False)
 
@@ -508,17 +590,24 @@ def selftest():
     chk("CONTROL: the instrument CAN report a tightening (ratio < 0.05)", rw < 0.05, True)
     for C, want in GAP_SWEEP:
         near("ratio at C = %g" % C, ratio(C), want, 1e-5 if C > 0.5 else 1e-11)
-    chk("CONTROL: C = 0 returns the flat bound exactly", ratio(0.0), 1.0)
+    r0 = ratio(0.0)
+    near("CONTROL: C = 0, by the same quadrature + tail, returns the flat bound",
+         r0, 1.0, 1e-8)
     chk("ratio monotone in C over the sweep",
         all(ratio(x) > ratio(y) for x, y in ((0.01, 0.1), (0.1, 1.0), (1.0, 5.0),
                                              (5.0, 10.0), (10.0, 20.0))), True)
-    near("convergence: panel halving moves the witness ratio by < 1e-9",
-         ratio(Cw, width=0.5), rw, 1e-8)
+    near("convergence: panel halving moves the witness ratio by < 1e-9 rel",
+         ratio(Cw, width=0.5), rw, 1e-9)
+    if full:
+        near("convergence: u_max = 1e5 moves the witness ratio by < 1e-8 rel",
+             ratio(Cw, u_max=1.0e5), rw, 1e-8)
+    else:
+        print("  [--] convergence to u_max = 1e5: run with --full")
     rc = ratio(cavity_gap())
     chk("cavity at R_s = 200 b: C = 0.005", cavity_gap(), 0.005)
     chk("... leaves the ratio at 0.999999 (6 d.p.)", round(rc, 6), 0.999999)
-    chk("the corridor's gap is zero, so its ratio is 1",
-        ratio(CORRIDOR_SPECTRAL_GAP), 1.0)
+    near("the corridor's gap is zero, so its ratio is 1 (same quadrature)",
+         ratio(CORRIDOR_SPECTRAL_GAP), 1.0, 1e-8)
 
     print("\n5. 71.256 STANDS; THE PROPOSED FIGURES ARE REFUSED")
     flat, c1, c2 = refused_figures()
@@ -541,4 +630,5 @@ def selftest():
 
 
 if __name__ == "__main__":
-    sys.exit(selftest() if "--selftest" in sys.argv else report())
+    sys.exit(selftest(full="--full" in sys.argv)
+             if "--selftest" in sys.argv or "--full" in sys.argv else report())

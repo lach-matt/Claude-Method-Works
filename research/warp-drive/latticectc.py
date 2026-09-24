@@ -148,8 +148,15 @@ CALDWELL_LANGLOIS_WITHDRAWAL_SEATED = False
 O3_ANSWERED_BY = ("a CTC in a braneworld whose bulk satisfies its field "
                   "equations with Israel junction conditions at the brane -- "
                   "with the NEC satisfied everywhere, the folded-in clause -- "
-                  "or a theorem forbidding one beyond the flat quotient, which "
-                  "the lattice theorem now settles")
+                  "or a theorem forbidding one beyond the flat quotient (the "
+                  "flat quotient itself is settled by D21)")
+#: CORRECTED IN PLACE (consolidation verifier, DOCKETS 62/63): this string
+#: previously ended "...beyond the flat quotient, which the lattice theorem now
+#: settles" -- readable as D21 settling the beyond-flat question.  D21 is seated
+#: for the flat bulk only; the beyond-flat theorem is what the row still asks.
+O3_ANSWERED_BY_WITHDRAWN_WORDING = ("a theorem forbidding one beyond the flat "
+                                    "quotient, which the lattice theorem now "
+                                    "settles")
 
 NOT_SEARCHED = ("Tipler", "Hawking chronology protection",
                 "Hawking & Ellis Prop 6.4.2", "Polychronakos 2210.11497")
@@ -412,6 +419,11 @@ def selftest(full=False):
     chk("the Caldwell & Langlois withdrawal is not seated",
         CALDWELL_LANGLOIS_WITHDRAWAL_SEATED, False)
     chk("O3 is not closed", O3_CLOSED, False)
+    chk("O3's answering condition no longer carries the withdrawn wording "
+        "(record pin)", O3_ANSWERED_BY_WITHDRAWN_WORDING in O3_ANSWERED_BY, False)
+    chk("  and scopes D21 to the flat quotient only (record pin)",
+        O3_ANSWERED_BY.endswith("(the flat quotient itself is settled by D21)"),
+        True)
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1

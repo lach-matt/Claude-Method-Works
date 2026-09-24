@@ -107,10 +107,11 @@ DOCKET 62 CLOSED NOTHING.  O2, O3, O5, O6 and O7 stay OPEN and are NARROWED,
 each now ASKED of the instrument that seated its narrowing (fewsterteo.py,
 latticectc.py, throatmass.py, branelink.py), and each owner is asked whether it
 closed -- an open row whose owner says CLOSED is a selftest failure.  The one
-new row is the flat-bulk lattice theorem, D21, a THEOREM with its hypotheses
-named.  REFUSED by the ruling and therefore NOT on this board: closing any of
-the five; the curvature-tightened persistence figures; the void 9/64
-adjustment; an R-1 row (it is O7 renamed); a separate NEC-everywhere row (it is
+new row its narrowings produced is the flat-bulk lattice theorem, D21, a
+THEOREM with its hypotheses named; its RECOMMENDED new rows are decided below,
+one by one, under the principle for opening a row.  REFUSED by the ruling
+and therefore NOT on this board: closing any of the five; the
+curvature-tightened persistence figures; the void 9/64 adjustment; an R-1 row (it is O7 renamed); a separate NEC-everywhere row (it is
 O3 with a clause); the Caldwell & Langlois withdrawal (it has no referent).
 The selftest asserts each refusal.  The wording each narrowing replaced is
 KEPT in SUPERSEDED_WORDING, because a row rewritten in place leaves no trace
@@ -120,12 +121,41 @@ DOCKET 63 adds D15-D20 (the Higgs at the endpoint), S6-S8 (all REFUSED, no
 gap) and W9-W13, owners as the ruling named them.  W9 is excite.W9 and
 W10-W13 are address.WITHDRAWN: the withdrawn rows are ASKED too, not retyped.
 
-THE BOARD MUST NOT LAG THE TREE: fluctuation.py was committed with no row, so
-D22 is an OPEN demand row owned by it.  Stability, formation and the stock
-gate are NOT opened here -- a later docket prices and opens those.
+THE PRINCIPLE FOR OPENING A ROW, STATED ONCE AND APPLIED TO EVERY CANDIDATE:
+
+    A QUESTION THE TREE ALREADY HAS AN INSTRUMENT FOR GETS A ROW NOW -- the
+    board must not lag the tree.  A QUESTION WITH NO INSTRUMENT IS OPENED BY
+    THE DOCKET THAT BUILDS ITS INSTRUMENT, because a row this file cannot ask
+    is a row it cannot defend.
+
+    AND A ROW IS FOR A QUESTION THAT CAN MOVE A REQUIREMENT OR A PRICE ON THE
+    BOARD.  An unsettled question internal to an already-REFUSED row, which
+    gates nothing, is recorded where that row's owner records it and gets no
+    row of its own -- one row per question would over-represent it.  This is
+    the criterion that keeps DOCKET 63 section E's thirteen items off the
+    board (see the census re-pin below); it is part of the principle, not an
+    exception to it.
+
+Applied, candidate by candidate (the owner was READ before each decision):
+  D22  stress-tensor fluctuations -- fluctuation.py.  OPENED.
+  D23  the first trip / amortisation -- transit.py (TRAVERSAL_IS_REMOVED).
+       OPENED; S5's note now carries the amortisation reading.
+  D24  formation -- create.py (NUCLEATION_STATUS).  OPENED.
+  D25  the destination stock gate -- stockgate.py (GATE), auditing stock.py.
+       OPENED.
+  S9   the Drive folder's device specification as a supply -- warpfolder.py
+       (FLASH_IS_A_RECONSTRUCTION_MECHANISM).  SEATED, REFUSED.
+  linearised stability -- NOT OPENED: NO INSTRUMENT ASKS IT.  stability.py
+       asks the CLASSICAL radial stability of concentric.py's shell
+       (Poisson-Visser), and throatmass.py names Anderson-Molina-Paris-Mottola
+       only for the domain of validity; nothing evaluates their criterion (no
+       gauge-invariant perturbation unbounded in time) on anything.  It waits
+       for the calculations docket that builds that instrument.
+       WAITS_FOR_ITS_INSTRUMENT records it, and LEDGER.md prints it.
 """
 
 import math
+import os
 import sys
 
 import achievable
@@ -134,6 +164,7 @@ import bounds
 import branelink
 import candidates
 import certify
+import create
 import driven
 import drivensource
 import endpoint
@@ -145,8 +176,17 @@ import higgs
 import latticectc
 import nonstatic
 import overturn
+import stockgate
 import throatmass
 import tolman
+import transit
+import warpfolder
+
+#: LEDGER.md sits beside this file, and is found there from ANY working
+#: directory.  It was first resolved against the cwd, so --check run from the
+#: repository root reported a tracked file missing.
+HERE = os.path.dirname(os.path.abspath(__file__))
+LEDGER_MD = os.path.join(HERE, "LEDGER.md")
 
 THEOREM, MEASURED, SURVEY, OPEN, WITHDRAWN, REFUSED = (
     "THEOREM", "MEASURED", "SURVEY", "OPEN", "WITHDRAWN", "REFUSED")
@@ -368,8 +408,9 @@ DEMAND = [
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"],
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"]),
      MEASURED, ("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"),
-     "a cheaper stable neutral source (DOCKET 63 E1, unsettled), a READ G_F "
-     "or m_h, or the H1/H2 choice, which no Standard Model instrument can "
+     "a cheaper stable neutral source (DOCKET 63 E1, unsettled), the "
+     "Yukawa-running correction to the 2/9 source fraction (E10, unsettled), "
+     "a READ G_F or m_h, or the H1/H2 choice, which no Standard Model instrument can "
      "make and this file does not"),
 
     # ----- DOCKET 62: the O3 narrowing, seated as its own THEOREM. ----------
@@ -404,6 +445,94 @@ DEMAND = [
      "renormalisation of quartic operator products Kuo & Ford said did not "
      "exist.  If it is of order one there, the demand column must be written "
      "about a distribution rather than an expectation"),
+
+    # ----- the principle applied (docstring section 4): each of these has an
+    # instrument in the tree, so each gets its row now.  DOCKET 62's
+    # recommended NEW rows. ------------------------------------------------
+    ("D23",
+     "THE FIRST TRIP.  transit.py: a channel spanning D required something to "
+     "cross D at <= c beforehand -- THE CORRIDOR MUST BE TRAVERSED IN ORDER TO "
+     "EXIST.  Its advantage over light is ZERO BY CONSTRUCTION, not by "
+     "measurement: transit.py models the channel's arrival as the classical "
+     "message at c, because reading the shared state carries nothing alone "
+     "(READING_CARRIES_NOTHING_ALONE = %s -- the no-communication theorem), "
+     "so advantage_over_light(D) = D/c - D/c at every distance it lists "
+     "(%s: %s).  Applied to S5 with no entanglement in it: the "
+     "fabricator, the stock survey and the receiver all had to reach the "
+     "destination at <= c.  So S5 is an AMORTISATION SCHEME, not a transport "
+     "route, with a minimum setup of the light time, %.4g years at Proxima "
+     "(the span in light years, foliation.py).  "
+     "Whether that setup amortises is OPEN"
+     % (transit.READING_CARRIES_NOTHING_ALONE,
+        ", ".join(n for n, _d in transit.DISTANCES),
+        ", ".join(sorted(set("%.3f" % transit.advantage_over_light(d)
+                             for _n, d in transit.DISTANCES))), PROXIMA_LY),
+     OPEN, ("transit", "TRAVERSAL_IS_REMOVED"),
+     "S5 priced per reconstruction -- DOCKET 56's owed instrument -- set "
+     "against the first trip, giving the number of later reconstructions at "
+     "which the route beats sending the payload itself at <= c.  Nothing "
+     "removes the first trip: transit.py moves the traversal earlier, it does "
+     "not delete it"),
+
+    ("D24",
+     "FORMATION.  D1-D14 each price a CONFIGURATION, and none prices getting "
+     "to it.  create.py: bringing a throat into existence is TOPOLOGY CHANGE, "
+     "and, FOR CAUSALLY COMPACT INTERPOLATING SPACETIMES, Geroch and Borde "
+     "force causality violation for it kinematically -- '%s'; Borde: '%s' -- "
+     "so exotic matter cannot help (EXOTIC_MATTER_HELPS_CREATION = %s).  "
+     "Dropping causal compactness is one of Borde's three escapes, and none "
+     "stays inside Lorentzian GR without a pathology "
+     "(any_escape_stays_in_lorentzian_gr() = %s).  Enlarging an existing throat is a metric "
+     "change those theorems say nothing about "
+     "(create.theorems_apply_to_enlargement() = %s), but its premise is "
+     "unpriced: %s"
+     % (create.BORDE, create.BORDE_SINGULARITY,
+        create.EXOTIC_MATTER_HELPS_CREATION,
+        create.any_escape_stays_in_lorentzian_gr(),
+        create.theorems_apply_to_enlargement(), create.ROUTE_COST),
+     OPEN, ("create", "NUCLEATION_STATUS"),
+     "the nucleation construction run rather than named (%s, %s here), or "
+     "the 'find one and enlarge it' route priced; and for any configuration "
+     "that changes no topology, the passage from flat space to it priced at "
+     "all -- no instrument in the tree does that yet"
+     % (create.NUCLEATION_LITERATURE, create.NUCLEATION_STATUS)),
+
+    ("D25",
+     "THE DESTINATION STOCK GATE.  stock.py derives it and stockgate.py "
+     "audits it: %s  The assemblable set is a principal ideal, down-set and "
+     "join-closed (stockgate's z3 discharges).  A reference adult (ICRP) "
+     "against a CI chondrite binds on %s at %.4g kg of feedstock per kg; the "
+     "same payload against a stellar photosphere binds on %s at %.4g kg per "
+     "kg.  A "
+     "manufactured payload binds on a refractory rarity instead.  S5 cannot "
+     "close in either direction while this gate is unchecked at its "
+     "destination"
+     % ((stockgate.GATE,)
+        + stockgate.binding_under("as-composed 59", "CI chondrite")
+        + stockgate.binding_under("as-composed 59", "stellar photosphere")),
+     OPEN, ("stockgate", "GATE"),
+     "the destination's arrival aperture surveyed for a condensed, "
+     "primitive body holding M(p,s) x m_payload of accessible mass -- a "
+     "snow-line condition, so a condition on orbital radius at the "
+     "destination, which the arrival coordinate does not yet carry.  "
+     "Separation energy is not priced by stockgate.py and no figure here is "
+     "an energy"),
+]
+
+#: THE PRINCIPLE'S OTHER HALF (docstring section 4): a question with no
+#: instrument is opened by the docket that builds one.  (question, why it has
+#: no row yet, what opens it.)  Printed in LEDGER.md so a deferral is visible.
+WAITS_FOR_ITS_INSTRUMENT = [
+    ("linearised stability",
+     "no instrument asks it.  Anderson-Molina-Paris-Mottola state the validity "
+     "criterion in print (no gauge-invariant perturbation unbounded in time), "
+     "and the literature is split on Minkowski itself (AMM: infrared-stable; "
+     "Galanda-Meda-Murro-Pinamonti-Schmid 2604.01047: linearly unstable, "
+     "attributed to the renormalisation constants) -- as DOCKET 62's ruling "
+     "reports them, not read here.  stability.py asks the "
+     "CLASSICAL radial stability of a shell, not this",
+     "the calculations docket, by building the instrument that evaluates the "
+     "criterion"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -455,8 +584,12 @@ SUPPLY = [
      "says it exists to prevent.  Re-seating it needs an instrument, not a "
      "citation.  DOCKET 62, UNCHANGED AND SHARPENED: re-grepped, the four "
      "occur in this note and in no other file.  The O6/O7 pass's apparent "
-     "reproduction of them is %s.  Owed: %s"
-     % (branelink.S5_FIGURES_STATUS, branelink.S5_OWED)),
+     "reproduction of them is %s.  Owed: %s.  READ WITH D23 (DOCKET 62): "
+     "the fabricator, the stock survey and the receiver all had to reach "
+     "the destination at <= c first, so this row is an AMORTISATION SCHEME "
+     "with a minimum setup of %.4g years at Proxima, not a transport route; "
+     "and D25's stock gate must hold at the destination"
+     % (branelink.S5_FIGURES_STATUS, branelink.S5_OWED, PROXIMA_LY)),
 
     # ----- DOCKET 63: the Higgs as supply.  All REFUSED, all gap None. ------
     ("S6", "Higgs displacement as an ADDRESS", REFUSED,
@@ -478,14 +611,43 @@ SUPPLY = [
     ("S8", "Higgs as a negative-energy source at the endpoint", REFUSED,
      ("higgs", "MINIMAL_SCALAR_SATISFIES_NEC"),
      "Minimal coupling is D17.  The xi != 0 case is S4 and O1, both refused; "
-     "it needs phi at the GUT scale, xi_req = %.4g, a field %.0e to %.0e "
-     "times Degrassi's instability scale 10^(%g +- %g) GeV, where the quartic "
-     "is negative -- not an excitation of our vacuum"
-     % ((excite.XI_REQUIRED_AT_GUT,)
-        + (min(excite.XI_FIELD_OVER_INSTABILITY),
-           max(excite.XI_FIELD_OVER_INSTABILITY))
-        + (endpoint.DEGRASSI_LOG10_LI,
-           endpoint.DEGRASSI_LOG10_LI_ERR))),
+     "it needs phi at the GUT scale, xi_req = %.4g, a field %.0e (upper "
+     "edge) to %.0e (lower edge) times Degrassi's instability scale "
+     "10^(%g +- %g) GeV, %.0e at the centre, where the quartic is negative "
+     "-- not an excitation of our vacuum.  DOCKET 63's printed '%s to %s' is "
+     "the upper edge to the centre (excite.py: %s), %.0f%% of the band in "
+     "log10; nothing turns on it"
+     % (excite.XI_REQUIRED_AT_GUT,
+        excite.XI_FIELD_OVER_INSTABILITY_UPPER_EDGE,
+        excite.XI_FIELD_OVER_INSTABILITY_LOWER_EDGE,
+        endpoint.DEGRASSI_LOG10_LI, endpoint.DEGRASSI_LOG10_LI_ERR,
+        excite.XI_FIELD_OVER_INSTABILITY_CENTRE,
+        excite.RULING_S8_PRINTED_RANGE[0], excite.RULING_S8_PRINTED_RANGE[1],
+        " and ".join("/".join(m) for m in excite.RULING_S8_MATCHES),
+        100.0 * excite.RULING_S8_COVERS_FRACTION_OF_BAND)),
+
+    # ----- DOCKET 62: warpfolder.py's adjudication, the principle applied. --
+    ("S9", "the Drive folder's device specification (warpfolder.py)", REFUSED,
+     ("warpfolder", "FLASH_IS_A_RECONSTRUCTION_MECHANISM"),
+     "The only complete device specification written for this project, "
+     "REFUSED AS A SUPPLY on two independent counts.  Its own printed "
+     "hardware stores %.0f J against the %.4g J its own premise needs at "
+     "%.0f kg -- short by %.1f orders ON ITS OWN NUMBERS, the energy budget "
+     "never connected to the chain (ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN "
+     "= %s).  And its reconstruction mechanism "
+     "is INVERTED: heating to the electroweak scale restores the symmetry "
+     "(HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s) and un-generates the masses it was to template.  That shortfall is "
+     "the specification against itself, not a gap against this board's demand, "
+     "so the row carries none.  NOT ADJUDICATED, and not to be quoted either "
+     "way: %s -- the first is the only folder claim that touches this "
+     "column"
+     % (warpfolder.stored_joules(),
+        warpfolder.rest_energy_j(warpfolder.PAYLOADS_KG[0]),
+        warpfolder.PAYLOADS_KG[0],
+        math.log10(warpfolder.shortfall(warpfolder.PAYLOADS_KG[0])),
+        warpfolder.ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN,
+        warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY,
+        "; ".join(warpfolder.NOT_ADJUDICATED))),
 ]
 
 # ---------------------------------------------------------------------------
@@ -530,14 +692,16 @@ OPEN_ROWS = [
      "decisive, recomputed at omega_GW = %d Omega, is h = %.4e and %.4e "
      "bits/s/W; the pass used Omega and its figures were %.0fx and %.0fx too "
      "large, kept as withdrawn values in branelink.py.  It does not close: "
-     "the closing premise, a %s, is %s, and the honest shape is a dichotomy "
-     "-- %s -- so the row is settled %s"
+     "the closing premise, a %s, is %s; the closure runs through O7's "
+     "UNTESTED B = 0, where the %.1f ns saving is evaluated; and the honest "
+     "shape is a dichotomy -- %s -- so the row is settled %s"
      % (branelink.COUPLING_SOURCE, branelink.EOTWASH_BOUNDS,
         branelink.OMEGA_GW_OVER_OMEGA, branelink.STRAIN_H,
         branelink.THROUGHPUT_BITS_PER_S_PER_W,
         branelink.WITHDRAWN_STRAIN_H / branelink.STRAIN_H,
         branelink.WITHDRAWN_THROUGHPUT / branelink.THROUGHPUT_BITS_PER_S_PER_W,
         branelink.CLOSING_PREMISE, branelink.CLOSING_PREMISE_STATUS,
+        branelink.SAVING_AT_B0_NS,
         "; ".join("if the %s: %s" % b for b in branelink.O6_DICHOTOMY),
         branelink.O6_SETTLED),
      "whether the graviton is a bulk degree of freedom -- on that branch the "
@@ -890,6 +1054,10 @@ def report():
     for rid, claim, _st, owner, moves in open_demand():
         print("  %-4s (a DEMAND row) %s" % (rid, _one_line(claim, 86)))
         print("       would be answered by: %s" % _one_line(moves, 96))
+    for q, why, opener in WAITS_FOR_ITS_INSTRUMENT:
+        print("  NOT OPENED, WAITING FOR ITS INSTRUMENT: %s" % q)
+        print("       %s" % _one_line(why, 96))
+        print("       opened by: %s" % _one_line(opener, 96))
 
     print("\nOPEN-ROW WORDING REPLACED BY DOCKET 62, KEPT: %s  (--md prints it)"
           % ", ".join(r[0] for r in SUPERSEDED_WORDING))
@@ -957,7 +1125,7 @@ def to_markdown():
           "| id | status | mechanism | note |", "|---|---|---|---|"]
     for rid, what, st, _o, note in SUPPLY:
         L.append("| %s | **%s** | %s | %s |"
-                 % (rid, st, _cell(what, 80), _cell(note, 1400)))
+                 % (rid, st, _cell(what, 80), _cell(note, 2000)))
 
     L += ["", "## The balance", "",
           "| id | quantity | demand | supply | gap |", "|---|---|---|---|---|"]
@@ -976,6 +1144,15 @@ def to_markdown():
         L += ["### %s (a demand row)" % rid, "", _one_line(claim, 1400), "",
               "**Would be answered by:** %s" % _one_line(moves, 600), "",
               "*Asked:* `%s.%s = %s`" % (owner[0], owner[1], ask(owner)), ""]
+    L += ["### Not opened: waiting for its instrument", "",
+          "A question with no instrument is opened by the docket that builds",
+          "one (the principle in `ledger.py`'s docstring, section 4).", "",
+          "| question | why it has no row yet | what opens it |",
+          "|---|---|---|"]
+    for q, why, opener in WAITS_FOR_ITS_INSTRUMENT:
+        L.append("| %s | %s | %s |"
+                 % (_cell(q, 80), _cell(why, 600), _cell(opener, 200)))
+    L.append("")
 
     L += ["## Open-row wording replaced by DOCKET 62", "",
           "Kept, never deleted: a row rewritten in place is otherwise",
@@ -1010,7 +1187,7 @@ def to_markdown():
     return "\n".join(L) + "\n"
 
 
-def write_md(path="LEDGER.md"):
+def write_md(path=LEDGER_MD):
     io_open = open
     with io_open(path, "w", encoding="utf-8") as fh:
         fh.write(to_markdown())
@@ -1018,7 +1195,7 @@ def write_md(path="LEDGER.md"):
     return 0
 
 
-def check(path="LEDGER.md"):
+def check(path=LEDGER_MD):
     """Re-ask every row and compare against the written document."""
     try:
         with open(path, encoding="utf-8") as fh:
@@ -1063,13 +1240,17 @@ def selftest():
     # RE-PINNED 10 -> 11: D14 (the addressing theorem, DOCKET 60) is asked of
     # certify.THEOREM_SCOPE, because the scope line IS the claim -- a device
     # specified by (Phi, m) of r alone has no parameter for a destination.
-    chk("every owned row's attribute still exists on its peer", asked, 23)
+    chk("every owned row's attribute still exists on its peer", asked, 27)
     # RE-PINNED 11 -> 23 BY DOCKETS 62 AND 63, to what this loop counts after
     # the edit (the DOCKET 63 ruling projected 20; that was a prediction, not
     # a pin).  +6 D15-D20 and +3 S6-S8, owners as DOCKET 63 named them; +1
     # D21, the lattice theorem, asked of latticectc.py; +1 D22, fluctuation.py,
     # the board catching up with the tree; +1 S5, now asked of branelink.py
     # whether its four figures were measured -- they were not.
+    # RE-PINNED 23 -> 27 by the fix pass on DOCKETS 62/63, to what this loop
+    # counts: the row-opening principle (docstring section 4) applied to
+    # every candidate with an instrument -- +1 D23 (transit.py), +1 D24
+    # (create.py), +1 D25 (stockgate.py), +1 S9 (warpfolder.py).
     open_asked = 0
     for rid, _c, _a, owner in OPEN_ROWS:
         ask(owner)
@@ -1138,6 +1319,44 @@ def selftest():
          fluctuation.BOUND_NEEDS_DIAGONAL_G), (False, False))
     chk("branelink.py: S5's four figures are NOT measured (S5 stays OPEN)",
         ask(("branelink", "S5_FIGURES_MEASURED")), False)
+    # The principle's rows (docstring section 4), each asked of its owner.
+    row = dict((r[0], r) for r in DEMAND + SUPPLY)
+    chk("transit.py: the traversal is moved earlier, not removed (D23)",
+        (ask(("transit", "TRAVERSAL_IS_REMOVED")), transit.BEATS_LIGHT),
+        (False, False))
+    chk("  and S5's note carries D23's amortisation reading",
+        ("AMORTISATION SCHEME" in row["S5"][4],
+         ("%.4g years" % PROXIMA_LY) in row["S5"][4]), (True, True))
+    chk("create.py: nucleation is NOT-RUN, so D24 stays OPEN",
+        ask(("create", "NUCLEATION_STATUS")), "NOT-RUN")
+    chk("  exotic matter does not help creation; no escape stays in GR",
+        (create.EXOTIC_MATTER_HELPS_CREATION,
+         create.any_escape_stays_in_lorentzian_gr()), (False, False))
+    chk("stockgate.py: D25's claim quotes the gate its owner states",
+        ask(("stockgate", "GATE")) in row["D25"][1], True)
+    chk("  and its binder is the one stockgate.py computes for a CI chondrite",
+        ("binds on %s at %.4g"
+         % stockgate.binding_under("as-composed 59", "CI chondrite"))
+        in row["D25"][1], True)
+    chk("warpfolder.py: the flash is not a reconstruction mechanism (S9)",
+        ask(("warpfolder", "FLASH_IS_A_RECONSTRUCTION_MECHANISM")), False)
+    chk("  heating restores the symmetry; the budget is unconnected",
+        (warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY,
+         warpfolder.ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN), (True, False))
+    chk("  S9's shortfall is warpfolder.shortfall() at its first payload",
+        ("short by %.1f orders"
+         % math.log10(warpfolder.shortfall(warpfolder.PAYLOADS_KG[0])))
+        in row["S9"][4], True)
+    chk("  and both NOT-ADJUDICATED claims are named in S9, not given rows",
+        (all(n in row["S9"][4] for n in warpfolder.NOT_ADJUDICATED),
+         len(warpfolder.NOT_ADJUDICATED)), (True, 2))
+    chk("every OPEN demand row has an instrument (the principle's first half)",
+        [r[0] for r in open_demand() if r[3] is None], [])
+    chk("every question waiting for its instrument names what opens it",
+        all(bool(w[2]) for w in WAITS_FOR_ITS_INSTRUMENT), True)
+    chk("  and none of them is also a row",
+        [w[0] for w in WAITS_FOR_ITS_INSTRUMENT
+         if any(w[0] in r[1].lower() for r in DEMAND + SUPPLY)], [])
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -1157,8 +1376,35 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 17, NARROWED: 1, MEASURED: 3, SURVEY: 1, OPEN: 7,
-         WITHDRAWN: 13, REFUSED: 8})
+        {THEOREM: 17, NARROWED: 1, MEASURED: 3, SURVEY: 1, OPEN: 10,
+         WITHDRAWN: 13, REFUSED: 9})
+    # RE-PINNED BY THE FIX PASS ON DOCKETS 62/63, to what statuses() returns:
+    #   OPEN 7 -> 10: D23 (the first trip, transit.py), D24 (formation,
+    #     create.py), D25 (the destination stock gate, stockgate.py) -- the
+    #     principle: a question the tree already has an instrument for gets a
+    #     row now.  Linearised stability has no instrument and is NOT opened;
+    #     it is in WAITS_FOR_ITS_INSTRUMENT, for the calculations docket.
+    #   REFUSED 8 -> 9: S9, warpfolder.py's device specification as a supply.
+    # AND WHY NONE OF DOCKET 63's SECTION E IS AN O ROW (its census said "OPEN
+    # 6 plus the O rows added from E").  The thirteen are unsettled questions
+    # INTERNAL to the refused rows S6-S8 and to D20's figure, and E12 says in
+    # terms that the H1/H2 split gates nothing: every verdict in B holds under
+    # both hypotheses.  Read one by one, none gates a requirement --
+    #   E1 cheapest stable source and E10 the Yukawa-running correction MOVE
+    #     D20's MEASURED figure, which D20 already names as what would move it;
+    #     S6 and S7 are refused on kind, not on that price.
+    #   E2 fermion bag, E3 f = -2.45, E4 in-medium massless point, E5
+    #     evanescent reach, E7 release of a phi = 0 region, E8 hot restored
+    #     region, E11 macroscopic gauged configuration: each is a way the
+    #     displacement might be sourced, held or extended, and each still
+    #     needs a source filling the region (D16), so S6-S8 stand either way.
+    #   E6 curvature sourcing is the xi != 0 case, which is S4 and O1, both
+    #     refused already; E13 a BSM dilaton is outside the docket's subject.
+    #   E9 endpoint.py's E1/E3a/E3 checks verify an instrument, and no row on
+    #     this board is asked of those theorems -- the board asks endpoint.py
+    #     only for Degrassi's scale, in S8's note.
+    # Opening them would count one refusal's internal questions as openings,
+    # which is the inflation S4's four wrong words once caused.
     # RE-PINNED BY DOCKETS 62 AND 63 to what statuses() returns after the edit.
     # The DOCKET 63 ruling's projection (THEOREM 16, OPEN 6 plus E) and the
     # DOCKET 62 ruling's (UNCHANGED) were predictions, and each was made
@@ -1218,7 +1464,7 @@ def selftest():
     flat, curved, loosened = fewsterteo.refused_figures()
     md = to_markdown()
     needles = ["%.3f" % curved, "%.3f" % loosened,
-               "%.6f" % fewsterteo.VOID_ADJUSTMENT_ORDERS,
+               "%.6f" % fewsterteo.refused_void_adjustment(),
                "%.3f" % fewsterteo.WITNESS_ORDERS]
     chk("the refused figures appear nowhere in LEDGER.md",
         [n for n in needles if n in md], [])
@@ -1232,6 +1478,14 @@ def selftest():
         (throatmass.NO_QEI_CAN_BOUND_RHO_REN,
          throatmass.SEPARATES_O5_FROM_O2_PERMANENTLY), (False, False))
     chk("O7's B is unmeasured on its owner", branelink.B_MEASURED, False)
+    o6 = [r for r in OPEN_ROWS if r[0] == "O6"][0][1]
+    chk("O6 says its saving is at the UNTESTED B = 0, figure from branelink",
+        ("UNTESTED B = 0" in o6,
+         ("%.1f ns" % branelink.SAVING_AT_B0_NS) in o6), (True, True))
+    s8 = [r for r in SUPPLY if r[0] == "S8"][0][4]
+    chk("S8 prints excite.py's full band and its centre, not the ruling's",
+        all(("%.0e" % v) in s8 for v in excite.XI_FIELD_OVER_INSTABILITY),
+        True)
     chk("O6's cause of death is refuted on its owner, and it did not close",
         (branelink.O6_CAUSE_OF_DEATH_REFUTED, branelink.O6_CLOSED),
         (True, False))
@@ -1266,6 +1520,22 @@ def selftest():
     chk("--check passes on a faithful copy", check(good), 0)
     chk("and FAILS on one digit of the exchange rate", check(bad), 1)
     chk("and fails on an absent file", check(os.path.join(d, "nope.md")), 1)
+    # LEDGER.md IS FOUND FROM ANY CWD.  It was resolved against the cwd, and
+    # --check from the repository root reported a tracked file missing.  Run
+    # from a directory holding no LEDGER.md: the default path must find the
+    # real one and pass, and the old cwd-relative path must not find it.
+    here = os.getcwd()
+    try:
+        os.chdir(d)
+        from_elsewhere = check()
+        old_relative = check("LEDGER.md")
+    finally:
+        os.chdir(here)
+    chk("--check from another cwd finds LEDGER.md beside ledger.py, passes",
+        (from_elsewhere, LEDGER_MD == os.path.join(HERE, "LEDGER.md")),
+        (0, True))
+    chk("  CONTROL: the cwd-relative path, from there, does not find it",
+        old_relative, 1)
     for f in (good, bad):
         os.unlink(f)
     os.rmdir(d)

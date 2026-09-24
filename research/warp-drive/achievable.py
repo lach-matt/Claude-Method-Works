@@ -260,15 +260,24 @@ printed "C ~ 3.17".  NO COEFFICIENT.
     OPTIMAL COMPACTLY SUPPORTED sampler: F&T (5.6) at zero spectral gap returns
     mu_1^4/(16 pi^2) exactly (fewsterteo.py, by Parseval).  So NO 64/9
     adjustment applies to C; taking log10(64/9) = 0.852 orders off the refusal
-    would count one tightening twice.  Their curved evaluation for a static
-    wormhole is still to be done; their Schwarzschild section's mode basis is
-    defined by a horizon the corridor lacks; and on an asymptotically flat
+    would count one tightening twice.  Their own conclusions name the curved
+    evaluation for a static wormhole as still to be done; their Schwarzschild section shows the bound
+    going arbitrarily negative near a horizon, and its mode basis is defined
+    by that horizon, which the corridor lacks; and on an asymptotically flat
     corridor the spectral gap that could tighten (5.6) is zero, so the flat
     figure below stands (fewsterteo.py, DOCKET 62).
         CORRECTED IN PLACE -- DOCKET 62.  This caveat read "-- 9/64 of
         Ford-Roman's in the Minkowski limit, so TIGHTER --", which invites a
         void 0.851937-order adjustment to C.  Kept here so the correction
         names what it corrects; NINE_64_APPLIES_TO_C pins the refusal.
+        That is the ONLY phrase DOCKET 62 corrected.  The clause "their
+        Schwarzschild section shows the bound going arbitrarily negative near
+        a horizon" was NOT withdrawn and stays in the LIVE text above: the
+        consolidation's first rewrite of (c) dropped it, which the ruling did
+        not order, and it is restored verbatim.  The mode-basis sentence
+        beside it is ADDED (ruling 62 O2(c): F&T Sec. 7 is not continued to
+        the corridor because the horizon is its mode-defining surface); it
+        does not replace the clause.
     (d) it prices persistence and says nothing at an
     instant, which is exactly consistent with Ford-Helfer-Roman.
 

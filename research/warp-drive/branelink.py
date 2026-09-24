@@ -42,8 +42,9 @@ functional form for a carrier with gamma > 1 on a moving brane in a 5D bulk is
 failure mode (4).  (2) The closure runs through O7's untested B = 0.  (3) THE
 DICHOTOMY NOBODY STATED:
     graviton IS a bulk degree of freedom  -> the transducer exists (LIGO is an
-        operating read end), GW170817 binds beta, the saving is <= 93.8 ns, the
-        row is settled;
+        operating read end), GW170817 binds beta, the saving is <= 93.8 ns AT
+        THE UNTESTED B = 0 (reason (2): that figure is O7's, evaluated where B
+        has never been measured), the row is settled;
     graviton is NOT (brane-confined)      -> GW170817 bounds nothing about beta,
         the LIGO transducer does not exist, and the bulk scalar's coupling
         carries a free Yukawa lambda (Kabat & Nomura eq. 41): no rate.  The row
@@ -117,6 +118,7 @@ from decimal import Decimal, getcontext
 
 import achievable
 import foliation
+import higgs
 import manyc
 
 # ---------------------------------------------------------------------------
@@ -134,9 +136,16 @@ M_TX, L_TX, OMEGA_TX = 1.0e6, 100.0, 100.0      # kg, m, rad/s: 1000 t rod
 H_NOISE = 1.0e-23                               # Hz^-1/2, LIGO-class receiver
 NU_EM, DISH_D = 1.0e9, 100.0                    # Hz, m: the EM control link
 HPL = 2 * math.pi * HBAR                        # h, from hbar
-E_CHARGE = 1.602176634e-19                      # C, exact (SI 2019)
+#: hbar c in GeV m, ASKED of higgs.py (HBAR_C in J m over GEV_IN_J, the exact
+#: elementary charge x 1e9).  Formerly a retyped E_CHARGE = 1.602176634e-19 here.
+HBARC_GEV_M = higgs.HBAR_C / higgs.GEV_IN_J
 R_EOTWASH = 38.6e-6                             # m, Lee et al. 2020, 95% CL (READ)
-MBAR4_GEV = 2.435e18                            # reduced Planck mass (READ)
+#: Mbar4, the reduced Planck mass (G = 1/(8 pi Mbar4^2)), COMPUTED by higgs.py
+#: from hbar, c and G.  The consolidation first TYPED 2.435e18 here, the
+#: four-figure quotation of the same quantity (1.3e-4 relative low); it is not
+#: a Kabat & Nomura printed input -- their eq. 72-73 fix Mbar4 as the 4D reduced
+#: Planck mass, which is this -- so it is replaced, not kept as a READ input.
+MBAR4_GEV = higgs.reduced_planck_gev()
 SME_LAB_BOUND = 1.0e-21                         # Dreissen et al. (READ)
 V_CMB = 3.7e5                                   # m/s, CMB dipole (READ)
 
@@ -152,13 +161,8 @@ EOTWASH_BOUNDS = "gamma*L, not L (GLP eq. 39)"
 OMEGA_GW_OVER_OMEGA = 2
 CLOSING_PREMISE = "field-blind single-mode capacity ceiling"
 CLOSING_PREMISE_STATUS = "NOT-FOUND"
-O6_DICHOTOMY = (
-    ("graviton is a bulk degree of freedom",
-     "transducer exists (LIGO reads); GW170817 binds beta; saving <= 93.8 ns; settled"),
-    ("graviton is brane-confined",
-     "no transducer; GW170817 bounds nothing about beta; free Yukawa lambda "
-     "(Kabat & Nomura eq. 41); no rate; the row reverts"),
-)
+# O6_DICHOTOMY is built BELOW, after SAVING_AT_B0_NS is computed: its bulk
+# branch quotes that figure, and a typed copy would not follow the span or D_GW.
 O6_SETTLED = "CONDITIONALLY -- narrowed, not closed"
 
 O7_STATUS = "OPEN (narrowed) -- NOT CLOSED"
@@ -218,12 +222,20 @@ def as_scripted():
     return strain(rod_luminosity(), L_PROXIMA, OMEGA_TX), bulk_bits_per_watt(OMEGA_TX)
 
 
-def em_bits_per_watt():
-    """The control: 100 m dishes both ends at 1 GHz, one bit per photon."""
-    lam = C / NU_EM
-    area = math.pi * (DISH_D / 2) ** 2
+def em_bits_per_watt(D=L_PROXIMA, dish=DISH_D, nu=NU_EM):
+    """The EM comparison link: identical dishes both ends, one bit per photon.
+    Route 1, antenna gain: G_t A_r / (4 pi D^2), G_t = 4 pi A / lambda^2."""
+    lam = C / nu
+    area = math.pi * (dish / 2) ** 2
     gain = 4 * math.pi * area / lam ** 2
-    return gain * area / (4 * math.pi * L_PROXIMA ** 2) / (HPL * NU_EM)
+    return gain * area / (4 * math.pi * D ** 2) / (HPL * nu)
+
+
+def em_bits_per_watt_friis(D=L_PROXIMA, dish=DISH_D, nu=NU_EM):
+    """Route 2, the Friis aperture form A_t A_r / (lambda^2 D^2), written
+    without a gain -- an independent evaluation for the selftest's control."""
+    area = math.pi * dish ** 2 / 4
+    return area * area * nu ** 2 / (C ** 2 * D ** 2) / (HPL * nu)
 
 
 def brane_beats_bulk_orders():
@@ -275,8 +287,7 @@ def zeta3(n=200000):
 
 def sme_coefficient(beta=1.0, R=R_EOTWASH):
     """|c| from Kabat & Nomura eqs. 76-77 at mu r -> 0: I_grav = -zeta(3)/4."""
-    hbarc_gev_m = HBAR * C / (E_CHARGE * 1e9)
-    rG = R / hbarc_gev_m
+    rG = R / HBARC_GEV_M
     return (1 / (16 * math.pi ** 2)) / (math.pi * rG * MBAR4_GEV) ** 2 \
         * 0.75 * beta ** 2 * zeta3() / 4
 
@@ -295,6 +306,19 @@ SAVING_FRACTION = float(_O7["fraction"])
 CMB_GAMMA_MINUS_1 = cmb_gamma_minus_1()
 B_FOR_ONE_SECOND = b_for_saving(1.0)
 SME_ORDERS_SHORT = math.log10(SME_LAB_BOUND / sme_coefficient())
+
+#: O6's dichotomy (the ruling's third reason O6 does not close).  The bulk
+#: branch's figure is FORMATTED from SAVING_AT_B0_NS, and it is a figure at the
+#: UNTESTED B = 0: the closure runs through O7's unmeasured B (reason 2).
+O6_DICHOTOMY = (
+    ("graviton is a bulk degree of freedom",
+     "transducer exists (LIGO reads); GW170817 binds beta; saving <= %.1f ns "
+     "at the UNTESTED B = 0 (O7's B is not measured); settled only on this "
+     "branch" % SAVING_AT_B0_NS),
+    ("graviton is brane-confined",
+     "no transducer; GW170817 bounds nothing about beta; free Yukawa lambda "
+     "(Kabat & Nomura eq. 41); no rate; the row reverts"),
+)
 
 
 # ============================================================ symbolic
@@ -392,13 +416,30 @@ def selftest():
     near("WITHDRAWN strain (omega = Omega)", hx, 8.6717e-48, 1e-4)
     near("WITHDRAWN bulk channel", bx, 6.1389e-27, 1e-4)
     chk("the error is exactly 2x and 4x", (round(hx / h, 12), round(bx / b, 12)), (2.0, 4.0))
-    near("CONTROL: the EM link is non-zero and sensible, ~1 bit/s/W",
-         em_bits_per_watt(), 0.6417571715841273, 1e-9)
+    # CONTROLS on the EM comparison link, each computed and each able to fail:
+    # two independent forms of the link budget, and its two scalings.
+    e0 = em_bits_per_watt()
+    near("CONTROL: EM link, gain form = Friis aperture form", e0,
+         em_bits_per_watt_friis(), 1e-12)
+    near("CONTROL: EM link scales as D^-2 (D -> 2D gives 1/4)",
+         em_bits_per_watt(D=2 * L_PROXIMA) / e0, 0.25, 1e-12)
+    near("CONTROL: EM link scales as (dish area)^2 (d -> 2d gives 16)",
+         em_bits_per_watt(dish=2 * DISH_D) / e0, 16.0, 1e-12)
+    near("REGRESSION PIN (no corpus provenance): EM link bits/s/W",
+         e0, 0.6417571715841273, 1e-9)
     near("brane beats bulk by ~26.6 orders", brane_beats_bulk_orders(), 26.6, 2e-3)
     chk("O6's cause of death is refuted, and that is a narrowing",
         (O6_CAUSE_OF_DEATH_REFUTED, O6_CLOSED), (True, False))
     chk("the closing premise is NOT-FOUND", CLOSING_PREMISE_STATUS, "NOT-FOUND")
     chk("the dichotomy has two branches, one a closure", len(O6_DICHOTOMY), 2)
+    chk("the bulk branch's saving is formatted from SAVING_AT_B0_NS",
+        ("<= %.1f ns" % float(o7_exact()["Delta_tau ns"])) in O6_DICHOTOMY[0][1], True)
+    chk("... and says it is at the untested B = 0",
+        "UNTESTED B = 0" in O6_DICHOTOMY[0][1], True)
+    chk("the docstring's dichotomy quotes the same figure",
+        ("<= %.1f ns" % SAVING_AT_B0_NS) in __doc__, True)
+    near("hbar c in GeV m: higgs.py's agrees with this file's hbar and c",
+         HBARC_GEV_M, HBAR * C / higgs.GEV_IN_J, 1e-15)
 
     print("\n3. O7 -- THE ARITHMETIC AT 50 DIGITS")
     exr = o7_exact(span_m=RULING_SPAN_M)
