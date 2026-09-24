@@ -66,7 +66,8 @@ def fig_stages():
 
 
 def fig_graph():
-    """The constraint graph at the thirteenth stage, under the one-parent reading of the K bound."""
+    """The constraint graph at the thirteenth stage, under the one-parent reading of the K bound.  The core's
+    angular momentum is labelled 2Jₚ, as the paper writes it (no Unicode subscript c exists)."""
     pos = {"n": (0.0, 2.2), "\u2113": (1.1, 2.2), "k": (2.2, 2.2), "2S": (2.2, 3.25),
            "2J_c": (3.5, 2.2), "2K": (4.75, 2.2), "2J": (6.0, 2.2),
            "q": (2.2, 1.05), "g": (3.5, 1.05), "v": (4.85, 1.52), "2S\u2032": (4.85, 0.58),
@@ -85,7 +86,7 @@ def fig_graph():
     for v, (x, y) in pos.items():
         rim = ORANGE if v in envelope else BLUE
         ax.add_patch(Circle((x, y), 0.235, facecolor=SURF, edgecolor=rim, lw=2.2, zorder=2))
-        ax.text(x, y, v, ha="center", va="center", fontsize=8.5, color=INK, zorder=3)
+        ax.text(x, y, {"2J_c": "2J\u209a"}.get(v, v), ha="center", va="center", fontsize=8.5, color=INK, zorder=3)
     ax.annotate("every parent\u2013target path runs through q", xy=(2.2, 1.05), xytext=(-0.4, 0.5),
                 fontsize=8, color=INK2, ha="left",
                 arrowprops=dict(arrowstyle="->", color=INK2, lw=1.0, shrinkB=12))

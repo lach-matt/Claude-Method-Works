@@ -2,7 +2,7 @@
 
 **An index of one-electron transitions extends coordinate by coordinate through six stages, every one of them a sublattice of its own box, and what each new coordinate costs is fixed by how many already-present coordinates appear inside a single one of its bounds: one coordinate per bound closes exactly, two inside one bound — the angular-momentum triangle — closes only as a monotone envelope, and the band |a − b| ≤ 1 is a sublattice for every constant, which is why the last step of the tower is carried exactly.**
 
-**Matthew Lach⋆* · Independent Researcher · 21 September 2026
+**Matthew Lach** · Independent Researcher · 21 September 2026
 
 ---
 
@@ -10,7 +10,7 @@
 
 A one-electron transition of an atom can be written as a tuple of small non-negative integers: the shell, subshell and occupancy of the parent configuration, the number of electrons transferred, the shell, subshell and occupancy of the target, and the spins and couplings that the transition's angular momenta carry. The set of tuples admitted by the hydrogenic radial solution, the Pauli principle, counting and vector coupling is a finite subset Λ of a product of chains. This paper studies the sequence obtained by adjoining the angular-momentum coordinates one at a time: the target's spin, seniority, the core's total angular momentum, the core–orbit resultant and the total. Six stages result, of 976, 1,654, 2,535, 13,585, 70,905 and 199,130 cells, every one a sublattice of its own coordinate box and every one projecting exactly onto the stage below.
 
-The paper proves the general facts behind that sequence for arbitrary caps. A coordinate bounded between two monotone functions, each of a single already-present coordinate, always extends a sublattice to a sublattice (Theorem 1); the smallest such extension containing a prescribed exact set is that set's monotone envelope, and it is unique (Theorem 2); the triangle region {|a − b| ≤ c ≤ a + b} is closed under coordinatewise maximum and not under coordinatewise minimum, with explicit witnesses for both of its inequalities (Theorem 3); the band B_k = {|a − b| ≤ k} is a sublattice for every constant k, while the three-variable region {|a − b| ≤ c} with c free is join-closed and is not (Theorem 4). Together these force a dichotomy: of the five adjoined coordinates, the two whose exact physical set is a triangle in two coordinates admit only their monotone envelopes, and the one whose second argument is a constant — the spin one-half of the outer electron — is carried exactly (Theorem 5). The theorems are machine-checked over the integers, so they hold at every cap and not at one box, with a non-vacuity guard and an encoding-fidelity guard passed first.
+The paper proves the general facts behind that sequence for arbitrary caps. A coordinate bounded between two monotone functions, each of a single already-present coordinate, always extends a sublattice to a sublattice (Theorem 1); the smallest such extension containing a prescribed exact set is that set's monotone envelope, and it is unique (Theorem 2); the triangle region {|a − b| ≤ c ≤ a + b} is closed under coordinatewise maximum and not under coordinatewise minimum, with explicit witnesses for both of its inequalities (Theorem 3); the band Bₖ = {|a − b| ≤ k} is a sublattice for every constant k, while the three-variable region {|a − b| ≤ c} with c free is join-closed and is not (Theorem 4). Together these force a dichotomy: of the five adjoined coordinates, the two whose exact physical set is a triangle in two coordinates admit only their monotone envelopes, and the one whose second argument is a constant — the spin one-half of the outer electron — is carried exactly (Theorem 5). The theorems are machine-checked over the integers, so they hold at every cap and not at one box, with a non-vacuity guard and an encoding-fidelity guard passed first.
 
 Three further structures are computed exactly. The constraint graph of the thirteenth stage has thirteen vertices and thirteen edges, cycle rank 1 from the tenth stage upward, girth 3, treewidth 2, and the transfer as the cut: no edge joins a parent coordinate to a target coordinate, so every path between the two blocks runs through it. Over that transfer every stage factorises with defect zero into a product of a parent section and a target section, the parent sections falling and the target sections rising; replacing the constant in the core–orbit bound by the cell's own subshell breaks the factorisation by 15,150 cells at the twelfth stage and 45,450 at the thirteenth, and imposing the exact triangle instead breaks closure outright, leaving 22,275 cells with a closure defect of 35,570. The first stage has seventeen join-irreducibles, twenty covering relations and exactly 1,113,045,672 maximal chains, counted by dynamic programming over the cover relations; the five stage-to-stage rank correspondences are gap-free intervals with monotone endpoints whose composition contains the direct correspondence with a slack of at most two rank units; and the first three stages are regenerated by minimum sets of 7, 8 and 9 cells, each found by exact branch and bound and each certified minimal by a solver over every subset of a dominance-reduced family of covering signatures.
 
@@ -28,13 +28,13 @@ Five are adjoined, in the order the physics forces: the target's total spin, the
 
 1. **The six stages and their closure.** The stages hold 976, 1,654, 2,535, 13,585, 70,905 and 199,130 cells. Each is a sublattice of its own coordinate box — PROVED by induction from Theorem 1, and independently EXHAUSTIVE two ways: the staircase operator of D6 returns each stage unchanged when swept over the whole ambient box, 6,912 cells at the first stage and 47,775,744 at the sixth, and at the first four stages every unordered pair of cells was tested directly, 97,323,996 pairs in all, with no failing meet or join. Each stage projects exactly onto the one below. The fill — cells over ambient box — falls strictly, 14.12% to 0.42%.
 
-2. **The general theorems, for every cap.** Theorem 1 (one coordinate per bound), Theorem 2 (the monotone envelope, existence and uniqueness), Theorem 3 (the triangle: join-closed, meet-broken), Theorem 4 (the band B_k a sublattice for every constant k; the three-variable region with a free bound join-closed and not a sublattice) and Theorem 5 (the dichotomy) are PROVED in full and MACHINE-CHECKED over the unbounded integers, so they hold at every cap rather than in one box. Theorem 1 is machine-checked a second time in finite-box form, over every subset of a 3 × 3 box and every monotone bound taking values in {−1, …, 2}. Both guards pass before any obligation is reported.
+2. **The general theorems, for every cap.** Theorem 1 (one coordinate per bound), Theorem 2 (the monotone envelope, existence and uniqueness), Theorem 3 (the triangle: join-closed, meet-broken), Theorem 4 (the band Bₖ a sublattice for every constant k; the three-variable region with a free bound join-closed and not a sublattice) and Theorem 5 (the dichotomy) are PROVED in full and MACHINE-CHECKED over the unbounded integers, so they hold at every cap rather than in one box. Theorem 1 is machine-checked a second time in finite-box form, over every subset of a 3 × 3 box and every monotone bound taking values in {−1, …, 2}. Both guards pass before any obligation is reported.
 
 3. **The constraint graph.** Thirteen vertices and thirteen edges at the top stage; cycle rank 0, 0, 1, 1, 1, 1 across the six; one triangle, first present at the tenth stage, on seniority, the target's occupancy and the target's spin; girth 3 from that stage and no cycle below it; treewidth 1, 1, 2, 2, 2, 2 by exact elimination search; the transfer the cut, in the sense that no edge joins a parent coordinate to a target coordinate. The single cycle is a coordinate with two parents whose bounds have one coordinate each — which costs the tree and costs nothing in closure. A single bound with two coordinates in it is the other thing entirely, and it is what breaks closure.
 
-4. **The cylinder.** At every stage Λ ∩ {q = t} is exactly a product A(t) × B(t), and Σ_t |A(t)|·|B(t)| = |Λ| with defect zero. The parent sections fall and the target sections rise at every stage, the section sequence is log-concave and peaks at t = 2 at every stage, and the mean transfer rises from 1.4631 to 1.9159 up the tower. Two departures are priced: writing the core–orbit bound with the cell's own subshell rather than the cap costs 15,150 cells of factorisation at the twelfth stage and 45,450 at the thirteenth, 21.4% and 22.8% of the product; imposing the exact triangle there instead leaves 22,275 cells and breaks closure, with a closure defect of 35,570 and explicit failing meets.
+4. **The cylinder.** At every stage Λ ∩ {q = t} is exactly a product A(t) × B(t), and Σₜ |A(t)|·|B(t)| = |Λ| with defect zero. The parent sections fall and the target sections rise at every stage, the section sequence is log-concave and peaks at t = 2 at every stage, and the mean transfer rises from 1.4631 to 1.9159 up the tower. Two departures are priced: writing the core–orbit bound with the cell's own subshell rather than the cap costs 15,150 cells of factorisation at the twelfth stage and 45,450 at the thirteenth, 21.4% and 22.8% of the product; imposing the exact triangle there instead leaves 22,275 cells and breaks closure, with a closure defect of 35,570 and explicit failing meets.
 
-5. **Rank, generators and chains.** The first stage is graded by the coordinate sum, with 18 rank values from 3 to 20, widest level 122 at rank 11, and |Λ| exactly eight times that level. Its seventeen join-irreducibles are exactly the seventeen cells min{x : x_i ≥ v}, one for each coordinate value above that coordinate's minimum; they carry twenty covering relations, and the number of down-sets of the resulting poset is 976, which is the Birkhoff correspondence verified rather than invoked. The number of maximal chains is **1,113,045,672**, computed by dynamic programming over the cover relations of the lattice itself, and every maximal chain has length 17.
+5. **Rank, generators and chains.** The first stage is graded by the coordinate sum, with 18 rank values from 3 to 20, widest level 122 at rank 11, and |Λ| exactly eight times that level. Its seventeen join-irreducibles are exactly the seventeen cells min{x : xᵢ ≥ v}, one for each coordinate value above that coordinate's minimum; they carry twenty covering relations, and the number of down-sets of the resulting poset is 976, which is the Birkhoff correspondence verified rather than invoked. The number of maximal chains is **1,113,045,672**, computed by dynamic programming over the cover relations of the lattice itself, and every maximal chain has length 17.
 
 6. **The bracket system.** For each of the five stage-to-stage projections, the set of ranks below a given rank above is a gap-free interval with both endpoints monotone, with maximum branching 4, 4, 6, 8 and 9. Composing the five brackets contains the direct bracket from the top stage to the first at every rank, with a slack of at most two rank units, and both routes cover the whole rank spectrum {3, …, 20} of the first stage.
 
@@ -45,7 +45,7 @@ Five are adjoined, in the order the physics forces: the target's total spin, the
 **Status words.** Six are used and never merged.
 
 | status | meaning |
-|---|---|
+|---∣---|
 | **PROVED** | a proof is written out below and every step is justified; a proof ends with ∎ |
 | **MACHINE-CHECKED** | Z3 returned `unsat` on the negation of an obligation whose variables range over a named domain — the unbounded integers where stated, otherwise every subset of a named finite box — with the non-vacuity and encoding-fidelity guards passed first |
 | **EXHAUSTIVE** | a decision procedure visited every case in a stated finite family, and the family's size is printed |
@@ -89,12 +89,12 @@ and
 
 **D7 (rank).** For an integer tuple x, r(x) := Σᵢ xᵢ. Where the set under study is graded by r — every cover raising r by 1 — r is a rank function in the order-theoretic sense; §7 verifies this for the first stage.
 
-**D8 (constraint graph).** The **constraint graph⋆* of a construction has the coordinates as vertices and an edge {i, j} whenever some bound on one of them has the other among its parents. Its **cycle rank** is |E| − |V| + c, with c the number of connected components; its **girth⋆* is the length of a shortest cycle, undefined when there is none; its **treewidth⋆* is the least width of a tree decomposition — Robertson and Seymour (1986), CITED — computed here by exact search over elimination orderings.
+**D8 (constraint graph).** The **constraint graph** of a construction has the coordinates as vertices and an edge {i, j} whenever some bound on one of them has the other among its parents. Its **cycle rank** is |E| − |V| + c, with c the number of connected components; its **girth** is the length of a shortest cycle, undefined when there is none; its **treewidth** is the least width of a tree decomposition — Robertson and Seymour (1986), CITED — computed here by exact search over elimination orderings.
 
 **D9 (the coordinates).** The thirteen coordinates, in the order in which they enter, with the shorthand used throughout:
 
 | # | symbol | what it labels |
-|---|---|---|
+|---∣---∣---|
 | 1 | n | the parent configuration's principal quantum number |
 | 2 | ℓ | the parent subshell's orbital angular momentum |
 | 3 | k | the number of electrons occupying that parent subshell |
@@ -111,7 +111,7 @@ and
 
 All angular momenta are carried as twice their value so that every coordinate is an integer. **Λₛ** denotes the set of admissible s-tuples on the first s of these coordinates, and the six stages are Λ₈ ⋉ … = Λ₉, and so on to Λ₁₃.
 
-**D10 (the bounds).** Λ_8 is the set of tuples (n, ℓ, k, q, e, f, g, 2S) of non-negative integers with
+**D10 (the bounds).** Λ₈ is the set of tuples (n, ℓ, k, q, e, f, g, 2S) of non-negative integers with
 
 > 1 ≤ n ≤ nₘₐₓ,  0 ≤ ℓ ≤ min(ℓₘₐₓ, n − 1),  1 ≤ k ≤ min(kₘₐₓ, 4ℓ + 2),  0 ≤ q ≤ k,
 > 1 ≤ e ≤ eₘₐₓ,  0 ≤ f ≤ min(fₘₐₓ, e − 1),  0 ≤ g ≤ min(4f + 2, q),  0 ≤ 2S ≤ k,
@@ -128,7 +128,7 @@ with φ̂ the monotone envelope of D12 below. Two readings of the twelfth bound 
 
 so that fₘₐₓ = 1 and the twelfth bound reads 0 ≤ 2K ≤ 2Jₚ + 2. Counts are cap-dependent; the theorems of §4 are not, and are proved for arbitrary bounds.
 
-**D12 (terms, and the two envelopes read off them).** For a subshell of orbital angular momentum ℓ holding k equivalent electrons, terms(ℓᵏ) is the multiset of pairs (2S, 2L) obtained by **microstate enumeration**: list every choice of k of the 2(2ℓ+1) spin-orbitals, accumulate the resulting (2Mₗ, 2Mₛ), twice the projections of the total orbital and the total spin angular momentum,, and strip complete (2S, 2L) blocks from the largest Mₗ downward until nothing is left. Two functions are read off this multiset and used as bounds:
+**D12 (terms, and the two envelopes read off them).** For a subshell of orbital angular momentum ℓ holding k equivalent electrons, terms(ℓᵏ) is the multiset of pairs (2S, 2L) obtained by **microstate enumeration**: list every choice of k of the 2(2ℓ+1) spin-orbitals, accumulate the resulting (2Mₗ, 2Mₛ), twice the projections of the total orbital and the total spin angular momentum — and strip complete (2S, 2L) blocks from the largest Mₗ downward until nothing is left. Two functions are read off this multiset and used as bounds:
 
 > σ(ℓ, k) := max { 2S : (2S, 2L) ∈ terms(ℓᵏ) },  μ(ℓ, k) := max { 2S + 2L : (2S, 2L) ∈ terms(ℓᵏ) },
 
@@ -144,16 +144,16 @@ the largest spin and the largest total angular momentum a configuration of that 
 
 Each stage is the extension of the one below by a single new coordinate, and the bounds are those of D10. The counts, computed by direct enumeration of the construction, are Table 1.
 
-**Table 1. The tower at the caps of D11.** *Box* is the product of the alphabet sizes of the stage. *Fill⋆ is |Λₛ| / |Box|. *Pairs* is the number of unordered pairs of distinct cells; the first four were tested one by one, the last two decided by the ambient sweep instead.
+**Table 1. The tower at the caps of D11.** *Box* is the product of the alphabet sizes of the stage. *Fill* is |Λₛ| / |Box|. *Pairs* is the number of unordered pairs of distinct cells; the first four were tested one by one, the last two decided by the ambient sweep instead.
 
 | stage | new coordinate | its bound | cells | box | fill | pairs |
-|---|---|---|---|---|---|---|
+|---∣---∣---∣---∣---∣---∣---|
 | Λ₈ | — | — | 976 | 6,912 | 14.12% | 475,800 |
 | Λ₉ | 2S′ | 0 ≤ 2S′ ≤ g | 1,654 | 27,648 | 5.98% | 1,367,031 |
 | Λ₁₀ | v | 2S′ ≤ v ≤ g | 2,535 | 110,592 | 2.29% | 3,211,845 |
 | Λ₁₁ | 2Jₚ | 0 ≤ 2Jₚ ≤ φ̂(k) | 13,585 | 663,552 | 2.05% | 92,269,320 |
 | Λ₁₂ | 2K | 0 ≤ 2K ≤ 2Jₚ + 2fₘₐₓ | 70,905 | 5,308,416 | 1.34% | 2,513,724,060 |
-| Λ₁₃ | 2J | |2J − 2K| ≤ 1 | 199,130 | 47,775,744 | 0.42% | 19,826,278,885 |
+| Λ₁₃ | 2J | ∣2J − 2K∣ ≤ 1 | 199,130 | 47,775,744 | 0.42% | 19,826,278,885 |
 
 ![Figure 1](figures/stages.png)
 
@@ -198,7 +198,7 @@ which are ²P; ¹S, ¹D, ³P; and ²P, ²D, ⁴S — the textbook anchors, EXHAU
 **Proposition 5 (the two realised maxima are not monotone).** With σ and μ as in D12,
 
 | k | 1 | 2 | 3 | 4 | 5 | 6 |
-|---|---|---|---|---|---|---|
+|---∣---∣---∣---∣---∣---∣---|
 | σ(1, k) = max 2S of pᵏ | 1 | 2 | 3 | 2 | 1 | 0 |
 | μ(1, k) = max 2J of pᵏ | 3 | 4 | 5 | 4 | 3 | 0 |
 
@@ -219,12 +219,12 @@ The envelope admits cells the exact physics does not. That gap is a count, and i
 **Table 2. The exact fibre against the admissible one.** The *admitted* column is the stage's own cell count, since the stage is the sum of the admissible fibres. All at the caps of D11.
 
 | axis | coordinate | admissible fibre | exact fibre | admitted | realised | realised share |
-|---|---|---|---|---|---|---|
+|---∣---∣---∣---∣---∣---∣---|
 | 9 | 2S′ | [0, g] | the 2S values of terms(fᵍ) | 1,654 | 1,054 | 63.7% |
 | 10 | v | [2S′, g] | the occupancies at which a term of spin 2S′ first appears | 2,535 | 1,132 | 44.7% |
 | 11 | 2Jₚ | [0, φ̂(k)] | the 2J of the terms of ℓᵏ carrying the cell's own 2S | 13,585 | 2,310 | 17.0% |
 | 11 (wider) | 2Jₚ | [0, φ̂(k)] | [0, μ(ℓ, k)], the largest 2J any term of ℓᵏ carries | 13,585 | 10,585 | 77.9% |
-| 12 | 2K | [0, 2Jₚ + 2fₘₐₓ] | |2Jₚ − 2f| ≤ 2K ≤ 2Jₚ + 2f, 2K ≡ 2Jₚ (mod 2) | 70,905 | 22,275 | 31.4% |
+| 12 | 2K | [0, 2Jₚ + 2fₘₐₓ] | ∣2Jₚ − 2f∣ ≤ 2K ≤ 2Jₚ + 2f, 2K ≡ 2Jₚ (mod 2) | 70,905 | 22,275 | 31.4% |
 | 13 | 2J | [max(0, 2K−1), 2K+1] | 2J = 2K ± 1 | 199,130 | 128,225 | 64.4% |
 
 Every entry is EXHAUSTIVE over the stage below, and the exact fibre is never larger than the admissible one at any axis — which it cannot be, since Theorem 2 makes the admissible fibre contain the exact one by construction. Two rows are given for the eleventh axis because two different sets deserve the name *exact* there: the set of 2J the core can carry given the cell's own parent spin, and the set it can carry given only the parent configuration. The first is the stricter and gives 17.0%; the second is the one that matches the bound's own shape — an interval [0, μ(ℓ, k)] — and gives 77.9%. The paper prints both and prefers neither.
@@ -369,7 +369,7 @@ The twelfth stage contributes **one** edge, not two. Its bound is 2K ≤ 2Jₚ +
 **Table 3. The graph, stage by stage.** Cycle rank is |E| − |V| + c; treewidth is exact, by search over elimination orderings.
 
 | stage | vertices | edges | components | cycle rank | triangles | girth | treewidth |
-|---|---|---|---|---|---|---|---|
+|---∣---∣---∣---∣---∣---∣---∣---|
 | Λ₈ | 8 | 7 | 1 | 0 | 0 | — | 1 |
 | Λ₉ | 9 | 8 | 1 | 0 | 0 | — | 1 |
 | Λ₁₀ | 10 | 10 | 1 | 1 | 1 | 3 | 2 |
@@ -405,13 +405,13 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 
 **Table 4. The sections, at three stages.** |A(t)| is the number of distinct parent tuples at transfer t, |B(t)| the number of distinct target tuples.
 
-| t | Λ₈: |A| × |B| | product | Λ₁₁: |A| × |B| | product | Λ₁₃: |A| × |B| | product |
-|---|---|---|---|---|---|---|
+| t | Λ₈: ∣A∣ × ∣B∣ | product | Λ₁₁: ∣A∣ × ∣B∣ | product | Λ₁₃: ∣A∣ × ∣B∣ | product |
+|---∣---∣---∣---∣---∣---∣---|
 | 0 | 33 × 5 | 165 | 163 × 5 | 815 | 2,294 × 5 | 11,470 |
 | 1 | 33 × 10 | 330 | 163 × 20 | 3,260 | 2,294 × 20 | 45,880 |
 | 2 | 23 × 15 | 345 | 123 × 50 | 6,150 | 1,794 × 50 | 89,700 |
 | 3 | 8 × 17 | 136 | 48 × 70 | 3,360 | 744 × 70 | 52,080 |
-| | **total⋆* | **976** | | **13,585** | | **199,130** |
+| | **total** | **976** | | **13,585** | | **199,130** |
 
 ![Figure 3](figures/sections-plate.png)
 
@@ -424,7 +424,7 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 **Proposition 11 (the profile).** At every one of the six stages: |A(t)| is non-increasing in t, |B(t)| is non-decreasing, the sequence of section sizes is log-concave, and it attains its maximum at t = 2. The mean transfer ⟨q⟩ = Σₜ t·|A(t)|·|B(t)| / |Λ| rises up the tower:
 
 | stage | Λ₈ | Λ₉ | Λ₁₀ | Λ₁₁ | Λ₁₂ | Λ₁₃ |
-|---|---|---|---|---|---|---|
+|---∣---∣---∣---∣---∣---∣---|
 | ⟨q⟩ | 1.4631 | 1.6850 | 1.8304 | 1.8874 | 1.9141 | 1.9159 |
 
 **EXHAUSTIVE** at these caps. No value of the transfer improves both sides: raising it costs the parent and pays the target, monotonically, at every stage.
@@ -434,10 +434,10 @@ with defect zero. **EXHAUSTIVE** at all six stages for the sum, and as a set ide
 Three readings of the twelfth bound are available, and the paper prices all three at the same caps. Write j = 2Jₚ and let f be the cell's own target subshell.
 
 | reading | bound on 2K | arity | cells at Λ₁₂ | cells at Λ₁₃ | closed? | factorises? |
-|---|---|---|---|---|---|---|
+|---∣---∣---∣---∣---∣---∣---|
 | the cap | 0 ≤ 2K ≤ j + 2fₘₐₓ | 1 | 70,905 | 199,130 | **yes**, E = 0 | **yes**, defect 0 |
 | the cell's own f, upper bound only | 0 ≤ 2K ≤ j + 2f | 2 | 55,755 | 153,680 | no, E = 12,675 | no, defect 15,150 and 45,450 |
-| the exact triangle with parity | |j − 2f| ≤ 2K ≤ j + 2f, 2K ≡ j (mod 2) | 2 | 22,275 | 64,290 | no, E = 35,570 | — |
+| the exact triangle with parity | ∣j − 2f∣ ≤ 2K ≤ j + 2f, 2K ≡ j (mod 2) | 2 | 22,275 | 64,290 | no, E = 35,570 | — |
 
 **Proposition 12 (the price of the second parent).** Replacing the cap by the cell's own subshell in the twelfth bound leaves 55,755 cells at the twelfth stage against a section product of 70,905, a factorisation defect of **15,150 cells, 21.4% of the product**; at the thirteenth stage 153,680 against 199,130, a defect of **45,450 cells, 22.8%**. The same replacement breaks closure: the staircase returns 12,675 cells the construction does not hold. **EXHAUSTIVE** at these caps; **REFUTATION** for the closure claim.
 
@@ -501,7 +501,7 @@ and every one of them has length 17.
 
 > c(bot) = 1,  c(x) = Σ { c(y) : y a lower cover of x },
 
-well-founded because r strictly decreases along lower covers. Evaluating it over all 976 cells in order of rank gives the stated number. ∎ **PROVED**, and **EXHAUSTIVE**: the recursion evaluated at every cell, with lower covers found by testing the eight unit decrements for membership. A **negative control⋆* is reported by the selftest: counting the chains of the *ambient box* instead — the multinomial on the coordinate spans, 20!/(2!1!2!3!2!1!3!3!) — gives a different number, so the count is not an artefact of ignoring membership.
+well-founded because r strictly decreases along lower covers. Evaluating it over all 976 cells in order of rank gives the stated number. ∎ **PROVED**, and **EXHAUSTIVE**: the recursion evaluated at every cell, with lower covers found by testing the eight unit decrements for membership. A **negative control** is reported by the selftest: counting the chains of the *ambient box* instead — the multinomial on the coordinate spans, 20!/(2!1!2!3!2!1!3!3!) — gives a different number, so the count is not an artefact of ignoring membership.
 
 ---
 
@@ -572,7 +572,7 @@ Every number printed above is recomputed by the paper's check program, which imp
 **Table 5. The verification record, by object.**
 
 | object | status | family, domain or witness |
-|---|---|---|
+|---∣---∣---|
 | Lemma 1, ℛ(X) is a sublattice | PROVED | — |
 | Lemma 2, distributivity | PROVED; EXHAUSTIVE | the coordinatewise extremes of Λ₈ are cells: (1,0,1,0,1,0,0,0) at rank 3 and (3,1,3,3,3,1,3,3) at rank 20 |
 | Lemma 3, a seed is a cover of steps and slots | PROVED; GUARD | 40 pseudorandom subsets of Λ₈, seed 11: cover-of-steps ⇔ regeneration in the fixed box, 40/40; cover-of-steps-and-slots ⇔ regeneration in the subset's own box, 40/40; the seed minus one cell fails both |
@@ -591,12 +591,12 @@ Every number printed above is recomputed by the paper's check program, which imp
 | **Table 2**, the envelope gap | EXHAUSTIVE | every cell of the stage below at each axis: 1,054 / 1,654; 1,132 / 2,535; 2,310 / 13,585 and 10,585 / 13,585; 22,275 / 70,905; 128,225 / 199,130 with 13,585 cells at 2K = 0; the exact fibre never larger than the admissible one |
 | Props. 7–8, the constraint graph | PROVED (8); EXHAUSTIVE | six stages: the edge list against an independent derivation from the bounds; vertices 8–13; edges 7, 8, 10, 11, 12, 13; connected; cycle rank (0,0,1,1,1,1); one triangle 2S′–g–v from the tenth stage, over all C(13,3) = 286 triples at the top; treewidth (1,1,2,2,2,2) by exact elimination search; girth 3 from the tenth stage; degrees at the top; q a cut vertex, no parent–target edge, exactly two components after deleting q |
 | Prop. 9, the two-parent reading | EXHAUSTIVE | the same six graphs with the edge f–2K substituted: 14 edges, cycle rank (0,0,1,1,2,2), triangles, treewidth, girth and the hub degrees unchanged, only f and 2K moving |
-| Prop. 10, exact factorisation; Table 4; Figures 3–4 | PROVED; EXHAUSTIVE | six stages for Σₜ |A(t)|·|B(t)| = |Λ|; the set identity Λ ∩ {q = t} = A(t) × B(t) at every t of the first and thirteenth stages; the sections 33×5 / 33×10 / 23×15 / 8×17, 815 / 3,260 / 6,150 / 3,360 and 11,470 / 45,880 / 89,700 / 52,080 |
+| Prop. 10, exact factorisation; Table 4; Figures 3–4 | PROVED; EXHAUSTIVE | six stages for Σₜ ∣A(t)∣·∣B(t)∣ = ∣Λ∣; the set identity Λ ∩ {q = t} = A(t) × B(t) at every t of the first and thirteenth stages; the sections 33×5 / 33×10 / 23×15 / 8×17, 815 / 3,260 / 6,150 / 3,360 and 11,470 / 45,880 / 89,700 / 52,080 |
 | Prop. 11, the profile and ⟨q⟩ | EXHAUSTIVE | six stages, four transfers each: monotone sides, log-concave sections peaking at t = 2, ⟨q⟩ = 1.4631 … 1.9159 |
 | Prop. 12, the price of the second parent | EXHAUSTIVE; REFUTATION | the cell's-own-f construction at the twelfth and thirteenth stages: 55,755 and 153,680 cells against products 70,905 and 199,130, defects 15,150 (21.4%) and 45,450 (22.8%); its staircase defect E = 12,675 |
-| Prop. 13, the exact triangle does not close | EXHAUSTIVE; REFUTATION | 22,275 cells, |ℛ| = 57,845, E = 35,570, 64,290 cells at the thirteenth stage; all 248,076,675 unordered pairs, 52,767,450 failing meets and 28,742,850 failing joins; the exhibited failing meet |
+| Prop. 13, the exact triangle does not close | EXHAUSTIVE; REFUTATION | 22,275 cells, ∣ℛ∣ = 57,845, E = 35,570, 64,290 cells at the thirteenth stage; all 248,076,675 unordered pairs, 52,767,450 failing meets and 28,742,850 failing joins; the exhibited failing meet |
 | Prop. 14, orientation | PROVED; EXHAUSTIVE | all 8,018 cycles of length 3 to 8 of the complete graph on the eight quantities, 0 with an odd number of reversals |
-| Props. 15–17, rank, generators, Birkhoff | EXHAUSTIVE | rank values 18, 21, 24, 29, 36, 44 with bottom rank 3 at every stage; the rank sequence of Λ₈ and its widest level 122 at rank 11, Λ₉'s 185 at rank 12, log-concavity, 976 = 8 × 122; alphabet sizes 3,2,3,4,3,2,4,4 summing to 25; every generator a cell, the 17 join-irreducibles equal to the 17 generators, |{G ≤ x}| = r(x) − 3 at all 976 cells, 20 covering relations, 976 down-sets by enumeration |
+| Props. 15–17, rank, generators, Birkhoff | EXHAUSTIVE | rank values 18, 21, 24, 29, 36, 44 with bottom rank 3 at every stage; the rank sequence of Λ₈ and its widest level 122 at rank 11, Λ₉'s 185 at rank 12, log-concavity, 976 = 8 × 122; alphabet sizes 3,2,3,4,3,2,4,4 summing to 25; every generator a cell, the 17 join-irreducibles equal to the 17 generators, ∣{G ≤ x}∣ = r(x) − 3 at all 976 cells, 20 covering relations, 976 down-sets by enumeration |
 | **Theorem 6**, 1,113,045,672 maximal chains | PROVED; EXHAUSTIVE | the recursion evaluated at all 976 cells, lower covers found by testing the eight unit decrements for membership; every chain of length 17; the negative control of the selftest (the ambient box's multinomial, 205,837,632,000, is not this number) |
 | Props. 18–19, the bracket system; Figure 5 | EXHAUSTIVE | all cells of the five upper stages, 1,654 + 2,535 + 13,585 + 70,905 + 199,130 = 287,809: gap-free monotone intervals, branching 4, 4, 6, 8, 9; all 199,130 top-stage cells for the composition: containment, slack 2 below and 0 above, the direct bracket gap-free, both routes covering {3, …, 20} |
 | **Theorem 7**, the seed 7, 8, 9 | EXHAUSTIVE; MACHINE-CHECKED | branch and bound over the 264 / 442 / 688 maximal covering signatures (808 / 1,376 / 2,111 distinct) of the 77 / 105 / 138 steps; the minimum realising all 25 / 29 / 33 slots; regeneration under two independent staircases, in the fixed box and in the seed's own box; the solver refuting a 6- / 7- / 8-cover over every subset of the reduced family, 59 / 61 / 63 signatures against 27 / 28 / 29 kept steps, `unsat` three times; the two reductions checked as GUARDs at every stage |
@@ -620,7 +620,7 @@ Every number printed above is recomputed by the paper's check program, which imp
 
 ## References
 
-- Birkhoff, G. (1937). Rings of sets. *Duke Mathematical Journal⋆ **3**(3), 443–454.
+- Birkhoff, G. (1937). Rings of sets. *Duke Mathematical Journal* **3**(3), 443–454.
 - Birkhoff, G. (1967). *Lattice Theory*, 3rd edition. American Mathematical Society Colloquium Publications 25, Providence.
 - Condon, E. U. and Shortley, G. H. (1935). *The Theory of Atomic Spectra*. Cambridge University Press, Cambridge.
 - Cowan, R. D. (1981). *The Theory of Atomic Structure and Spectra*. University of California Press, Berkeley.

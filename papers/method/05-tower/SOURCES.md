@@ -269,3 +269,21 @@ up the tower, the non-composable cells, the periodic table's own numbers, the se
 read in full and are outside the brief's scope. The Index of Indices' composable-fraction column
 (0.0000, 0.7068, 0.8087, 0.6956, 0.6592, 0.6381) was read and is not reproduced here, because
 composition is not part of this paper's subject; nothing in the paper depends on it.
+
+## Typography pass (2026-09-24), and three symbol renames it forced
+
+The contract's §9 rule — mathematics in running text is plain Unicode, never a code span; a bar
+inside a table cell is ∣ (U+2223) — was applied to the whole paper: 900 code spans were converted
+and only the solver's `unsat` remains in backticks. Three symbols had no Unicode subscript and were
+renamed in the paper (and only there; `check.py` keeps the instrument's names, which are not published):
+
+- the core's angular momentum `2J_c` is written **2Jₚ** (p for parent core); Figure 2 was regenerated
+  by `figures.py` with that label and `FIGURES.tsv` carries the new md5;
+- the generic stage index `D` (as in `Λ_D`, `β_D`) is written **s** (`Λₛ`, `βₛ`), since no subscript
+  capital exists; the numbered stages `Λ₈ … Λ₁₃` are unchanged;
+- the generator's coordinate index `c` in §7 is written **i** (`G(i, v)`, `xᵢ ≥ v`), and Theorem 5's
+  two coordinates `a ≠ b` are written **i ≠ j**, since no subscript `b` or `c` exists; Theorem 1's
+  second cell `(x′, y′)` is written `(u, w)` so that primes and subscripts do not collide;
+- the envelope functions `l*`, `h*` are written `l⋆`, `h⋆` because a bare asterisk is emphasis markup.
+
+None of these is a change of content.
