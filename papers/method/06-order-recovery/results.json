@@ -1,8 +1,88 @@
 {
  "guards": {
+  "non_vacuity": [
+   [
+    "3x3",
+    "Theorems 2-3",
+    true
+   ],
+   [
+    "4x4",
+    "Theorems 2-3",
+    true
+   ],
+   [
+    "2x2x3",
+    "Theorems 2-3",
+    true
+   ],
+   [
+    "3x3x3",
+    "Theorems 2-3",
+    true
+   ],
+   [
+    "3x5",
+    "Theorems 2-3",
+    true
+   ],
+   [
+    "5x4",
+    "Theorems 2-3",
+    true
+   ],
+   [
+    "3x3",
+    "Lemma 9",
+    true
+   ],
+   [
+    "2x2x2",
+    "Lemma 9",
+    true
+   ],
+   [
+    "2x2x3",
+    "Lemma 9",
+    true
+   ],
+   [
+    "2^2",
+    "Theorem 9",
+    true
+   ],
+   [
+    "2^3",
+    "Theorem 9",
+    true
+   ],
+   [
+    "2^4",
+    "Theorem 9",
+    true
+   ],
+   [
+    "2^5",
+    "Theorem 9",
+    true
+   ],
+   [
+    "2^6",
+    "Theorem 9",
+    true
+   ]
+  ],
   "fidelity_instances": 150,
   "fidelity_pairs": 1387,
+  "canonical_pairs": 944,
+  "closed_instances": 150,
+  "interval_instances": 120,
+  "endpoint_pairs": 3700,
+  "mono_instances": 120,
+  "removal_instances": 120,
   "closure_instances": 120,
+  "local_instances": 120,
+  "negative_control": 10,
   "ok": true
  },
  "lambda_cells": 976,
@@ -20,6 +100,8 @@
  "lambda_E": 0,
  "ambient": 6912,
  "chi_agree": 6912,
+ "envelope_conjunction_agrees": true,
+ "lambda_wrong_parity_cells": 413,
  "lambda_JI": 18,
  "lambda_MI": 18,
  "lambda_JI_cap_MI": 0,
@@ -105,7 +187,7 @@
    "median_only": 0,
    "both": 223,
    "neither": 0,
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "box": [
@@ -152,7 +234,7 @@
    "median_only": 805,
    "both": 2237,
    "neither": 0,
-   "seconds": 0.6
+   "seconds": 0.8
   },
   {
    "box": [
@@ -169,7 +251,7 @@
    "median_only": 38768,
    "both": 22598,
    "neither": 0,
-   "seconds": 13.1
+   "seconds": 17.4
   }
  ],
  "example": {
@@ -378,8 +460,21 @@
  },
  "periodic_E": 36,
  "periodic_cells": 90,
- "janet_E": 0,
- "janet_cells": 22,
+ "periodic_box": 126,
+ "janet_fixture_E": 0,
+ "janet_fixture_cells": 22,
+ "janet_occupied": {
+  "19": {
+   "cells": 19,
+   "box": 32,
+   "E": 0
+  },
+  "20": {
+   "cells": 20,
+   "box": 32,
+   "E": 0
+  }
+ },
  "one_axis_z3": [
   {
    "box": [
@@ -503,7 +598,7 @@
      3
     ]
    ],
-   "seconds": 0.6
+   "seconds": 0.7
   },
   {
    "box": [
@@ -576,7 +671,7 @@
      2
     ]
    ],
-   "seconds": 0.1
+   "seconds": 0.2
   },
   {
    "box": [
@@ -590,43 +685,33 @@
    "refutation_witness": [
     [
      0,
-     1,
-     1
-    ],
-    [
-     0,
-     1,
-     2
-    ],
-    [
-     0,
-     2,
-     1
-    ],
-    [
-     0,
-     2,
-     2
-    ],
-    [
-     1,
      0,
      0
     ],
     [
-     1,
+     0,
      0,
      1
     ],
     [
+     0,
+     0,
+     2
+    ],
+    [
+     0,
      1,
+     1
+    ],
+    [
+     0,
      1,
-     0
+     2
     ],
     [
      1,
-     1,
-     1
+     0,
+     2
     ],
     [
      1,
@@ -636,32 +721,17 @@
     [
      1,
      2,
-     0
+     2
     ],
     [
-     1,
      2,
-     1
-    ],
-    [
-     1,
-     2,
+     0,
      2
     ],
     [
      2,
      1,
-     1
-    ],
-    [
-     2,
-     1,
      2
-    ],
-    [
-     2,
-     2,
-     1
     ],
     [
      2,
@@ -669,7 +739,7 @@
      2
     ]
    ],
-   "seconds": 0.9
+   "seconds": 1.2
   }
  ],
  "fibre_z3": [
@@ -687,7 +757,7 @@
     4
    ],
    "ok": true,
-   "seconds": 0.0
+   "seconds": 0.1
   },
   {
    "box": [
@@ -706,12 +776,53 @@
    "seconds": 0.1
   }
  ],
+ "d1_exhibit": {
+  "X": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ]
+  ],
+  "closed_declared": true,
+  "fibre0": [
+   0,
+   2
+  ],
+  "interval_in_declared": false,
+  "observed_A1": [
+   0,
+   2
+  ],
+  "interval_in_observed": true,
+  "with_11_closed": false,
+  "breaking_meet": [
+   0,
+   1
+  ]
+ },
  "interval_family": {
   "size": 2354,
   "lemma_holds": 2354,
   "weak_reading_holds": 1256,
   "weak_refuted": 1098,
   "sorted_test": 2354
+ },
+ "interval_multiset_family": {
+  "size": 5084,
+  "lemma_holds": 5084,
+  "sorted_test": 5084
  },
  "census": [
   {
@@ -728,6 +839,7 @@
    "step": 1,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 3,
+   "doubly_irreducible": 2,
    "three_quarters": false,
    "seconds": 0.0
   },
@@ -745,6 +857,7 @@
    "step": 1,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 5,
+   "doubly_irreducible": 2,
    "three_quarters": null,
    "seconds": 0.0
   },
@@ -762,6 +875,7 @@
    "step": 1,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 7,
+   "doubly_irreducible": 2,
    "three_quarters": null,
    "seconds": 0.0
   },
@@ -779,6 +893,7 @@
    "step": 1,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 8,
+   "doubly_irreducible": 2,
    "three_quarters": null,
    "seconds": 0.0
   },
@@ -796,6 +911,7 @@
    "step": 1,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 11,
+   "doubly_irreducible": 2,
    "three_quarters": null,
    "seconds": 0.0
   },
@@ -813,8 +929,9 @@
    "step": 1,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 15,
+   "doubly_irreducible": 2,
    "three_quarters": null,
-   "seconds": 0.6
+   "seconds": 0.7
   },
   {
    "box": [
@@ -829,8 +946,9 @@
    "reorderable_all": 158,
    "fraction_reorderable": 0.617,
    "step": 2,
-   "step_attained_at_full_box": true,
+   "step_attained_at_full_box": false,
    "max_proper_reorderable": 6,
+   "doubly_irreducible": 0,
    "three_quarters": false,
    "seconds": 0.0
   },
@@ -849,6 +967,7 @@
    "step": 2,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 10,
+   "doubly_irreducible": 0,
    "three_quarters": null,
    "seconds": 0.0
   },
@@ -867,8 +986,9 @@
    "step": 2,
    "step_attained_at_full_box": false,
    "max_proper_reorderable": 16,
+   "doubly_irreducible": 0,
    "three_quarters": null,
-   "seconds": 0.6
+   "seconds": 0.8
   },
   {
    "box": [
@@ -884,10 +1004,11 @@
    "reorderable_all": 3290,
    "fraction_reorderable": 0.05,
    "step": 4,
-   "step_attained_at_full_box": true,
+   "step_attained_at_full_box": false,
    "max_proper_reorderable": 12,
+   "doubly_irreducible": 0,
    "three_quarters": false,
-   "seconds": 0.0
+   "seconds": 0.1
   }
  ],
  "projection_gap": [
@@ -952,7 +1073,7 @@
      0
     ]
    ],
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "box": [
@@ -985,7 +1106,7 @@
      0
     ]
    ],
-   "seconds": 4.3
+   "seconds": 5.9
   }
  ],
  "d2_algorithm": [
@@ -1023,7 +1144,7 @@
    ],
    "instances": 2161,
    "agree": 2161,
-   "seconds": 0.2
+   "seconds": 0.3
   },
   {
    "box": [
@@ -1032,7 +1153,7 @@
    ],
    "instances": 41503,
    "agree": 41503,
-   "seconds": 30.9
+   "seconds": 39.0
   }
  ],
  "tree_exhaustive": [
@@ -1062,7 +1183,7 @@
    "closed": 4819,
    "scrambles": 346968,
    "scrambles_recovered": 346968,
-   "seconds": 39.0
+   "seconds": 49.7
   },
   {
    "box": [
@@ -1077,7 +1198,7 @@
    "closed": 343,
    "scrambles": 5488,
    "scrambles_recovered": 5488,
-   "seconds": 1.0
+   "seconds": 1.3
   },
   {
    "box": [
@@ -1092,9 +1213,37 @@
    "closed": 343,
    "scrambles": 5488,
    "scrambles_recovered": 5488,
-   "seconds": 1.0
+   "seconds": 1.3
   }
  ],
+ "lambda_976_structure": {
+  "description": "one global reversal x the ties n:2~3, e:2~3, 2S:0~1 (identical fibres); every tree edge binding",
+  "predicted": 16,
+  "equal": true,
+  "binding_edges": {
+   "(0, 1)": true,
+   "(1, 2)": true,
+   "(2, 3)": true,
+   "(4, 5)": true,
+   "(5, 6)": true,
+   "(3, 6)": true,
+   "(2, 7)": true
+  }
+ },
+ "lambda_216_structure": {
+  "description": "the tie 2S:0~1 x independent reversal of {n,l}, {e,f}, {k,q,g,2S}; edges l-k and f-g vacuous",
+  "predicted": 16,
+  "equal": true,
+  "binding_edges": {
+   "(0, 1)": true,
+   "(1, 2)": false,
+   "(2, 3)": true,
+   "(4, 5)": true,
+   "(5, 6)": false,
+   "(3, 6)": true,
+   "(2, 7)": true
+  }
+ },
  "lambda_recovery": [
   {
    "cells": 976,
@@ -1103,7 +1252,7 @@
    "exact_or_dual": 3,
    "admissible_orderings": 16,
    "root_orders_tried_max": 2,
-   "seconds": 18.5
+   "seconds": 24.8
   },
   {
    "cells": 216,
@@ -1112,7 +1261,7 @@
    "exact_or_dual": 0,
    "admissible_orderings": 16,
    "root_orders_tried_max": 1,
-   "seconds": 1.1
+   "seconds": 1.2
   }
  ],
  "lambda_sum_fact": 94,
@@ -1135,7 +1284,7 @@
    ],
    "pairs": 27,
    "failures": 0,
-   "seconds": 0.5
+   "seconds": 0.7
   },
   {
    "box": [
@@ -1145,7 +1294,7 @@
    ],
    "pairs": 54,
    "failures": 0,
-   "seconds": 2.3
+   "seconds": 2.9
   }
  ],
  "max_sublattice_z3": [
@@ -1154,6 +1303,7 @@
    "bound": 3,
    "attained": true,
    "exceeded": false,
+   "drop_at_box": 1,
    "seconds": 0.0
   },
   {
@@ -1161,6 +1311,7 @@
    "bound": 6,
    "attained": true,
    "exceeded": false,
+   "drop_at_box": 2,
    "seconds": 0.0
   },
   {
@@ -1168,13 +1319,15 @@
    "bound": 12,
    "attained": true,
    "exceeded": false,
-   "seconds": 0.0
+   "drop_at_box": 4,
+   "seconds": 0.1
   },
   {
    "d": 5,
    "bound": 24,
    "attained": true,
    "exceeded": false,
+   "drop_at_box": 8,
    "seconds": 0.2
   },
   {
@@ -1182,7 +1335,8 @@
    "bound": 48,
    "attained": true,
    "exceeded": false,
-   "seconds": 0.6
+   "drop_at_box": 16,
+   "seconds": 0.9
   }
  ],
  "boolean_step_at_box": {
@@ -1192,6 +1346,58 @@
   "5": 8,
   "6": 16
  },
+ "maximal_sublattices": [
+  {
+   "d": 2,
+   "closed_subsets": 11,
+   "maximal": 2,
+   "sizes": [
+    3
+   ]
+  },
+  {
+   "d": 3,
+   "closed_subsets": 72,
+   "maximal": 6,
+   "sizes": [
+    6
+   ]
+  },
+  {
+   "d": 4,
+   "closed_subsets": 730,
+   "maximal": 12,
+   "sizes": [
+    12
+   ]
+  }
+ ],
+ "three_chain_maximal": [
+  [
+   [
+    0
+   ],
+   [
+    1
+   ]
+  ],
+  [
+   [
+    0
+   ],
+   [
+    2
+   ]
+  ],
+  [
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ]
+ ],
  "arity_census": [
   {
    "box": [
@@ -1207,21 +1413,24 @@
      "nontrivial": 0,
      "distinct": 1,
      "contain_zero": true,
-     "bijunctive": 1
+     "bijunctive_T": 1,
+     "bijunctive_C": 1
     },
     "2": {
      "constraints": 768,
      "nontrivial": 576,
      "distinct": 2,
      "contain_zero": true,
-     "bijunctive": 2
+     "bijunctive_T": 2,
+     "bijunctive_C": 2
     },
     "3": {
      "constraints": 256,
      "nontrivial": 252,
      "distinct": 8,
      "contain_zero": true,
-     "bijunctive": 8
+     "bijunctive_T": 8,
+     "bijunctive_C": 5
     }
    },
    "seconds": 0.0
@@ -1241,33 +1450,87 @@
      "nontrivial": 0,
      "distinct": 1,
      "contain_zero": true,
-     "bijunctive": 1
+     "bijunctive_T": 1,
+     "bijunctive_C": 1
     },
     "2": {
      "constraints": 786432,
      "nontrivial": 589824,
      "distinct": 2,
      "contain_zero": true,
-     "bijunctive": 2
+     "bijunctive_T": 2,
+     "bijunctive_C": 2
     },
     "3": {
      "constraints": 524288,
      "nontrivial": 516096,
      "distinct": 8,
      "contain_zero": true,
-     "bijunctive": 8
+     "bijunctive_T": 8,
+     "bijunctive_C": 5
     },
     "4": {
      "constraints": 131072,
      "nontrivial": 131064,
      "distinct": 128,
      "contain_zero": true,
-     "bijunctive": 73
+     "bijunctive_T": 73,
+     "bijunctive_C": 15
     }
    },
-   "seconds": 14.5
+   "seconds": 20.0
   }
  ],
+ "pair_constraint_exact": {
+  "1": {
+   "arity": 2,
+   "relations": 2,
+   "bijunctive_C": 2,
+   "bijunctive_T": 2,
+   "bell": 2,
+   "partition_constraints": 2,
+   "transfer_failures": 0,
+   "majority_vs_two_clause_disagreements": 0,
+   "construction_verified": 2,
+   "seconds": 0.0
+  },
+  "2": {
+   "arity": 3,
+   "relations": 8,
+   "bijunctive_C": 5,
+   "bijunctive_T": 8,
+   "bell": 5,
+   "partition_constraints": 5,
+   "transfer_failures": 0,
+   "majority_vs_two_clause_disagreements": 0,
+   "construction_verified": 8,
+   "seconds": 0.0
+  },
+  "3": {
+   "arity": 4,
+   "relations": 128,
+   "bijunctive_C": 15,
+   "bijunctive_T": 73,
+   "bell": 15,
+   "partition_constraints": 15,
+   "transfer_failures": 0,
+   "majority_vs_two_clause_disagreements": 0,
+   "construction_verified": 128,
+   "seconds": 0.0
+  },
+  "4": {
+   "arity": 5,
+   "relations": 32768,
+   "bijunctive_C": 52,
+   "bijunctive_T": 1442,
+   "bell": 52,
+   "partition_constraints": 52,
+   "transfer_failures": 0,
+   "majority_vs_two_clause_disagreements": null,
+   "construction_verified": null,
+   "seconds": 0.2
+  }
+ },
  "bijunctive_exact": {
   "1": {
    "relations_containing_zero": 2,
@@ -1285,6 +1548,102 @@
    "relations_containing_zero": 32768,
    "bijunctive": 1442
   }
+ },
+ "source_plate_parametrisation": {
+  "relations": 14,
+  "majority_closed": 10
+ },
+ "arity3_witness": {
+  "X": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    0,
+    1
+   ]
+  ],
+  "C": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    1
+   ],
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    0,
+    1
+   ],
+   [
+    1,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    1
+   ]
+  ],
+  "majority_of_001_010_111": [
+   0,
+   1,
+   1
+  ],
+  "in_C": false,
+  "T": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "T_majority_closed": true,
+  "C_horn": false,
+  "C_dual_horn": false,
+  "C_affine": false,
+  "C_zero_valid": true,
+  "C_one_valid": true
  },
  "one_in_three_witness_set": [
   [
@@ -1348,7 +1707,8 @@
    1
   ],
   "size": 3,
-  "majority_closed": false
+  "majority_closed": false,
+  "C_majority_closed": false
  },
  "one_in_three_translation": {
   "t": [
@@ -1404,6 +1764,328 @@
   "max": 1795,
   "mean": 380.9,
   "zero": 0,
+  "argmin": [
+   [
+    2,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    0
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    2
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    3
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    0
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    2
+   ],
+   [
+    2,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    3
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    0
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    2
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    3
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    0
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    2
+   ],
+   [
+    2,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    3
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    0
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    1
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    2
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    3
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    0
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    1
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    2
+   ],
+   [
+    3,
+    1,
+    3,
+    2,
+    3,
+    1,
+    3,
+    3
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    0
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    1
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    2
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    2,
+    0,
+    3,
+    3
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    0
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    1
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    2
+   ],
+   [
+    3,
+    1,
+    3,
+    3,
+    3,
+    0,
+    3,
+    3
+   ]
+  ],
   "values": [
    74,
    299,
@@ -7344,10 +8026,11 @@
   ]
  },
  "counts": {
-  "EXHAUSTIVE": 52,
-  "MACHINE-CHECKED": 29,
-  "REFUTATION": 6,
+  "EXHAUSTIVE": 62,
+  "MACHINE-CHECKED": 28,
+  "REFUTATION": 8,
+  "FAIL": 10,
   "SAMPLED": 3
  },
- "seconds": 202.9
+ "seconds": 277.6
 }

@@ -504,3 +504,15 @@ on seven sole-occupant cells of which three break it when emptied; 6,432 of the 
 fourteen-cell subsets close under some ordering; the fill is non-unique. The dependency label is
 nominal at eighteen of twenty outer-seat properties and the paper says so. All 69 findings fixed,
 three in part. Whether a classification index this modest belongs on the site is yours to judge.
+
+**The lattice — repaired.** Working title now: *The Lattice of Subshell Transitions*, because
+481 of the 976 cells move two or three electrons; the old title is recorded. The spin bound is now
+stated as what it is — an envelope admitting 503 cells no configuration carries, leaving 473
+physical cells, which reproduces the source's own 48.5 per cent density — with Table 1 marking
+six constraints exact and one an envelope. The model of a cell is stated once from the source's
+own reading: g is the number of electrons placed, the target begins empty, and the index carries
+no coordinate for prior occupancy, so the 515 cells with g < q and the 200 with source equal to
+target are admitted as the source admits them, unrestricted. The grading check now derives covers
+from the order alone. One real error the repair found: a box stated at 8,064 points has 9,216. All
+42 findings fixed. For you: the retitle, and whether the 715 cells the index admits without
+physical restriction should stay.
