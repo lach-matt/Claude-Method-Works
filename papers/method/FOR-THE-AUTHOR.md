@@ -318,3 +318,29 @@ measures label incoherence rather than a boundary, and that the routing is decla
 against a record outside the paper rather than derived. The repair's brief is to make the paper
 claim exactly what survives, even if that leaves a shorter paper and a different title. Whether the
 narrowed paper still earns a place on the site is yours to judge when you see it.
+
+---
+
+## The Tower over Λ
+
+**1 · The second stage seeds at 8, not 9.** The source states the tower's seeds under set cover as
+7, 9, 9 for the first three stages, with the second and third seeding identically. Exact branch and
+bound gives 7, 8, 9: an eight-cell cover of the second stage realises every alphabet slot, two
+independent staircases regenerate the stage from it, and the solver refutes any seven-cover.
+Recomputing the source's own greedy procedure reproduces its 7, 9, 9 exactly, so the source's
+algorithm gave what the source says; greedy is an upper bound, and at the second stage it is one
+above the optimum. The paper prints the exact figures, prints the greedy ones beside them as
+greedy, and says that three points fix no law. All three are now machine-checked.
+
+**2 · A mean printed for the top stage is the value at the fourth.** The stated ⟨q⟩ of 1.887 is
+the value at eleven coordinates; at thirteen it is 1.9159. The paper prints the measured row.
+
+**3 · Four pair counts in the source's prose were mistyped**, each off by a few hundred or a few
+thousand against the exact count; the paper prints the exact ones and pins their sum.
+
+**4 · The one-parent reading of the cap on f is confirmed**: thirteen edges at the top stage, cycle
+rank (0, 0, 1, 1, 1, 1), and the triangle, treewidth, girth and hub degrees unchanged. The
+two-parent reading is printed as a counterfactual and pinned as an obligation, not as a finding.
+
+**5 · Three items of the source are not printed**: a density row for a variant stage, five
+presentations of one region, and two prices the record has already withdrawn.

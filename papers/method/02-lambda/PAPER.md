@@ -130,7 +130,7 @@ Every entry is positive, so no bound follows from the rest, and the ranking is i
 
 *Proof.* Each of the seven bounds names exactly two coordinates, so G has exactly seven edges; a traversal from n reaches all eight nodes, so G is connected; a connected graph on 8 nodes with 7 edges is a tree. The degrees are read off the seven bounds, and removing the three leaves n, e and 2S leaves the path f — g — q — k — ℓ, so G is a caterpillar. A directed cycle in any orientation of G would be a cycle in G, and a tree has none. ∎ **PROVED** and **EXHAUSTIVE** (the graph is built from D2, traversed, and the orientation tested).
 
-![Figure 1](figures/fig1-constraint-tree.png)
+![](figures/fig1-constraint-tree.png)
 
 **Figure 1.** The constraint graph: eight coordinates, seven bounds, one edge per bound, each edge labelled with its inequality. The graph is connected with seven edges on eight nodes, so it is a tree, and its degree sequence 1,1,1,2,2,2,2,3 makes it a caterpillar — a path of seven with one pendant, 2S at k. Every consequence in §4 and §5 is a consequence of that shape.
 
@@ -164,7 +164,7 @@ summing to 976, and it is log-concave at every interior rank — aᵣ² ≥ aᵣ
 
 Λ is **not** rank-symmetric. The centre of mass of the rank sequence is 10801/976 = 11.0666 against the midpoint 11.5, a skew of −0.43. Low ranks are cut by the floors n ≥ 1, e ≥ 1, k ≥ 1 and high ranks by the seven bounds; there are more ceilings than floors, and the sequence is pruned harder at the top.
 
-![Figure 2](figures/fig3-rank-sequence.png)
+![](figures/fig3-rank-sequence.png)
 
 **Figure 2.** The rank sequence over all 976 cells. It is log-concave, hence unimodal, hence Sperner, with the largest level 122 at rank 11. It is not symmetric: the centre of mass 11.07 sits below the midpoint 11.5 by 0.43.
 
@@ -224,7 +224,7 @@ Each is one way a bound of D2 binds at one value, and those twenty implications 
 
 *Proof.* The covering relations of P are computed from the order on the seventeen cells. The classification into within and between is by the coordinate each letter names. For the cut: a 17-bit word satisfies all twenty implications if and only if its set of bits is a down-set of P — an implication along a cover is exactly the down-set condition at that cover, and the cover relations generate the order — and by Theorem 7 the down-sets are the cells. The enumeration confirms it directly: of 131,072 words, 976 satisfy the twenty. ∎ **PROVED** and **EXHAUSTIVE** (131,072 words).
 
-![Figure 3](figures/fig2-generating-poset.png)
+![](figures/fig2-generating-poset.png)
 
 **Figure 3.** The seventeen generators, at their ranks in Λ, with the twenty covering relations: nine within one coordinate (solid) and eleven between coordinates (dashed). The grey number below each generator is the number of the 976 cells lying above it, from 856 at n ≥ 2 to 16 at g ≥ 3. Every cell of Λ is the down-set of generators beneath it, and every down-set is a cell.
 
@@ -285,7 +285,7 @@ Write u = |a − b|, v = |b − c|. The ordinary triangle inequality on ℤ give
 
 Two features of the geometry follow from the form and are worth naming. A ball {y : d(x,y) ≤ D} is not a box: in two coordinates its boundary is the hyperbola (1 + Δ₁)(1 + Δ₂) = D. And each axis is a log-distorted chain — the first step costs log 2 = 0.6931 and the tenth costs log(11/10) = 0.0953 — so the measure is sensitive at short range and flat at long range, which is what a *count of cells* does and a difference does not.
 
-![Figure 4](figures/fig4-occupancy-measure.png)
+![](figures/fig4-occupancy-measure.png)
 
 **Figure 4.** The occupancy measure. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).
 
@@ -331,7 +331,7 @@ The converse is the content of the statement. A constraint graph has induced wid
 
 *Proof.* Direct computation of all seven indicators and the joint event on every pair. ∎ **EXHAUSTIVE** (475,800 pairs; 115,162 comparable pairs). The direction of the departure is not accidental: each comparison hiᵢ ≤ φ(loⱼ) is a *narrowness* condition on the coordinates it touches, holding with probability 1 at zero width and falling as the width grows, so two comparisons sharing a coordinate are two decreasing functions of one width variable and their correlation is non-negative by Chebyshev's sum inequality. Constraints sharing no coordinate contribute no such term. This paper measures the size of the lift and does not decompose it further.
 
-![Figure 5](figures/fig7-void.png)
+![](figures/fig7-void.png)
 
 **Figure 5.** (a) What each bound removes on its own: the ambient points that satisfy the other six and fail only this one, from 673 for g ≤ q down to 24 for g ≤ 4f + 2. Every entry is positive, so no bound is redundant. (b) The seven containment events of Theorem 13 over all 475,800 pairs, their product 0.2013 and the joint rate 0.2835 — a lift of 1.4081.
 
@@ -377,11 +377,11 @@ Spin multiplicity is algebraically inert here: it scales the count of each seven
 
 *Proof.* Comparison of the coefficient list with its reverse; the first index at which they differ is computed. ∎ **EXHAUSTIVE.**
 
-![Figure 6](figures/fig6-rank-polynomial.png)
+![](figures/fig6-rank-polynomial.png)
 
 **Figure 6.** F(z) read forwards as bars and backwards as the dashed line. They part company at the second level — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this one picture carries both the asymmetry of the rank sequence and the failure of the reflection.
 
-![Figure 7](figures/fig5-caterpillar.png)
+![](figures/fig5-caterpillar.png)
 
 **Figure 7.** The constraint graph read as the nesting order of the expression: a path of seven with one pendant. That shape is why a single left-to-right nesting exists with one bracketed factor. The pendant 2S factors out as a geometric sum (Lemma 4); g is the only coordinate with two parents, and the min it forces — g ≤ min(q, 4f + 2) — is the one non-product term in the whole expression.
 
@@ -451,7 +451,7 @@ So every cell of Λ is implied by the other 975. In the language of convex geome
 
 The compression is the headline. 976 cells are recoverable from 7 of them, a ratio of 139 to 1, and the lower bound of 5 says at most two of those seven are slack. Against the seventeen join-irreducibles of §2 the seed is smaller, and for a stated reason: ℛ fills a box up to its envelopes, where the lattice join reaches only the down-set of what it is given, so the staircase closure is the stronger operator and needs less to start from.
 
-![Figure 8](figures/fig8-seed.png)
+![](figures/fig8-seed.png)
 
 **Figure 8.** (a) The 370 of 976 cells that appear in at least one minimum seed, ordered by how many of the 24,585 seeds hold them; the scale is logarithmic and one cell sits at 100%. (b) The same as a distribution: the median cell appears in 0.24% of the minimum seeds and one in all of them.
 

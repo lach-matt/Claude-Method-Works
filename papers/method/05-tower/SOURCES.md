@@ -1,6 +1,6 @@
 # SOURCES.md — provenance map for 05-tower (not published)
 
-Paper: `PAPER.md`, "The Tower over Λ: from Eight Coordinates to Thirteen". Drafted 2026-09-21.
+Paper: `PAPER.md`, "The Tower over Λ: from Eight Coordinates to Thirteen". Drafted 2026-09-21; resumed and finished 2026-09-24 after the first run was cut off by a service limit.
 Every number in the paper is produced by `check.py` or is CITED. `check.py` imports the seated
 tower instrument `method/members/tower-2.py`, the constraint-graph instrument
 `method/proofs/cgraph.py`, the triangle instrument `method/proofs/coupling.py` and the Z3 harness

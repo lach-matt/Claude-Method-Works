@@ -9,7 +9,7 @@ the reference implementations used by the guards are written fresh in this file.
     python3 check.py --selftest   the guards plus the negative controls (false claims that must
                                   be reported as refuted)
 
-Python 3.12, numpy, z3-solver.  ~2 minutes.
+Python 3.12, numpy, z3-solver.  ~5 minutes (the branch and bound at Λ_10 is most of it).
 """
 import argparse, collections, importlib.util, itertools, os, random, sys, time
 from fractions import Fraction
