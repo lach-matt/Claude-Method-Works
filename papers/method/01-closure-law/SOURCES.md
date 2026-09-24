@@ -1,10 +1,53 @@
 # SOURCES.md — provenance map for 01-closure-law (not published)
 
 Paper: `PAPER.md`, "The Closure Law of a Finite Index". Drafted 2026-09-21 on a `check.py` written in
-an earlier, interrupted run; that check was read in full, run, and left as it was. It discharges
-**126 rows, 0 failures** (17 GUARD, 53 MACHINE-CHECKED, 44 EXHAUSTIVE, 6 REFUTATION, 6 CITED) in
-about 85 s, and `--selftest` adds three negative controls, all refuted. Every number in the paper is
-either produced by that run or is a bibliographic figure in the reference list.
+an earlier, interrupted run; that check was read in full, run, and left as it was. **Repaired
+2026-09-24 against `AUDIT.md`** (40 findings, every one dispositioned there). The check now discharges
+**134 rows, 0 failures** (20 GUARD, 53 MACHINE-CHECKED, 47 EXHAUSTIVE, 6 REFUTATION, 8 CITED) in about
+85 s, and `--selftest` adds three negative controls, all refuted by a decision procedure (137 rows).
+Every number in the paper is either produced by that run or is a bibliographic figure in the reference
+list. The repair added obligations and guards and weakened none.
+
+## Novelty, as the paper now states it (AUDIT A-1 / R-C1)
+
+The audit identified the c = 2 case of Theorem 15 with Theorem 2.1 of G. Czédli, *Generating Boolean
+lattices by few elements and exchanging session keys* (arXiv:2303.10790; Novi Sad J. Math., DOI
+10.30755/NSJOM.16637). **Verified on the arXiv full text (v3, 29 Oct 2023):** Theorem 2.1 reads "Bₙ has
+an at most k-element generating set iff n ≤ Sp(k)", Sp(k) = C(k, ⌊k/2⌋); its "only if" half maps a
+generating set into the free meet-semilattice and applies Sperner's theorem to an n-element antichain
+in Bₖ, its "if" half takes the ⌊k/2⌋-subsets antichain — the two halves of the paper's proof at c = 2.
+By the paper's own Theorem 2, seed(X) is the least generating size of the lattice X, so the
+identification is exact.
+
+The audit then asked whether Czédli's later generating-set papers cover c ≥ 3. **They do, in full.**
+arXiv:2309.13783 (direct powers of free distributive lattices) and arXiv:2401.00842 (subspace lattices)
+do not; but **arXiv:2308.15625** (Ural Math. J. 10(1), 2024), *Sperner theorems for unrelated copies of
+some partially ordered sets in a powerset lattice and minimum generating sets of powers of distributive
+lattices*, Theorem 2.4, makes k ↦ G_min(Dᵏ) the left adjoint of n ↦ S(J(D), n) for every finite
+distributive lattice D, and its Observation 3.1(c)–(d) gives S(U, n) = C(n − p, ⌊(n − p)/2⌋) for a
+bounded U with p the least size of a set whose subsets embed U — the Griggs–Stahl–Trotter theorem for a
+chain. For the c-element chain J(D) is the (c−1)-element chain, p = c − 2, and G_min = c − 2 + m(d):
+Theorem 15 for every c. **The paper therefore claims no part of Theorem 15.** It is headed "Czédli",
+carries a CITED paragraph naming both papers and Griggs–Stahl–Trotter 1984, and keeps its own proof
+(Theorem 13 + Bollobás) as a second proof in the paper's terms. What the paper claims in §9 is
+Theorem 13 (seed = set cover, for this operator), Theorem 14 (the simplex L(d, c−1), which is not a
+direct power and so not a case of Czédli's theorem — no prior statement of it was found; the
+generating-set literature on Young's lattice was not searched beyond Czédli's papers, and R-C7's
+"check" is discharged only to that extent), and the refutation of the source's linear law.
+
+**A discrepancy with Czédli 2023b, recorded and not repaired.** Table (4.30) of arXiv:2308.15625
+prints G_min(C₄ᵏ) = 18 for the five-element chain at k = 2022 and 2023. Theorem 2.4 there with
+Observation 3.1(d) — p = 3 for the four-element chain of join-irreducibles, f*(2023) = 14 since
+C(13,6) = 1,716 < 2,023 ≤ 3,432 = C(14,7) — gives 17, as Theorem 15 does. `check.py` prints both
+figures on its row "the law at (c, d) = (5, 2023)", confirms the shift c − 2 rather than c − 1 by
+direct closure at 5² (seed 5, no four cells generate), and the paper states the arithmetic in one
+sentence after Theorem 15. Which reading of that table is intended is a question for its author.
+
+**Bibliographic details not confirmed here.** The Novi Sad J. Math. volume and year of Czédli 2023a
+(the DOI is the audit's); the reference gives the DOI and arXiv id only. The Jamison-Waldner 1982 and
+van de Vel 1993 attributions for "Carathéodory number = breadth" (R-C3) are the audit's; the paper
+cites them as the audit gave them, with Queyranne–Tardella 2017 (verified: Math. Oper. Res. 42(2),
+495–516) for the sublattice convexities of product spaces.
 
 All line ranges below are in `method/members/`. `M` is `The_Method_1_6-2.md`, `C` is
 `The_Method_1_6___Mathematical_Compendium-2.md`.
@@ -13,7 +56,7 @@ All line ranges below are in `method/members/`. `M` is `The_Method_1_6-2.md`, `C
 
 | paper section | source passages |
 |---|---|
-| Thesis, Abstract, §0 | M §14.1 3686–3722 (Theorem 14.1 "X is closed iff X = ℛ(X)"; the attribution to Bergman's double-projection theorem, to Baker & Pixley 1975 via the majority term, to Montanari 1974 and Dechter 1992 for global consistency, and to Deville, Barette & Van Hentenryck 1999 for the staircase class; and the correction that **Freuder 1982 is a different theorem** — backtrack-free search at strong (w+1)-consistency — which this paper carries); M §14.3 3724–3735 (the scope: each coordinate presented as a chain, not each factor a chain; what fails is folding two chains into one coordinate); C §IV.A 334–346 ("E is coordinate-relative": any set of composite size relabels onto a full rectangle) |
+| Thesis, Abstract, §0 | M §14.1 3686–3722 (Theorem 14.1 "X is closed iff X = ℛ(X)"; the attribution to Bergman's double-projection theorem, to Baker & Pixley 1975 via the majority term, to Montanari 1974 and Dechter 1992 for global consistency — **the paper does not carry "global consistency" as the name of E = 0 nor the Dechter 1992 citation** (AUDIT R-C2): E = 0 is stated as binary decomposability into staircase constraints in Montanari's sense, with global consistency of the row-convex network following from van Beek & Dechter 1995, and the counterexample X = {(0,1),(1,0)} — a globally consistent network at E = 2 — is printed; the forward projection-determination theorem is attributed to Baker & Pixley, Bergman to the name and the converse, Veinott 1989 added (R-C4), and to Deville, Barette & Van Hentenryck 1999 for the staircase class; and the correction that **Freuder 1982 is a different theorem** — backtrack-free search at strong (w+1)-consistency — which this paper carries); M §14.3 3724–3735 (the scope: each coordinate presented as a chain, not each factor a chain; what fails is folding two chains into one coordinate); C §IV.A 334–346 ("E is coordinate-relative": any set of composite size relabels onto a full rectangle) |
 | §1 D1–D5 | M §6.1 1537–1556 (Âᵢ(X), φ̂ᵢⱼ(v) = max{xᵢ : x ∈ X, xⱼ ≤ v}, ℛ(X) = {x ∈ ∏Âᵢ : xᵢ ≤ φ̂ᵢⱼ(xⱼ) ∀ i≠j}, E(X) = \|ℛ(X)\| − \|X\|); C §IV.A 168–178 ("the recovery operator"), 324–332 ("monotone upper envelope / staircase bound", with max ∅ = −∞) and 146–156 ("closure defect"); notation aligned to `research/warp-drive/paper/THE-HIERARCHY-LAW.md` §1 D1–D5 (observed alphabet, box, generated sublattice, boundary function, staircase) and to its two ambient regimes, own-box and fixed-box |
 | §1 D6–D8 | M §14.1 (closed = fixed point); M §14.5.7 and C §IV.S 782–792, "A seed": "G ⊆ X is a seed of X under ℛ iff φ̂(G) = φ̂(X)" |
 | §2 Proposition 1 | C §IV.A 236–244 ("the defect bounds: 0 ≤ E(X) ≤ \|box\| − \|X\|", proved, box = ∏\|Âᵢ(X)\|) |
@@ -51,10 +94,12 @@ All line ranges below are in `method/members/`. `M` is `The_Method_1_6-2.md`, `C
    biconditional that contains both, and Corollary 1 is Theorem 17.1. The source's 424-test figure
    is not reproduced and is not needed.
 
-4. **Theorems 14 and 15 are proved here; the source states only the counts.** For the down-set the
+4. **Theorem 14 is proved here; the source states only the count.** For the simplex the
    source gives d + c − 1 with "LB = UB at d=4, c=4"; the paper proves it for all d ≥ 2, c ≥ 2 and
-   additionally shows the minimum seed is unique and every one of its cells forced. For the full box
-   see item 2 of the next section.
+   additionally shows the minimum seed is unique and every one of its cells forced. The source calls
+   D(d, c) a "down-set"; it is not one in the product order ((1,1) ∈ D(2,2), (0,1) ∉ D(2,2)), and the
+   paper says "ordered simplex" and identifies it with L(d, c−1) (AUDIT A-3). For the full box see
+   item 2 of the next section and the novelty section above.
 
 5. **`seed` is defined for closed X only.** The source's definition (C §IV.S 782) assumes X closed
    and the paper follows it (D8). For open X the source's "seed + E" decomposition exists and is
@@ -99,14 +144,18 @@ minimum cover and (where small enough) by direct closure as well.
    (no three cells generate 2⁵, four do) and as a `--selftest` negative control. The paper prints
    the exact law **seed(c^d) = c − 2 + m(d)** with m(d) = min{m : C(m, ⌊m/2⌋) ≥ d}, which is
    Theorem 15 — proved here from Bollobás's set-pair inequality above and an explicit antichain
-   construction below, and confirmed by direct closure at seven boxes and by exact maximum-clique
-   search at thirteen more points. **Theorem 15 is new to this paper**; the source has no law beyond
-   the linear one. The disagreement is an over-generalisation from two data points, not a
-   computational error in the source.
+   construction below, and confirmed by direct closure at eight boxes and by exact maximum-clique
+   search at thirteen more points. **Theorem 15 is not new: it is Czédli's** (2023a at c = 2; 2023b
+   with Griggs–Stahl–Trotter 1984 for every c) — see the novelty section above; the first draft
+   called it "new to this paper" and that claim is withdrawn. The source has no law beyond the linear
+   one. The disagreement is an over-generalisation from two data points, not a computational error in
+   the source.
 
 3. **C §IV.S's "seed ≥ the Carathéodory number = the breadth = d" does not hold as a lower bound on
-   the seed.** The Carathéodory number of the sublattice convexity on a product of d chains is the
-   breadth, and the breadth of that product is d — both correct, and cited in the paper. But the
+   the seed.** The Carathéodory number of the subsemilattice convexity is the breadth, and the
+   breadth of a product of d chains is d — both correct, and cited in the paper (Jamison-Waldner 1982;
+   van de Vel 1993; Queyranne & Tardella 2017 — the first draft cited Queyranne & Tardella 2008, which
+   is about hulls, representations and counting, not these numbers: AUDIT R-C3). But the
    Carathéodory number bounds how many generators reach **one point of the hull**, not how many
    reach the whole set, and the breadth in question is the breadth of the object generated, not of
    the ambient. The two-element chain {(0,0,0), (1,1,1)} is closed in d = 3 and seeds at 2.
@@ -156,29 +205,39 @@ proves either; M §14.1 is later and governs, and the paper follows M.
 
 ## Guards, and what they are worth
 
-`check.py` runs seventeen guards before it reports anything, and two of them are negative controls
+`check.py` runs twenty guards before it reports anything, and two of them are negative controls
 that must fail. The operator under test is the one `tools/cypher.py` computes (`op_order`), imported
 by path and never copied; a reference implementation of D1–D5 written fresh for this paper agrees
 with it on 400 random instances over six box shapes, and the join-closure — a deliberately wrong
-reference — disagrees on 24 of 50. The Z3 predicate is evaluated concretely on 2,919 cells of the
-declared boxes and agrees with the operator everywhere, while the same predicate without its box
-conjunct disagrees on 73 of 2,851. The hull encoding ("the intersection of all closed supersets") is
-brute-forced against the generated sublattice on 60 instances. Twelve non-vacuity checks cover the
-four hypothesis shapes at three boxes. These two sampled figures are the only SAMPLED numbers
-anywhere in the work and neither is a result; the paper says so in §10.
+reference — disagrees on 24 of 50. The Z3 staircase predicate is evaluated concretely on 2,919 cells
+of the declared boxes and agrees with the operator everywhere, while the same predicate without its
+box conjunct disagrees on 73 of 2,851. The Z3 closure predicate (D6) is evaluated on 300 random sets
+over five box shapes against a direct closure test, 0 disagreements (added for AUDIT A-5). The hull
+encoding ("the intersection of all closed supersets") is brute-forced against the generated sublattice
+on 60 instances. Fourteen non-vacuity checks cover five hypothesis shapes: four at three boxes each,
+and Theorem 4's isotone-system hypothesis at 3×3 and 2×2×2 (added for A-5). §10 names exactly which
+predicates are guarded and which are transcriptions. The sampled figures are the only SAMPLED numbers
+anywhere in the work and none is a result; the paper says so in §10. Theorem 7's column E(Cl(U)) is
+now computed directly at every ambient, including 65,536 cells at 2×2×2×2 (A-4); the earlier check
+derived that entry from the constant-boundary mechanism. Negative control (3) of the selftest is
+direct closure at 2⁵ (A-8), not a formula comparison.
 
 ## Figures
 
-Five figures. **Figure 2 is an audited plate taken unmodified** — row 33 of
+Five figures, all computed. **Figure 2 was an audited plate taken unmodified** — row 33 of
 `method/PROOF-FIGURES.tsv`, graded NAMED-GENERATION against caption 6.2, sourced from
 `extracted/archives/the-method-1-6-figures-build8/figures/figure-6.2.png`, md5
-`b383daa6351d7fb140a7055651649f1f`, copied into `figures/fig-periodic-table.png` with the same md5.
-Its four checkable facts — 90 held, 36 admitted and denied, 126 in all, and the red pattern at
-period 1 groups 2–17 and periods 2–3 groups 3–12 — are all produced by `check.py`'s periodic-table
-row, so the paper's caption prints nothing the check does not.
+`b383daa6351d7fb140a7055651649f1f`. The audit (A-16) found that the plate's own title is drawn over
+its period-1 row and overprints the red cells it describes at print size, so it is **replaced by a
+computed figure**, `figures.py fig_periodic()`, drawn from `check.py periodic_cells(18)` and `stair()`
+— the same 90 cells the check closes, cell for cell the plate's data. `FIGURES.tsv` records the
+replaced plate's path and md5 and the reason. Its four checkable facts — 90 held, 36 admitted and
+denied, 126 in all, and the red pattern at period 1 groups 2–17 and periods 2–3 groups 3–12 — are
+produced by `check.py`'s periodic-table row, so the caption prints nothing the check does not.
 
 The other four are computed by `figures.py` from `check.py`'s own reference implementation, which
-`figures.py` imports by path. `FIGURES.tsv` records for each the file, the paper's figure number,
+`figures.py` imports by path; Figure 1's |ℛ| = 9 and E = 4 now have their own `check.py` row (A-7)
+and Figure 3's grid is the 4×5 box the nine cells realise (A-17). `FIGURES.tsv` records for each the file, the paper's figure number,
 what it shows, how it was made and the md5. The second audited plate that bears on this material
 (row 32, caption 6.1 — the external definition cost of seven indices) is not used: four of its seven
 indices are outside this paper, and its two that are inside are already printed as numbers in §2.

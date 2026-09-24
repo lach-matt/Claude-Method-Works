@@ -40,6 +40,18 @@ ORD_P = R["ORD_P"]      # dependency, in the closing order
 SEATS = R["ORD_S"]
 PNAME = {"P": "physics parameter", "C": "charge role", "A": "amplitude integral"}
 grid = {tuple(int(v) for v in k.split(",")): names for k, names in R["grid"].items()}
+# the instrument's label for one property carries an underscore subscript; the paper writes the name in words
+DISPLAY = {"closed f shell n_f": "closed f-shell count"}
+
+
+def label(name):
+    """the property name as the paper prints it, wrapped at a space when it would overflow its cell"""
+    name = DISPLAY.get(name, name)
+    if len(name) > 17 and " " in name:
+        words = name.split(" ")
+        best = min(range(1, len(words)), key=lambda i: abs(len(" ".join(words[:i])) - len(" ".join(words[i:]))))
+        name = " ".join(words[:best]) + "\n" + " ".join(words[best:])
+    return name
 
 
 # ------------------------------------------------------------------ Figure 1: the fourteen cells
@@ -64,7 +76,8 @@ def fig1():
                 ax.add_patch(Rectangle((p + 0.03, k + 0.03), 0.94, 0.94, facecolor=BLUE_FILL if held else EMPTY,
                                        edgecolor=BLUE if held else GRID, linewidth=1.0 if held else 0.5))
                 if held:
-                    ax.text(p + 0.5, k + 0.5, "\n".join(names), ha="center", va="center", fontsize=7.2, color=INK)
+                    ax.text(p + 0.5, k + 0.5, "\n".join(label(n) for n in names), ha="center", va="center",
+                            fontsize=7.0, color=INK, linespacing=1.15)
         if si == 1:
             # the last cell: symmetry x valence x charge
             k = ORD_K.index("symmetry")
@@ -78,48 +91,8 @@ def fig1():
     plt.close(fig)
 
 
-# ------------------------------------------------------------------ Figure 2: routing by residual
+# ------------------------------------------------------------------ Figure 2: the defect of the wider table
 def fig2():
-    routes = R["ROUTE"]   # (residual, property, kind, seat, pca, breadth, class)
-    n = len(routes)
-    props = []
-    for r in routes:
-        if r[1] not in props:
-            props.append(r[1])
-    m = len(props)
-    fig, ax = plt.subplots(figsize=(9.6, 3.9))
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, n + 0.55)
-    ax.axis("off")
-    for x, label in ((0.15, "residual left by a universal form"),
-                     (3.55, "property (kind · seat · dependency)"),
-                     (7.85, "class the property holds on")):
-        ax.text(x, n + 0.22, label, fontsize=8.5, color=INK2, va="bottom")
-    # left lane: one row per residual; right lane: one non-overlapping slot per property
-    ry = {i: n - 0.5 - i for i in range(n)}
-    py = {prop: n * (m - 0.5 - j) / m for j, prop in enumerate(props)}
-    for i, r in enumerate(routes):
-        ax.text(0.15, ry[i], r[0], fontsize=8.6, va="center", color=INK)
-        ax.add_patch(FancyArrowPatch((3.05, ry[i]), (3.48, py[r[1]]), arrowstyle="-|>",
-                                     mutation_scale=9, color=BLUE, linewidth=1.0))
-    for prop in props:
-        y = py[prop]
-        r = next(x for x in routes if x[1] == prop)
-        ax.add_patch(Rectangle((3.5, y - 0.40), 3.9, 0.80, facecolor=BLUE_FILL, edgecolor=BLUE,
-                               linewidth=1.0))
-        ax.text(3.68, y + 0.13, prop, fontsize=8.8, va="center", color=INK)
-        ax.text(3.68, y - 0.16, "%s · %s · %s" % (r[2], r[3].replace("the ", ""), PNAME[r[4]]),
-                fontsize=7.4, va="center", color=INK2)
-        ax.add_patch(FancyArrowPatch((7.42, y), (7.78, y), arrowstyle="-|>", mutation_scale=9,
-                                     color=BLUE, linewidth=1.0))
-        ax.text(7.85, y, r[6], fontsize=8.6, va="center", color=INK)
-    fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig2-routing.png"), dpi=200)
-    plt.close(fig)
-
-
-# ------------------------------------------------------------------ Figure 3: the boundary
-def fig3():
     labels = ["subvalence\n+ valence", "+ the core", "+ the nucleus", "+ the aggregate", "all five seats"]
     filled = R["got_filled"]
     held = R["got_held"]
@@ -142,12 +115,12 @@ def fig3():
     ax.set_axisbelow(True)
     ax.legend(frameon=False, fontsize=7.8, loc="upper left")
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig3-boundary.png"), dpi=200)
+    fig.savefig(os.path.join(FIG, "fig2-defect.png"), dpi=200)
     plt.close(fig)
 
 
-# ------------------------------------------------------------------ Figure 4: the merged index
-def fig4():
+# ------------------------------------------------------------------ Figure 3: the merged index
+def fig3():
     table = R["pca_table"]   # rows standard, mathematics, literature, this work; cols the six domains
     srcs = ["standard", "mathematics", "literature", "this work"]
     doms = ["universal", "all elements", "low (c = 2)", "neutral (c = 1)", "hydrogenic (c ≥ 3)", "one species"]
@@ -182,7 +155,7 @@ def fig4():
     ax.set_xlabel("domain d, in the closing order  →", color=INK2)
     ax.set_ylabel("source s, in the closing order  →", color=INK2)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig4-pca-grid.png"), dpi=200)
+    fig.savefig(os.path.join(FIG, "fig3-pca-grid.png"), dpi=200)
     plt.close(fig)
 
 
@@ -190,5 +163,4 @@ if __name__ == "__main__":
     fig1()
     fig2()
     fig3()
-    fig4()
     print("figures written to", FIG)

@@ -17,7 +17,9 @@ blockquote { margin: 7pt 0 7pt 12pt; padding-left: 9pt; border-left: 2px solid #
 pre { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 8.4pt; line-height: 1.35; white-space: pre-wrap; word-wrap: break-word;
       background: #f7f7f5; border: .5pt solid #ddd; padding: 4pt 6pt; margin: 6pt 0; page-break-inside: avoid; }
 code { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 9pt; }
-table { border-collapse: collapse; font-size: 8.5pt; margin: 7pt 0; width: 100%; page-break-inside: avoid; }
+table { border-collapse: collapse; font-size: 8.5pt; margin: 7pt 0; width: 100%; page-break-inside: auto; }
+thead { display: table-header-group; }
+tr { page-break-inside: avoid; }
 th, td { border: .5pt solid #bbb; padding: 2pt 4pt; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 th { background: #efefec; font-weight: 700; }
 img { max-width: 100%; page-break-inside: avoid; display: block; margin: 8pt auto 4pt; }

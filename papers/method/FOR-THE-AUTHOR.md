@@ -402,3 +402,14 @@ survives every unit is the exact identity λ² = (2/3)T and the ratios. The refe
 that the audit found to be a transcription is rewritten as a genuinely independent one and agrees
 at all 1,551 cells. One item is for you: the tree holds the lithium threshold twice, an evaluated
 value and a series-fitted one, and the paper prints both rows and chooses neither.
+
+**The closure law — repaired, and the seed theorem is Czédli's for every c.** The repairer read
+the 2023 paper in full and confirmed the audit, then found that Czédli's 2024 paper in the Ural
+Mathematical Journal, through Griggs, Stahl and Trotter's 1984 result on chains, gives the law
+c − 2 + m(d) for every c, so the extension by Bollobás is not new either. The theorem is now headed
+with his name and cited in full, with the paper's Bollobás argument kept as a second proof. What
+the paper claims as its own is narrower and exact: that the seed of this closure operator is a
+set-cover instance, the simplex seed law, the refutation of the source's linear law, and the
+reading of E as a defect. Every one of the forty findings is fixed; none is declined. One item is
+recorded for its own author rather than you: a table in Czédli's 2024 paper prints 18 where his own
+theorem and the law give 17, and the paper says so as arithmetic.
