@@ -260,3 +260,36 @@ its neighbours, not a perturbation of the series in the Lu–Fano sense — and 
 dropped that hypothesis. Separately, self-concordance of the Rydberg term is not scale-invariant, so
 the range over which it holds is a statement about wavenumbers and not about physics; the exact
 identities survive, the interpretive sentence does not. Both are being repaired.
+
+---
+
+## The Occupation Law as a Lower Convex Hull
+
+**1 · The identity holds everywhere; the earlier failures were the check's.** At every one of the
+106 steps, in both forms, the corridor of admissible slopes is the interval between the flanking
+lower-hull edge slopes, in exact arithmetic on surds and in agreement with the seated instrument's
+own selftest step for step. The first attempt's failures were a wrong monotone-chain
+implementation and two wrong expected lists. Nothing about the law needed changing.
+
+**2 · Two crossing values printed in the source are wrong in the fifth decimal.** At the sixth and
+seventh openings the source prints 1.2168450 and 1.3938270; the closed form gives 1.2167605 and
+1.3938469. The paper prints the closed-form values.
+
+**3 · "Each subshell fills at constant a" is false at three sites**, as the settled record already
+has it: 5d at cerium, 6d at protactinium and lawrencium. The paper prints the measured walk with
+its eighteen recalibrations — one start, nine moves, eight touches — and says which.
+
+**4 · The corridor census is a frame artefact in the record.** The record's 73 two-sided and 7
+below-only corridors come from a walk with no ceiling at seven openings of s subshells; frame-free,
+the count is 80 two-sided, 26 with no floor and none with no ceiling. The paper proves the frame
+independence and prints the frame-free count.
+
+**5 · The 0.7071 slope is reached at cerium, not lanthanum**, and the record's "seven at the floor,
+the eighth at the ceiling" measures as seven at the floor and two at the ceiling. Recorded, printed
+as measured.
+
+**6 · A held-out score of 90 is not claimed.** The record's scorer differs from the paper's stated
+rule, which gives 88 of 105 (91 when the walk is finished). The paper prints its own.
+
+**7 · The walk runs from Z = 3.** Every instrument excludes hydrogen and helium and no source says
+why; the paper says so rather than inventing a reason.

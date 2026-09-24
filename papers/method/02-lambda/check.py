@@ -63,6 +63,11 @@ ROWS = []
 FAILS = []
 
 
+def sup(n):
+    """An integer as Unicode superscript digits, for row details the paper quotes."""
+    return str(n).translate(str.maketrans("0123456789-", "⁰¹²³⁴⁵⁶⁷⁸⁹⁻"))
+
+
 def row(status, name, detail, ok=True):
     ROWS.append((status, name, detail, ok))
     if not ok:
@@ -326,8 +331,8 @@ def z3_obligations():
         got = prover.prove("fixed point of R", shape, fixpoint_is_sublattice, quiet=True)
         ok &= got
         row("MACHINE-CHECKED", "Lemma 2, E(X) = 0 implies X is a sublattice",
-            "every one of 2^%d subsets of the %s box: %s"
-            % (prod(shape), "x".join(map(str, shape)), "unsat" if got else "SAT"), got)
+            "every one of 2%s subsets of the %s box: %s"
+            % (sup(prod(shape)), "x".join(map(str, shape)), "unsat" if got else "SAT"), got)
     print()
     return ok
 
@@ -411,7 +416,7 @@ def construction():
             ji += low == 1
         cf = sum(len({c[i] for c in cells}) - 1 for i in range(D))
         good3 &= (want is None or len(cells) == want) and Ec == 0 and gotc == Sc and ji == cf
-        parts.append("%s: %d cells, E = %d, %d join-irreducibles = sum(|A_i| - 1) = %d"
+        parts.append("%s: %d cells, E = %d, %d join-irreducibles = the sum over i of (|Ai| - 1) = %d"
                      % ("".join(map(str, caps)), len(cells), Ec, ji, cf))
     ok &= good3
     row("EXHAUSTIVE", "Theorems 2 and 6, further cap settings", "; ".join(parts), good3)
@@ -536,7 +541,7 @@ def structure():
                 bad += 1
     ok &= bad == 0
     row("EXHAUSTIVE", "Theorem 4, rank is modular",
-        "all %d pairs: %d violations of rank(a v b) + rank(a ^ b) = rank a + rank b"
+        "all %d pairs: %d violations of rank(a ∨ b) + rank(a ∧ b) = rank a + rank b"
         % (N * (N - 1) // 2, bad), bad == 0)
 
     # distributivity: the chain identity on every triple of alphabet values, per coordinate
@@ -595,8 +600,8 @@ def structure():
              and set(ji) == set(GCELL))
     ok &= good3
     row("EXHAUSTIVE", "Theorem 6, seventeen irreducibles",
-        "%d join-irreducible, %d meet-irreducible, sum(|A_i| - 1) = %d, and every "
-        "join-irreducible is min{x : x_c >= v}" % (len(ji), len(mi), closed_form), good3)
+        "%d join-irreducible, %d meet-irreducible, the sum over i of (|Ai| - 1) = %d, and "
+        "every join-irreducible is min{x : x[c] >= v}" % (len(ji), len(mi), closed_form), good3)
 
     weights = [sum(1 for x in LAM if le(m, x)) for m in GCELL]
     row("EXHAUSTIVE", "Table 3, the seventeen letters",
@@ -619,7 +624,7 @@ def structure():
     bij = len(set(MASK)) == N and ds == N
     ok &= bij
     row("EXHAUSTIVE", "Theorem 7, the Birkhoff correspondence",
-        "all 2^17 = %d subsets tested: %d are down-sets; cell -> down-set is a bijection "
+        "all 2¹⁷ = %d subsets tested: %d are down-sets; cell -> down-set is a bijection "
         "onto them" % (1 << JJ, ds), bij)
 
     badb = 0
@@ -707,7 +712,7 @@ def structure():
     bits = math.log2(N)
     row("EXHAUSTIVE", "Theorem 7, the bit accounting",
         "%d bits carried per cell, %.4f needed to index %d cells, surplus %.4f; Lambda is "
-        "%.4f%% of the 2^17 words" % (JJ, bits, N, JJ - bits, 100.0 * N / (1 << JJ)), True)
+        "%.4f%% of the 2¹⁷ words" % (JJ, bits, N, JJ - bits, 100.0 * N / (1 << JJ)), True)
     print()
     return ok, seq, covP, within, between, surv, ncov
 
@@ -1004,14 +1009,14 @@ def generating_function(seq):
     good2 = b1 == BOX and bm1 == 0 and len(evens) == 5
     ok &= good2
     row("EXHAUSTIVE", "Theorem 15, the free box vanishes at z = -1",
-        "F_box(1) = %d, F_box(-1) = %d; %d of the eight alphabets have even size (%s)"
+        "Phi(1) = %d, Phi(-1) = %d; %d of the eight alphabets have even size (%s)"
         % (b1, bm1, len(evens), ", ".join(evens)), good2)
 
     byk = {k: sum((-1) ** rank(x) for x in LAM if x[IK] == k) for k in ALPHA[IK]}
     good3 = byk == {1: 0, 2: 2, 3: 0}
     ok &= good3
     row("EXHAUSTIVE", "Theorem 15, the residue localises on k = 2",
-        "the alternating sum splits by source occupancy as " +
+        "the alternating sum F(-1) splits by source occupancy as " +
         ", ".join("k=%d: %+d" % (k, v) for k, v in sorted(byk.items())), good3)
 
     tot = badg = 0
