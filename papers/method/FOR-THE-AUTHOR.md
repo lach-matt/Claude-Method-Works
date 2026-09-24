@@ -491,3 +491,16 @@ collapse test uses the exact permutation distribution. Forty-five findings fixed
 with the residue declined for a stated reason. Two things for you: the paper takes no position on
 the left-step table's merit and declines the references that would argue one, and the tree is
 inconsistent about Janet's 1928 and 1929 titles, so the paper cites what search confirms.
+
+**The chemical index — repaired, and it claims much less.** Working title now: *Closing the
+chemical properties: a classification index for the elements*; "routing" is gone from the title
+and the text, and §9 says outright that the index routes nothing. The false statement about
+Slater integrals is withdrawn and replaced by the lemma that for an equivalent pair the exchange
+integral equals the direct one at every rank, verified against a public restatement of Slater,
+Condon–Shortley and Cowan since the tree holds none of those texts. What remains is stated with
+its weight: twenty-two properties of the two outermost shells occupy fourteen cells that close
+under 16 of 288 orderings, closure reducing to two subvalence cells sharing a dependency, resting
+on seven sole-occupant cells of which three break it when emptied; 6,432 of the 1,961,256
+fourteen-cell subsets close under some ordering; the fill is non-unique. The dependency label is
+nominal at eighteen of twenty outer-seat properties and the paper says so. All 69 findings fixed,
+three in part. Whether a classification index this modest belongs on the site is yours to judge.

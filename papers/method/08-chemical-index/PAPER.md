@@ -120,9 +120,7 @@ with r< the smaller and r> the larger of r₁, r₂; the *direct* integral of th
 
 *Proof.* Fix i ≠ j. Since x ∈ Box(X), the value xⱼ is realised, so some y ∈ X has yⱼ = xⱼ and the set { y ∈ X : yⱼ ≤ xⱼ } is non-empty; hence φᵢⱼ(xⱼ) is a maximum over a non-empty finite set and is attained, by z say. If xᵢ ≤ φᵢⱼ(xⱼ) then z is the required witness: zⱼ ≤ xⱼ and zᵢ = φᵢⱼ(xⱼ) ≥ xᵢ. Conversely a witness y has yⱼ ≤ xⱼ, so yᵢ ≤ φᵢⱼ(xⱼ), and xᵢ ≤ yᵢ gives xᵢ ≤ φᵢⱼ(xⱼ). The equivalence holds for each pair separately, hence for the conjunction over all pairs. ∎ **PROVED**, and corroborated: the implementation under test agrees with an independently written witness-form implementation on all 288 orderings of the chemical index and on 300 random indexes over five shapes (seed 8), with no disagreement.
 
-**Lemma 2 (ℛ is a closure operator).** Over a fixed box B, write ℛ(X; B) := { x ∈ B : xᵢ ≤ φᵢⱼ(xⱼ) ∀ i ≠ j } with φᵢⱼ(a) := max{ yᵢ : y ∈ X, yⱼ ≤ a } and max ∅ := −∞. Then for all X, Y ⊆ B:
-
-(i) X ⊆ ℛ(X; B);  (ii) X ⊆ Y ⟹ ℛ(X; B) ⊆ ℛ(Y; B);  (iii) ℛ(ℛ(X; B); B) = ℛ(X; B).
+**Lemma 2 (ℛ is a closure operator).** Over a fixed box B, write ℛ(X; B) := { x ∈ B : xᵢ ≤ φᵢⱼ(xⱼ) ∀ i ≠ j } with φᵢⱼ(a) := max{ yᵢ : y ∈ X, yⱼ ≤ a } and max ∅ := −∞. Then for all X, Y ⊆ B: (i) X ⊆ ℛ(X; B); (ii) X ⊆ Y ⟹ ℛ(X; B) ⊆ ℛ(Y; B); (iii) ℛ(ℛ(X; B); B) = ℛ(X; B).
 
 *Proof.* Over a fixed box the witness form of Lemma 1 holds verbatim, with max ∅ = −∞ excluding a cell for which some pair has no witness. (i) For x ∈ X and any pair i ≠ j, the cell y := x satisfies yⱼ ≤ xⱼ and yᵢ ≥ xᵢ. (ii) A witness for X is a witness for Y. (iii) Put S := ℛ(X; B). By (i) and (ii), S ⊆ ℛ(S; B). Conversely let x ∈ ℛ(S; B) and fix i ≠ j. There is y ∈ S with yⱼ ≤ xⱼ and yᵢ ≥ xᵢ. Since y ∈ S, there is z ∈ X with zⱼ ≤ yⱼ ≤ xⱼ and zᵢ ≥ yᵢ ≥ xᵢ. As the pair was arbitrary, x ∈ ℛ(X; B) = S. ∎ **PROVED**, and **MACHINE-CHECKED** over the four boxes 4 × 2 × 3, 4 × 5, 4 × 6 and 2 × 4 × 4, with the set variable ranging over all 2²⁴, 2²⁰, 2²⁴ and 2³² subsets respectively, for all three parts and with no hypothesis on X.
 

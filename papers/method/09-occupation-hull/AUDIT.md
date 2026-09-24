@@ -499,64 +499,104 @@ Löwdin's question (it names the tabulated order exactly, where n + ℓ names it
 
 | id | line(s) | severity | finding | disposition |
 |---|---|---|---|---|
-| A-1 | 11 | MAJOR | abstract's frame claim false for F(15, 3); needs "contains F(12, 4)" | |
-| A-2 | 276, 33 | MAJOR | ℓ ≤ 3 consequence incomplete: Rf–Hs floors change √3/3 → 0 | |
-| A-3 | 347 | MAJOR | Figure 3 caption: wrong statement about the disjoint triple | |
-| A-4 | check.py 483, 508, 598, 760, 815, 860, 882, 892; PAPER 59, 226, 295, 323, 357, 379 | MAJOR | eleven report-only obligations; five printed facts produced by no line | |
-| A-5 | check.py 996–1030; PAPER 381 | MAJOR | fidelity guard tests a transcription, not the Z3 encoding; §9 misdescribes | |
-| A-6 | 55 | MAJOR | CITED node theorem has no reference | |
-| A-7 | 286–305 | MINOR | Table 3 "value" is the endpoint, not a | |
-| A-8 | 315, 29 | MINOR | 6s lost its electron at Pt, not Au | |
-| A-9 | 317 | MINOR | "completion" undefined; spans end at first capacity | |
-| A-10 | 157 | MINOR | typo x(i) | |
-| A-11 | 95 | MINOR | K₃ notation | |
-| A-12 | 339 | MINOR | circular sentence in Theorem 5's proof | |
-| A-13 | 45 | MINOR | "one randomised step" vs two guards | |
-| A-14 | 377 | MINOR | "Ten frames" counts F(8, 4) twice | |
-| A-15 | check.py 547–560 | MINOR | output labelled "Lemma 4" for Theorem 3 | |
-| A-16 | 11 | MINOR | "up to five points" — converse is four | |
-| A-17 | figures.py 144 | MINOR | Figure 3 in-image title "widest band" | |
-| A-18 | 69 | MINOR | distinctness has a one-line proof | |
-| A-19 | 177–183 | MINOR | corridor over an infinite set undefined | |
-| A-20 | 81, 87 | MINOR | forward references in D6, D7 | |
-| A-21 | 355 | MINOR | "together with the touches" redundant | |
-| A-22 | 409 | MINOR | NIST retrieval date | |
-| A-23 | 179–181 (page 8) | MINOR | half-subscript "Uₘax" | |
-| A-24 | pages 7, 13, 14 | MINOR | alt text printed as stray "Figure n" line | |
-| A-25 | 284 (pages 11–12) | MINOR | Table 3 caption orphaned at page foot | |
-| A-26 | page 15 | MINOR | "EX-HAUSTIVE" hyphenated | |
-| A-27 | 189 (page 9) | MINOR | duplicate L / U headers in Table 1 | |
-| A-28 | pages 7, 13 | MINOR | figure lettering small at print size | |
-| R-1 | 101–167, 17–25 | MAJOR | Theorems 1–2 are classical; say so and cite | |
-| R-2 | 177 | MINOR | = A-19 | |
-| R-3 | 81, 87 | MINOR | = A-20 | |
-| R-4 | 155 | MINOR | write the inequality chain in Theorem 2(b) | |
-| R-5 | 260 | MINOR | grid check of (u+v)(u−v) reads as parody in the proof | |
-| R-6 | 93 | MINOR | D8: say corridors are wider than 2ε and the L = −∞ case | |
-| R-7 | 339 | MINOR | = A-12 | |
-| R-8 | 177, 11 | MINOR | Theorem 3's title overstates (needs ℓ ≤ 4) | |
-| R-9 | 69 | MINOR | = A-18 | |
-| R-10 | 133 | MINOR | grid family: drop the "(√r, n)" reading or explain it | |
-| R-11 | 3, 11, 25, 59, 409 | MAJOR | "observed": Lr, Rf–Hs configurations are calculated | |
-| R-12 | 11, 31, 337–347 | MAJOR | "three are necessary" depends on Lr = 7p¹; with 6d¹ the piercing number is 2 | |
-| R-13 | 11, 19, 71–75 | MAJOR | law's provenance and the √r choice unmotivated | |
-| R-14 | 33, 355 | MAJOR | 96/106 is the step-conditional Madelung score; relate to the ~20 exceptions; cite | |
-| R-15 | 59 | MINOR | walk from Z = 3: state the convention (1s corridors (−∞, 1) contain a = 0) | |
-| R-16 | 29, 317 | MINOR | Ce and Pa moves are the orbital-collapse sites; cite | |
-| R-17 | 27, 274, 276 | MINOR | Pa's floor 0 from 5g is conventional, say so | |
-| R-18 | 55 | MINOR | "hydrogenic" → "central-field"; cite | |
-| R-19 | 409 | MINOR | = A-22 plus why the table ends at 108 | |
-| R-20 | §2–§3 | MAJOR | = R-1 (novelty statement) | |
-| R-21 | 11 | MAJOR | = A-1, A-16, R-11 (abstract vs body) | |
-| R-22 | 379–381 | MAJOR | = A-4, A-5 (verification record) | |
-| R-23 | References | MAJOR | missing standard references (list in B.3) | |
-| R-24 | 341 | MINOR | name Gallai's theorem | |
-| R-25 | 33, 276 | MINOR | say the walk is also unchanged without g; state the Rf–Hs change | |
-| R-26 | 377 | MINOR | = A-14 | |
-| R-27 | 347 | MINOR | = A-3 | |
-| R-28 | 1 | MINOR | title's definite article | |
-| R-29 | 402 | MINOR | "re-poses" unsupported in the text | |
+| A-1 | 11 | MAJOR | abstract's frame claim false for F(15, 3); needs "contains F(12, 4)" | FIXED. Abstract now: 'the same over every finite set of subshells that contains those with n ≤ 12 and ℓ ≤ 4, and over the unbounded set (Theorem 3)'. Theorem 3 restated in three parts (frames ⊇ F(15,4); finite sets ⊇ F(12,4) by monotonicity; the unbounded set as an intersection of half-lines) and the monotonicity remark is the first paragraph of its proof. The F(15,3) counter-case is stated after the theorem and pinned (check: 'frame n <= 15, l <= 3 differs at exactly sixteen steps'). |
+| A-2 | 276, 33 | MAJOR | ℓ ≤ 3 consequence incomplete: Rf–Hs floors change √3/3 → 0 | FIXED. §0 and §5 state the Rf–Hs change (√3/3 from 5g → 0 from 6f, ceiling unchanged), that exactly sixteen corridors change, and that the walk's eighteen sites and endpoints are unchanged without g. Three new check lines: the sixteen-step difference list, the Rf–Hs floor supplier, the ℓ ≤ 3 walk. |
+| A-3 | 347 | MAJOR | Figure 3 caption: wrong statement about the disjoint triple | FIXED. Caption: 'so no single slope lies in more than one of them and at least three slopes are needed; lawrencium's is drawn for the tabulated entrant 7p'. |
+| A-4 | check.py 483, 508, 598, 760, 815, 860, 882, 892; PAPER 59, 226, 295, 323, 357, 379 | MAJOR | eleven report-only obligations; five printed facts produced by no line | FIXED. Every former `True` line now compares with the paper's value (vertex ranges 11–15 / 7–15; the n ≤ 7 histogram; 19 and 138 endpoints; 15/14/0 with the five U placements; emptyings in both forms; 86 on (√3/3, √2/2) and 90 on (1, (5√2+√5)/9) as exact surds; 88/91 with miss lists; 96 with its ten misses). New lines for the twelve two-electron steps, 80 two-sided, Table 3's eighteen endpoints with Ce and Pa at U, the finished-form sites, and 'at least eleven' (the 11–15 range). `--table` prints Table 3. §9 recounted: 141 obligations = 115 EXHAUSTIVE + 17 guards + 7 MACHINE-CHECKED + 2 MEASURED; the self-test 144. |
+| A-5 | check.py 996–1030; PAPER 381 | MAJOR | fidelity guard tests a transcription, not the Z3 encoding; §9 misdescribes | FIXED. The guard now instantiates the Z3 expressions built by `pairwise()` and `strict_min()` themselves (`z3.substitute` + `z3.simplify` to a Boolean) on rational-abscissa instances and compares with `hull_chain` / brute force: 1,027 point-instances and 300 instances, 0 disagreements, wrong reference caught 300 times. §9 describes exactly that. |
+| A-6 | 55 | MAJOR | CITED node theorem has no reference | FIXED. D1 cites Courant and Hilbert (1953), Methods of Mathematical Physics I, Interscience (Sturm's oscillation theorem, Chapter VI); reference added. |
+| A-7 | 286–305 | MINOR | Table 3 "value" is the endpoint, not a | FIXED. Column headed 'endpoint (7 dp)'; the caption states a = endpoint ± ε and gives potassium's 0.5773513. |
+| A-8 | 315, 29 | MINOR | 6s lost its electron at Pt, not Au | FIXED. (d) reads 'opened at caesium, was complete at barium, lost an electron at platinum and is refilled at mercury'. |
+| A-9 | 317 | MINOR | "completion" undefined; spans end at first capacity | FIXED. D10 defines 'complete' (first Z at capacity) and 're-entered'; (e) says 5s and 6s are re-entered after completion. |
+| A-10 | 157 | MINOR | typo x(i) | FIXED. |
+| A-11 | 95 | MINOR | K₃ notation | FIXED. I := K(3). |
+| A-12 | 339 | MINOR | circular sentence in Theorem 5's proof | FIXED. The sentence now says each of the 106 contains at least one of the three and places each rational just below its ceiling. |
+| A-13 | 45 | MINOR | "one randomised step" vs two guards | FIXED. 'The only randomised steps are the two encoding-fidelity guards on the machine check (§9), and no result rests on them.' |
+| A-14 | 377 | MINOR | "Ten frames" counts F(8, 4) twice | FIXED. 'Ten frames, each at 106 steps: F(8,4), F(12,4), F(20,4), F(30,4) and F(15,14) in both forms; F(8,14), F(37,36), F(7,4) and F(15,3) in the node-only form; F(55,54) in the finished form' — ten distinct frames now that F(15,3) is run. |
+| A-15 | check.py 547–560 | MINOR | output labelled "Lemma 4" for Theorem 3 | FIXED. The four lines read 'Theorem 3'. |
+| A-16 | 11 | MINOR | "up to five points" — converse is four | FIXED. 'for up to five points in one direction and four in the other'. |
+| A-17 | figures.py 144 | MINOR | Figure 3 in-image title "widest band" | FIXED. In-image title: 'the band on which one slope covers the most corridors (86 of 106)'; regenerated, md5 updated in FIGURES.tsv. |
+| A-18 | 69 | MINOR | distinctness has a one-line proof | FIXED. D4 gives the one-line proof (same point ⇒ same n; equal radicands ⇒ equal integer parts since the fractional part is in [0, 1) ⇒ equal ℓ), marked PROVED, with the exhaustive check kept as a guard. |
+| A-19 | 177–183 | MINOR | corridor over an infinite set undefined | FIXED. Theorem 3 is stated for finite frames and finite sets (parts (a), (b)); part (c) treats the unbounded set as the intersection of Lemma 1's half-lines, without defining K over an infinite set, and the proof shows every half-line from n ≥ 38 / 56 contains the frame's corridor. |
+| A-20 | 81, 87 | MINOR | forward references in D6, D7 | FIXED. D6 states the interval fact with its reason and '(Lemma 1, proved in §2)'; D7 gives the one-line proof of the abscissa fact inline and names it as Theorem 2(a). |
+| A-21 | 355 | MINOR | "together with the touches" redundant | FIXED. 'exactly its own recalibration sites less lithium', and a check line asserts that identity. |
+| A-22 | 409 | MINOR | NIST retrieval date | FIXED. D3 and the reference carry 'retrieved 9 August 2026'; the reference says the database is live. |
+| A-23 | 179–181 (page 8) | MINOR | half-subscript "Uₘax" | FIXED. U⁺ and L⁻ replace the half-subscript forms. |
+| A-24 | pages 7, 13, 14 | MINOR | alt text printed as stray "Figure n" line | FIXED. Empty alt text on all three images, as the other papers have. |
+| A-25 | 284 (pages 11–12) | MINOR | Table 3 caption orphaned at page foot | FIXED. All three table captions now sit directly under their tables, as the figure captions do; a caption cannot be orphaned above a table that starts a new page. |
+| A-26 | page 15 | MINOR | "EX-HAUSTIVE" hyphenated | FIXED in effect: the render was re-read page by page; the status word no longer falls at a line end (the §8 text moved). The template is shared and not edited from this directory; if a later reflow re-hyphenates a status word the fix belongs in the shared stylesheet (hyphens: none on <strong>). |
+| A-27 | 189 (page 9) | MINOR | duplicate L / U headers in Table 1 | FIXED. 'L (7 dp)' and 'U (7 dp)'. |
+| A-28 | pages 7, 13 | MINOR | figure lettering small at print size | FIXED. Annotation and label fonts raised from 7.5–8 pt to 9–9.5 pt in figures.py; all three regenerated. |
+| R-1 | 101–167, 17–25 | MAJOR | Theorems 1–2 are classical; say so and cite | FIXED. §2 opens with the paragraph the referee asked for: Lemma 1 is linear feasibility, Theorem 1 is the extreme-point statement for the upward-closed hull, Theorem 2 is the one-parameter normal fan; cited Ziegler 1995 (Lecture 7), Grünbaum 2003, de Berg, Cheong, van Kreveld and Overmars 2008; 'the paper's own contribution begins in §4'. The abstract and §0 say 'classical' at both theorems. |
+| R-2 | 177 | MINOR | = A-19 | FIXED, as A-19. |
+| R-3 | 81, 87 | MINOR | = A-20 | FIXED, as A-20. |
+| R-4 | 155 | MINOR | write the inequality chain in Theorem 2(b) | FIXED. The chain a > L = m₀ and x(r) − x(v) > 0 ⇒ a·(x(r) − x(v)) > m₀·(x(r) − x(v)) is written. |
+| R-5 | 260 | MINOR | grid check of (u+v)(u−v) reads as parody in the proof | FIXED. The proof writes the algebra; the grid checks are mentioned once in a parenthesis after ∎ and stay in the code. |
+| R-6 | 93 | MINOR | D8: say corridors are wider than 2ε and the L = −∞ case | FIXED. D8 states the presumption, the narrowest corridor (√7 − √3)/2 = 0.4568503 (new check line), the L = −∞ case, and that the move/touch threshold is not delicate (smallest move 0.0278 at Pa, pinned). |
+| R-7 | 339 | MINOR | = A-12 | FIXED, as A-12. |
+| R-8 | 177, 11 | MINOR | Theorem 3's title overstates (needs ℓ ≤ 4) | FIXED. Title: 'the corridor is frame-free beyond F(12, 4)'. |
+| R-9 | 69 | MINOR | = A-18 | FIXED, as A-18. |
+| R-10 | 133 | MINOR | grid family: drop the "(√r, n)" reading or explain it | FIXED. 'the integer grid {0, 1, 2, 3}²' in §2 and §9; the (√r, n) reading dropped. |
+| R-11 | 3, 11, 25, 59, 409 | MAJOR | "observed": Lr, Rf–Hs configurations are calculated | FIXED. 'observed' is gone from the thesis, abstract, §0, D3 and §8 ('tabulated' throughout); D3 says which entries rest on calculation and why (Eliav, Kaldor and Ishikawa 1995; Sato et al. 2015; the bare-J ground levels, pinned as exactly Z = 106–108); Table 1 and Table 3 mark those rows with †. The NIST page itself could not be fetched from this environment (egress blocked); SOURCES.md §6 records what the attribution rests on. |
+| R-12 | 11, 31, 337–347 | MAJOR | "three are necessary" depends on Lr = 7p¹; with 6d¹ the piercing number is 2 | FIXED. Theorem 5 states the dependence in its statement and proves both cases; the abstract, §0, Table 1's and Table 2's captions and Figure 3's caption say the lower bound 3 rests on the tabulated 7p¹ and that under 6d¹ the family is {B, La} and the piercing number 2. Nine new check lines compute the alternative (corridor at 103, 105 corridors unchanged, disjoint pair, two stabs, 18 endpoints, 12 emptyings, 16 recalibrations, 106/106 non-empty, table restored). The paper does not choose; SOURCES.md §6 records that the choice is the author's. |
+| R-13 | 11, 19, 71–75 | MAJOR | law's provenance and the √r choice unmotivated | FIXED. §0 has a paragraph 'Whose law, and why the square root': proposed here, not derived, ingredients named, what supports the form (106/106, Theorems 3–4), and the √ as a tested choice — with the new measurement that under x = r the entrant is not a vertex at six steps (La, Gd, Ac, Th, Cm, Lr; five in the finished form), pinned. |
+| R-14 | 33, 355 | MAJOR | 96/106 is the step-conditional Madelung score; relate to the ~20 exceptions; cite | FIXED. §8 says the 96 is step-conditional, computes the unconditional aufbau comparison (20 of 108 differ: the standard list, pinned), shows the ten misses are among the twenty and names the ten absorbed and why; cites Melrose and Scerri 1996, Scerri 2007 and 2013, Schwarz 2010, Schwarz and Rich 2010; D10 notes the pick is step-conditional; §0 flags it. |
+| R-15 | 59 | MINOR | walk from Z = 3: state the convention (1s corridors (−∞, 1) contain a = 0) | FIXED. D3 states the convention and that H and He would add no recalibration (1s corridor (−∞, 1) contains 0; pinned). |
+| R-16 | 29, 317 | MINOR | Ce and Pa moves are the orbital-collapse sites; cite | FIXED. Proposition 2(e) places the Ce and Pa moves at the orbital-collapse sites, citing Griffin, Andrew and Cowan 1969 and Connerade 1978. |
+| R-17 | 27, 274, 276 | MINOR | Pa's floor 0 from 5g is conventional, say so | FIXED. §0 and §5 say the floor 0 at Pa is a property of the convention and of no measured level. |
+| R-18 | 55 | MINOR | "hydrogenic" → "central-field"; cite | FIXED. 'central-field orbital nℓ, for any central potential', with the citation. |
+| R-19 | 409 | MINOR | = A-22 plus why the table ends at 108 | FIXED, as A-22, plus 'the table ends at Z = 108'. |
+| R-20 | §2–§3 | MAJOR | = R-1 (novelty statement) | FIXED, as R-1. |
+| R-21 | 11 | MAJOR | = A-1, A-16, R-11 (abstract vs body) | FIXED. The abstract's three sentences are repaired (A-1, A-16, R-11) and the Lr dependence added. |
+| R-22 | 379–381 | MAJOR | = A-4, A-5 (verification record) | FIXED, as A-4 and A-5. |
+| R-23 | References | MAJOR | missing standard references (list in B.3) | FIXED. Added, each with full author list: Karapetoff 1930; Wong 1979; Ostrovsky 2001; Schwarz and Rich 2010; Goudsmit and Richards 1964; Scerri 2007, 2013; Melrose and Scerri 1996; Schwarz 2010; Courant and Hilbert 1953; Ziegler 1995; Grünbaum 2003; de Berg et al. 2008; Hajnal and Surányi 1958; Griffin, Andrew and Cowan 1969; Connerade 1978; Eliav, Kaldor and Ishikawa 1995; Sato et al. 2015 (23 authors). Each is cited where used. Helly 1923 is not added: the paper names Gallai's theorem, not Helly's, and cites nothing it does not use. Bibliographic details were verified by web search where the network allowed (Wong 714–717; Karapetoff 210, 609–624; Scerri 2013 50(6), 24–26; Sato 520, 209–211 with the author list; Eliav 52, 291; Ostrovsky 3, 145–181; Goudsmit and Richards 51, 664–671; Schwarz 87, 444–448; Schwarz and Rich 87, 435–443; Melrose and Scerri 73, 498–503; Hajnal and Surányi 1, 113–121); Connerade's page range is given as 415–447, the range a sibling paper's audit passed, since the search returned only the first page. |
+| R-24 | 341 | MINOR | name Gallai's theorem | FIXED. Named as Gallai's theorem with Hajnal and Surányi 1958. |
+| R-25 | 33, 276 | MINOR | say the walk is also unchanged without g; state the Rf–Hs change | FIXED, as A-2: the walk's invariance without g is stated and pinned. |
+| R-26 | 377 | MINOR | = A-14 | FIXED, as A-14. |
+| R-27 | 347 | MINOR | = A-3 | FIXED, as A-3. |
+| R-28 | 1 | MINOR | title's definite article | FIXED. Title: 'An Occupation Law as a Lower Convex Hull'. |
+| R-29 | 402 | MINOR | "re-poses" unsupported in the text | FIXED. The annotation no longer says 're-poses'; §8 ends with the sentence that says what the law does to Löwdin's question. |
 
 Tally: 57 rows. BLOCKING 0. MAJOR 15 rows, 12 distinct issues (R-20, R-21, R-22 restate A-1,
 A-4, A-5, A-16, R-1, R-11). MINOR 42 rows, 35 distinct issues (R-2, R-3, R-7, R-9, R-19, R-26,
 R-27 restate A-findings).
+
+---
+
+## Repair record
+
+Repaired 24 September 2026 by the drafter against every row above; no finding was deleted or reworded.
+Tally of dispositions: MAJOR 15 of 15 FIXED (0 DECLINED); MINOR 42 of 42 FIXED (0 DECLINED). One
+finding is fixed only in effect (A-26: the hyphenated status word no longer falls at a line end after the
+reflow; the shared template was not edited from this directory), and one is fixed with a caveat
+(R-11/R-23: NIST's own page and Crossref were unreachable from this environment, so the "calculated"
+attribution rests on the data file's own bare-J entries and the cited literature, and Connerade's page
+range is the sibling paper's; SOURCES.md §6 records both).
+
+What changed, in order:
+
+- `check.py`: 141 obligations (was 113): 115 EXHAUSTIVE, 17 GUARD, 7 MACHINE-CHECKED, 2 MEASURED;
+  `--selftest` 144 with the three negative controls refuted. No obligation was weakened; the eleven
+  `True` lines now assert the paper's values; 28 lines were added (two-electron steps; bare-J entries;
+  the 20 aufbau exceptions and the ten absorbed; Lr's tabulated entrant and pick; vertex ranges; the
+  x = r census in both forms; F(15,3)'s sixteen steps; 80 two-sided; the narrowest corridor; the Rf–Hs
+  floor supplier and the sixteen-step list; Table 3's endpoints; the smallest move; the walk without g;
+  the H/He corridors; the finished-form sites; the three named disjoint corridors as exact intervals;
+  nine lines for the Lr = 6d substitution; the held-out misses = recalibration sites). The fidelity
+  guard instantiates the Z3 expressions themselves. Labels "Lemma 4" → "Theorem 3". `--table` also
+  prints Table 3.
+- `figures.py`: Figure 3's title (A-17); larger lettering (A-28); functions renamed to match the figure
+  numbers; all three PNGs regenerated and `FIGURES.tsv` md5s updated.
+- `PAPER.md`: title; thesis; abstract; §0 (provenance paragraph, classical marks, the Lr dependence,
+  the calculated entries, the conditional score, the ℓ ≤ 3 consequence); D1, D3, D4, D6, D7, D8, D9,
+  D10; §2's opening paragraph and three proof details; Theorem 3 restated and re-proved; Table 1's
+  header, † marks and caption placement; Table 2's caption; Proposition 1's proof; §5's ℓ ≤ 3 paragraph;
+  Table 3's column, † marks and caption; Proposition 2(d), (e); Theorem 5 restated and proved in both
+  cases; Gallai named; the substitution's other consequences; Figure 3's caption; §8's conditional-score
+  paragraph and Löwdin sentence; §9 in full; References (18 added, one annotation changed).
+- `SOURCES.md`: §1 totals; §3.5 corrected (the smallest real move is 0.0278 at Pa, not 0.07); new §6 on
+  the calculated configurations, the Lr choice, and the references.
+
+Runs after the repair: `python3 check.py` 141 of 141, ALL CHECKS PASS; `python3 check.py --selftest`
+144 of 144 (3 NEGATIVE refuted); `lint.py` 0 hits; render and screenshot check per BRIEF-AUDIT.md
+step 6 and a pypdf extraction with zero `_`, `^`, `\` — see the final report and SOURCES.md §1.

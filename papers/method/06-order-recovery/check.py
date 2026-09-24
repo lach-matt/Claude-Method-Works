@@ -26,6 +26,7 @@ Writes results.json beside this file; figures.py draws from it and from nothing 
 import importlib.util
 import itertools
 import json
+import math
 import os
 import random
 import statistics
@@ -306,6 +307,110 @@ def enc_canonical(P, A, tag):
     return s
 
 
+def enc_interval(X, A, B):
+    """Every fibre F(u), u in A, is an interval of the chain B."""
+    return z3.And([z3.Implies(z3.And(X[(u, b1)], X[(u, b3)]), X[(u, b2)])
+                   for u in A for b1 in B for b2 in B for b3 in B if b1 < b2 < b3])
+
+
+def enc_lo_le(X, B, u, v):
+    """lo(u) <= lo(v): every c in F(v) has some c2 <= c in F(u)."""
+    return z3.And([z3.Implies(X[(v, c)], z3.Or([X[(u, c2)] for c2 in B if c2 <= c])) for c in B])
+
+
+def enc_hi_le(X, B, u, v):
+    """hi(u) <= hi(v): every c in F(u) has some c2 >= c in F(v)."""
+    return z3.And([z3.Implies(X[(u, c)], z3.Or([X[(v, c2)] for c2 in B if c2 >= c])) for c in B])
+
+
+def enc_mono(X, s, A, B):
+    """Both endpoints non-decreasing along s."""
+    return z3.And([z3.Implies(s[(u, v)], z3.And(enc_lo_le(X, B, u, v), enc_hi_le(X, B, u, v)))
+                   for u in A for v in A if u != v])
+
+
+def enc_remclosed(S, cells, a, b):
+    """S minus the interval [a,b] is closed under meet and join."""
+    def rem(c):
+        return z3.And(S[c], z3.BoolVal(not (leq(a, c) and leq(c, b))))
+    return z3.And([z3.Implies(z3.And(rem(x), rem(y)), z3.And(rem(meet(x, y)), rem(join(x, y))))
+                   for x in cells for y in cells if x < y])
+
+
+def enc_jp(S, cells, a):
+    """a is join-prime in S."""
+    return z3.And([z3.Implies(z3.And(S[x], S[y], z3.BoolVal(leq(a, join(x, y)))),
+                              z3.BoolVal(leq(a, x) or leq(a, y))) for x in cells for y in cells])
+
+
+def enc_mp(S, cells, b):
+    """b is meet-prime in S."""
+    return z3.And([z3.Implies(z3.And(S[x], S[y], z3.BoolVal(leq(meet(x, y), b))),
+                              z3.BoolVal(leq(x, b) or leq(y, b))) for x in cells for y in cells])
+
+
+def ev(f):
+    """Evaluate a closed Z3 formula (every atom a BoolVal) to a Python bool."""
+    return z3.is_true(z3.simplify(f))
+
+
+# ---------------------------------------------------------------- concrete references for the guard
+# Written fresh, from the paper's definitions, never from the encodings above.
+
+def ref_fibre(Xs, u):
+    return sorted(c[1] for c in Xs if c[0] == u)
+
+
+def ref_interval(Xs, A):
+    for u in A:
+        F = ref_fibre(Xs, u)
+        if F and F != list(range(F[0], F[-1] + 1)):
+            return False
+    return True
+
+
+def ref_lo_le(Xs, u, v):
+    Fu, Fv = ref_fibre(Xs, u), ref_fibre(Xs, v)
+    if not Fv:
+        return True
+    if not Fu:
+        return False
+    return Fu[0] <= Fv[0]
+
+
+def ref_hi_le(Xs, u, v):
+    Fu, Fv = ref_fibre(Xs, u), ref_fibre(Xs, v)
+    if not Fu:
+        return True
+    if not Fv:
+        return False
+    return Fu[-1] <= Fv[-1]
+
+
+def ref_mono(Xs, rank0, A):
+    return all((not rank0[u] < rank0[v]) or (ref_lo_le(Xs, u, v) and ref_hi_le(Xs, u, v))
+               for u in A for v in A if u != v)
+
+
+def ref_remclosed(Ss, a, b):
+    rem = [c for c in Ss if not (leq(a, c) and leq(c, b))]
+    R = set(rem)
+    return all(meet(x, y) in R and join(x, y) in R for x in rem for y in rem)
+
+
+def ref_jp(Ss, a):
+    return all((not leq(a, join(x, y))) or leq(a, x) or leq(a, y) for x in Ss for y in Ss)
+
+
+def ref_mp(Ss, b):
+    return all((not leq(meet(x, y), b)) or leq(x, b) or leq(y, b) for x in Ss for y in Ss)
+
+
+def ref_closed_natural(Ss):
+    S = set(Ss)
+    return all(meet(x, y) in S and join(x, y) in S for x in Ss for y in Ss)
+
+
 def z3_prove(claim):
     sv = z3.Solver()
     sv.add(z3.Not(claim))
@@ -349,6 +454,18 @@ def section_lambda():
     put("chi_agree", agree)
     report("EXHAUSTIVE", "totality: chi decided on all 6,912 ambient points, = membership",
            len(amb) == 6912 and agree == 6912, "ambient=%d agree=%d" % (len(amb), agree))
+    # Corollary 1's own predicate: the conjunction of the 56 envelope comparisons, evaluated at every
+    # ambient point by the local envelope routine (guarded against op_order), equals membership
+    env = R_local(cells, d)
+    put("envelope_conjunction_agrees", env == L)
+    report("EXHAUSTIVE", "Corollary 1: the envelope conjunction, evaluated at all 6,912 ambient points, = membership",
+           env == L and len(amb) == 6912, "|envelope region|=%d cells=%d" % (len(env), len(L)))
+    # the seventh bound 2S <= k admits spin labels of the wrong parity: Lambda is an index of
+    # admissible labels under seven envelope bounds, not of realised configurations
+    odd = sum(1 for c in cells if (c[7] - c[2]) % 2)
+    put("lambda_wrong_parity_cells", odd)
+    report("EXHAUSTIVE", "Lambda admits 2S of the wrong parity: (1,0,1,0,1,0,0,0) is a cell; cells with 2S - k odd counted",
+           (1, 0, 1, 0, 1, 0, 0, 0) in L and odd > 0, "wrong-parity cells=%d of %d" % (odd, len(cells)))
 
     # the alphabet has closed size sum(|A_i| - 1) = 17 = join-irreducibles above the bottom
     C = np.array(cells)
@@ -397,8 +514,9 @@ def section_lambda():
     put("pushback", dict(pairs=pairs, min=v[0], median=float(statistics.median(v)), max=v[-1],
                          mean=round(sum(v) / len(v), 1), zero=v.count(0)))
     zero_iff = all((pb[c] == 0) == (c in set(ji) and c in set(mi)) for c in cells)
-    report("EXHAUSTIVE", "pushback over 475,800 pairs: min 16, none zero; zero iff JI and MI",
-           pairs == 475800 and v[0] == 16 and v.count(0) == 0 and zero_iff and v[-1] == 5091,
+    report("EXHAUSTIVE", "pushback over 475,800 pairs: min 16, median 503.5, mean 739.0, max 5,091, none zero; zero iff JI and MI",
+           pairs == 475800 and v[0] == 16 and v.count(0) == 0 and zero_iff and v[-1] == 5091
+           and statistics.median(v) == 503.5 and round(sum(v) / len(v), 1) == 739.0,
            "pairs=%d min=%d median=%s max=%d mean=%.1f zero=%d" % (pairs, v[0], statistics.median(v), v[-1], sum(v) / len(v), v.count(0)))
 
     # the step: the smallest interval [a,b] with a join-prime (= JI, distributive) and b meet-prime
@@ -456,11 +574,14 @@ def section_amplification(cells):
         adm2, _ = cypher.op_order(ix2, {})
         amp.append(len(adm2) - len(cells) - 1)
     amp_sorted = sorted(amp)
+    argmin = [non[i] for i, a in enumerate(amp) if a == amp_sorted[0]]
     put("amplification", dict(noncells=len(non), min=amp_sorted[0], median=float(statistics.median(amp)),
                               max=amp_sorted[-1], mean=round(sum(amp) / len(amp), 1),
-                              zero=amp.count(0), values=amp))
-    report("EXHAUSTIVE", "A(y) = |R(Lambda u {y})| - 977 over all 5,936 non-cells: none is zero",
-           len(non) == 5936 and amp_sorted[0] > 0,
+                              zero=amp.count(0), argmin=[list(c) for c in argmin], values=amp))
+    report("EXHAUSTIVE", "A(y) over all 5,936 non-cells: min 15, median 309, mean 380.9, max 1,795, none zero; the minimum at %s"
+           % (argmin,),
+           len(non) == 5936 and amp_sorted[0] == 15 and statistics.median(amp) == 309 and round(sum(amp) / len(amp), 1) == 380.9
+           and amp_sorted[-1] == 1795 and amp.count(0) == 0,
            "n=%d min=%d median=%s max=%d mean=%.1f zero=%d" % (len(non), amp_sorted[0], statistics.median(amp), amp_sorted[-1], sum(amp) / len(amp), amp.count(0)))
     print("     (%.1f s)" % (time.time() - t))
 
@@ -628,29 +749,53 @@ def section_example():
 
 
 def section_diagnostic():
-    print("\nC. The diagnostic on two coordinatisations of the same 118 elements")
+    print("\nC. The diagnostic on two coordinatisations of the elements")
     per = cypher._periodic()
     jan = cypher._janet()
     adm_p, _ = cypher.op_order(per, {})
     adm_j, _ = cypher.op_order(jan, {})
     Ep = len(adm_p) - len(per.cells)
     Ej = len(adm_j) - len(jan.cells)
+    box_p = math.prod(len(m) for m in per.code)
     put("periodic_E", Ep)
     put("periodic_cells", len(per.cells))
-    put("janet_E", Ej)
-    put("janet_cells", len(jan.cells))
-    report("EXHAUSTIVE", "periodic table (period x group): 90 cells, E = 36; Janet (n+l x l): E = 0",
-           Ep == 36 and len(per.cells) == 90 and Ej == 0,
-           "periodic cells=%d E=%d; janet cells=%d E=%d" % (len(per.cells), Ep, len(jan.cells), Ej))
+    put("periodic_box", box_p)
+    put("janet_fixture_E", Ej)
+    put("janet_fixture_cells", len(jan.cells))
+    report("EXHAUSTIVE", "periodic table (period x group): 90 cells in a box of 126, E = 36; the capped left-step fixture (22 cells): E = 0",
+           Ep == 36 and len(per.cells) == 90 and box_p == 126 and Ej == 0 and len(jan.cells) == 22,
+           "periodic cells=%d box=%d E=%d; fixture cells=%d E=%d" % (len(per.cells), box_p, Ep, len(jan.cells), Ej))
+    # The subshells actually occupied through Z = 118 -- 1s ... 7p, nineteen of them -- and the twenty
+    # with 8s, each coordinatised by (n + l, l).  The fixture's 22 include 6f, 7d and 7f, which no
+    # element through oganesson occupies; the paper prints the occupied count.
+    SUB = [(1, 0), (2, 0), (2, 1), (3, 0), (3, 1), (3, 2), (4, 0), (4, 1), (4, 2), (4, 3),
+           (5, 0), (5, 1), (5, 2), (5, 3), (6, 0), (6, 1), (6, 2), (7, 0), (7, 1)]
+    cells19 = sorted({(n + l, l) for n, l in SUB})
+    cells20 = sorted(set(cells19) | {(8, 0)})
+    out = {}
+    for label, cs in (("19", cells19), ("20", cells20)):
+        ix = cypher.Index("left-step, occupied", ["n+l", "l"], cs)
+        adm, _ = cypher.op_order(ix, {})
+        box = math.prod(len(m) for m in ix.code)
+        E = len(adm) - len(cs)
+        out[label] = dict(cells=len(cs), box=box, E=E)
+        report("EXHAUSTIVE", "left-step (n+l, l): the %s subshells occupied through Z = 118%s, box %d, E = %d"
+               % (label, "" if label == "19" else " plus 8s", box, E),
+               len(cs) == int(label) and E == 0 and box == 32, "cells=%d box=%d E=%d" % (len(cs), box, E))
+    put("janet_occupied", out)
 
 
 def guards():
-    """Both guards, before any Z3 obligation is reported."""
+    """Both guards, before any Z3 obligation is reported: (a) non-vacuity of the hypothesis on EVERY box
+    an obligation ranges over; (b) fidelity of EVERY Z3 encoding against a concrete reference written
+    from the paper's definitions; (c) the reference closure; (d) a negative control on the guard."""
     print("\nGUARDS (run before the obligations)")
     ok = True
     rnd = random.Random(11)
-    # (a) non-vacuity: the hypothesis of each obligation is satisfiable with X a proper subset
-    for shape in ((3, 3), (2, 2, 3), (3, 3, 3)):
+    G = {}
+    # (a) non-vacuity: Theorems 2 and 3 -- observed, s a total order, X closed under s, X a proper subset
+    nv = []
+    for shape in ((3, 3), (4, 4), (2, 2, 3), (3, 3, 3), (3, 5), (5, 4)):
         cells = cells_of(shape)
         X = prover.subset_vars(cells, "x")
         A0 = list(range(shape[0]))
@@ -659,11 +804,35 @@ def guards():
                      z3.Or([z3.Not(X[c]) for c in cells]))
         sat, _ = z3_sat(hyp)
         ok &= sat
+        nv.append(["x".join(map(str, shape)), "Theorems 2-3", sat])
         print("  [%s] hypothesis 'observed, s a total order, X closed under s, X != box' satisfiable, %s"
               % ("ok" if sat else "XX", "x".join(map(str, shape))))
-    # (b) encoding fidelity: the Z3 formulas, evaluated on concrete X and s, equal the reference code
+    # (a) non-vacuity: Lemma 9 -- S closed, a and b in S, S a proper subset, the removal non-empty
+    for shape in ((3, 3), (2, 2, 2), (2, 2, 3)):
+        cells = cells_of(shape)
+        S = prover.subset_vars(cells, "s")
+        a, b = cells[0], cells[1]                      # the bottom cell and a cover of it
+        hyp = z3.And(prover.closed(S, cells), S[a], S[b], z3.Or([z3.Not(S[c]) for c in cells]),
+                     z3.Or([S[c] for c in cells if not leq(a, c) or not leq(c, b)] or [z3.BoolVal(False)]))
+        sat, _ = z3_sat(hyp)
+        ok &= sat
+        nv.append(["x".join(map(str, shape)), "Lemma 9", sat])
+        print("  [%s] hypothesis 'S closed, a, b in S, S != box' satisfiable, %s" % ("ok" if sat else "XX", "x".join(map(str, shape))))
+    # (a) non-vacuity: Theorem 9 -- a proper non-empty sublattice of 2^d exists
+    for d in range(2, 7):
+        cells = cells_of((2,) * d)
+        S = prover.subset_vars(cells, "s")
+        hyp = z3.And(prover.closed(S, cells), z3.Or([z3.Not(S[c]) for c in cells]), z3.Or([S[c] for c in cells]))
+        sat, _ = z3_sat(hyp)
+        ok &= sat
+        nv.append(["2^%d" % d, "Theorem 9", sat])
+        print("  [%s] hypothesis 'S closed, S != box, S non-empty' satisfiable, 2^%d" % ("ok" if sat else "XX", d))
+    G["non_vacuity"] = nv
+    # (b) encoding fidelity, Theorem 2's encodings: closed-under-s, P, s*, and the harness's closed
     tot = bad = 0
     tot2 = bad2 = 0
+    tot3 = bad3 = 0
+    tot4 = bad4 = 0
     for _ in range(150):
         shape = rnd.choice([(3, 3), (4, 4), (2, 2, 3), (3, 3, 3)])
         cells = cells_of(shape)
@@ -679,22 +848,82 @@ def guards():
         Xv = {c: z3.BoolVal(c in Xs) for c in cells}
         sv = {(u, v): z3.BoolVal(rank0[u] < rank0[v]) for u in A0 for v in A0 if u != v}
         ranks = [rank0] + [{v: v for v in range(shape[i])} for i in range(1, d)]
-        enc = z3.is_true(z3.simplify(enc_closed_s(Xv, sv, cells, 0)))
-        ref = closed_under(Xs, ranks)
         tot += 1
-        bad += enc != ref
-        # P against the reference relation (axis 0 free, others natural)
+        bad += ev(enc_closed_s(Xv, sv, cells, 0)) != closed_under(Xs, ranks)
         Pz = enc_P(Xv, cells, 0, A0)
         vals, Pr = P_relation(Xs, 0, [{v: v for v in range(shape[i])} for i in range(d)])
         for u in A0:
             for v in A0:
                 tot2 += 1
-                bad2 += z3.is_true(z3.simplify(Pz[(u, v)])) != Pr[(u, v)]
-    ok &= bad == 0 and bad2 == 0
+                bad2 += ev(Pz[(u, v)]) != Pr[(u, v)]
+        # s*: the canonical extension, from the Z3 P against the concrete rule of D7
+        star = enc_canonical(Pz, A0, "c")
+        canon = canonical_extension(vals, Pr)
+        pos = {u: i for i, u in enumerate(canon)}
+        for u in A0:
+            for v in A0:
+                if u != v:
+                    tot3 += 1
+                    bad3 += ev(star[(u, v)]) != (pos[u] < pos[v])
+        # the harness's closure predicate (Theorem 9, Lemma 9) against a concrete closure test
+        tot4 += 1
+        bad4 += ev(prover.closed(Xv, cells)) != ref_closed_natural(sorted(Xs))
+    ok &= bad == 0 and bad2 == 0 and bad3 == 0 and bad4 == 0
     print("  [%s] enc_closed_s EVALUATED == closed_under: %d instances, %d disagreements" % ("ok" if bad == 0 else "XX", tot, bad))
     print("  [%s] enc_P EVALUATED == P_relation: %d pairs, %d disagreements" % ("ok" if bad2 == 0 else "XX", tot2, bad2))
+    print("  [%s] enc_canonical (s*) EVALUATED == canonical_extension: %d pairs, %d disagreements" % ("ok" if bad3 == 0 else "XX", tot3, bad3))
+    print("  [%s] harness closed EVALUATED == concrete closure test: %d instances, %d disagreements" % ("ok" if bad4 == 0 else "XX", tot4, bad4))
+    G.update(fidelity_instances=tot, fidelity_pairs=tot2, canonical_pairs=tot3, closed_instances=tot4)
+    # (b) encoding fidelity, Theorem 3's encodings: interval, lo_le, hi_le, mono
+    t5 = b5 = t6 = b6 = t7 = b7 = 0
+    for _ in range(120):
+        shape = rnd.choice([(3, 3), (4, 4), (3, 5), (5, 4)])
+        cells = cells_of(shape)
+        while True:
+            Xs = frozenset(rnd.sample(cells, rnd.randint(2, min(len(cells), 9))))
+            if all(len({c[i] for c in Xs}) == shape[i] for i in range(2)):
+                break
+        A, B = list(range(shape[0])), list(range(shape[1]))
+        perm = list(A)
+        rnd.shuffle(perm)
+        rank0 = {v: r for r, v in enumerate(perm)}
+        Xv = {c: z3.BoolVal(c in Xs) for c in cells}
+        sv = {(u, v): z3.BoolVal(rank0[u] < rank0[v]) for u in A for v in A if u != v}
+        t5 += 1
+        b5 += ev(enc_interval(Xv, A, B)) != ref_interval(Xs, A)
+        for u in A:
+            for v in A:
+                t6 += 2
+                b6 += ev(enc_lo_le(Xv, B, u, v)) != ref_lo_le(Xs, u, v)
+                b6 += ev(enc_hi_le(Xv, B, u, v)) != ref_hi_le(Xs, u, v)
+        t7 += 1
+        b7 += ev(enc_mono(Xv, sv, A, B)) != ref_mono(Xs, rank0, A)
+    ok &= b5 == 0 and b6 == 0 and b7 == 0
+    print("  [%s] enc_interval EVALUATED == fibres are intervals: %d instances, %d disagreements" % ("ok" if b5 == 0 else "XX", t5, b5))
+    print("  [%s] enc_lo_le / enc_hi_le EVALUATED == endpoint comparisons: %d pairs, %d disagreements" % ("ok" if b6 == 0 else "XX", t6, b6))
+    print("  [%s] enc_mono EVALUATED == endpoints monotone along s: %d instances, %d disagreements" % ("ok" if b7 == 0 else "XX", t7, b7))
+    G.update(interval_instances=t5, endpoint_pairs=t6, mono_instances=t7)
+    # (b) encoding fidelity, Lemma 9's encodings: remclosed, jp, mp, on arbitrary S and a <= b
+    t8 = b8 = b9 = b10 = 0
+    for _ in range(120):
+        shape = rnd.choice([(3, 3), (2, 2, 2), (2, 2, 3)])
+        cells = cells_of(shape)
+        Ss = frozenset(rnd.sample(cells, rnd.randint(1, len(cells))))
+        while True:
+            a, b = rnd.choice(cells), rnd.choice(cells)
+            if leq(a, b):
+                break
+        Sv = {c: z3.BoolVal(c in Ss) for c in cells}
+        t8 += 1
+        b8 += ev(enc_remclosed(Sv, cells, a, b)) != ref_remclosed(sorted(Ss), a, b)
+        b9 += ev(enc_jp(Sv, cells, a)) != ref_jp(sorted(Ss), a)
+        b10 += ev(enc_mp(Sv, cells, b)) != ref_mp(sorted(Ss), b)
+    ok &= b8 == 0 and b9 == 0 and b10 == 0
+    print("  [%s] enc_remclosed EVALUATED == concrete removal test: %d instances, %d disagreements" % ("ok" if b8 == 0 else "XX", t8, b8))
+    print("  [%s] enc_jp / enc_mp EVALUATED == concrete primality tests: %d instances, %d / %d disagreements" % ("ok" if b9 + b10 == 0 else "XX", t8, b9, b10))
+    G.update(removal_instances=t8)
     # (c) the reference closure: closed under the natural order iff E = 0 under cypher.op_order
-    tot3 = bad3 = 0
+    tc = bc = 0
     for _ in range(120):
         shape = rnd.choice([(3, 3), (2, 2, 3), (3, 3, 3), (2, 2, 2, 2)])
         cells = cells_of(shape)
@@ -703,21 +932,21 @@ def guards():
             Xs = frozenset(rnd.sample(cells, rnd.randint(2, min(len(cells), 9))))
             if all(len({c[i] for c in Xs}) == shape[i] for i in range(d)):
                 break
-        tot3 += 1
-        bad3 += closed_under(Xs, natural(Xs, d)) != (R_index(Xs) == set(Xs))
-    ok &= bad3 == 0
-    print("  [%s] closed_under(natural) == (op_order adds nothing): %d instances, %d disagreements" % ("ok" if bad3 == 0 else "XX", tot3, bad3))
-    # (c2) the fast local closure used by the exhaustive sweep, against the reference op_order
-    tot4 = bad4 = 0
+        tc += 1
+        bc += closed_under(Xs, natural(Xs, d)) != (R_index(Xs) == set(Xs))
+    ok &= bc == 0
+    print("  [%s] closed_under(natural) == (op_order adds nothing): %d instances, %d disagreements" % ("ok" if bc == 0 else "XX", tc, bc))
+    # (c2) the fast local closure used by the exhaustive sweeps, against the reference op_order
+    tl = bl = 0
     for _ in range(120):
         shape = rnd.choice([(3, 3), (2, 4), (2, 2, 2), (2, 2, 3), (3, 3, 3), (2, 2, 2, 2)])
         cells = cells_of(shape)
         d = len(shape)
         Xs = frozenset(rnd.sample(cells, rnd.randint(2, min(len(cells), 10))))
-        tot4 += 1
-        bad4 += R_local(sorted(Xs), d) != R_index(Xs)
-    ok &= bad4 == 0
-    print("  [%s] R_local == cypher.op_order, cell for cell: %d instances, %d disagreements" % ("ok" if bad4 == 0 else "XX", tot4, bad4))
+        tl += 1
+        bl += R_local(sorted(Xs), d) != R_index(Xs)
+    ok &= bl == 0
+    print("  [%s] R_local == cypher.op_order, cell for cell: %d instances, %d disagreements" % ("ok" if bl == 0 else "XX", tl, bl))
     # (d) negative control on the fidelity guard: a wrong reference must be caught
     wrong = 0
     for _ in range(20):
@@ -726,11 +955,11 @@ def guards():
         Xs = frozenset(rnd.sample(cells, rnd.randint(2, 6)))
         Xv = {c: z3.BoolVal(c in Xs) for c in cells}
         sv = {(u, v): z3.BoolVal(u < v) for u in range(3) for v in range(3) if u != v}
-        enc = z3.is_true(z3.simplify(enc_closed_s(Xv, sv, cells, 0)))
-        wrong += enc != (len(Xs) % 2 == 0)      # a deliberately wrong 'reference'
+        wrong += ev(enc_closed_s(Xv, sv, cells, 0)) != (len(Xs) % 2 == 0)      # a deliberately wrong 'reference'
     ok &= wrong > 0
     print("  [%s] negative control: the guard detects a wrong reference (%d disagreements)" % ("ok" if wrong > 0 else "XX", wrong))
-    put("guards", dict(fidelity_instances=tot, fidelity_pairs=tot2, closure_instances=tot3, ok=ok))
+    G.update(closure_instances=tc, local_instances=tl, negative_control=wrong, ok=ok)
+    put("guards", G)
     return ok
 
 
@@ -792,20 +1021,31 @@ def section_interval_characterisation():
         s, order = order_vars(A, "s")
         obs = prover.observed(X, cells, shape)
         cl = enc_closed_s(X, s, cells, 0)
-        interval = z3.And([z3.Implies(z3.And(X[(u, b1)], X[(u, b3)]), X[(u, b2)])
-                           for u in A for b1 in B for b2 in B for b3 in B if b1 < b2 < b3])
-
-        def lo_le(u, v):
-            return z3.And([z3.Implies(X[(v, c)], z3.Or([X[(u, c2)] for c2 in B if c2 <= c])) for c in B])
-
-        def hi_le(u, v):
-            return z3.And([z3.Implies(X[(u, c)], z3.Or([X[(v, c2)] for c2 in B if c2 >= c])) for c in B])
-        mono = z3.And([z3.Implies(s[(u, v)], z3.And(lo_le(u, v), hi_le(u, v))) for u in A for v in A if u != v])
-        ok, _ = z3_prove(z3.Implies(z3.And(obs, order), cl == z3.And(interval, mono)))
+        ok, _ = z3_prove(z3.Implies(z3.And(obs, order), cl == z3.And(enc_interval(X, A, B), enc_mono(X, s, A, B))))
         report("MACHINE-CHECKED", "closed under s  <=>  fibres are intervals with endpoints monotone along s, box %s"
                % "x".join(map(str, shape)), ok, "2^%d subsets x %d orders" % (len(cells), len(list(itertools.permutations(A)))))
         rows.append(dict(box=list(shape), ok=ok, seconds=round(time.time() - t, 1)))
     put("fibre_z3", rows)
+    # The alphabet convention of D1 is load-bearing (paper 3.1): with A_1 DECLARED as {0,1,2} the set
+    # {(0,0),(0,2),(1,0),(1,2)} is closed while its fibre over 0 is not an interval of {0,1,2}; under
+    # D1 the alphabet is {0,2} and the fibre is an interval; adding (1,1) makes 1 used and breaks closure.
+    Xd = [(0, 0), (0, 2), (1, 0), (1, 2)]
+    declared = [{0: 0, 1: 1}, {0: 0, 1: 1, 2: 2}]
+    closed_declared = closed_under(Xd, declared)
+    F0 = sorted(b for (u, b) in Xd if u == 0)
+    interval_declared = F0 == list(range(F0[0], F0[-1] + 1))
+    A1 = sorted({b for (u, b) in Xd})
+    interval_observed = all(b in F0 for b in A1 if F0[0] <= b <= F0[-1])
+    Xe = Xd + [(1, 1)]
+    closed_extended = closed_under(Xe, natural(Xe, 2))
+    m = meet((0, 2), (1, 1))
+    put("d1_exhibit", dict(X=[list(c) for c in Xd], closed_declared=closed_declared, fibre0=F0,
+                           interval_in_declared=interval_declared, observed_A1=A1, interval_in_observed=interval_observed,
+                           with_11_closed=closed_extended, breaking_meet=list(m)))
+    report("REFUTATION", "'Theorem 3 holds for a declared alphabet': {(0,0),(0,2),(1,0),(1,2)} with A_1 = {0,1,2} is closed, fibre {0,2} no interval",
+           closed_declared and not interval_declared and A1 == [0, 2] and interval_observed and not closed_extended and m == (0, 1),
+           "closed=%s fibre(0)=%s; under D1 A_1=%s, interval=%s; with (1,1): closed=%s, meet (0,2)^(1,1)=%s"
+           % (closed_declared, F0, A1, interval_observed, closed_extended, m))
 
 
 def section_interval_lemma():
@@ -843,6 +1083,23 @@ def section_interval_lemma():
            tot == 2354 and ok == tot and oksort == tot, "family=%d holds=%d sort-test=%d" % (tot, ok, oksort))
     report("REFUTATION", "the reading 'no nesting at all' fails on 1,098 of the 2,354",
            tot - okweak == 1098, "refuted=%d" % (tot - okweak))
+    # the lemma for MULTISETS of intervals (fibres may coincide -- that is a tie): repeats allowed
+    totm = okm = oksm = 0
+    for n in range(2, 6):
+        for k in range(2, 5):
+            for S in itertools.combinations_with_replacement(intervals(n), k):
+                totm += 1
+                adm = admits(S)
+                okm += adm == (not strict_nest(S))
+                oksm += adm == sorted_test(S)
+    put("interval_multiset_family", dict(size=totm, lemma_holds=okm, sorted_test=oksm))
+    report("EXHAUSTIVE", "%d interval multisets of 2..4 members on 2..5 points (repeats allowed): lemma and sort test hold on every one" % totm,
+           okm == totm and oksm == totm, "family=%d holds=%d sort-test=%d" % (totm, okm, oksm))
+
+
+CENSUS_PINS = {(2, 2): (16, 3), (2, 3): (64, 5), (2, 4): (256, 7), (3, 3): (506, 8), (3, 4): (3772, 11),
+               (4, 4): (47416, 15), (2, 2, 2): (158, 6), (2, 2, 3): (1342, 10), (2, 3, 3): (20068, 16),
+               (2, 2, 2, 2): (3290, 12)}
 
 
 def section_census():
@@ -910,17 +1167,25 @@ def section_census():
         full = (1 << N) - 1
         proper = np.nonzero(reord & (masks != full))[0]
         maxproper = int(popc[proper].max())
+        # doubly irreducible cells of the full box: exactly one coordinate above its minimum and
+        # exactly one below its maximum (the two corners at d = 2, none at d >= 3)
+        dbl = sum(1 for c in cells if sum(1 for v in c if v > 0) == 1 and sum(1 for v, n in zip(c, shape) if v < n - 1) == 1)
+        exp_reord, exp_max = CENSUS_PINS[shape]
         row = dict(box=list(shape), subsets=1 << N, orderings=len(perms_list), closed_natural_observed=int((closed & obs).sum()),
                    reorderable_observed=int((reord & obs).sum()), reorderable_all=int(reord.sum()),
                    fraction_reorderable=round(int(reord.sum()) / (1 << N), 3), step=step,
-                   step_attained_at_full_box=(step_at == full), max_proper_reorderable=maxproper,
+                   step_attained_at_full_box=(2 ** N - maxproper == step), max_proper_reorderable=maxproper,
+                   doubly_irreducible=dbl,
                    three_quarters=(maxproper == 3 * (1 << N) // 4) if all(n == 2 for n in shape) else None,
                    seconds=round(time.time() - t, 1))
         rows.append(row)
         CENSUS[shape] = dict(cells=cells, idx=idx, closed=closed, obs=obs, reord=reord, permmaps=permmaps, perms=perms_list, popc=popc)
-        report("EXHAUSTIVE", "box %s: %d subsets, %d reorderable, step %d, largest proper reorderable %d"
+        report("EXHAUSTIVE", "box %s: %d subsets, %d reorderable, step %d, largest proper reorderable %d, box - largest = step"
                % ("x".join(map(str, shape)), 1 << N, int(reord.sum()), step, maxproper),
-               step == 2 ** (d - 2) if d >= 2 else True, "step attained at the full box: %s" % (step_at == full))
+               step == 2 ** (d - 2) and int(reord.sum()) == exp_reord and maxproper == exp_max
+               and 2 ** N - maxproper == step and (maxproper == N - 1) == (d == 2) and dbl == (2 if d == 2 else 0),
+               "doubly irreducible cells of the box: %d; first subset attaining the step in mask order is the full box: %s"
+               % (dbl, step_at == full))
     put("census", rows)
     return CENSUS
 
@@ -952,8 +1217,9 @@ def section_projection_gap(CENSUS):
                          reorderable=int((reord & obs).sum()), gap=gap,
                          witness=[list(c) for c in wit] if wit else None,
                          seconds=round(time.time() - t, 1)))
+        exp_n, exp_gap = {(2, 2, 2): (193, 98), (2, 2, 3): (3271, 2460), (2, 2, 2, 2): (63775, 61462)}[shape]
         report("EXHAUSTIVE", "box %s: %d observed subsets, %d with every pair projection reorderable, %d of those not reorderable"
-               % ("x".join(map(str, shape)), n, allpairs, gap), gap > 0,
+               % ("x".join(map(str, shape)), n, allpairs, gap), gap == exp_gap and n == exp_n and allpairs == n,
                "smallest witness (%d cells): %s" % (len(wit), wit) if wit else "no witness")
     put("projection_gap", rows)
 
@@ -979,8 +1245,8 @@ def section_d2_algorithm(CENSUS):
             n += 1
             agree += alg == bool(reord[m])
         rows.append(dict(box=list(shape), instances=n, agree=agree, seconds=round(time.time() - t, 1)))
-        report("EXHAUSTIVE", "box %s: algorithm == brute force on every observed subset" % "x".join(map(str, shape)),
-               agree == n, "%d of %d" % (agree, n))
+        report("EXHAUSTIVE", "box %s: DECIDE2 == brute force on every observed subset" % "x".join(map(str, shape)),
+               agree == n and n == {(2, 3): 25, (2, 4): 79, (3, 3): 265, (3, 4): 2161, (4, 4): 41503}[shape], "%d of %d" % (agree, n))
     put("d2_algorithm", rows)
 
 
@@ -1021,8 +1287,10 @@ def section_tree(CENSUS, lam976, lam216, TREE):
                     scr_ok += bool(sol) and closed_under(Xs, [{v: r for r, v in enumerate(sol[0][i])} for i in range(d)])
         rows.append(dict(box=list(shape), tree=kind, tree_structured=n, solution_sets_agree=agree, closed=nclosed,
                          scrambles=scr, scrambles_recovered=scr_ok, seconds=round(time.time() - t, 1)))
+        exp_n, exp_closed, exp_scr = {((2, 2, 3), "path"): (175, 175, 4200), ((2, 3, 3), "path"): (6625, 4819, 346968),
+                                      ((2, 2, 2, 2), "path"): (343, 343, 5488), ((2, 2, 2, 2), "star"): (343, 343, 5488)}[(shape, kind)]
         report("EXHAUSTIVE", "box %s, %s: solution set == brute force on all %d tree-structured subsets" % ("x".join(map(str, shape)), kind, n),
-               agree == n and scr_ok == scr, "agree=%d/%d; %d closed x every relabelling = %d scrambles, %d recovered" % (agree, n, nclosed, scr, scr_ok))
+               agree == n and scr_ok == scr and n == exp_n and nclosed == exp_closed and scr == exp_scr, "agree=%d/%d; %d closed x every relabelling = %d scrambles, %d recovered" % (agree, n, nclosed, scr, scr_ok))
     put("tree_exhaustive", rows)
 
     # Lambda: 20 seeded scrambles at each cap setting; the recovered order is admissible
@@ -1054,10 +1322,55 @@ def section_tree(CENSUS, lam976, lam216, TREE):
         lam_rows.append(dict(cells=len(L), scrambles=20, recovered=ok, exact_or_dual=exact_or_dual,
                              admissible_orderings=len(sols), root_orders_tried_max=max(tries), seconds=round(time.time() - t, 1)))
         report("SAMPLED", "Lambda (%s cells): 20 of 20 scrambles recovered; admissible orderings = %d" % (label, len(sols)),
-               ok == 20, "recovered=%d exact-or-dual=%d admissible=%d" % (ok, exact_or_dual, len(sols)))
+               ok == 20 and len(sols) == 16 and exact_or_dual == {"976": 3, "216": 0}[label],
+               "recovered=%d exact-or-dual=%d admissible=%d root orders tried at most %d" % (ok, exact_or_dual, len(sols), max(tries)))
+        # WHICH sixteen.  At 976: one global reversal x three ties of values with identical fibres --
+        # n: 2 ~ 3 and e: 2 ~ 3 (because l, f <= 1) and 2S: 0 ~ 1 (because k >= 1).  At 216: the tie
+        # 2S: 0 ~ 1 x the independent reversal of the three components {n,l}, {e,f}, {k,q,g,2S}, because
+        # the tree edges l-k (k <= 4l+2) and f-g (g <= 4f+2) are vacuous at k <= 2.
+        got = {tuple(s[i] for i in range(d)) for s in sols}
+        nat = [tuple(a) for a in A]
+
+        def swap(o, x, y):
+            return tuple(y if v == x else x if v == y else v for v in o)
+
+        def fibre(i, u):
+            return {c[:i] + c[i + 1:] for c in L if c[i] == u}
+        binding = {e: len({(c[e[0]], c[e[1]]) for c in L}) < len(A[e[0]]) * len(A[e[1]]) for e in TREE}
+        pred = set()
+        if label == "976":
+            for bits in itertools.product((0, 1), repeat=3):
+                o = list(nat)
+                if bits[0]:
+                    o[0] = swap(o[0], 2, 3)
+                if bits[1]:
+                    o[4] = swap(o[4], 2, 3)
+                if bits[2]:
+                    o[7] = swap(o[7], 0, 1)
+                pred.add(tuple(o))
+                pred.add(tuple(tuple(reversed(x)) for x in o))
+            structure = fibre(0, 2) == fibre(0, 3) and fibre(4, 2) == fibre(4, 3) and fibre(7, 0) == fibre(7, 1) and all(binding.values())
+            desc = "one global reversal x the ties n:2~3, e:2~3, 2S:0~1 (identical fibres); every tree edge binding"
+        else:
+            comps = [(0, 1), (4, 5), (2, 3, 6, 7)]
+            for bits in itertools.product((0, 1), repeat=3):
+                for tie in (0, 1):
+                    o = list(nat)
+                    if tie:
+                        o[7] = swap(o[7], 0, 1)
+                    for bt, comp in zip(bits, comps):
+                        if bt:
+                            for i in comp:
+                                o[i] = tuple(reversed(o[i]))
+                    pred.add(tuple(o))
+            structure = (fibre(7, 0) == fibre(7, 1) and not binding[(1, 2)] and not binding[(5, 6)]
+                         and all(binding[e] for e in TREE if e not in ((1, 2), (5, 6))))
+            desc = "the tie 2S:0~1 x independent reversal of {n,l}, {e,f}, {k,q,g,2S}; edges l-k and f-g vacuous"
+        put("lambda_%s_structure" % label, dict(description=desc, predicted=len(pred), equal=got == pred, binding_edges={str(e): b for e, b in binding.items()}))
+        report("EXHAUSTIVE", "Lambda (%s): the 16 admissible systems are exactly %s" % (label, desc.split(";")[0]),
+               got == pred and len(pred) == 16 and structure, "predicted=%d equal=%s" % (len(pred), got == pred))
     put("lambda_recovery", lam_rows)
     fact = [len(a) for a in alphabets(lam976, 8)]
-    import math
     put("lambda_sum_fact", sum(math.factorial(k) for k in fact))
     put("lambda_prod_fact", math.prod(math.factorial(k) for k in fact))
     report("EXHAUSTIVE", "Lambda: sum |A_i|! = 94 against prod |A_i|! = 11,943,936",
@@ -1065,7 +1378,7 @@ def section_tree(CENSUS, lam976, lam216, TREE):
            "sum=%d prod=%d" % (sum(math.factorial(k) for k in fact), math.prod(math.factorial(k) for k in fact)))
 
 
-def section_removal():
+def section_removal(CENSUS):
     print("\nJ. Interval removal (Lemma 9) -- Z3 over every sublattice S of the box and every a <= b")
     rows = []
     for shape in [(3, 3), (2, 2, 2), (2, 2, 3)]:
@@ -1079,22 +1392,16 @@ def section_removal():
                 if not leq(a, b):
                     continue
                 n += 1
-                inR = lambda c: leq(a, c) and leq(c, b)
-                rem = lambda c: z3.And(S[c], z3.BoolVal(not inR(c)))
-                remclosed = z3.And([z3.Implies(z3.And(rem(x), rem(y)), z3.And(rem(meet(x, y)), rem(join(x, y))))
-                                    for x in cells for y in cells if x < y])
-                jp = z3.And([z3.Implies(z3.And(S[x], S[y], z3.BoolVal(leq(a, join(x, y)))),
-                                        z3.BoolVal(leq(a, x) or leq(a, y))) for x in cells for y in cells])
-                mp = z3.And([z3.Implies(z3.And(S[x], S[y], z3.BoolVal(leq(meet(x, y), b))),
-                                        z3.BoolVal(leq(x, b) or leq(y, b))) for x in cells for y in cells])
-                ok, _ = z3_prove(z3.Implies(z3.And(closed, S[a], S[b]), remclosed == z3.And(jp, mp)))
+                ok, _ = z3_prove(z3.Implies(z3.And(closed, S[a], S[b]),
+                                            enc_remclosed(S, cells, a, b) == z3.And(enc_jp(S, cells, a), enc_mp(S, cells, b))))
                 bad += not ok
         rows.append(dict(box=list(shape), pairs=n, failures=bad, seconds=round(time.time() - t, 1)))
-        report("MACHINE-CHECKED", "S \\ [a,b] closed <=> a join-prime and b meet-prime, box %s, all %d pairs a<=b"
-               % ("x".join(map(str, shape)), n), bad == 0, "2^%d sublattice candidates per pair" % len(cells))
+        report("MACHINE-CHECKED", "S minus [a,b] closed <=> a join-prime and b meet-prime, box %s, all %d pairs a<=b"
+               % ("x".join(map(str, shape)), n), bad == 0 and n == {(3, 3): 36, (2, 2, 2): 27, (2, 2, 3): 54}[shape],
+               "2^%d sublattice candidates per pair" % len(cells))
     put("removal_z3", rows)
 
-    print("   The largest proper sublattice of the Boolean box 2^d (Z3, cardinality)")
+    print("   The largest proper sublattice of the Boolean box 2^d (Z3, cardinality); drop at the full box is arithmetic on the answer")
     rows = []
     for d in range(2, 7):
         t = time.time()
@@ -1105,23 +1412,126 @@ def section_removal():
         bound = 3 * 2 ** (d - 2)
         sat_above, _ = z3_sat(z3.And(closed, proper, z3.AtLeast(*[S[c] for c in cells], bound + 1)))
         sat_at, _ = z3_sat(z3.And(closed, proper, z3.AtLeast(*[S[c] for c in cells], bound)))
-        rows.append(dict(d=d, bound=bound, attained=sat_at, exceeded=sat_above, seconds=round(time.time() - t, 1)))
-        report("MACHINE-CHECKED", "2^%d: every proper sublattice has <= %d cells, and %d is attained" % (d, bound, bound),
-               (not sat_above) and sat_at, "2^%d subsets" % len(cells))
+        drop = 2 ** d - bound
+        rows.append(dict(d=d, bound=bound, attained=sat_at, exceeded=sat_above, drop_at_box=drop, seconds=round(time.time() - t, 1)))
+        report("MACHINE-CHECKED", "2^%d: every proper sublattice has <= %d cells, %d is attained; drop(2^%d) = %d = 2^(d-2)"
+               % (d, bound, bound, d, drop), (not sat_above) and sat_at and drop == 2 ** (d - 2), "2^%d subsets" % len(cells))
     put("max_sublattice_z3", rows)
-    # the step AT THE FULL BOOLEAN BOX follows from the bound above and the flip symmetry: a
-    # relabelling of a binary axis is a flip, flips fix the box, so the largest proper reorderable
-    # subset equals the largest proper sublattice.  This is the only reach to d = 5 and d = 6.
-    steps = {r["d"]: 2 ** r["d"] - r["bound"] for r in rows}
-    put("boolean_step_at_box", steps)
-    report("MACHINE-CHECKED", "step at the full box 2^d = 2^d - 3.2^(d-2) = 2^(d-2) for d = 2..6",
-           all(steps[k] == 2 ** (k - 2) for k in steps) and steps[5] == 8 and steps[6] == 16,
-           "; ".join("d=%d: %d" % (k, steps[k]) for k in sorted(steps)))
+    put("boolean_step_at_box", {r["d"]: r["drop_at_box"] for r in rows})
+
+    # Corollary 2: every MAXIMAL proper sublattice of 2^d has exactly 3.2^(d-2) cells and there are
+    # d(d-1) of them -- exhaustive over the closed subsets the census computed, d = 2, 3, 4
+    print("   Every maximal proper sublattice of 2^d, d = 2..4, from the census's closed subsets")
+    rows = []
+    for shape in [(2, 2), (2, 2, 2), (2, 2, 2, 2)]:
+        C = CENSUS[shape]
+        closed, popc, N = C["closed"], C["popc"], len(C["cells"])
+        full = (1 << N) - 1
+        d = len(shape)
+        cl = np.nonzero(closed)[0].astype(np.int64)
+        cl = cl[(cl != full) & (cl != 0)]
+        maxi = [int(m) for m in cl if len(cl[(cl & m) == m]) == 1]
+        sizes = sorted({int(popc[m]) for m in maxi})
+        rows.append(dict(d=d, closed_subsets=int(len(cl)), maximal=len(maxi), sizes=sizes))
+        report("EXHAUSTIVE", "2^%d: %d maximal proper sublattices, every one of exactly %d = 3.2^(d-2) cells" % (d, len(maxi), 3 * 2 ** (d - 2)),
+               len(maxi) == d * (d - 1) and sizes == [3 * 2 ** (d - 2)], "proper non-empty sublattices=%d sizes=%s" % (len(cl), sizes))
+    put("maximal_sublattices", rows)
+    # Rival's lower bound |K| >= (2/3)|L| is tight on the three-element chain
+    chain = [(0,), (1,), (2,)]
+    subl = [set(S) for r in (1, 2) for S in itertools.combinations(chain, r) if ref_closed_natural(list(S))]
+    maxi = [S for S in subl if not any(S < T for T in subl)]
+    put("three_chain_maximal", [sorted(S) for S in maxi])
+    report("EXHAUSTIVE", "three-element chain: every maximal proper sublattice has 2 of its 3 elements (two thirds, tight)",
+           len(maxi) == 3 and all(len(S) == 2 for S in maxi), "maximal=%d" % len(maxi))
+
+
+def bell(n):
+    """The Bell number B(n), by the Bell triangle (independent of any partition enumeration)."""
+    row = [1]
+    for _ in range(n):
+        new = [row[-1]]
+        for x in row:
+            new.append(new[-1] + x)
+        row = new
+    return row[0]
+
+
+def clauses_for(k, pts, idx):
+    """Every clause of at most two literals over k Boolean variables, as a bitmask over pts."""
+    out = []
+    for i in range(k):
+        for si in (0, 1):
+            out.append(sum(1 << idx[p] for p in pts if p[i] != si))
+            for j in range(i + 1, k):
+                for sj in (0, 1):
+                    out.append(sum(1 << idx[p] for p in pts if not (p[i] == si and p[j] == sj)))
+    return out
+
+
+def two_clause_closed(mask, clauses, full):
+    """A relation (as a bitmask) equals the solution set of the 2-clauses it satisfies:
+    Schaefer's characterisation of the bijunctive relations."""
+    closure = full
+    for c in clauses:
+        if mask & ~c == 0:
+            closure &= c
+    return closure == mask
+
+
+def partition_constraint(C, k):
+    """The constancy set of the equality pattern of C: sigma constant on every block of the
+    partition generated by { {i,j} : sigma_i = sigma_j for all sigma in C }."""
+    parent = list(range(k))
+
+    def find(i):
+        while parent[i] != i:
+            i = parent[i]
+        return i
+    for i in range(k):
+        for j in range(i + 1, k):
+            if all(s[i] == s[j] for s in C):
+                parent[find(i)] = find(j)
+    blocks = {}
+    for i in range(k):
+        blocks.setdefault(find(i), []).append(i)
+    B = list(blocks.values())
+    return {s for s in itertools.product((0, 1), repeat=k) if all(len({s[i] for i in blk}) == 1 for blk in B)}, len(B)
+
+
+def C_of(T, k):
+    """The complement-closed C on k orientation variables with difference relation T (Lemma 7)."""
+    return {s for s in itertools.product((0, 1), repeat=k) if tuple(s[0] ^ s[t] for t in range(1, k)) in T}
+
+
+def pair_constraint(X, x, y):
+    """C(x,y) of D9: the sigma for which the meet and the join determined by sigma both lie in X."""
+    Xs = set(X)
+    I = [i for i in range(len(x)) if x[i] != y[i]]
+    OK = set()
+    for s in itertools.product((0, 1), repeat=len(I)):
+        j, m = list(x), list(x)
+        for tt, i in enumerate(I):
+            j[i], m[i] = (y[i], x[i]) if s[tt] else (x[i], y[i])
+        if tuple(j) in Xs and tuple(m) in Xs:
+            OK.add(s)
+    return OK, I
+
+
+def closed_under_op(R, op):
+    R = set(R)
+    return all(tuple(op(a[i], b[i]) for i in range(len(a))) in R for a in R for b in R)
+
+
+def affine_closed(R):
+    R = set(R)
+    return all(tuple(a[i] ^ b[i] ^ c[i] for i in range(len(a))) in R for a in R for b in R for c in R)
 
 
 def section_arity():
-    print("\nK. The arity law (Lemmas 6-7, Theorems 7-8): pair constraints, their difference relations, and bijunctivity")
-    # every difference relation containing 0 arises (Theorem 5), and the census of what arises
+    print("\nK. The reorderability law (Lemmas 6-7, Theorems 7-8): pair constraints C, difference relations T, bijunctivity")
+    # every pair constraint that ARISES in a box, at every arity: complement-closed, containing 0 and 1,
+    # every difference relation containing 0 realised; bijunctivity counted on C (the constraint D9
+    # defines) AND on T (the auxiliary difference relation)
     rows = []
     for shape in [(2, 2, 2), (2, 2, 2, 2)]:
         t = time.time()
@@ -1134,21 +1544,12 @@ def section_arity():
         cc_checked = cc_ok = 0
         for mask in range(1, 1 << N):
             X = [cells[i] for i in range(N) if mask >> i & 1]
-            Xs = set(X)
             for a in range(len(X)):
                 for b in range(a + 1, len(X)):
-                    x, y = X[a], X[b]
-                    I = [i for i in range(d) if x[i] != y[i]]
+                    OK, I = pair_constraint(X, X[a], X[b])
                     k = len(I)
-                    OK = set()
-                    for s in itertools.product((0, 1), repeat=k):
-                        j, m = list(x), list(x)
-                        for tt, i in enumerate(I):
-                            j[i], m[i] = (y[i], x[i]) if s[tt] else (x[i], y[i])
-                        if tuple(j) in Xs and tuple(m) in Xs:
-                            OK.add(s)
                     cc_checked += 1
-                    cc_ok += all(tuple(1 - b_ for b_ in s) in OK for s in OK)
+                    cc_ok += all(tuple(1 - b_ for b_ in s) in OK for s in OK) and tuple([0] * k) in OK and tuple([1] * k) in OK
                     T = frozenset(tuple(s[0] ^ s[tt] for tt in range(1, k)) for s in OK)
                     total[k] = total.get(k, 0) + 1
                     if len(T) < 2 ** (k - 1):
@@ -1160,64 +1561,128 @@ def section_arity():
             Ts = list(types[k])
             per[k] = dict(constraints=total[k], nontrivial=nontriv.get(k, 0), distinct=len(Ts),
                           contain_zero=all(tuple([0] * (k - 1)) in T for T in Ts),
-                          bijunctive=sum(1 for T in Ts if majority_closed(T, k - 1)))
+                          bijunctive_T=sum(1 for T in Ts if majority_closed(T, k - 1)),
+                          bijunctive_C=sum(1 for T in Ts if majority_closed(C_of(T, k), k)))
         rows.append(dict(box=list(shape), complement_checked=cc_checked, complement_closed=cc_ok, per_arity=per, seconds=round(time.time() - t, 1)))
-        ok = cc_ok == cc_checked and all(per[k]["contain_zero"] for k in per) and per[max(per)]["distinct"] == 2 ** (2 ** (max(per) - 1) - 1)
-        report("EXHAUSTIVE", "box %s: %d pair constraints, all complement-closed; every relation containing 0 arises at arity %d"
-               % ("x".join(map(str, shape)), cc_checked, max(per)), ok,
-               "; ".join("arity %d: %d distinct, %d bijunctive" % (k, per[k]["distinct"], per[k]["bijunctive"]) for k in sorted(per)))
+        kmax = max(per)
+        ok = (cc_ok == cc_checked and all(per[k]["contain_zero"] for k in per)
+              and all(per[k]["distinct"] == 2 ** (2 ** (k - 1) - 1) for k in per)
+              and all(per[k]["bijunctive_C"] == bell(k) for k in per)
+              and all(per[k]["bijunctive_T"] == {1: 1, 2: 2, 3: 8, 4: 73}[k] for k in per))
+        report("EXHAUSTIVE", "box %s: %d pair constraints, all complement-closed with 0 and 1; every relation containing 0 arises up to arity %d"
+               % ("x".join(map(str, shape)), cc_checked, kmax), ok,
+               "; ".join("arity %d: %d distinct, %d bijunctive on C, %d on T" % (k, per[k]["distinct"], per[k]["bijunctive_C"], per[k]["bijunctive_T"]) for k in sorted(per)))
     put("arity_census", rows)
-    # exact count of bijunctive (majority-closed) relations on m difference variables containing 0
+
+    # The exact census at arity k = 2..5: every complement-closed C on k orientation variables containing
+    # 0 and 1 (equivalently every T on k-1 difference variables containing 0).  Bijunctivity is decided
+    # by the two-clause closure (Schaefer) for every k, and by majority-closure as well for k <= 4, the
+    # two agreeing on every relation; every bijunctive C is verified to be the constancy set of a
+    # partition of its k variables, and their number is the Bell number B(k).  Theorem 7's construction
+    # is verified for every T at k <= 4: X = C realises T at the pair (0^k, 1^k).
     exact = {}
-    for m in range(1, 5):
-        cnt = tot = 0
-        pts = list(itertools.product((0, 1), repeat=m))
-        # bit-parallel: a relation is a 2^m-bit mask; it is majority-closed iff it equals the
-        # solution set of the 2-clauses it satisfies
-        M = 1 << len(pts)
-        pidx = {p: i for i, p in enumerate(pts)}
-        clauses = []
-        for i in range(m):
-            for si in (0, 1):
-                clauses.append(sum(1 << pidx[p] for p in pts if p[i] != si))          # unit clause x_i != si
-                for j in range(i + 1, m):
-                    for sj in (0, 1):
-                        clauses.append(sum(1 << pidx[p] for p in pts if not (p[i] == si and p[j] == sj)))
-        full = M - 1
-        for T in range(1, M):
-            if not (T >> pidx[tuple([0] * m)]) & 1:
+    EXP_T = {1: 2, 2: 8, 3: 73, 4: 1442}
+    for k in range(2, 6):
+        t = time.time()
+        m = k - 1
+        Tpts = list(itertools.product((0, 1), repeat=m))
+        Cpts = list(itertools.product((0, 1), repeat=k))
+        Tidx = {p: i for i, p in enumerate(Tpts)}
+        Cidx = {p: i for i, p in enumerate(Cpts)}
+        img = [Tidx[tuple(s[0] ^ s[tt] for tt in range(1, k))] for s in Cpts]
+        clsT, clsC = clauses_for(m, Tpts, Tidx), clauses_for(k, Cpts, Cidx)
+        fullT, fullC = (1 << len(Tpts)) - 1, (1 << len(Cpts)) - 1
+        tot = bijT = bijC = transfer_fail = part_ok = disagree = constr_ok = blocks_seen = 0
+        for Tm in range(1, 1 << len(Tpts)):
+            if not Tm & 1:                      # the origin is Tpts[0]
                 continue
             tot += 1
-            closure = full
-            for c in clauses:
-                if T & ~c == 0:
-                    closure &= c
-            cnt += closure == T
-        exact[m] = dict(relations_containing_zero=tot, bijunctive=cnt)
-        report("EXHAUSTIVE", "relations on %d difference variables containing 0: %d, of which %d bijunctive (arity %d)" % (m, tot, cnt, m + 1),
-               True, "")
-    put("bijunctive_exact", exact)
-    # The explicit witness: the 6-cell set in the box 2x2x2x2 and the relation it realises at the
-    # pair (0000, 1111).  The relation is READ OFF the witness, never asserted: an earlier draft of
-    # this block named {000,110,101} and the witness in fact realises {000,011,101}, which is the
-    # same relation with two difference variables exchanged.
+            Cm = 0
+            for i in range(len(Cpts)):
+                if Tm >> img[i] & 1:
+                    Cm |= 1 << i
+            bT = two_clause_closed(Tm, clsT, fullT)
+            bC = two_clause_closed(Cm, clsC, fullC)
+            bijT += bT
+            bijC += bC
+            transfer_fail += bC and not bT          # C bijunctive => T bijunctive must never fail
+            if bC or k <= 4:
+                Cset = {Cpts[i] for i in range(len(Cpts)) if Cm >> i & 1}
+            if k <= 4:
+                Tset = {Tpts[i] for i in range(len(Tpts)) if Tm >> i & 1}
+                disagree += (majority_closed(Tset, m) != bT) + (majority_closed(Cset, k) != bC)
+                # Theorem 7's construction: X = C, the pair (0^k, 1^k)
+                OK, I = pair_constraint(sorted(Cset), tuple([0] * k), tuple([1] * k))
+                constr_ok += (OK == Cset and len(I) == k and all(len({c[i] for c in Cset}) == 2 for i in range(k)))
+            if bC:
+                P, nb = partition_constraint(Cset, k)
+                part_ok += P == Cset
+        exact[m] = dict(arity=k, relations=tot, bijunctive_C=bijC, bijunctive_T=bijT, bell=bell(k),
+                        partition_constraints=part_ok, transfer_failures=transfer_fail,
+                        majority_vs_two_clause_disagreements=(disagree if k <= 4 else None),
+                        construction_verified=(constr_ok if k <= 4 else None), seconds=round(time.time() - t, 1))
+        report("EXHAUSTIVE", "arity %d: %d pair constraints; %d bijunctive = B(%d), every one a partition constraint; C bijunctive => T bijunctive"
+               % (k, tot, bijC, k),
+               tot == 2 ** (2 ** m - 1) and bijC == bell(k) and part_ok == bijC and transfer_fail == 0 and (k > 4 or disagree == 0),
+               "majority == two-clause on all: %s" % ("yes" if k <= 4 else "two-clause only"))
+        report("EXHAUSTIVE", "relations on %d difference variables containing 0: %d, of which %d bijunctive (arity %d)" % (m, tot, bijT, k),
+               tot == 2 ** (2 ** m - 1) and bijT == EXP_T[m], "")
+        if k <= 4:
+            report("EXHAUSTIVE", "Theorem 7's construction at arity %d: X = C realises T at (0^k, 1^k) for all %d relations" % (k, tot),
+                   constr_ok == tot, "")
+    put("pair_constraint_exact", exact)
+    # the bijunctive census on T only (kept for the figure's contrast line and the record)
+    put("bijunctive_exact", {m: dict(relations_containing_zero=exact[m]["relations"], bijunctive=exact[m]["bijunctive_T"]) for m in exact})
+
+    # The source plate's own parametrisation -- non-empty proper complement-closed subsets of {0,1}^3,
+    # 14 of them, without the origin requirement -- measured for the provenance record, not printed.
+    pairs3 = [((0, 0, 0), (1, 1, 1)), ((0, 0, 1), (1, 1, 0)), ((0, 1, 0), (1, 0, 1)), ((1, 0, 0), (0, 1, 1))]
+    cnt = tot14 = 0
+    for r in range(1, 4):
+        for S in itertools.combinations(pairs3, r):
+            R = set(itertools.chain.from_iterable(S))
+            tot14 += 1
+            cnt += majority_closed(R, 3)
+    put("source_plate_parametrisation", dict(relations=tot14, majority_closed=cnt))
+    print("     (the plate's own parametrisation, 14 non-empty proper complement-closed subsets of {0,1}^3: %d of %d majority-closed)" % (cnt, tot14))
+
+    # The arity-3 witness: six cells of 2x2x2, every value used; at (000,111) the constraint IS the set.
+    X3 = [(0, 0, 0), (1, 1, 1), (0, 0, 1), (1, 1, 0), (0, 1, 0), (1, 0, 1)]
+    C3, I3 = pair_constraint(X3, (0, 0, 0), (1, 1, 1))
+    maj3 = tuple((a & b) | (b & c) | (a & c) for a, b, c in zip((0, 0, 1), (0, 1, 0), (1, 1, 1)))
+    T3 = {(s[0] ^ s[1], s[0] ^ s[2]) for s in C3}
+    observed3 = all(len({c[i] for c in X3}) == 2 for i in range(3))
+    put("arity3_witness", dict(X=X3, C=sorted(C3), majority_of_001_010_111=list(maj3), in_C=maj3 in C3,
+                               T=sorted(T3), T_majority_closed=majority_closed(T3, 2),
+                               C_horn=closed_under_op(C3, lambda a, b: a & b), C_dual_horn=closed_under_op(C3, lambda a, b: a | b),
+                               C_affine=affine_closed(C3), C_zero_valid=(0, 0, 0) in C3, C_one_valid=(1, 1, 1) in C3))
+    report("EXHAUSTIVE", "witness: X = {000,111,001,110,010,101} in 2x2x2 uses every value; at (000,111) C(x,y) = X, and T = {00,01,10}",
+           observed3 and C3 == set(X3) and len(I3) == 3 and T3 == {(0, 0), (0, 1), (1, 0)}, "C=%s T=%s" % (sorted(C3), sorted(T3)))
+    report("REFUTATION", "'every pair constraint at arity 3 is bijunctive': maj(001,010,111) = %s not in C, while T is majority-closed" % (maj3,),
+           maj3 == (0, 1, 1) and maj3 not in C3 and not majority_closed(C3, 3) and majority_closed(T3, 2),
+           "C majority-closed=%s T majority-closed=%s" % (majority_closed(C3, 3), majority_closed(T3, 2)))
+    xor = {(a, b, a ^ b) for a in (0, 1) for b in (0, 1)}
+    neq = {(0, 1), (1, 0)}
+    report("EXHAUSTIVE", "the arity-3 witness C is 0-valid and 1-valid and neither bijunctive, Horn, dual Horn nor affine; XOR is not bijunctive; != is neither 0- nor 1-valid",
+           (0, 0, 0) in C3 and (1, 1, 1) in C3 and not majority_closed(C3, 3)
+           and not closed_under_op(C3, lambda a, b: a & b) and not closed_under_op(C3, lambda a, b: a | b) and not affine_closed(C3)
+           and not majority_closed(xor, 3) and (0, 0) not in neq and (1, 1) not in neq, "")
+
+    # The arity-4 witness: the 6-cell set in the box 2x2x2x2 and the relation it realises at the
+    # pair (0000, 1111).  The relation is READ OFF the witness, never asserted: a first version of this
+    # block named {000,110,101} and the witness in fact realises {000,011,101}, which is the same
+    # relation with two difference variables exchanged.
     X = {(0, 0, 0, 0), (1, 1, 1, 1), (1, 1, 0, 0), (0, 0, 1, 1), (1, 0, 1, 0), (0, 1, 0, 1)}
-    x, y = (0, 0, 0, 0), (1, 1, 1, 1)
-    OK = set()
-    for s in itertools.product((0, 1), repeat=4):
-        j = tuple(y[i] if s[i] else x[i] for i in range(4))
-        m = tuple(x[i] if s[i] else y[i] for i in range(4))
-        if j in X and m in X:
-            OK.add(s)
+    OK, I = pair_constraint(sorted(X), (0, 0, 0, 0), (1, 1, 1, 1))
     T = frozenset(tuple(s[0] ^ s[tt] for tt in range(1, 4)) for s in OK)
     maj = tuple((a & b) | (b & c) | (a & c) for a, b, c in zip(*sorted(T)))
     put("one_in_three_witness_set", sorted(X))
     put("one_in_three", dict(relation=sorted(T), majority=list(maj), size=len(T),
-                             majority_closed=majority_closed(T, 3)))
-    report("EXHAUSTIVE", "witness: X = {0000,1111,1100,0011,1010,0101} realises a 3-element relation at (0000,1111)",
+                             majority_closed=majority_closed(T, 3), C_majority_closed=majority_closed(OK, 4)))
+    report("EXHAUSTIVE", "witness: X = {0000,1111,1100,0011,1010,0101} realises a 3-element T at (0000,1111)",
            len(T) == 3 and T == frozenset({(0, 0, 0), (0, 1, 1), (1, 0, 1)}), "T=%s" % sorted(T))
-    report("REFUTATION", "'every arising relation is bijunctive' fails at arity 4: majority of T gives %s, not in T" % (maj,),
-           maj not in T and not majority_closed(T, 3), "T=%s majority=%s" % (sorted(T), maj))
+    report("REFUTATION", "'every arising difference relation is bijunctive' fails at arity 4: majority of T gives %s, not in T; C not bijunctive either" % (maj,),
+           maj not in T and not majority_closed(T, 3) and not majority_closed(OK, 4), "T=%s majority=%s" % (sorted(T), maj))
     # and T is exactly-one-of-three up to an XOR translation and coordinatewise complement:
     # T + (1,1,0) = {110,101,011} = exactly-two-of-three, whose complement is exactly-one-of-three.
     t = (1, 1, 0)
@@ -1328,6 +1793,11 @@ def selftest():
     ok &= RESULTS["bijunctive_exact"][3]["bijunctive"] < RESULTS["bijunctive_exact"][3]["relations_containing_zero"]
     print("  [%s] 'all arity-4 relations are bijunctive' is false: %d of %d" % ("ok" if ok else "XX",
           RESULTS["bijunctive_exact"][3]["bijunctive"], RESULTS["bijunctive_exact"][3]["relations_containing_zero"]))
+    # (5) a wrong bijunctivity claim at arity 3, on the constraint D9 defines
+    e3 = RESULTS["pair_constraint_exact"][2]
+    ok5 = e3["bijunctive_C"] < e3["relations"]
+    ok &= ok5
+    print("  [%s] 'every arity-3 pair constraint is bijunctive' is false: %d of %d" % ("ok" if ok5 else "XX", e3["bijunctive_C"], e3["relations"]))
     print("SELFTEST %s" % ("PASS" if ok else "FAIL"))
     return ok
 
@@ -1352,7 +1822,7 @@ def main():
     section_projection_gap(CENSUS)
     section_d2_algorithm(CENSUS)
     section_tree(CENSUS, cells, L216, TREE)
-    section_removal()
+    section_removal(CENSUS)
     section_arity()
     section_rank_lemma()
     section_amplification(cells)

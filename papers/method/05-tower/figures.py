@@ -67,12 +67,14 @@ def fig_stages():
 
 def fig_graph():
     """The constraint graph at the thirteenth stage, under the one-parent reading of the K bound.  The core's
-    angular momentum is labelled 2Jₚ, as the paper writes it (no Unicode subscript c exists)."""
+    angular momentum is labelled 2Jₚ, as the paper writes it (no Unicode subscript c exists).  Rims: the eight
+    first-stage coordinates in one colour, the five adjoined coordinates — every one carried as a monotone
+    envelope of its exact set, Table 2 — in the other."""
     pos = {"n": (0.0, 2.2), "\u2113": (1.1, 2.2), "k": (2.2, 2.2), "2S": (2.2, 3.25),
            "2J_c": (3.5, 2.2), "2K": (4.75, 2.2), "2J": (6.0, 2.2),
            "q": (2.2, 1.05), "g": (3.5, 1.05), "v": (4.85, 1.52), "2S\u2032": (4.85, 0.58),
            "f": (3.5, -0.05), "e": (2.2, -0.05)}
-    envelope = {"2J_c", "2K", "2J"}                       # bounded by a monotone envelope
+    envelope = {"2S\u2032", "v", "2J_c", "2K", "2J"}        # the five adjoined coordinates, each carried as an envelope (Table 2)
     tri = {"2S\u2032", "g", "v"}                              # the one cycle
     edges = set()
     for s_ in C.STAGES:
@@ -92,11 +94,11 @@ def fig_graph():
                 arrowprops=dict(arrowstyle="->", color=INK2, lw=1.0, shrinkB=12))
     ax.text(0.0, 2.75, "parent side", fontsize=8.5, color=INK2, ha="left", style="italic")
     ax.text(2.2, -0.52, "target side", fontsize=8.5, color=INK2, ha="center", style="italic")
-    ax.plot([], [], color=BLUE, lw=2.2, label="exact bound")
-    ax.plot([], [], color=ORANGE, lw=2.2, label="envelope bound")
+    ax.plot([], [], color=BLUE, lw=2.2, label="first-stage coordinate")
+    ax.plot([], [], color=ORANGE, lw=2.2, label="adjoined coordinate, an envelope")
     ax.plot([], [], color=AQUA, lw=2.6, label="the one cycle, 2S\u2032\u2013g\u2013v")
-    ax.legend(loc="lower right", frameon=False, fontsize=7.8, ncol=1,
-              bbox_to_anchor=(1.0, -0.02))
+    ax.legend(loc="upper right", frameon=False, fontsize=7.8, ncol=1,
+              bbox_to_anchor=(1.0, 1.0))
     ax.set_xlim(-0.45, 6.5)
     ax.set_ylim(-0.7, 3.7)
     ax.set_aspect("equal")
@@ -120,7 +122,14 @@ def fig_profile():
         ax.plot(q, B, ls, color=BLUE, lw=2, marker="s", ms=5, label="|B(q)| target side, %s" % tag)
         ax.plot(q, AB, ls, color=INK, lw=1.6, marker="D", ms=4, label="|A(q)|·|B(q)| section, %s" % tag)
         for x, y in zip(q, AB):
-            ax.text(x, y * (1.35 if ls == "-" else 0.62), "{:,}".format(y), ha="center", fontsize=7.5, color=INK)
+            if ls == "-":
+                ax.text(x, y * 1.45, "{:,}".format(y), ha="center", va="bottom", fontsize=7.5, color=INK)
+            elif x == 0:
+                ax.text(x + 0.08, y * 1.45, "{:,}".format(y), ha="left", va="bottom", fontsize=7.5, color=INK)
+            elif x == 3:
+                ax.text(x - 0.08, y * 1.45, "{:,}".format(y), ha="right", va="bottom", fontsize=7.5, color=INK)
+            else:
+                ax.text(x, y * 0.55, "{:,}".format(y), ha="center", va="top", fontsize=7.5, color=INK)
     ax.set_yscale("log")
     ax.set_xticks(q)
     ax.set_xlabel("q — the transfer")
@@ -179,7 +188,8 @@ def fig_brackets():
     ax.plot(rs, [max(direct[r]) for r in rs], color=INK, lw=1.4)
     ax.set_title("Λ₁₃ → Λ₈", fontsize=9)
     ax.set_xlabel("rank in Λ₁₃")
-    ax.legend(frameon=False, fontsize=7, loc="lower right")
+    ax.set_ylim(2, 29)                                    # headroom for the legend above the band
+    ax.legend(frameon=False, fontsize=7, loc="upper left")
     ax.yaxis.grid(True, color=GRID)
     ax.set_axisbelow(True)
     fig.suptitle("Stage brackets: the ranks below a rank above are a gap-free interval with monotone ends", fontsize=10, fontweight="bold")

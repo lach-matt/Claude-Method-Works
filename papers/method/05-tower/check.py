@@ -318,7 +318,8 @@ def check_cylinder():
            and max(range(4), key=lambda i: s[i][1] * s[i][2]) == 2 for s in secs.values()))
     qm = {d: Fraction(sum(q * a * b for q, a, b in secs[d]), len(L[d])) for d in STAGES}
     DATA["qmean"] = qm
-    ob("EXHAUSTIVE", "mean transfer ⟨q⟩", "%.4f" % float(qm[8]) == "1.4631" and "%.4f" % float(qm[13]) == "1.9159",
+    ob("EXHAUSTIVE", "mean transfer ⟨q⟩ at all six stages: 1.4631 1.6850 1.8304 1.8874 1.9141 1.9159",
+       ["%.4f" % float(qm[d]) for d in STAGES] == ["1.4631", "1.6850", "1.8304", "1.8874", "1.9141", "1.9159"],
        " ".join("%.4f" % float(qm[d]) for d in STAGES))
     # the (exact-product) fibre check per section: Λ restricted to q IS the product
     for d in (8, 13):
@@ -361,7 +362,8 @@ def check_cylinder():
     t0 = time.time()
     p, bm, bj = pairwise_closure(L12t)
     DATA["triangle12"].update(pairs=p, meet_fail=bm, join_fail=bj)
-    ob("REFUTATION", "the exact-triangle stage 12 is not closed: failing pairs counted", bm > 0,
+    ob("REFUTATION", "the exact-triangle stage 12 is not closed: 52,767,450 failing meets and 28,742,850 failing joins among 248,076,675 pairs",
+       (p, bm, bj) == (248076675, 52767450, 28742850),
        "%d pairs, %d meet failures, %d join failures, %.0fs" % (p, bm, bj, time.time() - t0))
     X12t = set(L12t)
     wit = None
@@ -378,29 +380,6 @@ def check_cylinder():
     ob("REFUTATION", "a meet witness inside the exact-triangle stage 12", wit is not None,
        "%s ∧ %s = %s ∉ X" % wit if wit else "none")
 
-    # orientation: the sign graph on the eight derived quantities is bipartite, so every cycle
-    # of the complete signed graph carries an even number of negative edges.
-    asc = {"e", "ν", "V"}
-    desc = {"T", "r", "δ", "spacing", "w"}
-    names = sorted(asc | desc)
-    neg = lambda a, b: (a in asc) != (b in asc)
-    cycles = 0
-    odd = 0
-    n = len(names)
-    for k in range(3, n + 1):
-        for sub in itertools.combinations(range(n), k):
-            first = sub[0]
-            rest = sub[1:]
-            for perm in itertools.permutations(rest):
-                if perm[0] > perm[-1]:
-                    continue
-                cyc = (first,) + perm
-                cycles += 1
-                s = sum(neg(names[cyc[i]], names[cyc[(i + 1) % k]]) for i in range(k))
-                odd += s % 2
-    DATA["cycles"] = (cycles, odd)
-    ob("EXHAUSTIVE", "every cycle of the signed K_8 on {e, ν, V | T, r, δ, spacing, w} is balanced",
-       odd == 0, "%d cycles of length 3..8, %d with an odd number of sign reversals" % (cycles, odd))
     # a difference of two coordinates is not a lattice homomorphism on Λ_8: witness
     X8 = L[8]
     h = lambda c: c[4] - c[3]            # e − q, a difference of two coordinates
@@ -419,7 +398,10 @@ def check_cylinder():
 
 
 # ----------------------------------------------------------------------------- the constraint graph
-EDGES = {   # (parent, child): the child's bound has the parent as its one argument
+EDGES = {   # (parent, child): the child's bound has the parent as its one argument.  Transcribed by hand
+            # from D10 (the instrument's own stage constructors name their parents); it is an independent
+            # TRANSCRIPTION, not a derivation, and check_graph() compares it with the imported graph
+            # instrument's own list.
     8:  [("n", "ℓ"), ("ℓ", "k"), ("k", "q"), ("e", "f"), ("f", "g"), ("q", "g"), ("k", "2S")],
     9:  [("g", "2S′")],
     10: [("2S′", "v"), ("g", "v")],
@@ -612,6 +594,11 @@ def check_physics_bounds():
     DATA["max2S_s"] = max2S_s
     ob("EXHAUSTIVE", "φ̂(k) = max 2J over ℓ ≤ 1 at k = 1, 2, 3 equals the instrument's cap table",
        {k: max2J[k] for k in (1, 2, 3)} == T.PHI and T.PHI == {1: 3, 2: 4, 3: 5}, str(T.PHI))
+    mu = {(l, k): max(S2 + L2 for S2, L2 in terms(l, k)) for l in (0, 1) for k in range(1, 4 * l + 3)}
+    phihat = {k: max(mu[(l, kk)] for l in (0, 1) for kk in range(1, k + 1) if kk <= 4 * l + 2) for k in (1, 2, 3)}
+    ob("EXHAUSTIVE", "φ̂(k) := max{μ(ℓ, k′) : ℓ ≤ 1, k′ ≤ k}, the running maximum of D12, equals {1:3, 2:4, 3:5}",
+       phihat == T.PHI and all(phihat[a] <= phihat[b] for a, b in ((1, 2), (2, 3))), str(phihat))
+    ob("EXHAUSTIVE", "μ(0, 1) = 1 and μ(0, 2) = 0 (the s shell)", (mu[(0, 1)], mu[(0, 2)]) == (1, 0), "%d, %d" % (mu[(0, 1)], mu[(0, 2)]))
     ob("EXHAUSTIVE", "the exact core bound is not monotone in k beyond the caps: max 2J(p^k), k = 1..6",
        [max2J[k] for k in range(1, 7)] == [3, 4, 5, 4, 3, 0], str([max2J[k] for k in range(1, 7)]))
     ob("EXHAUSTIVE", "the exact spin bound is not monotone: max 2S(s^k) = 1, 0; max 2S(p^k) = 1,2,3,2,1,0",
@@ -638,6 +625,14 @@ def new_at(f, v, S2):
     return any(S == S2 and c > 0 for (S, L), c in a.items())
 
 
+def senior_set(c):
+    """The exact fibre of axis 10 at a cell c of Λ_9: the seniorities v at which a term of the cell's own
+    spin 2S′ is NEW in f^v, on the ladder 2S′ ≤ v ≤ g, v ≡ g (mod 2), and under the conjugate ceiling
+    v ≤ 4f + 2 − g (a seniority-v term of f^g exists only up to the mirror occupancy 4f + 2 − v)."""
+    f, g, S2 = c[5], c[6], c[8]
+    return {v for v in range(S2, g + 1) if v <= 4 * f + 2 - g and v % 2 == g % 2 and new_at(f, v, S2)}
+
+
 def core_J(l, k, S2):
     """The 2J values of the terms of l^k that carry the cell's own multiplicity 2S."""
     out = set()
@@ -656,8 +651,7 @@ def check_envelope_gap():
     e9 = sum(len(spin_set(c[5], c[6])) for c in L[8])
     rows[9] = (e9, len(L[9]))
     # axis 10: v in [2S', g] against the seniorities at which the cell's own 2S' is new
-    e10 = sum(sum(1 for v in range(c[8], c[6] + 1) if v <= 4 * c[5] + 2 and v % 2 == c[6] % 2
-                  and new_at(c[5], v, c[8])) for c in L[9])
+    e10 = sum(len(senior_set(c)) for c in L[9])
     rows[10] = (e10, len(L[10]))
     # axis 11, two readings
     mu = {(l, k): max(S + L2 for S, L2 in terms(l, k)) for l in (0, 1) for k in range(1, 4 * l + 3)}
@@ -703,6 +697,120 @@ def check_envelope_gap():
        "realised %s, envelope %s, strict at k = 4, 5, 6" % (m, env))
 
 
+# ----------------------------------------------------------------------------- the envelope family
+def exact_fibres():
+    """The exact fibre at each axis as a function of the cell of the stage below, with the parent
+    indices (j, j′) of the construction's own bound there.  11s / 11w are the two readings of axis 11;
+    13t is the constant-side triangle at axis 13 (before the parity congruence)."""
+    mu = {(l, k): max(S + L2 for S, L2 in terms(l, k)) for l in (0, 1) for k in range(1, 4 * l + 3)}
+    return {
+        9:     (lambda c: spin_set(c[5], c[6]), 6, 6),
+        10:    (senior_set, 8, 6),
+        "11s": (lambda c: core_J(c[1], c[2], c[7]), 2, 2),
+        "11w": (lambda c: set(range(0, mu[(c[1], c[2])] + 1)), 2, 2),
+        12:    (lambda c: {K for K in range(0, c[10] + 2 * c[5] + 1) if abs(c[10] - 2 * c[5]) <= K and (K - c[10]) % 2 == 0}, 10, 10),
+        13:    (lambda c: {J for J in (c[11] - 1, c[11] + 1) if J >= 0}, 11, 11),
+        "13t": (lambda c: set(range(abs(c[11] - 1), c[11] + 2)), 11, 11),
+    }
+
+
+D10_INTERVAL = {   # the construction's own interval at each axis, as a function of the cell below
+    9:  lambda c: (0, c[6]),
+    10: lambda c: (c[8], c[6]),
+    11: lambda c: (0, T.PHI[c[2]]),
+    12: lambda c: (0, c[10] + 2 * T.FMAX),
+    13: lambda c: (max(0, c[11] - 1), c[11] + 1),
+}
+
+
+def check_envelope_family():
+    section("§3.1 / §4  THE ENVELOPE FAMILY — the least envelope at each axis, and the exact thirteenth stage")
+    L = stages()
+    fam = exact_fibres()
+    below = {9: 8, 10: 9, "11s": 10, "11w": 10, 12: 11, 13: 12, "13t": 12}
+    want = {9: (1638, 1654, 0), 10: (2535, 2535, 600), "11s": (12425, 13585, 1305), "11w": (13585, 13585, 0),
+            12: (60320, 70905, 0), 13: (199130, 199130, 0), "13t": (199130, 199130, 0)}
+    DATA["least"] = {}
+    for ax in (9, 10, "11s", "11w", 12, 13, "13t"):
+        F, j, jp = fam[ax]
+        S = L[below[ax]]
+        axn = int(str(ax)[:2])
+        Fx = {x: F(x) for x in S}
+        NE = [x for x in S if Fx[x]]
+        Aj = sorted({x[j] for x in S})
+        Ajp = sorted({x[jp] for x in S})
+        lo = {a: min(min(Fx[x]) for x in NE if x[j] >= a) for a in Aj}
+        hi = {b: max(max(Fx[x]) for x in NE if x[jp] <= b) for b in Ajp}
+        mono = all(lo[a] <= lo[b] for a, b in zip(Aj, Aj[1:])) and all(hi[a] <= hi[b] for a, b in zip(Ajp, Ajp[1:]))
+        nonempty = all(lo[x[j]] <= hi[x[jp]] for x in S)                       # every fibre of the envelope non-empty
+        contains = all(all(lo[x[j]] <= y <= hi[x[jp]] for y in Fx[x]) for x in S)
+        d10 = D10_INTERVAL[axn]
+        member = all(all(d10(x)[0] <= y <= d10(x)[1] for y in Fx[x]) for x in S)  # D10's interval is in the family
+        inside = all(d10(x)[0] <= lo[x[j]] and hi[x[jp]] <= d10(x)[1] for x in S)  # and contains the least member
+        n = sum(hi[x[jp]] - lo[x[j]] + 1 for x in S)
+        ex = sum(len(Fx[x]) for x in S)
+        adm = sum(d10(x)[1] - d10(x)[0] + 1 for x in S)
+        DATA["least"][ax] = dict(lo=lo, hi=hi, least=n, exact=ex, admitted=adm, empty=len(S) - len(NE))
+        ob("EXHAUSTIVE", "axis %s: least envelope over (%s, %s) admits %d; the construction's bound admits %d; %d empty exact fibres"
+           % (ax, COORDS[j], COORDS[jp], n, adm, len(S) - len(NE)),
+           mono and nonempty and contains and member and inside and (n, adm, len(S) - len(NE)) == want[ax] and adm == len(L[axn]),
+           "l⋆ = %s, h⋆ = %s" % ([lo[a] for a in Aj], [hi[b] for b in Ajp]))
+    Ld = DATA["least"]
+    ob("EXHAUSTIVE", "the construction's bound is the least envelope at axes 10, 11 (wider) and 13, and a larger member at 9, 11 (strict) and 12",
+       all(Ld[a]["least"] == Ld[a]["admitted"] for a in (10, "11w", 13, "13t")) and all(Ld[a]["least"] < Ld[a]["admitted"] for a in (9, "11s", 12)),
+       "1,654 − 1,638 = %d; 13,585 − 12,425 = %d; 70,905 − 60,320 = %d" % (1654 - Ld[9]["least"], 13585 - Ld["11s"]["least"], 70905 - Ld[12]["least"]))
+    ob("EXHAUSTIVE", "the 16 cells of Λ_8 with g = 3 are where the axis-9 least envelope drops the value 0 (2S′ ≡ g mod 2)",
+       sum(1 for c in L[8] if c[6] == 3) == 16 and Ld[9]["lo"][3] == 1 and 1654 - Ld[9]["least"] == 16)
+    ob("EXHAUSTIVE", "the exact fibre is strictly smaller than the least envelope at every axis (so no exact set is of Theorem 5(i)'s shape)",
+       all(Ld[a]["exact"] < Ld[a]["least"] for a in (9, 10, "11s", "11w", 12, 13)),
+       " ".join("%d<%d" % (Ld[a]["exact"], Ld[a]["least"]) for a in (9, 10, "11s", "11w", 12, 13)))
+    ob("EXHAUSTIVE", "every spin in the spin set of f^g has the parity of g: 2S′ ≡ g (mod 2), for f = 0, 1 and every g the caps admit",
+       all(S2 % 2 == g % 2 for f in (0, 1) for g in range(0, 4 * f + 3) for S2 in spin_set(f, g)))
+    # the exact thirteenth stage, two readings, against the band
+    F13, F13t = fam[13][0], fam["13t"][0]
+    L13d = [c + (J,) for c in L[12] for J in sorted(F13(c))]
+    L13t = [c + (J,) for c in L[12] for J in sorted(F13t(c))]
+    band = {c + (J,) for c in L[12] for J in range(max(0, c[11] - 1), c[11] + 2)}
+    ob("EXHAUSTIVE", "the band |2J − 2K| ≤ 1, 2J ≥ 0 over Λ_12 IS Λ_13 as a set, and is the least envelope of the doublet",
+       band == set(L[13]) and len(band) == 199130 and Ld[13]["least"] == 199130
+       and all(Ld[13]["lo"][a] == max(0, a - 1) and Ld[13]["hi"][a] == a + 1 for a in Ld[13]["lo"]))
+    n0 = sum(1 for c in L[12] if c[11] == 0)
+    n1 = sum(1 for c in L[12] if c[11] >= 1)
+    ob("EXHAUSTIVE", "the exact doublet 2J = 2K ± 1 gives 128,225 cells; the constant-side triangle 185,545; the band 199,130",
+       (len(L13d), len(L13t), len(band)) == (128225, 185545, 199130))
+    ob("EXHAUSTIVE", "the band's excess over the doublet is 70,905 = one value (2K) per cell: 57,320 by the congruence at 2K ≥ 1 and 13,585 at 2K = 0",
+       len(band) - len(L13d) == 70905 == n0 + n1 and n1 == 57320 and n0 == 13585
+       and len(L13t) - len(L13d) == n1 and len(band) - len(L13t) == n0, "%d + %d" % (n1, n0))
+    base = (1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0)
+    a, b = base + (0, 1), base + (1, 0)
+    m = tuple(map(min, a, b))
+    Sd, St = set(L13d), set(L13t)
+    ob("REFUTATION", "neither exact thirteenth stage is meet-closed: (…,2K=0,2J=1) ∧ (…,2K=1,2J=0) = (…,0,0) leaves both",
+       a in Sd and b in Sd and m not in Sd and a in St and b in St and m not in St, "%s ∧ %s = %s" % (a, b, m))
+    t0 = time.time()
+    rd, _ = staircase_sweep(L13d)
+    rt, _ = staircase_sweep(L13t)
+    DATA["exact13"] = dict(doublet=len(L13d), triangle=len(L13t), Ed=rd - len(L13d), Et=rt - len(L13t))
+    ob("REFUTATION", "their staircase defects: E = 70,905 (doublet) and E = 13,585 (triangle); ℛ of each is the band, 199,130",
+       (rd, rt) == (199130, 199130) and rd - len(L13d) == 70905 and rt - len(L13t) == 13585,
+       "|ℛ| = %d, %d; %.0fs" % (rd, rt, time.time() - t0))
+    # Theorem 5(iii)'s envelope, on alphabets {0..M}: l⋆(a) = max(0, a − k), h⋆(a) = a + k, for every k ≤ 6, M ≥ k
+    ok = True
+    cases = 0
+    for k in range(0, 7):
+        for M in range(k, 11):
+            A = list(range(M + 1))
+            F = {a: set(range(abs(a - k), a + k + 1)) for a in A}
+            lo = {a: min(min(F[b]) for b in A if b >= a) for a in A}
+            hi = {a: max(max(F[b]) for b in A if b <= a) for a in A}
+            ok &= all(lo[a] == max(0, a - k) and hi[a] == a + k for a in A)
+            ok &= all(set(range(lo[a], hi[a] + 1)) == {y for y in range(0, a + k + 1) if abs(y - a) <= k} for a in A)
+            ok &= (k == 0) or any(len(F[a]) < hi[a] - lo[a] + 1 for a in A)      # strictly larger for k ≥ 1
+            cases += 1
+    ob("EXHAUSTIVE", "Theorem 5(iii): the least envelope of {|a − k| ≤ y ≤ a + k} on {0..M} is the band B_k, strictly larger for k ≥ 1",
+       ok, "%d (k, M) cases, k ≤ 6, k ≤ M ≤ 10" % cases)
+
+
 # ----------------------------------------------------------------------------- Z3, over the integers
 def z3_prove(formula):
     s = z3.Solver()
@@ -730,18 +838,41 @@ def Min(a, b):
 
 
 def counting_axis_formula():
-    """Theorem 1 over the integers.  Two parent values x1, x2 with bounds (l1, h1), (l2, h2) that are
-    the values at x1, x2 of ONE pair of monotone functions (lo, hi) — monotonicity is the only thing
-    assumed of them, and is stated at the two points that occur.  y_i in [l_i, h_i].  Then the join
-    (max x, max y) and the meet (min x, min y) satisfy the bounds at max x and min x."""
-    x1, x2, y1, y2, l1, l2, h1, h2 = z3.Ints("x1 x2 y1 y2 l1 l2 h1 h2")
-    mono = z3.And(z3.Implies(x1 <= x2, z3.And(l1 <= l2, h1 <= h2)),
-                  z3.Implies(x2 <= x1, z3.And(l2 <= l1, h2 <= h1)))
+    """Theorem 1 over the integers, with the two parent indices j and j′ allowed to differ.  Two cells:
+    the lower bound's parent takes the values x1, x2 and the upper bound's parent u1, u2; (l1, h1) and
+    (l2, h2) are the values at those points of ONE pair of monotone functions (lo, hi) — monotonicity
+    is the only thing assumed of them, and is stated at the points that occur.  y_i in [l_i, h_i].
+    Then the join (max x, max u, max y) and the meet (min x, min u, min y) satisfy the bounds at the
+    joined and at the met parent values."""
+    x1, x2, u1, u2, y1, y2, l1, l2, h1, h2 = z3.Ints("x1 x2 u1 u2 y1 y2 l1 l2 h1 h2")
+    mono = z3.And(z3.Implies(x1 <= x2, l1 <= l2), z3.Implies(x2 <= x1, l2 <= l1),
+                  z3.Implies(u1 <= u2, h1 <= h2), z3.Implies(u2 <= u1, h2 <= h1))
     hyp = z3.And(mono, l1 <= y1, y1 <= h1, l2 <= y2, y2 <= h2)
-    lJ, hJ = z3.If(x1 >= x2, l1, l2), z3.If(x1 >= x2, h1, h2)      # the bounds at max(x1, x2)
-    lM, hM = z3.If(x1 <= x2, l1, l2), z3.If(x1 <= x2, h1, h2)      # the bounds at min(x1, x2)
+    lJ, hJ = z3.If(x1 >= x2, l1, l2), z3.If(u1 >= u2, h1, h2)      # lo at max(x1, x2), hi at max(u1, u2)
+    lM, hM = z3.If(x1 <= x2, l1, l2), z3.If(u1 <= u2, h1, h2)      # lo at min(x1, x2), hi at min(u1, u2)
     concl = z3.And(lJ <= Max(y1, y2), Max(y1, y2) <= hJ, lM <= Min(y1, y2), Min(y1, y2) <= hM)
-    return hyp, concl, (x1, x2, y1, y2, l1, l2, h1, h2)
+    return hyp, concl, (x1, x2, u1, u2, y1, y2, l1, l2, h1, h2)
+
+
+def py_counting_axis(vals):
+    """The same statement in ordinary arithmetic: the reference the fidelity guard compares against."""
+    x1, x2, u1, u2, y1, y2, l1, l2, h1, h2 = vals
+    mono = ((x1 > x2 or l1 <= l2) and (x2 > x1 or l2 <= l1) and (u1 > u2 or h1 <= h2) and (u2 > u1 or h2 <= h1))
+    hyp = mono and l1 <= y1 <= h1 and l2 <= y2 <= h2
+    lJ, hJ = (l1 if x1 >= x2 else l2), (h1 if u1 >= u2 else h2)
+    lM, hM = (l1 if x1 <= x2 else l2), (h1 if u1 <= u2 else h2)
+    concl = lJ <= max(y1, y2) <= hJ and lM <= min(y1, y2) <= hM
+    return hyp, concl
+
+
+def z3_eval(f, subst):
+    """Evaluate a Z3 formula at concrete integers: substitute, simplify, read off the Boolean."""
+    r = z3.simplify(z3.substitute(f, *[(v, z3.IntVal(int(n))) for v, n in subst]))
+    if z3.is_true(r):
+        return True
+    if z3.is_false(r):
+        return False
+    raise ValueError("the formula did not reduce to a constant: %s" % r)
 
 
 def triangle_formulas():
@@ -759,7 +890,7 @@ def band_formulas():
     hyp = z3.And(k >= 0, inB(a1, b1), inB(a2, b2))
     join = inB(Max(a1, a2), Max(b1, b2))
     meet = inB(Min(a1, a2), Min(b1, b2))
-    return hyp, join, meet
+    return hyp, join, meet, (k, a1, b1, a2, b2)
 
 
 def cband_formulas():
@@ -768,7 +899,17 @@ def cband_formulas():
     hyp = z3.And(inC(a1, b1, c1), inC(a2, b2, c2))
     join = inC(Max(a1, a2), Max(b1, b2), Max(c1, c2))
     meet = inC(Min(a1, a2), Min(b1, b2), Min(c1, c2))
-    return hyp, join, meet
+    return hyp, join, meet, (a1, b1, c1, a2, b2, c2)
+
+
+def cst_formulas():
+    """Theorem 5(iii): the triangle with one side the constant k, {x ≥ 0, y ≥ 0, |x − k| ≤ y ≤ x + k}."""
+    k, x1, y1, x2, y2 = z3.Ints("k x1 y1 x2 y2")
+    inS = lambda x, y: z3.And(x >= 0, y >= 0, Abs(x - k) <= y, y <= x + k)
+    hyp = z3.And(k >= 1, inS(x1, y1), inS(x2, y2))
+    join = inS(Max(x1, x2), Max(y1, y2))
+    meet = inS(Min(x1, x2), Min(y1, y2))
+    return hyp, join, meet, (k, x1, y1, x2, y2)
 
 
 def counting_box_claim(X, S, cells, d, shape):
@@ -825,10 +966,76 @@ def guard_encoding(seed=5):
         mk, jk = brute_closure_failures(Bk)
         ok &= (mk, jk) == (0, 0)
     print("  [%s] guard: B_k at cap 7, k = 0..3: closed by brute force" % ("ok" if ok else "XX"))
-    # (2) the counting-axis extension on random generated sublattices with random monotone bounds
+    inS = lambda k, x, y: abs(x - k) <= y <= x + k
+    cst_ok = True
+    cst_counts = {}
+    for k in (1, 2, 3):
+        Sk = {(x, y) for x in range(8) for y in range(11) if inS(k, x, y)}
+        mk, jk = brute_closure_failures(Sk)
+        cst_counts[k] = (mk, jk)
+        cst_ok &= mk > 0 and jk == 0 and (0, k) in Sk and (k, 0) in Sk and (0, 0) not in Sk
+    ok &= cst_ok
+    print("  [%s] guard: the constant-side triangle {|x−k| ≤ y ≤ x+k} at cap 7, k = 1..3: join-closed and not meet-closed by brute force %s"
+          % ("ok" if cst_ok else "XX", cst_counts))
+    # (2) the Z3 predicates THEMSELVES, evaluated at concrete integers and compared, cell by cell and
+    #     pair by pair, with the lambdas above: a wrong Abs, Max, Min or If would show here.
+    dis = 0
+    evals = 0
+    hyp, join, meet, v = triangle_formulas()
+    box6 = [(a, b, c) for a in range(7) for b in range(7) for c in range(7)]
+    for u, w in [(u, u) for u in box6] + [(rnd.choice(box6), rnd.choice(box6)) for _ in range(400)]:
+        sub = list(zip(v, u + w))
+        dis += z3_eval(hyp, sub) != (inT(*u) and inT(*w))
+        dis += z3_eval(join, sub) != inT(*map(max, u, w))
+        dis += z3_eval(meet, sub) != inT(*map(min, u, w))
+        evals += 3
+    hyp, join, meet, v = cband_formulas()
+    box8 = [(a, b, c) for a in range(9) for b in range(9) for c in range(9)]
+    for u, w in [(u, u) for u in box8] + [(rnd.choice(box8), rnd.choice(box8)) for _ in range(300)]:
+        sub = list(zip(v, u + w))
+        dis += z3_eval(hyp, sub) != (inC(*u) and inC(*w))
+        dis += z3_eval(join, sub) != inC(*map(max, u, w))
+        dis += z3_eval(meet, sub) != inC(*map(min, u, w))
+        evals += 3
+    hyp, join, meet, v = band_formulas()
+    box7 = [(a, b) for a in range(8) for b in range(8)]
+    for k in (0, 1, 2, 3):
+        inBk = lambda a, b: abs(a - b) <= k
+        for u, w in [(u, u) for u in box7] + [(rnd.choice(box7), rnd.choice(box7)) for _ in range(100)]:
+            sub = list(zip(v, (k,) + u + w))
+            dis += z3_eval(hyp, sub) != (inBk(*u) and inBk(*w))
+            dis += z3_eval(join, sub) != inBk(*map(max, u, w))
+            dis += z3_eval(meet, sub) != inBk(*map(min, u, w))
+            evals += 3
+    hyp, join, meet, v = cst_formulas()
+    box = [(x, y) for x in range(8) for y in range(11)]
+    for k in (1, 2, 3):
+        for u, w in [(u, u) for u in box] + [(rnd.choice(box), rnd.choice(box)) for _ in range(100)]:
+            sub = list(zip(v, (k,) + u + w))
+            dis += z3_eval(hyp, sub) != (inS(k, *u) and inS(k, *w))
+            dis += z3_eval(join, sub) != inS(k, *map(max, u, w))
+            dis += z3_eval(meet, sub) != inS(k, *map(min, u, w))
+            evals += 3
+    hyp, concl, v = counting_axis_formula()
+    seen_true = 0
+    for _ in range(600):
+        vals = [rnd.randint(-2, 4) for _ in v]
+        ph, pc = py_counting_axis(vals)
+        sub = list(zip(v, vals))
+        dis += z3_eval(hyp, sub) != ph
+        dis += z3_eval(concl, sub) != pc
+        seen_true += ph
+        evals += 2
+    print("  [%s] guard: the Z3 predicates (triangle, |a−b| ≤ c, B_k, the constant-side triangle, Theorem 1's hypothesis and conclusion) evaluated at concrete integers agree with the independent implementations: %d evaluations, %d disagreements; Theorem 1's hypothesis true at %d of 600 random points"
+          % ("ok" if dis == 0 and seen_true > 0 else "XX", evals, dis, seen_true))
+    ok &= dis == 0 and seen_true > 0
+    # (3) the counting-axis extension on random generated sublattices with random monotone bounds,
+    #     and Theorem 1's Z3 hypothesis and conclusion evaluated on cells of those extensions
     fails = 0
     trials = 0
     caught = 0
+    tied = 0
+    hypT, conclT, vT = counting_axis_formula()
     for _ in range(150):
         shape = rnd.choice([(3, 3), (4, 3), (3, 3, 3), (2, 4, 3)])
         cells = PROVER.cells_of(shape)
@@ -846,37 +1053,49 @@ def guard_encoding(seed=5):
         m, j = brute_closure_failures(ext)
         fails += m + j
         trials += 1
+        ext_l = sorted(ext)
+        for _ in range(3):                                              # the encoding on this instance's own cells
+            c1, c2 = rnd.choice(ext_l), rnd.choice(ext_l)
+            vals = (c1[p], c2[p], c1[p], c2[p], c1[-1], c2[-1], lo[c1[p]], lo[c2[p]], hi[c1[p]], hi[c2[p]])
+            sub = list(zip(vT, vals))
+            tied += z3_eval(hypT, sub) and z3_eval(conclT, sub)
         bad = list(hi)
         if len(bad) >= 2:
             bad[0], bad[-1] = bad[-1] + 2, bad[0]                       # a non-monotone control
             ext2 = {c + (y,) for c in Xs for y in range(0, bad[c[p]] + 1)}
             m2, j2 = brute_closure_failures(ext2)
             caught += (m2 + j2) > 0
-    ok &= fails == 0 and caught > 0
-    print("  [%s] guard: counting-axis extensions closed on %d random sublattices (%d failures); non-monotone control caught %d times"
-          % ("ok" if fails == 0 and caught > 0 else "XX", trials, fails, caught))
+    ok &= fails == 0 and caught > 0 and tied == 3 * trials
+    print("  [%s] guard: counting-axis extensions closed on %d random sublattices (%d failures); non-monotone control caught %d times; Theorem 1's encoding true on %d of %d cell pairs drawn from them"
+          % ("ok" if fails == 0 and caught > 0 and tied == 3 * trials else "XX", trials, fails, caught, tied, 3 * trials))
     return ok
 
 
 def guard_vacuity():
     ok = True
     hyp, concl, v = counting_axis_formula()
-    x1, x2, y1, y2, l1, l2, h1, h2 = v
-    r, _ = z3_sat(z3.And(hyp, x1 < x2, l1 < y1, y1 < h1, l2 < y2, y2 < h2, h1 < h2))
+    x1, x2, u1, u2, y1, y2, l1, l2, h1, h2 = v
+    r, _ = z3_sat(z3.And(hyp, x1 < x2, u1 > u2, l1 < y1, y1 < h1, l2 < y2, y2 < h2, l1 < l2, h2 < h1))
     ok &= r == z3.sat
-    print("  [%s] guard: counting-axis hypothesis satisfiable with y strictly inside both bounds and x1 < x2" % ("ok" if r == z3.sat else "XX"))
+    print("  [%s] guard: counting-axis hypothesis satisfiable with y strictly inside both bounds, x1 < x2, u1 > u2 (the two parents moving oppositely), lo and hi both strictly monotone there" % ("ok" if r == z3.sat else "XX"))
     hyp, join, meet, v = triangle_formulas()
     a1, b1, c1, a2, b2, c2 = v
     r, _ = z3_sat(z3.And(hyp, a1 != a2, b1 != b2, c1 > 0, c2 > 0))
     ok &= r == z3.sat
     print("  [%s] guard: triangle hypothesis satisfiable with two distinct non-degenerate triples" % ("ok" if r == z3.sat else "XX"))
-    hyp, join, meet = band_formulas()
-    r, _ = z3_sat(hyp)
+    hyp, join, meet, vb = band_formulas()
+    k, a1, b1, a2, b2 = vb
+    r, _ = z3_sat(z3.And(hyp, k >= 1, a1 != a2, b1 != b2))
     ok &= r == z3.sat
-    hyp2, join2, meet2 = cband_formulas()
-    r2, _ = z3_sat(hyp2)
+    hyp2, join2, meet2, vc = cband_formulas()
+    a1, b1, c1, a2, b2, c2 = vc
+    r2, _ = z3_sat(z3.And(hyp2, a1 != a2, b1 != b2, c1 > 0, c2 > 0))
     ok &= r2 == z3.sat
-    print("  [%s] guard: band hypotheses satisfiable" % ("ok" if r == z3.sat and r2 == z3.sat else "XX"))
+    hyp3, join3, meet3, vs = cst_formulas()
+    k, x1, y1, x2, y2 = vs
+    r3, _ = z3_sat(z3.And(hyp3, x1 != x2, y1 != y2))
+    ok &= r3 == z3.sat
+    print("  [%s] guard: band, |a−b| ≤ c and constant-side-triangle hypotheses satisfiable with two distinct non-degenerate members" % ("ok" if r == z3.sat and r2 == z3.sat and r3 == z3.sat else "XX"))
     # the finite-box obligation: a closed S strictly inside the box together with a non-constant h
     cells = PROVER.cells_of((3, 3))
     S = PROVER.subset_vars(cells, "s")
@@ -907,25 +1126,33 @@ def check_z3():
     ob("MACHINE-CHECKED", "Theorem 1, box form: every closed S ⊆ 3×3, every monotone h ∈ {−1..2}, extension closed",
        r, "2^9 subsets × all h, %.0fs" % (time.time() - t0))
     hyp, join, meet, v = triangle_formulas()
-    ob("MACHINE-CHECKED", "Theorem 5(i): the triangle region |a−b| ≤ c ≤ a+b is join-closed", z3_prove(z3.Implies(hyp, join)) == z3.unsat,
+    ob("MACHINE-CHECKED", "Theorem 3: the triangle region |a−b| ≤ c ≤ a+b is join-closed", z3_prove(z3.Implies(hyp, join)) == z3.unsat,
        "integers, all caps")
     r, m = z3_sat(z3.And(hyp, z3.Not(meet)))
-    ob("REFUTATION", "Theorem 5(ii): the triangle region is not meet-closed (Z3 finds a witness)", r == z3.sat,
+    ob("REFUTATION", "Theorem 3: the triangle region is not meet-closed (Z3 finds a witness)", r == z3.sat,
        "e.g. " + ", ".join("%s=%s" % (x, m.eval(x)) for x in v) if m is not None else "")
     inT = lambda a, b, c: abs(a - b) <= c <= a + b
     w1 = (0, 1, 1), (1, 0, 1)
     w2 = (4, 0, 4), (2, 2, 0)
     ok = all(inT(*p) and inT(*q) and not inT(*map(min, p, q)) for p, q in (w1, w2))
     ob("REFUTATION", "the two explicit meet witnesses: (0,1,1)∧(1,0,1) = (0,0,1) and (4,0,4)∧(2,2,0) = (2,0,0)", ok)
-    hyp, join, meet = band_formulas()
+    hyp, join, meet, _ = band_formulas()
     ob("MACHINE-CHECKED", "Theorem 4(i): B_k = {|a−b| ≤ k} is a sublattice for every k ≥ 0",
        z3_prove(z3.Implies(hyp, z3.And(join, meet))) == z3.unsat, "integers, all k and all caps")
-    hyp, join, meet = cband_formulas()
+    hyp, join, meet, _ = cband_formulas()
     ob("MACHINE-CHECKED", "Theorem 4(ii): C = {|a−b| ≤ c} is join-closed", z3_prove(z3.Implies(hyp, join)) == z3.unsat, "integers")
     r, m = z3_sat(z3.And(hyp, z3.Not(meet)))
     inC = lambda a, b, c: abs(a - b) <= c
     ok = r == z3.sat and inC(2, 0, 2) and inC(2, 2, 0) and not inC(2, 0, 0)
     ob("REFUTATION", "Theorem 4(iii): C is not meet-closed; witness (2,0,2)∧(2,2,0) = (2,0,0)", ok)
+    hyp, join, meet, v = cst_formulas()
+    ob("MACHINE-CHECKED", "Theorem 5(iii): the constant-side triangle {|x−k| ≤ y ≤ x+k} is join-closed for every constant k ≥ 1",
+       z3_prove(z3.Implies(hyp, join)) == z3.unsat, "integers, k free")
+    r, m = z3_sat(z3.And(hyp, z3.Not(meet)))
+    inS = lambda k, x, y: x >= 0 and y >= 0 and abs(x - k) <= y <= x + k
+    wit = all(inS(k, 0, k) and inS(k, k, 0) and not inS(k, 0, 0) for k in range(1, 7))
+    ob("REFUTATION", "Theorem 5(iii): it is not meet-closed; the solver's model, and (0,k)∧(k,0) = (0,0) verified for k = 1..6",
+       r == z3.sat and wit, "e.g. " + ", ".join("%s=%s" % (x, m.eval(x)) for x in v) if m is not None else "")
 
 
 # ----------------------------------------------------------------------------- the seed
@@ -1095,14 +1322,53 @@ def check_seed():
         ob("GUARD", "every one of the %d steps of Λ_%d is implied by one of %d kept steps; every restricted signature sits inside one of %d"
            % (len(st), d, len(keep), len(dom2)), red2 and red3)
         v = [z3.Bool("s%d" % k) for k in range(len(dom2))]
+        clauses = [z3.Or([v[m] for m, t in enumerate(dom2) if e in t]) for e in keep]
+        # GUARD, non-vacuity: the cover constraints are satisfiable with `want` signatures under this
+        # very encoding, and the model the solver returns is a cover of the kept steps in Python.
+        s0 = z3.Solver()
+        s0.add(clauses)
+        s0.add(z3.AtMost(*v, want[d]))
+        r0 = s0.check()
+        chosen0 = []
+        if r0 == z3.sat:
+            m0 = s0.model()
+            chosen0 = [dom2[m] for m in range(len(dom2)) if z3.is_true(m0.eval(v[m], model_completion=True))]
+        vac = r0 == z3.sat and len(chosen0) <= want[d] and all(any(e in t for t in chosen0) for e in keep)
+        ob("GUARD", "non-vacuity at Λ_%d: the cover constraints are satisfiable with %d signatures, and the solver's model is a cover of the %d kept steps"
+           % (d, want[d], len(keep)), vac, "%s, %d signatures chosen" % (r0, len(chosen0)))
+        # GUARD, encoding fidelity: the clause set evaluated at concrete assignments says "covers"
+        # exactly when the chosen signatures cover the kept steps in Python — on the exhibited cover
+        # carried into the reduced instance, on that cover with each one member removed, and on
+        # random subsets of the reduced family; and it says "does not cover" at least once.
+        Kset = set(keep)
+        carried = []
+        for s_ in best:
+            r_ = frozenset(s_ & Kset)
+            if r_:
+                carried.append(next(t for t in dom2 if r_ <= t))         # red3: such a t exists
+        carried = list(dict.fromkeys(carried))
+        def says(chosen):
+            sub = [(v[m], z3.BoolVal(dom2[m] in chosen)) for m in range(len(dom2))]
+            r_ = z3.simplify(z3.substitute(z3.And(clauses), *sub))
+            return z3.is_true(r_) if (z3.is_true(r_) or z3.is_false(r_)) else None
+        truth = lambda chosen: all(any(e in t for t in chosen) for e in keep)
+        trials_f = [set(carried)] + [set(carried) - {t} for t in carried]
+        rndf = random.Random(17 + d)
+        trials_f += [set(rndf.sample(dom2, rndf.randint(1, len(dom2)))) for _ in range(40)]
+        answers = [(says(c), truth(c)) for c in trials_f]
+        fid = (all(a == b for a, b in answers) and answers[0] == (True, True)
+               and any(a is False for a, b in answers[1:1 + len(carried)]))
+        ob("GUARD", "encoding fidelity at Λ_%d: the clause set agrees with the concrete cover test on the carried minimum, on it minus each member, and on 40 random subsets; it says no of some deletion"
+           % d, fid, "%d assignments, %d disagreements; carried cover of %d signatures says %s"
+           % (len(answers), sum(a != b for a, b in answers), len(carried), answers[0][0]))
         s = z3.Solver()
-        for e in keep:
-            s.add(z3.Or([v[m] for m, t in enumerate(dom2) if e in t]))
+        s.add(clauses)
         s.add(z3.AtMost(*v, want[d] - 1))
         t0 = time.time()
         r = s.check()
         ob("MACHINE-CHECKED", "no %d cells cover the steps of Λ_%d (every subset of the %d reduced signatures against %d kept steps)"
-           % (want[d] - 1, d, len(dom2), len(keep)), r == z3.unsat and red1 and red2 and red3, "%s, %.0fs" % (r, time.time() - t0))
+           % (want[d] - 1, d, len(dom2), len(keep)), r == z3.unsat and red1 and red2 and red3 and vac and fid,
+           "%s, %.0fs; reported only with both guards and both reductions passed" % (r, time.time() - t0))
         DATA["seed"][d] = dict(steps=len(st), slots=len(slots), distinct=len(fam), dominant=len(dom), size=len(best), G=G,
                                greedy=len(gr), packing=len(P), kept=len(keep), reduced=len(dom2))
     ob("EXHAUSTIVE", "the seeds 7, 8, 9 rise by one at each stage; the greedy figures 7, 9, 9 do not (Λ_9 is where they part)",
@@ -1169,6 +1435,9 @@ def selftest():
     hyp = z3.And(y1 <= h1, y2 <= h2, y1 >= 0, y2 >= 0)                # no monotonicity
     concl = Max(y1, y2) <= z3.If(x1 >= x2, h1, h2)
     ob("REFUTATION", "negative control: Theorem 1 without monotonicity is refuted", z3_prove(z3.Implies(hyp, concl)) == z3.sat)
+    # negative control 3b: the false claim "the constant-side triangle is meet-closed" is refuted by Z3
+    hyp, join, meet, _ = cst_formulas()
+    ob("REFUTATION", "negative control: 'the triangle with one side constant is meet-closed' is refuted", z3_prove(z3.Implies(hyp, meet)) == z3.sat)
     # negative control 4: the exact-triangle stage is not closed
     L = stages()
     L12t = [c + (K,) for c in L[11] for K in range(0, c[10] + 2 * c[5] + 1) if abs(c[10] - 2 * c[5]) <= K and (K - c[10]) % 2 == 0]
@@ -1209,6 +1478,7 @@ def main(argv=None):
         check_stages()
         check_physics_bounds()
         check_envelope_gap()
+        check_envelope_family()
         check_z3()
         check_graph()
         check_cylinder()

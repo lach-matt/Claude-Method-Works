@@ -496,78 +496,140 @@ honest? Honest in its statuses, over-generous in what it implies is enforced (R-
 
 | id | line(s) | severity | finding (short) | disposition |
 |---|---|---|---|---|
-| A-1 | 536 | MINOR | E1 row prints the source's spliced sequence unexplained | |
-| A-2 | 148, 495 | MAJOR | B5 asserts nothing; 1,482 and the size sequence unpinned | |
-| A-3 | many | MAJOR | printed counts not asserted (closed-family counts, 16, 20, 16/4, 4 ×4, closing-order structure) | |
-| A-4 | 122, 518–521 | MINOR | D2 idempotence carries `observed(X)`; Lemma 2 says all subsets | |
-| A-5 | 134, 579 | MINOR | J1 samples sizes; Lemma 4 claims set identity | |
-| A-6 | 241, 289, 307 | MAJOR | "every ordering visited" where the sweep halves one axis | |
-| A-7 | 443 | MAJOR | malformed 3-j closed form in Lemma 5's proof | |
-| A-8 | 447 | BLOCKING | Corollary 1 wrong: G^k = F^k for equivalent electrons at every k | |
-| A-9 | 231 | MINOR | breadth "constrained" asserted, not measured | |
-| A-10 | 449, 564 | MAJOR | Theorem 7's map undefined; two cells are a declaration | |
-| A-11 | 27 | MINOR | "two innermost open seats" wrong | |
-| A-12 | 33 | MINOR | "not tested" → "not adopted" | |
-| A-13 | 86–92 | MINOR | seats nest under D8 | |
-| A-14 | 102, 350 | MAJOR | admissibility checked against a (property, class) record not in the paper | |
-| A-15 | 341–348 | MAJOR | residuals undefined; four uncomputed numbers | |
-| A-16 | 244 | MINOR | "cannot change ℛ" — cite D2 | |
-| A-17 | 138 | MINOR | own-box counts are not by next-closure over the box | |
-| A-18 | 380, 553–566 | MINOR | EXHAUSTIVE used for single-ordering computations | |
-| A-19 | 435 | MINOR | parity argument assumes ℓ′ = 0 | |
-| A-20 | 586 | MINOR | "no quantifier to discharge" imprecise | |
-| A-21 | 579 | MINOR | literal backslashes on the page (J1 row) | |
-| A-22 | 104, 204, 318, 447 | MINOR | carets/braces as superscripts on the page | |
-| A-23 | §1–§2, tables, figures | MINOR | underscore subscripts on the page; n_f in prose and figures; Λ₁₃ gapped | |
-| A-24 | PDF pp.6, 7, 19, 21 | MINOR | four orphaned run-in headings at page feet | |
-| A-25 | 250–251 | MINOR | φ display block merges into one line | |
-| A-26 | 267, 295, 352, 401 | MINOR | duplicated "Figure n" labels | |
-| A-27 | Fig. 2 | MINOR | t(l), hyphen, "2,3,5" against Table 3 | |
-| R-M1 | 126 | MINOR | redundant ∩ Box(X); non-emptiness | |
-| R-M2 | 122 | MINOR | = A-4 | |
-| R-M3 | 237–271 | MAJOR | valence block full; closure reduces to two subvalence cells; say so | |
-| R-M4 | 40, 459 | MAJOR | wrong denominator for a min-over-orderings claim | |
-| R-M5 | 379–382 | MAJOR | charge index: role ↔ carrier bijective; "content" sentence unsupported | |
-| R-M6 | 227–229 | MAJOR | Proposition 2 verifies a definition; "whole justification" circular | |
-| R-M7 | 449 | MAJOR | = A-10 | |
-| R-M8 | 417 | MAJOR | "narrower domain" contradicts the axis direction | |
-| R-M9 | 386 | MINOR | region → low assignment unstated | |
-| R-M10 | 138 | MINOR | = A-17 | |
-| R-M11 | 74 | MINOR | orderings vs induced orders; reversal pairs counted twice | |
-| R-M12 | 318, 331 | MINOR | "definition of a charge role" is a criterion | |
-| R-C1 | 154, 229 | MAJOR | "closed list" claim false and load-bearing | |
-| R-C2 | Table 1 kind column | MAJOR | centrifugal barrier is not a symmetry; sole occupant of a closed cell; other kinds violate D7 | |
-| R-C3 | Table 1 dep. column, outer seats | MAJOR | dependency undefined for eighteen outer-seat properties; Theorem 2 reads labels | |
-| R-C4 | Table 1 dep. column, closed seats | MAJOR | closure rests on five sole-occupant assignments; name and defend them | |
-| R-C5 | 167 | MINOR | Z is not a role of c | |
-| R-C6 | 181, 188, 190 | MINOR | NIST ASD "source" for derived counts | |
-| R-C7 | 43, 156 | MINOR | dashes read as "no source exists" | |
-| R-C8 | 197 | MINOR | colour of the ion is a complex property | |
-| R-C9 | 191, 220–223 | MINOR | coordination number, smell, taste, reactivity not species properties | |
-| R-C10 | 106 | MINOR | "core charge" misnamed | |
-| R-C11 | 320–327 | MINOR | species unnamed; two "—" cells are in NIST ASD | |
-| R-C12 | 447 | BLOCKING | = A-8 | |
-| R-C13 | 439–445 | MINOR | which exchange coefficient; convention | |
-| R-C14 | 35, 337–358, title | MAJOR | routing is declared and checked admissible, not derived | |
-| R-C15 | 180 | MINOR | lanthanide contraction on A | |
-| R-R1 | 3, 23 | MAJOR | thesis: "each closure declares a boundary" — only one does | |
-| R-R2 | 13, 27 | MAJOR | abstract should say the valence block is full | |
-| R-R3 | §11 | MAJOR | record implies more enforcement than the check does (A-2, A-3, A-4, A-6, A-18) | |
-| R-R4 | References | MINOR | missing Cowan 1981, an order-theory text, data tabulations | |
-| R-R5 | 592–610 | MINOR | eleven uncited references; Z3 uncited | |
-| R-R6 | 603 | MINOR | companion paper in preparation | |
-| R-R7 | 382 | MAJOR | = R-M5 | |
-| R-R8 | 417 | MAJOR | = R-M8 | |
-| R-R9 | 35, §7 | MAJOR | = R-C14 | |
-| R-R10 | 154 | MAJOR | = R-C1 | |
-| R-R11 | 279–299 | MAJOR | = R-C3 | |
-| R-R12 | 15 | MINOR | per-(Z, c) reading is an interpretation | |
-| R-R13 | 447 | BLOCKING | = A-8 | |
-| R-R14 | 443 | MAJOR | = A-7 | |
-| R-R15 | §2 | MINOR | situate ℛ among closure operators on products of chains | |
+| A-1 | 536 | MINOR | E1 row prints the source's spliced sequence unexplained | FIXED — the E1 row now describes the splice without printing it; the spliced sequence appears nowhere in the paper. |
+| A-2 | 148, 495 | MAJOR | B5 asserts nothing; 1,482 and the size sequence unpinned | FIXED — B5 asserts 1,482 and the size sequence 1, 14, 70, … and prints it in its detail line. |
+| A-3 | many | MAJOR | printed counts not asserted (closed-family counts, 16, 20, 16/4, 4 ×4, closing-order structure) | FIXED — every printed count is an equality in its obligation: B2 (sixteen), F1 (20), F2b (16/4), F2c (4 of 288), H3 (4 of 144), H10 (4 of 2,880), I3 (4 of 1,152), I4b (2 of 5,760), C1–C4 (all family counts), B3c (the three forced and three free choices of the eight closing orders); the repair also pinned G3's 4,135, G4's 492, H4's 864 and H13's 17,280 / 13,824. |
+| A-4 | 122, 518–521 | MINOR | D2 idempotence carries `observed(X)`; Lemma 2 says all subsets | FIXED — `observed(X)` dropped from the idempotence obligation (D2 holds over every subset with max ∅ = −∞); Lemma 2 and the D2 rows say "no hypothesis on X". |
+| A-5 | 134, 579 | MINOR | J1 samples sizes; Lemma 4 claims set identity | FIXED — J1 tests the set identity ℛ(σX) = σ(ℛ(X)); Lemma 4's corroboration sentence says so. |
+| A-6 | 241, 289, 307 | MAJOR | "every ordering visited" where the sweep halves one axis | FIXED — §2 states the halving (half of the last axis, each ordering standing for itself and its reversal); Theorems 1–3 say "up to the reversal symmetry"; Theorem 2's table has a visited column (E4); §10 names the four sweeps run in full (B3b, F2b, H10, J2). |
+| A-7 | 443 | MAJOR | malformed 3-j closed form in Lemma 5's proof | FIXED — the cited form is (j j 0; m −m 0) = (−1)ʲ⁻ᵐ/√(2j+1), the column-permutation sign (−1)ʲ¹⁺ʲ²⁺ʲ³ is stated, and the s–ℓ symbol is named as (0 ℓ ℓ; 0 0 0); I6b computes the closed form for every m and the three column orders exactly. |
+| A-8 | 447 | BLOCKING | Corollary 1 wrong: G^k = F^k for equivalent electrons at every k | FIXED — D12 distinguishes equivalent from non-equivalent diagonal pairs; Lemma 6 proves Gᵏ(P, P) = Fᵏ(P, P) from the definition (CITED Condon and Shortley 1935, Cowan 1981; the definitions verified against a public text, Pain 2023, since the tree holds neither book — see SOURCES.md §5) and I8/I8b/I8c check it in exact arithmetic on hydrogenic functions (twenty equalities; eleven inequalities for non-equivalent pairs; five tabulated controls); Corollary 1 is restated as the equivalent / non-equivalent split and says that "none at s/s and four at f/f" holds under neither reading. §0 and the abstract carry the corrected statement. |
+| A-9 | 231 | MINOR | breadth "constrained" asserted, not measured | FIXED — A6b measures the breadth axis: eleven cells on 4 × 2 × 4, minimum E = 2 over 1,152 orderings, none closes; §3 prints it. |
+| A-10 | 449, 564 | MAJOR | Theorem 7's map undefined; two cells are a declaration | FIXED — Theorem 7 demoted to a Remark with no status; H12 retained and described as checking only that the two named cells lie in the merge. |
+| A-11 | 27 | MINOR | "two innermost open seats" wrong | FIXED — "the two outermost shells". |
+| A-12 | 33 | MINOR | "not tested" → "not adopted" | FIXED — "the alternative that was not adopted". |
+| A-13 | 86–92 | MINOR | seats nest under D8 | FIXED — D8 defines the core as the closed shells below the subvalence shell; "the five seats partition the species". |
+| A-14 | 102, 350 | MAJOR | admissibility checked against a (property, class) record not in the paper | FIXED by withdrawal — routing and its (property, class) record are no longer in the paper (with R-C14); G7 is retained in `check.py` and the record says no sentence rests on it. |
+| A-15 | 341–348 | MAJOR | residuals undefined; four uncomputed numbers | FIXED by withdrawal — the routing table and figure are removed; no residual is named and none of the four numbers is printed. |
+| A-16 | 244 | MINOR | "cannot change ℛ" — cite D2 | FIXED — "(D2)" added. |
+| A-17 | 138 | MINOR | own-box counts are not by next-closure over the box | FIXED — §2 says the fixed-box column is by next-closure over the box and the own-box column by next-closure over every sub-box weighted by the number of ways to choose it. |
+| A-18 | 380, 553–566 | MINOR | EXHAUSTIVE used for single-ordering computations | FIXED — single-ordering checks name their family as "the N cells of the box at the declared ordering" (Theorems 4a, 4c, 4, 5; record rows B3, H2, H5, H8, I1). |
+| A-19 | 435 | MINOR | parity argument assumes ℓ′ = 0 | FIXED — Theorem 6 says the only pair with an s rival is s/s and makes the parity argument there. |
+| A-20 | 586 | MINOR | "no quantifier to discharge" imprecise | FIXED — "there is no quantifier over the subsets of a box to discharge". |
+| A-21 | 579 | MINOR | literal backslashes on the page (J1 row) | FIXED — no code span remains in the paper; the J1 cell is plain text. pypdf extraction of the PDF: 0 backslashes. |
+| A-22 | 104, 204, 318, 447 | MINOR | carets/braces as superscripts on the page | FIXED — Fᵏ, Gᵏ, F⁰, F², F⁴ in Unicode; the term symbol described in words (multiplicity, L and J). pypdf: 0 carets. |
+| A-23 | §1–§2, tables, figures | MINOR | underscore subscripts on the page; n_f in prose and figures; Λ₁₃ gapped | FIXED — Unicode subscripts throughout; ℛ(X; B) and A₁, …, Aₙ where Unicode has no subscript B or d; "closed f-shell count" in prose and in `figures.py`; no monospace anywhere. pypdf: 0 underscores. |
+| A-24 | PDF pp.6, 7, 19, 21 | MINOR | four orphaned run-in headings at page feet | FIXED — the five sub-table headings are `###` headings and the template keeps a heading with its successor; every page end of the 26-page render was checked (extracted last lines and the rasterised pages): no heading or table header stands at a page foot. |
+| A-25 | 250–251 | MINOR | φ display block merges into one line | FIXED — a blank quoted line separates the two φ lines; they render as two lines. |
+| A-26 | 267, 295, 352, 401 | MINOR | duplicated "Figure n" labels | FIXED — empty alt texts; each figure carries one caption. |
+| A-27 | Fig. 2 | MINOR | t(l), hyphen, "2,3,5" against Table 3 | FIXED by withdrawal — the routing figure is removed. |
+| R-M1 | 126 | MINOR | redundant ∩ Box(X); non-emptiness | FIXED — "∩ Box(X)" dropped; "(non-empty, by D1)" added. |
+| R-M2 | 122 | MINOR | = A-4 | FIXED — see A-4. |
+| R-M3 | 237–271 | MAJOR | valence block full; closure reduces to two subvalence cells; say so | FIXED — Proposition 3 (proved, and measured by B6 and B8: beside the full block a pair closes iff it shares a coordinate, 30 of 66) states that Theorem 1 reduces to the position of the two subvalence cells; the thesis, abstract and §0 say so; the three forced choices are called a restatement of where those cells sit. |
+| R-M4 | 40, 459 | MAJOR | wrong denominator for a min-over-orderings claim | FIXED — C3c enumerates the family closed under SOME ordering: 6,432 of C(24, 14) = 1,961,256 fourteen-cell subsets (128 at a fixed ordering); Proposition 4 and §0 point 2 read Theorem 1 against it; 5,824 of 2²⁴ is kept only as the enumeration figure. |
+| R-M5 | 379–382 | MAJOR | charge index: role ↔ carrier bijective; "content" sentence unsupported | FIXED — H5b asserts the role–carrier bijection and sign as a function of role; Theorem 4c is stated on (role, regime), box 12, with the four-coordinate reading beside it; the over-specification sentence is deleted. |
+| R-M6 | 227–229 | MAJOR | Proposition 2 verifies a definition; "whole justification" circular | FIXED — Proposition 2 reads "Table 1 is consistent with D9"; "whole justification" dropped; the paragraph after it gives the reason the seat exists. |
+| R-M7 | 449 | MAJOR | = A-10 | FIXED — see A-10. |
+| R-M8 | 417 | MAJOR | "narrower domain" contradicts the axis direction | FIXED — the interpretive sentence is deleted; §7 states the order of low and neutral, says what fixes it, and draws no conclusion. |
+| R-M9 | 386 | MINOR | region → low assignment unstated | FIXED — §7.3 names the two region-domain parameters placed at low (H7b) and says the choice is per parameter. |
+| R-M10 | 138 | MINOR | = A-17 | FIXED — see A-17. |
+| R-M11 | 74 | MINOR | orderings vs induced orders; reversal pairs counted twice | FIXED — D5 says E depends on an ordering through the induced total orders and that reversal pairs are counted twice. |
+| R-M12 | 318, 331 | MINOR | "definition of a charge role" is a criterion | FIXED — D10's C carries the criterion; §6 says "the criterion D10 states". |
+| R-C1 | 154, 229 | MAJOR | "closed list" claim false and load-bearing | FIXED — §3 calls it "the list as compiled", names properties it omits and entries a tabulation would not carry; the fifth-seat paragraph no longer rests on the list being closed. |
+| R-C2 | Table 1 kind column | MAJOR | centrifugal barrier is not a symmetry; sole occupant of a closed cell; other kinds violate D7 | FIXED — D7 gains a second clause (a quantity fixed by a symmetry label alone) that licenses the barrier and says so; the alternative is measured (B9: as an energy, thirteen cells, no ordering closes) and printed in Proposition 5; the outer-seat kinds are declared labels as compiled in D7 and Table 1's caption. |
+| R-C3 | Table 1 dep. column, outer seats | MAJOR | dependency undefined for eighteen outer-seat properties; Theorem 2 reads labels | FIXED — D10 says the dependency is defined at the closed seats and nominal at the nucleus and the aggregate; Theorem 2 is kept as a computation, its reading rewritten in §5 as a measurement of labels, "boundary" dropped throughout (thesis, §0, §9); §0 point 6 added. |
+| R-C4 | Table 1 dep. column, closed seats | MAJOR | closure rests on five sole-occupant assignments; name and defend them | FIXED — Proposition 5 (B7, B7b) names the seven sole occupants, the three the closure rests on, and defends each in a sentence, naming the coordination number as the least defended. |
+| R-C5 | 167 | MINOR | Z is not a role of c | FIXED — the row states Z is not a role of c and that the label is nominal. |
+| R-C6 | 181, 188, 190 | MINOR | NIST ASD "source" for derived counts | FIXED — "read off the ground configuration". |
+| R-C7 | 43, 156 | MINOR | dashes read as "no source exists" | FIXED — the source column is dropped; the sentence that no source is named for thirty-six stays. |
+| R-C8 | 197 | MINOR | colour of the ion is a complex property | FIXED — "the visible absorption of the ion in its common complexes — a ligand-field property". |
+| R-C9 | 191, 220–223 | MINOR | coordination number, smell, taste, reactivity not species properties | FIXED in part — §3 says the list carries entries a tabulation would not (smell, taste) and Proposition 5 says the coordination number is a property of a compound's structure; the entries are not removed (removal would change the census and every sweep, and the paper now defends no outer-seat entry). DECLINED as to removal. |
+| R-C10 | 106 | MINOR | "core charge" misnamed | FIXED — "the charge stage c … the Roman numeral of spectroscopic notation"; the model's name for it is noted. |
+| R-C11 | 320–327 | MINOR | species unnamed; two "—" cells are in NIST ASD | FIXED — species named in every cell; the two empty cells read "not consulted". |
+| R-C12 | 447 | BLOCKING | = A-8 | FIXED — see A-8. |
+| R-C13 | 439–445 | MINOR | which exchange coefficient; convention | FIXED in part — Lemma 5 now says it fixes the 3-j square only, up to a coupling-dependent rational coefficient it does not fix. DECLINED as to printing the configuration-average coefficient: no text in the tree states it and it could not be verified against a public source. |
+| R-C14 | 35, 337–358, title | MAJOR | routing is declared and checked admissible, not derived | FIXED — routing withdrawn entirely (no residual definition, no routing table, no routing figure); the title reads "a classification index"; §9 says the index routes nothing. |
+| R-C15 | 180 | MINOR | lanthanide contraction on A | FIXED — one clause defends A (incomplete screening by the f shell's charge distribution as an electron–electron effect) and cites Pyykkö 1988 for the relativistic part left aside. |
+| R-R1 | 3, 23 | MAJOR | thesis: "each closure declares a boundary" — only one does | FIXED — the thesis no longer speaks of a boundary; §0 states three results without one. |
+| R-R2 | 13, 27 | MAJOR | abstract should say the valence block is full | FIXED — the abstract says the valence seat occupies every cell of its block and the closure is carried by the two subvalence cells. |
+| R-R3 | §11 | MAJOR | record implies more enforcement than the check does (A-2, A-3, A-4, A-6, A-18) | FIXED — see A-2, A-3, A-4, A-6, A-18; §10 says every count is asserted, and it is. |
+| R-R4 | References | MINOR | missing Cowan 1981, an order-theory text, data tabulations | FIXED in part — Cowan 1981 and Davey and Priestley 2002 added, and Pain 2023 as a public statement of the Slater definitions; Birkhoff and Caspard et al. not added (Davey and Priestley suffices for the one closure-system fact used); the data tabulations not added because the source column was dropped (R-C7). |
+| R-R5 | 592–610 | MINOR | eleven uncited references; Z3 uncited | FIXED — the eleven uncited references removed; Z3 cited by author in §10; every remaining reference is cited in the text. |
+| R-R6 | 603 | MINOR | companion paper in preparation | FIXED — D4 says the part used is proved in §2 and nothing else from the companion is used. |
+| R-R7 | 382 | MAJOR | = R-M5 | FIXED — see R-M5. |
+| R-R8 | 417 | MAJOR | = R-M8 | FIXED — see R-M8. |
+| R-R9 | 35, §7 | MAJOR | = R-C14 | FIXED — see R-C14. |
+| R-R10 | 154 | MAJOR | = R-C1 | FIXED — see R-C1. |
+| R-R11 | 279–299 | MAJOR | = R-C3 | FIXED — see R-C3. |
+| R-R12 | 15 | MINOR | per-(Z, c) reading is an interpretation | FIXED — §7 "What the merge can be read as giving"; no per-(Z, c) claim in the abstract. |
+| R-R13 | 447 | BLOCKING | = A-8 | FIXED — see A-8. |
+| R-R14 | 443 | MAJOR | = A-7 | FIXED — see A-7. |
+| R-R15 | §2 | MINOR | situate ℛ among closure operators on products of chains | FIXED — "Where ℛ sits" places ℛ among closure systems on a product of chains with four exhaustive witnesses (K1) and Lemma 2′ (ℛ(X) a sublattice, MACHINE-CHECKED D3 ×4). |
 
 Counts (distinct findings, cross-references to the same defect counted once):
 **BLOCKING 1** (A-8 = R-C12 = R-R13); **MAJOR 20** (A-2, A-3, A-6, A-7, A-10, A-14, A-15, R-M3,
 R-M4, R-M5, R-M6, R-M8, R-C1, R-C2, R-C3, R-C4, R-C14, R-R1, R-R2, R-R3; R-M7, R-R7–R-R11 and
 R-R14 are cross-references); **MINOR 37** (A-1, A-4, A-5, A-9, A-11 to A-13, A-16 to A-27, R-M1,
 R-M9, R-M11, R-M12, R-C5 to R-C11, R-C13, R-C15, R-R4 to R-R6, R-R12, R-R15).
+
+
+---
+
+## Repair record (2026-09-24)
+
+Repairing drafter, against the 58 findings above (69 table rows, cross-references included). Nothing
+above was deleted or rewritten; the disposition column is filled for every row. Dispositions by
+severity: **BLOCKING 1 — FIXED**; **MAJOR 20 — all FIXED** (five of them by withdrawing the claim:
+A-14, A-15 and R-C14 routing; R-C3 the boundary reading; A-10 Theorem 7); **MINOR 37 — 34 FIXED,
+3 FIXED in part with a declined remainder** (R-C9: the disputed entries are labelled, not removed;
+R-C13: the configuration-average coefficient is not printed because it could not be verified against
+a text; R-R4: two further order-theory texts and the data tabulations are not added, for the reasons
+in the rows).
+
+**A-8, the blocking finding.** The two-clause statement was withdrawn and the physics derived from the
+paper's own definition: D12 now says what an equivalent pair is, Lemma 6 proves Gᵏ(P, P) = Fᵏ(P, P) at
+every rank as an identity of integrands, and Corollary 1 states the equivalent / non-equivalent split.
+The tree holds no copy of Condon and Shortley or Cowan, so the definitions of Rᵏ, Fᵏ = Rᵏ(ab, ab) and
+Gᵏ = Rᵏ(ab, ba) were verified against a public text that restates them from those sources (Pain 2023,
+arXiv:2309.00503, eqs. 2, 5, 7; read through the alphaXiv connector because the egress proxy blocks
+arxiv.org, Wikipedia and DLMF), and the ℓⁿ statement against Moore and van der Laan, arXiv:0807.0416,
+eqs. 27–28 and 41. The 3-j closed form and column-permutation sign of Lemma 5 (A-7) were confirmed
+against public statements citing Edmonds 1957. Beyond the citations the identity is checked in exact
+rational arithmetic: I8 reproduces five tabulated hydrogenic integrals from the definition, I8b finds
+Gᵏ(nℓ, nℓ) = Fᵏ(nℓ, nℓ) at all twenty ranks of 1s to 4f, and I8c finds Gᵏ ≠ Fᵏ at all eleven ranks of
+five non-equivalent same-ℓ pairs.
+
+**The paper's claim now.** The title changed from "a routing index" to "a classification index".
+The paper claims: twenty-two properties of the two outermost shells occupy fourteen cells of a
+4 × 2 × 3 box that close under sixteen of 288 orderings, and it says what that consists of (a full
+valence block beside two subvalence cells sharing a dependency — Proposition 3), how common it is
+(6,432 of 1,961,256 fourteen-cell subsets close under some ordering — Proposition 4) and what it rests
+on (three sole-occupant assignments — Proposition 5); the thirteen-cell table before the fill does not
+close and its vacancy is one of two cells, with the fill non-unique; the parameter and charge indexes
+merge on nine cells that are exactly the band ⌊s/2⌋ ≤ d ≤ s + ⌊s/3⌋; the Slater integrals of the
+diagonal pairs close on twenty cells as a triangle when indexed on position and not on rank; and for
+equivalent electrons Gᵏ = Fᵏ at every rank. It no longer claims: routing of any residual; a boundary
+of the classification at the outer seats (Theorem 2 is kept as a computation over labels D10 does not
+license); a closed list of properties; Theorem 7; that c = 2 is the most particular domain; that
+dropping exchange costs nothing at s/s and four quantities at f/f.
+
+**Runs.** `python3 check.py` → `summary: EXHAUSTIVE 68, MACHINE-CHECKED 12, SAMPLED 2, CITED 3,
+GUARD 11 / all obligations discharged` (96 obligations, up from 75; exit 0). `--selftest` → the same
+plus N1, N2, N3 refuted, `GUARD 14`, exit 0. Obligations were added and strengthened, none weakened;
+G7 (routing admissibility) is retained although no sentence rests on it. `lint.py` → 0 hits.
+`render.py` → 26 pages. Typography per BRIEF-AUDIT step 6: a pypdf text extraction of the PDF finds
+**0 underscores, 0 carets, 0 backslashes, 0 asterisks, 0 backticks**; the HTML was screenshot with
+headless Chromium (1000 × 18,000, sliced to 1000 × 1400) and the PDF pages rasterised with pypdfium2 and
+read: every table fits its columns, every figure sits with its single caption, every subscript and
+superscript is a glyph, the two φ lines are two lines, and no heading or table header stands at a page
+foot (page 12 ends short because Figure 1 is kept whole on page 13). One defect the screenshots found
+that the audit had not: the line "(i) … (ii) … (iii)" of Lemma 2 was being parsed as a roman-numeral
+list; it is folded into its sentence.
+
+**Figures.** Three: `fig1-chem-grid.png` (relabelled), `fig2-defect.png` (was fig3-boundary) and
+`fig3-pca-grid.png` (was fig4-pca-grid); the routing figure is gone. `FIGURES.tsv` and `SOURCES.md`
+rewritten for the repaired paper.
+
+**Unresolved.** Nothing blocking. Two limits are stated rather than repaired: the configuration-average
+exchange coefficient (R-C13) is not printed for want of a verifiable text, and the coordination-number
+assignment (R-C4) is named as the least defended of the three the closure rests on.

@@ -1,10 +1,12 @@
 # SOURCES.md — provenance map for 09-occupation-hull (not published)
 
-Paper: `PAPER.md`, "The Occupation Law as a Lower Convex Hull". Drafted across three runs (two cut
-off by service limits on 2026-09-21; finished 2026-09-24). Every number in the paper is produced by
-`check.py` (**113 of 113 obligations**: 89 EXHAUSTIVE, 17 guards, 7 MACHINE-CHECKED; `--selftest`
-adds three negative controls, all refuted, 116 of 116) or is CITED. Logs of the final runs:
-`scratchpad/checks/09-occupation-hull.log` and `09-occupation-hull-selftest.log`.
+Paper: `PAPER.md`, "An Occupation Law as a Lower Convex Hull" (titled "The Occupation Law …" until the
+repair of 2026-09-24, AUDIT.md R-28). Drafted across three runs (two cut off by service limits on
+2026-09-21; finished 2026-09-24), audited the same day (AUDIT.md, 57 findings), and repaired against
+every finding on 2026-09-24. Every number in the paper is produced by `check.py` (**141 of 141
+obligations**: 115 EXHAUSTIVE, 17 guards, 7 MACHINE-CHECKED, 2 MEASURED; `--selftest` adds three
+negative controls, all refuted, 144 of 144) or is CITED. The pre-repair figures were 113 / 116. Logs of
+the final runs: `scratchpad/09-repair-check.log`, `09-repair-selftest.log`, `09-repair-table.md`.
 
 Paths are relative to the repository root. Instruments are imported by path, never copied:
 `method/members/LW1-ground.py` (the observed ground configurations, NIST ASD 5.12),
@@ -82,7 +84,7 @@ existing obligation was changed.
 | §1 D4 (the two forms) | main volume §34.1 (9522–9530, "with the fraction q/2(2ℓ+1) in the radicand"), §34.4 (the formula); `tools/slopeaxis.py` forms "p" and "q"; `method/members/r2-ch16y.py` `radicand()` |
 | §1 D5–D6 | main volume §34.4, §34.5; Mathematical Compendium 3560–3570 ("one inequality per rival … whose solution is an interval with endpoints L, U = Δn(√p_g + √p_r)/(p_g − p_r)") |
 | §1 D7, §2, §3 | Mathematical Compendium 3640–3648 ("only vertices of the lower convex hull are ever taken. A point set carrying two distinct node counts has at least two such vertices"); `tools/slopeaxis.py` docstring and `Store.hull()`; `docs/SLOPE-AXIS.md` "What it is" |
-| §1 D8, §6 | main volume §34.6 (eighteen resets; "it never resets mid-subshell, which is why each subshell fills at constant a"); Register 1328 (line 4993: the handshake and the trajectory), 1403 (5273: placed at an endpoint, Pa at U), 1404 (5277: the four touching pairs); `method/proofs/walkresets.py` (its docstring quotes walk.py's rule "keep a if it still lies in the new bracket; if not, move it the MINIMUM distance to re-enter", and separates real moves from boundary touches); `SETTLED-R4.tsv` D-21a, D-21b, D-21f |
+| §1 D8, §6 | main volume §34.6 (eighteen resets; "it never resets mid-subshell, which is why each subshell fills at constant a"); Register entries, whose line numbers here are in `The_Method_1_6___The_Register-2.md` (AUDIT.md A.1 noted this table read as if they were main-volume lines): 1328 (line 4993: the handshake and the trajectory), 1403 (5273: placed at an endpoint, Pa at U), 1404 (5277: the four touching pairs); `method/proofs/walkresets.py` (its docstring quotes walk.py's rule "keep a if it still lies in the new bracket; if not, move it the MINIMUM distance to re-enter", and separates real moves from boundary touches); `SETTLED-R4.tsv` D-21a, D-21b, D-21f |
 | §1 D9, §7 | main volume §34.6 ("pierced by three values of a, and three are forced: boron, lanthanum and lawrencium"); Register 1401 (5265: the fourteen forced emptyings), 1402 (5269: the count is a property of the placement rule), 1463 (5509: the running intersection empties fourteen times; Helly in one dimension), 1580 (5942: the disjoint/piercing census); `method/proofs/resetrule.py`; `tools/slopeaxis.py` `build()` (empties, coverage) |
 | §1 D10, §8 | main volume §34.6 ("M = 2n − p − 1 … the parabola M = 2y − x² − 1, where ν sweeps straight lines"; "the Madelung pick lies inside the corridor at every one of the 106 steps"); Register 1437 (5409: Madelung scores 96 conditionally), 1445 (5437: held out the walk scores 90; "the corridor is non-empty at 106 of 106, which is a result about the FORM"), 1460 (5497: "an empty feasible set refutes the form and a non-empty one does not confirm it"; "the corridor tests a FORM, not a magnitude") |
 | §4 Theorem 3 | no source passage: the frame lemma is this paper's. The seated instrument's own comment ("one generator convention is not a count. Sweep (NMAX, LMAX) and say which", `r2-ch16y.py`) and its banked sweep n ≤ 7…9, ℓ ≤ 3…4 are the prompt; the closed proof is new |
@@ -112,8 +114,10 @@ existing obligation was changed.
    slope and its rationalised form and does not reproduce the source's typography.
 5. **"Recalibration", "move", "touch".** `walk.py` counts a recalibration whenever the strict test
    fails and nudges a by ε = 10⁻⁶; `walkresets.py` separates real moves (|Δa| ≥ 10⁻⁴) from boundary
-   touches. The paper's threshold is 10⁻³; no |Δa| lies between 2 × 10⁻⁶ and 0.07 (the smallest real
-   move, Tl 1.0000 → Fr… see Table 3), so any threshold in that range gives the same partition.
+   touches. The paper's threshold is 10⁻³; no |Δa| lies between 2 × 10⁻⁶ and 0.0278 (the smallest real
+   move, at Pa: 1.3938 → 1.3660, pinned by `check.py` "the smallest real move exceeds 1/50"), so any
+   threshold in that range gives the same partition. (This entry said 0.07 until the repair; the audit
+   repeated the figure; both were wrong, and the check line now fixes it.)
 6. **"Lies inside the corridor" for the Madelung pick** (§34.6) is read as "is a hull vertex, so
    its corridor is non-empty"; under that reading it holds at 106 of 106 in both forms and the
    paper says so. Other readings (e.g. that the pick's ν at the carried a is inside some interval)
@@ -221,3 +225,56 @@ Chapter 35's derivation. None is mentioned in the paper.
 - Everything else — corridors, hull, endpoints, emptyings, disjointness, piercing, coverage,
   Theorem 3's extremes — is exact: representation equality for zero (Besicovitch 1940), rational
   enclosure for sign; deepest enclosure 24 digits, smallest certified magnitude 4.43 × 10⁻⁸.
+
+---
+
+## 6 · The repair of 2026-09-24 — what it rests on and what is the author's to decide
+
+**The calculated configurations (AUDIT.md R-11, R-12).** `LW1-ground.py` calls itself "the OBSERVED
+ground configurations" and its header cites NIST ASD 5.12 (GSIE, retrieved 2026-08-09). The audit's
+physicist pointed out that NIST's neutral ground configurations for Lr and for Rf–Hs are theoretical,
+not spectroscopic, and the data file corroborates it in its own entries: the ground level of Sg, Bh
+and Hs is a bare J ("0", "5/2", "4") with no term, which is what a calculated entry looks like
+(`check.py` pins exactly Z = 106, 107, 108). NIST's page could not be fetched from this environment —
+`physics.nist.gov` and `api.crossref.org` are blocked by the egress proxy — so the paper's attribution
+rests on (i) the data file's own marks, (ii) Eliav, Kaldor and Ishikawa 1995 (the relativistic
+coupled-cluster prediction of Lr's 7s²7p¹ ground state) and Sato et al. 2015 (the ionisation-potential
+measurement, consistent with 7p¹ but not a determination of the configuration), both verified by web
+search. The paper says "tabulated", never "observed", and marks Lr and Rf–Hs with † in Tables 1 and 3.
+**The member is not edited**: its docstring still says OBSERVED, and this file records the disagreement
+rather than repairing it.
+
+**The lawrencium choice is the author's.** The headline "three slopes are necessary" holds with the
+tabulated 7p¹ at Z = 103 and fails under the aufbau alternative 6d¹ (piercing number 2, family
+{B, La}), which is also what the paper's own Madelung pick names at 103 and what every instrument in
+the record would have used before the data file was read from NIST (its own header says Lr "is
+[Rn]5f14 7s2 7p and not 6d"). The paper computes and prints both cases (nine check lines under
+"Lr = 6d") and does not choose. Whether to headline the tabulated case, the aufbau case, or neither is
+M's decision; nothing in the corpus rules on it, and the drafter has not.
+
+**The x = r measurement (R-13)** is new to this pass: with the abscissa r in place of √r the tabulated
+entrant is not a hull vertex at La, Gd, Ac, Th, Cm, Lr (node-only) and at La, Gd, Ac, Cm, Lr
+(finished). No source passage states it; it is the paper's own EXHAUSTIVE line and is printed as such.
+
+**The unconditional aufbau comparison (R-14)** is likewise new: the (n + ℓ, n) order filled from
+nothing differs from the tabulated configurations at exactly the 20 atoms Cr Cu Nb Mo Ru Rh Pd Ag La
+Ce Gd Pt Au Ac Th Pa U Np Cm Lr, which is the standard exception list; the source's 96 of 106
+(register 1437, "conditionally") is the step-conditional score, and the paper now says which is which.
+
+**References added (R-23, A-6, R-1, R-14, R-16, R-24)** and how each was verified: by web search
+(Wong 1979 JCE 56, 714–717; Karapetoff 1930 JFI 210, 609–624; Scerri 2013 Educ. Chem. 50(6), 24–26;
+Sato et al. 2015 Nature 520, 209–211, 23 authors; Eliav et al. 1995 PRA 52, 291; Ostrovsky 2001
+Found. Chem. 3, 145–181; Goudsmit and Richards 1964 PNAS 51, 664–671; Schwarz 2010 JCE 87, 444–448;
+Schwarz and Rich 2010 JCE 87, 435–443; Melrose and Scerri 1996 JCE 73, 498–503; Hajnal and Surányi
+1958 Ann. Univ. Sci. Budapest. 1, 113–121); from the corpus's own bibliography (Griffin, Andrew and
+Cowan 1969 Phys. Rev. 177, 62–71, main volume line 11859); from a sibling paper's audited list
+(Connerade 1978 Contemp. Phys. 19, 415–447 — the audit wrote 415–448; the search confirmed only the
+first page, and the sibling's range is kept); and from the drafter's knowledge of standard books
+(Ziegler 1995 GTM 152; Grünbaum 2003 2nd ed. GTM 221; de Berg, Cheong, van Kreveld and Overmars 2008
+3rd ed.; Courant and Hilbert 1953 Vol. I, Interscience). Helly 1923 was suggested and not added: the
+paper names Gallai's theorem, not Helly's, and cites nothing it does not use.
+
+**Fixed in the check rather than the text.** The eleven report-only obligations (A-4) and the fidelity
+guard (A-5) were faults of the check, not of the source; the guard now instantiates the Z3 expressions
+themselves (1,027 point-instances on seed 11, replacing the 1,041 of the transcription guard, because
+the instances now carry rational abscissae so that substitution is exact).

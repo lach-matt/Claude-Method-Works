@@ -380,7 +380,7 @@ def construction():
                                                for idx, r in enumerate(ranges(CAPS))])
                 if admissible(x) and x[IK] == 0)
     ext = prod(len(r) + (1 if idx == IK else 0) for idx, r in enumerate(ranges(CAPS)))
-    allpos = (all(v > 0 for v in marg.values()) and floor > 0 and ext == 8064
+    allpos = (all(v > 0 for v in marg.values()) and floor > 0 and ext == 9216
               and marg == {"l <= n-1": 308, "k <= 4l+2": 564, "q <= k": 575, "f <= e-1": 200,
                            "g <= 4f+2": 24, "g <= q": 673, "2S <= k": 300} and floor == 25)
     ok &= allpos

@@ -1,13 +1,16 @@
 # SOURCES.md — provenance map for 02-lambda (not published)
 
-Paper: `PAPER.md`, "The Lattice of One-Electron Transitions". Drafted 2026-09-21 in a run cut off by
+Paper: `PAPER.md`, "The Lattice of Subshell Transitions" — **retitled in the 2026-09-24 repair pass from "The
+Lattice of One-Electron Transitions"**, the title the draft and the audit carried (audit finding R-15: 481 of the
+976 cells move two or three electrons, so "one-electron" was false of the cells; the old title is kept here for the
+author, and the retitle is his to settle). Drafted 2026-09-21 in a run cut off by
 a service limit (PAPER.md, check.py, figures.py, FIGURES.tsv and eight figures present, SOURCES.md
 absent); resumed and finished 2026-09-24. The inherited `check.py` was read in full and run before
 anything was changed: it was already green — 59 rows, 0 failures; with `--selftest` 65 rows, the six
 negative controls all refuted, the sum-bound witness already pinned deterministically (the step the
-earlier run recorded as in progress was complete). It now discharges **72 rows, 0 failures** in
-about 55 s (5 GUARD, 5 MACHINE-CHECKED, 51 EXHAUSTIVE, 4 SAMPLED, 7 CITED); `--selftest` adds six
-negative controls, all refuted (78 rows). Every number in the paper is produced by that run or is a
+earlier run recorded as in progress was complete). After the repair pass it discharges **77 rows, 0 failures** in
+about 66 s (5 GUARD, 5 MACHINE-CHECKED, 54 EXHAUSTIVE, 4 SAMPLED, 9 CITED); `--selftest` adds six
+negative controls, all refuted (83 rows). Every number in the paper is produced by that run or is a
 bibliographic figure in the reference list. Z3 is the solver (`z3-solver`, Python 3.12 via
 `method/bin`).
 
@@ -62,12 +65,101 @@ All line ranges below are in `method/members/`. `M` is `The_Method_1_6-2.md`, `C
   Sperner (1928), Stanley (2012) and de Moura–Bjørner (2008) were listed but uncited and are now
   cited where used.
 
+## What the repair pass changed (2026-09-24, against AUDIT.md)
+
+The dispositions are in `AUDIT.md` Part C and its repair record; this section records what moved and
+where each new number comes from.
+
+**In `check.py`** (no check weakened; every change adds an assertion or a printed value):
+
+1. **Covers from the order alone** (A-1). `covers_of()` no longer tests y − eᵢ ∈ Λ; it computes, for
+   every pair, x < y with no cell strictly between, by bitset, and the row "Theorem 4, Λ is graded" now
+   asserts 3,749 covers, every one a unit step and every one raising rank by 1. The rows for Theorem 6
+   and Corollary 3 inherit the order-derived cover sets. At the five further cap settings the
+   join-irreducible count still takes lower covers as unit steps, which Theorem 4 (proved for every cap)
+   licenses; the row says so.
+2. **Three new rows for the physics** (R-15, R-16, R-17): "D1, electrons moved" (q = 0/1/2/3: 165, 330,
+   345, 136; 481 move two or three); "D1, the model of a cell" (g = q in 461, g < q in 515, g = 0 in 485,
+   source = target in 200); "Table 1, the spin envelope" (503 cells whose 2S no k-electron configuration
+   carries: 413 parity, 180 particle–hole, 90 both; 473 physical = 48.5 %, which is the main volume's own
+   "48.5 % density" for the envelope at M §7 1751). The spin rule used is 2S ≡ k (mod 2) and
+   2S ≤ min(k, 4ℓ + 2 − k), the particle–hole conjugation M §12.11.2 3368–3398 names.
+3. **Six rows that printed and asserted nothing now pin their values** (A-3): Table 3's ranks and
+   weights, the twenty implications as a set, the bit accounting, the log chain, the void-free fraction
+   with its rates, product and lift, and the covers-by-cell median 59 and second 14,492. Table 2's row
+   pins all eight marginals.
+4. **Numbers the paper printed with no row now have one** (A-4): the extended box for the floor, the
+   87.7 % / 1.6 % shares of the heaviest and lightest letter, and the SAMPLED family 976³ = 929,714,176
+   ordered triples. **The draft's 8,064 for the box extended to k = 0 did not reproduce: the box has
+   9,216 points** (3·2·4·4·3·2·4·4); the paper now prints 9,216 and the row asserts it. 8,064 was the
+   inherited draft's figure, and no source passage states either number — it was arithmetic the draft
+   got wrong and nothing pinned.
+5. The Theorem 17 SAMPLED row prints how many of its 80 subsets are covers (0), so the paper can say
+   which direction it tests (A-5); Corollary 7's row carries q = k = 1, 2, 3 as three properties and pins
+   s → s at 17,403 of 24,585 (A-6); the Theorem 1 label reads 21 variables (A-2); CITED rows carry name
+   and year, Karp's reads NP-hard with the decision version NP-complete (R-27), and two are added —
+   Birkhoff 1940 / Davey–Priestley 2002 for "a sublattice of a distributive lattice is distributive" and
+   the rank-modularity characterisation of modular lattices (R-1), and Stanley 1989 for log-concave ⟹
+   unimodal (R-13).
+
+**In `PAPER.md`:**
+
+- Title, thesis and abstract: "subshell transitions"; the thesis attaches "every such set" to the seeds
+  (R-26); the abstract states the cell model, that six bounds are exact and the seventh an envelope, and
+  that no selection rule or spectral datum enters (R-21).
+- §0: the "nothing chosen for convenience" sentence is replaced by the exact/envelope statement with the
+  503 count; a paragraph says which headline results are inherited from "sublattice of a product of
+  chains" and which are new (R-23); the counts by q are stated (R-15); the cap-free list is corrected
+  (R-3); "Counted" replaces "Measured" (A-14); NP-hard (R-27).
+- §1: the physics paragraph is rewritten (R-16 to R-21): Schrödinger 1926 for ℓ ≤ n − 1 with Bohr kept
+  for n; spin addition rather than Hund (Hund 1925 dropped from the references, now uncited); "spin
+  label 2S (multiplicity 2S + 1)"; the exact spin rule and why it is not imposed; g as the number
+  placed with the target taken to begin empty — which is the mathematical compendium's own statement
+  at C 1294 ("g ≤ q reads g as electrons placed by this transition; g ≤ 2(2f+1) reads it as electrons
+  present … they coincide exactly when the target subshell begins empty") and the main volume's
+  "removed but not placed" at M 2893. D1 states the model and what g < q, q = 0 and source = target
+  cells are. Table 1 gains a "kind" column and moves to follow D2. D3 states the general alphabets
+  (R-8). D7 cites the companion paper by title and Baker–Pixley / Bergman (R-22, R-24).
+- §2: R-1 corrected (rank modularity is modularity's signature; M₃); Sperner defined in D8 and the
+  product-of-chains remark added (R-13, R-24); Theorem 6's injectivity line supplied (R-4); "density"
+  for the bit fraction (R-28); Trotter cited (R-24).
+- §3: "interval metric / measure" throughout (R-28); "d as defined in D10 equals (2)" (R-12); D11's
+  quantity is the size, the number of points (A-11).
+- §4: Theorem 12 is stated as the nested formula with its two closed leaves, and the g-first aside is
+  replaced by the sentence that the single-argument property belongs to a leaf order (R-2, R-10); the
+  Chebyshev sentence is replaced by a reading marked heuristic (R-9).
+- §5: the Theorem 14 display is a display block with Unicode superscripts throughout, the one
+  superscript Unicode lacks (q) set as an HTML superscript, one sum per line (A-8); Theorem 15 says "at
+  the caps of D3"; Corollary 5 (R-7).
+- §6: 𝒪(Q) for down-sets (R-5); the crosscut corollary cited precisely and the closed form noted as
+  textbook (R-14); fifteen comparisons (R-6).
+- §7: Theorem 17 stated for any setting with E = 0 and its SAMPLED clause names both directions
+  (R-3, A-5); "NP-hard" (R-27); "the disjoint-witness bound certifies 5" (R-11); Corollary 7's status
+  names q = k at each k (A-6).
+- §8 and References: Lach 2026, *The Closure Law of a Finite Index*, this collection (R-22); nine
+  references added (R-24), Garey–Johnson and Hardy–Littlewood–Pólya declined as optional.
+- §9: rebuilt from the 77-row run; the families paragraph adds 9,216 and 929,714,176; the
+  not-machine-checked paragraph says how the grading is tested at the base caps and licensed at the
+  further ones.
+- Typography: every figure is a pandoc figure whose caption is the alt text (rendered as a figcaption
+  beginning **Figure n.**), and every table carries its heading as a table caption, so the render
+  keeps each with its image or table (A-12); the file names in `figures/` match the figure numbers
+  (A-13).
+
+**Figures.** `fig5-caterpillar.png`, the archival plate `restore-point-2-13/figures/fig07.png`, is
+replaced by a computed `fig7-caterpillar.png` drawn by `figures.py` from `check.py`'s CONSTRAINTS: the
+plate's arrows ran n→ℓ→k→q→g→f→e, which is neither the nesting order of Theorem 14 nor the direction of
+bounding, and its leaf label misprinted a subscript (A-9). The four remaining archival plates are
+unchanged in bytes; the files are renamed so that `figN` is Figure N (A-13), and Figure 4's caption
+notes that the plate's own title says "occupancy measure" for the d the paper now calls the interval
+measure (A-11, R-28).
+
 ## Where each section draws from
 
 | paper section | source passages |
 |---|---|
 | Thesis, Abstract, §0 | M §7 1729–1800 (the eight coordinates, the seven constraints and four origins, "every constraint is of one form", the closure proof §7.3, the cap convention §7.4); M §8 1801–1816 (the standing caps (3,3,1,3,1)); I §I 11–38 (the constraint table with k ≥ 1 as definitional, the one coupling, 976 → 1,000 and the 24 lost) |
-| §1 physics paragraph, D1–D4, Table 1 | M §7.1 1755–1768 (constraint → origin table); C §IV.L 1092–1170 (each bound's prior art: Bohr 1913, Stoner 1924, Pauli 1925, Hund 1925; q ≤ k and g ≤ q definitional; k ≥ 1 the occupancy floor, M §10.2 2043–2050 and register 301); C §IV.L 1462–1470 ("The definition of Λ") |
+| §1 physics paragraph, D1–D4, Table 1 | M §7.1 1755–1768 (constraint → origin table); M §7 1745–1753 ("vector coupling yields an envelope: 2S ≤ k contains every physical multiplicity and admits values no k electrons can carry, at 48.5 % density"); M §12.11.2–12.11.3 3368–3413 (the exact coupling bound needs a congruence or two parents; particle–hole conjugation; "counting coordinates close exactly, coupling coordinates close as envelopes"); C §IV.L 1092–1170 (each bound's prior art: Bohr 1913 and Schrödinger 1926 for ℓ ≤ n − 1, Stoner 1924, Pauli 1925, Hund 1925 for the spin bound — the paper cites spin addition and Condon–Shortley instead, R-20; q ≤ k and g ≤ q definitional; k ≥ 1 the occupancy floor, M §10.2 2043–2050 and register 301); C §IV.L 1294 (g as electrons placed, the target taken to begin empty, no coordinate for prior occupancy); M §12.11.0.8 2885–2895 ("something not removed and something removed but not placed"); C §IV.L 1462–1470 ("The definition of Λ") |
 | §1 D5–D7, Theorem 1, Lemma 1 | M §7.3 1781–1793 (the closure proof, "meets are symmetric"); C §IV.L 1432–1440 ("Sublattice of a product", both branches of both operations written out); M §7.2 1769–1779 (a sum could not appear; Chapter 17) — the paper's negative control replaces the source's 89,864 sampled join failures with a solver witness |
 | §1 Lemma 2 | M §14.1 3687–3715 (X closed ⟺ X = ℛ(X); Bergman / Baker–Pixley named); `research/warp-drive/prover.py` (the subset-quantified harness, imported by path); the direction proved here is fixed point ⟹ sublattice, the converse being the companion paper's Theorem 2 |
 | §1 Theorem 2 | M §7.3 1791–1792 ("E(Λ) = 0, verified by direct computation at four cap settings — 216, 976, 1,636 and 2,394 cells"); C §IV.L 990–998 ("The closure theorem", verified at four settings); I 1355–1362 ("976 rows. F(1) = 976, F(−1) = 2, E = 0, density 0.1412 of a box of 6,912"); I 377–1360, the Λ₈ table, read by `check.py` and compared in both directions with the rebuilt set |
@@ -81,7 +173,7 @@ All line ranges below are in `method/members/`. `M` is `The_Method_1_6-2.md`, `C
 | §2 Corollary 2 | M §8.6 1919–1940 (order dimension 7, corrected from 8 — register 409; width of J(Λ), the two certificates, g rides on q); C §IV.L 1472–1480 (the antichain of seven written out) |
 | §2 Corollary 3 | C §IV.L 1222–1243 ("Every other shape the lattice contains": e(P) = 1,113,045,672 maximal chains; boxes 31,604 of 115,162; the two seventeens are one) |
 | §2 Theorem 9 | M §8.4 1892–1899 (8 of 976 survive x ↦ max − x; the competing 112 under a different map); M A.19.1 10182–10192 (the eight written out, q = k, g = q, 2S = q); M §11.8.1 2287–2307 (no fixed point, the eight all of even rank) |
-| §3 D9, D10, Theorems 10 and 11, Figure 4 | M §9 1941–1962 (the prime encoding, rank = Ω(N)); M §9.2 1963–2016 (d = τ(lcm/gcd), d(x,x) = 1, the five forms, the multiplicative triangle, log d an ℓ¹ metric, hyperbolic balls, first step log 2, tenth log(11/10)); C §IV.L 1502–1510 ("The lattice metric", Monjardet 1981), 1532–1540 ("The interval measure") |
+| §3 D9, D10, Theorems 10 and 11, Figure 4 | M §9 1941–1962 (the prime encoding, rank = Ω(N)); M §9.2 1963–2016 (d = τ(lcm/gcd), d(x,x) = 1, the five forms, the multiplicative triangle, log d an ℓ¹ metric, hyperbolic balls, first step log 2, tenth log(11/10)); C §IV.L 1502–1510 ("The lattice metric", Monjardet 1981), 1532–1540 ("The interval measure" — the name the paper now uses for d, R-28) |
 | §4 D11, Theorem 12, Theorem 13, Proposition 1, Figure 5 | M §10 2026–2079 (the void; 10.3 containment in seven comparisons; 10.4 the count with no sieve, the two leaves in closed form); M Appendix A.10 10021–10035 (the tree factorisation proved); C §IV.L 1082–1104 ("The box factorises": the elimination argument, Freuder for width 1 ⟺ forest, the witness on a closed triangle); C §IV.L 1662–1671 ("The void-free fraction": rates 69.95–98.06 %, product 20.13 %, joint 28.35 %, lift 1.4081 at the base caps; Chebyshev's sum inequality for the sign of the dependence) |
 | §5 D12, Theorem 14, Corollary 4, Lemma 4, Theorem 15, Corollary 5, Figures 6 and 7 | M §11.1 2084–2098 and §11.3 2216–2230 (the single expression; F(1) = 976, F′(1)/F(1) = 11.0666, F(−1) = 2); M §11.6 2248–2255 (the detachable factor; 319 cells with 2S removed, E = 0, every seven-cell carries k + 1 spins); M §11.7 2256–2279 (why a closed expression exists: monotone, two-variable, acyclic); M §11.8 2280–2286 and §11.8.1 2287–2307 (not palindromic, 5 against 4; F(−1) = 2 has a cause); C §IV.L 1000–1030, 1552–1560, 1572–1580, 1612–1620 |
 | §6 D13, Theorem 16, Corollary 6 | M §9.3 2017–2025 (μ in closed form; the transfer condition to μ_arith); M Appendix A.9 10009–10020 (the proof via Birkhoff and Rota's crosscut theorem); C §IV.L 1512–1520 ("Möbius function of a distributive lattice", the transfer condition and "decidable in seven comparisons") |
@@ -185,20 +277,22 @@ withdrawn (C §IV.S 670). The Freuder mis-citation (M §14.1, register 400): the
 1982 only for "a constraint graph has width 1 iff it is a forest", which that paper does state, and
 never for global consistency.
 
-**Consistency with the companion closure-law paper.** seed(Λ) = 7 exact — agreed. The general box
+**Consistency with the companion closure-law paper** (*The Closure Law of a Finite Index*, Lach 2026, now in the References as R-22 required). seed(Λ) = 7 exact — agreed. The general box
 seed law d + c − 2 is refuted there from d = 5; this paper never states it and says nothing about
 seeds of boxes. Definitions D7 and D14 here agree with that paper's D5 and D8, and its Theorems 12
 and 13 with this paper's Theorem 17.
 
 ## Figures
 
-Five plates are archival copies from the mirror's extracted figure archives, copied byte-for-byte by
-`figures.py` with md5 recorded in `FIGURES.tsv` (fig1 and fig3 from
-`extracted/archives/the-method-1-6-figures-build8/`, fig4–fig6 from
+Four plates are archival copies from the mirror's extracted figure archives, copied byte-for-byte by
+`figures.py` with md5 recorded in `FIGURES.tsv` (fig1 and fig2 from
+`extracted/archives/the-method-1-6-figures-build8/`, fig4 and fig6 from
 `extracted/archives/restore-point-2-13/`); each was read against its caption and against the check's
 numbers (fig1 labels the bounds as 2(2ℓ+1) and 2(2f+1), the paper's 4ℓ+2 and 4f+2 — the same
-bounds). Three are computed by `figures.py` from `check.py`'s own functions: fig2 (the generating
-poset), fig7 (the void) and fig8 (the seed). `method/PROOF-FIGURES.tsv` was consulted by the earlier
+bounds, and the caption now says so). Four are computed by `figures.py` from `check.py`'s own
+functions: fig3 (the generating poset), fig5 (the void), fig7 (the caterpillar in Theorem 14's nesting
+order, replacing the archival fig07 plate — see the repair section above) and fig8 (the seed). File
+numbers match figure numbers. `method/PROOF-FIGURES.tsv` was consulted by the earlier
 run; the archival plates are the ones it matched.
 
 ## What the check does not cover
