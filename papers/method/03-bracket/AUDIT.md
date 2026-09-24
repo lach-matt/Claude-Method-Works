@@ -615,6 +615,16 @@ interpretations 10–13.
 
 **Lint, render, typography.** `lint.py`: 0 hits. `render.py`: 22 pages (18 before the repair). The
 rendered HTML was screenshotted with headless Chromium and read: Table 1 and Table 2 headers intact, Table 6
-intact with its new columns, no caret, underscore or brace in prose; inline symbols that have no Unicode
-subscript (ν_fail, ν_V, r_adm, E_lo, E_hi, δ_lo, δ_hi, δ_∞, R_M) are set in backticks as the contract allows.
+intact with its new columns, no caret, underscore or brace in prose.
+
+**Second pass (coordinator's note, same day): no code spans for symbols.** The first pass had set nine
+symbols in backticks, which PAPER-SPEC §9 reserves for code, and the rendered PDF's text carried fifty
+literal underscores. Every one is replaced by a Unicode form, each introduced once where the old symbol
+stood: the ordered defects and interval ends δₗₒ ≤ δₕᵢ and Eₗₒ ≤ Eₕᵢ (D5; chosen so as not to collide with
+δ₋/δ₊ and E₋/E₊, which name the neighbours), the admissibility ratio rₐ (D7), the critical depth νᶜ (D11,
+Table 1), the resolution bound νᵛ (D12), the reduced-mass Rydberg constant Rₘ (§8), the Ritz limit δ₀ in
+the worked deduction (the symbol §2 already uses), and ΔE for the energy displacement (Corollary 2). Source
+and PDF text now carry zero underscores (pypdf extraction over all 22 pages: 0 "_", 0 "^", 0 "\\"), lint 0
+hits, `check.py` 64/0 and `--selftest` 69/0 unchanged; the backticks that remain are `unsat` and the tag
+letters of §10, which are code.
 

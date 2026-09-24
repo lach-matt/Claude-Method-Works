@@ -5,8 +5,9 @@
 
 Imports check.py by path and draws from its own constructions: periodic_cells(), janet_cells(),
 E_of(), slot(), channel_rows() and coord_rows().  Nothing is drawn by hand; no number is typed
-here that check.py does not also produce.  Figure 1 is not made here -- it is an existing audited
-plate, recorded in FIGURES.tsv.
+here that check.py does not also produce.  Figure 1 was an audited plate until the 2026-09-24
+audit found its title drawn across the first row of cells; it is now computed here from the same
+data (periodic_cells and E_of), with the title kept clear of the cells.
 
 Palette: light surface, recessive hairline grid, slot 1 blue for what an index holds, slot 2
 orange for what its coordinates admit and it denies, a muted red for the physically forbidden.
@@ -52,6 +53,38 @@ def style(ax):
 
 def cell(ax, x, y, col, w=0.86, h=0.86):
     ax.add_patch(Rectangle((x - w / 2, y - h / 2), w, h, facecolor=col, edgecolor="none"))
+
+
+# ------------------------------------------------- figure 1 (the periodic census)
+def fig_periodic_census():
+    """The eighteen-column table as an index: the ninety cells it holds and the thirty-six its own
+    coordinates admit and it denies.  Replaces the audited plate whose title overprinted row 1."""
+    X = check.periodic_cells()
+    S, E = check.E_of(X, ["period", "group"])
+    admitted = sorted(S - set(X))
+    fig, a = plt.subplots(figsize=(8.6, 3.9))
+    for p, g in X:
+        cell(a, g, p, BLUE)
+    for p, g in admitted:
+        cell(a, g, p, RED)
+    a.set_xlim(0.3, 18.7)
+    a.set_ylim(7.7, 0.3)
+    a.set_xticks(range(1, 19))
+    a.set_yticks(range(1, 8))
+    a.set_xlabel("group")
+    a.set_ylabel("period")
+    a.set_title("(period, group):  %d cells held,  %d admitted and denied,  %d = 7 × 18 in the box,  E = %d"
+                % (len(set(X)), len(admitted), len(S), E), fontsize=9.5, color=TEXT, loc="left", pad=10)
+    style(a)
+    for s_ in ("left", "bottom"):
+        a.spines[s_].set_visible(False)
+    a.plot([], [], "s", color=BLUE, ms=8, label="held by the index (%d)" % len(set(X)))
+    a.plot([], [], "s", color=RED, ms=8, label="admitted by its coordinates and denied (%d)" % len(admitted))
+    a.legend(loc="lower center", bbox_to_anchor=(0.5, -0.36), ncol=2, fontsize=8.5,
+             handletextpad=0.4, columnspacing=1.4)
+    fig.tight_layout()
+    fig.savefig(os.path.join(OUT, "fig1-periodic-census.png"), dpi=200)
+    plt.close(fig)
 
 
 # ------------------------------------------------- figure 3 (the two presentations)
@@ -226,11 +259,11 @@ def fig_janet_rows():
     b.grid(True, axis="y", color=GRID, lw=1)
     b.set_axisbelow(True)
     style(b)
-    b.plot([], [], "o", color=BLUE, ms=7, mec=SURFACE, mew=1.3, label="ℓ = 2, below its block opening")
-    b.plot([], [], "^", color=BLUE, ms=7, mec=SURFACE, mew=1.3, label="ℓ = 3, below its block opening")
+    b.plot([], [], "o", color=BLUE, ms=7, mec=SURFACE, mew=1.3, label="ℓ = 2, below its row opening")
+    b.plot([], [], "^", color=BLUE, ms=7, mec=SURFACE, mew=1.3, label="ℓ = 3, below its row opening")
     b.plot([], [], "o", color=ORANGE, ms=7, mec=SURFACE, mew=1.3, label="ℓ = 2, at or past it")
     b.legend(loc="upper right", fontsize=8.5, handletextpad=0.4)
-    b.set_title("the %d measured d and f channels whose core holds no orbital of that ℓ"
+    b.set_title("the %d measured d and f cells whose core holds no orbital of that ℓ (mean defect per cell)"
                 % len(pts), fontsize=9, color=TEXT, loc="left")
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig4-janet-rows.png"), dpi=200)
@@ -297,7 +330,12 @@ def fig_parent_census():
             b.text(j, k - 0.26, lab, ha="center", va="bottom", fontsize=8.5, color=TEXT)
             b.text(j, k + 0.26, "%d row%s" % (cnt[v], "" if cnt[v] == 1 else "s"),
                    ha="center", va="top", fontsize=7.5, color=TEXT2)
-        b.text(2.55, k, "span %s cm⁻¹" % "{:,.0f}".format(vals[-1] - vals[0]),
+        # the span, in exact rational arithmetic on the printed limits, printed to the three
+        # decimals the limits carry -- the same string check.py pins in its span_labels obligation
+        from fractions import Fraction
+        F = lambda x: Fraction(x.replace(",", ""))
+        gap = max(F(x) for x in lims[s]) - min(F(x) for x in lims[s])
+        b.text(2.55, k, "span %s cm⁻¹" % check.span_label(gap),
                va="center", fontsize=8, color=TEXT2)
     b.set_yticks(range(len(four)))
     b.set_yticklabels(four, fontsize=9)
@@ -318,6 +356,7 @@ def fig_parent_census():
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
+    fig_periodic_census()
     fig_thirty_six()
     fig_two_presentations()
     fig_janet_rows()

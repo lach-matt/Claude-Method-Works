@@ -23,6 +23,11 @@
   11,
   16
  ],
+ "breadth_sweep": [
+  11,
+  2,
+  1152
+ ],
  "ORD_K": [
   "size",
   "count",
@@ -146,8 +151,94 @@
   ]
  ],
  "n_closed_sub14": 1482,
+ "sole": [
+  [
+   "centrifugal barrier",
+   "symmetry",
+   "the valence shell",
+   "P"
+  ],
+  [
+   "closed f shell n_f",
+   "count",
+   "the subvalence shell",
+   "A"
+  ],
+  [
+   "coordination number",
+   "count",
+   "the valence shell",
+   "A"
+  ],
+  [
+   "ionic radius",
+   "size",
+   "the valence shell",
+   "C"
+  ],
+  [
+   "lanthanide contraction",
+   "size",
+   "the subvalence shell",
+   "A"
+  ],
+  [
+   "oxidation states",
+   "count",
+   "the valence shell",
+   "C"
+  ],
+  [
+   "term symbol",
+   "symmetry",
+   "the valence shell",
+   "C"
+  ]
+ ],
+ "removal": {
+  "lanthanide contraction": [
+   0,
+   24
+  ],
+  "closed f shell n_f": [
+   0,
+   24
+  ],
+  "oxidation states": [
+   0,
+   4
+  ],
+  "coordination number": [
+   1,
+   0
+  ],
+  "ionic radius": [
+   0,
+   4
+  ],
+  "centrifugal barrier": [
+   1,
+   0
+  ],
+  "term symbol": [
+   1,
+   0
+  ]
+ },
+ "pairs_closable": 30,
+ "triples_closable": 16,
+ "barrier_energy": [
+  13,
+  1,
+  0,
+  288
+ ],
  "fx20": 3449,
  "own20": 7887,
+ "n14_fixed": 128,
+ "n14_own": 150,
+ "n14_some": 6432,
+ "n14_all": 1961256,
  "fx24": 9115,
  "own24": 27477,
  "nc30": 5824,
@@ -195,6 +286,28 @@
   [
    26,
    19
+  ]
+ ],
+ "visited_e": [
+  [
+   288,
+   144
+  ],
+  [
+   864,
+   432
+  ],
+  [
+   17280,
+   8640
+  ],
+  [
+   17280,
+   8640
+  ],
+  [
+   86400,
+   43200
   ]
  ],
  "nA": 16,
@@ -249,6 +362,16 @@
   [
    "C′ = 1",
    "all elements",
+   "low"
+  ]
+ ],
+ "region_to": [
+  [
+   "Seaton δ₂/δ₀",
+   "low"
+  ],
+  [
+   "h₀ collapse",
    "low"
   ]
  ],
@@ -320,6 +443,10 @@
  ],
  "ncm": 4,
  "univ_first": 2,
+ "hyd_witness": [
+  "17/81",
+  "16/729"
+ ],
  "grid": {
   "0,0,0": [
    "lanthanide contraction"

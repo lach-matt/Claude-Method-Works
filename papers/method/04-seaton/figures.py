@@ -48,7 +48,7 @@ def fmt(x, nd=3):
 
 def fig1(rows, st):
     fig, (a, b) = plt.subplots(1, 2, figsize=(9.0, 3.9))
-    # (a) delta2/delta0 for all thirteen, against p, with Seaton's value per l
+    # (a) delta2/delta0 for all thirteen, against p, with the polarisation value per l
     for r in rows:
         col = BLUE if r["p"] == 0 else ORANGE
         a.plot(r["p"], float(r["d2"] / r["d0"]), "o", ms=8, color=col, mec=SURFACE, mew=2, zorder=3)
@@ -90,7 +90,7 @@ def fig1(rows, st):
     b.set_xticks(range(4))
     b.set_xlabel("p")
     b.set_ylabel("ρ = (δ₂/δ₀) / (−ℓ(ℓ+1)/3)")
-    b.set_title("(b) the ratio ρ to the polarisation value, nine series with ℓ ≥ 1", loc="left", fontsize=9.5, color=TEXT)
+    b.set_title("(b) ρ, the nine series with ℓ ≥ 1", loc="left", fontsize=9.5, color=TEXT)
     b.legend(loc="upper right", fontsize=8)
     style(b)
     fig.tight_layout()

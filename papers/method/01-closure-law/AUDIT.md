@@ -432,46 +432,46 @@ Stanley 1980 (R-C7, optional); Scerri 2020 and Grochala 2018 (R-P3).
 
 | id | severity | where | finding | disposition |
 |---|---|---|---|---|
-| A-1 / R-C1 | BLOCKING | 11, 27, 497–533; SOURCES.md 94–105 | Theorem 15 at c = 2 is Czédli 2023, Thm 2.1; uncited; "new" claim | |
-| A-2 / R-M2 | MAJOR | 27 | "general minimisation is NP-hard" — not proved (seed is an instance of set cover, not shown hard) | |
-| A-3 / R-M2 | MAJOR | 487, 489, 539 | D(d,c) is not a down-set of the product order; "down-set seed law" misnamed | |
-| A-4 | MAJOR | 284; check.py 597–604 | E(Cl(U)) at 2×2×2×2 derived from all-ones boundary, not computed; "independently" false there (direct computation: 65,536, 2 s) | |
-| A-5 | MAJOR | 608, 612; check.py 263–281, 378 | "four hypothesis shapes" — Theorem 4's is a fifth, unguarded; `closed` and other Z3 predicates have no fidelity guard | |
-| A-6 | MINOR | 379 | Prop. 4 Z3 box splits (2 coords)×(1 coord); text does not say so | |
-| A-7 | MINOR | 96 | Figure 1 caption numbers not produced by check.py | |
-| A-8 | MINOR | 610; check.py 979 | selftest control (3) compares two formulas; no decision procedure | |
-| A-9 | MINOR | 610 | "14 failing pairs" are ordered; Table 1 says 7 | |
-| A-10 | MINOR | 606, 612 | "four integer obligations" (three + a refutation); Lemmas 1–3, Cor. 1 have no exhaustive family | |
-| A-11 / R-P5 | MINOR | 23, 100, 104 | "Two illustrations" (three); "Gregorian calendar" (common year; leap year E = 6); "every speaker of English" | |
-| A-12 | MINOR | 264 | meet-irreducibles "grow linearly" — 1.50…1.25 per cell, unproved | |
-| A-13 | MINOR | 11, 36 | "6 refutations by explicit witness" — one is by solver `sat` | |
-| A-14 / R-M10 | MINOR | 27 | Birkhoff sentence garbled; does not name the chains | |
-| A-15 / R-P1 | MINOR | 106 | which 28 f-block elements are detached is not stated | |
-| A-16 | MAJOR | Fig. 2, p. 5 | plate title overprints the period-1 cells; y-axis labels 1,3,5,7 only | |
-| A-17 | MINOR | Fig. 3 | t = 5 row drawn outside Box(X) | |
-| A-18 | MINOR | 537 | "seventh … lies off both curves" — it is not plotted | |
-| A-19 | MAJOR | pp. 1–23 | literal `_`, `^{}` in code-span mathematics throughout | |
-| A-20 | MAJOR | pp. 11, 17, 22–23 | literal `\|` in Table 1/2 headers and §10 rows | |
-| A-21 | MAJOR | pp. 21–23 | §10 table: p. 21 two-thirds blank; row "Proposition 3" split across pages | |
-| A-22 | MINOR | pp. 4–5, 10, 12, 20 | stray "Figure N" line under every image; Fig. 1 separated from caption | |
-| A-23 | MINOR | pp. 6, 14, 17 | (i)–(iii) and (a)/(b) render as 1./2./3.; proofs cite the letters | |
-| R-M1 | MAJOR | 68, 441 | seed(X) = minimum generating set of the lattice X (by Thm 2) never stated | |
-| R-M3 | MINOR | 446 | Thm 12(b) uses φ^G outside its domain before (a) | |
-| R-M4 | MINOR | 467 | Thm 13 "constant on [t,a]" needs Lemma 1 spelled out | |
-| R-M5 | MINOR | 214 | Thm 5 statement circular ("alphabets of S ⊆ A₁ × A₂") | |
-| R-M6 | MINOR | 208 | "the set it cuts is therefore the smallest" — empty clause | |
-| R-M7 | MINOR | 505, 511 | Thm 15 "Equivalently" needs k ≥ c; upper bound should assume a generating G | |
-| R-M8 | MINOR | 345 | ⊑ is a preorder for d > 2; "chain" needs the qualifier | |
-| R-M9 | MINOR | 252, 264 | meet-irreducible generation needs U as empty intersection; top excluded | |
-| R-P2 | MINOR | 23, 106 | "not of chemistry" overstated — of the coordinatisation | |
-| R-P3 | MINOR | 108 | helium claim uncited (Scerri 2020; Grochala 2018) | |
-| R-P4 | MINOR | 387, 400, 435 | "coupling" language vs Δ ⊆ ℤ³ without the parity condition | |
-| R-C2 | MAJOR | 25, 188 | E(X) = 0 is not "global consistency"; it is decomposability into a staircase network; Dechter 1992 misused | |
-| R-C3 | MAJOR | 479 | Carathéodory/breadth attributed to Queyranne–Tardella 2008; correct sources Jamison / van de Vel 1993 / Q–T 2017; Carathéodory 1911 uncited | |
-| R-C4 | MINOR | 25, 188 | Bergman 1977 vs Baker–Pixley emphasis; add Veinott 1989 | |
-| R-C5 | MINOR | 531 | LYM inequality omitted between Sperner and Bollobás | |
-| R-C6 | MINOR | 62 | cite Deville et al. where "staircase" is introduced | |
-| R-C7 | MINOR | 487 | D(d,c) = L(d, c−1); check the generating-set literature | |
+| A-1 / R-C1 | BLOCKING | 11, 27, 497–533; SOURCES.md 94–105 | Theorem 15 at c = 2 is Czédli 2023, Thm 2.1; uncited; "new" claim | **FIXED.** Czédli 2023 verified on the arXiv full text (Thm 2.1 = the c = 2 case, both halves by the Sperner antichain argument); his arXiv:2308.15625 Thm 2.4 + Obs 3.1 (Griggs–Stahl–Trotter) covers every c, so Theorem 15 is CITED in full, headed "Czédli", with the paper's proof kept as a second proof; abstract, §0, §3, §9, §10, references, check.py CITED row and SOURCES.md re-scoped — the paper claims Theorems 13–14 and the linear-law refutation only. One discrepancy recorded: Czédli 2023b table (4.30) prints 18 at (5-chain, 2023) where its Thm 2.4 and the law give 17; check.py prints both. |
+| A-2 / R-M2 | MAJOR | 27 | "general minimisation is NP-hard" — not proved (seed is an instance of set cover, not shown hard) | **FIXED.** §0 and §9 now say seed is an instance of minimum set cover, NP-complete (Karp 1972) — a bound from above, no hardness claimed, no closed form beyond the two families. |
+| A-3 / R-M2 | MAJOR | 487, 489, 539 | D(d,c) is not a down-set of the product order; "down-set seed law" misnamed | **FIXED.** "ordered simplex" throughout, Theorem 14 retitled "the simplex seed law", the (1,1)/(0,1) counterexample stated, D(d,c) identified with L(d, c−1) (Stanley 1980); §10 row renamed. |
+| A-4 | MAJOR | 284; check.py 597–604 | E(Cl(U)) at 2×2×2×2 derived from all-ones boundary, not computed; "independently" false there (direct computation: 65,536, 2 s) | **FIXED.** check.py computes stair() on the family at every ambient (|ℛ(Cl)| = 65,536 at 2×2×2×2, ~2 s) and prints it; the n ≤ 12 branch is gone; Theorem 7's status and the §10 row say the column is computed directly. |
+| A-5 | MAJOR | 608, 612; check.py 263–281, 378 | "four hypothesis shapes" — Theorem 4's is a fifth, unguarded; `closed` and other Z3 predicates have no fidelity guard | **FIXED.** Two new guards: Theorem 4's hypothesis satisfiable non-trivially at 3×3 and 2×2×2; the Z3 closure predicate evaluated against is_closed on 300 random sets over five shapes (0 disagreements). §10 names the three guarded predicates, lists the unguarded transcriptions, and says fourteen non-vacuity checks over five shapes. 20 guards. |
+| A-6 | MINOR | 379 | Prop. 4 Z3 box splits (2 coords)×(1 coord); text does not say so | **FIXED.** Wording as resolved: second factor one-dimensional; the exhaustive family covers two two-dimensional factors. |
+| A-7 | MINOR | 96 | Figure 1 caption numbers not produced by check.py | **FIXED.** check.py row "Figure 1: the five-cell index in 5x5" (|ℛ| = 9, E = 4, both φ printed); figures.py draws from check.FIG1_INDEX. |
+| A-8 | MINOR | 610; check.py 979 | selftest control (3) compares two formulas; no decision procedure | **FIXED.** Control (3) is now seed_bruteforce(2⁵, 5) by direct closure: every subset of size < 4 fails, four cells generate; §10 says each control is a decision procedure. |
+| A-9 | MINOR | 610 | "14 failing pairs" are ordered; Table 1 says 7 | **FIXED.** Loop is i < j; 7 unordered pairs; §10 says so. |
+| A-10 | MINOR | 606, 612 | "four integer obligations" (three + a refutation); Lemmas 1–3, Cor. 1 have no exhaustive family | **FIXED.** "three integer obligations and one integer refutation"; Lemmas 1–3 and Corollary 1 "carry written proofs only", the exhaustive list starts at Proposition 1. |
+| A-11 / R-P5 | MINOR | 23, 100, 104 | "Two illustrations" (three); "Gregorian calendar" (common year; leap year E = 6); "every speaker of English" | **FIXED.** "Three illustrations"; "A common year of the Gregorian calendar"; "the rhyme taught beside the calendar". |
+| A-12 | MINOR | 264 | meet-irreducibles "grow linearly" — 1.50…1.25 per cell, unproved | **FIXED.** Clause dropped; the caption reports the counts and says no law is claimed. |
+| A-13 | MINOR | 11, 36 | "6 refutations by explicit witness" — one is by solver `sat` | **FIXED.** Abstract: "five by explicit witness and one by solver"; the REFUTATION status word admits a solver's satisfying assignment. |
+| A-14 / R-M10 | MINOR | 27 | Birkhoff sentence garbled; does not name the chains | **FIXED.** Rewritten as resolved: L embeds in {0,1}ᴶ, one two-element chain per join-irreducible (Birkhoff 1967); the requirement is only that no two chains be folded. |
+| A-15 / R-P1 | MINOR | 106 | which 28 f-block elements are detached is not stated | **FIXED.** The 28 named (Ce–Lu, Th–Lr), La and Ac in group 3 so periods 6 and 7 are full. |
+| A-16 | MAJOR | Fig. 2, p. 5 | plate title overprints the period-1 cells; y-axis labels 1,3,5,7 only | **FIXED.** Figure 2 regenerated by figures.py fig_periodic() from check.periodic_cells()/stair(): no text over the grid, all seven periods labelled, legend below; FIGURES.tsv records the replaced plate's md5 and the reason; caption says the figure is computed. |
+| A-17 | MINOR | Fig. 3 | t = 5 row drawn outside Box(X) | **FIXED.** Grid trimmed to the 4×5 box; caption names the box. |
+| A-18 | MINOR | 537 | "seventh … lies off both curves" — it is not plotted | **FIXED.** "a seventh, 4² with seed 4, and an eighth, 5² with seed 5, are not plotted." |
+| A-19 | MAJOR | pp. 1–23 | literal `_`, `^{}` in code-span mathematics throughout | **FIXED.** Every mathematics code span rewritten as plain Unicode (mechanical pass, then hand rewrites where no glyph exists: φᵢⱼ[X] for a named boundary function, ∏ᵢ Aᵢ for the product, n = |U| and 2ⁿ, cells p ≠ r, u/v/w in the §8 proofs, Pⱼ/Zⱼ in Theorem 15, xᵢ ≥ xᵢ₊₁ for the simplex); a text scan of all 27 rendered pages finds no _, ^, \\ or *. |
+| A-20 | MAJOR | pp. 11, 17, 22–23 | literal `\|` in Table 1/2 headers and §10 rows | **FIXED.** ∣ (U+2223) in every table cell that carries a bar (Table 1 and 2 headers, §10 rows for Theorems 7, 10 and the region). |
+| A-21 | MAJOR | pp. 21–23 | §10 table: p. 21 two-thirds blank; row "Proposition 3" split across pages | **FIXED.** The §10 table is split in two (§2–§5; §6–§9); no row is split; the second table moves whole to the next page and leaves about a quarter of p. 23 blank, within the finding's criterion. |
+| A-22 | MINOR | pp. 4–5, 10, 12, 20 | stray "Figure N" line under every image; Fig. 1 separated from caption | **FIXED.** Empty alt text and the caption in the image's own paragraph: no stray "Figure N" line; Figure 1 and its caption share p. 5. |
+| A-23 | MINOR | pp. 6, 14, 17 | (i)–(iii) and (a)/(b) render as 1./2./3.; proofs cite the letters | **FIXED.** Labels written **(i)**, **(a)** and the clauses separated as blockquote paragraphs, so the proofs' "(i)", "(a)" match the page. |
+| R-M1 | MAJOR | 68, 441 | seed(X) = minimum generating set of the lattice X (by Thm 2) never stated | **FIXED.** Gloss at D8 (seed(X) = least generating size of the lattice X, by Theorem 2) and at the opening of §9; this is what makes the Czédli identification exact. |
+| R-M3 | MINOR | 446 | Thm 12(b) uses φ^G outside its domain before (a) | **FIXED.** Clause (b) reads "given (a)", with the note that (a) makes Box(G) = Box(X). |
+| R-M4 | MINOR | 467 | Thm 13 "constant on [t,a]" needs Lemma 1 spelled out | **FIXED.** The two lines written: t″ ≤ t by maximality, then Lemma 1 sandwiches the three values. |
+| R-M5 | MINOR | 214 | Thm 5 statement circular ("alphabets of S ⊆ A₁ × A₂") | **FIXED.** "let S be a finite non-empty set of pairs with observed alphabets A₁ = π₁(S), A₂ = π₂(S)". |
+| R-M6 | MINOR | 208 | "the set it cuts is therefore the smallest" — empty clause | **FIXED.** Clause deleted. |
+| R-M7 | MINOR | 505, 511 | Thm 15 "Equivalently" needs k ≥ c; upper bound should assume a generating G | **FIXED.** "for k ≥ c" added (k < c handled by Proposition 5); the upper bound opens "Suppose G, of size k, generates Q(c, d)". |
+| R-M8 | MINOR | 345 | ⊑ is a preorder for d > 2; "chain" needs the qualifier | **FIXED.** ⊑ stated as a partial order at d = 2 and a preorder for d > 2; "chain in ⊑" defined as any two cells comparable. |
+| R-M9 | MINOR | 252, 264 | meet-irreducible generation needs U as empty intersection; top excluded | **FIXED.** Caption: members other than U; the family is generated by them together with U, the empty intersection. |
+| R-P2 | MINOR | 23, 106 | "not of chemistry" overstated — of the coordinatisation | **FIXED.** "a property of the coordinatisation, not of the elements"; "not a defect in the elements", with the shell structure named as what the coordinates do not carry. |
+| R-P3 | MINOR | 108 | helium claim uncited (Scerri 2020; Grochala 2018) | **FIXED.** Scerri 2020 and Grochala 2018 cited; IUPAC's group-18 placement named. |
+| R-P4 | MINOR | 387, 400, 435 | "coupling" language vs Δ ⊆ ℤ³ without the parity condition | **FIXED.** "coupling" dropped at both places; §8 kept mathematical (the parity condition is not introduced). |
+| R-C2 | MAJOR | 25, 188 | E(X) = 0 is not "global consistency"; it is decomposability into a staircase network; Dechter 1992 misused | **FIXED.** §0 and §3 rewritten: E = 0 is binary decomposability into staircase constraints (Montanari 1974), global consistency then by van Beek & Dechter 1995; the {(0,1),(1,0)} counterexample at E = 2 printed; Dechter 1992 removed from text, references and check.py's CITED row; SOURCES.md records that the source's Dechter attribution is not carried. |
+| R-C3 | MAJOR | 479 | Carathéodory/breadth attributed to Queyranne–Tardella 2008; correct sources Jamison / van de Vel 1993 / Q–T 2017; Carathéodory 1911 uncited | **FIXED.** Jamison-Waldner 1982, van de Vel 1993 and Queyranne–Tardella 2017 cited (the last verified: MOR 42(2), 495–516); Carathéodory 1911 cited at the definition; the 2008 paper kept only for the hull statement in §3. |
+| R-C4 | MINOR | 25, 188 | Bergman 1977 vs Baker–Pixley emphasis; add Veinott 1989 | **FIXED.** Forward direction attributed to Baker & Pixley 1975, Bergman 1977 to the name and the converse, Veinott 1989 added beside Topkis and Queyranne–Tardella; abstract reworded. |
+| R-C5 | MINOR | 531 | LYM inequality omitted between Sperner and Bollobás | **FIXED.** "by way of the LYM inequality (Lubell 1966)"; Lubell 1966 in the references. |
+| R-C6 | MINOR | 62 | cite Deville et al. where "staircase" is introduced | **FIXED.** Deville, Barette & Van Hentenryck 1999 cited at D5. |
+| R-C7 | MINOR | 487 | D(d,c) = L(d, c−1); check the generating-set literature | **FIXED.** D(d,c) = L(d, c−1) named with Stanley 1980; the paper states that Theorem 14 is not a case of Czédli's direct-power theorem and that no statement of it in the literature is known (Czédli's generating-set papers checked; Young's-lattice literature not searched further — SOURCES.md says so). |
 
 Counts: **1 BLOCKING, 11 MAJOR, 28 MINOR** (40 findings; A-1/R-C1, A-2/R-M2, A-3/R-M2, A-11/R-P5,
 A-14/R-M10 and A-15/R-P1 are each one row).
@@ -480,3 +480,35 @@ Re-verification commands: `export PATH=/home/user/Claude-Method-Works/method/bin
 cd papers/method/01-closure-law; python3 check.py; python3 check.py --selftest;
 python3 ../lint.py .; python3 ../render.py .` — and for A-4, the two-second direct computation of
 `stair` on the 732 characteristic vectors at `2×2×2×2`, which returned 65,536.
+
+---
+
+## Repair record — 2026-09-24
+
+Repaired by the drafter against every finding above; nothing above was deleted or rewritten.
+**Dispositions: 40 FIXED, 0 DECLINED** (BLOCKING 1/1, MAJOR 11/11, MINOR 28/28).
+
+**Czédli verified.** arXiv:2303.10790v3 read in full: Theorem 2.1 is the c = 2 case of Theorem 15,
+proved by the same two-sided Sperner argument. The later papers the audit named (arXiv:2309.13783,
+2401.00842) do not cover products of chains, but arXiv:2308.15625 (Ural Math. J. 10(1), 2024) does —
+Theorem 2.4 (k ↦ G_min(Dᵏ) is the left adjoint of n ↦ S(J(D), n)) with Observation 3.1(d) and the
+Griggs–Stahl–Trotter count gives c − 2 + m(d) for every c. Theorem 15 is therefore CITED in full and the
+paper claims only Theorems 13–14 and the linear-law refutation. One discrepancy recorded, not repaired:
+Czédli 2023b's table (4.30) prints 18 for the five-element chain at d = 2022, 2023, where its own
+Theorem 2.4 (p = 3, f*(2023) = 14) and the law give 17; `check.py` prints both.
+
+**What changed.** `PAPER.md`: every mathematics code span rewritten as plain Unicode (A-19, A-20); §0,
+§3 and §9 rewritten for A-1, A-2, R-C2, R-C3, R-C4; every other finding at its line; the §10 record in
+two tables; date 24 September 2026. `check.py` (never weakened): Theorem 4 non-vacuity guard (2 rows),
+closure-predicate fidelity guard, |ℛ(Cl(U))| computed directly at every ambient, Figure 1 row, 5² box,
+the law at (5, 2023), eight CITED rows, selftest controls (2) and (3) replaced by decision procedures,
+`periodic_cells()` factored out for `figures.py`. `figures.py`: computed Figure 2 (`fig_periodic`),
+Figure 3 grid trimmed. `FIGURES.tsv`: rewritten (two new md5s, replaced plate recorded). `SOURCES.md`:
+novelty section, Czédli verification and discrepancy, R-C2/R-C3 attributions, guard figures, figures.
+
+**Re-verification.** `python3 check.py`: 134 rows, 0 failures (20 GUARD, 53 MACHINE-CHECKED,
+47 EXHAUSTIVE, 6 REFUTATION, 8 CITED), exit 0. `--selftest`: 137 rows, three controls refuted, exit 0.
+`lint.py`: 0 hits. `render.py`: 27 pages. Every page rasterised and its text scanned: no literal
+underscore, caret, backslash or asterisk; the HTML screenshotted with headless Chromium per
+BRIEF-AUDIT step 6.
+

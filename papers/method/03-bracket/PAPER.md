@@ -59,9 +59,9 @@ Equivalently T = Z²R/ν² = Z²R/(n − δ)². The Rydberg term function is T(�
 
 It holds or it fails; it returns an interval, [min, max], and not a value.
 
-**D5 (the defect bracket).** Let δ₋ and δ₊ be the quantum defects the two neighbours imply (D2), and let `δ_lo` ≤ `δ_hi` be their order. The defect bracket at n is the statement `δ_lo` ≤ δ(n) ≤ `δ_hi`, equivalently (Lemma 2) `E_lo` ≤ E(n) ≤ `E_hi` with
+**D5 (the defect bracket).** Let δ₋ and δ₊ be the quantum defects the two neighbours imply (D2), and let δₗₒ ≤ δₕᵢ be their order. The defect bracket at n is the statement δₗₒ ≤ δ(n) ≤ δₕᵢ, equivalently (Lemma 2) Eₗₒ ≤ E(n) ≤ Eₕᵢ with
 
-    E_lo := I − Z²R/(n − δ_hi)²,      E_hi := I − Z²R/(n − δ_lo)²,
+    Eₗₒ := I − Z²R/(n − δₕᵢ)²,      Eₕᵢ := I − Z²R/(n − δₗₒ)²,
 
 the larger defect giving the lower energy.
 
@@ -69,11 +69,11 @@ the larger defect giving the lower energy.
 
 **D7 (quotation floor, admissibility).** A level printed with k decimals carries a quotation floor q := ½·10⁻ᵏ. The admissibility ratio of a cell is
 
-    r_adm := 2Z²R / (ν³ q),
+    rₐ := 2Z²R / (ν³ q),
 
-the local derivative of the term against the floor. A cell is admissible when `r_adm` ≥ 5.
+the local derivative of the term against the floor; rₐ is the admissibility ratio. A cell is admissible when rₐ ≥ 5.
 
-**D8 (the strict test).** At an interior cell whose three levels are measured and lie below I: if the cell is inadmissible (D7) it is REFUSED; otherwise it passes when `E_lo` − q ≤ E(n) ≤ `E_hi` + q and fails when it does not. The floor q is the only tolerance; it is a property of the printed value, not a fitted parameter, and the test uses no uncertainty the source may attach to a level. A level the source marks as derived rather than measured is not a level for this purpose.
+**D8 (the strict test).** At an interior cell whose three levels are measured and lie below I: if the cell is inadmissible (D7) it is REFUSED; otherwise it passes when Eₗₒ − q ≤ E(n) ≤ Eₕᵢ + q and fails when it does not. The floor q is the only tolerance; it is a property of the printed value, not a fitted parameter, and the test uses no uncertainty the source may attach to a level. A level the source marks as derived rather than measured is not a level for this purpose.
 
 **D9 (power-law observable).** y(x) = xᵖ with p real, x > 0. The Rydberg term is the case p = −2 up to the constant A.
 
@@ -95,9 +95,9 @@ the local derivative of the term against the floor. A cell is admissible when `r
 
 **Consequence.** The bracket on terms T = I − E is the same statement as the bracket on levels E. It can be evaluated where I is unknown, ambiguous or disputed. The effective quantum number, the quantum defect and the price V all need I; the bracket does not.
 
-**Lemma 2 (the defect bracket is an energy interval).** At fixed n, Z and I the map δ ↦ E = I − Z²R/(n − δ)² is strictly decreasing on δ < n. Hence `δ_lo` ≤ δ(n) ≤ `δ_hi` if and only if `E_lo` ≤ E(n) ≤ `E_hi`, where `E_lo` and `E_hi` are as in D5.
+**Lemma 2 (the defect bracket is an energy interval).** At fixed n, Z and I the map δ ↦ E = I − Z²R/(n − δ)² is strictly decreasing on δ < n. Hence δₗₒ ≤ δ(n) ≤ δₕᵢ if and only if Eₗₒ ≤ E(n) ≤ Eₕᵢ, where Eₗₒ and Eₕᵢ are as in D5.
 
-**Proof.** dE/dδ = −2Z²R/(n − δ)³ < 0 for δ < n. A strictly decreasing map carries the interval [`δ_lo`, `δ_hi`] onto [E(`δ_hi`), E(`δ_lo`)] = [`E_lo`, `E_hi`] and preserves membership. ∎ **PROVED.**
+**Proof.** dE/dδ = −2Z²R/(n − δ)³ < 0 for δ < n. A strictly decreasing map carries the interval [δₗₒ, δₕᵢ] onto [E(δₕᵢ), E(δₗₒ)] = [Eₗₒ, Eₕᵢ] and preserves membership. ∎ **PROVED.**
 
 The two brackets are different statements. D4 asks whether the level lies between its neighbours; D5 asks whether the quantum defect does. The first is implied by monotonicity of T. The second is implied by monotonicity of δ, which no theorem here guarantees: the Ritz expansion δ(n) = δ₀ + δ₂/(n − δ₀)² + … (Ritz 1903; Seaton 1983; CITED) approaches δ₀ monotonically from one side, and either sign of δ₂ occurs in measured series; the classical account of series analysis in these terms is Edlén (1964; CITED). The guarantee is the first; the test that can fail, and is run in §7, is the second.
 
@@ -123,20 +123,20 @@ and for every ν > 1,
 
 **Proof.** g₊ = A[(ν+1)² − ν²]/(ν²(ν+1)²) = A(2ν+1)/(ν²(ν+1)²), and g₋ likewise with ν − 1. For the inequalities divide by A/ν³: g₊/(2A/ν³) = ν(2ν+1)/(2(ν+1)²) < 1 because ν(2ν+1) = 2ν² + ν < 2ν² + 4ν + 2 = 2(ν+1)²; and g₋/(2A/ν³) = ν(2ν−1)/(2(ν−1)²) > 1 because 2ν² − ν > 2ν² − 4ν + 2 ⟺ 3ν > 2, true for ν > 1. ∎ **PROVED**; the closed forms are exact on a rational grid and the inequalities are **EXHAUSTIVE** on ν ∈ {5/4, 6/4, …, 200} (I21–I22).
 
-**Corollary 2 (the bound in the silence).** Let the bracket hold at a cell whose two neighbours are unperturbed, and let Δ be the displacement of the middle term from its unperturbed value. Then by Theorem 3, with a = T(n−1), c = T(n), b = T(n+1), −g₊ ≤ Δ ≤ g₋ in the term, that is −g₋ ≤ Δ_E ≤ g₊ in the energy, and in either case |Δ| ≤ max(g₋, g₊). In terms of D6, at step h, the two gaps are g₋ = w/2 + e and g₊ = w/2 − e exactly (I39), so the larger gap is g₋ = (w/2)(1 + 2/V) (I40): it exceeds the half-width w/2 by the fraction 2/V, which is 11/16 at ν = 2h and 2.3 % at ν = 64h (I41). The half-width is itself h·(2A/ν³)/(1 − h²/ν²)² (I24) and exceeds 2A/ν³ (I23), so the bound is looser than the derivative too. So each held cell bounds the displacement of its level relative to its two measured neighbours by the larger of its two observed gaps, max(E − E₋, E₊ − E), computed from the neighbours with no fit, no expansion and no smoothness assumption. ∎ **PROVED.**
+**Corollary 2 (the bound in the silence).** Let the bracket hold at a cell whose two neighbours are unperturbed, and let Δ be the displacement of the middle term from its unperturbed value. Then by Theorem 3, with a = T(n−1), c = T(n), b = T(n+1), −g₊ ≤ Δ ≤ g₋ in the term, that is −g₋ ≤ ΔE ≤ g₊ for the displacement ΔE = −Δ of the level's energy, and in either case |Δ| ≤ max(g₋, g₊). In terms of D6, at step h, the two gaps are g₋ = w/2 + e and g₊ = w/2 − e exactly (I39), so the larger gap is g₋ = (w/2)(1 + 2/V) (I40): it exceeds the half-width w/2 by the fraction 2/V, which is 11/16 at ν = 2h and 2.3 % at ν = 64h (I41). The half-width is itself h·(2A/ν³)/(1 − h²/ν²)² (I24) and exceeds 2A/ν³ (I23), so the bound is looser than the derivative too. So each held cell bounds the displacement of its level relative to its two measured neighbours by the larger of its two observed gaps, max(E − E₋, E₊ − E), computed from the neighbours with no fit, no expansion and no smoothness assumption. ∎ **PROVED.**
 
 Two limits of the statement are part of it. The hypothesis that the neighbours are unperturbed cannot be dropped: the bound is on the displacement of the level relative to its neighbours, and a perturber that moves the neighbours with the cell is invisible to it. In an atom that is the common case — a perturbing level displaces every member within a few units of n along a smooth phase profile (Lu and Fano 1970; CITED), so a series can stay monotone while every level is displaced by more than a local gap. What a Lu–Fano analysis or a multichannel quantum-defect fit returns (Fano 1970; Seaton 1983; Aymar, Greene and Luc-Koenig 1996; CITED) is a far tighter and model-dependent bound on the perturbation itself; what a held cell returns is a fit-free bound on a weaker quantity. The two are not competitors, and nothing here is a bound on a perturbation of the series in the Lu–Fano sense.
 
-**D11 (critical depth).** A perturbation of size |Δ| can reorder a cell only where the local gap has fallen to |Δ|. Taking the derivative 2Z²R/ν³ for the gap, the critical depth is `ν_fail` := ∛(2Z²R/|Δ|).
+**D11 (critical depth).** A perturbation of size |Δ| can reorder a cell only where the local gap has fallen to |Δ|. Taking the derivative 2Z²R/ν³ for the gap, the critical depth, written νᶜ, is νᶜ := ∛(2Z²R/|Δ|).
 
-| \|Δ\| (cm⁻¹) | `ν_fail`, Z = 1 | `ν_fail`, Z = 2 |
+| \|Δ\| (cm⁻¹) | νᶜ, Z = 1 | νᶜ, Z = 2 |
 |---|---|---|
 | 3,000 | 4.2 | 6.6 |
 | 1,000 | 6.0 | 9.6 |
 | 100 | 13.0 | 20.6 |
 | 10 | 28.0 | 44.4 |
 
-*Table 1. The critical depth `ν_fail` = ∛(2Z²R/|Δ|). By Lemma 3 the gap toward n + 1 is smaller than 2Z²R/ν³ and the gap toward n − 1 is larger, so `ν_fail` (D11) is between the two exact thresholds. (I25.)*
+*Table 1. The critical depth νᶜ = ∛(2Z²R/|Δ|). By Lemma 3 the gap toward n + 1 is smaller than 2Z²R/ν³ and the gap toward n − 1 is larger, so νᶜ (D11) is between the two exact thresholds. (I25.)*
 
 **An observation, not a theorem.** Large perturbations of a Rydberg series arise from configuration interaction with core-excited states, which lie low in the spectrum, while deep series live at high ν where the gaps are small. The two conditions of Theorem 3 — a large Δ and a small gap — therefore tend not to coincide in measured spectra. That is a statement about atoms and is offered as one; nothing below depends on it.
 
@@ -292,7 +292,7 @@ after the numerator 2(m+1)²(3m²+6m+2) − (2m+1)²(m+2)² = 2m⁴ + 4m³ + m²
 
 **Lemma 5 (what a difference can resolve).** If each level carries an error at most σ, the (k+1)-th difference carries an error at most 2ᵏ⁺¹σ. **Proof.** Δᵏ⁺¹ is the signed sum Σᵢ (−1)ᵏ⁺¹⁻ⁱ C(k+1, i) T(n+i), and Σᵢ C(k+1, i) = 2ᵏ⁺¹. ∎ **PROVED**; **EXHAUSTIVE** for k = 0…11 (I35).
 
-**D12 (resolution at order k).** With σ = q the quotation floor, a run of k + 2 consecutive measured members is resolved at order k when |Δᵏ⁺¹T| > 5·2ᵏ⁺¹q; the case k = 1 is D7's rule `r_adm` ≥ 5 applied to the second difference rather than the first. A resolved run whose difference has the wrong sign (Lemma 4) is refused: it is a perturbation detected by sign alone, with no fit. The resolution bound `ν_V` on the curvature follows from D12 at k = 1. The second difference at unit step is Δ²T = 2e, and e is 3A/ν⁴ to leading order (Theorem 9 gives e/T = 3s² + …), so Δ²T ≈ 6A/ν⁴, and |Δ²T| > 20q reads 6Z²R/ν⁴ > 20q ⟺ ν < `ν_V` := ∜(3Z²R/(10q)), which is 134.7, 75.7 and 42.6 at q = 10⁻⁴, 10⁻³ and 10⁻² for Z = 1 (I26). The filter e ≥ 10q of §7 is the same threshold, since e = ½Δ²T at unit step. Curvature washes out as ν⁻⁴ before separation does as ν⁻³.
+**D12 (resolution at order k).** With σ = q the quotation floor, a run of k + 2 consecutive measured members is resolved at order k when |Δᵏ⁺¹T| > 5·2ᵏ⁺¹q; the case k = 1 is D7's rule rₐ ≥ 5 applied to the second difference rather than the first. A resolved run whose difference has the wrong sign (Lemma 4) is refused: it is a perturbation detected by sign alone, with no fit. The resolution bound on the curvature, written νᵛ, follows from D12 at k = 1. The second difference at unit step is Δ²T = 2e, and e is 3A/ν⁴ to leading order (Theorem 9 gives e/T = 3s² + …), so Δ²T ≈ 6A/ν⁴, and |Δ²T| > 20q reads 6Z²R/ν⁴ > 20q ⟺ ν < νᵛ := ∜(3Z²R/(10q)), which is 134.7, 75.7 and 42.6 at q = 10⁻⁴, 10⁻³ and 10⁻² for Z = 1 (I26). The filter e ≥ 10q of §7 is the same threshold, since e = ½Δ²T at unit step. Curvature washes out as ν⁻⁴ before separation does as ν⁻³.
 
 Higher order buys a narrower interval, not a cheaper one: the bracket and the estimate at order k are built from different node sets, so no inequality between them is implied and Theorem 6's floor applies to the classical first-order pair alone.
 
@@ -314,7 +314,7 @@ Higher order buys a narrower interval, not a cheaper one: the bracket and the es
 
 Three things are read from Table 4. The containment statement passes every cell, as Corollary 1 says it must on ordered levels; the number carries no information beyond the order. The defect bracket fails at a quarter of the cells; a failure is a triple across which the implied quantum defect is not monotone, which is what a local perturber, a change of coupling scheme along a series, or an interleaving second series produces. And no cell was refused, so the failures are decided at the floor of the quotation and are not artefacts of coarse printing. The series that fail most completely are short ones in the ions — C II, Ca IX, Al IV, P II and C I, with two cells or fewer each and no cell passing (E4b).
 
-**What the tolerance decides.** The floor is the only tolerance, and its share of the verdicts is measured rather than assumed (E12). Of the 1,145 passes, 39 hold only because of the floor — the level lies outside [`E_lo`, `E_hi`] and inside [`E_lo` − q, `E_hi` + q]. Of the 406 failures, 25 lie within 2q of an edge and 84 within 5q. And at 64 cells the interval `E_hi` − `E_lo` is itself narrower than 2q, 32 of them held: there the verdict is the floor's and not the atom's, because D7 tests whether the level is separated from its neighbours against q and never whether the interval is resolvable against q. That class is reported here and is not folded into either count. Widening the tolerance to 2q or 5q moves the split from 1,145/406 to 1,170/381 and 1,229/322; removing it gives 1,106/445. The test uses no uncertainty the database attaches to a level: the printed precision is not the measurement uncertainty, and the rule treats it only as a floor below which two printed values cannot be told apart. The levels are reduced to ν and δ with the infinite-mass R; for lithium, the lightest species tested, the reduced-mass value differs by mₑ/M = 7.8 × 10⁻⁵, which shifts every ν of the species by 3.9 × 10⁻⁵·ν — the same shift to within 3.9 × 10⁻⁵ across a triple at h = 1 (E13) — and the containment statement of D4 does not see it at all.
+**What the tolerance decides.** The floor is the only tolerance, and its share of the verdicts is measured rather than assumed (E12). Of the 1,145 passes, 39 hold only because of the floor — the level lies outside [Eₗₒ, Eₕᵢ] and inside [Eₗₒ − q, Eₕᵢ + q]. Of the 406 failures, 25 lie within 2q of an edge and 84 within 5q. And at 64 cells the interval Eₕᵢ − Eₗₒ is itself narrower than 2q, 32 of them held: there the verdict is the floor's and not the atom's, because D7 tests whether the level is separated from its neighbours against q and never whether the interval is resolvable against q. That class is reported here and is not folded into either count. Widening the tolerance to 2q or 5q moves the split from 1,145/406 to 1,170/381 and 1,229/322; removing it gives 1,106/445. The test uses no uncertainty the database attaches to a level: the printed precision is not the measurement uncertainty, and the rule treats it only as a floor below which two printed values cannot be told apart. The levels are reduced to ν and δ with the infinite-mass R; for lithium, the lightest species tested, the reduced-mass value differs by mₑ/M = 7.8 × 10⁻⁵, which shifts every ν of the species by 3.9 × 10⁻⁵·ν — the same shift to within 3.9 × 10⁻⁵ across a triple at h = 1 (E13) — and the containment statement of D4 does not see it at all.
 
 **The price, measured.** For each triple (n − h, n, n + h) of measured levels with h = 1 or 2, w and e are formed from the measured terms and compared with Theorem 4 at r = ν/h, keeping the triples whose curvature is resolved at the floor (e ≥ 10q). The median deviation from 4r³/(3r² − 1) is 0.84 % over 1,490 triples at h = 1, 0.51 % over 842 at h = 2, and 0.71 % over all (E5). The h = 2 triples bracket from neighbours two principal quantum numbers away and obey the same law, as Corollary 3 says they must.
 
@@ -349,7 +349,7 @@ Three things are read from Table 4. The containment statement passes every cell,
 
 **Two synthetic controls.** On a series T(n) = R/(n − δ)² with n = 4…14 and δ = 0, 0.35, 1.35 and 2.65, containment holds at all 36 interior cells while the energies run from 559.9 to 6,858.6 cm⁻¹ at δ = 0 and from 851.8 to 60,212.5 cm⁻¹ at δ = 2.65 (I36): the defect stretches the series ninefold and containment does not notice, because it needs only monotonicity in n. And the bracket does not extrapolate. At δ = 0.35 the widths at n = 5…11 are 4,799, 2,594, 1,562, 1,015, 697, 499 and 370 cm⁻¹ with successive ratios 0.540, 0.602, 0.650, 0.687, 0.716 and 0.741; presuming the next width from the last ratio gives 274.1 against a true 281.7, low by 2.72 % (I37). A good estimate and not a bound. The law gives the ratio ((ν)/(ν+1))³ = 0.764 at that step, derived rather than fitted.
 
-**A worked deduction.** Where a series has two measured members at n = 4 and 5 and the defect is assumed to decrease along it, the bracket runs on the defect. With δ(4s) = 1.0057, δ(5s) = 0.9812, threshold 892,700 cm⁻¹ and Z = 6 (the ⁴S° ns series of Sc VI, levels and threshold from the database), the two-point Ritz solve δ = `δ_∞` + δ₂/n² is exactly determined: δ₂ = 1.0889, `δ_∞` = 0.9376, δ(6s) = 0.9679, so E(6s) = 736,688 cm⁻¹. Monotone decrease bounds δ(6s) on both sides, `δ_∞` < δ(6s) < δ(5s), which is the interval [735,860, 738,547] cm⁻¹, 2,687 wide; convexity of δ in 1/n² adds δ(6s) ≥ 2δ(5s) − δ(4s) = 0.9567 and narrows the upper edge to 737,380 cm⁻¹, an interval 1,520 wide that lies inside the first (I38). The threshold itself carries a quoted uncertainty of ±400 cm⁻¹ (CITED), which is to be added at both edges of either interval; it shifts both edges together and does not change their separation. The lower edge tests monotonicity and the upper edge tests convexity, so a measurement between the two upper edges would refute the second and leave the first standing. This is a deduction conditional on the two stated order properties, both of which the data of Table 4 show can fail in a given series.
+**A worked deduction.** Where a series has two measured members at n = 4 and 5 and the defect is assumed to decrease along it, the bracket runs on the defect. With δ(4s) = 1.0057, δ(5s) = 0.9812, threshold 892,700 cm⁻¹ and Z = 6 (the ⁴S° ns series of Sc VI, levels and threshold from the database), the two-point Ritz solve δ = δ₀ + δ₂/n², with δ₀ the limit value of §2, is exactly determined: δ₂ = 1.0889, δ₀ = 0.9376, δ(6s) = 0.9679, so E(6s) = 736,688 cm⁻¹. Monotone decrease bounds δ(6s) on both sides, δ₀ < δ(6s) < δ(5s), which is the interval [735,860, 738,547] cm⁻¹, 2,687 wide; convexity of δ in 1/n² adds δ(6s) ≥ 2δ(5s) − δ(4s) = 0.9567 and narrows the upper edge to 737,380 cm⁻¹, an interval 1,520 wide that lies inside the first (I38). The threshold itself carries a quoted uncertainty of ±400 cm⁻¹ (CITED), which is to be added at both edges of either interval; it shifts both edges together and does not change their separation. The lower edge tests monotonicity and the upper edge tests convexity, so a measurement between the two upper edges would refute the second and leave the first standing. This is a deduction conditional on the two stated order properties, both of which the data of Table 4 show can fail in a given series.
 
 **What the counts do not show.** Cells within a series share neighbours, so 1,551 cells are not 1,551 independent tests; the count of series, 395, is the conservative figure. A failure of the defect bracket is not a fault of a level: it is a triple across which δ is not monotone. And the containment statement's 1,551 of 1,551 is the order of the levels restated, not a validation.
 
@@ -359,9 +359,9 @@ Three things are read from Table 4. The containment statement passes every cell,
 
 ## §8 · Where the threshold is wrong, and where it does not matter
 
-The threshold of a hydrogenic ion is not Z²R; here Z is the nuclear charge, which for a one-electron ion is the charge of §1. Against the reduced-mass baseline Z²`R_M`, `R_M` = R/(1 + mₑ/M), the Dirac equation adds a binding Z⁴α²`R_M`/4 to the 1s state (Sommerfeld 1916; Bethe and Salpeter 1957; CITED), and quantum electrodynamics removes part of it again. The thresholds are those the data set holds for the three lightest hydrogenic ions, each printed with its source and its stated uncertainty, and the nuclear masses are the AME2020 atomic masses less Z electron masses (Wang, Huang, Kondev, Audi and Naimi 2021; CITED):
+The threshold of a hydrogenic ion is not Z²R; here Z is the nuclear charge, which for a one-electron ion is the charge of §1. Against the reduced-mass baseline Z²Rₘ, where Rₘ = R/(1 + mₑ/M) is the reduced-mass Rydberg constant, the Dirac equation adds a binding Z⁴α²Rₘ/4 to the 1s state (Sommerfeld 1916; Bethe and Salpeter 1957; CITED), and quantum electrodynamics removes part of it again. The thresholds are those the data set holds for the three lightest hydrogenic ions, each printed with its source and its stated uncertainty, and the nuclear masses are the AME2020 atomic masses less Z electron masses (Wang, Huang, Kondev, Audi and Naimi 2021; CITED):
 
-| ion | I (cm⁻¹) | ± | source of I | I − Z²`R_M` | Z⁴α²`R_M`/4 | ratio |
+| ion | I (cm⁻¹) | ± | source of I | I − Z²Rₘ | Z⁴α²Rₘ/4 | ratio |
 |---|---|---|---|---|---|---|
 | Li III | 987,661.0139 | 0.0009 | published ionization energy, NIST ASD 5.12 (theoretical) | 102.41 | 118.32 | 0.865 |
 | Li III | 987,662.29 | 0.36 | limit fitted to the series of theoretical levels | 103.68 | 118.32 | 0.876 |
@@ -407,7 +407,7 @@ Throughout the paper a tag in parentheses names the obligation that discharges t
 | Theorem 12, Table 3 | ✓ (I27 exact; I28 arithmetic) | — | — | — |
 | Lemma 4 | ✓ | 1,393 differences (I33) | — | — |
 | Theorem 13 | ✓ (remainder cited) | 2,800 sign checks (I34) | — | — |
-| Lemma 5, `ν_V` | ✓ (I35; I26 arithmetic) | k = 0…11 | — | order census, 1,551 runs at k = 1 down to 391 at k = 6 (E8) |
+| Lemma 5, νᵛ | ✓ (I35; I26 arithmetic) | k = 0…11 | — | order census, 1,551 runs at k = 1 down to 391 at k = 6 (E8) |
 | Table 1 | arithmetic (I25) | — | — | — |
 | Table 4 | — | — | — | ✓ 86 tables, 64 spectra (E0); 1,551 cells / 395 series (E2, E3), 894 cells / 285 series (E4), per-species breakdown (E4b), the tolerance's share (E12), with guard E1 |
 | Corollary 2 on data, Figure 4 | — | — | — | ✓ 1,145 held cells (E7) |

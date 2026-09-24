@@ -617,7 +617,7 @@ def ls_terms_by_difference(l, k):
 
 def term_levels(terms):
     """Levels of a multiset of terms keyed (L, 2S): J runs |L-S| .. L+S, that is 2 min(L, S) + 1 values."""
-    return sum(v * (2 * min(L, S2 // 2) + 1) for (L, S2), v in terms.items())
+    return sum(v * (min(2 * L, S2) + 1) for (L, S2), v in terms.items())
 
 
 TERMS = {}
@@ -1190,9 +1190,9 @@ def section_coordinates(rows):
     c4c = sum(r["Z"] <= 92 and r["charge"] <= 10 and r["l"] <= 4 and single_o[(r["Z"], r["charge"])] for r in rows)
     num("chain_alt", [c2b, c3b])
     num("chain_stated_cuts", [c1, c2c, c3c, c4c])
-    rec("EXHAUSTIVE", "the cuts the source STATES (Z <= 92; spectrum number <= 10; l <= 4) do not produce its counts: they give "
-        "61,152, 12,720, 7,135 and (one-term tabulated core) %d" % c4c,
-        [c2b, c3b] == [12720, 7135] and c2c == 12720 and c3c == 7135 and c4c > 0)
+    rec("EXHAUSTIVE", "the cuts the source STATES (Z <= 92; spectrum number <= 10; l <= 4; one-term core) do not produce its "
+        "counts: they give 61,152, 12,720, 7,950 and 3,550 (tabulated cores); Z <= 83 with spectrum number <= 10 and l <= 4 gives 7,135",
+        [c2b, c3b] == [12720, 7135] and [c1, c2c, c3c, c4c] == [61152, 12720, 7950, 3550], "%s" % [c1, c2c, c3c, c4c])
     # the parent-count obstacles under the TABULATED ground configurations (D8), for the record
     byo = collections.defaultdict(collections.Counter)
     for r in rows:

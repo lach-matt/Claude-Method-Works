@@ -24,6 +24,7 @@ import random
 import sys
 import time
 from fractions import Fraction
+from math import factorial as fac
 
 ROOT = "/home/user/Claude-Method-Works"
 HERE = os.path.dirname(os.path.abspath(__file__))
