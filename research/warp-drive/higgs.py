@@ -165,25 +165,24 @@ every time the particle propagates.  Naming the thing that works, and that we
 do not have, is part of not overclaiming the thing that does not.
 
 ===============================================================================
-6. THE PINNED m_h IS NOT THE READ ONE (DOCKET 63, ruling F2) -- RECORDED, NOT
-   YET SWITCHED
+6. m_h IS NOW THE READ ONE (DOCKET 63, ruling F2 -- SWITCHED ON M'S RULING)
 ===============================================================================
 
-M_HIGGS = 125.20 below is NAMED-NOT-READ.  The tree's own capture of the 2026
-Review of Particle Physics, captures/PDG-2026.tsv (the H0 row, pdgid 25),
-READs a different value, and this file now imports it through
-pdgcapture.read() as M_HIGGS_READ_GEV, beside the pinned one and NEVER MERGED
-with it.  M_HIGGS_IS_READ is False and the selftest asserts that, so the day
-the pin is repaired the selftest breaks and forces every fixture below to be
-re-pinned deliberately rather than drift.
+M_HIGGS was pinned at 125.20, NAMED-NOT-READ, while the tree's own capture of
+the 2026 Review of Particle Physics, captures/PDG-2026.tsv (the H0 row, pdgid
+25), READs 125.13.  DOCKET 63 recorded the disagreement and did not switch it,
+because it cascades into the paper.  M ruled: apply it.  M_HIGGS is now the
+READ value, imported through pdgcapture.read() -- never retyped -- and the old
+pin is kept as M_HIGGS_PIN_WITHDRAWN so the switch has an object.
 
-THE PINNED VALUE IS NOT CHANGED IN THIS PASS, because it cascades into the
-paper (CLAIMS.md's H92b table pins 125.20 and the figures built on it).
-read_mass_moves() computes, for every figure this file states, how far it would
-move at the READ mass; the report prints the table.  Every m_h-dependent figure
-here moves by at most about a tenth of a percent, and NO VERDICT MOVES: the
-surplus stays near 1200, the CC excess stays at 54.6 orders, and the xi gate
-does not contain m_h at all.
+THE DRIFT GUARD IS INVERTED, NOT REMOVED.  M_HIGGS_IS_READ is now True and the
+selftest asserts it, so re-pinning M_HIGGS to anything but the capture breaks
+the selftest.  read_mass_moves() now records the move that was MADE, from the
+withdrawn pin to the READ mass, and the selftest checks that every figure
+moved by exactly the power of m_h its formula carries (lambda and V_min as
+m_h^2, lambda_h as 1/m_h) and that the xi gate, which has no m_h, did not move
+at all.  Every figure moved by about a tenth of a percent; NO VERDICT MOVED.
+The paper's H92b table (paper/CLAIMS.md) was updated on the same ruling.
 
 NOTHING IS REPAIRED.
 """
@@ -204,7 +203,9 @@ HBAR_C = HBAR * c                    # J m
 
 # Measured inputs.  STATUS IS PART OF THE VALUE.
 G_FERMI = 1.1663788e-5               # GeV^-2, PDG          NAMED-NOT-READ
-M_HIGGS = 125.20                     # GeV, PDG             NAMED-NOT-READ
+M_HIGGS_PIN_WITHDRAWN = 125.20       # GeV -- the old pin, NAMED-NOT-READ; WITHDRAWN
+                                     # on M's ruling (DOCKET 63 F2).  M_HIGGS
+                                     # below is the READ capture value.
 XI_HIGGS_INFLATION = 1.7e4           # Bezrukov-Shaposhnikov NAMED-NOT-READ
 RHO_LAMBDA_OBS = 6.0e-10             # J/m^3, order          ORDER
 
@@ -244,11 +245,13 @@ def _capture_row(pdgid):
 PDGID_HIGGS = 25
 M_HIGGS_READ_GEV = float(_capture_row(PDGID_HIGGS)["mass_MeV"]) / 1000.0   # READ
 GAMMA_HIGGS_READ_GEV = float(_capture_row(PDGID_HIGGS)["width_MeV"]) / 1000.0  # READ
-#: THE DRIFT FLAG.  False today, and the selftest asserts False: the day
-#: M_HIGGS is switched to the READ value this breaks, which forces a re-pin.
+#: m_h, READ.  The value every figure in this file and its importers uses.
+M_HIGGS = M_HIGGS_READ_GEV
+#: THE DRIFT FLAG, INVERTED.  True, and the selftest asserts True: re-pinning
+#: M_HIGGS to anything but the capture breaks it.
 M_HIGGS_IS_READ = (M_HIGGS == M_HIGGS_READ_GEV)
-#: Fractional distance of the pinned value from the READ one.  COMPUTED.
-M_HIGGS_READ_SHIFT = M_HIGGS_READ_GEV / M_HIGGS - 1.0
+#: Fractional move of the switch, READ over the withdrawn pin.  COMPUTED.
+M_HIGGS_READ_SHIFT = M_HIGGS / M_HIGGS_PIN_WITHDRAWN - 1.0
 
 
 # ------------------------------------------------------------------- the SM
@@ -258,7 +261,7 @@ def vev():
 
 
 def lam(m_h=None):
-    """lambda = m_h^2 / (2 v^2).  m_h defaults to the pinned M_HIGGS."""
+    """lambda = m_h^2 / (2 v^2).  m_h defaults to M_HIGGS, READ."""
     m_h = M_HIGGS if m_h is None else m_h
     return m_h ** 2 / (2.0 * vev() ** 2)
 
@@ -274,11 +277,11 @@ def compton_length_m(m_gev):
 
 
 def read_mass_moves():
-    """[(figure, at pinned M_HIGGS, at M_HIGGS_READ_GEV, relative move)].
+    """[(figure, at the withdrawn pin, at M_HIGGS (READ), relative move)].
 
-    DOCKET 63 F2.  Nothing is switched: this reports what WOULD move, for every
-    figure this file states that depends on m_h, plus one CONTROL that must
-    not move (the xi gate, which contains v and M_red but no m_h).
+    DOCKET 63 F2, switched on M's ruling: this records the move that was made,
+    for every figure this file states that depends on m_h, plus one CONTROL
+    that must not move (the xi gate, which contains v and M_red but no m_h).
     """
     tau = pressure.throat_tension(pressure.R_MOUTH)
     out = []
@@ -293,7 +296,7 @@ def read_mass_moves():
                                   / RHO_LAMBDA_OBS)),
             ("lambda_h = hbar/(m_h c) (m)", compton_length_m),
             ("CONTROL xi_required(v) (no m_h)", lambda m: xi_required(vev()))):
-        a, b = f(M_HIGGS), f(M_HIGGS_READ_GEV)
+        a, b = f(M_HIGGS_PIN_WITHDRAWN), f(M_HIGGS)
         out.append((name, a, b, b / a - 1.0))
     return out
 
@@ -406,7 +409,7 @@ def report():
     tau = pressure.throat_tension(pressure.R_MOUTH)
     print("  the Standard Model Higgs")
     print("      %-38s %20.6f GeV" % ("v, from G_F", v))
-    print("      %-38s %20.6f GeV" % ("m_h (PDG, NAMED-NOT-READ)", M_HIGGS))
+    print("      %-38s %20.6f GeV" % ("m_h (PDG-2026, READ)", M_HIGGS))
     print("      %-38s %20.9f" % ("lambda = m_h^2/2v^2", lam()))
     print("      %-38s %20.6e GeV^4" % ("V at the minimum", Vm))
     print("      %-38s %20.6e J/m^3" % ("  |V_min| in SI", Vsi))
@@ -481,14 +484,14 @@ def report():
     print("      %-38s %20.2f" % ("  doubled, because xi takes phi^2",
                                   math.log10(xi_required(v))))
     print()
-    print("  the pinned m_h is NOT the READ one (DOCKET 63 F2) -- not switched")
-    print("      %-38s %20.6f GeV" % ("M_HIGGS, pinned, NAMED-NOT-READ", M_HIGGS))
+    print("  m_h switched to the READ value on M's ruling (DOCKET 63 F2)")
+    print("      %-38s %20.6f GeV" % ("M_HIGGS_PIN_WITHDRAWN (was NAMED-NOT-READ)", M_HIGGS_PIN_WITHDRAWN))
     print("      %-38s %20.6f GeV" % ("captures/PDG-2026.tsv H0, READ",
                                       M_HIGGS_READ_GEV))
-    print("      %-38s %20.6e" % ("  pinned is off the READ value by",
+    print("      %-38s %20.6e" % ("  the switch moved m_h by",
                                   M_HIGGS_READ_SHIFT))
-    print("      %-36s %14s %14s %11s" % ("figure", "at pinned", "at READ",
-                                          "moves by"))
+    print("      %-36s %14s %14s %11s" % ("figure", "at old pin", "at READ",
+                                          "moved by"))
     for name, a, b, rel in read_mass_moves():
         print("      %-36s %14.7g %14.7g %+11.3e" % (name, a, b, rel))
     print()
@@ -589,7 +592,12 @@ def selftest():
 
     # ------------------------------------------------------- the Standard Model
     chkrel("v from G_F", vev(), 246.2196, 1e-5)
-    chkrel("lambda", lam(), 0.129280575661, 1e-10)
+    # FIXTURE at the READ mass.  And the switch is checked against the fixture it
+    # replaced: the old pin's 0.129280575661, rescaled by (m_read/m_pin)^2, must
+    # land on the new value -- it would not if anything but m_h had moved.
+    chkrel("lambda (READ m_h)", lam(), 0.129136053130, 1e-10)
+    chkrel("  = the withdrawn pin's 0.129280575661 x (m_read/m_pin)^2",
+           lam(), 0.129280575661 * (M_HIGGS / M_HIGGS_PIN_WITHDRAWN) ** 2, 1e-10)
     chk("V_min is negative", v_min_gev4() < 0.0, True)
     # the two closed forms for V_min must agree
     chkrel("V_min = -m_h^2 v^2/8", v_min_gev4(),
@@ -640,22 +648,23 @@ def selftest():
     # by _capture_row() through pdgcapture.read(), never typed into the code.
     chk("m_h READ from captures/PDG-2026.tsv (pdgid 25)", M_HIGGS_READ_GEV, 125.13)
     chk("Gamma_h READ from the same row", GAMMA_HIGGS_READ_GEV, 0.003)
-    # DRIFT GUARD.  This FIRES -- the selftest breaks -- on the day M_HIGGS is
-    # switched to the READ value, which forces every m_h fixture to be re-pinned.
-    chk("DRIFT GUARD: the pinned m_h is NOT the READ one", M_HIGGS_IS_READ, False)
-    chk("  and the pin is still 125.20, NAMED-NOT-READ", M_HIGGS, 125.20)
+    # DRIFT GUARD, INVERTED on M's ruling: it now FIRES if M_HIGGS is ever
+    # re-pinned to anything but the capture.
+    chk("DRIFT GUARD: M_HIGGS IS the READ value", M_HIGGS_IS_READ, True)
+    chk("  M_HIGGS is 125.13, READ", M_HIGGS, 125.13)
+    chk("  and the withdrawn pin is kept as a record, 125.20", M_HIGGS_PIN_WITHDRAWN, 125.20)
     chkrel("  offset of the pin from the READ value", M_HIGGS_READ_SHIFT,
            -5.5910543e-4, 1e-6)
     moves = {n: rel for n, _, _, rel in read_mass_moves()}
-    chkrel("|V_min| would move by (m_read/m_pin)^2 - 1",
+    chkrel("|V_min| moved by (m_read/m_pin)^2 - 1",
            moves["|V_min| (J/m^3)"], (1 + M_HIGGS_READ_SHIFT) ** 2 - 1, 1e-9)
-    chkrel("lambda_h would move by m_pin/m_read - 1",
+    chkrel("lambda_h moved by m_pin/m_read - 1",
            moves["lambda_h = hbar/(m_h c) (m)"],
            1.0 / (1 + M_HIGGS_READ_SHIFT) - 1, 1e-9)
-    chkrel("lambda_h at the pin (endpoint.py:772, address.py fixture)",
-           compton_length_m(M_HIGGS), 1.576094e-18, 1e-6)
-    chkrel("lambda_h at the READ mass (DOCKET 63 A.2)",
-           compton_length_m(M_HIGGS_READ_GEV), 1.576976e-18, 1e-6)
+    chkrel("lambda_h at the withdrawn pin (record)",
+           compton_length_m(M_HIGGS_PIN_WITHDRAWN), 1.576094e-18, 1e-6)
+    chkrel("lambda_h at M_HIGGS, READ (DOCKET 63 A.2)",
+           compton_length_m(M_HIGGS), 1.576976e-18, 1e-6)
     chk("no figure here moves by more than 0.2 per cent",
         all(abs(r) < 2e-3 for r in moves.values()), True)
     # CONTROL THAT MUST NOT MOVE: the xi gate contains no m_h.

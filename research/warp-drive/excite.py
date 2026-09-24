@@ -289,8 +289,9 @@ answered here and none is quoted as answered.
 STATUSES.  D15, D16, D18, D19 are THEOREMs on their named hypotheses.  Every
 metre, second and kg/m^3 figure is COMPUTED from READ or NAMED-NOT-READ inputs
 and carries its input's status: every figure through v inherits G_F's
-NAMED-NOT-READ; every figure at higgs.M_HIGGS = 125.20 is NAMED-NOT-READ and is
-printed BESIDE the READ 125.13, never merged with it.
+NAMED-NOT-READ.  m_h is READ: on M's ruling (DOCKET 63 F2) higgs.M_HIGGS IS the
+capture's 125.13, and the withdrawn pin 125.20 is kept only as a record, printed
+beside it and never used for a live figure.
 
 NOTHING IS REPAIRED.
 """
@@ -378,14 +379,14 @@ M_B_READ_GEV = float(_ROWS[5]["mass_MeV"]) / 1000.0           # READ
 M_T_READ_GEV = float(_ROWS[6]["mass_MeV"]) / 1000.0           # READ
 CAPTURE_LINES = _capture_lines()
 
-#: higgs.M_HIGGS = 125.20 is carried with ITS OWN status, NAMED-NOT-READ, and
-#: printed beside the READ value.  Never merged.  The selftest's drift guard
-#: fires the day higgs.py is repaired, which forces a deliberate re-pin here.
-M_HIGGS_PIN_GEV = higgs.M_HIGGS                               # NAMED-NOT-READ
+#: The withdrawn pin 125.20 (NAMED-NOT-READ) is kept as a record beside the
+#: READ value.  higgs.M_HIGGS IS the READ 125.13 since M's ruling, and the
+#: selftest's drift guard (inverted) fires if it is ever re-pinned.
+M_HIGGS_PIN_GEV = higgs.M_HIGGS_PIN_WITHDRAWN                 # the withdrawn pin, kept as a record
 
 STATUS = {
     "m_h READ, Gamma_h, m_W, m_Z, m_c, m_b, m_t": "READ captures/PDG-2026.tsv",
-    "higgs.M_HIGGS = 125.20": "NAMED-NOT-READ",
+    "higgs.M_HIGGS = 125.13 (READ); the withdrawn pin 125.20": "READ; the pin NAMED-NOT-READ, a record",
     "v = higgs.vev() from G_F": "COMPUTED from G_F, which is NAMED-NOT-READ",
     "c, hbar, G": "carried from ladder through higgs",
     "eps = 1e-18": "ORDER -- a fixture, never a capability",
@@ -1166,8 +1167,8 @@ def report():
                           ("m_t", M_T_READ_GEV, 6)):
         print("      %-10s %14.6f GeV   READ  PDG-2026.tsv:%d"
               % (lab, val, CAPTURE_LINES[pid]))
-    print("      %-10s %14.6f GeV   NAMED-NOT-READ  higgs.M_HIGGS, beside, "
-          "never merged" % ("m_h pin", M_HIGGS_PIN_GEV))
+    print("      %-10s %14.6f GeV   NAMED-NOT-READ, WITHDRAWN -- a record, never a "
+          "live figure" % ("old pin", M_HIGGS_PIN_GEV))
     print("      %-10s %14.6f GeV   COMPUTED from G_F (NAMED-NOT-READ)"
           % ("v", higgs.vev()))
     print("      %-10s %14.6e J/m^3 COMPUTED (higgs)" % ("rho_EW", RHO_EW))
@@ -1365,15 +1366,20 @@ def selftest():
             good, True)
     except ImportError as e:     # the `particle` package is the one non-stdlib
         print("  [--] pdgcapture.verify() NOT RUN: %s" % e)
-    # DRIFT GUARD.  FIRES on the day higgs.py is repaired to the READ value,
-    # which breaks this selftest and forces every m_h figure to be re-pinned.
-    chk("DRIFT GUARD higgs.M_HIGGS*1000 != capture m_h (MeV)",
-        higgs.M_HIGGS * 1000 != float(_ROWS[25]["mass_MeV"]), True)
+    # DRIFT GUARD, INVERTED on M's ruling (DOCKET 63 F2): higgs.M_HIGGS IS the
+    # capture value now, and this fires if it is ever re-pinned to anything else.
+    chk("DRIFT GUARD higgs.M_HIGGS*1000 == capture m_h (MeV)",
+        higgs.M_HIGGS * 1000 == float(_ROWS[25]["mass_MeV"]), True)
 
     # ------------------------------------------------ 2. corpus fixtures
     print("\n2. THE CORPUS'S OWN RECORDED NUMBERS")
-    chkrel("|V_min| = rho_EW (endpoint.py selftest)", RHO_EW, 2.476937e45, 1e-6)
-    chkrel("lambda_h at higgs.M_HIGGS (endpoint.py, address.py)",
+    # M's ruling switched m_h to the READ 125.13 (DOCKET 63 F2).  Every m_h fixture
+    # below KEEPS its original literal, pinned at the withdrawn 125.20, and expects
+    # it times MH**k, k the power of m_h the figure carries -- so the check still
+    # fails if anything but m_h moved, or if the power is wrong.
+    MH = (higgs.M_HIGGS / higgs.M_HIGGS_PIN_WITHDRAWN)
+    chkrel("|V_min| = rho_EW (endpoint.py selftest)", RHO_EW, 2.476937e45 * MH ** 2, 1e-6)
+    chkrel("lambda_h at the withdrawn pin 125.20 (record)",
            LAMBDA_H_PIN_M, 1.576094e-18, 1e-6)
     chkrel("lambda_h at the READ m_h (ruling A.2)", LAMBDA_H_READ_M,
            1.576976e-18, 1e-6)
@@ -1386,7 +1392,7 @@ def selftest():
         chkrel("address.source_to_field_ratio * eps -> 2 at %g" % e,
                address.source_to_field_ratio(e) * e, 2.0, 1e-5)
     chkrel("3.6746e12 kg/m^3 (address.py, H2)",
-           HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"], 3.6746e12, 1e-4)
+           HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"], 3.6746e12 * MH ** 2, 1e-4)
     chkrel("xi_required(v) (higgs.py)", higgs.xi_required(higgs.vev()),
            9.7829068836e31, 1e-9)
     chkrel("xi_required(2e16) ~ 1.48e4 (xigate.py)", XI_REQUIRED_AT_GUT,
@@ -1502,7 +1508,7 @@ def selftest():
         chk("cos(x/L) response error at lambda/L = 1/%d is 1 - exact ratio" % k,
             cosine_response_error(s), 1 - cosine_response_ratio(s))
     chkrel("  and its leading term is address.ultralocality_error(L)",
-           float(cosine_response_error(LAMBDA_H_PIN_M / 1e-15)),
+           float(cosine_response_error(LAMBDA_H_READ_M / 1e-15)),
            address.ultralocality_error(1e-15), 1e-4)
 
     # ------------------------------------------------ D20
@@ -1530,11 +1536,11 @@ def selftest():
     chk("CONTROL below the crossover the source dominates (eps = 1/2)",
         holding_ratio(Fraction(1, 2)) > 1, True)
     chkrel("Higgs-derived density at eps = 1e-18 (ruling A.5)",
-           HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18, 2.204772e11, 1e-6)
+           HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18, 2.204772e11 * MH ** 2, 1e-6)
     chkrel("  stable matter H1 (f = 2/9 + 7S/9)",
-           HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"], 8.19956e11, 1e-5)
+           HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"], 8.19956e11 * MH ** 2, 1e-5)
     chkrel("  stable matter H2 (f = S)", HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"],
-           3.67462e12, 1e-5)
+           3.67462e12 * MH ** 2, 1e-5)
     chk("  both agree with address.COURIER_SOURCE_KG_M3",
         all(abs(HOLD_STABLE_KG_M3_AT_EPS_1E18[h] / address.COURIER_SOURCE_KG_M3[h]
                 - 1) < 1e-12 for h in HYPOTHESES), True)
@@ -1607,7 +1613,7 @@ def selftest():
            -0.731111, 1e-6)
     chkrel("K_mu H2 at S = 0.06", float(address.K_mu(S_MID, "H2")), -0.94, 1e-12)
     chkrel("eps = 1e-2 needs 2.204772e27 kg/m^3 Higgs-derived (address)",
-           HOLD_HIGGS_DERIVED_AT_CHEMICAL, 2.204772e27, 1e-6)
+           HOLD_HIGGS_DERIVED_AT_CHEMICAL, 2.204772e27 * MH ** 2, 1e-6)
     chk("  and the exact source term asks slightly less (1-eps)^2(1-eps/2)",
         abs(exact_source_density(EPS_CHEMICAL)
             / HOLD_HIGGS_DERIVED_AT_CHEMICAL

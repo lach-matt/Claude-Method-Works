@@ -1388,7 +1388,12 @@ def selftest():
     print()
     print("  the range")
     lam = yukawa_range()
-    chkrel("lambda_h", lam, 1.576094e-18, 1e-6)
+    # M's ruling switched m_h to the READ 125.13 (DOCKET 63 F2).  Every m_h fixture
+    # below KEEPS its original literal, pinned at the withdrawn 125.20, and expects
+    # it times MH**k, k the power of m_h the figure carries -- so the check still
+    # fails if anything but m_h moved, or if the power is wrong.
+    MH = (higgs.M_HIGGS / higgs.M_HIGGS_PIN_WITHDRAWN)
+    chkrel("lambda_h", lam, 1.576094e-18 * MH ** -1, 1e-6)
     chkrel("  in proton radii", lam / R_PROTON_M, 1.8732e-3, 1e-3)
     chkrel("  Bohr radii per lambda_h", A_BOHR_M / lam, 3.3575e7, 1e-3)
     chk("no atom fits in the screening length", A_BOHR_M / lam > 1e7, True)
@@ -1432,15 +1437,15 @@ def selftest():
     for hyp in HYPOTHESES:
         chk("nuclear matter displaces the vev DOWNWARD (%s)" % hyp,
             EPS_NUCLEAR[hyp] < 0.0, True)
-    chkrel("  by, under H1", abs(EPS_NUCLEAR["H1"]), 3.26359e-13, 1e-5)
+    chkrel("  by, under H1", abs(EPS_NUCLEAR["H1"]), 3.26359e-13 * MH ** -2, 1e-5)
     chkrel("  by, under H2 (the first draft's only figure)",
-           abs(EPS_NUCLEAR["H2"]), 7.28239e-14, 1e-5)
+           abs(EPS_NUCLEAR["H2"]), 7.28239e-14 * MH ** -2, 1e-5)
     chkrel("  times eps_det, both under H1", EPS_NUCLEAR_OVER_DET["H1"],
-           397.674, 1e-5)
+           397.674 * MH ** -2, 1e-5)
     chkrel("  times eps_det, both under H2", EPS_NUCLEAR_OVER_DET["H2"],
-           114.091, 1e-5)
+           114.091 * MH ** -2, 1e-5)
     chkrel("WITHDRAWN 'about NINETY': H2's fraction over H1's threshold",
-           EPS_NUCLEAR_OVER_DET_AS_FIRST_WRITTEN, 88.737, 1e-4)
+           EPS_NUCLEAR_OVER_DET_AS_FIRST_WRITTEN, 88.737 * MH ** -2, 1e-4)
     for hyp in HYPOTHESES:
         chk("water is nowhere near it (%s)" % hyp,
             abs(eps_from_matter(1000.0, higgs_fraction(S_mid, hyp)))
@@ -1453,7 +1458,7 @@ def selftest():
     # ------------------------------------------------------- gravity dominates
     print()
     print("  gravity")
-    for hyp, want in (("H1", 1.371597e7), ("H2", 2.560737e7)):
+    for hyp, want in (("H1", 1.371597e7 * MH), ("H2", 2.560737e7 * MH)):
         ed = eps_det_stationary(hyp)
         rho_tot, _ = source_density(ed, higgs_fraction(S_mid, hyp))
         rg = gravimetric_radius(rho_tot * 4.0 / 3.0 * math.pi)
@@ -1479,14 +1484,14 @@ def selftest():
     ceil_e = probe_ceiling(M_E_MEV, lam)
     # THE FIRST DRAFT PUT THIS AT 1.67e-17 BY WRITING m_e AS 0.511e-3 MeV.  The
     # instrument refused it.  (m_e/m_h)^2 = (0.511/125200)^2 = 1.6658e-11.
-    chkrel("an electron resolving lambda_h", ceil_e, 1.665833e-11, 1e-5)
+    chkrel("an electron resolving lambda_h", ceil_e, 1.665833e-11 * MH ** -2, 1e-5)
     chkrel("  which is exactly (m_e/m_h)^2", ceil_e,
            (M_E_MEV / (M_HIGGS * 1e3)) ** 2, 1e-4)
     chk("so it is ABOVE the best clock ratio, and the probe is not dead here",
         ceil_e > GODUN_RATIO_UNC, True)
     eps_probe = GODUN_RATIO_UNC / ceil_e
-    chkrel("  it needs eps >=", eps_probe, 1.80090e-5, 1e-4)
-    for hyp, want in (("H1", 5.518163e7), ("H2", 2.472955e8)):
+    chkrel("  it needs eps >=", eps_probe, 1.80090e-5 * MH ** 2, 1e-4)
+    for hyp, want in (("H1", 5.518163e7 * MH ** 4), ("H2", 2.472955e8 * MH ** 4)):
         rho_probe, _ = source_density(eps_probe, higgs_fraction(S_mid, hyp))
         chkrel("  whose source, in nuclear densities (%s)" % hyp,
                rho_probe / RHO_NUCLEAR, want, 1e-5)
@@ -1508,15 +1513,15 @@ def selftest():
            1e-18, 1e-15)
     # DOCKET 63 F5.  The first draft pinned only the H2 figure, 3.6746e12.
     chkrel("  but the source it needs, kg/m^3, H1", COURIER_SOURCE_KG_M3["H1"],
-           8.19956e11, 1e-5)
+           8.19956e11 * MH ** 2, 1e-5)
     chkrel("  and under H2 (the first draft's only figure)",
-           COURIER_SOURCE_KG_M3["H2"], 3.6746e12, 1e-4)
+           COURIER_SOURCE_KG_M3["H2"], 3.6746e12 * MH ** 2, 1e-4)
     chkrel("  H1 times the density of osmium",
-           COURIER_SOURCE_KG_M3["H1"] / 22590.0, 3.62973e7, 1e-5)
+           COURIER_SOURCE_KG_M3["H1"] / 22590.0, 3.62973e7 * MH ** 2, 1e-5)
     chkrel("  H2 times the density of osmium",
-           COURIER_SOURCE_KG_M3["H2"] / 22590.0, 1.6267e8, 1e-4)
+           COURIER_SOURCE_KG_M3["H2"] / 22590.0, 1.6267e8 * MH ** 2, 1e-4)
     chkrel("  the Higgs-derived part is 2.204772e11 under both (DOCKET 63 A.5)",
-           source_density(1e-18, 1.0)[1], 2.204772e11, 1e-6)
+           source_density(1e-18, 1.0)[1], 2.204772e11 * MH ** 2, 1e-6)
     chk("  and the region must be at least a Bohr radius across",
         A_BOHR_M / yukawa_range() > 1e7, True)
 

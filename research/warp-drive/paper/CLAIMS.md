@@ -7202,17 +7202,17 @@ one structural reason: EM saturates because a radial field is boost-invariant in
 scalar because a VEV has no gradient. **And every knob turns the wrong way:** give the field a gradient and
 `T_kk` becomes *strictly* positive — further from the line, not nearer.
 
-### H92b — the first overshoot in the thread, and it cannot be localised
+### H92b — the first overshoot in the thread, and it localises only inside its own source
 
 | | |
 |---|---|
 | `v`, from `G_F` | `246.219640 GeV` |
-| `m_h` (PDG) | `125.20 GeV` |
-| `λ = m_h²/2v²` | `0.129280576` |
-| `V_min = −m_h²v²/8` | `-1.187857e+08 GeV⁴` |
-| **`\|V_min\|` in SI** | **`2.476937e+45 J/m³`** |
+| `m_h` (PDG 2026, READ) | `125.13 GeV` |
+| `λ = m_h²/2v²` | `0.129136053` |
+| `V_min = −m_h²v²/8` | `-1.186529e+08 GeV⁴` |
+| **`\|V_min\|` in SI** | **`2.474168e+45 J/m³`** |
 | `H91`'s required `τ₀` | `2.073325e+42 Pa` |
-| **surplus** | **`1.194669e+03` — about 1195×** |
+| **surplus** | **`1.193334e+03` — about 1193×** |
 
 **Every other candidate fell short** — `H81` by seventeen orders, `H86` by fifty-six, `H90` by sixty-nine,
 `H89` by a category. **This one overshoots.** And the sign of `ρ` is right too: the electroweak vacuum sits
@@ -7225,9 +7225,13 @@ scalar because a VEV has no gradient. **And every knob turns the wrong way:** gi
   cosmological constant under `V(0) = 0`, and it exceeds the observed vacuum energy by **54.62 orders
   — which is the cosmological constant problem.** Real as a contribution; cancelled, by something nobody
   has identified, down to a number we do measure.
-- **(b) It is uniform.** The same inside the throat as outside. It does not localise, cannot be switched on
-  in one place, and is already inside whatever `Λ` is. **A resource you cannot put somewhere is not a
-  resource.**
+- **(b) It is uniform where nothing sources it.** The same inside the throat as outside, and already inside
+  whatever `Λ` is. It *can* be displaced in one place — but only by filling that place with a source whose
+  rest energy is `4(1−ε)²/(ε(2−ε))` times the field energy it buys, about `2/ε` for a small displacement `ε`,
+  and the displacement relaxes to the vacuum within `ħ/(m_h c) = 1.58×10⁻¹⁸ m` of wherever the source stops.
+  **A resource you can put somewhere only by putting something far larger there is not a resource.**
+  *(Corrected on M's ruling: the first wording, "it does not localise, cannot be switched on in one place",
+  was false as written — `excite.py`, DOCKET 63.)*
 
 ### H92c — the escape is ξ, and the gate on ξ is the hierarchy problem
 

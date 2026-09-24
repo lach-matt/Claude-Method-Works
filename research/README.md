@@ -10179,14 +10179,16 @@ in every way except the only one that counts.
 > wrong way: a gradient makes `T_kk` *strictly* positive.
 
 **BUT THE MAGNITUDE IS THERE, AND IT IS THE FIRST OVERSHOOT IN THE THREAD.** `V_min = −m_h²v²/8 =
--1.187857e+08 GeV⁴` = **`2.476937e+45 J/m³`** against `pressure.py`'s `2.073325e+42 Pa` — **1195× more than the
+-1.186529e+08 GeV⁴` = **`2.474168e+45 J/m³`** at the READ `m_h = 125.13 GeV` against `pressure.py`'s `2.073325e+42 Pa` — **1193× more than the
 throat needs**, with the sign of `ρ` right as well. `amps.py` fell short by seventeen orders,
 `kugelblitz.py` by fifty-six, `persist.py` by sixty-nine. **This one overshoots.**
 
 Two caveats, neither small: the **absolute normalisation of `V` is not measured** — the figure is the
 electroweak contribution to `Λ` under `V(0)=0`, exceeding the observed vacuum energy by **54.62 orders,
-which is the cosmological constant problem**; and **it is uniform**, so it does not localise. **A resource
-you cannot put somewhere is not a resource.**
+which is the cosmological constant problem**; and **it is uniform where nothing sources it** — it can be
+displaced in one place only by filling that place with a source carrying about `2/ε` times the field energy it
+buys (`excite.py`; the first wording, "it does not localise", was false as written). **A resource you can put
+somewhere only by putting something far larger there is not a resource.**
 
 **THE ESCAPE IS ξ, AND THE GATE ON IT IS THE HIERARCHY PROBLEM.** Barceló–Visser find *"an entire branch of
 traversable wormholes for every ξ > 0"* — but pointwise NEC violation is cheap and **ANEC is not**: their

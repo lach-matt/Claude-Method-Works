@@ -294,6 +294,8 @@ import math
 import sys
 from fractions import Fraction
 
+import higgs
+
 # --------------------------------------------------------------- constants
 # SI, from ladder.py's values.  GEV_IN_J is exact (the elementary charge is).
 GEV_IN_J = 1.602176634e-10
@@ -308,7 +310,7 @@ GEVINV_TO_M = HBAR_C / GEV_IN_J              # GeV^-1 -> m
 
 # Standard Model.  STATUS IS PART OF THE VALUE.
 G_FERMI = 1.1663788e-5          # GeV^-2, PDG                     NAMED-NOT-READ
-M_HIGGS = 125.20                # GeV, PDG; higgs.py's value      NAMED-NOT-READ
+M_HIGGS = higgs.M_HIGGS         # GeV, READ via higgs.py (was a retyped 125.20; DOCKET 63 F2)
 M_TOP_PDG = 172.57              # GeV, PDG 2024 world combination NAMED-NOT-READ
 R_PROTON = 0.8414e-15           # m, CODATA charge radius         NAMED-NOT-READ
 M_EARTH = 5.9722e24             # kg                              NAMED-NOT-READ
@@ -725,7 +727,8 @@ def report():
                                                            AFS_LOG10_TAU_LO)))
 
     print("\n  THE ORCHESTRATOR'S FIGURES, AUDITED.  NONE reproduces at")
-    print("  m_h = 125.20 and EVERY ONE reproduces at m_h = 125.25, which is")
+    print("  the tree's m_h (READ 125.13; nor at the withdrawn pin 125.20) and")
+    print("  EVERY ONE reproduces at m_h = 125.25, which is")
     print("  the whole discrepancy: a different PDG value, not an error.")
     mh2 = 125.25
     aud = [("1/m_h (m)", 1.5755e-18, yukawa_range_m(M_HIGGS), yukawa_range_m(mh2)),
@@ -739,7 +742,7 @@ def report():
             / C_LIGHT ** 2 / M_EARTH),
            ("light crossing 1 m (s)", 3.34e-9, 1.0 / C_LIGHT, 1.0 / C_LIGHT)]
     print("      %-26s %14s %14s %14s"
-          % ("figure", "orchestrator", "at 125.20", "at 125.25"))
+          % ("figure", "orchestrator", "at READ m_h", "at 125.25"))
     for name, claim, a, b in aud:
         print("      %-26s %14.5g %14.5g %14.5g" % (name, claim, a, b))
     print("      m_h implied by the orchestrator's 1.5755e-18 m: %.4f GeV"
@@ -888,11 +891,16 @@ def selftest():
 
     # ------------------------------------------------------ the Standard Model
     chkrel("v from G_F", v, 246.2196, 1e-5)
-    chkrel("lambda", lam(), 0.129280575661, 1e-10)
+    # M's ruling switched m_h to the READ 125.13 (DOCKET 63 F2).  Every m_h fixture
+    # below KEEPS its original literal, pinned at the withdrawn 125.20, and expects
+    # it times MH**k, k the power of m_h the figure carries -- so the check still
+    # fails if anything but m_h moved, or if the power is wrong.
+    MH = (higgs.M_HIGGS / higgs.M_HIGGS_PIN_WITHDRAWN)
+    chkrel("lambda", lam(), 0.129280575661 * MH ** 2, 1e-10)
     chkrel("V_min = -m_h^2 v^2 / 8", v_min_gev4(),
            -M_HIGGS ** 2 * v ** 2 / 8.0, 1e-12)
-    chkrel("|V_min| in SI", abs(v_min_gev4()) * GEV4_TO_SI, 2.476937e45, 1e-6)
-    chkrel("1/m_h", yukawa_range_m(M_HIGGS), 1.576094e-18, 1e-6)
+    chkrel("|V_min| in SI", abs(v_min_gev4()) * GEV4_TO_SI, 2.476937e45 * MH ** 2, 1e-6)
+    chkrel("1/m_h", yukawa_range_m(M_HIGGS), 1.576094e-18 * MH ** -1, 1e-6)
     # the exact cost fraction, over rationals
     for e in (F(1, 10), F(1, 1000), F(3, 7)):
         chk("cost fraction at eps=%s is eps^2(2+eps)^2 exactly" % e,
@@ -936,9 +944,9 @@ def selftest():
         localisation_floor(mu, 1.0 / mu)
         > localisation_floor(v, 1.0 / M_HIGGS), True)
     chkrel("EW route floor at L = 1/m_h, GeV^3",
-           localisation_floor(v, 1.0 / M_HIGGS), 3.03606e7, 1e-5)
+           localisation_floor(v, 1.0 / M_HIGGS), 3.03606e7 * MH, 1e-5)
     chkrel("  in SI", localisation_floor(v, 1.0 / M_HIGGS) * GEV3_TO_SI,
-           1.24924e29, 1e-5)
+           1.24924e29 * MH, 1e-5)
     chkrel("metastable floor at L = R*, GeV^3",
            localisation_floor(mu, 1.0 / mu), 1.20321e53, 1e-5)
     chk("recorded: negative rho is not NEC violation",
@@ -949,7 +957,7 @@ def selftest():
 
     # ------------------------------------------------ the orchestrator's figures
     mh2 = 125.25
-    chk("orchestrator's 1.5755e-18 m does NOT hold at m_h = 125.20",
+    chk("orchestrator's 1.5755e-18 m does NOT hold at the tree's m_h (READ)",
         abs(yukawa_range_m(M_HIGGS) - 1.5755e-18) > 1e-22, True)
     chkrel("but DOES at m_h = 125.25", yukawa_range_m(mh2), 1.5755e-18, 1e-4)
     chkrel("orchestrator's 2.4789e45 J/m^3 at m_h = 125.25",
@@ -967,14 +975,14 @@ def selftest():
         len(ORCHESTRATOR_HYPOTHESIS_FAILURES), 6)
     chk("phi = 0 is a spinodal maximum: V''(0)/V''(v) = -1/2 (sympy)",
         str(spinodal_curvature_ratio()), "-1/2")
-    chkrel("spinodal e-fold sqrt(2) hbar/(m_h c^2) at the pinned m_h",
-           spinodal_efold_s(), 7.434922e-27, 1e-6)
+    chkrel("spinodal e-fold sqrt(2) hbar/(m_h c^2) at the withdrawn pin 125.20",
+           spinodal_efold_s(higgs.M_HIGGS_PIN_WITHDRAWN), 7.434922e-27, 1e-6)
     # the masses failure 6 names, ASKED of higgs.py rather than trusted: this
-    # file retypes M_HIGGS (:307), so the guard below fires if the two drift.
-    import higgs
+    # file now imports M_HIGGS from higgs.py (it retyped 125.20 until M's ruling
+    # switched m_h to the READ value), and the guard below fires if they drift.
     chk("failure 6's READ 125.13 is higgs.py's capture value",
         higgs.M_HIGGS_READ_GEV, 125.13)
-    chk("  and this file's M_HIGGS is higgs.py's pin", M_HIGGS, higgs.M_HIGGS)
+    chk("  and this file's M_HIGGS is higgs.py's, READ, not retyped", M_HIGGS, higgs.M_HIGGS)
     chkrel("  at the READ m_h 125.13 (DOCKET 63 C.11)",
            spinodal_efold_s(higgs.M_HIGGS_READ_GEV), 7.439082e-27, 1e-6)
     chkrel("  and 3.34 ns is this many times longer", (1.0 / C_LIGHT)

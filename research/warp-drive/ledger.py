@@ -402,8 +402,8 @@ DEMAND = [
      "Holding eps costs source 4 rho_EW eps(2-eps)(1-eps)^2 plus field "
      "rho_EW eps^2(2-eps)^2.  At the clock-comparison ORDER eps = %.0e that "
      "is %.6e kg/m^3 of Higgs-derived density, and %.2g (H1) to %.2g (H2) "
-     "kg/m^3 of stable matter.  Inputs G_F and m_h are NAMED-NOT-READ, and "
-     "the figure inherits that status"
+     "kg/m^3 of stable matter.  m_h is READ (125.13, captures/PDG-2026.tsv); "
+     "G_F is NAMED-NOT-READ, and the figure inherits G_F's status"
      % (excite.EPS_AT_FIXTURE, excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18,
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"],
         excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"]),
@@ -1288,9 +1288,12 @@ def selftest():
         ask(("higgs", "MINIMAL_SCALAR_SATISFIES_NEC")), True)
     # D20 is ASKED; the ruling's 2.204772e11 is the FIXTURE it must reproduce,
     # and the ask must be the seated function's output, not a copy of it.
-    chk("D20 reproduces DOCKET 63's 2.204772e11 kg/m^3 to 7 figures",
-        round(ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18")) / 1e11, 6),
-        2.204772)
+    # DOCKET 63 printed 2.204772e11 at the withdrawn pin 125.20; M's ruling switched
+    # m_h to the READ 125.13, and the figure carries m_h^2.
+    _mh = higgs.M_HIGGS / higgs.M_HIGGS_PIN_WITHDRAWN
+    chk("D20 reproduces DOCKET 63's 2.204772e11 kg/m^3, rescaled by (m_read/m_pin)^2",
+        abs(ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"))
+            / (2.204772e11 * _mh ** 2) - 1.0) < 1e-6, True)
     chk("  and it IS address.source_density at the fixture's eps",
         ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18")),
         address.source_density(excite.EPS_AT_FIXTURE, 1.0)[1])
