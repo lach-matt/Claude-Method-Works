@@ -700,11 +700,11 @@ def ref_R_wrong(X, box, d):
 
 
 tot, bad = pv.encoding_matches(ref_R_fixed, BOXES, trials=300, seed=5)
-report("G3", "GUARD", "in_R (witness form) == independent staircase on 300 random instances",
-       bad == 0, "%d cells compared, %d disagree" % (tot, bad))
+report("G3", "GUARD", "in_R (witness form) == independent staircase on 300 random instances: 4,135 cells compared, none disagree",
+       bad == 0 and tot == 4135, "%d cells compared, %d disagree" % (tot, bad))
 tot, badw = pv.encoding_matches(ref_R_wrong, BOXES, trials=300, seed=5)
-report("G4", "GUARD", "negative control: the guard CATCHES a deliberately wrong reference",
-       badw > 0, "%d disagreements" % badw)
+report("G4", "GUARD", "negative control: the guard CATCHES a deliberately wrong reference, 492 disagreements",
+       badw == 492, "%d disagreements" % badw)
 for shape in BOXES:
     nv = pv.non_vacuous(shape, staircase_hyp, strictly_inside)
     report("G5", "GUARD", "non-vacuity: a staircase system strictly inside %s exists" % (shape,), nv)
@@ -849,8 +849,8 @@ report("H3", "EXHAUSTIVE", "Lambda_phys: 4 of all 4! x 3! = 144 orderings close"
        "%d of %d close" % (ncp, nvp))
 ph3 = sorted({(s, d, a) for _, s, d, a, _ in P21})
 mE3, nv3, nm3, nc3, _, _, _ = sweep(ph3)
-report("H4", "EXHAUSTIVE", "with arity as a third axis: 12 cells, min E = 7 over all orderings",
-       len(ph3) == 12 and mE3 == 7, "min E=%d over %d" % (mE3, nv3))
+report("H4", "EXHAUSTIVE", "with arity as a third axis: 12 cells, min E = 7 over all 864 orderings",
+       len(ph3) == 12 and mE3 == 7 and nv3 == 864, "min E=%d over %d" % (mE3, nv3))
 
 CH = load_literal(INSTR["charge_index"], "CH")   # (occurrence, role, carrier, sign, regime)
 ROLE = ["screening", "decay base", "decay rate", "ordering"]
@@ -960,8 +960,8 @@ for r, c, s, g in CHn:
 for k, d, a in PHn:
     Mn.add((min(k, 3), d, min(a, 3)))
 mE_n2, nv_n2, *_ = sweep(sorted(Mn))
-report("H13", "EXHAUSTIVE", "the name-merge: the earlier Lambda_phys has E = 6 (13 cells) and the merge E = 11 (18 cells)",
-       mE_n1 == 6 and len(set(PHn)) == 13 and mE_n2 == 11 and len(Mn) == 18,
+report("H13", "EXHAUSTIVE", "the name-merge: the earlier Lambda_phys has E = 6 (13 cells, 17,280 orderings) and the merge E = 11 (18 cells, 13,824 orderings)",
+       mE_n1 == 6 and len(set(PHn)) == 13 and mE_n2 == 11 and len(Mn) == 18 and (nv_n1, nv_n2) == (17280, 13824),
        "E=%d over %d; merged E=%d over %d" % (mE_n1, nv_n1, mE_n2, nv_n2))
 
 # ================================================================== I. Lambda_amp
