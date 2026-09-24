@@ -469,3 +469,12 @@ reconstructions chosen to reproduce printed numbers and presented as definitions
 brief is to make the paper claim exactly what survives, even if the honest conclusion is that the
 catalogue does not carry the thesis. Whether what remains earns a place on the site is yours to
 judge when you see it.
+
+**Seaton's ratio — repaired.** Working title now: *The Domain of the Polarisation Ratio
+δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg
+Series*. The lemma's identity is corrected and checked exactly, with the wrong factor kept as a
+control that must fail; the class is p = 0 and uncollapsed, with the collapse thresholds cited to
+the two works the tree holds; the Ritz 1903 reference is restored. Fifty-two findings fixed, one
+declined — a calibration against millimetre-wave coefficients not held in the tree. Still yours:
+the title, the prefactor question, and whether to compare the three implied polarisabilities with
+published values (the paper says it does not, and why).

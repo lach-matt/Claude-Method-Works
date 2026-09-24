@@ -1010,6 +1010,21 @@ def section_channels():
         "additional sources; 45 species carry no species-level attribution",
         len(named_sp) == 25 and named_sp <= set(sp) and len(set(sp) - named_sp) == 45
         and "Sugar & Corliss 1985" in block and "Sugar & Musgrove 1990" in block, "named=%d unnamed=%d" % (len(named_sp), len(set(sp) - named_sp)))
+    # the split of the 25 by compilation, read row by row from the source list's table
+    per = {}
+    for ln in lines[a:b]:
+        m = re.match(r"\s*(Kaufman & Martin|Kramida & Martin|NIST ASD|Sansonetti 2008,)\s+(.*)$", ln)
+        if m:
+            per[m.group(1)] = per.get(m.group(1), 0) + len(set(re.findall(r"\b[A-Z][a-z]? (?:XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)\b", m.group(2))))
+    nist_line = next(i for i in range(a, b) if lines[i].strip().startswith("NIST ASD"))
+    nist_sp = set(re.findall(r"\b[A-Z][a-z]? (?:XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)\b",
+                             lines[nist_line] + " " + lines[nist_line + 1]))
+    num("source_split", {"Kaufman & Martin": per.get("Kaufman & Martin"), "Kramida & Martin": per.get("Kramida & Martin"),
+                         "Sansonetti": per.get("Sansonetti 2008,"), "NIST ASD": len(nist_sp)})
+    rec("EXHAUSTIVE", "the split of the 25: Al I and Al II to Kaufman & Martin (2), Be I to Kramida & Martin (1), Na I and K I "
+        "to Sansonetti (2), and twenty species to NIST ASD directly (Ne I listed twice, at its two limits, is one species)",
+        per.get("Kaufman & Martin") == 2 and per.get("Kramida & Martin") == 1 and per.get("Sansonetti 2008,") == 2
+        and len(nist_sp) == 20 and 2 + 1 + 2 + 20 == 25, "%s" % NUMBERS["source_split"])
     # core_terms multiplies per-subshell term counts, which is the configuration's term count only
     # when at most ONE subshell is open.  That holds on every species here, so the census is exact.
     nopen = {s: len([1 for n, l, o in core_config(s)[2] if 0 < o < 2 * (2 * l + 1)]) for s in set(sp)}
@@ -1138,6 +1153,10 @@ def section_coordinates(rows):
     rec("EXHAUSTIVE", "six provenances over 32 strings: 103,545 equation, 929 one-electron, 325 captured, 25 NIST, 3 level files, 5 Theodosiou",
         kinds == {"equation": 103545, "one-electron": 929, "captured": 325, "NIST": 25, "level files": 3, "Theodosiou": 5}
         and NUMBERS["source_strings"] == 32)
+    rec("EXHAUSTIVE", "the 25 NIST ASD retrievals and the 5 Theodosiou defects are all among the 358 measured cells "
+        "(325 + 25 + 3 + 5 = 358)",
+        all(r["grade"] == "measured" for r in rows if r["source"].startswith("NIST ASD") or "Theodosiou" in r["source"])
+        and kinds["captured"] + kinds["NIST"] + kinds["level files"] + kinds["Theodosiou"] == 358)
     # the Pauli bound
     nzB = sum(r["B"] != 0 for r in rows)
     niB = sum(r["B"].denominator != 1 for r in rows)

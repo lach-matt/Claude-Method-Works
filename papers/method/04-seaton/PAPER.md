@@ -55,7 +55,7 @@ SAMPLED is not among them, and deliberately: no claim in this paper rests on a p
 
 > n∗ = z √( Rₘ / (I − Eₙ) ),  δₙ = n − n∗,
 
-with Rₘ the Rydberg constant for the reduced mass of the electron and the ion core. Throughout, Rₘ = R∞ / (1 + 1/(A·1836.15267343)) with R∞ = 109737.31568 cm⁻¹, 1836.15267343 the proton-to-electron mass ratio, and A the mass in unified atomic mass units listed in Table 1 — the standard atomic weights of Cd and In and the ⁸⁵Rb and ⁸⁸Sr isotope masses — so that the core mass is taken as A proton masses. The four values of Rₘ used are printed in Table 1 so that a reader may substitute another convention; the choice moves every δ by a few parts in 10⁷ and ρ not at all at the precision printed.
+with Rₘ the Rydberg constant for the reduced mass of the electron and the ion core. Throughout, Rₘ = R∞ / (1 + 1/(A·1836.15267343)) with R∞ = 109737.31568 cm⁻¹, 1836.15267343 the proton-to-electron mass ratio, and A the mass in unified atomic mass units given with Table 1 — the standard atomic weights of Cd and In and the ⁸⁵Rb and ⁸⁸Sr isotope masses — so that the core mass is taken as A proton masses. The four values of Rₘ used are printed with Table 1 so that a reader may substitute another convention; the choice moves every δ by a few parts in 10⁷ and ρ not at all at the precision printed.
 
 **D2 (Ritz curve, δ₀ and δ₂).** A channel's defect is fitted by
 
@@ -101,7 +101,7 @@ For a core of charge z, ⟨r⁻⁴⟩ is z⁴ times the unit-charge value.
 
 > (s+1)/n² · ⟨rˢ⟩ − (2s+1) ⟨rˢ⁻¹⟩ + (s/4) [(2ℓ+1)² − s²] ⟨rˢ⁻²⟩ = 0.
 
-(b) ⟨r⁻²⟩ = 1/(n³(ℓ+½)) (Bethe and Salpeter 1957, CITED). At s = −1 the recursion reads ⟨r⁻²⟩ − ¼[(2ℓ+1)² − 1]⟨r⁻³⟩ = 0, and ¼[(2ℓ+1)² − 1] = ℓ(ℓ+1), so ⟨r⁻³⟩ = ⟨r⁻²⟩/(ℓ(ℓ+1)) = 1/(n³ ℓ(ℓ+½)(ℓ+1)). At s = −2, admissible for ℓ ≥ 1 since −2 > −2ℓ − 1, it reads −⟨r⁻²⟩/n² + 3⟨r⁻³⟩ − ½[(2ℓ+1)² − 4]⟨r⁻⁴⟩ = 0, and (2ℓ+1)² − 4 = (2ℓ−1)(2ℓ+3), so
+The second input, (b), is ⟨r⁻²⟩ = 1/(n³(ℓ+½)) (Bethe and Salpeter 1957, CITED). At s = −1 the recursion reads ⟨r⁻²⟩ − ¼[(2ℓ+1)² − 1]⟨r⁻³⟩ = 0, and ¼[(2ℓ+1)² − 1] = ℓ(ℓ+1), so ⟨r⁻³⟩ = ⟨r⁻²⟩/(ℓ(ℓ+1)) = 1/(n³ ℓ(ℓ+½)(ℓ+1)). At s = −2, admissible for ℓ ≥ 1 since −2 > −2ℓ − 1, it reads −⟨r⁻²⟩/n² + 3⟨r⁻³⟩ − ½[(2ℓ+1)² − 4]⟨r⁻⁴⟩ = 0, and (2ℓ+1)² − 4 = (2ℓ−1)(2ℓ+3), so
 
 > ⟨r⁻⁴⟩ = 2 [3⟨r⁻³⟩ − ⟨r⁻²⟩/n²] / ((2ℓ−1)(2ℓ+3)).
 
@@ -167,23 +167,23 @@ which is −31/7 at ℓ = 2 and −67/7 = −9.571 at ℓ = 3, and q₀ has the 
 
 **The four cores.** Cd I converges on Cd⁺, ground configuration [Kr] 4d¹⁰ 5s (nuclear charge 48); In I on In⁺, [Kr] 4d¹⁰ 5s² (49); Rb I on Rb⁺ (37) and Sr II on Sr²⁺ (38), both [Kr] = 1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹⁰ 4s² 4p⁶. Counting occupied subshells by ℓ gives p for s, p, d, f of (5, 3, 2, 0) for the two cadmium-like cores and (4, 3, 1, 0) for the two krypton-like cores. On all four, p = 0 exactly when ℓ ≥ 3, and every core lies below the 4f collapse threshold (D4).
 
-| series | core | ℓ | p | z | n | N | I (cm⁻¹) | A | Rₘ (cm⁻¹) |
-|---|---|---|---|---|---|---|---|---|---|
-| Cd I f | Cd⁺ | 3 | 0 | 1 | 4–9 | 6 | 72540.050 | 112.41 | 109736.784 |
-| In I f | In⁺ | 3 | 0 | 1 | 4–9 | 6 | 46670.107 | 114.82 | 109736.795 |
-| Sr II f | Sr²⁺ | 3 | 0 | 2 | 4–9 | 6 | 88965.180 | 87.906 | 109736.636 |
-| Rb I d | Rb⁺ | 2 | 1 | 1 | 5–10 | 6 | 33690.810 | 84.912 | 109736.612 |
-| Sr II d | Sr²⁺ | 2 | 1 | 2 | 5–10 | 6 | 88965.180 | 87.906 | 109736.636 |
-| Cd I d | Cd⁺ | 2 | 2 | 1 | 5–11 | 7 | 72540.050 | 112.41 | 109736.784 |
-| In I d | In⁺ | 2 | 2 | 1 | 5–10 | 6 | 46670.107 | 114.82 | 109736.795 |
-| Cd I p | Cd⁺ | 1 | 3 | 1 | 5–8 | 4 | 72540.050 | 112.41 | 109736.784 |
-| Rb I p | Rb⁺ | 1 | 3 | 1 | 6–11 | 6 | 33690.810 | 84.912 | 109736.612 |
-| Rb I s | Rb⁺ | 0 | 4 | 1 | 6–12 | 7 | 33690.810 | 84.912 | 109736.612 |
-| Sr II s | Sr²⁺ | 0 | 4 | 2 | 6–11 | 6 | 88965.180 | 87.906 | 109736.636 |
-| Cd I s | Cd⁺ | 0 | 5 | 1 | 6–12 | 7 | 72540.050 | 112.41 | 109736.784 |
-| In I s | In⁺ | 0 | 5 | 1 | 6–12 | 7 | 46670.107 | 114.82 | 109736.795 |
+| series | core | ℓ | p | z | n | N | I (cm⁻¹) |
+|---|---|---|---|---|---|---|---|
+| Cd I f | Cd⁺ | 3 | 0 | 1 | 4–9 | 6 | 72540.050 |
+| In I f | In⁺ | 3 | 0 | 1 | 4–9 | 6 | 46670.107 |
+| Sr II f | Sr²⁺ | 3 | 0 | 2 | 4–9 | 6 | 88965.180 |
+| Rb I d | Rb⁺ | 2 | 1 | 1 | 5–10 | 6 | 33690.810 |
+| Sr II d | Sr²⁺ | 2 | 1 | 2 | 5–10 | 6 | 88965.180 |
+| Cd I d | Cd⁺ | 2 | 2 | 1 | 5–11 | 7 | 72540.050 |
+| In I d | In⁺ | 2 | 2 | 1 | 5–10 | 6 | 46670.107 |
+| Cd I p | Cd⁺ | 1 | 3 | 1 | 5–8 | 4 | 72540.050 |
+| Rb I p | Rb⁺ | 1 | 3 | 1 | 6–11 | 6 | 33690.810 |
+| Rb I s | Rb⁺ | 0 | 4 | 1 | 6–12 | 7 | 33690.810 |
+| Sr II s | Sr²⁺ | 0 | 4 | 2 | 6–11 | 6 | 88965.180 |
+| Cd I s | Cd⁺ | 0 | 5 | 1 | 6–12 | 7 | 72540.050 |
+| In I s | In⁺ | 0 | 5 | 1 | 6–12 | 7 | 46670.107 |
 
-**Table 1.** The thirteen series. z is the core charge, N the number of members, I the limit and A the mass used in Rₘ (D1); the cores' ground configurations are given in the text above.
+**Table 1.** The thirteen series. z is the core charge, N the number of members and I the limit; the cores' ground configurations are given in the text above. The mass A and the Rydberg constant Rₘ of D1 depend on the core alone: Cd⁺, A = 112.41, Rₘ = 109736.784 cm⁻¹; In⁺, 114.82, 109736.795; Rb⁺, 84.912, 109736.612; Sr²⁺, 87.906, 109736.636.
 
 Asymptotic defects for the s, p, d and f orbitals of every ionisation stage of every ion with Z ≤ 50 are tabulated by Theodosiou, Inokuti and Manson (1986), CITED, computed in a Hartree–Slater potential; the δ₀ of Table 3 is the same quantity, fitted here from the levels rather than computed. The series are single-parent, single-term series: Cd I ns ³S₁, np ¹P°₁, nd ³D₁, nf ³F°₃; In I ns ²S₁/₂, nd ²D₃/₂, nf ²F°; Rb I ns ²S₁/₂, np ²P°₁/₂, nd ²D₃/₂; Sr II ns ²S₁/₂, nd ²D₃/₂, nf ²F°. Eighty levels in all.
 
@@ -267,15 +267,15 @@ The means and sample standard deviations are 1.273 ± 0.253 and 0.017 ± 0.194. 
 
 **Measurement 2 (the sign of δ₂).** From Table 3, the number of series with δ₂ > 0 by p is: p = 0, 0 of 3; p = 1, 1 of 2; p = 2, 1 of 2; p = 3, 1 of 2; p = 4, 2 of 2; p = 5, 2 of 2. The fraction 0, ½, ½, ½, 1, 1 is non-decreasing in p. Theorem 1 requires δ₂ < 0 for a polarisation series and every p = 0 series obeys it; every series with p ≥ 4 has the opposite sign, which is the sign of a penetration series. The counts are **EXHAUSTIVE** over the thirteen series; the rule is **MEASURED** — a rule, not a law, since the sample at each p ≥ 1 is two series.
 
-![Figure 1](figures/fig1-ratio-vs-p.png)
+![](figures/fig1-ratio-vs-p.png)
 
 **Figure 1.** (a) The fitted ratio δ₂/δ₀ of all thirteen series against p, with the polarisation value −ℓ(ℓ+1)/3 drawn for ℓ = 0, 1, 2, 3. (b) ρ against p for the nine series with ℓ ≥ 1: the p = 0 class at median 1.150 with the ±0.206 band, the p ≥ 1 class at median −0.015 with the ±0.177 band.
 
-![Figure 2](figures/fig2-distributions.png)
+![](figures/fig2-distributions.png)
 
 **Figure 2.** The two distributions of ρ: three values at p = 0 (median 1.150, sd 0.206) and six at p ≥ 1, ℓ ≥ 1 (median −0.015, sd 0.177). The bands are one population standard deviation about the median.
 
-![Figure 3](figures/fig3-p0-curves.png)
+![](figures/fig3-p0-curves.png)
 
 **Figure 3.** The three p = 0 series with their Ritz fits and, for comparison, the curve of Theorem 1 with the same δ₀ (δ₂ = −4δ₀). The fitted curvature exceeds the polarisation value by 15%, 10% and 56%.
 

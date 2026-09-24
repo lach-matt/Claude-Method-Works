@@ -31,6 +31,7 @@ import itertools
 import math
 import os
 import random
+import re
 import sys
 import time
 from decimal import Decimal, ROUND_HALF_UP, getcontext
@@ -432,6 +433,37 @@ def compute(quiet=False):
     NUM["steps"] = len(STEPS)
     ents = {Z: entrant(Z) for Z in STEPS}
     out["entrant"] = ents
+    two = [Z for Z in STEPS if gains(Z)[0][0] == 2]
+    rep("EXHAUSTIVE", "twelve steps gain two electrons (another subshell loses one): Cr Cu Nb Ru Pd Pr Tb Pt Pa Pu Bk Rf",
+        two == [24, 29, 41, 44, 46, 59, 65, 78, 91, 94, 97, 104] and all(gains(Z)[0][0] == 1 for Z in STEPS if Z not in two),
+        "%s" % two)
+    NUM["two_electron"] = two
+    # the data's own marks of a calculated entry: a ground level printed as a bare J with no term
+    bareJ = [Z for Z in range(1, 109) if re.fullmatch(r"\d+(/\d+)?", G.GROUND[Z][2])]
+    rep("EXHAUSTIVE", "the tabulated ground level is a bare J with no term at exactly Sg, Bh, Hs (Z = 106, 107, 108)",
+        bareJ == [106, 107, 108], "%s" % bareJ)
+    NUM["bareJ"] = bareJ
+    rep("EXHAUSTIVE", "Z = 103 (Lr): the tabulated configuration [Rn]5f14 7s2 7p makes 7p the entrant; the (n+l, n) pick there is 6d",
+        G.GROUND[103][1] == "[Rn]5f14 7s2 7p" and ents[103] == (7, 1)
+        and min(step(103, "p")[1], key=lambda s: (s[0] + s[1], s[0])) == (6, 2))
+    # the unconditional aufbau: fill subshells in (n+l, n) order from nothing, and compare with the table
+    aorder = sorted([(n, l) for n in range(1, 10) for l in range(0, n)], key=lambda s: (s[0] + s[1], s[0]))
+
+    def aufbau(Z):
+        c, left = {}, Z
+        for s in aorder:
+            if left == 0:
+                break
+            k = min(left, cap(s[1]))
+            c[s] = k
+            left -= k
+        return c
+    adiff = [Z for Z in range(1, 109) if aufbau(Z) != occ(Z)]
+    rep("EXHAUSTIVE", "the unconditional (n+l, n) aufbau differs from the tabulated configuration at exactly 20 atoms",
+        adiff == [24, 29, 41, 42, 44, 45, 46, 47, 57, 58, 64, 78, 79, 89, 90, 91, 92, 93, 96, 103],
+        "%s" % [G.GROUND[Z][0] for Z in adiff])
+    NUM["aufbau_diff"] = adiff
+    out["aufbau_diff"] = adiff
     op = openings()
     sp = spans()
     out["openings"], out["spans"] = op, sp
@@ -482,6 +514,9 @@ def compute(quiet=False):
         rep("EXHAUSTIVE", "form %s: the observed entrant's corridor is non-empty" % form, ne == 106, "%d of 106" % ne)
         rep("EXHAUSTIVE", "form %s: every step has at least two vertices" % form, min(Ahist) >= 2,
             "min %d, max %d" % (min(Ahist), max(Ahist)))
+        want_rng = {"p": (11, 15), "q": (7, 15)}[form]
+        rep("EXHAUSTIVE", "form %s: vertices per step in the frame n <= 15, l <= 4 run from %d to %d" % ((form,) + want_rng),
+            (min(Ahist), max(Ahist)) == want_rng, "%s" % dict(sorted(Ahist.items())))
         NUM["nonempty_" + form] = ne
         NUM["Ahist15_" + form] = dict(sorted(Ahist.items()))
         out["cor"][form], out["A"][form], out["hull"][form], out["pts"][form] = cors, Aset, hulls, ptss
@@ -505,7 +540,19 @@ def compute(quiet=False):
         prev, S, pts = step(Z, "p", 7, 4)
         Ah7[sum(1 for i in range(len(S)) if nonempty(corridor(i, pts)))] += 1
     NUM["Ahist7_p"] = dict(sorted(Ah7.items()))
-    rep("EXHAUSTIVE", "node-only, frame n <= 7: vertices per step", True, "%s" % NUM["Ahist7_p"])
+    rep("EXHAUSTIVE", "node-only, frame n <= 7: vertices per step are 3 at 6 steps, 4 at 56, 5 at 28, 6 at 14, 7 at 2",
+        NUM["Ahist7_p"] == {3: 6, 4: 56, 5: 28, 6: 14, 7: 2}, "%s" % NUM["Ahist7_p"])
+    # the abscissa is a choice: with x = r in place of x = sqrt(r) the entrant is not a vertex at every step
+    for form, want_ne, want_not in (("p", 100, [57, 64, 89, 90, 96, 103]), ("q", 101, [57, 64, 89, 96, 103])):
+        notv = []
+        for Z in STEPS:
+            prev, S, pts = step(Z, form)
+            sq = [(r * r, n) for r, n in pts]          # sqrt(r^2) = r: the abscissa is r itself, exactly
+            if not nonempty(corridor(S.index(ents[Z]), sq)):
+                notv.append(Z)
+        rep("EXHAUSTIVE", "form %s, abscissa x = r instead of sqrt(r): the entrant's corridor is non-empty at %d of 106" % (form, want_ne),
+            notv == want_not and 106 - len(notv) == want_ne, "not at %s" % [G.GROUND[Z][0] for Z in notv])
+        NUM["linear_notv_" + form] = notv
 
     # 2. the frame: the entrant's corridor is the same under every frame past the reduction
     say("\n2  THE FRAME")
@@ -520,7 +567,12 @@ def compute(quiet=False):
                 "differ at %s" % d if d else "identical at 106 steps")
             if form == "q" and (N, lm) == (8, 4):
                 NUM["q_frame8_differs"] = d
-    # the frame LEMMA: the extremes it needs, and the two closed frames it certifies
+    # a frame reaching n = 15 without g is NOT enough: l <= 4 is part of the hypothesis
+    d153 = [Z for Z in STEPS if ckey(ent_corridor(Z, "p", 15, 3)) != ckey(out["cor"]["p"][Z])]
+    rep("EXHAUSTIVE", "node-only: the frame n <= 15, l <= 3 (no g) differs at exactly sixteen steps, 91-95, 97-102, 104-108",
+        d153 == [91, 92, 93, 94, 95, 97, 98, 99, 100, 101, 102, 104, 105, 106, 107, 108], "%s" % d153)
+    NUM["nog_differs"] = d153
+    # the frame THEOREM: the extremes it needs, and the two closed frames it certifies
     EXTREME = {}
     for form in ("p", "q"):
         maxU = minL = None
@@ -544,19 +596,19 @@ def compute(quiet=False):
         rep("EXHAUSTIVE", "form %s: over the 106 steps max U, min L, max radicand and max n of the entrant" % form,
             (key(maxU), key(minL), maxr, maxn) == want,
             "U <= %s, L >= %s, r_e <= %s, n_e <= %d" % (closed(maxU), closed(minL), maxr, maxn))
-    # Lemma 4's two inequalities, exactly.  phi(n) = (n-7)/sqrt(n-1) at n = 38; psi(n) = (n-7)/sqrt(n) at n = 56.
+    # Theorem 3's two inequalities, exactly.  phi(n) = (n-7)/sqrt(n-1) at n = 38; psi(n) = (n-7)/sqrt(n) at n = 56.
     phi38 = scale(sqrt_rat(Fr(1, 37)), Fr(31))
     psi56 = scale(sqrt_rat(Fr(1, 56)), Fr(49))
-    rep("EXHAUSTIVE", "Lemma 4, form p: 31/sqrt(37) exceeds the largest U", less(EXTREME["p"][0], phi38),
+    rep("EXHAUSTIVE", "Theorem 3, form p: 31/sqrt(37) exceeds the largest U", less(EXTREME["p"][0], phi38),
         "%s = %s > %s" % (closed(phi38), dec7(phi38), dec7(EXTREME["p"][0])))
-    rep("EXHAUSTIVE", "Lemma 4, form q: 49/sqrt(56) exceeds the largest U", less(EXTREME["q"][0], psi56),
+    rep("EXHAUSTIVE", "Theorem 3, form q: 49/sqrt(56) exceeds the largest U", less(EXTREME["q"][0], psi56),
         "%s = %s > %s" % (closed(psi56), dec7(psi56), dec7(EXTREME["q"][0])))
     # and the left-hand halves: a rival above the entrant and left of it has a slope below min L
     lp = scale(sqrt_rat(Fr(1, 6)), Fr(-31))
     lq = scale(sqrt_rat(Fr(2, 13)), Fr(-49))
-    rep("EXHAUSTIVE", "Lemma 4, form p: -31/sqrt(6) falls below the smallest L", less(lp, EXTREME["p"][1]),
+    rep("EXHAUSTIVE", "Theorem 3, form p: -31/sqrt(6) falls below the smallest L", less(lp, EXTREME["p"][1]),
         "%s < %s" % (dec7(lp), dec7(EXTREME["p"][1])))
-    rep("EXHAUSTIVE", "Lemma 4, form q: -49/sqrt(13/2) falls below the smallest L", less(lq, EXTREME["q"][1]),
+    rep("EXHAUSTIVE", "Theorem 3, form q: -49/sqrt(13/2) falls below the smallest L", less(lq, EXTREME["q"][1]),
         "%s < %s" % (dec7(lq), dec7(EXTREME["q"][1])))
     # the two closed frames: every subshell the lemma does not cover, admitted
     for form, N, lm in (("p", 37, 36), ("q", 55, 54)):
@@ -595,7 +647,9 @@ def compute(quiet=False):
         # distinctness: every consecutive gap is bounded below by an exact rational
         gaps = [gap(dict(lst[i + 1][0]), dict(lst[i][0])) for i in range(len(lst) - 1)]
         mingap = min(gaps)
-        rep("EXHAUSTIVE", "form %s: distinct endpoints over the 106 corridors" % form, True, "%d, min gap %.4g" % (len(lst), float(mingap)))
+        want_n = {"p": 19, "q": 138}[form]
+        rep("EXHAUSTIVE", "form %s: %d distinct endpoints over the 106 corridors" % (form, want_n), len(lst) == want_n,
+            "%d, min gap %.4g" % (len(lst), float(mingap)))
         rep("EXHAUSTIVE", "form %s: consecutive endpoints are separated by more than 1/10000, exactly" % form,
             mingap > Fr(1, 10000), "certified lower bound %.4g" % float(mingap))
         NUM["ends_" + form] = len(lst)
@@ -606,6 +660,21 @@ def compute(quiet=False):
     NUM["nofloor_p"], NUM["noceil_p"] = no_floor, no_ceil
     NUM["twosided_p"] = 106 - len(no_floor) - len(no_ceil)
     rep("EXHAUSTIVE", "node-only: corridors with no ceiling", len(no_ceil) == 0, "%d" % len(no_ceil))
+    rep("EXHAUSTIVE", "node-only: 80 two-sided corridors, 26 with no floor, 0 with no ceiling",
+        (NUM["twosided_p"], len(no_floor), len(no_ceil)) == (80, 26, 0), "%d + %d + %d = 106" % (NUM["twosided_p"], len(no_floor), len(no_ceil)))
+    # the narrowest two-sided corridor, exactly: Lr's, of width (sqrt7 - sqrt3)/2, far above 2 eps
+    narrow = None
+    for Z in STEPS:
+        lo, hi, _ = out["cor"]["p"][Z]
+        if lo is None:
+            continue
+        w = add(hi, neg(lo))
+        if narrow is None or less(w, narrow[0]):
+            narrow = (w, Z)
+    rep("EXHAUSTIVE", "node-only: the narrowest two-sided corridor is Lr's, of width (sqrt7 - sqrt3)/2 > 2 eps for every eps <= 1e-4",
+        narrow[1] == 103 and key(narrow[0]) == key({3: Fr(-1, 2), 7: Fr(1, 2)}) and less({1: Fr(2, 10000)}, narrow[0]),
+        "%s = %s at Z = %d" % (closed(narrow[0]), dec7(narrow[0]), narrow[1]))
+    NUM["narrowest"] = (closed(narrow[0]), dec7(narrow[0]), narrow[1])
 
     # the ns / (n-1)d crossing
     say("\n   the crossing (sqrt(n-1) + sqrt(n-4))/3")
@@ -657,6 +726,20 @@ def compute(quiet=False):
     rep("EXHAUSTIVE", "without g (l <= 3): {no floor} minus {node-free} is the eleven 5f steps of 91..102",
         sorted(set(nf_nog) - set(nodefree)) == fsteps, "%s" % fsteps)
     NUM["nog_extra"] = sorted(set(nf_nog) - set(nodefree))
+    # without g the five 6d steps Rf..Hs keep their ceiling and their floor falls from sqrt3/3 (5g) to 0 (6f)
+    rfhs_ok = True
+    for Z in (104, 105, 106, 107, 108):
+        lo3, hi3, _ = ent_corridor(Z, "p", 15, 3)
+        lo4, hi4, _ = out["cor"]["p"][Z]
+        prev3, S3, pts3 = step(Z, "p", 15, 3)
+        i3 = S3.index(ents[Z])
+        left3 = [(S3[j], slope(pts3[i3], pts3[j])) for j in range(len(S3)) if pts3[j][0] < pts3[i3][0]]
+        sup3 = max(left3, key=lambda t: val(t[1]))[0]
+        rfhs_ok = rfhs_ok and ents[Z] == (6, 2) and key(lo4) == key({3: Fr(1, 3)}) and sign(lo3) == 0 \
+            and key(hi3) == key(hi4) and sup3 == (6, 3)
+    rep("EXHAUSTIVE", "without g (l <= 3): at Rf..Hs (104-108, entrant 6d) the floor falls from sqrt3/3 (5g) to 0 (6f); the ceiling is unchanged", rfhs_ok)
+    rep("EXHAUSTIVE", "without g (l <= 3): the corridors differ at exactly the eleven 5f steps and the five 6d steps, no other",
+        NUM["nog_differs"] == sorted(fsteps + [104, 105, 106, 107, 108]))
     # the candidate-set instrument, imported, agrees
     cs = load(os.path.join(ROOT, "method", "proofs", "candidateset.py"), "candidateset")
     o = cs.measure(MEMBERS)
@@ -696,6 +779,35 @@ def compute(quiet=False):
             ok = ok and (k == last_key)
         last_key = k
     rep("EXHAUSTIVE", "at every touch the endpoint reached equals the endpoint at which a was last placed", ok)
+    # Table 3 in full: the endpoint reached (L or U) at each of the eighteen, Ce and Pa the two at U
+    WANT18 = [(3, "L"), (19, "L"), (37, "L"), (42, "U"), (43, "L"), (45, "U"), (55, "L"), (58, "U"), (64, "L"),
+              (65, "U"), (80, "L"), (81, "L"), (87, "L"), (91, "U"), (96, "L"), (97, "U"), (103, "L"), (104, "U")]
+    rep("EXHAUSTIVE", "Table 3: the endpoint reached at each of the 18 recalibrations; the moves at U are exactly Ce and Pa",
+        [(t["Z"], t["at"]) for t in recal] == WANT18
+        and [t["Z"] for t in real if t["at"] == "U"] == [58, 91], "%s" % [(t["Z"], t["at"]) for t in recal])
+    NUM["table3"] = [(t["Z"], G.GROUND[t["Z"]][0], name(ents[t["Z"]]),
+                      "initial placement" if t["Z"] == 3 else ("move" if abs(t["move"]) > 1e-3 else "touch"), t["at"],
+                      closed(t["lo"] if t["at"] == "L" else t["hi"]), dec7(t["lo"] if t["at"] == "L" else t["hi"]), "%.7f" % t["a"])
+                     for t in recal]
+    smallest = min(real, key=lambda t: abs(t["move"]))
+    rep("EXHAUSTIVE", "the smallest real move exceeds 1/50 (at Pa) and every touch is 2 eps: any threshold in (2e-4, 0.02) gives the same partition",
+        abs(smallest["move"]) > 0.02 and smallest["Z"] == 91 and all(abs(t["move"]) > 0.02 for t in real),
+        "smallest real move %.4f at Z = %d" % (abs(smallest["move"]), smallest["Z"]))
+    NUM["smallest_move"] = (abs(smallest["move"]), smallest["Z"])
+    # the walk without g (l <= 3) has the same eighteen sites and endpoints
+    TR3 = walk("p", 1e-6, 15, 3)
+    rep("EXHAUSTIVE", "without g (l <= 3): the walk has the same 18 recalibration sites and endpoints",
+        [(t["Z"], t["at"]) for t in TR3 if t["move"] != 0.0] == WANT18)
+    # hydrogen and helium: the 1s corridor is (-inf, 1) and contains the starting slope 0
+    hhe = True
+    for Z in (1, 2):
+        prev = occ(Z - 1)
+        S = admissible(prev)
+        pts = [point(s, prev, "p") for s in S]
+        g = gains(Z)
+        lo, hi, bad = corridor(S.index((1, 0)), pts)
+        hhe = hhe and len(g) == 1 and g[0][1] == (1, 0) and not bad and lo is None and key(hi) == key({1: Fr(1)})
+    rep("EXHAUSTIVE", "Z = 1, 2: the entrant is 1s with corridor (-inf, 1), which contains a = 0; starting at Li changes no site", hhe)
     # the values a takes after each real move: the endpoint reached
     # eight of nine at the entrant's own opening; Hg the exception
     at_open = [t["Z"] for t in real if ents[t["Z"]] in op.get(t["Z"], [])]
@@ -757,7 +869,11 @@ def compute(quiet=False):
     touchq = [t for t in recq if t["Z"] != 3 and abs(t["move"]) <= 1e-3]
     NUM["recal_q"], NUM["real_q"], NUM["touch_q"] = len(recq), len(realq), len(touchq)
     NUM["real_sites_q"] = [(t["Z"], G.GROUND[t["Z"]][0], name(ents[t["Z"]]), t["at"]) for t in realq]
-    rep("EXHAUSTIVE", "finished form walk: recalibrations, real moves, touches", True, "%d, %d, %d" % (len(recq), len(realq), len(touchq)))
+    WANTQ = [(3, "L"), (19, "L"), (25, "L"), (37, "L"), (43, "L"), (55, "L"), (58, "U"), (64, "L"), (65, "U"), (87, "L"),
+             (91, "U"), (96, "L"), (97, "U"), (103, "L"), (104, "U")]
+    rep("EXHAUSTIVE", "finished form walk: 15 recalibrations = 1 initial + 14 moves + 0 touches, at U exactly at Ce Tb Pa Bk Rf",
+        (len(recq), len(realq), len(touchq)) == (15, 14, 0) and [(t["Z"], t["at"]) for t in recq] == WANTQ,
+        "%d, %d, %d; %s" % (len(recq), len(realq), len(touchq), [(t["Z"], t["at"]) for t in recq]))
     out["TRq"] = TRq
     # t at Pa: the walk places a at U
     tPa = [t for t in TR if t["Z"] == 91][0]

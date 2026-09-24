@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""check.py -- the machine checks behind "The lattice of one-electron transitions".
+"""check.py -- the machine checks behind "The Lattice of Subshell Transitions".
 
 Every number the paper prints and every decidable claim it makes is produced here.  Five kinds
 of check, kept apart in the report and never merged:
@@ -286,7 +286,7 @@ def z3_obligations():
     r = s.check()
     ok &= r == z3.unsat
     row("MACHINE-CHECKED", "Theorem 1, Lambda is a sublattice",
-        "all 13 variables INTEGER (5 caps, 2 cells): %s" % r, r == z3.unsat)
+        "all 21 variables INTEGER (5 caps, 2 cells of 8): %s" % r, r == z3.unsat)
 
     # the same statement for a general monotone bound, with phi uninterpreted
     phi = z3.Function("phi", z3.IntSort(), z3.IntSort())
@@ -379,11 +379,14 @@ def construction():
     floor = sum(1 for x in itertools.product(*[([0] + r if idx == IK else r)
                                                for idx, r in enumerate(ranges(CAPS))])
                 if admissible(x) and x[IK] == 0)
-    allpos = all(v > 0 for v in marg.values()) and floor > 0
+    ext = prod(len(r) + (1 if idx == IK else 0) for idx, r in enumerate(ranges(CAPS)))
+    allpos = (all(v > 0 for v in marg.values()) and floor > 0 and ext == 8064
+              and marg == {"l <= n-1": 308, "k <= 4l+2": 564, "q <= k": 575, "f <= e-1": 200,
+                           "g <= 4f+2": 24, "g <= q": 673, "2S <= k": 300} and floor == 25)
     ok &= allpos
     row("EXHAUSTIVE", "Table 2, no bound is redundant",
         "marginal exclusions " + ", ".join("%s: %d" % (k, v) for k, v in marg.items())
-        + ", k >= 1: %d" % floor, allpos)
+        + ", k >= 1: %d over the %d points of the box extended to k = 0" % (floor, ext), allpos)
 
     nocoup = [x for x in itertools.product(*ranges(CAPS))
               if all(x[i] <= f(x[j]) for nm, i, j, f in CONSTRAINTS if nm != "g <= 4f+2")]
@@ -394,6 +397,38 @@ def construction():
     row("EXHAUSTIVE", "Corollary 1, the one coupling",
         "drop the Pauli half: %d cells, the %d lost all have f = 0 and g = 3"
         % (len(nocoup), len(extra)), good2)
+    # what the cells are: how many electrons each moves (D1), and what g is
+    byq = {q: sum(1 for x in LAM if x[IQ] == q) for q in ALPHA[IQ]}
+    multi = sum(v for q, v in byq.items() if q >= 2)
+    good_q = byq == {0: 165, 1: 330, 2: 345, 3: 136} and multi == 481
+    ok &= good_q
+    row("EXHAUSTIVE", "D1, electrons moved",
+        ", ".join("q = %d: %d cells" % (q, v) for q, v in sorted(byq.items()))
+        + "; %d of %d move two or three electrons" % (multi, N), good_q)
+    geq = sum(1 for x in LAM if x[IG] == x[IQ])
+    glt = sum(1 for x in LAM if x[IG] < x[IQ])
+    g0 = sum(1 for x in LAM if x[IG] == 0)
+    same = sum(1 for x in LAM if x[IN] == x[IE] and x[IL] == x[IF])
+    good_g = geq == 461 and glt == 515 and g0 == 485 and same == 200 and geq + glt == N
+    ok &= good_g
+    row("EXHAUSTIVE", "D1, the model of a cell",
+        "g = q (every removed electron placed) in %d cells, g < q (removed and not placed) in "
+        "%d, g = 0 in %d; source and target the same subshell, (n, l) = (e, f), in %d"
+        % (geq, glt, g0, same), good_g)
+    # the spin bound 2S <= k is an envelope: the rule for k equivalent electrons in a subshell
+    # of angular momentum l is 2S = k (mod 2) and 2S <= min(k, 4l + 2 - k)
+    par = {x for x in LAM if (x[IS] - x[IK]) % 2}
+    hole = {x for x in LAM if x[IS] > 4 * x[IL] + 2 - x[IK]}
+    unphys = par | hole
+    phys = N - len(unphys)
+    good_s = (len(par) == 413 and len(hole) == 180 and len(par & hole) == 90
+              and len(unphys) == 503 and phys == 473)
+    ok &= good_s
+    row("EXHAUSTIVE", "Table 1, the spin envelope",
+        "2S <= k admits %d of the %d cells whose 2S no k-electron configuration carries: %d with "
+        "2S of the wrong parity (2S != k mod 2), %d above the particle-hole bound 2S <= 4l+2-k, "
+        "%d both; the %d physical spin labels are %.1f%% of Lambda"
+        % (len(unphys), N, len(par), len(hole), len(par & hole), phys, 100.0 * phys / N), good_s)
     # E = 0 and the closed-form generator count at further cap settings, each rebuilt fresh
     # and run through the seated closure; the caps are named in the row.
     parts = []
@@ -416,7 +451,8 @@ def construction():
             ji += low == 1
         cf = sum(len({c[i] for c in cells}) - 1 for i in range(D))
         good3 &= (want is None or len(cells) == want) and Ec == 0 and gotc == Sc and ji == cf
-        parts.append("%s: %d cells, E = %d, %d join-irreducibles = the sum over i of (|Ai| - 1) = %d"
+        parts.append("%s: %d cells, E = %d, %d join-irreducibles (lower covers as unit steps, by "
+                     "Theorem 4) = the sum over i of (|Ai| - 1) = %d"
                      % ("".join(map(str, caps)), len(cells), Ec, ji, cf))
     ok &= good3
     row("EXHAUSTIVE", "Theorems 2 and 6, further cap settings", "; ".join(parts), good3)
@@ -462,16 +498,25 @@ def closure_defect():
 # ================================================================== structure
 
 def covers_of():
+    """Lower and upper covers from the ORDER alone: y covers x when x < y and no cell z has
+    x < z < y.  Neither the rank nor a unit step enters here, so the grading row below can
+    test that every cover is a unit step instead of assuming it."""
+    upm = [0] * N
+    dnm = [0] * N
+    for i, x in enumerate(LAM):
+        for j, y in enumerate(LAM):
+            if i != j and le(x, y):
+                upm[i] |= 1 << j
+                dnm[j] |= 1 << i
     down, up = defaultdict(list), defaultdict(list)
-    S = set(LAM)
-    for y in LAM:
-        for i in range(D):
-            z = list(y)
-            z[i] -= 1
-            z = tuple(z)
-            if z in S:
-                down[y].append(z)
-                up[z].append(y)
+    for i in range(N):
+        u = upm[i]
+        while u:
+            j = (u & -u).bit_length() - 1
+            u &= u - 1
+            if upm[i] & dnm[j] == 0:
+                down[LAM[j]].append(LAM[i])
+                up[LAM[i]].append(LAM[j])
     return down, up
 
 
@@ -563,18 +608,22 @@ def structure():
             bad3 += 1
     ok &= bad3 == 0
     row("SAMPLED", "Theorem 3, distributivity on cell triples",
-        "%d triples, seed %d: %d failures" % (TRIPLES, SEED, bad3), bad3 == 0)
+        "%d of the %d ordered cell triples (976 cubed), seed %d: %d failures"
+        % (TRIPLES, N ** 3, SEED, bad3), bad3 == 0)
 
-    # grading
+    # grading: the covers were found from the order alone; every one must be a unit step
     bad4 = sum(1 for y in LAM for x in down[y] if rank(y) - rank(x) != 1)
+    unit = sum(1 for y in LAM for x in down[y]
+               if sorted(b - a for a, b in zip(x, y)) == [0] * (D - 1) + [1])
     bot = [x for x in LAM if not down[x]]
     top = [x for x in LAM if not up[x]]
-    good = (bad4 == 0 and bot == [BOTTOM] and top == [TOP]
+    good = (ncov == 3749 and unit == ncov and bad4 == 0 and bot == [BOTTOM] and top == [TOP]
             and rank(BOTTOM) == 3 and rank(TOP) == 20)
     ok &= good
     row("EXHAUSTIVE", "Theorem 4, Lambda is graded",
-        "%d cover relations, every one raising rank by 1; bottom %s rank 3, top %s rank 20"
-        % (ncov, "".join(map(str, BOTTOM)), "".join(map(str, TOP))), good)
+        "%d cover relations found from the order alone (x < y with no cell between); %d of them "
+        "are unit steps y = x + e_i and %d raise rank by 1; bottom %s rank 3, top %s rank 20"
+        % (ncov, unit, ncov - bad4, "".join(map(str, BOTTOM)), "".join(map(str, TOP))), good)
 
     # rank sequence, Sperner
     cnt = defaultdict(int)
@@ -604,9 +653,20 @@ def structure():
         "every join-irreducible is min{x : x[c] >= v}" % (len(ji), len(mi), closed_form), good3)
 
     weights = [sum(1 for x in LAM if le(m, x)) for m in GCELL]
+    WANT = {"n >= 2": (4, 856), "k >= 2": (4, 826), "q >= 1": (4, 811), "e >= 2": (4, 784),
+            "2S >= 1": (4, 657), "l >= 1": (5, 616), "g >= 1": (5, 491), "n >= 3": (5, 428),
+            "f >= 1": (5, 400), "e >= 3": (5, 392), "q >= 2": (6, 481), "2S >= 2": (6, 338),
+            "k >= 3": (7, 376), "g >= 2": (8, 171), "q >= 3": (10, 136), "2S >= 3": (10, 94),
+            "g >= 3": (15, 16)}
+    got_t = {GNAME[t]: (rank(GCELL[t]), weights[t]) for t in range(JJ)}
+    hi_w, lo_w = max(weights), min(weights)
+    good_t = got_t == WANT and hi_w == 856 and lo_w == 16
+    ok &= good_t
     row("EXHAUSTIVE", "Table 3, the seventeen letters",
         "; ".join("%s at rank %d in %d cells" % (GNAME[t], rank(GCELL[t]), weights[t])
-                  for t in range(JJ)), True)
+                  for t in range(JJ))
+        + "; the heaviest letter carries %.1f%% of the cells and the lightest %.1f%%"
+        % (100.0 * hi_w / N, 100.0 * lo_w / N), good_t)
 
     # Birkhoff, by enumerating every subset of the generating poset
     ds = 0
@@ -648,8 +708,15 @@ def structure():
     row("EXHAUSTIVE", "Theorem 8, twenty implications",
         "%d covering relations in the generating poset: %d within a coordinate, %d between"
         % (len(covP), len(within), len(between)), good4)
+    IMPL = {"n >= 3 -> n >= 2", "l >= 1 -> n >= 2", "q >= 2 -> k >= 2", "2S >= 2 -> k >= 2",
+            "k >= 3 -> k >= 2", "g >= 1 -> q >= 1", "q >= 2 -> q >= 1", "e >= 3 -> e >= 2",
+            "f >= 1 -> e >= 2", "2S >= 2 -> 2S >= 1", "k >= 3 -> l >= 1", "g >= 3 -> f >= 1",
+            "g >= 2 -> g >= 1", "g >= 2 -> q >= 2", "q >= 3 -> q >= 2", "2S >= 3 -> 2S >= 2",
+            "q >= 3 -> k >= 3", "2S >= 3 -> k >= 3", "g >= 3 -> g >= 2", "g >= 3 -> q >= 3"}
+    got_i = {"%s -> %s" % (GNAME[b], GNAME[a]) for a, b in covP}
+    ok &= got_i == IMPL
     row("EXHAUSTIVE", "Theorem 8, the twenty implications written out",
-        "; ".join("%s -> %s" % (GNAME[b], GNAME[a]) for a, b in covP), True)
+        "; ".join("%s -> %s" % (GNAME[b], GNAME[a]) for a, b in covP), got_i == IMPL)
 
     accepted = 0
     for m in range(1 << JJ):
@@ -710,9 +777,12 @@ def structure():
            ",".join(str(rank(x)) for x in sorted(surv, key=rank))), good5)
 
     bits = math.log2(N)
+    good_b = (JJ == 17 and round(bits, 4) == 9.9307 and round(JJ - bits, 4) == 7.0693
+              and round(100.0 * N / (1 << JJ), 4) == 0.7446)
+    ok &= good_b
     row("EXHAUSTIVE", "Theorem 7, the bit accounting",
         "%d bits carried per cell, %.4f needed to index %d cells, surplus %.4f; Lambda is "
-        "%.4f%% of the 2¹⁷ words" % (JJ, bits, N, JJ - bits, 100.0 * N / (1 << JJ)), True)
+        "%.4f%% of the 2¹⁷ words" % (JJ, bits, N, JJ - bits, 100.0 * N / (1 << JJ)), good_b)
     print()
     return ok, seq, covP, within, between, surv, ncov
 
@@ -787,10 +857,13 @@ def metric():
             bad3 += 1
     ok &= bad3 == 0
     row("SAMPLED", "Theorem 11, the multiplicative triangle on cell triples",
-        "%d triples, seed %d: %d failures" % (TR, SEED + 1, bad3), bad3 == 0)
+        "%d of the %d ordered cell triples (976 cubed), seed %d: %d failures"
+        % (TR, N ** 3, SEED + 1, bad3), bad3 == 0)
+    good_l = round(math.log(2), 4) == 0.6931 and round(math.log(11 / 10), 4) == 0.0953
+    ok &= good_l
     row("EXHAUSTIVE", "Theorem 11, the log-distorted chain",
         "per-axis cost log(|Delta|+1): first step log 2 = %.4f, tenth step log(11/10) = %.4f"
-        % (math.log(2), math.log(11 / 10)), True)
+        % (math.log(2), math.log(11 / 10)), good_l)
     print()
     return ok
 
@@ -896,11 +969,16 @@ def void():
         "all %d pairs: %d boxes hold more cells than they have points" % (pairs, neg), good)
     lo_nm = min(marg, key=marg.get)
     hi_nm = max(marg, key=marg.get)
+    good_f = (free == 134871 and pairs == 475800 and round(float(joint), 4) == 0.2835
+              and lo_nm == "g <= q" and round(float(marg[lo_nm]), 4) == 0.6995
+              and hi_nm == "g <= 4f+2" and round(float(marg[hi_nm]), 4) == 0.9806
+              and round(float(product), 4) == 0.2013 and round(float(joint / product), 4) == 1.4081)
+    ok &= good_f
     row("EXHAUSTIVE", "Proposition 1, the void-free fraction",
         "%d of %d pairs, %.4f; the seven rates run %.4f (%s) to %.4f (%s), their product "
         "%.4f, the lift %.4f" % (free, pairs, float(joint), float(marg[lo_nm]), lo_nm,
                                  float(marg[hi_nm]), hi_nm, float(product),
-                                 float(joint / product)), True)
+                                 float(joint / product)), good_f)
     good_cb = comp == 115162
     ok &= good_cb
     row("EXHAUSTIVE", "Proposition 1, comparable pairs whose interval is a box",
@@ -1217,20 +1295,21 @@ def seed():
 
     # the generation criterion, against the seated closure operator
     rnd = random.Random(SEED + 2)
-    agree = dis = 0
+    agree = dis = ncover = 0
     for _ in range(80):
         G = rnd.sample(range(N), rnd.randint(4, 10))
         c = 0
         for i in G:
             c |= cmask[i]
+        ncover += c == FULL
         if (c == FULL) == closes([LAM[i] for i in G]):
             agree += 1
         else:
             dis += 1
     ok &= dis == 0
     row("SAMPLED", "Theorem 17, covering is generating",
-        "%d random subsets of size 4 to 10, seed %d: %d disagreements with the closure "
-        "operator under test" % (agree + dis, SEED + 2, dis), dis == 0)
+        "%d random subsets of size 4 to 10, seed %d: %d of them are covers, and %d disagreements "
+        "with the closure operator under test" % (agree + dis, SEED + 2, ncover, dis), dis == 0)
 
     # element reduction (safe for counting: a dominated element is implied)
     keep = [a for a in range(M)
@@ -1333,7 +1412,9 @@ def seed():
 
     # Corollary 7: what every minimum seed contains, over all covers by cell
     props = [("null transition, q = 0", lambda x: x[IQ] == 0),
-             ("full transfer, q = k", lambda x: x[IQ] == x[IK]),
+             ("full transfer, q = k = 1", lambda x: x[IQ] == x[IK] == 1),
+             ("full transfer, q = k = 2", lambda x: x[IQ] == x[IK] == 2),
+             ("full transfer, q = k = 3", lambda x: x[IQ] == x[IK] == 3),
              ("s -> p", lambda x: x[IL] == 0 and x[IF] == 1),
              ("p -> s", lambda x: x[IL] == 1 and x[IF] == 0),
              ("p -> p", lambda x: x[IL] == 1 and x[IF] == 1),
@@ -1344,7 +1425,8 @@ def seed():
         for s in sols:
             lacking += prod(sum(1 for c in sig[x] if not P(LAM[c])) for x in s)
         fr[nm] = Fraction(total - lacking, total)
-    good_p = all(fr[nm] == 1 for nm, _ in props[:5]) and fr["s -> s"] < 1
+    good_p = (all(fr[nm] == 1 for nm, _ in props if nm != "s -> s")
+              and fr["s -> s"] == Fraction(17403, 24585))
     ok &= good_p
     row("EXHAUSTIVE", "Corollary 7, what every minimum seed contains",
         "; ".join("%s in %s of %d" % (nm, fr[nm].numerator * total // fr[nm].denominator, total)
@@ -1381,7 +1463,8 @@ def seed():
                 counts[c] += share
     vals = sorted(counts.values(), reverse=True)
     med = sorted(counts.values())[len(vals) // 2]
-    good_v = len(vals) == 370 and vals[0] == total
+    good_v = (len(vals) == 370 and vals[0] == total and med == 59 and vals[1] == 14492
+              and round(100.0 * med / total, 2) == 0.24 and round(100.0 * vals[1] / total, 1) == 58.9)
     ok &= good_v
     row("EXHAUSTIVE", "Theorem 18, the covers by cell",
         "%d of %d cells appear in a minimum cover; the median such cell in %d (%.2f%%), the "
@@ -1398,17 +1481,22 @@ def cited():
     for who, what in [
         ("Birkhoff (1937)", "a finite distributive lattice is the down-sets of its poset "
                             "of join-irreducibles"),
+        ("Birkhoff (1940); Davey and Priestley (2002)",
+         "a sublattice of a distributive lattice is distributive; a finite lattice is modular "
+         "iff it is graded with a modular rank function"),
         ("Dilworth (1950)", "the minimum chain cover equals the largest antichain"),
         ("Dushnik and Miller (1941)", "order dimension; for a distributive lattice it is "
                                       "the width of the generating poset"),
-        ("Rota (1964)", "the crosscut theorem for the Moebius function"),
-        ("Karp (1972)", "minimum set cover is NP-complete"),
+        ("Rota (1964)", "the crosscut theorem for the Moebius function, and its corollary: "
+                        "if the top is not a join of atoms then mu(bottom, top) = 0"),
+        ("Karp (1972)", "minimum set cover is NP-hard; its decision version is NP-complete"),
         ("Fulkerson (1956)", "Dilworth's theorem from Koenig's: the minimum chain cover is "
                              "n minus a maximum matching of the strict order"),
+        ("Stanley (1989)", "a log-concave sequence with no internal zero is unimodal"),
         ("Stanley (2012)", "the maximal chains of a finite distributive lattice are the "
                            "linear extensions of its poset of join-irreducibles"),
     ]:
-        row("CITED", who.split()[0], what, True)
+        row("CITED", who, what, True)
     print()
 
 

@@ -191,7 +191,7 @@ Take the eighteen-column layout (Mendeleev 1869, in its modern form) with the f-
 
 **Proof.** Â₁(X) = {1, …, 7} and Â₂(X) = {1, …, 18}, since period 4 alone realises every group and group 1 alone realises every period. The extreme corners are (period 1, group 18), which is helium, and (period 7, group 1), which is francium; both are cells of X. Lemma 3 applies and gives ℛ(X) = {1, …, 7} × {1, …, 18}, of size 126. Hence E = 126 − 90 = 36. ∎
 
-![Figure 1](figures/fig1-periodic-census.png)
+![](figures/fig1-periodic-census.png)
 
 *Figure 1. The eighteen-column presentation as an index. Blue: the ninety cells it holds. Red: the thirty-six its own coordinates admit and it denies. A reader given only the occupied cells reconstructs all one hundred and twenty-six.*
 
@@ -208,7 +208,7 @@ The same computation run directly, as a staircase closure over the ambient produ
 
 Status: EXHAUSTIVE over the 36 cells.
 
-![Figure 2](figures/fig2-thirty-six.png)
+![](figures/fig2-thirty-six.png)
 
 *Figure 2. Left: the thirty-six coloured by the subshell each slot would hold — 25 red where no orbital of that ℓ exists at that n, 11 gold where one exists and is occupied later. Right: the same ninety cells with helium drawn at group 2. The entire first row of gaps disappears and E falls to 20, the twenty being periods 2 and 3, groups 3–12.*
 
@@ -252,7 +252,7 @@ Both routes were also run numerically: the staircase closure and an independent 
 
 **The periods close against Z in exactly the same way.** The eighteen-column table's periods are a contiguous partition of the same 118 atomic numbers into rows of 2, 8, 8, 18, 18, 32, 32, opening at Z = 1, 3, 11, 19, 37, 55, 87. By Corollary 1 the index {(period(Z), Z)} is a chain and is closed: 118 cells in a box of 7 × 118 = 826, E = 0 (EXHAUSTIVE, both implementations). Corollary 1 was also run on every one of the 117 two-row contiguous partitions of Z = 1 … 118; all 117 are closed under both implementations. **The closure does not prefer the n + ℓ rows to the periods.** What it registers is the second coordinate: against Z any monotone row coordinate closes, and against a group or column coordinate every drawn table is a corner-filled box.
 
-![Figure 3](figures/fig3-two-presentations.png)
+![](figures/fig3-two-presentations.png)
 
 *Figure 3. The same elements on two presentations. Left: (period, group), 90 cells in a box of 126, E = 36, with the thirty-six admitted cells in orange. Right: (n + ℓ, Z), 118 cells in a box of 944, E = 0, drawn as its eight rows with their lengths. The boxes are over unlike coordinates and their sizes are not comparable; what the right-hand panel shows is a chain, and the periods drawn against Z would show one too.*
 
@@ -276,7 +276,7 @@ They are close to, and not identical with, the first occupation of the orbital i
 
 Status: **MEASURED**, sample 128 cells, split fixed in advance by the index and not fitted. The seven are Sc III nd, Ti III nd at two multiplicities, Ti IV nd, Fe VIII nd, Fe XV nd and Fe XVI nd, with mean defects 0.6533, 0.7899, 0.7987, 0.6202, 0.4000, 0.1278 and 0.0750.
 
-![Figure 4](figures/fig4-janet-rows.png)
+![](figures/fig4-janet-rows.png)
 
 *Figure 4. Upper: the eight rows of the (n + ℓ, Z) index, with the three highest openings marked at Z = 21, 57 and 89. Lower: the 128 measured d and f cells whose core holds no orbital of the cell's ℓ, mean defect against Z. Orange marks the seven at or past the opening of their row.*
 
@@ -304,7 +304,7 @@ The number of parent levels is a term count and a level count, and both are fini
 
 **Proof.** Write mℓ and mₛ for the one-electron projections and Mₗ = Σ mℓ, Mₛ = Σ mₛ for their totals. By the exclusion principle (Pauli 1925) the determinants of ℓᵏ are in bijection with the k-subsets of the 2(2ℓ + 1) spin-orbitals (mℓ, mₛ), and every such determinant is an eigenvector of Mₗ and Mₛ. The multiplicity table N(Mₗ, Mₛ) counting them is therefore exact. The determinant space decomposes into LS multiplets, and a multiplet ²ˢ⁺¹L contributes exactly one state to each (Mₗ, Mₛ) with |Mₗ| ≤ L and |Mₛ| ≤ S, both running in unit steps, and none outside that rectangle (CITED: the representation theory of angular momentum, Condon and Shortley 1935, ch. III and VII). So N is a sum of rectangles, one per term, each with its corner at (L, S).
 
-*The highest-weight step.* Let N be a non-zero sum of such rectangles, and let (μ*, ν*) be the positive entry of largest Mₛ and, among those, largest Mₗ. Some rectangle with corner (L, S) contains (μ*, ν*), so S ≥ ν* and L ≥ μ*. If S > ν*, that rectangle also contains (μ*, S), which is then a positive entry with larger Mₛ, contradicting the choice; so S = ν*. If then L > μ*, the rectangle contains (L, ν*), a positive entry at the same Mₛ with larger Mₗ, again a contradiction; so L = μ*. Hence a term with L = μ* and S = ν* is present, and subtracting its rectangle leaves a sum of rectangles with one term fewer, every entry still non-negative. Induction on the number of terms shows that the peel — take the entry of largest Mₛ then largest Mₗ that is still positive, record a term with L = Mₗ and S = Mₛ, subtract its rectangle — removes exactly one term per pass, never drives an entry negative, and terminates with the table identically zero, having recorded the configuration's multiset of terms. The run confirms both consequences: 17,476 decrements over every ℓ and k, none below zero, and an independent count of the same multiset by second differences, the number of terms with given (L, S) being N(L, S) − N(L + 1, S) − N(L, S + 1) + N(L + 1, S + 1), agrees for every ℓᵏ (EXHAUSTIVE). ∎
+*The highest-weight step.* Let N be a non-zero sum of such rectangles, and let (μ₀, ν₀) be the positive entry of largest Mₛ and, among those, largest Mₗ. Some rectangle with corner (L, S) contains (μ₀, ν₀), so S ≥ ν₀ and L ≥ μ₀. If S > ν₀, that rectangle also contains (μ₀, S), which is then a positive entry with larger Mₛ, contradicting the choice; so S = ν₀. If then L > μ₀, the rectangle contains (L, ν₀), a positive entry at the same Mₛ with larger Mₗ, again a contradiction; so L = μ₀. Hence a term with L = μ₀ and S = ν₀ is present, and subtracting its rectangle leaves a sum of rectangles with one term fewer, every entry still non-negative. Induction on the number of terms shows that the peel — take the entry of largest Mₛ then largest Mₗ that is still positive, record a term with L = Mₗ and S = Mₛ, subtract its rectangle — removes exactly one term per pass, never drives an entry negative, and terminates with the table identically zero, having recorded the configuration's multiset of terms. The run confirms both consequences: 17,476 decrements over every ℓ and k, none below zero, and an independent count of the same multiset by second differences, the number of terms with given (L, S) being N(L, S) − N(L + 1, S) − N(L, S + 1) + N(L + 1, S + 1), agrees for every ℓᵏ (EXHAUSTIVE). ∎
 
 Status: **PROVED**, given the CITED decomposition into multiplets, and **EXHAUSTIVE** over 17,476 determinants by two independent decision procedures. The p and d rows agree with the tables of Condon and Shortley (1935) and the f row with the tables of Nielson and Koster (1963) (CITED); the counts are symmetric under k ↦ 4ℓ + 2 − k, particle–hole conjugation, at every entry (EXHAUSTIVE).
 
@@ -343,7 +343,7 @@ Proposition 3 is a statement about the data, not about physics: a species may ha
 | no parent written | `nd 2D J=3/2` | 457 |
 | **carrying a parent** | | **139** |
 
-The (J₁, j) pair is J₁j coupling notation; its first entry fixes the parent *level* only because every core it is written on has a single term, which is the case for all 30 rows. The `2[K]°` labels are Racah's pair coupling (D7). Operationally, "the label names a parent" means "the label contains a parenthesised group", and the four conventions are the four shapes that group takes. A census taken with the first pattern alone — a dotted configuration followed by a parenthesised group — sees 80 of those 139 and reports 59 rows as parentless that are not. **The conventions have to be read off the material before a parent is counted**, and the margin between the narrowest and the widest reading is 59 rows of the 139.
+The label forms are those of the NIST Atomic Spectra Database (Martin and Wiese 1996). The (J₁, j) pair is J₁j coupling notation; its first entry fixes the parent *level* only because every core it is written on has a single term, which is the case for all 30 rows. The `2[K]°` labels are Racah's pair coupling (D7). Operationally, "the label names a parent" means "the label contains a parenthesised group", and the four conventions are the four shapes that group takes. A census taken with the first pattern alone — a dotted configuration followed by a parenthesised group — sees 80 of those 139 and reports 59 rows as parentless that are not. **The conventions have to be read off the material before a parent is counted**, and the margin between the narrowest and the widest reading is 59 rows of the 139.
 
 **The core census.** For each of the 70 species the core is the ion at one fewer electron, in its tabulated ground configuration; its class (D8) is decided by counting the terms of its open subshell with Theorem 6. **No core in the compilation has more than one open subshell** — the six open shapes present are s¹, p¹, p², p⁴, p⁵ and d¹ (EXHAUSTIVE over the 70 species) — so a term count here is a single-subshell count and Theorem 6 gives it exactly, with no recoupling of two open shells to consider. Three ions whose ground configuration is not the configuration the electron count alone would give are taken from their published ground levels: Ti III's core Ti IV is 3d ²D₃/₂, Zn II's core Zn III is 3d¹⁰ ¹S₀, and Hg II's core Hg III is 5d¹⁰ ¹S₀ (CITED, NIST ASD). The result is the table of §0, split here by whether the row's label names a parent.
 
@@ -363,7 +363,7 @@ The (J₁, j) pair is J₁j coupling notation; its first entry fixes the parent 
 
 Status: **EXHAUSTIVE**, 596 rows, 93 rows and 13 species, every row's limit compared. The proposition confirms that a labelling rule was applied without exception; it is not a property of the thirteen spectra. Ar II is the concrete case: its core 3p⁴ has 3 terms and 5 levels (Corollary 3), and all 44 of its rows — 30 naming no parent and 14 naming one — print one limit, so the compilation captured Ar II series on one parent level only.
 
-![Figure 5](figures/fig5-parent-census.png)
+![](figures/fig5-parent-census.png)
 
 *Figure 5. Left: the 596 rows by what the ionic core carries, with the part of each class whose label names a parent in blue. Right: the four species printing two or more limits, with the parent at each limit, the number of rows converging on it, and the span from the lowest limit to the highest in exact arithmetic on the printed values.*
 
@@ -472,6 +472,7 @@ The machine checks behind this paper discharge 143 obligations, all passing — 
 - Löwdin, P.-O. (1969). Some comments on the periodic system of elements. *International Journal of Quantum Chemistry* **3**(S3A), 331–334.
 - Madelung, E. (1936). *Die mathematischen Hilfsmittel des Physikers*, 3rd ed. Springer, Berlin.
 - Mann, H. B. and Whitney, D. R. (1947). On a test of whether one of two random variables is stochastically larger than the other. *Annals of Mathematical Statistics* **18**, 50–60.
+- Martin, W. C. and Wiese, W. L. (1996). Atomic spectroscopy. In G. W. F. Drake (ed.), *Atomic, Molecular, and Optical Physics Handbook*, ch. 10. AIP Press, Woodbury, New York.
 - Mendeleev, D. (1869). Über die Beziehungen der Eigenschaften zu den Atomgewichten der Elemente. *Zeitschrift für Chemie* **12**, 405–406.
 - Moore, E. H. (1910). *Introduction to a Form of General Analysis*. Yale University Press, New Haven.
 - Nielson, C. W. and Koster, G. F. (1963). *Spectroscopic Coefficients for the pⁿ, dⁿ, and fⁿ Configurations*. MIT Press, Cambridge, Massachusetts.

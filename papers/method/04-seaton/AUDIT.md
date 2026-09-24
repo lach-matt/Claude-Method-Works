@@ -481,8 +481,8 @@ Duplicates across readers are marked "= A-n" and counted once.
 | A-11 | MINOR | Fig. 1(b), Fig. 2 | annotation over In I d marker; ASCII hyphen; annotation over ρ = 0 line |  FIXED — p ≥ 1 label below its band at the right edge (Fig. 1b); row labels at the right edge (Fig. 2); true minus signs via fmt(); panel (b) title shortened (it was clipped); figures regenerated, FIGURES.tsv md5s updated |
 | A-12a | MAJOR | 266 (p. 11) | `n*⁷ … n*¹⁰` rendered as italics, asterisks lost |  FIXED — the effective quantum number is written n∗ (U+2217) throughout, so no markdown asterisk can pair |
 | A-12b | MAJOR | pp. 1–13 | underscore/caret subscripts in code spans and prose (α_d ×16, R_M, δ_n, E_n, V_pol, Laguerre line, r_i, w_i …) |  FIXED — every code span removed from mathematics; α_d → α (D5 defines α dipole, β quadrupole); R_M → Rₘ, E_n → Eₙ, δ_n → δₙ, r_i/w_i/δ_i/n_i → rᵢ/wᵢ/δᵢ/nᵢ; the Laguerre line rewritten in words with rˡ and (n/2)ᵏ⁺¹; displayed formulas as plain blockquote text |
-| A-12c | MINOR | Table 1 (p. 6) | R_M column wraps every value |  FIXED — the core column prints the ion symbol; the configurations are in the text above the table |
-| A-12d | MINOR | pp. 5–7 | Table 1 and Table 2 captions orphaned at page feet |  FIXED — captions now follow their tables (as figure captions do), so none can be stranded; the shared template has since also been changed to let tables break |
+| A-12c | MINOR | Table 1 (p. 6) | R_M column wraps every value |  FIXED — the core column prints the ion symbol; the configurations are in the text above the table; in the PDF the Rₘ column still wrapped every value over two lines (the fix held at HTML width only), so the finishing pass moved A and Rₘ, which depend on the core alone, out of the thirteen-row table into its caption as four (core, A, Rₘ) triples — eight columns, no wrap |
+| A-12d | MINOR | pp. 5–7 | Table 1 and Table 2 captions orphaned at page feet |  FIXED — captions now follow their tables (as figure captions do), so none can be stranded; the shared template has since also been changed to let tables break; in the PDF Table 1's two-line rows still pushed its caption alone onto the next page, which the A-12c change removed — table and caption now share p. 7 |
 | A-12e | MINOR | 304 (p. 13) | "⟨r^s⟩" literal caret |  FIXED — ⟨rˢ⟩ |
 | A-13 | MAJOR | 310; SOURCES 141 | Ritz citation stripped though the tree holds it (Ann. Phys. 12, 264–310) |  FIXED — Ritz restored exactly as Mathematical Compendium 780 / Physics Compendium 464 give it (Zur Theorie der Serienspektren, Annalen der Physik 12, 264–310); SOURCES.md corrected |
 | A-14 | MINOR | SOURCES 136 | SOURCES says Drake initials printed; paper prints none |  FIXED — Drake's and Swainson's initials and the title verified against the APS record and printed; SOURCES.md aligned |
@@ -569,9 +569,37 @@ no number moved to fit a sentence. `check.py` is what now prints Table 2 at NIST
 the implied polarisabilities, and every sensitivity §4 reports. Lint: 0 hits. The figures were
 regenerated and `FIGURES.tsv` carries the new md5s; no plotted value changed.
 
-**Render and typography.** RENDER_PLACEHOLDER
+**Render and typography.** `python3 papers/method/render.py papers/method/04-seaton` → `out/04-seaton.pdf`,
+0.34 MB, 16 pages. pypdf text extraction over all sixteen pages: 0 underscores, 0 carets, 0 backslashes,
+0 backticks, 0 asterisks (the effective quantum number is n∗, U+2217). The HTML was screenshotted with
+headless Chromium at 1000 px (full page, 11,640 px, nine slices) and the PDF rasterised page by page with
+pypdfium2, and every slice and every page was read: Unicode subscripts and superscripts throughout, n∗⁷ and
+n∗¹⁰ intact, every table within its columns, every figure with its caption directly beneath it, no heading
+orphaned at a page foot.
 
 **Still open for the author** (recorded in `SOURCES.md`): the comparison of the implied polarisabilities
 (24.76, 26.20, 10.21 a₀³) with published values — the paper says it is not made and why; the Rb I
 calibration against the millimetre-wave / EIT coefficients (R-17, declined); the prefactor question
 (the tree's 3αc²/K against the derived 6αz²/K, unchanged from the first pass); and the working title.
+
+**Finishing pass (2026-09-24, after the repair was cut off by a service limit).** The repair's last recorded
+step — rephrase the one literal caret in Lemma 1's integral, re-render, re-slice, read every page — was found
+already done in the source: the integral is stated in words ("integrals of rᵏ exp(−2r/n) over r ≥ 0 … each
+equal to k! (n/2)ᵏ⁺¹"), and `PAPER.md` holds 0 carets, 0 underscores, 0 backslashes and 0 backticks. Every
+Part C row was confirmed to carry a disposition (55 FIXED, 1 DECLINED, R-17). A-1 and A-20 were re-verified
+against `PAPER.md` and `check.py`: Lemma 2 prints δ = −(n³/z²)ΔE·2(n−δ)²/(n(2n−δ)) with the expansion
+1 − (3nδ − 2δ²)/(n(2n−δ)), `ob_defect_rearrangement` discharges both on 121 grid points above degree and the
+factor without the 2 is a REFUTED control; D3 calls p ≥ 1 penetrating, D4 defines N := p = 0 and uncollapsed
+with the collapse thresholds cited to Goeppert-Mayer 1941 and Griffin, Andrew and Cowan 1969, and §0, §5.1,
+§5.3 and §5.5 carry the necessary-not-sufficient statement; the title and the Ritz 1903 entry (Annalen der
+Physik 12, 264–310) stand as recorded above. Reading the rendered pages found three defects the source-level
+counts do not see, all repaired in `PAPER.md`: (i) the paragraph beginning "(b) ⟨r⁻²⟩ …" in Lemma 1's proof
+was read by pandoc as a lettered list and printed as an indented "1." — rephrased "The second input, (b),
+is …"; (ii) Table 1's Rₘ column still wrapped every value in the PDF and its caption was pushed alone onto
+the next page (A-12c, A-12d) — A and Rₘ moved into the caption as four (core, A, Rₘ) triples, and D1's two
+pointers now read "with Table 1"; (iii) the three image lines carried the alt text "Figure n", which pandoc
+printed as a small stray line between each image and its caption — the alt text is now empty, as in the
+other papers. No number moved. After the edits: `python3 check.py` 32 of 32 (7 PROVED, 11 EXHAUSTIVE, 2
+MACHINE-CHECKED, 8 MEASURED, 1 CROSS-CHECK, 3 SOURCE), exit 0; `--selftest` 36 of 36, four negative
+controls REFUTED, exit 0; lint 0 hits; render 16 pages, literal-markup counts all zero on every page;
+every page read again.

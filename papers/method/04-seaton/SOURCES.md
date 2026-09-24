@@ -69,7 +69,9 @@ Every finding's disposition is in `AUDIT.md` Part C and its repair record. What 
   three decimals from the level dictionary.
 - **Typography (A-12).** No code span holds mathematics. α_d is now α (D5 defines α as the dipole
   and β as the quadrupole polarisability, since Unicode has no subscript d or q); R_M is Rₘ; the
-  effective quantum number is written n∗ (U+2217) so that no markdown asterisk can pair.
+  effective quantum number is written n∗ (U+2217) so that no markdown asterisk can pair. In the finishing pass Table 1 gave up its A and Rₘ columns (ten columns wrapped every Rₘ value in
+  the PDF); the four (core, A, Rₘ) triples are printed in the table's caption, so the values remain printed
+  for a reader to substitute another convention.
 - **Declined (R-17).** A comparison of the Rb I Ritz coefficients with the millimetre-wave and EIT
   values (Li et al. 2003; Mack et al. 2011) would calibrate what a six-member fit can say about δ₂;
   the values are not held in the tree and could not be verified against their sources here, so
