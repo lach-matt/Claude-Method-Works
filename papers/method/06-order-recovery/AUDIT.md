@@ -382,64 +382,64 @@ declined NP-completeness headline, the unprinted source figures. Against that:
 
 | id | line(s) | severity | finding | disposition |
 |---|---|---|---|---|
-| A-1 | 11, 31, 102–104, 405–441, 483, 491, 601 | BLOCKING | bijunctivity counted on T, asserted of C; first non-bijunctive constraint on C is at arity 3 (d = 3), witness `{000,111,001,110,010,101}` | |
-| A-2 | 37, 483 | MAJOR | "outside every Schaefer class" false: origin-containing language is 0-valid; hardness of the language needs ≠ | |
-| A-3 | 39, 479 | MAJOR | Rival's bound printed backwards (vacuous); "tighter" compares upper with lower bound | |
-| A-4 | 535–543 | MAJOR | Lemma 9 is Rival 1973's theorem in the maximal case; uncited | |
-| A-5 | 419–421, 601, 613 | MAJOR | Theorem 7 stated for every k, no proof; two-line proof supplied | |
-| A-6 | 241–243 | MAJOR | D1 exhibit does not exhibit; correct example supplied | |
-| A-7 | 463 | MAJOR | Table 2 caption: "one less than the box" false at 2×2×3, 2×3×3; "attained elsewhere" misleading | |
-| A-8 | 11, 25, 192, 263, 316, 391 | MAJOR | cost of ⊑ misstated; "output-sensitive" unproved; Σ|Aᵢ|! underived (holds for the memoised form) | |
-| A-9 | 353, 603 | MAJOR | Janet "22 occupied cells" is the capped fixture incl. 6f, 7d, 7f; occupied are 19, E = 0 there | |
-| A-10 | all pages | MAJOR | mathematics in code spans: `_`, `^`, `{}` literal on every page | |
-| A-11 | 301–308, 572, figure labels, Figure 2 | MINOR | pseudocode run-on; orphaned heading p. 22; duplicated "Figure n" label; plate overprint, no axis labels; small Figure 1 | |
-| A-12 | 214, 238, 543, 561–569 | MAJOR | guards do not cover `enc_canonical`, Theorem 3's and Lemma 9's encodings, `prover.closed`; non-vacuity not on 4×4 etc.; "every subset" means every observed subset | |
-| A-13 | 479, 605, 611 | MINOR | one of the 29 MACHINE-CHECKED lines is arithmetic, not a Z3 obligation | |
-| A-14 | 156, 371, 505 | MINOR | totality check evaluates the seven bounds, not Corollary 1's envelope conjunction (covered by E = 0) | |
-| A-15 | 434 | MINOR | table computed by 2-clause closure, described as majority closure | |
-| A-16 | 421–432, 448–461, 283, 318–329, 521, 545 | MINOR | printed numbers not asserted by the check | |
-| A-17 | 126, 138 | MINOR | Theorem 1 (⇒) hypothesis; vacuous `−∞` parenthesis | |
-| A-18 | 411 | MINOR | `{0,τ} × {τ}` typo | |
-| A-19 | 289–295 | MINOR | Theorem 4 holds for any graph | |
-| A-20 | 100 | MINOR | "Freuder condition" gloss | |
-| A-21 | 389–391, 45 | MINOR | which 16 orderings: ties at 976, component reversals at 216 | |
-| A-22 | 489 | MINOR | §6.5 point 3 not meaningful | |
-| A-23 | 33, 110, 471, 467 | MINOR | drop vs step | |
-| A-24 | 641 | MINOR | Janet 1928 / 1929 | |
-| A-25 | 11 | MINOR | abstract's unqualified step law | |
-| A-26 | 348 | MINOR | "any change that preserves all pair projections" undefined | |
-| A-27 | 112, 375, 535 | MINOR | bottom counted as join-irreducible: flag at use | |
-| A-28 | SOURCES.md | MINOR | 0.723 vs 0.724 | |
-| A-29 | 515 | MINOR | Edlén §17, second-hand | |
-| R-1 | 31, 102–104, 423–434, 483 | BLOCKING | = A-1 (mathematician) | |
-| R-2 | 419 | MAJOR | = A-5 | |
-| R-3 | 39, 479, 535 | MAJOR | = A-3, A-4 | |
-| R-4 | 263, 316, 391, 11 | MAJOR | = A-8 | |
-| R-5 | 241 | MAJOR | = A-6 | |
-| R-6 | 289 | MINOR | = A-19 | |
-| R-7 | 509–511 | MINOR | rank at a point / constant rank | |
-| R-8 | 110, 448–463, 471 | MINOR | drop vs step; ∅ and singletons in the census | |
-| R-9 | 247 | MINOR | Lemma 5 for multisets | |
-| R-10 | 112 | MINOR | = A-27 | |
-| R-11 | 333–336 | MINOR | "exactly one of" phrasing | |
-| R-12 | 411 | MINOR | = A-18 | |
-| R-13 | 489 | MINOR | = A-22 | |
-| R-14 | 25, 192, 263, 316 | MINOR | two incompatible costs for ⊑ | |
-| R-15 | 353 | MAJOR | = A-9 (physicist) | |
-| R-16 | 361–369, 519–531 | MAJOR | `2S ≤ k` over-admits (parity); Λ is an index of admissible labels; the 2S tie is this over-admission | |
-| R-17 | 361–367 | MINOR | `g ≤ q` is a convention; wording of the hydrogenic bound | |
-| R-18 | 353 | MINOR | elements vs subshells | |
-| R-19 | 515 | MINOR | = A-29 | |
-| R-20 | 519–527 | MINOR | a physical example of a non-cell and of the A(y) = 15 cell | |
-| R-21 | 11, 31, 423–434, 483 | BLOCKING | = A-1 (referee) | |
-| R-22 | 481–491 | MAJOR | "open" not situated: Green & Cohen 2008, Jeavons & Cooper 1995 | |
-| R-23 | 39, 479, 535 | MAJOR | = A-3, A-4 | |
-| R-24 | 11, 25, 31, 33 | MAJOR | abstract/§0 promise more than delivered (three counts) | |
-| R-25 | 37, 483 | MAJOR | = A-2 | |
-| R-26 | 257, 617–659 | MINOR | references to add; decorative PQ-tree citation | |
-| R-27 | 561–613 | MINOR | = A-12, A-13, A-16 | |
-| R-28 | 385 | MINOR | "with backtracking" in the copied plate | |
-| R-29 | 45 | MINOR | say what the 16 are | |
+| A-1 | 11, 31, 102–104, 405–441, 483, 491, 601 | BLOCKING | bijunctivity counted on T, asserted of C; first non-bijunctive constraint on C is at arity 3 (d = 3), witness `{000,111,001,110,010,101}` |  **FIXED.** The audit's figures were verified independently in the check by two routes — majority-closure at k ≤ 4 and the two-clause closure at every k ≤ 5, agreeing on every relation — and reproduce: 2/2, 5/8, 15/128, 52/32,768, with the six-cell witness realising C(000,111) = X and maj(001,010,111) = 011 ∉ C while T = {00,01,10} is majority-closed. Theorem 8 is restated as the partition-constraint characterisation (bijunctive ⇔ the orientations agree on the blocks of a partition; B(k) of them, the Bell numbers) with a full proof for every k; the boundary moves to d = 3 in the thesis, abstract, §0 item 5, Theorem 8, §6.2, §6.5, Figure 4 (regenerated) and §8; the T census stays as a labelled auxiliary column with the transfer statement — C bijunctive ⇒ T bijunctive (checked), the converse failing from arity 3, and no two-clause consequence because an exclusive-or is not bijunctive (D10). The title is kept: the paper still states one reorderability law, now sharper, and the old title does not overclaim it; the superseded statement is recorded in SOURCES.md for the author. |
+| A-2 | 37, 483 | MAJOR | "outside every Schaefer class" false: origin-containing language is 0-valid; hardness of the language needs ≠ |  **FIXED.** §0 and §6.5 now say: every pair constraint contains both constant assignments, so the language of pair constraints is 0-valid and 1-valid and trivially satisfiable; antisymmetry ≠ is neither; the arity-3 witness is closed under neither majority, ∧, ∨ nor ternary ⊕ (EXHAUSTIVE line), so {C₃, ≠} lies in none of the six classes and satisfiability *for that language* is NP-complete; the realisability gap is restated. |
+| A-3 | 39, 479 | MAJOR | Rival's bound printed backwards (vacuous); "tighter" compares upper with lower bound |  **FIXED.** Rival's bound is stated as |L| ≤ (3/2)|K|, a lower bound on a maximal sublattice, tight on the three-element chain (EXHAUSTIVE line), and the "tighter" comparison is replaced by Corollary 2: every maximal proper sublattice of 2ᵈ is {x : xᵢ ≤ xⱼ}, exactly three quarters, d(d−1) of them (PROVED from Rival's interval theorem; EXHAUSTIVE at d = 2, 3, 4). Rival's interval theorem was verified through a reachable restatement (Adaricheva, Mata, Silberger and Zamojska-Dzienio, arXiv:2507.22682, quoting Rival 1973 Theorem 3 and the exact bibliographic entry); the bound's own wording could not be fetched and SOURCES.md says so. |
+| A-4 | 535–543 | MAJOR | Lemma 9 is Rival 1973's theorem in the maximal case; uncited |  **FIXED.** Lemma 9 is headed "the maximal case is Rival 1973, CITED"; the paragraph before the proof states Rival's theorem and what the lemma adds (the biconditional for every interval of a closed index). |
+| A-5 | 419–421, 601, 613 | MAJOR | Theorem 7 stated for every k, no proof; two-line proof supplied |  **FIXED.** Theorem 7 carries the audit's proof (X = C at the pair (0ᵏ, 1ᵏ)), marked PROVED; the construction is also run for every pair constraint at k ≤ 4 (138 relations, EXHAUSTIVE line) and Theorem 7 is listed among the general-d results in §8. |
+| A-6 | 241–243 | MAJOR | D1 exhibit does not exhibit; correct example supplied |  **FIXED.** The paragraph is replaced by the audit's example — X′ = {0,1} × {0,2} with A₁ declared {0,1,2}: closed, fibre {0,2} not an interval of the declared chain, an interval under D1, and (1,1) breaking closure through the meet (0,1) — as a REFUTATION with a check line that verifies each clause. |
+| A-7 | 463 | MAJOR | Table 2 caption: "one less than the box" false at 2×2×3, 2×3×3; "attained elsewhere" misleading |  **FIXED.** The caption is rewritten as the audit resolves it (attained at the full box in every row; one short exactly at d = 2 by the doubly irreducible corner; two short at the two non-Boolean 3-D boxes; 2ᵈ⁻² short at the Boolean boxes), and the check asserts box − largest = step in every box, largest = box − 1 exactly at d = 2, and the doubly-irreducible count 2 / 0. |
+| A-8 | 11, 25, 192, 263, 316, 391 | MAJOR | cost of ⊑ misstated; "output-sensitive" unproved; Σ|Aᵢ|! underived (holds for the memoised form) |  **FIXED.** ⊑ costs |X|² meets and joins (§2.2, §0 item 2, DECIDE₂ — the two O(|A₁|²·|X|) claims are gone); "output-sensitive" is deleted and the reason stated; RECOVER is stated memoised in a fenced block and Theorem 5 carries the cost clause with its proof, O(F·(d·|X|² + F)) with F = Σᵢ|Aᵢ|!, for deciding and returning one system; the abstract and §0 say "at most Σᵢ|Aᵢ|! evaluations". |
+| A-9 | 353, 603 | MAJOR | Janet "22 occupied cells" is the capped fixture incl. 6f, 7d, 7f; occupied are 19, E = 0 there |  **FIXED.** §4.4 prints the 19 subshells occupied through Z = 118 (box 32, E = 0) and the 20 with 8s (E = 0), from two new check lines; the fixture's 22 is no longer printed; the cells are named as subshells. |
+| A-10 | all pages | MAJOR | mathematics in code spans: `_`, `^`, `{}` literal on every page |  **FIXED.** Every mathematics code span rewritten as Unicode (a mechanical pass, then hand rewrites where no glyph exists: ∏ᵢ Aᵢ for the product, (sᵢ : i = 1, …, d), the child index renamed c → j, "2 to the power 2ᵈ"); only `unsat` and `sat` remain as code spans; the pypdf text of the rendered PDF contains no underscore, caret or backslash (Repair record). |
+| A-11 | 301–308, 572, figure labels, Figure 2 | MINOR | pseudocode run-on; orphaned heading p. 22; duplicated "Figure n" label; plate overprint, no axis labels; small Figure 1 |  **FIXED in (i), (ii), (iii), (v); (iv) DECLINED.** (i) RECOVER is a fenced block; (ii) see the Repair record for the page check; (iii) empty alt text on every figure; (v) Figure 1 redrawn with 10 pt node labels, larger nodes and a wider canvas. (iv) Figure 2 is a copied audited plate and is not redrawn; the overprint and the missing axis labels are the plate's, and the caption now says what its "with backtracking" refers to. |
+| A-12 | 214, 238, 543, 561–569 | MAJOR | guards do not cover `enc_canonical`, Theorem 3's and Lemma 9's encodings, `prover.closed`; non-vacuity not on 4×4 etc.; "every subset" means every observed subset |  **FIXED.** The non-vacuity guard runs on all six Theorem 2/3 boxes, Lemma 9's three and Theorem 9's five; the fidelity guard now evaluates every encoding — s* (944 pairs), Theorem 3's interval / lo / hi / mono (120 instances, 3,700 comparisons, 120), Lemma 9's remclosed / jp / mp (120), the harness's closed (150) — against references written from the definitions; §8's guard table lists each; the status word and §2.3/§3.1 say "every subset that uses every value". |
+| A-13 | 479, 605, 611 | MINOR | one of the 29 MACHINE-CHECKED lines is arithmetic, not a Z3 obligation |  **FIXED.** The drop is asserted on the five Z3 lines themselves; the separate line is gone; 28 MACHINE-CHECKED; §6.4 says the drop is arithmetic on the answers. |
+| A-14 | 156, 371, 505 | MINOR | totality check evaluates the seven bounds, not Corollary 1's envelope conjunction (covered by E = 0) |  **FIXED.** The envelope conjunction (56 comparisons) is evaluated at all 6,912 ambient points by the guarded local routine — a new EXHAUSTIVE line — and Corollary 1, §5.1 and §7.1 say both predicates were evaluated. |
+| A-15 | 434 | MINOR | table computed by 2-clause closure, described as majority closure |  **FIXED.** Theorem 8's EXHAUSTIVE paragraph says the two-clause closure decides at every k and majority-closure as well at k ≤ 4, agreeing on every relation; the check counts the disagreements (0). |
+| A-16 | 421–432, 448–461, 283, 318–329, 521, 545 | MINOR | printed numbers not asserted by the check |  **FIXED.** Every number the check prints is asserted: the four difference-relation lines (2/8/128/32,768 and 2/8/73/1,442), the census (506, 3,772, 47,416, 158, 1,342, 20,068, 3,290 and the last column), the projection gap (193/3,271/63,775; 98/2,460/61,462), Table 1 (175/6,625/343/343; 4,819; 4,200/346,968/5,488), 44,033's five counts, A(y)'s 309/380.9/1,795, pushback's 503.5/739.0, the 16 admissible and 3/0 exact-or-dual, the 413 parity cells, the 32 minimum cells. |
+| A-17 | 126, 138 | MINOR | Theorem 1 (⇒) hypothesis; vacuous `−∞` parenthesis |  **FIXED.** Theorem 1 (⇒) opens from E(X) = 0 and derives ℛ(X) = X; the −∞ clause is removed from D4 and Step 2 (the set is non-empty under D1, and Step 2 says why). |
+| A-18 | 411 | MINOR | `{0,τ} × {τ}` typo |  **FIXED.** {0,1} × {τ}. |
+| A-19 | 289–295 | MINOR | Theorem 4 holds for any graph |  **FIXED.** D8 defines G-structured for any graph; Theorem 4 is stated and proved for a graph; the tree is what Theorem 5 needs, and the paragraph after Theorem 4 says so. |
+| A-20 | 100 | MINOR | "Freuder condition" gloss |  **FIXED.** D8 states what Freuder (1982) proves (backtrack-free after arc consistency on a tree) and what T-structured means (the solution set of the binary network is X). |
+| A-21 | 389–391, 45 | MINOR | which 16 orderings: ties at 976, component reversals at 216 |  **FIXED.** §5.3 "Which sixteen" states the two structures (ties n:2~3, e:2~3, 2S:0~1 × global reversal at 976; tie 2S:0~1 × independent reversal of {n,ℓ}, {e,f}, {k,q,g,2S} at 216, with the vacuous edges named); two EXHAUSTIVE lines verify that RECOVER's sixteen equal the generated sets, the fibre identities and the binding pattern; §0's bullet says which. |
+| A-22 | 489 | MINOR | §6.5 point 3 not meaningful |  **FIXED.** Point 3 rewritten as the audit states it (orientation variables, scopes I(x,y), complete hypergraph, treewidth d − 1, the ∏|Aᵢ|! bound), with the contrast to Theorem 5's hypothesis on X. |
+| A-23 | 33, 110, 471, 467 | MINOR | drop vs step |  **FIXED.** drop is used where drop is proved: §0 item 6, Theorem 9 ("drop(2ᵈ) = 2ᵈ⁻², step ≥ drop"), D11's note, Figure 3's caption (the open marker is drop at the full box, a lower bound on the step). |
+| A-24 | 641 | MINOR | Janet 1928 / 1929 |  **FIXED.** Janet (1928), the French imprint, cited as such. |
+| A-25 | 11 | MINOR | abstract's unqualified step law |  **FIXED.** The abstract says "at every censused box of dimension d ≤ 4, and at the full Boolean box the drop is 2ᵈ⁻² for every d". |
+| A-26 | 348 | MINOR | "any change that preserves all pair projections" undefined |  **FIXED.** Step 3 now says "under the given ordering, not removed by any operation that leaves every pair projection as it is", and that a re-ordering may remove it — the reorderability question of §6. |
+| A-27 | 112, 375, 535 | MINOR | bottom counted as join-irreducible: flag at use |  **FIXED.** Notation flags the bottom-as-join-irreducible convention as declared and non-standard; Lemma 9's paragraph states the bottom case; §5.2 reconciles 18 join-primes = bottom + 17 join-irreducibles in one sentence; Corollary 2 says Rival's theorem uses the standard sense. |
+| A-28 | SOURCES.md | MINOR | 0.723 vs 0.724 |  **FIXED.** SOURCES.md says 0.724. |
+| A-29 | 515 | MINOR | Edlén §17, second-hand |  **FIXED.** Edlén (1964, §17, footnote), "quoted here at second hand", and the fit named as one of a series formula's parameters to the levels of that series. |
+| R-1 | 31, 102–104, 423–434, 483 | BLOCKING | = A-1 (mathematician) |  **FIXED** — as A-1, option (b). |
+| R-2 | 419 | MAJOR | = A-5 |  **FIXED** — as A-5. |
+| R-3 | 39, 479, 535 | MAJOR | = A-3, A-4 |  **FIXED** — as A-3 and A-4. |
+| R-4 | 263, 316, 391, 11 | MAJOR | = A-8 |  **FIXED** — as A-8: the memoised bound is proved; the two costs are one; "output-sensitive" is gone. |
+| R-5 | 241 | MAJOR | = A-6 |  **FIXED** — as A-6. |
+| R-6 | 289 | MINOR | = A-19 |  **FIXED** — as A-19. |
+| R-7 | 509–511 | MINOR | rank at a point / constant rank |  **FIXED.** "the rank taken at a point; where the rank is locally constant, D is the number of functionally independent relations … near that point". |
+| R-8 | 110, 448–463, 471 | MINOR | drop vs step; ∅ and singletons in the census |  **FIXED.** drop and step separated (A-23); Table 2's caption states the family (every subset, ∅ and singletons included, each trivially closed; the step over |Y| ≥ 2 as D11 says). |
+| R-9 | 247 | MINOR | Lemma 5 for multisets |  **FIXED.** Lemma 5 is stated for a multiset, the proof notes it uses no distinctness, and the check adds the 5,084 multisets of 2..4 intervals on 2..5 points (EXHAUSTIVE). |
+| R-10 | 112 | MINOR | = A-27 |  **FIXED** — as A-27. |
+| R-11 | 333–336 | MINOR | "exactly one of" phrasing |  **FIXED.** "E(X) > 0 if and only if at least one of (A), (B) holds." |
+| R-12 | 411 | MINOR | = A-18 |  **FIXED** — as A-18. |
+| R-13 | 489 | MINOR | = A-22 |  **FIXED** — as A-22. |
+| R-14 | 25, 192, 263, 316 | MINOR | two incompatible costs for ⊑ |  **FIXED** — as A-8: one cost, |X|² meets and joins. |
+| R-15 | 353 | MAJOR | = A-9 (physicist) |  **FIXED** — as A-9. |
+| R-16 | 361–369, 519–531 | MAJOR | `2S ≤ k` over-admits (parity); Λ is an index of admissible labels; the 2S tie is this over-admission |  **FIXED.** §5.1 says the seventh bound is an envelope, not a selection rule, that Λ holds (1,0,1,0,1,0,0,0) and 413 wrong-parity cells (new EXHAUSTIVE line), that the parity rule is not of D4's form, and that Λ is an index of admissible labels; §5.3 names the 2S:0~1 tie as this over-admission seen from the other side; §7.3 says A does not see admissible-but-unrealised labels. |
+| R-17 | 361–367 | MINOR | `g ≤ q` is a convention; wording of the hydrogenic bound |  **FIXED.** "counting conventions of the index — g counts the moved electrons only, whatever the target subshell already holds"; "the range of ℓ for principal quantum number n". |
+| R-18 | 353 | MINOR | elements vs subshells |  **FIXED.** §4.4 says the eighteen-column cells are elements and the left-step cells are subshells, and that the two indexes have different cells. |
+| R-19 | 515 | MINOR | = A-29 |  **FIXED** — as A-29. |
+| R-20 | 519–527 | MINOR | a physical example of a non-cell and of the A(y) = 15 cell |  **FIXED.** A 1p source subshell (n = 1, ℓ = 1, violating ℓ ≤ n − 1) is the example non-cell; the minimum 15 is attained at 32 non-cells, the first (2,1,3,2,2,1,3,0) with g = 3 > q = 2, both pinned in the check. |
+| R-21 | 11, 31, 423–434, 483 | BLOCKING | = A-1 (referee) |  **FIXED** — as A-1. |
+| R-22 | 481–491 | MAJOR | "open" not situated: Green & Cohen 2008, Jeavons & Cooper 1995 |  **FIXED.** §6.5 cites Jeavons and Cooper (1995) for the max-closed class and Green and Cohen (2008) for the domain permutation reduction, states what they decide — tractable over a Boolean domain, NP-hard in general (their Proposition 38) — and why neither settles reorderability in either direction; "open" is declared relative to them. The wording was verified against a reachable restatement (Takhanov, arXiv:1708.08292, §1 and §3.1, which quotes the problem, the Boolean tractability and Proposition 38); the abstract's "domain size three, binary instances" detail could not be verified and is not printed. |
+| R-23 | 39, 479, 535 | MAJOR | = A-3, A-4 |  **FIXED** — as A-3 and A-4. |
+| R-24 | 11, 25, 31, 33 | MAJOR | abstract/§0 promise more than delivered (three counts) |  **FIXED.** The three counts: "at most Σᵢ|Aᵢ|! evaluations" (proved), the step law qualified (A-25), the boundary at d = 3 (A-1). |
+| R-25 | 37, 483 | MAJOR | = A-2 |  **FIXED** — as A-2. |
+| R-26 | 257, 617–659 | MINOR | references to add; decorative PQ-tree citation |  **FIXED in part; the optional references DECLINED.** Jeavons and Cooper (1995) and Green and Cohen (2008) added and cited; the PQ-tree sentence now says what a PQ-tree decides (the consecutive-ones property of the fibre matrix under a row permutation) and why Lemma 5 asks less. Roberts (1969) and Fishburn (1985) are not added: the paper does not tie "interval" to the interval-order literature, and Lemma 5's families are named as interval systems of the consecutive-ones literature only. Janet: A-24. |
+| R-27 | 561–613 | MINOR | = A-12, A-13, A-16 |  **FIXED** — as A-12, A-13, A-16. |
+| R-28 | 385 | MINOR | "with backtracking" in the copied plate |  **FIXED.** Figure 2's caption says the plate's "with backtracking" refers to the enumeration of the root's orders and of the linear extensions, and that there is no other search. |
+| R-29 | 45 | MINOR | say what the 16 are |  **FIXED.** §0's bullet says what the sixteen are at each setting and points at §5.3. |
 
 **Counts.** BLOCKING 3 (one issue, A-1, seen by all three readers: A-1, R-1, R-21); MAJOR 20
 (A-2 … A-10, A-12; R-2 … R-5, R-15, R-16, R-22 … R-25); MINOR 35. Distinct issues: 1 blocking,
