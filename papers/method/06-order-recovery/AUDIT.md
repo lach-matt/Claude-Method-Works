@@ -444,3 +444,72 @@ declined NP-completeness headline, the unprinted source figures. Against that:
 **Counts.** BLOCKING 3 (one issue, A-1, seen by all three readers: A-1, R-1, R-21); MAJOR 20
 (A-2 … A-10, A-12; R-2 … R-5, R-15, R-16, R-22 … R-25); MINOR 35. Distinct issues: 1 blocking,
 12 major, 26 minor.
+
+---
+
+## Repair record — 2026-09-24
+
+Repaired by the drafter against every finding above; nothing above was deleted or rewritten, and every
+disposition in Part C is filled. A first repair attempt was cut off by a service limit while it was
+independently verifying A-1 (its census script, run to completion here, agreed with the audit on every
+figure: C-bijunctive 2, 5, 15, 52; the witness; 10 of 14 on the plate's own parametrisation; the
+maximal sublattices of 2², 2³, 2⁴); this record is the completed repair.
+
+**Dispositions.** BLOCKING 1: FIXED. MAJOR 12 distinct (A-2 … A-10, A-12, R-16, R-22): 12 FIXED.
+MINOR 26 distinct: 24 FIXED, 2 FIXED in part with the remainder DECLINED — A-11 (iv), the copied
+plate's own overprint and missing axis labels, not redrawn; R-26's optional references (Roberts 1969,
+Fishburn 1985), not added. Every R-n that restates an A-n carries that A-n's disposition.
+
+**How A-1 resolved.** The audit's census on C was reproduced in `check.py` by two independent
+decision procedures (majority-closure at k ≤ 4; the two-clause closure at every k ≤ 5), agreeing on
+every relation; the six-cell witness realises its constraint at (000, 111) and the constraint's
+majority failure is computed, not asserted. The law is now Theorem 8: *a pair constraint is bijunctive
+iff it is a partition constraint*, so the bijunctive constraints at arity k number B(k) — 2, 5, 15,
+52 — proved for every k (⇐ directly; ⇒ through Schaefer's two-clause characterisation, complement
+closure pairing the clauses into equalities) and enumerated at k ≤ 5. The boundary is at d = 3 in the
+thesis, abstract, §0, Theorem 8, §6.5, Figure 4 and §8. The T census (2, 8, 73, 1,442) stays as a
+labelled auxiliary column; C bijunctive ⇒ T bijunctive is checked (0 failures), the converse fails
+from arity 3, and the paper says why bijunctivity of T has no two-clause consequence (an exclusive-or
+is not bijunctive, D10). Title kept — see A-1's disposition and SOURCES.md §1a for the superseded
+statement.
+
+**What changed.** `PAPER.md`: every mathematics code span rewritten as Unicode (A-10); thesis,
+abstract, §0 items 2, 4, 5, 6 and every "not established" bullet; D4 (no −∞), D8 (G-structured, the
+Freuder gloss), D9 (pair and partition constraint), D10 (XOR not bijunctive), D11 (drop ≤ step),
+Notation (the convention flagged); Theorem 1 (⇒) hypothesis and Step 2; §2.2 cost; §3.1 D1 exhibit;
+Lemma 5 for multisets; the PQ-tree sentence; DECIDE₂ cost; Theorem 4 for a graph; RECOVER in a
+fenced block, memoised, with Theorem 5's cost clause and proof; Theorem 6's phrasing; step 3 of the
+loop; the Janet instance (19/20 subshells); §5.1 parity paragraph; §5.2 the 18 = 17 + bottom; Figure
+2's caption; "Which sixteen"; Lemma 7's typo; Theorem 7 with proof; Theorem 8 restated and proved;
+both witnesses; Table 2's and Figure 3's captions; Theorem 9 in terms of drop; Corollary 2 (new, with
+Rival); §6.5 rewritten (0-/1-valid, ≠, the three points, Green–Cohen and Jeavons–Cooper); Figure 4's
+caption; §7.2 rank at a point and Edlén §17; §7.3 the 1p example and the 32 minimum cells; Lemma 9
+headed with Rival and the convention; §8 rewritten (guards table, obligations table, totals 111);
+references (Green–Cohen, Jeavons–Cooper added; Janet 1928; Scerri's imprint unchanged). `check.py`
+(never weakened; 30 new obligation lines, one folded): as listed in SOURCES.md "The repair".
+`figures.py`: `fig_arity` redrawn on `pair_constraint_exact` with T as hollow markers; Figure 1's
+labels enlarged. `FIGURES.tsv`: three new md5s (fig1, fig4, fig5), the plates unchanged.
+`SOURCES.md`: rewritten for the repair (the plate's 10 of 14, the superseded law, Rival, Green–Cohen,
+Jeavons–Cooper, Janet, the 19/20 subshells, 0.724).
+
+**Re-verification.** `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH; python3 check.py
+--selftest`: **111 obligations — 72 EXHAUSTIVE, 28 MACHINE-CHECKED, 8 REFUTATION, 3 SAMPLED — all
+discharged, exit 0, 273.4 s; SELFTEST PASS on five negative controls** (the new fifth: "every arity-3
+pair constraint is bijunctive" refuted, 5 of 8). Guards: non-vacuity on 14 boxes; fidelity 150 / 1,387
+/ 944 / 150 (closure-under-s, ⊑, s*, harness closed), 120 / 3,700 / 120 (Theorem 3's encodings), 120
+(Lemma 9's), 120 / 120 (reference closure), negative control 10 disagreements detected. `python3
+papers/method/lint.py`: 0 hits. `render.py`: 28 pages. **Page check (BRIEF-AUDIT step 6)**: the
+chromium screenshot of the HTML head and all 28 PDF pages (pymupdf, 110 dpi, read as 2×2 grids) show
+Unicode subscripts and superscripts throughout, every figure with its caption beneath it, the RECOVER
+block whole on p. 12, no table cell clipped, and "Obligations by status." on the same page (25) as its
+table (A-11 (ii) resolved by the reflow; the guard table splits across pp. 24–25 at a row boundary,
+which the template allows). pypdf text extraction of the PDF: **0 underscores, 0 carets, 0
+backslashes**; 11 asterisks, all the recovered order s*. The status-word table splits across pp. 3–4
+at a row boundary, as before.
+
+**Unresolved, recorded for the author.** Rival's cardinality bound is printed in the audit's
+direction, |L| ≤ (3/2)|K|, and is used in no proof; its wording could not be verified (only the
+interval theorem was, through arXiv:2507.22682). Green and Cohen's "domain size three, binary
+instances" detail is not printed because it could not be verified (their Boolean tractability and
+general NP-hardness were, through arXiv:1708.08292). Janet 1928 follows the audit and is not
+independently verified.
