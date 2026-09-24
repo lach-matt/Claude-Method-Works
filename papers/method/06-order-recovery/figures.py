@@ -24,7 +24,7 @@ BLUE = "#2b6a8f"
 RED = "#a8322a"
 GREY = "#8a8a8a"
 LIGHT = "#dce6ec"
-plt.rcParams.update({"font.size": 9, "axes.titlesize": 10, "figure.dpi": 200,
+plt.rcParams.update({"font.size": 9.5, "axes.titlesize": 10, "figure.dpi": 200,
                      "axes.spines.top": False, "axes.spines.right": False})
 
 
@@ -58,7 +58,7 @@ def fig_example():
     rank1 = {v: i for i, v in enumerate(r1)}
     rec = [(rank0[u], rank1[b]) for (u, b) in scr]
 
-    fig = plt.figure(figsize=(9.6, 3.1))
+    fig = plt.figure(figsize=(10.4, 3.4))
     gs = fig.add_gridspec(1, 4, width_ratios=[1, 1, 1.35, 1], wspace=0.34)
     _grid(fig.add_subplot(gs[0, 0]), built, 5, 4, BLUE, "as built",
           "%d cells; every fibre an interval" % E["n_cells"])
@@ -86,10 +86,10 @@ def fig_example():
                                          arrowstyle="-|>", mutation_scale=6,
                                          color=col, lw=0.7, shrinkA=7, shrinkB=7, zorder=2))
     for k in range(n):
-        ax.add_patch(plt.Circle(pos[k], 0.20, facecolor="white", edgecolor="#333333", lw=0.9,
+        ax.add_patch(plt.Circle(pos[k], 0.26, facecolor="white", edgecolor="#333333", lw=0.9,
                                 zorder=3))
         ax.text(pos[k][0], pos[k][1], str(vals[lay[k]]), ha="center", va="center",
-                fontsize=7.5, zorder=4)
+                fontsize=10, zorder=4)
     ax.set_xlim(-0.8, n - 0.2)
     ax.set_ylim(-1.5, 1.5)
     ax.set_aspect("equal")
@@ -97,7 +97,7 @@ def fig_example():
     tie = E["ties"][0]
     ax.text(0.5, 0.955, "may precede", transform=ax.transAxes, ha="center", fontsize=10)
     ax.text(0.5, 0.055, "a total preorder; one tie: %d ⊑ %d and %d ⊑ %d"
-            % (tie[0], tie[1], tie[1], tie[0]), transform=ax.transAxes, ha="center", fontsize=7.5,
+            % (tie[0], tie[1], tie[1], tie[0]), transform=ax.transAxes, ha="center", fontsize=8.5,
             color="#444444")
 
     _grid(fig.add_subplot(gs[0, 3]), rec, 5, 4, BLUE, "recovered",
@@ -107,27 +107,35 @@ def fig_example():
 
 
 def fig_arity():
-    """Figure 4: the constraint language by arity, and the reorderable share of each box."""
-    ex = R["bijunctive_exact"]
+    """Figure 4: the pair-constraint language by arity (bijunctive share on C, with the share on the
+    difference relation T as hollow markers), and the reorderable share of each box."""
+    ex = R["pair_constraint_exact"]
     ms = sorted(int(k) for k in ex)
-    tot = [ex[str(m)]["relations_containing_zero"] for m in ms]
-    bij = [ex[str(m)]["bijunctive"] for m in ms]
+    ks = [ex[str(m)]["arity"] for m in ms]
+    tot = [ex[str(m)]["relations"] for m in ms]
+    bijC = [ex[str(m)]["bijunctive_C"] for m in ms]
+    bijT = [ex[str(m)]["bijunctive_T"] for m in ms]
     fig, axs = plt.subplots(1, 2, figsize=(9.2, 3.3))
 
     ax = axs[0]
-    xs = range(len(ms))
+    xs = list(range(len(ms)))
     ax.bar(xs, [1] * len(ms), color=LIGHT, edgecolor=GREY, lw=0.5, width=0.62)
-    ax.bar(xs, [b / t for b, t in zip(bij, tot)], color=BLUE, width=0.62)
-    for i, (b, t) in enumerate(zip(bij, tot)):
+    ax.bar(xs, [b / t for b, t in zip(bijC, tot)], color=BLUE, width=0.62,
+           label="pair constraints C (the constraint)")
+    ax.plot(xs, [b / t for b, t in zip(bijT, tot)], linestyle="none", marker="o", markersize=7,
+            markerfacecolor="white", markeredgecolor=RED, markeredgewidth=1.2,
+            label="difference relations T (auxiliary)")
+    for i, (b, t) in enumerate(zip(bijC, tot)):
         ax.text(i, 1.025, "{:,} / {:,}".format(b, t), ha="center", fontsize=7.5)
-    ax.axvline(1.5, color=RED, ls="--", lw=1.1)
-    ax.text(1.56, 0.30, "the boundary", color=RED, fontsize=8, rotation=90)
-    ax.set_xticks(list(xs))
-    ax.set_xticklabels([str(m + 1) for m in ms])
+    ax.axvline(0.5, color=RED, ls="--", lw=1.1)
+    ax.text(0.56, 0.42, "the boundary", color=RED, fontsize=8, rotation=90)
+    ax.set_xticks(xs)
+    ax.set_xticklabels([str(k) for k in ks])
     ax.set_xlabel("constraint arity")
-    ax.set_ylabel("fraction closed under the majority")
+    ax.set_ylabel("fraction bijunctive")
     ax.set_ylim(0, 1.16)
-    ax.set_title("the language leaves the bijunctive class at arity 4")
+    ax.legend(loc="upper right", fontsize=7, frameon=False)
+    ax.set_title("the language leaves the bijunctive class at arity 3")
 
     ax = axs[1]
     rows = [r for r in R["census"]]

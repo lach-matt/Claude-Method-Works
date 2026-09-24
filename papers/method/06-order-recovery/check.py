@@ -1174,7 +1174,7 @@ def section_census():
         row = dict(box=list(shape), subsets=1 << N, orderings=len(perms_list), closed_natural_observed=int((closed & obs).sum()),
                    reorderable_observed=int((reord & obs).sum()), reorderable_all=int(reord.sum()),
                    fraction_reorderable=round(int(reord.sum()) / (1 << N), 3), step=step,
-                   step_attained_at_full_box=(2 ** N - maxproper == step), max_proper_reorderable=maxproper,
+                   step_attained_at_full_box=(N - maxproper == step), max_proper_reorderable=maxproper,
                    doubly_irreducible=dbl,
                    three_quarters=(maxproper == 3 * (1 << N) // 4) if all(n == 2 for n in shape) else None,
                    seconds=round(time.time() - t, 1))
@@ -1183,7 +1183,7 @@ def section_census():
         report("EXHAUSTIVE", "box %s: %d subsets, %d reorderable, step %d, largest proper reorderable %d, box - largest = step"
                % ("x".join(map(str, shape)), 1 << N, int(reord.sum()), step, maxproper),
                step == 2 ** (d - 2) and int(reord.sum()) == exp_reord and maxproper == exp_max
-               and 2 ** N - maxproper == step and (maxproper == N - 1) == (d == 2) and dbl == (2 if d == 2 else 0),
+               and N - maxproper == step and (maxproper == N - 1) == (d == 2) and dbl == (2 if d == 2 else 0),
                "doubly irreducible cells of the box: %d; first subset attaining the step in mask order is the full box: %s"
                % (dbl, step_at == full))
     put("census", rows)

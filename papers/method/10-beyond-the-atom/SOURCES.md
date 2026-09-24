@@ -1,57 +1,146 @@
 # SOURCES.md — provenance map for 10-beyond-the-atom (not published)
 
-Paper: `PAPER.md`, "Closure beyond the atom: the defect of other indexes, redundancy, and the
-electromagnetic quotient". Drafted 2026-09-21 (resumed run). Every number in the paper is produced
-by `check.py` — 102 obligations in the plain run, 106 with `--selftest`, all passing — or is CITED.
+Paper: `PAPER.md`, "Closure beyond the atom: the defect of an index, its zeros by theorem, and the
+electromagnetic quotient". Drafted 2026-09-21; repaired 2026-09-24 against `AUDIT.md` (132 findings).
+Every number in the paper is produced by `check.py` or is CITED. The run summary is in `AUDIT.md`'s
+repair record and in §8 below.
 
-Run: `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH; python3 check.py --selftest`
-→ `106 obligations, 0 failed` (MACHINE-CHECKED 8, EXHAUSTIVE 78, SAMPLED 9, REFUTATION 6, GUARD 5).
-The plain run is 102 (REFUTATION 2).
+Run: `export PATH=/home/user/Claude-Method-Works/method/bin:$PATH; python3 check.py --selftest`.
 
 Instruments imported by path, never copied: `research/warp-drive/prover.py` (the Z3 harness and its
 `cells_of` / `meet` / `join` / `in_R` / `subset_vars` / `contains` / `prove` / `non_vacuous`);
 `tools/cypher.py` (`op_order` — the closure operator under test — and the four other language
-operators, plus its index builders `_lambda`, `_periodic`, `_nuclide`, `_kreuzer_skarke`,
-`_box_ordering`, `_tower` and `_ELEMENT`); `method/members/tower-2.py` (Λ₈…Λ₁₀);
-`extracted/archives/restore-point-2-13/close_L118.py` (the 118 observed ground configurations, used
-only for the crossing population). Data read, not copied:
-`extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv` and
-`extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv`.
+operators, plus its index builders `_lambda`, `_periodic`, `_kreuzer_skarke`, `_box_ordering`,
+`_tower`, `_ELEMENT`, and `_nuclide`, which is now used only to be compared with the derived list);
+`method/members/tower-2.py` (Λ₈…Λ₁₀); `extracted/archives/restore-point-2-13/close_L118.py` (the 118
+observed ground configurations, used only for the followability population). Data read, not copied:
+`extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv`,
+`extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv`, and — new on 2026-09-24 —
+`nubase2020-Z0-10.txt` beside the check (§1.3 below).
 
-Reference implementations written fresh here, as the independent side of the encoding guard:
-`R_ref` (the staircase written from D3/D4 alone), `hull` (the sublattice hull), `envelopes` and
-`coupling`. The object under test is always the seated operator.
+Reference implementations written fresh here, as the independent side of the encoding guards:
+`R_ref` (the staircase written from D3/D4 alone), `hull` (the sublattice hull), `graph_truths` (the
+enumerative decision of the three predicates of Theorems 5 and 6), `envelopes` and `coupling`. The
+object under test is always the seated operator.
 
 ---
 
-## 1. The obligation that failed on the previous run, and its disposition
+## 1. Corrections made on 2026-09-24, and where they came from
 
-```
-[FAIL] Q5c EXHAUSTIVE  a witness pair in the parity set whose join leaves it: dl of the pair and of
-                       the join: (1, -1, 0, False) != expected (-1, 1, 0, False)
-```
+### 1.1 The fibration claim (AUDIT A-1, A-2)
 
-**Disposition: a bug in the check's fixture, fixed in the fixture. The measurement was not touched.**
+The first draft defined a fibration as any partition and claimed "fibring never raises the total
+defect". That is false for a general partition — X = {(0,0),(0,1),(1,0)} has E = 1 and the partition
+{(0,1),(1,0)} ∪ {(0,0)} has fibred defect 2 — and the check now prints the counterexample (T4b,
+REFUTATION). The source passage (The_Method_1_6-2.md D.5.5 10696–10735) only ever fibres by
+categorical axes, i.e. by a coordinate, so the source's statement was correct and the draft's
+generalisation was the error. D5 now defines a fibration by a coordinate; Theorem 4 holds for any
+coordinate i (the proof is unchanged; T4 is machine-checked over every coordinate of each of the three
+boxes, 8 instances); Corollary 2 iterates over i = 1..d and T4c checks the chain on 766 subsets.
 
-The witness the run produced *is* a witness, and this was checked rather than assumed before the
-fixture was changed. The pair the exhaustive search reaches first is
+### 1.2 The crossing (AUDIT R-6, R-7)
 
-    a = (1, 0, 1, 0, 2, 1, 0, 0, 0)   Δℓ = f − ℓ = 1 − 0 = +1
-    b = (2, 1, 1, 0, 1, 0, 0, 0, 0)   Δℓ = 0 − 1 = −1
+The source (Index of Indices 165–180; Mathematical Compendium §IV.EM 2570–2576) states four
+percentages — allowed followable 11.6% within one element against forbidden 40.7%, and 89.7% against
+77.9% across the 118 — and calls their reversal a crossing. All four reproduce exactly on the
+population the draft built from the ground configurations (4,325 moves, Q8., Q8b, Q8c). **That
+population is two-thirds unphysical**: its rule bounds the electrons delivered by the target's capacity
+4f + 2 and never by its room, so 2,923 of the 4,325 moves deliver more electrons than the target
+subshell can still hold (2,203 into a subshell already full), and 2,819 move more than one electron
+(Q8a). Restricted to physical one-electron moves into a subshell with room — 134 moves — the order
+does not reverse: forbidden leads within (18.7% against 11.9%) and across (64.0% against 40.7%)
+(Q9., Q9b, Q9c). **The source's crossing figures are therefore reproduced on a population that is
+two-thirds Pauli-forbidden, and the paper claims no crossing.** The followability match itself is
+formal (electrons delivered against electrons held); a configurational match (target at the occupancy
+it holds after the move) gives zero within one element on both populations, necessarily, and 5.1%
+against 26.7% across the table on the physical population (Q10, Q10., Q10b). The paper prints both
+populations and both matches (§5.5, Table 3, Figure 4) and says what each is. The "crossing" left the
+abstract and §0; the title never carried it.
 
-both with |Δℓ| = 1, so both lie in the parity set; their coordinatewise join is
-`(2, 1, 1, 0, 2, 1, 0, 0, 0)` with Δℓ = 1 − 1 = 0, which fails |Δℓ| = 1 and so leaves the set. All
-four properties that make it a witness hold: both members in the set, the join equal to the
-componentwise maximum, Δℓ of the join equal to 0, the join outside the set. The fixture had written
-the two members' Δℓ values in the order (−1, +1) while `itertools.combinations` over the parity set
-reaches (+1, −1) first — an ordering of two components of the *same* witness, and nothing else. Which
-member the enumeration reaches first is not part of the claim.
+### 1.3 The particle-bound nuclide list (AUDIT A-10, R-10)
 
-The fixture now compares the two Δℓ values as an **unordered pair** (`sorted(...) == [-1, 1]`) and
-additionally asserts that both members lie in the set and that the join does not; a new row `Q5d`
-prints the two cells and their join and re-verifies that the join is the componentwise maximum and
-is outside the set. Nothing about how the witness is found was altered, and no tolerance was widened.
-This is Refutation 3 of the paper, and the paper prints the witness cells.
+The draft used the instrument's hand-typed fixture (`tools/cypher.py` `_NUCLIDES`), uncited. The
+list is now **derived** from NUBASE2020 (Kondev, Wang, Huang, Naimi and Audi 2021, Chinese Physics C
+45, 030001). The evaluation's file `nubase_4.mas20.txt` was fetched from two independent public
+copies — `raw.githubusercontent.com/awsteiner/o2scl/main/data/o2scl/nucmass/ame20/nubase_4.mas20.txt`
+and `raw.githubusercontent.com/pynucastro/pynucastro/main/pynucastro/nucdata/AtomicMassEvaluation/nubase_4.mas20.txt`
+(the AMDC host itself was not reachable from this session) — and the two copies are byte-identical,
+md5 `91e92411c7c609aa73b28136da61317f`. The verbatim ground-state lines with Z ≤ 10 (144 lines) plus
+the file's own header are kept beside the check as `nubase2020-Z0-10.txt`, md5
+`56728dd35af7bd1906681ba56a9facf6`, checked by C7. The criterion, stated in the paper: a ground state
+with Z ≥ 1 is particle-bound unless the half-life field reads `p-unst` or the first listed decay mode
+is n, 2n, 3n, p, 2p, 3p or A (α). Under it the derived list agrees with the fixture through Z ≤ 8 and
+differs at Z = 9, 10 exactly as the audit said: the fixture omits F-29, F-31, Ne-17, Ne-29, Ne-31,
+Ne-32 and Ne-34 (C7f). Ne-33 (`n ?`, no half-life) and F-30 (`n ?`) are unbound under the criterion.
+
+Consequences: the six cutoffs are 27/33/6, 40/48/8, 52/61/9, 64/73/9, 77/86/9, **94/106/12** (C7a);
+the three cells added at Z ≤ 10 are F-16, F-28, F-30 (C7b), every one a ground state the evaluation
+lists as unbound (C7d); they appear only when neon enters because N = 7, 19, 21 are first realised by
+Ne-17, Ne-29, Ne-31 (C7e). **The draft's sentence "none is added after Z ≤ 7: the defect is a property
+of the measurement, not of the window" was false and is gone**; the paper now says the count is not
+stable and the reading is. The source's own figures — E = 9 stable across four cutoffs, 80/89 at
+Z ≤ 9 (The_Method_1_6-2.md §6.2.1 1678–1699) — are not reproduced at Z ≤ 9 (77/86) or Z ≤ 10 (94/106/12);
+the source's fixture was incomplete, and the paper prints the derived figures.
+
+### 1.4 Theorem 0 and the attribution (AUDIT A-3, R-1, R-20)
+
+The draft cited ℛ(X) = ⟨X⟩ to the hierarchy-law manuscript, whose own provenance ledger records it as
+prior art (Queyranne and Tardella 2008, Theorem 11; Topkis 1976; Veinott 1989; Baker and Pixley 1975).
+The paper now states it as Theorem 0 with that attribution and the six-line proof (z⁽ⁱʲ⁾, w⁽ⁱ⁾,
+u⁽ⁱ⁾ = w⁽ⁱ⁾ ∧ ⋀ z⁽ⁱʲ⁾, x = ⋁ u⁽ⁱ⁾), Corollary 1 is an equivalence, and the former Proposition 1
+survives as the exhaustive corroboration T3/T3b. The hierarchy-law manuscript is cited once, in §6,
+for the containment law it proves, and nothing in this paper's proofs rests on it.
+
+### 1.5 Zeros by theorem (AUDIT R-18, A-7, A-8)
+
+The audit found that of the fourteen rows only seven carried information. Working out why, the closed
+rows turn out to be closed **by theorem**: Lemma 3 (a bimonotone cut a·xᵢ − b·xⱼ ≥ c of a sublattice
+is a sublattice — the finite-chain case of Queyranne and Tardella 2006) with Theorem 0 gives E = 0 for
+Λ (eight bimonotone inequalities over the caps box; T7a checks Λ is exactly that cut, 976 cells equal
+to the tower's), Λ₉, Λ₁₀ (T7b), the box ordering (T7c), the product grid (T7d) and Janet's staircase
+(T7e). This is a stronger and more honest statement than the draft's "E separates the closed from the
+open": no zero in the catalogue is a measurement. The thesis and title were restated accordingly.
+The survey's own data — the 285 witnessed channels — are added as a row: 285 cells, box 1,960,
+|ℛ| = 1,260, E = 975 (C15b). The Kreuzer–Skarke slice is stated as open by construction (value set
+{−3, +3} of h(1,1) − h(2,1); witness (13,16) ∨ (16,13) = (16,16), C9d) and the word "predictions"
+is gone; C9c is kept as bookkeeping and the paper says it tests nothing about the list.
+
+### 1.6 The redundancy protocol (AUDIT A-9, A-20, R-19, R-21)
+
+D7 now says the ladder, the ten trials and the 8-in-10 acceptance are conventions, chosen because
+they reproduce the previously reported figures and for no other reason; every figure is printed with
+the rung passed, the rung failed and the counts (Table 2, §4.3, from R1. and R3. logs). The d = 3
+projection has 12 cells, ⌊0.05 × 12⌋ = 0, no trial ran (R3c); the paper prints "below resolution".
+The unused T = 5 branch is removed (ten trials always). r² and p are no longer printed (R2 still
+computes them; nothing in the paper cites the row).
+
+### 1.7 The languages (AUDIT A-5, A-6, A-23, R-2)
+
+The third coordinate of the discriminating index is the instrument's block coding 0/2/1 for columns
+1–2 / 3–12 / 13–18, helium carrying its column's value (L3c). The paper states it as the ℓ of the
+column's block, an ordered quantity, and says the order is a choice. The order–algebra pair agrees by
+Theorem 0 and is discounted: pair counts over the four distinct operators are 6/6, 6/6, 0/6, 6/6 (L7).
+Lemma 4 proves each operator returns a superset (the information operator defined via generators, as
+the instrument computes it; statistics as the set formula, with Haberman 1974 for the existence
+caveat), and L6 checks that no operator is marked NOT EXTENSIVE. The "agree iff all E = 0" sentence
+now states the trivial direction, calls the converse unproved and false in general, and reports four
+indexes as four indexes.
+
+### 1.8 The guards (AUDIT A-29, A-30, A-31)
+
+T0d evaluates the three Z3 predicates of Theorems 5 and 6 under 240 random assignments of (S, h)
+over the two boxes against `graph_truths`, and T5/T6 are refused if it fails. T0c runs per box
+(three rows) and a further row records that Theorem 1(a), 1(c) and Theorem 4 hypothesise only a
+non-empty X. The non-constancy demand of the T5 guard is on S, not on the box; T6 has its own guard
+line.
+
+### 1.9 What was dropped from the paper (retained in the check, unprinted)
+
+The §3.1 composability paragraph (Λ₈ 0 / Λ₉ 1,169 / Λ₁₀ 2,050: C14, C14b), the mutual-information
+paragraph of §5.4 (H = 0.633, I = 0.0004: Q7, Q7b), the string degeneracies d(1), d(2), d(3), d(14)
+(C10, C10b), and r² = 0.002 / p = 0.94 (R2). Each rested on the formal followability match or on
+material the audit found decorative (A-26, R-13, R-21, R-7). The rows remain in `check.py` so that
+nothing was weakened; the paper simply no longer prints them.
 
 ---
 
@@ -59,279 +148,110 @@ This is Refutation 3 of the paper, and the paper prints the witness cells.
 
 | paper section | source passages (all under `method/members/`) |
 |---|---|
-| Thesis, §0 | Index of Indices 61–88 (the five drawn-beside indexes with coordinates / cells / box / E, and "E = 0 carries information only when the ambient box exceeds the cells"); 158–372 (the EM quotient, the time index, the nucleon index, the Kreuzer–Skarke frontier, the string partition function, the languages, redundancy); The_Method_1_6-2.md §6 1516–1729 and §31 8614–8795 |
-| §1 D1–D4 (index, box, envelope, closure, defect) | The_Method_1_6-2.md 1546–1556 ("The reconstruction is mechanical … Âᵢ(X), φ̂ᵢⱼ(v) = max{xᵢ : x ∈ X, xⱼ ≤ v}, ℛ(X) = {x ∈ ∏Âᵢ(X) : xᵢ ≤ φ̂ᵢⱼ(xⱼ) for all i ≠ j}, E(X) = |ℛ(X)| − |X|"); `docs/CYPHER.md` operator table (order, `PINNED`, §32.4.1; matches the seated `rclose.py`); `tools/cypher.py` `op_order` |
-| §1 D5, §2.2 Corollary, §2.2 Theorem 4 / Corollary 2 | The_Method_1_6-2.md Appendix D.1 10363–10375 ("ℛ recovers MONOTONE bounds. It applies to ORDERED coordinates only… The repair is the shape Λ already has: fibre over the categorical axes"); D.5.5 10696–10735 (the fibration table 16/7/6/1 fibres against E 0/2/3/4; "E falls as the fibration is refined, and reaches zero by refinement alone… E = 0 is not a claim about a set; it is a claim about a set relative to a stated fibration, and the coarser the fibration the stronger the claim") |
-| §1 D6, D7, §4 | Index of Indices 310–340 ("Remove cells at random and ask whether ℛ puts them back"; the six-row table Λ 8/56/29%/61%, Λ_spectra^obs 3/6/17%/20%, box ordering 3/6/50%/0%, Janet 2/2/50%/0%, periodic table and calendar 2/2/0%/0%; "r² = 0.002, p = 0.94"; the projection ladder 61/30/30/30/5/0; "only INDEPENDENT coordinates count"; Nₑ = Z − c + 1 taking 20% → 0% while doubling the envelopes and raising coupling 17% → 33%) |
-| §2.1 Theorem 1, Lemma 2, Theorem 2 | The_Method_1_6-2.md §6.2 1650–1656 ("ℛ is idempotent — §32.4.1 proves it — so ℛ(X) satisfies ℛℛ(X) = ℛ(X) for any X whatever. A band's closure is a theorem, not a finding"); `docs/CYPHER.md` (Moore 1910). The proofs in §2 are written out here from D3/D4 and are not taken from a source |
-| §2.3 Theorems 5, 6, Corollary 3, Refutations 1–2 | Index of Indices 1467–1475 ("That a selection rule is a QUOTIENT and not an extension… It is the only index here that demonstrates the difference between adding a coordinate and dividing by one"); Mathematical Compendium §IV.EM 2630–2640 ("the EM index is a QUOTIENT of Λ, not an extension"). The lattice statement, its criterion and the two counterexamples are this paper's |
-| §3.1 Λ and the tower | The_Method_1_6-2.md §7.1 (the eight inequalities); Index of Indices 1414–1430 ("Eight integer coordinates (n, ℓ, k, q, e, f, g, 2S) under eight inequalities, 976 cells, E = 0"; "Λ assembles them; it introduces none" — Bohr 1913, Schrödinger 1926, Stoner 1924, Pauli 1925, Hund 1925) and 1432–1440 (the tower, cell counts 976, 1654, 2535, E = 0 at every stage); `method/members/tower-2.py` |
-| §3.2 the two tables | The_Method_1_6-2.md §6 1516–1545 (90 / 126 / 36 and the 36 named); §6.1.1 1560–1600 (helium at 18 → 36, at 2 → 20; "the entire first row of gaps exists only under the standard placement"); Index of Indices 1360–1380 and 1442–1456 (Janet 118 / 944 / 0; Janet 1928/1929; the Löwdin challenge left open) |
-| §3.3 calendar, box, chessboard | The_Method_1_6-2.md §6.3 1700–1712 (the seven named; the relabel-by-length repair; "E(X) = 7 is the price of keeping January first"); Index of Indices 1398–1410, 1458–1466 ("the floor and the ceiling") |
-| §3.4 the nuclide chart | The_Method_1_6-2.md §6.2 1660–1676 and §6.2.1 1678–1699 (E = 9, the nine named, four cutoffs, "the drawn chart is the closure of the real one"); Index of Indices 236–244; Mathematical Compendium §IV.E 1860–1872, which carries the AME2020 re-measurement (E = 2, the two cells (0,0) and the diproton) |
-| §3.5 Kreuzer–Skarke | The_Method_1_6-2.md §31.3 8730–8795 (the χ = ±6 slice, 208 cells, E = 540, 498 + 498 of 21,528, the five χ values, 112 diagonal, 26–262, the four falsification tests, "the index proposes; it is not thereby right"); Index of Indices 246–256 |
-| §3.6 the string partition function | The_Method_1_6-2.md §31.2.3 8700–8706; Index of Indices 258–266 (∏(1 − qⁿ)⁻²⁴, d(1) = 24, d(2) = 324, d(3) = 3,200, d(14) = 156,883,829,400; "a product closes trivially: ℛ adds nothing, so E = 0… the degenerate case of the three closure conditions where independence stands in for the tree") |
-| §3.7 the survey grid | Index of Indices 340–372 (Λ_spectra^obs, coordinates Z · core charge · ℓ; "All three grids are closed — each is a fixed point of ℛ… The number beside each is what has not been measured under that cap… it is never a closure defect"); `extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv` |
-| §3.9 bit cost | this paper's own construction; no source figure |
-| §5 the electromagnetic quotient | Index of Indices 165–180 (the quotient, "Its E = 0 is VACUOUS… It closes because it is a box, not because the selection rules constrain it"; the crossing 11.6 / 40.7 / 89.7 / 77.9); Mathematical Compendium §IV.EM 2570–2672 (the complete rectangle; the multipole map Δℓ → M1/E1/E2/E3 with 814 and 840 on the base build; "composability and the EM condition share 0.0004 bits of a possible 0.633"; "|Δℓ| = 1 is δ⁻¹({−1,+1}), a hole at zero, not convex; E = 750"; "ΔS = 0 is a diagonal… imposing it preserves E = 0"; the 576 intercombination lines and the jK-versus-LS reading); Laporte 1924, Russell & Saunders 1925, Wigner 1927 as the compendium's prior art |
-| §6 the languages | The_Method_1_6-2.md §33 9405–9500 (the six languages and the question each asks; "a language that falls silent is the finding"); Index of Indices 268–284 (the operator table; "Six agree on Λ at 976 and all ten pairs hold — C(5,2), a complete graph, not a ladder"; "marginals cannot see a hole"); `docs/CYPHER.md` in full (the three refusals, the operator definitions and their statuses, the measured-five result, the d = 2 degeneracy, the roster docket); `tools/cypher.py` docstring |
-| §6, the law itself | cited to *The Hierarchy Law of Mathematical Languages*, per the brief; not proved here |
+| Thesis, §0 | Index of Indices 61–88 (the five drawn-beside indexes; "E = 0 carries information only when the ambient box exceeds the cells"); 158–372; The_Method_1_6-2.md §6 1516–1729 and §31 8614–8795 |
+| §1 D1–D4 | The_Method_1_6-2.md 1546–1556 (Âᵢ(X), φ̂ᵢⱼ(v), ℛ(X), E(X)); `docs/CYPHER.md` operator table; `tools/cypher.py` `op_order` |
+| §1 D5, Remark 1, Theorem 4, Remark 3, Corollary 2 | The_Method_1_6-2.md D.1 10363–10375 ("ℛ recovers MONOTONE bounds… fibre over the categorical axes"); D.5.5 10696–10735 (E 4/3/2/0 under refinement, "relative to a stated fibration"). The source fibres by categorical axes only; the general-partition counterexample is this paper's |
+| §1 D6, D7, §4 | Index of Indices 310–340 (the six-row table; the projection ladder 61/30/30/30/5/0; Nₑ = Z − c + 1) |
+| §2.1 Theorem 1, Lemma 2, Theorem 2 | The_Method_1_6-2.md §6.2 1650–1656 ("ℛ is idempotent — §32.4.1 proves it"); `docs/CYPHER.md`. The proofs are written here from D3/D4 |
+| §2.1 Theorem 0 | Queyranne and Tardella 2008 (Thm 11), Topkis 1976, Veinott 1989, Baker and Pixley 1975, as recorded in `research/warp-drive/paper/THE-HIERARCHY-LAW.md` §4.3 and §9; the proof is written here |
+| §2.3 Theorems 5, 6, Corollary 3, Refutations 1–2 | Index of Indices 1467–1475 ("a selection rule is a QUOTIENT and not an extension"); Mathematical Compendium §IV.EM 2630–2640. The lattice statement and the counterexamples are this paper's |
+| §2.4 Lemma 3, Corollary 4, Proposition 2 | Mathematical Compendium §IV.EM 2620–2626 ("ΔS = 0 is a diagonal…"; "|Δℓ| = 1 is δ⁻¹({−1,+1}), a hole at zero, not convex") — the source asserts convexity; the lemma and the proposition are this paper's, with Queyranne and Tardella 2006 for the inequality class |
+| §3.1 Λ and the tower | The_Method_1_6-2.md §7.1 (the eight inequalities); Index of Indices 1414–1440; `method/members/tower-2.py` |
+| §3.2 the two tables | The_Method_1_6-2.md §6 1516–1545 (90 / 126 / 36); §6.1.1 1560–1600 (helium at 2 → 20); Index of Indices 1360–1380, 1442–1456 (Janet 118 / 944 / 0) |
+| §3.3 calendar, box, chessboard | The_Method_1_6-2.md §6.3 1700–1712; Index of Indices 1398–1410, 1458–1466 |
+| §3.4 the nuclide chart | The_Method_1_6-2.md §6.2 1660–1676, §6.2.1 1678–1699 (E = 9, four cutoffs — see §1.3 above); Index of Indices 236–244; Mathematical Compendium §IV.E 1860–1872 (the AME2020 re-measurement, E = 2); NUBASE2020 as §1.3 |
+| §3.5 Kreuzer–Skarke | The_Method_1_6-2.md §31.3 8730–8795 (208 cells, E = 540, 498 + 498, 112 diagonal, five χ values, 26–262); Index of Indices 246–256. The source's "the index proposes" reading is not carried (A-7, R-12) |
+| §3.6 oscillators | The_Method_1_6-2.md §31.2.3 8700–8706; Index of Indices 258–266 — reduced to Theorem 2's sentence; d(N) not printed |
+| §3.7 the survey | Index of Indices 340–372 (the grid; "never a closure defect"); `extracted/archives/method16-rp-b-data/SPECTRA-DATA.tsv`. The witnessed-channel row is this paper's |
+| §3.9 bit cost | this paper's own construction |
+| §5 the electromagnetic quotient | Index of Indices 165–180; Mathematical Compendium §IV.EM 2570–2672 (the rectangle; 814 and 840; E = 750; 526 at E = 0); Laporte 1924, Russell & Saunders 1925, Wigner 1927; Condon & Shortley 1935 and Cowan 1981 for the one-electron rule (R-15) |
+| §5.5 followability | Index of Indices 165–180 and Mathematical Compendium 2570–2576 (the four percentages and the parity pair) — see §1.2 above |
+| §6 the languages | The_Method_1_6-2.md §33 9405–9500; Index of Indices 268–284; `docs/CYPHER.md`; `tools/cypher.py` |
+| §6, the containment law | cited to *The Hierarchy Law of Mathematical Languages* (manuscript); not used |
 
 ---
 
 ## 3. What reproduces exactly
 
-Every figure below was recomputed by `check.py` and agrees with the source to the digit printed.
-
-- Λ 976 cells in a box of 6,912, E = 0 (C1); the tower member's Λ₈ equals the cypher fixture cell
-  for cell (C1b); Λ₉ 1,654 in 27,648 and Λ₁₀ 2,535 in 110,592, both E = 0 (C12a, C12b).
-- The periodic table 90 / 126 / 36, and the 36 are exactly period 1 groups 2–17 and periods 2 and 3
-  groups 3–12 (C2, C2b); helium at group 2 gives E = 20 (C2c).
-- Janet 118 / 944 / 0 (C3). The calendar 365 / 372 / 7 with the seven cells named (C4, C4b) and the
-  relabel-by-length repair at E = 0 (C4c). Box ordering 35 / 125 / 0 (C5). Chessboard 64 / 64 / 0 (C6).
-- The particle-bound nuclides at Z ≤ 5, 6, 7 — (27, 33, 6), (40, 48, 8), (52, 61, 9) — with the nine
-  named, unchanged at larger cutoffs, and every cell persisting (C7, C7b, C7c).
-- Kreuzer–Skarke 208 / 12,544 / 540, from 498 join and 498 meet failures of 21,528 pairs; 112 on the
-  diagonal; χ ∈ {0, ±2, ±4}; h¹¹ + h²¹ from 26 to 262; all 540 satisfy h¹¹ ≥ 1, h²¹ ≥ 1 and
-  h¹¹ + h²¹ ≤ 502 (C9, C9b, C9c).
-- d(1) = 24, d(2) = 324, d(3) = 3,200, d(14) = 156,883,829,400, by product expansion and by the
-  Euler recurrence independently, for N ≤ 16 (C10, C10b).
-- Composable cells: Λ₈ 0, Λ₉ 1,169, Λ₁₀ 2,050 (C14).
-- Redundancy and coupling: Λ 56 envelopes / 61%, the survey grid 6 / 20%, box ordering 6 / 0%,
-  Janet 2 / 0%, periodic table 2 / 0%, calendar 2 / 0% (R1); r² = 0.002 and p = 0.94 (R2); the
-  projection ladder 61 / 30 / 30 / 30 / 5 / 0 (R3); Nₑ adjoined takes 20% → 0% with the envelopes
-  doubled to 12 and coupling 16.7% → 33.3% (R4).
-- The EM quotient: the image is the complete 2 × 4 rectangle at E = 0 (Q1b); M1 814 and E1 840
-  (Q1a); 576 intercombination cells (Q2); the spin rule 526 cells at E = 0 (Q4); the parity rule
-  840 cells at E = 750 (Q5); H = 0.633 bits and I = 0.0004 bits (Q7b).
-- The crossing: 11.6% against 40.7% within one element and 89.7% against 77.9% across the 118
-  (Q8, Q8b, Q8c); the parity pair 38.4% against 20.1% within one element (Q8 rows).
-- The languages: all five speak on Λ at E = 0, ten pairs, ten agreeing (L1, L1b); documentary
-  silent, analysis not run (L1c); the box ordering 10 of 10 (L2); the three-coordinate periodic
-  table at order 100, algebra 100, geometry 83, information 24, statistics 0 with 1 of 10 pairs
-  agreeing (L3, L3b); the degeneracy guard fires at d = 2 and not at d = 3 (L4).
+- Λ 976 / 6,912 / 0 (C1); the tower member equals the cypher fixture (C1b); Λ₉ 1,654 / 27,648 / 0 and Λ₁₀ 2,535 / 110,592 / 0 (C12a, C12b); Λ is exactly the caps box cut by the eight inequalities (T7a).
+- The periodic table 90 / 126 / 36, the 36 named (C2, C2b); helium at group 2 gives E = 20 (C2c).
+- Janet 118 / 944 / 0 (C3), a staircase (T7e). The calendar 365 / 372 / 7 with the seven cells named (C4, C4b) and the relabel-by-length repair at E = 0 (C4c). Box ordering 35 / 125 / 0 (C5). Chessboard 64 / 64 / 0 (C6).
+- The particle-bound nuclides at Z ≤ 5, 6, 7 — (27, 33, 6), (40, 48, 8), (52, 61, 9) — with the nine named (C7a, C7b); at Z ≤ 8, 9 the nine persist; see §1.3 for Z ≤ 10.
+- AME2020 3,558 rows, 2,550 measured, 1,008 extrapolated, E = 2 at five cutoffs, the two cells (0,0) and (2,0) (C8, C8b).
+- Kreuzer–Skarke 208 / 12,544 / 540, 498 + 498 of 21,528, 112 diagonal, χ ∈ {0, ±2, ±4}, 26–262 (C9, C9b).
+- The redundancy rungs: Λ 61%, the grid 20%, box ordering / Janet down-set / periodic table / calendar below 5% (R1); the projection ladder 61 / 30 / 30 / 30 / 5 / — (R3, with the d = 3 stop R3c); Nₑ adjoined 12 envelopes, 33.3%, below 5%, E = 20,808 (R4, R4b).
+- The quotient: the complete 2 × 4 rectangle at E = 0 (Q1b); 814 and 840 (Q1a); the spin rule 526 at E = 0 (Q4); the orbital rule 840 at E = 750 (Q5); the witness (Q5c, Q5d); the extensions 9,278 / 1,654 / 3,812 (Q6, Q6b, Q6c) with a join-failure witness each (Q6d).
+- The four followability percentages on the unfiltered population (Q8b) and the parity pair 38.4% / 20.1% (Q8. rows).
+- The languages: five speak on Λ at E = 0 (L1), ten pairs agreeing (L1b), the three-coordinate table 100 / 100 / 83 / 24 / 0 with one pair agreeing (L3, L3b), degeneracy at d = 2 (L4).
 
 ---
 
 ## 4. What does NOT reproduce, and what the paper does about it
 
-**A finding is recorded, never repaired.** In every case below the paper prints the recomputed
-figure, or omits the claim; no check was altered to make a discrepancy vanish.
+**A finding is recorded, never repaired.** The paper prints the recomputed figure or omits the claim.
 
 ### 4.1 The nuclide defect at the AME2020 evaluation: 9 stated, 2 measured
+Two populations (see the draft's account, unchanged): the 9 is the particle-bound light nuclides, the 2 the whole AME2020 set; the paper carries both as two rows (C7a, C8b).
 
-Index of Indices 236 and The_Method_1_6-2.md §6.2 state **E = 9** on the measured nuclide chart,
-stable across cutoffs. Recomputed on AME2020 Table I as captured (3,558 rows, Z = 0–118, of which
-2,550 carry a measured mass and 1,008 an extrapolated one), the defect is **E = 2** at every cutoff
-Z ≤ 20, 50, 82, 92 and 118, and the two admitted-and-absent cells are (0, 0) and (2, 0), the diproton
-(C8, C8b).
-
-Mathematical Compendium §IV.E 1866 already carries this as a re-measurement and states it plainly,
-so the later reading governs. The cause is not a disagreement about the operator: it is **two
-different populations**. The 9 is measured on the *particle-bound* light nuclides; the 2 is measured
-on the whole AME2020 set, which includes unbound and extrapolated species that fill most of the
-region the smaller chart leaves open. `check.py` computes both (C7 and C8b), and the paper carries
-both as two rows of Table 1 with the difference stated explicitly in §3.4. Neither number is
-presented as a correction of the other.
-
-### 4.2 The nuclide cell counts at Z ≤ 9: 80 / 89 stated, 75 / 84 measured
-
-§6.2.1's table gives 80 nuclides and 89 admitted at Z ≤ 9. The seated particle-bound table gives
-**75 and 84**, with E = 9 either way (C7). Only the defect, the nine named cells and their stability
-are carried into the paper; the cutoff-by-cutoff cell counts printed in §3.4 are the recomputed ones
-(27/33, 40/48, 52/61, 75/84, 87/96). The stated 80/89 is not printed anywhere.
+### 4.2 The nuclide counts at Z ≤ 9 and Z ≤ 10
+The source states 80 / 89 at Z ≤ 9 and E = 9 stable across cutoffs. Derived from NUBASE2020: 77 / 86 / 9 at Z ≤ 9 and 94 / 106 / 12 at Z ≤ 10 (C7a). See §1.3. The stated 80 / 89 and the stability claim are not printed.
 
 ### 4.3 The EM extension's defect: 3 stated in one place, 3,900 in another, 9,278 measured
+Unchanged from the draft: neither source figure reproduces; the paper prints 9,278 with 1,654 and 3,812 beside it and rests the qualitative claim on Corollary 3 (Q6, Q6b, Q6c, Q6d).
 
-Index of Indices 1471 states "*Adjoining the multipole and ΔS as coordinates gives E = 3*".
-Mathematical Compendium §IV.EM 2636 states "*adjoining its coordinates gives E = 3,900*". The two
-disagree with each other. Recomputed on Λ₉ with (|Δℓ|, |ΔS|) adjoined as two further coordinates:
-**E = 9,278** (Q6). Neither source figure reproduces, and no variant tried reproduces either —
-adjoining |Δℓ| alone gives E = 1,654 and |ΔS| alone gives E = 3,812 (Q6b, Q6c), both measured here
-for the first time with no source figure to compare.
+### 4.4 The survey grid: 1,664 cells and 313 held stated, 1,744 and 285 measured
+Unchanged from the draft (C15); the "E = 1,351" reading is corrected by the source's own later sentence. New: the paper now also prints the witnessed set's own closure, 285 / 1,960 / 975 (C15b), which no source states.
 
-The paper prints **9,278**, and 1,654 and 3,812 beside it, and states the qualitative claim the two
-source figures agree on — that the extension is open where the quotient is closed — as the result.
-The cause of the two stated figures is undetermined: a different cap setting, a different set of
-adjoined quantities (the multipole *label* rather than |Δℓ|), or an arithmetic error. The paper's
-§2.3 supplies what the figures were evidence for — Corollary 3, which says a closed index extended
-by a map that fails to preserve the join cannot be closed — so the qualitative claim now rests on a
-proof rather than on a number that does not reproduce.
+### 4.5 "Six agree on Λ"
+Unchanged: five operator-bearing languages measured (L1b); the paper does not print "six".
 
-### 4.4 The channel survey grid: 1,664 cells and 313 held stated, 1,744 and 285 measured
+### 4.6 Λ's coupling 29% → 28.6%; the grid's 17% → 16.7%
+Rounding; the paper prints the exact fractions (R1).
 
-Index of Indices 286 and 350 give the as-measured grid at **1,664** cells with **313** held (596
-channels across them) and 1,351 unwitnessed. Rebuilt from the survey data as (Z, core charge, ℓ)
-over the 28 elements, the ten charges [1, 2, 3, 4, 5, 6, 9, 11, 15, 16] and the eight ℓ values s…k,
-restricted to charge < Z: **1,744 cells in a box of 2,240, with 285 of them witnessed** (C15). E = 0
-either way. The paper prints 1,744, 2,240 and 285. The difference is in the cap, not the operator:
-the reconstruction's element and charge alphabets are read off the survey file, and the source's own
-text says every cap is a decision.
-
-One reading is corrected rather than reproduced. The Index of Indices table at line 286 lists the
-survey under a column headed **E** with the value 1,351 — the unwitnessed count. The same volume at
-line 350 states outright that this number "*is never a closure defect*" and that all three grids are
-fixed points of ℛ. The later statement governs, `check.py` measures E = 0, and the paper says so.
-
-### 4.5 "Six agree on Λ at 976 and all ten pairs hold"
-
-Index of Indices 280 says **six** languages agree and quotes C(5,2) = 10 for the pair count. The two
-do not fit: six languages give fifteen pairs. Measured rather than asserted, the operator-bearing set
-on Λ is **five** — order, algebra, geometry, information, statistics — with C(5,2) = 10 pairs, all
-ten agreeing (L1b). The count survives; the membership is not the one the roster names: `statistics`
-returns a cell decision and is in, `analysis` returns a magnitude and is out, joining `documentary`
-as a second special row for a different reason.
-
-Which languages exist at all is an open question in the sources (two rosters are printed and they
-share two names), and the tool's third refusal is that it will not pick one. The paper therefore
-does not assert a roster: §6 states that it counts a language as operator-bearing **on the index in
-front of it** and computes the pair count from that, and it names the measured five. The word "six"
-is not printed.
-
-### 4.6 Λ's coupling: 29% stated, 28.6% measured
-
-16 of 56 envelopes bind, which is 28.57%. The source rounds to 29%; the paper prints 28.6% (R1). The
-survey grid's 1/6 is printed as 16.7% where the source rounds to 17%. No other redundancy figure
-differs at the precision either states.
-
-### 4.7 A box ordering at 56 cells and at 35 cells
-
-The_Method_1_6-2.md §6.2's table gives a box ordering l ≥ w ≥ h at **56** cells, E = 0; Index of
-Indices 66 and 1398 give **35** in a box of 125. These are the same construction over six values and
-over five. The paper uses the five-value form, 35 in 125, which is the one the redundancy census and
-the language-agreement fixture both use; the 56-cell form is not printed.
+### 4.7 A box ordering at 56 and at 35 cells
+The five-value form, 35 in 125, is used; the 56-cell form is not printed.
 
 ### 4.8 The Janet redundancy row
-
-The six-row redundancy table's Janet entry (d = 2, 2 envelopes, 50% coupling, 0% redundancy)
-reproduces only on the **724-cell down-set** of the 118-element filling along n + ℓ, not on the
-118-cell (n + ℓ, Z) index of the catalogue, whose coupling is 100% (R1, R1b, R1c). Both are closed.
-The paper prints the 724-cell form in Table 2 and says in the same paragraph which object it is and
-what the 118-cell form gives, so the two rows of the paper that both say "Janet" are not confused.
+Reproduces only on the 724-cell down-set (R1b, R1c); the paper says so in §4.2 and calls the choice a convention (R-19).
 
 ### 4.9 The parity half of the crossing
+Both within-element parity figures reproduce (38.4 / 20.1); across the table the parity split does not reverse (89.8 / 84.5). The paper prints all four on both populations and says the parity split crosses on neither.
 
-Mathematical Compendium §IV.EM 2576 says "*parity repeats it at 38.4% against 20.1%*". Both numbers
-reproduce exactly — but they are the **within-element** pair only. Measured across the 118 elements,
-the parity split does **not** reverse: parity-conserving 89.8% against parity-changing 84.5%, the
-same order as within (Q8 rows). The source quotes only the within-element figures, so nothing it
-states is contradicted; but "repeats it" is an overstatement of what the parity split does, since
-"it" is a crossing and the parity split does not cross.
+### 4.10 The crossing itself
+See §1.2: reproduced exactly on the source's population, which is two-thirds Pauli-forbidden; absent on the physical population. The paper claims no crossing.
 
-The paper prints all four parity figures and says explicitly that the crossing proper belongs to the
-|Δℓ| = 1 split and that the parity split is a companion to its within-element half only.
+### 4.11 "E = 9 is a property of the measurement, not of the window"
+Not reproduced on the completed data (C7a, C7b); the paper says the count moves and the reading does not.
 
 ---
 
 ## 5. Interpretations chosen, and why
 
-1. **Redundancy's protocol (D7).** The sources define redundancy as "*the largest fraction removable
-   with exact recovery*" and print six values, but state no trial count, no acceptance threshold and
-   no seed. The reconstruction here — a fixed ladder of ten fractions climbed in increasing order,
-   ten independent trials per rung (five above 3,000 cells), acceptance at 8 of 10, stop at the first
-   failure, seed 20260809 — reproduces **all six** published values and the whole six-rung projection
-   ladder. That agreement is the evidence for the protocol. The paper states the protocol in full in
-   D7 and marks every figure SAMPLED with its seed and per-rung counts, which the sources do not.
-
-2. **Coupling's "binds" (D6).** The sources say "*the fraction of coordinate pairs whose envelope
-   actually constrains*" without a test. The test used is: φ_ij binds when φ_ij(a) < max A_i(X) for
-   at least one a. It reproduces 56 / 6 / 6 / 2 / 2 / 2 envelopes and 29% / 17% / 50% / 50% / 0% / 0%
-   on the six rows, to rounding. The paper states the test in D6.
-
-3. **Composability (D9), and the crossing population.** The sources say an index has a time column
-   when its cells are moves, and print 976/0, 1,654/1,169, 2,535/2,050 without defining the match.
-   The reading that reproduces all three is: a move's target end is (e, f, 2S′) or (e, f, g) and its
-   source end (n, ℓ, 2S) or (n, ℓ, k), and a cell is followable when its target end equals the source
-   end of some cell. Λ₈ gives 0 because its source end carries four components and its target end
-   three, so no match is possible — which is why the source prints 0 there. The crossing population
-   (4,325 moves over the 118 observed ground configurations) is built here from the ground
-   configurations directly; the sources print the four percentages but not the population size, so
-   **4,325** is measured here and has no source figure to agree with. The four percentages it yields
-   agree with the source exactly, which is the corroboration.
-
-4. **"E = 0 is VACUOUS".** The source asserts it. The paper proves it: the image is the complete
-   2 × 4 rectangle (Q1b), and a full box closes by Theorem 2. The paper therefore states the
-   vacuity as a consequence rather than as an assertion, and says in §5.4 what follows — that a
-   claim of closure for the electromagnetic index carries no information about the rules.
-
-5. **The convexity of the value set.** The source states "*ΔS = 0 is a diagonal, hence two monotone
-   one-parent bounds*" and "*|Δℓ| = 1 is δ⁻¹({−1,+1}), a hole at zero, not convex*". Neither is
-   proved there. The paper proves the interval property for a difference of two coordinates (Lemma
-   3, and exhaustively on all 1,367,031 pairs of Λ₉) and derives the convexity criterion from it
-   (Corollary 4), and exhibits the explicit witness for the non-convex case (Refutation 3). The
-   sources' assertions become theorems with one witness.
-
-6. **The nine nuclide cells as pairing and clustering.** The sources read the nine as "*the pairing
-   and clustering terms of the mass formula, counted*". That is an interpretation of computed cells
-   and no computation here establishes it. The paper names the nine, states which are unbound for
-   which reason, and marks the mass-formula reading as an interpretation in both §0 and §3.4.
-
-7. **The 540 Kreuzer–Skarke cells as predictions.** The catalogue file was not read, here or in the
-   sources. The paper states the 540, the three published bounds all 540 satisfy, and that none falls
-   in the sparsely populated tip — and says in §0 and §3.5 that this is weaker than a lookup.
-
-8. **Proposition 1 and the join witnesses.** Three claims the sources assert or leave implicit are
-   turned into checked obligations rather than repeated. That ℛ and the sublattice hull are the same
-   operator is asserted in the language table (both read E = 100 on the three-coordinate periodic
-   table) and is measured here on every subset of two small boxes and on three larger indexes (T3,
-   T3b); the general identity is cited to the hierarchy-law paper. That a derived coordinate breaks
-   closure is asserted; the join failure of Nₑ on the survey grid (R4b) and of |Δℓ|, |ΔS| and the pair
-   on Λ₉ (Q6d) are each exhibited as a named pair of cells, so Corollary 3's hypothesis is verified
-   rather than inferred backwards from the measured defect.
-
-9. **Bit cost (D10).** This paper's own construction, to put defects of different sizes on one scale.
-   No source figure; every value is computed (C13, C13b).
-
-10. **The fibration caveat.** Appendix D.5.5's own finding — that E falls as a fibration is refined
-   and reaches zero by refinement alone — is stated in the sources as a measurement on one
-   thirty-two-element index. The paper proves it: Theorem 4 (fibring by a coordinate never raises the
-   total defect) and Corollary 2 (the finest fibration gives zero, because a singleton is a full box).
-   The paper then states that every defect it reports is taken at the single fibre.
+1. **Redundancy's protocol (D7)** — a convention (ladder, ten trials, 8 of 10, seed 20260809), stated as such; its justification is that it reproduces the previously reported rungs, and the paper says that is its only justification.
+2. **Coupling's "binds" (D6)** — φᵢⱼ is not the constant Mᵢ; stated with the caveat that a non-constant envelope need not exclude a cell (R-3).
+3. **Followability (D9)** — the formal match that reproduces 0 / 1,169 / 2,050 and the four crossing percentages; labelled formal; the configurational match computed beside it (§1.2).
+4. **"E = 0 is VACUOUS"** — proved as Theorem 2 on the full 2 × 4 image (Q1b), and restated as the independence of Δℓ and ΔS on Λ₉ (R-14).
+5. **Convexity** — Lemma 3 (bimonotone cut) and Corollary 4, with Refutation 3's witness; the interval property exhaustive on 1,367,031 pairs (Q3).
+6. **The nuclide cells as pairing and clustering** — an interpretation, marked; the diproton sentence rewritten to the singlet-channel explanation (R-9); (0,0) called the bottom of the box (A-27).
+7. **The Kreuzer–Skarke 540** — the closure of a slice that is open by construction; not predictions (A-7, R-12). The full Hodge-pair list was not read here, and the paper says so.
+8. **Bit cost (D10)** — a description length under a uniform code over E-subsets (R-5).
+9. **The fibration caveat** — Theorem 4 for a coordinate, Remark 3 for the general case, Corollary 2 iterated.
+10. **The block coordinate** — the instrument's coding read as the ℓ of the column's block; a declared choice of order (A-5).
 
 ---
 
 ## 6. What the sources state that the paper deliberately omits
 
-- **The book's own indexes** (the audits at E = 16, the register at 6, the protocols at 105, the
-  constraints, the mathematics at 0, the numbers at 40). These index the working record, which the
-  published text may not mention at all, and the brief did not ask for them.
-- **The first-ionisation refusal map** (four steps of twelve, 67% admissible) — it belongs to another
-  paper in this set and adds nothing to this one's thesis.
-- **The 25 + 11 decomposition of the periodic table's 36**, which is computed on the drawn
-  118-element layout rather than on the 90-cell index this paper closes. The two cell sets are
-  different objects and mixing them would misstate what the 36 are.
-- **Λ₃, Λ_phys, the violation index and the indexes named-and-not-built.** Outside the brief's scope.
-- **The three-body, celestial-mechanics and Hagedorn material** of the same chapter as the
-  Kreuzer–Skarke and string sections. Bracket results, not closure results.
-- **The 32-column layout at E = 106 and the left-step at 120 cells / E = 0.** Both are further
-  layouts of the same elements; the paper makes the coordinate-relativity point with the two it
-  computes in full and does not multiply instances.
+Unchanged from the draft: the book's own indexes; the first-ionisation refusal map; the 25 + 11 decomposition of the 36; Λ₃, Λ_phys, the violation index; the three-body and Hagedorn material; the 32-column layout and the 120-cell left-step. Added: the string degeneracies d(N) (computed, unprinted); the composability counts 1,169 / 2,050 (computed, unprinted); r² and p (computed, unprinted); the crossing as a claim.
 
 ---
 
 ## 7. Refusals of the imported instrument that bind the paper
 
-`tools/cypher.py`'s docstring and `docs/CYPHER.md` state three refusals, and each constrains what
-§6 may say. They are carried into the paper as an explicit paragraph, not silently honoured.
+Unchanged: NOT-RUN is not SILENT; agreement at d = 2 is withheld; the roster is measured on the index in front of it and not asserted; a resource cap is REFUSED, never SILENT (no run hit a cap). The containment law is cited, not proved, and the paper no longer calls its four-index observation "one instance of a general law".
 
-1. **A language that was never run is not silent.** `NOT-RUN` is a distinct state from `SILENT`. The
-   paper reports `analysis` as not run (it declares no witness) and `documentary` as silent by
-   construction, and never merges the two.
-2. **Agreement at two coordinates is not evidence.** At d = 2 there is one coordinate pair, so
-   pairwise consistency and cell membership coincide and every pairwise operator agrees for no
-   reason; such a run is marked degenerate and its agreement withheld. Every agreement figure in the
-   paper is at d ≥ 3, and the paper says why.
-3. **The roster is not chosen for you.** Which languages there are is open. The paper counts
-   operator-bearing languages **as measured on the index in front of it** and computes C(5,2) from
-   that, and does not assert a roster. This is also why §4.5 above is a correction of a membership
-   and not of a count.
+---
 
-A fourth refusal binds the same way: a resource cap reports as `REFUSED` and never as `SILENT`,
-because a compute limit is not a finding. No run in `check.py` hit a cap.
+## 8. Figures
 
-Finally, the law relating the five operators to one another is cited, not proved: the paper states
-that on four indexes with d ≥ 3 the five agree exactly when all five defects are zero, calls that a
-measurement on four indexes, and attributes the general law to *The Hierarchy Law of Mathematical
-Languages*. The sources' own hedge — that the "without exception" of the agreement claim is an
-overgeneralisation on a base of six indexes and three operators — is the reason the paper does not
-state it as a theorem.
+`figures/figure-1-periodic-table.png` is now computed by `figures.py` from C2 / C2b (the audited plate it replaces had its title across the first row of cells and no legend, AUDIT A-38); Figures 2–4 are computed from `check.py`'s VALUES. `FIGURES.tsv` carries the md5 of each after the final run.
