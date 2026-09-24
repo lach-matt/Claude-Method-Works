@@ -423,3 +423,16 @@ expectation and the paper's own Madelung pick at Z = 103, two slopes suffice. Th
 cases and says which configuration the claim rests on; which to adopt is yours. The audit also
 found eleven check lines that passed with a literal true, now made into real assertions, and an
 abstract sentence about frames that was false as written.
+
+**Order recovery — the reorderability law's boundary is at three coordinates, not four.** All
+three readers found the same fault: the paper counted bijunctivity on the difference relation and
+asserted it of the constraint on the orientation variables, and majority-closure does not survive
+the change of variables between them. Recounted on the constraint itself, the first pair
+constraint that is not bijunctive appears at arity three, with an explicit six-cell witness, and
+bijunctivity of the difference relation carries no 2-SAT consequence because an exclusive-or is
+not bijunctive. The source plate's own "14 of 14 at arity 3" also fails on its own parametrisation.
+The repair moves the boundary wherever the paper states it and retitles if the law's statement
+changes enough. Also found: a hardness remark that was false because the language is 0-valid, a
+bound of Rival's printed backwards, an unproved cost paragraph, and a count of occupied Janet
+cells taken from a capped fixture. Everything else — the total-preorder correction, all
+twenty-nine solver encodings, the exhaustive replacements — is confirmed sound.
