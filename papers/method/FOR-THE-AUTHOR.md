@@ -356,3 +356,37 @@ source's contrast as a finding. Two further blocking items: a chain of measurabl
 printed with one set of cuts reproduces only under a different set, and a proposition stated as an
 equivalence is proved in one direction only and is false in the other. This is the paper whose
 claim changes most under audit, and the retitled version is yours to judge.
+
+---
+
+## The Lattice of One-Electron Transitions
+
+**1 · The two volumes disagree on the generator counts across caps, and the compendium is right.**
+The main volume prints 17, 23, 31, 32 and the compendium 17, 24, 33, 35; measured, 17, 24, 33 at the
+three settings the paper could recover. The compendium's "18 join-irreducibles and 18
+meet-irreducibles" is 17 and 17.
+
+**2 · The Möbius transfer condition is not an equivalence.** The source states that the lattice's
+Möbius function equals the arithmetic one exactly when the interval is a void-free unit hypercube.
+That holds among unit hypercubes; on the 78 per cent of comparable pairs that are not unit
+hypercubes both vanish and agree. The paper states the precise form.
+
+**3 · Two proofs in the draft were incomplete and are rewritten.** The grading step of the
+modularity theorem assumed any differing coordinate can be lowered one step, which fails for
+sublattices of a box in general; the correct step lowers a coordinate that bounds no other, which
+exists because the oriented constraint graph is acyclic. The converse of the join-irreducible
+characterisation argued in a circle and is proved through the unique lower cover.
+
+**4 · The caps behind four stated cell counts are not named in the source and were recovered by
+sweep.** Two of the counts occur at exactly one setting each; one occurs at 142 settings, of which
+the paper names the natural one. The paper names every setting it checks.
+
+**5 · "Forced by Chvátal's reduction" does not fire**: no element of the cover problem is uniquely
+witnessed, so the rule cannot force anything; the cell common to every minimum seed is explained
+locally instead.
+
+**6 · A void-free fraction and its lift stated over "776 million pairs" at unnamed caps is not
+reproduced**; the base-cap figures reproduce exactly and are printed.
+
+**7 · Every sampled verification in the source is replaced by an exhaustive one**, and the
+"core of four" claims, which the source itself supersedes, are not printed.
