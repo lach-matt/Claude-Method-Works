@@ -1,7 +1,8 @@
 # SOURCES.md — provenance map for 10-beyond-the-atom (not published)
 
-Paper: `PAPER.md`, "Closure beyond the atom: the defect of an index, its zeros by theorem, and the
-electromagnetic quotient". Drafted 2026-09-21; repaired 2026-09-24 against `AUDIT.md` (132 findings).
+Paper: `PAPER.md`, "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the
+Electromagnetic Quotient" — the title settled 2026-09-24 at the author's direction; it had been carried as a
+working title in sentence case since the repair, and the settlement re-cases it to match the shelf and changes no word. Drafted 2026-09-21; repaired 2026-09-24 against `AUDIT.md` (132 findings).
 Every number in the paper is produced by `check.py` or is CITED. Run of 2026-09-24: `python3 check.py`
 → **148 obligations, 0 failed** (MACHINE-CHECKED 8, EXHAUSTIVE 74, MEASURED 35, SAMPLED 16, REFUTATION 3,
 CITED 1, GUARD 11), `CLEAN`; `python3 check.py --selftest` → **152 obligations, 0 failed**, the four negative

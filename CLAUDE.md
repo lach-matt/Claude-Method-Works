@@ -89,7 +89,7 @@ not reproduce, recorded beside the measured value and never repaired), and its a
 a content audit and three reader audits, every finding with its disposition). `PAPER-SPEC.md` is
 the contract they were written to, `lint.py` mirrors the site's guard against citing the books,
 `render.py` presses the review PDFs into `out/` (ignored, regenerated), and `FOR-THE-AUTHOR.md`
-lists what each paper leaves to M — four working titles among them. **The papers claim less than
+lists what each paper leaves to M, and records what M has since settled: on 2026-09-24 the working titles, the lawrencium configuration behind the piercing theorem, the polarisation prefactor and the sources of the forty-two chemical properties. **The papers claim less than
 the volumes do, and `SOURCES.md` in each directory says exactly where**: a seed law that is
 Czédli's, a tower axis carried as an envelope, a closure contrast that is a coordinate artefact,
 an arity boundary at three, a crossing that fails the Pauli filter. The same directory is on the

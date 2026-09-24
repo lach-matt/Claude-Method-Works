@@ -252,6 +252,8 @@ the record would have used before the data file was read from NIST (its own head
 "Lr = 6d") and does not choose. Whether to headline the tabulated case, the aufbau case, or neither is
 M's decision; nothing in the corpus rules on it, and the drafter has not.
 
+**Settled 2026-09-24, at the author's direction.** The paper adopts the tabulated 7p¹. Three reasons, recorded here: (i) D3 defines the data as the NIST tabulation at every Z, and substituting one entry at Z = 103 would make the data the author's at exactly one site; (ii) the tabulated entry is the relativistic coupled-cluster prediction (Eliav, Kaldor and Ishikawa 1995) and the one measurement on the atom, the first ionisation potential (Sato et al. 2015), is consistent with it, so the tabulation is the better-supported of the two configurations, not merely the recorded one; (iii) the 6d¹ case loses nothing by being the sensitivity rather than the headline — it stays computed, printed and checked (nine check lines under "Lr = 6d"), and Theorem 5 states both piercing numbers. The paper's §1 and the paragraph after Theorem 5's proof now say the paper adopts the tabulation; the theorem's statement, the check and the tables are unchanged. The member's OBSERVED docstring is still not edited.
+
 **The x = r measurement (R-13)** is new to this pass: with the abscissa r in place of √r the tabulated
 entrant is not a hull vertex at La, Gd, Ac, Th, Cm, Lr (node-only) and at La, Gd, Ac, Cm, Lr
 (finished). No source passage states it; it is the paper's own EXHAUSTIVE line and is printed as such.

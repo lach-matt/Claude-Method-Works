@@ -1,6 +1,6 @@
 # SOURCES.md — provenance map for 04-seaton (not published)
 
-Paper: `PAPER.md`. **Working title** (2026-09-24, for the author to settle): *"The Domain of the
+Paper: `PAPER.md`. **Title, settled 2026-09-24 at the author's direction** (carried until then as a working title from the repair pass): *"The Domain of the
 Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on
 Thirteen Rydberg Series"*. The paper was drafted 2026-09-21 as **"A Correction to Seaton's Ratio"**
 and retitled in the repair pass of 2026-09-24 (AUDIT.md R-21, A-13): the audit found that the
@@ -145,8 +145,18 @@ to 4 dp on all 26 coefficients shows curve_fit converged to the same (single) ba
   turns on it, and the paper prints the derived form. The source's internal use of the constant
   inverts the same formula to extract α from data (`extracted/archives/restore-point-2-13/seaton.py`),
   so its α values would be twice the a₀³ values in the literature if the factor is as it appears.
-  **Marked for M**: whether "3αc²/K" is a units convention or a factor-2 slip; I could not consult
-  Seaton 1958 (no access through the proxy).
+  **Settled 2026-09-24, at the author's direction**: a factor-2 slip, not a units convention. The
+  compendia define K(ℓ) = ℓ(ℓ+1)(2ℓ−1)(2ℓ+1)(2ℓ+3) (Physics Compendium 522, Mathematical Compendium
+  3122) — the paper's K — so the two forms differ by exactly two, and the derived form is the one an
+  independent series supports: on Rb ng, δ_g(30) = 0.00405(6) (Afrousheh et al. 2006) against
+  α_d(Rb⁺) = 9.116(9) a₀³ (Berl et al. 2020) and 9.11 a₀³ (Lim et al. 2000, coupled cluster), 6α/K(4)
+  gives 0.003946 and 3α/K(4) gives 0.001973; with c₂/n² and Lemma 4's quadrupole term at Berl's
+  α_q = 38.4 a₀⁵ the model gives 0.004080, inside the measurement's uncertainty. The paper now says so
+  in §2 ("The prefactor"), the check carries the arithmetic as a MEASURED obligation with the 3/K form
+  as a fifth negative control, and the three references are added (verified by web search; the
+  publishers' pages are behind the proxy). Seaton 1958 itself is still unread here, and nothing rests
+  on it. The consequence for the record — `seaton.py` reports every α at twice the literature's
+  value — is recorded, not repaired.
 - *Seaton 1958 itself.* The citation form "Seaton, M. J., The quantum defect method, MNRAS 118
   (1958) 504–518" is what the source gives (Mathematical Compendium 2968, Physics Compendium 524,
   Index of Indices 1492) and agrees with my recollection; the paper prints exactly that. Whether the

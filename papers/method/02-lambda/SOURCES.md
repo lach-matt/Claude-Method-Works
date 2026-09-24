@@ -3,7 +3,7 @@
 Paper: `PAPER.md`, "The Lattice of Subshell Transitions" — **retitled in the 2026-09-24 repair pass from "The
 Lattice of One-Electron Transitions"**, the title the draft and the audit carried (audit finding R-15: 481 of the
 976 cells move two or three electrons, so "one-electron" was false of the cells; the old title is kept here for the
-author, and the retitle is his to settle). Drafted 2026-09-21 in a run cut off by
+author; the retitle was settled — the new title stands — on 2026-09-24 at the author's direction). Drafted 2026-09-21 in a run cut off by
 a service limit (PAPER.md, check.py, figures.py, FIGURES.tsv and eight figures present, SOURCES.md
 absent); resumed and finished 2026-09-24. The inherited `check.py` was read in full and run before
 anything was changed: it was already green — 59 rows, 0 failures; with `--selftest` 65 rows, the six

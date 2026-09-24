@@ -1,4 +1,4 @@
-# Closing the chemical properties: a classification index for the elements
+# Closing the Chemical Properties: a Classification Index for the Elements
 
 **Forty-two chemical properties of the elements, each given a kind, a seat in the species and a dependency, occupy fourteen cells over the subvalence and valence shells, and those fourteen close as an index (E = 0); the closure is carried by two subvalence cells beside a full valence block and rests on three sole-occupant assignments, and the paper measures exactly how much such a closure weighs — while the merge of the parameter and charge indexes closes on nine cells as a band of two floor functions.**
 
@@ -40,7 +40,7 @@ Three results are claimed, and each is a statement about the shape of a finite c
 2. **Closure of this shape is a weak constraint, and the paper prints the right base rates.** A minimum-over-orderings claim is to be read against the family of subsets closed under *some* ordering: 6,432 of the 1,961,256 fourteen-cell subsets of the 4 × 2 × 3 box, and 30 of the 66 pairs of subvalence cells beside a full valence block. The count of subsets closed at one fixed ordering (5,824 of 2²⁴) is a different and smaller family, printed in §2 for the enumeration and not offered as the base rate of Theorem 1.
 3. **One cell was changed to reach closure**, and a different single change reaches it too (Theorem 3). A closed index obtained after a reassignment is evidence about the reassignment only to the extent that the reassignment is independently motivated; here it is, by Table 2, but Table 2 is four isoelectronic sequences.
 4. **The index predicts nothing.** It states which family of quantities supplies a property and at which seat. It gives no value, no functional form and no bound (§9).
-5. **Almost nothing here is checkable against an external tabulation.** The only externally sourced values in the paper are the twelve ground terms of Table 2 and five hydrogenic radial integrals used as a control (§8). Six of the forty-two properties are read off the ground configuration in the atomic spectra data of NIST; no source is named for the other thirty-six, and the paper takes no numerical value from any of the forty-two.
+5. **Almost nothing here is checkable against an external tabulation.** The only externally sourced values in the paper are the twelve ground terms of Table 2 and five hydrogenic radial integrals used as a control (§8). Every one of the forty-two properties is referred in Table 1 to a public tabulation — eleven to the atomic spectra data of NIST, thirty-one to the compilations cited there — and the paper takes no numerical value from any of them.
 6. **The outer-seat labels are nominal.** The kind and dependency entered for the properties of the nucleus and of bulk matter are labels as compiled, not assignments the definitions of §1 license, and the paper defends none of them (§3, §5).
 
 **Status words.** Six are used and never merged.
@@ -164,76 +164,76 @@ All rows are **EXHAUSTIVE**; the 2 × 4 × 4 row is by next-closure only, its 2�
 
 The properties are those of a chemical element — of a species (Z, c) and, at the fifth seat, of the bulk substance the element forms. Each carries a kind (D7), a seat (D8, D9) and a dependency (D10). The list is the list as compiled: an informal enumeration of what is commonly asked of an element, not a closed or a standard one. Standard tabulations carry properties it omits (polarisability, electrode potential, work function, enthalpies of phase change, among others), and it carries entries a tabulation would not (smell, taste). Nothing below depends on the list being complete; Theorem 1 is a statement about the twenty-two entries at the two closed seats.
 
-The paper takes no numerical value from any of the forty-two. Six of them — the ground configuration, the node count, the valence electron count, the closed f-shell count, the ionisation energy and the ground term — are entries of, or are read off the ground configuration in, the atomic spectra data of NIST (Kramida, Ralchenko, Reader and the NIST ASD Team 2024); no public source is named here for the other thirty-six.
+The paper takes no numerical value from any of the forty-two. The last column of Table 1 names, for each, the public tabulation in which a reader finds it. Eleven are entries of, or are read off the ground configuration or the ground level in, the atomic spectra data of NIST (Kramida, Ralchenko, Reader and the NIST ASD Team 2024): the ground configuration, the node count, the valence electron count, the closed f-shell count, the term of the closed core, the ionisation energy and the successive ionisation energies, the emission spectrum, the ground term, its Landé g and whether it carries unpaired spin. The other thirty-one are in the twenty-three works the column cites — the two nuclear evaluations and the isotopic-composition report, Sears's neutron cross sections, Bearden and Burr's core levels, four radius tabulations, the two electronegativity papers, the electron-affinity evaluation, Ho's thermal conductivities, the CRC Handbook, Samsonov's and Donohue's data books, the monographs of Lever, Wells, Cowan, Pyykkö and Greenwood and Earnshaw, and Emsley's two books — every one CITED and none read for a number. Three of the twelve aggregate entries, the colour of the bulk element, smell and taste, are descriptive rather than tabulated, and the column names the descriptive works that record them.
 
-**Table 1 · the forty-two properties, by seat.** Columns: kind · dependency · what the property is. At the nucleus and the aggregate the kind and dependency are labels as compiled (D7, D10), and the paper does not defend them; the two core properties and the twenty-two of the closed seats are the assignments the definitions are meant for.
+**Table 1 · the forty-two properties, by seat.** Columns: kind · dependency · what the property is · the public tabulation in which a reader finds it, none of which supplies a number to this paper. At the nucleus and the aggregate the kind and dependency are labels as compiled (D7, D10), and the paper does not defend them; the two core properties and the twenty-two of the closed seats are the assignments the definitions are meant for.
 
 ### (a) the nucleus — six properties
 
-| property | kind | dep. | what it is |
-|---|---|---|---|
-| atomic mass | count | P | the mass of the nuclide in unified mass units |
-| isotope abundance | count | P | the fraction of a natural sample carried by one nuclide |
-| nuclear spin | symmetry | P | the total angular momentum of the nuclear ground state |
-| radioactive half-life | rate | P | the time in which half a sample of the nuclide decays |
-| neutron cross-section | size | P | the effective area the nucleus presents to an incident neutron |
-| nuclear charge Z | count | C | the number of protons (Z is not a role of the charge stage c; the label is nominal) |
+| property | kind | dep. | what it is | where a reader finds it |
+|---|---|---|---|---|
+| atomic mass | count | P | the mass of the nuclide in unified mass units | Wang et al. 2021 |
+| isotope abundance | count | P | the fraction of a natural sample carried by one nuclide | Meija et al. 2016 |
+| nuclear spin | symmetry | P | the total angular momentum of the nuclear ground state | Kondev et al. 2021 |
+| radioactive half-life | rate | P | the time in which half a sample of the nuclide decays | Kondev et al. 2021 |
+| neutron cross-section | size | P | the effective area the nucleus presents to an incident neutron | Sears 1992 |
+| nuclear charge Z | count | C | the number of protons (Z is not a role of the charge stage c; the label is nominal) | Kondev et al. 2021 |
 
 ### (b) the core — two properties
 
-| property | kind | dep. | what it is |
-|---|---|---|---|
-| closed core ¹S₀ | symmetry | P | whether the closed inner shells leave a single spinless, spherically symmetric parent |
-| core binding energy | energy | C | the energy to remove an electron from a closed inner shell |
+| property | kind | dep. | what it is | where a reader finds it |
+|---|---|---|---|---|
+| closed core ¹S₀ | symmetry | P | whether the closed inner shells leave a single spinless, spherically symmetric parent | Kramida et al. 2024, from the ground configuration |
+| core binding energy | energy | C | the energy to remove an electron from a closed inner shell | Bearden and Burr 1967 |
 
 ### (c) the subvalence shell — two properties
 
-| property | kind | dep. | what it is |
-|---|---|---|---|
-| lanthanide contraction | size | A | the extra shrinkage of the radii across a period caused by a filled f shell screening poorly; entered as an amplitude quantity because incomplete screening by the f shell's charge distribution is an electron–electron effect, the relativistic part of the contraction (Pyykkö 1988) being left aside |
-| closed f-shell count | count | A | the number of f electrons in the closed subvalence shell, read off the ground configuration |
+| property | kind | dep. | what it is | where a reader finds it |
+|---|---|---|---|---|
+| lanthanide contraction | size | A | the extra shrinkage of the radii across a period caused by a filled f shell screening poorly; entered as an amplitude quantity because incomplete screening by the f shell's charge distribution is an electron–electron effect, the relativistic part of the contraction (Pyykkö 1988) being left aside | Shannon 1976, the Ln³⁺ row; Pyykkö 1988 |
+| closed f-shell count | count | A | the number of f electrons in the closed subvalence shell, read off the ground configuration | Kramida et al. 2024 |
 
 ### (d) the valence shell — twenty properties
 
-| property | kind | dep. | what it is |
-|---|---|---|---|
-| ground configuration | count | P | the occupied subshells of the lowest state, as observed |
-| node count p | count | P | n − ℓ − 1, the radial nodes of the valence orbital, read off the ground configuration |
-| oxidation states | count | C | the integer charges the element adopts in compounds |
-| valence electron count | count | P | the number of electrons outside the closed core, read off the ground configuration |
-| coordination number | count | A | the number of nearest neighbours the species accepts in a compound |
-| ionisation energy | energy | P | the energy to remove the least bound electron |
-| electron affinity | energy | A | the energy released on binding one further electron |
-| electronegativity | energy | C | the element's pull on shared electron density |
-| successive IEs | energy | C | the sequence of energies to remove electrons one after another |
-| emission spectrum | energy | P | the set of observed transition energies |
-| colour of the ion | energy | A | the visible absorption of the ion in its common complexes — a ligand-field property, entered at the valence shell |
-| atomic radius | size | P | the radius of the neutral atom |
-| ionic radius | size | C | the radius of the ion at a stated charge |
-| covalent radius | size | A | half the distance between like atoms sharing a single bond |
-| subshell radius | size | A | the mean radius of one occupied subshell |
-| relativistic 7s | size | P | the contraction of the outermost s shell by relativistic mass increase |
-| centrifugal barrier | symmetry | P | the ℓ(ℓ+1)/2r² term that keeps a high-ℓ electron out of the core; a symmetry under the second clause of D7 |
-| term symbol | symmetry | **C** | the ground term of the species: the multiplicity, L and J of its lowest level |
-| magnetic moment | symmetry | A | the magnetic moment of the ground level |
-| paramagnetism | symmetry | A | whether the ground level has unpaired spin |
+| property | kind | dep. | what it is | where a reader finds it |
+|---|---|---|---|---|
+| ground configuration | count | P | the occupied subshells of the lowest state, as observed | Kramida et al. 2024 |
+| node count p | count | P | n − ℓ − 1, the radial nodes of the valence orbital, read off the ground configuration | Kramida et al. 2024 |
+| oxidation states | count | C | the integer charges the element adopts in compounds | Greenwood and Earnshaw 1997 |
+| valence electron count | count | P | the number of electrons outside the closed core, read off the ground configuration | Kramida et al. 2024 |
+| coordination number | count | A | the number of nearest neighbours the species accepts in a compound | Wells 1984 |
+| ionisation energy | energy | P | the energy to remove the least bound electron | Kramida et al. 2024 |
+| electron affinity | energy | A | the energy released on binding one further electron | Andersen, Haugen and Hotop 1999 |
+| electronegativity | energy | C | the element's pull on shared electron density | Pauling 1932; Allred 1961 |
+| successive IEs | energy | C | the sequence of energies to remove electrons one after another | Kramida et al. 2024 |
+| emission spectrum | energy | P | the set of observed transition energies | Kramida et al. 2024, the lines |
+| colour of the ion | energy | A | the visible absorption of the ion in its common complexes — a ligand-field property, entered at the valence shell | Lever 1984 |
+| atomic radius | size | P | the radius of the neutral atom | Slater 1964 |
+| ionic radius | size | C | the radius of the ion at a stated charge | Shannon 1976 |
+| covalent radius | size | A | half the distance between like atoms sharing a single bond | Cordero et al. 2008 |
+| subshell radius | size | A | the mean radius of one occupied subshell | Desclaux 1973 |
+| relativistic 7s | size | P | the contraction of the outermost s shell by relativistic mass increase | Desclaux 1973; Pyykkö 1988 |
+| centrifugal barrier | symmetry | P | the ℓ(ℓ+1)/2r² term that keeps a high-ℓ electron out of the core; a symmetry under the second clause of D7 | Cowan 1981 |
+| term symbol | symmetry | **C** | the ground term of the species: the multiplicity, L and J of its lowest level | Kramida et al. 2024 |
+| magnetic moment | symmetry | A | the magnetic moment of the ground level | Kramida et al. 2024, the Landé g of the ground level |
+| paramagnetism | symmetry | A | whether the ground level has unpaired spin | Kramida et al. 2024, the ground term |
 
 ### (e) the aggregate — twelve properties
 
-| property | kind | dep. | what it is |
-|---|---|---|---|
-| density | size | P | mass per unit volume of the bulk element |
-| melting point | energy | A | the temperature of the solid–liquid transition |
-| boiling point | energy | A | the temperature of the liquid–vapour transition |
-| hardness | energy | A | the resistance of the solid to plastic indentation |
-| crystal structure | symmetry | A | the space group of the stable solid phase |
-| electrical conductivity | rate | C | charge transported per unit field |
-| thermal conductivity | rate | C | heat transported per unit temperature gradient |
-| colour of the metal | energy | A | the visible reflectance of the bulk metal |
-| smell | rate | A | the olfactory response the substance provokes |
-| taste | rate | A | the gustatory response the substance provokes |
-| metallic character | symmetry | C | whether the element's bonding is delocalised |
-| reactivity | rate | C | how fast the element enters reaction under stated conditions |
+| property | kind | dep. | what it is | where a reader finds it |
+|---|---|---|---|---|
+| density | size | P | mass per unit volume of the bulk element | Rumble 2025 |
+| melting point | energy | A | the temperature of the solid–liquid transition | Rumble 2025 |
+| boiling point | energy | A | the temperature of the liquid–vapour transition | Rumble 2025 |
+| hardness | energy | A | the resistance of the solid to plastic indentation | Samsonov 1968 |
+| crystal structure | symmetry | A | the space group of the stable solid phase | Donohue 1974 |
+| electrical conductivity | rate | C | charge transported per unit field | Rumble 2025 |
+| thermal conductivity | rate | C | heat transported per unit temperature gradient | Ho, Powell and Liley 1972 |
+| colour of the metal | energy | A | the visible reflectance of the bulk metal | Emsley 1998 |
+| smell | rate | A | the olfactory response the substance provokes | Emsley 2011 |
+| taste | rate | A | the gustatory response the substance provokes | Emsley 2011 |
+| metallic character | symmetry | C | whether the element's bonding is delocalised | Greenwood and Earnshaw 1997 |
+| reactivity | rate | C | how fast the element enters reaction under stated conditions | Greenwood and Earnshaw 1997 |
 
 **Proposition 1 (the census).** The forty-two names are distinct. By kind the counts are 9 (count), 8 (symmetry), 8 (size), 11 (energy), 6 (rate). By seat they are 6, 2, 2, 20, 12 for the nucleus, the core, the subvalence shell, the valence shell and the aggregate. By dependency there are two counts, because one property moves between two of the three values in §6: with the ground term on a physics parameter the counts are **(16 P, 10 C, 16 A)**, and with the ground term on a charge role, as Table 1 above states it, they are **(15 P, 11 C, 16 A)**. **EXHAUSTIVE** over the forty-two rows, both assignments.
 
@@ -631,17 +631,38 @@ The solver's membership term is built symbolically from the same witness-form ex
 
 ## References
 
+- Allred, A. L. (1961). Electronegativity values from thermochemical data. *Journal of Inorganic and Nuclear Chemistry* **17**, 215–221. — the revised Pauling electronegativities (Table 1).
+- Andersen, T., Haugen, H. K. and Hotop, H. (1999). Binding energies in atomic negative ions: III. *Journal of Physical and Chemical Reference Data* **28**, 1511–1533. — electron affinities (Table 1).
+- Bearden, J. A. and Burr, A. F. (1967). Reevaluation of X-ray atomic energy levels. *Reviews of Modern Physics* **39**, 125–142. — core-level binding energies (Table 1).
 - Condon, E. U. and Shortley, G. H. (1935). *The Theory of Atomic Spectra*. Cambridge University Press, Cambridge.
-- Cowan, R. D. (1981). *The Theory of Atomic Structure and Spectra*. University of California Press, Berkeley.
+- Cordero, B., Gómez, V., Platero-Prats, A. E., Revés, M., Echeverría, J., Cremades, E., Barragán, F. and Alvarez, S. (2008). Covalent radii revisited. *Dalton Transactions*, 2832–2838. — covalent radii (Table 1).
+- Cowan, R. D. (1981). *The Theory of Atomic Structure and Spectra*. University of California Press, Berkeley. — also the centrifugal term of Table 1.
 - Davey, B. A. and Priestley, H. A. (2002). *Introduction to Lattices and Order*, 2nd edn. Cambridge University Press, Cambridge.
+- Desclaux, J. P. (1973). Relativistic Dirac–Fock expectation values for atoms with Z = 1 to Z = 120. *Atomic Data and Nuclear Data Tables* **12**, 311–406. — ⟨r⟩ of every occupied subshell, with the non-relativistic comparison from which the contraction of the outer s shell is read (Table 1).
+- Donohue, J. (1974). *The Structures of the Elements*. Wiley, New York. — the crystal structure of each element (Table 1).
 - de Moura, L. and Bjørner, N. (2008). Z3: An Efficient SMT Solver. In *Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2008)*, Lecture Notes in Computer Science 4963, 337–340. Springer, Berlin.
 - Edmonds, A. R. (1957). *Angular Momentum in Quantum Mechanics*. Princeton University Press, Princeton.
+- Emsley, J. (1998). *The Elements*, 3rd edn. Clarendon Press, Oxford. — the data sheet of each element, with its description (Table 1).
+- Emsley, J. (2011). *Nature's Building Blocks: An A–Z Guide to the Elements*, new edn. Oxford University Press, Oxford. — the descriptive entry of each element, where smell and taste are recorded where they exist (Table 1).
 - Ganter, B. (2010). Two Basic Algorithms in Concept Analysis. In *Formal Concept Analysis (ICFCA 2010)*, Lecture Notes in Computer Science 5986, 312–340. Springer, Berlin.
 - Ganter, B. and Wille, R. (1999). *Formal Concept Analysis: Mathematical Foundations*. Springer, Berlin.
+- Greenwood, N. N. and Earnshaw, A. (1997). *Chemistry of the Elements*, 2nd edn. Butterworth-Heinemann, Oxford. — oxidation states, metallic character and reactivity, element by element (Table 1).
+- Ho, C. Y., Powell, R. W. and Liley, P. E. (1972). Thermal conductivity of the elements. *Journal of Physical and Chemical Reference Data* **1**, 279–421. — thermal conductivity (Table 1).
+- Kondev, F. G., Wang, M., Huang, W. J., Naimi, S. and Audi, G. (2021). The NUBASE2020 evaluation of nuclear physics properties. *Chinese Physics C* **45**, 030001. — spin, half-life and Z of every nuclide (Table 1).
 - Kramida, A., Ralchenko, Yu., Reader, J. and the NIST ASD Team (2024). *NIST Atomic Spectra Database*, version 5.12. National Institute of Standards and Technology, Gaithersburg. DOI 10.18434/T4W30F.
 - Lach, M. (2026). The closure law of a finite index. Companion paper, in preparation.
+- Lever, A. B. P. (1984). *Inorganic Electronic Spectroscopy*, 2nd edn. Elsevier, Amsterdam. — the ligand-field spectra behind the colour of an ion in its complexes (Table 1).
+- Meija, J., Coplen, T. B., Berglund, M., Brand, W. A., De Bièvre, P., Gröning, M., Holden, N. E., Irrgeher, J., Loss, R. D., Walczyk, T. and Prohaska, T. (2016). Isotopic compositions of the elements 2013 (IUPAC Technical Report). *Pure and Applied Chemistry* **88**, 293–306. — isotope abundances (Table 1).
 - Pain, J.-C. (2023). Inequalities for exchange Slater integrals. arXiv:2309.00503.
+- Pauling, L. (1932). The nature of the chemical bond. IV. The energy of single bonds and the relative electronegativity of atoms. *Journal of the American Chemical Society* **54**, 3570–3582. — the electronegativity scale (Table 1).
 - Pyykkö, P. (1988). Relativistic effects in structural chemistry. *Chemical Reviews* **88**, 563–594.
 - Racah, G. (1942). Theory of Complex Spectra. II. *Physical Review* **62**, 438–462.
+- Rumble, J. R. (ed.) (2025). *CRC Handbook of Chemistry and Physics*, 106th edn. CRC Press, Boca Raton. — density, melting and boiling points and electrical resistivity of the elements (Table 1).
+- Samsonov, G. V. (ed.) (1968). *Handbook of the Physicochemical Properties of the Elements*. IFI/Plenum, New York. — hardness of the elements (Table 1).
+- Sears, V. F. (1992). Neutron scattering lengths and cross sections. *Neutron News* **3** (3), 26–37. — thermal neutron cross sections (Table 1).
 - Seaton, M. J. (1958). The quantum defect method. *Monthly Notices of the Royal Astronomical Society* **118**, 504–518.
+- Shannon, R. D. (1976). Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides. *Acta Crystallographica* **A32**, 751–767. — ionic radii, and the Ln³⁺ row from which the lanthanide contraction is read (Table 1).
 - Slater, J. C. (1929). The Theory of Complex Spectra. *Physical Review* **34**, 1293–1322.
+- Slater, J. C. (1964). Atomic radii in crystals. *Journal of Chemical Physics* **41**, 3199–3204. — atomic radii (Table 1).
+- Wang, M., Huang, W. J., Kondev, F. G., Audi, G. and Naimi, S. (2021). The AME 2020 atomic mass evaluation (II). Tables, graphs and references. *Chinese Physics C* **45**, 030003. — atomic masses (Table 1).
+- Wells, A. F. (1984). *Structural Inorganic Chemistry*, 5th edn. Clarendon Press, Oxford. — coordination numbers (Table 1).

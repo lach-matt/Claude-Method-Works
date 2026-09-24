@@ -1,4 +1,4 @@
-# Closure beyond the atom: the defect of an index, its zeros by theorem, and the electromagnetic quotient
+# Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient
 
 **The closure defect of an index on ordered coordinates is decided by the shape of its membership rule and not by its subject: the operator's fixed points are exactly the sublattices of the box, so every index whose rule is a conjunction of bimonotone inequalities — the atomic lattice among them — closes by theorem; the defects that remain are either forced by a hole in the value set of a difference or count nameable cells that the coordinates cannot exclude; the defect moves under a relabelling of one coordinate and cannot rise under fibring by a coordinate; and a selection rule acts on the atomic index as a quotient rather than as an added coordinate, closing or opening it according to the convexity of the value set it names.**
 
