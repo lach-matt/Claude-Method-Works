@@ -130,13 +130,13 @@ Every entry is positive, so no bound follows from the rest, and the ranking is i
 
 *Proof.* Computation over the box; the 24 are exhibited by their coordinates. ∎ **EXHAUSTIVE** (6,912 box points).
 
-**Lemma 3 (the constraint graph is a caterpillar).** Let G have the eight coordinates as nodes and one edge per bound, joining the two coordinates it names. Then G is connected with 8 nodes and 7 edges, hence a tree, with degree sequence 1,1,1,2,2,2,2,3: it is the path e — f — g — q — k — ℓ — n with 2S pendant at k, a caterpillar (Harary and Schwenk 1973). Orient each edge from the bounded coordinate to the bounding one — ℓ → n, k → ℓ, q → k, 2S → k, f → e, g → f, g → q — and the oriented graph has no directed cycle.
-
-*Proof.* Each of the seven bounds names exactly two coordinates, so G has exactly seven edges; a traversal from n reaches all eight nodes, so G is connected; a connected graph on 8 nodes with 7 edges is a tree. The degrees are read off the seven bounds, and removing the three leaves n, e and 2S leaves the path f — g — q — k — ℓ, so G is a caterpillar. A directed cycle in any orientation of G would be a cycle in G, and a tree has none. ∎ **PROVED** and **EXHAUSTIVE** (the graph is built from D2, traversed, and the orientation tested).
-
 ![](figures/fig1-constraint-tree.png)
 
 **Figure 1.** The constraint graph: eight coordinates, seven bounds, one edge per bound, each edge labelled with its inequality; the plate writes the two Pauli bounds as 2(2ℓ + 1) and 2(2f + 1), which are 4ℓ + 2 and 4f + 2. The graph is connected with seven edges on eight nodes, so it is a tree, and its degree sequence 1,1,1,2,2,2,2,3 makes it a caterpillar — a path of seven with one pendant, 2S at k. Every consequence in §4 and §5 is a consequence of that shape.
+
+**Lemma 3 (the constraint graph is a caterpillar).** Let G have the eight coordinates as nodes and one edge per bound, joining the two coordinates it names. Then G is connected with 8 nodes and 7 edges, hence a tree, with degree sequence 1,1,1,2,2,2,2,3: it is the path e — f — g — q — k — ℓ — n with 2S pendant at k, a caterpillar (Harary and Schwenk 1973). Orient each edge from the bounded coordinate to the bounding one — ℓ → n, k → ℓ, q → k, 2S → k, f → e, g → f, g → q — and the oriented graph has no directed cycle.
+
+*Proof.* Each of the seven bounds names exactly two coordinates, so G has exactly seven edges; a traversal from n reaches all eight nodes, so G is connected; a connected graph on 8 nodes with 7 edges is a tree. The degrees are read off the seven bounds, and removing the three leaves n, e and 2S leaves the path f — g — q — k — ℓ, so G is a caterpillar. A directed cycle in any orientation of G would be a cycle in G, and a tree has none. ∎ **PROVED** and **EXHAUSTIVE** (the graph is built from D2, traversed, and the orientation tested).
 
 ---
 
@@ -276,6 +276,10 @@ In particular d(x, x) = 1.
 
 *Proof.* Under D9 the exponent of pᵢ in ρ = N(x)/N(y) is exactly xᵢ − yᵢ, so the pᵢ-adic valuation of ρ has absolute value |xᵢ − yᵢ| and (5) = (2). The quotient lcm/gcd has exponent |xᵢ − yᵢ| at pᵢ, so its divisor count is ∏(|xᵢ−yᵢ|+1) and d as defined in D10 equals (2); the same exponent vector arises in (3) and in (4), since cancelling to lowest terms removes exactly the gcd. Finally the box interval [x ∧ y, x ∨ y] is the product of the intervals [min(xᵢ,yᵢ), max(xᵢ,yᵢ)], of lengths |xᵢ − yᵢ| + 1, so (1) = (2). With x = y every factor is 1 and the product is 1: a point has no volume, but it is one point and it counts itself. ∎ **PROVED**, and **EXHAUSTIVE** on all 475,800 pairs, zero disagreements among the five.
 
+![](figures/fig4-interval-measure.png)
+
+**Figure 4.** The interval measure — the plate's own title calls it the occupancy measure, the same d. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).
+
 **Theorem 11 (d is a multiplicative metric; log d is a metric).** For all x, y, z ∈ Λ: d(x,y) = d(y,x); d(x,y) ≥ 1 with equality iff x = y; and
 
 > d(x, z) ≤ d(x, y) · d(y, z).
@@ -289,10 +293,6 @@ Consequently log d is a metric on Λ, and it is the ℓ¹ metric of the per-axis
 Write u = |a − b|, v = |b − c|. The ordinary triangle inequality on ℤ gives |a − c| ≤ u + v, and (u+1)(v+1) = uv + u + v + 1 ≥ u + v + 1 because uv ≥ 0. So |a − c| + 1 ≤ u + v + 1 ≤ (u+1)(v+1). Taking the product over the eight coordinates gives d(x,z) ≤ d(x,y)d(y,z), since each factor on the left is bounded by the product of the corresponding two on the right. Taking logarithms turns the product into a sum and the multiplicative inequality into the additive one, so log d(x,y) = Σᵢ log(|xᵢ − yᵢ| + 1) is a sum of per-axis terms each satisfying the triangle inequality: an ℓ¹ metric — a metric on a poset of the kind surveyed by Monjardet (1981). ∎ **PROVED**; the one-coordinate inequality is **EXHAUSTIVE** over all 289 value triples drawn from the eight alphabets, and a **SAMPLED** sweep of 200,000 cell triples (seed 20260922) found no failure of the multiplicative form.
 
 Two features of the geometry follow from the form and are worth naming. A ball {y : d(x,y) ≤ D} is not a box: in two coordinates its boundary is the hyperbola (1 + Δ₁)(1 + Δ₂) = D. And each axis is a log-distorted chain — the first step costs log 2 = 0.6931 and the tenth costs log(11/10) = 0.0953 — so the measure is sensitive at short range and flat at long range, which is what a *count of cells* does and a difference does not.
-
-![](figures/fig4-interval-measure.png)
-
-**Figure 4.** The interval measure — the plate's own title calls it the occupancy measure, the same d. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).
 
 **Remark.** d measures the *box* between two cells, not the part of it that lies in Λ. The difference is the subject of §4.
 

@@ -193,9 +193,11 @@ SEED = 20260809
 
 
 def redundancy(X, d, seed=SEED):
-    """The largest fraction of cells removable, at random, with exact recovery by R in at least 8 of
-    10 trials (5 trials above 3,000 cells). Fractions are tried in increasing order and the sweep
-    stops at the first fraction that fails. SAMPLED: seeded pseudorandom, size stated."""
+    """The largest ladder rung removable, at random, with exact recovery by R in at least 8 of
+    10 trials. Rungs are tried in increasing order and the sweep stops at the first that fails;
+    when the first rung removes no cell (floor(0.05 N) = 0) no trial runs and the log is empty,
+    which the caller reports as 'below the ladder's resolution'. SAMPLED: seeded, size stated.
+    The protocol is a CONVENTION (D7 of the paper), not a property of the index."""
     rnd = random.Random(seed)
     X = sorted(set(X))
     N = len(X)
@@ -205,7 +207,7 @@ def redundancy(X, d, seed=SEED):
         k = int(N * frac)
         if k < 1 or N - k < d:
             break
-        T = 10 if N < 3000 else 5
+        T = 10
         ok = 0
         for _ in range(T):
             sample = rnd.sample(X, N - k)

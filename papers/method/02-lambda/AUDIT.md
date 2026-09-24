@@ -479,7 +479,7 @@ implementation. The abstract promises what the body delivers. What a referee wou
 | A-9 | MINOR | figures/fig5-caterpillar.png; PAPER.md 386 | plate's superscript garbled; arrow order is not Theorem 14's nesting | FIXED — Figure 7 is now computed by figures.py from the seven bounds: arrows in Theorem 14's nesting order from a coordinate to one whose range it bounds, leaf label (1 − zᵏ⁺¹)/(1 − z) set correctly; caption rewritten |
 | A-10 | MINOR | figures/fig1, fig5; PAPER.md 135, 386 | plates label 2(2ℓ+1), text 4ℓ+2 | FIXED — Figure 1's caption says the plate's 2(2ℓ + 1), 2(2f + 1) are 4ℓ + 2, 4f + 2; Figure 7 regenerated with 4ℓ + 2 and 4f + 2 |
 | A-11 | MINOR | figures/fig4; PAPER.md 290, 298 | "volume" means the count in D11 and the continuous volume on the plate | FIXED — D11 defines the size ∣[lo, hi]∣, the number of points; Figure 4's caption notes the plate's own title |
-| A-12 | MINOR | PDF p4–6, p9–10, p23–24 | Table 1 heading orphaned; Figures 1 and 3 split from captions; a §9 row split | FIXED in the paper without touching the template — every image is a pandoc figure with its caption as alt text (rendered as a figcaption beginning **Figure n.**, kept whole by the template's figure rule), every table carries its heading as a table caption, and Table 1 now follows D2; on the re-render every figure sits with its caption, no table heading is orphaned and no §9 row is split (the template's tr rule already holds); the residual cost is white space before a figure that moves whole to the next page (p6) |
+| A-12 | MINOR | PDF p4–6, p9–10, p23–24 | Table 1 heading orphaned; Figures 1 and 3 split from captions; a §9 row split | FIXED in the paper, in the §9 form (empty alt, caption paragraph **Figure n.** directly under the image; table headings as bold paragraphs before their tables) and without touching the template: Table 1 now follows D2, Figure 1 precedes Lemma 3 and Figure 4 precedes Theorem 11, so on the re-render every figure sits with its caption on one page (pp. 6, 8, 11, 13, 15, 17, 17, 21), every table heading with its table (pp. 4, 6, 9), and no §9 row is split (the template's tr rule holds). A first repair used pandoc figures with the caption as alt text and pandoc table captions; the coordinator ruled that non-conformant to §9 and lost on the site, and it was reverted |
 | A-13 | MINOR | figures/, FIGURES.tsv | file numbers ≠ figure numbers | FIXED — files renamed so figN is Figure N (fig2 rank sequence, fig3 generating poset, fig4 interval measure, fig5 void, fig7 caterpillar); figures.py and FIGURES.tsv follow |
 | A-14 | MINOR | PAPER.md 23 | "Measured" used as a run-in heading for EXHAUSTIVE counts | FIXED — "Counted, at the stated caps." |
 | R-1 | MAJOR | PAPER.md 155 | rank modularity called "the graded signature of distributivity" — it is modularity's | FIXED — the sentence now names modularity (Birkhoff 1940; Davey and Priestley 2002, CITED, with a CITED row), says distributivity is Theorem 3's, and that the pair test can refute but not establish it, with M₃ as the witness |
@@ -546,14 +546,19 @@ check line, with the main volume's own 48.5 % reproduced as 473/976. R-17: the m
 once, from the source's own reading (g is the number placed; the target begins empty; no coordinate for
 prior occupancy), and the three kinds of cell the reader asked about are named with their counts.
 
-**Typography.** Figures are pandoc figures (caption as alt text, rendered as a figcaption beginning
-**Figure n.**), tables carry their headings as captions, Table 1 follows D2; the one superscript Unicode
-lacks (zᵠ in Theorem 14) is an HTML superscript inside a display block. Every figure sits with its caption,
-no table heading is orphaned, no §9 row is split. The template `paper.html` was not edited.
+**Typography.** Every figure is in PAPER-SPEC.md §9's form — `![](figures/…)` with empty alt text and a
+caption paragraph beginning **Figure n.** directly under it — and every table heading is a bold paragraph
+before its table; an interim repair that carried captions as pandoc alt text and table captions was
+reverted on the coordinator's ruling (the site's image handler drops alt text, so a caption there is lost).
+Splits at page feet were removed by placement instead: Table 1 follows D2, Figure 1 precedes Lemma 3,
+Figure 4 precedes Theorem 11. On the final render (29 pages) every figure sits with its caption on one
+page, no caption or table heading is orphaned, no §9 row is split, and the pypdf text has 0 underscores,
+0 carets, 0 backslashes. The one superscript Unicode lacks (z to the q in Theorem 14) is an HTML
+superscript inside a display block. The template `paper.html` was not edited.
 
 **Unresolved, for the author.** (1) Whether "The Lattice of Subshell Transitions" is the title to keep.
 (2) The 200 cells with source = target and the 515 with g < q are carried as cells of the index, as the
 source carries them; the paper says the index does not decide which cells are physical transitions, and
-does not restrict the index. (3) The site's generator must render pandoc figures and table captions for
-the typography repairs to survive publication; if it renders only the plain image syntax, the captions
-revert to the alt attribute.
+does not restrict the index. (3) The figure placements that keep each caption with its image (Figure 1 before Lemma 3, Figure 4
+before Theorem 11) hold for this render; a template change of the kind A-12 proposes would make them
+robust to future edits.

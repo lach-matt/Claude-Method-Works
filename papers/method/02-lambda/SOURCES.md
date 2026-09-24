@@ -141,10 +141,11 @@ where each new number comes from.
 - §9: rebuilt from the 77-row run; the families paragraph adds 9,216 and 929,714,176; the
   not-machine-checked paragraph says how the grading is tested at the base caps and licensed at the
   further ones.
-- Typography: every figure is a pandoc figure whose caption is the alt text (rendered as a figcaption
-  beginning **Figure n.**), and every table carries its heading as a table caption, so the render
-  keeps each with its image or table (A-12); the file names in `figures/` match the figure numbers
-  (A-13).
+- Typography: figures stay in PAPER-SPEC.md §9's form (empty alt text, caption paragraph beginning
+  **Figure n.** under the image) and table headings as bold paragraphs; page-foot splits were removed
+  by placement — Table 1 follows D2, Figure 1 precedes Lemma 3, Figure 4 precedes Theorem 11 (A-12).
+  An interim pandoc-figure/alt-text form was reverted on the coordinator's ruling. The file names in
+  `figures/` match the figure numbers (A-13).
 
 **Figures.** `fig5-caterpillar.png`, the archival plate `restore-point-2-13/figures/fig07.png`, is
 replaced by a computed `fig7-caterpillar.png` drawn by `figures.py` from `check.py`'s CONSTRAINTS: the
