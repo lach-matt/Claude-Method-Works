@@ -445,6 +445,10 @@ def compute(quiet=False):
     # n + l = 2n - p - 1 on every subshell of the frame
     bad = [(n, l) for n in range(1, 16) for l in range(0, min(4, n - 1) + 1) if n + l != 2 * n - (n - l - 1) - 1]
     rep("EXHAUSTIVE", "n + l = 2n - p - 1 on every subshell n <= 15, l <= 4", not bad)
+    # no tabulated configuration occupies a g subshell, so 5g (node-free, capacity 18) is admissible at every step
+    gocc = [Z for Z in range(1, 109) if any(l >= 4 and o > 0 for n, l, o in G.expand(Z))]
+    rep("EXHAUSTIVE", "no ground configuration Z <= 108 occupies a subshell with l >= 4; 5g admissible at every step",
+        not gocc and all(occ(Z - 1).get((5, 4), 0) < cap(4) for Z in STEPS))
 
     # 1. corridors and hulls at every step, both forms, three routes
     say("\n1  THE CORRIDOR AND THE HULL AT EVERY STEP, THREE ROUTES")
@@ -852,6 +856,7 @@ def compute(quiet=False):
         where = [i for c, i in cov if c == best]
         span = [(None if i == 0 else es[i - 1], None if i == len(es) else es[i]) for i in where]
         NUM["cover_" + form] = (best, [("−∞" if a is None else closed(a), "+∞" if b is None else closed(b)) for a, b in span])
+        out.setdefault("cover", {})[form] = (best, span)       # the band as surds, for figures.py
         rep("EXHAUSTIVE", "form %s: best coverage by one fixed slope, exactly" % form, True,
             "%d of 106 on %s" % (best, NUM["cover_" + form][1]))
     rep("EXHAUSTIVE", "node-only: fourteen emptyings at 37 42 43 45 55 58 64 65 80 91 96 97 103 104",
@@ -885,6 +890,10 @@ def compute(quiet=False):
             kmiss.append(Z)
     NUM["kscore"], NUM["kmiss"] = kscore, kmiss
     rep("EXHAUSTIVE", "the memoryless least-(n+l, n) rule", True, "%d of 106, misses %s" % (kscore, kmiss))
+    for form in ("p", "q"):
+        notv = [Z for Z in STEPS if min(step(Z, form)[1], key=lambda s: (s[0] + s[1], s[0])) not in out["A"][form][Z]]
+        rep("EXHAUSTIVE", "form %s: the least-(n+l, n) pick is a hull vertex at every step" % form, not notv, "not at %s" % notv)
+        NUM["kpick_vertex_" + form] = notv
 
     # 8. the seated instrument, imported: its corridors and hulls against the fresh ones
     say("\n8  THE SEATED INSTRUMENT")
@@ -1088,15 +1097,21 @@ def negative_controls():
 
 
 def table(out):
+    """The 106 node-only corridors with the two hull vertices flanking the entrant, whose edge
+    slopes the check has verified to BE the endpoints (section 1)."""
     ents = out["entrant"]
-    print("| Z | element | entrant | p | L | U | L (7 dp) | U (7 dp) |")
-    print("|---|---|---|---|---|---|---|---|")
+    print("| Z | element | entrant | p | u | L | U | w | L (7 dp) | U (7 dp) |")
+    print("|---|---|---|---|---|---|---|---|---|---|")
     for Z in STEPS:
         lo, hi, _ = out["cor"]["p"][Z]
         e = ents[Z]
-        print("| %d | %s | %s | %d | %s | %s | %s | %s |" % (
-            Z, G.GROUND[Z][0], name(e), e[0] - e[1] - 1,
-            "−∞" if lo is None else closed(lo), "+∞" if hi is None else closed(hi),
+        H = out["hull"]["p"][Z]
+        k = H.index(e)
+        u = "—" if k == 0 else name(H[k - 1])
+        w = "—" if k == len(H) - 1 else name(H[k + 1])
+        print("| %d | %s | %s | %d | %s | %s | %s | %s | %s | %s |" % (
+            Z, G.GROUND[Z][0], name(e), e[0] - e[1] - 1, u,
+            "−∞" if lo is None else closed(lo), "+∞" if hi is None else closed(hi), w,
             "" if lo is None else dec7(lo), "" if hi is None else dec7(hi)))
 
 

@@ -113,11 +113,12 @@ def fig2(out):
     """The 106 corridors as intervals on the slope axis, with the 19 endpoints."""
     cor = out["cor"]["p"]
     ends = sorted(float(check.val(dict(d))) for d, v in out["ends"]["p"])
-    best, spans = check.NUM["cover_p"]
+    best, spans = out["cover"]["p"]          # the band as surds; drawn at their decimal value
     fig, ax = plt.subplots(figsize=(9.0, 6.6))
     XMIN, XMAX = -0.35, 5.35
     for g0, g1 in spans:
-        ax.axvspan(g0, g1, color=ORANGE, alpha=0.16, lw=0, zorder=0)
+        ax.axvspan(XMIN if g0 is None else float(check.val(g0)), XMAX if g1 is None else float(check.val(g1)),
+                   color=ORANGE, alpha=0.16, lw=0, zorder=0)
     ax.grid(axis="x", visible=False)
     for e in ends:
         ax.axvline(e, color="#c4c2bd", lw=0.9, zorder=1)

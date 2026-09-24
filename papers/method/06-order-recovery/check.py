@@ -443,7 +443,7 @@ def section_lambda():
 
 
 def section_amplification(cells):
-    print("\nM. The cost of one fabricated cell, over every ambient non-cell (reference closure: op_order)")
+    print("\nM. The cost of one fabricated cell (paper 7.3), over every ambient non-cell (reference closure: op_order)")
     t = time.time()
     d = 8
     L = set(cells)
@@ -532,7 +532,7 @@ def pair_fault(X, d):
 
 def section_closure():
     """The closure theorem and the diagnostic split, over EVERY subset of each box."""
-    print("\nB. Closure and its defect: R-fixed = sublattice, and the diagnostic split")
+    print("\nB. Closure and its defect (Theorem 1, Theorem 6): R-fixed = sublattice, and the diagnostic split")
     rows = []
     for shape in [(3, 3), (2, 4), (2, 2, 2), (2, 2, 3), (2, 2, 2, 2)]:
         t = time.time()
@@ -735,7 +735,7 @@ def guards():
 
 
 def section_one_axis():
-    print("\nD. One-axis order recovery (Theorem 1) -- Z3 over every X and every total order on axis 0")
+    print("\nD. One-axis order recovery (Theorem 2) -- Z3 over every X and every total order on axis 0")
     boxes = [(3, 3), (4, 4), (2, 2, 3), (3, 3, 3)]
     rows = []
     for shape in boxes:
@@ -758,10 +758,10 @@ def section_one_axis():
                              for u in A0 for v in A0 for w in A0 if len({u, v, w}) == 3])
         cl_star = enc_closed_s(X, sstar, cells, 0)
         obl = [
-            ("1(a) P is transitive", z3.Implies(obs, transP)),
-            ("1(b) closed under s  =>  P reflexive and s in P", z3.Implies(z3.And(obs, order, cl), z3.And(refl, sub))),
-            ("1(b) P reflexive and s in P  =>  closed under s", z3.Implies(z3.And(obs, order, refl, sub), cl)),
-            ("1(c) P total preorder  =>  s* is a total order and X closed under s*",
+            ("2(a) P is transitive", z3.Implies(obs, transP)),
+            ("2(b) closed under s  =>  P reflexive and s in P", z3.Implies(z3.And(obs, order, cl), z3.And(refl, sub))),
+            ("2(b) P reflexive and s in P  =>  closed under s", z3.Implies(z3.And(obs, order, refl, sub), cl)),
+            ("2(c) P total preorder  =>  s* is a total order and X closed under s*",
              z3.Implies(z3.And(obs, refl, total), z3.And(star_order, cl_star))),
         ]
         allok = True
@@ -782,7 +782,7 @@ def section_one_axis():
 
 
 def section_interval_characterisation():
-    print("\nE. The fibre characterisation at d = 2 (Theorem 2) -- Z3 over every X and every order on axis 0")
+    print("\nE. The fibre characterisation at d = 2 (Theorem 3) -- Z3 over every X and every order on axis 0")
     rows = []
     for shape in [(3, 3), (4, 4), (3, 5), (5, 4)]:
         t = time.time()
@@ -809,7 +809,7 @@ def section_interval_characterisation():
 
 
 def section_interval_lemma():
-    print("\nF. The nesting lemma (Lemma 4), exhaustive over every set of 2..4 distinct intervals on 2..5 points")
+    print("\nF. The nesting lemma (Lemma 5), exhaustive over every set of 2..4 distinct intervals on 2..5 points")
 
     def intervals(n):
         return [(a, b) for a in range(n) for b in range(a, n)]
@@ -848,7 +848,7 @@ def section_interval_lemma():
 def section_census():
     """Every subset of each box: closed under the natural order, reorderable, the step, the largest
     proper reorderable subset of the full box.  Bitmask arrays, one bit per cell."""
-    print("\nG. Reorderability census, every subset of each box")
+    print("\nG. Reorderability census (Table 2, Figure 4), every subset of each box")
     boxes = [(2, 2), (2, 3), (2, 4), (3, 3), (3, 4), (4, 4), (2, 2, 2), (2, 2, 3), (2, 3, 3), (2, 2, 2, 2)]
     rows = []
     CENSUS = {}
@@ -911,7 +911,8 @@ def section_census():
         proper = np.nonzero(reord & (masks != full))[0]
         maxproper = int(popc[proper].max())
         row = dict(box=list(shape), subsets=1 << N, orderings=len(perms_list), closed_natural_observed=int((closed & obs).sum()),
-                   reorderable_observed=int((reord & obs).sum()), reorderable_all=int(reord.sum()), step=step,
+                   reorderable_observed=int((reord & obs).sum()), reorderable_all=int(reord.sum()),
+                   fraction_reorderable=round(int(reord.sum()) / (1 << N), 3), step=step,
                    step_attained_at_full_box=(step_at == full), max_proper_reorderable=maxproper,
                    three_quarters=(maxproper == 3 * (1 << N) // 4) if all(n == 2 for n in shape) else None,
                    seconds=round(time.time() - t, 1))
@@ -927,7 +928,7 @@ def section_census():
 def section_projection_gap(CENSUS):
     """Pointwise is not enough: every PAIR PROJECTION reorderable, and X not.  Exhaustive over
     every observed subset of each box, with the smallest witness printed."""
-    print("\nH2. Every pair projection reorderable does not make X reorderable")
+    print("\nH2. Pointwise is not enough (paper 4.1): every pair projection reorderable does not make X reorderable")
     rows = []
     for shape in [(2, 2, 2), (2, 2, 3), (2, 2, 2, 2)]:
         t = time.time()
@@ -958,7 +959,7 @@ def section_projection_gap(CENSUS):
 
 
 def section_d2_algorithm(CENSUS):
-    print("\nH. The d = 2 decision by root enumeration + Theorem 1, against the brute-force census")
+    print("\nH. The d = 2 decision DECIDE2 by root enumeration + Theorem 2, against the brute-force census")
     rows = []
     for shape in [(2, 3), (2, 4), (3, 3), (3, 4), (4, 4)]:
         t = time.time()
@@ -984,7 +985,7 @@ def section_d2_algorithm(CENSUS):
 
 
 def section_tree(CENSUS, lam976, lam216, TREE):
-    print("\nI. Tree propagation (Theorem 3): every solution, against brute force, on every tree-structured subset")
+    print("\nI. Tree propagation RECOVER (Theorem 5): every solution, against brute force, on every tree-structured subset")
     rows = []
     families = [((2, 2, 3), [(0, 1), (1, 2)], "path"), ((2, 3, 3), [(0, 1), (1, 2)], "path"),
                 ((2, 2, 2, 2), [(0, 1), (1, 2), (2, 3)], "path"), ((2, 2, 2, 2), [(0, 1), (0, 2), (0, 3)], "star")]
@@ -1065,7 +1066,7 @@ def section_tree(CENSUS, lam976, lam216, TREE):
 
 
 def section_removal():
-    print("\nJ. Interval removal (Lemma 5) -- Z3 over every sublattice S of the box and every a <= b")
+    print("\nJ. Interval removal (Lemma 9) -- Z3 over every sublattice S of the box and every a <= b")
     rows = []
     for shape in [(3, 3), (2, 2, 2), (2, 2, 3)]:
         t = time.time()
@@ -1119,7 +1120,7 @@ def section_removal():
 
 
 def section_arity():
-    print("\nK. The arity law: pair constraints, their difference relations, and bijunctivity")
+    print("\nK. The arity law (Lemmas 6-7, Theorems 7-8): pair constraints, their difference relations, and bijunctivity")
     # every difference relation containing 0 arises (Theorem 5), and the census of what arises
     rows = []
     for shape in [(2, 2, 2), (2, 2, 2, 2)]:
@@ -1237,7 +1238,7 @@ def majority_closed(T, m):
 
 
 def section_rank_lemma():
-    print("\nL. The counting lemma (Lemma 6): rank of a Jacobian never exceeds either dimension (exact arithmetic)")
+    print("\nL. The counting lemma (Lemma 8): rank of a Jacobian never exceeds either dimension (exact arithmetic)")
     # A sampled corroboration in exact rationals: random integer polynomial maps p -> q, Jacobian at
     # a rational point, rank by Fraction Gaussian elimination; the defect dim q - rank >= dim q - dim p
     rnd = random.Random(3)

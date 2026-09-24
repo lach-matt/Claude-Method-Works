@@ -2,13 +2,13 @@
 
 **A finite index is closed only relative to an order on each of its coordinates; when those orders are unknown it is decidable whether any of them closes the index, the orders are then recoverable — exactly at two coordinates by the totality of a "may precede" relation, and in general by propagation along the constraint tree — and the arity of the constraint system, the number of coordinates on which two cells differ, is what bounds the cost.**
 
-**Matthew Lach** · Independent Researcher · 21 September 2026
+**Matthew Lach** · Independent Researcher · 24 September 2026
 
 ---
 
 ## Abstract
 
-A finite index is a set of tuples over finite alphabets. It is *closed* when it contains the coordinatewise meet and join of any two of its cells — but meet and join are defined only once each alphabet has been given a linear order, so closure is a property of the pair (index, ordering) and never of the index alone. This paper asks what an index can say about its own ordering. Three results answer it. First, closure is equivalent to the vanishing of the staircase defect E: an index is closed exactly when it is the fixed point of its own monotone envelopes, which gives an index its alphabet, its bounds and its membership test from its cells alone. Second, define `u ⊑ v` on one coordinate when every meet of a cell over u with a cell over v lies over u and every join lies over v. The relation ⊑ is transitive for every index whatever, and an order `s` on that coordinate closes the index exactly when ⊑ is reflexive and contains `s`; so the index is closable on that coordinate exactly when ⊑ is a total preorder, and the admissible orders are precisely the linear extensions of ⊑. At two coordinates this is a complete criterion, equivalent to the statement that every fibre is an interval and no fibre nests strictly inside another. Above two coordinates the pointwise criterion is necessary and not sufficient, but when the constraint graph is a tree the joint condition factorises over its edges, and a dynamic program rooted anywhere recovers every admissible ordering system at a cost of one alphabet's permutations rather than the product of them all. Third, with all orders unknown the problem is a constraint system on orientation variables whose constraints are invariant under reversing all their own orientations; such a constraint depends only on exclusive-or differences and therefore on `k − 1` variables when the two cells differ on `k` coordinates. Every difference relation containing the origin arises, all of them are closed under the ternary majority for `k ≤ 3`, and 55 of the 128 arising at `k = 4` are not — with an explicit six-cell witness. The growth step of the reorderable family is `2^(d−2)`, and at the Boolean box that value is proved from a tight bound on proper sublattices: `3·2^(d−2)`, three quarters. Every finite claim is recomputed: 87 obligations, 29 of them machine-checked by Z3 over every subset of a named box and, where an order is unknown, over every total order on the named coordinate. The electron-configuration index Λ is the worked case throughout; its eight orders are recovered from a bag of 976 cells with all eight alphabets independently permuted, and the recovery is exact up to the 16 orderings that admit Λ at all, out of 11,943,936.
+A finite index is a set of tuples over finite alphabets. It is *closed* when it contains the coordinatewise meet and join of any two of its cells — but meet and join are defined only once each alphabet has been given a linear order, so closure is a property of the pair (index, ordering) and never of the index alone. This paper asks what an index can say about its own ordering. Three results answer it. First, closure is equivalent to the vanishing of the staircase defect E: an index is closed exactly when it is the fixed point of its own monotone envelopes, which gives an index its alphabet, its bounds and its membership test from its cells alone. Second, define `u ⊑ v` on one coordinate when every meet of a cell over u with a cell over v lies over u and every join lies over v. The relation ⊑ is transitive for every index whatever, and an order `s` on that coordinate closes the index exactly when ⊑ is reflexive and contains `s`; so the index is closable on that coordinate exactly when ⊑ is a total preorder, and the admissible orders are precisely the linear extensions of ⊑. At two coordinates this is a complete criterion, equivalent to the statement that every fibre is an interval and no fibre nests strictly inside another. Above two coordinates the pointwise criterion is necessary and not sufficient, but when the constraint graph is a tree the joint condition factorises over its edges, and a dynamic program rooted anywhere recovers every admissible ordering system at a cost of one alphabet's permutations rather than the product of them all. Third, with all orders unknown the problem is a constraint system on orientation variables whose constraints are invariant under reversing all their own orientations; such a constraint depends only on exclusive-or differences and therefore on `k − 1` variables when the two cells differ on `k` coordinates. Every difference relation containing the origin arises, all of them are closed under the ternary majority for `k ≤ 3`, and 55 of the 128 arising at `k = 4` are not — with an explicit six-cell witness. The growth step of the reorderable family is `2^(d−2)`, and at the Boolean box that value is proved from a tight bound on proper sublattices: `3·2^(d−2)`, three quarters. Every finite claim is recomputed: 90 obligations, 29 of them machine-checked by Z3 over every subset of a named box and, where an order is unknown, over every total order on the named coordinate. The electron-configuration index Λ is the worked case throughout; its eight orders are recovered from a bag of 976 cells with all eight alphabets independently permuted, and the recovery is exact up to the 16 orderings that admit Λ at all, out of 11,943,936.
 
 ---
 
@@ -26,7 +26,7 @@ An index is a finite set `X` of tuples. Write `A_i` for the set of values its i-
 
 3. **Two coordinates: a complete criterion** (Theorem 3, PROVED and MACHINE-CHECKED over boxes 3×3, 4×4, 3×5 and 5×4; Lemma 5 EXHAUSTIVE over 2,354 families). At `d = 2`, `X` is closed under `s` if and only if every fibre is an interval of the other chain and both endpoints are non-decreasing along `s`. A family of intervals admits such an order if and only if no interval nests **strictly** inside another; sorting by left endpoint, ties by right, decides it. *Strictly* is load-bearing: reading it as ordinary containment refutes the lemma on 1,098 of the 2,354 families.
 
-4. **Above two coordinates, propagation** (Theorem 6, PROVED; EXHAUSTIVE on 7,486 tree-structured subsets and 362,144 scrambles). Being closable on every coordinate separately is necessary and not sufficient. But when `X` is the intersection of the cylinders over the projections onto the edges of a tree, closure factorises: `X` is closed under an ordering system if and only if every edge projection is. A dynamic program rooted at any coordinate then returns **every** admissible ordering system, trying `|A_r|!` orders at the root and solving each subsequent coordinate by Theorem 2. On Λ that is 6 root orders against `∏_i |A_i|! = 11,943,936`.
+4. **Above two coordinates, propagation** (Theorems 4 and 5, PROVED; EXHAUSTIVE on 7,486 tree-structured subsets and 362,144 scrambles). Every pair projection being reorderable is necessary and not sufficient: the three unit vectors of `{0,1}³` refute the converse, and the refutation is proved, not merely found (§4.1). But when `X` is the intersection of the cylinders over the projections onto the edges of a tree, closure factorises: `X` is closed under an ordering system if and only if every edge projection is. A dynamic program rooted at any coordinate then returns **every** admissible ordering system, trying `|A_r|!` orders at the root and solving each subsequent coordinate by Theorem 2. On Λ that is 6 root orders against `∏_i |A_i|! = 11,943,936`.
 
 5. **The reorderability law** (Theorem 8, PROVED; EXHAUSTIVE on 1,967,872 pair constraints and on every relation of four arities). With every order unknown, the decision is a constraint system on orientation variables. Every constraint is invariant under reversing all of its own orientations, so it depends only on exclusive-or differences: a pair of cells differing on `k` coordinates imposes a relation on `k − 1` difference variables containing the origin. Every such relation arises. For `k ≤ 3` all of them — 2 at `k = 2`, 8 at `k = 3` — are closed under the ternary majority and are therefore expressible by two-clauses; at `k = 4`, 55 of the 128 are not, and one is exhibited. Since `k ≤ d` and `k = d` is attained, **the first non-bijunctive constraint appears at `d = 4` and not before.**
 
@@ -37,7 +37,7 @@ An index is a finite set `X` of tuples. Write `A_i` for the set of values its i-
 - **No hardness result.** The constraint language leaves the bijunctive class at arity 4, and a relation equivalent to exactly-one-of-three under translation and complement arises there. That places the *language* outside Schaefer's tractable classes. It does **not** show that deciding reorderability is NP-hard: that would require a reduction realising arbitrary instances of such a language as pairs of cells of an index, and no such reduction is given here. The gap is named and left open (§6.5).
 - **The step law above `d = 4`.** The census is exhaustive at `d ≤ 4`. At `d = 5` and `d = 6` only the value at the full box is established, from the sublattice bound; the maximum over all reorderable sets at those dimensions is not computed.
 - **The general bound on proper sublattices** is proved here for the Boolean box only. For an arbitrary finite distributive lattice the literature's bound is three halves (Rival 1973), CITED, and the Boolean case is tighter.
-- **The diagnostic is a decomposition, not a repair.** Theorem 4 says that a defect with no pairwise witness must have a ternary one, and names it. It does not say which re-coordinatisation removes a defect, only that reorderability decides the one operation of relabelling.
+- **The diagnostic is a decomposition, not a repair.** Theorem 6 says that a defect with no pairwise witness must have a ternary one, and names it. It does not say which re-coordinatisation removes a defect, only that reorderability decides the one operation of relabelling.
 - **Λ's recovery is exact up to the orderings that admit Λ at all.** There are 16 of them. Over 20 seeded scrambles at each of two cap settings the recovery returned an admissible ordering 20 times out of 20 — but the *true* ordering or its reverse only 3 times out of 20 at the larger setting and 0 of 20 at the smaller. An index determines its order only up to the orderings under which it is closed, and that is the correct statement of what is recovered.
 
 **Status words.** Six are used and never merged.
@@ -61,7 +61,7 @@ A machine-checked claim names its box. A sampled figure names its size and seed.
 
 The convention `A_i = { x_i : x ∈ X }` is not cosmetic. Two of the results below — the interval property of Theorem 3 and the transitivity of ⊑ in Theorem 2 — are false without it, and §2.4 exhibits why.
 
-**D2 (an ordering of a coordinate; an ordering system).** An **ordering** of coordinate `i` is a linear order `s_i` on `A_i`, equivalently a bijection `rank_i : A_i → {0, …, |A_i| − 1}`. An **ordering system** is a tuple `s = (s_1, …, s_d)`, one ordering per coordinate. An ordering system makes each `A_i` a chain and the ambient box the product of those chains, which is a finite distributive lattice under
+**D2 (an ordering of a coordinate; an ordering system).** An **ordering** of coordinate `i` is a linear order `s_i` on `A_i`, equivalently a bijection `rank_i : A_i → {0, …, |A_i| − 1}`. An **ordering system** is a tuple `s = (s_1, …, s_d)`, one ordering per coordinate. An ordering system makes each `A_i` a chain and the ambient box the product of those chains, which is a finite distributive lattice (Davey and Priestley 2002, CITED) under
 
 > `(x ∧_s y)_i = the s_i-smaller of x_i and y_i`,  `(x ∨_s y)_i = the s_i-larger`.
 
@@ -77,7 +77,7 @@ the maximum and the comparison taken in the given ordering. The **recovery opera
 
 > `ℛ(X) = { x ∈ A_1 × … × A_d : x_i ≤ φ_ij(x_j) for all i ≠ j }`,
 
-and the **defect** is `E(X) = |ℛ(X)| − |X|`. That ℛ is extensive, monotone and idempotent — a closure operator in the sense of Moore (1910) and Ward (1942), CITED — and that its constraints are the monotone staircases of Deville, Barette and Van Hentenryck (1999), CITED, are stated and proved in the companion paper on the closure law and are not re-derived here. What this paper needs of ℛ is `X ⊆ ℛ(X)`, which is immediate (`x ∈ X` gives `x_i ≤ φ_ij(x_j)` by taking the witness `x` itself), and Theorem 1.
+and the **defect** is `E(X) = |ℛ(X)| − |X|`. That ℛ is extensive, monotone and idempotent — a closure operator in the sense of Moore (1910) and Ward (1942), CITED — and that its constraints are the monotone staircases of Deville, Barette and Van Hentenryck (1999) and the row-convex constraints of van Beek and Dechter (1995), CITED, are stated and proved in the companion paper on the closure law and are not re-derived here. What this paper needs of ℛ is `X ⊆ ℛ(X)`, which is immediate (`x ∈ X` gives `x_i ≤ φ_ij(x_j)` by taking the witness `x` itself), and Theorem 1.
 
 **D5 (fibre).** For a coordinate `i` and a value `u ∈ A_i`, the **fibre** over `u` is
 
@@ -109,7 +109,7 @@ that is, if `X` is exactly the intersection of the cylinders over its `T`-edge p
 
 **D11 (the growth step).** For a reorderable `Y` with `|Y| ≥ 2`, let `drop(Y)` be the least `k ≥ 1` such that some subset of `Y` of size `|Y| − k` is reorderable. For a box `B`, the **growth step** `step(B)` is the maximum of `drop(Y)` over all reorderable `Y ⊆ B` with `|Y| ≥ 2`. It is the largest jump that a procedure growing the reorderable family one cell at a time must be prepared to take.
 
-**Notation.** `d` is the number of coordinates; `x ≤ y` between tuples means `x_i ≤ y_i` for all `i`. The **median** of three cells is `m(x,y,z) = (x∧y) ∨ (y∧z) ∨ (z∧x)`, taken coordinatewise. `Λ` denotes the electron-configuration index of §7, and `|A_i|` its alphabet sizes.
+**Notation.** `d` is the number of coordinates; `x ≤ y` between tuples means `x_i ≤ y_i` for all `i`. The **median** of three cells is `m(x,y,z) = (x∧y) ∨ (y∧z) ∨ (z∧x)`, taken coordinatewise. Two tuples are at **Hamming distance** `k` when they differ in exactly `k` coordinates. In a closed `X`, a cell `a` is **join-irreducible** if it is not the join of two cells strictly below it (the bottom cell, having none, is counted), and **join-prime** if `a ≤ x ∨ y` with `x, y ∈ X` implies `a ≤ x` or `a ≤ y`; **meet-irreducible** and **meet-prime** are the duals. A sublattice of a product of chains is distributive, and in a distributive lattice the irreducible and the prime elements coincide (Birkhoff 1967, CITED). `Λ` denotes the electron-configuration index of §5, and `|A_i|` its alphabet sizes.
 
 ---
 
@@ -149,7 +149,7 @@ and by Steps 1 and 2 each `ℛ₂(π_ij(X)) = π_ij(X)`. Hence `ℛ(X)` is the s
 
 *Step 4: a sublattice is determined by its pair projections.* Each chain `A_i`, as a lattice, satisfies the majority identities for the median term `m(x,y,z) = (x∧y)∨(y∧z)∨(z∧x)`: `m(x,x,y) = x ∨ (x∧y) = x` by absorption, and the other two arguments by symmetry of the expression. `X` is a sublattice of `∏_i A_i` and hence closed under `m`. By the theorem of Baker and Pixley (1975), CITED — an algebra with a majority term has the property that every subalgebra of a finite product is the intersection of the cylinders over its two-fold projections — `X` equals that intersection. Combining with Step 3, `ℛ(X) = X`, so `E(X) = 0`. ∎
 
-**EXHAUSTIVE.** The equivalence, and the identification of `ℛ(X)` with the pair-projection intersection when `E = 0`, were checked on **every** subset of the boxes 3×3, 2×4, 2×2×2, 2×2×3 and 2×2×2×2 with at least two cells — 502, 247, 247, 4,083 and 65,519 subsets, **70,598** in all, no disagreement and no failure. The envelope computation was checked cell for cell against an independent implementation on 120 further instances (§8, guard (c)).
+**EXHAUSTIVE.** The equivalence, and the identification of `ℛ(X)` with the pair-projection intersection when `E = 0`, were checked on **every** subset of the boxes 3×3, 2×4, 2×2×2, 2×2×3 and 2×2×2×2 with at least two cells — 502, 247, 247, 4,083 and 65,519 subsets, **70,598** in all, no disagreement and no failure. The envelope computation was checked cell for cell against an independent implementation on 120 further instances (§8, guard (d)).
 
 **Corollary 1 (self-expression, and totality).** If `X` is closed then
 
@@ -254,6 +254,8 @@ Say the interval `I` **nests strictly** inside `J` when `lo(J) < lo(I)` and `hi(
 
 **REFUTATION (the qualifier is not decoration).** Reading "nests" as ordinary containment — `I ⊆ J`, `I ≠ J` — makes the lemma false on **1,098** of the same 2,354 families. An interval sharing an endpoint with its container does not nest strictly, and the family `{ [0,1], [0,2] }` is monotone in the order given while being nested in the weak sense.
 
+The families of Lemma 5 are the interval systems of the consecutive-ones literature — Booth and Lueker (1976), Tucker (1972), CITED — but the question asked of them here is narrower than recognition, and one sort settles it.
+
 ### 3.3 The decision at two coordinates, with both orders unknown
 
 **Theorem 3** and **Lemma 5** together decide reorderability at `d = 2` when one order is fixed: the fibres must be intervals, and no fibre may nest strictly inside another; the sort then produces the order. When **both** orders are unknown, one enumerates the orders of the smaller alphabet and applies Theorem 2 to the other.
@@ -266,15 +268,21 @@ Correctness is Theorem 2(c) applied to the coordinate `1` for a fixed `s_0`, tog
 
 ![Figure 1](figures/fig1-example.png)
 
-**Figure 1.** A 13-cell index in the 5 × 4 box, built with `lo = (0,0,0,1,2)` and `hi = (1,2,2,3,3)`, then relabelled on both coordinates, then recovered. Left: as built; every fibre is an interval and both endpoints are non-decreasing (Theorem 3). Centre left: the same thirteen cells after both alphabets are independently permuted. Centre right: the may-precede relation on the first coordinate at the recovered order of the second — a total preorder with one tie, drawn as the one pair of opposed arrows. Right: recovered. Four of the 2,880 ordering systems admit this index: the tie contributes a factor of two and reversing every coordinate contributes the other.
+**Figure 1.** A 13-cell index in the 5 × 4 box, built with `lo = (0,0,0,1,2)` and `hi = (1,2,2,3,3)`, then relabelled on both coordinates, then recovered. Left: as built; every fibre is an interval and both endpoints are non-decreasing (Theorem 3). Centre left: the same thirteen cells after both alphabets are independently permuted. Centre right: the may-precede relation on the first coordinate at the recovered order of the second — a total preorder with one tie, drawn as the one pair of opposed arrows. Right: recovered — the ordering system returned is the reverse of the one the index was built with, which is admissible by D3 and is what the cells determine. Four of the 2,880 ordering systems admit this index: the tie contributes a factor of two and reversing every coordinate contributes the other.
 
 ---
 
 ## §4 · Above two coordinates
 
-### 4.1 Coordinatewise is not enough
+### 4.1 Pointwise is not enough
 
-Being closable on each coordinate separately does not make an index reorderable. This is visible in the census of §6.3: at the box 2×2×2 there are 158 reorderable subsets of 256, and at 2×3×3, 20,068 of 262,144 — while the pointwise criterion of Theorem 2, applied one coordinate at a time with the others held at some order, cannot see an incompatibility between the demands of two different coordinates. The obstruction is not an artefact of the criterion. Closure is a `d`-dimensional condition: Theorem 1 Step 4 shows that a *closed* set is recovered from its pair projections, but the converse is exactly what fails for a set that is not closed, and §4.4 measures how often.
+Every pair projection of a reorderable index is reorderable (Theorem 1, Step 1, applied under the admissible ordering system). The converse fails, and the failure is not an artefact of any criterion: closure is a `d`-dimensional condition, and Theorem 1 Step 4 recovers a *closed* set from its pair projections exactly because it is closed.
+
+**REFUTATION, with the witness proved.** Let `X = { 100, 010, 001 } ⊆ {0,1}³`, the three unit vectors. Every value of every coordinate is used. Each pair projection is a three-element subset of `{0,1}²`, and every such subset is reorderable: flipping one coordinate if necessary carries the omitted point to `01`, and `{ 00, 10, 11 } = { x : x_1 ≤ x_0 }` is a sublattice. Yet `X` is closed under no ordering system.
+
+*Proof.* An ordering of a two-value alphabet is the identity or the transposition, so an ordering system on `{0,1}³` is a pattern of coordinate flips, and it carries `X` to three cells `x′, y′, z′` that are still pairwise at Hamming distance two. Take `x′` and `y′`. They agree on exactly one coordinate, `c`, and differ on the other two, so their meet and join are the two remaining vertices of the square on which they differ: both distinct from `x′` and `y′`, distinct from each other, and both agreeing with `x′` and `y′` on `c`. The third cell `z′` differs from `x′` on `c` — before the flips, `z` is the unit vector supported on `c` — so neither the meet nor the join is `z′`. Closure would require two cells outside `X`. ∎
+
+**EXHAUSTIVE.** Over every subset of three boxes that uses every value of every alphabet — **193** of 2×2×2, **3,271** of 2×2×3 and **63,775** of 2×2×2×2 — every pair projection of every one is reorderable, while **98**, **2,460** and **61,462** of them respectively are not. In these boxes the pair criterion excludes nothing at all, because every subset of a 2×2 or a 2×3 box is reorderable (Table 2: 16 of 16 and 64 of 64), and the smallest non-reorderable subsets the census finds are the three unit vectors above, `{ 001, 002, 010, 100 }` in 2×2×3, and `{ 0011, 0100, 1000 }` in 2×2×2×2. What restores the pointwise reading is a hypothesis on the constraint graph, and Theorem 4 states it; §4.4 measures how the failure splits when the hypothesis is absent.
 
 ### 4.2 Tree structure, and why it restores the pointwise reading
 
@@ -286,7 +294,7 @@ Being closable on each coordinate separately does not make an index reorderable.
 
 **(⇐)** Let `x, y ∈ X` and let `z = x ∧_s y`. For each edge `(i,j)`, `(x_i, x_j)` and `(y_i, y_j)` lie in `π_ij(X)`, so their meet — which is exactly `(z_i, z_j)`, meets being coordinatewise — lies in `π_ij(X)` by hypothesis. Since `X` is the set of ambient points satisfying every edge condition, `z ∈ X`. The join is identical with `∨`. ∎
 
-The content is that for a `T`-structured index the joint condition on the `d` orders is a conjunction of conditions on *pairs* of orders, one per edge; and a tree has no cycles, so the conditions can be satisfied by a sweep.
+The content is that for a `T`-structured index the joint condition on the `d` orders is a conjunction of conditions on *pairs* of orders, one per edge; and a tree has no cycles, so the conditions can be satisfied by a sweep. This is the backtrack-free regime of Freuder (1982), CITED, the width-one case of the tree-clustering and local-to-global results of Dechter and Pearl (1989) and Dechter (1992), CITED; and for monotone binary constraints — the closed case of D4 — Montanari (1974), CITED, shows that path consistency already implies global consistency.
 
 ### 4.3 The recovery algorithm
 
@@ -342,7 +350,7 @@ Conversely suppose neither (A) nor (B). Since every `π_ij(X)` is closed, Steps 
 
 Step 3 is where the dichotomy of Freuder (1978), CITED, appears with witnesses attached: a failure that a re-ordering repairs, against a failure of *arity* that names more coordinates than a pairwise bound has arguments.
 
-**A worked instance.** Take the elements of the periodic system. Coordinatised by (period, group) in the eighteen-column layout, the occupied cells number **90** in a box of 126, and `E = 36`: the closure admits every ambient point, which is to say the two coordinates support no monotone bound at all. Coordinatised instead by (`n + ℓ`, `ℓ`) — the left-step arrangement of Janet (1929), CITED — the occupied cells number **22** and `E = 0`. The defect of the first is not a property of the elements. It is a property of the drawing, and re-coordinatisation removes it. That the two indexes have different cell counts is the point: a re-coordinatisation is not a bijection of cells, and the operation admitted in step 4 is a change of what a cell *is*.
+**A worked instance.** Take the elements of the periodic system. Coordinatised by (period, group) in the eighteen-column layout (Scerri 2007, CITED), the occupied cells number **90** in a box of 126, and `E = 36`: the closure admits every ambient point, which is to say the two coordinates support no monotone bound at all. Coordinatised instead by (`n + ℓ`, `ℓ`) — the left-step arrangement of Janet (1929), CITED — the occupied cells number **22** and `E = 0`. The defect of the first is not a property of the elements. It is a property of the drawing, and re-coordinatisation removes it. That the two indexes have different cell counts is the point: a re-coordinatisation is not a bijection of cells, and the operation admitted in step 4 is a change of what a cell *is*.
 
 ---
 
@@ -484,7 +492,7 @@ The honest summary is: **the language leaves the tractable classes at arity 4, w
 
 ![Figure 4](figures/fig4-arity.png)
 
-**Figure 4.** Left: for each arity, the fraction of the relations containing the origin that are closed under the ternary majority — 2 of 2 at arity 2, 8 of 8 at arity 3, 73 of 128 at arity 4, 1,442 of 32,768 at arity 5. The boundary between arity 3 and arity 4 is exact. Right: for each of the ten boxes of Table 2, the fraction of subsets that are reorderable, with the growth step printed above the bar. The fraction falls with the number of coordinates: 1.000 at 2×2, 0.723 at 4×4, 0.077 at 2×3×3, 0.050 at 2×2×2×2.
+**Figure 4.** Left: for each arity, the fraction of the relations containing the origin that are closed under the ternary majority — 2 of 2 at arity 2, 8 of 8 at arity 3, 73 of 128 at arity 4, 1,442 of 32,768 at arity 5. The boundary between arity 3 and arity 4 is exact. Right: for each of the ten boxes of Table 2, the fraction of subsets that are reorderable, with the growth step printed above the bar. The fraction falls with the number of coordinates: 1.000 at 2×2, 0.724 at 4×4, 0.077 at 2×3×3, 0.050 at 2×2×2×2.
 
 ---
 
@@ -504,7 +512,7 @@ Let an index assign parameters `p ∈ ℝ^a` to each cell and let `q = Φ(p) ∈
 
 *Proof.* `∂Φ/∂p` is a `b × a` matrix; the rank of a matrix exceeds neither of its dimensions, so `rank ≤ a` and `D = b − rank ≥ b − a`. ∎ **PROVED**, with no closure and no smoothness beyond differentiability. **SAMPLED**: 60 pseudorandom quadratic maps with integer coefficients, seed 3, Jacobians evaluated at rational points and their ranks computed in exact rational arithmetic by fraction-free elimination; `rank ≤ min(a,b)` and `D ≥ b − a` in all 60. The sample corroborates the implementation, not the lemma, which is proved.
 
-The bound is old. Edlén, discussing term-value formulae in 1960, declines a least-squares fit on the ground that with as many parameters as observations "no check is possible" — which is `D = 0` in the case `b = a`. The general form, and the observation that the *rank* and not the dimension is what binds, is what Lemma 8 adds.
+The bound is old. Edlén (1964), discussing term-value formulae, declines a least-squares fit on the ground that with as many parameters as observations "no check is possible" — which is `D = 0` in the case `b = a`. The general form, and the observation that the *rank* and not the dimension is what binds, is what Lemma 8 adds.
 
 ### 7.3 What a fabricated cell costs
 
@@ -528,7 +536,7 @@ for the number of *further* cells forced, beyond `y` itself.
 
 *Proof.* Write `R = [a,b] = { c ∈ X : a ≤ c ≤ b }`. Suppose `a` is join-prime and `b` meet-prime, and let `x, y ∈ X ∖ R` with `x ∨ y ∈ R`. Then `a ≤ x ∨ y`, so by join-primality `a ≤ x` or `a ≤ y`; say `a ≤ x`. Also `x ≤ x ∨ y ≤ b`. So `a ≤ x ≤ b` and `x ∈ R`, a contradiction. Dually with meet-primality and `b`. So the removal is closed.
 
-Conversely suppose `a` is not join-prime: then `a = u ∨ v` with `u, v ∈ X`, neither above `a`. Both are `≤ a ≤ b` and neither is in `R` (being in `R` requires being `≥ a`), while `u ∨ v = a ∈ R`. So the removal is not closed. Dually for `b`. ∎ **PROVED.**
+Conversely suppose `a` is not join-prime. By the coincidence of prime and irreducible elements in a distributive lattice (§1, Notation), `a` is not join-irreducible: `a = u ∨ v` with `u, v ∈ X`, neither above `a`. Both are `≤ a ≤ b` and neither is in `R` (being in `R` requires being `≥ a`), while `u ∨ v = a ∈ R`. So the removal is not closed. Dually for `b`. ∎ **PROVED.**
 
 In a distributive lattice join-irreducible and join-prime coincide (Birkhoff 1967, CITED), so the hypothesis of Lemma 9 is a condition on irreducibles.
 
@@ -579,6 +587,7 @@ A single verification program recomputes every finite claim of this paper. It us
 | 3.2 | "no nesting at all" as the criterion | REFUTATION | fails on 1,098 of the 2,354 |
 | 3.3 | DECIDE₂ against brute force | EXHAUSTIVE | 44,033 subsets over five boxes |
 | 3.3 | the worked example of Figure 1 | EXHAUSTIVE | all 2,880 ordering systems of the 5×4 box |
+| 4.1 | every pair projection reorderable does not make `X` reorderable | PROVED (the three-cell witness); EXHAUSTIVE | 193, 3,271 and 63,775 subsets of 2×2×2, 2×2×3, 2×2×2×2 using every value |
 | 4.2 | Theorem 4, factorisation over a tree | PROVED | — |
 | 4.3 | Theorem 5, RECOVER returns every solution | PROVED; EXHAUSTIVE | 7,486 tree-structured subsets; 362,144 scrambles |
 | 4.4 | Theorem 6, the diagnostic split | PROVED; EXHAUSTIVE | the same 70,598 subsets; 0 with neither witness |
@@ -599,7 +608,7 @@ A single verification program recomputes every finite claim of this paper. It us
 | 7.4 | Lemma 9, interval removal | PROVED; MACHINE-CHECKED | 3×3, 2×2×2, 2×2×3, every pair `a ≤ b` |
 | 7.4 | Λ's removal minimum 4; pushback minimum 16 | EXHAUSTIVE | 475,800 pairs, 471,906 surviving pairs |
 
-**Totals.** 87 obligations: 49 EXHAUSTIVE, 29 MACHINE-CHECKED, 6 REFUTATION, 3 SAMPLED, beside the proofs written out above. Four negative controls run beside them, each of which must be reported refuted for the run to count as evidence: the false antisymmetry claim, the weak reading of the nesting lemma, the false growth step `2^(d−1)`, and "every arity-4 relation is bijunctive".
+**Totals.** 90 obligations: 52 EXHAUSTIVE, 29 MACHINE-CHECKED, 6 REFUTATION, 3 SAMPLED, beside the proofs written out above. Four negative controls run beside them, each of which must be reported refuted for the run to count as evidence: the false antisymmetry claim, the weak reading of the nesting lemma, the false growth step `2^(d−1)`, and "every arity-4 relation is bijunctive".
 
 **What is not machine-checked, and why.** Theorems 1, 4, 5, 9 and Lemmas 1–9 are proved for general `d` and for alphabets of any size; a Z3 obligation ranges over a fixed finite box and cannot express them. What Z3 contributes is a check of the proofs' instances over *every* subset of a box and, where an order is unknown, *every* total order on the named coordinate — a quantification a sampled sweep cannot supply. The growth step at `d ≥ 5` over all reorderable sets, and the complexity of reorderability, are the two open items and are stated as such in §0 and §6.5.
 
@@ -622,8 +631,6 @@ Dechter, R., and Pearl, J. (1989). Tree clustering for constraint networks. *Art
 de Moura, L., and Bjørner, N. (2008). Z3: an efficient SMT solver. In *Tools and Algorithms for the Construction and Analysis of Systems*, Lecture Notes in Computer Science **4963**, 337–340. Springer, Berlin.
 
 Deville, Y., Barette, O., and Van Hentenryck, P. (1999). Constraint satisfaction over connected row-convex constraints. *Artificial Intelligence* **109**, 243–271.
-
-Dilworth, R. P. (1950). A decomposition theorem for partially ordered sets. *Annals of Mathematics* **51**, 161–166.
 
 Edlén, B. (1964). Atomic spectra. In *Handbuch der Physik* **XXVII**, 80–220. Springer, Berlin.
 

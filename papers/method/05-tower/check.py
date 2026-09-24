@@ -179,6 +179,19 @@ def check_stages():
     ob("EXHAUSTIVE", "pair counts at Λ_12 and Λ_13 (not pair-tested; the sweep decides them)",
        DATA["pairs"][12] == 70905 * 70904 // 2 == 2513724060 and DATA["pairs"][13] == 199130 * 199129 // 2 == 19826278885,
        "%d and %d" % (DATA["pairs"][12], DATA["pairs"][13]))
+    tested = sum(DATA["pairs"][d] for d in (8, 9, 10, 11))
+    ob("EXHAUSTIVE", "pairs tested at the first four stages sum to 97,323,996", tested == 97323996, "%d" % tested)
+    # the ratios the paper's prose states
+    grow = Fraction(len(L[13]), len(L[8]))
+    boxgrow = Fraction(box[13], box[8])
+    ratio13 = Fraction(DATA["pairs"][13], box[13])
+    DATA["ratios"] = dict(grow=grow, boxgrow=boxgrow, sweep_vs_pairs=ratio13)
+    ob("EXHAUSTIVE", "the object grows ×204 and its box ×6,912 across the tower; pairs/box = 415 at the top",
+       round(grow) == 204 and boxgrow == 6912 and round(ratio13) == 415,
+       "%.1f, %d, %.1f" % (float(grow), boxgrow, float(ratio13)))
+    upper = sum(len(L[d]) for d in STAGES[1:])
+    ob("EXHAUSTIVE", "cells across the five upper stages, 287,809; C(13, 3) = 286 vertex triples",
+       upper == 287809 and 13 * 12 * 11 // 6 == 286, "%d; %d" % (upper, 13 * 12 * 11 // 6))
 
 
 # ----------------------------------------------------------------------------- rank, Birkhoff, chains
@@ -1041,12 +1054,17 @@ def selftest():
     print("SELFTEST — the guards, and false claims that must be refuted")
     g = guard_vacuity() and guard_encoding()
     ob("GUARD", "guards pass", g)
-    # negative control 1: a wrong reference must be caught by the encoding guard's brute force
+    # negative control 1: a wrong reference must be caught by the encoding guard's brute force.
+    # The region with the upper bound only, {c <= a + b}, is NOT closed either — (2,0,2) ∧ (0,2,2)
+    # = (0,0,2) leaves it — so what separates it from T is its failure count, 2254 against 2862.
+    # (An earlier form of this control asserted the wrong region closed; that was a bug in the
+    # control, not in the guard, and it is what the selftest exists to catch.)
     T6 = {(a, b, c) for a in range(7) for b in range(7) for c in range(7) if abs(a - b) <= c <= a + b}
     wrong = {(a, b, c) for a in range(7) for b in range(7) for c in range(7) if c <= a + b}     # drops the lower bound
     m, j = brute_closure_failures(wrong)
-    ob("GUARD", "negative control: a wrong region (upper bound only) is closed, so the failure counts separate it from T",
-       (m, j) == (0, 0) and brute_closure_failures(T6) == (2862, 0))
+    ob("GUARD", "negative control: the upper-bound-only region's failure counts differ from T's, so the guard separates them",
+       (m, j) == (2254, 0) and brute_closure_failures(T6) == (2862, 0) and (m, j) != (2862, 0),
+       "wrong region %d / %d, T %d / %d" % ((m, j) + brute_closure_failures(T6)))
     # negative control 2: the false claim "the triangle is meet-closed" is refuted by Z3
     hyp, join, meet, _ = triangle_formulas()
     ob("REFUTATION", "negative control: 'the triangle region is meet-closed' is refuted", z3_prove(z3.Implies(hyp, meet)) == z3.sat)

@@ -200,3 +200,39 @@ to the |Δℓ| = 1 split, and the paper prints all four parity figures and says 
 count, threshold or seed. The reconstruction that reproduces all six published values is stated in
 full in the paper and every figure it yields is marked as sampled. If the original protocol is
 recorded somewhere, it should replace the reconstruction.
+
+---
+
+## Order Recovery and the Reorderability Law
+
+**1 · "May precede" is a total preorder, not a total order.** The two-coordinate criterion is stated
+in the source as the relation being a total order. Machine-checked, it is a total preorder — ties are
+possible — and the paper carries that as a refutation with the solver's witness, then states the
+criterion correctly. The recovery still works; the relation's name is what changes.
+
+**2 · Three of the source's census figures do not reproduce and are marked for you.** The arity
+census plate gives 2/2, 14/14, 114/141 and 121/129; the paper's parametrisation gives 2, 8, 128 and
+32,768 relations with 2, 8, 73 and 1,442 bijunctive, and 141 exceeds what an origin-containing
+relation allows at that arity, so the plate's population is not the one the paper can construct.
+An equality printed as 18,736 = 18,736 at one box comes out 20,068 against 13,051 and is not
+reconciled. And a defence statistic stated as median 340, minimum 59 in one place and 352, 15 in
+another measures exhaustively at median 309, minimum 15. In each case the paper prints only what
+it measured and names the family.
+
+**3 · "NP-complete" is declined.** The source says the reorderability language is NP-complete. No
+reduction is given anywhere, and the paper states the complexity as open rather than asserting a
+hardness result it cannot prove. The first non-bijunctive relation appears at arity four, which is
+stated; hardness is not.
+
+**4 · Sweeps whose procedure is unspecified are not printed.** The source reports 300/300 and
+396/396 at arity three and a two-colouring reading of the recovery. Transitivity is a three-literal
+clause, so the two-colouring reading needs a procedure the source does not state; the figures are
+recorded and not printed.
+
+**5 · One chapter was read in full and not drawn on.** The chapter on retrieval as a lattice
+problem states one closure claim and names no cells, so nothing in it can be checked, and the paper
+does not use it. If the cells exist somewhere they can be added.
+
+**6 · The verification record was stale against its own check.** Three obligations added late had
+never been printed into the paper; the record and the abstract now agree with the check at 90
+obligations, and a caption's fraction of 0.723 is 0.724 — a truncation, corrected.

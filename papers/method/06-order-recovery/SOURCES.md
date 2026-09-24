@@ -1,8 +1,11 @@
 # SOURCES.md — provenance map for 06-order-recovery (not published)
 
 Paper: `PAPER.md`, "Order Recovery and the Reorderability Law". Drafted 2026-09-21 on a `check.py`
-left by an earlier run. Every number in the paper is produced by `check.py` (all obligations
-discharged, `--selftest` adds four negative controls, all refuted) or is CITED.
+left by an earlier run; that run was cut off by a service limit while `check.py` was mid-flight, and
+the paper was finished 2026-09-24 by a resumed run (see "The resumed run" below). Every number in
+the paper is produced by `check.py` — **90 obligations: 52 EXHAUSTIVE, 29 MACHINE-CHECKED,
+6 REFUTATION, 3 SAMPLED, all discharged, exit 0, 232.6 s; `--selftest` adds four negative controls,
+all refuted** — or is CITED.
 
 ## Where each section draws from
 
@@ -21,12 +24,13 @@ All volume paths are under `/home/user/Claude-Method-Works/method/members/`.
 | §2.2–2.3 Lemmas 1–4, Theorem 2 | MAIN §15.3 4295–4306; MAIN Appendix A "The total-order criterion at d = 2" 9995–10007 (both directions, written out) |
 | §3.1 Theorem 3, §3.2 Lemma 5 | MAIN §30.3.3 8445–8468 (the d = 2 characterisation; the fourth lemma with its proof; 2,354 interval sets; "strictly is load-bearing" and the 1,098) |
 | §3.3 DECIDE₂ | MAIN §30.3.2 8428–8432 ("at d = 2 every constraint has arity 2 … 2-colouring plus transitivity decides exactly"); the algorithm verified here is root enumeration plus Theorem 2, not the 2-colouring |
-| §4.1 | MAIN §15.3 4306–4310 ("above d = 2 the converse fails … the axes' requirements can be mutually incompatible"); MAIN §30.3.7 8535–8545 (projection-based criteria ruled out; "closure is a d-dimensional condition") |
+| §4.1 | MAIN §15.3 4306–4310 ("above d = 2 the converse fails … the axes' requirements can be mutually incompatible"); MAIN §30.3.7 8535–8545 (projection-based criteria ruled out; "closure is a d-dimensional condition"); MAIN Appendix A.3 remark ("the converse fails, and §18.4 exhibits a counterexample" — §18.4 is outside the passages named for this paper and was not drawn on). The three-unit-vector witness, its proof, and the census over 193 / 3,271 / 63,775 subsets are the paper's own |
 | §4.2–4.3 Theorems 4–5 | MAIN §15.4 4311–4326 (propagation along the tree; "root anywhere, fix the root by brute force, and extend with backtracking"; "cost Σ\|Aᵢ\|!, never the product"); MATH §IV.A 376–384 (Freuder 1982), §IV.G 890–900 |
 | §4.4 Theorem 6, the diagnostic loop | MAIN §16.7.1 4610–4640 (E removable or not; the periodic table against Janet; the asteroid-belt counter-case); MATH §IV.A "Failure mode A — ordering" and "Failure mode B — arity" (Freuder 1978); MATH §IV.A "The certificate condition" (the admitted operations: relabel, re-coordinatise, refine a fibration, drop a coordinate) |
 | §5 Λ | MAIN §7 1729–1810 (the eight coordinates, the seven bounds and their four origins, the caps convention (3,3,1,3,1)); MAIN §8.3 via Appendix A "The seventeen generators, written out" 10122–10160 (17 join-irreducibles, `Σ(\|Aᵢ\|−1) = 17`, the closed form of a generator); MAIN §16.8.6 4784–4794 (16 binding pairs, transitive reduction returns the seven edges); MAIN §15.4 4318–4322 (20 of 20 at two cap settings) |
 | §6 the law | MAIN §30.3.2, §30.3.4, §30.3.5, §30.3.8 8404–8560 |
 | §7.1 | MAIN §16.5 4460–4485 |
+| (none) | MAIN §19 5386–5554 ("Retrieval as a lattice problem") was named among this paper's sources and was read in full. It is not drawn on. Its subject is retrieval redundancy ρ — a count of routes to a document — and its one lattice claim, that a six-cell retrieval index fibred by route closes with E = 0 (§19.5.3), names neither the cells nor the coordinates' values, so nothing in it can be recomputed. Its self-refutation (§19.5.1: "ρ is a property of the query, not of the literature") is about search, not about closure, and the paper makes no claim about it |
 | §7.2 Lemma 8 | MAIN §16.1 4348–4360 (ⅅ = dim q − rank ∂Φ/∂p ≥ dim q − dim p, with the one-line proof); MAIN §16.4.1 4426–4436 (the 1960 precedent, quoted from Edlén's Handbuch footnote) |
 | §7.3 | MAIN §16.8.4 4666–4700 (A(y), the amplification, "minimum 59 across 220 trials"; the figure's "median 352, minimum 15"); MAIN §16.8.2 4655–4662 (replacement is not a question put to an index) |
 | §7.4 Lemma 9 | MAIN §16.8.5 4702–4724 (pushback; the removal lemma with its proof; step(Λ₈) = 4 and the named interval); MAIN §30.3.4 8489–8496 (Rival's bound) |
@@ -119,10 +123,14 @@ relation off the witness and checks (a) that it has three elements, (b) that its
 it, and (c) that translating by `110` gives exactly-two-of-three. Nothing else was changed to make
 the line pass.
 
-**3. `check.py` crashed before this run finished, and the crash was a bug in the check.** In the
+**3. `check.py` crashed before the first run finished, and the crash was a bug in the check.** In the
 tree-propagation routine, partial solutions keyed by integer coordinate indices were merged with
 `dict(p, **s)`, which requires string keys. Replaced by `{**p, **s}`. No obligation's content
-changed; section I had never run before.
+changed. Section I has since run to completion (2026-09-24): on every tree-structured subset using
+every value — 175 of 2×2×3 (path), 6,625 of 2×3×3 (path), 343 and 343 of 2×2×2×2 (path and star) —
+the solution set the propagation returns equals the brute-force set, and every one of the 362,144
+relabellings of a reorderable one is recovered. Λ: 20 of 20 at both cap settings, 16 admissible
+ordering systems at both.
 
 **4. "twelve boxes" for the growth step.** MAIN §30.3.4 reports the step measured "exhaustively
 across twelve boxes — eight, all 2-D; three at `d = 3`; one at `d = 4`". The census here uses **ten**:
@@ -165,11 +173,55 @@ two-closure-operator table; §16.8.4's regression `A ≈ fibre × (0.972 − 0.1
 makes no claim about any of them. They are measurements of search behaviour on instance families the
 source does not specify, and a paper that printed them would be printing numbers it cannot recompute.
 
+**10a. "Linear" at arity ≤ 3, and the source's "at d = 3".** MAIN §30.3.2 states that at arity 2 the
+decision is "signed-graph 2-colouring — LINEAR", at arity 3 "2-SAT … LINEAR", and reports
+"2-colouring plus transitivity decides exactly — 300/300 at |A| = 3, 300/300 at |A| = 4. At d = 3 with
+binary axes, 396 of 396". None of this is printed. Bijunctivity of the *pair constraints* is proved and
+enumerated (Theorem 8), but the orientation variables must also satisfy transitivity on each
+coordinate, which is a three-literal clause, so bijunctivity of the pairs does not by itself make the
+decision a two-satisfiability instance — the paper says so at §6.5 point 2 — and the source does not
+specify how its 2-colouring handles transitivity, so the 300/300 and 396/396 sweeps could not be
+reproduced. The paper's `d = 2` decision is DECIDE₂ (root enumeration plus Theorem 2), which is proved
+correct and checked exhaustively; the `d = 2` *cost* the source claims is not asserted. The source also
+places the boundary "at d = 3"; the paper says the first non-bijunctive constraint is possible at
+`d = 4` and not before — the same fact, stated as the first dimension where it appears rather than the
+last where it cannot. **Recorded as an interpretation, not a discrepancy.**
+
 **10. Λ's 16 admissible ordering systems is new here.** The source does not state it. It was measured
 by running the propagation with every solution returned rather than the first, at both cap settings,
 and it is what makes "20 of 20" a precise claim rather than an ambiguous one. It rests on Theorem 5
 (the propagation returns every solution), which is proved and exhaustively checked on the small
 families, and on Λ being tree-structured, which is checked.
+
+## The resumed run (2026-09-24)
+
+- The first run's log ended in the `dict(p, **s)` traceback (item 3 above). The fix was already in
+  `check.py`; `python3 check.py` was run to completion (232.6 s, exit 0) and then `--selftest`.
+- `check.py` section H2 — "every pair projection reorderable does not make X reorderable", three
+  EXHAUSTIVE lines — had been added to the check after the paper's §4.1 and §8 were written: the paper
+  said "87 obligations: 49 EXHAUSTIVE" and stated the projection gap without its measurement. §4.1 now
+  carries the three-cell witness with a written proof, the census (193 / 3,271 / 63,775 subsets; 98 /
+  2,460 / 61,462 not reorderable; smallest witnesses printed by the check), and the honest qualifier
+  that in those three boxes the pair criterion excludes nothing at all, since every subset of a 2×2 or
+  a 2×3 box is reorderable (Table 2). §8 carries the row and the totals read 90 / 52.
+- `check.py`'s section and obligation labels were renumbered to the paper's numbering — "Theorem 1"
+  became "Theorem 2" for the one-axis criterion, "Theorem 2" became "Theorem 3" for the fibre
+  characterisation, "Lemma 4" became "Lemma 5", "Theorem 3" became "Theorem 5", "Lemma 5" became
+  "Lemma 9", "Lemma 6" became "Lemma 8", and the obligations "1(a)…1(c)" became "2(a)…2(c)". Labels
+  only; no encoding, family, box, seed or verdict changed. A `fraction_reorderable` field was added to
+  each census row so that the four fractions Figure 4's caption prints (1.000, 0.723, 0.077, 0.050) are
+  produced by `check.py` rather than by the figure script.
+- §0 named "Theorem 6" for propagation and "Theorem 4" for the diagnostic; both were the body's
+  numbering shifted by one and are now "Theorems 4 and 5" and "Theorem 6". §2.1 pointed at guard (c)
+  for the cell-for-cell envelope check, which is guard (d). Figure 1's caption now says that the
+  recovered ordering is the reverse of the built one.
+- Eleven entries in References were never cited in the body. Booth–Lueker and Tucker are now cited at
+  Lemma 5, Dechter (1992), Dechter–Pearl (1989) and Montanari (1974) at Theorem 4, van Beek–Dechter
+  (1995) at D4, Davey–Priestley (2002) at D2, Scerri (2007) at the periodic-table instance; Dilworth
+  (1950) had no use in the paper and was removed. The Edlén sentence cited "1960" against a 1964
+  reference (the source quotes the chapter as "manuscript 1960"); the paper now cites Edlén (1964).
+- Nothing in the figures changed in content; `figures.py` was re-run from the resumed run's
+  `results.json` and `FIGURES.tsv` carries the md5 of each file as it now stands.
 
 ## Interpretations chosen
 
@@ -209,10 +261,10 @@ Baker and Pixley (1975) is used in the proof of Theorem 1 Step 4 and of Theorem 
 source's own prior-art note in MATH §IV.A ("Bergman double-projection; Baker–Pixley 1975 (majority
 term)"). Freuder (1978, 1982), Montanari (1974), Dechter (1992), Dechter and Pearl (1989), Deville
 et al. (1999), van Beek and Dechter (1995), Moore (1910), Ward (1942), Schaefer (1978), Booth and
-Lueker (1976), Tucker (1972), Rival (1973), Birkhoff (1967), Dilworth (1950) and Janet (1929) are all
-named in the source's prior-art notes at MATH §IV.A and §IV.G and MAIN §30.3. Jeavons, Cohen and
-Gyssens (1997), Davey and Priestley (2002), Scerri (2007) and de Moura and Bjørner (2008) are added
-here.
+Lueker (1976), Tucker (1972), Rival (1973), Birkhoff (1967) and Janet (1929) are all named in the
+source's prior-art notes at MATH §IV.A and §IV.G and MAIN §30.3. Jeavons, Cohen and Gyssens (1997),
+Davey and Priestley (2002), Scerri (2007) and de Moura and Bjørner (2008) are added here. Every entry
+in References is cited at least once in the body.
 
 **Citation forms not independently verified** (no access to the literature through the proxy): the
 volume and page numbers of Rival (1973) — the source names the bound and the year but not the
