@@ -87,28 +87,65 @@ reconstruction route has a PRICE, which is the only row here that does.
 3.  WHAT THIS FILE REFUSES
 ===============================================================================
 
-    IT DOES NOT RANK THE OPEN QUESTIONS.  Three are open; which is most
-    promising is a judgement and judgements are M's.
+    IT DOES NOT RANK THE OPEN QUESTIONS.  How many are open is whatever
+    statuses() counts -- this sentence first said "Three are open" and went
+    stale the day O4-O7 arrived, which is the fault this file exists to catch,
+    so no count is typed here.  Which is most promising is a judgement and
+    judgements are M's.
     IT DOES NOT TOTAL THE GAPS.  Orders of magnitude on different quantities do
     not add, and a single headline number would be the most quotable false thing
     in the repository.
     IT DOES NOT CARRY THE INDEX WORK.  `state.py` owns that and this file does
     not duplicate a row of it.
     IT REPAIRS NOTHING AND EDITS NO PEER.
+
+===============================================================================
+4.  DOCKETS 62 AND 63, AS M RULED THEM
+===============================================================================
+
+DOCKET 62 CLOSED NOTHING.  O2, O3, O5, O6 and O7 stay OPEN and are NARROWED,
+each now ASKED of the instrument that seated its narrowing (fewsterteo.py,
+latticectc.py, throatmass.py, branelink.py), and each owner is asked whether it
+closed -- an open row whose owner says CLOSED is a selftest failure.  The one
+new row is the flat-bulk lattice theorem, D21, a THEOREM with its hypotheses
+named.  REFUSED by the ruling and therefore NOT on this board: closing any of
+the five; the curvature-tightened persistence figures; the void 9/64
+adjustment; an R-1 row (it is O7 renamed); a separate NEC-everywhere row (it is
+O3 with a clause); the Caldwell & Langlois withdrawal (it has no referent).
+The selftest asserts each refusal.  The wording each narrowing replaced is
+KEPT in SUPERSEDED_WORDING, because a row rewritten in place leaves no trace
+otherwise.
+
+DOCKET 63 adds D15-D20 (the Higgs at the endpoint), S6-S8 (all REFUSED, no
+gap) and W9-W13, owners as the ruling named them.  W9 is excite.W9 and
+W10-W13 are address.WITHDRAWN: the withdrawn rows are ASKED too, not retyped.
+
+THE BOARD MUST NOT LAG THE TREE: fluctuation.py was committed with no row, so
+D22 is an OPEN demand row owned by it.  Stability, formation and the stock
+gate are NOT opened here -- a later docket prices and opens those.
 """
 
 import math
 import sys
 
 import achievable
+import address
 import bounds
+import branelink
 import candidates
 import certify
 import driven
 import drivensource
+import endpoint
+import excite
+import fewsterteo
+import fluctuation
 import foliation
+import higgs
+import latticectc
 import nonstatic
 import overturn
+import throatmass
 import tolman
 
 THEOREM, MEASURED, SURVEY, OPEN, WITHDRAWN, REFUSED = (
@@ -269,7 +306,104 @@ DEMAND = [
      THEOREM, ("certify", "THEOREM_SCOPE"),
      "nothing; dL/dtheta = dL/dphi = 0 is machine-checked.  What it costs is "
      "O4: the whole demand side prices an object that cannot have a "
-     "destination"),
+     "destination.  SCOPE FLAGGED BY DOCKET 62: O4 closed on a CYLINDRICAL "
+     "object, which has an axis, and an axis supplies a direction and two "
+     "ends, not a 3-D destination -- so on the axial object undefinedness "
+     "narrows from 'no parameter at all' to 'a one-bit parameter', and what a "
+     "full 3-D address requires of a metric is written down nowhere.  The "
+     "theorem stands on its own class; the board's use of it moved.  The "
+     "Higgs does not supply the missing parameter (S6)"),
+
+    # ----- DOCKET 63: the Higgs at the endpoint.  Owners exactly as ruled. ----
+    ("D15",
+     "A static displacement of any vacuum with V''(v) = m^2 > 0 returns to v "
+     "at asymptotic rate EXACTLY m -- every Mexican hat, any dimension d, "
+     "nonlinearly, for any source sign, size or shape, outside its support.  "
+     "Proved by an elementary Riccati argument (ruling F1), not by the unread "
+     "Levinson/Hartman theorem.  For the Higgs the rate is hbar/(m_h c) = "
+     "%.6e m at the READ m_h" % excite.LAMBDA_H_READ_M,
+     THEOREM, ("excite", "TAIL_RATE_IS_MASS"),
+     "a failure of one of its hypotheses: %s"
+     % "; ".join(excite.TAIL_RATE_HYPOTHESES)),
+
+    ("D16",
+     "The displacement is ULTRALOCAL: delta phi = -J/m_h^2 locally and "
+     "INT G d^3r = 1/m^2, so a displaced vev exists only where its source is "
+     "and no arrangement of sources beats the local density",
+     THEOREM, ("excite", "DISPLACEMENT_IS_ULTRALOCAL"),
+     "a failure of its hypotheses -- linear regime, static, source scale L "
+     "large against lambda_h; the error is (lambda_h/L)^2"),
+
+    ("D17",
+     "Role 3 at the endpoint -- the Higgs as a source of negative energy -- is "
+     "closed for ANY minimally coupled scalar, any potential, any mass: "
+     "T_kk = (k.d phi)^2 >= 0.  The obstruction is not the Higgs mass; it "
+     "would be just as closed at m_h = 0",
+     THEOREM, ("higgs", "MINIMAL_SCALAR_SATISFIES_NEC"),
+     "a non-minimal coupling -- which is S4 and O1, both refused"),
+
+    ("D18",
+     "m_e -> m_e(1 + eps), alpha fixed and nuclei clamped, is an EXACT "
+     "dilation of the Schrodinger and Dirac-Coulomb problems, so a displaced "
+     "endpoint does not bind wrong through a_0: the object is its own ruler",
+     THEOREM, ("excite", "ELECTRON_MASS_IS_A_RULER"),
+     "alpha not held fixed (H1) or finite nuclear size -- the residual "
+     "channels, O(eps) through m_p/m_e, which S7 prices"),
+
+    ("D19",
+     "A displacement along T1, T2, T3 or Y leaves H+H, every mass and every "
+     "derivative-free gauge-invariant local observable unchanged: the flat "
+     "directions are INERT",
+     THEOREM, ("excite", "FLAT_DIRECTIONS_ARE_INERT"),
+     "nothing gauge-invariant, local and derivative-free; a radial "
+     "displacement is the control that moves H+H"),
+
+    ("D20",
+     "Holding eps costs source 4 rho_EW eps(2-eps)(1-eps)^2 plus field "
+     "rho_EW eps^2(2-eps)^2.  At the clock-comparison ORDER eps = %.0e that "
+     "is %.6e kg/m^3 of Higgs-derived density, and %.2g (H1) to %.2g (H2) "
+     "kg/m^3 of stable matter.  Inputs G_F and m_h are NAMED-NOT-READ, and "
+     "the figure inherits that status"
+     % (excite.EPS_AT_FIXTURE, excite.HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18,
+        excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H1"],
+        excite.HOLD_STABLE_KG_M3_AT_EPS_1E18["H2"]),
+     MEASURED, ("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18"),
+     "a cheaper stable neutral source (DOCKET 63 E1, unsettled), a READ G_F "
+     "or m_h, or the H1/H2 choice, which no Standard Model instrument can "
+     "make and this file does not"),
+
+    # ----- DOCKET 62: the O3 narrowing, seated as its own THEOREM. ----------
+    ("D21",
+     "THE FLAT-BULK LATTICE THEOREM: %s.  At rank 1 with a spatial circle the "
+     "condition is vacuous, so GKLP's 'no' is FORCED rather than contingent; "
+     "at rank >= 2 it holds exactly when the span is spacelike, and the "
+     "separating witness e1, e2 has norms %s, %s and a %s sum (%s).  "
+     "DOCKET 57's 'two independent routes' -- %s"
+     % (latticectc.LATTICE_THEOREM,
+        latticectc.WITNESS_NORMS[0], latticectc.WITNESS_NORMS[1],
+        latticectc.WITNESS_SPAN, latticectc.WITNESS_NORMS[2],
+        latticectc.DOCKET57_TWO_ROUTES),
+     THEOREM, ("latticectc", "LATTICE_THEOREM"),
+     "a failure of a hypothesis -- %s.  The codimension-one CTC does NOT move "
+     "it: %s" % ("; ".join(latticectc.HYPOTHESES),
+                 latticectc.CODIM1_CTC_REFUSAL)),
+
+    # ----- the board catching up with the tree: fluctuation.py. -------------
+    ("D22",
+     "THE SEMICLASSICAL DEBT.  Every demand row is a demand on <rho> inside "
+     "G = 8 pi G <T>, and Kuo & Ford's measure of that equation's error, "
+     "Delta, is re-derived exactly in flat space: the pointwise measure is "
+     "recomputed two independent ways, and Delta >= 1/3 is PROVED (z3) for "
+     "EVERY zero-mean Gaussian state, without Kuo & Ford's diagonal "
+     "assumption.  The pointwise Delta is sign-blind -- it condemns thermal "
+     "radiation too -- so it cannot be the demand.  THE SMEARED PRICE AT THE "
+     "CORRIDOR'S OWN SCALES IS OPEN",
+     OPEN, ("fluctuation", "PRICES_THE_CORRIDOR"),
+     "the SMEARED fluctuation priced at the corridor's scales -- the width b "
+     "and Fewster's sampling time -- which needs the curved-space "
+     "renormalisation of quartic operator products Kuo & Ford said did not "
+     "exist.  If it is of order one there, the demand column must be written "
+     "about a distribution rather than an expectation"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -304,7 +438,8 @@ SUPPLY = [
      "words that counted one refusal as an opening and inflated the open "
      "count by one"),
 
-    ("S5", "the reconstruction route: specification, not mass", OPEN, None,
+    ("S5", "the reconstruction route: specification, not mass", OPEN,
+     ("branelink", "S5_FIGURES_MEASURED"),
      "THE ONLY ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL.  No mass "
      "traverses, so the demand rows D1-D4 and D7 are not instantiated and go "
      "silent.  Bounded by D13 FOR A BRANE-CONFINED CARRIER and therefore not a "
@@ -318,58 +453,212 @@ SUPPLY = [
      "number nobody can re-run is not MEASURED however carefully it was once "
      "computed, and seating it here was the exact fault section 0 of this file "
      "says it exists to prevent.  Re-seating it needs an instrument, not a "
-     "citation"),
+     "citation.  DOCKET 62, UNCHANGED AND SHARPENED: re-grepped, the four "
+     "occur in this note and in no other file.  The O6/O7 pass's apparent "
+     "reproduction of them is %s.  Owed: %s"
+     % (branelink.S5_FIGURES_STATUS, branelink.S5_OWED)),
+
+    # ----- DOCKET 63: the Higgs as supply.  All REFUSED, all gap None. ------
+    ("S6", "Higgs displacement as an ADDRESS", REFUSED,
+     ("excite", "ROLE1_DOMINATED_BY_OWN_SOURCE"),
+     "The source is a better address than the displacement it creates: its "
+     "gravity reads the region farther (address.py section 9, the "
+     "domination theorem), and its own interior redshift beats the vev "
+     "signal beyond %.2g cm (m proportional to phi), %.2g cm (H1) or %.2g cm "
+     "(H2).  Consistent with D14"
+     % tuple(100.0 * excite.COURIER_CROSSOVER_M[k]
+             for k in ("m propto phi", "H1", "H2"))),
+
+    ("S7", "Higgs displacement as a BINDER", REFUSED,
+     ("excite", "ROLE2_REBINDS"),
+     "The m_e mechanism is exactly null (D18).  What remains is O(eps) "
+     "through m_p/m_e, and it needs D20's filling source: a small, computable "
+     "shift, inside matter denser than any object, and never a rebinding"),
+
+    ("S8", "Higgs as a negative-energy source at the endpoint", REFUSED,
+     ("higgs", "MINIMAL_SCALAR_SATISFIES_NEC"),
+     "Minimal coupling is D17.  The xi != 0 case is S4 and O1, both refused; "
+     "it needs phi at the GUT scale, xi_req = %.4g, a field %.0e to %.0e "
+     "times Degrassi's instability scale 10^(%g +- %g) GeV, where the quartic "
+     "is negative -- not an excitation of our vacuum"
+     % ((excite.XI_REQUIRED_AT_GUT,)
+        + (min(excite.XI_FIELD_OVER_INSTABILITY),
+           max(excite.XI_FIELD_OVER_INSTABILITY))
+        + (endpoint.DEGRASSI_LOG10_LI,
+           endpoint.DEGRASSI_LOG10_LI_ERR))),
 ]
 
 # ---------------------------------------------------------------------------
-# WHAT IS OPEN.  Three, and the thing that would answer each is named.
+# WHAT IS OPEN.  (row id, claim, what would answer it, owner)
+#
+# The count is statuses()'s, never typed.  `owner` names the instrument that
+# seated the row's latest narrowing and an attribute that says whether the row
+# CLOSED; the selftest asks it, and an owner answering True fails the ledger,
+# because a row cannot be open here and closed there.  DOCKET 62 narrowed all
+# five and closed none; the wording each narrowing replaced is kept below in
+# SUPERSEDED_WORDING.
 # ---------------------------------------------------------------------------
 
 OPEN_ROWS = [
     ("O5",
      "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
-     "at all?  Fewster & Teo bound the NORMAL-ORDERED density relative to the "
-     "static vacuum, so the bound is on rho_ren - rho_vac and not on rho_ren",
-     "a self-consistent solve of G_ab = 8 pi <T_ab> on the negative-mass "
-     "corridor, rather than a bound evaluated on an assumed background"),
+     "at all?  NARROWED BY DOCKET 62 (throatmass.py), status unchanged.  %d "
+     "self-consistent families are in print, %d of them with m < 0: in the "
+     "proper-distance gauge a throat has m = %s, and all the non-perturbative "
+     "constructions are throats; the new content is the series result, %s.  "
+     "The largest ever built is %.4g m, %.2f orders short of one metre.  No "
+     "no-go forbids m < 0 -- %s, not NO, with a control that fires.  "
+     "Flanagan-Wald and Sanders 5.1 are NOT applied, their hypotheses failing "
+     "at the corridor; and if eps ~ 1 lies outside semiclassical gravity the "
+     "corridor is EXPELLED rather than refuted, which is worse, because an "
+     "expulsion names no hypothesis to attack.  The claim that no QEI can "
+     "bound rho_ren is %s, so O5 is NOT separated from O2 permanently"
+     % (throatmass.SELF_CONSISTENT_FAMILIES_RETURNED,
+        throatmass.FAMILIES_WITH_NEGATIVE_MASS, throatmass.THROAT_MASS,
+        throatmass.SERIES_RESULT, throatmass.LARGEST_THROAT_M,
+        throatmass.ORDERS_SHORT_OF_ONE_METRE,
+        throatmass.NEGATIVE_MASS_SELF_CONSISTENT_FOUND,
+        throatmass.NARROWING_3_STATUS),
+     throatmass.O5_ANSWERED_BY + ".  Read Anderson-Hiscock-Samuel PRD 51 4337 "
+     "first",
+     ("throatmass", "O5_CLOSED")),
 
+    ("O6",
+     "THE BRANE-BULK TRANSDUCER.  NARROWED BY DOCKET 62 (branelink.py), NOT "
+     "CLOSED.  The row's stated cause of death -- no coupling in print -- is "
+     "REFUTED: %s.  Eot-Wash bounds %s.  The throughput the closure called "
+     "decisive, recomputed at omega_GW = %d Omega, is h = %.4e and %.4e "
+     "bits/s/W; the pass used Omega and its figures were %.0fx and %.0fx too "
+     "large, kept as withdrawn values in branelink.py.  It does not close: "
+     "the closing premise, a %s, is %s, and the honest shape is a dichotomy "
+     "-- %s -- so the row is settled %s"
+     % (branelink.COUPLING_SOURCE, branelink.EOTWASH_BOUNDS,
+        branelink.OMEGA_GW_OVER_OMEGA, branelink.STRAIN_H,
+        branelink.THROUGHPUT_BITS_PER_S_PER_W,
+        branelink.WITHDRAWN_STRAIN_H / branelink.STRAIN_H,
+        branelink.WITHDRAWN_THROUGHPUT / branelink.THROUGHPUT_BITS_PER_S_PER_W,
+        branelink.CLOSING_PREMISE, branelink.CLOSING_PREMISE_STATUS,
+        "; ".join("if the %s: %s" % b for b in branelink.O6_DICHOTOMY),
+        branelink.O6_SETTLED),
+     "whether the graviton is a bulk degree of freedom -- on that branch the "
+     "row settles, on the other it reverts -- together with the closing "
+     "premise derived for a bulk carrier.  Still conceded: no moving-brane "
+     "emission rate is in print, and the non-zero-winding amplitude has "
+     "never been computed by anyone",
+     ("branelink", "O6_CLOSED")),
+
+    ("O7",
+     "OUR OWN BOOST B RELATIVE TO THE PREFERRED BRANE FRAME.  The bulk saving "
+     "is Delta_tau = (L/Gamma^2)[1/(1-B) - 1/(gamma-B)], THE FULL LIGHT TIME "
+     "as B approaches 1/beta, and B cannot be purchased, because buying it "
+     "means boosting the fabricator out of the destination's rest frame and "
+     "forfeiting the destination-supplied atoms that are the premise.  "
+     "NARROWED BY "
+     "DOCKET 62 (branelink.py), NOT CLOSED: GW170817 bounds %s -- beta <= "
+     "%.6e, CONDITIONAL on %s -- so at B = 0 the saving is %.4f ns, a fraction "
+     "%.1e of the light time.  The provenance of that figure is %s; the "
+     "dipole's Gamma - 1 = %.4e is a candidate for B and enters only through "
+     "the anisotropy.  B IS UNMEASURED, and the escape is priced: B >= %.9f "
+     "buys one second over the Proxima span.  The loop-induced SME route is a "
+     "null %.0f orders short.  The proposed R-1 row is this row renamed and "
+     "is not opened"
+     % (branelink.GW170817_BOUNDS, branelink.BETA_MAX,
+        branelink.BETA_BOUND_CONDITIONAL_ON, branelink.SAVING_AT_B0_NS,
+        branelink.SAVING_FRACTION, branelink.PROVENANCE_94NS,
+        branelink.CMB_GAMMA_MINUS_1, branelink.B_FOR_ONE_SECOND,
+        branelink.SME_ORDERS_SHORT),
+     branelink.O7_ANSWERED_BY,
+     ("branelink", "O7_CLOSED")),
+
+    ("O2",
+     "Fewster & Teo's exact static-spacetime QEI on the corridor.  NARROWED BY "
+     "DOCKET 62 (fewsterteo.py), NOT CLOSED.  Its prefactor is exactly %d, two "
+     "routes in sympy.  Its %d/%d against Ford-Roman is exact and MUST NOT be "
+     "applied to C_F, which already IS that family's constant at the optimal "
+     "compactly supported sampler (the Parseval route is new; the agreement "
+     "of two evaluations of one closed form is not a check).  Its Sec. 7 does "
+     "not transplant to M < 0, the horizon being its mode-defining surface.  "
+     "The corridor's own mode functions are %s.  The proposed curvature "
+     "tightening came entirely from the witness's H^3 spectral gap, and the "
+     "corridor has none (%s: gap %g), so the persistence refusal stays at "
+     "%.3f orders, unmoved in either direction"
+     % (fewsterteo.PREFACTOR_212, fewsterteo.NINE_64[0], fewsterteo.NINE_64[1],
+        fewsterteo.CORRIDOR_MODE_FUNCTIONS, fewsterteo.GAP_HYPOTHESIS,
+        fewsterteo.CORRIDOR_SPECTRAL_GAP, fewsterteo.FLAT_SHORTFALL_ORDERS),
+     fewsterteo.O2_ANSWERED_BY + ".  The right instrument is " +
+     fewsterteo.RIGHT_INSTRUMENT + " -- not Fewster & Teo's difference QEI",
+     ("fewsterteo", "O2_CLOSED")),
+
+    ("O3",
+     "Whether ANY braneworld shortcut yields a closed timelike curve -- with "
+     "the NEC satisfied everywhere, the clause FOLDED IN rather than opened as "
+     "a row.  NARROWED AND SPLIT BY DOCKET 62 (latticectc.py), NOT CLOSED.  "
+     "The flat-bulk quotient is SETTLED by D21, where GKLP's 'no' is forced.  "
+     "The proposed codimension-one 'yes' is REFUSED as an answer: %s"
+     % latticectc.CODIM1_CTC_REFUSAL,
+     latticectc.O3_ANSWERED_BY,
+     ("latticectc", "O3_CLOSED")),
+]
+
+#: THE WORDING DOCKET 62 REPLACED.  (row id, as first written -- claim, then
+#: what would answer it -- and why it was replaced.)  KEPT, NEVER DELETED: a row
+#: rewritten in place is otherwise indistinguishable from one that always said
+#: the new thing, and three of these five said something now refuted.
+SUPERSEDED_WORDING = [
+    ("O5",
+     "Does a self-consistent static semiclassical solution with m(r) < 0 exist "
+     "at all?  Fewster & Teo bound the NORMAL-ORDERED density relative to the "
+     "static vacuum, so the bound is on rho_ren - rho_vac and not on rho_ren "
+     "|| a self-consistent solve of G_ab = 8 pi <T_ab> on the negative-mass "
+     "corridor, rather than a bound evaluated on an assumed background",
+     "true of Fewster & Teo and NOT a limit on QEIs: " +
+     throatmass.NARROWING_3_STATUS + "; the answering solve is now named "
+     "exactly (HPS's system, regular-centre data)"),
     ("O6",
      "THE BRANE-BULK TRANSDUCER.  DOCKET 61's intersection is structurally "
      "intact -- the two refusals genuinely cancel -- and dies on a coupling: "
      "neither GKLP paper states a coupling constant, a source model or an "
      "emission rate, and 2208.09014 has none in sixteen pages.  DOCKET 57's "
-     "confinement ruling forces the available bulk fields to be gravitational",
-     "a transducer that writes a specification into a bulk mode at one end and "
-     "reads it at the other with brane-confined apparatus.  The energy-per-bit "
-     "estimate spans 50 ORDERS AND STRADDLES ZERO, so its SIGN is unsettled "
-     "and no figure may be seated from it"),
-
+     "confinement ruling forces the available bulk fields to be gravitational "
+     "|| a transducer that writes a specification into a bulk mode at one end "
+     "and reads it at the other with brane-confined apparatus.  The "
+     "energy-per-bit estimate spans 50 ORDERS AND STRADDLES ZERO, so its SIGN "
+     "is unsettled and no figure may be seated from it",
+     "the cause of death is REFUTED -- true of the two papers read, false of "
+     "the literature: " + branelink.COUPLING_SOURCE),
     ("O7",
      "OUR OWN BOOST RELATIVE TO THE PREFERRED BRANE FRAME.  The bulk saving is "
      "Delta_tau = (L/Gamma^2)[1/(1-B) - 1/(gamma-B)]: 94 ns at B ~ 0, and THE "
      "FULL LIGHT TIME as B approaches 1/beta.  B cannot be purchased, because "
      "buying it means boosting the fabricator out of the destination's rest "
-     "frame and forfeiting the destination-supplied atoms that are the premise",
-     "a measurement of Earth's velocity relative to the preferred brane frame, "
-     "if one exists.  The only preferred-frame velocity ever measured is the "
-     "CMB dipole at 370 km/s, Gamma - 1 = 7.6e-7, which is what gives 94 ns"),
-
+     "frame and forfeiting the destination-supplied atoms that are the premise "
+     "|| a measurement of Earth's velocity relative to the preferred brane "
+     "frame, if one exists.  The only preferred-frame velocity ever measured "
+     "is the CMB dipole at 370 km/s, Gamma - 1 = 7.6e-7, which is what gives "
+     "94 ns",
+     "WRONG PROVENANCE: the saving at B = 0 is " + branelink.PROVENANCE_94NS +
+     "; the dipole is a candidate for B, not the source of the figure"),
     ("O2",
      "Fewster & Teo give an EXACT static-spacetime QEI with no curvature cap, "
      "TIGHTER than Ford-Roman in the Minkowski limit, and the corridor is "
      "genuinely static so the class is right.  It has never been evaluated on "
-     "the corridor",
-     "evaluate it once the corridor's scalar mode functions are determined -- "
-     "the authors' own conclusion asks for exactly this for the static "
-     "Morris-Thorne wormhole"),
-
+     "the corridor || evaluate it once the corridor's scalar mode functions "
+     "are determined -- the authors' own conclusion asks for exactly this for "
+     "the static Morris-Thorne wormhole",
+     "'TIGHTER' invited a void adjustment to C_F, which already IS the "
+     "Fewster-Teo constant at the optimal sampler; the mode functions it "
+     "waits on are NOT-FOUND; and the right instrument is Fewster & Smith's "
+     "ABSOLUTE QEI"),
     ("O3",
      "Whether ANY braneworld shortcut yields a closed timelike curve.  Every "
      "published 'no' is a one-extra-dimension or flat-bulk result; the single "
-     "'yes' needs two extra dimensions and two inequivalent preferred frames",
-     "a general result at codimension two, or an explicit CTC at codimension "
-     "one.  The split in the literature tracks codimension and nobody has "
-     "closed it"),
+     "'yes' needs two extra dimensions and two inequivalent preferred frames "
+     "|| a general result at codimension two, or an explicit CTC at "
+     "codimension one.  The split in the literature tracks codimension and "
+     "nobody has closed it",
+     "an explicit codimension-one CTC is no longer enough -- a hand-written "
+     "metric answers nothing -- and the flat-bulk 'no' is now a THEOREM (D21), "
+     "forced rather than contingent"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -463,7 +752,13 @@ WITHDRAWN_ROWS = [
      "one part in 1e4, so a receiver at rest in Proxima's atoms automatically "
      "shares Earth's B whatever B is.  No contradiction, and the closure does "
      "not stand"),
-]
+
+    # DOCKET 63.  ASKED, NOT RETYPED: W9 is excite.W9 and W10-W13 are
+    # address.WITHDRAWN, each a (claim, why) whose figures are computed there.
+    ("W9", "DOCKET 63: " + excite.W9[0],
+     "; ".join(excite.W9[1])),
+] + [(k, address.WITHDRAWN[k][0], address.WITHDRAWN[k][1])
+     for k in ("W10", "W11", "W12", "W13")]
 
 
 def _one_line(text, width):
@@ -504,6 +799,13 @@ def unaskable():
     reader is owed the count.
     """
     return tuple(r[0] for r in DEMAND if r[3] is None)
+
+
+def open_demand():
+    """DEMAND rows whose status is OPEN.  Counted once, as demand, by
+    statuses(); listed again beside the O rows so the open section shows
+    every open question and not only the ones filed under an O."""
+    return [r for r in DEMAND if r[2] == OPEN]
 
 
 def statuses():
@@ -581,9 +883,16 @@ def report():
                                      if gap is None else "%.3f orders" % gap))
 
     print("\nOPEN, AND WHAT WOULD ANSWER EACH")
-    for rid, claim, answer in OPEN_ROWS:
+    for rid, claim, answer, owner in OPEN_ROWS:
         print("  %-4s %s" % (rid, _one_line(claim, 100)))
         print("       would be answered by: %s" % _one_line(answer, 96))
+        print("       asked: %s.%s = %s" % (owner[0], owner[1], ask(owner)))
+    for rid, claim, _st, owner, moves in open_demand():
+        print("  %-4s (a DEMAND row) %s" % (rid, _one_line(claim, 86)))
+        print("       would be answered by: %s" % _one_line(moves, 96))
+
+    print("\nOPEN-ROW WORDING REPLACED BY DOCKET 62, KEPT: %s  (--md prints it)"
+          % ", ".join(r[0] for r in SUPERSEDED_WORDING))
 
     print("\nCLOSED -- WAS OPEN, NOW ANSWERED")
     for rid, claim, answer in CLOSED_ROWS:
@@ -622,6 +931,12 @@ established and refuted so far, not a census of what is establishable.
 """
 
 
+def _cell(text, width):
+    """One table cell: one line, cut at `width`, and every '|' escaped so a
+    claim like E_pos/|E_neg| cannot split the row into extra columns."""
+    return _one_line(text, width).replace("|", "\\|")
+
+
 def to_markdown():
     L = [MD_HEADER, "", "## The exchange rate", "",
          "| | |", "|---|---|",
@@ -636,31 +951,47 @@ def to_markdown():
     for rid, claim, st, owner, moves in DEMAND:
         src = "%s.%s" % owner if owner else "*(a paper -- see the note)*"
         L.append("| %s | **%s** | %s | `%s` | %s |"
-                 % (rid, st, _one_line(claim, 240), src, _one_line(moves, 200)))
+                 % (rid, st, _cell(claim, 900), src, _cell(moves, 700)))
 
     L += ["", "## Right -- the supply", "",
           "| id | status | mechanism | note |", "|---|---|---|---|"]
     for rid, what, st, _o, note in SUPPLY:
         L.append("| %s | **%s** | %s | %s |"
-                 % (rid, st, what, _one_line(note, 260)))
+                 % (rid, st, _cell(what, 80), _cell(note, 1400)))
 
     L += ["", "## The balance", "",
           "| id | quantity | demand | supply | gap |", "|---|---|---|---|---|"]
     for rid, what, dem, sup, gap in balance():
         g = "**REFUSED** -- no ladder, so no number" if gap is None \
             else "%.3f orders" % gap
-        L.append("| %s | %s | %s | %s | %s |" % (rid, what, dem, sup, g))
+        L.append("| %s | %s | %s | %s | %s |"
+                 % (rid, _cell(what, 200), _cell(dem, 200), _cell(sup, 200), g))
 
     L += ["", "## Open, and what would answer each", ""]
-    for rid, claim, answer in OPEN_ROWS:
-        L += ["### %s" % rid, "", _one_line(claim, 600), "",
-              "**Would be answered by:** %s" % _one_line(answer, 400), ""]
+    for rid, claim, answer, owner in OPEN_ROWS:
+        L += ["### %s" % rid, "", _one_line(claim, 1400), "",
+              "**Would be answered by:** %s" % _one_line(answer, 600), "",
+              "*Asked:* `%s.%s = %s`" % (owner[0], owner[1], ask(owner)), ""]
+    for rid, claim, _st, owner, moves in open_demand():
+        L += ["### %s (a demand row)" % rid, "", _one_line(claim, 1400), "",
+              "**Would be answered by:** %s" % _one_line(moves, 600), "",
+              "*Asked:* `%s.%s = %s`" % (owner[0], owner[1], ask(owner)), ""]
+
+    L += ["## Open-row wording replaced by DOCKET 62", "",
+          "Kept, never deleted: a row rewritten in place is otherwise",
+          "indistinguishable from one that always said the new thing.", "",
+          "| id | as first written (claim \\|\\| answer) | why it was replaced |",
+          "|---|---|---|"]
+    for rid, was, why in SUPERSEDED_WORDING:
+        L.append("| %s | %s | %s |"
+                 % (rid, _cell(was, 900), _cell(why, 400)))
+    L.append("")
 
     L += ["## Closed -- was open, now answered", "",
           "| id | what was open | how it closed |", "|---|---|---|"]
     for rid, claim, answer in CLOSED_ROWS:
         L.append("| %s | %s | %s |"
-                 % (rid, _one_line(claim, 220), _one_line(answer, 400)))
+                 % (rid, _cell(claim, 220), _cell(answer, 400)))
 
     L += ["", "## Withdrawn -- asserted by this project, then refuted by it", "",
           "Kept, never deleted. A withdrawn figure that leaves no trace is how",
@@ -668,7 +999,7 @@ def to_markdown():
           "| id | what was claimed | why it fell |", "|---|---|---|"]
     for rid, claim, why in WITHDRAWN_ROWS:
         L.append("| %s | %s | %s |"
-                 % (rid, _one_line(claim, 220), _one_line(why, 300)))
+                 % (rid, _cell(claim, 220), _cell(why, 300)))
 
     c = statuses()
     L += ["", "## Status census", "", "| status | rows |", "|---|---|"]
@@ -732,7 +1063,19 @@ def selftest():
     # RE-PINNED 10 -> 11: D14 (the addressing theorem, DOCKET 60) is asked of
     # certify.THEOREM_SCOPE, because the scope line IS the claim -- a device
     # specified by (Phi, m) of r alone has no parameter for a destination.
-    chk("every owned row's attribute still exists on its peer", asked, 11)
+    chk("every owned row's attribute still exists on its peer", asked, 23)
+    # RE-PINNED 11 -> 23 BY DOCKETS 62 AND 63, to what this loop counts after
+    # the edit (the DOCKET 63 ruling projected 20; that was a prediction, not
+    # a pin).  +6 D15-D20 and +3 S6-S8, owners as DOCKET 63 named them; +1
+    # D21, the lattice theorem, asked of latticectc.py; +1 D22, fluctuation.py,
+    # the board catching up with the tree; +1 S5, now asked of branelink.py
+    # whether its four figures were measured -- they were not.
+    open_asked = 0
+    for rid, _c, _a, owner in OPEN_ROWS:
+        ask(owner)
+        open_asked += 1
+    chk("and every O row is asked of the instrument that narrowed it",
+        open_asked, len(OPEN_ROWS))
 
     print("\n2. THE PEERS STILL SAY WHAT THE ROWS SAY THEY SAY")
     chk("certify.py's scope is unmoved",
@@ -751,6 +1094,50 @@ def selftest():
         ask(("tolman", "RESTATES_CERTIFY_ON_SMALLER_CLASS")), True)
     chk("bounds.py: the Ford-Roman saturation coding is wrong",
         ask(("bounds", "FORD_ROMAN_K_IS_WRONG")), True)
+    # DOCKET 63's owners.
+    for attr in ("TAIL_RATE_IS_MASS", "DISPLACEMENT_IS_ULTRALOCAL",
+                 "FLAT_DIRECTIONS_ARE_INERT", "ROLE1_DOMINATED_BY_OWN_SOURCE"):
+        chk("excite.py: %s" % attr, ask(("excite", attr)), True)
+    chk("excite.py: the Higgs does not rebind (S7 REFUSED)",
+        ask(("excite", "ROLE2_REBINDS")), False)
+    chk("excite.py: the electron-mass ruler is a THEOREM on named hypotheses",
+        ask(("excite", "ELECTRON_MASS_IS_A_RULER")).startswith("THEOREM given"),
+        True)
+    chk("higgs.py: a minimal scalar satisfies the NEC (D17, S8)",
+        ask(("higgs", "MINIMAL_SCALAR_SATISFIES_NEC")), True)
+    # D20 is ASKED; the ruling's 2.204772e11 is the FIXTURE it must reproduce,
+    # and the ask must be the seated function's output, not a copy of it.
+    chk("D20 reproduces DOCKET 63's 2.204772e11 kg/m^3 to 7 figures",
+        round(ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18")) / 1e11, 6),
+        2.204772)
+    chk("  and it IS address.source_density at the fixture's eps",
+        ask(("excite", "HOLD_HIGGS_DERIVED_KG_M3_AT_EPS_1E18")),
+        address.source_density(excite.EPS_AT_FIXTURE, 1.0)[1])
+    chk("W9-W13 are asked of their owners, not retyped",
+        ([r[1:] for r in WITHDRAWN_ROWS[-4:]]
+         == [address.WITHDRAWN[k] for k in ("W10", "W11", "W12", "W13")],
+         WITHDRAWN_ROWS[-5][2] == "; ".join(excite.W9[1])), (True, True))
+    chk("  and each W10-W13 claim is withdrawn on its owner too",
+        (address.OPTICAL_OPTICAL_IS_EXACTLY_BLIND,
+         address.K_ALPHA_H1_IS_NEGATIVE,
+         address.SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS,
+         address.SAME_OBSTRUCTION_EVERY_ROLE), (False, False, False, False))
+    # DOCKET 62's owners.
+    chk("latticectc.py: the lattice theorem is a THEOREM (D21)",
+        ask(("latticectc", "LATTICE_THEOREM_STATUS")), THEOREM)
+    chk("  with its hypotheses named", len(latticectc.HYPOTHESES), 3)
+    chk("  and GKLP's 'no' forced, the spacelike rank-2 span CTC-free",
+        (latticectc.GKLP_NO_IS_FORCED, latticectc.RANK2_SPACELIKE_SPAN_HAS_CTC,
+         latticectc.RANK2_TIMELIKE_SPAN_HAS_CTC), (True, False, True))
+    chk("DOCKET 57's two routes are NOT independent at codimension one",
+        latticectc.DOCKET57_ROUTES_INDEPENDENT_AT_CODIM1, False)
+    chk("fluctuation.py does not price the corridor, so D22 stays OPEN",
+        ask(("fluctuation", "PRICES_THE_CORRIDOR")), False)
+    chk("  and its bound is sign-blind and needs no diagonal G",
+        (fluctuation.POINTWISE_DELTA_DISCRIMINATES_SIGN,
+         fluctuation.BOUND_NEEDS_DIAGONAL_G), (False, False))
+    chk("branelink.py: S5's four figures are NOT measured (S5 stays OPEN)",
+        ask(("branelink", "S5_FIGURES_MEASURED")), False)
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
     chk("Lambda is overturn.py's", LAMBDA, overturn.LAMBDA)
@@ -770,8 +1157,19 @@ def selftest():
     #   WITHDRAWN 6 -> 8: W7 and W8, both of them DOCKET 61's own passes.
     #   REFUSED 3 -> 4: the closed row counts here, not as an opening.
     chk("the status census", c,
-        {THEOREM: 11, NARROWED: 1, MEASURED: 2, SURVEY: 1, OPEN: 6,
-         WITHDRAWN: 8, REFUSED: 5})
+        {THEOREM: 17, NARROWED: 1, MEASURED: 3, SURVEY: 1, OPEN: 7,
+         WITHDRAWN: 13, REFUSED: 8})
+    # RE-PINNED BY DOCKETS 62 AND 63 to what statuses() returns after the edit.
+    # The DOCKET 63 ruling's projection (THEOREM 16, OPEN 6 plus E) and the
+    # DOCKET 62 ruling's (UNCHANGED) were predictions, and each was made
+    # without the other docket or the fluctuation row:
+    #   THEOREM 11 -> 17: D15-D19 (DOCKET 63) and D21 (DOCKET 62's lattice
+    #     theorem, seated as its own row).
+    #   MEASURED 2 -> 3: D20.
+    #   OPEN 6 -> 7: D22, fluctuation.py.  DOCKET 62 closed none of O2, O3,
+    #     O5, O6, O7 and opened nothing; S5 stays open.
+    #   WITHDRAWN 8 -> 13: W9-W13.
+    #   REFUSED 5 -> 8: S6-S8.
     # O4 joins O1: OPEN 7 -> 6, REFUSED 4 -> 5.  axial.py answered it in the
     # negative -- the axis costs the same sign the sphere does.
     chk("rows that left OPEN by being ANSWERED, kept rather than deleted",
@@ -792,6 +1190,59 @@ def selftest():
     chk("the unaskable rows are named, not hidden", unaskable(),
         ("D5", "D6", "D12", "D13"))
 
+    print("\n4b. DOCKET 62 CLOSED NOTHING, AND WHAT IT REFUSED IS NOT HERE")
+    chk("no O row's owner says it closed",
+        [r[0] for r in OPEN_ROWS if ask(r[3])], [])
+    chk("the five narrowed rows are all still open",
+        sorted(r[0] for r in OPEN_ROWS), ["O2", "O3", "O5", "O6", "O7"])
+    chk("every narrowed row's replaced wording is kept",
+        sorted(r[0] for r in SUPERSEDED_WORDING),
+        sorted(r[0] for r in OPEN_ROWS))
+    chk("and each says why it was replaced",
+        all(bool(r[2]) for r in SUPERSEDED_WORDING), True)
+    ids = [r[0] for r in DEMAND + SUPPLY + OPEN_ROWS + CLOSED_ROWS
+           + WITHDRAWN_ROWS]
+    chk("no R-1 row (it is O7 renamed) -- and its owner agrees",
+        ("R-1" in ids, branelink.R1_ROW_OPENED), (False, False))
+    chk("no separate NEC-everywhere row (it is O3 with a clause)",
+        latticectc.NEC_EVERYWHERE_ROW_OPENED, False)
+    chk("no Caldwell & Langlois withdrawal (it has no referent)",
+        (latticectc.CALDWELL_LANGLOIS_WITHDRAWAL_SEATED,
+         any("Caldwell" in r[1] for r in WITHDRAWN_ROWS)), (False, False))
+    chk("no id is used twice anywhere on the board",
+        len(ids), len(set(ids)))
+    # The refused figures: the curvature-tightened persistence shortfall, its
+    # redshift-loosened variant, and the void 9/64 adjustment.  Rendered
+    # nowhere.  The needles are the owner's own computed values, so this fires
+    # if any is ever printed at the precision the ruling refused.
+    flat, curved, loosened = fewsterteo.refused_figures()
+    md = to_markdown()
+    needles = ["%.3f" % curved, "%.3f" % loosened,
+               "%.6f" % fewsterteo.VOID_ADJUSTMENT_ORDERS,
+               "%.3f" % fewsterteo.WITNESS_ORDERS]
+    chk("the refused figures appear nowhere in LEDGER.md",
+        [n for n in needles if n in md], [])
+    chk("  CONTROL: the needle search finds the figure that stands",
+        "%.3f" % flat in md, True)
+    chk("  CONTROL: and fires on a copy with a refused figure planted",
+        [n for n in needles if n in md + needles[0]], needles[:1])
+    chk("the 9/64 is not applied to C_F, on its owner",
+        fewsterteo.NINE_64_APPLIES_TO_C_F, False)
+    chk("O5's narrowing #3 is demoted on its owner",
+        (throatmass.NO_QEI_CAN_BOUND_RHO_REN,
+         throatmass.SEPARATES_O5_FROM_O2_PERMANENTLY), (False, False))
+    chk("O7's B is unmeasured on its owner", branelink.B_MEASURED, False)
+    chk("O6's cause of death is refuted on its owner, and it did not close",
+        (branelink.O6_CAUSE_OF_DEATH_REFUTED, branelink.O6_CLOSED),
+        (True, False))
+    chk("O5 declines Flanagan-Wald and Sanders 5.1 on its owner",
+        (throatmass.FLANAGAN_WALD_APPLIED, throatmass.SANDERS_51_APPLIED),
+        (False, False))
+    chk("O2's Sec. 7 is not transplanted to M < 0 on its owner",
+        fewsterteo.SEC7_TRANSPLANTABLE_TO_NEGATIVE_M, False)
+    chk("fluctuation.py's own flag that it moves no row is unmoved",
+        fluctuation.LEDGER_ROW_MOVES, False)
+
     print("\n5. THE BALANCE REFUSES TO INVENT A LADDER")
     chk("every balance row whose mechanism fails carries NO gap number",
         all(g is None for _i, _w, _d, _s, g in balance()), True)
@@ -805,7 +1256,7 @@ def selftest():
     import tempfile
     md = to_markdown()
     chk("the document is generated, not typed -- it re-renders identically",
-        to_markdown(), md)
+        to_markdown() == md, True)
     d = tempfile.mkdtemp()
     good, bad = os.path.join(d, "G.md"), os.path.join(d, "B.md")
     with open(good, "w", encoding="utf-8") as fh:

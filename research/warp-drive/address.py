@@ -35,11 +35,21 @@ reader reaches for first.
     An optical transition frequency, in units of the Rydberg, is a pure
     function of alpha: nu_opt / c R_inf = F(alpha).  The electron mass CANCELS.
     So an OPTICAL-TO-OPTICAL frequency RATIO -- the sharpest measurement in
-    physics, 3e-16 in Godun 2014 and heading below 1e-18 -- IS EXACTLY BLIND TO
-    eps at tree level.
+    physics, 3e-16 in Godun 2014 and heading below 1e-18 -- IS BLIND TO eps
+    THROUGH mu, AT TREE LEVEL, FOR A POINT NUCLEUS OF INFINITE MASS.
 
     THAT IS NOT THIS FILE'S ASSERTION.  It is Godun et al.'s own B_E3 = B_E2 =
-    0, READ FROM SOURCE below, and it is the control this file must reproduce.
+    0 -- which they call "negligible", not zero -- READ FROM SOURCE below, and
+    it is the control this file must reproduce.
+
+    WITHDRAWN (DOCKET 63, W10).  The first draft said "IS EXACTLY BLIND".  IT
+    IS NOT.  Finite nuclear size adds (4/3) Z^4 (r_N/a_0)^2 / n^3 Rydberg to
+    every S level, and r_N/a_0 is proportional to m_e r_N, hence to v at tree
+    level (H2, r_N held fixed).  For hydrogen nu(1S-2S)/nu(2P-3D), with
+    x = r_p/a_0, finite_size_K() derives in sympy K = 28x^2/(14x^2 - 9) =
+    -7.87e-10 -- nonzero, same place, alpha fixed.  Recoil terms in m_e/M add
+    more.  Small; and under H2, where K_alpha = 0, it is the LEADING
+    same-place sensitivity.  Kept as OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False.
 
     AND THE BLINDNESS HAS A HYPOTHESIS, WHICH SECTION 7 CASHES: it holds for two
     transitions AT THE SAME PLACE.  Two copies of the SAME optical clock in
@@ -54,8 +64,11 @@ The microwave hyperfine splitting does not cancel m_e:
 -- one factor alpha^2 from mu_B mu_N / a_0^3 against the Rydberg, and one
 factor (m_e/m_p) from the nuclear magneton.  So the OPTICAL-TO-CESIUM ratio
 carries exponent exactly +1 in mu = m_p/m_e and exactly 2 (plus relativistic
-corrections) in alpha.  THAT is the channel, and it is a hundred times coarser
-than the blind one.
+corrections) in alpha.  THAT is the channel, and Godun's Cs-limited 6e-16 is
+TWICE their optical ratio's 3e-16 -- CS_CHANNEL_COARSER_BY, computed, is 2.
+
+    WITHDRAWN (DOCKET 63, W10).  The first draft said the Cs channel is "a
+    hundred times coarser than the blind one".  The factor is 2, not 100.
 
 ===============================================================================
 2. HOW MUCH DOES mu MOVE?  THE PROTON IS NOT AS INERT AS THE 0.96% SUGGESTS
@@ -64,7 +77,13 @@ than the blind one.
 The tempting statement is that the Higgs supplies 2m_u + m_d = 8.99 MeV of the
 proton's 938.272 MeV -- 0.96% -- so m_p barely moves and mu tracks m_e alone.
 The CONCLUSION survives.  THE REASON DOES NOT, and the correction is a factor
-of thirty.
+that DEPENDS ON S: 24.0 at the valence 0.0096, 4.48 at S = 0.06 and 3.25 at
+S = 0.09 (NAIVE_CORRECTION_FACTOR, computed).
+
+    CORRECTED (DOCKET 63, ruling F6).  The first draft said "a factor of
+    thirty" here and "TWENTY-FOUR" below.  Twenty-four holds only at the
+    valence value S = 0.0096, which is a sum of current-quark masses and NOT a
+    Feynman-Hellmann fraction; at the scanned sigma-term values it is 3 to 4.5.
 
 Lambda_QCD is not independent of v.  One-loop threshold matching across the
 charm, bottom and top thresholds, with b_0(n_f) = 11 - 2 n_f/3 and
@@ -122,13 +141,24 @@ and the static uniform solution of (nabla^2 - m_h^2) dphi = (m_psi/v) n is
 
 (v^2 m_h^2 = 2 lambda v^4 = 8 |V_min| exactly; sympy residual 0), with rho_H
 the HIGGS-DERIVED part of the mass density.  Holding eps_det therefore takes a
-source whose rest energy is 8|V_min| eps_det -- and that is 1/(4 eps_det), some
-1e15, TIMES the field energy it buys.  PRICING ADDRESSING AT ITS FIELD ENERGY
-UNDERSTATES IT BY FIFTEEN ORDERS.
+source whose rest energy is 8|V_min| eps_det -- and that is 2/eps_det, some
+2.4e15, TIMES the field energy it buys (EXACTLY 8/(eps (2+eps)^2), which
+source_to_field_ratio() computes and the selftest expands in sympy).  PRICING
+ADDRESSING AT ITS FIELD ENERGY UNDERSTATES IT BY FIFTEEN ORDERS.
+
+    WITHDRAWN (DOCKET 63, W12).  The first draft said "1/(4 eps_det), some
+    1e15".  The file's own selftest pinned 2/eps; the two differ by a factor
+    of 8 (2.5e15 against 3.1e14 at eps = 8e-16).
 
 ===============================================================================
-4. THE RANGE, AND IT IS THE SAME OBSTRUCTION EVERY ROLE HITS
+4. THE RANGE
 ===============================================================================
+
+    WITHDRAWN (DOCKET 63, W13).  This heading first read "THE RANGE, AND IT IS
+    THE SAME OBSTRUCTION EVERY ROLE HITS".  It is not: role 3 falls to a
+    theorem that never mentions the Higgs mass (T_kk is a square -- ledger
+    D17), and role 2's m_e mechanism falls to an exact dilation (D18).  The
+    range is role 1's obstruction, and what is left of role 2's.
 
 lambda_h = hbar/(m_h c) = 1.5761e-18 m -- computed here from higgs.M_HIGGS, and
 0.0019 proton radii.  Outside a source, eps(r) = eps_0 (r_0/r) e^{-(r-r_0)/lam}.
@@ -159,10 +189,19 @@ already say.
     MASS DENSITY, CARRYING STRICTLY LESS THAN THE DENSITY ITSELF.
 
 AND NATURE ALREADY RUNS THE EXPERIMENT.  Nuclear matter displaces the vev by
-eps = -7.28e-14 -- about NINETY TIMES eps_det -- everywhere there is a nucleus,
-which is everywhere.  The largest Higgs displacement in the solar system is
-inside an ordinary atomic nucleus, it is ninety times over threshold, and no
-measurement outside that nucleus has ever registered it.  Role 1 is not
+eps = -3.26e-13 (H1) or -7.28e-14 (H2) -- 398 or 114 TIMES eps_det under the
+SAME hypothesis -- everywhere there is a nucleus, which is everywhere.  The
+largest Higgs displacement in the solar system is inside an ordinary atomic
+nucleus, it is two orders over threshold, and no measurement outside that
+nucleus has ever registered it.
+
+    CORRECTED (DOCKET 63, ruling F5).  The first draft gave only -7.28e-14 and
+    "NINETY TIMES".  That used the Higgs-derived fraction f = S, which is H2
+    ONLY, against this file's own refusal to choose, and then divided by the
+    H1 eps_det -- two hypotheses in one ratio.  The Higgs-derived fraction of
+    a nucleon is d ln m_p/d ln v: S under H2, 2/9 + 7S/9 = 0.268889 under H1
+    at S = 0.06.  Both are now carried (higgs_fraction()), and every ratio is
+    taken inside one hypothesis.  Role 1 is not
 untested; it is tested, at scale, continuously, with a null result that is
 built into the screening length.
 
@@ -172,7 +211,8 @@ built into the screening length.
 
 Take the source that puts eps exactly at threshold over a 1 m sphere.  Its
 Higgs signature is readable at contact and nowhere else.  Its GRAVITATIONAL
-signature is readable by a 1e-9 m/s^2 gravimeter out to ~2e7 m.
+signature is readable by a 1e-9 m/s^2 gravimeter out to 1.4e7 m (H1) or
+2.6e7 m (H2).
 
     ROLE 1 IS NOT MERELY EXPENSIVE.  IT IS STRICTLY DOMINATED, BY MORE THAN
     TWENTY ORDERS OF MAGNITUDE, BY AN INSTRUMENT THAT ALREADY EXISTS AND READS
@@ -196,8 +236,8 @@ the sharpest published clock ratio, 3e-16, the probe reads nothing until
 
     eps >= 1.80e-5
 
-and holding THAT takes a source at 6.6e25 kg/m^3 -- 2.5e8 times nuclear
-density.  RESOLUTION AND SENSITIVITY ARE THE SAME FACTOR TURNED OPPOSITE WAYS.
+and holding THAT takes a source at 1.5e25 (H1) to 6.6e25 (H2) kg/m^3 --
+5.5e7 to 2.5e8 times nuclear density.  RESOLUTION AND SENSITIVITY ARE THE SAME FACTOR TURNED OPPOSITE WAYS.
 
     AND THAT VERY FACTOR IS THE SOURCE EFFICIENCY.  A species of mass m and
     energy E sources the Higgs as (m c^2/E)^2 per unit energy density, exactly
@@ -220,7 +260,10 @@ transition, so the region must be at least a Bohr radius across -- 3.36e7
 screening lengths -- and by section 5 the displacement is ultralocal, so the
 source must FILL it.  eps = 1e-18 across an atom takes
 
-    3.67e12 kg/m^3,  1.63e8 times the density of osmium
+    8.20e11 kg/m^3 (H1)  to  3.67e12 kg/m^3 (H2),
+    3.63e7 to 1.63e8 times the density of osmium
+
+(the first draft gave only the H2 figure; DOCKET 63 F5)
 
 and no bound optical transition exists in such a medium.  THE MEDIUM THAT MAKES
 THE SIGNAL DESTROYS THE INSTRUMENT THAT READS IT.  (That last clause is a
@@ -240,7 +283,10 @@ FROM SOURCE) estimates a FIVE-ORDER enhancement for the 229-Th transition:
 X_q = m_q/Lambda and X_s = m_s/Lambda both move with v at d ln X/d ln v = 7/9
 under H1 and exactly 1 under H2, so the coefficient of eps is about -3.5e5 and
 
-    eps_det(Th-229 courier)  =  2.8e-24        -- EIGHT ORDERS BETTER
+    eps_det(Th-229 courier)  =  2.9e-24        -- EIGHT ORDERS BETTER
+
+(2.86e-24 under H1 with the corrected K_alpha of section 11; the first draft's
+2.84e-24 carried the withdrawn K_alpha)
 
 This is the best number in the file by a wide margin and it is NOT dismissed.
 It does not save Role 1, and the reason is section 9, not a budget.
@@ -295,17 +341,49 @@ TO QUOTE A CODATA UNCERTAINTY.  m_p/m_e is measured to ~1e-11; that is NAMED-
 NOT-READ and it is not used, because the clock channel beats it by 10^4.5 and
 the argument does not need it.
 
-TO PRICE THE NONLINEAR REGIME.  A false-vacuum bubble is not this file's
-subject.  Role 1 needs only detectability, and detectability fails inside the
+TO PRICE THE NONLINEAR REGIME.  A bubble -- of the true vacuum below ours,
+or a region held at phi = 0, which is a spinodal maximum and not a false
+vacuum -- is not this file's subject.  (The first draft said "a false-vacuum
+bubble", which names neither; DOCKET 63 F8/F10.)  Role 1 needs only detectability, and detectability fails inside the
 linear regime, which is the stronger place to fail.
 
 TO CALL PRESSURE IONISATION A MEASUREMENT.  Section 7's closing clause -- that
-no bound optical transition survives at 3.67e12 kg/m^3 -- is a JUDGEMENT.  The
+no bound optical transition survives at 8.20e11 to 3.67e12 kg/m^3 -- is a
+JUDGEMENT.  The
 density ratio it rests on is computed; the ionisation claim is not, and no
 number here depends on it.
 
 TO CLAIM THE 0.96% FIGURE IS WRONG.  It is right about the valence quark masses
 and wrong only as a sensitivity coefficient.  Section 2 says which.
+
+===============================================================================
+11. DOCKET 63: WHAT THIS FILE GOT WRONG, KEPT RATHER THAN DELETED
+===============================================================================
+
+Every corrected figure is COMPUTED below; every withdrawn claim is a constant
+with its reason (WITHDRAWN, keyed by ledger row).
+
+  W10  "EXACTLY BLIND" and "a hundred times coarser" -- section 1.
+       OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False, K_FINITE_SIZE_HYDROGEN,
+       CS_CHANNEL_COARSER_BY.
+  W11  K_alpha(H1) = -9.979521e-3.  THE SIGN WAS WRONG AND THE W THRESHOLD WAS
+       MISSING.  With alpha fixed at a high scale, 1/alpha(0) = 1/alpha(Lambda)
+       + SUM b_i ln(Lambda/m_i)/(2 pi), so d ln alpha/d ln v = +alpha SUM b_i
+       w_i/(2 pi): a heavier charged fermion screens over a shorter interval
+       and alpha(0) RISES.  The W (b = -22/3 + 1/3 = -7, w = 1) antiscreens.
+       One loop gives EXACTLY +43 alpha/(54 pi) = +1.849653e-3
+       (K_ALPHA_H1_COEFFICIENT = 43/54, over Fraction; the sign is checked in
+       sympy).  Consequences, computed: the Th-229 H1 coefficient moves from
+       -3.520e5 to -3.496e5, the optical/optical H1 row from -0.0682 to
+       +0.0126.  K_alpha_as_first_written() keeps the withdrawn formula so
+       the withdrawn number is reproduced, not typed.
+  W12  "1/(4 eps_det)" -- section 3.  SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS =
+       False; the factor between the two, 8, is computed.
+  W13  "THE SAME OBSTRUCTION EVERY ROLE HITS" -- section 4.
+       SAME_OBSTRUCTION_EVERY_ROLE = False.
+  F5   The source fractions were H2 only -- sections 5 and 7.  EPS_NUCLEAR
+       and COURIER_SOURCE_KG_M3 now carry both hypotheses.
+  F6   "a factor of thirty" against "twenty-four" -- section 2.
 
 NOTHING IS REPAIRED.
 """
@@ -359,6 +437,9 @@ S_SCAN = (("naive valence 2m_u+m_d", QUARK_SUM_MEV / M_P_MEV),
           ("with strange sigma term", 0.09))
 
 TREE_LEVEL_ALPHA_IS_V_INDEPENDENT = True
+#: Blind THROUGH mu, at tree level, for a point nucleus of infinite mass --
+#: Godun's B_E3 = B_E2 = 0.  NOT exactly blind: see
+#: OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False (DOCKET 63, W10).
 OPTICAL_OPTICAL_IS_BLIND = True
 NOTHING_IS_REPAIRED = True
 H1_VS_H2_IS_REFUSED = True
@@ -418,13 +499,67 @@ def K_mu(S, hypothesis):
     return dln_mp_dln_v(S, hypothesis) - 1
 
 
+#: One-loop QED coefficients: above its threshold a species drives
+#: d(1/alpha)/d ln mu = -b/(2 pi).  Standard textbook values, NAMED-NOT-READ.
+B_DIRAC_UNIT_CHARGE = Fraction(4, 3)                 # a Dirac fermion, Q = 1
+B_W_BOSON = Fraction(-22, 3) + Fraction(1, 3)        # W+- and its Goldstone: -7
+
+
+def alpha_thresholds():
+    """[(name, b_i, w_i)] for every charged threshold, w_i = d ln m_i/d ln v.
+
+    w = 1 for a mass proportional to v (leptons, c, b, t, and m_W = g v/2);
+    w = 2/9 for a light quark whose threshold is hadronic, i.e. Lambda_QCD.
+    EXACT RATIONALS.
+    """
+    wl = dln_lambda_dln_v()
+    rows = [(n, B_DIRAC_UNIT_CHARGE * 1 * Fraction(1), Fraction(1))
+            for n in ("e", "mu", "tau")]
+    rows += [(n, B_DIRAC_UNIT_CHARGE * 3 * Fraction(4, 9), Fraction(1))
+             for n in ("c", "t")]
+    rows += [("b", B_DIRAC_UNIT_CHARGE * 3 * Fraction(1, 9), Fraction(1))]
+    rows += [(n, B_DIRAC_UNIT_CHARGE * 3 * q2, wl)
+             for n, q2 in (("u", Fraction(4, 9)), ("d", Fraction(1, 9)),
+                           ("s", Fraction(1, 9)))]
+    rows += [("W", B_W_BOSON, Fraction(1))]
+    return rows
+
+
+def K_alpha_coefficient(hypothesis, with_W=True):
+    """K_alpha = coefficient * alpha / pi.  EXACT Fraction.
+
+    With alpha fixed at a high scale Lambda (H1),
+        1/alpha(0) = 1/alpha(Lambda) + SUM_i b_i ln(Lambda/m_i) / (2 pi)
+    so d(1/alpha(0))/d ln v = -SUM b_i w_i/(2 pi) and
+        d ln alpha / d ln v = +alpha SUM b_i w_i / (2 pi).
+    POSITIVE for a fermion: a heavier charged fermion screens over a shorter
+    interval, so alpha(0) rises.  The sign is checked in sympy by the selftest.
+    """
+    if hypothesis == "H2":
+        return Fraction(0)
+    if hypothesis != "H1":
+        raise ValueError(hypothesis)
+    tot = sum(b * w for n, b, w in alpha_thresholds() if with_W or n != "W")
+    return tot / 2
+
+
 def K_alpha(hypothesis):
     """d ln alpha / d ln v.
 
     H2 (e fixed at low energy): EXACTLY ZERO -- alpha contains no v.
-    H1 (alpha fixed at a high scale): charged-fermion thresholds move with v,
-    so delta(1/alpha) = (4/3) sum N_c Q^2 w / (2 pi), with w = 1 for a mass
-    proportional to v and w = 2/9 for a light quark whose threshold is hadronic.
+    H1 (alpha fixed at a high scale): +43 alpha/(54 pi) at one loop, with the
+    W threshold.  CORRECTED (DOCKET 63, W11): the first version returned
+    -9.979521e-3 -- wrong sign, no W.  See K_alpha_as_first_written.
+    """
+    return float(K_alpha_coefficient(hypothesis)) * ALPHA_EM / math.pi
+
+
+def K_alpha_as_first_written(hypothesis):
+    """THE WITHDRAWN FORMULA, KEPT SO ITS NUMBER IS REPRODUCED, NOT TYPED.
+
+    delta(1/alpha) = +(4/3) SUM N_c Q^2 w / (2 pi) and K = -alpha delta(1/alpha):
+    the sign of the running is inverted and the W threshold is absent.
+    WITHDRAWN (DOCKET 63, W11).
     """
     if hypothesis == "H2":
         return 0.0
@@ -440,6 +575,16 @@ def K_alpha(hypothesis):
         tot += 3 * q ** 2 * w_light
     d_inv_alpha = (4.0 / 3.0) * tot / (2.0 * math.pi)
     return -ALPHA_EM * d_inv_alpha
+
+
+def K_alpha_sign_sympy():
+    """d ln alpha(0) / d ln m for ONE threshold of coefficient b, in sympy.
+    Returns the expression; the selftest asserts it is +alpha b/(2 pi)."""
+    import sympy as sp
+    a_hi, b, Lam, m = sp.symbols("alpha_Lambda b Lambda m", positive=True)
+    inv0 = 1 / a_hi + b * sp.log(Lam / m) / (2 * sp.pi)
+    alpha0 = 1 / inv0
+    return sp.simplify(sp.diff(sp.log(alpha0), m) * m - alpha0 * b / (2 * sp.pi))
 
 
 # ===================================================================== section 1
@@ -514,7 +659,11 @@ def eps_from_matter(rho_total, higgs_fraction):
 
 
 def source_to_field_ratio(eps):
-    """Source rest energy / stored field energy.  EXACTLY 1/(4 eps^2) * ... ."""
+    """Source rest energy / stored field energy.
+
+    EXACTLY 8/(|eps| (2+eps)^2), which tends to 2/|eps|.  CORRECTED (DOCKET 63,
+    W12): this docstring and section 3 first said 1/(4 eps) -- a factor of 8
+    below the ratio this function has always returned."""
     return (8.0 * VMIN_SI * abs(eps)) / energy_density(eps)
 
 
@@ -608,17 +757,20 @@ def dln_X_dln_v(hypothesis):
     raise ValueError(hypothesis)
 
 
-def th229_coefficient(hypothesis, omega_ev=TH229_OMEGA_EV):
-    """d ln(omega_Th)/d eps, from Flambaum eq. (9)."""
+def th229_coefficient(hypothesis, omega_ev=TH229_OMEGA_EV, k_alpha=None):
+    """d ln(omega_Th)/d eps, from Flambaum eq. (9).  k_alpha defaults to the
+    corrected K_alpha; pass K_alpha_as_first_written to reproduce the
+    withdrawn figure."""
+    k_alpha = K_alpha if k_alpha is None else k_alpha
     kx = dln_X_dln_v(hypothesis)
-    inner = (TH229_COEFFS["alpha"] * K_alpha(hypothesis)
+    inner = (TH229_COEFFS["alpha"] * k_alpha(hypothesis)
              + TH229_COEFFS["X_q"] * kx
              + TH229_COEFFS["X_s"] * kx)
     return TH229_ENHANCEMENT * inner * (7.0 / omega_ev)
 
 
-def eps_detectable_th229(frac_accuracy, hypothesis):
-    return frac_accuracy / abs(th229_coefficient(hypothesis))
+def eps_detectable_th229(frac_accuracy, hypothesis, k_alpha=None):
+    return frac_accuracy / abs(th229_coefficient(hypothesis, k_alpha=k_alpha))
 
 
 # ===================================================================== section 9
@@ -642,6 +794,120 @@ def domination_ratio(rho_total, R, higgs_fraction, eps_det):
     if d <= 0.0:
         return float("inf")
     return newton_range(rho_total, R) / d
+
+
+# ===================================================================== DOCKET 63
+def higgs_fraction(S, hypothesis):
+    """The Higgs-derived fraction of a nucleon's mass, f = d ln m_p/d ln v.
+
+    S under H2; 2/9 + 7S/9 under H1.  DOCKET 63 F5: the first draft used f = S
+    everywhere, which is H2 only.  (Electrons, 100% Higgs, add m_e/m_N ~ 5e-4
+    of the mass and are neglected here as they always were.)"""
+    return float(dln_mp_dln_v(S, hypothesis))
+
+
+HYPOTHESES = ("H1", "H2")
+
+
+def eps_det_stationary(hypothesis, S=None):
+    """The adopted optical/Cs threshold at Godun's Cs-limited accuracy."""
+    S = S_SCAN[1][1] if S is None else S
+    return eps_detectable(GODUN_ABS_UNC, "optical", "hyperfine", S, hypothesis)
+
+
+def finite_size_K(x=None):
+    """K = d ln[nu(1S-2S)/nu(2P-3D)] / d ln v in hydrogen, from finite nuclear
+    size alone, at x = r_N/a_0 (default r_p/a_0).  Closed form 28x^2/(14x^2-9);
+    stdlib, so importing this module never needs sympy.  THE FORM IS DERIVED,
+    NOT TRUSTED: finite_size_K_sympy() derives it and the selftest asserts the
+    residual is exactly zero.  Series: -28x^2/9."""
+    x = R_PROTON_M / A_BOHR_M if x is None else x
+    return 28.0 * x * x / (14.0 * x * x - 9.0)
+
+
+def finite_size_K_sympy():
+    """The derivation behind finite_size_K, in sympy.  Returns (K(x), x).
+
+    HYPOTHESES, NAMED: alpha fixed and r_N fixed (H2), so x = r_N/a_0 is
+    proportional to m_e, hence to v; S levels shifted by (4/3) Z^4 x^2/n^3
+    Rydberg (uniform-sphere nucleus, leading order), P and D not at all;
+    recoil (m_e/M) omitted, which only adds.  Z = 1.
+    """
+    import sympy as sp
+    x = sp.symbols("x", positive=True)
+
+    def E(n, l):
+        shift = sp.Rational(4, 3) * x ** 2 / n ** 3 if l == 0 else 0
+        return -sp.Rational(1, n ** 2) + shift
+
+    nu1 = E(2, 0) - E(1, 0)
+    nu2 = E(3, 2) - E(2, 1)
+    return sp.simplify(sp.diff(sp.log(nu1 / nu2), x) * x), x
+
+
+def source_to_field_series():
+    """8/(eps (2+eps)^2) expanded in sympy.  The leading term is 2/eps."""
+    import sympy as sp
+    e = sp.symbols("epsilon", positive=True)
+    exact = (8 * e) / (e ** 2 * (2 + e) ** 2)
+    return exact, sp.series(exact, e, 0, 2).removeO()
+
+
+def naive_correction_factor(S):
+    """(d ln m_p/d ln v under H1) / S -- the factor the 0.96% reading misses."""
+    return higgs_fraction(S, "H1") / S
+
+
+# --- W10: optical/optical is NOT exactly blind; the Cs channel is 2x, not 100x
+OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False           # WITHDRAWN (W10)
+K_FINITE_SIZE_HYDROGEN = finite_size_K()           # COMPUTED (H2); sympy-checked
+CS_CHANNEL_COARSER_BY = GODUN_ABS_UNC / GODUN_RATIO_UNC   # COMPUTED: 2
+CS_CHANNEL_IS_HUNDRED_TIMES_COARSER = False         # WITHDRAWN (W10)
+# --- W11: K_alpha(H1) had the wrong sign and no W threshold
+K_ALPHA_H1 = K_alpha("H1")                          # COMPUTED, +43 alpha/(54 pi)
+K_ALPHA_H1_COEFFICIENT = K_alpha_coefficient("H1")  # EXACT: 43/54
+K_ALPHA_H1_AS_FIRST_WRITTEN = K_alpha_as_first_written("H1")   # WITHDRAWN value
+K_ALPHA_H1_IS_NEGATIVE = False                      # WITHDRAWN (W11)
+# --- W12: the source/field ratio is 2/eps, not 1/(4 eps)
+SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS = False         # WITHDRAWN (W12)
+SOURCE_TO_FIELD_W12_FACTOR = ((2.0 / eps_det_stationary("H1"))
+                              / (1.0 / (4.0 * eps_det_stationary("H1"))))
+# --- W13: the range is not the same obstruction for every role
+SAME_OBSTRUCTION_EVERY_ROLE = False                 # WITHDRAWN (W13)
+# --- F5: the source fractions, under BOTH hypotheses
+SOURCE_FRACTION_WAS_H2_ONLY = True                  # the first draft's error
+EPS_NUCLEAR = {h: eps_from_matter(RHO_NUCLEAR, higgs_fraction(S_SCAN[1][1], h))
+               for h in HYPOTHESES}
+EPS_NUCLEAR_OVER_DET = {h: abs(EPS_NUCLEAR[h]) / eps_det_stationary(h)
+                        for h in HYPOTHESES}
+#: The first draft's "about NINETY TIMES": H2's fraction over H1's threshold.
+EPS_NUCLEAR_OVER_DET_AS_FIRST_WRITTEN = (abs(EPS_NUCLEAR["H2"])
+                                         / eps_det_stationary("H1"))
+COURIER_SOURCE_KG_M3 = {h: source_density(eps_detectable_transported(1e-18),
+                                          higgs_fraction(S_SCAN[1][1], h))[0]
+                        for h in HYPOTHESES}
+# --- F6: "a factor of thirty" against "twenty-four"
+NAIVE_CORRECTION_FACTOR = {lab: naive_correction_factor(S) for lab, S in S_SCAN}
+FACTOR_OF_THIRTY = False                            # CORRECTED (F6)
+
+WITHDRAWN = {
+    "W10": ("address.py section 1: an optical/optical ratio 'IS EXACTLY BLIND' "
+            "to eps, and the Cs channel is 'a hundred times coarser'",
+            "finite nuclear size gives K = 28x^2/(14x^2 - 9) = %.4e in hydrogen "
+            "(sympy, H2); the Cs channel is %.0fx coarser, not 100x"
+            % (K_FINITE_SIZE_HYDROGEN, CS_CHANNEL_COARSER_BY)),
+    "W11": ("address.py K_alpha(H1) = %.6e" % K_ALPHA_H1_AS_FIRST_WRITTEN,
+            "sign wrong and W threshold missing; one loop gives +%s alpha/pi "
+            "= %+.6e" % (K_ALPHA_H1_COEFFICIENT, K_ALPHA_H1)),
+    "W12": ("address.py section 3: the source outweighs the field by "
+            "'1/(4 eps_det)'",
+            "the ratio is 2/eps (the selftest's own pin); the two differ by a "
+            "factor of %.0f" % SOURCE_TO_FIELD_W12_FACTOR),
+    "W13": ("address.py section 4: the range is 'THE SAME OBSTRUCTION EVERY "
+            "ROLE HITS'",
+            "role 3 falls to T_kk being a square, mass-independent (D17); "
+            "role 2's m_e mechanism to an exact dilation (D18)"),
+}
 
 
 # ===================================================================== report
@@ -673,7 +939,15 @@ def report():
         print("      %-30s %11.6f %11.6f %11.6f %11.6f"
               % ("%s (%.4f)" % (lab, S), dln_mp_dln_v(S, "H1"), K_mu(S, "H1"),
                  dln_mp_dln_v(S, "H2"), K_mu(S, "H2")))
-    print("      %-40s %18.6e" % ("K_alpha under H1", K_alpha("H1")))
+    print("      %-40s %18s" % ("naive-correction factor dlnmp(H1)/S", ""))
+    for lab, S in S_SCAN:
+        print("      %-40s %18.4f" % ("  " + lab, naive_correction_factor(S)))
+    print("      %-40s %18.6e" % ("K_alpha under H1, one loop, with W",
+                                  K_alpha("H1")))
+    print("      %-40s %18s" % ("  = coefficient x alpha/pi, coefficient",
+                                K_alpha_coefficient("H1")))
+    print("      %-40s %18.6e" % ("  WITHDRAWN first value (W11)",
+                                  K_alpha_as_first_written("H1")))
     print("      %-40s %18.6e" % ("K_alpha under H2 (exact)", K_alpha("H2")))
     print("      %-40s %18.2f" % ("  |K_mu/K_alpha| under H1",
                                   abs(K_mu(S_mid, "H1") / K_alpha("H1"))))
@@ -690,35 +964,51 @@ def report():
         k = ratio_sensitivity(n1, n2, S_mid, "H1")
         ed = eps_detectable(acc, n1, n2, S_mid, "H1")
         print("      %-34s %10.4f %12.1e %14s"
-              % (lab, k, acc, "BLIND" if ed is None else "%.4e" % ed))
+              % (lab, k, acc, "BLIND (mu)" if ed is None else "%.4e" % ed))
     dA = GODUN["A_E2"] - GODUN["A_E3"]
     ea = eps_detectable_alpha(GODUN_RATIO_UNC, dA, "H1")
     print("      %-34s %10.4f %12.1e %14.4e"
           % ("optical/optical via K_alpha, H1", dA * K_alpha("H1"),
              GODUN_RATIO_UNC, ea))
+    print("      %-34s %10.4f %12s %14s"
+          % ("  WITHDRAWN first value (W11)",
+             dA * K_alpha_as_first_written("H1"), "", ""))
     print("      %-34s %10.4f %12.1e %14s"
-          % ("  the same, under H2", 0.0, GODUN_RATIO_UNC, "BLIND"))
-    eps_det = eps_detectable(GODUN_ABS_UNC, "optical", "hyperfine",
-                             S_mid, "H1")
+          % ("  the same, under H2", 0.0, GODUN_RATIO_UNC, "BLIND (alpha)"))
+    print("      %-34s %10.3e %12s %14s"
+          % ("H 1S-2S/2P-3D, finite size (H2)", K_FINITE_SIZE_HYDROGEN, "",
+             "NOT EXACTLY 0"))
+    print("      %-40s %18.1f" % ("Cs channel coarser than the ratio by",
+                                  CS_CHANNEL_COARSER_BY))
     print()
-    print("      THE ADOPTED THRESHOLD, H1 and S = 0.06:  eps_det = %.4e"
-          % eps_det)
+    for hyp in HYPOTHESES:
+        print("      THE ADOPTED THRESHOLD, %s and S = 0.06:  eps_det = %.4e"
+              % (hyp, eps_det_stationary(hyp)))
+    eps_det = eps_det_stationary("H1")
     print()
     print("  4. the cost at threshold, and the cost that is not the cost")
-    print("      %-40s %18.6e" % ("cost fraction eps^2(2+eps)^2",
+    print("      %-40s %18.6e" % ("cost fraction eps^2(2+eps)^2 (H1 eps_det)",
                                   cost_fraction(eps_det)))
     print("      %-40s %18.6e J/m^3" % ("stored field energy",
                                         energy_density(eps_det)))
     print("      %-40s %18.6e kg/m^3" % ("  as mass", mass_equivalent(eps_det)))
     print("      %-40s %18.6e t TNT/m^3"
           % ("  as TNT", energy_density(eps_det) / 4.184e9))
-    rho_tot, rho_h = source_density(eps_det, S_mid)
-    print("      %-40s %18.6e kg/m^3" % ("Higgs-derived source density", rho_h))
-    print("      %-40s %18.6e kg/m^3" % ("  total source density", rho_tot))
-    print("      %-40s %18.6e" % ("  as a fraction of nuclear density",
-                                  rho_tot / RHO_NUCLEAR))
-    print("      %-40s %18.6e" % ("source rest energy / field energy",
-                                  source_to_field_ratio(eps_det)))
+    for hyp in HYPOTHESES:
+        ed = eps_det_stationary(hyp)
+        rho_tot, rho_h = source_density(ed, higgs_fraction(S_mid, hyp))
+        print("      %s, f = %.6f" % (hyp, higgs_fraction(S_mid, hyp)))
+        print("      %-40s %18.6e kg/m^3" % ("  Higgs-derived source density",
+                                             rho_h))
+        print("      %-40s %18.6e kg/m^3" % ("  total source density", rho_tot))
+        print("      %-40s %18.6e" % ("  as a fraction of nuclear density",
+                                      rho_tot / RHO_NUCLEAR))
+        print("      %-40s %18.6e" % ("  source rest energy / field energy",
+                                      source_to_field_ratio(ed)))
+        print("      %-40s %18.6e" % ("    2/eps_det (the W12 correction)",
+                                      2.0 / ed))
+    print("      %-40s %18.1f" % ("  WITHDRAWN 1/(4 eps) was low by",
+                                  SOURCE_TO_FIELD_W12_FACTOR))
     print()
     print("  5. the range")
     print("      %-40s %18.6e m" % ("lambda_h = hbar/(m_h c)", lam))
@@ -737,33 +1027,42 @@ def report():
               % (lab, e0, r0,
                  "NOT DETECTABLE" if d is None else "%.4e m outside" % d))
     print()
-    print("  6. what matter already does")
-    print("      %-34s %14s %16s %12s"
-          % ("medium", "rho (kg/m^3)", "eps", "vs eps_det"))
+    print("  6. what matter already does -- each ratio inside ONE hypothesis")
+    print("      %-30s %12s %14s %10s %14s %10s"
+          % ("medium", "rho (kg/m^3)", "eps H1", "/det H1", "eps H2",
+             "/det H2"))
     for lab, rho in (("nuclear matter", RHO_NUCLEAR),
                      ("white-dwarf core", 1e9),
                      ("osmium", 22590.0),
                      ("water", 1000.0),
                      ("laboratory vacuum 1e-10 Pa", 1e-15)):
-        ev = eps_from_matter(rho, S_mid)
-        print("      %-34s %14.3e %16.4e %12.3e"
-              % (lab, rho, ev, abs(ev) / eps_det))
+        cells = []
+        for hyp in HYPOTHESES:
+            ev = eps_from_matter(rho, higgs_fraction(S_mid, hyp))
+            cells += [ev, abs(ev) / eps_det_stationary(hyp)]
+        print("      %-30s %12.3e %14.4e %10.3e %14.4e %10.3e"
+              % tuple([lab, rho] + cells))
+    print("      %-40s %18.2f" % ("WITHDRAWN 'ninety times' (H2 f / H1 det)",
+                                  EPS_NUCLEAR_OVER_DET_AS_FIRST_WRITTEN))
     print()
     print("  7. the same source, read by gravity")
     Vol = 4.0 / 3.0 * math.pi * 1.0 ** 3
-    M = rho_tot * Vol
-    rg = gravimetric_radius(M)
-    print("      %-40s %18.6e kg" % ("mass of the threshold 1 m sphere", M))
-    print("      %-40s %18.6e m" % ("gravimetric range at 1e-9 m/s^2", rg))
-    print("      %-40s %18.6e m" % ("Higgs range (same source)", 0.0))
-    print("      %-40s %18.6e" % ("  ratio to the 2v best case",
-                                  rg / detection_standoff(1.0, 1.0, eps_det)))
-    Mg = GRAVIMETER_FLOOR * 1.0 ** 2 / G
-    print("      %-40s %18.6e kg" % ("mass gravity reads at 1 m", Mg))
-    print("      %-40s %18.6e" % ("  its eps in a 1 m^3 box",
-                                  abs(eps_from_matter(Mg, S_mid))))
-    print("      %-40s %18.6e" % ("  short of eps_det by",
-                                  eps_det / abs(eps_from_matter(Mg, S_mid))))
+    for hyp in HYPOTHESES:
+        ed = eps_det_stationary(hyp)
+        rho_tot, _ = source_density(ed, higgs_fraction(S_mid, hyp))
+        M = rho_tot * Vol
+        rg = gravimetric_radius(M)
+        print("      %s" % hyp)
+        print("      %-40s %18.6e kg" % ("  mass of the threshold 1 m sphere", M))
+        print("      %-40s %18.6e m" % ("  gravimetric range at 1e-9 m/s^2", rg))
+        print("      %-40s %18.6e m" % ("  Higgs range (same source)", 0.0))
+        print("      %-40s %18.6e" % ("  ratio to the 2v best case",
+                                      rg / detection_standoff(1.0, 1.0, ed)))
+        Mg = GRAVIMETER_FLOOR * 1.0 ** 2 / G
+        ev = abs(eps_from_matter(Mg, higgs_fraction(S_mid, hyp)))
+        print("      %-40s %18.6e kg" % ("  mass gravity reads at 1 m", Mg))
+        print("      %-40s %18.6e" % ("    its eps in a 1 m^3 box", ev))
+        print("      %-40s %18.6e" % ("    short of eps_det by", ed / ev))
     print()
     print("  8. the probe lemma")
     print("      %-34s %14s %18s" % ("probe", "resolves (m)", "dlnE/dlnm ceiling"))
@@ -774,48 +1073,66 @@ def report():
     print("      %-40s %18.6e" % ("(m_e/m_h)^2",
                                   (M_E_MEV / (M_HIGGS * 1e3)) ** 2))
     ep = GODUN_RATIO_UNC / probe_ceiling(M_E_MEV, lam)
-    rp, _ = source_density(ep, S_mid)
     print("      %-40s %18.6e" % ("eps a resolving probe needs", ep))
-    print("      %-40s %18.6e" % ("  its source / nuclear density",
-                                  rp / RHO_NUCLEAR))
+    for hyp in HYPOTHESES:
+        rp, _ = source_density(ep, higgs_fraction(S_mid, hyp))
+        print("      %-40s %18.6e kg/m^3" % ("  its source, %s" % hyp, rp))
+        print("      %-40s %18.6e" % ("    / nuclear density", rp / RHO_NUCLEAR))
     print()
     print("  9. the courier -- the best channel in the file")
     print("      %-40s %18.6f" % ("coefficient of eps", B_transported_optical()))
     ec = eps_detectable_transported(1e-18)
-    rc, _ = source_density(ec, S_mid)
     print("      %-40s %18.6e" % ("eps_det at 1e-18 clock comparison", ec))
     print("      %-40s %18.6e" % ("  better than the stationary channel by",
                                   eps_det / ec))
     print("      %-40s %18.6e m" % ("region needed (a Bohr radius)", A_BOHR_M))
     print("      %-40s %18.6e" % ("  in screening lengths", A_BOHR_M / lam))
-    print("      %-40s %18.6e kg/m^3" % ("source that must fill it", rc))
-    print("      %-40s %18.6e" % ("  times osmium", rc / 22590.0))
+    for hyp in HYPOTHESES:
+        rc = COURIER_SOURCE_KG_M3[hyp]
+        print("      %-40s %18.6e kg/m^3" % ("source that must fill it, %s" % hyp,
+                                             rc))
+        print("      %-40s %18.6e" % ("  times osmium", rc / 22590.0))
     print()
     print(" 10. the Th-229 loophole, computed rather than dismissed")
-    for hyp in ("H1", "H2"):
+    for hyp in HYPOTHESES:
         c229 = th229_coefficient(hyp)
         e229 = eps_detectable_th229(1e-18, hyp)
-        r229, _ = source_density(e229, S_mid)
+        r229, _ = source_density(e229, higgs_fraction(S_mid, hyp))
         print("      %-18s coeff %12.4e  eps_det %11.4e  source %11.4e kg/m^3"
               % (hyp, c229, e229, r229))
+    print("      %-18s coeff %12.4e  eps_det %11.4e"
+          % ("H1 WITHDRAWN K_a",
+             th229_coefficient("H1", k_alpha=K_alpha_as_first_written),
+             eps_detectable_th229(1e-18, "H1",
+                                  k_alpha=K_alpha_as_first_written)))
     e229 = eps_detectable_th229(1e-18, "H1")
     print("      %-40s %18.6e" % ("better than the electronic courier by",
                                   1e-18 / e229))
     print("      %-40s %18.6e"
-          % ("  its source, times osmium",
-             source_density(e229, S_mid)[0] / 22590.0))
+          % ("  its source (H1), times osmium",
+             source_density(e229, higgs_fraction(S_mid, "H1"))[0] / 22590.0))
     print()
-    print(" 11. the domination theorem -- ln(rho) against sqrt(rho)")
+    print(" 11. the domination theorem -- ln(rho) against sqrt(rho), H1")
+    fH1 = higgs_fraction(S_mid, "H1")
     print("      %-14s %14s %14s %14s %12s"
           % ("rho (kg/m^3)", "eps", "Higgs d (m)", "Newton r (m)", "r/d"))
     for rho in (1e4, 1e7, 1e10, 1e13, 1e16, RHO_NUCLEAR, 1e22):
-        d = higgs_range(rho, S_mid, e229)
+        d = higgs_range(rho, fH1, e229)
         rr = newton_range(rho, 1.0)
         print("      %14.3e %14.4e %14.4e %14.4e %12.4e"
-              % (rho, abs(eps_from_matter(rho, S_mid)), d, rr,
-                 domination_ratio(rho, 1.0, S_mid, e229)))
+              % (rho, abs(eps_from_matter(rho, fH1)), d, rr,
+                 domination_ratio(rho, 1.0, fH1, e229)))
     print("      AND THE LAST COLUMN IS MONOTONE INCREASING.  That is the")
     print("      theorem: no source strength closes it.")
+    print()
+    print(" 12. DOCKET 63: withdrawn, kept")
+    import textwrap
+    for key in sorted(WITHDRAWN):
+        claim, why = WITHDRAWN[key]
+        print("      %s  %s" % (key, textwrap.fill(claim, 66,
+                                                   subsequent_indent=" " * 10)))
+        print("          -> %s" % textwrap.fill(why, 63,
+                                                subsequent_indent=" " * 13))
     print()
     print("=" * 79)
     print("VERDICT")
@@ -824,12 +1141,13 @@ def report():
     print("  Role 1 needed only detectability and it does not have it.  The")
     print("  displacement is ultralocal, so it is not an address but a contact")
     print("  readout of local density; nuclear matter already holds one")
-    print("  ninety times over threshold and nothing outside the nucleus sees")
-    print("  it; and the one source that would work is read by an ordinary")
-    print("  gravimeter twenty-three orders further out.  The Th-229 courier")
-    print("  is eight orders better than any other channel and changes")
-    print("  nothing, because the gap it must close grows as sqrt(rho)/ln(rho)")
-    print("  and diverges.  REFUTED, NOT PRICED.")
+    print("  %.0f (H1) or %.0f (H2) times over threshold and nothing outside"
+          % (EPS_NUCLEAR_OVER_DET["H1"], EPS_NUCLEAR_OVER_DET["H2"]))
+    print("  the nucleus sees it; and the one source that would work is read by")
+    print("  an ordinary gravimeter twenty-three orders further out.  The Th-229")
+    print("  courier is eight orders better than the stationary channel and")
+    print("  changes nothing, because the gap it must close grows as")
+    print("  sqrt(rho)/ln(rho) and diverges.  REFUTED, NOT PRICED.")
     print()
 
 
@@ -894,7 +1212,8 @@ def selftest():
     chk("and it stays live under H2",
         eps_detectable(1e-18, "optical", "hyperfine", S_mid, "H2") is not None,
         True)
-    chk("OPTICAL_OPTICAL_IS_BLIND", OPTICAL_OPTICAL_IS_BLIND, True)
+    chk("OPTICAL_OPTICAL_IS_BLIND (through mu, point nucleus)",
+        OPTICAL_OPTICAL_IS_BLIND, True)
 
     # ------------------------------------------------------- the QCD exponent, EXACT
     print()
@@ -940,8 +1259,29 @@ def selftest():
     chk("H1 and H2 agree within a factor 1.3 at every S",
         all(abs(K_mu(S, "H2") / K_mu(S, "H1")) < 1.3 for _, S in S_SCAN), True)
     chk("K_alpha is EXACTLY zero under H2", K_alpha("H2"), 0.0)
-    chk("and is 1e-2, two orders below K_mu, under H1",
-        1e-3 < abs(K_alpha("H1")) < 1e-1, True)
+    # DOCKET 63 W11.  RE-PINNED: +43 alpha/(54 pi), positive, W included.
+    chk("K_alpha(H1) coefficient is EXACTLY 43/54 (x alpha/pi)",
+        K_alpha_coefficient("H1"), Fraction(43, 54))
+    chkrel("K_alpha(H1) = +43 alpha/(54 pi)", K_alpha("H1"), 1.849653e-3, 1e-6)
+    chk("  and it is POSITIVE (the first version's sign was wrong)",
+        K_alpha("H1") > 0.0, True)
+    chk("  and about 400x below |K_mu| under H1",
+        300 < abs(K_mu(S_mid, "H1") / K_alpha("H1")) < 500, True)
+    import sympy as sp
+    chk("sympy: d ln alpha(0)/d ln m = +alpha b/(2 pi) for one threshold",
+        K_alpha_sign_sympy(), 0)
+    chk("the fermions alone give 116/27, the W gives -7/2",
+        (K_alpha_coefficient("H1", with_W=False),
+         K_alpha_coefficient("H1") - K_alpha_coefficient("H1", with_W=False)),
+        (Fraction(116, 27), Fraction(-7, 2)))
+    # THE WITHDRAWN VALUE, REPRODUCED BY ITS OWN FORMULA, NOT TYPED
+    chkrel("WITHDRAWN K_alpha(H1) as first written", K_alpha_as_first_written("H1"),
+           -9.979521e-3, 1e-6)
+    chkrel("  which is exactly the fermion-only value with its sign flipped",
+           K_alpha_as_first_written("H1"),
+           -float(K_alpha_coefficient("H1", with_W=False)) * ALPHA_EM / math.pi,
+           1e-12)
+    chk("recorded: K_alpha(H1) is not negative", K_ALPHA_H1_IS_NEGATIVE, False)
     chk("TREE_LEVEL_ALPHA_IS_V_INDEPENDENT",
         TREE_LEVEL_ALPHA_IS_V_INDEPENDENT, True)
 
@@ -1016,16 +1356,27 @@ def selftest():
     # ------------------------------------------------- what matter already does
     print()
     print("  what matter already does")
-    e_nuc = eps_from_matter(RHO_NUCLEAR, S_SCAN[1][1])
-    chk("nuclear matter displaces the vev DOWNWARD", e_nuc < 0.0, True)
-    chkrel("  by", abs(e_nuc), 7.28e-14, 2e-2)
-    chkrel("  which is this many times eps_det", abs(e_nuc) / eps_det,
-           88.7, 2e-2)
-    chk("  and more than a hundred times it under H2",
-        abs(e_nuc) / eps_detectable(GODUN_ABS_UNC, "optical", "hyperfine",
-                                    S_SCAN[1][1], "H2") > 1e2, True)
-    chk("water is nowhere near it",
-        abs(eps_from_matter(1000.0, S_SCAN[1][1])) < eps_det, True)
+    # DOCKET 63 F5: the fraction is d ln m_p/d ln v, under EACH hypothesis,
+    # and every ratio is taken inside one of them.
+    chkrel("Higgs-derived fraction under H1 at S = 0.06",
+           higgs_fraction(S_mid, "H1"), 0.268889, 1e-5)
+    chk("  and under H2 it is S itself", higgs_fraction(S_mid, "H2"), S_mid)
+    for hyp in HYPOTHESES:
+        chk("nuclear matter displaces the vev DOWNWARD (%s)" % hyp,
+            EPS_NUCLEAR[hyp] < 0.0, True)
+    chkrel("  by, under H1", abs(EPS_NUCLEAR["H1"]), 3.26359e-13, 1e-5)
+    chkrel("  by, under H2 (the first draft's only figure)",
+           abs(EPS_NUCLEAR["H2"]), 7.28239e-14, 1e-5)
+    chkrel("  times eps_det, both under H1", EPS_NUCLEAR_OVER_DET["H1"],
+           397.674, 1e-5)
+    chkrel("  times eps_det, both under H2", EPS_NUCLEAR_OVER_DET["H2"],
+           114.091, 1e-5)
+    chkrel("WITHDRAWN 'about NINETY': H2's fraction over H1's threshold",
+           EPS_NUCLEAR_OVER_DET_AS_FIRST_WRITTEN, 88.737, 1e-4)
+    for hyp in HYPOTHESES:
+        chk("water is nowhere near it (%s)" % hyp,
+            abs(eps_from_matter(1000.0, higgs_fraction(S_mid, hyp)))
+            < eps_det_stationary(hyp), True)
     # linear in density -- the ultralocality statement, checked
     chkrel("eps is exactly linear in rho",
            eps_from_matter(2.0 * RHO_NUCLEAR, 0.06)
@@ -1034,13 +1385,14 @@ def selftest():
     # ------------------------------------------------------- gravity dominates
     print()
     print("  gravity")
-    rho_tot, _ = source_density(eps_det, S_SCAN[1][1])
-    M = rho_tot * 4.0 / 3.0 * math.pi
-    rg = gravimetric_radius(M)
-    chk("the threshold source is gravimetrically read past 1e6 m", rg > 1e6,
-        True)
-    chk("  which beats the Higgs standoff by more than 1e22",
-        rg / d > 1e22, True)
+    for hyp, want in (("H1", 1.371597e7), ("H2", 2.560737e7)):
+        ed = eps_det_stationary(hyp)
+        rho_tot, _ = source_density(ed, higgs_fraction(S_mid, hyp))
+        rg = gravimetric_radius(rho_tot * 4.0 / 3.0 * math.pi)
+        chkrel("the threshold 1 m source is read by gravity to (%s)" % hyp,
+               rg, want, 1e-5)
+        chk("  which beats the Higgs standoff by more than 1e23 (%s)" % hyp,
+            rg / detection_standoff(1.0, 1.0, ed) > 1e23, True)
     # POSITIVE CONTROL on the gravimeter model: it must reproduce g at Earth
     chkrel("gravimetric model reproduces Earth surface gravity",
            G * 5.9722e24 / 6.371e6 ** 2, 9.8, 1e-2)
@@ -1066,9 +1418,10 @@ def selftest():
         ceil_e > GODUN_RATIO_UNC, True)
     eps_probe = GODUN_RATIO_UNC / ceil_e
     chkrel("  it needs eps >=", eps_probe, 1.80090e-5, 1e-4)
-    rho_probe, _ = source_density(eps_probe, S_SCAN[1][1])
-    chk("  whose source is past 1e8 times nuclear density",
-        rho_probe / RHO_NUCLEAR > 1e8, True)
+    for hyp, want in (("H1", 5.518163e7), ("H2", 2.472955e8)):
+        rho_probe, _ = source_density(eps_probe, higgs_fraction(S_mid, hyp))
+        chkrel("  whose source, in nuclear densities (%s)" % hyp,
+               rho_probe / RHO_NUCLEAR, want, 1e-5)
     # NEGATIVE CONTROL: a probe that does NOT need to resolve lambda_h is fine,
     # which is why the lemma has to be tied to the resolution requirement
     chk("a probe resolving only 1 m keeps full sensitivity",
@@ -1085,9 +1438,17 @@ def selftest():
                          S_SCAN[1][1], "H1"), True)
     chkrel("  eps_det for the courier", eps_detectable_transported(1e-18),
            1e-18, 1e-15)
-    rho_c, _ = source_density(eps_detectable_transported(1e-18), S_SCAN[1][1])
-    chkrel("  but the source it needs, kg/m^3", rho_c, 3.6746e12, 1e-4)
-    chkrel("  times the density of osmium", rho_c / 22590.0, 1.6267e8, 1e-4)
+    # DOCKET 63 F5.  The first draft pinned only the H2 figure, 3.6746e12.
+    chkrel("  but the source it needs, kg/m^3, H1", COURIER_SOURCE_KG_M3["H1"],
+           8.19956e11, 1e-5)
+    chkrel("  and under H2 (the first draft's only figure)",
+           COURIER_SOURCE_KG_M3["H2"], 3.6746e12, 1e-4)
+    chkrel("  H1 times the density of osmium",
+           COURIER_SOURCE_KG_M3["H1"] / 22590.0, 3.62973e7, 1e-5)
+    chkrel("  H2 times the density of osmium",
+           COURIER_SOURCE_KG_M3["H2"] / 22590.0, 1.6267e8, 1e-4)
+    chkrel("  the Higgs-derived part is 2.204772e11 under both (DOCKET 63 A.5)",
+           source_density(1e-18, 1.0)[1], 2.204772e11, 1e-6)
     chk("  and the region must be at least a Bohr radius across",
         A_BOHR_M / yukawa_range() > 1e7, True)
 
@@ -1101,7 +1462,16 @@ def selftest():
         chk("the Th coefficient is large and negative under %s" % hyp,
             th229_coefficient(hyp) < -1e5, True)
     e229 = eps_detectable_th229(1e-18, "H1")
-    chkrel("eps_det for the Th courier", e229, 2.8412e-24, 1e-4)
+    # RE-PINNED (DOCKET 63 W11): the corrected K_alpha moves this 0.67%.
+    chkrel("eps_det for the Th courier", e229, 2.86017e-24, 1e-5)
+    chkrel("  Th coefficient under H1, corrected K_alpha",
+           th229_coefficient("H1"), -3.49630e5, 1e-5)
+    chkrel("  WITHDRAWN: with the first K_alpha it was -3.520e5",
+           th229_coefficient("H1", k_alpha=K_alpha_as_first_written),
+           -3.51996e5, 1e-5)
+    chkrel("  and eps_det 2.8412e-24 (the first draft's fixture)",
+           eps_detectable_th229(1e-18, "H1", k_alpha=K_alpha_as_first_written),
+           2.8409e-24, 1e-4)
     chk("  which beats the electronic courier by more than 1e5",
         1e-18 / e229 > 1e5, True)
     chk("  and it is NOT dismissed: it is the best number here",
@@ -1119,8 +1489,9 @@ def selftest():
            1e-12)
     chk("  and the BARE Th transition still beats the electronic courier",
         bare < eps_detectable_transported(1e-18), True)
-    chkrel("  by the X_s coefficient alone", 
-           eps_detectable_transported(1e-18) / bare, 3.5198, 1e-4)
+    # RE-PINNED (W11): |2 K_alpha + 0.5(7/9) - 5(7/9)| = 3.5 - 2 K_alpha
+    chkrel("  by the X_s coefficient alone",
+           eps_detectable_transported(1e-18) / bare, 3.49630, 1e-5)
     chkrel("and the enhancement restores it exactly",
            eps_detectable_th229(1e-18, "H1"), e229, 1e-15)
 
@@ -1128,7 +1499,8 @@ def selftest():
     print()
     print("  the domination theorem")
     rhos = [10.0 ** k for k in range(4, 23)]
-    ratios = [domination_ratio(r, 1.0, S_SCAN[1][1], e229) for r in rhos]
+    fH1 = higgs_fraction(S_mid, "H1")      # e229 is H1's, so the fraction is too
+    ratios = [domination_ratio(r, 1.0, fH1, e229) for r in rhos]
     finite = [(r, x) for r, x in zip(rhos, ratios) if x != float("inf")]
     chk("the ratio is finite once the source is above threshold",
         len(finite) > 10, True)
@@ -1138,8 +1510,8 @@ def selftest():
     chk("  by more than 1e5 across the decades where both are defined",
         finite[-1][1] / finite[0][1] > 1e5, True)
     # the scaling itself: Higgs as ln, Newton as sqrt
-    d1 = higgs_range(1e10, S_SCAN[1][1], e229)
-    d2 = higgs_range(1e20, S_SCAN[1][1], e229)
+    d1 = higgs_range(1e10, fH1, e229)
+    d2 = higgs_range(1e20, fH1, e229)
     n1 = newton_range(1e10, 1.0)
     n2 = newton_range(1e20, 1.0)
     chkrel("Newton range scales as sqrt(rho): 1e10 -> 1e20 gives 1e5",
@@ -1152,7 +1524,58 @@ def selftest():
            yukawa_range() * math.log(1e10), 1e-9)
     # POSITIVE CONTROL: below threshold the Higgs range must be exactly zero
     chk("a source below threshold has EXACTLY zero Higgs range",
-        higgs_range(1.0, S_SCAN[1][1], e229), 0.0)
+        higgs_range(1.0, fH1, e229), 0.0)
+
+    # ------------------------------------------------ DOCKET 63: W10, W12, W13, F6
+    print()
+    print("  DOCKET 63 withdrawals")
+    Ksym, xs = finite_size_K_sympy()
+    chk("W10 sympy derives K = 28x^2/(14x^2 - 9): residual",
+        sp.simplify(Ksym - 28 * xs ** 2 / (14 * xs ** 2 - 9)), 0)
+    chk("W10   and its series leads with -28x^2/9",
+        sp.series(Ksym, xs, 0, 4).removeO(), -sp.Rational(28, 9) * xs ** 2)
+    chkrel("W10 finite nuclear size in hydrogen, H2", K_FINITE_SIZE_HYDROGEN,
+           -7.8654e-10, 1e-4)
+    chk("W10 CONTROL: a point nucleus (x = 0) gives exactly zero",
+        finite_size_K(0.0), 0.0)
+    chk("W10 so optical/optical is NOT exactly blind",
+        OPTICAL_OPTICAL_IS_EXACTLY_BLIND, False)
+    chk("W10 the Cs channel is 2x coarser than the ratio, not 100x",
+        CS_CHANNEL_COARSER_BY, 2.0)
+    chk("W10   recorded", CS_CHANNEL_IS_HUNDRED_TIMES_COARSER, False)
+    exact, ser = source_to_field_series()
+    e_ = sp.symbols("epsilon", positive=True)
+    chk("W12 sympy: source/field = 8/(eps (2+eps)^2) -> 2/eps - 2 + ...",
+        sp.simplify(ser - (2 / e_ - 2 + sp.Rational(3, 2) * e_)), 0)
+    chkrel("W12 source_to_field_ratio agrees with the exact form",
+           source_to_field_ratio(1e-3), float(exact.subs(e_, sp.Rational(1, 1000))),
+           1e-12)
+    chk("W12 the withdrawn 1/(4 eps) is low by exactly 8",
+        SOURCE_TO_FIELD_W12_FACTOR, 8.0)
+    chkrel("W12   2.5e15 against 3.1e14 at eps = 8e-16 (DOCKET 63 D)",
+           (2.0 / 8e-16) / (1.0 / (4 * 8e-16)), 8.0, 1e-15)
+    chk("W12   recorded", SOURCE_TO_FIELD_IS_QUARTER_OVER_EPS, False)
+    chk("W13 the range is not the same obstruction for every role",
+        SAME_OBSTRUCTION_EVERY_ROLE, False)
+    chk("W10-W13 are all kept, with a reason each",
+        sorted(k for k, v in WITHDRAWN.items() if len(v) == 2 and v[1]),
+        ["W10", "W11", "W12", "W13"])
+    # F6: the factor is S-dependent; 24 only at the valence (non-FH) value
+    chkrel("F6 naive-correction factor at the valence 0.0096",
+           NAIVE_CORRECTION_FACTOR["naive valence 2m_u+m_d"], 23.9708, 1e-5)
+    chkrel("F6   at sigma_piN 0.06", NAIVE_CORRECTION_FACTOR["sigma_piN ~ 56 MeV"],
+           4.48148, 1e-5)
+    chkrel("F6   at 0.09", NAIVE_CORRECTION_FACTOR["with strange sigma term"],
+           3.24691, 1e-5)
+    chk("F6 'a factor of thirty' holds at no scanned S",
+        all(v < 25 for v in NAIVE_CORRECTION_FACTOR.values()), True)
+    chk("F6   recorded", FACTOR_OF_THIRTY, False)
+    # the section-3 row the docstring cites for W11's consequence
+    dA_ = GODUN["A_E2"] - GODUN["A_E3"]
+    chkrel("W11 optical/optical H1 row, corrected", dA_ * K_alpha("H1"),
+           0.0126331, 1e-5)
+    chkrel("W11   withdrawn", dA_ * K_alpha_as_first_written("H1"),
+           -0.0681601, 1e-5)
 
     print()
     chk("H1 vs H2 is refused, not resolved", H1_VS_H2_IS_REFUSED, True)

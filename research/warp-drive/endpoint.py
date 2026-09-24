@@ -146,8 +146,12 @@ THEOREM E3a.  DEPTH DOES NOT ENTER.  A uniform region at ANY field value, in
 ANY potential, has T_kk = 0 exactly.  That is higgs.py's potential-independence
 lemma, and it applies verbatim to a region sitting in the metastable branch:
 however far below our vacuum it sits, it contributes EXACTLY ZERO to ANEC.  The
-entire ANEC content of a false-vacuum bubble is in its WALL, and the wall is
+entire ANEC content of a true-vacuum bubble is in its WALL, and the wall is
 strictly positive.
+
+    CORRECTED (DOCKET 63, ruling F8).  The first draft called this region a
+    "false-vacuum bubble".  A region BELOW our vacuum is a TRUE-vacuum bubble:
+    ours is the false (metastable) one.  Wording only; E3a is unchanged.
 
 QUANTITATIVELY, by E2 at the natural extent L = 1/Delta:
 
@@ -397,10 +401,17 @@ def anec_integral(profile, lo, hi, n=200001):
     IF THE PROFILE CARRIES AN EXACT DERIVATIVE, IT IS USED.  A central
     difference here would be failure mode 2 -- numerical differentiation
     standing in for a derivative that is known in closed form -- and its
-    O(h^2) truncation is ~4e-10 relative at this n, which is the same order
-    as the agreement the E2 fixtures assert.  That is not a tolerance to
-    loosen; it is a derivative to take properly.  The difference quotient is
-    kept ONLY as the fallback for a profile that supplies no derivative.
+    O(h^2) truncation at this n is MEASURED by central_difference_truncation()
+    and reproduced in the selftest: 1.26e-8 relative on the E1 fixture
+    ([-6, 6], h = 6e-5) and 1.40e-9 on the E2 fixtures ([-L, L]), against a
+    leading term -14 h^2/L^2 that cd_leading_coefficient() derives in sympy.
+    Both exceed the tolerances the fixtures assert.  That is not a tolerance
+    to loosen; it is a derivative to take properly.  The difference quotient
+    is kept ONLY as the fallback for a profile that supplies no derivative.
+
+    CORRECTED (DOCKET 63, ruling F8).  This comment first said "~4e-10
+    relative at this n".  That figure was never measured; the measured values
+    are 30x and 3.5x larger, and are now computed, not typed.
     """
     h = (hi - lo) / (n - 1)
     exact = getattr(profile, "deriv", None)
@@ -466,9 +477,14 @@ def smooth_bump(delta, L):
         # u = 2x/L, phi = delta (1-u^2)^2, so dphi/dx = -8 delta u (1-u^2) / L.
         # Then INT phi'^2 dx = (32 delta^2 / L) INT_{-1}^{1} u^2 (1-u^2)^2 du
         #                    = (32 delta^2 / L)(16/105) = 512 delta^2/(105 L).
-        # phi' vanishes at u = +-1, so phi'^2 is continuous and Simpson is
-        # spectrally accurate on it -- which is what lets the fixture assert
-        # the closed form to 1e-12 instead of 1e-9.
+        # phi' vanishes at u = +-1, so phi'^2 is continuous there -- but its
+        # second derivative is not, so Simpson is NOT spectrally accurate on
+        # it.  On the E1 fixture's [-6, 6] grid the support edges fall between
+        # nodes and composite Simpson converges at O(h^3): simpson_order_on_bump()
+        # measures the error at n = 2001, 20001, 200001 and the selftest pins
+        # the order.  At n = 200001 the 1e-12 fixture passes by a factor of
+        # only ~3.5.  CORRECTED (DOCKET 63, ruling F8): this comment first
+        # said "spectrally accurate".
         if x <= -L / 2.0 or x >= L / 2.0:
             return 0.0
         u = 2.0 * x / L
@@ -476,6 +492,94 @@ def smooth_bump(delta, L):
 
     f.deriv = df
     return f
+
+
+# ------------------------------------ DOCKET 63 F8: the quadrature, measured
+def _without_derivative(profile):
+    """The same profile with its exact derivative hidden, so anec_integral
+    takes the central-difference fallback.  The measurement of that fallback."""
+    return lambda x: profile(x)
+
+
+def central_difference_truncation(n=200001):
+    """(E1 relative error, [E2 relative errors]) of the central-difference
+    fallback at n, on the selftest's own fixtures.  MEASURED, not typed."""
+    e1 = (anec_integral(_without_derivative(smooth_bump(1.0, 2.0)), -6.0, 6.0,
+                        n=n) / (512.0 / (105.0 * 2.0)) - 1.0)
+    e2 = [anec_integral(_without_derivative(smooth_bump(D, L)), -L, L, n=n)
+          / (512.0 * D * D / (105.0 * L)) - 1.0
+          for D, L in ((1.0, 2.0), (3.0, 0.5), (0.25, 7.0))]
+    return e1, e2
+
+
+def cd_leading_coefficient():
+    """c in  INT(CD^2) / INT(phi'^2) - 1  =  c h^2 / L^2 + O(h^4), for the bump.
+
+    DERIVED IN SYMPY.  CD = phi' + h^2 phi'''/6 + O(h^4), so the integral of
+    CD^2 - phi'^2 is (h^2/3) INT phi' phi''' = -(h^2/3) INT phi''^2 (the
+    boundary term phi' phi'' vanishes at u = +-1).  Returns a sympy Rational.
+    """
+    import sympy as sp
+    x, L, D = sp.symbols("x L D", positive=True)
+    phi = D * (1 - (2 * x / L) ** 2) ** 2
+    d1, d2, d3 = (sp.diff(phi, x, k) for k in (1, 2, 3))
+    lo, hi = -L / 2, L / 2
+    boundary = sp.simplify((d1 * d2).subs(x, hi) - (d1 * d2).subs(x, lo))
+    assert boundary == 0, boundary
+    num = sp.Rational(1, 3) * sp.integrate(d1 * d3, (x, lo, hi))
+    den = sp.integrate(d1 ** 2, (x, lo, hi))
+    return sp.simplify(num / den * L ** 2)
+
+
+def simpson_order_on_bump(ns=(2001, 20001, 200001)):
+    """[(n, relative error)] with the EXACT derivative on the E1 fixture, and
+    the observed orders log10(e_k/e_{k+1}) per decade of n."""
+    exact = 512.0 / (105.0 * 2.0)
+    errs = [(n, anec_integral(smooth_bump(1.0, 2.0), -6.0, 6.0, n=n) / exact - 1.0)
+            for n in ns]
+    orders = [math.log10(abs(errs[k][1] / errs[k + 1][1]))
+              for k in range(len(errs) - 1)]
+    return errs, orders
+
+
+# ------------------------------- DOCKET 63 F10: the orchestrator's hypothesis
+def spinodal_curvature_ratio():
+    """V''(0) / V''(v) for V = (lambda/4)(phi^2 - v^2)^2.  SYMPY.  -1/2."""
+    import sympy as sp
+    phi, lamb, vv = sp.symbols("phi lambda v", positive=True)
+    V = lamb / 4 * (phi ** 2 - vv ** 2) ** 2
+    return sp.simplify(sp.diff(V, phi, 2).subs(phi, 0)
+                       / sp.diff(V, phi, 2).subs(phi, vv))
+
+
+def spinodal_efold_s(m_h_gev=None):
+    """The e-folding time of the instability at phi = 0.  phi = 0 is a
+    SPINODAL MAXIMUM, not a false vacuum: V''(0) = -m_h^2/2, so a
+    perturbation grows at rate m_h c^2/(sqrt(2) hbar)."""
+    m_h_gev = M_HIGGS if m_h_gev is None else m_h_gev
+    r = float(-spinodal_curvature_ratio())
+    return HBAR / (math.sqrt(r) * m_h_gev * GEV_IN_J)
+
+
+#: The orchestrator's hypothesis for DOCKET 63, as this file's audit block
+#: states it, and its SIX failures (ruling F10).  Recorded, never deleted.
+#: Figures in the text are pinned by the selftest against the functions above.
+ORCHESTRATOR_HYPOTHESIS_HOLDS = False
+ORCHESTRATOR_HYPOTHESIS_FAILURES = (
+    ("one obstruction for all three roles",
+     "it is two, and role 3's is mass-independent: E2 has no m_h in it"),
+    ("nothing in between a uniform vev and a localised one",
+     "the filling medium is a third case, and it is the one that is banked"),
+    ("a false vacuum at phi = 0",
+     "phi = 0 is a spinodal MAXIMUM: V''(0)/V''(v) = -1/2 (sympy)"),
+    ("3.34 ns, the light-crossing time of 1 m, as the collapse time",
+     "the spinodal e-fold sqrt(2) hbar/(m_h c^2) is 4.486e17 times shorter"),
+    ("a cost fraction of 4 eps^2",
+     "only the leading term of eps^2 (2+eps)^2 -- audited in report()"),
+    ("m_h = 125.25",
+     "the tree pins 125.20 NAMED-NOT-READ and READs 125.13; 125.25 is neither"))
+#: What survives the six: the attometre screening rate.
+ORCHESTRATOR_SURVIVOR = "the attometre screening rate, now proved nonlinearly"
 
 
 # --------------------------------------------------- the metastability figures
@@ -643,6 +747,25 @@ def report():
     print("      and the cost fraction 4 eps^2 is the LEADING term of the exact")
     print("      eps^2 (2+eps)^2; at eps = 0.1 the exact value is %.6f, not %.6f"
           % (cost_fraction(0.1), 4 * 0.01))
+    print("      THE HYPOTHESIS BEHIND THOSE FIGURES FAILS SIX WAYS (DOCKET 63 F10):")
+    for k, (claim, why) in enumerate(ORCHESTRATOR_HYPOTHESIS_FAILURES, 1):
+        print("        %d. %s -- %s" % (k, claim, why))
+    print("      spinodal e-fold at phi = 0: %.6e s (pinned m_h), %.2e times"
+          " shorter than 1/c" % (spinodal_efold_s(), (1.0 / C_LIGHT)
+                                  / spinodal_efold_s()))
+    print("      survives: %s" % ORCHESTRATOR_SURVIVOR)
+
+    print("\n  THE QUADRATURE, MEASURED (DOCKET 63 F8)")
+    e1, e2 = central_difference_truncation()
+    print("      central-difference fallback at n = 200001: E1 %.4e, E2 %s"
+          % (e1, ", ".join("%.4e" % e for e in e2)))
+    print("      leading term c h^2/L^2 with c = %s (sympy)"
+          % cd_leading_coefficient())
+    errs, orders = simpson_order_on_bump()
+    print("      Simpson with the exact derivative, E1 fixture: %s"
+          % ", ".join("n=%d %.3e" % t for t in errs))
+    print("      observed order per decade of n: %s  -- O(h^3), not spectral"
+          % ", ".join("%.3f" % o for o in orders))
 
     print()
     print("=" * 79)
@@ -836,6 +959,52 @@ def selftest():
            / C_LIGHT ** 2 / M_EARTH, 4618.0, 1e-3)
     chkrel("orchestrator's 3.34 ns light crossing", 1.0 / C_LIGHT, 3.34e-9, 2e-3)
     chkrel("m_h implied by 1.5755e-18 m", GEVINV_TO_M / 1.5755e-18, 125.25, 1e-4)
+
+    # ------------------------- DOCKET 63 F10: the hypothesis's six failures
+    chk("the orchestrator's hypothesis does not hold",
+        ORCHESTRATOR_HYPOTHESIS_HOLDS, False)
+    chk("  and it fails on six counts, each recorded",
+        len(ORCHESTRATOR_HYPOTHESIS_FAILURES), 6)
+    chk("phi = 0 is a spinodal maximum: V''(0)/V''(v) = -1/2 (sympy)",
+        str(spinodal_curvature_ratio()), "-1/2")
+    chkrel("spinodal e-fold sqrt(2) hbar/(m_h c^2) at the pinned m_h",
+           spinodal_efold_s(), 7.434922e-27, 1e-6)
+    # the masses failure 6 names, ASKED of higgs.py rather than trusted: this
+    # file retypes M_HIGGS (:307), so the guard below fires if the two drift.
+    import higgs
+    chk("failure 6's READ 125.13 is higgs.py's capture value",
+        higgs.M_HIGGS_READ_GEV, 125.13)
+    chk("  and this file's M_HIGGS is higgs.py's pin", M_HIGGS, higgs.M_HIGGS)
+    chkrel("  at the READ m_h 125.13 (DOCKET 63 C.11)",
+           spinodal_efold_s(higgs.M_HIGGS_READ_GEV), 7.439082e-27, 1e-6)
+    chkrel("  and 3.34 ns is this many times longer", (1.0 / C_LIGHT)
+           / spinodal_efold_s(), 4.486e17, 1e-3)
+    chk("E2 has no m_h in it, so role 3's obstruction is mass-independent",
+        localisation_floor(v, 1.0) == 4.0 * v * v, True)
+
+    # ------------------------- DOCKET 63 F8: the quadrature claims, measured
+    e1, e2 = central_difference_truncation()
+    chkrel("CD fallback truncation on the E1 fixture (was '~4e-10')",
+           e1, -1.26e-8, 1e-3)
+    for k, e in enumerate(e2):
+        chkrel("CD fallback truncation on E2 fixture %d" % (k + 1), e,
+               -1.40e-9, 1e-3)
+    c = cd_leading_coefficient()
+    chk("leading coefficient -14 in c h^2/L^2 (sympy)", str(c), "-14")
+    chkrel("  and it predicts the E1 measurement",
+           float(c) * (12.0 / 200000) ** 2 / 2.0 ** 2, e1, 1e-3)
+    chkrel("  and the E2 one", float(c) * (4.0 / 200000) ** 2 / 2.0 ** 2,
+           e2[0], 1e-3)
+    chk("CONTROL the E1 truncation EXCEEDS the 1e-9 the first draft asserted",
+        abs(e1) > 1e-9, True)
+    errs, orders = simpson_order_on_bump()
+    chkrel("Simpson+exact derivative error at n=2001", errs[0][1],
+           -2.750e-7, 1e-3)
+    chkrel("  at n=20001", errs[1][1], -2.795e-10, 1e-3)
+    chk("  converges at O(h^3), NOT spectrally (was 'spectrally accurate')",
+        all(2.9 < o < 3.1 for o in orders), True)
+    chk("  and the 1e-12 fixture holds at n=200001 by a margin under 10",
+        1e-13 < abs(errs[2][1]) < 1e-12, True)
 
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
 

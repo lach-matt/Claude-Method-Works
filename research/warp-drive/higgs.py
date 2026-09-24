@@ -87,10 +87,20 @@ TWO CAVEATS, AND THEY ARE NOT SMALL.
       some fifty-four orders, and that excess IS THE COSMOLOGICAL CONSTANT
       PROBLEM.  So the magnitude is real as a contribution and is cancelled, by
       something nobody has identified, down to a number we do measure.
-  (b) IT IS UNIFORM.  It is the same inside the throat as outside it, so it
-      does not localise, cannot be switched on in one place, and is already
-      included in whatever Lambda is.  A resource you cannot put somewhere is
-      not a resource.
+  (b) IT IS UNIFORM WHERE NOTHING SOURCES IT.  It is the same inside the
+      throat as outside it, and it is already included in whatever Lambda is.
+      IT CAN BE DISPLACED IN ONE PLACE ONLY BY FILLING THAT PLACE WITH A SOURCE
+      WHOSE REST ENERGY IS 2/eps TIMES THE FIELD ENERGY IT BUYS.  A resource
+      you can put somewhere only by putting something far larger there is not
+      a resource.
+
+      CORRECTED (DOCKET 63, ruling F3).  The first draft said the vev "does not
+      localise, cannot be switched on in one place".  AS WRITTEN THAT IS FALSE:
+      a source does displace it locally -- address.py section 3 prices exactly
+      that, and its source_to_field_ratio(eps) -> 2/eps is asked by this file's
+      selftest, not retyped.  What survives is the price, not the prohibition.
+      Kept as CAVEAT_B_AS_FIRST_WRITTEN with CANNOT_BE_SWITCHED_ON_IN_ONE_PLACE
+      = False; nothing is deleted.
 
 ===============================================================================
 3. THE ESCAPE IS xi, AND THE HIGGS IS THE ONE FIELD THAT MUST HAVE IT
@@ -154,6 +164,27 @@ CONTROL, and it is not the Higgs: the Higgs kinetic term's sign is measured
 every time the particle propagates.  Naming the thing that works, and that we
 do not have, is part of not overclaiming the thing that does not.
 
+===============================================================================
+6. THE PINNED m_h IS NOT THE READ ONE (DOCKET 63, ruling F2) -- RECORDED, NOT
+   YET SWITCHED
+===============================================================================
+
+M_HIGGS = 125.20 below is NAMED-NOT-READ.  The tree's own capture of the 2026
+Review of Particle Physics, captures/PDG-2026.tsv (the H0 row, pdgid 25),
+READs a different value, and this file now imports it through
+pdgcapture.read() as M_HIGGS_READ_GEV, beside the pinned one and NEVER MERGED
+with it.  M_HIGGS_IS_READ is False and the selftest asserts that, so the day
+the pin is repaired the selftest breaks and forces every fixture below to be
+re-pinned deliberately rather than drift.
+
+THE PINNED VALUE IS NOT CHANGED IN THIS PASS, because it cascades into the
+paper (CLAIMS.md's H92b table pins 125.20 and the figures built on it).
+read_mass_moves() computes, for every figure this file states, how far it would
+move at the READ mass; the report prints the table.  Every m_h-dependent figure
+here moves by at most about a tenth of a percent, and NO VERDICT MOVES: the
+surplus stays near 1200, the CC excess stays at 54.6 orders, and the xi gate
+does not contain m_h at all.
+
 NOTHING IS REPAIRED.
 """
 
@@ -185,6 +216,40 @@ ANEC_IS_NOT = True                   # BV sect. 2.3, cases 2 and 3
 HIGGS_IS_NOT_A_PHANTOM = True
 NOTHING_IS_REPAIRED = True
 
+# ---------------------------------------------- DOCKET 63, ruling F3: caveat (b)
+#: The sentence as first written, kept verbatim so the withdrawal has an object.
+CAVEAT_B_AS_FIRST_WRITTEN = ("IT IS UNIFORM.  It is the same inside the throat "
+                             "as outside it, so it does not localise, cannot be "
+                             "switched on in one place, and is already included "
+                             "in whatever Lambda is.")
+CANNOT_BE_SWITCHED_ON_IN_ONE_PLACE = False   # WITHDRAWN (DOCKET 63 F3)
+CAVEAT_B_WITHDRAWAL_REASON = (
+    "False as written: it can be displaced in one place only by filling that "
+    "place with a source whose rest energy is 2/eps times the field energy it "
+    "buys (address.source_to_field_ratio, asked in the selftest).  The price "
+    "survives; the prohibition does not.")
+
+
+# ------------------------------------------------ DOCKET 63, ruling F2: m_h READ
+def _capture_row(pdgid):
+    """The captured PDG-2026 row for one particle.  pdgcapture.read() is the
+    stdlib read path of captures/PDG-2026.tsv; nothing is retyped here."""
+    import pdgcapture
+    rows = [r for r in pdgcapture.read() if int(r["pdgid"]) == pdgid]
+    if len(rows) != 1:
+        raise LookupError("capture holds %d rows for pdgid %d" % (len(rows), pdgid))
+    return rows[0]
+
+
+PDGID_HIGGS = 25
+M_HIGGS_READ_GEV = float(_capture_row(PDGID_HIGGS)["mass_MeV"]) / 1000.0   # READ
+GAMMA_HIGGS_READ_GEV = float(_capture_row(PDGID_HIGGS)["width_MeV"]) / 1000.0  # READ
+#: THE DRIFT FLAG.  False today, and the selftest asserts False: the day
+#: M_HIGGS is switched to the READ value this breaks, which forces a re-pin.
+M_HIGGS_IS_READ = (M_HIGGS == M_HIGGS_READ_GEV)
+#: Fractional distance of the pinned value from the READ one.  COMPUTED.
+M_HIGGS_READ_SHIFT = M_HIGGS_READ_GEV / M_HIGGS - 1.0
+
 
 # ------------------------------------------------------------------- the SM
 def vev():
@@ -192,14 +257,45 @@ def vev():
     return 1.0 / math.sqrt(math.sqrt(2.0) * G_FERMI)
 
 
-def lam():
-    """lambda = m_h^2 / (2 v^2)."""
-    return M_HIGGS ** 2 / (2.0 * vev() ** 2)
+def lam(m_h=None):
+    """lambda = m_h^2 / (2 v^2).  m_h defaults to the pinned M_HIGGS."""
+    m_h = M_HIGGS if m_h is None else m_h
+    return m_h ** 2 / (2.0 * vev() ** 2)
 
 
-def v_min_gev4():
+def v_min_gev4(m_h=None):
     """V at the minimum of the Mexican hat, with V(0) = 0.  NEGATIVE."""
-    return -lam() * vev() ** 4 / 4.0
+    return -lam(m_h) * vev() ** 4 / 4.0
+
+
+def compton_length_m(m_gev):
+    """hbar c / (m c^2), metres -- lambda_h when m is the Higgs mass."""
+    return HBAR_C / (m_gev * GEV_IN_J)
+
+
+def read_mass_moves():
+    """[(figure, at pinned M_HIGGS, at M_HIGGS_READ_GEV, relative move)].
+
+    DOCKET 63 F2.  Nothing is switched: this reports what WOULD move, for every
+    figure this file states that depends on m_h, plus one CONTROL that must
+    not move (the xi gate, which contains v and M_red but no m_h).
+    """
+    tau = pressure.throat_tension(pressure.R_MOUTH)
+    out = []
+    for name, f in (
+            ("lambda = m_h^2/2v^2", lam),
+            ("V_min (GeV^4)", v_min_gev4),
+            ("|V_min| (J/m^3)", lambda m: abs(gev4_to_si(v_min_gev4(m)))),
+            ("|V_min| / TAU_0 (the surplus)",
+             lambda m: abs(gev4_to_si(v_min_gev4(m))) / tau),
+            ("log10 |V_min|/rho_Lambda (CC orders)",
+             lambda m: math.log10(abs(gev4_to_si(v_min_gev4(m)))
+                                  / RHO_LAMBDA_OBS)),
+            ("lambda_h = hbar/(m_h c) (m)", compton_length_m),
+            ("CONTROL xi_required(v) (no m_h)", lambda m: xi_required(vev()))):
+        a, b = f(M_HIGGS), f(M_HIGGS_READ_GEV)
+        out.append((name, a, b, b / a - 1.0))
+    return out
 
 
 def gev4_to_si(x):
@@ -385,6 +481,23 @@ def report():
     print("      %-38s %20.2f" % ("  doubled, because xi takes phi^2",
                                   math.log10(xi_required(v))))
     print()
+    print("  the pinned m_h is NOT the READ one (DOCKET 63 F2) -- not switched")
+    print("      %-38s %20.6f GeV" % ("M_HIGGS, pinned, NAMED-NOT-READ", M_HIGGS))
+    print("      %-38s %20.6f GeV" % ("captures/PDG-2026.tsv H0, READ",
+                                      M_HIGGS_READ_GEV))
+    print("      %-38s %20.6e" % ("  pinned is off the READ value by",
+                                  M_HIGGS_READ_SHIFT))
+    print("      %-36s %14s %14s %11s" % ("figure", "at pinned", "at READ",
+                                          "moves by"))
+    for name, a, b, rel in read_mass_moves():
+        print("      %-36s %14.7g %14.7g %+11.3e" % (name, a, b, rel))
+    print()
+    print("  caveat (b), corrected (DOCKET 63 F3)")
+    print("      'cannot be switched on in one place' is WITHDRAWN:")
+    import textwrap
+    for ln in textwrap.wrap(CAVEAT_B_WITHDRAWAL_REASON, 66):
+        print("      %s" % ln)
+    print()
     print("=" * 79)
     print("VERDICT")
     print("=" * 79)
@@ -521,6 +634,48 @@ def selftest():
     chkrel("xi_required = (v/M_red)^-2 exactly", xr, 1.0 / h ** 2, 1e-12)
     chk("sixteen orders of hierarchy, thirty-two of xi",
         round(math.log10(xr) / -math.log10(h), 6), 2.0)
+
+    # ------------------------------ DOCKET 63 F2: the READ m_h, beside the pin
+    # FIXTURE 125.13 GeV / 3 MeV: captures/PDG-2026.tsv's H0 row, reproduced
+    # by _capture_row() through pdgcapture.read(), never typed into the code.
+    chk("m_h READ from captures/PDG-2026.tsv (pdgid 25)", M_HIGGS_READ_GEV, 125.13)
+    chk("Gamma_h READ from the same row", GAMMA_HIGGS_READ_GEV, 0.003)
+    # DRIFT GUARD.  This FIRES -- the selftest breaks -- on the day M_HIGGS is
+    # switched to the READ value, which forces every m_h fixture to be re-pinned.
+    chk("DRIFT GUARD: the pinned m_h is NOT the READ one", M_HIGGS_IS_READ, False)
+    chk("  and the pin is still 125.20, NAMED-NOT-READ", M_HIGGS, 125.20)
+    chkrel("  offset of the pin from the READ value", M_HIGGS_READ_SHIFT,
+           -5.5910543e-4, 1e-6)
+    moves = {n: rel for n, _, _, rel in read_mass_moves()}
+    chkrel("|V_min| would move by (m_read/m_pin)^2 - 1",
+           moves["|V_min| (J/m^3)"], (1 + M_HIGGS_READ_SHIFT) ** 2 - 1, 1e-9)
+    chkrel("lambda_h would move by m_pin/m_read - 1",
+           moves["lambda_h = hbar/(m_h c) (m)"],
+           1.0 / (1 + M_HIGGS_READ_SHIFT) - 1, 1e-9)
+    chkrel("lambda_h at the pin (endpoint.py:772, address.py fixture)",
+           compton_length_m(M_HIGGS), 1.576094e-18, 1e-6)
+    chkrel("lambda_h at the READ mass (DOCKET 63 A.2)",
+           compton_length_m(M_HIGGS_READ_GEV), 1.576976e-18, 1e-6)
+    chk("no figure here moves by more than 0.2 per cent",
+        all(abs(r) < 2e-3 for r in moves.values()), True)
+    # CONTROL THAT MUST NOT MOVE: the xi gate contains no m_h.
+    chk("CONTROL the xi gate does not move at all",
+        moves["CONTROL xi_required(v) (no m_h)"], 0.0)
+    # CONTROL THAT MUST FIRE: a figure that does depend on m_h does move.
+    chk("CONTROL the surplus does move", moves["|V_min| / TAU_0 (the surplus)"]
+        != 0.0, True)
+
+    # ----------------------------- DOCKET 63 F3: caveat (b), withdrawn not deleted
+    chk("caveat (b) 'cannot be switched on in one place' is WITHDRAWN",
+        CANNOT_BE_SWITCHED_ON_IN_ONE_PLACE, False)
+    chk("  and the first wording is kept verbatim",
+        "cannot be switched on in one place" in CAVEAT_B_AS_FIRST_WRITTEN, True)
+    # THE REPLACEMENT, ASKED OF ITS OWNER.  address.py prices the local
+    # displacement; its source/field ratio times eps must tend to 2.
+    import address
+    for e in (1e-6, 1e-9, 1e-12):
+        chkrel("source rest energy / field energy -> 2/eps at eps=%g" % e,
+               address.source_to_field_ratio(e) * e, 2.0, 1e-5)
 
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
 

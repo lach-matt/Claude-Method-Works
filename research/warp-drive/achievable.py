@@ -253,12 +253,23 @@ printed "C ~ 3.17".  NO COEFFICIENT.
     field "states of arbitrarily negative energy density can be sustained over
     arbitrarily large spacetime volumes", and for interacting fields "one cannot
     expect state-independent QEIs to hold".  (b) Fewster states the bound "is
-    known not to be optimal".  (c) boundary-free flat space; Fewster & Teo,
-    gr-qc/9812032, give an EXACT QEI for static spacetimes with no curvature cap
-    -- 9/64 of Ford-Roman's in the Minkowski limit, so TIGHTER -- but their own
-    conclusions name the curved evaluation for a static wormhole as still to be
-    done, and their Schwarzschild section shows the bound going arbitrarily
-    negative near a horizon.  (d) it prices persistence and says nothing at an
+    known not to be optimal".  (c) boundary-free flat space.  Fewster & Teo,
+    gr-qc/9812032, give an EXACT QEI for static spacetimes with no curvature
+    cap.  Their flat massless bound is 9/64 of Ford-Roman's FOR FORD-ROMAN'S
+    LORENTZIAN SAMPLER -- and C above ALREADY IS that family's constant at the
+    OPTIMAL COMPACTLY SUPPORTED sampler: F&T (5.6) at zero spectral gap returns
+    mu_1^4/(16 pi^2) exactly (fewsterteo.py, by Parseval).  So NO 64/9
+    adjustment applies to C; taking log10(64/9) = 0.852 orders off the refusal
+    would count one tightening twice.  Their curved evaluation for a static
+    wormhole is still to be done; their Schwarzschild section's mode basis is
+    defined by a horizon the corridor lacks; and on an asymptotically flat
+    corridor the spectral gap that could tighten (5.6) is zero, so the flat
+    figure below stands (fewsterteo.py, DOCKET 62).
+        CORRECTED IN PLACE -- DOCKET 62.  This caveat read "-- 9/64 of
+        Ford-Roman's in the Minkowski limit, so TIGHTER --", which invites a
+        void 0.851937-order adjustment to C.  Kept here so the correction
+        names what it corrects; NINE_64_APPLIES_TO_C pins the refusal.
+    (d) it prices persistence and says nothing at an
     instant, which is exactly consistent with Ford-Helfer-Roman.
 
     SO THE VERDICT IS NO-IN-PRACTICE AND NOT NO-BY-THEOREM.  Nothing here is a
@@ -332,6 +343,12 @@ def fewster_constant():
 
 
 FEWSTER_MU1, FEWSTER_C = fewster_constant()
+
+#: Caveat (c), corrected DOCKET 62: C is already the Fewster-Teo family's
+#: constant at the optimal compactly supported sampler, so the 9/64 of their
+#: Lorentzian-sampler comparison is NOT applied to it.  fewsterteo.py owns the
+#: derivation; this pin keeps the refusal visible where C lives.
+NINE_64_APPLIES_TO_C = False
 
 
 def duration_bound(T):
@@ -459,6 +476,8 @@ def selftest():
     near("Fewster's clamped-beam root mu_1", FEWSTER_MU1, 4.730040744862704, 1e-12)
     near("and his constant C = mu_1^4/(16 pi^2), printed as ~3.17",
          FEWSTER_C, 3.169857938310467, 1e-12)
+    chk("caveat (c): no 64/9 adjustment is applied to C (DOCKET 62)",
+        NINE_64_APPLIES_TO_C, False)
     print("     %14s %18s %18s %10s" % ("b", "required (Pa)", "allowed (Pa)", "orders"))
     for b, tag in ((1.0, "1 m"), (1.0e3, "1 km"), (1.0e16, "1 light-year")):
         print("     %14s %18.4e %18.4e %10.3f"

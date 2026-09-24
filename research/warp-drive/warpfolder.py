@@ -84,13 +84,25 @@ potential", after which the payload's binary template guides re-condensation.
       delivers eta ~ 6.1e-10 per photon.  A blueprint does not source baryon
       number; no arrangement of information does.
 
-  (d) AND THE FIELD CANNOT BE PUT SOMEWHERE ANYWAY.  higgs.py's caveat (b)
-      already records that the vev "does not localise, cannot be switched on in
-      one place".  DOCKET 63 proposes the sharper statement -- that a linearised
-      displacement is Yukawa-screened at 1/m_h -- BUT THAT IS UNVERIFIED AT THIS
-      WRITING: every DOCKET 63 verifier died on a rate limit before attacking
-      it.  IT IS NOT USED HERE AND MUST NOT BE QUOTED AS A RESULT.
-      See SCREENING_IS_VERIFIED below, which is False.
+  (d) AND THE FIELD CANNOT BE PUT SOMEWHERE WITHOUT FILLING THE PLACE.
+      higgs.py's caveat (b), as corrected by DOCKET 63 (ruling F3), records
+      that the vev can be displaced in one place only by filling that place
+      with a source whose rest energy is 2/eps times the field energy it buys.
+      The screening behind it is NOW VERIFIED: excite.py's THEOREM D15,
+      TAIL_RATE_IS_MASS -- a static displacement of any vacuum with V''(v) =
+      m^2 > 0 returns to v at asymptotic rate exactly m, nonlinearly, for every
+      source sign, size and shape outside the source -- proved by an
+      elementary Riccati argument and witnessed by excite.py's selftest; and
+      THEOREM D16, DISPLACEMENT_IS_ULTRALOCAL.  For the Higgs that rate is
+      hbar/(m_h c), attometres.  See SCREENING_IS_VERIFIED below, now True.
+
+      CORRECTED (DOCKET 63, ruling F4).  The first draft said the screening
+      was "UNVERIFIED AT THIS WRITING: every DOCKET 63 verifier died on a rate
+      limit before attacking it.  IT IS NOT USED HERE AND MUST NOT BE QUOTED
+      AS A RESULT", and quoted caveat (b)'s withdrawn wording "does not
+      localise, cannot be switched on in one place".  Both were true of their
+      moment and are kept as SCREENING_IS_VERIFIED_AS_FIRST_WRITTEN = False
+      with its reason.  (a), (b) and (c) never rested on (d) and do not now.
 
 Note that (a), (b) and (c) are INDEPENDENT.  Each alone is sufficient.
 
@@ -154,7 +166,9 @@ refutation any more than as a finding.
   - IT DOES NOT RATE THE FOLDER.  There is no score, no percentage correct, no
     verdict on the document set as a whole.  Claims are adjudicated one at a
     time and two of them are NOT-ADJUDICATED.
-  - IT DOES NOT USE DOCKET 63's SCREENING LENGTH.  Unverified is unverified.
+  - NO VERDICT HERE RESTS ON DOCKET 63's SCREENING LENGTH ALONE.  It was
+    refused while unverified; it is now verified (excite.py, D15) and (d) cites
+    it, but (a), (b) and (c) each stand without it.
   - IT DOES NOT TREAT CONVERGENCE AS CORROBORATION.  That the folder and
     DOCKET 63 independently reached vev-addressing makes the idea WORTH
     TESTING.  It is not evidence the idea is right: two models sharing a
@@ -241,8 +255,19 @@ NOT_ADJUDICATED = (
     "Berry-phase 'ghost horizon' measurement extracts all twelve parameters",
 )
 
-# DOCKET 63's screening length is NOT used in this file.
-SCREENING_IS_VERIFIED = False
+# DOCKET 63's screening length.  VERIFIED by excite.py's THEOREM D15
+# (TAIL_RATE_IS_MASS) and D16 (DISPLACEMENT_IS_ULTRALOCAL); the selftest asks
+# excite for both rather than trusting this flag.  (DOCKET 63 ruling F4.)
+SCREENING_IS_VERIFIED = True
+SCREENING_VERIFIED_BY = ("excite", "TAIL_RATE_IS_MASS")
+#: The first draft's flag, WITHDRAWN and kept.
+SCREENING_IS_VERIFIED_AS_FIRST_WRITTEN = False
+SCREENING_WITHDRAWAL_REASON = (
+    "False when written: every DOCKET 63 verifier had died on a rate limit "
+    "before attacking the screening claim.  DOCKET 63 then proved it "
+    "(ruling F1, an elementary Riccati argument replacing an unread "
+    "Levinson/Hartman citation) and excite.py's selftest witnesses it, so "
+    "ruling F4 flips the flag.")
 CONVERGENCE_IS_CORROBORATION = False
 NOTHING_IS_REPAIRED = True
 FOLDER_IS_NOT_SEATED = True
@@ -417,8 +442,9 @@ def report():
     for claim in NOT_ADJUDICATED:
         print("      NOT-ADJUDICATED  %s" % claim)
     print()
-    print("      DOCKET 63's screening length is NOT used here:")
-    print("      SCREENING_IS_VERIFIED = %s" % SCREENING_IS_VERIFIED)
+    print("      DOCKET 63's screening length, now verified (excite.py D15):")
+    print("      SCREENING_IS_VERIFIED = %s  (first written: %s, withdrawn)"
+          % (SCREENING_IS_VERIFIED, SCREENING_IS_VERIFIED_AS_FIRST_WRITTEN))
     print("      CONVERGENCE_IS_CORROBORATION = %s" % CONVERGENCE_IS_CORROBORATION)
     print()
 
@@ -551,8 +577,24 @@ def selftest():
 
     # ------------------------------------------------------------- the refusals
     chk("two claims are filed NOT-ADJUDICATED", len(NOT_ADJUDICATED), 2)
-    chk("DOCKET 63's screening is NOT treated as verified",
-        SCREENING_IS_VERIFIED, False)
+    # DOCKET 63 F4: the flag is flipped, and it is ASKED of its owner rather
+    # than believed -- excite.py must still export both theorems, and its
+    # stdlib witnesses must still hold (exact kink rate, multipole residuals,
+    # and one boundary-value solve with its massless control).
+    import excite
+    chk("DOCKET 63's screening is verified (ruling F4)",
+        SCREENING_IS_VERIFIED, True)
+    chk("  and its owner still exports D15 and D16",
+        (getattr(excite, SCREENING_VERIFIED_BY[1]),
+         excite.DISPLACEMENT_IS_ULTRALOCAL), (True, True))
+    xs, us, _it, h = excite.bvp_solve(-2.448516, 40.0)
+    chk("  witness: the deepest profile's rate at x = 25 is 1 (to 1e-8)",
+        abs(excite.measured_rate(xs, us, h, 25.0) - 1.0) < 1e-8, True)
+    xs, us, _it, h = excite.bvp_solve(-0.5, 40.0, mu2=0.0)
+    chk("  CONTROL the massless solve is NOT 1 (1/(X-x) = 1/15)",
+        abs(excite.measured_rate(xs, us, h, 25.0) - 1.0 / 15.0) < 1e-9, True)
+    chk("  the first draft's False is kept, withdrawn",
+        SCREENING_IS_VERIFIED_AS_FIRST_WRITTEN, False)
     chk("and convergence is NOT treated as corroboration",
         CONVERGENCE_IS_CORROBORATION, False)
     chk("nothing is repaired and the folder is not seated",

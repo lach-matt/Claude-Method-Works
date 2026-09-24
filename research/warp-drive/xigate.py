@@ -26,15 +26,26 @@ xi_required = (M_red / phi)^2 falls as the square of the field scale, and the
 Higgs VEV is small.  Seat the scalar higher and the coupling needed collapses:
 
     field scale                phi (GeV)     xi required     vs Higgs inflation
-    Higgs VEV (electroweak)     2.46e+02      9.78e+31          9.8e+27
-    1 TeV                       1.00e+03      5.93e+30          5.9e+26
-    see-saw / intermediate      1.00e+11      5.93e+14          5.9e+10
-    **GUT scale**               2.00e+16      **1.48e+04**      **1.5**
-    reduced Planck mass         2.44e+18      1.00e+00          1e-4
+    Higgs VEV (electroweak)     2.46e+02      9.78e+31          5.8e+27
+    1 TeV                       1.00e+03      5.93e+30          3.5e+26
+    see-saw / intermediate      1.00e+11      5.93e+14          3.5e+10
+    **GUT scale**               2.00e+16      **1.48e+04**      **0.87**
+    reduced Planck mass         2.44e+18      1.00e+00          5.9e-05
 
-**AT THE GUT SCALE THE REQUIRED COUPLING IS 1.48e4 -- ONE AND A HALF TIMES THE
-xi THAT HIGGS INFLATION ALREADY USES.**  Not an exotic value, not a tuned one, a
-number already in the cosmology literature for a different purpose.  The gate is
+**AT THE GUT SCALE THE REQUIRED COUPLING IS 1.48e4 -- 0.87 TIMES THE xi THAT
+HIGGS INFLATION ALREADY USES, I.E. BELOW IT.**  Not an exotic value, not a tuned
+one, a number already in the cosmology literature for a different purpose.
+
+    CORRECTED (DOCKET 63, ruling F9).  The first draft pinned its own
+    XI_HIGGS_INFLATION = 1e4 while higgs.py pins 1.7e4 for the same named
+    constant (Bezrukov-Shaposhnikov, NAMED-NOT-READ) -- two values for one
+    constant -- and against 1e4 it called the GUT requirement "ONE AND A HALF
+    TIMES" Higgs inflation's.  The constant is now IMPORTED from higgs.py, so
+    the last column above is against 1.7e4 and the ratio is 0.87.  The first
+    pin is kept as XI_HIGGS_INFLATION_AS_FIRST_PINNED, withdrawn.  THE FINDING
+    DOES NOT MOVE: the GUT-scale requirement is within a factor of two of a
+    coupling already in use, now from below instead of above.  HBAR_C was also
+    retyped here (:119 of the first draft); it is now higgs.HBAR_C / GEV_IN_J.  The gate is
 the hierarchy problem only because the Higgs sits sixteen orders below the Planck
 scale; a field that does not sit there does not inherit it.
 
@@ -116,8 +127,8 @@ import sys
 
 import higgs as H
 
-HBAR_C_GEV_M = 1.973269804e-16      # GeV*m
-L_PLANCK = 1.616255e-35             # m
+HBAR_C_GEV_M = H.HBAR_C / H.GEV_IN_J  # GeV*m -- imported, no longer retyped
+L_PLANCK = 1.616255e-35             # m, CODATA                    NAMED-NOT-READ
 
 SCALES = [
     ("Higgs VEV (electroweak)", None),      # filled from higgs.py
@@ -126,7 +137,16 @@ SCALES = [
     ("GUT scale", 2e16),
     ("reduced Planck mass", None),          # filled from higgs.py
 ]
-XI_HIGGS_INFLATION = 1e4
+# DOCKET 63 F9.  ONE NAMED CONSTANT, ONE VALUE: imported from its owner.
+XI_HIGGS_INFLATION = H.XI_HIGGS_INFLATION          # 1.7e4, NAMED-NOT-READ there
+#: The first draft's own pin for the same constant.  WITHDRAWN, kept.
+XI_HIGGS_INFLATION_AS_FIRST_PINNED = 1e4
+XI_HIGGS_INFLATION_WITHDRAWAL_REASON = (
+    "two values for one named constant: higgs.py pins 1.7e4 "
+    "(Bezrukov-Shaposhnikov); this file's 1e4 is withdrawn and the constant "
+    "imported.  The GUT-scale xi_required(2e16) = 1.48e4 is then 0.87x Higgs "
+    "inflation's, not 'one and a half times'.")
+GUT_SCALE_GEV = 2e16
 
 
 def scales():
@@ -170,8 +190,12 @@ def report():
         xi = xi_required(phi)
         print("   %-26s %-12.3e %-13.3e %.1e" % (nm, phi, xi, xi / XI_HIGGS_INFLATION))
     print()
-    print("   AT THE GUT SCALE THE COUPLING NEEDED IS 1.5x THE ONE HIGGS INFLATION")
-    print("   ALREADY USES. The 1e27 shortfall belongs to the Higgs, not the route:")
+    print("   AT THE GUT SCALE THE COUPLING NEEDED IS %.2fx THE ONE HIGGS INFLATION"
+          % (xi_required(GUT_SCALE_GEV) / XI_HIGGS_INFLATION))
+    print("   ALREADY USES (xi = %.1e, imported from higgs.py; the first draft's"
+          % XI_HIGGS_INFLATION)
+    print("   own 1e4 pin, which gave '1.5x', is WITHDRAWN -- DOCKET 63 F9).")
+    print("   The 1e27 shortfall belongs to the Higgs, not the route:")
     print("   the gate is the hierarchy problem only because the Higgs sits sixteen")
     print("   orders below the Planck scale, and another field need not.")
     print()
@@ -232,12 +256,33 @@ def selftest():
         xi_required(H.vev()) * (H.vev() / H.reduced_planck_gev()) ** 2, 1.0, 1e-12)
 
     # The push: the GUT scale brings it to a coupling already in use.
-    chk("at the GUT scale the coupling needed is about 1.5e4",
-        xi_required(2e16) / 1e4, 1.48, 0.02)
-    chk("which is within a factor of two of Higgs inflation's",
-        1.0 < xi_required(2e16) / XI_HIGGS_INFLATION < 2.0, True)
+    chk("at the GUT scale the coupling needed is about 1.48e4",
+        xi_required(GUT_SCALE_GEV) / 1e4, 1.48, 0.02)
+    # DOCKET 63 F9: ONE named constant, ONE value, imported from its owner.
+    chk("XI_HIGGS_INFLATION is higgs.py's, not a second pin",
+        XI_HIGGS_INFLATION is H.XI_HIGGS_INFLATION, True)
+    chk("  and it is 1.7e4", XI_HIGGS_INFLATION, 1.7e4)
+    chk("HBAR_C is imported from higgs.py, not retyped",
+        HBAR_C_GEV_M, H.HBAR_C / H.GEV_IN_J)
+    chk("  and it agrees with the first draft's typed 1.973269804e-16",
+        HBAR_C_GEV_M, 1.973269804e-16, 1e-24)
+    # RE-PINNED.  Against the imported 1.7e4 the GUT requirement is 0.872x,
+    # BELOW Higgs inflation's.  The first draft asserted 1 < ratio < 2 against
+    # its own 1e4 (ratio 1.48); that fixture moved and is withdrawn.
+    chk("the GUT requirement is 0.872x Higgs inflation's (re-pinned)",
+        xi_required(GUT_SCALE_GEV) / XI_HIGGS_INFLATION, 0.8722, 1e-4)
+    chk("which is within a factor of two of it, from below",
+        0.5 < xi_required(GUT_SCALE_GEV) / XI_HIGGS_INFLATION < 1.0, True)
+    chk("WITHDRAWN fixture: against the first pin 1e4 it was 1.48x",
+        xi_required(GUT_SCALE_GEV) / XI_HIGGS_INFLATION_AS_FIRST_PINNED,
+        1.4827, 1e-4)
+    # the docstring's vs-Higgs-inflation column, reproduced
+    for phi, want in ((H.vev(), 5.7547e27), (1e3, 3.4888e26), (1e11, 3.4888e10),
+                      (H.reduced_planck_gev(), 5.8824e-5)):
+        chk("docstring column at phi = %.3g" % phi,
+            xi_required(phi) / XI_HIGGS_INFLATION / want, 1.0, 1e-4)
     chk("so the 1e27 shortfall is the HIGGS's, not the route's",
-        xi_required(H.vev()) / xi_required(2e16) > 1e27, True)
+        xi_required(H.vev()) / xi_required(GUT_SCALE_GEV) > 1e27, True)
 
     # THE TRADE, and it is the finding.
     worst = max(abs(xi_required(p) / trade(p) - 1.0) for _, p in scales())
