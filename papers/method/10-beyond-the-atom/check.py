@@ -630,21 +630,55 @@ def check_operator():
     tot, bad = guard_seated_vs_reference()
     rec("GUARD", "T0b", "seated R vs independent staircase on %d random instances, %d disagreements"
         % (tot, bad), bad == 0)
-    nv = pv.non_vacuous((3, 3), lambda X, S, c, d, s: z3.And(nonempty(X, c), contains(X, S, c)),
-                        lambda X, S, c, d, s: z3.And(z3.Not(contains(S, X, c)),
-                                                     z3.Not(z3.And([S[x] for x in c]))))
-    rec("GUARD", "T0c", "non-vacuity: X strictly inside S strictly inside the box is satisfiable", nv)
+    boxes = ((3, 3), (2, 2, 2), (3, 3, 3))
+    nvs = []
+    for sh in boxes:
+        nv = pv.non_vacuous(sh, lambda X, S, c, d, s: z3.And(nonempty(X, c), contains(X, S, c)),
+                            lambda X, S, c, d, s: z3.And(z3.Not(contains(S, X, c)),
+                                                         z3.Not(z3.And([S[x] for x in c]))))
+        nvs.append(nv)
+        rec("GUARD", "T0c.", "non-vacuity for Theorem 1(b) on %s: X strictly inside S strictly inside the box is satisfiable"
+            % "x".join(map(str, sh)), nv)
+    nv = all(nvs)
+    rec("GUARD", "T0c", "Theorem 1(a), 1(c) and Theorem 4 hypothesise only a non-empty X (and a non-empty fibre), which is satisfiable on every box", True)
     if bad or not nv:
         rec("REFUSED", "T1-4", "a guard failed; the machine checks below are not reported", False)
         return
-    boxes = ((3, 3), (2, 2, 2), (3, 3, 3))
     for oid, name, ob in (("T1a", "extensive", ob_extensive), ("T1b", "monotone (own box)", ob_monotone),
                           ("T1c", "idempotent (own box)", ob_idempotent)):
         oks = [pv.prove("%s %s" % (name, sh), sh, ob, quiet=True) for sh in boxes]
         rec("MACHINE-CHECKED", oid, "R is %s over every subset of %s" % (name, ", ".join("x".join(map(str, s)) for s in boxes)), all(oks))
-    oks = [pv.prove("fibration %s" % (sh,), sh, ob_fibration, quiet=True) for sh in boxes]
-    rec("MACHINE-CHECKED", "T4", "Theorem 4: each fibre's closure lies in the whole closure, fibred over the first coordinate, %s"
-        % ", ".join("x".join(map(str, s)) for s in boxes), all(oks))
+    oks = []
+    for sh in boxes:
+        for i in range(len(sh)):
+            oks.append(pv.prove("fibration %s coord %d" % (sh, i), sh,
+                                lambda X, S, c, d, s, i=i: ob_fibration(X, S, c, d, s, i), quiet=True))
+    rec("MACHINE-CHECKED", "T4", "Theorem 4 (the inclusion): each fibre's closure lies in the whole closure, fibred over EVERY coordinate, %s (%d instances)"
+        % (", ".join("x".join(map(str, s)) for s in boxes), len(oks)), all(oks))
+    # Remark 3: for a partition that is not by a coordinate the inequality FAILS -- the witness
+    X = [(0, 0), (0, 1), (1, 0)]
+    parts = ([(0, 1), (1, 0)], [(0, 0)])
+    eq("REFUTATION", "T4b", "the claim 'every partition has fibred defect <= E(X)' is refuted: X = {(0,0),(0,1),(1,0)}, E(X); parts {(0,1),(1,0)} and {(0,0)}, E of each, fibred sum",
+       (E(X), E(parts[0]), E(parts[1]), E(parts[0]) + E(parts[1]) > E(X)), (1, 2, 0, True))
+    # Corollary 2: the chain of coordinate fibrations, iterated over i = 1..d, is non-increasing and ends at 0
+
+    def fibred_chain(X, d):
+        parts, out = [list(X)], [E(X)]
+        for i in range(d):
+            parts = [[c for c in Pp if c[i] == v] for Pp in parts for v in sorted({c[i] for c in Pp})]
+            out.append(sum(E(Pp) for Pp in parts))
+        return out
+    tot = bad2 = 0
+    for shape in ((3, 3), (2, 2, 2)):
+        cells = cells_of(shape)
+        n = len(cells)
+        for mask in range(1, 1 << n):
+            X = [cells[i] for i in range(n) if mask >> i & 1]
+            ch = fibred_chain(X, len(shape))
+            tot += 1
+            bad2 += not (all(ch[k] >= ch[k + 1] for k in range(len(ch) - 1)) and ch[-1] == 0)
+    eq("EXHAUSTIVE", "T4c", "Corollary 2: fibring by coordinate 1, then 2, ..., d inside each fibre gives a non-increasing chain of fibred defects ending at 0, on every non-empty subset of 3x3 and 2x2x2: subsets, failures",
+       (tot, bad2), (766, 0))
     # Theorem 2: a full box closes -- exhaustive over every box with sides 1..4, d <= 3
     fam = 0
     ok = True
@@ -666,16 +700,27 @@ def check_operator():
             sub = all(tuple(map(min, a, b)) in S and tuple(map(max, a, b)) in S for a in S for b in S)
             badA += sub != (E(X) == 0)
             badB += R(X) != hull(X)
-    eq("EXHAUSTIVE", "T3", "Proposition 1: over every non-empty subset of 3x3 and 2x2x2, X is a sublattice iff E(X) = 0, and R(X) = the sublattice hull: subsets, failures of each",
+    eq("EXHAUSTIVE", "T3", "Theorem 0 corroborated: over every non-empty subset of 3x3 and 2x2x2, X is a sublattice iff E(X) = 0, and R(X) = the sublattice hull: subsets, failures of each",
        (tot, badA, badB), (766, 0, 0), prop1_subsets=766)
-    big = [("the periodic table", periodic_cells()), ("the Kreuzer-Skarke slice", ks_cells()),
-           ("the parity set of Lambda_9", [c for c in tw.L9() if abs(c[5] - c[1]) == 1])]
-    eq("EXHAUSTIVE", "T3b", "R(X) = the sublattice hull on three larger indexes: sizes and disagreements",
+    big = [("the periodic table (90 cells)", periodic_cells()), ("the Kreuzer-Skarke slice (208)", ks_cells()),
+           ("the orbital-rule set of Lambda_9 (840)", [c for c in tw.L9() if abs(c[5] - c[1]) == 1])]
+    eq("EXHAUSTIVE", "T3b", "R(X) = the sublattice hull on three larger indexes (90, 208, 840 cells): closure sizes and agreement",
        tuple((len(R(X)), R(X) == hull(X)) for _, X in big), ((126, True), (748, True), (1590, True)))
-    # Theorem 5 (adjunction never repairs) and Theorem 6 (homomorphism criterion)
+    # Theorem 5 (adjunction never repairs) and Theorem 6 (homomorphism criterion): the encoding
+    # guard first -- the three graph predicates evaluated on random (S, h) against enumeration
+    gtot = gbad = 0
+    for shape, H in (((3, 3), 3), ((2, 2, 2), 2)):
+        t_, b_ = guard_graph_encodings(shape, H)
+        gtot += t_
+        gbad += b_
+    rec("GUARD", "T0d", "encoding fidelity for Theorems 5 and 6: the Z3 predicates 'S closed', 'graph(h) closed', 'h preserves meet and join on S' evaluated on %d random (S, h) instances over 3x3 and 2x2x2 against an enumerative decision, %d disagreements"
+        % (gtot, gbad), gbad == 0)
+    if gbad:
+        rec("REFUSED", "T5-6", "the graph-encoding guard failed; Theorems 5 and 6 are not reported", False)
+        return
     for oid, shape, H in (("T5a", (3, 3), 3), ("T5b", (2, 2, 2), 2)):
         r, nv, cv = adjunction_obligation(shape, H)
-        rec("GUARD", oid + "g", "non-vacuity: S' closed with S proper and h non-constant is satisfiable (%s)" % (shape,), nv == z3.sat)
+        rec("GUARD", oid + "g", "non-vacuity: S' closed with S proper and h non-constant ON S is satisfiable (%s)" % (shape,), nv == z3.sat)
         rec("MACHINE-CHECKED", oid, "Theorem 5: S' = graph(h) closed => S closed, every S and every h: box -> {0..%d}, box %s" % (H - 1, "x".join(map(str, shape))),
             r == z3.unsat and nv == z3.sat)
         S, hmap, closed, bad, missing = converse_witness(shape, H)
