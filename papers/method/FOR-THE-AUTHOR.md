@@ -448,3 +448,24 @@ thesis with them. The physicist's questions are yours as much as the drafter's: 
 bound carries a spin-½ constant against the paper's own 2S′ ≤ 3, so the jK scheme is a
 one-outer-electron scheme applied formally, and which state the parent-J coordinate labels is not
 stated anywhere. The seeds 7, 8, 9, the one-parent reading and the chain count are confirmed sound.
+
+**The lattice — no blocking fault; eight substantive points.** The audit finds the mathematics
+sound and the checks honest, and raises eight things for the repair: the title says "one-electron"
+while 481 cells move two or three electrons; the bound 2S ≤ k is an envelope admitting 503
+unphysical spin labels, so "nothing chosen for convenience" overstates; the semantics of g — 515
+cells lose electrons and 200 have source equal to target — is never stated as a model; rank
+modularity was called distributivity's signature; a grading check found its covers by unit steps
+and so could not test grading; and the companion paper is cited four times with no reference
+entry. The retitle, if the repair makes one, is yours to settle.
+
+**Closure beyond the atom — the audit is severe, and the repair may leave much less paper.** Two
+blocking faults: the fibring claim is false for general partitions, and the crossing population of
+the electromagnetic quotient is two-thirds Pauli-forbidden, so on physical one-electron moves there
+is no crossing at all. Beyond those, the auditors found only seven of the fourteen catalogue rows
+informative, the Kreuzer–Skarke slice open by construction and not an index of anything, the
+survey grid closed by construction, a redundancy figure that ran no trial, a particle-bound nuclide
+list that is uncited and incomplete with a stability claim that fails when completed, and three
+reconstructions chosen to reproduce printed numbers and presented as definitions. The repair's
+brief is to make the paper claim exactly what survives, even if the honest conclusion is that the
+catalogue does not carry the thesis. Whether what remains earns a place on the site is yours to
+judge when you see it.
