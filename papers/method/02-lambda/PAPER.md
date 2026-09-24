@@ -70,6 +70,8 @@ read as: a source subshell (n, ℓ) holding k electrons with spin label 2S, of w
 
 together with the floors n ≥ 1, e ≥ 1, k ≥ 1 and ℓ, f, q, g, 2S ≥ 0. The floor k ≥ 1 is a definitional restriction, not a bound: a cell is a transition and a transition needs a mover. Each of the seven has the form xᵢ ≤ φ(xⱼ) with φ non-decreasing and with exactly two coordinates named. None is a sum and none is a difference. Six are exact physical rules and the seventh, 2S ≤ k, is the envelope described above; the shape is the same for all seven, and the shape is what the paper uses.
 
+**Table 1 — the seven bounds and where each comes from.**
+
 | bound | origin | form | kind |
 |---|---|---|---|
 | ℓ ≤ n − 1 | hydrogenic radial solution | ℓ bounded by n | exact |
@@ -80,7 +82,6 @@ together with the floors n ≥ 1, e ≥ 1, k ≥ 1 and ℓ, f, q, g, 2S ≥ 0. T
 | g ≤ q | counting: no more may be placed than were removed | g bounded by q | exact |
 | 2S ≤ k | addition of k spins ½ on the source | 2S bounded by k | envelope: the rule 2S ≡ k (mod 2), 2S ≤ min(k, 4ℓ + 2 − k) admits 473 of the 976 cells |
 
-: **Table 1 — the seven bounds and where each comes from.**
 
 **D3 (the caps, and the ambient box).** A **cap setting** is a tuple (nₘₐₓ, eₘₐₓ, ℓₘₐₓ, kₘₐₓ, fₘₐₓ) of positive integers. Throughout this paper the caps are **(3, 3, 1, 3, 1)** unless another setting is named. The **alphabets** are then
 
@@ -116,11 +117,12 @@ and the **staircase closure** is ℛ(X) := { x ∈ B(X) : xᵢ ≤ φ̂ᵢⱼ(x�
 
 *Proof.* Computation. Λ is built twice, by nested enumeration in the order of Theorem 14 and by sieving all 6,912 points of the box against the seven bounds, and the two agree cell for cell. The staircase closure of the result has 976 cells and is equal to Λ as a set, and ℛ(ℛ(Λ)) = Λ. ∎ **EXHAUSTIVE** (6,912 box points; the closure is computed over the same box). The same two computations at five further cap settings — (2,2,1,2,1), (3,3,1,4,1), (4,3,1,4,1), (4,4,2,4,1) and (4,4,2,6,2), with 216, 1,636, 2,394, 5,157 and 19,109 cells — return defect 0 at each; the closed-form count of join-irreducibles of Theorem 6 is verified at the same five settings, at 11, 21, 22, 24 and 33. **EXHAUSTIVE**, the settings named.
 
+**Table 2 — no bound is redundant.** For each bound, the number of ambient points that satisfy the other six and fail only this one.
+
 | bound | g ≤ q | q ≤ k | k ≤ 4ℓ+2 | ℓ ≤ n−1 | 2S ≤ k | f ≤ e−1 | g ≤ 4f+2 | *k ≥ 1* |
 |---|---|---|---|---|---|---|---|---|
 | points excluded by it alone | **673** | 575 | 564 | 308 | 300 | 200 | **24** | *25* |
 
-: **Table 2 — no bound is redundant.** For each bound, the number of ambient points that satisfy the other six and fail only this one.
 
 Every entry is positive, so no bound follows from the rest, and the ranking is itself informative: the bound that removes most is g ≤ q, the only one relating a target coordinate to a source coordinate. **EXHAUSTIVE** over the 6,912 box points (and, for the floor, over the 9,216 points of the box extended to k = 0).
 
@@ -132,7 +134,9 @@ Every entry is positive, so no bound follows from the rest, and the ranking is i
 
 *Proof.* Each of the seven bounds names exactly two coordinates, so G has exactly seven edges; a traversal from n reaches all eight nodes, so G is connected; a connected graph on 8 nodes with 7 edges is a tree. The degrees are read off the seven bounds, and removing the three leaves n, e and 2S leaves the path f — g — q — k — ℓ, so G is a caterpillar. A directed cycle in any orientation of G would be a cycle in G, and a tree has none. ∎ **PROVED** and **EXHAUSTIVE** (the graph is built from D2, traversed, and the orientation tested).
 
-![**Figure 1.** The constraint graph: eight coordinates, seven bounds, one edge per bound, each edge labelled with its inequality; the plate writes the two Pauli bounds as 2(2ℓ + 1) and 2(2f + 1), which are 4ℓ + 2 and 4f + 2. The graph is connected with seven edges on eight nodes, so it is a tree, and its degree sequence 1,1,1,2,2,2,2,3 makes it a caterpillar — a path of seven with one pendant, 2S at k. Every consequence in §4 and §5 is a consequence of that shape.](figures/fig1-constraint-tree.png)
+![](figures/fig1-constraint-tree.png)
+
+**Figure 1.** The constraint graph: eight coordinates, seven bounds, one edge per bound, each edge labelled with its inequality; the plate writes the two Pauli bounds as 2(2ℓ + 1) and 2(2f + 1), which are 4ℓ + 2 and 4f + 2. The graph is connected with seven edges on eight nodes, so it is a tree, and its degree sequence 1,1,1,2,2,2,2,3 makes it a caterpillar — a path of seven with one pendant, 2S at k. Every consequence in §4 and §5 is a consequence of that shape.
 
 ---
 
@@ -164,7 +168,9 @@ summing to 976, and it is log-concave at every interior rank — aᵣ² ≥ aᵣ
 
 Λ is **not** rank-symmetric. The centre of mass of the rank sequence is 10801/976 = 11.0666 against the midpoint 11.5, a skew of −0.43. Low ranks are cut by the floors n ≥ 1, e ≥ 1, k ≥ 1 and high ranks by the seven bounds; there are more ceilings than floors, and the sequence is pruned harder at the top.
 
-![**Figure 2.** The rank sequence over all 976 cells. It is log-concave, hence unimodal, hence Sperner, with the largest level 122 at rank 11. It is not symmetric: the centre of mass 11.07 sits below the midpoint 11.5 by 0.43.](figures/fig2-rank-sequence.png)
+![](figures/fig2-rank-sequence.png)
+
+**Figure 2.** The rank sequence over all 976 cells. It is log-concave, hence unimodal, hence Sperner, with the largest level 122 at rank 11. It is not symmetric: the centre of mass 11.07 sits below the midpoint 11.5 by 0.43.
 
 **Theorem 6 (seventeen letters, in closed form).** Λ has exactly 17 join-irreducibles and exactly 17 meet-irreducibles, and
 
@@ -183,6 +189,8 @@ m is join-irreducible. It is not the bottom cell, whose i-coordinate is the mini
 Conversely let j be join-irreducible with unique lower cover j⁻. By Theorem 4, j = j⁻ + eᵢ for some coordinate i; put v := jᵢ, which lies above the minimum of Aᵢ because the i-coordinate of j⁻ is v − 1, a value of Aᵢ. Then j ∈ Sᵥ, and j is its least element: let x ∈ Sᵥ and suppose j ≰ x. Then z := j ∧ x lies in Λ, is strictly below j, and has zᵢ = min(jᵢ, xᵢ) = v. Every cell strictly below j lies below some cell that j covers — the last step of a maximal chain from z to j is a cover of j — hence z ≤ j⁻ and zᵢ ≤ v − 1, a contradiction. So j = j(i, v).
 
 The map (i, v) ↦ j(i, v) is injective. Put m = j(i, v); by Theorem 4 its unique lower cover is m − eᵢ′ for some coordinate i′. If i′ ≠ i then (m − eᵢ′)ᵢ = v, so m − eᵢ′ lies in Sᵥ strictly below m, against the minimality of m; hence i′ = i, the unique lower cover of m is m − eᵢ, and i is read off that cover while v is mᵢ. The join-irreducibles are therefore in bijection with the pairs (i, v), and their number is Σᵢ(|Aᵢ| − 1). The meet-irreducible count is computed and equals 17. ∎ **PROVED** for the form and the closed count; **EXHAUSTIVE** for the equality of the two counts (976 cells, both cover sets computed from the order), and the closed count is re-verified at five further cap settings (Theorem 2), where the lower covers are taken as unit steps by Theorem 4.
+
+**Table 3 — the seventeen letters.** *rank* is rank(j); *weight* is the number of the 976 cells that lie above j; *forces* lists the letters implied by it (Theorem 8).
 
 | letter | generator | rank | weight | forces |
 |---|---|---|---|---|
@@ -204,7 +212,6 @@ The map (i, v) ↦ j(i, v) is injective. Put m = j(i, v); by Theorem 4 its uniqu
 | 2S ≥ 3 | (2,1,3,0,1,0,0,3) | 10 | 94 | 2S ≥ 2, k ≥ 3 |
 | g ≥ 3 | (2,1,3,3,2,1,3,0) | 15 | 16 | g ≥ 2, q ≥ 3, f ≥ 1 |
 
-: **Table 3 — the seventeen letters.** *rank* is rank(j); *weight* is the number of the 976 cells that lie above j; *forces* lists the letters implied by it (Theorem 8).
 
 The alphabet is not uniform: n ≥ 2 is set in 856 of the 976 cells and g ≥ 3 in sixteen, so one letter carries 87.7% of the object and another 1.6%.
 
@@ -222,7 +229,9 @@ Each is one way a bound of D2 binds at one value, and those twenty implications 
 
 *Proof.* The covering relations of P are computed from the order on the seventeen cells. The classification into within and between is by the coordinate each letter names. For the cut: a 17-bit word satisfies all twenty implications if and only if its set of bits is a down-set of P — an implication along a cover is exactly the down-set condition at that cover, and the cover relations generate the order — and by Theorem 7 the down-sets are the cells. The enumeration confirms it directly: of 131,072 words, 976 satisfy the twenty. ∎ **PROVED** and **EXHAUSTIVE** (131,072 words).
 
-![**Figure 3.** The seventeen generators, at their ranks in Λ, with the twenty covering relations: nine within one coordinate (solid) and eleven between coordinates (dashed). The grey number below each generator is the number of the 976 cells lying above it, from 856 at n ≥ 2 to 16 at g ≥ 3. Every cell of Λ is the down-set of generators beneath it, and every down-set is a cell.](figures/fig3-generating-poset.png)
+![](figures/fig3-generating-poset.png)
+
+**Figure 3.** The seventeen generators, at their ranks in Λ, with the twenty covering relations: nine within one coordinate (solid) and eleven between coordinates (dashed). The grey number below each generator is the number of the 976 cells lying above it, from 856 at n ≥ 2 to 16 at g ≥ 3. Every cell of Λ is the down-set of generators beneath it, and every down-set is a cell.
 
 **Corollary 2 (order dimension 7).** The order dimension of Λ is 7 — seven linear extensions realise the order and no six do — although Λ has eight coordinates.
 
@@ -281,7 +290,9 @@ Write u = |a − b|, v = |b − c|. The ordinary triangle inequality on ℤ give
 
 Two features of the geometry follow from the form and are worth naming. A ball {y : d(x,y) ≤ D} is not a box: in two coordinates its boundary is the hyperbola (1 + Δ₁)(1 + Δ₂) = D. And each axis is a log-distorted chain — the first step costs log 2 = 0.6931 and the tenth costs log(11/10) = 0.0953 — so the measure is sensitive at short range and flat at long range, which is what a *count of cells* does and a difference does not.
 
-![**Figure 4.** The interval measure — the plate's own title calls it the occupancy measure, the same d. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).](figures/fig4-interval-measure.png)
+![](figures/fig4-interval-measure.png)
+
+**Figure 4.** The interval measure — the plate's own title calls it the occupancy measure, the same d. (a) A pair of cells spans a box and d counts its points, not its volume. (b) Why d(x,x) = 1: volume vanishes on a degenerate box and a point count never does. (c) Balls are hyperbolic, with boundary (1 + Δ₁)(1 + Δ₂) = D. (d) Each axis is a log-distorted chain: the first step costs log 2 and the tenth log(11/10).
 
 **Remark.** d measures the *box* between two cells, not the part of it that lies in Λ. The difference is the subject of §4.
 
@@ -325,7 +336,9 @@ The converse is the content of the statement. A constraint graph has induced wid
 
 *Proof.* Direct computation of all seven indicators and the joint event on every pair. ∎ **EXHAUSTIVE** (475,800 pairs; 115,162 comparable pairs). A heuristic reading of the direction, not measured here: each comparison hiᵢ ≤ φ(loⱼ) is a *narrowness* condition on the coordinates it touches — it holds when the box is thin in those coordinates and fails as they widen — so two comparisons sharing a coordinate tend to hold together, and comparisons sharing no coordinate contribute no such term. This paper measures the size of the lift and neither decomposes nor explains it.
 
-![**Figure 5.** (a) What each bound removes on its own: the ambient points that satisfy the other six and fail only this one, from 673 for g ≤ q down to 24 for g ≤ 4f + 2. Every entry is positive, so no bound is redundant. (b) The seven containment events of Theorem 13 over all 475,800 pairs, their product 0.2013 and the joint rate 0.2835 — a lift of 1.4081.](figures/fig5-void.png)
+![](figures/fig5-void.png)
+
+**Figure 5.** (a) What each bound removes on its own: the ambient points that satisfy the other six and fail only this one, from 673 for g ≤ q down to 24 for g ≤ 4f + 2. Every entry is positive, so no bound is redundant. (b) The seven containment events of Theorem 13 over all 475,800 pairs, their product 0.2013 and the joint rate 0.2835 — a lift of 1.4081.
 
 ---
 
@@ -367,9 +380,13 @@ Spin multiplicity is algebraically inert here: it scales the count of each seven
 
 *Proof.* Comparison of the coefficient list with its reverse; the first index at which they differ is computed. ∎ **EXHAUSTIVE.**
 
-![**Figure 6.** F(z) read forwards as bars and backwards as the dashed line. They part company at the second level — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this one picture carries both the asymmetry of the rank sequence and the failure of the reflection.](figures/fig6-rank-polynomial.png)
+![](figures/fig6-rank-polynomial.png)
 
-![**Figure 7.** The constraint graph read in the nesting order of Theorem 14 — n, ℓ, k, 2S, q, e, f, g — a path of seven with one pendant. An arrow runs from a coordinate to one whose range it bounds, and the two Pauli bounds k ≤ 4ℓ + 2 and g ≤ 4f + 2 are marked. That shape is why a single nesting exists with one bracketed factor. The pendant 2S factors out as a geometric sum (Lemma 4); g is the only coordinate with two parents, and the min it forces — g ≤ min(q, 4f + 2) — is the one non-product term in the whole expression.](figures/fig7-caterpillar.png)
+**Figure 6.** F(z) read forwards as bars and backwards as the dashed line. They part company at the second level — 5 against 4 — and never rejoin. A rank polynomial is palindromic if and only if the poset is self-dual, so this one picture carries both the asymmetry of the rank sequence and the failure of the reflection.
+
+![](figures/fig7-caterpillar.png)
+
+**Figure 7.** The constraint graph read in the nesting order of Theorem 14 — n, ℓ, k, 2S, q, e, f, g — a path of seven with one pendant. An arrow runs from a coordinate to one whose range it bounds, and the two Pauli bounds k ≤ 4ℓ + 2 and g ≤ 4f + 2 are marked. That shape is why a single nesting exists with one bracketed factor. The pendant 2S factors out as a geometric sum (Lemma 4); g is the only coordinate with two parents, and the min it forces — g ≤ min(q, 4f + 2) — is the one non-product term in the whole expression.
 
 ---
 
@@ -437,7 +454,9 @@ So every cell of Λ is implied by the other 975. In the language of convex geome
 
 The compression is the headline. 976 cells are recoverable from 7 of them, a ratio of 139 to 1; the disjoint-witness bound certifies 5 and the search closes the gap to 7. Against the seventeen join-irreducibles of §2 the seed is smaller, and for a stated reason: ℛ fills a box up to its envelopes, where the lattice join reaches only the down-set of what it is given, so the staircase closure is the stronger operator and needs less to start from.
 
-![**Figure 8.** (a) The 370 of 976 cells that appear in at least one minimum seed, ordered by how many of the 24,585 seeds hold them; the scale is logarithmic and one cell sits at 100%. (b) The same as a distribution: the median cell appears in 0.24% of the minimum seeds and one in all of them.](figures/fig8-seed.png)
+![](figures/fig8-seed.png)
+
+**Figure 8.** (a) The 370 of 976 cells that appear in at least one minimum seed, ordered by how many of the 24,585 seeds hold them; the scale is logarithmic and one cell sits at 100%. (b) The same as a distribution: the median cell appears in 0.24% of the minimum seeds and one in all of them.
 
 ---
 

@@ -801,13 +801,16 @@ def check_catalogue():
     rows, md5 = nubase_ground_states()
     eq("CITED", "C7", "NUBASE2020 (Kondev, Wang, Huang, Naimi and Audi 2021): the excerpt's md5 and its ground-state lines with Z <= 10",
        (md5, len(rows)), (NUBASE_EXCERPT_MD5, 144))
-    names, Es, unb = {}, {}, {}
+    names, Es, unb, boxes = {}, {}, {}, {}
     for zmax in (5, 6, 7, 8, 9, 10):
         X, unbound = particle_bound(zmax)
         Rn = R(X)
         Es[zmax] = (len(X), len(Rn), len(Rn) - len(X))
         names[zmax] = ["%s-%d" % (cy._ELEMENT[z], z + n) for z, n in sorted(Rn - set(X))]
         unb[zmax] = unbound
+        boxes[zmax] = len({z for z, _ in X}) * len({n for _, n in X})
+    rec("MEASURED", "C7g", "the observed boxes of the particle-bound index: Z <= 7 %d, Z <= 10 %d (products of the observed Z and N alphabets)"
+        % (boxes[7], boxes[10]), True, nuc_box=boxes[7], nuc10_box=boxes[10])
     eq("EXHAUSTIVE", "C7a", "particle-bound nuclides derived from NUBASE2020 (Z >= 1; not p-unst; first decay mode not n, 2n, 3n, p, 2p, 3p or alpha): (cells, admitted, E) at Z <= 5, 6, 7, 8, 9, 10",
        tuple(Es[z] for z in (5, 6, 7, 8, 9, 10)), ((27, 33, 6), (40, 48, 8), (52, 61, 9), (64, 73, 9), (77, 86, 9), (94, 106, 12)),
        nuc_cells=52, nuc_adm=61, nuc_E=9, nuc10_cells=94, nuc10_adm=106, nuc10_E=12, nuc_rows=tuple(Es[z] for z in (5, 6, 7, 8, 9, 10)))
@@ -841,6 +844,9 @@ def check_catalogue():
     eq("EXHAUSTIVE", "C8b", "its E at Z <= 20, 50, 82, 92, 118 and the two cells",
        tuple((res[z][1], res[z][2]) for z in (20, 50, 82, 92, 118)),
        tuple((2, [(0, 0), (2, 0)]) for _ in range(5)), ame_E=2)
+    rec("MEASURED", "C8c", "the AME2020 index's observed box: %d Z values x %d N values = %d"
+        % (len({z for z, _ in ame}), len({n for _, n in ame}), len({z for z, _ in ame}) * len({n for _, n in ame})), True,
+        ame_box=len({z for z, _ in ame}) * len({n for _, n in ame}))
     ks = ks_cells()
     ks_ix = cy._kreuzer_skarke()
     Rk = R(ks)
@@ -941,6 +947,11 @@ def check_languages(ix_lam=None):
        (got["order"], got["algebra"], got["geometry"], got["information"], got["statistics"]), (100, 100, 83, 24, 0),
        pt3_order=100, pt3_geom=83, pt3_info=24, pt3_stat=0)
     eq("EXHAUSTIVE", "L3b", "pairs agreeing there", (len(res["pairs"]), res["pairs_agreeing"]), (10, 1))
+    ix3 = cy._periodic(True)
+    cells3 = {tuple(ix3.decode[i][v] for i, v in enumerate(c)) for c in ix3.cells}
+    code = lambda g: 0 if g <= 2 else (2 if g <= 12 else 1)                # l of the column's block: s, d, p
+    eq("EXHAUSTIVE", "L3c", "the third coordinate is the l of the column's block: 0 for columns 1-2, 2 for 3-12, 1 for 13-18, helium carrying its column's value; a function of the group",
+       (all(b == code(g) for _, g, b in cells3), (1, 18, 1) in cells3, len(cells3)), (True, True, 90))
     eq("EXHAUSTIVE", "L4", "at two coordinates the pairwise operators are degenerate (guard fires), at three not",
        (cy.run(cy._periodic(), "1173", OPTS)["degenerate"], res["degenerate"]), (True, False))
     # the agreement test on every index built here with d >= 3
