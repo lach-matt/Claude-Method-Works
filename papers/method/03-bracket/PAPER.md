@@ -199,7 +199,8 @@ So the family {(w(h), V(h)) : h} is a Pareto frontier: no step gives both a narr
 
 **Proof.** Taylor's theorem with the symmetric differences: y(x+h) − y(x−h) = 2y′h + y‴(ξ₁)h³/3 and y(x+h) + y(x−h) − 2y(x) = y″h² + y⁗(ξ₂)h⁴/12 for some ξ₁, ξ₂ in (x − h, x + h), the even and odd orders cancelling respectively. So w = 2|y′|h(1 + O(h²)) and e = ½|y″|h²(1 + O(h²)), and hV = 4|y′/y″|(1 + O(h²)). For y = xᵖ, y′/y″ = x/(p − 1). For the second-order term with integer p ≥ 2 the binomial theorem gives exactly
 
-    w = 2 Σ C(p,k) xᵖ⁻ᵏ hᵏ  (k odd)  = 2p xᵖ⁻¹h [1 + (p−1)(p−2)/6 · s² + …],   2e = 2 Σ C(p,k) xᵖ⁻ᵏ hᵏ  (k even, k ≥ 2)  = p(p−1) xᵖ⁻²h² [1 + (p−2)(p−3)/12 · s² + …],
+    w  = 2 Σ C(p,k) xᵖ⁻ᵏ hᵏ  (k odd)          = 2p xᵖ⁻¹h [1 + (p−1)(p−2)/6 · s² + …],
+    2e = 2 Σ C(p,k) xᵖ⁻ᵏ hᵏ  (k even, k ≥ 2)  = p(p−1) xᵖ⁻²h² [1 + (p−2)(p−3)/12 · s² + …],
 
 with s = h/x, whose ratio is (4x/((p−1)h))·[1 + ((p−1)(p−2)/6 − (p−2)(p−3)/12) s² + O(s⁴)] and (p−1)(p−2)/6 − (p−2)(p−3)/12 = (p−2)(p+1)/12. For negative integer p the same expansion holds with the binomial series, which converges for s < 1. ∎ **PROVED**; for p = −2 the coefficient is 1/3 and the statement is Corollary 4 exactly; the coefficient is recovered from exact rational values at h/x = 10⁻³ for p ∈ {−3, −2, 2, 3, 4, 7, 11} (I32).
 

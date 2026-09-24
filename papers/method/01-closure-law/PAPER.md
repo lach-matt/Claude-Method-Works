@@ -8,7 +8,7 @@
 
 ## Abstract
 
-Let X be a finite non-empty set of d-tuples whose coordinates take values in finite chains. Two things can be read off X without any outside knowledge: the set of values it realises at each coordinate, and, for each ordered pair of coordinates (i, j), the monotone bound φᵢⱼ(a) = max{ yᵢ : y ∈ X, yⱼ ≤ a }. The cells admitted by those two readings form a set ℛ(X) ⊇ X, and the difference E(X) = |ℛ(X)| − |X| is the index's **closure defect**. This paper establishes what ℛ is. It is a closure operator — extensive, monotone and idempotent — whose image is always a sublattice of the product of chains, and it is the *smallest* such sublattice containing X: ℛ(X) = ⟨X⟩. Consequently X is closed under coordinatewise minimum and maximum exactly when E(X) = 0, which identifies a combinatorial defect with a lattice-theoretic property. The identification rests on a classical theorem — a sublattice of a finite product of lattices is determined by its two-fold projections, Baker and Pixley's interpolation theorem for algebras with a majority term, the projection-determination property that Bergman named — and the paper says exactly which step is imported and which is proved here. Six consequences follow and are developed in full: the boundary functions are the pointwise least isotone bound system representing X, so a closed index carries a canonical system of inequalities; the closed subsets of a fixed ambient form a Moore family whose own defect is exactly 2ⁿ − |Cl(U)| for an ambient of n cells, so the family of closed indexes is itself maximally open, its own closure being the entire power set; projections of closed sets are closed and the converse fails; adjoining a derived coordinate never repairs closure, the graph of a map being closed precisely when the map is a lattice homomorphism, which excludes every coordinate difference; the bands |a − b| ≤ k are sublattices while the triangle region |a − b| ≤ c ≤ a + b is join-closed and meet-broken, with explicit witnesses; and the minimum generating set of a closed index is an exact minimum set cover, with a closed-form law for the ordered simplex — the lattice of Young diagrams in a box — and, for the full box, Czédli's law for the generating number of a direct power of a chain, given here a second proof from Bollobás's set-pair inequality and used to refute the linear law that a small sample suggests. Every decidable claim is machine-checked by an SMT solver over every subset of a named finite box, or decided exhaustively over a stated finite family: 53 machine-checked obligations, 46 exhaustive families, 6 refutations — five by explicit witness and one by solver — and 8 results taken from the literature.
+Let X be a finite non-empty set of d-tuples whose coordinates take values in finite chains. Two things can be read off X without any outside knowledge: the set of values it realises at each coordinate, and, for each ordered pair of coordinates (i, j), the monotone bound φᵢⱼ(a) = max{ yᵢ : y ∈ X, yⱼ ≤ a }. The cells admitted by those two readings form a set ℛ(X) ⊇ X, and the difference E(X) = |ℛ(X)| − |X| is the index's **closure defect**. This paper establishes what ℛ is. It is a closure operator — extensive, monotone and idempotent — whose image is always a sublattice of the product of chains, and it is the *smallest* such sublattice containing X: ℛ(X) = ⟨X⟩. Consequently X is closed under coordinatewise minimum and maximum exactly when E(X) = 0, which identifies a combinatorial defect with a lattice-theoretic property. The identification rests on a classical theorem — a sublattice of a finite product of lattices is determined by its two-fold projections, Baker and Pixley's interpolation theorem for algebras with a majority term, the projection-determination property that Bergman named — and the paper says exactly which step is imported and which is proved here. Six consequences follow and are developed in full: the boundary functions are the pointwise least isotone bound system representing X, so a closed index carries a canonical system of inequalities; the closed subsets of a fixed ambient form a Moore family whose own defect is exactly 2ⁿ − |Cl(U)| for an ambient of n cells, so the family of closed indexes is itself maximally open, its own closure being the entire power set; projections of closed sets are closed and the converse fails; adjoining a derived coordinate never repairs closure, the graph of a map being closed precisely when the map is a lattice homomorphism, which excludes every coordinate difference; the bands |a − b| ≤ k are sublattices while the triangle region |a − b| ≤ c ≤ a + b is join-closed and meet-broken, with explicit witnesses; and the minimum generating set of a closed index is an exact minimum set cover, with a closed-form law for the ordered simplex — the lattice of Young diagrams in a box — and, for the full box, Czédli's law for the generating number of a direct power of a chain, given here a second proof from Bollobás's set-pair inequality and used to refute the linear law that a small sample suggests. Every decidable claim is machine-checked by an SMT solver over every subset of a named finite box, or decided exhaustively over a stated finite family: 53 machine-checked obligations, 47 exhaustive families, 6 refutations — five by explicit witness and one by solver — and 8 results taken from the literature.
 
 ---
 
@@ -43,7 +43,7 @@ A machine-checked claim names its box; an exhaustive claim names its family. §1
 
 ## §1 · Definitions
 
-Throughout, d ≥ 2 is finite and X is a finite non-empty set of d-tuples — an **index**. Coordinates are written xᵢ for 1 ≤ i ≤ d, and πᵢ, πᵢⱼ, π[F] denote projection onto coordinate i, onto the ordered pair (i, j), and onto a subset F of the coordinates.
+Throughout, d ≥ 2 is finite and X is a finite non-empty set of d-tuples — an **index**. Coordinates are written xᵢ for 1 ≤ i ≤ d, and πᵢ, πᵢⱼ, π\[F\] denote projection onto coordinate i, onto the ordered pair (i, j), and onto a subset F of the coordinates.
 
 **D1 (observed alphabet).** Aᵢ := πᵢ(X), the set of values X realises at coordinate i. Each Aᵢ carries a total order inherited from its values, so each is a **finite chain**.
 
@@ -59,7 +59,7 @@ and since any subset of a chain is closed under min and max of its own elements,
 
 > φᵢⱼ(a) := max { yᵢ : y ∈ X, yⱼ ≤ a }.
 
-When the index must be named, the boundary function of X is written φᵢⱼ[X].
+When the index must be named, the boundary function of X is written φᵢⱼ\[X\].
 
 **D5 (staircase).** ℛ(X) := { x ∈ Box(X) : xᵢ ≤ φᵢⱼ(xⱼ) for all i ≠ j }.
 
@@ -125,21 +125,23 @@ The same 90 cells with helium drawn in group 2 give E = 20. The mechanism is vis
 
 ## §3 · The closure theorem
 
-**Lemma 3 (ℛ moves neither the box nor the boundary).** Box(ℛ(X)) = Box(X), and φᵢⱼ[ℛ(X)] = φᵢⱼ[X] on Aⱼ for every i ≠ j.
+**Lemma 3 (ℛ moves neither the box nor the boundary).** Box(ℛ(X)) = Box(X), and φᵢⱼ\[ℛ(X)\] = φᵢⱼ\[X\] on Aⱼ for every i ≠ j.
 
-**Proof.** X ⊆ ℛ(X) ⊆ Box(X) — the first inclusion is Theorem 1(i) below, whose proof does not use this lemma, and the second is D5. Applying πᵢ to the chain of inclusions gives Aᵢ ⊆ πᵢ(ℛ(X)) ⊆ Aᵢ, so the alphabets and hence the boxes agree. For the boundary: fix i ≠ j and a ∈ Aⱼ. Since X ⊆ ℛ(X), every candidate for φᵢⱼ[X](a) is a candidate for φᵢⱼ[ℛ(X)](a), so φᵢⱼ[X](a) ≤ φᵢⱼ[ℛ(X)](a). Conversely let y ∈ ℛ(X) with yⱼ ≤ a. Then yᵢ ≤ φᵢⱼ[X](yⱼ) ≤ φᵢⱼ[X](a) by D5 and Lemma 1. So every candidate contributed by ℛ(X) is bounded by φᵢⱼ[X](a), and the maximum is too. ∎ **PROVED.**
+**Proof.** X ⊆ ℛ(X) ⊆ Box(X) — the first inclusion is Theorem 1(i) below, whose proof does not use this lemma, and the second is D5. Applying πᵢ to the chain of inclusions gives Aᵢ ⊆ πᵢ(ℛ(X)) ⊆ Aᵢ, so the alphabets and hence the boxes agree. For the boundary: fix i ≠ j and a ∈ Aⱼ. Since X ⊆ ℛ(X), every candidate for φᵢⱼ\[X\](a) is a candidate for φᵢⱼ\[ℛ(X)\](a), so φᵢⱼ\[X\](a) ≤ φᵢⱼ\[ℛ(X)\](a). Conversely let y ∈ ℛ(X) with yⱼ ≤ a. Then yᵢ ≤ φᵢⱼ\[X\](yⱼ) ≤ φᵢⱼ\[X\](a) by D5 and Lemma 1. So every candidate contributed by ℛ(X) is bounded by φᵢⱼ\[X\](a), and the maximum is too. ∎ **PROVED.**
 
 **Theorem 1 (ℛ is a closure operator).** For all finite non-empty X, Y:
 
 > **(i)** *extensive* — X ⊆ ℛ(X);
+>
 > **(ii)** *monotone* — X ⊆ Y implies ℛ(X) ⊆ ℛ(Y);
+>
 > **(iii)** *idempotent* — ℛ(ℛ(X)) = ℛ(X).
 
 **Proof.** *(i)* Let x ∈ X. Then x ∈ Box(X) by D1, and for any i ≠ j the cell x is its own witness: xⱼ ≤ xⱼ and xᵢ ≥ xᵢ, so φᵢⱼ(xⱼ) ≥ xᵢ by Lemma 2.
 
-*(ii)* Let X ⊆ Y and x ∈ ℛ(X). First x ∈ Box(X) ⊆ Box(Y), since πᵢ(X) ⊆ πᵢ(Y). Next fix i ≠ j. By Lemma 2 there is y ∈ X with yⱼ ≤ xⱼ and yᵢ ≥ xᵢ; that same y lies in Y, so xᵢ ≤ φᵢⱼ[Y](xⱼ) by Lemma 2 again. Hence x ∈ ℛ(Y).
+*(ii)* Let X ⊆ Y and x ∈ ℛ(X). First x ∈ Box(X) ⊆ Box(Y), since πᵢ(X) ⊆ πᵢ(Y). Next fix i ≠ j. By Lemma 2 there is y ∈ X with yⱼ ≤ xⱼ and yᵢ ≥ xᵢ; that same y lies in Y, so xᵢ ≤ φᵢⱼ\[Y\](xⱼ) by Lemma 2 again. Hence x ∈ ℛ(Y).
 
-*(iii)* By Lemma 3, ℛ(X) has the same box and the same boundary functions as X. D5 cuts ℛ(ℛ(X)) out of Box(ℛ(X)) = Box(X) by the conditions xᵢ ≤ φᵢⱼ[ℛ(X)](xⱼ) = φᵢⱼ[X](xⱼ), which are the conditions defining ℛ(X). The two sets are cut out of the same box by the same inequalities, so they are equal. ∎ **PROVED**, and **MACHINE-CHECKED** over every subset of the boxes 3×3, 4×4, 2×2×2 and 3×3×3, and **EXHAUSTIVE** over 74,569 subsets of seven boxes; (ii) additionally over all 26,206 nested pairs of four boxes.
+*(iii)* By Lemma 3, ℛ(X) has the same box and the same boundary functions as X. D5 cuts ℛ(ℛ(X)) out of Box(ℛ(X)) = Box(X) by the conditions xᵢ ≤ φᵢⱼ\[ℛ(X)\](xⱼ) = φᵢⱼ\[X\](xⱼ), which are the conditions defining ℛ(X). The two sets are cut out of the same box by the same inequalities, so they are equal. ∎ **PROVED**, and **MACHINE-CHECKED** over every subset of the boxes 3×3, 4×4, 2×2×2 and 3×3×3, and **EXHAUSTIVE** over 74,569 subsets of seven boxes; (ii) additionally over all 26,206 nested pairs of four boxes.
 
 **Lemma 4 (ℛ(X) is a sublattice).** ℛ(X) is closed under ∧ and ∨.
 
@@ -173,7 +175,7 @@ All four of y, u, z, w lie in X. ∎ **PROVED**, and **EXHAUSTIVE**: the constru
 
 *Case d ≥ 3.* Fix x ∈ ℛ(X), and let i < j be any pair of coordinates.
 
-> **Step 1: πᵢⱼ(x) ∈ ℛ(πᵢⱼ X).** The set πᵢⱼ(X) is an index on two coordinates, and its own data are inherited: its observed alphabets are Aᵢ and Aⱼ, and its boundary functions are φᵢⱼ[X] and φ[X]ⱼᵢ, because the condition yⱼ ≤ a and the value yᵢ both depend on y only through the two coordinates kept. Now x ∈ Box(X) gives πᵢⱼ(x) ∈ Aᵢ × Aⱼ = Box(πᵢⱼ X), and x ∈ ℛ(X) gives xᵢ ≤ φᵢⱼ[X](xⱼ) and xⱼ ≤ φ[X]ⱼᵢ(xᵢ), which are the two conditions of D5 in dimension two. So πᵢⱼ(x) ∈ ℛ(πᵢⱼ X).
+> **Step 1: πᵢⱼ(x) ∈ ℛ(πᵢⱼ X).** The set πᵢⱼ(X) is an index on two coordinates, and its own data are inherited: its observed alphabets are Aᵢ and Aⱼ, and its boundary functions are φᵢⱼ\[X\] and φ\[X\]ⱼᵢ, because the condition yⱼ ≤ a and the value yᵢ both depend on y only through the two coordinates kept. Now x ∈ Box(X) gives πᵢⱼ(x) ∈ Aᵢ × Aⱼ = Box(πᵢⱼ X), and x ∈ ℛ(X) gives xᵢ ≤ φᵢⱼ\[X\](xⱼ) and xⱼ ≤ φ\[X\]ⱼᵢ(xᵢ), which are the two conditions of D5 in dimension two. So πᵢⱼ(x) ∈ ℛ(πᵢⱼ X).
 >
 > **Step 2: ℛ(πᵢⱼ X) ⊆ πᵢⱼ(T).** The image πᵢⱼ(T) is a sublattice of Aᵢ × Aⱼ: for p, q ∈ T, πᵢⱼ(p) ∨ πᵢⱼ(q) = πᵢⱼ(p ∨ q) ∈ πᵢⱼ(T) because the join is coordinatewise, and likewise for the meet. (§6, Theorem 8, states this for an arbitrary set of coordinates.) It contains πᵢⱼ(X). So by the case d = 2, applied to the index πᵢⱼ(X) and the sublattice πᵢⱼ(T), we get ℛ(πᵢⱼ X) ⊆ πᵢⱼ(T). With Step 1, πᵢⱼ(x) ∈ πᵢⱼ(T) for every pair i < j.
 >
@@ -295,13 +297,13 @@ Theorem 7 sharpens the previous paragraph into a statement with no slack in it. 
 
 ## §6 · Projections
 
-**Theorem 8 (projections of closed sets are closed).** Let X be closed and F a non-empty set of coordinates. Then π[F](X) is closed.
+**Theorem 8 (projections of closed sets are closed).** Let X be closed and F a non-empty set of coordinates. Then π\[F\](X) is closed.
 
-**Proof.** Take x, y ∈ π[F](X) and lift them to x′, y′ ∈ X. Since X is closed, x′ ∨ y′ ∈ X. The join is coordinatewise and projection merely drops coordinates, so
+**Proof.** Take x, y ∈ π\[F\](X) and lift them to x′, y′ ∈ X. Since X is closed, x′ ∨ y′ ∈ X. The join is coordinatewise and projection merely drops coordinates, so
 
-> π[F](x′ ∨ y′) = π[F](x′) ∨ π[F](y′) = x ∨ y,
+> π\[F\](x′ ∨ y′) = π\[F\](x′) ∨ π\[F\](y′) = x ∨ y,
 
-which therefore lies in π[F](X). The same argument with ∧ throughout gives the meet. ∎ **PROVED**, **MACHINE-CHECKED** for the projection of every fixed point onto its first two coordinates and onto its first and third, over the boxes 2×2×2, 3×3×3 and 2×3×4, and **EXHAUSTIVE** over all 438 projections of every closed subset of a 2×2×2 box onto every proper set of coordinates.
+which therefore lies in π\[F\](X). The same argument with ∧ throughout gives the meet. ∎ **PROVED**, **MACHINE-CHECKED** for the projection of every fixed point onto its first two coordinates and onto its first and third, over the boxes 2×2×2, 3×3×3 and 2×3×4, and **EXHAUSTIVE** over all 438 projections of every closed subset of a 2×2×2 box onto every proper set of coordinates.
 
 **The converse fails, and it fails often.**
 
@@ -328,6 +330,7 @@ A natural hope for an open index is that adding a derived coordinate will close 
 **Theorem 9 (the graph criterion).** Let S be a set of cells in a box and h a map from the box to a chain H. Write Γ(h) = { (x, h(x)) : x ∈ S } for the graph of h over S. Then Γ(h) is closed if and only if both
 
 > **(a)** S is closed, and
+>
 > **(b)** h(x ∨ y) = max(h(x), h(y)) and h(x ∧ y) = min(h(x), h(y)) for all x, y ∈ S
 
 — that is, if and only if S is closed and h is a lattice homomorphism on S.
@@ -449,11 +452,12 @@ A closed index is ℛ of any of its generating sets — by Theorem 2, of any set
 **Theorem 12 (the generation criterion).** Let X be closed and G ⊆ X non-empty. Then ℛ(G) = X if and only if
 
 > **(a)** πᵢ(G) = πᵢ(X) for every coordinate i, and
-> **(b)** given (a), φᵢⱼ[G](a) = φᵢⱼ[X](a) for every i ≠ j and every a ∈ Aⱼ — (a) makes Box(G) = Box(X), so φ[G] is defined on the same alphabets as φ[X].
+>
+> **(b)** given (a), φᵢⱼ\[G\](a) = φᵢⱼ\[X\](a) for every i ≠ j and every a ∈ Aⱼ — (a) makes Box(G) = Box(X), so φ\[G\] is defined on the same alphabets as φ\[X\].
 
 **Proof.** *Sufficiency.* (a) gives Box(G) = Box(X) and (b) gives the same constraints, so ℛ(G) and ℛ(X) are cut out of the same box by the same inequalities and are equal; and ℛ(X) = X because X is closed (Theorem 3).
 
-*Necessity.* Suppose ℛ(G) = X. By Lemma 3, Box(ℛ(G)) = Box(G) and φ[ℛ(G)] = φ[G]. Substituting ℛ(G) = X gives Box(X) = Box(G), which is (a), and φ[X] = φ[G], which is (b). ∎ **PROVED**, and **MACHINE-CHECKED** over every subset of 3×3 and 2×2×2, with both G and the closed set quantified over.
+*Necessity.* Suppose ℛ(G) = X. By Lemma 3, Box(ℛ(G)) = Box(G) and φ\[ℛ(G)\] = φ\[G\]. Substituting ℛ(G) = X gives Box(X) = Box(G), which is (a), and φ\[X\] = φ\[G\], which is (b). ∎ **PROVED**, and **MACHINE-CHECKED** over every subset of 3×3 and 2×2×2, with both G and the closed set quantified over.
 
 **Theorem 13 (the seed is a minimum set cover).** Let X be closed. Define a finite set of **elements**:
 
@@ -468,11 +472,11 @@ Hence seed(X) is the optimum of a minimum set cover instance whose elements are 
 
 **Proof.** Condition (a) of Theorem 12 says precisely that for every i and every v ∈ Aᵢ some g ∈ G has gᵢ = v — that every slot is covered.
 
-For (b): since G ⊆ X, monotonicity of φ in its set (the argument of Theorem 1(ii)) gives φᵢⱼ[G](a) ≤ φᵢⱼ[X](a) wherever φ[G] is defined, so (b) is the assertion that no inequality is strict.
+For (b): since G ⊆ X, monotonicity of φ in its set (the argument of Theorem 1(ii)) gives φᵢⱼ\[G\](a) ≤ φᵢⱼ\[X\](a) wherever φ\[G\] is defined, so (b) is the assertion that no inequality is strict.
 
-Suppose every step is covered. Let a ∈ Aⱼ and let t ≤ a be the largest step for the pair (i, j) with t ≤ a; such a t exists because the least element of Aⱼ is a step, φᵢⱼ being defined there. Then φᵢⱼ[X](a) = φᵢⱼ[X](t): the value φᵢⱼ[X](a) is first attained at some step t″ ≤ a, and t″ ≤ t because t is the largest step at or below a; so by Lemma 1, φᵢⱼ[X](t″) ≤ φᵢⱼ[X](t) ≤ φᵢⱼ[X](a) = φᵢⱼ[X](t″), and the three are equal. Some g ∈ G covers (i, j, t), so gⱼ ≤ t ≤ a and gᵢ = φᵢⱼ[X](t). Hence φᵢⱼ[G](a) ≥ gᵢ = φᵢⱼ[X](t) = φᵢⱼ[X](a), and with the reverse inequality above, (b) holds at a.
+Suppose every step is covered. Let a ∈ Aⱼ and let t ≤ a be the largest step for the pair (i, j) with t ≤ a; such a t exists because the least element of Aⱼ is a step, φᵢⱼ being defined there. Then φᵢⱼ\[X\](a) = φᵢⱼ\[X\](t): the value φᵢⱼ\[X\](a) is first attained at some step t″ ≤ a, and t″ ≤ t because t is the largest step at or below a; so by Lemma 1, φᵢⱼ\[X\](t″) ≤ φᵢⱼ\[X\](t) ≤ φᵢⱼ\[X\](a) = φᵢⱼ\[X\](t″), and the three are equal. Some g ∈ G covers (i, j, t), so gⱼ ≤ t ≤ a and gᵢ = φᵢⱼ\[X\](t). Hence φᵢⱼ\[G\](a) ≥ gᵢ = φᵢⱼ\[X\](t) = φᵢⱼ\[X\](a), and with the reverse inequality above, (b) holds at a.
 
-Conversely suppose (b) holds and let (i, j, t) be a step. Then φᵢⱼ[G](t) = φᵢⱼ[X](t), and the maximum defining φᵢⱼ[G](t) is attained at some g ∈ G with gⱼ ≤ t and gᵢ = φᵢⱼ[X](t) — which is the covering condition for that step. ∎ **PROVED**, and **EXHAUSTIVE**: over all 5,111 pairs (G, X) with X a closed subset of a 3×3 or a 2×2×2 box and G any non-empty subset of X, the covering test and direct closure agree in every case, 0 disagreements.
+Conversely suppose (b) holds and let (i, j, t) be a step. Then φᵢⱼ\[G\](t) = φᵢⱼ\[X\](t), and the maximum defining φᵢⱼ\[G\](t) is attained at some g ∈ G with gⱼ ≤ t and gᵢ = φᵢⱼ\[X\](t) — which is the covering condition for that step. ∎ **PROVED**, and **EXHAUSTIVE**: over all 5,111 pairs (G, X) with X a closed subset of a 3×3 or a 2×2×2 box and G any non-empty subset of X, the covering test and direct closure agree in every case, 0 disagreements.
 
 Minimum set cover is NP-complete — **Karp (1972)**, CITED. Theorem 13 places seed inside that problem and so bounds its difficulty from above; it does not show seed hard, and no hardness is claimed. No general formula is claimed either. There is one on each of two families.
 
@@ -514,9 +518,9 @@ Equivalently, for k ≥ c: some k cells generate Q(c, d) for d as large as C(k �
 
 **Proof.** Present a candidate G of k cells as a k × d matrix whose rows are the cells; column j is then a vector vⱼ ∈ {0,…,c−1}ᵏ recording what the j-th coordinate does across G.
 
-*The covering conditions, in matrix terms.* Every boundary function of the full box is constant at c − 1, so by Theorem 13 the elements are: the slots (j, v), which demand that each column vⱼ be surjective onto {0, …, c−1}; and, for each ordered pair (i, j), the single step at t = 0, which demands a row r with vⱼ[r] = 0 and vᵢ[r] = c−1.
+*The covering conditions, in matrix terms.* Every boundary function of the full box is constant at c − 1, so by Theorem 13 the elements are: the slots (j, v), which demand that each column vⱼ be surjective onto {0, …, c−1}; and, for each ordered pair (i, j), the single step at t = 0, which demands a row r with vⱼ\[r\] = 0 and vᵢ\[r\] = c−1.
 
-*Upper bound.* Suppose G, of size k, generates Q(c, d). For each column j set Pⱼ = { r : vⱼ[r] = c−1 } and Zⱼ = { r : vⱼ[r] = 0 }. These are disjoint, since c ≥ 2. Surjectivity forces Pⱼ and Zⱼ non-empty and forces at least one further row for each of the c − 2 intermediate values, so
+*Upper bound.* Suppose G, of size k, generates Q(c, d). For each column j set Pⱼ = { r : vⱼ\[r\] = c−1 } and Zⱼ = { r : vⱼ\[r\] = 0 }. These are disjoint, since c ≥ 2. Surjectivity forces Pⱼ and Zⱼ non-empty and forces at least one further row for each of the c − 2 intermediate values, so
 
 > |Pⱼ| + |Zⱼ| ≤ k − (c − 2) =: m,
 
@@ -530,7 +534,7 @@ Every term is at least 1 / C(m, ⌊m/2⌋), because C(n, a) ≤ C(m, ⌊m/2⌋) 
 
 *Lower bound, by construction.* Let m = k − c + 2 and let 𝓐 be the family of all A ⊆ {1, …, m} with |A| = ⌊m/2⌋, of size C(m, ⌊m/2⌋). Index the rows by {1, …, m} together with c − 2 extra rows, one labelled by each t = 1, …, c−2. For each A ∈ 𝓐 define a column by
 
-> v[r] = c − 1 for r ∈ A; v[r] = 0 for r ∈ {1,…,m} ∖ A; v = t on the extra row labelled t, for t = 1, …, c−2.
+> v\[r\] = c − 1 for r ∈ A; v\[r\] = 0 for r ∈ {1,…,m} ∖ A; v = t on the extra row labelled t, for t = 1, …, c−2.
 
 Each such column is surjective onto {0, …, c−1}, since A and its complement in {1,…,m} are both non-empty for m ≥ 2. For two distinct A, A′ ∈ 𝓐, equal cardinality forces A ⊄ A′, so some row lies in A ∖ A′, where the first column reads c−1 and the second reads 0; symmetrically for the other order. Every ordered pair of columns therefore satisfies its step condition. Choosing any d ≤ C(m, ⌊m/2⌋) of these columns gives a matrix of m + c − 2 = k rows whose set of rows generates Q(c, d), so seed(Q(c, d)) ≤ k.
 
@@ -552,7 +556,7 @@ The two laws pull in opposite directions and both are exact. The ordered simplex
 
 ## §10 · Verification record
 
-Every number printed above is recomputed by the machine checks, or marked CITED. The checks are **53 machine-checked obligations**, **46 exhaustive families**, **6 refutations** and **8 cited results**, discharged behind **20 guards**, with 0 failures. Guards are reported first and no obligation is reported if a guard fails. The two tables below — §2 to §5, then §6 to §9 — are one row per result; the boxes named in them are the 53 machine-checked obligations, and the families named after them are the 46 exhaustive ones.
+Every number printed above is recomputed by the machine checks, or marked CITED. The checks are **53 machine-checked obligations**, **47 exhaustive families**, **6 refutations** and **8 cited results**, discharged behind **20 guards**, with 0 failures. Guards are reported first and no obligation is reported if a guard fails. The two tables below — §2 to §5, then §6 to §9 — are one row per result; the boxes named in them are the 53 machine-checked obligations, and the families named after them are the 47 exhaustive ones.
 
 | object | PROVED | MACHINE-CHECKED (boxes) | EXHAUSTIVE (family) | other |
 |---|---|---|---|---|
@@ -574,8 +578,6 @@ Every number printed above is recomputed by the machine checks, or marked CITED.
 | union of closed sets | — | — | — | **REFUTATION**, 2 × 2 witness |
 | Proposition 2, separation | ✓ | — | seven ambients, every ordered pair | — |
 | **Theorem 7**, E(Cl(U)) = 2ⁿ − ∣Cl(U)∣ | ✓ | — | seven ambients (Table 1), ∣ℛ(Cl(U))∣ computed directly | — |
-
-The second table, §6 to §9:
 
 | object | PROVED | MACHINE-CHECKED (boxes) | EXHAUSTIVE (family) | other |
 |---|---|---|---|---|

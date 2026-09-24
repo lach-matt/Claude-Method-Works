@@ -135,7 +135,7 @@ def fig3_nine():
     assert check.stair(nine) == nine
     fig, ax = plt.subplots(figsize=(3.6, 4.4))
     for s in range(4):
-        for t in range(6):
+        for t in range(5):
             fc = BLUE if (s, t) in nine else "white"
             ec = BLUE if (s, t) in nine else GRID
             ax.add_patch(Rectangle((s + 0.08, t + 0.08), 0.84, 0.84, facecolor=fc, edgecolor=ec, linewidth=0.8))
@@ -152,11 +152,11 @@ def fig3_nine():
     ax.plot(xs, ys, color=INK, linewidth=1.6, linestyle=(0, (3, 2)))
     ax.text(4.1, L(3), "L(s) = ⌊s/2⌋", va="center", fontsize=8.5, color=INK)
     ax.set_xlim(-0.2, 4.2)
-    ax.set_ylim(-0.2, 6.2)
+    ax.set_ylim(-0.2, 5.2)
     ax.set_xticks([i + 0.5 for i in range(4)])
     ax.set_xticklabels(range(4))
-    ax.set_yticks([i + 0.5 for i in range(6)])
-    ax.set_yticklabels(range(6))
+    ax.set_yticks([i + 0.5 for i in range(5)])
+    ax.set_yticklabels(range(5))
     ax.set_xlabel("s")
     ax.set_ylabel("t")
     ax.set_aspect("equal")
@@ -167,6 +167,49 @@ def fig3_nine():
     fig.savefig(os.path.join(OUT, "fig2-staircase-algebra.png"), dpi=220, bbox_inches="tight")
     plt.close(fig)
     return sorted(nine)
+
+
+RED = "#c0392b"
+
+
+def fig_periodic():
+    """The 18-column table on (period, group): the 90 held cells and the 36 the staircase adds."""
+    pt = check.periodic_cells(18)
+    R = check.stair(pt)
+    gaps = R - pt
+    assert len(pt) == 90 and len(R) == 126 and len(gaps) == 36
+    fig, ax = plt.subplots(figsize=(7.2, 3.4))
+    for p in range(1, 8):
+        for g in range(1, 19):
+            c = (p, g)
+            if c in pt:
+                fc, ec = BLUE, BLUE
+            elif c in gaps:
+                fc, ec = RED, RED
+            else:
+                fc, ec = "white", GRID
+            ax.add_patch(Rectangle((g + 0.08, 8 - p + 0.08), 0.84, 0.84, facecolor=fc, edgecolor=ec, linewidth=0.8))
+    ax.set_xlim(0.9, 19.1)
+    ax.set_ylim(0.9, 8.1)
+    ax.set_xticks([g + 0.5 for g in range(1, 19)])
+    ax.set_xticklabels(range(1, 19))
+    ax.set_yticks([8 - p + 0.5 for p in range(1, 8)])
+    ax.set_yticklabels(range(1, 8))
+    ax.set_xlabel("group")
+    ax.set_ylabel("period")
+    ax.set_aspect("equal")
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    ax.tick_params(length=0)
+    # legend below the grid, clear of every cell
+    ax.add_patch(Rectangle((1.1, -0.85), 0.5, 0.5, facecolor=BLUE, edgecolor=BLUE, clip_on=False))
+    ax.text(1.75, -0.6, "held, %d cells" % len(pt), va="center", fontsize=8.5, color=INK)
+    ax.add_patch(Rectangle((6.1, -0.85), 0.5, 0.5, facecolor=RED, edgecolor=RED, clip_on=False))
+    ax.text(6.75, -0.6, "admitted by ℛ and denied by the table, %d cells" % len(gaps), va="center", fontsize=8.5, color=INK)
+    fig.subplots_adjust(bottom=0.3)
+    fig.savefig(os.path.join(OUT, "fig-periodic-table.png"), dpi=220, bbox_inches="tight")
+    plt.close(fig)
+    return len(pt), len(R), len(gaps)
 
 
 def fig4_seed():
@@ -202,5 +245,6 @@ if __name__ == "__main__":
     n, e = fig2_moore()
     print("fig2: %d closed subsets of 2x2, %d covering relations" % (n, e))
     print("fig3: nine cells", fig3_nine())
+    print("fig-periodic: held %d, |R| = %d, gaps %d" % fig_periodic())
     fig4_seed()
     print("fig4: written")

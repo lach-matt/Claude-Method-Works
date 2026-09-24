@@ -15,11 +15,14 @@ Instruments are imported by path and never copied:
                                ground configurations of LW1-ground.py (register 1306)
   research/warp-drive/prover.py   require_z3 (no lattice obligation arises in this paper)
 
-Statuses, as PAPER-SPEC.md defines them:
+Statuses, as PAPER-SPEC.md defines them (and three the check adds for its own bookkeeping):
   PROVED           a written derivation, verified exactly on a grid above its degree
   EXHAUSTIVE       a decision procedure over a stated finite family (size printed)
   MACHINE-CHECKED  Z3 unsat on the negation, box named, both guards passed
+  MEASURED         a number computed from the cited levels by the stated procedure
+  CROSS-CHECK      two implementations of the same computation compared (not a status of the paper)
   SOURCE           a figure the source states, compared with what is recomputed here
+  REFUTED          a negative control of --selftest, which must fail
 """
 import ast
 import importlib.util
@@ -165,6 +168,120 @@ def ob_r2_sanity(nmax=30):
     return fam, bad
 
 
+def r2_formula(n, l):
+    return 1 / (n ** 3 * (F(l) + F(1, 2)))
+
+
+def r3_formula(n, l):
+    """<r^-3> = 1 / (n^3 l (l+1/2) (l+1))."""
+    return 1 / (n ** 3 * l * (F(l) + F(1, 2)) * (l + 1))
+
+
+def ob_recursion(nmax=12):
+    """The Kramers-Pasternack recursion (Pasternack 1937), for every hydrogenic (n, l) with
+    n <= nmax, 1 <= l <= n-1, and every integer s with -2l <= s <= 4 (the range on which all
+    three moments converge):
+        (s+1)/n^2 <r^s> - (2s+1) <r^{s-1}> + (s/4) [(2l+1)^2 - s^2] <r^{s-2}> = 0,
+    each moment computed exactly from the Laguerre integral."""
+    tot = bad = 0
+    for n in range(2, nmax + 1):
+        for l in range(1, n):
+            for s in range(-2 * l, 5):
+                lhs = (F(s + 1, n * n) * expect_power(n, l, s) - (2 * s + 1) * expect_power(n, l, s - 1)
+                       + F(s, 4) * ((2 * l + 1) ** 2 - s * s) * expect_power(n, l, s - 2))
+                tot += 1
+                if lhs != 0:
+                    bad += 1
+    return tot, bad
+
+
+def ob_r1_r3(nmax=30):
+    """<r^-1> = 1/n^2 and <r^-3> = 1/(n^3 l (l+1/2)(l+1)), the two inputs Lemma 1's proof
+    draws through the recursion, each checked against the exact integral on 435 states."""
+    fam = b1 = b3 = 0
+    for n in range(2, nmax + 1):
+        for l in range(1, n):
+            fam += 1
+            if expect_power(n, l, -1) != F(1, n * n):
+                b1 += 1
+            if expect_power(n, l, -3) != r3_formula(n, l):
+                b3 += 1
+    return fam, b1, b3
+
+
+def ob_lemma1_algebra():
+    """Lemma 1's proof, as algebra: the recursion at s = -1 gives <r^-3> = <r^-2>/(l(l+1)); at
+    s = -2 it gives <r^-4> = 2 [3 <r^-3> - <r^-2>/n^2] / ((2l-1)(2l+3)).  With <r^-2> =
+    1/(n^3 (l+1/2)) substituted, both must equal the closed forms, as rational identities in
+    n and l.  Cleared of denominators each is polynomial of degree <= 5 in n and <= 6 in l;
+    checked on a 7 x 8 grid of rationals, above the degree in both."""
+    pts = 0
+    for n in grid(7):
+        for l in grid(8, 9):
+            r2 = 1 / (n ** 3 * (l + F(1, 2)))
+            r3 = r2 / (l * (l + 1))
+            r4 = 2 * (3 * r3 - r2 / (n * n)) / ((2 * l - 1) * (2 * l + 3))
+            if r3 != 1 / (n ** 3 * l * (l + F(1, 2)) * (l + 1)):
+                return pts, False
+            if r4 != 4 * (3 * n * n - l * (l + 1)) / (n ** 5 * l * (l + 1) * (2 * l - 1) * (2 * l + 1) * (2 * l + 3)):
+                return pts, False
+            pts += 1
+    return pts, True
+
+
+def r5_formula(n, l):
+    L = l * (l + 1)
+    return F(4 * (5 * n * n - 3 * L + 1), n ** 5 * K(l) * (L - 2))
+
+
+def r6_formula(n, l):
+    """<r^-6> = 4 [35 n^4 - 5 (6L-5) n^2 + 3 L (L-2)] / (n^7 K(l) (L-2) (4L-15)), L = l(l+1), l >= 2."""
+    L = l * (l + 1)
+    return F(4 * (35 * n ** 4 - 5 * (6 * L - 5) * n * n + 3 * L * (L - 2)), n ** 7 * K(l) * (L - 2) * (4 * L - 15))
+
+
+def ob_r6(nmax=30):
+    """Lemma 4's closed forms for <r^-5> and <r^-6>, against the exact integral on every
+    (n, l) with n <= nmax and 2 <= l <= n-1 (406 states)."""
+    fam = b5 = b6 = 0
+    for n in range(2, nmax + 1):
+        for l in range(2, n):
+            fam += 1
+            if expect_power(n, l, -5) != r5_formula(n, l):
+                b5 += 1
+            if expect_power(n, l, -6) != r6_formula(n, l):
+                b6 += 1
+    return fam, b5, b6
+
+
+def ob_lemma4_algebra():
+    """Lemma 4's proof as algebra: the recursion at s = -3 and s = -4, with the closed forms
+    of <r^-3> and <r^-4> substituted, gives the closed forms of <r^-5> and <r^-6>; and the
+    n^-2 / constant ratio of n^7 <r^-6> is -(6L-5)/7.  Rational identities in n and l,
+    checked on a 9 x 10 grid of rationals (degree <= 7 in n, <= 8 in l after clearing)."""
+    pts = 0
+    for n in grid(9):
+        for l in grid(10, 11):
+            L = l * (l + 1)
+            Kl = l * (l + 1) * (2 * l - 1) * (2 * l + 1) * (2 * l + 3)
+            r3 = 1 / (n ** 3 * l * (l + F(1, 2)) * (l + 1))
+            r4 = 4 * (3 * n * n - L) / (n ** 5 * Kl)
+            r5 = (5 * r4 - 2 * r3 / (n * n)) * 4 / (3 * ((2 * l + 1) ** 2 - 9))
+            r6 = (7 * r5 - 3 * r4 / (n * n)) / ((2 * l + 1) ** 2 - 16)
+            if r5 != 4 * (5 * n * n - 3 * L + 1) / (n ** 5 * Kl * (L - 2)):
+                return pts, False
+            if r6 != 4 * (35 * n ** 4 - 5 * (6 * L - 5) * n * n + 3 * L * (L - 2)) / (n ** 7 * Kl * (L - 2) * (4 * L - 15)):
+                return pts, False
+            pts += 1
+    return pts, True
+
+
+def quad_ratio(l):
+    """The n^-2 / constant coefficient ratio of the first-order quadrupole defect at l."""
+    L = l * (l + 1)
+    return F(-(6 * L - 5), 7)
+
+
 # --------------------------------------------------------- the algebraic identities
 
 def grid(n, start=2):
@@ -190,10 +307,38 @@ def ob_energy_expansion():
     return pts, True
 
 
+def ob_defect_rearrangement(wrong=False):
+    """Lemma 2's rearrangement, the two identities the lemma prints:
+      (i)  2 (n-d)^2 / (n (2n-d))  ==  1 - (3 n d - 2 d^2) / (n (2n-d)),
+           polynomial after clearing n(2n-d): degree 2 in n, 2 in d -> grid 4 x 4;
+      (ii) d  ==  -(n^3/z^2) * DE(n, d, z) * 2 (n-d)^2 / (n (2n-d)),
+           with DE = -z^2 d (2n-d) / (2 n^2 (n-d)^2) the identity of Lemma 2; after clearing,
+           degree 6 in n, 4 in d, 2 in z -> grid 7 x 5 x 3.
+    wrong=True drops the factor 2 (the printed error the audit found) and must fail."""
+    two = 2 if not wrong else 1
+    pts = 0
+    for n in grid(4):
+        for d in grid(4, 7):
+            lhs = two * (n - d) ** 2
+            rhs = n * (2 * n - d) - (3 * n * d - 2 * d * d)
+            if lhs != rhs:
+                return pts, False
+            pts += 1
+    for n in grid(7):
+        for d in grid(5, 9):
+            for z in grid(3, 15):
+                DE = -z * z * d * (2 * n - d) / (2 * n * n * (n - d) ** 2)
+                rhs = -(n ** 3 / (z * z)) * DE * two * (n - d) ** 2 / (n * (2 * n - d))
+                if rhs != d:
+                    return pts, False
+                pts += 1
+    return pts, True
+
+
 def ob_ritz_vs_n2():
     """d2/(n-d0)^2 - d2/n^2  ==  d2 d0 (2n - d0) / (n^2 (n-d0)^2): the Ritz denominator differs
     from 1/n^2 by a term of order d0 d2, second order in the polarisability (Lemma 3).
-    Cleared of n^2 (n-d0)^2 it is polynomial: degree 2 in n, 3 in d0, 1 in d2 -> grid 4 x 5 x 3."""
+    Cleared of n^2 (n-d0)^2 it is polynomial: degree 2 in n, 2 in d0, 1 in d2 -> grid 4 x 5 x 3."""
     pts = 0
     for n in grid(4):
         for d0 in grid(5, 7):
@@ -235,42 +380,97 @@ def ob_ratio_identity():
 
 # ------------------------------------------------------------------ Z3 obligations
 
+Z3_SEED = 5
+
+
 def ob_z3(lmax=8, wrong=False):
-    """For each l in {1..8}: for ALL real alpha, z:  3 c2 = -l(l+1) c0;  and
-    alpha > 0, z != 0  =>  c0 > 0 and c2 < 0.  Negation asserted, unsat expected.
-    Guards: non-vacuity (the hypothesis alpha > 0, z != 0 is satisfiable) and encoding
-    fidelity (the Z3 terms, evaluated at 200 random rationals, equal seaton_coeffs)."""
+    """Theorem 1 from its PREMISE.  For each l in {1..lmax} the term
+        D(n) := (alpha/2) z^2 n^3 * 4 (3 n^2 - l(l+1)) / (n^5 K(l))
+    is the first-order defect with Lemma 1's <r^-4> substituted -- the hypothesis of the
+    theorem, not its conclusion.  Z3 is asked, for ALL real alpha, z and all real n1, n2, n3 >= 2
+    with n1 != n2: define c2 := (D(n1) - D(n2)) / (1/n1^2 - 1/n2^2) and c0 := D(n1) - c2/n1^2
+    (the affine-in-1/n^2 coefficients any two points determine); then
+        3 c2 = -l(l+1) c0,   D(n3) = c0 + c2/n3^2   (the form IS affine in 1/n^2),
+        and alpha > 0, z != 0  =>  c0 > 0, c2 < 0.
+    Negation asserted under the hypothesis, unsat expected.  Guards: non-vacuity (the
+    hypothesis with alpha > 0, z != 0 is satisfiable) and encoding fidelity (the Z3 term D(n),
+    evaluated at 200 seeded random rational (alpha, z, n, l), equals (alpha/2) z^2 n^3 times
+    the Laguerre-integral <r^-4> of expect_power -- an implementation that shares no formula
+    with the encoding)."""
     prover = _load("prover", PROVER)
     prover.require_z3()
     import z3
-    a, z = z3.Reals("alpha z")
+    a, z, n1, n2, n3 = z3.Reals("alpha z n1 n2 n3")
+
+    def D(n, l):
+        L = l * (l + 1)
+        return (a / 2) * z * z * n ** 3 * 4 * (3 * n * n - L) / (n ** 5 * K(l))
+
+    hyp = z3.And(n1 >= 2, n2 >= 2, n3 >= 2, n1 != n2)
     results = []
     for l in range(1, lmax + 1):
-        Kl = K(l)
-        c0 = 6 * a * z * z / Kl
-        c2 = -2 * a * z * z * l * (l + 1) / Kl
-        target = -l * (l + 1) if not wrong else -l * (l + 1) * 2
-        claim = z3.And(3 * c2 == target * c0, z3.Implies(z3.And(a > 0, z != 0), z3.And(c0 > 0, c2 < 0)))
+        L = l * (l + 1)
+        c2 = (D(n1, l) - D(n2, l)) / (1 / (n1 * n1) - 1 / (n2 * n2))
+        c0 = D(n1, l) - c2 / (n1 * n1)
+        target = -L if not wrong else -2 * L
+        claim = z3.And(3 * c2 == target * c0,
+                       D(n3, l) == c0 + c2 / (n3 * n3),
+                       z3.Implies(z3.And(a > 0, z != 0), z3.And(c0 > 0, c2 < 0)))
         s = z3.Solver()
+        s.add(hyp)
         s.add(z3.Not(claim))
-        r = s.check()
-        results.append(r == z3.unsat)
+        results.append(s.check() == z3.unsat)
     # guard 1: non-vacuity
-    s = z3.Solver(); s.add(z3.And(a > 0, z != 0))
+    s = z3.Solver(); s.add(hyp, a > 0, z != 0)
     nonvac = s.check() == z3.sat
-    # guard 2: encoding fidelity against the Fraction implementation
-    rnd = random.Random(5)
+    # guard 2: encoding fidelity against the Laguerre integral, which shares no formula with D
+    rnd = random.Random(Z3_SEED)
     compared = disagree = 0
     for _ in range(200):
-        l = rnd.randint(1, lmax)
+        n = rnd.randint(2, 20)
+        l = rnd.randint(1, min(lmax, n - 1))
         av = F(rnd.randint(-50, 50), rnd.randint(1, 9))
         zv = F(rnd.randint(-6, 6), rnd.randint(1, 3))
-        Kl = K(l)
-        e0 = z3.simplify(z3.substitute(6 * a * z * z / Kl, (a, z3.RealVal(str(av))), (z, z3.RealVal(str(zv)))))
-        e2 = z3.simplify(z3.substitute(-2 * a * z * z * l * (l + 1) / Kl, (a, z3.RealVal(str(av))), (z, z3.RealVal(str(zv)))))
-        f0, f2 = seaton_coeffs(av, zv, l)
+        term = z3.simplify(z3.substitute(D(n1, l), (a, z3.RealVal(str(av))), (z, z3.RealVal(str(zv))),
+                                         (n1, z3.RealVal(str(n)))))
+        independent = av / 2 * zv * zv * n ** 3 * expect_power(n, l, -4)
         compared += 1
-        if F(e0.as_fraction()) != f0 or F(e2.as_fraction()) != f2:
+        if F(term.as_fraction()) != independent:
+            disagree += 1
+    return all(results), nonvac, compared, disagree
+
+
+def ob_z3_quadrupole(lmax=8):
+    """Lemma 4's consequence, for each l in {2..lmax}: with r_d = -l(l+1)/3 the dipole ratio and
+    r_q = -(6 l(l+1) - 5)/7 the quadrupole ratio, for ALL real c0 > 0 and q0 > 0 the combined
+    n^-2 / constant ratio (r_d c0 + r_q q0)/(c0 + q0) lies strictly between r_q and r_d, so its
+    ratio to r_d exceeds 1.  Negation unsat expected.  Guards: non-vacuity of c0 > 0, q0 > 0;
+    fidelity of the Z3 ratio terms against Fraction arithmetic at 200 seeded random points."""
+    prover = _load("prover", PROVER)
+    prover.require_z3()
+    import z3
+    c0, q0 = z3.Reals("c0 q0")
+    results = []
+    for l in range(2, lmax + 1):
+        rd = z3.RealVal(str(F(-l * (l + 1), 3)))
+        rq = z3.RealVal(str(quad_ratio(l)))
+        mix = (rd * c0 + rq * q0) / (c0 + q0)
+        claim = z3.And(rq < mix, mix < rd, mix / rd > 1)
+        s = z3.Solver(); s.add(c0 > 0, q0 > 0); s.add(z3.Not(claim))
+        results.append(s.check() == z3.unsat)
+    s = z3.Solver(); s.add(c0 > 0, q0 > 0)
+    nonvac = s.check() == z3.sat
+    rnd = random.Random(Z3_SEED)
+    compared = disagree = 0
+    for _ in range(200):
+        l = rnd.randint(2, lmax)
+        cv = F(rnd.randint(1, 60), rnd.randint(1, 9))
+        qv = F(rnd.randint(1, 60), rnd.randint(1, 9))
+        rd = z3.RealVal(str(F(-l * (l + 1), 3))); rq = z3.RealVal(str(quad_ratio(l)))
+        term = z3.simplify(z3.substitute((rd * c0 + rq * q0) / (c0 + q0), (c0, z3.RealVal(str(cv))), (q0, z3.RealVal(str(qv)))))
+        indep = (F(-l * (l + 1), 3) * cv + quad_ratio(l) * qv) / (cv + qv)
+        compared += 1
+        if F(term.as_fraction()) != indep:
             disagree += 1
     return all(results), nonvac, compared, disagree
 
@@ -278,7 +478,9 @@ def ob_z3(lmax=8, wrong=False):
 def ob_prefactor():
     """The prefactor identity behind Theorem 1's displayed constant:
         6 / K(l)  ==  (3/4) / [ (l-1/2) l (l+1/2) (l+1) (l+3/2) ],
-    and its large-l limit l^5 * 6/K(l) -> 3/4 from below.  Exact, every l in 1..200."""
+    a polynomial identity of degree 5 in l after clearing, checked at every l in 1..200 (a grid
+    far above the degree, so it holds for all l); and l^5 * 6/K(l) < 3/4, strictly increasing,
+    at every consecutive pair of l in 1..200 (EXHAUSTIVE over that family)."""
     fam = 0
     ok = True
     for l in range(1, 201):
@@ -287,9 +489,9 @@ def ob_prefactor():
         if lhs != rhs:
             ok = False
         fam += 1
-    tail = [F(l) ** 5 * F(6, K(l)) for l in (10, 50, 200)]
+    tail = [F(l) ** 5 * F(6, K(l)) for l in range(1, 201)]
     mono = all(a < b for a, b in zip(tail, tail[1:])) and all(t < F(3, 4) for t in tail)
-    return fam, ok and mono, float(tail[-1])
+    return fam, ok, mono, float(tail[-1])
 
 
 def ob_limit_sensitivity():
@@ -315,15 +517,21 @@ def ob_limit_sensitivity():
 
 
 def ob_separating_cores():
-    """The sample cannot separate "p = 0" from "l >= 3", but cores that do separate them exist:
-    an argon-like core (18 electrons) holds no d orbital, so p = 0 at l = 2, where the
-    krypton-like core of this sample has p = 1; and a core with a filled f subshell has
-    p = 1 at l = 3.  Read from the same observed ground configurations as D3."""
+    """Where p and l part company, read from the same observed ground configurations as D3:
+      - an argon-like core (18 electrons) holds no d orbital, so p = 0 at l = 2, where the
+        krypton-like core of this sample has p = 1; the electron counts with p = 0 at l = 2;
+      - the cores with an occupied f subshell (p >= 1 at l = 3), which begin at 58 electrons;
+      - no core in the table holds a g orbital, so p = 0 at l = 4 on every one of them.
+    Returns (p at l=2 for 18 e, for 36 e, the list of e-counts with p = 0 at l = 2, the list
+    with p >= 1 at l = 3, the table's electron-count range, the count of g-occupied cores)."""
     pop = _load("populate", POPULATE)
     ar_d = pop.core_p(18, 2)           # Ca II nd converges on Ca2+, argon-like
     kr_d = pop.core_p(36, 2)           # Sr II nd converges on Sr2+, krypton-like
-    f_core = [ne for ne in range(60, 80) if pop.core_p(ne, 3) == 1]
-    return ar_d, kr_d, len(f_core)
+    table = [ne for ne in range(1, 200) if pop.config_of(ne, "observed") is not None]
+    d0 = [ne for ne in table if pop.core_p(ne, 2) == 0]
+    fcores = [ne for ne in table if pop.core_p(ne, 3) >= 1]
+    gcores = [ne for ne in table if pop.core_p(ne, 4) >= 1]
+    return ar_d, kr_d, d0, fcores, (min(table), max(table)), len(gcores)
 
 
 # -------------------------------------------------------------- the classification
@@ -535,6 +743,98 @@ def stats(rows):
     return out
 
 
+# ------------------------------------------------- the independent fitter and sensitivities
+
+def gauss_newton(pts, iters=200):
+    """A second, independent solution of the least-squares problem of D2: undamped
+    Gauss-Newton in floating point on the two parameters (d0, d2) of
+    delta(n) = d0 + d2 / (n - d0)^2, from the start (mean delta, 0), with the analytic
+    Jacobian dr/dd0 = -1 - 2 d2/(n-d0)^3, dr/dd2 = -1/(n-d0)^2.  It shares no code and no
+    formulation with profile_fit (which profiles d2 out exactly and scans d0)."""
+    ns = [float(n) for n, _ in pts]
+    ds = [float(d) for _, d in pts]
+    d0 = sum(ds) / len(ds)
+    d2 = 0.0
+    it = 0
+    for it in range(1, iters + 1):
+        r = [d - d0 - d2 / (n - d0) ** 2 for n, d in zip(ns, ds)]
+        J0 = [-1 - 2 * d2 / (n - d0) ** 3 for n in ns]
+        J2 = [-1 / (n - d0) ** 2 for n in ns]
+        a00 = sum(x * x for x in J0); a02 = sum(x * y for x, y in zip(J0, J2)); a22 = sum(y * y for y in J2)
+        b0 = -sum(x * ri for x, ri in zip(J0, r)); b2 = -sum(y * ri for y, ri in zip(J2, r))
+        det = a00 * a22 - a02 * a02
+        s0 = (b0 * a22 - b2 * a02) / det
+        s2 = (a00 * b2 - a02 * b0) / det
+        d0 += s0; d2 += s2
+        if abs(s0) < 1e-15 and abs(s2) < 1e-15:
+            break
+    return d0, d2, it
+
+
+def quoted_levels(species):
+    """Every level of the species' capture file as NIST prints it: (n, l-symbol, float) -> string,
+    so Table 2 can carry each level at its quoted precision."""
+    import re
+    out = {}
+    for line in open(CAPTURE[species], encoding="utf-8"):
+        if line.startswith("#") or not line.strip():
+            continue
+        f = line.rstrip("\n").split("\t")
+        cfg = f[0].split(".")[-1]
+        m = re.match(r"(\d+)([spdfgh])$", cfg)
+        if not m:
+            continue
+        val = f[3].strip("[]").strip()
+        try:
+            out[(int(m.group(1)), m.group(2), float(val))] = val
+        except ValueError:
+            pass
+    return out
+
+
+def rho_of_series(ser, Rinf, mp):
+    pts, _ = defects(ser, Rinf, mp)
+    d0, d2, S, cert, basins, width = profile_fit(pts)
+    l = ser["l"]
+    return float((d2 / d0) / F(-l * (l + 1), 3)), d0, d2
+
+
+def ob_sensitivity():
+    """For each p = 0 series: rho with its lowest member left out; the quotation-floor
+    sensitivity, sum over members of |rho(E_i + h_i) - rho| with h_i half of one unit in the
+    last digit NIST quotes for that level (a linearised worst case); rho with the limit
+    moved by +0.1 cm^-1; and, for Cd I, rho at the limit's published +/- 0.13 cm^-1.
+    Also the polarisability the fitted d0 implies through Theorem 1, d0 K(l) / (6 z^2)."""
+    series, Rinf, mp = load_series()
+    pop = _load("populate", POPULATE)
+    cores = {"Cd I": 47, "In I": 48, "Rb I": 36, "Sr II": 36}
+    out = []
+    for ser in series:
+        if pop.core_p(cores[ser["species"]], ser["l"]) != 0:
+            continue
+        base, d0, d2 = rho_of_series(ser, Rinf, mp)
+        lo = min(ser["levels"])
+        loo, _, _ = rho_of_series(dict(ser, levels={k: v for k, v in ser["levels"].items() if k != lo}), Rinf, mp)
+        q = quoted_levels(ser["species"])
+        floor = 0.0
+        hs = []
+        for n, E in ser["levels"].items():
+            st = q.get((n, ser["lsym"], E), "%.3f" % E)
+            dec = len(st.split(".")[1]) if "." in st else 0
+            h = 0.5 * 10 ** (-dec)
+            hs.append(h)
+            s3 = dict(ser, levels=dict(ser["levels"])); s3["levels"][n] = E + h
+            floor += abs(rho_of_series(s3, Rinf, mp)[0] - base)
+        lim1, _, _ = rho_of_series(dict(ser, lim=ser["lim"] + 0.1), Rinf, mp)
+        row = dict(name=ser["name"], rho=base, loo=loo, floor=floor, hs=hs, dlim=lim1 - base,
+                   alpha=float(d0 * K(ser["l"]) / (6 * ser["c"] ** 2)))
+        if ser["species"] == "Cd I":
+            row["lim_pm"] = (rho_of_series(dict(ser, lim=ser["lim"] - 0.13), Rinf, mp)[0],
+                             rho_of_series(dict(ser, lim=ser["lim"] + 0.13), Rinf, mp)[0])
+        out.append(row)
+    return out
+
+
 # ------------------------------------------------------------------------- main
 
 def main(selftest=False):
@@ -542,50 +842,72 @@ def main(selftest=False):
     print()
     allok = True
 
-    # 1  <r^-4>
+    # 1  the hydrogenic moments (Lemma 1, Lemma 4)
     fam, bad = ob_r4()
     allok &= report("EXHAUSTIVE", "Lemma 1: <r^-4> closed form", bad == 0,
                     "%d states (n <= %d, 1 <= l <= n-1), %d disagree" % (fam, FIGURES["r4_nmax"], bad))
     fam2, bad2 = ob_r2_sanity()
-    allok &= report("EXHAUSTIVE", "control: <r^-2> = 1/(n^3 (l+1/2))", bad2 == 0, "%d states, %d disagree" % (fam2, bad2))
+    allok &= report("EXHAUSTIVE", "<r^-2> = 1/(n^3 (l+1/2))", bad2 == 0, "%d states, %d disagree" % (fam2, bad2))
+    famr, badr = ob_recursion()
+    allok &= report("EXHAUSTIVE", "Kramers-Pasternack recursion", badr == 0,
+                    "%d (n, l, s) triples, n <= 12, -2l <= s <= 4, %d disagree" % (famr, badr))
+    fam13, b1, b3 = ob_r1_r3()
+    allok &= report("EXHAUSTIVE", "<r^-1> = 1/n^2 and <r^-3> = 1/(n^3 l(l+1/2)(l+1))", b1 == 0 and b3 == 0,
+                    "%d states, %d and %d disagree" % (fam13, b1, b3))
+    pts1, ok1 = ob_lemma1_algebra()
+    allok &= report("PROVED", "Lemma 1: recursion at s = -1, -2 gives the closed form", ok1,
+                    "rational identity in (n, l), grid 7x8 above degree, %d points" % pts1)
+    fam6, b5, b6 = ob_r6()
+    allok &= report("EXHAUSTIVE", "Lemma 4: <r^-5> and <r^-6> closed forms", b5 == 0 and b6 == 0,
+                    "%d states (n <= 30, 2 <= l <= n-1), %d and %d disagree" % (fam6, b5, b6))
+    pts4, ok4 = ob_lemma4_algebra()
+    allok &= report("PROVED", "Lemma 4: recursion at s = -3, -4 gives the closed forms", ok4,
+                    "rational identity in (n, l), grid 9x10 above degree, %d points; quadrupole ratio -(6l(l+1)-5)/7 = %s at l = 2, %s at l = 3 (%.3f)"
+                    % (pts4, quad_ratio(2), quad_ratio(3), float(quad_ratio(3))))
 
-    # 2  energy expansion
+    # 2  the algebraic identities (Lemmas 2, 3, the prefactor)
     pts, ok = ob_energy_expansion()
     allok &= report("PROVED", "Lemma 2: exact energy-defect identity", ok, "grid 4x4x4 above degree (2,2,2), %d points" % pts)
-
+    ptsr, okr = ob_defect_rearrangement()
+    allok &= report("PROVED", "Lemma 2: rearrangement 2(n-d)^2/(n(2n-d)) = 1 - (3nd-2d^2)/(n(2n-d))", okr,
+                    "grid 4x4 and 7x5x3 above degree, %d points" % ptsr)
     pts3, ok3b = ob_ritz_vs_n2()
-    allok &= report("PROVED", "Lemma 3: Ritz denominator vs 1/n^2, exact identity", ok3b, "grid 4x5x3 above degree (2,3,1), %d points" % pts3)
+    allok &= report("PROVED", "Lemma 3: Ritz denominator vs 1/n^2, exact identity", ok3b, "grid 4x5x3 above degree (2,2,1), %d points" % pts3)
+    famp, okp, monop, tail = ob_prefactor()
+    allok &= report("PROVED", "Theorem 1's prefactor 6/K(l) = (3/4)/[(l-1/2)l(l+1/2)(l+1)(l+3/2)]", okp,
+                    "degree 5 in l, checked at %d values of l" % famp)
+    allok &= report("EXHAUSTIVE", "l^5 6/K(l) < 3/4 and strictly increasing over l in 1..200", monop,
+                    "%d values; reaches %.6f at l = 200" % (famp, tail))
 
-    famp, okp, tail = ob_prefactor()
-    allok &= report("EXHAUSTIVE", "Theorem 1's prefactor 6/K(l) = (3/4)/[(l-1/2)l(l+1/2)(l+1)(l+3/2)]", okp,
-                    "%d values of l, exact; l^5 6/K(l) rises to %.6f < 3/4 at l = 200" % (famp, tail))
-
-    # 3  ratio identity
+    # 3  Theorem 1
     fam3, ok3 = ob_ratio_identity()
     allok &= report("PROVED", "Theorem 1: c2/c0 = -l(l+1)/3", ok3, "%d (n,l,alpha,z) grid points, exact" % fam3)
     FIGURES["ratio_grid"] = fam3
-
-    # 4  Z3
     z3ok, nonvac, compared, disagree = ob_z3()
-    allok &= report("MACHINE-CHECKED", "Theorem 1 over l in {1..8}, alpha, z real", z3ok and nonvac and disagree == 0,
-                    "8 obligations unsat; non-vacuity %s; encoding %d compared, %d disagree"
-                    % ("ok" if nonvac else "FAIL", compared, disagree))
+    allok &= report("MACHINE-CHECKED", "Theorem 1 from its premise, l in {1..8}; alpha, z, n1, n2, n3 real", z3ok and nonvac and disagree == 0,
+                    "8 obligations unsat; non-vacuity %s; encoding vs Laguerre integral: %d compared (seed %d), %d disagree"
+                    % ("ok" if nonvac else "FAIL", compared, Z3_SEED, disagree))
+    q3ok, qnonvac, qcmp, qdis = ob_z3_quadrupole()
+    allok &= report("MACHINE-CHECKED", "Lemma 4: a positive quadrupole term puts the ratio below -l(l+1)/3, l in {2..8}", q3ok and qnonvac and qdis == 0,
+                    "7 obligations unsat; non-vacuity %s; encoding %d compared (seed %d), %d disagree"
+                    % ("ok" if qnonvac else "FAIL", qcmp, Z3_SEED, qdis))
 
-    # 5  p table
+    # 4  p, and where p and l part company
     okp, same, table = ob_p_table()
     allok &= report("EXHAUSTIVE", "D3: p for the four cores from the ground configurations", okp,
                     "; ".join("%s %s" % (sp, [table[sp][l] for l in range(4)]) for sp in table))
     allok &= report("EXHAUSTIVE", "on these cores p = 0 iff l >= 3, over l in {0,1,2,3}", same, "16 (core, l) cells")
-    ar_d, kr_d, nf = ob_separating_cores()
-    allok &= report("EXHAUSTIVE", "cores that WOULD separate p = 0 from l >= 3 exist, and none is here",
-                    ar_d == 0 and kr_d == 1 and nf > 0,
-                    "argon-like core (18 e): p = %d at l = 2, against %d for the krypton-like core here; "
-                    "%d cores in 60-79 e have p = 1 at l = 3" % (ar_d, kr_d, nf))
+    ar_d, kr_d, d0cores, fcores, rng, ng = ob_separating_cores()
+    allok &= report("EXHAUSTIVE", "cores that separate p from l, over every core in the configuration table",
+                    ar_d == 0 and kr_d == 1 and ng == 0 and min(fcores) == 58 and d0cores == list(range(1, 21)),
+                    "table covers %d-%d electrons; p = 0 at l = 2 for %d-%d electrons (argon-like 18 e: %d; krypton-like 36 e: %d); "
+                    "p >= 1 at l = 3 from %d electrons upward (%d cores); %d cores hold a g orbital"
+                    % (rng[0], rng[1], min(d0cores), max(d0cores), ar_d, kr_d, min(fcores), len(fcores), ng))
 
-    # 6  the fits
+    # 5  the fits
     rows = run_fits()
     FIGURES["rows"] = rows
-    allok &= report("EXHAUSTIVE", "thirteen series loaded", len(rows) == 13, "%d series, %d levels" % (len(rows), sum(r["members"] for r in rows)))
+    allok &= report("MEASURED", "thirteen series loaded", len(rows) == 13, "%d series, %d levels" % (len(rows), sum(r["members"] for r in rows)))
     FIGURES["levels_total"] = sum(r["members"] for r in rows)
     _, Rinf_v, mp_v = load_series()
     pop_c = _load("populate", POPULATE)
@@ -606,18 +928,35 @@ def main(selftest=False):
     print("      core ground configurations in full:")
     for sp in sorted(cfgtxt):
         print("        %-6s (%d electrons)  %s" % (sp, cfgmap[sp], cfgtxt[sp]))
+    print()
+    print("      Table 2 -- every level as NIST quotes it (the one level absent from the captures printed as held):")
+    for r in sorted(rows, key=lambda r: r["name"]):
+        q = quoted_levels(r["species"])
+        cells = ["%d %s" % (n, q.get((n, r["lsym"], E), "%.3f" % E)) for n, E in sorted(r["levels"].items())]
+        print("        %-8s %s" % (r["name"] + ":", "; ".join(cells)))
     certs = all(r["certified"] for r in rows)
-    basins = max(r["basins"] for r in rows)
-    allok &= report("EXHAUSTIVE", "each least-squares minimiser certified", certs,
-                    "401-point exact scan + 90 ternary steps; bracket width <= %.1e; max local minima on scan %d"
-                    % (max(r["width"] for r in rows), basins))
+    bmin = min(r["basins"] for r in rows); bmax = max(r["basins"] for r in rows)
+    allok &= report("MEASURED", "each least-squares minimiser certified", certs and bmin == 1 and bmax == 1,
+                    "401-point exact scan on [min d - 1, min(max d + 1, n_min - 1/2)] + 90 ternary steps; bracket width <= %.1e; local minima per scan: min %d, max %d"
+                    % (max(r["width"] for r in rows), bmin, bmax))
     print()
-    print("      %-9s %2s %2s %5s %3s %10s %10s %10s %9s %9s %10s" % ("series", "l", "p", "n", "N", "d0", "d2", "d2/d0", "Seaton", "rho", "rms"))
+    print("      %-9s %2s %2s %5s %3s %10s %10s %10s %9s %9s %10s %8s" % ("series", "l", "p", "n", "N", "d0", "d2", "d2/d0", "Seaton", "rho", "rms", "alpha"))
     for r in sorted(rows, key=lambda r: (r["p"], r["l"], r["name"])):
-        print("      %-9s %2d %2d %2d-%-2d %3d %10.4f %10.4f %10.4f %9.3f %9s %10.5f"
+        alpha = ("%8.2f" % float(r["d0"] * K(r["l"]) / (6 * r["c"] ** 2))) if r["p"] == 0 else "       -"
+        print("      %-9s %2d %2d %2d-%-2d %3d %10.4f %10.4f %10.4f %9.3f %9s %10.5f %s"
               % (r["name"], r["l"], r["p"], r["n_lo"], r["n_hi"], r["members"], r["d0"], r["d2"], r["d2"] / r["d0"],
-                 float(r["seat"]), ("%.3f" % r["rho"]) if r["rho"] is not None else "undef", r["rms"]))
+                 float(r["seat"]), ("%.3f" % r["rho"]) if r["rho"] is not None else "undef", r["rms"], alpha))
+    print("      alpha: the dipole polarisability (a0^3) the fitted d0 implies through Theorem 1, d0 K(l) / (6 z^2)")
     print()
+    ngn = 0
+    for r in rows:
+        g0, g2, it = gauss_newton(r["pts"])
+        if round(g0, 4) == round(float(r["d0"]), 4) and round(g2, 4) == round(float(r["d2"]), 4):
+            ngn += 1
+        else:
+            print("        Gauss-Newton disagrees on %s: %.6f %.6f vs %.6f %.6f" % (r["name"], g0, g2, float(r["d0"]), float(r["d2"])))
+    allok &= report("CROSS-CHECK", "Gauss-Newton (float, unprofiled) agrees with the exact profile fit to 4 dp", ngn == 13,
+                    "%d of 13 series, 26 coefficients" % ngn)
     nsrc = 0
     for r in rows:
         s0, s2 = SOURCE_FIT[r["name"]]
@@ -625,13 +964,13 @@ def main(selftest=False):
             nsrc += 1
     allok &= report("SOURCE", "fits agree with the source's printed (d0, d2) to 4 dp", nsrc == 13, "%d of 13" % nsrc)
 
-    # 7  the statistics
+    # 6  the statistics
     st = stats(rows)
     FIGURES["stats"] = st
-    allok &= report("EXHAUSTIVE", "class sizes", st["p0_series"] == 3 and st["p1_series"] == 10,
+    allok &= report("MEASURED", "class sizes", st["p0_series"] == 3 and st["p1_series"] == 10,
                     "p = 0: %d series; p >= 1: %d series" % (st["p0_series"], st["p1_series"]))
-    allok &= report("EXHAUSTIVE", "ratios defined", st["p0_defined"] == 3 and st["p1_defined"] == 6,
-                    "p = 0: %d; p >= 1: %d (the four l = 0 series have Seaton's ratio 0, rho undefined)"
+    allok &= report("MEASURED", "ratios defined", st["p0_defined"] == 3 and st["p1_defined"] == 6,
+                    "p = 0: %d; p >= 1: %d (the four l = 0 series have the polarisation value 0, rho undefined)"
                     % (st["p0_defined"], st["p1_defined"]))
     line = "p = 0: median %.3f, sd %.3f (mean %.3f, sample sd %.3f); p >= 1: median %.3f, sd %.3f (mean %.3f, sample sd %.3f)" % (
         st["p0_median"], st["p0_sd"], st["p0_mean"], st["p0_ssd"], st["p1_median"], st["p1_sd"], st["p1_mean"], st["p1_ssd"])
@@ -646,27 +985,35 @@ def main(selftest=False):
     sign = st["sign"]
     print("        sign of d2 by p: %s" % "; ".join("p=%d %d+ %d-" % (p, sign[p][0], sign[p][1]) for p in sorted(sign)))
     signok = sign[0] == [0, 3] and sign[5] == [2, 0] and sign[4] == [2, 0] and all(sign[p] == [1, 1] for p in (1, 2, 3))
-    allok &= report("EXHAUSTIVE", "sign rule: 0 of 3 positive at p = 0; 2 of 2 at p = 4 and 5; 1 of 2 at p = 1, 2, 3", signok)
+    allok &= report("EXHAUSTIVE", "sign rule: 0 of 3 positive at p = 0; 2 of 2 at p = 4 and 5; 1 of 2 at p = 1, 2, 3", signok, "13 series, six values of p")
     fr = [sign[p][0] / sum(sign[p]) for p in sorted(sign)]
-    allok &= report("EXHAUSTIVE", "positive fraction non-decreasing in p", all(a <= b for a, b in zip(fr, fr[1:])),
+    allok &= report("MEASURED", "positive fraction non-decreasing in p", all(a <= b for a, b in zip(fr, fr[1:])),
                     " ".join("%.2f" % f for f in fr))
+
+    # 7  sensitivities of the p = 0 ratios
+    sens = ob_sensitivity()
+    for s_ in sens:
+        extra = ("; limit -0.13/+0.13 cm^-1: rho %.3f / %.3f" % s_["lim_pm"]) if "lim_pm" in s_ else ""
+        print("        %-8s rho %.3f; lowest member out: %.3f; quotation floor (h = %s): sum |d rho| = %.4f; limit +0.1 cm^-1: d rho = %+.4f%s; implied alpha %.2f a0^3"
+              % (s_["name"], s_["rho"], s_["loo"], "/".join(sorted(set("%g" % h for h in s_["hs"]))), s_["floor"], s_["dlim"], extra, s_["alpha"]))
+    allok &= report("MEASURED", "p = 0 sensitivities: lowest member out, quotation floor, limit", len(sens) == 3,
+                    "lowest-out rho %s; floor sums %s" % (", ".join("%.3f" % s_["loo"] for s_ in sens), ", ".join("%.4f" % s_["floor"] for s_ in sens)))
+    FIGURES["sens"] = sens
 
     ind = [r for r in rows if r["name"] == "In I d"][0]
     ind_ds = [float(d) for _, d in ind["pts"]]
     rising = all(a < b for a, b in zip(ind_ds, ind_ds[1:]))
-    allok &= report("EXHAUSTIVE", "In I d: the one series whose residual is an order above the rest", rising,
+    allok &= report("MEASURED", "In I d: the one series whose residual is an order above the rest", rising,
                     "rms %.5f against %.5f next largest; defect rises monotonically %.2f (n=%d) to %.2f (n=%d)"
                     % (ind["rms"], max(r["rms"] for r in rows if r["name"] != "In I d"),
                        ind_ds[0], ind["n_lo"], ind_ds[-1], ind["n_hi"]))
     nl, worst = ob_limit_sensitivity()
-    allok &= report("EXHAUSTIVE", "limit sensitivity: d(delta) = n*^3 dI / (2 z^2 R_M)", worst < 1e-4,
+    allok &= report("MEASURED", "limit sensitivity: d(delta) = n*^3 dI / (2 z^2 R_M)", worst < 1e-4,
                     "%d levels, dI = 0.01 cm^-1, worst relative error %.2e" % (nl, worst))
 
     # 8  the levels against the capture files, and Cd I against the channel table
     print()
     tot, missing = ob_captures(rows)
-    # the one level the captures do not hold: Cd I 5p (5s5p 1P*1, 43692.384), below the
-    # Cd I capture's first row, which starts at 6s.  Expected, and recorded in SOURCES.md.
     expected_missing = [("Cd I p", 5, 43692.384)]
     allok &= report("EXHAUSTIVE", "levels occur in the species' NIST capture files", missing == expected_missing,
                     "%d levels, %d found; not held: %s" % (tot, tot - len(missing), ", ".join("%s n=%d %.3f" % m for m in missing)))
@@ -695,6 +1042,9 @@ def main(selftest=False):
         print("  negative controls (each must be REFUTED):")
         fam, bad = ob_r4(nmax=8, wrong=True)
         allok &= report("REFUTED", "control: wrong <r^-4> (3n^2 + l(l+1)) fails the family", bad > 0, "%d of %d disagree" % (bad, fam))
+        ptsw, okw = ob_defect_rearrangement(wrong=True)
+        allok &= report("REFUTED", "control: Lemma 2's factor without the 2, (n-d)^2/(n(2n-d)), fails", not okw,
+                        "fails at grid point %d" % ptsw)
         z3ok, nonvac, _, _ = ob_z3(lmax=3, wrong=True)
         allok &= report("REFUTED", "control: Z3 finds a model against c2/c0 = -2l(l+1)/3", not z3ok, "sat, as it must be")
         rows_p = run_fits(perturb=("Cd I f", 4, 5.0))
@@ -706,7 +1056,11 @@ def main(selftest=False):
     print()
     n = len(RESULTS)
     nok = sum(1 for r in RESULTS if r[2])
-    print("%d of %d obligations discharged%s" % (nok, n, "" if allok else " -- FAILURES ABOVE"))
+    by = {}
+    for r in RESULTS:
+        by[r[0]] = by.get(r[0], 0) + 1
+    print("%d of %d obligations discharged%s  (%s)" % (nok, n, "" if allok else " -- FAILURES ABOVE",
+                                                       ", ".join("%s %d" % kv for kv in sorted(by.items()))))
     return 0 if allok else 1
 
 

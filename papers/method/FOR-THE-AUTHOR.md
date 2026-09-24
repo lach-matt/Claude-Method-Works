@@ -390,3 +390,15 @@ reproduced**; the base-cap figures reproduce exactly and are printed.
 
 **7 · Every sampled verification in the source is replaced by an exhaustive one**, and the
 "core of four" claims, which the source itself supersedes, are not printed.
+
+**The bracket — repaired.** The bound at a held cell is now the larger of the two observed gaps,
+deduced from containment with no further step: at step h it exceeds half the width by the fraction
+2/V, and measured over the 1,145 held cells its tightest value is 0.970 cm⁻¹ and its median 5,389,
+with the larger gap toward the lower neighbour at 1,141 of them. The hypothesis that the neighbours
+are unperturbed is now stated wherever the bound is, with a paragraph on the Lu–Fano case where a
+perturber moves the neighbours with the cell. The self-concordance threshold is stated with its
+unit dependence explicit — it scales as the square root of the Rydberg constant — and what
+survives every unit is the exact identity λ² = (2/3)T and the ratios. The reference implementation
+that the audit found to be a transcription is rewritten as a genuinely independent one and agrees
+at all 1,551 cells. One item is for you: the tree holds the lithium threshold twice, an evaluated
+value and a series-fitted one, and the paper prints both rows and chooses neither.

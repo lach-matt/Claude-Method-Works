@@ -260,6 +260,18 @@ def guards():
     ok &= bad == 0
     row("GUARD", "hull encoding: intersection of closed supersets == <X>", "%d sets, %d disagreements" % (tot, bad), bad == 0)
 
+    # (c') the Z3 closure predicate (D6) IS closure: evaluated on random sets against a direct test
+    tot = bad = 0
+    for _ in range(300):
+        shape = rnd.choice(pool[:5])
+        cells = cells_of(shape)
+        X = frozenset(rnd.sample(cells, rnd.randint(1, min(len(cells), 8))))
+        Xc = {c: z3.BoolVal(c in X) for c in cells}
+        tot += 1
+        bad += z3.is_true(z3.simplify(sublattice(Xc, cells))) != is_closed(X)
+    ok &= bad == 0
+    row("GUARD", "Z3 closure predicate == direct closure test", "%d random sets over %s, %d disagreements" % (tot, ",".join(map(boxname, pool[:5])), bad), bad == 0)
+
     # (d) non-vacuity of every hypothesis used below, satisfiable non-trivially
     for shape in ((3, 3), (2, 2, 2), (3, 3, 3)):
         cells = cells_of(shape)
@@ -279,6 +291,21 @@ def guards():
             good = s.check() == z3.sat
             ok &= good
             row("GUARD", "non-vacuity, %s" % boxname(shape), label, good)
+    # (d') Theorem 4's hypothesis: a non-empty proper X cut out of its box by an isotone integer system
+    for shape in ((3, 3), (2, 2, 2)):
+        cells = cells_of(shape)
+        d = len(shape)
+        X = subset_vars(cells, "x")
+        A = [sorted({c[i] for c in cells}) for i in range(d)]
+        psi = {(i, j, a): z3.Int("nv_psi_%d_%d_%d" % (i, j, a)) for i in range(d) for j in range(d) if i != j for a in A[j]}
+        isotone = z3.And([psi[i, j, a] <= psi[i, j, b] for (i, j, a) in psi for b in A[j] if a < b])
+        cut = lambda x: z3.And(realised(X, x, cells, d), z3.And([x[i] <= psi[i, j, x[j]] for i in range(d) for j in range(d) if i != j]))
+        h = z3.And(isotone, z3.And([X[c] == cut(c) for c in cells]), z3.Or([X[c] for c in cells]), z3.Or([z3.Not(X[c]) for c in cells]))
+        s = z3.Solver()
+        s.add(h)
+        good = s.check() == z3.sat
+        ok &= good
+        row("GUARD", "non-vacuity, %s" % boxname(shape), "Theorem 4: non-empty proper X = cut(psi), psi isotone", good)
     print()
     return ok
 
@@ -594,19 +621,16 @@ def moore_family():
         fam_index = [tuple(1 if c in S else 0 for c in cells) for S in cl]
         ph = phi(fam_index)
         all_one = all(v == 1 for v in ph.values())
-        if n <= 12:
-            Rfam = stair(fam_index)
-            sizeR = len(Rfam)
-        else:
-            sizeR = 2 ** n if all_one else None
+        Rfam = stair(fam_index)          # direct: the family closed as an index over its 2^n candidate cells
+        sizeR = len(Rfam)
         E_fam = sizeR - len(cl)
         sep = all(any((p in S) and (q not in S) for S in cl) for p in cells for q in cells if p != q)
         ok = (io == it) and (uo < ut) and (E_fam == 2 ** n - len(cl)) and all_one and sep and (frozenset(cells) in clset)
         res.append(ok)
         table.append((shape, n, len(cl), len(ne), 2 ** n - len(cl), io, it, uo, ut, uo2, ut2, io2, it2, mi, E_fam))
         row("EXHAUSTIVE", "Moore family at %s" % boxname(shape),
-            "|Cl|=%d (%d non-empty), inter %d/%d, union %d/%d (%.1f%%; without empty %.1f%%, inter without empty %.1f%%), meet-irr %d, E(Cl)=%d = 2^%d-|Cl|" %
-            (len(cl), len(ne), io, it, uo, ut, 100 * uo / ut, 100 * uo2 / ut2, 100 * io2 / it2, mi, E_fam, n), ok)
+            "|Cl|=%d (%d non-empty), inter %d/%d, union %d/%d (%.1f%%; without empty %.1f%%, inter without empty %.1f%%), meet-irr %d, |R(Cl)| = %d computed directly, E(Cl)=%d = 2^%d-|Cl|" %
+            (len(cl), len(ne), io, it, uo, ut, 100 * uo / ut, 100 * uo2 / ut2, 100 * io2 / it2, mi, sizeR, E_fam, n), ok)
     # the witness that unions escape: two chains in 2x2
     S1, S2 = frozenset({(0, 0), (1, 0)}), frozenset({(0, 0), (0, 1)})
     ok = is_closed(S1) and is_closed(S2) and not is_closed(S1 | S2) and is_closed(S1 & S2)
@@ -712,9 +736,24 @@ def staircase_algebra():
     return all(res)
 
 
+def periodic_cells(he_group=18):
+    """The 18-column table on (period, group) with the f block detached: 90 cells, He at `he_group`."""
+    pt = {(1, 1), (1, he_group)} | {(p, g) for p in (2, 3) for g in [1, 2] + list(range(13, 19))} | {(p, g) for p in (4, 5, 6, 7) for g in range(1, 19)}
+    return pt
+
+
+FIG1_INDEX = {(0, 0), (1, 2), (2, 1), (3, 4), (4, 3)}
+
+
 def defects():
     print("EXHAUSTIVE -- worked defects (Section 2)")
     res = []
+    # Figure 1's five-cell index
+    R1 = stair(FIG1_INDEX)
+    ph1 = phi(FIG1_INDEX)
+    ok = len(R1) == 9 and cypher_R(FIG1_INDEX) == R1 and len(R1) - len(FIG1_INDEX) == 4
+    res.append(ok)
+    row("EXHAUSTIVE", "Figure 1: the five-cell index in 5x5", "|R| = %d, E = %d; phi_21 = %s, phi_12 = %s" % (len(R1), len(R1) - 5, [ph1[1, 0, a] for a in range(5)], [ph1[0, 1, a] for a in range(5)]), ok)
     months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     cal = {(m, dd) for m, n in enumerate(months, 1) for dd in range(1, n + 1)}
     R = stair(cal)
@@ -722,16 +761,16 @@ def defects():
     ok = len(cal) == 365 and len(R) == 372 and cypher_R(cal) == R and extra == [(2, 29), (2, 30), (2, 31), (4, 31), (6, 31), (9, 31), (11, 31)]
     res.append(ok)
     row("EXHAUSTIVE", "the calendar (month, day)", "365 cells, |R| = %d, E = %d: %s" % (len(R), len(R) - 365, extra), ok)
-    pt = {(1, 1), (1, 18)} | {(p, g) for p in (2, 3) for g in [1, 2] + list(range(13, 19))} | {(p, g) for p in (4, 5, 6, 7) for g in range(1, 19)}
+    pt = periodic_cells(18)
     R = stair(pt)
     gaps = sorted(R - pt)
     want = [(1, g) for g in range(2, 18)] + [(2, g) for g in range(3, 13)] + [(3, g) for g in range(3, 13)]
     ok = len(pt) == 90 and len(R) == 126 and cypher_R(pt) == R and gaps == want
     res.append(ok)
     row("EXHAUSTIVE", "the periodic table, 18 columns, He in group 18, f-block detached", "90 cells, |R| = %d, E = %d; gaps: period 1 groups 2-17 (16), periods 2-3 groups 3-12 (20)" % (len(R), len(R) - 90), ok)
-    pt2 = (pt - {(1, 18)}) | {(1, 2)}
+    pt2 = periodic_cells(2)
     R2 = stair(pt2)
-    ok = len(R2) - 90 == 20 and cypher_R(pt2) == R2
+    ok = pt2 == (pt - {(1, 18)}) | {(1, 2)} and len(R2) - 90 == 20 and cypher_R(pt2) == R2
     res.append(ok)
     row("EXHAUSTIVE", "the same table with He in group 2", "90 cells, E = %d" % (len(R2) - 90), ok)
     box = {(l, w, h) for l in range(1, 7) for w in range(1, l + 1) for h in range(1, w + 1)}
@@ -873,7 +912,7 @@ def seeds():
     res.append(ok)
     row("EXHAUSTIVE", "Theorem 13: R(G) = X <=> G covers every slot and step", "%d pairs (G, X) over every closed X of 3x3 and 2x2x2, %d disagreements" % (tot, bad), ok)
     # (b) full boxes: brute force by closure at tiny sizes, set cover and clique beyond
-    brute = {(2, 2): 2, (3, 2): 3, (2, 3): 3, (3, 3): 4, (2, 4): 4, (2, 5): 4, (4, 2): 4}
+    brute = {(2, 2): 2, (3, 2): 3, (2, 3): 3, (3, 3): 4, (2, 4): 4, (2, 5): 4, (4, 2): 4, (5, 2): 5}
     bad = 0
     for (c, d), want in brute.items():
         X = set(itertools.product(range(c), repeat=d))
@@ -883,6 +922,11 @@ def seeds():
         out[("box", c, d)] = k
         row("EXHAUSTIVE", "seed of the full box %d^%d by direct closure" % (c, d), "every subset of size < %d fails, one of size %d generates: %s; formula c-2+m(d) = %d; d+c-2 = %d" % (want, want, G, seed_formula_box(c, d), d + c - 2), okk)
     res.append(bad == 0)
+    # (b') the law at (c, d) = (5, 2023): m(2023) by the central binomials, against the 18 printed in Czedli 2023b table (4.30)
+    m = m_of(2023)
+    ok = m == 14 and central(13) == 1716 and central(14) == 3432 and seed_formula_box(5, 2023) == 17
+    res.append(ok)
+    row("EXHAUSTIVE", "the law at (c, d) = (5, 2023)", "C(13,6) = %d < 2023 <= %d = C(14,7), m(2023) = %d, c-2+m = %d (Czedli 2023b table (4.30) prints 18; its Thm 2.4 with p = 3 gives %d)" % (central(13), central(14), m, seed_formula_box(5, 2023), 3 + m), ok)
     # (c) the clique form: largest d that k cells generate, c = 2, 3, 4
     def compat(u, v, c):
         return any(u[r] == c - 1 and v[r] == 0 for r in range(len(u))) and any(v[r] == c - 1 and u[r] == 0 for r in range(len(u)))
@@ -946,11 +990,13 @@ def cited():
     print("CITED -- taken from the literature, not checked here")
     for name, src in [
         ("Moore closure operators and Moore families", "E. H. Moore 1910; M. Ward 1942; Caspard & Monjardet 2003"),
-        ("sublattices of a product determined by 2-fold projections", "Bergman 1977; Baker & Pixley 1975; Queyranne & Tardella 2008"),
-        ("path consistency implies global consistency for monotone constraints", "Montanari 1974; Dechter 1992"),
-        ("staircase / connected row-convex constraints", "Deville, Barette & Van Hentenryck 1999; van Beek & Dechter 1995"),
-        ("Sperner's theorem and the Bollobas set-pair inequality", "Sperner 1928; Bollobas 1965"),
+        ("sublattices of a product determined by 2-fold projections", "Baker & Pixley 1975 (majority term); Bergman 1977 (name, converse); Topkis 1976; Veinott 1989; Queyranne & Tardella 2008"),
+        ("E = 0 is binary decomposability into monotone constraints; row-convex networks are globally consistent", "Montanari 1974; van Beek & Dechter 1995"),
+        ("staircase / connected row-convex constraints", "Deville, Barette & Van Hentenryck 1999"),
+        ("Sperner's theorem, the LYM inequality, the Bollobas set-pair inequality", "Sperner 1928; Lubell 1966; Bollobas 1965"),
         ("minimum set cover is NP-complete", "Karp 1972"),
+        ("seed(c^d) = c - 2 + m(d): the generating number of a direct power of a chain", "Czedli 2023a Thm 2.1 (c = 2); Czedli 2023b Thm 2.4 + Obs 3.1 with Griggs, Stahl & Trotter 1984 (all c)"),
+        ("Caratheodory number of the subsemilattice convexity = breadth; breadth of d chains = d", "Jamison-Waldner 1982; van de Vel 1993; Queyranne & Tardella 2017"),
     ]:
         row("CITED", name, src)
     print()
@@ -970,14 +1016,16 @@ def selftest():
     # (2) a false exhaustive claim: unions of closed sets are closed
     bad = 0
     cl = [X for X in all_subsets((2, 2)) if is_closed(X)]
-    for a in cl:
-        for b in cl:
-            bad += not is_closed(a | b)
+    for i in range(len(cl)):
+        for j in range(i + 1, len(cl)):
+            bad += not is_closed(cl[i] | cl[j])
     res.append(bad > 0)
-    row("SELFTEST", "false claim 'the family is union-closed' refuted", "%d failing pairs in 2x2" % bad, bad > 0)
-    # (3) a false integer claim: the triangle region is meet-closed (Z3 must answer sat) -- covered above; a false seed law
-    res.append(seed_formula_box(2, 5) != 5)
-    row("SELFTEST", "false law 'seed(c^d) = d + c - 2' refuted at (2,5)", "formula gives %d, law gives 5" % seed_formula_box(2, 5), seed_formula_box(2, 5) != 5)
+    row("SELFTEST", "false claim 'the family is union-closed' refuted", "%d unordered pairs of distinct closed sets in 2x2 whose union escapes" % bad, bad > 0)
+    # (3) a false seed law, refuted by direct closure (a decision procedure, not a formula comparison)
+    k, G = seed_bruteforce(set(itertools.product(range(2), repeat=5)), 5)
+    refuted = k is not None and k < 5
+    res.append(refuted)
+    row("SELFTEST", "false law 'seed(c^d) = d + c - 2' refuted at (2,5) by direct closure", "law says 5; every subset of size < %s fails and %s cells generate: %s" % (k, k, G), refuted)
     print()
     return all(res)
 

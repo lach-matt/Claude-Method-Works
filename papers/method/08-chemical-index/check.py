@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""check.py -- the machine checks behind paper 08, "Lambda_chem and Lambda_PCA: closing the
-chemical properties".
+"""check.py -- the machine checks behind paper 08, "Closing the chemical properties: a
+classification index for the elements".
 
 Every number the paper prints is produced here or is marked CITED in the paper.  One line per
 obligation, a summary at the end, exit 1 on any failure.
@@ -117,6 +117,11 @@ def recode(cells):
     return [tuple(alph[i].index(x[i]) for i in range(d)) for x in cells], alph
 
 
+class Sweep(tuple):
+    """the 7-tuple sweep() always returned, plus .visited: the orderings actually evaluated
+    (half the family when the reversal symmetry halves the last axis)."""
+
+
 def sweep(cells, use_symmetry=True):
     """min E over every ordering of the axes (a permutation of each axis's REALISED values), by the
     seated operator.  Returns (minE, n_orderings, n_minimising, n_closing, minimisers, defect_sets,
@@ -154,7 +159,9 @@ def sweep(cells, use_symmetry=True):
             dset = frozenset(tuple(inv[i][x[i]] for i in range(d)) for x in R if x not in held)
             defects.add(dset)
     mult = 2 if use_symmetry else 1
-    return best, n * mult, len(minimisers) * mult, closing * mult, minimisers, defects, sizes
+    out = Sweep((best, n * mult, len(minimisers) * mult, closing * mult, minimisers, defects, sizes))
+    out.visited = n
+    return out
 
 
 # ------------------------------------------------------------------ the data
@@ -209,6 +216,12 @@ same_ks = all((k, s) == next((k2, s2) for n2, k2, s2, _ in T42_BREADTH if n2 == 
 report("A6", "EXHAUSTIVE", "the breadth table names the same 42 with the same kind and seat",
        same and same_ks)
 RESULTS.update(byk=byk, bys=bys, byp=byp, byp_f=byp_f)
+br_cells = sorted({(k, s, b) for _, k, s, b in T42_BREADTH if s in (SUB, VAL)})
+rbr = sweep(br_cells)
+report("A6b", "EXHAUSTIVE", "breadth as the third axis over the two closed seats: 11 cells on a 4 x 2 x 4 box, min E = 2 over all 1,152 orderings, none closes",
+       len(br_cells) == 11 and rbr[6] == [4, 2, 4] and rbr[0] == 2 and rbr[3] == 0 and rbr[1] == 1152,
+       "%d cells, box %s, min E = %d over %d orderings" % (len(br_cells), "x".join(map(str, rbr[6])), rbr[0], rbr[1]))
+RESULTS["breadth_sweep"] = (len(br_cells), rbr[0], rbr[1])
 
 # ================================================================== B. Lambda_chem closes
 header("B. Lambda_chem: E = 0 on fourteen cells (subvalence + valence, term symbol -> charge)")
@@ -223,8 +236,10 @@ report("B1b", "EXHAUSTIVE", "realised alphabet 4 kinds x 2 seats x 3 dependencie
        [len(a) for a in SV_alph] == [4, 2, 3] and 4 not in SV_alph[0], ", ".join(KINDS_SV))
 t0 = time.time()
 mE, nvis, nmin, nclose, mins, dsets, sizes_sv = sweep(SV)
-report("B2", "EXHAUSTIVE", "min E over all 4! x 2! x 3! = 288 orderings of the realised values is 0",
-       mE == 0 and nvis == 288, "E=%d, %d orderings, %d close (%.1fs)" % (mE, nvis, nclose, time.time() - t0))
+sw_sv = sweep(SV)
+report("B2", "EXHAUSTIVE", "min E over all 4! x 2! x 3! = 288 orderings of the realised values is 0; sixteen close",
+       mE == 0 and nvis == 288 and nclose == 16,
+       "E=%d, %d orderings (%d visited, the rest by reversal), %d close (%.1fs)" % (mE, nvis, sw_sv.visited, nclose, time.time() - t0))
 report("B2b", "EXHAUSTIVE", "the 1,440 of the source = 288 x 5 (the unrealised 'rate' permuted with the four)",
        288 * 5 == 1440)
 # a canonical closing order: seat = (subvalence < valence)
@@ -262,6 +277,15 @@ for perms in itertools.product(itertools.permutations(range(4)), [(0, 1)], itert
 report("B3b", "EXHAUSTIVE", "closing orders with subvalence < valence: 8 (the other 8 are their reversals)",
        len(chem_orders) == 8, "PCA orders: %s" % sorted({" < ".join(po) for _, po in chem_orders}))
 RESULTS["chem_orders"] = chem_orders
+# the three forced choices and the three free ones, asserted rather than read off the print-out
+a_least = all(po[0] == "A" for _, po in chem_orders)
+low_pair = all(set(ko[:2]) == {"count", "size"} for ko, _ in chem_orders)
+free_pca = {tuple(po) for _, po in chem_orders} == {("A", "C", "P"), ("A", "P", "C")}
+free_kind = {tuple(ko) for ko, _ in chem_orders} == {
+    ("count", "size", "symmetry", "energy"), ("count", "size", "energy", "symmetry"),
+    ("size", "count", "symmetry", "energy"), ("size", "count", "energy", "symmetry")}
+report("B3c", "EXHAUSTIVE", "in every closing order A is least and {count, size} lie below {symmetry, energy}; C/P and the two within-pair orders are free (2 x 4 = 8)",
+       a_least and low_pair and free_pca and free_kind and len(chem_orders) == 8)
 
 # encoding guard: the seated operator against the independent reference, on every relabelling
 t0 = time.time()
@@ -329,10 +353,72 @@ for r in range(0, 15):
         if ref_R(Y, 3) == set(Y):
             n_closed_sub += 1
             closed_sizes[r] = closed_sizes.get(r, 0) + 1
-report("B5", "EXHAUSTIVE", "closed subsets among the 2^14 = 16,384 subsets of the fourteen cells",
-       True, "%d closed (%.1fs)" % (n_closed_sub, time.time() - t0))
+SIZES14 = [1, 14, 70, 176, 270, 288, 242, 175, 114, 66, 37, 17, 8, 3, 1]
+report("B5", "EXHAUSTIVE", "closed subsets among the 2^14 = 16,384 subsets of the fourteen cells: 1,482, by size as printed",
+       n_closed_sub == 1482 and [closed_sizes.get(r, 0) for r in range(15)] == SIZES14 and sum(SIZES14) == 1482,
+       "%d closed; by size %s (%.1fs)" % (n_closed_sub, [closed_sizes.get(r, 0) for r in range(15)], time.time() - t0))
 RESULTS["n_closed_sub14"] = n_closed_sub
 RESULTS["closed_sizes14"] = closed_sizes
+
+# ---- what the closure is carried by, and what it rests on
+header("B'. The weight of the closure: the full valence block, the sole occupants, the base rates")
+val_cells = {(k, p) for k, s, p in SV if s == VAL}
+sub_cells = {(k, p) for k, s, p in SV if s == SUB}
+report("B6", "EXHAUSTIVE", "the valence seat is a full 4 x 3 block (12 cells); the subvalence seat holds (size, A) and (count, A) only",
+       val_cells == {(k, p) for k in SV_alph[0] for p in range(3)} and len(val_cells) == 12
+       and sub_cells == {(KIND.index("size"), PCA.index("A")), (KIND.index("count"), PCA.index("A"))},
+       "valence %d cells; subvalence %s" % (len(val_cells), sorted((KIND[k], PCA[p]) for k, p in sub_cells)))
+occupants = {}
+for n_, k, s_, p in T42_FILLED:
+    if s_ in (SUB, VAL):
+        occupants.setdefault((k, s_, p), []).append(n_)
+sole = {c: v[0] for c, v in occupants.items() if len(v) == 1}
+SOLE_EXPECTED = {"lanthanide contraction", "closed f shell n_f", "oxidation states", "coordination number",
+                 "ionic radius", "centrifugal barrier", "term symbol"}
+report("B7", "EXHAUSTIVE", "seven of the fourteen cells have a single occupant", set(sole.values()) == SOLE_EXPECTED and len(sole) == 7,
+       "; ".join("%s (%s, %s, %s)" % (sole[c], KIND[c[0]], SEAT[c[1]][4:], PCA[c[2]]) for c in sorted(sole)))
+t0 = time.time()
+removal = {}
+for c, nm in sole.items():
+    cs = [x for x in SV if x != c]
+    r = sweep(cs)
+    removal[nm] = (r[0], r[3])
+    print("      without %-24s (%s, %s, %s): %d cells, min E = %d, %d of %d close" %
+          (nm, KIND[c[0]], SEAT[c[1]][4:], PCA[c[2]], len(cs), r[0], r[3], r[1]))
+BREAKS = {"coordination number", "centrifugal barrier", "term symbol"}
+report("B7b", "EXHAUSTIVE", "emptying any one of three sole-occupant cells leaves thirteen cells that close under no ordering; emptying any of the other four leaves a closed index",
+       all(removal[n_][0] == 1 and removal[n_][1] == 0 for n_ in BREAKS)
+       and all(removal[n_][0] == 0 for n_ in SOLE_EXPECTED - BREAKS)
+       and {removal[n_][1] for n_ in ("lanthanide contraction", "closed f shell n_f")} == {24}
+       and {removal[n_][1] for n_ in ("oxidation states", "ionic radius")} == {4},
+       "break: %s (%.1fs)" % (", ".join(sorted(BREAKS)), time.time() - t0))
+RESULTS["sole"] = sorted((sole[c], KIND[c[0]], SEAT[c[1]], PCA[c[2]]) for c in sole)
+RESULTS["removal"] = removal
+# the base rate of the shape: a full 12-cell valence block beside one, two or three subvalence cells
+t0 = time.time()
+kinds4 = sorted(SV_alph[0])
+block = [(k, VAL, p) for k in kinds4 for p in range(3)]
+subs = [(k, SUB, p) for k in kinds4 for p in range(3)]
+n1 = sum(1 for a in subs if sweep(block + [a])[0] == 0)
+n2 = 0
+for a, b in itertools.combinations(subs, 2):
+    closable = sweep(block + [a, b])[0] == 0
+    product = (a[0] == b[0]) or (a[2] == b[2])
+    assert closable == product
+    n2 += closable
+n3 = sum(1 for t in itertools.combinations(subs, 3) if sweep(block + list(t))[0] == 0)
+from math import comb
+report("B8", "EXHAUSTIVE", "beside the full valence block: every single subvalence cell closes (12/12); a pair closes iff it shares a kind or a dependency (30 of 66); a triple in 16 of 220",
+       n1 == 12 and n2 == 30 and n3 == 16,
+       "%d/12, %d/%d, %d/%d (%.1fs)" % (n1, n2, comb(12, 2), n3, comb(12, 3), time.time() - t0))
+RESULTS.update(pairs_closable=n2, triples_closable=n3)
+# the centrifugal barrier read as an energy (the narrower reading of the kind 'symmetry')
+T42_BARRIER_E = [(n_, (KIND.index("energy") if n_ == "centrifugal barrier" else k), s_, p) for n_, k, s_, p in T42_FILLED]
+cb = cells_of(T42_BARRIER_E, {SUB, VAL})
+rb = sweep(cb)
+report("B9", "EXHAUSTIVE", "with the centrifugal barrier read as an energy the two seats give thirteen cells, and no ordering closes them (min E = 1)",
+       len(cb) == 13 and rb[0] == 1 and rb[3] == 0, "%d cells, min E = %d, %d of %d close" % (len(cb), rb[0], rb[3], rb[1]))
+RESULTS["barrier_energy"] = (len(cb), rb[0], rb[3], rb[1])
 
 
 # ------------------------------------------------------------------ the closure family of a box
@@ -399,8 +485,9 @@ def nextclosure_count(shape, spanning_only=False):
     return K
 
 
-def brute_counts_numpy(shape, chunk=1 << 22):
-    """Every subset of the box, visited: fixed-box closed count and own-box closed count."""
+def brute_counts_numpy(shape, chunk=1 << 22, collect=False):
+    """Every subset of the box, visited: fixed-box closed count and own-box closed count.
+    With collect, also the closed subsets themselves as bitmasks (fixed-box, own-box)."""
     import numpy as np
     cells = list(itertools.product(*[range(n) for n in shape]))
     N = len(cells)
@@ -428,6 +515,7 @@ def brute_counts_numpy(shape, chunk=1 << 22):
             A[(i, v)] = m
     dt = np.uint64 if N > 32 else np.uint32
     n_fixed = n_own = 0
+    masks_fixed, masks_own = [], []
     for start in range(0, total, chunk):
         m = np.arange(start, min(start + chunk, total), dtype=dt)
         R = np.zeros_like(m)
@@ -445,6 +533,11 @@ def brute_counts_numpy(shape, chunk=1 << 22):
             B |= np.where(inB, dt(1 << idx[x]), dt(0))
         n_fixed += int(np.count_nonzero(R == m))
         n_own += int(np.count_nonzero((R & B) == m))
+        if collect:
+            masks_fixed += [int(v) for v in m[R == m]]
+            masks_own += [int(v) for v in m[(R & B) == m]]
+    if collect:
+        return total, n_fixed, n_own, masks_fixed, masks_own
     return total, n_fixed, n_own
 
 
@@ -468,27 +561,59 @@ t0 = time.time()
 tot24, fx24, own24 = brute_counts_numpy((4, 6))
 nc24 = nextclosure_count((4, 6))
 oc24 = ownbox_count((4, 6))
-report("C1", "EXHAUSTIVE", "4x6 box: every one of 2^24 subsets visited; closed counts agree with next-closure",
-       tot24 == 1 << 24 and fx24 == nc24 and own24 == oc24,
+report("C1", "EXHAUSTIVE", "4x6 box: every one of 2^24 subsets visited; closed counts agree with next-closure: 9,115 fixed-box, 27,477 own-box",
+       tot24 == 1 << 24 and fx24 == nc24 and own24 == oc24 and (fx24, own24) == (9115, 27477),
        "fixed-box %d, own-box %d (%.1fs)" % (fx24, own24, time.time() - t0))
 tot20, fx20, own20 = brute_counts_numpy((4, 5))
 report("C1b", "EXHAUSTIVE", "4x5 box (Lambda_PCA realised): every one of 2^20 subsets visited; agrees with next-closure",
-       fx20 == nextclosure_count((4, 5)) and own20 == ownbox_count((4, 5)), "fixed-box %d, own-box %d" % (fx20, own20))
+       fx20 == nextclosure_count((4, 5)) and own20 == ownbox_count((4, 5)) and (fx20, own20) == (3449, 7887),
+       "fixed-box %d, own-box %d" % (fx20, own20))
 RESULTS.update(fx20=fx20, own20=own20)
 tot6, fx6, own6 = brute_counts_numpy((2, 3))
 report("C2", "EXHAUSTIVE", "2x3 box: brute force == next-closure (fixed %d, own %d)" % (fx6, own6),
-       fx6 == nextclosure_count((2, 3)) and own6 == ownbox_count((2, 3)))
+       fx6 == nextclosure_count((2, 3)) and own6 == ownbox_count((2, 3)) and (fx6, own6) == (33, 38))
 t0 = time.time()
 nc30 = nextclosure_count((4, 2, 3))
 oc30 = ownbox_count((4, 2, 3))
-report("C3", "EXHAUSTIVE", "4x2x3 box (Lambda_chem): closed subsets by next-closure",
-       nc30 > 0, "fixed-box %d, own-box %d of 2^24 (%.1fs)" % (nc30, oc30, time.time() - t0))
+report("C3", "EXHAUSTIVE", "4x2x3 box (Lambda_chem): closed subsets by next-closure: 5,824 fixed-box, 8,590 own-box",
+       (nc30, oc30) == (5824, 8590), "fixed-box %d, own-box %d of 2^24 (%.1fs)" % (nc30, oc30, time.time() - t0))
 t0 = time.time()
-tot24b, fx24b, own24b = brute_counts_numpy((4, 2, 3))
+tot24b, fx24b, own24b, masks_fixed30, masks_own30 = brute_counts_numpy((4, 2, 3), collect=True)
 report("C3b", "EXHAUSTIVE", "4x2x3 box: every one of 2^24 subsets visited; counts agree with next-closure",
-       fx24b == nc30 and own24b == oc30, "fixed-box %d, own-box %d (%.1fs)" % (fx24b, own24b, time.time() - t0))
+       fx24b == nc30 and own24b == oc30 and len(masks_fixed30) == fx24b and len(masks_own30) == own24b,
+       "fixed-box %d, own-box %d (%.1fs)" % (fx24b, own24b, time.time() - t0))
+# the base rate for a minimum-over-orderings claim: fourteen-cell subsets closed under SOME ordering
+t0 = time.time()
+cells30 = list(itertools.product(range(4), range(2), range(3)))
+idx30 = {c: i for i, c in enumerate(cells30)}
+perm_maps = [[idx30[tuple(p[i][c[i]] for i in range(3))] for c in cells30]
+             for p in itertools.product(itertools.permutations(range(4)), itertools.permutations(range(2)),
+                                        itertools.permutations(range(3)))]
+
+
+def orbit_union(masks):
+    out = set()
+    for v in masks:
+        bits = [b for b in range(24) if v >> b & 1]
+        for mp in perm_maps:
+            w = 0
+            for b in bits:
+                w |= 1 << mp[b]
+            out.add(w)
+    return out
+
+
+from math import comb
+f14 = [v for v in masks_fixed30 if bin(v).count("1") == 14]
+o14 = [v for v in masks_own30 if bin(v).count("1") == 14]
+U14f = orbit_union(f14)
+U14o = orbit_union(o14)
+report("C3c", "EXHAUSTIVE", "fourteen-cell subsets of the 4x2x3 box: 128 closed at a fixed ordering; 6,432 of C(24,14) = 1,961,256 closed under some ordering",
+       len(f14) == 128 and len(o14) == 150 and len(U14f) == 6432 and U14o == U14f and comb(24, 14) == 1961256,
+       "%d fixed-closed, %d own-closed, %d closable of %d (%.1fs)" % (len(f14), len(o14), len(U14f), comb(24, 14), time.time() - t0))
+RESULTS.update(n14_fixed=len(f14), n14_own=len(o14), n14_some=len(U14f), n14_all=comb(24, 14))
 nc32 = nextclosure_count((2, 4, 4))
-report("C4", "EXHAUSTIVE", "2x4x4 box (Lambda_amp): closed subsets by next-closure", nc32 > 0,
+report("C4", "EXHAUSTIVE", "2x4x4 box (Lambda_amp): closed subsets by next-closure: 29,067", nc32 == 29067,
        "fixed-box %d" % nc32)
 RESULTS.update(fx24=fx24, own24=own24, nc30=nc30, oc30=oc30, nc32=nc32)
 
@@ -538,9 +663,16 @@ def strictly_inside(X, S, cells, d, shape):
 
 
 def idempotent(X, S, cells, d, shape):
-    """observed X  =>  R(R(X)) = R(X), with S := R(X)."""
-    hyp = z3.And(pv.observed(X, cells, shape), z3.And([S[c] == pv.in_R(X, c, cells, d) for c in cells]))
+    """R(R(X)) = R(X) for EVERY X (no observed-alphabet hypothesis), with S := R(X)."""
+    hyp = z3.And([S[c] == pv.in_R(X, c, cells, d) for c in cells])
     return z3.Implies(hyp, z3.And([pv.in_R(S, c, cells, d) == S[c] for c in cells]))
+
+
+def sublattice(X, S, cells, d, shape):
+    """R(X) is closed under pairwise join and meet, for every X."""
+    inR = {c: pv.in_R(X, c, cells, d) for c in cells}
+    return z3.And([z3.Implies(z3.And(inR[a], inR[b]), z3.And(inR[pv.join(a, b)], inR[pv.meet(a, b)]))
+                   for a in cells for b in cells if a < b and pv.join(a, b) not in (a, b)])
 
 
 def extensive_monotone(X, S, cells, d, shape):
@@ -584,7 +716,19 @@ for shape in BOXES:
 for shape in BOXES:
     ok = pv.prove("closure operator %s" % (shape,), shape, extensive_monotone, quiet=True)
     ok2 = pv.prove("idempotent %s" % (shape,), shape, idempotent, quiet=True)
-    report("D2", "MACHINE-CHECKED", "R is extensive, monotone and idempotent over %s" % (shape,), ok and ok2)
+    report("D2", "MACHINE-CHECKED", "R is extensive, monotone and idempotent over %s (all subsets, no hypothesis)" % (shape,), ok and ok2)
+for shape in BOXES:
+    ok3 = pv.prove("sublattice %s" % (shape,), shape, sublattice, quiet=True)
+    report("D3", "MACHINE-CHECKED", "R(X) is a sublattice of %s (closed under join and meet) for every X" % (shape,), ok3)
+# where R sits among closure operators on a product of chains: three witnesses, own box
+w_down = ref_R([(0, 0), (1, 0), (0, 1)], 2)
+w_chain = ref_R([(0, 0), (1, 1)], 2)
+w_anti = ref_R([(0, 1), (1, 0)], 2)
+w_sub = ref_R_fixed([(0, 0), (2, 0), (0, 2), (2, 2)], [range(3), range(3)], 2)
+report("K1", "EXHAUSTIVE", "witnesses: the down-set {00,10,01} has E = 1 (gains 11); the chain {00,11} is closed and is not a down-set; the antichain {01,10} gains both 00 and 11; the sublattice {00,20,02,22} of 3x3 is not closed over that box",
+       w_down == {(0, 0), (1, 0), (0, 1), (1, 1)} and w_chain == {(0, 0), (1, 1)}
+       and w_anti == {(0, 0), (0, 1), (1, 0), (1, 1)} and (1, 0) in w_sub and len(w_sub) == 9,
+       "four witnesses on 2x2 and 3x3")
 
 # ================================================================== E. the boundary
 header("E. The boundary: E climbs as foreign seats are added (min over every ordering)")
@@ -598,10 +742,11 @@ for label, seats in SEATSETS:
         cs = cells_of(table, seats)
         ns = len(seats)
         t0 = time.time()
-        mE_b, nvis_b, nmin_b, nclose_b, mins_b, dsets_b, sizes_b = sweep(cs)
-        row[tag] = (len(cs), mE_b, nvis_b, nclose_b, dsets_b, sizes_b)
-        print("      %-22s %-6s %2d cells  box %s  min E = %2d  over %6d orderings  (%.1fs)" %
-              (label, tag, len(cs), "x".join(map(str, sizes_b)), mE_b, nvis_b, time.time() - t0))
+        sw_b = sweep(cs)
+        mE_b, nvis_b, nmin_b, nclose_b, mins_b, dsets_b, sizes_b = sw_b
+        row[tag] = (len(cs), mE_b, nvis_b, nclose_b, dsets_b, sizes_b, sw_b.visited)
+        print("      %-22s %-6s %2d cells  box %s  min E = %2d  over %6d orderings (%6d visited, the rest by reversal)  (%.1fs)" %
+              (label, tag, len(cs), "x".join(map(str, sizes_b)), mE_b, nvis_b, sw_b.visited, time.time() - t0))
     BOUND.append(row)
 printed = [(14, 0), (15, 3), (20, 8), (21, 11), (26, 19)]
 got_mixed = [(BOUND[0]["filled"][0], BOUND[0]["filled"][1])] + [(r["held"][0], r["held"][1]) for r in BOUND[1:]]
@@ -613,13 +758,18 @@ report("E2", "EXHAUSTIVE", "held table (term symbol -> P): 13/1, 15/3, 20/8, 21/
        got_held == [(13, 1), (15, 3), (20, 8), (21, 11), (26, 19)], str(got_held))
 mono = all(got_filled[i][1] < got_filled[i + 1][1] for i in range(4))
 report("E3", "EXHAUSTIVE", "filled table: E climbs strictly with every foreign seat added", mono, str(got_filled))
-RESULTS.update(BOUND=BOUND, got_filled=got_filled, got_held=got_held)
+visited_e = [(r["filled"][2], r["filled"][6]) for r in BOUND]
+report("E4", "EXHAUSTIVE", "the five families are 288 / 864 / 17,280 / 17,280 / 86,400 orderings, each visited to half by the reversal symmetry",
+       [v[0] for v in visited_e] == [288, 864, 17280, 17280, 86400] and all(2 * v[1] == v[0] for v in visited_e),
+       str(visited_e))
+RESULTS.update(BOUND=[{k: v for k, v in r.items() if k == "label"} | {"filled": r["filled"][:4], "held": r["held"][:4]} for r in BOUND],
+               got_filled=got_filled, got_held=got_held, visited_e=visited_e)
 
 # ================================================================== F. the last cell
 header("F. The last cell before the fill (thirteen cells, term symbol on P)")
 mE0, nvis0, nmin0, nclose0, mins0, dsets0, sizes0 = sweep(SV0)
-report("F1", "EXHAUSTIVE", "all 288 orderings (1,440 with the unrealised kind) give min E = 1 and none reaches 0",
-       mE0 == 1 and nclose0 == 0 and nvis0 == 288, "min E=%d, %d minimising" % (mE0, nmin0))
+report("F1", "EXHAUSTIVE", "all 288 orderings (1,440 with the unrealised kind) give min E = 1 and none reaches 0; 20 minimise",
+       mE0 == 1 and nclose0 == 0 and nvis0 == 288 and nmin0 == 20, "min E=%d, %d minimising" % (mE0, nmin0))
 SV0c, SV0_alph = recode(SV0)
 cellA = (SV0_alph[0].index(1), SV0_alph[1].index(VAL), 1)   # (symmetry, the valence shell, C)
 cellB = (SV0_alph[0].index(1), SV0_alph[1].index(SUB), 2)   # (symmetry, the subvalence shell, A)
@@ -638,12 +788,12 @@ for perms in itertools.product(itertools.permutations(range(4)), itertools.permu
         cell = tuple(inv[i][x[i]] for i in range(3))
         nA += cell == cellA
         nB += cell == cellB
-report("F2b", "EXHAUSTIVE", "of the minimising orderings, how many put the defect at each cell",
-       nA + nB == nmin0 and nA > 0 and nB > 0, "(symmetry, valence, C): %d; (symmetry, subvalence, A): %d" % (nA, nB))
+report("F2b", "EXHAUSTIVE", "of the 20 minimising orderings, 16 put the defect at (symmetry, valence, C) and 4 at (symmetry, subvalence, A)",
+       nA + nB == nmin0 and (nA, nB) == (16, 4), "(symmetry, valence, C): %d; (symmetry, subvalence, A): %d" % (nA, nB))
 altSV = sorted(set(SV0) | {(1, SUB, 2)})
 mE_alt, nv_alt, nm_alt, nc_alt, _, _, _ = sweep(altSV)
-report("F2c", "EXHAUSTIVE", "the alternative fill (symmetry, subvalence, A) would also close at fourteen cells",
-       mE_alt == 0 and len(altSV) == 14, "%d of %d orderings close" % (nc_alt, nv_alt))
+report("F2c", "EXHAUSTIVE", "the alternative fill (symmetry, subvalence, A) would also close at fourteen cells, in 4 of the 288 orderings",
+       mE_alt == 0 and len(altSV) == 14 and (nc_alt, nv_alt) == (4, 288), "%d of %d orderings close" % (nc_alt, nv_alt))
 RESULTS.update(nA=nA, nB=nB, nc_alt=nc_alt)
 four = [n for n, k, s, p in T42 if k == 1 and s == VAL]
 report("F3", "EXHAUSTIVE", "four symmetry-of-valence properties held, all on P or A before the fill",
@@ -694,7 +844,7 @@ E_ph, R_ph, ix_ph = E_cypher(ph_cells, ["source", "domain"], [src_order, dom_pre
 report("H2", "EXHAUSTIVE", "Lambda_phys on (source, domain): 7 cells, E = 0, box %d" % ix_ph.box,
        len(ph_cells) == 7 and E_ph == 0 and ix_ph.box == 12)
 mEp, nvp, nmp, ncp, _, _, _ = sweep(ph_cells)
-report("H3", "EXHAUSTIVE", "Lambda_phys: closing orderings among all 4! x 3! = 144", mEp == 0,
+report("H3", "EXHAUSTIVE", "Lambda_phys: 4 of all 4! x 3! = 144 orderings close", mEp == 0 and (ncp, nvp) == (4, 144),
        "%d of %d close" % (ncp, nvp))
 ph3 = sorted({(s, d, a) for _, s, d, a, _ in P21})
 mE3, nv3, nm3, nc3, _, _, _ = sweep(ph3)
@@ -711,6 +861,16 @@ E_ch, _, ix_ch = E_cypher(ch_cells, ["role", "carrier", "sign", "regime"],
                           [list(range(4)), list(range(4)), [0, 1], [0, 1, 2]])
 report("H5", "EXHAUSTIVE", "Lambda_charge: nine occurrences, nine distinct cells, E = 0 under the declared order",
        len(CH) == 9 and len(ch_cells) == 9 and E_ch == 0, "box %d" % ix_ch.box)
+# carrier and sign are functions of the role, so the four coordinates are two
+role_carrier = {(r, c) for _, r, c, s, g in CH}
+role_sign = {(r, s) for _, r, c, s, g in CH}
+rr_cells = sorted({(ROLE.index(r), REG.index(g)) for _, r, c, s, g in CH})
+E_rr, _, ix_rr = E_cypher(rr_cells, ["role", "regime"], [list(range(4)), [0, 1, 2]])
+rrs = sweep(rr_cells)
+report("H5b", "EXHAUSTIVE", "role <-> carrier is a bijection and sign is a function of role; on (role, regime) the nine occurrences are nine cells of a 4 x 3 box, E = 0, 4 of 144 orderings close",
+       len(role_carrier) == 4 and len({c for _, c in role_carrier}) == 4 and len(role_sign) == 4
+       and len(rr_cells) == 9 and E_rr == 0 and ix_rr.box == 12 and rrs[0] == 0 and (rrs[3], rrs[1]) == (4, 144),
+       "box %d; %d of %d close" % (ix_rr.box, rrs[3], rrs[1]))
 by_reg = [sum(1 for _, r, c, s, g in CH if g == x) for x in REG]
 report("H6", "EXHAUSTIVE", "occurrences by regime neutral/low/hydrogenic = 2/3/4", by_reg == [2, 3, 4], str(by_reg))
 
@@ -724,6 +884,10 @@ dom_diff = [(P21[i][0], DOM4[P21[i][2]], D6[PH[i][1]]) for i in range(21) if map
 report("H7", "EXHAUSTIVE", "merge table vs parameter table: sources agree on 21/21; domains on 20/21",
        agree_src and len(dom_diff) == 1, "differs: %s" % dom_diff)
 RESULTS["dom_diff"] = dom_diff
+region_to = [(P21[i][0], D6[PH[i][1]]) for i in range(21) if P21[i][2] == 2]
+report("H7b", "EXHAUSTIVE", "both parameters asserted on 'a region' are placed at 'low' in the merge",
+       len(region_to) == 2 and all(d_ == "low" for _, d_ in region_to), str(region_to))
+RESULTS["region_to"] = region_to
 pca_cells = sorted(set(PH) | set(CHm))
 DOM6 = ["universal", "all elements", "low", "neutral", "hydrogenic", "one species"]  # the closing order
 d_order = [D6.index(x) for x in DOM6]
@@ -756,8 +920,8 @@ for perms in minsm:
         univ_first += 1
         if pd[3] < pd[2]:   # low (code 3) before neutral (code 2)
             low_before_neutral += 1
-report("H10", "EXHAUSTIVE", "closing orderings among 4! x 5! = 2,880 (17,280 with the unrealised value); in every one oriented universal-first, low precedes neutral",
-       mEm == 0 and nvm == 2880 and low_before_neutral == univ_first and univ_first > 0,
+report("H10", "EXHAUSTIVE", "4 of the 4! x 5! = 2,880 orderings close (17,280 with the unrealised value); 2 are oriented universal-first, and in both low precedes neutral",
+       mEm == 0 and nvm == 2880 and ncm == 4 and univ_first == 2 and low_before_neutral == univ_first,
        "%d close; %d universal-first, %d with low < neutral (%.1fs)" % (ncm, univ_first, low_before_neutral, time.time() - t0))
 SRC_ORDERED = ["standard", "mathematics", "literature", "this work"]
 for perms in minsm:
@@ -767,8 +931,11 @@ for perms in minsm:
         do = [D6[v] for v in sorted(range(5), key=lambda v: pd[v])]
         RESULTS.setdefault("pca_orders", []).append((so, do))
         print("      closing order: source %s; domain %s" % (" < ".join(so), " < ".join(do)))
-report("H10b", "EXHAUSTIVE", "both universal-first closing orders read standard < mathematics < literature < this work",
-       all(so == ["standard", "mathematics", "literature", "this work"] for so, _ in RESULTS["pca_orders"]))
+report("H10b", "EXHAUSTIVE", "both universal-first closing orders read standard < mathematics < literature < this work, and differ only in the order of neutral and hydrogenic",
+       all(so == ["standard", "mathematics", "literature", "this work"] for so, _ in RESULTS["pca_orders"])
+       and sorted(tuple(do) for _, do in RESULTS["pca_orders"]) == sorted([
+           ("universal", "all elements", "low", "neutral", "hydrogenic"),
+           ("universal", "all elements", "low", "hydrogenic", "neutral")]))
 RESULTS.update(ncm=ncm, univ_first=univ_first)
 # in every closing ordering, is 'one species' (unrealised) free? the realised domain alphabet has 5 values
 # the floor form
@@ -815,7 +982,7 @@ report("I1", "EXHAUSTIVE", "the diagonal pairs l/l, l = s..f, on (kind, l, posit
 report("I2", "EXHAUSTIVE", "the twenty cells are exactly {(kind, l, i) : 0 <= i <= l}",
        set(tri) == {(kd, l, i) for kd in (0, 1) for l in range(4) for i in range(l + 1)})
 mEa, nva, nma, nca, _, _, _ = sweep(tri)
-report("I3", "EXHAUSTIVE", "closing orderings among 2! x 4! x 4! = 1,152", mEa == 0, "%d of %d close" % (nca, nva))
+report("I3", "EXHAUSTIVE", "4 of the 2! x 4! x 4! = 1,152 orderings close", mEa == 0 and (nca, nva) == (4, 1152), "%d of %d close" % (nca, nva))
 PAIRS = load_literal(INSTR["amp_index"], "PAIRS")
 raw = set()
 for nm, l1, l2, ne in PAIRS:
@@ -831,12 +998,106 @@ defect_raw = {tuple((ks[x[0]], ["F", "G"][x[1]], "spdf"[x[2]]) for x in sorted(s
 report("I4", "EXHAUSTIVE", "indexed on the raw rank k: 21 cells, min E = 1 over all %d orderings, one defect cell" % nvr,
        len(raw_coded) == 21 and mEr == 1 and len(defect_raw) == 1 and all(len(x) == 1 for x in defect_raw),
        "defect: %s (the source prints F^1 at p; see SOURCES)" % str(sorted(defect_raw)))
-report("I4b", "EXHAUSTIVE", "the reproduced defect cell is G^1 at an s rival, a rank parity forbids there too",
-       defect_raw == {((1, "G", "s"),)}, "%d of %d orderings minimise" % (nmr, nvr))
+report("I4b", "EXHAUSTIVE", "the reproduced defect cell is G^1 at an s rival, a rank parity forbids there too; 2 of 5,760 orderings minimise",
+       defect_raw == {((1, "G", "s"),)} and (nmr, nvr) == (2, 5760), "%d of %d orderings minimise" % (nmr, nvr))
 s_s = slater_list(0, 0)
 f_f = slater_list(3, 3)
-report("I5", "EXHAUSTIVE", "s/s has F0 and G0 only (one independent radial quantity); f/f has four F and four G",
+report("I5", "EXHAUSTIVE", "s/s has F0 and G0 only; f/f has four F and four G",
        s_s == ([0], [0]) and len(f_f[0]) == 4 and len(f_f[1]) == 4)
+report("I5b", "EXHAUSTIVE", "at every diagonal pair l/l the exchange rank list equals the direct rank list {0, 2, ..., 2l}: l + 1 members each",
+       all(slater_list(l, l)[0] == slater_list(l, l)[1] == list(range(0, 2 * l + 1, 2)) for l in range(4)))
+
+
+# ---- Slater's radial integral, exactly, on hydrogenic functions
+def hyd_unnorm(n, l):
+    """P_nl(r) = r R_nl(r) for Z = 1, unnormalised: r^(l+1) e^(-r/n) L^(2l+1)_(n-l-1)(2r/n), as {power: coeff}, decay 1/n."""
+    from math import comb
+    a, m = 2 * l + 1, n - l - 1
+    poly = {}
+    for i in range(m + 1):
+        c = Fraction((-1) ** i * comb(m + a, m - i), fac(i)) * Fraction(2, n) ** i
+        poly[l + 1 + i] = poly.get(l + 1 + i, 0) + c
+    return poly, Fraction(1, n)
+
+
+def poly_mul(p, q):
+    out = {}
+    for a, ca in p.items():
+        for b, cb in q.items():
+            out[a + b] = out.get(a + b, 0) + ca * cb
+    return out
+
+
+def gamma_int(s_, g):
+    """int_0^inf r^s e^(-g r) dr = s! / g^(s+1), s a non-negative integer."""
+    assert s_ >= 0
+    return Fraction(fac(s_)) / g ** (s_ + 1)
+
+
+def hyd_norm2(n, l):
+    p, al = hyd_unnorm(n, l)
+    return 1 / sum(c * gamma_int(s_, 2 * al) for s_, c in poly_mul(p, p).items())
+
+
+def slater_R(k, a, b, c, d_):
+    """R^k(ab, cd) = int int P_a(r1) P_c(r1) P_b(r2) P_d(r2) r_<^k / r_>^(k+1) dr1 dr2, exactly (Fraction),
+    for hydrogenic a, b, c, d = (n, l) with {a, b} = {c, d} (so the normalisation is rational)."""
+    assert {a, b} == {c, d_}
+    pa, aa = hyd_unnorm(*a)
+    pb, ab = hyd_unnorm(*b)
+    pc, ac = hyd_unnorm(*c)
+    pd, ad = hyd_unnorm(*d_)
+    A, b1 = poly_mul(pa, pc), aa + ac
+    B, b2 = poly_mul(pb, pd), ab + ad
+    tot = Fraction(0)
+    for p, ca in A.items():
+        for m, cb in B.items():
+            M = m + k
+            pref = Fraction(fac(M)) / b2 ** (M + 1)          # r1^(-k-1) * int_0^r1 r2^(m+k) e^(-b2 r2)
+            t = pref * gamma_int(p - k - 1, b1)
+            for j in range(M + 1):
+                t -= pref * b2 ** j / fac(j) * gamma_int(p - k - 1 + j, b1 + b2)
+            q = m - k - 1                                    # r1^k * int_r1^inf r2^(m-k-1) e^(-b2 r2)
+            pref2 = Fraction(fac(q)) / b2 ** (q + 1)
+            for j in range(q + 1):
+                t += pref2 * b2 ** j / fac(j) * gamma_int(p + k + j, b1 + b2)
+            tot += ca * cb * t
+    return tot * hyd_norm2(*a) * hyd_norm2(*b)
+
+
+def slater_F(k, a, b):
+    return slater_R(k, a, b, a, b)
+
+
+def slater_G(k, a, b):
+    return slater_R(k, a, b, b, a)
+
+
+HYD_CITED = {("F", 0, (1, 0), (1, 0)): Fraction(5, 8), ("F", 0, (1, 0), (2, 0)): Fraction(17, 81),
+             ("G", 0, (1, 0), (2, 0)): Fraction(16, 729), ("F", 0, (2, 1), (2, 1)): Fraction(93, 512),
+             ("F", 2, (2, 1), (2, 1)): Fraction(45, 512)}
+hyd_ok = all((slater_F if kd == "F" else slater_G)(k, a, b) == v for (kd, k, a, b), v in HYD_CITED.items())
+report("I8", "CITED", "control on the radial integral: F0(1s,1s) = 5/8, F0(1s,2s) = 17/81, G0(1s,2s) = 16/729, F0(2p,2p) = 93/512, F2(2p,2p) = 45/512 (Z = 1, atomic units) reproduce exactly",
+       hyd_ok, "%d values" % len(HYD_CITED))
+eq_pairs = [(n, l) for n in range(1, 5) for l in range(n)]
+eq_ok = True
+n_eq = 0
+for (n, l) in eq_pairs:
+    for k in slater_list(l, l)[0]:
+        n_eq += 1
+        eq_ok &= slater_F(k, (n, l), (n, l)) == slater_G(k, (n, l), (n, l))
+report("I8b", "EXHAUSTIVE", "equivalent electrons (nl, nl), 1s to 4f: G^k(nl, nl) = F^k(nl, nl) at every rank k (the same integral), 20 equalities",
+       eq_ok and n_eq == 20, "%d subshells, %d ranks" % (len(eq_pairs), n_eq))
+neq_pairs = [((1, 0), (2, 0)), ((2, 0), (3, 0)), ((2, 1), (3, 1)), ((3, 2), (4, 2)), ((4, 3), (5, 3))]
+neq_ok = True
+n_neq = 0
+for a, b in neq_pairs:
+    for k in slater_list(a[1], b[1])[0]:
+        n_neq += 1
+        neq_ok &= slater_F(k, a, b) != slater_G(k, a, b)
+report("I8c", "EXHAUSTIVE", "non-equivalent same-l pairs 1s/2s, 2s/3s, 2p/3p, 3d/4d, 4f/5f: G^k differs from F^k at every rank, 11 inequalities; e.g. F0(1s,2s) = 17/81 against G0(1s,2s) = 16/729",
+       neq_ok and n_neq == 11, "%d pairs, %d ranks" % (len(neq_pairs), n_neq))
+RESULTS["hyd_witness"] = (str(slater_F(0, (1, 0), (2, 0))), str(slater_G(0, (1, 0), (2, 0))))
 
 
 def threej_sq(j1, j2, j3, m1, m2, m3):
@@ -860,6 +1121,9 @@ def threej_sq(j1, j2, j3, m1, m2, m3):
 
 ok = all(threej_sq(l, 0, l, 0, 0, 0) == Fraction(1, 2 * l + 1) for l in range(0, 9))
 report("I6", "EXHAUSTIVE", "(l 0 l; 0 0 0)^2 = 1/(2l+1) exactly (Fraction), l = 0..8", ok)
+ok6b = all(threej_sq(j, j, 0, m, -m, 0) == Fraction(1, 2 * j + 1) for j in range(0, 9) for m in range(-j, j + 1)) \
+    and all(threej_sq(l, 0, l, 0, 0, 0) == threej_sq(l, l, 0, 0, 0, 0) == threej_sq(0, l, l, 0, 0, 0) for l in range(0, 9))
+report("I6b", "EXHAUSTIVE", "(j j 0; m -m 0)^2 = 1/(2j+1) for every m, j = 0..8; and the three column orders of (l 0 l; 0 0 0) have equal squares", ok6b)
 # an independent identity check of the 3j implementation: orthogonality sum_m (j j 0; m -m 0)^2 = 1/(2j+1)... and
 # the parity zero (l 1 l; 0 0 0) = 0
 ok2 = all(threej_sq(l, 1, l, 0, 0, 0) == 0 for l in range(1, 6)) and threej_sq(1, 1, 2, 0, 0, 0) == Fraction(2, 15)
@@ -874,10 +1138,13 @@ for _ in range(200):
     allc = list(itertools.product(*[range(n) for n in shape]))
     X = rnd.sample(allc, rnd.randint(2, 10))
     d = len(shape)
-    Xr = [tuple(shape[i] - 1 - x[i] for i in range(d)) for x in X]
-    if len(ref_R(X, d)) != len(ref_R(Xr, d)):
+    Xc, alph_x = recode(X)      # own-box codes, so that sigma is the reversal of each realised alphabet
+    sizes_x = [len(a) for a in alph_x]
+    sigma = lambda x: tuple(sizes_x[i] - 1 - x[i] for i in range(d))
+    Xr = [sigma(x) for x in Xc]
+    if ref_R(Xr, d) != {sigma(x) for x in ref_R(Xc, d)}:
         bad += 1
-report("J1", "SAMPLED", "|R(X)| = |R(reversed X)| on 200 random subsets (seed 3)", bad == 0, "%d failures" % bad)
+report("J1", "SAMPLED", "R(sigma X) = sigma(R(X)) as sets, on 200 random subsets (seed 3), three shapes", bad == 0, "%d failures" % bad)
 # and exhaustively on the 1,440 orderings of the fourteen cells: the halved sweep equals the full sweep
 mE_full, nv_full, nm_full, nc_full, _, _, _ = sweep(SV, use_symmetry=False)
 report("J2", "EXHAUSTIVE", "the halved sweep reproduces the full sweep on the fourteen cells",
@@ -913,6 +1180,9 @@ print("all obligations discharged")
 if True:
     import json
     dump = {k: v for k, v in RESULTS.items() if k in ("byk", "bys", "byp", "byp_f", "ORD_K", "ORD_S", "ORD_P",
+                                                     "sole", "removal", "pairs_closable", "triples_closable", "barrier_energy",
+                                                     "n14_fixed", "n14_own", "n14_some", "n14_all", "breadth_sweep", "visited_e",
+                                                     "region_to", "hyd_witness",
                                                      "nclose_sv", "fx24", "own24", "nc30", "oc30", "nc32",
                                                      "got_filled", "got_held", "n_closed_sub14", "ncm", "univ_first", "fx20", "own20", "nA", "nB", "nc_alt",
                                                      "pca_table", "ROUTE", "dom_diff", "nmin0", "four", "pca_orders", "chem_orders")}

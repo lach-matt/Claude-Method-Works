@@ -7,8 +7,9 @@ Statuses printed, one line per obligation:
     EXHAUSTIVE       a decision procedure visited every case of a named finite family
     MACHINE-CHECKED  Z3 returned unsat on the negation over every subset of a named box,
                      after the two guards (non-vacuity, encoding fidelity) passed
-    SAMPLED          a seeded pseudorandom sweep, size and seed stated (guards only)
-    GUARD            a soundness guard; a failed guard suppresses the obligations it covers
+    GUARD            a soundness guard; a failed guard suppresses the obligations it covers.
+                     The encoding-fidelity guard is a SAMPLED sweep (300 draws, seed 7); the
+                     non-vacuity guard is run once per (hypothesis, box) pair, thirteen in all
 
     python3 check.py             # every obligation, exit 1 on any failure
     python3 check.py --selftest  # the same, plus negative controls that must be refuted
@@ -151,6 +152,7 @@ def section_periodic():
     S, E = E_of(X, ["period", "group"])
     num("periodic_cells", len(set(X)))
     num("periodic_box", 7 * 18)
+    num("periodic_R", len(S))
     num("periodic_E", E)
     rec("EXHAUSTIVE", "(period, group): 90 cells, box 126, E = 36 under the seated staircase",
         (len(set(X)), len(S), E) == (90, 126, 36), "|R|=%d E=%d" % (len(S), E))
@@ -194,6 +196,7 @@ def section_periodic():
     X2 = periodic_cells(helium_group=2)
     S2, E2 = E_of(X2, ["period", "group"])
     num("periodic_E_he2", E2)
+    num("periodic_R_he2", len(S2))
     rec("EXHAUSTIVE", "helium drawn at group 2: 90 cells, E = 20 (periods 2-3, groups 3-12)",
         E2 == 20 and sorted(S2 - set(X2)) == [(p, g) for p in (2, 3) for g in range(3, 13)],
         "E=%d" % E2)
@@ -203,9 +206,12 @@ def section_periodic():
     S32, E32 = E_of(X32, ["period", "group"])
     num("periodic32_cells", len(set(X32)))
     num("periodic32_box", 7 * 32)
+    num("periodic32_R", len(S32))
     num("periodic32_E", E32)
     rec("EXHAUSTIVE", "32-column layout: 118 cells, box 224, E = 106",
         (len(set(X32)), len(S32), E32) == (118, 224, 106), "cells=%d |R|=%d E=%d" % (len(set(X32)), len(S32), E32))
+    rec("EXHAUSTIVE", "the 32-column layout holds both corners (1, 32) and (7, 1), so Lemma 3 predicts E = 224 - 118 = 106, as computed",
+        (1, 32) in set(X32) and (7, 1) in set(X32) and E32 == 7 * 32 - len(set(X32)))
     # the plate's census
     rec("EXHAUSTIVE", "plate census: 90 held + 36 admitted = 126 = 7 x 18", 90 + 36 == 126 == 7 * 18)
     # the seated three-coordinate fixture, for the record of what E measures
@@ -222,6 +228,40 @@ def section_periodic():
 
 JANET_ROWS_118 = [2, 2, 8, 8, 18, 18, 32, 30]     # elements per n+l row, Z <= 118
 JANET_ROWS_120 = [2, 2, 8, 8, 18, 18, 32, 32]
+PERIOD_ROWS = [2, 8, 8, 18, 18, 32, 32]           # elements per period, all 118 elements
+
+
+def leftstep_cells(zmax):
+    """Janet's left-step table on its DRAWN coordinates: row = n+l (1..8), column 1..32 with the
+    f-block at columns 1-14, d at 15-24, p at 25-30 and s at 31-32 (the s-block on the right, helium
+    above beryllium).  Row r holds the s columns always, the p columns once its length reaches 8, the
+    d columns at 18, the f columns at 32.  Cells are numbered Z = 1, 2, ... left to right, row by row,
+    and the drawing stops at zmax."""
+    cells, z = [], 1
+    for r, k in enumerate(JANET_ROWS_120, 1):
+        cols = []
+        if k >= 32:
+            cols += list(range(1, 15))
+        if k >= 18:
+            cols += list(range(15, 25))
+        if k >= 8:
+            cols += list(range(25, 31))
+        cols += [31, 32]
+        for c in cols:
+            if z > zmax:
+                break
+            cells.append((r, c))
+            z += 1
+    return cells
+
+
+def period_of(Z):
+    end = 0
+    for r, k in enumerate(PERIOD_ROWS, 1):
+        end += k
+        if Z <= end:
+            return r
+    raise ValueError(Z)
 
 
 def janet_cells(rows):
@@ -252,8 +292,54 @@ def section_janet():
     rec("EXHAUSTIVE", "(n+l, Z): 118 cells, box 944, E = 0 under the seated staircase",
         (len(X), 8 * 118, E) == (118, 944, 0) and S == set(X), "|R|=%d E=%d" % (len(S), E))
     rec("EXHAUSTIVE", "fresh reference staircase agrees", R_ref(set(X), 2) == S)
+    num("janet_R", len(S))
     rec("EXHAUSTIVE", "the 118 cells form a chain in the product order (C(118,2) = 6,903 pairs compared)",
         is_chain(X), "pairs=%d" % (118 * 117 // 2))
+    # --- THE FRAMING.  Z as a coordinate closes under ANY contiguous row partition (Corollary 1 of
+    # Theorem 1): the eighteen-column table's own periods do it too.  The drawn coordinates of
+    # either table do not close, and Lemma 3 gives each drawn defect as box minus cells.
+    XP = janet_cells(PERIOD_ROWS)
+    SP_, EP = E_of(XP, ["period", "Z"])
+    num("periodZ_cells", len(XP)); num("periodZ_box", 7 * 118); num("periodZ_R", len(SP_)); num("periodZ_E", EP)
+    rec("EXHAUSTIVE", "(period, Z), all 118 elements in the seven periods: 118 cells, box 826, E = 0 -- a chain, "
+        "closed by Theorem 1 exactly as (n+l, Z) is",
+        (len(XP), 7 * 118, EP) == (118, 826, 0) and is_chain(XP) and R_ref(set(XP), 2) == SP_ and SP_ == set(XP),
+        "|R|=%d E=%d" % (len(SP_), EP))
+    rec("EXHAUSTIVE", "the periods are a contiguous partition of Z = 1..118 into rows 2, 8, 8, 18, 18, 32, 32, "
+        "opening at 1, 3, 11, 19, 37, 55, 87",
+        sum(PERIOD_ROWS) == 118 and sorted({min(z for (rr, z) in XP if rr == r) for r in range(1, 8)}) == [1, 3, 11, 19, 37, 55, 87])
+    # Corollary 1 on every two-row contiguous partition of Z = 1..118, both operators
+    two = 0
+    for cut in range(1, 118):
+        X2 = [(1, z) for z in range(1, cut + 1)] + [(2, z) for z in range(cut + 1, 119)]
+        S2, E2 = E_of(X2, ["row", "Z"])
+        two += (E2 == 0 and R_ref(set(X2), 2) == set(X2))
+    num("two_row_partitions", two)
+    rec("EXHAUSTIVE", "Corollary 1: every one of the 117 two-row contiguous partitions of Z = 1..118 has E = 0 "
+        "under the seated staircase and the fresh one", two == 117, "closed=%d of 117" % two)
+    XL = leftstep_cells(118)
+    SL, EL = E_of(XL, ["row", "column"])
+    num("leftstep_cells", len(XL)); num("leftstep_box", 8 * 32); num("leftstep_R", len(SL)); num("leftstep_E", EL)
+    rec("EXHAUSTIVE", "the left-step table on its DRAWN coordinates (row n+l, column 1..32, s-block at the right): "
+        "118 cells, box 256, holds the corners (1, 32) and (8, 1), E = 138 -- Lemma 3, as for the other two drawings",
+        (len(XL), EL, len(SL)) == (118, 138, 256) and (1, 32) in set(XL) and (8, 1) in set(XL)
+        and R_ref(set(XL), 2) == SL and EL == 8 * 32 - 118, "cells=%d |R|=%d E=%d" % (len(XL), len(SL), EL))
+    XL2 = leftstep_cells(120)
+    SL2, EL2 = E_of(XL2, ["row", "column"])
+    num("leftstep120_E", EL2)
+    rec("EXHAUSTIVE", "the same drawing with Z = 119 and 120 admitted: 120 cells, box 256, E = 136",
+        (len(XL2), EL2, len(SL2)) == (120, 136, 256), "E=%d" % EL2)
+    rec("EXHAUSTIVE", "the left-step drawing's helium sits above beryllium: (1, 32) and (2, 32) are both cells, "
+        "and (1, 31) is hydrogen", (1, 32) in set(XL) and (2, 32) in set(XL) and (1, 31) in set(XL))
+    # both row coordinates read from the tabulated ground configuration
+    badp = []
+    for Z in range(1, 109):
+        top = max(n for n, l, o in LW1.expand(Z) if o > 0)
+        if top != period_of(Z):
+            badp.append((Z, top, period_of(Z)))
+    num("period_from_ground_exceptions", badp)
+    rec("EXHAUSTIVE", "the largest n occupied equals the period on 107 of 108 configurations; the exception is "
+        "palladium, Z = 46 (4d10, largest n = 4, period 5)", badp == [(46, 4, 5)], "%s" % badp)
     starts = [z for (r, z) in X if r == 1 or (r - 1, z - 1) in set(X)]
     starts = sorted({min(z for (rr, z) in X if rr == r) for r in range(1, 9)})
     num("janet_starts", starts)
@@ -367,10 +453,19 @@ def obl_corner(X, S, cells, d, shape):
 
 
 def guard_encoding(trials=300, seed=7):
-    """in_R, evaluated concretely, against the SEATED staircase; and a negative control."""
+    """Three implementations of membership in R(X), compared cell by cell on seeded draws (SAMPLED,
+    300 draws, seed 7, five box shapes):
+        (i)   R_ref      -- written fresh from D3-D4 (the max over witnesses);
+        (ii)  op_order   -- the SEATED staircase, decoded;
+        (iii) in_R       -- the Z3 term the obligations use, evaluated by z3.simplify with the drawn
+                            X substituted for the Boolean variables.
+    Every cell of the observed box of every draw is decided by all three.  Returns the number of
+    cells compared, the three pairwise disagreement counts, and a negative control: a strict-
+    inequality staircase (y_j < x_j) evaluated the same way, which must disagree."""
     rnd = random.Random(seed)
     shapes = [(3, 3), (4, 4), (5, 5), (3, 3, 3), (2, 2, 2, 2)]
-    tot = bad = 0
+    tot = 0
+    bad_ref_seated = bad_z3_seated = bad_z3_ref = 0
     tot_neg = bad_neg = 0
     for _ in range(trials):
         shape = rnd.choice(shapes)
@@ -378,34 +473,44 @@ def guard_encoding(trials=300, seed=7):
         cells = PROVER.cells_of(shape)
         X = frozenset(rnd.sample(cells, rnd.randint(2, min(len(cells), 8))))
         seated = R_seated(list(X), ["c%d" % i for i in range(d)])
+        ref = R_ref(set(X), d)
+        Xc = {c: z3.BoolVal(c in X) for c in cells}
         A = [sorted({x[i] for x in X}) for i in range(d)]
         for x in itertools.product(*A):
-            enc = all(any(y[j] <= x[j] and y[i] >= x[i] for y in X)
-                      for i in range(d) for j in range(d) if i != j)
+            term = z3.is_true(z3.simplify(PROVER.in_R(Xc, x, cells, d)))
             wrong = all(any(y[j] < x[j] and y[i] >= x[i] for y in X)
                         for i in range(d) for j in range(d) if i != j)
             tot += 1
-            bad += enc != (x in seated)
+            bad_ref_seated += (x in ref) != (x in seated)
+            bad_z3_seated += term != (x in seated)
+            bad_z3_ref += term != (x in ref)
             tot_neg += 1
             bad_neg += wrong != (x in seated)
-    return tot, bad, tot_neg, bad_neg
+    return tot, bad_ref_seated, bad_z3_seated, bad_z3_ref, tot_neg, bad_neg
 
 
 def section_z3(negative=False):
     print("\nD. MACHINE CHECKS (Z3 %s)" % z3.get_version_string())
-    tot, bad, tn, bn = guard_encoding()
-    g1 = rec("GUARD", "encoding fidelity: witness form of R against the seated op_order, 300 draws seed 7",
-             bad == 0, "cells compared=%d disagreements=%d" % (tot, bad))
+    tot, b_rs, b_zs, b_zr, tn, bn = guard_encoding()
+    num("guard_cells", tot); num("guard_disagreements", [b_rs, b_zs, b_zr]); num("guard_neg", [bn, tn])
+    g1 = rec("GUARD", "encoding fidelity (SAMPLED, 300 draws, seed 7, five box shapes): the Z3 term in_R, the seated "
+             "op_order and the fresh D3-D4 implementation decide every cell alike",
+             b_rs == 0 and b_zs == 0 and b_zr == 0,
+             "cells=%d disagreements: ref/seated=%d z3/seated=%d z3/ref=%d" % (tot, b_rs, b_zs, b_zr))
     g2 = rec("GUARD", "negative control: a strict-inequality staircase DISAGREES with the seated one",
              bn > 0, "disagreements=%d of %d" % (bn, tn))
-    # non-vacuity: each hypothesis satisfiable with X strictly inside the box and at least two cells
+    # non-vacuity: EVERY (hypothesis, box) pair of the thirteen obligations, each satisfiable with X
+    # strictly inside the box and at least two cells
     def strict(X, S, cells, d, shape):
         return z3.And(z3.Or([z3.Not(X[c]) for c in cells]), z3.AtLeast(*[X[c] for c in cells], 2))
-    nv = []
-    for shape in ((3, 3), (3, 3, 3)):
-        nv.append(PROVER.non_vacuous(shape, lambda X, S, c, d, sh: z3.And(PROVER.observed(X, c, sh), chain_formula(X, c)), strict))
-    nv.append(PROVER.non_vacuous((4, 4), lambda X, S, c, d, sh: z3.And(PROVER.observed(X, c, sh), X[(0, 3)], X[(3, 0)]), strict))
-    # bi-monotone hypothesis: build it the same way the obligation does
+
+    def chainhyp(X, S, c, d, sh):
+        return z3.And(PROVER.observed(X, c, sh), chain_formula(X, c))
+
+    def cornerhyp(X, S, c, d, sh):
+        n1, n2 = sh
+        return z3.And(PROVER.observed(X, c, sh), X[(0, n2 - 1)], X[(n1 - 1, 0)])
+
     def bihyp(X, S, cells, d, shape):
         n1, n2 = shape
         F = [z3.Int("F_%d" % b) for b in range(n2)]
@@ -415,13 +520,21 @@ def section_z3(negative=False):
                       + [F[b] <= F[b + 1] for b in range(n2 - 1)] + [G[a] <= G[a + 1] for a in range(n1 - 1)]
                       + [X[(a, b)] == z3.And(a <= F[b], b <= G[a]) for (a, b) in cells]
                       + [PROVER.observed(X, cells, shape)])
-    nv.append(PROVER.non_vacuous((4, 4), bihyp, strict))
-    g3 = rec("GUARD", "non-vacuity: chain, corner and bi-monotone hypotheses each satisfiable with X strictly inside the box",
-             all(nv), "%s" % nv)
+    boxes_chain = [(3, 3), (4, 4), (5, 5), (6, 6), (3, 3, 3), (2, 2, 2, 2)]
+    boxes_bi = [(3, 3), (4, 4), (5, 5)]
+    boxes_c = [(3, 3), (4, 4), (5, 5), (7, 18)]
+    nv = []
+    for label, hyp, boxes in (("chain", chainhyp, boxes_chain), ("bi-monotone", bihyp, boxes_bi), ("corner", cornerhyp, boxes_c)):
+        for sh in boxes:
+            r = PROVER.non_vacuous(sh, hyp, strict)
+            nv.append(r)
+            rec("GUARD", "non-vacuity: the %s hypothesis on %s is satisfiable by an X strictly inside the box with >= 2 cells"
+                % (label, "x".join(map(str, sh))), r)
+    num("nonvacuity_pairs", len(nv))
+    g3 = all(nv)
     if not (g1 and g2 and g3):
         rec("MACHINE-CHECKED", "obligations withheld: a guard failed", False)
         return
-    boxes_chain = [(3, 3), (4, 4), (5, 5), (6, 6), (3, 3, 3), (2, 2, 2, 2)]
     ok = []
     for sh in boxes_chain:
         r = PROVER.prove("chain => R-closed, %s" % "x".join(map(str, sh)), sh, obl_chain, quiet=True)
@@ -429,13 +542,11 @@ def section_z3(negative=False):
         rec("MACHINE-CHECKED", "Theorem 1 over every subset of the %s box (2^%d subsets)"
             % ("x".join(map(str, sh)), math.prod(sh)), r)
     num("z3_chain_boxes", ["x".join(map(str, s)) for s in boxes_chain])
-    boxes_bi = [(3, 3), (4, 4), (5, 5)]
     for sh in boxes_bi:
         r = PROVER.prove("bi-monotone => R-closed, %s" % "x".join(map(str, sh)), sh, obl_bimonotone, quiet=True)
         ok.append(r)
         rec("MACHINE-CHECKED", "Theorem 2 (<=) over every isotone pair (F, G) on the %s box" % "x".join(map(str, sh)), r)
     num("z3_bi_boxes", ["x".join(map(str, s)) for s in boxes_bi])
-    boxes_c = [(3, 3), (4, 4), (5, 5), (7, 18)]
     for sh in boxes_c:
         r = PROVER.prove("corners => full box, %s" % "x".join(map(str, sh)), sh, obl_corner, quiet=True)
         ok.append(r)
@@ -457,13 +568,25 @@ def section_z3(negative=False):
 # E. LS terms of l^k, exhaustively, and the parent counts a core carries
 # =============================================================================================
 
-def ls_terms(l, k):
-    """The LS terms of the configuration l^k, by exhaustive enumeration of every Slater determinant
-    (every k-subset of the 2(2l+1) spin-orbitals) and peeling of the (M_L, M_S) table."""
+PEEL = {"decrements": 0, "negative": 0}
+
+
+def ml_ms_table(l, k):
+    """The multiplicity table N(M_L, M_S) of l^k from every Slater determinant; M_S in units of 1/2."""
     orbs = [(ml, ms) for ml in range(-l, l + 1) for ms in (-1, 1)]
     tab = collections.Counter()
     for det in itertools.combinations(orbs, k):
         tab[(sum(m for m, _ in det), sum(s for _, s in det))] += 1
+    return tab
+
+
+def ls_terms(l, k):
+    """The LS terms of the configuration l^k, by exhaustive enumeration of every Slater determinant
+    (every k-subset of the 2(2l+1) spin-orbitals) and peeling of the (M_L, M_S) table from its
+    entry of largest M_S, then largest M_L (the highest-weight step of Theorem 6).  Every decrement
+    is counted and every negative one recorded in PEEL, so the peel's validity is an obligation and
+    not a hidden assertion."""
+    tab = ml_ms_table(l, k)
     terms = collections.Counter()
     while any(v > 0 for v in tab.values()):
         ML, MS = max((key for key, v in tab.items() if v > 0), key=lambda t: (t[1], t[0]))
@@ -471,8 +594,30 @@ def ls_terms(l, k):
         for ml in range(-ML, ML + 1):
             for ms in range(-MS, MS + 1, 2):
                 tab[(ml, ms)] -= 1
-                assert tab[(ml, ms)] >= 0
+                PEEL["decrements"] += 1
+                if tab[(ml, ms)] < 0:
+                    PEEL["negative"] += 1
     return terms
+
+
+def ls_terms_by_difference(l, k):
+    """An INDEPENDENT count: the number of terms with given (L, S) is the second difference
+    N(L, S) - N(L+1, S) - N(L, S+1) + N(L+1, S+1) of the multiplicity table, which follows from the
+    rectangle structure alone and involves no peeling."""
+    tab = ml_ms_table(l, k)
+    terms = collections.Counter()
+    for (ML, MS), v in tab.items():
+        if ML < 0 or MS < 0:
+            continue
+        n = v - tab.get((ML + 1, MS), 0) - tab.get((ML, MS + 2), 0) + tab.get((ML + 1, MS + 2), 0)
+        if n:
+            terms[(ML, MS)] = n
+    return terms
+
+
+def term_levels(terms):
+    """Levels of a multiset of terms keyed (L, 2S): J runs |L-S| .. L+S, that is 2 min(L, S) + 1 values."""
+    return sum(v * (2 * min(L, S2 // 2) + 1) for (L, S2), v in terms.items())
 
 
 TERMS = {}
@@ -490,6 +635,24 @@ def section_terms():
         [TERMS[(1, k)] for k in range(7)] == [1, 1, 3, 3, 3, 1, 1]
         and [TERMS[(2, k)] for k in range(11)] == [1, 1, 5, 8, 16, 16, 16, 8, 5, 1, 1]
         and TERMS[(3, 6)] == TERMS[(3, 7)] == TERMS[(3, 8)] == 119)
+    rec("EXHAUSTIVE", "the full f^k row: 1, 1, 7, 17, 47, 73, 119, 119, 119, 73, 47, 17, 7, 1, 1",
+        [TERMS[(3, k)] for k in range(15)] == [1, 1, 7, 17, 47, 73, 119, 119, 119, 73, 47, 17, 7, 1, 1],
+        "%s" % [TERMS[(3, k)] for k in range(15)])
+    rec("EXHAUSTIVE", "the peel never went negative: %d decrements over every (l, k), 0 below zero -- the highest-weight "
+        "step of Theorem 6 holds at every pass" % PEEL["decrements"], PEEL["decrements"] > 0 and PEEL["negative"] == 0,
+        "%s" % PEEL)
+    num("peel_decrements", PEEL["decrements"])
+    diff_ok = all(ls_terms_by_difference(l, k) == ls_terms(l, k) for l in range(4) for k in range(4 * l + 3))
+    rec("EXHAUSTIVE", "an independent count by second differences of the multiplicity table gives the same multiset "
+        "of (L, S) terms for every l^k, l <= 3", diff_ok)
+    rec("EXHAUSTIVE", "particle-hole symmetry: the term count of l^k equals that of l^(4l+2-k) for every l, k",
+        all(TERMS[(l, k)] == TERMS[(l, 4 * l + 2 - k)] for l in range(4) for k in range(4 * l + 3)))
+    lv = {("p4", 3, 5): term_levels(ls_terms(1, 4)), ("p5", 1, 2): term_levels(ls_terms(1, 5)),
+          ("d1", 1, 2): term_levels(ls_terms(2, 1)), ("p2", 3, 5): term_levels(ls_terms(1, 2))}
+    num("core_levels", {k[0]: v for k, v in lv.items()})
+    rec("EXHAUSTIVE", "levels: p^2 and p^4 carry 3 terms and 5 levels (3P three, 1D one, 1S one); p^5 and d^1 one term, two levels",
+        all(v == k[2] and sum(ls_terms({"p": 1, "d": 2}[k[0][0]], int(k[0][1])).values()) == k[1] for k, v in lv.items()),
+        "%s" % {k[0]: v for k, v in lv.items()})
     t = ls_terms(2, 4)
     num("d4_terms", 16)
     rec("EXHAUSTIVE", "d^4 carries 16 LS terms, 5D the highest multiplicity, 1I the highest L",
@@ -540,6 +703,11 @@ def channel_rows():
 
 def species_of(c):
     return c[0].replace("*", "").strip()
+
+
+def span_label(gap):
+    """A difference of two printed limits, printed to the three decimals the limits carry."""
+    return "{:,.3f}".format(float(gap)) if isinstance(gap, Fraction) else gap
 
 
 JJPAIR = re.compile(r"\(\s*\d+/\d+\s*,\s*\d+/\d+\s*\)")
@@ -686,14 +854,21 @@ def section_channels():
         [(s, g) for s, L, g in roundings] == [("Ca II", Fraction("0.010")), ("Li I", Fraction("0.036")), ("Zn I", Fraction("0.020"))])
     gaps = {s: g for s, L, g in parents}
     num("ba3_gap", str(gaps["Ba III"]))
-    rec("EXHAUSTIVE", "Ba III: 306,650.000 - 289,100.000 = 17,550 exactly (Fraction)",
+    rec("EXHAUSTIVE", "Ba III: 306,650.000 - 289,100.000 = 17,550.000 in exact rational arithmetic on the printed values",
         gaps["Ba III"] == 17550 and sorted(lims["Ba III"], key=F) == ["289,100.000", "306,650.000"])
+    rec("EXHAUSTIVE", "every printed limit carries exactly three decimals, so a difference of two is exact to three decimals",
+        all(re.fullmatch(r"[\d,]+\.\d{3}", c[10]) for i, c in data))
     g1, g2 = F("174,710.090") - F("173,929.750"), F("390,977.350") - F("173,929.750")
-    num("ne1_gaps", ["%.2f" % float(g1), "%.2f" % float(g2)])
-    num("ne2_gap", "%.3f" % float(gaps["Ne II"]))
-    num("si1_gap", "%.3f" % float(gaps["Si I"]))
-    rec("EXHAUSTIVE", "Ne I 780.34 and 217,047.60 above its first limit; Ne II 25,840.700; Si I 287.240 (Fraction)",
+    SPANS = {"Ba III": span_label(gaps["Ba III"]), "Ne I": span_label(g2), "Ne II": span_label(gaps["Ne II"]), "Si I": span_label(gaps["Si I"])}
+    num("ne1_gaps", [span_label(g1), span_label(g2)])
+    num("ne2_gap", span_label(gaps["Ne II"]))
+    num("si1_gap", span_label(gaps["Si I"]))
+    num("span_labels", SPANS)
+    rec("EXHAUSTIVE", "Ne I 780.340 and 217,047.600 above its first limit; Ne II 25,840.700; Si I 287.240 (Fraction)",
         g1 == Fraction("780.34") and g2 == Fraction("217047.6") and gaps["Ne II"] == Fraction("25840.7") and gaps["Si I"] == Fraction("287.24"))
+    rec("EXHAUSTIVE", "the spans Figure 5 and Table 4 print, to the three decimals of the limits: 17,550.000; 217,047.600; 25,840.700; 287.240",
+        SPANS == {"Ba III": "17,550.000", "Ne I": "217,047.600", "Ne II": "25,840.700", "Si I": "287.240"}
+        and NUMBERS["ne1_gaps"] == ["780.340", "217,047.600"], "%s" % SPANS)
     # every row of a two-limit species names its parent, and limit <-> parent is a bijection
     bij_ok = True
     limit_parent = {}
@@ -735,6 +910,12 @@ def section_channels():
         [rowcount[s] for s in ("Ba III", "Ne I", "Ne II", "Si I")] == [22, 7, 37, 33]
         and sorted(bylim["Ba III"].values()) == [2, 20] and sorted(bylim["Ne I"].values()) == [1, 2, 4]
         and sorted(bylim["Ne II"].values()) == [8, 29] and sorted(bylim["Si I"].values()) == [15, 18])
+    rec("EXHAUSTIVE", "and which limit carries which count: Ba III 20 at 289,100.000 and 2 at 306,650.000; Ne I 4 / 2 / 1 "
+        "in ascending order; Ne II 29 at 330,388.600 and 8 at 356,229.300; Si I 15 at 65,747.760 and 18 at 66,035.000",
+        bylim["Ba III"] == {"289,100.000": 20, "306,650.000": 2}
+        and bylim["Ne I"] == {"173,929.750": 4, "174,710.090": 2, "390,977.350": 1}
+        and bylim["Ne II"] == {"330,388.600": 29, "356,229.300": 8}
+        and bylim["Si I"] == {"65,747.760": 15, "66,035.000": 18}, "%s" % bylim)
     # the four Ar II notation duplicates
     g = collections.defaultdict(list)
     for i, c in data:
@@ -796,6 +977,39 @@ def section_channels():
     rec("EXHAUSTIVE", "rows whose core has a single level (371) need no parent in the label; 7 of them carry one anyway",
         cen["bare"] + cen["closed"] + cen["one-term-1J"] == 371
         and named[("closed", True)] + named[("one-term-1J", True)] + named[("bare", True)] == 7)
+    seven = collections.Counter(species_of(c) for i, c in data
+                                if cls[species_of(c)] in ("bare", "closed", "one-term-1J") and "(" in c[1])
+    num("single_level_named", dict(seven))
+    rec("EXHAUSTIVE", "the 7 are C II (5 rows, a closed 2s2 core written as (1S)) and Ga II (2 rows)",
+        seven == {"C II": 5, "Ga II": 2} and cls["C II"] == "closed", "%s" % dict(seven))
+    # the convention the compilation was labelled to: a parent on every row of a species that prints
+    # two limits a wavenumber or more apart, and nothing forced on any other row
+    two_lim = {s for s, L, g in parents}
+    rec("EXHAUSTIVE", "the labelling convention holds on all 596 rows: every row of the four two-limit species names a "
+        "parent; no row of a one-limit species is thereby required to, and 93 multi-level-core rows do not",
+        all("(" in c[1] for i, c in data if species_of(c) in two_lim) and len(two_lim) == 4 and (need - have) == 93
+        and all(len(lims[species_of(c)]) == 1 for i, c in data if cls[species_of(c)] in ("one-term-2J", "multi") and "(" not in c[1]))
+    rec("EXHAUSTIVE", "Ar II is the concrete one-limit capture: its core 3p4 has 3 terms and 5 levels, its 30 unnamed rows "
+        "and 14 named rows all print one limit",
+        cls["Ar II"] == "multi" and core_terms(core_config("Ar II")[2]) == 3
+        and core_config("Ar II")[2][-1][1:] == (1, 4) and len(lims["Ar II"]) == 1
+        and sum(1 for i, c in data if species_of(c) == "Ar II" and "(" not in c[1]) == 30
+        and sum(1 for i, c in data if species_of(c) == "Ar II" and "(" in c[1]) == 14)
+    # provenance: the species the compilation's own source list names
+    lines = open(SPECTRA, encoding="utf-8").read().split("\n")
+    a = next(i for i, l in enumerate(lines) if l.startswith("## B.1 Sources"))
+    b = next(i for i, l in enumerate(lines) if l.startswith("## B.2"))
+    block = " ".join(l.strip() for l in lines[a:b])
+    named_sp = set(re.findall(r"\b([A-Z][a-z]?) (XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)\b", block))
+    named_sp = {"%s %s" % t for t in named_sp}
+    num("source_named_species", sorted(named_sp))
+    num("source_named_count", len(named_sp))
+    num("source_unnamed_count", len(set(sp) - named_sp))
+    rec("EXHAUSTIVE", "the compilation's source list names 25 of the 70 species by compilation (Kaufman & Martin 2, "
+        "Kramida & Martin 1, Sansonetti 2, NIST ASD 20) and Sugar & Corliss 1985 / Sugar & Musgrove 1990, 1995 as "
+        "additional sources; 45 species carry no species-level attribution",
+        len(named_sp) == 25 and named_sp <= set(sp) and len(set(sp) - named_sp) == 45
+        and "Sugar & Corliss 1985" in block and "Sugar & Musgrove 1990" in block, "named=%d unnamed=%d" % (len(named_sp), len(set(sp) - named_sp)))
     # core_terms multiplies per-subshell term counts, which is the configuration's term count only
     # when at most ONE subshell is open.  That holds on every species here, so the census is exact.
     nopen = {s: len([1 for n, l, o in core_config(s)[2] if 0 < o < 2 * (2 * l + 1)]) for s in set(sp)}
@@ -946,23 +1160,64 @@ def section_coordinates(rows):
     rec("EXHAUSTIVE", "the printed B equals the Madelung-order bound on 102,383 of 104,832 cells (the rest carry n0 read otherwise or the 25)",
         sum(1 for r in rows if r["Z"] - r["charge"] >= 1 and
             POP.pauli_bound(r["Z"], r["charge"], r["l"], config=POP.aufbau_config(r["Z"] - r["charge"])) == r["B"]) == 102383)
-    # which cells can be measured: the chain with the cuts that reproduce the printed counts
+    # which cells can be measured: the chain, with the cuts that actually produce the source's counts
+    # (Z <= 83 and spectrum number <= 6), and beside it the chain under the cuts the source states
     c1 = sum(r["Z"] <= 92 for r in rows)
     c2 = sum(r["Z"] <= 83 and r["charge"] <= 10 for r in rows)
     c3 = sum(r["Z"] <= 83 and r["charge"] <= 6 and r["l"] <= 4 for r in rows)
-    single = {}
+    single_m, single_o = {}, {}
     for (Z, c) in pairs:
         core = Z - c
-        single[(Z, c)] = True if core < 1 else core_terms(POP.aufbau_config(core)) == 1
-    c4 = sum(r["Z"] <= 83 and r["charge"] <= 6 and r["l"] <= 4 and single[(r["Z"], r["charge"])] for r in rows)
-    num("chain", [c1, c2, c3, c4])
-    rec("EXHAUSTIVE", "Z <= 92: 61,152; Z <= 83 and charge <= 10: 11,416; Z <= 83, charge <= 6, l <= 4: 4,395; and a one-term core: 1,755",
-        [c1, c2, c3, c4] == [61152, 11416, 4395, 1755], "%s" % [c1, c2, c3, c4])
+        single_m[(Z, c)] = True if core < 1 else core_terms(POP.aufbau_config(core)) == 1
+        single_o[(Z, c)] = True if core < 1 else (core <= 108 and core_terms(LW1.expand(core)) == 1)
+    c4m = sum(r["Z"] <= 83 and r["charge"] <= 6 and r["l"] <= 4 and single_m[(r["Z"], r["charge"])] for r in rows)
+    c4o = sum(r["Z"] <= 83 and r["charge"] <= 6 and r["l"] <= 4 and single_o[(r["Z"], r["charge"])] for r in rows)
+    num("chain", [c1, c2, c3, c4o])
+    num("chain_madelung_single", c4m)
+    rec("EXHAUSTIVE", "Z <= 92: 61,152; Z <= 83 and spectrum number <= 10: 11,416; Z <= 83, spectrum number <= 6, l <= 4: 4,395; "
+        "and a one-term core in its tabulated ground configuration (D8): 1,925",
+        [c1, c2, c3, c4o] == [61152, 11416, 4395, 1925], "%s" % [c1, c2, c3, c4o])
+    rec("EXHAUSTIVE", "the same last cut with the core in Madelung order, as the index was built: 1,755 -- the 170 cells "
+        "that differ have cores Pd, Ce and Pt, closed or one-term in the tabulated configuration and open in Madelung order",
+        c4m == 1755 and c4o - c4m == 170
+        and sorted({r["Z"] - r["charge"] for r in rows if r["Z"] <= 83 and r["charge"] <= 6 and r["l"] <= 4
+                    and single_m[(r["Z"], r["charge"])] != single_o[(r["Z"], r["charge"])]}) == [46, 58, 78],
+        "madelung=%d observed=%d" % (c4m, c4o))
     c2b = sum(r["Z"] <= 92 and r["charge"] <= 10 for r in rows)
     c3b = sum(r["Z"] <= 83 and r["charge"] <= 10 and r["l"] <= 4 for r in rows)
+    c2c = sum(r["Z"] <= 92 and r["charge"] <= 10 for r in rows)
+    c3c = sum(r["Z"] <= 92 and r["charge"] <= 10 and r["l"] <= 4 for r in rows)
+    c4c = sum(r["Z"] <= 92 and r["charge"] <= 10 and r["l"] <= 4 and single_o[(r["Z"], r["charge"])] for r in rows)
     num("chain_alt", [c2b, c3b])
-    rec("EXHAUSTIVE", "(the same cuts held at Z <= 92 give 12,720 at charge <= 10, and at charge <= 10 give 7,135 at l <= 4)",
-        [c2b, c3b] == [12720, 7135])
+    num("chain_stated_cuts", [c1, c2c, c3c, c4c])
+    rec("EXHAUSTIVE", "the cuts the source STATES (Z <= 92; spectrum number <= 10; l <= 4) do not produce its counts: they give "
+        "61,152, 12,720, 7,135 and (one-term tabulated core) %d" % c4c,
+        [c2b, c3b] == [12720, 7135] and c2c == 12720 and c3c == 7135 and c4c > 0)
+    # the parent-count obstacles under the TABULATED ground configurations (D8), for the record
+    byo = collections.defaultdict(collections.Counter)
+    for r in rows:
+        m = re.match(r"open-shell core, (\d+) parents", r["bound"])
+        if m:
+            core = r["Z"] - r["charge"]
+            cfg = LW1.expand(core) if 1 <= core <= 108 else None
+            if cfg is None:
+                byo[int(m.group(1))]["no tabulated configuration"] += 1
+                continue
+            opn = [(n, l, o) for n, l, o in cfg if 0 < o < 2 * (2 * l + 1)]
+            if len(opn) == 0:
+                byo[int(m.group(1))]["closed"] += 1
+            elif len(opn) == 1:
+                byo[int(m.group(1))]["one open %s subshell" % "spdf"[opn[0][1]]] += 1
+            else:
+                byo[int(m.group(1))]["two open subshells"] += 1
+    num("parent_bounds_observed", {kk: dict(v) for kk, v in byo.items()})
+    agree = byo[3]["one open p subshell"] + byo[16]["one open d subshell"] + byo[119]["one open f subshell"]
+    num("parent_bounds_observed_agree", agree)
+    rec("EXHAUSTIVE", "under the TABULATED ground configurations the identification holds on 21,271 of the 26,641 cells; "
+        "4,675 have a core with two open subshells there, 565 a closed core (a d10 rearrangement), 130 a d core under the f bound",
+        agree == 21271 and byo[16]["two open subshells"] + byo[119]["two open subshells"] == 4675
+        and byo[16]["closed"] == 565 and byo[119]["one open d subshell"] == 130
+        and sum(sum(v.values()) for v in byo.values()) == 26641, "%s" % {kk: dict(v) for kk, v in byo.items()})
 
 
 # =============================================================================================
@@ -993,6 +1248,40 @@ def mann_whitney(a, b):
     return U, zc, math.erfc(abs(zc) / math.sqrt(2))
 
 
+def exact_rank_test(a, b):
+    """The exact permutation distribution of the Wilcoxon-Mann-Whitney rank sum of the first sample,
+    with midranks for ties, over all C(n1+n2, n1) assignments (Mann and Whitney 1947).  Returns
+    U1 (pairs with a > b, ties half), the number of tied cross pairs, the two-sided p
+    P(|W - mu| >= |w_obs - mu|) and the one-sided p P(W >= w_obs), all exact rationals."""
+    allv = sorted([(v, 0) for v in a] + [(v, 1) for v in b])
+    n, n1 = len(allv), len(a)
+    rk = [0] * n                      # twice the midrank, so every rank is an integer
+    i = 0
+    while i < n:
+        j = i
+        while j + 1 < n and allv[j + 1][0] == allv[i][0]:
+            j += 1
+        for kk in range(i, j + 1):
+            rk[kk] = i + j + 2
+        i = j + 1
+    dp = [collections.Counter() for _ in range(n1 + 1)]
+    dp[0][0] = 1
+    for r2 in rk:
+        for k in range(n1 - 1, -1, -1):
+            for s_, c in list(dp[k].items()):
+                dp[k + 1][s_ + r2] += c
+    dist = dp[n1]
+    total = sum(dist.values())
+    W = sum(rk[kk] for kk in range(n) if allv[kk][1] == 0)
+    mu = Fraction(sum(rk) * n1, n)
+    dev = abs(W - mu)
+    p2 = Fraction(sum(c for s_, c in dist.items() if abs(s_ - mu) >= dev), total)
+    p1 = Fraction(sum(c for s_, c in dist.items() if s_ >= W), total)
+    U1 = Fraction(sum(1 for x in a for y in b if x > y)) + Fraction(sum(1 for x in a for y in b if x == y), 2)
+    ties = sum(1 for x in a for y in b if x == y)
+    return U1, ties, p2, p1, total
+
+
 def section_collapse(rows):
     print("\nH. THE JANET COLLAPSE")
     thr = {2: 21, 3: 57}
@@ -1012,11 +1301,41 @@ def section_collapse(rows):
     num("collapsed_n", len(col)); num("uncollapsed_n", len(unc))
     num("collapsed_median", "%.4f" % mc); num("uncollapsed_median", "%.4f" % mu)
     num("utest_U", U); num("utest_z", "%.2f" % zc); num("utest_p", "%.1e" % p)
-    rec("EXHAUSTIVE", "128 of the 148 measured d and f cells have p = 0; 7 lie at or past the block boundary, 121 below",
+    rec("EXHAUSTIVE", "128 of the 148 measured d and f cells (keyed Z, spectrum number, 2S+1, l) have p = 0; 7 lie at or past "
+        "the row opening, 121 below",
         (len(meas), len(cand), len(col), len(unc)) == (148, 128, 7, 121))
-    rec("EXHAUSTIVE", "medians 0.6202 (past) against 0.0335 (below); Mann-Whitney U = 74, z = -3.66, p = 2.5e-4",
-        NUMBERS["collapsed_median"] == "0.6202" and NUMBERS["uncollapsed_median"] == "0.0335" and U == 74 and p < 1e-3,
-        "U=%s z=%.2f p=%.1e" % (U, zc, p))
+    rec("EXHAUSTIVE", "medians 0.6202 (past) against 0.0335 (below); Mann-Whitney U = 74, and the tie-corrected normal "
+        "approximation (no continuity correction) gives z = -3.66, p = 2.5e-4",
+        NUMBERS["collapsed_median"] == "0.6202" and NUMBERS["uncollapsed_median"] == "0.0335" and U == 74
+        and NUMBERS["utest_z"] == "-3.66" and NUMBERS["utest_p"] == "2.5e-04", "U=%s z=%.2f p=%.1e" % (U, zc, p))
+    U1, ties, p2, p1, total = exact_rank_test([float(r["delta"]) for r in col], [float(r["delta"]) for r in unc])
+    num("utest_U1", str(U1)); num("utest_pairs", len(col) * len(unc)); num("utest_cross_ties", ties)
+    num("utest_exact_p2", "%.1e" % float(p2)); num("utest_exact_p1", "%.1e" % float(p1)); num("utest_assignments", total)
+    rec("EXHAUSTIVE", "direction: the collapsed value exceeds the uncollapsed one in 773 of the 7 x 121 = 847 pairs (U1 = 773, "
+        "no tied cross pair), so U = min(773, 74) = 74 and the sign of z is the min-U convention, not a direction",
+        U1 == 773 and ties == 0 and len(col) * len(unc) == 847 and U == 847 - 773)
+    rec("EXHAUSTIVE", "the EXACT permutation distribution of the rank sum over all C(128, 7) = 94,525,795,200 assignments "
+        "(midranks for the 12 ties): two-sided p = 3.4e-5, one-sided 1.7e-5",
+        total == math.comb(128, 7) and NUMBERS["utest_exact_p2"] == "3.4e-05" and NUMBERS["utest_exact_p1"] == "1.7e-05",
+        "p2=%.3e p1=%.3e" % (float(p2), float(p1)))
+    ties_all = sum(v - 1 for v in collections.Counter(float(r["delta"]) for r in cand).values())
+    num("utest_ties", ties_all)
+    rec("EXHAUSTIVE", "12 tied values among the 128", ties_all == 12, "ties=%d" % ties_all)
+    # the confound: spectrum number in the two classes
+    chc = sorted(r["charge"] for r in col)
+    chu = collections.Counter(r["charge"] for r in unc)
+    num("collapsed_charges", chc); num("uncollapsed_charges", sorted(chu.items()))
+    rec("EXHAUSTIVE", "every collapsed cell is an ion at spectrum number 3 to 16 (3, 3, 3, 4, 8, 15, 16); of the 121 below, "
+        "34 are neutral and 29 singly ionised -- 63 at spectrum number <= 2 -- so the split controls for l and p and not for "
+        "ionisation stage", chc == [3, 3, 3, 4, 8, 15, 16] and chu[1] == 34 and chu[2] == 29 and chu[1] + chu[2] == 63,
+        "collapsed=%s below=%s" % (chc, sorted(chu.items())))
+    iso = {(19, 1): "K I", (20, 2): "Ca II", (21, 3): "Sc III"}
+    isod = {iso[(r["Z"], r["charge"])]: "%.4f" % float(r["delta"]) for r in cand if (r["Z"], r["charge"]) in iso and r["l"] == 2}
+    num("isoelectronic_nd", isod)
+    rec("EXHAUSTIVE", "the one isoelectronic sequence crossing an opening in the sample, argon-core nd: K I 0.2460 (Z = 19), "
+        "Ca II 0.6341 (Z = 20), Sc III 0.6533 (Z = 21) -- the large step is 19 to 20, one below the opening",
+        isod == {"K I": "0.2460", "Ca II": "0.6341", "Sc III": "0.6533"}
+        and all(r["Z"] - r["charge"] == 18 for r in cand if (r["Z"], r["charge"]) in iso), "%s" % isod)
     num("collapsed_cells", sorted((r["Z"], r["charge"], r["l"], "%.4f" % float(r["delta"])) for r in col))
     rec("EXHAUSTIVE", "the seven: Sc III nd, Ti III nd (two rows), Ti IV nd, Fe VIII nd, Fe XV nd, Fe XVI nd",
         [(r["Z"], r["charge"]) for r in sorted(col, key=lambda r: (r["Z"], r["charge"]))]
@@ -1029,7 +1348,8 @@ def section_collapse(rows):
     num("named_defects", {"%d/%d/%d" % kk: "%.4f" % v for kk, v in got.items()})
     rec("EXHAUSTIVE", "Ti IV nd 0.6202, Sr II nf 0.0618, Ca I nd 0.9084, Ba II nf 0.7559, Ca II nd 0.6341, K I nd 0.2460",
         all(abs(got[kk] - v) < 5e-5 for kk, v in want.items()))
-    num("ratio_ti_sr", "%.1f" % (0.6202 / 0.0618))
+    num("ratio_ti_sr", "%.1f" % (got[(22, 4, 2)] / got[(38, 2, 3)]))
+    rec("EXHAUSTIVE", "Ti IV nd against Sr II nf is a factor of 10.0", NUMBERS["ratio_ti_sr"] == "10.0", NUMBERS["ratio_ti_sr"])
     rec("EXHAUSTIVE", "Ca I nd is the largest defect of the 128, and it sits below the boundary",
         max(cand, key=lambda r: r["delta"])["Z"] == 20 and max(cand, key=lambda r: r["delta"])["charge"] == 1)
     # the thresholds are the row openings of the (n+l, Z) index
@@ -1061,18 +1381,37 @@ def section_collapse(rows):
 
 def section_exact():
     print("\nI. EXACT ARITHMETIC")
-    rec("EXHAUSTIVE", "E = |R(X)| - |X|: 126 - 90 = 36, 944 - 944 = 0, 224 - 118 = 106, 126 - 106 = 20",
-        Fraction(126) - 90 == 36 and 224 - 118 == 106 and 126 - 106 == 20)
+    N = NUMBERS
+    rec("EXHAUSTIVE", "E = |R(X)| - |X| from the computed |R(X)|: 126 - 90 = 36, 118 - 118 = 0 on (n+l, Z), 118 - 118 = 0 on "
+        "(period, Z), 224 - 118 = 106, 110 - 90 = 20 (helium at group 2), 256 - 118 = 138 (left-step drawn)",
+        (N["periodic_R"], N["periodic_cells"], N["periodic_E"]) == (126, 90, 36)
+        and (N["janet_R"], N["janet_cells"], N["janet_E"]) == (118, 118, 0)
+        and (N["periodZ_R"], N["periodZ_cells"], N["periodZ_E"]) == (118, 118, 0)
+        and (N["periodic32_R"], N["periodic32_cells"], N["periodic32_E"]) == (224, 118, 106)
+        and (N["periodic_R_he2"], N["periodic_E_he2"]) == (110, 20)
+        and (N["leftstep_R"], N["leftstep_cells"], N["leftstep_E"]) == (256, 118, 138)
+        and all(N[a] - N[b] == N[c] for a, b, c in (("periodic_R", "periodic_cells", "periodic_E"),
+                                                    ("janet_R", "janet_cells", "janet_E"),
+                                                    ("periodZ_R", "periodZ_cells", "periodZ_E"),
+                                                    ("periodic32_R", "periodic32_cells", "periodic32_E"),
+                                                    ("leftstep_R", "leftstep_cells", "leftstep_E"))))
+    rec("EXHAUSTIVE", "the three drawn tables are corner-filled boxes, so E = box - cells on each: 126 - 90, 224 - 118, 256 - 118",
+        N["periodic_E"] == N["periodic_box"] - N["periodic_cells"] and N["periodic32_E"] == N["periodic32_box"] - N["periodic32_cells"]
+        and N["leftstep_E"] == N["leftstep_box"] - N["leftstep_cells"])
     rec("EXHAUSTIVE", "25 + 11 = 36 and 16 + 10 + 10 = 36", 25 + 11 == 36 and 16 + 10 + 10 == 36)
     rec("EXHAUSTIVE", "358 / 104,832 = 0.3415 per cent", abs(Fraction(358, 104832) * 100 - Fraction("0.3415")) < Fraction(1, 10000))
     rec("EXHAUSTIVE", "2 + 2 + 8 + 8 + 18 + 18 + 32 + 30 = 118; with 32 in the last row, 120",
         sum(JANET_ROWS_118) == 118 and sum(JANET_ROWS_120) == 120)
     rec("EXHAUSTIVE", "the Janet row lengths are 2(k')^2 with k' = 1,1,2,2,3,3,4,4",
         JANET_ROWS_120 == [2 * kk * kk for kk in (1, 1, 2, 2, 3, 3, 4, 4)])
-    rec("EXHAUSTIVE", "the single-term cut removes 4,395 - 1,755 = 2,640 cells, and 139 - 80 = 59 rows "
-        "separate the widest from the narrowest parent census",
-        NUMBERS["chain"][2] - NUMBERS["chain"][3] == 2640
+    rec("EXHAUSTIVE", "the single-term cut removes 4,395 - 1,925 = 2,470 cells under D8 (4,395 - 1,755 = 2,640 in Madelung "
+        "order), and 139 - 80 = 59 rows separate the widest from the narrowest parent census",
+        NUMBERS["chain"][2] - NUMBERS["chain"][3] == 2470 and NUMBERS["chain"][2] - NUMBERS["chain_madelung_single"] == 2640
         and NUMBERS["paren_rows"] - NUMBERS["label_forms"]["dotted"] == 59)
+    rec("EXHAUSTIVE", "36 - 20 = 16 is helium's placement cost; 138 - 36 = 102 separates the two drawings' defects; "
+        "596 - 139 = 457 rows write no parent",
+        NUMBERS["periodic_he_cost"] == 16 and NUMBERS["leftstep_E"] - NUMBERS["periodic_E"] == 102
+        and NUMBERS["rows"] - NUMBERS["paren_rows"] == 457)
     rec("EXHAUSTIVE", "the three parent-count obstacles cover 9,756 + 11,605 + 5,280 = 26,641 cells",
         dict(NUMBERS["bounds"])["open-shell core, 3 parents"]
         + dict(NUMBERS["bounds"])["open-shell core, 16 parents"]
@@ -1105,6 +1444,11 @@ def main(selftest=False):
         rec("NEGATIVE", "control: the Janet index with one element moved to the wrong row is NOT closed",
             E2 > 0, "E=%d" % E2)
         rec("NEGATIVE", "control: a wrong term count (d^4 = 15) is refuted", TERMS[(2, 4)] != 15)
+        SL, EL = E_of(leftstep_cells(118), ["row", "column"])
+        rec("NEGATIVE", "control: 'the left-step table is closed on its drawn (row, column) coordinates' is refuted",
+            EL > 0, "E=%d" % EL)
+        _, _, p2x, _, _ = exact_rank_test([1.0, 2.0, 3.0], [1.5, 2.5, 3.5])
+        rec("NEGATIVE", "control: the exact rank test on two interleaved triples does NOT reach p < 0.05", p2x >= Fraction(1, 20), "p=%s" % p2x)
     print("\n" + "=" * 100)
     by = collections.Counter(s for s, n, ok, d in RESULTS if ok)
     print("summary: %s" % ", ".join("%s %d" % kv for kv in sorted(by.items())))

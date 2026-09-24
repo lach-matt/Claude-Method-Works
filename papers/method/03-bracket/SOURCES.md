@@ -16,13 +16,17 @@ Source files read in full for this paper:
 | **MC** | `method/members/The_Method_1_6___Mathematical_Compendium-2.md` | §IV.B "The bracket — 21 objects", lines 1884–2108 |
 | **PC** | `method/members/The_Method_1_6___The_Physics_Compendium-2.md` | lines 139–192 (where relativity enters; the bracket as an interface entry) |
 | **SC** | `method/members/The_Method_1_6___Spectra_Compendium-2.md` | lines 935–973 (mechanisms, sources, the count paragraph) and the channel table, lines 293–935 |
-| **RB** | `method/members/ruled_bracket.py` | the sealed strict test — the object under test, imported by path, never copied |
+| **RB** | `method/members/ruled_bracket.py` | the sealed strict test — the object under test, imported by path, never copied. The reference beside it (`check.py` `ref_series`) is written from D8 in a different form — Decimal at 40 digits, the test in δ-space with the floor mapped by Lemma 2's inverse, the floor from the decimal exponent, admissibility from T, members by n — and shares no line with RB (audit A-7); it agrees at all 1,551 cells (E1) |
+| **IE** | `extracted/archives/method16-rp-b-data/LADDER-H-Ar-I-III.tsv` | NIST ASD 5.12 ionization energies, H–Ar I–III, retrieved 2026-08-10; read by E9 for the published Li III value 987,661.0139 ± 0.0009 (flag T, theoretical) |
 
 The level tables `check.py` reads: `extracted/archives/restore-point-2-13/spectra_raw/*.tsv`
-(76 tables with a threshold, 9 without), `drive/The Method Materials/` (6 tables plus
-`channels.py`, which carries the thresholds), and
+(76 tables with a threshold; 8 level tables and the cross-check file `QD-CHECK.tsv` without),
+`drive/The Method Materials/` (6 tables plus `channels.py`, which carries the thresholds and the
+label → species map `NAME`), and
 `extracted/archives/spectra-levels-store/deliver/queue2/` (4 tables with a threshold, 57 without).
-86 tables in all. The fixed series list of Run A comes from `method/members/run489_final.json`
+86 tables in all, covering 64 distinct spectra (E0); 74 table labels contribute cells, and those
+cover 58 spectra (E2) — Si I is held as eight tables, Ne II as four, Ne I and Ba III as three, Ar II
+and Ca II as two. The first draft said "86 tables, one per spectrum" and "74 spectra" (audit A-10). The fixed series list of Run A comes from `method/members/run489_final.json`
 and `method/members/run489_45.json`; the channel table of **SC** supplies each row's n-range.
 
 ---
@@ -44,7 +48,7 @@ and `method/members/run489_45.json`; the channel table of **SC** supplies each r
 | §2 Th. 2 | MV §22.3; MV-A A.12 — the paper's proof is A.12's, written out | |
 | §2 Lemma 2 | MV §25.6.1 (E decreasing in δ), stated here as a lemma because D5 needs it | |
 | §2 closing paragraph | PC "the monotonicity claim is the wrong form" — δ approaches δ₀ monotonically, direction = sign(δ₂) | |
-| §3 Th. 3, Lemma 3, Cor. 2 | MV §25.3, §25.5; MV-A A.13 | **sharpened — see §3 below** |
+| §3 Th. 3, Lemma 3, Cor. 2 | MV §25.3, §25.5; MV-A A.13 | **sharpened — see §3 below**; Cor. 2's bound is the larger observed gap g₋ = w/2 + e, not w/2 (audit A-1, §3.3), and it is stated with its hypothesis and as a bound relative to the neighbours (audit R-11) |
 | §3 Table 1 | MV §25.3's ν_fail table, reproduced exactly | |
 | §3 "an observation" | MV §25.4, kept as an observation and not upgraded | |
 | §4 Th. 4, Cor. 3 | MV §23.4, §23.4.1; MC "the exact price" | |
@@ -56,23 +60,23 @@ and `method/members/run489_45.json`; the channel table of **SC** supplies each r
 | §4 Prop. 1 | MV §23.5.3; MC "the optimal step" (marked NOT CHECKABLE there) | **see §4 below** |
 | §4 "Prior art" paragraph | MV §23.8.4 — the attribution the source says is owed to interval analysis | |
 | §5 Th. 10 | MV §23.8.1; MV-D D.4.1; MC "Newton decrement" | |
-| §5 Th. 11 | MV §23.8.2, §23.8.3; MC "self-concordance" | **the "deepest channel" figure did not reproduce — see §3 below** |
+| §5 Th. 11 | MV §23.8.2, §23.8.3; MC "self-concordance" | **restated with its unit dependence explicit (audit A-4, A-5) — see §3.5 below**; the source's interpretive sentences are not carried |
 | §5 Th. 12, Table 3 | MV §26.6; MC "Aitken Δ² / Seki Kōwa" | |
 | §5 remark in bits | MV §27.3 | |
 | §6 Lemma 4 | MV §23.10.1; MC "the ordered bracket" | |
 | §6 Th. 13 | MV §23.10.1; MC "the ordered bracket" (Newton remainder, Milne-Thomson) | |
 | §6 Lemma 5, admissibility at order k | MV §23.10.4, §23.12; MC "the admissible order" | |
-| §6 ν_V | MV §23.15; MC "the value-one crossing" | |
+| §6 ν_V | MV §23.15; MC "the value-one crossing" | **the source's threshold (e > 5q) is replaced by D12's (Δ²T > 20q), audit A-6 — see §3.12** |
 | §6 closing paragraph | MV §23.10.2 — Prop. 23.1's floor applies to the classical pair only | |
 | §7 the data | SC §B.1 sources, SC count paragraph; the table headers of the level files | |
 | §7 Table 4 | SC count paragraph (658/813 on 250 rows, 75/81 on 35 rows, cells refused 0); MV §24 | Run A reproduces the source exactly; Run B is this paper's own wider run |
 | §7 price measured | MV §23.4.2 | **different sample and different comparand — see §3 below** |
 | §7 gaps measured | MV-A A.13; MC "when the bracket fails" (median 1.201 over 742 pairs) | |
-| §7 bound in the silence | MV §25.5; MC "what silence implies" | **different tightest cell — see §3 below** |
+| §7 bound in the silence | MV §25.5; MC "what silence implies" | **different tightest cell and a different quantity — see §3.7 below** |
 | §7 order census, Table 5 | MV §23.10.4 | **different collection — see §3 below** |
 | §7 synthetic controls | MV §22.1.1.1 (36 of 36), MV §22.1.2 (widths, ratios, 274.1 vs 281.7) | reproduced exactly |
 | §7 worked deduction | MV §25.6.1, §25.6.2, and §22.2.5 for δ(4s), δ(5s) | reproduced exactly; the ±400 cm⁻¹ on the threshold is the source's and is now carried |
-| §8 | PC "where relativity enters, and where it does not" | **ratios near but not at the stated values — see §3 below** |
+| §8 | PC "where relativity enters, and where it does not"; IE for the published Li III value | **ratios near but not at the stated values; Li III now printed on both thresholds the tree holds — see §3.6 below** |
 | §9 Lemma 6 | MV §26.1, §26.3 | |
 | §9 Lemma 7 | MV §26.2; MC "the rank-one factorisation" | **σ₁ did not reproduce — see §3 below** |
 | §9 remark | MV §27.1, §27.2, §27.3 | |
@@ -145,9 +149,15 @@ in the source, and no check was altered to make a difference vanish.**
   inversion asserts a *tighter* bound than containment deductively supplies.
 - **Disposition:** the paper replaces the leading-order biconditional with the exact one
   (Theorem 3: −(c − b) ≤ Δ ≤ a − c, also MACHINE-CHECKED as M3) and the inversion with
-  Corollary 2's |Δ| ≤ max(g₋, g₊) = g₋ < w, taking the bound at each cell as **w/2 from the two
-  measured neighbours** rather than as 2Z²R/ν³. ν_fail = (2Z²R/|Δ|)^{1/3} survives only as Table 1,
-  whose caption states that it lies between the two exact thresholds.
+  Corollary 2's |Δ| ≤ max(g₋, g₊) = g₋, taking the bound at each cell as **the larger observed gap
+  max(E − E₋, E₊ − E) from the two measured neighbours**, which is g₋ = w/2 + e = (w/2)(1 + 2/V)
+  exactly (I39–I40). The first draft took the bound as w/2, which is smaller than g₋ by e — the
+  same class of overreach as the source's, caught by the audit (A-1); E7 now measures the larger
+  gap and prints the w/2 figures beside it for the record. The bound carries its hypothesis
+  (neighbours unperturbed) and is stated as a bound on the level's displacement relative to its
+  neighbours, not on a perturbation of the series in the Lu–Fano sense (R-11). ν_fail =
+  ∛(2Z²R/|Δ|) survives only as Table 1, whose caption states that it lies between the two exact
+  thresholds.
 
 ### 3.4 The measured price: sample and comparand both differ
 
@@ -166,43 +176,63 @@ in the source, and no check was altered to make a difference vanish.**
 - **Disposition:** the paper prints 1,490 / 842 / 2,332 and 0.84 % / 0.51 % / 0.71 % (§7, Figure 3),
   and states the comparand explicitly.
 
-### 3.5 "The deepest channel reaches ν = 55", and the sevenfold margin
+### 3.5 "The deepest channel reaches ν = 55", the sevenfold margin, and the unit
 
 - **Stated** (MV §23.8.2): "The deepest channel in this book reaches ν = 55 … the ratio runs 0.0049
   at ν = 2, **0.1356 at ν = 55** … self-concordant across the entire measured range, with
   **sevenfold** margin."
 - **Measured** (E11): the ratio at ν = 55, Z = 1 reproduces exactly at 0.1356 (I20), but the deepest
   cell in the collection tested here is **ν = 66.99** (Ga I 4s²np, n = 69, Z = 1), where the ratio is
-  **0.1651** — a margin of **6.06**, not 7.
-- **Disposition:** the source's collection is smaller than this one, so this is a coverage difference
-  and not an arithmetic error; but "the deepest cell in the data" is false of the data the paper
-  actually runs on. §5 now prints both: 0.1356 at the reference point ν = 55, and 0.1651 as the
-  largest value over the tested cells, with margin 6.06. Obligation **E11** was added to `check.py`
-  to measure it; it also reports the shallow end.
+  **0.1651** with R in cm⁻¹ — and **77.4** with R in hartree, at the same cell (E11).
+- **The second point governs the first.** The self-concordance inequality |T‴| ≤ 2(T″)^{3/2} is not
+  invariant under T ↦ cT: (T‴)²/(4(T″)³) = ν²/(3A/2) exactly (I19b), so the ratio scales as
+  A^{−1/2} and the threshold ν ≤ √(3A/2) as A^{1/2} — 405.7 with R in cm⁻¹, 4.52 in eV, 0.866 in
+  hartree (I20). The source's "self-concordant across the entire measured range" and "sevenfold
+  margin" are statements about cm⁻¹, not about the atom; so was the first draft's "the decrement
+  carries its meaning there" (audit A-4), and so was its "affinely invariant, which is why Z²R
+  cancelled" (A-5: the decrement is invariant under affine maps of the variable, not of f; Z²R
+  cancels from V because V is a ratio of two quantities linear in T).
+- **Disposition:** Theorem 11 is restated as the exact identity for the ratio with its unit
+  dependence explicit, the interpretive sentences are dropped, and §5 says what survives a change
+  of unit: λ² = (2/3)T (exact in every unit, an energy in that unit) and the ratios V, w/T, e/T.
+  E11 prints the ratio at the deepest cell in two units. The source's coverage difference (ν = 55
+  versus 66.99) is still recorded here but the paper no longer draws a margin from it.
 
-### 3.6 The hydrogenic threshold deficits
+### 3.6 The hydrogenic threshold deficits, and which thresholds
 
 - **Stated** (PC): Li III deficit **103.94**, Dirac 118.32, ratio **0.878**; Be IV **329.80**,
   373.97, **0.882**; B V **816.68**, 913.03, **0.894**; "0.8849 ± 0.0069 across Z = 3, 4, 5".
-- **Measured** (E9, with thresholds from the tables here and nuclear masses from AME2020):
-  Li III **103.68**, 118.32, **0.876**; Be IV **328.66**, 373.97, **0.879**; B V **815.22**,
-  913.03, **0.893**; mean ratio 0.883.
-- The three **Dirac terms reproduce exactly**. The three **deficits are smaller by 0.26, 1.14 and
-  1.46 cm⁻¹**, which moves each ratio down by 0.002–0.003. The source does not state which
-  thresholds or which mass values it used, so the difference cannot be attributed further.
-- **Disposition:** the paper's Table 6 prints the measured triple and the text says "0.88–0.89 at
-  all three charges", which both sets satisfy. The one figure the source and the check agree on
-  exactly, 26.45 cm⁻¹ for Li III against 9R∞, is printed as such.
+- **Measured** (E9, nuclear masses from AME2020 as atomic mass less Z·mₑ), on the thresholds the
+  tree holds, each with its provenance:
+  - Li III, the published ASD 5.12 ionization energy **987,661.0139 ± 0.0009** (IE, flag T):
+    deficit **102.41**, ratio **0.865**;
+  - Li III, the limit fitted to the series of theoretical levels, **987,662.29 ± 0.36** (register
+    879, `channels.py`): deficit **103.68**, ratio **0.876**;
+  - Be IV **1,756,018.8100 ± 0.0008** (ASD 5.12, the table header; the fitted value coincides):
+    328.66, 373.97, **0.879**;
+  - B V **2,744,111.38**, fitted to the series (register 892), no published uncertainty held:
+    815.22, 913.03, **0.893**. `recovered/dirac.py` carries 2,744,107.933 for Z = 5 with no
+    provenance and is not used.
+- The three **Dirac terms reproduce exactly**. The source's deficits match neither threshold for
+  Li III, and the source does not state which thresholds or which masses it used.
+- The referee's recollection (R-13) that ASD lists Li III at 987,661.0 is **corroborated by the
+  tree** (IE row 17); the first draft used only the fitted limit and printed 0.876 without saying
+  which threshold it was. The two Li III values differ by 1.28 cm⁻¹, 3.5σ of the fit.
+- **Disposition:** Table 6 prints every threshold with its value, its uncertainty and its source,
+  and Li III on both; the text gives the range 0.865–0.893 and the 9R deficit on both thresholds
+  (26.45 fitted, 25.17 published). Nothing is chosen between the two Li III values.
 
 ### 3.7 The tightest perturbation bound
 
 - **Stated** (MV §25.5): over 1,442 cells the tightest is **1.398 cm⁻¹**, Al I 3s²nf, n = 54,
-  ν = 54.0; then Ga I 4s²np n = 54 at 1.585 and Li I np n = 42 at 3.25.
-- **Measured** (E7): over the **1,145 held cells** of Run B the tightest is **0.925 cm⁻¹**, at
-  Ga I 4s²np ²P°, n = 66, ν = 63.8, where 2Z²R/ν³ = 0.844; the next are 1.000 at ν = 59.9 and 1.165
-  at ν = 57.8, all in the same Ga I series. Median over the held cells 4,308 cm⁻¹.
-- **Disposition:** a coverage difference — the tables here carry Ga I to n = 69, deeper than the
-  source's run reached. The paper prints 0.925 (§7) and 0.93 (abstract, Figure 4 caption).
+  ν = 54.0; then Ga I 4s²np n = 54 at 1.585 and Li I np n = 42 at 3.25 — each read as w/2.
+- **Measured** (E7): over the **1,145 held cells** of Run B, with the bound taken as the larger
+  observed gap (Corollary 2, §3.3 above), the tightest is **0.970 cm⁻¹**, at Ga I 4s²np ²P°, n = 66,
+  ν = 63.8, where 2Z²R/ν³ = 0.844; the median over the held cells is **5,389 cm⁻¹**; the larger gap
+  is the one toward n − 1 at 1,141 of the 1,145 cells, as Lemma 3 predicts. Read as w/2 the same
+  cells give 0.925 and 4,308 (E7 prints both), which is what the first draft printed.
+- **Disposition:** a coverage difference (the tables here carry Ga I to n = 69) and a change of
+  quantity. The paper prints 0.970 (§7) and 0.97 (abstract, Figure 4 caption).
 
 ### 3.8 The bracket's pass rate on the earlier collection
 
@@ -244,7 +274,18 @@ in the source, and no check was altered to make a difference vanish.**
 - MV §26.6 prints T(10) = **1097.3730**; R/100 = **1097.3732** (I28). The three Aitken columns
   reproduce to every digit printed.
 - MV §23.8.2's self-concordance bounds 406 / 811 / 2,434 reproduce as 405.7 / 811.4 / 2,434.3 (I20).
-- MV §23.15's ν_V of 160 / 90 / 50.7 reproduce as 160.2 / 90.1 / 50.7 (I26).
+
+### 3.12 ν_V — the source's threshold is not D12's
+
+- **Stated** (MV §23.15): ν_V = (3Z²R/(5q))^{1/4} = 160 / 90 / 50.7 at q = 10⁻⁴ / 10⁻³ / 10⁻²,
+  from "3A/ν⁴ > 5q".
+- **Measured** (I26): those figures reproduce as 160.2 / 90.1 / 50.7 — but 3A/ν⁴ is e, not the
+  second difference (Δ²T = 2e ≈ 6A/ν⁴), and the admissibility rule at order k = 1 (MV §23.10.4,
+  the paper's D12) reads |Δ²T| > 5·2²q = 20q, i.e. e > 10q, which is also the filter §7 applies.
+  Solved from D12, ν_V = (3Z²R/(10q))^{1/4} = **134.7 / 75.7 / 42.6**, smaller by 2^{1/4}.
+- **Disposition:** the first draft presented the two thresholds as one (audit A-6). The paper now
+  derives ν_V from D12 with the second difference named correctly and prints 134.7 / 75.7 / 42.6;
+  I26 prints the 5q form beside it for the record.
 
 ---
 
@@ -274,16 +315,15 @@ Recorded because they are the paper's spine.
 | Proposition 23.1 (V > 2) and its proof | MV §23.2 | I31, M2 |
 | w/T and e/T at (20,1), (40,1), (40,2) | MV §23.6 | I7, I8, I14 |
 | λ² = (2/3)T; 731.58 at ν = 10, 7.3158 at ν = 100 | MV §23.8.1, MV-D D.4.1 | I16–I18 |
-| self-concordance ⟺ ν ≤ (√6/2)·Z√R | MV §23.8.2 | I19, I20 |
+| self-concordance ⟺ ν ≤ (√6/2)·Z√R, with R in cm⁻¹ (unit-dependent, §3.5) | MV §23.8.2 | I19, I19b, I20 |
 | Aitken lands at T(2n²−1)/(6n²−2); the four-row table | MV §26.6 | I27, I28 |
 | the eight-observable price table at ν = 20 | MV §23.9.1 | I29 |
 | V at p = 50, 300, 10,000 → 2 | MV §23.9.2 | I30 |
-| ordered bracket: 560 two-sided brackets over ν = 8…119, k = 1…5, no failure | MV §23.10.1 | I34 |
-| ν_V = (3Z²R/5q)^{1/4} at q = 10⁻⁴, 10⁻³, 10⁻² | MV §23.15 | I26 |
+| ordered bracket: 2,800 sign checks over ν = 8…119, k = 1…5, no failure (the 560 two-sided brackets are automatic) | MV §23.10.1 | I34 |
 | 36 of 36 at δ = 0, 0.35, 1.35, 2.65, and the four energy ranges | MV §22.1.1.1 | I36 |
 | widths 4,799…370; presumed 274.1 against true 281.7, 2.72 %; law ratio 0.764 | MV §22.1.2 | I37 |
 | Sc VI: δ₂ = 1.0889, δ_∞ = 0.9376, δ(6s) = 0.9679, E = 736,688, [735,860, 738,547], [735,860, 737,380] | MV §25.6.1–2 | I38 |
-| Li III limit written as 9R∞ is low by 26.45 cm⁻¹ | PC | E9 |
+| Li III limit written as 9R∞ is low by 26.45 cm⁻¹ against the fitted limit (25.17 against the published one) | PC | E9 |
 | log₂V = 3.74 at ν = 10, 5.74 at ν = 40, floor log₂(32/11) = 1.54 | MV §27.3 | I15 |
 | ν_fail table at |Δ| = 3,000 / 1,000 / 100 / 10 | MV §25.3 | I25 |
 
@@ -339,9 +379,20 @@ Places where the source admitted more than one reading and the paper had to fix 
    shifts both edges together and does not change their separation.
 
 10. **Status of §9's rank-one claim.** The identity is proved in the paper (Lemma 7); the singular
-    values are a numerical corroboration. `check.py` labels the obligation PROVED because the
-    statement it discharges is the algebraic one; the numbers beside it are illustrative and the
-    paper says so.
+    values are a numerical corroboration and `check.py` labels E10 ARITHMETIC (a floating-point
+    SVD), not PROVED (audit A-8). The paper says so.
+
+11. **The check's labels.** Fourteen obligations evaluate a proved closed form in floating point
+    (I14, I15, I18, I20, I25, I26, I28, I32, I37, I38, E9b, E10, E13, I41); they are labelled
+    ARITHMETIC and the paper counts them apart from the 21 PROVED, every one of which is exact
+    Fraction arithmetic (audit A-8). I11 and I12 were made exact (1/144; 4/26,910 between 10⁻⁴ and
+    10⁻³). I23 is EXHAUSTIVE, as §10 always said (A-25). The guards gate M1–M4 (A-18).
+
+12. **Which Li III threshold.** §3.6: both are printed, neither is chosen.
+
+13. **The tolerance's share.** E12 measures how many verdicts the floor alone decides and reports
+    the 64 cells whose interval is narrower than 2q as a class; the rule D8 is not changed, because
+    it is the instrument's, and no threshold in `check.py` moved (audit R-14).
 
 ---
 

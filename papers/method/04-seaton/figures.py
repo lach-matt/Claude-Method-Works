@@ -41,6 +41,11 @@ def style(ax):
     ax.tick_params(length=0)
 
 
+def fmt(x, nd=3):
+    """A number with a true minus sign, as the axes print it."""
+    return ("%.*f" % (nd, x)).replace("-", "\u2212")
+
+
 def fig1(rows, st):
     fig, (a, b) = plt.subplots(1, 2, figsize=(9.0, 3.9))
     # (a) delta2/delta0 for all thirteen, against p, with Seaton's value per l
@@ -49,9 +54,9 @@ def fig1(rows, st):
         a.plot(r["p"], float(r["d2"] / r["d0"]), "o", ms=8, color=col, mec=SURFACE, mew=2, zorder=3)
     for l, y, lab in ((1, -2 / 3, "ℓ = 1"), (2, -2.0, "ℓ = 2"), (3, -4.0, "ℓ = 3")):
         a.axhline(y, color=TEXT2, lw=1, zorder=1)
-        a.text(5.6, y, "Seaton, " + lab, va="bottom", ha="left", fontsize=7.5, color=TEXT2)
+        a.text(5.6, y, "\u2212\u2113(\u2113+1)/3, " + lab, va="bottom", ha="left", fontsize=7.5, color=TEXT2)
     a.axhline(0, color=TEXT2, lw=1, zorder=1)
-    a.text(5.6, 0, "Seaton, ℓ = 0", va="bottom", ha="left", fontsize=7.5, color=TEXT2)
+    a.text(5.6, 0, "\u2212\u2113(\u2113+1)/3, \u2113 = 0", va="bottom", ha="left", fontsize=7.5, color=TEXT2)
     for r in rows:
         if r["p"] == 0 or r["name"] in ("In I d", "Rb I d"):
             a.annotate(r["name"], (r["p"], float(r["d2"] / r["d0"])), xytext=(6, -2), textcoords="offset points",
@@ -78,13 +83,14 @@ def fig1(rows, st):
     for r in sorted(p0, key=lambda r: r["rho"]):
         dy = {0: -11, 1: 6, 2: -4}[sorted(p0, key=lambda q: q["rho"]).index(r)]
         b.annotate(r["name"], (r["p"], r["rho"]), xytext=(9, dy), textcoords="offset points", fontsize=7.5, color=TEXT2)
-    b.text(-0.3, st["p0_median"] + st["p0_sd"] + 0.03, "median %.3f, sd %.3f" % (st["p0_median"], st["p0_sd"]), fontsize=7.5, color=TEXT2, va="bottom")
-    b.text(3.6, st["p1_median"] + st["p1_sd"] + 0.03, "median %.3f, sd %.3f" % (st["p1_median"], st["p1_sd"]), fontsize=7.5, color=TEXT2, va="bottom", ha="right")
+    b.text(-0.3, st["p0_median"] + st["p0_sd"] + 0.03, "median %s, sd %s" % (fmt(st["p0_median"]), fmt(st["p0_sd"])), fontsize=7.5, color=TEXT2, va="bottom")
+    # the p >= 1 label sits below its band, at the right edge, clear of every marker
+    b.text(4.7, st["p1_median"] - st["p1_sd"] - 0.05, "median %s, sd %s" % (fmt(st["p1_median"]), fmt(st["p1_sd"])), fontsize=7.5, color=TEXT2, va="top", ha="right")
     b.set_xlim(-0.5, 4.8)
     b.set_xticks(range(4))
     b.set_xlabel("p")
     b.set_ylabel("ρ = (δ₂/δ₀) / (−ℓ(ℓ+1)/3)")
-    b.set_title("(b) the ratio to Seaton's value, nine series with ℓ ≥ 1", loc="left", fontsize=9.5, color=TEXT)
+    b.set_title("(b) the ratio ρ to the polarisation value, nine series with ℓ ≥ 1", loc="left", fontsize=9.5, color=TEXT)
     b.legend(loc="upper right", fontsize=8)
     style(b)
     fig.tight_layout()
@@ -104,7 +110,8 @@ def fig2(rows, st):
         jitter = [(i - (k - 1) / 2) * 0.09 for i in range(k)]
         for v, j in zip(sorted(vals), jitter):
             ax.plot(v, y + 1 + j, "o", ms=8, color=col, mec=SURFACE, mew=2, zorder=3)
-        ax.text(med, y + 1.46, "median %.3f, sd %.3f, %d series" % (med, sd, len(vals)), ha="center", fontsize=7.5, color=TEXT2)
+        # the label sits at the right edge of the row, clear of the rho = 0 and rho = 1 lines
+        ax.text(2.55, y + 1.46, "median %s, sd %s, %d series" % (fmt(med), fmt(sd), len(vals)), ha="right", fontsize=7.5, color=TEXT2)
     ax.axvline(1.0, color=TEXT2, lw=1)
     ax.text(1.02, 2.72, "ρ = 1", ha="left", fontsize=7.5, color=TEXT2)
     ax.axvline(0.0, color=TEXT2, lw=1)
@@ -112,6 +119,7 @@ def fig2(rows, st):
     ax.set_yticks([1, 2])
     ax.set_yticklabels([c[0] for c in classes])
     ax.set_ylim(0.4, 2.9)
+    ax.set_xlim(-0.6, 2.6)
     ax.set_xlabel("ρ = (δ₂/δ₀) / (−ℓ(ℓ+1)/3)")
     ax.grid(axis="y", visible=False)
     ax.set_title("The two distributions of ρ", loc="left", fontsize=9.5, color=TEXT)
@@ -131,9 +139,9 @@ def fig3(rows):
         xs = [4 + 0.05 * i for i in range(0, 121)]
         ax.plot(xs, [d0 + d2 / (x - d0) ** 2 for x in xs], color=BLUE, lw=2, label="Ritz fit")
         sea = d2 / d0
-        ax.plot(xs, [d0 * (1 - 4.0 / (x - d0) ** 2) for x in xs], color=ORANGE, lw=2, label="Seaton's shape, same δ₀")
+        ax.plot(xs, [d0 * (1 - 4.0 / (x - d0) ** 2) for x in xs], color=ORANGE, lw=2, label="polarisation shape, same δ₀")
         ax.plot(ns, ds, "o", ms=8, color=TEXT, mec=SURFACE, mew=2, zorder=3, label="measured")
-        ax.set_title("%s, ρ = %.3f" % (r["name"], r["rho"]), loc="left", fontsize=9.5, color=TEXT)
+        ax.set_title("%s, ρ = %s" % (r["name"], fmt(r["rho"])), loc="left", fontsize=9.5, color=TEXT)
         ax.set_xlabel("n")
         ax.set_xticks(ns)
         style(ax)

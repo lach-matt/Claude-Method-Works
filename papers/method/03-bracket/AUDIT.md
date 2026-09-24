@@ -502,57 +502,119 @@ right frame and is kept. Readiness: not yet — A-1 and A-4 change sentences in 
 
 | id | severity | line(s) | finding (short) | disposition |
 |---|---|---|---|---|
-| A-1 | BLOCKING | 122, 11, 19, 310, 314; E7; SOURCES §3.3/§3.7 | Corollary 2's w/2 does not follow from |Δ| ≤ g₋; bound is the larger observed gap (0.970 / 5,389) | |
-| A-2 | MAJOR | 60–62, 72, 94 | D5/D8 name the reversed interval; Lemma 2 has it right | |
-| A-3 | MAJOR | 175, 186 | Theorem 7's y′ < 0 case by "−y" is wrong (concave); "squares" wording | |
-| A-4 | BLOCKING | 11, 76, 237, 239–241 | self-concordance threshold is unit-dependent; interpretive claims are artefacts of cm⁻¹ | |
-| A-5 | MAJOR | 237 | "affinely invariant … why Z²R cancelled" is false | |
-| A-6 | MAJOR | 280 (302, 316) | ν_V does not follow from D12; "second difference 3A/ν⁴" is e; thresholds 5q vs 10q | |
-| A-7 | MAJOR | 290, 400–402; check.py 554–575 | E1's reference is a transcription, not independent | |
-| A-8 | MAJOR | 398; check.py labels | 14 float evaluations and an SVD labelled PROVED; count overstated | |
-| A-9 | MAJOR | 34, 298, 306, 314, 327, 351, §10 | MEASURED-as-a-label is forbidden by spec §8; lint lacks the pattern | |
-| A-10 | MAJOR | 288, 290 | "one per spectrum" false; 74 labels are 58 spectra; "nine" tables includes a non-table | |
-| A-11 | MAJOR | 165–167 | Figure 1 legend "4ν/3" vs caption's 26/9 (two-term form) | |
-| A-12 | MAJOR | 126, 200 (PDF pp. 5, 8) | Table 1 and Table 2 headers broken by the bars in \|Δ\| and \|p − 1\| | |
-| A-13 | MINOR | pp. 1, 3, 5, 8–11, 13–16 | literal ^{…}, _…, Σ_{…} in prose and displayed blocks; mid-formula wraps | |
-| A-14 | MINOR | all figures | bare "Figure N" line above each caption | |
-| A-15 | MINOR | Figure 2 | pole annotation overprinted by curves | |
-| A-16 | MINOR | 288, 290, 310, 333, 335, 347–349, 353 | numbers with no printed check line; −0.005 computed nowhere | |
-| A-17 | MINOR | 400 | G1's seed not named | |
-| A-18 | MINOR | check.py 442–494 | guards do not gate M1–M4 | |
-| A-19 | MINOR | 276 | "560 two-sided brackets" is automatic | |
-| A-20 | MINOR | 3 | thesis "never below 32/11" lacks ν ≥ 2h | |
-| A-21 | MINOR | 52, 153, 302 | interior cell defined at unit step only | |
-| A-22 | MINOR | 32 | MACHINE-CHECKED redefined from spec §5 (stronger; recorded) | |
-| A-23 | MINOR | 288, 290 | "re-retrieved", "sealed implementation" are process words | |
-| A-24 | MINOR | FIGURES.tsv, 304, 312 | fig3/fig4 file names swapped against figure numbers | |
-| A-25 | MINOR | 377; check.py I23 | I23 PROVED in check, EXHAUSTIVE in §10 | |
-| A-26 | MINOR | 110–114 | "above/below" means T-order in one sentence and n-order in the next | |
-| R-1 | BLOCKING | 122 | = A-1 (mathematician) | |
-| R-2 | MAJOR | 60–62, 94 | = A-2 | |
-| R-3 | MAJOR | 175 | = A-3 | |
-| R-4 | MAJOR | 76, 239–241 | = A-4 (as mathematics) | |
-| R-5 | MAJOR | 237 | = A-5 | |
-| R-6 | MINOR | 225 | Proposition 1's objective adds an energy to a number; units of α, β | |
-| R-7 | MINOR | 361–363 | Lemma 7 trivial; "ambient/actual" undefined | |
-| R-8 | MAJOR | 280 | = A-6 | |
-| R-9 | MINOR | 276 | = A-19 | |
-| R-10 | BLOCKING | 11, 19, 122, 310–314 | = A-1 (physicist) | |
-| R-11 | MAJOR | 11, 19, 122, 310 | bound is relative to neighbours under "neighbours unperturbed"; hypothesis dropped in abstract/§0/§7; cite Lu–Fano | |
-| R-12 | BLOCKING | 11, 239–241 | = A-4 (in atomic units ν ≤ 0.87 Z) | |
-| R-13 | MAJOR | 343–351 | Table 6 thresholds unstated; Li III value to be verified against ASD (987,661.0?) | |
-| R-14 | MAJOR | 66–72, 298, 300 | floor as sole tolerance; 39 passes and 25/84 fails within q/2q/5q; 64 intervals narrower than 2q; D7 never looks at interval width | |
-| R-15 | MINOR | 42, 46–50 | R∞ vs reduced-mass R for light species; say it cancels | |
-| R-16 | MINOR | 42, 343 | Z overloaded (spectroscopic vs nuclear) | |
-| R-17 | MINOR | 353 | "0.88–0.89" → "0.876 to 0.893" | |
-| R-18 | MAJOR | References | missing Lu–Fano 1970, Fano 1970, Aymar–Greene–Luc-Koenig 1996, Edlén 1964, Brezinski–Redivo Zaglia 1991 (Wimp 1981), Moore–Kearfott–Cloud 2009, Neumaier 1990, Nesterov 2018 | |
-| R-19 | MAJOR | 288–290 | data availability; Run A's selection rule | |
-| R-20 | MAJOR | 290, 400–402 | = A-7 | |
-| R-21 | MAJOR | 398 | = A-8, A-9 | |
-| R-22 | MINOR | 3, 11 | = A-20, A-1, A-4 in the front matter | |
-| R-23 | MINOR | 227 | prior-art paragraph: concede the elementary theorems and the Aitken asymptotic | |
-| R-24 | MAJOR | 165–167 | = A-11 | |
+| A-1 | BLOCKING | 122, 11, 19, 310, 314; E7; SOURCES §3.3/§3.7 | Corollary 2's w/2 does not follow from |Δ| ≤ g₋; bound is the larger observed gap (0.970 / 5,389) | FIXED — Corollary 2 restated: |Δ| ≤ max(g₋, g₊) = g₋ = w/2 + e = (w/2)(1 + 2/V), new exact identities I39–I40 and the excess 2/V (I41); E7 now measures the larger observed gap (tightest 0.970 cm⁻¹, median 5,389; larger gap toward n − 1 at 1,141 of 1,145, w/2 printed beside it for the record); Figure 4 regenerated on the new quantity; abstract, §0, §7 and SOURCES §3.3/§3.7 rewritten; the hypothesis "neighbours unperturbed" carried in every statement. |
+| A-2 | MAJOR | 60–62, 72, 94 | D5/D8 name the reversed interval; Lemma 2 has it right | FIXED — D5 now defines E_lo := I − Z²R/(n − δ_hi)², E_hi := I − Z²R/(n − δ_lo)² ("the larger defect giving the lower energy"); Lemma 2 concludes E_lo ≤ E(n) ≤ E_hi; D8 inherits the ordered labels. |
+| A-3 | MAJOR | 175, 186 | Theorem 7's y′ < 0 case by "−y" is wrong (concave); "squares" wording | FIXED — the y′ < 0 case reduces by reflection z(u) := y(2x − u), with z′ > 0, z(x ± h) = y(x ∓ h), w, e, V unchanged; "the four squares cancel" → "the terms A(h)A(t) and B(h)B(t) cancel". |
+| A-4 | BLOCKING | 11, 76, 237, 239–241 | self-concordance threshold is unit-dependent; interpretive claims are artefacts of cm⁻¹ | FIXED — Theorem 11 restated as the exact identity |T‴|/(2T″√T″) = ν/√(3A/2) (new grid identity I19b) with its unit dependence explicit: 405.7 (cm⁻¹), 4.52 (eV), 0.866 (hartree) at Z = 1 (I20); E11 prints the ratio at the deepest cell in cm⁻¹ (0.1651) and hartree (77.4); the sentence "carries its meaning across the whole measured range" and the abstract's clause are removed; §5 states what survives a change of unit (λ² = (2/3)T exact, and the ratios V, w/T, e/T); D10 states the non-invariance; Nesterov (2018) cited. |
+| A-5 | MAJOR | 237 | "affinely invariant … why Z²R cancelled" is false | FIXED — sentence replaced: invariance is under affine maps of the variable, T ↦ cT carries λ² to cλ²; Z²R cancels from V because w and e are each linear in T and V is their ratio; V's dependence through r alone is the domain-side invariance. |
+| A-6 | MAJOR | 280 (302, 316) | ν_V does not follow from D12; "second difference 3A/ν⁴" is e; thresholds 5q vs 10q | FIXED — D12 now derives ν_V from its own k = 1 rule: Δ²T = 2e ≈ 6A/ν⁴, |Δ²T| > 20q ⟺ ν < ∜(3Z²R/(10q)) = 134.7, 75.7, 42.6 (I26, which prints the 5q form beside it for the record); §7's e ≥ 10q filter identified as the same threshold; SOURCES §3.12 records the source's threshold as superseded. |
+| A-7 | MAJOR | 290, 400–402; check.py 554–575 | E1's reference is a transcription, not independent | FIXED — `ref_series` rewritten from D8 in a different form: Decimal arithmetic at 40 digits, the test taken in δ-space with the floor carried by the inverse of Lemma 2's map, the floor from the decimal exponent of the printed string, admissibility as 2T√T/(qZ√R), members addressed by n; shares no line with the instrument; agrees at all 1,551 cells (E1); §10 states each difference and the guard's limit (a shared misreading of D8 would pass). |
+| A-8 | MAJOR | 398; check.py labels | 14 float evaluations and an SVD labelled PROVED; count overstated | FIXED — new label ARITHMETIC in check.py for the 14 floating-point evaluations of proved closed forms (I14, I15, I18, I20, I25, I26, I28, I32, I37, I38, I41, E9b, E10, E13); I11 and I12 made exact (1/144; 4/26,910 strictly between 10⁻⁴ and 10⁻³); E10 relabelled a numerical corroboration; the count restated as 21 PROVED (all exact Fraction), 10 EXHAUSTIVE, 4 MACHINE-CHECKED, 12 MEASURED, 14 arithmetic, 3 guards; §0 and §10 define the label. |
+| A-9 | MAJOR | 34, 298, 306, 314, 327, 351, §10 | MEASURED-as-a-label is forbidden by spec §8; lint lacks the pattern | DECLINED — resolved by the contract: PAPER-SPEC §5 now admits MEASURED as a declared status word ("a number computed from cited data by a stated procedure — the paper's own result, with its sample stated") and §8 exempts it as such. §0's row is reworded to §5's definition and every MEASURED caption and table row now names its sample. SAMPLED is not used because the paper runs no seeded sweep as a claim (G1's 400 seeded triples are a guard, now labelled with its seed). lint.py lies outside the paper's directory and is not edited by the drafter. |
+| A-10 | MAJOR | 288, 290 | "one per spectrum" false; 74 labels are 58 spectra; "nine" tables includes a non-table | FIXED — new obligation E0 measures 86 tables covering 64 distinct spectra (label → species map read from the thresholds file), 8 level tables and 1 cross-check file set aside; E2 prints 395 series across 58 spectra (74 table labels); §7 text corrected accordingly. |
+| A-11 | MAJOR | 165–167 | Figure 1 legend "4ν/3" vs caption's 26/9 (two-term form) | FIXED — Figure 1 regenerated by figures.py (now COMPUTED, from I5/I9–I12) with the legend "two-term asymptote 4ν/3 + 4/(9ν)" and the one-term 4ν/3 drawn in the inset; caption revised to match; FIGURES.tsv records the replaced plate's md5 and the reason. |
+| A-12 | MAJOR | 126, 200 (PDF pp. 5, 8) | Table 1 and Table 2 headers broken by the bars in \|Δ\| and \|p − 1\| | FIXED — headers escaped (\|Δ\|, \|p − 1\|); Chrome screenshot of the rendered HTML read: both headers intact (Table 1: |Δ| (cm⁻¹) · ν_fail, Z = 1 · ν_fail, Z = 2; Table 2: 4ν/(h·|p − 1|)). |
+| A-13 | MINOR | pp. 1, 3, 5, 8–11, 13–16 | literal ^{…}, _…, Σ_{…} in prose and displayed blocks; mid-formula wraps | FIXED — every ^{…}, _… and Σ_{…} replaced: Unicode superscripts (xᵖ, T⁽ʲ⁾, (−1)ᵏ⁺¹⁺ᵐ, 2ᵏ⁺¹, s²ᵏ, ν²ᵃ⁺³ᵇ, νᵖⁱ, n⁻ᵅ), root signs (∛, ∜), f″√f″ for the 3/2 power, xₙ, mₑ, and backticks for ν_fail, ν_V, r_adm, E_lo, E_hi, δ_lo, δ_hi, δ_∞, R_M; Theorem 8's sums rewritten and its displayed block split onto two lines; no caret or brace remains in the source. |
+| A-14 | MINOR | all figures | bare "Figure N" line above each caption | FIXED — empty alt text on all five figures. |
+| A-15 | MINOR | Figure 2 | pole annotation overprinted by curves | DECLINED — Figure 2 is the audited plate held byte-exact from the tree (FIGURES.tsv, md5 ad04ecb1…); the annotation is overprinted but legible, and regenerating would trade a tree-audited plate for a redrawn one to cure a cosmetic overlap. |
+| A-16 | MINOR | 288, 290, 310, 333, 335, 347–349, 353 | numbers with no printed check line; −0.005 computed nowhere | FIXED — E0 prints the table, spectrum and set-aside counts; E7 prints 2Z²R/ν³ at the tightest cell (0.844); I37 prints all seven widths and six ratios; E9 prints every threshold with its deficit and Dirac term; new E9b computes the δ shift (−1.34 × 10⁻⁵·ν³, −0.0046 at n = 7) and §8 now prints that instead of "−0.005 growing as n³". |
+| A-17 | MINOR | 400 | G1's seed not named | FIXED — "400 seeded random rational triples (seed 3)" in G1's printed line and in §10. |
+| A-18 | MINOR | check.py 442–494 | guards do not gate M1–M4 | FIXED — `GUARDS_OK` gates `z3_prove`: if G1 or G2 fails, M1–M4 are reported as failed with "NOT REPORTED: guard … failed"; §10 says a failing guard is not silent. |
+| A-19 | MINOR | 276 | "560 two-sided brackets" is automatic | FIXED — Theorem 13 and I34's line now say the 560 two-sided brackets are automatic (m = 0 and m = 1 have opposite parity) and are not a finding; §10's row counts the 2,800 sign checks only. |
+| A-20 | MINOR | 3 | thesis "never below 32/11" lacks ν ≥ 2h | FIXED — thesis reads "never below 32/11 once ν ≥ 2h". |
+| A-21 | MINOR | 52, 153, 302 | interior cell defined at unit step only | FIXED — D3 defines an interior cell at step h (h = 1 when unqualified) and a triple at step h. |
+| A-22 | MINOR | 32 | MACHINE-CHECKED redefined from spec §5 (stronger; recorded) | DECLINED (recorded) — the check ranges over all of linear real arithmetic, which is stronger than the spec's finite box; §0's row already said so and §10 now adds "stronger than a box, and stated as such". No change to the check. |
+| A-23 | MINOR | 288, 290 | "re-retrieved", "sealed implementation" are process words | FIXED — "retrieved from the database in August 2026"; "the implementation of D8 the data were first tested with". |
+| A-24 | MINOR | FIGURES.tsv, 304, 312 | fig3/fig4 file names swapped against figure numbers | FIXED — files renamed fig3-v-measured.png (Figure 3) and fig4-bounds.png (Figure 4); figures.py, FIGURES.tsv and the paper updated; fig3's bytes unchanged (same md5). |
+| A-25 | MINOR | 377; check.py I23 | I23 PROVED in check, EXHAUSTIVE in §10 | FIXED — I23 labelled EXHAUSTIVE (796 cases) and its line says the general statement follows from I24; Corollary 2 cites I24 for the identity and I23 for the family. |
+| A-26 | MINOR | 110–114 | "above/below" means T-order in one sentence and n-order in the next | FIXED — gaps named by neighbour ("toward n − 1", "toward n + 1") in Lemma 3, the sentence before it, Table 1's caption and §7's gaps paragraph. |
+| R-1 | BLOCKING | 122 | = A-1 (mathematician) | = A-1: FIXED. |
+| R-2 | MAJOR | 60–62, 94 | = A-2 | = A-2: FIXED. |
+| R-3 | MAJOR | 175 | = A-3 | = A-3: FIXED. |
+| R-4 | MAJOR | 76, 239–241 | = A-4 (as mathematics) | = A-4: FIXED. |
+| R-5 | MAJOR | 237 | = A-5 | = A-5: FIXED. |
+| R-6 | MINOR | 225 | Proposition 1's objective adds an energy to a number; units of α, β | FIXED — Proposition 1 states that α carries the reciprocal unit of w and β is dimensionless, so the objective is a number. |
+| R-7 | MINOR | 361–363 | Lemma 7 trivial; "ambient/actual" undefined | FIXED in part — the SVD is relabelled a floating-point corroboration and moved out of the proof (E10 ARITHMETIC); "an ambient over an actual" replaced by a plain sentence ("the ratio of what the bracket admits, an interval, to what the estimate misses, an error"); Lemma 7 is kept as a lemma, stated as elementary, because Table 2's reading rests on it — that part DECLINED. |
+| R-8 | MAJOR | 280 | = A-6 | = A-6: FIXED. |
+| R-9 | MINOR | 276 | = A-19 | = A-19: FIXED. |
+| R-10 | BLOCKING | 11, 19, 122, 310–314 | = A-1 (physicist) | = A-1: FIXED. |
+| R-11 | MAJOR | 11, 19, 122, 310 | bound is relative to neighbours under "neighbours unperturbed"; hypothesis dropped in abstract/§0/§7; cite Lu–Fano | FIXED — the hypothesis "neighbours unperturbed" and the words "relative to its neighbours" now appear in the abstract, §0 (twice, including "What is not claimed"), Corollary 2 and §7; Corollary 2 carries a paragraph on the Lu–Fano case (a perturber moves the neighbours with the cell; a series can stay monotone while every level is displaced) and says what a Lu–Fano or MQDT analysis returns instead; Lu and Fano (1970), Fano (1970) and Aymar, Greene and Luc-Koenig (1996) cited. |
+| R-12 | BLOCKING | 11, 239–241 | = A-4 (in atomic units ν ≤ 0.87 Z) | = A-4: FIXED. |
+| R-13 | MAJOR | 343–351 | Table 6 thresholds unstated; Li III value to be verified against ASD (987,661.0?) | FIXED — Table 6 gains columns I (cm⁻¹), ± and source; the thresholds are printed as the tree holds them: Li III twice — the database's published ionization energy 987,661.0139 ± 0.0009 (the referee's recollection is corroborated by the tree, not by memory; ratio 0.865) and the limit fitted to the theoretical level series 987,662.29 ± 0.36 (0.876) — Be IV 1,756,018.8100 ± 0.0008 (0.879), B V 2,744,111.38 fitted with no published uncertainty held (0.893); masses stated as AME2020 atomic mass less Z·mₑ; nothing chosen between the two Li III values (SOURCES §3.6). |
+| R-14 | MAJOR | 66–72, 298, 300 | floor as sole tolerance; 39 passes and 25/84 fails within q/2q/5q; 64 intervals narrower than 2q; D7 never looks at interval width | FIXED — new obligation E12 and a §7 paragraph "What the tolerance decides": 39 of 1,145 passes hold only by the floor; 25 of 406 fails within 2q, 84 within 5q; 64 cells with E_hi − E_lo < 2q (32 held) reported as a class; the split at tolerance 0/q/2q/5q (1,106/445; 1,145/406; 1,170/381; 1,229/322); the test uses no database uncertainty and says so. Part (i), a new refusal clause in D8, DECLINED: D8 is the rule the instrument implements and no threshold in the check may move; the class is reported apart instead. |
+| R-15 | MINOR | 42, 46–50 | R∞ vs reduced-mass R for light species; say it cancels | FIXED — §1 states the reduced-mass difference (≤ 7.8 × 10⁻⁵, lithium) and §7 gives its effect: 3.9 × 10⁻⁵·ν, the same to within 3.9 × 10⁻⁵ across a triple (new E13); the containment statement does not see it. (The audit's Li/He figures were transposed; lithium is the lightest species tested and its m_e/M is 7.8 × 10⁻⁵.) |
+| R-16 | MINOR | 42, 343 | Z overloaded (spectroscopic vs nuclear) | FIXED — §1 says Z is the nuclear charge for a one-electron ion and §8 uses it in that sense; §8 opens by saying so. |
+| R-17 | MINOR | 353 | "0.88–0.89" → "0.876 to 0.893" | FIXED — "runs from 0.865 to 0.893 across the three charges, rising with Z" (the range widened with R-13). |
+| R-18 | MAJOR | References | missing Lu–Fano 1970, Fano 1970, Aymar–Greene–Luc-Koenig 1996, Edlén 1964, Brezinski–Redivo Zaglia 1991 (Wimp 1981), Moore–Kearfott–Cloud 2009, Neumaier 1990, Nesterov 2018 | FIXED — Lu and Fano (1970), Fano (1970), Aymar, Greene and Luc-Koenig (1996), Edlén (1964), Brezinski and Redivo Zaglia (1991), Wimp (1981), Moore, Kearfott and Cloud (2009), Neumaier (1990) and Nesterov (2018) added, each with details verified by search or from the tree (Edlén), and each cited where it belongs (Corollary 2, §2, §4 prior art, §5 remark, D10); the ASD reference carries its retrieval. |
+| R-19 | MAJOR | 288–290 | data availability; Run A's selection rule | FIXED — a Data availability paragraph names NIST ASD 5.12, the retrieval, the query form, and offers the 86 tables with thresholds, the 285-series list with n-ranges and the per-cell verdicts as supplementary data; Run A's selection rule stated (a channel compilation that fitted δ₀ + δ₂/(n − δ₀)² and recorded the n-range, 250 + 35 series, fixed before the test). |
+| R-20 | MAJOR | 290, 400–402 | = A-7 | = A-7: FIXED. |
+| R-21 | MAJOR | 398 | = A-8, A-9 | = A-8 (FIXED), A-9 (DECLINED, resolved by the contract). |
+| R-22 | MINOR | 3, 11 | = A-20, A-1, A-4 in the front matter | = A-20, A-1, A-4: FIXED. |
+| R-23 | MINOR | 227 | prior-art paragraph: concede the elementary theorems and the Aitken asymptotic | FIXED — the prior-art paragraph concedes that Theorems 1–3 are remarks on ordered triples and Theorem 6 is Jensen on three points, and that Theorem 12 is the exact α = 2 instance of a known asymptotic (new remark after Table 3, with Wimp 1981 and Brezinski–Redivo Zaglia 1991). |
+| R-24 | MAJOR | 165–167 | = A-11 | = A-11: FIXED. |
 
 Distinct findings: **2 BLOCKING** (A-1, A-4) · **15 MAJOR** (A-2, A-3, A-5, A-6, A-7, A-8, A-9, A-10, A-11, A-12,
 R-11, R-13, R-14, R-18, R-19) · **20 MINOR** (A-13 … A-26, R-6, R-7, R-15, R-16, R-17, R-23). The R rows marked "="
 restate an A row and take its disposition.
+
+---
+
+## Repair record (drafter, 24 September 2026)
+
+Every finding above carries a disposition. Counts by severity: **BLOCKING 2 — 2 FIXED** (A-1, A-4);
+**MAJOR 15 — 14 FIXED, 1 DECLINED** (A-9, resolved by the contract's own amendment of §5/§8; R-14 fixed with
+its clause (i) declined); **MINOR 20 — 18 FIXED, 2 DECLINED** (A-15, the audited plate kept; A-22, recorded
+as a deviation stronger than the spec). The R rows marked "=" take their A row's disposition.
+
+**PAPER.md.** Date 24 September 2026. Thesis qualified (ν ≥ 2h). Abstract: self-concordance clause replaced
+by its unit dependence; the per-cell bound restated as the larger observed gap, relative to unperturbed
+neighbours, tightest 0.97 cm⁻¹; the tolerance's share announced. §0: the failure-condition and price
+paragraphs, two new items under "What is not claimed", the MEASURED row reworded to §5's definition, a
+sentence defining an arithmetic evaluation. §1: Z for hydrogenic ions and the reduced-mass sentence; D3 at
+step h; D5 with ordered labels; D8 uses no database uncertainty; D9 and D10 in Unicode, D10 with the
+non-invariance stated. §2: Lemma 2's conclusion; Edlén cited. §3: gaps named by neighbour; Corollary 2
+rewritten with I39–I41 and a paragraph on the Lu–Fano case; D11 and Table 1 with ∛ and escaped bars. §4:
+Figure 1 caption and file; Theorem 7 by reflection and the cancelling terms; Theorem 8 in Unicode with the
+block split; Table 2 header escaped; Proposition 1's units; the prior-art paragraph's concessions and the
+modern interval references. §5: the affine-invariance sentence replaced; Theorem 11 restated with its unit;
+the general Aitken asymptotic as a remark after Table 3. §6: Unicode throughout; the 560 brackets as
+automatic; D12 with ν_V from D12's own threshold. §7: the data paragraph (86 tables / 64 spectra; eight set
+aside; one cross-check file), the two-runs paragraph (Run A's rule; 58 spectra; the independent reference),
+Table 4's sample, the new paragraph "What the tolerance decides" (E12, E13), Figure 3's file, the gaps by
+neighbour, the bound paragraph on the larger gap (E7), Figure 4's file and caption, Table 5's sample, a Data
+availability paragraph. §8: Z as nuclear charge; Table 6 with I, ± and source columns and Li III on both
+thresholds; the range 0.865–0.893; the δ shift from E9b. §9: Lemma 7's SVD as corroboration; the remark's
+first sentence. §10: the table's rows and columns, the count (64 obligations: 21 PROVED, 10 EXHAUSTIVE, 4
+MACHINE-CHECKED, 12 MEASURED, 14 arithmetic, 3 guards), the guards' seed and gating, a paragraph on the
+data guard's independence. References: nine added (Aymar–Greene–Luc-Koenig 1996; Brezinski–Redivo Zaglia
+1991; Edlén 1964; Fano 1970; Lu–Fano 1970; Moore–Kearfott–Cloud 2009; Nesterov 2018; Neumaier 1990;
+Wimp 1981); ASD retrieval noted.
+
+**check.py.** New obligations E0 (tables/spectra), E12 (the tolerance's share), E9b (the δ shift), E13
+(reduced mass), I19b (the self-concordance ratio identity), I39–I40 (the gaps against w and e), I41 (the
+excess 2/V). E7 measures the larger observed gap and prints w/2 beside it. E9 reads the published Li III
+ionization energy from the tree and prints every threshold with its uncertainty and source. I26 derives ν_V
+from D12 and prints the 5q form for the record. I11, I12 made exact; I23 relabelled EXHAUSTIVE; fourteen
+float evaluations (and E10) relabelled ARITHMETIC; I20 prints the threshold in three units; E11 prints the
+ratio in two units. `ref_series` rewritten as an independent implementation (Decimal, δ-space, decimal
+exponent, admissibility from T, members by n). `GUARDS_OK` gates M1–M4. G1's line names its seed. Nothing
+was weakened and no threshold moved: every pre-existing assertion still holds and the only assertions
+touched became stricter (I11, I12) or gained a conjunct. Runs: `python3 check.py` 64 obligations, 0 failed;
+`--selftest` 69, N1–N5 each refuted, 0 failed.
+
+**Figures.** `figures.py` now draws Figure 1 (fig1-cost-exact.png, COMPUTED; the audited plate figure-23.1,
+whose legend disagreed with its curve, is no longer used), Figure 3 (renamed fig3-v-measured.png, bytes
+unchanged), Figure 4 (fig4-bounds.png, the larger observed gap on the y-axis) and Figure 5 (unchanged
+bytes). Figure 2 remains the audited plate. FIGURES.tsv rewritten with the new md5s and the reasons.
+
+**SOURCES.md.** RB row (the reference's independence), a new IE row (the ASD ionization-energy table), the
+level-table paragraph (64/58 spectra), the per-section notes for §3, §5, §6, §7, §8, §3.3 (the bound is
+the larger gap; the first draft's w/2 named as the audit's finding), §3.5 (the unit), §3.6 (both Li III
+thresholds; B V's provenance), §3.7 (0.970 / 5,389), a new §3.12 (ν_V), §5's table rows, and
+interpretations 10–13.
+
+**Lint, render, typography.** `lint.py`: 0 hits. `render.py`: 22 pages (18 before the repair). The
+rendered HTML was screenshotted with headless Chromium and read: Table 1 and Table 2 headers intact, Table 6
+intact with its new columns, no caret, underscore or brace in prose; inline symbols that have no Unicode
+subscript (ν_fail, ν_V, r_adm, E_lo, E_hi, δ_lo, δ_hi, δ_∞, R_M) are set in backticks as the contract allows.
+
