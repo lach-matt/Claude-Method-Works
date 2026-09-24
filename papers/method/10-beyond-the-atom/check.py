@@ -732,9 +732,35 @@ def check_operator():
             cv == z3.sat and closed and len(bad) > 0,
             **{("witness_%s" % oid): (sorted(S), missing)})
     for oid, shape, H in (("T6a", (3, 3), 3), ("T6b", (2, 2, 2), 2)):
+        _, nv, _ = adjunction_obligation(shape, H)
+        rec("GUARD", oid + "g", "non-vacuity for Theorem 6: a closed S, proper, with h non-constant on S and graph(h) closed, is satisfiable (%s)" % (shape,), nv == z3.sat)
         r = homomorphism_obligation(shape, H)
         rec("MACHINE-CHECKED", oid, "Theorem 6: for closed S, graph(h) closed <=> h preserves meet and join on S, box %s, h into {0..%d}"
-            % ("x".join(map(str, shape)), H - 1), r == z3.unsat)
+            % ("x".join(map(str, shape)), H - 1), r == z3.unsat and nv == z3.sat)
+    # Proposition 2: the closed rows of the catalogue are sublattices BY THE SHAPE OF THEIR RULE
+    box8 = itertools.product(range(1, 4), range(0, 2), range(1, 4), range(0, 4), range(1, 4), range(0, 2), range(0, 4), range(0, 4))
+
+    def lam_rule(c):
+        n, l, k, q, e, f, g, S2 = c
+        return (n - l >= 1 and 4 * l - k >= -2 and k >= 1 and k - q >= 0 and e - f >= 1
+                and 4 * f - g >= -2 and q - g >= 0 and k - S2 >= 0)
+    cut = {c for c in box8 if lam_rule(c)}
+    eq("EXHAUSTIVE", "T7a", "Proposition 2: Lambda is exactly the caps box {1..3}x{0,1}x{1..3}x{0..3}x{1..3}x{0,1}x{0..3}x{0..3} cut by its eight bimonotone inequalities: cells, equal to the tower's Lambda_8",
+       (len(cut), cut == set(tw.L8())), (976, True))
+    L9, L10 = tw.L9(), tw.L10()
+    eq("EXHAUSTIVE", "T7b", "Lambda_9 = Lambda x {0..3} cut by 2S' <= g; Lambda_10 = Lambda_9 x {0..3} cut by 2S' <= v <= g: cells",
+       (set(L9) == {c + (s,) for c in cut for s in range(4) if s <= c[6]},
+        set(L10) == {c + (v,) for c in L9 for v in range(4) if c[8] <= v <= c[6]}, len(L9), len(L10)), (True, True, 1654, 2535))
+    eq("EXHAUSTIVE", "T7c", "the box ordering is the box {0..4}^3 cut by l - w >= 0 and w - h >= 0",
+       set(box_ordering()) == {t for t in itertools.product(range(5), repeat=3) if t[0] - t[1] >= 0 and t[1] - t[2] >= 0}, True)
+    grid, held, Zs, Cs, Ls = spectra_grid()
+    eq("EXHAUSTIVE", "T7d", "the survey product grid is the product of its three alphabets cut by Z - c >= 1",
+       set(grid) == {(Z, c, l) for Z in Zs for c in Cs for l in Ls if Z - c >= 1}, True)
+    jr = JANET_RANGES
+    eq("EXHAUSTIVE", "T7e", "Janet (n+l, Z) is a staircase: for each n+l the Z values are an interval [a, b], with a and b non-decreasing in n+l (and consecutive)",
+       (all(jr[s][0] <= jr[s + 1][0] and jr[s][1] <= jr[s + 1][1] for s in range(1, 8)),
+        all(jr[s][1] + 1 == jr[s + 1][0] for s in range(1, 8)),
+        sorted(janet_cells()) == sorted((s, Z) for s in jr for Z in range(jr[s][0], jr[s][1] + 1))), (True, True, True))
 
 
 def check_catalogue():
